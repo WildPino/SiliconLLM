@@ -23,9 +23,16 @@ A clear design direction emerges from this analysis: we must move away from the 
 * **Wave-like:** based on local propagation, nearby transformations, and contiguous state (similar to discrete PDEs or cellular automata).
 * **Clock-Cell Based:** the minimum computing units will not be massive "layers", but tiny blocks (e.g., 2x2 matrices) capable of exactly saturating the pipeline without ever exceeding L1/L2 cache limits (512KB).
 
-## Next Steps: Phase 1.5 (Active Computation)
-Having measured "passive memory", the plan is now to test "active computation" to understand how to keep the CPU under optimal stress. The upcoming tests involve:
-1. **Dependency Chains:** measuring pure Serial vs Out-of-Order (OoO) execution.
-2. **SIMD Occupancy:** measuring the latency in packing/unpacking bits and the actual occupancy of AVX.
-3. **Popcount Scalability:** testing XNOR+Popcount (the possible native "dot product") in scalar form vs AVX2/AVX512.
-4. **Tiny Tiles and Branching:** testing 2x2 / 4x4 blocks, Hadamard logic, and measuring the performance gap between predicted logic (if/else) and branchless algebra (bit-masking).
+## Project Status
+**Current Phase**: Phase 5 (Engine Construction Preparation)
+**Status**: Exploration Complete. The core architecture is consolidated.
+
+## Technical Foundation (The CPU-Native ESN)
+The project has converged on a **Reservoir Computing (Echo State Network)** paradigm optimized for AVX2 execution.
+
+1. **The Substrate**: A 256-cell 1D grid processed via AVX2 `__m256i` arithmetic (`adds_epu8`, `subs_epu8`, `avg_epu8`). Throughput is ~370 cycles per virtual engine per tick, operating entirely in L1 cache.
+2. **Temporal Memory (M4)**: A perfect ring-buffer delay line that stores raw input tokens, providing exact historical routing.
+3. **Echo State Property (ESP) Enforcement**: A global soft-damping mechanism that forces the chaotic wave to forget its initial conditions and slave its state entirely to the input sequence.
+4. **The Readout**: A zero-cost spatial integration strategy (R2) that collapses the grid into 32 channels. These channels (plus the M4 buffer) are fed into a linear Least Mean Squares (LMS) weighting layer.
+
+We have proven that training the non-linear rules of the wave is mathematically intractable (fractal fitness landscape), but that an LMS readout placed on top of a fixed, damped, arithmetic wave provides massive learning capacity. The final step is tuning the ESP damping (e.g., `(3*state + wave)>>2`) to allow the signal to trigger the arithmetic non-linear saturations (which are necessary to solve linearly-inseparable tasks like XOR-2).
