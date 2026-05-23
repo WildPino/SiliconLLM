@@ -140,6 +140,32 @@ Misura:
 
 ---
 
+# FASE 1.5 — Computazione Viva (Active Compute)
+
+Questi benchmark misuravano la memoria passiva. Ora passiamo a misurare:
+* pipeline occupancy,
+* SIMD saturation,
+* dependency chains,
+* OoO execution,
+* branch recovery.
+
+## TEST 1 — Dependency chain
+Confronta la dipendenza seriale (`x = x * a + b` ripetuto) contro l'esecuzione out-of-order su più variabili indipendenti (`x1 = x1*a+b; x2 = x2*a+b; ...`). Misura la latenza pura vs la capacità OoO e il throughput reale.
+
+## TEST 2 — SIMD occupancy
+Misura quanto facilmente saturi AVX, quanto costa estrarre bit pacchettizzati e il vero throughput. Capiremo se 1-bit packed è troppo costoso da decodificare o se è un miracolo.
+
+## TEST 3 — Popcount scalability
+Confronta scalar popcount, AVX2 popcount emulato, e AVX512 (se disponibile). `XNOR + POPCOUNT` potrebbe diventare il "dot product" nativo della CPU.
+
+## TEST 4 — Tiny tiles
+Testa blocchi 2x2, 4x4, 8x8, butterfly, Hadamard. Confronta throughput, cache reuse e SIMD packing.
+
+## TEST 5 — Branchless vs branch
+Confronta logica con salti (`if(x) y=a; else y=b;`) contro maschere bitwise (`y = (mask & a) | (~mask & b);`). Questo misura quanto pesa il branch predictor e se conviene un'algebra totalmente branchless.
+
+---
+
 # FASE 2 — Capire il working set ideale
 
 Questa fase è CRUCIALE.
@@ -321,19 +347,20 @@ Non lo sai ancora.
 # FASE 5 — Solo ORA inizi il “modello”
 
 A questo punto NON fai un transformer.
+Le CPU amano flussi, onde, scansioni e dati locali, e odiano il routing casuale. 
+Quindi il modello deve essere **wave-like**.
 
 Fai:
 
-## piccoli sistemi dinamici
+## Dinamiche spaziali e sistemi discreti
 
 Esempi:
 
-* automi cellulari,
-* sistemi di voting,
-* reti discrete,
-* attrattori,
-* memorie locali,
-* propagazione di stati.
+* propagazione locale e wave computation,
+* automi cellulari e strutture cellulari,
+* sistemi di voting e reti discrete,
+* attrattori e accumulatori,
+* memorie locali e update vicini.
 
 ---
 

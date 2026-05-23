@@ -62,9 +62,15 @@ void benchmark_random(size_t size_bytes) {
     }
 
     // Fisher-Yates shuffle for random indices
-    srand(42);
+    uint64_t rng_state = 88172645463325252ull;
     for (size_t i = num_elements - 1; i > 0; --i) {
-        size_t j = rand() % (i + 1);
+        uint64_t x = rng_state;
+        x ^= x << 13;
+        x ^= x >> 7;
+        x ^= x << 17;
+        rng_state = x;
+
+        size_t j = x % (i + 1);
         int temp = indices[i];
         indices[i] = indices[j];
         indices[j] = temp;
