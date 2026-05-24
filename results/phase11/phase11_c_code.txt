@@ -1,0 +1,19 @@
+Starting Phase 11 Generalization Benchmark...
+Dataset: data\c_code.c
+Data size loaded: 229048 bytes (Max 500,000)
+Split: Train: 114524, Val: 57262, Test: 57261
+
+--- N-gram Baselines (Smoothing Alpha = 0.1) ---
+Unigram Test BPB: 5.0300
+Bigram Test BPB:  3.7249
+Trigram Test BPB: 3.1238
+
+--- Softmax Distribution Readout (AdamW) ---
+[M4 Current 32D      ] Test BPB: 3.8341 | Acc: 37.03%
+[M4 Current 32D       Residual] Test BPB: 3.6708 | Acc: 37.91%
+[M4 Pooled 32D       ] Test BPB: 4.4025 | Acc: 29.26%
+[M4 Pooled 32D        Residual] Test BPB: 3.4692 | Acc: 40.69%
+[V0 Pooled 32D       ] Test BPB: 3.7350 | Acc: 38.13%
+[V0 Pooled 32D        Residual] Test BPB: 3.4833 | Acc: 41.22%
+[M4 Full 512D        ] Test BPB: 3.4140 | Acc: 49.10%
+[M4 Full 512D         Residual] Test BPB: 3.0865 | Acc: 51.02%

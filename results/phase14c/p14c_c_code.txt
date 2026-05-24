@@ -1,0 +1,21 @@
+Starting Phase 14C Shuffled Control Test...
+Dataset: data\c_code.c
+Applying global byte shuffle (seed=42)...
+Shuffle complete.
+
+=== Unigram Base (Shuffled) ===
+Unigram BPB: 5.0169
+
+=== Bigram Residual Base ===
+| Model                  |   C | Decay |  Dim |    BPB |  L0 Cyc |  L1 Cyc | Fwd Cyc |  dBPB/1kC |
+|------------------------|-----|-------|------|--------|---------|---------|---------|-----------|
+| Bigram Base            |  -1 | 0.000 |    0 | 5.0651 |     0.0 |     0.0 | 16979.2 |   0.00000 |
+| L0 Only (T=4)          |   0 | 0.000 |   64 | 5.0801 |  4111.3 |    35.8 | 22541.1 |   0.00000 |
+| L0+L1(C=4, d=0.500)    |   4 | 0.500 |  192 | 5.0822 |  4151.6 |   137.0 | 35135.0 |   0.00000 |
+
+=== Trigram Residual Base ===
+| Model                  |   C | Decay |  Dim |    BPB |  L0 Cyc |  L1 Cyc | Fwd Cyc |  dBPB/1kC |
+|------------------------|-----|-------|------|--------|---------|---------|---------|-----------|
+| Trigram Base           |  -1 | 0.000 |    0 | 5.4754 |     0.0 |     0.0 | 17498.7 |   0.00000 |
+| L0 Only (T=4)          |   0 | 0.000 |   64 | 5.4910 |  4073.4 |    37.9 | 24007.1 |   0.00000 |
+| L0+L1(C=4, d=0.500)    |   4 | 0.500 |  192 | 5.5244 |  4097.7 |    53.6 | 35419.8 |   0.00000 |

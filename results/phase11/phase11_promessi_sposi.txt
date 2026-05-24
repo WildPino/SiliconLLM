@@ -1,0 +1,19 @@
+Starting Phase 11 Generalization Benchmark...
+Dataset: data\promessi_sposi.txt
+Data size loaded: 500000 bytes (Max 500,000)
+Split: Train: 250000, Val: 125000, Test: 124999
+
+--- N-gram Baselines (Smoothing Alpha = 0.1) ---
+Unigram Test BPB: 4.4150
+Bigram Test BPB:  3.2617
+Trigram Test BPB: 2.7976
+
+--- Softmax Distribution Readout (AdamW) ---
+[M4 Current 32D      ] Test BPB: 3.3233 | Acc: 27.20%
+[M4 Current 32D       Residual] Test BPB: 3.2617 | Acc: 27.71%
+[M4 Pooled 32D       ] Test BPB: 4.1336 | Acc: 19.02%
+[M4 Pooled 32D        Residual] Test BPB: 3.2087 | Acc: 28.85%
+[V0 Pooled 32D       ] Test BPB: 3.3270 | Acc: 28.66%
+[V0 Pooled 32D        Residual] Test BPB: 3.1278 | Acc: 31.46%
+[M4 Full 512D        ] Test BPB: 3.0368 | Acc: 34.70%
+[M4 Full 512D         Residual] Test BPB: 2.9638 | Acc: 35.35%

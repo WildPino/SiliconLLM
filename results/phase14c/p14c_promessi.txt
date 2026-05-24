@@ -1,0 +1,21 @@
+Starting Phase 14C Shuffled Control Test...
+Dataset: data\promessi_sposi.txt
+Applying global byte shuffle (seed=42)...
+Shuffle complete.
+
+=== Unigram Base (Shuffled) ===
+Unigram BPB: 4.4130
+
+=== Bigram Residual Base ===
+| Model                  |   C | Decay |  Dim |    BPB |  L0 Cyc |  L1 Cyc | Fwd Cyc |  dBPB/1kC |
+|------------------------|-----|-------|------|--------|---------|---------|---------|-----------|
+| Bigram Base            |  -1 | 0.000 |    0 | 4.4247 |     0.0 |     0.0 | 17082.2 |   0.00000 |
+| L0 Only (T=4)          |   0 | 0.000 |   64 | 4.4288 |  4234.0 |    36.8 | 22592.8 |   0.00000 |
+| L0+L1(C=4, d=0.500)    |   4 | 0.500 |  192 | 4.4316 |  4225.9 |   147.0 | 35236.3 |   0.00000 |
+
+=== Trigram Residual Base ===
+| Model                  |   C | Decay |  Dim |    BPB |  L0 Cyc |  L1 Cyc | Fwd Cyc |  dBPB/1kC |
+|------------------------|-----|-------|------|--------|---------|---------|---------|-----------|
+| Trigram Base           |  -1 | 0.000 |    0 | 4.5499 |     0.0 |     0.0 | 17104.1 |   0.00000 |
+| L0 Only (T=4)          |   0 | 0.000 |   64 | 4.5521 |  4052.0 |    37.0 | 22815.7 |   0.00000 |
+| L0+L1(C=4, d=0.500)    |   4 | 0.500 |  192 | 4.5639 |  4093.3 |    52.7 | 36282.8 |   0.00000 |

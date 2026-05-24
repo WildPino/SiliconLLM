@@ -1,0 +1,33 @@
+Starting Phase 13 Entropy Benchmark... [Mode: trigram]
+Dataset: data\c_code.c
+
+| Model                     |  Dim |    BPB |
+|---------------------------|------|--------|
+| Trigram (Baseline)        |    0 | 2.8774 |
+| Trigram + M4 Pooled       |   32 | 2.8162 |
+| Trigram + V0 Pooled       |   32 | 2.8331 |
+| Trigram + Concat          |   64 | 2.7850 |
+Starting Phase 13 Entropy Benchmark... [Mode: ablation]
+Dataset: data\c_code.c
+
+| Model (Concat 64D)        |    T |    BPB |
+|---------------------------|------|--------|
+| Concat T=1                |   64 | 3.4241 |
+| Concat T=2                |   64 | 3.3004 |
+| Concat T=4                |   64 | 3.2686 |
+| Concat T=8                |   64 | 3.3022 |
+| Concat T=16               |   64 | 3.3405 |
+| Concat T=32               |   64 | 3.3827 |
+Starting Phase 13 Entropy Benchmark... [Mode: seed]
+Dataset: data\c_code.c
+
+| Model (Concat 64D)        |   Seed |    BPB |
+|---------------------------|--------|--------|
+| Concat Seed 42            |   64 | 3.3530 |
+| Concat Seed 1337          |   64 | 3.3753 |
+| Concat Seed 2026          |   64 | 3.3645 |
+| Concat Seed 9999          |   64 | 3.3852 |
+| Concat Seed 12345         |   64 | 3.3966 |
+|---------------------------|--------|--------|
+| Mean                      |      - | 3.3749 |
+| Std Dev                   |      - | 0.0153 |

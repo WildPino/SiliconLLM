@@ -1,0 +1,29 @@
+Starting...
+Data size: 500000
+Dataset: promessi_sposi.txt (Train: 250000, Test: 249999)
+
+--- N-gram Baselines (Smoothing Alpha = 0.1) ---
+Unigram True BPB: 4.3940
+Bigram True BPB:  3.2611
+
+--- Softmax Distribution Readout (AdamW) ---
+    Epoch 0 (Baseline): Val BPB = 3.2611
+    Epoch 0 (Baseline): Val BPB = 3.2611
+    Epoch 0 (Baseline): Val BPB = 3.2611
+[M4 Current 32D      ] BPB: 3.3226 | Acc: 26.96%
+[M4 Current 32D       Residual] BPB: 3.2611 | Acc: 27.40%
+    Epoch 0 (Baseline): Val BPB = 3.2611
+    Epoch 0 (Baseline): Val BPB = 3.2611
+    Epoch 0 (Baseline): Val BPB = 3.2611
+[M4 Full 512D        ] BPB: 3.0384 | Acc: 34.53%
+[M4 Full 512D         Residual] BPB: 2.9659 | Acc: 35.13%
+    Epoch 0 (Baseline): Val BPB = 3.2611
+    Epoch 0 (Baseline): Val BPB = 3.2611
+    Epoch 0 (Baseline): Val BPB = 3.2611
+[M4 Pooled 32D       ] BPB: 4.1275 | Acc: 18.79%
+[M4 Pooled 32D        Residual] BPB: 3.2101 | Acc: 28.42%
+    Epoch 0 (Baseline): Val BPB = 3.2611
+    Epoch 0 (Baseline): Val BPB = 3.2611
+    Epoch 0 (Baseline): Val BPB = 3.2611
+[V0 Pooled 32D       ] BPB: 3.3235 | Acc: 28.28%
+[V0 Pooled 32D        Residual] BPB: 3.1282 | Acc: 31.10%

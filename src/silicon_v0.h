@@ -28,33 +28,38 @@ typedef struct {
 } SiliconV0;
 
 /**
- * Inizializza l'engine.
- * Genera il Codebook (Random Binary Single-Block) usando il seed fornito,
- * e azzera lo stato spaziale e il buffer storico.
+ * Initializes the engine.
+ * Generates the Codebook (Random Binary Single-Block) using the provided seed,
+ * and clears the spatial state and historical buffer.
  */
 void silicon_v0_init(SiliconV0* e, int codebook_seed);
 
 /**
- * Resetta esclusivamente lo stato differenziale della Wave.
- * Utile per ablazioni o per testare il motore senza integrazione storica,
- * o all'inizio di un nuovo documento.
+ * Resets exclusively the differential state of the Wave.
+ * Useful for ablations or to test the engine without historical integration,
+ * or at the start of a new document.
  */
 void silicon_v0_reset(SiliconV0* e);
 
 /**
- * Esegue un tick dell'engine per il byte in ingresso.
- * 1. Accoda il byte in M4.
- * 2. Reinietta la finestra T3 spazialmente shiftata.
- * 3. Applica il damping e i 4 step di diffusione d'onda.
+ * Executes an engine tick for the input byte.
+ * 1. Queues the byte in M4.
+ * 2. Reinjects the spatially shifted T3 window.
+ * 3. Applies damping and the 4 wave diffusion steps.
  */
-void silicon_v0_tick(SiliconV0* e, uint8_t input_byte);
+void silicon_v0_tick(SiliconV0* engine, uint8_t input_byte);
 
 /**
- * Estrae le feature Lane-Aware Pooled 32D dalla griglia spaziale.
- * Esegue un sum-pooling lane-wise sui 16 canali spaziali.
- * L'output e' un vettore di 32 double pronto per regressione/layer lineare.
+ * Executes an engine tick with explicit T3 token injection.
  */
-void silicon_v0_extract_32d(const SiliconV0* e, double* out_32d);
+void silicon_v0_tick_t(SiliconV0* engine, uint8_t input_byte, int t3_tokens);
+
+/**
+ * Extracts Lane-Aware Pooled 32D features from the spatial grid.
+ * Performs lane-wise sum-pooling over the 16 spatial channels.
+ * The output is a 32-double vector ready for regression/linear layer.
+ */
+void silicon_v0_extract_32d(const SiliconV0* engine, double* out_32d);
 
 #ifdef __cplusplus
 }
