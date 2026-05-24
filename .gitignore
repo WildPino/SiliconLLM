@@ -1,3 +1,39 @@
+# ── Build artifacts ───────────────────────────────────────────────────────────
 bin/
 *.exe
+*.o
+*.obj
+*.elf
+*.a
+*.so
+*.dll
+
+# ── Binary model weights / data artifacts ─────────────────────────────────────
+*.bin
+
+# ── Generated outputs (logs, benchmark results) ───────────────────────────────
+logs/
+results/
+
+# ── Python environment and cache ──────────────────────────────────────────────
 .venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyi
+.pytest_cache/
+
+# ── OS artifacts ──────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ── Editor / IDE artifacts ────────────────────────────────────────────────────
+*.swp
+*~
+*.bak
+*.tmp
+.vscode/
+.idea/
