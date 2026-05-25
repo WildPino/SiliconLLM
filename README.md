@@ -1,54 +1,171 @@
-# SiliconLLM
+# Silicon Entropy Engine (SEE) — V1.0
 
-A research project exploring CPU-native sequence modeling — rethinking language model architecture from the ground up based on hardware thermodynamics rather than GPU-centric paradigms.
+A CPU-native lossless data compressor using a streaming mixture-of-experts architecture. SEE encodes files using an ensemble of statistical models that compete byte-by-byte; their weights are updated online via an exponentiated-gradient MoE.
 
-## Core Idea
+**What SEE is:** a lossless compressor. Encode → decode recovers the original file bit-for-bit.
 
-Modern CPUs are bottlenecked not by raw compute (FLOPs) but by **memory routing entropy**. Every cache miss costs ~56 cycles vs ~3 cycles for sequential access. Transformer-style global attention is fundamentally at odds with this reality.
+**What SEE is not:** a language model, a generative system, or a general-purpose neural network. The wave substrate (silicon_entropy) is a fixed reservoir — only the linear readout is trained. The architecture is shaped by CPU cache topology, not GPU parallelism.
 
-SiliconLLM builds a sequence model whose shape is dictated by the CPU itself: small AVX2 blocks, stream prediction, L1/L2 cache locality, branchless arithmetic, and wave-like local propagation instead of global attention.
+---
 
-## Architecture
+## Quick Start
 
-The current implementation is a **CPU-native Reservoir Computing (Echo State Network)**:
+```sh
+# Encode
+see encode input.txt output.see --weights weights/entropy_weights_factors_r16.bin
 
-- **Wave substrate**: 128-block AVX2 grid (4096 cells, ~128KB — fits in L1/L2). Uses saturating arithmetic (`adds_epu8`, `subs_epu8`, `avg_epu8`), ~370 cycles/tick.
-- **Encoding**: Each input byte maps to a 32-byte random binary codebook vector, injected into a single contiguous grid block.
-- **Temporal memory (T3)**: A 16-token ring-buffer re-injected spatially-shifted each tick, creating physical temporal discounting via wave diffusion.
-- **Readout**: 32-dimensional lane-aware pooling over the codebook axes, fed into a linear LMS layer (the only trained component).
+# Decode
+see decode output.see recovered.txt --weights weights/entropy_weights_factors_r16.bin
 
-Training the wave dynamics is mathematically intractable (fractal fitness landscape). The fixed damped wave provides non-linear feature extraction; only the linear readout is learned.
-
-## Repository Structure
-
+# Audit BPB without writing an archive
+see audit input.txt --weights weights/entropy_weights_factors_r16.bin
 ```
-SiliconLLM/
-├── src/            Core library (silicon_v0, silicon_entropy, wave_engine)
-├── benchmarks/     All benchmark, evaluation, and training harnesses
-├── data/           Input corpora and test datasets
-├── scripts/        Utility and dataset preparation scripts
-├── docs/           Architecture decisions, phase notes, research
-│   ├── phases/     Per-phase technical documentation
-│   ├── research/   Low-level CPU architecture research
-│   └── archive/    Historical plans and superseded walkthroughs
-└── build.bat       Build entry point (GCC/MinGW, AVX2)
-```
+
+The `.see` archive is self-describing: the decoder reads all parameters from the header. No flags are needed at decode time other than the weights path.
+
+---
+
+## Expert Profiles
+
+Select the expert set with `--expert-profile <name>` at encode or audit time.
+
+| Profile | Expert set | Use when |
+|---|---|---|
+| `general` | LZ6 + TOKPFX | **Default. All domains.** Robust on prose, code, JSON, logs, binary. |
+| `prose` | LZ6 + TOKPFX + TOK_PREV_ELIG | Modern prose with high word repetition (articles, docs, correspondence). |
+| `experimental` | manual flags | Research/ablation only. Not for production use. |
+
+`prose` is not a universal text profile. It targets word-transition patterns in modern prose and does not improve on literary prose from 1800–1920, source code, logs, or structured data. See `docs/profiles.md` for the full reference.
+
+**Alias:** `--expert-profile text` is a backward-compatible alias for `prose`.
+
+---
 
 ## Building
 
-```bat
-build.bat
+Single translation-unit build (requires Clang or GCC with AVX2):
+
+```sh
+gcc -O3 -march=native -o see.exe see.c \
+    src/see_codec.c src/lz_topn.c src/tok_lz.c src/span_lz.c \
+    src/moe_engine.c src/silicon_entropy.c src/silicon_v0.c src/range_coder.c \
+    -lm
 ```
 
-Requires GCC with AVX2 support (`-mavx2`). Compiled binaries go into `bin/`.
+Tested on: Windows 11 + Clang 21, Zen 2 (Ryzen 5 3600X), AVX2.
 
-## Key Results
+---
 
-| Metric | Value |
-|---|---|
-| Sequential throughput | ~3 cycles/element |
-| Random (L3 miss) penalty | ~56 cycles/element |
-| Wave tick (128-block grid) | ~370 cycles |
-| Bigram prediction accuracy | Measured across phases 10–14 |
+## Architecture
 
-See `docs/architecture_decisions.md` for the full reasoning trail and `docs/phases/` for per-phase benchmarking results.
+SEE is a streaming mixture of experts. At each byte position, 5 experts produce a probability distribution over 256 symbols; the MoE blends them and updates weights based on each expert's cross-entropy loss.
+
+| Expert | Key | Strength |
+|---|---|---|
+| SEE | Wave ESN readout | C code, structured binary |
+| BI | Bigram frequency | Markdown, Italian literary prose |
+| UNI | Unigram frequency | Shuffled/random (fallback) |
+| LZ | 6-byte hash → Top-N slots | JSON, C headers, logs |
+| TOKPFX | 5-byte token prefix hash | Natural text, logs |
+| TOK_PREV_ELIG *(prose only)* | Token-transition eligibility | Modern prose with repetition |
+
+The wave substrate (silicon_entropy) is a fixed 128-block AVX2 reservoir (~4096 cells, fits in L1/L2 cache). Its dynamics are not trained; only the linear readout is learned offline. The design exploits cache-line locality: sequential access costs ~3 cycles, L3 miss costs ~56 cycles — the reservoir is sized to stay on-chip.
+
+---
+
+## Measured Performance (V1.0 baseline)
+
+All results use `--expert-profile general --blend moe`.
+
+| Corpus | BPB | Dominant expert |
+|---|---|---|
+| natural_text.txt | 2.474 | TOKPFX |
+| markdown_docs.md | 3.887 | BI |
+| c_code.c | 1.940 | SEE / LZ |
+| json_synth.json | 2.033 | LZ |
+| log_synth.log | 2.921 | TOKPFX |
+| c_header_synth.h | 2.051 | LZ |
+| shuffled.bin | 5.012 | UNI |
+| log_real.log (Apache, 2.3 MB) | 0.981 | LZ |
+| c_real.c (zlib inflate.c, 51 KB) | 2.970 | BI |
+| prose_real.txt (Dreiser 1911, 512 KB) | 3.330 | BI |
+
+TOKPFX value: +0.108 BPB on average versus no-token baseline (9 internal corpora).
+
+Speed: ~60,000 cycles/byte on Zen 2 (`general` profile, full MoE).
+
+---
+
+## Regression Gate
+
+Before any architectural change:
+
+```sh
+python scripts/regression_test.py
+```
+
+Reads frozen baselines (`data/baselines/phase29a_baseline.json` and `data/baselines/phase29c_baseline.json`), audits all corpora/profiles, and performs SHA-256 roundtrip on 3 corpora. Exit 0 = no regression. Tolerance: 0.005 BPB.
+
+```sh
+python scripts/test_headers.py
+```
+
+6 header integrity tests: bad magic, wrong weights, truncated header, profile roundtrip (×2), missing weights.
+
+---
+
+## Known Limits
+
+- **Markdown gap**: +1.33 BPB above natural_text on structured markdown. MoE convergence lag is uniform across all byte positions — not a local gap. No expert combination closed this in Phases 27–28.
+- **`prose` profile scope**: useful only for modern prose with high word-repetition. Literary prose 1800–1920 (rich vocabulary, complex syntax) is dominated by BI — `prose` saves <0.003 BPB on Dreiser.
+- **Small files (<64 KB)**: MoE experts do not have enough context to converge. Results are indicative; dominant expert may differ from large-file behavior.
+- **Weights binding**: each `.see` archive stores the SHA-256 of the weights file used at encode time. Archives encoded with an older weights file cannot be decoded with a newer one — re-encode to migrate.
+- **Single-threaded**: the streaming MoE is inherently sequential. No parallelism within a file.
+
+---
+
+## Repository Layout
+
+```
+SiliconLLM/
+├── see.c                       Main CLI (encode / decode / audit)
+├── src/
+│   ├── see_codec.h/.c          Codec core: encode, decode, audit, MoE loop
+│   ├── silicon_entropy.h/.c    Wave ESN (SEE expert)
+│   ├── silicon_v0.h/.c         Wave substrate primitives
+│   ├── lz_topn.h/.c            LZ Top-N hash expert
+│   ├── tok_lz.h/.c             TOKPFX / TOK_PREV experts
+│   ├── span_lz.h/.c            SPANPFX expert (experimental, rejected)
+│   ├── moe_engine.h/.c         Fixed-share exponentiated-gradient MoE
+│   └── range_coder.h/.c        Arithmetic range coder
+├── weights/
+│   └── entropy_weights_factors_r16.bin   Trained readout weights
+├── data/
+│   ├── *.txt / *.c / *.md / *.bin        Internal corpora
+│   ├── external/                          External corpus (Phase 29B/29C)
+│   └── baselines/
+│       ├── phase29a_baseline.json         Primary regression gate (9 corpora)
+│       └── phase29c_baseline.json         External stress baseline (4 corpora)
+├── scripts/
+│   ├── regression_test.py                 Full regression harness
+│   ├── test_headers.py                    Header integrity tests
+│   ├── phase29a_tribunal.py               Phase 29A matrix
+│   ├── phase29b_external.py               Phase 29B external download + audit
+│   └── phase29c_catalog_freeze.py         Phase 29C catalog hygiene
+└── docs/
+    ├── profiles.md                        Expert profile reference
+    ├── architecture_decisions.md          Architecture decision log
+    └── CHANGELOG.md → ../CHANGELOG.md
+```
+
+---
+
+## Research Context
+
+SEE was developed through a sequence of measurement-driven phases (24–30). Each phase posed a specific hypothesis, ran a controlled tribunal, and either promoted or rejected a change. The result is a small, stable set of expert components — not because alternatives weren't tried, but because most were rejected by the data.
+
+The next open question, when the time comes:
+
+> Which gap remains after V1.0, measured against real compressors and frozen baselines?
+
+For now: the body is stable. See `CHANGELOG.md` for the full phase history.
