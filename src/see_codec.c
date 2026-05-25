@@ -733,7 +733,9 @@ static void apply_expert_profile(SeeCodecConfig* cfg) {
         cfg->tok_prefix    = 1;
         cfg->tok_prev      = 0;
         cfg->tok_prev_elig = 0;
-    } else if (strcmp(cfg->expert_profile, "text") == 0) {
+    } else if (strcmp(cfg->expert_profile, "prose") == 0 ||
+               strcmp(cfg->expert_profile, "text")  == 0) {
+        /* "text" kept as backward-compat alias for "prose" */
         cfg->tok_prefix    = 1;
         cfg->tok_prev      = 1;
         cfg->tok_prev_elig = 1;
