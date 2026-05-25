@@ -1,0 +1,1500 @@
+2026-05-25T00:00:02.678Z [ERROR] [scheduler] pid=61445 req=260ccfb4 Connection timeout after 87280ms
+2026-05-25T00:00:02.270Z [ERROR] [decoder-worker] pid=30869 req=23ef5561 LZ table full: eviction failed after 84233 retries
+2026-05-25T00:00:03.592Z [INFO ] [moe-engine] pid=60868 req=ca9d2704 Config reloaded from disk
+2026-05-25T00:00:05.908Z [INFO ] [health-check] pid=57880 req=a75743f9 Cache entry evicted (LRU)
+2026-05-25T00:00:06.424Z [ERROR] [decoder-worker] pid=40145 req=709d338b Encode failed: SEE_ERR_NOMEM (requested 77441 bytes)
+2026-05-25T00:00:08.420Z [DEBUG] [encoder-worker] pid=37617 req=7a9398bb trace=7a9398bb op=predict byte=0x52 bpb=5.5308
+2026-05-25T00:00:08.899Z [INFO ] [decoder-worker] pid=92515 req=293fc266 Rate limit check passed: 15136/4b31e7 requests
+2026-05-25T00:00:10.482Z [DEBUG] [lz-cache] pid=38389 req=f27f3ad7 trace=f27f3ad7 op=predict byte=0xe5 bpb=5.2457
+2026-05-25T00:00:12.235Z [INFO ] [moe-engine] pid=88753 req=d492b51a Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:00:13.095Z [INFO ] [encoder-worker] pid=78512 req=043d72db Rate limit check passed: 99701/d6ef5f requests
+2026-05-25T00:00:14.137Z [INFO ] [auth-service] pid=15693 req=6bb1f2bc Rate limit check passed: 66224/757f38 requests
+2026-05-25T00:00:15.109Z [INFO ] [encoder-worker] pid=34775 req=689d1205 Request completed successfully
+2026-05-25T00:00:15.626Z [DEBUG] [auth-service] pid=80268 req=40ee131d trace=40ee131d op=predict byte=0xd8 bpb=4.9527
+2026-05-25T00:00:16.572Z [DEBUG] [health-check] pid=64162 req=c145d6ba trace=c145d6ba op=predict byte=0xf7 bpb=2.2510
+2026-05-25T00:00:18.820Z [INFO ] [lz-cache] pid=62183 req=93e0f235 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:00:19.843Z [DEBUG] [api-gateway] pid=93345 req=2926205d trace=2926205d op=predict byte=0x02 bpb=6.6306
+2026-05-25T00:00:19.968Z [ERROR] [health-check] pid=44483 req=1690636b Connection timeout after 58606ms
+2026-05-25T00:00:21.999Z [INFO ] [scheduler] pid=36438 req=706078eb Rate limit check passed: 47487/63b5d0 requests
+2026-05-25T00:00:22.355Z [INFO ] [health-check] pid=86818 req=65281970 SHA-256 verified: 77861
+2026-05-25T00:00:24.897Z [INFO ] [moe-engine] pid=62947 req=31cc6738 Request completed successfully
+2026-05-25T00:00:25.648Z [ERROR] [lz-cache] pid=59424 req=b1b68ecd Worker panic: unhandled exception in moe_engine
+2026-05-25T00:00:27.487Z [INFO ] [moe-engine] pid=64057 req=ccd7608f Throughput: {:.1f} KB/s
+2026-05-25T00:00:28.159Z [INFO ] [auth-service] pid=99536 req=44e22691 SHA-256 verified: 75404
+2026-05-25T00:00:30.187Z [INFO ] [encoder-worker] pid=90455 req=a9d6290d Request completed successfully
+2026-05-25T00:00:33.715Z [ERROR] [lz-cache] pid=85584 req=65db6e43 LZ table full: eviction failed after 17097 retries
+2026-05-25T00:00:34.374Z [INFO ] [api-gateway] pid=86153 req=35f3de4a Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:00:34.876Z [WARN ] [moe-engine] pid=57851 req=c08fe6d7 Decode retry #46651: possible data corruption
+2026-05-25T00:00:35.101Z [INFO ] [decoder-worker] pid=65249 req=027e789c Config reloaded from disk
+2026-05-25T00:00:37.421Z [INFO ] [moe-engine] pid=72460 req=d0566199 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:00:37.499Z [DEBUG] [auth-service] pid=56544 req=c7c2564a trace=c7c2564a op=predict byte=0xa6 bpb=5.7123
+2026-05-25T00:00:39.324Z [WARN ] [encoder-worker] pid=92799 req=49599bed Slow encode detected: 31964 ms > threshold 1000 ms
+2026-05-25T00:00:41.533Z [DEBUG] [lz-cache] pid=68313 req=653c8f74 trace=653c8f74 op=predict byte=0xb9 bpb=6.2353
+2026-05-25T00:00:43.026Z [WARN ] [decoder-worker] pid=40753 req=05e9f407 Rate limit approaching: 20494/6bd006 requests per minute
+2026-05-25T00:00:45.539Z [ERROR] [encoder-worker] pid=91015 req=1a9b0d42 LZ table full: eviction failed after 21050 retries
+2026-05-25T00:00:47.646Z [INFO ] [api-gateway] pid=52624 req=a9de5b26 Config reloaded from disk
+2026-05-25T00:00:49.535Z [ERROR] [health-check] pid=80735 req=58e0058f Connection timeout after 21738ms
+2026-05-25T00:00:51.561Z [INFO ] [telemetry] pid=80136 req=49694032 Request completed successfully
+2026-05-25T00:00:52.291Z [WARN ] [storage-driver] pid=42754 req=6fe633f1 Slow encode detected: 94671 ms > threshold 1000 ms
+2026-05-25T00:00:54.019Z [ERROR] [lz-cache] pid=18973 req=69b41194 LZ table full: eviction failed after 27907 retries
+2026-05-25T00:00:54.319Z [ERROR] [api-gateway] pid=45283 req=1a2e9864 LZ table full: eviction failed after 67464 retries
+2026-05-25T00:00:56.836Z [WARN ] [telemetry] pid=53286 req=ca9acf77 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:00:57.697Z [INFO ] [encoder-worker] pid=60436 req=b6f56f1c Scheduled audit job dispatched: phase29a
+2026-05-25T00:01:00.648Z [INFO ] [decoder-worker] pid=43202 req=855b6c5b Config reloaded from disk
+2026-05-25T00:01:01.254Z [INFO ] [decoder-worker] pid=86637 req=cb5d2b59 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:01:01.750Z [INFO ] [auth-service] pid=56598 req=0f5f9707 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:01:02.572Z [DEBUG] [health-check] pid=15175 req=227dcecc trace=227dcecc op=predict byte=0xf8 bpb=5.9464
+2026-05-25T00:01:02.613Z [DEBUG] [scheduler] pid=71393 req=59008d65 trace=59008d65 op=predict byte=0x8c bpb=7.0736
+2026-05-25T00:01:05.794Z [ERROR] [decoder-worker] pid=48754 req=27afbff9 Expert weight NaN detected at byte 80989
+2026-05-25T00:01:06.044Z [INFO ] [encoder-worker] pid=78690 req=63329992 Config reloaded from disk
+2026-05-25T00:01:08.050Z [INFO ] [decoder-worker] pid=36486 req=df9d3910 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:01:09.541Z [ERROR] [encoder-worker] pid=95950 req=ebc8f6b7 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:01:09.764Z [INFO ] [lz-cache] pid=23267 req=84fcfcb0 Connection pool: 79685/c54a1d active
+2026-05-25T00:01:09.563Z [DEBUG] [auth-service] pid=23644 req=aa4d52a8 trace=aa4d52a8 op=predict byte=0x55 bpb=6.5472
+2026-05-25T00:01:10.576Z [INFO ] [decoder-worker] pid=56179 req=999413cc Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:01:12.227Z [WARN ] [storage-driver] pid=69297 req=410bfc29 Worker backlog: 62047 items queued
+2026-05-25T00:01:12.910Z [INFO ] [api-gateway] pid=82569 req=d284b528 Rate limit check passed: 82918/4f36c6 requests
+2026-05-25T00:01:14.038Z [INFO ] [lz-cache] pid=22046 req=cfa28fb8 Health check passed: all 84588 services healthy
+2026-05-25T00:01:16.552Z [ERROR] [health-check] pid=55603 req=c559cd0f Decode aborted: corrupt bitstream at offset 64594
+2026-05-25T00:01:17.344Z [INFO ] [storage-driver] pid=30079 req=b2a0f778 Worker thread started
+2026-05-25T00:01:17.574Z [ERROR] [api-gateway] pid=44413 req=8c53b74c Encode failed: SEE_ERR_NOMEM (requested 62235 bytes)
+2026-05-25T00:01:19.331Z [DEBUG] [storage-driver] pid=19390 req=3f09f7a6 trace=3f09f7a6 op=predict byte=0x88 bpb=6.4374
+2026-05-25T00:01:21.638Z [ERROR] [encoder-worker] pid=57876 req=69e08370 Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:01:21.482Z [INFO ] [moe-engine] pid=21247 req=5fb2b838 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:01:21.174Z [INFO ] [storage-driver] pid=81620 req=363d75f1 Rate limit check passed: 43902/f74f3a requests
+2026-05-25T00:01:21.520Z [INFO ] [auth-service] pid=70943 req=4572b385 Request completed successfully
+2026-05-25T00:01:24.355Z [INFO ] [telemetry] pid=36066 req=168885c2 Rate limit check passed: 70029/0b0089 requests
+2026-05-25T00:01:25.747Z [INFO ] [lz-cache] pid=18127 req=80520405 MoE weights converged after 60747 bytes
+2026-05-25T00:01:26.436Z [DEBUG] [auth-service] pid=64700 req=afbffde4 trace=afbffde4 op=predict byte=0x7b bpb=5.0103
+2026-05-25T00:01:29.325Z [ERROR] [telemetry] pid=95520 req=21bbd183 LZ table full: eviction failed after 86156 retries
+2026-05-25T00:01:29.109Z [ERROR] [encoder-worker] pid=29073 req=2f237c4d SHA-256 mismatch: expected=51771, got=d3fd12
+2026-05-25T00:01:29.729Z [INFO ] [auth-service] pid=89377 req=9df034d3 Connection pool: 88166/76e0a1 active
+2026-05-25T00:01:31.775Z [INFO ] [health-check] pid=28024 req=7dcf60fd Encode job queued: file_id=35330
+2026-05-25T00:01:31.898Z [INFO ] [scheduler] pid=63066 req=3f2d39c8 Worker thread started
+2026-05-25T00:01:34.170Z [ERROR] [storage-driver] pid=83098 req=bc341b4f Decode aborted: corrupt bitstream at offset 77649
+2026-05-25T00:01:35.464Z [ERROR] [api-gateway] pid=70762 req=e7574997 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:01:36.664Z [DEBUG] [moe-engine] pid=21820 req=e1eeb1f1 trace=e1eeb1f1 op=predict byte=0x80 bpb=3.2685
+2026-05-25T00:01:39.579Z [INFO ] [encoder-worker] pid=68903 req=17584f23 Throughput: {:.1f} KB/s
+2026-05-25T00:01:41.003Z [INFO ] [decoder-worker] pid=33444 req=de6ae459 Worker thread started
+2026-05-25T00:01:42.250Z [INFO ] [api-gateway] pid=75358 req=75699aef Corpus loaded: 10753 bytes, domain=fca7ae
+2026-05-25T00:01:45.942Z [INFO ] [auth-service] pid=34227 req=3527bcee Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:01:45.919Z [INFO ] [health-check] pid=31146 req=fe656dcc LZ table miss rate: {:.1f}%
+2026-05-25T00:01:46.495Z [INFO ] [health-check] pid=71710 req=109efb40 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:01:48.198Z [ERROR] [lz-cache] pid=44034 req=d90949aa Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:01:48.809Z [INFO ] [scheduler] pid=90649 req=d91b1a04 Session started: user_id=usr_{:06d}
+2026-05-25T00:01:48.944Z [INFO ] [storage-driver] pid=10803 req=8ccc617e Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:01:50.578Z [WARN ] [api-gateway] pid=73110 req=a54976d0 Slow encode detected: 92208 ms > threshold 1000 ms
+2026-05-25T00:01:51.584Z [INFO ] [storage-driver] pid=37297 req=892fca69 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:01:53.179Z [INFO ] [auth-service] pid=14145 req=db9a0eb7 MoE weights converged after 64246 bytes
+2026-05-25T00:01:53.794Z [INFO ] [moe-engine] pid=68166 req=e9d18ec2 Rate limit check passed: 13268/f71fa1 requests
+2026-05-25T00:01:54.478Z [INFO ] [storage-driver] pid=14791 req=21f9c072 Scheduled audit job dispatched: phase29a
+2026-05-25T00:01:56.687Z [INFO ] [storage-driver] pid=12946 req=bedcacb7 LZ table miss rate: {:.1f}%
+2026-05-25T00:01:56.175Z [INFO ] [decoder-worker] pid=11999 req=460d113d Corpus loaded: 77378 bytes, domain=346a88
+2026-05-25T00:01:57.721Z [ERROR] [telemetry] pid=16648 req=8a6342ca LZ table full: eviction failed after 13800 retries
+2026-05-25T00:01:58.317Z [ERROR] [scheduler] pid=50952 req=9dc6d783 Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:02:00.631Z [DEBUG] [scheduler] pid=39333 req=7875b1c7 trace=7875b1c7 op=predict byte=0x49 bpb=7.0277
+2026-05-25T00:02:01.618Z [INFO ] [health-check] pid=73898 req=53238aff Request completed successfully
+2026-05-25T00:02:02.393Z [ERROR] [encoder-worker] pid=82895 req=1b63205f Encode failed: SEE_ERR_NOMEM (requested 49599 bytes)
+2026-05-25T00:02:02.568Z [INFO ] [auth-service] pid=84345 req=faeebacd Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:02:02.775Z [WARN ] [decoder-worker] pid=88415 req=67e2189b LZ collision detected at slot 0x{:06x}
+2026-05-25T00:02:03.596Z [INFO ] [scheduler] pid=61115 req=880061b6 Scheduled audit job dispatched: phase29a
+2026-05-25T00:02:03.719Z [ERROR] [health-check] pid=48559 req=d8feb8de SHA-256 mismatch: expected=58394, got=1b3380
+2026-05-25T00:02:04.216Z [DEBUG] [telemetry] pid=63219 req=b636cc4c trace=b636cc4c op=predict byte=0xc3 bpb=4.0463
+2026-05-25T00:02:06.998Z [WARN ] [decoder-worker] pid=64687 req=ecaadafb Slow encode detected: 47810 ms > threshold 1000 ms
+2026-05-25T00:02:08.867Z [INFO ] [decoder-worker] pid=76770 req=2e07336d Session started: user_id=usr_{:06d}
+2026-05-25T00:02:10.038Z [DEBUG] [storage-driver] pid=81587 req=44ed98e2 trace=44ed98e2 op=predict byte=0xbb bpb=1.2342
+2026-05-25T00:02:12.080Z [DEBUG] [telemetry] pid=28623 req=b0c46ddc trace=b0c46ddc op=predict byte=0x8f bpb=4.2546
+2026-05-25T00:02:13.431Z [ERROR] [encoder-worker] pid=92662 req=3ec77a8f Encode failed: SEE_ERR_NOMEM (requested 99662 bytes)
+2026-05-25T00:02:14.293Z [INFO ] [lz-cache] pid=88333 req=2ae1d0bc LZ table miss rate: {:.1f}%
+2026-05-25T00:02:15.674Z [INFO ] [storage-driver] pid=43036 req=c8a4ae21 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:02:16.676Z [INFO ] [lz-cache] pid=33699 req=3c775558 Rate limit check passed: 14337/af89c5 requests
+2026-05-25T00:02:17.118Z [DEBUG] [decoder-worker] pid=94182 req=5856e1fc trace=5856e1fc op=predict byte=0x87 bpb=6.2884
+2026-05-25T00:02:17.949Z [WARN ] [health-check] pid=72425 req=79ea5621 Weight divergence: expert 59781 dropped below 0.001
+2026-05-25T00:02:19.472Z [WARN ] [telemetry] pid=79637 req=0a802167 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:02:21.851Z [DEBUG] [moe-engine] pid=81776 req=2e0f0484 trace=2e0f0484 op=predict byte=0x05 bpb=5.7096
+2026-05-25T00:02:22.973Z [WARN ] [encoder-worker] pid=99849 req=8677b81d Worker backlog: 56073 items queued
+2026-05-25T00:02:23.787Z [INFO ] [encoder-worker] pid=59277 req=9accb00d Encode job queued: file_id=24528
+2026-05-25T00:02:24.391Z [DEBUG] [telemetry] pid=19698 req=41e0cfaf trace=41e0cfaf op=predict byte=0x8d bpb=6.4397
+2026-05-25T00:02:25.628Z [INFO ] [lz-cache] pid=67747 req=43c1136c Cache entry evicted (LRU)
+2026-05-25T00:02:27.272Z [WARN ] [lz-cache] pid=19557 req=1a71064d LZ collision detected at slot 0x{:06x}
+2026-05-25T00:02:27.341Z [INFO ] [health-check] pid=77552 req=931b9fae Config reloaded from disk
+2026-05-25T00:02:29.712Z [WARN ] [api-gateway] pid=80074 req=1735f36b Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:02:30.398Z [INFO ] [telemetry] pid=92941 req=7c8b7f1e Scheduled audit job dispatched: phase29a
+2026-05-25T00:02:30.758Z [ERROR] [lz-cache] pid=12151 req=cfd0b040 SHA-256 mismatch: expected=54470, got=1cb32b
+2026-05-25T00:02:31.467Z [INFO ] [api-gateway] pid=74080 req=bc4716ad Request completed successfully
+2026-05-25T00:02:33.329Z [ERROR] [encoder-worker] pid=75161 req=1b388581 Connection timeout after 18271ms
+2026-05-25T00:02:35.249Z [INFO ] [api-gateway] pid=53975 req=97d46f61 Cache entry evicted (LRU)
+2026-05-25T00:02:37.710Z [INFO ] [decoder-worker] pid=30677 req=9cc8f772 Request completed successfully
+2026-05-25T00:02:39.734Z [WARN ] [decoder-worker] pid=93863 req=34c6ea9b Rate limit approaching: 78562/e69d56 requests per minute
+2026-05-25T00:02:41.475Z [INFO ] [lz-cache] pid=10599 req=590cee67 Corpus loaded: 40885 bytes, domain=624117
+2026-05-25T00:02:43.701Z [DEBUG] [moe-engine] pid=35391 req=46c3e497 trace=46c3e497 op=predict byte=0x39 bpb=6.5763
+2026-05-25T00:02:45.758Z [WARN ] [scheduler] pid=97836 req=2d238ed1 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:02:45.333Z [ERROR] [decoder-worker] pid=77489 req=0770d18f Encode failed: SEE_ERR_NOMEM (requested 19287 bytes)
+2026-05-25T00:02:45.182Z [INFO ] [health-check] pid=59221 req=deb0de7d Connection pool: 19637/f125a2 active
+2026-05-25T00:02:46.113Z [INFO ] [scheduler] pid=92840 req=b8463413 Throughput: {:.1f} KB/s
+2026-05-25T00:02:49.605Z [WARN ] [health-check] pid=48687 req=57f498e0 Slow encode detected: 93623 ms > threshold 1000 ms
+2026-05-25T00:02:50.751Z [WARN ] [lz-cache] pid=42483 req=df629d0c Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:02:52.367Z [INFO ] [health-check] pid=72818 req=87f797fa Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:02:52.470Z [DEBUG] [encoder-worker] pid=97691 req=0413ffc7 trace=0413ffc7 op=predict byte=0x9c bpb=2.1326
+2026-05-25T00:02:55.892Z [DEBUG] [auth-service] pid=28169 req=7470724c trace=7470724c op=predict byte=0xcf bpb=2.2946
+2026-05-25T00:02:55.909Z [WARN ] [api-gateway] pid=53634 req=12194d94 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:02:56.664Z [WARN ] [telemetry] pid=58029 req=0a76bd91 Slow encode detected: 94957 ms > threshold 1000 ms
+2026-05-25T00:02:57.481Z [ERROR] [moe-engine] pid=52003 req=c2c96b28 Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:02:59.968Z [DEBUG] [storage-driver] pid=69241 req=e6426f0b trace=e6426f0b op=predict byte=0xbc bpb=6.5993
+2026-05-25T00:03:00.895Z [INFO ] [moe-engine] pid=20508 req=75373d14 Health check passed: all 33437 services healthy
+2026-05-25T00:03:01.430Z [DEBUG] [api-gateway] pid=99443 req=4b0d2716 trace=4b0d2716 op=predict byte=0x43 bpb=4.3173
+2026-05-25T00:03:02.237Z [DEBUG] [api-gateway] pid=18250 req=4aa0d842 trace=4aa0d842 op=predict byte=0x0b bpb=7.1026
+2026-05-25T00:03:04.380Z [ERROR] [telemetry] pid=87772 req=5388d128 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:03:06.119Z [INFO ] [decoder-worker] pid=69759 req=5a66219e Encode job queued: file_id=91085
+2026-05-25T00:03:07.552Z [INFO ] [auth-service] pid=44132 req=2060917a Throughput: {:.1f} KB/s
+2026-05-25T00:03:09.992Z [ERROR] [lz-cache] pid=75459 req=06617f95 LZ table full: eviction failed after 70036 retries
+2026-05-25T00:03:11.094Z [ERROR] [decoder-worker] pid=54392 req=ec1b55dd Encode failed: SEE_ERR_NOMEM (requested 72781 bytes)
+2026-05-25T00:03:12.930Z [ERROR] [moe-engine] pid=12955 req=47263c24 Encode failed: SEE_ERR_NOMEM (requested 80570 bytes)
+2026-05-25T00:03:14.745Z [WARN ] [decoder-worker] pid=60608 req=6d79d8bf Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:03:16.993Z [DEBUG] [health-check] pid=47831 req=cdbe5548 trace=cdbe5548 op=predict byte=0x53 bpb=6.6397
+2026-05-25T00:03:18.888Z [DEBUG] [health-check] pid=37234 req=160934d1 trace=160934d1 op=predict byte=0x9b bpb=4.3223
+2026-05-25T00:03:20.852Z [INFO ] [encoder-worker] pid=10867 req=60329ee6 Session started: user_id=usr_{:06d}
+2026-05-25T00:03:21.669Z [ERROR] [scheduler] pid=86704 req=d3850240 Expert weight NaN detected at byte 74762
+2026-05-25T00:03:22.579Z [INFO ] [health-check] pid=94513 req=2deb57f9 Connection pool: 13728/3d1c0d active
+2026-05-25T00:03:23.167Z [INFO ] [scheduler] pid=58916 req=d17ad9bd Rate limit check passed: 85400/08fbab requests
+2026-05-25T00:03:24.893Z [INFO ] [health-check] pid=16385 req=f4852088 LZ table miss rate: {:.1f}%
+2026-05-25T00:03:24.013Z [DEBUG] [lz-cache] pid=80047 req=5cce495d trace=5cce495d op=predict byte=0xb4 bpb=6.7632
+2026-05-25T00:03:25.427Z [INFO ] [telemetry] pid=64000 req=c75ff368 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:03:26.176Z [INFO ] [encoder-worker] pid=12277 req=d19fcf31 Config reloaded from disk
+2026-05-25T00:03:28.793Z [INFO ] [encoder-worker] pid=28659 req=38ec71aa Connection pool: 50295/402d1c active
+2026-05-25T00:03:29.942Z [WARN ] [api-gateway] pid=14298 req=32440f07 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:03:30.101Z [ERROR] [moe-engine] pid=21898 req=59fe1c45 LZ table full: eviction failed after 46356 retries
+2026-05-25T00:03:32.185Z [INFO ] [storage-driver] pid=80402 req=4827c440 Request completed successfully
+2026-05-25T00:03:34.084Z [WARN ] [health-check] pid=24790 req=3a40fe39 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:03:35.916Z [INFO ] [health-check] pid=88694 req=489ac27e LZ table miss rate: {:.1f}%
+2026-05-25T00:03:37.759Z [WARN ] [telemetry] pid=98363 req=2de66d5b Worker backlog: 98092 items queued
+2026-05-25T00:03:40.774Z [INFO ] [encoder-worker] pid=36248 req=32f75350 Health check passed: all 26090 services healthy
+2026-05-25T00:03:42.523Z [DEBUG] [health-check] pid=97382 req=5b29317a trace=5b29317a op=predict byte=0xcf bpb=7.9127
+2026-05-25T00:03:42.391Z [WARN ] [encoder-worker] pid=74138 req=1f47d902 Worker backlog: 40254 items queued
+2026-05-25T00:03:44.828Z [INFO ] [decoder-worker] pid=20029 req=9f8c2c51 Rate limit check passed: 74512/ee9a69 requests
+2026-05-25T00:03:46.503Z [ERROR] [api-gateway] pid=60283 req=ea3973ff Worker panic: unhandled exception in moe_engine
+2026-05-25T00:03:47.631Z [INFO ] [health-check] pid=96517 req=acce693e Corpus loaded: 99833 bytes, domain=f08c08
+2026-05-25T00:03:49.421Z [INFO ] [telemetry] pid=87393 req=0fb97b5d Worker thread started
+2026-05-25T00:03:50.932Z [DEBUG] [moe-engine] pid=94945 req=3f63a065 trace=3f63a065 op=predict byte=0x9f bpb=5.1477
+2026-05-25T00:03:51.324Z [INFO ] [encoder-worker] pid=12583 req=566c93cc Corpus loaded: 52744 bytes, domain=132328
+2026-05-25T00:03:52.206Z [WARN ] [telemetry] pid=74010 req=9291e493 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:03:54.437Z [INFO ] [storage-driver] pid=44754 req=36cdf42f Worker thread started
+2026-05-25T00:03:54.902Z [INFO ] [lz-cache] pid=96960 req=4cc6d67e Corpus loaded: 51071 bytes, domain=66707d
+2026-05-25T00:03:54.985Z [DEBUG] [storage-driver] pid=85608 req=dcda8cc1 trace=dcda8cc1 op=predict byte=0xff bpb=2.4907
+2026-05-25T00:03:56.326Z [WARN ] [lz-cache] pid=78454 req=a0733e57 Weight divergence: expert 57746 dropped below 0.001
+2026-05-25T00:03:58.251Z [INFO ] [moe-engine] pid=44987 req=d8914adf LZ table miss rate: {:.1f}%
+2026-05-25T00:04:00.659Z [INFO ] [scheduler] pid=65314 req=fdc56285 Worker thread started
+2026-05-25T00:04:03.305Z [DEBUG] [scheduler] pid=17251 req=c840789b trace=c840789b op=predict byte=0x2a bpb=3.1973
+2026-05-25T00:04:05.791Z [WARN ] [telemetry] pid=62021 req=e2be80e1 Slow encode detected: 40938 ms > threshold 1000 ms
+2026-05-25T00:04:07.883Z [INFO ] [auth-service] pid=40924 req=bcbb859a Session started: user_id=usr_{:06d}
+2026-05-25T00:04:08.660Z [WARN ] [storage-driver] pid=51482 req=f2deb798 Decode retry #72240: possible data corruption
+2026-05-25T00:04:11.008Z [ERROR] [api-gateway] pid=98027 req=f0db6ecb Connection timeout after 43158ms
+2026-05-25T00:04:13.482Z [WARN ] [lz-cache] pid=40862 req=4d07018b Rate limit approaching: 37575/52094d requests per minute
+2026-05-25T00:04:15.645Z [INFO ] [health-check] pid=31016 req=d1fb55b1 MoE weights converged after 76366 bytes
+2026-05-25T00:04:16.084Z [DEBUG] [decoder-worker] pid=36224 req=00c99370 trace=00c99370 op=predict byte=0x9c bpb=3.1961
+2026-05-25T00:04:16.402Z [INFO ] [storage-driver] pid=69177 req=f07db671 Config reloaded from disk
+2026-05-25T00:04:18.014Z [ERROR] [moe-engine] pid=44312 req=76617a3b LZ table full: eviction failed after 16525 retries
+2026-05-25T00:04:20.843Z [WARN ] [scheduler] pid=39423 req=7e808d05 Weight divergence: expert 34975 dropped below 0.001
+2026-05-25T00:04:21.999Z [DEBUG] [moe-engine] pid=63546 req=6b17bd75 trace=6b17bd75 op=predict byte=0x4a bpb=1.2014
+2026-05-25T00:04:22.725Z [ERROR] [scheduler] pid=58449 req=e846a9df Worker panic: unhandled exception in moe_engine
+2026-05-25T00:04:23.259Z [ERROR] [lz-cache] pid=83007 req=12b3c5eb SHA-256 mismatch: expected=16830, got=aa6cf5
+2026-05-25T00:04:24.135Z [WARN ] [lz-cache] pid=97983 req=fa3f012e Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:04:24.130Z [DEBUG] [storage-driver] pid=44131 req=6ed47a6d trace=6ed47a6d op=predict byte=0x3b bpb=3.1929
+2026-05-25T00:04:25.569Z [INFO ] [telemetry] pid=47083 req=ed1ddefa MoE weights converged after 90338 bytes
+2026-05-25T00:04:27.036Z [DEBUG] [scheduler] pid=29480 req=0d9ff83d trace=0d9ff83d op=predict byte=0x1b bpb=2.6090
+2026-05-25T00:04:29.095Z [INFO ] [scheduler] pid=74868 req=6fb9de37 Worker thread started
+2026-05-25T00:04:29.693Z [INFO ] [decoder-worker] pid=76681 req=d5bf85f3 MoE weights converged after 83825 bytes
+2026-05-25T00:04:29.608Z [INFO ] [api-gateway] pid=58963 req=1f3acc68 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:04:31.094Z [INFO ] [api-gateway] pid=52587 req=f36deb13 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:04:32.502Z [INFO ] [moe-engine] pid=21690 req=dd926cbf Request completed successfully
+2026-05-25T00:04:34.524Z [DEBUG] [lz-cache] pid=57060 req=9a7fde23 trace=9a7fde23 op=predict byte=0x31 bpb=6.8244
+2026-05-25T00:04:35.996Z [WARN ] [health-check] pid=83801 req=79f7f38c Decode retry #21825: possible data corruption
+2026-05-25T00:04:36.130Z [INFO ] [decoder-worker] pid=79111 req=ee403b9f Rate limit check passed: 21006/94d706 requests
+2026-05-25T00:04:37.363Z [INFO ] [moe-engine] pid=48729 req=85e95c6c Worker thread started
+2026-05-25T00:04:38.775Z [INFO ] [storage-driver] pid=96714 req=042a2f64 Scheduled audit job dispatched: phase29a
+2026-05-25T00:04:40.671Z [ERROR] [lz-cache] pid=37665 req=cf5c8dd3 LZ table full: eviction failed after 20252 retries
+2026-05-25T00:04:41.986Z [DEBUG] [health-check] pid=91067 req=7c99d86e trace=7c99d86e op=predict byte=0xb8 bpb=5.8346
+2026-05-25T00:04:43.862Z [WARN ] [lz-cache] pid=27709 req=166f419a High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:04:44.020Z [ERROR] [moe-engine] pid=70742 req=160a3a13 LZ table full: eviction failed after 72126 retries
+2026-05-25T00:04:46.037Z [ERROR] [moe-engine] pid=84636 req=338aea2d Decode aborted: corrupt bitstream at offset 16674
+2026-05-25T00:04:48.506Z [WARN ] [storage-driver] pid=17956 req=7ce71cca High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:04:49.480Z [DEBUG] [telemetry] pid=31146 req=6facc50d trace=6facc50d op=predict byte=0x93 bpb=6.0835
+2026-05-25T00:04:50.132Z [INFO ] [storage-driver] pid=27191 req=a82e6889 LZ table miss rate: {:.1f}%
+2026-05-25T00:04:51.178Z [INFO ] [auth-service] pid=64523 req=7dffe27d Config reloaded from disk
+2026-05-25T00:04:53.788Z [ERROR] [api-gateway] pid=54267 req=ce8b76a2 Decode aborted: corrupt bitstream at offset 24938
+2026-05-25T00:04:55.160Z [INFO ] [decoder-worker] pid=69917 req=f23e9a06 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:04:57.141Z [DEBUG] [scheduler] pid=30223 req=ded89c47 trace=ded89c47 op=predict byte=0xba bpb=3.3423
+2026-05-25T00:04:57.155Z [INFO ] [scheduler] pid=10863 req=f83a1bce Connection pool: 72084/aec181 active
+2026-05-25T00:04:59.086Z [ERROR] [health-check] pid=28087 req=c986f893 Decode aborted: corrupt bitstream at offset 64186
+2026-05-25T00:05:00.931Z [WARN ] [decoder-worker] pid=61546 req=6f1f5c6a High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:05:01.399Z [INFO ] [storage-driver] pid=94394 req=67687c42 SHA-256 verified: 81358
+2026-05-25T00:05:02.319Z [DEBUG] [decoder-worker] pid=38014 req=8a713a73 trace=8a713a73 op=predict byte=0x2f bpb=4.5817
+2026-05-25T00:05:04.792Z [DEBUG] [decoder-worker] pid=80770 req=05fef7bc trace=05fef7bc op=predict byte=0x84 bpb=2.6894
+2026-05-25T00:05:04.241Z [WARN ] [storage-driver] pid=92180 req=5f7b8b00 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:05:06.465Z [ERROR] [auth-service] pid=49216 req=3bdccce0 Expert weight NaN detected at byte 97414
+2026-05-25T00:05:07.909Z [DEBUG] [health-check] pid=20740 req=d4147d03 trace=d4147d03 op=predict byte=0x2f bpb=1.4354
+2026-05-25T00:05:07.147Z [INFO ] [scheduler] pid=98712 req=13fc927f Rate limit check passed: 62789/ca20ed requests
+2026-05-25T00:05:08.535Z [WARN ] [scheduler] pid=72043 req=366fbddd High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:05:09.187Z [INFO ] [lz-cache] pid=49748 req=fdb37e45 LZ table miss rate: {:.1f}%
+2026-05-25T00:05:11.780Z [WARN ] [api-gateway] pid=15856 req=59410ea3 Decode retry #73068: possible data corruption
+2026-05-25T00:05:11.745Z [DEBUG] [scheduler] pid=97453 req=c2fd6177 trace=c2fd6177 op=predict byte=0xe5 bpb=2.0429
+2026-05-25T00:05:12.574Z [ERROR] [auth-service] pid=40516 req=68dd66fd Decode aborted: corrupt bitstream at offset 54433
+2026-05-25T00:05:14.534Z [DEBUG] [storage-driver] pid=91094 req=15cc861a trace=15cc861a op=predict byte=0x1b bpb=7.7010
+2026-05-25T00:05:14.411Z [WARN ] [storage-driver] pid=25765 req=e598e5c2 Slow encode detected: 12486 ms > threshold 1000 ms
+2026-05-25T00:05:15.292Z [WARN ] [api-gateway] pid=33659 req=57076494 Decode retry #13153: possible data corruption
+2026-05-25T00:05:16.422Z [INFO ] [encoder-worker] pid=63382 req=277b71ea Encode job queued: file_id=17721
+2026-05-25T00:05:18.067Z [INFO ] [health-check] pid=16799 req=e645bb00 SHA-256 verified: 41407
+2026-05-25T00:05:19.382Z [WARN ] [moe-engine] pid=82623 req=04c47757 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:05:21.859Z [INFO ] [moe-engine] pid=10131 req=73a55d2e Scheduled audit job dispatched: phase29a
+2026-05-25T00:05:22.899Z [INFO ] [moe-engine] pid=15961 req=82a4e22e Encode job queued: file_id=80004
+2026-05-25T00:05:23.004Z [ERROR] [storage-driver] pid=42234 req=73e5550d Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:05:26.664Z [DEBUG] [decoder-worker] pid=61483 req=b40b7288 trace=b40b7288 op=predict byte=0x29 bpb=6.5111
+2026-05-25T00:05:27.226Z [ERROR] [api-gateway] pid=59332 req=1f982a0d Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:05:29.200Z [INFO ] [telemetry] pid=90405 req=3106e8ce LZ table miss rate: {:.1f}%
+2026-05-25T00:05:32.579Z [DEBUG] [health-check] pid=32344 req=80155756 trace=80155756 op=predict byte=0x63 bpb=5.6189
+2026-05-25T00:05:33.697Z [ERROR] [auth-service] pid=87091 req=2cef7557 LZ table full: eviction failed after 18526 retries
+2026-05-25T00:05:35.529Z [WARN ] [api-gateway] pid=94012 req=f019955f High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:05:37.401Z [DEBUG] [moe-engine] pid=65058 req=0c05e009 trace=0c05e009 op=predict byte=0xe5 bpb=3.2137
+2026-05-25T00:05:37.442Z [INFO ] [auth-service] pid=39573 req=cec3a6f4 Session started: user_id=usr_{:06d}
+2026-05-25T00:05:39.782Z [ERROR] [telemetry] pid=42394 req=d72b8154 Encode failed: SEE_ERR_NOMEM (requested 72072 bytes)
+2026-05-25T00:05:39.625Z [WARN ] [auth-service] pid=17954 req=1ff49f0a High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:05:41.464Z [INFO ] [encoder-worker] pid=83303 req=ad74dd43 Worker thread started
+2026-05-25T00:05:42.926Z [WARN ] [auth-service] pid=54514 req=9e85e4d4 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:05:43.455Z [DEBUG] [storage-driver] pid=65182 req=419bf74e trace=419bf74e op=predict byte=0xf6 bpb=6.0724
+2026-05-25T00:05:44.377Z [INFO ] [api-gateway] pid=50850 req=0f7c59ad Session started: user_id=usr_{:06d}
+2026-05-25T00:05:46.711Z [ERROR] [auth-service] pid=41114 req=250487e4 SHA-256 mismatch: expected=65320, got=b008aa
+2026-05-25T00:05:48.942Z [WARN ] [auth-service] pid=85813 req=b1420898 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:05:48.568Z [INFO ] [moe-engine] pid=73012 req=36903edb Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:05:48.182Z [INFO ] [scheduler] pid=15754 req=c3f9f409 Request completed successfully
+2026-05-25T00:05:49.963Z [INFO ] [lz-cache] pid=12751 req=e9204a24 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:05:50.781Z [ERROR] [health-check] pid=28931 req=10bc94d3 LZ table full: eviction failed after 34856 retries
+2026-05-25T00:05:52.171Z [INFO ] [storage-driver] pid=42397 req=26087b53 Worker thread started
+2026-05-25T00:05:53.729Z [DEBUG] [storage-driver] pid=78012 req=5fcfe711 trace=5fcfe711 op=predict byte=0xed bpb=2.2530
+2026-05-25T00:05:54.809Z [DEBUG] [scheduler] pid=45171 req=7eaab0a1 trace=7eaab0a1 op=predict byte=0xcd bpb=5.4667
+2026-05-25T00:05:55.137Z [INFO ] [moe-engine] pid=40721 req=33f7d722 Health check passed: all 38651 services healthy
+2026-05-25T00:05:57.279Z [INFO ] [scheduler] pid=40169 req=84d16f5e Worker thread started
+2026-05-25T00:05:58.368Z [INFO ] [scheduler] pid=94587 req=3bd9b015 Cache entry evicted (LRU)
+2026-05-25T00:05:58.968Z [INFO ] [telemetry] pid=49677 req=54492845 MoE weights converged after 34987 bytes
+2026-05-25T00:05:59.439Z [ERROR] [api-gateway] pid=39743 req=65c2e80d Connection timeout after 72185ms
+2026-05-25T00:06:01.591Z [DEBUG] [health-check] pid=68978 req=35a758ab trace=35a758ab op=predict byte=0x0f bpb=3.6229
+2026-05-25T00:06:03.157Z [INFO ] [api-gateway] pid=39555 req=5acb287d Session started: user_id=usr_{:06d}
+2026-05-25T00:06:06.654Z [INFO ] [auth-service] pid=59980 req=ddf01771 SHA-256 verified: 61201
+2026-05-25T00:06:08.465Z [INFO ] [decoder-worker] pid=14202 req=8d8b4c60 Config reloaded from disk
+2026-05-25T00:06:08.891Z [ERROR] [api-gateway] pid=63852 req=2bfcc524 Decode aborted: corrupt bitstream at offset 30582
+2026-05-25T00:06:09.473Z [WARN ] [scheduler] pid=36437 req=757e2b43 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:06:10.829Z [DEBUG] [encoder-worker] pid=48987 req=74d082c5 trace=74d082c5 op=predict byte=0xc8 bpb=5.2912
+2026-05-25T00:06:12.682Z [WARN ] [moe-engine] pid=60418 req=6e9c92ba Slow encode detected: 84529 ms > threshold 1000 ms
+2026-05-25T00:06:15.078Z [DEBUG] [moe-engine] pid=63907 req=e8a2f417 trace=e8a2f417 op=predict byte=0x3e bpb=7.9672
+2026-05-25T00:06:17.763Z [ERROR] [telemetry] pid=31605 req=68fc0e45 Expert weight NaN detected at byte 37180
+2026-05-25T00:06:18.143Z [INFO ] [health-check] pid=42847 req=09ab99a3 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:06:19.182Z [INFO ] [decoder-worker] pid=48554 req=19bb5bf0 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:06:19.785Z [INFO ] [storage-driver] pid=16259 req=3756b005 Rate limit check passed: 94018/34a152 requests
+2026-05-25T00:06:20.816Z [INFO ] [telemetry] pid=36212 req=e8a44238 Cache entry evicted (LRU)
+2026-05-25T00:06:22.835Z [DEBUG] [decoder-worker] pid=15768 req=b958d153 trace=b958d153 op=predict byte=0xd4 bpb=4.5875
+2026-05-25T00:06:23.669Z [ERROR] [moe-engine] pid=81002 req=9fea97cc Decode aborted: corrupt bitstream at offset 66083
+2026-05-25T00:06:24.729Z [WARN ] [moe-engine] pid=18652 req=757256f6 Rate limit approaching: 95189/bceaf1 requests per minute
+2026-05-25T00:06:25.523Z [ERROR] [decoder-worker] pid=32980 req=2207cb65 Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:06:26.383Z [INFO ] [storage-driver] pid=40488 req=fd06875b Request completed successfully
+2026-05-25T00:06:28.663Z [INFO ] [decoder-worker] pid=94153 req=60310461 Worker thread started
+2026-05-25T00:06:30.066Z [INFO ] [moe-engine] pid=41752 req=54ce20ea SHA-256 verified: 80688
+2026-05-25T00:06:32.168Z [INFO ] [moe-engine] pid=36767 req=fdf48930 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:06:34.171Z [INFO ] [health-check] pid=47401 req=3fbc75e0 Scheduled audit job dispatched: phase29a
+2026-05-25T00:06:35.290Z [WARN ] [storage-driver] pid=59993 req=7b64665c Decode retry #20909: possible data corruption
+2026-05-25T00:06:36.947Z [ERROR] [scheduler] pid=27911 req=126aa315 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:06:37.521Z [WARN ] [telemetry] pid=50345 req=625046c0 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:06:39.753Z [DEBUG] [telemetry] pid=95315 req=b24ae6e3 trace=b24ae6e3 op=predict byte=0xc5 bpb=7.4856
+2026-05-25T00:06:39.723Z [WARN ] [api-gateway] pid=89355 req=25dbbe8d Worker backlog: 99268 items queued
+2026-05-25T00:06:41.833Z [INFO ] [storage-driver] pid=65436 req=e8f26d63 Encode job queued: file_id=65950
+2026-05-25T00:06:41.071Z [DEBUG] [moe-engine] pid=32072 req=4edfaa12 trace=4edfaa12 op=predict byte=0xfb bpb=1.0111
+2026-05-25T00:06:43.190Z [WARN ] [storage-driver] pid=33121 req=6e52b671 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:06:44.639Z [DEBUG] [decoder-worker] pid=63581 req=311f5d4a trace=311f5d4a op=predict byte=0xe1 bpb=5.3879
+2026-05-25T00:06:44.065Z [DEBUG] [decoder-worker] pid=21233 req=146e6a4f trace=146e6a4f op=predict byte=0xc1 bpb=1.8728
+2026-05-25T00:06:45.617Z [ERROR] [moe-engine] pid=98185 req=7a57772b Encode failed: SEE_ERR_NOMEM (requested 11246 bytes)
+2026-05-25T00:06:46.003Z [INFO ] [scheduler] pid=58599 req=6df0ac3c Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:06:47.286Z [DEBUG] [health-check] pid=88893 req=238c8712 trace=238c8712 op=predict byte=0x3e bpb=7.0830
+2026-05-25T00:06:50.239Z [INFO ] [telemetry] pid=77490 req=deaeb0c0 Session started: user_id=usr_{:06d}
+2026-05-25T00:06:51.130Z [WARN ] [auth-service] pid=55656 req=cb40fcdd Decode retry #72406: possible data corruption
+2026-05-25T00:06:52.732Z [INFO ] [lz-cache] pid=68495 req=77806788 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:06:52.659Z [INFO ] [health-check] pid=38885 req=c42cd0ba MoE weights converged after 97285 bytes
+2026-05-25T00:06:53.114Z [DEBUG] [health-check] pid=43959 req=3bbdf80c trace=3bbdf80c op=predict byte=0x3b bpb=3.0368
+2026-05-25T00:06:54.320Z [DEBUG] [auth-service] pid=25218 req=efed098b trace=efed098b op=predict byte=0xbc bpb=1.8919
+2026-05-25T00:06:56.109Z [ERROR] [api-gateway] pid=87340 req=4f908490 Connection timeout after 60875ms
+2026-05-25T00:06:57.316Z [ERROR] [scheduler] pid=48905 req=50e08a81 Connection timeout after 75514ms
+2026-05-25T00:06:58.721Z [DEBUG] [encoder-worker] pid=92716 req=92efd363 trace=92efd363 op=predict byte=0x6e bpb=4.4652
+2026-05-25T00:07:01.432Z [INFO ] [telemetry] pid=39500 req=b77dff3a Worker thread started
+2026-05-25T00:07:02.468Z [INFO ] [health-check] pid=79185 req=641cb619 LZ table miss rate: {:.1f}%
+2026-05-25T00:07:04.695Z [ERROR] [decoder-worker] pid=28982 req=7b814ce1 Connection timeout after 38591ms
+2026-05-25T00:07:06.121Z [INFO ] [encoder-worker] pid=16877 req=794febef Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:07:07.122Z [WARN ] [lz-cache] pid=95563 req=f45dbd91 Decode retry #97914: possible data corruption
+2026-05-25T00:07:07.101Z [INFO ] [scheduler] pid=86919 req=399557cb Config reloaded from disk
+2026-05-25T00:07:08.549Z [DEBUG] [storage-driver] pid=12588 req=2f54f0e5 trace=2f54f0e5 op=predict byte=0xc9 bpb=4.8924
+2026-05-25T00:07:10.668Z [ERROR] [scheduler] pid=37192 req=a6d5dac6 Encode failed: SEE_ERR_NOMEM (requested 33680 bytes)
+2026-05-25T00:07:10.143Z [ERROR] [lz-cache] pid=26346 req=08f61b3f Expert weight NaN detected at byte 57652
+2026-05-25T00:07:12.306Z [DEBUG] [telemetry] pid=41077 req=d1dc01e5 trace=d1dc01e5 op=predict byte=0x12 bpb=2.3165
+2026-05-25T00:07:14.962Z [INFO ] [decoder-worker] pid=26841 req=5bebb1c7 Session started: user_id=usr_{:06d}
+2026-05-25T00:07:15.987Z [ERROR] [moe-engine] pid=92984 req=bb909511 Connection timeout after 58777ms
+2026-05-25T00:07:17.100Z [INFO ] [lz-cache] pid=18645 req=8c61e59f Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:07:18.622Z [INFO ] [health-check] pid=26187 req=f3a80aa0 Encode job queued: file_id=79006
+2026-05-25T00:07:18.146Z [INFO ] [decoder-worker] pid=33681 req=c07abe48 Throughput: {:.1f} KB/s
+2026-05-25T00:07:19.187Z [DEBUG] [lz-cache] pid=42651 req=f978d269 trace=f978d269 op=predict byte=0xd6 bpb=5.9475
+2026-05-25T00:07:20.078Z [INFO ] [scheduler] pid=46152 req=8092189b Session started: user_id=usr_{:06d}
+2026-05-25T00:07:22.415Z [INFO ] [decoder-worker] pid=21086 req=9347f486 LZ table miss rate: {:.1f}%
+2026-05-25T00:07:22.975Z [INFO ] [api-gateway] pid=80035 req=b6d331ca Throughput: {:.1f} KB/s
+2026-05-25T00:07:22.002Z [WARN ] [health-check] pid=24841 req=2ba4d656 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:07:24.363Z [ERROR] [health-check] pid=56628 req=7cff07e3 SHA-256 mismatch: expected=90678, got=ebb380
+2026-05-25T00:07:24.404Z [WARN ] [scheduler] pid=79349 req=329245ba Slow encode detected: 63833 ms > threshold 1000 ms
+2026-05-25T00:07:25.904Z [INFO ] [health-check] pid=80310 req=e466c937 MoE weights converged after 24246 bytes
+2026-05-25T00:07:27.431Z [INFO ] [encoder-worker] pid=15276 req=308777b4 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:07:28.053Z [WARN ] [decoder-worker] pid=75779 req=e1bb7399 Decode retry #27225: possible data corruption
+2026-05-25T00:07:30.255Z [INFO ] [health-check] pid=66928 req=bcc8509b Config reloaded from disk
+2026-05-25T00:07:31.196Z [INFO ] [lz-cache] pid=36006 req=d2137565 Config reloaded from disk
+2026-05-25T00:07:33.522Z [WARN ] [api-gateway] pid=21919 req=9dd0ce04 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:07:34.217Z [INFO ] [lz-cache] pid=57654 req=1c2c8fb1 MoE weights converged after 56009 bytes
+2026-05-25T00:07:35.339Z [INFO ] [auth-service] pid=34227 req=19cb84c8 MoE weights converged after 74393 bytes
+2026-05-25T00:07:36.600Z [INFO ] [auth-service] pid=95229 req=5f20ac06 MoE weights converged after 37529 bytes
+2026-05-25T00:07:38.485Z [DEBUG] [moe-engine] pid=81641 req=19404d24 trace=19404d24 op=predict byte=0xaf bpb=3.1103
+2026-05-25T00:07:41.069Z [INFO ] [storage-driver] pid=15742 req=b8845902 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:07:42.169Z [ERROR] [storage-driver] pid=31880 req=ca77736e Expert weight NaN detected at byte 26899
+2026-05-25T00:07:43.515Z [ERROR] [health-check] pid=89589 req=63e73896 Expert weight NaN detected at byte 37122
+2026-05-25T00:07:45.276Z [ERROR] [lz-cache] pid=45194 req=3867f62d Encode failed: SEE_ERR_NOMEM (requested 32427 bytes)
+2026-05-25T00:07:47.332Z [INFO ] [moe-engine] pid=95019 req=1dbe4a3c Throughput: {:.1f} KB/s
+2026-05-25T00:07:50.994Z [DEBUG] [api-gateway] pid=38741 req=d2ed3196 trace=d2ed3196 op=predict byte=0x8f bpb=2.2371
+2026-05-25T00:07:50.225Z [DEBUG] [auth-service] pid=92081 req=a7610e80 trace=a7610e80 op=predict byte=0x69 bpb=6.7179
+2026-05-25T00:07:50.193Z [INFO ] [auth-service] pid=68465 req=653d171f Connection pool: 66872/bcbe62 active
+2026-05-25T00:07:52.181Z [DEBUG] [decoder-worker] pid=12758 req=a5c6c5ae trace=a5c6c5ae op=predict byte=0x9e bpb=2.1404
+2026-05-25T00:07:54.465Z [DEBUG] [auth-service] pid=28811 req=3016cecc trace=3016cecc op=predict byte=0x24 bpb=3.9848
+2026-05-25T00:07:56.811Z [WARN ] [encoder-worker] pid=60330 req=1987e6d0 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:07:59.642Z [INFO ] [storage-driver] pid=36518 req=b51bd20f Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:08:00.231Z [INFO ] [api-gateway] pid=77048 req=4bf70dc6 Session started: user_id=usr_{:06d}
+2026-05-25T00:08:02.229Z [DEBUG] [health-check] pid=74463 req=e6d037c6 trace=e6d037c6 op=predict byte=0x56 bpb=7.9354
+2026-05-25T00:08:02.639Z [INFO ] [telemetry] pid=57250 req=556efce4 Cache entry evicted (LRU)
+2026-05-25T00:08:05.591Z [INFO ] [encoder-worker] pid=10285 req=cc76864a Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:08:06.394Z [DEBUG] [lz-cache] pid=52343 req=2508f357 trace=2508f357 op=predict byte=0x41 bpb=2.2731
+2026-05-25T00:08:07.393Z [WARN ] [health-check] pid=88871 req=f90c9f84 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:08:07.871Z [DEBUG] [health-check] pid=57409 req=165607c0 trace=165607c0 op=predict byte=0x01 bpb=2.4230
+2026-05-25T00:08:07.215Z [ERROR] [scheduler] pid=24438 req=f5264ea2 SHA-256 mismatch: expected=55789, got=b8c273
+2026-05-25T00:08:09.374Z [INFO ] [decoder-worker] pid=13453 req=24a0aaad Session started: user_id=usr_{:06d}
+2026-05-25T00:08:09.159Z [INFO ] [encoder-worker] pid=33910 req=6a9f687a Config reloaded from disk
+2026-05-25T00:08:09.896Z [DEBUG] [api-gateway] pid=61955 req=290c9e51 trace=290c9e51 op=predict byte=0xd8 bpb=5.7593
+2026-05-25T00:08:11.278Z [DEBUG] [lz-cache] pid=39794 req=807ab658 trace=807ab658 op=predict byte=0xd8 bpb=7.5202
+2026-05-25T00:08:13.055Z [ERROR] [health-check] pid=91139 req=363cbc32 SHA-256 mismatch: expected=38692, got=c8da5c
+2026-05-25T00:08:15.617Z [DEBUG] [health-check] pid=24208 req=31d9dd32 trace=31d9dd32 op=predict byte=0x35 bpb=1.5447
+2026-05-25T00:08:17.275Z [INFO ] [api-gateway] pid=31333 req=3d51d528 Corpus loaded: 23954 bytes, domain=217183
+2026-05-25T00:08:17.769Z [ERROR] [auth-service] pid=16297 req=7bdac670 Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:08:18.155Z [INFO ] [decoder-worker] pid=63383 req=18ede297 Rate limit check passed: 23238/4ce544 requests
+2026-05-25T00:08:20.244Z [INFO ] [encoder-worker] pid=75748 req=b7f330ad Rate limit check passed: 89788/aecdfc requests
+2026-05-25T00:08:20.286Z [ERROR] [auth-service] pid=11958 req=7f5da7f8 LZ table full: eviction failed after 50572 retries
+2026-05-25T00:08:22.879Z [INFO ] [encoder-worker] pid=70390 req=1235d52e MoE weights converged after 72031 bytes
+2026-05-25T00:08:23.758Z [WARN ] [auth-service] pid=58068 req=21051c60 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:08:24.583Z [DEBUG] [storage-driver] pid=23801 req=02088c91 trace=02088c91 op=predict byte=0x94 bpb=3.6308
+2026-05-25T00:08:25.411Z [INFO ] [moe-engine] pid=71063 req=17efd203 Scheduled audit job dispatched: phase29a
+2026-05-25T00:08:26.615Z [INFO ] [telemetry] pid=72419 req=7c7dd490 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:08:28.070Z [INFO ] [telemetry] pid=72050 req=ca208c07 SHA-256 verified: 17088
+2026-05-25T00:08:29.548Z [INFO ] [lz-cache] pid=34127 req=e4a07521 Worker thread started
+2026-05-25T00:08:31.811Z [INFO ] [health-check] pid=20198 req=98dd6c3c Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:08:33.379Z [WARN ] [lz-cache] pid=38655 req=18f23999 Weight divergence: expert 65073 dropped below 0.001
+2026-05-25T00:08:35.116Z [INFO ] [lz-cache] pid=75809 req=e58b2d2d Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:08:37.091Z [WARN ] [health-check] pid=82450 req=5f84e3c5 Slow encode detected: 81141 ms > threshold 1000 ms
+2026-05-25T00:08:39.564Z [ERROR] [health-check] pid=91766 req=1a8a76f3 Encode failed: SEE_ERR_NOMEM (requested 93037 bytes)
+2026-05-25T00:08:40.858Z [INFO ] [scheduler] pid=55955 req=f35757c5 Scheduled audit job dispatched: phase29a
+2026-05-25T00:08:42.569Z [WARN ] [moe-engine] pid=14282 req=e8b81813 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:08:45.727Z [INFO ] [auth-service] pid=16760 req=a4f9a67f Session started: user_id=usr_{:06d}
+2026-05-25T00:08:47.028Z [ERROR] [encoder-worker] pid=92223 req=c8c6a8b1 Expert weight NaN detected at byte 82470
+2026-05-25T00:08:48.788Z [ERROR] [encoder-worker] pid=13314 req=926114b7 LZ table full: eviction failed after 69468 retries
+2026-05-25T00:08:49.506Z [INFO ] [lz-cache] pid=24540 req=ddefb7bb Scheduled audit job dispatched: phase29a
+2026-05-25T00:08:51.184Z [INFO ] [health-check] pid=12877 req=19c59f2d Session started: user_id=usr_{:06d}
+2026-05-25T00:08:52.620Z [INFO ] [auth-service] pid=25362 req=dad4c20f Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:08:52.493Z [INFO ] [storage-driver] pid=57826 req=2700260b Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:08:52.597Z [INFO ] [telemetry] pid=71216 req=a6e486bf Config reloaded from disk
+2026-05-25T00:08:54.919Z [ERROR] [lz-cache] pid=66815 req=b8d8f272 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:08:56.366Z [INFO ] [scheduler] pid=86922 req=82e847ae Session started: user_id=usr_{:06d}
+2026-05-25T00:08:57.394Z [INFO ] [telemetry] pid=51215 req=5f390d2b Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:08:57.050Z [INFO ] [storage-driver] pid=83525 req=37abaed7 MoE weights converged after 89679 bytes
+2026-05-25T00:08:59.659Z [WARN ] [api-gateway] pid=65212 req=fd81a925 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:09:01.849Z [ERROR] [api-gateway] pid=47272 req=e96171f3 LZ table full: eviction failed after 62797 retries
+2026-05-25T00:09:03.793Z [DEBUG] [lz-cache] pid=55327 req=46510173 trace=46510173 op=predict byte=0xcc bpb=1.5584
+2026-05-25T00:09:04.330Z [ERROR] [api-gateway] pid=69582 req=64b11c49 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:09:06.831Z [DEBUG] [health-check] pid=21536 req=39f18027 trace=39f18027 op=predict byte=0x61 bpb=6.0688
+2026-05-25T00:09:07.947Z [ERROR] [api-gateway] pid=44037 req=de36390a SHA-256 mismatch: expected=24523, got=1893e6
+2026-05-25T00:09:08.231Z [WARN ] [encoder-worker] pid=29398 req=205474fa Decode retry #93480: possible data corruption
+2026-05-25T00:09:08.107Z [INFO ] [encoder-worker] pid=20225 req=db19de67 Cache entry evicted (LRU)
+2026-05-25T00:09:09.798Z [ERROR] [storage-driver] pid=69509 req=f1c2fa18 LZ table full: eviction failed after 76127 retries
+2026-05-25T00:09:10.191Z [INFO ] [lz-cache] pid=99950 req=6c4fe33d LZ table miss rate: {:.1f}%
+2026-05-25T00:09:10.054Z [WARN ] [storage-driver] pid=44809 req=73e0467e LZ collision detected at slot 0x{:06x}
+2026-05-25T00:09:11.981Z [INFO ] [encoder-worker] pid=35419 req=ed92b753 LZ table miss rate: {:.1f}%
+2026-05-25T00:09:12.103Z [INFO ] [api-gateway] pid=85396 req=e5228d31 MoE weights converged after 41295 bytes
+2026-05-25T00:09:12.294Z [DEBUG] [lz-cache] pid=32417 req=7ec391ef trace=7ec391ef op=predict byte=0x68 bpb=3.4334
+2026-05-25T00:09:14.985Z [INFO ] [api-gateway] pid=75960 req=182047f7 Config reloaded from disk
+2026-05-25T00:09:14.112Z [WARN ] [health-check] pid=33267 req=558492ba Rate limit approaching: 20089/576948 requests per minute
+2026-05-25T00:09:14.259Z [INFO ] [auth-service] pid=29212 req=80ce3505 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:09:15.031Z [INFO ] [telemetry] pid=45381 req=7bfeadd1 Rate limit check passed: 93859/0a9cc4 requests
+2026-05-25T00:09:16.386Z [DEBUG] [health-check] pid=21701 req=5c02f1da trace=5c02f1da op=predict byte=0x63 bpb=7.4445
+2026-05-25T00:09:17.854Z [INFO ] [storage-driver] pid=44774 req=86e35e9b Throughput: {:.1f} KB/s
+2026-05-25T00:09:19.295Z [WARN ] [scheduler] pid=24442 req=58d4d949 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:09:19.257Z [INFO ] [api-gateway] pid=38485 req=74300ccc LZ table miss rate: {:.1f}%
+2026-05-25T00:09:19.432Z [INFO ] [storage-driver] pid=35785 req=454a8e82 Session started: user_id=usr_{:06d}
+2026-05-25T00:09:20.308Z [INFO ] [lz-cache] pid=88255 req=eb91d7bc LZ table miss rate: {:.1f}%
+2026-05-25T00:09:21.472Z [INFO ] [auth-service] pid=67264 req=2ef17a90 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:09:21.686Z [ERROR] [api-gateway] pid=28426 req=6bc152ad Expert weight NaN detected at byte 41804
+2026-05-25T00:09:21.758Z [ERROR] [scheduler] pid=21096 req=d6d5aed2 SHA-256 mismatch: expected=45412, got=36cf1d
+2026-05-25T00:09:23.638Z [ERROR] [api-gateway] pid=77667 req=b39a442b LZ table full: eviction failed after 83668 retries
+2026-05-25T00:09:24.056Z [INFO ] [encoder-worker] pid=89140 req=0002572a Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:09:27.982Z [INFO ] [health-check] pid=29168 req=1f89cec2 Request completed successfully
+2026-05-25T00:09:28.594Z [INFO ] [lz-cache] pid=24068 req=6424fa05 Scheduled audit job dispatched: phase29a
+2026-05-25T00:09:29.740Z [DEBUG] [auth-service] pid=56494 req=71c966b3 trace=71c966b3 op=predict byte=0x47 bpb=4.2753
+2026-05-25T00:09:30.732Z [INFO ] [decoder-worker] pid=55722 req=80d2157b Rate limit check passed: 61199/2022d5 requests
+2026-05-25T00:09:32.132Z [INFO ] [lz-cache] pid=61633 req=a88fc85a Cache entry evicted (LRU)
+2026-05-25T00:09:34.790Z [ERROR] [auth-service] pid=15888 req=675db93b SHA-256 mismatch: expected=30863, got=76a1f2
+2026-05-25T00:09:36.063Z [DEBUG] [moe-engine] pid=60342 req=e1792fcd trace=e1792fcd op=predict byte=0xd7 bpb=7.4566
+2026-05-25T00:09:38.200Z [INFO ] [api-gateway] pid=59063 req=12a85ff7 Request completed successfully
+2026-05-25T00:09:38.792Z [WARN ] [lz-cache] pid=31245 req=39ba243a Decode retry #79275: possible data corruption
+2026-05-25T00:09:39.449Z [ERROR] [encoder-worker] pid=99438 req=5738db52 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:09:40.841Z [WARN ] [encoder-worker] pid=26671 req=91b3f921 Rate limit approaching: 23226/3c60fe requests per minute
+2026-05-25T00:09:43.596Z [INFO ] [health-check] pid=18906 req=b409b855 Encode job queued: file_id=47757
+2026-05-25T00:09:44.505Z [INFO ] [api-gateway] pid=65234 req=0843280a MoE weights converged after 36281 bytes
+2026-05-25T00:09:44.508Z [ERROR] [auth-service] pid=19275 req=090d7d2f Decode aborted: corrupt bitstream at offset 88400
+2026-05-25T00:09:45.056Z [DEBUG] [telemetry] pid=49769 req=6e77cdd3 trace=6e77cdd3 op=predict byte=0x74 bpb=1.1501
+2026-05-25T00:09:45.351Z [INFO ] [storage-driver] pid=60741 req=7b6fb65b Health check passed: all 26415 services healthy
+2026-05-25T00:09:47.058Z [INFO ] [moe-engine] pid=87151 req=3b668afa Request completed successfully
+2026-05-25T00:09:47.506Z [INFO ] [lz-cache] pid=55831 req=0b31324f Connection pool: 48327/426a2a active
+2026-05-25T00:09:49.286Z [INFO ] [moe-engine] pid=95674 req=8d28eef5 Connection pool: 79054/88fa61 active
+2026-05-25T00:09:49.510Z [INFO ] [storage-driver] pid=82478 req=3b046707 SHA-256 verified: 26088
+2026-05-25T00:09:51.229Z [INFO ] [lz-cache] pid=49375 req=9696e833 Cache entry evicted (LRU)
+2026-05-25T00:09:51.349Z [INFO ] [health-check] pid=96560 req=88516447 LZ table miss rate: {:.1f}%
+2026-05-25T00:09:53.166Z [ERROR] [health-check] pid=17486 req=dda1497a Encode failed: SEE_ERR_NOMEM (requested 82521 bytes)
+2026-05-25T00:09:56.370Z [WARN ] [moe-engine] pid=99469 req=03e30f78 Rate limit approaching: 21211/7ff72a requests per minute
+2026-05-25T00:09:56.491Z [INFO ] [auth-service] pid=50225 req=0328a80d Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:09:58.130Z [ERROR] [moe-engine] pid=85965 req=689ab92d Encode failed: SEE_ERR_NOMEM (requested 46234 bytes)
+2026-05-25T00:09:58.998Z [INFO ] [decoder-worker] pid=40496 req=a7ee2f23 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:09:59.115Z [DEBUG] [telemetry] pid=24308 req=3c1517fc trace=3c1517fc op=predict byte=0x27 bpb=4.5486
+2026-05-25T00:10:00.965Z [INFO ] [moe-engine] pid=94133 req=6a7cfd08 Session started: user_id=usr_{:06d}
+2026-05-25T00:10:03.962Z [ERROR] [api-gateway] pid=15847 req=290a42d2 Expert weight NaN detected at byte 29669
+2026-05-25T00:10:03.675Z [ERROR] [api-gateway] pid=95093 req=266b4b6d Encode failed: SEE_ERR_NOMEM (requested 20133 bytes)
+2026-05-25T00:10:05.750Z [WARN ] [telemetry] pid=85398 req=44e928ac Rate limit approaching: 41985/a84955 requests per minute
+2026-05-25T00:10:07.795Z [WARN ] [telemetry] pid=83460 req=14669189 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:10:09.349Z [DEBUG] [auth-service] pid=89370 req=aa7898aa trace=aa7898aa op=predict byte=0x85 bpb=6.5710
+2026-05-25T00:10:10.760Z [INFO ] [health-check] pid=85499 req=fbb61ff7 Config reloaded from disk
+2026-05-25T00:10:10.344Z [INFO ] [health-check] pid=77488 req=12b1178b Rate limit check passed: 60870/d83f65 requests
+2026-05-25T00:10:13.155Z [INFO ] [auth-service] pid=19666 req=b8e0c2e1 Throughput: {:.1f} KB/s
+2026-05-25T00:10:15.577Z [ERROR] [auth-service] pid=59725 req=a63f63ea Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:10:16.588Z [ERROR] [auth-service] pid=47389 req=ed944378 Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:10:18.946Z [INFO ] [encoder-worker] pid=31704 req=58eba462 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:10:19.288Z [INFO ] [decoder-worker] pid=82373 req=1891e25c Rate limit check passed: 32131/0e00d5 requests
+2026-05-25T00:10:21.885Z [ERROR] [health-check] pid=78274 req=bb6a3647 LZ table full: eviction failed after 69486 retries
+2026-05-25T00:10:22.913Z [INFO ] [encoder-worker] pid=20363 req=f7eba7e9 Connection pool: 19745/a77bb6 active
+2026-05-25T00:10:24.481Z [WARN ] [encoder-worker] pid=83160 req=51497675 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:10:24.428Z [INFO ] [scheduler] pid=36027 req=485873c1 Cache entry evicted (LRU)
+2026-05-25T00:10:26.556Z [ERROR] [health-check] pid=79528 req=5944a69c LZ table full: eviction failed after 49334 retries
+2026-05-25T00:10:27.721Z [INFO ] [moe-engine] pid=68611 req=498a9d9d Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:10:28.421Z [WARN ] [scheduler] pid=40783 req=99defd20 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:10:29.548Z [WARN ] [health-check] pid=17160 req=660fdc40 Rate limit approaching: 73636/7019fa requests per minute
+2026-05-25T00:10:29.021Z [DEBUG] [encoder-worker] pid=89293 req=54662ea9 trace=54662ea9 op=predict byte=0x0a bpb=7.6519
+2026-05-25T00:10:31.880Z [INFO ] [telemetry] pid=82468 req=e987cfb2 Cache entry evicted (LRU)
+2026-05-25T00:10:33.810Z [INFO ] [decoder-worker] pid=53450 req=e9209b3a Session started: user_id=usr_{:06d}
+2026-05-25T00:10:34.075Z [INFO ] [lz-cache] pid=40147 req=4d2ce796 Connection pool: 14427/8b7fa5 active
+2026-05-25T00:10:35.602Z [DEBUG] [health-check] pid=81001 req=0528d309 trace=0528d309 op=predict byte=0x4d bpb=1.6689
+2026-05-25T00:10:37.385Z [INFO ] [auth-service] pid=52431 req=dbfb491a Session started: user_id=usr_{:06d}
+2026-05-25T00:10:38.781Z [INFO ] [moe-engine] pid=83530 req=f785dcc1 MoE weights converged after 73353 bytes
+2026-05-25T00:10:40.212Z [INFO ] [scheduler] pid=62081 req=f9a61744 Connection pool: 68600/bd5942 active
+2026-05-25T00:10:42.758Z [WARN ] [auth-service] pid=28524 req=3ffdf8f1 Decode retry #90804: possible data corruption
+2026-05-25T00:10:43.943Z [INFO ] [api-gateway] pid=37423 req=016d26d9 Corpus loaded: 74058 bytes, domain=ffe7d0
+2026-05-25T00:10:43.124Z [DEBUG] [encoder-worker] pid=11785 req=602cf604 trace=602cf604 op=predict byte=0x52 bpb=4.6396
+2026-05-25T00:10:43.629Z [WARN ] [encoder-worker] pid=32376 req=6c9734c0 Worker backlog: 28332 items queued
+2026-05-25T00:10:46.536Z [ERROR] [decoder-worker] pid=78583 req=243a7f53 Connection timeout after 90478ms
+2026-05-25T00:10:47.338Z [WARN ] [api-gateway] pid=33491 req=515400a6 Slow encode detected: 71668 ms > threshold 1000 ms
+2026-05-25T00:10:48.376Z [ERROR] [scheduler] pid=18751 req=982e2afd Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:10:49.338Z [WARN ] [lz-cache] pid=87678 req=33dcd09c Slow encode detected: 23497 ms > threshold 1000 ms
+2026-05-25T00:10:51.917Z [ERROR] [auth-service] pid=32033 req=793130ce SHA-256 mismatch: expected=40386, got=6ed1ad
+2026-05-25T00:10:53.363Z [INFO ] [storage-driver] pid=65758 req=cea6e9bc Config reloaded from disk
+2026-05-25T00:10:54.667Z [ERROR] [telemetry] pid=89348 req=87db0168 Connection timeout after 31773ms
+2026-05-25T00:10:55.369Z [INFO ] [telemetry] pid=97823 req=daf9ae1b Throughput: {:.1f} KB/s
+2026-05-25T00:10:56.280Z [INFO ] [auth-service] pid=22334 req=4f75c3d1 Throughput: {:.1f} KB/s
+2026-05-25T00:10:58.084Z [ERROR] [api-gateway] pid=89632 req=ed758b74 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:10:59.528Z [INFO ] [api-gateway] pid=51187 req=b5e9489c Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:10:59.085Z [DEBUG] [health-check] pid=35289 req=0fbd6062 trace=0fbd6062 op=predict byte=0x4b bpb=6.1027
+2026-05-25T00:10:59.579Z [INFO ] [lz-cache] pid=76252 req=9bc88efe Session started: user_id=usr_{:06d}
+2026-05-25T00:11:01.083Z [INFO ] [encoder-worker] pid=33920 req=eb02c661 Cache entry evicted (LRU)
+2026-05-25T00:11:04.181Z [INFO ] [lz-cache] pid=16990 req=21fae8a0 Health check passed: all 47627 services healthy
+2026-05-25T00:11:06.550Z [INFO ] [scheduler] pid=74210 req=43b93b02 Throughput: {:.1f} KB/s
+2026-05-25T00:11:07.515Z [DEBUG] [health-check] pid=37190 req=cbd8715e trace=cbd8715e op=predict byte=0xaf bpb=5.8976
+2026-05-25T00:11:09.032Z [DEBUG] [lz-cache] pid=43844 req=c5fe21d6 trace=c5fe21d6 op=predict byte=0x6f bpb=4.2738
+2026-05-25T00:11:11.431Z [ERROR] [decoder-worker] pid=71242 req=79a759de Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:11:12.854Z [INFO ] [encoder-worker] pid=31331 req=5ba62f73 Scheduled audit job dispatched: phase29a
+2026-05-25T00:11:13.994Z [DEBUG] [telemetry] pid=73249 req=99d75477 trace=99d75477 op=predict byte=0xcd bpb=3.1012
+2026-05-25T00:11:15.974Z [INFO ] [storage-driver] pid=65822 req=1b9c67e0 MoE weights converged after 85692 bytes
+2026-05-25T00:11:18.904Z [INFO ] [decoder-worker] pid=17051 req=a9d500dd Cache entry evicted (LRU)
+2026-05-25T00:11:18.563Z [INFO ] [encoder-worker] pid=36649 req=2f4187bc Session started: user_id=usr_{:06d}
+2026-05-25T00:11:20.723Z [DEBUG] [moe-engine] pid=97613 req=e9af6d28 trace=e9af6d28 op=predict byte=0xc0 bpb=6.8194
+2026-05-25T00:11:20.906Z [INFO ] [health-check] pid=27501 req=20e58866 Health check passed: all 52875 services healthy
+2026-05-25T00:11:22.445Z [INFO ] [telemetry] pid=75726 req=5cbe693e Request completed successfully
+2026-05-25T00:11:22.476Z [WARN ] [decoder-worker] pid=47350 req=6cfb6acc Rate limit approaching: 60700/f61806 requests per minute
+2026-05-25T00:11:24.310Z [INFO ] [encoder-worker] pid=31087 req=ce9205ae Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:11:25.392Z [DEBUG] [encoder-worker] pid=33440 req=5d679515 trace=5d679515 op=predict byte=0xd9 bpb=4.7220
+2026-05-25T00:11:28.375Z [INFO ] [decoder-worker] pid=87352 req=01c7ea8b MoE weights converged after 35901 bytes
+2026-05-25T00:11:28.651Z [ERROR] [telemetry] pid=54231 req=40987d5c Expert weight NaN detected at byte 13084
+2026-05-25T00:11:28.353Z [INFO ] [telemetry] pid=79634 req=bb5e14d6 Health check passed: all 42588 services healthy
+2026-05-25T00:11:30.150Z [DEBUG] [auth-service] pid=20031 req=755afc3d trace=755afc3d op=predict byte=0xa7 bpb=3.6096
+2026-05-25T00:11:32.022Z [DEBUG] [encoder-worker] pid=93458 req=1429ef31 trace=1429ef31 op=predict byte=0x9a bpb=3.9577
+2026-05-25T00:11:32.310Z [DEBUG] [lz-cache] pid=25260 req=e98f8c8a trace=e98f8c8a op=predict byte=0x62 bpb=4.9963
+2026-05-25T00:11:34.931Z [ERROR] [moe-engine] pid=85148 req=0c8033f0 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:11:34.230Z [INFO ] [lz-cache] pid=37149 req=014b069c Request completed successfully
+2026-05-25T00:11:34.327Z [INFO ] [moe-engine] pid=87059 req=d3b4a1d1 Session started: user_id=usr_{:06d}
+2026-05-25T00:11:35.574Z [WARN ] [decoder-worker] pid=37608 req=be1924aa Slow encode detected: 98209 ms > threshold 1000 ms
+2026-05-25T00:11:38.578Z [INFO ] [moe-engine] pid=49850 req=87935334 LZ table miss rate: {:.1f}%
+2026-05-25T00:11:39.182Z [INFO ] [lz-cache] pid=80463 req=3c168418 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:11:41.613Z [DEBUG] [health-check] pid=56140 req=8cd1692d trace=8cd1692d op=predict byte=0x6f bpb=3.9273
+2026-05-25T00:11:42.946Z [INFO ] [encoder-worker] pid=75838 req=a2ded1de Corpus loaded: 79796 bytes, domain=c8caf2
+2026-05-25T00:11:44.141Z [WARN ] [lz-cache] pid=70820 req=d4721e33 Slow encode detected: 99568 ms > threshold 1000 ms
+2026-05-25T00:11:45.565Z [ERROR] [encoder-worker] pid=12992 req=bb6e0d06 Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:11:47.470Z [INFO ] [decoder-worker] pid=41367 req=753057b9 Encode job queued: file_id=71888
+2026-05-25T00:11:47.698Z [ERROR] [scheduler] pid=33183 req=fd5dda42 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:11:49.848Z [ERROR] [scheduler] pid=19222 req=dcb71b1f Decode aborted: corrupt bitstream at offset 44082
+2026-05-25T00:11:51.814Z [INFO ] [telemetry] pid=26260 req=70a6d78b Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:11:52.608Z [INFO ] [encoder-worker] pid=70062 req=b197603c Config reloaded from disk
+2026-05-25T00:11:52.689Z [INFO ] [decoder-worker] pid=13400 req=859353fa Connection pool: 58608/b9b6fd active
+2026-05-25T00:11:53.216Z [DEBUG] [decoder-worker] pid=93461 req=625cade5 trace=625cade5 op=predict byte=0x74 bpb=1.1960
+2026-05-25T00:11:54.535Z [INFO ] [auth-service] pid=57731 req=0316cde5 Rate limit check passed: 77740/cfcade requests
+2026-05-25T00:11:55.665Z [WARN ] [decoder-worker] pid=73438 req=7b67caba Decode retry #11865: possible data corruption
+2026-05-25T00:11:56.993Z [WARN ] [scheduler] pid=36546 req=e5ec276c Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:11:58.093Z [WARN ] [auth-service] pid=42072 req=85dff8e2 Rate limit approaching: 33944/7d7c0c requests per minute
+2026-05-25T00:12:00.779Z [DEBUG] [encoder-worker] pid=37227 req=4d81bc5e trace=4d81bc5e op=predict byte=0x74 bpb=2.7076
+2026-05-25T00:12:01.612Z [WARN ] [encoder-worker] pid=51793 req=c80aa7cf LZ collision detected at slot 0x{:06x}
+2026-05-25T00:12:02.504Z [ERROR] [api-gateway] pid=24617 req=94eb2ddd Worker panic: unhandled exception in moe_engine
+2026-05-25T00:12:04.326Z [INFO ] [storage-driver] pid=44629 req=a5310be0 Corpus loaded: 42639 bytes, domain=aeaa33
+2026-05-25T00:12:06.797Z [ERROR] [scheduler] pid=33435 req=7eebf539 Encode failed: SEE_ERR_NOMEM (requested 66625 bytes)
+2026-05-25T00:12:06.624Z [INFO ] [moe-engine] pid=79520 req=4e2da257 Config reloaded from disk
+2026-05-25T00:12:08.849Z [INFO ] [storage-driver] pid=95654 req=fb2cef68 Session started: user_id=usr_{:06d}
+2026-05-25T00:12:10.301Z [WARN ] [lz-cache] pid=62963 req=6ac89d70 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:12:12.740Z [INFO ] [telemetry] pid=83147 req=61e561bb Corpus loaded: 36142 bytes, domain=6e11d6
+2026-05-25T00:12:13.621Z [DEBUG] [auth-service] pid=73837 req=a8cfa238 trace=a8cfa238 op=predict byte=0x7f bpb=2.9610
+2026-05-25T00:12:15.844Z [INFO ] [encoder-worker] pid=80503 req=57baa888 Throughput: {:.1f} KB/s
+2026-05-25T00:12:15.926Z [INFO ] [auth-service] pid=42142 req=1687819b Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:12:17.341Z [DEBUG] [moe-engine] pid=71384 req=2f23cd0c trace=2f23cd0c op=predict byte=0x74 bpb=4.2256
+2026-05-25T00:12:18.825Z [DEBUG] [lz-cache] pid=25622 req=05ec647e trace=05ec647e op=predict byte=0xd2 bpb=3.9913
+2026-05-25T00:12:19.997Z [INFO ] [storage-driver] pid=84149 req=5f9c041d Session started: user_id=usr_{:06d}
+2026-05-25T00:12:20.186Z [INFO ] [storage-driver] pid=85225 req=d9fafbb9 Scheduled audit job dispatched: phase29a
+2026-05-25T00:12:22.598Z [INFO ] [scheduler] pid=85332 req=057ff1df LZ table miss rate: {:.1f}%
+2026-05-25T00:12:24.798Z [INFO ] [storage-driver] pid=85292 req=aa57c6e4 Throughput: {:.1f} KB/s
+2026-05-25T00:12:24.026Z [INFO ] [encoder-worker] pid=49705 req=35746477 Encode job queued: file_id=65611
+2026-05-25T00:12:25.210Z [DEBUG] [moe-engine] pid=68564 req=6162faf8 trace=6162faf8 op=predict byte=0xe0 bpb=3.7942
+2026-05-25T00:12:27.489Z [ERROR] [encoder-worker] pid=37477 req=1f27fa2c Encode failed: SEE_ERR_NOMEM (requested 74108 bytes)
+2026-05-25T00:12:28.718Z [INFO ] [scheduler] pid=59811 req=04221bf2 Session started: user_id=usr_{:06d}
+2026-05-25T00:12:28.918Z [DEBUG] [health-check] pid=12077 req=e03db918 trace=e03db918 op=predict byte=0x8c bpb=6.1074
+2026-05-25T00:12:29.843Z [INFO ] [moe-engine] pid=77976 req=025fc70f Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:12:29.636Z [INFO ] [decoder-worker] pid=97643 req=f71de9c5 Encode job queued: file_id=57850
+2026-05-25T00:12:30.429Z [INFO ] [telemetry] pid=28919 req=7872d73f Session started: user_id=usr_{:06d}
+2026-05-25T00:12:32.489Z [INFO ] [scheduler] pid=89071 req=70bf1783 Request completed successfully
+2026-05-25T00:12:33.256Z [ERROR] [moe-engine] pid=77467 req=2036971a LZ table full: eviction failed after 28690 retries
+2026-05-25T00:12:34.134Z [DEBUG] [lz-cache] pid=97602 req=f9553aad trace=f9553aad op=predict byte=0x88 bpb=6.3193
+2026-05-25T00:12:35.643Z [INFO ] [decoder-worker] pid=28737 req=2ea2daec Worker thread started
+2026-05-25T00:12:37.826Z [ERROR] [health-check] pid=91436 req=36ff812d Expert weight NaN detected at byte 81549
+2026-05-25T00:12:39.232Z [ERROR] [scheduler] pid=97557 req=a9caa03d Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:12:42.860Z [INFO ] [encoder-worker] pid=55563 req=4bb3e035 LZ table miss rate: {:.1f}%
+2026-05-25T00:12:43.863Z [INFO ] [moe-engine] pid=79881 req=86695d31 Throughput: {:.1f} KB/s
+2026-05-25T00:12:46.922Z [DEBUG] [decoder-worker] pid=16411 req=33c32015 trace=33c32015 op=predict byte=0xcd bpb=3.0755
+2026-05-25T00:12:47.773Z [WARN ] [scheduler] pid=27841 req=77cf1eb6 Rate limit approaching: 10046/26556c requests per minute
+2026-05-25T00:12:48.143Z [INFO ] [scheduler] pid=41780 req=d28b829a Health check passed: all 30898 services healthy
+2026-05-25T00:12:50.237Z [INFO ] [auth-service] pid=68114 req=26df6494 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:12:52.897Z [INFO ] [encoder-worker] pid=30142 req=9c2b4ca9 Cache entry evicted (LRU)
+2026-05-25T00:12:54.655Z [WARN ] [lz-cache] pid=89077 req=1a617efe Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:12:55.574Z [WARN ] [lz-cache] pid=20891 req=fbab907a High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:12:56.834Z [ERROR] [health-check] pid=15518 req=aae50490 Encode failed: SEE_ERR_NOMEM (requested 87377 bytes)
+2026-05-25T00:12:57.832Z [DEBUG] [api-gateway] pid=70390 req=c9c34dd8 trace=c9c34dd8 op=predict byte=0x13 bpb=7.5814
+2026-05-25T00:12:59.968Z [DEBUG] [health-check] pid=84308 req=06906169 trace=06906169 op=predict byte=0x5c bpb=1.1690
+2026-05-25T00:13:00.715Z [INFO ] [health-check] pid=69850 req=cd4901c9 MoE weights converged after 57000 bytes
+2026-05-25T00:13:03.320Z [INFO ] [decoder-worker] pid=75514 req=d0c29b24 Cache entry evicted (LRU)
+2026-05-25T00:13:04.497Z [DEBUG] [decoder-worker] pid=36496 req=c1ae35bb trace=c1ae35bb op=predict byte=0x87 bpb=6.9918
+2026-05-25T00:13:05.633Z [WARN ] [telemetry] pid=32091 req=c138a98b Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:13:07.331Z [INFO ] [encoder-worker] pid=54585 req=436c3827 Corpus loaded: 56373 bytes, domain=cb23b3
+2026-05-25T00:13:09.303Z [WARN ] [api-gateway] pid=13454 req=fe20193b Worker backlog: 39421 items queued
+2026-05-25T00:13:10.822Z [INFO ] [auth-service] pid=82918 req=705f052b Corpus loaded: 84460 bytes, domain=626d2a
+2026-05-25T00:13:12.107Z [WARN ] [telemetry] pid=80827 req=3c15ae1f Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:13:14.066Z [ERROR] [moe-engine] pid=94536 req=b858e203 Connection timeout after 70986ms
+2026-05-25T00:13:16.970Z [INFO ] [api-gateway] pid=83268 req=8f59748b Worker thread started
+2026-05-25T00:13:19.784Z [INFO ] [auth-service] pid=27479 req=7da5b648 Health check passed: all 38207 services healthy
+2026-05-25T00:13:20.072Z [DEBUG] [auth-service] pid=56969 req=9c0e6192 trace=9c0e6192 op=predict byte=0x3d bpb=6.4223
+2026-05-25T00:13:22.968Z [ERROR] [health-check] pid=35509 req=bafa34da Connection timeout after 88843ms
+2026-05-25T00:13:23.351Z [DEBUG] [health-check] pid=59976 req=ce0ed735 trace=ce0ed735 op=predict byte=0xf2 bpb=1.9696
+2026-05-25T00:13:23.769Z [INFO ] [telemetry] pid=21892 req=4083ff8f Encode job queued: file_id=44144
+2026-05-25T00:13:23.879Z [INFO ] [api-gateway] pid=99484 req=8e9ff74a Throughput: {:.1f} KB/s
+2026-05-25T00:13:23.833Z [INFO ] [moe-engine] pid=80151 req=7f8a1fca SHA-256 verified: 55252
+2026-05-25T00:13:26.960Z [INFO ] [auth-service] pid=50850 req=f0d1fa72 LZ table miss rate: {:.1f}%
+2026-05-25T00:13:27.067Z [DEBUG] [storage-driver] pid=68711 req=d4eee313 trace=d4eee313 op=predict byte=0x3b bpb=5.6809
+2026-05-25T00:13:28.775Z [INFO ] [decoder-worker] pid=34686 req=d14d4890 Health check passed: all 15451 services healthy
+2026-05-25T00:13:29.329Z [INFO ] [lz-cache] pid=68707 req=520041ca SHA-256 verified: 48398
+2026-05-25T00:13:30.656Z [ERROR] [health-check] pid=47643 req=4e4f4dd0 SHA-256 mismatch: expected=79147, got=1550dc
+2026-05-25T00:13:31.697Z [INFO ] [storage-driver] pid=49707 req=07289719 Health check passed: all 34672 services healthy
+2026-05-25T00:13:33.926Z [INFO ] [encoder-worker] pid=36687 req=51ffdef6 Config reloaded from disk
+2026-05-25T00:13:33.209Z [INFO ] [decoder-worker] pid=39933 req=fcb1a281 Throughput: {:.1f} KB/s
+2026-05-25T00:13:36.922Z [DEBUG] [lz-cache] pid=64216 req=029e435d trace=029e435d op=predict byte=0xc1 bpb=2.9466
+2026-05-25T00:13:36.068Z [WARN ] [lz-cache] pid=92121 req=99a2186f Decode retry #15478: possible data corruption
+2026-05-25T00:13:37.205Z [INFO ] [decoder-worker] pid=80288 req=65f0bb99 LZ table miss rate: {:.1f}%
+2026-05-25T00:13:37.452Z [INFO ] [scheduler] pid=24602 req=7a93ef0e Connection pool: 14984/c6b04e active
+2026-05-25T00:13:39.156Z [INFO ] [storage-driver] pid=84553 req=51634a91 Request completed successfully
+2026-05-25T00:13:41.570Z [ERROR] [encoder-worker] pid=92210 req=39a90a45 Connection timeout after 54025ms
+2026-05-25T00:13:41.390Z [ERROR] [telemetry] pid=99753 req=0e84c070 Encode failed: SEE_ERR_NOMEM (requested 63729 bytes)
+2026-05-25T00:13:41.699Z [INFO ] [health-check] pid=83877 req=a0d763f0 Corpus loaded: 19689 bytes, domain=0a225a
+2026-05-25T00:13:43.903Z [INFO ] [telemetry] pid=72800 req=a2fe9cb4 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:13:43.900Z [DEBUG] [api-gateway] pid=15577 req=4cc378c3 trace=4cc378c3 op=predict byte=0xeb bpb=3.8726
+2026-05-25T00:13:44.333Z [INFO ] [health-check] pid=37276 req=a0624c48 Health check passed: all 65199 services healthy
+2026-05-25T00:13:46.144Z [INFO ] [storage-driver] pid=38437 req=34b6d9da SHA-256 verified: 84499
+2026-05-25T00:13:47.024Z [ERROR] [scheduler] pid=16669 req=9fa3fe4b Connection timeout after 38465ms
+2026-05-25T00:13:49.780Z [WARN ] [auth-service] pid=45824 req=aac016bd Slow encode detected: 94048 ms > threshold 1000 ms
+2026-05-25T00:13:51.207Z [INFO ] [auth-service] pid=98629 req=e03c119a Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:13:53.922Z [INFO ] [lz-cache] pid=57571 req=d736b50e Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:13:55.773Z [INFO ] [health-check] pid=83618 req=68e0c800 Corpus loaded: 92402 bytes, domain=f06b2c
+2026-05-25T00:13:55.906Z [WARN ] [scheduler] pid=32342 req=611e6047 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:13:56.363Z [INFO ] [telemetry] pid=27687 req=11a2c64d LZ table miss rate: {:.1f}%
+2026-05-25T00:13:58.717Z [WARN ] [api-gateway] pid=32159 req=971f640d Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:13:59.309Z [WARN ] [health-check] pid=45761 req=56679189 Worker backlog: 96430 items queued
+2026-05-25T00:14:00.565Z [WARN ] [health-check] pid=98067 req=636dfeba Rate limit approaching: 59170/abd856 requests per minute
+2026-05-25T00:14:00.157Z [INFO ] [lz-cache] pid=97323 req=abfb9abf Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:14:01.057Z [INFO ] [encoder-worker] pid=11264 req=dd1ad072 Request completed successfully
+2026-05-25T00:14:03.837Z [INFO ] [encoder-worker] pid=22004 req=2f81d4b2 Request completed successfully
+2026-05-25T00:14:04.899Z [WARN ] [auth-service] pid=71500 req=b4ce5f31 Rate limit approaching: 98625/1f5e4d requests per minute
+2026-05-25T00:14:05.256Z [INFO ] [encoder-worker] pid=34516 req=13664d76 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:14:07.165Z [DEBUG] [moe-engine] pid=95831 req=87d22e31 trace=87d22e31 op=predict byte=0x80 bpb=2.9701
+2026-05-25T00:14:07.582Z [INFO ] [scheduler] pid=91244 req=bba04391 Session started: user_id=usr_{:06d}
+2026-05-25T00:14:08.476Z [INFO ] [scheduler] pid=58554 req=cf9b6d33 Config reloaded from disk
+2026-05-25T00:14:10.374Z [INFO ] [health-check] pid=69267 req=e62abbfe Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:14:10.483Z [DEBUG] [decoder-worker] pid=38441 req=f22fdeb8 trace=f22fdeb8 op=predict byte=0x30 bpb=1.1147
+2026-05-25T00:14:11.970Z [INFO ] [moe-engine] pid=61410 req=058cdd44 Encode job queued: file_id=49783
+2026-05-25T00:14:13.979Z [WARN ] [api-gateway] pid=52373 req=1b2391f0 Worker backlog: 89667 items queued
+2026-05-25T00:14:14.578Z [INFO ] [telemetry] pid=99660 req=a165c37d Session started: user_id=usr_{:06d}
+2026-05-25T00:14:16.715Z [INFO ] [api-gateway] pid=64657 req=7273b7af Connection pool: 37453/a703c4 active
+2026-05-25T00:14:16.638Z [INFO ] [telemetry] pid=87704 req=e950419d Connection pool: 42649/fa2832 active
+2026-05-25T00:14:17.228Z [ERROR] [scheduler] pid=18772 req=ba52dbf2 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:14:19.254Z [INFO ] [telemetry] pid=51178 req=51eddb85 Corpus loaded: 36222 bytes, domain=605b1a
+2026-05-25T00:14:21.568Z [WARN ] [api-gateway] pid=36770 req=4c55542d Slow encode detected: 48810 ms > threshold 1000 ms
+2026-05-25T00:14:21.888Z [WARN ] [telemetry] pid=46169 req=460781e5 Weight divergence: expert 89500 dropped below 0.001
+2026-05-25T00:14:22.579Z [WARN ] [telemetry] pid=59155 req=2449ea0f High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:14:24.083Z [INFO ] [storage-driver] pid=18372 req=21c20510 Cache entry evicted (LRU)
+2026-05-25T00:14:25.057Z [INFO ] [scheduler] pid=30314 req=ca2ba8f5 Corpus loaded: 21727 bytes, domain=6a1d45
+2026-05-25T00:14:27.522Z [ERROR] [api-gateway] pid=15556 req=39bbab8a SHA-256 mismatch: expected=38704, got=771ff3
+2026-05-25T00:14:29.718Z [WARN ] [api-gateway] pid=82093 req=b276c469 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:14:29.342Z [INFO ] [storage-driver] pid=37889 req=2a07a58d Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:14:29.777Z [INFO ] [health-check] pid=13777 req=490ec6f3 Scheduled audit job dispatched: phase29a
+2026-05-25T00:14:31.055Z [DEBUG] [lz-cache] pid=87759 req=ac98c942 trace=ac98c942 op=predict byte=0x9b bpb=3.5266
+2026-05-25T00:14:32.737Z [INFO ] [auth-service] pid=38417 req=d7f3b054 Rate limit check passed: 13121/9eab6b requests
+2026-05-25T00:14:33.877Z [WARN ] [auth-service] pid=74445 req=c0fce144 Worker backlog: 83509 items queued
+2026-05-25T00:14:33.427Z [INFO ] [api-gateway] pid=59993 req=4daeac5c Encode job queued: file_id=22744
+2026-05-25T00:14:35.115Z [INFO ] [api-gateway] pid=49590 req=e60584a2 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:14:35.509Z [INFO ] [scheduler] pid=45398 req=8eb4b40e Request completed successfully
+2026-05-25T00:14:36.706Z [WARN ] [health-check] pid=96063 req=e5bc89c0 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:14:37.328Z [INFO ] [api-gateway] pid=57714 req=0c1b7e93 Cache entry evicted (LRU)
+2026-05-25T00:14:39.906Z [INFO ] [health-check] pid=71274 req=66db005e Throughput: {:.1f} KB/s
+2026-05-25T00:14:39.844Z [INFO ] [scheduler] pid=15604 req=ae2a9c01 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:14:41.500Z [INFO ] [health-check] pid=75717 req=e177105f Corpus loaded: 15502 bytes, domain=352747
+2026-05-25T00:14:41.704Z [DEBUG] [telemetry] pid=85631 req=648e85eb trace=648e85eb op=predict byte=0xb3 bpb=6.2488
+2026-05-25T00:14:43.310Z [INFO ] [moe-engine] pid=34684 req=7422acb0 Request completed successfully
+2026-05-25T00:14:45.967Z [ERROR] [encoder-worker] pid=12125 req=30e5ce91 SHA-256 mismatch: expected=48769, got=3dfd9c
+2026-05-25T00:14:46.359Z [WARN ] [api-gateway] pid=60822 req=4cdaebf4 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:14:46.701Z [DEBUG] [scheduler] pid=86955 req=1916f984 trace=1916f984 op=predict byte=0xb3 bpb=7.6439
+2026-05-25T00:14:48.035Z [INFO ] [health-check] pid=72242 req=e7e77386 MoE weights converged after 81268 bytes
+2026-05-25T00:14:48.820Z [ERROR] [scheduler] pid=11349 req=691d8bea LZ table full: eviction failed after 87781 retries
+2026-05-25T00:14:51.166Z [DEBUG] [api-gateway] pid=32795 req=8448d4ed trace=8448d4ed op=predict byte=0xe7 bpb=3.0537
+2026-05-25T00:14:51.309Z [ERROR] [telemetry] pid=30289 req=6d3e4848 Encode failed: SEE_ERR_NOMEM (requested 36099 bytes)
+2026-05-25T00:14:51.448Z [INFO ] [auth-service] pid=39980 req=d87534bf Scheduled audit job dispatched: phase29a
+2026-05-25T00:14:53.034Z [DEBUG] [health-check] pid=93208 req=b19dab55 trace=b19dab55 op=predict byte=0x36 bpb=3.9304
+2026-05-25T00:14:53.165Z [ERROR] [health-check] pid=21435 req=1122e28f Expert weight NaN detected at byte 97123
+2026-05-25T00:14:53.011Z [INFO ] [moe-engine] pid=18758 req=435467e1 Encode job queued: file_id=86299
+2026-05-25T00:14:54.490Z [ERROR] [api-gateway] pid=86752 req=aa7927f8 SHA-256 mismatch: expected=49759, got=462cf6
+2026-05-25T00:14:55.960Z [INFO ] [health-check] pid=97435 req=1227b7ac Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:14:56.629Z [INFO ] [health-check] pid=52006 req=6e8f19bc Health check passed: all 13626 services healthy
+2026-05-25T00:14:58.378Z [ERROR] [health-check] pid=88509 req=2843d696 Expert weight NaN detected at byte 75160
+2026-05-25T00:14:59.480Z [INFO ] [scheduler] pid=80161 req=576b67e3 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:14:59.274Z [DEBUG] [scheduler] pid=79827 req=f9a8743d trace=f9a8743d op=predict byte=0x20 bpb=2.7612
+2026-05-25T00:15:02.270Z [INFO ] [auth-service] pid=51032 req=8375e8f9 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:15:03.566Z [DEBUG] [moe-engine] pid=99912 req=4b861f69 trace=4b861f69 op=predict byte=0xb9 bpb=5.9883
+2026-05-25T00:15:04.401Z [WARN ] [auth-service] pid=25363 req=85261ad4 Rate limit approaching: 93701/7e7a57 requests per minute
+2026-05-25T00:15:05.957Z [INFO ] [auth-service] pid=43387 req=5765f418 Cache entry evicted (LRU)
+2026-05-25T00:15:08.185Z [ERROR] [lz-cache] pid=44825 req=6ba57136 SHA-256 mismatch: expected=66060, got=faa78e
+2026-05-25T00:15:08.114Z [INFO ] [api-gateway] pid=46353 req=d8e0713b Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:15:09.780Z [ERROR] [lz-cache] pid=41546 req=48c08d33 Connection timeout after 38893ms
+2026-05-25T00:15:10.913Z [WARN ] [moe-engine] pid=84873 req=290fb2bd Rate limit approaching: 73734/3fc6c2 requests per minute
+2026-05-25T00:15:10.453Z [INFO ] [lz-cache] pid=41296 req=1b7db566 LZ table miss rate: {:.1f}%
+2026-05-25T00:15:10.858Z [WARN ] [auth-service] pid=13018 req=c02d7e7f Rate limit approaching: 36886/fba87c requests per minute
+2026-05-25T00:15:11.614Z [INFO ] [telemetry] pid=32070 req=aeeb5608 Health check passed: all 37149 services healthy
+2026-05-25T00:15:14.447Z [INFO ] [auth-service] pid=69276 req=b294a9b6 Request completed successfully
+2026-05-25T00:15:14.092Z [INFO ] [lz-cache] pid=72721 req=ff41e2a0 Encode job queued: file_id=32091
+2026-05-25T00:15:16.234Z [INFO ] [encoder-worker] pid=42819 req=8d85e013 Cache entry evicted (LRU)
+2026-05-25T00:15:17.617Z [INFO ] [storage-driver] pid=22094 req=11186c1a Worker thread started
+2026-05-25T00:15:19.784Z [INFO ] [encoder-worker] pid=79986 req=c87c1935 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:15:20.473Z [INFO ] [storage-driver] pid=27688 req=0e8db9f5 Encode job queued: file_id=16336
+2026-05-25T00:15:20.910Z [INFO ] [encoder-worker] pid=31245 req=b6a35409 Worker thread started
+2026-05-25T00:15:22.878Z [DEBUG] [storage-driver] pid=42955 req=bfd4f67c trace=bfd4f67c op=predict byte=0xd0 bpb=2.1683
+2026-05-25T00:15:23.768Z [INFO ] [moe-engine] pid=49117 req=fea59d94 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:15:23.903Z [WARN ] [decoder-worker] pid=61951 req=cb33e3c6 Weight divergence: expert 28653 dropped below 0.001
+2026-05-25T00:15:23.612Z [INFO ] [health-check] pid=42160 req=f5a98c9a Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:15:24.061Z [ERROR] [storage-driver] pid=72843 req=7a23c1bc Encode failed: SEE_ERR_NOMEM (requested 56200 bytes)
+2026-05-25T00:15:24.904Z [INFO ] [storage-driver] pid=68767 req=5f0b5135 Health check passed: all 53783 services healthy
+2026-05-25T00:15:25.282Z [WARN ] [health-check] pid=59535 req=f7d75510 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:15:26.067Z [INFO ] [api-gateway] pid=27424 req=4d8b876a SHA-256 verified: 64837
+2026-05-25T00:15:27.871Z [INFO ] [lz-cache] pid=18662 req=ba2c43ec Connection pool: 71381/54ca09 active
+2026-05-25T00:15:28.336Z [INFO ] [auth-service] pid=79036 req=aa399b2c Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:15:30.948Z [INFO ] [scheduler] pid=16722 req=fdc6aebf LZ table miss rate: {:.1f}%
+2026-05-25T00:15:30.948Z [ERROR] [storage-driver] pid=62409 req=5ced1a62 Decode aborted: corrupt bitstream at offset 84261
+2026-05-25T00:15:33.602Z [WARN ] [health-check] pid=30191 req=d0a7d3b9 Decode retry #72019: possible data corruption
+2026-05-25T00:15:33.815Z [WARN ] [moe-engine] pid=90028 req=4955f0b0 Slow encode detected: 54054 ms > threshold 1000 ms
+2026-05-25T00:15:35.041Z [INFO ] [storage-driver] pid=22099 req=6db4f81c Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:15:35.607Z [INFO ] [telemetry] pid=86397 req=1997b851 Cache entry evicted (LRU)
+2026-05-25T00:15:36.872Z [ERROR] [encoder-worker] pid=18512 req=48d160c6 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:15:37.246Z [INFO ] [scheduler] pid=57022 req=cf6de802 Rate limit check passed: 50160/9659b8 requests
+2026-05-25T00:15:38.459Z [DEBUG] [decoder-worker] pid=17700 req=096b9227 trace=096b9227 op=predict byte=0x3c bpb=2.0338
+2026-05-25T00:15:39.684Z [DEBUG] [encoder-worker] pid=63723 req=7b49ecf3 trace=7b49ecf3 op=predict byte=0x3e bpb=7.5091
+2026-05-25T00:15:41.191Z [ERROR] [auth-service] pid=72026 req=b588489e SHA-256 mismatch: expected=57737, got=5024d3
+2026-05-25T00:15:43.095Z [WARN ] [health-check] pid=68931 req=dcd1ad00 Slow encode detected: 52848 ms > threshold 1000 ms
+2026-05-25T00:15:44.345Z [INFO ] [decoder-worker] pid=77211 req=23ed6309 Config reloaded from disk
+2026-05-25T00:15:44.551Z [WARN ] [storage-driver] pid=29373 req=33a37a74 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:15:47.945Z [WARN ] [api-gateway] pid=12348 req=48d40d84 Decode retry #87243: possible data corruption
+2026-05-25T00:15:47.244Z [ERROR] [moe-engine] pid=49358 req=73037257 SHA-256 mismatch: expected=40077, got=821ee3
+2026-05-25T00:15:48.798Z [WARN ] [api-gateway] pid=45865 req=f5694392 Decode retry #12142: possible data corruption
+2026-05-25T00:15:49.953Z [INFO ] [health-check] pid=81442 req=541e4d9c SHA-256 verified: 11862
+2026-05-25T00:15:51.078Z [INFO ] [decoder-worker] pid=98055 req=a84f1cf1 MoE weights converged after 64470 bytes
+2026-05-25T00:15:53.492Z [INFO ] [api-gateway] pid=18648 req=f41e2e7c MoE weights converged after 33458 bytes
+2026-05-25T00:15:55.490Z [INFO ] [encoder-worker] pid=33120 req=178f48eb Health check passed: all 34811 services healthy
+2026-05-25T00:15:57.524Z [DEBUG] [telemetry] pid=61023 req=07a04246 trace=07a04246 op=predict byte=0xdd bpb=1.7250
+2026-05-25T00:15:59.037Z [WARN ] [moe-engine] pid=91405 req=2ae2c9d1 Worker backlog: 86854 items queued
+2026-05-25T00:16:00.608Z [INFO ] [auth-service] pid=97107 req=5afce6a6 Throughput: {:.1f} KB/s
+2026-05-25T00:16:02.039Z [INFO ] [auth-service] pid=74794 req=22c1d7a1 Corpus loaded: 82299 bytes, domain=ae70aa
+2026-05-25T00:16:04.315Z [INFO ] [lz-cache] pid=43853 req=ff97588e Health check passed: all 30058 services healthy
+2026-05-25T00:16:06.187Z [WARN ] [api-gateway] pid=34218 req=48ffeea5 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:16:07.940Z [ERROR] [encoder-worker] pid=46243 req=3b44dabc Expert weight NaN detected at byte 82116
+2026-05-25T00:16:09.270Z [INFO ] [telemetry] pid=19010 req=0d536045 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:16:10.417Z [ERROR] [moe-engine] pid=32069 req=14fe88bc LZ table full: eviction failed after 94998 retries
+2026-05-25T00:16:10.414Z [ERROR] [lz-cache] pid=74572 req=d782d6a7 Connection timeout after 17781ms
+2026-05-25T00:16:12.590Z [WARN ] [auth-service] pid=42640 req=49a4443e LZ collision detected at slot 0x{:06x}
+2026-05-25T00:16:13.255Z [DEBUG] [auth-service] pid=27360 req=abc836cf trace=abc836cf op=predict byte=0x14 bpb=2.6160
+2026-05-25T00:16:14.115Z [DEBUG] [encoder-worker] pid=27427 req=af1f1779 trace=af1f1779 op=predict byte=0x6f bpb=2.9358
+2026-05-25T00:16:16.211Z [DEBUG] [moe-engine] pid=11803 req=b79ccfc9 trace=b79ccfc9 op=predict byte=0xd3 bpb=1.7487
+2026-05-25T00:16:17.501Z [INFO ] [encoder-worker] pid=52613 req=de69c076 Session started: user_id=usr_{:06d}
+2026-05-25T00:16:18.902Z [INFO ] [health-check] pid=10400 req=0c86e6b6 Session started: user_id=usr_{:06d}
+2026-05-25T00:16:19.704Z [INFO ] [lz-cache] pid=11804 req=2d53cf30 Config reloaded from disk
+2026-05-25T00:16:21.112Z [WARN ] [health-check] pid=72960 req=45071807 Weight divergence: expert 67426 dropped below 0.001
+2026-05-25T00:16:22.775Z [INFO ] [storage-driver] pid=96283 req=194d397d Rate limit check passed: 50660/ceb3b2 requests
+2026-05-25T00:16:24.001Z [ERROR] [auth-service] pid=92250 req=ebfce2d6 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:16:25.046Z [INFO ] [encoder-worker] pid=65685 req=bb8cea35 MoE weights converged after 45643 bytes
+2026-05-25T00:16:28.887Z [INFO ] [scheduler] pid=79794 req=c2490241 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:16:28.123Z [WARN ] [health-check] pid=23449 req=bd15e59b Worker backlog: 27789 items queued
+2026-05-25T00:16:30.242Z [DEBUG] [auth-service] pid=37405 req=e3ca0915 trace=e3ca0915 op=predict byte=0x2f bpb=3.3857
+2026-05-25T00:16:32.515Z [INFO ] [lz-cache] pid=15789 req=c2cb0bc7 Config reloaded from disk
+2026-05-25T00:16:33.239Z [ERROR] [lz-cache] pid=55738 req=000616d1 Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:16:35.677Z [DEBUG] [decoder-worker] pid=27383 req=3585ac00 trace=3585ac00 op=predict byte=0x97 bpb=4.2260
+2026-05-25T00:16:36.007Z [ERROR] [decoder-worker] pid=36760 req=080fc9b3 Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:16:37.907Z [INFO ] [storage-driver] pid=21118 req=6b9c7e6b Encode job queued: file_id=37759
+2026-05-25T00:16:38.949Z [ERROR] [storage-driver] pid=32562 req=72f580bd Worker panic: unhandled exception in moe_engine
+2026-05-25T00:16:38.246Z [ERROR] [encoder-worker] pid=79932 req=0dc55340 Encode failed: SEE_ERR_NOMEM (requested 83408 bytes)
+2026-05-25T00:16:40.502Z [ERROR] [auth-service] pid=80648 req=12fcff49 Encode failed: SEE_ERR_NOMEM (requested 54448 bytes)
+2026-05-25T00:16:42.697Z [INFO ] [decoder-worker] pid=77889 req=a2e13d75 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:16:43.058Z [INFO ] [api-gateway] pid=52270 req=07c4d918 Encode job queued: file_id=93498
+2026-05-25T00:16:45.516Z [DEBUG] [auth-service] pid=59682 req=5a744822 trace=5a744822 op=predict byte=0x3a bpb=6.5628
+2026-05-25T00:16:47.321Z [INFO ] [lz-cache] pid=81535 req=28c635ff Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:16:48.741Z [INFO ] [storage-driver] pid=13440 req=6f47d6b6 Worker thread started
+2026-05-25T00:16:49.317Z [ERROR] [decoder-worker] pid=83793 req=67ba189d Encode failed: SEE_ERR_NOMEM (requested 40907 bytes)
+2026-05-25T00:16:51.632Z [ERROR] [health-check] pid=82422 req=bac70b9c SHA-256 mismatch: expected=91922, got=f08597
+2026-05-25T00:16:52.267Z [INFO ] [auth-service] pid=26484 req=869c4218 Cache entry evicted (LRU)
+2026-05-25T00:16:53.713Z [INFO ] [decoder-worker] pid=42638 req=7940964f Rate limit check passed: 35409/c194bd requests
+2026-05-25T00:16:54.162Z [DEBUG] [lz-cache] pid=78383 req=b9da7480 trace=b9da7480 op=predict byte=0x9d bpb=3.8535
+2026-05-25T00:16:54.363Z [WARN ] [decoder-worker] pid=38032 req=87400c48 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:16:57.386Z [INFO ] [lz-cache] pid=62858 req=0ad56e56 Connection pool: 98572/bcf3cf active
+2026-05-25T00:16:58.296Z [INFO ] [lz-cache] pid=41646 req=1be52474 Corpus loaded: 75663 bytes, domain=5b5e67
+2026-05-25T00:16:59.826Z [INFO ] [lz-cache] pid=38329 req=3d231e3b SHA-256 verified: 56538
+2026-05-25T00:17:00.137Z [INFO ] [encoder-worker] pid=78971 req=99901c0d Scheduled audit job dispatched: phase29a
+2026-05-25T00:17:01.600Z [INFO ] [moe-engine] pid=61031 req=f632090a Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:17:01.983Z [WARN ] [encoder-worker] pid=88275 req=8cbbca01 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:17:03.111Z [WARN ] [api-gateway] pid=61348 req=ae1c64c6 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:17:04.245Z [INFO ] [moe-engine] pid=13457 req=7a3367d0 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:17:05.504Z [INFO ] [telemetry] pid=22088 req=6b13ad0a MoE weights converged after 14781 bytes
+2026-05-25T00:17:08.369Z [WARN ] [health-check] pid=78070 req=be66de49 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:17:09.919Z [ERROR] [encoder-worker] pid=60631 req=c342adc9 LZ table full: eviction failed after 99772 retries
+2026-05-25T00:17:09.118Z [INFO ] [health-check] pid=84978 req=2ef38ed1 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:17:10.054Z [ERROR] [api-gateway] pid=35437 req=fc32964b Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:17:10.412Z [INFO ] [scheduler] pid=76505 req=d27f6d1f Throughput: {:.1f} KB/s
+2026-05-25T00:17:12.672Z [DEBUG] [auth-service] pid=91852 req=a03f137f trace=a03f137f op=predict byte=0xc0 bpb=7.0871
+2026-05-25T00:17:13.021Z [ERROR] [auth-service] pid=21751 req=daacfe2b Expert weight NaN detected at byte 29029
+2026-05-25T00:17:15.158Z [INFO ] [auth-service] pid=34242 req=30bc76c4 Connection pool: 48591/485774 active
+2026-05-25T00:17:16.920Z [INFO ] [scheduler] pid=14000 req=c387d8eb Scheduled audit job dispatched: phase29a
+2026-05-25T00:17:18.604Z [INFO ] [storage-driver] pid=47316 req=c1cb8d69 Request completed successfully
+2026-05-25T00:17:20.828Z [ERROR] [decoder-worker] pid=82170 req=441b1a37 Decode aborted: corrupt bitstream at offset 85092
+2026-05-25T00:17:21.945Z [DEBUG] [decoder-worker] pid=79272 req=c438c125 trace=c438c125 op=predict byte=0xa0 bpb=5.0005
+2026-05-25T00:17:23.489Z [INFO ] [moe-engine] pid=62254 req=c6f7cc83 Corpus loaded: 29523 bytes, domain=7b3007
+2026-05-25T00:17:25.833Z [INFO ] [api-gateway] pid=88694 req=838edbe4 Health check passed: all 61024 services healthy
+2026-05-25T00:17:27.417Z [INFO ] [api-gateway] pid=59177 req=f2020876 Rate limit check passed: 17338/8ef979 requests
+2026-05-25T00:17:29.276Z [DEBUG] [storage-driver] pid=58281 req=24c61f93 trace=24c61f93 op=predict byte=0x70 bpb=5.4625
+2026-05-25T00:17:29.763Z [WARN ] [scheduler] pid=31274 req=48107252 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:17:31.954Z [DEBUG] [scheduler] pid=16251 req=ec3e83c3 trace=ec3e83c3 op=predict byte=0x52 bpb=4.9579
+2026-05-25T00:17:32.207Z [INFO ] [api-gateway] pid=18802 req=8895d134 SHA-256 verified: 36009
+2026-05-25T00:17:33.243Z [WARN ] [encoder-worker] pid=70850 req=ed5acddc High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:17:35.194Z [DEBUG] [telemetry] pid=74978 req=21e219ce trace=21e219ce op=predict byte=0xb0 bpb=3.6319
+2026-05-25T00:17:36.282Z [INFO ] [storage-driver] pid=44681 req=4bf66063 Worker thread started
+2026-05-25T00:17:36.937Z [INFO ] [moe-engine] pid=99397 req=73a524c1 MoE weights converged after 23318 bytes
+2026-05-25T00:17:37.803Z [INFO ] [decoder-worker] pid=74431 req=a3999919 Corpus loaded: 33906 bytes, domain=3465a4
+2026-05-25T00:17:39.982Z [ERROR] [scheduler] pid=80694 req=d38a9b74 Connection timeout after 25071ms
+2026-05-25T00:17:41.880Z [WARN ] [auth-service] pid=62793 req=a2fb8131 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:17:43.795Z [INFO ] [api-gateway] pid=96364 req=24c4e6ca Encode job queued: file_id=33651
+2026-05-25T00:17:43.570Z [WARN ] [encoder-worker] pid=63075 req=afceaf1a Slow encode detected: 19550 ms > threshold 1000 ms
+2026-05-25T00:17:45.888Z [DEBUG] [lz-cache] pid=91715 req=3c375315 trace=3c375315 op=predict byte=0x93 bpb=6.4834
+2026-05-25T00:17:45.662Z [INFO ] [decoder-worker] pid=96810 req=bac97a02 Corpus loaded: 66773 bytes, domain=806518
+2026-05-25T00:17:45.026Z [INFO ] [scheduler] pid=14692 req=81edceb3 Scheduled audit job dispatched: phase29a
+2026-05-25T00:17:48.528Z [WARN ] [lz-cache] pid=92289 req=9d30b0f7 Worker backlog: 74867 items queued
+2026-05-25T00:17:49.390Z [WARN ] [api-gateway] pid=99333 req=883a5ef5 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:17:51.956Z [INFO ] [scheduler] pid=14015 req=91b6aa01 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:17:52.850Z [WARN ] [auth-service] pid=28396 req=64e19340 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:17:54.935Z [INFO ] [storage-driver] pid=54588 req=ef3dc5a8 Health check passed: all 31551 services healthy
+2026-05-25T00:17:57.378Z [WARN ] [decoder-worker] pid=87217 req=2bfed52a Weight divergence: expert 39133 dropped below 0.001
+2026-05-25T00:17:58.328Z [DEBUG] [scheduler] pid=60630 req=84d8ec6a trace=84d8ec6a op=predict byte=0xa6 bpb=1.1094
+2026-05-25T00:17:59.643Z [DEBUG] [lz-cache] pid=39387 req=d32a27d1 trace=d32a27d1 op=predict byte=0x03 bpb=2.3591
+2026-05-25T00:18:01.203Z [DEBUG] [storage-driver] pid=73074 req=d517fa40 trace=d517fa40 op=predict byte=0xf7 bpb=2.1537
+2026-05-25T00:18:02.372Z [DEBUG] [telemetry] pid=45275 req=94fc712b trace=94fc712b op=predict byte=0x13 bpb=1.6021
+2026-05-25T00:18:03.837Z [INFO ] [encoder-worker] pid=69464 req=53435238 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:18:04.046Z [DEBUG] [storage-driver] pid=65869 req=18edc1e6 trace=18edc1e6 op=predict byte=0xe5 bpb=6.9609
+2026-05-25T00:18:04.574Z [ERROR] [lz-cache] pid=47156 req=cd68f11c Encode failed: SEE_ERR_NOMEM (requested 14612 bytes)
+2026-05-25T00:18:04.240Z [DEBUG] [decoder-worker] pid=10881 req=c1fcdfc3 trace=c1fcdfc3 op=predict byte=0x8b bpb=3.5269
+2026-05-25T00:18:06.811Z [ERROR] [storage-driver] pid=31337 req=592b4112 LZ table full: eviction failed after 53370 retries
+2026-05-25T00:18:08.987Z [ERROR] [scheduler] pid=31966 req=478fcedd LZ table full: eviction failed after 74580 retries
+2026-05-25T00:18:09.159Z [INFO ] [auth-service] pid=75802 req=49bc819e Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:18:11.034Z [INFO ] [moe-engine] pid=19535 req=e0df542d Connection pool: 27187/3b416d active
+2026-05-25T00:18:12.537Z [DEBUG] [health-check] pid=49749 req=19b1cec8 trace=19b1cec8 op=predict byte=0x91 bpb=6.9579
+2026-05-25T00:18:14.375Z [WARN ] [auth-service] pid=28883 req=b77c1be6 Worker backlog: 39109 items queued
+2026-05-25T00:18:16.071Z [DEBUG] [decoder-worker] pid=47737 req=eb536282 trace=eb536282 op=predict byte=0x6b bpb=7.6479
+2026-05-25T00:18:17.425Z [INFO ] [storage-driver] pid=18246 req=223bda76 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:18:18.475Z [INFO ] [moe-engine] pid=13175 req=76935d1f Corpus loaded: 31634 bytes, domain=f17d84
+2026-05-25T00:18:19.584Z [DEBUG] [telemetry] pid=27782 req=4400592c trace=4400592c op=predict byte=0xc2 bpb=2.0833
+2026-05-25T00:18:21.660Z [INFO ] [decoder-worker] pid=76968 req=9e5d531a Scheduled audit job dispatched: phase29a
+2026-05-25T00:18:22.758Z [INFO ] [scheduler] pid=35994 req=affee02e Scheduled audit job dispatched: phase29a
+2026-05-25T00:18:23.808Z [INFO ] [encoder-worker] pid=52854 req=bb991df7 Cache entry evicted (LRU)
+2026-05-25T00:18:25.964Z [ERROR] [moe-engine] pid=44967 req=f08fecf7 Decode aborted: corrupt bitstream at offset 26011
+2026-05-25T00:18:25.071Z [INFO ] [lz-cache] pid=85708 req=dd8d0747 Config reloaded from disk
+2026-05-25T00:18:25.133Z [INFO ] [moe-engine] pid=79074 req=988ca047 Config reloaded from disk
+2026-05-25T00:18:26.904Z [DEBUG] [encoder-worker] pid=17115 req=5d433dc2 trace=5d433dc2 op=predict byte=0x60 bpb=2.2129
+2026-05-25T00:18:26.817Z [ERROR] [scheduler] pid=77977 req=e283eb28 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:18:28.892Z [INFO ] [moe-engine] pid=49597 req=047032f6 Connection pool: 60836/29fd32 active
+2026-05-25T00:18:30.058Z [INFO ] [api-gateway] pid=94267 req=c768edb9 Encode job queued: file_id=86923
+2026-05-25T00:18:31.212Z [INFO ] [api-gateway] pid=71616 req=9398ba02 Cache entry evicted (LRU)
+2026-05-25T00:18:32.620Z [DEBUG] [scheduler] pid=96531 req=68fd1179 trace=68fd1179 op=predict byte=0x47 bpb=1.3745
+2026-05-25T00:18:34.935Z [DEBUG] [encoder-worker] pid=60145 req=1dadd807 trace=1dadd807 op=predict byte=0xce bpb=1.7315
+2026-05-25T00:18:34.389Z [INFO ] [auth-service] pid=68522 req=b8bf6903 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:18:35.640Z [ERROR] [api-gateway] pid=69682 req=a90bdc3a Expert weight NaN detected at byte 78287
+2026-05-25T00:18:36.829Z [INFO ] [api-gateway] pid=88161 req=227763f8 LZ table miss rate: {:.1f}%
+2026-05-25T00:18:38.794Z [DEBUG] [api-gateway] pid=26803 req=98a0be4c trace=98a0be4c op=predict byte=0xfe bpb=6.7645
+2026-05-25T00:18:38.265Z [WARN ] [encoder-worker] pid=35002 req=24522ef6 Decode retry #57056: possible data corruption
+2026-05-25T00:18:41.370Z [DEBUG] [decoder-worker] pid=73157 req=0690b4f3 trace=0690b4f3 op=predict byte=0x1b bpb=3.9572
+2026-05-25T00:18:42.233Z [WARN ] [moe-engine] pid=46428 req=8eba2e78 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:18:43.630Z [INFO ] [storage-driver] pid=54877 req=e6afcce9 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:18:43.257Z [WARN ] [scheduler] pid=65468 req=7393c675 Rate limit approaching: 91645/213843 requests per minute
+2026-05-25T00:18:45.212Z [INFO ] [decoder-worker] pid=66909 req=40480f7b Request completed successfully
+2026-05-25T00:18:45.781Z [DEBUG] [health-check] pid=23156 req=8dc8ad97 trace=8dc8ad97 op=predict byte=0xe6 bpb=3.7905
+2026-05-25T00:18:47.418Z [WARN ] [decoder-worker] pid=24077 req=5dc228d3 Slow encode detected: 87692 ms > threshold 1000 ms
+2026-05-25T00:18:48.720Z [INFO ] [api-gateway] pid=20447 req=3aac2179 Worker thread started
+2026-05-25T00:18:49.123Z [INFO ] [auth-service] pid=55735 req=6f627524 Corpus loaded: 79222 bytes, domain=b5ee46
+2026-05-25T00:18:50.599Z [INFO ] [moe-engine] pid=89555 req=c6e9c9c4 Health check passed: all 30523 services healthy
+2026-05-25T00:18:50.773Z [INFO ] [decoder-worker] pid=14205 req=7999d29e Worker thread started
+2026-05-25T00:18:51.322Z [INFO ] [api-gateway] pid=43071 req=77a4d097 Worker thread started
+2026-05-25T00:18:51.304Z [DEBUG] [encoder-worker] pid=43491 req=2c10180e trace=2c10180e op=predict byte=0x13 bpb=6.6548
+2026-05-25T00:18:53.104Z [ERROR] [scheduler] pid=93739 req=fd5cd74e Connection timeout after 94938ms
+2026-05-25T00:18:54.187Z [WARN ] [encoder-worker] pid=73564 req=260027aa Rate limit approaching: 16436/f854b9 requests per minute
+2026-05-25T00:18:54.456Z [DEBUG] [storage-driver] pid=86397 req=9859df42 trace=9859df42 op=predict byte=0x3a bpb=7.9697
+2026-05-25T00:18:56.676Z [INFO ] [lz-cache] pid=13448 req=a90ae1cd SHA-256 verified: 71245
+2026-05-25T00:18:58.950Z [INFO ] [lz-cache] pid=40829 req=cc977171 Throughput: {:.1f} KB/s
+2026-05-25T00:19:00.584Z [INFO ] [encoder-worker] pid=44083 req=ed965f31 LZ table miss rate: {:.1f}%
+2026-05-25T00:19:02.389Z [ERROR] [telemetry] pid=13367 req=2c2de0bd Expert weight NaN detected at byte 80791
+2026-05-25T00:19:04.474Z [INFO ] [auth-service] pid=94928 req=673a0c97 Cache entry evicted (LRU)
+2026-05-25T00:19:05.115Z [WARN ] [auth-service] pid=97108 req=d91218a9 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:19:06.186Z [INFO ] [scheduler] pid=33203 req=a46f87b5 Config reloaded from disk
+2026-05-25T00:19:07.463Z [INFO ] [auth-service] pid=93840 req=ed1d3817 LZ table miss rate: {:.1f}%
+2026-05-25T00:19:08.845Z [INFO ] [encoder-worker] pid=30047 req=71a67925 Corpus loaded: 54304 bytes, domain=3454d3
+2026-05-25T00:19:10.264Z [INFO ] [storage-driver] pid=10044 req=8bf54fa8 Rate limit check passed: 85218/71aa52 requests
+2026-05-25T00:19:11.366Z [INFO ] [storage-driver] pid=65694 req=93645e43 Request completed successfully
+2026-05-25T00:19:13.328Z [ERROR] [decoder-worker] pid=63396 req=df85a192 Encode failed: SEE_ERR_NOMEM (requested 40493 bytes)
+2026-05-25T00:19:14.280Z [INFO ] [health-check] pid=46492 req=2a630401 LZ table miss rate: {:.1f}%
+2026-05-25T00:19:14.099Z [ERROR] [health-check] pid=73470 req=102c89ba Encode failed: SEE_ERR_NOMEM (requested 77605 bytes)
+2026-05-25T00:19:15.602Z [WARN ] [lz-cache] pid=86253 req=ea467d0d Decode retry #91073: possible data corruption
+2026-05-25T00:19:15.116Z [INFO ] [api-gateway] pid=90438 req=1c534b87 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:19:16.335Z [INFO ] [health-check] pid=88119 req=0fd68618 Corpus loaded: 82776 bytes, domain=ca2e77
+2026-05-25T00:19:16.698Z [INFO ] [health-check] pid=16442 req=7c4a42db Request completed successfully
+2026-05-25T00:19:19.334Z [DEBUG] [storage-driver] pid=66536 req=9d07285b trace=9d07285b op=predict byte=0xfe bpb=3.8732
+2026-05-25T00:19:21.196Z [INFO ] [decoder-worker] pid=65520 req=4f8ccb0b Throughput: {:.1f} KB/s
+2026-05-25T00:19:23.111Z [ERROR] [api-gateway] pid=41787 req=6cd6b9e1 Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:19:24.438Z [INFO ] [auth-service] pid=40002 req=9bb5a052 Worker thread started
+2026-05-25T00:19:26.381Z [WARN ] [scheduler] pid=27607 req=4f848c31 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:19:28.895Z [ERROR] [lz-cache] pid=80366 req=0f5a1a7c SHA-256 mismatch: expected=24201, got=f2fcd9
+2026-05-25T00:19:28.747Z [ERROR] [auth-service] pid=11785 req=5bbdcdb6 Expert weight NaN detected at byte 68473
+2026-05-25T00:19:29.271Z [INFO ] [api-gateway] pid=72747 req=40508324 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:19:31.668Z [INFO ] [lz-cache] pid=98047 req=20bf262b Corpus loaded: 40482 bytes, domain=a60a80
+2026-05-25T00:19:32.157Z [DEBUG] [scheduler] pid=24601 req=e14b400f trace=e14b400f op=predict byte=0x47 bpb=7.6113
+2026-05-25T00:19:34.031Z [WARN ] [lz-cache] pid=99413 req=fa26897a LZ collision detected at slot 0x{:06x}
+2026-05-25T00:19:35.623Z [ERROR] [storage-driver] pid=11653 req=798816f2 SHA-256 mismatch: expected=18817, got=c6281f
+2026-05-25T00:19:37.732Z [INFO ] [telemetry] pid=91805 req=251356e1 Connection pool: 53387/75836f active
+2026-05-25T00:19:40.437Z [WARN ] [scheduler] pid=77395 req=8151ef6c LZ collision detected at slot 0x{:06x}
+2026-05-25T00:19:40.150Z [ERROR] [moe-engine] pid=18645 req=e106ae32 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:19:41.857Z [ERROR] [storage-driver] pid=80630 req=a93bea35 Decode aborted: corrupt bitstream at offset 91539
+2026-05-25T00:19:42.606Z [INFO ] [scheduler] pid=43265 req=ae57927f Health check passed: all 40480 services healthy
+2026-05-25T00:19:43.529Z [ERROR] [moe-engine] pid=29785 req=cad75ebe Encode failed: SEE_ERR_NOMEM (requested 94681 bytes)
+2026-05-25T00:19:46.708Z [INFO ] [auth-service] pid=29097 req=364b9aa2 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:19:47.392Z [WARN ] [health-check] pid=15938 req=61208478 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:19:49.322Z [INFO ] [api-gateway] pid=51854 req=8d938a1b Connection pool: 94037/2b8bfc active
+2026-05-25T00:19:50.448Z [ERROR] [telemetry] pid=14570 req=ca445a6b SHA-256 mismatch: expected=36025, got=08a756
+2026-05-25T00:19:52.888Z [INFO ] [api-gateway] pid=66734 req=0bcbb729 Health check passed: all 65323 services healthy
+2026-05-25T00:19:52.376Z [INFO ] [moe-engine] pid=10207 req=fc9db77e Scheduled audit job dispatched: phase29a
+2026-05-25T00:19:54.571Z [INFO ] [health-check] pid=82608 req=33ca11ee Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:19:55.074Z [DEBUG] [auth-service] pid=79355 req=1e49c76a trace=1e49c76a op=predict byte=0xf8 bpb=6.4711
+2026-05-25T00:19:56.902Z [INFO ] [auth-service] pid=57581 req=6dc2d7db Scheduled audit job dispatched: phase29a
+2026-05-25T00:19:58.522Z [INFO ] [scheduler] pid=11925 req=2fd049b1 LZ table miss rate: {:.1f}%
+2026-05-25T00:19:59.287Z [INFO ] [scheduler] pid=48114 req=7c959cad Cache entry evicted (LRU)
+2026-05-25T00:19:59.617Z [DEBUG] [auth-service] pid=44900 req=2344f207 trace=2344f207 op=predict byte=0x5a bpb=2.1390
+2026-05-25T00:20:01.497Z [INFO ] [storage-driver] pid=68887 req=966f3d47 Worker thread started
+2026-05-25T00:20:03.224Z [INFO ] [telemetry] pid=10378 req=817bf3ce Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:20:06.059Z [INFO ] [health-check] pid=32502 req=0d86ff36 SHA-256 verified: 27827
+2026-05-25T00:20:06.493Z [ERROR] [storage-driver] pid=44316 req=2ec9e5f6 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:20:06.761Z [INFO ] [storage-driver] pid=25226 req=0f1abefd Throughput: {:.1f} KB/s
+2026-05-25T00:20:07.898Z [WARN ] [api-gateway] pid=15747 req=22dba981 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:20:08.352Z [INFO ] [storage-driver] pid=48408 req=b61cc55b Connection pool: 94654/481d64 active
+2026-05-25T00:20:09.036Z [INFO ] [lz-cache] pid=25147 req=f4e0740f Session started: user_id=usr_{:06d}
+2026-05-25T00:20:09.892Z [INFO ] [decoder-worker] pid=39069 req=9c5bad2e Encode job queued: file_id=19007
+2026-05-25T00:20:12.560Z [WARN ] [storage-driver] pid=45783 req=0f7b5245 Decode retry #15101: possible data corruption
+2026-05-25T00:20:12.721Z [INFO ] [telemetry] pid=60151 req=ccda08bf LZ table miss rate: {:.1f}%
+2026-05-25T00:20:12.553Z [INFO ] [scheduler] pid=56194 req=9eb01a8e Cache entry evicted (LRU)
+2026-05-25T00:20:15.097Z [INFO ] [encoder-worker] pid=92436 req=0ae19e7e LZ table miss rate: {:.1f}%
+2026-05-25T00:20:16.055Z [DEBUG] [api-gateway] pid=48657 req=246f5c1d trace=246f5c1d op=predict byte=0xe3 bpb=5.7738
+2026-05-25T00:20:18.448Z [INFO ] [decoder-worker] pid=63231 req=a243b9ab Throughput: {:.1f} KB/s
+2026-05-25T00:20:20.450Z [ERROR] [telemetry] pid=30697 req=0f3cc54f Decode aborted: corrupt bitstream at offset 16655
+2026-05-25T00:20:22.725Z [ERROR] [telemetry] pid=47030 req=08308982 SHA-256 mismatch: expected=74528, got=33252e
+2026-05-25T00:20:24.402Z [DEBUG] [telemetry] pid=40225 req=a4d7809a trace=a4d7809a op=predict byte=0x21 bpb=1.3370
+2026-05-25T00:20:24.356Z [DEBUG] [auth-service] pid=36642 req=b8ab8e09 trace=b8ab8e09 op=predict byte=0x3c bpb=1.0210
+2026-05-25T00:20:25.982Z [INFO ] [moe-engine] pid=76385 req=6dac29b6 LZ table miss rate: {:.1f}%
+2026-05-25T00:20:26.659Z [INFO ] [moe-engine] pid=99918 req=e8c80d96 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:20:26.733Z [ERROR] [health-check] pid=19658 req=8c28d4a4 Decode aborted: corrupt bitstream at offset 67571
+2026-05-25T00:20:28.008Z [INFO ] [moe-engine] pid=86159 req=49fa555e Throughput: {:.1f} KB/s
+2026-05-25T00:20:29.388Z [DEBUG] [telemetry] pid=19552 req=d414cafe trace=d414cafe op=predict byte=0xfc bpb=2.4876
+2026-05-25T00:20:30.808Z [INFO ] [health-check] pid=23863 req=2f035a0c Scheduled audit job dispatched: phase29a
+2026-05-25T00:20:30.522Z [INFO ] [encoder-worker] pid=14187 req=11dabe5e Worker thread started
+2026-05-25T00:20:31.772Z [INFO ] [decoder-worker] pid=60335 req=1ddca90a Health check passed: all 68205 services healthy
+2026-05-25T00:20:33.429Z [ERROR] [storage-driver] pid=52372 req=8b0409e4 LZ table full: eviction failed after 21498 retries
+2026-05-25T00:20:35.001Z [INFO ] [api-gateway] pid=58502 req=243711ee Throughput: {:.1f} KB/s
+2026-05-25T00:20:37.069Z [INFO ] [encoder-worker] pid=31247 req=cd185ea5 Connection pool: 82185/03220e active
+2026-05-25T00:20:38.340Z [ERROR] [encoder-worker] pid=10560 req=e8eca39b Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:20:39.547Z [INFO ] [auth-service] pid=84576 req=e1772a38 Scheduled audit job dispatched: phase29a
+2026-05-25T00:20:41.158Z [DEBUG] [auth-service] pid=18803 req=dbab2341 trace=dbab2341 op=predict byte=0xc0 bpb=5.2606
+2026-05-25T00:20:43.055Z [ERROR] [scheduler] pid=76724 req=e632ef0a Expert weight NaN detected at byte 53476
+2026-05-25T00:20:43.946Z [INFO ] [auth-service] pid=27730 req=fab8cd39 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:20:45.224Z [ERROR] [encoder-worker] pid=57173 req=10e7ee6f Connection timeout after 11337ms
+2026-05-25T00:20:47.416Z [INFO ] [scheduler] pid=26671 req=7f7eb2ed Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:20:48.135Z [INFO ] [api-gateway] pid=55145 req=d32b3c0d Connection pool: 67667/e9f129 active
+2026-05-25T00:20:50.904Z [DEBUG] [api-gateway] pid=88409 req=a6d9d3d1 trace=a6d9d3d1 op=predict byte=0x2d bpb=3.9100
+2026-05-25T00:20:52.162Z [DEBUG] [encoder-worker] pid=59560 req=783cb761 trace=783cb761 op=predict byte=0x14 bpb=7.0242
+2026-05-25T00:20:53.961Z [ERROR] [moe-engine] pid=44559 req=c90020bf Connection timeout after 80937ms
+2026-05-25T00:20:53.717Z [WARN ] [api-gateway] pid=58089 req=80474077 Decode retry #83030: possible data corruption
+2026-05-25T00:20:54.400Z [INFO ] [encoder-worker] pid=57454 req=cddedccc Throughput: {:.1f} KB/s
+2026-05-25T00:20:57.385Z [DEBUG] [lz-cache] pid=11118 req=6ab584fd trace=6ab584fd op=predict byte=0x9a bpb=5.5306
+2026-05-25T00:20:57.963Z [INFO ] [decoder-worker] pid=60507 req=d8b4d672 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:20:59.504Z [DEBUG] [telemetry] pid=99021 req=26bbf675 trace=26bbf675 op=predict byte=0x14 bpb=4.7366
+2026-05-25T00:21:01.908Z [ERROR] [auth-service] pid=93816 req=68561bad Connection timeout after 50781ms
+2026-05-25T00:21:02.723Z [INFO ] [scheduler] pid=79681 req=0ebf1523 Connection pool: 39479/7db522 active
+2026-05-25T00:21:04.273Z [DEBUG] [storage-driver] pid=13668 req=7fdfc5c0 trace=7fdfc5c0 op=predict byte=0xbf bpb=7.8610
+2026-05-25T00:21:05.877Z [WARN ] [health-check] pid=53361 req=44c08b4e Worker backlog: 62609 items queued
+2026-05-25T00:21:05.586Z [WARN ] [auth-service] pid=66479 req=ce908ee8 Weight divergence: expert 46746 dropped below 0.001
+2026-05-25T00:21:06.873Z [ERROR] [lz-cache] pid=54786 req=820f4642 LZ table full: eviction failed after 62310 retries
+2026-05-25T00:21:08.666Z [INFO ] [scheduler] pid=41404 req=46b3fcbf Throughput: {:.1f} KB/s
+2026-05-25T00:21:10.984Z [INFO ] [moe-engine] pid=51515 req=1dc8b74a LZ table miss rate: {:.1f}%
+2026-05-25T00:21:12.325Z [INFO ] [api-gateway] pid=79576 req=1f3a3502 Throughput: {:.1f} KB/s
+2026-05-25T00:21:13.815Z [INFO ] [lz-cache] pid=76255 req=2d1ca2b3 Scheduled audit job dispatched: phase29a
+2026-05-25T00:21:13.409Z [DEBUG] [decoder-worker] pid=69371 req=71d87c8f trace=71d87c8f op=predict byte=0x43 bpb=5.0411
+2026-05-25T00:21:15.949Z [WARN ] [moe-engine] pid=10446 req=31ea2821 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:21:17.435Z [INFO ] [storage-driver] pid=13318 req=0bae6d2b Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:21:17.359Z [INFO ] [moe-engine] pid=62166 req=eb210c92 Rate limit check passed: 92253/2c76e5 requests
+2026-05-25T00:21:19.151Z [ERROR] [health-check] pid=88765 req=b8895a75 LZ table full: eviction failed after 85446 retries
+2026-05-25T00:21:20.372Z [DEBUG] [scheduler] pid=78447 req=9daeceaa trace=9daeceaa op=predict byte=0x59 bpb=1.0100
+2026-05-25T00:21:22.437Z [DEBUG] [moe-engine] pid=39556 req=c827e447 trace=c827e447 op=predict byte=0x42 bpb=2.5865
+2026-05-25T00:21:22.849Z [INFO ] [api-gateway] pid=22011 req=7833eece Worker thread started
+2026-05-25T00:21:24.723Z [WARN ] [api-gateway] pid=74407 req=194274cf LZ collision detected at slot 0x{:06x}
+2026-05-25T00:21:24.993Z [WARN ] [health-check] pid=80009 req=c3155e4b Rate limit approaching: 62761/f4fada requests per minute
+2026-05-25T00:21:27.686Z [DEBUG] [decoder-worker] pid=43260 req=9b806a19 trace=9b806a19 op=predict byte=0x4e bpb=3.4227
+2026-05-25T00:21:29.853Z [ERROR] [decoder-worker] pid=33414 req=dc383057 Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:21:31.278Z [DEBUG] [scheduler] pid=94902 req=3ea0dd43 trace=3ea0dd43 op=predict byte=0x3a bpb=4.7210
+2026-05-25T00:21:32.178Z [WARN ] [lz-cache] pid=73644 req=3c7f1fd1 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:21:33.370Z [INFO ] [storage-driver] pid=97027 req=c8d7f25c Health check passed: all 40046 services healthy
+2026-05-25T00:21:34.278Z [ERROR] [encoder-worker] pid=92078 req=cc9dc19c Encode failed: SEE_ERR_NOMEM (requested 58272 bytes)
+2026-05-25T00:21:34.508Z [DEBUG] [encoder-worker] pid=87454 req=fc199ebc trace=fc199ebc op=predict byte=0xa4 bpb=4.1560
+2026-05-25T00:21:35.075Z [INFO ] [api-gateway] pid=43242 req=231830a3 Encode job queued: file_id=66963
+2026-05-25T00:21:37.236Z [ERROR] [moe-engine] pid=79727 req=674dfb85 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:21:38.860Z [ERROR] [decoder-worker] pid=95463 req=21c106e7 Decode aborted: corrupt bitstream at offset 98467
+2026-05-25T00:21:39.186Z [INFO ] [auth-service] pid=25111 req=4f0b6127 Cache entry evicted (LRU)
+2026-05-25T00:21:40.818Z [INFO ] [api-gateway] pid=86820 req=28960c25 Cache entry evicted (LRU)
+2026-05-25T00:21:42.304Z [WARN ] [api-gateway] pid=10156 req=b601e5b2 Slow encode detected: 65163 ms > threshold 1000 ms
+2026-05-25T00:21:43.416Z [ERROR] [scheduler] pid=21668 req=ec6123eb Decode aborted: corrupt bitstream at offset 36385
+2026-05-25T00:21:44.582Z [INFO ] [moe-engine] pid=14932 req=7862f1cf Health check passed: all 45703 services healthy
+2026-05-25T00:21:46.690Z [INFO ] [telemetry] pid=58622 req=34b51e65 Scheduled audit job dispatched: phase29a
+2026-05-25T00:21:46.995Z [INFO ] [moe-engine] pid=51158 req=fcc966c6 LZ table miss rate: {:.1f}%
+2026-05-25T00:21:47.592Z [INFO ] [lz-cache] pid=50290 req=becde24c MoE weights converged after 19567 bytes
+2026-05-25T00:21:48.619Z [INFO ] [auth-service] pid=63728 req=e183cfa3 MoE weights converged after 12251 bytes
+2026-05-25T00:21:50.008Z [DEBUG] [moe-engine] pid=42660 req=450513d0 trace=450513d0 op=predict byte=0x50 bpb=1.7253
+2026-05-25T00:21:53.293Z [ERROR] [scheduler] pid=32719 req=210bf60a Encode failed: SEE_ERR_NOMEM (requested 72749 bytes)
+2026-05-25T00:21:54.390Z [WARN ] [telemetry] pid=86756 req=5630899b Slow encode detected: 26470 ms > threshold 1000 ms
+2026-05-25T00:21:57.194Z [INFO ] [auth-service] pid=56631 req=0702c1db Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:21:57.406Z [INFO ] [scheduler] pid=82794 req=f6be5f8c Session started: user_id=usr_{:06d}
+2026-05-25T00:21:58.468Z [INFO ] [encoder-worker] pid=36830 req=5ef8fa9b LZ table miss rate: {:.1f}%
+2026-05-25T00:21:59.565Z [INFO ] [health-check] pid=49486 req=1b979060 Connection pool: 96938/e6ca4f active
+2026-05-25T00:22:01.596Z [DEBUG] [telemetry] pid=84590 req=e5ae01ed trace=e5ae01ed op=predict byte=0x8f bpb=3.6700
+2026-05-25T00:22:03.233Z [INFO ] [encoder-worker] pid=67429 req=f8e74535 LZ table miss rate: {:.1f}%
+2026-05-25T00:22:05.136Z [INFO ] [api-gateway] pid=83280 req=29d295d6 MoE weights converged after 65328 bytes
+2026-05-25T00:22:06.224Z [INFO ] [auth-service] pid=11221 req=cb0fab8e Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:22:07.768Z [WARN ] [scheduler] pid=26102 req=70e39ecb Decode retry #69807: possible data corruption
+2026-05-25T00:22:09.174Z [INFO ] [api-gateway] pid=94116 req=2c6e7aa8 Throughput: {:.1f} KB/s
+2026-05-25T00:22:09.299Z [INFO ] [lz-cache] pid=26653 req=21be4ca5 Corpus loaded: 48797 bytes, domain=eaba4e
+2026-05-25T00:22:09.947Z [INFO ] [api-gateway] pid=96580 req=d4d1bf15 Corpus loaded: 70629 bytes, domain=3403a4
+2026-05-25T00:22:10.394Z [WARN ] [telemetry] pid=98819 req=70d21fea Worker backlog: 92434 items queued
+2026-05-25T00:22:11.133Z [ERROR] [lz-cache] pid=76470 req=b66db5df LZ table full: eviction failed after 42427 retries
+2026-05-25T00:22:11.883Z [INFO ] [encoder-worker] pid=77307 req=87ea19f2 Worker thread started
+2026-05-25T00:22:13.104Z [INFO ] [api-gateway] pid=88415 req=eeba719d Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:22:14.115Z [INFO ] [scheduler] pid=43361 req=f2023981 Connection pool: 38876/e8a793 active
+2026-05-25T00:22:15.520Z [WARN ] [telemetry] pid=35598 req=f546f5ee High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:22:16.508Z [INFO ] [api-gateway] pid=12727 req=455dc614 Encode job queued: file_id=11353
+2026-05-25T00:22:17.898Z [DEBUG] [decoder-worker] pid=93186 req=65b2e4c5 trace=65b2e4c5 op=predict byte=0x6b bpb=2.1197
+2026-05-25T00:22:18.428Z [INFO ] [health-check] pid=34246 req=3bb11ffe Scheduled audit job dispatched: phase29a
+2026-05-25T00:22:19.946Z [WARN ] [telemetry] pid=28580 req=8af0cf0c Slow encode detected: 13640 ms > threshold 1000 ms
+2026-05-25T00:22:21.846Z [WARN ] [moe-engine] pid=87517 req=0ac33b9c Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:22:22.670Z [INFO ] [decoder-worker] pid=59411 req=0af15cc2 Cache entry evicted (LRU)
+2026-05-25T00:22:24.767Z [INFO ] [api-gateway] pid=30582 req=d9da9362 Cache entry evicted (LRU)
+2026-05-25T00:22:24.556Z [DEBUG] [encoder-worker] pid=80559 req=b6131739 trace=b6131739 op=predict byte=0x4e bpb=7.0881
+2026-05-25T00:22:25.043Z [WARN ] [health-check] pid=86395 req=0228de49 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:22:27.793Z [INFO ] [auth-service] pid=93660 req=7f71a837 Rate limit check passed: 72972/7d35e9 requests
+2026-05-25T00:22:29.187Z [ERROR] [health-check] pid=38535 req=b9668355 Expert weight NaN detected at byte 96311
+2026-05-25T00:22:29.814Z [DEBUG] [encoder-worker] pid=31377 req=0ba40fdb trace=0ba40fdb op=predict byte=0x81 bpb=4.7233
+2026-05-25T00:22:32.526Z [INFO ] [scheduler] pid=21802 req=dda7c33a Config reloaded from disk
+2026-05-25T00:22:34.552Z [INFO ] [storage-driver] pid=38749 req=051852dc Session started: user_id=usr_{:06d}
+2026-05-25T00:22:34.947Z [ERROR] [health-check] pid=52174 req=18ab202b SHA-256 mismatch: expected=52813, got=5be23c
+2026-05-25T00:22:35.903Z [ERROR] [decoder-worker] pid=17817 req=9c88f367 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:22:38.565Z [ERROR] [health-check] pid=73393 req=342f4b08 Decode aborted: corrupt bitstream at offset 20918
+2026-05-25T00:22:38.357Z [INFO ] [api-gateway] pid=34886 req=f92031df Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:22:41.006Z [WARN ] [auth-service] pid=12593 req=7a14330b Decode retry #73213: possible data corruption
+2026-05-25T00:22:42.593Z [ERROR] [storage-driver] pid=19838 req=4432dbd0 LZ table full: eviction failed after 71222 retries
+2026-05-25T00:22:44.691Z [DEBUG] [moe-engine] pid=96604 req=4c8545c1 trace=4c8545c1 op=predict byte=0xfe bpb=2.2474
+2026-05-25T00:22:44.841Z [DEBUG] [decoder-worker] pid=59397 req=b3953089 trace=b3953089 op=predict byte=0xbc bpb=5.8715
+2026-05-25T00:22:45.643Z [WARN ] [decoder-worker] pid=28135 req=d455b87e Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:22:47.587Z [WARN ] [lz-cache] pid=85934 req=e2f7da51 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:22:49.821Z [WARN ] [api-gateway] pid=82515 req=8ffbcc0f Worker backlog: 50238 items queued
+2026-05-25T00:22:50.389Z [ERROR] [lz-cache] pid=70560 req=1ccfb86d Connection timeout after 47876ms
+2026-05-25T00:22:51.167Z [ERROR] [storage-driver] pid=48012 req=072804aa Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:22:52.895Z [WARN ] [api-gateway] pid=47994 req=658ea17a High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:22:53.425Z [INFO ] [telemetry] pid=97393 req=7b82ff4c Corpus loaded: 82229 bytes, domain=7952fa
+2026-05-25T00:22:56.660Z [INFO ] [api-gateway] pid=58569 req=f5cb2af8 Request completed successfully
+2026-05-25T00:22:56.935Z [INFO ] [health-check] pid=83132 req=4af3e1d7 MoE weights converged after 84099 bytes
+2026-05-25T00:22:58.277Z [INFO ] [encoder-worker] pid=31233 req=87e3c955 Session started: user_id=usr_{:06d}
+2026-05-25T00:23:01.806Z [INFO ] [lz-cache] pid=73432 req=0b1378a1 MoE weights converged after 97197 bytes
+2026-05-25T00:23:03.339Z [INFO ] [telemetry] pid=90121 req=e90052ed Session started: user_id=usr_{:06d}
+2026-05-25T00:23:03.398Z [DEBUG] [lz-cache] pid=75392 req=0786bad1 trace=0786bad1 op=predict byte=0x9d bpb=4.3628
+2026-05-25T00:23:04.746Z [INFO ] [telemetry] pid=32376 req=6fe40ae8 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:23:05.648Z [INFO ] [decoder-worker] pid=10435 req=988f00a8 Connection pool: 61693/416546 active
+2026-05-25T00:23:07.143Z [WARN ] [decoder-worker] pid=90935 req=bb4400f1 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:23:09.371Z [INFO ] [encoder-worker] pid=75844 req=67f4df95 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:23:10.114Z [INFO ] [lz-cache] pid=50272 req=72bfa693 MoE weights converged after 71815 bytes
+2026-05-25T00:23:12.199Z [WARN ] [encoder-worker] pid=36140 req=92320a95 Rate limit approaching: 47930/68067e requests per minute
+2026-05-25T00:23:12.361Z [INFO ] [health-check] pid=36350 req=c99a9a60 Connection pool: 94450/5d4bea active
+2026-05-25T00:23:14.418Z [WARN ] [storage-driver] pid=11263 req=79a7e05a Rate limit approaching: 82725/de9d71 requests per minute
+2026-05-25T00:23:15.803Z [DEBUG] [moe-engine] pid=39678 req=ed347d55 trace=ed347d55 op=predict byte=0xf7 bpb=6.6852
+2026-05-25T00:23:16.955Z [INFO ] [storage-driver] pid=65686 req=1b7d405e Config reloaded from disk
+2026-05-25T00:23:17.053Z [WARN ] [auth-service] pid=50683 req=eea0e30e Weight divergence: expert 37512 dropped below 0.001
+2026-05-25T00:23:18.097Z [ERROR] [auth-service] pid=14840 req=ca50e117 Encode failed: SEE_ERR_NOMEM (requested 16320 bytes)
+2026-05-25T00:23:20.448Z [ERROR] [auth-service] pid=47681 req=85a63296 LZ table full: eviction failed after 95269 retries
+2026-05-25T00:23:20.839Z [INFO ] [scheduler] pid=77936 req=85181eb4 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:23:21.435Z [ERROR] [storage-driver] pid=20741 req=dc210944 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:23:22.793Z [INFO ] [storage-driver] pid=78599 req=feb2ac4b Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:23:22.323Z [INFO ] [auth-service] pid=46058 req=89ecde94 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:23:23.129Z [WARN ] [health-check] pid=38968 req=95cfbd81 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:23:24.249Z [INFO ] [encoder-worker] pid=11367 req=95a155de Connection pool: 79813/405539 active
+2026-05-25T00:23:26.731Z [INFO ] [auth-service] pid=80125 req=87f766a9 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:23:27.581Z [WARN ] [encoder-worker] pid=79590 req=e7e0fe25 Worker backlog: 36953 items queued
+2026-05-25T00:23:28.598Z [INFO ] [moe-engine] pid=21842 req=f8930a13 Throughput: {:.1f} KB/s
+2026-05-25T00:23:29.186Z [INFO ] [telemetry] pid=23272 req=e09189f1 Health check passed: all 48034 services healthy
+2026-05-25T00:23:30.262Z [INFO ] [storage-driver] pid=95217 req=98313d75 Health check passed: all 63721 services healthy
+2026-05-25T00:23:30.331Z [DEBUG] [health-check] pid=23741 req=1398592b trace=1398592b op=predict byte=0xec bpb=7.7123
+2026-05-25T00:23:32.502Z [INFO ] [telemetry] pid=63686 req=eb469b21 MoE weights converged after 15616 bytes
+2026-05-25T00:23:34.541Z [INFO ] [lz-cache] pid=65010 req=2488a330 SHA-256 verified: 65341
+2026-05-25T00:23:36.783Z [INFO ] [auth-service] pid=64839 req=cc1b0d55 Config reloaded from disk
+2026-05-25T00:23:37.825Z [INFO ] [telemetry] pid=53076 req=b4f82d12 Corpus loaded: 69464 bytes, domain=458595
+2026-05-25T00:23:38.453Z [ERROR] [encoder-worker] pid=60298 req=c9f12b09 Expert weight NaN detected at byte 14602
+2026-05-25T00:23:40.637Z [INFO ] [storage-driver] pid=63045 req=3be9cfb0 LZ table miss rate: {:.1f}%
+2026-05-25T00:23:42.883Z [INFO ] [moe-engine] pid=81427 req=05efea2a Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:23:45.102Z [INFO ] [auth-service] pid=69009 req=a701e867 Scheduled audit job dispatched: phase29a
+2026-05-25T00:23:46.028Z [INFO ] [lz-cache] pid=82199 req=c7e166e3 Cache entry evicted (LRU)
+2026-05-25T00:23:47.588Z [DEBUG] [storage-driver] pid=61088 req=7983efc0 trace=7983efc0 op=predict byte=0x82 bpb=7.0589
+2026-05-25T00:23:48.102Z [INFO ] [decoder-worker] pid=75012 req=5f89a98c LZ table miss rate: {:.1f}%
+2026-05-25T00:23:49.459Z [ERROR] [api-gateway] pid=50039 req=0912fddc Decode aborted: corrupt bitstream at offset 78922
+2026-05-25T00:23:50.010Z [INFO ] [api-gateway] pid=87929 req=08ff7421 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:23:51.091Z [WARN ] [auth-service] pid=17855 req=5020036f LZ collision detected at slot 0x{:06x}
+2026-05-25T00:23:52.190Z [INFO ] [scheduler] pid=22258 req=2bf23fc0 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:23:52.148Z [INFO ] [telemetry] pid=84642 req=7ef86974 Encode job queued: file_id=81717
+2026-05-25T00:23:54.145Z [INFO ] [lz-cache] pid=57257 req=21ba0416 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:23:57.485Z [DEBUG] [api-gateway] pid=49988 req=9555d6a4 trace=9555d6a4 op=predict byte=0xe4 bpb=6.5849
+2026-05-25T00:23:59.667Z [WARN ] [auth-service] pid=98395 req=05c95f58 Slow encode detected: 65137 ms > threshold 1000 ms
+2026-05-25T00:24:00.327Z [INFO ] [storage-driver] pid=55212 req=2249aa0f Throughput: {:.1f} KB/s
+2026-05-25T00:24:02.219Z [ERROR] [auth-service] pid=66343 req=17467451 Decode aborted: corrupt bitstream at offset 47425
+2026-05-25T00:24:03.087Z [INFO ] [api-gateway] pid=69793 req=44ec89bb MoE weights converged after 13097 bytes
+2026-05-25T00:24:05.516Z [INFO ] [api-gateway] pid=89682 req=339c0ee9 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:24:05.887Z [INFO ] [auth-service] pid=45955 req=69041328 Session started: user_id=usr_{:06d}
+2026-05-25T00:24:05.607Z [INFO ] [api-gateway] pid=38548 req=e0ef27f8 Request completed successfully
+2026-05-25T00:24:05.701Z [INFO ] [api-gateway] pid=25901 req=ffd04fa6 MoE weights converged after 25612 bytes
+2026-05-25T00:24:07.051Z [WARN ] [auth-service] pid=11167 req=0b73633f Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:24:07.325Z [ERROR] [auth-service] pid=99692 req=83da50ff Connection timeout after 42642ms
+2026-05-25T00:24:07.070Z [ERROR] [storage-driver] pid=43965 req=a550a4d1 Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:24:08.452Z [INFO ] [moe-engine] pid=63885 req=471994c9 Request completed successfully
+2026-05-25T00:24:08.991Z [INFO ] [encoder-worker] pid=94405 req=23509275 Request completed successfully
+2026-05-25T00:24:08.163Z [WARN ] [decoder-worker] pid=75127 req=e322544a Rate limit approaching: 52567/459a58 requests per minute
+2026-05-25T00:24:11.703Z [INFO ] [telemetry] pid=12280 req=fee931f4 Request completed successfully
+2026-05-25T00:24:12.270Z [INFO ] [decoder-worker] pid=55344 req=f97c4b6a Request completed successfully
+2026-05-25T00:24:13.581Z [INFO ] [api-gateway] pid=83604 req=15d324dc Connection pool: 78468/4961cc active
+2026-05-25T00:24:14.926Z [DEBUG] [health-check] pid=21740 req=1192a38f trace=1192a38f op=predict byte=0x40 bpb=1.2056
+2026-05-25T00:24:15.450Z [ERROR] [telemetry] pid=66280 req=02f38593 Decode aborted: corrupt bitstream at offset 52611
+2026-05-25T00:24:16.865Z [INFO ] [lz-cache] pid=24034 req=f7658613 Cache entry evicted (LRU)
+2026-05-25T00:24:17.403Z [INFO ] [telemetry] pid=74378 req=6bfebd17 Session started: user_id=usr_{:06d}
+2026-05-25T00:24:18.522Z [INFO ] [storage-driver] pid=56017 req=cf2a5746 Health check passed: all 30007 services healthy
+2026-05-25T00:24:20.825Z [INFO ] [auth-service] pid=71221 req=4b1fa862 Cache entry evicted (LRU)
+2026-05-25T00:24:21.970Z [ERROR] [auth-service] pid=40840 req=25445d8c Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:24:21.686Z [INFO ] [telemetry] pid=56781 req=5b35300d MoE weights converged after 85344 bytes
+2026-05-25T00:24:23.741Z [WARN ] [moe-engine] pid=42647 req=2591855b High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:24:23.672Z [ERROR] [lz-cache] pid=44035 req=67b80731 SHA-256 mismatch: expected=55523, got=325990
+2026-05-25T00:24:25.059Z [INFO ] [decoder-worker] pid=62618 req=0780b3ee Worker thread started
+2026-05-25T00:24:26.765Z [INFO ] [moe-engine] pid=21726 req=0cabf18c MoE weights converged after 14251 bytes
+2026-05-25T00:24:26.888Z [WARN ] [storage-driver] pid=23757 req=6a3990da Decode retry #30393: possible data corruption
+2026-05-25T00:24:27.535Z [INFO ] [encoder-worker] pid=67350 req=13b8fad4 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:24:29.797Z [WARN ] [decoder-worker] pid=88478 req=c786140f High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:24:30.899Z [INFO ] [decoder-worker] pid=98715 req=e4cd46e1 Health check passed: all 42940 services healthy
+2026-05-25T00:24:31.218Z [INFO ] [api-gateway] pid=56123 req=8c8df318 Scheduled audit job dispatched: phase29a
+2026-05-25T00:24:34.820Z [INFO ] [decoder-worker] pid=86687 req=1f1d5ae0 Worker thread started
+2026-05-25T00:24:35.870Z [DEBUG] [telemetry] pid=91231 req=10f897ab trace=10f897ab op=predict byte=0x3c bpb=2.7214
+2026-05-25T00:24:37.372Z [INFO ] [decoder-worker] pid=17198 req=16e5b746 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:24:37.719Z [DEBUG] [storage-driver] pid=30518 req=c44fdf5b trace=c44fdf5b op=predict byte=0x90 bpb=6.9397
+2026-05-25T00:24:39.833Z [INFO ] [auth-service] pid=81018 req=230f6359 LZ table miss rate: {:.1f}%
+2026-05-25T00:24:39.238Z [INFO ] [api-gateway] pid=58273 req=25b96454 Cache entry evicted (LRU)
+2026-05-25T00:24:40.327Z [INFO ] [encoder-worker] pid=12238 req=00cdcce8 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:24:41.518Z [ERROR] [telemetry] pid=27932 req=dd3e0153 Encode failed: SEE_ERR_NOMEM (requested 68856 bytes)
+2026-05-25T00:24:41.776Z [INFO ] [lz-cache] pid=93819 req=279ea501 Worker thread started
+2026-05-25T00:24:43.125Z [INFO ] [lz-cache] pid=28526 req=766b6138 Worker thread started
+2026-05-25T00:24:44.909Z [INFO ] [scheduler] pid=97107 req=3ad96cc4 Worker thread started
+2026-05-25T00:24:45.190Z [INFO ] [lz-cache] pid=16528 req=2e5a7731 Encode job queued: file_id=83744
+2026-05-25T00:24:47.213Z [INFO ] [api-gateway] pid=66178 req=72ddaaea MoE weights converged after 27839 bytes
+2026-05-25T00:24:49.605Z [WARN ] [scheduler] pid=89133 req=236bc49c Slow encode detected: 38559 ms > threshold 1000 ms
+2026-05-25T00:24:50.979Z [INFO ] [api-gateway] pid=58564 req=b1a4da6c Connection pool: 44040/0315e5 active
+2026-05-25T00:24:52.352Z [ERROR] [scheduler] pid=35146 req=0242fb7e Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:24:53.184Z [WARN ] [encoder-worker] pid=41619 req=dcd6f58e Rate limit approaching: 29288/5ca28d requests per minute
+2026-05-25T00:24:53.168Z [INFO ] [decoder-worker] pid=23538 req=25b08a57 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:24:53.212Z [INFO ] [decoder-worker] pid=24944 req=8b0ed975 LZ table miss rate: {:.1f}%
+2026-05-25T00:24:55.461Z [INFO ] [decoder-worker] pid=22537 req=8cb2214e MoE weights converged after 34167 bytes
+2026-05-25T00:24:56.855Z [INFO ] [moe-engine] pid=35430 req=14941dbd Scheduled audit job dispatched: phase29a
+2026-05-25T00:24:57.266Z [INFO ] [lz-cache] pid=30959 req=ceef5d5c MoE weights converged after 68143 bytes
+2026-05-25T00:24:57.163Z [INFO ] [auth-service] pid=24250 req=8ccf8851 Connection pool: 89260/7321ae active
+2026-05-25T00:25:00.843Z [INFO ] [health-check] pid=95487 req=38e2aae3 Worker thread started
+2026-05-25T00:25:00.308Z [INFO ] [storage-driver] pid=56648 req=a4ff58a2 SHA-256 verified: 87085
+2026-05-25T00:25:02.169Z [WARN ] [scheduler] pid=64104 req=fe6441f0 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:25:03.253Z [INFO ] [telemetry] pid=41220 req=f1ca8560 Worker thread started
+2026-05-25T00:25:03.336Z [INFO ] [decoder-worker] pid=18812 req=3ea34052 Worker thread started
+2026-05-25T00:25:05.251Z [DEBUG] [api-gateway] pid=37282 req=8f6d56fd trace=8f6d56fd op=predict byte=0x63 bpb=6.2854
+2026-05-25T00:25:06.129Z [INFO ] [lz-cache] pid=61657 req=d98c9dc3 Encode job queued: file_id=87607
+2026-05-25T00:25:08.974Z [INFO ] [lz-cache] pid=85993 req=1728c576 Worker thread started
+2026-05-25T00:25:08.186Z [INFO ] [moe-engine] pid=62623 req=f78c0ea0 SHA-256 verified: 19863
+2026-05-25T00:25:09.493Z [INFO ] [encoder-worker] pid=68738 req=90fcc940 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:25:10.873Z [DEBUG] [health-check] pid=72056 req=f367043b trace=f367043b op=predict byte=0xa3 bpb=2.0580
+2026-05-25T00:25:12.675Z [WARN ] [lz-cache] pid=28594 req=621285e3 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:25:13.096Z [ERROR] [lz-cache] pid=18006 req=232e84ea Connection timeout after 31786ms
+2026-05-25T00:25:14.050Z [DEBUG] [decoder-worker] pid=49257 req=a3cd07bb trace=a3cd07bb op=predict byte=0x79 bpb=5.6633
+2026-05-25T00:25:15.717Z [WARN ] [scheduler] pid=71097 req=23c0990e Slow encode detected: 59068 ms > threshold 1000 ms
+2026-05-25T00:25:18.775Z [INFO ] [auth-service] pid=81136 req=01e68457 Config reloaded from disk
+2026-05-25T00:25:18.058Z [ERROR] [storage-driver] pid=22487 req=6e145fa4 Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:25:20.371Z [INFO ] [storage-driver] pid=67310 req=c65bc093 Config reloaded from disk
+2026-05-25T00:25:21.361Z [INFO ] [telemetry] pid=20505 req=bcb37ddd Health check passed: all 32121 services healthy
+2026-05-25T00:25:23.778Z [DEBUG] [health-check] pid=32557 req=4cc4a7e5 trace=4cc4a7e5 op=predict byte=0xd2 bpb=2.3209
+2026-05-25T00:25:24.174Z [INFO ] [api-gateway] pid=31302 req=f21d96e7 Connection pool: 45851/2ca41a active
+2026-05-25T00:25:26.662Z [WARN ] [api-gateway] pid=62232 req=2266a77f High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:25:26.251Z [DEBUG] [moe-engine] pid=16540 req=9d516508 trace=9d516508 op=predict byte=0x2b bpb=5.0244
+2026-05-25T00:25:27.988Z [INFO ] [storage-driver] pid=27625 req=9e830948 Encode job queued: file_id=49043
+2026-05-25T00:25:27.999Z [ERROR] [decoder-worker] pid=96386 req=761e8bb7 SHA-256 mismatch: expected=51991, got=ccc96c
+2026-05-25T00:25:28.092Z [INFO ] [health-check] pid=78907 req=4808884b Throughput: {:.1f} KB/s
+2026-05-25T00:25:29.988Z [WARN ] [decoder-worker] pid=98250 req=db7de40b LZ collision detected at slot 0x{:06x}
+2026-05-25T00:25:30.488Z [INFO ] [moe-engine] pid=60998 req=b72583e4 Throughput: {:.1f} KB/s
+2026-05-25T00:25:32.020Z [INFO ] [health-check] pid=91746 req=4ad551ad Worker thread started
+2026-05-25T00:25:35.172Z [WARN ] [auth-service] pid=49292 req=30544160 Slow encode detected: 15397 ms > threshold 1000 ms
+2026-05-25T00:25:35.763Z [INFO ] [health-check] pid=35738 req=c7e9607b Rate limit check passed: 60950/82d49f requests
+2026-05-25T00:25:36.232Z [INFO ] [health-check] pid=71290 req=0a9d484c Encode job queued: file_id=35933
+2026-05-25T00:25:37.488Z [INFO ] [telemetry] pid=32856 req=f1903205 Cache entry evicted (LRU)
+2026-05-25T00:25:39.745Z [INFO ] [health-check] pid=74058 req=0cc6f6d1 Session started: user_id=usr_{:06d}
+2026-05-25T00:25:40.836Z [ERROR] [scheduler] pid=64276 req=6a673cff Worker panic: unhandled exception in moe_engine
+2026-05-25T00:25:41.020Z [ERROR] [auth-service] pid=69350 req=0f4fbd2b Worker panic: unhandled exception in moe_engine
+2026-05-25T00:25:42.216Z [INFO ] [telemetry] pid=14360 req=e1de9299 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:25:42.933Z [WARN ] [scheduler] pid=12916 req=aa7694d9 Decode retry #71735: possible data corruption
+2026-05-25T00:25:43.769Z [INFO ] [encoder-worker] pid=77095 req=9d435023 Scheduled audit job dispatched: phase29a
+2026-05-25T00:25:44.142Z [WARN ] [moe-engine] pid=77506 req=d02e4ccc Worker backlog: 62403 items queued
+2026-05-25T00:25:46.783Z [DEBUG] [scheduler] pid=94923 req=0f05d46c trace=0f05d46c op=predict byte=0xd8 bpb=6.3550
+2026-05-25T00:25:46.966Z [WARN ] [scheduler] pid=61216 req=079d02d4 Weight divergence: expert 34486 dropped below 0.001
+2026-05-25T00:25:48.092Z [ERROR] [decoder-worker] pid=98198 req=9d9f2662 LZ table full: eviction failed after 74295 retries
+2026-05-25T00:25:49.995Z [INFO ] [storage-driver] pid=90051 req=d498ede9 MoE weights converged after 32494 bytes
+2026-05-25T00:25:51.367Z [DEBUG] [moe-engine] pid=49647 req=f527fa92 trace=f527fa92 op=predict byte=0x09 bpb=1.7907
+2026-05-25T00:25:53.981Z [ERROR] [health-check] pid=59857 req=731baedd LZ table full: eviction failed after 18324 retries
+2026-05-25T00:25:56.976Z [INFO ] [storage-driver] pid=17117 req=c94e36bf Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:25:57.666Z [DEBUG] [moe-engine] pid=55054 req=ad845afe trace=ad845afe op=predict byte=0x1a bpb=1.7207
+2026-05-25T00:26:00.043Z [ERROR] [decoder-worker] pid=10193 req=17d8ea64 Connection timeout after 68820ms
+2026-05-25T00:26:01.770Z [INFO ] [moe-engine] pid=69540 req=dbe79ccb Encode job queued: file_id=62705
+2026-05-25T00:26:03.188Z [DEBUG] [api-gateway] pid=77677 req=75281c2c trace=75281c2c op=predict byte=0xad bpb=7.6599
+2026-05-25T00:26:05.135Z [WARN ] [lz-cache] pid=64912 req=16bcbb52 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:26:05.223Z [INFO ] [storage-driver] pid=91906 req=0449464f Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:26:05.673Z [ERROR] [health-check] pid=78409 req=40c9f77e Worker panic: unhandled exception in moe_engine
+2026-05-25T00:26:08.414Z [INFO ] [health-check] pid=86751 req=98bf6a3e Cache entry evicted (LRU)
+2026-05-25T00:26:10.300Z [DEBUG] [api-gateway] pid=10100 req=c2d3d967 trace=c2d3d967 op=predict byte=0x43 bpb=7.4280
+2026-05-25T00:26:10.894Z [INFO ] [decoder-worker] pid=56128 req=4eef48d8 Throughput: {:.1f} KB/s
+2026-05-25T00:26:11.583Z [DEBUG] [lz-cache] pid=25578 req=8bfa0f35 trace=8bfa0f35 op=predict byte=0xb4 bpb=7.1199
+2026-05-25T00:26:12.618Z [WARN ] [moe-engine] pid=46234 req=848c9fe6 Decode retry #63885: possible data corruption
+2026-05-25T00:26:14.188Z [ERROR] [health-check] pid=58867 req=12dd5bb7 Expert weight NaN detected at byte 84310
+2026-05-25T00:26:15.602Z [WARN ] [auth-service] pid=11452 req=9eb0a058 Decode retry #64650: possible data corruption
+2026-05-25T00:26:17.124Z [ERROR] [storage-driver] pid=52023 req=3f798afb Worker panic: unhandled exception in moe_engine
+2026-05-25T00:26:18.030Z [ERROR] [decoder-worker] pid=89692 req=ceb6f894 Connection timeout after 22536ms
+2026-05-25T00:26:18.222Z [INFO ] [lz-cache] pid=95507 req=4c285c29 Scheduled audit job dispatched: phase29a
+2026-05-25T00:26:19.760Z [INFO ] [moe-engine] pid=52126 req=932d6b2f Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:26:21.187Z [DEBUG] [decoder-worker] pid=91406 req=02e842e9 trace=02e842e9 op=predict byte=0x4d bpb=1.3893
+2026-05-25T00:26:21.664Z [INFO ] [api-gateway] pid=89774 req=6d375f0d Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:26:24.585Z [INFO ] [health-check] pid=10565 req=88b0d2d9 Cache entry evicted (LRU)
+2026-05-25T00:26:24.676Z [WARN ] [decoder-worker] pid=50582 req=d8bc6e12 Weight divergence: expert 50285 dropped below 0.001
+2026-05-25T00:26:26.429Z [WARN ] [encoder-worker] pid=75038 req=034273dd Worker backlog: 74994 items queued
+2026-05-25T00:26:26.305Z [ERROR] [decoder-worker] pid=29216 req=f74ba82f Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:26:28.793Z [INFO ] [lz-cache] pid=82083 req=72d46e94 Request completed successfully
+2026-05-25T00:26:29.080Z [INFO ] [api-gateway] pid=52120 req=786e7eef Cache entry evicted (LRU)
+2026-05-25T00:26:29.916Z [WARN ] [moe-engine] pid=14854 req=f8bad003 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:26:31.011Z [INFO ] [lz-cache] pid=97697 req=9e80e9b9 Throughput: {:.1f} KB/s
+2026-05-25T00:26:33.602Z [INFO ] [lz-cache] pid=80723 req=4fcf635b MoE weights converged after 12408 bytes
+2026-05-25T00:26:34.092Z [INFO ] [api-gateway] pid=99717 req=8dffb34c MoE weights converged after 92358 bytes
+2026-05-25T00:26:36.307Z [WARN ] [lz-cache] pid=88684 req=b12a22b4 Weight divergence: expert 36702 dropped below 0.001
+2026-05-25T00:26:37.553Z [INFO ] [storage-driver] pid=66623 req=e66693e3 Config reloaded from disk
+2026-05-25T00:26:39.876Z [DEBUG] [lz-cache] pid=20336 req=dd9b6aa4 trace=dd9b6aa4 op=predict byte=0x2f bpb=2.3978
+2026-05-25T00:26:41.673Z [WARN ] [health-check] pid=53946 req=19aaa356 Rate limit approaching: 82554/ad504f requests per minute
+2026-05-25T00:26:42.372Z [ERROR] [health-check] pid=69614 req=0847feab LZ table full: eviction failed after 29233 retries
+2026-05-25T00:26:43.590Z [INFO ] [scheduler] pid=93961 req=c5c78363 SHA-256 verified: 20476
+2026-05-25T00:26:44.075Z [WARN ] [health-check] pid=27336 req=ff6ff682 Decode retry #33567: possible data corruption
+2026-05-25T00:26:46.042Z [INFO ] [api-gateway] pid=73722 req=2136a1f4 Corpus loaded: 68775 bytes, domain=030a42
+2026-05-25T00:26:47.880Z [INFO ] [health-check] pid=58623 req=d448bf65 Worker thread started
+2026-05-25T00:26:47.582Z [INFO ] [auth-service] pid=41097 req=2a3776b1 Request completed successfully
+2026-05-25T00:26:49.645Z [ERROR] [telemetry] pid=16493 req=6475d814 Decode aborted: corrupt bitstream at offset 15635
+2026-05-25T00:26:50.356Z [INFO ] [api-gateway] pid=82985 req=51ab79e0 LZ table miss rate: {:.1f}%
+2026-05-25T00:26:52.389Z [ERROR] [moe-engine] pid=63234 req=54861b41 LZ table full: eviction failed after 32003 retries
+2026-05-25T00:26:52.016Z [WARN ] [encoder-worker] pid=28289 req=cf948688 Rate limit approaching: 81009/d89af3 requests per minute
+2026-05-25T00:26:52.828Z [INFO ] [encoder-worker] pid=19306 req=5d7b83be Throughput: {:.1f} KB/s
+2026-05-25T00:26:52.057Z [WARN ] [api-gateway] pid=26901 req=0fd4a3c9 Slow encode detected: 43509 ms > threshold 1000 ms
+2026-05-25T00:26:54.445Z [INFO ] [telemetry] pid=99130 req=36bb36d1 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:26:56.642Z [INFO ] [health-check] pid=66319 req=94ab24e9 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:26:58.577Z [WARN ] [health-check] pid=71434 req=01c5380e High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:26:59.296Z [INFO ] [auth-service] pid=74077 req=5c21245e Connection pool: 38444/611a4a active
+2026-05-25T00:26:59.636Z [INFO ] [storage-driver] pid=52226 req=ebeb50d9 Connection pool: 31478/ca2102 active
+2026-05-25T00:27:02.433Z [INFO ] [moe-engine] pid=95420 req=de1243a5 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:27:03.839Z [INFO ] [decoder-worker] pid=48448 req=8429fd10 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:27:04.206Z [INFO ] [telemetry] pid=54839 req=d7bde1f5 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:27:05.460Z [INFO ] [encoder-worker] pid=61556 req=078a53cf LZ table miss rate: {:.1f}%
+2026-05-25T00:27:07.571Z [INFO ] [moe-engine] pid=64285 req=f0719a6a Rate limit check passed: 14426/cbfe76 requests
+2026-05-25T00:27:07.745Z [INFO ] [health-check] pid=53916 req=cc2d93c8 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:27:08.014Z [WARN ] [lz-cache] pid=58080 req=6f302ca6 Slow encode detected: 66102 ms > threshold 1000 ms
+2026-05-25T00:27:10.106Z [INFO ] [health-check] pid=93138 req=fb6baf69 Health check passed: all 44389 services healthy
+2026-05-25T00:27:11.146Z [INFO ] [auth-service] pid=43775 req=ca22cc24 Rate limit check passed: 66000/119a7a requests
+2026-05-25T00:27:13.676Z [WARN ] [lz-cache] pid=27273 req=376b1e42 Weight divergence: expert 87395 dropped below 0.001
+2026-05-25T00:27:15.140Z [INFO ] [telemetry] pid=83712 req=9daccac2 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:27:18.930Z [ERROR] [storage-driver] pid=32626 req=7f69c5de LZ table full: eviction failed after 54696 retries
+2026-05-25T00:27:20.410Z [INFO ] [scheduler] pid=53231 req=7bab0e9e Corpus loaded: 48027 bytes, domain=228146
+2026-05-25T00:27:21.332Z [DEBUG] [auth-service] pid=61303 req=f7f2194d trace=f7f2194d op=predict byte=0x0c bpb=6.2713
+2026-05-25T00:27:22.694Z [DEBUG] [scheduler] pid=84366 req=9f9fcd78 trace=9f9fcd78 op=predict byte=0xc6 bpb=2.3496
+2026-05-25T00:27:23.007Z [INFO ] [auth-service] pid=36388 req=71dcb5e1 Health check passed: all 25640 services healthy
+2026-05-25T00:27:24.102Z [INFO ] [telemetry] pid=68932 req=e69f4f21 Rate limit check passed: 63261/8e3994 requests
+2026-05-25T00:27:26.298Z [INFO ] [lz-cache] pid=45992 req=7862fa7d Request completed successfully
+2026-05-25T00:27:28.955Z [INFO ] [encoder-worker] pid=56255 req=6a2b4c64 MoE weights converged after 52610 bytes
+2026-05-25T00:27:29.046Z [INFO ] [moe-engine] pid=77182 req=6d0144d8 Connection pool: 51717/f09d8b active
+2026-05-25T00:27:31.275Z [INFO ] [lz-cache] pid=17964 req=a49ad87c Encode job queued: file_id=15927
+2026-05-25T00:27:32.568Z [INFO ] [auth-service] pid=93620 req=c5291309 Cache entry evicted (LRU)
+2026-05-25T00:27:33.510Z [INFO ] [telemetry] pid=51651 req=035fedea Worker thread started
+2026-05-25T00:27:35.362Z [INFO ] [auth-service] pid=96227 req=0b8f6f57 Session started: user_id=usr_{:06d}
+2026-05-25T00:27:37.471Z [ERROR] [decoder-worker] pid=35062 req=047ef56d Expert weight NaN detected at byte 30128
+2026-05-25T00:27:38.805Z [INFO ] [encoder-worker] pid=18741 req=a803abf2 Rate limit check passed: 65752/88dc2c requests
+2026-05-25T00:27:39.733Z [WARN ] [storage-driver] pid=84783 req=46c5ab95 Decode retry #30863: possible data corruption
+2026-05-25T00:27:41.863Z [INFO ] [decoder-worker] pid=72988 req=75912faf LZ table miss rate: {:.1f}%
+2026-05-25T00:27:43.512Z [DEBUG] [encoder-worker] pid=79419 req=5f1c9ef6 trace=5f1c9ef6 op=predict byte=0x2e bpb=4.2812
+2026-05-25T00:27:43.121Z [INFO ] [health-check] pid=54549 req=d2c5ab6b LZ table miss rate: {:.1f}%
+2026-05-25T00:27:44.457Z [ERROR] [auth-service] pid=71803 req=2bd7e12e SHA-256 mismatch: expected=14707, got=db58fc
+2026-05-25T00:27:46.207Z [DEBUG] [lz-cache] pid=65144 req=ca8304bf trace=ca8304bf op=predict byte=0xfe bpb=3.1977
+2026-05-25T00:27:47.378Z [INFO ] [storage-driver] pid=69301 req=af7c51b8 SHA-256 verified: 70656
+2026-05-25T00:27:48.701Z [ERROR] [health-check] pid=82080 req=2aeaff2e Connection timeout after 76260ms
+2026-05-25T00:27:49.867Z [INFO ] [decoder-worker] pid=25009 req=1bd8a01d Request completed successfully
+2026-05-25T00:27:51.492Z [INFO ] [storage-driver] pid=13480 req=c45b2a95 Config reloaded from disk
+2026-05-25T00:27:53.730Z [ERROR] [storage-driver] pid=82519 req=24dbc6d1 Connection timeout after 39347ms
+2026-05-25T00:27:54.241Z [WARN ] [scheduler] pid=76982 req=53f17e12 Decode retry #77969: possible data corruption
+2026-05-25T00:27:56.632Z [INFO ] [moe-engine] pid=53158 req=19a36ee8 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:27:57.376Z [DEBUG] [moe-engine] pid=46720 req=843e7994 trace=843e7994 op=predict byte=0x86 bpb=1.3130
+2026-05-25T00:28:00.410Z [ERROR] [moe-engine] pid=18374 req=138baaf1 Expert weight NaN detected at byte 73359
+2026-05-25T00:28:01.823Z [WARN ] [encoder-worker] pid=79968 req=c0036851 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:28:03.067Z [INFO ] [telemetry] pid=64003 req=4abb6f54 Config reloaded from disk
+2026-05-25T00:28:04.678Z [INFO ] [auth-service] pid=38656 req=51bd838f Config reloaded from disk
+2026-05-25T00:28:05.307Z [INFO ] [storage-driver] pid=14947 req=be37d0e3 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:28:05.816Z [DEBUG] [telemetry] pid=80456 req=bd26551f trace=bd26551f op=predict byte=0x7e bpb=5.0815
+2026-05-25T00:28:06.665Z [WARN ] [moe-engine] pid=60371 req=4cc5a9ec Worker backlog: 43371 items queued
+2026-05-25T00:28:07.013Z [DEBUG] [scheduler] pid=18341 req=1d6a62d5 trace=1d6a62d5 op=predict byte=0xe2 bpb=1.0206
+2026-05-25T00:28:09.722Z [INFO ] [encoder-worker] pid=83995 req=1813395c Corpus loaded: 19411 bytes, domain=92c79f
+2026-05-25T00:28:10.831Z [ERROR] [moe-engine] pid=68949 req=b1a9a576 Expert weight NaN detected at byte 13385
+2026-05-25T00:28:11.191Z [DEBUG] [telemetry] pid=85384 req=bfc51a33 trace=bfc51a33 op=predict byte=0xc4 bpb=5.9496
+2026-05-25T00:28:11.764Z [INFO ] [health-check] pid=70251 req=608a626f Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:28:12.567Z [INFO ] [lz-cache] pid=26777 req=0835d895 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:28:13.300Z [WARN ] [scheduler] pid=22292 req=bd88d958 Worker backlog: 69289 items queued
+2026-05-25T00:28:13.562Z [INFO ] [moe-engine] pid=18213 req=dbbc9e37 Scheduled audit job dispatched: phase29a
+2026-05-25T00:28:14.871Z [WARN ] [decoder-worker] pid=18714 req=612e1fcf Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:28:16.947Z [INFO ] [lz-cache] pid=13450 req=9b9c72a2 SHA-256 verified: 81771
+2026-05-25T00:28:18.282Z [ERROR] [health-check] pid=33667 req=7b2a1997 Connection timeout after 85060ms
+2026-05-25T00:28:19.095Z [DEBUG] [encoder-worker] pid=86055 req=7b7192b0 trace=7b7192b0 op=predict byte=0x65 bpb=2.0417
+2026-05-25T00:28:19.137Z [DEBUG] [auth-service] pid=87286 req=845df425 trace=845df425 op=predict byte=0xa2 bpb=2.4956
+2026-05-25T00:28:21.061Z [INFO ] [lz-cache] pid=41963 req=527db562 Scheduled audit job dispatched: phase29a
+2026-05-25T00:28:21.332Z [DEBUG] [storage-driver] pid=50897 req=3e42ee14 trace=3e42ee14 op=predict byte=0x69 bpb=5.0761
+2026-05-25T00:28:22.099Z [INFO ] [lz-cache] pid=73095 req=3a95416f Corpus loaded: 64074 bytes, domain=57770f
+2026-05-25T00:28:22.465Z [DEBUG] [health-check] pid=49477 req=51f0fe1d trace=51f0fe1d op=predict byte=0x41 bpb=3.3147
+2026-05-25T00:28:24.034Z [WARN ] [storage-driver] pid=66074 req=0096b4d6 Weight divergence: expert 42032 dropped below 0.001
+2026-05-25T00:28:24.027Z [INFO ] [api-gateway] pid=53940 req=809057fa Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:28:25.131Z [WARN ] [api-gateway] pid=19881 req=1a648d30 Rate limit approaching: 51911/4888a4 requests per minute
+2026-05-25T00:28:25.983Z [INFO ] [lz-cache] pid=51879 req=09904f9b Connection pool: 86953/42cfcf active
+2026-05-25T00:28:27.529Z [ERROR] [api-gateway] pid=24925 req=d9afa521 Connection timeout after 43557ms
+2026-05-25T00:28:28.305Z [INFO ] [moe-engine] pid=88342 req=2887e9be MoE weights converged after 53979 bytes
+2026-05-25T00:28:30.253Z [INFO ] [auth-service] pid=10652 req=7155fedf Encode job queued: file_id=44564
+2026-05-25T00:28:31.392Z [WARN ] [scheduler] pid=96752 req=3e14acb6 Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:28:33.426Z [WARN ] [telemetry] pid=83756 req=d0672972 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:28:34.736Z [INFO ] [scheduler] pid=42664 req=5e95d7b6 Health check passed: all 86232 services healthy
+2026-05-25T00:28:35.304Z [INFO ] [telemetry] pid=26683 req=ed09f7d7 Corpus loaded: 54444 bytes, domain=7feb3e
+2026-05-25T00:28:35.684Z [WARN ] [encoder-worker] pid=35757 req=ef1b64cb Weight divergence: expert 52464 dropped below 0.001
+2026-05-25T00:28:37.103Z [WARN ] [encoder-worker] pid=48801 req=89d49382 Worker backlog: 87363 items queued
+2026-05-25T00:28:38.793Z [ERROR] [moe-engine] pid=21584 req=b1d3cf22 SHA-256 mismatch: expected=42092, got=0bd692
+2026-05-25T00:28:40.802Z [INFO ] [encoder-worker] pid=73173 req=9d11421a Corpus loaded: 12503 bytes, domain=47a5f2
+2026-05-25T00:28:40.471Z [INFO ] [scheduler] pid=52377 req=6598a7bc MoE weights converged after 28894 bytes
+2026-05-25T00:28:41.580Z [ERROR] [auth-service] pid=38210 req=4cf27f33 Decode aborted: corrupt bitstream at offset 85059
+2026-05-25T00:28:42.358Z [ERROR] [health-check] pid=63961 req=ac1796a6 Connection timeout after 38632ms
+2026-05-25T00:28:44.939Z [ERROR] [api-gateway] pid=42361 req=1d142405 Expert weight NaN detected at byte 86690
+2026-05-25T00:28:45.038Z [WARN ] [moe-engine] pid=46889 req=cb68abfa High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:28:46.542Z [INFO ] [storage-driver] pid=62488 req=1755028b Request completed successfully
+2026-05-25T00:28:47.309Z [WARN ] [health-check] pid=62979 req=ed032b70 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:28:48.942Z [INFO ] [api-gateway] pid=35884 req=35a3bfe3 Cache entry evicted (LRU)
+2026-05-25T00:28:50.927Z [INFO ] [encoder-worker] pid=21325 req=7b057bd0 Config reloaded from disk
+2026-05-25T00:28:51.993Z [INFO ] [decoder-worker] pid=22060 req=1698875d Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:28:52.673Z [ERROR] [telemetry] pid=48609 req=7da8f7d7 Decode aborted: corrupt bitstream at offset 34578
+2026-05-25T00:28:54.942Z [INFO ] [auth-service] pid=32193 req=ffae7699 Connection pool: 94071/4db268 active
+2026-05-25T00:28:55.757Z [INFO ] [api-gateway] pid=96755 req=a9d87a64 Encode job queued: file_id=60926
+2026-05-25T00:28:56.059Z [INFO ] [api-gateway] pid=73774 req=5d003081 Cache entry evicted (LRU)
+2026-05-25T00:28:56.459Z [INFO ] [auth-service] pid=69168 req=573a492a Throughput: {:.1f} KB/s
+2026-05-25T00:28:58.679Z [INFO ] [scheduler] pid=62980 req=27f3b303 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:28:58.897Z [INFO ] [lz-cache] pid=59554 req=38f49961 Rate limit check passed: 94971/d78a99 requests
+2026-05-25T00:28:58.823Z [DEBUG] [health-check] pid=98121 req=997929e3 trace=997929e3 op=predict byte=0x8b bpb=7.9179
+2026-05-25T00:29:00.146Z [WARN ] [decoder-worker] pid=11010 req=894ade18 Worker backlog: 63430 items queued
+2026-05-25T00:29:01.032Z [INFO ] [decoder-worker] pid=47212 req=8e5a5e09 Request completed successfully
+2026-05-25T00:29:01.326Z [INFO ] [api-gateway] pid=69293 req=8de2fc8d Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:29:04.029Z [WARN ] [decoder-worker] pid=11003 req=9790808a Decode retry #47914: possible data corruption
+2026-05-25T00:29:04.952Z [ERROR] [api-gateway] pid=13110 req=d9fb128a Expert weight NaN detected at byte 23412
+2026-05-25T00:29:06.023Z [INFO ] [scheduler] pid=69524 req=8e40669a LZ table miss rate: {:.1f}%
+2026-05-25T00:29:07.841Z [INFO ] [scheduler] pid=70903 req=fed1aaf9 Corpus loaded: 86701 bytes, domain=3b16d9
+2026-05-25T00:29:08.854Z [ERROR] [auth-service] pid=53507 req=03848427 Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:29:09.470Z [WARN ] [auth-service] pid=49064 req=a33be6ce Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:29:10.306Z [WARN ] [lz-cache] pid=15666 req=5f0a8b79 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:29:12.302Z [ERROR] [api-gateway] pid=38829 req=23d7eb5c SHA-256 mismatch: expected=77112, got=8f8a69
+2026-05-25T00:29:12.785Z [WARN ] [scheduler] pid=11199 req=2e2b6b8d Rate limit approaching: 98514/5e4d96 requests per minute
+2026-05-25T00:29:12.288Z [INFO ] [scheduler] pid=50345 req=b59dbb55 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:29:14.672Z [ERROR] [api-gateway] pid=75403 req=625924b2 Decode aborted: corrupt bitstream at offset 11959
+2026-05-25T00:29:15.619Z [INFO ] [auth-service] pid=33761 req=4a869f03 Connection pool: 20822/a4f1f5 active
+2026-05-25T00:29:16.417Z [INFO ] [auth-service] pid=68015 req=999fc68a Encode job queued: file_id=23003
+2026-05-25T00:29:17.859Z [INFO ] [encoder-worker] pid=89183 req=67f77e75 SHA-256 verified: 72238
+2026-05-25T00:29:18.590Z [INFO ] [storage-driver] pid=79682 req=0b8f743d Throughput: {:.1f} KB/s
+2026-05-25T00:29:18.101Z [INFO ] [moe-engine] pid=89193 req=39c702ee Config reloaded from disk
+2026-05-25T00:29:19.139Z [INFO ] [telemetry] pid=77387 req=7e02bf27 Throughput: {:.1f} KB/s
+2026-05-25T00:29:21.801Z [INFO ] [health-check] pid=80054 req=77fe3c7b Cache entry evicted (LRU)
+2026-05-25T00:29:23.181Z [ERROR] [lz-cache] pid=98824 req=5a4d6a5f Encode failed: SEE_ERR_NOMEM (requested 20522 bytes)
+2026-05-25T00:29:25.841Z [DEBUG] [health-check] pid=13473 req=11202099 trace=11202099 op=predict byte=0x51 bpb=4.8764
+2026-05-25T00:29:26.641Z [INFO ] [scheduler] pid=63317 req=8c2506c4 Cache entry evicted (LRU)
+2026-05-25T00:29:28.599Z [WARN ] [api-gateway] pid=92917 req=d36e8d21 Decode retry #36803: possible data corruption
+2026-05-25T00:29:28.029Z [INFO ] [health-check] pid=64274 req=833ba35e Connection pool: 75271/2ae644 active
+2026-05-25T00:29:30.389Z [INFO ] [scheduler] pid=42198 req=d4868d2d Corpus loaded: 84003 bytes, domain=4c088a
+2026-05-25T00:29:32.042Z [INFO ] [scheduler] pid=74341 req=4202c418 Corpus loaded: 36437 bytes, domain=fe6de9
+2026-05-25T00:29:32.824Z [INFO ] [api-gateway] pid=56281 req=d084b7df Encode job queued: file_id=66094
+2026-05-25T00:29:33.523Z [INFO ] [lz-cache] pid=42624 req=586dda5d Config reloaded from disk
+2026-05-25T00:29:33.592Z [WARN ] [decoder-worker] pid=85727 req=2a28e8cd Rate limit approaching: 58183/3d99c3 requests per minute
+2026-05-25T00:29:34.611Z [ERROR] [health-check] pid=79970 req=53b5af5a Archive header magic mismatch: 0x{:08x}
+2026-05-25T00:29:36.220Z [DEBUG] [telemetry] pid=90463 req=b3c052a8 trace=b3c052a8 op=predict byte=0xe1 bpb=5.0901
+2026-05-25T00:29:37.472Z [INFO ] [decoder-worker] pid=85435 req=12acccff Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:29:38.532Z [DEBUG] [api-gateway] pid=27949 req=91367d62 trace=91367d62 op=predict byte=0xbf bpb=1.8135
+2026-05-25T00:29:39.542Z [DEBUG] [api-gateway] pid=36687 req=757e1b17 trace=757e1b17 op=predict byte=0x75 bpb=5.5481
+2026-05-25T00:29:39.784Z [INFO ] [scheduler] pid=41852 req=f28f2eaf SHA-256 verified: 68288
+2026-05-25T00:29:41.027Z [INFO ] [health-check] pid=92593 req=327722a7 Connection pool: 97936/47fff8 active
+2026-05-25T00:29:43.969Z [INFO ] [storage-driver] pid=26580 req=eb08fc43 Health check passed: all 43177 services healthy
+2026-05-25T00:29:45.024Z [INFO ] [storage-driver] pid=75374 req=9af1cbf0 Cache entry evicted (LRU)
+2026-05-25T00:29:46.920Z [INFO ] [health-check] pid=34614 req=0d4fc743 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:29:47.062Z [WARN ] [encoder-worker] pid=79546 req=79a6470c High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:29:48.469Z [INFO ] [telemetry] pid=76711 req=67d9c8e4 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:29:49.562Z [ERROR] [api-gateway] pid=91849 req=32742991 SHA-256 mismatch: expected=23514, got=ce7f6b
+2026-05-25T00:29:49.434Z [INFO ] [auth-service] pid=70632 req=09860e01 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:29:52.736Z [ERROR] [health-check] pid=84547 req=1ce1f3af Worker panic: unhandled exception in moe_engine
+2026-05-25T00:29:53.252Z [INFO ] [telemetry] pid=59142 req=894b984f SHA-256 verified: 43499
+2026-05-25T00:29:54.552Z [INFO ] [moe-engine] pid=30869 req=29c08f29 Health check passed: all 62452 services healthy
+2026-05-25T00:29:56.772Z [WARN ] [health-check] pid=89266 req=8c4d33b5 Weight divergence: expert 10563 dropped below 0.001
+2026-05-25T00:29:57.436Z [ERROR] [storage-driver] pid=51504 req=38d39674 Encode failed: SEE_ERR_NOMEM (requested 93620 bytes)
+2026-05-25T00:29:57.941Z [INFO ] [api-gateway] pid=80145 req=ea4ee2dd Config reloaded from disk
+2026-05-25T00:29:59.453Z [INFO ] [encoder-worker] pid=28377 req=8052c055 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:30:01.096Z [INFO ] [encoder-worker] pid=28456 req=db885d27 SHA-256 verified: 48692
+2026-05-25T00:30:03.373Z [DEBUG] [health-check] pid=98847 req=ef46e612 trace=ef46e612 op=predict byte=0xf3 bpb=1.7584
+2026-05-25T00:30:05.629Z [WARN ] [telemetry] pid=62774 req=c599f9ca Worker backlog: 63309 items queued
+2026-05-25T00:30:06.593Z [INFO ] [decoder-worker] pid=28141 req=d6f1bb12 Health check passed: all 99410 services healthy
+2026-05-25T00:30:07.807Z [INFO ] [moe-engine] pid=70116 req=b4135c64 Request completed successfully
+2026-05-25T00:30:08.357Z [INFO ] [encoder-worker] pid=22606 req=54292824 Worker thread started
+2026-05-25T00:30:10.884Z [DEBUG] [moe-engine] pid=71436 req=ab5f69c9 trace=ab5f69c9 op=predict byte=0xac bpb=5.1851
+2026-05-25T00:30:11.583Z [INFO ] [moe-engine] pid=76532 req=5192afa7 Rate limit check passed: 37134/b7604e requests
+2026-05-25T00:30:11.149Z [INFO ] [health-check] pid=47176 req=a231a9d9 Connection pool: 30416/0bbf8b active
+2026-05-25T00:30:13.680Z [INFO ] [lz-cache] pid=87626 req=55443efb Encode job queued: file_id=75281
+2026-05-25T00:30:13.410Z [INFO ] [health-check] pid=51894 req=ca37973b Cache entry evicted (LRU)
+2026-05-25T00:30:16.538Z [INFO ] [api-gateway] pid=65156 req=3c0657a9 SHA-256 verified: 59989
+2026-05-25T00:30:18.636Z [ERROR] [moe-engine] pid=79690 req=f0c56bf8 SHA-256 mismatch: expected=32739, got=761692
+2026-05-25T00:30:20.143Z [INFO ] [lz-cache] pid=93015 req=b4ce93c1 Scheduled audit job dispatched: phase29a
+2026-05-25T00:30:22.915Z [DEBUG] [health-check] pid=55716 req=85190182 trace=85190182 op=predict byte=0x9b bpb=6.4587
+2026-05-25T00:30:24.509Z [INFO ] [scheduler] pid=55545 req=d8c828ac Connection pool: 19653/2d32a2 active
+2026-05-25T00:30:26.415Z [ERROR] [scheduler] pid=83098 req=23b6ce8c Encode failed: SEE_ERR_NOMEM (requested 50425 bytes)
+2026-05-25T00:30:28.746Z [WARN ] [scheduler] pid=62183 req=7ec805c2 Slow encode detected: 96271 ms > threshold 1000 ms
+2026-05-25T00:30:30.442Z [DEBUG] [decoder-worker] pid=87610 req=66c9e45f trace=66c9e45f op=predict byte=0x51 bpb=2.2885
+2026-05-25T00:30:31.474Z [ERROR] [storage-driver] pid=94355 req=31d8ec57 Decode aborted: corrupt bitstream at offset 21223
+2026-05-25T00:30:32.389Z [ERROR] [moe-engine] pid=84134 req=cef4d789 Encode failed: SEE_ERR_NOMEM (requested 27770 bytes)
+2026-05-25T00:30:32.585Z [ERROR] [moe-engine] pid=13843 req=064e97f5 Encode failed: SEE_ERR_NOMEM (requested 48129 bytes)
+2026-05-25T00:30:33.792Z [INFO ] [auth-service] pid=61967 req=dcebbf94 Throughput: {:.1f} KB/s
+2026-05-25T00:30:33.457Z [DEBUG] [auth-service] pid=45359 req=2f02bf5d trace=2f02bf5d op=predict byte=0x5c bpb=4.6600
+2026-05-25T00:30:34.065Z [WARN ] [telemetry] pid=16526 req=a3b3207c Weight divergence: expert 94221 dropped below 0.001
+2026-05-25T00:30:36.840Z [WARN ] [api-gateway] pid=32402 req=7e4ff60d High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:30:36.265Z [ERROR] [api-gateway] pid=15485 req=626ac6c9 SHA-256 mismatch: expected=75336, got=64212c
+2026-05-25T00:30:38.694Z [ERROR] [scheduler] pid=71547 req=5d0d072e Expert weight NaN detected at byte 13261
+2026-05-25T00:30:40.671Z [WARN ] [lz-cache] pid=37299 req=e7394d6e Cache miss rate elevated: {:.1f}% in last 60s
+2026-05-25T00:30:41.645Z [ERROR] [storage-driver] pid=77385 req=6b38a504 Connection timeout after 97327ms
+2026-05-25T00:30:41.537Z [WARN ] [scheduler] pid=61332 req=3740eaf1 Rate limit approaching: 77840/a05a6b requests per minute
+2026-05-25T00:30:42.887Z [ERROR] [auth-service] pid=30849 req=4a6d2157 Decode aborted: corrupt bitstream at offset 89964
+2026-05-25T00:30:44.468Z [INFO ] [api-gateway] pid=51828 req=ca5aa416 Worker thread started
+2026-05-25T00:30:44.650Z [INFO ] [auth-service] pid=84336 req=c22c384c Worker thread started
+2026-05-25T00:30:46.351Z [INFO ] [api-gateway] pid=18314 req=ece57307 Session started: user_id=usr_{:06d}
+2026-05-25T00:30:46.635Z [INFO ] [storage-driver] pid=37488 req=181e5c68 Expert profile: general (LZ6+TOKPFX)
+2026-05-25T00:30:48.189Z [INFO ] [moe-engine] pid=24637 req=e7d88614 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:30:51.356Z [INFO ] [decoder-worker] pid=98558 req=8d25f8e1 Health check passed: all 34009 services healthy
+2026-05-25T00:30:51.945Z [INFO ] [lz-cache] pid=22290 req=3b6e33f7 Cache entry evicted (LRU)
+2026-05-25T00:30:53.850Z [INFO ] [scheduler] pid=64490 req=d85f18ce Scheduled audit job dispatched: phase29a
+2026-05-25T00:30:55.014Z [WARN ] [decoder-worker] pid=43728 req=c2d43572 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:30:56.343Z [INFO ] [health-check] pid=20988 req=922e5cc6 Session started: user_id=usr_{:06d}
+2026-05-25T00:30:56.315Z [INFO ] [auth-service] pid=26389 req=8a33cc8f Session started: user_id=usr_{:06d}
+2026-05-25T00:30:57.804Z [INFO ] [lz-cache] pid=17495 req=a6745a3f Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:30:59.299Z [INFO ] [moe-engine] pid=71784 req=415ebabd Throughput: {:.1f} KB/s
+2026-05-25T00:31:01.724Z [DEBUG] [lz-cache] pid=35438 req=a0f330b4 trace=a0f330b4 op=predict byte=0x2b bpb=4.6494
+2026-05-25T00:31:01.417Z [INFO ] [moe-engine] pid=39494 req=9d731175 Cache entry evicted (LRU)
+2026-05-25T00:31:02.144Z [ERROR] [encoder-worker] pid=89292 req=efa60f91 LZ table full: eviction failed after 61095 retries
+2026-05-25T00:31:03.223Z [INFO ] [api-gateway] pid=91074 req=7d3a5cd4 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:31:05.057Z [WARN ] [scheduler] pid=27944 req=06e33f44 Worker backlog: 73874 items queued
+2026-05-25T00:31:06.653Z [INFO ] [api-gateway] pid=10770 req=fcfa2369 Audit pass completed: 218553 bytes, BPB=2.4741
+2026-05-25T00:31:06.417Z [INFO ] [decoder-worker] pid=75929 req=982d91ca Health check passed: all 69321 services healthy
+2026-05-25T00:31:08.249Z [WARN ] [telemetry] pid=65569 req=256d1405 LZ collision detected at slot 0x{:06x}
+2026-05-25T00:31:09.701Z [WARN ] [api-gateway] pid=29516 req=4f7d3715 High memory usage: {:.0f} MB / 512 MB
+2026-05-25T00:31:11.861Z [DEBUG] [health-check] pid=93515 req=85e17c3c trace=85e17c3c op=predict byte=0xd2 bpb=2.5558
+2026-05-25T00:31:11.438Z [ERROR] [auth-service] pid=95001 req=ae22fa57 Worker panic: unhandled exception in moe_engine
+2026-05-25T00:31:12.574Z [INFO ] [api-gateway] pid=26960 req=05ec28ed Cache entry evicted (LRU)
+2026-05-25T00:31:13.817Z [INFO ] [storage-driver] pid=33632 req=52158776 SHA-256 verified: 70132
+2026-05-25T00:31:14.438Z [INFO ] [lz-cache] pid=65091 req=ef4b2109 Config reloaded from disk
+2026-05-25T00:31:16.962Z [INFO ] [scheduler] pid=86631 req=6cf7dc55 Throughput: {:.1f} KB/s
+2026-05-25T00:31:16.984Z [INFO ] [scheduler] pid=22903 req=351cf739 SHA-256 verified: 81364
+2026-05-25T00:31:16.426Z [INFO ] [health-check] pid=33056 req=e2c045e6 Config reloaded from disk
+2026-05-25T00:31:18.232Z [DEBUG] [lz-cache] pid=59098 req=abc2e05c trace=abc2e05c op=predict byte=0x5f bpb=3.0687
+2026-05-25T00:31:18.607Z [WARN ] [storage-driver] pid=37159 req=bcb4067d Decode retry #44331: possible data corruption
+2026-05-25T00:31:19.706Z [WARN ] [api-gateway] pid=82247 req=37694eb6 Weight divergence: expert 10391 dropped below 0.001
+2026-05-25T00:31:22.044Z [INFO ] [auth-service] pid=29001 req=f9bc4e90 Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:31:24.020Z [INFO ] [health-check] pid=85891 req=af82e87c Weight vector updated: TOKPFX=0.9507
+2026-05-25T00:31:24.639Z [INFO ] [scheduler] pid=95459 req=f22d1294 Worker thread started
