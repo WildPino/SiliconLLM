@@ -17,6 +17,92 @@
 
 #define CLASSES 256
 
+// ── Compact Top-N LZ Dictionary ───────────────────────────────────────────
+// Replaces the full uint16_t counts[256] (512 B/entry, ~136 MB total) with a
+// Top-4 sparse representation (20 B/entry, ~5 MB total).
+// Smoothed probability: p_lz(c) = mass_lz * p_topN(c) + (1-mass_lz*cov)/256
+// where mass_lz = total/(total+K) and cov = sum(top4_counts)/total.
+// This ensures the distribution is normalized, and on young/unknown contexts
+// LZ gracefully degrades to near-uniform (no toxic spikes).
+#define LZ_HASH_SIZE 262144
+#define LZ_TOP_N     4
+#define LZ_K         16.0f   // smoothing: mass_lz = total/(total+K)
+
+typedef struct {
+    uint8_t  byte;
+    uint16_t count;
+} LzTopSlot;
+
+typedef struct {
+    uint32_t  key;
+    uint32_t  total;
+    LzTopSlot top[LZ_TOP_N];
+} LzEntry;
+
+LzEntry* lz_table = NULL;
+
+static inline uint32_t lz_hash(uint32_t key) {
+    key ^= key >> 16; key *= 0x85ebca6b; key ^= key >> 13; key *= 0xc2b2ae35; key ^= key >> 16;
+    return key & (LZ_HASH_SIZE - 1);
+}
+static inline LzEntry* lz_lookup(uint32_t key) {
+    uint32_t idx = lz_hash(key);
+    for (int i = 0; i < 16; i++) {
+        if (lz_table[idx].total == 0) return &lz_table[idx];
+        if (lz_table[idx].key == key) return &lz_table[idx];
+        idx = (idx + 1) & (LZ_HASH_SIZE - 1);
+    }
+    return &lz_table[idx];
+}
+
+// Build p_lz_arr[256] from a Top-N entry using the smoothed backoff formula.
+static inline void lz_build_probs(const LzEntry* e, float* p_lz_arr) {
+    if (e->total == 0) {
+        for (int c = 0; c < 256; c++) p_lz_arr[c] = 1.0f / 256.0f;
+        return;
+    }
+    float mass_lz = (float)e->total / ((float)e->total + LZ_K);
+    // coverage = fraction of total observations captured by top-N slots
+    float cov_counts = 0;
+    for (int n = 0; n < LZ_TOP_N; n++) cov_counts += e->top[n].count;
+    float cov = cov_counts / (float)e->total;
+    // uniform_part fills remaining probability (uncovered tail + (1-mass_lz))
+    float uniform_part = (1.0f - mass_lz * cov) / 256.0f;
+    for (int c = 0; c < 256; c++) p_lz_arr[c] = uniform_part;
+    float inv_total = mass_lz / (float)e->total;
+    for (int n = 0; n < LZ_TOP_N; n++) {
+        if (e->top[n].count > 0)
+            p_lz_arr[e->top[n].byte] += inv_total * e->top[n].count;
+    }
+}
+
+// Update Top-N slot for observed byte `target` in entry `e`.
+static inline void lz_update(LzEntry* e, uint32_t ctx_key, uint8_t target) {
+    if (e->key != ctx_key) {
+        e->key = ctx_key;
+        e->total = 0;
+        for (int n = 0; n < LZ_TOP_N; n++) { e->top[n].byte = 0; e->top[n].count = 0; }
+    }
+    e->total++;
+    // Search for existing slot
+    for (int n = 0; n < LZ_TOP_N; n++) {
+        if (e->top[n].count > 0 && e->top[n].byte == target) {
+            e->top[n].count++;
+            return;
+        }
+    }
+    // Not found: use an empty slot if available
+    for (int n = 0; n < LZ_TOP_N; n++) {
+        if (e->top[n].count == 0) {
+            e->top[n].byte  = target;
+            e->top[n].count = 1;
+            return;
+        }
+    }
+    // All slots full and target not tracked — increment total only (falls to uniform)
+}
+
+
 typedef struct {
     uint32_t magic;
     uint32_t version;
@@ -105,6 +191,7 @@ int main(int argc, char** argv) {
     double total_loss_see_only = 0;
     double total_loss_uni_only = 0;
     double total_loss_bi_only = 0;
+    double total_loss_lz_only = 0;
     double total_loss_oracle = 0;
     
     FILE* f_telemetry = NULL;
@@ -113,16 +200,21 @@ int main(int argc, char** argv) {
     float moe_eta = 0.03f;
     float moe_share = 0.001f;
     int use_moe = 0;
-    double w_see = 1.0 / 3.0;
-    double w_uni = 1.0 / 3.0;
-    double w_bi = 1.0 / 3.0;
-    
+    int no_lz = 0;   // 3-expert mode: remove LZ arm entirely
+    int lz_mute = 0; // 4-expert muted: LZ always outputs uniform (measures fourth-share tax)
+    double w_see = 1.0 / 4.0;
+    double w_uni = 1.0 / 4.0;
+    double w_bi = 1.0 / 4.0;
+    double w_lz = 1.0 / 4.0;
+
     uint64_t win_see = 0;
     uint64_t win_uni = 0;
     uint64_t win_bi = 0;
+    uint64_t win_lz = 0;
     double sum_w_see = 0;
     double sum_w_uni = 0;
     double sum_w_bi = 0;
+    double sum_w_lz = 0;
     enum Mode mode = MODE_NONE;
     const char* input_path = NULL;
     const char* archive_path = NULL;
@@ -191,12 +283,24 @@ int main(int argc, char** argv) {
             moe_eta = (float)atof(argv[++i]);
         } else if (strcmp(argv[i], "--share") == 0 && i + 1 < argc) {
             moe_share = (float)atof(argv[++i]);
+        } else if (strcmp(argv[i], "--no-lz") == 0) {
+            no_lz = 1;
+        } else if (strcmp(argv[i], "--lz-mute") == 0) {
+            lz_mute = 1;
         }
     }
     
     if (mode == MODE_NONE || !weights_path) {
         printf("Error: Missing mode or --weights.\n");
         return 1;
+    }
+
+    // Re-init weights after flags are parsed
+    if (no_lz) {
+        w_see = 1.0 / 3.0; w_uni = 1.0 / 3.0; w_bi = 1.0 / 3.0; w_lz = 0.0;
+        printf("[no-lz] 3-expert mode: SEE + UNI + BI\n");
+    } else if (lz_mute) {
+        printf("[lz-mute] 4-expert muted: LZ always outputs uniform (measures fourth-share tax)\n");
     }
 
     
@@ -218,7 +322,7 @@ int main(int argc, char** argv) {
     if (telemetry_path) {
         f_telemetry = fopen(telemetry_path, "w");
         if (f_telemetry) {
-            fprintf(f_telemetry, "i,target,loss_see,loss_uni,loss_bi,loss_actual,w_see,w_uni,w_bi\n");
+            fprintf(f_telemetry, "i,target,loss_see,loss_uni,loss_bi,loss_lz,loss_actual,w_see,w_uni,w_bi,w_lz\n");
         }
     }
 FILE* fw = fopen(weights_path, "rb");
@@ -398,6 +502,9 @@ float (*base_probs)[CLASSES][CLASSES] = NULL;
     }
 
     topk_indices = malloc(CLASSES * CLASSES * CLASSES * sizeof(uint8_t));
+    if (!no_lz) lz_table = calloc(LZ_HASH_SIZE, sizeof(LzEntry));
+    uint32_t lz_ctx = 0;
+    float p_lz_arr[CLASSES];
     for (int c2 = 0; c2 < CLASSES; c2++) {
         for (int c1 = 0; c1 < CLASSES; c1++) {
             LogitPair pairs[CLASSES];
@@ -643,10 +750,18 @@ for (int i = 0; i < eval_len; i++) {
             p_uni_arr[c] = (dyn_uni_counts[c] + alpha) / sum_uni;
             p_bi_arr[c] = (dyn_bi_counts[ctx1][c] + alpha) / sum_bi;
         }
+        LzEntry* lz_ent = NULL;
+        if (no_lz || lz_mute) {
+            // no-lz: LZ arm absent. lz-mute: LZ always uniform (measures fourth-share tax)
+            for (int c = 0; c < CLASSES; c++) p_lz_arr[c] = 1.0f / 256.0f;
+        } else {
+            lz_ent = lz_lookup(lz_ctx);
+            lz_build_probs(lz_ent, p_lz_arr);
+        }
         
         if (use_moe) {
             for (int c = 0; c < CLASSES; c++) {
-                probs_tmp[c] = w_see * p_see[c] + w_uni * p_uni_arr[c] + w_bi * p_bi_arr[c];
+                probs_tmp[c] = w_see * p_see[c] + w_uni * p_uni_arr[c] + w_bi * p_bi_arr[c] + w_lz * p_lz_arr[c];
             }
         } else {
             float current_lambda = blend_lambda;
@@ -721,27 +836,34 @@ if (f_dump) {
         float prob_bi = p_bi_arr[target];
         if (prob_bi < 1e-10f) prob_bi = 1e-10f;
         double loss_bi = -log2(prob_bi);
+        float prob_lz = p_lz_arr[target];
+        if(prob_lz < 1e-10f) prob_lz = 1e-10f;
+        double loss_lz = -log2(prob_lz);
         
         total_loss_see_only += loss_see;
         total_loss_uni_only += loss_uni;
         total_loss_bi_only += loss_bi;
+        total_loss_lz_only += loss_lz;
         
         double min_loss = loss_see;
         if (loss_uni < min_loss) min_loss = loss_uni;
         if (loss_bi < min_loss) min_loss = loss_bi;
+        if (loss_lz < min_loss) min_loss = loss_lz;
         total_loss_oracle += min_loss;
         
-        if (loss_see <= loss_uni && loss_see <= loss_bi) win_see++;
-        else if (loss_uni <= loss_bi) win_uni++;
-        else win_bi++;
+        if (loss_see <= loss_uni && loss_see <= loss_bi && loss_see <= loss_lz) win_see++;
+        else if (loss_uni <= loss_bi && loss_uni <= loss_lz) win_uni++;
+        else if (loss_bi <= loss_lz) win_bi++;
+        else win_lz++;
         
         sum_w_see += w_see;
         sum_w_uni += w_uni;
         sum_w_bi += w_bi;
+        sum_w_lz += w_lz;
         
         if (f_telemetry) {
-            fprintf(f_telemetry, "%d,%d,%f,%f,%f,%f,%f,%f,%f\n", 
-                    i, target, loss_see, loss_uni, loss_bi, sample_loss, w_see, w_uni, w_bi);
+            fprintf(f_telemetry, "%d,%d,%f,%f,%f,%f,%f,%f,%f,%f,%f\n", 
+                    i, target, loss_see, loss_uni, loss_bi, loss_lz, sample_loss, w_see, w_uni, w_bi, w_lz);
         }
         
         // Fixed-Share Weight Update
@@ -749,19 +871,26 @@ if (f_dump) {
             w_see *= expf(-moe_eta * loss_see);
             w_uni *= expf(-moe_eta * loss_uni);
             w_bi *= expf(-moe_eta * loss_bi);
-            
+            if (!no_lz) w_lz *= expf(-moe_eta * loss_lz);
+
             // Normalize
-            double sum_w = w_see + w_uni + w_bi;
-            if (sum_w < 1e-30) {
-                w_see = 1.0/3.0; w_uni = 1.0/3.0; w_bi = 1.0/3.0;
+            double sum_w = w_see + w_uni + w_bi + (no_lz ? 0.0 : w_lz);
+            if (no_lz) {
+                if (sum_w < 1e-30) { w_see = 1.0/3.0; w_uni = 1.0/3.0; w_bi = 1.0/3.0; }
+                else { w_see /= sum_w; w_uni /= sum_w; w_bi /= sum_w; }
+                // Share over 3
+                w_see = (1.0f - moe_share) * w_see + moe_share / 3.0f;
+                w_uni = (1.0f - moe_share) * w_uni + moe_share / 3.0f;
+                w_bi  = (1.0f - moe_share) * w_bi  + moe_share / 3.0f;
             } else {
-                w_see /= sum_w; w_uni /= sum_w; w_bi /= sum_w;
+                if (sum_w < 1e-30) { w_see = 1.0/4.0; w_uni = 1.0/4.0; w_bi = 1.0/4.0; w_lz = 1.0/4.0; }
+                else { w_see /= sum_w; w_uni /= sum_w; w_bi /= sum_w; w_lz /= sum_w; }
+                // Share over 4
+                w_see = (1.0f - moe_share) * w_see + moe_share / 4.0f;
+                w_uni = (1.0f - moe_share) * w_uni + moe_share / 4.0f;
+                w_bi  = (1.0f - moe_share) * w_bi  + moe_share / 4.0f;
+                w_lz  = (1.0f - moe_share) * w_lz  + moe_share / 4.0f;
             }
-            
-            // Share
-            w_see = (1.0f - moe_share) * w_see + moe_share / 3.0f;
-            w_uni = (1.0f - moe_share) * w_uni + moe_share / 3.0f;
-            w_bi = (1.0f - moe_share) * w_bi + moe_share / 3.0f;
         }
         
         double quant_prob = (double)freq[target] / CDF_SCALE;
@@ -792,6 +921,10 @@ if (f_dump) {
         dyn_bi_counts[ctx1][target]++;
         dyn_total_count++;
         
+        if (!no_lz && !lz_mute && lz_ent) {
+            lz_update(lz_ent, lz_ctx, target);
+        }
+        lz_ctx = (lz_ctx << 8) | target;
         ctx2 = ctx1;
         ctx1 = target;
         uint64_t t4 = __rdtsc();
@@ -856,18 +989,22 @@ if (f_dump) {
         printf("SEE Only BPB:    %.4f\n", total_loss_see_only / eval_len);
         printf("Uni Only BPB:    %.4f\n", total_loss_uni_only / eval_len);
         printf("Bi  Only BPB:    %.4f\n", total_loss_bi_only / eval_len);
+    printf("LZ  Only BPB:    %.4f\n", total_loss_lz_only / eval_len);
         printf("Oracle BPB:      %.4f\n", total_loss_oracle / eval_len);
         if (use_moe) {
             printf("\n--- MoE Stats ---\n");
             printf("Avg W_SEE:       %.4f\n", sum_w_see / eval_len);
             printf("Avg W_UNI:       %.4f\n", sum_w_uni / eval_len);
             printf("Avg W_BI:        %.4f\n", sum_w_bi / eval_len);
+    printf("Avg W_LZ:        %.4f\n", sum_w_lz / eval_len);
             printf("Final W_SEE:     %.4f\n", w_see);
             printf("Final W_UNI:     %.4f\n", w_uni);
             printf("Final W_BI:      %.4f\n", w_bi);
+    printf("Final W_LZ:      %.4f\n", w_lz);
             printf("Win %% SEE:       %.1f%%\n", 100.0 * win_see / eval_len);
             printf("Win %% UNI:       %.1f%%\n", 100.0 * win_uni / eval_len);
             printf("Win %% BI:        %.1f%%\n", 100.0 * win_bi / eval_len);
+    printf("Win %% LZ:        %.1f%%\n", 100.0 * win_lz / eval_len);
         }
 
     } else {
