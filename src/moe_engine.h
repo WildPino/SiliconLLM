@@ -8,13 +8,14 @@
 // Credit assignment via exponentiated gradient + fixed share redistribution.
 // Reference: Herbster & Warmuth (1998), "Tracking the Best Expert".
 
-#define MOE_N_EXPERTS 6
-#define MOE_EXP_SEE   0
-#define MOE_EXP_UNI   1
-#define MOE_EXP_BI    2
-#define MOE_EXP_LZ    3
-#define MOE_EXP_LZ8   4   // wide-context LZ or TOKPFX
-#define MOE_EXP_TOK_PREV 5 // token start transition expert
+#define MOE_N_EXPERTS    7
+#define MOE_EXP_SEE      0
+#define MOE_EXP_UNI      1
+#define MOE_EXP_BI       2
+#define MOE_EXP_LZ       3
+#define MOE_EXP_LZ8      4   // wide-context LZ or TOKPFX
+#define MOE_EXP_TOK_PREV 5   // token start transition expert
+#define MOE_EXP_SPAN_PFX 6   // inline-span delimiter expert (backtick/dollar)
 
 typedef struct {
     double   w[MOE_N_EXPERTS];       // current mixture weights (sum = 1)

@@ -16,6 +16,7 @@
 #define SEE_FLAG_TOK_PREFIX 0x08u
 #define SEE_FLAG_TOK_PREV      0x10u
 #define SEE_FLAG_TOK_PREV_ELIG 0x20u
+#define SEE_FLAG_SPAN_PFX      0x40u  // inline-span delimiter expert active
 
 typedef struct {
     uint32_t magic;             // SEE3_MAGIC
@@ -55,6 +56,8 @@ typedef struct {
     int   tok_prev;             // 1 → token transition expert
     int   tok_prev_mute;        // 1 → token transition expert stays uniform (ablation)
     int   tok_prev_elig;        // 1 → token transition expert is dynamically eligible
+    int   span_pfx;             // 1 → inline-span delimiter expert (backtick/dollar)
+    int   span_pfx_mute;        // 1 → span expert stays uniform (ablation)
 
     // MoE
     int   use_moe;              // 1 → fixed-share credit assignment
@@ -97,14 +100,16 @@ typedef struct {
     double   lz_bpb;            // LZ-only BPB (primary LZ, key=lz_key_bytes)
     double   lz8_bpb;           // LZ8-only BPB (dual mode) or TOKPFX-only BPB (tok_prefix mode)
     double   tok_prev_bpb;      // TOKPREV-only BPB
+    double   span_bpb;          // SPANPFX-only BPB
     double   oracle_bpb;        // oracle (best expert per byte)
     double   unigram_bpb;       // i.i.d. unigram lower-bound on this segment
     double   cycles_per_byte;   // total CPU cycles / evaluated bytes
-    double   avg_w[6];          // average MoE weights [SEE, UNI, BI, LZ, LZ8/TOKPFX, TOKPREV] — all steps
-    double   avg_w_when_elig[6]; // average weight only on eligible steps (0 if not gated)
-    double   final_w[6];        // final MoE weights at end of segment
-    uint64_t wins[6];           // per-expert "best predictor" counts
-    uint64_t n_elig_bytes;      // bytes where tok_prev was eligible (armed state)
+    double   avg_w[7];          // average MoE weights [SEE,UNI,BI,LZ,TOKPFX,TOKPREV,SPANPFX]
+    double   avg_w_when_elig[7]; // average weight only on eligible steps (0 if not gated)
+    double   final_w[7];        // final MoE weights at end of segment
+    uint64_t wins[7];           // per-expert "best predictor" counts
+    uint64_t n_elig_bytes;      // bytes where tok_prev was eligible
+    uint64_t n_span_elig_bytes; // bytes where span_pfx was eligible (inside span)
     uint64_t bytes_evaluated;
     // Per-tok-category loss for TOKPREV (global, all bytes)
     double   tokprev_alnum_start_bpb;  // TOKPREV loss on bytes that turned out to be ALNUM_START
@@ -114,6 +119,7 @@ typedef struct {
     int      lz_dual;           // 1 if dual-LZ mode was active
     int      tok_prefix;        // 1 if tok-prefix expert occupied the LZ8 slot
     int      tok_prev;          // 1 if tok-prev expert was active
+    int      span_pfx;          // 1 if span-prefix expert was active
 } SeeAuditResult;
 
 // ── Public API ────────────────────────────────────────────────────────────────

@@ -28,7 +28,9 @@ static void usage(const char* prog) {
         "  --lz-dual             5-expert mode: LZ4 + LZ8 as separate MoE experts\n"
         "  --tok-prefix          add inside-token prefix expert (TOKPFX)\n"
         "  --tok-prev            add token-transition expert (TOK_PREV)\n"
-        "  --tok-prev-elig       gated TOK_PREV (only eligible outside ALNUM/MACRO)\n\n"
+        "  --tok-prev-elig       gated TOK_PREV (only eligible outside ALNUM/MACRO)\n"
+        "  --span-pfx            inline-span expert: backtick/dollar gated (event-driven)\n"
+        "  --span-pfx-mute       mute span expert (ablation — uniform distribution)\n\n"
         "Audit-only options:\n"
         "  --eval-start <pct>    start percent (default 0)\n"
         "  --eval-len   <pct>    length percent (default 100)\n"
@@ -110,6 +112,11 @@ int main(int argc, char** argv) {
         } else if (strcmp(argv[i], "--tok-prev-elig") == 0) {
             cfg.tok_prev = 1;
             cfg.tok_prev_elig = 1;
+        } else if (strcmp(argv[i], "--span-pfx") == 0) {
+            cfg.span_pfx = 1;
+        } else if (strcmp(argv[i], "--span-pfx-mute") == 0) {
+            cfg.span_pfx = 1;
+            cfg.span_pfx_mute = 1;
         } else if (strcmp(argv[i], "--eval-start") == 0 && i+1 < argc) {
             cfg.eval_start_pct = atoi(argv[++i]);
         } else if (strcmp(argv[i], "--eval-len") == 0 && i+1 < argc) {
