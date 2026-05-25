@@ -1,0 +1,262 @@
+{
+  "version": "29C",
+  "description": "External corpus baseline \u2014 clean catalog, 4 profiles",
+  "tolerance_bpb": 0.005,
+  "excluded_catalog_errors": {
+    "json_real.json": "CATALOG ERROR \u2014 was awesome-json-datasets README.md (markdown), not JSON. Excluded from all domain conclusions."
+  },
+  "corpora": {
+    "prose_real.txt": {
+      "domain": "prose",
+      "notes": "Jennie Gerhardt by Theodore Dreiser (1911), 512KB from pg19",
+      "size_bytes": 535590,
+      "small_flag": false,
+      "general": {
+        "quant_bpb": 3.3296,
+        "model_bpb": 3.3241,
+        "unigram_bpb": 4.5253,
+        "cycles_byte": 60040.9,
+        "dominant": "BI",
+        "avg_weights": {
+          "SEE": 0.0039,
+          "UNI": 0.018,
+          "BI": 0.7726,
+          "LZ": 0.0075,
+          "TOKPFX": 0.198
+        }
+      },
+      "prose": {
+        "quant_bpb": 3.3323,
+        "model_bpb": 3.3268,
+        "unigram_bpb": 4.5253,
+        "cycles_byte": 61098.8,
+        "dominant": "BI",
+        "avg_weights": {
+          "SEE": 0.0037,
+          "UNI": 0.0177,
+          "BI": 0.7736,
+          "LZ": 0.0071,
+          "TOKPFX": 0.1955,
+          "TKPREV": 0.0023
+        }
+      },
+      "span-pfx": {
+        "quant_bpb": 3.3296,
+        "model_bpb": 3.3241,
+        "unigram_bpb": 4.5253,
+        "cycles_byte": 60932.1,
+        "dominant": "BI",
+        "avg_weights": {
+          "SEE": 0.0032,
+          "UNI": 0.015,
+          "BI": 0.6438,
+          "LZ": 0.0062,
+          "TOKPFX": 0.165,
+          "SPANPFX": 0.1667
+        }
+      },
+      "no-token": {
+        "quant_bpb": 3.5325,
+        "model_bpb": 3.5242,
+        "unigram_bpb": 4.5253,
+        "cycles_byte": 58842.0,
+        "dominant": "BI",
+        "avg_weights": {
+          "SEE": 0.0048,
+          "UNI": 0.0197,
+          "BI": 0.9654,
+          "LZ": 0.01
+        }
+      }
+    },
+    "c_real.c": {
+      "domain": "code",
+      "notes": "zlib inflate.c \u2014 real C source, complex control flow, Zlib license",
+      "size_bytes": 52247,
+      "small_flag": true,
+      "general": {
+        "quant_bpb": 2.9699,
+        "model_bpb": 2.9778,
+        "unigram_bpb": 4.4657,
+        "cycles_byte": 59502.7,
+        "dominant": "BI",
+        "avg_weights": {
+          "SEE": 0.1843,
+          "UNI": 0.0376,
+          "BI": 0.3839,
+          "LZ": 0.3182,
+          "TOKPFX": 0.076
+        }
+      },
+      "prose": {
+        "quant_bpb": 2.9775,
+        "model_bpb": 2.9856,
+        "unigram_bpb": 4.4657,
+        "cycles_byte": 61356.9,
+        "dominant": "BI",
+        "avg_weights": {
+          "SEE": 0.1828,
+          "UNI": 0.0367,
+          "BI": 0.3864,
+          "LZ": 0.3172,
+          "TOKPFX": 0.0748,
+          "TKPREV": 0.0021
+        }
+      },
+      "span-pfx": {
+        "quant_bpb": 2.9699,
+        "model_bpb": 2.9778,
+        "unigram_bpb": 4.4657,
+        "cycles_byte": 60379.6,
+        "dominant": "BI",
+        "avg_weights": {
+          "SEE": 0.1536,
+          "UNI": 0.0314,
+          "BI": 0.3199,
+          "LZ": 0.2651,
+          "TOKPFX": 0.0633,
+          "SPANPFX": 0.1667
+        }
+      },
+      "no-token": {
+        "quant_bpb": 3.0425,
+        "model_bpb": 3.0482,
+        "unigram_bpb": 4.4657,
+        "cycles_byte": 60359.3,
+        "dominant": "BI",
+        "avg_weights": {
+          "SEE": 0.2016,
+          "UNI": 0.067,
+          "BI": 0.4033,
+          "LZ": 0.3281
+        }
+      }
+    },
+    "log_real.log": {
+      "domain": "log",
+      "notes": "Apache access log, real server log, 2.3MB, Apache-2.0",
+      "size_bytes": 2370789,
+      "small_flag": false,
+      "general": {
+        "quant_bpb": 0.9809,
+        "model_bpb": 0.9818,
+        "unigram_bpb": 5.4941,
+        "cycles_byte": 60438.7,
+        "dominant": "LZ",
+        "avg_weights": {
+          "SEE": 0.0013,
+          "UNI": 0.0026,
+          "BI": 0.0059,
+          "LZ": 0.9838,
+          "TOKPFX": 0.0063
+        }
+      },
+      "prose": {
+        "quant_bpb": 0.981,
+        "model_bpb": 0.982,
+        "unigram_bpb": 5.4941,
+        "cycles_byte": 76887.8,
+        "dominant": "LZ",
+        "avg_weights": {
+          "SEE": 0.0013,
+          "UNI": 0.0025,
+          "BI": 0.0057,
+          "LZ": 0.9827,
+          "TOKPFX": 0.006,
+          "TKPREV": 0.0018
+        }
+      },
+      "span-pfx": {
+        "quant_bpb": 0.9809,
+        "model_bpb": 0.9818,
+        "unigram_bpb": 5.4941,
+        "cycles_byte": 76705.1,
+        "dominant": "LZ",
+        "avg_weights": {
+          "SEE": 0.0011,
+          "UNI": 0.0022,
+          "BI": 0.005,
+          "LZ": 0.8432,
+          "TOKPFX": 0.0053,
+          "SPANPFX": 0.1431
+        }
+      },
+      "no-token": {
+        "quant_bpb": 0.9887,
+        "model_bpb": 0.9886,
+        "unigram_bpb": 5.4941,
+        "cycles_byte": 58843.1,
+        "dominant": "LZ",
+        "avg_weights": {
+          "SEE": 0.0017,
+          "UNI": 0.0032,
+          "BI": 0.0076,
+          "LZ": 0.9875
+        }
+      }
+    },
+    "readme_real.md": {
+      "domain": "markdown",
+      "notes": "LZ4 README.md, BSD-2-Clause \u2014 SMALL FLAG (<64KB)",
+      "size_bytes": 4972,
+      "small_flag": true,
+      "general": {
+        "quant_bpb": 4.9547,
+        "model_bpb": 4.9556,
+        "unigram_bpb": 5.1395,
+        "cycles_byte": 85339.6,
+        "dominant": "UNI",
+        "avg_weights": {
+          "SEE": 0.2007,
+          "UNI": 0.5222,
+          "BI": 0.1246,
+          "LZ": 0.0165,
+          "TOKPFX": 0.136
+        }
+      },
+      "prose": {
+        "quant_bpb": 4.9602,
+        "model_bpb": 4.9611,
+        "unigram_bpb": 5.1395,
+        "cycles_byte": 80077.7,
+        "dominant": "UNI",
+        "avg_weights": {
+          "SEE": 0.198,
+          "UNI": 0.5276,
+          "BI": 0.1185,
+          "LZ": 0.0156,
+          "TOKPFX": 0.1335,
+          "TKPREV": 0.0068
+        }
+      },
+      "span-pfx": {
+        "quant_bpb": 4.9547,
+        "model_bpb": 4.9557,
+        "unigram_bpb": 5.1395,
+        "cycles_byte": 74450.4,
+        "dominant": "UNI",
+        "avg_weights": {
+          "SEE": 0.1679,
+          "UNI": 0.4463,
+          "BI": 0.1055,
+          "LZ": 0.0139,
+          "TOKPFX": 0.1161,
+          "SPANPFX": 0.1503
+        }
+      },
+      "no-token": {
+        "quant_bpb": 5.0571,
+        "model_bpb": 5.0553,
+        "unigram_bpb": 5.1395,
+        "cycles_byte": 70492.7,
+        "dominant": "UNI",
+        "avg_weights": {
+          "SEE": 0.2059,
+          "UNI": 0.5973,
+          "BI": 0.148,
+          "LZ": 0.0487
+        }
+      }
+    }
+  }
+}
