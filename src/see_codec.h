@@ -40,7 +40,8 @@ typedef struct {
     uint8_t  seed_byte1;        // second byte of original
     uint8_t  lz_key_bytes;      // LZ key width in bytes
     uint8_t  _pad1;             // alignment padding — must be zero
-} SeeArchiveHeader;             // sizeof = 60 bytes
+    uint8_t  weights_sha256[32]; // SHA-256 of the weights .bin file used at encode time
+} SeeArchiveHeader;             // sizeof = 92 bytes
 
 // ── Codec Configuration ───────────────────────────────────────────────────────
 

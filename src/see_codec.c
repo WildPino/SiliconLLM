@@ -794,6 +794,17 @@ int see_codec_encode_file(const char* input_path,
     hdr.seed_byte0       = data_size > 0 ? data[0] : 0;
     hdr.seed_byte1       = data_size > 1 ? data[1] : 0;
     hdr.lz_key_bytes     = (uint8_t)cfg.lz_key_bytes;
+
+    // Bind archive to the exact weights file used at encode time.
+    // sha256_file returns empty string on failure (non-fatal: archive still valid).
+    char wsha_hex[65] = {0};
+    sha256_file(cfg.weights_path, wsha_hex);
+    for (int i = 0; i < 32; i++) {
+        unsigned v = 0;
+        sscanf(wsha_hex + i*2, "%02x", &v);
+        hdr.weights_sha256[i] = (uint8_t)v;
+    }
+
     fwrite(&hdr, sizeof(hdr), 1, fo);
 
     RunCtx rc = {0};
@@ -833,6 +844,31 @@ int see_codec_decode_file(const char* archive_path,
         fprintf(stderr, "see: header_size mismatch (%u vs %zu) — version incompatible\n",
                 hdr.header_size, sizeof(SeeArchiveHeader));
         fclose(fi); return -1;
+    }
+
+    // Verify the weights file matches what was used at encode time.
+    {
+        char wsha_hex[65] = {0};
+        sha256_file(weights_path, wsha_hex);
+        uint8_t wsha[32] = {0};
+        for (int i = 0; i < 32; i++) {
+            unsigned v = 0;
+            sscanf(wsha_hex + i*2, "%02x", &v);
+            wsha[i] = (uint8_t)v;
+        }
+        // All-zero header hash means weights were unavailable at encode — skip check.
+        int hdr_nonzero = 0;
+        for (int i = 0; i < 32; i++) if (hdr.weights_sha256[i]) { hdr_nonzero = 1; break; }
+        if (hdr_nonzero && memcmp(hdr.weights_sha256, wsha, 32) != 0) {
+            char ahex[65]; ahex[64] = 0;
+            for (int i = 0; i < 32; i++) sprintf(ahex + i*2, "%02x", hdr.weights_sha256[i]);
+            fprintf(stderr,
+                "see: weights mismatch — archive was encoded with different weights\n"
+                "     archive sha256: %.16s...\n"
+                "     current sha256: %.16s...\n",
+                ahex, wsha_hex);
+            fclose(fi); return -1;
+        }
     }
 
     // Reconstruct config from header
