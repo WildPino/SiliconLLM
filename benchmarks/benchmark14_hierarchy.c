@@ -307,7 +307,7 @@ void extract_hierarchical(int global_idx, uint8_t byte, float* out, int C, int K
             current_chunk_mean[i] += out[i];
         }
         
-        // Aggiungi L1 storico all'output (non stiamo ancora pushando il chunk corrente)
+        // Add historical L1 to output (we are not pushing the current chunk yet)
         // L'output del modello per L1 e' la concatenazione di K chunk dalla storia.
         for(int k_idx = 0; k_idx < K; k_idx++) {
             int hist_idx = (chunk_count - 1 - k_idx + 32) % 32;
@@ -318,7 +318,7 @@ void extract_hierarchical(int global_idx, uint8_t byte, float* out, int C, int K
             }
         }
         
-        // Se chiudiamo il chunk, salva nella storia
+        // If we close the chunk, save to history
         if ((global_idx + 1) % C == 0) {
             float mean_last[128];
             for(int i=0; i<64; i++) {

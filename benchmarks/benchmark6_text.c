@@ -293,7 +293,7 @@ void run_phase_6a() {
         
         // Input: multiplexing the streams
         // Per testare XOR-2 pulito, l'input t è 'a'. L'input t-1 era 'a_prev', l'input t-2 era 'b_prev'.
-        // Ma per un task RC standard: input_sym è casuale. Il target è XOR(t-1, t-2).
+        // But for a standard RC task: input_sym is random. Target is XOR(t-1, t-2).
         uint8_t input_sym = (rand() % 2) ? 255 : 0;
         
         // Shift history

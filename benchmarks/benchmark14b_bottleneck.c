@@ -308,7 +308,7 @@ void extract_ema(int global_idx, uint8_t byte, float* out, int chunk_size, float
         // Output features: [L0_64, l1_state_128]
         memcpy(out + 64, l1_state, 128 * sizeof(float));
         
-        // Se chiudiamo il chunk, aggiorna l1_state
+        // If we close the chunk, update l1_state
         if ((global_idx + 1) % chunk_size == 0) {
             float mean_last[128];
             for(int i=0; i<64; i++) {

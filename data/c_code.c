@@ -2144,31 +2144,31 @@ void silicon_v0_reset(SiliconV0* e) {
 }
 
 void silicon_v0_tick(SiliconV0* e, uint8_t input_byte) {
-    // 1. Accoda in M4 storco
+    // 1. Queue in historical M4
     e->m4_buf[e->m4_head] = input_byte;
     e->m4_head = (e->m4_head + 1) % 256;
     
-    // 2. Iniezione T3 Shift-Window (Topologia Discreta)
+    // 2. T3 Shift-Window Injection (Discrete Topology)
     int t3_tokens = 16;
     int spacing = 128 / t3_tokens; // 8
     
     for(int slot = 0; slot < t3_tokens; slot++) {
         int hist_idx = (e->m4_head - 1 - slot + 256) % 256;
         uint8_t h = e->m4_buf[hist_idx];
-        int dest = slot * spacing; // Iniezione su un singolo blocco per token
+        int dest = slot * spacing; // Injection on a single block per token
         if (dest >= 128) dest -= 128;
         
         e->state[dest] = _mm256_adds_epu8(e->state[dest], e->codebook[h]);
     }
     
-    // 3. Damping termodinamico (Decadimento esponenziale)
+    // 3. Thermodynamic damping (Exponential decay)
     __m256i mask_7F = _mm256_set1_epi8(0x7F);
     _Pragma("GCC unroll 4")
     for(int i = 0; i < 128; i++) {
         e->state[i] = _mm256_and_si256(_mm256_srli_epi16(e->state[i], 1), mask_7F);
     }
     
-    // 4. Wave Dynamics (Integrazione di percorso)
+    // 4. Wave Dynamics (Path integration)
     __m256i const_128 = _mm256_set1_epi8(-128);
     __m256i zero = _mm256_setzero_si256();
     __m256i m0 = _mm256_set1_epi8(0xAA);
@@ -2247,31 +2247,31 @@ typedef struct {
 } SiliconV0;
 
 /**
- * Inizializza l'engine.
- * Genera il Codebook (Random Binary Single-Block) usando il seed fornito,
- * e azzera lo stato spaziale e il buffer storico.
+ * Initialize the engine.
+ * Generates the Codebook (Random Binary Single-Block) using the provided seed,
+ * and clears the spatial state and historical buffer.
  */
 void silicon_v0_init(SiliconV0* e, int codebook_seed);
 
 /**
- * Resetta esclusivamente lo stato differenziale della Wave.
- * Utile per ablazioni o per testare il motore senza integrazione storica,
- * o all'inizio di un nuovo documento.
+ * Resets exclusively the differential state of the Wave.
+ * Useful for ablations or to test the engine without historical integration,
+ * or at the start of a new document.
  */
 void silicon_v0_reset(SiliconV0* e);
 
 /**
- * Esegue un tick dell'engine per il byte in ingresso.
- * 1. Accoda il byte in M4.
- * 2. Reinietta la finestra T3 spazialmente shiftata.
- * 3. Applica il damping e i 4 step di diffusione d'onda.
+ * Executes an engine tick for the input byte.
+ * 1. Queues the byte in M4.
+ * 2. Reinjects the spatially shifted T3 window.
+ * 3. Applies damping and the 4 wave diffusion steps.
  */
 void silicon_v0_tick(SiliconV0* e, uint8_t input_byte);
 
 /**
- * Estrae le feature Lane-Aware Pooled 32D dalla griglia spaziale.
- * Esegue un sum-pooling lane-wise sui 16 canali spaziali.
- * L'output e' un vettore di 32 double pronto per regressione/layer lineare.
+ * Extracts Lane-Aware Pooled 32D features from the spatial grid.
+ * Performs lane-wise sum-pooling over the 16 spatial channels.
+ * The output is a 32-double vector ready for regression/linear layer.
  */
 void silicon_v0_extract_32d(const SiliconV0* e, double* out_32d);
 
@@ -3617,7 +3617,7 @@ void run_phase_6a() {
         
         // Input: multiplexing the streams
         // Per testare XOR-2 pulito, l'input t è 'a'. L'input t-1 era 'a_prev', l'input t-2 era 'b_prev'.
-        // Ma per un task RC standard: input_sym è casuale. Il target è XOR(t-1, t-2).
+        // But for a standard RC task: input_sym is random. Target is XOR(t-1, t-2).
         uint8_t input_sym = (rand() % 2) ? 255 : 0;
         
         // Shift history
