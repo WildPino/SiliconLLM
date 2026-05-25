@@ -8,11 +8,12 @@
 // Credit assignment via exponentiated gradient + fixed share redistribution.
 // Reference: Herbster & Warmuth (1998), "Tracking the Best Expert".
 
-#define MOE_N_EXPERTS 4
+#define MOE_N_EXPERTS 5
 #define MOE_EXP_SEE   0
 #define MOE_EXP_UNI   1
 #define MOE_EXP_BI    2
 #define MOE_EXP_LZ    3
+#define MOE_EXP_LZ8   4   // wide-context LZ (dual mode only)
 
 typedef struct {
     double   w[MOE_N_EXPERTS];       // current mixture weights (sum = 1)

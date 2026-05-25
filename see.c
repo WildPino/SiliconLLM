@@ -18,7 +18,10 @@ static void usage(const char* prog) {
         "  --tail-mode <0|1|2>   tail compensation mode  (default 0)\n"
         "  --profile <name>      full | accurate | fast\n"
         "  --no-lz               3-expert mode (SEE+UNI+BI only)\n"
-        "  --lz-mute             mute LZ arm (ablation)\n\n"
+        "  --lz-mute             mute LZ arm (ablation)\n"
+        "  --lz-key <4|6|8>      LZ context key width in bytes (default 6)\n"
+        "  --lz-dual             5-expert mode: LZ4 + LZ8 as separate MoE experts\n"
+        "  --tok-prefix          5-expert mode: replace LZ8 slot with inside-token prefix expert\n\n"
         "Audit-only options:\n"
         "  --eval-start <pct>    start percent (default 0)\n"
         "  --eval-len   <pct>    length percent (default 100)\n"
@@ -82,6 +85,12 @@ int main(int argc, char** argv) {
             cfg.no_lz = 1;
         } else if (strcmp(argv[i], "--lz-mute") == 0) {
             cfg.lz_mute = 1;
+        } else if (strcmp(argv[i], "--lz-key") == 0 && i+1 < argc) {
+            cfg.lz_key_bytes = atoi(argv[++i]);
+        } else if (strcmp(argv[i], "--lz-dual") == 0) {
+            cfg.lz_dual = 1;
+        } else if (strcmp(argv[i], "--tok-prefix") == 0) {
+            cfg.tok_prefix = 1;
         } else if (strcmp(argv[i], "--eval-start") == 0 && i+1 < argc) {
             cfg.eval_start_pct = atoi(argv[++i]);
         } else if (strcmp(argv[i], "--eval-len") == 0 && i+1 < argc) {

@@ -1,5 +1,6 @@
 #include "see_codec.h"
 #include "lz_topn.h"
+#include "tok_lz.h"
 #include "moe_engine.h"
 #include "silicon_entropy.h"
 #include "range_coder.h"
@@ -239,18 +240,37 @@ typedef struct {
 static int run_loop(RunCtx* rc) {
     WeightsCtx*         wc  = rc->wc;
     const SeeCodecConfig* cfg = rc->cfg;
-    int no_lz    = cfg->no_lz;
-    int lz_mute  = cfg->lz_mute;
-    int use_moe  = cfg->use_moe;
-    int req_topk = cfg->req_topk;
-    int req_topm = cfg->req_topm;
-    int tail_mode = cfg->tail_mode;
+    int no_lz        = cfg->no_lz;
+    int lz_mute      = cfg->lz_mute;
+    int use_moe      = cfg->use_moe;
+    int req_topk     = cfg->req_topk;
+    int req_topm     = cfg->req_topm;
+    int tail_mode    = cfg->tail_mode;
+    int lz_key_bytes = (cfg->lz_key_bytes > 0) ? cfg->lz_key_bytes : 4;
+    int lz_dual      = cfg->lz_dual;
+    int tok_prefix   = cfg->tok_prefix;
+
+    // Key masks for primary LZ expert (4, 6, or 8 bytes)
+    uint64_t lz_key_mask = (lz_key_bytes == 8) ? 0xFFFFFFFFFFFFFFFFULL
+                         : (lz_key_bytes == 6) ? 0xFFFFFFFFFFFFULL
+                         :                       0xFFFFFFFFULL; // 4 bytes
 
     // ── Allocate per-session state ────────────────────────────────────────────
-    LzEntry* lz_table = NULL;
+    LzEntry* lz_table  = NULL;
+    LzEntry* lz_table8 = NULL;  // second LZ table for dual mode (always 8-byte key)
+    LzEntry* tok_table = NULL;  // tok-prefix expert table (reuses LZ8 MoE slot)
+    TokLzState tok_state;
+    tok_lz_init(&tok_state);
     if (!no_lz && !lz_mute) {
         lz_table = lz_table_alloc();
         if (!lz_table) { fprintf(stderr, "see: OOM allocating LZ table\n"); return -1; }
+        if (lz_dual) {
+            lz_table8 = lz_table_alloc();
+            if (!lz_table8) { lz_table_free(lz_table); fprintf(stderr, "see: OOM allocating LZ8 table\n"); return -1; }
+        } else if (tok_prefix) {
+            tok_table = lz_table_alloc();
+            if (!tok_table) { lz_table_free(lz_table); fprintf(stderr, "see: OOM allocating tok-prefix table\n"); return -1; }
+        }
     }
 
     SiliconEntropyState see_state;
@@ -263,7 +283,7 @@ static int run_loop(RunCtx* rc) {
     uint32_t dyn_total                 = 0;
 
     // MoE state
-    int n_active = no_lz ? 3 : 4;
+    int n_active = no_lz ? 3 : ((lz_dual || tok_prefix) ? 5 : 4);
     MoeState moe;
     moe_init(&moe, cfg->moe_eta, cfg->moe_share, n_active);
 
@@ -273,7 +293,7 @@ static int run_loop(RunCtx* rc) {
 
     // ── Warmup: feed bytes before eval_start ─────────────────────────────────
     uint8_t ctx2 = 0, ctx1 = 0;
-    uint32_t lz_ctx = 0;
+    uint64_t lz_ctx = 0;  // rolling 64-bit context; callers mask to 32/48/64 bits
 
     if (rc->mode != MODE_DECODE) {
         // Feed up to eval_start+1 bytes into state (but not the 2 we use as ctx)
@@ -309,17 +329,17 @@ static int run_loop(RunCtx* rc) {
     }
 
     // ── Per-expert probability arrays (stack) ─────────────────────────────────
-    float p_see[CLASSES], p_uni[CLASSES], p_bi[CLASSES], p_lz[CLASSES];
+    float p_see[CLASSES], p_uni[CLASSES], p_bi[CLASSES], p_lz[CLASSES], p_lz8[CLASSES];
     float probs[CLASSES];
-    const float* expert_ptrs[4] = { p_see, p_uni, p_bi, p_lz };
+    const float* expert_ptrs[5] = { p_see, p_uni, p_bi, p_lz, p_lz8 };
 
     double total_loss = 0, total_qloss = 0;
-    double expert_loss_sum[4] = {0};
+    double expert_loss_sum[5] = {0};
     uint64_t total_cyc = 0;
 
     if (rc->f_tel)
-        fprintf(rc->f_tel, "i,target,loss_see,loss_uni,loss_bi,loss_lz,"
-                "loss_actual,w_see,w_uni,w_bi,w_lz\n");
+        fprintf(rc->f_tel, "i,target,loss_see,loss_uni,loss_bi,loss_lz,loss_lz8,"
+                "loss_actual,w_see,w_uni,w_bi,w_lz,w_lz8\n");
 
     // ── Main per-byte loop ────────────────────────────────────────────────────
     for (int i = 0; i < rc->eval_len; i++) {
@@ -401,13 +421,26 @@ static int run_loop(RunCtx* rc) {
             p_bi[c]  = ((float)dyn_bi[ctx1][c] + alpha) / sum_bi;
         }
 
-        // 6. Build p_lz
-        LzEntry* lz_ent = NULL;
+        // 6. Build p_lz (primary LZ, masked to lz_key_bytes)
+        LzEntry* lz_ent  = NULL;
+        LzEntry* lz_ent8 = NULL;
+        uint64_t tok_key = 0;
         if (no_lz || lz_mute) {
-            for (int c = 0; c < CLASSES; c++) p_lz[c] = 1.0f / 256.0f;
+            for (int c = 0; c < CLASSES; c++) p_lz[c]  = 1.0f / 256.0f;
+            for (int c = 0; c < CLASSES; c++) p_lz8[c] = 1.0f / 256.0f;
         } else {
-            lz_ent = lz_lookup(lz_table, lz_ctx);
+            lz_ent = lz_lookup(lz_table, lz_ctx & lz_key_mask);
             lz_build_probs(lz_ent, LZ_K_DEFAULT, p_lz);
+            if (lz_dual) {
+                lz_ent8 = lz_lookup(lz_table8, lz_ctx);  // full 8-byte context
+                lz_build_probs(lz_ent8, LZ_K_DEFAULT, p_lz8);
+            } else if (tok_prefix && tok_table) {
+                tok_key = tok_lz_key(&tok_state);
+                LzEntry* tok_ent = lz_lookup(tok_table, tok_key);
+                lz_build_probs(tok_ent, LZ_K_DEFAULT, p_lz8);
+            } else {
+                for (int c = 0; c < CLASSES; c++) p_lz8[c] = 1.0f / 256.0f;
+            }
         }
 
         // 7. Mix experts
@@ -457,10 +490,10 @@ static int run_loop(RunCtx* rc) {
         double sample_loss = -log2(fp);
         total_loss += sample_loss;
 
-        double expert_loss[4];
-        float ep[4] = { p_see[target], p_uni[target], p_bi[target], p_lz[target] };
+        double expert_loss[5];
+        float ep[5] = { p_see[target], p_uni[target], p_bi[target], p_lz[target], p_lz8[target] };
         double oracle = 1e18;
-        for (int e = 0; e < 4; e++) {
+        for (int e = 0; e < 5; e++) {
             if (ep[e] < 1e-10f) ep[e] = 1e-10f;
             expert_loss[e] = -log2(ep[e]);
             expert_loss_sum[e] += expert_loss[e];
@@ -473,10 +506,10 @@ static int run_loop(RunCtx* rc) {
         // 11. Telemetry
         if (rc->f_tel) {
             double* w = moe.w;
-            fprintf(rc->f_tel, "%d,%d,%f,%f,%f,%f,%f,%f,%f,%f,%f\n",
+            fprintf(rc->f_tel, "%d,%d,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f\n",
                     i, target,
-                    expert_loss[0], expert_loss[1], expert_loss[2], expert_loss[3],
-                    sample_loss, w[0], w[1], w[2], w[3]);
+                    expert_loss[0], expert_loss[1], expert_loss[2], expert_loss[3], expert_loss[4],
+                    sample_loss, w[0], w[1], w[2], w[3], w[4]);
         }
 
         // 12. Update MoE weights
@@ -486,9 +519,16 @@ static int run_loop(RunCtx* rc) {
         see_observe(&see_state, target);
         dyn_uni[target]++; dyn_bi[ctx1][target]++; dyn_total++;
 
-        // 14. Update LZ table
-        if (!no_lz && !lz_mute && lz_ent)
-            lz_update(lz_ent, lz_ctx, target);
+        // 14. Update LZ table(s)
+        if (!no_lz && !lz_mute) {
+            if (lz_ent)  lz_update(lz_ent,  lz_ctx & lz_key_mask, target);
+            if (lz_dual && lz_ent8) lz_update(lz_ent8, lz_ctx, target);
+            if (tok_prefix && tok_table) {
+                LzEntry* tok_ent = lz_lookup(tok_table, tok_key);
+                lz_update(tok_ent, tok_key, target);
+                tok_lz_advance(&tok_state, target);
+            }
+        }
         lz_ctx = (lz_ctx << 8) | target;
 
         ctx2 = ctx1; ctx1 = target;
@@ -507,10 +547,14 @@ static int run_loop(RunCtx* rc) {
         r->uni_bpb         = expert_loss_sum[1] / n;
         r->bi_bpb          = expert_loss_sum[2] / n;
         r->lz_bpb          = expert_loss_sum[3] / n;
+        r->lz8_bpb         = (lz_dual || tok_prefix) ? (expert_loss_sum[4] / n) : 0.0;
+        r->tok_prefix      = tok_prefix;
         r->unigram_bpb     = uni_loss_baseline / n;
         r->cycles_per_byte = (double)total_cyc / n;
         r->bytes_evaluated = (uint64_t)rc->eval_len;
-        for (int e = 0; e < 4; e++) {
+        r->lz_key_bytes    = lz_key_bytes;
+        r->lz_dual         = lz_dual;
+        for (int e = 0; e < 5; e++) {
             r->avg_w[e]   = moe_avg_weight(&moe, e);
             r->final_w[e] = moe.w[e];
             r->wins[e]    = moe.wins[e];
@@ -525,6 +569,8 @@ static int run_loop(RunCtx* rc) {
     }
 
     lz_table_free(lz_table);
+    lz_table_free(lz_table8);
+    lz_table_free(tok_table);
     return 0;
 }
 
@@ -532,12 +578,13 @@ static int run_loop(RunCtx* rc) {
 
 void see_codec_config_defaults(SeeCodecConfig* cfg) {
     memset(cfg, 0, sizeof(*cfg));
-    cfg->moe_eta       = 0.03f;
-    cfg->moe_share     = 0.001f;
-    cfg->req_topk      = 256;
-    cfg->req_topm      = 256;
+    cfg->moe_eta        = 0.03f;
+    cfg->moe_share      = 0.001f;
+    cfg->req_topk       = 256;
+    cfg->req_topm       = 256;
     cfg->eval_start_pct = 0;
     cfg->eval_len_pct   = 100;
+    cfg->lz_key_bytes   = 6;    // LZ6 default: Phase 26 tribunal verdict
 }
 
 static void apply_profile(SeeCodecConfig* cfg) {
@@ -734,14 +781,31 @@ void see_audit_result_print(const SeeAuditResult* r, const char* label) {
     printf("Model BPB:       %.4f\n", r->bpb);
     printf("Quantized BPB:   %.4f\n", r->quant_bpb);
     printf("Cycles/byte:     %.1f\n",  r->cycles_per_byte);
+    const char* exp5_label = r->tok_prefix ? "TOKPFX" : "LZ8";
+    printf("LZ key width:    %d bytes%s%s\n", r->lz_key_bytes,
+           r->lz_dual    ? " + LZ8 dual"         : "",
+           r->tok_prefix ? " + tok-prefix expert" : "");
     printf("--- Per-expert BPB ---\n");
     printf("SEE Only:        %.4f\n", r->see_bpb);
     printf("UNI Only:        %.4f\n", r->uni_bpb);
     printf("BI  Only:        %.4f\n", r->bi_bpb);
-    printf("LZ  Only:        %.4f\n", r->lz_bpb);
+    printf("LZ  Only:        %.4f  (key=%d bytes)\n", r->lz_bpb, r->lz_key_bytes);
+    if (r->lz_dual || r->tok_prefix)
+        printf("%-16s %.4f\n",
+               r->tok_prefix ? "TOKPFX Only:    " : "LZ8 Only:       ",
+               r->lz8_bpb);
     printf("--- MoE weights ---\n");
-    printf("Avg  [SEE UNI BI  LZ ]: %.4f %.4f %.4f %.4f\n",
-           r->avg_w[0], r->avg_w[1], r->avg_w[2], r->avg_w[3]);
-    printf("Final[SEE UNI BI  LZ ]: %.4f %.4f %.4f %.4f\n",
-           r->final_w[0], r->final_w[1], r->final_w[2], r->final_w[3]);
+    if (r->lz_dual || r->tok_prefix) {
+        printf("Avg  [SEE UNI BI  LZ  %-6s]: %.4f %.4f %.4f %.4f %.4f\n",
+               exp5_label,
+               r->avg_w[0], r->avg_w[1], r->avg_w[2], r->avg_w[3], r->avg_w[4]);
+        printf("Final[SEE UNI BI  LZ  %-6s]: %.4f %.4f %.4f %.4f %.4f\n",
+               exp5_label,
+               r->final_w[0], r->final_w[1], r->final_w[2], r->final_w[3], r->final_w[4]);
+    } else {
+        printf("Avg  [SEE UNI BI  LZ ]: %.4f %.4f %.4f %.4f\n",
+               r->avg_w[0], r->avg_w[1], r->avg_w[2], r->avg_w[3]);
+        printf("Final[SEE UNI BI  LZ ]: %.4f %.4f %.4f %.4f\n",
+               r->final_w[0], r->final_w[1], r->final_w[2], r->final_w[3]);
+    }
 }

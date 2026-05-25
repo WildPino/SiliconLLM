@@ -44,6 +44,9 @@ typedef struct {
     // Expert selection
     int   no_lz;                // 1 → 3-expert mode (SEE+UNI+BI), no LZ table
     int   lz_mute;              // 1 → LZ always uniform (ablation only)
+    int   lz_key_bytes;         // context width: 4 (default), 6, or 8
+    int   lz_dual;              // 1 → 5-expert mode: LZ4 + LZ8 as separate experts
+    int   tok_prefix;           // 1 → replace LZ8 slot with inside-token prefix expert
 
     // MoE
     int   use_moe;              // 1 → fixed-share credit assignment
@@ -76,15 +79,19 @@ typedef struct {
     double   see_bpb;           // SEE-only BPB
     double   uni_bpb;           // UNI-only BPB
     double   bi_bpb;            // BI-only BPB
-    double   lz_bpb;            // LZ-only BPB
+    double   lz_bpb;            // LZ-only BPB (primary LZ, key=lz_key_bytes)
+    double   lz8_bpb;           // LZ8-only BPB (dual mode) or TOKPFX-only BPB (tok_prefix mode)
     double   oracle_bpb;        // oracle (best expert per byte)
     double   unigram_bpb;       // i.i.d. unigram lower-bound on this segment
     double   cycles_per_byte;   // total CPU cycles / evaluated bytes
-    double   avg_w[4];          // average MoE weights [SEE, UNI, BI, LZ]
-    double   final_w[4];        // final MoE weights at end of segment
-    uint64_t wins[4];           // per-expert "best predictor" counts
+    double   avg_w[5];          // average MoE weights [SEE, UNI, BI, LZ, LZ8]
+    double   final_w[5];        // final MoE weights at end of segment
+    uint64_t wins[5];           // per-expert "best predictor" counts
     uint64_t bytes_evaluated;
     char     input_sha256[65];  // hex SHA-256 of the input file
+    int      lz_key_bytes;      // recorded from config (for display)
+    int      lz_dual;           // 1 if dual-LZ mode was active
+    int      tok_prefix;        // 1 if tok-prefix expert occupied the LZ8 slot
 } SeeAuditResult;
 
 // ── Public API ────────────────────────────────────────────────────────────────
