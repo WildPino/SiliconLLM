@@ -11,17 +11,24 @@ static void usage(const char* prog) {
         "  %s decode <input.see> <output>  --weights <w.bin>\n"
         "  %s audit  <input>               --weights <w.bin> [options]\n\n"
         "Encode/Audit options:\n"
-        "  --blend moe|<lambda>  blend mode (default: moe)\n"
-        "  --eta   <float>       MoE learning rate       (default 0.03)\n"
-        "  --share <float>       MoE fixed-share coeff   (default 0.001)\n"
-        "  --topk  <int>         SEE top-k candidates    (default 256)\n"
-        "  --tail-mode <0|1|2>   tail compensation mode  (default 0)\n"
-        "  --profile <name>      full | accurate | fast\n"
+        "  --blend moe|<lambda>       blend mode (default: moe)\n"
+        "  --eta   <float>            MoE learning rate       (default 0.03)\n"
+        "  --share <float>            MoE fixed-share coeff   (default 0.001)\n"
+        "  --topk  <int>              SEE top-k candidates    (default 256)\n"
+        "  --tail-mode <0|1|2>        tail compensation mode  (default 0)\n"
+        "  --speed <name>             speed profile: full | accurate | fast\n"
+        "  --profile <name>           alias for --speed (backward compat)\n"
+        "  --expert-profile <name>    expert set: general | text | experimental\n"
+        "    general:      LZ6 + TOKPFX  (stable, all domains)\n"
+        "    text:         LZ6 + TOKPFX + TOK_PREV_ELIG  (best for natural text)\n"
+        "    experimental: use manual --tok-* flags\n"
         "  --no-lz               3-expert mode (SEE+UNI+BI only)\n"
         "  --lz-mute             mute LZ arm (ablation)\n"
         "  --lz-key <4|6|8>      LZ context key width in bytes (default 6)\n"
         "  --lz-dual             5-expert mode: LZ4 + LZ8 as separate MoE experts\n"
-        "  --tok-prefix          5-expert mode: replace LZ8 slot with inside-token prefix expert\n\n"
+        "  --tok-prefix          add inside-token prefix expert (TOKPFX)\n"
+        "  --tok-prev            add token-transition expert (TOK_PREV)\n"
+        "  --tok-prev-elig       gated TOK_PREV (only eligible outside ALNUM/MACRO)\n\n"
         "Audit-only options:\n"
         "  --eval-start <pct>    start percent (default 0)\n"
         "  --eval-len   <pct>    length percent (default 100)\n"
@@ -79,8 +86,12 @@ int main(int argc, char** argv) {
             cfg.req_topk = atoi(argv[++i]);
         } else if (strcmp(argv[i], "--tail-mode") == 0 && i+1 < argc) {
             cfg.tail_mode = atoi(argv[++i]);
+        } else if (strcmp(argv[i], "--speed") == 0 && i+1 < argc) {
+            cfg.speed_profile = argv[++i];
         } else if (strcmp(argv[i], "--profile") == 0 && i+1 < argc) {
-            cfg.profile = argv[++i];
+            cfg.profile = argv[++i];  // legacy alias for --speed
+        } else if (strcmp(argv[i], "--expert-profile") == 0 && i+1 < argc) {
+            cfg.expert_profile = argv[++i];
         } else if (strcmp(argv[i], "--no-lz") == 0) {
             cfg.no_lz = 1;
         } else if (strcmp(argv[i], "--lz-mute") == 0) {
@@ -91,6 +102,14 @@ int main(int argc, char** argv) {
             cfg.lz_dual = 1;
         } else if (strcmp(argv[i], "--tok-prefix") == 0) {
             cfg.tok_prefix = 1;
+        } else if (strcmp(argv[i], "--tok-prev") == 0) {
+            cfg.tok_prev = 1;
+        } else if (strcmp(argv[i], "--tok-prev-mute") == 0) {
+            cfg.tok_prev = 1;
+            cfg.tok_prev_mute = 1;
+        } else if (strcmp(argv[i], "--tok-prev-elig") == 0) {
+            cfg.tok_prev = 1;
+            cfg.tok_prev_elig = 1;
         } else if (strcmp(argv[i], "--eval-start") == 0 && i+1 < argc) {
             cfg.eval_start_pct = atoi(argv[++i]);
         } else if (strcmp(argv[i], "--eval-len") == 0 && i+1 < argc) {

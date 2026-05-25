@@ -69,12 +69,18 @@ uint64_t tok_lz_key(const TokLzState* s) {
     return s->prefix_hash ^ ((uint64_t)bucket << 60);
 }
 
+uint64_t tok_prev_key(const TokLzState* s) {
+    return s->last_tok_hash;
+}
+
 TokLzType tok_lz_advance(TokLzState* s, uint8_t b) {
     TokLzType new_type = classify_byte(b, s->tok_type);
 
     if (is_token_boundary(new_type, s->tok_type)) {
         // Token boundary: seal current token, start new one.
-        s->last_tok_hash = s->prefix_hash;
+        if (s->tok_type == TOKTYPE_ALNUM || s->tok_type == TOKTYPE_MACRO) {
+            s->last_tok_hash = s->prefix_hash;
+        }
         s->prefix_hash   = hash_mix(TYPE_SEEDS[new_type], b);
         s->tok_pos       = 1;
         s->tok_type      = new_type;

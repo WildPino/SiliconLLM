@@ -12,6 +12,10 @@
 // archive_flags bitmask
 #define SEE_FLAG_LZ_ENABLED 0x01u   // LZ Top-N expert is active
 #define SEE_FLAG_MOE_ACTIVE 0x02u   // Fixed-share MoE credit assignment
+#define SEE_FLAG_LZ_DUAL    0x04u
+#define SEE_FLAG_TOK_PREFIX 0x08u
+#define SEE_FLAG_TOK_PREV      0x10u
+#define SEE_FLAG_TOK_PREV_ELIG 0x20u
 
 typedef struct {
     uint32_t magic;             // SEE3_MAGIC
@@ -33,7 +37,8 @@ typedef struct {
     float    moe_share;         // MoE fixed-share redistribution coefficient
     uint8_t  seed_byte0;        // first byte of original (seeded into decoder)
     uint8_t  seed_byte1;        // second byte of original
-    uint8_t  _pad[2];           // alignment padding — must be zero
+    uint8_t  lz_key_bytes;      // LZ key width in bytes
+    uint8_t  _pad1;             // alignment padding — must be zero
 } SeeArchiveHeader;             // sizeof = 60 bytes
 
 // ── Codec Configuration ───────────────────────────────────────────────────────
@@ -47,6 +52,9 @@ typedef struct {
     int   lz_key_bytes;         // context width: 4 (default), 6, or 8
     int   lz_dual;              // 1 → 5-expert mode: LZ4 + LZ8 as separate experts
     int   tok_prefix;           // 1 → replace LZ8 slot with inside-token prefix expert
+    int   tok_prev;             // 1 → token transition expert
+    int   tok_prev_mute;        // 1 → token transition expert stays uniform (ablation)
+    int   tok_prev_elig;        // 1 → token transition expert is dynamically eligible
 
     // MoE
     int   use_moe;              // 1 → fixed-share credit assignment
@@ -59,9 +67,16 @@ typedef struct {
     int   tail_mode;            // 0=none, 1=ngram, 2=ngram+bias
     float blend_lambda;         // static blend; overridden when use_moe=1
 
-    // Profile shortcut (overrides topk/topm/tail_mode when set)
+    // Speed shortcut (overrides topk/topm/tail_mode when set)
     // NULL, "full", "accurate", or "fast"
-    const char* profile;
+    const char* profile;   // legacy alias for speed_profile
+    const char* speed_profile;  // "full" | "accurate" | "fast"
+
+    // Expert-set shortcut (overrides individual expert flags when set)
+    // NULL:        manual flags used as-is
+    // "general":   LZ6 + TOKPFX
+    // "text":      LZ6 + TOKPFX + TOK_PREV_ELIG
+    const char* expert_profile;
 
     // Audit-mode window (percentages, 0–100)
     int   eval_start_pct;       // default 0  (0 = from byte 0)
@@ -81,17 +96,24 @@ typedef struct {
     double   bi_bpb;            // BI-only BPB
     double   lz_bpb;            // LZ-only BPB (primary LZ, key=lz_key_bytes)
     double   lz8_bpb;           // LZ8-only BPB (dual mode) or TOKPFX-only BPB (tok_prefix mode)
+    double   tok_prev_bpb;      // TOKPREV-only BPB
     double   oracle_bpb;        // oracle (best expert per byte)
     double   unigram_bpb;       // i.i.d. unigram lower-bound on this segment
     double   cycles_per_byte;   // total CPU cycles / evaluated bytes
-    double   avg_w[5];          // average MoE weights [SEE, UNI, BI, LZ, LZ8]
-    double   final_w[5];        // final MoE weights at end of segment
-    uint64_t wins[5];           // per-expert "best predictor" counts
+    double   avg_w[6];          // average MoE weights [SEE, UNI, BI, LZ, LZ8/TOKPFX, TOKPREV] — all steps
+    double   avg_w_when_elig[6]; // average weight only on eligible steps (0 if not gated)
+    double   final_w[6];        // final MoE weights at end of segment
+    uint64_t wins[6];           // per-expert "best predictor" counts
+    uint64_t n_elig_bytes;      // bytes where tok_prev was eligible (armed state)
     uint64_t bytes_evaluated;
+    // Per-tok-category loss for TOKPREV (global, all bytes)
+    double   tokprev_alnum_start_bpb;  // TOKPREV loss on bytes that turned out to be ALNUM_START
+    uint64_t n_alnum_start_bytes;      // count of ALNUM_START bytes in segment
     char     input_sha256[65];  // hex SHA-256 of the input file
     int      lz_key_bytes;      // recorded from config (for display)
     int      lz_dual;           // 1 if dual-LZ mode was active
     int      tok_prefix;        // 1 if tok-prefix expert occupied the LZ8 slot
+    int      tok_prev;          // 1 if tok-prev expert was active
 } SeeAuditResult;
 
 // ── Public API ────────────────────────────────────────────────────────────────

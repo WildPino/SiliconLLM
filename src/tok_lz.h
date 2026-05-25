@@ -50,6 +50,9 @@ void tok_lz_init(TokLzState* s);
 // Use this key to call lz_lookup() and lz_build_probs() for prediction.
 uint64_t tok_lz_key(const TokLzState* s);
 
+// Compute the lookup key for TOK_PREV expert (hash of last ALNUM/MACRO token).
+uint64_t tok_prev_key(const TokLzState* s);
+
 // Advance state after observing byte b (call AFTER prediction and lz_update).
 // Returns the new tok_type (caller can inspect but usually ignores it).
 TokLzType tok_lz_advance(TokLzState* s, uint8_t b);

@@ -18,8 +18,12 @@ typedef struct {
     uint16_t count;
 } LzTopSlot;
 
+// Key is always uint64_t; callers mask to 32/48/64 bits before passing.
+// LZ4 → key = lz_ctx & 0xFFFFFFFF
+// LZ6 → key = lz_ctx & 0xFFFFFFFFFFFFULL
+// LZ8 → key = lz_ctx  (full 64 bits)
 typedef struct {
-    uint32_t  key;
+    uint64_t  key;
     uint32_t  total;
     LzTopSlot top[LZ_TOP_N];
 } LzEntry;
@@ -31,12 +35,12 @@ LzEntry* lz_table_alloc(void);
 void lz_table_free(LzEntry* table);
 
 // Look up (or claim an empty slot for) the given key.
-LzEntry* lz_lookup(LzEntry* table, uint32_t key);
+LzEntry* lz_lookup(LzEntry* table, uint64_t key);
 
 // Fill p_out[256] with the smoothed LZ probability distribution for entry e.
 void lz_build_probs(const LzEntry* e, float lz_K, float* p_out);
 
 // Record that byte `target` was observed under context key `ctx_key`.
-void lz_update(LzEntry* e, uint32_t ctx_key, uint8_t target);
+void lz_update(LzEntry* e, uint64_t ctx_key, uint8_t target);
 
 #endif // LZ_TOPN_H

@@ -10,10 +10,13 @@ void lz_table_free(LzEntry* table) {
     free(table);
 }
 
-LzEntry* lz_lookup(LzEntry* table, uint32_t key) {
-    uint32_t h = key;
-    h ^= h >> 16; h *= 0x85ebca6bu; h ^= h >> 13; h *= 0xc2b2ae35u; h ^= h >> 16;
-    uint32_t idx = h & (LZ_HASH_SIZE - 1);
+LzEntry* lz_lookup(LzEntry* table, uint64_t key) {
+    // 64-bit finalizer (MurmurHash3-style)
+    uint64_t h = key;
+    h ^= h >> 33; h *= 0xff51afd7ed558ccdULL;
+    h ^= h >> 33; h *= 0xc4ceb9fe1a85ec53ULL;
+    h ^= h >> 33;
+    uint32_t idx = (uint32_t)(h & (LZ_HASH_SIZE - 1));
     for (int i = 0; i < 16; i++) {
         if (table[idx].total == 0) return &table[idx];
         if (table[idx].key  == key)  return &table[idx];
@@ -41,7 +44,7 @@ void lz_build_probs(const LzEntry* e, float lz_K, float* p_out) {
     }
 }
 
-void lz_update(LzEntry* e, uint32_t ctx_key, uint8_t target) {
+void lz_update(LzEntry* e, uint64_t ctx_key, uint8_t target) {
     if (e->key != ctx_key) {
         e->key   = ctx_key;
         e->total = 0;
