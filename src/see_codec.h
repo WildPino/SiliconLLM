@@ -19,6 +19,7 @@
 #define SEE_FLAG_SPAN_PFX      0x40u  // inline-span delimiter expert active
 #define SEE_FLAG_REGIME_PRIOR  0x80u  // Phase 33 regime prior router active
 #define SEE_FLAG_REGIME_CREDIT 0x100u // Phase 34 credit-only regime router (research)
+#define SEE_FLAG_REGIME_DUAL   0x200u // Phase 34B dual-EMA drift router (research)
 
 typedef struct {
     uint32_t magic;             // SEE3_MAGIC
@@ -97,6 +98,9 @@ typedef struct {
 
     // Phase 34 (research): Credit-Only Regime Router
     int   regime_credit;     // 1 = enable credit-based prior (replaces regime_prior)
+
+    // Phase 34B (research): Dual-EMA Drift Router
+    int   regime_dual;       // 1 = enable dual-EMA drift-gated prior
 } SeeCodecConfig;
 
 // ── Audit Results ─────────────────────────────────────────────────────────────

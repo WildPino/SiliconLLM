@@ -131,6 +131,8 @@ int main(int argc, char** argv) {
             cfg.regime_prior_mute = 1;
         } else if (strcmp(argv[i], "--regime-credit") == 0) {
             cfg.regime_credit = 1;
+        } else if (strcmp(argv[i], "--regime-dual") == 0) {
+            cfg.regime_dual = 1;
         } else {
             fprintf(stderr, "see: unknown option '%s'\n", argv[i]);
             return 1;

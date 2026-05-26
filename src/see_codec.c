@@ -7,6 +7,7 @@
 #include "range_coder.h"
 #include "regime_prior.h"
 #include "regime_credit.h"
+#include "regime_dual.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -333,6 +334,11 @@ static int run_loop(RunCtx* rc) {
     if (use_regime_credit)
         regime_credit_init(&rc_credit);
 
+    RegimeDualState rc_dual;
+    int use_regime_dual = cfg->regime_dual && !use_regime_prior && !use_regime_credit;
+    if (use_regime_dual)
+        regime_dual_init(&rc_dual);
+
     RangeEncoder re; RangeDecoder rd;
     if (rc->f_enc) rc_encoder_init(&re, rc->f_enc);
     if (rc->f_dec) rc_decoder_init(&rd, rc->f_dec);
@@ -624,6 +630,9 @@ static int run_loop(RunCtx* rc) {
         } else if (use_regime_credit) {
             regime_credit_observe(&rc_credit, moe_losses, moe.w, n_active, abs_slots);
             regime_credit_apply(&rc_credit, &moe, abs_slots, n_active);
+        } else if (use_regime_dual) {
+            regime_dual_observe(&rc_dual, moe_losses, n_active, abs_slots);
+            regime_dual_apply(&rc_dual, &moe, abs_slots, n_active);
         }
 
         // 13. Update n-gram counters and SEE state
@@ -718,6 +727,8 @@ static int run_loop(RunCtx* rc) {
         r->oracle_bpb = 0.0 / 0.0; // NaN
     }
 
+    if (use_regime_dual) regime_dual_print_stats(&rc_dual, stdout);
+
     lz_table_free(lz_table);
     lz_table_free(lz_table8);
     lz_table_free(tok_table);
@@ -800,6 +811,7 @@ int see_codec_encode_file(const char* input_path,
     if (cfg.span_pfx)      hdr.archive_flags |= SEE_FLAG_SPAN_PFX;
     if (cfg.regime_prior)  hdr.archive_flags |= SEE_FLAG_REGIME_PRIOR;
     if (cfg.regime_credit) hdr.archive_flags |= SEE_FLAG_REGIME_CREDIT;
+    if (cfg.regime_dual)   hdr.archive_flags |= SEE_FLAG_REGIME_DUAL;
     hdr.original_size    = (uint32_t)data_size;
     hdr.chunk_size       = wc->hdr.chunk_size;
     hdr.codebook_seed    = wc->hdr.codebook_seed;
@@ -907,6 +919,7 @@ int see_codec_decode_file(const char* archive_path,
     cfg.span_pfx      = (hdr.archive_flags & SEE_FLAG_SPAN_PFX) != 0;
     cfg.regime_prior  = (hdr.archive_flags & SEE_FLAG_REGIME_PRIOR) != 0;
     cfg.regime_credit = (hdr.archive_flags & SEE_FLAG_REGIME_CREDIT) != 0;
+    cfg.regime_dual   = (hdr.archive_flags & SEE_FLAG_REGIME_DUAL)   != 0;
     cfg.req_topk      = hdr.req_topk;
     cfg.tail_mode     = hdr.tail_mode;
     cfg.blend_lambda  = hdr.blend_lambda == -2.0f ? 0.0f : hdr.blend_lambda;
