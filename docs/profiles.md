@@ -110,6 +110,38 @@ This prevents silent corruption when weights files are updated. Re-encode with t
 
 ---
 
+## Phase 31: SEE vs classical compressors (atlas)
+
+Measured on 14 corpora spanning 7 domains. Classical compressors at max or near-max quality settings (bz2-9, lzma, zstd-22, brotli-11).
+
+**BPB summary — SEE-general vs best classical per domain:**
+
+| domain         | SEE-general (avg) | best classical (avg) | gap    | best compressor |
+|----------------|------------------:|---------------------:|-------:|-----------------|
+| random/shuffled | 5.015            | 5.012                | +0.003 | brotli-11 (TIE) |
+| prose_synth     | 2.478            | 1.744                | +0.734 | bz2-9           |
+| prose_it_lit    | 3.187            | 2.201                | +0.986 | bz2-9           |
+| prose_en_lit    | 3.331            | 2.164                | +1.168 | bz2-9           |
+| prose_it        | 3.661            | 2.628                | +1.033 | bz2-9           |
+| log             | 0.981–2.926      | 0.400–1.354          | +0.581–1.572 | brotli-11 / bz2-9 |
+| code            | 1.943–2.985      | 1.004–1.485          | +0.940–1.500 | brotli-11       |
+| json            | 2.038            | 0.706                | +1.333 | bz2-9           |
+| markdown        | 2.653–5.115      | 0.657–2.865          | +1.627–2.245 | brotli-11    |
+
+**Key findings (Phase 31):**
+
+- SEE ties classical only on shuffled/random (+0.003 BPB vs brotli-11). No WIN on any structured domain.
+- `prose` profile gains -0.045 BPB on `natural_text` (synthetic internal) but does NOT transfer to unseen literary prose (Dreiser, Manzoni: +0.003 BPB at most). TOKPFX is calibrated to its training distribution.
+- LZ6 leaves a +1.5 BPB gap on real C code vs brotli-11. Larger window / BWT needed for long-distance code repetition.
+- Markdown is the worst structural gap: avg +1.96 BPB. Cause is frequent regime switching (prose/code/math/markup/lists), not a single missing pattern.
+- Largest absolute volume loss: `log_real` (2.3MB → +172KB extra vs brotli), `promessi_sposi` (1.3MB → +164KB extra vs bz2).
+
+**Encode speed comparison:**
+
+SEE encodes at ~20ms/KB. zstd-3 is 100–1000x faster; bz2/lzma are 10–100x faster. Timing is not a goal for SEE V1.0.
+
+---
+
 ## Quick reference
 
 ```
