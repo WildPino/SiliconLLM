@@ -1,5 +1,46 @@
 # CHANGELOG — Silicon Entropy Engine
 
+## V1.0.1 (2026-05-26) — Release Package
+
+**Phase 36: Documentation & Release Hardening**
+- README updated: build command corrected (`regime_prior.c` added), `-ffast-math`
+  documented as forbidden, reproducibility guarantee and known limits expanded,
+  Phase 31–35 research context added, repository layout reflects Phase 35 artifacts.
+- CHANGELOG updated: Phases 31–35 added.
+
+**Phase 35: Reproducibility & Portability Audit**
+- Encode determinism confirmed: double-encode produces byte-identical archives (no
+  hidden randomness or uninitialized state in the output path).
+- Format identity fixtures committed: `data/fixtures/` contains 3 small `.see` archives
+  with `manifest.json`. Decoded SHA-256 is verified by `scripts/phase35_reproducibility.py`.
+  If these fixtures fail to decode on any future build, the archive format has regressed.
+- Header rejection confirmed: 5 corruption cases (bad magic, truncation, header_size
+  mismatch, weights hash mismatch, empty file) all produce non-zero exit and no output.
+- Compiler variant analysis: `-O2` = `-O3` output (MATCH on Clang 21 / x86_64 Windows).
+  `-ffast-math` differs: changes `expf()` rounding in MoE weight update and CDF paths.
+  Documented as forbidden for interoperable archives.
+- Portability guarantee documented: same platform + same compiler family + no `-ffast-math`
+  + same weights file. `header_size` strict-equality check means archives are version-locked.
+
+**Phase 31: External Compressor Atlas** *(post-seal research, not merged)*
+- SEE benchmarked against zlib-9, bz2-9, lzma, zstd-22, brotli-11 on 14 corpora.
+- SEE ties classical compressors only on shuffled/random data. Gaps: prose +0.7 BPB,
+  markdown +2.0 BPB, C code +1.2 BPB vs brotli-11.
+- TOKPFX does not generalize to out-of-distribution literary prose.
+- Result: honest external positioning documented in `docs/see_v1_position.md`.
+
+**Phases 32–34B: Regime Routing Research** *(research branch, not merged)*
+- Phase 32: 6 stable corpus clusters confirmed via credit-signal analysis. Oracle gap:
+  1.14 BPB range. Routing opportunity real.
+- Phase 33/33B: Char-class regime router implemented. 61/61 regression PASS.
+  md_mixed at LZ-prior limit (-0.026 BPB).
+- Phase 34B: Credit-only dual-EMA router. Finding: compression credit dynamics alone
+  contain regime signal. Beats prior on json/c_code/md_mixed/shuffled; below prior on
+  markdown_docs/log_synth. No single router dominates. Not promoted to core.
+- Research archived in `docs/research/regime_routing_research.md`.
+
+---
+
 ## V1.0 (2026-05-25) — Release Seal
 
 **Phase 30: Regression Harness & Release Hardening**

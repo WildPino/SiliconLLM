@@ -48,11 +48,14 @@ Single translation-unit build (requires Clang or GCC with AVX2):
 ```sh
 gcc -O3 -march=native -o see.exe see.c \
     src/see_codec.c src/lz_topn.c src/tok_lz.c src/span_lz.c \
-    src/moe_engine.c src/silicon_entropy.c src/silicon_v0.c src/range_coder.c \
+    src/moe_engine.c src/silicon_entropy.c src/silicon_v0.c \
+    src/range_coder.c src/regime_prior.c \
     -lm
 ```
 
 Tested on: Windows 11 + Clang 21, Zen 2 (Ryzen 5 3600X), AVX2.
+
+**`-ffast-math` is forbidden.** It changes `expf()` rounding in the MoE weight update and CDF paths, producing a different bitstream. Archives encoded under `-ffast-math` cannot be decoded by a standard build. `-O2` and `-O3` produce identical output on this platform.
 
 ---
 
@@ -112,6 +115,12 @@ python scripts/test_headers.py
 
 6 header integrity tests: bad magic, wrong weights, truncated header, profile roundtrip (×2), missing weights.
 
+```sh
+python scripts/phase35_reproducibility.py
+```
+
+Reproducibility audit: encode determinism, decode of committed fixture archives, header rejection (5 corruption cases), and optional compiler variant comparison (`--skip-compiler` to skip recompile). The fixture archives in `data/fixtures/` are the format identity test — if they fail to decode correctly, the archive format has regressed.
+
 ---
 
 ## Known Limits
@@ -121,6 +130,8 @@ python scripts/test_headers.py
 - **Small files (<64 KB)**: MoE experts do not have enough context to converge. Results are indicative; dominant expert may differ from large-file behavior.
 - **Weights binding**: each `.see` archive stores the SHA-256 of the weights file used at encode time. Archives encoded with an older weights file cannot be decoded with a newer one — re-encode to migrate.
 - **Single-threaded**: the streaming MoE is inherently sequential. No parallelism within a file.
+- **Version-locked archives**: `SeeArchiveHeader.header_size` is checked with strict equality at decode time. A future codec with a different header layout cannot decode V1.0 archives and vice versa.
+- **Platform portability**: cross-compiler and cross-architecture bit-identical output is not guaranteed. Float rounding in the MoE/CDF path is compiler-dependent. Archives are stable within the same compiler family and flags (no `-ffast-math`).
 
 ---
 
@@ -143,12 +154,18 @@ SiliconLLM/
 ├── data/
 │   ├── *.txt / *.c / *.md / *.bin        Internal corpora
 │   ├── external/                          External corpus (Phase 29B/29C)
+│   ├── fixtures/
+│   │   ├── tiny_text.see                  Format identity fixture (text)
+│   │   ├── tiny_code.see                  Format identity fixture (C code)
+│   │   ├── tiny_json.see                  Format identity fixture (JSON)
+│   │   └── manifest.json                  Expected SHA-256 for decode verification
 │   └── baselines/
 │       ├── phase29a_baseline.json         Primary regression gate (9 corpora)
 │       └── phase29c_baseline.json         External stress baseline (4 corpora)
 ├── scripts/
 │   ├── regression_test.py                 Full regression harness
 │   ├── test_headers.py                    Header integrity tests
+│   ├── phase35_reproducibility.py         Reproducibility & portability audit
 │   ├── phase29a_tribunal.py               Phase 29A matrix
 │   ├── phase29b_external.py               Phase 29B external download + audit
 │   └── phase29c_catalog_freeze.py         Phase 29C catalog hygiene
@@ -162,10 +179,12 @@ SiliconLLM/
 
 ## Research Context
 
-SEE was developed through a sequence of measurement-driven phases (24–30). Each phase posed a specific hypothesis, ran a controlled tribunal, and either promoted or rejected a change. The result is a small, stable set of expert components — not because alternatives weren't tried, but because most were rejected by the data.
+SEE was developed through a sequence of measurement-driven phases (24–35). Each phase posed a specific hypothesis, ran a controlled tribunal, and either promoted or rejected a change. The result is a small, stable set of expert components — not because alternatives weren't tried, but because most were rejected by the data.
 
-The next open question, when the time comes:
+Phase 31 measured SEE against zlib-9, bz2-9, lzma, zstd-22, and brotli-11. SEE ties classical compressors only on shuffled/random data. On every structured domain it loses, with gaps ranging from +0.7 BPB (prose) to +2.0 BPB (markdown). This is the honest external baseline.
 
-> Which gap remains after V1.0, measured against real compressors and frozen baselines?
+Phases 32–34B explored regime routing (credit-dynamics-based domain detection). Finding: compression credit contains regime signal, but no single router dominates all corpora. The research is archived in `docs/research/regime_routing_research.md`; not merged into core V1.
 
-For now: the body is stable. See `CHANGELOG.md` for the full phase history.
+Phase 35 confirmed physical reproducibility: deterministic output, committed format fixtures, `-ffast-math` documented as forbidden.
+
+For now: the body is stable and its limits are known. See `CHANGELOG.md` for the full phase history.
