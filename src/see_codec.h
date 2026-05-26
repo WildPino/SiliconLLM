@@ -18,6 +18,7 @@
 #define SEE_FLAG_TOK_PREV_ELIG 0x20u
 #define SEE_FLAG_SPAN_PFX      0x40u  // inline-span delimiter expert active
 #define SEE_FLAG_REGIME_PRIOR  0x80u  // Phase 33 regime prior router active
+#define SEE_FLAG_REGIME_CREDIT 0x100u // Phase 34 credit-only regime router (research)
 
 typedef struct {
     uint32_t magic;             // SEE3_MAGIC
@@ -93,6 +94,9 @@ typedef struct {
     // Phase 33: Regime Prior Router
     int   regime_prior;      // 1 = enable regime prior blending
     int   regime_prior_mute; // 1 = active but neutral prior (ablation)
+
+    // Phase 34 (research): Credit-Only Regime Router
+    int   regime_credit;     // 1 = enable credit-based prior (replaces regime_prior)
 } SeeCodecConfig;
 
 // ── Audit Results ─────────────────────────────────────────────────────────────
