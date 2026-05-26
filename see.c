@@ -124,6 +124,11 @@ int main(int argc, char** argv) {
             cfg.eval_len_pct = atoi(argv[++i]);
         } else if (strcmp(argv[i], "--telemetry") == 0 && i+1 < argc) {
             cfg.telemetry_path = argv[++i];
+        } else if (strcmp(argv[i], "--regime-prior") == 0) {
+            cfg.regime_prior = 1;
+        } else if (strcmp(argv[i], "--regime-prior-mute") == 0) {
+            cfg.regime_prior = 1;
+            cfg.regime_prior_mute = 1;
         } else {
             fprintf(stderr, "see: unknown option '%s'\n", argv[i]);
             return 1;

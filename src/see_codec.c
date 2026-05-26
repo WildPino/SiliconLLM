@@ -5,6 +5,7 @@
 #include "moe_engine.h"
 #include "silicon_entropy.h"
 #include "range_coder.h"
+#include "regime_prior.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -321,6 +322,11 @@ static int run_loop(RunCtx* rc) {
     MoeState moe;
     moe_init(&moe, cfg->moe_eta, cfg->moe_share, n_active);
 
+    RegimePriorState rp;
+    int use_regime_prior = cfg->regime_prior;
+    if (use_regime_prior)
+        regime_prior_init(&rp, cfg->regime_prior_mute);
+
     RangeEncoder re; RangeDecoder rd;
     if (rc->f_enc) rc_encoder_init(&re, rc->f_enc);
     if (rc->f_dec) rc_decoder_init(&rd, rc->f_dec);
@@ -605,6 +611,12 @@ static int run_loop(RunCtx* rc) {
         // 12. Update MoE weights
         if (use_moe) moe_update_gated(&moe, moe_losses, eligible);
 
+        // 12b. Regime prior: observe byte, blend prior into MoE for next prediction
+        if (use_regime_prior) {
+            regime_prior_observe(&rp, target);
+            regime_prior_apply(&rp, &moe, abs_slots, n_active);
+        }
+
         // 13. Update n-gram counters and SEE state
         see_observe(&see_state, target);
         dyn_uni[target]++; dyn_bi[ctx1][target]++; dyn_total++;
@@ -777,6 +789,7 @@ int see_codec_encode_file(const char* input_path,
     if (cfg.tok_prev)      hdr.archive_flags |= SEE_FLAG_TOK_PREV;
     if (cfg.tok_prev_elig) hdr.archive_flags |= SEE_FLAG_TOK_PREV_ELIG;
     if (cfg.span_pfx)      hdr.archive_flags |= SEE_FLAG_SPAN_PFX;
+    if (cfg.regime_prior)  hdr.archive_flags |= SEE_FLAG_REGIME_PRIOR;
     hdr.original_size    = (uint32_t)data_size;
     hdr.chunk_size       = wc->hdr.chunk_size;
     hdr.codebook_seed    = wc->hdr.codebook_seed;
@@ -882,6 +895,7 @@ int see_codec_decode_file(const char* archive_path,
     cfg.tok_prev      = (hdr.archive_flags & SEE_FLAG_TOK_PREV) != 0;
     cfg.tok_prev_elig = (hdr.archive_flags & SEE_FLAG_TOK_PREV_ELIG) != 0;
     cfg.span_pfx      = (hdr.archive_flags & SEE_FLAG_SPAN_PFX) != 0;
+    cfg.regime_prior  = (hdr.archive_flags & SEE_FLAG_REGIME_PRIOR) != 0;
     cfg.req_topk      = hdr.req_topk;
     cfg.tail_mode     = hdr.tail_mode;
     cfg.blend_lambda  = hdr.blend_lambda == -2.0f ? 0.0f : hdr.blend_lambda;

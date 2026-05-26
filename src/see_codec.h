@@ -17,6 +17,7 @@
 #define SEE_FLAG_TOK_PREV      0x10u
 #define SEE_FLAG_TOK_PREV_ELIG 0x20u
 #define SEE_FLAG_SPAN_PFX      0x40u  // inline-span delimiter expert active
+#define SEE_FLAG_REGIME_PRIOR  0x80u  // Phase 33 regime prior router active
 
 typedef struct {
     uint32_t magic;             // SEE3_MAGIC
@@ -88,6 +89,10 @@ typedef struct {
 
     // Optional telemetry CSV path (NULL = no telemetry)
     const char* telemetry_path;
+
+    // Phase 33: Regime Prior Router
+    int   regime_prior;      // 1 = enable regime prior blending
+    int   regime_prior_mute; // 1 = active but neutral prior (ablation)
 } SeeCodecConfig;
 
 // ── Audit Results ─────────────────────────────────────────────────────────────
