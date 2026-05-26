@@ -48,20 +48,31 @@ RegimeType regime_prior_classify(const RegimePriorState* rp) {
     /* Require warmup — EMA needs REGIME_EMA_WINDOW bytes to stabilize */
     if (rp->n_bytes < (uint64_t)REGIME_EMA_WINDOW) return REGIME_NEUTRAL;
 
-    /* Phase 32 calibrated thresholds (conservative — prefer neutral over misfire)
+    /* Phase 32/33B calibrated thresholds
      *
-     * Code has alnum≈0.50, punct≈0.23: excluded from PROSE by punct guard.
-     * Prose has alnum≈0.77, space≈0.18, punct≈0.04: clean PROSE signal.
-     * Markup headings have newline≈0.06, punct≈0.08, alnum≈0.73: MARKUP.
-     * Log has newline≈0.08, alnum≈0.45: REPEAT.
-     * Shuffled has special≈0.40: RANDOM.                                    */
+     * Code:     alnum≈0.50, punct≈0.22 — excluded by punct<0.18 in MARKUP,
+     *           and alnum<0.60 guard in MARKUP-a, alnum<0.70 in MARKUP-b.
+     * Prose:    alnum≈0.77, punct≈0.04 — clean PROSE signal.
+     * Headings: newline≈0.04, punct≈0.09, alnum≈0.73 → MARKUP (a).
+     * Tables:   newline≈0.02, punct≈0.08, alnum≈0.75 → MARKUP (b).
+     * Shuffled: newline≈0.03, punct≈0.22, alnum≈0.49 — excluded:
+     *           MARKUP-a by alnum<0.60 guard; MARKUP-b by alnum<0.70;
+     *           REPEAT by punct<0.15 guard (shuffled punct≈0.22).        */
     if (rp->f_special > 0.15f)
         return REGIME_RANDOM;
-    if (rp->f_newline > 0.05f && rp->f_punct > 0.06f && rp->f_punct < 0.18f)
+    /* (a) heading/structure: many newlines + moderate punct, text-level alnum */
+    if (rp->f_newline > 0.05f && rp->f_punct > 0.06f && rp->f_punct < 0.18f
+        && rp->f_alnum > 0.60f)
+        return REGIME_MARKUP;
+    /* (b) pipe-tables: sparse newlines but high alnum + moderate punct;
+     *     alnum > 0.70 excludes shuffled (≈0.49) and code (≈0.50) */
+    if (rp->f_alnum > 0.70f && rp->f_punct > 0.06f && rp->f_punct < 0.18f
+        && rp->f_newline > 0.01f)
         return REGIME_MARKUP;
     if (rp->f_alnum > 0.72f && rp->f_punct < 0.06f)
         return REGIME_PROSE;
-    if (rp->f_newline > 0.07f && rp->f_alnum > 0.35f)
+    /* REPEAT: punct < 0.15 excludes shuffled (punct≈0.22) and code (≈0.22) */
+    if (rp->f_newline > 0.07f && rp->f_alnum > 0.35f && rp->f_punct < 0.15f)
         return REGIME_REPEAT;
     return REGIME_NEUTRAL;
 }
@@ -82,7 +93,7 @@ void regime_prior_apply(RegimePriorState* rp, MoeState* moe,
     rp->current = reg;
     rp->n_switches++;
 
-    if (reg == REGIME_NEUTRAL) return;  /* switching to neutral = no action */
+    if (reg == REGIME_NEUTRAL || reg == REGIME_RANDOM) return;  /* UNI already optimal; MoE self-converges on high-entropy data */
 
     const float* prior = rp->prior[reg];
     float g = REGIME_GAMMA;

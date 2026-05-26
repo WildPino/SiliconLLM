@@ -35,6 +35,7 @@ EXT_DIR = os.path.join(DATA, "external")
 
 BASELINE_PRIMARY  = os.path.join(BASEDIR, "phase29a_baseline.json")
 BASELINE_EXTERNAL = os.path.join(BASEDIR, "phase29c_baseline.json")
+BASELINE_ROUTER   = os.path.join(BASEDIR, "phase33_baseline.json")
 
 # Map baseline corpus keys (short names) to actual filenames in DATA
 CORPUS_FILENAME_MAP = {
@@ -55,11 +56,19 @@ ROUNDTRIP_FILES = [
     (os.path.join(EXT_DIR, "prose_real.txt"),   "prose"),
 ]
 
+ROUNDTRIP_FILES_REGIME = [
+    (os.path.join(DATA, "markdown_docs.md"),    "regime-prior"),
+    (os.path.join(DATA, "natural_text.txt"),    "regime-prior"),
+    (os.path.join(EXT_DIR, "prose_real.txt"),   "regime-prior-prose"),
+]
+
 PROFILE_ARGS = {
-    "general":  ["--expert-profile", "general"],
-    "prose":    ["--expert-profile", "prose"],
-    "span-pfx": ["--expert-profile", "general", "--span-pfx"],
-    "no-token": ["--expert-profile", "experimental", "--lz-key", "6"],
+    "general":          ["--expert-profile", "general"],
+    "prose":            ["--expert-profile", "prose"],
+    "span-pfx":         ["--expert-profile", "general", "--span-pfx"],
+    "no-token":         ["--expert-profile", "experimental", "--lz-key", "6"],
+    "regime-prior":     ["--expert-profile", "general", "--regime-prior"],
+    "regime-prior-prose": ["--expert-profile", "prose", "--regime-prior"],
 }
 
 
@@ -135,11 +144,13 @@ def check_baselines(baseline_path, label, tolerance):
     return passes, failures
 
 
-def check_roundtrips():
+def check_roundtrips(files=None):
     passes = failures = 0
+    if files is None:
+        files = ROUNDTRIP_FILES
     tmpdir = tempfile.mkdtemp(prefix="see_rt_")
     try:
-        for fpath, profile in ROUNDTRIP_FILES:
+        for fpath, profile in files:
             if not os.path.exists(fpath):
                 print(f"  [SKIP] {os.path.basename(fpath)}: not found")
                 continue
@@ -211,12 +222,26 @@ def main():
         p, f = check_baselines(BASELINE_EXTERNAL, "29C", args.tolerance)
         total_pass += p; total_fail += f
 
+        print()
+        print(sep)
+        print("BPB REGRESSION — Phase 33B baseline (regime-prior router)")
+        print(sep)
+        p, f = check_baselines(BASELINE_ROUTER, "33B", args.tolerance)
+        total_pass += p; total_fail += f
+
     if not args.baseline_only:
         print()
         print(sep)
         print("ENCODE/DECODE ROUNDTRIP — SHA-256 integrity")
         print(sep)
         p, f = check_roundtrips()
+        total_pass += p; total_fail += f
+
+        print()
+        print(sep)
+        print("ENCODE/DECODE ROUNDTRIP — SHA-256 integrity (--regime-prior)")
+        print(sep)
+        p, f = check_roundtrips(ROUNDTRIP_FILES_REGIME)
         total_pass += p; total_fail += f
 
     print()
