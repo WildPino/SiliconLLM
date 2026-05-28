@@ -93,6 +93,9 @@ typedef struct {
     // Phase 33: Regime Prior Router
     int   regime_prior;      // 1 = enable regime prior blending
     int   regime_prior_mute; // 1 = active but neutral prior (ablation)
+
+    // Phase 37: context window scaling experiment
+    int   history_tokens;    // t3_tokens override (0 = use default=4)
 } SeeCodecConfig;
 
 // ── Audit Results ─────────────────────────────────────────────────────────────

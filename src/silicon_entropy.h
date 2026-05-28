@@ -30,6 +30,7 @@ typedef struct {
     // Configs
     int chunk_size;
     float decay;
+    int history_tokens;  // t3_tokens for silicon_v0_tick_t (default 4)
 } SiliconEntropyState;
 
 #ifdef __cplusplus

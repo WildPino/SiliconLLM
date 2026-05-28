@@ -26,7 +26,7 @@ typedef struct {
 } WeightsFileHeader;
 
 uint8_t* data;
-int data_size = 0;
+long data_size = 0;
 
 int train_start, train_len;
 int val_start, val_len;
@@ -144,7 +144,7 @@ void extract_dataset(SiliconEntropyState* see, int start_idx, int len, float* ou
         out_ctx[i] = data[global_idx + 1];
         out_ctx2[i] = data[global_idx];
         
-        see_extract(see, &out_features[i * SEE_FEATURE_DIM]);
+        see_extract(see, &out_features[(size_t)i * SEE_FEATURE_DIM]);
         // Observe actual target to update state for the next step
         see_observe(see, out_targets[i]);
     }
@@ -156,18 +156,18 @@ float feature_stds[SEE_FEATURE_DIM];
 void normalize_features() {
     for (int f = 0; f < SEE_FEATURE_DIM; f++) {
         double mean = 0.0;
-        for (int i = 0; i < train_len; i++) mean += features_train[i * SEE_FEATURE_DIM + f];
+        for (int i = 0; i < train_len; i++) mean += features_train[(size_t)i * SEE_FEATURE_DIM + f];
         mean /= train_len;
         double var = 0.0;
-        for (int i = 0; i < train_len; i++) var += (features_train[i * SEE_FEATURE_DIM + f] - mean) * (features_train[i * SEE_FEATURE_DIM + f] - mean);
+        for (int i = 0; i < train_len; i++) var += (features_train[(size_t)i * SEE_FEATURE_DIM + f] - mean) * (features_train[(size_t)i * SEE_FEATURE_DIM + f] - mean);
         var /= train_len;
         double std_dev = sqrt(var) + 1e-8;
-        
+
         feature_means[f] = (float)mean;
         feature_stds[f] = (float)std_dev;
-        
-        for (int i = 0; i < train_len; i++) features_train[i * SEE_FEATURE_DIM + f] = (features_train[i * SEE_FEATURE_DIM + f] - mean) / std_dev;
-        for (int i = 0; i < val_len; i++) features_val[i * SEE_FEATURE_DIM + f] = (features_val[i * SEE_FEATURE_DIM + f] - mean) / std_dev;
+
+        for (int i = 0; i < train_len; i++) features_train[(size_t)i * SEE_FEATURE_DIM + f] = (features_train[(size_t)i * SEE_FEATURE_DIM + f] - mean) / std_dev;
+        for (int i = 0; i < val_len; i++) features_val[(size_t)i * SEE_FEATURE_DIM + f] = (features_val[(size_t)i * SEE_FEATURE_DIM + f] - mean) / std_dev;
     }
 }
 
@@ -178,7 +178,7 @@ double evaluate_model(AdamState* model) {
         float max_l = -1e9;
         for (int c = 0; c < CLASSES; c++) {
             logits[c] = model->B[c] + trigram_logits[ctx2_val[i]][ctx_val[i]][c];
-            logits[c] += dot_product_simd(model->W[c], &features_val[i * SEE_FEATURE_DIM], SEE_FEATURE_DIM);
+            logits[c] += dot_product_simd(model->W[c], &features_val[(size_t)i * SEE_FEATURE_DIM], SEE_FEATURE_DIM);
             if (logits[c] > max_l) max_l = logits[c];
         }
         float sum_e = 0.0f;
@@ -211,7 +211,7 @@ void train_logistic_regression(AdamState* model, int epochs, int batch_size, flo
             float max_l = -1e9;
             for (int c = 0; c < CLASSES; c++) {
                 logits[c] = model->B[c] + trigram_logits[ctx2_train[i]][ctx_train[i]][c];
-                logits[c] += dot_product_simd(model->W[c], &features_train[i * SEE_FEATURE_DIM], SEE_FEATURE_DIM);
+                logits[c] += dot_product_simd(model->W[c], &features_train[(size_t)i * SEE_FEATURE_DIM], SEE_FEATURE_DIM);
                 if (logits[c] > max_l) max_l = logits[c];
             }
             float sum_e = 0.0f;
@@ -223,7 +223,7 @@ void train_logistic_regression(AdamState* model, int epochs, int batch_size, flo
             for (int c = 0; c < CLASSES; c++) {
                 float err = probs[c] - (c == target_train[i] ? 1.0f : 0.0f);
                 gradB[c] += err / batch_size;
-                grad_update_simd(&gradW[c * SEE_FEATURE_DIM], &features_train[i * SEE_FEATURE_DIM], err / batch_size, SEE_FEATURE_DIM);
+                grad_update_simd(&gradW[c * SEE_FEATURE_DIM], &features_train[(size_t)i * SEE_FEATURE_DIM], err / batch_size, SEE_FEATURE_DIM);
             }
             if ((i + 1) % batch_size == 0 || (i + 1) == train_len) {
                 adam_step(model, gradW, gradB, SEE_FEATURE_DIM, lr, 0.9f, 0.999f, 1e-8f, 1e-4f);
@@ -245,23 +245,25 @@ void train_logistic_regression(AdamState* model, int epochs, int batch_size, flo
 
 int main(int argc, char** argv) {
     if (argc < 3) {
-        printf("Usage: %s <dataset_path> <out_weights.bin> [--train-start %%] [--train-len %%] [--val-start %%] [--val-len %%]\n", argv[0]);
+        printf("Usage: %s <dataset_path> <out_weights.bin> [--train-start %%] [--train-len %%] [--val-start %%] [--val-len %%] [--t3 <int>]\n", argv[0]);
         return 1;
     }
-    
+
     const char* dataset_path = argv[1];
     const char* out_weights = argv[2];
-    
+
     int train_start_pct = 0, train_len_pct = 50;
     int val_start_pct = 50, val_len_pct = 25;
-    
+    int t3_tokens = 4;
+
     for (int i = 3; i < argc; i++) {
         if (strcmp(argv[i], "--train-start") == 0 && i + 1 < argc) train_start_pct = atoi(argv[++i]);
         if (strcmp(argv[i], "--train-len") == 0 && i + 1 < argc) train_len_pct = atoi(argv[++i]);
         if (strcmp(argv[i], "--val-start") == 0 && i + 1 < argc) val_start_pct = atoi(argv[++i]);
         if (strcmp(argv[i], "--val-len") == 0 && i + 1 < argc) val_len_pct = atoi(argv[++i]);
+        if (strcmp(argv[i], "--t3") == 0 && i + 1 < argc) t3_tokens = atoi(argv[++i]);
     }
-    
+
     FILE* f = fopen(dataset_path, "rb");
     if (!f) return 1;
     fseek(f, 0, SEEK_END);
@@ -270,24 +272,26 @@ int main(int argc, char** argv) {
     data = malloc(data_size);
     fread(data, 1, data_size, f);
     fclose(f);
-    
-    train_start = (data_size * train_start_pct) / 100;
-    train_len = (data_size * train_len_pct) / 100;
-    val_start = (data_size * val_start_pct) / 100;
-    val_len = (data_size * val_len_pct) / 100;
-    
-    printf("Dataset Size: %d\n", data_size);
+
+    train_start = (int)(((long long)data_size * train_start_pct) / 100);
+    train_len   = (int)(((long long)data_size * train_len_pct)   / 100);
+    val_start   = (int)(((long long)data_size * val_start_pct)   / 100);
+    val_len     = (int)(((long long)data_size * val_len_pct)     / 100);
+
+    printf("Dataset Size: %ld\n", data_size);
     printf("Train Split: %d to %d (len %d)\n", train_start, train_start + train_len, train_len);
     printf("Val Split: %d to %d (len %d)\n", val_start, val_start + val_len, val_len);
-    
-    features_train = (float*)malloc(train_len * SEE_FEATURE_DIM * sizeof(float));
-    features_val = (float*)malloc(val_len * SEE_FEATURE_DIM * sizeof(float));
+    printf("t3_tokens: %d\n", t3_tokens);
+
+    features_train = (float*)malloc((size_t)train_len * SEE_FEATURE_DIM * sizeof(float));
+    features_val = (float*)malloc((size_t)val_len * SEE_FEATURE_DIM * sizeof(float));
     target_train = malloc(train_len); ctx_train = malloc(train_len); ctx2_train = malloc(train_len);
     target_val = malloc(val_len); ctx_val = malloc(val_len); ctx2_val = malloc(val_len);
-    
+
     printf("Extracting features...\n");
     SiliconEntropyState see;
     see_init(&see, 42, 4, 0.75f);
+    see.history_tokens = t3_tokens;
     
     extract_dataset(&see, train_start, train_len, features_train, target_train, ctx_train, ctx2_train);
     extract_dataset(&see, val_start, val_len, features_val, target_val, ctx_val, ctx2_val);

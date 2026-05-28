@@ -129,6 +129,8 @@ int main(int argc, char** argv) {
         } else if (strcmp(argv[i], "--regime-prior-mute") == 0) {
             cfg.regime_prior = 1;
             cfg.regime_prior_mute = 1;
+        } else if (strcmp(argv[i], "--history-tokens") == 0 && i+1 < argc) {
+            cfg.history_tokens = atoi(argv[++i]);
         } else {
             fprintf(stderr, "see: unknown option '%s'\n", argv[i]);
             return 1;

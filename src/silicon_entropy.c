@@ -14,6 +14,7 @@ void see_reset(SiliconEntropyState* see) {
 void see_init(SiliconEntropyState* see, int seed, int chunk_size, float decay) {
     see->chunk_size = chunk_size;
     see->decay = decay;
+    see->history_tokens = 4;
     
     // Initialize Codebook for M4 (32D)
     srand(seed);
@@ -32,14 +33,13 @@ void see_observe(SiliconEntropyState* see, uint8_t byte) {
     memmove(see->hist + 1, see->hist, 255);
     see->hist[0] = byte;
     
-    // Phase 13 optimal T=4
-    int history_tokens = 4;
+    int history_tokens = see->history_tokens;
     silicon_v0_tick_t(&see->v0, byte, history_tokens);
-    
+
     // 2. Extract current L0 features
     float l0_out[SEE_L0_DIM];
     memset(l0_out, 0, sizeof(l0_out));
-    
+
     // M4 (32D)
     for (int t = 0; t < history_tokens; t++) {
         uint8_t vec[32];

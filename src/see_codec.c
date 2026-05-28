@@ -295,6 +295,8 @@ static int run_loop(RunCtx* rc) {
     SiliconEntropyState see_state;
     see_init(&see_state, (int)wc->hdr.codebook_seed,
              (int)wc->hdr.chunk_size, wc->hdr.decay);
+    if (cfg->history_tokens > 0)
+        see_state.history_tokens = cfg->history_tokens;
 
     // Dynamic n-gram counters
     uint32_t dyn_uni[CLASSES]          = {0};
