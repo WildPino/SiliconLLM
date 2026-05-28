@@ -116,7 +116,7 @@ python scripts/test_headers.py
 6 header integrity tests: bad magic, wrong weights, truncated header, profile roundtrip (×2), missing weights.
 
 ```sh
-python scripts/phase35_reproducibility.py
+python scripts/phase35-36/phase35_reproducibility.py
 ```
 
 Reproducibility audit: encode determinism, decode of committed fixture archives, header rejection (5 corruption cases), and optional compiler variant comparison (`--skip-compiler` to skip recompile). The fixture archives in `data/fixtures/` are the format identity test — if they fail to decode correctly, the archive format has regressed.
@@ -140,6 +140,7 @@ Reproducibility audit: encode determinism, decode of committed fixture archives,
 ```
 SiliconLLM/
 ├── see.c                       Main CLI (encode / decode / audit)
+├── build.bat                   Build script
 ├── src/
 │   ├── see_codec.h/.c          Codec core: encode, decode, audit, MoE loop
 │   ├── silicon_entropy.h/.c    Wave ESN (SEE expert)
@@ -148,31 +149,56 @@ SiliconLLM/
 │   ├── tok_lz.h/.c             TOKPFX / TOK_PREV experts
 │   ├── span_lz.h/.c            SPANPFX expert (experimental, rejected)
 │   ├── moe_engine.h/.c         Fixed-share exponentiated-gradient MoE
-│   └── range_coder.h/.c        Arithmetic range coder
+│   ├── range_coder.h/.c        Arithmetic range coder
+│   ├── regime_prior.h/.c       Regime prior router
+│   └── archive/                Obsolete/superseded source files
 ├── weights/
-│   └── entropy_weights_factors_r16.bin   Trained readout weights
+│   ├── v1/                     V1.0 production weights
+│   └── research/               Experimental weights (phases 36–42)
 ├── data/
-│   ├── *.txt / *.c / *.md / *.bin        Internal corpora
-│   ├── external/                          External corpus (Phase 29B/29C)
-│   ├── fixtures/
-│   │   ├── tiny_text.see                  Format identity fixture (text)
-│   │   ├── tiny_code.see                  Format identity fixture (C code)
-│   │   ├── tiny_json.see                  Format identity fixture (JSON)
-│   │   └── manifest.json                  Expected SHA-256 for decode verification
-│   └── baselines/
-│       ├── phase29a_baseline.json         Primary regression gate (9 corpora)
-│       └── phase29c_baseline.json         External stress baseline (4 corpora)
+│   ├── corpora/
+│   │   ├── internal/           Synthetic + curated corpora (c_code, natural_text, …)
+│   │   └── external/           Scraped/downloaded corpora (eureparl, kaggle, …)
+│   ├── external/               Real-world files for Phase 29B/29C stress tests
+│   ├── fixtures/               Format identity fixtures (tiny_*.see + manifest.json)
+│   ├── baselines/              Frozen regression baselines (phase29a, phase29c, phase33)
+│   └── phase_data/             Phase-specific binary datasets (phase32–42)
 ├── scripts/
-│   ├── regression_test.py                 Full regression harness
-│   ├── test_headers.py                    Header integrity tests
-│   ├── phase35_reproducibility.py         Reproducibility & portability audit
-│   ├── phase29a_tribunal.py               Phase 29A matrix
-│   ├── phase29b_external.py               Phase 29B external download + audit
-│   └── phase29c_catalog_freeze.py         Phase 29C catalog hygiene
-└── docs/
-    ├── profiles.md                        Expert profile reference
-    ├── architecture_decisions.md          Architecture decision log
-    └── CHANGELOG.md → ../CHANGELOG.md
+│   ├── regression_test.py      Full regression harness (primary gate)
+│   ├── test_headers.py         Header integrity tests
+│   ├── phase29/                Phase 29 tribunal + baseline scripts
+│   ├── phase31-34/             Regime routing research scripts
+│   ├── phase35-36/             Reproducibility audit
+│   ├── phase37-40/             Multi-domain / MoE research scripts
+│   ├── tooling/                Analysis, plotting, and one-off utilities
+│   └── archive/                Superseded scripts (phases 21–28)
+├── benchmarks/
+│   ├── phase01-14/             Early architecture benchmarks (C)
+│   ├── phase18/                Coder + readout training benchmarks
+│   └── phase38-42/             Phase 38–42 experiment harnesses
+├── bin/
+│   ├── phase01-14/             Built binaries for early benchmarks
+│   ├── phase18-23/             Built binaries for phases 18–23
+│   ├── phase38-42/             Built binaries for phases 38–42
+│   └── misc/                   Utility binaries (wave_engine, test_rc)
+├── results/
+│   ├── phase11–14/             Per-phase result files
+│   ├── phase20–42/             Per-phase result files
+│   └── misc/                   Unphased result files
+├── experiments/
+│   └── phase41a/               Phase 41 active experiment
+├── docs/
+│   ├── profiles.md             Expert profile reference
+│   ├── architecture_decisions.md  Architecture decision log
+│   ├── see_v1_position.md      External compressor comparison (Phase 31)
+│   ├── phases/
+│   │   ├── phase35_reproducibility.md
+│   │   ├── early/              Phase 1–22 walkthrough notes
+│   │   └── archive/            Superseded phase docs
+│   ├── research/               Background research notes (CPU arch, derivatives)
+│   └── archive/                Superseded docs (v0_architecture, project_summary, …)
+└── logs/
+    └── phase10/                Phase 10 run logs
 ```
 
 ---

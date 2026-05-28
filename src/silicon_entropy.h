@@ -31,6 +31,7 @@ typedef struct {
     int chunk_size;
     float decay;
     int history_tokens;  // t3_tokens for silicon_v0_tick_t (default 4)
+    int pooling_mode;    // V0 pooling: 0=sum 1=max 2=range 3=threshold
 } SiliconEntropyState;
 
 #ifdef __cplusplus

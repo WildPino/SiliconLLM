@@ -15,6 +15,7 @@ void see_init(SiliconEntropyState* see, int seed, int chunk_size, float decay) {
     see->chunk_size = chunk_size;
     see->decay = decay;
     see->history_tokens = 4;
+    see->pooling_mode = 0;
     
     // Initialize Codebook for M4 (32D)
     srand(seed);
@@ -49,7 +50,7 @@ void see_observe(SiliconEntropyState* see, uint8_t byte) {
     
     // V0 (32D)
     double d_out[32];
-    silicon_v0_extract_32d(&see->v0, d_out);
+    silicon_v0_extract_32d_mode(&see->v0, d_out, see->pooling_mode);
     for (int i = 0; i < 32; i++) l0_out[32 + i] = (float)d_out[i];
     
     // Save for next extraction

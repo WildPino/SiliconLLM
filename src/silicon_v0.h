@@ -61,6 +61,15 @@ void silicon_v0_tick_t(SiliconV0* engine, uint8_t input_byte, int t3_tokens);
  */
 void silicon_v0_extract_32d(const SiliconV0* engine, double* out_32d);
 
+/**
+ * Extracts 32D features with a configurable pooling mode.
+ * mode 0: sum   (identical to silicon_v0_extract_32d)
+ * mode 1: max   (peak activation per lane)
+ * mode 2: range (max-min per lane, local energy)
+ * mode 3: threshold count (bytes > 127 per lane, binarised activation)
+ */
+void silicon_v0_extract_32d_mode(const SiliconV0* engine, double* out_32d, int mode);
+
 #ifdef __cplusplus
 }
 #endif

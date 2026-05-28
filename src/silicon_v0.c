@@ -138,15 +138,43 @@ void silicon_v0_tick_t(SiliconV0* e, uint8_t input_byte, int t3_tokens) {
 
 void silicon_v0_extract_32d(const SiliconV0* e, double* out_32d) {
     memset(out_32d, 0, 32 * sizeof(double));
-    int blocks_per_channel = 128 / 16; // 8
-    
-    for(int k = 0; k < 16; k++) {
-        for(int i = 0; i < blocks_per_channel; i++) {
+    for (int i = 0; i < 128; i++) {
+        uint8_t bytes[32];
+        _mm256_storeu_si256((__m256i*)bytes, e->state[i]);
+        for (int lane = 0; lane < 32; lane++) out_32d[lane] += bytes[lane];
+    }
+}
+
+void silicon_v0_extract_32d_mode(const SiliconV0* e, double* out_32d, int mode) {
+    if (mode == 0) { silicon_v0_extract_32d(e, out_32d); return; }
+
+    if (mode == 1) {
+        memset(out_32d, 0, 32 * sizeof(double));
+        for (int i = 0; i < 128; i++) {
             uint8_t bytes[32];
-            _mm256_storeu_si256((__m256i*)bytes, e->state[k * blocks_per_channel + i]);
-            for(int lane = 0; lane < 32; lane++) {
-                out_32d[lane] += bytes[lane];
+            _mm256_storeu_si256((__m256i*)bytes, e->state[i]);
+            for (int lane = 0; lane < 32; lane++)
+                if (bytes[lane] > out_32d[lane]) out_32d[lane] = bytes[lane];
+        }
+    } else if (mode == 2) {
+        double mn[32];
+        for (int lane = 0; lane < 32; lane++) { out_32d[lane] = 0.0; mn[lane] = 255.0; }
+        for (int i = 0; i < 128; i++) {
+            uint8_t bytes[32];
+            _mm256_storeu_si256((__m256i*)bytes, e->state[i]);
+            for (int lane = 0; lane < 32; lane++) {
+                if (bytes[lane] > out_32d[lane]) out_32d[lane] = bytes[lane];
+                if (bytes[lane] < mn[lane])       mn[lane]     = bytes[lane];
             }
+        }
+        for (int lane = 0; lane < 32; lane++) out_32d[lane] -= mn[lane];
+    } else if (mode == 3) {
+        memset(out_32d, 0, 32 * sizeof(double));
+        for (int i = 0; i < 128; i++) {
+            uint8_t bytes[32];
+            _mm256_storeu_si256((__m256i*)bytes, e->state[i]);
+            for (int lane = 0; lane < 32; lane++)
+                if (bytes[lane] > 127) out_32d[lane]++;
         }
     }
 }
