@@ -20,11 +20,11 @@ Write-Host '  train_readout.exe ...'
 if ($LASTEXITCODE -ne 0) { Write-Error 'Failed train_readout'; exit 1 }
 
 Write-Host '  phase42a_pooling.exe ...'
-& gcc @GCC_FLAGS benchmarks/phase42a_pooling.c @SRC_CORE -o "$BINDIR/phase42a_pooling.exe"
+& gcc @GCC_FLAGS benchmarks/phase38-42/phase42a_pooling.c @SRC_CORE -o "$BINDIR/phase42a_pooling.exe"
 if ($LASTEXITCODE -ne 0) { Write-Error 'Failed phase42a_pooling'; exit 1 }
 
 Write-Host '  phase42c_r2.exe ...'
-& gcc @GCC_FLAGS benchmarks/phase42c_reservoir2.c @SRC_CORE src/silicon_r2.c -o "$BINDIR/phase42c_r2.exe"
+& gcc @GCC_FLAGS benchmarks/phase38-42/phase42c_reservoir2.c @SRC_CORE src/silicon_r2.c -o "$BINDIR/phase42c_r2.exe"
 if ($LASTEXITCODE -ne 0) { Write-Error 'Failed phase42c_r2'; exit 1 }
 
 Write-Host '  phase41_generator.exe ...'

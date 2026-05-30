@@ -24,7 +24,7 @@
 #include <x86intrin.h>
 #endif
 
-#include "../src/silicon_entropy.h"
+#include "src/silicon_entropy.h"
 
 #define CLASSES       256
 #define FEAT_DIM      SEE_FEATURE_DIM  // 192
@@ -311,7 +311,7 @@ int main(int argc, char** argv) {
         for (int l = 0; l < 3; l++) {
             printf("\n  LR %.4f\n", lrs[l]);
             fflush(stdout);
-            train_lr(model, 10, 256, lrs[l]);
+            train_lr(model, 5, 256, lrs[l]);
         }
         results[mode] = evaluate_model(model);
 

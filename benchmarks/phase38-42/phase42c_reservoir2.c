@@ -24,8 +24,8 @@
 #include <x86intrin.h>
 #endif
 
-#include "../src/silicon_entropy.h"
-#include "../src/silicon_r2.h"
+#include "src/silicon_entropy.h"
+#include "src/silicon_r2.h"
 
 #define CLASSES    256
 #define FEAT_SEE   SEE_FEATURE_DIM  // 192
@@ -308,7 +308,7 @@ int main(int argc, char** argv) {
     float lrs[] = { 0.003f, 0.001f, 0.0003f };
     for (int l = 0; l < 3; l++) {
         printf("\nLR %.4f\n", lrs[l]);
-        train_lr(model, 10, 256, lrs[l]);
+        train_lr(model, 5, 256, lrs[l]);
     }
 
     double final_bpb = evaluate_model(model);

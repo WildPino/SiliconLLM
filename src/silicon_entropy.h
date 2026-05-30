@@ -32,6 +32,17 @@ typedef struct {
     float decay;
     int history_tokens;  // t3_tokens for silicon_v0_tick_t (default 4)
     int pooling_mode;    // V0 pooling: 0=sum 1=max 2=range 3=threshold
+
+    // Multi-timescale L1 (Phase 43.A)
+    // When multiscale_mode=1, l1_state is populated per-byte as 3 EMA bands:
+    //   l1_state[0:42]   alpha_fast, L0[0:42]
+    //   l1_state[43:85]  alpha_mid,  L0[0:42]
+    //   l1_state[86:127] alpha_slow, L0[0:41]
+    // Legacy chunk-based path (multiscale_mode=0) is unchanged.
+    int   multiscale_mode; // 0=legacy, 1=3-band per-byte EMA
+    float alpha_fast;      // default 0.7
+    float alpha_mid;       // default 0.9
+    float alpha_slow;      // default 0.99
 } SiliconEntropyState;
 
 #ifdef __cplusplus

@@ -16,6 +16,10 @@ void see_init(SiliconEntropyState* see, int seed, int chunk_size, float decay) {
     see->decay = decay;
     see->history_tokens = 4;
     see->pooling_mode = 0;
+    see->multiscale_mode = 0;
+    see->alpha_fast = 0.7f;
+    see->alpha_mid  = 0.9f;
+    see->alpha_slow = 0.99f;
     
     // Initialize Codebook for M4 (32D)
     srand(seed);
@@ -56,26 +60,35 @@ void see_observe(SiliconEntropyState* see, uint8_t byte) {
     // Save for next extraction
     memcpy(see->last_l0, l0_out, SEE_L0_DIM * sizeof(float));
     
-    // 3. Accumulate L1 Chunk Mean
-    for(int i = 0; i < SEE_L0_DIM; i++) {
-        see->current_chunk_mean[i] += l0_out[i];
-    }
-    see->bytes_in_chunk++;
-    
-    // 4. Close chunk and update L1 state via EMA
-    if (see->bytes_in_chunk == see->chunk_size) {
-        float mean_last[SEE_L1_DIM];
-        for(int i = 0; i < SEE_L0_DIM; i++) {
-            mean_last[i] = see->current_chunk_mean[i] / (float)see->chunk_size; // mean
-            mean_last[SEE_L0_DIM + i] = l0_out[i];                              // last
+    // 3. Update L1 state
+    if (see->multiscale_mode == 1) {
+        // 3-band per-byte EMA: fast(43D) | mid(43D) | slow(42D) of L0[0:42/41]
+        float af = 1.0f - see->alpha_fast;
+        float am = 1.0f - see->alpha_mid;
+        float as_ = 1.0f - see->alpha_slow;
+        for (int i = 0; i < 43; i++)
+            see->l1_state[i]      = see->alpha_fast * see->l1_state[i]      + af  * l0_out[i];
+        for (int i = 0; i < 43; i++)
+            see->l1_state[43 + i] = see->alpha_mid  * see->l1_state[43 + i] + am  * l0_out[i];
+        for (int i = 0; i < 42; i++)
+            see->l1_state[86 + i] = see->alpha_slow * see->l1_state[86 + i] + as_ * l0_out[i];
+    } else {
+        // Legacy: chunk mean + last via single EMA
+        for(int i = 0; i < SEE_L0_DIM; i++)
+            see->current_chunk_mean[i] += l0_out[i];
+        see->bytes_in_chunk++;
+
+        if (see->bytes_in_chunk == see->chunk_size) {
+            float mean_last[SEE_L1_DIM];
+            for(int i = 0; i < SEE_L0_DIM; i++) {
+                mean_last[i]              = see->current_chunk_mean[i] / (float)see->chunk_size;
+                mean_last[SEE_L0_DIM + i] = l0_out[i];
+            }
+            for(int i = 0; i < SEE_L1_DIM; i++)
+                see->l1_state[i] = (see->l1_state[i] * see->decay) + mean_last[i];
+            memset(see->current_chunk_mean, 0, sizeof(see->current_chunk_mean));
+            see->bytes_in_chunk = 0;
         }
-        
-        for(int i = 0; i < SEE_L1_DIM; i++) {
-            see->l1_state[i] = (see->l1_state[i] * see->decay) + mean_last[i];
-        }
-        
-        memset(see->current_chunk_mean, 0, sizeof(see->current_chunk_mean));
-        see->bytes_in_chunk = 0;
     }
 }
 
