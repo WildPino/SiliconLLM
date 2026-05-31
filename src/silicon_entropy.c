@@ -20,6 +20,7 @@ void see_init(SiliconEntropyState* see, int seed, int chunk_size, float decay) {
     see->alpha_fast = 0.7f;
     see->alpha_mid  = 0.9f;
     see->alpha_slow = 0.99f;
+    for (int i = 0; i < 256; i++) see->byte_gain[i] = 1.0f;
     
     // Initialize Codebook for M4 (32D)
     srand(seed);
@@ -63,9 +64,11 @@ void see_observe(SiliconEntropyState* see, uint8_t byte) {
     // 3. Update L1 state
     if (see->multiscale_mode == 1) {
         // 3-band per-byte EMA: fast(43D) | mid(43D) | slow(42D) of L0[0:42/41]
-        float af = 1.0f - see->alpha_fast;
-        float am = 1.0f - see->alpha_mid;
-        float as_ = 1.0f - see->alpha_slow;
+        // byte_gain scales how strongly the current byte writes into memory
+        float g   = see->byte_gain[byte];
+        float af  = (1.0f - see->alpha_fast) * g;
+        float am  = (1.0f - see->alpha_mid)  * g;
+        float as_ = (1.0f - see->alpha_slow) * g;
         for (int i = 0; i < 43; i++)
             see->l1_state[i]      = see->alpha_fast * see->l1_state[i]      + af  * l0_out[i];
         for (int i = 0; i < 43; i++)

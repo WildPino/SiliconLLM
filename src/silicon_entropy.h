@@ -43,6 +43,11 @@ typedef struct {
     float alpha_fast;      // default 0.7
     float alpha_mid;       // default 0.9
     float alpha_slow;      // default 0.99
+
+    // Trainable injection gain (Phase 43.B)
+    // Applied only when multiscale_mode=1: scales L0 contribution to L1 update.
+    // gain[b] in [0.25, 4.0]; initialized to 1.0 (no-op).
+    float byte_gain[256];
 } SiliconEntropyState;
 
 #ifdef __cplusplus
