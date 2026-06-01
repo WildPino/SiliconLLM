@@ -108,7 +108,11 @@ int main(int argc, char** argv) {
     //   0x53454536 (phase43b): same as 535 + float[4] + byte_gain[256]
     //   0x53454537 (phase43h): {magic,ver,fdim,chunk} + float[4]{decay,0.1,alpha_fast,feat_clamp}
     //   0x53454538 (phase43c): {magic,ver,fdim,chunk} + float[5]{decay,0.1,alpha_fast,feat_clamp,eta_oja}
-    //                          + W_oja[SEE_N_OJA*43]
+    //                          + W_oja[SEE_N_OJA*43]   (fixed 13 plastic cells)
+    //   0x53454539 (phase43c2): {magic,ver,fdim,chunk} + float[5]{...,eta_oja}
+    //                          + uint32 n_oja + W_oja[n_oja*43]  (self-describing capacity)
+    //   0x5345453A (phase43c3): {magic,ver,fdim,chunk} + float[6]{...,eta_oja,plastic_blend}
+    //                          + uint32 n_oja + W_oja[n_oja*43]  (homeostatic blend)
     FILE* fw = fopen(argv[2],"rb");
     if (!fw) { fprintf(stderr,"Cannot open weights: %s\n",argv[2]); return 1; }
     uint32_t magic_peek; fread(&magic_peek,4,1,fw); rewind(fw);
@@ -117,8 +121,10 @@ int main(int argc, char** argv) {
     int     codebook_seed = 42;
     int     pooling_mode_hdr = 0;
     int     oja_loaded = 0;
+    int     file_n_oja = SEE_N_OJA;
     float   file_eta_oja = 0.0f;
-    float   W_oja_buf[SEE_N_OJA * 43];
+    float   file_plastic_blend = 1.0f;
+    float   W_oja_buf[SEE_N_OJA_MAX * 43];
 
     if (magic_peek == 0x53454531) {
         uint32_t h32[8]; fread(h32, 4, 8, fw);
@@ -156,10 +162,51 @@ int main(int argc, char** argv) {
         alpha_fast = hf[2];
         if (feat_clamp == 0.0f) feat_clamp = hf[3];
         file_eta_oja = hf[4];
-        fread(W_oja_buf, sizeof(float), SEE_N_OJA * 43, fw);
+        file_n_oja = SEE_N_OJA;   // fixed 13 in this legacy Oja format
+        fread(W_oja_buf, sizeof(float), (size_t)file_n_oja * 43, fw);
         oja_loaded = 1;
-        fprintf(stderr,"Format: 0x53454538 (SEE-V1S+Oja)  alpha_fast=%.2f  feat_clamp=%.2f  train_eta_oja=%.0e\n",
-                alpha_fast, feat_clamp, (double)file_eta_oja);
+        fprintf(stderr,"Format: 0x53454538 (SEE-V1S+Oja)  alpha_fast=%.2f  feat_clamp=%.2f  n_oja=%d  train_eta_oja=%.0e\n",
+                alpha_fast, feat_clamp, file_n_oja, (double)file_eta_oja);
+    } else if (magic_peek == 0x53454539) {
+        // Phase 43.C2: self-describing plastic capacity.
+        // 5 floats + uint32 n_oja + W_oja[n_oja*43] before trigram.
+        uint32_t hdr4[4]; fread(hdr4, 4, 4, fw);
+        float hf[5]; fread(hf, 4, 5, fw);
+        decay      = hf[0];
+        alpha_fast = hf[2];
+        if (feat_clamp == 0.0f) feat_clamp = hf[3];
+        file_eta_oja = hf[4];
+        uint32_t n_oja_u = 0; fread(&n_oja_u, 4, 1, fw);
+        file_n_oja = (int)n_oja_u;
+        if (file_n_oja < 0 || file_n_oja > SEE_N_OJA_MAX) {
+            fprintf(stderr,"Bad n_oja in header: %d (max %d)\n", file_n_oja, SEE_N_OJA_MAX);
+            fclose(fw); return 1;
+        }
+        fread(W_oja_buf, sizeof(float), (size_t)file_n_oja * 43, fw);
+        oja_loaded = 1;
+        fprintf(stderr,"Format: 0x53454539 (SEE-V2.x+Oja)  alpha_fast=%.2f  feat_clamp=%.2f  n_oja=%d  train_eta_oja=%.0e\n",
+                alpha_fast, feat_clamp, file_n_oja, (double)file_eta_oja);
+    } else if (magic_peek == 0x5345453A) {
+        // Phase 43.C3: self-describing capacity + homeostatic plastic blend.
+        // 6 floats {decay,0.1,alpha_fast,feat_clamp,eta_oja,plastic_blend}
+        // + uint32 n_oja + W_oja[n_oja*43] before trigram.
+        uint32_t hdr4[4]; fread(hdr4, 4, 4, fw);
+        float hf[6]; fread(hf, 4, 6, fw);
+        decay      = hf[0];
+        alpha_fast = hf[2];
+        if (feat_clamp == 0.0f) feat_clamp = hf[3];
+        file_eta_oja = hf[4];
+        file_plastic_blend = hf[5];
+        uint32_t n_oja_u = 0; fread(&n_oja_u, 4, 1, fw);
+        file_n_oja = (int)n_oja_u;
+        if (file_n_oja < 0 || file_n_oja > SEE_N_OJA_MAX) {
+            fprintf(stderr,"Bad n_oja in header: %d (max %d)\n", file_n_oja, SEE_N_OJA_MAX);
+            fclose(fw); return 1;
+        }
+        fread(W_oja_buf, sizeof(float), (size_t)file_n_oja * 43, fw);
+        oja_loaded = 1;
+        fprintf(stderr,"Format: 0x5345453A (SEE-V2.x+Oja+homeostasis)  alpha_fast=%.2f  feat_clamp=%.2f  n_oja=%d  eta=%.0e  blend=%.2f\n",
+                alpha_fast, feat_clamp, file_n_oja, (double)file_eta_oja, (double)file_plastic_blend);
     } else {
         fprintf(stderr,"Unsupported magic: 0x%08x\n", magic_peek); fclose(fw); return 1;
     }
@@ -189,10 +236,15 @@ int main(int argc, char** argv) {
     // the learned directions are still applied because the projection is always
     // active (see see_observe). Untrained/other formats keep identity W_oja.
     if (oja_loaded) {
-        memcpy(see.W_oja, W_oja_buf, sizeof(see.W_oja));
+        // see_init already reset all SEE_N_OJA_MAX rows to identity; overwrite
+        // only the first file_n_oja rows (row stride 43 matches the buffer).
+        see.n_oja = file_n_oja;
+        memcpy(see.W_oja, W_oja_buf, (size_t)file_n_oja * 43 * sizeof(float));
         see.eta_oja = 0.0f;
-        fprintf(stderr,"Oja: W_oja loaded, frozen for generation (train_eta=%.0e)\n",
-                (double)file_eta_oja);
+        see.plastic_blend = file_plastic_blend;   // 1.0 unless 0x5345453A (homeostasis)
+        fprintf(stderr,"Oja: %d plastic cells loaded, frozen for generation (train_eta=%.0e, blend=%.2f)\n",
+                file_n_oja,
+                (double)file_eta_oja, (double)file_plastic_blend);
     }
 
     fprintf(stderr,"SEE: seed=%d  multiscale=%d  pool=%d\n",

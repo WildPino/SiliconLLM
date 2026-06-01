@@ -49,16 +49,34 @@ typedef struct {
     // gain[b] in [0.25, 4.0]; initialized to 1.0 (no-op).
     float byte_gain[256];
 
-    // Oja plastic cells (Phase 43.C)
-    // When eta_oja > 0: first SEE_N_OJA cells of L1 fast band use learned
-    // projection W_oja[j] instead of identity (L0[j]).
-    // Oja rule: w_j += eta * y_j * (L0 - y_j * w_j)  where y_j = W_oja[j] · L0
+    // Oja plastic cells (Phase 43.C / 43.C2)
+    // The first n_oja cells of the L1 fast band use a learned projection
+    // W_oja[j] (dot with L0[0:43]) instead of plain identity L0[j]. The
+    // projection is ALWAYS applied (identity by default => bit-identical to
+    // SEE-V1S); the Oja *update* only runs when eta_oja > 0:
+    //   w_j += eta * y_j * (L0 - y_j * w_j)  where y_j = W_oja[j] · L0
     // W_oja identity-initialized; norm-clamped to |w| <= 2.0 per step.
     // W_oja persists across see_reset (survives document boundaries).
     // To reset W_oja to identity, call see_oja_reset().
-#define SEE_N_OJA 13   // ~10% of SEE_L1_DIM (128)
-    float W_oja[SEE_N_OJA][43];
-    float eta_oja;           // Oja learning rate (0.0 = disabled)
+    //
+    // n_oja is a RUNTIME field (Phase 43.C2): plastic capacity can scale
+    // (13 -> 26 ...) without recompiling. Storage is sized to SEE_N_OJA_MAX
+    // (full fast band) and the active count is carried in the weight-file
+    // header (self-describing, magic 0x53454539).
+    //
+    // plastic_blend (Phase 43.C3, homeostasis): the injected plastic feature is
+    //   h = h_base + beta * (h_oja - h_base) = (1-beta)*L0[j] + beta*(W_oja[j].L0)
+    // beta=1.0 => pure Oja projection (43.C2 behavior, default, backward-compat).
+    // beta<1.0 brakes the learned projection toward the raw identity base so more
+    // plastic cells can add signal without drifting OOD into semantic tunnels.
+    // The Oja *update* still uses the raw projection y (learning is unconstrained;
+    // only the readout-facing feature is tamed). Carried in header magic 0x5345453A.
+#define SEE_N_OJA 13       // default plastic cell count (SEE-V2, ~10% of fast band)
+#define SEE_N_OJA_MAX 43   // max plastic cells = full L1 fast band; sizes W_oja storage
+    float W_oja[SEE_N_OJA_MAX][43];
+    float eta_oja;           // Oja learning rate (0.0 = disabled, projection still applied)
+    int   n_oja;             // active plastic cells (runtime; default SEE_N_OJA, <= SEE_N_OJA_MAX)
+    float plastic_blend;     // homeostatic blend beta in [0,1]; default 1.0 = pure Oja
 } SiliconEntropyState;
 
 #ifdef __cplusplus

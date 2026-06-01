@@ -13,7 +13,9 @@ void see_reset(SiliconEntropyState* see) {
 }
 
 void see_oja_reset(SiliconEntropyState* see) {
-    for (int j = 0; j < SEE_N_OJA; j++) {
+    // Reset the FULL storage to identity so any active count (n_oja) up to
+    // SEE_N_OJA_MAX starts from a clean identity projection.
+    for (int j = 0; j < SEE_N_OJA_MAX; j++) {
         memset(see->W_oja[j], 0, 43 * sizeof(float));
         if (j < 43) see->W_oja[j][j] = 1.0f;  // identity init
     }
@@ -29,6 +31,8 @@ void see_init(SiliconEntropyState* see, int seed, int chunk_size, float decay) {
     see->alpha_mid  = 0.9f;
     see->alpha_slow = 0.99f;
     see->eta_oja    = 0.0f;
+    see->n_oja      = SEE_N_OJA;   // default plastic capacity (overridable at runtime)
+    see->plastic_blend = 1.0f;     // default = pure Oja (43.C2 behavior); <1.0 = homeostasis
     for (int i = 0; i < 256; i++) see->byte_gain[i] = 1.0f;
     see_oja_reset(see);
     
@@ -85,10 +89,16 @@ void see_observe(SiliconEntropyState* see, uint8_t byte) {
         // frozen-but-trained W_oja still shapes features during Pass-2
         // re-extraction and generation (where eta_oja == 0). This decoupling is
         // what lets the readout actually see the learned directions.
-        for (int j = 0; j < SEE_N_OJA; j++) {
+        int n_oja = see->n_oja;
+        if (n_oja > 43) n_oja = 43;   // plastic cells live inside the fast band [0:43)
+        float beta = see->plastic_blend;   // homeostatic brake (1.0 = pure Oja)
+        for (int j = 0; j < n_oja; j++) {
             float y = 0;
             for (int k = 0; k < 43; k++) y += see->W_oja[j][k] * l0_out[k];
-            see->l1_state[j] = see->alpha_fast * see->l1_state[j] + (1.0f - see->alpha_fast) * y;
+            // Homeostatic blend toward the identity base l0_out[j]:
+            //   h = l0_out[j] + beta*(y - l0_out[j]); beta=1 => h=y (pure Oja).
+            float h = l0_out[j] + beta * (y - l0_out[j]);
+            see->l1_state[j] = see->alpha_fast * see->l1_state[j] + (1.0f - see->alpha_fast) * h;
             if (see->eta_oja > 0.0f) {
                 // Oja update (no byte_gain for plastic cells)
                 for (int k = 0; k < 43; k++)
@@ -102,7 +112,7 @@ void see_observe(SiliconEntropyState* see, uint8_t byte) {
                 }
             }
         }
-        for (int i = SEE_N_OJA; i < 43; i++)
+        for (int i = n_oja; i < 43; i++)
             see->l1_state[i] = see->alpha_fast * see->l1_state[i] + af * l0_out[i];
         for (int i = 0; i < 43; i++)
             see->l1_state[43 + i] = see->alpha_mid  * see->l1_state[43 + i] + am  * l0_out[i];

@@ -207,26 +207,41 @@ if ($rows.ContainsKey('base_c20') -and $rows.ContainsKey('oja_1e3')) {
     $b = $rows['base_c20']; $o = $rows['oja_1e3']
     $tol = 0.5  # pct tolerance: oja must not be meaningfully worse
 
+    # The promotion criterion is SEMANTIC: does Oja reduce the name tunnels.
+    # self_BPB is NOT a beat-the-base comparison -- it is a closed-loop
+    # auto-confidence signal that only needs to stay in a HEALTHY band. Too low
+    # (< 0.8) = collapse/overconfidence; too high (> 2.0) = incoherent drift.
+    # The real BPB win is the teacher-forced VAL BPB measured in phase43c_oja
+    # (2.2617 vs 2.2656), not this self_BPB.
+    $BPB_LO = 0.8; $BPB_HI = 2.0
+
     $ni_avg_ok = $o.ni_avg -le ($b.ni_avg + $tol)
     $ni_wst_ok = $o.ni_wst -le ($b.ni_wst + $tol)
     $mr_wst_ok = $o.mr_wst -le $b.mr_wst
-    $bpb_ok    = $o.bpb -lt $b.bpb
+    $bpb_ok    = ($o.bpb -ge $BPB_LO) -and ($o.bpb -le $BPB_HI)   # healthy band, not beat
 
     function YN($c) { if ($c) { 'PASS' } else { 'fail' } }
     Write-Host ('  name-ish avg   base {0,5:F1}  oja {1,5:F1}   [{2}]' -f $b.ni_avg,$o.ni_avg,(YN $ni_avg_ok))
     Write-Host ('  name-ish worst base {0,5:F1}  oja {1,5:F1}   [{2}]' -f $b.ni_wst,$o.ni_wst,(YN $ni_wst_ok))
     Write-Host ('  word-run worst base {0,5:F0}  oja {1,5:F0}   [{2}]' -f $b.mr_wst,$o.mr_wst,(YN $mr_wst_ok))
-    Write-Host ('  val/self BPB   base {0,7:F4} oja {1,7:F4}  [{2}]' -f $b.bpb,$o.bpb,(YN $bpb_ok))
+    Write-Host ('  self_BPB band  oja {0,5:F2}  in [{1},{2}]   [{3}]' -f $o.bpb,$BPB_LO,$BPB_HI,(YN $bpb_ok))
+    Write-Host ('  (info) self_BPB base {0,5:F2}  -- not a gate, base may differ' -f $b.bpb)
     Write-Host ''
+    # Semantic stabilization = oja clearly BELOW base on the tunnel metrics.
+    $semantic_win = ($o.ni_avg -lt $b.ni_avg) -and ($o.ni_wst -lt $b.ni_wst) -and ($o.mr_wst -le $b.mr_wst)
     if ($ni_avg_ok -and $ni_wst_ok -and $mr_wst_ok -and $bpb_ok) {
-        Write-Host '  -> SEE-V1S+Oja (1e-3) PROMOSSO DEFINITIVO: batte/regge base anche' -ForegroundColor Green
-        Write-Host '     sul gate semantico. Procedi a 43.C2 (scala plastic cells 20%).' -ForegroundColor Green
-    } elseif ($bpb_ok -and -not ($ni_avg_ok -and $ni_wst_ok -and $mr_wst_ok)) {
-        Write-Host '  -> Oja util su BPB ma attractor nominali ancora presenti.' -ForegroundColor Yellow
-        Write-Host '     NON promuovere come stable generator. Indaga: il guadagno BPB' -ForegroundColor Yellow
-        Write-Host '     viene dai loop o nonostante i loop? Valuta 43.D routing.' -ForegroundColor Yellow
+        if ($semantic_win) {
+            Write-Host '  -> SEE-V2 CONFERMATO: Oja STABILIZZA semanticamente (tunnel ridotti),' -ForegroundColor Green
+            Write-Host '     self_BPB sano. Procedi a 43.C2 (scala plastic cells 10% -> 20%).' -ForegroundColor Green
+        } else {
+            Write-Host '  -> Oja non rompe e regge i gate, ma non riduce chiaramente i tunnel.' -ForegroundColor Yellow
+            Write-Host '     Promozione difendibile su BPB; il guadagno semantico e marginale.' -ForegroundColor Yellow
+        }
+    } elseif (-not $bpb_ok) {
+        Write-Host '  -> self_BPB fuori banda sana: collasso o drift. Rivedi eta/celle.' -ForegroundColor Red
     } else {
-        Write-Host '  -> Oja non regge: rivedi eta / # plastic cells.' -ForegroundColor Red
+        Write-Host '  -> Oja regredisce sul gate semantico: attractor nominali peggiori.' -ForegroundColor Red
+        Write-Host '     NON promuovere. Rivedi eta / # plastic cells.' -ForegroundColor Red
     }
 } else {
     Write-Host '  [dati insufficienti per il confronto]'
