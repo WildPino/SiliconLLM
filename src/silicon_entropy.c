@@ -1,6 +1,7 @@
 #include "silicon_entropy.h"
 #include <string.h>
 #include <stdlib.h>
+#include <math.h>
 
 void see_reset(SiliconEntropyState* see) {
     silicon_v0_reset(&see->v0);
@@ -9,6 +10,13 @@ void see_reset(SiliconEntropyState* see) {
     memset(see->l1_state, 0, sizeof(see->l1_state));
     memset(see->current_chunk_mean, 0, sizeof(see->current_chunk_mean));
     see->bytes_in_chunk = 0;
+}
+
+void see_oja_reset(SiliconEntropyState* see) {
+    for (int j = 0; j < SEE_N_OJA; j++) {
+        memset(see->W_oja[j], 0, 43 * sizeof(float));
+        if (j < 43) see->W_oja[j][j] = 1.0f;  // identity init
+    }
 }
 
 void see_init(SiliconEntropyState* see, int seed, int chunk_size, float decay) {
@@ -20,7 +28,9 @@ void see_init(SiliconEntropyState* see, int seed, int chunk_size, float decay) {
     see->alpha_fast = 0.7f;
     see->alpha_mid  = 0.9f;
     see->alpha_slow = 0.99f;
+    see->eta_oja    = 0.0f;
     for (int i = 0; i < 256; i++) see->byte_gain[i] = 1.0f;
+    see_oja_reset(see);
     
     // Initialize Codebook for M4 (32D)
     srand(seed);
@@ -63,14 +73,37 @@ void see_observe(SiliconEntropyState* see, uint8_t byte) {
     
     // 3. Update L1 state
     if (see->multiscale_mode == 1) {
-        // 3-band per-byte EMA: fast(43D) | mid(43D) | slow(42D) of L0[0:42/41]
-        // byte_gain scales how strongly the current byte writes into memory
         float g   = see->byte_gain[byte];
         float af  = (1.0f - see->alpha_fast) * g;
         float am  = (1.0f - see->alpha_mid)  * g;
         float as_ = (1.0f - see->alpha_slow) * g;
-        for (int i = 0; i < 43; i++)
-            see->l1_state[i]      = see->alpha_fast * see->l1_state[i]      + af  * l0_out[i];
+
+        // Oja plastic cells: first SEE_N_OJA of fast band.
+        // The learned projection W_oja is ALWAYS applied. Since W_oja is
+        // identity-initialized, this is bit-identical to SEE-V1S when untrained
+        // (y == l0_out[j]). The Oja *update* only runs when eta_oja > 0, so a
+        // frozen-but-trained W_oja still shapes features during Pass-2
+        // re-extraction and generation (where eta_oja == 0). This decoupling is
+        // what lets the readout actually see the learned directions.
+        for (int j = 0; j < SEE_N_OJA; j++) {
+            float y = 0;
+            for (int k = 0; k < 43; k++) y += see->W_oja[j][k] * l0_out[k];
+            see->l1_state[j] = see->alpha_fast * see->l1_state[j] + (1.0f - see->alpha_fast) * y;
+            if (see->eta_oja > 0.0f) {
+                // Oja update (no byte_gain for plastic cells)
+                for (int k = 0; k < 43; k++)
+                    see->W_oja[j][k] += see->eta_oja * y * (l0_out[k] - y * see->W_oja[j][k]);
+                // Norm clamp: |w_j| <= 2.0
+                float n2 = 0;
+                for (int k = 0; k < 43; k++) n2 += see->W_oja[j][k] * see->W_oja[j][k];
+                if (n2 > 4.0f) {
+                    float s = 2.0f / sqrtf(n2 + 1e-8f);
+                    for (int k = 0; k < 43; k++) see->W_oja[j][k] *= s;
+                }
+            }
+        }
+        for (int i = SEE_N_OJA; i < 43; i++)
+            see->l1_state[i] = see->alpha_fast * see->l1_state[i] + af * l0_out[i];
         for (int i = 0; i < 43; i++)
             see->l1_state[43 + i] = see->alpha_mid  * see->l1_state[43 + i] + am  * l0_out[i];
         for (int i = 0; i < 42; i++)

@@ -48,6 +48,17 @@ typedef struct {
     // Applied only when multiscale_mode=1: scales L0 contribution to L1 update.
     // gain[b] in [0.25, 4.0]; initialized to 1.0 (no-op).
     float byte_gain[256];
+
+    // Oja plastic cells (Phase 43.C)
+    // When eta_oja > 0: first SEE_N_OJA cells of L1 fast band use learned
+    // projection W_oja[j] instead of identity (L0[j]).
+    // Oja rule: w_j += eta * y_j * (L0 - y_j * w_j)  where y_j = W_oja[j] · L0
+    // W_oja identity-initialized; norm-clamped to |w| <= 2.0 per step.
+    // W_oja persists across see_reset (survives document boundaries).
+    // To reset W_oja to identity, call see_oja_reset().
+#define SEE_N_OJA 13   // ~10% of SEE_L1_DIM (128)
+    float W_oja[SEE_N_OJA][43];
+    float eta_oja;           // Oja learning rate (0.0 = disabled)
 } SiliconEntropyState;
 
 #ifdef __cplusplus
@@ -57,8 +68,12 @@ extern "C" {
 // Initialize the Silicon Entropy Engine
 void see_init(SiliconEntropyState* see, int seed, int chunk_size, float decay);
 
-// Reset the internal state (useful for epoch boundaries or new files)
+// Reset the internal state (useful for epoch boundaries or new files).
+// NOTE: does NOT reset W_oja — Oja weights survive document boundaries.
 void see_reset(SiliconEntropyState* see);
+
+// Reset Oja weights to identity (call only when you want to restart unsupervised learning)
+void see_oja_reset(SiliconEntropyState* see);
 
 // Observe a true byte, update internal representations (L0 and L1)
 void see_observe(SiliconEntropyState* see, uint8_t byte);

@@ -102,11 +102,13 @@ int main(int argc, char** argv) {
     uint8_t* file_data = malloc(total_needed);
     fread(file_data, 1, total_needed, fd); fclose(fd);
 
-    // Load weights — supports four formats:
-    //   0x53454531 (phase42a): 32-byte hdr: {magic,ver,fdim,chunk,decay,seed,alpha,poolmode}
-    //   0x53454535 (phase43a): 28-byte hdr: {magic,ver,fdim,chunk} + float[3]{decay,0.1,alpha_fast}
+    // Load weights — supports five formats:
+    //   0x53454531 (phase42a): {magic,ver,fdim,chunk,decay,seed,alpha,poolmode}
+    //   0x53454535 (phase43a): {magic,ver,fdim,chunk} + float[3]{decay,0.1,alpha_fast}
     //   0x53454536 (phase43b): same as 535 + float[4] + byte_gain[256]
-    //   0x53454537 (phase43h): 32-byte hdr: {magic,ver,fdim,chunk} + float[4]{decay,0.1,alpha_fast,feat_clamp}
+    //   0x53454537 (phase43h): {magic,ver,fdim,chunk} + float[4]{decay,0.1,alpha_fast,feat_clamp}
+    //   0x53454538 (phase43c): {magic,ver,fdim,chunk} + float[5]{decay,0.1,alpha_fast,feat_clamp,eta_oja}
+    //                          + W_oja[SEE_N_OJA*43]
     FILE* fw = fopen(argv[2],"rb");
     if (!fw) { fprintf(stderr,"Cannot open weights: %s\n",argv[2]); return 1; }
     uint32_t magic_peek; fread(&magic_peek,4,1,fw); rewind(fw);
@@ -114,6 +116,9 @@ int main(int argc, char** argv) {
     float   decay = 0.75f, alpha_fast = 0.5f;
     int     codebook_seed = 42;
     int     pooling_mode_hdr = 0;
+    int     oja_loaded = 0;
+    float   file_eta_oja = 0.0f;
+    float   W_oja_buf[SEE_N_OJA * 43];
 
     if (magic_peek == 0x53454531) {
         uint32_t h32[8]; fread(h32, 4, 8, fw);
@@ -133,14 +138,28 @@ int main(int argc, char** argv) {
         fprintf(stderr,"Format: 0x%08x  alpha_fast=%.2f  decay=%.3f  %s\n",
                 magic_peek, alpha_fast, decay, legacy?"legacy":"multiscale");
     } else if (magic_peek == 0x53454537) {
-        // Phase 43.H clamped: 4th float in header = feat_clamp (auto-applied if not overridden)
+        // Phase 43.H clamped: 4th float = feat_clamp
         uint32_t hdr4[4]; fread(hdr4, 4, 4, fw);
         float hf[4]; fread(hf, 4, 4, fw);
         decay      = hf[0];
         alpha_fast = hf[2];
-        if (feat_clamp == 0.0f) feat_clamp = hf[3];  // respect --feat-clamp override
+        if (feat_clamp == 0.0f) feat_clamp = hf[3];
         fprintf(stderr,"Format: 0x53454537 (SEE-V1S)  alpha_fast=%.2f  feat_clamp=%.2f  decay=%.3f\n",
                 alpha_fast, feat_clamp, decay);
+    } else if (magic_peek == 0x53454538) {
+        // Phase 43.C Oja: 5 floats + W_oja[SEE_N_OJA*43] before trigram.
+        // W_oja is stashed in W_oja_buf and copied into `see` after see_init
+        // (which would otherwise reset it to identity). Frozen for generation.
+        uint32_t hdr4[4]; fread(hdr4, 4, 4, fw);
+        float hf[5]; fread(hf, 4, 5, fw);
+        decay      = hf[0];
+        alpha_fast = hf[2];
+        if (feat_clamp == 0.0f) feat_clamp = hf[3];
+        file_eta_oja = hf[4];
+        fread(W_oja_buf, sizeof(float), SEE_N_OJA * 43, fw);
+        oja_loaded = 1;
+        fprintf(stderr,"Format: 0x53454538 (SEE-V1S+Oja)  alpha_fast=%.2f  feat_clamp=%.2f  train_eta_oja=%.0e\n",
+                alpha_fast, feat_clamp, (double)file_eta_oja);
     } else {
         fprintf(stderr,"Unsupported magic: 0x%08x\n", magic_peek); fclose(fw); return 1;
     }
@@ -163,6 +182,17 @@ int main(int argc, char** argv) {
         see.alpha_slow = 0.99f;
     } else {
         see.pooling_mode = pooling_mode_hdr;
+    }
+
+    // Phase 43.C: install the trained Oja projection. Frozen (eta_oja=0) so
+    // generation features match the Pass-2 re-extraction the readout trained on;
+    // the learned directions are still applied because the projection is always
+    // active (see see_observe). Untrained/other formats keep identity W_oja.
+    if (oja_loaded) {
+        memcpy(see.W_oja, W_oja_buf, sizeof(see.W_oja));
+        see.eta_oja = 0.0f;
+        fprintf(stderr,"Oja: W_oja loaded, frozen for generation (train_eta=%.0e)\n",
+                (double)file_eta_oja);
     }
 
     fprintf(stderr,"SEE: seed=%d  multiscale=%d  pool=%d\n",
