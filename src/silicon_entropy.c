@@ -34,6 +34,8 @@ void see_init(SiliconEntropyState* see, int seed, int chunk_size, float decay) {
     see->n_oja      = SEE_N_OJA;   // default plastic capacity (overridable at runtime)
     see->plastic_blend = 1.0f;     // default = pure Oja (43.C2 behavior); <1.0 = homeostasis
     for (int i = 0; i < 256; i++) see->byte_gain[i] = 1.0f;
+    for (int b = 0; b < 256; b++)
+        for (int k = 0; k < SEE_ROUTE_LANES; k++) see->byte_route[b][k] = 1.0f;  // no-op default
     see_oja_reset(see);
     
     // Initialize Codebook for M4 (32D)
@@ -92,17 +94,26 @@ void see_observe(SiliconEntropyState* see, uint8_t byte) {
         int n_oja = see->n_oja;
         if (n_oja > 43) n_oja = 43;   // plastic cells live inside the fast band [0:43)
         float beta = see->plastic_blend;   // homeostatic brake (1.0 = pure Oja)
+
+        // Phase 43.D byte-to-lane routing: reshape the M4 signature (lanes
+        // [0:32]) of THIS byte for the fast-band write only. Default route=1.0
+        // => l0_fast_in == l0_out (bit-identical to pre-43.D).
+        float l0_fast_in[43];
+        const float* route = see->byte_route[byte];
+        for (int k = 0; k < SEE_ROUTE_LANES; k++) l0_fast_in[k] = route[k] * l0_out[k];
+        for (int k = SEE_ROUTE_LANES; k < 43; k++) l0_fast_in[k] = l0_out[k];
+
         for (int j = 0; j < n_oja; j++) {
             float y = 0;
-            for (int k = 0; k < 43; k++) y += see->W_oja[j][k] * l0_out[k];
-            // Homeostatic blend toward the identity base l0_out[j]:
-            //   h = l0_out[j] + beta*(y - l0_out[j]); beta=1 => h=y (pure Oja).
-            float h = l0_out[j] + beta * (y - l0_out[j]);
+            for (int k = 0; k < 43; k++) y += see->W_oja[j][k] * l0_fast_in[k];
+            // Homeostatic blend toward the (routed) identity base:
+            //   h = base + beta*(y - base); beta=1 => h=y (pure Oja).
+            float h = l0_fast_in[j] + beta * (y - l0_fast_in[j]);
             see->l1_state[j] = see->alpha_fast * see->l1_state[j] + (1.0f - see->alpha_fast) * h;
             if (see->eta_oja > 0.0f) {
                 // Oja update (no byte_gain for plastic cells)
                 for (int k = 0; k < 43; k++)
-                    see->W_oja[j][k] += see->eta_oja * y * (l0_out[k] - y * see->W_oja[j][k]);
+                    see->W_oja[j][k] += see->eta_oja * y * (l0_fast_in[k] - y * see->W_oja[j][k]);
                 // Norm clamp: |w_j| <= 2.0
                 float n2 = 0;
                 for (int k = 0; k < 43; k++) n2 += see->W_oja[j][k] * see->W_oja[j][k];
@@ -113,7 +124,7 @@ void see_observe(SiliconEntropyState* see, uint8_t byte) {
             }
         }
         for (int i = n_oja; i < 43; i++)
-            see->l1_state[i] = see->alpha_fast * see->l1_state[i] + af * l0_out[i];
+            see->l1_state[i] = see->alpha_fast * see->l1_state[i] + af * l0_fast_in[i];
         for (int i = 0; i < 43; i++)
             see->l1_state[43 + i] = see->alpha_mid  * see->l1_state[43 + i] + am  * l0_out[i];
         for (int i = 0; i < 42; i++)

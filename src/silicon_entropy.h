@@ -77,6 +77,17 @@ typedef struct {
     float eta_oja;           // Oja learning rate (0.0 = disabled, projection still applied)
     int   n_oja;             // active plastic cells (runtime; default SEE_N_OJA, <= SEE_N_OJA_MAX)
     float plastic_blend;     // homeostatic blend beta in [0,1]; default 1.0 = pure Oja
+
+    // Byte-to-lane routing (Phase 43.D) — geometry of writing.
+    // byte_route[b][k] reshapes WHERE byte b deposits its M4 codebook signature
+    // (input lanes l0_out[0:32]) into the L1 FAST band only. The routed input
+    //   l0_fast_in[k] = (k<32 ? byte_route[b][k] : 1) * l0_out[k]
+    // feeds both the plastic (Oja) projection and the identity fast-band write;
+    // mid/slow bands use raw l0_out. Rows are mean-1.0 (geometry, not amplitude)
+    // and clamped near 1.0. Default all 1.0 => no-op (backward compatible).
+    // Carried in header magic 0x5345453B.
+#define SEE_ROUTE_LANES 32   // M4 codebook lanes routed (l0_out[0:32])
+    float byte_route[256][SEE_ROUTE_LANES];
 } SiliconEntropyState;
 
 #ifdef __cplusplus
