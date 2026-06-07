@@ -1,4 +1,4 @@
-# Phase 43 - C2.A Low-Temperature Confirmation (final microphase)
+﻿# Phase 43 - C2.A Low-Temperature Confirmation (final microphase)
 #
 # At T=0.65, C2.A passes BPB + name-ish + word-run + self, but MISSES the
 # worst-case loop gate: topBi=11 (>8) and altLp=3 (>2). It is the SEE-V3
@@ -31,7 +31,7 @@ $ROOT    = Split-Path (Split-Path $PSScriptRoot)
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 $RDIR    = $ROOT + '\results\phase43_lowtemp'
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 $C2LOG   = $ROOT + '\results\phase43c2\phase43c2_train.txt'
 
 Set-Location $ROOT

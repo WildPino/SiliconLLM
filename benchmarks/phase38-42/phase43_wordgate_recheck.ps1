@@ -1,4 +1,4 @@
-# Phase 43 - Deterministic Word-Gate Re-check (generation only, NO retraining)
+﻿# Phase 43 - Deterministic Word-Gate Re-check (generation only, NO retraining)
 #
 # The RNG fix (--rng-seed) changed what every PRE-FIX word-gate meant: old runs
 # measured sampling noise. So the C2/C3 word-gate verdicts must be re-verified on
@@ -29,7 +29,7 @@ $ROOT    = Split-Path (Split-Path $PSScriptRoot)
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 $RDIR    = $ROOT + '\results\phase43_recheck'
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 $C2LOG   = $ROOT + '\results\phase43c2\phase43c2_train.txt'
 $C3LOG   = $ROOT + '\results\phase43c3\phase43c3_train.txt'
 

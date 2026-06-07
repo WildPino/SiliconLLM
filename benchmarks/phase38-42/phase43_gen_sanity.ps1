@@ -1,4 +1,4 @@
-# Phase 43 Generator Sanity Check
+﻿# Phase 43 Generator Sanity Check
 # Verifica che phase43_generator produca output paragonabile a phase41_generator
 # sullo stesso file di weights (phase42a_sum.bin, formato 0x53454531).
 #
@@ -11,7 +11,7 @@ $ROOT    = Split-Path (Split-Path $PSScriptRoot)
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 $RDIR    = $ROOT + '\results\gen_sanity'
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 
 Set-Location $ROOT
 

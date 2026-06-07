@@ -1,4 +1,4 @@
-# Phase 43.C3 - Plastic Homeostasis Tribunal
+﻿# Phase 43.C3 - Plastic Homeostasis Tribunal
 #
 # 43.C2 verdict: 26 raw plastic cells find signal (C2.B BPB 2.2572) but fall into
 # tunnels (name worst 50.5%, word-run 30, topBi 74, altLoop 28). C2.A was NEAR.
@@ -26,7 +26,7 @@ $ROOT    = Split-Path (Split-Path $PSScriptRoot)
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 $RDIR    = $ROOT + '\results\phase43c3'
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 
 Set-Location $ROOT
 if (-not (Test-Path $RDIR)) { New-Item -ItemType Directory -Path $RDIR | Out-Null }

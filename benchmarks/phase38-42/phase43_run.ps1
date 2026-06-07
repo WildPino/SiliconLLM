@@ -1,11 +1,11 @@
-# Phase 43 Tribunal: 43.A (done) -> 43.A2 (fast grid) -> 43.B (byte_gain) -> generation
+﻿# Phase 43 Tribunal: 43.A (done) -> 43.A2 (fast grid) -> 43.B (byte_gain) -> generation
 # Run from repo root:  .\benchmarks\phase38-42\phase43_run.ps1
 
 $ROOT    = Split-Path (Split-Path $PSScriptRoot)
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 $RDIR    = $ROOT + '\results'
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 
 Set-Location $ROOT
 

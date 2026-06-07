@@ -1,4 +1,4 @@
-# Phase 43.D - Byte-to-Lane Routing Tribunal (geometry of writing)
+﻿# Phase 43.D - Byte-to-Lane Routing Tribunal (geometry of writing)
 #
 # Hypothesis: not HOW HARD a byte writes (byte_gain 43.B failed, global blend 43.C3
 # failed), but WHERE it writes. byte_route[256][32] reshapes each byte's M4
@@ -24,7 +24,7 @@ $ROOT    = Split-Path (Split-Path $PSScriptRoot)
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 $RDIR    = $ROOT + '\results\phase43d'
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 
 Set-Location $ROOT
 if (-not (Test-Path $RDIR)) { New-Item -ItemType Directory -Path $RDIR | Out-Null }

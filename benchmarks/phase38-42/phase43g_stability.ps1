@@ -1,4 +1,4 @@
-# Phase 43.G — Closed-Loop Stability Tribunal
+﻿# Phase 43.G — Closed-Loop Stability Tribunal
 #
 # Domanda: quando collassa ms_f05? E anti-attractor sampling aiuta?
 #
@@ -13,7 +13,7 @@ $ROOT    = Split-Path (Split-Path $PSScriptRoot)
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 $RDIR    = $ROOT + '\results\stability'
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 $GEN_EXE = $BINDIR + '\phase43_generator.exe'
 
 Set-Location $ROOT

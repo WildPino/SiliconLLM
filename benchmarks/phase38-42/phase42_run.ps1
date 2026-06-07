@@ -1,8 +1,8 @@
-# Phase 42 Tribunal: 42.0 (baseline) -> 42.A (pooling) -> 42.C (reservoir2)
+﻿# Phase 42 Tribunal: 42.0 (baseline) -> 42.A (pooling) -> 42.C (reservoir2)
 # Run from the repo root:  .\benchmarks\phase42_run.ps1
 
 $ROOT    = Split-Path $PSScriptRoot
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 

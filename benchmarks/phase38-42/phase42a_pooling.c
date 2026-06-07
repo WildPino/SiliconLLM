@@ -1,4 +1,4 @@
-// Phase 42.A — Rich Pooling Tribunal
+﻿// Phase 42.A — Rich Pooling Tribunal
 // Evaluates 4 V0 pooling modes on TinyStories:
 //   0 = sum  (baseline)   1 = max   2 = range   3 = threshold (>127)
 // All modes produce 32D from V0, total SEE features = 192D (unchanged).
@@ -10,7 +10,7 @@
 //       -o bin/phase42a_pooling.exe -lm -I .
 // Run:
 //   ./bin/phase42a_pooling.exe <dataset.bin> <weights_out_prefix>
-//   e.g. ./bin/phase42a_pooling.exe experiments/phase41a/corpora/tinystories_64mb.txt weights/phase42a
+//   e.g. ./bin/phase42a_pooling.exe data/corpora/tinystories_64mb.txt weights/phase42a
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,4 +1,4 @@
-# Phase 43 Generation Audit
+﻿# Phase 43 Generation Audit
 # Confronta legacy (Phase 42.0) vs SEE-V1 (ms_f0.5) a T=0.5, 0.7, 0.9
 # Stesso seed fisso per tutti i run -> confronto diretto.
 #
@@ -10,7 +10,7 @@ $ROOT    = Split-Path (Split-Path $PSScriptRoot)
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 $RDIR    = $ROOT + '\results\gen_audit'
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 $GEN_EXE = $BINDIR + '\phase43_generator.exe'
 
 Set-Location $ROOT

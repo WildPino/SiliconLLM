@@ -1,4 +1,4 @@
-# Phase 43.C2 - Plastic Capacity Scaling Tribunal
+﻿# Phase 43.C2 - Plastic Capacity Scaling Tribunal
 #
 # Question: can SEE-V2 use MORE local plasticity (13 -> 26 cells) without
 # reopening semantic attractors? "Remember more without falling into your own
@@ -24,7 +24,7 @@ $ROOT    = Split-Path (Split-Path $PSScriptRoot)
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 $RDIR    = $ROOT + '\results\phase43c2'
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 
 Set-Location $ROOT
 if (-not (Test-Path $RDIR)) { New-Item -ItemType Directory -Path $RDIR | Out-Null }

@@ -1,4 +1,4 @@
-# Phase 43.C - Word-Level Semantic Gate
+﻿# Phase 43.C - Word-Level Semantic Gate
 #
 # The byte-level collapse gates (longest char run, top1 byte %, printable) are
 # BLIND to semantic loops: a generation can pass every byte gate while spinning
@@ -27,7 +27,7 @@ $ROOT    = Split-Path (Split-Path $PSScriptRoot)
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 $RDIR    = $ROOT + '\results\phase43c\wordgate'
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 
 Set-Location $ROOT
 if (-not (Test-Path $RDIR)) { New-Item -ItemType Directory -Path $RDIR | Out-Null }

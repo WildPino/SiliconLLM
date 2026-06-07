@@ -1,4 +1,4 @@
-# Phase 43 - C2.A Confirmation Run (robust word-gate before SEE-V3 promotion)
+﻿# Phase 43 - C2.A Confirmation Run (robust word-gate before SEE-V3 promotion)
 #
 # The deterministic re-check named C2.A (26c Oja eta1e-3) the winner: first
 # 26-cell config to pass val BPB + full word-gate. Before promoting SEE-V3 we
@@ -21,7 +21,7 @@ $ROOT    = Split-Path (Split-Path $PSScriptRoot)
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 $RDIR    = $ROOT + '\results\phase43_confirm_c2a'
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 $C2LOG   = $ROOT + '\results\phase43c2\phase43c2_train.txt'
 
 Set-Location $ROOT

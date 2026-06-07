@@ -1,4 +1,4 @@
-# Phase 43.G2 — Closed-Loop Stability Tribunal (Multi-Seed)
+﻿# Phase 43.G2 — Closed-Loop Stability Tribunal (Multi-Seed)
 #
 # Domanda: state attractor vs readout attractor?
 #   Se reset/clamp riduce Lily/Mommy -> state attractor
@@ -19,7 +19,7 @@ $ROOT    = Split-Path (Split-Path $PSScriptRoot)
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 $RDIR    = $ROOT + '\results\g2_multiseed'
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 $GEN_EXE = $BINDIR + '\phase43_generator.exe'
 
 Set-Location $ROOT

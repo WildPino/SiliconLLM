@@ -1,9 +1,9 @@
-# Phase 42 Resume: Complete remaining tests with 5 epochs
+﻿# Phase 42 Resume: Complete remaining tests with 5 epochs
 # Run from the repo root:  .\benchmarks\phase38-42\phase42_resume.ps1
 
 $SCRIPT_DIR = $PSScriptRoot
 $ROOT    = Split-Path (Split-Path $SCRIPT_DIR)
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 

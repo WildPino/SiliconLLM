@@ -1,4 +1,4 @@
-# Phase 43.H — Feature Clamp Tribunal
+﻿# Phase 43.H — Feature Clamp Tribunal
 #
 # Testa feat_clamp = {2.0, 2.5, 3.0} applicato dopo normalizzazione
 # sia in training che in generation.
@@ -11,7 +11,7 @@ $ROOT    = Split-Path (Split-Path $PSScriptRoot)
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 $RDIR    = $ROOT + '\results\phase43h'
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 
 Set-Location $ROOT
 

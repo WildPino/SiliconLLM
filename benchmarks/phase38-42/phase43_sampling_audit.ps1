@@ -1,4 +1,4 @@
-# Phase 43 Sampling Audit
+﻿# Phase 43 Sampling Audit
 # Domanda: ms_f05 a T basse / top-k batte legacy come campione narrativo?
 #
 # Matrix:
@@ -11,7 +11,7 @@ $ROOT    = Split-Path (Split-Path $PSScriptRoot)
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 $RDIR    = $ROOT + '\results\sampling_audit'
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 $GEN_EXE = $BINDIR + '\phase43_generator.exe'
 
 Set-Location $ROOT

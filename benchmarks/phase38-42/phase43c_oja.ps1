@@ -1,4 +1,4 @@
-# Phase 43.C — Oja Plasticity Tribunal
+﻿# Phase 43.C — Oja Plasticity Tribunal
 #
 # Substrate: SEE-V1S (multiscale f0.5/0.9/0.99 + feat_clamp 2.0), warm-started
 # from phase43h_c20.bin. Adds Oja plastic cells to the first SEE_N_OJA=13 cells
@@ -22,7 +22,7 @@ $ROOT    = Split-Path (Split-Path $PSScriptRoot)
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 $RDIR    = $ROOT + '\results\phase43c'
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 
 Set-Location $ROOT
 

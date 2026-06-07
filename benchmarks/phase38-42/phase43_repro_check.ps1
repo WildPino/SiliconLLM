@@ -1,4 +1,4 @@
-# Phase 43 - Generator Reproducibility Check
+﻿# Phase 43 - Generator Reproducibility Check
 #
 # Why: 43.C3 exposed that the SEE-V2 control swung from name-ish ~7/13.5 to
 # ~16.7/66.5 on IDENTICAL weights. Root cause: the sampling RNG was seeded from
@@ -15,7 +15,7 @@ $ROOT    = Split-Path (Split-Path $PSScriptRoot)
 $BINDIR  = $ROOT + '\bin'
 $WDIR    = $ROOT + '\weights'
 $RDIR    = $ROOT + '\results\phase43c3\repro'
-$TS_DATA = $ROOT + '\experiments\phase41a\corpora\tinystories_64mb.txt'
+$TS_DATA = $ROOT + '\data\corpora\tinystories_64mb.txt'
 
 Set-Location $ROOT
 if (-not (Test-Path $RDIR)) { New-Item -ItemType Directory -Path $RDIR | Out-Null }
