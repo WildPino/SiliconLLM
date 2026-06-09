@@ -79,12 +79,53 @@ static float g_l2_scale = 1.0f;
 //   gamma = (RMS_c(d-mean d)/RMS_c(s-mean s) > cap) ? cap/ratio : 1; logit=s+gamma*d.
 //   cap<=0 = disabled. Fires only when L2 over-asserts (closed-loop attractor).
 static float g_l2_cap = 0.0f;
+// Phase 45.A substrate-side relative-move homeostasis: cap the per-event fractional
+//   reorientation of the L2 memory. After the candidate EMA update L2_new, if
+//   rel_move = ||L2_new-L2_old|| / max(||L2_old||,eps) > cap, scale the move down to
+//   cap: L2 = L2_old + (cap/rel_move)*(L2_new-L2_old). cap<=0 = disabled (bit-identical
+//   to the plain EMA). This is memory-side, NOT readout-side: it asks L2 not to swing
+//   more than its natural per-event budget. Applied identically in trainer extract_l2.
+#define L2_RELMOVE_EPS 1.0f
+static float g_relmove_cap = 0.0f;
+static float g_relmove_cap_override = -2.0f;   // diagnostic CLI override (sentinel: unset)
+// Phase 45.B substrate-side L2 WRITE GEOMETRY: 45.A proved capping the move amplitude
+//   destroys the delta compression - the useful signal lives in the strong reorientation
+//   itself. 45.B instead changes the DIRECTION of the write (or what part of it is
+//   admitted), without an amplitude cap. The write vector p (projection of the delta src
+//   into L2 space) is transformed before the EMA. Applied identically in trainer
+//   extract_l2 (parity-critical). WG_NONE = bit-identical to the plain delta write.
+enum { WG_NONE=0, WG_BLEND75=1, WG_BLEND50=2, WG_ORTHO=3, WG_NOVELTY=4, WG_ENERGY=5 };
+static int   g_wgeom = WG_NONE;
+static int   g_wgeom_override = -1;   // diagnostic CLI override (sentinel: unset)
+static float g_lastwrite[L2_DIM]; static int g_have_lastwrite = 0;   // previous write (for cosine audit)
+static double g_l2_cos_wL2 = 0.0, g_l2_cos_wprev = 0.0;      // diagnostics: cos(write,L2_old), cos(write,prev_write)
+// Phase 45.C substrate-side L2 WRITE-GATE (timing): 45.A proved capping amplitude kills
+//   the delta gain; 45.B proved no simple geometry stabilizes (and revealed the key fact:
+//   the useful delta write is ANTI-aligned to L2, cos~-0.70 - a correction/reversal, not
+//   accumulation). 45.C asks WHEN to admit those strong reversals: accept or DROP the whole
+//   EMA write per boundary, on internal scale-free signals only (reversal angle cos(w,L2),
+//   candidate rel_move). No amplitude cap, no geometry. Applied identically in trainer
+//   extract_l2 (parity-critical). WT_NONE = bit-identical to the plain delta write.
+enum { WT_NONE=0, WT_REV25=1, WT_REV50=2, WT_REVMARGIN=3, WT_COOLDOWN=4, WT_THIN=5 };
+static int   g_wt_mode = WT_NONE;
+static float g_wt_cos_thr = 0.0f;      // reversal threshold (accept when cos(w,L2) < thr)
+static float g_wt_stress_thr = 1.0f;   // C3 margin: also require candidate rel_move > thr
+static int   g_wt_cool_k = 3;          // C4: boundary events to block after a strong reversal
+static int   g_wt_thin_n = 2;          // C5: accept 1 delta write every N boundaries
+static int   g_wt_cool = 0, g_wt_thin = 0;   // persistent write-gate state (reset before warmup)
+static int   g_wt_mode_override = -1;        // diagnostic CLI override (sentinel: unset)
 // Phase 44.G closed-loop telemetry (diagnostic; emits a per-step TSV when set).
 // Same generation path as production - the log reflects the real trajectory.
 #define TEL_PMAX 32
 static FILE* g_tel = NULL;
 static float g_prevL2[L2_DIM]; static int g_have_prevL2 = 0;
 static int g_runp[TEL_PMAX+1];   // per-period run lengths for byte-cycle loop detection
+// Phase 45.0 event-conditioned write diagnostics: last l2_evolve's raw projection
+// norm ||p|| (pre-EMA, the magnitude of the incoming write), whether it actually
+// updated (gate fired AND cooldown clear), and the gate decision it saw. Set inside
+// l2_evolve; aligned with l2delta (both describe the most-recent evolve). Diagnostic
+// only - reading these never alters L2 / RNG / logits, so generation stays bit-identical.
+static double g_l2_wnorm = 0.0; static int g_l2_wrote = 0; static int g_l2_gatefired = 0;
 
 // ---- Phase 44.H targeted attractor forensics (diagnostic; off unless armed) ----
 // Word-level bigram tracking matching the tribunal's topBi metric: tokens are
@@ -144,17 +185,125 @@ static inline int eval_gate(uint8_t byte, uint8_t c1, uint8_t c2) {
     }
     return 0;
 }
+// Phase 45.B write geometry: transform the delta write w (in L2 space) in place before
+// the EMA. WG_NONE is a no-op (bit-identical to the plain delta write). feat192 is the
+// post-boundary SEE extract (used to recompute the absolute/H0 projection for blends);
+// pdnorm = ||delta_write|| is the target energy for direction-preserving renorms. This
+// must be byte-identical to the trainer's copy (parity-critical, closed-loop FP-sensitive).
+static inline void l2b_write_geometry(float* w, const float* L2, const float* feat192, float scale, double pdnorm) {
+    int mode = g_wgeom;
+    if (mode==WG_NONE) return;
+    if (mode==WG_BLEND75 || mode==WG_BLEND50) {
+        // H0 (absolute) write = projection of the post-boundary features, no delta subtraction
+        float ph[L2_DIM];
+        for (int j=0;j<L2_DIM;j++){ float p=0; const float* pj=Pmat[j]; for(int k=0;k<BASE_DIM;k++) p+=pj[k]*feat192[k]; ph[j]=p*scale; }
+        float a=(mode==WG_BLEND75)?0.75f:0.5f, b=1.0f-a;
+        double bl2=0.0; float bl[L2_DIM];
+        for (int j=0;j<L2_DIM;j++){ bl[j]=a*w[j]+b*ph[j]; bl2+=(double)bl[j]*bl[j]; }
+        double bln=sqrt(bl2);
+        float s=(bln>1e-12)?(float)(pdnorm/bln):1.0f;   // direction blend, delta-write energy preserved
+        for (int j=0;j<L2_DIM;j++) w[j]=bl[j]*s;
+    } else if (mode==WG_ORTHO || mode==WG_NOVELTY) {
+        double l2n2=0.0; for(int j=0;j<L2_DIM;j++) l2n2+=(double)L2[j]*L2[j];
+        if (l2n2>(double)L2_RELMOVE_EPS*L2_RELMOVE_EPS){   // only orthogonalize once a state exists
+            double dot=0.0; for(int j=0;j<L2_DIM;j++) dot+=(double)w[j]*L2[j];
+            float coef=(float)(dot/l2n2);                  // remove the component parallel to L2
+            for (int j=0;j<L2_DIM;j++) w[j]-=coef*L2[j];
+            if (mode==WG_NOVELTY){
+                double wn2=0.0; for(int j=0;j<L2_DIM;j++) wn2+=(double)w[j]*w[j];
+                double wn=sqrt(wn2);
+                float s=(wn>1e-12)?(float)(pdnorm/wn):1.0f; // novelty direction at full delta energy
+                for (int j=0;j<L2_DIM;j++) w[j]*=s;
+            }
+        }
+    } else if (mode==WG_ENERGY) {
+        float s=(pdnorm>1e-12)?(float)(1.0/pdnorm):1.0f;    // unit-norm write (equalize per-event energy)
+        for (int j=0;j<L2_DIM;j++) w[j]*=s;
+    }
+}
+
+// Phase 45.C write-gate: decide whether to ACCEPT this boundary's EMA write or DROP it.
+// Pure function of the candidate write w, current state L2, alpha, and a small persistent
+// state (cooldown / thinning counters, by pointer). Scale-free INTERNAL signals only:
+//   cosWL2  = cos(w, L2_old)              (reversal angle; <0 = anti-aligned correction)
+//   relmove = ||cand-L2|| / max(||L2||,EPS)  (45.0 discriminant; reversal-strength proxy)
+// Bootstrap (||L2||<=EPS or ||w||~0): always accept (no state to measure an angle against);
+// WT_THIN still advances its counter so its phase stays deterministic. This MUST be
+// byte-identical to the trainer's copy (parity-critical, closed-loop FP-sensitive).
+static inline int wtgate_accept(const float* w, const float* L2, float alpha,
+                                int mode, float cos_thr, float stress_thr,
+                                int cool_k, int thin_n, int* cool, int* thin) {
+    if (mode==WT_NONE) return 1;
+    double l2n2=0.0, wn2=0.0, dot=0.0;
+    for (int j=0;j<L2_DIM;j++){ l2n2+=(double)L2[j]*L2[j]; wn2+=(double)w[j]*w[j]; dot+=(double)w[j]*L2[j]; }
+    if (l2n2 <= (double)L2_RELMOVE_EPS*L2_RELMOVE_EPS || wn2<=1e-24){
+        if (mode==WT_THIN){ int a=(((*thin)%thin_n)==0)?1:0; (*thin)++; return a; }
+        return 1;   // cold start: admit the bootstrap writes that build the state
+    }
+    double cosWL2 = dot/(sqrt(wn2)*sqrt(l2n2));
+    double dn2=0.0;
+    for (int j=0;j<L2_DIM;j++){ double cand=(double)alpha*L2[j]+(1.0-(double)alpha)*w[j]; double dd=cand-(double)L2[j]; dn2+=dd*dd; }
+    double denom=(sqrt(l2n2)>(double)L2_RELMOVE_EPS)?sqrt(l2n2):(double)L2_RELMOVE_EPS;
+    double relmove=sqrt(dn2)/denom;
+    switch (mode){
+        case WT_REV25:     return (cosWL2 < (double)cos_thr) ? 1 : 0;
+        case WT_REV50:     return (cosWL2 < (double)cos_thr) ? 1 : 0;
+        case WT_REVMARGIN: return (cosWL2 < (double)cos_thr && relmove > (double)stress_thr) ? 1 : 0;
+        case WT_COOLDOWN:  if (*cool > 0){ (*cool)--; return 0; }
+                           if (cosWL2 < (double)cos_thr) *cool = cool_k;
+                           return 1;
+        case WT_THIN:      { int a=(((*thin)%thin_n)==0)?1:0; (*thin)++; return a; }
+    }
+    return 1;
+}
+
 // Evolve L2 by one observed byte (post-observe SEE summary feat192), with the
 // gate decision and homeostasis brakes (cooldown, non-boundary decay, delta-write).
 static inline void l2_evolve(float* L2, const float* feat192, int gate_fires) {
     int do_update = gate_fires && (cd_ctr==0);
+    g_l2_gatefired = gate_fires; g_l2_wrote = do_update; g_l2_wnorm = 0.0;   // 45.0 write diag
     if (do_update) {
         const float* src=feat192;
         static float blend[BASE_DIM];
         if (g_mix>0.0f){ for(int k=0;k<BASE_DIM;k++) blend[k]=feat192[k]-g_mix*prev_bound[k]; src=blend; memcpy(prev_bound,feat192,BASE_DIM*sizeof(float)); }
         float scale = 1.0f / sqrtf((float)BASE_DIM);
-        for (int j=0;j<L2_DIM;j++){ float p=0; const float* pj=Pmat[j]; for (int k=0;k<BASE_DIM;k++) p+=pj[k]*src[k]; p*=scale; L2[j]=g_alpha*L2[j]+(1.0f-g_alpha)*p; }
-        cd_ctr=g_cooldown;
+        // delta write w = projection of the delta src into L2 space (the base write).
+        float w[L2_DIM]; double pd2=0.0;
+        for (int j=0;j<L2_DIM;j++){ float p=0; const float* pj=Pmat[j]; for (int k=0;k<BASE_DIM;k++) p+=pj[k]*src[k]; p*=scale; w[j]=p; pd2+=(double)p*p; }
+        double pdnorm=sqrt(pd2);   // ||delta_write|| (target energy for the geometry blends)
+        l2b_write_geometry(w, L2, feat192, scale, pdnorm);   // 45.B: transform w in place (WG_NONE = no-op)
+        // effective write norm after geometry, for the 45.0 write diagnostics
+        double wn2=0.0; for(int j=0;j<L2_DIM;j++) wn2+=(double)w[j]*w[j]; g_l2_wnorm=sqrt(wn2);
+        // cosine diagnostics: write vs current L2 state, and write vs previous write
+        { double wnn=g_l2_wnorm, l2n2=0.0, dwl=0.0; for(int j=0;j<L2_DIM;j++){ l2n2+=(double)L2[j]*L2[j]; dwl+=(double)w[j]*L2[j]; }
+          double l2n=sqrt(l2n2); g_l2_cos_wL2=(wnn>1e-12&&l2n>1e-12)?dwl/(wnn*l2n):0.0;
+          if (g_have_lastwrite){ double pn2=0.0,dwp=0.0; for(int j=0;j<L2_DIM;j++){ pn2+=(double)g_lastwrite[j]*g_lastwrite[j]; dwp+=(double)w[j]*g_lastwrite[j]; }
+              double pn=sqrt(pn2); g_l2_cos_wprev=(wnn>1e-12&&pn>1e-12)?dwp/(wnn*pn):0.0; } else g_l2_cos_wprev=0.0; }
+        // 45.C write-gate (timing): admit or DROP this boundary's write on internal signals
+        // (reversal angle / rel_move). WT_NONE -> always accept (bit-identical to 45.B).
+        int accept = wtgate_accept(w, L2, g_alpha, g_wt_mode, g_wt_cos_thr, g_wt_stress_thr,
+                                   g_wt_cool_k, g_wt_thin_n, &g_wt_cool, &g_wt_thin);
+        if (accept) {
+            // candidate EMA update (no amplitude cap in 45.B/C; the 45.A rel-move cap stays
+            // available for back-compat with relmove weights, off when g_relmove_cap<=0)
+            float cand[L2_DIM];
+            for (int j=0;j<L2_DIM;j++) cand[j]=g_alpha*L2[j]+(1.0f-g_alpha)*w[j];
+            if (g_relmove_cap>0.0f){
+                double dn=0.0, on=0.0;
+                for (int j=0;j<L2_DIM;j++){ double dd=(double)cand[j]-L2[j]; dn+=dd*dd; on+=(double)L2[j]*L2[j]; }
+                dn=sqrt(dn); on=sqrt(on);
+                double denom=(on>L2_RELMOVE_EPS)?on:(double)L2_RELMOVE_EPS;
+                double rel=dn/denom;
+                if (rel>g_relmove_cap && dn>0.0){ float s=(float)(g_relmove_cap/rel); for(int j=0;j<L2_DIM;j++) L2[j]=L2[j]+s*(cand[j]-L2[j]); }
+                else { for(int j=0;j<L2_DIM;j++) L2[j]=cand[j]; }
+            } else {
+                for(int j=0;j<L2_DIM;j++) L2[j]=cand[j];
+            }
+            memcpy(g_lastwrite,w,sizeof(w)); g_have_lastwrite=1;
+            cd_ctr=g_cooldown;
+        } else {
+            g_l2_wrote=0;   // dropped by the write-gate: L2 unchanged, no cooldown set
+        }
     } else {
         if (!gate_fires && g_nb_decay<1.0f) for(int j=0;j<L2_DIM;j++) L2[j]*=g_nb_decay;
         if (cd_ctr>0) cd_ctr--;
@@ -183,6 +332,13 @@ int main(int argc, char** argv) {
             if(!strcmp(v,"l2zero")) g_ablate=ABL_L2ZERO; else if(!strcmp(v,"l2freeze")) g_ablate=ABL_L2FREEZE;
             else if(!strcmp(v,"l2reset")) g_ablate=ABL_L2RESET; else if(!strcmp(v,"cap")) g_ablate=ABL_CAP; else g_ablate=ABL_NONE; }
         else if (!strcmp(argv[i],"--ablate-cap")&& i+1<argc) g_ablate_cap=(float)atof(argv[++i]);
+        else if (!strcmp(argv[i],"--relmove-cap")&& i+1<argc) g_relmove_cap_override=(float)atof(argv[++i]);
+        else if (!strcmp(argv[i],"--wgeom")     && i+1<argc) g_wgeom_override=atoi(argv[++i]);
+        else if (!strcmp(argv[i],"--wtgate")    && i+1<argc) g_wt_mode_override=atoi(argv[++i]);
+        else if (!strcmp(argv[i],"--wt-cos")    && i+1<argc) g_wt_cos_thr=(float)atof(argv[++i]);
+        else if (!strcmp(argv[i],"--wt-stress") && i+1<argc) g_wt_stress_thr=(float)atof(argv[++i]);
+        else if (!strcmp(argv[i],"--wt-cool")   && i+1<argc) g_wt_cool_k=atoi(argv[++i]);
+        else if (!strcmp(argv[i],"--wt-thin")   && i+1<argc){ g_wt_thin_n=atoi(argv[++i]); if(g_wt_thin_n<1)g_wt_thin_n=1; }
         else if (!strcmp(argv[i],"--forensic")  && i+1<argc) g_forensic=fopen(argv[++i],"w");
         else if (!strcmp(argv[i],"--fatigue")   && i+1<argc){ const char* v=argv[++i];
             if(!strcmp(v,"flip")) g_fat_mode=FAT_FLIP; else if(!strcmp(v,"lowmargin")) g_fat_mode=FAT_LOWMARGIN;
@@ -204,11 +360,14 @@ int main(int argc, char** argv) {
 
     FILE* fw=fopen(argv[2],"rb"); if(!fw){fprintf(stderr,"Cannot open weights %s\n",argv[2]);return 1;}
     uint32_t magic; fread(&magic,4,1,fw); rewind(fw);
-    if (magic!=0x5345453C && magic!=0x5345453D && magic!=0x5345453E && magic!=0x5345453F && magic!=0x53454540){ fprintf(stderr,"Expected magic 0x5345453C..0x53454540, got 0x%08x\n",magic); fclose(fw); return 1; }
-    int has_homeo = (magic==0x5345453D || magic==0x5345453E || magic==0x5345453F || magic==0x53454540);
-    int has_calib = (magic==0x5345453E || magic==0x5345453F || magic==0x53454540);   // 44.C: extra f mix after homeostasis block
-    int has_scale = (magic==0x5345453F || magic==0x53454540);   // 44.D: extra f l2_scale after mix
-    int has_cap   = (magic==0x53454540);   // 44.E: extra f l2_cap after l2_scale
+    if (magic!=0x5345453C && magic!=0x5345453D && magic!=0x5345453E && magic!=0x5345453F && magic!=0x53454540 && magic!=0x53454541 && magic!=0x53454542 && magic!=0x53454543){ fprintf(stderr,"Expected magic 0x5345453C..0x53454543, got 0x%08x\n",magic); fclose(fw); return 1; }
+    int has_homeo = (magic>=0x5345453D);
+    int has_calib = (magic>=0x5345453E);   // 44.C: extra f mix after homeostasis block
+    int has_scale = (magic>=0x5345453F);   // 44.D: extra f l2_scale after mix
+    int has_cap   = (magic>=0x53454540);   // 44.E: extra f l2_cap after l2_scale
+    int has_relmove = (magic>=0x53454541);   // 45.A: extra f relmove_cap after l2_cap
+    int has_wgeom   = (magic>=0x53454542);   // 45.B: extra u32 wgeom after relmove_cap
+    int has_wtgate  = (magic>=0x53454543);   // 45.C: extra {u32 mode, f cos, f stress, u32 cool_k, u32 thin_n}
 
     uint32_t hdr4[4]; fread(hdr4,4,4,fw);
     float hf[5]; fread(hf,4,5,fw);
@@ -238,6 +397,21 @@ int main(int argc, char** argv) {
     if (has_cap) {
         float cp=0.0f; fread(&cp,4,1,fw); g_l2_cap=cp;   // 0x53454540: L2 logit-contribution cap
     }
+    if (has_relmove) {
+        float rc=0.0f; fread(&rc,4,1,fw); g_relmove_cap=rc;   // 0x53454541: L2 relative-move cap
+    }
+    if (g_relmove_cap_override > -1.5f) g_relmove_cap=g_relmove_cap_override;   // diagnostic override (breaks header parity by design)
+    if (has_wgeom) {
+        uint32_t wg=0; fread(&wg,4,1,fw); g_wgeom=(int)wg;   // 0x53454542: L2 write geometry mode
+    }
+    if (g_wgeom_override >= 0) g_wgeom=g_wgeom_override;   // diagnostic override
+    if (has_wtgate) {                                       // 0x53454543: L2 write-gate (timing)
+        uint32_t wtm=0,ck=3,tn=2; float ct=0.0f,st45=1.0f;
+        fread(&wtm,4,1,fw); fread(&ct,4,1,fw); fread(&st45,4,1,fw); fread(&ck,4,1,fw); fread(&tn,4,1,fw);
+        g_wt_mode=(int)wtm; g_wt_cos_thr=ct; g_wt_stress_thr=st45; g_wt_cool_k=(int)ck; g_wt_thin_n=(int)tn;
+        if (g_wt_thin_n<1) g_wt_thin_n=1;
+    }
+    if (g_wt_mode_override >= 0) g_wt_mode=g_wt_mode_override;   // diagnostic override
 
     size_t tri_n=(size_t)CLASSES*CLASSES*CLASSES;
     trigram=malloc(tri_n*sizeof(float));
@@ -266,10 +440,16 @@ int main(int argc, char** argv) {
     const char* gname[]={"none","punct","whitespace","surprise","entropy","combined"};
     fprintf(stderr,"Format 0x%08x  n_oja=%d  L2_DIM=%d  gate=%s  alpha=%.2f  surp_thr=%.3f  ent_thr=%.3f(high=%d)\n",
             magic,n_oja,L2_DIM,gname[g_gate],g_alpha,g_surp_thr,g_ent_thr,g_ent_high);
-    fprintf(stderr,"Homeostasis: l2_clamp=%.2f nb_decay=%.3f cooldown=%d delta=%d mix=%.2f l2_scale=%.2f l2_cap=%.3f\n",
-            g_l2_clamp,g_nb_decay,g_cooldown,g_delta,g_mix,g_l2_scale,g_l2_cap);
+    const char* wgn[]={"none","blend75","blend50","ortho","novelty","energy"};
+    const char* wtn[]={"none","rev25","rev50","revmargin","cooldown","thin"};
+    fprintf(stderr,"Homeostasis: l2_clamp=%.2f nb_decay=%.3f cooldown=%d delta=%d mix=%.2f l2_scale=%.2f l2_cap=%.3f relmove_cap=%.3f wgeom=%s\n",
+            g_l2_clamp,g_nb_decay,g_cooldown,g_delta,g_mix,g_l2_scale,g_l2_cap,g_relmove_cap,
+            (g_wgeom>=0&&g_wgeom<=5)?wgn[g_wgeom]:"?");
+    fprintf(stderr,"WriteGate: mode=%s cos_thr=%.2f stress_thr=%.2f cool_k=%d thin_n=%d\n",
+            (g_wt_mode>=0&&g_wt_mode<=5)?wtn[g_wt_mode]:"?",g_wt_cos_thr,g_wt_stress_thr,g_wt_cool_k,g_wt_thin_n);
     fprintf(stderr,"Warmup %d | Seed 512 | Gen %d | Temp %.2f | base_clamp %.2f\n",warmup,gen_len,temp,feat_clamp);
     memset(prev_bound,0,sizeof(prev_bound)); cd_ctr=0;
+    g_wt_cool=0; g_wt_thin=0;   // 45.C write-gate state (persists warmup->seed->generate)
 
     float feat192[BASE_DIM], fa[BASE_DIM], raw[TOT_DIM];
     float L2[L2_DIM]; memset(L2,0,sizeof(L2));
@@ -319,8 +499,10 @@ int main(int argc, char** argv) {
     if (g_tel){
         fprintf(g_tel,"# cap=%.4f mix=%.2f l2_scale=%.2f temp=%.2f seed_start=%d rng=0x%016llx\n",
                 g_l2_cap,g_mix,g_l2_scale,temp,seed_start,(unsigned long long)rng);
-        fprintf(g_tel,"step\tsamp\tpredF\tpredN\tflip\tratio\tgamma\tfired\tl2norm\tl2delta\tgate\tLwin\tloop_run\tloop_p\n");
+        fprintf(g_tel,"step\tsamp\tpredF\tpredN\tflip\tratio\tgamma\tfired\tl2norm\tl2delta\tgate\tLwin\tloop_run\tloop_p\twnorm\twrote\tgfired\tcos_wL2\tcos_wprev\n");
         memset(g_runp,0,sizeof(g_runp)); g_have_prevL2=0;
+        g_l2_wnorm=0.0; g_l2_wrote=0; g_l2_gatefired=0;
+        g_l2_cos_wL2=0.0; g_l2_cos_wprev=0.0;
     }
     if (g_forensic){
         const char* abn[]={"none","l2zero","l2freeze","l2reset","cap"};
@@ -417,8 +599,12 @@ int main(int argc, char** argv) {
             double l2d=0; if(g_have_prevL2){ for(int j=0;j<L2_DIM;j++){ double dd=(double)L2[j]-g_prevL2[j]; l2d+=dd*dd; } l2d=sqrt(l2d); }
             for(int j=0;j<L2_DIM;j++) g_prevL2[j]=L2[j]; g_have_prevL2=1;
             float Lwin=gamma*dvec[next];   // L2's signed contribution to the emitted byte's logit
-            fprintf(g_tel,"%d\t%d\t%d\t%d\t%d\t%.4f\t%.4f\t%d\t%.4f\t%.4f\t%d\t%.4f\t%d\t%d\n",
-                    i,(int)next,pf,pn,(pf!=pn)?1:0,ratio,gamma,(gamma<0.999999f)?1:0,l2n,l2d,gate,Lwin,lrun,lp);
+            // wnorm/wrote/gfired/cos_* describe the SAME evolve that produced l2delta
+            // (col 10), i.e. the previous step's end-of-loop l2_evolve - aligned for
+            // event-conditioning. cos_wL2/cos_wprev are the 45.B write-geometry diagnostics.
+            fprintf(g_tel,"%d\t%d\t%d\t%d\t%d\t%.4f\t%.4f\t%d\t%.4f\t%.4f\t%d\t%.4f\t%d\t%d\t%.4f\t%d\t%d\t%.4f\t%.4f\n",
+                    i,(int)next,pf,pn,(pf!=pn)?1:0,ratio,gamma,(gamma<0.999999f)?1:0,l2n,l2d,gate,Lwin,lrun,lp,
+                    g_l2_wnorm,g_l2_wrote,g_l2_gatefired,g_l2_cos_wL2,g_l2_cos_wprev);
         }
 
         see_observe(&see, next);
