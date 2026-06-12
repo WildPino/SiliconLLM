@@ -1,221 +1,149 @@
 # SiliconLLM Handoff
 
+Last updated: 2026-06-12 — **Phase 47 CLOSED. No generator promoted. Deliverable = validated stability stack + coverage theory + gate v2.**
+
 ## Goal
 
 Build toward a real language model by "pulling an LLM out of the silicon, not imposing an LLM on the silicon."
 
-The working rule is: keep the readout stupid. Gains should come from substrate geometry, memory, local plasticity, and boundary/homeostatic dynamics, while the final readout remains simple and falsifiable.
+Core rule: keep the readout simple, falsifiable, and structurally honest. Gains should come from substrate geometry, memory, local plasticity, boundary/homeostatic dynamics, training signals, and robustness properties. Avoid Transformer-like modules, word/bigram counters in policy, generation hacks, and opaque inference-time machinery.
 
-The current target is to find a stable substrate that improves teacher-forced TinyStories BPB and also survives closed-loop generation gates without attractor collapse.
+## Promotion Gate V2 (current, frozen)
 
-## Current Progress
+A candidate must pass **all** components, **worst-case over 32 samples**, at **both T=0.65 and T=0.55**, then survive the **replica protocol** (4 independent full-gate replicas, rule 4/4), then **human reading** of dumped samples (mandatory, permanent component — the user reads them).
 
-### Phase 42: Baseline and Bottleneck Tests
+Word-level bars (unchanged from V1):
 
-- TinyStories baseline, 64 MB corpus, linear readout: about 2.3197 BPB.
-- Pooling tribunal showed `sum` was best. `max`, `range`, and `threshold` were worse, around 2.3505 BPB. Pooling was not the bottleneck.
-- A second small reservoir gave a small improvement, around 2.3053 BPB. Temporal memory helped, but not enough.
-- Conclusion: the bottleneck was temporal structure inside the substrate, not the final linear readout or pooling.
+| component | bar |
+|---|---|
+| BPB (teacher-forced, avg of 3 val windows) | <= 2.2543 |
+| topBi (most repeated word bigram) | <= 8 |
+| altLp (word alternation A-B-A-B) | <= 2 |
+| nameWst | <= 20 |
+| runWst (identical consecutive words) | <= 5 |
+| selfBPB (closed-loop) | in [0.8, 2.0] |
 
-### Phase 43: SEE-V1, Plasticity, and Local Limits
+Byte-level guards (NEW in V2, added 2026-06-12 after a Goodhart discovery — see below). Bars are **calibrated on the corpus**, not chosen: ~1000 contiguous 2 KB windows of TinyStories, bar = max observed + margin (integers +2, fractions +0.03). Current calibrated bars (also in `docs/gatev2_bars.json`, regenerable by `phase47i.ps1` step 1a):
 
-- Multi-timescale L1 was the first clear win:
-  - legacy: 2.3197 BPB
-  - `ms_f0.5`: 2.2757 BPB
-  - `ms_f0.7`: 2.2777 BPB
-- Fast-alpha grid confirmed `fast=0.5`; differences vs 0.3 and 0.6 were under 0.001 BPB.
-- Scalar `byte_gain[256]` damaged performance and saturated to clamps. It was archived as a negative result.
-- Generation audit showed multiscale memory turned the old garbage loop into recognizable TinyStories-like English, but still with repetition/name attractors.
-- Feature clamp/homeostasis produced SEE-V1S. Clamp `c20` was chosen as the stable baseline for generation.
-- Oja plasticity on a small subset of fast-band cells improved BPB:
-  - SEE-V2, 13 Oja cells, eta=1e-3: 2.2617 BPB
-- Scaling Oja to 26 cells produced the Phase 43 teacher-forced champion:
-  - C2.A, 26 cells, eta=1e-3: 2.2593 BPB
-- However, deterministic generation checks showed C2.A was not a fully stable generator:
-  - 32-sample confirmation failed top bigram and alternating-loop gates.
-  - Lowering temperature made some collapses worse, proving the basins were structural, not just sampling noise.
-- Byte-to-lane routing on M4 lanes, fast band only, was implemented and tested. It was flat:
-  - route Round 0 reproduced SEE-V2
-  - routing ended around 2.2616 BPB, not a useful new axis.
-- Phase 43 is closed. Best teacher-forced artifact is `weights/phase43c2_C2A.bin`, but no Phase 43 model is a fully stable generator.
+| guard | definition | corpus max | bar |
+|---|---|---|---|
+| wsRun | longest run of whitespace bytes (space/tab/CR/LF) | 4 | <= 6 |
+| chRun | longest run of identical non-whitespace byte | 6 | <= 8 |
+| wsFrac | whitespace fraction of sample | 0.2202 | <= 0.2502 |
+| nonPrint | bytes outside {9,10,13,32..126} | 133 (unicode in corpus) | <= 135 |
 
-### Phase 44: Boundary-Gated Hierarchical Memory
+Post-hoc legitimacy rule: after a Goodhart discovery the only legitimate post-hoc gate movement is **tightening** — it can only reject, never promote. Never loosen a bar after seeing results. Inference-side filters/penalties to "clean" samples are cheating and forbidden.
 
-The current direction is: the substrate learned local memory; now it must learn when not to update.
+Replica protocol (process upgrade, permanent): a single full-gate pass is only screening. Promotion requires 4 replicas-of-32 (2 with fresh rngs on standard seeds, 2 with original rngs on held-out prompt grids displaced from all train/val windows), each evaluated worst-case at both temperatures. 4/4 PASS = confirmed; one replica failing one component by one unit = marginal (user decides); >=2 failing = lucky tail, not promotable.
 
-Phase 44 adds L2 hierarchical memory above the C2.A substrate while keeping the readout linear.
+## Background (Phases 42-46, compressed)
 
-#### Phase 44.A
+- C2.A (Phase 43 champion, linear readout, 26 Oja cells): 2.2593 BPB, `weights/phase43c2_C2A.bin`. Failed word-gate (topBi ~19 @T0.55) but — discovered in 47.I — it is the only **byte-clean** model of the project.
+- Phase 44: L2 boundary memory. D1 family (`weights/phase44f_F0.bin`) 2.252x BPB near-stable; delta-write champion 2.2212 BPB but generatively collapsed. Conclusion: volatile inference memory creates attractor pressure.
+- Phase 45: delta write usefulness is real (+26k bits) but **per-event inseparable** (all signal correlations ~0). Closed. Synthesis in `docs/PHASE44-45_SYNTHESIS.md`.
+- Phase 46: L3 phrase memory over D1 is compression-positive (B3 2.2509) but generation-fragile. "Volatile memory at inference" axis closed for good.
 
-- L2 boundary gates were tested.
-- Control reproduced C2.A at about 2.2592 BPB.
-- Best BPB gates:
-  - whitespace alpha0.95: about 2.2499 BPB
-  - entropy-high: about 2.2526 BPB
-  - punctuation/surprise also improved but less.
-- No generation gate fully passed.
-- Conclusion: L2 contains useful information, but it worsens attractor control unless homeostatically constrained.
+## Phase 47 — Static Nonlinear Readout + On-Policy Training (CLOSED 2026-06-12)
 
-#### Phase 44.B
+### The arc, sub-phase by sub-phase
 
-- L2 homeostasis variants were tested.
-- Delta-write was the major signal:
-  - entropy-high H0: about 2.2526 BPB
-  - entropy-high delta: about 2.2214 BPB
-  - whitespace delta: about 2.2276 BPB
-- Decay, cooldown, and stack variants were mostly toxic or killed the BPB win.
-- Generation still failed gates.
-- Conclusion: L2 wants events/changes, not snapshots. But the readout overuses L2 in closed-loop generation.
+- **47.0 (feasibility)**: distillation from unstable teachers (delta, L3-B3) into stable [SEE|L2_D1] features. Discovery: **the lever is readout nonlinearity, not the teacher.** A 1-hidden-layer MLP on the same stable features reaches 2.0947 val (vs linear 2.2410); KD-from-delta adds nothing. Delta/L3 had been a tortuous way of injecting nonlinearity already present in SEE features. Linear-readout invariant revised to: static, small, stateless, falsifiable nonlinear readout is admissible.
+- **47.A0/A0b (sanity + anchor repair)**: ladder valid (H32 2.2360 / H64 2.1627 / H128 2.0807), randlabel/shuftime controls clean, ablation shows the nonlinear gain lives in **SEE**, not L2. `frozenD1` anchor (D1 weights pushed through the exact probe path == BASE D1 at 4th digit) became the permanent pipeline-integrity check. Closed-loop: all H fail topBi + off-distribution overconfidence.
+- **47.B (regularization)**: label smoothing/RMS-penalty/WD/dropout matrix. RMS normalizes scale but topBi stays → **not a calibration problem**. Diagnosis: exposure mismatch.
+- **47.C (proxy robustness)**: one-step corruption/D1-burst training improves dirty validation (valC) but does not transfer to closed-loop → the wall is **multi-step autoregressive drift**. Clue C3burst: topBi almost fixed but selfBPB 0.67 (degenerate).
+- **47.D (real rollouts — the structural breach)**: DAgger-style training on bursts sampled from the decoder ITSELF (K bytes every 256, target always true byte, +16B recovery, mix 80/20, lamC 0.02 stop-grad). **First configs ever under topBi<=8 at both temps with sane selfBPB** (D16_h32 topBi 5/6). Dose-response: K=8 no re-entry, K=16 sweet spot, K=32 degenerates. Proxy-vs-true at parity: D1-bursts degenerate, own-bursts fix → the lever is on-policy.
+- **47.E (capacity)**: recipe at H64. First one-temperature full PASS ever (D16r3_h64 @T0.65, BPB 2.1901) but T0.55 wall (topBi 13). Budget exonerated via D0 controls; rollout cost ~+0.044 capacity-independent.
+- **47.F (temperature coverage)**: hypothesis falsified cleanly (Tmix bursts: bi55 13=13 at 50% coverage). Rounds non-monotone at H64 (r3 optimum). H64 closed. Fallback D16r5_h32: topBi 5/5, best near-pass.
+- **47.G (last mile H32)**: plain continuation r6-r9. **P_r7 = first dual-temperature full-gate PASS in project history** (`weights/phase47g_P_h32_r7.bin`: BPB 2.2497, topBi 6/7, altLp 2/2). Anneal (mix 10%) rejected: BPB flies, structure lost — late 20% rollout dose is load-bearing. Checkpoint promoted, not recipe.
+- **47.H (extended validation)**: replica protocol. P_r7 **not promotable by pre-registered rule** (2/4 replicas fail, both only altLp@0.55 = worst-of-32 on a ~3% per-sample event → 47.G PASS was a tail on that metric). But the structural fix REPLICATED: topBi 6-8, name/run/selfBPB green in 8/8 evaluations incl. held-out prompts. H48 tail closed (capacity ceiling confirmed; stable regime exists only at H32 on this substrate).
+- **HUMAN READ → GOODHART DISCOVERY (the decisive event)**: the user read the samples. Three byte-level pathologies invisible to every word-level metric: **whitespace floods** (runs of 10-50+ spaces — separators, zero words, zero signal), the **"wasteland"** (diffuse far-field attractor: template fragments like "..nhat sh"/"..nke go" with surface variation — no single bigram dominates, topBi silent), **char floods** ("Jaaaa...", 30-50 chars = one weird word, runWst silent). Temporal pattern: second half of samples, after ~500-1000 bytes of self-generation — a far-field region K=16 anchored bursts never visit. DAgger cured the near-field; optimization pushed the residue where the proxies don't look. Verdict: **P_r7 definitively not promotable — by Goodhart, not statistics.** Response: Gate V2 tightening (above).
+- **47.I (far-field, one shot, hard cap)**:
+  - Step 1 re-score under byte-guards: P_r7 fails 27-32/32 samples in every replica (wsRun worst 106-233 vs bar 6 — the wasteland was almost everywhere, not in a tail); **C2.A is byte-clean**; D1 has a slight whitespace drift (wsFrac +0.008-0.011) born with L2 memory. Byte degeneration grows along the readout/training stack. **No model of the project passes the full gate v2.**
+  - Step 2a premise probe (no training): K=128 anchored bursts DO enter the wasteland (38.2%/36.9% of burst tails vs K16 control ~9-11%; wsrMax 64 = whole tails of spaces) → coverage hypothesis live.
+  - Step 2b far-field training: prefix r1-r5 bit-identical to 47.G (MD5), rounds 6-9 with burst mix K16 87.5% / K128 12.5%. **Result (human-read confirmed at I_r9, T0.55): the whitespace wasteland is genuinely gone** — text stays structured to the last byte, consecutive spaces 3-5, wsRun at corpus level (6 = bar). Word metrics best ever (bi 4-6). Residuals: **char flood persists** (chRun 20-26 vs bar 8 — its channel was visited by only 2.9% of burst entries) and BPB 2.2621 (far-field cost +0.018 vs P at same round, 0.008 over bar). Quota adjustment NOT spent (it targets neither residual); Phase 47 closed per hard cap.
 
-#### Phase 44.C
+### The coverage theory (validated 3/3, with predictive power)
 
-- Gain scaling was correctly identified as a no-op under per-dim z-normalization:
-  - scaling L2 write by a scalar is canceled by per-dim mean/std normalization.
-- The useful grid dropped gain and tested alpha and mix instead:
-  - H0 absolute: about 2.2526 BPB
-  - delta full: about 2.2214 BPB
-  - delta alpha 0.995: about 2.2210 BPB
-  - delta alpha 0.9975: about 2.2207 BPB, best teacher-forced
-  - delta alpha 0.999: about 2.2217 BPB
-  - mix25: about 2.2524 BPB
-  - mix50: about 2.2517 BPB
-  - mix75: about 2.2488 BPB
-- Delta alpha variants failed generation badly, with low self-BPB and loops.
-- H0/mix variants were closer but still failed top-bigram/alternating-loop gates.
-- Conclusion: L2 signal is real, but the linear readout drinks too much from the L2 block.
+**What the rollout visits, the decoder learns to exit; what it does not visit, persists.** Channel by channel:
 
-### Phase 44.D: Current Active Step
+| degeneration channel | training coverage | outcome |
+|---|---|---|
+| word-level loops (topBi/run/name) | K16 bursts, near-field (47.D-G) | cured and replicated |
+| whitespace wasteland | K128 bursts entering it (15% of entries) | cured at corpus level at I_r9 |
+| char flood ("aaaa...") | almost never visited (2.9% of entries) | persists |
 
-Phase 44.D is the next live tribunal: Readout-L2 Homeostasis.
+Corollaries: far-field training did not undo the near-field (best word metrics ever at I_r9); coverage is about **which** states are visited, not how many; designing visitation is a phase-level question, not a knob.
 
-The intended question is not "is L2 useful?" That is already yes. The question is whether controlling the readout's dependence on L2 can preserve the BPB win without closed-loop collapse.
+### The validated stack (the actual deliverable)
 
-Planned/implemented configs:
+1. **Static nonlinear readout discovery (47.0)**: stable SEE features contain large nonlinear predictive structure; a small stateless MLP extracts it (H32: 2.236 TF; the gain lives in SEE, not L2).
+2. **DAgger on-policy training (47.D)**: cures attractors channel-by-channel according to rollout coverage. Recipe: burst K16 every 256B from the current decoder @T0.65, target always true byte, 16B recovery, mix 80/20 clean/rollout, lamC=0.02 consistency with stop-grad on the clean branch, no label smoothing, per-round checkpoints, ~7 rounds at H32.
+3. **Mature evaluation harness**: gate v2 (word + corpus-calibrated byte guards), two temperatures, frozenD1 anchor, MD5 repro pre-checks, prefix-property verification for continuations (seed-formula determinism; on-disk checkpoints lack Adam state — true branching needs in-memory copy), mini→full→replica protocol→**mandatory human reading**. Each level caught what the previous one missed; the last level is the user.
+4. **Coverage theory** (above), with predictive power.
 
-- Controls:
-  - C2.A
-  - H0
-  - mix50
-  - delta
-- L2 readout homeostasis variants:
-  - D1: mix50 scale 0.50
-  - D2: delta scale 0.25
-  - D3: delta scale 0.50
-  - D4: mix50 dropout 0.10
-  - D5: delta dropout 0.10
+### The honest map (where everything stands)
 
-Speedups have been implemented and build-verified:
+- **I_r9** (`weights/phase47i_I_h32_r9.bin`): the frontier — word + whitespace clean, char-flood residual, BPB 2.2621 (0.008 over bar).
+- **P_r7** (`weights/phase47g_P_h32_r7.bin`): historic word-only dual-temp pass; byte-dirty (wasteland).
+- **C2.A** (`weights/phase43c2_C2A.bin`): only byte-clean model; word-dirty (topBi 19); linear.
+- **D1** (`weights/phase44f_F0.bin`): near-stable linear reference; slight whitespace drift.
+- Nobody passes gate v2 in full. Byte degeneration grows along the readout/training stack.
+- **Language is not in the gate, it is in the substrate**: confirmed twice by eye — at ~2.25 BPB the "good parts" are flowing word-salad (correct function words, mangled content words, zero narrative coherence). That is what 2.25 bits/byte can say. Readable language lives around ~1.2-1.5 BPB. Even a full gate-v2 pass at ~2.25 BPB will read as structured word-salad: promotion measures **stability**; language is bought only by lowering BPB, i.e. substrate work.
 
-- L2 feature cache:
-  - 8 configs reduced to 3 extractions, grouped by mix/source.
-  - One feature matrix plus L2 canonical cache, about 65 GB peak RAM.
-  - No two trainer processes should run at the same time.
-- Parallel word-gate:
-  - deterministic generator runs with explicit `--rng-seed`
-  - unique output files
-  - fixed aggregation order
-  - sequential-vs-parallel MD5 pre-check before the full sweep
-- Single-trainer guard:
-  - script aborts if another Phase 44 trainer is already running.
-- OpenMP was deliberately deferred until a separate reproducibility-gated pass.
+## What Worked (cumulative)
 
-Run command:
+- Multi-timescale L1; feature clamp/homeostasis; small local Oja plasticity (C2.A).
+- Deterministic RNG, explicit seeds, MD5 repro pre-checks, fixed aggregation order, single-trainer guard.
+- frozenD1 anchor as permanent pipeline-integrity check.
+- Static nonlinear readout on stable SEE/D1 features (47.0): the compression discovery of the project.
+- DAgger on-policy rollout training (47.D): the stability discovery of the project. K=16 sweet spot near-field; K=128 reaches far-field; lamC=0.02 free calibration insurance.
+- Per-round checkpoints + seed-formula prefix property (bit-identical continuations, MD5-verified).
+- Three-level evaluation (gate → replicas → human read): every level caught what the one below missed.
+- Calibrating gate bars on the corpus instead of choosing them.
+- Premise probes before spending training (47.I step 2a: minutes, not hours).
 
-```powershell
-.\benchmarks\phase38-42\phase44d_readout.ps1
-```
+## What Did Not Work — do not repeat without a genuinely new hypothesis
 
-Expected control values to verify before trusting deltas:
+All pre-47 items stand (pooling variants, scalar gains, generation hacks, L2 write controls of every kind, L3 schedule tuning, per-event write filtering — see git history and `docs/PHASE44-45_SYNTHESIS.md`). Phase 47 additions:
 
-- C2.A: about 2.2593 BPB
-- H0: about 2.2526 BPB
-- mix50: about 2.2517 BPB
-- delta: about 2.2214 BPB
+- Teacher distillation from delta/B3: the teacher is not the lever (47.0).
+- Calibration regularization (label smoothing, RMS penalty, WD) as a stability fix: not the cause (47.B). Label smoothing is toxic to BPB/language.
+- One-step corruption / proxy-burst exposure training: improves dirty validation, does not transfer to closed-loop (47.C).
+- K>16 near-field bursts (degenerate), rollout mix 30% (blandness without fix), anneal of late rollout dose (structure lost — the dose is load-bearing) (47.D/G).
+- Temperature-coverage bursts for the H64 T0.55 wall: falsified cleanly (47.F).
+- H64/H48 capacity for stability on this substrate: capacity ceiling, stable regime only at H32 (47.E/F/H).
+- Trusting word-level metrics without byte-level guards and human reading: Goodhart (47.H→I).
+- Loosening any bar post-hoc, inference-side sample-cleaning filters, promoting "with reserve": forbidden on principle.
+- PowerShell: `$R` and `$r` are the same variable (case-insensitive) — caused a silent infinite loop; smoke-execute new harness sections, keep `-SkipTrain` flags.
 
-If those controls do not reproduce, stop and debug before interpreting 44.D.
+## Phase 48 Proposal: Substrate Scaling
 
-## What Worked
+The bottleneck has moved to the substrate. Evidence: the nonlinear gain lives in SEE (47.A0 ablation); stability has a readout-capacity ceiling (H32) **relative to the fixed substrate** (H48/H64 read more than the substrate sustains in closed-loop); volatile memory failed (44-46); D1 is a frozen bias; and 2.25 BPB is a substrate ceiling, not a readout one.
 
-- Multi-timescale L1 memory was the first decisive substrate improvement.
-- Feature homeostasis/clamping helped stabilize generation enough to make later tests meaningful.
-- Small local Oja plasticity improved BPB without making the readout smarter.
-- Scaling Oja capacity improved teacher-forced BPB, but did not solve closed-loop stability.
-- Deterministic RNG and reproducibility checks were essential. Earlier generation gates had RNG noise.
-- Boundary-gated L2 memory clearly improves BPB.
-- Delta-write L2 is the strongest teacher-forced signal found so far.
-- Dropping scalar gain from 44.C was correct because z-normalization cancels scalar write gain.
-- Speedups that preserve quality:
-  - word-gate generation can be parallelized
-  - L2 extraction can be cached by source/mix group
-  - two full trainers must not run in parallel on 80 GB RAM
+Design: scale the SEE substrate — more cells, more timescales, more Oja — the line that produced the original gains (42-43). Keep the entire Phase 47 harness **frozen**: H32 readout + DAgger recipe + gate v2 + two temperatures + replica protocol + human reading. Falsifiable question: does stability scale with the substrate (unlike with the readout)?
 
-## What Didn't Work
+Watch-list carried into 48: char-flood channel (chRun guard will catch it; a richer substrate may dissolve it — same bar); altLp@0.55 (rare period-2 event, same bar); the worst-of-32 statistic on ~3% events is coin-flip-like (47.G vs 47.H proved it) — any re-specification is a user decision to be made BEFORE seeing results.
 
-- Rich pooling alternatives (`max`, `range`, `threshold`) were worse than `sum`.
-- Scalar byte gain was unstable and saturated. Do not repeat scalar input-amplitude tuning.
-- Temperature reduction is not a fix for the current attractors; it sometimes makes collapse worse.
-- Byte-to-lane routing on M4 fast lanes was flat. Do not expand routing to more lanes unless there is a new hypothesis; local routing is not the current bottleneck.
-- Reset, repetition penalty, entropy boost, and similar generation-side thermal hacks were considered toxic or insufficient. They do not solve substrate dynamics.
-- L2 decay/cooldown/stack variants did not solve the problem.
-- Delta L2 with slower alpha improved BPB but collapsed generation.
-- Scalar L2 gain before z-normalization is mathematically a no-op.
-- Running two Phase 44 trainers in parallel would exceed available RAM and likely cause swap/OOM.
+On the record, no illusions: even a full gate-v2 pass at ~2.25 BPB will read as structured word-salad. Promotion measures stability. Language costs BPB, and BPB is substrate.
 
-## Next Steps
+## Constraints for the Next Agent
 
-1. Run Phase 44.D:
+- Readout stays H32 static stateless MLP; Transformer-like modules are not admissible.
+- No new volatile inference memory; no word/bigram counters in policy; no generation-side hacks.
+- Gate v2 bars move only by tightening; recalibrate byte bars only if the corpus changes (method in `phase47i.ps1` step 1a; bars in `docs/gatev2_bars.json`).
+- Human reading is a mandatory gate component; dump samples for every full-PASS.
+- Deterministic pre-checks before large sweeps; single trainer at a time (RAM); smoke-execute new harness code paths.
+- Commit only on explicit user order, at phase closure.
 
-   ```powershell
-   .\benchmarks\phase38-42\phase44d_readout.ps1
-   ```
+## Key Artifacts
 
-2. First check the reproducibility pre-check:
-
-   - If MD5 sequential-vs-parallel fails, stop immediately.
-   - Do not interpret the scientific results until launch determinism is fixed.
-
-3. Verify controls:
-
-   - C2.A about 2.2593
-   - H0 about 2.2526
-   - mix50 about 2.2517
-   - delta about 2.2214
-
-4. Interpret 44.D:
-
-   - If an L2 scale/dropout variant keeps a meaningful BPB gain and passes generation gates, promote that as the next SEE candidate.
-   - If scale/dropout improves generation but kills most BPB gain, the next axis is state-dependent L2 trust rather than static scaling.
-   - If delta variants still collapse even after scale/dropout, delta is probably too predictive teacher-forced and too dangerous closed-loop. Prefer mix/H0-style L2 with gating.
-   - If all variants fail, Phase 45 should focus on conditional L2 readout gating or L2 logit contribution caps, not more local substrate tweaks.
-
-5. After 44.D, add an audit table showing:
-
-   - BPB
-   - name worst
-   - word-run worst
-   - top bigram
-   - alternating loop
-   - self-BPB band
-   - percent of logit norm from SEE vs L2
-   - top bytes where L2 changes the prediction most
-
-6. Only consider OpenMP after 44.D:
-
-   - parallelize per-class loops only
-   - use static scheduling
-   - avoid sample-order float reductions
-   - require same-run hash and metric reproducibility before using it in any tribunal
-
-## Current Architectural Reading
-
-The silicon has chosen this direction:
-
-- multi-timescale memory
-- feature homeostasis
-- small local plasticity
-- boundary/event memory
-- controlled L2 influence on the readout
-
-The current failure is not lack of signal. It is closed-loop context control. L2 knows useful things, especially deltas, but the generator falls into structural attractor basins when the readout trusts those signals too much.
-
-The next real step toward an LLM is therefore not a bigger readout and not a Transformer-like module. It is learning when and how much hierarchical memory is allowed to influence the next byte.
+| artifact | role |
+|---|---|
+| `weights/phase47i_I_h32_r9.bin` | frontier: word+whitespace clean, char-flood residual, 2.2621 |
+| `weights/phase47g_P_h32_r7.bin` | historic word-only dual-temp pass (byte-dirty) |
+| `weights/phase43c2_C2A.bin` | only byte-clean model (linear, word-dirty) |
+| `weights/phase44f_F0.bin` | D1 stable feature substrate used by all 47 readouts |
+| `docs/gatev2_bars.json` | calibrated gate v2 byte bars |
+| `benchmarks/phase38-42/phase47i.ps1` | gate v2 reference implementation (calibration step 1a, full pipeline) |
+| `benchmarks/phase38-42/phase47_generator.c` | closed-loop generator (D1+MLP, deterministic) |
+| `results/phase47*/` (gitignored, local) | full run outputs incl. human-read samples |
