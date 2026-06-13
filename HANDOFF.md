@@ -1,6 +1,6 @@
 # SiliconLLM Handoff
 
-Last updated: 2026-06-12 — **Phase 47 CLOSED. No generator promoted. Deliverable = validated stability stack + coverage theory + gate v2.**
+Last updated: 2026-06-13 — **Phase 48.A CLOSED. armB (nonlinear-lift substrate) solved the five-phase structural instability: word-clean closed-loop, stable frontier lowered ~2.25 → ~2.18-2.22, residual = char-flood byte channel (fidelity ceiling). armB is the frozen baseline for 48.B. Phase 47 closed 2026-06-12 (stability stack + coverage theory + gate v2).**
 
 ## Goal
 
@@ -116,15 +116,43 @@ All pre-47 items stand (pooling variants, scalar gains, generation hacks, L2 wri
 - Loosening any bar post-hoc, inference-side sample-cleaning filters, promoting "with reserve": forbidden on principle.
 - PowerShell: `$R` and `$r` are the same variable (case-insensitive) — caused a silent infinite loop; smoke-execute new harness sections, keep `-SkipTrain` flags.
 
-## Phase 48 Proposal: Substrate Scaling
+## Phase 48 — Substrate Feature Classes (armB / RFF kernel) — 48.A CLOSED
 
-The bottleneck has moved to the substrate. Evidence: the nonlinear gain lives in SEE (47.A0 ablation); stability has a readout-capacity ceiling (H32) **relative to the fixed substrate** (H48/H64 read more than the substrate sustains in closed-loop); volatile memory failed (44-46); D1 is a frozen bias; and 2.25 BPB is a substrate ceiling, not a readout one.
+The Phase 47 close named the substrate as the bottleneck. Phase 48 mapped it and found the first lever that moves it.
 
-Design: scale the SEE substrate — more cells, more timescales, more Oja — the line that produced the original gains (42-43). Keep the entire Phase 47 harness **frozen**: H32 readout + DAgger recipe + gate v2 + two temperatures + replica protocol + human reading. Falsifiable question: does stability scale with the substrate (unlike with the readout)?
+### 48.0 — mapping (Q0) + three TF-only probes
 
-Watch-list carried into 48: char-flood channel (chRun guard will catch it; a richer substrate may dissolve it — same bar); altLp@0.55 (rare period-2 event, same bar); the worst-of-32 statistic on ~3% events is coin-flip-like (47.G vs 47.H proved it) — any re-specification is a user decision to be made BEFORE seeing results.
+- **Q0 (read `silicon_entropy.c` + `silicon_v0.c`)**: L0 is 64-D = `[M4 32 (sum of binary codes = PURELY LINEAR) | wave 32 (the only nonlinearity, from saturating wave dynamics)]`. The temporal reservoir (all three L1 bands) reads only `l0_out[0:43]` = 32 linear M4 dims + just **11 of 32** wave dims; the other **21 nonlinear wave dims are never integrated over time** (snapshot only). Integration is pure linear EMA; Oja's inference feature is linear in L0. **The recurrent substrate is a linear (PCA-like) machine over a mostly-linear 43-D input, discarding its own nonlinearity.**
+- **TAPS (Sonda 1) — FAIL, informative**: H32 on `[SEE(t) | SEE(t-8) | SEE(t-32) | SEE(t-128) | L2]` (832-D) vs no-tap. Re-exposing past states *worsened* compression (controls clean: shuffle-tap pure noise, only t-8 carried a sliver). The reservoir already integrates recent history into SEE(t) → **closes the entire "memory/history at the readout" family** (and retro-explains 44-46: the info was already in the state; the problem was extracting it, which the MLP does). The lever is what the substrate *computes*, not how much of it is exposed.
+- **EXPAND / armB (Sonda 2) — PASS, big and clean**: a fixed random nonlinear lift `z = Ω·L0norm` (Ω Gaussian), `cos(z)`, temporally integrated as new reservoir dims (two EMAs 0.90/0.99), appended to the frozen base. **+0.040/+0.042/+0.042 BPB on all three held-out windows** (armB 2.2023/2.1839/2.1980 vs notap 2.2427/2.2257/2.2395). Controls perfect: the **linear** arm (integrate `z`, no `cos`) *worsened* 0.17-0.21 (raw linear projections = noise, like TAPS); the **shuffle** guard was inert (the gain is temporal integration of the nonlinearity, not capacity). The lone `cos()` isolated = 0.21 BPB. **First time the project moved what the substrate KNOWS, not how well the readout reads it.**
 
-On the record, no illusions: even a full gate-v2 pass at ~2.25 BPB will read as structured word-salad. Promotion measures stability. Language costs BPB, and BPB is substrate.
+### What armB actually is (the kernel reading)
+
+`cos(Ω·L0)` with Gaussian `Ω` is **Random Fourier Features** (Rahimi-Recht): it approximates a Gaussian kernel. Unplanned, armB turned the linear reservoir into a **kernel machine** — nonlinear similarity in an effectively infinite-dimensional space via a finite random projection. That is why the lone `cos` was worth 0.21 BPB: byte-to-byte prediction is kernel-shaped and the linear reservoir could not see it. **Consequence for scaling: raising `D_EXP` only approximates the *same* kernel better (error ~1/√D, diminishing).** The real lever is different/better **feature classes**, not more of the same.
+
+### 48.A — armB under the frozen 47 harness (CLOSED)
+
+armB-expanded substrate (512-D feature `[D1 base 256 | armB B-bands 256]`) + the 47.I-final DAgger recipe (H32, 9 rounds, K16 + K128 whitespace far-field), generator rebuilds the lift from the `0x53454548` header. Mandatory **closed-loop determinism pre-check** (new substrate path = new generation path) PASSED (MD5 byte-reproducible). Anchor exact.
+
+**Result: the five-phase structural instability is solved.** armB is **word-clean closed-loop** (the attractor-collapse / word-salad wall that 44-47 could not pass) and the **stable frontier dropped from ~2.25 to ~2.18-2.22** (self-BPB ~1.8; budget for the rollout cost lands comfortably under bar where P_r7 was on the edge). Read by eye (samples in `results/phase48a/human_close/`): real TinyStories phrasing emerges ("Once upon a time, there was a", "she was so excited to", "he had fun", "played", "friend") — **measurably less word-salad than the 2.25 era.** The **residual is the char-flood byte channel** (`chRun` fails: "...aaaaaaaa", "huhhhh") = the **fidelity ceiling**, exactly the coverage prediction (the K128 bursts fall into whitespace, never char-flood).
+
+**48.A-fix** (the one allowed adjustment, branch 2): targeted char-flood coverage — rounds 6-9 add char-flood-seeded bursts (force a short repeated-char run into the substrate, then roll out, target true byte) beside the K128 whitespace bursts. Gated by a **mandatory no-training premise** (does the seeded decoder actually stay flooded? smoke stayPct 15.6% → reachable). Built, smoke-validated (premise + determinism pass), separate `phase48afix_*` checkpoints. armB closed regardless per hard cap; **char-flood accepted as the documented byte residual / watch-metric.**
+
+### The deliverable and the bet
+
+armB is the **frozen baseline** that Phase 48.B stacks on: the structural problem of five phases is solved, the frontier is lowered, and the path forward is **adding feature classes**, not scaling parameters. The bet: if BPB marches 2.18 → 2.10 → 2.0 → toward ~1.5 by adding CPU-native, mantra-pure nonlinearity classes, the thesis is proven — **"pulling an LLM out of silicon scales in feature richness, not parameter count."** That is the claim that, if it holds, eventually justifies scale/GPU (a charter prerequisite).
+
+### Phase 48.B — hunt for the substrate scaling law (next, TF-only probe)
+
+armB taught us: **the silicon understands similarities but not relations.** A relation is a *product* (A·B = "A in the context of B"); the additive EMA reservoir cannot represent it. Multiplicative interaction is the heart of sequence modeling (attention = query·key; LSTM gates = gate·state) and was the key to pre-LSTM char-level generators (multiplicative RNN, Sutskever 2011 — exactly our problem). Same EXPAND methodology, base = frozen armB, new classes appended, H32 clean readout, 3 held-out windows, mandatory controls. Three arms:
+
+1. **BILIN (headline)** — elementwise `fast_EMA · slow_EMA` products (recent × older), gating pulled out of the dynamics, attention-free, mantra-pure, near-free on CPU. Control: shuffled pairing (products of uncorrelated channels must help less) + leak guard.
+2. **WAVE32 (mantra-pure, near-free)** — integrate all 32 wave dims the silicon already computes vs the 11 currently integrated (Q0 finding: 21 are discarded). Use the silicon's own nonlinearity, impose none.
+3. **MULTIBW (smart scaling)** — `cos()` at three bandwidths (γ ≈ 0.0625 / 0.25 / 1.0) = multi-scale kernel, vs armB's blind single-γ. Different from "more features at one scale".
+
+Pre-registered criterion: each arm must beat **armB-alone** (the new baseline) by ≥0.015 on all three windows, controls clean. Winners (stackable) → **48.B.A** DAgger closed-loop under the frozen 47 harness (gate v2 + replicas + human reading), exactly as armB did. (Later efficiency enablers when a winner needs cheap scaling: structured Hadamard/Fastfood projections — adds/subtracts only — and XOR+popcount binary kernels; not probed now.) **MODOJA** (substrate learns *what* to encode) stays queued — a different lever, subordinate to "first find the feature classes".
+
+Iron law 44-47 carried in: TF is not generative, no closed-loop read before the gate, no celebration before gate v2 + replicas + human reading. Worst-of-32 on ~3% events is coin-flip-like; any gate re-specification is a user decision BEFORE seeing results.
 
 ## Constraints for the Next Agent
 
@@ -139,7 +167,11 @@ On the record, no illusions: even a full gate-v2 pass at ~2.25 BPB will read as 
 
 | artifact | role |
 |---|---|
-| `weights/phase47i_I_h32_r9.bin` | frontier: word+whitespace clean, char-flood residual, 2.2621 |
+| `weights/phase48a_I_h32_r7.bin` / `_r8.bin` | armB closed-loop: word-clean, frontier ~2.18-2.22, char-flood residual (self-BPB ~1.8) |
+| `weights/phase48_0exp_armB_h32.bin` | armB TF probe (0x53454548, +0.04 vs notap) — frozen-baseline lift definition for 48.B |
+| `benchmarks/phase38-42/phase48a_armb.c` / `phase48a_generator.c` / `phase48a.ps1` | armB DAgger trainer / lift-rebuilding generator / harness (determinism pre-check + gate v2 + replicas) |
+| `benchmarks/phase38-42/phase48_0_expand.c` | EXPAND probe (armA linear control / armB cos / shuffle guard) — the 48.B template |
+| `weights/phase47i_I_h32_r9.bin` | Phase 47 frontier: word+whitespace clean, char-flood residual, 2.2621 |
 | `weights/phase47g_P_h32_r7.bin` | historic word-only dual-temp pass (byte-dirty) |
 | `weights/phase43c2_C2A.bin` | only byte-clean model (linear, word-dirty) |
 | `weights/phase44f_F0.bin` | D1 stable feature substrate used by all 47 readouts |
