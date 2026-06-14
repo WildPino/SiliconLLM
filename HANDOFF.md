@@ -1,6 +1,6 @@
 # SiliconLLM Handoff
 
-Last updated: 2026-06-13 — **Phase 48.A CLOSED. armB (nonlinear-lift substrate) solved the five-phase structural instability: word-clean closed-loop, stable frontier lowered ~2.25 → ~2.18-2.22, residual = char-flood byte channel (fidelity ceiling). armB is the frozen baseline for 48.B. Phase 47 closed 2026-06-12 (stability stack + coverage theory + gate v2).**
+Last updated: 2026-06-14 — **Phase 48 CLOSED. 48.A: armB nonlinear-lift substrate solved the five-phase structural instability (word-clean closed-loop, frontier ~2.25 → ~2.18-2.22, char-flood byte residual). 48.B/C/D then closed the STATIC per-step axis with a proof per arm (static product = generic quadratic; random bilinear dynamics = noise; error-tilt = no-op because RFF is rotation-invariant). armB sits exactly at the boundary of what a static read of this substrate can give. Pivot: error is a no-op on features but everything for DYNAMICS → next axis is FORCE/RLS (learned generation attractor, no backprop). Phase 47 closed 2026-06-12.**
 
 ## Goal
 
@@ -116,9 +116,9 @@ All pre-47 items stand (pooling variants, scalar gains, generation hacks, L2 wri
 - Loosening any bar post-hoc, inference-side sample-cleaning filters, promoting "with reserve": forbidden on principle.
 - PowerShell: `$R` and `$r` are the same variable (case-insensitive) — caused a silent infinite loop; smoke-execute new harness sections, keep `-SkipTrain` flags.
 
-## Phase 48 — Substrate Feature Classes (armB / RFF kernel) — 48.A CLOSED
+## Phase 48 — Substrate Feature Classes (armB / RFF kernel) — CLOSED
 
-The Phase 47 close named the substrate as the bottleneck. Phase 48 mapped it and found the first lever that moves it.
+The Phase 47 close named the substrate as the bottleneck. Phase 48 mapped it, found the first lever that moves it (armB), and then proved the static per-step axis is exhausted — pivoting to generation dynamics (FORCE/RLS).
 
 ### 48.0 — mapping (Q0) + three TF-only probes
 
@@ -142,15 +142,25 @@ armB-expanded substrate (512-D feature `[D1 base 256 | armB B-bands 256]`) + the
 
 armB is the **frozen baseline** that Phase 48.B stacks on: the structural problem of five phases is solved, the frontier is lowered, and the path forward is **adding feature classes**, not scaling parameters. The bet: if BPB marches 2.18 → 2.10 → 2.0 → toward ~1.5 by adding CPU-native, mantra-pure nonlinearity classes, the thesis is proven — **"pulling an LLM out of silicon scales in feature richness, not parameter count."** That is the claim that, if it holds, eventually justifies scale/GPU (a charter prerequisite).
 
-### Phase 48.B — hunt for the substrate scaling law (next, TF-only probe)
+### 48.B / 48.C / 48.D — the static per-step axis, closed with a proof
 
-armB taught us: **the silicon understands similarities but not relations.** A relation is a *product* (A·B = "A in the context of B"); the additive EMA reservoir cannot represent it. Multiplicative interaction is the heart of sequence modeling (attention = query·key; LSTM gates = gate·state) and was the key to pre-LSTM char-level generators (multiplicative RNN, Sutskever 2011 — exactly our problem). Same EXPAND methodology, base = frozen armB, new classes appended, H32 clean readout, 3 held-out windows, mandatory controls. Three arms:
+armB taught us: **the silicon understands similarities (kernel) but not relations.** A relation is a *product* (A·B = "A in the context of B"); the additive EMA reservoir cannot represent it. Three probes asked "make the per-step read of the substrate smarter" from three angles. Each fell — and, unusually, each fell for a stateable mathematical reason. Same EXPAND methodology throughout (base = frozen armB, classes appended, H32 clean readout, 3 held-out windows, mandatory controls, anchor exact, TF-only).
 
-1. **BILIN (headline)** — elementwise `fast_EMA · slow_EMA` products (recent × older), gating pulled out of the dynamics, attention-free, mantra-pure, near-free on CPU. Control: shuffled pairing (products of uncorrelated channels must help less) + leak guard.
-2. **WAVE32 (mantra-pure, near-free)** — integrate all 32 wave dims the silicon already computes vs the 11 currently integrated (Q0 finding: 21 are discarded). Use the silicon's own nonlinearity, impose none.
-3. **MULTIBW (smart scaling)** — `cos()` at three bandwidths (γ ≈ 0.0625 / 0.25 / 1.0) = multi-scale kernel, vs armB's blind single-γ. Different from "more features at one scale".
+| Probe | Move | Result | Reason |
+|---|---|---|---|
+| **48.B** | relation as a static feature | flat (~0.01, none clears 0.015×3) | static product = generic quadratic — `BILIN_sp` (shuffled pairing) kept ~85% of the gain, so it's a second moment, not gating |
+| **48.C** | relation as random dynamics | **damage** (DYN < LIN_dyn, gate verified live) | no theorem for a random bilinear form → the multiplication injects noise, not signal |
+| **48.D** | error as feature selection | flat (MODOJA-K = PARITY = armB) | RFF is **rotation-invariant**: tilting the kernel's feature directions just resamples the *same* kernel |
 
-Pre-registered criterion: each arm must beat **armB-alone** (the new baseline) by ≥0.015 on all three windows, controls clean. Winners (stackable) → **48.B.A** DAgger closed-loop under the frozen 47 harness (gate v2 + replicas + human reading), exactly as armB did. (Later efficiency enablers when a winner needs cheap scaling: structured Hadamard/Fastfood projections — adds/subtracts only — and XOR+popcount binary kernels; not probed now.) **MODOJA** (substrate learns *what* to encode) stays queued — a different lever, subordinate to "first find the feature classes".
+**48.D detail (MODOJA-K, the first time the error signal touched the substrate).** The fixed `Ω` inside `cos(γ·Ω·L0norm)` became an error-tilted `P`: per-row Oja, learning-rate modulated by frozen-trigram surprise (mean 1), `P` learned on train then frozen (zero val leak), deterministic. Controls at *identical mean-lr*: PARITY (`m≡1`, unsupervised tilt) and SHUF-MOD (modulator time-permuted). One real failure caught and fixed: at η₀=1e-4 plain per-row Oja collapses `P` to ~1 PC (catastrophic — 128 rows → ~2 effective features destroys the kernel); a cheap `--pdiag` mode tuned η₀ at the true 1M-step count → **η₀=1e-7 gives a genuine ~13° tilt with the kernel still diverse (eff_rank 33/64)**; renormalizing each `P_d` to its original `‖Ω_d‖` (not to 1) kept init ≡ armB with no bandwidth confound. So `P` *did* move and the error *did* shape it — beautifully, **MODOJA-K collapses faster than PARITY at every η₀** (error-focusing concentrates on a more dominant PC). The error touched the substrate differentially; it was simply a **no-op on BPB**: `MODOJA-K − armB = +0.0009/+0.0027/+0.0012` (≪0.015), `MODOJA-K − PARITY ≈ 0`. **You cannot improve a kernel machine by rotating its features** (the Gaussian spectral density is rotation-invariant — every draw is an unbiased estimator of the same kernel). To make the error count you'd have to change the kernel's *shape* (anisotropic bandwidth, another family) — still inside the per-step axis just exhausted from three sides.
+
+**The static axis is closed, and the qualitative agrees:** armB's closed-loop is structured word-salad with short cyclic loops and no long-range structure. Quant (BPB plateau), qual (loops), and theorem (RFF) all converge — **the gap to language is not in the per-step snapshot, it is in the generation trajectory.**
+
+### The pivot: from representation to dynamics
+
+Note the symmetry the phase exposed: **the error is a no-op on features (rotation-invariant) but is everything for dynamics (stability is the only thing that matters in an autoregressive loop).** Four probes asked the substrate to *encode* better; none asked the *generation* to learn its own dynamics. The degenerate loops and char-flood that inflate armB's byte roughness and block the full gate are **autoregressive instability, not per-step errors.**
+
+The no-backprop, CPU-native, mantra-pure way to attack that is **FORCE / RLS (Sussillo-Abbott)**: give the readout recurrent feedback and train it online with recursive least squares, so generation acquires a *learned attractor* while the substrate stays a fixed reservoir (no backprop-through-time). It differs from DAgger (which trains a static, memoryless readout to coverage): FORCE gives generation its own recurrent memory and feedback, aimed directly at what blocks armB from the full gate. **MODOJA / scaling-the-lift / unit-choice remain queued** behind this; armB stays the frozen baseline.
 
 Iron law 44-47 carried in: TF is not generative, no closed-loop read before the gate, no celebration before gate v2 + replicas + human reading. Worst-of-32 on ~3% events is coin-flip-like; any gate re-specification is a user decision BEFORE seeing results.
 
@@ -170,7 +180,11 @@ Iron law 44-47 carried in: TF is not generative, no closed-loop read before the 
 | `weights/phase48a_I_h32_r7.bin` / `_r8.bin` | armB closed-loop: word-clean, frontier ~2.18-2.22, char-flood residual (self-BPB ~1.8) |
 | `weights/phase48_0exp_armB_h32.bin` | armB TF probe (0x53454548, +0.04 vs notap) — frozen-baseline lift definition for 48.B |
 | `benchmarks/phase38-42/phase48a_armb.c` / `phase48a_generator.c` / `phase48a.ps1` | armB DAgger trainer / lift-rebuilding generator / harness (determinism pre-check + gate v2 + replicas) |
-| `benchmarks/phase38-42/phase48_0_expand.c` | EXPAND probe (armA linear control / armB cos / shuffle guard) — the 48.B template |
+| `benchmarks/phase38-42/phase48_0_expand.c` | EXPAND probe (armA linear control / armB cos / shuffle guard) — the 48.B/C/D template |
+| `benchmarks/phase38-42/phase48_b.c` / `.ps1` | 48.B static probe (BILIN/WAVE32/MULTIBW + sp/leak guards) — static-map ceiling, no promotion |
+| `benchmarks/phase38-42/phase48_c.c` / `.ps1` | 48.C multiplicative-dynamics reservoir (DYN/LIN_dyn/DYN_st/DYN_sp, gate-liveness) — random bilinear = damage |
+| `benchmarks/phase38-42/phase48_d.c` / `.ps1` | 48.D MODOJA-K error-modulated Oja kernel tilt (+PARITY/SHUF-MOD, `--pdiag` η₀ tuning, P_DIVERSITY) — RFF-flat |
+| `weights/phase48c_DYN_h32.bin` / `phase48d_MK_h32.bin` | 48.C/48.D TF probe checkpoints (0x53454549 / 0x5345454A) — not promoted |
 | `weights/phase47i_I_h32_r9.bin` | Phase 47 frontier: word+whitespace clean, char-flood residual, 2.2621 |
 | `weights/phase47g_P_h32_r7.bin` | historic word-only dual-temp pass (byte-dirty) |
 | `weights/phase43c2_C2A.bin` | only byte-clean model (linear, word-dirty) |
