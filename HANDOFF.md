@@ -1,8 +1,21 @@
 # SiliconLLM Handoff
 
-Last updated: 2026-06-16 — **Phase 49 CLOSED + COMMITTED — first PARTIAL win of generation-dynamics (goal-2), NOT a step to language. The pre-registered 2-D criterion PASSED (tree branch 1) but the 49.1b human read demoted it to branch 3. 49.0: output-feedback LOAD-BEARING but MOMENTUM-pathological (positive feedback deepens the floods, chRun/wsRun climb r6→r9). 49.1 stabilized it (ERR = reinject only the surprise; ADAPT = positive feedback + spike-frequency adaptation): (1) KEEP-SIGNAL PASS NET — TF avgVal r9 ADAPT 2.1896 < ERR 2.1955 < POS 2.2004 < NO-FB 2.2243, ADAPT beats even POS (the smoke fear was an undertraining artifact; adaptation is DUAL-PURPOSE — damps runaway AND improves prediction); (2) ANTI-RUNAWAY PASS PARTIAL — runaway BROKEN (no monotone climb: POS chRun r6-9 13/19/26/37 vs ERR 13/8/17/18, ADAPT 11/17/12/19) but flood BOUNDED-not-eliminated (floor ~18-19 vs NO-FB ~9; damping at β0.97/G0.50 incomplete); (3) mini-gate: topBi CLEAN like armB (E_r7 bi2, A_r8 4/4) but wsRun/chRun over bar = same diffuse byte roughness as armB → none qualify to full. **49.1b human read (5 samples) = DECISIVE NEGATIVE on structure: ADAPT/ERR read in the SAME word-salad class as armB — real surface words + name-tokens + template anchors + 3-6-word grammatical runs, drowned in checkpoint-specific bounded floods that RE-EMERGE at 3500B; no sustained syntax, no maintained referents.** So 49.1 = branch 3: frontier −0.035 + runaway broken (goal-2 real) but gap is REPRESENTATIONAL not dynamical. Arc-48+49 wall crystallized: giving memory to a FIXED reservoir (even stabilized) ceilings at stable ~2.19-BPB structured word-salad — language needs SELECTIVE/content-addressable memory (the charter line). FORK (user, charter-level): (i) unit-choice cartography = last mantra-pure lever (Architect rec, first) vs (ii) relax charter for a minimal selective-memory primitive; (iii) RLS-FORCE down-weighted. Below: 49.0/49.1 detail, Phase 48 CLOSED.**
+Last updated: 2026-06-17 — **Phase 50 CLOSED (milestone)** — unit-choice cartography → **first recognizable English**. BPE-1024 (silicon-chosen by bits/byte) wired into a token readout over the unchanged byte-driven armB substrate: **byte-fidelity solved** (all byte-guards pass), BPB ≈ 1.69, recognizable (bad) English. The lone residual = **topBi** excess, and 50.B's premise falsified every coverage (decoder escapes seeded repeats at the natural rate) while corpus calibration confirmed the bar is honest (real TinyStories topBi p90=8 = the full-gate bar) → topBi = function-word fallback when the model loses the thread = **selective memory = the charter-question**. Every cheaper mantra-pure lever is spent. Fork (open): (a) relax-charter reservoir-native selective memory ("attention from the reservoir", no backprop into substrate); (b) declare 50.A the mantra-pure deliverable and publish; (c) consolidate (done). Full arc map in the Phase 50 section below.
 
-Last updated: 2026-06-14 — **Phase 48 CLOSED. 48.A: armB nonlinear-lift substrate solved the five-phase structural instability (word-clean closed-loop, frontier ~2.25 → ~2.18-2.22, char-flood byte residual). 48.B/C/D then closed the STATIC per-step axis with a proof per arm (static product = generic quadratic; random bilinear dynamics = noise; error-tilt = no-op because RFF is rotation-invariant). armB sits exactly at the boundary of what a static read of this substrate can give. Pivot: error is a no-op on features but everything for DYNAMICS → next axis is FORCE/RLS (learned generation attractor, no backprop). Phase 47 closed 2026-06-12.**
+Last updated: 2026-06-17 — **Phase 49 CLOSED + COMMITTED (V1.0.2)** — first PARTIAL win of generation-dynamics (goal-2), NOT a step to language. Phase 48+49 arc crystallized:
+
+1. armB (RFF kernel) solved the structural instability: word-clean closed-loop, frontier ~2.18-2.22 BPB, char-flood residual
+2. Output-feedback (ERR/ADAPT variants) breaks monotone runaway but flood floor ~18-19 vs NO-FB ~9 (incomplete damping)
+3. Human read of stabilized checkpoints (49.1b): all arms (ADAPT/ERR/armB) in same word-salad class — no sustained syntax, no maintained referents
+4. **Verdict**: gap is REPRESENTATIONAL (blurred summary memory vs selective content-addressable retrieval), not dynamical
+
+The mantra-pure axis CEILINGS at "a stable ~2.19-BPB byte generator that emits structured word-salad". The charter question: (i) unit-choice cartography = last mantra-pure lever (Architect recommends FIRST, byte-level floods dissolve at word/token granularity), or (ii) relax charter for selective-memory primitive.
+
+See `CHANGELOG.md` V1.0.2 and `docs/PHASE44-45_SYNTHESIS.md` for technical depth on each phase.
+
+Last updated: 2026-06-16 — **Phase 49 CLOSED + COMMITTED (V1.0.2)** — Phase 48+49 arc crystallized, human read decisive negative on structure. 49.1b: ADAPT/ERR read in same word-salad class as armB at ~2.19 BPB.
+
+Last updated: 2026-06-14 — **Phase 48 CLOSED (V1.0.1)**. 48.A: armB nonlinear-lift substrate solved the five-phase structural instability (word-clean closed-loop, frontier ~2.25 → ~2.18-2.22, char-flood byte residual). 48.B/C/D then closed the STATIC per-step axis with a proof per arm (static product = generic quadratic; random bilinear dynamics = noise; error-tilt = no-op because RFF is rotation-invariant). armB sits exactly at the boundary of what a static read of this substrate can give. Pivot: error is a no-op on features but everything for DYNAMICS → next axis is FORCE/RLS (learned generation attractor, no backprop). Phase 47 closed 2026-06-12.
 
 ## Goal
 
@@ -19,7 +32,7 @@ Word-level bars (unchanged from V1):
 | component | bar |
 |---|---|
 | BPB (teacher-forced, avg of 3 val windows) | <= 2.2543 |
-| topBi (most repeated word bigram) | <= 8 |
+| topBi (most repeated word bigram) | <= 8 (= corpus p90, confirmed corpus-truth in Phase 50; see `token_word_bars`) |
 | altLp (word alternation A-B-A-B) | <= 2 |
 | nameWst | <= 20 |
 | runWst (identical consecutive words) | <= 5 |
@@ -117,6 +130,52 @@ All pre-47 items stand (pooling variants, scalar gains, generation hacks, L2 wri
 - Trusting word-level metrics without byte-level guards and human reading: Goodhart (47.H→I).
 - Loosening any bar post-hoc, inference-side sample-cleaning filters, promoting "with reserve": forbidden on principle.
 - PowerShell: `$R` and `$r` are the same variable (case-insensitive) — caused a silent infinite loop; smoke-execute new harness sections, keep `-SkipTrain` flags.
+
+## Phase 50 — Unit-Choice Cartography → first recognizable English (CLOSED 2026-06-17, milestone)
+
+The Phase 48+49 wall: a fixed reservoir's memory is a blurred non-selective summary, and the residual degeneration was at the BYTE level (char-flood, ws-flood, broken morphology). The mantra-pure lever left was **unit-choice**: let the silicon emit a larger unit so the byte-degeneration channels become structurally impossible — chosen by the silicon, not imported from LLM convention.
+
+### 50.0 — the MAP (cheap, no substrate, no training)
+
+`phase50_0_map.c`: a fair interpolated-KN n-gram (order 1/2) in **bits-per-BYTE** (unit-invariant, OOV byte-fallback = lossless) over train/held-out, for every candidate unit — byte / word / BPE-512/1024/4096 / 2-byte-stride / hashed-3gram. Result: **BPE-1024 wins** — bpb-o2 ≈ 0.94 vs byte 3.31, repeat-mass (P(next==cur)) collapses byte 0.025 → BPE ~0.0001 (the byte flood dissolves at subword granularity), ~2.5 bytes/unit, feasible vocab, lossless. The silicon-native non-linguistic units (bytepair, hashed-3gram) were beaten or lossy. Mantra honoured: the unit was selected by bits/byte, not by convention.
+
+### 50.A — wire BPE-1024 into the readout (the breakthrough)
+
+Substrate armB stays **byte-driven and INVARIATO**; only the readout changes: at each token boundary it reads φ_armB and predicts the next token (1024-way softmax, H32, + frozen token-bigram prior = the analog of the byte-trigram), trained with the 47.I DAgger recipe lifted to tokens (emit a sampled token → feed its bytes on-policy → target = true next corpus token). Generation: predict token → sample → emit its bytes → substrate advances. Checkpoint `0x53454554` embeds merges + bigram so the generator reconstructs the tokenizer (`phase50_a_token.c` / `phase50_a_generator.c` / `phase50_a.ps1`; codec `bpe_codec.h`).
+
+**Result = breakthrough.** Recognizable English, **byte-fidelity solved** (all byte-guards pass — TOK chRun 2 / wsRun 4 vs armB 6 / 9), self-BPB ~1.27, BPB ≈ 1.69. Fifty phases took the project from a byte compressor to a generator that writes (bad but real) English. The only full-gate fail is **topBi** (word/token repeat — "the the", "to the to the").
+
+### 50.B / 50.B-diag — classify the topBi residual (no training)
+
+Is topBi a coverable token-flood (like the cured char-flood), a bar artifact, or the charter-question? Two cheap measures decided it:
+- **Premise (no-train, `phase50_b_token.c --premise`, on r5 AND deployed r9):** seed the decoder into each repeat mode and measure persistence vs a natural control. **single** seeded 0.039 ≈ natural 0.043 (ratio 0.91); **alt** ("the the") seeded 0.30 vs natural 0.23 (ratio 1.3 — mostly NATURAL function-word frequency, weak lift); **dup** ("named named") negligible both ways. **No mode is a coverable attractor** — the decoder escapes seeded repeats at the natural rate; the token-bigram prior already suppresses same-token loops. Branch 3.
+- **Corpus calibration (`phase50_consolidate.ps1`, 400 held-out 2 KB gate-windows of REAL TinyStories):** topBi p50=5, **p90=8**, p97=10, max=18. Real human text itself exceeds the mini-gate's topBi≤7; the full-gate bar of 8 = corpus p90 exactly (already corpus-truth — no loosening needed). `docs/gatev2_bars.json` now carries a documented `token_word_bars` section.
+
+**Re-gate FOR THE RECORD (not a promotion, corrected bars):** byte-guards PASS at T0.65 (wsRun 5 / chRun 3); topBi worst-of-32 = **18 (T0.65) / 20 (T0.55)** — i.e. the generator's worst-of-32 reaches corpus-MAX-level repetition (18) about 1-in-32, where real text reaches it ~1-in-400. A real **tail** residual, above the fair worst-of-32 reference (corpus p97=10), driven by function-word fallback when the model loses the thread. (`results/phase50_a/regate_record.txt`.)
+
+### The wall, isolated (arc 48→49→50)
+
+- **Static representation** maxed at armB (Phase 48, RFF kernel + three proofs).
+- **Feedback memory** gives stability, not structure (Phase 49 — runaway broken, still word-salad).
+- **Unit-choice** dissolves the BYTE degeneration (Phase 50 — first recognizable English, byte-fidelity solved).
+- **The single remaining residual = topBi excess = the model falls back on frequent patterns when it loses the thread = SELECTIVE MEMORY = the charter-question.** The premise falsified every coverage; corpus calibration confirmed the bar is honest; every cheaper mantra-pure lever is now spent.
+
+### The fork (open, for when work resumes)
+
+(a) **Relax the charter** with a reservoir-native selective memory — fixed/random-key key-value where only the readout retrieves ("attention from the reservoir", no backprop into the substrate) — the one untried lever that targets selective content-addressable recall directly. (b) **Declare 50.A the mantra-pure deliverable** and close/publish (a fixed reservoir + minimal static readout + silicon-chosen unit writes recognizable English). (c) **Consolidate** (done here). The charter-question is the user's — it is their philosophy.
+
+### Key artifacts (Phase 50)
+
+| artifact | role |
+|---|---|
+| `benchmarks/phase38-42/phase50_0_map.c` / `phase50_0.ps1` | unit-choice cartography (bits/byte n-gram map); `--save-bpe` dumps the BPE-1024 merges (`weights/bpe1024.bin`) |
+| `benchmarks/phase38-42/bpe_codec.h` | shared BPE encode/decode (lossless, round-trip verified) |
+| `benchmarks/phase38-42/phase50_a_token.c` / `phase50_a_generator.c` / `phase50_a.ps1` | token trainer (DAgger, 0x53454554) / closed-loop token generator / gate harness |
+| `weights/phase50a_tok_I_h32_r1..r9.bin` | 50.A token readout checkpoints (r9 deployed): recognizable English, byte-fidelity solved, topBi residual |
+| `benchmarks/phase38-42/phase50_b_token.c` / `phase50_b_diag.ps1` | re-posed premise (single/alt/dup) + corpus calibration — topBi classified as non-coverable (charter-question) |
+| `benchmarks/phase38-42/phase50_consolidate.ps1` | corpus calibration → recalibrated `token_word_bars` + re-gate record |
+| `docs/gatev2_bars.json` | byte guards (unchanged) + `token_word_bars` (corpus-truth p90) + honest note |
+| `results/phase50_a/regate_record.txt` | re-gate of 50.A r9 on corrected bars, for the record |
 
 ## Phase 49 — Generation Dynamics (FORCE / output-feedback) — 49.1 OPEN
 

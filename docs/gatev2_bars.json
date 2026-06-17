@@ -2,5 +2,12 @@
     "wsRun":  6,
     "chRun":  8,
     "wsFrac":  0.2502,
-    "nonPrint":  135
+    "nonPrint":  135,
+    "token_word_bars":  {
+                            "topBi":  8,
+                            "altLp":  2,
+                            "runWst":  2,
+                            "nameWst":  9
+                        },
+    "note":  "byte guards (wsRun/chRun/wsFrac/nonPrint) unchanged. token_word_bars recalibrated to corpus-truth p90 over 400 held-out 2000-byte gate-windows of real TinyStories (Phase 50 consolidation). The byte-era word bar topBi\u003c=7 was STRICTER than ground truth (corpus topBi p90=8, max=18): real human text itself exceeds 7. p90 chosen as conservative/honest (worst-of-32 reaches higher); NOT tuned to pass."
 }
