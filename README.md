@@ -1,4 +1,4 @@
-# Silicon Entropy Engine (SEE) — V1.0
+# Silicon Entropy Engine (SEE) — V1.0.2
 
 A CPU-native lossless data compressor using a streaming mixture-of-experts architecture. SEE encodes files using an ensemble of statistical models that compete byte-by-byte; their weights are updated online via an exponentiated-gradient MoE.
 
@@ -135,6 +135,19 @@ Reproducibility audit: encode determinism, decode of committed fixture archives,
 
 ---
 
+## Research frontier (Phases 46–49)
+
+The V1.0 compressor is stable and its limits are known. Current research focuses on closing the gap between "structured word-salad" (~2.25 BPB) and readable language (~1.5 BPB):
+
+- **Phase 46**: L3 phrase-memory over D1 — compression-positive (B3 2.2509) but generation-fragile; "volatile memory at inference" axis closed.
+- **Phase 47**: Static nonlinear readout + DAgger on-policy training — discovered the lever is readout nonlinearity (MLP on stable features), not teacher distillation. First stable closed-loop generator with word-level metrics passing gate v2 (P_r7 historic dual-temp pass at 2.19 BPB). Discovery: byte-level degeneration (whitespace floods, far-field attractor) limits passage; full gate requires corpus-calibrated byte guards + human reading.
+- **Phase 48**: Substrate feature classes — armB nonlinear lift (Random Fourier Features) solves the five-phase structural instability, lowering frontier to ~2.18 BPB with word-clean closed-loop. Proved the static per-step axis exhausted via three mathematical proofs (product=quadratic, random bilinear=noise, RFF rotation-invariance). Pivot: dynamics/feedback-memory is the next axis.
+- **Phase 49**: Generation dynamics (FORCE/RLS output-feedback) — output-feedback is load-bearing and can stabilize (ERR/ADAPT variants break monotone runaway), but still emits structured word-salad at ~2.18-2.20 BPB. The gap to language is now characterized as **representational** (blurred summary memory vs selective content-addressable retrieval), not dynamical.
+
+See `HANDOFF.md` for the complete technical narrative, including all negative results and the evidence that led to each pivot decision.
+
+---
+
 ## Repository Layout
 
 ```
@@ -154,7 +167,7 @@ SiliconLLM/
 │   └── archive/                Obsolete/superseded source files
 ├── weights/
 │   ├── v1/                     V1.0 production weights
-│   └── research/               Experimental weights (phases 36–42)
+│   └── research/               Experimental weights (phases 36–49)
 ├── data/
 │   ├── corpora/
 │   │   ├── internal/           Synthetic + curated corpora (c_code, natural_text, …)
@@ -162,7 +175,7 @@ SiliconLLM/
 │   ├── external/               Real-world files for Phase 29B/29C stress tests
 │   ├── fixtures/               Format identity fixtures (tiny_*.see + manifest.json)
 │   ├── baselines/              Frozen regression baselines (phase29a, phase29c, phase33)
-│   └── phase_data/             Phase-specific binary datasets (phase32–42)
+│   └── phase_data/             Phase-specific binary datasets (phase32–49)
 ├── scripts/
 │   ├── regression_test.py      Full regression harness (primary gate)
 │   ├── test_headers.py         Header integrity tests
@@ -170,12 +183,11 @@ SiliconLLM/
 │   ├── phase31-34/             Regime routing research scripts
 │   ├── phase35-36/             Reproducibility audit
 │   ├── phase37-40/             Multi-domain / MoE research scripts
-│   ├── tooling/                Analysis, plotting, and one-off utilities
 │   └── archive/                Superseded scripts (phases 21–28)
 ├── benchmarks/
 │   ├── phase01-14/             Early architecture benchmarks (C)
 │   ├── phase18/                Coder + readout training benchmarks
-│   └── phase38-42/             Phase 38–42 experiment harnesses
+│   └── phase38-49/             Phase 38–49 experiment harnesses
 ├── bin/
 │   ├── phase01-14/             Built binaries for early benchmarks
 │   ├── phase18-23/             Built binaries for phases 18–23
@@ -183,10 +195,10 @@ SiliconLLM/
 │   └── misc/                   Utility binaries (wave_engine, test_rc)
 ├── results/
 │   ├── phase11–14/             Per-phase result files
-│   ├── phase20–42/             Per-phase result files
+│   ├── phase20–49/             Per-phase result files
 │   └── misc/                   Unphased result files
 ├── experiments/
-│   └── phase41a/               Phase 41 active experiment
+│   └── phase41a/               Phase 41 active experiment (archived)
 ├── docs/
 │   ├── profiles.md             Expert profile reference
 │   ├── architecture_decisions.md  Architecture decision log
@@ -196,7 +208,8 @@ SiliconLLM/
 │   │   ├── early/              Phase 1–22 walkthrough notes
 │   │   └── archive/            Superseded phase docs
 │   ├── research/               Background research notes (CPU arch, derivatives)
-│   └── archive/                Superseded docs (v0_architecture, project_summary, …)
+│   ├── archive/                Superseded docs (v0_architecture, project_summary, …)
+│   └── PHASE44-45_SYNTHESIS.md L2 boundary memory synthesis (Phase 46+ precursor)
 └── logs/
     └── phase10/                Phase 10 run logs
 ```
@@ -205,7 +218,7 @@ SiliconLLM/
 
 ## Research Context
 
-SEE was developed through a sequence of measurement-driven phases (24–35). Each phase posed a specific hypothesis, ran a controlled tribunal, and either promoted or rejected a change. The result is a small, stable set of expert components — not because alternatives weren't tried, but because most were rejected by the data.
+SEE was developed through a sequence of measurement-driven phases (24–49). Each phase posed a specific hypothesis, ran a controlled tribunal, and either promoted or rejected a change. The result is a small, stable set of expert components — not because alternatives weren't tried, but because most were rejected by the data.
 
 Phase 31 measured SEE against zlib-9, bz2-9, lzma, zstd-22, and brotli-11. SEE ties classical compressors only on shuffled/random data. On every structured domain it loses, with gaps ranging from +0.7 BPB (prose) to +2.0 BPB (markdown). This is the honest external baseline.
 
@@ -213,4 +226,8 @@ Phases 32–34B explored regime routing (credit-dynamics-based domain detection)
 
 Phase 35 confirmed physical reproducibility: deterministic output, committed format fixtures, `-ffast-math` documented as forbidden.
 
-For now: the body is stable and its limits are known. See `CHANGELOG.md` for the full phase history.
+Phases 40–46 explored L2/L3 boundary memory and L3 phrase memory. Finding: volatile inference memory creates attractor pressure that cannot be stabilized by per-event gating on internal signals (cos/rel_move/norm/surprise all carry zero correlation with write usefulness).
+
+Phases 47–49 pivoted to generation dynamics. Finding 1: readout nonlinearity (MLP) on stable features extracts large predictive structure. Finding 2: DAgger on-policy rollout training cures attractors channel-by-channel according to coverage. Finding 3: armB's RFF lift solves the five-phase structural instability, lowering the stable frontier from ~2.25 to ~2.18 BPB with word-clean closed-loop. Finding 4: the gap to language is now characterized as **representational** (blurred summary memory vs selective content-addressable retrieval), not dynamical.
+
+For now: the body is stable and its limits are known. The research frontier has moved from compression optimization to characterizing what memory structure enables language. See `CHANGELOG.md` for the full phase history.
