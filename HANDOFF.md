@@ -1,6 +1,16 @@
 # SiliconLLM Handoff
 
-Last updated: 2026-06-20 — **MANTRA-PURE ERA CLOSED (Phases 51-54). The frozen silicon-native substrate does not carry long-range language, and no charter-pure read / memory / plasticity / n-gram surfaces it. Pivot: build a CPU-optimized LLM — keep the substrate for cheap local work, admit a small TRAINED component for the long-range structure it lacks.**
+Last updated: 2026-06-21 — **Phase 55 (CPU LLM) — the pivot works. A trained SSM generates coherent TinyStories, fast, on CPU.** First post-mantra milestone.
+
+After the mantra-pure era closed (long-range language is not in a frozen substrate — see below), the project admitted backprop and pivoted to a **fast CPU-native small LM**: a trained selective-SSM ("Arch-A": diagonal recurrence + HiPPO init + one local sliding-window-attention layer), BPE-1024 over TinyStories, **trained in PyTorch (GPU) and exported to a C inference engine for CPU**.
+
+- **Quality:** Arch-A 1.46M params, **val BPB 0.90**, generates **coherent TinyStories** — within-story scenes with dialogue, maintained referents, story structure with morals. First model in project history that is **byte-clean AND word-clean (full gate v2) AND readable AND BPB<1, together** (worst-of-32: T0.65 fully in-bar; T0.55 in-bar except a ~1-in-32 low-temp repetition tail). Residuals = intrinsic ceiling of 1.46M: referent/gender drift, surreal semantics → a **capacity lever** (5M / full TinyStories) at a tok/s cost, parked.
+- **Decode recipe (LOCKED):** temperature + **repetition penalty 1.2 / window 128, NO top-p**. Intuition-overturning findings: top-p made low-temp looping *worse* (tail-truncation concentrates head mass); rep-penalty must hit each *unique* recent token once (per-occurrence compounding → word-salad). The mantra-era "no inference-side cleaning is cheating" rule is **retired for the product era** — sampling control is standard decoding; evaluate always with-and-without.
+- **Speed:** single-core **~3210 tok/s fp32** on the dev box after vectorizing the selective-scan `exp` (the measured 95%-dominant cost; ~5× over scalar). Past the 1200–1500 target before any quantization.
+- **Hardware (dev + current target) = Ryzen 5 3600X (Zen 2, AVX2, no AVX-512/VNNI).** Compute-bound (not BW-bound); fp32 weights L3-resident → **fp32 is the deliverable here.** int8 gives only ~1.2× on AVX2 (no VNNI matmul) + a low-temp quantization spiral → not worth chasing on Zen 2. **int8/int4 + AVX-512 VNNI = the documented FUTURE lever** for newer consumer CPUs (real `vpdpbusd` matmul speedup + L2/L1 footprint), quality-safe via **mixed precision** (head + embedding fp32, bulk quantized); PTQ of exported weights = speedup without retraining. "Product for everyone" → portable by design. See README "CPU Language Model" + `project_phase55_plan` memory.
+- **C engine integrity:** reproduces the PyTorch forward exactly (export gate: C BPB == PyTorch 0.8961 to 4 digits) and runs vector-exp without accuracy loss (C-fast == C-exact to 4 digits). Build artifacts: `benchmarks/phase55/phase55_ssm.py` (train/export/decode-sweep), `phase55_export.py`, `phase55_generator.c` (C inference + locked decode + gate), `phase55_kernel_r1_vexp.c` (vector-exp premise).
+
+---
 
 The charter-question left open at Phase 50 ("can a frozen reservoir get selective, long-range, content-addressable memory the mantra-pure way?") is now decided by measurement, across four independent attacks. The answer is **no**, and exactly why:
 

@@ -8,6 +8,24 @@ A CPU-native lossless data compressor using a streaming mixture-of-experts archi
 
 ---
 
+## CPU Language Model (research track — Phase 55+)
+
+Beyond the compressor, the project now builds a **fast CPU-native small language model**: a trained SSM (selective state-space / diagonal recurrence, "Arch-A") over BPE-1024 tokens on TinyStories. Unlike the frozen-substrate era (Phases 1–54), this model is **trained with backprop** (PyTorch, GPU) and **exported to a C inference engine** for CPU; the design goal is maximum tokens/sec on CPU at small size.
+
+**Status (current):** Arch-A, 1.46M params, val BPB 0.90, generates coherent TinyStories (byte- and word-clean closed-loop under the locked decode recipe below). Single-core inference on the dev box (R5 3600X, AVX2, fp32): **~3210 tok/s** after vectorizing the selective-scan `exp` (the measured 95%-dominant cost; ~5× over the scalar baseline).
+
+**Decode recipe (locked):** temperature + repetition penalty 1.2 over a 128-token window, **no top-p**. Findings that overturned intuition: nucleus/top-p made low-temperature looping *worse* (truncating the tail concentrates mass on the head); the repetition penalty must penalize each **unique** recent token once — per-occurrence compounding causes word-salad.
+
+### Hardware & optimization roadmap
+
+Developed and tuned on a **Ryzen 5 3600X (Zen 2, AVX2, no AVX-512 / no VNNI)** — the current dev box and target. Consequences, and the path for newer hardware (a product for everyone must account for the R5 already being outdated):
+
+- On this CPU the model is **compute-bound** (selective-scan transcendentals + matvec), not memory-bandwidth-bound; the fp32 weights already fit comfortably in L3. So **fp32 is the practical deliverable here** — past the throughput target, numerically clean at both sampling temperatures.
+- **int8 weights give only ~1.2× on AVX2** (no `vpdpbusd`/VNNI to accelerate the integer matmul) and introduce a low-temperature quantization-noise failure mode (a sharp distribution can spiral into repetition). Not worth chasing for speed on Zen 2.
+- **Future hardware (AVX-512 + VNNI: Zen 4+, recent Intel) is the real lever for int8/int4.** There, the integer matmul (`vpdpbusd`) accelerates the now-dominant matvec, and int8/int4 weights drop the footprint toward L2/L1. The quality-safe recipe is **mixed precision**: keep the output head and embedding in fp32 (they write the logits, most sensitive), quantize the bulk projections. Post-training quantization of the exported weights gives this speedup **without retraining** — documented for future development, not built into the current Zen-2 deliverable.
+
+---
+
 ## Quick Start
 
 ```sh
