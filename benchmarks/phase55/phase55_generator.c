@@ -23,6 +23,8 @@
 #include <time.h>
 #include <ctype.h>
 #include <immintrin.h>
+#include "../phase50/bpe_codec.h"
+
 
 #define V    1024
 #define D    192
@@ -243,6 +245,7 @@ static inline float rfloat(){ return (float)((sm64()>>40)/(double)(1ULL<<24)); }
 int main(int argc,char**argv){
     int do_bpb=0,do_gen=0,do_bench=0,mode=2,greedy=0,quant_arg=0; long seqW=512, eval_tok=200000, gen_bytes=2000, K=32, bench_tok=20000; float rep=1.2f; int repwin=128;
     const char* wpath="results/phase55/archA_weights.bin";
+    const char* prompt=NULL; float temp=0.65f;
     for(int i=1;i<argc;i++){
         if(!strcmp(argv[i],"--bpb")) do_bpb=1;
         else if(!strcmp(argv[i],"--gen")) do_gen=1;
@@ -258,8 +261,11 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--quant")&&i+1<argc){ quant_arg = !strcmp(argv[++i],"int8"); }
         else if(!strcmp(argv[i],"--bench")) do_bench=1;
         else if(!strcmp(argv[i],"--bench-tok")&&i+1<argc) bench_tok=atol(argv[++i]);
+        else if(!strcmp(argv[i],"--prompt")&&i+1<argc) prompt=argv[++i];
+        else if(!strcmp(argv[i],"--temp")&&i+1<argc) temp=(float)atof(argv[++i]);
     }
-    if(!do_bpb&&!do_gen&&!do_bench) do_bpb=1;
+    if(!do_bpb&&!do_gen&&!do_bench&&!prompt) do_bpb=1;
+
     load_weights(wpath); load_meta("results/phase55/meta.bin"); load_ids("results/phase55/ids.u16");
     quantize_all();
     hstate=calloc(L,sizeof(*hstate)); convbuf=calloc(L,sizeof(*convbuf));
@@ -383,6 +389,84 @@ int main(int argc,char**argv){
                    temp,K,wTopBi,wAltLp,wRunWst,wName,wWsRun,wChRun,wWsFrac,wNonP);
         }
         printf("  samples (first 5/temp) -> %s/  (architect reads). STOP gate 3.\n",dirbase);
+    }
+    if(prompt){
+        int fe = (mode==0)?0:1;
+        rng_s = 0x55AA0000ULL ^ (uint64_t)time(NULL);
+        Bpe B;
+        if(!bpe_load_file(&B, "weights/bpe1024.bin")){
+            fprintf(stderr,"Error loading weights/bpe1024.bin\n");
+            return 1;
+        }
+        size_t plen = strlen(prompt);
+        uint32_t* prompt_tokens = malloc((plen + 1) * sizeof(uint32_t));
+        size_t prompt_ntok = bpe_encode_region(&B, (const unsigned char*)prompt, 0, plen, prompt_tokens);
+        state_reset();
+        long olen = 0, gl = 0;
+        long max_gen = gen_bytes;
+        uint16_t* gentok = malloc((max_gen + prompt_ntok + 64) * sizeof(uint16_t));
+        for(size_t sI=0; sI < prompt_ntok; sI++) {
+            uint16_t tk = (uint16_t)prompt_tokens[sI];
+            forward_token(tk, fe, quant_arg, logits);
+            gentok[gl++] = tk;
+        }
+        while(olen < max_gen) {
+            if(rep != 1.0f) {
+                long lo = gl > repwin ? gl - repwin : 0;
+                static int seen[V];
+                static int stamp = 0;
+                stamp++;
+                for(long p = lo; p < gl; p++) {
+                    int tt = gentok[p];
+                    if(seen[tt] != stamp) {
+                        seen[tt] = stamp;
+                        float v = logits[tt];
+                        logits[tt] = v > 0 ? v / rep : v * rep;
+                    }
+                }
+            }
+            int tok = 0;
+            if(greedy) {
+                float mx = -1e30f;
+                for(int o = 0; o < V; o++) {
+                    if(logits[o] > mx) {
+                        mx = logits[o];
+                        tok = o;
+                    }
+                }
+            } else {
+                float mx = -1e30f;
+                for(int o = 0; o < V; o++) {
+                    logits[o] /= temp;
+                    if(logits[o] > mx) mx = logits[o];
+                }
+                float Z = 0;
+                for(int o = 0; o < V; o++) {
+                    logits[o] = expf(logits[o] - mx);
+                    Z += logits[o];
+                }
+                float u = rfloat() * Z, acc = 0;
+                tok = V - 1;
+                for(int o = 0; o < V; o++) {
+                    acc += logits[o];
+                    if(u <= acc) {
+                        tok = o;
+                        break;
+                    }
+                }
+            }
+            gentok[gl++] = (uint16_t)tok;
+            for(int z = 0; z < id2len[tok]; z++) {
+                putchar(id2bytes[tok][z]);
+            }
+            fflush(stdout);
+            olen += id2len[tok];
+            forward_token((uint16_t)tok, fe, quant_arg, logits);
+        }
+        free(prompt_tokens);
+        free(gentok);
+        free(logits);
+        return 0;
     }
     printf("STOP. no commit.\n");
     return 0;

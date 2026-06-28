@@ -91,16 +91,25 @@ class SWABlock(nn.Module):
         y=(att@v).transpose(1,2).reshape(B,L,D)
         return s.o(y)
 
+class MLP(nn.Module):
+    def __init__(s,D,hid): super().__init__(); s.fc1=nn.Linear(D,hid,bias=False); s.fc2=nn.Linear(hid,D,bias=False)
+    def forward(s,x): return s.fc2(F.silu(s.fc1(x)))
+
 class Block(nn.Module):
-    def __init__(s,D,N,H,is_swa):
+    def __init__(s,D,N,H,is_swa,use_mlp=False,mlp_mult=4,dt_rank=12):
         super().__init__(); s.norm=RMSNorm(D)
-        s.mix=SWABlock(D,H) if is_swa else SSMBlock(D,N)
-    def forward(s,x): return x+s.mix(s.norm(x))
+        s.mix=SWABlock(D,H) if is_swa else SSMBlock(D,N,dt_rank=dt_rank)
+        s.use_mlp=use_mlp
+        if use_mlp: s.norm2=RMSNorm(D); s.mlp=MLP(D,mlp_mult*D)
+    def forward(s,x):
+        x=x+s.mix(s.norm(x))
+        if s.use_mlp: x=x+s.mlp(s.norm2(x))
+        return x
 
 class ArchA(nn.Module):
-    def __init__(s,V,D=192,N=64,H=6,L=4,swa_layer=3):
+    def __init__(s,V,D=192,N=64,H=6,L=4,swa_layer=3,use_mlp=False,mlp_mult=4,dt_rank=12):
         super().__init__(); s.emb=nn.Embedding(V,D)
-        s.blocks=nn.ModuleList([Block(D,N,H,is_swa=(i==swa_layer)) for i in range(L)])
+        s.blocks=nn.ModuleList([Block(D,N,H,is_swa=(i==swa_layer),use_mlp=use_mlp,mlp_mult=mlp_mult,dt_rank=dt_rank) for i in range(L)])
         s.norm_f=RMSNorm(D); s.head=nn.Linear(D,V,bias=False); s.use_ckpt=True
     def forward(s,idx):
         x=s.emb(idx)
@@ -158,6 +167,8 @@ def main():
     ap.add_argument("--accum",type=int,default=1,help="gradient accumulation micro-steps (effective batch = batch*accum)")
     ap.add_argument("--compile",action="store_true",help="torch.compile the model (official speedup; fuses the scan loop)")
     ap.add_argument("--load",type=str,default="",help="load a saved checkpoint and SKIP training (gen-only)")
+    ap.add_argument("--arch5m",action="store_true",help="5M Arch-A: D256 N96 H8 L6 (5 SSM + 1 SWA@5) + per-block MLP 4D, dt_rank16")
+    ap.add_argument("--mlp-mult",type=int,default=4,help="per-block MLP hidden multiplier (arch5m only; 4=literal ~6.7M, 2=~5.2M)")
     ap.add_argument("--top-p",type=float,default=1.0,help="nucleus sampling threshold (1.0=off); single-gen path")
     ap.add_argument("--rep-penalty",type=float,default=1.0,help="CTRL-style repetition penalty (1.0=off); single-gen path")
     ap.add_argument("--rep-window",type=int,default=128,help="how many recent tokens the repetition penalty looks at")
@@ -184,10 +195,21 @@ def main():
 
     eff = a.batch*a.accum
     if a.epochs>0: a.steps=max(1,int(a.epochs*ntr/(eff*a.seq)))
-    model=ArchA(V).to(dev); model.use_ckpt = not a.no_ckpt
+    if a.arch5m: AC=dict(D=256,N=96,H=8,L=6,swa_layer=5,use_mlp=True,mlp_mult=a.mlp_mult,dt_rank=16)
+    else:        AC=dict(D=192,N=64,H=6,L=4,swa_layer=3,use_mlp=False,mlp_mult=4,dt_rank=12)
+    model=ArchA(V,**AC).to(dev); model.use_ckpt = not a.no_ckpt
     nparam=sum(p.numel() for p in model.parameters())
-    print(f"Arch-A params={nparam} ({nparam/1e6:.3f}M) | V={V} D=192 N=64 H=6 L=4 (SWA@3,win128,expand2) | torch {torch.__version__} dev={dev} ckpt={model.use_ckpt}")
+    print(f"Arch-A params={nparam} ({nparam/1e6:.3f}M) | V={V} D={AC['D']} N={AC['N']} H={AC['H']} L={AC['L']} (SWA@{AC['swa_layer']},win128,expand2,mlp={AC['use_mlp']}x{AC['mlp_mult']},dt_rank{AC['dt_rank']}) | torch {torch.__version__} dev={dev} ckpt={model.use_ckpt}")
     print(f"  config: steps={a.steps} seq={a.seq} batch={a.batch} accum={a.accum} (eff {eff}, ~{eff*a.seq} tok/step, ~{a.steps*eff*a.seq/1e6:.1f}M tok = {a.steps*eff*a.seq/ntr:.2f} epochs) lr={a.lr} bf16={a.bf16} compile={a.compile}")
+    def val_bpb(cap):
+        model.eval(); bits=0.0; nb=0; nt=0
+        with torch.no_grad():
+            W=a.seq; lim=min(cap,len(val)-1); pos=0
+            while pos+W+1<=lim:
+                x=torch.from_numpy(val[pos:pos+W][None,:]).to(dev); y=torch.from_numpy(val[pos+1:pos+1+W][None,:]).to(dev)
+                ce=F.cross_entropy(model(x).reshape(-1,V),y.reshape(-1),reduction="sum")
+                bits+=ce.item()/math.log(2); nb+=int(el_t[y.reshape(-1).cpu()].sum().item()); nt+=W; pos+=W
+        model.train(); return bits/max(nb,1), nt, nb
     if a.load:
         sd=torch.load(a.load,map_location=dev); msd=sd.get("model",sd) if isinstance(sd,dict) else sd
         msd={k.replace("_orig_mod.",""):v for k,v in msd.items()}   # strip torch.compile prefix if present
@@ -204,9 +226,11 @@ def main():
             x=np.stack([src[i:i+a.seq] for i in ix]); y=np.stack([src[i+1:i+1+a.seq] for i in ix])
             return torch.from_numpy(x).to(dev), torch.from_numpy(y).to(dev)
 
-        print("== training (CE only) ==")
-        model.train(); t0=time.time()
+        print("== training (CE only; periodic val BPB = overfit watch: val UP while train DOWN => 25M tokens are the bottleneck) ==")
+        print("   (ms/step = instantaneous, val/autotune excluded; step 1 is one-time compile+autotune, read step 2+)")
+        model.train()
         for step in range(a.steps):
+            ts=time.time()
             opt.zero_grad(); lsum=0.0
             for _ in range(a.accum):
                 x,y=get_batch(train)
@@ -219,27 +243,22 @@ def main():
             gn=torch.nn.utils.clip_grad_norm_(model.parameters(),1.0)
             opt.step()
             if step==0 or (step+1)%max(1,a.steps//20)==0:
-                print(f"  step {step+1:5d}/{a.steps}  loss={lsum:.4f}  gnorm={gn:.2f}  bits/tok={lsum/math.log(2):.4f}  ({(time.time()-t0)/(step+1)*1000:.0f} ms/step)")
+                if dev_type=="cuda": torch.cuda.synchronize()
+                step_ms=(time.time()-ts)*1000   # pure single-step time (val/sync overhead excluded)
+                vmsg=""
+                if (step+1)%max(1,a.steps//10)==0 or step==0:
+                    vb,_,_=val_bpb(min(a.eval_tok,16000)); vmsg=f"  | val BPB={vb:.4f}"
+                print(f"  step {step+1:5d}/{a.steps}  loss={lsum:.4f}  gnorm={gn:.2f}  bits/tok={lsum/math.log(2):.4f}  ({step_ms:.0f} ms/step){vmsg}")
 
     # ---- val BPB (bits/byte, unit-invariant) ----
     print("== val BPB (held-out, bits/byte) ==")
-    model.eval(); bits=0.0; nbytes=0; ntok_eval=0
-    with torch.no_grad():
-        W=a.seq; lim=min(a.eval_tok,len(val)-1); pos=0
-        while pos+W+1<=lim:
-            x=torch.from_numpy(val[pos:pos+W][None,:]).to(dev); y=torch.from_numpy(val[pos+1:pos+1+W][None,:]).to(dev)
-            logits=model(x)
-            ce=F.cross_entropy(logits.reshape(-1,V),y.reshape(-1),reduction="sum")  # nats
-            bits+=ce.item()/math.log(2)
-            nbytes+=int(el_t[y.reshape(-1).cpu()].sum().item()); ntok_eval+=W
-            pos+=W
-    bpb=bits/max(nbytes,1)
-    print(f"  val BPB={bpb:.4f} bits/byte  (over {ntok_eval} tok / {nbytes} bytes; bits/tok={bits/max(ntok_eval,1):.4f})")
+    bpb,ntok_eval,nbytes=val_bpb(a.eval_tok)
+    print(f"  val BPB={bpb:.4f} bits/byte  (over {ntok_eval} tok / {nbytes} bytes)")
 
     # ---- save checkpoint (artifact, NOT a commit) ----
     if a.save and not a.load:
         torch.save({"model":model.state_dict(),
-                    "cfg":dict(V=V,D=192,N=64,H=6,L=4,swa=3,win=128,expand=2,seq=a.seq,steps=a.steps,bpb=bpb)}, a.save)
+                    "cfg":dict(V=V,**AC,win=128,expand=2,conv=4,seq=a.seq,steps=a.steps,bpb=bpb)}, a.save)
         print(f"  saved checkpoint -> {a.save}")
 
     # ---- closed-loop generation + gate (note: O(gen_tok x seq) recompute; fine on GPU) ----

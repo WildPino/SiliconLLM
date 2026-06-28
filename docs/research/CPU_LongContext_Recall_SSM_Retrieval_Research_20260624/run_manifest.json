@@ -1,0 +1,26 @@
+{
+  "query": "Sublinear streaming recall on CPU over a recurrent (SSM) backbone; similarity-preserving KV compression; existing SSM+retrieval architectures with long-range quality and CPU cost.",
+  "mode": "deep",
+  "date": "2026-06-24",
+  "hardware_target": "AMD Ryzen 5 3600X (Zen2), AVX2/FMA, no AVX-512, no VNNI",
+  "frontiers": [
+    "streaming/append-only ANN indices",
+    "retrieval-similarity-preserving KV quantization vs MSE",
+    "PQ fast-scan 4-bit ADC on CPU + alternatives (RVQ/AQ/AQLM)",
+    "SSM + sparse-attention/retrieval hybrid architectures",
+    "multi-token prediction on CPU"
+  ],
+  "assumptions": [
+    "Decode KV is append-only within a sequence (no deletes).",
+    "Bandwidth (not FLOPs) is the binding constraint on Zen2.",
+    "Quality target is top-k ranking fidelity, not KV reconstruction.",
+    "Backbone (local fluency) and recall tier (long-range) are functionally separable."
+  ],
+  "provider_config": {
+    "search": "WebSearch (search-cli unavailable)",
+    "fetch": "WebFetch",
+    "agents_spawned": 0
+  },
+  "sources_cited": 36,
+  "validation": "validate_report.py: ALL PASS; verify_citations.py: URLs are live web sources, local SSL cert verification unavailable in this environment."
+}

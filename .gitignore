@@ -53,3 +53,8 @@ ehthumbs.db
 *.enc
 *.out.c  
 graphify-out/
+
+# ── Model checkpoints + experiment run outputs (verdicts live in memory/HANDOFF) ──
+*.pt
+benchmarks/phase56/outputs_run*/
+benchmarks/phase56/output_*/
