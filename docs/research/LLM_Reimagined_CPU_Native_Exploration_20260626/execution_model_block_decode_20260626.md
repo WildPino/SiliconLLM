@@ -89,3 +89,62 @@ Il block-decode non è una 6ª idea — è l'**execution model** che fa coerere 
 **Probe rivisto:** (1) microbench roofline matmul ternario-LUT al variare N (dove attraversa il ridge); (2) **misura `a`** di un draft cheap sul nostro modello (il soffitto reale); (3) **prototipa il checkpoint-stato-per-posizione nello scan a-blocco** (il crux); verifica lineare (già la nostra ricetta). Tutto microbench, no-training pesante.
 
 **Fonti:** roofline 2402.16363 · Blockwise-Parallel 1811.03115 · Lookahead 2402.02057 · CLLMs 2403.00835 · Mamba-2 SSD 2405.21060 · Mamba-drafters 2506.01206 · SpecMamba 2509.19873 · Mamba-in-Llama 2408.15237 · DiffuMamba 2511.15927 · Set-Block-Decoding 2509.04185 · CPU-batching 2501.00032.
+
+---
+
+## 9. R-G — Il "concetto a-priori" (idea utente "scultore"): ridimensiona la qualità, MA risolve il gap-larghezza del single-user
+
+**Idea utente:** la risposta nell'uomo nasce parola-per-parola, ma il CONCETTO è a-priori → come uno scultore che ha l'idea prima e la rivela. Lettura mia = piano compatto a-priori (= codice compresso, DNA SEE), poi realizzazione (= decompressione).
+
+**IL VERDETTO CHE RIDIMENSIONA (onesto): l'AR PIANIFICA GIÀ a-priori, provato causalmente.** Anthropic "Biology of an LLM" (Claude sceglie la parola-rima a FINE riga PRIMA di scrivere la riga — provato sopprimendo/iniettando) + Future Lens (2311.04897: lo stato a posizione t codifica linearmente i token a t+2+). → **rendere il piano ESPLICITO NON migliora la prosa** (il modello pianifica comunque). Tutta la famiglia concept-first (LCM 2412.08821, Coconut 2412.06769, SoT 2307.15337, Semformer, SentenceVAE) **non batte un AR token-level di pari taglia su qualità open-ended** — i win sono in parallelismo/latenza, efficienza-reasoning, multilingue. **Quindi: il piano esplicito NON è una leva di qualità.**
+
+**MA — IL REGALO (la sinergia che chiude un gap reale): il piano esplicito compra PARALLELISMO, ed è ESATTAMENTE ciò che manca al single-user nel block-decode.** Il gap noto: il 6.3× misurato era batch-32 multi-STREAM (server, 32 utenti); **un singolo utente che genera UNA risposta cattura solo `a`≈2-4×** (la speculazione lineare). **Un piano globale fisso rende le sezioni INDIPENDENTI → le realizzi in PARALLELO → quella è la larghezza-di-batch.** Il piano **converte la richiesta sequenziale di UN utente in un carico batchabile.** Implicito non si può parallelizzare (è impigliato nel residual stream); esplicito sì. = il piano è **infrastruttura di throughput, non leva di qualità.**
+
+**Due regimi di costo (decisivo per CPU):**
+- **(A) Piano-come-vettore-separato (LCM/Coconut/Semformer):** costa una passata-modello extra (LCM = diffusion-su-embedding = molte passate + decoder) → **su CPU bandwidth-bound PERDE.** Scartato.
+- **(B) Piano-come-scaffold-cheap-poi-fill-parallelo (Skeleton-of-Thought, SentenceVAE):** piano corto + realizzazione **parallela** → **mappa DIRETTAMENTE sul telaio block-decode (R-F).** = il regime che sopravvive al roofline.
+
+**IL FIT PULITO PER NOI (unifica tutto):** il piano = **skeleton corto, DISCRETO, cheap** (UNA passata SSM veloce, greedy, **rep1.2 = la nostra ricetta lockata**) → poi **block-decode delle sezioni in PARALLELO** sotto il piano fisso. Unisce **K2** (streama i pesi una volta) + **K5** (il piano FORNISCE il blocco, non un draft cieco) + **R-F** (verify layer-major) + dà al single-user la **larghezza** che il block-decode pretende. **Skeleton discreto evita il gather dei codici-vettoriali** (che R-B/R-C dicono drift-brittle/anti-banda) — coerente. SSM = nativamente latent-variable (lo stato È un riassunto compresso; Mamba già backbone di latent-diffusion).
+
+**Failure modes:** (1) **extra-pass tax** (piano pesante = morto su CPU; solo cheap-plan/parallel-fill sopravvive); (2) **dipendenza inter-sezione** = il limite vero: il fill parallelo SI ROMPE quando la sezione N dipende dalla N-1 (matematica, codice, narrativa stretta); funziona su contenuto separabile/a-lista, non su prosa strettamente accoppiata; (3) il concetto non sta in un vettore (LCM serviva diffusion perché MSE-su-un-concetto sotto-determina); (4) drift dei codici-latenti appresi (= R-B, serve ℓ2-norm); (5) nessun win di qualità open-ended dimostrato.
+
+**SINTESI (mia): la tua metafora-scultore è reale e pubblicata, MA la parte "pensa meglio" è già fatta dall'AR internamente (provato).** Ciò che resta da guadagnare NON è coerenza — è **parallelismo**, e il parallelismo è proprio il pezzo mancante che dà al block-decode la larghezza su singolo utente. → **reframe: il piano-a-priori è infrastruttura di throughput che converte una richiesta sequenziale in un carico parallelo batchabile.** Il pezzo discreto-cheap (SoT × SentenceVAE) è quello che sta nel roofline. **Limite duro: vale su contenuto separabile; la prosa strettamente causale non si parallelizza.** (R-H — lo scultore few-step su token — pending, completa il quadro.)
+
+**Fonti:** LCM 2412.08821 · Coconut 2412.06769 · SoT 2307.15337 · Semformer 2409.11143 · SentenceVAE 2408.00655 · Anthropic Biology-of-LLM · Future Lens 2311.04897 · DiM 2405.14224.
+
+---
+
+## 10. R-H — Lo scultore in POCHI colpi (carving few-step): soffitto onesto `c≈3-5`, MA più SEMPLICE dell'AR su SSM
+
+**Metrica decisiva:** `c` = token committati per passata-pesi-piena. AR ha c=1; un carve vince sse c>1 a qualità-AR.
+
+**IL BOUND FONDAMENTALE (non una manopola): l'indipendenza condizionale.** L'unmasking parallelo approssima il giunto `p(x_S|ctx)` col prodotto delle marginali `∏p(x_i|ctx)`; se l'insieme S contiene posizioni mutuamente dipendenti → token ognuno localmente-probabile ma **congiuntamente incoerente.** I metodi recenti (DEMASK/DAPD/DOS) stimano un grafo di dipendenza e sbloccano solo un **insieme indipendente** per step. → **la larghezza parallela sicura/step è limitata dalla struttura di mutua-informazione locale del testo.**
+
+**→ `c` È CONTENT-DEPENDENT, e qui sta il nostro edge:** prosa non strutturata → insieme sicuro ~2-4 token/step (= lunghezza-accettazione speculativa); **contenuto a BASSA ENTROPIA (codice, log, JSON, boilerplate, whitespace = la nostra Cat-A silicon-native) → larghezza MOLTO maggiore** → c grande. **Il carve paga di più ESATTAMENTE sui dati per cui il progetto è nativo** ([[project_silicon_native_data]] Cat-A).
+
+**Il numero ONESTO:** **Set Block Decoding (SBD, 2509.04185, Meta) = `c≈3` affidabile** (fonde NTP+masked-prediction, no cambio-arch, KV-compatibile, fine-tune di un NTP esistente; **3.0-3.4× meno passate a qualità mantenuta, downstream 8B**). Diffusion non-distillata = c≈1 a qualità-AR (NFE≈lunghezza, no free lunch). Distillazione compra few-step: **FS-DFM 8-step = parità-perplexity con 1024-step (~128×) MA perplexity su modello PICCOLO, non reasoning 8B** → soffitto-demo, non `c` consegnato. **Bankable oggi = `c≈3-5`, NON 8-128.**
+
+**Il contest carve-vs-speculative-AR:** il block-speculative-AR (R-F) dà già `c≈a≈2-4` a **qualità ESATTA** (il verify rigetta i draft cattivi). SBD pareggia (~3×) MA **senza draft separato e senza KV-cache** = decisivo su CPU. Few-step-diffusion 8-128× dominerebbe ma a qualità downstream non provata. → **il carve vince la gara-banda solo dove `c` è strutturalmente grande (Cat-A); sulla prosa entrambi collassano a ~2-4.**
+
+**IL RIBALTAMENTO SSM (la cosa più bella): il carve DISSOLVE il crux dello state-rollback di R-F.** Lo speculative-AR su SSM richiede il checkpoint-stato-per-posizione per il rollback su accept-parziale (il rischio #1 del kernel C). **Un blocco diffusion/parallel-refine RICALCOLA l'intero blocco a ogni step → NON c'è NULLA da rollbackare → ri-scansiona e basta.** → **sul nostro SSM il carve è PIÙ SEMPLICE del percorso speculative-AR con cui compete.** La cosa che sembrava esotica è il fit più pulito. (E un SSM block-pass = scan bidirezionale O(N) no-KV = un weight-stream = il "colpo di scalpello" naturale.)
+
+**NICCHIA APERTA:** SBD/FS-DFM/BD3-LM sono tutti **transformer**. SSM+discrete-diffusion è quasi solo vision. **Few-step set-block-decoding su backbone SSM testuale = combinazione essenzialmente non lavorata = territorio di ricerca**, e compone pulito con R-F + K2 (layer-major su blocco 16-64, pesi streammati una volta, cache-resident → il compute extra in-blocco è gratis).
+
+**Failure modes:** (1) collasso indipendenza-condizionale (il bound duro, cap prosa ~2-4); (2) step-count creep (ripristinare qualità = più step = il win svanisce); (3) costo distillazione + validazione stretta; (4) commitment lunghezza-blocco (diffusion fissa la lunghezza; l'edit-based la flessibilizza ma oscilla); (5) uscire dal regime cache-resident (blocco grande → compute non più gratis → B≈16-64); (6) **decode-hygiene transfer: la ns greedy rep1.2/win128 va RI-VALIDATA per l'unmasking confidence-ordered** (non è più left-to-right).
+
+**Fonti:** SBD 2509.04185 · FS-DFM 2509.20624 · BD3-LM 2503.09573 · Fast-dLLM-v2 2509.26328 · Esoteric-LM 2506.01928 · DEMASK/DAPD · MaskGIT 2202.04200 · LLaDA 2502.09992 · Levenshtein 1905.11006.
+
+---
+
+## 11. CAPSTONE — la convergenza R-F + R-G + R-H (sintesi Architetto)
+
+Le due intuizioni utente (block-decode + scultore) e i tre filoni convergono su **UN solo execution model**, ora mappato onestamente:
+
+1. **Il soffitto è `c≈3-5` token/weight-stream sulla PROSA** — vero sia via speculative-AR (R-F, esatto) sia via carve (R-H). È un **bound FONDAMENTALE** (indipendenza condizionale = quanta parte del testo è localmente indipendente), non un fallimento di tuning. Non 500×, non 128×.
+2. **Ma il bound è CONTENT-DEPENDENT:** su contenuto strutturato/basso-entropia (Cat-A: codice/log/agentico) `c` è molto maggiore. → **il motore è più veloce ESATTAMENTE dove punta il prodotto (LLM agentico = carico ricco di struttura/tool/codice).** Il fit prodotto-architettura è allineato.
+3. **Carve vs speculative-AR:** pareggiano sulla prosa (~3×), ma il carve **non ha draft né KV E dissolve il crux state-rollback** → **su SSM il carve è il fit più semplice e pulito.**
+4. **Il piano a-priori (R-G):** non migliora la qualità (l'AR pianifica già, provato) — fornisce **larghezza-di-batch** al single-user (sezioni indipendenti → parallele). = infrastruttura di throughput, limitata a contenuto separabile.
+5. **Tutto fonde:** chassis block-decode (R-F) + piano-che-fornisce-width (R-G/SoT) + carve-che-riempie-il-blocco-in-place (R-H/SBD) = **un execution model coerente, nicchia aperta (SSM × few-step-set-block), nativamente adatto al nostro backbone** (scan parallelo = il refiner, no-KV, no-rollback) + DNA compressione.
+6. **Deliverable onesto:** ~3-5× sulla prosa (pareggia gli alternativi ma più pulito su SSM), di più su Cat-A, SOPRA lo shift bandwidth→compute-bound che sblocca multi-core/cache. **Originalità = la combinazione SSM-CPU-few-step-block, impubblicata.**
+
+**Probe (quando si apre lo scale-up, C puro, no-training-pesante):** (1) microbench roofline matmul ternario-LUT vs N (il ridge); (2) **decidi il main-loop: speculative-AR (checkpoint-stato) VS carve/SBD (ri-scan, no-rollback)** — R-H suggerisce che il carve è più semplice su SSM, da verificare; (3) misura `c` su prosa vs Cat-A (il content-dependence); (4) ri-valida la decode-hygiene per l'unmasking. Niente tocca il sizing recall in corso.
