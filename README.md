@@ -6,7 +6,7 @@
 
 **Making a large, agentic-capable language model fast on a consumer CPU — by architecture, not by brute force.**
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21128459.svg)](https://doi.org/10.5281/zenodo.21128459)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21128459-blue)](https://doi.org/10.5281/zenodo.21128459)
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-blue.svg)](LICENSE)
 [![Latest release](https://img.shields.io/github/v/release/WildPino/SiliconLLM?color=2dd4bf&label=release)](https://github.com/WildPino/SiliconLLM/releases)
 ![Target](https://img.shields.io/badge/target-x86--64%20AVX2%20(Zen%202)-informational)
