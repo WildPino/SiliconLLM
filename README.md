@@ -30,7 +30,7 @@ The answer is a **split design**:
 
 Everything is held together by a **block-decode chassis** that turns the CPU's worst case (random, per-token memory access) into its best case (bulk, sequential streaming).
 
-> **Honest status.** This is a **research project at the validation stage**, not a finished product. The foundation has been measured end-to-end on real Zen 2 hardware (below). The unified C inference engine is the roadmap, not yet the deliverable. Every number on this page comes from a real experiment, and every claim is stated with its honest limitations.
+> **Honest status.** This is a **research project**, not a finished product. The validated foundation *and* a working single-binary C inference engine (stages E1–E4) have been measured end-to-end on real Zen 2 hardware (below) — every optimization parity-gated against an fp32 reference. What remains is the scale-up frontier: streaming the two-pool architecture at billions of parameters. Every number on this page comes from a real experiment, stated with its honest limitations.
 
 ---
 
@@ -87,6 +87,18 @@ A mixture-of-experts grows *total* parameters while keeping the *active* paramet
 
 Routing has **no temporal locality** — the active expert set is i.i.d.-like across tokens (measured twice, at neuron and expert granularity). So the experts do *not* form a hot pool that stays cached; instead they are **streamed from DRAM in contiguous, granularity-bounded chunks** (bulk and sequential — ρ-safe, no pointer-chasing). This splits the memory budget into **two pools**: a resident core (≤ 16 MB L3, reused every token) and a streamed expert tier (a few MB/token at the DRAM floor). That two-pool model is the honest answer to the random-latency concern: no hot pool (measured), but no latency trap either (by construction).
 
+### 6 · The engine runs — end-to-end on real hardware
+
+The point of every probe above is this: a single-binary **C inference engine** that implements the validated architecture. It now exists through stage E4, built **correctness-first** — an fp32 reference core is the permanent regression harness, and every optimization lands only after parity against it is proven (bit-exact kernels, bit-identical logits, or a pre-registered BPB threshold).
+
+<div align="center">
+<img src="assets/bench_engine.png" width="80%">
+</div>
+
+From an unoptimized fp32 core to the full stack — ternary LUT MLP, exact activation-skip, a deterministic fast-exp scan, and the granular-MoE two-pool tier — the engine reaches **176 → 848 tokens/second single-threaded** on the Ryzen 5 3600X (4.8×), or **702 tok/s** on the better MoE model (−0.021 BPB). The total *inference-time* quality cost across every optimization is **+0.00004 BPB** — essentially free. The honest lesson is in the chart: the MLP kernel wins (E2/E3) stayed hidden until the real bottleneck — the exact-exp selective scan — was replaced by a deterministic polynomial approximation (E3.5, 25.9× on the scan alone).
+
+Scope, as always: at 5M sandbox scale everything is cache-resident, so these numbers validate the engine's *correctness* and *kernel-level* speed — not the streaming bandwidth at scale. The two-pool expert bytes are **counted and priced** (probe-3's 28 GB/s floor), not yet streamed at billions of parameters.
+
 ---
 
 ## Status
@@ -101,8 +113,8 @@ Routing has **no temporal locality** — the active expert set is i.i.d.-like ac
 | Block-structured sparsity | ✅ found (byproduct) | 18% → 50% skippable @ zero cost |
 | Granular MoE (capacity tier) | ✅ validated | granular > dense at iso-active; fine > coarse |
 | Two-pool memory model | ✅ characterized | resident core + streamed experts (no hot pool) |
-| Block-decode / MTP execution | 📋 designed | roadmap (execution chassis) |
-| Unified C inference engine | 🔧 in progress | reference core underway |
+| **C inference engine (E1–E4)** | ✅ **validated end-to-end** | **176→848 tok/s (4.8×), parity-gated, +0.00004 BPB** |
+| Block-decode / MTP execution (E5) | 📋 designed | roadmap (execution chassis) |
 
 See [`docs/SCALEUP_ARCHITECTURE.md`](docs/SCALEUP_ARCHITECTURE.md) for the full buildable blueprint, and [`HANDOFF.md`](HANDOFF.md) for the complete technical narrative including every negative result.
 
@@ -110,7 +122,7 @@ See [`docs/SCALEUP_ARCHITECTURE.md`](docs/SCALEUP_ARCHITECTURE.md) for the full 
 
 ## What this is *not* (scope discipline)
 
-- **Not a deployed speedup.** The probes run in a sandbox (a ~5M model that fits in cache), so they measure the *property* — the quality cost, the cache behavior, the predictability — not the realized end-to-end bandwidth of a large model. That is what the C engine will measure.
+- **Not a scale-up speedup yet.** The engine's 176→848 tok/s is real and single-threaded, but at 5M sandbox scale everything is cache-resident — it validates *correctness* and *kernel-level* speed, not the streamed two-pool bandwidth at billions of parameters (which is counted and priced, not yet run). The probes measure architectural *properties*; the scale-up engine is the next frontier.
 - **Not a finished LLM.** The current model is trained on TinyStories at small scale to isolate architectural questions cleanly. Broad-distribution quality at scale is future work.
 - **Honest about magnitude.** Individual levers are stated at their *predictor-free, measured* value (e.g. 2.12× sparsity, ~3× residency), never the optimistic ceiling. The compound win is one-to-two orders of magnitude, but no single headline number is load-bearing.
 

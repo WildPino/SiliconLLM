@@ -241,9 +241,36 @@ def chart_moe():
             "probe-4 · phase59_moe.py · 4k-step matched, equal total params · TinyStories")
 
 
+# ------------------------------------------------- 7. C engine speedup ladder
+# Source: Phase 60 / ENGINE_PLAN.md, single-thread on Ryzen 5 3600X, every step parity-gated.
+def chart_engine():
+    labels = ["E1\nfp32 core", "E2\n+LUT MLP", "E3\n+skip",
+              "E3.5\n+fast-exp scan", "E4\n+MoE tier"]
+    toks   = [176.1, 179.5, 192.3, 848.0, 701.7]
+    colors = [AMBER, AMBER, AMBER, TEAL, BLUE]
+    fig, ax = plt.subplots(figsize=(8.4, 4.5))
+    bars = ax.bar(labels, toks, color=colors, width=0.62, zorder=3)
+    for b, t in zip(bars, toks):
+        ax.text(b.get_x()+b.get_width()/2, t+12, f"{t:.0f}", ha="center",
+                va="bottom", color=INK, fontweight="bold")
+    ax.set_ylabel("tokens / second  (single core, 3600X)")
+    ax.set_ylim(0, 950)
+    ax.set_title("The engine, end-to-end: 176 → 848 tok/s  (every step parity-gated)")
+    ax.annotate("kernel gains stay hidden —\nthe exact-exp scan was the bottleneck",
+                xy=(1.5, 192), xytext=(0.0, 430), color=MUTED, fontsize=9,
+                arrowprops=dict(arrowstyle="->", color=MUTED, lw=1))
+    ax.annotate("fast-exp scan (25.9×)\nunblocks the engine → 4.8×",
+                xy=(2.72, 840), xytext=(1.25, 690), color=TEAL, fontsize=9.5,
+                arrowprops=dict(arrowstyle="->", color=TEAL, lw=1))
+    ax.text(4, 600, "MoE model\n(−0.021 BPB)", ha="center", va="top", color=BLUE, fontsize=9)
+    _finish(fig, "bench_engine.png",
+            "Phase 60 · benchmarks/phase60/ · single-thread Ryzen 5 3600X · +0.00004 BPB total")
+
+
 if __name__ == "__main__":
     chart_architecture()
     chart_moe()
+    chart_engine()
     chart_bits_speed()
     chart_ternary_quality()
     chart_cache_cliff()
