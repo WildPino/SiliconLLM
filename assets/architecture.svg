@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" font-family="DejaVu Sans, Segoe UI, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0e1117"/><stop offset="1" stop-color="#0b0e14"/>
+    </linearGradient>
+    <marker id="arw" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#8b949e"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="420" fill="url(#bg)"/>
+
+  <!-- title -->
+  <text x="40" y="46" fill="#e6edf3" font-size="22" font-weight="bold">Silicon Entropy Engine — a CPU-native LLM, co-designed for the memory wall</text>
+  <text x="40" y="70" fill="#8b949e" font-size="13">Split architecture: a small always-on “thinking” core + a large sparse “knowing” tier. Every byte sized to the L3 cache.</text>
+
+  <!-- THINKING tier -->
+  <rect x="40" y="100" width="410" height="210" rx="12" fill="#161b22" stroke="#2dd4bf" stroke-width="1.5"/>
+  <text x="60" y="128" fill="#2dd4bf" font-size="15" font-weight="bold">THINKING · always-on, cache-resident</text>
+  <text x="60" y="148" fill="#8b949e" font-size="11.5">O(1)-state recurrence · ≤ 16 MB L3 · ~24–32M ternary params/token</text>
+
+  <rect x="60" y="164" width="170" height="58" rx="8" fill="#0e1117" stroke="#30363d"/>
+  <text x="145" y="188" fill="#e6edf3" font-size="13" font-weight="bold" text-anchor="middle">SSM backbone</text>
+  <text x="145" y="207" fill="#8b949e" font-size="10.5" text-anchor="middle">selective scan · no KV cache</text>
+
+  <rect x="245" y="164" width="185" height="58" rx="8" fill="#0e1117" stroke="#30363d"/>
+  <text x="337" y="188" fill="#e6edf3" font-size="13" font-weight="bold" text-anchor="middle">gated MLP</text>
+  <text x="337" y="207" fill="#8b949e" font-size="10.5" text-anchor="middle">ternary 1.58-bit · dReLU sparse</text>
+
+  <rect x="60" y="234" width="370" height="58" rx="8" fill="#0e1117" stroke="#30363d"/>
+  <text x="245" y="258" fill="#e6edf3" font-size="13" font-weight="bold" text-anchor="middle">predictability</text>
+  <text x="245" y="277" fill="#8b949e" font-size="10.5" text-anchor="middle">active set forecastable in-place (86–92%) → skip, don’t gather</text>
+
+  <!-- KNOWING tier -->
+  <rect x="510" y="100" width="410" height="210" rx="12" fill="#161b22" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="530" y="128" fill="#fbbf24" font-size="15" font-weight="bold">KNOWING · large, sparse, on-demand</text>
+  <text x="530" y="148" fill="#8b949e" font-size="11.5">scales total params while active/token stays in budget</text>
+
+  <rect x="530" y="164" width="170" height="128" rx="8" fill="#0e1117" stroke="#30363d"/>
+  <text x="615" y="188" fill="#e6edf3" font-size="13" font-weight="bold" text-anchor="middle">recall tier</text>
+  <text x="615" y="208" fill="#8b949e" font-size="10.5" text-anchor="middle">IVF-PQ two-stage</text>
+  <text x="615" y="224" fill="#8b949e" font-size="10.5" text-anchor="middle">128K context</text>
+  <text x="615" y="240" fill="#8b949e" font-size="10.5" text-anchor="middle">~18 µs/query</text>
+  <text x="615" y="264" fill="#2dd4bf" font-size="10.5" text-anchor="middle">InfoNCE representation</text>
+  <text x="615" y="280" fill="#8b949e" font-size="10.5" text-anchor="middle">drift-free (bounded state)</text>
+
+  <rect x="715" y="164" width="185" height="128" rx="8" fill="#0e1117" stroke="#30363d"/>
+  <text x="807" y="188" fill="#e6edf3" font-size="13" font-weight="bold" text-anchor="middle">granular MoE</text>
+  <text x="807" y="208" fill="#8b949e" font-size="10.5" text-anchor="middle">many small experts</text>
+  <text x="807" y="224" fill="#8b949e" font-size="10.5" text-anchor="middle">top-k routed</text>
+  <text x="807" y="240" fill="#8b949e" font-size="10.5" text-anchor="middle">ternary experts</text>
+  <text x="807" y="264" fill="#fbbf24" font-size="10.5" text-anchor="middle">hot pool → L3-resident</text>
+  <text x="807" y="280" fill="#8b949e" font-size="10.5" text-anchor="middle">router = the predictor</text>
+
+  <!-- flow arrows -->
+  <line x1="450" y1="205" x2="508" y2="205" stroke="#8b949e" stroke-width="1.6" marker-end="url(#arw)"/>
+
+  <!-- chassis -->
+  <rect x="40" y="332" width="880" height="56" rx="10" fill="#12161d" stroke="#30363d"/>
+  <text x="60" y="356" fill="#60a5fa" font-size="13" font-weight="bold">BLOCK-DECODE CHASSIS</text>
+  <text x="60" y="374" fill="#8b949e" font-size="11">layer-major · N positions per weight-load → random routing becomes bulk-sequential (bandwidth-bound, not latency-bound)</text>
+</svg>

@@ -59,3 +59,10 @@ graphify-out/
 *.pt
 benchmarks/phase56/outputs_run*/
 benchmarks/phase56/output_*/
+
+# ── Large data + weight blobs: kept on disk, never tracked (regeneratable) ──
+data/
+weights/
+
+# ── Internal-only docs (raw ideation / dev journals): kept private ──
+docs/research/LLM_Reimagined_CPU_Native_Exploration_20260626/

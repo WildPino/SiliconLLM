@@ -1,251 +1,152 @@
-# Silicon Entropy Engine (SEE) — V1.0.2
+<div align="center">
 
-A CPU-native lossless data compressor using a streaming mixture-of-experts architecture. SEE encodes files using an ensemble of statistical models that compete byte-by-byte; their weights are updated online via an exponentiated-gradient MoE.
+# Silicon Entropy Engine
 
-**What SEE is:** a lossless compressor. Encode → decode recovers the original file bit-for-bit.
+### A CPU-native LLM, co-designed for the memory wall
 
-**What SEE is not:** a language model, a generative system, or a general-purpose neural network. The wave substrate (silicon_entropy) is a fixed reservoir — only the linear readout is trained. The architecture is shaped by CPU cache topology, not GPU parallelism.
+**Making a large, agentic-capable language model fast on a consumer CPU — by architecture, not by brute force.**
 
----
+![Architecture](assets/architecture.png)
 
-## CPU Language Model (research track — Phase 55+)
+<sub>Research project · target hardware: Ryzen 5 3600X (Zen 2, AVX2, **no** AVX-512 / VNNI) · 128K-context goal</sub>
 
-Beyond the compressor, the project now builds a **fast CPU-native small language model**: a trained SSM (selective state-space / diagonal recurrence, "Arch-A") over BPE-1024 tokens on TinyStories. Unlike the frozen-substrate era (Phases 1–54), this model is **trained with backprop** (PyTorch, GPU) and **exported to a C inference engine** for CPU; the design goal is maximum tokens/sec on CPU at small size.
-
-**Status (current):** Arch-A, 1.46M params, val BPB 0.90, generates coherent TinyStories (byte- and word-clean closed-loop under the locked decode recipe below). Single-core inference on the dev box (R5 3600X, AVX2, fp32): **~3210 tok/s** after vectorizing the selective-scan `exp` (the measured 95%-dominant cost; ~5× over the scalar baseline).
-
-**Decode recipe (locked):** temperature + repetition penalty 1.2 over a 128-token window, **no top-p**. Findings that overturned intuition: nucleus/top-p made low-temperature looping *worse* (truncating the tail concentrates mass on the head); the repetition penalty must penalize each **unique** recent token once — per-occurrence compounding causes word-salad.
-
-### Hardware & optimization roadmap
-
-Developed and tuned on a **Ryzen 5 3600X (Zen 2, AVX2, no AVX-512 / no VNNI)** — the current dev box and target. Consequences, and the path for newer hardware (a product for everyone must account for the R5 already being outdated):
-
-- On this CPU the model is **compute-bound** (selective-scan transcendentals + matvec), not memory-bandwidth-bound; the fp32 weights already fit comfortably in L3. So **fp32 is the practical deliverable here** — past the throughput target, numerically clean at both sampling temperatures.
-- **int8 weights give only ~1.2× on AVX2** (no `vpdpbusd`/VNNI to accelerate the integer matmul) and introduce a low-temperature quantization-noise failure mode (a sharp distribution can spiral into repetition). Not worth chasing for speed on Zen 2.
-- **Future hardware (AVX-512 + VNNI: Zen 4+, recent Intel) is the real lever for int8/int4.** There, the integer matmul (`vpdpbusd`) accelerates the now-dominant matvec, and int8/int4 weights drop the footprint toward L2/L1. The quality-safe recipe is **mixed precision**: keep the output head and embedding in fp32 (they write the logits, most sensitive), quantize the bulk projections. Post-training quantization of the exported weights gives this speedup **without retraining** — documented for future development, not built into the current Zen-2 deliverable.
+</div>
 
 ---
 
-## Quick Start
+## What this is
 
-```sh
-# Encode
-see encode input.txt output.see --weights weights/entropy_weights_factors_r16.bin
+Modern LLM inference is **bandwidth-bound**: on a CPU you spend most of every token streaming weights from memory, not computing. This project asks a different question than "how do we run a GPU model on a CPU" — it asks **what architecture would you design if the CPU cache hierarchy were the first constraint, not an afterthought.**
 
-# Decode
-see decode output.see recovered.txt --weights weights/entropy_weights_factors_r16.bin
+The answer is a **split design**:
 
-# Audit BPB without writing an archive
-see audit input.txt --weights weights/entropy_weights_factors_r16.bin
-```
+- a small, **always-on "thinking" core** — an SSM (state-space) backbone with a ternary, sparse MLP, sized to live entirely inside the **L3 cache**;
+- a large, **sparse "knowing" tier** — a retrieval index for long-context recall plus a granular mixture-of-experts, which scale *total* knowledge while keeping the *active* parameters per token inside the cache budget.
 
-The `.see` archive is self-describing: the decoder reads all parameters from the header. No flags are needed at decode time other than the weights path.
+Everything is held together by a **block-decode chassis** that turns the CPU's worst case (random, per-token memory access) into its best case (bulk, sequential streaming).
+
+> **Honest status.** This is a **research project at the validation stage**, not a finished product. The foundation has been measured end-to-end on real Zen 2 hardware (below). The unified C inference engine is the roadmap, not yet the deliverable. Every number on this page comes from a real experiment, and every claim is stated with its honest limitations.
 
 ---
 
-## Expert Profiles
+## The measured findings
 
-Select the expert set with `--expert-profile <name>` at encode or audit time.
+The project advances by **pre-registered probes**: each hypothesis gets a controlled experiment with a gate fixed *before* the results are seen. Here is what has survived.
 
-| Profile | Expert set | Use when |
+### 1 · Ternary weights are the right call on Zen 2 — and cost almost nothing in quality
+
+Without AVX-512/VNNI, the usual int8 quantization path barely helps (~1.2×). A **ternary (1.58-bit) weight** kernel using `pshufb` byte-LUTs goes the *other* way — fewer bits means faster — and every kernel is bit-exact against a scalar reference.
+
+<div align="center">
+<img src="assets/bench_ternary_speed.png" width="49%">
+<img src="assets/bench_ternary_quality.png" width="49%">
+</div>
+
+Trained from scratch (QAT, not post-training), the ternary MLP costs only **+0.028 BPB** at 5M params on TinyStories — and that is an *upper bound*, since the ternary run was still improving when measured. We ternarize **only the MLP** (the byte-sink), keeping the recurrent backbone in fp32; the ternary gap is known to shrink with scale, so micro-scale is the pessimistic end.
+
+### 2 · Activation sparsity and the L3 cliff
+
+A gated **dReLU** MLP is naturally sparse — up to **92%** of hidden units are inactive per token — at essentially zero quality cost (+0.0006 BPB, matched training). Combined with ternary weights, this compounds along **independent axes** to roughly **21× fewer MLP bytes per token** versus fp32-dense, for about **+0.03 BPB** total.
+
+But sparsity only pays if the *working set* fits the cache. A synthetic sweep on the real 3600X finds a sharp **step at 16 MB — the exact L3-per-CCX size** — below which the CPU is compute-bound at ~100 GB/s, and above which it falls off a cliff toward the ~28 GB/s DRAM floor. **This 16 MB is the keystone constraint** that sizes the entire architecture.
+
+<div align="center">
+<img src="assets/bench_cache_cliff.png" width="58%">
+<img src="assets/bench_compound.png" width="40%">
+</div>
+
+### 3 · The active set is predictable — so you skip, you don't gather
+
+Reducing bytes is worthless if the bytes you *do* need are scattered (a random gather defeats the cache). Two findings close this:
+
+- the active set is **intrinsically predictable in-place** — a cheap linear probe on the current state forecasts 86–92% of the active units, no special training needed;
+- a **temporal-coherence regularizer** makes that sparsity **block-structured** (contiguous, cache-friendly) at zero quality cost — recovering the sparsity headline as *real, skippable* blocks rather than a scatter.
+
+<div align="center">
+<img src="assets/bench_predict_sparsity.png" width="85%">
+</div>
+
+Together: you can skip ~half the MLP blocks, and cheaply predict *which* half — the control system that lets a mixture-of-experts and the cache actually pay off in bandwidth.
+
+### 4 · Long-context recall that fits the budget
+
+A two-stage IVF-PQ retrieval tier gives **128K-context recall in ~18 µs/query** on CPU. The load-bearing originality is the **learned InfoNCE representation** (not the partition, which can be data-independent and simpler). A predicted failure mode — query *drift* over long contexts — was investigated and found **absent** on this SSM: the state norm is bounded, so recall stays flat versus distance in-distribution and 21× out-of-distribution.
+
+---
+
+## Status
+
+| Component | State | Evidence |
 |---|---|---|
-| `general` | LZ6 + TOKPFX | **Default. All domains.** Robust on prose, code, JSON, logs, binary. |
-| `prose` | LZ6 + TOKPFX + TOK_PREV_ELIG | Modern prose with high word repetition (articles, docs, correspondence). |
-| `experimental` | manual flags | Research/ablation only. Not for production use. |
+| Ternary 1.58-bit LUT kernel | ✅ validated on Zen 2 | 4.2–5.0× matvec, bit-exact, +0.028 BPB |
+| Activation sparsity (gated dReLU) | ✅ validated | 92% sparse, 2.12× skip, +0.0006 BPB |
+| Cache-residency budget (16 MB L3) | ✅ measured | bandwidth cliff at L3-per-CCX |
+| Long-context recall tier | ✅ de-risked end-to-end | ~18 µs/query, drift-free |
+| In-place predictability | ✅ validated | 86–92% recall, predictor-free |
+| Block-structured sparsity | ✅ found (byproduct) | 18% → 50% skippable @ zero cost |
+| Granular MoE (capacity tier) | 🔬 probing | quality + routing-locality A/B |
+| Block-decode / MTP execution | 📋 designed | roadmap (execution chassis) |
+| Unified C inference engine | 📋 roadmap | the deliverable |
 
-`prose` is not a universal text profile. It targets word-transition patterns in modern prose and does not improve on literary prose from 1800–1920, source code, logs, or structured data. See `docs/profiles.md` for the full reference.
-
-**Alias:** `--expert-profile text` is a backward-compatible alias for `prose`.
+See [`docs/SCALEUP_ARCHITECTURE.md`](docs/SCALEUP_ARCHITECTURE.md) for the full buildable blueprint, and [`HANDOFF.md`](HANDOFF.md) for the complete technical narrative including every negative result.
 
 ---
 
-## Building
+## What this is *not* (scope discipline)
 
-Single translation-unit build (requires Clang or GCC with AVX2):
+- **Not a deployed speedup.** The probes run in a sandbox (a ~5M model that fits in cache), so they measure the *property* — the quality cost, the cache behavior, the predictability — not the realized end-to-end bandwidth of a large model. That is what the C engine will measure.
+- **Not a finished LLM.** The current model is trained on TinyStories at small scale to isolate architectural questions cleanly. Broad-distribution quality at scale is future work.
+- **Honest about magnitude.** Individual levers are stated at their *predictor-free, measured* value (e.g. 2.12× sparsity, ~3× residency), never the optimistic ceiling. The compound win is one-to-two orders of magnitude, but no single headline number is load-bearing.
+
+---
+
+## Reproduce the findings
+
+The benchmark charts on this page are generated from the measured numbers:
 
 ```sh
-gcc -O3 -march=native -o see.exe see.c \
-    src/see_codec.c src/lz_topn.c src/tok_lz.c src/span_lz.c \
-    src/moe_engine.c src/silicon_entropy.c src/silicon_v0.c \
-    src/range_coder.c src/regime_prior.c \
-    -lm
+python scripts/make_readme_charts.py     # -> assets/*.png
 ```
 
-Tested on: Windows 11 + Clang 21, Zen 2 (Ryzen 5 3600X), AVX2.
-
-**`-ffast-math` is forbidden.** It changes `expf()` rounding in the MoE weight update and CDF paths, producing a different bitstream. Archives encoded under `-ffast-math` cannot be decoded by a standard build. `-O2` and `-O3` produce identical output on this platform.
-
----
-
-## Architecture
-
-SEE is a streaming mixture of experts. At each byte position, 5 experts produce a probability distribution over 256 symbols; the MoE blends them and updates weights based on each expert's cross-entropy loss.
-
-| Expert | Key | Strength |
-|---|---|---|
-| SEE | Wave ESN readout | C code, structured binary |
-| BI | Bigram frequency | Markdown, Italian literary prose |
-| UNI | Unigram frequency | Shuffled/random (fallback) |
-| LZ | 6-byte hash → Top-N slots | JSON, C headers, logs |
-| TOKPFX | 5-byte token prefix hash | Natural text, logs |
-| TOK_PREV_ELIG *(prose only)* | Token-transition eligibility | Modern prose with repetition |
-
-The wave substrate (silicon_entropy) is a fixed 128-block AVX2 reservoir (~4096 cells, fits in L1/L2 cache). Its dynamics are not trained; only the linear readout is learned offline. The design exploits cache-line locality: sequential access costs ~3 cycles, L3 miss costs ~56 cycles — the reservoir is sized to stay on-chip.
-
----
-
-## Measured Performance (V1.0 baseline)
-
-All results use `--expert-profile general --blend moe`.
-
-| Corpus | BPB | Dominant expert |
-|---|---|---|
-| natural_text.txt | 2.474 | TOKPFX |
-| markdown_docs.md | 3.887 | BI |
-| c_code.c | 1.940 | SEE / LZ |
-| json_synth.json | 2.033 | LZ |
-| log_synth.log | 2.921 | TOKPFX |
-| c_header_synth.h | 2.051 | LZ |
-| shuffled.bin | 5.012 | UNI |
-| log_real.log (Apache, 2.3 MB) | 0.981 | LZ |
-| c_real.c (zlib inflate.c, 51 KB) | 2.970 | BI |
-| prose_real.txt (Dreiser 1911, 512 KB) | 3.330 | BI |
-
-TOKPFX value: +0.108 BPB on average versus no-token baseline (9 internal corpora).
-
-Speed: ~60,000 cycles/byte on Zen 2 (`general` profile, full MoE).
-
----
-
-## Regression Gate
-
-Before any architectural change:
+The probes themselves live under `benchmarks/phase55-57/` (weight-streaming: ternary kernel, sparsity, cache sweep) and the retrieval work under `benchmarks/phase56/`. The C microbenchmarks target Zen 2:
 
 ```sh
-python scripts/regression_test.py
+clang -O3 -mavx2 -march=znver2 benchmarks/phase57/phase57_lutbench.c   -o lutbench   -lm
+clang -O3 -mavx2 -march=znver2 benchmarks/phase57/phase57_cachesweep.c -o cachesweep -lm
 ```
-
-Reads frozen baselines (`data/baselines/phase29a_baseline.json` and `data/baselines/phase29c_baseline.json`), audits all corpora/profiles, and performs SHA-256 roundtrip on 3 corpora. Exit 0 = no regression. Tolerance: 0.005 BPB.
-
-```sh
-python scripts/test_headers.py
-```
-
-6 header integrity tests: bad magic, wrong weights, truncated header, profile roundtrip (×2), missing weights.
-
-```sh
-python scripts/phase35-36/phase35_reproducibility.py
-```
-
-Reproducibility audit: encode determinism, decode of committed fixture archives, header rejection (5 corruption cases), and optional compiler variant comparison (`--skip-compiler` to skip recompile). The fixture archives in `data/fixtures/` are the format identity test — if they fail to decode correctly, the archive format has regressed.
 
 ---
 
-## Known Limits
-
-- **Markdown gap**: +1.33 BPB above natural_text on structured markdown. MoE convergence lag is uniform across all byte positions — not a local gap. No expert combination closed this in Phases 27–28.
-- **`prose` profile scope**: useful only for modern prose with high word-repetition. Literary prose 1800–1920 (rich vocabulary, complex syntax) is dominated by BI — `prose` saves <0.003 BPB on Dreiser.
-- **Small files (<64 KB)**: MoE experts do not have enough context to converge. Results are indicative; dominant expert may differ from large-file behavior.
-- **Weights binding**: each `.see` archive stores the SHA-256 of the weights file used at encode time. Archives encoded with an older weights file cannot be decoded with a newer one — re-encode to migrate.
-- **Single-threaded**: the streaming MoE is inherently sequential. No parallelism within a file.
-- **Version-locked archives**: `SeeArchiveHeader.header_size` is checked with strict equality at decode time. A future codec with a different header layout cannot decode V1.0 archives and vice versa.
-- **Platform portability**: cross-compiler and cross-architecture bit-identical output is not guaranteed. Float rounding in the MoE/CDF path is compiler-dependent. Archives are stable within the same compiler family and flags (no `-ffast-math`).
-
----
-
-## Research frontier (Phases 46–49)
-
-The V1.0 compressor is stable and its limits are known. Current research focuses on closing the gap between "structured word-salad" (~2.25 BPB) and readable language (~1.5 BPB):
-
-- **Phase 46**: L3 phrase-memory over D1 — compression-positive (B3 2.2509) but generation-fragile; "volatile memory at inference" axis closed.
-- **Phase 47**: Static nonlinear readout + DAgger on-policy training — discovered the lever is readout nonlinearity (MLP on stable features), not teacher distillation. First stable closed-loop generator with word-level metrics passing gate v2 (P_r7 historic dual-temp pass at 2.19 BPB). Discovery: byte-level degeneration (whitespace floods, far-field attractor) limits passage; full gate requires corpus-calibrated byte guards + human reading.
-- **Phase 48**: Substrate feature classes — armB nonlinear lift (Random Fourier Features) solves the five-phase structural instability, lowering frontier to ~2.18 BPB with word-clean closed-loop. Proved the static per-step axis exhausted via three mathematical proofs (product=quadratic, random bilinear=noise, RFF rotation-invariance). Pivot: dynamics/feedback-memory is the next axis.
-- **Phase 49**: Generation dynamics (FORCE/RLS output-feedback) — output-feedback is load-bearing and can stabilize (ERR/ADAPT variants break monotone runaway), but still emits structured word-salad at ~2.18-2.20 BPB. The gap to language is now characterized as **representational** (blurred summary memory vs selective content-addressable retrieval), not dynamical.
-
-See `HANDOFF.md` for the complete technical narrative, including all negative results and the evidence that led to each pivot decision.
-
----
-
-## Repository Layout
+## Repository layout
 
 ```
 SiliconLLM/
-├── see.c                       Main CLI (encode / decode / audit)
-├── build.bat                   Build script
-├── src/
-│   ├── see_codec.h/.c          Codec core: encode, decode, audit, MoE loop
-│   ├── silicon_entropy.h/.c    Wave ESN (SEE expert)
-│   ├── silicon_v0.h/.c         Wave substrate primitives
-│   ├── lz_topn.h/.c            LZ Top-N hash expert
-│   ├── tok_lz.h/.c             TOKPFX / TOK_PREV experts
-│   ├── span_lz.h/.c            SPANPFX expert (experimental, rejected)
-│   ├── moe_engine.h/.c         Fixed-share exponentiated-gradient MoE
-│   ├── range_coder.h/.c        Arithmetic range coder
-│   ├── regime_prior.h/.c       Regime prior router
-│   └── archive/                Obsolete/superseded source files
-├── weights/
-│   ├── v1/                     V1.0 production weights
-│   └── research/               Experimental weights (phases 36–49)
-├── data/
-│   ├── corpora/
-│   │   ├── internal/           Synthetic + curated corpora (c_code, natural_text, …)
-│   │   └── external/           Scraped/downloaded corpora (eureparl, kaggle, …)
-│   ├── external/               Real-world files for Phase 29B/29C stress tests
-│   ├── fixtures/               Format identity fixtures (tiny_*.see + manifest.json)
-│   ├── baselines/              Frozen regression baselines (phase29a, phase29c, phase33)
-│   └── phase_data/             Phase-specific binary datasets (phase32–49)
-├── scripts/
-│   ├── regression_test.py      Full regression harness (primary gate)
-│   ├── test_headers.py         Header integrity tests
-│   ├── phase29/                Phase 29 tribunal + baseline scripts
-│   ├── phase31-34/             Regime routing research scripts
-│   ├── phase35-36/             Reproducibility audit
-│   ├── phase37-40/             Multi-domain / MoE research scripts
-│   └── archive/                Superseded scripts (phases 21–28)
-├── benchmarks/
-│   ├── phase01-14/             Early architecture benchmarks (C)
-│   ├── phase18/                Coder + readout training benchmarks
-│   └── phase38-49/             Phase 38–49 experiment harnesses
-├── bin/
-│   ├── phase01-14/             Built binaries for early benchmarks
-│   ├── phase18-23/             Built binaries for phases 18–23
-│   ├── phase38-42/             Built binaries for phases 38–42
-│   └── misc/                   Utility binaries (wave_engine, test_rc)
-├── results/
-│   ├── phase11–14/             Per-phase result files
-│   ├── phase20–49/             Per-phase result files
-│   └── misc/                   Unphased result files
-├── experiments/
-│   └── phase41a/               Phase 41 active experiment (archived)
+├── assets/                     README charts (generated from measured data)
 ├── docs/
-│   ├── profiles.md             Expert profile reference
-│   ├── architecture_decisions.md  Architecture decision log
-│   ├── see_v1_position.md      External compressor comparison (Phase 31)
-│   ├── phases/
-│   │   ├── phase35_reproducibility.md
-│   │   ├── early/              Phase 1–22 walkthrough notes
-│   │   └── archive/            Superseded phase docs
-│   ├── research/               Background research notes (CPU arch, derivatives)
-│   ├── archive/                Superseded docs (v0_architecture, project_summary, …)
-│   └── PHASE44-45_SYNTHESIS.md L2 boundary memory synthesis (Phase 46+ precursor)
-└── logs/
-    └── phase10/                Phase 10 run logs
+│   ├── SCALEUP_ARCHITECTURE.md   the buildable blueprint (the current design)
+│   ├── EXTERNAL_REVIEW_01.md     external technical review + responses
+│   └── research/                 background research reports
+├── benchmarks/
+│   ├── phase55/                  CPU SSM language model + C inference kernel
+│   ├── phase56/                  long-context recall (IVF-PQ, drift, MQAR)
+│   └── phase57/                  weight-streaming + predictor/MoE probes
+├── scripts/                    chart generation
+├── archive/                    historical / superseded (compressor + early eras)
+└── HANDOFF.md                  full technical narrative
 ```
 
 ---
 
-## Research Context
+## Origin: the Silicon Entropy Engine compressor (archived)
 
-SEE was developed through a sequence of measurement-driven phases (24–49). Each phase posed a specific hypothesis, ran a controlled tribunal, and either promoted or rejected a change. The result is a small, stable set of expert components — not because alternatives weren't tried, but because most were rejected by the data.
+This project began as a **CPU-native lossless compressor** — a streaming mixture of statistical experts blended by an online exponentiated-gradient MoE, shaped by cache topology rather than GPU parallelism. That compressor (V1.0.x, Phases 1–40) is stable and its limits are documented; the token-level and "mantra-pure" eras (Phases 42–54) that followed are the research path that led here. All of it is preserved under the labeled **`archive/`** area as historical / superseded work. The name — *Silicon Entropy Engine* — carried over. See [`CHANGELOG.md`](CHANGELOG.md) for the full phase history.
 
-Phase 31 measured SEE against zlib-9, bz2-9, lzma, zstd-22, and brotli-11. SEE ties classical compressors only on shuffled/random data. On every structured domain it loses, with gaps ranging from +0.7 BPB (prose) to +2.0 BPB (markdown). This is the honest external baseline.
+---
 
-Phases 32–34B explored regime routing (credit-dynamics-based domain detection). Finding: compression credit contains regime signal, but no single router dominates all corpora. The research is archived in `docs/research/regime_routing_research.md`; not merged into core V1.
+## Citing this work
 
-Phase 35 confirmed physical reproducibility: deterministic output, committed format fixtures, `-ffast-math` documented as forbidden.
+If this project's findings or design inform your work, please cite it — see [`CITATION.cff`](CITATION.cff) (GitHub renders a "Cite this repository" button). An archival DOI will be minted at the first tagged release; until then, cite the repository and commit hash — the dated commit history is the record of priority.
 
-Phases 40–46 explored L2/L3 boundary memory and L3 phrase memory. Finding: volatile inference memory creates attractor pressure that cannot be stabilized by per-event gating on internal signals (cos/rel_move/norm/surprise all carry zero correlation with write usefulness).
+## License
 
-Phases 47–49 pivoted to generation dynamics. Finding 1: readout nonlinearity (MLP) on stable features extracts large predictive structure. Finding 2: DAgger on-policy rollout training cures attractors channel-by-channel according to coverage. Finding 3: armB's RFF lift solves the five-phase structural instability, lowering the stable frontier from ~2.25 to ~2.18 BPB with word-clean closed-loop. Finding 4: the gap to language is now characterized as **representational** (blurred summary memory vs selective content-addressable retrieval), not dynamical.
-
-For now: the body is stable and its limits are known. The research frontier has moved from compression optimization to characterizing what memory structure enables language. See `CHANGELOG.md` for the full phase history.
+Code is licensed under the **GNU Affero General Public License v3.0** — see [`LICENSE`](LICENSE). The documentation and figures are intended for reuse under **CC BY 4.0** (attribution required). If you build on this work, the AGPL's network-use clause applies; for a commercial license, contact the author.

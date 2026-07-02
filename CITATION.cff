@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this project or its findings, please cite it as below."
+title: "Silicon Entropy Engine — a CPU-native LLM co-designed for the memory wall"
+abstract: >-
+  A research project building a large, agentic-capable language model made fast on
+  consumer CPUs (Ryzen 5 3600X / Zen 2, AVX2, no AVX-512 / VNNI) through architectural
+  co-design: a cache-resident ternary, sparse SSM "thinking" core plus a sparse retrieval
+  and mixture-of-experts "knowing" tier, sized to the L3 cache and validated end-to-end
+  on real hardware.
+authors:
+  # Replace with given-names / family-names for a formal citation if you prefer.
+  - name: "WildPino"
+repository-code: "https://github.com/WildPino/SiliconLLM"
+url: "https://github.com/WildPino/SiliconLLM"
+license: AGPL-3.0-or-later
+keywords:
+  - CPU inference
+  - state-space models
+  - ternary quantization
+  - activation sparsity
+  - mixture-of-experts
+  - long-context retrieval
+  - edge LLM
+version: "0.1.0"
+date-released: "2026-06-30"
+# On the first tagged release, mint an archival DOI (e.g. via Zenodo) and add it here:
+# doi: "10.5281/zenodo.XXXXXXX"
