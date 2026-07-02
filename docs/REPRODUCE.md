@@ -48,9 +48,12 @@ Large binaries are not tracked in git; they are packaged as a downloadable **rel
 |---|---|---|
 | `results/phase57/sp58_base.pt` | 5M Arch-A checkpoint (E1–E3 target; gated-dReLU ternary MLP) | `8f8c54424eebe64bf234224b18aa6ab9caf4dc9045508e1f611c0c17f755f191` |
 | `results/phase57/moe_gran.pt` | granular-MoE checkpoint (E4 target; E32×h128 top-8) | `356478b2f63ace9d6ec429056fee5c0e14e1c0f36253edbca36300eba02d4525` |
-| `results/phase55/ids.u16` | canonical validation slice — 32,723,845 BPE-1024 tokens (uint16) | `33b8cba2a26653599f7f87a4d8e05b38be051ba850d4cbc5d09b561aae133889` |
-| engine export `.bin` | versioned model the C engine reads (magic `E1M1` / `E4M1`) | produced by `benchmarks/phase60/e1_export.py` / `e4_export.py` |
-| BPE-1024 tokenizer | vocab + merges | codec at `archive/benchmarks/phase50/bpe_codec.h` |
+| `results/phase55/ids.u16` | canonical validation corpus — 32,723,845 BPE-1024 tokens (uint16) | `33b8cba2a26653599f7f87a4d8e05b38be051ba850d4cbc5d09b561aae133889` |
+| `results/phase60/e1_model.bin` | E1–E3.5 engine model, magic `E1M1` (from `e1_export.py`) | `c50b7a6631bb79bdf1d17d43f7867140522ad77d520e1dd7d7d35b070bc2d579` |
+| `results/phase60/e4_model.bin` | E4 MoE engine model, magic `E4M1` (from `e4_export.py`) | `52086303c95ddab3592ae8285a9420d93f7424c3a17dbcf234ac3769fe0347e1` |
+| `weights/bpe1024.bin` | BPE-1024 tokenizer (merges embedded) | `97de713392eabfa4dff6ebd9dd5502f0d2f3e93232db8f349860bb57f3148f9b` |
+
+The full bundle is `siliconllm-repro-v0.2.0.zip` (~322 MB, `-0` stored) with a `MANIFEST.sha256`.
 
 Regenerate the engine export from a checkpoint:
 
