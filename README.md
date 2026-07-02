@@ -6,6 +6,11 @@
 
 **Making a large, agentic-capable language model fast on a consumer CPU — by architecture, not by brute force.**
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21128459.svg)](https://doi.org/10.5281/zenodo.21128459)
+[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-blue.svg)](LICENSE)
+[![Latest release](https://img.shields.io/github/v/release/WildPino/SiliconLLM?color=2dd4bf&label=release)](https://github.com/WildPino/SiliconLLM/releases)
+![Target](https://img.shields.io/badge/target-x86--64%20AVX2%20(Zen%202)-informational)
+
 ![Architecture](assets/architecture.png)
 
 <sub>Research project · target hardware: Ryzen 5 3600X (Zen 2, AVX2, **no** AVX-512 / VNNI) · 128K-context goal</sub>
@@ -156,7 +161,11 @@ This project began as a **CPU-native lossless compressor** — a streaming mixtu
 
 ## Citing this work
 
-If this project's findings or design inform your work, please cite it — see [`CITATION.cff`](CITATION.cff) (GitHub renders a "Cite this repository" button). An archival DOI will be minted at the first tagged release; until then, cite the repository and commit hash — the dated commit history is the record of priority.
+If this project's findings or design inform your work, please cite it — see [`CITATION.cff`](CITATION.cff) (GitHub renders a "Cite this repository" button). Each release is archived on Zenodo with a DOI:
+
+> **DOI (all versions): [10.5281/zenodo.21128459](https://doi.org/10.5281/zenodo.21128459)** — this concept DOI always resolves to the latest release.
+
+The dated commit history is the record of priority.
 
 ## License
 
