@@ -132,7 +132,7 @@ See [`docs/SCALEUP_ARCHITECTURE.md`](docs/SCALEUP_ARCHITECTURE.md) for the full 
 
 ## What this is *not* (scope discipline)
 
-- **Not a scale-up speedup yet.** The engine's 176→848 tok/s is real and single-threaded, but at 5M sandbox scale everything is cache-resident — it validates *correctness* and *kernel-level* speed, not the streamed two-pool bandwidth at billions of parameters (which is counted and priced, not yet run). The probes measure architectural *properties*; the scale-up engine is the next frontier.
+- **Not a scale-up speedup yet.** The engine's 176→848 tok/s is real and single-threaded, but at 5M sandbox scale everything is cache-resident — it validates *correctness* and *kernel-level* speed, not the streamed two-pool bandwidth at billions of parameters (which is counted and priced, not yet run — see [`docs/SIZING.md`](docs/SIZING.md), including the unmeasured DDR4 multi-thread contention). The probes measure architectural *properties*; the scale-up engine is the next frontier.
 - **Not a finished LLM.** The current model is trained on TinyStories at 5–22M parameters to isolate architectural questions cleanly. Broad-distribution quality at scale is future work — and the *declared product domain* (Cat-A: code, logs, structured text, where the agentic thesis expects the best acceptance) is **not yet tested**; that probe is queued.
 - **Not yet one fused system.** The long-context recall tier (the phase-56 model line) and the engine's thinking core (the phase-58/59 line) are today **two separate lineages**. Unifying them into a single model with a recall slot is future work (E5+).
 - **Honest about magnitude.** Individual levers are stated at their *predictor-free, measured* value (e.g. 2.12× sparsity, ~3× residency), never the optimistic ceiling. The compound win is one-to-two orders of magnitude, but no single headline number is load-bearing.
@@ -161,7 +161,7 @@ clang -O3 -mavx2 -march=znver2 benchmarks/phase60/e1_engine.c -o bin/e1_engine -
 bin/e1_engine --all      # runs the G1–G5 parity gates vs the fp32 reference
 ```
 
-Later stages build the same way (`e2_engine.c` … `e4_engine.c`). See [`docs/ENGINE_PLAN.md`](docs/ENGINE_PLAN.md) for each stage's gates and the exact rerun commands. The probe apparatus (training A/Bs) lives under `benchmarks/phase55-57/`; the engine stages under `benchmarks/phase60/`.
+Later stages build the same way (`e2_engine.c` … `e4_engine.c`). See [`docs/REPRODUCE.md`](docs/REPRODUCE.md) for the full recipe (asset manifest with hashes, data recipe, export commands) and [`docs/ENGINE_PLAN.md`](docs/ENGINE_PLAN.md) for each stage's gates. The probe apparatus (training A/Bs) lives under `benchmarks/phase55-57/`; the engine stages under `benchmarks/phase60/`.
 
 ---
 
@@ -173,6 +173,8 @@ SiliconLLM/
 ├── docs/
 │   ├── SCALEUP_ARCHITECTURE.md   the buildable blueprint (the current design)
 │   ├── ENGINE_PLAN.md            C engine stages E1–E5 + pre-registered gates
+│   ├── SIZING.md                 two-pool scale-up sizing (measured vs projected)
+│   ├── REPRODUCE.md              data recipe + asset manifest + gate rerun
 │   ├── EXTERNAL_REVIEW_01.md     external technical review + responses
 │   └── research/                 background research reports
 ├── benchmarks/
