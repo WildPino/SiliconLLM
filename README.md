@@ -15,6 +15,8 @@
 
 <sub>Research project · target hardware: Ryzen 5 3600X (Zen 2, AVX2, **no** AVX-512 / VNNI) · 128K-context goal</sub>
 
+<sub>The diagram is the **target design**; components are at different validation stages (see [Status](#status)) and the recall tier is not yet fused with the engine core.</sub>
+
 </div>
 
 ---
@@ -38,9 +40,11 @@ Everything is held together by a **block-decode chassis** that turns the CPU's w
 
 The project advances by **pre-registered probes**: each hypothesis gets a controlled experiment with a gate fixed *before* the results are seen. Here is what has survived.
 
+> **Two caveats that apply to every number below.** (1) All training A/B verdicts are **single-seed** (seed 0); seed variance is not yet characterized — a multi-seed calibration is queued. (2) All properties are measured on **TinyStories at 5–22M parameters**; the declared product domain (Cat-A: code, logs, structured text) is **not yet tested**.
+
 ### 1 · Ternary weights are the right call on Zen 2 — and cost almost nothing in quality
 
-Without AVX-512/VNNI, the usual int8 quantization path barely helps (~1.2×). A **ternary (1.58-bit) weight** kernel using `pshufb` byte-LUTs goes the *other* way — fewer bits means faster — and every kernel is bit-exact against a scalar reference.
+Without AVX-512/VNNI, the usual int8 quantization path barely helps (~1.2×, a literature figure — this project measured the ternary and bit-serial LUT kernels, not an int8-dequant arm). A **ternary (1.58-bit) weight** kernel using `pshufb` byte-LUTs goes the *other* way — fewer bits means faster — and every kernel is bit-exact against a scalar reference.
 
 <div align="center">
 <img src="assets/bench_ternary_speed.png" width="49%">
@@ -49,9 +53,11 @@ Without AVX-512/VNNI, the usual int8 quantization path barely helps (~1.2×). A 
 
 Trained from scratch (QAT, not post-training), the ternary MLP costs only **+0.028 BPB** at 5M params on TinyStories — and that is an *upper bound*, since the ternary run was still improving when measured. We ternarize **only the MLP** (the byte-sink), keeping the recurrent backbone in fp32; the ternary gap is known to shrink with scale, so micro-scale is the pessimistic end.
 
+> **On "1.58-bit".** A ternary weight carries ~1.58 bits of information, but the current engine *packs* them at **4 bits/weight** (base-3, g=2 codes); the dense trit-pack (~1.6 bits/weight) is queued. Every streamed-byte figure on this page uses the real 4-bit packing, not the 1.58-bit ideal.
+
 ### 2 · Activation sparsity and the L3 cliff
 
-A gated **dReLU** MLP is naturally sparse — up to **92%** of hidden units are inactive per token — at essentially zero quality cost (+0.0006 BPB, matched training). Combined with ternary weights, this compounds along **independent axes** to roughly **21× fewer MLP bytes per token** versus fp32-dense, for about **+0.03 BPB** total.
+A gated **dReLU** MLP is naturally sparse — up to **92%** of hidden units are inactive per token — at essentially zero quality cost (+0.0006 BPB, matched training). Combined with ternary weights, this compounds along **independent axes** to roughly **21× fewer MLP bytes per token** versus fp32-dense, for about **+0.03 BPB** total. *(The 21× and +0.03 BPB are a composition of two deltas measured separately, at different step counts and recipes — 10.7k-step ternary and 4k-step sparsity; a single-anchor A/B at matched convergence is queued.)*
 
 But sparsity only pays if the *working set* fits the cache. A synthetic sweep on the real 3600X finds a sharp **step at 16 MB — the exact L3-per-CCX size** — below which the CPU is compute-bound at ~100 GB/s, and above which it falls off a cliff toward the ~28 GB/s DRAM floor. **This 16 MB is the keystone constraint** that sizes the entire architecture.
 
@@ -64,22 +70,24 @@ But sparsity only pays if the *working set* fits the cache. A synthetic sweep on
 
 Reducing bytes is worthless if the bytes you *do* need are scattered (a random gather defeats the cache). Two findings close this:
 
-- the active set is **intrinsically predictable in-place** — a cheap linear probe on the current state forecasts 86–92% of the active units, no special training needed;
+- the active set is **intrinsically predictable in-place** — a cheap linear probe on the current state forecasts **86–92%** of the active units (same-layer skip), no special training needed. Predicting the *next* token's active set **ahead of time** (what a streaming prefetch controller would need) is much weaker: **50–63%**. The durable mechanism is therefore the in-place skip, not prefetch;
 - a **temporal-coherence regularizer** makes that sparsity **block-structured** (contiguous, cache-friendly) at zero quality cost — recovering the sparsity headline as *real, skippable* blocks rather than a scatter.
 
 <div align="center">
 <img src="assets/bench_predict_sparsity.png" width="85%">
 </div>
 
-Together: you can skip ~half the MLP blocks, and cheaply predict *which* half — the control system that lets a mixture-of-experts and the cache actually pay off in bandwidth.
+Together: you can skip ~half the MLP blocks, and cheaply predict *which* half **at the point of use** — the in-place skip is what lets a sparse MLP avoid a random gather. (Skipping *ahead* — prefetching the next token's set — is not reliable here; see the weak ahead-of-time number above.)
 
 ### 4 · Long-context recall that fits the budget
 
-A two-stage IVF-PQ retrieval tier gives **128K-context recall in ~18 µs/query** on CPU. The load-bearing originality is the **learned InfoNCE representation** (not the partition, which can be data-independent and simpler). A predicted failure mode — query *drift* over long contexts — was investigated and found **absent** on this SSM: the state norm is bounded, so recall stays flat versus distance in-distribution and 21× out-of-distribution.
+A two-stage IVF-PQ retrieval tier answers a query in **~18 µs, measured on a 128K-entry index** on CPU — the *cost* is in budget at 128K. The *quality* is validated on a smaller footing: recall is flat versus distance at **8K in-distribution**, plus a **21× out-of-distribution** proxy and a structural bounded-norm argument (a predicted failure mode — query *drift* over long contexts — is **absent** on this SSM because the state norm is bounded). This is **not yet a direct recall measurement at 128K**. The load-bearing originality is the **learned InfoNCE representation** (not the partition, which can be data-independent and simpler).
 
 ### 5 · Scaling capacity without scaling the active cost — granular MoE
 
-A mixture-of-experts grows *total* parameters while keeping the *active* parameters per token inside the cache budget. At matched active cost (and matched total params), a **granular MoE** (many small experts, top-k routed) not only preserves quality — it improves on the dense baseline, and even edges out a dense model with 4× the active parameters. Fine-grained experts beat coarse ones, confirming the block-structure finding above.
+A mixture-of-experts grows *total* parameters while keeping the *active* parameters per token inside the cache budget. The pre-registered result: at matched active cost, a **granular MoE** (many small experts, top-k routed) **passes the quality gate** (BPB ≤ baseline + 0.01) and in fact *improves* on the dense baseline — the capacity tier costs nothing in quality. Fine-grained experts beat coarse ones, consistent with the block-structure finding above.
+
+> **Labeled observation (not a registered result).** At matched steps (4k, single seed, heavy undertraining) the granular MoE also *led* the 4×-active dense arm. This is an **unregistered, single-seed observation** — it may reflect training *speed* rather than *capacity*; a multi-seed / convergence check is queued. We do **not** claim "MoE beats a 4× dense model."
 
 <div align="center">
 <img src="assets/bench_moe.png" width="70%">
@@ -116,14 +124,17 @@ Scope, as always: at 5M sandbox scale everything is cache-resident, so these num
 | **C inference engine (E1–E4)** | ✅ **validated end-to-end** | **176→848 tok/s (4.8×), parity-gated, +0.00004 BPB** |
 | Block-decode / MTP execution (E5) | 📋 designed | roadmap (execution chassis) |
 
-See [`docs/SCALEUP_ARCHITECTURE.md`](docs/SCALEUP_ARCHITECTURE.md) for the full buildable blueprint, and [`HANDOFF.md`](HANDOFF.md) for the complete technical narrative including every negative result.
+<sub>Notes: training A/B verdicts are single-seed (seed 0). "Ternary 1.58-bit" refers to the weights' information content; the engine stores them at 4 bits/weight today (trit-pack queued). All measured on TinyStories at 5–22M params.</sub>
+
+See [`docs/SCALEUP_ARCHITECTURE.md`](docs/SCALEUP_ARCHITECTURE.md) for the full buildable blueprint, and [`HANDOFF.md`](HANDOFF.md) for the technical narrative including negative results.
 
 ---
 
 ## What this is *not* (scope discipline)
 
 - **Not a scale-up speedup yet.** The engine's 176→848 tok/s is real and single-threaded, but at 5M sandbox scale everything is cache-resident — it validates *correctness* and *kernel-level* speed, not the streamed two-pool bandwidth at billions of parameters (which is counted and priced, not yet run). The probes measure architectural *properties*; the scale-up engine is the next frontier.
-- **Not a finished LLM.** The current model is trained on TinyStories at small scale to isolate architectural questions cleanly. Broad-distribution quality at scale is future work.
+- **Not a finished LLM.** The current model is trained on TinyStories at 5–22M parameters to isolate architectural questions cleanly. Broad-distribution quality at scale is future work — and the *declared product domain* (Cat-A: code, logs, structured text, where the agentic thesis expects the best acceptance) is **not yet tested**; that probe is queued.
+- **Not yet one fused system.** The long-context recall tier (the phase-56 model line) and the engine's thinking core (the phase-58/59 line) are today **two separate lineages**. Unifying them into a single model with a recall slot is future work (E5+).
 - **Honest about magnitude.** Individual levers are stated at their *predictor-free, measured* value (e.g. 2.12× sparsity, ~3× residency), never the optimistic ceiling. The compound win is one-to-two orders of magnitude, but no single headline number is load-bearing.
 
 ---

@@ -52,11 +52,17 @@ def _finish(fig, name, sub=None):
 # Source: benchmarks/phase57/phase57_lutbench.c on Ryzen 5 3600X (Zen 2, AVX2).
 # pshufb byte-LUT matvec vs fp32; all kernels bit-exact vs scalar integer ref.
 def chart_bits_speed():
-    labels = ["fp32\n(32-bit)", "int8\n(no VNNI)", "4-bit", "ternary\n(1.58-bit)", "1-bit"]
+    # NOTE ON PROVENANCE: ternary/4-bit/1-bit = measured on the 3600X (phase57_lutbench.c,
+    # range mid-points). int8 = a LITERATURE figure (~1.2x, VNNI-less dequant): probe-1 did
+    # not build an int8-dequant arm, so it is shown for context only, hatched + "(lit.)".
+    # (Future: read these from a committed results JSON instead of hardcoding.)
+    labels = ["fp32\n(32-bit)", "int8\n(lit.)", "4-bit", "ternary\n(1.58-bit)", "1-bit"]
     speed  = [1.0, 1.2, 1.9, 4.6, 9.0]           # x over fp32 matvec
     colors = [AMBER, RED, BLUE, TEAL, TEAL]
     fig, ax = plt.subplots(figsize=(7.2, 4.3))
     bars = ax.bar(labels, speed, color=colors, width=0.62, zorder=3)
+    bars[1].set_hatch("//")          # int8 = literature, visually distinguished
+    bars[1].set_alpha(0.55)
     for b, s in zip(bars, speed):
         ax.text(b.get_x()+b.get_width()/2, s+0.15, f"{s:.1f}×", ha="center",
                 va="bottom", color=INK, fontweight="bold")
@@ -64,11 +70,11 @@ def chart_bits_speed():
     ax.set_ylabel("speedup vs fp32 matvec  (batch-1, single core)")
     ax.set_title("Fewer bits → faster on Zen 2  (pshufb byte-LUT, no VNNI)")
     ax.set_ylim(0, 10.2)
-    ax.annotate("int8 stalls without VNNI —\nthe LUT path goes the other way",
+    ax.annotate("int8 = literature reference\n(no int8 arm was built here)",
                 xy=(1, 1.2), xytext=(1.35, 4.4), color=MUTED, fontsize=9.5,
                 arrowprops=dict(arrowstyle="->", color=MUTED, lw=1))
     _finish(fig, "bench_ternary_speed.png",
-            "benchmarks/phase57/phase57_lutbench.c · Ryzen 5 3600X · bit-exact vs scalar ref")
+            "measured (ternary/4-bit/1-bit): phase57_lutbench.c on 3600X, bit-exact · int8 bar = literature")
 
 
 # ---------------------------------------------------- 2. ternary quality cost (tiny)
@@ -233,12 +239,12 @@ def chart_moe():
     ax.axhline(bpb[0], color=AMBER, ls="--", lw=1, alpha=0.5, zorder=2)
     ax.set_ylabel("validation BPB  (lower is better)")
     ax.set_ylim(0.850, 0.885)
-    ax.set_title("Granular MoE wins at matched active cost  (probe-4)")
-    ax.annotate("granular MoE at 1024 active\nbeats even the 4096-active dense",
-                xy=(2, 0.8589), xytext=(0.35, 0.8605), color=TEAL, fontsize=9.5,
+    ax.set_title("Granular MoE meets the quality gate at matched active cost  (probe-4)")
+    ax.annotate("C passes the gate (≤ A) · C<B is single-seed, unregistered",
+                xy=(2, 0.859), xytext=(0.02, 0.8832), color=TEAL, fontsize=9,
                 arrowprops=dict(arrowstyle="->", color=TEAL, lw=1))
     _finish(fig, "bench_moe.png",
-            "probe-4 · phase59_moe.py · 4k-step matched, equal total params · TinyStories")
+            "probe-4 · phase59_moe.py · 4k-step matched, equal total params · single seed · TinyStories")
 
 
 # ------------------------------------------------- 7. C engine speedup ladder
