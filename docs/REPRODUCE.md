@@ -41,8 +41,9 @@ binary, and the gates compare against the PyTorch reference over the canonical v
 
 ## The reproducibility asset
 
-Large binaries are not tracked in git; they are packaged as a downloadable **release asset**
-(attached from an upcoming release). Contents and integrity:
+Large binaries are not tracked in git; they are provided as a downloadable **release asset**
+— [`siliconllm-repro-v0.2.0.zip`](https://github.com/WildPino/SiliconLLM/releases/download/v0.2.0/siliconllm-repro-v0.2.0.zip)
+(~322 MB, `-0` stored, with a `MANIFEST.sha256`). Contents and integrity:
 
 | file | role | sha256 |
 |---|---|---|

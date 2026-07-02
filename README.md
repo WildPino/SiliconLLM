@@ -154,7 +154,7 @@ clang -O3 -mavx2 -march=znver2 benchmarks/phase57/phase57_lutbench.c   -o lutben
 clang -O3 -mavx2 -march=znver2 benchmarks/phase57/phase57_cachesweep.c -o cachesweep -lm
 ```
 
-**3 · Reproduce the engine parity gates end-to-end** — this needs the trained checkpoints, the engine export, the BPE tokenizer, and the canonical validation slice (with hashes). These are being packaged as a downloadable **release asset** (attached from an upcoming release; large binaries are not tracked in git). With that asset unpacked at the repo root:
+**3 · Reproduce the engine parity gates end-to-end** — this needs the trained checkpoints, the engine export, the BPE tokenizer, and the canonical validation slice (with hashes), provided as a downloadable **release asset** ([`siliconllm-repro-v0.2.0.zip`](https://github.com/WildPino/SiliconLLM/releases/download/v0.2.0/siliconllm-repro-v0.2.0.zip), ~322 MB — large binaries are not tracked in git). With that asset unpacked at the repo root:
 
 ```sh
 clang -O3 -mavx2 -march=znver2 benchmarks/phase60/e1_engine.c -o bin/e1_engine -lm
