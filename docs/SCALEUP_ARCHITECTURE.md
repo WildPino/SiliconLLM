@@ -22,7 +22,7 @@ Batch-1 decode is memory-bandwidth-bound: `tok/s ≈ (eff_bw × tokens_per_strea
 |---|---|---|---|
 | bytes_per_weight ↓ | ternary 1.58-bit + pshufb-LUT | **LOCKED** (Probe-1) | kernel **4.2-5.0×** vs fp32, faster-as-bits-drop; +0.028 BPB quality; ~0.5 B/weight LUT packing |
 | active_weights ↓ | gated-dReLU activation sparsity | **LOCKED** (Probe-2) | **2.12×** predictor-free shrink, ~0 quality cost (79% gate sparsity) |
-| active_weights ↓ | fine-grained ternary MoE | OPEN → probe-4 | — (sized by the L3 budget below) |
+| active_weights ↓ | fine-grained ternary MoE | **VALIDATED** (probe-4) | quality ≥ dense at matched total params; experts = DRAM-streamed pool, no residency bonus (§3.5) |
 | eff_bw ↑ | active-slice fits L3 | **LOCKED** (Probe-3) | **~3×** step (88→28 GB/s) at the **16MB L3 cliff**; compute-bound while resident |
 | tokens_per_stream ↑ | block-decode `a` / MTP | OPEN → exec-model + probe-6 | `a`≈2-4× single-user (lit.) |
 
@@ -73,8 +73,8 @@ One cache-resident ternary block reused N times for depth, with adaptive halting
 ### 3.4 Recall tier (LOCKED — Phase 56 closed)
 SSM-state queries → **IVF-PQ two-stage** recall slot: 4-bit ADC shortlist + exact rerank of top-16. ~18 µs/tok/layer @128K (dim=128), under the 30 µs gate. **Originality = the InfoNCE *representation*** (load-bearing: reaches the attention ceiling, frozen-LSH plateaus at 84%). **Partition = data-independent Hadamard** (≥ learned, drift-proof by construction → no streaming rebalancer, no drift-recalibration). Drift is a non-problem on Mamba-1 (bounded state-norm; recall flat-vs-distance to 21× context). The dense-O(T²) training harness can't reach 128K, but inference uses the sparse index; a sparse-slot rewrite is the engineering prereq to *train* the recall tier at long context (§5).
 
-### 3.5 Capacity — sparse memory / fine-grained ternary MoE (K1, OPEN → probe-4)
-Grow total params N while keeping `active × N` small: product-key memory and/or fine-grained ternary MoE (small experts + always-resident shared experts), with the active expert set sized to ≤ the §2 budget. The published cousins (DeepSeek-MoE, UltraMem) exist; the open piece is co-designing granularity against the consumer-L3 budget under ternary, with the experts served by the pshufb-LUT kernel (AMX/VNNI paths unavailable). Probe-4: mini-MoE, measure active-expert cache hit-rate + routing locality vs the budget.
+### 3.5 Capacity — sparse memory / fine-grained ternary MoE (K1, VALIDATED — probe-4, 2026-07-02)
+Grow total params N while keeping `active × N` small: fine-grained ternary MoE (small experts + always-resident shared parts), served by the pshufb-LUT kernel. **Probe-4 verdict (matched arms, 4k steps, equal total params ~22.5M):** quality gate smashed — MoE-gran (E32×h128, top-8, active 1024) BPB **0.8589** vs dense-1024 0.8799 (gate ≤0.8899) *and* vs dense-4096 0.8674: the granular MoE beat the dense upper-bound arm at matched total params; granular > coarse (E8×h512 top-2 = 0.8637). Router healthy under Switch aux (0 dead, max/mean ≤1.47×). **Routing locality FALSIFIED (the pre-registered red flag fired):** expert working-set over a block ≈ i.i.d. baseline (84-89% of E at N=8 vs 90% random; ~100% by N=16-32) and expert persistence = base-rate k/E — the temporal-independence finding of Phase 58 replicates at expert granularity. **Consequence: the expert tier is re-classified from "L3-warm pool" to "DRAM-streamed, granularity-bounded".** It loses the ~3× residency multiplier (backbone/router/head keep it); bandwidth stays cheap (a ternary h=128 expert is tens of KB; top-k × layers = a few MB/token at the 28 GB/s floor — not the bottleneck) and ρ-safe (tens-of-KB *contiguous* bulk loads per block, not 64B-grain gather). **The §2 budget becomes explicitly two-pool: resident (≤16MB, reused, ~90-116 GB/s) + streamed (experts, ~28 GB/s, costed in bytes/token).**
 
 ### 3.6 Predictability — the control system (K3 / Finding-7, OPEN — highest-originality)
 A tiny cache-resident predictor maps the SSM state → the next active set (which experts/rows), enabling **SKIP** (don't stream the inactive — pure bandwidth saving, silicon-independent, the durable mode) and secondarily **prefetch** (Zen2-only, fragile). The decisive, unpublished move: **co-train the model to *be* predictable** (a predictability/routing-coherence regularizer) — convert the speculative cache-residency bet into an optimizable training objective. Attaches to the *irregular* tier (K1 gather / MoE routing), not the regular SSM scan (already HW-prefetched). Make-or-break first measured cheaply: how predictable is the active set from the SSM state, and does the regularizer raise it without quality cost. Open.
@@ -94,7 +94,7 @@ Enter/exit at compression-unit boundaries (Byte-Latent-Transformer-style patchin
 
 | Unknown | Probe | Cost | Why it matters |
 |---|---|---|---|
-| MoE cache-hit / routing locality | probe-4 (mini-MoE) | mid (small train) | sizes capacity vs the §2 budget |
+| MoE cache-hit / routing locality | probe-4 — **DONE 2026-07-02** | — | locality ≈ i.i.d. (no hot pool) → expert tier re-classified DRAM-streamed; quality + router gates passed (§3.5) |
 | Predictability of active set + regularizer | Finding-7 probe | cheap-ish | turns cache-residency from bet to lever; highest originality |
 | Reuse depth vs quality (K2) | depth probe | cheap (sandbox) | depth-without-bandwidth |
 | Head at vocab 32-128K | probe-5 | cheap | protects L3 budget |

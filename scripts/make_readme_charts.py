@@ -215,8 +215,35 @@ def chart_architecture():
     _finish(fig, "architecture.png")
 
 
+# ------------------------------------------------- 6. granular MoE capacity tier
+# Source: probe-4 (phase59_moe.py), 4k-step matched, equal total params (~22.5M), Zen/3060.
+def chart_moe():
+    labels = ["A · dense\n(1024 active)", "B · dense-big\n(4096 active)",
+              "C · MoE granular\nE32×h128 top-8", "D · MoE coarse\nE8×h512 top-2"]
+    bpb    = [0.8799, 0.8674, 0.8589, 0.8637]
+    active = ["1024", "4096", "1024", "1024"]
+    colors = [AMBER, BLUE, TEAL, "#5eead4"]
+    fig, ax = plt.subplots(figsize=(7.6, 4.3))
+    bars = ax.bar(labels, bpb, color=colors, width=0.6, zorder=3)
+    for b, v, a in zip(bars, bpb, active):
+        ax.text(b.get_x()+b.get_width()/2, v+0.0007, f"{v:.4f}", ha="center",
+                va="bottom", color=INK, fontweight="bold", fontsize=10)
+        ax.text(b.get_x()+b.get_width()/2, 0.851, f"active {a}", ha="center",
+                va="bottom", color=MUTED, fontsize=8.5)
+    ax.axhline(bpb[0], color=AMBER, ls="--", lw=1, alpha=0.5, zorder=2)
+    ax.set_ylabel("validation BPB  (lower is better)")
+    ax.set_ylim(0.850, 0.885)
+    ax.set_title("Granular MoE wins at matched active cost  (probe-4)")
+    ax.annotate("granular MoE at 1024 active\nbeats even the 4096-active dense",
+                xy=(2, 0.8589), xytext=(0.35, 0.8605), color=TEAL, fontsize=9.5,
+                arrowprops=dict(arrowstyle="->", color=TEAL, lw=1))
+    _finish(fig, "bench_moe.png",
+            "probe-4 · phase59_moe.py · 4k-step matched, equal total params · TinyStories")
+
+
 if __name__ == "__main__":
     chart_architecture()
+    chart_moe()
     chart_bits_speed()
     chart_ternary_quality()
     chart_cache_cliff()

@@ -72,6 +72,16 @@ Together: you can skip ~half the MLP blocks, and cheaply predict *which* half �
 
 A two-stage IVF-PQ retrieval tier gives **128K-context recall in ~18 µs/query** on CPU. The load-bearing originality is the **learned InfoNCE representation** (not the partition, which can be data-independent and simpler). A predicted failure mode — query *drift* over long contexts — was investigated and found **absent** on this SSM: the state norm is bounded, so recall stays flat versus distance in-distribution and 21× out-of-distribution.
 
+### 5 · Scaling capacity without scaling the active cost — granular MoE
+
+A mixture-of-experts grows *total* parameters while keeping the *active* parameters per token inside the cache budget. At matched active cost (and matched total params), a **granular MoE** (many small experts, top-k routed) not only preserves quality — it improves on the dense baseline, and even edges out a dense model with 4× the active parameters. Fine-grained experts beat coarse ones, confirming the block-structure finding above.
+
+<div align="center">
+<img src="assets/bench_moe.png" width="70%">
+</div>
+
+Routing has **no temporal locality** — the active expert set is i.i.d.-like across tokens (measured twice, at neuron and expert granularity). So the experts do *not* form a hot pool that stays cached; instead they are **streamed from DRAM in contiguous, granularity-bounded chunks** (bulk and sequential — ρ-safe, no pointer-chasing). This splits the memory budget into **two pools**: a resident core (≤ 16 MB L3, reused every token) and a streamed expert tier (a few MB/token at the DRAM floor). That two-pool model is the honest answer to the random-latency concern: no hot pool (measured), but no latency trap either (by construction).
+
 ---
 
 ## Status
@@ -84,9 +94,10 @@ A two-stage IVF-PQ retrieval tier gives **128K-context recall in ~18 µs/query**
 | Long-context recall tier | ✅ de-risked end-to-end | ~18 µs/query, drift-free |
 | In-place predictability | ✅ validated | 86–92% recall, predictor-free |
 | Block-structured sparsity | ✅ found (byproduct) | 18% → 50% skippable @ zero cost |
-| Granular MoE (capacity tier) | 🔬 probing | quality + routing-locality A/B |
+| Granular MoE (capacity tier) | ✅ validated | granular > dense at iso-active; fine > coarse |
+| Two-pool memory model | ✅ characterized | resident core + streamed experts (no hot pool) |
 | Block-decode / MTP execution | 📋 designed | roadmap (execution chassis) |
-| Unified C inference engine | 📋 roadmap | the deliverable |
+| Unified C inference engine | 🔧 in progress | reference core underway |
 
 See [`docs/SCALEUP_ARCHITECTURE.md`](docs/SCALEUP_ARCHITECTURE.md) for the full buildable blueprint, and [`HANDOFF.md`](HANDOFF.md) for the complete technical narrative including every negative result.
 
