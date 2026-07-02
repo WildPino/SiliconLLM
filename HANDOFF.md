@@ -1,6 +1,51 @@
 # SiliconLLM Handoff
 
-Last updated: 2026-06-28 — **Phase 56 CLOSED. The recall-tier research is COMPLETE and de-risked end-to-end — the CPU-recall half of the thesis ("recall at 128K on CPU with a budget-compressed state") is validated at sandbox scale.** The last gate (query drift at length) resolved NEGATIVE, in the simplest possible direction.
+Last updated: 2026-07-03 — **The weight-streaming half of the thesis is validated and the deliverable exists: a parity-gated C inference engine runs the whole architecture at 176 → 848 tok/s on the Zen 2 target (Phase 60, E1–E4). Phase 61 (SSM-projection ternarization) is running now, pre-registered.** Public releases: v0.1.0 (foundation), v0.2.0 (engine); AGPL-3.0; Zenodo DOI 10.5281/zenodo.21128459.
+
+> **Standing honesty caveats (apply to every training number below):** all A/B verdicts are **single-seed** (seed 0); all properties are measured on **TinyStories at 5–22M params**; the declared product domain (Cat-A: code/logs/structured) is **not yet tested**; the recall tier (phase-56 line) and the engine core (phase-58/59 line) are **two separate lineages**, not yet fused; "1.58-bit ternary" is **packed at 4 bits/weight** in the current engine.
+
+## Weight-streaming foundation — probes 1–3 (2026-06-29/30)
+
+The other half of the bandwidth equation: the model's own weights. Three independent multipliers, each measured on the real 3600X.
+
+- **Probe-1 — ternary (FINDING-1, validated).** A `pshufb` byte-LUT ternary kernel runs **4.2–5.0×** faster than fp32 matvec on Zen 2, **bit-exact** vs a scalar integer reference, and the "fewer bits → faster" signature is monotone (the anti-int8 fingerprint; int8 dequant *stalls* without VNNI). Quality: a ternary MLP trained from scratch (QAT) costs **+0.028 BPB** at 5M on TinyStories — an *upper bound* (the ternary run was still descending; single-seed; MLP-only, backbone kept fp32). int8-VNNI is officially replaced by the LUT path on our silicon.
+- **Probe-2 — activation sparsity (FINDING-2, validated).** A gated **dReLU** MLP reaches **92% hidden / 79% gate** sparsity at **+0.0006 BPB** (matched 4k-step A/B — quality is ~free). Predictor-free skippable = **2.12×** shrink. Composes with ternary along an independent axis → ~21× fewer MLP bytes/token vs fp32-dense (a composition of separately-measured deltas; matched-convergence A/B queued).
+- **Probe-3 — cache residency (FINDING-4, measured).** A synthetic working-set sweep finds a sharp bandwidth cliff at **16 MB = L3-per-CCX** (compute-bound ~100 GB/s below, ~28 GB/s DRAM floor above). This is the **keystone constraint**. Unifying law, proven here (SIMVQ death vs IVFPQ win): **no unnecessary random gather — cache-residency / sequential access is the feasibility gate on every byte-reduction (the ρ-law).**
+
+## Phase 58 — the predictor / K3 (2026-06-30)
+
+The control system meant to make MoE + cache pay in bandwidth. **Measure-first, then A/B a regularizer.**
+
+- **58.A (measure, zero-train, on the probe-2 checkpoint):** the active set is **intrinsically predictable in-place** (86–92% recall from a cheap ridge probe on the current state, predictor-free) — but **temporal persistence is NULL** (`P(active_t|active_{t-1}) ≈ base-rate`; the set reshuffles every token). Ahead-of-time (cross-token) prediction is **weak, 50–63%**. So the durable mechanism is the *in-place* skip, not prefetch.
+- **58.B (regularizer A/B) — the pre-registered gate FAILED, reported honestly.** A predictability regularizer did **not** raise per-operating-point predictability (raw recall dropped; at matched saving it was equal-or-worse). Per anti-Goodhart the gate was **not loosened** — +reg is not promoted as a predictability regularizer. **Byproduct (the real win):** the coherence term made the sparsity **block-structured** (ρ-honest, contiguous) at zero quality cost — block-skippable @BS8 went 18% → 50%; nonzero even @BS32 (0.7% → 17%), which scattered sparsity cannot produce. **Reframe:** the originality is not "we train predictability in" but "**SSM active-sets are intrinsically predictable in-place**" — a more robust claim.
+
+## Phase 59 / probe-4 — MoE (2026-07-02)
+
+The capacity tier: scale *total* params while keeping *active*/token in budget. Arms matched on active-hid (1024) and total params.
+
+- **Quality gate PASSED:** granular MoE (E32×h128 top-8) BPB **0.8589 ≤ gate**; it *improves* the dense baseline (A 0.8799). Fine > coarse (D 0.8637), consistent with the block-structure finding. **Labeled observation (not registered):** C also led the 4×-active dense arm B (0.8674) — single-seed, undertrained; may reflect training *speed*, not capacity; multi-seed/convergence check queued.
+- **Router perfect:** 0 dead experts, max/mean ≤ 1.47, Switch load-balance aux works.
+- **LOCALITY — hot-pool FALSIFIED (the big finding).** Working-set over a block ≈ the i.i.d. base rate; expert persistence = base-rate → **temporal independence replicated at expert granularity** (measured twice now, at neuron and expert level). The active set is i.i.d.-like across tokens; locality will come *only* from prediction, never from carry-over.
+- **Consequence — the blueprint refines, it does not break: two-pool memory model.** The expert tier is reclassified from "L3-warm hot pool" to **streamed-from-DRAM, granularity-bounded** (loses the ~3× residency multiplier only on the expert fraction; backbone/router/head stay resident). The counts hold: a ternary h128 expert ≈ 48 KB, top-8 × 6 layers = 2400 KB/token → priced at the 28 GB/s floor = ~88 µs/token — not the bottleneck; and it is **ρ-safe** (contiguous KB chunks bulk-loaded per block, not a strided gather). This is the final answer to external-review point #2: **no hot pool (measured, conceded), but no latency trap either (by construction).**
+
+## Phase 60 — the C inference engine, E1–E4 (2026-07-02)
+
+The deliverable. Built **correctness-first**: the fp32 reference core (E1) is the permanent regression harness, and every optimization lands only after parity against it is proven.
+
+- **E1 fp32 core** — G1 golden-trace l2-rel ~4e-7/layer; G2 top-1 100.0000% (20480/20480); G3 BPB Δ+0.000000; G4 tokenizer 0 mismatches / 975,712; G5 600 greedy tokens bit-identical. Baseline **176.1 tok/s** single-thread.
+- **E2 ternary LUT MLP** — kernel bit-exact; activation-quant cost **+0.000037 BPB** (the fp-activation concern resolved negative, 135× inside budget); MLP kernel **2.14×**; the scan (not the MLP) is 83.5% of time.
+- **E3 exact activation-skip** — **bit-identical logits** (0 mismatches / 5.24M, worst |diff|=0); in-engine sparsity 78.5/93.5 reproduces the probe-2 anchors; **2.24× fewer MLP weight-bytes/token** (compute-time only 1.16× — dense-SIMD beats scalar-sparse at cache-resident small dims; the byte win pays at scale-up).
+- **E3.5 deterministic fast-exp scan** — a versioned Cephes poly (deterministic ≠ the banned `-ffast-math`), parity-gated: BPB Δ−0.000000, top-1 100%, **scan 25.9×**; end-to-end **176 → 848 tok/s = 4.8×**. The bottleneck moved off the scan-exp onto the fp32 SSM projections (52.7%) → motivates Phase 61.
+- **E4 granular-MoE two-pool tier** — golden-trace/dispatch exact; E4-ref BPB 0.858856 (Δ+0.000002), top-1 100%; LUT experts +0.000028 BPB; streamed pool 2400 KB/token (counted, priced); ws@8 86.5% reproduces the probe-4 anchor; **701.7 tok/s** on a −0.021-BPB-better model.
+- **Cumulative: 176 → 848 tok/s, total inference-time quality cost +0.00004 BPB, every step parity-gated.** **Project law elevated (E4 lesson):** *unit-exactness does not compose to system correctness* — a bit-exact kernel gate stayed green while a staging-buffer overflow cost +0.15 BPB; caught only by the end-to-end parity gate + per-block diagnostics. Every rung keeps an end-to-end gate.
+
+## Phase 61 — open, pre-registered (2026-07-02, running)
+
+**SSM-projection ternarization A/B.** E3.5 exposed the dense fp32 SSM projections (in/x/dt/out_proj) as 52.7% of engine time and a large resident-pool byte share; probe-1's mixed-precision recipe kept them fp32 out of caution never tested. Arms: `fp32` (base) | `ternary-all` | `ternary-inout`. **Pre-registered gate: BPB(arm) ≤ 0.8799 + 0.010 @4k.** Apparatus + gates committed **before** the run (project rule: pre-register in public history). E5 (execution model: block-decode main-loop, speculative-AR vs carve) is design-blocked on model-side prerequisites and waits behind this.
+
+---
+
+**2026-06-28 — Phase 56 CLOSED. The recall-tier research is COMPLETE and de-risked end-to-end — the CPU-recall half of the thesis ("recall at 128K on CPU with a budget-compressed state") is validated at sandbox scale.** The last gate (query drift at length) resolved NEGATIVE, in the simplest possible direction.
 
 **The drift make-or-break resolved negative — and it simplified the index.** Three converging angles: (1) structural — our Mamba-1 selective SSM has a **bounded steady-state hidden-norm** (per-step decay; it does *not* accumulate like the Mamba-2 that R-B's ~10× radial-drift prediction was based on), so there is no radial query drift to begin with; (2) the OOD proxy groks at 80-84% recall at 21× its training context with **flat recall-vs-position**; (3) the in-distribution base (trained at ctx=8192, spread, ℓ2-normalized queries) shows recall **flat-to-rising with key→query distance for both arms** (the *farthest* bins are the *best* — the opposite of a drift signature). Per the pre-registered branch, 128K is therefore redundant (honoring anti-Goodhart: not moving the goalpost after a clean result; the bounded-norm argument is *why* we can stop at 8K). **And the partition decomposition came out decisively: a data-independent Hadamard partition (InfoNCE encoder + fixed sign-pattern centroids) matches-or-beats the learned partition (86% vs 82%, robust to steps).** → the load-bearing originality of Branch-1 is the **InfoNCE representation, NOT the learned partition** — exactly R-B's proposed resolution ("keep InfoNCE for the representation, not the partition"), now empirically confirmed. **The index simplifies: a fixed Hadamard partition is drift-proof by construction → no streaming rebalancer (LIRE/SPFresh), no drift-recalibration, no online partition maintenance.** Only the encoder is learned.
 
