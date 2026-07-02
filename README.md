@@ -139,20 +139,29 @@ See [`docs/SCALEUP_ARCHITECTURE.md`](docs/SCALEUP_ARCHITECTURE.md) for the full 
 
 ---
 
-## Reproduce the findings
+## Reproduce
 
-The benchmark charts on this page are generated from the measured numbers:
+**1 · Regenerate the charts** — the plotted numbers live in the script (sourced from the verdicts), so this redraws every figure on this page:
 
 ```sh
 python scripts/make_readme_charts.py     # -> assets/*.png
 ```
 
-The probes themselves live under `benchmarks/phase55-57/` (weight-streaming: ternary kernel, sparsity, cache sweep) and the retrieval work under `benchmarks/phase56/`. The C microbenchmarks target Zen 2:
+**2 · Re-run the kernel microbenchmarks** — no weights needed; these are the ternary-speed and cache-cliff measurements (Zen 2):
 
 ```sh
 clang -O3 -mavx2 -march=znver2 benchmarks/phase57/phase57_lutbench.c   -o lutbench   -lm
 clang -O3 -mavx2 -march=znver2 benchmarks/phase57/phase57_cachesweep.c -o cachesweep -lm
 ```
+
+**3 · Reproduce the engine parity gates end-to-end** — this needs the trained checkpoints, the engine export, the BPE tokenizer, and the canonical validation slice (with hashes), published together as a **release asset** (see [Releases](https://github.com/WildPino/SiliconLLM/releases)). With that asset unpacked at the repo root:
+
+```sh
+clang -O3 -mavx2 -march=znver2 benchmarks/phase60/e1_engine.c -o bin/e1_engine -lm
+bin/e1_engine --all      # runs the G1–G5 parity gates vs the fp32 reference
+```
+
+Later stages build the same way (`e2_engine.c` … `e4_engine.c`). See [`docs/ENGINE_PLAN.md`](docs/ENGINE_PLAN.md) for each stage's gates and the exact rerun commands. The probe apparatus (training A/Bs) lives under `benchmarks/phase55-57/`; the engine stages under `benchmarks/phase60/`.
 
 ---
 
@@ -163,16 +172,20 @@ SiliconLLM/
 ├── assets/                     README charts (generated from measured data)
 ├── docs/
 │   ├── SCALEUP_ARCHITECTURE.md   the buildable blueprint (the current design)
+│   ├── ENGINE_PLAN.md            C engine stages E1–E5 + pre-registered gates
 │   ├── EXTERNAL_REVIEW_01.md     external technical review + responses
 │   └── research/                 background research reports
 ├── benchmarks/
 │   ├── phase55/                  CPU SSM language model + C inference kernel
 │   ├── phase56/                  long-context recall (IVF-PQ, drift, MQAR)
-│   └── phase57/                  weight-streaming + predictor/MoE probes
+│   ├── phase57/                  weight-streaming + predictor/MoE/proj probes
+│   └── phase60/                  the C inference engine (E1–E4) + gates
 ├── scripts/                    chart generation
 ├── archive/                    historical / superseded (compressor + early eras)
 └── HANDOFF.md                  full technical narrative
 ```
+
+<sub>Note: some newer probe apparatus (phase-58/59/61) currently lives under `benchmarks/phase57/` for import convenience; it will be reorganized once Phase 61 finishes running.</sub>
 
 ---
 
