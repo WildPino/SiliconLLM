@@ -1,5 +1,47 @@
 # CHANGELOG — Silicon Entropy Engine
 
+> **Versioning note.** The project has two eras under one name. The **compressor** line
+> (V1.0.x, Phases 1–40, a lossless CPU compressor) is archived under `archive/` — its
+> history is below. The current **CPU-native LLM / inference-engine** line restarts at
+> **0.x** (foundation + engine are pre-1.0 research). Release tags and `CITATION.cff`
+> follow the 0.x line.
+
+## 0.2.0 (2026-07-02) — C inference engine (Phase 60, E1–E4)
+
+A single-binary C engine implementing the validated architecture, built correctness-first
+against an fp32 reference core, every optimization parity-gated.
+
+- **E1** fp32 reference core — the permanent regression harness (G1–G5 gates all green).
+- **E2** ternary LUT MLP (pshufb, per-token int8 activations): kernel bit-exact, +0.000037 BPB.
+- **E3** exact activation-skip: bit-identical logits; 2.24× fewer MLP weight-bytes/token.
+- **E3.5** deterministic fast-exp scan (versioned poly, parity-gated): 25.9× on the scan.
+- **E4** granular-MoE two-pool tier: capacity model (BPB 0.8589) at ≈E3.5 speed.
+- **176 → 848 tok/s** single-thread on the Ryzen 5 3600X (702 on the MoE model); total
+  inference-time quality cost **+0.00004 BPB**.
+- **E5** (execution model) is design-blocked → **Phase 61** (SSM-projection ternarization)
+  opened and **pre-registered before its run**.
+
+## 0.1.0 (2026-07-02) — foundation validated on Zen 2 (Phases 55–59)
+
+- **Phase 55** — CPU SSM language model (TinyStories, BPB 0.81–0.90); recall-tier research.
+- **Phase 56** — long-context recall de-risked: two-stage IVF-PQ (~18 µs on a 128K-entry
+  index), InfoNCE representation load-bearing, query drift absent (bounded state norm),
+  partition can be data-independent.
+- **Probe-1** (ternary weights) — pshufb-LUT 4.2–5.0× vs fp32 on Zen 2, bit-exact; +0.028
+  BPB at 5M (MLP-only, single-seed).
+- **Probe-2** (activation sparsity) — gated dReLU up to 92% sparse, +0.0006 BPB matched.
+- **Probe-3** (cache) — a 16 MB L3 bandwidth cliff = the keystone active-slice budget.
+- **Phase 58** (predictor) — active set 86–92% predictable in-place; the predictability
+  regularizer did **not** raise it (pre-registered gate failed, reported honestly); the
+  coherence term instead yielded block-structured sparsity.
+- **Phase 59 / probe-4** (MoE) — granular MoE passes the iso-active quality gate; routing
+  has no temporal locality → **two-pool** memory model (the hot-pool hypothesis was falsified).
+- Public repository curated for release (English only, data/weight blobs untracked, dead
+  eras moved to `archive/`), licensed **AGPL-3.0**, archived on Zenodo (concept DOI
+  10.5281/zenodo.21128459).
+
+---
+
 ## V1.0.2 (2026-06-17) — Phase 49 Closed + Commit
 
 **Phase 49: Generation Dynamics (FORCE/RLS output-feedback)**

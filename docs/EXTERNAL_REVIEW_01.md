@@ -3,6 +3,7 @@
 **Date:** 2026-06-30
 **Subject:** external technical review of the blueprint `docs/SCALEUP_ARCHITECTURE.md` (C engine, CPU-native SLM for Zen 2).
 **Status:** review received; responses with measured data. Re-opened at probe-4 (MoE) on 2026-07-02 — see Addendum. Still to be re-opened at the execution-model stage (MTP).
+**Provenance:** AI-assisted adversarial review, solicited by the author — a red-team exercise, not an independent third-party audit.
 
 ---
 
