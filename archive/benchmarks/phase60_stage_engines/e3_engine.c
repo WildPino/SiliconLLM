@@ -109,6 +109,40 @@ static float quant_i8(const float* x, int n, int8_t* xq){
     for(int i=0;i<n;i++){ int v=(int)lrintf(x[i]*inv); if(v>AQ)v=AQ; if(v<-AQ)v=-AQ; xq[i]=(int8_t)v; } return scale;
 }
 
+// --kselftest: synthetic self-test of all three E3 code paths, NO weights/ids needed (CI-runnable).
+// (1) tile-major full LUT vs scalar-int ref; (2) row-major scalar-LUT row dot (the up-skip path) vs ref;
+// (3) tile-skip over the nonzero tiles vs the FULL ref (the E3 exactness property: skipped tiles contribute 0).
+static void* kst_malloc(size_t n){ void*p=malloc(n); if(!p){fprintf(stderr,"OOM\n");exit(1);} return p; }
+static void kst_ref(const int8_t* Wt,const int8_t* xq,int32_t* y,int M,int K){
+    for(int m=0;m<M;m++){ long s=0; for(int k=0;k<K;k++) s+=(long)Wt[(size_t)m*K+k]*xq[k]; y[m]=(int32_t)s; } }
+static int kernel_selftest(void){
+    srand(23456); int worst=0; long checks=0;
+    int dims[2][2]={{MLP_HID,D},{D,MLP_HID}};
+    for(int c=0;c<2;c++){ int M=dims[c][0],K=dims[c][1],Mpad=(M+31)&~31,T=K/2;
+        int8_t* Wt=kst_malloc((size_t)M*K); int8_t* ctm=kst_malloc((size_t)T*Mpad); int8_t* crm=kst_malloc((size_t)M*T);
+        int8_t* xq=kst_malloc(K); int8_t* lut=kst_malloc((size_t)T*16);
+        int32_t* Sl=kst_malloc((size_t)M*4); int32_t* Sr=kst_malloc((size_t)M*4); int* act=kst_malloc((size_t)T*sizeof(int));
+        for(int trial=0;trial<32;trial++){
+            for(size_t i=0;i<(size_t)M*K;i++) Wt[i]=(int8_t)(rand()%3-1);
+            for(int k=0;k<K;k++){ int v=rand()%(2*AQ+1)-AQ; if(rand()%3==0) v=0; xq[k]=(int8_t)v; }  // force zeros -> real tile-skip
+            build_codes_tilemajor(Wt,M,K,Mpad,ctm); build_codes_rowmajor(Wt,M,K,crm); build_lut_t3(xq,T,lut);
+            kst_ref(Wt,xq,Sr,M,K);
+            matvec_lut_full(ctm,lut,Sl,M,Mpad,T);
+            for(int m=0;m<M;m++){ int d=abs(Sl[m]-Sr[m]); if(d>worst)worst=d; checks++; }
+            for(int m=0;m<M;m+=7){ const int8_t* cr=crm+(size_t)m*T; int S=0;                        // row-major scalar path
+                for(int t=0;t<T;t++) S+=lut[t*16+cr[t]];
+                int d=abs(S-Sr[m]); if(d>worst)worst=d; checks++; }
+            int na=0; for(int t=0;t<T;t++) if(xq[2*t]!=0||xq[2*t+1]!=0) act[na++]=t;                 // tile-skip = exact
+            matvec_lut_tileskip(ctm,lut,Sl,M,Mpad,act,na);
+            for(int m=0;m<M;m++){ int d=abs(Sl[m]-Sr[m]); if(d>worst)worst=d; checks++; }
+        }
+        free(Wt);free(ctm);free(crm);free(xq);free(lut);free(Sl);free(Sr);free(act);
+    }
+    printf("==== E3 kernel self-test (synthetic, no weights): full-LUT / row-scalar / tile-skip vs scalar-int ====\n");
+    printf("  %ld checks | worst |S - S_ref| = %d  %s\n",checks,worst,worst==0?"PASS":"FAIL");
+    return worst==0?0:2;
+}
+
 typedef struct { float *in_proj,*conv_w,*conv_b,*x_proj,*dt_proj,*dt_b,*A,*Dskip,*out_proj,*norm; } SSML;
 typedef struct { float *qkv,*o,*norm; } SWAL;
 static float *emb,*head,*normf; static SSML ssm[L]; static SWAL swa; static int is_swa[L];
@@ -303,17 +337,31 @@ static void timing(long ntok){
     free(lg);
 }
 
+// --dumplogits: raw fp32 logit stream (P4.3 consolidation-parity instrument); mlp_mode 0 = the E3 skip config.
+static void dump_logits(const char* path,long seqW,long ntok,int mlp_mode){
+    long ntr=(long)(nids*0.9); uint16_t* val=ids+ntr;
+    FILE* f=fopen(path,"wb"); if(!f){fprintf(stderr,"cannot open %s\n",path);exit(1);}
+    float* lg=xmalloc((size_t)V*4); long done=0,pos=0;
+    while(done<ntok){ state_reset();
+        for(long t=0;t<seqW&&done<ntok;t++,done++){ forward_token(val[pos+t],lg,mlp_mode,0,NULL); fwrite(lg,4,V,f); }
+        pos+=seqW; }
+    fclose(f); free(lg); printf("dumped %ld x %d fp32 logits (mlp_mode=%d) -> %s\n",ntok,V,mlp_mode,path);
+}
+
 int main(int argc,char**argv){
     int bi=0,sp=0,tm=0,all=0; long seqW=512,ntok=5120,sptok=4000,timetok=3000;
-    const char* wp="results/phase60/e1_model.bin";
+    const char* wp="results/phase60/e1_model.bin"; const char* dlpath=NULL;
     for(int i=1;i<argc;i++){ if(!strcmp(argv[i],"--bitid"))bi=1; else if(!strcmp(argv[i],"--sparsity"))sp=1;
         else if(!strcmp(argv[i],"--timing"))tm=1; else if(!strcmp(argv[i],"--all"))all=1;
         else if(!strcmp(argv[i],"--ntok")&&i+1<argc) ntok=atol(argv[++i]);
+        else if(!strcmp(argv[i],"--kselftest")) return kernel_selftest();   // synthetic, no weights (CI)
+        else if(!strcmp(argv[i],"--dumplogits")&&i+1<argc) dlpath=argv[++i];
         else if(!strcmp(argv[i],"--weights")&&i+1<argc) wp=argv[++i]; }
-    if(!bi&&!sp&&!tm&&!all) all=1;
+    if(!bi&&!sp&&!tm&&!all&&!dlpath) all=1;
     load_weights(wp); load_meta("results/phase55/meta.bin"); load_ids("results/phase55/ids.u16");
     hstate=calloc(L,sizeof(*hstate)); convbuf=calloc(L,sizeof(*convbuf)); kring=calloc((size_t)WIN*D,4); vring=calloc((size_t)WIN*D,4);
     fprintf(stderr,"E3 loaded: ids=%ld\n",nids);
+    if(dlpath){ dump_logits(dlpath,seqW,ntok,0); return 0; }               // E3 config = LUT + exact skip
     int rc=0;
     if(all||bi) rc|=gate_bitid(seqW,ntok);
     if(all||sp) sparsity(sptok);

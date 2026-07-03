@@ -1,0 +1,21 @@
+name: ci
+
+on:
+  push:
+    branches: [SirProjects, main]
+  pull_request:
+
+jobs:
+  build-and-kernel-selftest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: install clang
+        run: sudo apt-get update && sudo apt-get install -y clang make
+      - name: build engines
+        run: make engines
+      # Synthetic kernel self-tests: bit-exact SIMD-vs-scalar on random ternary weights,
+      # no model weights or dataset needed. The full parity-gate ladders (`make gates`)
+      # enter CI when the exported-weights asset is attached to a release the runner can fetch.
+      - name: kernel self-tests (no weights)
+        run: make selftest

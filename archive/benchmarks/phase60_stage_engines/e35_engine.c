@@ -103,6 +103,22 @@ static float quant_i8(const float* x,int n,int8_t* xq){ float amax=0; for(int i=
     if(amax==0.0f){ memset(xq,0,n); return 0.0f; } float scale=amax/(float)AQ,inv=1.0f/scale;
     for(int i=0;i<n;i++){ int v=(int)lrintf(x[i]*inv); if(v>AQ)v=AQ; if(v<-AQ)v=-AQ; xq[i]=(int8_t)v; } return scale; }
 
+// --kselftest: exp256_ps vs libm expf on the DOCUMENTED observed domain dt*A in [-29.76, 0] (E3.5
+// range-aware validation; see ENGINE_PLAN E3.5). Gate: max rel err <= 2e-6 on-domain (measured 1.0e-6).
+// Also reports (not gated) the wider clamp domain [-87, 0]. NO weights/ids needed (CI-runnable).
+static int kernel_selftest(void){
+    double worst_dom=0, worst_wide=0;
+    for(long i=0;i<=3000000;i++){ float x=-30.0f + (float)i*(30.0f/3000000.0f);   // [-30, 0] step 1e-5
+        float a=exp_approx1(x); float r=expf(x); double rel=fabs((double)a-r)/(double)r;
+        if(rel>worst_dom) worst_dom=rel; }
+    for(long i=0;i<=870000;i++){ float x=-87.0f + (float)i*(87.0f/870000.0f);     // [-87, 0] step 1e-4
+        float a=exp_approx1(x); float r=expf(x); if(r>0){ double rel=fabs((double)a-r)/(double)r; if(rel>worst_wide) worst_wide=rel; } }
+    printf("==== E3.5 kernel self-test (synthetic, no weights): exp256_ps vs libm expf ====\n");
+    printf("  observed domain [-30,0]: max rel err = %.3e  %s (<=2e-6)\n",worst_dom,worst_dom<=2e-6?"PASS":"FAIL");
+    printf("  wide domain    [-87,0]: max rel err = %.3e  (reported, not gated)\n",worst_wide);
+    return worst_dom<=2e-6?0:2;
+}
+
 typedef struct { float *in_proj,*conv_w,*conv_b,*x_proj,*dt_proj,*dt_b,*A,*Dskip,*out_proj,*norm; } SSML;
 typedef struct { float *qkv,*o,*norm; } SWAL;
 static float *emb,*head,*normf; static SSML ssm[L]; static SWAL swa; static int is_swa[L];
@@ -315,18 +331,36 @@ static void timing(long ntok){
     free(lg);
 }
 
+// --dumplogits: raw fp32 logit stream (P4.3 consolidation-parity instrument).
+// Config via --dscan (0 exact / 1 fast) and --dmlp (0 fp32 / 2 LUT+skip).
+static void dump_logits(const char* path,long seqW,long ntok,int scan_mode,int mlp_mode){
+    long ntr=(long)(nids*0.9); uint16_t* val=ids+ntr;
+    FILE* f=fopen(path,"wb"); if(!f){fprintf(stderr,"cannot open %s\n",path);exit(1);}
+    float* lg=xmalloc((size_t)V*4); long done=0,pos=0;
+    while(done<ntok){ state_reset();
+        for(long t=0;t<seqW&&done<ntok;t++,done++){ forward_token(val[pos+t],lg,scan_mode,mlp_mode,0,NULL,NULL); fwrite(lg,4,V,f); }
+        pos+=seqW; }
+    fclose(f); free(lg); printf("dumped %ld x %d fp32 logits (scan=%d mlp=%d) -> %s\n",ntok,V,scan_mode,mlp_mode,path);
+}
+
 int main(int argc,char**argv){
     int rg=0,gd=0,gb=0,gl=0,tm=0,all=0; long seqW=512,eval_tok=100000,ntok=10240,timetok=3000,rangetok=2000;
-    const char* wp="results/phase60/e1_model.bin";
+    int dscan=1,dmlp=0;
+    const char* wp="results/phase60/e1_model.bin"; const char* dlpath=NULL;
     for(int i=1;i<argc;i++){ if(!strcmp(argv[i],"--range"))rg=1; else if(!strcmp(argv[i],"--golden"))gd=1;
         else if(!strcmp(argv[i],"--bpb"))gb=1; else if(!strcmp(argv[i],"--logits"))gl=1; else if(!strcmp(argv[i],"--timing"))tm=1;
         else if(!strcmp(argv[i],"--all"))all=1; else if(!strcmp(argv[i],"--eval-tok")&&i+1<argc) eval_tok=atol(argv[++i]);
         else if(!strcmp(argv[i],"--ntok")&&i+1<argc) ntok=atol(argv[++i]);
+        else if(!strcmp(argv[i],"--kselftest")) return kernel_selftest();   // synthetic, no weights (CI)
+        else if(!strcmp(argv[i],"--dumplogits")&&i+1<argc) dlpath=argv[++i];
+        else if(!strcmp(argv[i],"--dscan")&&i+1<argc) dscan=atoi(argv[++i]);
+        else if(!strcmp(argv[i],"--dmlp")&&i+1<argc) dmlp=atoi(argv[++i]);
         else if(!strcmp(argv[i],"--weights")&&i+1<argc) wp=argv[++i]; }
-    if(!rg&&!gd&&!gb&&!gl&&!tm&&!all) all=1;
+    if(!rg&&!gd&&!gb&&!gl&&!tm&&!all&&!dlpath) all=1;
     load_weights(wp); load_meta("results/phase55/meta.bin"); load_ids("results/phase55/ids.u16");
     hstate=calloc(L,sizeof(*hstate)); convbuf=calloc(L,sizeof(*convbuf)); kring=calloc((size_t)WIN*D,4); vring=calloc((size_t)WIN*D,4);
     fprintf(stderr,"E3.5 loaded: ids=%ld\n",nids);
+    if(dlpath){ dump_logits(dlpath,seqW,ntok,dscan,dmlp); return 0; }
     int rc=0;
     if(all||rg) gate_range(rangetok);
     if(all||gd) gate_golden();

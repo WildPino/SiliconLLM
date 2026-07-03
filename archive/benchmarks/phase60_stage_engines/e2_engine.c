@@ -101,6 +101,30 @@ static float quant_i8(const float* x, int n, int8_t* xq){       // per-token abs
     return scale;
 }
 
+// --kselftest: synthetic kernel self-test, NO weights/ids needed (CI-runnable).
+// Random ternary weights + int8 activations in [-AQ,AQ]; LUT path vs scalar-int reference, bit-exact required.
+static void* xmalloc(size_t n);
+static int kernel_selftest(void){
+    srand(12345); int worst=0; long checks=0;
+    int dims[2][2]={{MLP_HID,D},{D,MLP_HID}};           // both (M,K) shapes the engine uses
+    for(int c=0;c<2;c++){ int M=dims[c][0],K=dims[c][1],Mpad=(M+31)&~31;
+        int8_t* Wt=xmalloc((size_t)M*K); int8_t* codes=xmalloc((size_t)(K/2)*Mpad);
+        int8_t* xq=xmalloc(K); int8_t* lut=xmalloc((size_t)(K/2)*16);
+        int32_t* Sl=xmalloc((size_t)M*4); int32_t* Sr=xmalloc((size_t)M*4);
+        for(int trial=0;trial<32;trial++){
+            for(size_t i=0;i<(size_t)M*K;i++) Wt[i]=(int8_t)(rand()%3-1);
+            for(int k=0;k<K;k++) xq[k]=(int8_t)(rand()%(2*AQ+1)-AQ);
+            build_codes(Wt,M,K,Mpad,codes); build_lut_t3(xq,K,lut);
+            matvec_lut_t3(codes,lut,Sl,M,Mpad,K); ref_t3(Wt,xq,Sr,M,K);
+            for(int m=0;m<M;m++){ int d=abs(Sl[m]-Sr[m]); if(d>worst)worst=d; checks++; }
+        }
+        free(Wt);free(codes);free(xq);free(lut);free(Sl);free(Sr);
+    }
+    printf("==== E2 kernel self-test (synthetic, no weights): pshufb-LUT vs scalar-int ====\n");
+    printf("  %ld dot-products | worst |S_lut - S_ref| = %d  %s\n",checks,worst,worst==0?"PASS":"FAIL");
+    return worst==0?0:2;
+}
+
 typedef struct { float *in_proj,*conv_w,*conv_b,*x_proj,*dt_proj,*dt_b,*A,*Dskip,*out_proj,*norm; } SSML;
 typedef struct { float *qkv,*o,*norm; } SWAL;
 typedef struct { int8_t* codes; int8_t* wt; float* ws; int M,K,Mpad; } LutW;   // wt kept for the bit-exact self-test
@@ -318,10 +342,14 @@ static int gate_bpb(long seqW,long eval_tok){
 }
 
 // ---------------- G3 top-1 agreement LUT vs E1 fp32 ----------------
-static int gate_logits(long seqW,long ntok_target){
+// dumpflips: optional diagnostic (P0.2 freshness check) — writes one line per disagreeing position:
+//   <global_val_index> <fp32_argmax> <lut_argmax>. Does not alter the gate.
+static int gate_logits(long seqW,long ntok_target,long offset,const char* dumpflips){
     long ntr=(long)(nids*0.9); uint16_t* val=ids+ntr;
     float* l1=xmalloc((size_t)V*4); float* l2=xmalloc((size_t)V*4);
-    long agree=0,tot=0,pos=0;
+    FILE* df=dumpflips?fopen(dumpflips,"w"):NULL;
+    if(dumpflips&&!df){fprintf(stderr,"cannot open %s\n",dumpflips);exit(1);}
+    long agree=0,tot=0,pos=offset;
     while(tot<ntok_target){
         state_reset();
         // run both paths on the same window; states are independent (separate reset per path) -> re-run per path
@@ -329,13 +357,27 @@ static int gate_logits(long seqW,long ntok_target){
         static uint16_t a1[4096];
         for(long t=0;t<seqW;t++){ forward_token(val[pos+t],l1,0,NULL); float mx=-1e30f; int am=0; for(int o=0;o<V;o++) if(l1[o]>mx){mx=l1[o];am=o;} a1[t]=am; }
         state_reset();
-        for(long t=0;t<seqW;t++){ forward_token(val[pos+t],l2,1,NULL); float mx=-1e30f; int am=0; for(int o=0;o<V;o++) if(l2[o]>mx){mx=l2[o];am=o;} if(am==a1[t]) agree++; tot++; }
+        for(long t=0;t<seqW;t++){ forward_token(val[pos+t],l2,1,NULL); float mx=-1e30f; int am=0; for(int o=0;o<V;o++) if(l2[o]>mx){mx=l2[o];am=o;}
+            if(am==a1[t]) agree++; else if(df) fprintf(df,"%ld %d %d\n",pos+t,(int)a1[t],am);
+            tot++; }
         pos+=seqW;
     }
+    if(df) fclose(df);
     double pct=100.0*agree/tot;
-    printf("==== G3 top-1 agreement (LUT vs E1 fp32, %ld tok) ====\n",tot);
+    printf("==== G3 top-1 agreement (LUT vs E1 fp32, %ld tok, offset %ld) ====\n",tot,offset);
     printf("  agreement=%.4f%% (%ld/%ld)  G3 %s (>=99%%)\n",pct,agree,tot,pct>=99.0?"PASS":"FAIL");
     free(l1); free(l2); return pct>=99.0?0:2;
+}
+
+// --dumplogits: raw fp32 logit stream (P4.3 consolidation-parity instrument); mlp_mode 1 = the E2 LUT config.
+static void dump_logits(const char* path,long seqW,long ntok,int mlp_mode){
+    long ntr=(long)(nids*0.9); uint16_t* val=ids+ntr;
+    FILE* f=fopen(path,"wb"); if(!f){fprintf(stderr,"cannot open %s\n",path);exit(1);}
+    float* lg=xmalloc((size_t)V*4); long done=0,pos=0;
+    while(done<ntok){ state_reset();
+        for(long t=0;t<seqW&&done<ntok;t++,done++){ forward_token(val[pos+t],lg,mlp_mode,NULL); fwrite(lg,4,V,f); }
+        pos+=seqW; }
+    fclose(f); free(lg); printf("dumped %ld x %d fp32 logits (mlp_mode=%d) -> %s\n",ntok,V,mlp_mode,path);
 }
 
 // ---------------- G4 timing breakdown (Amdahl) ----------------
@@ -356,8 +398,8 @@ static void timing(long ntok){
 }
 
 int main(int argc,char**argv){
-    int st=0,gb=0,gl=0,tm=0,all=0; long seqW=512,eval_tok=200000,ntok=10240,timetok=3000;
-    const char* wp="results/phase60/e1_model.bin";
+    int st=0,gb=0,gl=0,tm=0,all=0; long seqW=512,eval_tok=200000,ntok=10240,timetok=3000,offset=0;
+    const char* wp="results/phase60/e1_model.bin"; const char* dumpflips=NULL; const char* dlpath=NULL;
     for(int i=1;i<argc;i++){
         if(!strcmp(argv[i],"--selftest")) st=1; else if(!strcmp(argv[i],"--bpb")) gb=1;
         else if(!strcmp(argv[i],"--logits")) gl=1; else if(!strcmp(argv[i],"--timing")) tm=1;
@@ -366,15 +408,20 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--eval-tok")&&i+1<argc) eval_tok=atol(argv[++i]);
         else if(!strcmp(argv[i],"--ntok")&&i+1<argc) ntok=atol(argv[++i]);
         else if(!strcmp(argv[i],"--time-tok")&&i+1<argc) timetok=atol(argv[++i]);
+        else if(!strcmp(argv[i],"--offset")&&i+1<argc) offset=atol(argv[++i]);
+        else if(!strcmp(argv[i],"--dumpflips")&&i+1<argc) dumpflips=argv[++i];
+        else if(!strcmp(argv[i],"--kselftest")) return kernel_selftest();   // synthetic, no weights (CI)
+        else if(!strcmp(argv[i],"--dumplogits")&&i+1<argc) dlpath=argv[++i];
         else if(!strcmp(argv[i],"--weights")&&i+1<argc) wp=argv[++i];
     }
-    if(!st&&!gb&&!gl&&!tm&&!all) all=1;
+    if(!st&&!gb&&!gl&&!tm&&!all&&!dlpath) all=1;
     load_weights(wp); load_meta("results/phase55/meta.bin"); load_ids("results/phase55/ids.u16");
     hstate=calloc(L,sizeof(*hstate)); convbuf=calloc(L,sizeof(*convbuf)); kring=calloc((size_t)WIN*D,4); vring=calloc((size_t)WIN*D,4);
     fprintf(stderr,"E2 loaded: ids=%ld\n",nids);
+    if(dlpath){ dump_logits(dlpath,seqW,ntok,1); return 0; }               // E2 config = LUT MLP
     int rc=0;
     if(all||st) rc|=gate_selftest();
-    if(all||gl) rc|=gate_logits(seqW,ntok);
+    if(all||gl) rc|=gate_logits(seqW,ntok,offset,dumpflips);
     if(all||gb) rc|=gate_bpb(seqW,eval_tok);
     if(all||tm) timing(timetok);
     printf("STOP. E2 gates above. No commit.\n");

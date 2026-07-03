@@ -19,7 +19,7 @@
 #include <string.h>
 #include <math.h>
 #include <time.h>
-#include "../../archive/benchmarks/phase50/bpe_codec.h"
+#include "../phase50/bpe_codec.h"   /* path updated at the P4.3 archival move */
 
 #define V    1024
 #define D    256
@@ -230,6 +230,18 @@ static int gate_bpb(long seqW,long eval_tok){
     return fabs(bpb-0.879949)<=0.002?0:2;
 }
 
+// --dumplogits: raw fp32 logit stream (P4.3 consolidation-parity instrument). Windows of seqW with
+// state_reset per window, ntok tokens from val offset 0 — the shared parity protocol.
+static void dump_logits(const char* path,long seqW,long ntok){
+    long ntr=(long)(nids*0.9); uint16_t* val=ids+ntr;
+    FILE* f=fopen(path,"wb"); if(!f){fprintf(stderr,"cannot open %s\n",path);exit(1);}
+    float* lg=xmalloc((size_t)V*4); long done=0,pos=0;
+    while(done<ntok){ state_reset();
+        for(long t=0;t<seqW&&done<ntok;t++,done++){ forward_token(val[pos+t],lg,NULL); fwrite(lg,4,V,f); }
+        pos+=seqW; }
+    fclose(f); free(lg); printf("dumped %ld x %d fp32 logits -> %s\n",ntok,V,path);
+}
+
 // ---------------- G4 tokenizer parity ----------------
 static int gate_encode(long maxb){
     Bpe B; if(!bpe_load_file(&B,"weights/bpe1024.bin")) return 1;
@@ -293,8 +305,8 @@ static void bench(long bench_tok){
 }
 
 int main(int argc,char**argv){
-    int gG=0,gL=0,gB=0,gE=0,gGen=0,gAll=0,doBench=0; long seqW=512,eval_tok=200000,benchN=20000,encb=2000000;
-    const char* wpath=MP;
+    int gG=0,gL=0,gB=0,gE=0,gGen=0,gAll=0,doBench=0; long seqW=512,eval_tok=200000,benchN=20000,encb=2000000,dlntok=2048;
+    const char* wpath=MP; const char* dlpath=NULL;
     for(int i=1;i<argc;i++){
         if(!strcmp(argv[i],"--golden")) gG=1; else if(!strcmp(argv[i],"--logits")) gL=1;
         else if(!strcmp(argv[i],"--bpb")) gB=1; else if(!strcmp(argv[i],"--encode")) gE=1;
@@ -304,8 +316,11 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--eval-tok")&&i+1<argc) eval_tok=atol(argv[++i]);
         else if(!strcmp(argv[i],"--bench-tok")&&i+1<argc) benchN=atol(argv[++i]);
         else if(!strcmp(argv[i],"--enc-bytes")&&i+1<argc) encb=atol(argv[++i]);
+        else if(!strcmp(argv[i],"--dumplogits")&&i+1<argc){ dlpath=argv[++i]; }
+        else if(!strcmp(argv[i],"--ntok")&&i+1<argc) dlntok=atol(argv[++i]);
         else if(!strcmp(argv[i],"--weights")&&i+1<argc) wpath=argv[++i];
     }
+    if(dlpath){ bootstrap(wpath); dump_logits(dlpath,seqW,dlntok); return 0; }
     if(!gG&&!gL&&!gB&&!gE&&!gGen&&!doBench&&!gAll) gAll=1;
     bootstrap(wpath);
     fprintf(stderr,"E1 core loaded: ids=%ld D%d N%d L%d hid%d\n",nids,D,N,L,g_mlp_hid);

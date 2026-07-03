@@ -1,0 +1,114 @@
+{
+  "slice": {
+    "ids_file": "results/phase55/ids.u16",
+    "ids_md5": "d6682609e814eb41d8b2d0841636237b",
+    "n_ids": 32723845,
+    "split": "train=[0,int(n*0.9)) val=[int(n*0.9),n)",
+    "val_offset": 29451460,
+    "window": 512,
+    "n_windows": 390,
+    "eval_tokens": 199680,
+    "harness": "fp32 CPU, no autocast, torch.no_grad; CE bits / target byte-lengths"
+  },
+  "results": [
+    {
+      "label": "archA_5m_fp32",
+      "path": "results/phase55/archA_5m.pt",
+      "kind": "plain",
+      "note": "probe-1 fp32 arm (phase-55 5M, plain SiLU MLP)",
+      "canonical_bpb": 0.81042,
+      "training_harness_bpb": 0.810422,
+      "eval_tokens": 199680,
+      "eval_bytes": 406506,
+      "ckpt_md5": "fdc0354fb75df43f3c3f21e5d02dde42"
+    },
+    {
+      "label": "archA_5m_ternary",
+      "path": "results/phase57/archA_5m_ternmlp.pt",
+      "kind": "ternary",
+      "note": "probe-1 ternary arm (BitLinear158 MLP)",
+      "canonical_bpb": 0.838189,
+      "training_harness_bpb": 0.838189,
+      "eval_tokens": 199680,
+      "eval_bytes": 406506,
+      "ckpt_md5": "714764d60f0f0c83a11fa327462989f1"
+    },
+    {
+      "label": "sp_silu",
+      "path": "results/phase57/sp_silu.pt",
+      "kind": "sparse",
+      "note": "probe-2 SiLU(SwiGLU) arm",
+      "canonical_bpb": 0.880696,
+      "training_harness_bpb": 0.880696,
+      "eval_tokens": 199680,
+      "eval_bytes": 406506,
+      "ckpt_md5": "574961f72615d6ca9b4cb60069058659"
+    },
+    {
+      "label": "sp_drelu",
+      "path": "results/phase57/sp_drelu.pt",
+      "kind": "sparse",
+      "note": "probe-2 dReLU arm",
+      "canonical_bpb": 0.881283,
+      "training_harness_bpb": 0.881284,
+      "eval_tokens": 199680,
+      "eval_bytes": 406506,
+      "ckpt_md5": "7cedf4c9448b4e08237d8e0fa982e5bc"
+    },
+    {
+      "label": "sp58_base",
+      "path": "results/phase57/sp58_base.pt",
+      "kind": "sparse",
+      "note": "phase-58 base (= probe-4 arm A, engine E1-E3.5 target)",
+      "canonical_bpb": 0.879949,
+      "training_harness_bpb": 0.879949,
+      "eval_tokens": 199680,
+      "eval_bytes": 406506,
+      "ckpt_md5": "c622c0f55546099c0afa7116c3b19c41"
+    },
+    {
+      "label": "sp58_reg",
+      "path": "results/phase57/sp58_reg.pt",
+      "kind": "sparse",
+      "note": "phase-58 +coherence arm",
+      "canonical_bpb": 0.880076,
+      "training_harness_bpb": 0.880076,
+      "eval_tokens": 199680,
+      "eval_bytes": 406506,
+      "ckpt_md5": "f33ef93c0430b6e14ecd18beb8cba5cf"
+    },
+    {
+      "label": "moe_dense_big",
+      "path": "results/phase57/moe_dense_big.pt",
+      "kind": "moe",
+      "note": "probe-4 arm B (dense-4096)",
+      "canonical_bpb": 0.867238,
+      "training_harness_bpb": 0.867365,
+      "eval_tokens": 199680,
+      "eval_bytes": 406506,
+      "ckpt_md5": "bd51d0e34143c2fcdf3ffc5484e258b1"
+    },
+    {
+      "label": "moe_gran",
+      "path": "results/phase57/moe_gran.pt",
+      "kind": "moe",
+      "note": "probe-4 arm C (E32xh128 top-8, engine E4 target)",
+      "canonical_bpb": 0.858855,
+      "training_harness_bpb": 0.858854,
+      "eval_tokens": 199680,
+      "eval_bytes": 406506,
+      "ckpt_md5": "241f96549ae880f2cafc78dbac31fdf7"
+    },
+    {
+      "label": "moe_coarse",
+      "path": "results/phase57/moe_coarse.pt",
+      "kind": "moe",
+      "note": "probe-4 arm D (E8xh512 top-2)",
+      "canonical_bpb": 0.863613,
+      "training_harness_bpb": 0.863695,
+      "eval_tokens": 199680,
+      "eval_bytes": 406506,
+      "ckpt_md5": "fbcd1cc7003060ae18814e2b6094bde5"
+    }
+  ]
+}

@@ -25,17 +25,23 @@ clang -O3 -mavx2 -march=znver2 benchmarks/phase57/phase57_cachesweep.c -o caches
 
 ## Level 3 — reproduce the engine parity gates end-to-end
 
-Build a stage and run its gates against the fp32 reference:
+Build everything with the Makefile (or the equivalent clang line):
 
 ```sh
-clang -O3 -mavx2 -march=znver2 benchmarks/phase60/e1_engine.c -o bin/e1_engine -lm
-bin/e1_engine --all       # G1 golden-trace · G2 top-1 · G3 BPB · G4 tokenizer · G5 generation
+make engines              # bin/engine (consolidated core) + the five archival stage engines
+make selftest             # synthetic kernel self-tests, bit-exact, NO weights needed (= CI)
+make gates                # full parity-gate ladders — requires the release asset below
 ```
 
-Later stages build the same way (`e2_engine.c` … `e4_engine.c`); each stage's pre-registered
-gates and exact rerun commands are in [`ENGINE_PLAN.md`](ENGINE_PLAN.md). This requires the
-**release asset** (below) unpacked at the repo root: the engine loads the exported model
-binary, and the gates compare against the PyTorch reference over the canonical validation slice.
+The maintained engine is the **consolidated core** `benchmarks/phase60/engine.c` (one binary,
+feature flags `--mlp fp32|lut --skip on|off --exp exact|fast`; the model file's magic selects
+dense vs MoE). It was accepted against the five stage engines with **bit-identical logit
+streams in all seven stage configurations** (`results/phase60/p43/P43_REPORT.md`). The stage
+engines live in `archive/benchmarks/phase60_stage_engines/` as the parity oracles
+(`make stage-engines`); each stage's pre-registered gates and exact rerun commands are in
+[`ENGINE_PLAN.md`](ENGINE_PLAN.md). Gate runs require the **release asset** (below) unpacked at
+the repo root: the engine loads the exported model binary, and the gates compare against the
+PyTorch reference over the canonical validation slice.
 
 ---
 

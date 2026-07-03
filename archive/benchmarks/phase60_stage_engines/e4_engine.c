@@ -95,6 +95,38 @@ static float quant_i8(const float* x,int n,int8_t* xq){ float amax=0; for(int i=
     for(int i=0;i<n;i++){ int v=(int)lrintf(x[i]*inv); if(v>AQ)v=AQ; if(v<-AQ)v=-AQ; xq[i]=(int8_t)v; } return scale; }
 static void ref_t3(const int8_t* Wt,const int8_t* xq,int32_t* y,int M,int K){ for(int m=0;m<M;m++){ long s=0; for(int k=0;k<K;k++) s+=(long)Wt[(size_t)m*K+k]*xq[k]; y[m]=(int32_t)s; } }
 
+// --kselftest: synthetic self-test of the E4 kernel surfaces, NO weights/ids needed (CI-runnable).
+// (1) windowed matvec_lut_rows on the merged gate/up block (row0 = expert offset) vs scalar-int ref;
+// (2) per-expert tile-major Wd block vs scalar-int ref. Bit-exact required.
+static void* kst_malloc(size_t n){ void*p=malloc(n); if(!p){fprintf(stderr,"OOM\n");exit(1);} return p; }
+static int kernel_selftest(void){
+    srand(34567); long worst=0,checks=0;
+    int8_t* Wgu=kst_malloc((size_t)GH*D);   int8_t* cgu=kst_malloc((size_t)TUP*MPAD_GU);
+    int8_t* Wde=kst_malloc((size_t)E*D*HID_E); int8_t* cde=kst_malloc((size_t)E*TDE*MPAD_D);
+    int8_t xq[D],lut[TUP*16],hq[HID_E],lutd[TDE*16]; int32_t Sl[D>HID_E?D:HID_E],Sr[D>HID_E?D:HID_E];
+    for(int trial=0;trial<16;trial++){
+        for(size_t i=0;i<(size_t)GH*D;i++) Wgu[i]=(int8_t)(rand()%3-1);
+        for(size_t i=0;i<(size_t)E*D*HID_E;i++) Wde[i]=(int8_t)(rand()%3-1);
+        for(int k=0;k<D;k++) xq[k]=(int8_t)(rand()%(2*AQ+1)-AQ);
+        for(int k=0;k<HID_E;k++) hq[k]=(int8_t)(rand()%(2*AQ+1)-AQ);
+        bc_tm(Wgu,GH,D,MPAD_GU,cgu); build_lut_t3(xq,TUP,lut);
+        for(int e=0;e<E;e+=5){                                              // windowed rows (expert offsets)
+            matvec_lut_rows(cgu,lut,Sl,e*HID_E,HID_E,MPAD_GU,TUP);
+            ref_t3(Wgu+(size_t)e*HID_E*D,xq,Sr,HID_E,D);
+            for(int i=0;i<HID_E;i++){ long d=labs((long)Sl[i]-Sr[i]); if(d>worst)worst=d; checks++; } }
+        for(int e=0;e<E;e++) bc_tm(Wde+(size_t)e*D*HID_E,D,HID_E,MPAD_D,cde+(size_t)e*TDE*MPAD_D);
+        build_lut_t3(hq,TDE,lutd);
+        for(int e=0;e<E;e+=5){                                              // per-expert Wd blocks
+            matvec_lut_rows(cde+(size_t)e*TDE*MPAD_D,lutd,Sl,0,D,MPAD_D,TDE);
+            ref_t3(Wde+(size_t)e*D*HID_E,hq,Sr,D,HID_E);
+            for(int d=0;d<D;d++){ long df=labs((long)Sl[d]-Sr[d]); if(df>worst)worst=df; checks++; } }
+    }
+    free(Wgu);free(cgu);free(Wde);free(cde);
+    printf("==== E4 kernel self-test (synthetic, no weights): windowed rows + per-expert Wd vs scalar-int ====\n");
+    printf("  %ld checks | worst |S_lut - S_ref| = %ld  %s\n",checks,worst,worst==0?"PASS":"FAIL");
+    return worst==0?0:2;
+}
+
 typedef struct { float *in_proj,*conv_w,*conv_b,*x_proj,*dt_proj,*dt_b,*A,*Dskip,*out_proj,*norm; } SSML;
 typedef struct { float *qkv,*o,*norm; } SWAL;
 static float *emb,*head,*normf; static SSML ssm[L]; static SWAL swa; static int is_swa[L];
@@ -328,19 +360,25 @@ static int gate_selftest(void){
     printf("  worst |S_lut - S_ref| = %ld  %s\n",worst,worst==0?"PASS":"FAIL"); free(lg); return worst==0?0:2;
 }
 // ---- G5b E4-LUT vs E4-ref (BPB + top-1) ----
-static int gate_opt(long seqW,long ntok_t){
+// dumpflips: optional diagnostic (P0.2 freshness check) — one line per disagreeing position:
+//   <global_val_index> <ref_argmax> <lut_argmax>. Does not alter the gate.
+static int gate_opt(long seqW,long ntok_t,long offset,const char* dumpflips){
     long ntr=(long)(nids*0.9); uint16_t* val=ids+ntr; float* lr=xmalloc((size_t)V*4); float* lo=xmalloc((size_t)V*4);
-    double br=0,bo=0; long nbr=0,nt=0,agree=0,pos=0; const double LN2=0.6931471805599453; static uint16_t ar[4096];
+    FILE* df=dumpflips?fopen(dumpflips,"w"):NULL;
+    if(dumpflips&&!df){fprintf(stderr,"cannot open %s\n",dumpflips);exit(1);}
+    double br=0,bo=0; long nbr=0,nt=0,agree=0,pos=offset; const double LN2=0.6931471805599453; static uint16_t ar[4096];
     while(nt<ntok_t){ state_reset();
         for(long t=0;t<seqW;t++){ forward_token(val[pos+t],lr,0,0,NULL,NULL,NULL); int tgt=val[pos+t+1];
             double mx=-1e30; int am=0; for(int o=0;o<V;o++) if(lr[o]>mx){mx=lr[o];am=o;} ar[t]=am; double se=0; for(int o=0;o<V;o++) se+=exp((double)lr[o]-mx); br+=(-((double)lr[tgt]-mx)+log(se))/LN2; nbr+=id2len[tgt]; }
         state_reset();
         for(long t=0;t<seqW;t++){ forward_token(val[pos+t],lo,0,1,NULL,NULL,NULL); int tgt=val[pos+t+1];
-            double mx=-1e30; int am=0; for(int o=0;o<V;o++) if(lo[o]>mx){mx=lo[o];am=o;} if(am==ar[t])agree++;
+            double mx=-1e30; int am=0; for(int o=0;o<V;o++) if(lo[o]>mx){mx=lo[o];am=o;}
+            if(am==ar[t])agree++; else if(df) fprintf(df,"%ld %d %d\n",pos+t,(int)ar[t],am);
             double se=0; for(int o=0;o<V;o++) se+=exp((double)lo[o]-mx); bo+=(-((double)lo[tgt]-mx)+log(se))/LN2; nt++; }
         pos+=seqW; }
+    if(df) fclose(df);
     double bpr=br/nbr, bpo=bo/nbr; double pct=100.0*agree/nt;
-    printf("==== E4 G5b E4-LUT+skip vs E4-ref (%ld tok) ====\n",nt);
+    printf("==== E4 G5b E4-LUT+skip vs E4-ref (%ld tok, offset %ld) ====\n",nt,offset);
     printf("  BPB ref=%.6f LUT=%.6f delta=%+.6f  top-1(LUT vs ref)=%.4f%%\n",bpr,bpo,bpo-bpr,pct);
     printf("  E4 G5b BPB %s | top-1 %s\n",(bpo-bpr)<=0.005?"PASS":"FAIL",pct>=99.0?"PASS":"FAIL");
     free(lr);free(lo); return ((bpo-bpr)<=0.005&&pct>=99.0)?0:2;
@@ -369,6 +407,18 @@ static void gate_pool(long ntok){
     double m=0; for(int i=0;i<L;i++){ printf(" L%d=%.0f%%",i,100.0*ws_acc[i]/ws_n); m+=100.0*ws_acc[i]/ws_n; } printf("  | mean %.1f%%\n",m/L);
     (void)nmoe; free(lg);
 }
+// --dumplogits: raw fp32 logit stream (P4.3 consolidation-parity instrument).
+// Config via --dscan (0 exact / 1 fast) and --dmlp (0 fp32 experts / 1 LUT experts).
+static void dump_logits_stream(const char* path,long seqW,long ntok,int scan_mode,int mlp_mode){
+    long ntr=(long)(nids*0.9); uint16_t* val=ids+ntr;
+    FILE* f=fopen(path,"wb"); if(!f){fprintf(stderr,"cannot open %s\n",path);exit(1);}
+    float* lg=xmalloc((size_t)V*4); long done=0,pos=0;
+    while(done<ntok){ state_reset();
+        for(long t=0;t<seqW&&done<ntok;t++,done++){ forward_token(val[pos+t],lg,scan_mode,mlp_mode,NULL,NULL,NULL); fwrite(lg,4,V,f); }
+        pos+=seqW; }
+    fclose(f); free(lg); printf("dumped %ld x %d fp32 logits (scan=%d mlp=%d) -> %s\n",ntok,V,scan_mode,mlp_mode,path);
+}
+
 static void diag(void){
     long ntr=(long)(nids*0.9); uint16_t* val=ids+ntr; int T=32;
     float* c0=xmalloc((size_t)NLAYER*D*4); float* c1=xmalloc((size_t)NLAYER*D*4); float* lg=xmalloc((size_t)V*4);
@@ -395,24 +445,32 @@ static void timing(long ntok){
 }
 
 int main(int argc,char**argv){
-    int gg=0,gd=0,gl=0,gb=0,st=0,go=0,gp=0,tm=0,all=0; long seqW=512,eval_tok=200000,ntok=10240,pooltok=4000,timetok=2000;
-    const char* wp="results/phase60/e4_model.bin";
+    int gg=0,gd=0,gl=0,gb=0,st=0,go=0,gp=0,tm=0,all=0; long seqW=512,eval_tok=200000,ntok=10240,pooltok=4000,timetok=2000,offset=0;
+    int dscan=0,dmlp=0;
+    const char* wp="results/phase60/e4_model.bin"; const char* dumpflips=NULL; const char* dlpath=NULL;
     for(int i=1;i<argc;i++){ if(!strcmp(argv[i],"--golden"))gg=1; else if(!strcmp(argv[i],"--dispatch"))gd=1;
         else if(!strcmp(argv[i],"--logits"))gl=1; else if(!strcmp(argv[i],"--bpb"))gb=1; else if(!strcmp(argv[i],"--selftest"))st=1;
         else if(!strcmp(argv[i],"--optbpb"))go=1; else if(!strcmp(argv[i],"--pool"))gp=1; else if(!strcmp(argv[i],"--timing"))tm=1;
         else if(!strcmp(argv[i],"--diag")){ st=-1; }
         else if(!strcmp(argv[i],"--all"))all=1; else if(!strcmp(argv[i],"--eval-tok")&&i+1<argc) eval_tok=atol(argv[++i]);
+        else if(!strcmp(argv[i],"--offset")&&i+1<argc) offset=atol(argv[++i]);
+        else if(!strcmp(argv[i],"--dumpflips")&&i+1<argc) dumpflips=argv[++i];
+        else if(!strcmp(argv[i],"--kselftest")) return kernel_selftest();   // synthetic, no weights (CI)
+        else if(!strcmp(argv[i],"--dumplogits")&&i+1<argc) dlpath=argv[++i];
+        else if(!strcmp(argv[i],"--dscan")&&i+1<argc) dscan=atoi(argv[++i]);
+        else if(!strcmp(argv[i],"--dmlp")&&i+1<argc) dmlp=atoi(argv[++i]);
         else if(!strcmp(argv[i],"--ntok")&&i+1<argc) ntok=atol(argv[++i]); else if(!strcmp(argv[i],"--weights")&&i+1<argc) wp=argv[++i]; }
-    if(!gg&&!gd&&!gl&&!gb&&!st&&!go&&!gp&&!tm&&!all) all=1;
+    if(!gg&&!gd&&!gl&&!gb&&!st&&!go&&!gp&&!tm&&!all&&!dlpath) all=1;
     load_weights(wp); load_meta("results/phase55/meta.bin"); load_ids("results/phase55/ids.u16");
     hstate=calloc(L,sizeof(*hstate)); convbuf=calloc(L,sizeof(*convbuf)); kring=calloc((size_t)WIN*D,4); vring=calloc((size_t)WIN*D,4);
     fprintf(stderr,"E4 loaded: ids=%ld\n",nids);
+    if(dlpath){ dump_logits_stream(dlpath,seqW,ntok,dscan,dmlp); return 0; }
     int rc=0;
     if(st==-1){ diag(); printf("STOP. diag.\n"); return 0; }
     if(all||gg) rc|=gate_golden();
     if(all||gd) rc|=gate_dispatch();
     if(all||st) rc|=gate_selftest();
-    if(all||go) rc|=gate_opt(seqW,ntok);
+    if(all||go) rc|=gate_opt(seqW,ntok,offset,dumpflips);
     if(gl||gb) gate_val(seqW,eval_tok,0,"E4-ref");
     if(all||gp) gate_pool(pooltok);
     if(all||tm) timing(timetok);
