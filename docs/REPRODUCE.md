@@ -62,6 +62,12 @@ Large binaries are not tracked in git; they are provided as a downloadable **rel
 
 The full bundle is `siliconllm-repro-v0.2.0.zip` (~322 MB, `-0` stored) with a `MANIFEST.sha256`.
 
+This asset carries only the two checkpoints the **engine** loads. The **full set of promoted
+checkpoints** behind the absolute-BPB table in [`CANONICAL_EVAL.md`](CANONICAL_EVAL.md) — all nine
+canonical-eval checkpoints plus the R1 seed-variance calibration set — is a separate release asset,
+[`siliconllm-checkpoints-v0.2.0.zip`](https://github.com/WildPino/SiliconLLM/releases/download/checkpoints-v0.2.0/siliconllm-checkpoints-v0.2.0.zip)
+(~549 MB, with its own `MANIFEST.sha256`).
+
 Regenerate the engine export from a checkpoint:
 
 ```sh

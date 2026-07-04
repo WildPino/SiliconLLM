@@ -64,6 +64,7 @@ above — deliberately, per the rule at the top. It handed the whole project one
 
 ## Notes
 
+- **Download.** Every checkpoint in this table is bundled in the release asset `siliconllm-checkpoints-v0.2.0.zip` (release tag [`checkpoints-v0.2.0`](https://github.com/WildPino/SiliconLLM/releases/tag/checkpoints-v0.2.0)), with a `MANIFEST.sha256` for integrity. This is the off-repo home for the checkpoints behind the numbers above.
 - Checkpoints not in the table (`archA_seq512`, intermediate/diagnostic saves) are not promoted.
 - The `sp58_*` state dicts carry an auxiliary `pred.*` head from the phase-58 predictability probe;
   it is not part of the forward path (parity to 1e-7 with the anchor confirms this) and is skipped on load.
