@@ -46,6 +46,8 @@ The project advances by **pre-registered probes**: each hypothesis gets a contro
 
 Without AVX-512/VNNI, the usual int8 quantization path barely helps (~1.2×, a literature figure — this project measured the ternary and bit-serial LUT kernels, not an int8-dequant arm). A **ternary (1.58-bit) weight** kernel using `pshufb` byte-LUTs goes the *other* way — fewer bits means faster — and every kernel is bit-exact against a scalar reference.
 
+> **Prior art.** Table-lookup kernels for low-bit weights on CPU are established: T-MAC (Wei et al., EuroSys 2025) implements bit-wise LUT GEMV via AVX2 `pshufb`/NEON `tbl`, and bitnet.cpp (Mo et al., ACL 2025) provides lossless ternary LUT kernels with a reported x86 speedup range of 2.37–6.17× vs FP16; DeepGEMM (Ganji et al., CVPRW 2023) demonstrated LUT-based low-precision GEMM on an AVX2-only consumer CPU without VNNI. Our measured 4.2–5× vs FP32 falls inside the published range. What our measurement adds: direct evidence on Zen 2 — an older x86 segment T-MAC's authors explicitly decline to guarantee — with a bit-exact ternary path integrated end-to-end in a selective-SSM engine and quality verified in byte-level BPB.
+
 <div align="center">
 <img src="assets/bench_ternary_speed.png" width="49%">
 <img src="assets/bench_ternary_quality.png" width="49%">
@@ -58,6 +60,8 @@ Trained from scratch (QAT, not post-training), the ternary MLP costs only **+0.0
 ### 2 · Activation sparsity and the L3 cliff
 
 A gated **dReLU** MLP is naturally sparse — up to **92%** of hidden units are inactive per token — at essentially zero quality cost (+0.0006 BPB, matched training). Combined with ternary weights, this compounds along **independent axes** to roughly **21× fewer MLP bytes per token** versus fp32-dense. A matched, seed-averaged calibration (foundation vs a plain fp32-SiLU recipe) prices the *combined* quality cost of going both ternary **and** dReLU-sparse at **+0.013 ± 0.005 BPB** — a small cost, but at ~2.5σ over the measured seeds most likely real, not noise. This replaces the earlier "+0.03", which was only a naive sum of two deltas measured separately at different step counts. The dReLU half is separately ~free (+0.0006); the combined figure is essentially the ternary-weight cost, consistent with §1 and below its undertrained upper bound as expected at matched convergence.
+
+> **Scale context.** QAT ternary literature shows the quality gap shrinking with scale: BitNet b1.58 matches FP16 from 3B, and Spectra/TriLM measures a small but nonzero gap below 1B (smallest published model: 99M). Our +0.013 ± 0.005 BPB at 5M sits at the small-scale end of this trend, 20× below the smallest published ternary LM; no published data exists below 99M. Post-training ternarization does not follow this trend (PT²-LLM: ~2× PPL at 7B–70B), supporting the QAT-from-scratch choice.
 
 But sparsity only pays if the *working set* fits the cache. A synthetic sweep on the real 3600X finds a sharp **step at 16 MB — the exact L3-per-CCX size** — below which the CPU is compute-bound at ~100 GB/s, and above which it falls off a cliff toward the ~28 GB/s DRAM floor. **This 16 MB is the keystone constraint** that sizes the entire architecture.
 
