@@ -40,7 +40,7 @@ Everything is held together by a **block-decode chassis** that turns the CPU's w
 
 The project advances by **pre-registered probes**: each hypothesis gets a controlled experiment with a gate fixed *before* the results are seen. Here is what has survived.
 
-> **Two caveats that apply to every number below.** (1) All training A/B verdicts are **single-seed** (seed 0); seed variance is not yet characterized — a multi-seed calibration is queued. (2) All properties are measured on **TinyStories at 5–22M parameters**; the declared product domain (Cat-A: code, logs, structured text) is **not yet tested**.
+> **Two caveats that apply to every number below.** (1) All training A/B verdicts are **single-seed** (seed 0); the seed-to-seed variance is now measured at **σ ≈ 0.005 BPB** (a 3-seed calibration), so any single-seed delta smaller than roughly that size is not resolvable. (2) All properties are measured on **TinyStories at 5–22M parameters**; the declared product domain (Cat-A: code, logs, structured text) is **not yet tested**.
 
 ### 1 · Ternary weights are the right call on Zen 2 — and cost almost nothing in quality
 
@@ -57,7 +57,7 @@ Trained from scratch (QAT, not post-training), the ternary MLP costs only **+0.0
 
 ### 2 · Activation sparsity and the L3 cliff
 
-A gated **dReLU** MLP is naturally sparse — up to **92%** of hidden units are inactive per token — at essentially zero quality cost (+0.0006 BPB, matched training). Combined with ternary weights, this compounds along **independent axes** to roughly **21× fewer MLP bytes per token** versus fp32-dense, for about **+0.03 BPB** total. *(The 21× and +0.03 BPB are a composition of two deltas measured separately, at different step counts and recipes — 10.7k-step ternary and 4k-step sparsity; a single-anchor A/B at matched convergence is queued.)*
+A gated **dReLU** MLP is naturally sparse — up to **92%** of hidden units are inactive per token — at essentially zero quality cost (+0.0006 BPB, matched training). Combined with ternary weights, this compounds along **independent axes** to roughly **21× fewer MLP bytes per token** versus fp32-dense. A matched single-anchor calibration (now run) prices the *combined* quality cost of going both ternary **and** dReLU-sparse at **+0.008 ± 0.006 BPB** — this replaces the earlier "+0.03", which was only a naive sum of two deltas measured separately at different step counts. The dReLU half is statistically free (within the ±0.005 seed noise above); the small remaining cost is the ternary weights, below §1's undertrained upper bound as expected at matched convergence.
 
 But sparsity only pays if the *working set* fits the cache. A synthetic sweep on the real 3600X finds a sharp **step at 16 MB — the exact L3-per-CCX size** — below which the CPU is compute-bound at ~100 GB/s, and above which it falls off a cliff toward the ~28 GB/s DRAM floor. **This 16 MB is the keystone constraint** that sizes the entire architecture.
 
@@ -124,7 +124,7 @@ Scope, as always: at 5M sandbox scale everything is cache-resident, so these num
 | **C inference engine (E1–E4)** | ✅ **validated end-to-end** | **176→848 tok/s (4.8×), parity-gated, +0.00004 BPB** |
 | Block-decode / MTP execution (E5) | 📋 designed | roadmap (execution chassis) |
 
-<sub>Notes: training A/B verdicts are single-seed (seed 0). "Ternary 1.58-bit" refers to the weights' information content; the engine stores them at 4 bits/weight today (trit-pack queued). All measured on TinyStories at 5–22M params.</sub>
+<sub>Notes: training A/B verdicts are single-seed (seed 0; measured seed variance σ ≈ 0.005 BPB). "Ternary 1.58-bit" refers to the weights' information content; the engine stores them at 4 bits/weight today (trit-pack queued). All measured on TinyStories at 5–22M params.</sub>
 
 See [`docs/SCALEUP_ARCHITECTURE.md`](docs/SCALEUP_ARCHITECTURE.md) for the full buildable blueprint, and [`HANDOFF.md`](HANDOFF.md) for the technical narrative including negative results.
 
