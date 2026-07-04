@@ -1,5 +1,5 @@
 {
-  "created": "2026-07-04T08:48:49Z",
+  "created": "2026-07-04T12:58:02Z",
   "policy": "corpora NEVER committed/released (data/ gitignored); manifest+scripts+hash only. LogHub=research-use (cite Zhu et al. ISSRE 2023); log-trained ckpts research-only, out of release assets by default. Unit=BPE-1024 relearned PER-DOMAIN on TRAIN split (foundation recipe: dReLU-gated-ternary MLP, fp32 proj).",
   "domains": {
     "code": {
@@ -50,22 +50,35 @@
     },
     "log": {
       "sources": [
-        "BGL",
-        "Linux"
+        "BGL(FULL)",
+        "Linux(FULL)"
       ],
       "commit": "dd61d0952749ee7963bde24220d1be5ede023033",
-      "dedup_line_cap": 5,
-      "dedup_pct_removed": 0.0,
-      "note": "ONLY *_2k.log samples on disk; FULL BGL+Linux via Zenodo (see STOP)",
-      "train_bytes": 480273,
-      "val_bytes": 53364,
-      "train_tok": 176911,
-      "val_tok": 24256,
-      "fertility": 0.377,
-      "sha256_train": "30b425942416c2159998b744cde5a72b3d7297956f9e6cbe2c058a0608f7c633",
-      "sha256_val": "7ee4e5d226a27451b9041de945bb537b2281348c5149d1370d988ffbd8fa49f1",
+      "template_dedup_cap": 20,
+      "dedup_per_src": [
+        {
+          "src": "BGL",
+          "template_dedup_pct": 95.82,
+          "n_templates": 38714,
+          "raw_bytes": 743185031
+        },
+        {
+          "src": "Linux",
+          "template_dedup_pct": 52.33,
+          "n_templates": 3097,
+          "raw_bytes": 2349686
+        }
+      ],
+      "split": "per-source head/tail (val=last 10% per source)",
+      "train_bytes": 2000000,
+      "val_bytes": 312002,
+      "train_tok": 773553,
+      "val_tok": 145562,
+      "fertility": 0.3975,
+      "sha256_train": "063309bda03c754d5a218e21b2538a826627808e70c1e721db4c93dcd8fba46b",
+      "sha256_val": "79de8b527c35657890d5e70f248249c1503511221ace6c750eb2ef5cafbcdeaf",
       "bpe": "results/phase62/bpe1024_log.bin",
-      "sha256_bpe": "8e86e1b59a0235818d0888e027f03102593465616fc1deb0d1eb79acef90a6f4"
+      "sha256_bpe": "e43e3419546475be7d52873fb1b27d25ae78c7333fa5f9bda1a9dd0510719cfc"
     }
   }
 }

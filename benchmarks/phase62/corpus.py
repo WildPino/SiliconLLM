@@ -14,7 +14,7 @@
 #
 # Build (smoke): .venv/Scripts/python.exe benchmarks/phase62/corpus.py --smoke
 # Build (full) : .venv/Scripts/python.exe benchmarks/phase62/corpus.py
-import os, sys, json, struct, time, hashlib, subprocess, argparse, zlib
+import os, sys, json, struct, time, hashlib, subprocess, argparse, zlib, re
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from cartography import train_bpe, Bpe, chunk_spans
 
@@ -27,7 +27,9 @@ CODE_REPOS = [  # (name, relpath under the_stack_python, license)
     ("flask",    "flask",    "BSD-3-Clause"), ("requests", "requests", "Apache-2.0"),
     ("pip",      "pip",      "MIT"),        ("numpy",    "numpy",    "BSD-3-Clause"),
 ]
-LOG_SRCS = [("BGL", "BGL/BGL_2k.log"), ("Linux", "Linux/Linux_2k.log")]
+# prefer the FULL Zenodo log if extracted, else fall back to the 2k sample. First existing path wins.
+LOG_SRCS = [("BGL",   ["BGL.log", "BGL/BGL.log", "BGL/BGL_2k.log"]),
+            ("Linux", ["Linux.log", "Linux/Linux.log", "Linux/Linux_2k.log"])]
 
 def git_commit(path):
     try: return subprocess.check_output(["git","-C",path,"rev-parse","HEAD"], text=True).strip()
@@ -66,30 +68,42 @@ def build_code(cap_train, cap_val, val_bucket=0):
     return bytes(tr[:cap_train]), bytes(va[:cap_val]), meta
 
 # ------------------------------------------------------------------ LOG ----------------------------
-def block_dedup(data, cap=5):
-    """Cap exact-line repeats to `cap` occurrences (logs are natively redundant). Returns (bytes, pct_removed)."""
-    seen = {}; out = []; kept = 0; total = 0
+_re_hex = re.compile(rb"0x[0-9a-fA-F]+")
+_re_num = re.compile(rb"\d+")
+def _template(line):
+    """Drain-style template key: mask hex addrs and digit runs so timestamp/counter-only variants collapse."""
+    return _re_num.sub(b"#", _re_hex.sub(b"0xH", line))
+def block_dedup(data, cap=20):
+    """Cap repeats of any TEMPLATE (not exact line) to `cap` occurrences. Exact-line dedup is ~useless on logs
+       (timestamps make every line byte-unique); the redundancy that inflates BPB is template-level. Kept lines
+       retain their ORIGINAL bytes (masking is only the grouping key). Returns (bytes, pct_removed, n_templates)."""
+    seen = {}; out = []
     for line in data.split(b"\n"):
-        total += 1; c = seen.get(line, 0)
-        if c < cap: out.append(line); kept += 1
-        seen[line] = c + 1
+        key = _template(line); c = seen.get(key, 0)
+        if c < cap: out.append(line)
+        seen[key] = c + 1
     ded = b"\n".join(out)
-    pct = 100.0 * (1 - len(ded) / max(len(data), 1))
-    return ded, pct
+    return ded, 100.0 * (1 - len(ded) / max(len(data), 1)), len(seen)
 
-def build_log(cap_train, cap_val, dedup_cap=5):
-    raw = bytearray(); present = []
-    for name, rel in LOG_SRCS:
-        fp = os.path.join(EXT, "log_corpus", "loghub", rel)
-        if os.path.exists(fp): raw += open(fp, "rb").read() + b"\n"; present.append(name)
-    ded, pct = block_dedup(bytes(raw), dedup_cap)
-    # split: contiguous tail 10% -> val (held-out region, no template overlap with train head)
-    cut = int(len(ded) * 0.9)
-    tr, va = ded[:cut][:cap_train], ded[cut:][:cap_val]
-    meta = {"sources": present, "commit": git_commit(os.path.join(EXT, "log_corpus", "loghub")),
-            "dedup_line_cap": dedup_cap, "dedup_pct_removed": round(pct, 2),
-            "note": "ONLY *_2k.log samples on disk; FULL BGL+Linux via Zenodo (see STOP)"}
-    return tr, va, meta
+def build_log(cap_train, cap_val, dedup_cap=20):
+    """Per-source template-dedup + split (train=head / val=tail) so BOTH BGL and Linux appear in each split with
+       no template leakage. Caps divided across the present sources."""
+    base = os.path.join(EXT, "log_corpus", "loghub"); present = []; dedup = []
+    srcs = [(n, next((os.path.join(base, r) for r in rels if os.path.exists(os.path.join(base, r))), None))
+            for n, rels in LOG_SRCS]
+    srcs = [(n, fp) for n, fp in srcs if fp]
+    ns = max(len(srcs), 1); ptr = cap_train // ns; pva = cap_val // ns
+    tr, va = bytearray(), bytearray()
+    for name, fp in srcs:
+        data = open(fp, "rb").read(); ded, pct, ntpl = block_dedup(data, dedup_cap)
+        cut = int(len(ded) * 0.9)
+        tr += ded[:cut][:ptr] + b"\n"; va += ded[cut:][:pva] + b"\n"
+        full = "2k" not in os.path.basename(fp)
+        present.append(f"{name}({'FULL' if full else '2k-sample'})")
+        dedup.append({"src": name, "template_dedup_pct": round(pct, 2), "n_templates": ntpl, "raw_bytes": len(data)})
+    meta = {"sources": present, "commit": git_commit(base), "template_dedup_cap": dedup_cap,
+            "dedup_per_src": dedup, "split": "per-source head/tail (val=last 10% per source)"}
+    return bytes(tr[:cap_train]), bytes(va[:cap_val]), meta
 
 # ------------------------------------------------------------------ tokenize + write ---------------
 def write_meta(path, bpe):
@@ -137,13 +151,16 @@ def main():
     print(f"code: {c_meta['n_groups_train']} train-groups / {c_meta['n_groups_val']} val-groups over {len(c_meta['repos'])} repos")
     tokenize_write("code", c_tr, c_va, c_meta, a.bpe_train, manifest)
     l_tr, l_va, l_meta = build_log(a.log_train, a.log_val)
-    print(f"log: dedup removed {l_meta['dedup_pct_removed']}%  sources={l_meta['sources']}")
+    print(f"log: sources={l_meta['sources']}")
+    for d in l_meta['dedup_per_src']:
+        print(f"     {d['src']}: template-dedup removed {d['template_dedup_pct']}% of {d['raw_bytes']}B  ({d['n_templates']} templates)")
     tokenize_write("log", l_tr, l_va, l_meta, a.bpe_train, manifest)
     # manifest lives in the COMMITTABLE scripts dir (results/ is gitignored with the corpora it indexes)
     json.dump(manifest, open(os.path.join(os.path.dirname(__file__), "corpus_manifest.json"), "w"), indent=2)
     print(f"\nmanifest FROZEN -> benchmarks/phase62/corpus_manifest.json (committable; corpora stay gitignored)")
-    print("Zenodo FULL logs (Task-3, user-launched heavy pull), then re-run this builder:")
-    print("  BGL:   https://zenodo.org/records/8196385/files/BGL.zip     Linux: https://zenodo.org/records/8196385/files/Linux.zip")
+    print("Zenodo FULL logs (LogHub record 3227177), extract into data/external/log_corpus/loghub/, then re-run:")
+    print("  BGL.tar.gz (63MB -> ~708MB):  https://zenodo.org/records/3227177/files/BGL.tar.gz?download=1")
+    print("  Linux.tar.gz (232kB):         https://zenodo.org/records/3227177/files/Linux.tar.gz?download=1")
     print("STOP (corpus built + frozen). No commit -> MM commits manifest+scripts BEFORE the Task-3 run.")
 
 if __name__ == "__main__":
