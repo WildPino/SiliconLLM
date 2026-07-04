@@ -1,0 +1,71 @@
+{
+  "created": "2026-07-04T08:48:49Z",
+  "policy": "corpora NEVER committed/released (data/ gitignored); manifest+scripts+hash only. LogHub=research-use (cite Zhu et al. ISSRE 2023); log-trained ckpts research-only, out of release assets by default. Unit=BPE-1024 relearned PER-DOMAIN on TRAIN split (foundation recipe: dReLU-gated-ternary MLP, fp32 proj).",
+  "domains": {
+    "code": {
+      "repos": [
+        {
+          "repo": "cpython",
+          "license": "PSF-2.0",
+          "commit": "8ab7b43a14bed4780febbd7586a41cfe459aa6d5"
+        },
+        {
+          "repo": "django",
+          "license": "BSD-3-Clause",
+          "commit": "0a2bc6d88ffd7918ca9bbe039ec2f4ed7dd639c9"
+        },
+        {
+          "repo": "flask",
+          "license": "BSD-3-Clause",
+          "commit": "36e4a824f340fdee7ed50937ba8e7f6bc7d17f81"
+        },
+        {
+          "repo": "requests",
+          "license": "Apache-2.0",
+          "commit": "23953c0c875219a715f081cf3de7c149a7629ccf"
+        },
+        {
+          "repo": "pip",
+          "license": "MIT",
+          "commit": "6989a79f97a40ed2f0960de7dba3a04fadeade28"
+        },
+        {
+          "repo": "numpy",
+          "license": "BSD-3-Clause",
+          "commit": "7bf82bfbcc200c7568425f3aed9c8c28f8f719b5"
+        }
+      ],
+      "n_groups_train": 30,
+      "n_groups_val": 4,
+      "split_rule": "held-out by (repo, top-level-dir) group; crc32%10==0 -> val",
+      "train_bytes": 14000000,
+      "val_bytes": 1500000,
+      "train_tok": 5994106,
+      "val_tok": 607202,
+      "fertility": 0.4259,
+      "sha256_train": "0fa71355fbb3f3abd4c0415c633749da01a794dd257f2504bb2f50ae091af366",
+      "sha256_val": "04d6090dd8b640bc3fd42845b00b436b2ddfe945b2686770ea0f119cba4b9e33",
+      "bpe": "results/phase62/bpe1024_code.bin",
+      "sha256_bpe": "8bb58e907718d9257ad5cf166371f58b81b8ebce246fe17d2d00629453e3d192"
+    },
+    "log": {
+      "sources": [
+        "BGL",
+        "Linux"
+      ],
+      "commit": "dd61d0952749ee7963bde24220d1be5ede023033",
+      "dedup_line_cap": 5,
+      "dedup_pct_removed": 0.0,
+      "note": "ONLY *_2k.log samples on disk; FULL BGL+Linux via Zenodo (see STOP)",
+      "train_bytes": 480273,
+      "val_bytes": 53364,
+      "train_tok": 176911,
+      "val_tok": 24256,
+      "fertility": 0.377,
+      "sha256_train": "30b425942416c2159998b744cde5a72b3d7297956f9e6cbe2c058a0608f7c633",
+      "sha256_val": "7ee4e5d226a27451b9041de945bb537b2281348c5149d1370d988ffbd8fa49f1",
+      "bpe": "results/phase62/bpe1024_log.bin",
+      "sha256_bpe": "8e86e1b59a0235818d0888e027f03102593465616fc1deb0d1eb79acef90a6f4"
+    }
+  }
+}
