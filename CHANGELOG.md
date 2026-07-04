@@ -28,7 +28,7 @@ against an fp32 reference core, every optimization parity-gated.
   index), InfoNCE representation load-bearing, query drift absent (bounded state norm),
   partition can be data-independent.
 - **Probe-1** (ternary weights) — pshufb-LUT 4.2–5.0× vs fp32 on Zen 2, bit-exact; +0.028
-  BPB at 5M (MLP-only, single-seed).
+  BPB at ~8.3M (MLP-only, single-seed).
 - **Probe-2** (activation sparsity) — gated dReLU up to 92% sparse, +0.0006 BPB matched.
 - **Probe-3** (cache) — a 16 MB L3 bandwidth cliff = the keystone active-slice budget.
 - **Phase 58** (predictor) — active set 86–92% predictable in-place; the predictability

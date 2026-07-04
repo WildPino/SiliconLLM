@@ -1,6 +1,6 @@
 # Scale-up sizing
 
-How the two-pool memory model prices out. **This page separates what is *measured* (at 5M
+How the two-pool memory model prices out. **This page separates what is *measured* (at ~8.3M
 sandbox scale, single-thread) from what is *projected* (scale-up, pending a target config).
 No projected tok/s is asserted without the arithmetic and its assumptions.**
 
@@ -16,7 +16,7 @@ active params/token**. The streamed pool is *not* residency-limited — it is pr
 moved at the DRAM floor, and is ρ-safe only because experts are **contiguous KB chunks** loaded
 in bulk per block (not a strided gather).
 
-## Measured anchor (engine E4, `moe_gran.pt`, 5M sandbox)
+## Measured anchor (engine E4, `moe_gran.pt`, sandbox scale)
 
 - expert = 98,304 ternary weights + per-row scales ≈ **48 KB** at the current **4-bit** g=2 codes
 - streamed bytes/token = top-8 × ~48 KB × 6 layers = **2400 KB/token** (counted in-engine)
@@ -42,7 +42,7 @@ bytes/token (the formula above). The framework is ready; the row values are not 
 
 | model | resident (MB) | streamed KB/tok (4-bit / trit) | streamed µs/tok @28 GB/s | tok/s (est.) |
 |---|---|---|---|---|
-| 5M MoE (measured) | fits (cache-resident) | 2400 / ~1000 | ~88 | 702 (whole engine, cache-resident) |
+| sandbox MoE (measured) | fits (cache-resident) | 2400 / ~1000 | ~88 | 702 (whole engine, cache-resident) |
 | ~1B | *pending config* | *pending* | *pending* | *pending* |
 | ~3B | *pending config* | *pending* | *pending* | *pending* |
 
@@ -53,9 +53,9 @@ bytes/token (the formula above). The framework is ready; the row values are not 
   effective per-core bandwidth under contention is unknown and could be well below the
   single-thread 28 GB/s floor. This is the largest open risk in the sizing.
 - The 28 GB/s floor is this specific box's (dual-channel DDR4-3600-class); it is per-exemplar.
-- Activation-quant cost (E2's per-token int8) is validated at 5M/D256; outlier channels may
+- Activation-quant cost (E2's per-token int8) is validated at ~8.3M/D256; outlier channels may
   emerge with model size (per-group scales are the known escalation).
-- Ternary quality cost (+0.028 BPB at 5M) is expected to *shrink* with scale, but that is a
+- Ternary quality cost (+0.028 BPB at ~8.3M) is expected to *shrink* with scale, but that is a
   literature trend, not measured here at scale.
 
 See [`SCALEUP_ARCHITECTURE.md`](SCALEUP_ARCHITECTURE.md) for the design and [`ENGINE_PLAN.md`](ENGINE_PLAN.md)

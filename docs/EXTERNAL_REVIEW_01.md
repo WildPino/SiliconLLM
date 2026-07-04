@@ -17,7 +17,7 @@ The design was judged among the most elegant/ambitious seen for a small language
 
 | # | Reviewer's concern | Our state | Key datum |
 |---|---|---|---|
-| 1 | Ternary quality collapse at micro-scale (BitNet matches FP16 only ~3B) | **MEASURED** | +0.028 BPB at 5M (worst-case of scale), MLP-only |
+| 1 | Ternary quality collapse at micro-scale (BitNet matches FP16 only ~3B) | **MEASURED** | +0.028 BPB at ~8.3M (worst-case of scale), MLP-only |
 | 2 | MoE → random DRAM latency (pointer-chasing, ~70-90 ns) | **This is the ρ-law; defended in 3 layers; measured today (58.A)** | churn confirmed (persistence=null) BUT in-place predictability 88% |
 | 3 | Insufficient MTP acceptance rate at small scale | **Pre-registered bound, deferred** | honest a≈2-4, content-dependent; acceptance not yet measured |
 
@@ -27,7 +27,7 @@ Two of three already on the ground with numbers; one bounded and queued. None is
 
 ## The reviewer's closing question — have you already run the diagnostic BitLinear158 training at 5M/10M on TinyStories vs FP32?
 
-**Yes — that is exactly probe-1.** 5M Arch-A, ternary MLP trained from scratch (QAT) vs fp32, matched recipe, on TinyStories:
+**Yes — that is exactly probe-1.** ~8.3M Arch-A, ternary MLP trained from scratch (QAT) vs fp32, matched recipe, on TinyStories:
 
 > **BPB 0.8382 (ternary) vs 0.8104 (fp32) = +0.0278** (+3.4% relative).
 

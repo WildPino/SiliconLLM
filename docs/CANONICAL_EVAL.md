@@ -29,7 +29,7 @@ gate numbers into the canonical harness would break exactly the rule stated here
 
 | checkpoint | canonical BPB (fp32 CPU) | training-harness BPB | provenance |
 |---|---|---|---|
-| `archA_5m_fp32` | **0.8104** | 0.8104 | probe-1 fp32 arm (5M Arch-A, plain SiLU MLP, 10,785 steps) |
+| `archA_5m_fp32` | **0.8104** | 0.8104 | probe-1 fp32 arm (~8.3M Arch-A, plain SiLU MLP, 10,785 steps) |
 | `archA_5m_ternary` | **0.8382** | 0.8382 | probe-1 ternary arm (BitLinear158 MLP) |
 | `sp_silu` | **0.8807** | 0.8807 | probe-2 SiLU (SwiGLU) arm, 4k matched |
 | `sp_drelu` | **0.8813** | 0.8813 | probe-2 dReLU arm, 4k matched |

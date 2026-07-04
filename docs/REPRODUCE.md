@@ -53,7 +53,7 @@ Large binaries are not tracked in git; they are provided as a downloadable **rel
 
 | file | role | sha256 |
 |---|---|---|
-| `results/phase57/sp58_base.pt` | 5M Arch-A checkpoint (E1–E3 target; gated-dReLU ternary MLP) | `8f8c54424eebe64bf234224b18aa6ab9caf4dc9045508e1f611c0c17f755f191` |
+| `results/phase57/sp58_base.pt` | ~8.3M Arch-A checkpoint (E1–E3 target; gated-dReLU ternary MLP) | `8f8c54424eebe64bf234224b18aa6ab9caf4dc9045508e1f611c0c17f755f191` |
 | `results/phase57/moe_gran.pt` | granular-MoE checkpoint (E4 target; E32×h128 top-8) | `356478b2f63ace9d6ec429056fee5c0e14e1c0f36253edbca36300eba02d4525` |
 | `results/phase55/ids.u16` | canonical validation corpus — 32,723,845 BPE-1024 tokens (uint16) | `33b8cba2a26653599f7f87a4d8e05b38be051ba850d4cbc5d09b561aae133889` |
 | `results/phase60/e1_model.bin` | E1–E3.5 engine model, magic `E1M1` (from `e1_export.py`) | `c50b7a6631bb79bdf1d17d43f7867140522ad77d520e1dd7d7d35b070bc2d579` |

@@ -40,7 +40,7 @@ Everything is held together by a **block-decode chassis** that turns the CPU's w
 
 The project advances by **pre-registered probes**: each hypothesis gets a controlled experiment with a gate fixed *before* the results are seen. Here is what has survived.
 
-> **Two caveats that apply to every number below.** (1) All training A/B verdicts are **single-seed** (seed 0); the seed-to-seed variance is now measured at **σ ≈ 0.005 BPB** (a 3-seed calibration), so any single-seed delta smaller than roughly that size is not resolvable. (2) All properties are measured on **TinyStories at 5–22M parameters**; the declared product domain (Cat-A: code, logs, structured text) is **not yet tested**.
+> **Two caveats that apply to every number below.** (1) All training A/B verdicts are **single-seed** (seed 0); the seed-to-seed variance is now measured at **σ ≈ 0.005 BPB** (a 3-seed calibration), so any single-seed delta smaller than roughly that size is not resolvable. (2) All properties are measured on **TinyStories at ~8–22M parameters**; the declared product domain (Cat-A: code, logs, structured text) is **not yet tested**.
 
 ### 1 · Ternary weights are the right call on Zen 2 — and cost almost nothing in quality
 
@@ -53,7 +53,7 @@ Without AVX-512/VNNI, the usual int8 quantization path barely helps (~1.2×, a l
 <img src="assets/bench_ternary_quality.png" width="49%">
 </div>
 
-Trained from scratch (QAT, not post-training), the ternary MLP costs only **+0.028 BPB** at 5M params on TinyStories — and that is an *upper bound*, since the ternary run was still improving when measured. We ternarize **only the MLP** (the byte-sink), keeping the recurrent backbone in fp32; the ternary gap is known to shrink with scale, so micro-scale is the pessimistic end.
+Trained from scratch (QAT, not post-training), the ternary MLP costs only **+0.028 BPB** at ~8.3M params on TinyStories — and that is an *upper bound*, since the ternary run was still improving when measured. We ternarize **only the MLP** (the byte-sink), keeping the recurrent backbone in fp32; the ternary gap is known to shrink with scale, so micro-scale is the pessimistic end.
 
 > **On "1.58-bit".** A ternary weight carries ~1.58 bits of information, but the current engine *packs* them at **4 bits/weight** (base-3, g=2 codes); the dense trit-pack (~1.6 bits/weight) is queued. Every streamed-byte figure on this page uses the real 4-bit packing, not the 1.58-bit ideal.
 
@@ -61,7 +61,7 @@ Trained from scratch (QAT, not post-training), the ternary MLP costs only **+0.0
 
 A gated **dReLU** MLP is naturally sparse — up to **92%** of hidden units are inactive per token — at essentially zero quality cost (+0.0006 BPB, matched training). Combined with ternary weights, this compounds along **independent axes** to roughly **21× fewer MLP bytes per token** versus fp32-dense. A matched, seed-averaged calibration (foundation vs a plain fp32-SiLU recipe) prices the *combined* quality cost of going both ternary **and** dReLU-sparse at **+0.013 ± 0.005 BPB** — a small cost, but at ~2.5σ over the measured seeds most likely real, not noise. This replaces the earlier "+0.03", which was only a naive sum of two deltas measured separately at different step counts. The dReLU half is separately ~free (+0.0006); the combined figure is essentially the ternary-weight cost, consistent with §1 and below its undertrained upper bound as expected at matched convergence.
 
-> **Scale context.** QAT ternary literature shows the quality gap shrinking with scale: BitNet b1.58 matches FP16 from 3B, and Spectra/TriLM measures a small but nonzero gap below 1B (smallest published model: 99M). Our +0.013 ± 0.005 BPB at 5M sits at the small-scale end of this trend, 20× below the smallest published ternary LM; no published data exists below 99M. Post-training ternarization does not follow this trend (PT²-LLM: ~2× PPL at 7B–70B), supporting the QAT-from-scratch choice.
+> **Scale context.** QAT ternary literature shows the quality gap shrinking with scale: BitNet b1.58 matches FP16 from 3B, and Spectra/TriLM measures a small but nonzero gap below 1B (smallest published model: 99M). Our +0.013 ± 0.005 BPB at ~8.3M sits at the small-scale end of this trend, ~12× below the smallest published ternary LM; no published data exists below 99M. Post-training ternarization does not follow this trend (PT²-LLM: ~2× PPL at 7B–70B), supporting the QAT-from-scratch choice.
 
 But sparsity only pays if the *working set* fits the cache. A synthetic sweep on the real 3600X finds a sharp **step at 16 MB — the exact L3-per-CCX size** — below which the CPU is compute-bound at ~100 GB/s, and above which it falls off a cliff toward the ~28 GB/s DRAM floor. **This 16 MB is the keystone constraint** that sizes the entire architecture.
 
@@ -109,7 +109,7 @@ The point of every probe above is this: a single-binary **C inference engine** t
 
 From an unoptimized fp32 core to the full stack — ternary LUT MLP, exact activation-skip, a deterministic fast-exp scan, and the granular-MoE two-pool tier — the engine reaches **176 → 848 tokens/second single-threaded** on the Ryzen 5 3600X (4.8×), or **702 tok/s** on the better MoE model (−0.021 BPB). The total *inference-time* quality cost across every optimization is **+0.00004 BPB** — essentially free. The honest lesson is in the chart: the MLP kernel wins (E2/E3) stayed hidden until the real bottleneck — the exact-exp selective scan — was replaced by a deterministic polynomial approximation (E3.5, 25.9× on the scan alone).
 
-Scope, as always: at 5M sandbox scale everything is cache-resident, so these numbers validate the engine's *correctness* and *kernel-level* speed — not the streaming bandwidth at scale. The two-pool expert bytes are **counted and priced** (probe-3's 28 GB/s floor), not yet streamed at billions of parameters.
+Scope, as always: at ~8.3M sandbox scale everything is cache-resident, so these numbers validate the engine's *correctness* and *kernel-level* speed — not the streaming bandwidth at scale. The two-pool expert bytes are **counted and priced** (probe-3's 28 GB/s floor), not yet streamed at billions of parameters.
 
 ---
 
@@ -128,7 +128,7 @@ Scope, as always: at 5M sandbox scale everything is cache-resident, so these num
 | **C inference engine (E1–E4)** | ✅ **validated end-to-end** | **176→848 tok/s (4.8×), parity-gated, +0.00004 BPB** |
 | Block-decode / MTP execution (E5) | 📋 designed | roadmap (execution chassis) |
 
-<sub>Notes: training A/B verdicts are single-seed (seed 0; measured seed variance σ ≈ 0.005 BPB). "Ternary 1.58-bit" refers to the weights' information content; the engine stores them at 4 bits/weight today (trit-pack queued). All measured on TinyStories at 5–22M params.</sub>
+<sub>Notes: training A/B verdicts are single-seed (seed 0; measured seed variance σ ≈ 0.005 BPB). "Ternary 1.58-bit" refers to the weights' information content; the engine stores them at 4 bits/weight today (trit-pack queued). All measured on TinyStories at ~8–22M params.</sub>
 
 See [`docs/SCALEUP_ARCHITECTURE.md`](docs/SCALEUP_ARCHITECTURE.md) for the full buildable blueprint, and [`HANDOFF.md`](HANDOFF.md) for the technical narrative including negative results.
 
@@ -136,8 +136,8 @@ See [`docs/SCALEUP_ARCHITECTURE.md`](docs/SCALEUP_ARCHITECTURE.md) for the full 
 
 ## What this is *not* (scope discipline)
 
-- **Not a scale-up speedup yet.** The engine's 176→848 tok/s is real and single-threaded, but at 5M sandbox scale everything is cache-resident — it validates *correctness* and *kernel-level* speed, not the streamed two-pool bandwidth at billions of parameters (which is counted and priced, not yet run — see [`docs/SIZING.md`](docs/SIZING.md), including the unmeasured DDR4 multi-thread contention). The probes measure architectural *properties*; the scale-up engine is the next frontier.
-- **Not a finished LLM.** The current model is trained on TinyStories at 5–22M parameters to isolate architectural questions cleanly. Broad-distribution quality at scale is future work — and the *declared product domain* (Cat-A: code, logs, structured text, where the agentic thesis expects the best acceptance) is **not yet tested**; that probe is queued.
+- **Not a scale-up speedup yet.** The engine's 176→848 tok/s is real and single-threaded, but at ~8.3M sandbox scale everything is cache-resident — it validates *correctness* and *kernel-level* speed, not the streamed two-pool bandwidth at billions of parameters (which is counted and priced, not yet run — see [`docs/SIZING.md`](docs/SIZING.md), including the unmeasured DDR4 multi-thread contention). The probes measure architectural *properties*; the scale-up engine is the next frontier.
+- **Not a finished LLM.** The current model is trained on TinyStories at ~8–22M parameters to isolate architectural questions cleanly. Broad-distribution quality at scale is future work — and the *declared product domain* (Cat-A: code, logs, structured text, where the agentic thesis expects the best acceptance) is **not yet tested**; that probe is queued.
 - **Not yet one fused system.** The long-context recall tier (the phase-56 model line) and the engine's thinking core (the phase-58/59 line) are today **two separate lineages**. Unifying them into a single model with a recall slot is future work (E5+).
 - **Honest about magnitude.** Individual levers are stated at their *predictor-free, measured* value (e.g. 2.12× sparsity, ~3× residency), never the optimistic ceiling. The compound win is one-to-two orders of magnitude, but no single headline number is load-bearing.
 
