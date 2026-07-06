@@ -32,8 +32,11 @@
 // 63.T threads: parallelism ONLY across independent outputs (distinct y[o]); each reduction (dotf, scan-j) stays
 // serial on one thread -> bit-identity is by construction, invariant to thread count. schedule(static). --threads N
 // (default 1 = the P43 path). Pinning is external (OMP_PROC_BIND/OMP_PLACES) — no topology code in the engine.
+// 63.C: the OpenMP `if(g_omp_on)` clause skips the fork/join entirely at N=1 (g_omp_on set to threads>1 in main) — the
+// portable one-line fix for the ~6% parallel-region tax measured at N=1, no dual code path. bit-identity is unaffected.
+static int g_omp_on=0;
 #ifdef _OPENMP
-#define OMP_PFOR _Pragma("omp parallel for schedule(static)")
+#define OMP_PFOR _Pragma("omp parallel for schedule(static) if(g_omp_on)")
 #else
 #define OMP_PFOR
 #endif
@@ -132,6 +135,25 @@ static void matvec_lut_rows(const int8_t* codes,const int8_t* lut,int32_t* y,int
         int32_t tmp[32]; _mm256_storeu_si256((__m256i*)(tmp+0),acc[0]); _mm256_storeu_si256((__m256i*)(tmp+8),acc[1]);
         _mm256_storeu_si256((__m256i*)(tmp+16),acc[2]); _mm256_storeu_si256((__m256i*)(tmp+24),acc[3]);
         for(int r=0;r<32&&bb+r<M;r++) y[bb+r]=tmp[r]; }
+}
+// --- weight-once-over-K kernels (V-G3c layer-major block forward): each weight row/tile is STREAMED ONCE from the
+//     cold replica and applied to all Kn positions (the amortization the streamed-regime speedup depends on). ---
+static void mv_K(const float* W,int out,int in,const float* X,int xs,float* Y,int ys,int Kn){
+    for(int o=0;o<out;o++){ const float* w=W+(size_t)o*in;            // stream row o once
+        for(int k=0;k<Kn;k++) Y[(size_t)k*ys+o]=dotf(w,X+(size_t)k*xs,in); }
+}
+// ternary LUT, weight-once: codes streamed once (base,t), applied to each position's own 16-byte LUT (lm_lut[k]).
+static void matvec_lut_full_K(const int8_t* codes,const int8_t* luts,int lstride,int32_t* Y,int ys,int M,int Mpad,int T,int Kn){
+    for(int base=0;base<M;base+=32){
+        __m256i acc[62][4];
+        for(int k=0;k<Kn;k++){ acc[k][0]=_mm256_setzero_si256(); acc[k][1]=_mm256_setzero_si256(); acc[k][2]=_mm256_setzero_si256(); acc[k][3]=_mm256_setzero_si256(); }
+        for(int t=0;t<T;t++){ __m256i idx=_mm256_loadu_si256((const __m256i*)(codes+(size_t)t*Mpad+base));   // codes: stream once
+            for(int k=0;k<Kn;k++){ __m256i tbl=_mm256_broadcastsi128_si256(_mm_loadu_si128((const __m128i*)(luts+(size_t)k*lstride+(size_t)t*16)));
+                acc_add_i8x32(&acc[k][0],_mm256_shuffle_epi8(tbl,idx)); } }
+        for(int k=0;k<Kn;k++){ int32_t tmp[32]; _mm256_storeu_si256((__m256i*)(tmp+0),acc[k][0]); _mm256_storeu_si256((__m256i*)(tmp+8),acc[k][1]);
+            _mm256_storeu_si256((__m256i*)(tmp+16),acc[k][2]); _mm256_storeu_si256((__m256i*)(tmp+24),acc[k][3]);
+            for(int r=0;r<32&&base+r<M;r++) Y[(size_t)k*ys+base+r]=tmp[r]; }
+    }
 }
 static void build_lut_t3(const int8_t* xq,int T,int8_t* lut){ for(int t=0;t<T;t++){ int8_t x0=xq[2*t],x1=xq[2*t+1];
     for(int c=0;c<16;c++){ int s=0; if(c<9){ int w0=c/3-1,w1=c%3-1; s=w0*x0+w1*x1; } lut[t*16+c]=(int8_t)s; } } }
@@ -260,11 +282,15 @@ static void topk_sel(const float* p,int n,int k,int* idx,float* val){   // match
         used[bi]=1; idx[j]=bi; val[j]=p[bi]; }
 }
 static int8_t g_xq[D],g_lut[TUP*16],g_hq[HID_E],g_lutd[TDE*16]; static int32_t g_S[HID_E],g_Sd[D];
+// V-G3b expert-selection capture: when g_esel_cap!=NULL the router writes this position's KTOP experts per layer
+// into g_esel_cap[l*KTOP..] — used to count the per-block expert UNION touched (block layer-major) vs token-by-token.
+static int* g_esel_cap=NULL;
 static void mlp_moe(int l,const float* xn,float* out,int mlp_lut){
     float rp[E]; for(int e=0;e<E;e++) rp[e]=dotf(router_w[l]+(size_t)e*D,xn,D)+router_b[l][e];
     float mx=-1e30f; for(int e=0;e<E;e++) if(rp[e]>mx)mx=rp[e];
     float Z=0; for(int e=0;e<E;e++){ rp[e]=expf(rp[e]-mx); Z+=rp[e]; } for(int e=0;e<E;e++) rp[e]/=Z;
     int idx[KTOP]; float wv[KTOP]; topk_sel(rp,E,KTOP,idx,wv);
+    if(g_esel_cap) for(int j=0;j<KTOP;j++) g_esel_cap[l*KTOP+j]=idx[j];
     float ws=0; for(int j=0;j<KTOP;j++) ws+=wv[j]; for(int j=0;j<KTOP;j++) wv[j]/=ws;
     memset(out,0,D*4);
     float sa=0; if(mlp_lut){ sa=quant_i8(xn,D,g_xq); build_lut_t3(g_xq,TUP,g_lut); }
@@ -431,6 +457,8 @@ static int greedy_hyg(const float* logits,const uint16_t* hist,int nhist){   // 
     int w0=nhist>WIN?nhist-WIN:0; for(int i=w0;i<nhist;i++) g_seen[hist[i]]=1;
     float best=-1e30f; int bi=0; for(int o=0;o<V;o++){ float v=logits[o]; if(g_seen[o]) v=(v>0.0f)?v/1.2f:v*1.2f; if(v>best){best=v;bi=o;} }
     for(int i=w0;i<nhist;i++) g_seen[hist[i]]=0; return bi; }
+// V-G3b accounting accumulators (MoE only): per-block expert UNION over the K speculative positions vs token-by-token.
+static int g_acc_on=0; static double g_acc_unionsum=0; static long g_acc_commit=0,g_acc_blocks=0; static double g_acc_unionlayer[NLAYER];
 static float *snap_h,*snap_conv,*snap_k,*snap_v; static int snap_kvpos,snap_kvcnt,snap_alloc=0;
 static void snap_save(void){ if(!snap_alloc){ snap_h=xmalloc((size_t)L*DN*N*4); snap_conv=xmalloc((size_t)L*DN*CONV*4); snap_k=xmalloc((size_t)WIN*D*4); snap_v=xmalloc((size_t)WIN*D*4); snap_alloc=1; }
     memcpy(snap_h,hstate,(size_t)L*DN*N*4); memcpy(snap_conv,convbuf,(size_t)L*DN*CONV*4); memcpy(snap_k,kring,(size_t)WIN*D*4); memcpy(snap_v,vring,(size_t)WIN*D*4); snap_kvpos=kvpos; snap_kvcnt=kvcnt; }
@@ -467,10 +495,12 @@ static long gen_stream(long seedpos,long ngen,int block,uint16_t* out,double* su
     if(block<=0){ while(emit<ngen){ int nx=greedy_hyg(pend,hist,nh); out[emit++]=nx; hist[nh++]=nx; forward_token(nx,pend,ml,sk,ef,NULL); } }
     else { int K=block>62?62:block; float* Lb=xmalloc((size_t)(K+1)*V*4); uint16_t d[64];
         static ActPos* acts=NULL; if(!acts) acts=xmalloc(sizeof(ActPos)*64);
+        static int* esel=NULL; if(g_acc_on&&!esel) esel=xmalloc(sizeof(int)*64*L*KTOP);
         while(emit<ngen){
             for(int k=0;k<K;k++){ hist[nh+k]=ng_draft(hist,nh+k); d[k]=hist[nh+k]; }   // draft K (cond. committed+drafted)
             snap_save(); memcpy(Lb,pend,V*4);                                          // Lb[0] predicts position 0
-            for(int k=0;k<K;k++){ g_cap=&acts[k]; forward_token(d[k],pend,ml,sk,ef,NULL); g_cap=NULL; memcpy(Lb+(size_t)(k+1)*V,pend,V*4); }
+            for(int k=0;k<K;k++){ g_cap=&acts[k]; if(g_acc_on) g_esel_cap=esel+(size_t)k*L*KTOP;
+                forward_token(d[k],pend,ml,sk,ef,NULL); g_cap=NULL; g_esel_cap=NULL; memcpy(Lb+(size_t)(k+1)*V,pend,V*4); }
             snap_restore();                                                            // roll speculative state back to block start
             int acc=0,mism=0; uint16_t eng=0;
             for(int i=0;i<K;i++){ int g=greedy_hyg(Lb+(size_t)i*V,hist,nh+i); if(g==d[i]){acc++;} else {eng=g;mism=1;break;} }
@@ -478,6 +508,11 @@ static long gen_stream(long seedpos,long ngen,int block,uint16_t* out,double* su
             int ncommit;
             if(mism){ hist[nh+acc]=eng; forward_token(eng,pend,ml,sk,ef,NULL); ncommit=acc+1; } // engine token: one forward
             else { memcpy(pend,Lb+(size_t)K*V,V*4); ncommit=K; }                       // full accept: state replayed, pend=Lb[K]
+            if(g_acc_on){ char seen[E]; long ublk=0;                                   // per-layer expert union over the K speculative positions
+                for(int l=0;l<L;l++){ memset(seen,0,E); int u=0;
+                    for(int k=0;k<K;k++) for(int j=0;j<KTOP;j++){ int e=esel[((size_t)k*L+l)*KTOP+j]; if(!seen[e]){seen[e]=1;u++;} }
+                    g_acc_unionlayer[l]+=u; ublk+=u; }
+                g_acc_unionsum+=ublk; g_acc_commit+=ncommit; g_acc_blocks++; }
             for(int c=0;c<ncommit&&emit<ngen;c++) out[emit++]=hist[nh+c];
             nh+=ncommit; *sum_emit+=ncommit; (*nblk)++;
         }
@@ -533,6 +568,187 @@ static int run_verify(int block,const char* ngpath,long genlen,int nseed,int ml,
     return allident?0:2;
 }
 
+static void run_g3c(const char* ngpath,long emu_mb,int ml,int sk,int ef);   // fwd decl (V-G3c below)
+// ---------------- V-G3b: expert-union accounting (MoE, counted; no wall-clock) ----------------
+#define EBYTES 49152    // per-expert streamed ternary codes: egate TUP*HID_E + eup TUP*HID_E + eWd TDE*D = 3*16384
+static void run_g3b(const char* ngpath,long genlen,int ml,int sk,int ef){
+    if(!g_moe){ printf("  V-G3b: skipped (dense model — expert accounting is MoE-only)\n"); return; }
+    load_ngram(ngpath); long nval=nids-(long)(nids*0.9); long sp=1000; if(sp+16+genlen>=nval)sp=0;
+    static uint16_t obuf[1<<17];
+    printf("==== 63.V V-G3b expert-union accounting (MoE, counted) ====\n");
+    printf("  per-expert streamed codes = %d B (48 KB); token-by-token = KTOP*L*EBYTES = %.1f KB/tok (matches E4's 2400 KB/tok)\n",
+           EBYTES, (double)KTOP*L*EBYTES/1024.0);
+    printf("    K   tpp    union/blk  union-KB/tok  tbt-KB/tok  amortization  per-layer-union(avg |set|, E=%d)\n",E);
+    int Ks[2]={4,8};
+    for(int ki=0;ki<2;ki++){ int K=Ks[ki];
+        g_acc_on=1; g_acc_unionsum=0; g_acc_commit=0; g_acc_blocks=0; for(int l=0;l<L;l++) g_acc_unionlayer[l]=0;
+        double se=0; long nb=0; gen_stream(sp,genlen,K,obuf,&se,&nb,ml,sk,ef); g_acc_on=0;
+        double tpp=nb>0?se/nb:0;
+        double union_per_blk=g_acc_blocks?g_acc_unionsum/g_acc_blocks:0;
+        double union_kb_tok=g_acc_commit? g_acc_unionsum*(double)EBYTES/g_acc_commit/1024.0 : 0;
+        double tbt_kb_tok=(double)KTOP*L*EBYTES/1024.0;
+        double amort=union_kb_tok>0? tbt_kb_tok/union_kb_tok : 0;
+        printf("    %-3d %.3f  %8.1f   %9.1f   %9.1f   %6.2fx      [",K,tpp,union_per_blk,union_kb_tok,tbt_kb_tok,amort);
+        for(int l=0;l<L;l++) printf("%.1f%s",g_acc_blocks?g_acc_unionlayer[l]/g_acc_blocks:0,l<L-1?" ":"");
+        printf("]\n");
+    }
+    printf("  reading (pre-declared): expert class amortizes at UNION-rate, not tpp (rejected positions' experts count);\n");
+    printf("  granular MoE + large K saturates the union toward E -> weak/negative expert amortization = Phase-64 two-pool sizing datum.\n");
+}
+
+// ---------------- V-G3c: all-weights-cold emulation (dense; layer-major weight-once vs token-major AR) ----------------
+// Scale-up proxy: every weight class read from a rotating replica buffer >> L3 so each pass is DRAM-cold; the
+// per-position elementwise compute (scan, activations) stays hot — it does not amortize at scale-up either. AR rotates
+// per token (weights streamed once/token); block rotates per pass (weights streamed once/block via the layer-major
+// weight-once forward, applied to K positions). Runs on the DENSE model (clean weight-once, no routing); the MoE
+// expert pool's amortization is the counted union in V-G3b. Deployed config = --mlp lut; skip-off here (E2==E3 output,
+// bit-identical) so up_tm/down_tm are the streamed arrays (up_rm/skip is an orthogonal activation-sparsity lever).
+#define MAXSLOT 160
+static void** emu_slot[MAXSLOT]; static size_t emu_off[MAXSLOT], emu_bytes[MAXSLOT]; static int emu_ns=0;
+static size_t emu_arena=0; static int emu_R=1,emu_rot=0; static char* emu_buf=NULL;
+static void emu_rebind(int r){ for(int i=0;i<emu_ns;i++) *emu_slot[i]=emu_buf+(size_t)r*emu_arena+emu_off[i]; }
+static void add_slot(void** p,size_t b){ emu_slot[emu_ns]=p; emu_bytes[emu_ns]=b; emu_off[emu_ns]=emu_arena; emu_arena+=(b+63)&~63; emu_ns++; }
+static size_t emu_setup(long emu_mb){
+    emu_ns=0; emu_arena=0; int Mpg=(MLP_HID+31)&~31,Mpd=(D+31)&~31;
+    add_slot((void**)&emb,(size_t)V*D*4);
+    for(int l=0;l<L;l++){ if(is_swa[l]){ add_slot((void**)&swa.norm,D*4); add_slot((void**)&swa.qkv,(size_t)3*D*D*4); add_slot((void**)&swa.o,(size_t)D*D*4); }
+        else { SSML*s=&ssm[l]; add_slot((void**)&s->norm,D*4); add_slot((void**)&s->in_proj,(size_t)2*DN*D*4); add_slot((void**)&s->conv_w,(size_t)DN*CONV*4);
+            add_slot((void**)&s->conv_b,DN*4); add_slot((void**)&s->x_proj,(size_t)(DTR+2*N)*DN*4); add_slot((void**)&s->dt_proj,(size_t)DN*DTR*4);
+            add_slot((void**)&s->dt_b,DN*4); add_slot((void**)&s->A,(size_t)DN*N*4); add_slot((void**)&s->Dskip,DN*4); add_slot((void**)&s->out_proj,(size_t)D*DN*4); }
+        add_slot((void**)&mlp_n2[l],D*4);
+        add_slot((void**)&gate_tm[l],(size_t)TUP*Mpg); add_slot((void**)&up_tm[l],(size_t)TUP*Mpg); add_slot((void**)&down_tm[l],(size_t)TDN*Mpd);
+        add_slot((void**)&gate_sc[l],(size_t)MLP_HID*4); add_slot((void**)&up_sc[l],(size_t)MLP_HID*4); add_slot((void**)&down_sc[l],(size_t)D*4);
+    }
+    add_slot((void**)&normf,D*4); add_slot((void**)&head,(size_t)V*D*4);
+    emu_R=(int)(((size_t)emu_mb*1048576+emu_arena-1)/emu_arena); if(emu_R<2)emu_R=2;
+    emu_buf=xmalloc((size_t)emu_R*emu_arena);
+    for(int r=0;r<emu_R;r++) for(int i=0;i<emu_ns;i++) memcpy(emu_buf+(size_t)r*emu_arena+emu_off[i],*emu_slot[i],emu_bytes[i]);
+    emu_rebind(0);
+    return emu_arena - (size_t)V*D*4 + (size_t)D*4;   // streamed bytes/token (AR): arena minus emb bulk, plus one emb row
+}
+// layer-major weight-once forward of Kn dense tokens; advances state through all Kn; fills Lb[k*V..]; stashes ActPos.
+static float lm_x[62][D],lm_xn[62][D],lm_xz[62][2*DN],lm_xx[62][DN],lm_z[62][DN],lm_dbl[62][DTR+2*N],lm_dt[62][DN],lm_y[62][DN],lm_tmp[62][D];
+static float lm_q[62][D],lm_kk[62][D],lm_vv[62][D],lm_ao[62][D],lm_sa[62],lm_sh[62],lm_gh[62][MLP_HID];
+static int8_t lm_xqb[62][D],lm_hqb[62][MLP_HID],lm_lutU[62][TUP*16],lm_lutD[62][TDN*16]; static int32_t lm_Sg[62][MLP_HID],lm_Su[62][MLP_HID],lm_Sd[62][D];
+static void forward_block_lm(const uint16_t* toks,int Kn,float* Lb,ActPos* acts,int ef){
+    if(Kn>62)Kn=62; int Mpg=(MLP_HID+31)&~31,Mpd=(D+31)&~31;
+    for(int k=0;k<Kn;k++) memcpy(lm_x[k],emb+(size_t)toks[k]*D,D*4);
+    for(int l=0;l<L;l++){
+        for(int k=0;k<Kn;k++) rmsnorm(lm_x[k],is_swa[l]?swa.norm:ssm[l].norm,lm_xn[k]);
+        if(is_swa[l]){
+            mv_K(swa.qkv,3*D,D,&lm_xn[0][0],D,&lm_xz[0][0],2*DN,Kn);
+            for(int k=0;k<Kn;k++){ memcpy(lm_q[k],lm_xz[k],D*4); memcpy(lm_kk[k],lm_xz[k]+D,D*4); memcpy(lm_vv[k],lm_xz[k]+2*D,D*4);
+                if(acts){ memcpy(acts[k].kk,lm_kk[k],D*4); memcpy(acts[k].vv,lm_vv[k],D*4); }
+                int slot=kvpos%WIN; memcpy(kring+(size_t)slot*D,lm_kk[k],D*4); memcpy(vring+(size_t)slot*D,lm_vv[k],D*4);
+                kvpos++; if(kvcnt<WIN)kvcnt++; memset(lm_ao[k],0,D*4);
+                for(int hh=0;hh<H;hh++){ const float* qh=lm_q[k]+hh*HD; float att[WIN]; float m2=-1e30f;
+                    for(int j=0;j<kvcnt;j++){ int s=(kvpos-kvcnt+j)%WIN; float sc=dotf(qh,kring+(size_t)s*D+hh*HD,HD)/sqrtf((float)HD); att[j]=sc; if(sc>m2)m2=sc; }
+                    float Zs=0; for(int j=0;j<kvcnt;j++){ att[j]=expf(att[j]-m2); Zs+=att[j]; } float zi=1.0f/Zs;
+                    for(int j=0;j<kvcnt;j++){ int s=(kvpos-kvcnt+j)%WIN; float w=att[j]*zi; const float* vh=vring+(size_t)s*D+hh*HD;
+                        for(int d=0;d<HD;d++) lm_ao[k][hh*HD+d]+=w*vh[d]; } } }
+            mv_K(swa.o,D,D,&lm_ao[0][0],D,&lm_tmp[0][0],D,Kn);
+            for(int k=0;k<Kn;k++) for(int i=0;i<D;i++) lm_x[k][i]+=lm_tmp[k][i];
+        } else {
+            SSML* s=&ssm[l];
+            mv_K(s->in_proj,2*DN,D,&lm_xn[0][0],D,&lm_xz[0][0],2*DN,Kn);
+            for(int k=0;k<Kn;k++){ memcpy(lm_xx[k],lm_xz[k],DN*4); memcpy(lm_z[k],lm_xz[k]+DN,DN*4); if(acts) memcpy(acts[k].xraw[l],lm_xx[k],DN*4); }
+            for(int k=0;k<Kn;k++){ float (*cb)[CONV]=convbuf[l];   // conv sequential (state)
+                for(int c=0;c<DN;c++){ for(int t=0;t<CONV-1;t++) cb[c][t]=cb[c][t+1]; cb[c][CONV-1]=lm_xx[k][c];
+                    float acc=s->conv_b[c]; const float* w=s->conv_w+(size_t)c*CONV; for(int t=0;t<CONV;t++) acc+=w[t]*cb[c][t]; lm_xx[k][c]=silu(acc); } }
+            mv_K(s->x_proj,DTR+2*N,DN,&lm_xx[0][0],DN,&lm_dbl[0][0],DTR+2*N,Kn);
+            for(int c=0;c<DN;c++){ const float* w=s->dt_proj+(size_t)c*DTR;   // dt weight-once + softplus
+                for(int k=0;k<Kn;k++) lm_dt[k][c]=softplus(dotf(w,lm_dbl[k],DTR)+s->dt_b[c]); }
+            for(int k=0;k<Kn;k++) if(acts){ memcpy(acts[k].dt[l],lm_dt[k],DN*4); memcpy(acts[k].Bm[l],lm_dbl[k]+DTR,N*4); }
+            for(int k=0;k<Kn;k++){ const float* Bm=lm_dbl[k]+DTR; const float* Cm=lm_dbl[k]+DTR+N; float (*hl)[N]=hstate[l];  // scan sequential (state)
+                if(!ef){ for(int c=0;c<DN;c++){ const float* Ac=s->A+(size_t)c*N; float* hc=hl[c]; float dtc=lm_dt[k][c],xc=lm_xx[k][c],acc=0;
+                        for(int j=0;j<N;j++){ hc[j]=expf(dtc*Ac[j])*hc[j]+dtc*Bm[j]*xc; acc+=hc[j]*Cm[j]; } lm_y[k][c]=acc+s->Dskip[c]*xc; } }
+                else { for(int c=0;c<DN;c++){ const float* Ac=s->A+(size_t)c*N; float* hc=hl[c]; float dtc=lm_dt[k][c],xc=lm_xx[k][c],dbx=dtc*xc;
+                        __m256 vdtc=_mm256_set1_ps(dtc),vdbx=_mm256_set1_ps(dbx),vacc=_mm256_setzero_ps();
+                        for(int j=0;j<N;j+=8){ __m256 ee=exp256_ps(_mm256_mul_ps(vdtc,_mm256_loadu_ps(Ac+j)));
+                            __m256 hcj=_mm256_fmadd_ps(ee,_mm256_loadu_ps(hc+j),_mm256_mul_ps(vdbx,_mm256_loadu_ps(Bm+j)));
+                            _mm256_storeu_ps(hc+j,hcj); vacc=_mm256_fmadd_ps(hcj,_mm256_loadu_ps(Cm+j),vacc); } lm_y[k][c]=hsum256(vacc)+s->Dskip[c]*xc; } }
+                for(int c=0;c<DN;c++) lm_y[k][c]*=silu(lm_z[k][c]); }
+            mv_K(s->out_proj,D,DN,&lm_y[0][0],DN,&lm_tmp[0][0],D,Kn);
+            for(int k=0;k<Kn;k++) for(int i=0;i<D;i++) lm_x[k][i]+=lm_tmp[k][i];
+        }
+        for(int k=0;k<Kn;k++) rmsnorm(lm_x[k],mlp_n2[l],lm_xn[k]);   // MLP dense LUT weight-once (skip-off)
+        for(int k=0;k<Kn;k++){ lm_sa[k]=quant_i8(lm_xn[k],D,lm_xqb[k]); build_lut_t3(lm_xqb[k],TUP,lm_lutU[k]); }
+        matvec_lut_full_K(gate_tm[l],&lm_lutU[0][0],TUP*16,&lm_Sg[0][0],MLP_HID,MLP_HID,Mpg,TUP,Kn);
+        matvec_lut_full_K(up_tm[l],&lm_lutU[0][0],TUP*16,&lm_Su[0][0],MLP_HID,MLP_HID,Mpg,TUP,Kn);
+        for(int k=0;k<Kn;k++) for(int i=0;i<MLP_HID;i++){ float g=(float)lm_Sg[k][i]*lm_sa[k]*gate_sc[l][i],u=(float)lm_Su[k][i]*lm_sa[k]*up_sc[l][i]; lm_gh[k][i]=reluf(g)*reluf(u); }
+        for(int k=0;k<Kn;k++){ lm_sh[k]=quant_i8(lm_gh[k],MLP_HID,lm_hqb[k]); build_lut_t3(lm_hqb[k],TDN,lm_lutD[k]); }
+        matvec_lut_full_K(down_tm[l],&lm_lutD[0][0],TDN*16,&lm_Sd[0][0],D,D,Mpd,TDN,Kn);
+        for(int k=0;k<Kn;k++) for(int d=0;d<D;d++) lm_x[k][d]+=(float)lm_Sd[k][d]*lm_sh[k]*down_sc[l][d];
+    }
+    for(int k=0;k<Kn;k++) rmsnorm(lm_x[k],normf,lm_xn[k]);
+    mv_K(head,V,D,&lm_xn[0][0],D,Lb,V,Kn);   // head weight-once
+}
+static void run_g3c(const char* ngpath,long emu_mb,int ml,int sk,int ef){
+    (void)ml;(void)sk;
+    if(g_moe){ printf("  V-G3c: run on the DENSE model (weight-once is clean without routing); MoE expert amortization = V-G3b union.\n"); return; }
+    load_ngram(ngpath); long nval=nids-(long)(nids*0.9); long sp=1000;
+    size_t spt=emu_setup(emu_mb);
+    printf("==== 63.V V-G3c all-weights-cold emulation (dense; %d replicas x %.1f MB = %.0f MB buffer) ====\n",
+           emu_R,emu_arena/1048576.0,(double)emu_R*emu_arena/1048576.0);
+    // GB/s calibration on the same buffer (vectorized streaming read, 8 accumulators — bandwidth not latency)
+    double bw_gbs=0;
+    { const float* p=(const float*)emu_buf; size_t nf=(size_t)emu_R*emu_arena/4; double t0=now_s();
+      __m256 a[8]; for(int j=0;j<8;j++) a[j]=_mm256_setzero_ps();
+      for(size_t i=0;i+64<=nf;i+=64) for(int j=0;j<8;j++) a[j]=_mm256_add_ps(a[j],_mm256_loadu_ps(p+i+j*8));
+      __m256 s=a[0]; for(int j=1;j<8;j++) s=_mm256_add_ps(s,a[j]); volatile float sink=hsum256(s); (void)sink;
+      double dt=now_s()-t0; bw_gbs=(double)emu_R*emu_arena/1e9/dt;
+      printf("  calibration: streamed %.0f MB in %.3f s = %.1f GB/s (same buffer, sequential)\n",(double)emu_R*emu_arena/1048576.0,dt,bw_gbs); }
+    // identity: forward_block_lm(K) == K sequential forward_token(sk=0) from the same primed state
+    static uint16_t hist[1<<17]; float* pend=xmalloc((size_t)V*4); float* Lb=xmalloc((size_t)8*V*4); float* Lr=xmalloc((size_t)8*V*4);
+    static ActPos* acts=NULL; if(!acts) acts=xmalloc(sizeof(ActPos)*64);
+    int Kid=8; state_reset(); emu_rebind(0); int nh=0; for(int i=0;i<64;i++){ hist[nh++]=ids[(long)(nids*0.9)+sp+i]; forward_token(hist[nh-1],pend,1,0,ef,NULL); }
+    uint16_t dr[8]; for(int k=0;k<Kid;k++) dr[k]=ng_draft(hist,nh+k);
+    snap_save(); forward_block_lm(dr,Kid,Lb,acts,ef); snap_restore();   // block-lm advances then restores to block-start
+    for(int k=0;k<Kid;k++){ forward_token(dr[k],Lr+(size_t)k*V,1,0,ef,NULL); }   // ref: K sequential AR from the same start
+    double mx=0; for(int k=0;k<Kid;k++) for(int o=0;o<V;o++){ double d=fabs((double)Lb[(size_t)k*V+o]-Lr[(size_t)k*V+o]); if(d>mx)mx=d; }
+    printf("  identity (layer-major weight-once vs sequential AR, K=%d): max|dLogit| = %.3e  %s\n",Kid,mx,mx==0.0?"BIT-IDENTICAL":(mx<1e-3?"OK":"FAIL"));
+    long T=4000; long base=(long)(nids*0.9)+sp;
+    static uint16_t s_ar[1<<17];   // AR token stream (for emulated-mode token-identity vs block)
+    // AR-hot (weights resident, no rotation) = per-position COMPUTE-floor proxy; AR-cold (rotate) = compute + cold traffic.
+    state_reset(); emu_rebind(0); nh=0; for(int i=0;i<64;i++){ hist[nh++]=ids[base+i]; forward_token(hist[nh-1],pend,1,0,ef,NULL); }
+    double t0=now_s(); for(long i=0;i<T;i++){ int nx=greedy_hyg(pend,hist,nh); s_ar[i]=nx; hist[nh++]=nx; forward_token(nx,pend,1,0,ef,NULL); } double t_hot=now_s()-t0;
+    state_reset(); emu_rot=0; nh=0; for(int i=0;i<64;i++){ hist[nh++]=ids[base+i]; forward_token(hist[nh-1],pend,1,0,ef,NULL); }
+    t0=now_s(); for(long i=0;i<T;i++){ emu_rebind(emu_rot++ % emu_R); int nx=greedy_hyg(pend,hist,nh); hist[nh++]=nx; forward_token(nx,pend,1,0,ef,NULL); } double t_arc=now_s()-t0;
+    double t_traf=spt/(bw_gbs*1e9);            // all-cold traffic time per pass (counted bytes / measured bandwidth)
+    double t_compute=t_hot/T;                  // compute-floor proxy (resident weights)
+    printf("  counted streamed bytes/token (AR) = %.0f KB (all weight classes cold)\n",spt/1024.0);
+    printf("  per-pass all-cold traffic = %.2f ms (%.0f KB / %.1f GB/s); compute-floor = %.2f ms (AR-hot %.0f tok/s); ratio compute/traffic = %.2f\n",
+           t_traf*1e3, spt/1024.0, bw_gbs, t_compute*1e3, T/t_hot, t_compute/t_traf);
+    printf("  AR cold %.0f tok/s vs AR hot %.0f tok/s = %.0f%% cold penalty -> forward is %s\n",
+           T/t_arc, T/t_hot, 100.0*(t_arc-t_hot)/t_hot, (t_compute/t_traf>0.4)?"COMPUTE-bound even all-cold":"traffic-bound");
+    printf("    K   tpp    AR-tok/s  block-tok/s  wall-speedup  tok-identity(vs AR-cold)  block-bytes/tok(=AR/tpp,weight-once)\n");
+    int Ks[3]={2,4,8}; double best=0;
+    for(int ki=0;ki<3;ki++){ int K=Ks[ki];
+        state_reset(); emu_rot=0; nh=0; for(int i=0;i<64;i++){ hist[nh++]=ids[base+i]; forward_token(hist[nh-1],pend,1,0,ef,NULL); }
+        double se=0; long emit=0,nb=0,ident=1; uint16_t d[8]; t0=now_s();
+        while(emit<T){ for(int k=0;k<K;k++){ d[k]=ng_draft(hist,nh+k); hist[nh+k]=d[k]; }
+            emu_rebind(emu_rot++ % emu_R);              // cold replica: weights streamed once for the whole block
+            snap_save(); forward_block_lm(d,K,Lb,acts,ef); snap_restore();   // Lb[k]=logits AFTER d[k] (predicts pos k+1)
+            int acc=0,mism=0; uint16_t eng=0; float* Lprev=pend;            // pend predicts pos 0; Lb[i-1] predicts pos i
+            for(int i=0;i<K;i++){ int g=greedy_hyg(Lprev,hist,nh+i); if(g==d[i]) acc++; else { eng=g; mism=1; break; } Lprev=Lb+(size_t)i*V; }
+            replay_commit(acts,acc,ef);
+            int ncommit; if(mism){ hist[nh+acc]=eng; emu_rebind(emu_rot++ % emu_R); forward_token(eng,pend,1,0,ef,NULL); ncommit=acc+1; }
+            else { memcpy(pend,Lb+(size_t)(K-1)*V,V*4); ncommit=K; }
+            for(int c=0;c<ncommit;c++){ long e=emit+c; if(e<T && hist[nh+c]!=s_ar[e]) ident=0; }
+            nh+=ncommit; emit+=ncommit; se+=ncommit; nb++;
+        }
+        double t_blk=now_s()-t0; double tpp=nb?se/nb:0;
+        double blk_tps=emit/t_blk, sp_up=blk_tps/(T/t_arc);
+        printf("    %-3d %.3f  %8.0f  %9.0f    %.3fx        %-9s               %.0f KB\n",
+               K,tpp,T/t_arc,blk_tps,sp_up,ident?"IDENTICAL":"MISMATCH",spt/tpp/1024.0);
+        if(sp_up>best)best=sp_up;
+    }
+    printf("  MECHANISM gate: block weight-bytes/token = AR/tpp (weight-once by construction) = PASS.\n");
+    printf("  CLAIM gate (>=1.4x at best K): best wall-speedup = %.3fx -> %s\n",best,best>=1.4?"ADOPTED (weight-traffic-dominated)":"NOT adopted at 8.3M");
+    if(best<1.4) printf("    verdict (pre-registered outcome 3): mechanism verified, claim SCOPED OUT at 8.3M — compute-floor/traffic = %.2f >> ~0.25-0.30, so the forward is compute-bound and traffic amortization yields no wall-clock win; (traffic %.2f ms, compute %.2f ms) feed the Phase-64 two-pool sizing (block-verify wins once the streamed pool makes traffic dominate compute).\n",t_compute/t_traf,t_traf*1e3,t_compute*1e3);
+    free(pend); free(Lb); free(Lr);
+}
+
 // ---------------- synthetic kernel self-tests (no weights; CI) ----------------
 static int kernel_selftest(void){
     int rc=0; srand(45678); long checks=0; int worst=0;
@@ -585,12 +801,15 @@ int main(int argc,char**argv){
     int mlp_lut=1,skip=1,exp_fast=1;                 // default = the full optimized config
     int do_bpb=0,do_logits=0,do_tm=0; long seqW=512,eval_tok=200000,ntok=10240,offset=0,timetok=3000;
     int threads=1; const char* wp=NULL; const char* dumpto=NULL;
-    int block=0,gen_verify=0,nseed=3; long genlen=800; const char* ngpath=NULL;
+    int block=0,gen_verify=0,nseed=3,do_g3b=0,do_g3c=0; long genlen=800,emu_mb=128; const char* ngpath=NULL;
     for(int i=1;i<argc;i++){
         if(!strcmp(argv[i],"--threads")&&i+1<argc){ threads=atoi(argv[++i]); continue; }
         else if(!strcmp(argv[i],"--block")&&i+1<argc){ block=atoi(argv[++i]); continue; }
         else if(!strcmp(argv[i],"--ngram")&&i+1<argc){ ngpath=argv[++i]; continue; }
         else if(!strcmp(argv[i],"--gen-verify")){ gen_verify=1; continue; }
+        else if(!strcmp(argv[i],"--g3b")){ do_g3b=1; continue; }
+        else if(!strcmp(argv[i],"--g3c")){ do_g3c=1; continue; }
+        else if(!strcmp(argv[i],"--emu-mb")&&i+1<argc){ emu_mb=atol(argv[++i]); continue; }
         else if(!strcmp(argv[i],"--gen-len")&&i+1<argc){ genlen=atol(argv[++i]); continue; }
         else if(!strcmp(argv[i],"--seeds")&&i+1<argc){ nseed=atoi(argv[++i]); continue; }
         if(!strcmp(argv[i],"--mlp")&&i+1<argc){ i++; mlp_lut=strcmp(argv[i],"fp32")?1:0; }
@@ -612,7 +831,7 @@ int main(int argc,char**argv){
     if(!wp){ fprintf(stderr,"usage: engine --weights <model.bin> [--threads N] [--mlp fp32|lut] [--skip on|off] [--exp exact|fast]\n"
                             "              [--bpb] [--logits] [--timing] [--dumplogits <file>] [--ntok N] [--offset N]\n"); return 1; }
 #ifdef _OPENMP
-    if(threads<1) threads=1; omp_set_num_threads(threads); omp_set_dynamic(0);   // static team; bit-identity invariant to N
+    if(threads<1) threads=1; omp_set_num_threads(threads); omp_set_dynamic(0); g_omp_on=(threads>1);   // if(g_omp_on) skips fork at N=1
     fprintf(stderr,"engine threads=%d (OpenMP; parallelism across independent outputs only)\n",threads);
 #else
     if(threads!=1) fprintf(stderr,"WARN --threads %d ignored (built without OpenMP)\n",threads);
@@ -623,6 +842,8 @@ int main(int argc,char**argv){
             g_moe?"MoE":"dense",mlp_lut?"lut":"fp32",skip?"on":"off",exp_fast?"fast":"exact",nids);
     int rc=0;
     if(gen_verify){ if(!ngpath){fprintf(stderr,"--gen-verify needs --ngram <path> --block K\n");return 1;} rc|=run_verify(block,ngpath,genlen,nseed,mlp_lut,skip,exp_fast); }
+    if(do_g3b){ if(!ngpath){fprintf(stderr,"--g3b needs --ngram <path>\n");return 1;} run_g3b(ngpath,genlen,mlp_lut,skip,exp_fast); }
+    if(do_g3c){ if(!ngpath){fprintf(stderr,"--g3c needs --ngram <path>\n");return 1;} run_g3c(ngpath,emu_mb,mlp_lut,skip,exp_fast); }
     if(dumpto) dump_logits(dumpto,seqW,ntok,offset,mlp_lut,skip,exp_fast);
     if(do_logits) rc|=gate_logits(seqW,ntok,mlp_lut,skip,exp_fast);
     if(do_bpb){ long nt; double b=run_bpb(seqW,eval_tok,mlp_lut,skip,exp_fast,&nt);

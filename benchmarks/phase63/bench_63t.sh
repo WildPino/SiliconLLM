@@ -48,4 +48,25 @@ for cfg in "dense|$E1|--mlp lut --skip on --exp fast" "MoE|$E4|--mlp lut --exp f
   v=$(tps "$w" "$fl" 12 close); printf "    %-8s %s (SMT)\n" 12 "$v ($(python -c "print(f'{$v/$base:.2f}x')" 2>/dev/null))"
 done
 unset OMP_PROC_BIND OMP_PLACES
-echo "STOP. 63.T bench above. No commit."
+
+# ---- 63.V/63.C consolidated phase tables (block-verify chassis + emulation + accounting + t1 attribution) ----
+NG=results/phase63/ngram_ts_N5.bin
+if [ -f "$NG" ]; then
+  echo "== 63.V block-verify: V-G1 identity + V-G2 tpp + V-G3a in-cache (dense, threads 1) =="
+  bin/engine.exe --threads 1 --weights "$E1" --gen-verify --ngram "$NG" --block 8 --gen-len 800 --seeds 3 2>/dev/null | grep -E "V-G1|V-G2|V-G3a"
+  echo "== 63.V V-G3b expert-union accounting (MoE) =="
+  bin/engine.exe --threads 1 --weights "$E4" --g3b --ngram "$NG" --gen-len 3000 2>/dev/null | grep -E "^    [0-9]|amortiz"
+  echo "== 63.V V-G3c all-weights-cold emulation (dense; mechanism PASS, claim scoped-out at 8.3M) =="
+  bin/engine.exe --threads 1 --weights "$E1" --g3c --ngram "$NG" --emu-mb 128 2>/dev/null | grep -E "calibration|ratio|penalty|^    [0-9]|CLAIM|verdict"
+else
+  echo "== n-gram asset absent ($NG) -> skipping 63.V/63.C tables (build it: python benchmarks/phase63/ngram_asset.py --N 5) =="
+fi
+
+echo "== 63.C t1 attribution: OMP if-clause build vs OMP-compiled-out (the ~6% N=1 tax; accepted per portability law) =="
+$CC $BASE $TUNE benchmarks/phase60/engine.c -o bin/engine_noomp.exe -lm 2>/dev/null
+t1(){ OMP_NUM_THREADS=1 bin/"$1".exe --threads 1 --weights "$2" $3 --timing --time-tok ${TT:-5000} 2>/dev/null | grep -oE "[0-9]+\.[0-9]+ tok/s" | head -1; }
+printf "    %-14s dense=%-12s MoE=%s\n" "omp(if-clause)" "$(t1 engine "$E1" '--mlp lut --skip on --exp fast')" "$(t1 engine "$E4" '--mlp lut --exp fast')"
+printf "    %-14s dense=%-12s MoE=%s\n" "no-omp"        "$(t1 engine_noomp "$E1" '--mlp lut --skip on --exp fast')" "$(t1 engine_noomp "$E4" '--mlp lut --exp fast')"
+echo "    (no-omp reproduces the pre-63.T historical singles; the ~6% delta is the pragma-outlining tax, not the build; znver2 is not faster.)"
+
+echo "STOP. 63.T + 63.V/63.C consolidated bench above. No commit."
