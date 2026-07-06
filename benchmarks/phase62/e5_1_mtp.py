@@ -68,8 +68,12 @@ def main():
         ix = np.random.randint(0, len(train)-a.seq-1, size=a.batch)
         return torch.from_numpy(np.stack([train[i:i+a.seq] for i in ix])).long().to(dev)
     opt = torch.optim.AdamW(heads.parameters(), lr=a.lr, betas=(0.9,0.95), weight_decay=0.0)
-    print("== training MTP heads (head-only, backbone frozen) ==")
-    for step in range(a.steps):
+    trained = False
+    if a.save and os.path.exists(a.save):                          # measure-only re-run: load heads, skip training
+        heads.load_state_dict(torch.load(a.save, map_location=dev)["heads"]); trained = True
+        print(f"== heads loaded from {a.save} -> skip training ==")
+    print("== training MTP heads (head-only, backbone frozen) ==" if not trained else "== (measure only) ==")
+    for step in range(0 if trained else a.steps):
         x = get_batch(); store.clear()
         with torch.no_grad(): model(x)                             # fills store with h (B,T,D)
         h = store[0].float()
@@ -83,14 +87,20 @@ def main():
         loss.backward(); opt.step(); opt.zero_grad()
         if step==0 or (step+1)%max(1,a.steps//10)==0: print(f"  step {step+1:5d}/{a.steps} loss={loss.item():.4f}")
     hook.remove()
+    if a.save and not trained:                                     # save BEFORE measure so a measure error never loses training
+        torch.save({"heads": heads.state_dict(), "cfg": cfg, "nheads": a.nheads}, a.save); print(f"  saved -> {a.save}")
 
     # ---- measure on the SAME cached greedy positions as E5.0 ----
     pos, ctx_np, G = get_or_compute_greedy(model, val, a.backbone, a.positions, a.context, dev)
     P = len(pos)
-    hook, store = capture_hidden(model); store.clear()
+    hook, store = capture_hidden(model)
+    CH = 32                                                        # chunk the backbone pass: full (P,C) OOMs the SSM scan
+    hlast_parts = []
     with torch.no_grad():
-        model(torch.from_numpy(ctx_np).long().to(dev))            # one batched backbone pass over contexts
-        hlast = store[0][:, -1, :].float()                        # (P,D) hidden after last ctx token
+        for s in range(0, P, CH):
+            store.clear(); model(torch.from_numpy(ctx_np[s:s+CH]).long().to(dev))
+            hlast_parts.append(store[0][:, -1, :].float())
+        hlast = torch.cat(hlast_parts, 0)                         # (P,D) hidden after last ctx token
         hl = heads(hlast)                                         # list nheads x (P,V)
         mtp = torch.stack([hl[j].argmax(-1) for j in range(a.nheads)], 1).cpu().numpy()  # (P,nheads)
     hook.remove()
@@ -104,8 +114,6 @@ def main():
     res = acceptance_table(G, drafts, P, f"{dom} (MTP vs n-gram)")
     tpp_mtp_k4 = res[("MTP", 4)][1]
     print(f"\n  >>> MTP tokens/pass @K=4 = {tpp_mtp_k4:.3f}  vs RULE 2.0 -> {'spec-AR ALIVE' if tpp_mtp_k4>=2.0 else 'spec-AR OUT (carve becomes primary)'}")
-    if a.save:
-        torch.save({"heads": heads.state_dict(), "cfg": cfg, "nheads": a.nheads}, a.save); print(f"  saved -> {a.save}")
     print("STOP. E5.1 MTP acceptance (design-gate, rule pre-registered). No commit.")
 
 if __name__ == "__main__":
