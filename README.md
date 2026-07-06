@@ -109,6 +109,8 @@ The point of every probe above is this: a single-binary **C inference engine** t
 
 From an unoptimized fp32 core to the full stack — ternary LUT MLP, exact activation-skip, a deterministic fast-exp scan, and the granular-MoE two-pool tier — the engine reaches **176 → 848 tokens/second single-threaded** on the Ryzen 5 3600X (4.8×), or **702 tok/s** on the better MoE model (−0.021 BPB). The total *inference-time* quality cost across every optimization is **+0.00004 BPB** — essentially free. The honest lesson is in the chart: the MLP kernel wins (E2/E3) stayed hidden until the real bottleneck — the exact-exp selective scan — was replaced by a deterministic polynomial approximation (E3.5, 25.9× on the scan alone).
 
+Phase 63 then adds **thread parallelism** — applied *only* across independent outputs, so each reduction stays serial and the multi-core path is **bit-identical** to the single-thread one — for a further **~2.4× on 6 cores**, reaching roughly **2.0K tok/s dense / 1.5K tok/s MoE** on the 3600X. (That 2.4× is measured against the threaded binary's own single-thread run, which carries a ~6% OpenMP-region tax; against the *best serial* binary the same-protocol gain is ≈2.2–2.3×. Absolute tok/s drift ~5–10% between sessions; ratios are within-run.) The same phase also built the **block-verify execution chassis** (a zero-cost n-gram drafter + linear parallel-scan verify) and proved it **token-identical to autoregressive decoding** — but its *speedup* is scale-conditional and does **not** pay at 8.3M (the per-token compute floor exceeds the weight traffic here), so it ships behind `--block K`, default off. And the design question it was built to test — *generating multiple tokens per step from the SSM state* — was measured and **closed at this scale**: the state carries ~1 reliable look-ahead step even when co-trained to carry more, so the model stays **AR-lossless**.
+
 Scope, as always: at ~8.3M sandbox scale everything is cache-resident, so these numbers validate the engine's *correctness* and *kernel-level* speed — not the streaming bandwidth at scale. The two-pool expert bytes are **counted and priced** (probe-3's 28 GB/s floor), not yet streamed at billions of parameters.
 
 ---
@@ -126,7 +128,8 @@ Scope, as always: at ~8.3M sandbox scale everything is cache-resident, so these 
 | Granular MoE (capacity tier) | ✅ validated | granular > dense at iso-active; fine > coarse |
 | Two-pool memory model | ✅ characterized | resident core + streamed experts (no hot pool) |
 | **C inference engine (E1–E4)** | ✅ **validated end-to-end** | **176→848 tok/s (4.8×), parity-gated, +0.00004 BPB** |
-| Block-decode / MTP execution (E5) | 📋 designed | roadmap (execution chassis) |
+| **Thread parallelism (Phase 63)** | ✅ **adopted** | **~2.4× on 6 cores, bit-identical; ~2.0K/1.5K tok/s dense/MoE** |
+| Block-verify chassis / MTP (E5) | ✅ built · lossless · speed scale-conditional | token-identical to AR; multi-token-from-state closed → model stays AR-lossless |
 
 <sub>Notes: training A/B verdicts are single-seed (seed 0; measured seed variance σ ≈ 0.005 BPB). "Ternary 1.58-bit" refers to the weights' information content; the engine stores them at 4 bits/weight today (trit-pack queued). All measured on TinyStories at ~8–22M params.</sub>
 
@@ -136,7 +139,7 @@ See [`docs/SCALEUP_ARCHITECTURE.md`](docs/SCALEUP_ARCHITECTURE.md) for the full 
 
 ## What this is *not* (scope discipline)
 
-- **Not a scale-up speedup yet.** The engine's 176→848 tok/s is real and single-threaded, but at ~8.3M sandbox scale everything is cache-resident — it validates *correctness* and *kernel-level* speed, not the streamed two-pool bandwidth at billions of parameters (which is counted and priced, not yet run — see [`docs/SIZING.md`](docs/SIZING.md), including the unmeasured DDR4 multi-thread contention). The probes measure architectural *properties*; the scale-up engine is the next frontier.
+- **Not a scale-up speedup yet.** The engine's 176→848 tok/s single-thread (→ ~2.0K on 6 cores) is real, but at ~8.3M sandbox scale everything is cache-resident — it validates *correctness* and *kernel-level* speed, not the streamed two-pool bandwidth at billions of parameters (which is counted and priced, not yet run — see [`docs/SIZING.md`](docs/SIZING.md), including the unmeasured DDR4 multi-thread contention). The measured thread scaling is bandwidth aggregation across a still cache-resident model; the DRAM-streamed ceiling is lower (~1.4–1.5×). The probes measure architectural *properties*; the scale-up engine is the next frontier.
 - **Not a finished LLM.** The current model is trained on TinyStories at ~8–22M parameters to isolate architectural questions cleanly. Broad-distribution quality at scale is future work — and the *declared product domain* (Cat-A: code, logs, structured text, where the agentic thesis expects the best acceptance) is **not yet tested**; that probe is queued.
 - **Not yet one fused system.** The long-context recall tier (the phase-56 model line) and the engine's thinking core (the phase-58/59 line) are today **two separate lineages**. Unifying them into a single model with a recall slot is future work (E5+).
 - **Honest about magnitude.** Individual levers are stated at their *predictor-free, measured* value (e.g. 2.12× sparsity, ~3× residency), never the optimistic ceiling. The compound win is one-to-two orders of magnitude, but no single headline number is load-bearing.
