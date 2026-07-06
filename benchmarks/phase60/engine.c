@@ -26,6 +26,17 @@
 #include <string.h>
 #include <math.h>
 #include <immintrin.h>
+#ifdef _OPENMP
+#include <omp.h>
+#endif
+// 63.T threads: parallelism ONLY across independent outputs (distinct y[o]); each reduction (dotf, scan-j) stays
+// serial on one thread -> bit-identity is by construction, invariant to thread count. schedule(static). --threads N
+// (default 1 = the P43 path). Pinning is external (OMP_PROC_BIND/OMP_PLACES) — no topology code in the engine.
+#ifdef _OPENMP
+#define OMP_PFOR _Pragma("omp parallel for schedule(static)")
+#else
+#define OMP_PFOR
+#endif
 #if defined(_WIN32)
 #include <windows.h>
 static double now_s(void){ LARGE_INTEGER f,t; QueryPerformanceFrequency(&f); QueryPerformanceCounter(&t); return (double)t.QuadPart/(double)f.QuadPart; }
@@ -83,7 +94,7 @@ static inline float dotf(const float*a,const float*b,int n){ __m256 s=_mm256_set
 // between tokens, not FMA-latency-bound), so ILP does not help and the 4-strided access is ~4% SLOWER than this
 // sequential stream (probe-3 rho-law). Lesson: microbench speedup (compute-bound) does not compose to engine speedup
 // (memory-bound) -- measure end-to-end. The fp32 projections are floor-ish; the byte lever (ternary) failed on quality (Phase 61).
-static inline void matvec(const float*W,const float*x,float*y,int out,int in){ for(int o=0;o<out;o++) y[o]=dotf(W+(size_t)o*in,x,in); }
+static inline void matvec(const float*W,const float*x,float*y,int out,int in){ OMP_PFOR for(int o=0;o<out;o++) y[o]=dotf(W+(size_t)o*in,x,in); }
 static inline float silu(float x){ return x/(1.0f+expf(-x)); }
 static inline float softplus(float x){ return x>20.0f?x:log1pf(expf(x)); }
 static inline float reluf(float x){ return x>0.0f?x:0.0f; }
@@ -95,7 +106,7 @@ static inline void acc_add_i8x32(__m256i* acc,__m256i p){
     acc[2]=_mm256_add_epi32(acc[2],_mm256_cvtepi8_epi32(hi)); acc[3]=_mm256_add_epi32(acc[3],_mm256_cvtepi8_epi32(_mm_srli_si128(hi,8)));
 }
 static void matvec_lut_full(const int8_t* codes,const int8_t* lut,int32_t* y,int M,int Mpad,int T){
-    for(int base=0;base<M;base+=32){
+    OMP_PFOR for(int base=0;base<M;base+=32){
         __m256i acc[4]={_mm256_setzero_si256(),_mm256_setzero_si256(),_mm256_setzero_si256(),_mm256_setzero_si256()};
         for(int t=0;t<T;t++){ __m256i tbl=_mm256_broadcastsi128_si256(_mm_loadu_si128((const __m128i*)(lut+(size_t)t*16)));
             __m256i idx=_mm256_loadu_si256((const __m256i*)(codes+(size_t)t*Mpad+base)); acc_add_i8x32(acc,_mm256_shuffle_epi8(tbl,idx)); }
@@ -104,7 +115,7 @@ static void matvec_lut_full(const int8_t* codes,const int8_t* lut,int32_t* y,int
         for(int r=0;r<32&&base+r<M;r++) y[base+r]=tmp[r]; }
 }
 static void matvec_lut_tileskip(const int8_t* codes,const int8_t* lut,int32_t* y,int M,int Mpad,const int* act,int na){
-    for(int base=0;base<M;base+=32){
+    OMP_PFOR for(int base=0;base<M;base+=32){
         __m256i acc[4]={_mm256_setzero_si256(),_mm256_setzero_si256(),_mm256_setzero_si256(),_mm256_setzero_si256()};
         for(int a=0;a<na;a++){ int t=act[a];
             __m256i tbl=_mm256_broadcastsi128_si256(_mm_loadu_si128((const __m128i*)(lut+(size_t)t*16)));
@@ -115,7 +126,7 @@ static void matvec_lut_tileskip(const int8_t* codes,const int8_t* lut,int32_t* y
 }
 // windowed rows [row0,row0+M) of a tile-major block (the E4 per-expert access)
 static void matvec_lut_rows(const int8_t* codes,const int8_t* lut,int32_t* y,int row0,int M,int Mpad,int T){
-    for(int bb=0;bb<M;bb+=32){ int base=row0+bb; __m256i acc[4]={_mm256_setzero_si256(),_mm256_setzero_si256(),_mm256_setzero_si256(),_mm256_setzero_si256()};
+    OMP_PFOR for(int bb=0;bb<M;bb+=32){ int base=row0+bb; __m256i acc[4]={_mm256_setzero_si256(),_mm256_setzero_si256(),_mm256_setzero_si256(),_mm256_setzero_si256()};
         for(int t=0;t<T;t++){ __m256i tbl=_mm256_broadcastsi128_si256(_mm_loadu_si128((const __m128i*)(lut+(size_t)t*16)));
             __m256i idx=_mm256_loadu_si256((const __m256i*)(codes+(size_t)t*Mpad+base)); acc_add_i8x32(acc,_mm256_shuffle_epi8(tbl,idx)); }
         int32_t tmp[32]; _mm256_storeu_si256((__m256i*)(tmp+0),acc[0]); _mm256_storeu_si256((__m256i*)(tmp+8),acc[1]);
@@ -275,6 +286,13 @@ static void mlp_moe(int l,const float* xn,float* out,int mlp_lut){
 }
 
 // ---------------- forward ----------------
+// 63.V Activation Replay (the chassis-conforming commit): during the speculative forward of the K drafts, stash the
+// post-GEMV recurrence INPUTS per position (raw in_proj xx pre-conv, dt, Bm for SSM layers; k/v for the SWA layer).
+// At commit we advance the persistent state (hstate scan + convbuf + kv-ring) by re-running ONLY the elementwise
+// recurrence from these stashed inputs — zero GEMV, no streamed weight re-touched. This upholds the sealed R-F
+// invariant "each weight streamed 1x/block" that snapshot+re-forward violated. ~28KB/position (~226KB at K=8), L2-fit.
+typedef struct { float xraw[L][DN]; float dt[L][DN]; float Bm[L][N]; float kk[D]; float vv[D]; } ActPos;
+static ActPos* g_cap=NULL;   // non-NULL -> forward_token stashes this position's recurrence inputs for replay-commit
 typedef struct { double scan,scan_other,swa,mlp,head; } Tacc;
 // cfg: mlp_lut (0 fp32 / 1 LUT), skip (dense only), exp_fast (0 exact / 1 poly)
 static void forward_token(uint32_t tok,float* logits,int mlp_lut,int skip,int exp_fast,Tacc* T){
@@ -286,6 +304,7 @@ static void forward_token(uint32_t tok,float* logits,int mlp_lut,int skip,int ex
         if(is_swa[l]){
             if(T)t0=now_s();
             matvec(swa.qkv,xn,xz,3*D,D); memcpy(q,xz,D*4); memcpy(kk,xz+D,D*4); memcpy(vvv,xz+2*D,D*4);
+            if(g_cap){ memcpy(g_cap->kk,kk,D*4); memcpy(g_cap->vv,vvv,D*4); }   // stash k/v for replay-commit
             int slot=kvpos%WIN; memcpy(kring+(size_t)slot*D,kk,D*4); memcpy(vring+(size_t)slot*D,vvv,D*4);
             kvpos++; if(kvcnt<WIN) kvcnt++; memset(ao,0,D*4);
             for(int hh=0;hh<H;hh++){ const float* qh=q+hh*HD; float m2=-1e30f;
@@ -299,19 +318,21 @@ static void forward_token(uint32_t tok,float* logits,int mlp_lut,int skip,int ex
             SSML*s=&ssm[l];
             if(T)t0=now_s();
             matvec(s->in_proj,xn,xz,2*DN,D); memcpy(xx,xz,DN*4); memcpy(z,xz+DN,DN*4);
+            if(g_cap) memcpy(g_cap->xraw[l],xx,DN*4);              // stash raw in_proj (pre-conv) for replay-commit
             float (*cb)[CONV]=convbuf[l];
             for(int c=0;c<DN;c++){ for(int t=0;t<CONV-1;t++) cb[c][t]=cb[c][t+1]; cb[c][CONV-1]=xx[c];
                 float acc=s->conv_b[c]; const float* w=s->conv_w+(size_t)c*CONV; for(int t=0;t<CONV;t++) acc+=w[t]*cb[c][t]; xx[c]=silu(acc); }
             matvec(s->x_proj,xx,dbl,DTR+2*N,DN);
             const float* Bm=dbl+DTR; const float* Cm=dbl+DTR+N;
-            for(int c=0;c<DN;c++) dt[c]=softplus(dotf(s->dt_proj+(size_t)c*DTR,dbl,DTR)+s->dt_b[c]);
+            OMP_PFOR for(int c=0;c<DN;c++) dt[c]=softplus(dotf(s->dt_proj+(size_t)c*DTR,dbl,DTR)+s->dt_b[c]);
+            if(g_cap){ memcpy(g_cap->dt[l],dt,DN*4); memcpy(g_cap->Bm[l],Bm,N*4); }   // stash dt,B for replay-commit
             if(T){T->scan_other+=now_s()-t0; t0=now_s();}
             float (*hl)[N]=hstate[l];
             if(!exp_fast){
-                for(int c=0;c<DN;c++){ const float* Ac=s->A+(size_t)c*N; float* hc=hl[c]; float dtc=dt[c],xc=xx[c],acc=0;
+                OMP_PFOR for(int c=0;c<DN;c++){ const float* Ac=s->A+(size_t)c*N; float* hc=hl[c]; float dtc=dt[c],xc=xx[c],acc=0;
                     for(int j=0;j<N;j++){ hc[j]=expf(dtc*Ac[j])*hc[j]+dtc*Bm[j]*xc; acc+=hc[j]*Cm[j]; } y[c]=acc+s->Dskip[c]*xc; }
             } else {
-                for(int c=0;c<DN;c++){ const float* Ac=s->A+(size_t)c*N; float* hc=hl[c]; float dtc=dt[c],xc=xx[c],dbx=dt[c]*xc;
+                OMP_PFOR for(int c=0;c<DN;c++){ const float* Ac=s->A+(size_t)c*N; float* hc=hl[c]; float dtc=dt[c],xc=xx[c],dbx=dt[c]*xc;
                     __m256 vdtc=_mm256_set1_ps(dtc),vdbx=_mm256_set1_ps(dbx),vacc=_mm256_setzero_ps();
                     for(int j=0;j<N;j+=8){ __m256 ee=exp256_ps(_mm256_mul_ps(vdtc,_mm256_loadu_ps(Ac+j)));
                         __m256 hcj=_mm256_fmadd_ps(ee,_mm256_loadu_ps(hc+j),_mm256_mul_ps(vdbx,_mm256_loadu_ps(Bm+j)));
@@ -384,6 +405,134 @@ static void timing(long ntok,int mlp_lut,int skip,int exp_fast){
     free(lg);
 }
 
+// ---------------- 63.V block-verify chassis (n-gram drafter + greedy verify) ----------------
+// Commit = ACTIVATION REPLAY (declared, dossier-E5 option 1, favored): ONE snapshot of mutable state at block start;
+// forward the K drafts for their logits WHILE stashing per-position recurrence inputs (g_cap); restore the snapshot;
+// then advance state through the MATCHED prefix by re-running only the elementwise recurrence from the stash (zero
+// GEMV, no streamed weight re-touched -> upholds "each weight streamed 1x/block"). The engine token at divergence is
+// forwarded once (= first position of the next block). Emitted stream is token-identical to AR by construction (V-G1):
+// the matched-prefix state trajectory equals the speculative-prefix trajectory, so the stashed activations are exact.
+// Rep-penalty window sees COMMITTED tokens only (matched drafts == AR tokens). The streamed-regime speedup (weights
+// once/block under layer-major batching) is a memory-access property invisible in-cache -> measured in V-G3b/c.
+static int ng_N=0,ng_ufb=0; static uint32_t ng_cnt[9]; static uint64_t* ng_key[9]; static uint16_t* ng_nxt[9];
+static void load_ngram(const char* path){ FILE* f=fopen(path,"rb"); if(!f){fprintf(stderr,"no ngram %s\n",path);exit(1);}
+    uint32_t mg,nn,ufb; if(fread(&mg,4,1,f)!=1||mg!=0x3130474Eu){fprintf(stderr,"bad ngram magic\n");exit(1);}
+    if(fread(&nn,4,1,f)!=1||fread(&ufb,4,1,f)!=1)exit(1); ng_N=nn; ng_ufb=ufb; size_t tot=12;
+    for(int o=2;o<=(int)nn;o++){ uint32_t c; if(fread(&c,4,1,f)!=1)exit(1); ng_cnt[o]=c; tot+=4+(size_t)c*12;
+        ng_key[o]=xmalloc((size_t)c*8); ng_nxt[o]=xmalloc((size_t)c*2);
+        for(uint32_t i=0;i<c;i++){ uint64_t k; uint16_t nx,pad; if(fread(&k,8,1,f)!=1||fread(&nx,2,1,f)!=1||fread(&pad,2,1,f)!=1)exit(1); ng_key[o][i]=k; ng_nxt[o][i]=nx; } }
+    fclose(f); fprintf(stderr,"ngram N=%d loaded (%zu bytes = %.2f MB) [V-G4: RAM-resident lookup, ~K random probes/step (latency-bound) — NOT a streamed working set, does not compete for L3 residency]\n",ng_N,tot,tot/1048576.0); }
+static int ng_find(int o,uint64_t key){ long lo=0,hi=(long)ng_cnt[o]-1; while(lo<=hi){ long m=(lo+hi)>>1; uint64_t k=ng_key[o][m];
+    if(k<key)lo=m+1; else if(k>key)hi=m-1; else return (int)m; } return -1; }
+static int ng_draft(const uint16_t* ctx,int nctx){ for(int o=ng_N;o>=2;o--){ if(nctx<o-1) continue; uint64_t key=0,mul=1;
+    for(int i=0;i<o-1;i++){ key+=(uint64_t)ctx[nctx-(o-1)+i]*mul; mul*=V; } int idx=ng_find(o,key); if(idx>=0) return ng_nxt[o][idx]; } return ng_ufb; }
+static int8_t g_seen[V];
+static int greedy_hyg(const float* logits,const uint16_t* hist,int nhist){   // rep 1.2 / win 128, then argmax
+    int w0=nhist>WIN?nhist-WIN:0; for(int i=w0;i<nhist;i++) g_seen[hist[i]]=1;
+    float best=-1e30f; int bi=0; for(int o=0;o<V;o++){ float v=logits[o]; if(g_seen[o]) v=(v>0.0f)?v/1.2f:v*1.2f; if(v>best){best=v;bi=o;} }
+    for(int i=w0;i<nhist;i++) g_seen[hist[i]]=0; return bi; }
+static float *snap_h,*snap_conv,*snap_k,*snap_v; static int snap_kvpos,snap_kvcnt,snap_alloc=0;
+static void snap_save(void){ if(!snap_alloc){ snap_h=xmalloc((size_t)L*DN*N*4); snap_conv=xmalloc((size_t)L*DN*CONV*4); snap_k=xmalloc((size_t)WIN*D*4); snap_v=xmalloc((size_t)WIN*D*4); snap_alloc=1; }
+    memcpy(snap_h,hstate,(size_t)L*DN*N*4); memcpy(snap_conv,convbuf,(size_t)L*DN*CONV*4); memcpy(snap_k,kring,(size_t)WIN*D*4); memcpy(snap_v,vring,(size_t)WIN*D*4); snap_kvpos=kvpos; snap_kvcnt=kvcnt; }
+static void snap_restore(void){ memcpy(hstate,snap_h,(size_t)L*DN*N*4); memcpy(convbuf,snap_conv,(size_t)L*DN*CONV*4); memcpy(kring,snap_k,(size_t)WIN*D*4); memcpy(vring,snap_v,(size_t)WIN*D*4); kvpos=snap_kvpos; kvcnt=snap_kvcnt; }
+// Activation replay: advance the persistent state (hstate scan + convbuf + kv-ring) through nacts committed positions
+// using ONLY the stashed recurrence inputs. Elementwise-only (reads resident A and tiny conv_w) — no GEMV, no streamed
+// weight touched. Bit-identical to forward_token's conv+scan (same float inputs, same arithmetic); y/out_proj/logits
+// are not persistent state, so they are skipped. exp path (ef) mirrors forward_token so the state matches exactly.
+static void replay_commit(const ActPos* acts,int nacts,int ef){
+    for(int p=0;p<nacts;p++){ const ActPos* a=&acts[p];
+        for(int l=0;l<L;l++){
+            if(is_swa[l]){ int slot=kvpos%WIN; memcpy(kring+(size_t)slot*D,a->kk,D*4); memcpy(vring+(size_t)slot*D,a->vv,D*4);
+                kvpos++; if(kvcnt<WIN)kvcnt++; continue; }
+            SSML* s=&ssm[l]; float (*cb)[CONV]=convbuf[l]; const float* Bm=a->Bm[l];
+            for(int c=0;c<DN;c++){
+                for(int t=0;t<CONV-1;t++) cb[c][t]=cb[c][t+1]; cb[c][CONV-1]=a->xraw[l][c];   // conv-buffer advance
+                float acc=s->conv_b[c]; const float* w=s->conv_w+(size_t)c*CONV; for(int t=0;t<CONV;t++) acc+=w[t]*cb[c][t];
+                float xc=silu(acc); const float* Ac=s->A+(size_t)c*N; float* hc=hstate[l][c]; float dtc=a->dt[l][c];
+                if(!ef){ for(int j=0;j<N;j++) hc[j]=expf(dtc*Ac[j])*hc[j]+dtc*Bm[j]*xc; }
+                else { float dbx=dtc*xc; __m256 vdtc=_mm256_set1_ps(dtc),vdbx=_mm256_set1_ps(dbx);
+                    for(int j=0;j<N;j+=8){ __m256 ee=exp256_ps(_mm256_mul_ps(vdtc,_mm256_loadu_ps(Ac+j)));
+                        __m256 hcj=_mm256_fmadd_ps(ee,_mm256_loadu_ps(hc+j),_mm256_mul_ps(vdbx,_mm256_loadu_ps(Bm+j)));
+                        _mm256_storeu_ps(hc+j,hcj); } }
+            }
+        }
+    }
+}
+// generate ngen tokens from a val seed; block<=0 => pure AR. Accumulates emitted/blocks for tpp.
+static long gen_stream(long seedpos,long ngen,int block,uint16_t* out,double* sum_emit,long* nblk,int ml,int sk,int ef){
+    long ntr=(long)(nids*0.9); uint16_t* val=ids+ntr; static uint16_t hist[1<<17]; int nh=0;
+    float* pend=xmalloc((size_t)V*4); state_reset();
+    for(int i=0;i<16;i++){ hist[nh++]=val[seedpos+i]; forward_token(val[seedpos+i],pend,ml,sk,ef,NULL); }
+    long emit=0;
+    if(block<=0){ while(emit<ngen){ int nx=greedy_hyg(pend,hist,nh); out[emit++]=nx; hist[nh++]=nx; forward_token(nx,pend,ml,sk,ef,NULL); } }
+    else { int K=block>62?62:block; float* Lb=xmalloc((size_t)(K+1)*V*4); uint16_t d[64];
+        static ActPos* acts=NULL; if(!acts) acts=xmalloc(sizeof(ActPos)*64);
+        while(emit<ngen){
+            for(int k=0;k<K;k++){ hist[nh+k]=ng_draft(hist,nh+k); d[k]=hist[nh+k]; }   // draft K (cond. committed+drafted)
+            snap_save(); memcpy(Lb,pend,V*4);                                          // Lb[0] predicts position 0
+            for(int k=0;k<K;k++){ g_cap=&acts[k]; forward_token(d[k],pend,ml,sk,ef,NULL); g_cap=NULL; memcpy(Lb+(size_t)(k+1)*V,pend,V*4); }
+            snap_restore();                                                            // roll speculative state back to block start
+            int acc=0,mism=0; uint16_t eng=0;
+            for(int i=0;i<K;i++){ int g=greedy_hyg(Lb+(size_t)i*V,hist,nh+i); if(g==d[i]){acc++;} else {eng=g;mism=1;break;} }
+            replay_commit(acts,acc,ef);                                                // advance state through matched prefix (no GEMV)
+            int ncommit;
+            if(mism){ hist[nh+acc]=eng; forward_token(eng,pend,ml,sk,ef,NULL); ncommit=acc+1; } // engine token: one forward
+            else { memcpy(pend,Lb+(size_t)K*V,V*4); ncommit=K; }                       // full accept: state replayed, pend=Lb[K]
+            for(int c=0;c<ncommit&&emit<ngen;c++) out[emit++]=hist[nh+c];
+            nh+=ncommit; *sum_emit+=ncommit; (*nblk)++;
+        }
+        free(Lb);
+    }
+    free(pend); return emit;
+}
+// V-G2 apples-to-apples: reproduce the e5_0 apparatus protocol in-engine (npos val positions, ctx window,
+// ONE block of K drafts vs the model greedy self-continuation; tpp = min(LCP,K)+1). Should match the apparatus.
+static double tpp_sampled(int K,int npos,int ctx,int ml,int sk,int ef){
+    long ntr=(long)(nids*0.9); uint16_t* val=ids+ntr; long nval=nids-ntr;
+    float* pend=xmalloc((size_t)V*4); static uint16_t hist[1<<17]; double sumtpp=0; int used=0; uint16_t g[64],d[64];
+    for(int s=0;s<npos;s++){ long p=ctx+(long)((double)s/npos*(double)(nval-ctx-K-2)); if(p<ctx)p=ctx;
+        state_reset(); int nh=0; for(int i=0;i<ctx;i++){ hist[nh++]=val[p-ctx+i]; forward_token(val[p-ctx+i],pend,ml,sk,ef,NULL); }
+        int nhg=nh; for(int k=0;k<K;k++){ g[k]=greedy_hyg(pend,hist,nhg); hist[nhg++]=g[k]; forward_token(g[k],pend,ml,sk,ef,NULL); }
+        for(int k=0;k<K;k++){ d[k]=ng_draft(hist,nh+k); hist[nh+k]=d[k]; }     // draft overwrites scratch, reads committed+drafted
+        int lcp=0; while(lcp<K && g[lcp]==d[lcp]) lcp++;
+        sumtpp += (lcp<K?lcp:K)+1; used++;
+    }
+    free(pend); return used? sumtpp/used : 0;
+}
+static int run_verify(int block,const char* ngpath,long genlen,int nseed,int ml,int sk,int ef){
+    load_ngram(ngpath); long nval=nids-(long)(nids*0.9);
+    long seeds[3]={1000,20000,50000}; if(nseed>3)nseed=3;
+    static uint16_t a_ar[1<<17],a_bv[1<<17]; int allident=1; double se=0; long nb=0;
+    printf("==== 63.V block-verify (block=%d, ngram N=%d, %d seeds x %ld tok) ====\n",block,ng_N,nseed,genlen);
+    for(int s=0;s<nseed;s++){ long sp=seeds[s]; if(sp+16+genlen>=nval)sp=0;
+        double d1=0; long b1=0; long na=gen_stream(sp,genlen,0,a_ar,&d1,&b1,ml,sk,ef);
+        long nbv=gen_stream(sp,genlen,block,a_bv,&se,&nb,ml,sk,ef);
+        int id=(na==nbv); for(long i=0;i<na&&id;i++) if(a_ar[i]!=a_bv[i]) id=0;
+        if(!id) allident=0; printf("  seed %ld: token-identity vs AR = %s\n",sp,id?"IDENTICAL":"MISMATCH");
+    }
+    double tpp=nb>0?se/nb:0;
+    // V-G3a sandbox wall-clock (report-only; weights resident -> expected neutral/worse: block-verify pays
+    //   speculative + replay compute the AR path doesn't, and the streamed amortization is invisible in-cache).
+    static uint16_t tb[1<<17]; double dse=0; long dnb=0; long TG=2000;
+    double t0=now_s(); gen_stream(seeds[0],TG,0,tb,&dse,&dnb,ml,sk,ef); double t_ar=now_s()-t0;
+    dse=0; dnb=0; t0=now_s(); gen_stream(seeds[0],TG,block,tb,&dse,&dnb,ml,sk,ef); double t_bv=now_s()-t0;
+    double tpp_s=tpp_sampled(block,300,128,ml,sk,ef);       // apparatus protocol (300 pos, ctx128) — V-G2 apples-to-apples
+    // V-G4 lookup cost (owed): drafter latency = backoff binary-search (<= N-1 probes into the RAM-resident table)
+    long NL=500000; volatile int sink=0; double t0l=now_s();
+    for(long i=0;i<NL;i++){ int nc=16+(int)(i%(genlen>32?genlen-16:16)); sink^=ng_draft(a_bv,nc); }
+    double ns_draft=(now_s()-t0l)*1e9/NL; (void)sink;
+    printf("  V-G1 (hard) token-identical to AR: %s\n", allident?"PASS":"FAIL");
+    printf("  V-G2 in-engine tpp (apparatus protocol 300pos/ctx128) = %.3f  [apparatus ref same N/K]\n",tpp_s);
+    printf("  (production tpp on self-generated stream = %.3f over %ld blocks — higher: self-text is more n-gram-predictable)\n",tpp,nb);
+    printf("  V-G4 drafter lookup cost = %.1f ns/draft (RAM-resident, latency-bound; negligible vs a streamed forward ~us)\n",ns_draft);
+    printf("  V-G3a in-cache speculative overhead (REPORT-ONLY, pre-registered mute): AR %.1f tok/s vs block-verify %.1f tok/s (%.2fx)\n",
+           TG/t_ar, TG/t_bv, t_ar/t_bv);
+    printf("    [commit now = activation replay (zero GEMV); the gap is pure speculative waste — weights free in L2, batching mute.\n");
+    printf("     The streamed-regime speedup (weights once/block) is measured in V-G3b/c, not here.]\n");
+    printf("  V-G3b/c (KB-touched expert-union accounting + DRAM-cold emulation) = next rung (needs layer-major cold kernel)\n");
+    return allident?0:2;
+}
+
 // ---------------- synthetic kernel self-tests (no weights; CI) ----------------
 static int kernel_selftest(void){
     int rc=0; srand(45678); long checks=0; int worst=0;
@@ -435,8 +584,15 @@ static int kernel_selftest(void){
 int main(int argc,char**argv){
     int mlp_lut=1,skip=1,exp_fast=1;                 // default = the full optimized config
     int do_bpb=0,do_logits=0,do_tm=0; long seqW=512,eval_tok=200000,ntok=10240,offset=0,timetok=3000;
-    const char* wp=NULL; const char* dumpto=NULL;
+    int threads=1; const char* wp=NULL; const char* dumpto=NULL;
+    int block=0,gen_verify=0,nseed=3; long genlen=800; const char* ngpath=NULL;
     for(int i=1;i<argc;i++){
+        if(!strcmp(argv[i],"--threads")&&i+1<argc){ threads=atoi(argv[++i]); continue; }
+        else if(!strcmp(argv[i],"--block")&&i+1<argc){ block=atoi(argv[++i]); continue; }
+        else if(!strcmp(argv[i],"--ngram")&&i+1<argc){ ngpath=argv[++i]; continue; }
+        else if(!strcmp(argv[i],"--gen-verify")){ gen_verify=1; continue; }
+        else if(!strcmp(argv[i],"--gen-len")&&i+1<argc){ genlen=atol(argv[++i]); continue; }
+        else if(!strcmp(argv[i],"--seeds")&&i+1<argc){ nseed=atoi(argv[++i]); continue; }
         if(!strcmp(argv[i],"--mlp")&&i+1<argc){ i++; mlp_lut=strcmp(argv[i],"fp32")?1:0; }
         else if(!strcmp(argv[i],"--skip")&&i+1<argc){ i++; skip=strcmp(argv[i],"off")?1:0; }
         else if(!strcmp(argv[i],"--exp")&&i+1<argc){ i++; exp_fast=strcmp(argv[i],"exact")?1:0; }
@@ -453,13 +609,20 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--weights")&&i+1<argc) wp=argv[++i];
         else { fprintf(stderr,"unknown arg %s\n",argv[i]); return 1; }
     }
-    if(!wp){ fprintf(stderr,"usage: engine --weights <model.bin> [--mlp fp32|lut] [--skip on|off] [--exp exact|fast]\n"
+    if(!wp){ fprintf(stderr,"usage: engine --weights <model.bin> [--threads N] [--mlp fp32|lut] [--skip on|off] [--exp exact|fast]\n"
                             "              [--bpb] [--logits] [--timing] [--dumplogits <file>] [--ntok N] [--offset N]\n"); return 1; }
+#ifdef _OPENMP
+    if(threads<1) threads=1; omp_set_num_threads(threads); omp_set_dynamic(0);   // static team; bit-identity invariant to N
+    fprintf(stderr,"engine threads=%d (OpenMP; parallelism across independent outputs only)\n",threads);
+#else
+    if(threads!=1) fprintf(stderr,"WARN --threads %d ignored (built without OpenMP)\n",threads);
+#endif
     load_weights(wp); load_meta("results/phase55/meta.bin"); load_ids("results/phase55/ids.u16");
     hstate=calloc(L,sizeof(*hstate)); convbuf=calloc(L,sizeof(*convbuf)); kring=calloc((size_t)WIN*D,4); vring=calloc((size_t)WIN*D,4);
     fprintf(stderr,"engine loaded: %s | mlp=%s skip=%s exp=%s | ids=%ld\n",
             g_moe?"MoE":"dense",mlp_lut?"lut":"fp32",skip?"on":"off",exp_fast?"fast":"exact",nids);
     int rc=0;
+    if(gen_verify){ if(!ngpath){fprintf(stderr,"--gen-verify needs --ngram <path> --block K\n");return 1;} rc|=run_verify(block,ngpath,genlen,nseed,mlp_lut,skip,exp_fast); }
     if(dumpto) dump_logits(dumpto,seqW,ntok,offset,mlp_lut,skip,exp_fast);
     if(do_logits) rc|=gate_logits(seqW,ntok,mlp_lut,skip,exp_fast);
     if(do_bpb){ long nt; double b=run_bpb(seqW,eval_tok,mlp_lut,skip,exp_fast,&nt);
