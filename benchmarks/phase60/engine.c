@@ -319,14 +319,16 @@ static void mlp_moe(int l,const float* xn,float* out,int mlp_lut){
 // invariant "each weight streamed 1x/block" that snapshot+re-forward violated. ~28KB/position (~226KB at K=8), L2-fit.
 typedef struct { float xraw[L][DN]; float dt[L][DN]; float Bm[L][N]; float kk[D]; float vv[D]; } ActPos;
 static ActPos* g_cap=NULL;   // non-NULL -> forward_token stashes this position's recurrence inputs for replay-commit
-typedef struct { double scan,scan_other,swa,mlp,head; } Tacc;
+typedef struct { double scan,scan_other,swa,mlp,head,norm; } Tacc;  // 64.0(b): +norm bucket (rmsnorm glue, was in untimed remainder)
 // cfg: mlp_lut (0 fp32 / 1 LUT), skip (dense only), exp_fast (0 exact / 1 poly)
 static void forward_token(uint32_t tok,float* logits,int mlp_lut,int skip,int exp_fast,Tacc* T){
     float x[D],xn[D],xz[2*DN],xx[DN],z[DN],dbl[DTR+2*N],dt[DN],y[DN],q[D],kk[D],vvv[D],att[WIN],ao[D],tmp[D];
     double t0;
     memcpy(x,emb+(size_t)tok*D,D*4);
     for(int l=0;l<L;l++){
+        if(T)t0=now_s();
         rmsnorm(x, is_swa[l]?swa.norm:ssm[l].norm, xn);
+        if(T)T->norm+=now_s()-t0;
         if(is_swa[l]){
             if(T)t0=now_s();
             matvec(swa.qkv,xn,xz,3*D,D); memcpy(q,xz,D*4); memcpy(kk,xz+D,D*4); memcpy(vvv,xz+2*D,D*4);
@@ -369,14 +371,17 @@ static void forward_token(uint32_t tok,float* logits,int mlp_lut,int skip,int ex
             matvec(s->out_proj,y,tmp,D,DN); for(int i=0;i<D;i++) x[i]+=tmp[i];
             if(T)T->scan_other+=now_s()-t0;
         }
-        rmsnorm(x, mlp_n2[l], xn);
         if(T)t0=now_s();
+        rmsnorm(x, mlp_n2[l], xn);
+        if(T){T->norm+=now_s()-t0; t0=now_s();}
         if(g_moe) mlp_moe(l,xn,tmp,mlp_lut); else mlp_dense(l,xn,tmp,mlp_lut,skip);
         for(int i=0;i<D;i++) x[i]+=tmp[i];
         if(T)T->mlp+=now_s()-t0;
     }
     if(T)t0=now_s();
-    rmsnorm(x,normf,xn); matvec(head,xn,logits,V,D);
+    rmsnorm(x,normf,xn);
+    if(T){T->norm+=now_s()-t0; t0=now_s();}
+    matvec(head,xn,logits,V,D);
     if(T)T->head+=now_s()-t0;
 }
 
@@ -422,12 +427,15 @@ static int gate_logits(long seqW,long ntok_target,int mlp_lut,int skip,int exp_f
 }
 static void timing(long ntok,int mlp_lut,int skip,int exp_fast){
     long ntr=(long)(nids*0.9); uint16_t* val=ids+ntr; float* lg=xmalloc((size_t)V*4);
-    Tacc T={0,0,0,0,0}; state_reset(); double t0=now_s();
+    Tacc T={0,0,0,0,0,0}; state_reset(); double t0=now_s();
     for(long i=0;i<ntok;i++) forward_token(val[i%100000],lg,mlp_lut,skip,exp_fast,&T);
     double tot=now_s()-t0; double sc=1e6/ntok;
     printf("==== timing (%s, mlp=%s skip=%d exp=%s, %ld tok): %.1f tok/s | %.1f us/tok ====\n",
            g_moe?"MoE":"dense",mlp_lut?"lut":"fp32",skip,exp_fast?"fast":"exact",ntok,ntok/tot,1e6/(ntok/tot));
-    printf("   scan %.1f  scan-other %.1f  SWA %.1f  MLP %.1f  head %.1f  (us/tok)\n",T.scan*sc,T.scan_other*sc,T.swa*sc,T.mlp*sc,T.head*sc);
+    // 64.0(b) compute-floor decomposition: scan recurrence / projection GEMVs / attention / LUT-MLP / head / norms / glue-remainder
+    double acc=T.scan+T.scan_other+T.swa+T.mlp+T.head+T.norm, glue=tot-acc;
+    printf("   scan-recur %.1f  proj-GEMV %.1f  SWA-attn %.1f  LUT-MLP %.1f  head %.1f  norms %.1f  glue %.1f  (us/tok, total %.1f)\n",
+           T.scan*sc,T.scan_other*sc,T.swa*sc,T.mlp*sc,T.head*sc,T.norm*sc,glue*sc,tot*sc);
     free(lg);
 }
 
@@ -683,6 +691,31 @@ static void forward_block_lm(const uint16_t* toks,int Kn,float* Lb,ActPos* acts,
     for(int k=0;k<Kn;k++) rmsnorm(lm_x[k],normf,lm_xn[k]);
     mv_K(head,V,D,&lm_xn[0][0],D,Lb,V,Kn);   // head weight-once
 }
+// 64.0(a) streamed-thread ceiling: aggregate cold-stream bandwidth of the emu buffer at nt threads (disjoint chunks,
+// concurrent). Pure streaming read (no compute) = the DRAM ceiling the two-pool budget needs; independent of --threads.
+static double emu_stream_bw(int nt){
+    const float* p=(const float*)emu_buf; size_t nf=(size_t)emu_R*emu_arena/4;
+    size_t lim=(nf>=64)?nf-63:0;   // canonical OpenMP bound: last block start with i+64<=nf
+    static float tsink[64]; for(int i=0;i<64;i++) tsink[i]=0.0f;
+    double t0=now_s();
+    #ifdef _OPENMP
+    #pragma omp parallel num_threads(nt)
+    #endif
+    {
+        int tid=0;
+        #ifdef _OPENMP
+        tid=omp_get_thread_num();
+        #endif
+        __m256 a[8]; for(int j=0;j<8;j++) a[j]=_mm256_setzero_ps();
+        #ifdef _OPENMP
+        #pragma omp for schedule(static) nowait
+        #endif
+        for(size_t i=0;i<lim;i+=64) for(int j=0;j<8;j++) a[j]=_mm256_add_ps(a[j],_mm256_loadu_ps(p+i+j*8));
+        __m256 s=a[0]; for(int j=1;j<8;j++) s=_mm256_add_ps(s,a[j]); tsink[tid&63]+=hsum256(s);
+    }
+    double dt=now_s()-t0; volatile float sink=0; for(int i=0;i<64;i++) sink+=tsink[i]; (void)sink;
+    return (double)emu_R*emu_arena/1e9/dt;
+}
 static void run_g3c(const char* ngpath,long emu_mb,int ml,int sk,int ef){
     (void)ml;(void)sk;
     if(g_moe){ printf("  V-G3c: run on the DENSE model (weight-once is clean without routing); MoE expert amortization = V-G3b union.\n"); return; }
@@ -690,14 +723,12 @@ static void run_g3c(const char* ngpath,long emu_mb,int ml,int sk,int ef){
     size_t spt=emu_setup(emu_mb);
     printf("==== 63.V V-G3c all-weights-cold emulation (dense; %d replicas x %.1f MB = %.0f MB buffer) ====\n",
            emu_R,emu_arena/1048576.0,(double)emu_R*emu_arena/1048576.0);
-    // GB/s calibration on the same buffer (vectorized streaming read, 8 accumulators — bandwidth not latency)
-    double bw_gbs=0;
-    { const float* p=(const float*)emu_buf; size_t nf=(size_t)emu_R*emu_arena/4; double t0=now_s();
-      __m256 a[8]; for(int j=0;j<8;j++) a[j]=_mm256_setzero_ps();
-      for(size_t i=0;i+64<=nf;i+=64) for(int j=0;j<8;j++) a[j]=_mm256_add_ps(a[j],_mm256_loadu_ps(p+i+j*8));
-      __m256 s=a[0]; for(int j=1;j<8;j++) s=_mm256_add_ps(s,a[j]); volatile float sink=hsum256(s); (void)sink;
-      double dt=now_s()-t0; bw_gbs=(double)emu_R*emu_arena/1e9/dt;
-      printf("  calibration: streamed %.0f MB in %.3f s = %.1f GB/s (same buffer, sequential)\n",(double)emu_R*emu_arena/1048576.0,dt,bw_gbs); }
+    // 64.0(a) streamed-thread bandwidth ceiling: aggregate cold-stream GB/s at threads {1,2,3,6} (re-prices E4 @28,
+    // closes the derived ~1.4-1.5x). Single-thread bw drives the downstream V-G3c ratio math (bw_gbs), unchanged.
+    double bw_gbs=0; { int Nt[4]={1,2,3,6}; double bw1=0;
+      printf("  [64.0(a)] streamed-thread bandwidth ceiling (parallel cold-stream read, %.0f MB buffer):\n",(double)emu_R*emu_arena/1048576.0);
+      for(int q=0;q<4;q++){ double b=emu_stream_bw(Nt[q]); double b2=emu_stream_bw(Nt[q]); if(b2>b)b=b2;   // best-of-2 (warm)
+        if(q==0){ bw1=b; bw_gbs=b; } printf("      threads=%d  %.1f GB/s  (%.2fx vs single-thread)\n",Nt[q],b,bw1>0?b/bw1:1.0); } }
     // identity: forward_block_lm(K) == K sequential forward_token(sk=0) from the same primed state
     static uint16_t hist[1<<17]; float* pend=xmalloc((size_t)V*4); float* Lb=xmalloc((size_t)8*V*4); float* Lr=xmalloc((size_t)8*V*4);
     static ActPos* acts=NULL; if(!acts) acts=xmalloc(sizeof(ActPos)*64);
