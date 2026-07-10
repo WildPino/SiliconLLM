@@ -780,6 +780,67 @@ static void run_g3c(const char* ngpath,long emu_mb,int ml,int sk,int ef){
     free(pend); free(Lb); free(Lr);
 }
 
+// ---------------- 64.1b microbenches (synthetic, no weights, no gate) — tighten the 64.1 budget model ----------------
+// (1) proj-GEMV size sweep: real row-partitioned fp32 matvec over synthetic weight sets {4..96} MB, threads {1,6}.
+//     Validates the 64.1 spill model: does the ~40 GB/s@t6 plateau hold past L3, and where does the t1 curve break
+//     (L3 = 16 MB per CCX on the reference)? Input x (2 KB) stays L1-resident; the swept W is the streamed working set.
+static void run_gemv_sweep(void){
+    const int nin=512;                                    // DN — the largest projection input dim in Arch-A
+    long mb[8]={4,8,16,24,32,48,64,96};
+    printf("==== 64.1b(1) proj-GEMV size sweep (real fp32 row-partitioned matvec, in=%d, x L1-resident) ====\n",nin);
+    printf("   size(MB)  out_rows |  t1 GB/s  t1 us/pass |  t6 GB/s  t6 us/pass |  t6/t1\n");
+    float* x=xmalloc((size_t)nin*4); for(int i=0;i<nin;i++) x[i]=0.01f*((i%7)-3);
+    for(int si=0;si<8;si++){
+        size_t wb=(size_t)mb[si]*1048576; int out=(int)(wb/((size_t)nin*4)); wb=(size_t)out*nin*4;
+        float* W=xmalloc(wb); for(size_t i=0;i<wb/4;i++) W[i]=0.001f*((long)(i%13)-6);
+        float* y=xmalloc((size_t)out*4);
+        double gbps[2],usp[2];
+        for(int ti=0;ti<2;ti++){ int nt=ti?6:1;
+#ifdef _OPENMP
+            omp_set_num_threads(nt); g_omp_on=(nt>1);
+#endif
+            long npass=(long)(2048UL*1048576/wb); if(npass<16) npass=16;   // ~2 GB streamed per window (stable at 96 MB)
+            matvec(W,x,y,out,nin);                                          // warm
+            double best=1e30;                                              // best-of-2 (min time = de-jittered rate)
+            for(int rep=0;rep<2;rep++){ double t0=now_s(); for(long p=0;p<npass;p++){ x[p&(nin-1)]+=1e-9f; matvec(W,x,y,out,nin); }
+                double dt=now_s()-t0; if(dt<best) best=dt; }
+            gbps[ti]=(double)wb*npass/1e9/best; usp[ti]=best/npass*1e6;
+        }
+        printf("   %-8ld  %-8d |  %6.1f   %9.1f |  %6.1f   %9.1f |  %.2fx\n",
+               mb[si],out,gbps[0],usp[0],gbps[1],usp[1],gbps[1]/gbps[0]);
+        free(W); free(y);
+    }
+    free(x);
+}
+// (2) expert-pool DRAM rate: real ternary LUT kernel over a pool >> L3 (512 MB) of 48 KB experts, 8 random x 6 layers
+//     per "token" (i.i.d. selection => cold random gather). Tightens the model's widest bracket [4.2-11.4 GB/s] — the
+//     effective streamed rate that sets the S1/S2/M1 rows of the curve. threads {1,6} (mirrors the engine: OMP over rows).
+static void run_expert_rate(void){
+    const int M=384,Mpad=384,T=128; const size_t EB=(size_t)T*Mpad;   // 49152 B = 48 KB = one expert (gate+up+down eq.)
+    const size_t POOL=512UL*1048576; long NE=(long)(POOL/EB);          // ~10922 experts, contiguous, >> L3
+    const int LAYERS=6,K=8; long per_tok=(long)LAYERS*K;               // 48 expert touches / token
+    int8_t* pool=xmalloc((size_t)NE*EB);
+    for(size_t i=0;i<(size_t)NE*EB;i++) pool[i]=(int8_t)((i*2654435761u)%9u);   // valid ternary-packed code indices [0,8]
+    int8_t lut[T*16]; int8_t xq[2*T]; for(int i=0;i<2*T;i++) xq[i]=(int8_t)((i%5)-2); build_lut_t3(xq,T,lut);
+    int32_t* y=xmalloc((size_t)M*4);
+    printf("==== 64.1b(2) expert-pool DRAM rate (real LUT kernel; %ld MB pool = %ld experts x %ld KB; %ld touches/token, i.i.d.) ====\n",
+           (long)(POOL/1048576),NE,(long)(EB/1024),per_tok);
+    printf("   threads |  GB/s   us/token  us/expert\n");
+    for(int ti=0;ti<2;ti++){ int nt=ti?6:1;
+#ifdef _OPENMP
+        omp_set_num_threads(nt); g_omp_on=(nt>1);
+#endif
+        uint64_t rng=0x9e3779b97f4a7c15ULL; long ntok=500,touches=0;
+        for(long e=0;e<per_tok;e++){ rng^=rng<<13; rng^=rng>>7; rng^=rng<<17; matvec_lut_full(pool+(size_t)(rng%NE)*EB,lut,y,M,Mpad,T); } // warm
+        double t0=now_s();
+        for(long tok=0;tok<ntok;tok++) for(long e=0;e<per_tok;e++){ rng^=rng<<13; rng^=rng>>7; rng^=rng<<17;
+            matvec_lut_full(pool+(size_t)(rng%NE)*EB,lut,y,M,Mpad,T); touches++; }
+        double dt=now_s()-t0;
+        printf("   %-7d |  %5.2f  %8.1f  %8.3f\n",nt,(double)touches*EB/1e9/dt,dt/ntok*1e6,dt/touches*1e6);
+    }
+    free(pool); free(y);
+}
+
 // ---------------- synthetic kernel self-tests (no weights; CI) ----------------
 static int kernel_selftest(void){
     int rc=0; srand(45678); long checks=0; int worst=0;
@@ -832,7 +893,7 @@ int main(int argc,char**argv){
     int mlp_lut=1,skip=1,exp_fast=1;                 // default = the full optimized config
     int do_bpb=0,do_logits=0,do_tm=0; long seqW=512,eval_tok=200000,ntok=10240,offset=0,timetok=3000;
     int threads=1; const char* wp=NULL; const char* dumpto=NULL;
-    int block=0,gen_verify=0,nseed=3,do_g3b=0,do_g3c=0; long genlen=800,emu_mb=128; const char* ngpath=NULL;
+    int block=0,gen_verify=0,nseed=3,do_g3b=0,do_g3c=0,do_gemvsweep=0,do_exprate=0; long genlen=800,emu_mb=128; const char* ngpath=NULL;
     for(int i=1;i<argc;i++){
         if(!strcmp(argv[i],"--threads")&&i+1<argc){ threads=atoi(argv[++i]); continue; }
         else if(!strcmp(argv[i],"--block")&&i+1<argc){ block=atoi(argv[++i]); continue; }
@@ -840,6 +901,8 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--gen-verify")){ gen_verify=1; continue; }
         else if(!strcmp(argv[i],"--g3b")){ do_g3b=1; continue; }
         else if(!strcmp(argv[i],"--g3c")){ do_g3c=1; continue; }
+        else if(!strcmp(argv[i],"--gemv-sweep")){ do_gemvsweep=1; continue; }
+        else if(!strcmp(argv[i],"--expert-rate")){ do_exprate=1; continue; }
         else if(!strcmp(argv[i],"--emu-mb")&&i+1<argc){ emu_mb=atol(argv[++i]); continue; }
         else if(!strcmp(argv[i],"--gen-len")&&i+1<argc){ genlen=atol(argv[++i]); continue; }
         else if(!strcmp(argv[i],"--seeds")&&i+1<argc){ nseed=atoi(argv[++i]); continue; }
@@ -858,6 +921,12 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--kselftest")) return kernel_selftest();
         else if(!strcmp(argv[i],"--weights")&&i+1<argc) wp=argv[++i];
         else { fprintf(stderr,"unknown arg %s\n",argv[i]); return 1; }
+    }
+    if(do_gemvsweep||do_exprate){   // 64.1b microbenches: synthetic, weight-free, self-sweep threads {1,6}
+        omp_set_dynamic(0);
+        if(do_gemvsweep) run_gemv_sweep();
+        if(do_exprate) run_expert_rate();
+        return 0;
     }
     if(!wp){ fprintf(stderr,"usage: engine --weights <model.bin> [--threads N] [--mlp fp32|lut] [--skip on|off] [--exp exact|fast]\n"
                             "              [--bpb] [--logits] [--timing] [--dumplogits <file>] [--ntok N] [--offset N]\n"); return 1; }
