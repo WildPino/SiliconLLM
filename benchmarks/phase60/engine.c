@@ -923,7 +923,9 @@ int main(int argc,char**argv){
         else { fprintf(stderr,"unknown arg %s\n",argv[i]); return 1; }
     }
     if(do_gemvsweep||do_exprate){   // 64.1b microbenches: synthetic, weight-free, self-sweep threads {1,6}
+#ifdef _OPENMP
         omp_set_dynamic(0);
+#endif
         if(do_gemvsweep) run_gemv_sweep();
         if(do_exprate) run_expert_rate();
         return 0;
