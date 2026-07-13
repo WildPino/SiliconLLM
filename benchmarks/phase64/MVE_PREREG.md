@@ -54,10 +54,11 @@ it is made at the *next* student token — a position the sealed design supervis
 **same stored K=32 rows** at every interior position, conditioned on the bytes already emitted, retains
 **83–86% of H(teacher)**. Implemented as `--kd span`; the sealed design remains the default `--kd anchor`.
 
-> **DECISION REQUIRED BEFORE LAUNCH (Architect): `--kd anchor` (sealed) or `--kd span`.** A pre-registration cannot
-> be amended after the run. Both are built, both A/B-able. The Builder's recommendation is to run **D3 as
-> `span` vs `ce`**, and record `anchor` as the third arm if budget allows — because `anchor` is now *known* to
-> deliver ~15% of the signal, and a gate that fails for a reason we already measured teaches us nothing.
+> **DECISION RESOLVED BEFORE LAUNCH (Architect, 2026-07-13 — sealed in `docs/PHASE64_DECISIONS.md` §3, pushed in the
+> same pre-launch session, nothing executed): `--kd span`** (chain-rule-factorized), with `anchor` recorded as the
+> measured-degenerate case. Rationale: `anchor` is *known* to deliver only ~15% of the teacher's signal, and a gate
+> that fails for a reason already measured teaches nothing. **D3 therefore runs as `span` vs `ce`.** The gate itself
+> (cross-tokenizer KD must beat plain CE) is UNCHANGED — this fixes the arm, it does not loosen the bar.
 
 ## 4. Declared choices (they are the mechanism on trial, not hidden costs)
 
@@ -92,10 +93,10 @@ it is made at the *next* student token — a position the sealed design supervis
 .venv/Scripts/python.exe benchmarks/phase64/mve/mve_logits.py --tag full --backend hf --quant fp16 \
     --ctx 2048 --stride 1536 --batch 4
 
-# (C-F) the curriculum: the D3 arms, then the D4-clause-2 arms
-.venv/Scripts/python.exe benchmarks/phase64/mve/mve_train.py --tag full --arm kd --kd <anchor|span> --recall on  --fp16 --steps 20000
-.venv/Scripts/python.exe benchmarks/phase64/mve/mve_train.py --tag full --arm ce                    --recall on  --fp16 --steps 20000
-.venv/Scripts/python.exe benchmarks/phase64/mve/mve_train.py --tag full --arm kd --kd <anchor|span> --recall off --fp16 --steps 20000
+# (C-F) the curriculum: the D3 arms (span vs ce, resolved above), then the D4-clause-2 arms
+.venv/Scripts/python.exe benchmarks/phase64/mve/mve_train.py --tag full --arm kd --kd span --recall on  --fp16 --steps 20000
+.venv/Scripts/python.exe benchmarks/phase64/mve/mve_train.py --tag full --arm ce                --recall on  --fp16 --steps 20000
+.venv/Scripts/python.exe benchmarks/phase64/mve/mve_train.py --tag full --arm kd --kd span --recall off --fp16 --steps 20000
 
 # DDP validation (2xT4, Linux): loss-curve parity vs single-GPU + scaling >= 1.6x
 torchrun --nproc_per_node=2 benchmarks/phase64/mve/mve_train.py --tag full --arm kd --fp16 --steps 2000 --stages C
