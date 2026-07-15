@@ -161,19 +161,32 @@ def main():
     ap.add_argument("--recall", choices=["on", "off"], default="on", help="off = the D4-clause-2 control arm")
     ap.add_argument("--stages", default="CDEF")
     ap.add_argument("--steps", type=int, default=20000, help="TOTAL steps, split across stages by STAGE_SPLIT")
-    ap.add_argument("--seq", type=int, default=512); ap.add_argument("--batch", type=int, default=16)
+    ap.add_argument("--seq", type=int, default=512); ap.add_argument("--batch", type=int, default=16,
+                    help="MICRO-batch. Effective batch = batch*accum. Stage E (MoE compute-all + exact recall read) "
+                         "is the memory peak; on <=16GB use --batch 8 --accum 2 to keep effective 16 and fit.")
+    ap.add_argument("--accum", type=int, default=1, help="gradient accumulation steps (effective batch = batch*accum)")
     ap.add_argument("--lr", type=float, default=3e-3); ap.add_argument("--alpha", type=float, default=0.5,
                     help="KD weight at anchor positions: loss = (1-a)*CE + a*KD there, CE elsewhere")
     ap.add_argument("--lam-nce", type=float, default=0.05); ap.add_argument("--load-w", type=float, default=0.01)
     ap.add_argument("--fp16", action="store_true"); ap.add_argument("--bf16", action="store_true")
     ap.add_argument("--eval-tok", type=int, default=200_000)
-    ap.add_argument("--ckpt-min", type=float, default=30.0); ap.add_argument("--resume", default="")
+    ap.add_argument("--ckpt-min", type=float, default=30.0, help="resume-checkpoint cadence (min)")
+    ap.add_argument("--resume", action="store_true", help="resume from --resume-ckpt if it exists")
+    ap.add_argument("--resume-ckpt", default="", help="resume/checkpoint path (default: CKPT/resume_<arm>_<kd>_<recall>_<tag>.pt)")
+    ap.add_argument("--time-budget-min", type=float, default=0.0,
+                    help="stop cleanly after this wall-clock (save a resume checkpoint, exit MVE-INCOMPLETE). "
+                         "0=off. Kaggle: set ~660 to land under the 12h session cap.")
     ap.add_argument("--delete-behind", action="store_true")
     ap.add_argument("--chunk-steps", type=int, default=200, help="steps before advancing the resident chunk window")
     ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--device", default="auto"); ap.add_argument("--out", default="")
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--data-dir", default="", help="override input dir (Kaggle: /kaggle/input/<ds>/data)")
+    ap.add_argument("--ckpt-dir", default="", help="override checkpoint/output dir (Kaggle: /kaggle/working)")
     a = ap.parse_args()
+    global DATA, CKPT
+    if a.data_dir: DATA = a.data_dir            # KDChunks + all data loads read this module global
+    if a.ckpt_dir: CKPT = a.ckpt_dir
     if a.smoke: a.steps = 120; a.seq = 128; a.batch = 4; a.eval_tok = 20_000; a.chunk_steps = 20
 
     # ---- DDP (torchrun) ----------------------------------------------------------------------------
@@ -342,73 +355,131 @@ def main():
         loss = (ce.sum() + kd_m) / (a.batch * a.seq) + aux
         return loss, nkd, float(ce.mean())
 
-    # ---- the curriculum -------------------------------------------------------------------------------
+    # ---- the curriculum (RESUMABLE across sessions — gate #2) -----------------------------------------
+    # The model changes SHAPE between stages (dense fp -> ternary -> MoE+recall). A resume therefore cannot just
+    # load a state_dict onto a fresh model: it must first replay the structural surgery of every stage up to and
+    # including the one being resumed, THEN load the checkpoint, THEN continue from the saved step. That is exactly
+    # what makes Kaggle's 12h cap survivable, and it is gate #2 of the pre-registration.
     stages = [c for c in a.stages]
     tot_w = sum(STAGE_SPLIT[c] for c in stages)
     budget = {c: max(1, int(a.steps * STAGE_SPLIT[c] / tot_w)) for c in stages}
-    rows = []; t_ck = time.time(); gstep = 0
-    hist = []      # (stage, step, loss) -- the loss-curve, for the DDP parity check and the QAT-switch read
+    STAGE_LR = {"C": a.lr, "D": a.lr * 0.5, "E": a.lr * 0.5, "F": a.lr * 0.1}
 
-    for st in stages:
-        # ---- stage transitions (the model surgery) ----
+    def stage_surgery(st):
+        """The structural surgery applied at a stage's ENTRY (idempotent per stage). Returns a log line ('' if none)."""
         if st == "D":
-            n = model.qat_ternary(); model.to(dev); net = wrap(model)
-            opt = torch.optim.AdamW(model.parameters(), lr=a.lr * 0.5, betas=(0.9, 0.95), weight_decay=0.1)
-            log(f"\n== [D] QAT switch: {n} MLP linears -> BitLinear158 (weights carried over), lr x0.5 ==")
+            n = model.qat_ternary(); model.to(dev)
+            return f"[D] QAT switch: {n} MLP linears -> BitLinear158 (weights carried), lr x0.5"
         if st == "E":
-            n = model.upcycle_moe(dev_type=dev_type, load_w=a.load_w, seed=a.seed); model.to(dev)
-            msg = f"\n== [E] MoE upcycle: {n} MLPs -> E{MOE['E']}xh{MOE['hid_e']} top{MOE['k']} (seeded from dense hidden)"
+            n = model.upcycle_moe(dev_type=dev_type, load_w=a.load_w, seed=a.seed)
+            msg = f"[E] MoE upcycle: {n} MLPs -> E{MOE['E']}xh{MOE['hid_e']} top{MOE['k']} (magnitude-matched seed)"
             if a.recall == "on":
-                nr = model.add_recall(lam_nce=a.lam_nce); msg += f" + recall slot ({nr/1e3:.1f}K par, gate=0 -> identity at insertion)"
-            model.to(dev); net = wrap(model)
-            opt = make_opt(a.lr * 0.5)
-            pr = param_report(model)
-            log(msg + f" ==\n   params total={pr['total']/1e6:.2f}M active={pr['active']/1e6:.2f}M (active/total={pr['active']/pr['total']:.2f})")
-        if st == "F":
-            for g in opt.param_groups: g["lr"] = a.lr * 0.1
-            log("\n== [F] reverse-KL fine-tune (KL direction flipped at anchors), lr x0.1 ==")
+                nr = model.add_recall(lam_nce=a.lam_nce); msg += f" + recall slot ({nr/1e3:.1f}K par, gate=0)"
+            model.to(dev)
+            return msg
+        return ""   # C entry = none; F entry = lr change only (handled by STAGE_LR), no structural surgery
 
-        b0 = val_bpb(min(a.eval_tok, 20000))
-        log(f"\n== stage {st}: {budget[st]} steps | val BPB at entry = {b0:.4f} ==")
-        model.train(); t0 = time.time(); ntok_seen = 0
-        for i in range(budget[st]):
+    rpath = a.resume_ckpt or os.path.join(CKPT, f"resume_{a.arm}_{a.kd}_{a.recall}_{a.tag}.pt")
+    donepath = (a.out or os.path.join(CKPT, f"mve_{a.arm}_{a.kd}_{a.recall}_{a.tag}.pt")) + ".done"
+    if a.resume and os.path.exists(donepath):
+        log(f"MVE-DONE already: {donepath} exists. Nothing to do.");
+        if ddp: torch.distributed.destroy_process_group()
+        return
+
+    rows = []; hist = []; gstep = 0; start_si = 0; start_step = 0; resumed_b0 = float("nan")
+    t_run = time.time()
+
+    # ---- resume path ----
+    if a.resume and os.path.exists(rpath):
+        ck = torch.load(rpath, map_location=dev)
+        if ck.get("stages") != stages or ck["cfg"]["steps"] != a.steps or ck["cfg"]["arm"] != a.arm \
+           or ck["cfg"]["kd"] != a.kd or ck["cfg"]["recall"] != a.recall:
+            sys.exit(f"ERROR: resume checkpoint {rpath} does not match this command (stages/steps/arm/kd/recall).")
+        start_si = ck["stage_idx"]; start_step = ck["step_in_stage"]; gstep = ck["gstep"]
+        rows = ck["rows"]; hist = ck["hist"]; resumed_b0 = ck.get("stage_b0", float("nan"))
+        for st in stages[:start_si + 1]:
+            m = stage_surgery(st)
+            if m: log(f"  [resume] replay surgery: {m}")
+        net = wrap(model)
+        opt = make_opt(STAGE_LR[stages[start_si]])
+        model.load_state_dict(ck["model"]); opt.load_state_dict(ck["opt"]); scaler.load_state_dict(ck["scaler"])
+        rng.bit_generator.state = ck["np_rng"]
+        if kdc is not None: kdc.pos = ck["kdc_pos"]; refresh()
+        log(f"  [resume] {rpath}: stage {stages[start_si]} step {start_step}/{budget[stages[start_si]]} gstep {gstep}")
+
+    def save_resume(si, step_next, sb0):
+        if not P0: return
+        os.makedirs(os.path.dirname(rpath) or ".", exist_ok=True)
+        torch.save(dict(fmt="mve-resume-1", stages=stages, stage_idx=si, step_in_stage=step_next, gstep=gstep,
+                        stage_b0=float(sb0), model=model.state_dict(), opt=opt.state_dict(),
+                        scaler=scaler.state_dict(), np_rng=rng.bit_generator.state,
+                        kdc_pos=(kdc.pos if kdc else 0), rows=rows, hist=hist, cfg=vars(a)), rpath + ".tmp")
+        os.replace(rpath + ".tmp", rpath)   # atomic: a preemption mid-write can never corrupt the resume file
+
+    for si in range(start_si, len(stages)):
+        st = stages[si]
+        resuming_here = (si == start_si and start_step > 0)
+        if resuming_here:
+            log(f"\n== stage {st}: RESUMING at step {start_step}/{budget[st]} ==")
+            b0 = resumed_b0; i0 = start_step
+        else:
+            m = stage_surgery(st)
+            if m: log("\n== " + m + " ==")
+            net = wrap(model); opt = make_opt(STAGE_LR[st])
+            if st == "E":
+                pr = param_report(model)
+                log(f"   params total={pr['total']/1e6:.2f}M active={pr['active']/1e6:.2f}M (active/total={pr['active']/pr['total']:.2f})")
+            b0 = val_bpb(min(a.eval_tok, 20000)); i0 = 0
+            log(f"\n== stage {st}: {budget[st]} steps | val BPB at entry = {b0:.4f} ==")
+        model.train(); t0 = time.time(); ntok_seen = 0; t_ck = time.time()
+        for i in range(i0, budget[st]):
             if kdc is not None and gstep and gstep % a.chunk_steps == 0:
                 kdc.advance(); refresh()
             opt.zero_grad(set_to_none=True)
-            loss, nkd, ce_m = step_loss(reverse=(st == "F"))
-            scaler.scale(loss).backward()
+            loss_v = 0.0; nkd = 0; ce_m = 0.0                      # gradient accumulation (effective batch = batch*accum)
+            for _mi in range(a.accum):
+                loss, nkd_i, ce_i = step_loss(reverse=(st == "F"))
+                scaler.scale(loss / a.accum).backward()
+                loss_v += float(loss) / a.accum; nkd += nkd_i; ce_m += ce_i / a.accum
             scaler.unscale_(opt)
             gn = torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             scaler.step(opt); scaler.update()
-            gstep += 1; ntok_seen += a.batch * a.seq * ws
-            hist.append((st, gstep, float(loss)))
-            if i == 0 or (i + 1) % max(1, budget[st] // 5) == 0:
+            gstep += 1; ntok_seen += a.batch * a.seq * a.accum * ws
+            hist.append((st, gstep, loss_v))
+            if i == i0 or (i + 1) % max(1, budget[st] // 5) == 0:
                 nce = model.recall._last_nce if model.recall is not None else 0.0
                 gate = float(model.recall.gate.detach()) if model.recall is not None else 0.0
-                log(f"  [{st}] {i+1:5d}/{budget[st]}  loss={float(loss):.4f} ce={ce_m:.4f} gnorm={float(gn):.2f} "
-                    f"kd@{nkd}/{a.batch*a.seq}" + (f" nce={nce:.3f} gate={gate:+.4f}" if model.recall else ""))
-            if (time.time() - t_ck) / 60.0 > a.ckpt_min and P0:
-                os.makedirs(CKPT, exist_ok=True)                       # preemption insurance (Kaggle): ~30 min cadence
-                torch.save(dict(model=model.state_dict(), opt=opt.state_dict(), stage=st, gstep=gstep,
-                                arm=a.arm, recall=a.recall, cfg=vars(a)), os.path.join(CKPT, "last.pt"))
-                t_ck = time.time(); log(f"  [ckpt] saved at step {gstep}")
+                log(f"  [{st}] {i+1:5d}/{budget[st]}  loss={loss_v:.4f} ce={ce_m:.4f} gnorm={float(gn):.2f} "
+                    f"kd@{nkd}/{a.batch*a.seq*a.accum}" + (f" nce={nce:.3f} gate={gate:+.4f}" if model.recall else ""))
+            if (time.time() - t_ck) / 60.0 > a.ckpt_min:
+                save_resume(si, i + 1, b0); t_ck = time.time(); log(f"  [ckpt] resume-point at gstep {gstep}")
+            if a.time_budget_min > 0 and (time.time() - t_run) / 60.0 > a.time_budget_min:
+                save_resume(si, i + 1, b0)
+                log(f"\n[TIME-BUDGET {a.time_budget_min:.0f}min HIT at gstep {gstep}] resume checkpoint -> {rpath}")
+                log("MVE-INCOMPLETE: re-launch the IDENTICAL command with --resume to continue.")
+                if ddp: torch.distributed.destroy_process_group()
+                return
         dt = time.time() - t0
         b1 = val_bpb(a.eval_tok)
         tps = ntok_seen / max(dt, 1e-9)
         rows.append(dict(stage=st, steps=budget[st], bpb_in=b0, bpb_out=b1, d=b1 - b0, tok_s=tps, s=dt))
         log(f"  -> stage {st} done: val BPB {b0:.4f} -> {b1:.4f} ({b1-b0:+.4f}) | {tps:.0f} tok/s | {dt/60:.1f} min")
+        start_step = 0
 
     # ---- report ---------------------------------------------------------------------------------------
     if P0:
-        os.makedirs(CKPT, exist_ok=True)
-        out = a.out or os.path.join(CKPT, f"mve_{a.arm}_{a.recall}_{a.tag}.pt")
+        out = a.out or os.path.join(CKPT, f"mve_{a.arm}_{a.kd}_{a.recall}_{a.tag}.pt")
+        os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
         torch.save(dict(model=model.state_dict(), cfg=vars(a), rows=rows, hist=hist), out)
-        log(f"\n==== MVE run [{a.tag}] arm={a.arm} recall={a.recall} ====")
+        with open(out + ".done", "w") as f: f.write("done\n")
+        if os.path.exists(rpath): os.remove(rpath)   # resume file no longer needed
+        log(f"\n==== MVE run [{a.tag}] arm={a.arm} kd={a.kd} recall={a.recall} ====")
         log(f"  {'stage':6s} {'steps':>7s} {'BPB in':>9s} {'BPB out':>9s} {'delta':>8s} {'tok/s':>9s} {'min':>7s}")
         for r in rows:
             log(f"  {r['stage']:6s} {r['steps']:7d} {r['bpb_in']:9.4f} {r['bpb_out']:9.4f} {r['d']:+8.4f} "
                 f"{r['tok_s']:9.0f} {r['s']/60:7.1f}")
         log(f"  saved -> {out}")
+        log("MVE-DONE: all stages complete.")
     if ddp: torch.distributed.destroy_process_group()
     log("STOP. MVE curriculum above. No commit.")
 

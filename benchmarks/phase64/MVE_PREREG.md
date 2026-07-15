@@ -102,6 +102,15 @@ it is made at the *next* student token — a position the sealed design supervis
 torchrun --nproc_per_node=2 benchmarks/phase64/mve/mve_train.py --tag full --arm kd --fp16 --steps 2000 --stages C
 ```
 
+**Execution note (session-management flags — do NOT change the experiment).** The three arms run on Kaggle (3 accounts,
+one arm each, in parallel) with `--data-dir /kaggle/input/... --ckpt-dir /kaggle/working --resume --time-budget-min 660`
+and, on the ≤16 GB T4, `--batch 8 --accum 2`. These are infrastructure only: `--resume`/`--time-budget-min` implement
+gate #2 (survive the 12h session cap; the run stops cleanly at `MVE-INCOMPLETE` and continues on re-launch of the
+identical cell), and `--batch 8 --accum 2` keeps the **effective batch = 16** (identical optimization target to
+`--batch 16`). The arms, the loss (α=0.5, KD/CE, reverse-KL at F), the C→D→E→F curriculum, and every gate above are
+unchanged. The Kaggle run-pack that wires these (dataset copies + notebook cells) is a local staging artifact, not
+committed.
+
 ## 6. Known blockers handed back to the owner
 
 - **The Stack v2 content-path smoke cannot be run by the Builder**: the dataset is gated *to the card* (HTTP 401 on

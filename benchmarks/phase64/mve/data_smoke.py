@@ -13,7 +13,13 @@
 #     does not). Plus the brief's post-cutoff claim that Gemma 4 is Apache-2.0.
 #
 # Read-only, no downloads of corpus bytes. Run: .venv/Scripts/python.exe benchmarks/phase64/mve/data_smoke.py
-import json, sys, urllib.request, urllib.error
+import json, os, sys, urllib.request, urllib.error
+
+# HF_TOKEN comes from the environment ONLY -- never a file, never a literal, never committed. The Stack v2 is gated
+# all the way down to its card (HTTP 401 on the README), so the content-path question is unanswerable without it.
+TOKEN = os.environ.get("HF_TOKEN", "")
+HDRS = {"User-Agent": "siliconllm-stage0"}
+if TOKEN: HDRS["Authorization"] = f"Bearer {TOKEN}"
 
 HF = "https://huggingface.co/api"
 MODELS = ["Qwen/Qwen2.5-Coder-1.5B", "Qwen/Qwen2.5-Coder-3B", "Qwen/Qwen2.5-Coder-0.5B", "Qwen/Qwen2.5-Coder-7B"]
@@ -23,7 +29,7 @@ DSETS = ["bigcode/the-stack-v2-dedup", "bigcode/the-stack-v2", "bigcode/the-stac
 
 def get(url):
     try:
-        with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "siliconllm-stage0"}), timeout=30) as r:
+        with urllib.request.urlopen(urllib.request.Request(url, headers=HDRS), timeout=30) as r:
             return r.status, json.loads(r.read().decode())
     except urllib.error.HTTPError as e:
         return e.code, None
@@ -63,7 +69,7 @@ for d in DSETS:
 print("\n==== (2b) the dataset CARD is public even when the data is gated -> read the schema from it ====")
 def raw(url):
     try:
-        with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "siliconllm-stage0"}), timeout=30) as r:
+        with urllib.request.urlopen(urllib.request.Request(url, headers=HDRS), timeout=30) as r:
             return r.read().decode("utf-8", "replace")
     except Exception as e:
         return f"__ERR__ {e}"
