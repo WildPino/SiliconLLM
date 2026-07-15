@@ -67,5 +67,11 @@ benchmarks/phase56/output_*/
 data/
 weights/
 
+# ── Local staging / scratch: never tracked ──
+# Kaggle run-pack: per-account dataset copies (~2.6 GB each) + notebook cells, uploaded by hand
+kaggle_mve/
+# one-off local driver
+run_benchmarks_temp.py
+
 # ── Internal-only docs (raw ideation / dev journals): kept private ──
-docs/research/LLM_Reimagined_CPU_Native_Exploration_20260626/
+docs/research/LLM_Reimagined_CPU_Native_Exploration_20260626/kaggle_mve/
