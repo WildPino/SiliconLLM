@@ -1,0 +1,39 @@
+====================================================================================================
+S1 - spectral + functional probe of the fp32 SSM projections (sp58_base, the E1 anchor)
+====================================================================================================
+[sp58_base.pt] cfg={'D': 256, 'N': 96, 'L': 6, 'mlp_mult': 4, 'bpb': 0.8799492977143912}
+architecture precedent: dt path is ALREADY low-rank (x_proj -> dt_rank=16 -> dt_proj); S1 asks
+whether the OTHER projections tolerate structure too.
+
+-- part 1: spectra (trained vs random-init control) --
+  matrix           shape  PRrank  PR/min   E@r/4   E@r/2  (control PRrank in parens)
+  in_proj    (1024, 256)   121.1    0.47   59.1%   83.9%   (ctl 204.6)
+  x_proj      (208, 512)    53.2    0.26   82.3%   96.3%   (ctl 147.6)
+  out_proj    (256, 512)   140.3    0.55   57.6%   83.8%   (ctl 170.4)
+  reading: PR/min ~1 and E@r/2 ~ r/2-share = full-rank isotropic (no low-rank shortcut);
+  PR/min << ctl/min = the trained maps concentrate -> low-rank/structured is plausible.
+
+-- part 2: functional SVD truncation (REAL val BPB, 100K tokens, seq 512) --
+  [load] missing=0 unexpected=12 e.g. []['blocks.0.mlp.pred.weight', 'blocks.0.mlp.pred.bias']
+  rho=1.00  BPB=0.8412  (reference; anchor 0.8799 @200K protocol)  [81s]
+     rho proj bytes      BPB     dBPB top1 vs ref
+  [load] missing=0 unexpected=12 e.g. []['blocks.0.mlp.pred.weight', 'blocks.0.mlp.pred.bias']
+   0.750     101.2%   0.8509  +0.0097      95.79%
+  [load] missing=0 unexpected=12 e.g. []['blocks.0.mlp.pred.weight', 'blocks.0.mlp.pred.bias']
+   0.500      67.4%   0.9283  +0.0872      86.09%
+  [load] missing=0 unexpected=12 e.g. []['blocks.0.mlp.pred.weight', 'blocks.0.mlp.pred.bias']
+   0.375      50.6%   1.1342  +0.2931      73.74%
+  [load] missing=0 unexpected=12 e.g. []['blocks.0.mlp.pred.weight', 'blocks.0.mlp.pred.bias']
+   0.250      33.7%   1.6920  +0.8509      55.31%
+
+  per-class sensitivity at rho=0.5 (which projection is the hungry one?):
+  [load] missing=0 unexpected=12 e.g. []['blocks.0.mlp.pred.weight', 'blocks.0.mlp.pred.bias']
+    in_proj    BPB=0.8461  dBPB=+0.0330  top1=92.02%
+  [load] missing=0 unexpected=12 e.g. []['blocks.0.mlp.pred.weight', 'blocks.0.mlp.pred.bias']
+    x_proj     BPB=0.8132  dBPB=+0.0001  top1=99.53%
+  [load] missing=0 unexpected=12 e.g. []['blocks.0.mlp.pred.weight', 'blocks.0.mlp.pred.bias']
+    out_proj   BPB=0.8583  dBPB=+0.0452  top1=89.92%
+
+reading: dBPB <= ~+0.005 at rho<=0.5 -> post-hoc HALVING of projection bytes is nearly free ->
+S1 (trained-from-scratch structured) graduates to a pre-registered probe with strong prior.
+A cliff -> only the from-scratch arm remains (P61 lesson: post-hoc is the pessimistic bound).

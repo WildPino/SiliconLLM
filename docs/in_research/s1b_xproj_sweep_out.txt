@@ -1,0 +1,13 @@
+==========================================================================================
+S1b - x_proj-only rank sweep  (shape (208, 512), full rank 208, trained PR-rank ~53)
+==========================================================================================
+  r=full  BPB=0.8131  (ref, 50K tok)  [38s]
+       r xproj bytes all-proj bytes      BPB     dBPB    top1
+     104       70.3%          93.7%   0.8132  +0.0001  99.53%
+      78       52.7%          89.9%   0.8139  +0.0008  98.61%
+      52       35.2%          86.2%   0.8209  +0.0078  95.48%
+      26       17.6%          82.4%   0.8665  +0.0534  88.50%
+      16       10.8%          81.0%   0.9550  +0.1419  81.73%
+
+reading: the deepest r with dBPB <~ +0.002 is the free post-hoc rank; from-scratch structured
+training (the real S1 arm) should do at least as well. dt path precedent: rank 16 by design.
