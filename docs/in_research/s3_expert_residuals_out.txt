@@ -1,0 +1,29 @@
+====================================================================================================
+S3 - cross-expert redundancy / delta-coding potential (engine-exact trits)
+====================================================================================================
+[moe_gran.pt] L=6 E=32 hid_e=128 D=256  (from-scratch = worst case; upcycled ladder ckpts = the real read)
+
+L0 gate pool=4096x256  mode-agree= 42.9% (ctl  42.2%)  NN-agree med= 49.2% p90= 57.0% (ctl med  44.1%)  intra-e=62.7%  |cos|fp32 med=0.463  delta: p_diff=49.4% Hres=1.779 ->  467.4 vs direct  405.2 b/row
+L0 up   pool=4096x256  mode-agree= 42.9% (ctl  42.3%)  NN-agree med= 49.2% p90= 57.0% (ctl med  44.1%)  intra-e=62.5%  |cos|fp32 med=0.466  delta: p_diff=49.4% Hres=1.778 ->  467.3 vs direct  405.3 b/row
+L0 Wd   pool=8192x128  mode-agree= 42.6% (ctl  42.1%)  NN-agree med= 50.0% p90= 53.1% (ctl med  50.0%)  intra-e=34.6%  |cos|fp32 med=0.412  delta: p_diff=49.3% Hres=1.781 ->  241.0 vs direct  202.8 b/row
+L1 gate pool=4096x256  mode-agree= 43.3% (ctl  42.3%)  NN-agree med= 49.0% p90= 57.8% (ctl med  44.1%)  intra-e=62.9%  |cos|fp32 med=0.461  delta: p_diff=49.5% Hres=1.780 ->  467.8 vs direct  405.3 b/row
+L1 up   pool=4096x256  mode-agree= 43.2% (ctl  42.3%)  NN-agree med= 48.8% p90= 57.8% (ctl med  44.1%)  intra-e=62.8%  |cos|fp32 med=0.452  delta: p_diff=49.5% Hres=1.781 ->  468.0 vs direct  405.3 b/row
+L1 Wd   pool=8192x128  mode-agree= 42.6% (ctl  42.1%)  NN-agree med= 50.0% p90= 53.1% (ctl med  50.0%)  intra-e=32.3%  |cos|fp32 med=0.408  delta: p_diff=49.3% Hres=1.781 ->  241.0 vs direct  202.8 b/row
+L2 gate pool=4096x256  mode-agree= 43.4% (ctl  42.3%)  NN-agree med= 49.2% p90= 58.2% (ctl med  44.1%)  intra-e=64.8%  |cos|fp32 med=0.467  delta: p_diff=49.1% Hres=1.775 ->  466.4 vs direct  405.3 b/row
+L2 up   pool=4096x256  mode-agree= 43.4% (ctl  42.3%)  NN-agree med= 49.2% p90= 57.0% (ctl med  44.1%)  intra-e=64.0%  |cos|fp32 med=0.468  delta: p_diff=49.4% Hres=1.780 ->  467.6 vs direct  405.3 b/row
+L2 Wd   pool=8192x128  mode-agree= 42.5% (ctl  42.2%)  NN-agree med= 50.8% p90= 53.1% (ctl med  50.0%)  intra-e=36.1%  |cos|fp32 med=0.412  delta: p_diff=49.1% Hres=1.778 ->  240.6 vs direct  202.8 b/row
+L3 gate pool=4096x256  mode-agree= 43.2% (ctl  42.2%)  NN-agree med= 49.2% p90= 56.2% (ctl med  44.1%)  intra-e=60.4%  |cos|fp32 med=0.447  delta: p_diff=49.7% Hres=1.785 ->  469.0 vs direct  405.3 b/row
+L3 up   pool=4096x256  mode-agree= 43.2% (ctl  42.3%)  NN-agree med= 48.8% p90= 55.9% (ctl med  44.1%)  intra-e=57.8%  |cos|fp32 med=0.450  delta: p_diff=49.9% Hres=1.788 ->  469.7 vs direct  405.3 b/row
+L3 Wd   pool=8192x128  mode-agree= 42.8% (ctl  42.2%)  NN-agree med= 50.8% p90= 53.1% (ctl med  50.0%)  intra-e=29.3%  |cos|fp32 med=0.411  delta: p_diff=49.0% Hres=1.776 ->  240.4 vs direct  202.8 b/row
+L4 gate pool=4096x256  mode-agree= 43.4% (ctl  42.3%)  NN-agree med= 50.0% p90= 58.2% (ctl med  44.1%)  intra-e=64.8%  |cos|fp32 med=0.471  delta: p_diff=48.8% Hres=1.768 ->  464.7 vs direct  405.3 b/row
+L4 up   pool=4096x256  mode-agree= 43.5% (ctl  42.2%)  NN-agree med= 49.6% p90= 57.8% (ctl med  44.1%)  intra-e=65.2%  |cos|fp32 med=0.461  delta: p_diff=48.9% Hres=1.772 ->  465.5 vs direct  405.3 b/row
+L4 Wd   pool=8192x128  mode-agree= 43.2% (ctl  42.2%)  NN-agree med= 50.8% p90= 54.7% (ctl med  50.0%)  intra-e=40.0%  |cos|fp32 med=0.431  delta: p_diff=48.4% Hres=1.765 ->  239.0 vs direct  202.7 b/row
+L5 gate pool=4096x256  mode-agree= 43.1% (ctl  42.3%)  NN-agree med= 50.8% p90= 59.4% (ctl med  44.1%)  intra-e=66.7%  |cos|fp32 med=0.500  delta: p_diff=48.0% Hres=1.755 ->  461.3 vs direct  405.3 b/row
+L5 up   pool=4096x256  mode-agree= 43.1% (ctl  42.3%)  NN-agree med= 50.8% p90= 59.4% (ctl med  44.1%)  intra-e=65.4%  |cos|fp32 med=0.507  delta: p_diff=48.0% Hres=1.755 ->  461.3 vs direct  405.4 b/row
+L5 Wd   pool=8192x128  mode-agree= 44.3% (ctl  42.2%)  NN-agree med= 52.3% p90= 58.6% (ctl med  50.8%)  intra-e=49.7%  |cos|fp32 med=0.476  delta: p_diff=46.8% Hres=1.737 ->  235.4 vs direct  202.7 b/row
+
+TOTAL pool: direct-H0 3.74 MB  vs  delta-NN 3.74 MB  (+0.0% saving; negative saving = no structure)
+
+reading: NN-agree ~= ctl -> the pool has NO exploitable near-duplicate structure (S3 dies on
+from-scratch pools); NN-agree >> ctl -> delta-coding is alive. Rerun on upcycled MVE/S0 ckpts
+(4x replica seeding) before any verdict on the ladder models.

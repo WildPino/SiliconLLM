@@ -1,0 +1,35 @@
+====================================================================================================
+S2 - empirical entropy of the ternary weights (engine-exact trits)
+====================================================================================================
+
+[moe_gran.pt]  L=6 E=32 hid_e=128 top-8  bpb=0.8588540255372543  (from-scratch pool = worst case for structure)
+
+per matrix class (aggregated over layers):
+  gate               n=  6.29M  p(-1/0/+1)=0.349/0.311/0.340  H0=1.5832  H0/row=1.5785  Hpair/2=1.5831  H1=1.5831
+  up                 n=  6.29M  p(-1/0/+1)=0.349/0.311/0.340  H0=1.5832  H0/row=1.5785  Hpair/2=1.5831  H1=1.5832
+  Wd                 n=  6.29M  p(-1/0/+1)=0.339/0.317/0.344  H0=1.5841  H0/row=1.5443  Hpair/2=1.5834  H1=1.5827
+  POOL (all)         n= 18.87M  p(-1/0/+1)=0.346/0.313/0.341  H0=1.5835  H0/row=1.5671  Hpair/2=1.5832  H1=1.5830
+
+per-layer POOL H0 (drift check):
+  L0: H0=1.5834  Hpair/2=1.5833  p0=0.312
+  L1: H0=1.5834  Hpair/2=1.5833  p0=0.313
+  L2: H0=1.5835  Hpair/2=1.5833  p0=0.313
+  L3: H0=1.5836  Hpair/2=1.5834  p0=0.313
+  L4: H0=1.5835  Hpair/2=1.5832  p0=0.313
+  L5: H0=1.5835  Hpair/2=1.5827  p0=0.313
+
+streamed-pool storage (18.87M ternary weights, 6 layers x 32 experts):
+  scheme                                  bits/w   pool MB  KB/expert vs current
+  current engine pack (int8 code/pair)     4.000      9.44       48.0      1.00x
+  dense trit-pack (5 trits/byte)           1.600      3.77       19.2      2.50x
+  flat log2(3)                             1.585      3.74       19.0      2.52x
+  H0 (one static table)                    1.583      3.74       19.0      2.53x
+  H0/row (per-row tables)                  1.567      3.70       18.8      2.55x
+  Hpair/2 (9-symbol pair code)             1.583      3.74       19.0      2.53x
+  H1 (order-1 context)                     1.583      3.73       19.0      2.53x
+
+[sp58_base.pt] dense-1024 ternary MLP (resident class, context only):
+  dense MLP          n=  4.72M  p(-1/0/+1)=0.343/0.321/0.336  H0=1.5842  H0/row=1.5780  Hpair/2=1.5841  H1=1.5841
+
+reading: if H* << 1.6, entropy coding beats even the dense trit-pack; the decode-side cost
+is the open engineering question (S2 report). Numbers here are coding BOUNDS, not a codec.
