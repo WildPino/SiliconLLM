@@ -127,6 +127,30 @@ which two independent axes — P61 precision, this probe's rank — both call in
 scaling direction: x_proj is ((dt_rank+2N) × Dn), so its share grows with state size N, and a from-scratch
 structured arm can plausibly hold r near the PR-rank (~53) rather than the post-hoc-free 78.
 
+## S4 — entropy-patching feasibility on the pinned code-val (`s4_entropy_patching.py`)
+
+Second-session addition ($0, CPU, 5s of metering). Adaptive interpolated order-2 byte model (a crude,
+deterministic proxy of the SEE's online meter; 2.508 b/B one-pass on code_val — relative unit stats only)
+over the 1.5MB pinned P62 code-val, against the real BPE-1024 token spans (`code_val.u16` + `code.meta`).
+
+**Measured — how unevenly BPE spends forward passes per bit of information:**
+- BPE-1024 on code: 607K tokens, fertility 2.47 B/tok, bits/token mean 6.19 with **CV 0.75**, p99 = 21.8,
+  max = 87 bits in ONE token; **16.9% of all tokens carry < 2 bits** (9.1% < 1 bit) — one full forward
+  pass each for ~no information.
+- Constant-entropy patches at the SAME threshold (B = 6.19 bits): **CV 0.33** (2.3× more uniform) and
+  **0.694× the unit count** (31% fewer forward passes per byte) — the greedy patcher wins on both axes
+  simultaneously, it does not trade one for the other.
+- The dial: B=16 bits → 0.33× units (3× shorter sequences, mean patch 7.5 B, CV 0.16); B=32 → 0.18×.
+- Patch→BPE boundary coincidence 49.5% — same order as T2's student→teacher 39-44%: independent
+  segmenters agree about half the time on code; the span-mapping lesson carries over.
+
+**Verdict: the S4 feasibility card is STRONG on the input side** — information-uniform units exist, are
+computable online by machinery the project already owns (SEE DNA), and shorten code sequences 1.4-3×.
+**The honest open half is the output side** (a model must *emit* variable-byte patches — the BLT local
+decoder problem) plus D3's sealed vocab decision for v1 → stays **v2 research**, now with numbers instead
+of a hunch. Natural pairing: the 17% near-zero-bit tokens are exactly where a per-unit compute allocator
+(patching, or adaptive depth) has its budget.
+
 ## What survives, sharpened
 
 1. **The trit-pack (engine-v2 queue) is confirmed as the only byte lever on the pool** — 2.50×, no coding

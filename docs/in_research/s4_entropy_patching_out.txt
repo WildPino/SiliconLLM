@@ -1,0 +1,29 @@
+==============================================================================================================
+S4 - entropy-patching feasibility on the pinned P62 code-val (adaptive order-2 byte meter)
+==============================================================================================================
+code_val: 1500000 bytes | BPE V=1024: 607202 tokens covering 1500000 bytes (fertility 2.47 B/tok)
+meter: adaptive o2 bits/byte = 2.508 (one-pass adaptive; SEE/zstd on this domain ~1.2-2.4; crude proxy, fine for RELATIVE unit stats)  [5s]
+
+-- information per unit --
+  BPE-1024 tokens            units= 607202  bits/unit mean=   6.19  CV= 0.75  p50=  5.37  p90= 11.92  p99=  21.79  max=   87.2
+    BPE tokens carrying < 0.5 bits:   6.2%  (forward passes spent on ~no information)
+    BPE tokens carrying < 1.0 bits:   9.1%  (forward passes spent on ~no information)
+    BPE tokens carrying < 2.0 bits:  16.9%  (forward passes spent on ~no information)
+
+  B_match = 6.19 bits (same total bits / same-order unit count as BPE):
+  patches @B=6.2             units= 421120  bits/unit mean=   8.93  CV= 0.33  p50=  8.19  p90= 11.90  p99=  21.38  max=   54.4
+    patch length bytes: mean=3.56 p50=3 p90=6 max=60  | units vs BPE: 0.694x
+
+  sweep (unit count & length vs B):
+    B bits    units  vs BPE mean B/patch  p90 len  CV bits
+         8   351147   0.578         4.27        7     0.28
+        12   254706   0.419         5.89       10     0.21
+        16   200226   0.330         7.49       13     0.16
+        24   140269   0.231        10.69       19     0.12
+        32   108048   0.178        13.88       23     0.09
+
+  patch->BPE boundary coincidence @B_match: 49.5%  (cf. T2's student->teacher 39-44%: same-order phenomenon, different segmenters)
+
+reading: the BPE CV row vs the patch CV row IS the S4 thesis quantified - how unevenly BPE
+spends forward passes per bit vs a constant-entropy segmenter. Quality over the new units
+requires training on them (v2 probe); this is the feasibility card only.
