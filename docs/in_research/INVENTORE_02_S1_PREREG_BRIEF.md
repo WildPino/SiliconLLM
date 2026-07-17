@@ -1,9 +1,11 @@
-# The Inventor — 02: S1 pre-registration brief (DRAFT) — structured x_proj, from-scratch A/B
+# The Inventor — 02: S1 pre-registration brief (SEALED) — structured x_proj, from-scratch A/B
 
-**Status: DRAFT for owner review — NOT sealed.** Sealing = owner approves + push-before-run (this brief
-and the apparatus pushed before any gate-bearing run launches; the run is owner-launched per project
-rule). Nothing here touches the frozen v1 spec or the MVE: this is a **sandbox model-side probe** in the
-P61 lineage, feeding v1.1/v2 recipe decisions only.
+**Status: SEALED 2026-07-17 — owner approved in-session ("Voglio che procedi") and explicitly delegated
+the launch to the Builder for this run (recorded deviation from the owner-launches rule, owner's own
+instruction). Push-before-run: this brief + apparatus pushed to origin BEFORE the arms launch; gates
+below are frozen as written, before any training number exists.** Nothing here touches the frozen v1
+spec or the MVE: this is a **sandbox model-side probe** in the P61 lineage, feeding v1.1/v2 recipe
+decisions only.
 
 ## 1. Question (one variable)
 
