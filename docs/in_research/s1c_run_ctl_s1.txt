@@ -1,0 +1,4 @@
+S1c | arm=ctl-dense | swapped 0 x_proj | params=8.312M | xproj bytes 100.0% of dense | seed=1 dev=cuda bf16=True
+  recipe: steps=4000 seq=512 batch=16 lr=0.003 (phase57 recipe, matched across arms)
+== training (CE only) ==
+  step     1/4000  loss=7.0971  gnorm=1.81  (21315 ms)  | val BPB=3.6721

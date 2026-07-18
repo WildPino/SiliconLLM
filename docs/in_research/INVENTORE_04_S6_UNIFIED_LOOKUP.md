@@ -47,8 +47,11 @@ its own pre-registered probe chain, after v1 ships. Recorded here so the door ha
 
 ## 4. What would have to be measured (pre-conditions, so this note is falsifiable)
 
-- E at which full-scan routing exceeds the recall slot's 29µs (desk: E·D MACs + softmax vs ADC path —
-  crossover far above E=256, so v1 is untouched; measure when an E≥1024 design is on the table).
+- E at which full-scan routing exceeds the recall slot's query cost — **MEASURED 2026-07-18
+  (`s6_router_crossover.py`, desk-level, torch 1-thread): crossover at E ≈ 2048** (58.9µs vs the 52.4µs
+  t1 ANN reference; E=256 costs ~25µs → v1 untouched, as predicted). Above E≈2K the unified lookup is a
+  speed argument; the router matrix bytes (4 MB fp32 at E=4096 vs 1.69 MB searchable recall @128K) push
+  the same direction. C-engine confirmation behind the kernel interface = engine-v2 item.
 - Router-as-ANN recall quality: top-8-of-ADC vs exact top-8 agreement ≥ the dispatch-exactness bar the
   engine already enforces (E4 gate 2 lineage) — routing tolerates NO approximation slack until measured.
 - For fast weights: does a rank-1 ΔW read from context beat the same bytes spent on the recall residual?

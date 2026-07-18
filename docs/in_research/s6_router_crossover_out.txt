@@ -1,0 +1,21 @@
+==========================================================================================
+S6 precondition (a) - full-scan router cost vs E (torch fp32, 1 thread, D=256, top-8)
+==========================================================================================
+  reference: recall ANN query @128K entries = 52.4 us (t1 scalar) / 29.05 us (t6, SIMD headroom ~18)
+         E  us/token  GEMV MB vs ANN t1
+        32       7.9     0.03     0.15x
+        64      12.0     0.07     0.23x
+       128      12.3     0.13     0.23x
+       256      24.6     0.26     0.47x
+       512      20.7     0.52     0.40x
+      1024      33.7     1.05     0.64x
+      2048      58.9     2.10     1.12x
+      4096     108.6     4.19     2.07x
+      8192     293.8     8.39     5.61x
+     16384    1238.3    16.78    23.63x
+     32768    3468.7    33.55    66.20x
+
+reading: the E where us/token crosses ~52 us (t1) bounds where full-scan routing stops being
+free relative to the ANN machinery the engine already has. Bytes matter too: at E=4096 the
+router matrix alone is 4 MB fp32 (vs the recall slot's 1.69 MB searchable @128K). Desk-level;
+the C-engine number would be measured behind the same kernel interface (engine-v2).

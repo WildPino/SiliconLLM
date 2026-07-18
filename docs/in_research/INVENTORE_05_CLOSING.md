@@ -15,7 +15,7 @@ raw outputs in `*_out.txt`; scripts in `benchmarks/in_research/`.
 | S3 | delta-coded experts | **DEAD (from-scratch pools); conditional rerun on upcycled ckpts (born 4×-replicated)** | NN-match ≈ shuffled control, delta loses to direct everywhere; side-find: fp32 rows correlate (|cos| ~0.47 vs 0.26 random) → fed S1 |
 | S4 | entropy-patch tokenizer | **v2 RESEARCH, feasibility measured POSITIVE (input side)** | BPE CV 0.75 & 17% of tokens <2 bits vs patch CV 0.33 at 31% fewer units; 3× shorter at B=16. Output side (variable-byte emission) = the open half |
 | S5 | α-QAT (ε-identity law) | **IN THE POCKET, trigger-armed** | mechanism + exact code in `INVENTORE_03`; applies only if MVE gate (iv) shows a C→D shock; end-state bit-identical to current QAT |
-| S6 | unified lookup operator | **v2 DESIGN NOTE banked** | recall ∪ router = one `lookup(q;K,V,k)`; router-as-ANN becomes real at E≥~1024; preconditions listed in `INVENTORE_04` |
+| S6 | unified lookup operator | **v2 DESIGN NOTE banked + precondition (a) MEASURED** | recall ∪ router = one `lookup(q;K,V,k)`; **measured crossover E≈2048** (full-scan 58.9µs vs ANN 52.4µs t1; E=256 ≈ 25µs → v1 untouched); rest in `INVENTORE_04` |
 | S7 | SEE drafter | **RECORDED, parked with block-verify** | no action until a shared-streamed-dominated design point exists (10B story) |
 | S8 | fused projection GEMVs | **DEAD (premise)** | already fused where fusible; rest is a sequential chain |
 

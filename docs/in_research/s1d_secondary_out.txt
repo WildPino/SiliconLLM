@@ -1,0 +1,26 @@
+====================================================================================================
+S1d - secondary reads of the seed-0 A/B (declared in the sealed brief; recorded, no gates)
+====================================================================================================
+
+-- (a) top-1 agreement on the fixed val slice --
+  ctl vs r52: 83.50%  (5120 preds)
+  ctl vs r26: 83.38%  (5120 preds)
+  r52 vs r26: 82.25%
+
+-- (b) x_proj spectra of the TRAINED arms --
+  ctl dense: PR-rank per layer = ['30', '56', '55', '63', '60']  mean 52.9  (sp58_base read: ~53 -> reproducibility of the concentration finding)
+  r52: product PR-rank = ['8', '7', '7', '8', '10']  mean 8.2 of r=52  | numerically-active dims (sv > 1e-3*sv0): ['52', '52', '52', '52', '52']
+  r26: product PR-rank = ['6', '9', '8', '6', '6']  mean 6.9 of r=26  | numerically-active dims (sv > 1e-3*sv0): ['26', '26', '26', '26', '26']
+
+-- (c) foundation properties (one-variable check) --
+  ctl: ternary MLP weight zero-frac mean = 32.0%  (S2 read on moe_gran: ~31%)
+  r52: ternary MLP weight zero-frac mean = 32.1%  (S2 read on moe_gran: ~31%)
+  r26: ternary MLP weight zero-frac mean = 32.2%  (S2 read on moe_gran: ~31%)
+  activation sparsity on 5 val windows (anchors: gate ~79%, hidden ~92%):
+    ctl: gate 79.1%  hidden 92.0%
+    r52: gate 79.8%  hidden 92.5%
+    r26: gate 81.1%  hidden 92.2%
+
+reading: (a) how different the low-rank models' outputs are from ctl (context for the BPB deltas);
+(b) if the r=52 product's PR << 52, the trained factor concentrates further -> r was generous;
+(c) sparsity bands ~= anchors on every arm -> the x_proj variable did not perturb the foundation.
