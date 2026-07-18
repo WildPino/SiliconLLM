@@ -122,3 +122,23 @@ committed.
   qwen-research"** ✓ (the upgrade path *is* restricted, as the plan suspected) · **7B = apache-2.0** (new: the
   licence-clean upgrade is the **7B**, not the 3B) · **gemma-4-12b exists and is apache-2.0** (brief's claim
   confirmed; decision-moot) · gemma-2/3 are under the "gemma" licence and manually gated.
+
+## 7. Run log — attempts VOIDED by apparatus faults (recorded before the next attempt)
+
+Two attempts were started and are **void**. Neither produced a readable gate; no verdict was taken from either.
+Recorded here, with the fixes, **before** the next run's numbers exist — the reason this file is pushed at all.
+
+| attempt | outcome | cause |
+|---|---|---|
+| **1** | VOID — KD coverage lost | `KDChunks` bisected the **raw `anchors`** array, which is *not* sorted: ~56% of its entries are `-1` and sit interspersed among the increasing values, so `searchsorted` returned garbage and the sampling window silently stopped matching the resident logit chunks. |
+| **2** | VOID — CE arm diverged, and *lied about it* | An fp16 **forward** overflow produced inf logits → NaN loss → `GradScaler` skipped every step → weights frozen → the same forward overflowed again. A self-sustaining deadlock the scaler cannot break (it rescales *gradients*; the overflow is in the forward). The CE arm entered it at step 24, burned ~11 T4-hours emitting NaN, then printed `MVE-DONE` on a model frozen at step 23. |
+
+**Fixes now in the apparatus (attempt 3):**
+- **Window key** = `seg_row` (the teacher row governing each student position, forward-filled) — non-decreasing by construction, which is what `searchsorted` requires — plus a hard `assert` on monotonicity.
+- **Divergence guard**: abort after `--max-nonfinite` consecutive non-finite steps with `MVE-DIVERGED`, all-reduced across ranks, and **no `.done` file written** — a diverged run can no longer be mistaken for a completed one.
+- **Batch sampling is a pure function of `(seed, rank, gstep, micro)`**, not a carried RNG stream: on DDP resume every rank would otherwise reload rank-0's saved state and draw the *same* batch, silently collapsing the effective batch to one rank's worth.
+- **Checkpoint format `mve-resume-2`**, which *refuses* to resume a `mve-resume-1` file: resuming across an apparatus fix would silently mix two runs.
+
+**Measurement change, declared (affects how gate #4 is READ):** the stage-**entry** eval used a 20K-token slice while the stage-**exit** eval used `--eval-tok` (200K). Every transition delta was therefore a difference of two different measurements — and that delta *is* gate #4 (KD→QAT stability). Both now use `--eval-tok`. This is declared here **before any valid numbers exist**; it makes the gate readable rather than looser.
+
+**Unchanged:** the five gates, the three arms, the loss (α=0.5, KD/CE, reverse-KL at F), and the C→D→E→F curriculum. `--warmup` was added but defaults to **OFF** — the arms must stay comparable, and the flat LR is the pre-registered behaviour; it exists only because the flat `3e-3` from step 1 is what let the CE arm reach the overflowing regime (the KD arms survived it only because α halves their CE).

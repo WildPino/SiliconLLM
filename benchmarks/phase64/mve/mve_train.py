@@ -40,14 +40,19 @@ STAGE_SPLIT = dict(C=0.55, D=0.20, E=0.20, F=0.05)         # plan §4 token spli
 class KDChunks:
     """Rolling window of teacher-logit chunks. Holds <=2 resident, advances, and (--delete-behind) removes the
     consumed file -- the production storage discipline, not a simulation of it."""
-    def __init__(s, tag, anchors, resident=2, delete_behind=False):
+    def __init__(s, tag, seg_row, resident=2, delete_behind=False):
         s.dir = os.path.join(DATA, f"logits_{tag}")
         s.man = json.load(open(os.path.join(s.dir, "manifest.json")))
         s.chunks = s.man["chunks"]; s.K = s.man["K"]
-        s.anchors = anchors; s.resident = resident; s.delete_behind = delete_behind
+        s.resident = resident; s.delete_behind = delete_behind
         s.pos = 0; s.cache = {}
-        s.a_valid = anchors >= 0
-        s.a_sorted = anchors.copy(); s.a_sorted[~s.a_valid] = np.iinfo(np.int64).max
+        # KEY for the window search = seg_row (the teacher row GOVERNING each student position, forward-filled).
+        # It is non-decreasing, which is what searchsorted requires. The raw `anchors` array is NOT a legal key:
+        # 56% of its entries are -1 and, however they are remapped, they sit INTERSPERSED between the increasing
+        # valid values -> the array is unsorted -> searchsorted returns garbage and the sampling window silently
+        # stops matching the resident chunks. (That bug cost the first MVE run its KD coverage.)
+        s.key = seg_row
+        assert np.all(np.diff(s.key) >= 0), "window key must be non-decreasing"
     def _load(s, i):
         if i in s.cache: return s.cache[i]
         c = s.chunks[i]; z = np.load(os.path.join(s.dir, c["path"]))
@@ -58,10 +63,10 @@ class KDChunks:
         idx = [(s.pos + d) % len(s.chunks) for d in range(min(s.resident, len(s.chunks)))]
         loaded = [s._load(i) for i in idx]
         j0 = min(l[0] for l in loaded); j1 = max(l[0] + len(l[1]) for l in loaded)
-        # anchors are NON-DECREASING in p (student and teacher tokenize the same byte stream in order) -> the student
-        # positions whose anchor lands in [j0,j1) form a contiguous range. searchsorted on the -1-masked copy.
-        p_lo = int(np.searchsorted(s.a_sorted, j0, "left"))
-        p_hi = int(np.searchsorted(s.a_sorted, j1, "left"))
+        # student and teacher tokenize the same byte stream in order -> the positions governed by teacher rows
+        # [j0,j1) form a CONTIGUOUS range, found by bisecting the non-decreasing key.
+        p_lo = int(np.searchsorted(s.key, j0, "left"))
+        p_hi = int(np.searchsorted(s.key, j1, "left"))
         return p_lo, p_hi, idx, loaded
     def advance(s):
         old = s.pos
@@ -165,6 +170,10 @@ def main():
                     help="MICRO-batch. Effective batch = batch*accum. Stage E (MoE compute-all + exact recall read) "
                          "is the memory peak; on <=16GB use --batch 8 --accum 2 to keep effective 16 and fit.")
     ap.add_argument("--accum", type=int, default=1, help="gradient accumulation steps (effective batch = batch*accum)")
+    ap.add_argument("--max-nonfinite", type=int, default=50,
+                    help="abort after this many CONSECUTIVE non-finite loss steps (fp16 forward-overflow deadlock)")
+    ap.add_argument("--warmup", type=int, default=0,
+                    help="linear LR warmup steps at each stage entry (0 = off, the run-2 pre-registered behaviour)")
     ap.add_argument("--lr", type=float, default=3e-3); ap.add_argument("--alpha", type=float, default=0.5,
                     help="KD weight at anchor positions: loss = (1-a)*CE + a*KD there, CE elsewhere")
     ap.add_argument("--lam-nce", type=float, default=0.05); ap.add_argument("--load-w", type=float, default=0.01)
@@ -226,7 +235,7 @@ def main():
     bpe = Bpe.load(os.path.join(DATA, f"bpe{V}_ts.bin"))
     el = torch.tensor(bpe.exp_len, dtype=torch.long)
     ntr = meta["n_train_tok"]; train_hi = ntr; val = ids[ntr:]
-    kdc = KDChunks(a.tag, anchors, delete_behind=a.delete_behind) if a.arm == "kd" else None
+    kdc = KDChunks(a.tag, seg_row, delete_behind=a.delete_behind) if a.arm == "kd" else None
 
     # ---- model --------------------------------------------------------------------------------------
     model = MVEStudent(V, **S0).to(dev)
@@ -303,7 +312,10 @@ def main():
         model.train(); return bits / max(nb, 1)
 
     # ---- the step ------------------------------------------------------------------------------------
-    rng = np.random.default_rng(a.seed + 1000 * rank)
+    # Batch sampling is a PURE FUNCTION of (seed, rank, gstep, micro) rather than a carried RNG stream. Two reasons,
+    # both load-bearing: (1) under DDP every rank would otherwise reload rank-0's saved RNG state on resume and all
+    # ranks would draw the SAME batch -- silently collapsing the effective batch back to one rank's worth;
+    # (2) it makes resume exactly bit-faithful at any world size with no RNG state in the checkpoint.
     state = dict(p_lo=0, p_hi=0, idx=[], loaded=[])
     def refresh():
         if kdc is None:
@@ -315,8 +327,9 @@ def main():
         state.update(p_lo=lo, p_hi=hi, idx=idx, loaded=loaded)
     refresh()
 
-    def step_loss(reverse=False):
-        p = rng.integers(state["p_lo"], max(state["p_hi"], state["p_lo"] + 1), size=a.batch)
+    def step_loss(reverse=False, gs=0, mi=0):
+        r = np.random.default_rng([a.seed, rank, gs, mi])
+        p = r.integers(state["p_lo"], max(state["p_hi"], state["p_lo"] + 1), size=a.batch)
         x = torch.from_numpy(np.stack([ids[i:i+a.seq] for i in p])).to(dev)
         y = torch.from_numpy(np.stack([ids[i+1:i+1+a.seq] for i in p])).to(dev)
         ctx = torch.autocast(dev_type, dtype=amp) if amp is not None else torch.autocast(dev_type, enabled=False)
@@ -392,6 +405,10 @@ def main():
     # ---- resume path ----
     if a.resume and os.path.exists(rpath):
         ck = torch.load(rpath, map_location=dev)
+        if ck.get("fmt") != "mve-resume-2":
+            sys.exit(f"ERROR: {rpath} is a STALE checkpoint (fmt={ck.get('fmt')}, this apparatus writes mve-resume-2). "
+                     f"It was produced by a superseded apparatus -- delete it (and any final_*.pt / *.done next to it) "
+                     f"and start this arm from scratch. Resuming across an apparatus fix would silently mix two runs.")
         if ck.get("stages") != stages or ck["cfg"]["steps"] != a.steps or ck["cfg"]["arm"] != a.arm \
            or ck["cfg"]["kd"] != a.kd or ck["cfg"]["recall"] != a.recall:
             sys.exit(f"ERROR: resume checkpoint {rpath} does not match this command (stages/steps/arm/kd/recall).")
@@ -403,16 +420,15 @@ def main():
         net = wrap(model)
         opt = make_opt(STAGE_LR[stages[start_si]])
         model.load_state_dict(ck["model"]); opt.load_state_dict(ck["opt"]); scaler.load_state_dict(ck["scaler"])
-        rng.bit_generator.state = ck["np_rng"]
         if kdc is not None: kdc.pos = ck["kdc_pos"]; refresh()
         log(f"  [resume] {rpath}: stage {stages[start_si]} step {start_step}/{budget[stages[start_si]]} gstep {gstep}")
 
     def save_resume(si, step_next, sb0):
         if not P0: return
         os.makedirs(os.path.dirname(rpath) or ".", exist_ok=True)
-        torch.save(dict(fmt="mve-resume-1", stages=stages, stage_idx=si, step_in_stage=step_next, gstep=gstep,
+        torch.save(dict(fmt="mve-resume-2", stages=stages, stage_idx=si, step_in_stage=step_next, gstep=gstep,
                         stage_b0=float(sb0), model=model.state_dict(), opt=opt.state_dict(),
-                        scaler=scaler.state_dict(), np_rng=rng.bit_generator.state,
+                        scaler=scaler.state_dict(),   # no RNG state: sampling is a pure fn of (seed,rank,gstep,micro)
                         kdc_pos=(kdc.pos if kdc else 0), rows=rows, hist=hist, cfg=vars(a)), rpath + ".tmp")
         os.replace(rpath + ".tmp", rpath)   # atomic: a preemption mid-write can never corrupt the resume file
 
@@ -429,16 +445,26 @@ def main():
             if st == "E":
                 pr = param_report(model)
                 log(f"   params total={pr['total']/1e6:.2f}M active={pr['active']/1e6:.2f}M (active/total={pr['active']/pr['total']:.2f})")
-            b0 = val_bpb(min(a.eval_tok, 20000)); i0 = 0
+            # SAME eval slice as the stage-exit read. They used to differ (entry 20k vs exit --eval-tok 200k), which
+            # made every stage-transition delta a comparison of two different measurements -- and the transition
+            # delta IS gate #4 (KD->QAT stability). One eval cap everywhere, or the gate reads noise.
+            b0 = val_bpb(a.eval_tok); i0 = 0
             log(f"\n== stage {st}: {budget[st]} steps | val BPB at entry = {b0:.4f} ==")
-        model.train(); t0 = time.time(); ntok_seen = 0; t_ck = time.time()
+        model.train(); t0 = time.time(); ntok_seen = 0; t_ck = time.time(); n_bad = 0
         for i in range(i0, budget[st]):
             if kdc is not None and gstep and gstep % a.chunk_steps == 0:
                 kdc.advance(); refresh()
+            # Optional linear warmup at stage entry. OFF by default: run 2 was pre-registered with a flat lr and the
+            # arms must stay comparable. It exists because the flat 3e-3-from-step-1 is what let the CE arm reach an
+            # overflowing activation regime by step 24 -- the KD arms only survived it because alpha halves their CE.
+            if a.warmup > 0 and i < a.warmup:
+                for g in opt.param_groups: g["lr"] = STAGE_LR[st] * (i + 1) / a.warmup
+            elif a.warmup > 0 and i == a.warmup:
+                for g in opt.param_groups: g["lr"] = STAGE_LR[st]
             opt.zero_grad(set_to_none=True)
-            loss_v = 0.0; nkd = 0; ce_m = 0.0                      # gradient accumulation (effective batch = batch*accum)
+            loss_v = 0.0; nkd = 0; ce_m = 0.0                    # gradient accumulation (effective batch = batch*accum)
             for _mi in range(a.accum):
-                loss, nkd_i, ce_i = step_loss(reverse=(st == "F"))
+                loss, nkd_i, ce_i = step_loss(reverse=(st == "F"), gs=gstep, mi=_mi)
                 scaler.scale(loss / a.accum).backward()
                 loss_v += float(loss) / a.accum; nkd += nkd_i; ce_m += ce_i / a.accum
             scaler.unscale_(opt)
@@ -446,6 +472,26 @@ def main():
             scaler.step(opt); scaler.update()
             gstep += 1; ntok_seen += a.batch * a.seq * a.accum * ws
             hist.append((st, gstep, loss_v))
+
+            # DIVERGENCE GUARD. An fp16 forward that overflows produces inf logits -> NaN loss -> GradScaler skips the
+            # step -> the weights never change -> the SAME forward overflows again. That is a self-sustaining deadlock
+            # the scaler cannot break: it rescales GRADIENTS, and the overflow is in the forward. Run 2's CE arm fell
+            # into it at step 24 and then burned ~11 T4-hours emitting NaN before printing MVE-DONE on a model frozen
+            # at step 23. Detect it and die loudly: no .done file is written, so a diverged run can never be mistaken
+            # for a completed one. All ranks must agree or the survivors hang in the next all-reduce.
+            bad = 0.0 if math.isfinite(loss_v) else 1.0
+            if ddp:
+                bt = torch.tensor([bad], device=dev)
+                torch.distributed.all_reduce(bt, op=torch.distributed.ReduceOp.MAX)
+                bad = float(bt.item())
+            n_bad = n_bad + 1 if bad > 0 else 0
+            if n_bad >= a.max_nonfinite:
+                log(f"\n[DIVERGED] loss non-finite for {n_bad} consecutive steps (stage {st}, gstep {gstep}).")
+                log("  fp16 forward overflow: the scaler cannot recover this -- the weights are frozen and the run is dead.")
+                log(f"  last finite loss was at gstep {gstep - n_bad}. NO .done file written.")
+                log("MVE-DIVERGED: apparatus stop. Do NOT read gates from this run.")
+                if ddp: torch.distributed.destroy_process_group()
+                sys.exit(2)
             if i == i0 or (i + 1) % max(1, budget[st] // 5) == 0:
                 nce = model.recall._last_nce if model.recall is not None else 0.0
                 gate = float(model.recall.gate.detach()) if model.recall is not None else 0.0
