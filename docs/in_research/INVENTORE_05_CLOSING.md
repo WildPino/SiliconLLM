@@ -10,7 +10,7 @@ raw outputs in `*_out.txt`; scripts in `benchmarks/in_research/`.
 
 | # | Spark | Disposition | Key number / artifact |
 |---|---|---|---|
-| S1 | structured projections | **ALIVE, sharpened → prereg brief DRAFT + apparatus ready** | x_proj = the low-rank organ: half rank = +0.0001 BPB post-hoc, free to r≈78, PR-rank 53/208; in/out_proj rank-hungry (+0.033/+0.045) → stay dense. Brief `INVENTORE_02`, apparatus `s1c_structured_xproj.py` smoke-green, ~1 evening on the 3060 |
+| S1 | structured projections | **RUN + GATE PASSED (2026-07-18 overnight, sealed brief, owner-delegated launch)** | from-scratch low-rank x_proj: r=52 Δ+0.0035 (G1 PASS, sub-noise); **r=26 Δ−0.0074, BETTER than dense at 17.6% of x_proj bytes** (post-hoc predicted +0.053 there — pessimistic by ~0.06). ctl reproduced P61's 0.8757 exactly. Single-seed; 3-seed escalation before adopting the r26 improvement as real; v1 untouched, candidate = v1.1/v2 rung-boundary A/B. Full table `INVENTORE_02` §6 |
 | S2 | entropy-coded weights | **DEAD (from-scratch pools); conditional rerun on QAT'd ladder ckpts** | trits ≈ max-entropy (H0 1.5835/1.585, zeros 31%); the whole 2.5× is the queued 5-trits/byte pack |
 | S3 | delta-coded experts | **DEAD (from-scratch pools); conditional rerun on upcycled ckpts (born 4×-replicated)** | NN-match ≈ shuffled control, delta loses to direct everywhere; side-find: fp32 rows correlate (|cos| ~0.47 vs 0.26 random) → fed S1 |
 | S4 | entropy-patch tokenizer | **v2 RESEARCH, feasibility measured POSITIVE (input side)** | BPE CV 0.75 & 17% of tokens <2 bits vs patch CV 0.33 at 31% fewer units; 3× shorter at B=16. Output side (variable-byte emission) = the open half |

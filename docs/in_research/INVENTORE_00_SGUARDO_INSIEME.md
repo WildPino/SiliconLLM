@@ -36,7 +36,10 @@ An LLM co-designed for the consumer CPU (x86-64-v3, no VNNI): **the thinking** (
 
 ## 4. The sparks (inventory, in order of fervor)
 
-### S1 — Projections: attack the STRUCTURE, not the precision — **PROBED 2026-07-17, SPLIT verdict (see INVENTORE_01)**
+### S1 — Projections: attack the STRUCTURE, not the precision — **A/B RUN, GATE PASSED 2026-07-18 (INVENTORE_02 §6)**
+From-scratch arms (sealed prereg, overnight 3060): r=52 quality-neutral (+0.0035, G1 PASS); **r=26 BEATS dense (−0.0074) at 17.6% of x_proj bytes** — post-hoc was pessimistic by ~0.06 BPB. Single-seed caveat; 3-seed before adopting the improvement claim. Earlier $0 probe below.
+
+*(first-pass $0 probe, 2026-07-17 — SPLIT verdict, see INVENTORE_01)*
 Measured at $0 (spectra + post-hoc SVD truncation with real val-BPB on `sp58_base`): global structured replacement cliffs post-hoc (+0.087 at half rank — in/out_proj are rank-hungry on top of P61's precision-hungry), **but x_proj — the selective-control pathway — is the low-rank organ**: PR-rank 53/208, rank-halving costs +0.0001 BPB, free down to r≈78, cliff only below r≈26. The spark narrows to "structure the control pathway from scratch" with a strong measured prior. Original desk text below.
 
 *(original desk hypothesis)* (the wrong wall was tested)

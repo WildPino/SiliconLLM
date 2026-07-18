@@ -61,7 +61,31 @@ launches; Builder delivers apparatus + CPU smoke + ready commands and STOPs.
 - **Not v1:** the frozen ladder recipe is untouched; any adoption is a v1.1/v2 decision at a rung
   boundary with its own A/B.
 
-## 6. Apparatus
+## 6. RESULTS + ADJUDICATION (run 2026-07-17 23:08 → 07-18 06:38, 3060, launch delegated by owner)
+
+| arm | params | x_proj bytes | val BPB (200K) | Δ vs ctl | gate |
+|---|---|---|---|---|---|
+| 0 ctl dense | 8.312M | 100% | **0.8757** | — | (reproduces P61's fresh base 0.8757 exactly — free apparatus sanity check) |
+| A r=52 | 7.966M | 35.2% | 0.8792 | **+0.0035** | **G1 PASS** (≤ +0.005; below σ_seed → clean, no gray zone, no escalation owed) |
+| B r=26 | 7.873M | 17.6% | 0.8683 | **−0.0074** | curve (not gated): BETTER than dense by ~1.5σ |
+
+**Verdict: S1 PASSES its sealed gate.** From-scratch low-rank x_proj at r=52 is quality-neutral within
+seed noise; the aggressive r=26 point — where post-hoc truncation cost +0.053 — not only recovers fully
+from scratch but lands 0.0074 BELOW the dense control (5.7× fewer x_proj bytes, −5.3% total params).
+The P61 lesson quantified in reverse: post-hoc was pessimistic by ~0.06 BPB at r=26.
+
+**Honest caveats (declared with the numbers):**
+- Single seed. The non-monotonicity (r52 +0.0035 vs r26 −0.0074, a ~2σ spread) is unexplained: plausibly
+  seed noise, possibly a regularization effect at 4k steps. The sealed rules require nothing further
+  (G1 passed clean), but **claiming the r26 improvement as real requires the 3-seed escalation** —
+  recommended before any recipe adoption.
+- Sandbox scale (8.3M, TinyStories). Scale transfer is the usual open question; the architecture
+  precedent (dt_rank = D/16 by design) argues the control pathway's low-rank nature is structural,
+  not scale-accidental.
+- Adoption path unchanged: v1 frozen spec untouched; candidate = v1.1/v2 recipe A/B at a rung boundary
+  (and the arm-C butterfly form is now legitimized as a second-stage probe).
+
+## 7. Apparatus
 
 `benchmarks/in_research/s1c_structured_xproj.py` (this branch): trains any arm with `--xproj-rank {0|52|26}`
 (0 = dense control), same script/data/seed for all arms, val BPB at 200K protocol + top-1 vs a dumped
