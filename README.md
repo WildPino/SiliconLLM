@@ -30,9 +30,9 @@ The answer is a **split design**:
 - a small, **always-on "thinking" core** — an SSM (state-space) backbone with a ternary, sparse MLP, sized to live entirely inside the **L3 cache**;
 - a large, **sparse "knowing" tier** — a retrieval index for long-context recall plus a granular mixture-of-experts, which scale *total* knowledge while keeping the *active* parameters per token inside the cache budget.
 
-Everything is held together by a **block-decode chassis** that turns the CPU's worst case (random, per-token memory access) into its best case (bulk, sequential streaming).
+Both tiers obey one rule — **never a random, per-token gather**, the CPU's worst case. Every weight is either cache-resident and reused on every token, or streamed from DRAM in bulk, contiguous chunks.
 
-> **Honest status.** This is a **research project**, not a finished product. The validated foundation *and* a working single-binary C inference engine (stages E1–E4) have been measured end-to-end on real Zen 2 hardware (below) — every optimization parity-gated against an fp32 reference. What remains is the scale-up frontier: streaming the two-pool architecture at billions of parameters. Every number on this page comes from a real experiment, stated with its honest limitations.
+> **Honest status.** This is a **research project**, not a finished product. The validated foundation *and* a working single-binary C inference engine have been measured end-to-end on real Zen 2 hardware (below) — every optimization parity-gated against an fp32 reference. The scale-up design gate is now closed, the architecture is frozen as a spec, and the first pilot of the training ladder is running — but **nothing above the ~8.3M sandbox is trained yet**, so every number on this page comes from the sandbox, the engine, or a clearly-labelled model. Every one of them comes from a real experiment, stated with its honest limitations.
 
 ---
 
@@ -40,7 +40,7 @@ Everything is held together by a **block-decode chassis** that turns the CPU's w
 
 The project advances by **pre-registered probes**: each hypothesis gets a controlled experiment with a gate fixed *before* the results are seen. Here is what has survived.
 
-> **Two caveats that apply to every number below.** (1) All training A/B verdicts are **single-seed** (seed 0); the seed-to-seed variance is now measured at **σ ≈ 0.005 BPB** (a 3-seed calibration), so any single-seed delta smaller than roughly that size is not resolvable. (2) All properties are measured on **TinyStories at ~8–22M parameters**; the declared product domain (Cat-A: code, logs, structured text) is **not yet tested**.
+> **Two caveats that apply to every number below.** (1) All training A/B verdicts are **single-seed** (seed 0); the seed-to-seed variance is now measured at **σ ≈ 0.005 BPB** (a 3-seed calibration), so any single-seed delta smaller than roughly that size is not resolvable. (2) The architectural properties are measured on **TinyStories at ~8–22M parameters**, then re-measured on the declared product domain (§7): they **transfer to code**, and **logs are a measured boundary**. Everything remains at sandbox scale — no property below is yet confirmed at scale-up size.
 
 ### 1 · Ternary weights are the right call on Zen 2 — and cost almost nothing in quality
 
@@ -113,6 +113,14 @@ Phase 63 then adds **thread parallelism** — applied *only* across independent 
 
 Scope, as always: at ~8.3M sandbox scale everything is cache-resident, so these numbers validate the engine's *correctness* and *kernel-level* speed — not the streaming bandwidth at scale. The two-pool expert bytes are **counted and priced** (probe-3's 28 GB/s floor), not yet streamed at billions of parameters.
 
+### 7 · The properties transfer to the product domain — and where they stop
+
+Everything above was measured on prose. The declared product domain is **Cat-A** (code, logs, structured text), so the whole recipe was re-run along a prose → code → log gradient. The architectural properties — activation sparsity (~92/79), in-place predictability (83–88%) — **reproduce on code**. On held-out code the model reaches **1.242 BPB, below the zstd-19 and brotli-q11 floor** on the same bytes.
+
+Read that claim precisely: it is a **modeling** result (the model's own weights are not amortized into the number), not a shipping compressor — but it is the product domain, measured, not assumed.
+
+**Logs are a real boundary, and we publish it as one.** A log corpus overfits at 773K deduplicated tokens and lands ~10× *above* the LZ floor: template repetition is exactly what a classical compressor is best at, and an SSM has no advantage there. Logs are therefore **eval-only** for now, routed to a future LZ/SSM hybrid lane rather than counted as a win.
+
 ---
 
 ## Status
@@ -122,7 +130,7 @@ Scope, as always: at ~8.3M sandbox scale everything is cache-resident, so these 
 | Ternary 1.58-bit LUT kernel | ✅ validated on Zen 2 | 4.2–5.0× matvec, bit-exact, +0.028 BPB |
 | Activation sparsity (gated dReLU) | ✅ validated | 92% sparse, 2.12× skip, +0.0006 BPB |
 | Cache-residency budget (16 MB L3) | ✅ measured | bandwidth cliff at L3-per-CCX |
-| Long-context recall tier | ✅ de-risked end-to-end | ~18 µs/query, drift-free |
+| Long-context recall tier | ✅ de-risked end-to-end | ~18 µs/query research-side, drift-free; **29.05 µs/token @128K measured in-engine (C, 6 threads)** |
 | In-place predictability | ✅ validated | 86–92% recall, predictor-free |
 | Block-structured sparsity | ✅ found (byproduct) | 18% → 50% skippable @ zero cost |
 | Granular MoE (capacity tier) | ✅ validated | granular > dense at iso-active; fine > coarse |
@@ -130,8 +138,12 @@ Scope, as always: at ~8.3M sandbox scale everything is cache-resident, so these 
 | **C inference engine (E1–E4)** | ✅ **validated end-to-end** | **176→848 tok/s (4.8×), parity-gated, +0.00004 BPB** |
 | **Thread parallelism (Phase 63)** | ✅ **adopted** | **~2.4× on 6 cores, bit-identical; ~2.0K/1.5K tok/s dense/MoE** |
 | Block-verify chassis / MTP (E5) | ✅ built · lossless · speed scale-conditional | token-identical to AR; multi-token-from-state closed → model stays AR-lossless |
+| **Cat-A transfer (code)** | ✅ **validated** | **held-out code 1.242 BPB, below the zstd-19/brotli-q11 floor**; sparsity + predictability reproduce |
+| Cat-A transfer (logs) | ⛔ measured boundary | overfits at 773K tokens, ~10× above the LZ floor → eval-only |
+| Scale-up design gate (Phase 64) | ✅ closed — spec frozen | speed/footprint are *slack* in the trainable region; training budget, data and quality-per-param are the binding walls |
+| Scale-up model (the ladder) | 🔄 pilot training now | nothing above the ~8.3M sandbox trained yet — no result claimed |
 
-<sub>Notes: training A/B verdicts are single-seed (seed 0; measured seed variance σ ≈ 0.005 BPB). "Ternary 1.58-bit" refers to the weights' information content; the engine stores them at 4 bits/weight today (trit-pack queued). All measured on TinyStories at ~8–22M params.</sub>
+<sub>Notes: training A/B verdicts are single-seed (seed 0; measured seed variance σ ≈ 0.005 BPB). "Ternary 1.58-bit" refers to the weights' information content; the engine stores them at 4 bits/weight today (trit-pack queued). Architectural properties measured on TinyStories at ~8–22M params, then re-measured on code/logs (§7). Nothing above the sandbox scale is trained.</sub>
 
 See [`docs/SCALEUP_ARCHITECTURE.md`](docs/SCALEUP_ARCHITECTURE.md) for the full buildable blueprint, and [`HANDOFF.md`](HANDOFF.md) for the technical narrative including negative results.
 
@@ -140,8 +152,8 @@ See [`docs/SCALEUP_ARCHITECTURE.md`](docs/SCALEUP_ARCHITECTURE.md) for the full 
 ## What this is *not* (scope discipline)
 
 - **Not a scale-up speedup yet.** The engine's 176→848 tok/s single-thread (→ ~2.0K on 6 cores) is real, but at ~8.3M sandbox scale everything is cache-resident — it validates *correctness* and *kernel-level* speed, not the streamed two-pool bandwidth at billions of parameters (which is counted and priced, not yet run — see [`docs/SIZING.md`](docs/SIZING.md), including the unmeasured DDR4 multi-thread contention). The measured thread scaling is bandwidth aggregation across a still cache-resident model; the DRAM-streamed ceiling is lower (~1.4–1.5×). The probes measure architectural *properties*; the scale-up engine is the next frontier.
-- **Not a finished LLM.** The current model is trained on TinyStories at ~8–22M parameters to isolate architectural questions cleanly. Broad-distribution quality at scale is future work — and the *declared product domain* (Cat-A: code, logs, structured text, where the agentic thesis expects the best acceptance) is **not yet tested**; that probe is queued.
-- **Not yet one fused system.** The long-context recall tier (the phase-56 model line) and the engine's thinking core (the phase-58/59 line) are today **two separate lineages**. Unifying them into a single model with a recall slot is future work (E5+).
+- **Not a finished LLM.** The sandbox model is trained on TinyStories at ~8–22M parameters to isolate architectural questions cleanly; the product domain was then tested separately (§7 — code validated, logs a measured boundary). Broad-distribution quality **at scale** remains future work: the design gate is closed and the first ladder pilot is training, but **no scale-up model exists yet**, and any sizing figure in [`docs/PHASE64_BUDGET.md`](docs/PHASE64_BUDGET.md) is a desk prediction from a measured bandwidth model — not a trained result.
+- **Not yet one fused system.** The long-context recall tier and the engine's thinking core are still **two separate lineages**. The scale-up spec commits to fusing them (one recall slot in the trained model) and the C-side query cost now passes its gate, but the *integration* — a model actually trained with the slot — is exactly what the running pilot is testing. Unproven until it reports.
 - **Honest about magnitude.** Individual levers are stated at their *predictor-free, measured* value (e.g. 2.12× sparsity, ~3× residency), never the optimistic ceiling. The compound win is one-to-two orders of magnitude, but no single headline number is load-bearing.
 
 ---
@@ -188,13 +200,16 @@ SiliconLLM/
 │   ├── phase55/                  CPU SSM language model + C inference kernel
 │   ├── phase56/                  long-context recall (IVF-PQ, drift, MQAR)
 │   ├── phase57/                  weight-streaming + predictor/MoE/proj probes
-│   └── phase60/                  the C inference engine (E1–E4) + gates
+│   ├── phase60/                  the C inference engine (E1–E4) + gates
+│   ├── phase62/                  Cat-A transfer: code + logs (§7)
+│   ├── phase63/                  threads + the block-verify chassis
+│   └── phase64/                  scale-up design gate + the MVE training pilot
 ├── scripts/                    chart generation
 ├── archive/                    historical / superseded (compressor + early eras)
 └── HANDOFF.md                  full technical narrative
 ```
 
-<sub>Note: some newer probe apparatus (phase-58/59/61) currently lives under `benchmarks/phase57/` for import convenience; it will be reorganized once Phase 61 finishes running.</sub>
+<sub>Note: some older probe apparatus (phase-58/59/61) lives under `benchmarks/phase57/` for import convenience.</sub>
 
 ---
 
