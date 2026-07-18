@@ -85,6 +85,20 @@ The P61 lesson quantified in reverse: post-hoc was pessimistic by ~0.06 BPB at r
 - Adoption path unchanged: v1 frozen spec untouched; candidate = v1.1/v2 recipe A/B at a rung boundary
   (and the arm-C butterfly form is now legitimized as a second-stage probe).
 
+## 6b. 3-SEED ESCALATION PROTOCOL (sealed 2026-07-18, BEFORE the seed-1/2 runs; owner directed
+"complete all investigations" — launch again delegated to the Builder on the free 3060)
+
+Seeds {1, 2} added to the existing seed 0, all three arms, same script/recipe (seed changes both init
+and data order → arms remain PAIRED within seed). Claims, sealed now:
+
+- **C1 (the "r26 beats dense" claim):** adopted iff paired Δ(r26−ctl) < 0 in **all 3 seeds** AND
+  mean Δ ≤ **−0.005** (1 σ_seed). If sign-consistent but mean in (−0.005, 0]: verdict = "neutral-or-
+  better" — r26 adopted as a *byte lever* (equal quality at 17.6% bytes), the *quality-gain* claim NOT
+  adopted. Any seed with Δ > 0: the improvement claim dies; quality-neutrality is then judged as C2.
+- **C2 (G1 at 3 seeds, both low-rank arms):** mean Δ(arm−ctl) ≤ +0.005 → the arm is confirmed
+  quality-neutral. Between +0.005 and +0.010: reported as marginal, adoption deferred. > +0.010: fail.
+- No rule below is loosened after seeing numbers; deviations only tighten (project law).
+
 ## 7. Apparatus
 
 `benchmarks/in_research/s1c_structured_xproj.py` (this branch): trains any arm with `--xproj-rank {0|52|26}`
