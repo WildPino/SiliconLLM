@@ -68,8 +68,10 @@ data/
 weights/
 
 # ── Local staging / scratch: never tracked ──
-# Kaggle run-pack: per-account dataset copies (~2.6 GB each) + notebook cells, uploaded by hand
-kaggle_mve/
+# Kaggle run-pack: per-account dataset copies (~2.6 GB each) + notebook cells, uploaded by hand.
+# The README is the run procedure (documentation) and IS tracked; the payload never is.
+kaggle_mve/*
+!kaggle_mve/README.md
 # one-off local driver
 run_benchmarks_temp.py
 
