@@ -1,11 +1,12 @@
 # Inventor Pass — Report to the Architect
 
-**Status: DRAFT — finalizes when the 3-seed S1 escalation lands (chain running on the 3060,
-started 2026-07-18, ~15 h; every other number below is final).** Prepared by the Inventor side-lab
-(owner-mandated creative review, 2026-07-17/18). All work on branch `inventor/s2-s3-probes`,
-`benchmarks/in_research/` (read-only toward the repo) + `docs/in_research/`; the frozen v1 spec, the
-MVE apparatus, and the Kaggle run were never touched. This report consolidates `INVENTORE_00..05`;
-the owner may attach further research to it before sending.
+**Status: FINAL v1 (2026-07-19) — all investigations complete, 3-seed escalation adjudicated.**
+Prepared by the Inventor side-lab (owner-mandated creative review, 2026-07-17→19). All work on branch
+`inventor/s2-s3-probes`, `benchmarks/in_research/` (read-only toward the repo) + `docs/in_research/`;
+the frozen v1 spec, the MVE apparatus, and the Kaggle run were never touched. This report consolidates
+`INVENTORE_00..05`; the owner may attach further research before sending.
+
+![S1 result](assets/s1_xproj_chart.png)
 
 ## 0. Mandate and method
 
@@ -19,7 +20,7 @@ published with their controls; one gate-bearing A/B run under a sealed brief wit
 
 | # | Spark | Verdict | The load-bearing number |
 |---|---|---|---|
-| **S1** | **structured x_proj** | **GATE PASSED; 3-seed escalation in flight** | from-scratch r=52: Δ+0.0035 (G1 PASS); **r=26: Δ−0.0074, beats dense at 17.6% of x_proj bytes** — where post-hoc predicted +0.053 |
+| **S1** | **structured x_proj** | **GATE PASSED + C1 ADOPTED at 3 seeds** | **r=26 beats dense in 3/3 seeds, mean Δ = −0.0095 (≈3.5× ctl seed-σ) at 17.6% of x_proj bytes** — where post-hoc predicted +0.053; r52 neutral (C2 PASS) |
 | S2 | entropy-coded ternary weights | DEAD (from-scratch pools) | trits at 99.9% of max entropy (H0 1.5835/1.585); the queued 5-trits/byte pack is the whole 2.5× |
 | S3 | delta-coded expert pool | DEAD (from-scratch pools) | NN-match ≈ shuffled control; delta loses to direct everywhere; rerun owed on upcycled ladder ckpts |
 | S4 | entropy-patch tokenizer (K4) | v2 FEASIBILITY POSITIVE (input side) | BPE code tokens: CV 0.75, 16.9% carry <2 bits; constant-entropy patches: CV 0.33 at 31% fewer units; 3× shorter at B=16 |
@@ -51,10 +52,19 @@ published with their controls; one gate-bearing A/B run under a sealed brief wit
    concentrate further still — product PR ≈ 7–8** — with the architecture's own dt_rank=16 precedent,
    r=16 is a plausible next point (not probed; noted).
 
-**Pending (sealed protocol §6b):** 3-seed escalation, C1 = the "r26 better" claim adopted only if
-paired Δ<0 in all 3 seeds AND mean ≤ −0.005; C2 = quality-neutrality at 3 seeds. Table lands here:
+5. *3-seed escalation (sealed protocol §6b, adjudicated 2026-07-19):*
 
-*(3-SEED TABLE — pending, chain running)*
+| seed | ctl | r52 | r26 | Δ(r26−ctl) |
+|---|---|---|---|---|
+| 0 | 0.8757 | 0.8792 | 0.8683 | −0.0074 |
+| 1 | 0.8811 | 0.8721 | 0.8688 | −0.0123 |
+| 2 | 0.8784 | 0.8729 | 0.8696 | −0.0088 |
+| **mean ± σ** | 0.8784 ± 0.0027 | 0.8747 ± 0.0039 | **0.8689 ± 0.0007** | **−0.0095** |
+
+   **C1 ADOPTED** (Δ<0 in 3/3 seeds, mean ≤ −0.005): the r=26 improvement is real and seed-robust —
+   and the r26 arm is the most seed-stable of the three (σ 0.0007 vs 0.0027), consistent with a
+   regularization/inductive-bias reading. **C2 PASS** for r52 (neutral; no improvement claim — sign
+   inconsistent). Ordering across seeds is monotone: fewer ranks → better BPB, at 4k steps, this scale.
 
 **Why it matters beyond the sandbox:** x_proj scales as (dt_rank+2N)·Dn — its share grows with state
 size; the projections are the dominant engine compute component (proj-GEMV ~52%) and the largest
@@ -96,9 +106,10 @@ candidate = recipe A/B at a rung boundary (v1.1/v2), butterfly form (arm C) legi
 
 ## 6. Recommendations (ranked)
 
-1. **Read the 3-seed S1 verdict** (lands with this report's final version) and, if C1/C2 hold, put the
-   structured-x_proj A/B on the rung-1 boundary agenda alongside the vocab A/B (D3) — same discipline,
-   one extra arm, materially fewer resident bytes.
+1. **C1/C2 held → put the structured-x_proj arm on the rung-1 boundary agenda** alongside the vocab
+   A/B (D3): same discipline, one extra arm, materially fewer resident bytes, and a measured quality
+   *gain* at sandbox scale. The open scale question (does the regularization benefit survive more
+   steps/data?) is exactly what a rung-boundary A/B answers.
 2. **Keep the trit-pack at the top of engine-v2** — S2's negative upgrades it from "queued optimization"
    to "the only byte lever on the pool, measured".
 3. **Adopt the ε-identity law as written project law** (it has already been paid for twice); α-QAT is

@@ -99,6 +99,26 @@ and data order → arms remain PAIRED within seed). Claims, sealed now:
   quality-neutral. Between +0.005 and +0.010: reported as marginal, adoption deferred. > +0.010: fail.
 - No rule below is loosened after seeing numbers; deviations only tighten (project law).
 
+### 6b RESULTS + ADJUDICATION (chain 2026-07-18 15:59 → 07-19 05:59, 3060)
+
+| seed | ctl | r52 | r26 | Δ(r52−ctl) | Δ(r26−ctl) |
+|---|---|---|---|---|---|
+| 0 | 0.8757 | 0.8792 | 0.8683 | +0.0035 | −0.0074 |
+| 1 | 0.8811 | 0.8721 | 0.8688 | −0.0090 | −0.0123 |
+| 2 | 0.8784 | 0.8729 | 0.8696 | −0.0055 | −0.0088 |
+| **mean ± σ** | 0.8784 ± 0.0027 | 0.8747 ± 0.0039 | **0.8689 ± 0.0007** | **−0.0037** | **−0.0095** |
+
+- **C1 ADOPTED:** Δ(r26−ctl) < 0 in **3/3 seeds** and mean −0.0095 ≤ −0.005 → **"low-rank r=26 x_proj
+  beats dense" is a real, seed-robust improvement** (−0.0095 ≈ 3.5× the control's seed σ) at 17.6% of
+  the x_proj bytes and −5.3% total params. The seed-0 non-monotonicity was seed noise, as suspected.
+- **C2 PASS (r52):** mean −0.0037 ≤ +0.005 → quality-neutral-or-better; sign not consistent (s0 +0.0035)
+  → no improvement claim for r52, per the sealed rule.
+- Side-observations: the r26 arm is also the most seed-STABLE (σ 0.0007 vs ctl 0.0027) — consistent with
+  the regularization reading; across seeds the ordering is monotone (fewer ranks → better BPB), and the
+  trained products' PR ≈ 7-9 (s1d) marks r=16 as the natural next probe point (dt_rank precedent).
+- Scope guard unchanged: sandbox scale, TS domain; adoption = rung-boundary A/B on the ladder recipe
+  (v1.1/v2), never a silent v1 change. Chart: `assets/s1_xproj_chart.png`.
+
 ## 7. Apparatus
 
 `benchmarks/in_research/s1c_structured_xproj.py` (this branch): trains any arm with `--xproj-rank {0|52|26}`

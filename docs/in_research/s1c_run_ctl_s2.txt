@@ -1,0 +1,28 @@
+S1c | arm=ctl-dense | swapped 0 x_proj | params=8.312M | xproj bytes 100.0% of dense | seed=2 dev=cuda bf16=True
+  recipe: steps=4000 seq=512 batch=16 lr=0.003 (phase57 recipe, matched across arms)
+== training (CE only) ==
+  step     1/4000  loss=7.0154  gnorm=1.88  (10200 ms)  | val BPB=3.4111
+  step   200/4000  loss=1.9352  gnorm=0.31  (2027 ms)
+  step   400/4000  loss=1.7233  gnorm=0.34  (9083 ms)  | val BPB=1.2352
+  step   600/4000  loss=1.5777  gnorm=0.25  (2134 ms)
+  step   800/4000  loss=1.5266  gnorm=0.25  (8961 ms)  | val BPB=1.1075
+  step  1000/4000  loss=1.4482  gnorm=0.22  (2033 ms)
+  step  1200/4000  loss=1.5652  gnorm=0.24  (9796 ms)  | val BPB=1.0481
+  step  1400/4000  loss=1.3736  gnorm=0.20  (1981 ms)
+  step  1600/4000  loss=1.4543  gnorm=0.22  (9063 ms)  | val BPB=1.0091
+  step  1800/4000  loss=1.3438  gnorm=0.21  (2016 ms)
+  step  2000/4000  loss=1.4200  gnorm=0.20  (9087 ms)  | val BPB=0.9641
+  step  2200/4000  loss=1.2547  gnorm=0.20  (2001 ms)
+  step  2400/4000  loss=1.3392  gnorm=0.19  (9260 ms)  | val BPB=0.9406
+  step  2600/4000  loss=1.2275  gnorm=0.21  (2067 ms)
+  step  2800/4000  loss=1.2462  gnorm=0.20  (9158 ms)  | val BPB=0.9301
+  step  3000/4000  loss=1.1895  gnorm=0.20  (1988 ms)
+  step  3200/4000  loss=1.2465  gnorm=0.19  (9095 ms)  | val BPB=0.9054
+  step  3400/4000  loss=1.2449  gnorm=0.22  (2125 ms)
+  step  3600/4000  loss=1.2245  gnorm=0.20  (9061 ms)  | val BPB=0.9010
+  step  3800/4000  loss=1.2483  gnorm=0.20  (2034 ms)
+  step  4000/4000  loss=1.2877  gnorm=0.22  (9033 ms)  | val BPB=0.8866
+== RESULT ==  arm=ctl  val BPB=0.8784  (138.1 min)
+  gate read (Architect, vs same-script ctl): G1 pass iff BPB(r52) <= BPB(ctl)+0.005; gray to 0.010 -> 3 seeds
+  saved -> results/phase57/s1c_ctl_s2.pt
+STOP. Owner launches the real arms per the brief; no gate is read before the brief is sealed+pushed.
