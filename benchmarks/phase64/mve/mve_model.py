@@ -22,6 +22,124 @@ from phase57_sparse import SparseMLP, sparsify_mlp  # noqa: E402
 from phase57_ternary import BitLinear158            # noqa: E402
 from phase59_moe import MoEMLP                      # noqa: E402
 
+
+class SparseMoEMLP(MoEMLP):
+    """Active-only MoE training: gather the tokens routed to each expert, run that expert on those tokens alone,
+    and scatter the weighted results back. Same parameters, same maths, k/E of the work.
+
+    The inherited forward is compute-all: it evaluates every expert on every token and then multiplies the
+    non-selected blocks by zero. That costs E/k = 4x the FLOPs and materializes the full (N, E, hid_e) hidden.
+    Here nothing that is routed away is ever computed.
+
+    Do NOT read this as the fix for the MVE's memory pressure -- WS2 measured that attribution and it was wrong.
+    The SSM scan is the eater (stage C alone peaks at 4.86 GB); the MoE is ~3% of peak, and stage E was merely the
+    last drop. This class is a COMPUTE/SCALING investment: 1.5x at E32 but 4.3x at E128, which is what keeps the
+    per-step MoE share ~flat as E grows and so keeps the rung-2/3 cost model standing. End-to-end at the rung-1
+    config it is worth ~1%.
+
+    DETERMINISM BY CONSTRUCTION -- no atomics anywhere. The obvious scatter-back is `index_add_`, which on CUDA
+    accumulates through float atomics: run-to-run non-reproducible, because float addition is not associative and
+    the atomic order is not fixed. We rely on bit-identical reruns as a live diagnostic (arms A and C agreeing to
+    the last bit is how the apparatus is checked), so that trade is not available. Instead the per-(token,expert)
+    rows are produced in expert-sorted order, permuted back with a gather, and summed over a FIXED k axis --
+    a plain reduction over a static layout, identical on every run.
+
+    Ordering note: the weighting is applied to the HIDDEN before the down projection, mirroring the compute-all
+    path exactly, so the two differ only by float summation order and not by the sequence of operations.
+    """
+    def forward(s, x):
+        B, T, D = x.shape
+        xf = x.reshape(-1, D); N = xf.shape[0]
+        with torch.autocast(s.dev_type, enabled=False):
+            probs = torch.softmax(s.router(xf.float()), dim=-1)          # (N,E)
+        topv, topi = probs.topk(s.k, dim=-1)
+        topw = topv / topv.sum(dim=-1, keepdim=True)                     # (N,k)
+
+        # group the (token, expert) pairs by expert. stable=True keeps the layout a deterministic function of the
+        # routing alone, so two runs with identical routing produce identical arithmetic.
+        P = N * s.k
+        flat_e = topi.reshape(-1)
+        # (flat_t is implicit: pair p belongs to token p // k -- see the structured expand below)
+        flat_w = topw.reshape(-1)
+        order = torch.argsort(flat_e, stable=True)
+        sw = flat_w[order]
+        counts = torch.bincount(flat_e, minlength=s.E)
+        offs = torch.cumsum(counts, 0) - counts
+
+        Wg, Wu = s._tern(s.gate.weight), s._tern(s.up.weight)            # (H,D) ternarized once, then split by expert
+        Wd = s._tern(s.Wd)                                               # (E,D,hid_e)
+
+        # PAD-TO-MAX + BATCHED GEMM, not a Python loop over experts. The loop was the first thing measured and it
+        # was 20% SLOWER than the compute-all it was meant to replace: E=32 experts x 8 layers = 256 tiny kernel
+        # launches per forward, and at this size launch overhead dominates the FLOPs saved. Padding every expert to
+        # the largest routed count turns the whole layer into three bmm's. The padded rows are masked to zero and
+        # dropped on the way back, so the maths is unchanged -- this is a scheduling fix, not a modelling one.
+        C = int(counts.max().item())
+        s._last_cap = C; s._last_fill = P / float(s.E * C)                # routing imbalance: 1.0 = perfectly balanced
+        pos = torch.arange(P, device=x.device) - offs[flat_e[order]]     # rank of each pair within its expert
+        pad_idx = flat_e[order] * C + pos                                # sorted position -> slot in the (E,C) grid
+
+        # The gather from xf must NOT be done with a repeated index. Every token is routed to k experts, so an
+        # index_select over token ids has k duplicates per token, and its BACKWARD is an atomic index_add -- which
+        # is where determinism was lost the first time this was measured (grads differed by 2.3e-05 between two
+        # identical-seed runs, while the forward stayed bit-identical). Instead: expand along a structured k axis
+        # first (backward = a fixed-axis sum) and only then apply permutations with UNIQUE indices, whose backward
+        # gathers instead of accumulating. Same tensor, deterministic derivative.
+        xrep = xf.unsqueeze(1).expand(N, s.k, D).reshape(P, D)
+        xs = xrep.index_select(0, order)                                 # order is a permutation -> unique
+        xe = xf.new_zeros(s.E * C, D).index_copy(0, pad_idx, xs).reshape(s.E, C, D)
+        w_pad = flat_w.new_zeros(s.E * C).index_copy(0, pad_idx, sw)
+        Wg3 = Wg.reshape(s.E, s.hid_e, D).transpose(1, 2).to(xe.dtype)   # (E,D,hid_e)
+        Wu3 = Wu.reshape(s.E, s.hid_e, D).transpose(1, 2).to(xe.dtype)
+        h = F.relu(torch.bmm(xe, Wg3)) * F.relu(torch.bmm(xe, Wu3))      # (E,C,hid_e)
+        h = h * w_pad.reshape(s.E, C, 1).to(h.dtype)                     # weight the hidden, as compute-all does
+        op = torch.bmm(h, Wd.transpose(1, 2).to(h.dtype))                # (E,C,D)
+
+        cat = op.reshape(s.E * C, D).index_select(0, pad_idx)            # (P,D) back in expert-sorted order
+        inv = torch.empty_like(order); inv[order] = torch.arange(P, device=x.device)
+        out = cat.index_select(0, inv).reshape(N, s.k, D).sum(1)         # fixed-axis reduction, no atomics
+
+        sel = torch.zeros_like(probs).scatter(-1, topi, torch.ones_like(topw))
+        load = s.E * (sel.mean(0) * probs.mean(0)).sum() / s.k
+        aux = s.load_w * load
+        coh = xf.new_zeros(())
+        if s.lam_coh > 0 and T > 1:
+            pr = probs.reshape(B, T, s.E); coh = (pr[:, 1:] - pr[:, :-1]).abs().mean(); aux = aux + s.lam_coh * coh
+        s._last_load = float(load.detach()); s._last_coh = float(coh.detach())
+        if s._cap:
+            s._topi = topi.reshape(B, T, s.k).detach().cpu().numpy()
+            s._xin = x.detach().float().cpu().numpy()
+        return out.reshape(B, T, D), aux
+
+
+class BitLinear158Alpha(BitLinear158):
+    """W_eff = (1-alpha)*W + alpha*ternary(W) -- the epsilon-identity form of the stage-D switch.
+
+    The curriculum has already paid twice for the same missing principle: the MoE upcycle emitted 1/k of the dense
+    output until it was magnitude-matched (+0.49 BPB), and the recall slot enters behind a zero gate precisely so
+    that insertion is an exact identity. Stage D was the last switch still teleporting: `qat_ternary()` replaced
+    W.x with ternary(W).x in a single step, and the MVE measured the price -- a +0.32 BPB shock, identical in all
+    three arms, i.e. a property of the ternarization and not of the arm.
+
+    alpha=0 is an exact fp32 identity at the switch; alpha=1 is bit-for-bit BitLinear158, so the END STATE is
+    unchanged and only the PATH becomes continuous. STE is untouched (backward is identity either way).
+
+    Honest cost: while 0<alpha<1 the weights are not yet ternary, so the QAT regularization pressure ramps in
+    late; keep N_alpha small relative to stage D or the stage effectively shortens. Applying this is a DECLARED
+    deviation at a rung boundary -- stage D can no longer be described as 'pure QAT throughout'.
+    """
+    def __init__(s, fin, fout, per_row=True):
+        super().__init__(fin, fout, per_row=per_row)
+        s.alpha = 0.0
+
+    def forward(s, x):
+        if s.alpha >= 1.0: return super().forward(x)                 # exactly BitLinear158 at the end state
+        w = s.weight
+        scale = (w.abs().mean(dim=1, keepdim=True) if s.per_row else w.abs().mean()).clamp_min(1e-5)
+        wq = (w / scale).round().clamp(-1, 1)
+        w_ste = w + (s.alpha * (wq * scale - w)).detach()
+        return F.linear(x, w_ste)
+
 # S0 ladder recipe (SCALEUP_ARCHITECTURE §9 frozen config, pilot rung). MoE active hidden = k*hid_e = 8*128 = 1024
 # = the dense hidden (4*D) -> the upcycle is active-param-matched by construction (probe-4 discipline).
 S0 = dict(D=256, N=96, H=8, L=8, swa_layer=5, use_mlp=True, mlp_mult=4, dt_rank=16)
@@ -103,30 +221,39 @@ class MVEStudent(ArchA):
         s.is_moe = False
 
     # ---- stage D: KD-first -> QAT. Hot-swap fp linears to ternary STE, CARRYING the trained weights over.
-    def qat_ternary(s):
+    def qat_ternary(s, alpha_sched=False):
         n = 0
+        cls = BitLinear158Alpha if alpha_sched else BitLinear158
         for blk in s.blocks:
             if not getattr(blk, "use_mlp", False): continue
             for name in ("gate", "up", "down"):
                 lin = getattr(blk.mlp, name, None)
                 if lin is None or isinstance(lin, BitLinear158): continue
-                bl = BitLinear158(lin.in_features, lin.out_features)
+                bl = cls(lin.in_features, lin.out_features)
                 with torch.no_grad(): bl.weight.copy_(lin.weight)
                 setattr(blk.mlp, name, bl); n += 1
         s.is_ternary = True
         return n
 
+    def set_qat_alpha(s, a):
+        """Drive the stage-D interpolation. Returns how many modules were touched (0 if not alpha-scheduled)."""
+        n = 0
+        for m in s.modules():
+            if isinstance(m, BitLinear158Alpha): m.alpha = float(a); n += 1
+        return n
+
     # ---- stage E1: sparse upcycling dense -> MoE. Each expert is seeded from a 128-wide slice of the trained dense
     # hidden (1024/128 = 8 distinct slices, each replicated 4x across the 32 experts) + small noise to break the
     # replica symmetry (otherwise the router sees 4 identical experts and cannot separate them).
-    def upcycle_moe(s, dev_type="cuda", load_w=0.01, lam_coh=0.0, noise=0.02, seed=0):
+    def upcycle_moe(s, dev_type="cuda", load_w=0.01, lam_coh=0.0, noise=0.02, seed=0, sparse=False):
         g = torch.Generator(device="cpu").manual_seed(seed)
         E, hid_e, k = MOE["E"], MOE["hid_e"], MOE["k"]
+        cls = SparseMoEMLP if sparse else MoEMLP
         n = 0
         for blk in s.blocks:
             if not getattr(blk, "use_mlp", False): continue
             old = blk.mlp
-            moe = MoEMLP(s.D, hid_e, E, k, load_w, lam_coh, dev_type)
+            moe = cls(s.D, hid_e, E, k, load_w, lam_coh, dev_type)
             with torch.no_grad():
                 nslice = s.hid // hid_e                                  # 8
                 for e in range(E):

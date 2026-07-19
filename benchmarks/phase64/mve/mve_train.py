@@ -167,9 +167,17 @@ def main():
     ap.add_argument("--stages", default="CDEF")
     ap.add_argument("--steps", type=int, default=20000, help="TOTAL steps, split across stages by STAGE_SPLIT")
     ap.add_argument("--seq", type=int, default=512); ap.add_argument("--batch", type=int, default=16,
-                    help="MICRO-batch. Effective batch = batch*accum. Stage E (MoE compute-all + exact recall read) "
-                         "is the memory peak; on <=16GB use --batch 8 --accum 2 to keep effective 16 and fit.")
+                    help="MICRO-batch. Effective batch = batch*accum. On <=16GB use --batch 8 --accum 2 to keep "
+                         "effective 16 and fit. NOTE: stage E was long assumed to be the memory peak; WS2 measured "
+                         "otherwise -- the SSM scan is (stage C alone peaks at 4.86GB, the MoE is ~3% of peak). "
+                         "Stage E was the last drop, not the load, so accum is a whole-run choice, not an E fix.")
     ap.add_argument("--accum", type=int, default=1, help="gradient accumulation steps (effective batch = batch*accum)")
+    ap.add_argument("--sparse-moe", action="store_true",
+                    help="stage-E: active-only MoE dispatch instead of compute-all (grad-equivalent, "
+                         "deterministic; the win scales with E -- 1.5x at E32, 4.3x at E128)")
+    ap.add_argument("--qat-alpha", type=int, default=0,
+                    help="stage-D epsilon-identity: ramp alpha 0->1 over N steps (0 = hot-swap, the MVE behaviour). "
+                         "Keep N <= ~10%% of stage D or the QAT pressure ramps in too late.")
     ap.add_argument("--max-nonfinite", type=int, default=50,
                     help="abort after this many CONSECUTIVE non-finite loss steps (fp16 forward-overflow deadlock)")
     ap.add_argument("--warmup", type=int, default=0,
@@ -249,36 +257,58 @@ def main():
     # The span map is only worth training on if the projected teacher distribution actually points at the true next
     # student token. If q[y_true] were ~0 the projection would be broken (bad t2s, or an anchor off-by-one) and the
     # KD arm would be training on noise. This is the instrument that separates "D3 is hard" from "D3 is buggy".
+    #
+    # It measures THE MODE ACTUALLY BEING TRAINED. It used to always report the `anchor` projection even under
+    # `--kd span`, so every run-2/run-3 log carries "retained 13%" while the trainer was in fact retaining ~85% --
+    # a number that was not wrong about anchor-KD, merely about this run. A gate-bearing log may not describe a
+    # code path that is switched off.
     if kdc is not None and P0:
         rr = np.random.default_rng(7)
         w_lo, w_hi, idx0, loaded0 = kdc.window()                 # sample INSIDE the resident chunk window
         w_hi = min(w_hi, train_hi - a.seq - 1)
         p0 = rr.integers(w_lo, max(w_hi, w_lo + 1), size=8)
-        anc = np.stack([anchors[i:i+a.seq] for i in p0]).reshape(-1)
+        pf0 = (p0[:, None] + np.arange(a.seq)[None, :]).reshape(-1)     # global student index of each sampled slot
         yy = np.stack([ids[i+1:i+1+a.seq] for i in p0]).reshape(-1)
-        selq = np.nonzero(anc >= 0)[0]
-        ti_, pr_, ok_ = kdc.gather(anc[selq], loaded0)
-        selq = selq[ok_]
+        # exactly the selection step_loss() performs for this mode: anchors only, or every position of the segment
+        row0 = anchors[pf0] if a.kd == "anchor" else seg_row[pf0]
+        selq = np.nonzero(row0 >= 0)[0]
+        ti_, pr_, ok_ = kdc.gather(row0[selq], loaded0)
+        selq = selq[ok_]; ti_ = ti_[ok_]; pr_ = pr_[ok_]
         if len(selq):
-            q = kd_targets(ti_[ok_], pr_[ok_], t2s, V, dev)
+            if a.kd == "anchor":
+                q = kd_targets(ti_, pr_, t2s, V, dev); keep = np.ones(len(selq), dtype=bool)
+            else:
+                ss0 = seg_step[pf0][selq]
+                gi0 = np.clip((pf0[selq] - ss0 + 1)[:, None] + np.arange(SPAN_S)[None, :], 0, len(ids) - 1)
+                q, okm0 = kd_targets_span(ti_, pr_, ss0, ids[gi0].astype(np.int64),
+                                          np.arange(SPAN_S)[None, :] < ss0[:, None], dtok, dlen, V, dev)
+                keep = okm0.cpu().numpy() if torch.is_tensor(okm0) else okm0
+                q = q[okm0]; selq = selq[keep]; pr_ = pr_[keep]
             yt = torch.from_numpy(yy[selq]).to(dev)
             mass = q.gather(1, yt[:, None]).squeeze(1)
             top1 = (q.argmax(1) == yt).float().mean().item()
-            log(f"  KD-target check on {len(selq)} anchors: mass on TRUE next token = {mass.mean().item():.3f} "
+            unit = "anchors" if a.kd == "anchor" else "span positions"
+            log(f"  KD-target check [{a.kd}] on {len(selq)} {unit}: mass on TRUE next token = {mass.mean().item():.3f} "
                 f"(median {mass.median().item():.3f}) | argmax(q)==y: {100*top1:.1f}% | mapped mass/row: "
-                f"{float((pr_[ok_].sum(1)).mean()):.3f}")
+                f"{float(pr_.sum(1).mean()):.3f}")
             # THE D3 QUESTION, quantified. KD is only worth its cost if the target carries MORE than the hard label
             # ("dark knowledge"). The span projection maps every teacher token to the FIRST student token of its
             # bytes -- and first-tokens are low-entropy (" the"/" then"/" they" collapse onto the same student token).
             # If H(q) << H(teacher), the projection has destroyed precisely the information KD exists to transfer,
             # and the KD arm is training on an expensive near-one-hot. Report both entropies in bits.
-            pt = torch.from_numpy(pr_[ok_]).to(dev)                      # (M,K) teacher top-K probs
+            pt = torch.from_numpy(pr_).to(dev)                           # (M,K) teacher top-K probs
             pt = pt / pt.sum(1, keepdim=True).clamp_min(1e-8)
             h_t = -(pt * pt.clamp_min(1e-9).log2()).sum(1)               # teacher entropy on its own top-K
             h_q = -(q * q.clamp_min(1e-9).log2()).sum(1)                 # projected-target entropy
-            log(f"    dark-knowledge: H(teacher top-K) = {h_t.mean().item():.3f} bits  ->  H(q projected) = "
-                f"{h_q.mean().item():.3f} bits   (retained {100*h_q.mean().item()/max(h_t.mean().item(),1e-6):.0f}%); "
-                f"q is near-one-hot on {100*(mass>0.95).float().mean().item():.0f}% of anchors")
+            # PER-POSITION ratio -- NOT the 83-86% chain-rule figure from kd_information.py, which is the total
+            # recoverable information SUMMED over a span. Conditioning on the prefix necessarily lowers the entropy
+            # still outstanding at each interior position (that is the mechanism, not a defect), so the per-position
+            # mean is smaller than the span total by construction. Labelled explicitly because the two numbers have
+            # already been printed side by side once and invite exactly the wrong comparison.
+            log(f"    dark-knowledge [{a.kd}]: H(teacher top-K) = {h_t.mean().item():.3f} bits  ->  H(q projected) = "
+                f"{h_q.mean().item():.3f} bits   (retained {100*h_q.mean().item()/max(h_t.mean().item(),1e-6):.0f}% "
+                f"PER-POSITION; not the summed-over-span figure); "
+                f"q is near-one-hot on {100*(mass>0.95).float().mean().item():.0f}% of {unit}")
 
     # ONE optimizer factory: the stage transitions (D/E) rebuild the optimizer after the model surgery, and they must
     # rebuild the SAME kind -- otherwise the curriculum silently drops back to fp32 Adam states after stage C and the
@@ -381,11 +411,16 @@ def main():
     def stage_surgery(st):
         """The structural surgery applied at a stage's ENTRY (idempotent per stage). Returns a log line ('' if none)."""
         if st == "D":
-            n = model.qat_ternary(); model.to(dev)
+            n = model.qat_ternary(alpha_sched=a.qat_alpha > 0); model.to(dev)
+            if a.qat_alpha > 0:
+                model.set_qat_alpha(0.0)                 # exact fp32 identity at the instant of the switch
+                return (f"[D] QAT switch: {n} MLP linears -> BitLinear158Alpha (weights carried), lr x0.5 | "
+                        f"alpha 0->1 over {a.qat_alpha} steps (epsilon-identity)")
             return f"[D] QAT switch: {n} MLP linears -> BitLinear158 (weights carried), lr x0.5"
         if st == "E":
-            n = model.upcycle_moe(dev_type=dev_type, load_w=a.load_w, seed=a.seed)
-            msg = f"[E] MoE upcycle: {n} MLPs -> E{MOE['E']}xh{MOE['hid_e']} top{MOE['k']} (magnitude-matched seed)"
+            n = model.upcycle_moe(dev_type=dev_type, load_w=a.load_w, seed=a.seed, sparse=a.sparse_moe)
+            msg = (f"[E] MoE upcycle: {n} MLPs -> E{MOE['E']}xh{MOE['hid_e']} top{MOE['k']} (magnitude-matched seed"
+                   + (", ACTIVE-ONLY dispatch)" if a.sparse_moe else ", compute-all)"))
             if a.recall == "on":
                 nr = model.add_recall(lam_nce=a.lam_nce); msg += f" + recall slot ({nr/1e3:.1f}K par, gate=0)"
             model.to(dev)
@@ -457,6 +492,11 @@ def main():
             # Optional linear warmup at stage entry. OFF by default: run 2 was pre-registered with a flat lr and the
             # arms must stay comparable. It exists because the flat 3e-3-from-step-1 is what let the CE arm reach an
             # overflowing activation regime by step 24 -- the KD arms only survived it because alpha halves their CE.
+            # alpha-QAT: ramp the ternarization in instead of teleporting to it. Driven every step (not only inside
+            # the ramp) so that a resume landing mid-stage-D restores the right alpha from step_in_stage alone --
+            # alpha is a pure function of the step, so it needs no checkpoint state and cannot desync across ranks.
+            if st == "D" and a.qat_alpha > 0:
+                model.set_qat_alpha(min(1.0, (i + 1) / a.qat_alpha))
             if a.warmup > 0 and i < a.warmup:
                 for g in opt.param_groups: g["lr"] = STAGE_LR[st] * (i + 1) / a.warmup
             elif a.warmup > 0 and i == a.warmup:
@@ -473,17 +513,24 @@ def main():
             gstep += 1; ntok_seen += a.batch * a.seq * a.accum * ws
             hist.append((st, gstep, loss_v))
 
-            # DIVERGENCE GUARD. An fp16 forward that overflows produces inf logits -> NaN loss -> GradScaler skips the
-            # step -> the weights never change -> the SAME forward overflows again. That is a self-sustaining deadlock
-            # the scaler cannot break: it rescales GRADIENTS, and the overflow is in the forward. Run 2's CE arm fell
-            # into it at step 24 and then burned ~11 T4-hours emitting NaN before printing MVE-DONE on a model frozen
-            # at step 23. Detect it and die loudly: no .done file is written, so a diverged run can never be mistaken
-            # for a completed one. All ranks must agree or the survivors hang in the next all-reduce.
+            # ONE collective per step carrying BOTH stop conditions. Divergence and the time budget are decided
+            # together and identically on every rank, because any rank that leaves the loop while another is still
+            # in it strands the survivor in a collective with no partner -- which is exactly how run 3's arm A died:
+            # rank 0 hit the budget and returned while rank 1 entered the next step, then sat in an all-reduce until
+            # the 600 s NCCL watchdog aborted it. The checkpoint had already been written, so it was survivable, but
+            # it must not recur. Merging the two flags into one all-reduce also keeps the per-step cost at one.
+            #
+            # The divergence half: an fp16 forward that overflows gives inf logits -> NaN loss -> GradScaler skips
+            # the step -> the weights never change -> the same forward overflows again. A self-sustaining deadlock
+            # the scaler cannot break (it rescales GRADIENTS; the overflow is in the forward). Run 2's CE arm fell
+            # into it at step 24 and burned ~11 T4-hours emitting NaN before printing MVE-DONE on a model frozen at
+            # step 23. No .done is written here, so a diverged run can never be mistaken for a completed one.
             bad = 0.0 if math.isfinite(loss_v) else 1.0
+            timeup = 1.0 if (a.time_budget_min > 0 and (time.time() - t_run) / 60.0 > a.time_budget_min) else 0.0
             if ddp:
-                bt = torch.tensor([bad], device=dev)
-                torch.distributed.all_reduce(bt, op=torch.distributed.ReduceOp.MAX)
-                bad = float(bt.item())
+                ft = torch.tensor([bad, timeup], device=dev)
+                torch.distributed.all_reduce(ft, op=torch.distributed.ReduceOp.MAX)
+                bad, timeup = float(ft[0].item()), float(ft[1].item())
             n_bad = n_bad + 1 if bad > 0 else 0
             if n_bad >= a.max_nonfinite:
                 log(f"\n[DIVERGED] loss non-finite for {n_bad} consecutive steps (stage {st}, gstep {gstep}).")
@@ -499,7 +546,7 @@ def main():
                     f"kd@{nkd}/{a.batch*a.seq*a.accum}" + (f" nce={nce:.3f} gate={gate:+.4f}" if model.recall else ""))
             if (time.time() - t_ck) / 60.0 > a.ckpt_min:
                 save_resume(si, i + 1, b0); t_ck = time.time(); log(f"  [ckpt] resume-point at gstep {gstep}")
-            if a.time_budget_min > 0 and (time.time() - t_run) / 60.0 > a.time_budget_min:
+            if timeup > 0:                              # agreed by all ranks above, never decided locally
                 save_resume(si, i + 1, b0)
                 log(f"\n[TIME-BUDGET {a.time_budget_min:.0f}min HIT at gstep {gstep}] resume checkpoint -> {rpath}")
                 log("MVE-INCOMPLETE: re-launch the IDENTICAL command with --resume to continue.")
