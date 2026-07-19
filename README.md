@@ -32,7 +32,7 @@ The answer is a **split design**:
 
 Both tiers obey one rule — **never a random, per-token gather**, the CPU's worst case. Every weight is either cache-resident and reused on every token, or streamed from DRAM in bulk, contiguous chunks.
 
-> **Honest status.** This is a **research project**, not a finished product. The validated foundation *and* a working single-binary C inference engine have been measured end-to-end on real Zen 2 hardware (below) — every optimization parity-gated against an fp32 reference. The scale-up design gate is now closed, the architecture is frozen as a spec, and the first pilot of the training ladder is running — but **nothing above the ~8.3M sandbox is trained yet**, so every number on this page comes from the sandbox, the engine, or a clearly-labelled model. Every one of them comes from a real experiment, stated with its honest limitations.
+> **Honest status.** This is a **research project**, not a finished product. The validated foundation *and* a working single-binary C inference engine have been measured end-to-end on real Zen 2 hardware (below) — every optimization parity-gated against an fp32 reference. The scale-up design gate is closed, the architecture is frozen as a spec, and the ladder's 30M pilot has now run end-to-end — **one of its five pre-registered gates failed, and the failure is published here** (§8). The pilot was a test of the *machinery*, not of quality: **no quality claim exists above the ~8.3M sandbox**, so every number on this page comes from the sandbox, the engine, or a clearly-labelled model. Every one of them comes from a real experiment, stated with its honest limitations.
 
 ---
 
@@ -121,6 +121,26 @@ Read that claim precisely: it is a **modeling** result (the model's own weights 
 
 **Logs are a real boundary, and we publish it as one.** A log corpus overfits at 773K deduplicated tokens and lands ~10× *above* the LZ floor: template repetition is exactly what a classical compressor is best at, and an SSM has no advantage there. Logs are therefore **eval-only** for now, routed to a future LZ/SSM hybrid lane rather than counted as a win.
 
+### 8 · The ladder pilot ran — and one pre-registered gate failed
+
+Before committing months of compute to the training ladder, the whole recipe was run end-to-end at pilot scale: a 30.1M-total / 11.2M-active student, full A→F curriculum (data → teacher logits → KD → ternary QAT → MoE upcycle + recall → reverse-KL), on TinyStories, on free Kaggle T4s. Five gates were **pre-registered before the run** in [`benchmarks/phase64/MVE_PREREG.md`](benchmarks/phase64/MVE_PREREG.md) — the commit date is the witness.
+
+| # | gate | verdict |
+|---|---|---|
+| i | Cross-tokenizer KD beats plain CE | ⛔ **FAIL** — CE ahead at all four stage exits; **−0.0116 BPB ≈ 2.3σ_seed** |
+| ii | The recall/InfoNCE stage does not destabilize the curriculum | ✅ does not fire (−0.0007 ≈ 0.1σ) |
+| iii | No divergence at the KD→QAT switch | ✅ PASS — +0.32 BPB shock, fully recovered |
+| iv | A→F executes end-to-end **including resume from preemption** | ✅ PASS — multi-session per arm, zero non-finite steps in 60,000 |
+| v | Measured throughput | ✅ **3860 tok/s on 2×T4 = 1.80× DDP scaling** |
+
+**Gate (i) is the interesting one, so it gets the most words.** The plan was to distill from a larger teacher across a *different tokenizer* — the student's vocabulary is 1024, the teacher's is not. Mapping the teacher's distribution onto student tokens is a many-to-one collapse (`" the"`, `" then"`, `" they"` share a first token), and a measurement before launch showed the naive form retained only ~15% of the teacher's entropy. The chain-rule fix recovered 83–86% at zero extra teacher compute — and **it still lost to simply training on the teacher's text with cross-entropy.**
+
+One confound is stated plainly: the pilot's teacher is a *code* model scoring *children's stories*, so this is a measurement of cross-tokenizer KD **off-domain**. The general claim "span-KD is dead" is therefore **not** inherited. The recipe's default flips to CE-primary because that is what won; span-KD survives as a **challenger**, to be re-run on-domain as one pre-registered A/B.
+
+This is what the pre-registration was for. The full adjudication, including a second finding the run surfaced by accident, is in [`docs/PHASE64_TRAINING_PLAN.md`](docs/PHASE64_TRAINING_PLAN.md) §13.
+
+> Two earlier attempts at this run were **voided by apparatus faults**, and both are logged in the pre-registration (§7) rather than quietly re-run. The instructive one: in fp16, a *forward* overflow produces NaN loss → the grad scaler skips the step → the weights never change → the identical forward overflows again. The run sat in that deadlock for 19,973 of 20,000 steps and then printed its success banner. Non-finite losses are now a fatal condition, not a skipped step.
+
 ---
 
 ## Status
@@ -141,7 +161,8 @@ Read that claim precisely: it is a **modeling** result (the model's own weights 
 | **Cat-A transfer (code)** | ✅ **validated** | **held-out code 1.242 BPB, below the zstd-19/brotli-q11 floor**; sparsity + predictability reproduce |
 | Cat-A transfer (logs) | ⛔ measured boundary | overfits at 773K tokens, ~10× above the LZ floor → eval-only |
 | Scale-up design gate (Phase 64) | ✅ closed — spec frozen | speed/footprint are *slack* in the trainable region; training budget, data and quality-per-param are the binding walls |
-| Scale-up model (the ladder) | 🔄 pilot training now | nothing above the ~8.3M sandbox trained yet — no result claimed |
+| Ladder pilot (MVE, 30M) | ✅ completed — mechanism validated, **one gate FAILED** | A→F end-to-end + resume; **3860 tok/s on 2×T4 = DDP 1.80×**; **cross-tokenizer KD lost to plain CE (−0.0116 BPB ≈ 2.3σ_seed) → the recipe flipped to CE-primary** |
+| Scale-up model (quality at scale) | ⬜ not started | the pilot tested the *machinery*, not quality — no quality claim exists above the sandbox |
 
 <sub>Notes: training A/B verdicts are single-seed (seed 0; measured seed variance σ ≈ 0.005 BPB). "Ternary 1.58-bit" refers to the weights' information content; the engine stores them at 4 bits/weight today (trit-pack queued). Architectural properties measured on TinyStories at ~8–22M params, then re-measured on code/logs (§7). Nothing above the sandbox scale is trained.</sub>
 
@@ -152,8 +173,8 @@ See [`docs/SCALEUP_ARCHITECTURE.md`](docs/SCALEUP_ARCHITECTURE.md) for the full 
 ## What this is *not* (scope discipline)
 
 - **Not a scale-up speedup yet.** The engine's 176→848 tok/s single-thread (→ ~2.0K on 6 cores) is real, but at ~8.3M sandbox scale everything is cache-resident — it validates *correctness* and *kernel-level* speed, not the streamed two-pool bandwidth at billions of parameters (which is counted and priced, not yet run — see [`docs/SIZING.md`](docs/SIZING.md), including the unmeasured DDR4 multi-thread contention). The measured thread scaling is bandwidth aggregation across a still cache-resident model; the DRAM-streamed ceiling is lower (~1.4–1.5×). The probes measure architectural *properties*; the scale-up engine is the next frontier.
-- **Not a finished LLM.** The sandbox model is trained on TinyStories at ~8–22M parameters to isolate architectural questions cleanly; the product domain was then tested separately (§7 — code validated, logs a measured boundary). Broad-distribution quality **at scale** remains future work: the design gate is closed and the first ladder pilot is training, but **no scale-up model exists yet**, and any sizing figure in [`docs/PHASE64_BUDGET.md`](docs/PHASE64_BUDGET.md) is a desk prediction from a measured bandwidth model — not a trained result.
-- **Not yet one fused system.** The long-context recall tier and the engine's thinking core are still **two separate lineages**. The scale-up spec commits to fusing them (one recall slot in the trained model) and the C-side query cost now passes its gate, but the *integration* — a model actually trained with the slot — is exactly what the running pilot is testing. Unproven until it reports.
+- **Not a finished LLM.** The sandbox model is trained on TinyStories at ~8–22M parameters to isolate architectural questions cleanly; the product domain was then tested separately (§7 — code validated, logs a measured boundary). Broad-distribution quality **at scale** remains future work: the design gate is closed and the ladder's 30M pilot has run, but that pilot deliberately gated *mechanism, not quality* (TinyStories at 30M is not a quality target), so **no scale-up quality result exists yet**, and any sizing figure in [`docs/PHASE64_BUDGET.md`](docs/PHASE64_BUDGET.md) is a desk prediction from a measured bandwidth model — not a trained result.
+- **Not yet one fused system.** The long-context recall tier and the engine's thinking core are still **two separate lineages**. The scale-up spec commits to fusing them (one recall slot in the trained model) and the C-side query cost now passes its gate, but the *integration* — a model actually trained with the slot — has now been exercised once, at pilot scale: the slot trains and destabilizes nothing (§8, gate ii). It also showed **no measurable benefit** — on a corpus with no real recall task, which is the honest reading. Whether the fused system actually *helps* is unproven until it is measured on data where recall matters.
 - **Honest about magnitude.** Individual levers are stated at their *predictor-free, measured* value (e.g. 2.12× sparsity, ~3× residency), never the optimistic ceiling. The compound win is one-to-two orders of magnitude, but no single headline number is load-bearing.
 
 ---
