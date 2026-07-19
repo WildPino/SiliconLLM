@@ -102,3 +102,43 @@ fp16-no-bf16 on T4 → loss-scaled AMP, MVE-validated | preemption → ckpt ~30 
 - **Licenses live-verified:** Qwen2.5-Coder-1.5B **Apache-2.0** ✓; 3B **qwen-research** (non-commercial) ✓ → **the license-clean upgrade path is the 7B (Apache-2.0), not the 3B** — recorded accordingly (engaged only if the MVE shows teacher-limited KD; product-bound student keeps license-clean teachers only). Gemma-4-12B = Apache-2.0 confirmed live (decision-moot, recorded).
 - **Student instantiated:** 11.0M dense → 30.1M total / 11.2M active post-upcycle = the S0 shape ✓. Curriculum A→F end-to-end with DDP, resume, and the chunked generate→train→delete pipeline *exercised, not simulated*.
 - **BLOCKER (owner action): `bigcode/the-stack-v2(-dedup)` is gated on HF (401 on the README itself).** The §10 content-path smoke needs an HF token from an account that has accepted the dataset terms. Until then the ingestion-script assumption stays unverified — load-bearing for rung-1 data work (not for the MVE, which runs on TinyStories).
+
+## 12. Inventor pass returns — adjudicated (2026-07-19)
+
+Source: branch `inventor/s2-s3-probes`, `docs/in_research/INVENTORE_06_ARCHITECT_REPORT.md` (FINAL v1). Verified independently: no branch commit touches `benchmarks/phase64/` (the in-flight MVE run is unaffected); seal-before-run ordering witnessed in history (brief `5b01637` → A/B `3e20092`; 3-seed protocol `2757f21` → adjudication `49fbdd2`); the 3-seed statistics and the byte fractions re-derived from the frozen shapes (x_proj is d_inner 512 → 208; low-rank = 720·r params/layer → 35.2%/17.6% ✓; param deltas 346K/439K = 5 Mamba layers ✓).
+
+- **S1 structured x_proj — adopted at sandbox scale, queued as a rung-1 boundary A/B.** r=26 beats dense in 3/3 paired seeds (mean Δ −0.0095, ctl σ_seed 0.0027) at 17.6% of x_proj bytes, under a sealed C1 criterion. Per D1 (structural deviations need their own gate) it enters the ladder only through a **declared A/B arm at the S0 boundary, sequenced AFTER the D3 vocab A/B and run on the vocab winner** (one variable per stage); its gate is pre-registered before that run. Two caveats recorded: the "r26 is the most seed-stable arm" reading is suggestive only (n=3 σ-of-σ); and within the v1 ladder N is fixed, so the v1 win is ~1.76 MB resident fp32 freed across the 5 Mamba layers + compute on the dominant proj-GEMV class — the "share grows with state size" claim belongs to the 10B trajectory, not the ladder.
+- **ε-identity law adopted as project law** (generalizes §11's upcycle magnitude-matching): every curriculum switch (C→D→E→F, and any hot-swap inside a stage) must be a functional ε-identity at switch time, verified by transition-BPB continuity. α-scheduled QAT (~15 lines, end-state bit-identical) stays armed on MVE gate (iv): shock → apply; clean → park.
+- **Ternary weights measured incompressible** (trits at 99.9% of max entropy, no pair/row structure) → the engine-v2 denser trit-pack is *the only byte lever on the pool*; no entropy-decode stage for weights is ever built. Conditional re-measure on KD→QAT checkpoints (different training pressure).
+- **Pending-on-MVE ledger (minutes each, CPU):** S2 rerun on the stage-D checkpoint; S3 rerun + replica-divergence telemetry on the stage-E (upcycled) checkpoint; S5 α-QAT apply-or-park on the gate-(iv) verdict.
+- Housekeeping: `results/phase57/s1c_*.pt` (9 files) are local-only backing a kept claim → promote to release assets per the backup rule.
+
+## 13. MVE returns — the five gates read (2026-07-19, run 3) — supersedes §5's desk table
+
+**Deviations restated at gate-reading, as promised:** run 3 ran `--warmup 200` on ALL THREE arms (declared pre-run in `67efd9f`, after run 2 falsified the pre-registered flat LR — the deviation is arm-symmetric, so every A/B below is internally valid). Run hygiene: zero non-finite steps in 60,000; arms A and C bit-identical through fine-D (third determinism confirmation); all arms MVE-DONE. Stage-exit BPB (A span-KD/recall-on · B CE/recall-on · C span-KD/recall-off): C .7932/.7853/.7932 · D .7557/.7441/.7557 · E .8095/.7367/.8119 · F .7015/.6902/.7022.
+
+| gate | verdict | load-bearing number |
+|---|---|---|
+| (i) D3: span-KD beats CE | **FAIL** | CE ahead at all four stage exits; **citable number = fine-D −0.0116** (stage-F ops differ across arms: A/C reverse-KL, B plain CE at lr×0.1 → final −0.0113 ≈ 2.2σ_seed concurs but is structurally impure) |
+| (ii) D4 clause-2 (InfoNCE) | **does NOT fire** | A−C final −0.0007 ≈ 0.1σ — recall neither destabilizes nor helps (3rd independent confirmation) |
+| (iii) KD→QAT stability | **PASS — and the α-QAT trigger FIRES** | shock +0.3214/+0.3216/+0.3214, identical across arms (a property of ternarization, not of the arm), full recovery |
+| (iv) pipeline A→F + resume | **PASS** | multi-session per arm, cross-stage surgery replay, zero NaN |
+| (v) throughput | **PASS** | **3860 tok/s on 2×T4 = DDP 1.80×** vs single-T4 2139 (≥1.6 gate; the sealed P3 DDP-validation item closes here) |
+
+**Adjudication:**
+1. **D3 consequence — the rung-1 default flips to CE-primary.** Declared deviation from the written fallback ("sequence-level becomes primary"): that clause presumed a *mapping* failure; the measured failure is KD-signal-loses-to-CE outright, and promoting an untested, weaker KD form over the measured winner would contradict the same evidence — the deviation is in the conservative direction (adopt what won). The off-domain confound (Qwen2.5-Coder scoring TinyStories) is real and structural to the pilot, so the general claim "span-KD is dead" is **not inherited**: **span-KD becomes a challenger** — one pre-registered on-domain A/B at S0 on a bounded KD-subset arm (MVE arm structure reused on code data). Sequence-level stays parked. Note: the 4/4 deficit does not hinge on the E anomaly (pre-E gaps: −0.0079, −0.0116).
+2. **Recall stays IN v1 by the sealed clause** (no destabilization), with zero measured benefit recorded three times — on TS, which has no true recall task (InfoNCE positives were mined bigram-repeats). **Pre-registered NOW, before any rung-1 number exists: if the S0 MQAR-style recall gate + no-recall control on code data again shows benefit ≤ σ_seed, recall demotes to declared-v2.**
+3. **α-QAT applies at rung-1 stage D** (trigger read: +0.32 is a shock, not clean; the fix is the ε-identity law's free application — ~15 lines, end-state bit-identical; declared refinement, no gate touched).
+4. **New head of investigation (independent of D3): the D→E upcycle violates the ε-identity law arm-independently** (+0.07 residual shock *after* magnitude matching) **and the KD arms fail to recover it within E's budget** (+0.0538/+0.0562 net vs CE −0.0074). Instruments already queued and now unblocked (stage-D/E checkpoints exist): S2 rerun on QAT weights, S3 rerun + replica-divergence telemetry on the upcycled pool, M4 (QAT↔upcycle ordering). $0, CPU, minutes each.
+5. **Apparatus queue (Builder, before rung-1):** make the time-budget stop decision collective (NCCL race: rank 0 checkpoints while rank 1 enters the guard all_reduce → watchdog SIGABRT at 600s; benign — checkpoint is atomic and pre-saved — but guard-introduced); fix the dark-knowledge diagnostic printing the anchor retention number while training runs in span mode (cosmetic, but it lives inside a gate-bearing log).
+
+**The re-priced ladder (the single re-price event; gates unmoved).** Basis: **3860 tok/s measured at the S0 shape** (2×T4 DDP, compute-all at E32 — a *floor*: after the sparse-slot rewrite, active compute is fixed by design across rungs, so tok/s stays ≈flat; the rewrite is therefore **cost-model-critical**, not just a memory fix); scoring 2283 tok/s (3060) now needed **only for the challenger subset** — CE-primary dissolves the bulk logit cost.
+
+| rung | tokens | session-h (re-priced) | note |
+|---|---|---|---|
+| S0 30M | 0.8-1.5B | ~58-108 (+50-80% arms overhead) | A/B sequence: vocab (D3) → x_proj (§12) → KD-challenger |
+| S1 105M | 2-4B | ~144-288 | conditional on the sparse-slot rewrite |
+| S2 206M | 5-8B | ~360-576 (+5090 window) | |
+| teacher logits | ~0.2-0.3B teacher-tok | ~25-40 h on the 3060, off-Kaggle | challenger subset only |
+
+**Total ≈ 600-1000 session-h ≈ 5-8+ weeks at aggregate quota — the §5 desk bracket's upper half; the $0-path holds; €100 remains a calendar-compression option only. STOP-B is open: owner decides.** Rung-1 critical path: HF Read-token + AWS S3 access (data), sparse-slot rewrite, NCCL stop fix, α-QAT patch, then the sealed A/B sequence.
