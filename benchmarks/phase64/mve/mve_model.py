@@ -23,6 +23,23 @@ from phase57_ternary import BitLinear158            # noqa: E402
 from phase59_moe import MoEMLP                      # noqa: E402
 
 
+class LowRankLinear(nn.Module):
+    """y = U(V(x)), bias-free -- matches x_proj, which has no bias. Params r*(fin+fout) vs fin*fout.
+
+    Ported unchanged in behaviour from the Inventor's s1c_structured_xproj.py, where r=26 beat the dense
+    control in 3/3 seeds (mean -0.0095, ~3.5 sigma) at 17.6% of the x_proj bytes. Applied at CONSTRUCTION,
+    before any training -- it is a parameterization of the model, not a curriculum switch, so the epsilon-identity
+    law does not apply to it and there is nothing to ramp.
+    """
+    def __init__(s, fin, fout, r):
+        super().__init__()
+        s.Vl = nn.Linear(fin, r, bias=False)
+        s.Ul = nn.Linear(r, fout, bias=False)
+
+    def forward(s, x):
+        return s.Ul(s.Vl(x))
+
+
 class SparseMoEMLP(MoEMLP):
     """Active-only MoE training: gather the tokens routed to each expert, run that expert on those tokens alone,
     and scatter the weighted results back. Same parameters, same maths, k/E of the work.
@@ -234,6 +251,18 @@ class MVEStudent(ArchA):
                 setattr(blk.mlp, name, bl); n += 1
         s.is_ternary = True
         return n
+
+    def lowrank_xproj(s, r):
+        """Replace every SSM x_proj with a rank-r factorization. Returns (n_swapped, dense_bytes, lowrank_bytes)."""
+        n = 0; dn = 0; ln = 0
+        for blk in s.blocks:
+            mix = getattr(blk, "mix", None)
+            xp = getattr(mix, "x_proj", None)
+            if xp is None or isinstance(xp, LowRankLinear): continue
+            fin, fout = xp.in_features, xp.out_features
+            mix.x_proj = LowRankLinear(fin, fout, r)
+            dn += fin * fout; ln += r * (fin + fout); n += 1
+        return n, dn, ln
 
     def set_qat_alpha(s, a):
         """Drive the stage-D interpolation. Returns how many modules were touched (0 if not alpha-scheduled)."""

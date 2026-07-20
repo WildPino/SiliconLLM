@@ -157,7 +157,10 @@ def kd_loss(logits_a, q, reverse=False):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tag", default="smoke")
-    ap.add_argument("--arm", choices=["kd", "ce"], default="kd", help="kd = teacher KD; ce = the D3 control arm")
+    ap.add_argument("--arm", choices=["kd", "ce"], default="ce",
+                    help="ce = CE-PRIMARY, the rung-1 default after gate D3 failed at the MVE (plain CE beat "
+                         "span-KD at all four stage exits, final -0.0112 = 2.2 sigma). kd = the challenger arm, "
+                         "which must now be asked for explicitly rather than inherited.")
     ap.add_argument("--kd", choices=["anchor", "span"], default="anchor",
                     help="anchor = the SEALED D3 design (top-K projected onto the segment's first student token; "
                          "measured to deliver ~15%% of H(teacher)). span = prefix-conditioned over the whole segment "
@@ -182,6 +185,26 @@ def main():
                          "unchanged. Fails loudly if Triton is missing rather than silently no-op'ing.")
     ap.add_argument("--fp32-opt", action="store_true",
                     help="force fp32 AdamW instead of AdamW-8bit (the A/B control for the optimizer)")
+    ap.add_argument("--expect-slice-sha", default="",
+                    help="fail unless the logits manifest carries this slice fingerprint. The hash is sealed in the "
+                         "pre-registration, so a corpus or a slice that changed under a registered run cannot pass "
+                         "unnoticed. Verified at every start.")
+    ap.add_argument("--restrict-to-slice", action="store_true",
+                    help="sample ONLY the positions covered by the teacher logits, whatever the arm. Required for "
+                         "the screening: without it the CE control trains on the full corpus while the KD arm sees "
+                         "only the covered slice, and the comparison stacks subset-vs-corpus on top of KD-vs-CE.")
+    ap.add_argument("--dense-paired", action="store_true",
+                    help="stage E keeps the dense ternary MLP instead of upcycling to MoE: the ACTIVE-param-matched "
+                         "control (~11.0M dense vs ~11.2M active MoE). Branch it from the same stage-D artefact as "
+                         "the MoE arm. Any result must be cited as 'at equal active cost', with the total-param "
+                         "ratio alongside -- active-matching favours the MoE by construction (2.7x total params).")
+    ap.add_argument("--xproj-rank", type=int, default=0,
+                    help="0 = dense control; r>0 factorizes every SSM x_proj as U.V of rank r (Inventor S1: "
+                         "r=26 beat dense 3/3 seeds at 17.6%% of the bytes). Set at construction, not a stage switch.")
+    ap.add_argument("--branch-from", default="",
+                    help="fork from a stage-exit artefact and run only the stages AFTER it. Both arms of a "
+                         "stage-boundary A/B fork from the SAME file, so the fork point is byte-identical and "
+                         "only the downstream stages cost twice.")
     ap.add_argument("--save-stage-ckpt", default="",
                     help="dir for PERMANENT stage-exit checkpoints (model+cfg, no optimizer). Separate from "
                          "--resume-ckpt, which is transient and deleted on completion. Prerequisite for the "
@@ -254,10 +277,37 @@ def main():
     bpe = Bpe.load(os.path.join(DATA, f"bpe{V}_ts.bin"))
     el = torch.tensor(bpe.exp_len, dtype=torch.long)
     ntr = meta["n_train_tok"]; train_hi = ntr; val = ids[ntr:]
-    kdc = KDChunks(a.tag, seg_row, delete_behind=a.delete_behind) if a.arm == "kd" else None
+    # The CE control must see the SAME positions as the KD arm, so build the chunk index whenever the slice is in
+    # play -- even for --arm ce, which then uses it only for the sampling window and never reads a logit.
+    need_win = a.arm == "kd" or a.restrict_to_slice
+    kdc = KDChunks(a.tag, seg_row, delete_behind=a.delete_behind) if need_win else None
+    if kdc is not None:
+        man = kdc.man
+        sha = man.get("slice_sha256", "")
+        if a.expect_slice_sha:
+            if sha != a.expect_slice_sha:
+                sys.exit(f"ERROR: slice fingerprint mismatch.\n"
+                         f"  manifest : {sha or '(absent -- produced before slicing existed)'}\n"
+                         f"  expected : {a.expect_slice_sha}\n"
+                         f"  The corpus or the slice is not the one this run was registered against. Refusing.")
+            log(f"  slice verified: {man.get('n_windows_selected','?')}/{man.get('n_windows_total','?')} windows, "
+                f"seed {man.get('slice_seed','?')}, sha {sha[:16]}...")
+        elif sha:
+            log(f"  slice: {man.get('n_windows_selected','?')}/{man.get('n_windows_total','?')} windows, "
+                f"seed {man.get('slice_seed','?')}, sha {sha[:16]}... (not verified: --expect-slice-sha unset)")
+    kd_active = a.arm == "kd"          # whether KD LOSS is applied; the window is a separate concern
 
     # ---- model --------------------------------------------------------------------------------------
-    model = MVEStudent(V, **S0).to(dev)
+    model = MVEStudent(V, **S0)
+    if a.xproj_rank > 0:
+        # Applied BEFORE .to(dev) and before any stage surgery: this is a parameterization of the model, decided
+        # once at construction, not a curriculum switch. It changes state_dict KEYS (x_proj.weight becomes
+        # x_proj.Vl/.Ul), so a resume or a branch whose flag disagrees would fail on load -- the guard below makes
+        # that a clear message instead of a shape-mismatch traceback.
+        nx, dn, ln = model.lowrank_xproj(a.xproj_rank)
+        log(f"  x_proj low-rank r={a.xproj_rank}: {nx} swapped | {ln}/{dn} params = "
+            f"{100*ln/max(dn,1):.1f}% of dense")
+    model = model.to(dev)
     if a.compile_scan:
         # Compile the mixer's forward FUNCTION, not the module. torch.compile(module) returns an OptimizedModule
         # whose state_dict keys gain an "_orig_mod." prefix, which would silently break every resume and every
@@ -270,13 +320,17 @@ def main():
         for blk in model.blocks:
             mx = getattr(blk, "mix", None)
             if mx is not None and hasattr(mx, "A_log"):        # the SSM mixer, not the SWA layers
-                mx.forward = torch.compile(mx.forward, dynamic=False); nc += 1
+                # mode="default" PINNED, and max-autotune deliberately not used: autotuning benchmarks kernels at
+                # compile time and can pick a different winner per process, so session 2 would compile differently
+                # from session 1 and a resume would not be numerically continuous. Determinism was bought with a
+                # real bug fix in WS2; it is not handed back to Inductor for a throughput number.
+                mx.forward = torch.compile(mx.forward, dynamic=False, mode="default"); nc += 1
         log(f"  [compile-scan] regional torch.compile on {nc} SSM mixers (state_dict keys unchanged)")
     pr = param_report(model)
     log(f"Phase64.4 MVE | arm={a.arm} recall={a.recall} stages={a.stages} | dev={dev} amp={amp} ddp={ws}")
     log(f"  student S0: D{S0['D']} N{S0['N']} L{S0['L']} | params={pr['total']/1e6:.2f}M (MLP {pr['mlp']/1e6:.2f}M) "
         f"| V={V} | corpus {meta['bytes']/2**20:.0f}MiB, {meta['n_student_tok']} tok, anchors {100*meta['anchor_frac']:.1f}%")
-    log(f"  teacher={meta['teacher']} K={kdc.K if kdc else 0} | alpha={a.alpha} lam_nce={a.lam_nce} | seq={a.seq} batch={a.batch} steps={a.steps}")
+    log(f"  teacher={meta['teacher']} K={kdc.K if (kd_active and kdc) else 0} | alpha={a.alpha} lam_nce={a.lam_nce} | seq={a.seq} batch={a.batch} steps={a.steps}")
 
     # ---- KD TARGET AGREEMENT (the D3 mechanism check; run BEFORE any training, costs seconds) ---------
     # The span map is only worth training on if the projected teacher distribution actually points at the true next
@@ -287,7 +341,7 @@ def main():
     # `--kd span`, so every run-2/run-3 log carries "retained 13%" while the trainer was in fact retaining ~85% --
     # a number that was not wrong about anchor-KD, merely about this run. A gate-bearing log may not describe a
     # code path that is switched off.
-    if kdc is not None and P0:
+    if kd_active and kdc is not None and P0:
         rr = np.random.default_rng(7)
         w_lo, w_hi, idx0, loaded0 = kdc.window()                 # sample INSIDE the resident chunk window
         w_hi = min(w_hi, train_hi - a.seq - 1)
@@ -392,7 +446,7 @@ def main():
             logits, aux = net(x, y)
         ce = F.cross_entropy(logits.float().reshape(-1, V), y.reshape(-1), reduction="none")   # (B*T,)
         nkd = 0; kd_m = torch.zeros((), device=dev)
-        if kdc is not None and a.alpha > 0:
+        if kd_active and kdc is not None and a.alpha > 0:
             pf = (p[:, None] + np.arange(a.seq)[None, :]).reshape(-1)            # global student index of each slot
             if a.kd == "anchor":
                 row = anchors[pf]                                                # KD only AT the segment start
@@ -442,6 +496,16 @@ def main():
                 return (f"[D] QAT switch: {n} MLP linears -> BitLinear158Alpha (weights carried), lr x0.5 | "
                         f"alpha 0->1 over {a.qat_alpha} steps (epsilon-identity)")
             return f"[D] QAT switch: {n} MLP linears -> BitLinear158 (weights carried), lr x0.5"
+        if st == "E" and a.dense_paired:
+            # ACTIVE-PARAM-MATCHED control: stage E runs with its full step budget and the same recall insertion,
+            # but the MLP stays dense-ternary. ~11.0M dense vs ~11.2M active in the MoE arm -- matched on what the
+            # engine actually pays per token, which is the claim the product thesis makes (active != total).
+            # Deliberately NOT total-matched: a 30M dense answers a different, more academic question.
+            msg = "[E] dense-paired control: MoE upcycle SKIPPED (MLP stays dense-ternary, active-param-matched)"
+            if a.recall == "on":
+                nr = model.add_recall(lam_nce=a.lam_nce); msg += f" + recall slot ({nr/1e3:.1f}K par, gate=0)"
+            model.to(dev)
+            return msg
         if st == "E":
             n = model.upcycle_moe(dev_type=dev_type, load_w=a.load_w, seed=a.seed, sparse=a.sparse_moe)
             msg = (f"[E] MoE upcycle: {n} MLPs -> E{MOE['E']}xh{MOE['hid_e']} top{MOE['k']} (magnitude-matched seed"
@@ -459,6 +523,20 @@ def main():
         if ddp: torch.distributed.destroy_process_group()
         return
 
+    def restore_qat_alpha(start_si):
+        """alpha is a plain attribute, NOT a state_dict entry, so loading weights does not restore it. Replaying the
+        stage-D surgery sets it to 0 (the epsilon-identity at the switch), and only stage D's own loop ramps it to 1
+        -- so any restart PAST stage D leaves the model sitting at alpha=0, i.e. not ternary at all.
+
+        This stays invisible whenever stage E upcycles, because the upcycle REPLACES the BitLinear158Alpha modules
+        outright. It bites exactly one arm: --dense-paired, which keeps them. That arm would have trained and been
+        reported in fp32 against a ternary MoE arm, with a perfectly plausible BPB and nothing to flag it.
+        Stage D is complete at any such restart, so the correct value is exactly 1.0."""
+        if a.qat_alpha <= 0 or "D" not in stages: return
+        if stages.index("D") < start_si:
+            n = model.set_qat_alpha(1.0)
+            if n: log(f"  [alpha] stage D already complete -> alpha=1.0 restored on {n} modules")
+
     rows = []; hist = []; gstep = 0; start_si = 0; start_step = 0; resumed_b0 = float("nan")
     t_run = time.time()
 
@@ -470,8 +548,10 @@ def main():
                      f"It was produced by a superseded apparatus -- delete it (and any final_*.pt / *.done next to it) "
                      f"and start this arm from scratch. Resuming across an apparatus fix would silently mix two runs.")
         if ck.get("stages") != stages or ck["cfg"]["steps"] != a.steps or ck["cfg"]["arm"] != a.arm \
-           or ck["cfg"]["kd"] != a.kd or ck["cfg"]["recall"] != a.recall:
-            sys.exit(f"ERROR: resume checkpoint {rpath} does not match this command (stages/steps/arm/kd/recall).")
+           or ck["cfg"]["kd"] != a.kd or ck["cfg"]["recall"] != a.recall \
+           or ck["cfg"].get("xproj_rank", 0) != a.xproj_rank:
+            sys.exit(f"ERROR: resume checkpoint {rpath} does not match this command "
+                     f"(stages/steps/arm/kd/recall/xproj_rank).")
         start_si = ck["stage_idx"]; start_step = ck["step_in_stage"]; gstep = ck["gstep"]
         rows = ck["rows"]; hist = ck["hist"]; resumed_b0 = ck.get("stage_b0", float("nan"))
         for st in stages[:start_si + 1]:
@@ -481,7 +561,50 @@ def main():
         opt = make_opt(STAGE_LR[stages[start_si]])
         model.load_state_dict(ck["model"]); opt.load_state_dict(ck["opt"]); scaler.load_state_dict(ck["scaler"])
         if kdc is not None: kdc.pos = ck["kdc_pos"]; refresh()
+        restore_qat_alpha(start_si)
         log(f"  [resume] {rpath}: stage {stages[start_si]} step {start_step}/{budget[stages[start_si]]} gstep {gstep}")
+
+    elif a.branch_from:
+        # BRANCH-FROM-STAGE: fork both A/B arms of a stage-boundary experiment from ONE shared upstream state, so
+        # only the stages after the fork run twice. The fork must be byte-identical on both arms: same weights,
+        # same gstep (batch sampling is a pure function of it), same KD chunk window, same GradScaler. The
+        # optimizer is deliberately NOT restored -- stage entry rebuilds it on the baseline path too, so a fresh
+        # one is what the baseline itself would have had.
+        bk = torch.load(a.branch_from, map_location=dev, weights_only=False)
+        if bk.get("fmt") != "mve-stage-2":
+            sys.exit(f"ERROR: {a.branch_from} has fmt={bk.get('fmt')!r}, expected 'mve-stage-2'. A stage artefact "
+                     f"from the older format lacks the scaler/kdc state and would fork a NON-identical run.")
+        bsi = bk["stage_idx"]
+        if bsi + 1 >= len(stages):
+            sys.exit(f"ERROR: {a.branch_from} is stage {bk['stage']}, which is the last in --stages {a.stages}.")
+        start_si = bsi + 1; start_step = 0; gstep = bk["gstep"]
+        rows = list(bk["rows"]); hist = list(bk["hist"])
+        for st in stages[:bsi + 1]:
+            m = stage_surgery(st)
+            if m: log(f"  [branch] replay surgery: {m}")
+        model.load_state_dict(bk["model"]); scaler.load_state_dict(bk["scaler"])
+        if kdc is not None: kdc.pos = bk["kdc_pos"]; refresh()
+        restore_qat_alpha(start_si)
+        net = wrap(model)
+
+        # FORK-POINT ASSERTION -- a general detector, not a fix for the last bug.
+        # Three times now, state living OUTSIDE state_dict has failed to survive a checkpoint boundary: kdc.pos,
+        # the GradScaler, and the alpha of BitLinear158Alpha. The failure mode is identical and maximally
+        # insidious every time: the restored model is wrong yet trains to a perfectly plausible loss. The alpha
+        # case would have compared an fp32 control against a ternary arm and called it "at equal active cost".
+        # Test coverage could not be relied on to catch these -- the alpha bug was invisible to every arm whose
+        # stage E replaces the alpha modules, so coverage depended on which arm happened to exist.
+        # So: before the new stage does anything, the fork must reproduce its parent's exit BPB. Same weights,
+        # same deterministic eval -> the numbers must agree. Whatever state we have not yet discovered we carry,
+        # this catches it.
+        fb = val_bpb(a.eval_tok)
+        if abs(fb - bk["bpb"]) > 1e-4:
+            sys.exit(f"ERROR: fork point does not reproduce its parent.\n"
+                     f"  parent exit BPB = {bk['bpb']:.6f}   fork entry BPB = {fb:.6f}   delta = {fb-bk['bpb']:+.6f}\n"
+                     f"  Some state outside state_dict was not restored. This branch is VOID -- do not train on it.")
+        log(f"  [fork-check] reproduces parent exit BPB {fb:.4f} (delta {fb-bk['bpb']:+.6f}) -- branch valid")
+        log(f"  [branch] forked from {a.branch_from} (end of stage {bk['stage']}, BPB {bk['bpb']:.4f}, "
+            f"gstep {gstep}) -> resuming at stage {stages[start_si]}")
 
     def save_resume(si, step_next, sb0):
         if not P0: return
@@ -586,12 +709,20 @@ def main():
         # deleted on completion, which is why run 3 left no stage-D checkpoint and WS6 could not probe one.
         # These are permanent artefacts, and they are the prerequisite for the rung-1 branch-from-D A/B: both
         # upcycle arms fork from ONE shared stage-D state, so E+F (~25% of the tokens) is all that runs twice.
-        # Model + cfg only -- no optimizer state, which is where the bulk of a resume file's bytes live.
+        # No optimizer state, which is where the bulk of a resume file's bytes live -- see the note below for
+        # exactly which cross-boundary state IS carried, and why the optimizer is not part of it.
         if a.save_stage_ckpt and P0:
             sp = os.path.join(a.save_stage_ckpt, f"stage_{st}_{a.arm}_{a.kd}_{a.recall}_{a.tag}.pt")
             os.makedirs(a.save_stage_ckpt, exist_ok=True)
-            torch.save(dict(fmt="mve-stage-1", stage=st, gstep=gstep, bpb=b1,
-                            model=model.state_dict(), cfg=vars(a)), sp + ".tmp")
+            # Everything that SURVIVES a stage boundary must be here, or a branch is not byte-identical to the
+            # baseline at the fork. Optimizer moments are NOT in that set: stage entry rebuilds the optimizer
+            # (make_opt), so they are zero on both sides by construction -- model-only is right for them.
+            # The three that do survive: gstep (batch sampling is a pure function of it), kdc.pos (the KD chunk
+            # window), and the GradScaler (created once, never rebuilt -- a fresh one would restart at 65536 and
+            # skip steps the baseline did not skip). rows/hist ride along so the branch's report is continuous.
+            torch.save(dict(fmt="mve-stage-2", stage=st, stage_idx=si, gstep=gstep, bpb=b1,
+                            model=model.state_dict(), scaler=scaler.state_dict(),
+                            kdc_pos=(kdc.pos if kdc else 0), rows=rows, hist=hist, cfg=vars(a)), sp + ".tmp")
             os.replace(sp + ".tmp", sp)
             log(f"     [stage-ckpt] {sp}  ({os.path.getsize(sp)/2**20:.0f} MiB)")
         start_step = 0

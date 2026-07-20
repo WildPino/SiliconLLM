@@ -18,7 +18,7 @@
 #           --backend vllm (Linux/Kaggle; same output format, same chunk files)
 #
 # Run: .venv/Scripts/python.exe benchmarks/phase64/mve/mve_logits.py --tag smoke --backend hf --quant fp16
-import argparse, json, math, os, sys, time
+import argparse, hashlib, json, math, os, sys, time
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -70,6 +70,34 @@ class ChunkWriter:
         return meta
 
 
+SLICE_SEED = 20260719          # sealed in the rung-1 pre-registration (the seal date, so an auditor can verify
+                               # the seed PRECEDES the corpus it samples). Never chosen at sampling time.
+
+
+def slice_windows(starts, frac, seed):
+    """Uniform random subsample of the scoring windows, plus the fingerprint that makes it auditable.
+
+    WHY uniform and WHY declared: which tokens carry teacher signal must not become a hidden second variable.
+    Any value-based selection ("highest-value code") would confound the KD-vs-CE comparison with a data-quality
+    choice, and the criterion for it is undefined in the plan anyway. That experiment is a separate one, later.
+
+    Returns (selected_starts, fingerprint_dict). The fingerprint goes in the manifest and is re-verified at every
+    training start, so a corpus that silently changed under a run cannot go unnoticed.
+    """
+    st = np.asarray(sorted(starts), dtype=np.int64)
+    if frac >= 1.0:
+        sel = st
+    else:
+        rng = np.random.default_rng(seed)                     # seed only: reproducible from the prereg alone
+        k = max(1, int(round(len(st) * frac)))
+        sel = np.sort(rng.choice(len(st), size=k, replace=False))
+        sel = st[sel]
+    h = hashlib.sha256(sel.tobytes()).hexdigest()
+    return sel.tolist(), dict(slice_frac=float(frac), slice_seed=int(seed),
+                              n_windows_total=int(len(st)), n_windows_selected=int(len(sel)),
+                              slice_sha256=h)
+
+
 def windows(n, ctx, stride):
     """Uniform-length windows covering [1,n): the last one is CLAMPED to start at n-ctx rather than truncated, so
     every row is scored exactly once (prev_end skips the overlap) and every batch element has the same length."""
@@ -94,6 +122,7 @@ def run_hf(a, tids, W):
     n = len(tids)
     bs = a.batch
     starts, L = windows(n, a.ctx, a.stride)
+    starts, _fp = slice_windows(starts, a.slice_frac, a.slice_seed)
     t0 = time.time(); scored = 0; prev_end = 1
     with torch.no_grad():
         for bi in range(0, len(starts), bs):
@@ -133,6 +162,7 @@ def run_vllm(a, tids, W):
     n = len(tids)
     sp = SamplingParams(max_tokens=1, prompt_logprobs=K, temperature=0.0)
     starts, L = windows(n, a.ctx, a.stride)
+    starts, _fp = slice_windows(starts, a.slice_frac, a.slice_seed)
     t0 = time.time(); scored = 0; prev_end = 1
     for bi in range(0, len(starts), a.batch):
         grp = starts[bi:bi + a.batch]
@@ -161,6 +191,12 @@ def main():
     ap.add_argument("--stride", type=int, default=1024)
     ap.add_argument("--batch", type=int, default=2)
     ap.add_argument("--rows-per-chunk", type=int, default=1_000_000)   # ~160 MB/chunk
+    ap.add_argument("--slice-frac", type=float, default=1.0,
+                    help="score only this fraction of the windows, sampled UNIFORMLY at random. Both arms of the "
+                         "screening then train on the covered slice, so KD-vs-CE is not confounded with "
+                         "subset-vs-full-corpus.")
+    ap.add_argument("--slice-seed", type=int, default=SLICE_SEED,
+                    help="sealed in the pre-registration; do not choose this at sampling time")
     ap.add_argument("--max-tok", type=int, default=0, help="cap teacher tokens (smoke)")
     a = ap.parse_args()
 
@@ -169,11 +205,18 @@ def main():
     print(f"[B] teacher={a.teacher} backend={a.backend} quant={a.quant} ctx={a.ctx} stride={a.stride} batch={a.batch}")
     print(f"    scoring {len(tids)} teacher tokens (TEACHER-FORCED prefill; no autoregressive decode)", flush=True)
 
+    # recomputed here (deterministic in starts/frac/seed) so the FINGERPRINT lands in the manifest: the trainer
+    # re-verifies it against the value sealed in the pre-registration at every start.
+    _st, _L = windows(len(tids), a.ctx, a.stride)
+    _sel, fp = slice_windows(_st, a.slice_frac, a.slice_seed)
+    print(f"    slice: {fp['n_windows_selected']}/{fp['n_windows_total']} windows "
+          f"(frac={fp['slice_frac']}, seed={fp['slice_seed']}) sha256={fp['slice_sha256'][:16]}...", flush=True)
+
     W = ChunkWriter(OUT, a.tag, a.rows_per_chunk)
     scored, el = (run_hf if a.backend == "hf" else run_vllm)(a, tids, W)
     meta = W.close(dict(teacher=a.teacher, backend=a.backend, quant=a.quant, ctx=a.ctx, stride=a.stride,
                         batch=a.batch, n_teacher_tok=int(len(tids)), n_scored=int(scored),
-                        scoring_tok_s=scored / max(el, 1e-9), wall_s=el))
+                        scoring_tok_s=scored / max(el, 1e-9), wall_s=el, **fp))
     # ---- self-check: the stored row j must be the distribution PREDICTING teacher token j. If the off-by-one were
     # wrong, the true token would stop showing up in its own top-K. hit@32 on a real teacher must be high (~90%+).
     hits = tot = 0; ptrue = 0.0
