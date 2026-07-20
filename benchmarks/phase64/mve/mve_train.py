@@ -175,6 +175,17 @@ def main():
     ap.add_argument("--sparse-moe", action="store_true",
                     help="stage-E: active-only MoE dispatch instead of compute-all (grad-equivalent, "
                          "deterministic; the win scales with E -- 1.5x at E32, 4.3x at E128)")
+    ap.add_argument("--compile-scan", action="store_true",
+                    help="regional torch.compile on the SSM mixer only (Linux; needs Triton). The scan is the "
+                         "measured bottleneck: it materializes two (B,L,Dn,N) tensors per layer. Compiles the "
+                         "forward FUNCTION, not the module, so state_dict keys -- and therefore resume -- are "
+                         "unchanged. Fails loudly if Triton is missing rather than silently no-op'ing.")
+    ap.add_argument("--fp32-opt", action="store_true",
+                    help="force fp32 AdamW instead of AdamW-8bit (the A/B control for the optimizer)")
+    ap.add_argument("--save-stage-ckpt", default="",
+                    help="dir for PERMANENT stage-exit checkpoints (model+cfg, no optimizer). Separate from "
+                         "--resume-ckpt, which is transient and deleted on completion. Prerequisite for the "
+                         "rung-1 branch-from-D A/B.")
     ap.add_argument("--qat-alpha", type=int, default=0,
                     help="stage-D epsilon-identity: ramp alpha 0->1 over N steps (0 = hot-swap, the MVE behaviour). "
                          "Keep N <= ~10%% of stage D or the QAT pressure ramps in too late.")
@@ -247,6 +258,20 @@ def main():
 
     # ---- model --------------------------------------------------------------------------------------
     model = MVEStudent(V, **S0).to(dev)
+    if a.compile_scan:
+        # Compile the mixer's forward FUNCTION, not the module. torch.compile(module) returns an OptimizedModule
+        # whose state_dict keys gain an "_orig_mod." prefix, which would silently break every resume and every
+        # cross-run checkpoint comparison we rely on. Patching .forward leaves parameters and keys untouched.
+        import importlib.util
+        if importlib.util.find_spec("triton") is None:
+            raise SystemExit("--compile-scan needs Triton (Linux). It is absent here, and a silent no-op would "
+                             "put an unmeasured 'compiled' label on an uncompiled run. Refusing to continue.")
+        nc = 0
+        for blk in model.blocks:
+            mx = getattr(blk, "mix", None)
+            if mx is not None and hasattr(mx, "A_log"):        # the SSM mixer, not the SWA layers
+                mx.forward = torch.compile(mx.forward, dynamic=False); nc += 1
+        log(f"  [compile-scan] regional torch.compile on {nc} SSM mixers (state_dict keys unchanged)")
     pr = param_report(model)
     log(f"Phase64.4 MVE | arm={a.arm} recall={a.recall} stages={a.stages} | dev={dev} amp={amp} ddp={ws}")
     log(f"  student S0: D{S0['D']} N{S0['N']} L{S0['L']} | params={pr['total']/1e6:.2f}M (MLP {pr['mlp']/1e6:.2f}M) "
@@ -313,7 +338,7 @@ def main():
     # ONE optimizer factory: the stage transitions (D/E) rebuild the optimizer after the model surgery, and they must
     # rebuild the SAME kind -- otherwise the curriculum silently drops back to fp32 Adam states after stage C and the
     # plan's 8-bit memory budget stops holding where it matters most (the MoE stage, the biggest parameter count).
-    use8 = [dev_type == "cuda"]
+    use8 = [dev_type == "cuda" and not a.fp32_opt]
     def make_opt(lr):
         if use8[0]:
             try:
@@ -557,6 +582,18 @@ def main():
         tps = ntok_seen / max(dt, 1e-9)
         rows.append(dict(stage=st, steps=budget[st], bpb_in=b0, bpb_out=b1, d=b1 - b0, tok_s=tps, s=dt))
         log(f"  -> stage {st} done: val BPB {b0:.4f} -> {b1:.4f} ({b1-b0:+.4f}) | {tps:.0f} tok/s | {dt/60:.1f} min")
+        # STAGE-EXIT ARCHIVE -- deliberately NOT the resume file. The resume file is transient state that is
+        # deleted on completion, which is why run 3 left no stage-D checkpoint and WS6 could not probe one.
+        # These are permanent artefacts, and they are the prerequisite for the rung-1 branch-from-D A/B: both
+        # upcycle arms fork from ONE shared stage-D state, so E+F (~25% of the tokens) is all that runs twice.
+        # Model + cfg only -- no optimizer state, which is where the bulk of a resume file's bytes live.
+        if a.save_stage_ckpt and P0:
+            sp = os.path.join(a.save_stage_ckpt, f"stage_{st}_{a.arm}_{a.kd}_{a.recall}_{a.tag}.pt")
+            os.makedirs(a.save_stage_ckpt, exist_ok=True)
+            torch.save(dict(fmt="mve-stage-1", stage=st, gstep=gstep, bpb=b1,
+                            model=model.state_dict(), cfg=vars(a)), sp + ".tmp")
+            os.replace(sp + ".tmp", sp)
+            log(f"     [stage-ckpt] {sp}  ({os.path.getsize(sp)/2**20:.0f} MiB)")
         start_step = 0
 
     # ---- report ---------------------------------------------------------------------------------------

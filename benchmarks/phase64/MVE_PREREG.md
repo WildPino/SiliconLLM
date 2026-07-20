@@ -143,4 +143,26 @@ Recorded here, with the fixes, **before** the next run's numbers exist — the r
 
 **Unchanged:** the five gates, the three arms, the loss (α=0.5, KD/CE, reverse-KL at F), and the C→D→E→F curriculum.
 
+**UNDECLARED DEVIATION, found after the fact and logged here rather than quietly kept (discovered during WS5,
+2026-07-19).** §4 above seals **AdamW-8bit**. All three attempts in fact ran **fp32 AdamW**: `bitsandbytes` was not
+importable on the Kaggle image and the optimizer factory's `try` fell back to fp32.
+
+The uncomfortable detail, stated because it is the actual lesson: **this was never silent.** The factory logged
+`8-bit optimizer unavailable (...) -> fp32 AdamW`, and the run header printed `optimizer: AdamW` on every one of the
+three attempts. The information was in every log we read for other purposes. It was not missed because the apparatus
+hid it — it was missed because nobody was checking the log against the sealed choices. A pre-registration is not
+self-enforcing; nothing here compares what ran to what was sealed, and that gap is the finding. What it does and
+does not affect —
+- **It does not move any gate.** The optimizer is not a gate variable, and the fallback applied to all three arms on
+  the same image, so every A/B stays internally controlled.
+- **It cost nothing.** WS5 measured AdamW-8bit at **−6.0% throughput** for a BPB difference of −0.0006 (≪ σ_seed);
+  8-bit optimizers buy memory, and memory was never the binding constraint at this scale. The unplanned fallback was
+  the better of the two options.
+- **Fix:** the choice is now explicit (`--fp32-opt`) rather than reachable only through a failed import. But the real
+  fix is not a flag — it is that *someone must diff the run header against the sealed choices before a gate is read*.
+  Logging the truth is not the same as checking it. Handed to the Architect as a rung-1 prereg requirement.
+
+The rule this records: a pre-registration is worth exactly what its deviation log is worth, and a deviation found
+late still goes in the log — including one that turned out to be harmless, which is the easiest kind to skip.
+
 **DECLARED DEVIATION for attempt 3 — `--warmup 200`** (linear LR warmup at each stage entry). The apparatus default is **OFF**, because a flat LR is the pre-registered behaviour; attempt 3 nevertheless runs **`--warmup 200` applied identically to all three arms**, so the A-vs-B and A-vs-C comparisons stay valid. Reason: the flat `3e-3` from step 1 is precisely what walked the CE arm into the overflowing-activation regime — the KD arms survived it only because α halves their CE — so the pre-registered LR schedule is itself what attempt 2 falsified. Recorded **here, before attempt 3 runs**, and to be restated when the gates are read.
