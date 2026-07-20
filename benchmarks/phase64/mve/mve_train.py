@@ -634,6 +634,10 @@ def main():
             b0 = val_bpb(a.eval_tok); i0 = 0
             log(f"\n== stage {st}: {budget[st]} steps | val BPB at entry = {b0:.4f} ==")
         model.train(); t0 = time.time(); ntok_seen = 0; t_ck = time.time(); n_bad = 0
+        # PER-STAGE peak. max_memory_allocated is a process-wide high-water mark, so without this reset every
+        # stage after the first would report the largest stage seen so far -- the WS2 failure, where two models
+        # resident at once printed one identical number for both and it read as a measurement.
+        if dev_type == "cuda": torch.cuda.reset_peak_memory_stats(dev)
         for i in range(i0, budget[st]):
             if kdc is not None and gstep and gstep % a.chunk_steps == 0:
                 kdc.advance(); refresh()
@@ -704,7 +708,10 @@ def main():
         b1 = val_bpb(a.eval_tok)
         tps = ntok_seen / max(dt, 1e-9)
         rows.append(dict(stage=st, steps=budget[st], bpb_in=b0, bpb_out=b1, d=b1 - b0, tok_s=tps, s=dt))
-        log(f"  -> stage {st} done: val BPB {b0:.4f} -> {b1:.4f} ({b1-b0:+.4f}) | {tps:.0f} tok/s | {dt/60:.1f} min")
+        pk = (f" | peak {torch.cuda.max_memory_allocated(dev)/2**20:.0f} MiB"
+              if dev_type == "cuda" else "")
+        log(f"  -> stage {st} done: val BPB {b0:.4f} -> {b1:.4f} ({b1-b0:+.4f}) | {tps:.0f} tok/s | "
+            f"{dt/60:.1f} min{pk}")
         # STAGE-EXIT ARCHIVE -- deliberately NOT the resume file. The resume file is transient state that is
         # deleted on completion, which is why run 3 left no stage-D checkpoint and WS6 could not probe one.
         # These are permanent artefacts, and they are the prerequisite for the rung-1 branch-from-D A/B: both

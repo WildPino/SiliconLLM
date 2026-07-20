@@ -4,6 +4,22 @@
 
 Upstream context, all already pushed: `PHASE64_DECISIONS.md` (D1-D9), `PHASE64_TRAINING_PLAN.md` §12 (Inventor returns) and §13 (MVE gates read + re-priced ladder), `PHASE64_RUNG1_BRIEF.md` §8-§10 (WS1/WS2/WS5/WS6 returns).
 
+> **AMENDMENT LOG (MM).** This document was pushed, then amended before launch. Both facts are on the record because
+> the document's whole value is that an auditor can check it against the run — so the amendments must be as visible as
+> the seal, without diffing commits.
+>
+> | version | commit | what |
+> |---|---|---|
+> | v1 — initial seal | `daad4fe` | as sealed by the Architect |
+> | v2 — pre-launch amendments | this commit | §2 stage-E extension re-costed from measurement (+34%, was "open, to be measured"); §2 decontamination instrument specified (window-vs-window, 50% stride) after a planted positive control showed document-level Jaccard passes the leak it exists to catch; §6.2 2×2 read per-distance + **anti-escape-hatch clause** + scheduled early read; §8 two prerequisites added (license posture, job liveness/resumability); §9 re-priced 70-150 → 95-200 session-h |
+>
+> **Legitimacy check, stated so it can be contested.** All seven launch prerequisites in §8 are unchecked: **no
+> rung-1 run has executed and no rung-1 number exists**, which is the condition the seal actually names ("nothing is
+> amended after numbers exist"). Every amendment either **tightens** a gate or **declares additional cost** — none
+> loosens a threshold, softens a criterion, or widens a tie-breaker. The one that most obviously could have gone the
+> other way went the harder way: §6.2's anti-escape-hatch clause makes an uncalibrated instrument read **UNREAD**
+> rather than letting recall pass on a null *or* be demoted on one. Verified by MM against the diff before push.
+
 ## 1. What rung-1 is for
 
 S0 (~30 M total / ~11 M active, E32 × h128 top-8) is the first rung of the ladder on **real code data**. It answers three things: does the recipe hold at rung scale on-domain; do the two candidate recipe improvements (vocab, structured x_proj) survive more steps and real data; and does the MoE dial actually deliver capacity (the D2 probe opened by the MVE's D→E finding).
@@ -22,9 +38,13 @@ Frozen spec v1 (`SCALEUP_ARCHITECTURE.md` §9) with these **declared, arm-symmet
 | **effective batch 16 via micro-batch 8/rank + accum** | brief §8 | *comparability choice*, not a workaround — keeps the step grid identical to MVE runs 1-3 |
 | **fp32 AdamW** (not 8-bit) | brief §10 | measured winner at this scale (−6% throughput for 8-bit); re-opens at S2 |
 | **flat LR + `--warmup 200`** | run-3 declared deviation | carried forward, arm-symmetric |
-| **stage-E context extension to seq = 2048**, micro-batch reduced to hold B·L constant | curriculum §4 "progressive context", made explicit by the §6.2 distance rule | the SSM scan is **linear in L**, so at constant B·L the tokens per step and the activation memory are unchanged; the open cost is throughput (less batch parallelism against a sequential scan) — **measured at the WS4 smoke and reported, not assumed** |
+| **stage-E context extension to seq = 2048** at the widest micro-batch the card holds | curriculum §4 "progressive context", made explicit by the §6.2 distance rule | **measured, not assumed**: memory is linear in L as predicted (+1.4% at constant B·L), but throughput is not — the scan is sequential in L, so depth ×4 with width ÷4 starves the GPU on both axes. Spending the memory headroom on width recovers +20.6% (batch 2 → 4), bringing the penalty from 2.69× at seq 2048 down against 1573 tok/s at seq 512. **Applied to stage E only (f = 0.20): +34% on the run.** 9988 MiB of 12 GB says batch 4 is the ceiling on the 3060 — no further free width here; **per-protocol the ratio may transfer to the 16 GB T4, the absolute does not.** Priced into §9 |
 
-**`--compile-scan` is OFF — decided, not conditional: gate (b) failed reproducibly on the local screen** (§6.4). **Data**: pipeline of brief §3 with **P62 decontamination J=0.5 mandatory**; the manifest hash is recorded in §7 at launch and verified at every training start.
+**`--compile-scan` is OFF — decided, not conditional: gate (b) failed reproducibly on the local screen** (§6.4). **Data**: pipeline of brief §3 with **P62 decontamination J=0.5 mandatory**; the manifest hash is recorded in §8 at launch and verified at every training start.
+
+**Decontamination instrument — specified precisely, because "J=0.5" alone reconstructs the wrong filter.** The comparison unit is **window-versus-window at equal size on both sides, with 50% stride on the training side**, not document-versus-window. Reason, found by a planted positive control before any rung-1 number existed: Jaccard is symmetric in size, so a 24 KiB training file *containing* a verbatim 4 KiB val window scores J ≈ 0.17 and survives any sensible threshold — the document-level comparison passes exactly the leak it exists to catch. Cutting both sides to equal windows makes Jaccard behave like containment (at equal size, J = 0.5 corresponds to ≈2/3 shingle overlap); the 50% stride ensures a leak straddling a boundary falls wholly inside some window. LSH bands are **derived** from the declared threshold (b=16, r=8 → curve 0.707), not hard-coded, and every LSH candidate is verified against true Jaccard — bands produce false positives by construction, and discarding them unverified would delete real training data.
+
+**Pre-registered scale check on the filter, fixed now:** the removal count and fraction are reported at full corpus scale. Zero collaterals on a smoke corpus does not establish the false-positive rate at 40 GB. The asymmetry is deliberate — over-removing training data is cheap, missing a leak invalidates every rung-1 gate — but **if removal exceeds 5% of documents, the pipeline stops and examples are reviewed before any training starts**, because that would indicate the instrument is over-firing rather than that the corpus is that contaminated.
 
 ## 3. Units, baselines, significance
 
@@ -105,6 +125,22 @@ H1 → the insertion is the target and the fix is adopted at the rung-2 boundary
 
 *Calibration — synthetic MQAR, run once, NOT gated.* Its role is the **positive control for the detector**: an instrument never shown to fire is an assumption, not a measurement (the same discipline applied to the fork-check, which was validated by deliberately re-introducing the α bug). It establishes that the apparatus can resolve a recall benefit that exists, and it fixes the noise floor.
 
+**The 2×2 is read PER DISTANCE, not once globally** (added 2026-07-19, before any rung-1 number, in response to a measured risk: a model whose long-context exposure is confined to the curriculum's tail may have no reach at 2048 regardless of the recall tier — the same extrapolation artifact that produced this morning's false null). The synthetic calibration is therefore run **at every gated distance and on both arms**. This also yields the decomposition for free: the no-recall arm's curve is the *state's own* reach; the difference between arms is the tier's contribution.
+
+- At distances where the calibration fires, the code reading is **gated** as written below.
+- At distances where the calibration is null, that distance is **untested** and contributes nothing to the demotion decision — neither for nor against.
+- **Anti-escape-hatch clause, sealed with the rest:** if the calibration fires at **no** distance beyond the attention window (win = 128), the rung-1 recall gate is declared **UNREAD** — not passed. Recall's status then carries to rung-2 unchanged, with the instrument or the context schedule fixed first. Recall does not get to survive on "everything was uncalibrated", and it does not get demoted on it either.
+
+**Scheduled early read — protects the spend, not just the inference (added 2026-07-19).** The rule above keeps a null at an uncalibrated distance from being misread, but it does not stop us from *paying* +34% for a context extension that may not transfer. Tail extension giving the state real reach at 2048 is an open empirical question that nobody has measured. It becomes measurable at near-zero cost on **the first stage-E checkpoint that exists with the extension applied**: run the calibration there, before the remaining arms pay for it. Pre-registered decision tree:
+
+| calibration at that checkpoint | action |
+|---|---|
+| 2048 fires | proceed as declared; gated scale 128 / 512 / 1024 |
+| 2048 flat, 512 fires | tail extension transfers only partially → **cut the gated scale to what is demonstrated and drop the extension to that level on the remaining arms** (recovers most of the +34%) |
+| both flat | tail extension does not transfer at all → **stop paying it entirely**, gate stays inside the trained window, and the long-range recall question is recorded as **untested at rung-1** — it carries to rung-2 with a genuine progressive schedule rather than a tail patch |
+
+**Why the extension is worth +34% at all:** the alternative is a recall gate that reads UNREAD, which pushes an undecided architectural component onto S1 (105 M), where settling it costs several times more. Paying to settle it at the cheapest rung is the same economics that put sparse-MoE's first long run at S0.
+
 **Pre-registered reading of the 2×2, fixed now so no cell is interpreted after the fact:**
 
 | synthetic | code | reading |
@@ -147,7 +183,9 @@ HumanEval stays **record-only** (no gate — anti-Goodhart). Decode hygiene lock
 
 - [ ] HF Read-type token with Stack-v2 terms accepted; AWS S3 credentials (owner; env only, never committed)
 - [ ] WS3 pipeline complete, **P62 decontamination J=0.5 executed**, manifest + hash recorded here and verified at training start — manifest hash: `__________` (filled at launch)
+- [ ] **License posture resolved by the rule below.** Measured on Stack-v2-dedup metadata: 77% of rows are `no_license` (no license *detected* — which is unknown, not permissive) and 23% `permissive`. **The decision turns on an absolute, not that fraction:** count, from metadata alone (no content fetched), the **total strict-permissive bytes available for the target language mix**. If that is **≥ the 40 GB target, take strict-permissive** — the cleaner posture then costs nothing and is adopted by default. If it is below target, the trade becomes real (a smaller corpus forces multi-epoch training at S1/S2, and D1 makes recipe invariance the ladder contract) and it goes to the owner as a legal-posture-versus-scope call, with the measured numbers in hand. Report the decontamination removal rate on the same pass, since both filters cut the same pool.
 - [ ] WS4 apparatus smoked and STOPped
+- [ ] **Every long-running job emits a periodic liveness signal, and the content fetch is resumable/idempotent.** Measured: the knee is 64 workers (0.74 MiB/s, 121 files/s, 0 loss over 7500 fetches) and ~15.3 h for the 40 GB target — a one-time, $0 cost that overlaps training, so it is **not optimized further**; beyond the knee throughput *degrades* rather than plateaus (candidate causes include GIL serialization of gzip/decode and per-thread connection overhead — hypothesis, unmeasured, and only worth revisiting if calendar bites). A 15 h job that cannot resume is a 15 h job that restarts from zero, and one that only prints at the end is one whose stall is invisible by definition.
 - [ ] Challenger teacher logits produced for the screening block — sized to it only (~6-12 h of 3060, off-Kaggle), covered slice drawn with seed 20260719, file-list hash in the manifest, teacher/student token ratio re-measured on the real corpus first
 - [ ] This document pushed, and the MM's commit visible on origin
 
@@ -157,4 +195,4 @@ Token budgets, per-arm session counts, and the data manifest hash are the only f
 
 Arm inventory: **screening 4 arms × 15% of stage C ≈ 33% of a rung** + **main run 100%** + **three E+F branches ≈ 75%** ≈ **2.1 rung-equivalents**, i.e. roughly **+108% instrumentation overhead** against the +50-80% assumed in `PHASE64_TRAINING_PLAN.md` §5.
 
-This is declared rather than trimmed, and the science is not cut to fit a bracket written earlier — **costs re-price, gates do not**. Two reasons it is the right call anyway: rung-1 is where the recipe itself is validated and three open questions are settled, so heavy instrumentation is exactly what it is for; and **the overhead is front-loaded and does not repeat** — the screening block decides vocabulary and x_proj once for the whole ladder, so S1 and S2 carry only their per-rung property gates and the standing replica-collapse ablation. S0 re-prices to roughly **70-150 session-hours**; against a 600-1000 h ladder this stays inside the $0 path.
+This is declared rather than trimmed, and the science is not cut to fit a bracket written earlier — **costs re-price, gates do not**. Two reasons it is the right call anyway: rung-1 is where the recipe itself is validated and three open questions are settled, so heavy instrumentation is exactly what it is for; and **the overhead is front-loaded and does not repeat** — the screening block decides vocabulary and x_proj once for the whole ladder, so S1 and S2 carry only their per-rung property gates and the standing replica-collapse ablation. S0 re-prices to roughly **70-150 session-hours**; against a 600-1000 h ladder this stays inside the $0 path. **Plus the measured +34% for the stage-E context extension** (§2) — carried into the STOP-B table rather than absorbed silently, and subject to the scheduled early read in §6.2 that can recover most of it if tail extension turns out not to transfer. S0 lands around **95-200 session-hours** in the worst case, still inside the $0 path on a 600-1000 h ladder.
