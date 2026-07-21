@@ -18,7 +18,7 @@
 #           --backend vllm (Linux/Kaggle; same output format, same chunk files)
 #
 # Run: .venv/Scripts/python.exe benchmarks/phase64/mve/mve_logits.py --tag smoke --backend hf --quant fp16
-import argparse, hashlib, json, math, os, sys, time
+import argparse, glob, hashlib, json, math, os, sys, time
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -45,12 +45,29 @@ def pick_gpu(want_bf16=False):
 class ChunkWriter:
     """Rolling chunk files: gen chunk i+1 while training on chunk i, delete behind (the >=500 GB scratch discipline,
     exercised here at pilot scale so the production path is the same code)."""
-    def __init__(s, out, tag, rows_per_chunk):
+    def __init__(s, out, tag, rows_per_chunk, resume=False):
         s.dir = os.path.join(out, f"logits_{tag}"); os.makedirs(s.dir, exist_ok=True)
         s.rpc = rows_per_chunk; s.chunks = []; s.buf_ids = None; s.buf_pq = None; s.j0 = None
+        if resume:
+            # Adopt the chunks already on disk. Rows are written in order and each chunk records its own
+            # j0, so the resume point is simply the end of the last complete chunk -- no bookkeeping file
+            # to fall out of sync with the data. A run that dies at hour 20 of 22 otherwise starts over,
+            # which is the same argument that made the fetch resumable, only more expensive here.
+            for p in sorted(glob.glob(os.path.join(s.dir, "chunk_*.npz"))):
+                try:
+                    z = np.load(p)
+                    s.chunks.append(dict(path=os.path.basename(p), j0=int(z["j0"]),
+                                         rows=int(len(z["ids"])), bytes=int(os.path.getsize(p))))
+                except Exception:
+                    print(f"  resume: ignoring unreadable {os.path.basename(p)} (partial write?)")
+                    break
+
+    def resume_at(s):
+        """First teacher row NOT yet stored. 1 when nothing is on disk (row 0 has no predictive context)."""
+        return max([c["j0"] + c["rows"] for c in s.chunks], default=1)
     def _flush(s):
         if s.j0 is None: return
-        p = os.path.join(s.dir, f"chunk_{len(s.chunks):04d}.npz")
+        p = os.path.join(s.dir, f"chunk_{len(s.chunks):04d}.npz")   # continues past adopted chunks on resume
         np.savez(p, ids=s.buf_ids, pq=s.buf_pq, j0=np.int64(s.j0))
         s.chunks.append(dict(path=os.path.basename(p), j0=int(s.j0), rows=int(len(s.buf_ids)),
                              bytes=int(os.path.getsize(p))))
@@ -110,21 +127,71 @@ def windows(n, ctx, stride):
     return st, L
 
 
+def preflight(model, tids, dev, L, ctx_windows=2):
+    """Verify the alignment BEFORE spending the hours, not after.
+
+    The post-scoring self-check below is the right test in the wrong place: a run that is going to fail
+    it fails it after producing a full logit store. This is the same test on two windows, costing
+    seconds, positioned so that a bad configuration cannot buy sixteen hours of garbage first.
+
+    The concrete trap it was built for, stated precisely because the first diagnosis was wrong. Measured
+    on this teacher at ctx=2048:
+
+        eager + fp16  ->  NaN logits, hit@32 = 13%      sdpa + fp16  ->  clean, hit@32 = 97.8%
+        eager + bf16  ->  clean, hit@32 = 97.6%         sdpa + bf16  ->  clean, hit@32 = 97.9%
+
+    So it is the COMBINATION, not fp16: SDPA accumulates the softmax in fp32 and is stable, eager is
+    not. This producer uses sdpa and was therefore never exposed -- but eager is the default elsewhere
+    in this repo (teacher_bpb.py, set there to dodge a cutlass crash), so the combination is reachable.
+    NaN propagates into topk as arbitrary indices, and the stored file is then well-formed, the right
+    size, and meaningless: no exception, no warning, only a low hit@K that reads like a data problem.
+    """
+    import torch
+    n = min(len(tids), ctx_windows * L)
+    x = torch.from_numpy(np.stack([tids[i * L:(i + 1) * L] for i in range(max(1, n // L))]
+                                  ).astype(np.int64)).to(dev)
+    with torch.no_grad():
+        lg = model(x).logits.float()
+    nan = bool(torch.isnan(lg).any())
+    lp = torch.log_softmax(lg, -1)
+    tgt = x[:, 1:]
+    _, ti = lp[:, :-1].topk(K, dim=-1)
+    hit = 100.0 * float((ti == tgt.unsqueeze(-1)).any(-1).float().mean())
+    pt = float(lp[:, :-1].gather(-1, tgt.unsqueeze(-1)).exp().mean())
+    print(f"  preflight        hit@{K} = {hit:.2f}%  mean p_true = {pt:.3f}  nan={nan}", flush=True)
+    if nan or hit < 70.0:
+        raise SystemExit(
+            f"PREFLIGHT FAILED (hit@{K}={hit:.2f}%, nan={nan}). Refusing to score.\n"
+            f"  A healthy teacher puts the true next token in its own top-{K} for ~95% of positions.\n"
+            f"  Most likely cause: --quant fp16 on this teacher, which overflows to NaN. Use bf16 on\n"
+            f"  Ampere or newer; fp16 is only for Turing (T4), which has no bf16.\n"
+            f"  Second cause: the teacher-id stream does not match the tokenizer that produced it.")
+
+
 def run_hf(a, tids, W):
     import torch
     from transformers import AutoModelForCausalLM
     gpu = pick_gpu(a.quant == "bf16")
     dt = {"fp16": torch.float16, "bf16": torch.bfloat16, "fp32": torch.float32}[a.quant]
+    if a.quant == "fp16" and torch.cuda.is_available() and torch.cuda.is_bf16_supported():
+        print("  NOTE: --quant fp16 on a bf16-capable device. Safe with sdpa (used here), NOT with eager "
+              "attention -- see preflight(). bf16 is the better default on Ampere+.", flush=True)
     model = AutoModelForCausalLM.from_pretrained(a.teacher, torch_dtype=dt, attn_implementation="sdpa",
                                                  device_map={"": gpu} if gpu is not None else None)
     model.eval()
     dev = model.device
+    preflight(model, tids, dev, a.ctx)
     n = len(tids)
     bs = a.batch
     starts, L = windows(n, a.ctx, a.stride)
     starts, _fp = slice_windows(starts, a.slice_frac, a.slice_seed)
-    t0 = time.time(); scored = 0; prev_end = 1
+    prev_end = W.resume_at()
+    if prev_end > 1:
+        print(f"  RESUME: {len(W.chunks)} chunk(s) on disk, {prev_end-1} rows already stored; "
+              f"continuing at teacher row {prev_end}", flush=True)
+    t0 = time.time(); scored = 0
     with torch.no_grad():
+        starts = [b for b in starts if b + L > prev_end]      # drop windows wholly already stored
         for bi in range(0, len(starts), bs):
             grp = starts[bi:bi + bs]
             x = torch.from_numpy(np.stack([tids[b:b + L] for b in grp]).astype(np.int64)).to(dev)
@@ -163,7 +230,11 @@ def run_vllm(a, tids, W):
     sp = SamplingParams(max_tokens=1, prompt_logprobs=K, temperature=0.0)
     starts, L = windows(n, a.ctx, a.stride)
     starts, _fp = slice_windows(starts, a.slice_frac, a.slice_seed)
-    t0 = time.time(); scored = 0; prev_end = 1
+    prev_end = W.resume_at()
+    if prev_end > 1:
+        print(f"  RESUME: {len(W.chunks)} chunk(s) on disk, {prev_end-1} rows already stored; "
+              f"continuing at teacher row {prev_end}", flush=True)
+    t0 = time.time(); scored = 0
     for bi in range(0, len(starts), a.batch):
         grp = starts[bi:bi + a.batch]
         outs = llm.generate([dict(prompt_token_ids=tids[b:b + L].tolist()) for b in grp], sp)
@@ -198,9 +269,14 @@ def main():
     ap.add_argument("--slice-seed", type=int, default=SLICE_SEED,
                     help="sealed in the pre-registration; do not choose this at sampling time")
     ap.add_argument("--max-tok", type=int, default=0, help="cap teacher tokens (smoke)")
+    ap.add_argument("--resume", action="store_true",
+                    help="adopt chunks already on disk and continue. The long scoring run must survive a crash, a reboot or a closed laptop.")
+    ap.add_argument("--data-dir", default="", help="where teacher_ids_<tag>.i32 lives and logits are written; "
+                                                   "rung-1 data is outside the MVE tree")
     a = ap.parse_args()
 
-    tids = np.fromfile(os.path.join(OUT, f"teacher_ids_{a.tag}.i32"), dtype=np.int32)
+    out_dir = a.data_dir or OUT
+    tids = np.fromfile(os.path.join(out_dir, f"teacher_ids_{a.tag}.i32"), dtype=np.int32)
     if a.max_tok: tids = tids[:a.max_tok]
     print(f"[B] teacher={a.teacher} backend={a.backend} quant={a.quant} ctx={a.ctx} stride={a.stride} batch={a.batch}")
     print(f"    scoring {len(tids)} teacher tokens (TEACHER-FORCED prefill; no autoregressive decode)", flush=True)
@@ -212,7 +288,7 @@ def main():
     print(f"    slice: {fp['n_windows_selected']}/{fp['n_windows_total']} windows "
           f"(frac={fp['slice_frac']}, seed={fp['slice_seed']}) sha256={fp['slice_sha256'][:16]}...", flush=True)
 
-    W = ChunkWriter(OUT, a.tag, a.rows_per_chunk)
+    W = ChunkWriter(out_dir, a.tag, a.rows_per_chunk, resume=a.resume)
     scored, el = (run_hf if a.backend == "hf" else run_vllm)(a, tids, W)
     meta = W.close(dict(teacher=a.teacher, backend=a.backend, quant=a.quant, ctx=a.ctx, stride=a.stride,
                         batch=a.batch, n_teacher_tok=int(len(tids)), n_scored=int(scored),
@@ -234,8 +310,9 @@ def main():
           f"{'OK' if hit > 70 else '<< SUSPECT: off-by-one in the row->position map'}")
     print(f"  scored           {scored} rows in {el:.0f}s")
     print(f"  SCORING tok/s    {scored/max(el,1e-9):.0f}   <- the KD economic input (supersedes batch-1 gen tok/s)")
+    stored = sum(c["rows"] for c in meta["chunks"])      # ALL rows on disk, not just this run's -- on a
     print(f"  chunks           {len(meta['chunks'])} x <= {a.rows_per_chunk} rows | {gb:.3f} GB total "
-          f"({meta['total_bytes']/max(scored,1):.0f} B/teacher-token)")
+          f"({meta['total_bytes']/max(stored,1):.0f} B/teacher-token over {stored} stored rows)")
     print(f"  manifest         {os.path.join(W.dir,'manifest.json')}")
     print("STOP. (B) built. No commit.")
 
