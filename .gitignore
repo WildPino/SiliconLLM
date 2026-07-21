@@ -74,6 +74,9 @@ weights/
 # NEVER the source of truth: fixes land in benchmarks/ (tracked) first, then get copied out here.
 kaggle_mve/*
 !kaggle_mve/README.md
+# Same rule for the rung-1 run-packs (per-account arm packages + their tokenised data payload).
+kaggle_rung1/*
+!kaggle_rung1/README.md
 # one-off local driver
 run_benchmarks_temp.py
 

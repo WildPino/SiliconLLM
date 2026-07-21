@@ -277,6 +277,10 @@ def main():
     bpe = Bpe.load(os.path.join(DATA, f"bpe{V}_ts.bin"))
     el = torch.tensor(bpe.exp_len, dtype=torch.long)
     ntr = meta["n_train_tok"]; train_hi = ntr; val = ids[ntr:]
+    # P62 code-val: the DECIDING metric for the screening (prereg v7). External, fixed, temporally held out,
+    # byte-identical across arms by construction. Absent in the MVE packages, so it stays optional.
+    _p62 = os.path.join(DATA, f"p62_{a.tag}.u16")
+    p62 = np.fromfile(_p62, dtype=np.uint16).astype(np.int64) if os.path.isfile(_p62) else None
     # The CE control must see the SAME positions as the KD arm, so build the chunk index whenever the slice is in
     # play -- even for --arm ce, which then uses it only for the sampling window and never reads a logit.
     need_win = a.arm == "kd" or a.restrict_to_slice
@@ -409,16 +413,40 @@ def main():
         return nn.parallel.DistributedDataParallel(m, device_ids=[lrank] if dev_type == "cuda" else None)
     net = wrap(model)
 
-    def val_bpb(cap):
+    def bpb_on(stream, cap=0):
+        """BPB over an arbitrary token stream. cap=0 means the WHOLE stream, final partial window included.
+
+        Covering the whole stream matters for the P62 metric: stepping by seq and dropping the remainder
+        evaluates a different number of BYTES under each tokenizer (the token counts differ), so two arms
+        would be compared over slightly different text while both looked fine. With cap=0 every target is
+        scored exactly once and the byte total is a function of the file, not of the vocabulary."""
         model.eval(); bits = 0.0; nb = 0
         with torch.no_grad():
-            W = a.seq; pos = 0; lim = min(cap, len(val) - 1)
-            while pos + W + 1 <= lim:
-                x = torch.from_numpy(val[pos:pos+W][None]).to(dev); y = torch.from_numpy(val[pos+1:pos+1+W][None]).to(dev)
+            n = (min(cap, len(stream) - 1) if cap else len(stream) - 1)
+            pos = 0
+            while pos < n:
+                W = min(a.seq, n - pos)
+                x = torch.from_numpy(stream[pos:pos+W][None]).to(dev)
+                y = torch.from_numpy(stream[pos+1:pos+1+W][None]).to(dev)
                 lg, _ = model(x, y)
                 bits += F.cross_entropy(lg.reshape(-1, V), y.reshape(-1), reduction="sum").item() / math.log(2)
                 nb += int(el[y.reshape(-1).cpu()].sum()); pos += W
-        model.train(); return bits / max(nb, 1)
+        model.train(); return bits / max(nb, 1), nb
+
+    def val_bpb(cap):
+        return bpb_on(val, cap)[0]
+
+    def p62_bpb():
+        """The DECIDING metric (prereg v7). Returns (bpb, bytes_evaluated, ok).
+
+        PLANTED INVARIANT: bytes_evaluated plus the first token's own bytes must equal the declared file
+        size EXACTLY. The first token is never predicted, so it is the only byte that may be missing; any
+        other shortfall means the harness is normalising over something that is not this file, which is
+        the eval-side form of training on the wrong package. It is checked, not assumed."""
+        if p62 is None: return float("nan"), 0, False
+        b, nb = bpb_on(p62, 0)
+        total = nb + int(el[int(p62[0])])
+        return b, nb, total == int(meta.get("p62_bytes", -1))
 
     # ---- the step ------------------------------------------------------------------------------------
     # Batch sampling is a PURE FUNCTION of (seed, rank, gstep, micro) rather than a carried RNG stream. Two reasons,
@@ -710,6 +738,11 @@ def main():
         rows.append(dict(stage=st, steps=budget[st], bpb_in=b0, bpb_out=b1, d=b1 - b0, tok_s=tps, s=dt))
         pk = (f" | peak {torch.cuda.max_memory_allocated(dev)/2**20:.0f} MiB"
               if dev_type == "cuda" else "")
+        if p62 is not None:
+            pb, pn, pok = p62_bpb()
+            log(f"  -> stage {st} P62 code-val BPB {pb:.4f}  [DECIDING]  over {pn} bytes"
+                + ("" if pok else "   << BYTE-COUNT INVARIANT FAILED: the harness is not normalising over "
+                                  "this file; the number is NOT comparable"))
         log(f"  -> stage {st} done: val BPB {b0:.4f} -> {b1:.4f} ({b1-b0:+.4f}) | {tps:.0f} tok/s | "
             f"{dt/60:.1f} min{pk}")
         # STAGE-EXIT ARCHIVE -- deliberately NOT the resume file. The resume file is transient state that is
