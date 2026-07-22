@@ -65,10 +65,47 @@ def check(expect_arm=None, expect_vocab=None, expect_parent_sha=None, expect_alp
     if verbose:
         print(f"package OK: arm={man['arm']} stage={man['stage']} V={man['V_student']} "
               f"files={len(man['files'])}")
+        if man.get("code"):
+            print("  NOTE: this manifest's embedded code shas are SUPERSEDED and are not checked here -- "
+                  "the data packages were uploaded before later trainer fixes. Code identity is verified "
+                  "against the separate bundle by check_code(); that is the authority.")
         print(f"  corpus {man['corpus_sha256'][:16]}...  raw {man['raw_sha256'][:16]}...  "
               f"bpe {man['bpe_sha256'][:16]}...")
         if man.get("parent_sha256"):
             print(f"  parent ckpt {man['parent_sha256'][:16]}...  alpha={man.get('alpha')}")
+    return man
+
+
+def check_code(code_root, expect_sha, verbose=True):
+    """Verify the attached code bundle reproduces the sha the notebook pins.
+
+    THE FAILURE IT EXISTS FOR, and it already happened: PACKAGE_MANIFEST.json recorded a sha256 for every
+    code file and nothing ever read them. The stage-1 datasets were uploaded carrying a trainer that
+    predates the val-split assert, the CPU refusal and the affirmative P62 invariant -- so the prereg
+    conditions held on the Builder's machine and would NOT have held on the machine that produces the gate
+    number, with no symptom anywhere. Recording a hash is not verifying it; this is the reader.
+    """
+    mp = os.path.join(code_root, "CODE_MANIFEST.json")
+    if not os.path.isfile(mp):
+        raise SystemExit(f"CODE_MANIFEST.json missing at {code_root}. Attach the code bundle dataset.")
+    man = json.load(open(mp))
+    bad = []
+    for rel, want in man["files"].items():
+        p = os.path.join(code_root, "code", rel) if rel != "assert_package.py" else os.path.join(code_root, rel)
+        if not os.path.isfile(p): bad.append(f"{rel}: MISSING"); continue
+        got = _sha(p)
+        if got != want: bad.append(f"{rel}: {got[:16]}... != declared {want[:16]}...")
+    if bad:
+        raise SystemExit("CODE BUNDLE CORRUPT -- do not train:\n  " + "\n  ".join(bad))
+    if man["code_sha256"] != expect_sha:
+        raise SystemExit(
+            f"CODE VERSION MISMATCH -- do not train.\n"
+            f"  bundle   {man['code_sha256']}\n"
+            f"  expected {expect_sha}\n"
+            f"  This notebook was written against a different version of the trainer. Training would run\n"
+            f"  cleanly and produce a gate number from code nobody registered.")
+    if verbose:
+        print(f"code OK: {len(man['files'])} files, sha {man['code_sha256'][:16]}...")
     return man
 
 

@@ -51,6 +51,10 @@ NOTEBOOK = '''# ================================================================
 #   Persistence : "Files only"   -- REQUIRED: keeps /kaggle/working so --resume works across sessions
 #   Internet    : OFF is fine    -- nothing is downloaded; stage 1 needs no teacher logits
 #
+# TWO datasets are attached: the arm's data package, and the shared code bundle. They are separate
+# because the data was uploaded before several trainer fixes, and re-uploading 4.2 GB to ship 167 KB of
+# Python is the wrong trade. The code that runs is the bundle's, pinned by CODE_SHA below.
+#
 # Run this one cell. It trains until the session budget, then stops cleanly. Re-run the SAME cell
 # next session; it resumes. Repeat until it prints STAGE1-DONE.
 #
@@ -59,25 +63,32 @@ NOTEBOOK = '''# ================================================================
 # =============================================================================
 import glob, os, subprocess, sys, torch
 
-# ---- the one field the Architect fills at launch, from the prereg -----------------------------
-STEPS = None      # <-- stage-C steps for ONE screening arm (15% of the stage-C token budget)
+# ---- the fields the Architect fills at launch, from the prereg ---------------------------------
+STEPS = {STEPS}   # stage-C steps for ONE screening arm (15% of the stage-C token budget)
+CODE_SHA = '{CODE_SHA}'
 # ------------------------------------------------------------------------------------------------
 assert STEPS, ("STEPS is not filled. It is the pre-registered per-arm budget and must come from the "
                "prereg, not from whoever runs the cell. Refusing to start an unbudgeted arm.")
 
 PKG = next((os.path.dirname(p) for p in
             glob.glob('/kaggle/input/**/PACKAGE_MANIFEST.json', recursive=True)), None)
-assert PKG, 'package not found: attach the dataset containing PACKAGE_MANIFEST.json'
-print('package:', PKG)
+assert PKG, 'data package not found: attach the dataset containing PACKAGE_MANIFEST.json'
+BUNDLE = next((os.path.dirname(p) for p in
+               glob.glob('/kaggle/input/**/CODE_MANIFEST.json', recursive=True)), None)
+assert BUNDLE, 'code bundle not found: attach the dataset containing CODE_MANIFEST.json'
+print('data package:', PKG); print('code bundle :', BUNDLE)
 
-# IDENTITY FIRST, and fail closed. The two stage-1 arms differ ONLY in which vocabulary they carry,
-# so a swapped dataset trains cleanly and answers a question nobody asked. Nothing in the loss curve
-# would look wrong.
-sys.path.insert(0, PKG)
+# IDENTITY FIRST, and fail closed, on BOTH axes. The two stage-1 arms differ ONLY in which vocabulary
+# they carry, so a swapped dataset trains cleanly and answers a question nobody asked; and a stale
+# trainer produces a gate number from code nobody registered. Neither shows up in the loss curve.
+# assert_package is imported from the BUNDLE, not from the data package -- the copy inside the data
+# package predates check_code and would not be able to perform the second half of this check.
+sys.path.insert(0, BUNDLE)
 import assert_package
 assert_package.check(expect_arm='{ARM}', expect_vocab={V}, root=PKG)
+assert_package.check_code(BUNDLE, CODE_SHA)
 
-CODE = PKG + '/code'
+CODE = BUNDLE + '/code'
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
 NG = torch.cuda.device_count()
 print('GPUs:', NG, [torch.cuda.get_device_name(i) for i in range(NG)])
@@ -217,10 +228,42 @@ def pack_vocab(V, arm, stage, dest, extras=None):
     return man, tot, resid
 
 
+def write_cells(steps, code_sha):
+    """Regenerate the notebook cells only. The cells are text; the 4.2 GB of data they point at is not,
+    and nothing about the data changed. Written OUTSIDE the uploaded package directories on purpose --
+    the copies inside those are as stale as the trainer beside them, and the operator must paste from a
+    file that cannot be mistaken for the shipped one."""
+    out = []
+    for arm, V in [("arm1_V2048", 2048), ("arm2_V4096", 4096)]:
+        p = os.path.join(OUT, f"NOTEBOOK_{arm}.py")
+        with open(p, "w", encoding="utf-8") as f:
+            f.write(NOTEBOOK.replace("{ARM}", arm).replace("{V}", str(V))
+                            .replace("{STEPS}", str(steps)).replace("{CODE_SHA}", code_sha))
+        out.append(p)
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--stage", type=int, default=1)
+    ap.add_argument("--cells-only", action="store_true",
+                    help="regenerate the notebook cells against the current code bundle, without "
+                         "rebuilding the data packages")
+    ap.add_argument("--steps", type=int, default=0, help="pre-registered per-arm stage-C step budget")
     a = ap.parse_args()
+    if a.cells_only:
+        cm = os.path.join(OUT, "code_bundle", "CODE_MANIFEST.json")
+        if not os.path.isfile(cm):
+            sys.exit("no code bundle: run pack_code_bundle.py first. The cell pins a sha it cannot invent.")
+        cs = json.load(open(cm))["code_sha256"]
+        if not a.steps:
+            sys.exit("--steps is required: the cell must carry the pre-registered budget, and a cell that "
+                     "silently defaults to a number nobody registered is the failure this field exists for.")
+        for p in write_cells(a.steps, cs):
+            print(f"  wrote {p}")
+        print(f"\n  STEPS = {a.steps}   CODE_SHA = {cs[:16]}...")
+        print("\nSTOP. Cells regenerated. No commit.")
+        return
     if a.stage != 1:
         sys.exit("stages 2 and 3 depend on the winner of the previous stage; they are packed when it is "
                  "known. Building them now would require choosing a parent that does not exist yet.")
