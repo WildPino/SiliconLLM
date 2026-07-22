@@ -635,6 +635,14 @@ def main():
            or ck["cfg"].get("xproj_rank", 0) != a.xproj_rank:
             sys.exit(f"ERROR: resume checkpoint {rpath} does not match this command "
                      f"(stages/steps/arm/kd/recall/xproj_rank).")
+        # Vocabulary, checked separately because it is not an argument. `ck.get("V", V)` passes for
+        # checkpoints written before this field existed -- MVE-era files, the only way to stay permissive
+        # there without weakening anything: every rung-1 checkpoint carries V from its first write, so the
+        # hole closes for exactly the runs this guard exists for.
+        if int(ck.get("V", V)) != int(V):
+            sys.exit(f"ERROR: resume checkpoint {rpath} was written by the V={ck.get('V')} arm; this run is "
+                     f"V={V}.\n  The stage-1 arms are identical in every flag -- they differ only in the "
+                     f"vocabulary, so this is the mix-up a file name alone cannot prevent.")
         start_si = ck["stage_idx"]; start_step = ck["step_in_stage"]; gstep = ck["gstep"]
         rows = ck["rows"]; hist = ck["hist"]; resumed_b0 = ck.get("stage_b0", float("nan"))
         for st in stages[:start_si + 1]:
@@ -692,7 +700,14 @@ def main():
     def save_resume(si, step_next, sb0):
         if not P0: return
         os.makedirs(os.path.dirname(rpath) or ".", exist_ok=True)
-        torch.save(dict(fmt="mve-resume-2", stages=stages, stage_idx=si, step_in_stage=step_next, gstep=gstep,
+        # V is stored because it is NOT in cfg: the vocabulary comes from the data directory, not from a
+        # flag, so the resume guard could not see it. The two stage-1 screening arms are identical in
+        # every argument it does check -- same --arm ce, same steps, same stages -- and differ only in the
+        # vocabulary. On Kaggle, where resume files are carried between sessions by hand, that is a
+        # reachable mix-up, and without this it surfaces as an opaque shape error deep inside
+        # load_state_dict instead of a named refusal.
+        torch.save(dict(fmt="mve-resume-2", V=V, stages=stages, stage_idx=si, step_in_stage=step_next,
+                        gstep=gstep,
                         stage_b0=float(sb0), model=model.state_dict(), opt=opt.state_dict(),
                         scaler=scaler.state_dict(),   # no RNG state: sampling is a pure fn of (seed,rank,gstep,micro)
                         kdc_pos=(kdc.pos if kdc else 0), rows=rows, hist=hist, cfg=vars(a)), rpath + ".tmp")

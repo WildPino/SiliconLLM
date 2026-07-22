@@ -61,7 +61,7 @@ NOTEBOOK = '''# ================================================================
 # THE DECIDING METRIC IS THE P62 code-val BPB printed at stage exit, NOT the internal tail val.
 # The tail val is apparatus (curves, divergence, liveness) and must never be quoted.
 # =============================================================================
-import glob, os, subprocess, sys, torch
+import glob, hashlib, json, os, shutil, subprocess, sys, torch
 
 # ---- the fields the Architect fills at launch, from the prereg ---------------------------------
 STEPS = {STEPS}   # stage-C steps for ONE screening arm (15% of the stage-C token budget)
@@ -89,11 +89,53 @@ assert_package.check(expect_arm='{ARM}', expect_vocab={V}, root=PKG)
 assert_package.check_code(BUNDLE, CODE_SHA)
 
 CODE = BUNDLE + '/code'
+TRAIN = CODE + '/benchmarks/phase64/mve/mve_train.py'
+
+# The file that RUNS is the file that is checked, by explicit path. check_code() above validated the
+# bundle as a tree; this validates the one path handed to the interpreter. They are the same file today,
+# and the reason not to rely on that is sitting in /kaggle/input: the data packages still contain their
+# own stale copy of mve_train.py, so "which copy wins" is a real question with a real wrong answer.
+# Path precedence is not assumed here, it is asserted.
+_want = json.load(open(BUNDLE + '/CODE_MANIFEST.json'))['files']['benchmarks/phase64/mve/mve_train.py']
+_got = hashlib.sha256(open(TRAIN, 'rb').read()).hexdigest()
+assert _got == _want, ('the trainer about to run is not the one the bundle declares:\\n'
+                       '  path %s\\n  sha  %s\\n  want %s' % (TRAIN, _got, _want))
+print('trainer   :', TRAIN, '\\n  sha', _got[:16], 'VERIFIED')
+
+# ---- carry the run across Kaggle sessions -------------------------------------------------------
+# A batch ("Save Version") run ends at the session limit and /kaggle/working does NOT survive into the
+# next one -- it comes back only if the previous version's OUTPUT is attached as an INPUT. This block
+# rehydrates from that input. Two rules, both deliberate:
+#   1. a file already in /kaggle/working ALWAYS wins -- it is this session's own progress, and copying
+#      an older input over it would silently rewind the run;
+#   2. nothing is renamed or reinterpreted. The trainer itself refuses a resume file whose stages,
+#      steps, arm or VOCABULARY do not match the command, so a wrong carry stops before training
+#      instead of producing a clean curve for the wrong arm.
+def rehydrate():
+    got = []
+    for pat, dst in [('resume_{ARM}.pt', '/kaggle/working/resume_{ARM}.pt'),
+                     ('{ARM}.pt', '/kaggle/working/{ARM}.pt'),
+                     ('{ARM}.pt.done', '/kaggle/working/{ARM}.pt.done')]:
+        if os.path.exists(dst):
+            got.append(pat + ' (already in working -- kept)'); continue
+        hit = [p for p in glob.glob('/kaggle/input/**/' + pat, recursive=True)]
+        if hit:
+            shutil.copy(hit[0], dst); got.append(pat + ' <- ' + hit[0])
+    for d in glob.glob('/kaggle/input/**/stages_{ARM}', recursive=True):
+        if not os.path.isdir('/kaggle/working/stages_{ARM}'):
+            shutil.copytree(d, '/kaggle/working/stages_{ARM}'); got.append('stages_{ARM}/ <- ' + d)
+        break
+    print('resume state:', ('\\n  ' + '\\n  '.join(got)) if got else 'nothing carried -- starting fresh')
+rehydrate()
+
+if os.path.exists('/kaggle/working/{ARM}.pt.done'):
+    print('\\n==== {ARM} ALREADY COMPLETE -- nothing to do. Do not burn a session. ====')
+    raise SystemExit(0)
+
 os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
 NG = torch.cuda.device_count()
 print('GPUs:', NG, [torch.cuda.get_device_name(i) for i in range(NG)])
 
-TRAIN = CODE + '/benchmarks/phase64/mve/mve_train.py'
 args = ['--tag', 's0', '--arm', 'ce', '--recall', 'off', '--stages', 'C',
         '--steps', str(STEPS), '--seq', '512', '--batch', '8',
         '--accum', '1' if NG >= 2 else '2',          # effective batch 16 on 1 or 2 GPUs
@@ -111,7 +153,10 @@ done = os.path.exists('/kaggle/working/{ARM}.pt.done')
 print(os.linesep + '==== STAGE1-DONE for {ARM}? ' + str(done) + ' ====')
 print('Send the Builder: the P62 code-val BPB line, the full cell output, and '
       '/kaggle/working/{ARM}.pt (plus stages_{ARM}/ -- stage 2 branches from it).'
-      if done else 'NOT finished -> re-run THIS CELL next session (it resumes).')
+      if done else
+      'NOT finished. Save Version again, and in the NEW version add this run\\'s OUTPUT as an input\\n'
+      '(Add Input -> Notebook Output -> this notebook). rehydrate() picks the resume file up by name;\\n'
+      'without that input attached the next session starts from zero and the hours are gone.')
 '''
 
 
@@ -255,7 +300,18 @@ def main():
         cm = os.path.join(OUT, "code_bundle", "CODE_MANIFEST.json")
         if not os.path.isfile(cm):
             sys.exit("no code bundle: run pack_code_bundle.py first. The cell pins a sha it cannot invent.")
-        cs = json.load(open(cm))["code_sha256"]
+        bman = json.load(open(cm))
+        cs = bman["code_sha256"]
+        # REFUSE to pin a sha from a bundle that no longer matches the repo. This exact mistake was made
+        # once already: a bundled file was edited after the bundle was built, the cells were generated
+        # from the stale manifest, and the cell would have refused the very bundle it shipped with. The
+        # anchor is only worth having if it cannot be generated out of date.
+        drift = [rel for rel, want in bman["files"].items()
+                 if sha(os.path.join(ROOT, rel) if rel != "assert_package.py"
+                        else os.path.join(HERE, "assert_package.py")) != want]
+        if drift:
+            sys.exit("the code bundle is STALE relative to the repo -- re-run pack_code_bundle.py first:\n  "
+                     + "\n  ".join(drift))
         if not a.steps:
             sys.exit("--steps is required: the cell must carry the pre-registered budget, and a cell that "
                      "silently defaults to a number nobody registered is the failure this field exists for.")
