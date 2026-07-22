@@ -64,8 +64,13 @@ benchmarks/phase56/outputs_run*/
 benchmarks/phase56/output_*/
 
 # ── Large data + weight blobs: kept on disk, never tracked (regeneratable) ──
-data/
-weights/
+# ANCHORED with a leading slash, and it must stay anchored. Un-anchored, `data/` matches a directory
+# named `data` at ANY depth, which silently swallowed the whole of benchmarks/phase64/data/ -- the WS3
+# apparatus. Gate-bearing code that git cannot see cannot be pushed before the run, and the
+# pre-registration's falsifiability rests on those commit dates. The blobs live at the repo root; the
+# per-package copies are covered by the kaggle_* rules below.
+/data/
+/weights/
 
 # ── Local staging / scratch: never tracked ──
 # Kaggle run-pack: per-account dataset copies (~2.6 GB each) + notebook cells, uploaded by hand.

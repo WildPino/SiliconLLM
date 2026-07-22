@@ -169,15 +169,20 @@ def preflight(model, tids, dev, L, ctx_windows=2):
 
 
 def run_hf(a, tids, W):
-    import torch
+    import torch, transformers
     from transformers import AutoModelForCausalLM
+    # transformers 4.56 renamed torch_dtype -> dtype and deprecates the old spelling; Kaggle images may
+    # still be older and only accept the old one. Chosen by version, not by try/except: silently falling
+    # back would load the teacher in fp32, which fits in neither the memory nor the hours budget.
+    _dtkw = "dtype" if tuple(int(x) for x in transformers.__version__.split(".")[:2]) >= (4, 56) else "torch_dtype"
     gpu = pick_gpu(a.quant == "bf16")
     dt = {"fp16": torch.float16, "bf16": torch.bfloat16, "fp32": torch.float32}[a.quant]
     if a.quant == "fp16" and torch.cuda.is_available() and torch.cuda.is_bf16_supported():
         print("  NOTE: --quant fp16 on a bf16-capable device. Safe with sdpa (used here), NOT with eager "
               "attention -- see preflight(). bf16 is the better default on Ampere+.", flush=True)
-    model = AutoModelForCausalLM.from_pretrained(a.teacher, torch_dtype=dt, attn_implementation="sdpa",
-                                                 device_map={"": gpu} if gpu is not None else None)
+    model = AutoModelForCausalLM.from_pretrained(a.teacher, attn_implementation="sdpa",
+                                                 device_map={"": gpu} if gpu is not None else None,
+                                                 **{_dtkw: dt})
     model.eval()
     dev = model.device
     preflight(model, tids, dev, a.ctx)

@@ -423,14 +423,27 @@ def main():
         model.eval(); bits = 0.0; nb = 0
         with torch.no_grad():
             n = (min(cap, len(stream) - 1) if cap else len(stream) - 1)
-            pos = 0
-            while pos < n:
-                W = min(a.seq, n - pos)
-                x = torch.from_numpy(stream[pos:pos+W][None]).to(dev)
-                y = torch.from_numpy(stream[pos+1:pos+1+W][None]).to(dev)
+            # Full-length windows are batched; only the ragged remainder is evaluated alone. Windows are
+            # independent sequences either way, so batching changes the arithmetic not at all -- it only
+            # stops 1.5 MB of val from costing thousands of sequential forwards on every stage exit.
+            W = a.seq
+            full = n // W
+            for i in range(0, full, a.batch):
+                k = min(a.batch, full - i)
+                st = [(i + j) * W for j in range(k)]
+                x = torch.from_numpy(np.stack([stream[p0:p0+W] for p0 in st])).to(dev)
+                y = torch.from_numpy(np.stack([stream[p0+1:p0+1+W] for p0 in st])).to(dev)
                 lg, _ = model(x, y)
                 bits += F.cross_entropy(lg.reshape(-1, V), y.reshape(-1), reduction="sum").item() / math.log(2)
-                nb += int(el[y.reshape(-1).cpu()].sum()); pos += W
+                nb += int(el[y.reshape(-1).cpu()].sum())
+            rem = n - full * W
+            if rem > 0:
+                p0 = full * W
+                x = torch.from_numpy(stream[p0:p0+rem][None]).to(dev)
+                y = torch.from_numpy(stream[p0+1:p0+1+rem][None]).to(dev)
+                lg, _ = model(x, y)
+                bits += F.cross_entropy(lg.reshape(-1, V), y.reshape(-1), reduction="sum").item() / math.log(2)
+                nb += int(el[y.reshape(-1).cpu()].sum())
         model.train(); return bits / max(nb, 1), nb
 
     def val_bpb(cap):
