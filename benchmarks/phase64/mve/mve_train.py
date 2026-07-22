@@ -172,7 +172,7 @@ def main():
     ap.add_argument("--seq", type=int, default=512); ap.add_argument("--batch", type=int, default=16,
                     help="MICRO-batch. Effective batch = batch*accum. On <=16GB use --batch 8 --accum 2 to keep "
                          "effective 16 and fit. NOTE: stage E was long assumed to be the memory peak; WS2 measured "
-                         "otherwise -- the SSM scan is (stage C alone peaks at 4.86GB, the MoE is ~3% of peak). "
+                         "otherwise -- the SSM scan is (stage C alone peaks at 4.86GB, the MoE is ~3%% of peak). "
                          "Stage E was the last drop, not the load, so accum is a whole-run choice, not an E fix.")
     ap.add_argument("--accum", type=int, default=1, help="gradient accumulation steps (effective batch = batch*accum)")
     ap.add_argument("--sparse-moe", action="store_true",
@@ -231,6 +231,9 @@ def main():
     ap.add_argument("--chunk-steps", type=int, default=200, help="steps before advancing the resident chunk window")
     ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--device", default="auto"); ap.add_argument("--out", default="")
+    ap.add_argument("--allow-cpu", action="store_true",
+                    help="permit training on CPU. Without it a missing CUDA device is a hard error, "
+                         "because a silent CPU fall back is indistinguishable from a hung run.")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--data-dir", default="", help="override input dir (Kaggle: /kaggle/input/<ds>/data)")
     ap.add_argument("--ckpt-dir", default="", help="override checkpoint/output dir (Kaggle: /kaggle/working)")
@@ -249,6 +252,17 @@ def main():
         if torch.cuda.is_available(): torch.cuda.set_device(lrank)
     dev = a.device if a.device != "auto" else (f"cuda:{lrank}" if torch.cuda.is_available() else "cpu")
     dev_type = "cuda" if dev.startswith("cuda") else "cpu"
+    # A silent fall back to CPU is indistinguishable from a hung run: measured here, ten minutes without a
+    # single step because the interpreter on PATH carried a CPU-only torch. On a real Kaggle session that
+    # burns the session budget and produces nothing, and "slow" and "wrong environment" look identical from
+    # the outside. Refusing is cheap; --allow-cpu makes the CPU path a declared choice instead of an
+    # accident (the package smokes use it deliberately).
+    if dev_type == "cpu" and not a.allow_cpu:
+        sys.exit("ERROR: no CUDA device -- refusing to train on CPU.\n"
+                 f"  torch {torch.__version__}, cuda available = {torch.cuda.is_available()}\n"
+                 "  A CPU fall back is not slow training, it is a wrong environment that LOOKS like slow\n"
+                 "  training, and on a metered session it costs the whole budget before anyone notices.\n"
+                 "  Deliberate CPU run: pass --allow-cpu.")
     amp = torch.float16 if a.fp16 else (torch.bfloat16 if a.bf16 else None)
     scaler = torch.amp.GradScaler(dev_type, enabled=(amp == torch.float16))   # T4 = fp16, no bf16 -> loss scaling
     torch.manual_seed(a.seed); np.random.seed(a.seed + rank)
@@ -277,6 +291,34 @@ def main():
     bpe = Bpe.load(os.path.join(DATA, f"bpe{V}_ts.bin"))
     el = torch.tensor(bpe.exp_len, dtype=torch.long)
     ntr = meta["n_train_tok"]; train_hi = ntr; val = ids[ntr:]
+    # ---- CONDITIONS (a) + (b) of prereg v7, ASSERTED AT EVERY RUN START, not verified once by hand ----
+    # (b) The two vocab arms tokenize the same corpus differently, so "the last 2% of TOKENS" is a
+    # different byte range in each: the arms would evaluate different text and produce a healthy-looking
+    # comparison of nothing. pack_kaggle cuts the split in BYTE space at a document boundary and records
+    # val_split_byte; this is the consumer that makes that record load-bearing. The invariant is exact,
+    # not approximate -- the expected byte lengths of the first n_train_tok tokens must sum to precisely
+    # that offset, in BOTH vocabularies, which is what "byte-identical" means operationally.
+    # (a) The same line states which stream the tail is cut from: val_split_byte < meta['bytes'] means it
+    # is carved out of the covered slice the arms train on, not out of some other corpus.
+    _vsb = meta.get("val_split_byte")
+    if _vsb is not None:
+        _eln = np.asarray(bpe.exp_len, dtype=np.int64)
+        # bincount, not fancy-indexing: a gather over ~185 M positions would allocate ~1.5 GB for a
+        # number we already know how to get in V buckets. Kaggle has 13 GB and a trainer to load.
+        _cnt = np.bincount(ids[:ntr], minlength=len(_eln))
+        _got = int((_cnt * _eln[:len(_cnt)]).sum())
+        if _got != int(_vsb) or int(_vsb) >= int(meta["bytes"]):
+            sys.exit(
+                f"ERROR: the validation split is not the one this arm was registered against. Refusing to "
+                f"produce a gate number.\n"
+                f"  first {ntr} tokens of V={V} cover {_got} bytes; the package declares {_vsb} "
+                f"(delta {_got - int(_vsb)}).\n"
+                f"  slice is {meta['bytes']} bytes, so the split must fall strictly inside it.\n"
+                f"  A mismatch here means the arms evaluate different text: the comparison would run "
+                f"cleanly and mean nothing.")
+        log(f"  val split VERIFIED byte-identical: train {_got} B == declared {_vsb} B ({ntr} tok at V={V}); "
+            f"tail {int(meta['bytes']) - int(_vsb)} B = "
+            f"{100*(int(meta['bytes'])-int(_vsb))/int(meta['bytes']):.3f}% cut FROM the covered slice")
     # P62 code-val: the DECIDING metric for the screening (prereg v7). External, fixed, temporally held out,
     # byte-identical across arms by construction. Absent in the MVE packages, so it stays optional.
     _p62 = os.path.join(DATA, f"p62_{a.tag}.u16")
@@ -753,9 +795,18 @@ def main():
               if dev_type == "cuda" else "")
         if p62 is not None:
             pb, pn, pok = p62_bpb()
+            # The invariant is reported AFFIRMATIVELY, not only on failure. Printed only when it breaks, a
+            # healthy log says nothing and "it held" has to be inferred from silence -- the same weakness as
+            # a control that has only ever passed. This is the planted control of the DECIDING metric, so
+            # every arm's log carries the reconciliation in full and an auditor reads it instead of
+            # trusting that a warning would have appeared. The residue is the first token, which cannot be
+            # scored because nothing precedes it, and its byte length differs per vocabulary -- so the raw
+            # counts across arms differ by a byte or two BY CONSTRUCTION while the total is exact.
+            _pd = int(meta.get("p62_bytes", -1))
             log(f"  -> stage {st} P62 code-val BPB {pb:.4f}  [DECIDING]  over {pn} bytes"
-                + ("" if pok else "   << BYTE-COUNT INVARIANT FAILED: the harness is not normalising over "
-                                  "this file; the number is NOT comparable"))
+                + (f" + {_pd - pn} B unscored first token = {_pd} declared  [byte invariant HOLDS]" if pok
+                   else f"   << BYTE-COUNT INVARIANT FAILED: {pn} evaluated vs {_pd} declared; the harness "
+                        f"is not normalising over this file and the number is NOT comparable"))
         log(f"  -> stage {st} done: val BPB {b0:.4f} -> {b1:.4f} ({b1-b0:+.4f}) | {tps:.0f} tok/s | "
             f"{dt/60:.1f} min{pk}")
         # STAGE-EXIT ARCHIVE -- deliberately NOT the resume file. The resume file is transient state that is
