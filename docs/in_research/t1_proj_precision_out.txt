@@ -1,0 +1,19 @@
+================================================================================================
+TEARDOWN G1 - projection precision map (sp58_base, the E1 fp32 anchor). ONE variable = proj precision.
+================================================================================================
+[sp58_base.pt] cfg={'D': 256, 'N': 96, 'L': 6, 'mlp_mult': 4, 'bpb': 0.8799492977143912}
+projection block quantized = ('in_proj', 'x_proj', 'dt_proj', 'out_proj')  (the 52.7%-of-engine fp32 GEMVs; MLP stays ternary, head/embed fp32)
+
+-- val BPB, 100K tokens, seq 512 (within-script matched; delta is the signal) --
+     mode  B/weight proj-GEMV~      BPB     dBPB  top1 vs fp32   verdict
+     fp32       4.0      1.00x   0.8412  +0.0000       100.00%   reference (anchor 0.8799@200K)
+     fp16       2.0     ~2.00x   0.8412  -0.0000        99.99%   PASS (<=+0.005)  [20 tensors]
+     bf16       2.0     ~2.00x   0.8412  +0.0000        99.94%   PASS (<=+0.005)  [20 tensors]
+    int8r       1.0     ~4.00x   0.8412  -0.0000        99.79%   PASS (<=+0.005)  [20 tensors]
+    int8t       1.0     ~4.00x   0.8411  -0.0001        99.56%   PASS (<=+0.005)  [20 tensors]
+
+  [418s total]
+reading: any mode PASSING the +0.005 engine gate is a pure INFERENCE win on the dominant component ->
+  (a) ~4/Bpw faster on the memory-bound proj-GEMV; (b) smaller RESIDENT footprint under the 16MB keystone.
+P61 (ternary=1.58bit) FAILED at +0.018/+0.022; this probe maps what survives BETWEEN ternary and fp32.
+Amdahl on the full engine (proj=52.7%): fp16 ~1.35x, int8 ~1.6x end-to-end IF the quality gate holds.

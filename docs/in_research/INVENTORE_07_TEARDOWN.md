@@ -66,20 +66,22 @@ fp16 ≈ **2×**, int8 ≈ **4×** on that component. Two independent payoffs �
 projections of `sp58_base` to each precision, one variable, measure val-BPB delta + top-1 vs the fp32
 reference, against the engine's existing quality bar (E2: dBPB ≤ +0.005).
 
-> **RESULT (2026-07-19, smoke 4K/seq256 — full 100K run pending in `t1_proj_precision_out.txt`):**
+> **RESULT (2026-07-19, full run 100K tokens / seq 512, `t1_proj_precision_out.txt`; ref BPB 0.8412 on
+> this slice, matched-within-script):**
 > | mode | B/w | proj-GEMV ideal | dBPB | top-1 vs fp32 | verdict |
 > |---|---:|---:|---:|---:|---|
 > | fp32 | 4.0 | 1.00× | ref | 100.00% | reference |
-> | **fp16** | 2.0 | ~2.00× | **+0.0000** | 100.00% | **PASS** |
-> | bf16 | 2.0 | ~2.00× | +0.0001 | 99.97% | PASS |
-> | **int8 per-row** | 1.0 | ~4.00× | **+0.0000** | 99.90% | **PASS** |
-> | int8 per-tensor | 1.0 | ~4.00× | −0.0000 | 99.58% | PASS |
+> | **fp16** | 2.0 | ~2.00× | **−0.0000** | 99.99% | **PASS** |
+> | bf16 | 2.0 | ~2.00× | +0.0000 | 99.94% | PASS |
+> | **int8 per-row** | 1.0 | ~4.00× | **−0.0000** | 99.79% | **PASS** |
+> | int8 per-tensor | 1.0 | ~4.00× | −0.0001 | 99.56% | PASS |
 >
-> **The map has a cliff, not a slope: int8 is essentially free (+0.0000, top-1 99.9%), ternary is dead
-> (+0.02).** The organs need ~8 bits of *dynamic range*, not 32 bits of mantissa, and emphatically not 1.58.
-> P61's "precision-hungry" verdict was true only at the 1.58-bit extreme it tested — between int8 and fp32
-> there is nothing to pay. *(The full 100K/seq512 run is the number of record; the smoke already resolves the
-> sign and the cliff.)*
+> **The map has a cliff, not a slope: int8 is essentially free (−0.0000 BPB, top-1 99.79%), ternary is dead
+> (+0.018/0.022).** The organs need ~8 bits of *dynamic range*, not 32 bits of mantissa, and emphatically not
+> 1.58. P61's "precision-hungry" verdict was true only at the 1.58-bit extreme it tested — between int8 and
+> fp32 there is nothing to pay. Confirmed at protocol scale (the 4K smoke already resolved the sign and the
+> cliff; the 100K run moved no verdict). All four modes clear the +0.005 engine gate with room; **int8
+> per-row (1 B/weight, −0.0000 BPB) is the operating point** — 4× on the byte-bound dominant component.
 
 **Reading if it holds at 100K:** the biggest, most attack-resistant component of the engine has a **free ~2–4×
 byte reduction on the table**, discovered by testing the *middle* of an axis everyone had only probed at its
@@ -169,8 +171,10 @@ dividend, correctly attributed to the engine this time; **not a new training pro
 
 ## 5. $0 probe queue
 
-- **P1 (G1) — RUNNING:** projection precision sweep fp32/fp16/bf16/int8 on `sp58_base` →
-  `t1_proj_precision_out.txt`. Smoke already resolves the cliff; full 100K/seq512 is the number of record.
+- **P1 (G1) — DONE (2026-07-19):** projection precision sweep fp32/fp16/bf16/int8 on `sp58_base` →
+  `t1_proj_precision_out.txt`. Verdict: int8-per-row free (−0.0000 BPB, top-1 99.79%) → the operating point.
+  Owed next (engine-side, not this pass): the *in-engine* per-component timing of an int8-weight proj-GEMV
+  kernel to convert the ~4× byte ideal into a measured tok/s (the E2-style Amdahl breakdown).
 - **P2 (G2b):** router pre- vs post-mixer top-8 overlap on `moe_gran.pt` — CPU, minutes.
 
 ---
