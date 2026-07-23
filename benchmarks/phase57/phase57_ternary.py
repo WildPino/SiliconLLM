@@ -25,7 +25,9 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 from phase55_ssm import ArchA, load_meta, byte_guard, word_metrics, IDS, META, OUT as P55OUT  # reuse frozen baseline pieces
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-OUT  = os.path.join(ROOT, "results", "phase57"); os.makedirs(OUT, exist_ok=True)
+OUT  = os.path.join(ROOT, "results", "phase57")
+try: os.makedirs(OUT, exist_ok=True)      # read-only mount: import for symbols must still succeed
+except OSError: pass
 
 # ---------------- ternary MLP linear (BitNet b1.58, weight-only, STE) ----------------
 class BitLinear158(nn.Module):

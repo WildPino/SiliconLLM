@@ -214,6 +214,10 @@ def main():
                          "Keep N <= ~10%% of stage D or the QAT pressure ramps in too late.")
     ap.add_argument("--max-nonfinite", type=int, default=50,
                     help="abort after this many CONSECUTIVE non-finite loss steps (fp16 forward-overflow deadlock)")
+    ap.add_argument("--require-p62", action="store_true",
+                    help="refuse to start unless the P62 code-val stream is present. The screening's "
+                         "deciding metric; without this flag a package missing it completes and decides "
+                         "nothing. The rung-1 cells set it.")
     ap.add_argument("--warmup", type=int, default=0,
                     help="linear LR warmup steps at each stage entry (0 = off, the run-2 pre-registered behaviour)")
     ap.add_argument("--lr", type=float, default=3e-3); ap.add_argument("--alpha", type=float, default=0.5,
@@ -323,6 +327,17 @@ def main():
     # byte-identical across arms by construction. Absent in the MVE packages, so it stays optional.
     _p62 = os.path.join(DATA, f"p62_{a.tag}.u16")
     p62 = np.fromfile(_p62, dtype=np.uint16).astype(np.int64) if os.path.isfile(_p62) else None
+    # FAIL FAST when the deciding metric is required but absent. Rung-1 stage-1 ran to completion twice on
+    # a package that predated the p62 stream: the file was missing, p62 stayed None, the [DECIDING] line
+    # never printed, and .done was still written -- 18 GPU-hours that answered only the forbidden tail val.
+    # A screening that cannot compute its decider must not look like a finished screening. Optional stays
+    # the default for the MVE-era packages; the cell passes --require-p62 so a repeat is a startup error,
+    # not a silent 9-hour no-op.
+    if a.require_p62 and p62 is None:
+        sys.exit(f"ERROR: --require-p62 set but no {os.path.basename(_p62)} in {DATA}.\n"
+                 f"  This is the DECIDING metric. Without it the run would complete and decide nothing --\n"
+                 f"  which is exactly how the first stage-1 attempt wasted two full sessions. The data\n"
+                 f"  package is a generation behind: rebuild/re-upload it with the p62 stream present.")
     # The CE control must see the SAME positions as the KD arm, so build the chunk index whenever the slice is in
     # play -- even for --arm ce, which then uses it only for the sampling window and never reads a logit.
     need_win = a.arm == "kd" or a.restrict_to_slice

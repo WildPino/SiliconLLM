@@ -20,7 +20,12 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 IDS  = os.path.join(ROOT, "results", "phase55", "ids.u16")
 META = os.path.join(ROOT, "results", "phase55", "meta.bin")
 BARS = os.path.join(ROOT, "docs", "gatev2_bars.json")
-OUT  = os.path.join(ROOT, "results", "phase55"); os.makedirs(os.path.join(OUT,"human"), exist_ok=True)
+OUT  = os.path.join(ROOT, "results", "phase55")
+# Creating an output directory AT IMPORT fails on a read-only mount, and this module is imported for its
+# symbols far more often than it is run: on Kaggle the code ships as a dataset under /kaggle/input, so the
+# import raised OSError and killed a run before it began. Writers below still create what they need.
+try: os.makedirs(os.path.join(OUT, "human"), exist_ok=True)
+except OSError: pass
 
 # ---------------- data ----------------
 def load_meta(path):

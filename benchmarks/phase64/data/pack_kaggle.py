@@ -88,19 +88,26 @@ import assert_package
 assert_package.check(expect_arm='{ARM}', expect_vocab={V}, root=PKG)
 assert_package.check_code(BUNDLE, CODE_SHA)
 
-CODE = BUNDLE + '/code'
+# STAGE the code onto the writable disk before running it. /kaggle/input is a READ-ONLY mount, and
+# several of these modules create their results directory at IMPORT time -- so importing them from the
+# mount raises OSError before a single step runs. That is exactly how the first launch attempt died. The
+# import-time writes are now guarded at the source as well; this copy is the belt to that pair of braces,
+# and it costs 167 KB. It is re-made every session so the staged tree can never drift from the bundle.
+CODE = '/kaggle/working/code'
+if os.path.isdir(CODE): shutil.rmtree(CODE)
+shutil.copytree(BUNDLE + '/code', CODE)
 TRAIN = CODE + '/benchmarks/phase64/mve/mve_train.py'
 
-# The file that RUNS is the file that is checked, by explicit path. check_code() above validated the
-# bundle as a tree; this validates the one path handed to the interpreter. They are the same file today,
-# and the reason not to rely on that is sitting in /kaggle/input: the data packages still contain their
-# own stale copy of mve_train.py, so "which copy wins" is a real question with a real wrong answer.
-# Path precedence is not assumed here, it is asserted.
+# The file that RUNS is the file that is checked, by explicit path -- and after staging, that is the
+# STAGED copy, so this also catches a bad copy. check_code() above validated the bundle as a tree; this
+# validates the one path handed to the interpreter. The reason not to trust path precedence is sitting in
+# /kaggle/input: the data packages still contain their own stale mve_train.py, so "which copy wins" is a
+# real question with a real wrong answer. It is asserted, not assumed.
 _want = json.load(open(BUNDLE + '/CODE_MANIFEST.json'))['files']['benchmarks/phase64/mve/mve_train.py']
 _got = hashlib.sha256(open(TRAIN, 'rb').read()).hexdigest()
 assert _got == _want, ('the trainer about to run is not the one the bundle declares:\\n'
                        '  path %s\\n  sha  %s\\n  want %s' % (TRAIN, _got, _want))
-print('trainer   :', TRAIN, '\\n  sha', _got[:16], 'VERIFIED')
+print('trainer   :', TRAIN, '\\n  sha', _got[:16], 'VERIFIED (staged from the read-only bundle)')
 
 # ---- carry the run across Kaggle sessions -------------------------------------------------------
 # A batch ("Save Version") run ends at the session limit and /kaggle/working does NOT survive into the
@@ -139,7 +146,7 @@ print('GPUs:', NG, [torch.cuda.get_device_name(i) for i in range(NG)])
 args = ['--tag', 's0', '--arm', 'ce', '--recall', 'off', '--stages', 'C',
         '--steps', str(STEPS), '--seq', '512', '--batch', '8',
         '--accum', '1' if NG >= 2 else '2',          # effective batch 16 on 1 or 2 GPUs
-        '--fp16', '--warmup', '200', '--max-nonfinite', '50',
+        '--fp16', '--warmup', '200', '--max-nonfinite', '50', '--require-p62',
         '--data-dir', PKG + '/data', '--ckpt-dir', '/kaggle/working',
         '--out', '/kaggle/working/{ARM}.pt', '--resume-ckpt', '/kaggle/working/resume_{ARM}.pt',
         '--save-stage-ckpt', '/kaggle/working/stages_{ARM}',

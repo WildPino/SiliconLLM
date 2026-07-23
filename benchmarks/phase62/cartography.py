@@ -29,7 +29,9 @@ from collections import Counter, defaultdict
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 EXT  = os.path.join(ROOT, "data", "external")
 BPE_TS = os.path.join(ROOT, "weights", "bpe1024.bin")
-OUT  = os.path.join(ROOT, "results", "phase62"); os.makedirs(OUT, exist_ok=True)
+OUT  = os.path.join(ROOT, "results", "phase62")
+try: os.makedirs(OUT, exist_ok=True)      # read-only mount: import for symbols must still succeed
+except OSError: pass
 
 BPE1_MAGIC = 0x42504531  # 'BPE1' (little-endian u32), same as archive/benchmarks/phase50/bpe_codec.h
 

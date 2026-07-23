@@ -44,7 +44,9 @@ from phase57_sparse import SparseMLP
 from phase58_predict import ridge_fit, ridge_apply, recall_at_k  # reuse the held-out ridge probe
 
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
-OUT = os.path.join(ROOT, "results", "phase57"); os.makedirs(OUT, exist_ok=True)
+OUT = os.path.join(ROOT, "results", "phase57")
+try: os.makedirs(OUT, exist_ok=True)      # read-only mount: import for symbols must still succeed
+except OSError: pass
 
 ARMS = {  # arm -> (is_moe, E, hid_e, k, dense_hid)
     "dense-big":  (False, 0,  0,   0, 4096),

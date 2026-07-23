@@ -36,7 +36,9 @@ from phase55_ssm import ArchA, load_meta, IDS, META            # frozen baseline
 from phase57_ternary import BitLinear158                        # probe-1 ternary linear (STE, per-row absmean)
 
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
-OUT  = os.path.join(ROOT, "results", "phase57"); os.makedirs(OUT, exist_ok=True)
+OUT  = os.path.join(ROOT, "results", "phase57")
+try: os.makedirs(OUT, exist_ok=True)      # read-only mount: import for symbols must still succeed
+except OSError: pass
 
 # ---------------- sparse-activation MLP ----------------
 class SparseMLP(nn.Module):
