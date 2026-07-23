@@ -30,8 +30,20 @@ def _sha(p, buf=1 << 20):
     return h.hexdigest()
 
 
+def data_generation_sha(files):
+    """One sha over the package's DATA files -- the generation pin. It changes the moment the file set
+    changes, which is exactly the failure it exists to catch: the stage-1 upload was a generation behind
+    (6 files, no p62), yet every per-file sha it did carry was internally consistent, so nothing local to
+    the manifest could tell it was stale. A hash over the SET makes 'which generation is this' a value the
+    cell can pin. Order-independent by sorting: it is a property of the content, not the walk."""
+    h = hashlib.sha256()
+    for name in sorted(files):
+        h.update(f"{name} {files[name]['sha256']}\n".encode())
+    return h.hexdigest()
+
+
 def check(expect_arm=None, expect_vocab=None, expect_parent_sha=None, expect_alpha=None,
-          root=None, verbose=True):
+          expect_data_sha=None, root=None, verbose=True):
     root = root or HERE
     mp = os.path.join(root, "PACKAGE_MANIFEST.json")
     if not os.path.isfile(mp):
@@ -61,6 +73,22 @@ def check(expect_arm=None, expect_vocab=None, expect_parent_sha=None, expect_alp
     want("V_student", expect_vocab)
     want("parent_sha256", expect_parent_sha)
     want("alpha", expect_alpha)
+
+    # Generation pin. Recompute from the files actually on disk (not from a field the manifest could
+    # carry stale), verify the manifest's own record agrees, THEN compare to the cell's pinned value.
+    # --require-p62 catches the specific failure (that one file missing); this catches the whole class
+    # (any generation other than the one the cell was written against).
+    gen = data_generation_sha(man["files"])
+    if man.get("data_sha256") and man["data_sha256"] != gen:
+        raise SystemExit(f"MANIFEST INCONSISTENT: recorded data_sha256 {man['data_sha256'][:16]}... "
+                         f"!= recomputed {gen[:16]}... -- the manifest does not describe its own files.")
+    if expect_data_sha is not None and gen != expect_data_sha:
+        raise SystemExit(
+            f"DATA GENERATION MISMATCH -- do not train.\n"
+            f"  package data generation {gen}\n"
+            f"  this cell was written for {expect_data_sha}\n"
+            f"  The attached dataset is a different generation than the notebook expects -- the stage-1\n"
+            f"  waste was exactly this: an older package that trained cleanly and computed no decider.")
 
     if verbose:
         print(f"package OK: arm={man['arm']} stage={man['stage']} V={man['V_student']} "

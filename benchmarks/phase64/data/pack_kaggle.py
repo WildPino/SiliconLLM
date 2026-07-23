@@ -26,7 +26,9 @@ import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
+sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(ROOT, "benchmarks", "phase62"))
+import assert_package        # noqa: E402  -- the one source of the generation-pin function
 DATA = os.path.join(ROOT, "results", "phase64", "rung1")
 P62 = os.path.join(ROOT, "results", "phase62", "code_val.txt")
 CODE_FILES = ["benchmarks/phase64/mve/mve_train.py", "benchmarks/phase64/mve/mve_model.py",
@@ -42,21 +44,32 @@ OUT = os.path.join(ROOT, "kaggle_rung1")
 TAG = "s0"
 VAL_FRAC = 0.02
 
+# One arm per screening comparison, keyed by stage. Each spec: (arm id, vocab, x_proj rank, output subdir).
+# Stage 1 (vocab) ran and adopted V2048 by the sealed sigma_seed rule. Stage 2 (x_proj r=26) is therefore
+# a SINGLE new arm on V2048, fresh seed-paired init, same recipe -- its chained control is stage 1's
+# already-computed arm1 (P62 1.1377), so no dense V2048 arm is re-run. The data is byte-identical to
+# arm1_V2048, so DATA_SHA will match; only the cell (x_proj rank, arm id) differs.
+SPECS = {
+    1: [("arm1_V2048", 2048, 0, "account_1/arm1_V2048"),
+        ("arm2_V4096", 4096, 0, "account_2/arm2_V4096")],
+    2: [("arm3_xproj26_V2048", 2048, 26, "stage2/arm3_xproj26_V2048")],
+}
+
 
 NOTEBOOK = '''# =============================================================================
-# rung-1 SCREENING  --  STAGE 1  --  {ARM}   (V={V})
+# rung-1 SCREENING  --  STAGE {STAGE}  --  {ARM}   (V={V})
 # -----------------------------------------------------------------------------
 # Kaggle settings (right sidebar), all three matter:
 #   Accelerator : GPU T4 x2      -- Kaggle bills SESSION-hours, so the 2nd T4 is free quota-wise
 #   Persistence : "Files only"   -- REQUIRED: keeps /kaggle/working so --resume works across sessions
-#   Internet    : OFF is fine    -- nothing is downloaded; stage 1 needs no teacher logits
+#   Internet    : OFF is fine    -- nothing is downloaded; stages 1-2 need no teacher logits
 #
 # TWO datasets are attached: the arm's data package, and the shared code bundle. They are separate
 # because the data was uploaded before several trainer fixes, and re-uploading 4.2 GB to ship 167 KB of
 # Python is the wrong trade. The code that runs is the bundle's, pinned by CODE_SHA below.
 #
 # Run this one cell. It trains until the session budget, then stops cleanly. Re-run the SAME cell
-# next session; it resumes. Repeat until it prints STAGE1-DONE.
+# next session; it resumes. Repeat until it prints STAGE-DONE.
 #
 # THE DECIDING METRIC IS THE P62 code-val BPB printed at stage exit, NOT the internal tail val.
 # The tail val is apparatus (curves, divergence, liveness) and must never be quoted.
@@ -65,7 +78,8 @@ import glob, hashlib, json, os, shutil, subprocess, sys, torch
 
 # ---- the fields the Architect fills at launch, from the prereg ---------------------------------
 STEPS = {STEPS}   # stage-C steps for ONE screening arm (15% of the stage-C token budget)
-CODE_SHA = '{CODE_SHA}'
+CODE_SHA = '{CODE_SHA}'   # pins the trainer generation (checked against the bundle)
+DATA_SHA = '{DATA_SHA}'   # pins the DATA generation (checked against the package's file set)
 # ------------------------------------------------------------------------------------------------
 assert STEPS, ("STEPS is not filled. It is the pre-registered per-arm budget and must come from the "
                "prereg, not from whoever runs the cell. Refusing to start an unbudgeted arm.")
@@ -85,7 +99,7 @@ print('data package:', PKG); print('code bundle :', BUNDLE)
 # package predates check_code and would not be able to perform the second half of this check.
 sys.path.insert(0, BUNDLE)
 import assert_package
-assert_package.check(expect_arm='{ARM}', expect_vocab={V}, root=PKG)
+assert_package.check(expect_arm='{ARM}', expect_vocab={V}, expect_data_sha=DATA_SHA, root=PKG)
 assert_package.check_code(BUNDLE, CODE_SHA)
 
 # STAGE the code onto the writable disk before running it. /kaggle/input is a READ-ONLY mount, and
@@ -147,6 +161,7 @@ args = ['--tag', 's0', '--arm', 'ce', '--recall', 'off', '--stages', 'C',
         '--steps', str(STEPS), '--seq', '512', '--batch', '8',
         '--accum', '1' if NG >= 2 else '2',          # effective batch 16 on 1 or 2 GPUs
         '--fp16', '--warmup', '200', '--max-nonfinite', '50', '--require-p62',
+        '--xproj-rank', '{XPROJ}',                    # 0 = dense (stage 1); 26 = the x_proj screening (stage 2)
         '--data-dir', PKG + '/data', '--ckpt-dir', '/kaggle/working',
         '--out', '/kaggle/working/{ARM}.pt', '--resume-ckpt', '/kaggle/working/resume_{ARM}.pt',
         '--save-stage-ckpt', '/kaggle/working/stages_{ARM}',
@@ -157,7 +172,7 @@ print('RUN:', ' '.join(cmd), flush=True)
 subprocess.run(cmd, check=False)
 
 done = os.path.exists('/kaggle/working/{ARM}.pt.done')
-print(os.linesep + '==== STAGE1-DONE for {ARM}? ' + str(done) + ' ====')
+print(os.linesep + '==== STAGE-DONE for {ARM}? ' + str(done) + ' ====')
 print('Send the Builder: the P62 code-val BPB line, the full cell output, and '
       '/kaggle/working/{ARM}.pt (plus stages_{ARM}/ -- stage 2 branches from it).'
       if done else
@@ -203,7 +218,7 @@ def token_index_at(V, byte_off):
     return ntr, resid, len(ids), int(ends[-1])
 
 
-def pack_vocab(V, arm, stage, dest, extras=None):
+def pack_vocab(V, arm, stage, dest, xproj=0, extras=None):
     os.makedirs(dest, exist_ok=True)
     meta = json.load(open(os.path.join(DATA, f"meta_{TAG}.json")))
     docbound = np.fromfile(os.path.join(DATA, f"docbound_{TAG}.i64"), dtype=np.int64)
@@ -263,6 +278,8 @@ def pack_vocab(V, arm, stage, dest, extras=None):
                raw_sha256=meta["raw_sha256"],
                bpe_sha256=files[f"bpe{V}_ts.bin"]["sha256"],
                ids_sha256=files[f"ts_{TAG}.u16"]["sha256"],
+               data_sha256=assert_package.data_generation_sha(files),   # the generation pin (rider, stages 2-3)
+               xproj_rank=xproj,
                corpus_bytes_per_tok=cman["tokenizers"][str(V)].get("corpus_bytes_per_tok"),
                val_split_byte=b_off, files=files, code=man_code, **(extras or {}))
     # Code rides WITH the data. It is ~200 KB against a 1 GB payload, and a package that carries its own
@@ -274,24 +291,33 @@ def pack_vocab(V, arm, stage, dest, extras=None):
         man_code[rel] = sha(os.path.join(dest, "code", rel))
     json.dump(man, open(os.path.join(dest, "PACKAGE_MANIFEST.json"), "w"), indent=1)
     shutil.copyfile(os.path.join(HERE, "assert_package.py"), os.path.join(dest, "assert_package.py"))
-    with open(os.path.join(dest, "NOTEBOOK_cell.py"), "w", encoding="utf-8") as f:
-        f.write(NOTEBOOK.replace("{ARM}", arm).replace("{V}", str(V)))
+    # The notebook cell is written centrally by write_cells (which reads this manifest for DATA_SHA), not
+    # here: a cell needs STEPS and CODE_SHA, neither known at build time, and one authoritative copy that
+    # the operator pastes from beats a per-package copy that can drift from it.
     tot = sum(f["bytes"] for f in files.values())
     return man, tot, resid
 
 
-def write_cells(steps, code_sha):
-    """Regenerate the notebook cells only. The cells are text; the 4.2 GB of data they point at is not,
-    and nothing about the data changed. Written OUTSIDE the uploaded package directories on purpose --
-    the copies inside those are as stale as the trainer beside them, and the operator must paste from a
-    file that cannot be mistaken for the shipped one."""
+def write_cells(stage, steps, code_sha):
+    """Regenerate the notebook cells, the single authoritative copy the operator pastes from -- written
+    OUTSIDE the package directories so it can never be confused with a shipped-and-stale one. DATA_SHA is
+    read from each package's freshly built manifest, so the cell pins the exact generation it was written
+    against."""
     out = []
-    for arm, V in [("arm1_V2048", 2048), ("arm2_V4096", 4096)]:
+    for arm, V, xproj, subdir in SPECS[stage]:
+        mp = os.path.join(OUT, subdir, "PACKAGE_MANIFEST.json")
+        if not os.path.isfile(mp):
+            sys.exit(f"no package at {subdir} -- build stage {stage} first (pack_kaggle.py --stage {stage}).")
+        man = json.load(open(mp))
+        # Recompute if absent: the stage-1 packages were built before the field existed, and the pin is a
+        # pure function of the file set either way -- so the cell gets the true generation, not a KeyError.
+        data_sha = man.get("data_sha256") or assert_package.data_generation_sha(man["files"])
         p = os.path.join(OUT, f"NOTEBOOK_{arm}.py")
         with open(p, "w", encoding="utf-8") as f:
-            f.write(NOTEBOOK.replace("{ARM}", arm).replace("{V}", str(V))
-                            .replace("{STEPS}", str(steps)).replace("{CODE_SHA}", code_sha))
-        out.append(p)
+            f.write(NOTEBOOK.replace("{ARM}", arm).replace("{V}", str(V)).replace("{STAGE}", str(stage))
+                            .replace("{XPROJ}", str(xproj)).replace("{STEPS}", str(steps))
+                            .replace("{CODE_SHA}", code_sha).replace("{DATA_SHA}", data_sha))
+        out.append((p, data_sha))
     return out
 
 
@@ -303,6 +329,9 @@ def main():
                          "rebuilding the data packages")
     ap.add_argument("--steps", type=int, default=0, help="pre-registered per-arm stage-C step budget")
     a = ap.parse_args()
+    if a.stage not in SPECS:
+        sys.exit(f"stage {a.stage} is not defined. Stages 2-3 are packed only once the previous winner is "
+                 f"known -- their parent must exist.")
     if a.cells_only:
         cm = os.path.join(OUT, "code_bundle", "CODE_MANIFEST.json")
         if not os.path.isfile(cm):
@@ -322,37 +351,37 @@ def main():
         if not a.steps:
             sys.exit("--steps is required: the cell must carry the pre-registered budget, and a cell that "
                      "silently defaults to a number nobody registered is the failure this field exists for.")
-        for p in write_cells(a.steps, cs):
-            print(f"  wrote {p}")
-        print(f"\n  STEPS = {a.steps}   CODE_SHA = {cs[:16]}...")
+        for p, ds in write_cells(a.stage, a.steps, cs):
+            print(f"  wrote {p}   DATA_SHA {ds[:16]}...")
+        print(f"\n  stage {a.stage}   STEPS = {a.steps}   CODE_SHA = {cs[:16]}...")
         print("\nSTOP. Cells regenerated. No commit.")
         return
-    if a.stage != 1:
-        sys.exit("stages 2 and 3 depend on the winner of the previous stage; they are packed when it is "
-                 "known. Building them now would require choosing a parent that does not exist yet.")
 
-    print(f"WS3 Kaggle packaging   stage 1 (arms 1+2, parallel)   tag={TAG}\n")
-    print(f"  {'account':10s} {'arm':6s} {'V':>6s} {'payload':>10s} {'val resid':>10s}  ids sha")
+    label = {1: "stage 1 (vocab, arms 1+2 parallel)",
+             2: "stage 2 (x_proj r=26 on V2048, one arm; chained control = stage-1 arm1)"}[a.stage]
+    print(f"WS3 Kaggle packaging   {label}   tag={TAG}\n")
+    print(f"  {'arm':20s} {'V':>6s} {'xproj':>6s} {'payload':>10s} {'val resid':>10s}  data sha")
     rows = []
-    for acct, (arm, V) in enumerate([("arm1_V2048", 2048), ("arm2_V4096", 4096)], start=1):
-        dest = os.path.join(OUT, f"account_{acct}", arm)
-        man, tot, resid = pack_vocab(V, arm, 1, dest)
-        rows.append((acct, arm, V, tot, resid, man))
-        print(f"  {'account_'+str(acct):10s} {arm.split('_')[0]:6s} {V:6d} {tot/2**20:9.0f}M "
-              f"{resid:10d}  {man['ids_sha256'][:16]}...")
+    for arm, V, xproj, subdir in SPECS[a.stage]:
+        dest = os.path.join(OUT, subdir)
+        man, tot, resid = pack_vocab(V, arm, a.stage, dest, xproj=xproj)
+        rows.append((arm, V, tot, resid, man))
+        print(f"  {arm:20s} {V:6d} {xproj:6d} {tot/2**20:9.0f}M {resid:10d}  {man['data_sha256'][:16]}...")
 
-    # relay carries BOTH: the failure it covers is equiprobable across the two stage-1 arms
-    rel = os.path.join(OUT, "account_3_relay")
-    for _, arm, V, _, _, _ in rows:
-        pack_vocab(V, arm, 1, os.path.join(rel, arm))
-    rtot = sum(t for _, _, _, t, _, _ in rows)
-    print(f"  {'account_3':10s} {'relay':6s} {'both':>6s} {rtot/2**20:9.0f}M          -  carries arm1 and arm2")
+    if a.stage == 1:
+        # relay carries BOTH: the failure it covers is equiprobable across the two stage-1 arms
+        rel = os.path.join(OUT, "account_3_relay")
+        for arm, V, _, _, _ in rows:
+            pack_vocab(V, arm, 1, os.path.join(rel, arm))
+        print(f"  {'account_3 relay':20s} {'both':>6s} {'':>6s} "
+              f"{sum(t for _, _, t, _, _ in rows)/2**20:9.0f}M           -  carries arm1 and arm2")
 
-    print(f"\n  val split: byte {rows[0][5]['val_split_byte']} (document boundary), identical for both arms;"
-          f" residual {rows[0][4]} / {rows[1][4]} bytes")
+    print(f"\n  val split: byte {rows[0][4]['val_split_byte']} (document boundary), identical across arms")
     print(f"  packages under {OUT}")
-    print("\n  REMINDERS: Kaggle datasets PRIVATE (corpus is never redistributed); every notebook runs\n"
-          "  assert_package.py before training; stage-1 packages carry NO logits (only stage 3 needs them).")
+    print("\n  REMINDERS: Kaggle datasets PRIVATE (corpus is never redistributed); the cell asserts the data\n"
+          "  generation (DATA_SHA) and requires the p62 decider (--require-p62) before training. Stage-1/2\n"
+          "  packages carry NO logits (only stage 3 needs them).")
+    print(f"\n  Next: pack_kaggle.py --cells-only --stage {a.stage} --steps <N>   (fills STEPS + CODE_SHA + DATA_SHA)")
     print("\nSTOP. Packages built, nothing launched. No commit.")
 
 
