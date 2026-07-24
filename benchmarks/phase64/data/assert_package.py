@@ -91,8 +91,8 @@ def check(expect_arm=None, expect_vocab=None, expect_parent_sha=None, expect_alp
             f"  waste was exactly this: an older package that trained cleanly and computed no decider.")
 
     if verbose:
-        print(f"package OK: arm={man['arm']} stage={man['stage']} V={man['V_student']} "
-              f"files={len(man['files'])}")
+        print(f"package OK: arm={man.get('arm', '(shared bundle)')} stage={man.get('stage')} "
+              f"V={man['V_student']} files={len(man['files'])}")
         if man.get("code"):
             print("  NOTE: this manifest's embedded code shas are SUPERSEDED and are not checked here -- "
                   "the data packages were uploaded before later trainer fixes. Code identity is verified "
@@ -134,6 +134,51 @@ def check_code(code_root, expect_sha, verbose=True):
             f"  cleanly and produce a gate number from code nobody registered.")
     if verbose:
         print(f"code OK: {len(man['files'])} files, sha {man['code_sha256'][:16]}...")
+    return man
+
+
+def check_logits(logits_root, expect_sha, quick=True, verbose=True):
+    """Verify the attached logits bundle reproduces the sha the notebook pins -- the third pin, alongside
+    check() (data) and check_code() (trainer), so the stage-3 alpha curve stands on three verified inputs.
+
+    The logits are 18 GB, so the DEFAULT (quick=True) trusts the bundle's own recorded per-file shas and
+    only re-derives the generation sha over them -- catching a stale/swapped GENERATION (a whole wrong
+    logits set) at cell start in milliseconds. quick=False re-hashes every chunk from disk (minutes), for
+    a periodic deep integrity pass. Either way the generation sha is compared to the cell's pin: a
+    recorded hash that is never re-derived is the failure this whole family exists for.
+    """
+    mp = os.path.join(logits_root, "LOGITS_MANIFEST.json")
+    if not os.path.isfile(mp):
+        raise SystemExit(f"LOGITS_MANIFEST.json missing at {logits_root}. Attach the logits bundle dataset.")
+    man = json.load(open(mp))
+    if not quick:
+        import glob
+        bad = []
+        for name, want in man["files"].items():
+            p = os.path.join(logits_root, "logits_s0", name)
+            if not os.path.isfile(p): bad.append(f"{name}: MISSING"); continue
+            if _sha(p) != want: bad.append(f"{name}: sha mismatch")
+        if bad:
+            raise SystemExit("LOGITS BUNDLE CORRUPT -- do not train:\n  " + "\n  ".join(bad[:8]))
+    # The logits manifest stores files as {name: sha_string} (flat), so compute the generation sha inline
+    # over that shape -- do NOT route through data_generation_sha, which expects {name: {"sha256": ...}}.
+    _h = hashlib.sha256()
+    for name in sorted(man["files"]):
+        _h.update(f"{name} {man['files'][name]}\n".encode())
+    gen = _h.hexdigest()
+    if man.get("logits_sha256") and man["logits_sha256"] != gen:
+        raise SystemExit(f"LOGITS MANIFEST INCONSISTENT: recorded {man['logits_sha256'][:16]}... != "
+                         f"recomputed {gen[:16]}... -- the manifest does not describe its own files.")
+    if gen != expect_sha:
+        raise SystemExit(
+            f"LOGITS GENERATION MISMATCH -- do not train.\n"
+            f"  bundle   {gen}\n"
+            f"  expected {expect_sha}\n"
+            f"  The attached logits are a different set than this notebook was written for. Every alpha arm\n"
+            f"  must read byte-identical logits, or the curve is not one variable.")
+    if verbose:
+        print(f"logits OK: {man['n_chunks']} chunks, sha {gen[:16]}...  "
+              f"({'quick' if quick else 'deep'} check)")
     return man
 
 

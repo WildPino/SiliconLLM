@@ -40,8 +40,12 @@ STAGE_SPLIT = dict(C=0.55, D=0.20, E=0.20, F=0.05)         # plan §4 token spli
 class KDChunks:
     """Rolling window of teacher-logit chunks. Holds <=2 resident, advances, and (--delete-behind) removes the
     consumed file -- the production storage discipline, not a simulation of it."""
-    def __init__(s, tag, seg_row, resident=2, delete_behind=False):
-        s.dir = os.path.join(DATA, f"logits_{tag}")
+    def __init__(s, tag, seg_row, resident=2, delete_behind=False, logits_dir=None):
+        # logits_dir lets the 17.976 GB of teacher logits live in their OWN shared dataset rather than be
+        # copied into every arm's package -- three alpha arms read the SAME logits, so a per-package copy
+        # would triple 18 GB to 54 GB for no reason. Defaults to DATA (the --data-dir) so nothing that
+        # shipped logits inside the package breaks.
+        s.dir = os.path.join(logits_dir or DATA, f"logits_{tag}")
         s.man = json.load(open(os.path.join(s.dir, "manifest.json")))
         s.chunks = s.man["chunks"]; s.K = s.man["K"]
         s.resident = resident; s.delete_behind = delete_behind
@@ -232,7 +236,16 @@ def main():
                     help="stop cleanly after this wall-clock (save a resume checkpoint, exit MVE-INCOMPLETE). "
                          "0=off. Kaggle: set ~660 to land under the 12h session cap.")
     ap.add_argument("--delete-behind", action="store_true")
-    ap.add_argument("--chunk-steps", type=int, default=200, help="steps before advancing the resident chunk window")
+    ap.add_argument("--chunk-steps", type=int, default=0,
+                    help="steps before advancing the resident chunk window. 0 = DERIVE from the budget "
+                         "(steps // n_chunks // chunk-sweeps) so the window sweeps the ring representatively; "
+                         "a positive value is an explicit override for tests. The launch cells leave it 0.")
+    ap.add_argument("--chunk-sweeps", type=int, default=3,
+                    help="how many times the resident window sweeps the whole chunk ring over the budget "
+                         "when chunk-steps is derived. K=3 clears the ring-end taper with margin.")
+    ap.add_argument("--logits-dir", default="",
+                    help="directory holding logits_<tag>/ when the teacher logits ship as their own shared "
+                         "dataset instead of inside the arm's data package. Empty = read from --data-dir.")
     ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--device", default="auto"); ap.add_argument("--out", default="")
     ap.add_argument("--allow-cpu", action="store_true",
@@ -341,9 +354,22 @@ def main():
     # The CE control must see the SAME positions as the KD arm, so build the chunk index whenever the slice is in
     # play -- even for --arm ce, which then uses it only for the sampling window and never reads a logit.
     need_win = a.arm == "kd" or a.restrict_to_slice
-    kdc = KDChunks(a.tag, seg_row, delete_behind=a.delete_behind) if need_win else None
+    kdc = KDChunks(a.tag, seg_row, delete_behind=a.delete_behind, logits_dir=a.logits_dir) if need_win else None
     if kdc is not None:
         man = kdc.man
+        # DERIVE the chunk-advance cadence from the budget, do not take it by hand. The window advances one
+        # chunk every chunk_steps steps; over the budget it must sweep the whole ring several times, or the
+        # alpha trend is measured on a PREFIX of the slice (measured: chunk_steps=200 over 15106 steps swept
+        # 0.62 of the ring -- 44 of 121 chunks never sampled). steps // (n_chunks * K) guarantees K sweeps and,
+        # because the three alpha arms share one budget, guarantees they share one cadence -> one sampling
+        # domain -> a one-variable curve. A hand-set value could desync if someone edits one arm's budget.
+        # ws3_chunk_residence.py is the independent gate: deriving is not verifying.
+        if a.chunk_steps <= 0:
+            a.chunk_steps = max(1, a.steps // (len(kdc.chunks) * a.chunk_sweeps))
+            log(f"  chunk-steps DERIVED: {a.steps} steps / ({len(kdc.chunks)} chunks x {a.chunk_sweeps} sweeps) "
+                f"= {a.chunk_steps}  (window sweeps the ring {a.steps/(a.chunk_steps*len(kdc.chunks)):.2f}x)")
+        else:
+            log(f"  chunk-steps EXPLICIT: {a.chunk_steps} (override; the launch cells derive it)")
         sha = man.get("slice_sha256", "")
         if a.expect_slice_sha:
             if sha != a.expect_slice_sha:

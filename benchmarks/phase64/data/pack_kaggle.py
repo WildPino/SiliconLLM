@@ -49,11 +49,21 @@ VAL_FRAC = 0.02
 # a SINGLE new arm on V2048, fresh seed-paired init, same recipe -- its chained control is stage 1's
 # already-computed arm1 (P62 1.1377), so no dense V2048 arm is re-run. The data is byte-identical to
 # arm1_V2048, so DATA_SHA will match; only the cell (x_proj rank, arm id) differs.
+# Each spec: (arm id, vocab, x_proj rank, data subdir, alpha). alpha=None => CE arm (stages 1-2); a float
+# => KD arm on the stage-3 curve, where all three arms share ONE data subdir (stage3_data) and read the
+# shared logits bundle -- alpha is the only delta, in the cell.
 SPECS = {
-    1: [("arm1_V2048", 2048, 0, "account_1/arm1_V2048"),
-        ("arm2_V4096", 4096, 0, "account_2/arm2_V4096")],
-    2: [("arm3_xproj26_V2048", 2048, 26, "stage2/arm3_xproj26_V2048")],
+    1: [("arm1_V2048", 2048, 0, "account_1/arm1_V2048", None),
+        ("arm2_V4096", 4096, 0, "account_2/arm2_V4096", None)],
+    2: [("arm3_xproj26_V2048", 2048, 26, "stage2/arm3_xproj26_V2048", None)],
+    3: [("arm4_a000_V2048", 2048, 26, "stage3_data", 0.0),
+        ("arm5_a025_V2048", 2048, 26, "stage3_data", 0.25),
+        ("arm6_a050_V2048", 2048, 26, "stage3_data", 0.5)],
 }
+# arm3 (stage 2, CE-on-whole-corpus, P62 1.1377) is the RECORD-ONLY cross-check, NOT the curve's alpha=0
+# point: the branch-point control showed CE samples the whole corpus while the KD harness samples the
+# resident-logit window, so arm4 (KD alpha=0) is the true alpha=0. arm3 is not re-run and not in SPECS[3].
+STAGE3_XCHECK = "arm3_xproj26_V2048 (P62 1.1377, CE-on-whole-corpus): record-only cross-check, not the alpha=0 anchor"
 
 
 NOTEBOOK = '''# =============================================================================
@@ -80,6 +90,7 @@ import glob, hashlib, json, os, shutil, subprocess, sys, torch
 STEPS = {STEPS}   # stage-C steps for ONE screening arm (15% of the stage-C token budget)
 CODE_SHA = '{CODE_SHA}'   # pins the trainer generation (checked against the bundle)
 DATA_SHA = '{DATA_SHA}'   # pins the DATA generation (checked against the package's file set)
+LOGITS_SHA = '{LOGITS_SHA}'   # pins the teacher-logit generation ('' when the stage needs no logits)
 # ------------------------------------------------------------------------------------------------
 assert STEPS, ("STEPS is not filled. It is the pre-registered per-arm budget and must come from the "
                "prereg, not from whoever runs the cell. Refusing to start an unbudgeted arm.")
@@ -92,15 +103,22 @@ BUNDLE = next((os.path.dirname(p) for p in
 assert BUNDLE, 'code bundle not found: attach the dataset containing CODE_MANIFEST.json'
 print('data package:', PKG); print('code bundle :', BUNDLE)
 
-# IDENTITY FIRST, and fail closed, on BOTH axes. The two stage-1 arms differ ONLY in which vocabulary
-# they carry, so a swapped dataset trains cleanly and answers a question nobody asked; and a stale
-# trainer produces a gate number from code nobody registered. Neither shows up in the loss curve.
-# assert_package is imported from the BUNDLE, not from the data package -- the copy inside the data
-# package predates check_code and would not be able to perform the second half of this check.
+# IDENTITY FIRST, and fail closed, on EVERY axis. A swapped dataset trains cleanly and answers a question
+# nobody asked; a stale trainer produces a gate number from code nobody registered; wrong logits give the
+# alpha arms different teacher signal so the curve stops being one variable. None shows up in the loss
+# curve. assert_package is imported from the BUNDLE, not the data package -- the copy inside the package
+# predates these checks. expect_arm is None for the stage-3 shared data bundle (the arms are cell-level).
 sys.path.insert(0, BUNDLE)
 import assert_package
-assert_package.check(expect_arm='{ARM}', expect_vocab={V}, expect_data_sha=DATA_SHA, root=PKG)
+assert_package.check(expect_arm={EXPECT_ARM}, expect_vocab={V}, expect_data_sha=DATA_SHA, root=PKG)
 assert_package.check_code(BUNDLE, CODE_SHA)
+LOGITS = ''
+if LOGITS_SHA:
+    LOGITS = next((os.path.dirname(p) for p in
+                   glob.glob('/kaggle/input/**/LOGITS_MANIFEST.json', recursive=True)), None)
+    assert LOGITS, 'logits bundle not found: attach the dataset containing LOGITS_MANIFEST.json'
+    assert_package.check_logits(LOGITS, LOGITS_SHA)      # the third pin: byte-identical teacher signal
+    print('logits bundle:', LOGITS)
 
 # STAGE the code onto the writable disk before running it. /kaggle/input is a READ-ONLY mount, and
 # several of these modules create their results directory at IMPORT time -- so importing them from the
@@ -157,11 +175,13 @@ os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
 NG = torch.cuda.device_count()
 print('GPUs:', NG, [torch.cuda.get_device_name(i) for i in range(NG)])
 
-args = ['--tag', 's0', '--arm', 'ce', '--recall', 'off', '--stages', 'C',
+args = ['--tag', 's0', {ARM_ARGS} '--recall', 'off', '--stages', 'C',
         '--steps', str(STEPS), '--seq', '512', '--batch', '8',
         '--accum', '1' if NG >= 2 else '2',          # effective batch 16 on 1 or 2 GPUs
         '--fp16', '--warmup', '200', '--max-nonfinite', '50', '--require-p62',
-        '--xproj-rank', '{XPROJ}',                    # 0 = dense (stage 1); 26 = the x_proj screening (stage 2)
+        '--xproj-rank', '{XPROJ}',                    # 0 = dense (stage 1); 26 = x_proj (stages 2-3)
+        '--chunk-steps', '0',                         # 0 = DERIVE the sweep cadence from the budget; never hand-set
+        ] + (['--logits-dir', LOGITS] if LOGITS else []) + [
         '--data-dir', PKG + '/data', '--ckpt-dir', '/kaggle/working',
         '--out', '/kaggle/working/{ARM}.pt', '--resume-ckpt', '/kaggle/working/resume_{ARM}.pt',
         '--save-stage-ckpt', '/kaggle/working/stages_{ARM}',
@@ -218,8 +238,10 @@ def token_index_at(V, byte_off):
     return ntr, resid, len(ids), int(ends[-1])
 
 
-def pack_vocab(V, arm, stage, dest, xproj=0, extras=None):
-    os.makedirs(dest, exist_ok=True)
+def _materialize_data(V, dest):
+    """Copy the V-vocabulary data files + write meta into dest/data, returning the file table and the
+    values a manifest needs. Shared by the per-arm packages (pack_vocab) and the stage-3 shared data
+    bundle (pack_data_bundle), so the two can never disagree on the bytes -- one source, no drift."""
     meta = json.load(open(os.path.join(DATA, f"meta_{TAG}.json")))
     docbound = np.fromfile(os.path.join(DATA, f"docbound_{TAG}.i64"), dtype=np.int64)
     b_off = split_point(meta, docbound)
@@ -238,13 +260,11 @@ def pack_vocab(V, arm, stage, dest, xproj=0, extras=None):
     p62_raw = open(P62, "rb").read()
     from cartography import Bpe
     p62_ids = np.array(Bpe.load(os.path.join(BPEDIR, f"bpe{V}_code.bin")).encode(p62_raw), dtype=np.uint16)
-    pdst = os.path.join(dest, "data", f"p62_{TAG}.u16")
-    os.makedirs(os.path.dirname(pdst), exist_ok=True)
+    ddir = os.path.join(dest, "data"); os.makedirs(ddir, exist_ok=True)
+    pdst = os.path.join(ddir, f"p62_{TAG}.u16")
     p62_ids.tofile(pdst)
     files = {}
-    ddir = os.path.join(dest, "data"); os.makedirs(ddir, exist_ok=True)
-    pairs = pairs + [(pdst, f"p62_{TAG}.u16")]
-    for src, name in pairs:
+    for src, name in pairs + [(pdst, f"p62_{TAG}.u16")]:
         dst = os.path.join(ddir, name)
         # p62 is generated straight into the package, so src == dst for that entry. Relying on the size
         # guard below to skip it would work by accident; say it.
@@ -270,18 +290,39 @@ def pack_vocab(V, arm, stage, dest, xproj=0, extras=None):
     mp = os.path.join(ddir, f"meta_{TAG}.json")
     json.dump(tmeta, open(mp, "w"), indent=1)
     files[f"meta_{TAG}.json"] = dict(sha256=sha(mp), bytes=os.path.getsize(mp))
+    return files, meta, row, b_off, resid, ntok
 
-    man_code = {}
+
+def _base_manifest(V, files, b_off, meta):
+    """The vocabulary/corpus identity fields common to every package and bundle."""
     cman = json.load(open(os.path.join(BPEDIR, "corpus_manifest.json")))
-    man = dict(arm=arm, stage=stage, V_student=V, tag=TAG,
-               corpus_sha256=cman["corpus_sha256"],
-               raw_sha256=meta["raw_sha256"],
-               bpe_sha256=files[f"bpe{V}_ts.bin"]["sha256"],
-               ids_sha256=files[f"ts_{TAG}.u16"]["sha256"],
-               data_sha256=assert_package.data_generation_sha(files),   # the generation pin (rider, stages 2-3)
-               xproj_rank=xproj,
-               corpus_bytes_per_tok=cman["tokenizers"][str(V)].get("corpus_bytes_per_tok"),
-               val_split_byte=b_off, files=files, code=man_code, **(extras or {}))
+    return dict(V_student=V, tag=TAG,
+                corpus_sha256=cman["corpus_sha256"], raw_sha256=meta["raw_sha256"],
+                bpe_sha256=files[f"bpe{V}_ts.bin"]["sha256"], ids_sha256=files[f"ts_{TAG}.u16"]["sha256"],
+                data_sha256=assert_package.data_generation_sha(files),   # the generation pin
+                corpus_bytes_per_tok=cman["tokenizers"][str(V)].get("corpus_bytes_per_tok"),
+                val_split_byte=b_off, files=files)
+
+
+def pack_data_bundle(V, xproj, dest):
+    """The SHARED data bundle for the stage-3 alpha curve: the identical V-data every alpha arm reads, as
+    ONE dataset. No arm id (the arms are cell-level, differing only in alpha), no code (the code bundle is
+    separate). One physical artefact makes the data byte-identical across the three arms by construction."""
+    if os.path.isdir(dest): shutil.rmtree(dest)
+    os.makedirs(dest, exist_ok=True)
+    files, meta, row, b_off, resid, ntok = _materialize_data(V, dest)
+    man = dict(stage=3, xproj_rank=xproj, shared=True, **_base_manifest(V, files, b_off, meta))
+    json.dump(man, open(os.path.join(dest, "PACKAGE_MANIFEST.json"), "w"), indent=1)
+    shutil.copyfile(os.path.join(HERE, "assert_package.py"), os.path.join(dest, "assert_package.py"))
+    return man, sum(f["bytes"] for f in files.values())
+
+
+def pack_vocab(V, arm, stage, dest, xproj=0, extras=None):
+    os.makedirs(dest, exist_ok=True)
+    files, meta, row, b_off, resid, ntok = _materialize_data(V, dest)
+    man_code = {}
+    man = dict(arm=arm, stage=stage, xproj_rank=xproj, code=man_code,
+               **_base_manifest(V, files, b_off, meta), **(extras or {}))
     # Code rides WITH the data. It is ~200 KB against a 1 GB payload, and a package that carries its own
     # trainer cannot be run against a stale copy left in /kaggle/working by an earlier session.
     for rel in CODE_FILES:
@@ -302,9 +343,16 @@ def write_cells(stage, steps, code_sha):
     """Regenerate the notebook cells, the single authoritative copy the operator pastes from -- written
     OUTSIDE the package directories so it can never be confused with a shipped-and-stale one. DATA_SHA is
     read from each package's freshly built manifest, so the cell pins the exact generation it was written
-    against."""
+    against. Stage 3 additionally pins LOGITS_SHA from the shared logits bundle and sets --arm kd --alpha."""
+    logits_sha = ""
+    if any(alpha is not None for *_, alpha in SPECS[stage]):
+        lm = os.path.join(OUT, "logits_bundle", "LOGITS_MANIFEST.json")
+        if not os.path.isfile(lm):
+            sys.exit("no logits bundle -- run pack_logits_bundle.py first. The alpha cells pin a sha they "
+                     "cannot invent.")
+        logits_sha = json.load(open(lm))["logits_sha256"]
     out = []
-    for arm, V, xproj, subdir in SPECS[stage]:
+    for arm, V, xproj, subdir, alpha in SPECS[stage]:
         mp = os.path.join(OUT, subdir, "PACKAGE_MANIFEST.json")
         if not os.path.isfile(mp):
             sys.exit(f"no package at {subdir} -- build stage {stage} first (pack_kaggle.py --stage {stage}).")
@@ -312,11 +360,19 @@ def write_cells(stage, steps, code_sha):
         # Recompute if absent: the stage-1 packages were built before the field existed, and the pin is a
         # pure function of the file set either way -- so the cell gets the true generation, not a KeyError.
         data_sha = man.get("data_sha256") or assert_package.data_generation_sha(man["files"])
+        # KD arm (alpha set) vs CE arm: the arm flag, the alpha, whether logits are pinned, and whether the
+        # data package carries its own arm id (the shared stage-3 bundle does not, so expect_arm is None).
+        if alpha is None:
+            arm_args = "'--arm', 'ce',"; expect_arm = f"'{arm}'"; lsha = ""
+        else:
+            arm_args = f"'--arm', 'kd', '--alpha', '{alpha}',"; expect_arm = "None"; lsha = logits_sha
         p = os.path.join(OUT, f"NOTEBOOK_{arm}.py")
         with open(p, "w", encoding="utf-8") as f:
             f.write(NOTEBOOK.replace("{ARM}", arm).replace("{V}", str(V)).replace("{STAGE}", str(stage))
                             .replace("{XPROJ}", str(xproj)).replace("{STEPS}", str(steps))
-                            .replace("{CODE_SHA}", code_sha).replace("{DATA_SHA}", data_sha))
+                            .replace("{CODE_SHA}", code_sha).replace("{DATA_SHA}", data_sha)
+                            .replace("{LOGITS_SHA}", lsha).replace("{EXPECT_ARM}", expect_arm)
+                            .replace("{ARM_ARGS}", arm_args))
         out.append((p, data_sha))
     return out
 
@@ -358,11 +414,33 @@ def main():
         return
 
     label = {1: "stage 1 (vocab, arms 1+2 parallel)",
-             2: "stage 2 (x_proj r=26 on V2048, one arm; chained control = stage-1 arm1)"}[a.stage]
+             2: "stage 2 (x_proj r=26 on V2048, one arm; chained control = stage-1 arm1)",
+             3: "stage 3 (alpha curve {0,0.25,0.5}, ONE shared data bundle + shared logits)"}[a.stage]
     print(f"WS3 Kaggle packaging   {label}   tag={TAG}\n")
+
+    if a.stage == 3:
+        # ONE shared data bundle for all three alpha arms -- built once, not per arm. The logits are their
+        # own shared bundle (pack_logits_bundle.py); the arms differ only in alpha, set in the cell.
+        subdir = SPECS[3][0][3]                                  # all three point at the same data subdir
+        V, xproj = SPECS[3][0][1], SPECS[3][0][2]
+        man, tot = pack_data_bundle(V, xproj, os.path.join(OUT, subdir))
+        print(f"  shared data bundle -> {subdir}   V{V} r={xproj}   {tot/2**20:.0f} MiB   "
+              f"DATA_SHA {man['data_sha256'][:16]}...")
+        lm = os.path.join(OUT, "logits_bundle", "LOGITS_MANIFEST.json")
+        if os.path.isfile(lm):
+            print(f"  shared logits bundle: LOGITS_SHA {json.load(open(lm))['logits_sha256'][:16]}... "
+                  f"(build/upload separately: pack_logits_bundle.py)")
+        else:
+            print("  NOTE: logits bundle not built yet -- run pack_logits_bundle.py before --cells-only.")
+        print(f"  arms (cell-level, alpha only): {', '.join(f'{arm}(a={al})' for arm,_,_,_,al in SPECS[3])}")
+        print(f"  cross-check: {STAGE3_XCHECK}")
+        print(f"\n  Next: pack_kaggle.py --cells-only --stage 3 --steps <N>  (fills STEPS+CODE_SHA+DATA_SHA+LOGITS_SHA)")
+        print("\nSTOP. Shared bundle built, nothing launched. No commit.")
+        return
+
     print(f"  {'arm':20s} {'V':>6s} {'xproj':>6s} {'payload':>10s} {'val resid':>10s}  data sha")
     rows = []
-    for arm, V, xproj, subdir in SPECS[a.stage]:
+    for arm, V, xproj, subdir, _alpha in SPECS[a.stage]:
         dest = os.path.join(OUT, subdir)
         man, tot, resid = pack_vocab(V, arm, a.stage, dest, xproj=xproj)
         rows.append((arm, V, tot, resid, man))
