@@ -163,7 +163,7 @@ def main():
     ap.add_argument("--tag", default="smoke")
     ap.add_argument("--arm", choices=["kd", "ce"], default="ce",
                     help="ce = CE-PRIMARY, the rung-1 default after gate D3 failed at the MVE (plain CE beat "
-                         "span-KD at all four stage exits, final -0.0112 = 2.2 sigma). kd = the challenger arm, "
+                         "span-KD at all four stage exits; citable margin at fine-D -0.0116 = 2.3 sigma). kd = the challenger arm, "
                          "which must now be asked for explicitly rather than inherited.")
     ap.add_argument("--kd", choices=["anchor", "span"], default="anchor",
                     help="anchor = the SEALED D3 design (top-K projected onto the segment's first student token; "
@@ -243,6 +243,12 @@ def main():
     ap.add_argument("--chunk-sweeps", type=int, default=3,
                     help="how many times the resident window sweeps the whole chunk ring over the budget "
                          "when chunk-steps is derived. K=3 clears the ring-end taper with margin.")
+    ap.add_argument("--kd-resident", type=int, default=2,
+                    help="how many teacher-logit chunks are held resident at once = the WIDTH of the sampling "
+                         "window. 2 is the streaming default that stages 1-3 ran. This is a dose knob for the "
+                         "record-only order probe: stage 3 measured CE-on-window (resident=2) at +0.0338 BPB "
+                         "against CE-i.i.d. over the same pool, so window width is a variable worth a "
+                         "dose-response curve, not a binary contrast. Wider = more RAM per step.")
     ap.add_argument("--logits-dir", default="",
                     help="directory holding logits_<tag>/ when the teacher logits ship as their own shared "
                          "dataset instead of inside the arm's data package. Empty = read from --data-dir.")
@@ -354,7 +360,8 @@ def main():
     # The CE control must see the SAME positions as the KD arm, so build the chunk index whenever the slice is in
     # play -- even for --arm ce, which then uses it only for the sampling window and never reads a logit.
     need_win = a.arm == "kd" or a.restrict_to_slice
-    kdc = KDChunks(a.tag, seg_row, delete_behind=a.delete_behind, logits_dir=a.logits_dir) if need_win else None
+    kdc = KDChunks(a.tag, seg_row, resident=a.kd_resident, delete_behind=a.delete_behind,
+                   logits_dir=a.logits_dir) if need_win else None
     if kdc is not None:
         man = kdc.man
         # DERIVE the chunk-advance cadence from the budget, do not take it by hand. The window advances one

@@ -1,0 +1,88 @@
+data package: /kaggle/input/datasets/giggio253/phase64-stage3-data
+code bundle : /kaggle/input/datasets/giggio253/phase64-code
+package OK: arm=(shared bundle) stage=3 V=2048 files=7
+  corpus e7faf85893935946...  raw dd334006f83aad0d...  bpe 53513e1cef3fcb56...
+code OK: 9 files, sha 232267f280cdd26d...
+logits OK: 121 chunks, sha c2cb77a1bf4005ba...  (quick check)
+logits bundle: /kaggle/input/datasets/giggio253/phase64-logits
+trainer   : /kaggle/working/code/benchmarks/phase64/mve/mve_train.py 
+  sha 87149368b3db5139 VERIFIED (staged from the read-only bundle)
+resume state: nothing carried -- starting fresh
+GPUs: 2 ['Tesla T4', 'Tesla T4']
+RUN: /usr/bin/python3 -m torch.distributed.run --nproc_per_node 2 --master_port 29555 /kaggle/working/code/benchmarks/phase64/mve/mve_train.py --tag s0 --arm kd --alpha 0.25 --recall off --stages C --steps 15106 --seq 512 --batch 8 --accum 1 --fp16 --warmup 200 --max-nonfinite 50 --require-p62 --xproj-rank 26 --chunk-steps 0 --logits-dir /kaggle/input/datasets/giggio253/phase64-logits --data-dir /kaggle/input/datasets/giggio253/phase64-stage3-data/data --ckpt-dir /kaggle/working --out /kaggle/working/arm5_a025_V2048.pt --resume-ckpt /kaggle/working/resume_arm5_a025_V2048.pt --save-stage-ckpt /kaggle/working/stages_arm5_a025_V2048 --resume --time-budget-min 660 --ckpt-min 20
+
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+[W724 10:03:34.645808781 socket.cpp:207] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+[W724 10:03:44.404294872 socket.cpp:207] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+[W724 10:03:44.410031518 socket.cpp:207] [c10d] The hostname of the client socket cannot be retrieved. err=-3
+  val split VERIFIED byte-identical: train 473531343 B == declared 473531343 B (184931910 tok at V=2048); tail 9658668 B = 1.999% cut FROM the covered slice
+  chunk-steps DERIVED: 15106 steps / (121 chunks x 3 sweeps) = 41  (window sweeps the ring 3.04x)
+  slice: 117808/117808 windows, seed 20260719, sha 36aaa2abac380797... (not verified: --expect-slice-sha unset)
+  x_proj low-rank r=26: 7 swapped | 131040/745472 params = 17.6% of dense
+Phase64.4 MVE | arm=kd recall=off stages=C | dev=cuda:0 amp=torch.float16 ddp=2
+  student S0: D256 N96 L8 | params=10.92M (MLP 6.29M) | V=2048 | corpus 461MiB, 188691456 tok, anchors 43.4%
+  teacher=Qwen/Qwen2.5-Coder-1.5B K=32 | alpha=0.25 lam_nce=0.05 | seq=512 batch=8 steps=15106
+  KD-target check [anchor] on 1635 anchors: mass on TRUE next token = 0.774 (median 0.996) | argmax(q)==y: 80.6% | mapped mass/row: 0.954
+    dark-knowledge [anchor]: H(teacher top-K) = 1.189 bits  ->  H(q projected) = 0.432 bits   (retained 36% PER-POSITION; not the summed-over-span figure); q is near-one-hot on 64% of anchors
+  8-bit optimizer unavailable (No module named 'bitsandbytes') -> fp32 AdamW
+  optimizer: AdamW
+
+== stage C: 15106 steps | val BPB at entry = 4.4199 ==
+/kaggle/working/code/benchmarks/phase64/mve/mve_train.py:602: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  return loss, nkd, float(ce.mean())
+/kaggle/working/code/benchmarks/phase64/mve/mve_train.py:602: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  return loss, nkd, float(ce.mean())
+  [C]     1/15106  loss=7.7735 ce=6.9900 gnorm=0.88 kd@1662/4096
+  [ckpt] resume-point at gstep 602
+  [ckpt] resume-point at gstep 1205
+  [ckpt] resume-point at gstep 1811
+  [ckpt] resume-point at gstep 2418
+  [C]  3021/15106  loss=2.0787 ce=1.8878 gnorm=0.28 kd@1749/4096
+  [ckpt] resume-point at gstep 3021
+  [ckpt] resume-point at gstep 3624
+  [ckpt] resume-point at gstep 4229
+  [ckpt] resume-point at gstep 4826
+  [ckpt] resume-point at gstep 5418
+  [ckpt] resume-point at gstep 6014
+  [C]  6042/15106  loss=1.7223 ce=1.5730 gnorm=0.27 kd@1741/4096
+  [ckpt] resume-point at gstep 6610
+  [ckpt] resume-point at gstep 7202
+  [ckpt] resume-point at gstep 7794
+  [ckpt] resume-point at gstep 8382
+  [ckpt] resume-point at gstep 8971
+  [C]  9063/15106  loss=2.0564 ce=1.8181 gnorm=0.37 kd@2121/4096
+  [ckpt] resume-point at gstep 9562
+  [ckpt] resume-point at gstep 10151
+  [ckpt] resume-point at gstep 10741
+  [ckpt] resume-point at gstep 11331
+  [ckpt] resume-point at gstep 11922
+  [C] 12084/15106  loss=1.8017 ce=1.6329 gnorm=0.36 kd@1711/4096
+  [ckpt] resume-point at gstep 12512
+  [ckpt] resume-point at gstep 13103
+  [ckpt] resume-point at gstep 13695
+  [ckpt] resume-point at gstep 14286
+  [ckpt] resume-point at gstep 14874
+  [C] 15105/15106  loss=1.8905 ce=1.7341 gnorm=0.29 kd@1769/4096
+  -> stage C P62 code-val BPB 1.1677  [DECIDING]  over 1499998 bytes + 2 B unscored first token = 1500000 declared  [byte invariant HOLDS]
+  -> stage C done: val BPB 4.4199 -> 1.1824 (-3.2375) | 4055 tok/s | 508.6 min | peak 4969 MiB
+     [stage-ckpt] /kaggle/working/stages_arm5_a025_V2048/stage_C_kd_anchor_off_s0.pt  (42 MiB)
+
+==== MVE run [s0] arm=kd kd=anchor recall=off ====
+  stage    steps    BPB in   BPB out    delta     tok/s     min
+  C        15106    4.4199    1.1824  -3.2375      4055   508.6
+  saved -> /kaggle/working/arm5_a025_V2048.pt
+MVE-DONE: all stages complete.
+STOP. MVE curriculum above. No commit.
+
+==== STAGE-DONE for arm5_a025_V2048? True ====
+Send the Builder: the P62 code-val BPB line, the full cell output, and /kaggle/working/arm5_a025_V2048.pt (plus stages_arm5_a025_V2048/ -- stage 2 branches from it).
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 301422 bytes to __results__.html

@@ -59,7 +59,26 @@ SPECS = {
     3: [("arm4_a000_V2048", 2048, 26, "stage3_data", 0.0),
         ("arm5_a025_V2048", 2048, 26, "stage3_data", 0.25),
         ("arm6_a050_V2048", 2048, 26, "stage3_data", 0.5)],
+    # STAGE 4 -- ORDER PROBE, RECORD-ONLY, GATES NOTHING. Runs beside the main run, which occupies one
+    # account at a time, so it is free on the calendar.
+    #
+    # WHAT IT ASKS. Stage 3 measured CE-on-window (arm4, resident=2) at 1.1715 against CE-i.i.d. over the
+    # SAME token pool (arm3, 1.1377): +0.0338 = 6.8 sigma_seed, roughly five times the entire alpha span the
+    # stage existed to measure. Coverage is excluded as the cause -- the slice is 117808/117808 windows and
+    # the residence gate passes -- so what is left is the ORDER in which those tokens arrive. This arm makes
+    # the window WIDER and nothing else.
+    #
+    # WHY DOSE-RESPONSE AND NOT A BINARY CONTRAST (Architect). A single wide-vs-narrow pair could only say
+    # "something about the window matters". Three points -- resident=2 (1.1715), resident=16, i.i.d. (1.1377)
+    # -- can say whether BPB slides monotonically toward the i.i.d. value as the window widens. If it does,
+    # the mechanism IS width, and the curve also tells us how much width is enough to buy back the deficit,
+    # which is the number rung-2 actually needs. A binary result would leave us knowing neither.
+    4: [("arm7_w16_V2048", 2048, 26, "stage3_data", 0.0)],
 }
+# Sampling-window width per arm; absent = the trainer's default of 2 (what stages 1-3 ran). Kept OUT of the
+# SPECS tuple so the existing five-field call sites are untouched -- one probe does not justify reshaping a
+# structure four other code paths unpack.
+KD_RESIDENT = {"arm7_w16_V2048": 16}
 # arm3 (stage 2, CE-on-whole-corpus, P62 1.1377) is the RECORD-ONLY cross-check, NOT the curve's alpha=0
 # point: the branch-point control showed CE samples the whole corpus while the KD harness samples the
 # resident-logit window, so arm4 (KD alpha=0) is the true alpha=0. arm3 is not re-run and not in SPECS[3].
@@ -91,6 +110,7 @@ STEPS = {STEPS}   # stage-C steps for ONE screening arm (15% of the stage-C toke
 CODE_SHA = '{CODE_SHA}'   # pins the trainer generation (checked against the bundle)
 DATA_SHA = '{DATA_SHA}'   # pins the DATA generation (checked against the package's file set)
 LOGITS_SHA = '{LOGITS_SHA}'   # pins the teacher-logit generation ('' when the stage needs no logits)
+SLICE_SHA  = '{SLICE_SHA}'   # pins the SAMPLING DOMAIN (which windows carry teacher signal); '' when no slice
 # ------------------------------------------------------------------------------------------------
 assert STEPS, ("STEPS is not filled. It is the pre-registered per-arm budget and must come from the "
                "prereg, not from whoever runs the cell. Refusing to start an unbudgeted arm.")
@@ -181,7 +201,13 @@ args = ['--tag', 's0', {ARM_ARGS} '--recall', 'off', '--stages', 'C',
         '--fp16', '--warmup', '200', '--max-nonfinite', '50', '--require-p62',
         '--xproj-rank', '{XPROJ}',                    # 0 = dense (stage 1); 26 = x_proj (stages 2-3)
         '--chunk-steps', '0',                         # 0 = DERIVE the sweep cadence from the budget; never hand-set
-        ] + (['--logits-dir', LOGITS] if LOGITS else []) + [
+        ] + (['--logits-dir', LOGITS] if LOGITS else []) + (
+        # FOURTH PIN. Stage 3 ran with this unset: the slice fingerprint was printed and never verified, so
+        # domain identity across the three arms held only because one shared bundle made it hold physically.
+        # That is a fortunate packaging property, not a check -- and a property nobody asserted is one a
+        # future repackaging can withdraw silently. Passing it converts the observation into a refusal.
+        ['--expect-slice-sha', SLICE_SHA] if SLICE_SHA else []) + (
+        ['--kd-resident', '{KD_RESIDENT}'] if '{KD_RESIDENT}' else []) + [
         '--data-dir', PKG + '/data', '--ckpt-dir', '/kaggle/working',
         '--out', '/kaggle/working/{ARM}.pt', '--resume-ckpt', '/kaggle/working/resume_{ARM}.pt',
         '--save-stage-ckpt', '/kaggle/working/stages_{ARM}',
@@ -344,13 +370,21 @@ def write_cells(stage, steps, code_sha):
     OUTSIDE the package directories so it can never be confused with a shipped-and-stale one. DATA_SHA is
     read from each package's freshly built manifest, so the cell pins the exact generation it was written
     against. Stage 3 additionally pins LOGITS_SHA from the shared logits bundle and sets --arm kd --alpha."""
-    logits_sha = ""
+    logits_sha = slice_sha = ""
     if any(alpha is not None for *_, alpha in SPECS[stage]):
         lm = os.path.join(OUT, "logits_bundle", "LOGITS_MANIFEST.json")
         if not os.path.isfile(lm):
             sys.exit("no logits bundle -- run pack_logits_bundle.py first. The alpha cells pin a sha they "
                      "cannot invent.")
-        logits_sha = json.load(open(lm))["logits_sha256"]
+        lman = json.load(open(lm))
+        logits_sha = lman["logits_sha256"]
+        # The slice fingerprint rides in the LOGITS manifest, not the data one -- which chunk positions carry
+        # teacher signal is a property of the logit generation. Absent = a bundle built before slicing; the
+        # cell then leaves the pin empty rather than inventing one, and the trainer prints-but-does-not-verify
+        # exactly as stage 3 did. Refusing here would break replay of older bundles for no safety gain.
+        slice_sha = lman.get("slice_sha256", "")
+        if not slice_sha:
+            print("  NOTE: logits manifest carries no slice_sha256 -- cells ship with the domain pin EMPTY.")
     out = []
     for arm, V, xproj, subdir, alpha in SPECS[stage]:
         mp = os.path.join(OUT, subdir, "PACKAGE_MANIFEST.json")
@@ -372,6 +406,8 @@ def write_cells(stage, steps, code_sha):
                             .replace("{XPROJ}", str(xproj)).replace("{STEPS}", str(steps))
                             .replace("{CODE_SHA}", code_sha).replace("{DATA_SHA}", data_sha)
                             .replace("{LOGITS_SHA}", lsha).replace("{EXPECT_ARM}", expect_arm)
+                            .replace("{SLICE_SHA}", slice_sha if alpha is not None else "")
+                            .replace("{KD_RESIDENT}", str(KD_RESIDENT.get(arm, "")))
                             .replace("{ARM_ARGS}", arm_args))
         out.append((p, data_sha))
     return out
@@ -415,8 +451,23 @@ def main():
 
     label = {1: "stage 1 (vocab, arms 1+2 parallel)",
              2: "stage 2 (x_proj r=26 on V2048, one arm; chained control = stage-1 arm1)",
-             3: "stage 3 (alpha curve {0,0.25,0.5}, ONE shared data bundle + shared logits)"}[a.stage]
+             3: "stage 3 (alpha curve {0,0.25,0.5}, ONE shared data bundle + shared logits)",
+             4: "stage 4 (order probe, record-only: window width 2 -> 16, everything else = arm4)"}[a.stage]
     print(f"WS3 Kaggle packaging   {label}   tag={TAG}\n")
+
+    if a.stage == 4:
+        # The probe REUSES stage 3's bundles untouched -- that is the whole point. Rebuilding the data would
+        # risk a fresh generation sha and turn "same inputs, wider window" into "two things changed", which
+        # is the one reading the probe cannot afford.
+        subdir = SPECS[4][0][3]
+        if not os.path.isfile(os.path.join(OUT, subdir, "PACKAGE_MANIFEST.json")):
+            sys.exit(f"stage 4 reuses stage 3's data bundle at {subdir}, which is not built. Pack stage 3 first.")
+        print(f"  reusing stage-3 bundles unchanged (data {subdir}, code, logits) -- nothing rebuilt.")
+        print(f"  probe arm: {SPECS[4][0][0]}   window resident={KD_RESIDENT[SPECS[4][0][0]]} "
+              f"(vs 2 for arm4)   alpha=0.0, V2048, r=26 -- identical to arm4 otherwise")
+        print(f"\n  Next: pack_kaggle.py --cells-only --stage 4 --steps <N>")
+        print("\nSTOP. No bundle rebuilt, nothing launched. No commit.")
+        return
 
     if a.stage == 3:
         # ONE shared data bundle for all three alpha arms -- built once, not per arm. The logits are their

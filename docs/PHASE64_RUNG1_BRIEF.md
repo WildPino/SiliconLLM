@@ -174,3 +174,97 @@ The decisive reason is not the 3× upload saving — it is that **one physical a
 **Follow-on the packaging should resolve: the three arms differ ONLY in α (0 / 0.25 / 0.5) — same config V2048+r=26, seed-paired, same slice.** So the arm *data* (V2048 slice ids, anchors, t2s/decomp, BPE) is also identical across the three. If nothing else distinguishes them, the data bundle is shared too — one data input, not three — for the same physical-identity reason as the logits, with α the sole per-cell delta. If there is a reason the three data packages must differ (per-arm output dir, arm_id in the manifest), that belongs in the cell as metadata, not in three near-duplicate 360 MB datasets. Builder to confirm.
 
 **Accepted as built (independent of the shared/per-arm call):** `chunk_steps` derived in-trainer (`steps // (n_chunks × K)`, K=3 → 41, `--chunk-steps 0` = derive, explicit value = test override, cells leave it 0); `--logits-dir` with default `--data-dir` (nothing breaks if logits are in the package); residence gate re-run on the real logits, derives 41, PASS 121/121. Minor observation, not a block: CoV rose 0.058 (at 63) → 0.064 (at 41) because 15106/(121·41)=3.045 sweeps leaves a fractional final sweep that over-covers the first ~5 chunks — the expected edge effect of a non-integer sweep count, benign and well under any threshold.
+
+## 16. Stage-3 α curve read — D3 does NOT close; the domain cost is the finding (2026-07-22)
+
+### The near-miss that has to be recorded first
+
+Had arm3 anchored the curve — the economical hope of §12, which the planted branch-point check falsified — the curve would have read **1.1377 / 1.1677 / 1.1746: strictly monotone increasing, span 7.38σ.** That is an exact, high-confidence match to row 1 of §4.3's pre-registered table: *"KD hurts, and hurts more the more of it there is — D3 closes for good, with a mechanism rather than a single point."* We would have closed a design question permanently, with a clean monotone curve, on an artifact of sampling domain. **Two planted controls in series prevented it**: the branch-point assertion (born from the α bug) refused the anchor, and the record-only cross-check then priced what the anchor would have smuggled in. The extra arm accepted in §13 was not overhead — it was load-bearing.
+
+### The curve, read as pre-registered
+
+| α | P62 [DECIDING] |
+|---|---|
+| 0.00 | 1.1715 |
+| 0.25 | 1.1677 |
+| 0.50 | 1.1746 |
+
+Span 0.0069 = 1.38σ. Pairs: α0.25−α0 = −0.0038 (0.76σ, KD side lower); α0.5−α0.25 = +0.0069 (1.38σ); α0.5−α0 = +0.0031 (0.62σ). Shape: shallow U, interior minimum at 0.25.
+
+**Adoption: CE — and it is over-determined.** §4's rule (best 1.1677 vs the α=0 point 1.1715 → margin 0.0038 ≤ σ_seed) fires the §4.3 tie-breaker, which is CE at no logit cost. The trend reading lands in the same place. The main run stays CE-primary — which §4.3 had already sealed ("this screening does not flip the main run"). *Precision on the one pair above noise:* 1.38σ is above σ_seed (adoption-grade) but below the 2σ this document requires of a claim. "More KD than 0.25 hurts" is a weak directional observation, never quoted as a result.
+
+**D3 does NOT close.** The Builder is right that no table row matches, and he was right to refuse to force one. The gap is mine: I enumerated non-monotonicity only in the convex-down direction (row 3's parenthetical, "α=0.5 better than α=0.25") and never enumerated the **interior-minimum shape with a sub-σ best point**. Where the table is silent, the **governing sentence above it governs** — and it is pre-registered prose, not a reading invented now: *"closure now requires a coherent trend, where before a single point sufficed."* A shallow U with everything but one pair inside noise is not a coherent trend. D3 therefore carries to rung-2 as **unresolved**, which is row 3's disposition for the whole non-monotone family. This is the conservative resolution: the gap is filled in the direction that denies us the strongest claim, not the one that grants it.
+
+**A second, independent reason D3 must stay open:** the challenger ran in a regime that costs 6.8σ relative to the recipe it was being compared against (below). The α contrast is internally valid — all three arms share the window — but its **transfer to the i.i.d. regime the main run uses is untested**. A challenger that loses while handicapped has not been shown to be worthless.
+
+### The domain cost — the actual finding
+
+arm3 (CE, i.i.d. over the slice) **1.1377** vs KD-α0 (CE, sliding 2-of-121 window) **1.1715** → **+0.0338 ≈ 6.8σ, i.e. 4.9× the entire α span the stage existed to measure.**
+
+The Builder closed the obvious confound before reporting: **it is not "saw less data"** — slice 117808/117808 windows, residence gate 121/121 at 3.04 sweeps, CoV 0.064, and total tokens are equal, so expected passes (0.669) and unique coverage (~48.8%) match on both sides. Same pool, same tokens, same steps. The residual difference is **order**: blocked sliding window vs global i.i.d. shuffle. This refines §13's "different positions by construction" — true per step, but the pool was never different.
+
+**Mechanism NOT asserted** — correctly, and I hold that line. Two alternatives must be separated before this is called an ordering law: (i) **recency bias** — under a sliding window the final ~82 steps see only chunks 119-120, so final weights tilt toward an unrepresentative ~1.6% of the slice, which an external val punishes; (ii) **position-grid restriction** — if KD sampling draws only positions aligned to teacher windows while arm3 draws any offset, context diversity differs independently of order. Both are cheap to distinguish.
+
+**Design irony worth recording:** §4.3 chose full logit coverage deliberately, *"sized for maximum statistical power and maximum favorability to KD"*. Full coverage forces all 18 GB to stream, which forces the window. **The choice made to maximize KD's chances is what imported the handicap.** The deployment form specified in `PHASE64_TRAINING_PLAN.md` §2 (KD-on-subset + CE-on-rest) would dilute this roughly in proportion to the KD fraction — so the shipping form was never exposed to the full cost the screening paid.
+
+### Decisions
+
+1. **Re-derive arm3's P62 from its checkpoint — yes, now** (minutes, zero GPU). The 6.8σ anchor currently rests on a number that exists only in adjudication documents; `ws3_recover_p62.py` turns a citation back into an artifact. **New standing rule: every [DECIDING] number lives in a committed log under `results/`, and the brief cites the log path.** An adjudication is authority, not evidence. *Question back:* is arm3's log absent because it was never saved, or because an ignore rule swallowed it? The fixes differ, and the second is the `.gitignore` incident's family again — check it against the pending anchoring audit.
+2. **Stratified span-vs-CE-by-segment-length diagnostic: DO NOT build it.** Its pre-registered purpose was to verify the chain-rule mechanism *if span won*. Span did not win, and the effect it would decompose is 0.76σ — slicing noise into strata yields noise. Recorded as consciously dropped with its reason, not silently skipped; it returns if rung-2 ever produces a separating KD result.
+3. **Order probe: ONE record-only arm, in parallel with the main run, gating nothing.** Preferred form is a **dose-response, not a binary contrast**: KD-α0 at a wider resident window (e.g. resident=16, ~2.4 GB) against the existing resident=2 point (1.1715) and the i.i.d. point (1.1377). If BPB moves monotonically toward 1.1377 as the window widens, window width is the mechanism and we also learn how wide is wide enough. The main run occupies one account at a time, so this rides on idle parallel capacity — free in calendar terms.
+4. **`--expect-slice-sha` closed at the next stage.** Printed but not enforced, identity confirmed by human observation rather than machine assertion — "recording is not verifying" a third time. Mitigating fact, and not luck: the shared-artifact packaging of §15 made the three arms read **one physical slice and one physical logit set**, so they *could not* have differed. The packaging choice supplied physically the guarantee the missing flag would have enforced. Close it anyway.
+5. **Candidate remedy for rung-2, hypothesis not instruction: shuffle before chunking.** If the slice were shuffled at window granularity *before* the logits were chunked, each chunk would be a random sample rather than a contiguous block, a 2-chunk residency would be a random 1.66% rather than a contiguous region, and the recency tilt would largely vanish — one disk pass over 18 GB, no GPU. Builder to assess feasibility (it needs a position index); this is the cheapest known path to KD-without-the-handicap.
+6. **Scale-up implication, held provisional until the probe reports:** if ordering is confirmed as the mechanism, it is the largest single effect measured at rung-1 — larger than vocabulary (1.3σ) and x_proj (0.02σ) combined — and it lands directly on `SCALEUP_ARCHITECTURE.md`'s data path, where 10B-scale training *must* stream from disk. It does **not** enter that document on today's evidence.
+
+### Screening block CLOSED
+
+| stage | question | verdict | metric |
+|---|---|---|---|
+| 1 | vocabulary | **V=2048** (σ_seed rule, not tie-breaker) | 1.1377 vs 1.1443 (1.3σ) |
+| 2 | x_proj r=26 | **adopted** (byte tie-breaker) | 1.1376 vs 1.1377 (0.02σ) |
+| 3 | span-KD α trend | **CE adopted; D3 unresolved, carried to rung-2** | best-vs-CE 0.76σ; domain cost 6.8σ |
+
+Chain recipe for the main run: **V=2048 + x_proj r=26 + CE-primary**, i.i.d. sampling, 1.5 B student tokens, full A→F curriculum with the §2 declared deviations. **The main run is cleared to launch.**
+
+## 17. Returns on §16's five decisions + the hardcoded-threshold incident (2026-07-22)
+
+**(B) The missing table row was already adjudicated in §16, before this report arrived: D3 does NOT close.** Recorded here because the Builder reached the same disposition independently, from the numbers, without having seen §16 — he tested all four rows, found none matching, refused to force one, and volunteered that he would be cautious about permanent closure for the domain-cost reason. Two independent paths to the same reading is worth more than either alone. The formal ground remains §4.3's governing sentence where the table is silent ("closure now requires a coherent trend"), and the enumeration gap — interior minimum with a sub-σ best point — is mine.
+
+**(A) ε-identity check before the probe: APPROVED, run it.** Adding `--kd-resident` changes CODE_SHA away from `232267f2`, and the probe's entire value is a comparison against arm4, which ran under `232267f2`. By inspection the flag is neutral (default 2 = the previously hardcoded value); but the standard here is not inspection, and this report contains the reason why in its own body — a hardcoded constant that looked fine and was not. New code at `--kd-resident 2` vs `232267f2`, same seed, a few hundred steps, bit-identical weights. Minutes, and it converts an assumption into a fact.
+
+### The hardcoded-threshold incident — banked, with its counterfactual
+
+`ws3_recover_p62.py` carried `'decisive' if abs(b1-b2) > 0.010 else 'INSIDE noise'` — the 2σ bar I corrected on 22 July, still wired into the tool, printing on every run that the stage-1 delta of 0.0066 was *not separable*. **Counterfactual, computed: under that rule stage 1 would have been a tie → the §4.1 tie-breaker fires → V=4096 adopted. The tool encoded a rule that selects the opposite vocabulary from the sealed one.** Nothing downstream consumed it, because adjudication reads the document and not the tool's opinion — but the tool would have supplied a confident, quotable second opinion contradicting the seal.
+
+Note the shape: this is the *same* mis-citation that appeared in the stage-1 report and was corrected there. Correcting a person's reading left the tool repeating it. **Law adopted, in the Builder's words: a lesson written only in a document does not protect the code that violates it. When a threshold is corrected, grep the hardcoded thresholds in the tooling before calling the correction closed — a threshold inside a tool is a paraphrase-from-memory that repeats itself forever.**
+
+The fix is right in structure, not just in value: **ADOPTION (§4, σ_seed) and CLAIM-GRADE (2σ) separated into two questions**, because conflating them is what produced the bug; and validated against three already-adjudicated known-positives, all three reproducing the Architect's calls. Grep extended across `benchmarks/phase64` — it was the only wired decision threshold.
+
+### Decision 1 — re-derivation: DONE, anchor holds
+
+arm1 offline tail-val 1.1452 = Kaggle 1.1452 (|Δ| 0.0000); arm2 1.1328 = 1.1328 (|Δ| 0.0000); **arm3 P62 [DECIDING] 1.1376, |Δ| 0.0000 against the brief-recorded value**, byte invariant holding. Log: `results/phase64_rung1/p62_rederivation_arm123.txt`.
+
+**The verification design deserves naming, because it is stronger than what was asked:** the two known-positives were reproduced *in the same invocation that produces the unknown*, so the pipeline is proven faithful in the session that generates the number, not in a separate session whose equivalence would itself be an assumption. That is the planted-control discipline applied to a recovery path. The 6.8σ anchor is now an artifact: **1.1715 − 1.1376 = 0.0339 = 6.78σ.**
+
+**The `.gitignore` diagnosis — third occurrence, and the two-layer analysis is the valuable part.** The log was never written to disk *and* its home was invisible to git at two layers (`kaggle_rung1/*` plus unanchored `results/`). His reading is exactly right: **the second layer is why nobody noticed the first — in a tracked tree, a missing log is an obvious hole.** Invisibility does not merely hide a file; it removes the contrast that would have made its absence visible. Fix `results/*` + `!results/phase64_rung1/` accepted, blast radius verified zero. **Standing instruction: finish the whole anchoring audit now** — the pending list still names patterns unaudited, and three incidents of one family is past the point where fixing them one incident at a time is a strategy.
+
+### Decision 3 — the probe, and its reading pre-registered BEFORE the number exists
+
+Built as arm7 (`--kd-resident 16`), identical to arm4 in every other respect, bundles not rebuilt. Residence CoV 0.035 vs 0.064 at resident=2 — coverage stays full, so a BPB difference cannot be attributed to seeing less. RAM 2.39 GiB/process, 4.77 GiB under DDP×2; fallback resident=8 is a legitimate third curve point, not a failure.
+
+**Economy worth naming: this gives three points, not two — arm3 is the r→∞ (i.i.d.) limit of the same curve.** So one new arm buys a dose-response across r = 2 / 16 / ∞ = 1.1715 / ? / 1.1376.
+
+**Pre-registered reading, fixed here so the probe cannot be narrated after the fact** (record-only, gating nothing):
+- arm7 **more than σ_seed below 1.1715** (i.e. < 1.1665) → window width is a mechanism; the dose-response is real; **shuffle-before-chunking becomes the preferred rung-2 remedy**, since it buys the same effect at O(1) RAM instead of O(width).
+- arm7 **within σ_seed of 1.1715** → width is NOT the mechanism; the cost lies elsewhere in the KD path, with **position-grid restriction** the leading suspect (KD may sample only teacher-window-aligned offsets while arm3 samples any offset), and the remedy changes accordingly.
+- arm7 **materially above 1.1715** → unexpected; record it, do not theorize.
+
+**Cost declared, not absorbed:** the probe is record-only and is **not** a screening stage — the screening block is closed at three stages / six arms. Bookkeeping only: 7 arms × 15% = 105% of stage C ≈ 58% of a rung; rung inventory 2.25 → **≈2.33 rung-equivalents**; S0 ≈ 243 → **≈252 session-hours** at the 3860 floor. It runs on capacity that would otherwise idle while the main run occupies one account.
+
+### Decisions 2, 4, 5 — accepted as reported
+
+2. Stratified diagnostic **not built**, dropped by decision with the reason on the record. 4. `--expect-slice-sha` wired as the fourth pin; the collateral discovery (the flag existed, the cells simply never passed it) is the same family as the manifest hashes that were recorded and never read. **His placement argument is correct and I adopt it: the slice-sha belongs to the logit manifest, not the data manifest — "which windows carry teacher signal" is a property of logit generation.** 5. Shuffle-before-chunking registered as a rung-2 hypothesis; his observation that it pairs with the probe outcome is right and is now folded into the pre-registered reading above.
+
+### One question back (cheap, not a blocker)
+
+Throughput reads 4017 / 4055 / 3687 tok/s for α = 0 / 0.25 / 0.5. The α=0 arm is *not* the fastest, which is what one would expect if the KD block were genuinely skipped at α=0. Either it is computed and multiplied by zero — in which case all three arms share one code path exactly, which strengthens the one-variable claim — or it is skipped, in which case the α=0 arm differs from the others by a (tiny) second variable. The 9% spread is inside the declared ±5-10% per-protocol session variance and **does not touch the comparison**, which is read at equal steps and not equal time. Worth one line of confirmation, not a re-run.

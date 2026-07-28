@@ -19,7 +19,14 @@ kaggle/
 
 # ── Generated outputs (logs, benchmark results) ───────────────────────────────
 logs/
-results/
+# Anchored, with a carve-out, because of the stage-3 incident (2026-07-24): every [DECIDING] number must
+# live in a COMMITTED log and the brief must cite its path -- an adjudication is authority, not evidence.
+# arm3's console log was never retained AND its natural home was invisible to git (kaggle_rung1/* plus this
+# rule, unanchored), so nobody could notice the first fact. Every OTHER nested results/ dir is already
+# covered by its own anchored rule (verified: phase56 outputs_run*, /data/, kaggle_mve/*, kaggle_rung1/*),
+# so anchoring here costs no protection and buys a place decisions can be audited from.
+results/*
+!results/phase64_rung1/
 memoria_stato_attuale.md
 _transport/
 benchmarks_old/

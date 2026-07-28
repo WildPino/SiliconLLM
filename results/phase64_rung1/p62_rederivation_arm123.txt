@@ -1,0 +1,26 @@
+recovering the DECIDING P62 code-val BPB from the saved stage-C checkpoints  (dev=cpu)
+
+  arm1_V2048  V=2048
+    tail-val cross-check : offline 1.1452  vs Kaggle-printed 1.1452  |delta| 0.0000  -> REPRODUCES (pipeline faithful)
+    P62 code-val BPB [DECIDING]  = 1.1377
+    over 1499998 bytes + 2 B unscored first token = 1500000 (declared 1500000)  [byte invariant HOLDS]
+
+  arm2_V4096  V=4096
+    tail-val cross-check : offline 1.1328  vs Kaggle-printed 1.1328  |delta| 0.0000  -> REPRODUCES (pipeline faithful)
+    P62 code-val BPB [DECIDING]  = 1.1443
+    over 1499997 bytes + 3 B unscored first token = 1500000 (declared 1500000)  [byte invariant HOLDS]
+
+  arm3_xproj26_V2048: x_proj low-rank r=26: 7 swapped | 131040/745472 params = 17.6% of dense
+  arm3_xproj26_V2048  V=2048
+    tail-val cross-check : NO PRINTED VALUE (console log not retained) -- this arm leans on the same-run arm1/arm2 controls
+    P62 code-val BPB [DECIDING]  = 1.1376
+    over 1499998 bytes + 2 B unscored first token = 1500000 (declared 1500000)  [byte invariant HOLDS]
+
+  screening result (P62, the decider): arm1_V2048 lower at BPB 1.1377 vs 1.1443 -- delta +0.0066
+  sigma_seed = 0.005; delta is 1.3 sigma
+    ADOPTION (SS4 rule, bar = sigma_seed 0.005): 0.0066 > 0.005 -> ADOPT the lower arm; tie-breaker does NOT fire
+    CLAIM-GRADE (separate question, bar = 2 sigma 0.010): 0.0066 <= 0.010 -> NOT a claim -- label it a screening
+  arm3 anchor re-derived: 1.1376  vs brief-recorded 1.1376  |delta| 0.0000  -> CONFIRMS the cited number
+  domain gap (stage-3 CE-on-window 1.1715 - arm3 CE-i.i.d. 1.1376) = +0.0339 = 6.8 sigma_seed
+
+STOP. Recovered offline; no commit. Deciding metric is declared recovered-offline in the report.
