@@ -1,0 +1,13 @@
+epsilon-identity gate   steps=200 seed=0   old=HEAD:benchmarks/phase64/mve/mve_train.py
+
+  [A old] _eps_old_mve_train.py 
+  [B new r=2] mve_train.py --kd-resident 2
+  [C new r=4] mve_train.py --kd-resident 4
+
+  CLAIM    A(old) vs B(new,r=2): IDENTICAL  -- every tensor bit-identical
+  CONTROL  A(old) vs C(new,r=4): DIFFERS  -- diverges, worst at blocks.6.mix.dt_proj.weight  max|delta| 1.806e-01
+
+  VERDICT: PASS -- the flag is behaviour-preserving at its default, and the comparison is
+  demonstrably able to detect a window change. The probe may be compared against arm4.
+
+STOP. No commit.

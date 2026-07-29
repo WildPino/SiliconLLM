@@ -1,0 +1,27 @@
+=== chunk-residence gate, stage-4 order probe (resident=16, steps=15106) ===
+  chunk-steps DERIVED = 15106 // (121 x 3) = 41
+
+chunk-residence gate   121 chunks, resident=16   15106 steps / 41 chunk-steps = 368 advances = 3.04 sweeps
+
+  chunks ever resident : 121/121
+  residence per chunk  : min 1968  max 2191  mean 1997 steps
+  coefficient of var   : 0.035   (bar 0.15)
+  residence(chunk 0..120): #####@@@@@@@@@@@#########################################################################################################
+
+  verdict: PASS -- window sweeps the slice representatively
+
+STOP. No commit.
+
+=== reference: the three stage-3 arms as they ran (resident=2) ===
+  chunk-steps DERIVED = 15106 // (121 x 3) = 41
+
+chunk-residence gate   121 chunks, resident=2   15106 steps / 41 chunk-steps = 368 advances = 3.04 sweeps
+
+  chunks ever resident : 121/121
+  residence per chunk  : min 246  max 328  mean 250 steps
+  coefficient of var   : 0.064   (bar 0.15)
+  residence(chunk 0..120): #@@@@#*******************************************************************************************************************
+
+  verdict: PASS -- window sweeps the slice representatively
+
+STOP. No commit.

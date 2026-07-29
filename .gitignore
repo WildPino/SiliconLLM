@@ -9,13 +9,20 @@ bin/
 *.dll
 
 # ── Binary data artifacts (datasets, not weights) ─────────────────────────────
+# ANCHORING RULE (applied wholesale 2026-07-24, after the THIRD incident of this family). A pattern
+# without a leading slash matches at ANY depth. So: anchor everything that names A PLACE (a specific
+# directory of ours), leave free everything that names A TYPE OF ARTIFACT (bin/, logs/, __pycache__/) --
+# anchoring those would start tracking build output the moment someone creates engine/bin/.
+# The three incidents: `data/` swallowed the whole WS3 apparatus (15 files); `results/` unanchored removed
+# the CONTRAST that would have made a missing [DECIDING] log obvious. Reactive fixing stopped being a
+# strategy at three, so the remaining place-patterns are anchored here without waiting for a fourth.
 data/*.bin
 data/external/
-pg19/
+/pg19/
 telemetry_prose.csv
 *.csv
-eureparl/
-kaggle/
+/eureparl/
+/kaggle/
 
 # ── Generated outputs (logs, benchmark results) ───────────────────────────────
 logs/
@@ -27,10 +34,14 @@ logs/
 # so anchoring here costs no protection and buys a place decisions can be audited from.
 results/*
 !results/phase64_rung1/
-memoria_stato_attuale.md
-_transport/
-benchmarks_old/
-test/
+/memoria_stato_attuale.md
+/_transport/
+/benchmarks_old/
+# `test/` was the last live instance of the data/ hazard: unanchored, it swallowed a directory named
+# `test` at any depth. Anchored it keeps hiding exactly what it hid before (the root test/ scratch tree,
+# interactive_8m.py + interactive_generator.c) while no longer being able to eat a test suite someone
+# adds under benchmarks/ or engine/.
+/test/
 # internal training dossiers (unvetted third-party PDFs; not for the public repo)
 docs/research/training/
 
@@ -58,12 +69,11 @@ ehthumbs.db
 .vscode/
 .idea/
 .claude/
-*.csv
 *.see
 *.dec
 *.enc
-*.out.c  
-graphify-out/
+*.out.c
+/graphify-out/
 
 # ── Model checkpoints + experiment run outputs (verdicts live in memory/HANDOFF) ──
 *.pt
@@ -90,7 +100,7 @@ kaggle_mve/*
 kaggle_rung1/*
 !kaggle_rung1/README.md
 # one-off local driver
-run_benchmarks_temp.py
+/run_benchmarks_temp.py
 
 # ── Internal-only docs (raw ideation / dev journals): kept private ──
 docs/research/LLM_Reimagined_CPU_Native_Exploration_20260626/
