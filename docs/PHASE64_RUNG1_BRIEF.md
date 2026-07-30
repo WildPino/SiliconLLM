@@ -268,3 +268,35 @@ Built as arm7 (`--kd-resident 16`), identical to arm4 in every other respect, bu
 ### One question back (cheap, not a blocker)
 
 Throughput reads 4017 / 4055 / 3687 tok/s for α = 0 / 0.25 / 0.5. The α=0 arm is *not* the fastest, which is what one would expect if the KD block were genuinely skipped at α=0. Either it is computed and multiplied by zero — in which case all three arms share one code path exactly, which strengthens the one-variable claim — or it is skipped, in which case the α=0 arm differs from the others by a (tiny) second variable. The 9% spread is inside the declared ±5-10% per-protocol session variance and **does not touch the comparison**, which is read at equal steps and not equal time. Worth one line of confirmation, not a re-run.
+
+## 18. Order probe — the pre-registered reading fires; promoted to architecture (2026-07-29)
+
+| resident window | P62 [DECIDING] | vs i.i.d. |
+|---|---|---|
+| r = 2 (arm4) | 1.1715 | +0.0339 = 6.8σ |
+| r = 8 (arm7) | 1.1446 | +0.0070 = 1.4σ |
+| r = ∞ (arm3) | 1.1376 | — |
+
+**Branch (i) of §17's pre-registered reading fires: window width IS a mechanism.** Threshold was < 1.1665; the measurement is 1.1446, i.e. **4.4σ past it on a monotone three-point curve**. Recovery 0.0269/0.0339 = **79% of the domain deficit at 6.6% of the ring resident**; residual to i.i.d. is 1.4σ, inside single-seed noise. Consequently, and as pre-registered rather than as a post-hoc preference, **shuffle-before-chunking is the rung-2 remedy of choice** — same property at O(1) memory instead of O(width) — and we now also know *how much* width suffices, which was the half of the question a binary contrast would not have answered.
+
+**The OOM deviation is conservative and makes the result a fortiori.** The probe ran at r=8 instead of the planned r=16. A narrower window should recover *less*; crossing the threshold anyway strengthens the conclusion rather than weakening it. Declared, not absorbed.
+
+**Attribution closed separately, and in both directions.** The concern that the −0.0269 might come from the code change that exposed `--kd-resident` rather than from width is answered three ways: the diff is one of nine bundle inputs, 9+/2−, substance = an argparse entry plus passing the already-hardcoded default; the pinned ε-identity gate shows the new trainer at r=2 **bit-identical** to `d145a01`; and the same gate shows r=4 vs r=2 **measurably different** (max|Δ| 0.18). Bit-identical where it must be, different where it must be — an instrument validated on both a known-negative and a known-positive. `kd_resident` is not caching and not KD mathematics (at α=0 the KD term does not enter the loss); `KDChunks.window()` delimits which positions are sampled, so it is data ordering by construction. **arm7 is therefore not a substitute for a missing r=16 point — arm7 is a legitimate point of the curve.**
+
+**Retraction handled correctly, and the distinction is the valuable part.** The Builder withdrew his own earlier PASS on discovering three defects in the gate apparatus (moving `HEAD` reference; anti-tautology control comparing raw bytes under `core.autocrlf`, so it could never fire; `subprocess(text=True)` decoding a UTF-8 file as cp1252, producing a byte-corrupted "old trainer" that still parsed — and which was *also* the reason the second defect stayed invisible). His framing is the one to keep: *"I am not saying it is wrong — I am saying it is not evidence."* A verdict that would probably survive re-derivation is still not a verdict. The clean re-run reproduces the same `max|Δ| 0.1806`, which is confirmation and not vindication. Lessons banked in `feedback_planted_controls`, including the fourth, on judgement: a risk dismissed must be dismissed **on a declared side** — the shared resume path was correctly judged harmless on the read side and wrongly on the write side.
+
+### Consequence 1 — D3's disposition is reinforced, and nothing moves
+
+§16 kept D3 open for two reasons; the second was that the challenger ran in a regime whose transfer was untested. That reason is now **quantified and shown to be largely removable**: the α curve was measured under a handicap that is ~79% recoverable at near-zero cost. This changes no decision — CE ships (sealed, and §4.3 always denied this screening the power to flip the main run) and D3 was already unresolved — but it converts "untested transfer" from a caveat into a specified, cheap experiment. The α *contrast* remains internally valid: all three arms shared r=2, so the handicap is common-mode. What is untested is whether a teacher signal's value survives — or is masked by — a degraded-ordering regime.
+
+**Rung-2 form, specified now while it is cheap to specify: re-run the α trend at r=8 (or on shuffled chunks) — and it costs TWO arms, not three, because arm7 *is* the α=0 anchor of that curve** (α=0, V2048, r=26, r=8, same bundles). The probe arm does double duty. Not ordered now: the main run is the priority and §4.3 sealed D3 as a rung-2 question.
+
+### Consequence 2 — promoted into `SCALEUP_ARCHITECTURE.md` as §5.1
+
+§16's decision 6 held this finding provisional *"until the probe reports"*. It has reported, and the promotion condition is met, so it is now written into the architecture as a constraint on the training data path: at 10 B the corpus must stream, the naive form of streaming *is* the blocked-residency pattern measured here, and the guarantee to engineer is that **the data path presents an i.i.d.-equivalent sample at every point in the run — obtained by randomizing membership when the artifact is written, not by buying residency at run time.** Scope stated in place: measured at rung-1, single seed per point; the mechanism is beyond reasonable doubt at this scale, the magnitude at 10 B is an extrapolation and is not claimed.
+
+### Push and one flag
+
+To push: `.gitignore` (anchoring audit closed), `ws3_epsilon_identity.py` (three fixes), `epsilon_identity_kd_resident.txt` (**replaces** the retracted log — correct: a withdrawn artifact should not survive next to its replacement), `arm7_w8_console.txt` (the probe's decider — and the first file to land under the newly-anchored `results/phase64_rung1/`, which is the rule from §17 working on its first real use), plus this brief and `SCALEUP_ARCHITECTURE.md` §5.1.
+
+**Flag, not a block: `scripts/kaggle_run.py` is modified and unowned by the Builder.** It is presumably the owner's launch-side edit. An unattributed modification riding along in a gate-bearing push is the shape that has bitten us repeatedly this week — **the owner confirms what it is before it goes, or it stays out of this push.** Cheap either way.

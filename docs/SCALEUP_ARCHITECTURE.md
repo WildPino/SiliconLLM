@@ -119,6 +119,26 @@ Enter/exit at compression-unit boundaries (Byte-Latent-Transformer-style patchin
 
 From-scratch is the unfair advantage (dissolves the PTQ ~2.4-bpw floor: native ternary near-lossless, native sparsity improves scores). But from-scratch at *large* scale is a frontier-budget program. The cost lever: **distill an open-source teacher into this ternary-SSM-recall architecture** (transformer→SSM distillation is proven cheap — Mamba-in-the-Llama, ~tens of B tokens vs trillions). This is exactly the **QAD** path already identified (QAT-ternary + logit-distillation): the teacher feeds the from-scratch ternary student, composing — it doesn't abandon the unfair advantage, it sources its knowledge cheaply. A stock model **cannot** run on this engine (transformer ≠ SSM operators; and it lacks the ternary/sparse/cache properties); but it can *teach* it.
 
+### 5.1 Data-path ordering — MEASURED at rung-1, and it is a first-class constraint (2026-07-29)
+
+The distillation lever of §5 has a delivery cost that is not obvious and was not in this document until it was measured. Teacher logits at rung-1 are 18 GB for a single screening slice; they cannot be resident, so they stream, and the naive streaming form — hold *r* contiguous chunks of *N*, advance through the ring — **changes the order in which training positions are drawn, at equal data, equal tokens and equal steps.** That change is not free:
+
+| resident window | P62 code-val BPB | vs i.i.d. |
+|---|---|---|
+| r = 2 of 121 (1.65% of the ring) | 1.1715 | +0.0339 = 6.8 σ_seed |
+| r = 8 of 121 (6.6%) | 1.1446 | +0.0070 = 1.4 σ_seed |
+| r → ∞ (global i.i.d. shuffle) | 1.1376 | — |
+
+Read carefully, because two of the three things this says are more useful than the headline:
+
+1. **Blocked ordering is a real quality cost, and at its worst it dominates every recipe knob measured at this rung** — larger than the vocabulary decision (1.3σ) and the x_proj rank decision (0.02σ) combined. Coverage is *not* the explanation and was excluded before the finding was believed: the slice was 100% covered on both sides (117808/117808 windows), every chunk resident (121/121, CoV 0.064 at r=2 / 0.035 at r=8), identical token budget, identical expected passes. The residual variable is order.
+2. **The cost collapses fast with window width.** Going from 1.65% to 6.6% of the ring resident recovers **79%** of the deficit and leaves a residual (1.4σ) inside single-seed noise. The relationship is steep and favourable, not linear — which means the mitigation is cheap rather than a tax to be budgeted.
+3. **Therefore the mitigation of choice is not RAM.** If width is what matters, then *shuffling at chunk-construction time* buys the same property at O(1) memory instead of O(width): with chunk membership randomized, any small resident set is already a uniform sample of the corpus rather than a contiguous region. This is one offline pass over the artifact, no GPU, and it is the preferred remedy from rung-2 onward.
+
+**Why this belongs in the architecture document and not only in a rung log:** at 10 B parameters the training data path *must* stream — the corpus does not fit, and neither will any teacher-signal artifact derived from it. The naive implementation of "stream from disk" is exactly the blocked-residency pattern measured above. So this is a constraint on the scale-up training path, not a curiosity of one screening: **the data path must present the trainer with an i.i.d.-equivalent sample at every point in the run, and the cheapest way to guarantee that is to randomize membership when the artifact is written, not to buy residency at run time.** Sequential-by-construction data paths (sharded readers that walk files in order, curriculum-by-directory, logits chunked in corpus order) inherit the full cost.
+
+**Status and scope, stated honestly.** Measured at rung-1 scale (30 M total / 11 M active, 1.5 B-token budget), single seed per point, on one corpus and one val. The monotone three-point shape and the size of the effect make ordering the mechanism beyond reasonable doubt at *this* scale; the *magnitude* at 10 B is an extrapolation and is not claimed. The probe was record-only and gated nothing; its reading was pre-registered before the number existed (`PHASE64_RUNG1_BRIEF.md` §17), and it crossed the pre-registered threshold (< 1.1665) by 4.4σ **on a narrower window than planned** — r=8 instead of r=16, forced by an OOM, i.e. a deviation in the conservative direction, which makes the conclusion *a fortiori*. Attribution to width rather than to the code change that exposed the parameter was closed separately by a pinned ε-identity gate (new trainer at r=2 bit-identical to the old; r=4 vs r=2 measurably different — both directions verified).
+
 ---
 
 ## 6. Originality (honest)

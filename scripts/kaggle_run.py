@@ -60,6 +60,9 @@ ARMS = {
     "arm4": {"acct": "acct1", "script": PACK / "NOTEBOOK_arm4_a000_V2048.py", "slug": "phase64-arm4"},
     "arm5": {"acct": "acct2", "script": PACK / "NOTEBOOK_arm5_a025_V2048.py", "slug": "phase64-arm5"},
     "arm6": {"acct": "acct3", "script": PACK / "NOTEBOOK_arm6_a050_V2048.py", "slug": "phase64-arm6"},
+    # stage-4: alpha 0.0 + kd-resident 16 (new knob) + slice-sha now VERIFIED. New code bundle
+    # (CODE_SHA 27b22582); data + logits unchanged from stage-3, so only phase64-code is re-uploaded.
+    "arm7": {"acct": "acct1", "script": PACK / "NOTEBOOK_arm7_w16_V2048.py", "slug": "phase64-arm7"},
 }
 
 MACHINE = "NvidiaTeslaT4"        # the enum has no explicit 2xT4; the cell auto-adapts --accum to device_count
@@ -184,7 +187,7 @@ def cmd_output(args: argparse.Namespace) -> int:
 
 def cmd_plan(_args: argparse.Namespace) -> int:
     print("arm    account   user           alpha  kernel-slug            script")
-    alphas = {"arm4": "0.00", "arm5": "0.25", "arm6": "0.50"}
+    alphas = {"arm4": "0.00", "arm5": "0.25", "arm6": "0.50", "arm7": "0.00/w16"}
     for a, arm in ARMS.items():
         print(f"{a:6} {arm['acct']:9} {USER[arm['acct']]:14} {alphas[a]:6} {arm['slug']:22} {arm['script'].name}")
     print("\ndatasets attached to every arm (per account):")
