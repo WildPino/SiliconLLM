@@ -73,12 +73,20 @@ SPECS = {
     # -- can say whether BPB slides monotonically toward the i.i.d. value as the window widens. If it does,
     # the mechanism IS width, and the curve also tells us how much width is enough to buy back the deficit,
     # which is the number rung-2 actually needs. A binary result would leave us knowing neither.
-    4: [("arm7_w16_V2048", 2048, 26, "stage3_data", 0.0)],
+    #
+    # AS RUN, not as planned: w16 was attempted and DIED -- host-RAM OOM (SIGKILL at ~24 min, after the
+    # guards had passed; a GPU OOM would have raised a CUDA error instead). 16 chunks resident is 2.39 GiB
+    # per process and 4.77 GiB under DDP x2, and the session did not have it. Relaunched clean at 8 (2.39
+    # GiB total), fresh, not resumed from the w16 partial. The spec carries 8 because that is the point that
+    # exists; w16 is UNMEASURED and must never be quoted as if it were. The deviation happens to strengthen
+    # the reading: a narrower window should recover LESS of the domain deficit, so crossing the
+    # pre-registered threshold at 8 is an a-fortiori result.
+    4: [("arm7_w8_V2048", 2048, 26, "stage3_data", 0.0)],
 }
 # Sampling-window width per arm; absent = the trainer's default of 2 (what stages 1-3 ran). Kept OUT of the
 # SPECS tuple so the existing five-field call sites are untouched -- one probe does not justify reshaping a
 # structure four other code paths unpack.
-KD_RESIDENT = {"arm7_w16_V2048": 16}
+KD_RESIDENT = {"arm7_w8_V2048": 8}
 # arm3 (stage 2, CE-on-whole-corpus, P62 1.1377) is the RECORD-ONLY cross-check, NOT the curve's alpha=0
 # point: the branch-point control showed CE samples the whole corpus while the KD harness samples the
 # resident-logit window, so arm4 (KD alpha=0) is the true alpha=0. arm3 is not re-run and not in SPECS[3].

@@ -250,7 +250,7 @@ arm1 offline tail-val 1.1452 = Kaggle 1.1452 (|Δ| 0.0000); arm2 1.1328 = 1.1328
 
 ### Decision 3 — the probe, and its reading pre-registered BEFORE the number exists
 
-Built as arm7 (`--kd-resident 16`), identical to arm4 in every other respect, bundles not rebuilt. Residence CoV 0.035 vs 0.064 at resident=2 — coverage stays full, so a BPB difference cannot be attributed to seeing less. RAM 2.39 GiB/process, 4.77 GiB under DDP×2; fallback resident=8 is a legitimate third curve point, not a failure.
+Built as arm7 (`--kd-resident 16`), identical to arm4 in every other respect, bundles not rebuilt. Residence CoV 0.035 vs 0.064 at resident=2 — coverage stays full, so a BPB difference cannot be attributed to seeing less. **[Correction, MM 2026-07-29: this paragraph describes the arm as PLANNED. It executed at r=8 (OOM, §18), so the residence figures here — and with them the load-bearing "coverage stays full" argument — are anchored to a gate run at r=16, not to the configuration that produced 1.1446. The gate must be re-run at r=8 and the number recorded here. It is expected to pass (the advance schedule is independent of residency width: chunk_steps stays 41, the ring is still swept 3.04 times, so CoV should land between 0.064 at r=2 and 0.035 at r=16) — but "expected to pass" is not the standard, and the run costs seconds of CPU. **Reading fixed in advance: if r=8 residence PASSES, the coverage explanation stays excluded and §18 is unchanged; if it FAILS, coverage reopens as a rival explanation for arm7 specifically and the 79% recovery figure must be re-read before it is quoted again.**]** RAM 2.39 GiB/process, 4.77 GiB under DDP×2; fallback resident=8 is a legitimate third curve point, not a failure.
 
 **Economy worth naming: this gives three points, not two — arm3 is the r→∞ (i.i.d.) limit of the same curve.** So one new arm buys a dose-response across r = 2 / 16 / ∞ = 1.1715 / ? / 1.1376.
 
@@ -300,3 +300,39 @@ Throughput reads 4017 / 4055 / 3687 tok/s for α = 0 / 0.25 / 0.5. The α=0 arm 
 To push: `.gitignore` (anchoring audit closed), `ws3_epsilon_identity.py` (three fixes), `epsilon_identity_kd_resident.txt` (**replaces** the retracted log — correct: a withdrawn artifact should not survive next to its replacement), `arm7_w8_console.txt` (the probe's decider — and the first file to land under the newly-anchored `results/phase64_rung1/`, which is the rule from §17 working on its first real use), plus this brief and `SCALEUP_ARCHITECTURE.md` §5.1.
 
 **Flag, not a block: `scripts/kaggle_run.py` is modified and unowned by the Builder.** It is presumably the owner's launch-side edit. An unattributed modification riding along in a gate-bearing push is the shape that has bitten us repeatedly this week — **the owner confirms what it is before it goes, or it stays out of this push.** Cheap either way.
+
+## 19. Main run — launch record, decisions A and B (2026-07-29)
+
+### Residuals closed
+
+Residence at **r=8: CoV 0.048, 121/121, PASS** — between r=2 (0.064) and r=16 (0.035), the ordering the mechanism predicts. The coverage explanation stays excluded and §18 is unchanged; the pre-registered FAIL branch of §17 does not fire. Log `results/phase64_rung1/chunk_residence_arm7_w8.txt`. Rename done, no pin broken, `SPECS[4]`/`KD_RESIDENT` updated with the deviation declared beside them (**w16 attempted → OOM → w8; w16 remains UNMEASURED and is never quoted as if it were**).
+
+**The two rename residuals are handled correctly and the reasoning is the right one:** `cfg['out']`, `cfg['save_stage_ckpt']`, `cfg['resume_ckpt']` inside the checkpoint and the `RUN:` line in the log still read `w16` — **they are the record of what was invoked, and rewriting them would falsify it.** A record is not a label. And the artifact is self-describing on the variable that matters: `cfg['kd_resident'] = 8` is inside the checkpoint, so an auditor reads the true width without trusting a filename. That is the correct resolution of a naming/record conflict: fix the label, never the record.
+
+### Decision A — corpus: 5.5 GB, APPROVED, with the contract made load-bearing
+
+Arithmetic verified independently: 5.5 GB ÷ 2.571 B/tok = **2.14 B token pool**; 1.5 B ÷ 2.14 B = **0.70 expected passes**, unique coverage 1 − e^(−0.70) = 50.3%. That sits alongside the screening's declared 0.669 / 48.8%, so the main run trains in the same repetition regime the recipe was validated in — the reason to prefer it over 6.5 GB, which buys headroom we have no declared use for at the cost of ~1.3 h of CPU and ~0.8 GB of upload. 4.2 GB is correctly rejected: 0.92 is too close to the wall for a run that will be resumed a dozen times.
+
+**Addition, and it is the week's own lesson applied: the single-epoch contract is currently prose in the prereg, and prose does not enforce.** Wire an assertion at startup — `steps × tokens_per_step / n_train_tok < 1`, refuse otherwise, and **print the computed ratio in the run header** so every session's log carries it. A declared contract that no consumer makes load-bearing is documentation, not defence; this one costs one line and guards the whole run.
+
+### Decision B — conditional KD apparatus: APPROVED, and the gate must run in CE mode
+
+~9.5 GB of anchors/t2s/decomp are dead weight for a CE-primary run, and they are dead weight **for the §6 branches too** — none of the three (ε-identity upcycle, no-recall control, dense-paired) uses KD — so the saving applies to the whole remaining rung, not just one upload. Three lines against 10 GB per upload, on a path that repeats across relay accounts, is the right trade.
+
+**Specification of the gate run, because the obvious way to run it would prove nothing.** The changed behaviour is *skipping the load*, so the informative test is a **CE-mode run**: KD-mode still loads the arrays and is therefore trivially unchanged — testing that branch would be testing the code that did not change. Required: (a) CE-mode bit-identity, old vs new, pinned immutable sha, extracted in bytes, VOID control exercised; (b) KD-mode bit-identity as the cheap second point. The hypothesis being falsified is specifically *"loading those arrays touches nothing else"* — plausible, and this week has shown what plausible is worth. **Confirm before you write it that the condition is keyed on KD usage alone**, and that nothing in the recall tier or the P62 path reaches those arrays.
+
+### Main run — launch record
+
+**STEPS = 183,105** at 8,192 tok/step (micro 8/rank × world 2 × accum 1, seq 512; effective batch 16). Curriculum C 100,707 / D 36,621 / E 36,621 (seq 2048, B·L constant) / F 9,155; α-QAT ramp 3,600 (≤10% of D ✓, 3,662 being the cap). Config **V2048 + x_proj r=26 + CE-primary**, `--recall on`, `--sparse-moe`, `--require-p62`, `--save-stage-ckpt`, four pins, `--expect-slice-sha`.
+
+**Calendar, stated so it is committed to with open eyes:** 1.4996 B tokens ÷ 3,860 tok/s = 108 h, **+34% for the stage-E extension → ≈145 h ≈ 14 sessions** at `--time-budget-min 660`. Measured throughput ran 3,900-4,050, so 13 is likelier than 14. **This exceeds one account's weekly GPU quota, so the resume chain must rotate across accounts** — the apparatus already supports it (`kernel_sources` relay, resume proven bit-identical). The Kaggle operator confirms the quota arithmetic and plans the rotation before session 1, rather than discovering it at the quota wall mid-run.
+
+**Two things wired at build time, not later:** `--save-stage-ckpt` must emit the stage-D checkpoint that §6's three branches fork from; and the **branch-point assertion is automatic from the start** — fork entry BPB must equal parent exit BPB, asserted, any branch failing it is VOID. That rule exists because an unrestored α once produced an fp32 control against a ternary arm with an entirely plausible BPB, and the branches are where it would happen again.
+
+### `scripts/kaggle_run.py` — classified operational, cleared, with one sharpening
+
+The operator's classification is accepted and his method is right: he grepped rather than asserted, and he **named the one seam instead of returning a clean "no"** — `machine_shape="NvidiaTeslaT4"` → `device_count=2` → `--accum 1`. Fixed, identical across arm4-arm7, effective batch invariant.
+
+**Sharpening, because "math-neutral" is very slightly stronger than what holds.** The *step grid and effective batch* are invariant across (world 2, accum 1) and (world 1, accum 2) — that is the comparability claim the prereg makes and it stands. **Floating-point summation order is not invariant**: DDP gradient averaging and local accumulation sum in different orders, so a session on a different accelerator is *comparable but not bit-identical*. Over a 14-session resumed run this matters: **the accelerator must stay T4×2 for the whole main run, and any session that gets something else is a declared deviation, not a silent one.** Make it load-bearing — assert `device_count == 2` and the device name in the cell, and refuse otherwise. Kaggle substituting an accelerator is precisely the kind of silent substitution the cell should catch in two seconds.
+
+Commit line approved as drafted; it names the accelerator, which is what keeps the seam on the record.

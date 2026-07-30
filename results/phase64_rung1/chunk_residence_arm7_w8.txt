@@ -1,0 +1,13 @@
+=== chunk-residence, arm7 AS RUN (resident=8, steps=15106) ===
+  chunk-steps DERIVED = 15106 // (121 x 3) = 41
+
+chunk-residence gate   121 chunks, resident=8   15106 steps / 41 chunk-steps = 368 advances = 3.04 sweeps
+
+  chunks ever resident : 121/121
+  residence per chunk  : min 984  max 1207  mean 999 steps
+  coefficient of var   : 0.048   (bar 0.15)
+  residence(chunk 0..120): *####@@@####*************************************************************************************************************
+
+  verdict: PASS -- window sweeps the slice representatively
+
+STOP. No commit.
