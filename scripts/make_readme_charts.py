@@ -159,16 +159,30 @@ def chart_predict_sparsity():
 
 # ------------------------------------------------- 5. compound bytes/weight reduction
 def chart_compound():
-    stages = ["fp32\ndense", "ternary\n1.58-bit", "+ activation\nsparsity"]
-    factor = [1.0, 10.1, 21.4]   # cumulative × fewer MLP bytes/token vs fp32-dense
+    # The bar label names the packing that produces the factor, not the information-theoretic ideal:
+    # the 8× comes from the engine's real 4-bit codes. Labelling it "1.58-bit" next to an 8× bar invites
+    # the reader to compute 32/1.58 = 20 and fail to reconstruct it -- which is how the 21× happened.
+    stages = ["fp32\ndense", "ternary\npacked 4-bit", "+ activation\nsparsity"]
+    # Cumulative × fewer MLP bytes/token vs fp32-dense, each step reconstructible from a declared constant:
+    #   fp32 4 B/weight ÷ 0.5 B/weight (the engine's REAL 4-bit base-3 g=2 packing) = 8.0×
+    #   × 2.12× predictor-free activation sparsity (probe-2)                        = 16.96× → 17×
+    # The previous [1.0, 10.1, 21.4] was a mixed-basis error, declared rather than quietly deflated:
+    # 10.1 = 2 B/weight (fp16!) ÷ 0.198 B/weight (the IDEAL 1.585-bit packing), so it took its numerator
+    # from a baseline this chart does not plot and its denominator from a packing the engine does not use.
+    # The two mistakes pulled opposite ways (÷2 and ×2.52) and left a net 1.26× overstatement — which is
+    # exactly the unexplained 1.26 the audit isolated. Corrected 2026-07-30.
+    factor = [1.0, 8.0, 17.0]
     fig, ax = plt.subplots(figsize=(6.4, 4.3))
     bars = ax.bar(stages, factor, color=[AMBER, BLUE, TEAL], width=0.55, zorder=3)
     for b, f in zip(bars, factor):
         ax.text(b.get_x()+b.get_width()/2, f+0.4, f"{f:.0f}×" if f > 1 else "1×",
                 ha="center", va="bottom", color=INK, fontweight="bold")
     ax.set_ylabel("cumulative × fewer MLP bytes / token")
-    ax.set_ylim(0, 24)
-    ax.set_title("Composing the bandwidth levers  (≈ +0.03 BPB total)")
+    ax.set_ylim(0, 19)
+    # Second defect in the same chart, same family: the title carried "+0.03 BPB", which README §2 itself
+    # retires as "only a naive sum of two deltas measured separately at different step counts". The R1
+    # matched-convergence calibration prices the combined ternary+dReLU cost at +0.013 ± 0.005.
+    ax.set_title("Composing the bandwidth levers  (+0.013 ± 0.005 BPB total)")
     _finish(fig, "bench_compound.png",
             "probe-1 (ternary) × probe-2 (sparsity) · independent axes · predictor-free")
 

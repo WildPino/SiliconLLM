@@ -26,7 +26,11 @@ Batch-1 decode is memory-bandwidth-bound: `tok/s ≈ (eff_bw × tokens_per_strea
 | eff_bw ↑ | active-slice fits L3 | **LOCKED** (Probe-3) | **~3×** step (88→28 GB/s) at the **16MB L3 cliff**; compute-bound while resident |
 | tokens_per_stream ↑ | block-verify chassis (n-gram draft) | **MEASURED, CONDITIONAL** (Phase 63) | mechanism proven: streamed bytes/token = AR ÷ tpp exactly (tpp 1.75 code / 2.6-2.8 TS); pays only where *shared*-streamed traffic dominates compute (**C/T ≲ 0.25-0.30**; at 8.3M C/T=1.6 → scoped out); routed/expert pools do **not** amortize (i.i.d. unions, §3.8) |
 
-Ternary × sparsity already compose to **~21× fewer MLP bytes/token vs fp32-dense** at ~+0.03 BPB. The honest compound across all terms is **one-to-two orders of magnitude over dense-int4** — *not* a naive product; do not anchor on a single number.
+Ternary × sparsity compose to **~17× fewer MLP bytes/token vs fp32-dense** at ~+0.03 BPB — **and the number is written here as its derivation, because the previous figure (~21×) could not be reconstructed from this table's own constants**: 4 B/weight ÷ 0.5 B/weight (row 1) = **8×**, × **2.12×** (row 2) = **16.96×**. The 21× required an unexplained further 1.26 and is retired; corrected 2026-07-30 by an audit of this document against itself, and deflated rather than defended. *(Projection, not measured, and marked as such: trit-packing at 5 trits per byte-pair — 1.6 bits/weight, 0.2 B — would take the first factor to 20× and the product to ~42×. That is engine-v2 work, not built.)*
+
+**The second factor is LEARNED, not structural — stated here because it changes how it may be projected.** Two i.i.d. gates would yield 75% hidden sparsity; the measured 92% (at 79% gate sparsity) implies `P(u ≤ 0 | g > 0) ≈ 0.62`, i.e. the model shifted *both* branches negative with no sparsity penalty in the loss. It is emergent behaviour of a trained network, not a property of the architecture, so **it is re-measured at every rung and never assumed to transfer** — a record-only activation-sparsity read at each stage exit is enough, and it can be taken offline from the saved checkpoints without touching the training path.
+
+The honest compound across all terms remains **one-to-two orders of magnitude over dense-int4** — *not* a naive product; do not anchor on a single number.
 
 **The ρ-law (measured, foundational):** random-DRAM access vs sequential-cache-resident = **~14× worst-case** on Zen2 (~2× in-cache, ~4.3× in DRAM). **Rule: every byte path is sequential and cache-resident; no unnecessary random gather.** This single law killed SIMVQ, vector-codebook weight-quant, ANN graphs, and IMI — and it is why the recall tier uses compact in-cache codes, never raw-vector gather.
 
@@ -50,7 +54,7 @@ Everything large-model-specific is sized by this: the MoE granularity, the spars
 
 ```
    ┌─────────────────── THE THINKING (small, ternary, cache-resident) ──────────────────┐
-   │  SSM backbone (selective/diagonal, HiPPO) — O(1) state, bandwidth-light             │
+   │  SSM backbone (selective/diagonal, S4D-Real) — O(1) state, bandwidth-light             │
    │  + gated-ternary MLP (dReLU-sparse) — the byte-sink, attacked                       │
    │  + depth via REUSE of one cache-resident block (adaptive halting) — depth, no bytes │
    └───────────────┬──────────────────────────────────────────────────┬─────────────────┘
@@ -67,7 +71,7 @@ Everything large-model-specific is sized by this: the MoE granularity, the spars
 ```
 
 ### 3.1 Backbone — SSM (LOCKED)
-Selective state-space (diagonal recurrence + HiPPO init), O(1) recurrent state, no growing KV. Bandwidth-light by construction; the bytes concentrate in the MLP/head, which is where the attack lands. The SSM state is also the *prefetch/predict oracle* (§3.6) — a compressed running summary computed early and cheaply each token.
+Selective state-space (diagonal recurrence + **S4D-Real init**, λ_j = −j — the Mamba-1 default; the docs previously said "HiPPO init", which names a different initialization family. Implementation of record: `phase55_ssm.py:54`), O(1) recurrent state, no growing KV. Bandwidth-light by construction; the bytes concentrate in the MLP/head, which is where the attack lands. The SSM state is also the *prefetch/predict oracle* (§3.6) — a compressed running summary computed early and cheaply each token.
 
 ### 3.2 MLP — gated, ternary, sparse (LOCKED mechanism)
 Gated (SwiGLU-style) MLP — **not** the current plain `up→SiLU→down`. The gate-first structure lets gate-sparsity skip up+down predictor-free (Probe-2: 2.12×). Weights native 1.58-bit ternary via pshufb-LUT (Probe-1). dReLU activation for high native sparsity. *Note:* gated adds the gate matrix (more params) but they are ternary and the active set shrinks — net per-token active bytes win. Plain-vs-gated final call pending the predictor (§3.6).
