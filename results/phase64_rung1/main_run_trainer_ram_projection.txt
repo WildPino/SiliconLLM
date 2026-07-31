@@ -1,83 +1,155 @@
 ================================================================================
-BLOCKER FOUND BY READING, NOT BY RUNNING -- the trainer's own ids load at m0 scale
-mve_train.py:325   NOT FIXED. Reported for adjudication; the trainer is gated.
-Written 2026-07-31, before the main-run package was built.
+HOST RAM FOR THE MAIN RUN -- projection, per HOST and not per rank
+mve_train.py, after the uint16 residency fix. Authorized 2026-07-31.
 ================================================================================
 
-    ids = np.fromfile(os.path.join(DATA, f"ts_{a.tag}.u16"), dtype=np.uint16).astype(np.int64)
+THE DEFECT. mve_train.py:325 read ts_*.u16 and cast to int64. At the 0.5 GB
+screening scale that is 0.35 -> 1.41 GiB and invisible. At m0 it is:
 
-The file is uint16. The cast is to int64. It is the same shape of defect as the
-three that made code_data.py impossible at 5.5 GB: an allocation that is
-invisible at the scale it was written for and fatal at the scale it now runs at.
+  measured: 2,295,693,322 student tokens, ids_V2048_m0.u16 = 4,591,386,644 B
 
-The m0 build has since completed, so the token count below is MEASURED, not
-extrapolated: 2,295,693,322 student tokens at V=2048, ids_V2048_m0.u16 =
-4,591,386,644 bytes.
+  per rank         uint16 file   after .astype(int64)   both live
+  ---------------  ------------  ---------------------  ---------
+                      4.28 GiB          17.10 GiB       21.38 GiB
 
-  scale         student tok   uint16 file   after .astype(int64)   peak (both live)
-  ------------  ------------  ------------  ---------------------  ----------------
-  s0, 0.5 GB     0.189 e9        0.35 GiB          1.41 GiB              1.76 GiB
-  m0, 5.5 GB     2.2957 e9       4.28 GiB         17.10 GiB             21.38 GiB
-
-DDP DOUBLES IT. Both ranks are processes on ONE Kaggle node, and each executes
-line 325 independently:
-
-  resident, 2 ranks    34.2 GiB
-  peak,     2 ranks    42.8 GiB   (if the two casts overlap, which nothing
-                                   prevents -- there is no rendezvous before it)
-
-A Kaggle T4 x2 session has ~29 GiB of host RAM. The main run does not OOM
-occasionally; it cannot start.
-
-THIS IS THE ARM7 FAILURE AGAIN. arm7 at --kd-resident 16 was SIGKILLed at ~24
-minutes after every guard had passed, because 16 resident chunks x 2 ranks did
-not fit in host RAM. A GPU OOM would have raised a CUDA error; a host OOM
-returns nothing and looks like a crash. The guards that passed were guarding
-something else. Same here: DATA_SHA, CODE_SHA, the P62 invariant and the
-expected-passes assert would all pass, and then the session would die with no
-diagnosis attached to the cause.
+and both DDP ranks are PROCESSES ON ONE NODE, so 34.2 GiB resident against a
+Kaggle session that has about 29. Not an occasional OOM: it could not start, and
+it would have died the way arm7 died at --kd-resident 16 -- a mute host SIGKILL
+at ~24 minutes, after every guard had passed, with nothing in the log pointing
+at the cause.
 
 --------------------------------------------------------------------------------
-THE FIX, NOT APPLIED
+PROJECTED HOST TOTAL AFTER THE FIX
+Every O(corpus) or fixed allocation on the path, INCLUDING the ones that fit.
+The ones that fit are listed because they are the next things to break, and
+because a total assembled from only the scary terms is not a total.
 --------------------------------------------------------------------------------
-Keep ids uint16 in RAM -- the dtype it has on disk -- and cast at the point of
-use, where the array is one batch of 8 x 512 rather than 2.3 billion tokens.
-Verified locally: numpy's bincount accepts uint16 directly, and torch 2.12
-from_numpy produces a torch.uint16 tensor, so every site is explicit.
 
-  line 325   drop .astype(np.int64)                          -12.9 GiB per rank
-  line 390   np.bincount(ids[:ntr]) casts to intp INTERNALLY
-             -- an 18 GiB temporary that survives the fix at
-             line 325 unless it is chunked too. Same shape as
-             the cumsum in build_vocab: chunk it.
-  508/524    yy is one batch; cast there
-  588-597    bpb_on's stream slices (val AND the P62 stream)
-  637/638    the training batch itself
+  per training rank                                            projected
+  -----------------------------------------------------------  ---------
+  ids, uint16, resident for the whole run                        4.28 GiB
+  torch runtime + CUDA context host-side allocations             2.30 GiB
+  Python interpreter + numpy/transformers imports                0.40 GiB
+  bincount chunk temporary (val-split assert, transient)         0.13 GiB
+  model params on host before .to(dev), 30M fp32                 0.12 GiB
+  P62 code-val stream, 549,473 tok int64                         0.004 GiB
+  val slice ids[ntr:]                                            0 (a view)
+  exp_len / el tables, V=2048 int64                              negligible
+  training batch 8x512 int64, x and y                            negligible
+  recall index (IVF-PQ, --recall on)                             NOT MEASURED
+  -----------------------------------------------------------  ---------
+  subtotal per rank, excluding recall                            7.23 GiB
 
-Six sites. Peak per rank falls to ~4.4 GiB, ~8.8 GiB for two -- comfortable.
+  host total
+  -----------------------------------------------------------  ---------
+  2 training ranks                                              14.46 GiB
+  the notebook's own python process (imports torch)              2.30 GiB
+  page cache charged to the cgroup while reading 4.3 GB          reclaimable
+  -----------------------------------------------------------  ---------
+  PROJECTED HOST TOTAL, excluding recall                        16.76 GiB
 
-WHY IT IS NOT APPLIED HERE. The trainer is the file the whole rung's numbers
-come out of, and a change to it owes its own gate. The gate is the same shape as
-the one code_data.py just passed and is NOT free: bit-identity of a trained
-artefact means actually training. The cheap version is a short CE run at s0
-scale, old vs new, asserting the loss trace and the P62 BPB are identical to the
-last decimal -- minutes on the 3060, not hours.
+THE RECALL INDEX IS THE ONE TERM NOT MEASURED, and it is named rather than
+absorbed into a margin. --recall on builds an IVF-PQ index that stages 1-4 never
+built (they all ran --recall off), so no local number exists for it at this
+scale. The floor below is set with that in mind.
 
-CHEAPER ALTERNATIVE THAT NEEDS NO TRAINER CHANGE, and why it is worse: cut the
-corpus so 1.5 B tokens fit. That changes --gb from 5.5 to about 1.6 and pushes
-expected passes from 0.70 to ~2.4 -- straight through the single-epoch contract
-the trainer now refuses to violate. It trades a memory bug for a data-repetition
-one, and the second is the one that shows up in the number rather than in the
-log.
+  --min-host-ram-gib 20     leaves ~3.2 GiB for recall and any term not
+                            enumerated above, and still passes on a ~29 GiB
+                            Kaggle session with ~9 GiB of slack.
+
+If the measured peak on the first session comes in above this, the reserve is
+memmap for ids: it would make the corpus a SHARED page-cache mapping instead of
+two private copies, which is strictly better. It is deliberately NOT applied
+now -- it is an optimization against a budget we already meet, and it would add
+a new variable to the file we are being careful with.
 
 --------------------------------------------------------------------------------
-NOTE ON HOW THIS WAS FOUND
+WHAT WAS CHANGED, six sites
 --------------------------------------------------------------------------------
-Not by a run. By asking, of every file on the main-run path, the question the
-first diagnosis failed to ask: which allocations here are O(corpus), and what are
-they at 12x the scale they were written for. code_data.py had three. pack_kaggle
-had one (token_index_at, fixed). mve_train has this one.
+  325   ids stay uint16; the cast moves to _i64() at the point of use
+  390   np.bincount CHUNKED -- it casts its input to intp internally, so the
+        whole-split call would have rebuilt the 18 GiB array that line 325 just
+        stopped allocating. The fix at 325 would have survived exactly as far
+        as this line.
+  544   yt, the KD self-check target batch
+  588-597  bpb_on's window stacks and its ragged remainder (val AND P62)
+  637-638  the training batch itself
+  _i64() is the ONLY widening site, and it widens 32 KB at a time.
 
-The lesson the Architect wrote after the first remedy -- that the scale law
-applies to the remedy too -- generalizes one step further: it applies to every
-file the artefact passes through, not only the file where the symptom appeared.
+ADDED, and each closes a failure this rung has already produced:
+  --min-host-ram-gib   startup refusal, container-aware. On Kaggle /proc/meminfo
+                       reports the physical HOST, hundreds of GiB, while the
+                       container is capped far lower -- a check against MemTotal
+                       would read a number it can never spend and pass every
+                       time, which is the blind-instrument failure again. The
+                       cgroup limit (v2 memory.max, v1 limit_in_bytes) is the
+                       authority when present, and host_ram_gib() RAISES rather
+                       than returning a sentinel: NaN compares False against
+                       everything, so a sentinel would have turned the refusal
+                       into a decoration.
+  ids-size assert      ts_{tag}.u16 must be exactly 2 x the token count the
+                       package's meta declares. This is the floor under
+                       collapsing SRC_TAG back into TAG.
+
+VALIDATED ON A KNOWN POSITIVE before being trusted, both readers:
+  code_data.total_gib()   -> 79.95 GiB   (machine is 80)
+  mve_train.host_ram_gib() -> 79.95 GiB  (machine is 80)
+
+--------------------------------------------------------------------------------
+GATE: PASS.  Log: results/phase64_rung1/epsilon_identity_uint16_ce.txt
+--------------------------------------------------------------------------------
+ws3_epsilon_identity.py, CE mode, 200 steps, one seed, against the immutable sha
+bce0e89d63ff1e8f38c2b6e381ffa985ce0be3fd.
+
+  CLAIM    A(old) vs B(new)            IDENTICAL -- every tensor bit-identical
+  weights sha256                       3b577140caa1956b23fe497f9a788087... MATCH
+  CONTROL  A(old) vs C(new, seed+1)    DIFFERS, worst at emb.weight, 6.306e+00
+  throughput  A 2177.0 -> B 2177.5 tok/s   +0.0%   no schedule impact
+
+The hash is over the WEIGHTS, not over the checkpoint file. A file hash was the
+instruction and would have been the wrong instrument: the checkpoint also stores
+the argparse cfg, and this change adds --min-host-ram-gib to it, so the file
+would have differed for a reason with nothing to do with behaviour. A gate that
+fails benignly gets argued with instead of believed.
+
+Throughput is CPU-local and is NOT the 3860 tok/s 2xT4 figure the 145-hour
+calendar rests on; the RATIO is the measurement, and it is device-independent
+because both runs are the same device with the same recipe.
+
+THREE DEFECTS FOUND ON THE WAY, none of which the gate itself would have caught:
+
+  1. log() was used at line 373 and defined at line 401. The accelerator assert
+     called it on its SUCCESS path, so --expect-gpus 2 would have raised
+     UnboundLocalError on a CORRECT 2xT4 session and exited cleanly on a wrong
+     one -- inverted, in the direction nobody tests. It had never fired because
+     no arm before the main run passed the flag. P0/log moved above the guards.
+
+  2. The chunked bincount ran past the split. range(0, ntr, 2^24) without a
+     min(..., ntr) on the last slice counted validation tokens as training. The
+     val-split assert -- a planted control this trainer already carried --
+     refused the run rather than passing the discrepancy through. The control
+     caught the fix to the fix. Verified after: chunked == direct, 473,531,343
+     bytes against 473,531,343 declared.
+
+  3. A MOVING REFERENCE, created from the other side. The trainer was edited
+     while the gate was comparing it: run A had already launched against the
+     commit, and runs B and C would have read a different file than A's
+     counterpart. Killed and relaunched from a settled tree. Same defect as
+     --commit HEAD, produced by moving the object under test instead of the
+     reference.
+
+--------------------------------------------------------------------------------
+REBUILT, so the stale-package incident of 2026-07-22 does not recur
+--------------------------------------------------------------------------------
+The trainer changed => CODE_SHA changed => everything downstream was rebuilt
+from scratch (the package directory was DELETED first, so no file from the
+previous generation could survive alongside the new one).
+
+  CODE_SHA   befac334... -> 8b05126b4fda0d7b5eda266e419c16cce085994880ed05c3b846eb35bb44d06f
+  DATA_SHA   79c58b30... -> 171e481379f54ba3fc90f73ee0414755ad31b10eb0b136585d5098f0f784a645
+
+The DATA_SHA moved for a second reason as well: collapsing SRC_TAG back into TAG
+renamed the shipped files, and the file names are part of the generation pin.
+The package now contains ts_m0.u16 / p62_m0.u16 / meta_m0.json and the cell
+passes --tag m0, so the RUN: line and the checkpoint cfg will record the corpus
+the run actually consumes.

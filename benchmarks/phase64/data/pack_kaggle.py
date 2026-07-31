@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """WS3 -- assemble the Kaggle packages for the rung-1 screening chain (2-1-2).
 
 CHAIN (adjudicated). The three comparisons are sequential; two of them are two arms wide.
@@ -114,16 +114,18 @@ def assert_whitelist_complete():
               "  leftover scratch, DELETE it; do not add it to a list to silence this.")
 BPEDIR = os.path.join(ROOT, "data", "phase64", "corpus")
 OUT = os.path.join(ROOT, "kaggle_rung1")
-# TWO tags, because they name two different things and conflating them is how a package ends up with the
-# right file names over the wrong bytes.
-#   TAG      package-facing. The trainer opens ts_{TAG}.u16 / p62_{TAG}.u16 / meta_{TAG}.json; it is an
-#            INTERFACE, and every cell ever generated passes --tag s0. It does not move.
-#   SRC_TAG  source-facing. Which build under results/phase64/rung1 the bytes are copied FROM. Stages 1-4
-#            read s0 (0.5 GB). The main run reads m0 (5.5 GB). Set with --src-tag.
-# The manifest records SRC_TAG so a package can always say which corpus build it came from; DATA_SHA pins
-# the bytes regardless, so this is documentation of provenance, not the guard.
+# ONE tag, naming the corpus build the package was cut from: s0 for the 0.5 GB screening slice, m0 for
+# the 5.5 GB main run. Set per stage by STAGE_SRC, overridable with --src-tag.
+#
+# IT WAS TWO FOR ABOUT AN HOUR, and the split was wrong. The argument was that the package-facing name is
+# an INTERFACE the trainer opens (ts_{TAG}.u16) while the source name is mere provenance -- so a main-run
+# package would have shipped a file called ts_s0.u16 containing the m0 corpus. The damage is not a
+# confusing filename: the trainer's RUN: line and the checkpoint's cfg would both have recorded --tag s0
+# while the run consumed m0, and section 19 settled that a record is annotated, never falsified. There we
+# kept cfg['out']=w16 precisely BECAUSE it was the record of what had been invoked; here the record would
+# have stated something that did not happen. The floor, if this ever costs more than a constant, is the
+# startup assert now in mve_train: the ids file size must match the token count declared for the tag.
 TAG = "s0"
-SRC_TAG = "s0"
 VAL_FRAC = 0.02
 
 # One arm per screening comparison, keyed by stage. Each spec: (arm id, vocab, x_proj rank, output subdir).
@@ -220,7 +222,8 @@ RECIPE = {
     "main_V2048_r26_CE": dict(
         recall="on", stages="CDEF",
         extra="['--sparse-moe', '--qat-alpha', '3600', "
-              "'--expect-gpus', '2', '--expect-gpu-name', 'T4']",
+              "'--expect-gpus', '2', '--expect-gpu-name', 'T4', "
+              "'--min-host-ram-gib', '20']",
         title="rung-1 MAIN RUN  --  1.5 B tokens, curriculum C->F",
         steps_note="TOTAL steps across C/D/E/F; the trainer splits by STAGE_SPLIT"),
 }
@@ -341,7 +344,7 @@ os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
 NG = torch.cuda.device_count()
 print('GPUs:', NG, [torch.cuda.get_device_name(i) for i in range(NG)])
 
-args = ['--tag', 's0', {ARM_ARGS} '--recall', '{RECALL}', '--stages', '{STAGES}',
+args = ['--tag', '{TAG}', {ARM_ARGS} '--recall', '{RECALL}', '--stages', '{STAGES}',
         '--steps', str(STEPS), '--seq', '512', '--batch', '8',
         '--accum', '1' if NG >= 2 else '2',          # effective batch 16 on 1 or 2 GPUs
         '--fp16', '--warmup', '200', '--max-nonfinite', '50', '--require-p62',
@@ -407,7 +410,7 @@ def token_index_at(V, byte_off):
     # This function needs exactly one index out of that array and its final element. Walking it in chunks
     # gives both, with a 128 MiB temporary, and the result is identical: `ends` is strictly increasing, so
     # the first chunk whose running total reaches byte_off contains the same token searchsorted would find.
-    ids = np.fromfile(os.path.join(DATA, f"ids_V{V}_{SRC_TAG}.u16"), dtype=np.uint16)
+    ids = np.fromfile(os.path.join(DATA, f"ids_V{V}_{TAG}.u16"), dtype=np.uint16)
     exp = np.array(bpe.exp_len, dtype=np.int64)
     CH, base, ntr, resid, found = 1 << 24, 0, None, 0, False
     for i in range(0, len(ids), CH):
@@ -440,24 +443,24 @@ def _materialize_data(V, dest, kd=True):
     it would, a missing file is a hard open() failure rather than a silent degradation. That coupling is
     the point -- a CE package that shipped the apparatus anyway would be 14 GB instead of 4.3, and one
     that omitted it while the trainer wanted it would fail at rehydrate, not at step 4000."""
-    meta = json.load(open(os.path.join(DATA, f"meta_{SRC_TAG}.json")))
-    docbound = np.fromfile(os.path.join(DATA, f"docbound_{SRC_TAG}.i64"), dtype=np.int64)
+    meta = json.load(open(os.path.join(DATA, f"meta_{TAG}.json")))
+    docbound = np.fromfile(os.path.join(DATA, f"docbound_{TAG}.i64"), dtype=np.int64)
     b_off = split_point(meta, docbound)
     ntr, resid, ntok, nbytes = token_index_at(V, b_off)
     row = next(r for r in meta["vocabs"] if r["V"] == V)
     if kd and not row.get("kd_apparatus", True):
         sys.exit(f"PACKAGING REFUSED: a KD package was requested for V={V}, but the source build "
-                 f"'{SRC_TAG}' was made without --kd-apparatus, so anchors/t2s/decomp do not exist.\n"
+                 f"'{TAG}' was made without --kd-apparatus, so anchors/t2s/decomp do not exist.\n"
                  f"  REMEDY: rebuild the corpus with --kd-apparatus. Do NOT pack it as a CE package to "
                  f"get past this -- that would silently change which arm the package can run.")
 
     # File names the trainer already expects, so no trainer change is needed to read a rung-1 package.
-    pairs = [(os.path.join(DATA, f"ids_V{V}_{SRC_TAG}.u16"),     f"ts_{TAG}.u16"),
+    pairs = [(os.path.join(DATA, f"ids_V{V}_{TAG}.u16"),     f"ts_{TAG}.u16"),
              (os.path.join(BPEDIR, f"bpe{V}_code.bin"),          f"bpe{V}_ts.bin")]
     if kd:
-        pairs[1:1] = [(os.path.join(DATA, f"anchors_V{V}_{SRC_TAG}.i32"), f"anchors_{TAG}.i32"),
-                      (os.path.join(DATA, f"t2s_V{V}_{SRC_TAG}.i32"),     f"t2s_{TAG}.i32"),
-                      (os.path.join(DATA, f"decomp_V{V}_{SRC_TAG}.npz"),  f"decomp_{TAG}.npz")]
+        pairs[1:1] = [(os.path.join(DATA, f"anchors_V{V}_{TAG}.i32"), f"anchors_{TAG}.i32"),
+                      (os.path.join(DATA, f"t2s_V{V}_{TAG}.i32"),     f"t2s_{TAG}.i32"),
+                      (os.path.join(DATA, f"decomp_V{V}_{TAG}.npz"),  f"decomp_{TAG}.npz")]
     # P62 code-val, encoded with THIS package's tokenizer. It is the DECIDING metric for the screening
     # (prereg v7): an external, fixed, temporally held-out byte set -- byte-identical across arms by
     # construction and byte-normalised across vocabularies. The internal tail val is apparatus only.
@@ -492,7 +495,7 @@ def _materialize_data(V, dest, kd=True):
                  kd_apparatus_note=("anchors/t2s/decomp are shipped; this package can run --arm kd" if kd
                                     else "CE package: no teacher-derived arrays, and no sampling-window "
                                          "restriction, so there is no slice to pin"),
-                 n_train_tok=ntr, n_val_tok=ntok - ntr, tag=TAG, src_tag=SRC_TAG,
+                 n_train_tok=ntr, n_val_tok=ntok - ntr, tag=TAG,
                  p62_bytes=len(p62_raw), p62_tok=int(len(p62_ids)),
                  p62_note="the DECIDING metric (prereg v7); the internal tail val is record-only apparatus",
                  val_split_byte=b_off, val_split_residual_bytes=resid,
@@ -510,7 +513,7 @@ def _materialize_data(V, dest, kd=True):
 def _base_manifest(V, files, b_off, meta):
     """The vocabulary/corpus identity fields common to every package and bundle."""
     cman = json.load(open(os.path.join(BPEDIR, "corpus_manifest.json")))
-    return dict(V_student=V, tag=TAG, src_tag=SRC_TAG,
+    return dict(V_student=V, tag=TAG,
                 corpus_sha256=cman["corpus_sha256"], raw_sha256=meta["raw_sha256"],
                 bpe_sha256=files[f"bpe{V}_ts.bin"]["sha256"], ids_sha256=files[f"ts_{TAG}.u16"]["sha256"],
                 data_sha256=assert_package.data_generation_sha(files),   # the generation pin
@@ -592,7 +595,7 @@ def write_cells(stage, steps, code_sha):
         p = os.path.join(OUT, f"NOTEBOOK_{arm}.py")
         with open(p, "w", encoding="utf-8") as f:
             f.write(NOTEBOOK.replace("{TITLE}", rcp["title"].replace("{STAGE}", str(stage)))
-                            .replace("{STEPS_NOTE}", rcp["steps_note"])
+                            .replace("{STEPS_NOTE}", rcp["steps_note"]).replace("{TAG}", TAG)
                             .replace("{ARM}", arm).replace("{V}", str(V)).replace("{STAGE}", str(stage))
                             .replace("{XPROJ}", str(xproj)).replace("{STEPS}", str(steps))
                             .replace("{CODE_SHA}", code_sha).replace("{DATA_SHA}", data_sha)
@@ -623,8 +626,8 @@ def main():
                          "Defaults per stage via STAGE_SRC (s0 for the screening, m0 for the main run); "
                          "pass it only to override deliberately.")
     a = ap.parse_args()
-    global SRC_TAG
-    SRC_TAG = a.src_tag or STAGE_SRC.get(a.stage, SRC_TAG)
+    global TAG
+    TAG = a.src_tag or STAGE_SRC.get(a.stage, TAG)
     if a.stage not in SPECS:
         sys.exit(f"stage {a.stage} is not defined. Stages 2-3 are packed only once the previous winner is "
                  f"known -- their parent must exist.")
@@ -658,7 +661,7 @@ def main():
              3: "stage 3 (alpha curve {0,0.25,0.5}, ONE shared data bundle + shared logits)",
              4: "stage 4 (order probe, record-only: window width 2 -> 8, everything else = arm4)",
              5: "stage 5 (MAIN RUN: V2048 + x_proj r=26 + CE, curriculum C->F on the 5.5 GB corpus)"}[a.stage]
-    print(f"WS3 Kaggle packaging   {label}   tag={TAG}  src_tag={SRC_TAG}\n")
+    print(f"WS3 Kaggle packaging   {label}   tag={TAG}\n")
 
     if a.stage == 4:
         # The probe REUSES stage 3's bundles untouched -- that is the whole point. Rebuilding the data would

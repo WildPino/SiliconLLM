@@ -120,22 +120,35 @@ def build_raw(target_bytes, tag, out=None):
 
 
 def total_gib():
-    """Physical RAM, so the projection below is measured against the machine rather than a constant."""
-    try:
-        if os.name == "nt":
-            import ctypes, ctypes.wintypes as wt
-            class MS(ctypes.Structure):
-                _fields_ = [("dwLength", wt.DWORD), ("dwMemoryLoad", wt.DWORD),
-                            ("ullTotalPhys", ctypes.c_ulonglong), ("ullAvailPhys", ctypes.c_ulonglong),
-                            ("ullTotalPageFile", ctypes.c_ulonglong), ("ullAvailPageFile", ctypes.c_ulonglong),
-                            ("ullTotalVirtual", ctypes.c_ulonglong), ("ullAvailVirtual", ctypes.c_ulonglong),
-                            ("ullAvailExtendedVirtual", ctypes.c_ulonglong)]
-            m = MS(); m.dwLength = ctypes.sizeof(MS)
-            ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(m))
-            return m.ullTotalPhys / 2**30
-        return os.sysconf("SC_PHYS_PAGES") * os.sysconf("SC_PAGE_SIZE") / 2**30
-    except Exception:
-        return float("nan")
+    """Physical RAM, so the projection below is measured against the machine rather than a constant.
+
+    SAME BLIND-INSTRUMENT DEFECT AS peak_gib() HAD, 55 lines below it, found by grepping for siblings
+    after the first one was fixed. GlobalMemoryStatusEx was called without argtypes and without checking
+    its return; byref marshals correctly so it probably worked, but "probably" is not evidence, and a
+    failure would have left the struct zeroed and reported zero as a measurement. Worse for what this
+    feeds: the old version swallowed everything into NaN, and every comparison against NaN is False --
+    so a headroom assert built on it could never fire, which is the exact failure this rung has now
+    produced twice. It raises now."""
+    if os.name == "nt":
+        import ctypes, ctypes.wintypes as wt
+        class MS(ctypes.Structure):
+            _fields_ = [("dwLength", wt.DWORD), ("dwMemoryLoad", wt.DWORD),
+                        ("ullTotalPhys", ctypes.c_ulonglong), ("ullAvailPhys", ctypes.c_ulonglong),
+                        ("ullTotalPageFile", ctypes.c_ulonglong), ("ullAvailPageFile", ctypes.c_ulonglong),
+                        ("ullTotalVirtual", ctypes.c_ulonglong), ("ullAvailVirtual", ctypes.c_ulonglong),
+                        ("ullAvailExtendedVirtual", ctypes.c_ulonglong)]
+        k32 = ctypes.windll.kernel32
+        k32.GlobalMemoryStatusEx.argtypes = [ctypes.POINTER(MS)]
+        k32.GlobalMemoryStatusEx.restype = wt.BOOL
+        m = MS(); m.dwLength = ctypes.sizeof(MS)
+        if not k32.GlobalMemoryStatusEx(ctypes.byref(m)):
+            raise OSError(ctypes.get_last_error(), "GlobalMemoryStatusEx failed")
+        g = m.ullTotalPhys / 2**30
+    else:
+        g = os.sysconf("SC_PHYS_PAGES") * os.sysconf("SC_PAGE_SIZE") / 2**30
+    if not (g > 0.5):
+        raise OSError(f"physical RAM reported as {g} GiB, which is not a plausible reading")
+    return g
 
 
 def teacher_tokens(raw, tag, jobs, out=None):

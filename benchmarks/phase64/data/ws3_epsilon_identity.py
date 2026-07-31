@@ -24,7 +24,7 @@ the sampled positions even at alpha=0, where the KD loss block is skipped entire
 
 Run:  python benchmarks/phase64/data/ws3_epsilon_identity.py --commit <sha> [--steps 200]
 """
-import argparse, os, shutil, subprocess, sys, tempfile
+import argparse, hashlib, os, re, shutil, subprocess, sys, tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
@@ -98,6 +98,32 @@ def run(script, args, tag):
         print(r.stdout[-3000:])
         sys.exit(f"  [{tag}] FAILED (exit {r.returncode}) -- the gate cannot conclude from a crashed run.")
     return r.stdout
+
+
+def weights_sha(p):
+    """sha256 over the WEIGHTS, in sorted key order, including dtype and shape.
+
+    NOT sha256 of the checkpoint file, which was the instruction and is the wrong instrument here: the
+    checkpoint also stores the argparse cfg, and the change under test adds --min-host-ram-gib to it. A
+    file hash would therefore come out DIFFERENT for a reason that has nothing to do with behaviour, and
+    a gate that fails for a benign reason gets argued with instead of believed. This answers the same
+    question in bytes -- the trajectory is deterministic, so identical weights means identical run -- and
+    it answers it about the thing the run produced rather than about the flags it was invoked with."""
+    import torch
+    sd = torch.load(p, map_location="cpu", weights_only=False)["model"]
+    h = hashlib.sha256()
+    for k in sorted(sd):
+        t = sd[k].contiguous()
+        h.update(f"{k}|{t.dtype}|{tuple(t.shape)}|".encode())
+        h.update(t.cpu().numpy().tobytes())
+    return h.hexdigest()
+
+
+def tok_s(out):
+    """Every tok/s the trainer printed. The gate reports old vs new because 3860 tok/s is what makes the
+    145-hour calendar fit, and the calendar is what makes the account rotation fit -- a throughput
+    regression is a schedule failure that no correctness check would catch."""
+    return [float(x) for x in re.findall(r"([\d.]+) tok/s", out)]
 
 
 def compare(pa, pb):
@@ -193,8 +219,8 @@ def main():
         ca, cb, cc = (os.path.join(tmp, d) for d in ("ck_A", "ck_B", "ck_C"))
         for d in (ca, cb, cc): os.makedirs(d, exist_ok=True)
         arm, ctrl, ctrl_name = mode_args(a.mode)
-        run(old, base_args(pa, data, logits, a.steps, a.seed, ca) + arm, f"A old [{a.mode}]")
-        run(new, base_args(pb, data, logits, a.steps, a.seed, cb) + arm, f"B new [{a.mode}]")
+        out_a = run(old, base_args(pa, data, logits, a.steps, a.seed, ca) + arm, f"A old [{a.mode}]")
+        out_b = run(new, base_args(pb, data, logits, a.steps, a.seed, cb) + arm, f"B new [{a.mode}]")
         # The control perturbs one knob and nothing else: the window in KD mode, the seed in CE mode.
         c_args = (base_args(pc, data, logits, a.steps, a.seed, cc) + arm + ctrl) if ctrl else \
                  (base_args(pc, data, logits, a.steps, a.seed + 1, cc) + arm)
@@ -206,6 +232,33 @@ def main():
               + (f"  max|delta| {d_ab:.3e}" if not same_ab else ""))
         print(f"  CONTROL  A(old) vs C(new,perturbed): {'IDENTICAL' if same_ac else 'DIFFERS'}  -- {why_ac}"
               + (f"  max|delta| {d_ac:.3e}" if not same_ac else ""))
+
+        # The same claim in bytes. torch.equal above answers tensor by tensor and says WHERE it broke;
+        # this says it in one value that can be quoted in a brief without re-running anything.
+        ha, hb = weights_sha(pa), weights_sha(pb)
+        print(f"\n  weights sha256   A(old) {ha[:32]}...\n"
+              f"                   B(new) {hb[:32]}...   {'MATCH' if ha == hb else 'DIFFER'}")
+        if (ha == hb) != same_ab:
+            print("  WARNING: the hash and the tensor comparison disagree. Trust neither until that is "
+                  "explained -- two instruments cannot both be right here.")
+
+        # THROUGHPUT. Absolute numbers here are CPU-local and are NOT the 3860 tok/s T4 figure the
+        # calendar is built on; the RATIO is the measurement, and it is device-independent because both
+        # runs are the same device with the same recipe.
+        ta, tb = tok_s(out_a), tok_s(out_b)
+        if ta and tb:
+            ma, mb = sum(ta)/len(ta), sum(tb)/len(tb)
+            dpc = 100.0 * (mb - ma) / ma
+            verdict = ("REGRESSION -- declare it" if dpc < -2.0
+                       else "within +/-2%, no schedule impact" if dpc <= 2.0 else "faster")
+            print(f"\n  throughput (CPU-local, ratio is the measurement)\n"
+                  f"      A(old) {ma:8.1f} tok/s   B(new) {mb:8.1f} tok/s   {dpc:+.1f}%  -- {verdict}")
+            if dpc < -2.0:
+                print("      The 145-hour calendar is priced on 3860 tok/s on 2xT4; a regression here is a\n"
+                      "      schedule failure that no correctness check would have caught.")
+        else:
+            print("\n  throughput: no 'tok/s' lines in the output -- not measured, and NOT to be reported as "
+                  "'no regression'.")
 
         if same_ab and not same_ac:
             # Worded from the ACTUAL mode and control, not from the edit this gate was first written for.

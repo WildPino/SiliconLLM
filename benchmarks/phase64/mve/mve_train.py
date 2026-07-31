@@ -96,6 +96,61 @@ class KDChunks:
 
 
 # ------------------------------------------------------------------ losses ---------------------------
+def host_ram_gib():
+    """RAM actually available to THIS process, not to the machine it happens to be running on.
+
+    On Kaggle /proc/meminfo reports the physical host -- hundreds of GiB -- while the container is capped
+    far lower, so a check written against MemTotal would read a number it can never spend and pass every
+    time. That is the same blind-instrument failure as the peak-RSS probe that printed 0.0: it returns a
+    plausible value and never fires. The cgroup limit is the authority when there is one; both v2 and v1
+    layouts are read, and 'max' means uncapped.
+
+    It RAISES rather than returning a sentinel. A NaN or a 0 here would make every comparison below False,
+    which would turn the refusal into a decoration."""
+    vals = []
+    if os.name == "nt":
+        import ctypes, ctypes.wintypes as wt
+        class MS(ctypes.Structure):
+            _fields_ = [("dwLength", wt.DWORD), ("dwMemoryLoad", wt.DWORD),
+                        ("ullTotalPhys", ctypes.c_ulonglong), ("ullAvailPhys", ctypes.c_ulonglong),
+                        ("ullTotalPageFile", ctypes.c_ulonglong), ("ullAvailPageFile", ctypes.c_ulonglong),
+                        ("ullTotalVirtual", ctypes.c_ulonglong), ("ullAvailVirtual", ctypes.c_ulonglong),
+                        ("ullAvailExtendedVirtual", ctypes.c_ulonglong)]
+        k32 = ctypes.windll.kernel32
+        k32.GlobalMemoryStatusEx.argtypes = [ctypes.POINTER(MS)]
+        k32.GlobalMemoryStatusEx.restype = wt.BOOL
+        m = MS(); m.dwLength = ctypes.sizeof(MS)
+        if not k32.GlobalMemoryStatusEx(ctypes.byref(m)):
+            raise OSError(ctypes.get_last_error(), "GlobalMemoryStatusEx failed")
+        vals.append(m.ullTotalPhys / 2**30)
+    else:
+        with open("/proc/meminfo") as f:
+            for line in f:
+                if line.startswith("MemTotal:"):
+                    vals.append(int(line.split()[1]) * 1024 / 2**30); break
+        for p in ("/sys/fs/cgroup/memory.max",                       # cgroup v2
+                  "/sys/fs/cgroup/memory/memory.limit_in_bytes"):    # cgroup v1
+            try:
+                t = open(p).read().strip()
+            except OSError:
+                continue
+            if t and t != "max":
+                v = int(t) / 2**30
+                if v < (1 << 20):        # v1 writes a sentinel near 2^63 when uncapped
+                    vals.append(v)
+    vals = [v for v in vals if v > 0.5]
+    if not vals:
+        raise OSError("could not read host RAM from any source; refusing to guess")
+    return min(vals)
+
+
+def _i64(x):
+    """Token slices are uint16 in RAM and int64 on the GPU. This is the ONLY place the widening happens,
+    and it happens on a batch: 8x512 tokens is 32 KB, the corpus is 2.3 billion. Every call site below
+    that used to read torch.from_numpy(<slice of ids>) reads this instead."""
+    return torch.from_numpy(np.ascontiguousarray(x).astype(np.int64))
+
+
 def kd_targets(ids, p, t2s, V, dev):
     """ANCHOR KD (the sealed D3 design): project teacher top-K onto the student vocab through the FIRST student token
     of each teacher token's bytes: q[s] = sum_{t: t2s[t]=s} p[t], renormalized over the mapped mass.
@@ -243,6 +298,11 @@ def main():
     ap.add_argument("--chunk-sweeps", type=int, default=3,
                     help="how many times the resident window sweeps the whole chunk ring over the budget "
                          "when chunk-steps is derived. K=3 clears the ring-end taper with margin.")
+    ap.add_argument("--min-host-ram-gib", type=float, default=0.0,
+                    help="refuse to start unless this much host RAM is available to the container. TOTAL "
+                         "for the node, not per rank: both DDP ranks are processes on one machine. 0 = "
+                         "off, which is what stages 1-4 ran. The main run passes it because the corpus "
+                         "resident in each rank is the thing that made arm7 die.")
     ap.add_argument("--expect-gpus", type=int, default=0,
                     help="refuse to start unless exactly N CUDA devices are present (0 = off). The launch "
                          "cells pass 2: a session that comes up with one T4 does not fail, it silently fails "
@@ -276,6 +336,14 @@ def main():
     # ---- DDP (torchrun) ----------------------------------------------------------------------------
     ws = int(os.environ.get("WORLD_SIZE", 1)); rank = int(os.environ.get("RANK", 0))
     lrank = int(os.environ.get("LOCAL_RANK", 0)); ddp = ws > 1
+    # P0/log are defined HERE, not after the seeding, because the startup guards below print through them.
+    # They used to be defined ~60 lines further down while the accelerator assert already called log() on
+    # its SUCCESS path -- an UnboundLocalError that had never fired only because no arm before the main run
+    # passed --expect-gpus. The guard would have crashed on a CORRECT 2xT4 session and exited cleanly on a
+    # wrong one: inverted, in the one direction nobody tests.
+    P0 = (rank == 0)
+    def log(*x):
+        if P0: print(*x, flush=True)
     if ddp:
         bk = "nccl" if (torch.cuda.is_available() and torch.distributed.is_nccl_available()) else "gloo"
         torch.distributed.init_process_group(backend=bk)
@@ -312,17 +380,56 @@ def main():
                      f"  Card family decides the numerics (T4 = fp16/Turing), not just the speed. Refusing.")
         log(f"  accelerator VERIFIED: {_n}x {_names[0]}")
 
+    # ---- HOST RAM ASSERT: refuse in two seconds rather than SIGKILL in twenty minutes -------------------
+    # arm7 at --kd-resident 16 passed every guard and was then killed at ~24 minutes by the host OOM
+    # killer, which leaves no exception and no diagnosis attached to the cause -- a GPU OOM at least
+    # raises. Over fourteen sessions a refusal that costs two seconds is worth more than a projection that
+    # was correct, because the projection does not stop the session from being spent.
+    #
+    # THE TOTAL IS PER HOST, NOT PER RANK. Both ranks are processes on ONE node, so what has to fit is the
+    # sum. rank 0 checks and the others follow it into the same refusal via their own identical check.
+    if a.min_host_ram_gib > 0:
+        _cap = host_ram_gib()
+        _need = a.min_host_ram_gib
+        log(f"  host RAM: {_cap:.1f} GiB available to this container; recipe needs >= {_need:.1f} GiB "
+            f"for {ws} rank(s)")
+        if _cap < _need:
+            sys.exit(f"ERROR: this session has {_cap:.1f} GiB of host RAM and the recipe was priced at "
+                     f"{_need:.1f} GiB for {ws} rank(s).\n"
+                     f"  Refusing NOW. The alternative is a mute SIGKILL partway through, which is what\n"
+                     f"  happened to arm7: every guard passed, then the session died with nothing in the\n"
+                     f"  log pointing at the cause.\n"
+                     f"  This is NOT silenced by lowering --min-host-ram-gib. Either get a bigger session\n"
+                     f"  or reduce what is resident (the corpus, --kd-resident, the recall index).")
+
     amp = torch.float16 if a.fp16 else (torch.bfloat16 if a.bf16 else None)
     scaler = torch.amp.GradScaler(dev_type, enabled=(amp == torch.float16))   # T4 = fp16, no bf16 -> loss scaling
     torch.manual_seed(a.seed); np.random.seed(a.seed + rank)
-    P0 = (rank == 0)
-    def log(*x):
-        if P0: print(*x, flush=True)
 
     # ---- data ---------------------------------------------------------------------------------------
     meta = json.load(open(os.path.join(DATA, f"meta_{a.tag}.json")))
     V = meta["V_student"]
-    ids = np.fromfile(os.path.join(DATA, f"ts_{a.tag}.u16"), dtype=np.uint16).astype(np.int64)
+    # ids STAY uint16 -- the dtype they have on disk. The .astype(np.int64) that used to be on this line
+    # was invisible at the 0.5 GB screening scale (0.35 -> 1.41 GiB) and fatal at the main run's: 4.28 GiB
+    # of file becomes 17.10 GiB of array, and BOTH DDP ranks are processes on ONE Kaggle node, so 34.2 GiB
+    # resident against a session that has about 29. It would not have OOMed occasionally; it could not
+    # have started -- and it would have died the way arm7 did, a mute host SIGKILL after every guard
+    # passed. nn.Embedding wants int64, but it wants it on a BATCH of 8x512, never on 2.3 billion tokens,
+    # so the cast moves to the point of use via _i64 below.
+    _idsp = os.path.join(DATA, f"ts_{a.tag}.u16")
+    # THE TAG NAMES THE CORPUS BUILD, and this asserts the file under that name holds that build. It is
+    # the floor under the packager's decision to stop carrying two tags: for about an hour a main-run
+    # package would have shipped ts_s0.u16 containing the 5.5 GB corpus, and the RUN: line and the
+    # checkpoint cfg would then have recorded a run on s0 that never happened. Cheap and exact -- two
+    # bytes per token, no tolerance.
+    _want = int(meta["n_student_tok"]) * 2
+    _have = os.path.getsize(_idsp)
+    if _have != _want:
+        sys.exit(f"ERROR: {os.path.basename(_idsp)} is {_have} bytes; the package's meta declares "
+                 f"{meta['n_student_tok']} student tokens, which is {_want} bytes at uint16.\n"
+                 f"  The tag names a corpus build and this file is not it. A run started here would\n"
+                 f"  record the wrong corpus in its own log and checkpoint. Refusing.")
+    ids = np.fromfile(_idsp, dtype=np.uint16)
     # ---- KD apparatus: loaded ONLY when something will read it ----------------------------------------
     # The key is computed here rather than at its old site below, because it now gates a LOAD and not just a
     # constructor. It is exactly the same predicate: the window is needed iff the KD loss runs or the CE arm
@@ -387,7 +494,17 @@ def main():
         _eln = np.asarray(bpe.exp_len, dtype=np.int64)
         # bincount, not fancy-indexing: a gather over ~185 M positions would allocate ~1.5 GB for a
         # number we already know how to get in V buckets. Kaggle has 13 GB and a trainer to load.
-        _cnt = np.bincount(ids[:ntr], minlength=len(_eln))
+        # CHUNKED. np.bincount casts its input to intp INTERNALLY, so calling it on the whole training
+        # split would rebuild the 18 GiB array that was just removed from line 325 -- the fix above would
+        # have survived exactly as far as this line. Same shape as the chunked sums in code_data.py.
+        _cnt = np.zeros(len(_eln), dtype=np.int64)
+        for _i in range(0, ntr, 1 << 24):
+            # min(..., ntr) is load-bearing: without it the LAST chunk runs past the split and counts
+            # validation tokens as training. The first version omitted it, and the val-split assert -- the
+            # planted control this trainer already carried -- refused the run rather than letting a
+            # 3-token discrepancy through. The control caught the fix to the fix.
+            _c = np.bincount(ids[_i:min(_i + (1 << 24), ntr)], minlength=len(_eln))
+            _cnt[:len(_c)] += _c
         _got = int((_cnt * _eln[:len(_cnt)]).sum())
         if _got != int(_vsb) or int(_vsb) >= int(meta["bytes"]):
             sys.exit(
@@ -521,7 +638,7 @@ def main():
                                           np.arange(SPAN_S)[None, :] < ss0[:, None], dtok, dlen, V, dev)
                 keep = okm0.cpu().numpy() if torch.is_tensor(okm0) else okm0
                 q = q[okm0]; selq = selq[keep]; pr_ = pr_[keep]
-            yt = torch.from_numpy(yy[selq]).to(dev)
+            yt = _i64(yy[selq]).to(dev)
             mass = q.gather(1, yt[:, None]).squeeze(1)
             top1 = (q.argmax(1) == yt).float().mean().item()
             unit = "anchors" if a.kd == "anchor" else "span positions"
@@ -585,16 +702,16 @@ def main():
             for i in range(0, full, a.batch):
                 k = min(a.batch, full - i)
                 st = [(i + j) * W for j in range(k)]
-                x = torch.from_numpy(np.stack([stream[p0:p0+W] for p0 in st])).to(dev)
-                y = torch.from_numpy(np.stack([stream[p0+1:p0+1+W] for p0 in st])).to(dev)
+                x = _i64(np.stack([stream[p0:p0+W] for p0 in st])).to(dev)
+                y = _i64(np.stack([stream[p0+1:p0+1+W] for p0 in st])).to(dev)
                 lg, _ = model(x, y)
                 bits += F.cross_entropy(lg.reshape(-1, V), y.reshape(-1), reduction="sum").item() / math.log(2)
                 nb += int(el[y.reshape(-1).cpu()].sum())
             rem = n - full * W
             if rem > 0:
                 p0 = full * W
-                x = torch.from_numpy(stream[p0:p0+rem][None]).to(dev)
-                y = torch.from_numpy(stream[p0+1:p0+1+rem][None]).to(dev)
+                x = _i64(stream[p0:p0+rem][None]).to(dev)
+                y = _i64(stream[p0+1:p0+1+rem][None]).to(dev)
                 lg, _ = model(x, y)
                 bits += F.cross_entropy(lg.reshape(-1, V), y.reshape(-1), reduction="sum").item() / math.log(2)
                 nb += int(el[y.reshape(-1).cpu()].sum())
@@ -634,8 +751,8 @@ def main():
     def step_loss(reverse=False, gs=0, mi=0):
         r = np.random.default_rng([a.seed, rank, gs, mi])
         p = r.integers(state["p_lo"], max(state["p_hi"], state["p_lo"] + 1), size=a.batch)
-        x = torch.from_numpy(np.stack([ids[i:i+a.seq] for i in p])).to(dev)
-        y = torch.from_numpy(np.stack([ids[i+1:i+1+a.seq] for i in p])).to(dev)
+        x = _i64(np.stack([ids[i:i+a.seq] for i in p])).to(dev)
+        y = _i64(np.stack([ids[i+1:i+1+a.seq] for i in p])).to(dev)
         ctx = torch.autocast(dev_type, dtype=amp) if amp is not None else torch.autocast(dev_type, enabled=False)
         with ctx:
             logits, aux = net(x, y)

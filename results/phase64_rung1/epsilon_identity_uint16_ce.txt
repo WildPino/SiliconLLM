@@ -1,0 +1,23 @@
+﻿epsilon-identity gate   steps=200 seed=0
+  old = bce0e89d63ff1e8f38c2b6e381ffa985ce0be3fd : benchmarks/phase64/mve/mve_train.py
+        (immutable sha, and verified byte-DIFFERENT from the working copy)
+
+  [A old [ce]] _eps_old_mve_train.py 
+  [B new [ce]] mve_train.py 
+  [C new [ce, seed+1]] mve_train.py 
+
+  CLAIM    A(old) vs B(new): IDENTICAL  -- every tensor bit-identical
+  CONTROL  A(old) vs C(new,perturbed): DIFFERS  -- diverges, worst at emb.weight  max|delta| 6.306e+00
+
+  weights sha256   A(old) 3b577140caa1956b23fe497f9a788087...
+                   B(new) 3b577140caa1956b23fe497f9a788087...   MATCH
+
+  throughput (CPU-local, ratio is the measurement)
+      A(old)   2177.0 tok/s   B(new)   2177.5 tok/s   +0.0%  -- within +/-2%, no schedule impact
+
+  VERDICT: PASS -- in CE mode the edit is behaviour-preserving (bit-identical
+  to bce0e89d63ff), and the comparison is demonstrably able to detect a difference:
+  perturbing seed+1 moved the weights. 'IDENTICAL' here is a measurement, not the only
+  thing this comparison could have printed.
+
+STOP. No commit.
