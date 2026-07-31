@@ -1,0 +1,94 @@
+================================================================================
+GATE (a) -- PROJECTED PEAK, PRE-REGISTERED
+code_data.py after the Option-2 rewrite, default path (no --kd-apparatus)
+Written 2026-07-31, BEFORE the 5.5 GB build was launched.
+================================================================================
+
+Corpus N = 5,905,582,016 B (5.50 GiB), raw_m0.bin, already on disk and reused.
+Student tokens at the s0-measured 2.5607 B/tok  ->  2.306 e9 tokens (V=2048 only).
+
+WHY A TABLE AND NOT A NUMBER. The first remedy projected "~22 GiB instead of 110"
+and that was the projection of ONE array. Two larger allocations survived it,
+twelve lines below in the same file. Every allocation of order-corpus is listed
+here, including the ones that are affordable, because an unlisted allocation is
+how the second wall got past the first fix.
+
+  where                         allocation                          projected
+  ----------------------------  ----------------------------------  ---------
+  main()                        raw, the corpus as one bytes object   5.50 GiB
+  nl_blocks(raw, BLOCK)         list of ~5632 bytes objects that
+                                together re-hold the whole corpus     5.50 GiB
+  build_vocab, encode loop      one block's ids as uint16            ~0.001 GiB
+  build_vocab, after encode     ids, uint16, memmap-free read back    4.29 GiB
+  build_vocab, byte-length sum  exp_len[ids[i:i+2^24]], int64 temp    0.13 GiB
+  build_vocab                   exp_len, 2048 int64                  negligible
+  main()                        docbound, ~1.1e6 int64               ~0.01 GiB
+
+  PEAK, during the encode loop  raw + blocks + one block             11.00 GiB
+  PEAK, after the encode loop   raw + ids + sum temp                  9.92 GiB
+  ------------------------------------------------------------------------
+  PROJECTED PEAK                                                     11.0 GiB
+                                                        on a machine with 80 GiB
+
+nl_blocks IS a full second copy of the corpus and it is NOT being fixed. It
+fits with a factor of 7 to spare, and making it lazy would put a third
+unmeasured change inside the artifact that the identity gate is meant to hold
+still. It is listed rather than hidden: at rung-2 scale it is the next thing
+that breaks, and it should be found here rather than at 2000 seconds.
+
+REMOVED BY OPTION 2 -- the three allocations that made 5.5 GB impossible:
+  teacher_tokens   tids + tstart as Python lists, 76 B/tok       104.0 GiB
+  build_vocab      b2j = np.full(N+1, int64)                      44.0 GiB
+  build_vocab      pool.map parts + the flattening comprehension  77.0 GiB x2
+                   (this one is on the STUDENT path and would have survived
+                   the first remedy; it is the reason the rewrite is not
+                   simply "skip the teacher")
+  build_vocab      np.cumsum(exp_len[ids]) and its temporary      17.2 GiB x2
+
+Sum of what a naive 5.5 GB run would have wanted: >300 GiB against 80.
+The two observed deaths, at 534.5 M and 599.7 M teacher tokens with 2170 s and
+2343 s elapsed, are the list accumulator alone crossing ~42 GiB with 5.5 GiB of
+raw already resident and the machine not otherwise idle.
+
+================================================================================
+MEASURED -- filled in from the build's own final line, not from a projection.
+================================================================================
+
+Run: code_data.py --gb 5.5 --tag m0 --vocabs 2048     exit 0, 1557 s
+Log: results/phase64_rung1/code_data_m0_gb5.5_build.log
+
+  PEAK working set for this build: 11.2 GiB (machine has 80 GiB)
+
+  PROJECTED 11.0 GiB   MEASURED 11.2 GiB   -- 2% high, and high on the safe side.
+
+Second-order check, because a peak that matches by luck is not a validated model:
+
+  quantity                    projected      measured        error
+  --------------------------  -------------  --------------  ------
+  student tokens (V=2048)     2.306 e9       2.295693322 e9  -0.4%
+  ids_V2048_m0.u16            4.29 GiB       4.276 GiB       -0.3%
+  bytes per student token     2.5607         2.572           +0.4%
+
+The token count was extrapolated from the s0 measurement and lands within half a
+percent, so the peak matching is the model being right rather than two errors
+cancelling.
+
+READ THE INSTRUMENT'S HISTORY BEFORE TRUSTING THIS NUMBER. The first version of
+peak_gib() printed "0.0 GiB" for every build in the identity gate: it called
+GetProcessMemoryInfo without argtypes, the -1 pseudo-handle from
+GetCurrentProcess truncated on a 64-bit HANDLE, the call failed, and the zeroed
+struct was reported as a measurement. No exception was raised. It was fixed and
+then verified on a known positive BEFORE this build ran:
+
+    baseline peak 0.029 GiB -> 3.029 GiB after a touched 3 GiB allocation,
+    delta 3.000 GiB.  CONTROL FIRES.
+
+11.2 GiB is a reading from an instrument that has been shown to move. The 0.0
+figures in code_data_identity_gate.txt are from the same instrument before it
+was shown to move, and are void; that log carries the correction inline.
+
+CONSEQUENCE FOR THE MAIN RUN. 2.2957 e9 student tokens against a 1.5 e9 budget
+is 0.65 expected passes (0.67 against the training split alone, after the 2% val
+band). The single-epoch contract holds with room, and by more than the 0.70 the
+budget was approved on.
+

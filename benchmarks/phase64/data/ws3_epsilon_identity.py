@@ -31,9 +31,42 @@ ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 MVE = os.path.join(ROOT, "benchmarks", "phase64", "mve")
 TRAIN_REL = "benchmarks/phase64/mve/mve_train.py"
 
-# The old trainer must run from the mve/ directory: it does sys.path.insert(0, HERE) and imports mve_model
-# from there. A copy in a scratch directory would import the wrong module or none at all.
+# The extracted old trainer lives in a SCRATCH DIR, never inside mve/ -- and that is a correctness rule,
+# not tidiness. mve/ is a directory the run-packs read from, and packaging copies from the FILESYSTEM, not
+# from git: a stale trainer left there can ride inside the GB uploaded to Kaggle. .gitignore would not help
+# and would actively hurt -- it protects the repo, not the package, so the file would become invisible to
+# history while still travelling. (It did not leak this time only because pack_code_bundle enumerates an
+# explicit 8-file list instead of walking the directory -- a property of one packager that nobody had
+# asserted. That is the stage-1 incident's exact shape.) Extracting outside every packaged path makes the
+# question un-askable next time.
+#
+# Imports still resolve because the subprocess gets a PYTHONPATH (see run()): the old trainer's own
+# sys.path.insert(0, HERE) now points at the scratch dir, which holds no modules, so `mve_model` and
+# `cartography` fall through to the injected entries. Its ROOT-derived DATA/CKPT are overridden by
+# --data-dir/--ckpt-dir (mve_train.py:272-273); the one ROOT path that is NOT overridable is the
+# benchmarks/phase62 insert for cartography (line 354), which is exactly why PYTHONPATH carries it too.
 OLD_NAME = "_eps_old_mve_train.py"
+SUBPROC_PATH = [MVE, os.path.join(ROOT, "benchmarks", "phase62")]
+
+
+def mode_args(mode):
+    """The arm under test, and the knob its planted control perturbs.
+
+    MODE MATTERS, and picking it wrong makes the gate test nothing. For the conditional-KD-load edit the
+    changed behaviour is a SKIP that happens only when the KD apparatus is not needed -- so in KD mode the
+    arrays are still loaded and that branch is trivially unchanged: testing it would be testing the code
+    that was not modified. CE is where the edit lives, so CE is the claim; KD rides along as a free second
+    point confirming the untouched path stayed untouched.
+
+    The control differs with the mode because the two arms have different knobs available:
+      kd -> --kd-resident 4 moves the sampling window (proven to shift weights, max|delta| 0.18)
+      ce -> there is no window in CE, so the control perturbs the SEED. Its job is unchanged: show that
+            this comparison can detect a weight difference at all, so that 'IDENTICAL' is a measurement
+            and not the only thing the comparison is capable of printing.
+    """
+    if mode == "kd":
+        return ["--arm", "kd", "--alpha", "0.0"], ["--kd-resident", "4"], "kd-resident 4"
+    return ["--arm", "ce"], None, "seed+1"
 
 
 def base_args(out, data, logits, steps, seed, ckdir):
@@ -46,7 +79,7 @@ def base_args(out, data, logits, steps, seed, ckdir):
     'WinError 32: the file is in use by another process' mid-save, and the gate then concludes nothing from
     a crashed run. Isolation also removes any chance a stale resume from a previous invocation is picked up.
     """
-    return ["--tag", "s0", "--arm", "kd", "--alpha", "0.0", "--recall", "off", "--stages", "C",
+    return ["--tag", "s0", "--recall", "off", "--stages", "C",
             "--steps", str(steps), "--seq", "512", "--batch", "8", "--accum", "1",
             "--warmup", "200", "--max-nonfinite", "50",
             "--xproj-rank", "26", "--chunk-steps", "0",
@@ -57,7 +90,9 @@ def base_args(out, data, logits, steps, seed, ckdir):
 
 def run(script, args, tag):
     print(f"  [{tag}] {os.path.basename(script)} {' '.join(a for a in args if a.startswith('--kd-resident') or a == '2' or a == '4')}", flush=True)
-    r = subprocess.run([sys.executable, script] + args, cwd=ROOT,
+    env = dict(os.environ)
+    env["PYTHONPATH"] = os.pathsep.join(SUBPROC_PATH + ([env["PYTHONPATH"]] if env.get("PYTHONPATH") else []))
+    r = subprocess.run([sys.executable, script] + args, cwd=ROOT, env=env,
                        stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
     if r.returncode != 0:
         print(r.stdout[-3000:])
@@ -89,6 +124,10 @@ def compare(pa, pb):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--steps", type=int, default=200)
+    ap.add_argument("--mode", choices=["ce", "kd"], default="ce",
+                    help="which arm carries the edit under test. Default ce: the conditional-KD-load edit "
+                         "changes behaviour only where the apparatus is NOT needed, so KD mode would "
+                         "exercise the unmodified branch.")
     ap.add_argument("--seed", type=int, default=0)
     # NO DEFAULT, and HEAD is refused. The first run of this gate passed --commit HEAD while the Media
     # Manager committed the very edit under test, so "HEAD" may have resolved to the NEW file and the gate
@@ -120,7 +159,8 @@ def main():
     # UTF-8 rewrote those bytes. The extracted "old trainer" was therefore a corrupted copy of the blob --
     # it still parsed, because the damage landed in a comment and stayed valid UTF-8, which is precisely why
     # nothing complained. It also guaranteed the VOID control below could never fire. Bytes in, bytes out.
-    old = os.path.join(MVE, OLD_NAME)
+    tmp = tempfile.mkdtemp(prefix="eps_")          # created FIRST: the extraction target lives inside it
+    old = os.path.join(tmp, OLD_NAME)
     src = subprocess.run(["git", "show", f"{resolved}:{TRAIN_REL}"], cwd=ROOT, stdout=subprocess.PIPE)
     if src.returncode != 0:
         sys.exit(f"cannot extract {TRAIN_REL} from {resolved}")
@@ -142,10 +182,9 @@ def main():
             return f.read().replace(b"\r\n", b"\n")
 
     if _norm(old) == _norm(new):
-        os.remove(old)
+        shutil.rmtree(tmp, ignore_errors=True)
         sys.exit(f"VOID: {TRAIN_REL} at {resolved[:12]} is byte-identical to the working copy. There is no\n"
                  f"  edit under test -- the gate would compare the trainer to itself and print PASS.")
-    tmp = tempfile.mkdtemp(prefix="eps_")
     print(f"epsilon-identity gate   steps={a.steps} seed={a.seed}\n"
           f"  old = {resolved} : {TRAIN_REL}\n"
           f"        (immutable sha, and verified byte-DIFFERENT from the working copy)\n")
@@ -153,24 +192,37 @@ def main():
         pa = os.path.join(tmp, "A_old.pt"); pb = os.path.join(tmp, "B_new_r2.pt"); pc = os.path.join(tmp, "C_new_r4.pt")
         ca, cb, cc = (os.path.join(tmp, d) for d in ("ck_A", "ck_B", "ck_C"))
         for d in (ca, cb, cc): os.makedirs(d, exist_ok=True)
-        run(old, base_args(pa, data, logits, a.steps, a.seed, ca), "A old")
-        run(new, base_args(pb, data, logits, a.steps, a.seed, cb) + ["--kd-resident", "2"], "B new r=2")
-        run(new, base_args(pc, data, logits, a.steps, a.seed, cc) + ["--kd-resident", "4"], "C new r=4")
+        arm, ctrl, ctrl_name = mode_args(a.mode)
+        run(old, base_args(pa, data, logits, a.steps, a.seed, ca) + arm, f"A old [{a.mode}]")
+        run(new, base_args(pb, data, logits, a.steps, a.seed, cb) + arm, f"B new [{a.mode}]")
+        # The control perturbs one knob and nothing else: the window in KD mode, the seed in CE mode.
+        c_args = (base_args(pc, data, logits, a.steps, a.seed, cc) + arm + ctrl) if ctrl else \
+                 (base_args(pc, data, logits, a.steps, a.seed + 1, cc) + arm)
+        run(new, c_args, f"C new [{a.mode}, {ctrl_name}]")
 
         same_ab, why_ab, d_ab = compare(pa, pb)
         same_ac, why_ac, d_ac = compare(pa, pc)
-        print(f"\n  CLAIM    A(old) vs B(new,r=2): {'IDENTICAL' if same_ab else 'DIFFERS'}  -- {why_ab}"
+        print(f"\n  CLAIM    A(old) vs B(new): {'IDENTICAL' if same_ab else 'DIFFERS'}  -- {why_ab}"
               + (f"  max|delta| {d_ab:.3e}" if not same_ab else ""))
-        print(f"  CONTROL  A(old) vs C(new,r=4): {'IDENTICAL' if same_ac else 'DIFFERS'}  -- {why_ac}"
+        print(f"  CONTROL  A(old) vs C(new,perturbed): {'IDENTICAL' if same_ac else 'DIFFERS'}  -- {why_ac}"
               + (f"  max|delta| {d_ac:.3e}" if not same_ac else ""))
 
         if same_ab and not same_ac:
-            print("\n  VERDICT: PASS -- the flag is behaviour-preserving at its default, and the comparison is\n"
-                  "  demonstrably able to detect a window change. The probe may be compared against arm4.")
+            # Worded from the ACTUAL mode and control, not from the edit this gate was first written for.
+            # The first CE run printed the stage-4 sentence -- "the flag is behaviour-preserving at its
+            # default ... may be compared against arm4" -- which named the wrong edit and the wrong control
+            # on a log meant to be committed and cited. The measurements were right and the label was not,
+            # which is this project's whole failure mode in miniature.
+            print(f"\n  VERDICT: PASS -- in {a.mode.upper()} mode the edit is behaviour-preserving (bit-identical\n"
+                  f"  to {resolved[:12]}), and the comparison is demonstrably able to detect a difference:\n"
+                  f"  perturbing {ctrl_name} moved the weights. 'IDENTICAL' here is a measurement, not the only\n"
+                  f"  thing this comparison could have printed.")
             rc = 0
         elif not same_ab:
-            print("\n  VERDICT: FAIL -- the edit is NOT neutral. The probe would carry a second variable and\n"
-                  "  could not be read against arm4. Fix the trainer, do not relabel the probe.")
+            print(f"\n  VERDICT: FAIL -- in {a.mode.upper()} mode the edit is NOT neutral: it changes the weights\n"
+                  f"  against {resolved[:12]}. Anything measured with it carries a second, undeclared variable\n"
+                  f"  and cannot be read against runs from the old generation. Fix the trainer, do not relabel\n"
+                  f"  the experiment.")
             rc = 1
         else:
             print("\n  VERDICT: VOID -- the planted control did NOT fire: r=4 produced the same weights as the\n"
@@ -180,7 +232,9 @@ def main():
         print("\nSTOP. No commit.")
         return rc
     finally:
-        if os.path.isfile(old): os.remove(old)
+        # ONE cleanup path: the scratch tree holds the extracted trainer, so removing it removes the
+        # stale copy too. The previous two-step version left the trainer behind whenever the process was
+        # killed mid-run -- which happened, and put a stale trainer inside mve/.
         shutil.rmtree(tmp, ignore_errors=True)
 
 

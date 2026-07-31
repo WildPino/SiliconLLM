@@ -243,6 +243,13 @@ def main():
     ap.add_argument("--chunk-sweeps", type=int, default=3,
                     help="how many times the resident window sweeps the whole chunk ring over the budget "
                          "when chunk-steps is derived. K=3 clears the ring-end taper with margin.")
+    ap.add_argument("--expect-gpus", type=int, default=0,
+                    help="refuse to start unless exactly N CUDA devices are present (0 = off). The launch "
+                         "cells pass 2: a session that comes up with one T4 does not fail, it silently fails "
+                         "to FINISH inside the 12 h cap, with a perfect-looking loss curve the whole way.")
+    ap.add_argument("--expect-gpu-name", default="",
+                    help="substring every device name must contain (e.g. 'T4'). Card family fixes the "
+                         "numerics -- T4 is fp16/Turing -- so it is recipe, not an environment detail.")
     ap.add_argument("--kd-resident", type=int, default=2,
                     help="how many teacher-logit chunks are held resident at once = the WIDTH of the sampling "
                          "window. 2 is the streaming default that stages 1-3 ran. This is a dose knob for the "
@@ -286,6 +293,25 @@ def main():
                  "  A CPU fall back is not slow training, it is a wrong environment that LOOKS like slow\n"
                  "  training, and on a metered session it costs the whole budget before anyone notices.\n"
                  "  Deliberate CPU run: pass --allow-cpu.")
+
+    # ---- ACCELERATOR ASSERT: the session is the one the budget was priced against -------------------------
+    # A Kaggle notebook that silently comes up with one T4 instead of two trains at half the throughput and
+    # lands mid-curriculum at the 12 h cap -- the run does not fail, it just does not finish, and the loss
+    # curve looks perfect the whole way. The step budget, the ~660 min time budget and the tok/s floor were
+    # all priced for 2x T4, so the count is part of the recipe and not an environment detail. The name is
+    # checked too because T4 (fp16, Turing) and a bf16-capable card are different numerics, not just speed.
+    if a.expect_gpus:
+        _n = torch.cuda.device_count()
+        _names = [torch.cuda.get_device_name(i) for i in range(_n)]
+        if _n != a.expect_gpus:
+            sys.exit(f"ERROR: expected {a.expect_gpus} GPU(s), found {_n}: {_names}.\n"
+                     f"  The budget, the time cap and the throughput floor were priced for {a.expect_gpus}.\n"
+                     f"  A short session does not fail, it silently fails to FINISH. Refusing.")
+        if a.expect_gpu_name and not all(a.expect_gpu_name.lower() in nm.lower() for nm in _names):
+            sys.exit(f"ERROR: expected every device to match {a.expect_gpu_name!r}, found {_names}.\n"
+                     f"  Card family decides the numerics (T4 = fp16/Turing), not just the speed. Refusing.")
+        log(f"  accelerator VERIFIED: {_n}x {_names[0]}")
+
     amp = torch.float16 if a.fp16 else (torch.bfloat16 if a.bf16 else None)
     scaler = torch.amp.GradScaler(dev_type, enabled=(amp == torch.float16))   # T4 = fp16, no bf16 -> loss scaling
     torch.manual_seed(a.seed); np.random.seed(a.seed + rank)
@@ -297,23 +323,56 @@ def main():
     meta = json.load(open(os.path.join(DATA, f"meta_{a.tag}.json")))
     V = meta["V_student"]
     ids = np.fromfile(os.path.join(DATA, f"ts_{a.tag}.u16"), dtype=np.uint16).astype(np.int64)
-    anchors = np.fromfile(os.path.join(DATA, f"anchors_{a.tag}.i32"), dtype=np.int32).astype(np.int64)
-    t2s_np = np.fromfile(os.path.join(DATA, f"t2s_{a.tag}.i32"), dtype=np.int32).astype(np.int64)
-    t2s = torch.from_numpy(t2s_np).to(dev)
-    dz = np.load(os.path.join(DATA, f"decomp_{a.tag}.npz"))
-    dtok = torch.from_numpy(dz["tok"].astype(np.int64)).to(dev)      # (Vt,S) student decomposition of each teacher tok
-    dlen = torch.from_numpy(dz["len"].astype(np.int64)).to(dev)      # (Vt,)
-    SPAN_S = int(dz["S"])
-    # segment map: for every student position, which teacher row governs it and how far into the segment it sits.
-    _last = np.where(anchors >= 0, np.arange(len(anchors)), -1)
-    _last = np.maximum.accumulate(_last)
-    seg_row = np.where(_last >= 0, anchors[np.clip(_last, 0, None)], -1)
-    seg_step = np.where(_last >= 0, np.arange(len(anchors)) - _last, 0)
+    # ---- KD apparatus: loaded ONLY when something will read it ----------------------------------------
+    # The key is computed here rather than at its old site below, because it now gates a LOAD and not just a
+    # constructor. It is exactly the same predicate: the window is needed iff the KD loss runs or the CE arm
+    # is deliberately restricted to the logit slice.
+    #
+    # WHY THIS IS CONDITIONAL (main-run sizing, 2026-07-29). anchors + t2s are ~2.2x the size of ids, and at
+    # the main run's 1.5 B tokens that is ~9.5 GB of package that a CE-primary run never opens -- paid again
+    # on every one of the three stage-D branches of prereg §6. Audited before the edit rather than after:
+    # every consumer is already behind this guard or a stricter one (KDChunks, the KD-target self-check, and
+    # the KD block of step_loss); the recall path never names these arrays; and the P62 path reads only the
+    # model, the stream and `el` (from the BPE), never the KD apparatus. The line 426 log line uses
+    # meta['anchor_frac'] -- a JSON field, not the array -- so it is not a dependency either.
+    need_win = a.arm == "kd" or a.restrict_to_slice
+    anchors = t2s = dtok = dlen = seg_row = seg_step = None
+    SPAN_S = 0
+    if need_win:
+        anchors = np.fromfile(os.path.join(DATA, f"anchors_{a.tag}.i32"), dtype=np.int32).astype(np.int64)
+        t2s_np = np.fromfile(os.path.join(DATA, f"t2s_{a.tag}.i32"), dtype=np.int32).astype(np.int64)
+        t2s = torch.from_numpy(t2s_np).to(dev)
+        dz = np.load(os.path.join(DATA, f"decomp_{a.tag}.npz"))
+        dtok = torch.from_numpy(dz["tok"].astype(np.int64)).to(dev)  # (Vt,S) student decomposition of each teacher tok
+        dlen = torch.from_numpy(dz["len"].astype(np.int64)).to(dev)  # (Vt,)
+        SPAN_S = int(dz["S"])
+        # segment map: for every student position, which teacher row governs it and how far into the segment it sits.
+        _last = np.where(anchors >= 0, np.arange(len(anchors)), -1)
+        _last = np.maximum.accumulate(_last)
+        seg_row = np.where(_last >= 0, anchors[np.clip(_last, 0, None)], -1)
+        seg_step = np.where(_last >= 0, np.arange(len(anchors)) - _last, 0)
     sys.path.insert(0, os.path.join(ROOT, "benchmarks", "phase62"))
     from cartography import Bpe
     bpe = Bpe.load(os.path.join(DATA, f"bpe{V}_ts.bin"))
     el = torch.tensor(bpe.exp_len, dtype=torch.long)
     ntr = meta["n_train_tok"]; train_hi = ntr; val = ids[ntr:]
+
+    # ---- SINGLE-EPOCH CONTRACT, ASSERTED (prereg D1: recipe invariance is the ladder contract) -----------
+    # Until now this lived only in prose -- "a quiet second epoch is a recipe change and does not happen by
+    # default" -- and prose does not refuse. The sampler draws window starts i.i.d. uniform over the training
+    # range, so there are no sequential epochs and no "wrap" event; the quantity that actually names the
+    # contract is the EXPECTED NUMBER OF PASSES, budget tokens over pool tokens. It must stay below 1, and it
+    # is printed in every session header so a resumed run restates it rather than inheriting it silently.
+    # Constant across stages by construction: stage E trades seq 512 -> 2048 against micro-batch to hold B*L.
+    _tok_step = a.batch * a.seq * a.accum * ws
+    _passes = a.steps * _tok_step / max(ntr, 1)
+    log(f"  single-epoch contract: {a.steps} steps x {_tok_step} tok/step = {a.steps*_tok_step/1e9:.3f} B "
+        f"over {ntr/1e9:.3f} B pool = {_passes:.3f} expected passes")
+    if _passes >= 1.0:
+        sys.exit(f"ERROR: this budget takes {_passes:.3f} expected passes over the corpus.\n"
+                 f"  The ladder contract (D1) is single-epoch: a second pass is a RECIPE change, and a recipe\n"
+                 f"  change that arrives by arithmetic rather than by decision is exactly what this refuses.\n"
+                 f"  Enlarge the corpus (code_data.py --gb) or cut --steps. Refusing.")
     # ---- CONDITIONS (a) + (b) of prereg v7, ASSERTED AT EVERY RUN START, not verified once by hand ----
     # (b) The two vocab arms tokenize the same corpus differently, so "the last 2% of TOKENS" is a
     # different byte range in each: the arms would evaluate different text and produce a healthy-looking
@@ -359,7 +418,7 @@ def main():
                  f"  package is a generation behind: rebuild/re-upload it with the p62 stream present.")
     # The CE control must see the SAME positions as the KD arm, so build the chunk index whenever the slice is in
     # play -- even for --arm ce, which then uses it only for the sampling window and never reads a logit.
-    need_win = a.arm == "kd" or a.restrict_to_slice
+    # need_win is computed at the load site above, where it now gates the KD apparatus itself.
     kdc = KDChunks(a.tag, seg_row, resident=a.kd_resident, delete_behind=a.delete_behind,
                    logits_dir=a.logits_dir) if need_win else None
     if kdc is not None:
@@ -423,8 +482,13 @@ def main():
     pr = param_report(model)
     log(f"Phase64.4 MVE | arm={a.arm} recall={a.recall} stages={a.stages} | dev={dev} amp={amp} ddp={ws}")
     log(f"  student S0: D{S0['D']} N{S0['N']} L{S0['L']} | params={pr['total']/1e6:.2f}M (MLP {pr['mlp']/1e6:.2f}M) "
-        f"| V={V} | corpus {meta['bytes']/2**20:.0f}MiB, {meta['n_student_tok']} tok, anchors {100*meta['anchor_frac']:.1f}%")
-    log(f"  teacher={meta['teacher']} K={kdc.K if (kd_active and kdc) else 0} | alpha={a.alpha} lam_nce={a.lam_nce} | seq={a.seq} batch={a.batch} steps={a.steps}")
+        f"| V={V} | corpus {meta['bytes']/2**20:.0f}MiB, {meta['n_student_tok']} tok, "
+        # anchor_frac is null in a CE package (no teacher-derived arrays were built). Printing "n/a" rather
+        # than letting an f-string raise on None: this line is the run's own header, and a header that
+        # crashes tells you nothing about the corpus it was supposed to describe.
+        + (f"anchors {100*meta['anchor_frac']:.1f}%" if meta.get("anchor_frac") is not None
+           else "anchors n/a (CE package: KD apparatus not built)"))
+    log(f"  teacher={meta.get('teacher') or 'none (CE)'} K={kdc.K if (kd_active and kdc) else 0} | alpha={a.alpha} lam_nce={a.lam_nce} | seq={a.seq} batch={a.batch} steps={a.steps}")
 
     # ---- KD TARGET AGREEMENT (the D3 mechanism check; run BEFORE any training, costs seconds) ---------
     # The span map is only worth training on if the projected teacher distribution actually points at the true next

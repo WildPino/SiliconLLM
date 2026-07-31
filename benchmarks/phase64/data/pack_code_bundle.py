@@ -22,7 +22,7 @@ import hashlib, json, os, shutil, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 sys.path.insert(0, HERE)
-from pack_kaggle import CODE_FILES, sha        # one source of truth for the transitive closure  # noqa: E402
+from pack_kaggle import CODE_FILES, sha, assert_whitelist_complete   # one source of truth for the transitive closure  # noqa: E402
 
 OUT = os.path.join(ROOT, "kaggle_rung1", "code_bundle")
 
@@ -36,6 +36,9 @@ def combined(man):
 
 
 def main():
+    # BEFORE anything is copied: refuse if mve/ holds a module nobody has classified. Placed first so the
+    # refusal costs nothing and cannot half-build a bundle.
+    assert_whitelist_complete()
     if os.path.isdir(OUT): shutil.rmtree(OUT)
     man = {}
     for rel in CODE_FILES:

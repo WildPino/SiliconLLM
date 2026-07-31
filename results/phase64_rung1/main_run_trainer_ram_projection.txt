@@ -1,0 +1,83 @@
+================================================================================
+BLOCKER FOUND BY READING, NOT BY RUNNING -- the trainer's own ids load at m0 scale
+mve_train.py:325   NOT FIXED. Reported for adjudication; the trainer is gated.
+Written 2026-07-31, before the main-run package was built.
+================================================================================
+
+    ids = np.fromfile(os.path.join(DATA, f"ts_{a.tag}.u16"), dtype=np.uint16).astype(np.int64)
+
+The file is uint16. The cast is to int64. It is the same shape of defect as the
+three that made code_data.py impossible at 5.5 GB: an allocation that is
+invisible at the scale it was written for and fatal at the scale it now runs at.
+
+The m0 build has since completed, so the token count below is MEASURED, not
+extrapolated: 2,295,693,322 student tokens at V=2048, ids_V2048_m0.u16 =
+4,591,386,644 bytes.
+
+  scale         student tok   uint16 file   after .astype(int64)   peak (both live)
+  ------------  ------------  ------------  ---------------------  ----------------
+  s0, 0.5 GB     0.189 e9        0.35 GiB          1.41 GiB              1.76 GiB
+  m0, 5.5 GB     2.2957 e9       4.28 GiB         17.10 GiB             21.38 GiB
+
+DDP DOUBLES IT. Both ranks are processes on ONE Kaggle node, and each executes
+line 325 independently:
+
+  resident, 2 ranks    34.2 GiB
+  peak,     2 ranks    42.8 GiB   (if the two casts overlap, which nothing
+                                   prevents -- there is no rendezvous before it)
+
+A Kaggle T4 x2 session has ~29 GiB of host RAM. The main run does not OOM
+occasionally; it cannot start.
+
+THIS IS THE ARM7 FAILURE AGAIN. arm7 at --kd-resident 16 was SIGKILLed at ~24
+minutes after every guard had passed, because 16 resident chunks x 2 ranks did
+not fit in host RAM. A GPU OOM would have raised a CUDA error; a host OOM
+returns nothing and looks like a crash. The guards that passed were guarding
+something else. Same here: DATA_SHA, CODE_SHA, the P62 invariant and the
+expected-passes assert would all pass, and then the session would die with no
+diagnosis attached to the cause.
+
+--------------------------------------------------------------------------------
+THE FIX, NOT APPLIED
+--------------------------------------------------------------------------------
+Keep ids uint16 in RAM -- the dtype it has on disk -- and cast at the point of
+use, where the array is one batch of 8 x 512 rather than 2.3 billion tokens.
+Verified locally: numpy's bincount accepts uint16 directly, and torch 2.12
+from_numpy produces a torch.uint16 tensor, so every site is explicit.
+
+  line 325   drop .astype(np.int64)                          -12.9 GiB per rank
+  line 390   np.bincount(ids[:ntr]) casts to intp INTERNALLY
+             -- an 18 GiB temporary that survives the fix at
+             line 325 unless it is chunked too. Same shape as
+             the cumsum in build_vocab: chunk it.
+  508/524    yy is one batch; cast there
+  588-597    bpb_on's stream slices (val AND the P62 stream)
+  637/638    the training batch itself
+
+Six sites. Peak per rank falls to ~4.4 GiB, ~8.8 GiB for two -- comfortable.
+
+WHY IT IS NOT APPLIED HERE. The trainer is the file the whole rung's numbers
+come out of, and a change to it owes its own gate. The gate is the same shape as
+the one code_data.py just passed and is NOT free: bit-identity of a trained
+artefact means actually training. The cheap version is a short CE run at s0
+scale, old vs new, asserting the loss trace and the P62 BPB are identical to the
+last decimal -- minutes on the 3060, not hours.
+
+CHEAPER ALTERNATIVE THAT NEEDS NO TRAINER CHANGE, and why it is worse: cut the
+corpus so 1.5 B tokens fit. That changes --gb from 5.5 to about 1.6 and pushes
+expected passes from 0.70 to ~2.4 -- straight through the single-epoch contract
+the trainer now refuses to violate. It trades a memory bug for a data-repetition
+one, and the second is the one that shows up in the number rather than in the
+log.
+
+--------------------------------------------------------------------------------
+NOTE ON HOW THIS WAS FOUND
+--------------------------------------------------------------------------------
+Not by a run. By asking, of every file on the main-run path, the question the
+first diagnosis failed to ask: which allocations here are O(corpus), and what are
+they at 12x the scale they were written for. code_data.py had three. pack_kaggle
+had one (token_index_at, fixed). mve_train has this one.
+
+The lesson the Architect wrote after the first remedy -- that the scale law
+applies to the remedy too -- generalizes one step further: it applies to every
+file the artefact passes through, not only the file where the symptom appeared.

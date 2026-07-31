@@ -1,0 +1,158 @@
+﻿==============================================================================
+code_data.py memory rewrite -- bit-identity gate against the s0 artifacts
+==============================================================================
+
+  reference tree : D:\_THINGS\Progetti\SiliconLLM\results\phase64\rung1
+  P62 decider    : D:\_THINGS\Progetti\SiliconLLM\results\phase62\code_val.txt
+                   sha 04d6090dd8b640bc3fd42845b00b436b...  (1500000 bytes)
+                   read-only by law; recorded here because raw_*.bin is the val split's
+                   footprint and this gate pins that file by sha.
+  input pin      : raw_s0.bin must be sha dd334006f83aad0de99401e9b36b41af...
+
+------------------------------------------------------------------------------
+RUN A  new code, --kd-apparatus  (expect: every s0 artifact reproduces)
+------------------------------------------------------------------------------
+    input pinned: raw sha dd334006f83aad0de99401e9b36b41af...  OK
+
+  $ D:\_THINGS\Progetti\SiliconLLM\benchmarks\phase64\data\code_data.py --gb 0.5 --tag g0 --out C:\Users\giosa\AppData\Local\Temp\cdid_4niny0zb\a --vocabs 2048,4096 --kd-apparatus
+python : Token indices sequence length is longer than the specified maximum sequence 
+length for this model (247205 > 32768). Running this sequence through the model will 
+result in indexing errors
+In riga:1 car:337
++ ... SiliconLLM; python benchmarks/phase64/data/ws3_code_data_identity.py  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Token indices s...indexing errors:String) [], 
+    RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[A1] raw reused C:\Users\giosa\AppData\Local\Temp\cdid_4niny0zb\a\raw_g0.bin (460.8 MiB)
+[A2] projected peak for the list accumulator: 8.5 GiB on a 80 GiB machine
+     block 0  247205 teacher tok  1s
+     block 50  13339450 teacher tok  53s
+     block 100  26494743 teacher tok  105s
+     block 150  39431659 teacher tok  156s
+     block 200  52420483 teacher tok  207s
+     block 250  65549924 teacher tok  257s
+     block 300  78573655 teacher tok  307s
+     block 350  91713399 teacher tok  357s
+     block 400  105197133 teacher tok  408s
+     block 450  118084602 teacher tok  461s
+[A2] teacher tok = 120636103 (4.005 B/tok) in 482s
+[A3/V2048] encoded 188691456 student tok in 127s  (peak 0.0 GiB)
+[A3/V4096] encoded 169513926 student tok in 132s  (peak 0.0 GiB)
+
+==== rung-1 data [g0] ====
+  corpus 460.8 MiB, 95564 docs, teacher 120636103 tok (4.005 B/tok)
+
+       V   student tok   B/tok     anchors  anchor%  seg stu   seg=1  seg tea
+    2048     188691456   2.561    81937941   43.42%     2.30   32.2%     1.47
+    4096     169513926   2.850    77176819   45.53%     2.20   33.6%     1.56
+
+  wrote C:\Users\giosa\AppData\Local\Temp\cdid_4niny0zb\a\meta_g0.json
+  PEAK working set for this build: 0.0 GiB (machine has 80 GiB)
+
+STOP. Numbers above; scoring has NOT been run. No commit.
+  -> exit 0 in 768s
+    IDENTICAL  ids_V2048_g0.u16
+    IDENTICAL  ids_V4096_g0.u16
+    IDENTICAL  teacher_ids_g0.i32
+    IDENTICAL  teacher_start_g0.i64
+    IDENTICAL  anchors_V2048_g0.i32
+    IDENTICAL  anchors_V4096_g0.i32
+    IDENTICAL  t2s_V2048_g0.i32
+    IDENTICAL  t2s_V4096_g0.i32
+    IDENTICAL  decomp_V2048_g0.npz
+    IDENTICAL  decomp_V4096_g0.npz
+  10/10 identical
+
+------------------------------------------------------------------------------
+RUN B  new code, default  (expect: student identical, KD apparatus absent)
+------------------------------------------------------------------------------
+
+  $ D:\_THINGS\Progetti\SiliconLLM\benchmarks\phase64\data\code_data.py --gb 0.5 --tag g1 --out C:\Users\giosa\AppData\Local\Temp\cdid_4niny0zb\b --vocabs 2048,4096
+[A1] raw reused C:\Users\giosa\AppData\Local\Temp\cdid_4niny0zb\b\raw_g1.bin (460.8 MiB)
+[A3/V2048] encoded 188691456 student tok in 125s  (peak 0.0 GiB)
+[A3/V2048] 188691456 student tok, 2.561 B/tok  (peak 0.0 GiB); KD apparatus SKIPPED
+[A3/V4096] encoded 169513926 student tok in 138s  (peak 0.0 GiB)
+[A3/V4096] 169513926 student tok, 2.850 B/tok  (peak 0.0 GiB); KD apparatus SKIPPED
+
+==== rung-1 data [g1] ====
+  corpus 460.8 MiB, 95564 docs, teacher tokens NOT built (--kd-apparatus off)
+
+       V   student tok   B/tok
+    2048     188691456   2.561
+    4096     169513926   2.850
+
+  wrote C:\Users\giosa\AppData\Local\Temp\cdid_4niny0zb\b\meta_g1.json
+  PEAK working set for this build: 0.0 GiB (machine has 80 GiB)
+
+STOP. Numbers above; scoring has NOT been run. No commit.
+  -> exit 0 in 265s
+    IDENTICAL  ids_V2048_g1.u16
+    IDENTICAL  ids_V4096_g1.u16
+  2/2 identical
+    KD apparatus files present: 0 of 8  (as designed)
+
+------------------------------------------------------------------------------
+RUN C  PLANTED CONTROL: one corpus byte changed  (expect: ids DIFFER)
+------------------------------------------------------------------------------
+    corpus byte 0: 'i' -> 'j'  (1 byte in 483190011)
+
+  $ D:\_THINGS\Progetti\SiliconLLM\benchmarks\phase64\data\code_data.py --gb 0.5 --tag g2 --out C:\Users\giosa\AppData\Local\Temp\cdid_4niny0zb\c --vocabs 2048
+[A1] raw reused C:\Users\giosa\AppData\Local\Temp\cdid_4niny0zb\c\raw_g2.bin (460.8 MiB)
+[A3/V2048] encoded 188691458 student tok in 141s  (peak 0.0 GiB)
+[A3/V2048] 188691458 student tok, 2.561 B/tok  (peak 0.0 GiB); KD apparatus SKIPPED
+
+==== rung-1 data [g2] ====
+  corpus 460.8 MiB, 95564 docs, teacher tokens NOT built (--kd-apparatus off)
+
+       V   student tok   B/tok
+    2048     188691458   2.561
+
+  wrote C:\Users\giosa\AppData\Local\Temp\cdid_4niny0zb\c\meta_g2.json
+  PEAK working set for this build: 0.0 GiB (machine has 80 GiB)
+
+STOP. Numbers above; scoring has NOT been run. No commit.
+  -> exit 0 in 143s
+    DIFFERS    ids_V2048_g2.u16
+    control FIRED: the comparison can distinguish a one-byte corpus change.
+
+==============================================================================
+VERDICT: PASS
+  A: 10/10 artifacts bit-identical to s0 under
+     --kd-apparatus -- the rewrite changed no output, only how it is accumulated.
+  B: 2/2 student artifacts bit-identical with the flag off, and
+     0 KD files built. The flag removes work; it does not alter the artifact.
+  C: the control fired on a single changed byte, so A's and B's nulls are informative.
+
+  The P62 val split is pinned, not re-derived: the corpus fed to all three runs is
+  raw_s0.bin by sha, so the held-out document set is the one the rung was measured on.
+  build_raw and fetch_corpus.is_val are outside this rewrite's diff. code_val.txt untouched.
+
+  NOTE on the domain pin. Under the default path there are no anchors, so there is no
+  teacher-scored slice and SLICE_SHA is empty for the main run -- correctly, not by
+  omission. --expect-slice-sha pinned the KD packages' sampling domain; a CE run over the
+  whole corpus has no such restriction to pin.
+==============================================================================
+
+==============================================================================
+CORRECTION APPENDED AFTER THE RUN -- read before quoting anything above.
+==============================================================================
+Every "peak N GiB" figure printed in this log is VOID and reads 0.0. peak_gib()
+called GetProcessMemoryInfo without argtypes, so the -1 pseudo-handle from
+GetCurrentProcess was truncated on a 64-bit HANDLE, the call failed silently,
+and the zeroed struct was reported as a measurement.
+
+The log is NOT re-run, and the numbers are NOT edited. What this gate claims is
+BIT-IDENTITY, and nothing about that claim passes through the memory probe:
+runs A, B and C compared file hashes, and those comparisons stand exactly as
+printed. Correct the label, never the record.
+
+The probe is fixed and was verified on a known positive before the 5.5 GB build
+that gate (a) actually measures:
+    baseline peak 0.029 GiB -> 3.029 GiB after a touched 3 GiB allocation,
+    delta 3.000. CONTROL FIRES.
+This is the second instrument at this rung to have looked like it was working
+while being blind; the first was the epsilon-identity VOID check under CRLF.
+Neither reported an error. Both reported a plausible number.
+==============================================================================

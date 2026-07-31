@@ -39,9 +39,91 @@ CODE_FILES = ["benchmarks/phase64/mve/mve_train.py", "benchmarks/phase64/mve/mve
               # was missing exactly this one and would have failed on Kaggle, not here.
               "benchmarks/phase57/phase58_predict.py",
               "benchmarks/phase62/cartography.py"]
+
+# ---------------------------------------------------------------------------------------------------
+# WHITELIST-COMPLETENESS ASSERT over every packaged source directory (Architect, 2026-07-30).
+#
+# WHAT IT IS FOR. A stale copy of the trainer (`_eps_old_mve_train.py`, left by an epsilon-identity gate
+# whose process was SIGKILLed -- `finally` does not run, which is also how arm7 died at resident=16) sat in
+# mve/ for a day. It never reached a package, and the ONLY reason is that CODE_FILES is an explicit
+# enumeration rather than a directory walk: a property of this packager that nobody had asserted. That is
+# precisely the failure class this project keeps paying for, so the implicit property becomes a check.
+#
+# WHY NOT A BLACKLIST (`_eps_*`): a blacklist catches what you thought of. This catches what you did not.
+#
+# WHY CLASSIFICATION AND NOT MEMBERSHIP. mve/ holds 15 .py files and only 2 ship; the other 13 are local
+# apparatus (acceptance harnesses, MQAR, benches) that must NOT travel. "Refuse anything not in CODE_FILES"
+# would therefore refuse 13 healthy files. The rule is COMPLETENESS: every .py here is either SHIPPED or
+# declared LOCAL-ONLY, and anything in neither list stops the build until a human says which it is.
+#
+# THE SIDE EFFECT IS THE POINT: a new module in mve/ blocks packaging until someone declares whether it
+# travels. That is a deliberate cost, paid once per module, against silently shipping something.
+#
+# Layered on purpose, and none of the layers is redundant: .gitignore protects the REPO; the gate's
+# `finally` protects the HAPPY PATH; extracting to mkdtemp() removes the PRODUCER; only this assert
+# protects what is UPLOADED, and only this one survives a SIGKILL and an unknown future producer.
+#
+# SCOPE: every directory the whitelist draws from, not just mve/. The axis for extending
+# was corrected: the Builder had judged the other three "lower risk" BY INSPECTION -- the exact move that
+# missed four defects this week. The MM's datum settles it without theory: copies of sources already exist
+# inside benchmark trees (phase56/outputs_run*/SiliconLLM/*.py), so "no automatic producer writes there" is
+# a statement about today, not a property of the system. Cost is genuinely nil: packagers are not in the
+# bundle, so no CODE_SHA moves and no gate is owed; and all eleven additions are LOCAL-ONLY, so what ships
+# cannot change. A zero-risk extension that closes a class is not deferred.
+LOCAL_ONLY = {
+    "benchmarks/phase64/mve": [
+        "data_smoke.py", "kd_information.py", "mve_data.py", "mve_logits.py",
+        "ws1_acceptance.py", "ws1_ddp_stop.py", "ws2_acceptance.py", "ws4_branch_check.py",
+        "ws4_mqar.py", "ws4_seqbench.py", "ws5_optbench.py", "ws6_collapse.py", "ws6_probe.py",
+    ],
+    "benchmarks/phase55": ["phase55_export.py", "phase55_export_5m.py", "phase55_interactive.py"],
+    "benchmarks/phase57": ["phase58_reg.py", "phase61_projquant.py", "r1_calibration.py"],
+    "benchmarks/phase62": ["corpus.py", "e5_0_acceptance.py", "e5_1_mtp.py", "e5_2_carve.py",
+                           "task3_catA.py"],
+}
+
+
+def assert_whitelist_complete():
+    """Refuse to build if any source directory holds a .py that is neither shipped nor declared local-only.
+
+    Call this at the HEAD of every build path. pack_code_bundle had it and pack_vocab did not -- and
+    pack_vocab is the bigger exposure, copying CODE_FILES into every data package (2.6 GB per account).
+    Nothing foreign passed only because of the same implicit property this assert exists to convert into a
+    check: circular, and on the largest path. It also loses the forcing function -- whoever adds a module
+    and runs pack_kaggle instead of pack_code_bundle would build in silence.
+    """
+    bad = []
+    for d, local in LOCAL_ONLY.items():
+        dpath = os.path.join(ROOT, *d.split("/"))
+        shipped = {os.path.basename(f) for f in CODE_FILES if f.startswith(d + "/")}
+        found = {f for f in os.listdir(dpath) if f.endswith(".py")}
+        unknown = sorted(found - (shipped | set(local)))
+        if unknown:
+            bad += [f"{d}/{u}" for u in unknown]
+        stale = sorted((shipped | set(local)) - found)
+        if stale:
+            print(f"  NOTE: declared but absent from {d}: {', '.join(stale)} (stale list, not a blocker)")
+    if bad:
+        sys.exit(
+            "PACKAGING REFUSED -- unclassified module(s) in a packaged source directory:\n  "
+            + "\n  ".join(bad)
+            + "\n\n  Every .py in these directories must be declared: add it to CODE_FILES if it must travel\n"
+              "  inside the Kaggle package, or to LOCAL_ONLY if it stays here. This is not a formality -- a\n"
+              "  stale trainer copy once sat in mve/ for a day, and the only thing that kept it out of a\n"
+              "  2.6 GB upload was that CODE_FILES happens to be an explicit list. If the file above is\n"
+              "  leftover scratch, DELETE it; do not add it to a list to silence this.")
 BPEDIR = os.path.join(ROOT, "data", "phase64", "corpus")
 OUT = os.path.join(ROOT, "kaggle_rung1")
+# TWO tags, because they name two different things and conflating them is how a package ends up with the
+# right file names over the wrong bytes.
+#   TAG      package-facing. The trainer opens ts_{TAG}.u16 / p62_{TAG}.u16 / meta_{TAG}.json; it is an
+#            INTERFACE, and every cell ever generated passes --tag s0. It does not move.
+#   SRC_TAG  source-facing. Which build under results/phase64/rung1 the bytes are copied FROM. Stages 1-4
+#            read s0 (0.5 GB). The main run reads m0 (5.5 GB). Set with --src-tag.
+# The manifest records SRC_TAG so a package can always say which corpus build it came from; DATA_SHA pins
+# the bytes regardless, so this is documentation of provenance, not the guard.
 TAG = "s0"
+SRC_TAG = "s0"
 VAL_FRAC = 0.02
 
 # One arm per screening comparison, keyed by stage. Each spec: (arm id, vocab, x_proj rank, output subdir).
@@ -82,11 +164,66 @@ SPECS = {
     # the reading: a narrower window should recover LESS of the domain deficit, so crossing the
     # pre-registered threshold at 8 is an a-fortiori result.
     4: [("arm7_w8_V2048", 2048, 26, "stage3_data", 0.0)],
+    # STAGE 5 -- THE MAIN RUN. One arm, CE, on the 5.5 GB corpus (src tag m0) rather than the 0.5 GB
+    # screening slice. See RECIPE for the curriculum and the accelerator assert; see KD_APPARATUS for why
+    # this package does not carry anchors/t2s/decomp.
+    5: [("main_V2048_r26_CE", 2048, 26, "main_run", None)],
 }
+# Which corpus build each stage's packages are cut FROM. Stages 1-4 screened on s0 (0.5 GB); the main run
+# uses m0 (5.5 GB, 0.70 expected passes at 1.5 B tokens). Overridable with --src-tag, defaulted per stage
+# so the operator cannot pack the main run against the screening slice by omission.
+STAGE_SRC = {5: "m0"}
 # Sampling-window width per arm; absent = the trainer's default of 2 (what stages 1-3 ran). Kept OUT of the
 # SPECS tuple so the existing five-field call sites are untouched -- one probe does not justify reshaping a
 # structure four other code paths unpack.
 KD_RESIDENT = {"arm7_w8_V2048": 8}
+# Does this arm's package carry the KD apparatus (anchors/t2s/decomp)? Same side-table shape as
+# KD_RESIDENT, and for the same reason: four code paths unpack the five-field spec tuple.
+#
+# WHY IT IS DECLARED AND NOT INFERRED FROM alpha. Stages 1 and 2 are CE arms whose packages nevertheless
+# SHIPPED the apparatus -- they were built before the trainer's load became conditional, and their
+# DATA_SHA is recorded in the brief and in every cell that ran. Deriving the flag from `alpha is None`
+# would silently change the bytes of an already-adjudicated package and make a re-pack disagree with the
+# record. The label gets corrected; the record does not. Absent here = True = what was actually shipped.
+KD_APPARATUS = {"main_V2048_r26_CE": False}
+
+# The recipe an arm's cell runs. SCREEN is what stages 1-4 ran and is the default, so nothing about the
+# already-adjudicated cells changes by this table existing.
+#
+# `extra` is spliced into the arg list as a Python expression, which is why it is a string of source and
+# not a list: the cell assembles its args at runtime from NG (GPU count), so the template is source text
+# all the way down.
+#
+# VERIFIED, not assumed: a stage-3 cell regenerated after this change was diffed against the one that
+# actually ran. The recipe arguments are identical -- '--recall', 'off', '--stages', 'C', and an empty
+# extras list. The cell does differ in three places, all of them separately adjudicated work rather than
+# side effects of this table: CODE_SHA (the trainer changed), the --expect-slice-sha pin (Architect,
+# decision 4), and the --kd-resident splice (the order probe). Saying "byte-identical" would have been
+# the easier sentence and it would have been false.
+SCREEN = dict(recall="off", stages="C", extra="[]",
+              title="rung-1 SCREENING  --  STAGE {STAGE}",
+              steps_note="stage-C steps for ONE screening arm (15% of the stage-C token budget)")
+RECIPE = {
+    # THE MAIN RUN. Not a screening arm: the full curriculum on the winners the screening adopted --
+    # V=2048 (stage 1, sealed sigma_seed rule), x_proj r=26 (stage 2), CE-primary (stage 3 fell to the
+    # tie-breaker; span-KD remains CHALLENGER, not baseline).
+    #
+    # --stages CDEF, so --steps is the TOTAL and the trainer splits it by STAGE_SPLIT (C .55 / D .20 /
+    # E .20 / F .05). Stage E's seq 512 -> 2048 trade is internal to the trainer and needs no flag here.
+    # --qat-alpha 3600 is the ramp at <=10% of stage D, which the MVE priced when the QAT gate passed with
+    # a +0.32 shock.
+    #
+    # --expect-gpus 2 is deliberate and it KILLS the single-GPU fallback below. That is the point: the
+    # 183,105-step budget is arithmetic on 8192 tok/step = batch 8 x seq 512 x accum 1 x 2 GPUs. On one
+    # T4 the cell would quietly train a run half the size of the one that was pre-registered, and the
+    # deviation would be invisible in the log. Refusing is cheaper than discovering it at the end.
+    "main_V2048_r26_CE": dict(
+        recall="on", stages="CDEF",
+        extra="['--sparse-moe', '--qat-alpha', '3600', "
+              "'--expect-gpus', '2', '--expect-gpu-name', 'T4']",
+        title="rung-1 MAIN RUN  --  1.5 B tokens, curriculum C->F",
+        steps_note="TOTAL steps across C/D/E/F; the trainer splits by STAGE_SPLIT"),
+}
 # arm3 (stage 2, CE-on-whole-corpus, P62 1.1377) is the RECORD-ONLY cross-check, NOT the curve's alpha=0
 # point: the branch-point control showed CE samples the whole corpus while the KD harness samples the
 # resident-logit window, so arm4 (KD alpha=0) is the true alpha=0. arm3 is not re-run and not in SPECS[3].
@@ -94,19 +231,20 @@ STAGE3_XCHECK = "arm3_xproj26_V2048 (P62 1.1377, CE-on-whole-corpus): record-onl
 
 
 NOTEBOOK = '''# =============================================================================
-# rung-1 SCREENING  --  STAGE {STAGE}  --  {ARM}   (V={V})
+# {TITLE}  --  {ARM}   (V={V})
 # -----------------------------------------------------------------------------
 # Kaggle settings (right sidebar), all three matter:
 #   Accelerator : GPU T4 x2      -- Kaggle bills SESSION-hours, so the 2nd T4 is free quota-wise
 #   Persistence : "Files only"   -- REQUIRED: keeps /kaggle/working so --resume works across sessions
-#   Internet    : OFF is fine    -- nothing is downloaded; stages 1-2 need no teacher logits
+#   Internet    : OFF is fine    -- nothing is downloaded; a run with no LOGITS_SHA needs no teacher
 #
 # TWO datasets are attached: the arm's data package, and the shared code bundle. They are separate
-# because the data was uploaded before several trainer fixes, and re-uploading 4.2 GB to ship 167 KB of
-# Python is the wrong trade. The code that runs is the bundle's, pinned by CODE_SHA below.
+# because the data is gigabytes and the code is kilobytes, and a trainer fix must not cost a re-upload
+# of the corpus. The code that runs is the bundle's, pinned by CODE_SHA below.
 #
 # Run this one cell. It trains until the session budget, then stops cleanly. Re-run the SAME cell
-# next session; it resumes. Repeat until it prints STAGE-DONE.
+# next session; it resumes. Repeat until it reports done -- STAGE-DONE for a single-stage screening
+# arm, MVE-DONE from the trainer when a multi-stage curriculum finishes its last stage.
 #
 # THE DECIDING METRIC IS THE P62 code-val BPB printed at stage exit, NOT the internal tail val.
 # The tail val is apparatus (curves, divergence, liveness) and must never be quoted.
@@ -114,7 +252,7 @@ NOTEBOOK = '''# ================================================================
 import glob, hashlib, json, os, shutil, subprocess, sys, torch
 
 # ---- the fields the Architect fills at launch, from the prereg ---------------------------------
-STEPS = {STEPS}   # stage-C steps for ONE screening arm (15% of the stage-C token budget)
+STEPS = {STEPS}   # {STEPS_NOTE}
 CODE_SHA = '{CODE_SHA}'   # pins the trainer generation (checked against the bundle)
 DATA_SHA = '{DATA_SHA}'   # pins the DATA generation (checked against the package's file set)
 LOGITS_SHA = '{LOGITS_SHA}'   # pins the teacher-logit generation ('' when the stage needs no logits)
@@ -203,7 +341,7 @@ os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'
 NG = torch.cuda.device_count()
 print('GPUs:', NG, [torch.cuda.get_device_name(i) for i in range(NG)])
 
-args = ['--tag', 's0', {ARM_ARGS} '--recall', 'off', '--stages', 'C',
+args = ['--tag', 's0', {ARM_ARGS} '--recall', '{RECALL}', '--stages', '{STAGES}',
         '--steps', str(STEPS), '--seq', '512', '--batch', '8',
         '--accum', '1' if NG >= 2 else '2',          # effective batch 16 on 1 or 2 GPUs
         '--fp16', '--warmup', '200', '--max-nonfinite', '50', '--require-p62',
@@ -215,7 +353,12 @@ args = ['--tag', 's0', {ARM_ARGS} '--recall', 'off', '--stages', 'C',
         # That is a fortunate packaging property, not a check -- and a property nobody asserted is one a
         # future repackaging can withdraw silently. Passing it converts the observation into a refusal.
         ['--expect-slice-sha', SLICE_SHA] if SLICE_SHA else []) + (
-        ['--kd-resident', '{KD_RESIDENT}'] if '{KD_RESIDENT}' else []) + [
+        ['--kd-resident', '{KD_RESIDENT}'] if '{KD_RESIDENT}' else []) + (
+        # Whatever this run needs beyond the screening recipe. Empty for stages 1-4, which is why their
+        # cells are unchanged by this field existing; the main run puts --sparse-moe, --qat-alpha and the
+        # accelerator asserts here. Parameterised rather than forked into a second template: two copies of
+        # a 130-line cell drift, and a cell that has drifted is indistinguishable from one that has not.
+        {EXTRA_ARGS}) + [
         '--data-dir', PKG + '/data', '--ckpt-dir', '/kaggle/working',
         '--out', '/kaggle/working/{ARM}.pt', '--resume-ckpt', '/kaggle/working/resume_{ARM}.pt',
         '--save-stage-ckpt', '/kaggle/working/stages_{ARM}',
@@ -259,35 +402,62 @@ def token_index_at(V, byte_off):
     does not land on a token boundary is visible rather than silently absorbed."""
     from cartography import Bpe
     bpe = Bpe.load(os.path.join(BPEDIR, f"bpe{V}_code.bin"))
-    ids = np.fromfile(os.path.join(DATA, f"ids_V{V}_{TAG}.u16"), dtype=np.uint16).astype(np.int64)
-    ends = np.cumsum(np.array(bpe.exp_len, dtype=np.int64)[ids])
-    k = int(np.searchsorted(ends, byte_off, "left"))
-    # ends[k] is the byte AFTER token k. The cut is exact when some token ends precisely on it -- which is
-    # the normal case here, because documents are joined on a trailing newline and that newline is its own
-    # token. Then token k belongs to TRAINING, so ntr = k+1. Reporting ends[k-1]-byte_off instead measured
-    # the end of the PREVIOUS token and printed -1 on a cut that was in fact exact.
-    exact = k < len(ends) and int(ends[k]) == byte_off
-    ntr = k + 1 if exact else k
-    resid = 0 if exact else int(ends[k] - byte_off)
-    return ntr, resid, len(ids), int(ends[-1])
+    # CHUNKED, for the same reason build_vocab is: the full prefix sum is an int64 array as long as the
+    # corpus in tokens -- 18 GiB at m0 scale, and np.cumsum materializes a second one on top of the gather.
+    # This function needs exactly one index out of that array and its final element. Walking it in chunks
+    # gives both, with a 128 MiB temporary, and the result is identical: `ends` is strictly increasing, so
+    # the first chunk whose running total reaches byte_off contains the same token searchsorted would find.
+    ids = np.fromfile(os.path.join(DATA, f"ids_V{V}_{SRC_TAG}.u16"), dtype=np.uint16)
+    exp = np.array(bpe.exp_len, dtype=np.int64)
+    CH, base, ntr, resid, found = 1 << 24, 0, None, 0, False
+    for i in range(0, len(ids), CH):
+        seg = np.cumsum(exp[ids[i:i + CH]]) + base
+        if not found and int(seg[-1]) >= byte_off:
+            j = int(np.searchsorted(seg, byte_off, "left"))
+            # seg[j] is the byte AFTER token i+j. The cut is exact when some token ends precisely on it --
+            # the normal case here, because documents are joined on a trailing newline and that newline is
+            # its own token. Then that token belongs to TRAINING, so ntr = index+1. Reporting
+            # ends[k-1]-byte_off instead measured the end of the PREVIOUS token and printed -1 on a cut
+            # that was in fact exact.
+            exact = int(seg[j]) == byte_off
+            ntr = i + j + 1 if exact else i + j
+            resid = 0 if exact else int(seg[j] - byte_off)
+            found = True
+        base = int(seg[-1])
+    if not found:
+        raise AssertionError(f"val split byte {byte_off} lies past the end of the token stream ({base})")
+    return ntr, resid, len(ids), base
 
 
-def _materialize_data(V, dest):
+def _materialize_data(V, dest, kd=True):
     """Copy the V-vocabulary data files + write meta into dest/data, returning the file table and the
     values a manifest needs. Shared by the per-arm packages (pack_vocab) and the stage-3 shared data
-    bundle (pack_data_bundle), so the two can never disagree on the bytes -- one source, no drift."""
-    meta = json.load(open(os.path.join(DATA, f"meta_{TAG}.json")))
-    docbound = np.fromfile(os.path.join(DATA, f"docbound_{TAG}.i64"), dtype=np.int64)
+    bundle (pack_data_bundle), so the two can never disagree on the bytes -- one source, no drift.
+
+    `kd` MUST mirror the trainer's own `need_win` (arm == "kd" or --restrict-to-slice). It is passed from
+    the spec's alpha rather than defaulted per call site, so the package and the code that reads it cannot
+    drift apart: if the trainer would not open anchors/t2s/decomp, the package does not carry them, and if
+    it would, a missing file is a hard open() failure rather than a silent degradation. That coupling is
+    the point -- a CE package that shipped the apparatus anyway would be 14 GB instead of 4.3, and one
+    that omitted it while the trainer wanted it would fail at rehydrate, not at step 4000."""
+    meta = json.load(open(os.path.join(DATA, f"meta_{SRC_TAG}.json")))
+    docbound = np.fromfile(os.path.join(DATA, f"docbound_{SRC_TAG}.i64"), dtype=np.int64)
     b_off = split_point(meta, docbound)
     ntr, resid, ntok, nbytes = token_index_at(V, b_off)
     row = next(r for r in meta["vocabs"] if r["V"] == V)
+    if kd and not row.get("kd_apparatus", True):
+        sys.exit(f"PACKAGING REFUSED: a KD package was requested for V={V}, but the source build "
+                 f"'{SRC_TAG}' was made without --kd-apparatus, so anchors/t2s/decomp do not exist.\n"
+                 f"  REMEDY: rebuild the corpus with --kd-apparatus. Do NOT pack it as a CE package to "
+                 f"get past this -- that would silently change which arm the package can run.")
 
     # File names the trainer already expects, so no trainer change is needed to read a rung-1 package.
-    pairs = [(os.path.join(DATA, f"ids_V{V}_{TAG}.u16"),     f"ts_{TAG}.u16"),
-             (os.path.join(DATA, f"anchors_V{V}_{TAG}.i32"), f"anchors_{TAG}.i32"),
-             (os.path.join(DATA, f"t2s_V{V}_{TAG}.i32"),     f"t2s_{TAG}.i32"),
-             (os.path.join(DATA, f"decomp_V{V}_{TAG}.npz"),  f"decomp_{TAG}.npz"),
-             (os.path.join(BPEDIR, f"bpe{V}_code.bin"),      f"bpe{V}_ts.bin")]
+    pairs = [(os.path.join(DATA, f"ids_V{V}_{SRC_TAG}.u16"),     f"ts_{TAG}.u16"),
+             (os.path.join(BPEDIR, f"bpe{V}_code.bin"),          f"bpe{V}_ts.bin")]
+    if kd:
+        pairs[1:1] = [(os.path.join(DATA, f"anchors_V{V}_{SRC_TAG}.i32"), f"anchors_{TAG}.i32"),
+                      (os.path.join(DATA, f"t2s_V{V}_{SRC_TAG}.i32"),     f"t2s_{TAG}.i32"),
+                      (os.path.join(DATA, f"decomp_V{V}_{SRC_TAG}.npz"),  f"decomp_{TAG}.npz")]
     # P62 code-val, encoded with THIS package's tokenizer. It is the DECIDING metric for the screening
     # (prereg v7): an external, fixed, temporally held-out byte set -- byte-identical across arms by
     # construction and byte-normalised across vocabularies. The internal tail val is apparatus only.
@@ -307,20 +477,30 @@ def _materialize_data(V, dest):
                 shutil.copyfile(src, dst)
         files[name] = dict(sha256=sha(dst), bytes=os.path.getsize(dst))
 
-    tmeta = dict(corpus=meta["corpus"], bytes=meta["bytes"], teacher=meta["teacher"],
-                 V_student=V, n_student_tok=ntok, n_teacher_tok=meta["n_teacher_tok"],
+    # The KD-derived fields stay in the schema as nulls rather than disappearing: a reader that finds no
+    # 'anchors' key cannot tell "CE package" from "older packer". None says it, and says it explicitly.
+    tmeta = dict(corpus=meta["corpus"], bytes=meta["bytes"], teacher=meta.get("teacher") if kd else None,
+                 V_student=V, n_student_tok=ntok,
+                 n_teacher_tok=meta.get("n_teacher_tok") if kd else None,
                  bytes_per_student_tok=row["bytes_per_student_tok"],
-                 bytes_per_teacher_tok=meta["bytes_per_teacher_tok"],
-                 anchors=row["anchors"], anchor_frac=row["anchor_frac"],
-                 t2s_mapped=row["t2s_mapped"], t2s_vocab=row["t2s_vocab"],
-                 n_train_tok=ntr, n_val_tok=ntok - ntr, tag=TAG,
+                 bytes_per_teacher_tok=meta.get("bytes_per_teacher_tok") if kd else None,
+                 anchors=row["anchors"] if kd else None,
+                 anchor_frac=row["anchor_frac"] if kd else None,
+                 t2s_mapped=row["t2s_mapped"] if kd else None,
+                 t2s_vocab=row["t2s_vocab"] if kd else None,
+                 kd_apparatus=bool(kd),
+                 kd_apparatus_note=("anchors/t2s/decomp are shipped; this package can run --arm kd" if kd
+                                    else "CE package: no teacher-derived arrays, and no sampling-window "
+                                         "restriction, so there is no slice to pin"),
+                 n_train_tok=ntr, n_val_tok=ntok - ntr, tag=TAG, src_tag=SRC_TAG,
                  p62_bytes=len(p62_raw), p62_tok=int(len(p62_ids)),
                  p62_note="the DECIDING metric (prereg v7); the internal tail val is record-only apparatus",
                  val_split_byte=b_off, val_split_residual_bytes=resid,
                  val_split_note=("cut at a DOCUMENT boundary in byte space so every vocabulary arm "
                                  "evaluates on byte-identical text"),
-                 seg_bytes=meta["bytes"] / max(row["anchors"], 1),
-                 seg_student_tok=row["seg_student_tok_mean"], seg_teacher_tok=row["seg_teacher_tok_mean"])
+                 seg_bytes=(meta["bytes"] / max(row["anchors"], 1)) if kd else None,
+                 seg_student_tok=row["seg_student_tok_mean"] if kd else None,
+                 seg_teacher_tok=row["seg_teacher_tok_mean"] if kd else None)
     mp = os.path.join(ddir, f"meta_{TAG}.json")
     json.dump(tmeta, open(mp, "w"), indent=1)
     files[f"meta_{TAG}.json"] = dict(sha256=sha(mp), bytes=os.path.getsize(mp))
@@ -330,7 +510,7 @@ def _materialize_data(V, dest):
 def _base_manifest(V, files, b_off, meta):
     """The vocabulary/corpus identity fields common to every package and bundle."""
     cman = json.load(open(os.path.join(BPEDIR, "corpus_manifest.json")))
-    return dict(V_student=V, tag=TAG,
+    return dict(V_student=V, tag=TAG, src_tag=SRC_TAG,
                 corpus_sha256=cman["corpus_sha256"], raw_sha256=meta["raw_sha256"],
                 bpe_sha256=files[f"bpe{V}_ts.bin"]["sha256"], ids_sha256=files[f"ts_{TAG}.u16"]["sha256"],
                 data_sha256=assert_package.data_generation_sha(files),   # the generation pin
@@ -353,7 +533,7 @@ def pack_data_bundle(V, xproj, dest):
 
 def pack_vocab(V, arm, stage, dest, xproj=0, extras=None):
     os.makedirs(dest, exist_ok=True)
-    files, meta, row, b_off, resid, ntok = _materialize_data(V, dest)
+    files, meta, row, b_off, resid, ntok = _materialize_data(V, dest, kd=KD_APPARATUS.get(arm, True))
     man_code = {}
     man = dict(arm=arm, stage=stage, xproj_rank=xproj, code=man_code,
                **_base_manifest(V, files, b_off, meta), **(extras or {}))
@@ -395,6 +575,7 @@ def write_cells(stage, steps, code_sha):
             print("  NOTE: logits manifest carries no slice_sha256 -- cells ship with the domain pin EMPTY.")
     out = []
     for arm, V, xproj, subdir, alpha in SPECS[stage]:
+        rcp = RECIPE.get(arm, SCREEN)
         mp = os.path.join(OUT, subdir, "PACKAGE_MANIFEST.json")
         if not os.path.isfile(mp):
             sys.exit(f"no package at {subdir} -- build stage {stage} first (pack_kaggle.py --stage {stage}).")
@@ -410,25 +591,40 @@ def write_cells(stage, steps, code_sha):
             arm_args = f"'--arm', 'kd', '--alpha', '{alpha}',"; expect_arm = "None"; lsha = logits_sha
         p = os.path.join(OUT, f"NOTEBOOK_{arm}.py")
         with open(p, "w", encoding="utf-8") as f:
-            f.write(NOTEBOOK.replace("{ARM}", arm).replace("{V}", str(V)).replace("{STAGE}", str(stage))
+            f.write(NOTEBOOK.replace("{TITLE}", rcp["title"].replace("{STAGE}", str(stage)))
+                            .replace("{STEPS_NOTE}", rcp["steps_note"])
+                            .replace("{ARM}", arm).replace("{V}", str(V)).replace("{STAGE}", str(stage))
                             .replace("{XPROJ}", str(xproj)).replace("{STEPS}", str(steps))
                             .replace("{CODE_SHA}", code_sha).replace("{DATA_SHA}", data_sha)
                             .replace("{LOGITS_SHA}", lsha).replace("{EXPECT_ARM}", expect_arm)
                             .replace("{SLICE_SHA}", slice_sha if alpha is not None else "")
                             .replace("{KD_RESIDENT}", str(KD_RESIDENT.get(arm, "")))
+                            .replace("{RECALL}", rcp["recall"]).replace("{STAGES}", rcp["stages"])
+                            .replace("{EXTRA_ARGS}", rcp["extra"])
                             .replace("{ARM_ARGS}", arm_args))
         out.append((p, data_sha))
     return out
 
 
 def main():
+    # HEAD OF THE BUILD PATH. pack_vocab() copies CODE_FILES into every data package and never checked
+    # what else was sitting in those directories; the check lived only in pack_code_bundle, which is the
+    # SMALLER path. Placed here it covers every invocation, including --cells-only, and restores the
+    # forcing function for whoever reaches for this script rather than the other one.
+    assert_whitelist_complete()
     ap = argparse.ArgumentParser()
     ap.add_argument("--stage", type=int, default=1)
     ap.add_argument("--cells-only", action="store_true",
                     help="regenerate the notebook cells against the current code bundle, without "
                          "rebuilding the data packages")
     ap.add_argument("--steps", type=int, default=0, help="pre-registered per-arm stage-C step budget")
+    ap.add_argument("--src-tag", default="",
+                    help="which corpus build under results/phase64/rung1 to cut the package from. "
+                         "Defaults per stage via STAGE_SRC (s0 for the screening, m0 for the main run); "
+                         "pass it only to override deliberately.")
     a = ap.parse_args()
+    global SRC_TAG
+    SRC_TAG = a.src_tag or STAGE_SRC.get(a.stage, SRC_TAG)
     if a.stage not in SPECS:
         sys.exit(f"stage {a.stage} is not defined. Stages 2-3 are packed only once the previous winner is "
                  f"known -- their parent must exist.")
@@ -460,8 +656,9 @@ def main():
     label = {1: "stage 1 (vocab, arms 1+2 parallel)",
              2: "stage 2 (x_proj r=26 on V2048, one arm; chained control = stage-1 arm1)",
              3: "stage 3 (alpha curve {0,0.25,0.5}, ONE shared data bundle + shared logits)",
-             4: "stage 4 (order probe, record-only: window width 2 -> 16, everything else = arm4)"}[a.stage]
-    print(f"WS3 Kaggle packaging   {label}   tag={TAG}\n")
+             4: "stage 4 (order probe, record-only: window width 2 -> 8, everything else = arm4)",
+             5: "stage 5 (MAIN RUN: V2048 + x_proj r=26 + CE, curriculum C->F on the 5.5 GB corpus)"}[a.stage]
+    print(f"WS3 Kaggle packaging   {label}   tag={TAG}  src_tag={SRC_TAG}\n")
 
     if a.stage == 4:
         # The probe REUSES stage 3's bundles untouched -- that is the whole point. Rebuilding the data would
