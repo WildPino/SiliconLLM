@@ -100,6 +100,14 @@ def run(script, args, tag):
     return r.stdout
 
 
+def filesha(p):
+    h = hashlib.sha256()
+    with open(p, "rb") as f:
+        for c in iter(lambda: f.read(1 << 20), b""):
+            h.update(c)
+    return h.hexdigest()
+
+
 def weights_sha(p):
     """sha256 over the WEIGHTS, in sorted key order, including dtype and shape.
 
@@ -219,12 +227,32 @@ def main():
         ca, cb, cc = (os.path.join(tmp, d) for d in ("ck_A", "ck_B", "ck_C"))
         for d in (ca, cb, cc): os.makedirs(d, exist_ok=True)
         arm, ctrl, ctrl_name = mode_args(a.mode)
+        # BOTH ENDS ARE HASHED BEFORE AND AFTER. Pinning the reference is not enough: the object under
+        # test can move instead. It did -- the trainer was edited while a run of this gate was in flight,
+        # so run A had already launched against the commit while B and C would have read a different file
+        # than A's counterpart. That is the 2026-07-29 law from the side it did not cover. Re-hashing at
+        # exit makes it VOID by construction rather than merely unlikely.
+        ends0 = {p: filesha(p) for p in (old, new)}
         out_a = run(old, base_args(pa, data, logits, a.steps, a.seed, ca) + arm, f"A old [{a.mode}]")
         out_b = run(new, base_args(pb, data, logits, a.steps, a.seed, cb) + arm, f"B new [{a.mode}]")
         # The control perturbs one knob and nothing else: the window in KD mode, the seed in CE mode.
         c_args = (base_args(pc, data, logits, a.steps, a.seed, cc) + arm + ctrl) if ctrl else \
                  (base_args(pc, data, logits, a.steps, a.seed + 1, cc) + arm)
         run(new, c_args, f"C new [{a.mode}, {ctrl_name}]")
+
+        moved = [p for p, h in ends0.items() if filesha(p) != h]
+        if moved:
+            print("\n  VERDICT: VOID -- a comparison end changed WHILE the gate was running:\n    "
+                  + "\n    ".join(os.path.basename(p) for p in moved)
+                  + "\n  The three runs did not all see the same pair of files, so nothing they produced\n"
+                    "  can be attributed. Settle the tree and re-run. This is not a failure of the edit.")
+            sys.exit(2)
+        print("  both ends unchanged across all three runs (re-hashed at exit)")
+        # PRINTED so a later check can verify the SHIPPED trainer against the CERTIFIED one without
+        # anybody having to remember which file this was. A gate that does not name what it certified
+        # leaves the next step to trust rather than to comparison.
+        print(f"  CERTIFIED FILE  {TRAIN_REL}\n"
+              f"                  sha256 {ends0[new]}")
 
         same_ab, why_ab, d_ab = compare(pa, pb)
         same_ac, why_ac, d_ac = compare(pa, pc)

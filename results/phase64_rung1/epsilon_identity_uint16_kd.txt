@@ -2,25 +2,25 @@
   old = bce0e89d63ff1e8f38c2b6e381ffa985ce0be3fd : benchmarks/phase64/mve/mve_train.py
         (immutable sha, and verified byte-DIFFERENT from the working copy)
 
-  [A old [ce]] _eps_old_mve_train.py 
-  [B new [ce]] mve_train.py 
-  [C new [ce, seed+1]] mve_train.py 
+  [A old [kd]] _eps_old_mve_train.py 
+  [B new [kd]] mve_train.py 
+  [C new [kd, kd-resident 4]] mve_train.py --kd-resident 4
   both ends unchanged across all three runs (re-hashed at exit)
   CERTIFIED FILE  benchmarks/phase64/mve/mve_train.py
                   sha256 bf6a2c42693aafc26b055c203a244d36aa41b3fcad611a4dea585a5baafd6c1c
 
   CLAIM    A(old) vs B(new): IDENTICAL  -- every tensor bit-identical
-  CONTROL  A(old) vs C(new,perturbed): DIFFERS  -- diverges, worst at emb.weight  max|delta| 6.306e+00
+  CONTROL  A(old) vs C(new,perturbed): DIFFERS  -- diverges, worst at blocks.6.mix.dt_proj.weight  max|delta| 1.806e-01
 
-  weights sha256   A(old) 3b577140caa1956b23fe497f9a788087...
-                   B(new) 3b577140caa1956b23fe497f9a788087...   MATCH
+  weights sha256   A(old) ec99ef7e9edb2b685250afd6fddad666...
+                   B(new) ec99ef7e9edb2b685250afd6fddad666...   MATCH
 
   throughput (CPU-local, ratio is the measurement)
-      A(old)   2169.5 tok/s   B(new)   2169.0 tok/s   -0.0%  -- within +/-2%, no schedule impact
+      A(old)   2160.0 tok/s   B(new)   2169.0 tok/s   +0.4%  -- within +/-2%, no schedule impact
 
-  VERDICT: PASS -- in CE mode the edit is behaviour-preserving (bit-identical
+  VERDICT: PASS -- in KD mode the edit is behaviour-preserving (bit-identical
   to bce0e89d63ff), and the comparison is demonstrably able to detect a difference:
-  perturbing seed+1 moved the weights. 'IDENTICAL' here is a measurement, not the only
+  perturbing kd-resident 4 moved the weights. 'IDENTICAL' here is a measurement, not the only
   thing this comparison could have printed.
 
 STOP. No commit.

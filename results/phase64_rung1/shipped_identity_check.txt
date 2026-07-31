@@ -1,0 +1,19 @@
+==============================================================================
+shipped-identity check -- the bytes that ship vs the bytes that were gated
+==============================================================================
+
+  gate log   results\phase64_rung1\epsilon_identity_uint16_ce.txt   (VERDICT: PASS)
+  certified  benchmarks/phase64/mve/mve_train.py
+             sha256 bf6a2c42693aafc26b055c203a244d36aa41b3fcad611a4dea585a5baafd6c1c
+
+  trees compared: repo, code_bundle, package:code_bundle, package:main_run
+    repo                     benchmarks/phase64/mve/mve_train.py  bf6a2c42693aafc2...  == certified
+    code_bundle              benchmarks/phase64/mve/mve_train.py  bf6a2c42693aafc2...  == certified
+    package:code_bundle      benchmarks/phase64/mve/mve_train.py  bf6a2c42693aafc2...  == certified
+    package:main_run         benchmarks/phase64/mve/mve_train.py  bf6a2c42693aafc2...  == certified
+
+==============================================================================
+VERDICT: PASS
+  8 module(s) identical across 4 tree(s), and the trainer in every shipped tree
+  is byte-for-byte the file the gate certified (bf6a2c42693aafc2...).
+==============================================================================

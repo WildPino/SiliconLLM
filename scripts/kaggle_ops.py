@@ -60,7 +60,7 @@ def kaggle(account: str, *args: str, check: bool = True) -> subprocess.Completed
 
 
 def username(account: str) -> str:
-    return json.loads((config_dir(account) / "kaggle.json").read_text())["username"]
+    return json.loads((config_dir(account) / "kaggle.json").read_text(encoding="utf-8-sig"))["username"]
 
 
 def server_identity(account: str) -> Optional[str]:

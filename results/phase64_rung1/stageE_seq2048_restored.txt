@@ -1,0 +1,100 @@
+﻿================================================================================
+STAGE-E SEQUENCE EXTENSION -- restored, and every guard exercised BOTH WAYS
+Prereg v1 line 226 (sealed). Implemented 2026-07-31.
+================================================================================
+
+WHAT WAS WRONG. The prereg sealed "rung-1 extends to seq = 2048, with micro-batch
+reduced to keep B*L constant ... Without the extension the recall tier would be
+judged in a regime where the state still reaches, which is not the question the
+tier exists to answer." It was never implemented: a.seq was assigned once from
+argparse and never reassigned per stage. The only reassignment in the file was
+--smoke.
+
+WHY IT WAS NOT DISCRETIONARY. Prereg line 220 fixes the consequence: gated
+distances <= the trained context, the longest <= half of it. At seq 512 the gated
+scale 128/512/1024 collapses to 128 alone, so the 2x2 recall read returns null BY
+CONSTRUCTION and the pre-registered recall demotion fires on an apparatus
+artefact. That is the stage-3 failure in its original form: a sealed rule
+matching a clean number produced by the harness instead of by the model.
+
+Two things made it non-discretionary rather than a judgement call. The omission
+ran in the CHEAP direction (-37 h), which is the one we are most obliged to
+police. And the budget was approved with the cost inside it -- the +34% of
+section 19 IS this extension: measured penalty 2.69x (prereg line 73),
+0.8 + 0.2*2.69 = 1.338.
+
+--------------------------------------------------------------------------------
+GEOMETRY, verified
+--------------------------------------------------------------------------------
+  stage   seq    micro-batch    B*L
+  C        512        8         4096
+  D        512        8         4096
+  E       2048        2         4096
+  F        512        8         4096
+
+B*L invariant => 8192 tok/step at accum 1 on 2 ranks => STEPS 183,105 and the
+effective batch are UNCHANGED, and the 14-session rotation stays valid.
+
+DERIVED AT EVERY USE, never latched. geom(st, a) is called inside refresh(st),
+inside step_loss(st, ...) and in the token counter; st is re-derived from
+stages[si] each iteration. A value set once at stage entry would restart a mid-E
+resume at 512 in silence -- the family of alpha, kdc.pos and the GradScaler,
+which has cost this project three incidents.
+
+--------------------------------------------------------------------------------
+THE COMMENT THAT WAS THE PROBLEM IS NOW AN ASSERT
+--------------------------------------------------------------------------------
+"Constant across stages by construction" was the sentence licensing the
+single-epoch contract, and it described a construction that did not exist. It is
+now a refusal: if B*L differs across the declared stages the run does not start,
+and the per-stage map is printed every session:
+
+  per-stage geometry: C=seq512xB8, D=seq512xB8, E=seq2048xB2
+      (B*L = 4096, constant -- checked, not asserted in prose)
+
+--------------------------------------------------------------------------------
+GUARDS EXERCISED IN BOTH DIRECTIONS (the law from section 22)
+--------------------------------------------------------------------------------
+(1) DERIVED GEOMETRY, must-do: launched with the plain defaults --seq 512
+    --batch 8 over --stages CDE. Stage E moved to 2048x2 on its own.
+    C 245 tok/s, D 239, E 150. All three stages exit with the P62 byte invariant
+    holding. MVE-DONE.
+
+    Throughput note: the E penalty measured HERE is 1.61x, against the prereg's
+    2.69x. These do not contradict and the local number does NOT amend the
+    sealed one -- different device (CPU-only torch), tiny corpus, 24 total steps,
+    a regime where per-stage fixed costs outweigh the work. The calendar keeps
+    2.69x and its +34%. This run says only that the extended geometry runs, and
+    in the expected direction.
+
+(2) RESUME GEOMETRY ASSERT, must-refuse: a run stopped by --time-budget-min 1
+    left a live resume at stage C written under seq=512. Relaunched with
+    --seq 256:
+        ERROR: resume geometry mismatch at stage C.
+        checkpoint was written at seq=512 micro-batch=8; this run derives
+        seq=256 micro-batch=8.
+
+(3) RESUME GEOMETRY ASSERT, must-pass: the same checkpoint with the geometry
+    unchanged resumes normally:
+        [resume] ...r.pt: stage C step 3/2315 gstep 3
+
+    FIRST ATTEMPT AT (2) PROVED NOTHING and is recorded because it is the
+    instructive part: the first run was allowed to reach MVE-DONE, which DELETES
+    the resume file, so the second launch started fresh at seq 256 and printed
+    no refusal at all. An absent refusal looked exactly like a passing test.
+
+    AND THE REFUSAL ITSELF CARRIED A FALSE NUMBER on its first firing: it printed
+    "Stage E runs at seq 1024", computed as a.seq * 4 from the WRONG --seq that
+    had triggered the refusal. A guard whose message states a plausible false
+    value is the failure it exists to prevent. The message now names the
+    multipliers and says explicitly why it does not compute that figure.
+
+(4) --save-stage-ckpt ALREADY emits stage E. Verified rather than "fixed": the
+    save is inside the per-stage loop, writing stage_{st}_... at every stage
+    exit with fmt="mve-stage-2". The pre-registered early read (prereg 236-241)
+    had its prerequisite; what it lacked was the sequence length.
+
+  host peak after recall construction: 7.99 / 7.88 GiB across the two runs
+  (s0 corpus, CPU torch, one rank). The training-time recall is a 131.1K-parameter
+  slot, not the inference IVF-PQ index -- which right-sizes the one term the
+  main-run host projection had to leave unmeasured.

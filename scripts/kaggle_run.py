@@ -63,6 +63,9 @@ ARMS = {
     # stage-4: alpha 0.0 + kd-resident 16 (new knob) + slice-sha now VERIFIED. New code bundle
     # (CODE_SHA 27b22582); data + logits unchanged from stage-3, so only phase64-code is re-uploaded.
     "arm7": {"acct": "acct1", "script": PACK / "NOTEBOOK_arm7_w16_V2048.py", "slug": "phase64-arm7"},
+    # throwaway: validates the resume CHAIN (stop-incomplete -> push --relay -> rehydrate -> continue)
+    # before the multi-session main run relies on it unattended. Tiny budget forces an incomplete stop.
+    "relaytest": {"acct": "acct1", "script": PACK / "NOTEBOOK_relaytest_V2048.py", "slug": "phase64-relaytest"},
 }
 
 MACHINE = "NvidiaTeslaT4"        # the enum has no explicit 2xT4; the cell auto-adapts --accum to device_count

@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-# Phase 64.4 / MVE — components (C,D,E,F): the full curriculum end-to-end, at pilot scale, with the control arms.
+﻿#!/usr/bin/env python3
+# Phase 64.4 / MVE â€” components (C,D,E,F): the full curriculum end-to-end, at pilot scale, with the control arms.
 #   magic: "MVEC" 0x4D564543
 #
 #   C  KD pre-train fp        : span-mapping KD at the boundary anchors + CE everywhere else
@@ -33,7 +33,36 @@ from mve_model import MVEStudent, S0, MOE, param_report   # noqa: E402
 
 DATA = os.path.join(ROOT, "results", "phase64", "mve")
 CKPT = os.path.join(ROOT, "results", "phase64", "mve", "ckpt")
-STAGE_SPLIT = dict(C=0.55, D=0.20, E=0.20, F=0.05)         # plan §4 token split
+STAGE_SPLIT = dict(C=0.55, D=0.20, E=0.20, F=0.05)         # plan Â§4 token split
+
+# SEQUENCE LENGTH PER STAGE, as a multiplier on --seq. Prereg v1 line 226, sealed: "rung-1 extends to
+# seq = 2048, with micro-batch reduced to keep B*L constant ... Without the extension the recall tier
+# would be judged in a regime where the state still reaches, which is not the question the tier exists to
+# answer." Line 220 fixes the consequence: gated distances <= the trained context, the longest <= half of
+# it. At 512 the gated scale 128/512/1024 collapses to 128 alone, the 2x2 read returns null BY
+# CONSTRUCTION, and the pre-registered recall demotion fires on an apparatus artefact -- the stage-3
+# failure in its original form, a sealed rule matching a clean number produced by the harness instead of
+# by the model.
+#
+# It was a sealed parameter that had never been implemented: the comment at the single-epoch contract
+# claimed "stage E trades seq 512 -> 2048 against micro-batch to hold B*L" while a.seq was assigned once
+# from argparse and never reassigned. The omission ran in the CHEAP direction (-37 h), which is the one
+# we are most obliged to police, and the budget was approved with the cost inside it: the +34% of
+# section 19 IS this extension, and the arithmetic closes at constant B*L -- measured penalty 2.69x
+# (prereg line 73), 0.8 + 0.2*2.69 = 1.338.
+#
+# DERIVED FROM THE STAGE AT EVERY USE, never stored and never set once at stage entry. Stage E begins
+# ~137k steps into a 183k-step run, after a dozen resumes; a value latched at entry restarts a mid-E
+# resume at 512 in silence. That is the family of alpha, kdc.pos and the GradScaler, which has cost this
+# project three incidents already.
+STAGE_SEQ_MULT = {"E": 4}
+
+
+def geom(st, a):
+    """(sequence length, micro-batch) for stage `st`. B*L is invariant by construction, so tokens/step,
+    the step budget and the single-epoch contract are all unchanged by the extension."""
+    m = STAGE_SEQ_MULT.get(st, 1)
+    return a.seq * m, max(1, a.batch // m)
 
 
 # ------------------------------------------------------------------ chunked KD store -----------------
@@ -142,6 +171,37 @@ def host_ram_gib():
     if not vals:
         raise OSError("could not read host RAM from any source; refusing to guess")
     return min(vals)
+
+
+def peak_host_gib():
+    """Peak resident set of THIS process. Printed after the recall slot is built, because that is the one
+    term in the main run's host-RAM projection that no arm has ever measured -- stages 1-4 all ran
+    --recall off. Absorbing an unmeasured quantity into a margin is how a projection becomes an estimate
+    wearing a number's clothes; printing it costs a line and the unknown stops being unknown in minutes
+    instead of being carried into the 10B design."""
+    try:
+        if os.name == "nt":
+            import ctypes, ctypes.wintypes as wt
+            class PMC(ctypes.Structure):
+                _fields_ = [("cb", wt.DWORD), ("PageFaultCount", wt.DWORD),
+                            ("PeakWorkingSetSize", ctypes.c_size_t), ("WorkingSetSize", ctypes.c_size_t),
+                            ("QuotaPeakPagedPoolUsage", ctypes.c_size_t), ("QuotaPagedPoolUsage", ctypes.c_size_t),
+                            ("QuotaPeakNonPagedPoolUsage", ctypes.c_size_t), ("QuotaNonPagedPoolUsage", ctypes.c_size_t),
+                            ("PagefileUsage", ctypes.c_size_t), ("PeakPagefileUsage", ctypes.c_size_t)]
+            k32, psapi = ctypes.windll.kernel32, ctypes.windll.psapi
+            k32.GetCurrentProcess.restype = wt.HANDLE
+            psapi.GetProcessMemoryInfo.argtypes = [wt.HANDLE, ctypes.POINTER(PMC), wt.DWORD]
+            psapi.GetProcessMemoryInfo.restype = wt.BOOL
+            c = PMC(); c.cb = ctypes.sizeof(PMC)
+            if not psapi.GetProcessMemoryInfo(k32.GetCurrentProcess(), ctypes.byref(c), c.cb):
+                raise OSError(ctypes.get_last_error())
+            return c.PeakWorkingSetSize / 2**30
+        for line in open("/proc/self/status"):
+            if line.startswith("VmHWM:"):
+                return int(line.split()[1]) * 1024 / 2**30
+        raise OSError("VmHWM absent from /proc/self/status")
+    except Exception as e:
+        return float("nan")        # printed as 'nan', which is visibly not a measurement
 
 
 def _i64(x):
@@ -437,7 +497,7 @@ def main():
     #
     # WHY THIS IS CONDITIONAL (main-run sizing, 2026-07-29). anchors + t2s are ~2.2x the size of ids, and at
     # the main run's 1.5 B tokens that is ~9.5 GB of package that a CE-primary run never opens -- paid again
-    # on every one of the three stage-D branches of prereg §6. Audited before the edit rather than after:
+    # on every one of the three stage-D branches of prereg Â§6. Audited before the edit rather than after:
     # every consumer is already behind this guard or a stricter one (KDChunks, the KD-target self-check, and
     # the KD block of step_loss); the recall path never names these arrays; and the P62 path reads only the
     # model, the stream and `el` (from the BPE), never the KD apparatus. The line 426 log line uses
@@ -470,7 +530,17 @@ def main():
     # range, so there are no sequential epochs and no "wrap" event; the quantity that actually names the
     # contract is the EXPECTED NUMBER OF PASSES, budget tokens over pool tokens. It must stay below 1, and it
     # is printed in every session header so a resumed run restates it rather than inheriting it silently.
-    # Constant across stages by construction: stage E trades seq 512 -> 2048 against micro-batch to hold B*L.
+    # "Constant across stages by construction" used to be a SENTENCE. It is now an assert, because the
+    # construction it describes did not exist: stage E's seq extension was sealed in the prereg and never
+    # implemented, and this comment was the licence the single-epoch contract was resting on. A claim that
+    # nothing executes is the same failure class as a manifest field nobody reads.
+    _bl = {st: geom(st, a)[0] * geom(st, a)[1] for st in a.stages}
+    if len(set(_bl.values())) != 1:
+        sys.exit(f"ERROR: B*L is not constant across stages: {_bl}.\n"
+                 f"  tokens/step, the step budget and the single-epoch contract below all assume it is.\n"
+                 f"  Fix STAGE_SEQ_MULT or --batch so every stage holds the same product.")
+    log("  per-stage geometry: " + ", ".join(f"{st}=seq{geom(st,a)[0]}xB{geom(st,a)[1]}" for st in a.stages)
+        + f"  (B*L = {next(iter(_bl.values()))}, constant -- checked, not asserted in prose)")
     _tok_step = a.batch * a.seq * a.accum * ws
     _passes = a.steps * _tok_step / max(ntr, 1)
     log(f"  single-epoch contract: {a.steps} steps x {_tok_step} tok/step = {a.steps*_tok_step/1e9:.3f} B "
@@ -738,28 +808,30 @@ def main():
     # ranks would draw the SAME batch -- silently collapsing the effective batch back to one rank's worth;
     # (2) it makes resume exactly bit-faithful at any world size with no RNG state in the checkpoint.
     state = dict(p_lo=0, p_hi=0, idx=[], loaded=[])
-    def refresh():
+    def refresh(st):
+        SEQ, _ = geom(st, a)
         if kdc is None:
-            state.update(p_lo=0, p_hi=train_hi - a.seq - 1, idx=[], loaded=[]); return
+            state.update(p_lo=0, p_hi=train_hi - SEQ - 1, idx=[], loaded=[]); return
         lo, hi, idx, loaded = kdc.window()
-        hi = min(hi, train_hi - a.seq - 1)
-        if hi - lo < a.seq + 2:   # degenerate window (tiny smoke corpus) -> fall back to the whole train range
-            lo, hi = 0, train_hi - a.seq - 1
+        hi = min(hi, train_hi - SEQ - 1)
+        if hi - lo < SEQ + 2:   # degenerate window (tiny smoke corpus) -> fall back to the whole train range
+            lo, hi = 0, train_hi - SEQ - 1
         state.update(p_lo=lo, p_hi=hi, idx=idx, loaded=loaded)
-    refresh()
+    refresh(a.stages[0])
 
-    def step_loss(reverse=False, gs=0, mi=0):
+    def step_loss(st, reverse=False, gs=0, mi=0):
+        SEQ, BS = geom(st, a)
         r = np.random.default_rng([a.seed, rank, gs, mi])
-        p = r.integers(state["p_lo"], max(state["p_hi"], state["p_lo"] + 1), size=a.batch)
-        x = _i64(np.stack([ids[i:i+a.seq] for i in p])).to(dev)
-        y = _i64(np.stack([ids[i+1:i+1+a.seq] for i in p])).to(dev)
+        p = r.integers(state["p_lo"], max(state["p_hi"], state["p_lo"] + 1), size=BS)
+        x = _i64(np.stack([ids[i:i+SEQ] for i in p])).to(dev)
+        y = _i64(np.stack([ids[i+1:i+1+SEQ] for i in p])).to(dev)
         ctx = torch.autocast(dev_type, dtype=amp) if amp is not None else torch.autocast(dev_type, enabled=False)
         with ctx:
             logits, aux = net(x, y)
         ce = F.cross_entropy(logits.float().reshape(-1, V), y.reshape(-1), reduction="none")   # (B*T,)
         nkd = 0; kd_m = torch.zeros((), device=dev)
         if kd_active and kdc is not None and a.alpha > 0:
-            pf = (p[:, None] + np.arange(a.seq)[None, :]).reshape(-1)            # global student index of each slot
+            pf = (p[:, None] + np.arange(SEQ)[None, :]).reshape(-1)              # global student index of each slot
             if a.kd == "anchor":
                 row = anchors[pf]                                                # KD only AT the segment start
                 sel = np.nonzero(row >= 0)[0]
@@ -786,10 +858,10 @@ def main():
                     nkd = int(si.numel())
                     ce = ce.clone(); ce[si] = ce[si] * (1.0 - a.alpha)
                     kd_m = kdv.sum() * a.alpha
-        loss = (ce.sum() + kd_m) / (a.batch * a.seq) + aux
+        loss = (ce.sum() + kd_m) / (BS * SEQ) + aux
         return loss, nkd, float(ce.mean())
 
-    # ---- the curriculum (RESUMABLE across sessions — gate #2) -----------------------------------------
+    # ---- the curriculum (RESUMABLE across sessions â€” gate #2) -----------------------------------------
     # The model changes SHAPE between stages (dense fp -> ternary -> MoE+recall). A resume therefore cannot just
     # load a state_dict onto a fresh model: it must first replay the structural surgery of every stage up to and
     # including the one being resumed, THEN load the checkpoint, THEN continue from the saved step. That is exactly
@@ -816,6 +888,7 @@ def main():
             msg = "[E] dense-paired control: MoE upcycle SKIPPED (MLP stays dense-ternary, active-param-matched)"
             if a.recall == "on":
                 nr = model.add_recall(lam_nce=a.lam_nce); msg += f" + recall slot ({nr/1e3:.1f}K par, gate=0)"
+                msg += f"\n    host peak after recall construction: {peak_host_gib():.2f} GiB (rank {rank})"
             model.to(dev)
             return msg
         if st == "E":
@@ -824,6 +897,7 @@ def main():
                    + (", ACTIVE-ONLY dispatch)" if a.sparse_moe else ", compute-all)"))
             if a.recall == "on":
                 nr = model.add_recall(lam_nce=a.lam_nce); msg += f" + recall slot ({nr/1e3:.1f}K par, gate=0)"
+                msg += f"\n    host peak after recall construction: {peak_host_gib():.2f} GiB (rank {rank})"
             model.to(dev)
             return msg
         return ""   # C entry = none; F entry = lr change only (handled by STAGE_LR), no structural surgery
@@ -873,6 +947,23 @@ def main():
                      f"V={V}.\n  The stage-1 arms are identical in every flag -- they differ only in the "
                      f"vocabulary, so this is the mix-up a file name alone cannot prevent.")
         start_si = ck["stage_idx"]; start_step = ck["step_in_stage"]; gstep = ck["gstep"]
+        # The geometry this run WOULD derive for the resumed stage must equal the one the checkpoint was
+        # written under. Both sides derive it from the stage letter, so a mismatch means the recipe moved
+        # between sessions (a changed --seq/--batch, or a STAGE_SEQ_MULT edit) -- which would resume stage
+        # E at a different sequence length than it was trained at, and say nothing about it anywhere.
+        _wseq, _wbs = geom(stages[start_si], a)
+        _cseq = ck.get("seq")
+        if _cseq is not None and (int(_cseq) != _wseq or int(ck.get("micro_batch", _wbs)) != _wbs):
+            sys.exit(f"ERROR: resume geometry mismatch at stage {stages[start_si]}.\n"
+                     f"  checkpoint was written at seq={_cseq} micro-batch={ck.get('micro_batch')}; this "
+                     f"run derives seq={_wseq} micro-batch={_wbs}.\n"
+                     f"  The stage multipliers are {STAGE_SEQ_MULT} on --seq; stage E's extension is sealed "
+                     f"at prereg line 226 and the recall read depends on it.\n"
+                     f"  Refusing to continue a run at a geometry it was not trained at. Relaunch with the "
+                     f"flags the checkpoint was written under, or start fresh.\n"
+                     f"  (This message deliberately does NOT compute 'stage E runs at seq X' -- X would be "
+                     f"derived from the WRONG --seq that triggered this refusal, and a guard that prints a "
+                     f"plausible false number is the failure it exists to prevent.)")
         rows = ck["rows"]; hist = ck["hist"]; resumed_b0 = ck.get("stage_b0", float("nan"))
         for st in stages[:start_si + 1]:
             m = stage_surgery(st)
@@ -880,7 +971,7 @@ def main():
         net = wrap(model)
         opt = make_opt(STAGE_LR[stages[start_si]])
         model.load_state_dict(ck["model"]); opt.load_state_dict(ck["opt"]); scaler.load_state_dict(ck["scaler"])
-        if kdc is not None: kdc.pos = ck["kdc_pos"]; refresh()
+        if kdc is not None: kdc.pos = ck["kdc_pos"]; refresh(stages[start_si])
         restore_qat_alpha(start_si)
         log(f"  [resume] {rpath}: stage {stages[start_si]} step {start_step}/{budget[stages[start_si]]} gstep {gstep}")
 
@@ -903,7 +994,7 @@ def main():
             m = stage_surgery(st)
             if m: log(f"  [branch] replay surgery: {m}")
         model.load_state_dict(bk["model"]); scaler.load_state_dict(bk["scaler"])
-        if kdc is not None: kdc.pos = bk["kdc_pos"]; refresh()
+        if kdc is not None: kdc.pos = bk["kdc_pos"]; refresh(stages[start_si])
         restore_qat_alpha(start_si)
         net = wrap(model)
 
@@ -939,6 +1030,11 @@ def main():
                         gstep=gstep,
                         stage_b0=float(sb0), model=model.state_dict(), opt=opt.state_dict(),
                         scaler=scaler.state_dict(),   # no RNG state: sampling is a pure fn of (seed,rank,gstep,micro)
+                        # GEOMETRY OF THE STAGE BEING SAVED. Recorded so a resume can be REFUSED rather
+                        # than silently restarted at the wrong sequence length: stage E begins ~137k
+                        # steps into a 183k-step run, after a dozen resumes, and 512-instead-of-2048
+                        # would not look wrong in any log line.
+                        seq=geom(stages[si], a)[0], micro_batch=geom(stages[si], a)[1],
                         kdc_pos=(kdc.pos if kdc else 0), rows=rows, hist=hist, cfg=vars(a)), rpath + ".tmp")
         os.replace(rpath + ".tmp", rpath)   # atomic: a preemption mid-write can never corrupt the resume file
 
@@ -967,7 +1063,7 @@ def main():
         if dev_type == "cuda": torch.cuda.reset_peak_memory_stats(dev)
         for i in range(i0, budget[st]):
             if kdc is not None and gstep and gstep % a.chunk_steps == 0:
-                kdc.advance(); refresh()
+                kdc.advance(); refresh(st)
             # Optional linear warmup at stage entry. OFF by default: run 2 was pre-registered with a flat lr and the
             # arms must stay comparable. It exists because the flat 3e-3-from-step-1 is what let the CE arm reach an
             # overflowing activation regime by step 24 -- the KD arms only survived it because alpha halves their CE.
@@ -983,13 +1079,13 @@ def main():
             opt.zero_grad(set_to_none=True)
             loss_v = 0.0; nkd = 0; ce_m = 0.0                    # gradient accumulation (effective batch = batch*accum)
             for _mi in range(a.accum):
-                loss, nkd_i, ce_i = step_loss(reverse=(st == "F"), gs=gstep, mi=_mi)
+                loss, nkd_i, ce_i = step_loss(st, reverse=(st == "F"), gs=gstep, mi=_mi)
                 scaler.scale(loss / a.accum).backward()
                 loss_v += float(loss) / a.accum; nkd += nkd_i; ce_m += ce_i / a.accum
             scaler.unscale_(opt)
             gn = torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             scaler.step(opt); scaler.update()
-            gstep += 1; ntok_seen += a.batch * a.seq * a.accum * ws
+            gstep += 1; ntok_seen += geom(st, a)[0] * geom(st, a)[1] * a.accum * ws
             hist.append((st, gstep, loss_v))
 
             # ONE collective per step carrying BOTH stop conditions. Divergence and the time budget are decided
@@ -1022,7 +1118,7 @@ def main():
                 nce = model.recall._last_nce if model.recall is not None else 0.0
                 gate = float(model.recall.gate.detach()) if model.recall is not None else 0.0
                 log(f"  [{st}] {i+1:5d}/{budget[st]}  loss={loss_v:.4f} ce={ce_m:.4f} gnorm={float(gn):.2f} "
-                    f"kd@{nkd}/{a.batch*a.seq*a.accum}" + (f" nce={nce:.3f} gate={gate:+.4f}" if model.recall else ""))
+                    f"kd@{nkd}/{geom(st,a)[0]*geom(st,a)[1]*a.accum}" + (f" nce={nce:.3f} gate={gate:+.4f}" if model.recall else ""))
             if (time.time() - t_ck) / 60.0 > a.ckpt_min:
                 save_resume(si, i + 1, b0); t_ck = time.time(); log(f"  [ckpt] resume-point at gstep {gstep}")
             if timeup > 0:                              # agreed by all ranks above, never decided locally

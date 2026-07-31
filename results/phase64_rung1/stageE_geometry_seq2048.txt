@@ -1,0 +1,50 @@
+=== seq 2048, batch 2 (geometria stage E, B*L costante) su CDE ===
+host RAM: 79.9 GiB available to this container; recipe needs >= 10.0 GiB for 1 rank(s)
+single-epoch contract: 24 steps x 4096 tok/step = 0.000 B over 0.185 B pool = 0.001 expected passes
+== stage C: 13 steps | val BPB at entry = 4.2468 ==
+-> stage C P62 code-val BPB 3.1722  [DECIDING]  over 1499998 bytes + 2 B unscored first token = 1500000 declared  [byte invariant HOLDS]
+-> stage C done: val BPB 4.2468 -> 3.2560 (-0.9908) | 186 tok/s | 4.8 min
+== stage D: 5 steps | val BPB at entry = 3.2796 ==
+-> stage D P62 code-val BPB 3.1514  [DECIDING]  over 1499998 bytes + 2 B unscored first token = 1500000 declared  [byte invariant HOLDS]
+-> stage D done: val BPB 3.2796 -> 3.1816 (-0.0980) | 191 tok/s | 1.8 min
+== [E] MoE upcycle: 8 MLPs -> E32xh128 top8 (magnitude-matched seed, compute-all) + recall slot (131.1K par, gate=0)
+host peak after recall construction: 7.99 GiB (rank 0) ==
+== stage E: 5 steps | val BPB at entry = 3.1814 ==
+-> stage E P62 code-val BPB 3.0985  [DECIDING]  over 1499998 bytes + 2 B unscored first token = 1500000 declared  [byte invariant HOLDS]
+-> stage E done: val BPB 3.1814 -> 3.1398 (-0.0416) | 155 tok/s | 2.2 min
+MVE-DONE: all stages complete.
+
+--------------------------------------------------------------------------------
+WHAT THIS EXERCISE IS, and the finding it produced before it ran
+--------------------------------------------------------------------------------
+Ordered by the Architect: the epsilon-identity gate covered stage C only, and the
+uint16-slice-then-cast path meets a geometry it has never seen at stage E, where
+the recipe trades seq 512 -> 2048 against the micro-batch to hold B*L. Invoked
+here as --seq 2048 --batch 2 --stages CDE --recall on.
+
+RESULT: clean. C, D and E all complete, the P62 byte invariant holds at every
+stage exit, MVE-DONE. The recall slot builds at 131.1K parameters and the host
+peak right after it is 7.99 GiB (s0 corpus, CPU torch, one rank) -- which also
+right-sizes the one term the main-run projection had to leave unmeasured: the
+training-time recall is a parameter slot, not the inference IVF-PQ index.
+
+THE FINDING, which is independent of the result above: a.seq IS NEVER REASSIGNED
+PER STAGE. The only reassignment in the file is --smoke (line 334). The comment
+at line 473 -- "Constant across stages by construction: stage E trades seq 512
+-> 2048 against micro-batch to hold B*L" -- describes an intent the code does
+not implement, and it is the justification given for why the single-epoch
+contract survives the stage transitions. The contract IS sound; it is sound a
+fortiori if seq never changes. The stated reason is not the true one.
+
+This is the third declared-but-not-load-bearing item of this rung, after
+val_split_byte sitting unread in the manifest and the accelerator guard that had
+never been executed. The form here is worse than either: not a field nobody
+reads, but PROSE DESCRIBING ABSENT BEHAVIOUR, inside the comment that licenses
+an invariant.
+
+NOT FIXED. Making stage E lengthen the sequence is a recipe change -- it changes
+what the model is trained on -- and the memory records "seq-2048 at stage E
+declared" as half of the WS4 closure (gated distances <= trained context PLUS
+seq-2048 at stage E). If that second half was meant to be in the main run, it is
+not there. One line, but a line that must be decided before the launch and not
+discovered after it.
