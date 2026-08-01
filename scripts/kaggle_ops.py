@@ -56,7 +56,15 @@ def kaggle(account: str, *args: str, check: bool = True) -> subprocess.Completed
     for var in ("KAGGLE_API_TOKEN", "KAGGLE_USERNAME", "KAGGLE_KEY"):
         env.pop(var, None)
     cmd = [sys.executable, "-m", "kaggle", *args]
-    return subprocess.run(cmd, env=env, capture_output=True, text=True, check=check)
+    # DECODE EXPLICITLY. text=True alone decodes with the LOCALE codec, which on this machine is
+    # cp1252, and the CLI's progress bars emit bytes that are not in it -- 0x8f raised UnicodeDecodeError
+    # inside subprocess's stderr reader THREAD during the 4.3 GB upload. That failure does not stop the
+    # command and does not surface as an exception in the caller: the thread dies, and the stderr the
+    # caller reads comes back empty. So the one channel an error would arrive on is the one the bug
+    # silently empties -- and the unattended relay reports a failed push through exactly that channel.
+    # utf-8 with errors="replace" cannot raise: worst case a progress glyph becomes a replacement char.
+    return subprocess.run(cmd, env=env, capture_output=True, text=True,
+                          encoding="utf-8", errors="replace", check=check)
 
 
 def username(account: str) -> str:
@@ -114,6 +122,13 @@ def cmd_raw(args: argparse.Namespace) -> int:
 
 
 def main() -> int:
+    # Decoding leniently (above) can yield U+FFFD; writing it to a cp1252 console raises. Fix both ends
+    # or the failure just moves from the read to the write.
+    for _s in (sys.stdout, sys.stderr):
+        try:
+            _s.reconfigure(errors="replace")
+        except (AttributeError, ValueError):
+            pass
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
 

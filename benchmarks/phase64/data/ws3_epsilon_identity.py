@@ -127,11 +127,48 @@ def weights_sha(p):
     return h.hexdigest()
 
 
+def bpbs(out):
+    """Every BPB the run printed, in order, as TEXT.
+
+    WHY THE WEIGHT COMPARISON IS NOT ENOUGH (MM, 2026-08-01). This gate's verdict is bit-identity of the
+    saved weights, and the whole evaluation path runs under torch.no_grad(): bpb_on never touches a
+    parameter. A defect confined to it therefore leaves the gate GREEN while corrupting the reported BPB
+    -- including the P62 [DECIDING] line, which is the metric the entire rung is decided on. Exercised is
+    not certified, and four of the changed _i64 sites live exactly there. It is the stage-1 family: every
+    guard passed and the one number that mattered was the broken one.
+
+    Compared as strings, so no float parsing can round two different values together. RESOLUTION IS 1e-4,
+    the trainer's own print precision -- this is NOT bit-identity and must not be described as such. It is
+    50x below the sigma_seed adoption bar of 0.005 and 100x below the 2-sigma claim bar, which is what
+    makes it adequate for the question it answers, and stating the limit is part of the answer.
+
+    TIMING IS STRIPPED, and the first version of this function did not strip it. The trainer prints the
+    stage summary as "val BPB 4.4199 -> 2.5641 (-1.8557) | 242 tok/s | 56.5 min", so taking the whole line
+    made the comparison fail on WALL CLOCK -- 242 vs 248 tok/s, 56.5 vs 55.0 min -- while every BPB on it
+    was identical. A gate that fails on nondeterministic noise gets overridden, and an overridden gate is
+    worse than no gate: it teaches everyone that red means nothing. Fourth time this rung that the defect
+    was in the repair rather than in the thing repaired."""
+    return [_TIMING.sub("", ln).strip() for ln in out.splitlines() if "BPB" in ln]
+
+
+# Timing fields on a BPB line: nondeterministic, and never part of a claim about numbers.
+_TIMING = re.compile(r"\|\s*[\d.]+\s*(?:tok/s|min)\s*")
+# The TRAINING rate, taken only from the stage-summary line.
+_STAGE_TPS = re.compile(r"stage \w+ done:.*?\|\s*([\d.]+)\s*tok/s")
+
+
 def tok_s(out):
-    """Every tok/s the trainer printed. The gate reports old vs new because 3860 tok/s is what makes the
-    145-hour calendar fit, and the calendar is what makes the account rotation fit -- a throughput
-    regression is a schedule failure that no correctness check would catch."""
-    return [float(x) for x in re.findall(r"([\d.]+) tok/s", out)]
+    """The TRAINING throughput, from the stage-summary line only.
+
+    The first version matched every "([\\d.]+) tok/s" in the output and averaged them, which mixes the
+    training rate with the evaluation rate -- bpb_on is a batched no-grad forward and runs about 9x
+    faster. The average came out ~2170 tok/s while the real training rate was 242, and that wrong number
+    was used to tell the Capo the gate would take 25 minutes. It took 203. A measurement that is never
+    checked against the thing it describes will happily be a different quantity with a plausible value.
+
+    The gate reports old vs new because 3860 tok/s on 2xT4 is what makes the 145-hour calendar fit, and
+    the calendar is what makes the account rotation fit."""
+    return [float(x) for x in _STAGE_TPS.findall(out)]
 
 
 def compare(pa, pb):
@@ -270,6 +307,33 @@ def main():
             print("  WARNING: the hash and the tensor comparison disagree. Trust neither until that is "
                   "explained -- two instruments cannot both be right here.")
 
+        # THE EVALUATION PATH, which the weight comparison structurally cannot reach.
+        # THE EMPTY CASE IS VOID, NOT FAIL, AND NEVER PASS. Three outcomes, because there are three
+        # states and collapsing any two of them is the failure this whole gate exists to prevent:
+        #   ba == bb, non-empty  -> certified to print precision
+        #   ba != bb             -> FAIL, the edit changed a reported number
+        #   ba empty             -> VOID, the check did not run. NOT a failure of the edit.
+        # Written as an early exit rather than a flag, because a flag is what lets "nothing was checked"
+        # flow into a branch that prints "0 line(s) match" -- true, useless, and indistinguishable from
+        # success at a glance.
+        ba, bb = bpbs(out_a), bpbs(out_b)
+        if not ba:
+            print("\n  VERDICT: VOID -- the runs printed no BPB line, so the evaluation path was not\n"
+                  "  compared at all. bpb_on runs under no_grad and the weight comparison is structurally\n"
+                  "  blind to it, so without these lines the DECIDING metric's code path is uncertified.\n"
+                  "  This is not a failure of the edit: it is an unrun check. Give the gate enough steps\n"
+                  "  to reach a stage exit, or point it at data carrying the P62 stream, and re-run.")
+            sys.exit(2)
+        same_bpb = (ba == bb)
+        print(f"\n  reported BPB lines   A(old) {len(ba)}   B(new) {len(bb)}   "
+              + ("IDENTICAL to 1e-4 (print precision)" if same_bpb else "DIFFER"))
+        for ln in (ba if same_bpb else []):
+            print(f"      {ln}")
+        if not same_bpb:
+            for x, y in zip(ba, bb):
+                if x != y:
+                    print(f"      A: {x}\n      B: {y}")
+
         # THROUGHPUT. Absolute numbers here are CPU-local and are NOT the 3860 tok/s T4 figure the
         # calendar is built on; the RATIO is the measurement, and it is device-independent because both
         # runs are the same device with the same recipe.
@@ -288,7 +352,15 @@ def main():
             print("\n  throughput: no 'tok/s' lines in the output -- not measured, and NOT to be reported as "
                   "'no regression'.")
 
-        if same_ab and not same_ac:
+        # The evaluation path is part of the VERDICT, not a note beside it. A green gate over a corrupted
+        # [DECIDING] number is worse than a red one.
+        if same_ab and not same_bpb:
+            print("\n  VERDICT: FAIL -- the weights are bit-identical but the REPORTED BPB is not.\n"
+                  "  Everything that decides this rung is read out of the evaluation path, and the weight\n"
+                  "  comparison cannot see it: bpb_on runs under no_grad and touches no parameter. A run\n"
+                  "  built on this trainer would train correctly and report the wrong number.")
+            rc = 1
+        elif same_ab and not same_ac:
             # Worded from the ACTUAL mode and control, not from the edit this gate was first written for.
             # The first CE run printed the stage-4 sentence -- "the flag is behaviour-preserving at its
             # default ... may be compared against arm4" -- which named the wrong edit and the wrong control
@@ -297,7 +369,10 @@ def main():
             print(f"\n  VERDICT: PASS -- in {a.mode.upper()} mode the edit is behaviour-preserving (bit-identical\n"
                   f"  to {resolved[:12]}), and the comparison is demonstrably able to detect a difference:\n"
                   f"  perturbing {ctrl_name} moved the weights. 'IDENTICAL' here is a measurement, not the only\n"
-                  f"  thing this comparison could have printed.")
+                  f"  thing this comparison could have printed.\n"
+                  f"  The evaluation path is certified separately and to 1e-4, not bit-exact: {len(ba)} BPB\n"
+                  f"  line(s) match, including the P62 [DECIDING] value. bpb_on runs under no_grad, so the\n"
+                  f"  weight comparison above is structurally blind to it -- exercised is not certified.")
             rc = 0
         elif not same_ab:
             print(f"\n  VERDICT: FAIL -- in {a.mode.upper()} mode the edit is NOT neutral: it changes the weights\n"

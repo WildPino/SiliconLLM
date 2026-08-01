@@ -1,4 +1,4 @@
-==============================================================================
+﻿==============================================================================
 shipped-identity check -- the bytes that ship vs the bytes that were gated
 ==============================================================================
 
@@ -6,14 +6,17 @@ shipped-identity check -- the bytes that ship vs the bytes that were gated
   certified  benchmarks/phase64/mve/mve_train.py
              sha256 bf6a2c42693aafc26b055c203a244d36aa41b3fcad611a4dea585a5baafd6c1c
 
-  trees compared: repo, code_bundle, package:code_bundle, package:main_run
+  trees compared: repo, code_bundle, package:code_bundle, package:code_bundle_rt, package:main_run
     repo                     benchmarks/phase64/mve/mve_train.py  bf6a2c42693aafc2...  == certified
     code_bundle              benchmarks/phase64/mve/mve_train.py  bf6a2c42693aafc2...  == certified
     package:code_bundle      benchmarks/phase64/mve/mve_train.py  bf6a2c42693aafc2...  == certified
+    package:code_bundle_rt   benchmarks/phase64/mve/mve_train.py  abd0f1b8f29ccafa...  declared alternate generation 27b225820bff..., self-consistent and pinned by a cell
     package:main_run         benchmarks/phase64/mve/mve_train.py  bf6a2c42693aafc2...  == certified
 
 ==============================================================================
 VERDICT: PASS
-  8 module(s) identical across 4 tree(s), and the trainer in every shipped tree
-  is byte-for-byte the file the gate certified (bf6a2c42693aafc2...).
+  8 module(s) checked across 5 tree(s).
+  4 tree(s) carry the certified trainer byte-for-byte (bf6a2c42693aafc2...).
+  package:code_bundle_rt is a DECLARED ALTERNATE generation (27b225820bffd904...): self-consistent with its own
+    CODE_MANIFEST and pinned by a generated cell. It is NOT for the main run.
 ==============================================================================

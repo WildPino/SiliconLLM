@@ -1,0 +1,58 @@
+﻿epsilon-identity gate   steps=200 seed=0
+  old = bce0e89d63ff1e8f38c2b6e381ffa985ce0be3fd : benchmarks/phase64/mve/mve_train.py
+        (immutable sha, and verified byte-DIFFERENT from the working copy)
+
+  [A old [ce]] _eps_old_mve_train.py 
+  [B new [ce]] mve_train.py 
+  [C new [ce, seed+1]] mve_train.py 
+  both ends unchanged across all three runs (re-hashed at exit)
+  CERTIFIED FILE  benchmarks/phase64/mve/mve_train.py
+                  sha256 bf6a2c42693aafc26b055c203a244d36aa41b3fcad611a4dea585a5baafd6c1c
+
+  CLAIM    A(old) vs B(new): IDENTICAL  -- every tensor bit-identical
+  CONTROL  A(old) vs C(new,perturbed): DIFFERS  -- diverges, worst at emb.weight  max|delta| 6.306e+00
+
+  weights sha256   A(old) 3b577140caa1956b23fe497f9a788087...
+                   B(new) 3b577140caa1956b23fe497f9a788087...   MATCH
+
+  reported BPB lines   A(old) 4   B(new) 4   DIFFER
+      A: -> stage C done: val BPB 4.4199 -> 2.5641 (-1.8557) | 242 tok/s | 56.5 min
+      B: -> stage C done: val BPB 4.4199 -> 2.5641 (-1.8557) | 248 tok/s | 55.0 min
+
+  throughput (CPU-local, ratio is the measurement)
+      A(old)   2169.0 tok/s   B(new)   2172.0 tok/s   +0.1%  -- within +/-2%, no schedule impact
+
+  VERDICT: FAIL -- the weights are bit-identical but the REPORTED BPB is not.
+  Everything that decides this rung is read out of the evaluation path, and the weight
+  comparison cannot see it: bpb_on runs under no_grad and touches no parameter. A run
+  built on this trainer would train correctly and report the wrong number.
+
+STOP. No commit.
+
+--------------------------------------------------------------------------------
+LABEL CORRECTION APPENDED AFTER THE RUN. The record is not edited or re-run.
+--------------------------------------------------------------------------------
+The "VERDICT: FAIL" above is VOID, and the defect was in the GATE, not the trainer.
+
+bpbs() took the whole line containing "BPB". The trainer prints the stage summary
+as "val BPB 4.4199 -> 2.5641 (-1.8557) | 242 tok/s | 56.5 min", so the comparison
+included WALL CLOCK. The two runs differ at 242 vs 248 tok/s and 56.5 vs 55.0 min
+while EVERY BPB ON THE LINE IS IDENTICAL -- 4.4199 -> 2.5641, delta -1.8557, and
+the P62 [DECIDING] value. The gate failed on nondeterministic noise.
+
+WHAT THIS LOG DOES ESTABLISH, and it is not affected by that defect:
+    both ends unchanged across all three runs (re-hashed at exit)
+    CERTIFIED FILE  benchmarks/phase64/mve/mve_train.py
+                    sha256 bf6a2c42693aafc26b055c203a244d36aa41b3fcad611a4dea585a5baafd6c1c
+    CLAIM    A(old) vs B(new): IDENTICAL -- every tensor bit-identical, 200 steps
+    weights sha256 MATCH
+    CONTROL  A(old) vs C(new, seed+1): DIFFERS, emb.weight, max|delta| 6.306e+00
+The weight-identity claim at 200 steps stands. Only the evaluation-path
+comparison was invalid.
+
+A SECOND DEFECT IN THE SAME EXTRACTOR, found because of the first: tok_s()
+averaged EVERY "tok/s" in the output, mixing the evaluation rate (batched,
+no_grad, ~9x faster) with the training rate. It reported ~2169 tok/s when the
+training rate was 242 -- and that number was used to tell the Capo this gate
+would take 25 minutes. It took 203. Both are fixed and both were exercised on
+the verbatim captured lines above before the fix was trusted.

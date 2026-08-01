@@ -48,3 +48,27 @@ declared" as half of the WS4 closure (gated distances <= trained context PLUS
 seq-2048 at stage E). If that second half was meant to be in the main run, it is
 not there. One line, but a line that must be decided before the launch and not
 discovered after it.
+
+==============================================================================
+SUPERSEDED IN THE SAME COMMIT -- read before quoting the section above.
+Appended 2026-08-01 by MM. The text above is NOT edited.
+==============================================================================
+"THE FINDING" and "NOT FIXED" were true when written and were false by the time
+this file was committed. STAGE_SEQ_MULT = {"E": 4} and geom(st, a) landed in
+8590be2, the same commit that carries this log: 0 occurrences at 48b8f58, 5 at
+8590be2. Stage E derives seq 2048 x batch 2, B*L invariant, and the value is
+derived at every use rather than latched -- which is why "a.seq is never
+reassigned per stage" remains literally true and no longer means what the
+sentence above concludes from it.
+
+WHY THIS IS RECORDED RATHER THAN DELETED. The stale label cost real time: MM
+read this log, searched for the signature it names (a reassignment of a.seq),
+could not find it -- by construction, since derive-at-use has none -- and raised
+a launch blocker against a file that already implemented the behaviour. The
+Architect resolved it with one grep. The finding, the fix and the log travelled
+in one push with only the log left pointing backwards.
+
+The lesson is the one this rung keeps paying for, in a new place: a report that
+states an absence must be re-read when the absence is closed, and closed in the
+SAME commit is the hardest case, because nothing prompts the re-read. The label
+is corrected here; the record stands as written.

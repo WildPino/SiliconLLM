@@ -20,7 +20,7 @@ All three must agree, and the trainer must additionally equal the gate's CERTIFI
 
 Run: python benchmarks/phase64/data/ws3_shipped_identity.py
 """
-import hashlib, os, re, sys
+import glob, hashlib, json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
@@ -80,7 +80,48 @@ def main():
         if os.path.isdir(cd):
             trees.append((f"package:{d}", cd))
 
-    bad, rows = [], []
+    # A tree may legitimately hold a DIFFERENT generation: the relaytest bundle is pinned to CODE_SHA
+    # 27b22582 on purpose, because that throwaway validates the resume chain against the trainer that is
+    # already uploaded. The first version of this check called that FAIL, which is the wrong
+    # classification -- and a check that goes red for a legitimate reason gets overridden, after which its
+    # red means nothing. But "differs" must not become a free pass either, so a divergent tree has to earn
+    # it on three counts: it carries its own CODE_MANIFEST, it REPRODUCES that manifest's code_sha256, and
+    # that sha is pinned by a generated notebook cell. Then it is a declared alternate generation with a
+    # consumer. Anything else is stale.
+    pinned = set()
+    for nb in sorted(glob.glob(os.path.join(OUT, "NOTEBOOK_*.py"))):
+        m = re.search(r"^CODE_SHA\s*=\s*'([0-9a-f]{64})'", open(nb, encoding="utf-8").read(), re.M)
+        if m:
+            pinned.add(m.group(1))
+
+    def declared_alternate(tree):
+        """(True, sha) if `tree` is a self-consistent bundle of another, still-referenced generation."""
+        mp = os.path.join(os.path.dirname(tree), "CODE_MANIFEST.json")
+        if not os.path.isfile(mp):
+            return False, None
+        man = json.load(open(mp))
+        want = man.get("code_sha256")
+        h = hashlib.sha256()
+        for rel in sorted(man.get("files", {})):
+            p = os.path.join(os.path.dirname(tree), rel) if rel == "assert_package.py" \
+                else os.path.join(tree, rel)
+            h.update(f"{rel} {sha(p) if os.path.isfile(p) else 'MISSING'}\n".encode())
+        return (h.hexdigest() == want and want in pinned), want
+
+    bad, rows, alt = [], [], {}
+    for name, tree in trees:
+        # ALTERNATE only applies to a tree whose trainer actually DIFFERS from the certified one. The
+        # first version tested self-consistency first, which made the CURRENT bundle -- whose sha is of
+        # course pinned by the main-run cell -- classify as an alternate generation, and the summary then
+        # printed "It is NOT for the main run" about the bundle the main run uses. Flatly false, and
+        # dangerous in the direction that matters. Third defect in this checker inside ten minutes: the
+        # repair keeps being the thing that breaks.
+        tp = os.path.join(tree, TRAINER)
+        if name == "repo" or not os.path.isfile(tp) or sha(tp) == csha:
+            continue
+        ok, want = declared_alternate(tree)
+        if ok:
+            alt[name] = want
     for rel in CODE_FILES:
         base = sha(os.path.join(ROOT, rel))
         for name, tree in trees:
@@ -90,17 +131,24 @@ def main():
                     bad.append(f"{name}: {rel} MISSING")
                 continue
             s = sha(p)
-            if s != base:
+            if s != base and name not in alt:
                 bad.append(f"{name}: {rel} differs from the repo copy")
             rows.append((name, rel, s))
 
     print(f"\n  trees compared: {', '.join(n for n, _ in trees)}")
     for name, tree in trees:
         got = [s for n, r, s in rows if n == name and r == TRAINER]
-        mark = "== certified" if got and got[0] == csha else ("DIFFERS from certified" if got else "absent")
-        print(f"    {name:24s} {TRAINER}  {(got[0][:16] + '...') if got else '-':<20s} {mark}")
-        if got and got[0] != csha:
-            bad.append(f"{name}: the trainer is NOT the file the gate certified")
+        if not got:
+            print(f"    {name:24s} {TRAINER}  {'-':<20s} absent"); continue
+        if got[0] == csha:
+            mark = "== certified"
+        elif name in alt:
+            mark = f"declared alternate generation {alt[name][:12]}..., self-consistent and pinned by a cell"
+        else:
+            mark = "DIFFERS from certified"
+            bad.append(f"{name}: the trainer is NOT the file the gate certified, and the tree is not a "
+                       f"self-consistent bundle of a generation any cell pins")
+        print(f"    {name:24s} {TRAINER}  {got[0][:16] + '...':<20s} {mark}")
 
     print("\n" + "=" * 78)
     if bad:
@@ -112,9 +160,16 @@ def main():
         print("=" * 78)
         sys.exit(1)
     n = len({r for _, r, _ in rows})
+    nmain = len(trees) - len(alt)
     print("VERDICT: PASS")
-    print(f"  {n} module(s) identical across {len(trees)} tree(s), and the trainer in every shipped tree")
-    print(f"  is byte-for-byte the file the gate certified ({csha[:16]}...).")
+    print(f"  {n} module(s) checked across {len(trees)} tree(s).")
+    print(f"  {nmain} tree(s) carry the certified trainer byte-for-byte ({csha[:16]}...).")
+    if alt:
+        # Said explicitly, because "every shipped tree is the certified one" would be FALSE here and a
+        # summary line that contradicts its own table is how a green check stops being read.
+        for k, v in sorted(alt.items()):
+            print(f"  {k} is a DECLARED ALTERNATE generation ({v[:16]}...): self-consistent with its own")
+            print(f"    CODE_MANIFEST and pinned by a generated cell. It is NOT for the main run.")
     print("=" * 78)
 
 

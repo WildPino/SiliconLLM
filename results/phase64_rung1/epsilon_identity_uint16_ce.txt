@@ -1,4 +1,4 @@
-﻿epsilon-identity gate   steps=200 seed=0
+﻿epsilon-identity gate   steps=20 seed=0
   old = bce0e89d63ff1e8f38c2b6e381ffa985ce0be3fd : benchmarks/phase64/mve/mve_train.py
         (immutable sha, and verified byte-DIFFERENT from the working copy)
 
@@ -10,17 +10,26 @@
                   sha256 bf6a2c42693aafc26b055c203a244d36aa41b3fcad611a4dea585a5baafd6c1c
 
   CLAIM    A(old) vs B(new): IDENTICAL  -- every tensor bit-identical
-  CONTROL  A(old) vs C(new,perturbed): DIFFERS  -- diverges, worst at emb.weight  max|delta| 6.306e+00
+  CONTROL  A(old) vs C(new,perturbed): DIFFERS  -- diverges, worst at emb.weight  max|delta| 6.542e+00
 
-  weights sha256   A(old) 3b577140caa1956b23fe497f9a788087...
-                   B(new) 3b577140caa1956b23fe497f9a788087...   MATCH
+  weights sha256   A(old) 841775d231b5b2ebdb33accf542bb414...
+                   B(new) 841775d231b5b2ebdb33accf542bb414...   MATCH
+
+  reported BPB lines   A(old) 4   B(new) 4   IDENTICAL to 1e-4 (print precision)
+      == stage C: 20 steps | val BPB at entry = 4.4199 ==
+      -> stage C P62 code-val BPB 3.4272  [DECIDING]  over 1499998 bytes + 2 B unscored first token = 1500000 declared  [byte invariant HOLDS]
+      -> stage C done: val BPB 4.4199 -> 3.7514 (-0.6685)
+      stage    steps    BPB in   BPB out    delta     tok/s     min
 
   throughput (CPU-local, ratio is the measurement)
-      A(old)   2169.5 tok/s   B(new)   2169.0 tok/s   -0.0%  -- within +/-2%, no schedule impact
+      A(old)    249.0 tok/s   B(new)    251.0 tok/s   +0.8%  -- within +/-2%, no schedule impact
 
   VERDICT: PASS -- in CE mode the edit is behaviour-preserving (bit-identical
   to bce0e89d63ff), and the comparison is demonstrably able to detect a difference:
   perturbing seed+1 moved the weights. 'IDENTICAL' here is a measurement, not the only
   thing this comparison could have printed.
+  The evaluation path is certified separately and to 1e-4, not bit-exact: 4 BPB
+  line(s) match, including the P62 [DECIDING] value. bpb_on runs under no_grad, so the
+  weight comparison above is structurally blind to it -- exercised is not certified.
 
 STOP. No commit.
