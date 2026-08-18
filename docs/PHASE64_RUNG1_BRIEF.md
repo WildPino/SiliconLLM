@@ -336,3 +336,79 @@ The operator's classification is accepted and his method is right: he grepped ra
 **Sharpening, because "math-neutral" is very slightly stronger than what holds.** The *step grid and effective batch* are invariant across (world 2, accum 1) and (world 1, accum 2) — that is the comparability claim the prereg makes and it stands. **Floating-point summation order is not invariant**: DDP gradient averaging and local accumulation sum in different orders, so a session on a different accelerator is *comparable but not bit-identical*. Over a 14-session resumed run this matters: **the accelerator must stay T4×2 for the whole main run, and any session that gets something else is a declared deviation, not a silent one.** Make it load-bearing — assert `device_count == 2` and the device name in the cell, and refuse otherwise. Kaggle substituting an accelerator is precisely the kind of silent substitution the cell should catch in two seconds.
 
 Commit line approved as drafted; it names the accelerator, which is what keeps the seam on the record.
+
+---
+
+## 24. Main run — seed deviation at 41.9%, and the condition underneath it (2026-08-01)
+
+### The deviation, and where it is recorded
+
+The run trained under `--seed 0` to gstep 76,687, diverged in fp16 at ~94,379, was rolled back to the
+76,687 checkpoint and resumed under `--seed 1`. The fork is verified on the checkpoints: history
+bit-identical to 76,687. Current state gstep 96,012 (52.4%), weights finite, GradScaler 4.0.
+
+**This is recorded here and not in the prereg. The prereg's amendment window closed at v9** — "the
+first gate-bearing number now exists, so by the seal's own clause nothing below is amended" — and a
+deviation is declared *beside* a sealed document, never by editing it. Same handling as the w16 → w8
+OOM deviation in §19. A seal that gets amended when reality disagrees with it is not a seal.
+
+### The deviation does not damage anything the plan rests on
+
+Verified rather than accepted:
+
+- **Distribution unchanged.** The sampler is i.i.d. uniform with replacement, so two independent
+  segments drawn under different seeds have the same expected unique coverage as one segment of the
+  combined length. The sealed 0.653 expected passes / 47.9% unique coverage already *assume* sampling
+  with replacement — that is where 1 − e^(−0.653) comes from — so the figure is untouched.
+- **The single-epoch contract holds on the correct reading.** The model performs 183,105 optimizer
+  steps; the ~17,700 steps drawn under seed 0 after the fork point were discarded with the weights
+  that produced them. Total draws across session history exceed the contract; total draws *the
+  surviving model trained on* do not. Stated here because an auditor reading the session logs will
+  count the larger number, and the answer belongs on the record before the question is asked.
+- **No decision moves.** The main run is a single arm carrying no adoption. The three §6 branches fork
+  from stage D at 137,328 — downstream of 76,687 — so all inherit the same history and the paired
+  comparisons are unaffected. Against the screening, σ_seed = 0.005 already prices seed-to-seed
+  variation; a reseed places this run inside the distribution that constant describes.
+
+### The finding the report does not contain: GradScaler 4.0 is not a healthy reading
+
+"Weights finite, scaler 4.0" is offered as evidence of health. The first half is; the second half is
+evidence of the opposite, and it is the only quantitative statement in the report.
+
+`torch.amp.GradScaler` initialises at 65,536 with `backoff_factor` 0.5, `growth_factor` 2.0 and
+`growth_interval` 2,000. **4.0 is fourteen backoffs below init.** More sharply: the run is 19,324 steps
+past the fork, so a scaler that had been quiet since the fork would have doubled up to nine times and
+would read ≈ 2,048. Reading 4.0 means an overflow fired within roughly the last 2,000 steps, and the
+scale is oscillating near the floor rather than recovering from a single event.
+
+That reframes the incident. Changing the seed treats the divergence as a **data-order accident**; a
+loss scale pinned at the floor is the signature of a **systematic condition** that the reseed moved
+rather than removed. Two further facts narrow it: the divergence at ~94,379 and the fork at 76,687 are
+both inside **stage C** — plain seq 512, no surgery, no QAT ramp, no MoE upcycle — which is the most
+benign context available and leaves the event entirely unexplained; and the trainer changes gated
+before launch (uint16 residency, per-batch cast, derived geometry) do not touch fp16 numerics and were
+certified bit-identical at exactly this stage and sequence length, so they are not a credible cause.
+
+**Near-term, and this is the actionable part: stage D begins at step 100,707, roughly 4,700 steps
+away, and opens with the 3,600-step α-QAT ramp** — the transition that produced a +0.32 shock on the
+MVE. The run is approaching a known-stressful boundary with the loss scale already at the floor.
+
+### Ordered, and none of it stops the run
+
+**Diagnosis, from logs already written, no GPU cost:** the GradScaler trace over the last ~20,000
+steps — the step of the most recent backoff, the backoff frequency, and whether `found_inf` fires
+regularly or in bursts. That single trace separates "one pathological batch, now behind us" from
+"persistently on the edge of fp16 range", and those two have different correct responses.
+
+**Pre-registered response to a second divergence, decided now while it is still blind.** Reseeding
+after each crash selects for the seeds that happen to survive; at one occurrence the effect is
+negligible, at three the run becomes "trained on the seeds that did not crash", which is a selection
+effect that would have to be declared and could not be undone. **Rule: a second divergence is not
+answered with a third seed.** It triggers the diagnosis above and a numerical remedy — gradient-norm
+clipping, or a reduced LR for the remainder, declared as a deviation with the step it takes effect —
+because a numerical remedy is a stated change to the recipe, while serial reseeding is an unstated
+search.
+
+**The run continues.** Weights are finite and the gradient signal is real; a low loss scale costs
+precision, not correctness, and stopping a 145-hour run to think is worse than measuring it while it
+moves.
