@@ -339,6 +339,406 @@ Commit line approved as drafted; it names the accelerator, which is what keeps t
 
 ---
 
+## 20. Main-run corpus build — the memory wall, and why both proposed exits die (2026-07-31)
+
+### The measured wall is real; it is not the only one
+
+The Builder's diagnosis of `teacher_tokens` is correct and independently verified: `tids`/`tstart`
+accumulate as **Python lists** (`code_data.py:96-105`), ~76 B per token where numpy holds 12. At the
+5.5 GB target that is 1.47 B teacher tokens × 76 B = **104 GiB**, against 9.2 GiB at the 0.5 GB slice
+where the component was validated. Two kills at the same point is the signature of a memory ceiling,
+not of time, and it is why warming the corpus cache did not help. All of that stands.
+
+**Reading the rest of the surviving path shows two further allocations of the same or larger size, both
+on the branch that Option 2 keeps.** Projected at 5.5 GB (2.139 B student tokens at the measured
+2.5706 B/tok):
+
+| line | allocation | at 5.5 GB | on which path |
+|---|---|---|---|
+| `126` | `pool.map` returns `parts` = list of ~2.14 B Python ints, then a list comprehension builds a **second** full list before `np.array` consumes it | ~77 GiB **× 2** | **student** — survives Option 2 |
+| `135` | `b2j = np.full(N+1, -1, dtype=np.int64)`, `N` = corpus **bytes** | **41.0 GiB** | teacher/anchor — removed by Option 2 |
+| `130` | `ends = np.cumsum(exp_len[ids])`, plus the `exp_len[ids]` temporary it materialises first | 15.9 GiB × 2 | student, but only feeds the anchor read and one assert |
+| `121/126` | `ids` held as **int64** rather than uint16 | 15.9 GiB (vs 4.0) | student |
+
+Consistency check against the one run that worked: at 0.5 GB the student path costs ~14 GiB and the
+teacher path 9.2 GiB, peak ~23 GiB — which is why it completed. Scaled to 5.5 GB the **student** path
+alone exceeds the box, and it exceeds it by more than the teacher path does, because there are more
+student tokens than teacher tokens.
+
+**Consequence for the two options as written.** Option 1 (memmap the teacher accumulator) leaves
+`b2j` at 41.0 GiB and line 126 at ~77 GiB: it dies. Option 2 (drop the teacher apparatus) removes
+`b2j` and the teacher lists but leaves line 126 untouched: it also dies, later and for a different
+reason. The stated Option-1 peak of "~22 GiB instead of 110" is a projection for one array, not for
+the path.
+
+### Decision — Option 2, extended to the student path
+
+**Option 2 is adopted**, for the Builder's three reasons — the arrays are exactly the ones Decision B
+(§19) already ruled we would not load; the main run and all three §6 branches are CE, so no consumer
+reads them; and a code change is now unavoidable either way, so "let it run" is no longer on the
+menu — **plus a fourth that closes the option-value argument rather than deferring it.** Any rung-2
+reopening of KD needs the corpus **rebuilt regardless**: `SCALEUP_ARCHITECTURE.md` §5.1, promoted two
+days ago, requires membership randomised **when the artifact is written**, and these arrays are built
+on exactly the sequential r=2 ordering the probe priced at +0.0339 (6.8σ). Preserving them preserves a
+version we have already declared unusable. The option value is ≈ 0, not merely cheap to re-pay.
+
+**Scope of the change, which is larger than "don't build the teacher arrays":**
+1. remove the teacher tokenisation, `b2j`, `anchors`, `t2s`, `decomp` (Option 2 as proposed);
+2. stream the student encode — `pool.imap` (ordered) writing each block as uint16 to the ids file,
+   then `np.fromfile`, so neither `parts` nor the comprehension is ever fully materialised;
+3. keep `ids` as **uint16**, and replace `ends = np.cumsum(...)` with a **chunked sum** — under
+   Option 2 `ends` has no consumer except `assert ends[-1] == N`, and a sum answers that.
+
+Projected peak after all three: `raw` 5.1 GiB + `ids` 4.0 GiB + one block ≈ **10 GiB**.
+
+### Two gates, both pre-registered here before the code is written
+
+**(a) Peak, projected then measured.** Before writing the fix, produce the projected peak for **every**
+surviving allocation at 5.5 GB — the table above is the form — and during the build print a **running
+peak RSS** line. Rationale is the Builder's own method note applied one step further than he applied
+it: the "~22 GiB" estimate was a model of one array at a scale where nothing had been measured, made
+in the same message that correctly named that habit as the defect. A projection that covers one array
+is how we got here; a build that dies silently a third time teaches nothing.
+
+**(b) Bit-identity of the student side, old vs new, at 0.5 GB.** The hypothesis being falsified is
+*"removing the teacher branch touches nothing the student path produces"* — plausible, and this week
+has priced what plausible is worth. Compare `ids_V2048_*.u16`, the document boundaries, **the P62 val
+split and the slice sha** between the old and the new builder at the 0.5 GB slice, where the old path
+is known to run and the reference artifacts already exist from s0. Planted control: corrupt one byte
+of `raw` and confirm the comparison fires; a comparison never seen fire is not a comparison.
+The P62 decider must be inside the compared set explicitly — `--require-p62` is the deciding metric of
+the whole rung and it lives in the same builder as the code being cut.
+
+### Method
+
+Banked in [[feedback_planted_controls]]. The Builder retracted his own "let it run" twice-given
+recommendation, named the cause correctly (a component validated at 0.5 GB and assumed at 5.5, the
+same form as the 2.12×), and did so unprompted. That is the behaviour the process wants. The
+correction here is not to the diagnosis but to its reach: **the scale-assumption law applies to the
+remedy as well as to the defect**, and the second wall was visible in the same file, twelve lines
+below the first.
+
+---
+
+## 21. Main-run corpus built; trainer authorised for the last O(corpus) site (2026-07-31)
+
+### Both gates pass, and gate (a)'s agreement is not a coincidence
+
+**(b) bit-identity.** Arm A (new code, `--kd-apparatus`): 10/10 artifacts bit-identical to s0, both
+vocabularies — the rewrite changed how accumulation happens, not what comes out. Arm B (default):
+2/2 ids identical, 0/8 KD files built — the flag removes work without altering the artifact. Arm C
+(planted control): one corrupted corpus byte → ids differ. The control fires, so A and B inform.
+Log `results/phase64_rung1/code_data_identity_gate.txt`.
+
+**(a) peak.** Projected 11.0 GiB, measured 11.2. **The Builder supplied the argument that makes this
+evidence rather than agreement:** the token count was extrapolated from s0 and landed within 0.45%
+(2.2957 e9 measured vs 2.306 e9 projected), so the peak matches because the model is right, not
+because two errors cancelled. That is the correct way to read a projection that lands.
+
+### Corpus constants — recorded here because a re-derivation from "5.5 GB" will not reproduce them
+
+`--gb` is **GiB**: 5,905,582,016 B = 5.50 GiB = 5.906 GB. 1,163,820 docs, **2,295,693,322 student
+tokens** (2.5725 B/tok, against 2.5706 measured on the disjoint sample), `raw_sha256 dec356ca…`.
+Expected passes 1.4996 B / 2.2957 B = **0.653**, unique coverage 47.9%.
+
+Decision A (§19) was approved on a projected 0.70 / 50.3%, priced from 5.5 GB **decimal**. The
+delivered corpus is ~7% larger, so the realised figure moves **toward** the screening's 0.669 / 48.8%
+rather than away from it: the premise the approval rested on — main run trains in the repetition
+regime the recipe was validated in — is strengthened, not weakened. No re-approval needed. The unit
+is recorded explicitly because "5.5 GB" and "5.5 GiB" differ by more than the margin we reason with.
+
+### `mve_train.py` — authorised, with the gate the file deserves
+
+`mve_train.py:325` loads `ts_*.u16` and casts to int64: 4.28 GiB on disk → **17.10 GiB in RAM, per
+rank**, so 34.2 GiB resident under DDP×2 and up to 42.8 at peak, on a ~29 GiB Kaggle session. It does
+not start. This is the last O(corpus) site on the inventory and the Builder was right to stop rather
+than patch it unasked — the trainer is the file every number of this rung comes out of.
+
+**The alternative is not available, and the reason is stronger than "it breaks the contract".**
+Cutting the corpus to ~1.6 GB moves expected passes from 0.653 to ~2.4, which **trips the
+single-epoch assert wired at Decision A** (`steps × tokens_per_step / n_train_tok < 1`, refuse
+otherwise). The run would refuse to launch. Independently of that, it trades a memory bug for a
+data-repetition bug, and the second one surfaces in the metric rather than in the log.
+
+**Change:** keep the ids resident as **uint16** and cast **per batch** — `nn.Embedding` needs int64
+for the batch, never for the corpus. Do not add memmap: it would make the resident copy shared
+between ranks via page cache, which is strictly better, but it is an optimisation against a budget we
+already meet, and it introduces a new variable into the file we are being careful with. Hold it in
+reserve for the case where the measured peak exceeds projection.
+
+**Gate — reuse the validated apparatus rather than build a weaker one.** The proposed reading
+("identical loss trace and P62 BPB to the last decimal") is the right bar but a printed number is a
+rounded one. Use `ws3_epsilon_identity.py`, whose defects were closed on 2026-07-29: run K steps at
+s0 scale on one seed, old vs new, and compare the **saved checkpoint sha256**. If the data path is
+unchanged the trajectory is deterministic-identical, so one hash answers the whole question and
+answers it in bytes. Conditions carried over unchanged: reference pinned to an **immutable sha, never
+`HEAD`**, and printed in the artifact; extraction in **bytes**; anti-tautology control exercised in
+both directions. s0 scale is the correct choice for the reason the Builder gave — it is where the old
+code still runs.
+
+**Three additions, each closing a failure this rung has already produced once:**
+1. **Project the host total, not the per-rank figure.** Both ranks share one machine, so the number
+   that matters is `2 × per-rank`. Same table form as §20: every O(corpus) allocation, plus torch,
+   CUDA host allocations, the P62 val array and the recall index — including the ones that fit.
+2. **Assert RAM headroom at startup**, beside `--expect-gpus` / `--expect-gpu-name`. The arm7 incident
+   is exactly this: all guards pass, then a host SIGKILL with no diagnosis attached to the cause. Over
+   a 14-session resumed run a refusal in two seconds is worth more than a correct projection.
+3. **Report tok/s old vs new on the gate run**, declaring any regression > 2%. The 3,860 tok/s figure
+   carries the 145 h calendar, which carries the account-rotation plan.
+
+**Consequence that must not be discovered later: the trainer changes ⇒ CODE_SHA changes ⇒ the stage-5
+package already built (`main_V2048_r26_CE`, DATA_SHA `79c58b30…`) carries the old trainer and must be
+rebuilt.** This is the stale-package incident of 2026-07-22 in its exact original form, and it is
+cheap only if it is remembered now. Push before run, gate log included.
+
+### Two instrument failures, opposite in sign — and the sibling that is still open
+
+`peak_gib()` reported **0.0 GiB for an 11 GiB build**: `GetProcessMemoryInfo` called without
+`argtypes`, so the `-1` pseudo-handle was truncated on a 64-bit `HANDLE`, the call failed, and the
+zeroed struct was read back as a measurement — no exception. Second blind instrument of this rung
+after the anti-tautology check neutralised by CRLF; neither raised, both returned a plausible number.
+Handled correctly: fixed, validated on a known positive **before** the real build (0.029 → 3.029 GiB
+on a touched 3 GiB allocation), and the correction **appended to the log rather than rewritten**.
+
+Opposite sign, same day: `--gb 0.5` no longer reproduces `raw_s0.bin`, because the WS3 shards finished
+downloading after 21/07 — the same command now yields 512 MiB over 105,920 docs instead of
+483,190,011 B over 95,564. The gate would have reported a difference having nothing to do with the
+code under test. Seeding the file and verifying its sha is the right fix, and the general rule is
+worth stating: **a tag is not a reproducible specification; a content hash is.**
+
+**Still open, found by applying the fifth case's rule — when you correct one instance, grep for its
+siblings.** `code_data.py:122 total_gib()` calls `GlobalMemoryStatusEx` with no `argtypes`, **no
+return-value check**, and an `except → NaN`. `byref` marshals correctly so it likely works, but a
+failure leaves the struct zeroed and reported as a measurement — the identical failure mode 55 lines
+below the one just fixed — and **every comparison against NaN is silently False**, so a headroom
+assert built on it can never fire. "Probably fine" is the verdict class this project retired:
+*"I am not saying it is wrong — I am saying it is not evidence."* Add `argtypes`/`restype`, raise on
+failure, and validate against the known 80 GiB.
+
+### `ts_s0.u16` containing m0 bytes — change it
+
+Reversible for the cost of one constant, and it should be paid. The manifest records `src_tag: m0`
+and the size differs 12×, so the truth is available — but only to someone who reads the manifest,
+which is the *declared-but-not-load-bearing* shape this rung has been bitten by four times. The
+specific harm is sharper than a confusing name: the `RUN:` line and the checkpoint `cfg` will say
+**s0** while the run consumed **m0**, and §19 settled that a record must never be falsified. That
+section kept `cfg['out'] = w16` precisely *because* it was the record of what was invoked; here the
+record would state something that did not happen. Rename the artifact and set the tag. If it ever
+turns out to cost more than a constant, the floor is a startup assert that the ids file size matches
+the token count expected for the declared tag — the mismatch must not be able to stay silent.
+
+---
+
+## 22. Trainer gated, chain rebuilt — two checks before the main run departs (2026-07-31)
+
+### The gate passes, and the deviation from my instruction is an improvement
+
+**PASS against immutable sha `bce0e89d63ff`, CE mode, 200 steps, one seed.** CLAIM A(old) vs B(new):
+every tensor bit-identical, weights sha256 `3b577140caa1…` MATCH. CONTROL A(old) vs C(new, seed+1):
+DIFFERS, worst on `emb.weight` at 6.306e+00 — the comparison fires, so the null informs. Throughput
+2177.0 → 2177.5 tok/s, +0.0%.
+
+**Deviation accepted, and the reasoning corrects mine.** I specified the sha256 of the saved
+checkpoint; he hashed the **weights**, not the file, because the checkpoint also carries the argparse
+cfg and this very change adds `--min-host-ram-gib` — a file hash would have come out DIFFERENT for a
+reason having nothing to do with behaviour. I chose the file because it was one hash and singleness
+was the virtue; but the file bundles the *invocation* with the *product*, and the claim is about the
+product. **General rule, worth keeping: a gate must be scoped to the object it makes a claim about.
+If a benign change can flip it, it will be argued with instead of believed** — and a gate that gets
+discussed has already lost the property we built it for. The question stays answered in bytes.
+
+### Three defects the gate would not have caught — the first is the serious one
+
+**(1) The accelerator guard was inverted.** `log()` used at line 373, defined at 401: `--expect-gpus 2`
+would have raised `UnboundLocalError` on a **correct** 2×T4 session and exited clean on a wrong one.
+It never surfaced because no arm before the main run passed the flag. His summary is exact: *the guard
+ordered to protect the main run worked only when it failed.*
+
+This is my order from §19, and the order was right; what I did not require was the thing that would
+have caught it. **Standing rule from here: no guard ships without being exercised in BOTH directions —
+must-pass on a known-good input, must-refuse on a known-bad one — and the exercise goes in the log.**
+The remedy is demonstrated in the same message: `--min-host-ram-gib` was validated 10 → passes,
+999 → refuses. A guard that has never executed is untested code that looks like protection, which is
+a new member of the declared-but-not-load-bearing family: it *was* load-bearing, it was simply never
+run.
+
+**(2) The chunked bincount overran into the validation band** — `range(0, ntr, 2^24)` with no clamp on
+the last slice — and was refused by the val-split assert the trainer already carried. **The control
+caught a defect in the repair, not in the original.** That is the third time this rung that the defect
+was in the remedy (the memory fix that left two larger walls; the ε-identity gate's own three
+defects; now this), and it is the argument for gating fixes as strictly as features. Verified after:
+chunked == direct, 473,531,343 against the 473,531,343 declared.
+
+**(3) A moving reference from the opposite side.** He edited the trainer while the gate was comparing
+it: run A had started against the commit, B and C would have read a different working-tree file.
+Killed, relaunched from a frozen tree. **This is the dual of the 2026-07-29 law and it completes it:
+pinning the reference is not enough if the OBJECT moves.** Both endpoints must be stationary for the
+duration of the comparison. Cheap closure, and it should go in: **hash both endpoints at gate start
+and re-hash at gate exit; if either moved, the verdict is VOID** — two hashes, and it makes the
+failure impossible to produce by accident rather than merely unlikely.
+
+### The three additions — two of them better than what was asked
+
+**(i) Host-total table** (`main_run_trainer_ram_projection.txt`): 2 ranks × 7.23 + 2.30 notebook
+process = **16.76 GiB**, including torch, host-side CUDA context, P62, the bincount temporary and the
+negligible entries. The 20 GiB floor leaves ~3.2 GiB for the recall index and ~9 GiB of slack on a
+~29 GiB session.
+
+**The best decision in the message is that the recall index is declared NOT MEASURED rather than
+absorbed into a margin** — stages 1-4 all ran `--recall off`, so no local number exists, and folding
+an unmeasured quantity into "margin" is how a projection becomes a guess wearing a number. One
+consequence follows and costs a line: the main run is `--recall on`, so **session 1 is the first time
+this quantity is observed at all.** Print the host peak immediately after the index is built. No
+refusal — the true risk is the index exceeding ~12 GiB, which is not credible at rung-1 scale — but
+the unknown should stop being an unknown within minutes of the first session rather than being
+carried into the 10B design.
+
+**(ii) `--min-host-ram-gib`, and the cgroup catch is one I had not anticipated.** On Kaggle
+`/proc/meminfo` reports the physical host, so a check against `MemTotal` reads a number the process
+cannot spend and **passes always**. Reading the cgroup limit and taking the min with MemTotal is the
+difference between checking the machine and checking the allowance — precisely the "plausible number
+that is not the right quantity" class, and one that no test on the dev box would have exposed. It
+also raises instead of returning a sentinel, applying the `total_gib()` lesson forward into new code.
+
+**(iii) tok/s ratio, 2% threshold — with the right correction to my instruction:** the absolutes are
+CPU-local and are not the 3,860 tok/s that carries the calendar; the **ratio** is the measure, and it
+is device-independent.
+
+`total_gib()`, the sibling flagged in §21: argtypes, return check, raise instead of `except → NaN`,
+validated against the known 80 GiB (79.95, matching `host_ram_gib()`).
+
+### Chain rebuilt
+
+CODE_SHA `befac334…` → `8b05126b4fda0d7b…`, DATA_SHA `79c58b30…` → `171e481379f54ba3…`, with the
+package directory **deleted first so no previous-generation file could survive beside the new one** —
+which removes the failure mode rather than detecting it, the same hierarchy as extraction in
+`mkdtemp()`. DATA_SHA moved because of the SRC_TAG→TAG collapse, which renamed the shipped files and the
+meta. *(Corrected 2026-08-01: this line first also credited "the new trainer". It does not —* `DATA_SHA`
+*covers the four data files only, the code lives in a separate block. The discriminator was a number that
+stayed still where it should have moved: `CODE_SHA` changed twice while `DATA_SHA` held, which is the
+diagnostic corollary read in reverse. No decision moves — check (a) verifies the trainer bytes directly and
+never depended on `DATA_SHA`.)* The package now carries `ts_m0.u16` / `p62_m0.u16` / `meta_m0.json`
+and the cell passes `--tag m0`, so the `RUN:` line and the checkpoint cfg will record the corpus the
+run actually consumes. Floor assert: the ids file must be exactly 2× the declared token count
+(2,295,693,322 × 2 = 4,591,386,644 B).
+
+### Two checks before launch, then it goes
+
+**(a) Confirm the trainer bytes inside the shipped package are byte-identical to the trainer the gate
+certified.** Not a suspicion — a one-command sha comparison. The gate ran, then the tag collapse
+touched the packaging, and "the artifact that departs is the artifact that was gated" is exactly the
+invariant the 2026-07-22 stale-package incident violated. It is verified on the thing that ships, or
+it is not verified.
+
+**(b) Exercise the new slicing once at seq 2048.** The gate covered stage C only. At **stage E** the
+sequence length goes 512 → 2048 with B·L held constant, so the micro-batch reshapes 8 → 2 and the new
+uint16-slice-then-cast path meets a geometry it has not seen — roughly 137k steps into a 183k-step
+run, across a dozen resumes. A handful of steps at the stage-E geometry, or at minimum an assert on
+the slice shape. This is not a second gate; it is the one untested shape on the changed path.
+
+Then: MM pushes the lot (push-before-run, gate logs included), the Kaggle operator's rotation plan for
+~14 sessions lands before session 1, and the Capo launches.
+
+---
+
+## 23. Stage E runs at seq 2048 — a sealed parameter that was never implemented (2026-07-31)
+
+### The finding
+
+The Builder found, one step from launch, that **stage E runs at seq 512 like every other stage**. The
+comment asserting otherwise is the written justification of the single-epoch invariant — which holds
+regardless, and a fortiori. So the extension exists in the documents and not in the code.
+
+### This is not an architect's judgement call; the seal already decided it
+
+`PHASE64_RUNG1_PREREG.md` line 226, body text, sealed at v1:
+
+> "**Consequently, stage E's context extension is declared, not left implicit:** … rung-1 extends to
+> **seq = 2048**, with micro-batch reduced to keep B·L — and therefore scan activation memory and
+> tokens per optimizer step — constant. Gated scale then: **128 / 512 / 1024**, plus d=8 as the
+> standing calibration sanity, plus 2048+ record-only. **Without the extension the recall tier would
+> be judged in a regime where the state still reaches, which is not the question the tier exists to
+> answer.**"
+
+And line 220 fixes the consequence: gated distances are **bounded by the trained context, longest
+gated ≤ half of it**. At a trained context of 512 the gated scale collapses from 128/512/1024 to
+**128 alone** — 512 is the trained context, not half of it. The pre-registered 2×2 recall read at 512
+and 1024 would then be **null by construction**, which is precisely the extrapolation artifact WS4 was
+built to prevent, and the pre-registered recall demotion would fire **on that artifact**. That is the
+stage-3 danger in its exact original shape: a sealed rule matching a clean number produced by the
+apparatus rather than by the model.
+
+**So restoring seq 2048 is not a change to the plan; it is the plan.** Two further points make it
+non-discretionary:
+
+1. **The omission ran in the cheap direction** — 512 saves ~37 h — which is the direction we are most
+   obliged to police. A declared parameter that quietly did not happen, in the direction of less cost,
+   is the anti-Goodhart case whether or not anyone intended it.
+2. **The budget was approved with the cost inside it.** §19's calendar is 108 h **+34%** → ≈145 h ≈ 14
+   sessions, and the +34% is exactly the stage-E extension. The arithmetic is self-consistent at
+   B·L constant: prereg line 73 measures the seq-2048 penalty at **2.69×**, and 0.8 + 0.2 × 2.69 =
+   1.338. Micro-batch 2 at seq 2048 (2 × 2 ranks × 2048 = 8,192 tok/step) keeps tokens per optimizer
+   step, STEPS = 183,105 and the effective batch all invariant. **The rotation plan for ~14 sessions
+   stands unchanged** — which matters, because at 512 it would have been over-provisioned and someone
+   would eventually have "corrected" it.
+
+The VRAM question raised in §22 is already answered by the prereg and does not need re-measuring:
+memory is **linear in L, +1.4% at constant B·L** (line 73), and 9,988 MiB of 12 GB was the batch-4
+ceiling on the 3060, so batch 2 on a 16 GB T4 is comfortable. §22's check (b) therefore narrows to
+what it always was: exercise the geometry once, confirm the slice shape and report tok/s.
+
+### Order of operations — killing the gate now is compliant, not a second violation
+
+The gate currently running certifies a trainer that lacks this behaviour. **Kill it, make the one-line
+change, relaunch on a frozen tree.** The frozen-tree law is *"do not move the object while the gate is
+comparing it"* — kill → change → relaunch is exactly what it prescribes. Letting the gate finish and
+then re-gating costs two runs to reach the same place, and shipping a trainer we already know needs a
+change would break the invariant the last two days were spent establishing.
+
+### Two wiring requirements that would otherwise fail the same way this one did
+
+**(a) Persist the sequence length and assert it on resume.** Stage E begins ~137k steps into a 183k-step
+run, across roughly a dozen resumes. If seq is set at stage entry rather than derived from the stage at
+every step, a resume landing mid-E silently restarts at 512 — and this is the family that has already
+bitten us three times with quantities living outside the checkpoint: `α`, `kdc.pos`, the GradScaler.
+Put seq in the checkpoint cfg and assert on restore that it matches the stage's declared value.
+
+**(b) Wire the pre-registered early read.** Prereg lines 236-241 already seal a decision tree, so the
+question "is +34% worth it" is not reopened — it is answered by measurement at near-zero cost:
+
+> "It becomes measurable … on **the first stage-E checkpoint that exists with the extension applied**:
+> run the calibration there, before the remaining arms pay for it."
+> | 2048 fires | proceed as declared; gated scale 128 / 512 / 1024 |
+> | 2048 flat, 512 fires | tail extension transfers only partially → cut the gated scale to what is
+> demonstrated and drop the extension to that level on the remaining arms |
+
+"The remaining arms" are the three §6 branches, which fork from D and run through E. So
+`--save-stage-ckpt` must emit the **stage-E** checkpoint as well as stage D, and the MQAR calibration
+must run on it when it appears. A pre-registered read with an unwired prerequisite is the same failure
+class as the parameter this section exists to restore.
+
+### Check (a): the Builder's reading is right, and it implies one thing he did not draw
+
+His statement of what today's PASS means is exact and should be kept as written: **"the invariant is
+now verifiable, and this time it was verified"** — not "the invariant is protected". With the gate
+running before the bundle is built, the link is by construction and (a) confirms rather than discovers.
+Its value is the *next* time someone touches packaging between gate and upload, which is the 22/07
+sequence.
+
+**What follows: a check whose entire value is in future runs must be automated, or it will not exist
+in the scenario it was built for.** A manual step in a five-item list works today because we are paying
+attention; 22/07 happened precisely when someone was not. Concrete form — `pack_kaggle` reads the
+certified sha from the gate log and refuses to build when the trainer bytes do not match, which makes
+the gate→package link load-bearing instead of incidental and expresses the existing policy (any trainer
+change requires a new ε-identity gate) in code rather than in prose. The packagers are not in the
+bundle, so this costs no CODE_SHA change and no new gate.
+
+**Not now.** Today's PASS is genuinely valid by construction, and adding a build-path change minutes
+before launch is the exact move that has cost us this week. First non-blocking item once session 1 is
+running.
+
+---
+
 ## 24. Main run — seed deviation at 41.9%, and the condition underneath it (2026-08-01)
 
 ### The deviation, and where it is recorded
@@ -412,3 +812,232 @@ search.
 **The run continues.** Weights are finite and the gradient signal is real; a low loss scale costs
 precision, not correctness, and stopping a 145-hour run to think is worse than measuring it while it
 moves.
+
+---
+
+## 25. Stage C closed; second divergence, and the loss scale is a quality problem (2026-08-01)
+
+### The first gate-bearing number of the main run
+
+**Stage C exit: P62 code-val BPB 1.0787 `[DECIDING]`, byte invariant HOLDS.**
+
+Both caveats the operator attached are correct and were volunteered, not asked for. The stream-tail val
+(4.0172 → 0.9520) **is not cited**: the sealed eval hierarchy (prereg v7) makes the pinned P62 code-val
+the decider and the tail val apparatus — curves, divergence, liveness. And 1.0787 **is not compared to
+1.242**: that comparison was declared invalid when the corpus was found temporally held out, so this is
+a new number, not a measured improvement on an old one.
+
+Against the screening's arm1 (V=2048, P62 code-val 1.1376) it reads −0.0589 ≈ 11.8 σ_seed, but the
+screening arms trained a fraction of the tokens on a different slice. **Directional sanity only — the
+main run is progressing as a ~10× token budget predicts. It is not a controlled comparison and must
+never be quoted as one.**
+
+**One caveat nobody has raised, and it attaches to this number.** Stage C exited with the GradScaler at
+2.0. At that scale, with gnorm ≈ 0.50 over ~11M active parameters, RMS per gradient element is ≈1.5e-4,
+so the scaled value sits at ≈3e-4 — above fp16's smallest normal (6.1e-5), but the lower tail of the
+distribution is not: elements 10-100× below RMS land in subnormal territory and lose precision, and the
+smallest go to zero. **1.0787 was therefore produced under mild-to-moderate gradient truncation.** The
+number is not invalidated — it is what the run actually achieved — but it was measured in a degraded
+numerical regime, and if the numerics are repaired the two regimes are not comparable. Recorded now,
+before anyone needs it to be comparable. *(Inference from the arithmetic above, not a measurement.)*
+
+### Second divergence — the pre-registered rule fires
+
+Divergence at gstep 104,452 (last finite 104,402), stage D, under `--seed 1`. **The reseed moved the
+condition from 94k to 104k; it did not remove it**, which is the outcome §24 pre-registered as the
+reason not to answer a second divergence with a third seed. That rule now binds me as much as anyone:
+the response is diagnosis plus a declared numerical remedy.
+
+**The scaler series is the evidence §24 asked for, and it says the scale is descending, not resting:**
+
+| gstep | scale | last overflow |
+|---|---|---|
+| 96,012 | 4.0 | 1,073 steps ago |
+| 100,707 | 2.0 | 940 steps ago |
+| 103,992 | 0.5 | 1,107 steps ago |
+
+A growth tracker sampled at ~1,000 three times running implies an overflow interval near 2,000 — right
+at the growth threshold — so the scale halves about as often as it doubles and drifts down. Three net
+halvings over 7,980 steps is consistent.
+
+**The operator's inference is sound and I adopt its direction while keeping his label on it (hypothesis,
+not measurement).** The decisive part is not the implausibility of a 131,000× outlier: it is that
+**backing off is the cure for magnitude overflow, and three backoffs into sub-1.0 territory have cured
+nothing.** The medicine has been administered and the disease has not responded, so the disease is not
+what the medicine treats. Below 1.0 the mechanism plausibly inverts — halving pushes more of the
+gradient tail into subnormals and to zero, and a `0·inf` or `0/0` downstream manufactures the NaN that
+triggers the next backoff. T4 is Turing: bf16 is not available, so the standard escape is closed.
+
+**This reframes the urgency. A collapsed loss scale is not only a stability risk — it is silently
+truncating the gradient signal, and has been since at least gstep 96,012.** Getting past the crash is
+not sufficient; the run needs a healthy scale to be worth its remaining GPU-hours.
+
+### A coincidence worth checking before any theory is built on the scaler alone
+
+Stage D begins at 100,707 and the α-QAT ramp is 3,600 steps, so **the ramp completes at 104,307 and the
+divergence is at 104,452 — 145 steps later, with α at full strength for the first time.** Close enough
+to be a lead, far enough not to be trivially causal. It is the transition that produced a +0.32 shock on
+the MVE.
+
+It does **not** explain the first divergence at 94,379, which was in plain stage C with no QAT, no
+surgery and seq 512. That inconsistency stays on the record unresolved rather than being smoothed over:
+either there are two causes, or one fragility with two triggers.
+
+### Ordered — and the code does not need to move
+
+**The operator framed the scaler-reset test as "one line in the resume path, but it moves CODE_SHA — your
+decision". It does not have to.** The GradScaler state lives *in the checkpoint*. Resetting it is a
+**data** change, not a code change: an offline script that loads `resume_103992.pt`, sets the scale to
+the 65,536 default and clears the growth tracker, and writes a **new file** — original never overwritten.
+No CODE_SHA move, no ε-identity gate, no rebundling, no repackaging. The certified chain stands intact.
+
+Conditions on the surgery, because a hand-edited artifact is exactly where plausible corruption lives:
+every other tensor and field **bit-identical**, asserted; the changed fields printed before and after;
+and a **planted control** — deliberately perturb one unrelated tensor and confirm the identity check
+fires — before the edited checkpoint is trusted.
+
+**Why 103,992 and not the stage_C boundary.** Restarting from `stage_C_100707.pt` would give a fresh
+scaler for free (model-only checkpoint means no scaler state to restore) and re-enter stage D through the
+designed path, at a cost of ~3,285 steps ≈ **1.9 GPU-hours**. But it restarts the sampler, so the batches
+differ — and then a clean run cannot be distinguished from having dodged a pathological batch. Resuming
+from 103,992 **replays the same batches**, which is what makes the test a controlled experiment. Keep the
+stage-C route as the fallback if the surgery cannot be verified.
+
+**Three-way readout, declared before the result exists:**
+
+| observation | conclusion |
+|---|---|
+| immediate cascade back to the floor | magnitude overflow after all; the scale was tracking a real signal |
+| NaN again at ≈104,452 with the scale still healthy | the source is external to the scaler — and check α |
+| runs clean past 104,452, scale settles ≥1,024 | the descent was self-feeding; low scale was cause, not symptom |
+
+**Two pre-registrations that stop this from being read after the fact.** First: **if the divergence
+recurs within ~200 steps of 104,307 despite a healthy scale, the trigger is α-QAT reaching full strength
+and the remedy belongs in the QAT schedule, not in the loss scale.** Second: **if the restart runs clean,
+we adopt it and declare it as a numerical deviation with the step it takes effect — we do not re-label it
+"a diagnostic that happened to work".** A scaler-state discontinuity is a change to the recipe whichever
+box the result lands in.
+
+**Zero-cost diagnostic that should be read while the restart prepares:** the gnorm trace over the ~200
+steps before *each* divergence, 94,379 and 104,452. If gnorm is flat at ≈0.50 and `found_inf` fires with
+no excursion, that is NaN and not overflow, measured rather than inferred — and if the two divergences
+share a signature across different seeds and different stages, that is the common cause the scaler series
+cannot name. It is already in the logs.
+
+**When a trainer change does become necessary** — a scale floor, gradient-norm clipping, or a QAT
+schedule change, whichever the diagnosis selects — **it carries one more item into the same gate rather
+than a second one later: the checkpoint writer must refuse to write, or must mark, a checkpoint taken
+inside a non-finite sequence.** This time the 20-minute timer happened not to fire during the NaN run and
+no artifact was poisoned. That was luck, and a poisoned checkpoint is the plausible artifact par
+excellence: finite-looking, resumable, wrong.
+
+### The guard
+
+`every account holding a checkpoint ended in MVE-DIVERGED / NOT pushing, and NOT burning another session
+/ NEEDS A HUMAN` is the relay guard firing on a real event, in the correct direction, refusing to
+propagate a poisoned state and refusing to spend. With the previous code it would have propagated the
+checkpoint and burned three sessions. **This is the first guard in the project to pay off on an
+unplanned production incident rather than on a planted control**, and it paid back the quota it cost.
+
+---
+
+## 26. Divergence forensics, checkpoint surgery, and the live discriminator (2026-08-01)
+
+### The diagnostic I ordered was not executable, and saying so was the right move
+
+`gnorm` is printed only at `i == i0` and every `budget//5` — three times per session — so the nearest
+sample to the second divergence is **3,744 steps away**. The zero-cost gnorm trace ordered in §25 did
+not exist as formulated. The operator reported that rather than substituting something that resembles
+it, which is the distinction this project runs on: a diagnostic that cannot be executed is not a
+diagnostic that came back empty.
+
+### The substitute instrument is better than what it replaced
+
+`hist` records the loss at **every** step, and the poisoned checkpoint from the *first* divergence
+(94,419) contains the onset:
+
+| window | mean | sd | max |
+|---|---|---|---|
+| baseline, 1,900 steps before | 1.8602 | 0.1550 | 2.5315 |
+| last 25 finite | 1.8630 | — | 2.3245 — **below the baseline max** |
+| step immediately before | 1.6133 | — | **below the mean** |
+| next step | **NaN** | | |
+
+**Zero excursion, zero precursor — no rise, no trend, not even a local record.** A magnitude-overflow
+cascade driven by exploding activations would announce itself in the loss first. It did not. The NaN
+signature is now measured rather than inferred, which was the point of the exercise.
+
+The operator's two limits are correctly stated and are kept: it measures the **forward**, not the
+backward, so it does not replace *found_inf-without-gnorm-excursion*; and it covers only the first
+divergence, because at the second the last checkpoint (103,992) precedes onset (~104,403) and no
+per-step record exists. **The shared signature across two seeds and two stages therefore remains
+unmeasured**, and is not claimed.
+
+One reading to add: the last finite loss, 1.6133, is **1.59 sd below** the baseline mean — not merely
+"below the mean". In a window of 25 that is unremarkable on its own (one sample beyond ±1.6 sd is
+expected), so it is a lead and not a finding. It is cheap to chase later because the sampler is seeded
+and deterministic: the batch drawn at that step is reproducible offline on CPU.
+
+### The next order: open the poisoned checkpoint
+
+**94,419 is not only evidence that the hazard is real — it is the forensic artifact, and nobody has
+looked inside it.** Zero GPU, one file already in hand. Four questions, in order:
+
+1. **Which tensors are non-finite**, and are they **NaN or inf**?
+2. Is the pattern **localized** (one module, one layer) or **global**?
+3. Are the **optimizer moments** non-finite as well, or only the weights?
+4. What is `scaler.scale` in that checkpoint?
+
+These discriminate mechanically between forward-activation NaN, backward-gradient NaN, and — the case
+worth naming explicitly — **something updating outside the GradScaler's protection**. That last one
+matters because the scaler's contract is that non-finite gradients cause the step to be *skipped*, so
+weights should never become non-finite at all. **That weights in this checkpoint are corrupted at all
+means either the corruption entered through a path the scaler does not guard, or the run continued
+executing after onset** — it wrote this checkpoint ~40 steps after the divergence began. Either answer
+is worth more than the hypothesis it replaces.
+
+### Surgery — the planted control applied at its sharpest
+
+Perturbation of `model.blocks.4.mlp.down.weight[0]`: 0.013754970394074917 → 0.013754971325397491,
+delta 9.3e-10. **Verified: for a float32 in [2^-7, 2^-6) the ULP is 2^-30 = 9.3132e-10, so this is
+exactly one ULP — the smallest perturbation the format can represent.** That is the minimal-significant-
+corruption rule from the val_split case at its limit: not a catastrophe planted to make the detector
+look good, but the smallest thing that could ever be wrong. The comparator flagged exactly one
+difference and fired; only then was the real edit made. The comparison runs on **raw storage bytes, not
+values**, which also immunises it against NaN ≠ NaN and dtype coercion.
+
+Edit: `scaler.scale` 0.5 → 65536.0, `scaler._growth_tracker` 1107 → 0. Exactly those two fields differ,
+everything else bit-identical; gstep 103,992 / stage_idx 1 / step_in_stage 3,285 / seq 512 / 0
+non-finite weights. Original never overwritten.
+
+### Experiment placement and relay state — both correct
+
+Running on **giggio253**, deliberately not wildpino, so wildpino's output remains the cloud copy of the
+original 103,992 and of `stage_C_ce_anchor_on_m0.pt` alongside the local copies. That is
+*original-never-overwritten* extended from the local file to the cloud replica, and it is the right
+instinct: the experiment cannot destroy its own baseline.
+
+Relay stays paused — **"an experiment with a declared read step is not a resumption"**. An auto-relay
+would run straight past the read point and turn a discriminator into a training run.
+
+### Revised read — one row the §25 table was missing, and a declared horizon
+
+The three-way table stands. It had a gap: it assumed any recurrence would land near 104,452.
+
+| observation | conclusion |
+|---|---|
+| immediate cascade back to the floor | magnitude overflow after all |
+| NaN again at ≈104,452, scale still healthy | source external to the scaler → **and 104,452 is 145 steps past α-QAT completion at 104,307, inside the ±200 window, so the sealed reading names α-QAT as the trigger and the remedy belongs in the QAT schedule** |
+| **NaN at a step far from 104,452, scale healthy** | **the same batches are being replayed, so a batch-triggered NaN would recur at the same step. A different step means the trigger is not the data — it is a recurring numerical fragility, and the remedy is a scale floor plus gradient clipping regardless of what fires it** |
+| clean past 104,452, scale settles ≥1,024 | the descent was self-feeding; low scale was cause, not symptom |
+
+**Declared read point: gstep 106,500** — 2,048 steps past the decision point, one full `growth_interval`
+beyond it. The criterion is not "did it survive" but **"did the scale grow"**: surviving at 65,536
+without a single doubling opportunity observed would not distinguish a cured run from a lucky one.
+Cost from 103,992: 2,508 steps ≈ **1.5 GPU-hours**.
+
+### Correction for the record
+
+The numerical-regime caveat on 1.0787 — that stage C exited at scaler 2.0 and the number was therefore
+produced under gradient truncation — is in **§25**, not §24. It is written, and it was written before
+anyone needed the two regimes to be comparable, which was the point.
