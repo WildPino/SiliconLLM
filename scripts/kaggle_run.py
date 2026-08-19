@@ -27,8 +27,10 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import shutil
+import subprocess
 import sys
 import tempfile
 import time
@@ -274,6 +276,127 @@ def cmd_push(args: argparse.Namespace) -> int:
     return 0
 
 
+def _torch():
+    """Import torch, installing the CPU wheel on first need.
+
+    The relay runner carries only the kaggle client, and torch is ~200 MB. Installing it on every
+    four-hourly pass to read two scalars would be the tail wagging the dog; installing it here costs
+    it only on the passes that actually move the run.
+    """
+    try:
+        import torch                                    # noqa: F401
+    except ImportError:
+        print("      installing torch (cpu) for the checkpoint surgery ...", flush=True)
+        # numpy comes FIRST and from PyPI: the pytorch cpu index does not carry it, and a torch
+        # without it imports fine and then raises "Numpy is not available" the moment a tensor is
+        # turned into bytes -- which is inside the comparator, i.e. the one place a silent failure
+        # would be worst. Installing it separately is the difference between a dependency that is
+        # declared and one that happens to be there.
+        subprocess.run([sys.executable, "-m", "pip", "install", "--quiet", "numpy"], check=True)
+        subprocess.run([sys.executable, "-m", "pip", "install", "--quiet", "torch",
+                        "--index-url", "https://download.pytorch.org/whl/cpu"], check=True)
+    import torch
+    # The comparator converts every tensor to raw bytes through numpy. Prove that path works now,
+    # against a two-element tensor, rather than discovering it 128 MiB into a handoff.
+    try:
+        torch.zeros(2).detach().cpu().numpy().tobytes()
+    except Exception as exc:
+        sys.exit(f"handoff: torch is importable but tensor-to-bytes does not work ({exc}). The "
+                 f"byte-exact comparator cannot run, so the surgery cannot be certified. Refusing.")
+    return torch
+
+
+def _walk(o, p=""):
+    """Flatten a checkpoint to (path -> comparable token). Tensors compare by RAW BYTES.
+
+    Bytes and not values, so the comparison is immune to NaN != NaN and to dtype coercion -- the two
+    ways an "these are identical" check quietly stops meaning anything.
+    """
+    torch = _torch()
+    if isinstance(o, dict):
+        for k in sorted(o, key=str):
+            yield from _walk(o[k], f"{p}.{k}" if p else str(k))
+    elif isinstance(o, (list, tuple)):
+        for i, v in enumerate(o):
+            yield from _walk(v, f"{p}[{i}]")
+    elif torch.is_tensor(o):
+        yield p, ("tensor", tuple(o.shape), str(o.dtype), o.detach().cpu().numpy().tobytes())
+    else:
+        yield p, ("scalar", repr(o))
+
+
+def _ckpt_diff(a, b):
+    da, db = dict(_walk(a)), dict(_walk(b))
+    return [k for k in sorted(set(da) | set(db)) if da.get(k) != db.get(k)]
+
+
+SCALER_RESET = 65536.0
+_ALLOWED = {"scaler.scale", "scaler._growth_tracker"}
+
+
+def _probe_and_reset(pt_path, original_path):
+    """Report the checkpoint's numerical health, then reset the GradScaler in place.
+
+    WHY THE RESET -- a DECLARED DEVIATION, adopted 2026-08-19, and NOT a divergence guard. The overflow
+    cadence was measured to be INDEPENDENT of the scale level: one every 881-1,469 steps whether the
+    scale sits at 65,536 or at 16. A floor therefore cannot stop them and this does not claim to. It is
+    for GRADIENT TRUNCATION. With gnorm ~0.50 over ~11M active parameters the per-element RMS is
+    ~1.5e-4; at a scale of 2.0 the low tail of that distribution lands in fp16 subnormals and the
+    smallest values flush to zero. Stage C's deciding BPB of 1.0787 was produced in exactly that
+    regime. The reset buys back the headroom, and nothing more.
+
+    WHY A PLANTED CONTROL EVERY TIME. A hand-edited artefact is exactly where plausible corruption
+    lives: it loads, it looks finished, and it is wrong. The comparator that certifies "only these two
+    fields moved" is worth nothing unless it has just demonstrated it can see the smallest change
+    representable, so it is made to catch a ONE-ULP perturbation of an unrelated tensor first.
+    """
+    torch = _torch()
+    ck = torch.load(str(pt_path), map_location="cpu", weights_only=False)
+    sc = ck.get("scaler") or {}
+    gstep = ck.get("gstep")
+    bad = sum(1 for v in ck["model"].values()
+              if torch.is_tensor(v) and v.is_floating_point() and not torch.isfinite(v).all())
+    obad = sum(1 for sd in ck.get("opt", {}).get("state", {}).values()
+               for v in (sd.values() if isinstance(sd, dict) else [])
+               if torch.is_tensor(v) and v.is_floating_point() and not torch.isfinite(v).all())
+    hist = ck.get("hist") or []
+    hnf = sum(1 for r in hist
+              if isinstance(r, (list, tuple)) and len(r) >= 3 and not math.isfinite(r[2]))
+    print(f"      [probe] gstep={gstep}  scale={sc.get('scale')}  tracker={sc.get('_growth_tracker')}"
+          f"  weights_nonfinite={bad}  opt_nonfinite={obad}  hist_nonfinite={hnf}", flush=True)
+    if bad or obad:
+        sys.exit("handoff: the carried checkpoint has non-finite weights or optimizer moments. "
+                 "Refusing to reset a scaler on a state that is already broken.")
+
+    victim = next(k for k, v in ck["model"].items()
+                  if torch.is_tensor(v) and v.is_floating_point() and v.numel() > 1)
+    t = ck["model"][victim].view(-1)
+    keep = t[0].clone()
+    t[0] = torch.nextafter(t[0], torch.tensor(float("inf"), dtype=t.dtype))
+    probe_file = Path(str(pt_path) + ".control")
+    torch.save(ck, str(probe_file))
+    seen = _ckpt_diff(torch.load(str(original_path), map_location="cpu", weights_only=False),
+                      torch.load(str(probe_file), map_location="cpu", weights_only=False))
+    probe_file.unlink()
+    if f"model.{victim}" not in seen:
+        sys.exit(f"handoff: PLANTED CONTROL DID NOT FIRE -- a 1-ULP change to model.{victim} went "
+                 f"unseen ({seen}). The comparator cannot certify the surgery. Refusing.")
+    print(f"      [control] 1-ULP perturbation of model.{victim} detected -- comparator trusted")
+    t[0] = keep
+
+    before = dict(sc)
+    sc["scale"] = SCALER_RESET
+    sc["_growth_tracker"] = 0
+    torch.save(ck, str(pt_path))
+    changed = _ckpt_diff(torch.load(str(original_path), map_location="cpu", weights_only=False),
+                         torch.load(str(pt_path), map_location="cpu", weights_only=False))
+    if not set(changed) <= _ALLOWED:
+        sys.exit(f"handoff: the surgery touched fields it must not: {changed}. Refusing to publish.")
+    print(f"      [surgery] scale {before.get('scale')} -> {SCALER_RESET}, "
+          f"tracker {before.get('_growth_tracker')} -> 0   (changed: {changed or 'nothing'})")
+    return gstep
+
+
 def cmd_handoff(args: argparse.Namespace) -> int:
     """Carry a run's checkpoint from one account to another, then start it there.
 
@@ -307,7 +430,7 @@ def cmd_handoff(args: argparse.Namespace) -> int:
     dl.mkdir()
     try:
         print(f"=== handoff {args.arm}: {suser} -> {duser} ===")
-        print(f"  [1/4] downloading {suser}/{arm['slug']} output ...", flush=True)
+        print(f"  [1/6] downloading {suser}/{arm['slug']} output ...", flush=True)
         _run_cli(src, "kernels", "output", f"{suser}/{arm['slug']}", "-p", str(dl))
 
         # Identify what to carry by looking, not by trusting a name written in this file. The cell's
@@ -331,13 +454,40 @@ def cmd_handoff(args: argparse.Namespace) -> int:
         if stages.is_dir():
             shutil.copytree(stages, payload / stages.name); carried.append(stages.name + "/")
         size = sum(p.stat().st_size for p in payload.rglob("*") if p.is_file())
-        print(f"  [2/4] carrying {carried}  ({size / 2**20:.0f} MiB)")
+        print(f"  [2/6] carrying {carried}  ({size / 2**20:.0f} MiB)")
+
+        # ---- 3. PROBE + SURGERY, on the payload copy. dl/ keeps the untouched original. ----------
+        # The probe is the per-session numerical reading: mve_train samples gnorm about five times a
+        # stage, so the steps where the backward overflows are almost never the steps that get logged.
+        # The scaler is the only thing that accumulates that pressure, and this is the one place in the
+        # pipeline where a checkpoint is already open.
+        print(f"  [3/6] probing and resetting the loss scale ...", flush=True)
+        gstep = _probe_and_reset(payload / resumes[0].name, dl / resumes[0].name)
+
+        # ---- 4. ARCHIVE the UNTOUCHED checkpoint, under its own gstep. ---------------------------
+        # Resume files are overwritten in place and kaggle 2.2.2 has no version flag on
+        # `datasets download`, so before this existed the run held exactly one recoverable state per
+        # account and nothing older. That is how it reached a point where no surviving artefact
+        # predated the scale descent and the obvious fallback experiment had no starting line. One
+        # create-only dataset per gstep: never versioned, so nothing is ever re-uploaded to grow it.
+        arch_slug = f"phase64-arch-g{gstep}"
+        r = kaggle_ops.kaggle(src, "datasets", "status", f"{suser}/{arch_slug}", check=False)
+        if r.returncode == 0 and "ready" in (r.stdout or "").lower():
+            print(f"  [4/6] archive {suser}/{arch_slug} already exists -- not re-uploading.")
+        else:
+            arch = staging / "archive"
+            arch.mkdir()
+            shutil.copy(dl / resumes[0].name, arch / resumes[0].name)
+            _write_dataset_metadata(arch, suser, arch_slug, f"phase64 {args.arm} checkpoint g{gstep}")
+            print(f"  [4/6] archiving the pre-surgery checkpoint as {suser}/{arch_slug} ...", flush=True)
+            _run_cli(src, "datasets", "create", "-p", str(arch), "--dir-mode", "zip")
+
 
         # 3. publish it as a dataset the DESTINATION account owns.
         _write_dataset_metadata(payload, duser, arm["resume_slug"], f"phase64 {args.arm} resume state")
         r = kaggle_ops.kaggle(dst, "datasets", "status", f"{duser}/{arm['resume_slug']}", check=False)
         exists = r.returncode == 0 and "ready" in r.stdout.lower()
-        print(f"  [3/4] {'versioning' if exists else 'creating'} {duser}/{arm['resume_slug']} ...", flush=True)
+        print(f"  [5/6] {'versioning' if exists else 'creating'} {duser}/{arm['resume_slug']} ...", flush=True)
         if exists:
             _run_cli(dst, "datasets", "version", "-p", str(payload),
                      "-m", f"resume state carried from {suser}", "--dir-mode", "zip")
@@ -345,9 +495,9 @@ def cmd_handoff(args: argparse.Namespace) -> int:
             _run_cli(dst, "datasets", "create", "-p", str(payload), "--dir-mode", "zip")
 
         if args.no_push:
-            print("  [4/4] --no-push: dataset published, kernel NOT started.")
+            print("  [6/6] --no-push: dataset published, kernel NOT started.")
             return 0
-        print(f"  [4/4] starting {duser}/{arm['slug']} with the carried state ...", flush=True)
+        print(f"  [6/6] starting {duser}/{arm['slug']} with the carried state ...", flush=True)
         return cmd_push(argparse.Namespace(arm=args.arm, relay=False, acct=dst, resume_ds=True))
     finally:
         shutil.rmtree(staging, ignore_errors=True)
