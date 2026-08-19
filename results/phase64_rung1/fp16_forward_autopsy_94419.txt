@@ -1,0 +1,162 @@
+================================================================================
+AUTOPSIA DEL FORWARD A gstep 94.419 -- domanda aperta #2 del dossier
+Offline, CPU, zero costo GPU, zero righe toccate nel path di training.
+================================================================================
+
+APPARATO. Il campionatore dei batch e' una funzione pura di (seed, rank, gstep,
+micro), quindi i batch esatti degli step falliti sono riproducibili offline. Ogni
+forward e' girato DUE volte sullo stesso input: fp32 puro e autocast(float16) --
+il secondo e' quello che gira sulla T4. Checkpoint da D:\_ktmp\dossier, dati da
+kaggle_rung1/main_run/data (ts_m0.u16 in memmap: si leggono 8 finestre da 512
+token, non 4,3 GB).
+
+Modello ricostruito: MVEStudent(2048, **S0) + lowrank_xproj(26). Nessun dropout
+in tutto l'albero, quindi eval() == train() numericamente.
+
+--------------------------------------------------------------------------------
+1. IL NaN E' RIPRODOTTO. Su ogni batch provato, deterministicamente.
+--------------------------------------------------------------------------------
+  ckpt 94.419, batch reali degli step 94.419 e 94.377, rank 0 e rank 1:
+
+    modo            logits          max|logit|   non-finiti/8.388.608   loss
+    fp32            float32         3.5396e+01              0           1.7238
+    autocast fp16   float16         3.5406e+01          22.528           NaN
+
+  Controllo, ckpt 96.012 SANO sullo STESSO batch di gstep 94.419:
+    autocast fp16   float16         2.1656e+01               0          1.6036
+
+  Il fallimento e' una proprieta' dello STATO 94.419, non del dato.
+
+--------------------------------------------------------------------------------
+2. LA TESTA E' SCAGIONATA.  max|logit| = 3,5e+01, non 1e+05 e non 1e+10.
+--------------------------------------------------------------------------------
+L'ipotesi guadagno-norm -> residual -> logit -> overflow fp16 e' FALSIFICATA, e
+per due ragioni indipendenti, entrambe misurate:
+
+  a) il logit vale 35. Il tetto fp16 e' 65.504. Non c'e' overflow possibile.
+  b) norm_f RINORMALIZZA. Nello stesso forward fp32 il residual che entra in
+     norm_f vale 6,5318e+04 e i logit che escono valgono 3,5396e+01. RMSNorm
+     divide per l'RMS: il guadagno della norm finale non puo' propagarsi ai
+     logit come magnitudine. norm_f.w max 4,92 vs 3,11 e' un marcatore reale
+     dello stato malato, ma non e' il meccanismo.
+
+  Disattivare autocast attorno a head non curerebbe NIENTE.
+
+--------------------------------------------------------------------------------
+3. IL SITO VERO: blocks.7.mix.out_proj, e precisamente il CAST IN INGRESSO.
+--------------------------------------------------------------------------------
+Magnitudini per blocco, forward fp32, batch di 94.419 rank 0:
+
+    sito                      max|.| fp32       (sano 96.012)
+    b0.mix.out_proj IN          2,5454e+00        1,8649e+00
+    b1.mix.out_proj IN          3,4670e+00        3,1639e+00
+    b2.mix.out_proj IN          6,8284e+00        5,1229e+00
+    b3.mix.out_proj IN          4,0770e+00        3,4437e+00
+    b4.mix.out_proj IN          6,2130e+00        4,7230e+00
+    b5.mix.o (SWA) IN           2,6524e+00        2,4980e+00
+    b6.mix.out_proj IN          9,1610e+00        6,6516e+00
+    b7.mix.out_proj IN        > 7,7227e+04 <      2,5952e+01      2.977x
+    LOGITS                      3,5396e+01        2,1656e+01
+
+Sette blocchi su otto sono normali. L'ottavo e' 3.000 volte lo stato sano.
+
+Il colpevole e' il cast IN INGRESSO, non lo store in uscita -- dimostrato:
+
+    y (ingresso di out_proj) fp32      max 7,7227e+04   non-finiti 0
+    y castato a fp16                                    non-finiti 11
+    out_proj(y) tutto in fp32          max 6,4681e+04   non-finiti 0
+    out_proj(y) in fp32 poi .half()                     non-finiti 0   <---
+    out_proj(y.half()) in fp16                          non-finiti 2816
+
+L'uscita in fp32 vale 6,47e+04 e sta SOTTO il tetto: se l'ingresso fosse
+rappresentabile, il risultato passerebbe. E' il cast dell'attivazione a fp16 che
+produce l'inf, e l'inf poi contamina i logit -> cross_entropy -> NaN.
+
+--------------------------------------------------------------------------------
+4. QUANTO POCO SFONDA, E DA DOVE
+--------------------------------------------------------------------------------
+    elementi sopra 65.504:      11 su 2.097.152   (0,0005%)
+    canali Dn coinvolti:         1 su 512         -> indice 310
+    posizioni t coinvolte:      11 su 512         (la prima a t=268)
+    margine di sfondamento:     1,179x il tetto fp16
+
+  E' SEMPRE IL CANALE 310. Su 5 batch indipendenti (gstep 94.377 / 94.400 /
+  94.410 / 94.419, rank 0 e 1): max|y| fra 6,98e+04 e 7,94e+04, da 5 a 16
+  elementi sopra il tetto, canale [310] in tutti e cinque.
+
+  Catena dentro blocks.7.mix (fp32), diverso vs sano:
+
+    dt = softplus(dt_proj)     2,1250e+01   vs   6,7101e+00       3,2x
+    dBx = dt * Bm * xs         3,9902e+02   vs   3,2041e+00     124,5x
+    scan out = sum h*C         1,3251e+04   vs   1,2241e+01   1.082,7x
+    * silu(z)  (=out_proj IN)  7,7227e+04   vs   2,5942e+01   2.977,0x
+
+  NON e' un integratore che accumula: dA max 0,94286, ZERO elementi a 1,0
+  esatto, e il profilo su t e' a picchi, non a rampa (t=31: 3,77e+04;
+  t=63: 3,31e-01; t=268: 6,56e+04). E' una risonanza guidata dall'input su un
+  singolo canale, non una deriva.
+
+  NESSUN PESO E' PATOLOGICO. blocks.7.mix, diverso vs sano, max|.|:
+    dt_proj.weight 1,14x   dt_proj.bias 0,93x   A_log 1,18x
+    x_proj.Ul 1,02x   x_proj.Vl 0,94x   in_proj 0,96x
+    out_proj 1,17x    Dskip 1,13x
+  Tutti entro 1,2x. L'attivazione e' 3.000x. La patologia e' emergente, non
+  scritta nei pesi.
+
+--------------------------------------------------------------------------------
+5. SEQ 2048 (geometria stadio E) PEGGIORA IL CONTO, NON LA MAGNITUDINE
+--------------------------------------------------------------------------------
+  Stesso stato, stesso seme, finestre da 2048 invece che 512:
+    seq  512   max|y| 7,7227e+04   elementi sopra il tetto:  11
+    seq 2048   max|y| 8,0819e+04   elementi sopra il tetto:  68     6,2x
+
+  Il picco quasi non si muove; le occasioni di spararlo si moltiplicano con la
+  lunghezza. Lo stadio E e' esattamente il posto dove questo costa di piu'.
+
+--------------------------------------------------------------------------------
+6. LO STATO POST-INTERVENTO (121.618) NON PORTA PIU' LA BOMBA
+--------------------------------------------------------------------------------
+  Caricato con qat_ternary(alpha_sched=True) e alpha=1,0 (step_in_stage 20.911 >
+  qat_alpha 3.600), cioe' nella configurazione in cui gira davvero:
+
+    gstep 121.618 rank 0:  max|y| 7,85e+00  ch310 7,85e+00  dt max 8,07  >65504: 0
+    gstep 121.618 rank 1:  max|y| 1,16e+01  ch310 7,88e+00  dt max 7,89  >65504: 0
+    batch di 94.419:       max|y| 1,10e+01  ch310 8,60e+00  dt max 9,28  >65504: 0
+
+  Il canale 310 e' ANCORA il piu' caldo del blocco, ma a 7,85 invece di 77.000 --
+  quattro ordini di grandezza sotto. La run in corso non e' seduta su questo.
+
+  DIFETTO MIO, REGISTRATO. Al primo tentativo ho caricato 121.618 in un modello
+  con MLP DENSE. BitLinear158 espone il parametro come "weight", lo stesso nome
+  di nn.Linear, quindi load_state_dict(strict=True) ha accettato in silenzio uno
+  stato ternario dentro un modello fp e ha prodotto numeri plausibili e sbagliati
+  (max|y| 7,60 invece di 7,85; dt max 9,78 invece di 8,07). strict=True non e'
+  una verifica dell'ARCHITETTURA quando due moduli diversi condividono i nomi dei
+  parametri. La conclusione regge in entrambe le configurazioni; la misura no.
+
+--------------------------------------------------------------------------------
+7. COSA DECIDE, E COSA NON DECIDE
+--------------------------------------------------------------------------------
+  * Il pavimento alla loss scale NON tocca questo. La scala si applica dopo il
+    forward; il forward a 94.419 fallisce a qualunque scala. Il fatto 4 del
+    dossier (cadenza indipendente dalla scala) e' ora spiegato dal meccanismo,
+    non solo osservato.
+  * fp32 attorno a head: cura nulla (i logit valgono 35).
+  * fp32 attorno a out_proj dell'SSM: dimostrato che cura QUESTO -- l'uscita in
+    fp32 e' 6,47e+04, finita. Ma il margine e' 1,179x. Non e' un margine.
+  * La dicotomia "1e5 = marginale, l'fp32 cura / 1e10 = patologico, l'fp32
+    nasconde" ha un terzo caso, ed e' questo: la magnitudine e' marginale
+    (1,18x il tetto) E lo scostamento dal sano e' 3.000x. Le due letture sono
+    vere insieme, su siti diversi. L'fp32 la' toglie l'inf e lascia correre uno
+    stato gia' fuori scala di tre ordini di grandezza.
+
+  CAVEAT. Aritmetica CPU fp32 che riproduce una run T4; il dossier stesso dice
+  che non e' bit-riproducibile fra sessioni. L'effetto e' 3.000x, molto sopra
+  qualunque rumore di riordino. Il comportamento del cast fp16 e' IEEE, non
+  dipende dal dispositivo. E il sito nasce dentro la regione
+  autocast(enabled=False) del selective scan: la promozione a fp32 di RMSNorm --
+  la parte che avevo dato per probabile e non misurata -- non cambia il verdetto,
+  perche' se su CUDA la norm restasse fp16 il y.to(x.dtype) inf-erebbe nello
+  stesso punto.
+
+================================================================================
