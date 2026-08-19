@@ -1041,3 +1041,102 @@ Cost from 103,992: 2,508 steps ≈ **1.5 GPU-hours**.
 The numerical-regime caveat on 1.0787 — that stage C exited at scaler 2.0 and the number was therefore
 produced under gradient truncation — is in **§25**, not §24. It is written, and it was written before
 anyone needed the two regimes to be comparable, which was the point.
+
+---
+
+## 27. Autopsy: nothing was corrupted, and that is worse (2026-08-01)
+
+### The measurement, and a premise of §26 that was false
+
+| | 94,419 (divergent) | 96,012 (healthy) |
+|---|---|---|
+| weights | 0 NaN, 0 inf over 10,916,576 elements / 115 tensors | 0 / 0 |
+| optimizer state | 0 NaN, 0 inf over 21,833,267 elements | 0 / 0 |
+| `scaler.scale` | **1.1368683772161603e-13 = 2⁻⁴³**, tracker 0 | 4.0, tracker 1073 |
+
+**The GradScaler contract held perfectly.** All 41 steps after onset were skipped; nothing reached the
+weights or the moments. The file written 41 steps into the divergence is numerically immaculate, and
+the only wrong thing inside it is one scalar.
+
+§26 reasoned from "weights in this checkpoint are corrupted" to a disjunction — a path the scaler does
+not guard, or execution continuing after onset. **The premise was false and so the disjunction was
+empty.** It came from inheriting the word *poisoned* and building a mechanism on it instead of on a
+measurement, which is the stale-label failure applied to my own reasoning rather than to a comment. The
+order was still the right one: opening the checkpoint is what produced the decisive fact.
+
+### What the autopsy establishes, and the number nobody read off it
+
+Restarted from that state, sirwildpino went NaN on **50 consecutive different batches**. The scale is
+applied to the loss *after* the forward, so it cannot affect the forward within a step. Therefore:
+finite weights, and a forward that fails on essentially any batch. **The state was never corrupted —
+the model walked into a region where the fp16 forward fails**, and no scaler hygiene could have
+recovered it.
+
+**One quantity follows from the autopsy that was not extracted: 41 consecutive skipped steps means 41
+backoffs, so the scale at onset was 2⁻⁴³ × 2⁴¹ = 2⁻² = 0.25.** That completes the series across both
+lineages:
+
+| event | lineage | stage | scale |
+|---|---|---|---|
+| divergence 1, ~94,378 | seed 0 | C | **0.25** |
+| 96,012 | seed 1 | C | 4.0 |
+| 100,707 | seed 1 | C→D | 2.0 |
+| 103,992 | seed 1 | D | 0.5 |
+| divergence 2, ~104,402 | seed 1 | D | 0.5 or 0.25 |
+
+**Two divergences, two seeds, two stages, two independent lineages — and both occurred in the sub-1.0
+scale regime, the first at exactly 0.25.** The step differs, the data differs, the stage differs. The
+loss scale is the only invariant either event shares. That is the strongest structural evidence
+produced so far, and it did not exist before the autopsy.
+
+Causal direction remains open: the scale falls *because* non-finite events occur, so "diverged at low
+scale" is compatible with the scale being a symptom. That is precisely what the live experiment tests.
+
+### The experiment is asymmetric, and this must be declared before the result
+
+The refinement is the operator's and it is correct: the discriminator tests **whether the descent of
+the scale is what walks the model into the bad region**, not whether it triggers the NaN directly.
+
+**That makes the test asymmetric in what it can prove, and the asymmetry is declared here so a failure
+is not over-read:**
+
+- **Clean through 106,500 with the scale growing → conclusive for the scale hypothesis**, and the
+  remedy follows.
+- **NaN again → does NOT refute it.** The restart begins at 103,992, a state already carrying **at
+  least 19,325 steps** of training at scale ≤ 4.0 (the seed-1 lineage reads 4.0 already at 96,012).
+  Restoring the scale for the final ~460 steps before the cliff cannot undo a drift that took tens of
+  thousands of steps to accumulate. A failure means "too late here", not "not the cause".
+
+If it fails, the next test is not another scaler edit but a restart from a point where the scale was
+still healthy — and the honest statement of its cost belongs in that decision, not after it.
+
+### Two localised clues, and how far each carries
+
+**`norm_f.w` max|w| = 4.9240 against 3.1071.** The proposed mechanism — larger final-norm gain → larger
+residual stream → larger logits → fp16 overflow in the logits → inf into the cross-entropy → NaN — is
+coherent, and 1.59× is consistent with it. **It is checkable at zero cost and should be checked before
+it is believed: which operations actually run under autocast in this trainer?** P61 established that
+the projections, the SSM and the head stay fp32 as *precision-hungry organs*; if the vocabulary
+projection is genuinely outside autocast, the logits are computed in fp32 and cannot overflow at 65,504,
+and the site must be upstream of the head. Reading the autocast scope answers whether this clue names
+the right place or merely a correlated tensor.
+
+**Adam moments ≈7× larger in the divergent branch** (max|exp_avg| 6.88e-2 vs 9.99e-3; max|exp_avg_sq|
+8.62e-2 vs 1.14e-2). The operator's caveat — two lineages, different gsteps, uncontrolled — is right,
+and there is a second reason to hold it loosely: **if gradients were uniformly k× larger, the first
+moment would scale as k and the second as k².** Observed ratios are 6.89 and 7.56, not 6.89 and 47.
+Whatever separates the branches, it is not a uniform increase in gradient magnitude, so "a much higher
+gradient regime" is not established by these two numbers.
+
+### Accepted, and one debt booked
+
+Read point 106,500, criterion "the scale grew" rather than "it survived", the fourth table row, §25 not
+§24 — all accepted as stated, and the −1.59 sd reproduces exactly on his numbers.
+
+**Debt, correctly deferred:** the `relay.py` comment and its commit message justify the guard by saying
+the checkpoint was "written inside a NaN sequence", implying corrupted content. The **behaviour remains
+correct** — a divergent session's state is unusable, which the 50-batch test proves independently — but
+the stated reason is now known false, and deferring the edit to avoid noise during a live experiment is
+the right call. **The corrected reason is recorded here rather than only in the future commit**, because
+a guard is protected by the record of why it exists: someone who later discovers the content is clean
+and finds only the old justification has grounds to weaken a guard that should not be weakened.
