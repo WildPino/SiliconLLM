@@ -1,0 +1,168 @@
+================================================================================
+GUARDIA ARCHITETTURALE SU ws3_recover_p62.py
+Autorizzata dall'Architetto 2026-08-19. Apparato locale: il file NON e' in
+CODE_FILES, non viaggia nel bundle, non tocca CODE_SHA ne' il pacchetto ne' la
+run viva.
+================================================================================
+
+QUESTO LOG NON RI-DERIVA NESSUN NUMERO ADOTTATO. Va letto per primo, perche' e'
+la cosa che un lettore futuro puo' sbagliare piu' facilmente.
+
+  L'adozione di V=2048 e l'ancora dello stadio 3 (arm3 P62 = 1,1376) restano
+  esattamente come sigillate, prodotte dalla generazione di questo file che la
+  guardia non ce l'aveva. Qui non e' stata ricalcolata nessuna BPB decidente.
+  La guardia protegge le invocazioni FUTURE.
+
+  Riscrivere un tool mentre i suoi numeri sono citati e' la famiglia del
+  riferimento mobile (stesso difetto del gate epsilon del 2026-07-31, dove
+  l'oggetto sotto test si e' mosso mentre lo si confrontava). La forma che
+  evita quella famiglia e': i numeri adottati non si ricalcolano, la decisione
+  sigillata resta sigillata, la guardia vale da qui in avanti.
+
+--------------------------------------------------------------------------------
+1. COSA FACEVA IL TOOL PRIMA
+--------------------------------------------------------------------------------
+La domanda posta era: verifica l'architettura in cui carica, o si fida di
+strict=True? La risposta e' nessuna delle due.
+
+  riga 130   model.load_state_dict(ck["model"], strict=False)
+  riga 132   if real_missing or unexpected:
+  riga 133       print(f"... missing={real_missing[:4]} unexpected={unexpected[:4]}")
+
+  a) strict=FALSE. Un peso mancante non e' un rifiuto: resta lo strato
+     inizializzato a caso e il forward gira lo stesso.
+  b) STAMPA, non solleva. Il tool prosegue, calcola una BPB e la etichetta
+     [DECIDING].
+  c) [:4]. Cento chiavi discordanti e quattro chiavi discordanti producono la
+     stessa forma di riga.
+  d) L'unica guardia prima del caricamento (righe 128-129) confronta
+     emb.weight.shape[0] con V: identita' del DATO, non dell'architettura.
+  e) xrank veniva dalla tabella ARMS hardcoded nel tool, mentre il checkpoint
+     porta cfg['xproj_rank'] dentro di se'. Non erano mai confrontati:
+     l'autorita' sull'architettura era la tabella, non l'artefatto.
+
+--------------------------------------------------------------------------------
+2. ESPOSIZIONE DEI NUMERI GIA' ADOTTATI: NULLA, E MISURATA
+--------------------------------------------------------------------------------
+Letto dagli artefatti, non inferito:
+
+    arm                    cfg.stages  cfg.qat_alpha  cfg.xproj_rank  strict=True
+    arm1_V2048                 C            0              0          carica pulito
+    arm2_V4096                 C            0              0          carica pulito
+    arm3_xproj26_V2048         C            0             26          carica pulito
+
+  "carica pulito" = 0 missing, 0 unexpected. qat_alpha=0 insieme a stages=C
+  significa che qat_ternary() non e' mai stato chiamato: non esiste un solo
+  BitLinear158 nei tre file.
+
+  PRECISIONE ACCETTATA DALL'ARCHITETTO: "alpha=0" era ambiguo fra alpha-KD
+  (cfg['alpha']=0.5 in questi arm) e alpha-QAT (cfg['qat_alpha']=0). Sono due
+  parametri con lo stesso nome -- terza istanza in tre giorni della legge "un
+  nome, due proprieta'", dopo "peso fp32 vs matmul fp32" e "avvelenato". Cio'
+  che scagiona i tre file e' qat_alpha=0 CON stages=C.
+
+--------------------------------------------------------------------------------
+3. SENSIBILITA': QUANTO MUOVE LA METRICA UN'ARCHITETTURA SBAGLIATA
+--------------------------------------------------------------------------------
+Controllo piantato su arm1, tail val, cap 200.000, riferimento Kaggle 1,1452.
+Il cross-check del tool ha soglia 0,002.
+
+  variante                                      tail-BPB   |delta|   cosa stampava
+  A  architettura CORRETTA                        1,1454    0,0002   0 missing 0 unexpected
+  B  MLP TERNARI (collisione di nome)             1,4566    0,3114   0 missing 0 unexpected
+  C  x_proj low-rank r=26 (chiavi diverse)        2,4593    1,3141   14 missing 7 unexpected
+
+  Il caso B sposta la metrica di 156 volte la soglia E CARICA IN SILENZIO
+  ASSOLUTO: BitLinear158 espone il parametro come `weight`, stesso nome e stessa
+  shape di nn.Linear. Nessun controllo a livello di CHIAVI puo' prendere quel
+  caso, per costruzione. Per questo la guardia nuova lavora su cfg.
+
+  Conclusione sul vecchio tool: i numeri erano giusti e non erano protetti.
+  Sono due proprieta' diverse, ed e' la seconda che cambia oggi. La copertura
+  che c'era era il cross-check sulla tail val -- violentemente sensibile
+  all'architettura, ma esistente solo per arm1 e arm2: arm3 porta
+  kaggle_tail=None e si appoggiava ai controlli same-run degli altri due, che
+  condividono il code path ma non i pesi ne' l'architettura.
+
+  COROBORAZIONE INCROCIATA NON CERCATA, e vale da sola. Il caso B sta +0,3112
+  sopra la variante corretta, e riproduce lo shock di ternarizzazione misurato
+  sull'MVE a +0,32 (identico nei tre arm, quindi proprieta' della
+  ternarizzazione e non dell'arm). Due contesti completamente diversi -- li' una
+  chirurgia di stadio D voluta, qui un caricamento deliberatamente sbagliato --
+  e lo stesso numero. Stessa specie dello 0,1806 che si e' riprodotto a un mese
+  di distanza nel gate KD. Nessuno l'aveva progettata.
+
+--------------------------------------------------------------------------------
+4. COSA FA LA GUARDIA ADESSO -- le quattro condizioni dell'Architetto
+--------------------------------------------------------------------------------
+  1. L'ARTEFATTO E' L'AUTORITA', LA TABELLA E' UN'ASSERZIONE.
+     build_from_cfg() deriva l'architettura da ck['cfg'], COSTRUISCE da quella,
+     e solo dopo asserisce che la tabella ARMS concordi. Un checkpoint con una
+     config che la tabella non conosce fa costruire l'architettura GIUSTA e
+     segnalare la discrepanza. Nell'ordine inverso -- asserire e poi costruire
+     dalla tabella -- verrebbe ricostruito in silenzio come dice la tabella, che
+     e' esattamente il buco.
+     Configurazioni che il tool non sa ricostruire esattamente (stadi E/F:
+     servirebbe rigiocare l'upcycle MoE) sono un RIFIUTO NOMINATO, non un
+     "costruisco qualcosa di simile".
+
+  2. L'ECCEZIONE recall E' STRETTA E CALCOLATA.
+     Prima: [m for m in missing if "recall" not in m] -- un filtro per
+     sottostringa, che perdona qualunque chiave contenga quella parola.
+     Adesso: recall_slot_keys() COSTRUISCE un modello, chiama add_recall() e
+     fa la differenza degli insiemi -> l'insieme esatto
+     {recall.gate, recall.k.weight, recall.o.weight, recall.q.weight,
+      recall.v.weight}, che non puo' divergere da mve_model.py perche' non e'
+     scritto a mano. Ammesso solo quando cfg['recall']=='on'; e recall='on' con
+     stages che non arrivano a E e' un artefatto contraddittorio, quindi un
+     rifiuto.
+
+  3. [:4] E' SPARITO INSIEME AL print.
+     load_or_refuse() solleva e riporta i CONTEGGI COMPLETI e le liste intere,
+     piu' l'insieme dei missing ammessi e il perche'.
+
+  4. IL MESSAGGIO DI RIFIUTO NOMINA IL RIMEDIO CORRETTO E LO RENDE PIU' FACILE
+     DI QUELLO SILENZIANTE. "Costruire l'architettura che il checkpoint
+     dichiara, NON rilassare a strict=False: uno strato inizializzato a caso
+     valuta pulito e risponde a un'altra domanda." Sul disaccordo con la
+     tabella: "correggi la voce ARMS per farla combaciare con l'artefatto, non
+     l'artefatto per farlo combaciare con la tabella."
+
+--------------------------------------------------------------------------------
+5. ESERCIZIO NELLE DUE DIREZIONI
+--------------------------------------------------------------------------------
+benchmarks/phase64/data/ws3_recover_p62_guard_exercise.py
+Nessuna BPB calcolata: si esercita il PATH DI CARICAMENTO, non il decisore.
+
+  MUST-PASS -- i tre artefatti veri, architettura derivata dal loro cfg
+    [OK] arm1_V2048          stages='C' xproj_rank=0  qat_alpha=0 recall='off'
+    [OK] arm2_V4096          stages='C' xproj_rank=0  qat_alpha=0 recall='off'
+    [OK] arm3_xproj26_V2048  stages='C' xproj_rank=26 qat_alpha=0 recall='off'
+
+  MUST-REFUSE -- una via per ognuna da cui la guardia puo' perdere
+    [OK] P1  tabella ARMS dice xproj_rank=0, cfg dice 26
+             -> "the checkpoint's cfg declares xproj_rank=26, the ARMS table
+                 declares 0" (rischio SPECIFICO di arm3)
+    [OK] P2  pesi incoerenti col cfg: 14 chiavi di blocks.3 rimosse
+             -> "ARCHITECTURE MISMATCH -- 14 missing key(s), 0 unexpected"
+    [OK] P3  cfg stages='CDEF' -> rifiuto nominato, non ricostruzione
+    [OK] P4  cfg assente -> l'artefatto non puo' essere l'autorita', e la
+                            tabella non deve diventarlo
+    [OK] P5  cfg recall='on' con stages='C' -> artefatto contraddittorio
+
+  VERDETTO: 8 corrette, 0 sbagliate -> GUARDIA ESERCITATA.
+
+  IL BUCO 2-SU-3 E' CHIUSO. Il rischio specifico di arm3 e' lo swap low-rank,
+  visibile a livello di chiavi (P1 sulla tabella, e la variante C della sez. 3
+  con 14 missing / 7 unexpected). Il caso invisibile ternario/denso lo prende
+  l'assert su qat_alpha e stages. Dopo il fix arm3 e' coperto da una guardia e
+  non piu' dai controlli same-run di arm1 e arm2.
+
+  DIFETTO NELL'ESERCIZIO, TROVATO DALL'ESERCIZIO STESSO. L'etichetta di P2
+  diceva "15 chiavi di blocks.3 rimosse" mentre la guardia ne contava 14. La
+  guardia aveva ragione: un blocco porta 15 chiavi quando x_proj e' low-rank
+  (Vl + Ul), e arm1 e' denso, quindi ne porta 14. Un messaggio che asserisce un
+  numero preso dall'assunzione sbagliata -- stesso difetto gia' a verbale del
+  rifiuto "Stage E runs at seq 1024". Il conteggio ora e' DERIVATO, non scritto.
+
+================================================================================

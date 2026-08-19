@@ -16,6 +16,13 @@ number is the one that should have appeared at stage exit, not an approximation 
 recovered-offline because the uploaded artifact was deficient -- a deviation on the record, not a silent
 substitution.
 
+ARCHITECTURE GUARD ADDED 2026-08-19 -- AND IT DID NOT RE-DERIVE THE ADOPTED NUMBERS. The V=2048 adoption
+and the stage-3 anchor 1.1376 stand exactly as sealed, produced by the generation of this file that had no
+such guard. Nothing here re-ran them, and nobody should read this file as though it had: the guard protects
+FUTURE invocations. What was measured about the old generation is that its exposure was nil (all three
+stage-1 arms carry qat_alpha=0 with stages=C, and all three load strict=True clean) -- the numbers were
+right, and they were not protected. Those are different properties, and only the second one changed today.
+
 Run: python benchmarks/phase64/data/ws3_recover_p62.py
 """
 import io, json, math, os, sys, zipfile
@@ -71,6 +78,105 @@ def load_extracted(dirpath):
     return torch.load(buf, map_location="cpu", weights_only=False)
 
 
+def recall_slot_keys(V):
+    """The EXACT key set the recall slot contributes, COMPUTED from the model rather than typed out, so it
+    cannot drift from mve_model.py. It replaces `[m for m in missing if "recall" not in m]`, which forgave
+    any key that happened to carry the substring -- and an exception is the point at which a guard loses."""
+    a = MVEStudent(V, **S0)
+    before = set(a.state_dict())
+    a.add_recall(lam_nce=0.0)
+    return frozenset(set(a.state_dict()) - before)
+
+
+def build_from_cfg(ck, arm, table_rank, V, dev):
+    """THE ARTEFACT IS THE AUTHORITY; THE TABLE IS AN ASSERTION.
+
+    The architecture is derived from the checkpoint's own cfg, the model is built from THAT, and only then
+    is the ARMS table asserted against it. Done the other way round -- assert, then build from the table --
+    a checkpoint whose config the table does not know would be reconstructed in silence as whatever the
+    table says, which is precisely the hole this guard closes.
+
+    WHY IT EXISTS (2026-08-19). This function loaded weights with strict=False and printed, rather than
+    raised, on missing/unexpected keys -- and printed only the first four of them. The vocabulary was
+    asserted (emb.weight width), which is data identity, not architecture. Measured exposure of the
+    numbers already adopted: nil, because all three stage-1 arms carry qat_alpha=0 with stages=C. Measured
+    exposure of the MECHANISM: total -- BitLinear158 exposes its parameter as `weight`, the same name and
+    shape as nn.Linear, so a ternary state loads into a dense model with zero missing and zero unexpected
+    keys and the old code said nothing at all. That case moves the tail val by +0.3112 BPB.
+
+    Key-level checking cannot catch that case by construction, so it is caught here instead, on cfg."""
+    cfg = ck.get("cfg")
+    if not isinstance(cfg, dict):
+        raise SystemExit(
+            f"{arm}: the checkpoint carries no cfg dict, so the architecture cannot be derived from the\n"
+            "  artefact -- and this tool refuses to derive it from its own table. Recover a checkpoint\n"
+            "  saved by a trainer generation that records cfg; do NOT relax this to trust ARMS.")
+    for k in ("stages", "xproj_rank", "qat_alpha", "recall"):
+        if k not in cfg:
+            raise SystemExit(f"{arm}: cfg has no '{k}', so the architecture is not fully determined by the\n"
+                             "  artefact. Refusing rather than filling the gap from the table.")
+
+    stages = str(cfg["stages"])
+    rank = int(cfg["xproj_rank"])
+    ternary = "D" in stages
+    unsupported = [s for s in stages if s not in "CD"]
+    if unsupported:
+        # Stage E upcycles to MoE and inserts the recall slot; reconstructing that faithfully needs
+        # load_w/seed/sparse and is not a transcription. Refusing by name beats building something close.
+        raise SystemExit(
+            f"{arm}: cfg says stages={stages!r}. This tool reconstructs stage C and stage D exit states\n"
+            f"  only; {unsupported} would need the stage-E upcycle replayed. Refusing to evaluate an\n"
+            "  architecture it cannot rebuild exactly. Extend build_from_cfg deliberately, with the\n"
+            "  both-direction exercise, before removing this refusal.")
+
+    model = MVEStudent(V, **S0)
+    swapped = ""
+    if rank > 0:
+        nx, dn, ln = model.lowrank_xproj(rank)
+        swapped = (f"x_proj low-rank r={rank}: {nx} swapped | {ln}/{dn} params "
+                   f"= {100.0*ln/max(dn,1):.1f}% of dense")
+    if ternary:
+        n = model.qat_ternary(alpha_sched=int(cfg["qat_alpha"]) > 0)
+        if int(cfg["qat_alpha"]) > 0:
+            model.set_qat_alpha(1.0)     # stage D is complete in an exit checkpoint -> alpha is 1, not 0
+        swapped += (" | " if swapped else "") + f"QAT ternary: {n} MLP linears"
+    want_recall = (str(cfg["recall"]) == "on")
+    if want_recall:
+        raise SystemExit(f"{arm}: cfg says recall=on, but the slot is inserted at stage E and stages="
+                         f"{stages!r} never reaches it. Contradictory artefact -- refusing.")
+
+    # ORDER IS LOAD-BEARING: build, then swap, THEN move to the device. The first attempt at this
+    # cross-check did .to(dev) first, so the freshly constructed low-rank layers stayed on CPU and the
+    # forward died on a device mismatch. The trainer does surgery-then-move; transcribe its order.
+    model = model.to(dev)
+
+    # The table is now an ASSERTION against what the artefact said, and it fails closed.
+    if rank != table_rank:
+        raise SystemExit(
+            f"{arm}: the checkpoint's cfg declares xproj_rank={rank}, the ARMS table declares "
+            f"{table_rank}.\n  The model was built from the CHECKPOINT ({rank}), which is the authority. "
+            "Fix the ARMS\n  entry to match the artefact; do not change the artefact to match the table.")
+    return model, swapped, (recall_slot_keys(V) if want_recall else frozenset())
+
+
+def load_or_refuse(model, ck, arm, allowed_missing):
+    """strict, and it REFUSES. Reports the COMPLETE counts, not the first four: the old code truncated at
+    [:4], so a hundred discordant keys and four discordant keys printed the same shape of line."""
+    missing, unexpected = model.load_state_dict(ck["model"], strict=False)
+    bad = sorted(set(missing) - set(allowed_missing))
+    unexpected = sorted(unexpected)
+    if bad or unexpected:
+        raise SystemExit(
+            f"{arm}: ARCHITECTURE MISMATCH -- {len(bad)} missing key(s), {len(unexpected)} unexpected.\n"
+            f"  missing    ({len(bad)}): {bad}\n"
+            f"  unexpected ({len(unexpected)}): {unexpected}\n"
+            f"  allowed missing (recall slot, only when cfg.recall==on): {sorted(allowed_missing)}\n"
+            "  The remedy is to build the architecture the checkpoint declares, not to relax this to\n"
+            "  strict=False: a randomly-initialised layer evaluates cleanly and answers a different\n"
+            "  question. If the cfg is right and this still fires, mve_model.py has moved under it.")
+    return len(missing) - len(bad)
+
+
 def bpb_on(model, stream, V, el, dev, cap=0):
     """The trainer's bpb_on, transcribed verbatim so the number is the one stage-exit would have printed:
     cap=0 = whole stream, full windows batched, ragged remainder alone, bytes from exp_len."""
@@ -113,24 +219,18 @@ def main():
         meta = json.load(open(os.path.join(data, "meta_s0.json")))
         p62_bytes = int(meta["p62_bytes"]); ntr = int(meta["n_train_tok"])
 
-        # ORDER IS LOAD-BEARING: build, then swap x_proj, THEN move to the device. The first attempt at this
-        # cross-check did .to(dev) first, so the freshly constructed low-rank layers stayed on CPU and the
-        # forward pass died on a device mismatch. The trainer does surgery-then-move (line ~389); transcribe
-        # its order, do not re-derive it.
-        model = MVEStudent(V, **S0)
-        if xrank > 0:
-            nx, dn, ln = model.lowrank_xproj(xrank)
-            print(f"  {arm}: x_proj low-rank r={xrank}: {nx} swapped | {ln}/{dn} params "
-                  f"= {100.0*ln/max(dn,1):.1f}% of dense")
-        model = model.to(dev)
         # The checkpoint's own embedding width names its vocabulary: assert it against V BEFORE loading, so
-        # a swapped checkpoint is a named refusal, not a silent strict=False shape drop.
+        # a swapped checkpoint is a named refusal, not a silent strict=False shape drop. This is DATA
+        # identity; the architecture is a separate question and is settled by build_from_cfg below.
         ck_vocab = ck["model"]["emb.weight"].shape[0]
         assert ck_vocab == V, f"{arm}: checkpoint vocab {ck_vocab} != expected {V} -- wrong file"
-        missing, unexpected = model.load_state_dict(ck["model"], strict=False)
-        real_missing = [m for m in missing if "recall" not in m]   # recall slot is absent at stage C by design
-        if real_missing or unexpected:
-            print(f"  {arm}: load missing={real_missing[:4]} unexpected={unexpected[:4]}")
+
+        model, swapped, allowed = build_from_cfg(ck, arm, xrank, V, dev)
+        cfg = ck["cfg"]
+        print(f"  {arm}: arch from cfg -> stages={cfg['stages']!r} xproj_rank={cfg['xproj_rank']} "
+              f"qat_alpha={cfg['qat_alpha']} recall={cfg['recall']!r}"
+              + (f"\n    {swapped}" if swapped else ""))
+        load_or_refuse(model, ck, arm, allowed)
 
         # PLANTED CONTROL first: reproduce the tail val Kaggle printed, same weights, same code, same cap.
         print(f"  {arm}  V={V}")
