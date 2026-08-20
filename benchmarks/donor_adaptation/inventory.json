@@ -1,0 +1,8511 @@
+{
+ "generated_utc": "2026-08-20T11:17:00Z",
+ "python": "3.12.10",
+ "platform": "Windows-11-10.0.26200-SP0",
+ "rate_constants": {
+  "source": "docs/PHASE64_BUDGET.md sec.1 / sec.1b (measured, 3600X reference)",
+  "rcurve_mb": [
+   4.0,
+   8.0,
+   16.0,
+   24.0,
+   32.0,
+   48.0,
+   64.0,
+   96.0
+  ],
+  "rcurve_gbs": [
+   187.0,
+   185.0,
+   134.4,
+   60.5,
+   55.7,
+   45.5,
+   45.3,
+   36.5
+  ],
+  "rcurve_asymptote": [
+   34.0,
+   36.0
+  ],
+  "lut_gbs_moe_integrated": 4.2,
+  "lut_gbs_kernel_pure": 17.0,
+  "lut_gbs_dense_integrated": 11.397565217391303,
+  "expert_dispatch_us": 8.4,
+  "dram_aggregate_gbs": [
+   40.0,
+   44.0
+  ],
+  "os_margin_bytes": 1073741824.0
+ },
+ "manifest": {
+  "HuggingFaceTB/SmolLM2-1.7B": {
+   "config_bytes": 635,
+   "config_file": "configs/HuggingFaceTB__SmolLM2-1.7B.json",
+   "config_sha256": "33397f6af8090f7290f27ce6fb1cd23a95fd0915a5c648dfd10b6002aaf7fc48",
+   "fetched_utc": "2026-08-20T10:57:43Z",
+   "license": "apache-2.0",
+   "repo_id": "HuggingFaceTB/SmolLM2-1.7B",
+   "revision_sha": "effd688a12921b4cc83e3312b6feb579f70f9c71",
+   "safetensors_params_by_dtype": {
+    "BF16": 1711376384
+   },
+   "safetensors_total_params": 1711376384,
+   "status": "OK"
+  },
+  "Qwen/Qwen2.5-1.5B": {
+   "config_bytes": 684,
+   "config_file": "configs/Qwen__Qwen2.5-1.5B.json",
+   "config_sha256": "0e8c8aa86468aba09c9d32157ff4bc2301c7e6c50e4398960425b2ea71e66f77",
+   "fetched_utc": "2026-08-20T10:57:31Z",
+   "license": "apache-2.0",
+   "repo_id": "Qwen/Qwen2.5-1.5B",
+   "revision_sha": "8faed761d45a263340a0528343f099c05c9a4323",
+   "safetensors_params_by_dtype": {
+    "BF16": 1543714304
+   },
+   "safetensors_total_params": 1543714304,
+   "status": "OK"
+  },
+  "Qwen/Qwen3-1.7B": {
+   "config_bytes": 726,
+   "config_file": "configs/Qwen__Qwen3-1.7B.json",
+   "config_sha256": "1ddb5b89ebc90dcb417a45c213d818577e65976454d29385c8f6140771d95197",
+   "fetched_utc": "2026-08-20T10:57:43Z",
+   "license": "apache-2.0",
+   "repo_id": "Qwen/Qwen3-1.7B",
+   "revision_sha": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+   "safetensors_params_by_dtype": {
+    "BF16": 2031739904
+   },
+   "safetensors_total_params": 2031739904,
+   "status": "OK"
+  },
+  "Qwen/Qwen3-30B-A3B": {
+   "config_bytes": 963,
+   "config_file": "configs/Qwen__Qwen3-30B-A3B.json",
+   "config_sha256": "2850ddb3bf7aecad20b611e2d44f3077fc8193f4827c93beddd4c02ad63c2297",
+   "fetched_utc": "2026-08-20T10:57:45Z",
+   "license": "apache-2.0",
+   "repo_id": "Qwen/Qwen3-30B-A3B",
+   "revision_sha": "ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+   "safetensors_params_by_dtype": {
+    "BF16": 30532122624
+   },
+   "safetensors_total_params": 30532122624,
+   "status": "OK"
+  },
+  "Qwen/Qwen3-8B": {
+   "config_bytes": 728,
+   "config_file": "configs/Qwen__Qwen3-8B.json",
+   "config_sha256": "f7c4eadfbbf522470667b797a3c89be2524832d2d599797248dc304fff447c30",
+   "fetched_utc": "2026-08-20T10:57:44Z",
+   "license": "apache-2.0",
+   "repo_id": "Qwen/Qwen3-8B",
+   "revision_sha": "b968826d9c46dd6066d109eabc6255188de91218",
+   "safetensors_params_by_dtype": {
+    "BF16": 8190735360
+   },
+   "safetensors_total_params": 8190735360,
+   "status": "OK"
+  },
+  "Qwen/Qwen3-Next-80B-A3B-Instruct": {
+   "config_bytes": 1154,
+   "config_file": "configs/Qwen__Qwen3-Next-80B-A3B-Instruct.json",
+   "config_sha256": "2d483c7cabad7c8704478ed4038fa7e7b2eff840bc00a118eccbe38e2b488303",
+   "fetched_utc": "2026-08-20T10:57:48Z",
+   "license": "apache-2.0",
+   "repo_id": "Qwen/Qwen3-Next-80B-A3B-Instruct",
+   "revision_sha": "9c7f2fbe84465e40164a94cc16cd30b6999b0cc7",
+   "safetensors_params_by_dtype": {
+    "BF16": 81324862720
+   },
+   "safetensors_total_params": 81324862720,
+   "status": "OK"
+  },
+  "Zyphra/Zamba2-2.7B": {
+   "config_bytes": 2020,
+   "config_file": "configs/Zyphra__Zamba2-2.7B.json",
+   "config_sha256": "0497ca3001366ed8eaef1030c84f856fd864f6f5e2ba86cef9ee9b211807df02",
+   "fetched_utc": "2026-08-20T10:57:47Z",
+   "license": "apache-2.0",
+   "repo_id": "Zyphra/Zamba2-2.7B",
+   "revision_sha": "31afeeac4c66b4851a54290ba57c995a68c87861",
+   "safetensors_params_by_dtype": {
+    "BF16": 2662214560
+   },
+   "safetensors_total_params": 2662214560,
+   "status": "OK"
+  },
+  "ai21labs/AI21-Jamba-Mini-1.6": {
+   "fetched_utc": "2026-08-20T10:57:46Z",
+   "reason": "GATED: 401 Client Error. (Request ID: Root=1-6a86ddac-27f03ef621376c0713e7c5ed;dd59388d-35a5-4e80-ba81-c17e7b08cdbb)",
+   "repo_id": "ai21labs/AI21-Jamba-Mini-1.6",
+   "status": "UNAVAILABLE"
+  },
+  "allenai/OLMo-2-1124-7B": {
+   "config_bytes": 623,
+   "config_file": "configs/allenai__OLMo-2-1124-7B.json",
+   "config_sha256": "f1e210de0ba704c579768c154bf57e36e170868ffecb060a6e0d3f2e6b0b9710",
+   "fetched_utc": "2026-08-20T10:57:44Z",
+   "license": "apache-2.0",
+   "repo_id": "allenai/OLMo-2-1124-7B",
+   "revision_sha": "7df9a82518afdecae4e8c026b27adccc8c1f0032",
+   "safetensors_params_by_dtype": {
+    "F32": 7298617344
+   },
+   "safetensors_total_params": 7298617344,
+   "status": "OK"
+  },
+  "allenai/OLMoE-1B-7B-0924": {
+   "config_bytes": 759,
+   "config_file": "configs/allenai__OLMoE-1B-7B-0924.json",
+   "config_sha256": "3643aa880d2f1c9b418156269ae791c73e5612d6b6b6fde0724d927cf89b6335",
+   "fetched_utc": "2026-08-20T10:57:46Z",
+   "license": "apache-2.0",
+   "repo_id": "allenai/OLMoE-1B-7B-0924",
+   "revision_sha": "6d84c48581ece794365f2b8e9cfb043c68ade9c5",
+   "safetensors_params_by_dtype": {
+    "BF16": 6919161856
+   },
+   "safetensors_total_params": 6919161856,
+   "status": "OK"
+  },
+  "deepseek-ai/DeepSeek-V2-Lite": {
+   "config_bytes": 1522,
+   "config_file": "configs/deepseek-ai__DeepSeek-V2-Lite.json",
+   "config_sha256": "f346286b0f1c8b044252fd54cb4fa78b9fab6472a6e8bebb9edfe03d414ea03d",
+   "fetched_utc": "2026-08-20T10:57:45Z",
+   "license": "other",
+   "repo_id": "deepseek-ai/DeepSeek-V2-Lite",
+   "revision_sha": "604d5664dddd88a0433dbae533b7fe9472482de0",
+   "safetensors_params_by_dtype": {
+    "BF16": 15706484224
+   },
+   "safetensors_total_params": 15706484224,
+   "status": "OK"
+  },
+  "ibm-granite/granite-4.0-h-small": {
+   "config_bytes": 1799,
+   "config_file": "configs/ibm-granite__granite-4.0-h-small.json",
+   "config_sha256": "8616e9f0b30e6fac9696f7c1e1dbd08f1a850ac4af0de6353f7d6009043702ae",
+   "fetched_utc": "2026-08-20T10:57:47Z",
+   "license": "apache-2.0",
+   "repo_id": "ibm-granite/granite-4.0-h-small",
+   "revision_sha": "b8c0982bab7fde4eb48110f5a069527c008fab39",
+   "safetensors_params_by_dtype": {
+    "BF16": 32207337984
+   },
+   "safetensors_total_params": 32207337984,
+   "status": "OK"
+  },
+  "meta-llama/Llama-3.2-1B": {
+   "fetched_utc": "2026-08-20T10:57:45Z",
+   "reason": "GATED: 401 Client Error. (Request ID: Root=1-6a86ddaa-4855c3b137f4eab75158ba36;67ffb929-ef18-4ee9-b016-ee654c0e50d4)",
+   "repo_id": "meta-llama/Llama-3.2-1B",
+   "status": "UNAVAILABLE"
+  },
+  "microsoft/Phi-3-mini-4k-instruct": {
+   "config_bytes": 967,
+   "config_file": "configs/microsoft__Phi-3-mini-4k-instruct.json",
+   "config_sha256": "072d4df63228ef806a6b2b2f02a93f1d048ebd31584d0f61d1180aef36e5bcea",
+   "fetched_utc": "2026-08-20T10:57:43Z",
+   "license": "mit",
+   "repo_id": "microsoft/Phi-3-mini-4k-instruct",
+   "revision_sha": "f39ac1d28e925b323eae81227eaba4464caced4e",
+   "safetensors_params_by_dtype": {
+    "BF16": 3821079552
+   },
+   "safetensors_total_params": 3821079552,
+   "status": "OK"
+  },
+  "mistralai/Mistral-7B-v0.3": {
+   "config_bytes": 601,
+   "config_file": "configs/mistralai__Mistral-7B-v0.3.json",
+   "config_sha256": "affafc6478ec0fd07a32f0ca57aa2fc57743f4d17d6730f86a96ac24d1507f99",
+   "fetched_utc": "2026-08-20T10:57:44Z",
+   "license": "apache-2.0",
+   "repo_id": "mistralai/Mistral-7B-v0.3",
+   "revision_sha": "caa1feb0e54d415e2df31207e5f4e273e33509b1",
+   "safetensors_params_by_dtype": {
+    "BF16": 7248023552
+   },
+   "safetensors_total_params": 7248023552,
+   "status": "OK"
+  },
+  "mistralai/Mixtral-8x7B-v0.1": {
+   "config_bytes": 720,
+   "config_file": "configs/mistralai__Mixtral-8x7B-v0.1.json",
+   "config_sha256": "9d56d04b36d0fd12ff54ae4c5bac769cc176e254e64ff71144614b6318b40793",
+   "fetched_utc": "2026-08-20T10:57:45Z",
+   "license": "apache-2.0",
+   "repo_id": "mistralai/Mixtral-8x7B-v0.1",
+   "revision_sha": "fc7ac94680e38d7348cfa806e51218e6273104b0",
+   "safetensors_params_by_dtype": {
+    "BF16": 46702792704
+   },
+   "safetensors_total_params": 46702792704,
+   "status": "OK"
+  },
+  "nvidia/Nemotron-H-8B-Base-8K": {
+   "config_bytes": 1504,
+   "config_file": "configs/nvidia__Nemotron-H-8B-Base-8K.json",
+   "config_sha256": "81e822f85d6471312bcc0ccd34cc62789075376ecedca7fde0e451584943368b",
+   "fetched_utc": "2026-08-20T10:57:47Z",
+   "license": "other",
+   "repo_id": "nvidia/Nemotron-H-8B-Base-8K",
+   "revision_sha": "94ea861e008c2dfced3e8e1302094024077aa04e",
+   "safetensors_params_by_dtype": {
+    "BF16": 8100852736
+   },
+   "safetensors_total_params": 8100852736,
+   "status": "OK"
+  },
+  "openai/gpt-oss-20b": {
+   "config_bytes": 1806,
+   "config_file": "configs/openai__gpt-oss-20b.json",
+   "config_sha256": "3a2a26ded679375b7928ddeca59764df7cea83220c1961035f6d6e232659e9ce",
+   "fetched_utc": "2026-08-20T10:57:46Z",
+   "license": "apache-2.0",
+   "repo_id": "openai/gpt-oss-20b",
+   "revision_sha": "6cee5e81ee83917806bbde320786a8fb61efebee",
+   "safetensors_params_by_dtype": {
+    "BF16": 1804459584,
+    "U8": 19707494400
+   },
+   "safetensors_total_params": 21511953984,
+   "status": "OK"
+  },
+  "state-spaces/mamba2-2.7b": {
+   "config_bytes": 331,
+   "config_file": "configs/state-spaces__mamba2-2.7b.json",
+   "config_sha256": "0955f133a3eeb902ed11e1a65d0be2934e33a8e1871b6a9685414fa8955e6c86",
+   "fetched_utc": "2026-08-20T10:57:48Z",
+   "license": "apache-2.0",
+   "repo_id": "state-spaces/mamba2-2.7b",
+   "revision_sha": "99b226cc377d131cccc610ed4346db564f381f1e",
+   "safetensors_params_by_dtype": null,
+   "safetensors_total_params": null,
+   "status": "OK"
+  },
+  "tiiuae/Falcon-H1-7B-Base": {
+   "config_bytes": 1637,
+   "config_file": "configs/tiiuae__Falcon-H1-7B-Base.json",
+   "config_sha256": "a0ed9a14b6a71ed4701b72549eb07e17d5c2a68c223aae09630de4e945c76c05",
+   "fetched_utc": "2026-08-20T10:57:48Z",
+   "license": "other",
+   "repo_id": "tiiuae/Falcon-H1-7B-Base",
+   "revision_sha": "c9a4cbb95c01b1ede39f69eda083d03d8903b8f0",
+   "safetensors_params_by_dtype": {
+    "BF16": 7585648736
+   },
+   "safetensors_total_params": 7585648736,
+   "status": "OK"
+  }
+ },
+ "rows": [
+  {
+   "repo": "Qwen/Qwen2.5-1.5B",
+   "status": "OK",
+   "partial": [],
+   "notes": [
+    "qwen2 carries QKV biases with no attention_bias key -- family assumption, declared; worth 4e-5 of the total, adjudicated by the cross-check"
+   ],
+   "provenance": {
+    "hidden_size": [
+     "hidden_size"
+    ],
+    "n_layers": [
+     "num_hidden_layers"
+    ],
+    "vocab": [
+     "vocab_size"
+    ],
+    "tie": [
+     "tie_word_embeddings"
+    ],
+    "attn": [
+     "num_attention_heads",
+     "num_key_value_heads"
+    ],
+    "head_dim": [
+     "hidden_size/num_attention_heads"
+    ],
+    "mlp": [
+     "hidden_act",
+     "intermediate_size"
+    ]
+   },
+   "meta": {
+    "model_type": "qwen2",
+    "layer_types": [
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn"
+    ],
+    "layer_types_source": "no layer-type key present and model_type is a dense-transformer family",
+    "n_attn_layers": 28,
+    "n_ssm_layers": 0,
+    "n_linattn_layers": 0,
+    "kv_elems_per_tok_per_layer": 512,
+    "kv_kind": "gqa",
+    "n_kv_heads": 2,
+    "head_dim": 128,
+    "mlp_gated": true,
+    "mlp_act": "silu",
+    "n_experts": 0,
+    "top_k": 0,
+    "expert_width": 0,
+    "n_moe_layers": 0,
+    "n_dense_mlp_layers": 28,
+    "shared_expert_width": 0,
+    "expert_calls_per_token": 0,
+    "hidden_size": 1536,
+    "n_layers": 28,
+    "vocab": 151936,
+    "tied": true,
+    "mlp_width": 8960
+   },
+   "params_by_organ": {
+    "attn_proj": 154140672,
+    "norm": 144896,
+    "mlp": 1156055040,
+    "emb": 233373696,
+    "head": 0
+   },
+   "params_total_computed": 1543714304,
+   "params_total_advertised": 1543714304,
+   "params_dtypes": {
+    "BF16": 1543714304
+   },
+   "params_delta_pct": 0.0,
+   "params_agree": true,
+   "crosscheck": "AGREE",
+   "active_params_per_token": 1543714304,
+   "fp_all_ternary": {
+    "payload": 771857152.0,
+    "scales": 3767808.0,
+    "padding": 2245888.0,
+    "total": 777870848.0
+   },
+   "fp_all_ternary_by_organ": {
+    "attn_proj": 77471744.0,
+    "norm": 2897920.0,
+    "mlp": 580206592.0,
+    "emb": 117294592.0
+   },
+   "fp_p61_map": {
+    "payload": 2128664576.0,
+    "scales": 2179072.0,
+    "padding": 0.0,
+    "total": 2130843648.0
+   },
+   "fp_p61_map_by_organ": {
+    "attn_proj": 616562688.0,
+    "norm": 579584.0,
+    "mlp": 580206592.0,
+    "emb": 933494784.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 117440512.0,
+     "note": ""
+    },
+    "4096_4bit": {
+     "bytes": 29360128.0,
+     "note": ""
+    },
+    "32768_fp16": {
+     "bytes": 939524096.0,
+     "note": ""
+    },
+    "32768_4bit": {
+     "bytes": 234881024.0,
+     "note": ""
+    },
+    "131072_fp16": {
+     "bytes": 3758096384.0,
+     "note": ""
+    },
+    "131072_4bit": {
+     "bytes": 939524096.0,
+     "note": ""
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 580206592.0,
+    "lut_dense": 580206592.0,
+    "lut_moe": 0.0,
+    "proj": 616562688.0,
+    "head": 933494784.0,
+    "other": 579584.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 580206592.0,
+    "lut_dense": 580206592.0,
+    "lut_moe": 0.0,
+    "proj": 77471744.0,
+    "head": 117294592.0,
+    "other": 2897920.0
+   },
+   "glue_us": 32.66666666666667,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      45606.97223529412,
+      43073.25155555555
+     ],
+     "t_lut_us": [
+      138144.42666666667,
+      34129.799529411765
+     ],
+     "t_kv_us": [
+      2936.0128,
+      2669.102545454545
+     ],
+     "t_glue_us": 32.66666666666667,
+     "t_total_us": [
+      186720.07836862744,
+      79904.82029708853
+     ],
+     "t_measured_only_us": 99481.83920196079,
+     "toks": [
+      5.355610434276785,
+      12.514889543358834
+     ],
+     "toks_measured_only": 10.052085968875915,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      45606.97223529412,
+      43073.25155555555
+     ],
+     "t_lut_us": [
+      138144.42666666667,
+      34129.799529411765
+     ],
+     "t_kv_us": [
+      734.0032,
+      667.2756363636363
+     ],
+     "t_glue_us": 32.66666666666667,
+     "t_total_us": [
+      184518.06876862745,
+      77902.99338799762
+     ],
+     "t_measured_only_us": 97279.8296019608,
+     "toks": [
+      5.419523446529938,
+      12.836477220066211
+     ],
+     "toks_measured_only": 10.279623269198693,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      45606.97223529412,
+      43073.25155555555
+     ],
+     "t_lut_us": [
+      138144.42666666667,
+      34129.799529411765
+     ],
+     "t_kv_us": [
+      23488.1024,
+      21352.82036363636
+     ],
+     "t_glue_us": 32.66666666666667,
+     "t_total_us": [
+      207272.16796862744,
+      98588.53811527035
+     ],
+     "t_measured_only_us": 120033.92880196079,
+     "toks": [
+      4.824574422125788,
+      10.143166935194776
+     ],
+     "toks_measured_only": 8.330977832524837,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      45606.97223529412,
+      43073.25155555555
+     ],
+     "t_lut_us": [
+      138144.42666666667,
+      34129.799529411765
+     ],
+     "t_kv_us": [
+      5872.0256,
+      5338.20509090909
+     ],
+     "t_glue_us": 32.66666666666667,
+     "t_total_us": [
+      189656.09116862743,
+      82573.92284254308
+     ],
+     "t_measured_only_us": 102417.85200196078,
+     "toks": [
+      5.272701729948014,
+      12.110360820653515
+     ],
+     "toks_measured_only": 9.763922797178514,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      45606.97223529412,
+      43073.25155555555
+     ],
+     "t_lut_us": [
+      138144.42666666667,
+      34129.799529411765
+     ],
+     "t_kv_us": [
+      93952.4096,
+      85411.28145454545
+     ],
+     "t_glue_us": 32.66666666666667,
+     "t_total_us": [
+      277736.47516862745,
+      162646.99920617943
+     ],
+     "t_measured_only_us": 190498.2360019608,
+     "toks": [
+      3.6005353614171525,
+      6.148284351267681
+     ],
+     "toks_measured_only": 5.249392440514289,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      45606.97223529412,
+      43073.25155555555
+     ],
+     "t_lut_us": [
+      138144.42666666667,
+      34129.799529411765
+     ],
+     "t_kv_us": [
+      23488.1024,
+      21352.82036363636
+     ],
+     "t_glue_us": 32.66666666666667,
+     "t_total_us": [
+      207272.16796862744,
+      98588.53811527035
+     ],
+     "t_measured_only_us": 120033.92880196079,
+     "toks": [
+      4.824574422125788,
+      10.143166935194776
+     ],
+     "toks_measured_only": 8.330977832524837,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      45606.97223529412,
+      43073.25155555555
+     ],
+     "t_lut_us": [
+      138144.42666666667,
+      34129.799529411765
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 32.66666666666667,
+     "t_total_us": [
+      183784.06556862744,
+      77235.71775163399
+     ],
+     "t_measured_only_us": 96545.82640196079,
+     "toks": [
+      5.441168127965842,
+      12.947377574915384
+     ],
+     "toks_measured_only": 10.35777554833474,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    185240.01142857142,
+    45789.77537254901
+   ],
+   "head": {
+    "bytes_fp32": 933494784.0,
+    "bytes_ternary": 117294592.0,
+    "ms_fp32": [
+     27.45572894117647,
+     25.930410666666667
+    ],
+    "ms_ternary_lut": [
+     27.92728380952381,
+     6.899681882352941
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "dominant_term": "ternary MLP/experts",
+   "term_us_pess": {
+    "proj+head (fp32)": 45606.97223529412,
+    "ternary MLP/experts": 138144.42666666667,
+    "glue": 32.66666666666667
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 4144717312.0,
+     "fits": true
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 3440074240.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 2791744512.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 2087101440.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 6963289600.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 4144717312.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 5610316800.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 2791744512.0,
+     "fits": true
+    }
+   }
+  },
+  {
+   "repo": "Qwen/Qwen3-1.7B",
+   "status": "OK",
+   "partial": [],
+   "notes": [],
+   "provenance": {
+    "hidden_size": [
+     "hidden_size"
+    ],
+    "n_layers": [
+     "num_hidden_layers"
+    ],
+    "vocab": [
+     "vocab_size"
+    ],
+    "tie": [
+     "tie_word_embeddings"
+    ],
+    "attn": [
+     "num_attention_heads",
+     "num_key_value_heads"
+    ],
+    "head_dim": [
+     "head_dim"
+    ],
+    "mlp": [
+     "hidden_act",
+     "intermediate_size"
+    ]
+   },
+   "meta": {
+    "model_type": "qwen3",
+    "layer_types": [
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn"
+    ],
+    "layer_types_source": "no layer-type key present and model_type is a dense-transformer family",
+    "n_attn_layers": 28,
+    "n_ssm_layers": 0,
+    "n_linattn_layers": 0,
+    "kv_elems_per_tok_per_layer": 2048,
+    "kv_kind": "gqa",
+    "n_kv_heads": 8,
+    "head_dim": 128,
+    "mlp_gated": true,
+    "mlp_act": "silu",
+    "n_experts": 0,
+    "top_k": 0,
+    "expert_width": 0,
+    "n_moe_layers": 0,
+    "n_dense_mlp_layers": 28,
+    "shared_expert_width": 0,
+    "expert_calls_per_token": 0,
+    "hidden_size": 2048,
+    "n_layers": 28,
+    "vocab": 151936,
+    "tied": true,
+    "mlp_width": 6144
+   },
+   "params_by_organ": {
+    "attn_proj": 352321536,
+    "mlp": 1056964608,
+    "emb": 311164928,
+    "head": 0,
+    "norm": 116736
+   },
+   "params_total_computed": 1720567808,
+   "params_total_advertised": 2031739904,
+   "params_dtypes": {
+    "BF16": 2031739904
+   },
+   "params_delta_pct": -15.315547791692138,
+   "params_agree": true,
+   "crosscheck": "AGREE_TIED_DUPLICATED",
+   "crosscheck_secondary": {
+    "hypothesis": "repo stores lm_head.weight as a physical duplicate of the tied embedding; logical parameter count is the computed one",
+    "computed_plus_one_embedding": 2031732736,
+    "delta_pct": -0.00035280106404800916
+   },
+   "active_params_per_token": 1720567808,
+   "fp_all_ternary": {
+    "payload": 860283904.0,
+    "scales": 3368448.0,
+    "padding": 1809408.0,
+    "total": 865461760.0
+   },
+   "fp_all_ternary_by_organ": {
+    "attn_proj": 176848896.0,
+    "mlp": 530087936.0,
+    "emb": 156190208.0,
+    "norm": 2334720.0
+   },
+   "fp_p61_map": {
+    "payload": 3182895104.0,
+    "scales": 1605632.0,
+    "padding": 0.0,
+    "total": 3184500736.0
+   },
+   "fp_p61_map_by_organ": {
+    "attn_proj": 1409286144.0,
+    "mlp": 530087936.0,
+    "emb": 1244659712.0,
+    "norm": 466944.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 469762048.0,
+     "note": ""
+    },
+    "4096_4bit": {
+     "bytes": 117440512.0,
+     "note": ""
+    },
+    "32768_fp16": {
+     "bytes": 3758096384.0,
+     "note": ""
+    },
+    "32768_4bit": {
+     "bytes": 939524096.0,
+     "note": ""
+    },
+    "131072_fp16": {
+     "bytes": 15032385536.0,
+     "note": ""
+    },
+    "131072_4bit": {
+     "bytes": 3758096384.0,
+     "note": ""
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 530087936.0,
+    "lut_dense": 530087936.0,
+    "lut_moe": 0.0,
+    "proj": 1409286144.0,
+    "head": 1244659712.0,
+    "other": 466944.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 530087936.0,
+    "lut_dense": 530087936.0,
+    "lut_moe": 0.0,
+    "proj": 176848896.0,
+    "head": 156190208.0,
+    "other": 2334720.0
+   },
+   "glue_us": 32.66666666666667,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      78070.96470588236,
+      73733.68888888888
+     ],
+     "t_lut_us": [
+      126211.41333333333,
+      31181.643294117646
+     ],
+     "t_kv_us": [
+      11744.0512,
+      10676.41018181818
+     ],
+     "t_glue_us": 32.66666666666667,
+     "t_total_us": [
+      216059.09590588234,
+      115624.40903149138
+     ],
+     "t_measured_only_us": 136356.55757254903,
+     "toks": [
+      4.62836334571913,
+      8.648692852801009
+     ],
+     "toks_measured_only": 7.333714034750005,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      78070.96470588236,
+      73733.68888888888
+     ],
+     "t_lut_us": [
+      126211.41333333333,
+      31181.643294117646
+     ],
+     "t_kv_us": [
+      2936.0128,
+      2669.102545454545
+     ],
+     "t_glue_us": 32.66666666666667,
+     "t_total_us": [
+      207251.05750588235,
+      107617.10139512774
+     ],
+     "t_measured_only_us": 127548.51917254903,
+     "toks": [
+      4.8250658502508115,
+      9.292203441982632
+     ],
+     "toks_measured_only": 7.840153742962622,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      78070.96470588236,
+      73733.68888888888
+     ],
+     "t_lut_us": [
+      126211.41333333333,
+      31181.643294117646
+     ],
+     "t_kv_us": [
+      93952.4096,
+      85411.28145454545
+     ],
+     "t_glue_us": 32.66666666666667,
+     "t_total_us": [
+      298267.45430588233,
+      190359.28030421864
+     ],
+     "t_measured_only_us": 218564.91597254903,
+     "toks": [
+      3.3526956614397148,
+      5.253224315630272
+     ],
+     "toks_measured_only": 4.575299725256896,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      78070.96470588236,
+      73733.68888888888
+     ],
+     "t_lut_us": [
+      126211.41333333333,
+      31181.643294117646
+     ],
+     "t_kv_us": [
+      23488.1024,
+      21352.82036363636
+     ],
+     "t_glue_us": 32.66666666666667,
+     "t_total_us": [
+      227803.14710588235,
+      126300.81921330956
+     ],
+     "t_measured_only_us": 148100.60877254902,
+     "toks": [
+      4.38975498233658,
+      7.917605018151934
+     ],
+     "toks_measured_only": 6.752166708077391,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      78070.96470588236,
+      73733.68888888888
+     ],
+     "t_lut_us": [
+      126211.41333333333,
+      31181.643294117646
+     ],
+     "t_kv_us": [
+      375809.6384,
+      341645.1258181818
+     ],
+     "t_glue_us": 32.66666666666667,
+     "t_total_us": [
+      580124.6831058824,
+      446593.124667855
+     ],
+     "t_measured_only_us": 500422.14477254904,
+     "toks": [
+      1.7237673712591943,
+      2.239174641892955
+     ],
+     "toks_measured_only": 1.99831284535683,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      78070.96470588236,
+      73733.68888888888
+     ],
+     "t_lut_us": [
+      126211.41333333333,
+      31181.643294117646
+     ],
+     "t_kv_us": [
+      93952.4096,
+      85411.28145454545
+     ],
+     "t_glue_us": 32.66666666666667,
+     "t_total_us": [
+      298267.45430588233,
+      190359.28030421864
+     ],
+     "t_measured_only_us": 218564.91597254903,
+     "toks": [
+      3.3526956614397148,
+      5.253224315630272
+     ],
+     "toks_measured_only": 4.575299725256896,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      78070.96470588236,
+      73733.68888888888
+     ],
+     "t_lut_us": [
+      126211.41333333333,
+      31181.643294117646
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 32.66666666666667,
+     "t_total_us": [
+      204315.04470588235,
+      104947.9988496732
+     ],
+     "t_measured_only_us": 124612.50637254903,
+     "toks": [
+      4.894402178946391,
+      9.528528518513186
+     ],
+     "toks_measured_only": 8.024876708685563,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    206094.99047619046,
+    50942.18196078431
+   ],
+   "head": {
+    "bytes_fp32": 1244659712.0,
+    "bytes_ternary": 156190208.0,
+    "ms_fp32": [
+     36.60763858823529,
+     34.57388088888889
+    ],
+    "ms_ternary_lut": [
+     37.18814476190476,
+     9.187659294117648
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "dominant_term": "ternary MLP/experts",
+   "term_us_pess": {
+    "proj+head (fp32)": 78070.96470588236,
+    "ternary MLP/experts": 126211.41333333333,
+    "glue": 32.66666666666667
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 8016946688.0,
+     "fits": true
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 5198374400.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 5697907712.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 2879335424.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 19291235840.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 8016946688.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 16972196864.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 5697907712.0,
+     "fits": true
+    }
+   }
+  },
+  {
+   "repo": "HuggingFaceTB/SmolLM2-1.7B",
+   "status": "OK",
+   "partial": [],
+   "notes": [],
+   "provenance": {
+    "hidden_size": [
+     "hidden_size"
+    ],
+    "n_layers": [
+     "num_hidden_layers"
+    ],
+    "vocab": [
+     "vocab_size"
+    ],
+    "tie": [
+     "tie_word_embeddings"
+    ],
+    "attn": [
+     "num_attention_heads",
+     "num_key_value_heads"
+    ],
+    "head_dim": [
+     "hidden_size/num_attention_heads"
+    ],
+    "mlp": [
+     "hidden_act",
+     "intermediate_size"
+    ]
+   },
+   "meta": {
+    "model_type": "llama",
+    "layer_types": [
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn"
+    ],
+    "layer_types_source": "no layer-type key present and model_type is a dense-transformer family",
+    "n_attn_layers": 24,
+    "n_ssm_layers": 0,
+    "n_linattn_layers": 0,
+    "kv_elems_per_tok_per_layer": 4096,
+    "kv_kind": "gqa",
+    "n_kv_heads": 32,
+    "head_dim": 64,
+    "mlp_gated": true,
+    "mlp_act": "silu",
+    "n_experts": 0,
+    "top_k": 0,
+    "expert_width": 0,
+    "n_moe_layers": 0,
+    "n_dense_mlp_layers": 24,
+    "shared_expert_width": 0,
+    "expert_calls_per_token": 0,
+    "hidden_size": 2048,
+    "n_layers": 24,
+    "vocab": 49152,
+    "tied": true,
+    "mlp_width": 8192
+   },
+   "params_by_organ": {
+    "attn_proj": 402653184,
+    "mlp": 1207959552,
+    "emb": 100663296,
+    "head": 0,
+    "norm": 100352
+   },
+   "params_total_computed": 1711376384,
+   "params_total_advertised": 1711376384,
+   "params_dtypes": {
+    "BF16": 1711376384
+   },
+   "params_delta_pct": 0.0,
+   "params_agree": true,
+   "crosscheck": "AGREE",
+   "active_params_per_token": 1711376384,
+   "fp_all_ternary": {
+    "payload": 855688192.0,
+    "scales": 3153920.0,
+    "padding": 1555456.0,
+    "total": 860397568.0
+   },
+   "fp_all_ternary_by_organ": {
+    "attn_proj": 202113024.0,
+    "mlp": 605749248.0,
+    "emb": 50528256.0,
+    "norm": 2007040.0
+   },
+   "fp_p61_map": {
+    "payload": 2617647104.0,
+    "scales": 1769472.0,
+    "padding": 0.0,
+    "total": 2619416576.0
+   },
+   "fp_p61_map_by_organ": {
+    "attn_proj": 1610612736.0,
+    "mlp": 605749248.0,
+    "emb": 402653184.0,
+    "norm": 401408.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 805306368.0,
+     "note": ""
+    },
+    "4096_4bit": {
+     "bytes": 201326592.0,
+     "note": ""
+    },
+    "32768_fp16": {
+     "bytes": 6442450944.0,
+     "note": ""
+    },
+    "32768_4bit": {
+     "bytes": 1610612736.0,
+     "note": ""
+    },
+    "131072_fp16": {
+     "bytes": 25769803776.0,
+     "note": ""
+    },
+    "131072_4bit": {
+     "bytes": 6442450944.0,
+     "note": ""
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 605749248.0,
+    "lut_dense": 605749248.0,
+    "lut_moe": 0.0,
+    "proj": 1610612736.0,
+    "head": 402653184.0,
+    "other": 401408.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 605749248.0,
+    "lut_dense": 605749248.0,
+    "lut_moe": 0.0,
+    "proj": 202113024.0,
+    "head": 50528256.0,
+    "other": 2007040.0
+   },
+   "glue_us": 28.0,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      59225.509647058825,
+      55935.203555555556
+     ],
+     "t_lut_us": [
+      144226.01142857142,
+      35632.30870588235
+     ],
+     "t_kv_us": [
+      20132.6592,
+      18302.417454545455
+     ],
+     "t_glue_us": 28.0,
+     "t_total_us": [
+      223612.18027563023,
+      109897.92971598337
+     ],
+     "t_measured_only_us": 132533.4188470588,
+     "toks": [
+      4.472028307077789,
+      9.09935248629676
+     ],
+     "toks_measured_only": 7.545266761389307,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      59225.509647058825,
+      55935.203555555556
+     ],
+     "t_lut_us": [
+      144226.01142857142,
+      35632.30870588235
+     ],
+     "t_kv_us": [
+      5033.1648,
+      4575.604363636364
+     ],
+     "t_glue_us": 28.0,
+     "t_total_us": [
+      208512.68587563024,
+      96171.11662507427
+     ],
+     "t_measured_only_us": 117433.92444705882,
+     "toks": [
+      4.795871271815382,
+      10.398132361283974
+     ],
+     "toks_measured_only": 8.515426906735257,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      59225.509647058825,
+      55935.203555555556
+     ],
+     "t_lut_us": [
+      144226.01142857142,
+      35632.30870588235
+     ],
+     "t_kv_us": [
+      161061.2736,
+      146419.33963636364
+     ],
+     "t_glue_us": 28.0,
+     "t_total_us": [
+      364540.7946756302,
+      238014.85189780156
+     ],
+     "t_measured_only_us": 273462.0332470588,
+     "toks": [
+      2.743177209809409,
+      4.201418491436738
+     ],
+     "toks_measured_only": 3.656814761910849,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      59225.509647058825,
+      55935.203555555556
+     ],
+     "t_lut_us": [
+      144226.01142857142,
+      35632.30870588235
+     ],
+     "t_kv_us": [
+      40265.3184,
+      36604.83490909091
+     ],
+     "t_glue_us": 28.0,
+     "t_total_us": [
+      243744.83947563023,
+      128200.34717052881
+     ],
+     "t_measured_only_us": 152666.0780470588,
+     "toks": [
+      4.10265096135494,
+      7.80029088899288
+     ],
+     "toks_measured_only": 6.550243595645087,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      59225.509647058825,
+      55935.203555555556
+     ],
+     "t_lut_us": [
+      144226.01142857142,
+      35632.30870588235
+     ],
+     "t_kv_us": [
+      644245.0944,
+      585677.3585454546
+     ],
+     "t_glue_us": 28.0,
+     "t_total_us": [
+      847724.6154756302,
+      677272.8708068925
+     ],
+     "t_measured_only_us": 756645.8540470587,
+     "toks": [
+      1.1796283624947392,
+      1.4765097541979133
+     ],
+     "toks_measured_only": 1.3216222551822852,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      59225.509647058825,
+      55935.203555555556
+     ],
+     "t_lut_us": [
+      144226.01142857142,
+      35632.30870588235
+     ],
+     "t_kv_us": [
+      161061.2736,
+      146419.33963636364
+     ],
+     "t_glue_us": 28.0,
+     "t_total_us": [
+      364540.7946756302,
+      238014.85189780156
+     ],
+     "t_measured_only_us": 273462.0332470588,
+     "toks": [
+      2.743177209809409,
+      4.201418491436738
+     ],
+     "toks_measured_only": 3.656814761910849,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      59225.509647058825,
+      55935.203555555556
+     ],
+     "t_lut_us": [
+      144226.01142857142,
+      35632.30870588235
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 28.0,
+     "t_total_us": [
+      203479.52107563024,
+      91595.5122614379
+     ],
+     "t_measured_only_us": 112400.75964705882,
+     "toks": [
+      4.91449947746002,
+      10.917565449557557
+     ],
+     "toks_measured_only": 8.896737025087953,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    204884.5638095238,
+    50639.621647058826
+   ],
+   "head": {
+    "bytes_fp32": 402653184.0,
+    "bytes_ternary": 50528256.0,
+    "ms_fp32": [
+     11.842740705882353,
+     11.184810666666666
+    ],
+    "ms_ternary_lut": [
+     12.030537142857144,
+     2.9722503529411766
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "dominant_term": "ternary MLP/experts",
+   "term_us_pess": {
+    "proj+head (fp32)": 59225.509647058825,
+    "ternary MLP/experts": 144226.01142857142,
+    "glue": 28.0
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 10135805952.0,
+     "fits": true
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 5303967744.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 8376786944.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 3544948736.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 29463158784.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 10135805952.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 27704139776.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 8376786944.0,
+     "fits": true
+    }
+   }
+  },
+  {
+   "repo": "microsoft/Phi-3-mini-4k-instruct",
+   "status": "OK",
+   "partial": [],
+   "notes": [],
+   "provenance": {
+    "hidden_size": [
+     "hidden_size"
+    ],
+    "n_layers": [
+     "num_hidden_layers"
+    ],
+    "vocab": [
+     "vocab_size"
+    ],
+    "tie": [
+     "tie_word_embeddings"
+    ],
+    "attn": [
+     "num_attention_heads",
+     "num_key_value_heads"
+    ],
+    "head_dim": [
+     "hidden_size/num_attention_heads"
+    ],
+    "mlp": [
+     "hidden_act",
+     "intermediate_size"
+    ]
+   },
+   "meta": {
+    "model_type": "phi3",
+    "layer_types": [
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn"
+    ],
+    "layer_types_source": "no layer-type key present and model_type is a dense-transformer family",
+    "n_attn_layers": 32,
+    "n_ssm_layers": 0,
+    "n_linattn_layers": 0,
+    "kv_elems_per_tok_per_layer": 6144,
+    "kv_kind": "gqa",
+    "n_kv_heads": 32,
+    "head_dim": 96,
+    "mlp_gated": true,
+    "mlp_act": "silu",
+    "n_experts": 0,
+    "top_k": 0,
+    "expert_width": 0,
+    "n_moe_layers": 0,
+    "n_dense_mlp_layers": 32,
+    "shared_expert_width": 0,
+    "expert_calls_per_token": 0,
+    "hidden_size": 3072,
+    "n_layers": 32,
+    "vocab": 32064,
+    "tied": false,
+    "mlp_width": 8192
+   },
+   "params_by_organ": {
+    "attn_proj": 1207959552,
+    "mlp": 2415919104,
+    "emb": 98500608,
+    "head": 98500608,
+    "norm": 199680
+   },
+   "params_total_computed": 3821079552,
+   "params_total_advertised": 3821079552,
+   "params_dtypes": {
+    "BF16": 3821079552
+   },
+   "params_delta_pct": 0.0,
+   "params_agree": true,
+   "crosscheck": "AGREE",
+   "active_params_per_token": 3722578944,
+   "fp_all_ternary": {
+    "payload": 1910539776.0,
+    "scales": 5118464.0,
+    "padding": 3095040.0,
+    "total": 1918753280.0
+   },
+   "fp_all_ternary_by_organ": {
+    "attn_proj": 605552640.0,
+    "mlp": 1210449920.0,
+    "emb": 49378560.0,
+    "head": 49378560.0,
+    "norm": 3993600.0
+   },
+   "fp_p61_map": {
+    "payload": 6828601344.0,
+    "scales": 2490368.0,
+    "padding": 0.0,
+    "total": 6831091712.0
+   },
+   "fp_p61_map_by_organ": {
+    "attn_proj": 4831838208.0,
+    "mlp": 1210449920.0,
+    "emb": 394002432.0,
+    "head": 394002432.0,
+    "norm": 798720.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 1610612736.0,
+     "note": ""
+    },
+    "4096_4bit": {
+     "bytes": 402653184.0,
+     "note": ""
+    },
+    "32768_fp16": {
+     "bytes": 12884901888.0,
+     "note": ""
+    },
+    "32768_4bit": {
+     "bytes": 3221225472.0,
+     "note": ""
+    },
+    "131072_fp16": {
+     "bytes": 51539607552.0,
+     "note": ""
+    },
+    "131072_4bit": {
+     "bytes": 12884901888.0,
+     "note": ""
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 1210449920.0,
+    "lut_dense": 1210449920.0,
+    "lut_moe": 0.0,
+    "proj": 4831838208.0,
+    "head": 394002432.0,
+    "other": 798720.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 1210449920.0,
+    "lut_dense": 1210449920.0,
+    "lut_moe": 0.0,
+    "proj": 605552640.0,
+    "head": 49378560.0,
+    "other": 3993600.0
+   },
+   "glue_us": 37.33333333333333,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      153724.68705882353,
+      145184.42666666667
+     ],
+     "t_lut_us": [
+      288202.36190476187,
+      71202.93647058823
+     ],
+     "t_kv_us": [
+      40265.3184,
+      36604.83490909091
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      482229.7006969187,
+      253029.53137967916
+     ],
+     "t_measured_only_us": 300229.8387921569,
+     "toks": [
+      2.073700559204046,
+      3.9521078608783693
+     ],
+     "toks_measured_only": 3.3307815239919574,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      153724.68705882353,
+      145184.42666666667
+     ],
+     "t_lut_us": [
+      288202.36190476187,
+      71202.93647058823
+     ],
+     "t_kv_us": [
+      10066.3296,
+      9151.208727272728
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      452030.7118969187,
+      225575.90519786096
+     ],
+     "t_measured_only_us": 270030.8499921569,
+     "toks": [
+      2.2122390662430043,
+      4.433097582487203
+     ],
+     "toks_measured_only": 3.7032805697165534,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      153724.68705882353,
+      145184.42666666667
+     ],
+     "t_lut_us": [
+      288202.36190476187,
+      71202.93647058823
+     ],
+     "t_kv_us": [
+      322122.5472,
+      292838.6792727273
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      764086.9294969187,
+      509263.37574331556
+     ],
+     "t_measured_only_us": 582087.0675921568,
+     "toks": [
+      1.3087516111005961,
+      1.9636204911464727
+     ],
+     "toks_measured_only": 1.7179560510364347,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      153724.68705882353,
+      145184.42666666667
+     ],
+     "t_lut_us": [
+      288202.36190476187,
+      71202.93647058823
+     ],
+     "t_kv_us": [
+      80530.6368,
+      73209.66981818182
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      522495.0190969187,
+      289634.36628877005
+     ],
+     "t_measured_only_us": 340495.1571921569,
+     "toks": [
+      1.9138938429085923,
+      3.452628957031239
+     ],
+     "toks_measured_only": 2.9368993328608624,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      153724.68705882353,
+      145184.42666666667
+     ],
+     "t_lut_us": [
+      288202.36190476187,
+      71202.93647058823
+     ],
+     "t_kv_us": [
+      1288490.1888,
+      1171354.7170909091
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      1730454.5710969185,
+      1387779.4135614973
+     ],
+     "t_measured_only_us": 1548454.7091921568,
+     "toks": [
+      0.5778828388231594,
+      0.7205756118212417
+     ],
+     "toks_measured_only": 0.645805133378237,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      153724.68705882353,
+      145184.42666666667
+     ],
+     "t_lut_us": [
+      288202.36190476187,
+      71202.93647058823
+     ],
+     "t_kv_us": [
+      322122.5472,
+      292838.6792727273
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      764086.9294969187,
+      509263.37574331556
+     ],
+     "t_measured_only_us": 582087.0675921568,
+     "toks": [
+      1.3087516111005961,
+      1.9636204911464727
+     ],
+     "toks_measured_only": 1.7179560510364347,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      153724.68705882353,
+      145184.42666666667
+     ],
+     "t_lut_us": [
+      288202.36190476187,
+      71202.93647058823
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      441964.3822969187,
+      216424.69647058824
+     ],
+     "t_measured_only_us": 259964.52039215688,
+     "toks": [
+      2.262625768173744,
+      4.6205447728831555
+     ],
+     "toks_measured_only": 3.8466787640540274,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    445126.55238095234,
+    110000.55215686274
+   ],
+   "head": {
+    "bytes_fp32": 394002432.0,
+    "bytes_ternary": 49378560.0,
+    "ms_fp32": [
+     11.588306823529411,
+     10.944512
+    ],
+    "ms_ternary_lut": [
+     11.7568,
+     2.904621176470588
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "dominant_term": "ternary MLP/experts",
+   "term_us_pess": {
+    "proj+head (fp32)": 153724.68705882353,
+    "ternary MLP/experts": 288202.36190476187,
+    "glue": 37.33333333333333
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 20789863680.0,
+     "fits": false
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 11126187264.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 15877525248.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 6213848832.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 59444569344.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 20789863680.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 54532230912.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 15877525248.0,
+     "fits": true
+    }
+   }
+  },
+  {
+   "repo": "allenai/OLMo-2-1124-7B",
+   "status": "OK",
+   "partial": [],
+   "notes": [],
+   "provenance": {
+    "hidden_size": [
+     "hidden_size"
+    ],
+    "n_layers": [
+     "num_hidden_layers"
+    ],
+    "vocab": [
+     "vocab_size"
+    ],
+    "tie": [
+     "tie_word_embeddings"
+    ],
+    "attn": [
+     "num_attention_heads",
+     "num_key_value_heads"
+    ],
+    "head_dim": [
+     "hidden_size/num_attention_heads"
+    ],
+    "mlp": [
+     "hidden_act",
+     "intermediate_size"
+    ]
+   },
+   "meta": {
+    "model_type": "olmo2",
+    "layer_types": [
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn"
+    ],
+    "layer_types_source": "no layer-type key present and model_type is a dense-transformer family",
+    "n_attn_layers": 32,
+    "n_ssm_layers": 0,
+    "n_linattn_layers": 0,
+    "kv_elems_per_tok_per_layer": 8192,
+    "kv_kind": "gqa",
+    "n_kv_heads": 32,
+    "head_dim": 128,
+    "mlp_gated": true,
+    "mlp_act": "silu",
+    "n_experts": 0,
+    "top_k": 0,
+    "expert_width": 0,
+    "n_moe_layers": 0,
+    "n_dense_mlp_layers": 32,
+    "shared_expert_width": 0,
+    "expert_calls_per_token": 0,
+    "hidden_size": 4096,
+    "n_layers": 32,
+    "vocab": 100352,
+    "tied": false,
+    "mlp_width": 11008
+   },
+   "params_by_organ": {
+    "attn_proj": 2147483648,
+    "mlp": 4328521728,
+    "emb": 411041792,
+    "head": 411041792,
+    "norm": 266240
+   },
+   "params_total_computed": 7298355200,
+   "params_total_advertised": 7298617344,
+   "params_dtypes": {
+    "F32": 7298617344
+   },
+   "params_delta_pct": -0.003591693983183015,
+   "params_agree": true,
+   "crosscheck": "AGREE",
+   "active_params_per_token": 6887313408,
+   "fp_all_ternary": {
+    "payload": 3649177600.0,
+    "scales": 7307264.0,
+    "padding": 4126720.0,
+    "total": 3660611584.0
+   },
+   "fp_all_ternary_by_organ": {
+    "attn_proj": 1075838976.0,
+    "mlp": 2167603200.0,
+    "emb": 205922304.0,
+    "head": 205922304.0,
+    "norm": 5324800.0
+   },
+   "fp_p61_map": {
+    "payload": 14043594752.0,
+    "scales": 3342336.0,
+    "padding": 0.0,
+    "total": 14046937088.0
+   },
+   "fp_p61_map_by_organ": {
+    "attn_proj": 8589934592.0,
+    "mlp": 2167603200.0,
+    "emb": 1644167168.0,
+    "head": 1644167168.0,
+    "norm": 1064960.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 2147483648.0,
+     "note": ""
+    },
+    "4096_4bit": {
+     "bytes": 536870912.0,
+     "note": ""
+    },
+    "32768_fp16": {
+     "bytes": 17179869184.0,
+     "note": ""
+    },
+    "32768_4bit": {
+     "bytes": 4294967296.0,
+     "note": ""
+    },
+    "131072_fp16": {
+     "bytes": 68719476736.0,
+     "note": ""
+    },
+    "131072_4bit": {
+     "bytes": 17179869184.0,
+     "note": ""
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 2167603200.0,
+    "lut_dense": 2167603200.0,
+    "lut_moe": 0.0,
+    "proj": 8589934592.0,
+    "head": 1644167168.0,
+    "other": 1064960.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 2167603200.0,
+    "lut_dense": 2167603200.0,
+    "lut_moe": 0.0,
+    "proj": 1075838976.0,
+    "head": 205922304.0,
+    "other": 5324800.0
+   },
+   "glue_us": 37.33333333333333,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      301034.31529411767,
+      284310.1866666667
+     ],
+     "t_lut_us": [
+      516096.0,
+      127506.07058823529
+     ],
+     "t_kv_us": [
+      53687.0912,
+      48806.44654545454
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      870854.7398274511,
+      460660.03713368985
+     ],
+     "t_measured_only_us": 544939.989827451,
+     "toks": [
+      1.1482971318478872,
+      2.1707982446712353
+     ],
+     "toks_measured_only": 1.8350644450164846,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      301034.31529411767,
+      284310.1866666667
+     ],
+     "t_lut_us": [
+      516096.0,
+      127506.07058823529
+     ],
+     "t_kv_us": [
+      13421.7728,
+      12201.611636363636
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      830589.4214274511,
+      424055.2022245989
+     ],
+     "t_measured_only_us": 504674.67142745096,
+     "toks": [
+      1.203964286327413,
+      2.358183544863941
+     ],
+     "toks_measured_only": 1.9814745153973,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      301034.31529411767,
+      284310.1866666667
+     ],
+     "t_lut_us": [
+      516096.0,
+      127506.07058823529
+     ],
+     "t_kv_us": [
+      429496.7296,
+      390451.57236363634
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      1246664.3782274511,
+      802305.1629518716
+     ],
+     "t_measured_only_us": 920749.628227451,
+     "toks": [
+      0.802140509879518,
+      1.246408531537753
+     ],
+     "toks_measured_only": 1.0860715761841957,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      301034.31529411767,
+      284310.1866666667
+     ],
+     "t_lut_us": [
+      516096.0,
+      127506.07058823529
+     ],
+     "t_kv_us": [
+      107374.1824,
+      97612.89309090909
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      924541.8310274511,
+      509466.4836791444
+     ],
+     "t_measured_only_us": 598627.081027451,
+     "toks": [
+      1.0816168251561875,
+      1.9628376586786176
+     ],
+     "toks_measured_only": 1.6704890769118803,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      301034.31529411767,
+      284310.1866666667
+     ],
+     "t_lut_us": [
+      516096.0,
+      127506.07058823529
+     ],
+     "t_kv_us": [
+      1717986.9184,
+      1561806.2894545454
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      2535154.567027451,
+      1973659.8800427807
+     ],
+     "t_measured_only_us": 2209239.817027451,
+     "toks": [
+      0.3944532664817087,
+      0.5066729126491258
+     ],
+     "toks_measured_only": 0.4526443857713499,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      301034.31529411767,
+      284310.1866666667
+     ],
+     "t_lut_us": [
+      516096.0,
+      127506.07058823529
+     ],
+     "t_kv_us": [
+      429496.7296,
+      390451.57236363634
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      1246664.3782274511,
+      802305.1629518716
+     ],
+     "t_measured_only_us": 920749.628227451,
+     "toks": [
+      0.802140509879518,
+      1.246408531537753
+     ],
+     "toks_measured_only": 1.0860715761841957,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      301034.31529411767,
+      284310.1866666667
+     ],
+     "t_lut_us": [
+      516096.0,
+      127506.07058823529
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      817167.648627451,
+      411853.5905882353
+     ],
+     "t_measured_only_us": 491252.898627451,
+     "toks": [
+      1.2237390964750523,
+      2.428047303343251
+     ],
+     "toks_measured_only": 2.035611398515869,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    822582.4000000001,
+    203254.3498039216
+   ],
+   "head": {
+    "bytes_fp32": 1644167168.0,
+    "bytes_ternary": 205922304.0,
+    "ms_fp32": [
+     48.35785788235294,
+     45.67131022222222
+    ],
+    "ms_ternary_lut": [
+     49.02912,
+     12.113076705882353
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "dominant_term": "ternary MLP/experts",
+   "term_us_pess": {
+    "proj+head (fp32)": 301034.31529411767,
+    "ternary MLP/experts": 516096.0,
+    "glue": 37.33333333333333
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 32300949504.0,
+     "fits": false
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 19416047616.0,
+     "fits": false
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 21914624000.0,
+     "fits": false
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 9029722112.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 83840557056.0,
+     "fits": false
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 32300949504.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 73454231552.0,
+     "fits": false
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 21914624000.0,
+     "fits": true
+    }
+   }
+  },
+  {
+   "repo": "mistralai/Mistral-7B-v0.3",
+   "status": "OK",
+   "partial": [],
+   "notes": [],
+   "provenance": {
+    "hidden_size": [
+     "hidden_size"
+    ],
+    "n_layers": [
+     "num_hidden_layers"
+    ],
+    "vocab": [
+     "vocab_size"
+    ],
+    "tie": [
+     "tie_word_embeddings"
+    ],
+    "attn": [
+     "num_attention_heads",
+     "num_key_value_heads"
+    ],
+    "head_dim": [
+     "hidden_size/num_attention_heads"
+    ],
+    "mlp": [
+     "hidden_act",
+     "intermediate_size"
+    ]
+   },
+   "meta": {
+    "model_type": "mistral",
+    "layer_types": [
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn"
+    ],
+    "layer_types_source": "no layer-type key present and model_type is a dense-transformer family",
+    "n_attn_layers": 32,
+    "n_ssm_layers": 0,
+    "n_linattn_layers": 0,
+    "kv_elems_per_tok_per_layer": 2048,
+    "kv_kind": "gqa",
+    "n_kv_heads": 8,
+    "head_dim": 128,
+    "mlp_gated": true,
+    "mlp_act": "silu",
+    "n_experts": 0,
+    "top_k": 0,
+    "expert_width": 0,
+    "n_moe_layers": 0,
+    "n_dense_mlp_layers": 32,
+    "shared_expert_width": 0,
+    "expert_calls_per_token": 0,
+    "hidden_size": 4096,
+    "n_layers": 32,
+    "vocab": 32768,
+    "tied": false,
+    "mlp_width": 14336
+   },
+   "params_by_organ": {
+    "attn_proj": 1342177280,
+    "mlp": 5637144576,
+    "emb": 134217728,
+    "head": 134217728,
+    "norm": 266240
+   },
+   "params_total_computed": 7248023552,
+   "params_total_advertised": 7248023552,
+   "params_dtypes": {
+    "BF16": 7248023552
+   },
+   "params_delta_pct": 0.0,
+   "params_agree": true,
+   "crosscheck": "AGREE",
+   "active_params_per_token": 7113805824,
+   "fp_all_ternary": {
+    "payload": 3624011776.0,
+    "scales": 6832128.0,
+    "padding": 4126720.0,
+    "total": 3634970624.0
+   },
+   "fp_all_ternary_by_organ": {
+    "attn_proj": 672399360.0,
+    "mlp": 2822766592.0,
+    "emb": 67239936.0,
+    "head": 67239936.0,
+    "norm": 5324800.0
+   },
+   "fp_p61_map": {
+    "payload": 9262088192.0,
+    "scales": 4194304.0,
+    "padding": 0.0,
+    "total": 9266282496.0
+   },
+   "fp_p61_map_by_organ": {
+    "attn_proj": 5368709120.0,
+    "mlp": 2822766592.0,
+    "emb": 536870912.0,
+    "head": 536870912.0,
+    "norm": 1064960.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 536870912.0,
+     "note": ""
+    },
+    "4096_4bit": {
+     "bytes": 134217728.0,
+     "note": ""
+    },
+    "32768_fp16": {
+     "bytes": 4294967296.0,
+     "note": ""
+    },
+    "32768_4bit": {
+     "bytes": 1073741824.0,
+     "note": ""
+    },
+    "131072_fp16": {
+     "bytes": 17179869184.0,
+     "note": ""
+    },
+    "131072_4bit": {
+     "bytes": 4294967296.0,
+     "note": ""
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 2822766592.0,
+    "lut_dense": 2822766592.0,
+    "lut_moe": 0.0,
+    "proj": 5368709120.0,
+    "head": 536870912.0,
+    "other": 1064960.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 2822766592.0,
+    "lut_dense": 2822766592.0,
+    "lut_moe": 0.0,
+    "proj": 672399360.0,
+    "head": 67239936.0,
+    "other": 5324800.0
+   },
+   "glue_us": 37.33333333333333,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      173724.85270588237,
+      164073.472
+     ],
+     "t_lut_us": [
+      672087.2838095238,
+      166045.09364705882
+     ],
+     "t_kv_us": [
+      13421.7728,
+      12201.611636363636
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      859271.2426487396,
+      342357.51061675575
+     ],
+     "t_measured_only_us": 434847.9588392157,
+     "toks": [
+      1.163776873199501,
+      2.92092321327639
+     ],
+     "toks_measured_only": 2.2996543496936326,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      173724.85270588237,
+      164073.472
+     ],
+     "t_lut_us": [
+      672087.2838095238,
+      166045.09364705882
+     ],
+     "t_kv_us": [
+      3355.4432,
+      3050.402909090909
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      849204.9130487395,
+      333206.30188948306
+     ],
+     "t_measured_only_us": 424781.6292392157,
+     "toks": [
+      1.1775720849398874,
+      3.0011437188594265
+     ],
+     "toks_measured_only": 2.3541507710467635,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      173724.85270588237,
+      164073.472
+     ],
+     "t_lut_us": [
+      672087.2838095238,
+      166045.09364705882
+     ],
+     "t_kv_us": [
+      107374.1824,
+      97612.89309090909
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      953223.6522487396,
+      427768.79207130126
+     ],
+     "t_measured_only_us": 528800.3684392157,
+     "toks": [
+      1.0490717447483713,
+      2.337711442571337
+     ],
+     "toks_measured_only": 1.8910728125087295,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      173724.85270588237,
+      164073.472
+     ],
+     "t_lut_us": [
+      672087.2838095238,
+      166045.09364705882
+     ],
+     "t_kv_us": [
+      26843.5456,
+      24403.22327272727
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      872693.0154487395,
+      354559.1222531194
+     ],
+     "t_measured_only_us": 448269.7316392157,
+     "toks": [
+      1.1458783126455976,
+      2.8204040940909736
+     ],
+     "toks_measured_only": 2.2307997382362577,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      173724.85270588237,
+      164073.472
+     ],
+     "t_lut_us": [
+      672087.2838095238,
+      166045.09364705882
+     ],
+     "t_kv_us": [
+      429496.7296,
+      390451.57236363634
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      1275346.1994487396,
+      720607.4713440285
+     ],
+     "t_measured_only_us": 850922.9156392157,
+     "toks": [
+      0.7841008193949562,
+      1.387718057009411
+     ],
+     "toks_measured_only": 1.1751945818133211,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      173724.85270588237,
+      164073.472
+     ],
+     "t_lut_us": [
+      672087.2838095238,
+      166045.09364705882
+     ],
+     "t_kv_us": [
+      107374.1824,
+      97612.89309090909
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      953223.6522487396,
+      427768.79207130126
+     ],
+     "t_measured_only_us": 528800.3684392157,
+     "toks": [
+      1.0490717447483713,
+      2.337711442571337
+     ],
+     "toks_measured_only": 1.8910728125087295,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      173724.85270588237,
+      164073.472
+     ],
+     "t_lut_us": [
+      672087.2838095238,
+      166045.09364705882
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      845849.4698487396,
+      330155.89898039214
+     ],
+     "t_measured_only_us": 421426.1860392157,
+     "toks": [
+      1.1822434554210062,
+      3.028872127041382
+     ],
+     "toks_measured_only": 2.3728947871002615,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    849497.0209523811,
+    209903.84439215687
+   ],
+   "head": {
+    "bytes_fp32": 536870912.0,
+    "bytes_ternary": 67239936.0,
+    "ms_fp32": [
+     15.79032094117647,
+     14.913080888888889
+    ],
+    "ms_ternary_lut": [
+     16.00950857142857,
+     3.9552903529411765
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "dominant_term": "ternary MLP/experts",
+   "term_us_pess": {
+    "proj+head (fp32)": 173724.85270588237,
+    "ternary MLP/experts": 672087.2838095238,
+    "glue": 37.33333333333333
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 14635122688.0,
+     "fits": true
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 11413897216.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 9003810816.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 5782585344.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 27520024576.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 14635122688.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 21888712704.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 9003810816.0,
+     "fits": true
+    }
+   }
+  },
+  {
+   "repo": "Qwen/Qwen3-8B",
+   "status": "OK",
+   "partial": [],
+   "notes": [],
+   "provenance": {
+    "hidden_size": [
+     "hidden_size"
+    ],
+    "n_layers": [
+     "num_hidden_layers"
+    ],
+    "vocab": [
+     "vocab_size"
+    ],
+    "tie": [
+     "tie_word_embeddings"
+    ],
+    "attn": [
+     "num_attention_heads",
+     "num_key_value_heads"
+    ],
+    "head_dim": [
+     "head_dim"
+    ],
+    "mlp": [
+     "hidden_act",
+     "intermediate_size"
+    ]
+   },
+   "meta": {
+    "model_type": "qwen3",
+    "layer_types": [
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn"
+    ],
+    "layer_types_source": "no layer-type key present and model_type is a dense-transformer family",
+    "n_attn_layers": 36,
+    "n_ssm_layers": 0,
+    "n_linattn_layers": 0,
+    "kv_elems_per_tok_per_layer": 2048,
+    "kv_kind": "gqa",
+    "n_kv_heads": 8,
+    "head_dim": 128,
+    "mlp_gated": true,
+    "mlp_act": "silu",
+    "n_experts": 0,
+    "top_k": 0,
+    "expert_width": 0,
+    "n_moe_layers": 0,
+    "n_dense_mlp_layers": 36,
+    "shared_expert_width": 0,
+    "expert_calls_per_token": 0,
+    "hidden_size": 4096,
+    "n_layers": 36,
+    "vocab": 151936,
+    "tied": false,
+    "mlp_width": 12288
+   },
+   "params_by_organ": {
+    "attn_proj": 1509949440,
+    "mlp": 5435817984,
+    "emb": 622329856,
+    "head": 622329856,
+    "norm": 299008
+   },
+   "params_total_computed": 8190726144,
+   "params_total_advertised": 8190735360,
+   "params_dtypes": {
+    "BF16": 8190735360
+   },
+   "params_delta_pct": -0.00011251736986897352,
+   "params_agree": true,
+   "crosscheck": "AGREE",
+   "active_params_per_token": 7568396288,
+   "fp_all_ternary": {
+    "payload": 4095363072.0,
+    "scales": 8014848.0,
+    "padding": 4634624.0,
+    "total": 4108012544.0
+   },
+   "fp_all_ternary_by_organ": {
+    "attn_proj": 756449280.0,
+    "mlp": 2722037760.0,
+    "emb": 311772672.0,
+    "head": 311772672.0,
+    "norm": 5980160.0
+   },
+   "fp_p61_map": {
+    "payload": 13737541632.0,
+    "scales": 4128768.0,
+    "padding": 0.0,
+    "total": 13741670400.0
+   },
+   "fp_p61_map_by_organ": {
+    "attn_proj": 6039797760.0,
+    "mlp": 2722037760.0,
+    "emb": 2489319424.0,
+    "head": 2489319424.0,
+    "norm": 1196032.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 603979776.0,
+     "note": ""
+    },
+    "4096_4bit": {
+     "bytes": 150994944.0,
+     "note": ""
+    },
+    "32768_fp16": {
+     "bytes": 4831838208.0,
+     "note": ""
+    },
+    "32768_4bit": {
+     "bytes": 1207959552.0,
+     "note": ""
+    },
+    "131072_fp16": {
+     "bytes": 19327352832.0,
+     "note": ""
+    },
+    "131072_4bit": {
+     "bytes": 4831838208.0,
+     "note": ""
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 2722037760.0,
+    "lut_dense": 2722037760.0,
+    "lut_moe": 0.0,
+    "proj": 6039797760.0,
+    "head": 2489319424.0,
+    "other": 1196032.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 2722037760.0,
+    "lut_dense": 2722037760.0,
+    "lut_moe": 0.0,
+    "proj": 756449280.0,
+    "head": 311772672.0,
+    "other": 5980160.0
+   },
+   "glue_us": 42.0,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      250891.5651764706,
+      236953.14488888887
+     ],
+     "t_lut_us": [
+      648104.2285714286,
+      160119.86823529413
+     ],
+     "t_kv_us": [
+      15099.4944,
+      13726.81309090909
+     ],
+     "t_glue_us": 42.0,
+     "t_total_us": [
+      914137.2881478991,
+      410841.8262150921
+     ],
+     "t_measured_only_us": 504859.3095764707,
+     "toks": [
+      1.093927589395313,
+      2.434026762105911
+     ],
+     "toks_measured_only": 1.9807498466036124,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      250891.5651764706,
+      236953.14488888887
+     ],
+     "t_lut_us": [
+      648104.2285714286,
+      160119.86823529413
+     ],
+     "t_kv_us": [
+      3774.8736,
+      3431.7032727272726
+     ],
+     "t_glue_us": 42.0,
+     "t_total_us": [
+      902812.6673478992,
+      400546.71639691025
+     ],
+     "t_measured_only_us": 493534.68877647066,
+     "toks": [
+      1.1076495004634772,
+      2.4965876864387493
+     ],
+     "toks_measured_only": 2.02620002755858,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      250891.5651764706,
+      236953.14488888887
+     ],
+     "t_lut_us": [
+      648104.2285714286,
+      160119.86823529413
+     ],
+     "t_kv_us": [
+      120795.9552,
+      109814.50472727272
+     ],
+     "t_glue_us": 42.0,
+     "t_total_us": [
+      1019833.7489478991,
+      506929.5178514557
+     ],
+     "t_measured_only_us": 610555.7703764706,
+     "toks": [
+      0.9805519782333538,
+      1.9726608232212421
+     ],
+     "toks_measured_only": 1.6378520169965747,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      250891.5651764706,
+      236953.14488888887
+     ],
+     "t_lut_us": [
+      648104.2285714286,
+      160119.86823529413
+     ],
+     "t_kv_us": [
+      30198.9888,
+      27453.62618181818
+     ],
+     "t_glue_us": 42.0,
+     "t_total_us": [
+      929236.7825478992,
+      424568.6393060012
+     ],
+     "t_measured_only_us": 519958.80397647066,
+     "toks": [
+      1.0761519763112188,
+      2.35533175892265
+     ],
+     "toks_measured_only": 1.9232292873057157,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      250891.5651764706,
+      236953.14488888887
+     ],
+     "t_lut_us": [
+      648104.2285714286,
+      160119.86823529413
+     ],
+     "t_kv_us": [
+      483183.8208,
+      439258.0189090909
+     ],
+     "t_glue_us": 42.0,
+     "t_total_us": [
+      1382221.614547899,
+      836373.032033274
+     ],
+     "t_measured_only_us": 972943.6359764707,
+     "toks": [
+      0.723472986874889,
+      1.1956387421638153
+     ],
+     "toks_measured_only": 1.0278087681784103,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      250891.5651764706,
+      236953.14488888887
+     ],
+     "t_lut_us": [
+      648104.2285714286,
+      160119.86823529413
+     ],
+     "t_kv_us": [
+      120795.9552,
+      109814.50472727272
+     ],
+     "t_glue_us": 42.0,
+     "t_total_us": [
+      1019833.7489478991,
+      506929.5178514557
+     ],
+     "t_measured_only_us": 610555.7703764706,
+     "toks": [
+      0.9805519782333538,
+      1.9726608232212421
+     ],
+     "toks_measured_only": 1.6378520169965747,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      250891.5651764706,
+      236953.14488888887
+     ],
+     "t_lut_us": [
+      648104.2285714286,
+      160119.86823529413
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 42.0,
+     "t_total_us": [
+      899037.7937478991,
+      397115.013124183
+     ],
+     "t_measured_only_us": 489759.81517647067,
+     "toks": [
+      1.112300291438484,
+      2.5181621619711643
+     ],
+     "toks_measured_only": 2.0418171704015347,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    903908.6361904761,
+    223350.2277647059
+   ],
+   "head": {
+    "bytes_fp32": 2489319424.0,
+    "bytes_ternary": 311772672.0,
+    "ms_fp32": [
+     73.21527717647058,
+     69.14776177777777
+    ],
+    "ms_ternary_lut": [
+     74.23158857142857,
+     18.33956894117647
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "dominant_term": "ternary MLP/experts",
+   "term_us_pess": {
+    "proj+head (fp32)": 250891.5651764706,
+    "ternary MLP/experts": 648104.2285714286,
+    "glue": 42.0
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 19647858176.0,
+     "fits": false
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 16023979520.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 10014200320.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 6390321664.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 34143372800.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 19647858176.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 24509714944.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 10014200320.0,
+     "fits": true
+    }
+   }
+  },
+  {
+   "repo": "meta-llama/Llama-3.2-1B",
+   "status": "UNAVAILABLE",
+   "error": "GATED: 401 Client Error. (Request ID: Root=1-6a86ddaa-4855c3b137f4eab75158ba36;67ffb929-ef18-4ee9-b016-ee654c0e50d4)"
+  },
+  {
+   "repo": "Qwen/Qwen3-30B-A3B",
+   "status": "OK",
+   "partial": [],
+   "notes": [],
+   "provenance": {
+    "hidden_size": [
+     "hidden_size"
+    ],
+    "n_layers": [
+     "num_hidden_layers"
+    ],
+    "vocab": [
+     "vocab_size"
+    ],
+    "tie": [
+     "tie_word_embeddings"
+    ],
+    "attn": [
+     "num_attention_heads",
+     "num_key_value_heads"
+    ],
+    "head_dim": [
+     "head_dim"
+    ],
+    "moe": [
+     "decoder_sparse_step",
+     "mlp_only_layers",
+     "moe_intermediate_size",
+     "num_experts",
+     "num_experts_per_tok"
+    ],
+    "mlp": [
+     "hidden_act",
+     "intermediate_size"
+    ]
+   },
+   "meta": {
+    "model_type": "qwen3_moe",
+    "layer_types": [
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn"
+    ],
+    "layer_types_source": "no layer-type key present and model_type is a dense-transformer family",
+    "n_attn_layers": 48,
+    "n_ssm_layers": 0,
+    "n_linattn_layers": 0,
+    "kv_elems_per_tok_per_layer": 1024,
+    "kv_kind": "gqa",
+    "n_kv_heads": 4,
+    "head_dim": 128,
+    "mlp_gated": true,
+    "mlp_act": "silu",
+    "n_experts": 128,
+    "top_k": 8,
+    "expert_width": 768,
+    "n_moe_layers": 48,
+    "n_dense_mlp_layers": 0,
+    "shared_expert_width": 0,
+    "expert_calls_per_token": 384,
+    "hidden_size": 2048,
+    "n_layers": 48,
+    "vocab": 151936,
+    "tied": false,
+    "mlp_width": 6144
+   },
+   "params_by_organ": {
+    "attn_proj": 918552576,
+    "expert": 28991029248,
+    "emb": 311164928,
+    "head": 311164928,
+    "norm": 198656
+   },
+   "params_total_computed": 30532110336,
+   "params_total_advertised": 30532122624,
+   "params_dtypes": {
+    "BF16": 30532122624
+   },
+   "params_delta_pct": -4.0246137326662405e-05,
+   "params_agree": true,
+   "crosscheck": "AGREE",
+   "active_params_per_token": 3041855488,
+   "fp_all_ternary": {
+    "payload": 15266055168.0,
+    "scales": 91491328.0,
+    "padding": 3079168.0,
+    "total": 15360625664.0
+   },
+   "fp_all_ternary_by_organ": {
+    "attn_proj": 460677120.0,
+    "expert": 14583595008.0,
+    "emb": 156190208.0,
+    "head": 156190208.0,
+    "norm": 3973120.0
+   },
+   "fp_p61_map": {
+    "payload": 20659838976.0,
+    "scales": 88080384.0,
+    "padding": 0.0,
+    "total": 20747919360.0
+   },
+   "fp_p61_map_by_organ": {
+    "attn_proj": 3674210304.0,
+    "expert": 14583595008.0,
+    "emb": 1244659712.0,
+    "head": 1244659712.0,
+    "norm": 794624.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 402653184.0,
+     "note": ""
+    },
+    "4096_4bit": {
+     "bytes": 100663296.0,
+     "note": ""
+    },
+    "32768_fp16": {
+     "bytes": 3221225472.0,
+     "note": ""
+    },
+    "32768_4bit": {
+     "bytes": 805306368.0,
+     "note": ""
+    },
+    "131072_fp16": {
+     "bytes": 12884901888.0,
+     "note": ""
+    },
+    "131072_4bit": {
+     "bytes": 3221225472.0,
+     "note": ""
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 911474688.0,
+    "lut_dense": 0.0,
+    "lut_moe": 911474688.0,
+    "proj": 3674210304.0,
+    "head": 1244659712.0,
+    "other": 794624.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 911474688.0,
+    "lut_dense": 0.0,
+    "lut_moe": 911474688.0,
+    "proj": 460677120.0,
+    "head": 156190208.0,
+    "other": 3973120.0
+   },
+   "glue_us": 56.0,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      144696.01882352942,
+      136657.35111111111
+     ],
+     "t_lut_us": [
+      220243.38285714286,
+      56841.758117647056
+     ],
+     "t_kv_us": [
+      10066.3296,
+      9151.208727272728
+     ],
+     "t_glue_us": 56.0,
+     "t_total_us": [
+      375061.7312806723,
+      202706.3179560309
+     ],
+     "t_measured_only_us": 371836.13128067227,
+     "toks": [
+      2.6662277609220113,
+      4.933245347670468
+     ],
+     "toks_measured_only": 2.6893567243070633,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      144696.01882352942,
+      136657.35111111111
+     ],
+     "t_lut_us": [
+      220243.38285714286,
+      56841.758117647056
+     ],
+     "t_kv_us": [
+      2516.5824,
+      2287.802181818182
+     ],
+     "t_glue_us": 56.0,
+     "t_total_us": [
+      367511.9840806723,
+      195842.91141057634
+     ],
+     "t_measured_only_us": 364286.3840806723,
+     "toks": [
+      2.720999704272203,
+      5.106133241164611
+     ],
+     "toks_measured_only": 2.745092991942699,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      144696.01882352942,
+      136657.35111111111
+     ],
+     "t_lut_us": [
+      220243.38285714286,
+      56841.758117647056
+     ],
+     "t_kv_us": [
+      80530.6368,
+      73209.66981818182
+     ],
+     "t_glue_us": 56.0,
+     "t_total_us": [
+      445526.0384806723,
+      266764.77904694
+     ],
+     "t_measured_only_us": 442300.43848067225,
+     "toks": [
+      2.2445377231153274,
+      3.748620802088869
+     ],
+     "toks_measured_only": 2.260906643988548,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      144696.01882352942,
+      136657.35111111111
+     ],
+     "t_lut_us": [
+      220243.38285714286,
+      56841.758117647056
+     ],
+     "t_kv_us": [
+      20132.6592,
+      18302.417454545455
+     ],
+     "t_glue_us": 56.0,
+     "t_total_us": [
+      385128.0608806723,
+      211857.52668330361
+     ],
+     "t_measured_only_us": 381902.46088067227,
+     "toks": [
+      2.5965389219193744,
+      4.720153282516393
+     ],
+     "toks_measured_only": 2.6184696419446643,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      144696.01882352942,
+      136657.35111111111
+     ],
+     "t_lut_us": [
+      220243.38285714286,
+      56841.758117647056
+     ],
+     "t_kv_us": [
+      322122.5472,
+      292838.6792727273
+     ],
+     "t_glue_us": 56.0,
+     "t_total_us": [
+      687117.9488806722,
+      486393.7885014855
+     ],
+     "t_measured_only_us": 683892.3488806722,
+     "toks": [
+      1.4553542104801924,
+      2.0559473077994412
+     ],
+     "toks_measured_only": 1.462218434870198,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      144696.01882352942,
+      136657.35111111111
+     ],
+     "t_lut_us": [
+      220243.38285714286,
+      56841.758117647056
+     ],
+     "t_kv_us": [
+      80530.6368,
+      73209.66981818182
+     ],
+     "t_glue_us": 56.0,
+     "t_total_us": [
+      445526.0384806723,
+      266764.77904694
+     ],
+     "t_measured_only_us": 442300.43848067225,
+     "toks": [
+      2.2445377231153274,
+      3.748620802088869
+     ],
+     "toks_measured_only": 2.260906643988548,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      144696.01882352942,
+      136657.35111111111
+     ],
+     "t_lut_us": [
+      220243.38285714286,
+      56841.758117647056
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 56.0,
+     "t_total_us": [
+      364995.4016806723,
+      193555.10922875817
+     ],
+     "t_measured_only_us": 361769.8016806723,
+     "toks": [
+      2.7397605432708474,
+      5.166487229319913
+     ],
+     "toks_measured_only": 2.764188706061989,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    368118.5371428571,
+    93417.78447058823
+   ],
+   "head": {
+    "bytes_fp32": 1244659712.0,
+    "bytes_ternary": 156190208.0,
+    "ms_fp32": [
+     36.60763858823529,
+     34.57388088888889
+    ],
+    "ms_ternary_lut": [
+     37.18814476190476,
+     9.187659294117648
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "expert_chunk_kb": 2318.0,
+   "rho_safe": true,
+   "dominant_term": "ternary MLP/experts",
+   "term_us_pess": {
+    "proj+head (fp32)": 144696.01882352942,
+    "ternary MLP/experts": 220243.38285714286,
+    "glue": 56.0
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 25043494400.0,
+     "fits": false
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 22627575296.0,
+     "fits": false
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 19656200704.0,
+     "fits": false
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 17240281600.0,
+     "fits": false
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 34707170816.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 25043494400.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 29319877120.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 19656200704.0,
+     "fits": true
+    }
+   }
+  },
+  {
+   "repo": "mistralai/Mixtral-8x7B-v0.1",
+   "status": "OK",
+   "partial": [],
+   "notes": [
+    "expert width read from intermediate_size (config carries no moe_intermediate_size)"
+   ],
+   "provenance": {
+    "hidden_size": [
+     "hidden_size"
+    ],
+    "n_layers": [
+     "num_hidden_layers"
+    ],
+    "vocab": [
+     "vocab_size"
+    ],
+    "tie": [
+     "tie_word_embeddings"
+    ],
+    "attn": [
+     "num_attention_heads",
+     "num_key_value_heads"
+    ],
+    "head_dim": [
+     "hidden_size/num_attention_heads"
+    ],
+    "moe": [
+     "num_experts_per_tok",
+     "num_local_experts"
+    ],
+    "mlp": [
+     "hidden_act",
+     "intermediate_size"
+    ]
+   },
+   "meta": {
+    "model_type": "mixtral",
+    "layer_types": [
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn"
+    ],
+    "layer_types_source": "no layer-type key present and model_type is a dense-transformer family",
+    "n_attn_layers": 32,
+    "n_ssm_layers": 0,
+    "n_linattn_layers": 0,
+    "kv_elems_per_tok_per_layer": 2048,
+    "kv_kind": "gqa",
+    "n_kv_heads": 8,
+    "head_dim": 128,
+    "mlp_gated": true,
+    "mlp_act": "silu",
+    "n_experts": 8,
+    "top_k": 2,
+    "expert_width": 14336,
+    "n_moe_layers": 32,
+    "n_dense_mlp_layers": 0,
+    "shared_expert_width": 0,
+    "expert_calls_per_token": 64,
+    "hidden_size": 4096,
+    "n_layers": 32,
+    "vocab": 32000,
+    "tied": false,
+    "mlp_width": 14336
+   },
+   "params_by_organ": {
+    "attn_proj": 1343225856,
+    "expert": 45097156608,
+    "emb": 131072000,
+    "head": 131072000,
+    "norm": 266240
+   },
+   "params_total_computed": 46702792704,
+   "params_total_advertised": 46702792704,
+   "params_dtypes": {
+    "BF16": 46702792704
+   },
+   "params_delta_pct": 0.0,
+   "params_agree": true,
+   "crosscheck": "AGREE",
+   "active_params_per_token": 12748853248,
+   "fp_all_ternary": {
+    "payload": 23351396352.0,
+    "scales": 36187136.0,
+    "padding": 4126720.0,
+    "total": 23391710208.0
+   },
+   "fp_all_ternary_by_organ": {
+    "attn_proj": 672924672.0,
+    "expert": 22582132736.0,
+    "emb": 65664000.0,
+    "head": 65664000.0,
+    "norm": 5324800.0
+   },
+   "fp_p61_map": {
+    "payload": 28971122688.0,
+    "scales": 33554432.0,
+    "padding": 0.0,
+    "total": 29004677120.0
+   },
+   "fp_p61_map_by_organ": {
+    "attn_proj": 5372903424.0,
+    "expert": 22582132736.0,
+    "emb": 524288000.0,
+    "head": 524288000.0,
+    "norm": 1064960.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 536870912.0,
+     "note": ""
+    },
+    "4096_4bit": {
+     "bytes": 134217728.0,
+     "note": ""
+    },
+    "32768_fp16": {
+     "bytes": 4294967296.0,
+     "note": ""
+    },
+    "32768_4bit": {
+     "bytes": 1073741824.0,
+     "note": ""
+    },
+    "131072_fp16": {
+     "bytes": 17179869184.0,
+     "note": ""
+    },
+    "131072_4bit": {
+     "bytes": 4294967296.0,
+     "note": ""
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 5645533184.0,
+    "lut_dense": 0.0,
+    "lut_moe": 5645533184.0,
+    "proj": 5372903424.0,
+    "head": 524288000.0,
+    "other": 1064960.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 5645533184.0,
+    "lut_dense": 0.0,
+    "lut_moe": 5645533184.0,
+    "proj": 672924672.0,
+    "head": 65664000.0,
+    "other": 5324800.0
+   },
+   "glue_us": 37.33333333333333,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      173478.1289411765,
+      163840.4551111111
+     ],
+     "t_lut_us": [
+      1344712.1676190477,
+      332627.7872941176
+     ],
+     "t_kv_us": [
+      13421.7728,
+      12201.611636363636
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      1531649.4026935573,
+      508707.18737492565
+     ],
+     "t_measured_only_us": 1531111.8026935572,
+     "toks": [
+      0.6528909280683953,
+      1.9657673899995114
+     ],
+     "toks_measured_only": 0.6531201694355588,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      173478.1289411765,
+      163840.4551111111
+     ],
+     "t_lut_us": [
+      1344712.1676190477,
+      332627.7872941176
+     ],
+     "t_kv_us": [
+      3355.4432,
+      3050.402909090909
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      1521583.0730935575,
+      499555.97864765296
+     ],
+     "t_measured_only_us": 1521045.4730935574,
+     "toks": [
+      0.6572102553473352,
+      2.00177766405098
+     ],
+     "toks_measured_only": 0.6574425404693285,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      173478.1289411765,
+      163840.4551111111
+     ],
+     "t_lut_us": [
+      1344712.1676190477,
+      332627.7872941176
+     ],
+     "t_kv_us": [
+      107374.1824,
+      97612.89309090909
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      1625601.8122935575,
+      594118.4688294712
+     ],
+     "t_measured_only_us": 1625064.2122935574,
+     "toks": [
+      0.6151567945099068,
+      1.6831659887129824
+     ],
+     "toks_measured_only": 0.6153602992638894,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      173478.1289411765,
+      163840.4551111111
+     ],
+     "t_lut_us": [
+      1344712.1676190477,
+      332627.7872941176
+     ],
+     "t_kv_us": [
+      26843.5456,
+      24403.22327272727
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      1545071.1754935575,
+      520908.7990112893
+     ],
+     "t_measured_only_us": 1544533.5754935574,
+     "toks": [
+      0.6472193746547372,
+      1.9197218436280008
+     ],
+     "toks_measured_only": 0.6474446498713691,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      173478.1289411765,
+      163840.4551111111
+     ],
+     "t_lut_us": [
+      1344712.1676190477,
+      332627.7872941176
+     ],
+     "t_kv_us": [
+      429496.7296,
+      390451.57236363634
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      1947724.3594935574,
+      886957.1481021984
+     ],
+     "t_measured_only_us": 1947186.7594935573,
+     "toks": [
+      0.5134196710770808,
+      1.1274501841939903
+     ],
+     "toks_measured_only": 0.5135614214324719,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      173478.1289411765,
+      163840.4551111111
+     ],
+     "t_lut_us": [
+      1344712.1676190477,
+      332627.7872941176
+     ],
+     "t_kv_us": [
+      107374.1824,
+      97612.89309090909
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      1625601.8122935575,
+      594118.4688294712
+     ],
+     "t_measured_only_us": 1625064.2122935574,
+     "toks": [
+      0.6151567945099068,
+      1.6831659887129824
+     ],
+     "toks_measured_only": 0.6153602992638894,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      173478.1289411765,
+      163840.4551111111
+     ],
+     "t_lut_us": [
+      1344712.1676190477,
+      332627.7872941176
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 37.33333333333333,
+     "t_total_us": [
+      1518227.6298935574,
+      496505.57573856204
+     ],
+     "t_measured_only_us": 1517690.0298935573,
+     "toks": [
+      0.6586627593321496,
+      2.014076072584844
+     ],
+     "toks_measured_only": 0.6588960725202462,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    1521871.7561904762,
+    376424.73662745097
+   ],
+   "head": {
+    "bytes_fp32": 524288000.0,
+    "bytes_ternary": 65664000.0,
+    "ms_fp32": [
+     15.420235294117647,
+     14.563555555555554
+    ],
+    "ms_ternary_lut": [
+     15.634285714285715,
+     3.8625882352941177
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "expert_chunk_kb": 86144.0,
+   "rho_safe": true,
+   "dominant_term": "ternary MLP/experts",
+   "term_us_pess": {
+    "proj+head (fp32)": 173478.1289411765,
+    "ternary MLP/experts": 1344712.1676190477,
+    "glue": 37.33333333333333
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 34373514240.0,
+     "fits": false
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 31152288768.0,
+     "fits": false
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 28760547328.0,
+     "fits": false
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 25539321856.0,
+     "fits": false
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 47258416128.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 34373514240.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 41645449216.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 28760547328.0,
+     "fits": true
+    }
+   }
+  },
+  {
+   "repo": "deepseek-ai/DeepSeek-V2-Lite",
+   "status": "OK",
+   "partial": [],
+   "notes": [],
+   "provenance": {
+    "hidden_size": [
+     "hidden_size"
+    ],
+    "n_layers": [
+     "num_hidden_layers"
+    ],
+    "vocab": [
+     "vocab_size"
+    ],
+    "tie": [
+     "tie_word_embeddings"
+    ],
+    "attn": [
+     "kv_lora_rank",
+     "num_attention_heads",
+     "num_key_value_heads",
+     "qk_nope_head_dim",
+     "qk_rope_head_dim",
+     "v_head_dim"
+    ],
+    "head_dim": [
+     "hidden_size/num_attention_heads"
+    ],
+    "moe": [
+     "first_k_dense_replace",
+     "moe_intermediate_size",
+     "n_routed_experts",
+     "n_shared_experts",
+     "num_experts_per_tok"
+    ],
+    "mlp": [
+     "hidden_act",
+     "intermediate_size"
+    ]
+   },
+   "meta": {
+    "model_type": "deepseek_v2",
+    "layer_types": [
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn"
+    ],
+    "layer_types_source": "no layer-type key present and model_type is a dense-transformer family",
+    "n_attn_layers": 27,
+    "n_ssm_layers": 0,
+    "n_linattn_layers": 0,
+    "kv_elems_per_tok_per_layer": 576,
+    "kv_kind": "mla",
+    "n_kv_heads": 16,
+    "head_dim": 128,
+    "mlp_gated": true,
+    "mlp_act": "silu",
+    "n_experts": 64,
+    "top_k": 6,
+    "expert_width": 1408,
+    "n_moe_layers": 26,
+    "n_dense_mlp_layers": 1,
+    "shared_expert_width": 2816,
+    "expert_calls_per_token": 182,
+    "hidden_size": 2048,
+    "n_layers": 27,
+    "vocab": 102400,
+    "tied": false,
+    "mlp_width": 10944
+   },
+   "params_by_organ": {
+    "attn_proj": 374996992,
+    "expert": 14844690432,
+    "mlp": 67239936,
+    "emb": 209715200,
+    "head": 209715200,
+    "norm": 112640
+   },
+   "params_total_computed": 15706470400,
+   "params_total_advertised": 15706484224,
+   "params_dtypes": {
+    "BF16": 15706484224
+   },
+   "params_delta_pct": -8.801460468712976e-05,
+   "params_agree": true,
+   "crosscheck": "AGREE",
+   "active_params_per_token": 2451421184,
+   "fp_all_ternary": {
+    "payload": 7853235200.0,
+    "scales": 35603200.0,
+    "padding": 1745920.0,
+    "total": 7890584320.0
+   },
+   "fp_all_ternary_by_organ": {
+    "attn_proj": 188562688.0,
+    "expert": 7455518720.0,
+    "mlp": 33715712.0,
+    "emb": 105267200.0,
+    "head": 105267200.0,
+    "norm": 2252800.0
+   },
+   "fp_p61_map": {
+    "payload": 10634125312.0,
+    "scales": 33269248.0,
+    "padding": 0.0,
+    "total": 10667394560.0
+   },
+   "fp_p61_map_by_organ": {
+    "attn_proj": 1499987968.0,
+    "expert": 7455518720.0,
+    "mlp": 33715712.0,
+    "emb": 838860800.0,
+    "head": 838860800.0,
+    "norm": 450560.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 127401984.0,
+     "note": ""
+    },
+    "4096_4bit": {
+     "bytes": 31850496.0,
+     "note": ""
+    },
+    "32768_fp16": {
+     "bytes": 1019215872.0,
+     "note": ""
+    },
+    "32768_4bit": {
+     "bytes": 254803968.0,
+     "note": ""
+    },
+    "131072_fp16": {
+     "bytes": 4076863488.0,
+     "note": ""
+    },
+    "131072_4bit": {
+     "bytes": 1019215872.0,
+     "note": ""
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 937227776.0,
+    "lut_dense": 33715712.0,
+    "lut_moe": 903512064.0,
+    "proj": 1499987968.0,
+    "head": 838860800.0,
+    "other": 450560.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 937227776.0,
+    "lut_dense": 33715712.0,
+    "lut_moe": 903512064.0,
+    "proj": 188562688.0,
+    "head": 105267200.0,
+    "other": 2252800.0
+   },
+   "glue_us": 31.5,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      68802.9214117647,
+      64980.536888888884
+     ],
+     "t_lut_us": [
+      224678.27047619046,
+      56659.84564705883
+     ],
+     "t_kv_us": [
+      3185.0496,
+      2895.4996363636365
+     ],
+     "t_glue_us": 31.5,
+     "t_total_us": [
+      296697.7414879552,
+      124567.38217231135
+     ],
+     "t_measured_only_us": 290099.5414023897,
+     "toks": [
+      3.3704334754452323,
+      8.027783698759293
+     ],
+     "toks_measured_only": 3.4470926605600023,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      68802.9214117647,
+      64980.536888888884
+     ],
+     "t_lut_us": [
+      224678.27047619046,
+      56659.84564705883
+     ],
+     "t_kv_us": [
+      796.2624,
+      723.8749090909091
+     ],
+     "t_glue_us": 31.5,
+     "t_total_us": [
+      294308.9542879552,
+      122395.75744503863
+     ],
+     "t_measured_only_us": 287710.7542023897,
+     "toks": [
+      3.3977899259619155,
+      8.170217831684619
+     ],
+     "toks_measured_only": 3.475712970035703,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      68802.9214117647,
+      64980.536888888884
+     ],
+     "t_lut_us": [
+      224678.27047619046,
+      56659.84564705883
+     ],
+     "t_kv_us": [
+      25480.3968,
+      23163.99709090909
+     ],
+     "t_glue_us": 31.5,
+     "t_total_us": [
+      318993.08868795517,
+      144835.87962685683
+     ],
+     "t_measured_only_us": 312394.88860238966,
+     "toks": [
+      3.1348641568163194,
+      6.904366532494001
+     ],
+     "toks_measured_only": 3.2010767028675082,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      68802.9214117647,
+      64980.536888888884
+     ],
+     "t_lut_us": [
+      224678.27047619046,
+      56659.84564705883
+     ],
+     "t_kv_us": [
+      6370.0992,
+      5790.999272727273
+     ],
+     "t_glue_us": 31.5,
+     "t_total_us": [
+      299882.7910879552,
+      127462.881808675
+     ],
+     "t_measured_only_us": 293284.5910023897,
+     "toks": [
+      3.334636163589332,
+      7.845421238012061
+     ],
+     "toks_measured_only": 3.40965748177289,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      68802.9214117647,
+      64980.536888888884
+     ],
+     "t_lut_us": [
+      224678.27047619046,
+      56659.84564705883
+     ],
+     "t_kv_us": [
+      101921.5872,
+      92655.98836363637
+     ],
+     "t_glue_us": 31.5,
+     "t_total_us": [
+      395434.2790879552,
+      214327.8708995841
+     ],
+     "t_measured_only_us": 388836.0790023897,
+     "toks": [
+      2.5288652321858347,
+      4.665748769876576
+     ],
+     "toks_measured_only": 2.5717778107567386,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      68802.9214117647,
+      64980.536888888884
+     ],
+     "t_lut_us": [
+      224678.27047619046,
+      56659.84564705883
+     ],
+     "t_kv_us": [
+      25480.3968,
+      23163.99709090909
+     ],
+     "t_glue_us": 31.5,
+     "t_total_us": [
+      318993.08868795517,
+      144835.87962685683
+     ],
+     "t_measured_only_us": 312394.88860238966,
+     "toks": [
+      3.1348641568163194,
+      6.904366532494001
+     ],
+     "toks_measured_only": 3.2010767028675082,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      68802.9214117647,
+      64980.536888888884
+     ],
+     "t_lut_us": [
+      224678.27047619046,
+      56659.84564705883
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 31.5,
+     "t_total_us": [
+      293512.6918879552,
+      121671.88253594772
+     ],
+     "t_measured_only_us": 286914.4918023897,
+     "toks": [
+      3.4070076955368513,
+      8.21882573982984
+     ],
+     "toks_measured_only": 3.485358978272673,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    295205.64857142855,
+    74107.97435294118
+   ],
+   "head": {
+    "bytes_fp32": 838860800.0,
+    "bytes_ternary": 105267200.0,
+    "ms_fp32": [
+     24.672376470588233,
+     23.30168888888889
+    ],
+    "ms_ternary_lut": [
+     25.063619047619046,
+     6.192188235294118
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "expert_chunk_kb": 4243.0,
+   "rho_safe": true,
+   "dominant_term": "ternary MLP/experts",
+   "term_us_pess": {
+    "proj+head (fp32)": 68802.9214117647,
+    "ternary MLP/experts": 224678.27047619046,
+    "glue": 31.5
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 12760761856.0,
+     "fits": true
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 11996349952.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 9983951616.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 9219539712.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 15818409472.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 12760761856.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 13041599232.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 9983951616.0,
+     "fits": true
+    }
+   }
+  },
+  {
+   "repo": "allenai/OLMoE-1B-7B-0924",
+   "status": "OK",
+   "partial": [],
+   "notes": [
+    "expert width read from intermediate_size (config carries no moe_intermediate_size)"
+   ],
+   "provenance": {
+    "hidden_size": [
+     "hidden_size"
+    ],
+    "n_layers": [
+     "num_hidden_layers"
+    ],
+    "vocab": [
+     "vocab_size"
+    ],
+    "tie": [
+     "tie_word_embeddings"
+    ],
+    "attn": [
+     "num_attention_heads",
+     "num_key_value_heads"
+    ],
+    "head_dim": [
+     "hidden_size/num_attention_heads"
+    ],
+    "moe": [
+     "num_experts",
+     "num_experts_per_tok"
+    ],
+    "mlp": [
+     "hidden_act",
+     "intermediate_size"
+    ]
+   },
+   "meta": {
+    "model_type": "olmoe",
+    "layer_types": [
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn"
+    ],
+    "layer_types_source": "no layer-type key present and model_type is a dense-transformer family",
+    "n_attn_layers": 16,
+    "n_ssm_layers": 0,
+    "n_linattn_layers": 0,
+    "kv_elems_per_tok_per_layer": 4096,
+    "kv_kind": "gqa",
+    "n_kv_heads": 16,
+    "head_dim": 128,
+    "mlp_gated": true,
+    "mlp_act": "silu",
+    "n_experts": 64,
+    "top_k": 8,
+    "expert_width": 1024,
+    "n_moe_layers": 16,
+    "n_dense_mlp_layers": 0,
+    "shared_expert_width": 0,
+    "expert_calls_per_token": 128,
+    "hidden_size": 2048,
+    "n_layers": 16,
+    "vocab": 50304,
+    "tied": false,
+    "mlp_width": 1024
+   },
+   "params_by_organ": {
+    "attn_proj": 270532608,
+    "expert": 6442450944,
+    "emb": 103022592,
+    "head": 103022592,
+    "norm": 67584
+   },
+   "params_total_computed": 6919096320,
+   "params_total_advertised": 6919161856,
+   "params_dtypes": {
+    "BF16": 6919161856
+   },
+   "params_delta_pct": -0.0009471667430813169,
+   "params_agree": true,
+   "crosscheck": "AGREE",
+   "active_params_per_token": 1178929152,
+   "fp_all_ternary": {
+    "payload": 3459548160.0,
+    "scales": 17978368.0,
+    "padding": 1047552.0,
+    "total": 3478574080.0
+   },
+   "fp_all_ternary_by_organ": {
+    "attn_proj": 135794688.0,
+    "expert": 3238002688.0,
+    "emb": 51712512.0,
+    "head": 51712512.0,
+    "norm": 1351680.0
+   },
+   "fp_p61_map": {
+    "payload": 5127806976.0,
+    "scales": 16777216.0,
+    "padding": 0.0,
+    "total": 5144584192.0
+   },
+   "fp_p61_map_by_organ": {
+    "attn_proj": 1082130432.0,
+    "expert": 3238002688.0,
+    "emb": 412090368.0,
+    "head": 412090368.0,
+    "norm": 270336.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 536870912.0,
+     "note": ""
+    },
+    "4096_4bit": {
+     "bytes": 134217728.0,
+     "note": ""
+    },
+    "32768_fp16": {
+     "bytes": 4294967296.0,
+     "note": ""
+    },
+    "32768_4bit": {
+     "bytes": 1073741824.0,
+     "note": ""
+    },
+    "131072_fp16": {
+     "bytes": 17179869184.0,
+     "note": ""
+    },
+    "131072_4bit": {
+     "bytes": 4294967296.0,
+     "note": ""
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 404750336.0,
+    "lut_dense": 0.0,
+    "lut_moe": 404750336.0,
+    "proj": 1082130432.0,
+    "head": 412090368.0,
+    "other": 270336.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 404750336.0,
+    "lut_dense": 0.0,
+    "lut_moe": 404750336.0,
+    "proj": 135794688.0,
+    "head": 51712512.0,
+    "other": 1351680.0
+   },
+   "glue_us": 18.666666666666664,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      43955.621647058826,
+      41513.64266666667
+     ],
+     "t_lut_us": [
+      97444.32761904762,
+      24884.043294117648
+     ],
+     "t_kv_us": [
+      13421.7728,
+      12201.611636363636
+     ],
+     "t_glue_us": 18.666666666666664,
+     "t_total_us": [
+      154840.3887327731,
+      78617.96426381463
+     ],
+     "t_measured_only_us": 153765.18873277312,
+     "toks": [
+      6.4582633005773555,
+      12.71973917620592
+     ],
+     "toks_measured_only": 6.503422577251144,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      43955.621647058826,
+      41513.64266666667
+     ],
+     "t_lut_us": [
+      97444.32761904762,
+      24884.043294117648
+     ],
+     "t_kv_us": [
+      3355.4432,
+      3050.402909090909
+     ],
+     "t_glue_us": 18.666666666666664,
+     "t_total_us": [
+      144774.0591327731,
+      69466.7555365419
+     ],
+     "t_measured_only_us": 143698.85913277313,
+     "toks": [
+      6.9073147909936985,
+      14.395375057842822
+     ],
+     "toks_measured_only": 6.958997489855032,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      43955.621647058826,
+      41513.64266666667
+     ],
+     "t_lut_us": [
+      97444.32761904762,
+      24884.043294117648
+     ],
+     "t_kv_us": [
+      107374.1824,
+      97612.89309090909
+     ],
+     "t_glue_us": 18.666666666666664,
+     "t_total_us": [
+      248792.7983327731,
+      164029.24571836006
+     ],
+     "t_measured_only_us": 247717.59833277314,
+     "toks": [
+      4.019408948736727,
+      6.096473806366277
+     ],
+     "toks_measured_only": 4.036854897392647,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      43955.621647058826,
+      41513.64266666667
+     ],
+     "t_lut_us": [
+      97444.32761904762,
+      24884.043294117648
+     ],
+     "t_kv_us": [
+      26843.5456,
+      24403.22327272727
+     ],
+     "t_glue_us": 18.666666666666664,
+     "t_total_us": [
+      168262.1615327731,
+      90819.57590017826
+     ],
+     "t_measured_only_us": 167186.96153277313,
+     "toks": [
+      5.943106821465775,
+      11.01084199180936
+     ],
+     "toks_measured_only": 5.981327675507598,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      43955.621647058826,
+      41513.64266666667
+     ],
+     "t_lut_us": [
+      97444.32761904762,
+      24884.043294117648
+     ],
+     "t_kv_us": [
+      429496.7296,
+      390451.57236363634
+     ],
+     "t_glue_us": 18.666666666666664,
+     "t_total_us": [
+      570915.3455327731,
+      456867.92499108735
+     ],
+     "t_measured_only_us": 569840.1455327731,
+     "toks": [
+      1.7515731672386718,
+      2.1888163849968416
+     ],
+     "toks_measured_only": 1.7548781142210472,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      43955.621647058826,
+      41513.64266666667
+     ],
+     "t_lut_us": [
+      97444.32761904762,
+      24884.043294117648
+     ],
+     "t_kv_us": [
+      107374.1824,
+      97612.89309090909
+     ],
+     "t_glue_us": 18.666666666666664,
+     "t_total_us": [
+      248792.7983327731,
+      164029.24571836006
+     ],
+     "t_measured_only_us": 247717.59833277314,
+     "toks": [
+      4.019408948736727,
+      6.096473806366277
+     ],
+     "toks_measured_only": 4.036854897392647,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      43955.621647058826,
+      41513.64266666667
+     ],
+     "t_lut_us": [
+      97444.32761904762,
+      24884.043294117648
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 18.666666666666664,
+     "t_total_us": [
+      141418.6159327731,
+      66416.352627451
+     ],
+     "t_measured_only_us": 140343.41593277312,
+     "toks": [
+      7.071204829747274,
+      15.056532923590314
+     ],
+     "toks_measured_only": 7.125378795675153,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    142429.39428571428,
+    36012.05584313725
+   ],
+   "head": {
+    "bytes_fp32": 412090368.0,
+    "bytes_ternary": 51712512.0,
+    "ms_fp32": [
+     12.120304941176471,
+     11.446954666666667
+    ],
+    "ms_ternary_lut": [
+     12.312502857142858,
+     3.0419124705882354
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "expert_chunk_kb": 3088.0,
+   "rho_safe": true,
+   "dominant_term": "ternary MLP/experts",
+   "term_us_pess": {
+    "proj+head (fp32)": 43955.621647058826,
+    "ternary MLP/experts": 97444.32761904762,
+    "glue": 18.666666666666664
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 10513494528.0,
+     "fits": true
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 7292269056.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 8847484416.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 5626258944.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 23398396416.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 10513494528.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 21732386304.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 8847484416.0,
+     "fits": true
+    }
+   }
+  },
+  {
+   "repo": "openai/gpt-oss-20b",
+   "status": "OK",
+   "partial": [],
+   "notes": [
+    "expert width read from intermediate_size (config carries no moe_intermediate_size)"
+   ],
+   "provenance": {
+    "hidden_size": [
+     "hidden_size"
+    ],
+    "n_layers": [
+     "num_hidden_layers"
+    ],
+    "vocab": [
+     "vocab_size"
+    ],
+    "tie": [
+     "tie_word_embeddings"
+    ],
+    "attn": [
+     "num_attention_heads",
+     "num_key_value_heads"
+    ],
+    "head_dim": [
+     "head_dim"
+    ],
+    "moe": [
+     "num_experts_per_tok",
+     "num_local_experts"
+    ],
+    "mlp": [
+     "hidden_act",
+     "intermediate_size"
+    ]
+   },
+   "meta": {
+    "model_type": "gpt_oss",
+    "attn_subtype": [
+     "sliding_attention",
+     "full_attention",
+     "sliding_attention",
+     "full_attention",
+     "sliding_attention",
+     "full_attention",
+     "sliding_attention",
+     "full_attention",
+     "sliding_attention",
+     "full_attention",
+     "sliding_attention",
+     "full_attention",
+     "sliding_attention",
+     "full_attention",
+     "sliding_attention",
+     "full_attention",
+     "sliding_attention",
+     "full_attention",
+     "sliding_attention",
+     "full_attention",
+     "sliding_attention",
+     "full_attention",
+     "sliding_attention",
+     "full_attention"
+    ],
+    "layer_types": [
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn",
+     "attn"
+    ],
+    "layer_types_source": "layer_types",
+    "n_attn_layers": 24,
+    "n_ssm_layers": 0,
+    "n_linattn_layers": 0,
+    "kv_elems_per_tok_per_layer": 1024,
+    "kv_kind": "gqa",
+    "n_kv_heads": 8,
+    "head_dim": 64,
+    "mlp_gated": true,
+    "mlp_act": "silu",
+    "n_experts": 32,
+    "top_k": 4,
+    "expert_width": 2880,
+    "n_moe_layers": 24,
+    "n_dense_mlp_layers": 0,
+    "shared_expert_width": 0,
+    "expert_calls_per_token": 96,
+    "hidden_size": 2880,
+    "n_layers": 24,
+    "vocab": 201088,
+    "tied": false,
+    "mlp_width": 2880
+   },
+   "params_by_organ": {
+    "attn_proj": 639221760,
+    "norm": 264000,
+    "expert": 19110297600,
+    "emb": 579133440,
+    "head": 579133440
+   },
+   "params_total_computed": 20908050240,
+   "params_total_advertised": 21511953984,
+   "params_dtypes": {
+    "BF16": 1804459584,
+    "U8": 19707494400
+   },
+   "params_delta_pct": -2.807293770008838,
+   "params_agree": false,
+   "crosscheck": "PACKED_STORAGE",
+   "crosscheck_secondary": {
+    "float_dtype_subtotal": 1804459584,
+    "my_non_expert_organs": 1797752640,
+    "delta_pct": -0.3716871277954874,
+    "modules_to_not_convert": [
+     "model.layers.*.self_attn",
+     "model.layers.*.mlp.router",
+     "model.embed_tokens",
+     "lm_head"
+    ],
+    "quant_method": "mxfp4"
+   },
+   "active_params_per_token": 3607406400,
+   "fp_all_ternary": {
+    "payload": 10454025120.0,
+    "scales": 29977856.0,
+    "padding": 4092000.0,
+    "total": 10488094976.0
+   },
+   "fp_all_ternary_by_organ": {
+    "attn_proj": 320381952.0,
+    "norm": 5280000.0,
+    "expert": 9581690880.0,
+    "emb": 290371072.0,
+    "head": 290371072.0
+   },
+   "fp_p61_map": {
+    "payload": 16746159360.0,
+    "scales": 26542080.0,
+    "padding": 0.0,
+    "total": 16772701440.0
+   },
+   "fp_p61_map_by_organ": {
+    "attn_proj": 2556887040.0,
+    "norm": 1056000.0,
+    "expert": 9581690880.0,
+    "emb": 2316533760.0,
+    "head": 2316533760.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 103809024.0,
+     "note": "per-layer sliding_window=128 honoured"
+    },
+    "4096_4bit": {
+     "bytes": 25952256.0,
+     "note": "per-layer sliding_window=128 honoured"
+    },
+    "32768_fp16": {
+     "bytes": 808452096.0,
+     "note": "per-layer sliding_window=128 honoured"
+    },
+    "32768_4bit": {
+     "bytes": 202113024.0,
+     "note": "per-layer sliding_window=128 honoured"
+    },
+    "131072_fp16": {
+     "bytes": 3224371200.0,
+     "note": "per-layer sliding_window=128 honoured"
+    },
+    "131072_4bit": {
+     "bytes": 806092800.0,
+     "note": "per-layer sliding_window=128 honoured"
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 1197711360.0,
+    "lut_dense": 0.0,
+    "lut_moe": 1197711360.0,
+    "proj": 2556887040.0,
+    "head": 2316533760.0,
+    "other": 1056000.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 1197711360.0,
+    "lut_dense": 0.0,
+    "lut_moe": 1197711360.0,
+    "proj": 320381952.0,
+    "head": 290371072.0,
+    "other": 5280000.0
+   },
+   "glue_us": 28.0,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      143366.96470588236,
+      135402.13333333333
+     ],
+     "t_lut_us": [
+      285975.77142857143,
+      71260.0094117647
+     ],
+     "t_kv_us": [
+      2595.2255999999998,
+      2359.296
+     ],
+     "t_glue_us": 28.0,
+     "t_total_us": [
+      431965.9617344538,
+      209049.43874509804
+     ],
+     "t_measured_only_us": 431159.5617344538,
+     "toks": [
+      2.3149972187270134,
+      4.78355744939042
+     ],
+     "toks_measured_only": 2.3193269702224266,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      143366.96470588236,
+      135402.13333333333
+     ],
+     "t_lut_us": [
+      285975.77142857143,
+      71260.0094117647
+     ],
+     "t_kv_us": [
+      648.8063999999999,
+      589.824
+     ],
+     "t_glue_us": 28.0,
+     "t_total_us": [
+      430019.5425344538,
+      207279.96674509803
+     ],
+     "t_measured_only_us": 429213.1425344538,
+     "toks": [
+      2.325475707699676,
+      4.824392900592016
+     ],
+     "toks_measured_only": 2.329844780835731,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      143366.96470588236,
+      135402.13333333333
+     ],
+     "t_lut_us": [
+      285975.77142857143,
+      71260.0094117647
+     ],
+     "t_kv_us": [
+      20211.3024,
+      18373.91127272727
+     ],
+     "t_glue_us": 28.0,
+     "t_total_us": [
+      449582.0385344538,
+      225064.0540178253
+     ],
+     "t_measured_only_us": 448775.63853445376,
+     "toks": [
+      2.2242881482983554,
+      4.44317953999353
+     ],
+     "toks_measured_only": 2.2282849471634747,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      143366.96470588236,
+      135402.13333333333
+     ],
+     "t_lut_us": [
+      285975.77142857143,
+      71260.0094117647
+     ],
+     "t_kv_us": [
+      5052.8256,
+      4593.477818181817
+     ],
+     "t_glue_us": 28.0,
+     "t_total_us": [
+      434423.5617344538,
+      211283.62056327987
+     ],
+     "t_measured_only_us": 433617.16173445375,
+     "toks": [
+      2.301900928226497,
+      4.7329745549324205
+     ],
+     "toks_measured_only": 2.3061817848722463,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      143366.96470588236,
+      135402.13333333333
+     ],
+     "t_lut_us": [
+      285975.77142857143,
+      71260.0094117647
+     ],
+     "t_kv_us": [
+      80609.28,
+      73281.16363636364
+     ],
+     "t_glue_us": 28.0,
+     "t_total_us": [
+      509980.0161344538,
+      279971.3063814617
+     ],
+     "t_measured_only_us": 509173.6161344538,
+     "toks": [
+      1.9608611482069422,
+      3.571794598970429
+     ],
+     "toks_measured_only": 1.9639666477454267,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      143366.96470588236,
+      135402.13333333333
+     ],
+     "t_lut_us": [
+      285975.77142857143,
+      71260.0094117647
+     ],
+     "t_kv_us": [
+      20152.32,
+      18320.29090909091
+     ],
+     "t_glue_us": 28.0,
+     "t_total_us": [
+      449523.0561344538,
+      225010.43365418894
+     ],
+     "t_measured_only_us": 448716.6561344538,
+     "toks": [
+      2.224579999520418,
+      4.444238357128215
+     ],
+     "toks_measured_only": 2.2285778482454175,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      143366.96470588236,
+      135402.13333333333
+     ],
+     "t_lut_us": [
+      285975.77142857143,
+      71260.0094117647
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 28.0,
+     "t_total_us": [
+      429370.7361344538,
+      206690.14274509804
+     ],
+     "t_measured_only_us": 428564.33613445377,
+     "toks": [
+      2.3289896489053192,
+      4.838160091810748
+     ],
+     "toks_measured_only": 2.3333719483514592,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    432678.300952381,
+    107525.24611764705
+   ],
+   "head": {
+    "bytes_fp32": 2316533760.0,
+    "bytes_ternary": 290371072.0,
+    "ms_fp32": [
+     68.13334588235294,
+     64.34816000000001
+    ],
+    "ms_ternary_lut": [
+     69.13596952380954,
+     17.080651294117647
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "expert_chunk_kb": 12183.75,
+   "rho_safe": true,
+   "dominant_term": "ternary MLP/experts",
+   "term_us_pess": {
+    "proj+head (fp32)": 143366.96470588236,
+    "ternary MLP/experts": 285975.77142857143,
+    "glue": 28.0
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 18655699712.0,
+     "fits": false
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 18049360640.0,
+     "fits": false
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 12371093248.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 11764754176.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 21071618816.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 18653340416.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 14787012352.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 12368733952.0,
+     "fits": true
+    }
+   }
+  },
+  {
+   "repo": "ai21labs/AI21-Jamba-Mini-1.6",
+   "status": "UNAVAILABLE",
+   "error": "GATED: 401 Client Error. (Request ID: Root=1-6a86ddac-27f03ef621376c0713e7c5ed;dd59388d-35a5-4e80-ba81-c17e7b08cdbb)"
+  },
+  {
+   "repo": "Zyphra/Zamba2-2.7B",
+   "status": "FORMULA_DISAGREEMENT",
+   "partial": [
+    "CROSS-CHECK DISAGREEMENT +164.11%: the organ formula is wrong for this family; every derived figure in this row inherits that error"
+   ],
+   "notes": [],
+   "provenance": {
+    "hidden_size": [
+     "hidden_size"
+    ],
+    "n_layers": [
+     "num_hidden_layers"
+    ],
+    "vocab": [
+     "vocab_size"
+    ],
+    "attn": [
+     "attention_hidden_size",
+     "num_attention_heads",
+     "num_key_value_heads"
+    ],
+    "head_dim": [
+     "attention_head_dim"
+    ],
+    "ssm": [
+     "mamba_d_conv",
+     "mamba_d_state",
+     "mamba_expand",
+     "mamba_headdim",
+     "mamba_ngroups",
+     "n_mamba_heads"
+    ],
+    "mlp": [
+     "hidden_act",
+     "intermediate_size"
+    ]
+   },
+   "meta": {
+    "model_type": "zamba2",
+    "attn_subtype": [
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "hybrid",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "hybrid",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "hybrid",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "hybrid",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "hybrid",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "hybrid",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "hybrid",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "hybrid",
+     "mamba",
+     "mamba",
+     "mamba",
+     "hybrid",
+     "mamba",
+     "mamba"
+    ],
+    "layer_types": [
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "attn",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "attn",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "attn",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "attn",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "attn",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "attn",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "attn",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "attn",
+     "ssm",
+     "ssm",
+     "ssm",
+     "attn",
+     "ssm",
+     "ssm"
+    ],
+    "layer_types_source": "layers_block_type",
+    "n_attn_layers": 9,
+    "n_ssm_layers": 45,
+    "n_linattn_layers": 0,
+    "kv_elems_per_tok_per_layer": 10240,
+    "kv_kind": "gqa",
+    "n_kv_heads": 32,
+    "head_dim": 160,
+    "mlp_gated": true,
+    "mlp_act": "gelu",
+    "n_experts": 0,
+    "top_k": 0,
+    "expert_width": 0,
+    "n_moe_layers": 0,
+    "n_dense_mlp_layers": 54,
+    "shared_expert_width": 0,
+    "expert_calls_per_token": 0,
+    "hidden_size": 2560,
+    "n_layers": 54,
+    "vocab": 32000,
+    "tied": false,
+    "mlp_width": 10240
+   },
+   "params_by_organ": {
+    "attn_proj": 825753600,
+    "ssm_proj": 1794378240,
+    "norm": 520240,
+    "mlp": 4246732800,
+    "emb": 81920000,
+    "head": 81920000
+   },
+   "params_total_computed": 7031224880,
+   "params_total_advertised": 2662214560,
+   "params_dtypes": {
+    "BF16": 2662214560
+   },
+   "params_delta_pct": 164.11187834537273,
+   "params_agree": false,
+   "crosscheck": "DISAGREE",
+   "active_params_per_token": 6949304880,
+   "fp_all_ternary": {
+    "payload": 3515612440.0,
+    "scales": 11244800.0,
+    "padding": 11369960.0,
+    "total": 3538227200.0
+   },
+   "fp_all_ternary_by_organ": {
+    "attn_proj": 413521920.0,
+    "ssm_proj": 903781440.0,
+    "norm": 10404800.0,
+    "mlp": 2128343040.0,
+    "emb": 41088000.0,
+    "head": 41088000.0
+   },
+   "fp_p61_map": {
+    "payload": 13261334720.0,
+    "scales": 4976640.0,
+    "padding": 0.0,
+    "total": 13266311360.0
+   },
+   "fp_p61_map_by_organ": {
+    "attn_proj": 3303014400.0,
+    "ssm_proj": 7177512960.0,
+    "norm": 2080960.0,
+    "mlp": 2128343040.0,
+    "emb": 327680000.0,
+    "head": 327680000.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 754974720.0,
+     "note": ""
+    },
+    "4096_4bit": {
+     "bytes": 188743680.0,
+     "note": ""
+    },
+    "32768_fp16": {
+     "bytes": 6039797760.0,
+     "note": ""
+    },
+    "32768_4bit": {
+     "bytes": 1509949440.0,
+     "note": ""
+    },
+    "131072_fp16": {
+     "bytes": 24159191040.0,
+     "note": ""
+    },
+    "131072_4bit": {
+     "bytes": 6039797760.0,
+     "note": ""
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 2128343040.0,
+    "lut_dense": 2128343040.0,
+    "lut_moe": 0.0,
+    "proj": 10480527360.0,
+    "head": 327680000.0,
+    "other": 2080960.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 2128343040.0,
+    "lut_dense": 2128343040.0,
+    "lut_moe": 0.0,
+    "proj": 1317303360.0,
+    "head": 41088000.0,
+    "other": 10404800.0
+   },
+   "glue_us": 63.0,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      317949.65647058823,
+      300285.7866666667
+     ],
+     "t_lut_us": [
+      506748.34285714285,
+      125196.6494117647
+     ],
+     "t_kv_us": [
+      18874.368,
+      17158.51636363636
+     ],
+     "t_glue_us": 63.0,
+     "t_total_us": [
+      843635.3673277311,
+      442703.95244206773
+     ],
+     "t_measured_only_us": 523623.66509558825,
+     "toks": [
+      1.1853462274436928,
+      2.2588458821832185
+     ],
+     "toks_measured_only": 1.9097685354183689,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      317949.65647058823,
+      300285.7866666667
+     ],
+     "t_lut_us": [
+      506748.34285714285,
+      125196.6494117647
+     ],
+     "t_kv_us": [
+      4718.592,
+      4289.62909090909
+     ],
+     "t_glue_us": 63.0,
+     "t_total_us": [
+      829479.591327731,
+      429835.06516934047
+     ],
+     "t_measured_only_us": 509467.88909558824,
+     "toks": [
+      1.2055751708120033,
+      2.3264737594315017
+     ],
+     "toks_measured_only": 1.962832244001106,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      317949.65647058823,
+      300285.7866666667
+     ],
+     "t_lut_us": [
+      506748.34285714285,
+      125196.6494117647
+     ],
+     "t_kv_us": [
+      150994.944,
+      137268.1309090909
+     ],
+     "t_glue_us": 63.0,
+     "t_total_us": [
+      975755.9433277311,
+      562813.5669875223
+     ],
+     "t_measured_only_us": 655744.2410955882,
+     "toks": [
+      1.0248464350517679,
+      1.776787303391658
+     ],
+     "toks_measured_only": 1.5249847994535868,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      317949.65647058823,
+      300285.7866666667
+     ],
+     "t_lut_us": [
+      506748.34285714285,
+      125196.6494117647
+     ],
+     "t_kv_us": [
+      37748.736,
+      34317.03272727272
+     ],
+     "t_glue_us": 63.0,
+     "t_total_us": [
+      862509.7353277311,
+      459862.4688057041
+     ],
+     "t_measured_only_us": 542498.0330955882,
+     "toks": [
+      1.1594072032358291,
+      2.174563196246634
+     ],
+     "toks_measured_only": 1.8433246555638663,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      317949.65647058823,
+      300285.7866666667
+     ],
+     "t_lut_us": [
+      506748.34285714285,
+      125196.6494117647
+     ],
+     "t_kv_us": [
+      603979.776,
+      549072.5236363636
+     ],
+     "t_glue_us": 63.0,
+     "t_total_us": [
+      1428740.775327731,
+      974617.959714795
+     ],
+     "t_measured_only_us": 1108729.0730955882,
+     "toks": [
+      0.699917029924911,
+      1.0260430664469107
+     ],
+     "toks_measured_only": 0.9019335961020531,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      317949.65647058823,
+      300285.7866666667
+     ],
+     "t_lut_us": [
+      506748.34285714285,
+      125196.6494117647
+     ],
+     "t_kv_us": [
+      150994.944,
+      137268.1309090909
+     ],
+     "t_glue_us": 63.0,
+     "t_total_us": [
+      975755.9433277311,
+      562813.5669875223
+     ],
+     "t_measured_only_us": 655744.2410955882,
+     "toks": [
+      1.0248464350517679,
+      1.776787303391658
+     ],
+     "toks_measured_only": 1.5249847994535868,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      317949.65647058823,
+      300285.7866666667
+     ],
+     "t_lut_us": [
+      506748.34285714285,
+      125196.6494117647
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 63.0,
+     "t_total_us": [
+      824760.9993277311,
+      425545.4360784314
+     ],
+     "t_measured_only_us": 504749.29709558823,
+     "toks": [
+      1.2124724627075087,
+      2.349925331629434
+     ],
+     "toks_measured_only": 1.9811815603392953,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    832715.1904761904,
+    205777.0705882353
+   ],
+   "head": {
+    "bytes_fp32": 327680000.0,
+    "bytes_ternary": 41088000.0,
+    "ms_fp32": [
+     9.637647058823529,
+     9.102222222222222
+    ],
+    "ms_ternary_lut": [
+     9.782857142857143,
+     2.4169411764705884
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "dominant_term": "ternary MLP/experts",
+   "term_us_pess": {
+    "proj+head (fp32)": 317949.65647058823,
+    "ternary MLP/experts": 506748.34285714285,
+    "glue": 63.0
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 20379978944.0,
+     "fits": false
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 15850130624.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 10651894784.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 6122046464.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 38499372224.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 20379978944.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 28771288064.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 10651894784.0,
+     "fits": true
+    }
+   }
+  },
+  {
+   "repo": "ibm-granite/granite-4.0-h-small",
+   "status": "OK",
+   "partial": [],
+   "notes": [
+    "expert width read from intermediate_size (config carries no moe_intermediate_size)"
+   ],
+   "provenance": {
+    "hidden_size": [
+     "hidden_size"
+    ],
+    "n_layers": [
+     "num_hidden_layers"
+    ],
+    "vocab": [
+     "vocab_size"
+    ],
+    "tie": [
+     "tie_word_embeddings"
+    ],
+    "attn": [
+     "num_attention_heads",
+     "num_key_value_heads"
+    ],
+    "head_dim": [
+     "hidden_size/num_attention_heads"
+    ],
+    "ssm": [
+     "mamba_d_conv",
+     "mamba_d_head",
+     "mamba_d_state",
+     "mamba_expand",
+     "mamba_n_groups",
+     "mamba_n_heads"
+    ],
+    "moe": [
+     "num_experts_per_tok",
+     "num_local_experts",
+     "shared_intermediate_size"
+    ],
+    "mlp": [
+     "hidden_act",
+     "intermediate_size"
+    ]
+   },
+   "meta": {
+    "model_type": "granitemoehybrid",
+    "attn_subtype": [
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "attention",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "attention",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "attention",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba",
+     "attention",
+     "mamba",
+     "mamba",
+     "mamba",
+     "mamba"
+    ],
+    "layer_types": [
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "attn",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "attn",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "attn",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "attn",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm"
+    ],
+    "layer_types_source": "layer_types",
+    "n_attn_layers": 4,
+    "n_ssm_layers": 36,
+    "n_linattn_layers": 0,
+    "kv_elems_per_tok_per_layer": 2048,
+    "kv_kind": "gqa",
+    "n_kv_heads": 8,
+    "head_dim": 128,
+    "mlp_gated": true,
+    "mlp_act": "silu",
+    "n_experts": 72,
+    "top_k": 10,
+    "expert_width": 768,
+    "n_moe_layers": 40,
+    "n_dense_mlp_layers": 0,
+    "shared_expert_width": 1536,
+    "expert_calls_per_token": 440,
+    "hidden_size": 4096,
+    "n_layers": 40,
+    "vocab": 100352,
+    "tied": true,
+    "mlp_width": 768
+   },
+   "params_by_organ": {
+    "attn_proj": 179568640,
+    "ssm_proj": 3681718272,
+    "norm": 640512,
+    "expert": 27934064640,
+    "emb": 411041792,
+    "head": 0
+   },
+   "params_total_computed": 32207033856,
+   "params_total_advertised": 32207337984,
+   "params_dtypes": {
+    "BF16": 32207337984
+   },
+   "params_delta_pct": -0.000944281704222451,
+   "params_agree": true,
+   "crosscheck": "AGREE",
+   "active_params_per_token": 8802817536,
+   "fp_all_ternary": {
+    "payload": 16103516928.0,
+    "scales": 73387264.0,
+    "padding": 14185728.0,
+    "total": 16191089920.0
+   },
+   "fp_all_ternary_by_organ": {
+    "attn_proj": 89959680.0,
+    "ssm_proj": 1849337856.0,
+    "norm": 12810240.0,
+    "expert": 14033059840.0,
+    "emb": 205922304.0
+   },
+   "fp_p61_map": {
+    "payload": 31058909184.0,
+    "scales": 66027520.0,
+    "padding": 0.0,
+    "total": 31124936704.0
+   },
+   "fp_p61_map_by_organ": {
+    "attn_proj": 718274560.0,
+    "ssm_proj": 14726873088.0,
+    "norm": 2562048.0,
+    "expert": 14033059840.0,
+    "emb": 1644167168.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 67108864.0,
+     "note": ""
+    },
+    "4096_4bit": {
+     "bytes": 16777216.0,
+     "note": ""
+    },
+    "32768_fp16": {
+     "bytes": 536870912.0,
+     "note": ""
+    },
+    "32768_4bit": {
+     "bytes": 134217728.0,
+     "note": ""
+    },
+    "131072_fp16": {
+     "bytes": 2147483648.0,
+     "note": ""
+    },
+    "131072_4bit": {
+     "bytes": 536870912.0,
+     "note": ""
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 2275082240.0,
+    "lut_dense": 0.0,
+    "lut_moe": 2275082240.0,
+    "proj": 15445147648.0,
+    "head": 1644167168.0,
+    "other": 2562048.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 2275082240.0,
+    "lut_dense": 0.0,
+    "lut_moe": 2275082240.0,
+    "proj": 1939297536.0,
+    "head": 205922304.0,
+    "other": 12810240.0
+   },
+   "glue_us": 46.66666666666667,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      502702.26070588233,
+      474774.35733333335
+     ],
+     "t_lut_us": [
+      545382.2476190476,
+      137524.36705882353
+     ],
+     "t_kv_us": [
+      1677.7216,
+      1525.2014545454545
+     ],
+     "t_glue_us": 46.66666666666667,
+     "t_total_us": [
+      1049808.8965915965,
+      613870.5925133689
+     ],
+     "t_measured_only_us": 1046112.8965915967,
+     "toks": [
+      0.952554320359343,
+      1.6290078270498385
+     ],
+     "toks_measured_only": 0.9559197704742577,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      502702.26070588233,
+      474774.35733333335
+     ],
+     "t_lut_us": [
+      545382.2476190476,
+      137524.36705882353
+     ],
+     "t_kv_us": [
+      419.4304,
+      381.3003636363636
+     ],
+     "t_glue_us": 46.66666666666667,
+     "t_total_us": [
+      1048550.6053915966,
+      612726.6914224598
+     ],
+     "t_measured_only_us": 1044854.6053915966,
+     "toks": [
+      0.9536974132274096,
+      1.6320490260975506
+     ],
+     "toks_measured_only": 0.9570709597678562,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      502702.26070588233,
+      474774.35733333335
+     ],
+     "t_lut_us": [
+      545382.2476190476,
+      137524.36705882353
+     ],
+     "t_kv_us": [
+      13421.7728,
+      12201.611636363636
+     ],
+     "t_glue_us": 46.66666666666667,
+     "t_total_us": [
+      1061552.9477915966,
+      624547.0026951871
+     ],
+     "t_measured_only_us": 1057856.9477915966,
+     "toks": [
+      0.9420161303120599,
+      1.6011605142360348
+     ],
+     "toks_measured_only": 0.9453073991598013,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      502702.26070588233,
+      474774.35733333335
+     ],
+     "t_lut_us": [
+      545382.2476190476,
+      137524.36705882353
+     ],
+     "t_kv_us": [
+      3355.4432,
+      3050.402909090909
+     ],
+     "t_glue_us": 46.66666666666667,
+     "t_total_us": [
+      1051486.6181915966,
+      615395.7939679143
+     ],
+     "t_measured_only_us": 1047790.6181915966,
+     "toks": [
+      0.9510344522689732,
+      1.6249704820896749
+     ],
+     "toks_measured_only": 0.9543891524109278,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      502702.26070588233,
+      474774.35733333335
+     ],
+     "t_lut_us": [
+      545382.2476190476,
+      137524.36705882353
+     ],
+     "t_kv_us": [
+      53687.0912,
+      48806.44654545454
+     ],
+     "t_glue_us": 46.66666666666667,
+     "t_total_us": [
+      1101818.2661915966,
+      661151.837604278
+     ],
+     "t_measured_only_us": 1098122.2661915966,
+     "toks": [
+      0.9075906895757605,
+      1.5125118665986892
+     ],
+     "toks_measured_only": 0.9106454087923243,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      502702.26070588233,
+      474774.35733333335
+     ],
+     "t_lut_us": [
+      545382.2476190476,
+      137524.36705882353
+     ],
+     "t_kv_us": [
+      13421.7728,
+      12201.611636363636
+     ],
+     "t_glue_us": 46.66666666666667,
+     "t_total_us": [
+      1061552.9477915966,
+      624547.0026951871
+     ],
+     "t_measured_only_us": 1057856.9477915966,
+     "toks": [
+      0.9420161303120599,
+      1.6011605142360348
+     ],
+     "toks_measured_only": 0.9453073991598013,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      502702.26070588233,
+      474774.35733333335
+     ],
+     "t_lut_us": [
+      545382.2476190476,
+      137524.36705882353
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 46.66666666666667,
+     "t_total_us": [
+      1048131.1749915966,
+      612345.3910588234
+     ],
+     "t_measured_only_us": 1044435.1749915966,
+     "toks": [
+      0.9540790540916957,
+      1.6330652840725595
+     ],
+     "toks_measured_only": 0.9574553059341819,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    1059245.5999999999,
+    264513.97960784315
+   ],
+   "head": {
+    "bytes_fp32": 1644167168.0,
+    "bytes_ternary": 205922304.0,
+    "ms_fp32": [
+     48.35785788235294,
+     45.67131022222222
+    ],
+    "ms_ternary_lut": [
+     49.02912,
+     12.113076705882353
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "expert_chunk_kb": 4630.0,
+   "rho_safe": true,
+   "dominant_term": "ternary MLP/experts",
+   "term_us_pess": {
+    "proj+head (fp32)": 502702.26070588233,
+    "ternary MLP/experts": 545382.2476190476,
+    "glue": 46.66666666666667
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 32735950848.0,
+     "fits": false
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 32333297664.0,
+     "fits": false
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 17802104064.0,
+     "fits": false
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 17399450880.0,
+     "fits": false
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 34346563584.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 32735950848.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 19412716800.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 17802104064.0,
+     "fits": true
+    }
+   }
+  },
+  {
+   "repo": "nvidia/Nemotron-H-8B-Base-8K",
+   "status": "OK",
+   "partial": [],
+   "notes": [],
+   "provenance": {
+    "hidden_size": [
+     "hidden_size"
+    ],
+    "n_layers": [
+     "num_hidden_layers"
+    ],
+    "vocab": [
+     "vocab_size"
+    ],
+    "tie": [
+     "tie_word_embeddings"
+    ],
+    "attn": [
+     "num_attention_heads",
+     "num_key_value_heads"
+    ],
+    "head_dim": [
+     "attention_head_dim"
+    ],
+    "ssm": [
+     "conv_kernel",
+     "expand",
+     "mamba_head_dim",
+     "mamba_num_heads",
+     "n_groups",
+     "ssm_state_size"
+    ],
+    "mlp": [
+     "intermediate_size",
+     "mlp_hidden_act"
+    ]
+   },
+   "meta": {
+    "model_type": "nemotron_h",
+    "layer_types": [
+     "ssm",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "attn",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "attn",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "attn",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "attn",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "mlp",
+     "ssm",
+     "mlp"
+    ],
+    "layer_types_source": "hybrid_override_pattern",
+    "n_attn_layers": 4,
+    "n_ssm_layers": 24,
+    "n_linattn_layers": 0,
+    "kv_elems_per_tok_per_layer": 2048,
+    "kv_kind": "gqa",
+    "n_kv_heads": 8,
+    "head_dim": 128,
+    "mlp_gated": false,
+    "mlp_act": "relu2",
+    "n_experts": 0,
+    "top_k": 0,
+    "expert_width": 0,
+    "n_moe_layers": 0,
+    "n_dense_mlp_layers": 24,
+    "shared_expert_width": 0,
+    "expert_calls_per_token": 0,
+    "hidden_size": 4096,
+    "n_layers": 52,
+    "vocab": 131072,
+    "tied": false,
+    "mlp_width": 21504
+   },
+   "params_by_organ": {
+    "attn_proj": 167772160,
+    "ssm_proj": 2630811648,
+    "norm": 635904,
+    "mlp": 4227858432,
+    "emb": 536870912,
+    "head": 536870912
+   },
+   "params_total_computed": 8100819968,
+   "params_total_advertised": 8100852736,
+   "params_dtypes": {
+    "BF16": 8100852736
+   },
+   "params_delta_pct": -0.00040450062564870214,
+   "params_agree": true,
+   "crosscheck": "AGREE",
+   "active_params_per_token": 7563949056,
+   "fp_all_ternary": {
+    "payload": 4050409984.0,
+    "scales": 9371648.0,
+    "padding": 13297152.0,
+    "total": 4073078784.0
+   },
+   "fp_all_ternary_by_organ": {
+    "attn_proj": 84049920.0,
+    "ssm_proj": 1322004480.0,
+    "norm": 12718080.0,
+    "mlp": 2116386816.0,
+    "emb": 268959744.0,
+    "head": 268959744.0
+   },
+   "fp_p61_map": {
+    "payload": 17605775360.0,
+    "scales": 2457600.0,
+    "padding": 0.0,
+    "total": 17608232960.0
+   },
+   "fp_p61_map_by_organ": {
+    "attn_proj": 671088640.0,
+    "ssm_proj": 10523246592.0,
+    "norm": 2543616.0,
+    "mlp": 2116386816.0,
+    "emb": 2147483648.0,
+    "head": 2147483648.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 67108864.0,
+     "note": ""
+    },
+    "4096_4bit": {
+     "bytes": 16777216.0,
+     "note": ""
+    },
+    "32768_fp16": {
+     "bytes": 536870912.0,
+     "note": ""
+    },
+    "32768_4bit": {
+     "bytes": 134217728.0,
+     "note": ""
+    },
+    "131072_fp16": {
+     "bytes": 2147483648.0,
+     "note": ""
+    },
+    "131072_4bit": {
+     "bytes": 536870912.0,
+     "note": ""
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 2116386816.0,
+    "lut_dense": 2116386816.0,
+    "lut_moe": 0.0,
+    "proj": 11194335232.0,
+    "head": 2147483648.0,
+    "other": 2543616.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 2116386816.0,
+    "lut_dense": 2116386816.0,
+    "lut_moe": 0.0,
+    "proj": 1406054400.0,
+    "head": 268959744.0,
+    "other": 12718080.0
+   },
+   "glue_us": 60.666666666666664,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      392481.24988235295,
+      370676.73600000003
+     ],
+     "t_lut_us": [
+      503901.6228571429,
+      124493.34211764706
+     ],
+     "t_kv_us": [
+      1677.7216,
+      1525.2014545454545
+     ],
+     "t_glue_us": 60.666666666666664,
+     "t_total_us": [
+      898121.2610061625,
+      496755.9462388592
+     ],
+     "t_measured_only_us": 579907.2631490197,
+     "toks": [
+      1.113435393879556,
+      2.013060955930987
+     ],
+     "toks_measured_only": 1.7244136494683433,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      392481.24988235295,
+      370676.73600000003
+     ],
+     "t_lut_us": [
+      503901.6228571429,
+      124493.34211764706
+     ],
+     "t_kv_us": [
+      419.4304,
+      381.3003636363636
+     ],
+     "t_glue_us": 60.666666666666664,
+     "t_total_us": [
+      896862.9698061624,
+      495612.0451479501
+     ],
+     "t_measured_only_us": 578648.9719490196,
+     "toks": [
+      1.1149975343681862,
+      2.0177072163399097
+     ],
+     "toks_measured_only": 1.728163443601698,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      392481.24988235295,
+      370676.73600000003
+     ],
+     "t_lut_us": [
+      503901.6228571429,
+      124493.34211764706
+     ],
+     "t_kv_us": [
+      13421.7728,
+      12201.611636363636
+     ],
+     "t_glue_us": 60.666666666666664,
+     "t_total_us": [
+      909865.3122061625,
+      507432.3564206774
+     ],
+     "t_measured_only_us": 591651.3143490197,
+     "toks": [
+      1.099063769752126,
+      1.9707060209045253
+     ],
+     "toks_measured_only": 1.690184701271689,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      392481.24988235295,
+      370676.73600000003
+     ],
+     "t_lut_us": [
+      503901.6228571429,
+      124493.34211764706
+     ],
+     "t_kv_us": [
+      3355.4432,
+      3050.402909090909
+     ],
+     "t_glue_us": 60.666666666666664,
+     "t_total_us": [
+      899798.9826061624,
+      498281.1476934047
+     ],
+     "t_measured_only_us": 581584.9847490196,
+     "toks": [
+      1.111359336174861,
+      2.006899126384982
+     ],
+     "toks_measured_only": 1.719439164048476,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      392481.24988235295,
+      370676.73600000003
+     ],
+     "t_lut_us": [
+      503901.6228571429,
+      124493.34211764706
+     ],
+     "t_kv_us": [
+      53687.0912,
+      48806.44654545454
+     ],
+     "t_glue_us": 60.666666666666664,
+     "t_total_us": [
+      950130.6306061625,
+      544037.1913297683
+     ],
+     "t_measured_only_us": 631916.6327490197,
+     "toks": [
+      1.0524868557937364,
+      1.838109629151897
+     ],
+     "toks_measured_only": 1.5824872272307686,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      392481.24988235295,
+      370676.73600000003
+     ],
+     "t_lut_us": [
+      503901.6228571429,
+      124493.34211764706
+     ],
+     "t_kv_us": [
+      13421.7728,
+      12201.611636363636
+     ],
+     "t_glue_us": 60.666666666666664,
+     "t_total_us": [
+      909865.3122061625,
+      507432.3564206774
+     ],
+     "t_measured_only_us": 591651.3143490197,
+     "toks": [
+      1.099063769752126,
+      1.9707060209045253
+     ],
+     "toks_measured_only": 1.690184701271689,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      392481.24988235295,
+      370676.73600000003
+     ],
+     "t_lut_us": [
+      503901.6228571429,
+      124493.34211764706
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 60.666666666666664,
+     "t_total_us": [
+      896443.5394061625,
+      495230.7447843138
+     ],
+     "t_measured_only_us": 578229.5415490196,
+     "toks": [
+      1.1155192223956873,
+      2.019260739628608
+     ],
+     "toks_measured_only": 1.7294170016307004,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    905803.2952380952,
+    223832.37490196078
+   ],
+   "head": {
+    "bytes_fp32": 2147483648.0,
+    "bytes_ternary": 268959744.0,
+    "ms_fp32": [
+     63.16128376470588,
+     59.652323555555554
+    ],
+    "ms_ternary_lut": [
+     64.03803428571428,
+     15.821161411764706
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "dominant_term": "ternary MLP/experts",
+   "term_us_pess": {
+    "proj+head (fp32)": 392481.24988235295,
+    "ternary MLP/experts": 503901.6228571429,
+    "glue": 60.666666666666664
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 19219369984.0,
+     "fits": false
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 18816716800.0,
+     "fits": false
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 5684215808.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 5281562624.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 20829982720.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 19219369984.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 7294828544.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 5684215808.0,
+     "fits": true
+    }
+   }
+  },
+  {
+   "repo": "tiiuae/Falcon-H1-7B-Base",
+   "status": "OK",
+   "partial": [],
+   "notes": [
+    "falcon_h1: attn_layer_indices is null; read as 'no restriction' => attention in every layer, parallel with the mamba mixer. INFERENCE, corroborated only by the param cross-check."
+   ],
+   "provenance": {
+    "hidden_size": [
+     "hidden_size"
+    ],
+    "n_layers": [
+     "num_hidden_layers"
+    ],
+    "vocab": [
+     "vocab_size"
+    ],
+    "tie": [
+     "tie_word_embeddings"
+    ],
+    "attn": [
+     "num_attention_heads",
+     "num_key_value_heads"
+    ],
+    "head_dim": [
+     "head_dim"
+    ],
+    "ssm": [
+     "mamba_d_conv",
+     "mamba_d_head",
+     "mamba_d_ssm",
+     "mamba_d_state",
+     "mamba_expand",
+     "mamba_n_groups",
+     "mamba_n_heads"
+    ],
+    "mlp": [
+     "hidden_act",
+     "intermediate_size"
+    ]
+   },
+   "meta": {
+    "model_type": "falcon_h1",
+    "layer_types": [
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm",
+     "attn+ssm"
+    ],
+    "layer_types_source": "attn_layer_indices=null -> parallel hybrid, attention on every layer (INFERRED)",
+    "n_attn_layers": 44,
+    "n_ssm_layers": 44,
+    "n_linattn_layers": 0,
+    "kv_elems_per_tok_per_layer": 512,
+    "kv_kind": "gqa",
+    "n_kv_heads": 2,
+    "head_dim": 128,
+    "mlp_gated": true,
+    "mlp_act": "silu",
+    "n_experts": 0,
+    "top_k": 0,
+    "expert_width": 0,
+    "n_moe_layers": 0,
+    "n_dense_mlp_layers": 44,
+    "shared_expert_width": 0,
+    "expert_calls_per_token": 0,
+    "hidden_size": 3072,
+    "n_layers": 44,
+    "vocab": 130048,
+    "tied": false,
+    "mlp_width": 12288
+   },
+   "params_by_organ": {
+    "attn_proj": 484442112,
+    "ssm_proj": 1318789120,
+    "norm": 411744,
+    "mlp": 4982833152,
+    "emb": 399507456,
+    "head": 399507456
+   },
+   "params_total_computed": 7585491040,
+   "params_total_advertised": 7585648736,
+   "params_dtypes": {
+    "BF16": 7585648736
+   },
+   "params_delta_pct": -0.002078872954551741,
+   "params_agree": true,
+   "crosscheck": "AGREE",
+   "active_params_per_token": 7185983584,
+   "fp_all_ternary": {
+    "payload": 3792745520.0,
+    "scales": 10801664.0,
+    "padding": 8589776.0,
+    "total": 3812136960.0
+   },
+   "fp_all_ternary_by_organ": {
+    "attn_proj": 243122176.0,
+    "ssm_proj": 663949440.0,
+    "norm": 8234880.0,
+    "mlp": 2496282624.0,
+    "emb": 200273920.0,
+    "head": 200273920.0
+   },
+   "fp_p61_map": {
+    "payload": 12902048128.0,
+    "scales": 4866048.0,
+    "padding": 0.0,
+    "total": 12906914176.0
+   },
+   "fp_p61_map_by_organ": {
+    "attn_proj": 1937768448.0,
+    "ssm_proj": 5275156480.0,
+    "norm": 1646976.0,
+    "mlp": 2496282624.0,
+    "emb": 1598029824.0,
+    "head": 1598029824.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 184549376.0,
+     "note": ""
+    },
+    "4096_4bit": {
+     "bytes": 46137344.0,
+     "note": ""
+    },
+    "32768_fp16": {
+     "bytes": 1476395008.0,
+     "note": ""
+    },
+    "32768_4bit": {
+     "bytes": 369098752.0,
+     "note": ""
+    },
+    "131072_fp16": {
+     "bytes": 5905580032.0,
+     "note": ""
+    },
+    "131072_4bit": {
+     "bytes": 1476395008.0,
+     "note": ""
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 2496282624.0,
+    "lut_dense": 2496282624.0,
+    "lut_moe": 0.0,
+    "proj": 7212924928.0,
+    "head": 1598029824.0,
+    "other": 1646976.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 2496282624.0,
+    "lut_dense": 2496282624.0,
+    "lut_moe": 0.0,
+    "proj": 907071616.0,
+    "head": 200273920.0,
+    "other": 8234880.0
+   },
+   "glue_us": 51.33333333333333,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      259194.16847058825,
+      244794.49244444445
+     ],
+     "t_lut_us": [
+      594353.0057142858,
+      146840.15435294117
+     ],
+     "t_kv_us": [
+      4613.734399999999,
+      4194.304
+     ],
+     "t_glue_us": 51.33333333333333,
+     "t_total_us": [
+      858212.2419182074,
+      395880.28413071897
+     ],
+     "t_measured_only_us": 482878.1737039216,
+     "toks": [
+      1.1652129288727926,
+      2.52601617227748
+     ],
+     "toks_measured_only": 2.0709157184088287,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      259194.16847058825,
+      244794.49244444445
+     ],
+     "t_lut_us": [
+      594353.0057142858,
+      146840.15435294117
+     ],
+     "t_kv_us": [
+      1153.4335999999998,
+      1048.576
+     ],
+     "t_glue_us": 51.33333333333333,
+     "t_total_us": [
+      854751.9411182074,
+      392734.55613071896
+     ],
+     "t_measured_only_us": 479417.8729039216,
+     "toks": [
+      1.169930071982961,
+      2.546249074316641
+     ],
+     "toks_measured_only": 2.0858629945162814,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      259194.16847058825,
+      244794.49244444445
+     ],
+     "t_lut_us": [
+      594353.0057142858,
+      146840.15435294117
+     ],
+     "t_kv_us": [
+      36909.875199999995,
+      33554.432
+     ],
+     "t_glue_us": 51.33333333333333,
+     "t_total_us": [
+      890508.3827182074,
+      425240.41213071893
+     ],
+     "t_measured_only_us": 515174.3145039216,
+     "toks": [
+      1.1229540556907258,
+      2.351610927544205
+     ],
+     "toks_measured_only": 1.9410905626437007,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      259194.16847058825,
+      244794.49244444445
+     ],
+     "t_lut_us": [
+      594353.0057142858,
+      146840.15435294117
+     ],
+     "t_kv_us": [
+      9227.468799999999,
+      8388.608
+     ],
+     "t_glue_us": 51.33333333333333,
+     "t_total_us": [
+      862825.9763182075,
+      400074.58813071897
+     ],
+     "t_measured_only_us": 487491.90810392157,
+     "toks": [
+      1.1589822599768407,
+      2.499533911094757
+     ],
+     "toks_measured_only": 2.051316100588123,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      259194.16847058825,
+      244794.49244444445
+     ],
+     "t_lut_us": [
+      594353.0057142858,
+      146840.15435294117
+     ],
+     "t_kv_us": [
+      147639.50079999998,
+      134217.728
+     ],
+     "t_glue_us": 51.33333333333333,
+     "t_total_us": [
+      1001238.0083182075,
+      525903.7081307189
+     ],
+     "t_measured_only_us": 625903.9401039216,
+     "toks": [
+      0.9987635224512831,
+      1.9014887792946298
+     ],
+     "toks_measured_only": 1.5976892553735411,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      259194.16847058825,
+      244794.49244444445
+     ],
+     "t_lut_us": [
+      594353.0057142858,
+      146840.15435294117
+     ],
+     "t_kv_us": [
+      36909.875199999995,
+      33554.432
+     ],
+     "t_glue_us": 51.33333333333333,
+     "t_total_us": [
+      890508.3827182074,
+      425240.41213071893
+     ],
+     "t_measured_only_us": 515174.3145039216,
+     "toks": [
+      1.1229540556907258,
+      2.351610927544205
+     ],
+     "toks_measured_only": 1.9410905626437007,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      259194.16847058825,
+      244794.49244444445
+     ],
+     "t_lut_us": [
+      594353.0057142858,
+      146840.15435294117
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 51.33333333333333,
+     "t_total_us": [
+      853598.5075182074,
+      391685.98013071896
+     ],
+     "t_measured_only_us": 478264.4393039216,
+     "toks": [
+      1.1715109518026774,
+      2.553065595215499
+     ],
+     "toks_measured_only": 2.090893484481986,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    860018.7238095239,
+    212513.86509803924
+   ],
+   "head": {
+    "bytes_fp32": 1598029824.0,
+    "bytes_ternary": 200273920.0,
+    "ms_fp32": [
+     47.00087717647059,
+     44.38971733333334
+    ],
+    "ms_ternary_lut": [
+     47.684266666666666,
+     11.780818823529412
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "dominant_term": "ternary MLP/experts",
+   "term_us_pess": {
+    "proj+head (fp32)": 259194.16847058825,
+    "ternary MLP/experts": 594353.0057142858,
+    "glue": 51.33333333333333
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 15457571200.0,
+     "fits": true
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 14350274944.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 6362793984.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 5255497728.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 19886756224.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 15457571200.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 10791979008.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 6362793984.0,
+     "fits": true
+    }
+   }
+  },
+  {
+   "repo": "Qwen/Qwen3-Next-80B-A3B-Instruct",
+   "status": "FORMULA_DISAGREEMENT",
+   "partial": [
+    "CROSS-CHECK DISAGREEMENT -2.15%: the organ formula is wrong for this family; every derived figure in this row inherits that error"
+   ],
+   "notes": [
+    "linear-attention (gated DeltaNet) layers carry an O(1) recurrent state, not a growing KV cache; their state is not charged to the KV table."
+   ],
+   "provenance": {
+    "hidden_size": [
+     "hidden_size"
+    ],
+    "n_layers": [
+     "num_hidden_layers"
+    ],
+    "vocab": [
+     "vocab_size"
+    ],
+    "tie": [
+     "tie_word_embeddings"
+    ],
+    "attn": [
+     "num_attention_heads",
+     "num_key_value_heads"
+    ],
+    "head_dim": [
+     "head_dim"
+    ],
+    "linattn": [
+     "linear_conv_kernel_dim",
+     "linear_key_head_dim",
+     "linear_num_key_heads",
+     "linear_num_value_heads",
+     "linear_value_head_dim"
+    ],
+    "moe": [
+     "decoder_sparse_step",
+     "mlp_only_layers",
+     "moe_intermediate_size",
+     "num_experts",
+     "num_experts_per_tok",
+     "shared_expert_intermediate_size"
+    ],
+    "mlp": [
+     "hidden_act",
+     "intermediate_size"
+    ]
+   },
+   "meta": {
+    "model_type": "qwen3_next",
+    "layer_types": [
+     "linattn",
+     "linattn",
+     "linattn",
+     "attn",
+     "linattn",
+     "linattn",
+     "linattn",
+     "attn",
+     "linattn",
+     "linattn",
+     "linattn",
+     "attn",
+     "linattn",
+     "linattn",
+     "linattn",
+     "attn",
+     "linattn",
+     "linattn",
+     "linattn",
+     "attn",
+     "linattn",
+     "linattn",
+     "linattn",
+     "attn",
+     "linattn",
+     "linattn",
+     "linattn",
+     "attn",
+     "linattn",
+     "linattn",
+     "linattn",
+     "attn",
+     "linattn",
+     "linattn",
+     "linattn",
+     "attn",
+     "linattn",
+     "linattn",
+     "linattn",
+     "attn",
+     "linattn",
+     "linattn",
+     "linattn",
+     "attn",
+     "linattn",
+     "linattn",
+     "linattn",
+     "attn"
+    ],
+    "layer_types_source": "full_attention_interval",
+    "n_attn_layers": 12,
+    "n_ssm_layers": 0,
+    "n_linattn_layers": 36,
+    "kv_elems_per_tok_per_layer": 1024,
+    "kv_kind": "gqa",
+    "n_kv_heads": 2,
+    "head_dim": 256,
+    "mlp_gated": true,
+    "mlp_act": "silu",
+    "n_experts": 512,
+    "top_k": 10,
+    "expert_width": 512,
+    "n_moe_layers": 48,
+    "n_dense_mlp_layers": 0,
+    "shared_expert_width": 512,
+    "expert_calls_per_token": 528,
+    "hidden_size": 2048,
+    "n_layers": 48,
+    "vocab": 151936,
+    "tied": false,
+    "mlp_width": 5120
+   },
+   "params_by_organ": {
+    "attn_proj": 276824064,
+    "ssm_proj": 1213857792,
+    "expert": 77460406272,
+    "emb": 311164928,
+    "head": 311164928,
+    "norm": 198656
+   },
+   "params_total_computed": 79573616640,
+   "params_total_advertised": 81324862720,
+   "params_dtypes": {
+    "BF16": 81324862720
+   },
+   "params_delta_pct": -2.1533956792887654,
+   "params_agree": false,
+   "crosscheck": "DISAGREE",
+   "active_params_per_token": 3462989824,
+   "fp_all_ternary": {
+    "payload": 39786808320.0,
+    "scales": 308285440.0,
+    "padding": 7207936.0,
+    "total": 40102301696.0
+   },
+   "fp_all_ternary_by_organ": {
+    "attn_proj": 138854400.0,
+    "ssm_proj": 614310912.0,
+    "expert": 39032782848.0,
+    "emb": 156190208.0,
+    "head": 156190208.0,
+    "norm": 3973120.0
+   },
+   "fp_p61_map": {
+    "payload": 47183044608.0,
+    "scales": 302579712.0,
+    "padding": 0.0,
+    "total": 47485624320.0
+   },
+   "fp_p61_map_by_organ": {
+    "attn_proj": 1107296256.0,
+    "ssm_proj": 4855431168.0,
+    "expert": 39032782848.0,
+    "emb": 1244659712.0,
+    "head": 1244659712.0,
+    "norm": 794624.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 100663296.0,
+     "note": ""
+    },
+    "4096_4bit": {
+     "bytes": 25165824.0,
+     "note": ""
+    },
+    "32768_fp16": {
+     "bytes": 805306368.0,
+     "note": ""
+    },
+    "32768_4bit": {
+     "bytes": 201326592.0,
+     "note": ""
+    },
+    "131072_fp16": {
+     "bytes": 3221225472.0,
+     "note": ""
+    },
+    "131072_4bit": {
+     "bytes": 805306368.0,
+     "note": ""
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 836960256.0,
+    "lut_dense": 0.0,
+    "lut_moe": 836960256.0,
+    "proj": 5962727424.0,
+    "head": 1244659712.0,
+    "other": 794624.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 836960256.0,
+    "lut_dense": 0.0,
+    "lut_moe": 836960256.0,
+    "proj": 753165312.0,
+    "head": 156190208.0,
+    "other": 3973120.0
+   },
+   "glue_us": 56.0,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      212005.34588235297,
+      200227.2711111111
+     ],
+     "t_lut_us": [
+      203711.45142857142,
+      53668.15623529412
+     ],
+     "t_kv_us": [
+      2516.5824,
+      2287.802181818182
+     ],
+     "t_glue_us": 56.0,
+     "t_total_us": [
+      418289.3797109244,
+      256239.2295282234
+     ],
+     "t_measured_only_us": 413854.1797109244,
+     "toks": [
+      2.390689432973627,
+      3.90260305512609
+     ],
+     "toks_measured_only": 2.4163100169690113,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      212005.34588235297,
+      200227.2711111111
+     ],
+     "t_lut_us": [
+      203711.45142857142,
+      53668.15623529412
+     ],
+     "t_kv_us": [
+      629.1456,
+      571.9505454545455
+     ],
+     "t_glue_us": 56.0,
+     "t_total_us": [
+      416401.9429109244,
+      254523.37789185977
+     ],
+     "t_measured_only_us": 411966.74291092437,
+     "toks": [
+      2.401525778216451,
+      3.9289121819877524
+     ],
+     "toks_measured_only": 2.4273804068116744,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      212005.34588235297,
+      200227.2711111111
+     ],
+     "t_lut_us": [
+      203711.45142857142,
+      53668.15623529412
+     ],
+     "t_kv_us": [
+      20132.6592,
+      18302.417454545455
+     ],
+     "t_glue_us": 56.0,
+     "t_total_us": [
+      435905.4565109244,
+      272253.84480095067
+     ],
+     "t_measured_only_us": 431470.2565109244,
+     "toks": [
+      2.2940754355410062,
+      3.6730427103099927
+     ],
+     "toks_measured_only": 2.3176568602584107,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      212005.34588235297,
+      200227.2711111111
+     ],
+     "t_lut_us": [
+      203711.45142857142,
+      53668.15623529412
+     ],
+     "t_kv_us": [
+      5033.1648,
+      4575.604363636364
+     ],
+     "t_glue_us": 56.0,
+     "t_total_us": [
+      420805.9621109244,
+      258527.0317100416
+     ],
+     "t_measured_only_us": 416370.7621109244,
+     "toks": [
+      2.3763921855660404,
+      3.8680674643012907
+     ],
+     "toks_measured_only": 2.401705621523906,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      212005.34588235297,
+      200227.2711111111
+     ],
+     "t_lut_us": [
+      203711.45142857142,
+      53668.15623529412
+     ],
+     "t_kv_us": [
+      80530.6368,
+      73209.66981818182
+     ],
+     "t_glue_us": 56.0,
+     "t_total_us": [
+      496303.43411092437,
+      327161.09716458706
+     ],
+     "t_measured_only_us": 491868.23411092436,
+     "toks": [
+      2.014896394564336,
+      3.056598136718326
+     ],
+     "toks_measured_only": 2.0330648142129943,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      212005.34588235297,
+      200227.2711111111
+     ],
+     "t_lut_us": [
+      203711.45142857142,
+      53668.15623529412
+     ],
+     "t_kv_us": [
+      20132.6592,
+      18302.417454545455
+     ],
+     "t_glue_us": 56.0,
+     "t_total_us": [
+      435905.4565109244,
+      272253.84480095067
+     ],
+     "t_measured_only_us": 431470.2565109244,
+     "toks": [
+      2.2940754355410062,
+      3.6730427103099927
+     ],
+     "toks_measured_only": 2.3176568602584107,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      212005.34588235297,
+      200227.2711111111
+     ],
+     "t_lut_us": [
+      203711.45142857142,
+      53668.15623529412
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 56.0,
+     "t_total_us": [
+      415772.7973109244,
+      253951.42734640522
+     ],
+     "t_measured_only_us": 411337.5973109244,
+     "toks": [
+      2.4051597566451113,
+      3.9377608956532426
+     ],
+     "toks_measured_only": 2.431093113144515,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    421226.65142857144,
+    107449.37035294117
+   ],
+   "head": {
+    "bytes_fp32": 1244659712.0,
+    "bytes_ternary": 156190208.0,
+    "ms_fp32": [
+     36.60763858823529,
+     34.57388088888889
+    ],
+    "ms_ternary_lut": [
+     37.18814476190476,
+     9.187659294117648
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "expert_chunk_kb": 1548.0,
+   "rho_safe": true,
+   "dominant_term": "proj+head (fp32)",
+   "term_us_pess": {
+    "proj+head (fp32)": 212005.34588235297,
+    "ternary MLP/experts": 203711.45142857142,
+    "glue": 56.0
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 49365280256.0,
+     "fits": false
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 48761300480.0,
+     "fits": false
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 41981957632.0,
+     "fits": false
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 41377977856.0,
+     "fits": false
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 51781199360.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 49365280256.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 44397876736.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 41981957632.0,
+     "fits": true
+    }
+   }
+  },
+  {
+   "repo": "state-spaces/mamba2-2.7b",
+   "status": "PARTIAL",
+   "partial": [
+    "ssm mixer: ssm_cfg carries no d_state/headdim/ngroups",
+    "cross-check: repo exposes no safetensors parameter total"
+   ],
+   "notes": [
+    "vocab padded to 50288 by pad_vocab_size_multiple=16",
+    "mamba2 d_state/headdim/ngroups NOT in config (ssm_cfg={'layer':'Mamba2'}); Mamba-2 reference defaults d_state=128, headdim=64, ngroups=1 assumed -> row is PARTIAL"
+   ],
+   "provenance": {
+    "hidden_size": [
+     "d_model"
+    ],
+    "n_layers": [
+     "n_layer"
+    ],
+    "vocab": [
+     "pad_vocab_size_multiple",
+     "vocab_size"
+    ],
+    "tie": [
+     "tie_embeddings"
+    ],
+    "layer_types": [
+     "attn_layer_idx"
+    ]
+   },
+   "meta": {
+    "model_type": "mamba_ssm",
+    "layer_types": [
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm",
+     "ssm"
+    ],
+    "layer_types_source": "attn_layer_idx",
+    "hidden_size": 2560,
+    "n_layers": 64,
+    "vocab": 50288,
+    "tied": true,
+    "n_attn_layers": 0,
+    "kv_kind": "none"
+   },
+   "params_by_organ": {
+    "ssm_proj": 2573008896,
+    "norm": 509440,
+    "emb": 128737280,
+    "head": 0
+   },
+   "params_total_computed": 2702255616,
+   "params_total_advertised": null,
+   "params_dtypes": {},
+   "params_delta_pct": null,
+   "params_agree": null,
+   "crosscheck": "NO_METADATA",
+   "active_params_per_token": 2702255616,
+   "fp_all_ternary": {
+    "payload": 1351127808.0,
+    "scales": 6977984.0,
+    "padding": 12713216.0,
+    "total": 1370819008.0
+   },
+   "fp_all_ternary_by_organ": {
+    "ssm_proj": 1296060416.0,
+    "norm": 10188800.0,
+    "emb": 64569792.0
+   },
+   "fp_p61_map": {
+    "payload": 10809022464.0,
+    "scales": 0.0,
+    "padding": 0.0,
+    "total": 10809022464.0
+   },
+   "fp_p61_map_by_organ": {
+    "ssm_proj": 10292035584.0,
+    "norm": 2037760.0,
+    "emb": 514949120.0
+   },
+   "kv": {
+    "4096_fp16": {
+     "bytes": 0.0,
+     "note": "no attention layers"
+    },
+    "4096_4bit": {
+     "bytes": 0.0,
+     "note": "no attention layers"
+    },
+    "32768_fp16": {
+     "bytes": 0.0,
+     "note": "no attention layers"
+    },
+    "32768_4bit": {
+     "bytes": 0.0,
+     "note": "no attention layers"
+    },
+    "131072_fp16": {
+     "bytes": 0.0,
+     "note": "no attention layers"
+    },
+    "131072_4bit": {
+     "bytes": 0.0,
+     "note": "no attention layers"
+    }
+   },
+   "per_token_bytes_p61": {
+    "lut": 0.0,
+    "lut_dense": 0.0,
+    "lut_moe": 0.0,
+    "proj": 10292035584.0,
+    "head": 514949120.0,
+    "other": 2037760.0
+   },
+   "per_token_bytes_all_ternary": {
+    "lut": 0.0,
+    "lut_dense": 0.0,
+    "lut_moe": 0.0,
+    "proj": 1296060416.0,
+    "head": 64569792.0,
+    "other": 10188800.0
+   },
+   "glue_us": 74.66666666666666,
+   "time": {
+    "4096_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      317912.4254117647,
+      300250.624
+     ],
+     "t_lut_us": [
+      0.0,
+      0.0
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 74.66666666666666,
+     "t_total_us": [
+      317987.0920784314,
+      300325.2906666667
+     ],
+     "t_measured_only_us": 317987.0920784314,
+     "toks": [
+      3.1447817377233362,
+      3.3297229073854706
+     ],
+     "toks_measured_only": 3.1447817377233362,
+     "kv_unknown": false
+    },
+    "4096_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      317912.4254117647,
+      300250.624
+     ],
+     "t_lut_us": [
+      0.0,
+      0.0
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 74.66666666666666,
+     "t_total_us": [
+      317987.0920784314,
+      300325.2906666667
+     ],
+     "t_measured_only_us": 317987.0920784314,
+     "toks": [
+      3.1447817377233362,
+      3.3297229073854706
+     ],
+     "toks_measured_only": 3.1447817377233362,
+     "kv_unknown": false
+    },
+    "32768_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      317912.4254117647,
+      300250.624
+     ],
+     "t_lut_us": [
+      0.0,
+      0.0
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 74.66666666666666,
+     "t_total_us": [
+      317987.0920784314,
+      300325.2906666667
+     ],
+     "t_measured_only_us": 317987.0920784314,
+     "toks": [
+      3.1447817377233362,
+      3.3297229073854706
+     ],
+     "toks_measured_only": 3.1447817377233362,
+     "kv_unknown": false
+    },
+    "32768_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      317912.4254117647,
+      300250.624
+     ],
+     "t_lut_us": [
+      0.0,
+      0.0
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 74.66666666666666,
+     "t_total_us": [
+      317987.0920784314,
+      300325.2906666667
+     ],
+     "t_measured_only_us": 317987.0920784314,
+     "toks": [
+      3.1447817377233362,
+      3.3297229073854706
+     ],
+     "toks_measured_only": 3.1447817377233362,
+     "kv_unknown": false
+    },
+    "131072_fp16": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      317912.4254117647,
+      300250.624
+     ],
+     "t_lut_us": [
+      0.0,
+      0.0
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 74.66666666666666,
+     "t_total_us": [
+      317987.0920784314,
+      300325.2906666667
+     ],
+     "t_measured_only_us": 317987.0920784314,
+     "toks": [
+      3.1447817377233362,
+      3.3297229073854706
+     ],
+     "toks_measured_only": 3.1447817377233362,
+     "kv_unknown": false
+    },
+    "131072_4bit": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      317912.4254117647,
+      300250.624
+     ],
+     "t_lut_us": [
+      0.0,
+      0.0
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 74.66666666666666,
+     "t_total_us": [
+      317987.0920784314,
+      300325.2906666667
+     ],
+     "t_measured_only_us": 317987.0920784314,
+     "toks": [
+      3.1447817377233362,
+      3.3297229073854706
+     ],
+     "toks_measured_only": 3.1447817377233362,
+     "kv_unknown": false
+    },
+    "nokv": {
+     "proj_rate_lo": 34.0,
+     "proj_rate_hi": 36.0,
+     "proj_rate_extrapolated": true,
+     "t_proj_us": [
+      317912.4254117647,
+      300250.624
+     ],
+     "t_lut_us": [
+      0.0,
+      0.0
+     ],
+     "t_kv_us": [
+      0.0,
+      0.0
+     ],
+     "t_glue_us": 74.66666666666666,
+     "t_total_us": [
+      317987.0920784314,
+      300325.2906666667
+     ],
+     "t_measured_only_us": 317987.0920784314,
+     "toks": [
+      3.1447817377233362,
+      3.3297229073854706
+     ],
+     "toks_measured_only": 3.1447817377233362,
+     "kv_unknown": false
+    }
+   },
+   "time_all_ternary_nokv_us": [
+    326460.1447619048,
+    80711.07890196079
+   ],
+   "head": {
+    "bytes_fp32": 514949120.0,
+    "bytes_ternary": 64569792.0,
+    "ms_fp32": [
+     15.145562352941177,
+     14.304142222222222
+    ],
+    "ms_ternary_lut": [
+     15.37376,
+     3.7982230588235293
+    ],
+    "fp32_rate_extrapolated": true
+   },
+   "dominant_term": "proj+head (fp32)",
+   "term_us_pess": {
+    "proj+head (fp32)": 317912.4254117647,
+    "ternary MLP/experts": 0.0,
+    "glue": 74.66666666666666
+   },
+   "sku": {
+    "A_16GB@32K|p61|kvfp16": {
+     "bytes": 11882965440.0,
+     "fits": true
+    },
+    "A_16GB@32K|p61|kv4bit": {
+     "bytes": 11882965440.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kvfp16": {
+     "bytes": 2444761984.0,
+     "fits": true
+    },
+    "A_16GB@32K|all_ternary|kv4bit": {
+     "bytes": 2444761984.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kvfp16": {
+     "bytes": 11882965440.0,
+     "fits": true
+    },
+    "B_64GB@128K|p61|kv4bit": {
+     "bytes": 11882965440.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kvfp16": {
+     "bytes": 2444761984.0,
+     "fits": true
+    },
+    "B_64GB@128K|all_ternary|kv4bit": {
+     "bytes": 2444761984.0,
+     "fits": true
+    }
+   }
+  }
+ ]
+}
