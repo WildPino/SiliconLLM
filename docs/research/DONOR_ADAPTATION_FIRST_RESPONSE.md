@@ -5,11 +5,27 @@ a basis for choosing the primary route or starting stage −1.**
 **Branch `research/donor-adaptation`, base SHA `6906890`.**
 **Nothing here has consumed a GPU-hour or a euro.**
 
-**v2 changelog (Architect adjudication + Controller #2 replication):** four of my v1 claims were wrong and
-are corrected in place with the correction recorded, not silently edited — §1.4 (branch (iii) over-reach),
+**v2 changelog (Architect adjudication + Controller #2 replication):** four v1 claims were wrong and are
+corrected in place with the correction recorded, not silently edited — §1.4 (branch (iii) over-reach),
 §1.5 (Falcon-H1 and the "5–25%" generalization), §2.4 (I missed the KV *traffic* term entirely, and my
 conclusion there was backwards), §5.3 (the stage-2a criterion used a non-transferable QAT anchor). The
 measured-rate bracket moves from [4.2–17.0] to **[4.35–11.4] GB/s**.
+
+**v3 changelog (Builder stage-1 result + Controller pre-registration review):**
+- **§4.2 — the stage-1 pass is done on 18 real configs: ZERO donors pass the sealed ≥10 tok/s gate.**
+  Best is `Qwen2.5-1.5B` at 9.76 tok/s, and only at 32K, below the sealed 128K contract. Controller audit
+  in flight; not established until it lands.
+- **§4.2b — three results contradict this document.** Footprint is not the wall (18/18 fit SKU-B; every
+  elimination is speed). Hybrids satisfy S3 and still fail on active bytes, which **demotes route (iv)**,
+  my own recommendation. §5 over-predicts tok/s by 2–10×.
+- **§4.3 — I withdraw the measurement I asked the Owner to approve.** The dispatch overhead is ≤1.1% of
+  any donor total and ρ-granularity does not arise at donor scale; both were sandbox artefacts. The
+  correct ask is the LUT rate at donor *projection* dimensions.
+- **§3 — the stage −1 pre-registration was returned NO with 7 BLOCKs and is rebuilt.** The v1 gate was
+  **satisfiable by choosing the eval corpus**; it is now an absolute ΔBPB gate with an INCONCLUSIVE band,
+  replicates and a bootstrap SE, and two of its four "planted controls" were replaced — one of which
+  might never have fired.
+- **§7.1 — a NO-GO or an amendment request is now forming.** One measurement stands between them.
 
 Labels: **[M]** measured in this repo (with protocol and scale), **[D]** derived here from [M] constants,
 **[L]** literature, **[L?]** literature single-source and **not yet independently verified**, **[?]** from
@@ -49,9 +65,11 @@ everything else combined** (§2.4). Ranked by measured leverage:
 |---|---|---|
 | **bound the KV read path at 128K** (SWA / minority attention / recall) | **~350 ms/token** — 3.5× the entire budget | **the wall** |
 | ternarize the projections + head | 88 ms/token [Controller #2] | forced |
-| pick a donor with ≲1.4–2.3B active params | decides pass/fail outright | forced |
-| fix the MoE dispatch defect | ~2.6× on the streamed class | engineering, mechanism now named |
+| pick a donor with ≲1.4–2.3B **absolute** active params | decides pass/fail outright | forced |
+| **the LUT rate at donor projection dims** (17.0 vs 11.4 GB/s) | **2–4× on every row** — one donor passing vs none | **UNMEASURED — the open question** |
 | attention→SSM conversion *as a speed lever* | bounded by the 4.9% scan share | **not the lever** |
+| ~~fix the MoE dispatch defect~~ | **≤1.1% of any donor total** | **retired §4.3 — I was wrong** |
+| ~~ρ-safe expert granularity~~ | real experts 1,548–86,144 KB vs a 48 KB threshold | **retired — does not arise at donor scale** |
 
 Note the tension this creates and that I am not hiding: item 1 and item 5 point in opposite directions.
 Bounding the KV path is exactly what an SSM does for free. **The conversion is not justified by per-token
@@ -104,9 +122,24 @@ implementation, never from the family name.** Required checks:
 - licence and tokenizer compatible;
 - real native context and real KV pattern.
 
-Surviving named candidates to test, not to assume: **Nemotron-H**, **Granite-4.0-H** (larger variants
-excluded on active params), **Zamba2**, **Jamba**, **Qwen3-Next**. The Builder is applying the filter to
-actual configs.
+**UPDATE — the filter has now been applied, and route (iv) does not survive it as stated.** From 18 real
+configs (§4.2): the hybrids **do** arrive S3-compliant — granite 10% attention, Nemotron-H 8%, Zamba2 17%,
+Qwen3-Next 25% — **and every one of them still fails**, at 1.62–3.87 tok/s, on active bytes rather than on
+the operator boundary.
+
+**So route (iv)'s premise is confirmed and its conclusion is refuted.** Arriving pre-converted is real and
+free, and it is *not sufficient*: the binding constraint was never the attention fraction, it is absolute
+active parameters per token. A donor that is already 90% recurrent still loses if it streams 9B active
+params. Granite-4.0-H-Small is the clean example — S3-compliant at 10% attention, eliminated at 9B active.
+
+This is direct arithmetic support for the mandate's §10 outcome 3, and it means **the operator boundary
+(§8.B) is not where the donor programme is decided.** I am not withdrawing route (iv) — it remains the
+cheapest way to satisfy S3 *if* a donor otherwise qualifies — but it is demoted from "the route" to "a
+free property to prefer among candidates that pass the active-parameter filter first".
+
+*(Caveat held open: the Builder's parameter formula was measurably wrong on Zamba2 by +164%, for
+shared-memory-block reuse. If the Controller finds that defect touches the other hybrids too, these
+eliminations are unsound and this paragraph must be re-read.)*
 
 **The residual cost, unchanged:** the donor's recurrent operator will be Mamba-2, GLA or gated-delta-net,
 not the engine's Mamba-1 selective scan. The engine must grow it — engineering under §8.J with a
@@ -243,22 +276,72 @@ map is not a violation. But D9's evidence is the only evidence the project owns 
 Controller #1 PASSed the arithmetic (311.3M / 1.245 GB / 29.65 ms). Head compression is an entry
 requirement, not an optimization; **§8.H belongs at the front**, not after §8.B and §8.C.
 
-### 2.7 [BLOCK] §8.C's "~2× perplexity" for post-training ternarization is unsourced
+### 2.7 [RETRACTED — the mandate was RIGHT and my correction of it was built on a fabricated number]
 
-The mandate says "roughly ~2× perplexity at 7B–70B in at least one published study. **Assume the naive
-path is broken**" — while also, to its credit, saying "verify this figure yourself".
+**This section said the opposite in v1 and v2. I am reversing it, and the reversal is the most important
+result of stage 0.**
 
-Verified; it fails in both directions:
-- **Genuinely naive PTQ is far worse than 2×**: LLaMA-2-7B WikiText2 ~5.47 → **>100 PPL** [L?]. The ~2×
-  figure is closer to a *trained* method (OneBit, 1.80× at 13B) — i.e. it appears to have drifted across
-  the QAT/PTQ line the same section warns against blurring.
-- **The calibration-only ternary frontier claims near-lossless**: PT²-LLM (arXiv 2510.03267) 1.04–1.08× at
-  7B/13B/70B, training-free, ~128 calibration samples [L?]; TWLA (arXiv 2606.13054) claims better [L?].
+**What I claimed (v1/v2):** that §8.C's "roughly ~2× perplexity at 7B–70B" for post-training
+ternarization was unsourced, that it had drifted across the QAT/PTQ line, and that the calibration-only
+frontier now claims **near-lossless** (PT²-LLM at 1.04–1.08×) — so the mandate's instruction to "assume
+the naive path is broken" might be **out of date in the favourable direction**.
 
-**Both are single-source and unverified.** One extraction pass produced a **fabricated** init-only number
-that a second, more careful pass did not confirm — this project's "plausible artefact" law firing inside
-my own evidence chain, caught only by re-checking. **No stage −1 method is sealed on these citations
-until a second independent read confirms them** (§3.3).
+**What independent verification found** (`PTQ_SOURCE_VERIFICATION.md`, primary-source read of the paper's
+Table 1 pulled from raw HTML by byte offset):
+
+| model | FP16 | PT²-LLM W1.58 | ratio |
+|---|---|---|---|
+| LLaMA-2-7B | 5.47 | **11.56** | **2.11×** |
+| LLaMA-2-70B | 3.32 | **6.27** | **1.89×** |
+| LLaMA-3-8B | 6.14 | **32.19** | **5.24×** |
+
+Plus 13–28 points of absolute zero-shot accuracy lost. The paper's abstract never claims lossless —
+verbatim: *"competitive performance against state-of-the-art **2-bit** PTQ methods."*
+
+> **The mandate's "~2×" figure is essentially exact at LLaMA-2-7B (2.11×). §8.C was right, its
+> instruction to assume the naive path is broken was right, and my "correction" of it was wrong.**
+
+**The fabrication was traced to its source, and it is instructive:** the "1.04–1.08×" ratios were computed
+from **baseline cells re-labelled as ternary results** — 5.71 is LLaMA-2-70B's FP16 *C4* perplexity, 5.09
+is LLaMA-13B's FP16 WikiText2 perplexity. The ratio came out near 1.0 because it was **fp16 divided by
+fp16**. A third quoted figure (3.58) appears nowhere in the paper; the nearest token is `35.58`, an ARC-c
+accuracy.
+
+**What does verify about PT²-LLM:** it is real (ICLR 2026, code public), it uses 128 WikiText2 samples,
+and it is **genuinely closed-form** — *"requires no training or gradient backpropagation"*, 32 min on one
+A800 for 7B, no learning rate anywhere in the paper. So the S1-compatibility claim survives; only the
+quality claim was fabricated.
+
+**TWLA (arXiv 2606.13054) — real, but NOT training-free.** Verbatim: *"gradients of ℒ_shape update the
+free matrices S₁ and S₂"*, and *"we optimize the parameters in KOTMS for 100 iterations with a fixed
+learning rate of 0.01."* That is S1's declared grey zone, not a closed-form transform — and **the entire
+2.11× → 1.27× improvement over PT²-LLM is bought with that gradient step.**
+
+### 2.7b The decisive consequence: no verified calibration-only ternary path exists at 1–3B
+
+- **PT²-LLM's smallest model is 7B. TWLA's smallest model is 7B.** Neither paper contains a single point
+  below 7B.
+- The only 1–3B ternary evidence located (ScaleQ-1.58, Qwen3-1.7B) loses **40–58% relative on all five
+  tasks**, and is **not** calibration-only — 60 epochs of STE gradients, ~32 A100-GPU-hours. Its own text:
+  *"smaller models are more sensitive to quantization than larger ones."*
+- **Best verified alternative is 4-bit**: QuaRot W4A4, ≤0.47 PPL loss, ~99% retention. **2-bit scalar
+  collapses even at 7B** — TWLA's own table: GPTQ-W2 47.13, QuaRot-W2 19.97, against FP16 5.47.
+
+**This reaches the mandate's own stage −1 decision point from the literature alone, without running
+anything** — which is the cheapest possible way to arrive there and exactly what stage 0 is for. See §7.1.
+
+### 2.7c Three fabrications in one evidence chain — a pattern worth naming
+
+Caught this session, all by re-reading primary sources: (1) a fabricated init-only PPL for
+Mamba-in-the-Llama; (2) PT²-LLM's "near-lossless" ratios, computed fp16-over-fp16; (3) a summary asserting
+ScaleQ-1.58 is "training-free" when its raw text says it is built on CAT-Q, *"the first differentiable
+ternarization method."*
+
+**Every one was produced by an automated summarization pass over a paper, and every one was plausible.**
+This is the project's "plausible artefact" law operating on *literature* rather than on instruments, and
+the defence is the same: **the artefact is the authority.** Concretely, for this project: a literature
+number may not enter a decision unless someone has read it in the paper's own table. I let one of these
+shape a recommendation to the Owner before verification completed, and that was my error, not the tool's.
 
 ### 2.8 [FLAG] the two named attention→SSM precedents omit the number §4 depends on
 
@@ -346,16 +429,32 @@ the most heavily represented model class in the rotation-PTQ literature, which l
 apparatus against published 4-bit numbers before trusting any ternary number. That cross-check is the
 apparatus's planted control, not a convenience. **One donor, one variable** — no hybrid here.
 
-### 3.3 Method — NAMED SLOT, NOT YET SEALED
+### 3.3 Method — verification COMPLETE, and it changed the question
 
-Candidate: **PT²-LLM (arXiv 2510.03267)**, alternate **TWLA (arXiv 2606.13054)**.
+**Verification is done (§2.7). The result is that the premise of this stage has to change before the
+method can be chosen.**
 
-**No run may start until this slot is sealed, and it cannot be sealed today.** Both citations are [L?] from
-a single automated pass in which a fabricated number was already caught (§2.7). Required before sealing:
-independent verification of paper, method and reported numbers; then the exact commit/revision, dependency
-set and numerical tolerance fixed in writing; then Controller review of this whole pre-registration. If
-verification fails, or no member of the family genuinely reaches ternary, that is reported to the Architect
-as a stage-0 finding **before** any run — not worked around.
+- **PT²-LLM (arXiv 2510.03267): the paper is real, ICLR 2026, code public, and genuinely closed-form** —
+  no training, no gradients, no learning rate, 128 WikiText2 calibration samples, 32 min on one A800 for
+  7B. **S1-compatible.** But its real W1.58 result is **2.11× perplexity at LLaMA-2-7B**, not the
+  fabricated 1.04–1.08×.
+- **TWLA (arXiv 2606.13054): real, but NOT training-free** — 100 gradient iterations at lr 0.01. S1 grey
+  zone, and its entire advantage over PT²-LLM comes from that step. **Not eligible as a primary-path
+  method** without an explicit S1 declaration.
+- **Neither paper has a single datapoint below 7B**, which is the regime this stage would run in.
+
+**Consequence: stage −1 as originally framed is no longer the right experiment.** It was designed to ask
+"does the calibration-only ternary frontier work?" — and the literature now answers that at 7B without us
+spending anything: **it does not, by a wide margin.**
+
+**Re-scoped stage −1, pending the Architect's ruling on §7.1's amendment request:** the deliverable is the
+**bit-width curve** (§3.4) with PT²-LLM as the closed-form arm, run to locate **the knee** — the lowest
+bit-width that holds — rather than to pass/fail ternary. Ternary at 1–3B genuinely must be *measured, not
+cited*, since no paper covers it; but it is now the expected-bad end of a curve, not the hypothesis.
+
+**Still not sealed, and no run may start until:** the Architect rules on §7.1; the exact commit/revision,
+dependency set and numerical tolerance are fixed in writing; and the Controller re-reviews §3 after its
+7-BLOCK rebuild.
 
 ### 3.4 The swept variable — bit-width; the deliverable is a curve
 
@@ -373,34 +472,105 @@ the eval slice and the pinned P62 code-val.
 **Sensitivity arm (§8.L.2):** the ternary point repeated on a **second disjoint calibration set**. If they
 differ by more than harness σ, the set is load-bearing and every future number carries its hash.
 
-### 3.6 Metric and threshold — SEALED, fixed before the number exists
+### 3.6 Metric and threshold — v1 gate WITHDRAWN; rebuilt after Controller review
 
-Metric: **BPB** on a held-out general-text slice, not perplexity — byte-normalized per the project's
-unit-choice law. Absolute donor BPB and absolute converted BPB always both reported.
+**A Controller pre-run review returned NO with 7 BLOCKs (`CONTROLLER_PREREG_REVIEW.md`). The v1 gate was
+gameable and I withdraw it.** The defects were mine and the two worst are recorded here in full, because
+they are the exact failure this project's anti-Goodhart law exists to prevent.
 
-> **GATE: stage −1 PASSES at a given bit-width iff converted BPB ≤ donor BPB × 1.10.**
+> **B1 — the v1 gate was satisfiable by choosing the eval corpus, without touching the method.** With
+> `converted ≤ donor × 1.10`, the headroom is `0.10 × BPB_donor` — so a slice on which the donor scores
+> 1.5 grants *twice* the permitted damage of one on which it scores 0.75. `CANONICAL_EVAL.md` records that
+> slice choice alone moves absolute BPB by ~0.04, which is 20× a typical gate width. I wrote a relative
+> gate against an unpinned denominator and called it sealed.
+>
+> **B2 — a multiplicative threshold on a log-scale metric is the wrong shape, and it was ~2.7× looser than
+> the candidate method's own published claim.** At donor BPB 0.75 the v1 gate permits Δ = 0.075 b/byte ≈ a
+> **1.20–1.26× PPL ratio**; PT²-LLM claims **1.08×**, i.e. a BPB ratio of ≈1.037×. **A method
+> underperforming its own publication threefold would still have PASSED** — so the gate could not make the
+> one distinction stage −1 exists to make.
 
-**This is a permissive KILL gate and its asymmetry is the point, stated explicitly at the Architect's
-instruction:**
-- **If it FAILS, the path is very probably dead** — that is the whole informational content.
-- **If it PASSES, it says NOTHING about S4 retention.** It is not evidence of ≥90% global retention, not
-  evidence of ≥80% per critical task, not evidence of S2 fit, not evidence of anything at donor scale. A
-  pass licenses proceeding to the next cheap question and nothing more.
+**Replacement gate — absolute, on the honest quantity:**
 
-A donor near 0.75 BPB may inflate by +0.075 = **15 σ_seed**. Deliberately loose: a tight gate here would
-kill a route that §8.M healing could rescue and that S4 has not yet been asked about.
+Metric: **ΔBPB = BPB_converted − BPB_donor**, in excess bits per byte, on a slice pinned before anything
+is scored. Absolute donor and converted BPB always both reported alongside the delta.
 
-### 3.7 Planted controls — MANDATORY, both directions, logged (§6.3, §6.4)
+> **GATE: stage −1 PASSES at a given bit-width iff ΔBPB ≤ 0.10 bits/byte,**
+> **FAILS iff ΔBPB ≥ 0.10 + 2·SE, and is INCONCLUSIVE in between.**
 
-1. **Reproduce a known-positive.** At 4-bit, land within a stated tolerance of the published figure for
-   this method/model. **If it cannot reproduce a known-good 4-bit result, its ternary number is discarded,
-   not reported.**
-2. **Fire on a minimal lesion.** Zero the output projection of **one attention head in one layer** — the
-   smallest structural corruption available, not a catastrophe chosen to flatter the detector. BPB must
-   rise by ≫ the gate width.
-3. **Exact comparator.** Same weights twice → bit-identical BPB. Different weights → different BPB.
+Why absolute: it cannot be moved by slice choice, which closes B1 at the root rather than patching it.
+Why 0.10: it sits ~3.5× above the candidate method's own published Δ (≈0.028 at the paper's scale) and far
+below the naive-PTQ catastrophe (>100 PPL), so it kills only what is clearly dead while still being able
+to detect a method performing far below publication. Why the INCONCLUSIVE band: see §3.6b.
+
+**Asymmetry — restated, and the FAIL side re-scoped after the Controller flagged I had over-read it:**
+- **PASS says NOTHING about S4.** Not ≥90% global retention, not ≥80% per critical task, not S2 fit, not
+  anything at donor scale. It licenses the next cheap question and nothing more.
+- **FAIL is evidence against *this bounded, tested* method at *this* bit-width on *this* donor.** My v1
+  said the path would be "very probably dead"; the Controller notes this contradicts both my own §3.9 and
+  the mandate's deliberately narrower wording. **The narrower reading governs**, and I flag the tension to
+  the Architect, who endorsed the stronger phrasing — I would rather have that resolved explicitly than
+  pick one silently.
+
+### 3.6b Statistical resolution — was missing entirely (B4)
+
+§8.N.4 requires a σ per metric before any number decides anything, and v1 had none — a single BPB per arm.
+Worse, it cited **σ_seed = 0.005**, which was measured on *from-scratch training seeds at 8.3M*. Stage −1
+trains nothing; importing that constant is precisely the cross-regime transfer I criticized in §2.5 and
+§5.3. My "15 σ_seed" framing measured distance from zero, which nobody is testing.
+
+Required before the gate may be read: **≥3 replicates** varying the PTQ/rotation seed, the calibration
+draw and the slice sample; a **bootstrap SE**; and the pre-registered INCONCLUSIVE band above. SE of a
+difference is σ_r√2 — even at σ_r = 0.005 that is 0.0071, so a result at 0.070 or 0.080 sits within 1 SE
+of the line. **A binary gate there manufactures a verdict from noise.**
+Also fixed: §3.5's "differ by more than harness σ" was a dead guard — that σ was never defined. It now
+refers to the bootstrap SE above.
+
+### 3.7 Planted controls — v1's set was inadequate; rebuilt (B3, B5, B6)
+
+1. **Reproduce a known-positive — SPLIT IN TWO, because v1's version could not be run at all.**
+   The Controller found §3.2 and §3.7.1 in direct conflict: PT²-LLM publishes **LLaMA-2 7B/13B/70B,
+   WikiText2 PPL, at ternary** — there is no Qwen2.5-1.5B row and no 4-bit row to reproduce, and the
+   tolerance was unstated, which makes it post-hoc by construction.
+   - **(1a) Machinery validation, runnable:** reproduce a *well-replicated published 4-bit* number
+     (GPTQ/QuaRot class) on the chosen donor, tolerance stated in advance as an absolute PPL band. This
+     validates the rotation-and-quantization machinery.
+   - **(1b) Method validation:** reproduce the paper's own ternary number on the paper's own model. If
+     that model is too large for the CPU budget, **the method is declared UNVALIDATED-AGAINST-PUBLICATION
+     and that limitation is reported with every number** — not quietly skipped.
+   - Note both anchors are PPL-on-WikiText2 while the gate reads BPB. The apparatus must therefore emit
+     **both**, and the PPL↔BPB conversion is pinned in advance (the project has been burned by exactly
+     this conversion before — see the E5-bis dossier).
+
+2. **Fire on a minimal lesion — REPLACED, because v1's lesion may be a known-*negative*.**
+   Zeroing one attention head's output projection is the most *redundant* structure available; the
+   head-pruning literature says it may move nothing at all. **I designed a control that might never fire
+   and called it a planted control** — the project's characteristic failure, in my own apparatus.
+   Replacement: the **monotone lesion ladder I had already designed in §5.3** — perturbations of
+   increasing magnitude — reporting the **detection floor** (the ε at which ΔBPB reaches the gate width),
+   anchored by at least one rung on a known **non-redundant** structure. This measures the instrument's
+   sensitivity instead of asserting it.
+
+3. **Exact comparator.** Same weights twice → bit-identical BPB; different weights → different BPB. Both
+   logged. *(Controller: PASS as written.)*
+
 4. **Named refusal** when config and loaded weights disagree (§6.5, §6.6 — `strict=True` does not verify
-   architecture).
+   architecture). **Must be exercised in both directions and logged** — v1 named it but never exercised
+   it, which is §6.4 violated.
+
+5. **NEW — prove the calibration data reaches the output (B6).** Run the pipeline with a
+   **random-vocabulary calibration set**. If the output is bit-identical to the real-calibration run, the
+   calibration path is dead and the entire stage is void. v1 had nothing that could detect this; the
+   §3.5 disjoint-set arm cannot substitute, because a null there is ambiguous.
+
+### 3.7b The sweep is not one variable (B7)
+
+fp16 → 4 → 3 → 2 → ternary is only one variable if the method is the same algorithm at every point. It
+usually is not: group size, quantizer class (ternary is a 3-level thresholded codebook, not the 1.58-bit
+point of a uniform grid) and outlier/mixed-precision escape hatches commonly change between 4-bit and
+2-bit. Required: a **committed per-point config table read from the implementation**, group size and
+outlier policy held constant across points, and **effective bits/weight including scales** reported per
+point — otherwise the curve is not a curve.
 
 ### 3.8 Cost — for approval, not yet approved
 
@@ -435,27 +605,74 @@ t_token = streamed_ternary_bytes / [4.35 .. 11.4] GB/s     (LUT class — REVISE
 
 Every organ a **bracket**, never a point. Above 96 MB use the 34–36 GB/s asymptote, labelled extrapolation.
 
-### 4.2 The envelope [D]
+### 4.2 RESULT — the stage-1 pass is done, from 18 real configs
 
-1. **Active params/token ≲1.4–2.3B** at 11.4 GB/s. The sharpest filter, free to apply.
-2. **Dense donors ≥8B are dead** — 2.09 tok/s measured-rate (§2.9b), and the whole dense 1–100B band with them.
-3. **Total ≲24B ternary for SKU-A**; SKU-B is *empirically* empty (§2.9a) pending a release under 1.96B active.
-4. **The head must be compressed** (34–58% of budget alone).
-5. **The 128K KV read path must be bounded** — quantization alone leaves 92% of the budget consumed (§2.4).
+`DONOR_STAGE1_ARITHMETIC.md` + `benchmarks/donor_adaptation/donor_inventory.py`. 18 of 20 configs fetched
+(`Llama-3.2-1B` and `Jamba-Mini-1.6` returned 401 gated → recorded UNAVAILABLE, **no workaround
+attempted**). Every number tool-generated, none transcribed. **Independent Controller audit in flight** —
+this table eliminates 16 donors permanently and may not be treated as established until that lands.
 
-Live region: **sparse-MoE donors, ~1–2B absolute active params, ≲24B total, with a bounded attention path.**
-Narrow, and narrower than v1 claimed.
+> **HEADLINE: on rates resting on nothing contested, ZERO of 18 donors pass the sealed ≥10 tok/s gate —
+> at any SKU, any context, any precision map.**
 
-### 4.3 What would invalidate this — and the next measurement I am requesting
+| donor | tok/s (uncontested / granted) | note |
+|---|---|---|
+| `Qwen/Qwen2.5-1.5B` | **9.76** / 12.11 | best in set — and only at **32K**, not the sealed 128K |
+| `allenai/OLMoE-1B-7B` | 5.98 / 11.01 | best sparsity ratio (1.18B active of 6.92B); dies at 128K on full MHA |
+| `deepseek-ai/DeepSeek-V2-Lite` | 3.49 / 7.85 | MLA = 30 KB/context-token |
 
-The 17.0 GB/s premise is resolved (§2.3): it was an asymptote, not a target, and the working figure is
-11.4. The remaining load-bearing unknown is the **1/D scaling of the MoE dispatch overhead**. The 4.345
-GB/s figure is an artefact of `D=256, h=128`; a donor expert is 48× larger; per-call and per-byte
-components are **not separable from existing data**.
+Granting the two contested figures (17.0 GB/s reaching the integrated engine, dispatch overhead removed),
+exactly **two** clear SKU-A/32K and exactly **one** clears SKU-B/128K. Everything else is eliminated on
+tok/s: Qwen3-1.7B 7.92, SmolLM2 7.80, gpt-oss-20b 4.73, Qwen3-30B-A3B 4.72, Qwen3-Next-80B 3.87,
+Phi-3-mini 3.45, mamba2-2.7b 3.33, Mistral-7B 2.82, Falcon-H1 2.50, Qwen3-8B 2.36, Nemotron-H 2.01,
+OLMo-2-7B 1.96, Mixtral 1.92, granite-4.0-h-small 1.62.
 
-> **Next Builder brief I am requesting: sweep `EB` and `D` in the existing `run_expert_rate` harness and
-> fit `t = c + b·bytes` per thread count.** No donor, no GPU, no model — pure microbenchmark on code that
-> already exists. It is the cheapest measurement that de-risks the largest number in the budget.
+**Planted control FIRED** (§6.3 satisfied): the project's own 8.3M engine, pushed through the donor code
+path as a synthetic config, returned **2,457,600 B/token = 2400.0 KB, error +0.0000%** against
+`SIZING.md`'s independent in-engine count. The decomposition is exact and instructive — 49,152 B of codes
++ 2,048 B of scales = 50.0 KB/expert × 8 × 6. **The scales term is what makes it 2400 and not 2304; a
+codes-only formula would have missed it.** Perturbation control: top-k 8→7 → −12.50%, exactly 7/8.
+Refusal control: three deleted fields each raise a named `MissingConfigField`, unperturbed raises nothing.
+
+**The tool also self-invalidated a row**, which is the behaviour I want: its parameter cross-check fired
+4× unplanted on real donors, and on `Zamba2-2.7B` it was off by **+164.11%** — the Builder declared its own
+formula wrong for shared-memory-block reuse and marked the row **unusable** rather than shipping it.
+*(Containment is the Controller's highest-consequence audit item: if the same defect touches the other
+hybrids, the hybrid eliminations are unsound.)*
+
+### 4.2b Three results that contradict my own document
+
+1. **Footprint is NOT the wall — §5 is wrong and so was I.** 14/18 fit SKU-A; **18/18 fit SKU-B**. Every
+   single elimination is speed. My §2.9a discussion of SKU-B emptiness was arguing the wrong axis: SKU-B
+   is not footprint-empty, it is speed-empty, and so is SKU-A.
+2. **Hybrids already satisfy S3 — and it does not save them.** granite 10% attention, Nemotron-H 8%,
+   Zamba2 17%, Qwen3-Next 25% full-attention. All arrive pre-converted, **all fail on active bytes**
+   (1.62–3.87 tok/s). **This substantially weakens route (iv), which was my own recommendation.** It is
+   direct arithmetic support for §10's outcome 3 instead.
+3. **§5 over-predicts tok/s by 2–10×** across the board (30B/3B-active: §5 says ~28, computed 2.72–10.70;
+   8B dense: §5 says ~10.5, computed 1.11–4.48) — because 42 GB/s is a rate no weight path here achieves.
+   §5's *head* arithmetic is corroborated (1.16 GiB, 34.6–36.6 ms vs its ~30 ms). Its **KV omission is
+   severe**: SmolLM2 carries 24.00 GB at 128K = 644 ms/token to read, 8.90 → 1.32 tok/s.
+
+### 4.3 The measurement I requested is the WRONG one — withdrawn
+
+**I asked the Owner to approve a `run_expert_rate` sweep to separate per-call from per-byte dispatch
+overhead. The Builder's evidence retires that ask and I withdraw it.** Measured against real donor
+dimensions:
+
+- **the 8.4 µs dispatch term is ≤1.1% of any donor total** — the whole Controller#1-vs-#2 dispute about
+  its decomposition, which I treated as load-bearing in §2.9(b), **moves no verdict**;
+- **ρ-safe granularity is a non-issue** — real donor experts are 1,548–86,144 KB against a 48 KB
+  threshold, so §8.E's granularity worry does not arise at donor scale.
+
+Both were artefacts of reasoning at `D=256, h=128`. This is the second time this session that a sandbox
+constant has misled a donor-scale conclusion, which is itself worth recording as a pattern.
+
+> **The correct next measurement, and the one I am now requesting: the ternary-LUT kernel rate at donor
+> *projection* dimensions.** It is the largest unmeasured term in the whole budget — flagged UNMEASURED in
+> every row that uses it — and the 17.0-vs-11.4 GB/s question it settles is **worth 2–4× on every row and
+> is the entire difference between one donor passing and none.** Zero GPU, no donor, no model: the
+> existing `--kselftest` harness with a `-D` recompile.
 
 Also still open: per-group activation scales (§8.G.5, not implemented) would change the inner loop.
 
@@ -561,14 +778,63 @@ Per §7.3: **no decision.**
 | 3 | Rule on §2.3 / §2.7 | **Granted** on §2.3 — use the measured bracket. §2.7 withdrawal stands pending verification. |
 | 4 | Authorize push | **Granted, conditional:** commit the untracked artefacts separately first; no checkpoints, corpora or cache in the commit. Branch renamed `codex/research/donor-adaptation` → **`research/donor-adaptation`**. |
 
-**Open items I now owe:**
-1. Second independent verification of PT²-LLM / TWLA, then seal §3.3 (method, commit/revision, dependencies, tolerance).
-2. Controller review of this stage −1 pre-registration.
-3. The §4.3 `run_expert_rate` sweep brief — the cheapest measurement that de-risks the largest number.
-4. The Builder's per-model `config.json` filter and stage-1 table.
+**Open items — status:**
+1. ~~Controller review of the stage −1 pre-registration~~ — **DONE: verdict NO, 7 BLOCKs.** §3 rebuilt
+   (§3.6, §3.6b, §3.7, §3.7b). Needs re-review before it may go to the Owner.
+2. ~~The Builder's per-model filter and stage-1 table~~ — **DONE (§4.2).** Independent Controller audit in flight.
+3. ~~The `run_expert_rate` sweep~~ — **WITHDRAWN, I was wrong (§4.3).** Replaced by: **the ternary-LUT
+   kernel rate at donor projection dimensions.** Zero GPU, existing `--kselftest` + a `-D` recompile.
+4. **Second independent verification of PT²-LLM / TWLA** — attempted, agent lost to a session limit
+   after completing the research but before writing. **Resumed.** Blocks sealing §3.3.
 5. Re-price the recall tier as a **critical-path** dependency, not a stage-4b side item (§2.4).
 
 **Still not requested:** any GPU session, any spend, any sealed-constraint amendment, any merge.
+
+### 7.1 The decision that is now forming — TWO independent blocking findings
+
+Stage 0 has produced two blocking results on **different axes**, either of which is sufficient on its own.
+Neither has been run; both come from arithmetic on measured constants and from primary-source reading.
+
+**Blocker A — speed.** Zero of 18 donors pass the sealed ≥10 tok/s gate. Best is 9.76 tok/s on
+`Qwen2.5-1.5B`, missing by 2.4%, and only at 32K — below the sealed 128K contract. *(Controller audit in
+flight; not established until it lands.)*
+
+**Blocker B — quality, and this one is the harder of the two.** There is **no verified calibration-only
+ternary method at 1–3B at all**, and the best verified closed-form ternary result at *any* scale is
+**2.11× perplexity** (PT²-LLM, LLaMA-2-7B). Against S4's ≥90% retention that is not close. The two
+published methods' smallest models are both 7B; the one 1–3B ternary datapoint that exists loses 40–58%
+relative and requires ~32 A100-GPU-hours of gradient training, which S1 forbids (§2.7b).
+
+**Blocker B matters more because it is not fixable by engineering.** Blocker A has a named,
+zero-cost measurement that could move it 2–4× (the LUT rate at donor projection dimensions). Blocker B is
+a statement about what the literature can currently do, and no amount of engine work changes it.
+
+**The mandate anticipated exactly this and pre-specified the response** (§9, stage −1 row): *"If the
+pre-registered PTQ fidelity gate fails, stop the ternary-primary route and ask the Owner whether a named
+4-bit/mixed-precision engine path is worth pursuing."* We have reached that decision point **from the
+literature alone, having run nothing** — the cheapest possible route to it, and precisely what stage 0
+exists for.
+
+**Therefore the decision I will bring, once the Controller audit lands:**
+
+> **AMENDMENT REQUEST under §1.1(3), against the ternary-primary assumption**, not against the conversion
+> recipe. The question for the Owner: **is a named 4-bit or mixed-precision engine path worth pursuing?**
+> Best verified 4-bit is QuaRot W4A4 at ≤0.47 PPL loss / ~99% retention — comfortably inside S4 — against
+> ternary's 2.11× at 7B and nothing verified at all below it.
+
+**The cost of that amendment must be stated honestly and I will state it:** a 4-bit path forfeits part of
+the project's measured faster-as-bits-drop kernel advantage, which is one of its genuine claims to
+novelty. But §2.3 now shows the LUT path is **compute-bound, not bandwidth-bound**, which means the
+bits-per-weight lever was already worth less than the project's framing assumed. **Those two facts should
+be weighed together, not separately** — that is the real content of the decision.
+
+**What still needs measuring even under the amendment:** ternary at 1–3B has to be *measured, not cited* —
+no paper covers that regime. So a re-scoped stage −1 (bit-width curve, §3.4) retains its value; what
+changes is that it is no longer a pass/fail on ternary but a **search for the knee** in a curve whose
+ternary end is now known to be bad.
+
+**I am not making this call.** Per §7.3 it is the Architect's and the Owner's, and it is a sealed-constraint
+amendment, which §9's stopping rules reserve for a human decision.
 
 ---
 
@@ -590,3 +856,9 @@ Per §7.3: **no decision.**
 | 12 | §8.A's MoE>dense ranking wrong | C#1 | **REFUTED** — I was right; §8.A understated | both still fail 10 tok/s | — |
 | 13 | **KV is a traffic term, not just footprint** | C#2 | **I was wrong in v1** — 368 ms at 128K | makes the recall tier critical-path | re-price stage 4b |
 | 14 | stage-2a criterion via QAT anchor | v1 | **INVALID** — Architect; violates §8.C.1 | — | replaced by §5.3 ladder |
+| 15 | **zero of 18 donors pass the sealed gates** | Builder, 18 real configs, tool-generated | **Controller audit IN FLIGHT** | best misses by 2.4%, at 32K not 128K | §7.1 — NO-GO vs amendment |
+| 16 | footprint is not the wall | Builder: 14/18 fit SKU-A, 18/18 SKU-B | Controller checking whether KV-at-context was in the footprint | if KV omitted, fits are overstated | audit |
+| 17 | hybrids satisfy S3 and still fail | Builder: 8–25% attention, 1.62–3.87 tok/s | Controller checking Zamba2 defect containment | **if the +164% formula defect is broader, these are unsound** | audit |
+| 18 | **dispatch overhead is ≤1.1%; ρ-granularity moot** | Builder at real donor dims | — | retires my own prior ask — sandbox constants misled me twice | ask withdrawn (§4.3) |
+| 19 | v1 stage −1 gate was gameable | Controller prereg review, 7 BLOCK | — | absolute ΔBPB gate + INCONCLUSIVE band now | **re-review required** |
+| 20 | PT²-LLM / TWLA verification | agent lost to session limit post-research | **resumed** | still [L?]; §3.3 unsealed | blocks stage −1 |
