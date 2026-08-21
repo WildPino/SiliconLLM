@@ -1,0 +1,46 @@
+================================================================================================
+check_prereg.py -- stage -1 pre-registration guard
+file:          D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\stage_minus1\prereg.yaml
+required keys: 354
+================================================================================================
+
+UNPINNED -- present but not pinned (34):
+  [UNPINNED] method.cpu_only_feasibility_smoke_test.status                    <- not yet run. N1's requirement -- a sub-hour one-layer end-to-end smoke test on the pinned commit, reporting the resolved code path -- is ...
+  [UNPINNED] measured_prerequisites.BPB_donor.value                           <- the donor arm has not been run. The install is not authorized and stage -1 is NOT APPROVED FOR EXECUTION.
+  [UNPINNED] measured_prerequisites.PPL_donor.value                           <- the donor arm has not been run.
+  [UNPINNED] bit_width_sweep.per_point_config.ternary_1p58.scale_dtype        <- the released code performs FAKE quantization -- it writes dense floating-point tensors back into the model and never serialises a packed ...
+  [UNPINNED] bit_width_sweep.per_point_config.4bit.method                     <- PT^2-LLM has no 4-bit path (see BLOCKING_FINDING_read_from_implementation). The method for this point is not chosen.
+  [UNPINNED] bit_width_sweep.per_point_config.4bit.quantizer_class            <- depends on the method chosen for this point.
+  [UNPINNED] bit_width_sweep.per_point_config.4bit.group_size                 <- depends on the method chosen for this point.
+  [UNPINNED] bit_width_sweep.per_point_config.4bit.outlier_policy             <- depends on the method chosen for this point.
+  [UNPINNED] bit_width_sweep.per_point_config.4bit.effective_bits_per_weight  <- depends on the method and group size chosen for this point.
+  [UNPINNED] bit_width_sweep.per_point_config.4bit.scale_dtype                <- depends on the method chosen for this point.
+  [UNPINNED] bit_width_sweep.per_point_config.4bit.rng_seed                   <- depends on the method chosen for this point.
+  [UNPINNED] bit_width_sweep.per_point_config.3bit.method                     <- PT^2-LLM has no 3-bit path. The method for this point is not chosen.
+  [UNPINNED] bit_width_sweep.per_point_config.3bit.quantizer_class            <- depends on the method chosen for this point.
+  [UNPINNED] bit_width_sweep.per_point_config.3bit.group_size                 <- depends on the method chosen for this point.
+  [UNPINNED] bit_width_sweep.per_point_config.3bit.outlier_policy             <- depends on the method chosen for this point.
+  [UNPINNED] bit_width_sweep.per_point_config.3bit.effective_bits_per_weight  <- depends on the method and group size chosen for this point.
+  [UNPINNED] bit_width_sweep.per_point_config.3bit.scale_dtype                <- depends on the method chosen for this point.
+  [UNPINNED] bit_width_sweep.per_point_config.3bit.rng_seed                   <- depends on the method chosen for this point.
+  [UNPINNED] bit_width_sweep.per_point_config.2bit.method                     <- PT^2-LLM has no 2-bit path. The method for this point is not chosen.
+  [UNPINNED] bit_width_sweep.per_point_config.2bit.quantizer_class            <- depends on the method chosen for this point.
+  [UNPINNED] bit_width_sweep.per_point_config.2bit.group_size                 <- depends on the method chosen for this point.
+  [UNPINNED] bit_width_sweep.per_point_config.2bit.outlier_policy             <- depends on the method chosen for this point.
+  [UNPINNED] bit_width_sweep.per_point_config.2bit.effective_bits_per_weight  <- depends on the method and group size chosen for this point.
+  [UNPINNED] bit_width_sweep.per_point_config.2bit.scale_dtype                <- depends on the method chosen for this point.
+  [UNPINNED] bit_width_sweep.per_point_config.2bit.rng_seed                   <- depends on the method chosen for this point.
+  [UNPINNED] calibration.extended_arm.composition                             <- 'composition mixed, not code-only' is not a specification (F2, claimed closed in prose and never written). The exact sources, proportions...
+  [UNPINNED] calibration.extended_arm.content_hash                            <- cannot be computed until composition is pinned.
+  [UNPINNED] controls.control_1a.numeric_tolerance                            <- the tolerance cannot be a number until the anchor PAPER, TABLE and ROW are named, because the tolerance must be expressed relative to tha...
+  [UNPINNED] controls.control_1a.anchor_paper                                 <- not named. Review #1 B3 required 'name the paper, table and row'; three revisions later it is still unnamed.
+  [UNPINNED] controls.control_1a.anchor_model                                 <- follows from anchor_paper.
+  [UNPINNED] controls.control_4.architecture_numeric_probe_value              <- requires a forward pass, which requires the install. Filled at first donor load.
+  [UNPINNED] environment.harness_identity_recorded.torch_version              <- the CUDA build is not installed yet. Current: torch 2.12.0+cpu, torch.cuda.is_available() == False. Recorded here so the pre-registration...
+  [UNPINNED] environment.harness_identity_recorded.cuda_runtime_version       <- no CUDA build installed.
+  [UNPINNED] environment.harness_identity_recorded.cudnn_version              <- no CUDA build installed.
+
+------------------------------------------------------------------------------------------------
+RESULT: INCOMPLETE -- 0 absent, 34 unpinned, 0 malformed, 320/354 required fields pinned.
+The pre-registration is NOT complete. Do not claim any field above is pinned.
+------------------------------------------------------------------------------------------------

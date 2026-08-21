@@ -1,0 +1,18 @@
+{
+  "eval_slice.sha256_joined_text": "696cca6b65a171b0a358a4be6732cdfdf2dd6164a32e20fd70e3c13fc4dfae83",
+  "eval_slice.sha256_evaluated_bytes": "70a209ab2213ab3302b7ad1ded8354eb6f6b0845e330c795e0a300ac370ed8e4",
+  "eval_slice.joined_text_bytes_total": 1296370,
+  "eval_slice.byte_range_evaluated": "[0, 1296016) of 1296370 bytes -- the prefix spanned by the 299008 tokens of the 146 complete windows; the trailing 70 tokens are dropped by the method's own eval loop",
+  "eval_slice.n_tokens_total": 299078,
+  "eval_slice.n_windows": 146,
+  "eval_slice.n_tokens_evaluated": 299008,
+  "eval_slice.n_target_tokens": 298862,
+  "eval_slice.bytes_of_target_region": 1295360,
+  "eval_slice.bos_handling_verified": "VERIFIED: add_special_tokens=True does NOT prepend BOS (first token id 271, bos_token_id None, first offset (0, 2)). No per-window BOS is inserted anywhere: the stream is tokenized once and sliced.",
+  "eval_slice.tokenizer_fast_slow_parity_result": "PASS: fast and slow tokenizers produce IDENTICAL ids on the first 200000 chars (47640 tokens). The method builds its tokenizer with use_fast=False; this script uses the fast one only because offset mapping requires it.",
+  "eval_slice.decontamination_result_vs_calibration": "MEASURED: 1/80995 eval shingles (0.0012%) also occur in the calibration source (wikitext-2-raw-v1 TRAIN, ' '.join, same pinned revision). Splits are disjoint by construction; this measures the residual boilerplate overlap.",
+  "eval_slice.decontamination_result_vs_p62_codeval": "MEASURED: 0/80995 eval shingles (0.0000%) also occur in the pinned P62 code-val (D:/_THINGS/Progetti/SiliconLLM/results/phase62/code_val.txt, 1500000 bytes).",
+  "measured_prerequisites.B_bytes_per_token.value": 4.334308,
+  "measured_prerequisites.B_secondary_whole_stream.value": 4.334555,
+  "measured_prerequisites.B_per_anchor_model.value": "LLaMA-7B (control 1b anchor) [huggyllama/llama-7b@4782ad278652]: B=3.7965 bytes/token on the same pinned slice (341469 tokens, 166 windows) | Gated anchors (meta-llama/Llama-2-*) are permanently absent: their B cannot be measured without accepting the licence, so their b/byte values remain derived-under-assumption."
+}

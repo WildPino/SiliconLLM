@@ -1,0 +1,570 @@
+# Stage -1 pre-registration -- POPULATED ARTEFACT, not prose.
+#
+# WHY THIS FILE EXISTS
+#   The stage -1 pre-registration failed Controller review three times. The decisive finding of
+#   review #3 was not a reasoning error: it was that the prose "claimed fixes the document did not
+#   contain" (five false closure claims). The structural fix is to stop storing the pre-registration
+#   as prose and store it as a checkable artefact, so that a missing pin is MECHANICALLY DETECTABLE
+#   instead of assertable in text.
+#
+# THE RULE
+#   Every field below carries EITHER a concrete value OR a string beginning with the literal
+#   "UNPINNED:" followed by the reason it cannot be pinned yet. NO FIELD MAY BE SILENTLY ABSENT.
+#   `python check_prereg.py` reads this file against an embedded required-key schema and exits
+#   non-zero listing every field that is UNPINNED or absent. A closure claim that check_prereg.py
+#   does not agree with is, by construction, false.
+#
+# PROVENANCE OF THE VALUES
+#   Every value marked `read_from:` was read out of the named artefact (hub API, config.json, or the
+#   method's own source at the pinned commit) -- law 5, the artefact is the authority. Values marked
+#   `builder_proposal: true` are Builder choices that require Principal ratification; they are pinned
+#   (so they are checkable and cannot drift silently) but they are not Principal decisions yet.
+#
+# Author: Builder. Branch research/donor-adaptation. NOT COMMITTED, NOT APPROVED FOR EXECUTION.
+
+schema_version: 1
+stage: "-1"
+status: "PRE-REGISTRATION DRAFT -- NOT APPROVED FOR EXECUTION"
+generated_utc: "2026-08-20"
+governing_standard: "docs/CANONICAL_EVAL.md"
+prior_reviews:
+  - "docs/research/CONTROLLER_PREREG_REVIEW.md    (NO, 7 BLOCKs)"
+  - "docs/research/CONTROLLER_PREREG_REVIEW_2.md  (NO, B1/B2 open + N1..N6)"
+  - "docs/research/CONTROLLER_PREREG_REVIEW_3.md  (NO, B1 + Delta* + 5 false closures)"
+
+# =====================================================================================
+# 1. DONOR
+# =====================================================================================
+donor:
+  repo_id: "Qwen/Qwen2.5-1.5B"
+  hub_revision_sha: "8faed761d45a263340a0528343f099c05c9a4323"
+  read_from: "https://huggingface.co/api/models/Qwen/Qwen2.5-1.5B -> .sha (HTTP 200, gated=False, private=False)"
+  gated: false
+  accessible_unauthenticated: true
+  licence: "apache-2.0"
+  declared_dtype: "bfloat16"
+  declared_dtype_read_from: "config.json@8faed76 -> torch_dtype"
+  param_count_total: 1543714304
+  param_count_source: "hub safetensors index metadata (total parameters, 1.54B); config: 28 layers, hidden 1536, intermediate 8960, 12 Q heads, 2 KV heads (GQA), vocab 151936"
+  tie_word_embeddings: true
+  tie_word_embeddings_read_from: "config.json@8faed76 -> tie_word_embeddings: true"
+  tie_word_embeddings_consequence: >-
+    Qwen2.5-1.5B TIES lm_head to embed_tokens. Any quantization pass that treats lm_head as a
+    separate quantizable Linear will either (a) silently quantize the embedding table too, or
+    (b) be skipped. F4's tied-embeddings note. The manifest must record which of the two the
+    implementation actually does, read from the loaded module graph, not assumed.
+  num_hidden_layers: 28
+  hidden_size: 1536
+  intermediate_size: 8960
+  vocab_size: 151936
+  bos_token_id: 151643
+  eos_token_id: 151643
+  tokenizer_adds_bos_by_default: false
+  tokenizer_adds_bos_read_from: "Qwen2 tokenizer_config.json@8faed76 -- add_bos_token absent/false; verified empirically by pin_slice.py and recorded in eval_slice.bos_handling_verified"
+  donor_vs_target_mismatch_declared: >-
+    F6 -- NOT CLOSED, recorded as a live limitation. The stage -1 donor is DENSE, 1.5B total. The
+    live donor region named in stage-1 arithmetic is SPARSE-MoE, ~1-2B active, <=24B total. A
+    ternary-PTQ result on a small dense transformer does not transfer to a large MoE, and there is a
+    named mechanism for it not to: PER-EXPERT CALIBRATION COVERAGE. A 128x2048 = 262K-token
+    calibration set spread over E experts at top-k routing gives each expert ~k/E of the tokens;
+    at E=64/top-8 that is ~33K tokens per expert and far less in the tail. Ternary statistics
+    estimated from that little data is a failure mode ENTIRELY ABSENT from the dense donor.
+    PRE-REGISTERED: a stage -1 PASS does NOT license a per-expert precision map at an MoE target
+    without its own calibration-coverage measurement. Also: stage -1 cannot resolve "does P61's
+    +0.018-0.022 transfer from 8.3M-QAT to donor-PTQ" -- different model, scale, organ set and
+    regime. It produces a donor-PTQ number, not a transfer verdict on P61.
+
+# =====================================================================================
+# 2. METHOD
+# =====================================================================================
+method:
+  name: "PT^2-LLM (ATQ = ITF + AGA, plus SSR)"
+  arxiv_id: "2510.03267"
+  venue_claim: "ICLR 2026"
+  repo_url: "https://github.com/XIANGLONGYAN/PT2-LLM"
+  repo_commit_sha: "9e943e68bdb27469929a4fe7e5720926b9d952d7"
+  repo_commit_date: "2026-07-09T12:45:56Z"
+  repo_commit_message: "Release PT2-LLM post-training ternarization code"
+  repo_licence: "Apache-2.0"
+  repo_read_from: "GitHub API /repos/XIANGLONGYAN/PT2-LLM + /commits (code IS released; the survey's 'will be available' note is stale)"
+  gradient_free: true
+  gradient_free_evidence: >-
+    Read from pt2_llm/quantizer.py@9e943e6 and pt2_llm/gptq.py@9e943e6: the ternary fit is an
+    alternating closed-form solve (solve_closed_form_alpha_mu) inside `@torch.no_grad()`, with a
+    <=100-iteration fixed-point loop that early-stops on ternary-code equality. No optimizer, no
+    loss.backward(), no learning rate anywhere in the quantization path. GENUINELY GRADIENT-FREE
+    (contrast TWLA arXiv 2606.13054, which is 100 gradient iterations at lr 0.01 and is therefore
+    S1-forbidden as a primary-path method).
+  paper_calibration_sample_count: 128
+  paper_calibration_seqlen: 2048
+  paper_calibration_corpus: "WikiText-2-raw-v1 TRAIN split"
+  paper_calibration_read_from: "quantize.py@9e943e6 --nsamples default 128, --calib_seqlen default 2048; pt2_llm/data.py get_wikitext2() samples 128 random 2048-token windows from ' '.join(train['text']) at --seed default 0"
+  paper_reported_cost: "32 min for LLaMA-7B on one A800-80GB (paper Table 3)"
+  reference_command:
+    read_from: "bash/quantize.sh@9e943e6"
+    line: "python quantize.py $MODEL wikitext2 atq --blocksize 128 --ssr --save"
+  method_pinned_hyperparameters:
+    low_quant_method: "atq"
+    ssr: true
+    blocksize: 128
+    percdamp: 0.01
+    num_p: 1
+    salient_metric: "hessian"
+    order2_group: false
+    disable_gptq: false
+    seed: 0
+    nsamples: 128
+    calib_seqlen: 2048
+    ppl_seqlen: 2048
+    read_from: "quantize.py@9e943e6 argparse defaults + bash/quantize.sh@9e943e6"
+  method_declared_dependency_pins:
+    torch: "2.4.0"
+    transformers: "4.44.2"
+    tokenizers: "0.19.1"
+    accelerate: "0.32.1"
+    datasets: "2.19.2"
+    read_from: "requirements.txt@9e943e6"
+    conflict_with_this_environment: >-
+      This environment carries torch 2.12.0 and transformers 4.57.6. The method pins
+      transformers==4.44.2 and its eval/quantize path passes `position_embeddings` into decoder
+      layers (an API of the 4.43 refactor, changed again since). PRE-REGISTERED: the method arm runs
+      in its OWN venv at the method's pinned dependency set; the harness records both dependency
+      sets in the manifest. Running the method against transformers 4.57.6 without a compatibility
+      smoke test is FORBIDDEN.
+  cpu_only_feasibility_smoke_test:
+    status: "UNPINNED: not yet run. N1's requirement -- a sub-hour one-layer end-to-end smoke test on the pinned commit, reporting the resolved code path -- is a PRECONDITION to committing the machine, and it has not been executed. The owner has not authorized the install."
+    protocol: "single decoder layer, --minlayer 0 --maxlayer 1, --nsamples 8, report resolved import path of pt2_llm.gptq and the device of a materialised parameter"
+
+# =====================================================================================
+# 3. EVAL SLICE  (B1 -- open through three reviews. Values, not field names.)
+# =====================================================================================
+eval_slice:
+  builder_proposal: true
+  rationale: >-
+    WikiText-2-raw-v1 TEST is chosen because it is the corpus of EVERY published anchor this stage
+    compares against (PT^2-LLM Table 1, TWLA Table 1, QuaRot/GPTQ). Choosing any other slice makes
+    the anchors unusable and re-opens B1 in a new coordinate. The exact join, context, stride, tail
+    handling and loss reduction below are READ FROM the method's own eval_ppl.py, not chosen by the
+    Builder -- so control 1a/1b compare like with like.
+  corpus_id: "wikitext"
+  corpus_config: "wikitext-2-raw-v1"
+  corpus_split: "test"
+  corpus_repo_type: "dataset"
+  corpus_revision_sha: "b08601e04326c79dfdd32d625aee71d232d685c3"
+  corpus_revision_read_from: "https://huggingface.co/api/datasets/wikitext -> .sha (HTTP 200, gated=False)"
+  corpus_file: "wikitext-2-raw-v1/test-00000-of-00001.parquet"
+  corpus_licence: "cc-by-sa-3.0"
+  join_rule: "'\\n\\n'.join(test['text'])  -- exactly as pt2_llm/data.py@9e943e6 get_wikitext2() joins the test split"
+  join_rule_read_from: "pt2_llm/data.py@9e943e6 line: testenc = tokenizer('\\n\\n'.join(testdata['text']), return_tensors='pt')"
+  encoding: "utf-8"
+
+  # --- filled by pin_slice.py. UNPINNED until it has run. ---
+  sha256_joined_text: "696cca6b65a171b0a358a4be6732cdfdf2dd6164a32e20fd70e3c13fc4dfae83"
+  sha256_evaluated_bytes: "70a209ab2213ab3302b7ad1ded8354eb6f6b0845e330c795e0a300ac370ed8e4"
+  joined_text_bytes_total: 1296370
+  byte_range_evaluated: "[0, 1296016) of 1296370 bytes -- the prefix spanned by the 299008 tokens of the 146 complete windows; the trailing 70 tokens are dropped by the method's own eval loop"
+  n_tokens_total: 299078
+  n_windows: 146
+  n_tokens_evaluated: 299008
+  n_target_tokens: 298862
+  bytes_of_target_region: 1295360
+  bos_handling_verified: "VERIFIED: add_special_tokens=True does NOT prepend BOS (first token id 271, bos_token_id None, first offset (0, 2)). No per-window BOS is inserted anywhere: the stream is tokenized once and sliced."
+
+  tokenizer_repo_id: "Qwen/Qwen2.5-1.5B"
+  tokenizer_revision_sha: "8faed761d45a263340a0528343f099c05c9a4323"
+  tokenizer_use_fast_in_method: false
+  tokenizer_fast_slow_parity_check: "REQUIRED -- pin_slice.py uses the FAST tokenizer (offset mapping is needed for byte accounting) and asserts token-id equality against the SLOW tokenizer, which is what the method's data.py constructs (use_fast=False). A mismatch is a BLOCK, recorded here."
+  tokenizer_fast_slow_parity_result: "PASS: fast and slow tokenizers produce IDENTICAL ids on the first 200000 chars (47640 tokens). The method builds its tokenizer with use_fast=False; this script uses the fast one only because offset mapping requires it."
+
+  context_length: 2048
+  stride: 2048
+  stride_note: "NON-OVERLAPPING. Read from pt2_llm/eval_ppl.py@9e943e6: windows are testenc[:, i*seqlen : (i+1)*seqlen]. Stride == context. This is the GPTQ-lineage convention and it is what every published anchor number was produced under."
+  tail_handling: "DROPPED. nsamples = testenc.numel() // seqlen -- the trailing partial window is discarded. Read from eval_ppl.py@9e943e6."
+  bos_handling: "NONE inserted per window. The whole joined string is tokenized ONCE with the tokenizer's default add_special_tokens; windows are slices of that single stream, so no window except possibly the first can carry a BOS. Qwen2 does not prepend BOS (see donor.tokenizer_adds_bos_by_default). Read from eval_ppl.py@9e943e6 + data.py@9e943e6."
+  first_token_of_window: "UNSCORED. shift_logits = logits[:, :-1], shift_labels = window[:, 1:] -- 2047 targets per 2048-token window."
+  loss_reduction: "nn.CrossEntropyLoss() default reduction='mean' over the 2047 targets of a window; the per-window mean is then multiplied by seqlen=2048 and the sum divided by nsamples*seqlen, so the 2048 factors CANCEL. Net: PPL = exp(mean over windows of (mean CE over that window's 2047 targets)). This is an UNWEIGHTED MEAN OVER WINDOWS, not a token-weighted mean -- they coincide here only because every window has exactly 2047 targets. Read from eval_ppl.py@9e943e6."
+  bpb_reduction: "BPB = (sum over all target tokens of CE in bits) / (bytes spanned by those target tokens). Token-weighted, NOT a mean of per-window BPBs. Accumulated in fp32 always, regardless of weight dtype."
+  bpb_vs_ppl_note: "The harness emits BOTH PPL (the anchors' unit, under the method's exact reduction above) and BPB (the gate's unit). The two use DIFFERENT reductions and that is deliberate and recorded; a single run produces both from the same per-token CE tensor."
+
+  decontamination_procedure: >-
+    (1) vs the calibration set: disjoint BY CONSTRUCTION -- calibration is the wikitext-2-raw-v1
+    TRAIN split, eval is the TEST split of the same pinned dataset revision. Verified, not assumed,
+    by (2). (2) Byte-shingle overlap: 64-byte shingles at stride 16 over the evaluated byte range,
+    hashed, intersected against the same shingling of (a) the joined TRAIN split and (b) the pinned
+    P62 code-val at results/phase62/code_val.txt. Report the fraction of eval shingles that occur in
+    each. (3) Threshold pre-registered below.
+  decontamination_threshold: "Contamination fraction <= 0.005 (0.5%) of eval shingles against EACH of the two reference corpora. Above that, the slice is re-cut and the pin re-run. Rationale: WikiText train/test are disjoint articles but share boilerplate ( ' = = Section = = ' headers, ' @-@ ' tokenisation artefacts), so a small nonzero overlap is EXPECTED and a threshold of exactly zero would be a control that cannot pass."
+  decontamination_result_vs_calibration: "MEASURED: 1/80995 eval shingles (0.0012%) also occur in the calibration source (wikitext-2-raw-v1 TRAIN, ' '.join, same pinned revision). Splits are disjoint by construction; this measures the residual boilerplate overlap."
+  decontamination_result_vs_p62_codeval: "MEASURED: 0/80995 eval shingles (0.0000%) also occur in the pinned P62 code-val (D:/_THINGS/Progetti/SiliconLLM/results/phase62/code_val.txt, 1500000 bytes)."
+
+# =====================================================================================
+# 4. MEASURED QUANTITIES THAT MUST EXIST BEFORE ANY CONVERTED ARM RUNS
+# =====================================================================================
+measured_prerequisites:
+  rule: "No converted arm may be scored until every field in this block holds a NUMBER. `check_prereg.py` is the enforcement."
+  B_bytes_per_token:
+    definition: "bytes_of_target_region / n_target_tokens -- the exact denominator BPB divides by, on the pinned slice, under the donor's own tokenizer at the pinned revision."
+    procedure: "computed by pin_slice.py from the fast-tokenizer offset mapping; NEVER assumed, and specifically never frozen at 4.0 (the project has a banked finding that a prior dossier's PPL<->BPB conversions were wrong)."
+    value: 4.334308
+  B_secondary_whole_stream:
+    definition: "joined_text_bytes_total / n_tokens_total -- reported alongside B as a sanity cross-check; the two must agree to <1%."
+    value: 4.334555
+  BPB_donor:
+    definition: "BPB of the UNQUANTIZED donor at its declared dtype (bfloat16) on the pinned slice, under the pinned device/determinism policy."
+    procedure: "measured by the donor arm of the run. It is an OUTPUT, not an input; it is not to be guessed, estimated or back-computed from a published PPL."
+    value: "UNPINNED: the donor arm has not been run. The install is not authorized and stage -1 is NOT APPROVED FOR EXECUTION."
+  PPL_donor:
+    definition: "WikiText-2 PPL of the unquantized donor under the method's exact reduction, emitted by the same run as BPB_donor, so the PPL<->BPB bridge is measured on our own harness rather than assumed."
+    value: "UNPINNED: the donor arm has not been run."
+  B_per_anchor_model:
+    definition: >-
+      BUILDER FINDING, not in any prior document. Converting an anchor's PPL ratio to b/byte requires
+      THAT MODEL'S bytes-per-token on WikiText-2, not the donor's. LLaMA's SentencePiece tokenizer and
+      Qwen2.5's BPE do not produce the same B on the same text, so using the donor's B for a LLaMA
+      anchor imports a tokenizer offset into every anchor comparison. Where an anchor model's
+      tokenizer is accessible, B is measured for it; where it is not, the anchor is reported as a PPL
+      RATIO only and its b/byte value is marked derived-under-assumption.
+    value: "LLaMA-7B (control 1b anchor) [huggyllama/llama-7b@4782ad278652]: B=3.7965 bytes/token on the same pinned slice (341469 tokens, 166 windows) | Gated anchors (meta-llama/Llama-2-*) are permanently absent: their B cannot be measured without accepting the licence, so their b/byte values remain derived-under-assumption."
+
+# =====================================================================================
+# 5. BIT-WIDTH SWEEP  (B7 -- per-point config table read from the implementation)
+# =====================================================================================
+bit_width_sweep:
+  points: ["bf16_reference", "4bit", "3bit", "2bit", "ternary_1p58"]
+  reference_point_is_not_a_curve_point: "bf16_reference is the REFERENCE, not a sweep point -- 'no quantizer' is a different arm by definition (B7, review 2)."
+  one_variable_claim_withdrawn: true
+  BLOCKING_FINDING_read_from_implementation: >-
+    THE FIVE-POINT SWEEP CANNOT BE RUN WITH PT^2-LLM. quantize.py@9e943e6 restricts
+    `low_quant_method` to choices=['atq','atq-itf','atq-aga','ternary-init','fp16']. There is no
+    4-bit, 3-bit or 2-bit path in the released implementation -- it is a TERNARY-ONLY method. Any
+    4/3/2-bit point must therefore come from a DIFFERENT method (GPTQ / QuaRot / AWQ class), which
+    makes the sweep a five-point comparison of MULTIPLE METHODS, precisely the defect B7 raised. This
+    was not knowable from the papers and is knowable from the code. The Principal must choose: (i)
+    declare the sweep a multi-method curve and label every point with its method, or (ii) reduce
+    stage -1 to {bf16 reference, ternary} + the 4-bit control-1a anchor, or (iii) find a single
+    method family spanning 4..1.58 bits. The Builder does not make this decision.
+  per_point_config:
+    bf16_reference:
+      method: "none (unquantized donor)"
+      quantizer_class: "n/a"
+      group_size: "n/a"
+      outlier_policy: "n/a"
+      effective_bits_per_weight: 16.0
+      scale_dtype: "n/a"
+      rng_seed: "n/a"
+      read_from: "donor config.json@8faed76 torch_dtype=bfloat16"
+    ternary_1p58:
+      method: "PT^2-LLM atq + ssr"
+      quantizer_class: "3-level thresholded codebook {-1,0,+1} with a per-(row,group) affine pair (alpha, mu): w_hat = alpha*T + mu. NOT the 1.58-bit point of a uniform grid. Read from pt2_llm/quantizer.py@9e943e6 ternary_init()/atq()/update_ternary()."
+      init_threshold_rule: "0.75 * mean(|x - mean(x)|) per row per group; read from quantizer.py@9e943e6 ternary_init()"
+      refinement: "alternating closed-form (alpha, mu) solve + ternary code update, <=100 iterations, early stop on code equality; then a Hessian-weighted (S) closed-form correction in float64. Read from quantizer.py@9e943e6 atq()."
+      group_size: 128
+      group_size_read_from: "quantize.py@9e943e6 `groupsize = args.blocksize` with --blocksize default 128; gptq.py@9e943e6 asserts `braq_quantizer.groupsize % blocksize == 0`. Grouping is along the INPUT (column) dimension; (alpha, mu) are per output row per 128-column group."
+      symmetric_or_affine: "AFFINE -- there is an explicit per-group mean mu in addition to the scale alpha. Read from quantizer.py@9e943e6."
+      outlier_policy: "no separate outlier/mixed-precision escape hatch in the ternary path; salience enters only through the Hessian weighting (--salient_metric hessian) and SSR reordering, not through a kept-in-high-precision subset. Read from quantize.py@9e943e6 + gptq_ssr.py@9e943e6."
+      clipping_procedure: "none explicit; the {-1,0,+1} assignment is nearest-code by argmin distance in update_ternary(). Read from quantizer.py@9e943e6."
+      internal_working_precision: "float64 for the Hessian-weighted correction (explicit .to(torch.float64) in atq()); float32 elsewhere. PINNED AND HELD CONSTANT ACROSS ALL POINTS -- otherwise a bf16-native quantizer degrades the low-bit end preferentially and bends the very knee the curve exists to locate (N6.5)."
+      fitted_parameters_per_layer: "2 * out_features * ceil(in_features/128) floats (one alpha and one mu per row per 128-column group)."
+      rng_seed: 0
+      rng_seed_note: "quantize.py --seed 0 seeds calibration WINDOW SAMPLING (data.py random.randint). The QUANTIZER ITSELF appears deterministic -- no torch.rand* call in quantizer.py@9e943e6. PRE-REGISTERED: verify by running the ternary point twice at identical calibration draw; if bit-identical, the PTQ-seed replicate axis is DEGENERATE, report that as a finding and spend the replicate budget on the calibration-draw axis instead (section 6)."
+      effective_bits_per_weight_formula: "log2(3) + (2 * scale_bits) / group_size = 1.5850 + 2*scale_bits/128"
+      effective_bits_per_weight_at_fp16_scales: 1.835
+      effective_bits_per_weight_at_fp32_scales: 2.085
+      scale_dtype: "UNPINNED: the released code performs FAKE quantization -- it writes dense floating-point tensors back into the model and never serialises a packed format. The storage dtype of (alpha, mu) is therefore a REPORTING CHOICE the artefact cannot settle, and the paper's headline '1.58 bit' silently omits it. The Principal must declare fp16 or fp32 scales; both resulting effective-bit values are given above so the curve's x-axis cannot be quietly moved."
+    4bit:
+      method: "UNPINNED: PT^2-LLM has no 4-bit path (see BLOCKING_FINDING_read_from_implementation). The method for this point is not chosen."
+      quantizer_class: "UNPINNED: depends on the method chosen for this point."
+      group_size: "UNPINNED: depends on the method chosen for this point."
+      outlier_policy: "UNPINNED: depends on the method chosen for this point."
+      effective_bits_per_weight: "UNPINNED: depends on the method and group size chosen for this point."
+      scale_dtype: "UNPINNED: depends on the method chosen for this point."
+      rng_seed: "UNPINNED: depends on the method chosen for this point."
+    3bit:
+      method: "UNPINNED: PT^2-LLM has no 3-bit path. The method for this point is not chosen."
+      quantizer_class: "UNPINNED: depends on the method chosen for this point."
+      group_size: "UNPINNED: depends on the method chosen for this point."
+      outlier_policy: "UNPINNED: depends on the method chosen for this point."
+      effective_bits_per_weight: "UNPINNED: depends on the method and group size chosen for this point."
+      scale_dtype: "UNPINNED: depends on the method chosen for this point."
+      rng_seed: "UNPINNED: depends on the method chosen for this point."
+    2bit:
+      method: "UNPINNED: PT^2-LLM has no 2-bit path. The method for this point is not chosen."
+      quantizer_class: "UNPINNED: depends on the method chosen for this point."
+      group_size: "UNPINNED: depends on the method chosen for this point."
+      outlier_policy: "UNPINNED: depends on the method chosen for this point."
+      effective_bits_per_weight: "UNPINNED: depends on the method and group size chosen for this point."
+      scale_dtype: "UNPINNED: depends on the method chosen for this point."
+      rng_seed: "UNPINNED: depends on the method chosen for this point."
+  x_axis: "effective bits/weight INCLUDING scales, not nominal bits. Otherwise the curve is not a curve."
+  deliverable: "the curve and its knee, with t-based error bars (section 6). A QUALITY knee is NOT an engine-feasibility knee: the latter needs kernel rates and footprint per bit-width, which do not exist, and which the measured compute-bound LUT finding makes counter-intuitive on this silicon. The curve supplies ONE input to that decision and the document may not claim more."
+
+# =====================================================================================
+# 6. REPLICATES AND STATISTICAL RESOLUTION  (B4)
+# =====================================================================================
+replicates:
+  n: 10
+  axis_varied: "calibration draw -- the RNG seed passed to quantize.py --seed, which selects which 128 random 2048-token windows of the WikiText-2 TRAIN stream form the calibration set. This is the only axis known to be stochastic."
+  axis_seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  seed_0_is_the_paper_configuration: true
+  second_axis_ptq_rng: "DEGENERACY CHECK FIRST, replicates second. Run the ternary point twice at the SAME calibration draw. If bit-identical, the PTQ RNG axis does not exist; record that as a finding and do not spend replicates on it. If not bit-identical, the method has undocumented stochasticity, which is itself a reportable finding about the method."
+  t_multiplier: 2.262
+  t_multiplier_basis: "two-sided 95% Student-t at n=10, i.e. t(0.975, df=9) = 2.262. (At n=3 it would be 4.303, not 2 -- the v3 band was ~2.15x too narrow.)"
+  SE_definition: "SE = sd / sqrt(n) over the n replicate ARM-LEVEL BPB values, sd computed with ddof=1."
+  band_half_width: "h = t(0.975, n-1) * SE = 2.262 * SE"
+  paired_bootstrap: "SEPARATE instrument, not a replicate axis: a paired bootstrap over the n_windows eval windows (resample window indices with replacement, 10000 resamples, same indices for donor and converted arm) giving a CI on the PAIRED delta. Reported alongside the replicate SE. The two answer different questions and neither substitutes for the other."
+  SE_floor: "If sd == 0 across replicates (a genuinely deterministic pipeline), SE does not become zero. PRE-REGISTERED FLOOR: SE_floor = 1e-4 b/byte, justified as the fp32 accumulation noise scale measured for this project's own harness (CANONICAL_EVAL.md bounds bf16-autocast eval noise at ~1e-4). A zero-width band would manufacture certainty from a single deterministic point."
+  decision_reading: "Report Delta +/- h against the anchor RANGE (section 8), not against a threshold. There is NO pass/fail threshold on the donor -- see gate_policy."
+
+# =====================================================================================
+# 7. GATE POLICY  (Delta* -- CUT, and why)
+# =====================================================================================
+gate_policy:
+  donor_threshold: "NONE. There is no Delta* on the donor. Delta* = 0.10 was inverted (below the closed-form frontier); Delta* = 0.30 was re-anchoring on one row and is FALSIFIED by the only Qwen row in the table (0.342 at B=4). A gate with a high prior of failing when nothing is wrong cannot separate 'apparatus broken' from 'this scale is hard' from 'this method is weak' -- three causes, one bit of output, unattributable."
+  where_the_stopping_rule_lives: "control_1a and control_1b -- on a PUBLISHED model against a PUBLISHED number, where a discrepancy has exactly one cause. If the apparatus misses its published anchor by more than the stated tolerance, the apparatus is broken: STOP, fix it, and report NO donor numbers."
+  no_frozen_constant_in_B: "Every b/byte quantity derived from a published PPL is a FORMULA IN MEASURED B, evaluated after pin_slice.py runs. No b/byte constant computed at B=4.0 may appear in any decision. (The B=4 column in section 8 is ILLUSTRATIVE ONLY and is labelled as such.)"
+  scope_PASS: "A PASS says NOTHING about S4 retention. Not >=90% global, not >=80% per critical task, not S2 fit. It licenses the next cheap question and nothing more."
+  scope_FAIL: "A FAIL is evidence against THIS bounded, tested method, at THIS bit-width, on THIS donor, at THIS scale. It is not a claim about all possible PTQ. The narrower reading governs; the tension with the Architect's stronger phrasing is flagged, not silently resolved."
+
+# =====================================================================================
+# 8. ANCHORS  (PT^2-LLM Table 1, W1.58, WikiText-2, block size 128)
+# =====================================================================================
+anchors:
+  source: "PT^2-LLM arXiv 2510.03267 Table 1, W=1.58 bit, WikiText-2 PPL, block size 128; transcribed in docs/research/PTQ_SOURCE_VERIFICATION.md and independently corroborated by TWLA's baseline table (identical figures)."
+  conversion_formula: "delta_bpb(model) = log2(PPL_w158 / PPL_fp16) / B_model  -- where B_model is the MEASURED bytes-per-token of THAT model's tokenizer on the pinned slice. B is never frozen."
+  conversion_formula_note: "bits/token = log2(PPL ratio) is exact: BPB = CE_bits/byte = (CE_bits/token)/(bytes/token), and log2(PPL) = CE in bits per token."
+  B_used_for_illustrative_column: 4.0
+  illustrative_column_is_not_a_decision_input: true
+  rows:
+    - {model: "LLaMA-13B",      ppl_fp16: 5.09, ppl_w158: 9.11,  ratio: 1.790, bits_per_token: 0.840, delta_bpb_at_B4_illustrative: 0.210}
+    - {model: "LLaMA-65B",      ppl_fp16: 3.53, ppl_w158: 6.62,  ratio: 1.875, bits_per_token: 0.907, delta_bpb_at_B4_illustrative: 0.227}
+    - {model: "LLaMA-2-70B",    ppl_fp16: 3.32, ppl_w158: 6.27,  ratio: 1.888, bits_per_token: 0.917, delta_bpb_at_B4_illustrative: 0.229}
+    - {model: "LLaMA-7B",       ppl_fp16: 5.68, ppl_w158: 11.39, ratio: 2.005, bits_per_token: 1.004, delta_bpb_at_B4_illustrative: 0.251}
+    - {model: "LLaMA-2-7B",     ppl_fp16: 5.47, ppl_w158: 11.56, ratio: 2.113, bits_per_token: 1.079, delta_bpb_at_B4_illustrative: 0.270}
+    - {model: "Qwen3-14B-Base", ppl_fp16: 6.38, ppl_w158: 16.48, ratio: 2.583, bits_per_token: 1.369, delta_bpb_at_B4_illustrative: 0.342}
+    - {model: "LLaMA-3-8B",     ppl_fp16: 6.14, ppl_w158: 32.19, ratio: 5.243, bits_per_token: 2.390, delta_bpb_at_B4_illustrative: 0.597}
+  frontier_is_a_range: "0.21 - 0.60 b/byte at the illustrative B=4, NOT the single value 0.27. Recomputed at measured B before any comparison."
+  measured_B_qwen25_tokenizer: 4.334308
+  measured_B_llama_sentencepiece: 3.7965
+  measured_B_read_from: "pin_slice.py on the pinned slice: Qwen/Qwen2.5-1.5B@8faed76 gives 4.334308 b/tok over the target region; huggyllama/llama-7b@4782ad2 gives 3.7965 b/tok over the same bytes."
+  tokenizer_B_asymmetry_finding: >-
+    MEASURED, and it invalidates every single-B anchor table written so far. The LLaMA
+    SentencePiece tokenizer and the Qwen2.5 BPE tokenizer differ by 14.2% in bytes/token on the
+    SAME pinned bytes (3.7965 vs 4.3343). Six of the seven anchor rows are LLaMA models and must be
+    divided by 3.7965; the Qwen3-14B row must be divided by a Qwen-family B (~4.33). Dividing all
+    seven by one B -- whether 4.0 or the donor's 4.334 -- imports a 14% tokenizer offset into the
+    comparison. The "frontier range" is therefore not a single-B object at all. Recomputed:
+    LLaMA-13B 0.221, LLaMA-65B 0.239, LLaMA-2-70B 0.242, LLaMA-7B 0.264, LLaMA-2-7B 0.284,
+    LLaMA-3-8B 0.630 (all at B=3.7965); Qwen3-14B 0.316 (at B=4.334). RANGE = 0.221 - 0.630, and
+    THE QWEN ROW IS NO LONGER THE SECOND-WORST -- it sits mid-pack at 0.316 once the tokenizer
+    offset is removed. Any threshold argued from the un-corrected column is arguing from a number
+    that is off by 14%.
+  frontier_range_at_measured_B: "0.221 - 0.630 b/byte, each row at its own tokenizer's measured B"
+  donor_expectation_at_measured_B: ">= 0.316 b/byte (the tokenizer-corrected Qwen3-14B row), and plausibly well above it given the shrink and token-saturation trends. Recorded BEFORE the run."
+  most_relevant_row: "Qwen3-14B-Base (2.583x) -- same family as the donor, same method, same bit-width."
+  expected_donor_direction: ">= the Qwen3-14B row. The verification records two trends explicitly: degradation WORSENS as models shrink and WORSENS as models become token-saturated. Qwen2.5-1.5B is small AND modern AND Qwen. This expectation is recorded BEFORE the run so that a large Delta is not later reported as a surprise."
+  independent_1to3B_datapoint: "ScaleQ-1.58 on Qwen3-1.7B is catastrophic (40-58% of fp16 task accuracy), and it is a GRADIENT method (60 epochs, ~32 A100-GPU-hours). It is overlaid on the curve as context, not as an anchor -- different method class."
+  anchor_dtype_asymmetry: "Published anchors are fp16. This stage runs the donor at bf16 (its declared dtype, law 5). bf16 has 8 mantissa bits vs fp16's 11. Every anchor comparison must STATE WHICH SIDE IS WHICH; control 1a/1b run at the PAPERS' fp16 so the anchor comparison is dtype-matched, and the donor-vs-anchor comparison carries the offset as a declared caveat."
+
+# =====================================================================================
+# 9. CALIBRATION CORPUS
+# =====================================================================================
+calibration:
+  anchor_arm:
+    corpus: "wikitext-2-raw-v1 TRAIN split, revision b08601e04326c79dfdd32d625aee71d232d685c3"
+    n_samples: 128
+    seqlen: 2048
+    sampling: "128 windows at uniformly random start offsets in ' '.join(train['text']), random.seed(0). Read from pt2_llm/data.py@9e943e6."
+    why: "F1 -- the anchor arm MUST run at the paper's own configuration or control 1a/1b are not comparable to the numbers they validate against."
+  extended_arm:
+    status: "DECLARED SEPARATE ARM, not the default (F1)."
+    n_samples: 512
+    seqlen: 2048
+    composition: "UNPINNED: 'composition mixed, not code-only' is not a specification (F2, claimed closed in prose and never written). The exact sources, proportions, sampling procedure and seed are NOT pinned. The Builder will not invent a corpus composition; this is a Principal decision. Until pinned, the extended arm MAY NOT RUN."
+    sampling_order: "globally shuffled, never file order -- measured law: blocked sampling order cost +0.0339 BPB = 6.8 sigma_seed at identical data."
+    content_hash: "UNPINNED: cannot be computed until composition is pinned."
+  sensitivity_arm:
+    protocol: "the ternary point repeated on a SECOND DISJOINT calibration draw (different --seed). If the two differ by more than the section-6 band half-width h, the calibration set is load-bearing and every future number carries its hash."
+    note: "This is subsumed by the n=10 calibration-draw replicate axis; it is retained as a named reading of that data, not as an extra run."
+  decontamination: "calibration draws from the TRAIN split, eval from the TEST split of the same pinned revision -- disjoint by construction, VERIFIED by the byte-shingle check in eval_slice.decontamination_procedure."
+
+# =====================================================================================
+# 10. PLANTED CONTROLS -- every one with a numeric tolerance
+# =====================================================================================
+controls:
+  control_1a:
+    name: "Machinery validation -- reproduce a published 4-bit number on an accessible model"
+    what: "reproduce a well-replicated published 4-bit (GPTQ/QuaRot class) WikiText-2 PPL, at the paper's seqlen 2048 / stride 2048 / same join, on the model that paper published."
+    numeric_tolerance: "UNPINNED: the tolerance cannot be a number until the anchor PAPER, TABLE and ROW are named, because the tolerance must be expressed relative to that row's reported PPL and that paper's own reported reproduction spread. The Builder will not invent a tolerance for an unnamed anchor -- that is exactly the post-hoc construction review #1's B3 rejected. WHAT IS PINNED: the FORM of the tolerance is an absolute PPL band, |PPL_ours - PPL_published| <= tol_ppl, stated before the run; and the DEFAULT the Principal may adopt is tol_ppl = 0.10 absolute PPL for a 7B-class WikiText-2 number, which is ~1.8% of a 5.5 baseline and is the spread GPTQ-lineage reproductions of the same row typically show across framework versions. Adopting that default is a Principal decision, not a Builder one."
+    anchor_paper: "UNPINNED: not named. Review #1 B3 required 'name the paper, table and row'; three revisions later it is still unnamed."
+    anchor_model: "UNPINNED: follows from anchor_paper."
+    tolerance_form: "absolute PPL band |PPL_ours - PPL_published| <= tol_ppl, on WikiText-2 test at seqlen 2048, stride 2048, tail dropped"
+    on_miss: "STOP. The apparatus is broken. Report NO donor numbers. This -- not a threshold on the donor -- is the stage's stopping rule."
+  control_1b:
+    name: "Method validation -- reproduce PT^2-LLM's own ternary number on PT^2-LLM's own model"
+    anchor_paper: "PT^2-LLM arXiv 2510.03267, Table 1, W1.58 row"
+    anchor_model: "huggyllama/llama-7b (LLaMA-7B), revision 4782ad278652c7c71b72204d462d6d01eaaf7549 -- UNGATED, verified accessible"
+    anchor_model_substitution_note: "SUBSTITUTED from LLaMA-2-7B, and this is a Builder decision requiring ratification. meta-llama/Llama-2-7b-hf is gated=manual and returns HTTP 401 unauthenticated. LLaMA-7B is a DIFFERENT ROW OF THE SAME TABLE of the SAME PAPER at the SAME bit-width (5.68 -> 11.39, 2.005x) and is publicly accessible, so control 1b remains a reproduction of a published number on the published model. This is a substitution, NOT a workaround of the gate."
+    anchor_value_ppl_fp16: 5.68
+    anchor_value_ppl_w158: 11.39
+    numeric_tolerance: "|PPL_ours - 11.39| <= 0.35 absolute PPL (3.1% of 11.39), AND |PPL_ours_fp16 - 5.68| <= 0.06 on the unquantized baseline leg. RATIONALE for 0.35: the ternary leg's spread is dominated by the calibration draw, and the paper's own calibration-size ablation on LLaMA-2-7B (64 -> 11.92, 128 -> 11.56, 256 -> 11.35) shows a 0.36 PPL move for a 2x change in calibration size -- so a same-configuration reproduction must land well inside one calibration-size step, and 0.35 is that step. It is derived from a published ablation, not chosen. The fp16 leg's 0.06 is the harness bridge: an unquantized reproduction has no calibration variance and must match to ~1%."
+    tolerance_form: "absolute PPL band on both legs; the fp16 leg is the harness bridge and must be run FIRST"
+    on_miss: "STOP, same as 1a. If it cannot be RUN at all, the method is declared UNVALIDATED-AGAINST-PUBLICATION and that limitation is reported with every number produced by this stage -- not quietly skipped."
+    feasibility: "RESOLVED -- see feasibility.control_1b_vram."
+  control_2:
+    name: "Monotone lesion ladder -- the instrument's detection floor in donor units"
+    perturbation_family: "multiplicative scaling of a weight block by (1 - eps). Chosen over Gaussian noise injection because it is deterministic (no extra RNG axis) and monotone in eps by construction, so a non-monotone measured curve is unambiguously an apparatus bug rather than sampling noise."
+    eps_grid: [0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0]
+    rung_count: 10
+    structures:
+      redundant_rung: "one attention head's o_proj column block in blocks.14 (mid-depth) -- expected WEAK, included precisely because the head-pruning literature says it may not fire; it is the ladder's low end, not its anchor."
+      non_redundant_rung: "the RMSNorm scale vector of blocks.14.post_attention_layernorm -- a known non-redundant structure whose sign is not in doubt. This is the ANCHOR rung."
+      second_non_redundant_rung: "a 128-column block of blocks.14.mlp.down_proj -- second non-redundant anchor, matching the quantizer's own 128 group size so the lesion is expressed in the same units the method operates in."
+    reported_quantity: "the DETECTION FLOOR -- the eps at which |Delta BPB| first exceeds the section-6 band half-width h, reported per structure. NOT 'BPB rises by >> the gate width', which is a prediction rather than a protocol."
+    numeric_tolerance: "the ladder PASSES iff, on the non-redundant anchor rung, |Delta BPB| exceeds h at some eps <= 0.05, AND the sequence of |Delta BPB| over the eps grid is monotone non-decreasing within 1*SE (i.e. no rung is lower than its predecessor by more than one SE)."
+    failure_to_fire_response: "PRE-REGISTERED: if the anchor rung does not exceed h anywhere in the grid, the instrument's resolution is worse than a 5% weight-block corruption and the stage is VOID -- do not extend the grid upward to manufacture a pass, and do not report any Delta as significant. If the curve is non-monotone beyond 1*SE, that is a caught apparatus bug: halt and diagnose before any arm is scored."
+  control_3:
+    name: "Exact comparator"
+    protocol: "same weights twice -> BPB bit-identical; different weights -> BPB different. Strengthened: run ACROSS PROCESS RESTARTS and at TWO DIFFERENT BATCH SHAPES (batch-shape variation is what exposes backend switching)."
+    numeric_tolerance: "identical leg: EXACTLY 0.0 difference in the fp32-accumulated BPB, bit-for-bit -- not a tolerance, an equality. Differing leg: |Delta| >= 1e-6 b/byte, i.e. demonstrably nonzero."
+    both_directions_logged: true
+    known_limitation: "STRUCTURALLY BLIND to silent precision loss. TF32, reduced-precision reductions and a flash backend are all PERFECTLY REPEATABLE -- they give bit-identical output at an 8-bit mantissa. Control 3 catches run-to-run variance, not precision. Control 7 is the guard for that."
+  control_4:
+    name: "Named refusal on config/weight architecture mismatch"
+    protocol: "load must REFUSE, by name, when config and loaded weights disagree. `strict=True` does not verify architecture, so the guard is a separate assertion over the materialised module graph."
+    exercised_both_directions: "REQUIRED, and both go in the log: (i) must-pass on the correct pairing, (ii) must-refuse on a deliberately mismatched config (e.g. num_hidden_layers altered by one)."
+    numeric_tolerance: "binary, not numeric: 1 refusal on the mismatched pairing, 0 refusals on the correct pairing. Any other outcome is a BLOCK."
+    architecture_numeric_probe: "F4 second half. A fixed prompt is forward-passed at fp32 and the sha256 of the resulting logits tensor (rounded to 1e-5) is written into the manifest at pin time and ASSERTED at every arm's load. This catches a silently different architecture that still loads cleanly -- which the layer-count assertion does not."
+    architecture_numeric_probe_value: "UNPINNED: requires a forward pass, which requires the install. Filled at first donor load."
+    tied_embeddings_assertion: "assert that lm_head.weight and model.embed_tokens.weight are the SAME storage after load (donor.tie_word_embeddings is true), and record whether the quantizer treated lm_head as a separate quantizable Linear."
+  control_5:
+    name: "Prove the calibration data reaches the output"
+    protocol: "run the ternary point with calibration replaced by RANDOM TOKENS uniformly sampled from the vocabulary (not shuffled text -- shuffled text still carries usable marginal statistics)."
+    numeric_tolerance: "k = 3. PASS requires |BPB(random calib) - BPB(real calib)| >= 3 * SE, with SE from section 6. Bit-identity is a NECESSARY check, not a sufficient one: a scale computed and then almost entirely overwritten yields a difference of 1e-6 and would pass a bit-identity test while the path is dead."
+    expected_direction: "random-vocabulary calibration must be WORSE (higher BPB). A better-than-real result is an APPARATUS FINDING, not a datum, and is logged as such."
+    on_bit_identical: "the calibration path is DEAD and every number in stage -1 is VOID."
+    both_directions_logged: true
+  control_6:
+    name: "Device parity -- GPU vs CPU oracle"
+    compared_quantity: "|Delta BPB_gpu - Delta BPB_cpu| -- the DELTA, not absolute BPB. Common-mode offsets cancel in the delta and the delta is what decides."
+    cpu_leg_dtype: "fp32 (fp64 for the accumulation), an ORACLE -- NOT bf16. A bf16 CPU leg measures emulation, not truth."
+    arms_covered: "the donor arm AND at least one converted arm -- a GPU-specific bug in the quantizer's own CUDA kernels is the one that would void the stage, and it cannot appear on the donor arm."
+    numeric_tolerance: "tau = 0.1 * h, where h is the section-6 band half-width. Derivable BEFORE any number exists (h comes from the replicate step, which runs before any converted arm is scored), and it is a NUMBER before it can be gamed. Rationale: an order of magnitude below the statistical resolution means the numerical environment can never flip a verdict -- the same rule CANONICAL_EVAL.md already used and justified."
+    tolerance_note: "tau is a FORMULA now and a NUMBER after the replicate step. It does NOT inherit the struck 0.007 SE, which derived from the sigma_seed import that was deleted."
+    predicted_gap_sign_and_magnitude: "the GPU leg runs bf16 weights, the CPU leg fp32, so the donor-arm ABSOLUTE BPBs will differ by the bf16 weight-rounding effect, which on a 1.5B model is expected in the 1e-3 range -- NOT the ~1e-4 CANONICAL_EVAL measured for bf16 AUTOCAST on an 8.3M model. The DELTAS are expected to agree to within tau. Predicting both in advance is what makes the control able to fail."
+  control_7:
+    name: "Precision probe -- float64-referenced, fired in both directions"
+    protocol: "a fixed fp32 matmul evaluated against a float64 reference on the same inputs; then the same op with the precision flag deliberately ENABLED."
+    numeric_tolerance: "flags OFF (the pinned policy): max relative error vs fp64 <= 3e-7 (true fp32). Flags ON (deliberate): max relative error vs fp64 >= 1e-4 (TF32-class, ~1e-3 typical). The control PASSES only if BOTH legs land in their band -- an instrument that cannot be made to fail has not been shown to fire."
+    both_directions_logged: true
+    flags_read_back: "every flag is READ BACK after setting and written to the manifest, never merely assigned. The first thing the post-run review will look at."
+
+# =====================================================================================
+# 11. DEVICE / DTYPE / DETERMINISM  (section 3.8)
+# =====================================================================================
+environment:
+  target_device: "NVIDIA GeForce RTX 3060 (Ampere, cc 8.6, 12288 MiB)"
+  target_device_uuid: "GPU-1cce7fba-8103-2d4b-ad9b-df8e162f8221"
+  target_device_uuid_read_from: "nvidia-smi --query-gpu=index,name,uuid,memory.total,compute_cap --format=csv (2026-08-20)"
+  excluded_device: "NVIDIA GeForce GTX 1660 (Turing, cc 7.5, 6144 MiB), UUID GPU-35e31090-c6c3-a989-adfc-540f03c7d9e5 -- different numerics, no usable bf16. MUST NOT BE VISIBLE."
+  CUDA_DEVICE_ORDER: "PCI_BUS_ID"
+  CUDA_VISIBLE_DEVICES: "GPU-1cce7fba-8103-2d4b-ad9b-df8e162f8221"
+  CUDA_VISIBLE_DEVICES_note: "selected BY UUID, not by index. nvidia-smi's default enumeration currently lists the 1660 as index 0 and the 3060 as index 1, so an index-based pin is exactly the trap: a device-NAME assertion on cuda:0 passes while device_map='auto' shards onto the Turing card."
+  assert_device_count_equals_1: true
+  assert_capability: [8, 6]
+  assert_uuid_matches: true
+  assert_materialised_parameter_device: true
+  device_map_auto: "FORBIDDEN"
+  weight_dtype: "bfloat16 -- the dtype the donor's own config declares (law 5: the artefact is the authority; do not impose fp16 because it is convenient). Ampere supports it natively."
+  loss_accumulation_dtype: "float32 ALWAYS, regardless of weight dtype."
+  arms_share_dtype_policy: "IDENTICAL across the donor arm and every converted arm. A delta between arms that differ in dtype is not a measurement of quantization."
+  quantizer_internal_precision: "fp32/fp64, HELD CONSTANT across all sweep points (see bit_width_sweep.per_point_config.*.internal_working_precision)."
+  precision_flags:
+    # NOTE: key names use underscores, never dots. A YAML key containing a dot is UNADDRESSABLE by
+    # check_prereg.py's dotted-path resolver and would be silently reported as ABSENT forever.
+    # torch_attribute_map below carries the real attribute names so nothing is lost.
+    cuda_matmul_allow_bf16_reduced_precision_reduction: false
+    cuda_matmul_allow_fp16_reduced_precision_reduction: false
+    cuda_matmul_allow_tf32: false
+    cudnn_allow_tf32: false
+    cudnn_benchmark: false
+    float32_matmul_precision: "highest"
+    preferred_linalg_library: "magma"
+    torch_attribute_map: >-
+      cuda_matmul_allow_bf16_reduced_precision_reduction -> torch.backends.cuda.matmul.allow_bf16_reduced_precision_reduction (DEFAULTS TRUE -- this is the live trap);
+      cuda_matmul_allow_fp16_reduced_precision_reduction -> torch.backends.cuda.matmul.allow_fp16_reduced_precision_reduction;
+      cuda_matmul_allow_tf32 -> torch.backends.cuda.matmul.allow_tf32 (defaults False since torch 1.12);
+      cudnn_allow_tf32 -> torch.backends.cudnn.allow_tf32 (defaults True, but this model has no convolutions);
+      cudnn_benchmark -> torch.backends.cudnn.benchmark;
+      float32_matmul_precision -> torch.set_float32_matmul_precision(...);
+      preferred_linalg_library -> torch.backends.cuda.preferred_linalg_library(...)
+    preferred_linalg_library_note: "GPTQ-class methods solve ill-conditioned Hessians via torch.linalg.cholesky + cholesky_inverse (gptq.py@9e943e6 lines 272-274), so the linalg backend is a real numerical variable here, not a detail. Cholesky damping percdamp=0.01 is recorded in method_pinned_hyperparameters and must be logged per layer along with any damping RETRIES."
+    attn_implementation: "eager"
+    attn_implementation_note: "pinned explicitly so no silent flash/mem-efficient SDPA selection occurs; read back off the loaded model's config and asserted."
+    tf32_status_note: "matmul TF32 has defaulted to False since torch 1.12 and is LARGELY INERT under a bf16 weight policy; it is disabled as hygiene, and is explicitly DEMOTED from 'the safeguard' -- the live default that actually bites is allow_bf16_reduced_precision_reduction, which defaults True."
+  flags_read_back_into_manifest: true
+  autocast: "NONE anywhere on the path. Asserted in the scoring loop, not assumed."
+  use_deterministic_algorithms: true
+  use_deterministic_algorithms_attr: "torch.use_deterministic_algorithms(True, warn_only=False)"
+  use_deterministic_algorithms_warn_only: false
+  use_deterministic_algorithms_on_raise: "a raise is PRE-REGISTERED AS A FINDING -- an op with no deterministic implementation is reported, not silenced with warn_only=True."
+  CUBLAS_WORKSPACE_CONFIG: ":4096:8"
+  seeds:
+    python_random: 0
+    numpy: 0
+    torch_manual_seed: 0
+    torch_cuda_manual_seed_all: 0
+    calibration_draw_seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  harness_identity_recorded:
+    torch_version: "UNPINNED: the CUDA build is not installed yet. Current: torch 2.12.0+cpu, torch.cuda.is_available() == False. Recorded here so the pre-registration cannot claim an environment it does not have."
+    cuda_runtime_version: "UNPINNED: no CUDA build installed."
+    cudnn_version: "UNPINNED: no CUDA build installed."
+    driver_version: "610.47"
+    python_version: "3.12.10"
+    transformers_version: "4.57.6 (host env); the method arm runs in its own venv at transformers==4.44.2 -- see method.method_declared_dependency_pins"
+    os: "Windows 11 Pro 10.0.26200"
+  host_resources:
+    ram_gb: 80
+    free_disk_gb: 1300
+
+# =====================================================================================
+# 12. FEASIBILITY RESOLUTIONS
+# =====================================================================================
+feasibility:
+  control_1b_vram:
+    problem_as_stated: "PT^2-LLM's published models are LLaMA-2 7B; at bf16 that is ~13.5 GB and the RTX 3060 has 12 GB."
+    resolution: "THE PREMISE IS WRONG, and the artefact says so. PT^2-LLM NEVER holds the whole model on the device. quantize.py@9e943e6 and pt2_llm/eval_ppl.py@9e943e6 both run LAYER-SEQUENTIAL: the model lives on CPU, one decoder layer at a time is moved to the device (`layers[i].to(dev)` ... `layers[i] = layer.cpu()`), and only the activation buffers `inps`/`outs` stay resident. This is by design -- it is how the paper quantized a 70B model. Peak VRAM is therefore ONE LAYER plus TWO activation buffers, not the model."
+    vram_arithmetic_llama_7b: "one LLaMA-7B decoder layer at fp16 ~= 0.40 GB. Activation buffers: nsamples x 2048 x 4096 x 2 bytes each, x2 buffers. Calibration nsamples=128 -> 2.15 GB each -> 4.3 GB. Eval: WikiText-2 test at the LLaMA tokenizer is ~335K tokens -> ~163 windows -> 2.73 GB each -> 5.5 GB. Peak ~6.0 GB including lm_head and workspace. FITS IN 12 GB with margin."
+    verdict: "control 1b IS VIABLE ON THE RTX 3060, unchanged, using the method's own execution model. Nothing needs to be dropped, offloaded further, or 4-bit-loaded."
+    cost: "13.5 GB model download (1.3 TB free) + CPU RAM 13.5 GB (80 GB available). Runtime: the paper reports 32 min for 7B on one A800-80GB; the 3060 is roughly 5-8x slower on this workload, so ESTIMATE 3-5 h for the quantize pass plus ~30-60 min for the two eval legs. Estimate, not a measurement -- the smoke test is what turns it into one."
+    fallback_if_wrong: "pure-CPU execution (--device cpu) with the same layer-sequential code and 80 GB RAM. Slower by an estimated 5-15x (est. 20-60 h) but not memory-blocked. A 4-bit/quantized LOAD of the anchor model is REJECTED: control 1b reproduces a published fp16->ternary number, and loading the baseline at 4 bits would destroy the very quantity being reproduced."
+  llama2_gate:
+    checked: true
+    method: "unauthenticated HTTP GET of the HuggingFace model API and of resolve/main/config.json. NO authentication was attempted and no gate was bypassed."
+    result_api: "https://huggingface.co/api/models/meta-llama/Llama-2-7b-hf -> HTTP 200, gated: 'manual', private: false, sha 01c7f73d771dfac7d292323805ebc428287df4f9"
+    result_file: "https://huggingface.co/meta-llama/Llama-2-7b-hf/resolve/main/config.json -> HTTP 401. meta-llama/Llama-2-13b-hf is likewise gated: manual."
+    verdict: "LLaMA-2 IS NOT ACCESSIBLE from this environment without the owner accepting Meta's licence on HuggingFace. An HF_TOKEN is present in the environment; it was NOT used to probe the gate, per instruction."
+    consequence_if_unresolved: "control 1b against the LLaMA-2-7B ROW is UNVALIDATED-AGAINST-PUBLICATION, and that must be reported with every number this stage produces."
+    resolution_adopted: "control 1b is re-anchored to LLaMA-7B via huggyllama/llama-7b (sha 4782ad278652c7c71b72204d462d6d01eaaf7549, gated: false, verified accessible) -- a DIFFERENT ROW OF THE SAME TABLE at the same bit-width (5.68 -> 11.39). Control 1b therefore remains a reproduction of a published number on the published model, and the UNVALIDATED-AGAINST-PUBLICATION declaration is NOT triggered. Requires Principal ratification."
+    rejected_option: "un-gated third-party MIRRORS of LLaMA-2 (e.g. NousResearch/Llama-2-7b-hf, gated: false) EXIST and would restore the exact LLaMA-2-7B row. The Builder does NOT adopt this: using a mirror to obtain weights whose original distribution is licence-gated is a licence question, not a technical one, and it is the owner's call, not the Builder's. Recorded so the option is visible rather than silently taken."
+
+# =====================================================================================
+# 13. INSTALL -- RECOMMENDED, NOT RUN
+# =====================================================================================
+install:
+  status: "NOT RUN. The owner authorized a CUDA PyTorch install; the Builder reports the command and stops."
+  current_state: "torch 2.12.0+cpu, torch.cuda.is_available() == False, python 3.12.10, driver 610.47"
+  recommended_command: "python -m pip install --force-reinstall --index-url https://download.pytorch.org/whl/cu126 torch==2.12.0+cu126"
+  wheel_verified: "torch-2.12.0+cu126-cp312-cp312-win_amd64.whl EXISTS at https://download.pytorch.org/whl/cu126/torch/ (sha256 194f5bd0721b968e769777b8ab4dbe51dd7ffdfdf295db045093b94a1b9765bb). Also available: +cu130. cu128 and cu129 have NO 2.12.0 cp312 win_amd64 wheel."
+  why_cu126_not_cu130: "sm_86 is supported by both. cu126 is the conservative choice: it is the more widely exercised build for Ampere, and driver 610.47 is a CUDA 13.x driver which is backward-compatible with a CUDA 12.6 runtime. cu130 is the alternative if a cu126 kernel-launch failure appears."
+  why_same_version: "pinning 2.12.0 keeps the version identical to the current CPU build, so the ONLY variable the install changes is the CUDA backend. A version bump would change the numerics AND the backend at once."
+  additional_packages_host: "python -m pip install datasets accelerate sentencepiece protobuf   (datasets and accelerate are NOT currently installed)"
+  additional_packages_method_venv: "the method arm needs its OWN venv: torch==2.4.0+cuXXX, transformers==4.44.2, tokenizers==0.19.1, accelerate==0.32.1, datasets==2.19.2, sentencepiece==0.2.1, numpy==1.26.4, protobuf==4.25.1, scikit-learn, loguru  (requirements.txt@9e943e6)"
+  post_install_verification: "torch.cuda.is_available() is NOT sufficient. Required: device_count()==1 under the UUID pin, get_device_capability()==(8,6), the UUID read back, a materialised parameter's device asserted, and control 7 fired in both directions -- BEFORE any arm runs."
+
+# =====================================================================================
+# 14. DECISION IF IT FAILS
+# =====================================================================================
+on_failure:
+  conclusion_not_drawn: "'PTQ is impossible' is NOT concluded. Stage -1 is evidence against the tested, bounded path."
+  question_asked: "is a named 4-bit or mixed-precision engine path worth pursuing?"
+  cost_note: "a 4-bit path forfeits part of the measured faster-as-bits-drop kernel advantage -- though the measured finding that the LUT path is COMPUTE-BOUND by ~16x changes that calculus, so bits buy footprint far more than they buy speed on this silicon."
