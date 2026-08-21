@@ -1,0 +1,66 @@
+loaded existing d1_pruning.json: baseline_bpb=0.7675949677540373, 29 organ_sweep records, 4 controls
+baseline BPB (this session) 0.767595  vs artefact 0.767595  (103s)
+== D1b: re-running the 4 planted controls in THIS session ==
+  CTRL prune@0pct_downproj                   BPB 0.76759  d=+0.00000 +-0.00000  [SIGNIFICANT]
+  CTRL struct@5pct_o_proj                    BPB 4.79202  d=+4.02442 +-0.09798  [SIGNIFICANT]
+  CTRL struct@100pct_v_proj                  BPB 4.42136  d=+3.65377 +-0.07791  [SIGNIFICANT]
+  CTRL restore_exact                         BPB 0.76759  d=+0.00000 +-0.00000  [SIGNIFICANT]
+controls this session: ALL FIRED
+
+== D1b: engine-legal block sizes (reused D0 formula, read off loaded weights) ==
+  q_proj     bytes_per_unit=   768B  block_size=64 units
+  k_proj     bytes_per_unit=   768B  block_size=64 units
+  v_proj     bytes_per_unit=   768B  block_size=64 units
+  o_proj     bytes_per_unit=   768B  block_size=64 units
+  gate_proj  bytes_per_unit=   768B  block_size=64 units
+  up_proj    bytes_per_unit=   768B  block_size=64 units
+  down_proj  bytes_per_unit=   768B  block_size=64 units
+
+== D1b: organ sweep completion (unstructured + block_structured, levels=[0.25, 0.5, 0.75, 0.9]) ==
+  q_proj/block_structured/25%                BPB 1.28073  d=+0.51314 +-0.02437  [SIGNIFICANT]
+  q_proj/block_structured/50%                BPB 2.48294  d=+1.71535 +-0.05057  [SIGNIFICANT]
+  q_proj/block_structured/75%                BPB 2.66766  d=+1.90007 +-0.06134  [SIGNIFICANT]
+  q_proj/block_structured/90%                BPB 2.22992  d=+1.46233 +-0.05568  [SIGNIFICANT]
+  k_proj/block_structured/25%                BPB 0.90002  d=+0.13243 +-0.00930  [SIGNIFICANT]
+  k_proj/block_structured/50%                BPB 1.12247  d=+0.35487 +-0.01805  [SIGNIFICANT]
+  k_proj/block_structured/75%                BPB 1.71025  d=+0.94266 +-0.03593  [SIGNIFICANT]
+  k_proj/block_structured/90%                BPB 2.17707  d=+1.40947 +-0.06155  [SIGNIFICANT]
+  v_proj/block_structured/25%                BPB 2.74718  d=+1.97959 +-0.06947  [SIGNIFICANT]
+  v_proj/block_structured/50%                BPB 4.44880  d=+3.68121 +-0.09518  [SIGNIFICANT]
+  v_proj/block_structured/75%                BPB 4.91775  d=+4.15015 +-0.10250  [SIGNIFICANT]
+  v_proj/block_structured/90%                BPB 4.42136  d=+3.65377 +-0.07791  [SIGNIFICANT]
+  o_proj/unstructured/25%                    BPB 0.78634  d=+0.01874 +-0.00193  [SIGNIFICANT]
+  o_proj/unstructured/50%                    BPB 0.91448  d=+0.14688 +-0.01092  [SIGNIFICANT]
+  o_proj/unstructured/75%                    BPB 1.19137  d=+0.42378 +-0.02291  [SIGNIFICANT]
+  o_proj/unstructured/90%                    BPB 2.32534  d=+1.55774 +-0.08558  [SIGNIFICANT]
+  o_proj/block_structured/25%                BPB 1.60315  d=+0.83556 +-0.03227  [SIGNIFICANT]
+  o_proj/block_structured/50%                BPB 3.02542  d=+2.25782 +-0.08483  [SIGNIFICANT]
+  o_proj/block_structured/75%                BPB 5.07612  d=+4.30853 +-0.09399  [SIGNIFICANT]
+  o_proj/block_structured/90%                BPB 5.57034  d=+4.80275 +-0.10815  [SIGNIFICANT]
+  gate_proj/unstructured/25%                 BPB 0.77231  d=+0.00472 +-0.00066  [SIGNIFICANT]
+  gate_proj/unstructured/50%                 BPB 0.85491  d=+0.08731 +-0.00651  [SIGNIFICANT]
+  gate_proj/unstructured/75%                 BPB 2.23763  d=+1.47003 +-0.04805  [SIGNIFICANT]
+  gate_proj/unstructured/90%                 BPB 4.74422  d=+3.97663 +-0.12981  [SIGNIFICANT]
+  gate_proj/block_structured/25%             BPB 1.08035  d=+0.31276 +-0.01837  [SIGNIFICANT]
+  gate_proj/block_structured/50%             BPB 2.07344  d=+1.30585 +-0.06218  [SIGNIFICANT]
+  gate_proj/block_structured/75%             BPB 4.35680  d=+3.58920 +-0.13293  [SIGNIFICANT]
+  gate_proj/block_structured/90%             BPB 4.31118  d=+3.54358 +-0.12691  [SIGNIFICANT]
+  up_proj/unstructured/25%                   BPB 0.78150  d=+0.01391 +-0.00144  [SIGNIFICANT]
+  up_proj/unstructured/50%                   BPB 0.93163  d=+0.16403 +-0.00966  [SIGNIFICANT]
+  up_proj/unstructured/75%                   BPB 1.41519  d=+0.64760 +-0.02850  [SIGNIFICANT]
+  up_proj/unstructured/90%                   BPB 2.09934  d=+1.33174 +-0.04253  [SIGNIFICANT]
+  up_proj/block_structured/25%               BPB 1.14280  d=+0.37521 +-0.02032  [SIGNIFICANT]
+  up_proj/block_structured/50%               BPB 2.25775  d=+1.49015 +-0.04513  [SIGNIFICANT]
+  up_proj/block_structured/75%               BPB 4.27388  d=+3.50629 +-0.13179  [SIGNIFICANT]
+  up_proj/block_structured/90%               BPB 4.63259  d=+3.86500 +-0.15412  [SIGNIFICANT]
+  down_proj/unstructured/25%                 BPB 0.79304  d=+0.02544 +-0.00172  [SIGNIFICANT]
+  down_proj/unstructured/50%                 BPB 0.96525  d=+0.19766 +-0.01237  [SIGNIFICANT]
+  down_proj/unstructured/75%                 BPB 1.71056  d=+0.94297 +-0.05822  [SIGNIFICANT]
+  down_proj/unstructured/90%                 BPB 2.86303  d=+2.09544 +-0.07620  [SIGNIFICANT]
+  down_proj/block_structured/25%             BPB 1.21074  d=+0.44315 +-0.01965  [SIGNIFICANT]
+  down_proj/block_structured/50%             BPB 2.32471  d=+1.55712 +-0.05797  [SIGNIFICANT]
+  down_proj/block_structured/75%             BPB 3.96885  d=+3.20126 +-0.11820  [SIGNIFICANT]
+  down_proj/block_structured/90%             BPB 4.48333  d=+3.71573 +-0.13439  [SIGNIFICANT]
+
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\d1_pruning.json
+total new records this session: 44 sweep + 4 controls

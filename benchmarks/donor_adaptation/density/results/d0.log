@@ -1,0 +1,17 @@
+48 KB = 64.0 consecutive neurons per organ (21.3 interleaved) at 0.5 B/weight
+== D0 planted controls (layout instrument) ==
+  planted_runs_128           mean_run=128.000 block64_skippable=0.9000 -> FIRED  [mean_run_neurons == 128 exactly]
+  iid_mask_same_density      mean_run=1.110 block64_skippable=0.0011 -> FIRED  [mean_run_neurons ~= 1/(1-p) = 1.111]
+  [capture] 321.6s
+  [L1 greedy path] 2.2s
+  L01 native                           mean_read=     855B >=48KB=0.0000 skip@BS8=0.430 BS16=0.187 BS32=0.035 BS64=0.001 speedup@BS64=1.00x
+  L01 random_permutation_NULL          mean_read=     855B >=48KB=0.0000 skip@BS8=0.431 BS16=0.187 BS32=0.034 BS64=0.001 speedup@BS64=1.00x
+  L01 coactivation_clustered_E64       mean_read=     950B >=48KB=0.0001 skip@BS8=0.514 BS16=0.305 BS32=0.127 BS64=0.030 speedup@BS64=1.03x
+  L01 coactivation_clustered_E128      mean_read=     956B >=48KB=0.0000 skip@BS8=0.516 BS16=0.309 BS32=0.126 BS64=0.026 speedup@BS64=1.03x
+  L01 greedy_coactivation_path         mean_read=    1419B >=48KB=0.0000 skip@BS8=0.643 BS16=0.492 BS32=0.330 BS64=0.188 speedup@BS64=1.23x
+  L01 MoE E= 32 k= 1 act= 0.031 expert=210.0KB relerr coact=0.0401 random=0.4745 (delta +0.4344)
+  L01 MoE E= 32 k= 2 act= 0.062 expert=210.0KB relerr coact=0.0349 random=0.2034 (delta +0.1685)
+  L01 MoE E= 32 k= 4 act= 0.125 expert=210.0KB relerr coact=0.0298 random=0.0544 (delta +0.0246)
+  L01 MoE E= 32 k= 8 act= 0.250 expert=210.0KB relerr coact=0.0239 random=0.0373 (delta +0.0134)
+  L01 MoE E= 32 k=16 act= 0.500 expert=210.0KB relerr coact=0.0162 random=0.0244 (delta +0.0083)
+  L01 MoE E= 64 k= 1 act= 0.016 expert=105.0KB relerr coact=0.0451 random=0.4746 (delta +0.4296)

@@ -1,0 +1,17 @@
+== D2 planted controls ==
+  PLANTED_hadamard_sparse: identity frac99=0.7348 hadamard frac99=0.0074 own_singular frac99=0.000488 -> FIRED
+  PLANTED_iid_gaussian: identity frac99=0.7345 hadamard frac99=0.7345 own_singular frac99=0.000502 -> FIRED
+== D2 real donor organs ==
+  L00.q_proj     (1536, 1536)  frac99: id=0.6415 perm=0.6415 had=0.7078 blkrand=0.6945 dense=0.7322 svd=0.00039  |  r99=918/1536 stable_rank=7.4  [9s]
+  L00.o_proj     (1536, 1536)  frac99: id=0.7047 perm=0.7047 had=0.7331 blkrand=0.7314 dense=0.7345 svd=0.00053  |  r99=1262/1536 stable_rank=101.1  [9s]
+  L00.gate_proj  (8960, 1536)  frac99: id=0.7215 perm=0.7215 had=0.7343 blkrand=0.7346  svd=0.00009  |  r99=1288/1536 stable_rank=94.0  [52s]
+  L00.down_proj  (1536, 8960)  frac99: id=0.7298 perm=0.7298 had=0.7347 blkrand=0.7347  svd=0.00011  |  r99=1462/1536 stable_rank=210.7  [57s]
+  L13.q_proj     (1536, 1536)  frac99: id=0.7033 perm=0.7033 had=0.7288 blkrand=0.7304 dense=0.7343 svd=0.00043  |  r99=1009/1536 stable_rank=83.0  [9s]
+  L13.o_proj     (1536, 1536)  frac99: id=0.7013 perm=0.7013 had=0.7322 blkrand=0.7331 dense=0.7347 svd=0.00045  |  r99=1056/1536 stable_rank=92.6  [9s]
+  L13.gate_proj  (8960, 1536)  frac99: id=0.7203 perm=0.7203 had=0.7344 blkrand=0.7345  svd=0.00011  |  r99=1461/1536 stable_rank=100.8  [49s]
+  L13.down_proj  (1536, 8960)  frac99: id=0.7192 perm=0.7192 had=0.7348 blkrand=0.7345  svd=0.00010  |  r99=1436/1536 stable_rank=86.4  [58s]
+  L27.q_proj     (1536, 1536)  frac99: id=0.6529 perm=0.6529 had=0.7120 blkrand=0.7298 dense=0.7345 svd=0.00037  |  r99=883/1536 stable_rank=64.8  [9s]
+  L27.o_proj     (1536, 1536)  frac99: id=0.6835 perm=0.6835 had=0.7289 blkrand=0.7308 dense=0.7340 svd=0.00043  |  r99=1026/1536 stable_rank=47.8  [10s]
+  L27.gate_proj  (8960, 1536)  frac99: id=0.7251 perm=0.7251 had=0.7338 blkrand=0.7347  svd=0.00011  |  r99=1464/1536 stable_rank=44.1  [51s]
+  L27.down_proj  (1536, 8960)  frac99: id=0.7174 perm=0.7174 had=0.7347 blkrand=0.7345  svd=0.00011  |  r99=1475/1536 stable_rank=157.4  [66s]
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\d2_basis.json

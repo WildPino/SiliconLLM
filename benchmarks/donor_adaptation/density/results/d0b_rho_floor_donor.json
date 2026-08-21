@@ -1,0 +1,185 @@
+{
+  "bytes_per_weight": 0.5,
+  "block_bytes": 49152,
+  "git_revision": "e410243b5418d9e1e33490cd2d8d251273611b91",
+  "git_branch": "research/donor-adaptation",
+  "command_line": "python d0b_rho_floor_donor.py",
+  "source_constant_checked": {
+    "quoted_as": "B_block >= 22 (transplanted from D=1536 without re-derivation)",
+    "source_artefact": "results/d0_layout.json",
+    "source_field": "neurons_per_48KB_interleaved",
+    "source_value": 21.333333333333332,
+    "source_d_model": 1536
+  },
+  "analytic_sweep_over_d_model": [
+    {
+      "d_model": 1536,
+      "bytes_per_neuron_per_organ": 768.0,
+      "neurons_per_48KB_per_organ": 64.0,
+      "bytes_per_neuron_interleaved": 2304.0,
+      "neurons_per_48KB_interleaved": 21.333333333333332
+    },
+    {
+      "d_model": 2048,
+      "bytes_per_neuron_per_organ": 1024.0,
+      "neurons_per_48KB_per_organ": 48.0,
+      "bytes_per_neuron_interleaved": 3072.0,
+      "neurons_per_48KB_interleaved": 16.0
+    },
+    {
+      "d_model": 4096,
+      "bytes_per_neuron_per_organ": 2048.0,
+      "neurons_per_48KB_per_organ": 24.0,
+      "bytes_per_neuron_interleaved": 6144.0,
+      "neurons_per_48KB_interleaved": 8.0
+    },
+    {
+      "d_model": 5120,
+      "bytes_per_neuron_per_organ": 2560.0,
+      "neurons_per_48KB_per_organ": 19.2,
+      "bytes_per_neuron_interleaved": 7680.0,
+      "neurons_per_48KB_interleaved": 6.4
+    },
+    {
+      "d_model": 8192,
+      "bytes_per_neuron_per_organ": 4096.0,
+      "neurons_per_48KB_per_organ": 12.0,
+      "bytes_per_neuron_interleaved": 12288.0,
+      "neurons_per_48KB_interleaved": 4.0
+    }
+  ],
+  "reproduces_d0_artefact_check": {
+    "name": "reproduces_d0_layout_json_at_D1536",
+    "d0_artefact_neurons_per_48KB_interleaved": 21.333333333333332,
+    "this_scripts_value": 21.333333333333332,
+    "d0_artefact_neurons_per_48KB_per_organ": 64.0,
+    "this_scripts_value_per_organ": 64.0,
+    "fired": true
+  },
+  "analytic_donor_70b_matrices": {
+    "q_proj": {
+      "out": 8192,
+      "in": 8192,
+      "axis": "row",
+      "structured_unit_length": 8192,
+      "bytes_per_unit": 4096.0,
+      "units_per_48KB": 12.0,
+      "params": 67108864
+    },
+    "k_proj": {
+      "out": 1024.0,
+      "in": 8192,
+      "axis": "row",
+      "structured_unit_length": 8192,
+      "bytes_per_unit": 4096.0,
+      "units_per_48KB": 12.0,
+      "params": 8388608.0
+    },
+    "v_proj": {
+      "out": 1024.0,
+      "in": 8192,
+      "axis": "row",
+      "structured_unit_length": 8192,
+      "bytes_per_unit": 4096.0,
+      "units_per_48KB": 12.0,
+      "params": 8388608.0
+    },
+    "o_proj": {
+      "out": 8192,
+      "in": 8192,
+      "axis": "col",
+      "structured_unit_length": 8192,
+      "bytes_per_unit": 4096.0,
+      "units_per_48KB": 12.0,
+      "params": 67108864
+    },
+    "gate_proj": {
+      "out": 28672,
+      "in": 8192,
+      "axis": "row",
+      "structured_unit_length": 8192,
+      "bytes_per_unit": 4096.0,
+      "units_per_48KB": 12.0,
+      "params": 234881024
+    },
+    "up_proj": {
+      "out": 28672,
+      "in": 8192,
+      "axis": "row",
+      "structured_unit_length": 8192,
+      "bytes_per_unit": 4096.0,
+      "units_per_48KB": 12.0,
+      "params": 234881024
+    },
+    "down_proj": {
+      "out": 8192,
+      "in": 28672,
+      "axis": "col",
+      "structured_unit_length": 8192,
+      "bytes_per_unit": 4096.0,
+      "units_per_48KB": 12.0,
+      "params": 234881024
+    },
+    "_ffn_interleaved_neuron": {
+      "bytes_per_neuron": 12288.0,
+      "neurons_per_48KB": 4.0,
+      "note": "d_ffn does not appear in this formula -- only d_model does (gate/up row length and down column length are both d_model, regardless of the FFN expansion ratio)"
+    }
+  },
+  "real_shapes_match_uniform_formula_check": {
+    "name": "real_donor_shapes_match_uniform_D_formula",
+    "uniform_formula_32768_over_D_at_8192": 4.0,
+    "real_shape_calc_neurons_per_48KB_interleaved": 4.0,
+    "fired": true
+  },
+  "hand_derivable_control": {
+    "name": "hand_derivable_D1024_control",
+    "by_hand": {
+      "bytes_per_neuron_per_organ": 512.0,
+      "neurons_per_48KB_per_organ": 96.0,
+      "bytes_per_neuron_interleaved": 1536.0,
+      "neurons_per_48KB_interleaved": 32.0
+    },
+    "code_output": {
+      "d_model": 1024,
+      "bytes_per_neuron_per_organ": 512.0,
+      "neurons_per_48KB_per_organ": 96.0,
+      "bytes_per_neuron_interleaved": 1536.0,
+      "neurons_per_48KB_interleaved": 32.0
+    },
+    "fired": true
+  },
+  "measured_controls_donor_scale": [
+    {
+      "name": "planted_runs_4_at_donor_Nffn_28672",
+      "expect": "mean_run_neurons == 4 exactly",
+      "measured_mean_run": 4.0,
+      "measured_active_fraction": 0.10002790178571429,
+      "fired": true
+    },
+    {
+      "name": "iid_mask_same_density_at_donor_Nffn_28672",
+      "expect": "mean_run_neurons ~= 1/(1-p) = 1.111",
+      "measured_mean_run": 1.1110014232504617,
+      "analytic": 1.1111111111111112,
+      "fired": true
+    },
+    {
+      "name": "iid_mask_block_accounting_at_donor_granularity",
+      "note": "SYNTHETIC i.i.d. mask, NOT a real donor co-activation pattern -- isolates the effect of the donor's coarser block size on the instrument's own accounting",
+      "block_size_per_organ_neurons": 12,
+      "block_skippable_fraction_per_organ": 0.2823585966931771,
+      "block_size_interleaved_neurons": 4,
+      "block_skippable_fraction_interleaved": 0.656341552734375
+    }
+  ],
+  "all_measured_controls_fired": true,
+  "verdict": {
+    "transplanted_constant": "B_block >= 22 (from D=1536, neurons_per_48KB_interleaved=21.33)",
+    "correct_constant_at_D8192": 4.0,
+    "ratio_D1536_over_D8192": 5.333333333333333,
+    "interleave_assumption_survives_donor_asymmetry": true,
+    "interleave_survival_reason": "bytes_per_neuron for gate/up (row, in_features=d_model) and down (col, out_features=d_model) are ALL d_model-driven; d_ffn cancels out of the formula entirely regardless of the FFN expansion ratio (28672/8192=3.5x here).",
+    "interleave_physical_caveat": "down_proj's 'column' is contiguous only if down_proj is stored TRANSPOSED (shape [d_ffn, d_model] instead of [d_model, d_ffn]) so that row j of the transposed store equals column j of down_proj. This requirement is scale-independent -- it exists identically at D=1536 -- and is a pre-existing assumption of the interleaved layout, not a new problem introduced by donor scale."
+  }
+}

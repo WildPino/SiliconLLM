@@ -1,0 +1,43 @@
+{
+  "seed": 20260821,
+  "chunk_bytes": 8192,
+  "mix": {
+    "pg19": 0.4,
+    "wikitext": 0.1,
+    "markdown": 0.25,
+    "python": 0.25
+  },
+  "provenance_bytes": {
+    "pg19": 133998636,
+    "wikitext": 10816848,
+    "markdown": 64376442,
+    "python": 72338447
+  },
+  "n_chunks": 35802,
+  "parts": {
+    "calib": {
+      "path": "benchmarks/donor_adaptation/density/corpus/calib.txt",
+      "bytes": 140933631,
+      "sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0",
+      "n_chunks": 17901,
+      "source_bytes": {
+        "markdown": 32281429,
+        "pg19": 67308333,
+        "python": 35866325,
+        "wikitext": 5477544
+      }
+    },
+    "heldout": {
+      "path": "benchmarks/donor_adaptation/density/corpus/heldout.txt",
+      "bytes": 140596742,
+      "sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312",
+      "n_chunks": 17901,
+      "source_bytes": {
+        "markdown": 32095013,
+        "python": 36472122,
+        "pg19": 66690303,
+        "wikitext": 5339304
+      }
+    }
+  }
+}

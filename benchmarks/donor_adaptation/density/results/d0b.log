@@ -1,0 +1,28 @@
+== (a) ANALYTIC: bytes_per_neuron / neurons_per_48KB vs d_model ==
+  D= 1536  bpn_organ=  768.0B neurons/48KB_organ= 64.00  bpn_interleaved= 2304.0B neurons/48KB_interleaved= 21.33
+  D= 2048  bpn_organ= 1024.0B neurons/48KB_organ= 48.00  bpn_interleaved= 3072.0B neurons/48KB_interleaved= 16.00
+  D= 4096  bpn_organ= 2048.0B neurons/48KB_organ= 24.00  bpn_interleaved= 6144.0B neurons/48KB_interleaved=  8.00
+  D= 5120  bpn_organ= 2560.0B neurons/48KB_organ= 19.20  bpn_interleaved= 7680.0B neurons/48KB_interleaved=  6.40
+  D= 8192  bpn_organ= 4096.0B neurons/48KB_organ= 12.00  bpn_interleaved=12288.0B neurons/48KB_interleaved=  4.00
+  [check] reproduces_d0_layout_json_at_D1536: FIRED
+
+== (a) ANALYTIC: Llama-3-70B-class real per-matrix shapes (d_model=8192, d_ffn=28672, GQA 64/8 heads) ==
+  q_proj     axis=row shape=(8192x8192) unit_len=8192 bytes/unit=4096 units/48KB=12.00
+  k_proj     axis=row shape=(1024x8192) unit_len=8192 bytes/unit=4096 units/48KB=12.00
+  v_proj     axis=row shape=(1024x8192) unit_len=8192 bytes/unit=4096 units/48KB=12.00
+  o_proj     axis=col shape=(8192x8192) unit_len=8192 bytes/unit=4096 units/48KB=12.00
+  gate_proj  axis=row shape=(28672x8192) unit_len=8192 bytes/unit=4096 units/48KB=12.00
+  up_proj    axis=row shape=(28672x8192) unit_len=8192 bytes/unit=4096 units/48KB=12.00
+  down_proj  axis=col shape=(8192x28672) unit_len=8192 bytes/unit=4096 units/48KB=12.00
+  [interleaved FFN neuron] bytes/neuron=12288 neurons/48KB=4.000
+  [check] real_donor_shapes_match_uniform_D_formula: FIRED  (4.0000 vs 4.0000)
+
+  [control] D=1024 by-hand vs code: FIRED
+
+== (b) MEASURED: d0_layout.py's own run_lengths/layout_stats, run unmodified on SYNTHETIC masks sized to the donor's own d_ffn=28672 ==
+  planted_runs_4_at_donor_Nffn_28672               -> FIRED
+  iid_mask_same_density_at_donor_Nffn_28672        -> FIRED
+  iid_mask_block_accounting_at_donor_granularity   block_skip@organ=0.2824 (bs=12) block_skip@interleaved=0.6563 (bs=4)
+
+== VERDICT: transplanted B_block>=22 vs re-derived at D=8192 = 4.00 (ratio 5.33x) ==
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\d0b_rho_floor_donor.json

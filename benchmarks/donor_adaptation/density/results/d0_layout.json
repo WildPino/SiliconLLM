@@ -1,0 +1,44 @@
+{
+  "arch": {
+    "n_layers": 28,
+    "d_model": 1536,
+    "d_ffn": 8960,
+    "n_heads": 12,
+    "n_kv_heads": 2,
+    "vocab": 151936,
+    "tie_word_embeddings": true,
+    "hidden_act": "silu",
+    "revision": "8faed761d45a263340a0528343f099c05c9a4323"
+  },
+  "bytes_per_weight": 0.5,
+  "bytes_per_neuron_per_organ": 768.0,
+  "bytes_per_neuron_interleaved": 2304.0,
+  "neurons_per_48KB_per_organ": 64.0,
+  "neurons_per_48KB_interleaved": 21.333333333333332,
+  "p_active": 0.1,
+  "block_sizes": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "controls": [
+    {
+      "name": "planted_runs_128",
+      "expect": "mean_run_neurons == 128 exactly",
+      "measured_mean_run": 128.0,
+      "measured_active_fraction": 0.1,
+      "block64_skippable": 0.9,
+      "fired": true
+    },
+    {
+      "name": "iid_mask_same_density",
+      "expect": "mean_run_neurons ~= 1/(1-p) = 1.111",
+      "measured_mean_run": 1.1102279776674937,
+      "analytic": 1.1111111111111112,
+      "block64_skippable": 0.001088169642857184,
+      "fired": true
+    }
+  ],
+  "layers": []
+}
