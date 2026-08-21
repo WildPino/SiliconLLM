@@ -62,25 +62,148 @@ CANDIDATES = [
 # MEASURED rate constants -- docs/PHASE64_BUDGET.md
 # ---------------------------------------------------------------------------
 # sec.1b(a): proj-GEMV fp32 rate vs matrix size, t6, row-partitioned, x L1-resident.
-RCURVE_MB = [4.0, 8.0, 16.0, 24.0, 32.0, 48.0, 64.0, 96.0]
-RCURVE_GBS = [187.0, 185.0, 134.4, 60.5, 55.7, 45.5, 45.3, 36.5]
-RCURVE_ASYMPTOTE_LO = 34.0   # sec.1b: "declining slope toward an asymptote ~= 34-36 GB/s"
-RCURVE_ASYMPTOTE_HI = 36.0
-PROJ_STREAMED_FLOOR = 34.0   # sec.1b caveat: fully-streamed floor [34-40], pollution-capped
+# The published sec.1b row is KEPT for reference but is NO LONGER the pricing curve.  It was
+# re-measured (docs/research/DONOR_PROJ_RATE.md sec.2): the t1 row reproduces at all 8 points and
+# the 96 MB anchor reproduces (+4.9%), but the 16-32 MB cache-transition points move by up to 4.6x
+# on OpenMP thread PLACEMENT alone, and `engine.c --gemv-sweep` -- the routine that produced them --
+# does not reproduce its own mid-region either.  They are placement-conditioned, not machine facts.
+RCURVE_MB_PUBLISHED = [4.0, 8.0, 16.0, 24.0, 32.0, 48.0, 64.0, 96.0]
+RCURVE_GBS_PUBLISHED = [187.0, 185.0, 134.4, 60.5, 55.7, 45.5, 45.3, 36.5]
 
-# sec.1 / sec.1b(b): ternary LUT expert path.
-LUT_GBS_PESS = 4.2           # engine-integrated MoE today (64.0b), gather+dispatch already inside
-LUT_GBS_OPT = 17.0           # kernel-pure t6 ceiling (64.1b)
-# sec.2 decomposition: dense LUT-MLP at the 8.3M anchor moves 3*256*1024*0.5 B * 6 layers
-# = 2359296 B in 207 us at t6  ->  11.4 GB/s.  Same kernel, NO index gather.  The budget's
-# sec.3 note ("LUT ceiling 11.4 -> 17.0") is the same number.  A DENSE donor MLP belongs on
-# this rate, not on the routed-expert 4.2.
-DENSE_LUT_GBS = 2359296 / 207e-6 / 1e9
-EXPERT_DISPATCH_US = 8.4     # decomposed overhead per expert call (64.1b) -- UNDER AUDIT
+# DONOR_PROJ_RATE.md sec.4 -- directly MEASURED, 4 independent runs, min-of-5 estimator each.
+# 32 MB is the aggregate-L3 cliff: between-run sd 22.2%, declared NON-REPORTABLE and never used.
+RCURVE_MB = [4.0, 8.0, 16.0, 24.0, 48.0, 64.0, 96.0, 128.0, 192.0, 256.0, 384.0, 512.0, 768.0, 1024.0]
+RCURVE_GBS = [184.8, 193.3, 199.2, 192.2, 41.1, 38.2, 39.0, 39.7, 39.3, 38.2, 38.9, 38.4, 38.3, 38.3]
+
+# ---------------------------------------------------------------------------
+# THE TWO MEASURED PROJECTION RATES -- DIFFERENT QUANTITIES, DIFFERENT SLOTS.
+# Conflating them is precisely the defect this re-run exists to remove.
+#
+# (1) PROJ_STREAM_* -- "the real donor stream".  DONOR_PROJ_RATE.md sec.5.2.
+#     Qwen2.5-1.5B's 28 x (q,k,v,o) + head allocated contiguously and walked IN LAYER ORDER;
+#     1,550,057,472 B/token, byte accounting EXACT against the F1 hand-derivation.  Measured
+#     37.74 +/- 0.18 GB/s (3 invocations, cv 1.1-4.4%) = 41.07 ms/token.  It already carries the
+#     cost of interleaving the two skinny K/V organs between the square ones -- which is why it
+#     sits ~3% under (2).
+#     ==> USED FOR: the whole per-token proj+head time term.  Same shape of object as the term
+#         models, so it is the correct slot.
+# ADOPTED from CONTROLLER_PROJRATE_AUDIT.md: the audit re-derived this INDEPENDENTLY (its own
+# harness, its own source file) and measured 39.87 +/- 0.09 where this Builder reported 37.74.
+# I under-reported; the audit's figure is the one carried here.  My 37.74 is retained below as the
+# conservative floor, so nothing downstream depends on taking the higher number on trust.
+PROJ_STREAM_MEAS = 39.87
+PROJ_STREAM_SD = 0.09
+PROJ_STREAM_BUILDER = 37.74   # this Builder's independent measurement -- kept as the low edge
+# Interval spans BOTH independent measurements, not just one lab's error bars.
+PROJ_STREAM_LO = PROJ_STREAM_BUILDER - 2 * 0.18            # 37.38 -- Builder's low edge
+PROJ_STREAM_HI = PROJ_STREAM_MEAS + 2 * PROJ_STREAM_SD     # 40.05 -- audit's high edge
+#
+# (2) PROJ_ASYMPTOTE_* -- "the size-swept asymptote".  DONOR_PROJ_RATE.md sec.4.
+#     38.84 +/- 0.68 GB/s over 36 measurements (9 sizes >= 64 MB x 4 runs), FLAT across 16x of
+#     size from 64 MB to 1024 MB; no downward trend, no further cliff past 96 MB.
+#     ==> USED FOR: a SINGLE organ priced by its own size (e.g. the head-alone row of T7).
+#         The interval is widened DOWN to 36.0 to span the measured per-organ spread of
+#         36.0-39.0 GB/s (DONOR_PROJ_RATE.md sec.5.1, streamed column, 8 real donor organs).
+PROJ_ASYMPTOTE_MEAS = 39.18   # ADOPTED from the audit (Builder measured 38.84)
+PROJ_ASYMPTOTE_SD = 0.68
+PROJ_ORGAN_LO = 36.0                                         # measured min over 8 donor organs
+PROJ_ORGAN_HI = PROJ_ASYMPTOTE_MEAS + 2 * PROJ_ASYMPTOTE_SD  # 40.20
+#
+# RETIRED: PROJ_STREAMED_FLOOR = 34.0.  Never measured -- it was the bottom edge of an ASSERTED
+# [34-40] bracket, and standing on that edge is what produced "zero donors pass".  It is 11%
+# below the measured donor stream (1).
+PROJ_STREAMED_FLOOR_RETIRED = 34.0
+
+# sec.1 / sec.1b(b): ternary LUT path.
+# DONOR_PROJ_RATE.md sec.8 re-measured this at DONOR dimensions and the headline changed: the path
+# is BANDWIDTH-bound at donor working sets, not compute-bound.  Holding the kernel fixed and
+# growing the working set 1.1 MB -> 512 MB drops the rate 3.6x (96.4 -> 27.3 GB/s).  Controller #2's
+# "compute-bound by ~16x" was measured at D=256, where the kernel's own ceiling is only 29 GB/s;
+# at D=1536 that ceiling is 97 GB/s, so the claim does not transfer across D.
+#
+# BOTH old endpoints were D=256 artefacts.  The new bracket is asymmetric ON PURPOSE and the
+# caveat must stay visible: the LOW end is engine-integrated (it carries dequant, dReLU, per-row
+# scale multiply, combine); the HIGH end is kernel-pure at donor shapes.  They are NOT the same
+# quantity and this tool CANNOT say where between them an integrated donor lands.
+# MEASURED at donor dimensions -- DONOR_PROJ_RATE.md sec.10.  This replaces the old
+# [11.398 .. 27.64] bracket, which spanned two quantities NEITHER of which was the answer:
+#   - 11.398 was engine-integrated at D=256 AND, it turns out, derived from the dReLU ROW-SKIP
+#     path (the published 207 us is the --skip on --exp fast config).  A SiLU-gated donor cannot
+#     use that sparsity, so it was wrong twice: wrong D, wrong path.
+#   - 27.64 was kernel-pure, i.e. excluding the quant / LUT-build / scale-multiply / dReLU envelope.
+# The integrated rate at donor D (D=1536, ffn=8960, L=28, skip=off) measures 27.31 +/- 0.46 ms/token
+# = 21.25 +/- 0.36 GB/s over 4 runs (between-run sd 1.7%).  Integration overhead at donor D is only
+# +30.5%, not the 2.4x the bracket assumed.  With skip=off the block is branch-free, so the rate does
+# NOT depend on the synthetic weights or on activation sparsity.
+LUT_DENSE_MEAS = 21.25
+LUT_DENSE_SD = 0.36
+LUT_DENSE_LO = LUT_DENSE_MEAS - 2 * LUT_DENSE_SD   # 20.53
+LUT_DENSE_HI = LUT_DENSE_MEAS + 2 * LUT_DENSE_SD   # 21.97
+LUT_DENSE_RETIRED = 2359296 / 207e-6 / 1e9         # 11.398, kept only so its retirement is visible
+LUT_MOE_LO = 4.2                        # engine-integrated routed MoE today -- dispatch/gather
+                                        # ALREADY INSIDE this number (see EXPERT_DISPATCH_US)
+LUT_MOE_HI = 26.4                       # most conservative donor-shape streamed block, 512 MB
+                                        # pool, i.i.d. gather (DONOR_PROJ_RATE sec.8.2)
+# Legacy names kept so nothing silently reads a stale constant.
+LUT_GBS_PESS = LUT_MOE_LO
+LUT_GBS_OPT = 17.0                      # kernel-pure t6 at the D=256 SANDBOX shape (64.1b) --
+                                        # reproduced at 18.6-18.9 (DONOR_PROJ_RATE sec.8.1)
+DENSE_LUT_GBS = LUT_DENSE_MEAS
+EXPERT_DISPATCH_US = 8.4     # decomposed overhead per expert call (64.1b).  NOTE: this is ALREADY
+                             # contained in LUT_MOE_LO=4.2 (engine-integrated).  The previous
+                             # revision added it ON TOP of 4.2 -- a double count.  It is now added
+                             # only at the kernel-pure end, where it is genuinely absent.
 
 # sec.1: DRAM cold-stream aggregate ceiling, saturated at 3 threads.
 DRAM_AGG_LO = 40.0
 DRAM_AGG_HI = 44.0
+DRAM_AGG_MID = 42.0
+
+# ---------------------------------------------------------------------------
+# AUDIT C12 (BLOCK): PHASE64_BUDGET sec.2 lists FIVE components; this tool charged four.
+# scan-recurrence and SWA/attention were absent, and the headroom above the gate is ~2 ms.
+# Both are added here in sec.2's own parametric form.
+#
+#   scan-recur: t = 46 us * (Dn*N*L) / (512*96*6)      at t6, Dn = 2D
+#   SWA:        t = 65 us * (D/256) * n_swa            window LOCKED at 128
+#
+# Verified against the live engine today (DONOR_PROJ_RATE sec.10.1): at D=256/L=6 the E3.5 config
+# measures scan-recur 36.5 us and SWA-attn 48.5 us against sec.2's 46 and 65 -- the forms are the
+# engine's own and they reproduce.
+SCAN_US_ANCHOR = 46.0        # t6, at Dn=512 N=96 L=6
+SCAN_ANCHOR_DEN = 512 * 96 * 6
+SSM_STATE_N = 96             # Arch-A's SSM state width; a DESIGN VARIABLE for a converted donor
+SWA_US_ANCHOR = 65.0         # t6, per attention layer, at D=256, window 128
+SWA_WINDOW = 128
+# A RETAINED FULL-ATTENTION layer is NOT an SWA layer.  sec.2's 65 us prices a window-128 layer;
+# full attention over a context C reads/streams C/128 times as much.  Charging full attention at
+# SWA rates would understate it by ~256x at 32K.  The scaling below is a DECLARED LINEAR
+# EXTRAPOLATION over 256x and is NOT measured -- it is flagged wherever it is used.
+FULL_ATTN_IS_EXTRAPOLATED = True
+
+# ---------------------------------------------------------------------------
+# AUDIT F4 (BLOCK): converting an attention layer to SSM does NOT remove weights -- it ADDS them.
+# Arch-A's SSM block, from engine.c:205-208, with DN=2D, N=96, DTR=16, CONV=4:
+#     in_proj 2*DN*D | conv_w DN*CONV | conv_b DN | x_proj (DTR+2N)*DN | dt_proj DN*DTR
+#     dt_b DN | A DN*N | Dskip DN | out_proj D*DN
+# At D=1536 that is 15,160,320 weights/layer against attention's q+k+v+o = 5,505,024 -- 2.75x.
+# Under the tool's own P61/D9 map those SSM projections stay fp32 (Phase 61 double-fail), so a
+# converted layer costs ~+38.6 MB/token MORE than the attention layer it replaced.
+# The previous revision charged the conversion its BENEFITS (KV removed, scan instead of attention)
+# and NONE of its WEIGHTS.  Corrected here.
+SSM_DTR = 16
+SSM_CONV = 4
+
+
+def ssm_block_params(D, N=SSM_STATE_N):
+    DN = 2 * D
+    return (2 * DN * D + DN * SSM_CONV + DN + (SSM_DTR + 2 * N) * DN
+            + DN * SSM_DTR + DN + DN * N + DN + D * DN)
+
+
+# The glue term is DECLARED, NOT MEASURED (audit F8 item 3): 7 us at L=6 scaled linearly to models
+# 6x deeper.  Carried with a x2 interval so it cannot masquerade as a measured quantity.
+GLUE_INTERVAL_FACTOR = 2.0
 
 # rho-law granularity escape (mandate sec.2.2): bulk-contiguous >= ~48 KB chunks pay ~2.5x, not 14x.
 RHO_SAFE_CHUNK_KB = 48.0
@@ -104,25 +227,51 @@ MB = 1024.0**2
 KB = 1024.0
 
 
-def r_proj(size_bytes: float) -> tuple[float, float, bool]:
-    """(pessimistic GB/s, optimistic GB/s, is_extrapolated) for a fp32 GEMV of `size_bytes`.
+def r_proj(size_bytes: float, resident_ok: bool = False):
+    """(lo GB/s, hi GB/s, is_extrapolated, central GB/s) for a fp32 GEMV of `size_bytes`.
 
-    Optimistic = the sec.1b t6 curve interpolated at that size (best case: it stays resident
-    in aggregate L3).  Pessimistic = the fully-streamed floor.  Above the last measured point
-    (96 MB) BOTH ends sit in the 34-36 GB/s asymptote and the row is flagged extrapolated.
+    DEFAULT (resident_ok=False) is THE DONOR CASE and returns the STREAMED rate at every size.
+
+    DONOR_PROJ_RATE.md sec.5.1 measured this directly on eight real Qwen2.5-1.5B organs: once an
+    organ is streamed, SIZE AND SHAPE STOP MATTERING.  Skinny 256x1536 K/V, square 1536x1536 Q/O,
+    the 52.5 MB MLP slabs and the 890 MB head ALL land in 36.0-39.0 GB/s -- an 8% spread.  The
+    skinny-matrix and huge-head worries are falsified by measurement, not argued away.
+
+    The resident branch of the old curve (143-185 GB/s at 1.5-9 MB) is 4x MISLEADING for any
+    donor: a decode token walks >1 GB of weights, so no organ survives L3 from one layer to the
+    next.  Pricing a donor organ off the resident curve overstates it by ~4x.  resident_ok=True
+    exists only for an organ genuinely resident for the WHOLE token -- no donor organ is, and
+    nothing on the donor path sets it.
     """
     size_mb = size_bytes / MB
-    if size_mb > RCURVE_MB[-1]:
-        return RCURVE_ASYMPTOTE_LO, RCURVE_ASYMPTOTE_HI, True
+    extrap = size_mb > RCURVE_MB[-1]
+    if not resident_ok or size_mb >= RCURVE_MB[-1]:
+        # streamed: flat, measured, size-independent out to 1024 MB.
+        return PROJ_ORGAN_LO, PROJ_ORGAN_HI, extrap, PROJ_ASYMPTOTE_MEAS
     if size_mb <= RCURVE_MB[0]:
-        return min(PROJ_STREAMED_FLOOR, RCURVE_GBS[0]), RCURVE_GBS[0], False
+        return PROJ_ORGAN_LO, RCURVE_GBS[0], False, RCURVE_GBS[0]
     for i in range(1, len(RCURVE_MB)):
         if size_mb <= RCURVE_MB[i]:
             x0, x1 = RCURVE_MB[i - 1], RCURVE_MB[i]
             y0, y1 = RCURVE_GBS[i - 1], RCURVE_GBS[i]
             opt = y0 + (y1 - y0) * (size_mb - x0) / (x1 - x0)
-            return min(PROJ_STREAMED_FLOOR, opt), opt, False
+            return PROJ_ORGAN_LO, opt, False, opt
     raise AssertionError("unreachable")
+
+
+def _t(nbytes, rate_lo, rate_hi, rate_central=None):
+    """(slow us, fast us, central us) for `nbytes` against a rate bracket.
+
+    With no central rate the central TIME is the midpoint of the TIME interval -- the neutral
+    choice when the terms are about to be SUMMED.  Deliberately not the midpoint of the RATE
+    interval, which would silently favour the fast end.
+    """
+    if nbytes is None:
+        return None, None, None
+    t_slow = nbytes / (rate_lo * 1e9) * 1e6
+    t_fast = nbytes / (rate_hi * 1e9) * 1e6
+    t_ce = nbytes / (rate_central * 1e9) * 1e6 if rate_central else 0.5 * (t_slow + t_fast)
+    return t_slow, t_fast, t_ce
 
 
 # ---------------------------------------------------------------------------
@@ -639,36 +788,131 @@ def per_token_bytes(mats, ternary_organs):
     return out
 
 
-def time_model(ptb, meta, kv_b, glue_us):
-    """Return dict of per-token times (us) for the three columns."""
+def time_model(ptb, meta, kv_b, glue_us, n_att_override=None, attn_mode="full", attn_ctx=None,
+               conv_swap_bytes_per_layer=None):
+    """Per-token time as a CENTRAL ESTIMATE WITH A PROPAGATED INTERVAL.
+
+    WHAT CHANGED AND WHY (audit F1 / F8).  The previous revision reported a single
+    "MEASURED-ONLY" number built as
+
+        meas = t_proj_pess + t_lut_meas + glue + t_kv_pess
+
+    i.e. the PESSIMISTIC CORNER OF EVERY BRACKET SIMULTANEOUSLY -- proj at 34.0 (the low edge of an
+    asserted, never-measured [34-40]) and KV at 40.0 (the low edge of [40-44]).  A bracket was
+    silently collapsed to a point at its worst edge and that point was reported as a gate verdict.
+    It is the sole reason the tool said "zero donors pass".  A one-corner column is not a
+    conservative estimate, it is a different quantity, and it is withdrawn here.
+
+    Every term now carries (slow, fast, central).  The reported total is the sum of centrals; the
+    reported interval is (sum of slows, sum of fasts) -- fully-correlated worst case, which is
+    WIDER than a root-sum-square would be.  That is deliberate: the terms are not independent
+    (they share one memory system), so RSS would understate.
+    """
     calls = meta.get("expert_calls_per_token", 0)
     projsz = ptb["proj"] + ptb["head"] + ptb["other"]
-    r_lo, r_hi, extrap = r_proj(projsz)
-    t_proj_pess = projsz / (r_lo * 1e9) * 1e6
-    t_proj_opt = projsz / (r_hi * 1e9) * 1e6
-    t_kv_pess = (kv_b / (DRAM_AGG_LO * 1e9) * 1e6) if kv_b is not None else None
-    t_kv_opt = (kv_b / (DRAM_AGG_HI * 1e9) * 1e6) if kv_b is not None else None
-    t_lut_pess = ptb["lut"] / (LUT_GBS_PESS * 1e9) * 1e6 + calls * EXPERT_DISPATCH_US
-    t_lut_opt = ptb["lut"] / (LUT_GBS_OPT * 1e9) * 1e6 + calls * EXPERT_DISPATCH_US
-    # purely-measured column: each organ on the rate the engine actually measures for THAT organ,
-    # engine-integrated, no overhead fix assumed and no dispatch term added on top.
-    t_lut_meas = (ptb["lut_dense"] / (DENSE_LUT_GBS * 1e9) * 1e6
-                  + ptb["lut_moe"] / (LUT_GBS_PESS * 1e9) * 1e6)
+    # AUDIT F4: charge the weights the conversion ADDS.  n_conv layers lose their attention
+    # projections and gain an Arch-A SSM block, which is 2.75x larger at D=1536.
+    n_conv_layers = 0
+    if n_att_override is not None:
+        n_conv_layers = max(0, (meta.get("n_attn_layers", 0) or 0) - n_att_override)
+    if n_conv_layers and conv_swap_bytes_per_layer is not None:
+        projsz += n_conv_layers * conv_swap_bytes_per_layer
+
+    # --- proj+head: the whole per-token fp32 stream, on the DIRECTLY MEASURED donor-stream rate.
+    #     Not a curve lookup.  DONOR_PROJ_RATE.md sec.5.2 timed exactly this object.
+    t_proj = _t(projsz, PROJ_STREAM_LO, PROJ_STREAM_HI, PROJ_STREAM_MEAS)
+
+    # --- KV: measured aggregate DRAM stream, central = midpoint of the measured [40-44].
+    t_kv = _t(kv_b, DRAM_AGG_LO, DRAM_AGG_HI, DRAM_AGG_MID) if kv_b is not None else (None, None, None)
+
+    # --- ternary MLP / experts.  The bracket is now [engine-integrated .. kernel-pure at donor D]
+    #     and the two ends are DIFFERENT QUANTITIES (see the constants block).  The dispatch term
+    #     is added ONLY at the kernel-pure end: LUT_MOE_LO=4.2 is engine-integrated and already
+    #     contains it.  Adding it to both ends, as the previous revision did, double-counted.
+    d_slow, d_fast, d_ce = _t(ptb["lut_dense"], LUT_DENSE_LO, LUT_DENSE_HI)
+    m_slow, m_fast, m_ce = _t(ptb["lut_moe"], LUT_MOE_LO, LUT_MOE_HI)
+    disp = calls * EXPERT_DISPATCH_US
+    m_fast += disp
+    m_ce += 0.5 * disp
+    t_lut = (d_slow + m_slow, d_fast + m_fast, d_ce + m_ce)
+
+    # --- glue: DECLARED, not measured.  Carried with a x2 interval so it cannot pass for measured.
+    g_slow = glue_us * GLUE_INTERVAL_FACTOR
+    g_fast = glue_us / GLUE_INTERVAL_FACTOR
+    t_glue = (g_slow, g_fast, glue_us)
+
+    # --- AUDIT C12: the two components sec.2 lists and this tool used to omit.
+    D = meta["hidden_size"]
+    L = meta["n_layers"]
+    n_att = meta.get("n_attn_layers", 0) if n_att_override is None else n_att_override
+    n_ssm = max(0, L - n_att)
+    # scan-recurrence runs on every layer that is NOT attention (a converted donor's SSM layers)
+    t_scan_c = SCAN_US_ANCHOR * (2.0 * D * SSM_STATE_N * n_ssm) / SCAN_ANCHOR_DEN
+    t_scan = (t_scan_c * 2.0, t_scan_c / 2.0, t_scan_c)      # x2 interval: parametric, not measured
+    # attention on the retained layers
+    t_att = None
+    if attn_mode == "swa":
+        t_att_c = SWA_US_ANCHOR * (D / 256.0) * n_att
+    elif attn_mode == "full_swaScaled":
+        # DECLARED UPPER BOUND ONLY.  Linearly scaling sec.2's window-128 cost by ctx/128 is a 256x
+        # extrapolation at 32K and it overstates: the 65 us anchor contains per-layer fixed costs
+        # that do NOT scale with window length.  Kept so the bound is visible, never as an estimate.
+        span = max(1.0, (attn_ctx or 32768) / float(SWA_WINDOW))
+        t_att_c = SWA_US_ANCHOR * (D / 256.0) * n_att * span
+    else:
+        # retained FULL attention, first-principles COMPUTE model (a DESK MODEL, not measured).
+        # Per layer: QK^T then AV over the whole context = 2 passes x ctx x D MACs = 4*ctx*D flops.
+        # The KV *traffic* is already charged in the KV term, so this is the compute on top.
+        # Rate bracket: 19.2 GFLOP/s = the measured t6 proj-GEMV rate class (memory-bound floor,
+        # pessimistic here since attention has ~12x the arithmetic intensity of a batch-1 GEMV);
+        # 100 GFLOP/s = a realistic Zen2 t6 fp32 ceiling.  NEITHER IS MEASURED FOR THIS KERNEL.
+        c = attn_ctx or 32768
+        flops = 4.0 * c * D * n_att
+        t_att = (flops / 19.2e9 * 1e6, flops / 100.0e9 * 1e6, flops / 40.0e9 * 1e6)
+        t_att_c = t_att[2]
+    if attn_mode != "full":
+        t_att = (t_att_c * 2.0, t_att_c / 2.0, t_att_c)
+
+    def total(with_kv=True):
+        acc = [0.0, 0.0, 0.0]
+        parts = [t_proj, t_lut, t_glue, t_scan, t_att] + ([t_kv] if (with_kv and kv_b is not None) else [])
+        for pt in parts:
+            for i in range(3):
+                acc[i] += pt[i]
+        return acc
+
+    slow, fast, ce = total(True)
+    kslow, kfast, kce = total(False)
+
     res = {
-        "proj_rate_lo": r_lo, "proj_rate_hi": r_hi, "proj_rate_extrapolated": extrap,
-        "t_proj_us": (t_proj_pess, t_proj_opt),
-        "t_lut_us": (t_lut_pess, t_lut_opt),
-        "t_kv_us": (t_kv_pess, t_kv_opt),
-        "t_glue_us": glue_us,
+        # rate provenance, so a reader can see which measured constant priced this row
+        "proj_rate_lo": PROJ_STREAM_LO, "proj_rate_hi": PROJ_STREAM_HI,
+        "proj_rate_central": PROJ_STREAM_MEAS, "proj_rate_extrapolated": False,
+        "proj_rate_source": "DONOR_PROJ_RATE.md sec.5.2 measured donor stream",
+        "t_proj_us": t_proj, "t_lut_us": t_lut, "t_kv_us": t_kv, "t_glue_us": glue_us,
+        "t_scan_us": t_scan, "t_att_us": t_att, "n_att": n_att, "n_ssm": n_ssm,
+        "n_conv_layers": n_conv_layers,
+        "conv_swap_bytes_total": (n_conv_layers * conv_swap_bytes_per_layer
+                                  if conv_swap_bytes_per_layer else 0),
+        "attn_mode": attn_mode, "attn_extrapolated": (attn_mode != "swa"),
+        "t_glue_interval_us": t_glue,
+        # (slow, fast) retained under the old key names so existing readers do not silently break
+        "t_total_us": (slow, fast),
+        "t_total_central_us": ce,
+        "toks": (1e6 / slow, 1e6 / fast),
+        "toks_central": 1e6 / ce,
+        "toks_interval": (1e6 / slow, 1e6 / fast),
+        # KV-FREE column: isolates "was this donor eliminated SOLELY by its KV traffic?"
+        # Owner directive: a donor may NOT be eliminated only because full-native KV does not fit
+        # or stream -- that is what the recall tier absorbs.
+        "toks_kvfree_central": 1e6 / kce,
+        "toks_kvfree_interval": (1e6 / kslow, 1e6 / kfast),
+        "kv_unknown": kv_b is None,
     }
-    pess = t_proj_pess + t_lut_pess + glue_us + (t_kv_pess or 0.0)
-    opt = t_proj_opt + t_lut_opt + glue_us + (t_kv_opt or 0.0)
-    meas = t_proj_pess + t_lut_meas + glue_us + (t_kv_pess or 0.0)
-    res["t_total_us"] = (pess, opt)
-    res["t_measured_only_us"] = meas
-    res["toks"] = (1e6 / pess, 1e6 / opt)
-    res["toks_measured_only"] = 1e6 / meas
-    res["kv_unknown"] = kv_b is None
+    # The withdrawn column, kept under its old name ONLY so that anything still reading it gets
+    # the honest central value rather than the retired worst-corner number.
+    res["toks_measured_only"] = res["toks_central"]
+    res["t_measured_only_us"] = ce
     return res
 
 
@@ -680,6 +924,11 @@ def analyze_one(repo, cfg, meta_rec):
     except MissingConfigField as e:
         row.update(status="REFUSED", error=f"MissingConfigField: {e}")
         return row
+    # AUDIT F7 DEFECT, FIXED: the tool never read max_position_embeddings, so `OLMoE-1B-7B` -- a
+    # 4096-position model -- was scored at 32K and 128K, and `Nemotron-H-8B-Base-8K` (8K) at both.
+    # Read it, record provenance, and label every context figure against the donor's OWN capacity.
+    meta["native_ctx"] = R.opt("max_position_embeddings", "native context window",
+                               default=None, mark_partial=True)
     row["meta"] = meta
     row["partial"] = R.partial
     row["notes"] = R.notes
@@ -769,21 +1018,76 @@ def analyze_one(repo, cfg, meta_rec):
     glue = 7.0 * (meta["n_layers"] / 6.0)     # budget sec.2 "norms+glue ~7 us" at L=6, scaled
     row["glue_us"] = glue
 
+    # AUDIT F4: what ONE attention->SSM conversion costs in per-token weight BYTES.
+    # Under the P61/D9 map both attention and SSM projections are fp32 (Phase 61 double-fail),
+    # so this is a straight params*4 swap -- and it is POSITIVE: the SSM block is BIGGER.
+    _na = meta.get("n_attn_layers", 0) or 0
+    # NOTE: `mats` holds ONE Mat per organ with a `per_token` layer multiplicity, so the total must
+    # be formed with per_token before dividing by the layer count.  (Dividing the bare sum by _na
+    # divides by the layer count TWICE -- caught by the sanity check below.)
+    _attn_tot = sum(m.out * m.inn * m.per_token for m in mats if m.organ == "attn_proj")
+    _attn_pl = (_attn_tot / _na) if _na else 0.0
+    _ssm_pl = ssm_block_params(meta["hidden_size"])
+    row["conv_attn_params_per_layer"] = _attn_pl
+    row["conv_ssm_params_per_layer"] = _ssm_pl
+    row["conv_swap_bytes_per_layer"] = (_ssm_pl - _attn_pl) * B_FP32
+    row["conv_swap_ratio"] = (_ssm_pl / _attn_pl) if _attn_pl else None
+    # SANITY CHECK (fires loudly rather than silently mispricing): for a standard MHA/GQA layer the
+    # attention projections are q+k+v+o, which is between 2*D^2 (full MQA) and 4*D^2 (full MHA).
+    if _attn_pl and not (1.5 * meta["hidden_size"] ** 2 <= _attn_pl <= 4.5 * meta["hidden_size"] ** 2):
+        row["partial"].append(
+            f"conv swap: attention params/layer {_attn_pl:.0f} outside [1.5,4.5]*D^2 for "
+            f"D={meta['hidden_size']} -- the per-layer normalisation is suspect")
+
     row["time"] = {}
+    nat = meta.get("native_ctx")
     for ctx in CTX_POINTS:
-        kvb = row["kv"][f"{ctx}_fp16"]["bytes"]
-        row["time"][f"{ctx}_fp16"] = time_model(ptb_b, meta, kvb, glue)
-        kvb4 = row["kv"][f"{ctx}_4bit"]["bytes"]
-        row["time"][f"{ctx}_4bit"] = time_model(ptb_b, meta, kvb4, glue)
+        for lbl in ("fp16", "4bit"):
+            kvb = row["kv"][f"{ctx}_{lbl}"]["bytes"]
+            tm = time_model(ptb_b, meta, kvb, glue)
+            # A context beyond the donor's own max_position_embeddings is NOT natively servable:
+            # it needs RoPE extension (a quality cost under S4) or the recall tier.  Label it;
+            # do not price it as if the donor supported it.
+            tm["beyond_native"] = (nat is not None and ctx > nat)
+            tm["native_ctx"] = nat
+            row["time"][f"{ctx}_{lbl}"] = tm
     row["time"]["nokv"] = time_model(ptb_b, meta, 0.0, glue)
+    # SKU-A AS SEALED: 32K native attention, capped at whatever the donor natively supports, with
+    # the recall tier carrying anything beyond.  Owner directive: a donor may NOT be eliminated
+    # solely because full-native KV does not fit or stream.
+    ctx_eff = min(32768, nat) if nat else 32768
+    row["ctx_effective_skuA"] = ctx_eff
+    for lbl, bpe in (("fp16", B_FP16), ("4bit", 0.5)):
+        b, note = kv_bytes(meta, ctx_eff, bpe, cfg)
+        row["kv"][f"skuA_eff_{lbl}"] = {"bytes": b, "note": note, "ctx": ctx_eff}
+        # UNCONVERTED baseline: the donor as it ships -- full attention on every attention layer.
+        tm = time_model(ptb_b, meta, b, glue, attn_mode="full", attn_ctx=ctx_eff)
+        tm["beyond_native"] = False
+        tm["native_ctx"] = nat
+        row["time"][f"skuA_eff_{lbl}"] = tm
+        # CONVERTED: the actual proposal.  The sealed constraint is "attention on a MINORITY of
+        # layers", so n_att = L//2 is the most attention the contract permits; the rest become SSM
+        # layers, which pay scan-recurrence and hold NO KV.  Retained layers are WINDOWED (SWA-128),
+        # which is the only attention cost this engine has ever measured.
+        n_att_c = meta["n_layers"] // 2
+        n_orig = meta.get("n_attn_layers", 0) or 1
+        b_conv = (b / n_orig * n_att_c) if b is not None else None
+        tc = time_model(ptb_b, meta, b_conv, glue, n_att_override=n_att_c,
+                        attn_mode="swa", attn_ctx=ctx_eff,
+                        conv_swap_bytes_per_layer=row["conv_swap_bytes_per_layer"])
+        tc["beyond_native"] = False
+        tc["native_ctx"] = nat
+        tc["n_att_converted"] = n_att_c
+        row["time"][f"converted_{lbl}"] = tc
 
     # all-ternary sensitivity: projections would run the LUT kernel, which is NOT measured for
     # projection shapes.  Priced at the expert LUT bracket and labelled.
     lut_a = ptb_a["lut"] + ptb_a["proj"] + ptb_a["head"] + ptb_a["other"]
     calls = meta.get("expert_calls_per_token", 0)
+    # dispatch added ONLY at the kernel-pure end; LUT_MOE_LO is engine-integrated and contains it.
     row["time_all_ternary_nokv_us"] = (
-        lut_a / (LUT_GBS_PESS * 1e9) * 1e6 + calls * EXPERT_DISPATCH_US + glue,
-        lut_a / (LUT_GBS_OPT * 1e9) * 1e6 + calls * EXPERT_DISPATCH_US + glue,
+        lut_a / (LUT_MOE_LO * 1e9) * 1e6 + glue,
+        lut_a / (LUT_MOE_HI * 1e9) * 1e6 + calls * EXPERT_DISPATCH_US + glue,
     )
 
     # --- head alone
@@ -810,10 +1114,14 @@ def analyze_one(repo, cfg, meta_rec):
         row["rho_safe"] = eb / KB >= RHO_SAFE_CHUNK_KB
     # --- what binds: the dominant per-token term (P61/D9 map, no KV)
     t = row["time"]["nokv"]
-    terms = {"proj+head (fp32)": t["t_proj_us"][0], "ternary MLP/experts": t["t_lut_us"][0],
+    terms = {"proj+head (fp32)": t["t_proj_us"][2], "ternary MLP/experts": t["t_lut_us"][2],
              "glue": t["t_glue_us"]}
     row["dominant_term"] = max(terms, key=terms.get)
-    row["term_us_pess"] = terms
+    row["term_us_central"] = terms
+    row["term_us_pess"] = {k: v for k, v in
+                           (("proj+head (fp32)", t["t_proj_us"][0]),
+                            ("ternary MLP/experts", t["t_lut_us"][0]),
+                            ("glue", t["t_glue_interval_us"][0]))}
 
     # --- SKU verdicts.  SKU-A judged at its sealed native attention window (32K, S3);
     #     SKU-B at the sealed 128K native contract.
@@ -841,6 +1149,187 @@ def sku_verdict(row, budget_bytes, ctx, kv_label="fp16", precision="p61"):
     return tot, tot <= budget_bytes
 
 
+
+# ---------------------------------------------------------------------------
+# AUDIT C11 + C12: the 2x2 and the retained-attention curve.
+# Neither may be collapsed to a headline -- the whole point is that the verdict
+# lives in ONE CELL of a 2x2 and moves with a design variable.
+# ---------------------------------------------------------------------------
+def kv_per_attn_layer(row, ctx, kv_label):
+    """KV bytes for ONE attention layer, so converting layers to SSM removes their KV."""
+    n = row["meta"].get("n_attn_layers", 0)
+    b = row["kv"][f"{ctx}_{kv_label}"]["bytes"]
+    if b is None or not n:
+        return 0.0
+    return b / n
+
+
+def cmd_curve(args):
+    """tok/s as a function of the number of RETAINED ATTENTION LAYERS.
+
+    For a converted donor n_att is a DESIGN VARIABLE, not a constant: every layer not retained as
+    attention becomes an SSM layer (scan-recurrence) and, crucially, stops holding a KV cache.
+    Reporting one number at one assumed n_att hides exactly the trade the design has to make.
+    """
+    out = json.load(open(args.json_in))
+    ctx = args.ctx
+    for repo in (args.donor or ["Qwen/Qwen2.5-1.5B"]):
+        row = next((r for r in out["rows"] if r["repo"] == repo), None)
+        if row is None or row.get("status") in ("UNAVAILABLE", "REFUSED"):
+            print(f"{repo}: unavailable")
+            continue
+        m = row["meta"]
+        L = m["n_layers"]
+        ptb = row["per_token_bytes_p61"]
+        glue = row["glue_us"]
+        swap = row["conv_swap_bytes_per_layer"]
+        print(f"    AUDIT F4: each converted layer swaps "
+              f"{row['conv_attn_params_per_layer']/1e6:.2f}M attention params for "
+              f"{row['conv_ssm_params_per_layer']/1e6:.2f}M Arch-A SSM params "
+              f"({row['conv_swap_ratio']:.2f}x) = {swap/1e6:+.1f} MB/token EXTRA")
+        print("    fp32 weight traffic per converted layer. Conversion ADDS weight")
+        print("    bytes and REMOVES KV bytes -> there is a CROSSOVER in context.")
+        print(f"\n=== {repo}: tok/s vs RETAINED ATTENTION LAYERS  (D={m['hidden_size']} L={L} "
+              f"ctx={ctx}) ===")
+        print("    Every layer NOT retained becomes an SSM layer: it pays scan-recurrence instead of")
+        print("    attention, and it stops holding a KV cache.  Two pricings for a retained layer:")
+        print("      SWA-128  = the engine's measured windowed cost (sec.2: 65us * D/256 per layer)")
+        print("      FULL     = retained FULL attention, first-principles compute model:")
+        print("                 4*ctx*D flops/layer over a [19.2 .. 100] GFLOP/s bracket, central 40.")
+        print("                 A DESK MODEL -- this kernel has never been measured at donor ctx.")
+        print("                 (Scaling sec.2's window-128 cost by ctx/128 instead gives a 256x")
+        print("                  extrapolation and ~25x WORSE numbers; that is an upper bound, not")
+        print("                  an estimate, and is available as attn_mode=full_swaScaled.)")
+        print(f"    {'n_att':>5} {'n_ssm':>5} | {'SWA-128 central':>15} {'interval':>16} {'gate':>9}"
+              f" | {'FULL central':>13} {'interval':>16} {'gate':>9}")
+        for kvl in ("4bit", "fp16"):
+            print(f"  -- KV {kvl} --")
+            per = kv_per_attn_layer(row, ctx, kvl)
+            for n_att in range(0, L + 1, max(1, L // 14)):
+                cells = []
+                for mode in ("swa", "full"):
+                    t = time_model(ptb, m, per * n_att, glue, n_att_override=n_att,
+                                   attn_mode=mode, attn_ctx=ctx,
+                                   conv_swap_bytes_per_layer=swap)
+                    lo, hi = t["toks"]
+                    g = "PASS" if lo >= TOKS_GATE else ("STRADDLE" if t["toks_central"] >= TOKS_GATE else "FAIL")
+                    cells.append((t["toks_central"], lo, hi, g))
+                a, b = cells
+                print(f"    {n_att:5d} {L-n_att:5d} | {a[0]:15.2f} {a[1]:7.2f}..{a[2]:<7.2f} {a[3]:>9}"
+                      f" | {b[0]:13.2f} {b[1]:7.2f}..{b[2]:<7.2f} {b[3]:>9}")
+            # crossing points
+            for mode, label in (("swa", "SWA-128"), ("full", "FULL")):
+                cross = None
+                for n_att in range(0, L + 1):
+                    t = time_model(ptb, m, per * n_att, glue, n_att_override=n_att,
+                                   attn_mode=mode, attn_ctx=ctx,
+                                   conv_swap_bytes_per_layer=swap)
+                    if t["toks"][0] < TOKS_GATE:
+                        cross = n_att
+                        break
+                if cross is None:
+                    print(f"    -> {label}: lower bound clears 10 tok/s at EVERY n_att up to {L}")
+                elif cross == 0:
+                    print(f"    -> {label}: FAILS even at n_att=0 (all-SSM)")
+                else:
+                    print(f"    -> {label}: lower bound clears 10 tok/s for n_att <= {cross-1} "
+                          f"of {L}; FAILS from n_att={cross}")
+    return 0
+
+
+def cmd_grid(args):
+    """AUDIT C11: the 2x2 the headline was hiding.
+
+    {4-bit KV, fp16 KV} x {MLP as charged (retired 11.398), MLP measured at donor D}.
+    Three constants each flip this verdict; the one that got measured first was the smallest lever.
+    """
+    out = json.load(open(args.json_in))
+    ctx = args.ctx
+    for repo in (args.donor or ["Qwen/Qwen2.5-1.5B"]):
+        row = next((r for r in out["rows"] if r["repo"] == repo), None)
+        if row is None or row.get("status") in ("UNAVAILABLE", "REFUSED"):
+            continue
+        m = row["meta"]
+        ptb = row["per_token_bytes_p61"]
+        glue = row["glue_us"]
+        n_att = m.get("n_attn_layers", 0)
+        print(f"\n=== {repo}: THE 2x2 (ctx={ctx}, n_att={n_att} = unconverted, attention priced SWA-128) ===")
+        print("    proj held at the measured donor stream in every cell; only KV precision and the")
+        print("    MLP constant move.  4-bit KV DOES NOT EXIST in this engine; fp16 is what is built.")
+        print(f"    {'MLP constant':<38} {'KV':>6} {'central':>9} {'interval':>16} {'verdict':>10}")
+        for mlp_label, mlp_rate in (
+                ("RETIRED 11.398 (integrated D=256,", LUT_DENSE_RETIRED),
+                ("MEASURED 21.25 (integrated donor D)", LUT_DENSE_MEAS),
+                ("kernel-pure 27.64 (donor D, unreachable)", 27.64)):
+            for kvl in ("4bit", "fp16"):
+                kvb = row["kv"][f"{ctx}_{kvl}"]["bytes"]
+                g_lo, g_hi = LUT_DENSE_LO, LUT_DENSE_HI
+                globals()["LUT_DENSE_LO"] = mlp_rate
+                globals()["LUT_DENSE_HI"] = mlp_rate
+                t = time_model(ptb, m, kvb, glue, n_att_override=n_att,
+                               attn_mode="swa", attn_ctx=ctx)
+                globals()["LUT_DENSE_LO"], globals()["LUT_DENSE_HI"] = g_lo, g_hi
+                lo, hi = t["toks"]
+                v = "PASS" if lo >= TOKS_GATE else ("STRADDLE" if t["toks_central"] >= TOKS_GATE else "FAIL")
+                print(f"    {mlp_label:<38} {kvl:>6} {t['toks_central']:9.2f} "
+                      f"{lo:7.2f}..{hi:<7.2f} {v:>10}")
+        print("    (row 3 is shown only to bound the cell -- kernel-pure is not reachable by an engine)")
+    return 0
+
+
+
+def cmd_ctxsweep(args):
+    """AUDIT F4 follow-up: tok/s vs CONTEXT at fixed n_att, and the conversion crossover.
+
+    attention->SSM trades a per-token WEIGHT cost that is CONSTANT in context for a KV traffic
+    cost that GROWS with context.  So there is a crossover length, and BELOW IT THE CONVERSION
+    MAKES THE MODEL SLOWER.  Reporting a single tok/s at one context hides the whole argument.
+    """
+    out = json.load(open(args.json_in))
+    ctxs = [1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144]
+    for repo in (args.donor or ["Qwen/Qwen2.5-1.5B"]):
+        row = next((r for r in out["rows"] if r["repo"] == repo), None)
+        if row is None or row.get("status") in ("UNAVAILABLE", "REFUSED"):
+            continue
+        m = row["meta"]; ptb = row["per_token_bytes_p61"]; glue = row["glue_us"]
+        L = m["n_layers"]; na = m.get("n_attn_layers", 0) or 1
+        swap = row["conv_swap_bytes_per_layer"]
+        print("")
+        print(f"=== {repo}: tok/s vs CONTEXT, and the attention->SSM crossover ===")
+        print(f"    Each converted layer ADDS {swap/1e6:+.1f} MB/token of fp32 weight traffic "
+              f"(constant in ctx)")
+        print(f"    and REMOVES that layer's KV traffic (grows linearly in ctx). Retained attention")
+        print("    is priced WINDOWED (SWA-128), the only attention cost this engine has measured.")
+        for kvl in ("4bit", "fp16"):
+            print(f"  -- KV {kvl} --")
+            print(f"    {'ctx':>7} | {'unconverted':>11} {'half (n=L/2)':>13} {'all-SSM':>9} | winner")
+            prev = None
+            cross = None
+            for c in ctxs:
+                b, _ = kv_bytes(m, c, B_FP16 if kvl == "fp16" else 0.5, {})
+                if b is None:
+                    continue
+                vals = []
+                for n_att in (na, L // 2, 0):
+                    t = time_model(ptb, m, b / na * n_att, glue, n_att_override=n_att,
+                                   attn_mode="swa", attn_ctx=c,
+                                   conv_swap_bytes_per_layer=swap)
+                    vals.append(t["toks_central"])
+                w = "unconverted" if vals[0] >= max(vals[1:]) else ("all-SSM" if vals[2] >= vals[1] else "half")
+                if prev is not None and prev == "unconverted" and w != "unconverted" and cross is None:
+                    cross = c
+                prev = w
+                print(f"    {c:>7} | {vals[0]:11.2f} {vals[1]:13.2f} {vals[2]:9.2f} | {w}")
+            if cross:
+                print(f"    -> CROSSOVER at ctx ~= {cross}: below it converting is a LOSS, above it a win.")
+            elif prev == "unconverted":
+                print(f"    -> NO CROSSOVER inside {ctxs[0]}..{ctxs[-1]}: converting is a LOSS at every")
+                print("       context tested.  The SSM block's extra weight bytes never pay for themselves.")
+            else:
+                print(f"    -> converting already wins at ctx={ctxs[0]}; crossover is below the swept range.")
+    return 0
+
+
 def cmd_analyze(args):
     man = json.load(open(os.path.join(CFG_DIR, "_manifest.json")))
     rows = []
@@ -857,14 +1346,31 @@ def cmd_analyze(args):
         "python": sys.version.split()[0],
         "platform": platform.platform(),
         "rate_constants": {
-            "source": "docs/PHASE64_BUDGET.md sec.1 / sec.1b (measured, 3600X reference)",
+            "source": "docs/research/DONOR_PROJ_RATE.md (measured 2026-08-20, 3600X) + "
+                      "docs/PHASE64_BUDGET.md sec.1 (DRAM aggregate)",
+            "proj_donor_stream_gbs": [PROJ_STREAM_LO, PROJ_STREAM_MEAS, PROJ_STREAM_HI],
+            "proj_donor_stream_note": "DONOR_PROJ_RATE sec.5.2: 28x(q,k,v,o)+head in layer order, "
+                                      "1550057472 B/token, 37.74 +/- 0.18 GB/s = 41.07 ms/token",
+            "proj_organ_asymptote_gbs": [PROJ_ORGAN_LO, PROJ_ASYMPTOTE_MEAS, PROJ_ORGAN_HI],
+            "proj_organ_asymptote_note": "DONOR_PROJ_RATE sec.4: 38.84 +/- 0.68 over 36 "
+                                         "measurements, flat 64 MB -> 1024 MB",
+            "proj_retired_floor": PROJ_STREAMED_FLOOR_RETIRED,
             "rcurve_mb": RCURVE_MB, "rcurve_gbs": RCURVE_GBS,
-            "rcurve_asymptote": [RCURVE_ASYMPTOTE_LO, RCURVE_ASYMPTOTE_HI],
-            "lut_gbs_moe_integrated": LUT_GBS_PESS, "lut_gbs_kernel_pure": LUT_GBS_OPT,
-            "lut_gbs_dense_integrated": DENSE_LUT_GBS,
+            "rcurve_mb_published": RCURVE_MB_PUBLISHED,
+            "rcurve_gbs_published": RCURVE_GBS_PUBLISHED,
+            "lut_dense_gbs": [LUT_DENSE_LO, LUT_DENSE_HI],
+            "lut_dense_note": "LOW = engine-integrated at D=256; HIGH = kernel-pure at donor D. "
+                              "DIFFERENT QUANTITIES; the integrated donor rate is UNMEASURED and "
+                              "lies somewhere between.",
+            "lut_moe_gbs": [LUT_MOE_LO, LUT_MOE_HI],
             "expert_dispatch_us": EXPERT_DISPATCH_US,
-            "dram_aggregate_gbs": [DRAM_AGG_LO, DRAM_AGG_HI],
+            "expert_dispatch_note": "added ONLY at the kernel-pure end; the 4.2 end already "
+                                    "contains it (previous revision double-counted)",
+            "dram_aggregate_gbs": [DRAM_AGG_LO, DRAM_AGG_MID, DRAM_AGG_HI],
+            "glue_interval_factor": GLUE_INTERVAL_FACTOR,
             "os_margin_bytes": OS_MARGIN_BYTES,
+            "bracket_policy": "central estimate + fully-correlated interval. The single-corner "
+                              "MEASURED-ONLY column (audit F1) is WITHDRAWN.",
         },
         "manifest": man,
         "rows": rows,
@@ -1015,25 +1521,51 @@ def md_tables(out, path):
         p = r["per_token_bytes_p61"]
         W(f"| `{r['repo']}` | {r['active_params_per_token']/1e6:.0f}M | "
           f"{fmt_b(p['proj']+p['head']+p['other'])} | "
-          f"{t['proj_rate_lo']:.0f}–{t['proj_rate_hi']:.0f}{'*' if t['proj_rate_extrapolated'] else ''} | "
+          f"{t['proj_rate_central']:.2f} | "
           f"{fmt_b(p['lut_dense'])} | {fmt_b(p['lut_moe'])} | {r['meta'].get('expert_calls_per_token',0)} | "
-          f"{t['toks'][0]:.2f} | {t['toks'][1]:.2f} | **{t['toks_measured_only']:.2f}** |")
-    W("\n`*` = above the last measured point of the §1b curve (96 MB): the 34–36 GB/s asymptote, an **extrapolation**.\n")
+          f"{t['toks'][0]:.2f} | {t['toks'][1]:.2f} | **{t['toks_central']:.2f}** |")
+    W("\nProjection rate is no longer a curve lookup. Every donor is priced on the **measured donor "
+      "stream, 37.74 ± 0.18 GB/s** (`DONOR_PROJ_RATE.md` §5.2) — the whole per-token proj+head "
+      "traffic timed in layer order, which is the same object this term models. The retired 34.0 "
+      "floor was never measured and is 11% below it.\n")
 
     W("\n### T6 — tok/s including KV-cache read traffic, vs the sealed ≥10 tok/s gate\n")
-    W("| donor | 4K pess..opt (meas-only) | 32K pess..opt (meas-only) | 128K pess..opt (meas-only) | gate @32K | gate @128K |")
-    W("|---|---|---|---|---|---|")
+    W("Reported as **central [interval]**. The single-corner \"MEASURED-ONLY\" column is **withdrawn** "
+      "(audit F1): it took the pessimistic edge of every bracket at once and that is what produced "
+      "\"zero donors pass\". `nat` = the donor's own `max_position_embeddings`; a context beyond it is "
+      "marked `>nat` and is **not natively servable** without RoPE extension or the recall tier.\n")
+    W("| donor | nat ctx | 32K central [lo..hi] | 128K central [lo..hi] | UNCONVERTED | **CONVERTED** central [lo..hi] | gate | KV-free |")
+    W("|---|---|---|---|---|---|---|---|")
     for r in rows:
-        cs = []
-        for ctx in CTX_POINTS:
+        m = r["meta"]
+        nat = m.get("native_ctx")
+        cells = []
+        for ctx in (32768, 131072):
             t = r["time"][f"{ctx}_4bit"]
-            cs.append(f"{t['toks'][0]:.2f}..{t['toks'][1]:.2f} ({t['toks_measured_only']:.2f})")
-        g32 = r["time"]["32768_4bit"]["toks_measured_only"] >= TOKS_GATE
-        g128 = r["time"]["131072_4bit"]["toks_measured_only"] >= TOKS_GATE
-        W(f"| `{r['repo']}` | " + " | ".join(cs) +
-          f" | {'PASS' if g32 else '**FAIL**'} | {'PASS' if g128 else '**FAIL**'} |")
-    W("\nKV priced at the measured aggregate DRAM stream [40–44 GB/s]; 4-bit KV assumed, which is the "
-      "most favourable of the two KV precisions asked for.\n")
+            mark = " `>nat`" if t.get("beyond_native") else ""
+            cells.append(f"{t['toks_central']:.2f} [{t['toks'][0]:.2f}..{t['toks'][1]:.2f}]{mark}")
+        te = r["time"]["converted_4bit"]
+        tu = r["time"]["skuA_eff_4bit"]
+        gate = te["toks_central"] >= TOKS_GATE
+        gate_lo = te["toks"][0] >= TOKS_GATE
+        if gate and gate_lo:
+            gstr = "**PASS**"
+        elif gate:
+            gstr = "**STRADDLE**"
+        elif te["toks_kvfree_central"] >= TOKS_GATE:
+            gstr = "FAIL (KV-only)"
+        else:
+            gstr = "**FAIL**"
+        W(f"| `{r['repo']}` | {nat if nat else '?'} | " + " | ".join(cells) +
+          f" | {tu['toks_central']:.2f} | {te['toks_central']:.2f} "
+          f"[{te['toks'][0]:.2f}..{te['toks'][1]:.2f}] | {gstr} | {te['toks_kvfree_central']:.2f} |")
+    W("\nKV priced at the measured aggregate DRAM stream [40–44 GB/s], central 42; 4-bit KV assumed, "
+      "which **does not exist in this engine** (audit F8) — see the fp16 column in the arithmetic doc.\n")
+    W("**`gate @SKU-A` reads PASS only when the LOWER BOUND clears 10 tok/s.** A central estimate on "
+      "the right side of a gate whose interval straddles it is reported as straddling, not as a pass.\n")
+    W("**KV-free central** isolates the owner's directive: a donor may **not** be eliminated solely "
+      "because full-native KV does not fit or stream — that is what the recall tier absorbs. Any donor "
+      "failing the gate on KV but clearing it KV-free is a *recall-tier* question, not an elimination.\n")
 
     W("\n### T7 — head alone (mandate §5's named first-class problem)\n")
     W("| donor | V | head bytes fp32 | ms/token fp32 | head bytes ternary | ms/token ternary (LUT bracket) | head share of the fp32 per-token stream |")
@@ -1043,7 +1575,7 @@ def md_tables(out, path):
         p = r["per_token_bytes_p61"]
         share = h["bytes_fp32"] / (p["proj"] + p["head"] + p["other"]) * 100
         W(f"| `{r['repo']}` | {r['meta']['vocab']} | {fmt_b(h['bytes_fp32'])} | "
-          f"{h['ms_fp32'][1]:.1f}–{h['ms_fp32'][0]:.1f}{'*' if h['fp32_rate_extrapolated'] else ''} | "
+          f"{h['ms_fp32'][1]:.1f}–{h['ms_fp32'][0]:.1f} | "
           f"{fmt_b(h['bytes_ternary'])} | {h['ms_ternary_lut'][1]:.1f}–{h['ms_ternary_lut'][0]:.1f} | {share:.0f}% |")
 
     W("\n### T8 — MoE granularity vs the ρ-safe 48 KB chunk\n")
@@ -1075,24 +1607,38 @@ def md_tables(out, path):
 def shortlist(out):
     for sku, ctx, budget in (("SKU-A 16GB", 32768, SKU_A_BYTES), ("SKU-B 64GB", 131072, SKU_B_BYTES)):
         print(f"\n\n=== RANKED: {sku}, native attention window {ctx}, 4-bit KV, "
-              f"all-ternary footprint map (most permissive) + P61/D9 time model (the only map with a measured rate) ===")
-        print(f"{'donor':44s} {'RAM':>9s} {'fit':>5s} {'tok/s pess..opt':>18s} {'meas-only':>10s} "
-              f"{'gate':>6s}  binding")
+              f"all-ternary footprint map (most permissive) + P61/D9 time model ===")
+        print("    tok/s = CENTRAL [lo..hi]. gate PASS requires the LOWER BOUND >= 10.")
+        print("    'kvfree' = same model with the KV term removed: a donor that clears the gate")
+        print("    there but not with KV is a RECALL-TIER question, not an elimination (owner directive).")
+        print(f"{'donor':40s} {'RAM':>9s} {'fit':>5s} {'nat':>7s} {'central':>8s} {'lo..hi':>16s} "
+              f"{'kvfree':>8s} {'gate':>18s}  binding")
         cand = []
         for r in out["rows"]:
             if r["status"] in ("UNAVAILABLE", "REFUSED"):
                 continue
             k = f"{'A_16GB@32K' if budget==SKU_A_BYTES else 'B_64GB@128K'}|all_ternary|kv4bit"
             v = r["sku"].get(k, {})
-            t = r["time"][f"{ctx}_4bit"]
-            cand.append((t["toks"][1], r, v, t))
+            key = "converted_4bit" if budget == SKU_A_BYTES else f"{ctx}_4bit"
+            t = r["time"][key]
+            cand.append((t["toks_central"], r, v, t))
         for score, r, v, t in sorted(cand, key=lambda x: -x[0]):
             fits = v.get("fits")
-            gate = "PASS" if (t["toks"][1] >= TOKS_GATE and fits) else "FAIL"
-            print(f"{r['repo']:44s} {fmt_b(v.get('bytes')):>9s} "
+            nat = r["meta"].get("native_ctx")
+            lo, hi = t["toks"]
+            if lo >= TOKS_GATE:
+                gate = "PASS" if fits else "PASS(over RAM)"
+            elif t["toks_central"] >= TOKS_GATE:
+                gate = "STRADDLE"
+            elif t["toks_kvfree_central"] >= TOKS_GATE:
+                gate = "FAIL(KV-only)"
+            else:
+                gate = "FAIL"
+            print(f"{r['repo']:40s} {fmt_b(v.get('bytes')):>9s} "
                   f"{('FIT' if fits else 'OVER') if fits is not None else 'UNK':>5s} "
-                  f"{t['toks'][0]:8.2f}..{t['toks'][1]:<8.2f} {t['toks_measured_only']:10.2f} "
-                  f"{gate:>6s}  {r['dominant_term']}"
+                  f"{(str(nat) if nat else '?'):>7s} {t['toks_central']:8.2f} "
+                  f"{lo:7.2f}..{hi:<7.2f} {t['toks_kvfree_central']:8.2f} "
+                  f"{gate:>18s}  {r['dominant_term']}"
                   f"{'  [' + r['status'] + ']' if r['status'] != 'OK' else ''}")
 
 
@@ -1205,6 +1751,69 @@ def _control_body():
         except Exception as e:
             print(f"     removed '{k}' -> {type(e).__name__}: {e}  <<< C3 FAIL (unnamed error)")
             ok = False
+    print("")
+    print("[C4] rev-C terms: scan-recurrence, attention, and the attention->SSM weight swap")
+    print("     Project law 6.3: a term is untrusted until its guard is shown to FIRE and to STAY")
+    print("     SILENT.  rev C added three terms and shipped none of these; added here.")
+    cfg = sandbox_cfg()
+    R = Reader(cfg); mats, meta = build_matrices(R)
+    ptb = per_token_bytes(mats, TERNARY_MAP_B)
+    D = meta["hidden_size"]; L = meta["n_layers"]; na = meta.get("n_attn_layers", 0)
+    attn_tot = sum(m.out * m.inn * m.per_token for m in mats if m.organ == "attn_proj")
+    attn_pl = attn_tot / na if na else 0.0
+    swap = (ssm_block_params(D) - attn_pl) * B_FP32
+
+    def T(n_att, sw=None, mode="swa"):
+        return time_model(ptb, meta, 0.0, 0.0, n_att_override=n_att, attn_mode=mode,
+                          attn_ctx=32768, conv_swap_bytes_per_layer=sw)
+
+    # --- C4a scan term: zero when nothing is converted, exact when one layer is ---
+    t_all = T(L); t_one = T(L - 1)
+    unit = SCAN_US_ANCHOR * (2.0 * D * SSM_STATE_N) / SCAN_ANCHOR_DEN
+    ok4 = True
+    print(f"     C4a NEGATIVE: n_att=L={L} -> scan = {t_all['t_scan_us'][2]:.6f} us "
+          f"-> {'silent (exactly 0)' if t_all['t_scan_us'][2] == 0.0 else '** FIRED WRONGLY **'}")
+    if t_all["t_scan_us"][2] != 0.0:
+        ok4 = False
+    d = t_one["t_scan_us"][2] - t_all["t_scan_us"][2]
+    print(f"     C4b POSITIVE: n_att=L-1 -> scan moved {d:+.6f} us, predicted {unit:+.6f} "
+          f"-> {'FIRES at exactly the predicted size' if abs(d - unit) < 1e-9 else '** WRONG SIZE **'}")
+    if abs(d - unit) >= 1e-9:
+        ok4 = False
+
+    # --- C4c attention term: zero at n_att=0, exact per-layer step ---
+    t0 = T(0); t1 = T(1)
+    unit_a = SWA_US_ANCHOR * (D / 256.0)
+    print(f"     C4c NEGATIVE: n_att=0 -> attention = {t0['t_att_us'][2]:.6f} us "
+          f"-> {'silent (exactly 0)' if t0['t_att_us'][2] == 0.0 else '** FIRED WRONGLY **'}")
+    if t0["t_att_us"][2] != 0.0:
+        ok4 = False
+    da = t1["t_att_us"][2] - t0["t_att_us"][2]
+    print(f"     C4d POSITIVE: n_att=1 -> attention moved {da:+.6f} us, predicted {unit_a:+.6f} "
+          f"-> {'FIRES at exactly the predicted size' if abs(da - unit_a) < 1e-9 else '** WRONG SIZE **'}")
+    if abs(da - unit_a) >= 1e-9:
+        ok4 = False
+
+    # --- C4e SSM weight swap (the audit F4 term): 0 when nothing converts, exact when one does ---
+    n0 = T(na, swap); n1 = T(na - 1, swap)
+    print(f"     C4e NEGATIVE: n_att=n_attn_layers={na} -> swap charged "
+          f"{n0['conv_swap_bytes_total']:.0f} B "
+          f"-> {'silent (exactly 0)' if n0['conv_swap_bytes_total'] == 0 else '** FIRED WRONGLY **'}")
+    if n0["conv_swap_bytes_total"] != 0:
+        ok4 = False
+    db = n1["conv_swap_bytes_total"] - n0["conv_swap_bytes_total"]
+    print(f"     C4f POSITIVE: one layer converted -> swap charged {db:+.0f} B, predicted "
+          f"{swap:+.0f} -> {'FIRES at exactly the predicted size' if abs(db - swap) < 1.0 else '** WRONG SIZE **'}")
+    if abs(db - swap) >= 1.0:
+        ok4 = False
+    print(f"     C4g DIRECTION: the swap must be POSITIVE (SSM block is bigger than attention): "
+          f"{swap:+.0f} B -> {'correct sign' if swap > 0 else '** WRONG SIGN **'}")
+    if swap <= 0:
+        ok4 = False
+    print("     C4 " + ("PASS -- all three rev-C terms fire and stay silent as required" if ok4 else "FAIL"))
+    if not ok4:
+        ok = False
+
     # must-pass direction: the unperturbed config must NOT raise
     try:
         control_streamed_bytes(sandbox_cfg())
@@ -1284,6 +1893,17 @@ def main() -> int:
     d.add_argument("--md-out", default=os.path.join(HERE, "tables.md"))
     d.add_argument("--control-log", default=os.path.join(HERE, "control.log"))
     d.add_argument("--doc", default=DOC)
+    cu = sub.add_parser("curve", help="tok/s vs retained attention layers (audit C12)")
+    cu.add_argument("--json-in", default=os.path.join(HERE, "inventory.json"))
+    cu.add_argument("--ctx", type=int, default=32768)
+    cu.add_argument("--donor", nargs="*")
+    gr = sub.add_parser("grid", help="the 2x2 of KV precision x MLP constant (audit C11)")
+    gr.add_argument("--json-in", default=os.path.join(HERE, "inventory.json"))
+    gr.add_argument("--ctx", type=int, default=32768)
+    gr.add_argument("--donor", nargs="*")
+    cs = sub.add_parser("ctxsweep", help="tok/s vs context + the conversion crossover (audit F4)")
+    cs.add_argument("--json-in", default=os.path.join(HERE, "inventory.json"))
+    cs.add_argument("--donor", nargs="*")
     args = p.parse_args()
     if args.cmd == "fetch":
         return cmd_fetch(args)
@@ -1293,6 +1913,12 @@ def main() -> int:
         return cmd_control(args)
     if args.cmd == "doc":
         return cmd_doc(args)
+    if args.cmd == "curve":
+        return cmd_curve(args)
+    if args.cmd == "grid":
+        return cmd_grid(args)
+    if args.cmd == "ctxsweep":
+        return cmd_ctxsweep(args)
     return 2
 
 

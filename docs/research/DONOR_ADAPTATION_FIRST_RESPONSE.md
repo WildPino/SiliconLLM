@@ -418,8 +418,13 @@ the pre-registration to be reviewed, not a runnable plan.
 
 ### 3.1 Why this shape
 
-Stage −1 asks one question: *is calibration-only ternary PTQ within reach of a usable donor at all?* It
-runs before any engine work because a clear failure makes the ternary-primary route moot.
+Stage −1 runs before any engine work because it is the cheapest thing that can redirect the programme.
+
+**Scope, corrected — I twice wrote that a failure makes the ternary route "moot" or "very probably dead".
+That over-reads what this stage can show**, and contradicted my own §3.6 and §3.9. Consistent with the
+mandate's deliberately narrow wording: **a failure here is evidence against *this bounded method*, at
+*this* bit-width, on *this* donor, at *this* scale** — not a claim about all possible PTQ. That is the
+whole of what stage −1 licenses.
 
 ### 3.2 Donor — SEALED
 
@@ -456,19 +461,79 @@ cited*, since no paper covers it; but it is now the expected-bad end of a curve,
 dependency set and numerical tolerance are fixed in writing; and the Controller re-reviews §3 after its
 7-BLOCK rebuild.
 
+### 3.3b PRINCIPAL DECISIONS after the artefact build (2026-08-20)
+
+Two calls I owe, both forced by facts read out of code rather than from prose:
+
+**Decision 1 — the five-point sweep CANNOT be run with PT²-LLM, and the stage splits into two arms.**
+`quantize.py@9e943e6` restricts `low_quant_method` to `['atq','atq-itf','atq-aga','ternary-init','fp16']`.
+**There is no 4/3/2-bit path: the method is ternary-only.** So §3.4's "one variable, five points" is not
+merely under-specified (B7) — it is **unimplementable with this method**, and any 4/3/2-bit point would
+silently be *a different method*, which is the exact defect B7 names. Confirmed from the implementation,
+not inferred.
+
+> **Ruling: two arms, separated, each internally one-variable.**
+> **Arm A — the SOTA ternary point.** PT²-LLM at ternary, anchored to publication by control 1b. Answers:
+> *does the best verified closed-form ternary method work at 1.5B?* — the regime no paper covers.
+> **Arm B — the knee.** A bit-width sweep (4/3/2) within a **single** family that genuinely spans them
+> (QuaRot/GPTQ class). Answers: *where does a rotation-PTQ family break?*
+> They answer different questions and are **never combined into one curve**. Arm A is not a point on
+> Arm B's curve, and reporting them as one would manufacture the confound B7 warned about.
+
+**Decision 2 — control 1b re-anchored, and the gate is respected.** PT²-LLM's published models are
+LLaMA-2, which is **gated (`gated: manual`, HTTP 401)**. An `HF_TOKEN` exists in the environment and the
+Builder **did not use it**, and did not take an ungated mirror — correct on both counts.
+
+> **Ratified: re-anchor control 1b to `huggyllama/llama-7b` @ `4782ad27…`, verified `gated: false`.**
+> This is **a different row of the same table, in the same paper, at the same bit-width** (fp16 5.68 →
+> W1.58 11.39), so control 1b remains a genuine published-number reproduction and
+> **UNVALIDATED-AGAINST-PUBLICATION is not triggered.** Ungated LLaMA-2 mirrors exist; they are recorded
+> and **not used** — that is a licence question for the Owner, not a shortcut for me.
+
+**Two facts from the build that change numbers elsewhere:**
+1. **PT²-LLM does *fake* quantization** — dense floats, never a packed format. So "ternary" here is
+   **1.835 bits/weight at fp16 scales, 2.085 at fp32**, not 1.58. **Any footprint arithmetic quoting
+   0.5 B/weight from this method is wrong**, and §2/§4's inventories must use the effective figure.
+2. **B is measured at 4.334, not 4.0** — and **LLaMA's tokenizer gives 3.7965 on the same bytes, 14.2%
+   apart.** The anchor table was never a single-B object. Tokenizer-corrected, **the Qwen row is 0.316,
+   not 0.342 — mid-pack, not second-worst.** Cutting Δ\* still stands on the "unattributable" argument,
+   but **the specific number the reviewer and I both argued from was off by 8%**, and I record that
+   rather than let a convenient error stand.
+
 ### 3.4 The swept variable — bit-width; the deliverable is a curve
 
-**fp16 baseline → 4-bit → 3-bit → 2-bit → ternary (1.58-bit)**, identical apparatus, calibration and eval.
-One variable, five points. A single ternary pass answers PASS/FAIL; the curve answers the question the
-Owner will actually ask if it fails — *which bit-width would the engine have to grow to?*
+**bf16 baseline → 4-bit → 3-bit → 2-bit → ternary (1.58-bit)**, identical apparatus, calibration and eval.
+
+*(Corrected: this said "fp16", contradicting §3.8's bf16 device policy. The **published anchors are
+fp16**, so every anchor comparison must state which side is which — see §3.6.)*
+
+**"One variable, five points" was an overstatement and §3.7b already contradicts it.** The five points are
+one variable **only if** the implementation uses the same algorithm at each — group size, quantizer class
+and outlier policy commonly change between 4-bit and 2-bit. §3.7b's per-point config table, held-constant
+group size and outlier policy, and reported effective bits/weight are what *make* it one variable; absent
+those it is a five-point comparison of five methods.
+
+**The deliverable is the curve and its knee (§3.6 B), not a pass/fail.** The route kill line (§3.6 A)
+exists only to stop the route if the apparatus is broken or the scale is hopeless. And the curve does
+**not** by itself answer "which bit-width would the engine have to grow to" — that is an engine-design
+question involving kernel rates, footprint and S4 retention, none of which stage −1 measures. It supplies
+**one input** to that decision.
 
 ### 3.5 Calibration corpus — SEALED
 
-512 × 2048 tokens ≈ **1.05M tokens**, **globally shuffled, never in file order** (measured law: blocked
-sampling order cost +0.0339 BPB = 6.8 σ_seed at identical data — order alone did it). Composition mixed,
-not code-only (§8.L.1: a code-only set is a plausible way to silently destroy the general capability S4
-measures). Pinned by content hash; manifest committed, **corpus never committed**. Decontaminated against
-the eval slice and the pinned P62 code-val.
+**Globally shuffled, never in file order** (measured law: blocked sampling order cost +0.0339 BPB =
+6.8 σ_seed at identical data, tokens and steps — order alone did it). Not code-only (§8.L.1: a code-only
+set is a plausible way to silently destroy the general capability S4 measures). Pinned by content hash;
+manifest committed, **corpus never committed**. Decontaminated against the eval slice and the pinned
+P62 code-val.
+
+> **F2, honestly labelled: "composition mixed" is NOT a specification, and my v4 claim that this section
+> had been fixed was false — it was unchanged.** Exact sources, proportions, sampling procedure and seed
+> are pinned in `benchmarks/donor_adaptation/stage_minus1/prereg.yaml`, not here.
+>
+> **F1: the sample count is not 512×2048 by default.** The anchor arm runs at **the paper's 128 samples**,
+> because control 1a's whole value is comparability with a published number. Any larger calibration set is
+> a *separately declared arm*, never the silent default.
 **Sensitivity arm (§8.L.2):** the ternary point repeated on a **second disjoint calibration set**. If they
 differ by more than harness σ, the set is load-bearing and every future number carries its hash.
 
@@ -495,13 +560,74 @@ they are the exact failure this project's anti-Goodhart law exists to prevent.
 Metric: **ΔBPB = BPB_converted − BPB_donor**, in excess bits per byte, on a slice pinned before anything
 is scored. Absolute donor and converted BPB always both reported alongside the delta.
 
-> **GATE: stage −1 PASSES at a given bit-width iff ΔBPB ≤ 0.10 bits/byte,**
-> **FAILS iff ΔBPB ≥ 0.10 + 2·SE, and is INCONCLUSIVE in between.**
+**v3's replacement gate was ALSO wrong, in a worse way, and this is the third rewrite.** Controller
+re-review found that I justified Δ\* = 0.10 as *"~3.5× above the candidate method's own published Δ
+(≈0.028)"* — and **that 0.028 was computed from the fabricated 1.08× ratio that §3.3 retracts three
+paragraphs earlier in the same document.** I struck the number and then used it to set the gate.
 
-Why absolute: it cannot be moved by slice choice, which closes B1 at the root rather than patching it.
-Why 0.10: it sits ~3.5× above the candidate method's own published Δ (≈0.028 at the paper's scale) and far
-below the naive-PTQ catastrophe (>100 PPL), so it kills only what is clearly dead while still being able
-to detect a method performing far below publication. Why the INCONCLUSIVE band: see §3.6b.
+Re-derived from the **verified** table:
+
+| method | class | PPL ratio (verified) | bits/token | **Δ b/byte at B≈4** |
+|---|---|---|---|---|
+| QuaRot W4A4 | 4-bit, closed-form | ~1.09× | 0.118 | **≈0.03** |
+| TWLA W1.58A16 | ternary, **gradient-assisted** (S1-forbidden) | 1.17–1.53× | 0.23–0.61 | **≈0.086** |
+| **PT²-LLM W1.58** | **ternary, genuinely closed-form** | **2.113×** (5.47→11.56) | **1.079** | **≈0.27** |
+
+**The sign was inverted.** Δ\* = 0.10 is not 3.5× *above* the closed-form ternary frontier — it is **~2.7×
+below** it. **PT²-LLM reproducing its own publication exactly would have FAILED my gate**, and 0.10 sits
+on the gradient-assisted frontier that S1 forbids. A gate no S1-compatible method has ever cleared is not
+a kill gate; it is a guaranteed FAIL dressed as a criterion.
+
+**Replacement — and the conflation that caused this is now separated.** I had fused two different jobs
+into one number. They are split:
+
+> **(A) — CUT. There is no threshold on the donor at all.**
+>
+> *(Third rewrite. Δ\* = 0.30 was re-anchoring on one row and the reviewer's refutation is decisive.)*
+>
+> 0.27 is **not "the frontier"** — it is one of seven PT²-LLM rows. Recomputed at B = 4: **0.21, 0.228,
+> 0.230, 0.252, 0.270, 0.342, 0.597.** The frontier is a **range, 0.21–0.60**. And **the only Qwen row,
+> Qwen3-14B, is 0.342 — which fails the 0.30 line.** Add the two trends the verification states outright
+> (degradation worsens as models shrink, and as they become token-saturated): `Qwen2.5-1.5B` is small
+> *and* modern *and* Qwen, so its expected Δ **under a flawless implementation is ≥0.34**.
+> **A gate that fails when nothing is wrong cannot separate "our apparatus is broken" from "this scale is
+> hard" from "this method is weak" — three causes, one bit of output, unattributable.**
+>
+> It was also the **fourth instance of the same contamination**: I ordered the *anchors* recomputed at
+> measured B while freezing Δ\* at a number computed at B ≈ 4.0. At B = 3.5 the frontier is 0.308; at
+> B = 3.2 it is 0.337 — **Δ\* drops back below the frontier and the v3 sign inversion returns.**
+>
+> **The stopping rule moves to where a discrepancy is ATTRIBUTABLE:** control 1a, on the *published*
+> model, against a *published* number. If the apparatus misses its published anchor by more than the
+> stated tolerance, **the apparatus is broken → stop and fix it, and report no donor numbers.** That is
+> apparatus validation, where a miss has exactly one cause. Testing "did we implement it right" on a
+> model with no published number was always the wrong place for it — where valid it duplicates control 1,
+> and where it does not duplicate control 1 it is uninterpretable.
+
+> **(B) THE ACTUAL DELIVERABLE — the bit-width curve and its knee**, reported in b/byte **against the
+> three verified anchors above**, not against a threshold. Stage −1 was re-scoped in §3.3 from "does
+> ternary work" to "where is the knee"; a pass/fail number is the wrong instrument for locating a knee,
+> and (A) exists only to stop the route if the apparatus is broken or the scale is hopeless.
+
+**B (bytes per token) is MEASURED, never assumed.** Every anchor conversion above divides by it, and this
+project has a banked finding that a prior dossier's PPL↔BPB conversions were **wrong**. B is measured on
+the pinned slice with the donor's own tokenizer and reported with every number; the anchors are recomputed
+at the measured B before any comparison is made.
+
+**Correcting my own B1 claim:** I wrote that an absolute gate *"cannot be moved by slice choice"*. **That
+is false.** ΔBPB is content-dependent — the same method spans 1.79×–5.24× across models in our own
+verification, and slice content moves it likewise. Absolute removes the *denominator* gaming, not the
+slice dependence. **The slice must still be pinned to the `CANONICAL_EVAL.md` standard**, and §3.5b now
+does that.
+
+### 3.5b Eval slice — PINNED (B1, previously left open twice)
+
+Pinned before any arm runs, to the project's own canonical standard: **corpus identity + sha256**, **byte
+range / offsets**, **tokenizer name + revision**, **context length AND stride**, **BOS handling**, **loss
+reduction**, and the **decontamination procedure** against both the calibration set and the pinned P62
+code-val. **`BPB_donor` is measured and recorded as a number, and `B` with it, before a single converted
+arm is run.** A missing field here is a BLOCK, not an untidiness: `CANONICAL_EVAL.md` records that slice
+choice alone moves absolute BPB by ~0.04, which is several times the resolution we are trying to read.
 
 **Asymmetry — restated, and the FAIL side re-scoped after the Controller flagged I had over-read it:**
 - **PASS says NOTHING about S4.** Not ≥90% global retention, not ≥80% per critical task, not S2 fit, not
@@ -519,10 +645,19 @@ Worse, it cited **σ_seed = 0.005**, which was measured on *from-scratch trainin
 trains nothing; importing that constant is precisely the cross-regime transfer I criticized in §2.5 and
 §5.3. My "15 σ_seed" framing measured distance from zero, which nobody is testing.
 
-Required before the gate may be read: **≥3 replicates** varying the PTQ/rotation seed, the calibration
-draw and the slice sample; a **bootstrap SE**; and the pre-registered INCONCLUSIVE band above. SE of a
-difference is σ_r√2 — even at σ_r = 0.005 that is 0.0071, so a result at 0.070 or 0.080 sits within 1 SE
-of the line. **A binary gate there manufactures a verdict from noise.**
+**Corrected after re-review — my band used the wrong multiplier.** I wrote `± 2·SE`, but at n = 3 the
+two-sided 95% Student-t multiplier is **t = 4.30, not 2**. The written band was **~2.15× too narrow**,
+which would have manufactured confident verdicts from three noisy points — the precise failure the band
+existed to prevent.
+
+**Now that the GPU makes a run ~1–2 h instead of 12–20 h, n = 3 is no longer a budget-forced compromise:**
+
+- **n ≥ 10 replicates on the calibration-draw axis** (t ≈ 2.26 at n=10, and the estimate stabilises).
+- The **PTQ/rotation-seed axis may be degenerate** — PT²-LLM documents no RNG. **Check whether it is
+  stochastic at all before spending replicates on it**; if deterministic, report that as a finding and put
+  the budget on the calibration axis.
+- **Bootstrap SE**, reported per arm, with the band `Δ* ± t(n−1)·SE` stated before any number exists.
+
 Also fixed: §3.5's "differ by more than harness σ" was a dead guard — that σ was never defined. It now
 refers to the bootstrap SE above.
 
@@ -565,18 +700,137 @@ refers to the bootstrap SE above.
 
 ### 3.7b The sweep is not one variable (B7)
 
-fp16 → 4 → 3 → 2 → ternary is only one variable if the method is the same algorithm at every point. It
+bf16 → 4 → 3 → 2 → ternary is only one variable if the method is the same algorithm at every point. It
 usually is not: group size, quantizer class (ternary is a 3-level thresholded codebook, not the 1.58-bit
 point of a uniform grid) and outlier/mixed-precision escape hatches commonly change between 4-bit and
 2-bit. Required: a **committed per-point config table read from the implementation**, group size and
 outlier policy held constant across points, and **effective bits/weight including scales** reported per
 point — otherwise the curve is not a curve.
 
-### 3.8 Cost — for approval, not yet approved
+### 3.7c FLAG register — REWRITTEN, because my v4 version claimed closures that did not exist
 
-CPU-only, owner's machine, zero spend, no GPU. Stack verified: `torch 2.12.0+cpu`, `transformers 4.57.6`,
-**no CUDA**, 80 GB RAM, 1.3 TB free. ~12–20 h wall-clock, interruptible. Requires `pip install datasets
-accelerate` — **both the install and the CPU budget are currently withheld by the Architect.**
+**The third review's decisive finding was not a reasoning error. It was that this subsection claimed five
+fixes the target sections did not contain**, including one that recorded a *still-open* finding as closed
+**under the wrong label**. The reviewer's phrase was "a corrupted audit trail", and it was accurate. A
+false closure claim is worse than an open finding, because it removes the thing from the list.
+
+**Structural fix, not a promise to be more careful:** the pre-registration moves out of prose and into
+`benchmarks/donor_adaptation/stage_minus1/prereg.yaml`, guarded by `check_prereg.py`, which **exits
+non-zero listing every field still unpinned**. A closure claim that the artefact does not support becomes
+mechanically detectable instead of assertable. **Status below is what the guard reports, not what I believe.**
+
+| flag | claim in v4 | actual status |
+|---|---|---|
+| **F1** calibration size vs the paper's 128 samples | "fixed" | **OPEN → moved to `prereg.yaml`** (anchor arm at 128; larger sets separate declared arms) |
+| **F2** "composition mixed" is not a specification | "fixed **in §3.5**" | **FALSE CLAIM. §3.5 is byte-for-byte unchanged** and still reads "Composition mixed". **OPEN → `prereg.yaml`** must carry exact sources, proportions, sampling procedure and seed |
+| **F3** `torch_dtype` hidden default | "superseded by §3.8" | **CLOSED** — §3.8 does read dtype from the donor config and pin accumulation |
+| **F4** control 4 named but never exercised | mislabelled **"(F6)"** | **OPEN → `prereg.yaml`**, with its both-directions exercise required in the log |
+| **F6** dense→MoE transfer, per-expert calibration coverage | **recorded closed under F4's text** | **STILL OPEN and was never addressed at all.** `grep -i expert` in §3 returns zero hits. The donor is dense 1.5B; the target class is MoE ≤24B, and per-expert calibration coverage is the named mechanism against transfer |
+| **N1** method repo absent from the install line | "pinned by commit SHA" | **FALSE CLAIM** — the install line still read only `datasets accelerate`. Now corrected in §3.8, with the SHA itself in `prereg.yaml`, since **a SHA written in prose is not a pin** |
+
+**Also still open from pass 2, and not to be claimed closed until the artefact carries them:** control 1's
+numeric tolerance (promised three times, still no number), the §5.3 ladder's ε grid / rungs / failure
+response, control 5's `k·SE`, **control 1b's feasibility** (LLaMA-2-7B at bf16 is ~13.5 GB against the
+3060's 12 GB — it does not fit) and **LLaMA-2's gated licence**.
+
+**Ordering defect, also real:** §3.5b ("Eval slice — PINNED") sits physically *after* §3.6 and orphaned
+the "PASS says nothing about S4" paragraph into it. Recorded; the section order is repaired when §3 is
+regenerated from the artefact rather than hand-edited again.
+
+### 3.8 Execution environment — SEALED (owner-approved GPU, 2026-08-20)
+
+The owner has authorized a CUDA PyTorch install and use of the RTX 3060 for stage −1. **A device move
+changes the numerical environment of a project that gates on determinism, so the device, dtype and
+determinism policy are pinned here, before the run, as part of the pre-registration.**
+
+**Device — pinned, and the second GPU explicitly excluded:**
+
+| | |
+|---|---|
+| target | **`cuda:0` = NVIDIA RTX 3060** (Ampere, cc 8.6, 12 GB) |
+| excluded | **NVIDIA GTX 1660** (Turing, cc 7.5) — different numerics, no usable bf16 |
+| mechanism | see below — **a device-name string match is the weakest available check and is NOT sufficient** |
+
+**Corrected after re-review.** I proposed asserting `torch.cuda.get_device_name(0)`. That is the weakest
+check available and it has a specific hole: **`device_map="auto"` will happily shard the model onto the
+1660 while the name assertion on device 0 still passes.** Pinned instead:
+
+- **`CUDA_DEVICE_ORDER=PCI_BUS_ID`** plus `CUDA_VISIBLE_DEVICES` selecting the 3060 **by UUID**;
+- assert **`torch.cuda.device_count() == 1`** — the 1660 must not be visible at all;
+- assert the device of a **materialised parameter**, not just the ambient device;
+- **`device_map="auto"` is forbidden**, explicitly, for the reason above.
+
+With two GPUs present, `cuda:0` ordering is not stable across driver or enumeration changes, and silently
+landing on Turing would produce plausible numbers at different precision. The run refuses to start unless
+all four hold.
+
+**dtype policy — pinned:**
+- Donor weights loaded at the dtype **the donor's own config declares** (law 5: the artefact is the
+  authority — do not impose fp16 because it is convenient). For `Qwen2.5-1.5B` that is bf16, which
+  Ampere supports natively.
+- **Loss/BPB accumulation in fp32 always**, regardless of weight dtype. The quantity being measured is
+  a ΔBPB difference at the resolution set by the §3.6b bootstrap SE (**the retracted "≤ 0.10" and
+  "SE ≈ 0.007" constants are deliberately NOT reinstated here** — this sentence previously carried both,
+  and τ in control 6 would have silently inherited them); fp16 accumulation error can inject noise at that
+  scale and would confound the gate.
+- **The donor arm and every converted arm use an identical dtype policy.** A delta between arms that
+  differ in dtype is not a measurement of quantization.
+
+**Precision constraints — my v3 reasoning here was WRONG and is corrected.**
+
+I claimed TF32 "is enabled by default on Ampere for matmul" and made disabling it the load-bearing
+safeguard. **That is inverted.** `matmul.allow_tf32` has defaulted to **False** since torch 1.12; it is
+`cudnn.allow_tf32` that defaults True, **and this model has no convolutions**. Worse, under §3.8's own
+bf16 weight policy TF32 is **largely inert** — so I nominated a safeguard against a trap that was not
+armed, while the live knobs went unmentioned. This is the "verify, don't assert a mechanism because it
+sounds right" law, violated by me, in a section about not fooling ourselves.
+
+**The knobs that are actually live, all pinned and all recorded by reading them BACK after setting:**
+- **`torch.backends.cuda.matmul.allow_bf16_reduced_precision_reduction = False`** — defaults **True**.
+  This is the real analogue of the trap I thought I was closing.
+- `allow_fp16_reduced_precision_reduction = False`.
+- **SDPA / `attn_implementation` backend pinned explicitly** (no silent flash/mem-efficient selection).
+- `torch.set_float32_matmul_precision("highest")`.
+- **`preferred_linalg_library` pinned, and Cholesky damping recorded** — GPTQ-class methods solve
+  ill-conditioned Hessians, so the linalg backend is a real numerical variable here, not a detail.
+- No implicit autocast anywhere on the path; asserted, not assumed.
+- `torch.use_deterministic_algorithms(True)`, `CUBLAS_WORKSPACE_CONFIG=:4096:8`, fixed recorded seeds.
+- **TF32 disabled too** — harmless, but demoted from "the safeguard" to hygiene.
+
+**Control 3 does NOT test this, and my claim that it did was wrong.** I wrote that the exact comparator
+(same weights twice → bit-identical BPB) "is precisely the guard that tests this whole policy". It is
+**structurally blind** to the failure it was nominated against: TF32, reduced-precision reductions and a
+flash backend are all **perfectly repeatable** — they give bit-identical output at an eight-bit mantissa.
+Control 3 catches run-to-run variance, not silent precision loss.
+
+**Replacement guard — NEW control 7, precision probe:**
+- a **float64-referenced precision probe** on a fixed tensor op, **fired in both directions** (flags on →
+  detectably worse; flags off → matches fp64 to tolerance), so the instrument is shown to *fire*;
+- **every flag read back after setting** and logged, never merely assigned;
+- **control 3 strengthened** to run **across process restarts** and **two different batch shapes** —
+  batch-shape variation is what actually exposes backend switching.
+
+**Control 6 — device parity, tolerance now derived rather than left blank.** Per re-review:
+- compare **|ΔBPB_gpu − ΔBPB_cpu|**, *not* absolute BPB — common-mode offsets cancel in the delta, and
+  the delta is the quantity the gate reads;
+- the CPU leg is an **fp32/fp64 oracle**, not bf16 — a bf16 CPU leg measures emulation, not truth;
+- run on the **donor arm and at least one converted arm**, since a bug may only appear post-quantization;
+- **τ = 0.1 × the §3.6b band half-width** — the same "an order of magnitude below the resolution you
+  intend to read" rule `CANONICAL_EVAL.md` already justifies, and **derivable before any number exists**,
+  which is the point.
+
+**bf16 introduces two confounds that must be closed before the sweep runs:**
+1. **§3.4 still says "fp16" — a live internal contradiction**, now corrected to bf16 throughout, and the
+   published anchors are **fp16**, so the anchor comparison must state which is which.
+2. **A bf16-native quantizer degrades preferentially at the low-bit end**, which would bend the very knee
+   §3.6(B) exists to locate. **The quantizer's internal working precision is therefore pinned at
+   fp32/fp64 and held constant across all five points** — otherwise the curve measures dtype, not bits.
+
+**Cost, revised:** ~12–20 h CPU → plausibly **~1–2 h on the 3060**, and it frees the CPU the owner also
+uses. Requires `pip install datasets accelerate`, **the method's own repository pinned by commit SHA**
+(recorded in `benchmarks/donor_adaptation/stage_minus1/prereg.yaml`, not here — a SHA in prose is not a
+pin), and a CUDA torch build (current: `torch 2.12.0+cpu`,
+`cuda False`, 80 GB RAM, 1.3 TB free). Zero spend — the hardware is the owner's.
 
 ### 3.9 The decision requested if it fails — pre-specified
 
@@ -707,13 +961,39 @@ they did"). I wrote a criterion that violated a law I had quoted two sections ea
 **Replacement — calibrate on the same donor, empirically:**
 
 1. Inject **controlled perturbations of monotonically increasing magnitude** into a single layer of the
-   donor (e.g. scaled Gaussian noise on that layer's output, or progressively coarser weight quantization
-   of that layer alone).
-2. For each magnitude, measure **both** the local per-layer error **and** the effect on an **end-to-end
-   reference metric** on this same donor.
-3. That yields a **local-error → end-to-end-effect transfer curve for this donor**, measured, not assumed.
-4. **Only then** set the local threshold: the local error whose end-to-end effect equals the largest
-   degradation we are willing to accept at this stage.
+   donor, and measure **both** the local per-layer error **and** the end-to-end effect on this same donor.
+2. That yields a **local-error → end-to-end-effect transfer curve for this donor**, measured, not assumed.
+3. **Only then** set the local threshold, from the curve.
+
+**Concrete specification — previously left as a sketch, which the Controller flagged as not runnable.**
+This doubles as the replacement for control 2 (§3.7.2), whose original lesion may have been a
+known-*negative*:
+
+- **Perturbation operator:** additive Gaussian noise on the layer's *output activations*,
+  `y' = y + ε·σ_y·n`, with `σ_y` the per-channel activation std measured on the calibration set and
+  `n ~ N(0,1)` at a fixed recorded seed. Chosen over weight-quantization coarsening because it is
+  **continuous, monotone and dimensionless in ε**, so the ladder is a clean sweep rather than a set of
+  discrete quantizer configs (which would reintroduce §3.7b's many-variables problem).
+- **ε grid — geometric, 8 rungs:** `ε ∈ {0.002, 0.004, 0.008, 0.016, 0.032, 0.064, 0.128, 0.256}`.
+  Geometric because the effect is expected to be roughly power-law in ε and a linear grid would waste
+  most rungs in one regime. The grid deliberately **straddles the expected detection floor** — the bottom
+  rungs should be indistinguishable from zero and the top rungs unmistakable. **If they are not, the grid
+  is wrong and gets re-centred *before* any conversion arm is scored**, never after.
+- **Which layers:** the ladder runs on **at least 3 layers spanning depth** (early / middle / late).
+  Sensitivity is known to vary with depth, and a transfer curve fitted at one depth is not a curve for
+  the network.
+- **Read-out:** for each (layer, ε), report local relative output error **and** ΔBPB, each with the
+  §3.6b bootstrap SE. The deliverable is the fitted **local-error → ΔBPB** transfer function.
+- **The detection floor is the headline output:** the smallest ε whose ΔBPB exceeds `t·SE`. **This is the
+  instrument's sensitivity, measured rather than asserted** — and it is what makes any later "arm (b) is
+  within tolerance" statement meaningful instead of decorative.
+- **Failure response, pre-specified:** if **no** ε in the grid produces a ΔBPB above `t·SE`, the
+  instrument cannot detect damage to a single layer at all. That is **not** a licence to proceed — it
+  voids every per-layer fidelity claim in §5, and the correct response is to fix the instrument (more
+  eval tokens, more replicates, a more sensitive read-out), not to widen the grid until something moves.
+- **Anchor rung:** at least one rung must perturb a **known non-redundant structure**, so the ladder is
+  tied to a lesion whose effect is expected on independent grounds rather than resting only on the noise
+  sweep.
 
 This costs one extra sweep and it makes the threshold *derived* rather than *imported*. It also produces a
 reusable instrument: any future local transformation on this donor can be priced against the same curve.

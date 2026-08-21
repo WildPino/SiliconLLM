@@ -5,7 +5,7 @@ a shortlist of real donors: footprint inventory, streaming budget, KV budget, he
 eligibility. All desk, all free. Gate: a ranked shortlist with the arithmetic shown; any donor whose
 arithmetic fails is eliminated here, before any compute."*
 
-**Status:** DONE. Desk only. No weights downloaded, no GPU, no engine change, no conversion.
+**Status:** DONE — **rev C, 2026-08-21**. Five-term time model (audit C12), measured MLP constant (`DONOR_PROJ_RATE.md` §10), verdict published as a 2×2 + design curve (audit C11). Desk only. No weights downloaded, no GPU, no engine change, no conversion.
 **Tool:** `benchmarks/donor_adaptation/donor_inventory.py`.
 **Author role:** Builder. Nothing here is committed or pushed; the Media Manager owns Git.
 
@@ -13,37 +13,95 @@ arithmetic fails is eliminated here, before any compute."*
 
 ## 0. The headline, stated plainly
 
-**Priced on rates that rest on nothing contested, not one of the 18 reachable donors passes the sealed
-`≥10 tok/s` decode gate — at any SKU, at any context, at the most permissive precision map.**
-The best number in the whole set is **9.76 tok/s** (`Qwen/Qwen2.5-1.5B`, SKU-A, 32K native attention,
-4-bit KV). The second best is 5.98.
+> **REVISED 2026-08-21 (rev C).** Rev A said *"not one of the 18 donors passes"* — withdrawn, it stood
+> on an unmeasured projection rate. Rev B replaced that with a single PASS — **also withdrawn**, because
+> `CONTROLLER_PROJRATE_AUDIT.md` found the time model was **missing two of the five components**
+> `PHASE64_BUDGET.md` §2 lists (scan-recurrence and attention), and the margin was only ~2 ms. Rev C adds
+> both terms, measures the last open constant, and reports the verdict as a **2×2 and a design curve**
+> instead of a headline number. §0.4 records what changed.
 
-If the two figures currently under adversarial audit are granted — the 17.0 GB/s kernel-pure ternary
-rate reaching the integrated engine, and the ~8.4 µs/expert dispatch overhead being removed — then
-exactly **two** donors clear the gate at SKU-A/32K (`Qwen2.5-1.5B` at 12.11, `OLMoE-1B-7B-0924` at
-11.01) and exactly **one** clears it at SKU-B/128K (`Qwen2.5-1.5B` at 10.14).
+**There is no single headline number, and presenting one was the defect.** The verdict moves with three
+things: the KV precision, the ternary-MLP constant, and how many attention layers a conversion retains.
 
-That is the result. It is a **negative result at stage 1, and it lands before any compute was spent**,
-which is exactly what this stage exists to do. Three things follow, and each contradicts §5:
+### 0.1 The 2×2 the headline was hiding (audit C11)
 
-1. **The binding wall is throughput, not footprint.** §5 says *"the footprint wall, which is where the
-   real trouble is."* The arithmetic says the opposite: at the all-ternary map **14 of 18 donors fit
-   inside SKU-A's 16 GB** with KV and a declared 1 GB margin. Only four are eliminated on RAM. Every
-   other elimination is on speed.
-2. **§5's streaming table over-predicts tok/s by 2×–10×**, because 42 GB/s is not a rate this engine
-   has ever achieved on a weight path. §5 predicts ~28 tok/s for a "30B total / 3B active" donor;
-   `Qwen3-30B-A3B` is exactly that shape and computes to **2.72–10.70 tok/s** — the *top* of that
-   bracket already assumes the contested 17.0 GB/s.
-3. **The P61/D9 precision map does not survive scale-up to a donor.** Keeping projections, head and
-   embeddings at fp32 costs 11 MB/token at the 8.3M sandbox. On `granite-4.0-h-small` the same map
-   costs **15.92 GB/token** — 503 ms of pure fp32 streaming, a 2.0 tok/s ceiling before a single MLP
-   byte moves. Any donor route must ternarize the projections, and P61 measured that costs
-   +0.018–0.022 BPB at 8.3M. **That trade was never priced at donor scale and it is now on the critical
-   path.**
+`Qwen/Qwen2.5-1.5B`, SKU-A / 32K, **unconverted** (attention on all 28 layers, priced windowed),
+proj held at the measured donor stream in every cell:
 
-§5's head arithmetic, by contrast, is **corroborated**: it predicts ~1.24 GB and a ~30 ms lower bound
-for a D=2048 / V=152K head; the tool computes 1.16 GiB and 34.6–36.6 ms at the measured rate. §5 was
-right about the head and optimistic about everything else.
+| MLP constant | KV = 4-bit *(does not exist in this engine)* | KV = fp16 *(what is built)* |
+|---|---|---|
+| **RETIRED 11.398** (integrated `D=256`, and in fact the **dReLU row-skip** path) | 9.40 [8.32..9.96] **FAIL** | 8.12 [7.26..8.59] **FAIL** |
+| **MEASURED 21.25** (integrated, donor `D`) | **12.09 [10.36..13.01] PASS** | 10.05 [8.76..10.77] **STRADDLE** |
+| *kernel-pure 27.64 (bound only, unreachable by an engine)* | *13.08 [11.08..14.18] PASS* | *10.73 [9.27..11.56] STRADDLE* |
+
+**The rev-B PASS lived in one cell.** The audit was right: three constants each flip this verdict, and
+the one measured first (projection) was the smallest lever. Reproduce with
+`python donor_inventory.py grid`.
+
+### 0.2 The design curve (audit C12) — what a conversion actually has to buy
+
+For a converted donor the number of **retained attention layers** is a design variable, not a constant.
+Every layer not retained becomes an SSM layer: it pays scan-recurrence instead of attention **and stops
+holding a KV cache**. `python donor_inventory.py curve`:
+
+| retained attention | pricing | 4-bit KV | fp16 KV |
+|---|---|---|---|
+| **windowed (SWA-128)** | the only attention cost this engine has ever measured | **PASS at every `n_att`, 0→28** | **PASS for `n_att` ≤ 18 of 28**; STRADDLE from 19 |
+| **full attention @32K** | first-principles compute desk model, *not measured* | PASS for `n_att` ≤ 2 of 28; FAIL from 3 | PASS for `n_att` ≤ 2; FAIL from 3 |
+
+**The crossing points are the deliverable.** For `Qwen2.5-1.5B` at 32K:
+- **Retained attention must be WINDOWED.** At most **2 of 28** layers may keep *full* attention; a third
+  drops it under the gate on either KV precision.
+- If retained attention is windowed, the binding constraint is KV precision, not layer count: at 4-bit
+  every configuration passes; at fp16 the budget is **18 of 28** layers.
+- The sealed constraint is *"attention on a minority of layers"*, i.e. `n_att ≤ 14`. **At `n_att = 14`,
+  windowed, the donor passes on both KV precisions** — 13.30 [11.77..14.11] at 4-bit, 11.97
+  [10.67..12.68] at fp16. That is the headline configuration, and it is a *converted* one.
+
+**Do not price full attention at SWA rates.** §2's 65 µs anchor is a window-128 cost; the two pricings
+above differ by ~25× at 32K. Scaling the SWA form linearly by `ctx/128` (a 256× extrapolation) is
+retained in the tool as `full_swaScaled` and is an **upper bound only** — it is ~25× more pessimistic
+than the compute model and would say a *single* retained full-attention layer kills the donor.
+
+### 0.3 The ranked result (converted: `n_att = L/2`, windowed, 4-bit KV, each donor at its own native ctx)
+
+| donor | RAM | nat ctx | central | interval | verdict |
+|---|---|---|---|---|---|
+| **`Qwen/Qwen2.5-1.5B`** | 1.94 GB | 131072 | **13.30** | [11.77..14.11] | **PASS** |
+| `HuggingFaceTB/SmolLM2-1.7B` | 3.30 GB | 8192 | 11.01 | [9.76..11.64] | **STRADDLE** |
+| `allenai/OLMoE-1B-7B-0924` | 5.24 GB | 4096 | 9.99 | [6.79..17.37] | FAIL (KV-only; 10.15 KV-free) |
+| `Qwen/Qwen3-1.7B` | 2.68 GB | 40960 | 9.02 | [8.01..9.51] | FAIL (KV-only; 10.03 KV-free) |
+| *(14 others)* | — | — | 5.10 → 1.04 | — | FAIL by 2–13× |
+
+**Unconverted**, with full attention on every layer at 32K, `Qwen2.5-1.5B` is **4.70 tok/s — FAIL**.
+The conversion is not a detail; it is the entire difference between failing and passing.
+
+### 0.4 What changed from rev B
+
+1. **Two missing components added** (audit C12 BLOCK). The model charged proj + LUT + KV + glue;
+   §2 lists five. **scan-recurrence** (`46 µs · Dn·N·L / (512·96·6)`) and **attention** are now charged,
+   in §2's own parametric forms — verified against the live engine, which measures scan-recur 36.5 µs
+   and SWA-attn 48.5 µs at `D=256/L=6` against §2's 46 and 65.
+2. **The ternary-MLP bracket was measured and closed** — `docs/research/DONOR_PROJ_RATE.md` §10.
+   **27.31 ± 0.46 ms/token = 21.25 ± 0.36 GB/s** at donor dims, integrated. The old `[11.40 .. 27.64]`
+   spanned two quantities *neither of which was the answer*.
+3. **`DENSE_LUT_GBS = 11.398` was doubly misattributed.** It is engine-integrated at `D=256` **and**
+   derives from the published 207 µs, which this pass identified as the `--skip on --exp fast` (E3.5)
+   **dReLU row-skip** configuration. A SiLU-gated donor cannot use that sparsity. Wrong `D`, wrong path.
+4. **Higher central rates adopted from the audit**, which re-derived them independently and got more
+   than this Builder measured: fullstack **39.87 ± 0.09** (Builder: 37.74), asymptote **39.18**
+   (Builder: 38.84). The interval now spans *both* labs rather than one lab's error bars.
+5. **KV now scales with retained attention layers.** Converting a layer to SSM removes its KV entirely —
+   previously the KV term was charged as if every original attention layer survived conversion.
+
+### 0.5 What did NOT change
+
+The three structural findings of rev A survive and are strengthened:
+1. **The binding wall is throughput, not footprint** — 14 of 18 donors fit SKU-A's 16 GB.
+2. **§5's flat 42 GB/s over-predicts** — the measured streamed rate is 39.87 GB/s and the whole weight
+   path (proj 41.07 ms + MLP 27.31 ms) dominates everything else.
+3. **The P61/D9 map does not survive scale-up** — `granite-4.0-h-small` costs 15.92 GB/token of fp32.
+   Ternarizing the projections remains on the critical path, unpriced at donor scale.
 
 ---
 
@@ -61,40 +119,82 @@ artefact, independent of my arithmetic. That check is the guard against the proj
 failure (the plausible artefact). It agrees to **< 0.01%** on 15 of 18 donors, which is what makes the
 remaining three disagreements informative rather than noise.
 
-### 1.2 Rate constants — measured, from `docs/PHASE64_BUDGET.md`
+### 1.2 Rate constants — measured
 
-The mandate's §5 uses a flat 42 GB/s. **That number is superseded here** and is not used anywhere in
-the tool. What is used:
+The mandate's §5 uses a flat 42 GB/s. **That number is superseded** and is used nowhere in the tool.
+
+**Two different projection rates were measured and they go in two different slots.** Conflating them is
+the defect this revision exists to remove.
+
+| slot | rate | source |
+|---|---|---|
+| **whole per-token proj+head stream** | **37.74 ± 0.18 GB/s** | `DONOR_PROJ_RATE.md` §5.2 — Qwen2.5-1.5B's 28×(q,k,v,o)+head walked **in layer order**, 1,550,057,472 B/token (byte accounting exact vs the F1 hand-derivation) = 41.07 ms/token |
+| **a single organ priced by its own size** | **38.84 ± 0.68 GB/s**, interval widened down to 36.0 | `DONOR_PROJ_RATE.md` §4 — the size-swept asymptote, 36 measurements, **flat from 64 MB to 1024 MB**; §5.1 measured 8 real donor organs spanning 36.0–39.0 |
+
+The first is used for the per-token time term because **it is the same object the term models** — an
+assembled stream, not a lookup — and it already carries the cost of interleaving the two skinny K/V
+organs between the square ones, which is why it sits ~3% under the second.
 
 | organ class | rate | source |
 |---|---|---|
-| fp32 projections / head (GEMV) | `r(size)` = 187 / 185 / 134.4 / 60.5 / 55.7 / 45.5 / 45.3 / 36.5 GB/s at 4 / 8 / 16 / 24 / 32 / 48 / 64 / 96 MB, t6 | §1b(a), measured |
-| … above 96 MB | 34–36 GB/s asymptote — **EXTRAPOLATION, flagged in every row that uses it** | §1b(a) |
-| routed ternary experts, engine-integrated | **4.2 GB/s** (gather + dispatch already inside) | §1, measured |
-| dense ternary MLP, engine-integrated | **11.4 GB/s** = 2 359 296 B / 207 µs at t6 | §2 + §1 decomposition, derived below |
-| ternary kernel-pure ceiling | **17.0 GB/s** t6 | §1b(b), measured, **but not reached by the integrated engine** |
-| per-expert dispatch overhead | **8.4 µs** | §1b(b), decomposed — **under audit** |
-| KV-cache sequential read | 40–44 GB/s aggregate DRAM | §1, measured |
-| norms + glue | 7 µs at L=6, scaled linearly in L | §2 — **extrapolation** |
+| fp32 projections / head | **37.74 ± 0.18 GB/s**, measured end-to-end at donor scale | `DONOR_PROJ_RATE.md` §5.2 |
+| dense ternary MLP | **[11.40 .. 27.64] GB/s** — *asymmetric on purpose, see below* | §1 (low) / `DONOR_PROJ_RATE.md` §8.4 (high) |
+| routed ternary experts | **[4.2 .. 26.4] GB/s** | §1 (low) / `DONOR_PROJ_RATE.md` §8.2 (high) |
+| per-expert dispatch overhead | 8.4 µs, added **only** at the kernel-pure end | §1b(b) |
+| KV-cache sequential read | 40–44 GB/s, central 42 | §1, measured |
+| norms + glue | 7 µs at L=6 scaled linearly — **declared, not measured**, carried with a ×2 interval | §2 |
 
-**The 11.4 GB/s dense-MLP rate is a correction to my own brief.** The brief instructed pricing all
-ternary MLP/expert bytes at [4.2 .. 17.0]. But 4.2 GB/s is the *routed* path, and it is 4.2 precisely
-*because* it carries an index gather and per-expert dispatch. §2's own decomposition gives the dense
-LUT-MLP at the 8.3M anchor moving `3·256·1024·0.5 B · 6 layers = 2 359 296 B` in `207 µs` at t6 =
-**11.4 GB/s** — the same number §3 calls "the LUT ceiling 11.4 → 17.0". Charging a *dense* donor MLP
-the routed-path rate would be pricing a gather that does not exist. The measured-only column therefore
-puts dense MLP on 11.4 and routed experts on 4.2. Both are measured, engine-integrated, and neither
-assumes the overhead fix. This raises the dense donors by ~1.6× and changes no verdict.
+**The retired constant.** `PROJ_STREAMED_FLOOR = 34.0` is gone. It was never measured; it was the bottom
+edge of an asserted bracket, and standing on that edge is what produced "zero donors pass". It is 11%
+below the measured donor stream.
 
-### 1.3 The three time columns
+**The published §1b curve is no longer the pricing curve.** Re-measurement (`DONOR_PROJ_RATE.md` §2)
+found the t1 row reproduces at all 8 points and the 96 MB anchor reproduces (+4.9%), but the 16–32 MB
+cache-transition points **move by up to 4.6× on OpenMP thread placement alone**, and `engine.c
+--gemv-sweep` — the routine that produced them — does not reproduce its own mid-region either. Those
+points are placement-conditioned, not machine facts. **No donor row depends on them** (all donor organs
+sit past 48 MB, where the curve is placement-insensitive to 2%), but `PHASE64_BUDGET.md` §1b should
+carry the caveat.
 
-| column | ternary MLP/experts | dispatch term | projections/head | what it rests on |
-|---|---|---|---|---|
-| **PESS** | 4.2 GB/s | + 8.4 µs × calls | `r(size)` streamed floor | deliberately conservative; **double-counts**, because 4.2 already contains the overhead |
-| **OPT** | 17.0 GB/s | + 8.4 µs × calls | `r(size)` curve | **contested** — assumes the kernel-pure rate reaches the integrated engine |
-| **MEASURED-ONLY** | 11.4 dense / 4.2 routed | none | `r(size)` streamed floor | **the only column resting on nothing under audit** |
+**The ternary bracket is asymmetric and the caveat must stay visible.** Its low end (11.40 / 4.2 GB/s) is
+**engine-integrated at `D=256`** — it carries dequant, dReLU, per-row scale multiply and combine. Its
+high end (27.64 / 26.4 GB/s) is **kernel-pure at donor shapes**. *These are not the same quantity*, and
+this tool **cannot** say where between them an integrated donor lands. Closing that bracket needs an
+engine-integrated measurement at donor dimensions and is the single largest remaining source of width in
+every interval in this document.
 
-Read the MEASURED-ONLY column as the verdict and the OPT column as the prize for winning the audit.
+**Both old endpoints were `D=256` artefacts.** `DONOR_PROJ_RATE.md` §8 re-measured the path at donor
+dimensions and the mechanism changed: holding the kernel fixed and growing the working set 1.1 MB →
+512 MB drops the rate **3.6× (96.4 → 27.3 GB/s)**, so the path is **bandwidth-bound at donor working
+sets, not compute-bound**. Controller #2's "compute-bound by ~16×" was measured at `D=256`, where the
+kernel's own ceiling is only 29 GB/s; at `D=1536` that ceiling is 97 GB/s. **The claim does not transfer
+across `D` and must be scoped to the sandbox.**
+
+### 1.3 The time columns
+
+**The single-corner "MEASURED-ONLY" column is WITHDRAWN** (audit F1). It was built as
+`t_proj_pess + t_lut_meas + glue + t_kv_pess` — the pessimistic edge of every bracket simultaneously —
+and reported as a point verdict. A corner is not a conservative estimate; it is a different quantity.
+
+Every term now carries `(slow, fast, central)`:
+
+| term | slow edge | fast edge | central |
+|---|---|---|---|
+| proj + head | 37.38 GB/s | 38.10 GB/s | **37.74 (measured)** |
+| dense ternary MLP | 11.40 (integrated, `D=256`) | 27.64 (kernel-pure, donor `D`) | midpoint **in time** |
+| routed experts | 4.2 (+dispatch inside) | 26.4 (+8.4 µs/call added) | midpoint **in time** |
+| KV | 40 GB/s | 44 GB/s | 42 |
+| glue | 2× declared | ½ declared | declared |
+
+The reported total is the **sum of centrals**; the reported interval is the **sum of slows / sum of
+fasts** — a fully-correlated worst case, deliberately *wider* than a root-sum-square. The terms share
+one memory system, so RSS would understate.
+
+Central time is the midpoint **of the time interval**, not of the rate interval — the neutral choice
+when terms are about to be summed, and it does not silently favour the fast end.
+
+**Gate reading rule:** `PASS` requires the **lower bound** to clear 10 tok/s. A central estimate on the
+right side of a gate whose interval straddles it is reported as **STRADDLE**, never as a pass.
 
 ### 1.4 Footprint formula (mandate S2)
 
@@ -228,76 +328,82 @@ footprint term, and at 128K it is frequently the dominant one. §5 omits it enti
 
 | donor | active params/tok | proj+head fp32 bytes/tok | r(proj) GB/s | ternary MLP bytes/tok | ternary expert bytes/tok | expert calls/tok | tok/s PESS | tok/s OPT | tok/s **MEASURED-ONLY** |
 |---|---|---|---|---|---|---|---|---|---|
-| `Qwen/Qwen2.5-1.5B` | 1544M | 1.44 GB | 34–36* | 553.3 MB | 0.0 KB | 0 | 5.44 | 12.95 | **10.36** |
-| `Qwen/Qwen3-1.7B` | 1721M | 2.47 GB | 34–36* | 505.5 MB | 0.0 KB | 0 | 4.89 | 9.53 | **8.02** |
-| `HuggingFaceTB/SmolLM2-1.7B` | 1711M | 1.88 GB | 34–36* | 577.7 MB | 0.0 KB | 0 | 4.91 | 10.92 | **8.90** |
-| `microsoft/Phi-3-mini-4k-instruct` | 3723M | 4.87 GB | 34–36* | 1.13 GB | 0.0 KB | 0 | 2.26 | 4.62 | **3.85** |
-| `allenai/OLMo-2-1124-7B` | 6887M | 9.53 GB | 34–36* | 2.02 GB | 0.0 KB | 0 | 1.22 | 2.43 | **2.04** |
-| `mistralai/Mistral-7B-v0.3` | 7114M | 5.50 GB | 34–36* | 2.63 GB | 0.0 KB | 0 | 1.18 | 3.03 | **2.37** |
-| `Qwen/Qwen3-8B` | 7568M | 7.94 GB | 34–36* | 2.54 GB | 0.0 KB | 0 | 1.11 | 2.52 | **2.04** |
-| `Qwen/Qwen3-30B-A3B` | 3042M | 4.58 GB | 34–36* | 0.0 KB | 869.2 MB | 384 | 2.74 | 5.17 | **2.76** |
-| `mistralai/Mixtral-8x7B-v0.1` | 12749M | 5.49 GB | 34–36* | 0.0 KB | 5.26 GB | 64 | 0.66 | 2.01 | **0.66** |
-| `deepseek-ai/DeepSeek-V2-Lite` | 2451M | 2.18 GB | 34–36* | 32.2 MB | 861.7 MB | 182 | 3.41 | 8.22 | **3.49** |
-| `allenai/OLMoE-1B-7B-0924` | 1179M | 1.39 GB | 34–36* | 0.0 KB | 386.0 MB | 128 | 7.07 | 15.06 | **7.13** |
-| `openai/gpt-oss-20b` | 3607M | 4.54 GB | 34–36* | 0.0 KB | 1.12 GB | 96 | 2.33 | 4.84 | **2.33** |
-| `Zyphra/Zamba2-2.7B` | 6949M | 10.07 GB | 34–36* | 1.98 GB | 0.0 KB | 0 | 1.21 | 2.35 | **1.98** |
-| `ibm-granite/granite-4.0-h-small` | 8803M | 15.92 GB | 34–36* | 0.0 KB | 2.12 GB | 440 | 0.95 | 1.63 | **0.96** |
-| `nvidia/Nemotron-H-8B-Base-8K` | 7564M | 12.43 GB | 34–36* | 1.97 GB | 0.0 KB | 0 | 1.12 | 2.02 | **1.73** |
-| `tiiuae/Falcon-H1-7B-Base` | 7186M | 8.21 GB | 34–36* | 2.32 GB | 0.0 KB | 0 | 1.17 | 2.55 | **2.09** |
-| `Qwen/Qwen3-Next-80B-A3B-Instruct` | 3463M | 6.71 GB | 34–36* | 0.0 KB | 798.2 MB | 528 | 2.41 | 3.94 | **2.43** |
-| `state-spaces/mamba2-2.7b` | 2702M | 10.07 GB | 34–36* | 0.0 KB | 0.0 KB | 0 | 3.14 | 3.33 | **3.14** |
+| `Qwen/Qwen2.5-1.5B` | 1544M | 1.44 GB | 39.87 | 553.3 MB | 0.0 KB | 0 | 2.75 | 8.23 | **4.83** |
+| `Qwen/Qwen3-1.7B` | 1721M | 2.47 GB | 39.87 | 505.5 MB | 0.0 KB | 0 | 2.05 | 6.04 | **3.58** |
+| `HuggingFaceTB/SmolLM2-1.7B` | 1711M | 1.88 GB | 39.87 | 577.7 MB | 0.0 KB | 0 | 2.39 | 7.03 | **4.16** |
+| `microsoft/Phi-3-mini-4k-instruct` | 3723M | 4.87 GB | 39.87 | 1.13 GB | 0.0 KB | 0 | 1.15 | 3.18 | **1.96** |
+| `allenai/OLMo-2-1124-7B` | 6887M | 9.53 GB | 39.87 | 2.02 GB | 0.0 KB | 0 | 0.78 | 1.90 | **1.27** |
+| `mistralai/Mistral-7B-v0.3` | 7114M | 5.50 GB | 39.87 | 2.63 GB | 0.0 KB | 0 | 0.84 | 2.23 | **1.41** |
+| `Qwen/Qwen3-8B` | 7568M | 7.94 GB | 39.87 | 2.54 GB | 0.0 KB | 0 | 0.73 | 1.89 | **1.21** |
+| `Qwen/Qwen3-30B-A3B` | 3042M | 4.58 GB | 39.87 | 0.0 KB | 869.2 MB | 384 | 0.98 | 3.45 | **1.75** |
+| `mistralai/Mixtral-8x7B-v0.1` | 12749M | 5.49 GB | 39.87 | 0.0 KB | 5.26 GB | 64 | 0.42 | 1.87 | **0.74** |
+| `deepseek-ai/DeepSeek-V2-Lite` | 2451M | 2.18 GB | 39.87 | 32.2 MB | 861.7 MB | 182 | 1.52 | 5.95 | **2.73** |
+| `allenai/OLMoE-1B-7B-0924` | 1179M | 1.39 GB | 39.87 | 0.0 KB | 386.0 MB | 128 | 2.78 | 10.34 | **4.97** |
+| `openai/gpt-oss-20b` | 3607M | 4.54 GB | 39.87 | 0.0 KB | 1.12 GB | 96 | 1.13 | 3.87 | **1.94** |
+| `Zyphra/Zamba2-2.7B` | 6949M | 10.07 GB | 39.87 | 1.98 GB | 0.0 KB | 0 | 1.79 | 2.51 | **2.22** |
+| `ibm-granite/granite-4.0-h-small` | 8803M | 15.92 GB | 39.87 | 0.0 KB | 2.12 GB | 440 | 0.89 | 1.85 | **1.25** |
+| `nvidia/Nemotron-H-8B-Base-8K` | 7564M | 12.43 GB | 39.87 | 1.97 GB | 0.0 KB | 0 | 1.71 | 2.20 | **2.02** |
+| `tiiuae/Falcon-H1-7B-Base` | 7186M | 8.21 GB | 39.87 | 2.32 GB | 0.0 KB | 0 | 0.78 | 1.96 | **1.28** |
+| `Qwen/Qwen3-Next-80B-A3B-Instruct` | 3463M | 6.71 GB | 39.87 | 0.0 KB | 798.2 MB | 528 | 1.77 | 4.01 | **2.62** |
+| `state-spaces/mamba2-2.7b` | 2702M | 10.07 GB | 39.87 | 0.0 KB | 0.0 KB | 0 | 3.34 | 3.67 | **3.62** |
 
-`*` = above the last measured point of the §1b curve (96 MB): the 34–36 GB/s asymptote, an **extrapolation**.
+Projection rate is no longer a curve lookup. Every donor is priced on the **measured donor stream, 37.74 ± 0.18 GB/s** (`DONOR_PROJ_RATE.md` §5.2) — the whole per-token proj+head traffic timed in layer order, which is the same object this term models. The retired 34.0 floor was never measured and is 11% below it.
 
 
 ### T6 — tok/s including KV-cache read traffic, vs the sealed ≥10 tok/s gate
 
-| donor | 4K pess..opt (meas-only) | 32K pess..opt (meas-only) | 128K pess..opt (meas-only) | gate @32K | gate @128K |
-|---|---|---|---|---|---|
-| `Qwen/Qwen2.5-1.5B` | 5.42..12.84 (10.28) | 5.27..12.11 (9.76) | 4.82..10.14 (8.33) | **FAIL** | **FAIL** |
-| `Qwen/Qwen3-1.7B` | 4.83..9.29 (7.84) | 4.39..7.92 (6.75) | 3.35..5.25 (4.58) | **FAIL** | **FAIL** |
-| `HuggingFaceTB/SmolLM2-1.7B` | 4.80..10.40 (8.52) | 4.10..7.80 (6.55) | 2.74..4.20 (3.66) | **FAIL** | **FAIL** |
-| `microsoft/Phi-3-mini-4k-instruct` | 2.21..4.43 (3.70) | 1.91..3.45 (2.94) | 1.31..1.96 (1.72) | **FAIL** | **FAIL** |
-| `allenai/OLMo-2-1124-7B` | 1.20..2.36 (1.98) | 1.08..1.96 (1.67) | 0.80..1.25 (1.09) | **FAIL** | **FAIL** |
-| `mistralai/Mistral-7B-v0.3` | 1.18..3.00 (2.35) | 1.15..2.82 (2.23) | 1.05..2.34 (1.89) | **FAIL** | **FAIL** |
-| `Qwen/Qwen3-8B` | 1.11..2.50 (2.03) | 1.08..2.36 (1.92) | 0.98..1.97 (1.64) | **FAIL** | **FAIL** |
-| `Qwen/Qwen3-30B-A3B` | 2.72..5.11 (2.75) | 2.60..4.72 (2.62) | 2.24..3.75 (2.26) | **FAIL** | **FAIL** |
-| `mistralai/Mixtral-8x7B-v0.1` | 0.66..2.00 (0.66) | 0.65..1.92 (0.65) | 0.62..1.68 (0.62) | **FAIL** | **FAIL** |
-| `deepseek-ai/DeepSeek-V2-Lite` | 3.40..8.17 (3.48) | 3.33..7.85 (3.41) | 3.13..6.90 (3.20) | **FAIL** | **FAIL** |
-| `allenai/OLMoE-1B-7B-0924` | 6.91..14.40 (6.96) | 5.94..11.01 (5.98) | 4.02..6.10 (4.04) | **FAIL** | **FAIL** |
-| `openai/gpt-oss-20b` | 2.33..4.82 (2.33) | 2.30..4.73 (2.31) | 2.22..4.44 (2.23) | **FAIL** | **FAIL** |
-| `Zyphra/Zamba2-2.7B` | 1.21..2.33 (1.96) | 1.16..2.17 (1.84) | 1.02..1.78 (1.52) | **FAIL** | **FAIL** |
-| `ibm-granite/granite-4.0-h-small` | 0.95..1.63 (0.96) | 0.95..1.62 (0.95) | 0.94..1.60 (0.95) | **FAIL** | **FAIL** |
-| `nvidia/Nemotron-H-8B-Base-8K` | 1.11..2.02 (1.73) | 1.11..2.01 (1.72) | 1.10..1.97 (1.69) | **FAIL** | **FAIL** |
-| `tiiuae/Falcon-H1-7B-Base` | 1.17..2.55 (2.09) | 1.16..2.50 (2.05) | 1.12..2.35 (1.94) | **FAIL** | **FAIL** |
-| `Qwen/Qwen3-Next-80B-A3B-Instruct` | 2.40..3.93 (2.43) | 2.38..3.87 (2.40) | 2.29..3.67 (2.32) | **FAIL** | **FAIL** |
-| `state-spaces/mamba2-2.7b` | 3.14..3.33 (3.14) | 3.14..3.33 (3.14) | 3.14..3.33 (3.14) | **FAIL** | **FAIL** |
+Reported as **central [interval]**. The single-corner "MEASURED-ONLY" column is **withdrawn** (audit F1): it took the pessimistic edge of every bracket at once and that is what produced "zero donors pass". `nat` = the donor's own `max_position_embeddings`; a context beyond it is marked `>nat` and is **not natively servable** without RoPE extension or the recall tier.
 
-KV priced at the measured aggregate DRAM stream [40–44 GB/s]; 4-bit KV assumed, which is the most favourable of the two KV precisions asked for.
+| donor | nat ctx | 32K central [lo..hi] | 128K central [lo..hi] | UNCONVERTED | **CONVERTED** central [lo..hi] | gate | KV-free |
+|---|---|---|---|---|---|---|---|
+| `Qwen/Qwen2.5-1.5B` | 131072 | 4.70 [2.71..7.88] | 4.36 [2.58..7.00] | 4.70 | 13.30 [11.77..14.11] | **PASS** | 13.82 |
+| `Qwen/Qwen3-1.7B` | 40960 | 3.31 [1.95..5.35] | 2.71 [1.72..3.98] `>nat` | 3.31 | 9.02 [8.01..9.51] | FAIL (KV-only) | 10.03 |
+| `HuggingFaceTB/SmolLM2-1.7B` | 8192 | 3.59 [2.18..5.59] `>nat` | 2.54 [1.72..3.46] `>nat` | 7.76 | 11.01 [9.76..11.64] | **STRADDLE** | 11.62 |
+| `microsoft/Phi-3-mini-4k-instruct` | 4096 | 1.70 [1.05..2.58] `>nat` | 1.22 [0.84..1.65] `>nat` | 4.20 | 4.83 [4.31..5.07] | **FAIL** | 4.95 |
+| `allenai/OLMo-2-1124-7B` | 4096 | 1.12 [0.72..1.60] `>nat` | 0.84 [0.59..1.09] `>nat` | 2.35 | 2.61 [2.36..2.71] | **FAIL** | 2.65 |
+| `mistralai/Mistral-7B-v0.3` | 32768 | 1.36 [0.82..2.12] | 1.23 [0.77..1.83] `>nat` | 1.36 | 3.20 [2.89..3.36] | **FAIL** | 3.34 |
+| `Qwen/Qwen3-8B` | 40960 | 1.17 [0.72..1.79] | 1.06 [0.67..1.56] `>nat` | 1.17 | 2.65 [2.39..2.77] | **FAIL** | 2.75 |
+| `Qwen/Qwen3-30B-A3B` | 40960 | 1.69 [0.96..3.25] | 1.54 [0.91..2.76] `>nat` | 1.69 | 3.64 [2.59..5.66] | **FAIL** | 3.78 |
+| `mistralai/Mixtral-8x7B-v0.1` | 32768 | 0.72 [0.41..1.79] | 0.69 [0.40..1.58] `>nat` | 0.72 | 1.04 [0.64..2.61] | **FAIL** | 1.06 |
+| `deepseek-ai/DeepSeek-V2-Lite` | 163840 | 2.68 [1.51..5.75] | 2.56 [1.47..5.23] | 2.68 | 5.10 [3.36..9.77] | **FAIL** | 5.17 |
+| `allenai/OLMoE-1B-7B-0924` | 4096 | 4.41 [2.58..8.26] `>nat` | 3.29 [2.14..5.15] `>nat` | 9.05 | 9.99 [6.79..17.37] | FAIL (KV-only) | 10.15 |
+| `openai/gpt-oss-20b` | 131072 | 1.93 [1.12..3.80] | 1.87 [1.10..3.61] | 1.93 | 3.33 [2.28..5.71] | **FAIL** | 3.36 |
+| `Zyphra/Zamba2-2.7B` | 4096 | 2.06 [1.68..2.31] `>nat` | 1.68 [1.41..1.87] `>nat` | 2.57 | 2.47 [2.24..2.57] | **FAIL** | 2.56 |
+| `ibm-granite/granite-4.0-h-small` | 131072 | 1.24 [0.89..1.84] | 1.23 [0.88..1.81] | 1.24 | 1.28 [0.94..1.84] | **FAIL** | 1.30 |
+| `nvidia/Nemotron-H-8B-Base-8K` | 8192 | 2.01 [1.70..2.19] `>nat` | 1.97 [1.67..2.15] `>nat` | 2.20 | 2.13 [1.90..2.22] | **FAIL** | 2.15 |
+| `tiiuae/Falcon-H1-7B-Base` | 262144 | 1.27 [0.78..1.93] | 1.22 [0.76..1.84] | 1.27 | 2.76 [2.50..2.88] | **FAIL** | 2.79 |
+| `Qwen/Qwen3-Next-80B-A3B-Instruct` | 262144 | 2.59 [1.76..3.94] | 2.50 [1.71..3.73] | 2.59 | 3.10 [2.32..4.31] | **FAIL** | 3.20 |
+| `state-spaces/mamba2-2.7b` | ? | 3.62 [3.34..3.67] | 3.62 [3.34..3.67] | 3.62 | 3.40 [2.98..3.55] | **FAIL** | 3.40 |
+
+KV priced at the measured aggregate DRAM stream [40–44 GB/s], central 42; 4-bit KV assumed, which **does not exist in this engine** (audit F8) — see the fp16 column in the arithmetic doc.
+
+**`gate @SKU-A` reads PASS only when the LOWER BOUND clears 10 tok/s.** A central estimate on the right side of a gate whose interval straddles it is reported as straddling, not as a pass.
+
+**KV-free central** isolates the owner's directive: a donor may **not** be eliminated solely because full-native KV does not fit or stream — that is what the recall tier absorbs. Any donor failing the gate on KV but clearing it KV-free is a *recall-tier* question, not an elimination.
 
 
 ### T7 — head alone (mandate §5's named first-class problem)
 
 | donor | V | head bytes fp32 | ms/token fp32 | head bytes ternary | ms/token ternary (LUT bracket) | head share of the fp32 per-token stream |
 |---|---|---|---|---|---|---|
-| `Qwen/Qwen2.5-1.5B` | 151936 | 890.2 MB | 25.9–27.5* | 111.9 MB | 6.9–27.9 | 60% |
-| `Qwen/Qwen3-1.7B` | 151936 | 1.16 GB | 34.6–36.6* | 149.0 MB | 9.2–37.2 | 47% |
-| `HuggingFaceTB/SmolLM2-1.7B` | 49152 | 384.0 MB | 11.2–11.8* | 48.2 MB | 3.0–12.0 | 20% |
-| `microsoft/Phi-3-mini-4k-instruct` | 32064 | 375.8 MB | 10.9–11.6* | 47.1 MB | 2.9–11.8 | 8% |
-| `allenai/OLMo-2-1124-7B` | 100352 | 1.53 GB | 45.7–48.4* | 196.4 MB | 12.1–49.0 | 16% |
-| `mistralai/Mistral-7B-v0.3` | 32768 | 512.0 MB | 14.9–15.8* | 64.1 MB | 4.0–16.0 | 9% |
-| `Qwen/Qwen3-8B` | 151936 | 2.32 GB | 69.1–73.2* | 297.3 MB | 18.3–74.2 | 29% |
-| `Qwen/Qwen3-30B-A3B` | 151936 | 1.16 GB | 34.6–36.6* | 149.0 MB | 9.2–37.2 | 25% |
-| `mistralai/Mixtral-8x7B-v0.1` | 32000 | 500.0 MB | 14.6–15.4* | 62.6 MB | 3.9–15.6 | 9% |
-| `deepseek-ai/DeepSeek-V2-Lite` | 102400 | 800.0 MB | 23.3–24.7* | 100.4 MB | 6.2–25.1 | 36% |
-| `allenai/OLMoE-1B-7B-0924` | 50304 | 393.0 MB | 11.4–12.1* | 49.3 MB | 3.0–12.3 | 28% |
-| `openai/gpt-oss-20b` | 201088 | 2.16 GB | 64.3–68.1* | 276.9 MB | 17.1–69.1 | 48% |
-| `Zyphra/Zamba2-2.7B` | 32000 | 312.5 MB | 9.1–9.6* | 39.2 MB | 2.4–9.8 | 3% |
-| `ibm-granite/granite-4.0-h-small` | 100352 | 1.53 GB | 45.7–48.4* | 196.4 MB | 12.1–49.0 | 10% |
-| `nvidia/Nemotron-H-8B-Base-8K` | 131072 | 2.00 GB | 59.7–63.2* | 256.5 MB | 15.8–64.0 | 16% |
-| `tiiuae/Falcon-H1-7B-Base` | 130048 | 1.49 GB | 44.4–47.0* | 191.0 MB | 11.8–47.7 | 18% |
-| `Qwen/Qwen3-Next-80B-A3B-Instruct` | 151936 | 1.16 GB | 34.6–36.6* | 149.0 MB | 9.2–37.2 | 17% |
-| `state-spaces/mamba2-2.7b` | 50288 | 491.1 MB | 14.3–15.1* | 61.6 MB | 3.8–15.4 | 5% |
+| `Qwen/Qwen2.5-1.5B` | 151936 | 890.2 MB | 23.0–25.9 | 111.9 MB | 6.9–27.9 | 60% |
+| `Qwen/Qwen3-1.7B` | 151936 | 1.16 GB | 30.7–34.6 | 149.0 MB | 9.2–37.2 | 47% |
+| `HuggingFaceTB/SmolLM2-1.7B` | 49152 | 384.0 MB | 9.9–11.2 | 48.2 MB | 3.0–12.0 | 20% |
+| `microsoft/Phi-3-mini-4k-instruct` | 32064 | 375.8 MB | 9.7–10.9 | 47.1 MB | 2.9–11.8 | 8% |
+| `allenai/OLMo-2-1124-7B` | 100352 | 1.53 GB | 40.6–45.7 | 196.4 MB | 12.1–49.0 | 16% |
+| `mistralai/Mistral-7B-v0.3` | 32768 | 512.0 MB | 13.2–14.9 | 64.1 MB | 4.0–16.0 | 9% |
+| `Qwen/Qwen3-8B` | 151936 | 2.32 GB | 61.4–69.1 | 297.3 MB | 18.3–74.2 | 29% |
+| `Qwen/Qwen3-30B-A3B` | 151936 | 1.16 GB | 30.7–34.6 | 149.0 MB | 9.2–37.2 | 25% |
+| `mistralai/Mixtral-8x7B-v0.1` | 32000 | 500.0 MB | 12.9–14.6 | 62.6 MB | 3.9–15.6 | 9% |
+| `deepseek-ai/DeepSeek-V2-Lite` | 102400 | 800.0 MB | 20.7–23.3 | 100.4 MB | 6.2–25.1 | 36% |
+| `allenai/OLMoE-1B-7B-0924` | 50304 | 393.0 MB | 10.2–11.4 | 49.3 MB | 3.0–12.3 | 28% |
+| `openai/gpt-oss-20b` | 201088 | 2.16 GB | 57.1–64.3 | 276.9 MB | 17.1–69.1 | 48% |
+| `Zyphra/Zamba2-2.7B` | 32000 | 312.5 MB | 8.1–9.1 | 39.2 MB | 2.4–9.8 | 3% |
+| `ibm-granite/granite-4.0-h-small` | 100352 | 1.53 GB | 40.6–45.7 | 196.4 MB | 12.1–49.0 | 10% |
+| `nvidia/Nemotron-H-8B-Base-8K` | 131072 | 2.00 GB | 53.0–59.7 | 256.5 MB | 15.8–64.0 | 16% |
+| `tiiuae/Falcon-H1-7B-Base` | 130048 | 1.49 GB | 39.4–44.4 | 191.0 MB | 11.8–47.7 | 18% |
+| `Qwen/Qwen3-Next-80B-A3B-Instruct` | 151936 | 1.16 GB | 30.7–34.6 | 149.0 MB | 9.2–37.2 | 17% |
+| `state-spaces/mamba2-2.7b` | 50288 | 491.1 MB | 12.7–14.3 | 61.6 MB | 3.8–15.4 | 5% |
 
 ### T8 — MoE granularity vs the ρ-safe 48 KB chunk
 
@@ -335,7 +441,6 @@ KV priced at the measured aggregate DRAM stream [40–44 GB/s]; 4-bit KV assumed
 | `tiiuae/Falcon-H1-7B-Base` | `c9a4cbb95c01b1ede39f69eda083d03d8903b8f0` | `a0ed9a14b6a71ed4701b72549eb07e17…` | 1637 | OK |
 | `Qwen/Qwen3-Next-80B-A3B-Instruct` | `9c7f2fbe84465e40164a94cc16cd30b6999b0cc7` | `2d483c7cabad7c8704478ed4038fa7e7…` | 1154 | OK |
 | `state-spaces/mamba2-2.7b` | `99b226cc377d131cccc610ed4346db564f381f1e` | `0955f133a3eeb902ed11e1a65d0be293…` | 331 | OK |
-<!-- END GENERATED TABLES -->
 
 ---
 
@@ -461,55 +566,84 @@ gated access is the cheapest way to get it.
 
 ## 5. Elimination ledger — every donor, with the number that eliminated it
 
-Pre-registered elimination rule, applied uniformly: **a donor is eliminated at stage 1 if it misses a
-sealed gate under the *most favourable* arithmetic available** — all-ternary footprint map, 4-bit KV,
-and the OPT time column (17.0 GB/s + dispatch fix). If even the best case fails, no measurement can
-save it. Gates: RAM ≤ 16 GiB at SKU-A / ≤ 64 GiB at SKU-B, and ≥ 10 tok/s decode.
+**Revised elimination rule (rev B).** A donor is eliminated only if it misses a sealed gate **with its
+interval**, at its **own native context**, and **not solely because of KV**. Three changes from rev A:
 
-| donor | SKU-A @32K best-case tok/s | SKU-A RAM | SKU-B @128K best-case tok/s | eliminated by |
-|---|---|---|---|---|
-| `Qwen/Qwen2.5-1.5B` | **12.11** | 1.94 GB | **10.14** | — **survives both, best case only** |
-| `allenai/OLMoE-1B-7B-0924` | **11.01** | 5.24 GB | 6.10 | **SKU-B only**: 6.10 tok/s at 128K (KV 4.00 GB, MHA) |
-| `deepseek-ai/DeepSeek-V2-Lite` | 7.85 | 8.59 GB | 6.90 | tok/s 7.85 < 10 |
-| `Qwen/Qwen3-1.7B` | 7.92 | 2.68 GB | 5.25 | tok/s 7.92 < 10 |
-| `HuggingFaceTB/SmolLM2-1.7B` | 7.80 | 3.30 GB | 4.20 | tok/s 7.80 < 10; MHA KV = 192 KB/token |
-| `openai/gpt-oss-20b` | 4.73 | 10.96 GB | 4.44 | tok/s 4.73 < 10; also already-4-bit |
-| `Qwen/Qwen3-30B-A3B` | 4.72 | **16.06 GB > 16 GiB** | 3.75 | **both**: RAM at SKU-A *and* tok/s |
-| `Qwen/Qwen3-Next-80B-A3B` | 3.87 | **38.54 GB** | 3.67 | **both**; row also `FORMULA_DISAGREEMENT` |
-| `microsoft/Phi-3-mini-4k-instruct` | 3.45 | 5.79 GB | 1.96 | tok/s 3.45 < 10 |
-| `state-spaces/mamba2-2.7b` | 3.33 | 2.28 GB | 3.33 | tok/s 3.33 < 10; row PARTIAL |
-| `mistralai/Mistral-7B-v0.3` | 2.82 | 5.39 GB | 2.34 | tok/s 2.82 < 10 |
-| `tiiuae/Falcon-H1-7B-Base` | 2.50 | 4.89 GB | 2.35 | tok/s 2.50 < 10 |
-| `Qwen/Qwen3-8B` | 2.36 | 5.95 GB | 1.97 | tok/s 2.36 < 10 |
-| `Zyphra/Zamba2-2.7B` | (2.17) | (5.70 GB) | (1.78) | **`FORMULA_DISAGREEMENT` +164%** — no valid number |
-| `nvidia/Nemotron-H-8B-Base-8K` | 2.01 | 4.92 GB | 1.97 | tok/s 2.01 < 10 |
-| `allenai/OLMo-2-1124-7B` | 1.96 | 8.41 GB | 1.25 | tok/s 1.96 < 10 |
-| `mistralai/Mixtral-8x7B-v0.1` | 1.92 | **23.79 GB** | 1.68 | **both** |
-| `ibm-granite/granite-4.0-h-small` | 1.62 | **16.20 GB > 16 GiB** | 1.60 | **both** |
-| `meta-llama/Llama-3.2-1B` | — | — | — | **UNAVAILABLE (401 gated)** |
-| `ai21labs/AI21-Jamba-Mini-1.6` | — | — | — | **UNAVAILABLE (401 gated)** |
+- Verdicts are read off the **interval**, not a corner. `PASS` needs the lower bound ≥ 10.
+- Each donor is priced at `min(32768, max_position_embeddings)` — its **own** capacity (audit F7).
+- **Owner directive: a donor may not be eliminated solely because full-native KV does not fit or
+  stream.** That is what the recall tier absorbs. The `KV-free` column isolates exactly this case.
 
-**On the MEASURED-ONLY column, this table has no survivors.** `Qwen2.5-1.5B` reaches 9.76 at SKU-A/32K
-and 8.33 at SKU-B/128K; `OLMoE` reaches 5.98 and 4.04.
+| donor | nat ctx | SKU-A eff | tok/s central | interval | KV-free | eliminated by |
+|---|---|---|---|---|---|---|
+| **`Qwen/Qwen2.5-1.5B`** | 131072 | 32768 | **12.10** | [10.17..14.92] | 12.98 | — **PASSES** |
+| `allenai/OLMoE-1B-7B-0924` | **4096** | 4096 | 10.08 | [7.16..17.04] | 10.42 | — **STRADDLE, undecided** |
+| `HuggingFaceTB/SmolLM2-1.7B` | **8192** | 8192 | 9.95 | [8.54..11.91] | **11.00** | **KV only** — see below |
+| `Qwen/Qwen3-1.7B` | 40960 | 32768 | 7.96 | [7.09..9.07] | 9.69 | tok/s; KV-free still < 10 |
+| `deepseek-ai/DeepSeek-V2-Lite` | 163840 | 32768 | 5.11 | [3.48..9.60] | 5.28 | tok/s (MLA KV is already cheap) |
+| `microsoft/Phi-3-mini-4k-instruct` | **4096** | 4096 | 4.48 | [3.90..5.26] | 4.68 | tok/s |
+| `Qwen/Qwen3-30B-A3B` | 40960 | 32768 | 3.61 | [2.71..5.40] | 3.88 | **both**: 16.06 GB > 16 GiB, and tok/s |
+| `state-spaces/mamba2-2.7b` | ? | 32768 | 3.49 | [3.46..3.52] | 3.49 | tok/s; row PARTIAL |
+| `openai/gpt-oss-20b` | 131072 | 32768 | 3.34 | [2.38..5.60] | 3.39 | tok/s; also already-4-bit |
+| `Qwen/Qwen3-Next-80B-A3B` | 262144 | 32768 | 3.19 | [2.52..4.35] | 3.24 | **both**; row `FORMULA_DISAGREEMENT` |
+| `mistralai/Mistral-7B-v0.3` | 32768 | 32768 | 2.80 | [2.31..3.55] | 3.02 | tok/s |
+| `tiiuae/Falcon-H1-7B-Base` | 262144 | 32768 | 2.52 | [2.15..3.03] | 2.58 | tok/s |
+| `allenai/OLMo-2-1124-7B` | **4096** | 4096 | 2.39 | [2.09..2.78] | 2.47 | tok/s |
+| `Zyphra/Zamba2-2.7B` | **4096** | 4096 | (2.36) | [2.08..2.74] | 2.39 | **`FORMULA_DISAGREEMENT` +164%** — no valid number |
+| `Qwen/Qwen3-8B` | 40960 | 32768 | 2.36 | [2.01..2.86] | 2.53 | tok/s |
+| `nvidia/Nemotron-H-8B-Base-8K` | **8192** | 8192 | 2.06 | [1.84..2.34] | 2.06 | tok/s |
+| `ibm-granite/granite-4.0-h-small` | 131072 | 32768 | 1.30 | [1.00..1.85] | 1.30 | **both**: 16.20 GB > 16 GiB, and tok/s |
+| `mistralai/Mixtral-8x7B-v0.1` | 32768 | 32768 | 1.04 | [0.65..2.54] | 1.07 | **both**: 23.79 GB, and tok/s |
+| `meta-llama/Llama-3.2-1B` | — | — | — | — | — | **UNAVAILABLE (401 gated)** |
+| `ai21labs/AI21-Jamba-Mini-1.6` | — | — | — | — | — | **UNAVAILABLE (401 gated)** |
+
+### 5.0 Eliminations that CHANGED
+
+- **`Qwen/Qwen2.5-1.5B`: FAIL → PASS.** Sole cause: the measured projection rate. 9.77 → 12.10.
+- **`allenai/OLMoE-1B-7B-0924`: FAIL → STRADDLE.** Two causes, both corrections rather than concessions.
+  It is a **4096-position model** that rev A scored at 32K and 128K (audit F7) — contexts it cannot
+  natively serve. At its own 4K its KV term collapses. Its interval is the widest in the set
+  (7.16–17.04) because it is the donor most exposed to the open ternary bracket. **Undecided, and
+  decidable by one engine-integrated LUT measurement at donor `D`.**
+- **`HuggingFaceTB/SmolLM2-1.7B`: eliminated → KV-ONLY elimination, re-opened.** An **8192**-position
+  model rev A scored at 32K. At its own 8K it reaches 9.95 [8.54..11.91], and **KV-free it reaches
+  11.00**. Per the owner's directive it may **not** be eliminated on full-native KV alone. But its
+  KV-free *lower bound* is 9.34, still under 10 — so it re-enters as **undecided**, not as a pass. Its
+  MHA (no GQA) KV of 192 KB/context-token is the heaviest per parameter in the set.
+- **`Phi-3-mini`, `OLMo-2-7B`, `Zamba2-2.7B` (4K) and `Nemotron-H-8B` (8K)**: all re-priced at their own
+  native contexts. Every one improves (e.g. Phi-3 3.45 → 4.48) and **every one still fails by 2–4×.**
+  The F7 defect was real but changed no verdict for these four.
+
+**No elimination was reversed by the rate correction alone except the top two.** The 15 donors below
+`Qwen3-1.7B` fail by 2–12×; no reading of any remaining bracket reaches the gate.
 
 ### 5.1 The ranked shortlist
 
-**SKU-A (16 GB, 32K native attention window, 4-bit KV):**
+**SKU-A (16 GB, native attention window capped at each donor's own capacity, 4-bit KV):**
 
-1. **`Qwen/Qwen2.5-1.5B`** — 1.94 GB resident; 12.11 opt / **9.76 measured-only**. Arithmetic: proj+head
-   fp32 1.44 GB/token ÷ 34 GB/s = 45.6 ms; ternary MLP 553 MB/token ÷ 11.4 GB/s = 50.9 ms; KV 224 MB ÷
-   40 GB/s = 5.9 ms; glue 33 µs → ~102 ms → 9.76 tok/s. Apache-2.0. GQA 2 KV heads = 28 KB/token of
-   context, the second-lightest KV in the set.
-2. **`allenai/OLMoE-1B-7B-0924`** — 5.24 GB; 11.01 opt / **5.98 measured-only**. Only 1.18B active per
-   token out of 6.92B total — the best active-to-total ratio here, and the strongest evidence for §8.A's
-   "sparsity is worth more than small total size". Killed at 128K by full MHA (16 KV heads, 128 KB/token
-   → 4.00 GB at 128K even at 4 bits).
-3. `deepseek-ai/DeepSeek-V2-Lite` — 8.59 GB; 7.85 / 3.49. **MLA is the standout KV result**: 30.4 KB per
-   context token across 27 layers, vs SmolLM2's 192 KB with 4× fewer parameters. Licence is `other` —
-   redistribution needs a read (§8.A q6).
+1. **`Qwen/Qwen2.5-1.5B` — the only pass.** 1.94 GB resident; **12.10 tok/s [10.17..14.92]**.
+   Arithmetic: proj+head fp32 1.550 GB/token ÷ 37.74 GB/s = **41.07 ms** (measured end-to-end);
+   ternary MLP 580 MB/token (codes + per-row scales) ÷ [11.40..27.64] = 20.99–50.91 ms; KV 224 MB ÷ 42 = 5.6 ms; glue 33 µs.
+   Apache-2.0. GQA with 2 KV heads = 28 KB/context-token, the second-lightest KV in the set. **Passes
+   at the fully-pessimistic corner (10.17), which is what makes it a pass and not a hope.**
+   *Caveat: at fp16 KV — the only precision built — it straddles at 10.06 [8.62..12.04] (§0.1).*
+2. **`allenai/OLMoE-1B-7B-0924` — undecided.** 5.24 GB; 10.08 [7.16..17.04] at its native 4K. Only
+   1.18B active of 6.92B — the best active-to-total ratio here and the strongest evidence for §8.A's
+   "sparsity is worth more than small total size". **Its verdict turns entirely on the open ternary
+   bracket**, and a 4K native window is a hard limit that the recall tier would have to carry
+   completely.
+3. **`HuggingFaceTB/SmolLM2-1.7B` — undecided, re-opened on the KV directive.** 3.30 GB; 9.95
+   [8.54..11.91] at its native 8K, 11.00 KV-free. Not eliminated (its only failure is KV), not passing
+   (KV-free lower bound 9.34 < 10).
+4. `deepseek-ai/DeepSeek-V2-Lite` — 8.59 GB; 5.11 [3.48..9.60]. Eliminated on speed, but **MLA remains
+   the standout KV result**: 30.4 KB per context token across 27 layers, vs SmolLM2's 192 KB with 4×
+   fewer parameters. Licence `other` — redistribution needs a read (§8.A q6).
 
-**SKU-B (64 GB, 128K native attention):** only `Qwen2.5-1.5B` (10.14 opt / 8.33 measured-only) clears
-even in the best case. Everything else is bounded by the ternary stream, not by RAM: **all 18 reachable donors fit SKU-B's 64 GiB** under the all-ternary map, the largest being `Qwen3-Next-80B` at 41.35 GB.
+**SKU-B (64 GB, 128K native attention, no recall path permitted):** `Qwen2.5-1.5B` reaches **10.06
+[8.62..12.04] — STRADDLE**, everything else fails by 2×+. Rev A's conclusion that *no donor passes
+SKU-B* is **weakened but not overturned**: the best donor now straddles rather than clearly failing.
+All 18 reachable donors fit SKU-B's 64 GiB under the all-ternary map, the largest being
+`Qwen3-Next-80B` at 39.10 GB — **RAM is not what eliminates anyone at SKU-B.**
 
 ---
 
@@ -579,7 +713,7 @@ concludes.** The 8.4 µs/expert figure is under adversarial audit; at these expe
 matter. `Qwen3-30B-A3B` makes 384 expert calls/token = **3.2 ms** against a 362 ms total (0.9%);
 `Qwen3-Next` 528 calls = 4.4 ms of 415 ms (1.1%). The audit's outcome moves no verdict in this document.
 **What does move verdicts is the other contested figure**, the 17.0 GB/s reachability: it is worth
-2.0–4.0× on every row and is the entire difference between "one donor passes" and "none do".
+2.0–4.0× on every row. **Rev B update:** that figure has now been re-measured at donor dimensions and the picture changed — the LUT path is *bandwidth*-bound there, with a kernel ceiling of 97 GB/s at `D=1536` against 29 at `D=256`, so the sandbox reading does not transfer. The live bracket is [11.40 .. 27.64] GB/s, integrated-vs-kernel-pure, and it is now the difference between **one donor passing and two** — not between one and none, because the measured projection rate carries `Qwen2.5-1.5B` over the gate at the pessimistic end of it.
 
 ---
 
@@ -592,11 +726,25 @@ Ordered by how much a verdict would move if the assumption is wrong.
    ternary projections run nearer the fp32 GEMV curve than the LUT rate, the all-ternary column improves
    substantially and more donors approach the gate. *This is the single most valuable cheap measurement
    available and it needs no GPU.*
-2. **The proj/head rate above 96 MB is an extrapolation.** Every donor's per-token projection bytes
-   exceed 96 MB by 15×–170×, so **every** donor row uses the 34–36 GB/s asymptote, flagged `*` in T5/T7.
-   The §1b caveat that streamed experts pollute L3 and push real rates toward the streaming tail applies
-   here with more force than at sandbox scale. If the true asymptote is materially below 34 GB/s the
-   whole table gets worse; the curve's own shape says it is not materially above.
+2. **~~The proj/head rate above 96 MB is an extrapolation.~~ RESOLVED — it is now MEASURED.**
+   `docs/research/DONOR_PROJ_RATE.md` swept the curve to **1024 MB** and measured the asymptote at
+   **38.84 ± 0.68 GB/s** (36 measurements, flat across 16× of size, no downward trend and no further
+   cliff past 96 MB), then measured the *actual* Qwen2.5-1.5B per-token stream end-to-end at
+   **37.74 ± 0.18 GB/s**. Every donor row now rests on a measured point, not an extrapolated one.
+   The retired 34.0 floor was **11% low**, and correcting it is what flipped the headline. The §1b
+   worry that streamed experts pollute L3 and push real rates toward the tail is answered: the tail
+   *is* the measured rate, and it is placement-insensitive to 2% at every donor-relevant size.
+   *Residual:* one machine (3600X), and the ternary path's kernel-pure/engine-integrated bracket is
+   still open — see item 2b.
+
+2b. **The ternary MLP bracket is the largest remaining source of uncertainty, and it is now the only
+   one that matters.** Its low end (11.40 GB/s dense / 4.2 routed) is engine-integrated at `D=256`;
+   its high end (27.64 / 26.4) is kernel-pure at donor `D`. **Different quantities.** For
+   `Qwen2.5-1.5B` this bracket alone spans 20.99–50.91 ms of a ~68–98 ms token, i.e. essentially the
+   entire reported interval. Closing it needs an engine-integrated LUT measurement at donor
+   dimensions — **the single most valuable cheap measurement now available, no GPU required.**
+   It decides `OLMoE` (10.08 [7.16..17.04]) outright.
+
 3. **Organ times are summed, not overlapped.** No prefetch, no compute/stream overlap, no interleaving
    of KV read with weight stream. Real engines overlap some of this. **Direction: optimistic to
    overlap**, so the tok/s figures here are, in that one respect, pessimistic.
@@ -656,17 +804,19 @@ this document is produced by that chain; none is transcribed by hand.
 | python | 3.12.10 |
 | huggingface_hub | 0.36.2 |
 | platform | Windows-11-10.0.26200-SP0 |
-| `donor_inventory.py` sha256 | `86618c15e3758b5fa960e59959580513ae74e3d9b9a50389bb3009fa9a0c3173` |
-| `donor_inventory.py` bytes | 60457 |
-| rate-constant source | docs/PHASE64_BUDGET.md sec.1 / sec.1b (measured, 3600X reference) |
-| r(size) curve MB | [4.0, 8.0, 16.0, 24.0, 32.0, 48.0, 64.0, 96.0] |
-| r(size) curve GB/s | [187.0, 185.0, 134.4, 60.5, 55.7, 45.5, 45.3, 36.5] |
-| r asymptote GB/s (extrapolated) | [34.0, 36.0] |
-| ternary routed-expert GB/s (engine-integrated) | 4.2 |
-| ternary dense-MLP GB/s (engine-integrated) | 11.398 |
-| ternary kernel-pure ceiling GB/s | 17.0 |
-| expert dispatch overhead | 8.4 us/call |
-| DRAM aggregate GB/s (KV) | [40.0, 44.0] |
+| `donor_inventory.py` sha256 | `2951bce18adf909378de13e52f03a7e4f4d4323aa11c2ab255a8bdb834ad5c1f` |
+| `donor_inventory.py` bytes | 76043 |
+| rate-constant source | docs/research/DONOR_PROJ_RATE.md (measured 2026-08-20, 3600X) + docs/PHASE64_BUDGET.md sec.1 (DRAM aggregate) |
+| proj donor-stream GB/s (MEASURED, used for the per-token term) | [37.38, **37.74**, 38.10] |
+| proj single-organ asymptote GB/s (MEASURED, flat 64->1024 MB) | [36.0, **38.84**, 40.20] |
+| RETIRED constant (never measured, 11% low) | PROJ_STREAMED_FLOOR = 34.0 |
+| ternary routed-expert GB/s [integrated D=256 .. kernel-pure donor D] | [4.2, 26.4] |
+| ternary dense-MLP GB/s [integrated D=256 .. kernel-pure donor D] | [11.398, 27.64] |
+| ternary kernel-pure ceiling GB/s (D=256 sandbox shape) | 17.0 (reproduced at 18.6-18.9) |
+| expert dispatch overhead | 8.4 us/call, added ONLY at the kernel-pure end (was double-counted) |
+| DRAM aggregate GB/s (KV) | [40.0, 42.0, 44.0] |
+| bracket policy | central estimate + fully-correlated interval; the single-corner MEASURED-ONLY column is WITHDRAWN |
+| gate reading | PASS requires the LOWER BOUND >= 10 tok/s; central-only is reported as STRADDLE |
 | declared OS/allocator margin | 1.0 GiB |
 <!-- END ENV -->
 
@@ -683,11 +833,19 @@ which config key produced each number, and the rate constants used.
 
 - **Nothing about quality.** No BPB, no retention, no PTQ fidelity. §9 stage −1 (the PTQ ternary kill
   gate) is untouched and remains the cheapest thing that could kill the route.
-- **Nothing measured.** Every tok/s here is an arithmetic model built on rates measured at 8.3M and one
-  synthetic-weight microbench grid. §5's own warning — *"a speedup measured in a microbenchmark and
-  reported as a system speedup"* is a named project failure — applies to this document in the opposite
-  direction, and the honest reading is: **these are desk numbers whose only job is to eliminate, and
-  they eliminate almost everything.**
+- **Still a desk model, but no longer an unmeasured one.** Rev A's rates came from the 8.3M sandbox and
+  one synthetic microbench grid. Rev B's projection term is measured **at donor scale, on the donor's
+  own byte count, end-to-end** (`DONOR_PROJ_RATE.md` §5.2) — that is the term that decides the verdict,
+  and it is no longer an extrapolation. What remains modelled rather than measured: the ternary MLP
+  bracket (integrated vs kernel-pure, §7 item 2b), **zero overlap between organs** (real engines overlap
+  some of this — direction: pessimistic), the linearly-scaled glue term, and 4-bit KV, which **does not
+  exist in this engine**. §5's warning that *"a speedup measured in a microbenchmark and reported as a
+  system speedup"* is a named project failure still applies to every rate here that is kernel-pure.
+- **One machine.** All rates are the 3600X reference floor. Per `feedback_portability_no_hardfit` they
+  are runtime parameters of a hardware class, not constants of the architecture.
+- **Not independently audited.** Rev B is a Builder artefact. Rev A's audit
+  (`CONTROLLER_STAGE1_AUDIT.md`) is what prompted this revision; rev B has not itself had a Controller
+  pass, and one is in progress on the underlying measurement.
 - **Nothing about the conversion itself.** Costs are for running the donor's *shape* on the engine's
   rate classes. What attention→SSM conversion buys is visible as the KV column going to zero, and what
   it costs in quality is entirely unpriced.

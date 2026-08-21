@@ -96,76 +96,82 @@
 
 | donor | active params/tok | proj+head fp32 bytes/tok | r(proj) GB/s | ternary MLP bytes/tok | ternary expert bytes/tok | expert calls/tok | tok/s PESS | tok/s OPT | tok/s **MEASURED-ONLY** |
 |---|---|---|---|---|---|---|---|---|---|
-| `Qwen/Qwen2.5-1.5B` | 1544M | 1.44 GB | 34–36* | 553.3 MB | 0.0 KB | 0 | 5.44 | 12.95 | **10.36** |
-| `Qwen/Qwen3-1.7B` | 1721M | 2.47 GB | 34–36* | 505.5 MB | 0.0 KB | 0 | 4.89 | 9.53 | **8.02** |
-| `HuggingFaceTB/SmolLM2-1.7B` | 1711M | 1.88 GB | 34–36* | 577.7 MB | 0.0 KB | 0 | 4.91 | 10.92 | **8.90** |
-| `microsoft/Phi-3-mini-4k-instruct` | 3723M | 4.87 GB | 34–36* | 1.13 GB | 0.0 KB | 0 | 2.26 | 4.62 | **3.85** |
-| `allenai/OLMo-2-1124-7B` | 6887M | 9.53 GB | 34–36* | 2.02 GB | 0.0 KB | 0 | 1.22 | 2.43 | **2.04** |
-| `mistralai/Mistral-7B-v0.3` | 7114M | 5.50 GB | 34–36* | 2.63 GB | 0.0 KB | 0 | 1.18 | 3.03 | **2.37** |
-| `Qwen/Qwen3-8B` | 7568M | 7.94 GB | 34–36* | 2.54 GB | 0.0 KB | 0 | 1.11 | 2.52 | **2.04** |
-| `Qwen/Qwen3-30B-A3B` | 3042M | 4.58 GB | 34–36* | 0.0 KB | 869.2 MB | 384 | 2.74 | 5.17 | **2.76** |
-| `mistralai/Mixtral-8x7B-v0.1` | 12749M | 5.49 GB | 34–36* | 0.0 KB | 5.26 GB | 64 | 0.66 | 2.01 | **0.66** |
-| `deepseek-ai/DeepSeek-V2-Lite` | 2451M | 2.18 GB | 34–36* | 32.2 MB | 861.7 MB | 182 | 3.41 | 8.22 | **3.49** |
-| `allenai/OLMoE-1B-7B-0924` | 1179M | 1.39 GB | 34–36* | 0.0 KB | 386.0 MB | 128 | 7.07 | 15.06 | **7.13** |
-| `openai/gpt-oss-20b` | 3607M | 4.54 GB | 34–36* | 0.0 KB | 1.12 GB | 96 | 2.33 | 4.84 | **2.33** |
-| `Zyphra/Zamba2-2.7B` | 6949M | 10.07 GB | 34–36* | 1.98 GB | 0.0 KB | 0 | 1.21 | 2.35 | **1.98** |
-| `ibm-granite/granite-4.0-h-small` | 8803M | 15.92 GB | 34–36* | 0.0 KB | 2.12 GB | 440 | 0.95 | 1.63 | **0.96** |
-| `nvidia/Nemotron-H-8B-Base-8K` | 7564M | 12.43 GB | 34–36* | 1.97 GB | 0.0 KB | 0 | 1.12 | 2.02 | **1.73** |
-| `tiiuae/Falcon-H1-7B-Base` | 7186M | 8.21 GB | 34–36* | 2.32 GB | 0.0 KB | 0 | 1.17 | 2.55 | **2.09** |
-| `Qwen/Qwen3-Next-80B-A3B-Instruct` | 3463M | 6.71 GB | 34–36* | 0.0 KB | 798.2 MB | 528 | 2.41 | 3.94 | **2.43** |
-| `state-spaces/mamba2-2.7b` | 2702M | 10.07 GB | 34–36* | 0.0 KB | 0.0 KB | 0 | 3.14 | 3.33 | **3.14** |
+| `Qwen/Qwen2.5-1.5B` | 1544M | 1.44 GB | 39.87 | 553.3 MB | 0.0 KB | 0 | 2.75 | 8.23 | **4.83** |
+| `Qwen/Qwen3-1.7B` | 1721M | 2.47 GB | 39.87 | 505.5 MB | 0.0 KB | 0 | 2.05 | 6.04 | **3.58** |
+| `HuggingFaceTB/SmolLM2-1.7B` | 1711M | 1.88 GB | 39.87 | 577.7 MB | 0.0 KB | 0 | 2.39 | 7.03 | **4.16** |
+| `microsoft/Phi-3-mini-4k-instruct` | 3723M | 4.87 GB | 39.87 | 1.13 GB | 0.0 KB | 0 | 1.15 | 3.18 | **1.96** |
+| `allenai/OLMo-2-1124-7B` | 6887M | 9.53 GB | 39.87 | 2.02 GB | 0.0 KB | 0 | 0.78 | 1.90 | **1.27** |
+| `mistralai/Mistral-7B-v0.3` | 7114M | 5.50 GB | 39.87 | 2.63 GB | 0.0 KB | 0 | 0.84 | 2.23 | **1.41** |
+| `Qwen/Qwen3-8B` | 7568M | 7.94 GB | 39.87 | 2.54 GB | 0.0 KB | 0 | 0.73 | 1.89 | **1.21** |
+| `Qwen/Qwen3-30B-A3B` | 3042M | 4.58 GB | 39.87 | 0.0 KB | 869.2 MB | 384 | 0.98 | 3.45 | **1.75** |
+| `mistralai/Mixtral-8x7B-v0.1` | 12749M | 5.49 GB | 39.87 | 0.0 KB | 5.26 GB | 64 | 0.42 | 1.87 | **0.74** |
+| `deepseek-ai/DeepSeek-V2-Lite` | 2451M | 2.18 GB | 39.87 | 32.2 MB | 861.7 MB | 182 | 1.52 | 5.95 | **2.73** |
+| `allenai/OLMoE-1B-7B-0924` | 1179M | 1.39 GB | 39.87 | 0.0 KB | 386.0 MB | 128 | 2.78 | 10.34 | **4.97** |
+| `openai/gpt-oss-20b` | 3607M | 4.54 GB | 39.87 | 0.0 KB | 1.12 GB | 96 | 1.13 | 3.87 | **1.94** |
+| `Zyphra/Zamba2-2.7B` | 6949M | 10.07 GB | 39.87 | 1.98 GB | 0.0 KB | 0 | 1.79 | 2.51 | **2.22** |
+| `ibm-granite/granite-4.0-h-small` | 8803M | 15.92 GB | 39.87 | 0.0 KB | 2.12 GB | 440 | 0.89 | 1.85 | **1.25** |
+| `nvidia/Nemotron-H-8B-Base-8K` | 7564M | 12.43 GB | 39.87 | 1.97 GB | 0.0 KB | 0 | 1.71 | 2.20 | **2.02** |
+| `tiiuae/Falcon-H1-7B-Base` | 7186M | 8.21 GB | 39.87 | 2.32 GB | 0.0 KB | 0 | 0.78 | 1.96 | **1.28** |
+| `Qwen/Qwen3-Next-80B-A3B-Instruct` | 3463M | 6.71 GB | 39.87 | 0.0 KB | 798.2 MB | 528 | 1.77 | 4.01 | **2.62** |
+| `state-spaces/mamba2-2.7b` | 2702M | 10.07 GB | 39.87 | 0.0 KB | 0.0 KB | 0 | 3.34 | 3.67 | **3.62** |
 
-`*` = above the last measured point of the §1b curve (96 MB): the 34–36 GB/s asymptote, an **extrapolation**.
+Projection rate is no longer a curve lookup. Every donor is priced on the **measured donor stream, 37.74 ± 0.18 GB/s** (`DONOR_PROJ_RATE.md` §5.2) — the whole per-token proj+head traffic timed in layer order, which is the same object this term models. The retired 34.0 floor was never measured and is 11% below it.
 
 
 ### T6 — tok/s including KV-cache read traffic, vs the sealed ≥10 tok/s gate
 
-| donor | 4K pess..opt (meas-only) | 32K pess..opt (meas-only) | 128K pess..opt (meas-only) | gate @32K | gate @128K |
-|---|---|---|---|---|---|
-| `Qwen/Qwen2.5-1.5B` | 5.42..12.84 (10.28) | 5.27..12.11 (9.76) | 4.82..10.14 (8.33) | **FAIL** | **FAIL** |
-| `Qwen/Qwen3-1.7B` | 4.83..9.29 (7.84) | 4.39..7.92 (6.75) | 3.35..5.25 (4.58) | **FAIL** | **FAIL** |
-| `HuggingFaceTB/SmolLM2-1.7B` | 4.80..10.40 (8.52) | 4.10..7.80 (6.55) | 2.74..4.20 (3.66) | **FAIL** | **FAIL** |
-| `microsoft/Phi-3-mini-4k-instruct` | 2.21..4.43 (3.70) | 1.91..3.45 (2.94) | 1.31..1.96 (1.72) | **FAIL** | **FAIL** |
-| `allenai/OLMo-2-1124-7B` | 1.20..2.36 (1.98) | 1.08..1.96 (1.67) | 0.80..1.25 (1.09) | **FAIL** | **FAIL** |
-| `mistralai/Mistral-7B-v0.3` | 1.18..3.00 (2.35) | 1.15..2.82 (2.23) | 1.05..2.34 (1.89) | **FAIL** | **FAIL** |
-| `Qwen/Qwen3-8B` | 1.11..2.50 (2.03) | 1.08..2.36 (1.92) | 0.98..1.97 (1.64) | **FAIL** | **FAIL** |
-| `Qwen/Qwen3-30B-A3B` | 2.72..5.11 (2.75) | 2.60..4.72 (2.62) | 2.24..3.75 (2.26) | **FAIL** | **FAIL** |
-| `mistralai/Mixtral-8x7B-v0.1` | 0.66..2.00 (0.66) | 0.65..1.92 (0.65) | 0.62..1.68 (0.62) | **FAIL** | **FAIL** |
-| `deepseek-ai/DeepSeek-V2-Lite` | 3.40..8.17 (3.48) | 3.33..7.85 (3.41) | 3.13..6.90 (3.20) | **FAIL** | **FAIL** |
-| `allenai/OLMoE-1B-7B-0924` | 6.91..14.40 (6.96) | 5.94..11.01 (5.98) | 4.02..6.10 (4.04) | **FAIL** | **FAIL** |
-| `openai/gpt-oss-20b` | 2.33..4.82 (2.33) | 2.30..4.73 (2.31) | 2.22..4.44 (2.23) | **FAIL** | **FAIL** |
-| `Zyphra/Zamba2-2.7B` | 1.21..2.33 (1.96) | 1.16..2.17 (1.84) | 1.02..1.78 (1.52) | **FAIL** | **FAIL** |
-| `ibm-granite/granite-4.0-h-small` | 0.95..1.63 (0.96) | 0.95..1.62 (0.95) | 0.94..1.60 (0.95) | **FAIL** | **FAIL** |
-| `nvidia/Nemotron-H-8B-Base-8K` | 1.11..2.02 (1.73) | 1.11..2.01 (1.72) | 1.10..1.97 (1.69) | **FAIL** | **FAIL** |
-| `tiiuae/Falcon-H1-7B-Base` | 1.17..2.55 (2.09) | 1.16..2.50 (2.05) | 1.12..2.35 (1.94) | **FAIL** | **FAIL** |
-| `Qwen/Qwen3-Next-80B-A3B-Instruct` | 2.40..3.93 (2.43) | 2.38..3.87 (2.40) | 2.29..3.67 (2.32) | **FAIL** | **FAIL** |
-| `state-spaces/mamba2-2.7b` | 3.14..3.33 (3.14) | 3.14..3.33 (3.14) | 3.14..3.33 (3.14) | **FAIL** | **FAIL** |
+Reported as **central [interval]**. The single-corner "MEASURED-ONLY" column is **withdrawn** (audit F1): it took the pessimistic edge of every bracket at once and that is what produced "zero donors pass". `nat` = the donor's own `max_position_embeddings`; a context beyond it is marked `>nat` and is **not natively servable** without RoPE extension or the recall tier.
 
-KV priced at the measured aggregate DRAM stream [40–44 GB/s]; 4-bit KV assumed, which is the most favourable of the two KV precisions asked for.
+| donor | nat ctx | 32K central [lo..hi] | 128K central [lo..hi] | UNCONVERTED | **CONVERTED** central [lo..hi] | gate | KV-free |
+|---|---|---|---|---|---|---|---|
+| `Qwen/Qwen2.5-1.5B` | 131072 | 4.70 [2.71..7.88] | 4.36 [2.58..7.00] | 4.70 | 11.27 [10.06..11.85] | **PASS** | 11.64 |
+| `Qwen/Qwen3-1.7B` | 40960 | 3.31 [1.95..5.35] | 2.71 [1.72..3.98] `>nat` | 3.31 | 7.67 [6.86..8.02] | **FAIL** | 8.38 |
+| `HuggingFaceTB/SmolLM2-1.7B` | 8192 | 3.59 [2.18..5.59] `>nat` | 2.54 [1.72..3.46] `>nat` | 7.76 | 9.75 [8.70..10.25] | FAIL (KV-only) | 10.23 |
+| `microsoft/Phi-3-mini-4k-instruct` | 4096 | 1.70 [1.05..2.58] `>nat` | 1.22 [0.84..1.65] `>nat` | 4.20 | 4.16 [3.74..4.34] | **FAIL** | 4.24 |
+| `allenai/OLMo-2-1124-7B` | 4096 | 1.12 [0.72..1.60] `>nat` | 0.84 [0.59..1.09] `>nat` | 2.35 | 2.26 [2.06..2.34] | **FAIL** | 2.30 |
+| `mistralai/Mistral-7B-v0.3` | 32768 | 1.36 [0.82..2.12] | 1.23 [0.77..1.83] `>nat` | 1.36 | 2.43 [2.22..2.53] | **FAIL** | 2.51 |
+| `Qwen/Qwen3-8B` | 40960 | 1.17 [0.72..1.79] | 1.06 [0.67..1.56] `>nat` | 1.17 | 2.05 [1.87..2.12] | **FAIL** | 2.11 |
+| `Qwen/Qwen3-30B-A3B` | 40960 | 1.69 [0.96..3.25] | 1.54 [0.91..2.76] `>nat` | 1.69 | 3.42 [2.47..5.14] | **FAIL** | 3.54 |
+| `mistralai/Mixtral-8x7B-v0.1` | 32768 | 0.72 [0.41..1.79] | 0.69 [0.40..1.58] `>nat` | 0.72 | 0.95 [0.60..2.08] | **FAIL** | 0.96 |
+| `deepseek-ai/DeepSeek-V2-Lite` | 163840 | 2.68 [1.51..5.75] | 2.56 [1.47..5.23] | 2.68 | 4.67 [3.16..8.34] | **FAIL** | 4.74 |
+| `allenai/OLMoE-1B-7B-0924` | 4096 | 4.41 [2.58..8.26] `>nat` | 3.29 [2.14..5.15] `>nat` | 9.05 | 9.27 [6.43..15.33] | **FAIL** | 9.41 |
+| `openai/gpt-oss-20b` | 131072 | 1.93 [1.12..3.80] | 1.87 [1.10..3.61] | 1.93 | 3.03 [2.13..4.88] | **FAIL** | 3.05 |
+| `Zyphra/Zamba2-2.7B` | 4096 | 2.06 [1.68..2.31] `>nat` | 1.68 [1.41..1.87] `>nat` | 2.57 | 2.47 [2.24..2.57] | **FAIL** | 2.56 |
+| `ibm-granite/granite-4.0-h-small` | 131072 | 1.24 [0.89..1.84] | 1.23 [0.88..1.81] | 1.24 | 1.28 [0.94..1.84] | **FAIL** | 1.30 |
+| `nvidia/Nemotron-H-8B-Base-8K` | 8192 | 2.01 [1.70..2.19] `>nat` | 1.97 [1.67..2.15] `>nat` | 2.20 | 2.13 [1.90..2.22] | **FAIL** | 2.15 |
+| `tiiuae/Falcon-H1-7B-Base` | 262144 | 1.27 [0.78..1.93] | 1.22 [0.76..1.84] | 1.27 | 2.14 [1.95..2.21] | **FAIL** | 2.16 |
+| `Qwen/Qwen3-Next-80B-A3B-Instruct` | 262144 | 2.59 [1.76..3.94] | 2.50 [1.71..3.73] | 2.59 | 3.10 [2.32..4.31] | **FAIL** | 3.20 |
+| `state-spaces/mamba2-2.7b` | ? | 3.62 [3.34..3.67] | 3.62 [3.34..3.67] | 3.62 | 3.40 [2.98..3.55] | **FAIL** | 3.40 |
+
+KV priced at the measured aggregate DRAM stream [40–44 GB/s], central 42; 4-bit KV assumed, which **does not exist in this engine** (audit F8) — see the fp16 column in the arithmetic doc.
+
+**`gate @SKU-A` reads PASS only when the LOWER BOUND clears 10 tok/s.** A central estimate on the right side of a gate whose interval straddles it is reported as straddling, not as a pass.
+
+**KV-free central** isolates the owner's directive: a donor may **not** be eliminated solely because full-native KV does not fit or stream — that is what the recall tier absorbs. Any donor failing the gate on KV but clearing it KV-free is a *recall-tier* question, not an elimination.
 
 
 ### T7 — head alone (mandate §5's named first-class problem)
 
 | donor | V | head bytes fp32 | ms/token fp32 | head bytes ternary | ms/token ternary (LUT bracket) | head share of the fp32 per-token stream |
 |---|---|---|---|---|---|---|
-| `Qwen/Qwen2.5-1.5B` | 151936 | 890.2 MB | 25.9–27.5* | 111.9 MB | 6.9–27.9 | 60% |
-| `Qwen/Qwen3-1.7B` | 151936 | 1.16 GB | 34.6–36.6* | 149.0 MB | 9.2–37.2 | 47% |
-| `HuggingFaceTB/SmolLM2-1.7B` | 49152 | 384.0 MB | 11.2–11.8* | 48.2 MB | 3.0–12.0 | 20% |
-| `microsoft/Phi-3-mini-4k-instruct` | 32064 | 375.8 MB | 10.9–11.6* | 47.1 MB | 2.9–11.8 | 8% |
-| `allenai/OLMo-2-1124-7B` | 100352 | 1.53 GB | 45.7–48.4* | 196.4 MB | 12.1–49.0 | 16% |
-| `mistralai/Mistral-7B-v0.3` | 32768 | 512.0 MB | 14.9–15.8* | 64.1 MB | 4.0–16.0 | 9% |
-| `Qwen/Qwen3-8B` | 151936 | 2.32 GB | 69.1–73.2* | 297.3 MB | 18.3–74.2 | 29% |
-| `Qwen/Qwen3-30B-A3B` | 151936 | 1.16 GB | 34.6–36.6* | 149.0 MB | 9.2–37.2 | 25% |
-| `mistralai/Mixtral-8x7B-v0.1` | 32000 | 500.0 MB | 14.6–15.4* | 62.6 MB | 3.9–15.6 | 9% |
-| `deepseek-ai/DeepSeek-V2-Lite` | 102400 | 800.0 MB | 23.3–24.7* | 100.4 MB | 6.2–25.1 | 36% |
-| `allenai/OLMoE-1B-7B-0924` | 50304 | 393.0 MB | 11.4–12.1* | 49.3 MB | 3.0–12.3 | 28% |
-| `openai/gpt-oss-20b` | 201088 | 2.16 GB | 64.3–68.1* | 276.9 MB | 17.1–69.1 | 48% |
-| `Zyphra/Zamba2-2.7B` | 32000 | 312.5 MB | 9.1–9.6* | 39.2 MB | 2.4–9.8 | 3% |
-| `ibm-granite/granite-4.0-h-small` | 100352 | 1.53 GB | 45.7–48.4* | 196.4 MB | 12.1–49.0 | 10% |
-| `nvidia/Nemotron-H-8B-Base-8K` | 131072 | 2.00 GB | 59.7–63.2* | 256.5 MB | 15.8–64.0 | 16% |
-| `tiiuae/Falcon-H1-7B-Base` | 130048 | 1.49 GB | 44.4–47.0* | 191.0 MB | 11.8–47.7 | 18% |
-| `Qwen/Qwen3-Next-80B-A3B-Instruct` | 151936 | 1.16 GB | 34.6–36.6* | 149.0 MB | 9.2–37.2 | 17% |
-| `state-spaces/mamba2-2.7b` | 50288 | 491.1 MB | 14.3–15.1* | 61.6 MB | 3.8–15.4 | 5% |
+| `Qwen/Qwen2.5-1.5B` | 151936 | 890.2 MB | 23.0–25.9 | 111.9 MB | 6.9–27.9 | 60% |
+| `Qwen/Qwen3-1.7B` | 151936 | 1.16 GB | 30.7–34.6 | 149.0 MB | 9.2–37.2 | 47% |
+| `HuggingFaceTB/SmolLM2-1.7B` | 49152 | 384.0 MB | 9.9–11.2 | 48.2 MB | 3.0–12.0 | 20% |
+| `microsoft/Phi-3-mini-4k-instruct` | 32064 | 375.8 MB | 9.7–10.9 | 47.1 MB | 2.9–11.8 | 8% |
+| `allenai/OLMo-2-1124-7B` | 100352 | 1.53 GB | 40.6–45.7 | 196.4 MB | 12.1–49.0 | 16% |
+| `mistralai/Mistral-7B-v0.3` | 32768 | 512.0 MB | 13.2–14.9 | 64.1 MB | 4.0–16.0 | 9% |
+| `Qwen/Qwen3-8B` | 151936 | 2.32 GB | 61.4–69.1 | 297.3 MB | 18.3–74.2 | 29% |
+| `Qwen/Qwen3-30B-A3B` | 151936 | 1.16 GB | 30.7–34.6 | 149.0 MB | 9.2–37.2 | 25% |
+| `mistralai/Mixtral-8x7B-v0.1` | 32000 | 500.0 MB | 12.9–14.6 | 62.6 MB | 3.9–15.6 | 9% |
+| `deepseek-ai/DeepSeek-V2-Lite` | 102400 | 800.0 MB | 20.7–23.3 | 100.4 MB | 6.2–25.1 | 36% |
+| `allenai/OLMoE-1B-7B-0924` | 50304 | 393.0 MB | 10.2–11.4 | 49.3 MB | 3.0–12.3 | 28% |
+| `openai/gpt-oss-20b` | 201088 | 2.16 GB | 57.1–64.3 | 276.9 MB | 17.1–69.1 | 48% |
+| `Zyphra/Zamba2-2.7B` | 32000 | 312.5 MB | 8.1–9.1 | 39.2 MB | 2.4–9.8 | 3% |
+| `ibm-granite/granite-4.0-h-small` | 100352 | 1.53 GB | 40.6–45.7 | 196.4 MB | 12.1–49.0 | 10% |
+| `nvidia/Nemotron-H-8B-Base-8K` | 131072 | 2.00 GB | 53.0–59.7 | 256.5 MB | 15.8–64.0 | 16% |
+| `tiiuae/Falcon-H1-7B-Base` | 130048 | 1.49 GB | 39.4–44.4 | 191.0 MB | 11.8–47.7 | 18% |
+| `Qwen/Qwen3-Next-80B-A3B-Instruct` | 151936 | 1.16 GB | 30.7–34.6 | 149.0 MB | 9.2–37.2 | 17% |
+| `state-spaces/mamba2-2.7b` | 50288 | 491.1 MB | 12.7–14.3 | 61.6 MB | 3.8–15.4 | 5% |
 
 ### T8 — MoE granularity vs the ρ-safe 48 KB chunk
 

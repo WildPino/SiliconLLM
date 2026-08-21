@@ -19,6 +19,18 @@ PLANTED CONTROL -- the tool must FIRE on a known-positive before its nulls count
      removed 'num_hidden_layers' -> MissingConfigField: num_hidden_layers (required for: n_layers)   OK
      removed 'hidden_size' -> MissingConfigField: hidden_size (required for: hidden_size)   OK
      removed 'vocab_size' -> MissingConfigField: vocab_size (required for: vocab)   OK
+
+[C4] rev-C terms: scan-recurrence, attention, and the attention->SSM weight swap
+     Project law 6.3: a term is untrusted until its guard is shown to FIRE and to STAY
+     SILENT.  rev C added three terms and shipped none of these; added here.
+     C4a NEGATIVE: n_att=L=6 -> scan = 0.000000 us -> silent (exactly 0)
+     C4b POSITIVE: n_att=L-1 -> scan moved +7.666667 us, predicted +7.666667 -> FIRES at exactly the predicted size
+     C4c NEGATIVE: n_att=0 -> attention = 0.000000 us -> silent (exactly 0)
+     C4d POSITIVE: n_att=1 -> attention moved +65.000000 us, predicted +65.000000 -> FIRES at exactly the predicted size
+     C4e NEGATIVE: n_att=n_attn_layers=6 -> swap charged 0 B -> silent (exactly 0)
+     C4f POSITIVE: one layer converted -> swap charged +1161216 B, predicted +1161216 -> FIRES at exactly the predicted size
+     C4g DIRECTION: the swap must be POSITIVE (SSM block is bigger than attention): +1161216 B -> correct sign
+     C4 PASS -- all three rev-C terms fire and stay silent as required
      unperturbed config -> no refusal   OK (guard exercised in both directions)
 
 ALL CONTROLS PASS
