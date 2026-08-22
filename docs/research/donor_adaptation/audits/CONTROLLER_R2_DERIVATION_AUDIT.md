@@ -58,7 +58,7 @@ Point by point, against what the brief asked to be attacked:
   the row sums of `A` over real tokens **< 1** but leaves them scalars. The step survives; see finding 3
   for the one place this bites.
 
-Numerical confirmation (`scratchpad/r2_check.py`, C0): `max|W_v(X A^T) − (W_v X) A^T| = 5.3e-15` in fp64.
+Numerical confirmation (`benchmarks/donor_adaptation/r2/r2_check.py`, C0): `max|W_v(X A^T) − (W_v X) A^T| = 5.3e-15` in fp64.
 
 **This is exact linear algebra and it holds for the real architecture. Said plainly: §1.2 is right.**
 
@@ -744,7 +744,7 @@ control logic**, not donor behaviour. These need a real model and are deferred:
 
 ---
 
-*Controller, 2026-08-22. Reproduction scripts: `scratchpad/r2_check.py`, `scratchpad/r2_check2.py`
+*Controller, 2026-08-22. Reproduction scripts: `benchmarks/donor_adaptation/r2/r2_check.py`, `benchmarks/donor_adaptation/r2/r2_check2.py`
 (numpy, fp64, seconds, a few MB). Sources read: `transformers` 4.57.6 `modeling_llama.py` /
 `modeling_qwen2.py` / `modeling_qwen3.py`; `benchmarks/donor_adaptation/density/d4_reconstruction.py`;
 `benchmarks/donor_adaptation/density/results/d4_reconstruction.json`;
