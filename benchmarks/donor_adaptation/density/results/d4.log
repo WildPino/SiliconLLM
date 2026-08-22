@@ -1,0 +1,13 @@
+baseline BPB 0.767595 (D1: 0.767595)  99s
+block size gate_proj: 64 units (768 B/unit)
+block size o_proj: 64 units (768 B/unit)
+block size down_proj: 64 units (768 B/unit)
+
+== capturing calibration activations ==
+  down_proj calib capture: 31s, T=4096
+  o_proj calib capture: 30s, T=4096
+
+== D4 planted controls ==
+-- control 1: identity (mask=0%) --
+  CTRL identity_mask0pct_down_proj               BPB 1.11681  d=+0.34921 +-0.04027
+-- control 2: saturation (mask=100%) --

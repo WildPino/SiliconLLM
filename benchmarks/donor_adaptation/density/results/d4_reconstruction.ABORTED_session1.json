@@ -1,0 +1,93 @@
+{
+  "git_revision": "e748d6de2084263fa1ebf08b86832e4cca7038f8",
+  "git_branch": "research/donor-adaptation",
+  "command_line": "python d4_reconstruction.py",
+  "threads": 10,
+  "prereg": {
+    "primary_quantity": "recovery = 1 - delta_reconstructed / delta_naive, per (organ, sparsity) point; delta_naive read verbatim from d1_pruning.json's block_structured record for that exact (organ, level).",
+    "se_method": "paired bootstrap (n_boot=2000, >= 10 required) of delta_reconstructed over sequence resampling on the SAME 24x512 heldout slice D1 used, propagated through the recovery ratio holding delta_naive fixed at its D1 point value (D1's own paired_se on delta_naive is reported alongside per point, not re-bootstrapped jointly -- assumption stated here, not hidden).",
+    "inconclusive_rule": "a point's recovery is INCONCLUSIVE iff its [point - 2.0*SE, point + 2.0*SE] interval spans 0.",
+    "magnitude_bands_fixed_before_any_result": {
+      "LARGE": "recovery point estimate >= 0.70 AND the lower band bound > 0.5",
+      "MODERATE": "0.30 <= recovery point estimate < 0.70 (and not inconclusive)",
+      "NEGLIGIBLE": "recovery point estimate < 0.30 (and not inconclusive)",
+      "INCONCLUSIVE": "band spans 0, regardless of point estimate"
+    },
+    "derivation_note_mask_geometry": "D1._struct_axis makes q/k/v/gate/up_proj ROW-structured (whole output neurons zeroed) and o_proj/down_proj COLUMN-structured (whole input features zeroed, same surviving column set S shared across every output row). The row-separable SparseGPT-style solve in this brief only has freedom to act when S varies WITHIN a row's support -- i.e. only for COLUMN-structured organs. For gate_proj (ROW-structured), every kept row already has full support (S = all columns) and every dropped row has none: the closed form is therefore mathematically forced to return exactly W (kept rows) or exactly 0 (dropped rows), independent of H's content. This is stated here, before gate_proj is run, not discovered after.",
+    "scope": "gate_proj, o_proj, down_proj (one MLP-expansion/ROW-structured, one attn-output/COLUMN-structured, one MLP-contraction/COLUMN-structured) at sparsity {0.25, 0.50, 0.75}. 0.90 excluded per brief (quantisation artefact struck for k/v_proj in D1; not requested for these three organs anyway).",
+    "control3_control4_scope_decision": "Hessian ablation (control 3) and leakage control (control 4) are run on down_proj@0.5 only, a time-budget decision stated up front: down_proj is the larger and only-interesting-case-among-the-two COLUMN-structured organs tested (in_features=8960 vs o_proj's 1536), so it is the instance the reconstruction mechanism is most staked on. o_proj's sweep numbers stand on real-H only and are NOT independently ablated -- flagged in the report."
+  },
+  "arch": {
+    "n_layers": 28,
+    "d_model": 1536,
+    "d_ffn": 8960,
+    "n_heads": 12,
+    "n_kv_heads": 2,
+    "vocab": 151936,
+    "tie_word_embeddings": true,
+    "hidden_act": "silu",
+    "revision": "8faed761d45a263340a0528343f099c05c9a4323"
+  },
+  "hardware": {
+    "cuda_available": false,
+    "note": "torch.cuda.device_count()==0 in this shell (consistent with every D0-D3 session in this repo, which ran CPU-only -- see DENSITY_PROBES.md header). Hardware-pinning assertions from the brief are N/A here; ran CPU, same as D1, so the eval path matches."
+  },
+  "eval_slice": {
+    "part": "heldout",
+    "n_seq": 24,
+    "seq_len": 512,
+    "seed": 1234,
+    "n_rejected": 0,
+    "total_scored_bytes": 51870,
+    "bytes_per_token": 4.22945205479452,
+    "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+    "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+    "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+  },
+  "calib_slice": {
+    "part": "calib",
+    "n_seq": 8,
+    "seq_len": 512,
+    "seed": 42424,
+    "n_rejected": 0,
+    "total_scored_bytes": 17358,
+    "bytes_per_token": 4.246086105675147,
+    "ids_sha256": "5290dd8ac43025f3f285007b0581d6d5aaae273e584b630460847c67926b2a58",
+    "offsets_sha256": "0ba303756e7c59d6a0cd59cd9d50a9da8f4a31228483db56c3d13c0a03930a2f",
+    "corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0"
+  },
+  "calib_eval_disjointness": {
+    "calib_part": "calib",
+    "eval_part": "heldout",
+    "calib_corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0",
+    "eval_corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312",
+    "assertion": "calib and heldout are two DIFFERENT physical corpus files (benchmarks/donor_adaptation/density/corpus/{calib,heldout}.txt), built by splitting the globally-shuffled chunk list in half BEFORE either slice is drawn (build_calib.py) -- disjoint by construction, and their distinct sha256 hashes are asserted equal to the manifest's own record here, not merely assumed.",
+    "verified": true
+  },
+  "baseline_bpb": 0.7675949677540373,
+  "baseline_reproduces_d1_exactly": true,
+  "block_sizes": {
+    "gate_proj": 64,
+    "o_proj": 64,
+    "down_proj": 64
+  },
+  "calib_tokens_T": 4096,
+  "controls": {
+    "identity": {
+      "tag": "CTRL identity_mask0pct_down_proj",
+      "bpb": 1.1168092754215935,
+      "delta": 0.3492143076675561,
+      "paired_se": 0.04027150022340747,
+      "organ": "down_proj",
+      "max_abs_weight_deviation": 0.6545197367668152,
+      "fired": false,
+      "gate_proj_note": "ROW-structured: at mask=0% no rows are zeroed, no solve is invoked at all (see reconstruct_row_axis_level) -- weight deviation is exactly 0 by construction, not run as a separate eval.",
+      "o_proj_note": "Not separately measured (time budget): same COLUMN-structured solve as down_proj, same S=full-set-at-0%-mask argument; down_proj is the larger case and stands as the representative check."
+    }
+  },
+  "ABORTED_BY_PRINCIPAL": {
+    "reason": "Control 1 (identity, mask=0%) failed: delta=+0.34921 BPB, max_abs_weight_deviation=0.6545, fired=false. Two causes identified: (1) regularisation asymmetry -- the solve used H[S,S]+lambda*I as the system matrix but the UNregularised H[:,S] on the right-hand side, so even at S=full the closed form computes W @ H @ (H+lambda*I)^-1 != W. (2) the calibration set was far too small for down_proj (d_ffn=8960): T=4096 tokens gives rank(H) <= 4096, so rank(H)/N = 4096/8960 = 0.457 < 0.5, the Failure Mode 1 threshold from the joint-solver dossier adjudication -- H[S,S] submatrices at the tested sparsity levels are singular/near-singular and the solve is dominated by the regulariser rather than the data.",
+    "action": "Run aborted. Fix required: (1) regularise H once up front (H_reg = H + lambda*I) and use H_reg consistently on BOTH the system matrix and the right-hand side (SparseGPT convention) -- this makes the S=full identity case algebraically exact regardless of H rank. (2) raise the calibration token count so rank(H)/N is comfortably above 0.5 for down_proj, the widest organ tested. (3) add rank(H)/N as a reported diagnostic computed BEFORE every solve, with an automatic abort below 0.5.",
+    "this_record_is_evidence_do_not_delete": true
+  }
+}

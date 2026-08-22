@@ -1,0 +1,42 @@
+baseline BPB 0.767595 (D1: 0.767595)  190s
+block size gate_proj: 64 units (768 B/unit)
+block size o_proj: 64 units (768 B/unit)
+block size down_proj: 64 units (768 B/unit)
+
+== capturing calibration activations ==
+  combined calib capture: 266s, T=16384  (down_proj in_features=8960, o_proj in_features=1536)
+  forming down_proj real-H (once, reused everywhere below)...
+  done: 263s
+  rank(H)/N [down_proj_real_H, method=exact]: min=1.000 mean=1.000 max=1.000 (worst layer 0)
+  rank(H)/N [o_proj_real_H, method=exact]: min=1.000 mean=1.000 max=1.000 (worst layer 0)
+
+== D4 planted controls ==
+-- control 1: identity (mask=0%) --
+  CTRL identity_mask0pct_down_proj               BPB 0.76759  d=+0.00000 +-0.00000
+-- control 2: saturation (mask=100%) --
+  CTRL saturation_mask100pct_down_proj           BPB 4.51290  d=+3.74530 +-0.16724
+-- control 3: Hessian ablation, down_proj@50% --
+  ABLATION real_H down_proj@50%                  BPB 1.57306  d=+0.80546 +-0.06898
+  ABLATION identity_H down_proj@50%              BPB 2.32471  d=+1.55712 +-0.05797
+  rank(H)/N [down_proj_shuffled_H, method=theoretical]: min=1.000 mean=1.000 max=1.000 (worst layer 0)
+  ABLATION shuffled_H down_proj@50%              BPB 4.80857  d=+4.04098 +-0.10217
+  ABLATION recovery: real_H=0.483  identity_H=0.000  shuffled_H=-1.595
+-- control 4: leakage, down_proj@50% with eval-slice H --
+  eval-slice capture (down_proj): 98s
+  rank(H)/N [down_proj_leakage_H, method=theoretical]: min=1.000 mean=1.000 max=1.000 (worst layer 0)
+  LEAKAGE eval_H down_proj@50%                   BPB 0.98710  d=+0.21950 +-0.01628
+  LEAKAGE: eval-H delta=0.21950 vs honest calib-H delta=0.80546 -> looks better (expected)
+
+== D4 main sweep ==
+  gate_proj/reconstructed/25%                    BPB 1.08035  d=+0.31276 +-0.01837
+    recovery=+0.000 +-0.059  [INCONCLUSIVE]  zero_frac_div=0.000%
+  gate_proj/reconstructed/50%                    BPB 2.07344  d=+1.30585 +-0.06218
+    recovery=+0.000 +-0.048  [INCONCLUSIVE]  zero_frac_div=0.000%
+  gate_proj/reconstructed/75%                    BPB 4.35680  d=+3.58920 +-0.13293
+    recovery=+0.000 +-0.037  [INCONCLUSIVE]  zero_frac_div=0.000%
+  o_proj/reconstructed/25%                       BPB 0.86368  d=+0.09608 +-0.00786
+    recovery=+0.885 +-0.009  [LARGE]  zero_frac_div=0.000%
+  o_proj/reconstructed/50%                       BPB 2.08172  d=+1.31413 +-0.16649
+    recovery=+0.418 +-0.074  [MODERATE]  zero_frac_div=0.000%
+  o_proj/reconstructed/75%                       BPB 3.35225  d=+2.58466 +-0.20496
+    recovery=+0.400 +-0.047  [MODERATE]  zero_frac_div=0.000%

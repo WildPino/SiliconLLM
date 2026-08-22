@@ -1,0 +1,39 @@
+== D4 finish: loading existing log ==
+  loaded log with 6 existing sweep points, 4 control groups
+baseline BPB 0.767595 (logged: 0.767595)  106s
+
+== capturing calibration activations (down_proj + o_proj) ==
+  combined calib capture: 132s, T=16384
+  forming down_proj real-H (once, reused for item1/3/4)...
+  done: 1322s
+  forming o_proj real-H (once, reused for item3)...
+  done: 29s
+
+== item 1: down_proj sweep (25/50/75%) ==
+  down_proj/reconstructed/25%                    BPB 1.15679  d=+0.38920 +-0.04856
+    recovery=+0.122 +-0.108  [INCONCLUSIVE]  zero_frac_div=0.000%
+  down_proj/reconstructed/50%                    BPB 1.57306  d=+0.80546 +-0.06898
+    recovery=+0.483 +-0.044  [MODERATE]  zero_frac_div=0.000%
+  down_proj/reconstructed/75%                    BPB 2.80526  d=+2.03766 +-0.10558
+    recovery=+0.363 +-0.032  [MODERATE]  zero_frac_div=0.000%
+
+== item 2: relabelling gate_proj (ROW-structured) points ==
+  gate_proj/reconstructed/25%: 'INCONCLUSIVE' -> ZERO_BY_CONSTRUCTION (excluded from summary stats)
+  gate_proj/reconstructed/50%: 'INCONCLUSIVE' -> ZERO_BY_CONSTRUCTION (excluded from summary stats)
+  gate_proj/reconstructed/75%: 'INCONCLUSIVE' -> ZERO_BY_CONSTRUCTION (excluded from summary stats)
+
+== item 4: wrong-layer-H ablation arm, down_proj@50% (offset=14) ==
+  ABLATION wrong_layer_H down_proj@50%           BPB 4.61699  d=+3.84940 +-0.11776
+  recovery: real_H=0.483  identity_H=0.000  shuffled_H=-1.595  wrong_layer_H=-1.472
+
+== item 3: conditioning diagnostic (report-only, no gating threshold) ==
+  o_proj@25%: condition_number mean=4.630e+05 max=5.360e+06 (worst layer 27)  n_below_tikhonov mean=0.0/1152
+  o_proj@50%: condition_number mean=2.095e+05 max=2.627e+06 (worst layer 27)  n_below_tikhonov mean=0.0/768
+  o_proj@75%: condition_number mean=1.729e+04 max=2.775e+05 (worst layer 25)  n_below_tikhonov mean=0.0/384
+  down_proj@25%: condition_number mean=1.142e+07 max=1.319e+08 (worst layer 2)  n_below_tikhonov mean=89.9/6720
+  down_proj@50%: condition_number mean=2.428e+06 max=6.373e+07 (worst layer 2)  n_below_tikhonov mean=31.8/4480
+  down_proj@75%: condition_number mean=8.808e+05 max=2.407e+07 (worst layer 2)  n_below_tikhonov mean=4.1/2240
+
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\d4_reconstruction.json
+finish wallclock: 2831s
+EXIT_CODE=0
