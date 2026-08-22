@@ -384,3 +384,533 @@ correctness (Llama-3-70B dims; missing git revision on 29 records). The `struct@
 control's unexplained magnitude is the item I'd most want resolved before anyone builds on it —
 it is currently an unreconciled fact sitting inside a "control," not a sweep point, so it gets
 less scrutiny than it would if it were labelled as data.
+
+---
+---
+
+# 2026-08-22 — Controller audit — D4 (Hessian-weighted layer-wise reconstruction), pre-belief
+
+**Auditor:** Controller (independent adversarial review). **Scope:** `d4_reconstruction.py`
+(read at the version on disk at audit time; `git_revision` in the live run's own log =
+`e410243`, working tree has further uncommitted edits per `git status`), its pre-registration
+block (`log["prereg"]`, written in `main()` before any number is computed), the rank diagnostics
+in `results/d4_reconstruction.json`, and the preserved failure record in
+`results/d4_reconstruction.ABORTED_session1.json`. **No code was edited, no heavy run was
+started.** A D4 probe was live-running for the entire audit (60/80 GB resident); every finding
+below either reproduces on tiny synthetic matrices (numpy, a few MB, `<1s` each) or reads the
+live run's own append-only log (`d4_run.log`) and JSON checkpoint without modifying either. The
+live run had reached `ABLATION real_H down_proj@50%` (control 3, real-H arm only) by the time
+this audit closed; `identity_H`/`shuffled_H` arms of control 3, control 4, and the entire main
+sweep were **not yet computed** — findings that need those numbers are marked as such, with an
+exact reproduction/verification command for after the run finishes.
+
+All synthetic-matrix reproductions live in
+`C:\Users\giosa\AppData\Local\Temp\claude\...\scratchpad\probe{1..5}_*.py` (session-local scratch,
+not part of the repo) — commands to regenerate each number are given inline below; they are cheap
+enough (`<1s`, `<50MB`) to paste into any Python REPL.
+
+---
+
+## BLOCK — the mandatory rank(H)/N pre-solve safety gate cannot fire in this run's own regime; it is not a weakened version of the diagnostic that caught the first failure, it is a diagnostic that has been made structurally unable to detect a second occurrence of the SAME failure mode
+
+**Claim.** `check_hessian_rank_by_layer` (`d4_reconstruction.py:236-273`, calling
+`hessian_rank_ratio` at `:202-216`) is supposed to be Failure-Mode-1 protection — the exact
+mechanism the Principal ordered added after the aborted session 1 (`ABORTED_session1.json`:
+`rank(H)/N = 4096/8960 = 0.457 < 0.5` was root cause #2 of the +0.349 BPB / 0.6545-weight-deviation
+abort). But `rank(H) ≤ min(T, D)`, and this run always has `T = 16384 > D` for every organ tested
+(`down_proj` D=8960, `o_proj` D=1536) — so the diagnostic's own upper bound is `min(T,D)/D = 1.0`
+**before a single eigenvalue is computed.** The live run's own log confirms this is not a
+theoretical worry but exactly what happened: `rank(H)/N [down_proj_real_H, method=exact]: min=1.000
+mean=1.000 max=1.000` and identically for `o_proj_real_H` (`d4_run.log`, `results/d4_reconstruction.json
+["rank_diagnostics"]`). The threshold check (`summary["ratio_min"] < threshold` at `:267`) can
+therefore never trigger for either organ in this configuration, regardless of how poorly
+conditioned the *interior* eigenvalue spectrum actually is — full rank and "well-conditioned
+enough for a Tikhonov solve with λ ~ 1e-4·trace/N to be numerically meaningful" are different
+properties, and the code only ever asks the first question.
+
+**This is not a hypothetical gap — the project's own prior adjudication already said so.**
+`DOSSIER_ADJUDICATION_JOINT_SOLVER.md:193` (a document produced *in this repo, before D4 was
+written*): *"§6.8 reassures us that `B_tokens = 4096 ≥ N = 4096` makes rank deficiency rare — **at
+exact equality, with a generically atrocious condition number.**"* — i.e. the exact failure mode
+of "technically full rank, still numerically dangerous" was named and warned about by name before
+this diagnostic was implemented, and the implementation only carries forward the `rank(H)/N < 0.5`
+half of that document's own §7.1 (`DOSSIER_ADJUDICATION_JOINT_SOLVER.md:250`), not a conditioning
+check.
+
+**Concrete demonstration that "full rank" and "safe to solve" are different claims, at exactly
+D4's own T/D margin.** Reproduced numerically (`probe5_lambda_tight_ratio.py`, D=4000/T=7314,
+T/D=1.8285 — matched to D4's real `down_proj` ratio `16384/8960=1.8286` to 4 significant figures,
+scaled down only for CPU cost):
+
+```
+D=4000 T=7314 T/D=1.8285  (D4 real: T=16384 D=8960 T/D=1.8286)
+eig(H): min=4.637e+01 max=2.431e+06 cond=5.243e+04
+rank(H)/D (numpy tol) = 4000/4000        <- reads 1.000, exactly what the live run reports
+```
+
+A condition number of `5.2×10^4` with genuinely full numerical rank — the diagnostic reports
+"1.000, PASS" on data whose smallest eigendirection is nearly five orders of magnitude weaker than
+its largest, and would report the identical "1.000, PASS" on data ten or a hundred times worse
+conditioned still, because the check never looks past the rank/full-rank boundary. I could not
+determine from the artefact whether the *actual* `down_proj`/`o_proj` real-H spectra at 128K-donor
+scale are this badly conditioned or better — **that is precisely the point: the instrument that
+was supposed to tell you cannot tell you, in either direction.**
+
+**What was asked for and not built.** The brief (and, by inheritance, the Controller's own
+standing request after the joint-solver dossier) asked for "condition number, λ_max, λ_min, count
+of eigendirections below the Tikhonov λ." None of these are computed or logged anywhere in
+`d4_reconstruction.py`. `hessian_rank_ratio` (`:202-216`) computes `eigvalsh` (so the eigenvalues
+*exist in memory, transiently*, at `:213`) but immediately discards everything except a boolean
+count against a threshold `tol = eigvals.max() * D * eps` (`:214`) — a threshold roughly
+`eigvals.max() * 2×10⁻¹²` for `D=8960`, which is **8-11 orders of magnitude smaller** than the
+actual Tikhonov `λ = 1e-4·trace(H)/N` used downstream in every solve (`reconstruct_organ_level`,
+`:289`; concretely order `10⁻²`-`10^0` at realistic activation scales per the λ-sensitivity probe
+below). The rank check and the regularisation strength are answering two unrelated questions at
+two unrelated scales, and the code never connects them.
+
+**Failure scenario this misses.** If `down_proj`'s real activation covariance at 128K-donor scale
+turns out to have (say) a condition number of `10^8`-`10^10` — plausible for a wide, sparsely-
+activated SwiGLU intermediate calibrated on only 32 sequences — the Cholesky solve would still
+"succeed" numerically (λ=trace/N-scaled regularisation masks the ill-conditioning rather than
+exposing it), rank(H)/N would still read exactly 1.000, and **nothing in the current instrument
+would ever flag it.** The resulting `recovery` numbers would be real floating-point outputs, not
+crashes or NaNs — silently regularisation-dominated rather than data-dominated, and indistinguishable
+from a well-conditioned success in the artefact's own diagnostics.
+
+**Reproduction.**
+```python
+# probe5_lambda_tight_ratio.py logic, condensed:
+import numpy as np
+D, T = 4000, int(round(4000*16384/8960))
+X = ...  # any generative process with a shared low-rank factor (see probe file)
+H = X.T @ X
+print(np.linalg.matrix_rank(H), D)              # -> 4000 4000  (reads "full rank")
+ev = np.linalg.eigvalsh(H)
+print(ev.max()/ev.min())                         # -> ~5.2e4, NOT reported by d4_reconstruction.py
+```
+To check the REAL donor spectrum once the machine is free (do not run now):
+```
+python -c "
+import sys; sys.path.insert(0,'benchmarks/donor_adaptation/density')
+import common as C, torch
+m, tok = C.load_model()
+# reuse d4's own capture_organ_inputs_multi on the pinned calib slice, form H for down_proj L0,
+# report eigvalsh min/max/cond directly instead of just the >0.5 rank fraction
+"
+```
+
+**Verdict: BLOCK.** This is a message to the Principal, not just a line item: the specific
+protection ordered after session 1's abort has been reinstalled in a form that is mathematically
+guaranteed to read "safe" for every point in this sweep, independent of whether the underlying
+data is actually safe. Whatever the real conditioning turns out to be, the artefact currently
+provides no evidence either way, and reads as if it does.
+
+---
+
+## BLOCK — `shuffle_columns`'s "off-diagonal → ~0" claim is false whenever the underlying activations have nonzero column means (i.e. essentially certain for a SwiGLU/gated MLP intermediate), so control 3's `shuffled_H` arm is not a clean "H carries no usable information" null — it can show real, non-trivial `recovery` on its own, and nothing downstream corrects for this
+
+**Claim in the code's own docstring** (`d4_reconstruction.py:155-160`): shuffling each column's
+token order independently *"[destroys] cross-feature correlation (H_shuf's off-diagonal -> ~0).
+This is the 'fake but same-scale' Hessian: if it recovers as much as the real one, the recovery is
+not coming from correlation structure."* The reasoning only holds if `X`'s columns are mean-zero.
+`shuffle_columns` permutes the *token* axis per feature independently, so it exactly preserves each
+column's own values (hence its mean, variance, and full marginal) while permuting which *token*
+each value is attached to. For two columns `i,j` with nonzero means `μ_i, μ_j`, the shuffled
+cross-term `H_shuf[i,j] = Σ_t X_shuf[t,i]·X_shuf[t,j]` retains an expected `T·μ_i·μ_j` component
+(a random-pairing sum of two independently-permuted sequences does not average to zero when both
+have nonzero mean) — only the *centered* covariance is destroyed, not the raw second moment. Down
+`_proj`'s input is `silu(gate)·up`, a SwiGLU intermediate — this project's own prior probes
+(`project_probe2_sparsity`, `project_probe4_moe` in memory) already establish this class of
+activation is heavily skewed/sparse (dReLU ≈90-92% near-zero), i.e. exactly the "large mean
+relative to spread, mostly non-negative" shape where this failure mode bites hardest.
+
+**Numerically demonstrated** (`probe3_shuffle_control.py`, T=16384 to match D4 exactly, D=500,
+synthetic SwiGLU-shaped X = `silu(context@loadings + noise) * |up-noise|`, genuinely correlated via
+a rank-6 shared context factor — i.e. real, exploitable cross-feature structure is present, same
+as the real down_proj input is presumed to have):
+
+```
+X stats: mean=0.2493  frac near-zero(<1e-3)=0.24%  min=-1.180 max=19.425
+diagonal exactly preserved by shuffle: True (max diag diff = 2.5e-11)
+off-diagonal Frobenius norm: real=1.151e+06  shuffled=5.984e+05
+  ratio shuffled/real = 0.520          <- NOT "~0"; the shuffle leaves 52% of the off-diagonal mass intact
+real_H      : recovery=+0.680
+shuffled_H  : recovery=+0.148          <- NOT "~0"; a "carries-no-cross-feature-correlation" H recovers 15pp
+identity_H  : recovery=+0.000          <- this one IS exactly 0, but not empirically -- see next finding
+GAP (real - shuffled) recovery = +0.531
+```
+
+**Consequence for the actual metric being reported.** `recovery = 1 - delta_recon/delta_naive` is
+computed against `real_H` alone, for *every* point in the main sweep (`d4_reconstruction.py:709`)
+— there is no per-sweep-point subtraction of a shuffled-H baseline anywhere in the code, and
+`summarize.py`/`tables.md` currently have **no D4 section at all** (`grep -n "d4\|D4"` on both
+returns nothing), so there is no later stage where this correction could be applied either. The
+*only* place `shuffled_H` is even computed is the single `down_proj@50%` ablation point
+(`d4_reconstruction.py:596-607`) — it is never run for `o_proj` or for any other sparsity level,
+and even there it is reported as a bare `recovery_point` alongside `real_H`'s, with no subtraction
+performed (`:618-620`). If the real run's `down_proj@50%` shuffled arm shows anything like the
+15-22% (of the real-H recovery) leakage this synthetic shows, then the headline claim "Hessian-
+weighted reconstruction recovers X% of the block-pruning loss" is, for an unknown fraction of X,
+actually "reconstruction that merely re-scales by each surviving feature's own average magnitude
+recovers a chunk of X, and true cross-feature correlation recovers the rest" — a materially weaker
+and different claim, and the artefact as currently structured cannot distinguish the two even
+where it has the data to (the one ablation point) — it just prints three numbers side by side.
+
+**Reproduction / verification once the live run's control 3 finishes** (do not run now; read the
+artefact after):
+```python
+import json
+d = json.load(open("benchmarks/donor_adaptation/density/results/d4_reconstruction.json"))
+ab = d["controls"]["hessian_ablation"]
+print("real_H recovery:", ab["real_H"]["recovery_point"])
+print("shuffled_H recovery:", ab["shuffled_H"]["recovery_point"])
+print("identity_H recovery:", ab["identity_H"]["recovery_point"])
+print("off-diagonal leakage estimate (genuine-correlation-only recovery):",
+      ab["real_H"]["recovery_point"] - ab["shuffled_H"]["recovery_point"])
+```
+If `shuffled_H`'s `recovery_point` prints anywhere near `real_H`'s (not ~0), that is this finding,
+confirmed on the real donor Hessian rather than a synthetic proxy.
+
+**Verdict: BLOCK.** This is the message-to-the-Principal item the brief specifically asked to hunt
+for ("construct the minimal case where a useless H produces a real-vs-shuffled gap anyway") — I
+found it, on a generative model chosen to resemble the actual organ under test, not an adversarial
+edge case. `real_H − shuffled_H`, not raw `real_H` recovery, is the quantity that isolates
+genuine-correlation value; it is currently computed nowhere in the pipeline for anything but one
+(organ, level) point, and even there it is not surfaced as the headline number.
+
+---
+
+## FLAG — `identity_H` is not an empirical "no-information" baseline; it is algebraically forced to reproduce naive masking exactly, for any mask, independent of data — reported and read as if it were a measurement
+
+**Claim.** For `H = I_D` (`d4_reconstruction.py:582`, control 3's second ablation arm),
+`H_reg = (1+λ)I`. For *any* surviving set `S` (not just `S`=full): `A = H_reg[S,S] = (1+λ)I_{|S|}`,
+`rhs = W·H_reg[:,S] = (1+λ)·W[:,S]`, so `sol = A⁻¹·rhsᵀ = W[:,S]ᵀ` exactly — the reconstruction
+returns the surviving columns of `W` completely unchanged, i.e. **bit-for-bit the same operation as
+naive masking**, for every sparsity level, regardless of what `W` or the calibration data are.
+This is a closed-form algebraic identity, not something that could come out any other way — the
+same category of "forced, not measured" result the prereg already (correctly) flags for the
+ROW-structured organs (`:373-381`), but this one is not flagged anywhere in the code or prereg.
+
+**Verified numerically** (`probe3_shuffle_control.py` above): `identity_H: recovery=+0.000` to 3
+decimals, reproduced on a completely different generative model in `probe4_lambda_sensitivity.py`
+too (not shown, same result). This is not a coincidence of the synthetic data; it will read
+(within float64 rounding, order `1e-10`–`1e-14`) as **exactly** 0 on the real donor `down_proj`
+run too — a testable, sharp prediction: `d["controls"]["hessian_ablation"]["identity_H"]
+["recovery_point"]` should print a number indistinguishable from 0.000 once the live run reaches
+that arm; if it does not, that is itself a bug (not evidence about the mechanism).
+
+**Confirmed live, mid-audit, on the real donor weights — the prediction landed before this report
+did.** The live run advanced past `identity_H` while this section was being written (read-only,
+`d4_run.log`, not disturbed): `ABLATION identity_H down_proj@50%  BPB 2.32471  d=+1.55712
++-0.05797`. D1's own recorded `down_proj/block_structured/50%` naive delta is
+`1.5571150213992855`. **`1.55712` vs `1.5571150214` — matches to 5-6 significant figures, i.e.
+`identity_H`'s reconstruction reproduced D1's naive-masking number almost exactly, on the real
+128K-donor model, not just the synthetic proxy.** This is about as clean a real-data confirmation
+of a derived-not-measured algebraic fact as this kind of audit gets.
+
+**Why this matters.** The prereg frames control 3 as three informative arms (`real_H`,
+`identity_H`, `shuffled_H`) whose spread is supposed to establish whether Hessian information
+matters. Only two of the three arms are actually capable of returning anything other than a
+foregone conclusion: `identity_H` is guaranteed ≈0 by algebra (this finding), and `shuffled_H` is
+*not* guaranteed ≈0 despite intent (previous finding). The entire empirical burden of control 3
+rests on the `real_H` vs. `shuffled_H` gap alone, not the three-way comparison the prereg's framing
+suggests — worth stating explicitly since "shuffled ≈ identity ≈ 0, real high" is the intuitive
+success pattern the write-up will reach for, and one of those two "≈0" readings is not actually
+informative even when it is observed.
+
+**Verdict: FLAG**, not BLOCK — the number itself is correct and harmless (0 is genuinely the right
+answer for "no information"), but its status (tautology vs. measurement) is undocumented, and a
+reader who doesn't independently re-derive the algebra (as I just did) would credit it as
+empirical confirmation that the harness is working, when it is actually confirmation of nothing
+data-dependent at all.
+
+---
+
+## FLAG — the paired-bootstrap SE on `recovery` holds `delta_naive` fixed at its D1 point estimate; the ignored uncertainty is largest exactly at the `recovery ≈ 0` boundary the INCONCLUSIVE/NEGLIGIBLE classification most depends on
+
+**Claim.** `bootstrap_recovery` (`d4_reconstruction.py:316-332`) resamples sequences for
+`delta_reconstructed` only; `delta_naive` is read as a constant from D1's own point estimate
+(`dn` in the main-sweep loop, `:679-683`). This is disclosed in the prereg (`:360-364`, "D1's own
+paired_se on delta_naive is reported alongside per point, not re-bootstrapped jointly —
+assumption stated here, not hidden") — so this is not an undisclosed problem, but its *magnitude*
+was never quantified, and the brief specifically asks for that quantification (citing this
+project's own history of an under-covering `±2·SE` when `t=4.30` was required at `n=3`).
+
+**Propagation, done here.** Treating `delta_naive` and `delta_recon` as independent (a
+conservative-in-one-direction approximation — see caveat below) and linearising
+`recovery = 1 - delta_recon/delta_naive`:
+
+```
+Var(recovery) ≈ Var(delta_recon)/delta_naive²  +  (1-recovery)² · Var(delta_naive)/delta_naive²
+                \_________________________/        \_______________________________________/
+                 = D4's reported rec_se²             ignored entirely by bootstrap_recovery
+```
+
+So `SE_true/SE_reported = sqrt(1 + (1-recovery)² · (dn_se/recon_se)²)`. This ratio is **1 at
+`recovery=1` (full recovery — the ignored term vanishes) and grows as `recovery→0`** — i.e. the
+correction is smallest exactly where the point estimate is least interesting and largest exactly
+at the boundary the pre-registered classification (`:335-343`, INCONCLUSIVE iff the `±2σ` band
+spans 0) most depends on getting right.
+
+**Using the one real number available from the live run** (`down_proj@50%` ablation, real_H arm:
+`delta_recon=0.80546 ± 0.06898`; D1's `down_proj/block_structured/50%`: `delta_naive=1.5571150214
+± 0.0579684340`): `recovery ≈ 0.4827`, reported `rec_se ≈ recon_se/|delta_naive| = 0.0443`, full
+(independence-assumption) `SE ≈ sqrt(0.06898² + (0.5173·0.05797)²)/1.5571 ≈ 0.0483` — a **~9%**
+understatement at this particular (moderate-recovery) point. This is mild here specifically
+*because* `recovery` is comfortably away from 0 and `dn_se` is small relative to `recon_se` at this
+point; per the formula above, a sweep point that lands near `recovery≈0` (plausible for `gate_proj`,
+which the prereg itself predicts should be ≈0 by construction — see below) would see the ratio
+approach `sqrt(1+(dn_se/recon_se)²)`, materially larger.
+
+**Direction-of-bias caveat, stated honestly.** Treating the two deltas as independent may itself
+be conservative in the *other* direction: both are paired-bootstrap SEs over resampling the *same*
+24-sequence eval slice (D1's slice, reused bit-identically by D4, `:412`), and harder/easier
+sequences plausibly move both a naively-masked and a reconstructed model's loss in the same
+direction — positive correlation between the two deltas would *shrink* `Var(delta_recon -
+delta_naive·recovery-term)` relative to the independence assumption used above, partially
+offsetting the ignored-`dn_se` term. I did not have D1's and D4's raw per-sequence bootstrap draws
+in the same process to compute the true joint covariance (D1's `paired_se` and D4's
+`bootstrap_recovery` use the same RNG algorithm and could in principle be run with a shared seed
+against the same `per`/`base_per` sequence order to get this exactly) — flagging this as the
+correct next step rather than asserting a number I have not derived.
+
+**Reproduction.**
+```python
+import json, math
+d1 = json.load(open("benchmarks/donor_adaptation/density/results/d1_pruning.json"))
+d4 = json.load(open("benchmarks/donor_adaptation/density/results/d4_reconstruction.json"))
+for rec in d4.get("organ_sweep", []):
+    dn, dn_se = rec["delta_naive_d1"], rec["delta_naive_d1_paired_se"]
+    recon_se, recovery = rec["recovery_se"] * abs(dn), rec["recovery"]  # invert to get raw delta_recon SE
+    full_se = math.sqrt(recon_se**2 + ((1-recovery)*dn_se)**2) / abs(dn)
+    print(rec["organ"], rec["level"], f"reported_se={rec['recovery_se']:.4f} full_se={full_se:.4f} "
+          f"ratio={full_se/rec['recovery_se']:.3f}")
+```
+
+**Verdict: FLAG.** Disclosed assumption, quantified impact is modest-to-moderate (≤~10% at the one
+point currently measurable, larger near recovery≈0 by the formula's own shape), and there is a
+concrete, cheap fix (shared-seed joint bootstrap) that was not applied. Not a BLOCK because the
+assumption is stated, not hidden, and the current sweep's classification bands (`NOISE_BAND_SIGMA=
+2.0` against `n=24` sequences, not `n=3` — the historical failure this project already learned
+from) are not as fragile as that prior incident.
+
+---
+
+## FLAG — the mask D4 uses is *recomputed*, not reused from D1's artefact; the code is byte-for-byte the same selection algorithm, but there is no runtime assertion that the two actually agree, and the quantisation-fragile levels are silently outside the tested grid
+
+**Claim.** `select_zero_blocks` (`d4_reconstruction.py:79-101`) is a literal copy of
+`d1b_organ_sweep_completion.py`'s `prune_block_structured` selection math (`:63-95`) — same
+`W.view(...).norm(dim=(1,2))`, same `k = round(frac*nblocks)`, same `torch.argsort(...)[:k]` — but
+it is a *second, independent computation*, not a load of D1's stored indices (D1 never persisted
+the actual selected block indices to JSON, only the resulting `zero_frac`). As long as (a) the
+donor weights are bit-identical between the D1 and D4 processes and (b) `torch.argsort`'s
+tie-breaking is deterministic given identical float inputs (true for this PyTorch build absent
+literal float ties, which are measure-zero for real-valued norms), the two masks will match — I
+verified the *algorithm* is identical by direct source comparison, but this was never verified at
+*runtime* by the harness itself: no assertion anywhere compares D4's computed `zero_frac_achieved`
+against D1's own recorded `zero_frac` for the matching `(organ, level)` point before `delta_naive`
+is used as a denominator.
+
+**Checked and clean for the levels actually swept.** `LEVELS = [0.25, 0.50, 0.75]`
+(`d4_reconstruction.py:53`) against `n_blocks_per_layer` from D1's own artefact
+(`gate_proj`/`down_proj`: 140, `o_proj`: 24 — `results/d1_pruning.json`) all divide exactly
+(`0.25·140=35`, `0.5·140=70`, `0.75·140=105`; `0.25·24=6`, `0.5·24=12`, `0.75·24=18`) — no
+`round()`-induced quantisation divergence is possible at these three levels for these three organs
+(unlike the already-struck `k_proj`/`v_proj`@90% case, `D0`/`D1` history, not re-litigated here).
+So this specific run is very unlikely to be silently comparing mismatched masks — **but the
+invariant that makes that true is un-asserted, un-tested, and would silently break** the moment
+someone adds a level or organ where the division is not exact.
+
+**Reproduction (the missing assertion, written but not run against the live process's
+memory — safe to add for a *future* run, not this one):**
+```python
+# after computing mask in the main sweep loop, before using dn:
+d1_rec = next(r for r in d1["organ_sweep"]
+              if r["organ"]==organ and r["mode"]=="block_structured" and abs(r["level"]-level)<1e-9)
+assert abs(zero_frac_achieved - d1_rec["zero_frac"]) < 1e-6, \
+    f"D4 mask diverges from D1's recorded mask at {organ}@{level}: {zero_frac_achieved} vs {d1_rec['zero_frac']}"
+```
+Post-hoc verification once the artefact is complete (read-only, safe to run any time):
+```python
+import json
+d1 = {(r["organ"], r["level"]): r["zero_frac"] for r in json.load(open("results/d1_pruning.json"))["organ_sweep"] if r["mode"]=="block_structured"}
+d4 = json.load(open("results/d4_reconstruction.json"))
+for r in d4.get("organ_sweep", []):
+    key = (r["organ"], r["level"])
+    print(key, "D4:", r["zero_frac_achieved"], "D1:", d1.get(key), "match:", abs(r["zero_frac_achieved"]-d1.get(key,-1))<1e-6)
+```
+
+**Verdict: FLAG.** No evidence of an actual mismatch (the divisibility check above rules out the
+one mechanism — quantisation rounding — that has bitten this exact codebase before), but the
+absence of a runtime cross-check means this correctness property is currently an assumption held
+by the auditor, not a guarantee held by the harness.
+
+---
+
+## FLAG — `LAMBDA_SCALE = 1e-4` is asserted, not justified; sensitivity is small at 2-3 orders of magnitude below the chosen value but grows to a ~11 percentage-point swing in `recovery` as λ_scale rises through the range a less careful choice could plausibly have landed on
+
+**Claim.** `LAMBDA_SCALE = 1e-4` (`d4_reconstruction.py:54`) is a bare constant with no
+sensitivity analysis anywhere in the artefact. Swept synthetically at D4's *actual* T/D margin
+(`probe5_lambda_tight_ratio.py`, D=4000/T=7314 matching `16384/8960` to 4 s.f., 50%-column mask,
+same SwiGLU-shaped generative model as the shuffle probe):
+
+```
+lam_scale=1e-6..1e-4:  recovery flat at 0.605           (D4's own choice sits deep in this plateau)
+lam_scale=1e-3:        recovery 0.607   (+0.2pp)
+lam_scale=1e-2:        recovery 0.616   (+1.1pp)
+lam_scale=1e-1:        recovery 0.664   (+5.9pp)
+lam_scale=1e0:         recovery 0.716   (+11.1pp)
+lam_scale=3e0:         recovery 0.722   (peak, +11.7pp)
+```
+
+At a *looser* T/D margin (D=500, T=16384, `probe4_lambda_sensitivity.py`, T/D≈33×) the same sweep
+is completely flat across all 8 orders of magnitude tested — so the sensitivity is specifically a
+symptom of running near the T/D≈1.83× margin `down_proj`/`o_proj` are actually run at (consistent
+with the conditioning concern in the first BLOCK finding above: a tighter margin means more
+regularisation-sensitive directions in the spectrum). **Direction of the risk:** more `λ` only ever
+*increased* recovery in both sweeps tested here (never decreased it) — meaning `1e-4` sits at the
+conservative, *lower*-recovery end of the plausible-choice range for this synthetic, not a value
+that was tuned upward to inflate the headline number. I cannot rule out the real donor spectrum
+behaving differently (this is exactly what the missing conditioning diagnostic, BLOCK finding #1,
+would tell you), but on the evidence available, this specific hyperparameter is not obviously
+doing the paper's work for it.
+
+**Reproduction:** `probe4_lambda_sensitivity.py` / `probe5_lambda_tight_ratio.py` in the scratch
+directory — both run in `<2s`, no torch, no model load.
+
+**Verdict: FLAG.** Real, measurable, correctly-disclosed-as-arbitrary sensitivity exists, but its
+magnitude at the values actually used is modest (sub-percentage-point moving `λ_scale` down from
+`1e-4`, single-digit percentage points moving it up an order of magnitude) — not the dominant
+source of uncertainty in this instrument (that is the two BLOCKs above). No sweep in the actual
+artefact tests this; a one-line λ-ablation at the same `down_proj@50%` point control 3 already
+uses would settle it directly on real data at near-zero marginal cost.
+
+---
+
+## PASS — the fixed `reconstruct_row` genuinely IS exact at `S`=full regardless of `H`'s rank or conditioning, as long as `trace(H) > 0`; verified both analytically and against the live run's real weights
+
+**What I checked.** The Builder's claim ("the corrected solve returns identity exactly, regardless
+of `H`'s rank or conditioning") is algebraically true: `W_new = W·H_reg·H_reg⁻¹ = W` whenever
+`H_reg = H + λI` is invertible, which `λ>0` guarantees regardless of `H`'s own rank — this does not
+depend on any property of `H` except its trace being strictly positive (so that `λ = 1e-4·trace(H)/N
+> 0`). Verified on seven adversarial synthetic `H`s (`probe1_identity_control.py`): rank-1, identity,
+huge/tiny uniform scale, a near-singular (`cond≈1e14`) random-eigenbasis matrix, and a non-PSD
+symmetric-garbage matrix — every one gives `max|dev| < 3e-10` at `S`=full except the one genuinely
+degenerate edge case, `H` = all-zeros exactly (`dev=5.5e-2`, because `trace(H)=0 ⇒ λ=0 ⇒ H_reg=0` is
+singular too, and `lstsq`'s minimum-norm fallback returns 0, not `W`) — a case that cannot occur
+with real captured activations (it would require every single calibration token to produce exactly
+zero activation on every feature of a layer, i.e. the layer is entirely dead across the whole
+32×512-token calibration set) and is noted here only for completeness, not as a live risk.
+
+**Confirmed against the actual donor model, not just synthetic data** — read from the *live run's*
+own log without disturbing it: `CTRL identity_mask0pct_down_proj  BPB 0.76759  d=+0.00000
++-0.00000` (`d4_run.log`), and the JSON checkpoint gives the exact figures:
+`delta=5.94e-09`, `max_abs_weight_deviation=2.98e-08` — essentially float32 machine epsilon. This
+is real evidence, not just the synthetic reproduction, that the fix does what it claims on the
+actual 128K-donor `down_proj` weights and the actual T=16384 calibration Hessian.
+
+**Verdict: PASS.** The exactness-at-identity property is real, robust, and now independently
+double-confirmed (synthetic + live donor data). This is precisely what makes it non-diagnostic of
+`H`'s informativeness (see the two BLOCK findings above) — a control that is unconditionally true
+cannot also be evidence of anything conditional, and that is the correct reading of "the fix hides
+the problem it was fixing" from the brief: the fix is not wrong, it is simply no longer able to do
+the discriminating work control 1 used to do, and that work has not been fully relocated anywhere
+else in the instrument.
+
+---
+
+## PASS — the ROW-structured short-circuit (`gate_proj`) is implemented exactly as derived: no solve, no `H`, no numerical drift possible
+
+**What I checked.** `reconstruct_row_axis_level` (`d4_reconstruction.py:296-312`) — the entire
+function body for a ROW-structured organ is `Wnew = W.detach().clone(); Wnew[idx,:] = 0.0` (no
+`H`, no Cholesky, no lstsq, no floating-point operation beyond a copy and a zero-fill). This is
+bit-for-bit the same operation `d1b_organ_sweep_completion.py`'s `prune_block_structured` performs
+for ROW-structured organs (`W[b*block_size:(b+1)*block_size,:] = 0.0`, `:88-89`) — so `gate_proj`'s
+reconstructed `delta` should be **bit-identical** to D1's naive `delta_naive_d1` at every level,
+not merely close, giving `recovery` exactly 0 (not "close to 0 within noise") once both runs are
+compared. This is a sharp, checkable prediction that was not yet verifiable at audit time (the live
+run had not reached the main sweep), given here as the reproduction path:
+
+```python
+import json
+d4 = json.load(open("results/d4_reconstruction.json"))
+for r in d4.get("organ_sweep", []):
+    if r["organ"] == "gate_proj":
+        print(r["level"], "delta=", r["delta"], "delta_naive_d1=", r["delta_naive_d1"],
+              "recovery=", r["recovery"], "  (expect delta≈delta_naive_d1, recovery≈0)")
+```
+
+**Verdict: PASS**, on code inspection; the empirical confirmation is a one-line check to run once
+the live process reaches `gate_proj` (do not run the whole model now — just read the finished
+JSON later).
+
+---
+
+## What I tried to break and could not, and why it held
+
+1. **Did the identity-control fix merely move the S=full exactness bug somewhere else (e.g. does
+   it silently corrupt at partial `S`, not just `S`=full)?** No — `probe3_shuffle_control.py`'s
+   `identity_H` arm exercises the solve at `S`≠full (the 50%-column mask) and still returns exactly
+   naive masking (see the FLAG on `identity_H`'s tautological status above) — the closed-form math
+   is correct for arbitrary `S`, not just the `S`=full edge case the Builder's own validation
+   apparently targeted. I looked specifically for an off-by-one or index-alignment bug in
+   `reconstruct_row`'s `index_select`/`index_copy_` calls (`:188-198`) that might only manifest at
+   partial `S` — none found; `A = H_reg.index_select(0,S).index_select(1,S)` and
+   `rhs = W_full @ H_reg.index_select(1,S)` correctly restrict to exactly the surviving-column
+   submatrix on both sides.
+
+2. **Does `control 2` (saturation, mask=100%) actually test anything, or is "naive-100% ==
+   reconstructed-100% by construction" a way of dodging a real check?** The code's own comment says
+   this explicitly (`:548-553`) — I tried to find a way this construction argument could be false
+   (e.g. if `S`=empty were handled differently by `reconstruct_organ_level` vs. the naive zeroing
+   path) and could not: `reconstruct_row`'s own `if S.numel()==0: return torch.zeros_like(W_full),
+   False` (`:184-185`) is the literal same operation as directly zeroing `W`. Confirmed by the live
+   run: `saturation` control fired (`delta=+3.745, fired=True`), consistent with a real, large,
+   correctly-computed number, not a null result masquerading as a pass.
+
+3. **Is `hessian_rank_ratio`'s tolerance (`eigvals.max()*D*eps`) at least internally consistent with
+   standard numerical-rank conventions (i.e. is this a reasonable rank definition, even though it
+   answers the wrong question for this project)?** Yes — this is exactly `numpy.linalg.matrix_rank`'s
+   own default tolerance formula, and my synthetic reproductions (`probe1`, `probe5`) used
+   `numpy.linalg.matrix_rank` directly for cross-checks and got matching rank counts to the
+   `torch.linalg.eigvalsh`-based version. The *definition* of numerical rank is not the bug; using
+   it as the sole conditioning gate for a regularised solve is the bug (BLOCK finding #1).
+
+4. **Does `theoretical_rank_ratio`'s `min(T,D)/D` bound ever get used somewhere it could actually
+   mislead (e.g. an organ where `T<D`)?** Checked every call site (`:600, :636`, both
+   `down_proj`'s `shuffled_H` and `leakage_H` secondary arms) — both use `T_cal=16384 > D=8960`
+   (`shuffled_H`) or `T_eval_tok = 24×512=12288 < D=8960` for the **leakage** arm's own capture
+   (`:632-636`, using the eval slice's 24×512 tokens, not the calibration slice's 32×512) — this one
+   is `T<D`! `theoretical_rank_ratio(12288, 8960) = min(12288,8960)/8960 = 1.0` still (since
+   `T>D` here too, 12288>8960) — so it still reads 1.0, not actually a counter-example, but it is
+   the one call site where the ratio was not guaranteed positive by construction at a glance and
+   needed checking. No live bug found, but noted because it was close enough to be worth writing
+   down: if the eval slice were ever shrunk below 8960 tokens, `leakage_H`'s reported rank ratio
+   would (correctly, for once) drop below 1.0 and could fire the abort — the one code path where
+   the diagnostic actually has teeth, by accident of which organ/slice combination it's applied to.
+
+5. **Could `select_zero_blocks`'s `torch.argsort` tie-break non-determinism (documented as a class
+   of bug elsewhere in this project, e.g. the D0/D1 PS `$R`/`$r` case-sensitivity note) silently
+   produce a different mask between D1 and D4 runs?** I could not test this against real weights
+   without loading the donor model (out of bounds this session), but the *algorithm* comparison
+   (source-level, both quoted above) is identical, `torch.argsort`'s default is a stable-enough sort
+   for non-tied float32 norms (ties on real-valued Frobenius norms of independent weight blocks are
+   measure-zero), and the divisibility check (FLAG above) rules out the one concrete quantisation
+   mechanism that has actually bitten this codebase (`k_proj`/`v_proj`@90%) at the three levels D4
+   actually sweeps. Left as a FLAG (missing runtime assertion) rather than a found bug, since I
+   could not exercise it against the real model this session.
+
+---
+
+## When D4's numbers land: what can be believed, what cannot, and what would have to be re-run
+
+| what | can be believed as reported? | why / what's needed to fix |
+|---|---|---|
+| Control 1 (identity, `down_proj`@0%) fires with `delta≈0` | **Yes, fully.** | Provably exact (algebra) and empirically confirmed on real donor weights (`delta=5.9e-9`). Not diagnostic of `H`'s informativeness (that burden has moved to control 3), but as a "the plumbing works" check it is solid. |
+| Control 2 (saturation, `down_proj`@100%) | **Yes**, as a self-consistency check only — it was never claimed to be more than that. | — |
+| `gate_proj` sweep `recovery ≈ 0` at every level | **Will be exactly true by construction** once computed — not a finding about the mechanism, a mathematical guarantee of the code path taken. | Verify with the one-line check in the ROW-axis PASS section above; if it's NOT ≈0, that's a bug, not a result. |
+| `down_proj`/`o_proj` sweep `recovery` **point estimates**, taken at face value as "% of quality Hessian-weighted reconstruction recovers" | **No — believe only after subtracting the `shuffled_H` baseline at the one point where it's measured, and treat the un-ablated sweep points (every level except `down_proj`@50%) as upper bounds, not point estimates, on genuine-correlation recovery.** | Need: (a) `shuffled_H` recovery at more than one (organ, level) point — currently only `down_proj`@50% is ablated; (b) ideally a shuffle construction that also destroys the mean (e.g. per-column mean-subtract before shuffling, or shuffle *row blocks* jointly across all columns instead of per-column independently) so `shuffled_H`'s off-diagonal really does go to ~0 rather than retaining `T·μᵢμⱼ`. |
+| Reported `recovery_se` / INCONCLUSIVE-vs-not classification | **Believe the point estimate's rough scale; do not trust the classification boundary to the precision the `2σ` band implies**, especially for any point landing near `recovery≈0`. | Need a joint (shared-seed) bootstrap of `delta_naive` and `delta_recon` together, or at minimum report the `full_se` correction from the FLAG above alongside the current one. |
+| `rank(H)/N = 1.000` diagnostic, as evidence the solve is numerically safe | **No — it provides zero information in this run's T>D regime, by mathematical construction, regardless of what it prints.** | Need `condition_number`, `λ_min`, `λ_max`, and a count of eigendirections with `λᵢ < ` the actual Tikhonov `λ` used downstream, computed and logged per layer (the eigenvalues already exist in memory inside `hessian_rank_ratio` — this is a few extra lines, not a new heavy computation, and does not require rerunning the calibration capture). |
+| `LAMBDA_SCALE=1e-4`'s effect on the headline numbers | **Believe the numbers are not wildly λ-sensitive in the immediate neighbourhood of the chosen value** (synthetic sensitivity was sub-percentage-point moving down, single-digit pp moving up an order of magnitude, at D4's own T/D margin) — this is a secondary source of uncertainty, not the dominant one. | A one-point λ-ablation at `down_proj`@50% (already-ablated point, near-zero marginal cost) would settle this on real data instead of a synthetic proxy. |
+| Mask agreement between D1 (`delta_naive`) and D4 (`delta_reconstructed`) at the same nominal `(organ, level)` | **Believe it for the three levels actually tested** (divisibility check above rules out quantisation divergence) **but do not generalise that confidence to any future level/organ** added to this sweep without the same check. | Add the runtime assertion given in the FLAG above; costs nothing at solve time, only a JSON lookup. |

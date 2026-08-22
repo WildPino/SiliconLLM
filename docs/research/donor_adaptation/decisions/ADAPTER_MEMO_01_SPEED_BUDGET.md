@@ -95,6 +95,59 @@ FFN        80 layers × 705 M × 0.02            = 1.13 B
 **That closes.** It is the first end-to-end arithmetic in this programme that reaches the Owner's ">20
 tok/s at 100B" without a step marked as a guess — subject to the §2.1 caveat on the rate constant.
 
+### 2.2b ⚠ A GAP IN MY OWN ANALYSIS: I costed the FFN half and not the attention half
+
+§2.2 states two mandatory halves. I priced the first (activation sparsity, §3c) and **left the second
+uncosted**, which means the budget did not actually close — it closed on one of its two terms. Correcting
+that here.
+
+Requirement (b) is *"attention retained on at most a few percent of layers — everything else converted to
+a recurrent operator with no KV re-read."* On a 100B/L=80 donor that is **converting ~76 of 80 layers**
+from attention to a recurrent operator. The only published method that does this and retains quality is
+MOHAWK (Bick et al., arXiv:2408.10189): freeze the donor MLP, discard attention, train a Mamba-2 core on
+**3.0B tokens** (80M + 160M + 2.76B across three stages) `[A]`, reaching **62.6 vs the teacher's 64.9**
+`[T, Table 1]`.
+
+**The paper does not state its GPU cost — `[X]`, confirmed against the primary source.** So the following
+is **my derivation, not theirs**, and every assumption is named:
+
+- Training FLOPs ≈ `(4 + 2f)·N·D` for N parameters, D tokens, fraction `f` of weights trainable. MOHAWK
+  freezes the MLP, so `f` is small and this is ≈ `4·N·D`. *(Forward `2ND`, activation gradients `2ND`,
+  weight gradients only for trained params.)*
+- 2× T4 at 65 TFLOPS fp16 peak, **25% MFU** — my assumption, and the single biggest lever in this estimate.
+
+| donor | tokens | my FLOP estimate | at 2×T4, 25% MFU | against 90 h/week |
+|---|---|---|---|---|
+| 1.5B (Phi-Mamba scale) | 3.0B | 1.8e19 | **~154 h** | **~1.7 weeks — affordable** |
+| 100B | 3.0B | 1.2e21 | **~10,250 h** | **~114 weeks — out by ~65×** |
+
+**The token budget does not save us.** MOHAWK's 3B tokens is a *distillation* budget, ~2 tokens/parameter,
+far below Chinchilla — so it plausibly does **not** need to grow with donor size. But FLOPs are
+`params × tokens`, so holding tokens fixed still scales the cost linearly with N. **A 100B donor is
+unaffordable on this hardware by roughly two orders of magnitude even at a fixed 3B-token budget.**
+
+### The fork this creates, which is the Owner's to adjudicate, not mine
+
+1. **Convert attention closed-form, with no training at all.** Preserves the 100B target and the ">20
+   tok/s" headline. This is the hardest open problem in the programme and nothing in the literature does
+   it — the original S1 constraint (*"trovare un modo matematico per convertire"*) pointed here, and the
+   v1 work concluded it was the hardest thing on the board.
+2. **Accept a smaller donor.** At **1.5B the MOHAWK route is affordable at ~1.7 weeks**, and 1.5B is the
+   donor D1/D4 already run on. This would demonstrate the full pipeline end-to-end on real hardware within
+   budget, and the 100B claim becomes a scaling argument rather than a demonstration.
+3. **Keep attention on more layers and lose speed.** §2.2's arithmetic prices this exactly: attention is
+   18% of the weights and every retained layer is read in full every token.
+
+**I am not choosing between these** — option 2 changes what we deliver, and that is a sealed-scope
+question. **My recommendation, offered as a recommendation:** pursue (2) as the demonstration and (1) as
+the research question, in parallel. (2) is the only path that produces a *running converted model* inside
+the budget we actually have, and a working 1.5B conversion is worth more than an unfalsifiable 100B plan.
+
+**What is NOT established here:** the 25% MFU assumption is mine and unmeasured on this hardware; MOHAWK's
+retention was measured on Phi-1.5, not on a 100B donor or on a ternary/sparsified backbone; and whether
+MOHAWK's frozen-MLP trick composes with the activation-sparsity route of §3c is completely untested — both
+modify the FFN's role, and this project has repeatedly measured that sequential stages do not compose.
+
 ### 2.3 What this says about the sealed constraints
 
 - **S3 ("attention on a minority of layers") is now quantified and it is far more demanding than
@@ -283,6 +336,51 @@ a third tier. GPU tensor-core N:M structuring (Q-Sparse's "Block Q-Sparse", 2:4)
 granularity roughly **1000× too fine** for a 48 KB read. A paper claiming "structured sparsity" must be
 checked for *which* structure before it counts as relevant to us. Three tiers, not two: scattered,
 GPU-block, cache-block.
+
+---
+
+## 3d. D4 control 3 — the reconstruction mechanism is REAL, SPECIFIC, and DANGEROUS
+
+Measured on `down_proj@50%`, the donor's own weights, all four controls fired. Recovery is
+`1 - delta_reconstructed / delta_naive` against D1's `+1.55712`:
+
+| Hessian used | information content | ΔBPB | recovery |
+|---|---|---|---|
+| `identity` | none | +1.55712 | **0.000** |
+| **`real`** | **correct** | **+0.80546** | **+0.483** |
+| `shuffled` | **wrong** | +4.04098 | **−1.595** |
+
+**Three readings, in order of importance.**
+
+**(1) The mechanism is real and specific.** The gap between the real and shuffled arms is **2.08 recovery
+units**. The hypothesis that any plausible-looking `H` would do — that this is a generic least-squares
+refit wearing a Hessian costume — is decisively dead. The donor's actual activation correlations are
+load-bearing. **This is the first direct evidence in the programme that the joint-solver dossier's central
+mechanism does something.**
+
+**(2) It is dangerous, and this is a deployment finding, not a curiosity.** A *wrong* Hessian does not
+degrade gracefully toward the naive baseline — it goes to **+4.041, worse than the +3.745 saturation
+control.** Reconstructing with wrong statistics is worse than deleting the organ entirely. The mechanism
+is not ignorance-tolerant: a shuffled `H` keeps the right marginal variances and the wrong correlations,
+so the solve applies wrong corrections *confidently*.
+
+> **Consequence for scale-up.** At 100B, an under-sampled or mismatched calibration set does not cost us a
+> few points — it can produce a model far worse than naive pruning. This is a direct argument for
+> SparseGPT's `T/D ≈ 24–64×` calibration margin over the **1.83×** used here, and it retires any thought
+> of economising on calibration tokens.
+
+**(3) It does not rescue static block pruning, and that conclusion is unchanged.** `+0.805 BPB` is still
+**161σ** against σ_seed = 0.005. Halving an unacceptable loss leaves an unacceptable loss — and this is
+the *favourable* case: `down_proj` is COLUMN-structured, the only geometry where the row-separable solve
+has any freedom at all (§3a). **The 2% target still lives entirely on the dynamic-activation lever (§1),
+not on static weight sparsity.** D4's value is that it closes the question of whether reconstruction could
+have changed that. It cannot.
+
+**What is NOT established.** The shuffled arm shows that *wrong* structure hurts; it does not separate
+*this layer's* structure from *any real* structure. The wrong-layer null (real `H` from a different layer
+of the same donor) is commissioned and still outstanding. Also note the Controller's synthetic model of
+the shuffled null predicted **+0.148** and the live measurement gave **−1.595** — the synthetic did not
+predict the real behaviour, which is itself a datum about how far synthetic proxies can be trusted here.
 
 ---
 
