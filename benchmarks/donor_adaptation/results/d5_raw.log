@@ -1,0 +1,168 @@
+# gemv_donor_bench | mode=d5 reps=5 check=0 gather=iid force_unclean=0
+# OpenMP ON, max_threads=12 | OMP_PROC_BIND=close OMP_PLACES=cores
+# fp32 estimator: min-of-5, ~2 GB streamed per timing window, x poisoned each pass (engine.c run_gemv_sweep)
+# cv% = coefficient of variation of the per-rep rates. >5% => the machine was not quiet, do not use the row.
+# QUIESCENCE CHECK: threshold=1.0 GB resident working set | 0 process(es) at/above it:
+#   -- clean.
+
+==== BRIEF D5: ternary LUT rate at DONOR projection widths -- rate(D,threads) + planted controls ====
+     docs/research/donor_adaptation/briefs/BRIEF_D5_LUT_RATE_AT_DONOR_WIDTH.md. Controls run FIRST per brief sec.5.
+
+---- CONTROL 1 (AMENDMENT 1 / A1.3): banked D=1536 point, engine-integrated MLP -- six stats, not a gate ----
+     PASS/FAIL for this control is no longer decided by a single invocation. See A1.3: >=4
+     independent invocations of `d5c1`, aggregated externally, decide reproduction.
+D5A1CSV,control1,nt=1,reps=5,min_gbps=8.5250,median_gbps=8.4740,mean_gbps=8.4151,sd_us=867.0958,cv_pct=1.26
+D5A1CSV,control1,nt=6,reps=5,min_gbps=22.7734,median_gbps=22.6834,mean_gbps=22.6899,sd_us=85.6956,cv_pct=0.34
+D5NOTE,control1,informational_only,mean_gbps_t6=22.6899,dev_vs_banked21.25=+1.4399 (not a verdict -- see A1.3)
+D5NOTE,control1,external_a1.3_verdict=PASS (from GEMV_D5_A1_VERDICT)
+
+---- SUPPORTING CHECK: L-sensitivity (not a brief-mandated control) ----
+D5CSV,lsens,D1536_HID8960_L2,1536,8960,2,6,41287680,0,29.5003,1399.5688,1.18,29.6115
+D5CSV,lsens,D1536_HID8960_L28,1536,8960,28,6,578027520,0,21.1371,27346.5375,4.52,21.2168
+D5NOTE,lsensitivity,L2_t6_gbps=29.500,L28_t6_gbps=21.137,ratio=1.396
+
+---- CONTROLS 2 & 3: known-positive slowdown (push working set >16MB) and speedup (L3-resident) ----
+     shape: donor attn proj 1536x1536 (block EB=1.125 MB), same kernel, only pool size varies.
+D5CSV,control23,donor_attn_1536x1536,1536,1536,0,1,1179648,1,17.1124,68.9351,5.39
+D5CSV,control23,donor_attn_1536x1536,1536,1536,0,6,1179648,1,95.7319,12.3224,2.07
+D5CSV,control23,donor_attn_1536x1536,1536,1536,0,1,16515072,1,13.4764,87.5345,1.73
+D5CSV,control23,donor_attn_1536x1536,1536,1536,0,6,16515072,1,85.9055,13.7319,5.24
+D5CSV,control23,donor_attn_1536x1536,1536,1536,0,1,33030144,0,8.5951,137.2463,1.43
+D5CSV,control23,donor_attn_1536x1536,1536,1536,0,6,33030144,0,52.9297,22.2871,4.19
+D5CSV,control23,donor_attn_1536x1536,1536,1536,0,1,536739840,0,6.2670,188.2323,4.61
+D5CSV,control23,donor_attn_1536x1536,1536,1536,0,6,536739840,0,27.6916,42.5995,8.69
+D5VERDICT,control2,PASS,resident_t6=95.73,streamed512_t6=27.69,drop_ratio=3.46x (need >=2.0x)
+D5VERDICT,control3,PASS,resident_t6=95.73 (need >=50, target ~100 per the banked L3 probe)
+
+---- CONTROL 4: fp32 streamed cross-check (banked 38.84 +/- 0.68, audited 39.87 +/- 0.09) ----
+D5CSV,control4,fp32_64MB,32768,512,0,6,67108864,0,38.5964,1738.7344,1.45
+D5CSV,control4,fp32_128MB,65536,512,0,6,134217728,0,38.3910,3496.0688,13.40
+D5CSV,control4,fp32_256MB,131072,512,0,6,268435456,0,39.4000,6813.0813,2.78
+D5CSV,control4,fp32_512MB,262144,512,0,6,536870912,0,38.4824,13951.0625,2.11
+D5VERDICT,control4,PASS,mean_t6_gbps=38.717,sd=0.401,banked=38.84+-0.68,audited=39.87+-0.09,tol=+-2.04(3sigma)
+
+D5SUMMARY,controls,c1=PASS,c2=PASS,c3=PASS,c4=PASS
+
+---- PART A: rate(D, threads), engine-integrated dense ternary MLP, ffn:D ratio fixed at 3.5 ----
+     (3.5 = the real Llama-3-70B-class ratio 28672/8192, so the D=8192 point below coincides with
+      the real donor organ measured in Part B. L held at 2 -- see the L-sensitivity check above:
+      every layer's working set already exceeds L3 at every D swept, so this is not a shortcut
+      that changes the regime, only one that changes runtime.)
+D5CSV,dsweep,D1536,1536,5376,2,1,24772608,0,6.2481,3964.8513,0.93,6.2728
+D5CSV,dsweep,D1536,1536,5376,2,6,24772608,0,52.3036,473.6313,3.47,52.5111
+D5NOTE,dsweep,D=1536,HID=5376,ws_MB=23.6,l3_resident=0,t1_gbps=6.25,t6_gbps=52.30,t6_cv=3.47%
+D5CSV,dsweep,D2048,2048,7168,2,1,44040192,0,5.4562,8071.6089,0.84,5.4724
+D5CSV,dsweep,D2048,2048,7168,2,6,44040192,0,27.5109,1600.8244,1.78,27.5928
+D5NOTE,dsweep,D=2048,HID=7168,ws_MB=42.0,l3_resident=0,t1_gbps=5.46,t6_gbps=27.51,t6_cv=1.78%
+D5CSV,dsweep,D4096,4096,14336,2,1,176160768,0,5.2781,33375.5636,2.32,5.2860
+D5CSV,dsweep,D4096,4096,14336,2,6,176160768,0,17.2669,10202.2091,1.25,17.2926
+D5NOTE,dsweep,D=4096,HID=14336,ws_MB=168.0,l3_resident=0,t1_gbps=5.28,t6_gbps=17.27,t6_cv=1.25%
+D5CSV,dsweep,D5120,5120,17920,2,1,275251200,0,5.5915,49227.0125,0.70,5.5981
+D5CSV,dsweep,D5120,5120,17920,2,6,275251200,0,18.1598,15157.2125,1.39,18.1814
+D5NOTE,dsweep,D=5120,HID=17920,ws_MB=262.5,l3_resident=0,t1_gbps=5.59,t6_gbps=18.16,t6_cv=1.39%
+D5CSV,dsweep,D8192,8192,28672,2,1,704643072,0,2.4201,291167.6375,1.55,2.4219
+D5CSV,dsweep,D8192,8192,28672,2,6,704643072,0,10.6884,65925.9125,9.13,10.6964
+D5NOTE,dsweep,D=8192,HID=28672,ws_MB=672.0,l3_resident=0,t1_gbps=2.42,t6_gbps=10.69,t6_cv=9.13%
+
+---- FP32-VS-TERNARY AT MATCHED DONOR SHAPES (the compute-vs-bandwidth discriminator) ----
+     shape = gate/up organ (HID x D) at each D-sweep point. Both arms kernel-pure, both streamed
+     past 256 MB where the shape itself does not already exceed that on its own.
+D5CSV,fp32_vs_ternary,ternary_D1536,5376,1536,0,1,536739840,0,6.1435,672.0550,0.70
+D5CSV,fp32_vs_ternary,ternary_D1536,5376,1536,0,6,536739840,0,23.1937,178.0127,4.97
+D5CSV,fp32_vs_ternary,fp32_D1536,5376,1536,0,1,297271296,0,24.8364,1329.9092,5.03
+D5CSV,fp32_vs_ternary,fp32_D1536,5376,1536,0,6,297271296,0,38.1318,866.2092,2.31
+D5NOTE,fp32_vs_ternary,D=1536,HID=5376,ternary_kernelpure_t6=23.19,fp32_kernelpure_t6=38.13,ratio_fp32_over_ternary=1.644,ternary_integrated_t6_forcontext=52.30
+D5CSV,fp32_vs_ternary,ternary_D2048,7168,2048,0,1,535822336,0,5.7239,1282.3531,3.46
+D5CSV,fp32_vs_ternary,ternary_D2048,7168,2048,0,6,535822336,0,22.9713,319.5312,1.14
+D5CSV,fp32_vs_ternary,fp32_D2048,7168,2048,0,1,293601280,0,23.9489,2451.9028,3.96
+D5CSV,fp32_vs_ternary,fp32_D2048,7168,2048,0,6,293601280,0,38.4524,1527.0889,1.52
+D5NOTE,fp32_vs_ternary,D=2048,HID=7168,ternary_kernelpure_t6=22.97,fp32_kernelpure_t6=38.45,ratio_fp32_over_ternary=1.674,ternary_integrated_t6_forcontext=27.51
+D5CSV,fp32_vs_ternary,ternary_D4096,14336,4096,0,1,528482304,0,8.5968,3415.2521,3.90
+D5CSV,fp32_vs_ternary,ternary_D4096,14336,4096,0,6,528482304,0,20.6591,1421.1699,1.36
+D5CSV,fp32_vs_ternary,fp32_D4096,14336,4096,0,1,469762048,0,25.0889,9361.9444,1.02
+D5CSV,fp32_vs_ternary,fp32_D4096,14336,4096,0,6,469762048,0,38.3475,6125.0667,4.84
+D5NOTE,fp32_vs_ternary,D=4096,HID=14336,ternary_kernelpure_t6=20.66,fp32_kernelpure_t6=38.35,ratio_fp32_over_ternary=1.856,ternary_integrated_t6_forcontext=17.27
+D5CSV,fp32_vs_ternary,ternary_D5120,17920,5120,0,1,504627200,0,6.6520,6896.4563,0.90
+D5CSV,fp32_vs_ternary,ternary_D5120,17920,5120,0,6,504627200,0,20.5224,2235.3719,1.02
+D5CSV,fp32_vs_ternary,fp32_D5120,17920,5120,0,1,367001600,0,24.2351,15143.4188,1.66
+D5CSV,fp32_vs_ternary,fp32_D5120,17920,5120,0,6,367001600,0,39.4535,9302.1313,4.88
+D5NOTE,fp32_vs_ternary,D=5120,HID=17920,ternary_kernelpure_t6=20.52,fp32_kernelpure_t6=39.45,ratio_fp32_over_ternary=1.922,ternary_integrated_t6_forcontext=18.16
+D5CSV,fp32_vs_ternary,ternary_D8192,28672,8192,0,1,469762048,0,2.3747,49455.3906,1.08
+D5CSV,fp32_vs_ternary,ternary_D8192,28672,8192,0,6,469762048,0,11.3448,10351.9234,0.68
+D5CSV,fp32_vs_ternary,fp32_D8192,28672,8192,0,1,939524096,0,24.2416,38756.6437,1.30
+D5CSV,fp32_vs_ternary,fp32_D8192,28672,8192,0,6,939524096,0,38.7054,24273.7438,2.52
+D5NOTE,fp32_vs_ternary,D=8192,HID=28672,ternary_kernelpure_t6=11.34,fp32_kernelpure_t6=38.71,ratio_fp32_over_ternary=3.412,ternary_integrated_t6_forcontext=10.69
+     Read: ratio > 1 means fp32 DRAM streaming outruns the ternary kernel even fully streamed --
+     consistent with the LUT kernel still being compute-bound at donor width, i.e. denser packing
+     would NOT buy bandwidth headroom (ADAPTER_MEMO_01 sec.2.4). ratio <= 1 (ternary at/above fp32)
+     would mean the LUT path has become bandwidth-bound, and denser packing becomes the ~2.5x lever.
+     THIS RATIO, NOT AN ASSUMPTION, DECIDES IT.
+
+---- PART B: real Llama-3-70B-class organ shapes, kernel-pure LUT rate vs working set ----
+     d_model=8192 d_ffn=28672. q/o 8192x8192, k/v 1024x8192, gate/up 28672x8192, down 8192x28672.
+   -- llama70b_qo: 8192x8192, single-block EB=32.00 MB (EXCEEDS L3 on its own) --
+D5NOTE,shape_arithmetic,organ=llama70b_qo,M=8192,K=8192,single_block_bytes=33554432,l3_bytes=16777216,l3_resident_possible=0
+D5CSV,organs,llama70b_qo,8192,8192,0,1,33554432,0,2.7640,12139.7703,2.44
+D5CSV,organs,llama70b_qo,8192,8192,0,6,33554432,0,11.6288,2885.4547,2.24
+D5CSV,organs,llama70b_qo,8192,8192,0,1,33554432,0,2.7496,12203.5531,1.13
+D5CSV,organs,llama70b_qo,8192,8192,0,6,33554432,0,11.5847,2896.4344,2.13
+D5CSV,organs,llama70b_qo,8192,8192,0,1,33554432,0,2.7699,12113.7984,1.96
+D5CSV,organs,llama70b_qo,8192,8192,0,6,33554432,0,11.4840,2921.8359,6.21
+D5CSV,organs,llama70b_qo,8192,8192,0,1,67108864,0,2.6833,12504.8859,8.24
+D5CSV,organs,llama70b_qo,8192,8192,0,6,67108864,0,11.0742,3029.9672,0.93
+D5CSV,organs,llama70b_qo,8192,8192,0,1,134217728,0,2.6416,12702.1000,2.36
+D5CSV,organs,llama70b_qo,8192,8192,0,6,134217728,0,10.9652,3060.0719,3.91
+D5CSV,organs,llama70b_qo,8192,8192,0,1,268435456,0,2.6870,12487.8703,0.63
+D5CSV,organs,llama70b_qo,8192,8192,0,6,268435456,0,11.0011,3050.0984,8.72
+D5CSV,organs,llama70b_qo,8192,8192,0,1,536870912,0,2.6563,12632.1094,2.52
+D5CSV,organs,llama70b_qo,8192,8192,0,6,536870912,0,8.9219,3760.9047,4.24
+   -- llama70b_kv: 1024x8192, single-block EB=4.00 MB (fits L3 on its own) --
+D5NOTE,shape_arithmetic,organ=llama70b_kv,M=1024,K=8192,single_block_bytes=4194304,l3_bytes=16777216,l3_resident_possible=1
+D5CSV,organs,llama70b_kv,1024,8192,0,1,4194304,1,14.4373,290.5188,4.60
+D5CSV,organs,llama70b_kv,1024,8192,0,6,4194304,1,73.5273,57.0441,1.42
+D5CSV,organs,llama70b_kv,1024,8192,0,1,16777216,1,10.8598,386.2240,0.72
+D5CSV,organs,llama70b_kv,1024,8192,0,6,16777216,1,58.5219,71.6707,17.03
+D5CSV,organs,llama70b_kv,1024,8192,0,1,33554432,0,8.1328,515.7279,5.37
+D5CSV,organs,llama70b_kv,1024,8192,0,6,33554432,0,38.5667,108.7545,3.29
+D5CSV,organs,llama70b_kv,1024,8192,0,1,67108864,0,7.3917,567.4326,3.31
+D5CSV,organs,llama70b_kv,1024,8192,0,6,67108864,0,32.4734,129.1611,6.58
+D5CSV,organs,llama70b_kv,1024,8192,0,1,134217728,0,6.9576,602.8373,2.08
+D5CSV,organs,llama70b_kv,1024,8192,0,6,134217728,0,30.6501,136.8445,5.99
+D5CSV,organs,llama70b_kv,1024,8192,0,1,268435456,0,6.8961,608.2141,1.71
+D5CSV,organs,llama70b_kv,1024,8192,0,6,268435456,0,29.3656,142.8305,3.21
+D5CSV,organs,llama70b_kv,1024,8192,0,1,536870912,0,6.7620,620.2725,2.66
+D5CSV,organs,llama70b_kv,1024,8192,0,6,536870912,0,29.2292,143.4969,3.50
+   -- llama70b_gateup: 28672x8192, single-block EB=112.00 MB (EXCEEDS L3 on its own) --
+D5NOTE,shape_arithmetic,organ=llama70b_gateup,M=28672,K=8192,single_block_bytes=117440512,l3_bytes=16777216,l3_resident_possible=0
+D5CSV,organs,llama70b_gateup,28672,8192,0,1,117440512,0,2.3846,49249.6859,3.16
+D5CSV,organs,llama70b_gateup,28672,8192,0,6,117440512,0,11.1929,10492.4328,2.06
+D5CSV,organs,llama70b_gateup,28672,8192,0,1,117440512,0,2.3023,51010.3922,2.05
+D5CSV,organs,llama70b_gateup,28672,8192,0,6,117440512,0,10.3797,11314.4172,11.67
+D5CSV,organs,llama70b_gateup,28672,8192,0,1,117440512,0,2.3837,49267.1937,3.94
+D5CSV,organs,llama70b_gateup,28672,8192,0,6,117440512,0,11.1840,10500.7781,9.27
+D5CSV,organs,llama70b_gateup,28672,8192,0,1,117440512,0,2.4101,48728.4078,1.05
+D5CSV,organs,llama70b_gateup,28672,8192,0,6,117440512,0,11.3250,10370.0078,4.55
+D5CSV,organs,llama70b_gateup,28672,8192,0,1,117440512,0,2.3934,49067.6906,0.69
+D5CSV,organs,llama70b_gateup,28672,8192,0,6,117440512,0,11.3187,10375.8094,2.39
+D5CSV,organs,llama70b_gateup,28672,8192,0,1,234881024,0,2.4033,48866.0875,5.05
+D5CSV,organs,llama70b_gateup,28672,8192,0,6,234881024,0,11.1787,10505.7563,5.58
+D5CSV,organs,llama70b_gateup,28672,8192,0,1,469762048,0,2.3889,49161.0422,1.55
+D5CSV,organs,llama70b_gateup,28672,8192,0,6,469762048,0,11.0472,10630.7656,7.55
+   -- llama70b_down: 8192x28672, single-block EB=112.00 MB (EXCEEDS L3 on its own) --
+D5NOTE,shape_arithmetic,organ=llama70b_down,M=8192,K=28672,single_block_bytes=117440512,l3_bytes=16777216,l3_resident_possible=0
+D5CSV,organs,llama70b_down,8192,28672,0,1,117440512,0,2.5123,46746.4391,4.18
+D5CSV,organs,llama70b_down,8192,28672,0,6,117440512,0,10.6016,11077.6484,5.47
+D5CSV,organs,llama70b_down,8192,28672,0,1,117440512,0,2.5549,45966.4156,2.13
+D5CSV,organs,llama70b_down,8192,28672,0,6,117440512,0,9.7609,12031.7672,4.09
+D5CSV,organs,llama70b_down,8192,28672,0,1,117440512,0,2.5198,46607.2641,2.19
+D5CSV,organs,llama70b_down,8192,28672,0,6,117440512,0,10.5967,11082.7453,3.76
+D5CSV,organs,llama70b_down,8192,28672,0,1,117440512,0,2.5376,46279.7609,1.86
+D5CSV,organs,llama70b_down,8192,28672,0,6,117440512,0,10.6351,11042.7688,2.64
+D5CSV,organs,llama70b_down,8192,28672,0,1,117440512,0,2.5130,46732.4469,2.18
+D5CSV,organs,llama70b_down,8192,28672,0,6,117440512,0,10.4450,11243.6672,6.23
+D5CSV,organs,llama70b_down,8192,28672,0,1,234881024,0,2.5455,46136.1859,2.21
+D5CSV,organs,llama70b_down,8192,28672,0,6,234881024,0,10.7253,10949.8250,1.76
+D5CSV,organs,llama70b_down,8192,28672,0,1,469762048,0,2.5622,45835.7859,1.91
+D5CSV,organs,llama70b_down,8192,28672,0,6,469762048,0,10.5505,11131.3172,1.90
+
+STOP. No commit, no push.

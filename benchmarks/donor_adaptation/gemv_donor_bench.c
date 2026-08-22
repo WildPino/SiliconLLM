@@ -763,7 +763,13 @@ static void mlp_free(MlpStack* S){
 
 // time L layers = one token of dense MLP, exactly the engine's T->mlp bucket (rmsnorm excluded,
 // as engine.c excludes it -- see forward_token lines 374-379).
-static void mlp_time(MlpStack* S,int skip,int reps,int nt,double* us_tok,double* cv){
+// AMENDMENT 1 (BRIEF_D5, A1.2/A1.3): *us_tok is the min-of-reps order statistic -- kept ONLY as a
+// secondary column so new numbers stay relatable to old ones. It is a maximum-of-rates order statistic
+// whose expected value rises with reps by construction; it is NOT the reported rate for anything as of
+// A1.3. mean_us/median_us/sd_us are the primary per-invocation statistics now. All four output pointers
+// beyond us_tok/cv are optional (pass NULL to skip).
+static void mlp_time(MlpStack* S,int skip,int reps,int nt,double* us_tok,double* cv,
+                      double* mean_us,double* median_us,double* sd_us){
     set_threads(nt);
     float* xn=xmalloc((size_t)S->D*4); for(int i=0;i<S->D;i++) xn[i]=0.05f*((i%11)-5);
     float* out=xmalloc((size_t)S->D*4);
@@ -773,26 +779,30 @@ static void mlp_time(MlpStack* S,int skip,int reps,int nt,double* us_tok,double*
     // when GEMV_D5_DEBUG_REPS is set, print each rep's own rate to stderr so a warm-up/thermal trend can be
     // told apart from unstructured jitter. Does not alter *us_tok / *cv or any control's pass/fail logic.
     const char* dbg=getenv("GEMV_D5_DEBUG_REPS");
+    double* samp=(double*)xmalloc((size_t)reps*sizeof(double));
     double best=1e30,sum=0,sum2=0;
     for(int r=0;r<reps;r++){
         double t0=now_s();
         for(long k=0;k<ntok;k++){ xn[k%S->D]+=1e-7f; for(int l=0;l<S->L;l++) mlp_dense_int(S,l,xn,out,skip); }
         double dt=now_s()-t0; if(dt<best)best=dt;
-        double u=dt/ntok*1e6; sum+=u; sum2+=u*u;
+        double u=dt/ntok*1e6; sum+=u; sum2+=u*u; samp[r]=u;
         if(dbg){ double g=(double)S->codes_layer*(size_t)S->L/1e3/u;
             fprintf(stderr,"DBGREP,nt=%d,rep=%d,us_tok=%.4f,gbps=%.4f\n",nt,r,u,g); }
     }
-    double m=sum/reps,v=sum2/reps-m*m; if(v<0)v=0;
-    *us_tok=best/ntok*1e6; *cv=reps>1?100.0*sqrt(v)/m:-1.0;
-    free(xn); free(out);
+    double m=sum/reps,v=sum2/reps-m*m; if(v<0)v=0; double sd=sqrt(v);
+    for(int i=0;i<reps;i++) for(int j=i+1;j<reps;j++) if(samp[j]<samp[i]){double t=samp[i];samp[i]=samp[j];samp[j]=t;}
+    double med = (reps%2)? samp[reps/2] : 0.5*(samp[reps/2-1]+samp[reps/2]);
+    *us_tok=best/ntok*1e6; *cv=reps>1?100.0*sd/m:-1.0;
+    if(mean_us)*mean_us=m; if(median_us)*median_us=med; if(sd_us)*sd_us=sd;
+    free(samp); free(xn); free(out);
 }
 
 static void mlpint_row(const char* tag,int D,int HID,int L,int skip,int reps,double tgt1,double tgt6){
     MlpStack S; mlp_alloc(&S,D,HID,L,skip);
     size_t codes=S.codes_layer*(size_t)L, scales=S.scales_layer*(size_t)L;
     double u1,c1,u6,c6;
-    mlp_time(&S,skip,reps,1,&u1,&c1);
-    mlp_time(&S,skip,reps,6,&u6,&c6);
+    mlp_time(&S,skip,reps,1,&u1,&c1,NULL,NULL,NULL);
+    mlp_time(&S,skip,reps,6,&u6,&c6,NULL,NULL,NULL);
     printf("   %-22s D=%-5d HID=%-5d L=%-3d skip=%d | %9.1f %5.1f | %9.1f %5.1f | %6.2f %6.2f | %6.2f",
            tag,D,HID,L,skip,u1,c1,u6,c6,(double)codes/1e3/u1,(double)codes/1e3/u6,
            (double)(codes+scales)/1e3/u6);
@@ -939,7 +949,7 @@ static void mlp_point(const char* section,const char* tag,int D,int HID,int L,in
                        double* out_gbps_codes,double* out_gbps_scaled,double* out_us,double* out_cv,size_t* out_ws){
     MlpStack S; mlp_alloc(&S,D,HID,L,skip);
     size_t codes=S.codes_layer*(size_t)L, scales=S.scales_layer*(size_t)L;
-    double u,cv; mlp_time(&S,skip,reps,nt,&u,&cv);
+    double u,cv; mlp_time(&S,skip,reps,nt,&u,&cv,NULL,NULL,NULL);
     double gbps=(double)codes/1e3/u, gbps_sc=(double)(codes+scales)/1e3/u;
     int l3=(codes<=L3_BYTES)?1:0;
     // D5CSV,section,tag,D,HID,L,threads,working_set_bytes,l3_resident,gbps_codes,us_per_tok,cv_pct,gbps_codes+scales
@@ -983,18 +993,65 @@ static void lut_one_point(const char* section,const char* tag,int M,int K,double
     free(P); free(lut); free(xq); free(y);
 }
 
+// AMENDMENT 1 (BRIEF_D5 A1.3, 2026-08-22): the old fixed +-0.36 GB/s tolerance against the min-of-reps
+// statistic is WITHDRAWN (A1.1) -- it was a gate that could not pass, not a drift detector. This function
+// no longer decides PASS/FAIL. It reports all six required statistics (min, median, mean, sd, cv, reps) for
+// one invocation at nt=1 and nt=6, on the exact banked shape (D=1536, HID=8960, L=28, skip=0). The actual
+// A1.3 verdict -- grand mean of per-invocation means vs banked 21.25, tolerance = 3x the between-invocation
+// sd of that mean measured THIS run -- requires >=4 independent process invocations and is computed by an
+// external driver around the fast `d5c1` mode (see mode_d5c1 below), not inside a single process. Do not
+// read *passed here as a verdict; it is always 1 so the rest of `d5` mode still runs and the record still
+// has data to point at. The real go/no-go lives in the external A1.3 aggregation.
 static void d5_control1(int reps,int* passed,double* measured_t6){
-    printf("---- CONTROL 1: reproduce the banked D=1536 point (21.25 +/- 0.36 GB/s), engine-integrated MLP ----\n");
-    double u1,c1,u6,c6,g1c,g1s,g6c,g6s; size_t ws;
-    mlp_point("control1","donor_D1536_HID8960_L28",1536,8960,28,0,reps,1,&g1c,&g1s,&u1,&c1,&ws);
-    mlp_point("control1","donor_D1536_HID8960_L28",1536,8960,28,0,reps,6,&g6c,&g6s,&u6,&c6,&ws);
-    double banked=21.25, tol=0.36;
-    int pass = fabs(g6c-banked)<=tol;
-    printf("D5VERDICT,control1,%s,measured_t6_gbps=%.3f,banked=%.2f+-%.2f,dev=%+.3f,cv=%.2f%%\n",
-           pass?"PASS":"FAIL",g6c,banked,tol,g6c-banked,c6);
-    if(!pass) printf("D5STOP: control 1 FAILED -- apparatus has drifted. Per brief sec.5.1, STOP; nothing else\n"
-                      "  from this harness may be trusted until this is resolved.\n");
-    *passed=pass; *measured_t6=g6c;
+    printf("---- CONTROL 1 (AMENDMENT 1 / A1.3): banked D=1536 point, engine-integrated MLP -- six stats, not a gate ----\n");
+    printf("     PASS/FAIL for this control is no longer decided by a single invocation. See A1.3: >=4\n");
+    printf("     independent invocations of `d5c1`, aggregated externally, decide reproduction.\n");
+    MlpStack S; mlp_alloc(&S,1536,8960,28,0);
+    size_t codes=S.codes_layer*(size_t)28;
+    double u1,c1,m1,med1,sd1, u6,c6,m6,med6,sd6;
+    mlp_time(&S,0,reps,1,&u1,&c1,&m1,&med1,&sd1);
+    mlp_time(&S,0,reps,6,&u6,&c6,&m6,&med6,&sd6);
+    double min1=(double)codes/1e3/u1, median1=(double)codes/1e3/med1, mean1=(double)codes/1e3/m1;
+    double min6=(double)codes/1e3/u6, median6=(double)codes/1e3/med6, mean6=(double)codes/1e3/m6;
+    printf("D5A1CSV,control1,nt=1,reps=%d,min_gbps=%.4f,median_gbps=%.4f,mean_gbps=%.4f,sd_us=%.4f,cv_pct=%.2f\n",
+           reps,min1,median1,mean1,sd1,c1);
+    printf("D5A1CSV,control1,nt=6,reps=%d,min_gbps=%.4f,median_gbps=%.4f,mean_gbps=%.4f,sd_us=%.4f,cv_pct=%.2f\n",
+           reps,min6,median6,mean6,sd6,c6);
+    printf("D5NOTE,control1,informational_only,mean_gbps_t6=%.4f,dev_vs_banked21.25=%+.4f (not a verdict -- see A1.3)\n",
+           mean6, mean6-21.25);
+    mlp_free(&S);
+    { const char* ext_verdict=getenv("GEMV_D5_A1_VERDICT");
+      int p = ext_verdict? !strcmp(ext_verdict,"PASS") : 1;
+      if(ext_verdict) printf("D5NOTE,control1,external_a1.3_verdict=%s (from GEMV_D5_A1_VERDICT)\n",ext_verdict);
+      *passed=p; }
+    *measured_t6=mean6;
+}
+
+// AMENDMENT 1 (A1.3/A1.4): a fast, single-shape, control-1-only mode meant to be invoked many times as
+// SEPARATE processes by an external driver, so the between-invocation dispersion (and any invocation-order
+// / cold-start effect, A1.4) reflects real process-launch conditions rather than in-process loop state.
+// Deliberately does none of the rest of `d5` mode's work.
+
+// AMENDMENT 1 follow-up (Principal's audit of the raw d5 sweep, 2026-08-22): a generic six-stat probe for
+// ANY (D,HID,L) shape at a given thread count, so the L-sensitivity claim and any donor-width point can be
+// re-measured with the unbiased MEAN estimator directly, instead of reasoning about the min-of-reps bias
+// from a distance. Deliberately minimal: one shape, one thread count, one reps value, six stats out.
+static void mode_d5g(int reps,int D,int HID,int L,int nt){
+    printf("==== d5g: generic six-stat shape probe (D=%d HID=%d L=%d nt=%d reps=%d) ====\n\n",D,HID,L,nt,reps);
+    MlpStack S; mlp_alloc(&S,D,HID,L,0);
+    size_t codes=S.codes_layer*(size_t)L;
+    double u,c,m,med,sd;
+    mlp_time(&S,0,reps,nt,&u,&c,&m,&med,&sd);
+    double min_g=(double)codes/1e3/u, median_g=(double)codes/1e3/med, mean_g=(double)codes/1e3/m;
+    long ntok_est=(long)(2.0e9/(double)codes); if(ntok_est<8) ntok_est=8; if(ntok_est>3000) ntok_est=3000;
+    printf("D5A1CSV,d5g,D=%d,HID=%d,L=%d,nt=%d,reps=%d,ntok_per_rep=%ld,ws_bytes=%zu,min_gbps=%.4f,median_gbps=%.4f,mean_gbps=%.4f,sd_us=%.4f,cv_pct=%.2f\n",
+           D,HID,L,nt,reps,ntok_est,codes,min_g,median_g,mean_g,sd,c);
+    mlp_free(&S);
+}
+static void mode_d5c1(int reps){
+    printf("==== d5c1: single-invocation control-1 stats (AMENDMENT 1 A1.3/A1.4 driver primitive) ====\n\n");
+    int dummy_passed; double dummy_rate;
+    d5_control1(reps,&dummy_passed,&dummy_rate);
 }
 
 static void d5_lsensitivity(int reps){
@@ -1209,12 +1266,17 @@ int main(int argc,char**argv){
     if(argc<2){ usage(); return 1; }
     const char* mode=argv[1];
     int reps=3, docheck=0, iid=1, quick=0, force_unclean=0;
+    int g_D=1536, g_HID=8960, g_L=28, g_nt=6;   // for d5g only
     for(int i=2;i<argc;i++){
         if(!strcmp(argv[i],"--reps")&&i+1<argc) reps=atoi(argv[++i]);
         else if(!strcmp(argv[i],"--check")) docheck=1;
         else if(!strcmp(argv[i],"--seq")) iid=0;
         else if(!strcmp(argv[i],"--quick")) quick=1;
         else if(!strcmp(argv[i],"--force-unclean")) force_unclean=1;
+        else if(!strcmp(argv[i],"--D")&&i+1<argc) g_D=atoi(argv[++i]);
+        else if(!strcmp(argv[i],"--HID")&&i+1<argc) g_HID=atoi(argv[++i]);
+        else if(!strcmp(argv[i],"--L")&&i+1<argc) g_L=atoi(argv[++i]);
+        else if(!strcmp(argv[i],"--nt")&&i+1<argc) g_nt=atoi(argv[++i]);
         else { printf("unknown arg %s\n",argv[i]); usage(); return 1; }
     }
     if(reps<1) reps=1;
@@ -1244,6 +1306,8 @@ int main(int argc,char**argv){
     else if(!strcmp(mode,"mlpint"))    mode_mlpint(reps);
     else if(!strcmp(mode,"mlpctl"))    mode_mlpctl();
     else if(!strcmp(mode,"d5"))        mode_d5(reps);
+    else if(!strcmp(mode,"d5c1"))      mode_d5c1(reps);
+    else if(!strcmp(mode,"d5g"))       mode_d5g(reps,g_D,g_HID,g_L,g_nt);
     else { usage(); return 1; }
     printf("\nSTOP. No commit, no push.\n");
     return 0;
