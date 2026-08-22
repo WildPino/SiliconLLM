@@ -812,14 +812,106 @@ packing is roughly the full ~2.5× lever, and the budget's ~24 tok/s figure coul
 
 ### 12.4 Status
 
-**Blocked, not stalled.** A concurrent D4 run holds the machine (49+ GB working set, growing, mid-run on the
-probe the programme is waiting on). The quiescence gate in §12.2 will not let `d5` take a single timing
-measurement until that clears — verified, not assumed (§12.2). Nothing in §12.1–§12.3 required a clean
-machine to produce.
+**The machine cleared. Control 1 ran — repeatedly, under several configurations — and did not reproduce
+the banked point, in a way that looks like real drift rather than a noisy row.**
 
-**Not yet measured, pending a clean machine:** all four planted controls (brief §5, including whether the
-banked 21.25 GB/s reproduces at all — control 1 is a STOP condition if it does not); the `rate(D,threads)`
-curve itself; the L=2-vs-L=28 sensitivity check that licenses the D-sweep's cheaper `L`; the fp32-vs-ternary
-matched-shape ratio at each `D` (§12.3); and the timed (not just shape-derived) rate at the real Llama-3-70B
-organs. **No line above this one may be read as a rate measurement — only the shape arithmetic in §12.3 is
-established.**
+**First reading, as reported to the Principal before the break:** `d5 --reps 5`, `OMP_PROC_BIND=close
+OMP_PLACES=cores`: `t6 = 22.361 GB/s`, `dev = +1.111` against banked `21.25 ± 0.36`, **`cv = 10.75%`**.
+By the harness's own printed criterion (`cv% > 5% => the machine was not quiet, do not use the row`) that
+single row is not a measurement either way — it neither passed nor failed control 1, and the Principal's
+read that the ±0.36 tolerance could not survive contact with a ±2.4 GB/s-scale instrument is correct as
+far as it goes. But it does not go far enough: chasing the variance down produced ten independent `t6`
+draws, not one, and nine of the ten are elevated, not merely noisy.
+
+**Every configuration tried, same shape (`D=1536, HID=8960, L=28, skip=0`):**
+
+| config | reps | t6 GB/s | cv% | dev vs 21.25 |
+|---|---|---|---|---|
+| `OMP_PROC_BIND=close OMP_PLACES=cores` | 5 | 22.361 | 10.75 | +1.111 |
+| `OMP_PROC_BIND=close OMP_PLACES=cores` | 30 | 25.125 | 3.50 | +3.875 |
+| `OMP_PROC_BIND=close OMP_PLACES=cores` (per-rep instrumented) | 25 | 23.439 | 5.27 | +2.189 |
+| `OMP_PROC_BIND=close OMP_PLACES=cores`, invocation 1 of 4, matching the original protocol exactly | 3 | 20.203 | 13.56 | -1.047 |
+| same, invocation 2 of 4 | 3 | 24.762 | 4.66 | +3.512 |
+| same, invocation 3 of 4 | 3 | 24.763 | 2.89 | +3.513 |
+| same, invocation 4 of 4 | 3 | 24.755 | 7.58 | +3.505 |
+| `OMP_PLACES=cores` only (no explicit `OMP_PROC_BIND`, matching sec.10.2's documented invocation literally) | 3 | 23.461 | 3.08 | +2.211 |
+| same | 3 | 24.709 | 4.33 | +3.459 |
+| no thread-placement env vars at all | 3 | 22.998 | 6.68 | +1.748 |
+
+Mean of all ten draws: **23.66 GB/s**, +11.3% above banked. **Nine of ten exceed 21.25; none fall inside
+the ±0.36 band.** This is not the signature of a single unlucky high-variance row — the reading given to
+the Principal before the break was, if anything, the most conservative of the ten.
+
+**1. Diagnosing the variance -- three separable findings, not one cause.**
+
+- **OpenMP placement was verified, not assumed.** A standalone probe (`omp_get_num_places()` /
+  `omp_get_place_proc_ids()` / a Win32 `SetThreadAffinityMask` round-trip to read back each thread's live
+  affinity mask) confirms `OMP_PLACES=cores` enumerates 6 places of 2 logical processors each (one
+  physical core's SMT pair per place -- `[0,1],[2,3],[4,5],[6,7],[8,9],[10,11]`), and that at `nt=6` each of
+  the 6 OpenMP threads is bound to a distinct place (`0x3, 0xc, 0x30, 0xc0, 0x300, 0xc00` -- no overlap).
+  **Six threads land on six distinct physical cores; SMT-sibling contention between our own threads is
+  ruled out**, not merely assumed away.
+- **`OMP_PROC_BIND` is not the explanatory variable.** Re-running control 1 with `OMP_PLACES=cores` alone
+  (no explicit `OMP_PROC_BIND`, i.e. exactly what sec.10.2 documents having used) and with neither variable
+  set at all produced the same elevated range (22.9-24.7 GB/s) as the fully-specified configuration. The
+  documentation gap the constraints section warns about (unrecorded placement swinging a number 4.6x) is
+  real as a *general* risk but is **not what is happening here** -- three different placement configurations
+  converge to the same elevated band.
+- **`t6`'s per-rep dispersion is structurally higher than `t1`'s, for a mundane reason.** A per-rep debug
+  trace (25 reps, `t1` and `t6` separately) shows `t1` is tight (7.75-8.28 GB/s) except for one rep that
+  stalled to 130.6 ms against a typical ~71 ms -- a single transient OS-level interruption, not a trend.
+  `t6` has no such single outlier but a wider intrinsic spread every rep (19.18-23.44 GB/s, cv ~5-6% even
+  in a clean sample). This is consistent with a barrier-synchronised 6-thread reduction: each rep's time is
+  set by the slowest of 6 concurrently-running physical cores, so the probability that *some* core takes a
+  transient hit (DPC, scheduler quantum, interrupt) scales with core count. Six threads, six times the
+  surface area, versus one.
+- **The `min-of-reps` estimator (inherited unmodified from `engine.c run_gemv_sweep`, by design -- see the
+  comment at the estimator's definition) is a maximum order statistic: its expected value is monotonically
+  non-decreasing in `reps`.** With real per-rep dispersion at `t6` (~5-6%), sampling more reps mechanically
+  pulls the reported "best" rate toward the population's upper tail -- 22.36 at `reps=5`, 23.44 at
+  `reps=25`, 25.13 at `reps=30`, drawn from the *same* per-rep distribution (mean of the 25-rep trace ~
+  21.57 GB/s, close to banked). **Comparing a `reps=N` reading against a tolerance calibrated at a
+  different `N` is not apples-to-apples**, independent of any drift question. But this alone does not
+  explain the finding below.
+
+**2. What the banked `21.25 ± 0.36` actually was (DONOR_PROJ_RATE.md sec.10.2, re-read against today's
+data).** `gemv_donor_bench.exe mlpint --reps 3`, **4 independent invocations**, `OMP_PLACES=cores` (no
+`OMP_PROC_BIND` recorded). In-run cv 0.7-1.9%. Between-run sd **1.7%** (-> +-0.36 at +-1 sigma). An independent
+Controller replication (`ctrl3_donor_bench.exe mlpint --reps 3`, different build, different session) landed
+at 21.55-21.63 GB/s, agreeing with the Builder's figure. **Reproducing that exact protocol today --
+`reps=3`, 4 independent invocations, same env -- gives 20.203 / 24.762 / 24.763 / 24.755: mean 23.62 GB/s,
+between-run sd 8.36%, roughly 5x the historical dispersion, and a mean +11.1% above banked.** Matching `N`
+does not rescue the reproduction. **The comparison was apples-to-apples in protocol; the instrument itself
+now returns a different number under that protocol than it returned before.** That is the finding -- not an
+estimator artifact, not an unrecorded-placement artifact, both of which were tested and ruled out above.
+What changed on the machine between the original banked session and today (OS/driver update, AMD chipset
+power-management change, BIOS/AGESA revision, thermal/ambient conditions not caught by the >=1 GB
+quiescence-gate threshold) is **not established** -- the effect is real and repeated, the cause is not yet
+known, and this document will not guess at it.
+
+**3. Control 1, plainly: FAIL, and more decisively than the single row first reported.** Not one
+high-variance reading -- ten draws across three placement configurations and four rep-counts, nine of which
+exceed banked, with the matched-protocol replication (the fairest test available) landing at +11.1% with
+5x the historical between-run dispersion. **Per the brief and per standing instruction, this is a STOP: no
+new tolerance has been adopted, 22.361 (or any other single reading) has not been adopted as a replacement
+banked value, and nothing past control 1 has been run.** A defensible tolerance is the Principal's call
+once amended in a dated correction to the brief (pre-registration is not edited in place); building one
+here is out of scope for the Builder. Candidates worth the Principal's attention when that correction is
+drafted: (a) re-baseline `21.25` on this machine, today, under the exact matched-`N`, multi-invocation
+protocol above, rather than compare across sessions; (b) if cross-session comparison is kept, widen the
+tolerance to reflect the instrument's *demonstrated* between-run dispersion (~8% today) rather than the
+historical 1.7%, which this session shows does not hold; (c) either way, pin `reps` and invocation count in
+the brief itself so the comparison is never again made across different `N`.
+
+**Housekeeping folded into this touch of the file (not a numeric change):** a diagnostic-only per-rep
+trace, gated behind `GEMV_D5_DEBUG_REPS` and printed to stderr, was added to `mlp_time()` in
+`gemv_donor_bench.c` to produce the per-rep evidence above; it does not alter `*us_tok`, `*cv`, or any
+control's pass/fail computation. Three stale doc-path references (`gemv_donor_bench.c:9`,
+`gemv_donor_bench.c:1170`, `build_d5_json.py:202`) were updated to the paths the reorganisation moved them
+to; no numeric kernel was touched.
+
+**Not yet measured, still pending a tolerance the apparatus can actually satisfy:** controls 2-4; the
+`rate(D,threads)` curve; the L=2-vs-L=28 sensitivity check; the fp32-vs-ternary matched-shape ratio at each
+`D` (sec.12.3); the timed rate at the real Llama-3-70B organs. **No line above this one may be read as a rate
+measurement -- only the shape arithmetic in sec.12.3 is established, and control 1's ten draws establish that
+the 21.25 GB/s constant does not currently reproduce on this machine, not what the machine's true rate is.**
