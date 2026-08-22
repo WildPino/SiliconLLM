@@ -217,3 +217,140 @@ recall-sensitive probe are stage 2 and only happen if §3.2 clears.
 > A deviation that **flatters** the hypothesis gets more scrutiny, not less — all three of this project's
 > past fabrications pointed the favourable way.
 > **My own derivation above is subject to all three.**
+
+---
+
+## AMENDMENT 1 — 2026-08-22, the Adapter / Principal
+
+**Appended, not edited in place**, after the Controller's audit
+(`docs/research/donor_adaptation/audits/CONTROLLER_R2_DERIVATION_AUDIT.md`). **Verdict: BLOCK — but not on
+the algebra.**
+
+### A1.0 What survived, stated first because it decides whether this line lives
+
+- **§1.2, the commuting step: CORRECT, verified at source.** Against `transformers` 4.57.6
+  (`modeling_llama.py`, `modeling_qwen2.py`, `modeling_qwen3.py`): `apply_rotary_pos_emb` takes and returns
+  only `(query_states, key_states)`; `value_states` never enters it. RoPE, `q_norm`/`k_norm`, the causal
+  mask, the softmax denominator, per-head scaling, sliding window and sinks are **all** either scalars or
+  q/k-only. Numerically `max|W_v(XAᵀ) − (W_vX)Aᵀ| = 5.3e-15`.
+- **§1.3, the normal equation: CORRECT.** It is the exact ridge minimiser —
+  `max|closed form − numpy.linalg.lstsq| = 7.4e-13`, and every perturbation increases the error.
+- **GQA: the joint solve stays closed-form**, verified against a stacked `lstsq` at 8.3e-14.
+- **Non-symmetric `Z*Zᵀ`: not a problem.** It is only ever right-multiplied to form the RHS; the factorised
+  matrix is always `ZZᵀ + λI`, symmetric PSD.
+
+**So the construction is sound and option (a) is not dead.** Everything below is about the apparatus and
+the design, which are where it was actually broken.
+
+### A1.1 I reintroduced D4's regularisation asymmetry — through the very claim that it was the same equation
+
+§1.4 quotes D4 as `H_cross = X_S Xᵀ`. **That is D4's PRE-FIX, buggy equation** — the one whose identity
+control failed at `max_abs_weight_deviation = 0.6545`. The shipped code uses the **regularised**
+`H_reg[:,S]` on both sides. I transcribed the bug and built on it.
+
+**Consequence: C1 IDENTITY as written in §3.3 cannot fire** — measured deviation `1.03e-03 / 6.57e-04`
+against D4's post-fix `2.98e-08`, and it worsens with conditioning (`cond(ZZᵀ)` runs 20–400× `cond(XXᵀ)`
+even in a benign toy problem).
+
+**Corrected solve — regularised symmetrically, which is ridge *toward the donor weights*:**
+
+```
+    W_v  =  ( W_v^donor · (Z* Zᵀ + λI) ) · ( Z Zᵀ + λI )⁻¹
+```
+
+This returns `W_v^donor` at `2.4e-14` in the identity case, and it is what `reconstruct_row` already
+computes. **§1.3 above is superseded by this line.**
+
+### A1.2 The "D4 is the special case `Z* = Z`" claim is withdrawn
+
+D4 is `Z = R_Sᵀ Z*` — a coordinate *selection*, not the same object. **`Z* = Z` is D4's identity control,
+not D4.** The solver still transfers; the tidy equivalence does not, and I should not have asserted it.
+
+### A1.3 The pre-registered thresholds are withdrawn, and the gate was satisfiable by choosing `T`
+
+Three separate defects, any one of which would have made the §3.2 verdict meaningless:
+
+1. **`< 0.25` was calibrated on a number I misremembered.** `d4_reconstruction.json` records
+   `wrong_layer_H` recovery at **−1.472**, not ≈0.25. Wrong structure was *catastrophic*, not noise-level.
+   The whole threshold ladder was anchored to a value that does not exist.
+2. **Recovery spans `0.741 → 0.165` for the same method, donor and `φ`** as `T/D` goes from 0.5 to 17.
+   **A gate whose verdict is chosen by the calibration set size is not a gate.** `T/D` must be **pinned in
+   the pre-registration and printed as achieved**, and the sweep over `T` reported as a curve, not
+   collapsed to one number.
+3. **"A majority of converted layers" is satisfiable by choosing which layers convert.** The layer set must
+   be fixed in advance by a stated rule, not selected after seeing recoveries.
+
+**New thresholds will be set only after the §A1.5 pre-screen returns**, and will be expressed relative to
+the measured control floor of §A1.4 rather than to a remembered constant.
+
+### A1.4 C5 was worse than useless — it recovered MORE than the real arm
+
+Measured: **shuffled `A_lin` recovery 0.170 against the real arm's 0.165.** Shuffling a causal matrix
+**destroys causality**, producing a denser, higher-rank mixing with *more* fitting freedom than the real
+one. **Had this run as written, a healthy method would have looked refuted by its own null.**
+
+This is the second time on this programme that a shuffle-based null was not null (D4's `shuffle_columns`
+retained ~52% of the real off-diagonal Frobenius mass). **Recording the general rule: shuffling a matrix
+carrying structural constraints — causality, masking, normalisation — destroys the constraint as well as
+the signal, and the result is not a weaker version of the arm, it is a different and often easier problem.**
+
+Replacements, both measured by the Controller:
+
+| control | construction | measured |
+|---|---|---|
+| **C5′** | `A_lin` computed from an **unrelated sequence** — real, causal, correctly normalised, wrong content | 0.053 |
+| **C6** *(new, was missing)* | **causal-uniform** mixing — the trivial baseline every causal operator gets for free | 0.059 |
+
+> **There is a ≈0.05 structural floor that any causal mixing earns without doing anything.** No recovery
+> figure below that means anything, and the §3.2 ladder never accounted for it.
+
+**C1 IDENTITY stays**, with A1.1's fix, and stays labelled for what it is: **a tautology of the solve**
+that tests the code path, not the science. D4's was the same and it still caught a real bug. **But it is
+blind to the entire `φ → A_lin → Z` path**, so it needs a planted-positive companion that exercises that
+path — to be specified with the design.
+
+### A1.5 ⭐ Run this BEFORE building anything — it answers the central question with one SVD per layer
+
+§1.5's claim that R2 inherits the §3a ROW/COLUMN theorem is **pattern-matching, and wrong**: `W_v` is fully
+unconstrained here; nothing is forced. **But the real limit is computable, and cheaply.**
+
+The solve can only reach the component of the target lying in the row space of `Z`. What it can never
+recover is:
+
+```
+    ||  W_v^donor · Z* · (I − P_Z)  ||_F          P_Z = projector onto rowspace(Z)
+```
+
+— **the principal angles between the two subspaces. One SVD per layer. No solve, no apparatus, no
+training.**
+
+> **This is the highest value per unit of compute on the whole R2 line, and it comes before the
+> experiment rather than after it.** If the residual is large for every candidate `φ`, R2 is bounded away
+> from success and we learn it for the cost of a few SVDs. If it is small, we know the ceiling is high
+> before spending anything on the solver.
+
+**This becomes step 0 of the R2 programme.** The Builder brief will be written against it first, and the
+full four-arm design in §3 only proceeds if the pre-screen justifies it.
+
+### A1.6 The first pass cannot see the failure mode we already know exists
+
+The Researcher established that fixed-state operators carry an **architectural recall cap**, and that a
+closed-form solve *"would not remove the state-dimension ceiling."* §3.4 measures **layer-wise Frobenius
+reconstruction error only** — and **spiky retrieval heads contribute negligibly to a mean Frobenius
+error.** A method could destroy retrieval and look excellent on this metric.
+
+**Mandatory fix, cheap:** stratify pass-1 error by **`A_soft` row entropy**. Low-entropy (peaked, retrieval-
+like) rows are reported as their own stratum, never averaged into the bulk.
+
+### A1.7 One caveat I did not state, on GQA
+
+The joint GQA solve minimises the **unweighted** objective. For MHA the `W_o` weighting is provably free
+(`2.6e-13`); **for GQA it is not** — the correctly weighted problem is a generalised Sylvester system whose
+exact solve is a 196k×196k Kronecker matrix, intractable. **The GQA solve is therefore an approximation,
+and must be reported as one**, with the unweighted-vs-weighted gap measured on a small case rather than
+assumed negligible.
+
+### A1.8 What the Controller was right about that I have not yet acted on
+
+Ten further checks requiring a real donor are listed at the end of the audit. They are not dismissed; they
+are queued behind the machine, like D0. **The pre-screen in A1.5 is the one that runs first.**
