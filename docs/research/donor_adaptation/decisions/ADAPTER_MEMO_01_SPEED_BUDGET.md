@@ -240,6 +240,91 @@ has shown 5% fails, only that nobody has shown it works. The 5-trit rows are all
 control has not yet passed. And R2's quality column is genuinely unknown; the pre-registered thresholds in
 `BRIEF_R2_CLOSED_FORM_VALUE_SOLVE.md` §3.2 exist so that it cannot be quietly filled in with a hope.
 
+### 2.2d ⚠ AMENDMENT (2026-08-22) — "FFN at 2% active" is unreachable with a DENSE FFN, and we measured that ourselves
+
+§2.2c corrected the attention half. Checking the FFN half against our own measurements rather than
+against the target, it is worse — and **the disconfirming number was already in our repository.**
+
+`docs/ENGINE_PLAN.md:56`, **E3 CLOSED, measured in the engine on real weights**, not estimated:
+
+> *"Honest headline = weight-bytes touched, not compute-time: gate 100% + up 21.5% + down 12.3% =
+> **44.6%** → **2.24×** fewer MLP weights touched/token"*
+
+**§2.2 assumes the FFN runs at 2% active. Our own engine measured 44.6%** — a factor of 22 apart, in the
+direction that breaks the budget.
+
+#### Why, and why it is structural rather than a tuning failure
+
+Look at which organ costs what. In a SwiGLU FFN, `h = SiLU(W_gate·x) ⊙ (W_up·x)`, then `y = W_down·h`.
+**You cannot know which entries of `h` are zero until you have computed `W_gate·x` in full.** The gate is
+the predictor, and a predictor that reads every weight it is predicting for saves nothing on itself.
+
+> **So a dense FFN with per-neuron activation sparsity has a hard floor of 1/3 of its weights — the gate
+> matvec — no matter how sparse the activations get.** `up` and `down` can approach zero; `gate` cannot.
+> 33.3% is the floor, 44.6% is what we actually measured.
+
+**This is architectural, and it does not improve with scale, sparsity, or a better kernel.**
+
+#### What that floor costs at donor scale
+
+| FFN regime | attention | packing | active | **tok/s** |
+|---|---|---|---|---|
+| measured 44.6% | 4/80 | 4-bit | 25.76 B | **1.65** |
+| measured 44.6% | 4/80 | 5-trit | 25.76 B | **4.12** |
+| measured 44.6% | 10/80 | 5-trit | 26.66 B | **3.98** |
+| structural floor 33.3% | 4/80 | 5-trit | 19.40 B | **5.48** |
+| **MoE-structured, 2% active** | 4/80 | 4-bit | 1.73 B | **24.5** |
+| **MoE-structured, 2% active** | 10/80 | 5-trit | 2.64 B | **40.3** |
+
+> **The dense-FFN route tops out at ~5.5 tok/s under the most favourable assumptions available to it —
+> best-case attention ratio, best-case packing, and the theoretical gate floor rather than the measured
+> number. It cannot reach 20 tok/s by any combination of the levers we have.**
+
+I checked the one escape route we have in-house evidence for. The Inventor side-lab found **`x_proj`
+low-rank `r=26` beating the dense projection 3/3 seeds at 17.6% of the bytes** — so a low-rank *predictor*
+replacing the dense gate matvec is not a fantasy on this codebase. Pricing it optimistically (gate at
+17.6% of its bytes, `up`/`down` unchanged) gives an FFN at 17.1% active → **~10 tok/s**. Better, and still
+short. **The gate predictor is not the thing that closes this.**
+
+#### The conclusion, stated as the constraint it is
+
+> **The 2% FFN target is not reachable by inducing activation sparsity in a dense FFN. It requires the
+> donor's dense FFN to be RESTRUCTURED into an MoE**, where a small router selects a few experts and the
+> unselected experts' weights are never read — so there is no full-width gate matvec to pay for.
+
+That is not a new idea on this project; it is what `project_probe4_moe` promoted and what
+`SCALEUP_ARCHITECTURE.md` already assumes (recall + MoE streamed from DRAM). **What is new is that it is
+now a requirement rather than a preference**, and that the arithmetic above says how much rides on it.
+
+#### This reframes D0, exactly as §2.2c reframed D5
+
+`BRIEF_D0_COACTIVATION_PERMUTATION.md` asks whether a donor's FFN neurons can be permuted so that
+per-token activation becomes **block-structured** — i.e. whether the neurons that fire together can be
+gathered into groups that can be skipped wholesale. **That is the MoEfication question, and it is
+therefore the probe that decides whether the FFN half of this budget is achievable at all.**
+
+> **Both "side" probes turned out to be the load-bearing ones. D5 decides whether the attention half must
+> beat the published literature or merely match it. D0 decides whether the FFN half exists.** Neither was
+> framed that way when I dispatched them, and that is a planning error on my part worth recording: I
+> priced the target before auditing our own measurements against it.
+
+D0 is currently held only because it would contend with D5 for a quiet machine. **It is not lower
+priority — it is queued behind an instrument, and it goes out the moment D5 releases the machine.**
+
+#### What is NOT established here
+
+The 44.6% figure was measured **on our own 8.3M model, in our engine, with our dReLU-trained checkpoint** —
+not on a donor. A donor pretrained with SiLU may have a different sparsity profile, which is precisely
+what the Researcher's activation-sparsity survey and D0 are for. **The structural argument — the gate is
+unskippable because it is the predictor — is architecture-level and does transfer;** the specific 44.6%
+does not, and must not be quoted as a donor number.
+
+Also unestablished: that MoEfication of a donor works at all without training. `STRUCTURED_SPARSITY_PRIOR_ART.md`
+records the tally as **one negative (Apple) and one positive (Neuralink), unreconciled** — and the earlier
+claim of "two independent negatives" was my own miscount, already corrected there. **The FFN half rests on
+an open question with one supporting data point.** That should be stated plainly to the Owner rather than
+carried as an assumption.
+
 ### 2.3 What this says about the sealed constraints
 
 - **S3 ("attention on a minority of layers") is now quantified and it is far more demanding than
