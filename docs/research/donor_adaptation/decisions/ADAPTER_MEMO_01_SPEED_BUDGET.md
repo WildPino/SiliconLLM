@@ -6,6 +6,32 @@ Architect/Owner alone adjudicates sealed gates.
 
 ---
 
+## 0. ⚠ READING ORDER — what in this memo still stands, as of 2026-08-22 evening
+
+This memo has accumulated five amendments in one day, and **its original headline arithmetic is wrong.**
+Read this block before anything else.
+
+| section | status |
+|---|---|
+| §1 — the two levers (static vs dynamic sparsity) | **stands** |
+| §2.1 — the headline table | **the rate constant is under active revision.** See the banner in §2.1 |
+| §2.2 — "attention on 4 of 80 layers, FFN at 2%" | **WRONG on two counts. Superseded by §2.2f** |
+| §2.2b — the attention half was uncosted | stands as a record; its fork is superseded by §2.2f |
+| §2.2c — the 5% attention ratio is below anything measured | **demoted by §2.2f**: the ratio governs KV traffic and quality, not the weight stream |
+| §2.2d — a dense FFN cannot go below 33.3% active | **stands.** The gate is the predictor; `FFN_active = (3−2s)/3` |
+| §2.2e — the extrapolation ledger | ledger **stands**; its ✅ rows withdrawn by §2.2f; its "probe-4 granularity at donor width" reframe **withdrawn by §2.2g** |
+| **§2.2f — conversion does not remove a layer's weights; KV accounting** | **CURRENT. Start here.** |
+| **§2.2g — `h=128` is not scale-free; probe-4 never entered our regime** | **CURRENT.** Also: probe-4's own result is underpowered and missing its key control |
+| §3a — healing must happen in the consuming layer | stands, **but** see `BRIEF_R2` Amendment A1.5: applying it to R2 was pattern-matching |
+| §3c, §3d | stand |
+
+**The one-line state of the programme:** the weight-stream budget is governed by `L × 151M` of attention
+projections that conversion does not remove; the FFN half requires MoE restructuring, not activation
+sparsity; and **at long context the KV term of even a few retained softmax layers exceeds the entire weight
+stream**, which puts the speed target and the retention target on the same knob pulling opposite ways.
+
+---
+
 ## 1. The distinction the v2 programme never made cleanly
 
 `DONOR_V2_DENSITY_PROGRAMME.md` framed the problem as "the donor is 33–66× too dense" and listed four
@@ -61,6 +87,18 @@ column). The LUT path is recorded as **compute-bound by ~16×**, not bandwidth-b
 function of the kernel's shape and not a property of the DRAM. **This must be re-measured at donor
 projection widths before any tok/s figure derived from it is quoted to the Owner.** Until then every
 number in this table carries that caveat. → **queued as brief D5.**
+
+> ### ⚠ 2026-08-22 evening — the D5 sweep has COMPLETED and this constant is under revision
+>
+> D5 ran to completion with all four planted controls PASSing. **Its early reading indicates the
+> 21.25 GB/s does NOT transfer to donor width, and that the donor-width ternary path may be compute-bound
+> rather than bandwidth-bound.** If that survives audit, two things follow: every tok/s figure in this
+> memo moves, and **the 5-trit packing lever of §2.4 does not pay**, because bytes would not be the binding
+> constraint.
+>
+> **No number from that run may be quoted until the Builder has written it up and the Controller has
+> audited it.** I have deliberately not banked the figures here. **Treat every tok/s in this document as
+> provisional until this banner is removed.**
 
 ### 2.2 Where the 2% has to come from — the part nobody had allocated
 
@@ -497,6 +535,37 @@ in-house precedent, that this memo did not have this morning.**
 the limit of the method *with attention projections left at full width*. Those are different claims and
 only the second is evidenced.
 
+#### The KV term, now supplied — and it inverts the picture at long context
+
+Verified independently: at 128K, GQA 8 KV heads, `head_dim=128`, fp16, the whole cache re-read per token is
+**536.9 MB per softmax layer per token** (10 layers = 5.37 GB, matching the Controller). **KV ACCOUNTING**,
+5-trit, FFN at 3.57%:
+
+| geometry | weights/token | softmax layers | KV/token | total | **tok/s @128K** | **tok/s @short ctx** |
+|---|---|---|---|---|---|---|
+| L=117 (real 100B) | 4.12 GB | 10 | 5.37 GB | 9.49 GB | **2.24** | 5.15 |
+| L=117 | 4.12 GB | 4 | 2.15 GB | 6.27 GB | **3.39** | 5.15 |
+| L=117 | 4.12 GB | **0** | 0 | 4.12 GB | **5.15** | 5.15 |
+| **L=30 (~26B target)** | **1.06 GB** | 10 | 5.37 GB | 6.43 GB | **3.31** | 20.10 |
+| **L=30** | **1.06 GB** | 4 | 2.15 GB | 3.20 GB | **6.63** | 20.10 |
+| **L=30** | **1.06 GB** | **0** | 0 | **1.06 GB** | **20.10** | **20.10** |
+
+> **At the ~26B target the KV of just FOUR retained softmax layers is 2.15 GB — twice the entire weight
+> stream of the whole model.** Retained attention stops being a small concession and becomes the dominant
+> cost at long context.
+
+**So the honest statement of the design tension, which no section of this memo had until now:**
+
+- **At short context** the weight stream rules, and ~26B reaches **20.1 tok/s** with any hybrid ratio.
+- **At 128K** the hybrid ratio rules, and **>20 tok/s requires ZERO softmax layers — full linearisation.**
+- **But the Researcher established that full linearisation surrenders retrieval** — the fixed-state recall
+  cap is architectural, and hybrid softmax layers are the published answer to it.
+
+> **The speed target and the retention target pull in opposite directions on exactly the same knob, and
+> only at long context.** That is the central design conflict of this programme, and it was invisible while
+> the KV term was missing. Any claim of "N tok/s" from here on **must state its context length**, and any
+> hybrid ratio must be defended on retrieval evidence, not chosen for speed.
+
 #### What this changes on the board
 
 1. **A new probe exists: low-rank attention projections on a donor.** D1 measured static *sparsity* on
@@ -510,6 +579,90 @@ only the second is evidenced.
    the budget appeared to close at 100B. The corrected arithmetic suggests a **~26B target closes on
    evidenced levers**, which is a different and better third option than either arm of the original fork.
    **That is a sealed-scope question and I am not deciding it — I am putting it up.**
+
+### 2.2g ⚠⚠ CORRECTION (2026-08-22, later) — §2.2e's "probe-4 granularity at donor width" is withdrawn: `h=128` is not scale-free
+
+Returned by the Builder against `BRIEF_M1`. **This kills the reframe §2.2e was built on, and with it the
+FFN half of the ~26B and ~88B targets.**
+
+#### The error
+
+§2.2e argued that probe-4's `25% active` was "a property of a 4096-wide FFN, not of the method", and that
+holding the **validated expert size `h=128` and `k=8`** while letting `E` grow with width gives `3.57%`
+active at donor scale. **`h=128` is not a property of the method either.**
+
+> **`h = 128` is `d_model/2` at probe-4's width and `d_model/64` at donor width.** I swapped one
+> width-dependent constant for another and called it scale-free.
+
+The quantity that *is* scale-free is **`α` = active FFN neurons per token ÷ `d_model`** (equivalently
+`α = r·a`, where `r = d_ffn/d_model` and `a` is the active fraction):
+
+| | `r` | `a` | **`α`** |
+|---|---|---|---|
+| probe-4 `dense-big` (arm B) | 16 | 100% | 16.0 |
+| **probe-4 `moe-gran` — the VALIDATED point** | 16 | 25% | **4.0** |
+| **a donor's stock dense FFN** | 3.5 | 100% | **3.5** |
+| what our budget needs | 3.5 | 3.57% | **0.125** |
+
+> **Probe-4's validated MoE endpoint is still FATTER per token than a normal dense FFN.** `α = 4.0` against
+> a donor's `α = 3.5`. **Probe-4 never entered the regime we need — it never went below dense-normal active
+> width, and we need to go 32× below its endpoint.**
+
+Note also that `α = 4.0` is **unreachable** at a donor's `r = 3.5`: it would require `a = 114%`.
+
+#### What survives, and what it does to §2.2f
+
+**§2.2f's conclusion is unaffected and in fact strengthened.** Attention projections dominate the active
+weight stream, and the thinner the FFN gets the more they dominate:
+
+| FFN active fraction | active @L=117 | **attention's share** | tok/s (4-bit) |
+|---|---|---|---|
+| 100% (stock dense) | 100.11 B | 17.6% | 0.42 |
+| 25% (probe-4's `a`, at donor `r`) | 38.28 B | 46.2% | 1.11 |
+| 3.57% (the withdrawn assumption) | 20.61 B | **85.7%** | 2.06 |
+
+**So the FFN half is not what governs the weight budget — attention is, at every plausible FFN setting.**
+The FFN number moves tok/s by ~5× across its whole plausible range; the attention projections are an
+irreducible 17.67 B at `L=117` that no FFN work touches.
+
+#### Two findings about probe-4 itself that are worse than the withdrawal
+
+The Builder audited probe-4's apparatus while sizing M1, and returned two things that bear on a result this
+project has carried as **VALIDATED** in `SCALEUP_ARCHITECTURE.md` §3.5:
+
+1. **Probe-4's entire measured advantage — 0.0085 BPB — is BELOW the 2-seed minimum detectable effect
+   (0.010).** The result was underpowered against this project's own `σ_seed = 0.005`.
+2. **Probe-4 never ran a frozen-random-router control, and the router-health metrics it did report cannot
+   substitute for one.** `dead` and `max/mean` measure *marginal load*, which a uniform-random router
+   **maximises** — a router that learned nothing would post perfect health. **So probe-4's win is not
+   separable from "the MoE arm has a multiplicative gate the dense arm lacks"**, a candidate cause its own
+   memo lists.
+
+> **This does not overturn probe-4. It means probe-4's status as a validated positive rests on less than
+> the ledger in §2.2e credited it with**, and any M1 design must run the frozen-random-router twin — which
+> would retro-audit probe-4 at the same time.
+
+#### The instrument defect M1 would have walked into, which is a D1 repeat
+
+`MoEMLP._tern` computes the per-expert `down` scale as `W.abs().mean(-1)` — an absmean **over the `h`
+axis**. At small `h` that is an average over a handful of values, so **the ternary quantiser degrades
+monotonically with the very variable M1 sweeps, for reasons that have nothing to do with routing** — and
+the artefact does not exist at the donor's width. Without an fp32 twin, M1 would have measured its own
+quantiser and reported it as a granularity limit. **This is the same shape as D1's requested-vs-achieved
+sparsity, found before the run rather than after.**
+
+#### Where this leaves the FFN half
+
+**Unknown, and honestly so.** The literal question ("does `top-8 of 224` hold?") is unanswerable at any
+affordable scale — reaching `E=224` at `h=128` absolute requires `d_model=8192`, a **6.56 B-parameter
+model** in this apparatus. **That is an impossibility, not a budget complaint.**
+
+The **scale-free** question — *how far down the `α` curve does the FFN hold at `r=3.5`, at matched total
+params* — **is answerable for ~60–150 T4 GPU-hours.** Probe-4 measured exactly one point of that curve, at
+the fat end.
+
+> **So the FFN half is a measurable unknown rather than a wall — but it is 32× beyond the only point
+> anyone has measured, and that point is itself underpowered and missing its key control.**
 
 ### 2.3 What this says about the sealed constraints
 
