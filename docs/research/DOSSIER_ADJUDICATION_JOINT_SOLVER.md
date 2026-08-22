@@ -100,8 +100,16 @@ penalty = Δ(block) / Δ(unstructured) at equal sparsity, at our engine-legal bl
 | 0.75 | 2.4× – 10.3× | — |
 | 0.90 | **0.9× – 3.1×** | 2.4× |
 
-**The measured penalty falls monotonically with sparsity; Table 1 rises.** The sign of the trend is
-wrong. This is the empirical counterpart of the algebraic defect: formula (23)'s factor contains no `s`,
+**The measured penalty falls with sparsity; Table 1 rises.** The sign of the trend is wrong.
+
+> **Controller caveat (audit, 2026-08-22), FLAG not BLOCK.** "Falls monotonically" is too clean. At
+> s = 0.90 the relation partly **flips**: `gate_proj`'s block delta (+3.544) is *below* its unstructured
+> delta (+3.977), and `q_proj`'s ratio is a **statistical tie** (1.00×), not a shrinking penalty. The root
+> cause is genuine **non-monotonic BPB** in `q_proj`/`v_proj` — quality gets *better* going from 75% to
+> 90% zeroed — which the known mask-quantisation bug does **not** explain. The Controller checked and
+> ruled out a generic degenerate-predictor ceiling, since `o_proj` keeps climbing past even a
+> uniform-vocab entropy bound. **The direction-of-trend finding against Table 1 stands; the word
+> "monotonically" is withdrawn, and the s = 0.90 column is FLAGGED as not yet understood.** This is the empirical counterpart of the algebraic defect: formula (23)'s factor contains no `s`,
 and a constant can only match a falling curve at one point — which is exactly what happens, at s = 0.90,
 where the measured 0.9–3.1× brackets the claimed 2.4×. **Right at one point by coincidence, wrong
 everywhere else.**
