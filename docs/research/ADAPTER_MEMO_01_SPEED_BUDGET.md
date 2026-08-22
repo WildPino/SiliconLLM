@@ -159,12 +159,130 @@ dependency on D5 is explicit rather than assumed.
 | dReLU activation sparsity is near-free at 92%/79% | banked (probe-2) | measured **on a model we trained ourselves**, not on a donor |
 | Block-structuring activation sparsity is free (18%→50% @ BS8) | banked (Phase 58.B) | same caveat |
 | No published work solves ternary + contiguous-block jointly | verified | primary-source search; every adjacent cell populated |
+| No published work targets CPU/DRAM at tens-of-KB block granularity with both a quality table and a contiguous-read-size table | verified | the two closest (Neuralink, LLM-in-a-Flash) are calibrated to smartphone flash pages, not CPU cache economics |
+| **MoEfication physically permutes the FFN so experts are CONTIGUOUS submatrices, losslessly, with no backbone training** | **promoted as the layout mechanism** | primary source, equations in §3.2; the mechanism we need, already published |
+| **Conditional computation pays on memory-bound CPUs and largely does not on GPUs** | **corroborated externally** | MoEfication Table 1 `[T]`: at 12.5% activation, **CPU 2.28× vs GPU 1.47×** — measured wall-clock, not projected |
+| Router cost when FFN semantics are preserved | −0.3 average at 12.5% activation | MoEfication Table 4 `[T]`, T5-Large. **12.5% is not 2%; T5 is not a 100B donor** |
+| **Cheap MoE-ification with a fresh router destroys general-purpose retention** | **measured, and it fails S4 badly** | LLaMA-MoE-v2 Table 1 `[T]`: 7B tokens → **MMLU 67.22 → 37.41**, IFEval 76.53 → 32.72 |
+| Co-activation grouping: **1 negative, 1 positive, UNRECONCILED** | changes how D0 must be run | Apple abandoned it (*"worked against our original intention"*); Neuralink reports it works and **cites Apple but never engages the negative**. ⚠ **Corrected 2026-08-22:** I first counted LLaMA-MoE as a second negative — it is not; its losing arm was weight-space k-means on `W_up` rows, a different construction, and untabulated `[X]` |
+| Sparse Upcycling as a density tool | **rejected** | each expert is a full FFN copy → capacity scaling at equal-or-greater per-token cost. Wrong direction |
 | Joint solver cost at 100B on a T4 | ~15–40 h | three independent anchors |
 | **How much reconstruction recovers of D1's loss** | **OPEN — brief D4 running** | the number the programme turns on |
 | **Whether donor activation sparsity can be induced, and at what token cost** | **OPEN — Researcher running** | the number the 2% target turns on |
 | **Whether 21.25 GB/s holds at donor width** | **OPEN — brief D5 written and pre-registered** | every tok/s figure depends on it |
 | **Whether the LUT path is still compute-bound at donor width** | **OPEN — D5 answers it** | decides the sign of the packing trade-off (§2.4) |
 | 5-trits-per-byte packing: 0.2 vs 0.5 bytes/weight | **conditional on D5**, not yet a brief | ~2.5× on bytes; a loss today, potentially a 2.5× gain at donor scale |
+
+---
+
+## 3a. A structural finding from D4's pre-registration — healing must happen in the CONSUMING layer
+
+The Builder derived this **before running D4** and recorded it in the pre-registration, which is where a
+finding like this has to appear if it is to be trusted:
+
+> D1's masks make `gate_proj`/`up_proj`/`q`/`k`/`v` **ROW-structured** — whole output neurons zeroed — and
+> `o_proj`/`down_proj` **COLUMN-structured** — whole input features zeroed. The row-separable
+> SparseGPT-style solve only has freedom to act when the surviving set `S` varies *within* a row's
+> support. For a ROW-structured organ every kept row already has full support and every dropped row has
+> none: **the closed form is mathematically forced to return exactly `W` or exactly `0`, independent of
+> `H`.**
+
+**Read what that means for the programme, not just for D4.** Zeroing an output neuron is exactly what the
+engine needs — a dead neuron's weights are the ones we skip. And single-layer reconstruction on the organ
+that produced that neuron **cannot recover anything, by construction**. Not by failure of the method; by
+the shape of the problem.
+
+The recovery, if it exists, has to come from the **consuming** layer: a neuron killed in `gate_proj` is a
+dead *input column* of `down_proj`, and there the surviving set does vary within each row, so the solve
+has real freedom. **For structured neuron removal, healing belongs in the layer that reads the neuron,
+not the layer that writes it.**
+
+Three consequences, recorded now:
+
+1. **The dossier's Tier-2 multi-layer Schur-complement solve is not an optional refinement.** For
+   row-structured sparsity it is the *only* place the correction can live. I previously catalogued Tier 2
+   as budget spent on an unestablished drift law (§2.2 of the adjudication); that criticism was about the
+   *drift justification*, and it stands — but the multi-layer solve turns out to be load-bearing for a
+   completely different and better reason than the one the dossier gave for it.
+2. **D4's `gate_proj` arm can only return zero recovery**, and that zero is a theorem, not evidence about
+   the method. It must not be averaged in with the column-structured organs.
+3. **Any future brief that prunes whole neurons and then reconstructs the same layer is malformed.**
+   Write it as prune-in-layer-ℓ, reconstruct-in-layer-ℓ+1.
+
+---
+
+## 3b. Amendment to brief D0, issued before D0 is dispatched
+
+`DONOR_V2_DENSITY_PROGRAMME.md` §6 specifies D0 as co-activation clustering of FFN neurons with a
+mandatory random-clustering control. The prior art (`STRUCTURED_SPARSITY_PRIOR_ART.md` §5) has changed
+what that control means:
+
+> **The random-clustering arm is not a formality — one published attempt at co-activation bundling
+> failed outright, and the one success cites that failure without explaining it.** The literature is
+> **split and unreconciled**, not stacked against us. If our co-activation arm shows an advantage we are
+> resolving an open contradiction; if it shows none, we have replicated Apple. Either is worth reporting.
+>
+> *(Corrected 2026-08-22: I originally wrote "two published results predict it will lose", counting
+> LLaMA-MoE. Wrong — LLaMA-MoE's losing arm was weight-space k-means on `W_up` rows, not co-activation
+> grouping, and it is untabulated.)*
+
+And Apple's stated failure mode is a concrete, checkable hypothesis rather than a vague warning: *highly
+active neurons get duplicated across bundles.* **D0 must therefore measure and report neuron duplication
+across clusters.** A probe reporting only cluster quality cannot distinguish "co-activation clustering
+does not help" from "our implementation hit the documented failure mode" — and those two call for
+opposite next moves.
+
+---
+
+## 3c. THE SYNTHESIS — the two things that fit our budget each lack what the other has
+
+The Researcher's activation-sparsity pass (`ACTIVATION_SPARSITY_PRIOR_ART.md`, 1345 lines) returns one
+dominating fact:
+
+> **Every training-requiring ReLUfication method is three to four orders of magnitude outside our budget.**
+> ReLU Strikes Back **30B tokens**; ProSparse **34.6–134B**; Turbo Sparse/dReLU **150B tokens on 64× A800**;
+> Q-Sparse **40B**; the 2025 Sparsing Law needs **800B tokens even at 2.4B parameters**. Against
+> 90 T4-hours/week, none of these is a candidate at any scale. **The continued-pretraining route to
+> activation sparsity is closed for us. Not tight — closed.**
+
+Note especially Turbo Sparse: it is the closest published analogue to our own in-house dReLU result, and
+it cost **150B tokens on 64 A800s**. Our +0.0006 BPB at 92%/79% sparsity came free *because we trained
+with dReLU from the start*. That is the difference between designing for sparsity and retrofitting it,
+priced by someone else.
+
+**What does fit the budget:**
+
+| | cost | sparsity pattern | usable by our engine? |
+|---|---|---|---|
+| TEAL / CATS (training-free thresholding) | **≈1 GPU-hour or less** (a calibration pass) | **scattered** | **No.** Scattered sparsity is worth ~zero at 48 KB granularity |
+| MoEfication permutation | training-free, lossless | **contiguous by construction** | **Yes** — but it needs a grouping, and the grouping is the contested part |
+
+**Read the table.** The cheap method gives sparsity without contiguity. The layout method gives
+contiguity without deciding sparsity. **Neither is sufficient; their composition is exactly what is
+missing, and it is exactly the gap the searches keep returning empty on.**
+
+> **The candidate route, stated as a hypothesis to be tested and not as a plan:**
+> take a donor's *existing* activation sparsity, obtain it cheaply with a training-free threshold method,
+> and then **permute the FFN so that the sparsity that already exists becomes contiguous** — MoEfication's
+> `W̄₁ = W₁P` applied not to hand-built experts but to whatever firing structure the donor already has.
+> Cost: a calibration pass plus an offline permutation. No gradient training of the backbone.
+
+This is the first route in the programme where **both** halves are individually published, training-free,
+and inside budget, and where the novelty is the composition rather than a new mechanism we would have to
+invent. It also lands squarely on the two verified gaps: nobody targets CPU/DRAM at tens-of-KB block
+granularity, and nobody solves ternary + contiguous-block jointly.
+
+**And ternary is not an obstacle to it.** The Researcher surfaced two sources I had not asked for —
+**BitNet a4.8** (arXiv:2411.04965) and **Sparse-BitNet** (arXiv:2603.05168) — both showing **ternary
+weights compose with induced sparsity without catastrophic interaction**. Neither tests a dense-donor →
+ternary+sparse *joint conversion*, so this is permission to proceed, not evidence that our specific
+conversion works.
+
+**A framing correction the Researcher made, and it is a good one:** my structured/scattered binary hides
+a third tier. GPU tensor-core N:M structuring (Q-Sparse's "Block Q-Sparse", 2:4) *is* structured — at a
+granularity roughly **1000× too fine** for a 48 KB read. A paper claiming "structured sparsity" must be
+checked for *which* structure before it counts as relevant to us. Three tiers, not two: scattered,
+GPU-block, cache-block.
 
 ---
 
