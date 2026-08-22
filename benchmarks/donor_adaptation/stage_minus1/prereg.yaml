@@ -28,9 +28,9 @@ status: "PRE-REGISTRATION DRAFT -- NOT APPROVED FOR EXECUTION"
 generated_utc: "2026-08-20"
 governing_standard: "docs/CANONICAL_EVAL.md"
 prior_reviews:
-  - "docs/research/CONTROLLER_PREREG_REVIEW.md    (NO, 7 BLOCKs)"
-  - "docs/research/CONTROLLER_PREREG_REVIEW_2.md  (NO, B1/B2 open + N1..N6)"
-  - "docs/research/CONTROLLER_PREREG_REVIEW_3.md  (NO, B1 + Delta* + 5 false closures)"
+  - "docs/research/donor_adaptation/audits/CONTROLLER_PREREG_REVIEW.md    (NO, 7 BLOCKs)"
+  - "docs/research/donor_adaptation/audits/CONTROLLER_PREREG_REVIEW_2.md  (NO, B1/B2 open + N1..N6)"
+  - "docs/research/donor_adaptation/audits/CONTROLLER_PREREG_REVIEW_3.md  (NO, B1 + Delta* + 5 false closures)"
 
 # =====================================================================================
 # 1. DONOR
@@ -329,7 +329,7 @@ gate_policy:
 # 8. ANCHORS  (PT^2-LLM Table 1, W1.58, WikiText-2, block size 128)
 # =====================================================================================
 anchors:
-  source: "PT^2-LLM arXiv 2510.03267 Table 1, W=1.58 bit, WikiText-2 PPL, block size 128; transcribed in docs/research/PTQ_SOURCE_VERIFICATION.md and independently corroborated by TWLA's baseline table (identical figures)."
+  source: "PT^2-LLM arXiv 2510.03267 Table 1, W=1.58 bit, WikiText-2 PPL, block size 128; transcribed in docs/research/donor_adaptation/prior_art/PTQ_SOURCE_VERIFICATION.md and independently corroborated by TWLA's baseline table (identical figures)."
   conversion_formula: "delta_bpb(model) = log2(PPL_w158 / PPL_fp16) / B_model  -- where B_model is the MEASURED bytes-per-token of THAT model's tokenizer on the pinned slice. B is never frozen."
   conversion_formula_note: "bits/token = log2(PPL ratio) is exact: BPB = CE_bits/byte = (CE_bits/token)/(bytes/token), and log2(PPL) = CE in bits per token."
   B_used_for_illustrative_column: 4.0

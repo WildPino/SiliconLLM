@@ -1,7 +1,7 @@
 # Controller Audit — Donor Stage-1 Arithmetic Pass
 
 **Role:** Controller (independent adversarial reviewer), §7.1 two-key rule.
-**Target:** `docs/research/DONOR_STAGE1_ARITHMETIC.md`, `benchmarks/donor_adaptation/donor_inventory.py`,
+**Target:** `docs/research/donor_adaptation/probes/DONOR_STAGE1_ARITHMETIC.md`, `benchmarks/donor_adaptation/donor_inventory.py`,
 `benchmarks/donor_adaptation/configs/`.
 **Posture:** READ-ONLY on all code. The Builder's tool was RUN, never edited. No commit, no push.
 **Date:** 2026-08-20. Branch `research/donor-adaptation`.

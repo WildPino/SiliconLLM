@@ -1,6 +1,6 @@
 # Controller re-review — stage −1 pre-registration, pass 2 (§7.2 pre-run)
 
-**Target:** `docs/research/DONOR_ADAPTATION_FIRST_RESPONSE.md` §3 (rebuilt), §5 read for context.
+**Target:** `docs/research/donor_adaptation/decisions/DONOR_ADAPTATION_FIRST_RESPONSE.md` §3 (rebuilt), §5 read for context.
 **Prior pass:** `CONTROLLER_PREREG_REVIEW.md` — verdict NO, 7 BLOCKs, 6 FLAGs, 3 PASSes.
 **Also read since:** `PTQ_SOURCE_VERIFICATION.md` (landed after pass 1; changed the method's premise),
 `DONOR_ADAPTATION_STAGE0_DECISION.md` §7 (Owner ruling + hardware disclosure), `docs/CANONICAL_EVAL.md`,

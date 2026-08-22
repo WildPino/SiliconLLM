@@ -1,11 +1,11 @@
 # Controller review — stage −1 pre-registration (PRE-RUN pass, §7.2)
 
-**Target:** `docs/research/DONOR_ADAPTATION_FIRST_RESPONSE.md` §3 (stage −1 PTQ ternary kill gate),
+**Target:** `docs/research/donor_adaptation/decisions/DONOR_ADAPTATION_FIRST_RESPONSE.md` §3 (stage −1 PTQ ternary kill gate),
 with §5 read for context.
 **Governing mandate:** `docs/prompts/master_prompts/DONOR_MODEL_ADAPTATION.md` §6 (working laws),
 §9 (stage −1), S1, S4, §8.L, §8.N.
 **Also read:** `docs/CANONICAL_EVAL.md` (local standard for pinning a slice),
-`docs/research/DONOR_PRIOR_ART_SURVEY.md` (the literature the method slot rests on).
+`docs/research/donor_adaptation/prior_art/DONOR_PRIOR_ART_SURVEY.md` (the literature the method slot rests on).
 **Reviewer status:** read-only. No code inspected because none exists yet — this is a protocol audit.
 **Verdict: NO. This pre-registration may not proceed to the Owner for execution approval.**
 7 BLOCKs, 6 FLAGs, 3 PASSes.

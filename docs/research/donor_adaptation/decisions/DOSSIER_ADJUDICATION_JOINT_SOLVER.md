@@ -1,6 +1,6 @@
 # Adjudication — `joint_ternary_block_dossier.pdf`
 
-**Artefact under review:** `docs/research/Joint_TernaryBlock_LayerWise_Reconstruction_for_100B_Donor_Models/joint_ternary_block_dossier.pdf` (27 pp.)
+**Artefact under review:** `docs/research/donor_adaptation/decisions/Joint_TernaryBlock_LayerWise_Reconstruction_for_100B_Donor_Models/joint_ternary_block_dossier.pdf` (27 pp.)
 **Adjudicated:** 2026-08-21 · repo revision `e410243`
 **Mandate:** *"leggitelo (non dare tutto per giusto quello che trovi lì dentro)"*
 **Arithmetic:** every numeric claim below was recomputed; the script is `benchmarks/donor_adaptation/adjudicate_dossier.py`.

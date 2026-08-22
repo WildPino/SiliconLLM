@@ -4,7 +4,7 @@
 **Date** 2026-08-21. **READ-ONLY on code.** Nothing in `benchmarks/` or `docs/` was edited; this file is the
 only artefact written (`git status` unchanged except for it).
 
-**Subjects:** `docs/research/DONOR_STAGE1_ARITHMETIC.md` rev C, `docs/research/DONOR_PROJ_RATE.md` §10,
+**Subjects:** `docs/research/donor_adaptation/probes/DONOR_STAGE1_ARITHMETIC.md` rev C, `docs/research/DONOR_PROJ_RATE.md` §10,
 `benchmarks/donor_adaptation/donor_inventory.py`, `benchmarks/donor_adaptation/gemv_donor_bench.c`.
 **Priors:** `CONTROLLER_PROJRATE_AUDIT.md` (C10–C13). That audit confirmed the Builder's *measurement* and
 refuted its *inference*; per the brief I have weighted the inference at least as heavily here.
