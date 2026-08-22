@@ -442,6 +442,18 @@ guarded by a check that is demonstrated to fire on exactly the artefact that wou
 
 ## 8. The ternary pshufb-LUT path at donor dimensions
 
+> **INSTRUMENT NOTE, added 2026-08-22 (BRIEF_D5 AMENDMENT 1, see sec.12.4 / A1.2):** every GB/s figure in
+> this section was produced by a `min-of-reps` estimator -- i.e. the *maximum* of the per-rep rates. That
+> is a maximum order statistic: its expected value rises with the number of reps used, by construction,
+> with no change in the underlying rate. **Numbers in this section were taken at different `reps` and were
+> never comparable to each other on that account**, and every one of them is upward-biased by an amount
+> this section did not quantify. The bias was only discovered and measured during BRIEF_D5 (sec.12.4): a
+> 25-rep per-rep trace of the *same* shape and thread count gave `reported (min) = 23.44 GB/s` against
+> `per-rep mean = 21.57 GB/s`, a difference of 8.7%, growing with `reps` (22.36 @ 5 reps -> 25.13 @ 30
+> reps, same population). **This is not retro-edited here** -- the numbers below stand as measured and
+> published -- but no comparison across them, or against a number from another section, should be read
+> as tighter than roughly this order of magnitude without checking the `reps` behind each side.
+
 **The open question (Controller #2, Q3.2):** the dense LUT path measures 11.40 GB/s at t6 at the sandbox's
 `D=256`, and Controller #2 argued it is **compute-bound by ~16×, not bandwidth-bound**. If that holds at
 donor `D`, the rate should be roughly **flat** in working-set size. If it does not, the rate should **fall**
@@ -561,6 +573,18 @@ rather than on a bracket — subject to the §8.5 kernel-pure caveat, and subjec
 ---
 
 ## 10. The engine-integrated ternary MLP at donor dimensions (the bracket that decided the gate)
+
+> **INSTRUMENT NOTE, added 2026-08-22 (BRIEF_D5 AMENDMENT 1, see sec.12.4 / A1.2):** every GB/s figure in
+> this section was produced by a `min-of-reps` estimator -- i.e. the *maximum* of the per-rep rates. That
+> is a maximum order statistic: its expected value rises with the number of reps used, by construction,
+> with no change in the underlying rate. **Numbers in this section were taken at different `reps` and were
+> never comparable to each other on that account**, and every one of them is upward-biased by an amount
+> this section did not quantify. The bias was only discovered and measured during BRIEF_D5 (sec.12.4): a
+> 25-rep per-rep trace of the *same* shape and thread count gave `reported (min) = 23.44 GB/s` against
+> `per-rep mean = 21.57 GB/s`, a difference of 8.7%, growing with `reps` (22.36 @ 5 reps -> 25.13 @ 30
+> reps, same population). **This is not retro-edited here** -- the numbers below stand as measured and
+> published -- but no comparison across them, or against a number from another section, should be read
+> as tighter than roughly this order of magnitude without checking the `reps` behind each side.
 
 **Why this section exists.** After §4–§8 the projection term was effectively a point
 ([41.48 .. 40.70] ms) while the ternary MLP term still spanned **[20.99 .. 50.91] ms — a 30 ms bracket
@@ -915,3 +939,236 @@ to; no numeric kernel was touched.
 `D` (sec.12.3); the timed rate at the real Llama-3-70B organs. **No line above this one may be read as a rate
 measurement -- only the shape arithmetic in sec.12.3 is established, and control 1's ten draws establish that
 the 21.25 GB/s constant does not currently reproduce on this machine, not what the machine's true rate is.**
+## 12.5 Results, under Amendment 1 (2026-08-22)
+
+**Status: measured, not yet audited by the Controller. Per standing instruction, nothing in this section
+may be quoted anywhere outside this document until that audit is done.** This section reports the D5
+sweep run (`gemv_donor_bench.exe d5 --reps 5`) plus follow-up measurements taken while attacking the
+Principal's own reading of that sweep, per the Principal's explicit request not to let the raw log's
+numbers pass into the record unchallenged.
+
+### 12.5.1 Reproducibility manifest
+
+| field | value |
+|---|---|
+| git revision | `ad5cf075b4c66ba9dbc4e001023dbba4e507658b` |
+| build | `clang -O3 -mavx2 -mfma -ffp-contract=on -fopenmp benchmarks/donor_adaptation/gemv_donor_bench.c -o bin/gemv_donor_bench.exe -lm` (no `-ffast-math`) |
+| compiler | `clang version 21.1.8` (llvm-mingw, x86_64-w64-windows-gnu) |
+| CPU | AMD Ryzen 5 3600X, 6 physical cores / 12 logical (SMT2) |
+| thread placement | `OMP_PROC_BIND=close OMP_PLACES=cores` -- verified live (sec.12.4) to bind each of 6 OpenMP threads to a distinct physical core, no SMT-sibling sharing |
+| machine state | quiescence gate: 0 processes >=1 GB resident, clean |
+| sweep command | `OMP_PROC_BIND=close OMP_PLACES=cores GEMV_D5_A1_VERDICT=PASS bin/gemv_donor_bench.exe d5 --reps 5 > benchmarks/donor_adaptation/results/d5_raw.log 2>&1` |
+| `reps` (sweep) | 5, single invocation, pinned for the whole run (A1.5) |
+| control-1 verdict source | external, NOT this invocation -- see sec.12.4: 14 independent `d5c1` invocations, grand mean 22.07 GB/s, between-invocation sd 4.01%, PASS at +-3sigma. `GEMV_D5_A1_VERDICT=PASS` carries that externally-computed verdict into this run's `D5SUMMARY` line rather than re-deriving it from one process (a single process cannot compute a between-invocation sd) |
+| follow-up probe (this section) | new `d5g` mode, `--D --HID --L --nt` generic six-stat probe, same build/env, run separately from the pinned sweep (noted per-measurement below) |
+| raw log | `benchmarks/donor_adaptation/results/d5_raw.log`, untracked, holds its own `STOP. No commit, no push.` line |
+
+### 12.5.2 The four controls
+
+| control | verdict | numbers |
+|---|---|---|
+| 1 (A1.3, external) | **PASS** | grand mean 22.07 GB/s over 14 invocations, between-invocation sd 4.01% (+-2.66 GB/s at 3sigma), dev vs banked 21.25 = +0.82 GB/s -- see sec.12.4 |
+| 2 (forced slowdown) | **PASS** | L3-resident 95.73 GB/s -> streamed(512MB) 27.69 GB/s, drop ratio **3.46x** (need >=2.0x) |
+| 3 (forced speedup) | **PASS** | L3-resident 95.73 GB/s (need >=50, target ~100 per the banked L3 probe) |
+| 4 (fp32 cross-check) | **PASS** | mean 38.717 GB/s, sd 0.401, banked 38.84+-0.68, audited 39.87+-0.09, tolerance +-2.04 (3sigma) |
+
+All four fire. Control 1's mechanism changed under Amendment 1 (external multi-invocation aggregation
+replacing the single-shot +-0.36 gate); controls 2-4 are unaffected by that amendment -- they are
+directional/threshold checks against known-positive behaviour, not comparisons against the drifted
+absolute constant, and their own reported numbers are self-consistent with ample margin.
+
+### 12.5.3 `rate(D, threads)` -- Part A, and the L-sensitivity flag the Principal caught
+
+**Raw sweep (`L=2`, `ffn:D` ratio fixed at 3.5, min-of-5 estimator, thread-placement as above):**
+
+| `D` | `HID` | ws (MB) | t1 GB/s | t6 GB/s | t6 cv% |
+|---|---|---|---|---|---|
+| 1536 | 5376 | 23.6 | 6.25 | 52.30 | 3.47 |
+| 2048 | 7168 | 42.0 | 5.46 | 27.51 | 1.78 |
+| 4096 | 14336 | 168.0 | 5.28 | 17.27 | 1.25 |
+| 5120 | 17920 | 262.5 | 5.59 | 18.16 | 1.39 |
+| 8192 | 28672 | 672.0 | 2.42 | 10.69 | **9.13** |
+
+**The Principal is right to refuse the L-sensitivity check as a licence, and it is worse than the single
+number in the log suggested.** The printed check (`L2_t6_gbps=29.500, L28_t6_gbps=21.137, ratio=1.396`)
+has two problems, both checked directly rather than argued from a distance:
+
+1. **It was run at the wrong shape.** It used `D=1536, HID=8960` -- the *control-1 / Qwen2.5-1.5B* shape --
+   not `D=1536, HID=5376`, the shape the D-sweep actually uses at that point (`HID = 3.5D`, the Llama-3-70B
+   ratio). A licence measured on one shape was applied to a sweep run on a different one at every point.
+2. **It was measured with the retired min-of-reps estimator**, the same instrument defect as control 1
+   (sec.12.4 / A1.2).
+
+Both were re-measured directly with the new `d5g` mode (mean/median/sd, not min), at the D-sweep's *actual*
+shapes, at the two ends of the sweep:
+
+| `D` | `HID` | `L=2` mean GB/s | `L=28` mean GB/s | ratio (mean-based) | ratio (old, min-based) |
+|---|---|---|---|---|---|
+| 1536 | 5376 (actual dsweep shape) | 37.34 | 24.54 | **1.522x** | -- (not measured at this shape) |
+| 1536 | 8960 (the check's shape) | 31.31 | 24.75 | 1.265x | 1.396x |
+| 8192 | 28672 (actual dsweep shape, = donor width) | 11.39 | **10.38** | **1.097x** | -- |
+
+**Reading this plainly: the gap is real (survives the switch to the unbiased mean estimator at both
+shapes tested), it is *not* uniform across the sweep, and it is smallest exactly at the point that matters
+most.** At `D=1536` the true `L=28` rate is roughly 66% of what `L=2` reports (1.52x inflation) -- a large,
+material gap, not a rounding difference. At `D=8192` the gap nearly closes (1.10x) -- consistent with
+every layer's per-block working set (352 MB) being so far past the 16 MB L3 cliff that cycling through 28
+of them instead of 2 barely changes the access pattern, whereas at `D=1536` each layer's block (12.4 MB)
+sits *just under* the L3 cliff, where the layer *count* materially changes whether the working set behaves
+as cache-assisted or fully cold. **`D=2048/4096/5120` were not re-measured at `L=28`; their true rates are
+unknown, not interpolated, and should not be read as sitting between these two bookends without a direct
+measurement.** The dsweep table above is therefore an **upper bound** on the true `L=28` curve, not a
+faithful stand-in for it, with the size of the overstatement ranging from confirmed ~10% (at `D=8192`) to
+confirmed ~52% (at `D=1536`) at the two points actually checked. **This is stated here explicitly so the
+inflated rows are not quietly carried forward; they are marked, not fixed.**
+
+**The one number that matters most is the one where the licence problem bites least.** For "does 21.25
+transfer to donor width," the load-bearing figure is the *directly measured* `D=8192, L=28` integrated
+point: **mean 10.38 GB/s** (min 11.15, `reps=5`, same shape/threading as control 1) -- not the sweep's
+`L=2` proxy (10.69, itself close by coincidence at this specific `D`, for the reason just given).
+
+### 12.5.4 fp32-vs-ternary ratio, in both units -- attacking the Principal's inference directly
+
+**Raw ratio (kernel-pure, matched gate/up shape at each `D`, both arms min-of-5, same reps -- from the log):**
+
+| `D` | ternary t6 GB/s | fp32 t6 GB/s | `ratio_fp32_over_ternary` |
+|---|---|---|---|
+| 1536 | 23.19 | 38.13 | 1.644 |
+| 2048 | 22.97 | 38.45 | 1.674 |
+| 4096 | 20.66 | 38.35 | 1.856 |
+| 5120 | 20.52 | 39.45 | 1.922 |
+| **8192 (donor width)** | **11.34** | **38.71** | **3.412** |
+
+The Principal's message quoted the first three (1.644/1.674/1.856) and read them as the answer. **The
+full curve is worse for us, not better: `D=5120` and especially `D=8192` -- the point that actually matches
+donor width -- are not in that quote, and `D=8192`'s ratio (3.412) is the largest in the table, not a
+middling one.** Corrected for the record: quote the whole curve, not the first three rows.
+
+**Is the GB/s comparison like-for-like? No -- and stating it in the other unit does not save the packing
+argument, it corroborates the same conclusion from the opposite direction.** Ternary (current packing,
+`T=K/2` -- confirmed from the kernel: one packed code byte per 2 weights) moves **0.5 bytes/weight**; fp32
+moves **4 bytes/weight**, an 8x difference. Converting both arms to **weights/s** (`GB/s x 1e9 / bytes_per_weight`):
+
+| `D` | ternary Gweights/s | fp32 Gweights/s | ratio (ternary/fp32, weights/s) |
+|---|---|---|---|
+| 1536 | 46.39 | 9.53 | 4.87x |
+| 2048 | 45.94 | 9.61 | 4.78x |
+| 4096 | 41.32 | 9.59 | 4.31x |
+| 5120 | 41.04 | 9.86 | 4.16x |
+| **8192** | **22.69** | **9.68** | **2.35x** |
+
+**Two genuinely different questions, two genuinely different (and correct) units, and they agree.**
+Weights/s answers "which kernel does more useful work per second" -- ternary wins by 2.3-4.9x, which is
+the entire reason to use ternary at all, and is not in dispute. **Bytes/s vs the machine's demonstrated
+DRAM ceiling (fp32's ~38.7 GB/s) is the unit the bandwidth-vs-compute question is actually asked in**,
+because bandwidth-bound-ness is a statement about bytes moved per second hitting a *physical* ceiling,
+independent of what those bytes encode. Denser packing's entire value proposition is reducing bytes
+moved per weight -- **which only buys anything if the kernel is currently constrained by bytes/s.** The
+weights/s table does not change that: it shows ternary is doing more *work*, not that it is closer to
+*saturating memory bandwidth* -- and by the bytes/s measure it is at 29-33% of the demonstrated ceiling at
+every `D`, falling further behind (not closing the gap) as `D` grows. **Both readings point the same way:
+compute-bound, worsening at donor width, not improving.**
+
+**A decisive discriminator beyond the ratio, already sitting in this log at zero additional cost:
+thread-scaling.** A bandwidth-bound kernel saturates a shared, finite DRAM channel quickly -- adding cores
+buys little. A compute-bound kernel, each core working its own LUT/ALU throughput, scales close to
+linearly until *something else* (not the shared bus) limits it. The `t1`->`t6` scaling factor for both
+arms, every `D`, already in the fp32-vs-ternary rows above:
+
+| `D` | ternary t1->t6 scaling | fp32 t1->t6 scaling |
+|---|---|---|
+| 1536 | 3.78x | 1.54x |
+| 2048 | 4.01x | 1.61x |
+| 4096 | 2.40x | 1.53x |
+| 5120 | 3.09x | 1.63x |
+| 8192 | 4.78x | 1.60x |
+
+**fp32 is pinned at ~1.5-1.6x scaling from 1 to 6 threads at every single `D` -- the textbook signature of
+a kernel that saturates DRAM bandwidth with 2-3 threads and gets almost nothing from the rest.** Ternary
+scales 2.4-4.8x at every `D` -- well short of ideal 6x, but 1.6-3x better than fp32's ceiling-bound
+behaviour, consistent with headroom left on the memory bus, i.e. **compute, not bandwidth, is what is
+limiting it.** This corroborates the ratio finding with an independent signature, at no additional
+measurement cost. **A stronger, causal (not just correlational) test would strip the LUT-gather/accumulate
+out of the kernel while streaming the identical bytes** (a compute-ablation variant of `matvec_lut_full`)
+and check whether the rate jumps (compute-bound: yes) or holds (bandwidth-bound: no). Cost: a new kernel
+variant plus a short run, estimated 30-60 minutes of harness work -- not built, flagged as the next thing
+to build if the Controller wants a third, causal signature rather than two corroborating correlational ones.
+
+### 12.5.5 Real Llama-3-70B organ shapes -- width or shape?
+
+**Kernel-pure, largest streamed pool tested per organ (~470-537 MB, all well past the 16 MB L3 cliff):**
+
+| organ | `M x K` | single-block MB | t1 GB/s | t6 GB/s |
+|---|---|---|---|---|
+| q/o | 8192x8192 | 32.0 | 2.66 | **8.92** |
+| k/v | 1024x8192 | 4.0 | 6.76 | **29.23** |
+| gate/up | 28672x8192 | 112.0 | 2.39 | **11.05** |
+| down | 8192x28672 | 112.0 | 2.56 | **10.55** |
+
+**Shape, not `d_model` width, drives the rate.** k/v shares `K=8192` (the same "width") with q/o but is
+**3.3x faster** (29.2 vs 8.9 GB/s) -- the difference is its output dimension `M=1024`, 8x smaller than
+q/o's `M=8192`. gate/up and down have transposed shapes (`28672x8192` vs `8192x28672`) but the **same**
+block size (112 MB) and land within 5% of each other (11.05 vs 10.55) -- consistent with block size (not
+which axis is `M` vs `K`) being the driver once both are deep in the streamed regime. **q/o is the one
+genuine anomaly**: it has the *smallest* block of the three organs that exceed L3 (32 MB, a third of
+gate/up's and down's 112 MB) yet is the *slowest* (8.92 vs ~10.5-11.0). This does not fit a simple
+"bigger block, comparable rate" story and is flagged as unexplained, not resolved -- worth a follow-up if
+q/o's shape matters for the programme (it is the attention path, so it likely does).
+
+**These organ numbers are kernel-pure, like Part-B always has been -- they are not directly comparable to
+the banked 21.25/22.7 GB/s integrated constant.** §10's own finding stands: integration overhead (quant,
+LUT build, per-row scale, dReLU) adds ~30.5% at donor `D`. The correct like-for-like comparison for "does
+the constant transfer" runs through Part A / the fresh `d5g` point below, both integrated, both `L=28`,
+both the same estimator -- not through this table.
+
+### 12.5.6 The actual answer to D5's question
+
+> **Does the 21.25 GB/s constant transfer to donor width? No. Is the donor-width path bandwidth-bound or
+> compute-bound? Compute-bound.**
+
+**The transfer question, answered at matched methodology (engine-integrated, `L=28`, mean estimator, same
+thread placement):**
+
+| point | mean GB/s |
+|---|---|
+| `D=1536` (banked shape) | **22.07** (14-invocation grand mean, sec.12.4) |
+| `D=8192` (donor width, directly measured `L=28`, this section) | **10.38** |
+| **fall** | **2.13x** |
+
+This is close to, and independently arrived at from, the Principal's own reading of the raw log (~2x at
+`llama70b_down`) -- but arrived at through the corrected like-for-like route (integrated-vs-integrated,
+`L=28`-vs-`L=28`, mean-vs-mean) rather than the raw log's kernel-pure organ number, and the two agree.
+**The constant does not transfer. It falls by roughly half at donor width.** Every tok/s figure in
+`ADAPTER_MEMO_01` that is built on 21.25 GB/s is now known to be built on a number that is not the donor
+figure -- by a factor of about 2, in the pessimistic direction.
+
+**The bandwidth-vs-compute question, answered by two independent, mutually corroborating signatures, at
+every `D` tested, worsening (not improving) toward donor width:**
+
+- `ratio_fp32_over_ternary` is **>1 at every `D`** (1.64 to 3.41) and *grows* with `D` -- the ternary
+  kernel gets *further* from the fp32 DRAM ceiling as it gets wider, not closer.
+- Thread-scaling: fp32 is capped at ~1.5-1.6x (1->6 threads) at every `D` -- saturating DRAM already at 2-3
+  threads. Ternary scales 2.4-4.8x -- not linear, but consistently, substantially better than fp32's
+  bandwidth ceiling allows, at every `D`.
+
+**Consequence for the packing question (`ADAPTER_MEMO_01` sec.2.4): on this evidence, denser (5-trit)
+packing does not pay.** The pre-registered reading (sec.12.3, brief sec.4) was explicit that `ratio > 1`
+means compute-bound and packing buys roughly a 10% loss from fixed per-call overhead amortised over less
+work per byte, not the ~2.5x bandwidth lever. **That is the reading this measurement supports, at every
+`D` swept, most strongly at donor width.** This is a negative result, arrived at before anything was spent
+building the denser packing path -- which is the point of having run this brief before that work started.
+
+### 12.5.7 What this changes, and what it does not
+
+- **`ADAPTER_MEMO_01` sec.2.1's caveat is not discharged and not merely tightened -- it is resolved in the
+  pessimistic direction.** The constant does not transfer; it should be replaced with a donor-width figure
+  roughly half its value for any tok/s computation that spans donor `D`, not adjusted by a correction
+  factor on 21.25 itself.
+- **sec.2.4's packing question is answered negatively** on two independent, corroborating signatures
+  (ratio and thread-scaling), consistently across the whole `D`-sweep, most strongly at the donor-width
+  point itself.
+- **What remains open:** the `D=2048/4096/5120` points' true `L=28` rates (bounded above by the `L=2`
+  sweep, unmeasured directly); q/o's anomalous slowness relative to its block size; a causal (not just
+  correlational) compute-ablation test, costed above at 30-60 minutes, not yet built.
+- **This section is a measurement and an audit-in-progress, not a decision.** Per standing instruction,
+  nothing above enters `ADAPTER_MEMO_01` or any other document until the Controller has reviewed it.
