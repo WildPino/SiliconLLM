@@ -6,7 +6,7 @@
 //   `docs/PHASE64_BUDGET.md` sec.1b measured r(size) only up to 96 MB and then *asserted* an asymptote of
 //   "34-36 GB/s"; `benchmarks/donor_adaptation/donor_inventory.py` hardcodes the bottom of that (34.0) and
 //   returns "zero donors pass the >=10 tok/s gate". At 36 the best donor passes (10.01), at 40 it reaches 10.65
-//   (see docs/research/CONTROLLER_STAGE1_AUDIT.md F1). Every donor row is an extrapolation PAST the last
+//   (see docs/research/donor_adaptation/audits/CONTROLLER_STAGE1_AUDIT.md F1). Every donor row is an extrapolation PAST the last
 //   measured point: Qwen2.5-1.5B streams 1.55 GB of fp32 projections+head per token, 16x beyond 96 MB.
 //   This harness measures the curve where the donors actually live.
 //
@@ -42,11 +42,80 @@
 #endif
 #if defined(_WIN32)
 #include <windows.h>
+#include <tlhelp32.h>
+#define PSAPI_VERSION 2
+#include <psapi.h>
 static double now_s(void){ LARGE_INTEGER f,t; QueryPerformanceFrequency(&f); QueryPerformanceCounter(&t); return (double)t.QuadPart/(double)f.QuadPart; }
 #else
 #include <time.h>
 static double now_s(void){ struct timespec ts; clock_gettime(CLOCK_MONOTONIC,&ts); return ts.tv_sec+ts.tv_nsec*1e-9; }
 #endif
+
+// ---------------------------------------------------------------------------------------------------------------
+// MACHINE-QUIESCENCE PRECONDITION (permanent feature, not a one-off workaround for D5)
+//   docs/PHASE64_BUDGET.md's 16-32 MB t6 points were found unreproducible precisely because environmental
+//   state (thread placement, and -- undocumented at the time -- background load) went unrecorded, and swung
+//   4.6x on placement alone (see DONOR_PROJ_RATE.md sec.2.3). A GB/s number taken while another heavy process
+//   is resident is not a pessimistic reading of the truth; it is a DIFFERENT QUANTITY (contention, not the
+//   kernel). Every mode below that does wall-clock timing scans for heavy resident processes FIRST and
+//   refuses to run unless the machine is clean, or the caller explicitly overrides with --force-unclean
+//   (which is itself recorded in the run header so it cannot be silently dropped when the number is quoted).
+// ---------------------------------------------------------------------------------------------------------------
+#define QUIESCENCE_THRESHOLD_BYTES (1073741824ULL)   // 1 GB resident working set -- documented, permanent
+#if defined(_WIN32)
+typedef struct { char name[MAX_PATH]; DWORD pid; size_t ws_bytes; } HeavyProc;
+static int scan_heavy_processes(HeavyProc* out,int maxn){
+    int n=0;
+    DWORD self=GetCurrentProcessId();
+    HANDLE snap=CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0);
+    if(snap==INVALID_HANDLE_VALUE) return -1;
+    PROCESSENTRY32 pe; pe.dwSize=sizeof(pe);
+    if(Process32First(snap,&pe)){
+        do{
+            if(pe.th32ProcessID==self) continue;
+            HANDLE h=OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION,FALSE,pe.th32ProcessID);
+            if(h){
+                PROCESS_MEMORY_COUNTERS pmc;
+                if(GetProcessMemoryInfo(h,&pmc,sizeof(pmc))){
+                    if((unsigned long long)pmc.WorkingSetSize>=QUIESCENCE_THRESHOLD_BYTES && n<maxn){
+                        strncpy(out[n].name,pe.szExeFile,MAX_PATH-1); out[n].name[MAX_PATH-1]=0;
+                        out[n].pid=pe.th32ProcessID; out[n].ws_bytes=(size_t)pmc.WorkingSetSize; n++;
+                    }
+                }
+                CloseHandle(h);
+            }
+        } while(Process32Next(snap,&pe));
+    }
+    CloseHandle(snap);
+    return n;
+}
+#else
+typedef struct { char name[64]; long pid; size_t ws_bytes; } HeavyProc;
+static int scan_heavy_processes(HeavyProc* out,int maxn){ (void)out;(void)maxn; return -1; }  // not implemented off-Windows
+#endif
+// returns 1 if clean (or check unavailable), 0 if a heavy process is present and require!=0 forced an exit(3)
+static int quiescence_gate(int require,int force_unclean){
+    HeavyProc hp[64]; int n=scan_heavy_processes(hp,64);
+    if(n<0){ printf("# QUIESCENCE CHECK: process enumeration unavailable on this platform -- proceeding WITHOUT a\n"
+                     "#   clean-environment guarantee. Record this fact if quoting any number from this run.\n"); return 1; }
+    printf("# QUIESCENCE CHECK: threshold=%.1f GB resident working set | %d process(es) at/above it:\n",
+           QUIESCENCE_THRESHOLD_BYTES/1073741824.0,n);
+    for(int i=0;i<n;i++)
+        printf("#   pid=%-8lu ws=%6.2f GB  %s\n",(unsigned long)hp[i].pid,hp[i].ws_bytes/1073741824.0,hp[i].name);
+    if(n==0){ printf("#   -- clean.\n"); return 1; }
+    if(!require){ printf("#   -- mode does not require a clean machine (no wall-clock timing); proceeding.\n"); return 1; }
+    if(force_unclean){
+        printf("# WARNING: --force-unclean OVERRIDE in effect with %d heavy process(es) resident. Every GB/s\n"
+               "#   number in this run is CONTENDED, not a clean measurement of the kernel, and must be reported\n"
+               "#   and used as such -- never presented as the kernel's rate.\n",n);
+        return 1;
+    }
+    printf("# REFUSING TO RUN: this mode measures memory bandwidth and %d heavy process(es) are resident.\n"
+           "#   A number taken now measures contention, not the LUT/fp32 path. Close the heavy process(es),\n"
+           "#   or re-invoke with --force-unclean to override (the override is logged above and must be\n"
+           "#   disclosed with any number quoted from that run).\n",n);
+    return 0;
+}
 
 // ---- engine.c primitives, copied verbatim (bit-for-bit the kernels under test) ----
 static int g_omp_on=0;
@@ -700,12 +769,18 @@ static void mlp_time(MlpStack* S,int skip,int reps,int nt,double* us_tok,double*
     float* out=xmalloc((size_t)S->D*4);
     for(int l=0;l<S->L;l++) mlp_dense_int(S,l,xn,out,skip);
     long ntok=(long)(2.0e9/(double)(S->codes_layer*(size_t)S->L)); if(ntok<8) ntok=8; if(ntok>3000) ntok=3000;
+    // DIAGNOSTIC ONLY (control-1 variance investigation, not part of the pre-registered brief):
+    // when GEMV_D5_DEBUG_REPS is set, print each rep's own rate to stderr so a warm-up/thermal trend can be
+    // told apart from unstructured jitter. Does not alter *us_tok / *cv or any control's pass/fail logic.
+    const char* dbg=getenv("GEMV_D5_DEBUG_REPS");
     double best=1e30,sum=0,sum2=0;
     for(int r=0;r<reps;r++){
         double t0=now_s();
         for(long k=0;k<ntok;k++){ xn[k%S->D]+=1e-7f; for(int l=0;l<S->L;l++) mlp_dense_int(S,l,xn,out,skip); }
         double dt=now_s()-t0; if(dt<best)best=dt;
         double u=dt/ntok*1e6; sum+=u; sum2+=u*u;
+        if(dbg){ double g=(double)S->codes_layer*(size_t)S->L/1e3/u;
+            fprintf(stderr,"DBGREP,nt=%d,rep=%d,us_tok=%.4f,gbps=%.4f\n",nt,r,u,g); }
     }
     double m=sum/reps,v=sum2/reps-m*m; if(v<0)v=0;
     *us_tok=best/ntok*1e6; *cv=reps>1?100.0*sqrt(v)/m:-1.0;
@@ -847,9 +922,274 @@ static void mode_mlpctl(void){
     printf("\nCONTROLS DONE.\n");
 }
 
+// ================================ MODE: d5 (BRIEF_D5_LUT_RATE_AT_DONOR_WIDTH) ================================
+// rate(D, threads) for the engine-integrated ternary MLP path, at donor projection widths, plus the four
+// planted controls from the brief sec.5. Reuses, verbatim, the apparatus that produced 21.25 GB/s (MlpStack /
+// mlp_alloc / mlp_time from the mlpint mode above) and the apparatus that produced the 8.4x/2.4x LUT working-set
+// curve (matvec_lut_full / build_lut_t3, in a new single-point helper below that duplicates lut_pool_sweep's
+// inner loop so callers can capture numbers rather than only print them -- lut_pool_sweep itself is untouched).
+//
+// Output contract: every timed line is also emitted as a CSV row prefixed "D5CSV," (one line per point) so a
+// post-processing step can build the JSON deliverable without hand-transcription. Column layouts differ by
+// section and are documented at each printf call site; the header line below records both said layouts once.
+#define L3_BYTES (16u*1048576u)   // the project's banked L3 cliff (~16 MB exact) -- docs project_probe3_cache
+
+// -- capture-and-print helper for the mlpint (engine-integrated dense ternary MLP) apparatus --
+static void mlp_point(const char* section,const char* tag,int D,int HID,int L,int skip,int reps,int nt,
+                       double* out_gbps_codes,double* out_gbps_scaled,double* out_us,double* out_cv,size_t* out_ws){
+    MlpStack S; mlp_alloc(&S,D,HID,L,skip);
+    size_t codes=S.codes_layer*(size_t)L, scales=S.scales_layer*(size_t)L;
+    double u,cv; mlp_time(&S,skip,reps,nt,&u,&cv);
+    double gbps=(double)codes/1e3/u, gbps_sc=(double)(codes+scales)/1e3/u;
+    int l3=(codes<=L3_BYTES)?1:0;
+    // D5CSV,section,tag,D,HID,L,threads,working_set_bytes,l3_resident,gbps_codes,us_per_tok,cv_pct,gbps_codes+scales
+    printf("D5CSV,%s,%s,%d,%d,%d,%d,%zu,%d,%.4f,%.4f,%.2f,%.4f\n",
+           section,tag,D,HID,L,nt,codes,l3,gbps,u,cv,gbps_sc);
+    if(out_gbps_codes)*out_gbps_codes=gbps; if(out_gbps_scaled)*out_gbps_scaled=gbps_sc;
+    if(out_us)*out_us=u; if(out_cv)*out_cv=cv; if(out_ws)*out_ws=codes;
+    mlp_free(&S);
+}
+
+// -- capture-and-print helper for the ternary LUT working-set sweep (lut_pool_sweep's inner loop, duplicated
+//    so it can hand numbers back to the caller; the printed TABLE mode (`lut`) is untouched) --
+static void lut_one_point(const char* section,const char* tag,int M,int K,double poolMB,int reps,int iid,double g_out[2]){
+    int Mpad=(M+31)&~31, T=K/2; size_t EB=(size_t)T*(size_t)Mpad;
+    int8_t* lut=xmalloc((size_t)T*16); int8_t* xq=xmalloc((size_t)K);
+    for(int i=0;i<K;i++) xq[i]=(int8_t)((i%5)-2); build_lut_t3(xq,T,lut);
+    int32_t* y=xmalloc((size_t)M*4);
+    long nblk = poolMB<=0.0 ? 1 : (long)((poolMB*1048576.0)/(double)EB);
+    if(nblk<1) nblk=1;
+    size_t pool=(size_t)nblk*EB;
+    int8_t* P=xmalloc(pool);
+    for(size_t i=0;i<pool;i++) P[i]=(int8_t)((i*2654435761u)%9u);
+    long touch=(long)(2048UL*1048576UL/EB); if(touch<nblk*2) touch=nblk*2; if(touch<64) touch=64;
+    int l3=(pool<=L3_BYTES)?1:0;
+    for(int ti=0;ti<2;ti++){ int nt=ti?6:1; set_threads(nt);
+        uint64_t rng=0x9e3779b97f4a7c15ULL;
+        matvec_lut_full(P,lut,y,M,Mpad,T);   // warm
+        double best=1e30,sum=0,sum2=0;
+        for(int rp=0;rp<reps;rp++){ double t0=now_s();
+            for(long t=0;t<touch;t++){ size_t b;
+                if(iid){ rng^=rng<<13; rng^=rng>>7; rng^=rng<<17; b=(size_t)(rng%(uint64_t)nblk); } else b=(size_t)(t%nblk);
+                matvec_lut_full(P+b*EB,lut,y,M,Mpad,T); }
+            double dt=now_s()-t0; if(dt<best)best=dt;
+            double g=(double)EB*touch/1e9/dt; sum+=g; sum2+=g*g; }
+        double gbps=(double)EB*touch/1e9/best, us=best/touch*1e6;
+        double m=sum/reps,v=sum2/reps-m*m; if(v<0)v=0; double cv=reps>1?100.0*sqrt(v)/m:-1.0;
+        // D5CSV,section,tag,M,K,0,threads,working_set_bytes(=pool),l3_resident,gbps,us_per_touch,cv_pct
+        printf("D5CSV,%s,%s,%d,%d,0,%d,%zu,%d,%.4f,%.4f,%.2f\n",section,tag,M,K,nt,pool,l3,gbps,us,cv);
+        if(g_out) g_out[ti]=gbps;
+    }
+    free(P); free(lut); free(xq); free(y);
+}
+
+static void d5_control1(int reps,int* passed,double* measured_t6){
+    printf("---- CONTROL 1: reproduce the banked D=1536 point (21.25 +/- 0.36 GB/s), engine-integrated MLP ----\n");
+    double u1,c1,u6,c6,g1c,g1s,g6c,g6s; size_t ws;
+    mlp_point("control1","donor_D1536_HID8960_L28",1536,8960,28,0,reps,1,&g1c,&g1s,&u1,&c1,&ws);
+    mlp_point("control1","donor_D1536_HID8960_L28",1536,8960,28,0,reps,6,&g6c,&g6s,&u6,&c6,&ws);
+    double banked=21.25, tol=0.36;
+    int pass = fabs(g6c-banked)<=tol;
+    printf("D5VERDICT,control1,%s,measured_t6_gbps=%.3f,banked=%.2f+-%.2f,dev=%+.3f,cv=%.2f%%\n",
+           pass?"PASS":"FAIL",g6c,banked,tol,g6c-banked,c6);
+    if(!pass) printf("D5STOP: control 1 FAILED -- apparatus has drifted. Per brief sec.5.1, STOP; nothing else\n"
+                      "  from this harness may be trusted until this is resolved.\n");
+    *passed=pass; *measured_t6=g6c;
+}
+
+static void d5_lsensitivity(int reps){
+    // NOT one of the four brief controls -- a supporting check for the design choice (L=2 in the D-sweep vs
+    // L=28 for the real donor / control-1 point). If the integrated rate is L-independent once one layer's
+    // working set already exceeds L3 (it does: 20.6 MB per layer at D=1536,HID=8960), L=2 is a valid, much
+    // cheaper stand-in for the D-sweep. This is measured, not assumed.
+    printf("---- SUPPORTING CHECK: L-sensitivity (not a brief-mandated control) ----\n");
+    double g6_L2,g6_L28,us,cv; size_t ws;
+    mlp_point("lsens","D1536_HID8960_L2",1536,8960,2,0,reps,6,&g6_L2,0,&us,&cv,&ws);
+    mlp_point("lsens","D1536_HID8960_L28",1536,8960,28,0,reps,6,&g6_L28,0,&us,&cv,&ws);
+    printf("D5NOTE,lsensitivity,L2_t6_gbps=%.3f,L28_t6_gbps=%.3f,ratio=%.3f\n",g6_L2,g6_L28,g6_L2/g6_L28);
+}
+
+static void d5_control23(int reps,int* c2_pass,int* c3_pass){
+    printf("---- CONTROLS 2 & 3: known-positive slowdown (push working set >16MB) and speedup (L3-resident) ----\n");
+    printf("     shape: donor attn proj 1536x1536 (block EB=1.125 MB), same kernel, only pool size varies.\n");
+    double g0[2],g16[2],g32[2],g512[2];
+    lut_one_point("control23","donor_attn_1536x1536",1536,1536,0.0,reps,1,g0);
+    lut_one_point("control23","donor_attn_1536x1536",1536,1536,16.0,reps,1,g16);
+    lut_one_point("control23","donor_attn_1536x1536",1536,1536,32.0,reps,1,g32);
+    lut_one_point("control23","donor_attn_1536x1536",1536,1536,512.0,reps,1,g512);
+    double resident_t6=g0[1], streamed_t6=g512[1];
+    double ratio = resident_t6/streamed_t6;
+    int c2 = ratio>=2.0;    // known-positive: forced past-L3 pool must drop the rate sharply
+    int c3 = resident_t6>=50.0;  // known-positive: L3-resident must rise toward the ~100 GB/s regime
+    printf("D5VERDICT,control2,%s,resident_t6=%.2f,streamed512_t6=%.2f,drop_ratio=%.2fx (need >=2.0x)\n",
+           c2?"PASS":"FAIL",resident_t6,streamed_t6,ratio);
+    printf("D5VERDICT,control3,%s,resident_t6=%.2f (need >=50, target ~100 per the banked L3 probe)\n",
+           c3?"PASS":"FAIL",resident_t6);
+    *c2_pass=c2; *c3_pass=c3;
+}
+
+static void d5_control4(int reps,int* passed){
+    printf("---- CONTROL 4: fp32 streamed cross-check (banked 38.84 +/- 0.68, audited 39.87 +/- 0.09) ----\n");
+    const int nin=512; float* x=xmalloc((size_t)nin*4); fill_x(x,nin);
+    long sizesMB[4]={64,128,256,512};
+    double sum=0,sum2=0; int n=0;
+    for(int i=0;i<4;i++){
+        size_t wb=(size_t)sizesMB[i]*1048576; int out=(int)(wb/((size_t)nin*4)); wb=(size_t)out*nin*4;
+        float* W=xmalloc(wb); fill_W(W,wb/4); float* y=xmalloc((size_t)out*4);
+        long np=npass_for(wb);
+        Tm t6=time_fp32(NULL,W,x,y,out,nin,np,reps,6);
+        int l3=(wb<=L3_BYTES)?1:0;
+        // D5CSV,control4,tag,rows,in,0,threads,working_set_bytes,l3_resident,gbps,us,cv_pct
+        printf("D5CSV,control4,fp32_%ldMB,%d,%d,0,6,%zu,%d,%.4f,%.4f,%.2f\n",sizesMB[i],out,nin,wb,l3,t6.gbps,t6.us,t6.cv);
+        sum+=t6.gbps; sum2+=t6.gbps*t6.gbps; n++;
+        free(W); free(y);
+    }
+    free(x);
+    double mean=sum/n, var=sum2/n-mean*mean; if(var<0)var=0; double sd=sqrt(var);
+    double banked=38.84, band=0.68;
+    int pass = fabs(mean-banked)<=3.0*band;   // 3-sigma band on the banked figure; brief gives no numeric tol here
+    printf("D5VERDICT,control4,%s,mean_t6_gbps=%.3f,sd=%.3f,banked=%.2f+-%.2f,audited=39.87+-0.09,tol=+-%.2f(3sigma)\n",
+           pass?"PASS":"FAIL",mean,sd,banked,band,3.0*band);
+    *passed=pass;
+}
+
+static const int D5_DS[5]={1536,2048,4096,5120,8192};
+
+static void d5_dsweep(int reps,double out_integrated_t6[5]){
+    printf("---- PART A: rate(D, threads), engine-integrated dense ternary MLP, ffn:D ratio fixed at 3.5 ----\n");
+    printf("     (3.5 = the real Llama-3-70B-class ratio 28672/8192, so the D=8192 point below coincides with\n");
+    printf("      the real donor organ measured in Part B. L held at 2 -- see the L-sensitivity check above:\n");
+    printf("      every layer's working set already exceeds L3 at every D swept, so this is not a shortcut\n");
+    printf("      that changes the regime, only one that changes runtime.)\n");
+    for(int i=0;i<5;i++){
+        int D=D5_DS[i]; int HID=(int)(3.5*D+0.5);
+        char tag[32]; snprintf(tag,32,"D%d",D);
+        double gc1,gs1,gc6,gs6,u1,u6,c1,c6; size_t ws;
+        mlp_point("dsweep",tag,D,HID,2,0,reps,1,&gc1,&gs1,&u1,&c1,&ws);
+        mlp_point("dsweep",tag,D,HID,2,0,reps,6,&gc6,&gs6,&u6,&c6,&ws);
+        printf("D5NOTE,dsweep,D=%d,HID=%d,ws_MB=%.1f,l3_resident=%d,t1_gbps=%.2f,t6_gbps=%.2f,t6_cv=%.2f%%\n",
+               D,HID,ws/1048576.0,(ws<=L3_BYTES)?1:0,gc1,gc6,c6);
+        if(out_integrated_t6) out_integrated_t6[i]=gc6;
+    }
+}
+
+// -- honest fp32 streamed-rate point: mode_organs' STREAMED replication logic, generalised and CSV-emitting.
+//    If a single copy of the shape already exceeds the aggregate-L3 clearance target, timed directly (no
+//    replication needed -- matches mode_organs' own "already >L3: STR==RES" note). Otherwise replicated past
+//    256 MB (cap 1.5 GB) and cycled so every touch is cold, exactly as mode_organs' STREAMED column does. --
+static void fp32_streamed_point(const char* section,const char* tag,int M,int K,int reps,double g_out[2]){
+    size_t wb=(size_t)M*(size_t)K*4;
+    float* x=xmalloc((size_t)K*4); fill_x(x,K);
+    float* W=xmalloc(wb); fill_W(W,wb/4); float* y=xmalloc((size_t)M*4);
+    int l3=(wb<=L3_BYTES)?1:0;
+    int ncopy=1; while((double)wb*ncopy<268435456.0 && (double)wb*(ncopy+1)<=1610612736.0) ncopy++;
+    if(ncopy==1){
+        for(int ti=0;ti<2;ti++){ int nt=ti?6:1;
+            Tm t=time_fp32(NULL,W,x,y,M,K,npass_for(wb),reps,nt);
+            printf("D5CSV,%s,%s,%d,%d,0,%d,%zu,%d,%.4f,%.4f,%.2f\n",section,tag,M,K,nt,wb,l3,t.gbps,t.us,t.cv);
+            if(g_out) g_out[ti]=t.gbps;
+        }
+    } else {
+        size_t pool=wb*(size_t)ncopy;
+        float* P=xmalloc(pool); for(int c=0;c<ncopy;c++) memcpy((char*)P+wb*(size_t)c,W,wb);
+        for(int ti=0;ti<2;ti++){ int nt=ti?6:1; set_threads(nt);
+            long tp=(long)(2048UL*1048576UL/wb); if(tp<(long)ncopy*2) tp=(long)ncopy*2;
+            matvec(P,x,y,M,K);
+            double best=1e30,sum=0,sum2=0;
+            for(int rp=0;rp<reps;rp++){ double t0=now_s();
+                for(long p=0;p<tp;p++){ x[p%K]+=1e-9f; matvec((float*)((char*)P+wb*(size_t)(p%ncopy)),x,y,M,K); }
+                double dt=now_s()-t0; if(dt<best)best=dt;
+                double g=(double)wb*tp/1e9/dt; sum+=g; sum2+=g*g; }
+            double gbps=(double)wb*tp/1e9/best, us=best/tp*1e6;
+            double m=sum/reps,v=sum2/reps-m*m; if(v<0)v=0; double cv=reps>1?100.0*sqrt(v)/m:-1.0;
+            printf("D5CSV,%s,%s,%d,%d,0,%d,%zu,%d,%.4f,%.4f,%.2f\n",section,tag,M,K,nt,pool,l3,gbps,us,cv);
+            if(g_out) g_out[ti]=gbps;
+        }
+        free(P);
+    }
+    free(W); free(x); free(y);
+}
+
+// The direct compute-bound-vs-bandwidth-bound discriminator the Principal asked for: kernel-pure ternary LUT
+// rate vs kernel-pure fp32 streamed rate, AT THE SAME (M,K) shape, for every D in the sweep. Deliberately
+// kernel-pure on BOTH arms (matvec_lut_full only / honest matvec only, no MLP integration overhead on either
+// side) so the ratio isolates the raw-kernel question and is not confounded by the quant/dReLU envelope that
+// makes the integrated 21.25 GB/s a different quantity from the fp32 38.84 GB/s asymptote (DONOR_PROJ_RATE.md
+// sec.8.5's caveat). The Part-A integrated rate is also carried through here, clearly labelled, for context --
+// it is NOT part of the ratio.
+static void d5_fp32_vs_ternary(int reps,const double integrated_t6[5]){
+    printf("---- FP32-VS-TERNARY AT MATCHED DONOR SHAPES (the compute-vs-bandwidth discriminator) ----\n");
+    printf("     shape = gate/up organ (HID x D) at each D-sweep point. Both arms kernel-pure, both streamed\n");
+    printf("     past 256 MB where the shape itself does not already exceed that on its own.\n");
+    for(int i=0;i<5;i++){
+        int D=D5_DS[i]; int HID=(int)(3.5*D+0.5);
+        char ttag[32],ftag[32]; snprintf(ttag,32,"ternary_D%d",D); snprintf(ftag,32,"fp32_D%d",D);
+        double gt[2],gf[2];
+        lut_one_point("fp32_vs_ternary",ttag,HID,D,512.0,reps,1,gt);
+        fp32_streamed_point("fp32_vs_ternary",ftag,HID,D,reps,gf);
+        double ratio=gf[1]/gt[1];
+        printf("D5NOTE,fp32_vs_ternary,D=%d,HID=%d,ternary_kernelpure_t6=%.2f,fp32_kernelpure_t6=%.2f,"
+               "ratio_fp32_over_ternary=%.3f,ternary_integrated_t6_forcontext=%.2f\n",
+               D,HID,gt[1],gf[1],ratio,integrated_t6?integrated_t6[i]:-1.0);
+    }
+    printf("     Read: ratio > 1 means fp32 DRAM streaming outruns the ternary kernel even fully streamed --\n");
+    printf("     consistent with the LUT kernel still being compute-bound at donor width, i.e. denser packing\n");
+    printf("     would NOT buy bandwidth headroom (ADAPTER_MEMO_01 sec.2.4). ratio <= 1 (ternary at/above fp32)\n");
+    printf("     would mean the LUT path has become bandwidth-bound, and denser packing becomes the ~2.5x lever.\n");
+    printf("     THIS RATIO, NOT AN ASSUMPTION, DECIDES IT.\n");
+}
+
+static void d5_organs(int reps){
+    printf("---- PART B: real Llama-3-70B-class organ shapes, kernel-pure LUT rate vs working set ----\n");
+    printf("     d_model=8192 d_ffn=28672. q/o 8192x8192, k/v 1024x8192, gate/up 28672x8192, down 8192x28672.\n");
+    typedef struct { const char* nm; int M,K; } Sh;
+    Sh shapes[4]={ {"llama70b_qo",8192,8192}, {"llama70b_kv",1024,8192},
+                   {"llama70b_gateup",28672,8192}, {"llama70b_down",8192,28672} };
+    double pools[7]={0.0,16.0,32.0,64.0,128.0,256.0,512.0};
+    for(int s=0;s<4;s++){
+        int Mpad=(shapes[s].M+31)&~31, T=shapes[s].K/2; size_t EB=(size_t)T*(size_t)Mpad;
+        int l3=(EB<=L3_BYTES)?1:0;
+        printf("   -- %s: %dx%d, single-block EB=%.2f MB (%s L3 on its own) --\n",
+               shapes[s].nm,shapes[s].M,shapes[s].K,EB/1048576.0,l3?"fits":"EXCEEDS");
+        // shape-only arithmetic, NOT a measurement -- true regardless of whether the timing loop below ever
+        // runs. Recorded explicitly per the Principal's request so it survives even a truncated/interrupted run.
+        printf("D5NOTE,shape_arithmetic,organ=%s,M=%d,K=%d,single_block_bytes=%zu,l3_bytes=%u,l3_resident_possible=%d\n",
+               shapes[s].nm,shapes[s].M,shapes[s].K,EB,L3_BYTES,l3);
+        double last_g[2]={0,0};
+        for(int p=0;p<7;p++){
+            double g[2];
+            lut_one_point("organs",shapes[s].nm,shapes[s].M,shapes[s].K,pools[p],reps,1,g);
+            if(p>0 && g[0]==last_g[0] && g[1]==last_g[1]) continue;  // degenerate duplicate (pool < 1 block)
+            last_g[0]=g[0]; last_g[1]=g[1];
+        }
+    }
+}
+
+static void mode_d5(int reps){
+    printf("==== BRIEF D5: ternary LUT rate at DONOR projection widths -- rate(D,threads) + planted controls ====\n");
+    printf("     docs/research/donor_adaptation/briefs/BRIEF_D5_LUT_RATE_AT_DONOR_WIDTH.md. Controls run FIRST per brief sec.5.\n\n");
+    int c1; double c1_rate;
+    d5_control1(reps,&c1,&c1_rate);
+    if(!c1){ printf("\nSTOPPED after control 1 FAIL. No further section of this mode was run.\n"); return; }
+    printf("\n"); d5_lsensitivity(reps);
+    printf("\n"); int c2,c3; d5_control23(reps,&c2,&c3);
+    printf("\n"); int c4; d5_control4(reps,&c4);
+    printf("\nD5SUMMARY,controls,c1=%s,c2=%s,c3=%s,c4=%s\n",
+           c1?"PASS":"FAIL",c2?"PASS":"FAIL",c3?"PASS":"FAIL",c4?"PASS":"FAIL");
+    if(!(c1&&c2&&c3&&c4)){
+        printf("\nAt least one control did not fire. Per the brief, this is a STOP-and-report condition, not a\n"
+               "line in a log. The sweep below still runs (so the STOP has data to point at) but must NOT be\n"
+               "read as trustworthy until the failing control is understood.\n");
+    }
+    double integrated_t6[5];
+    printf("\n"); d5_dsweep(reps,integrated_t6);
+    printf("\n"); d5_fp32_vs_ternary(reps,integrated_t6);
+    printf("\n"); d5_organs(reps);
+}
+
 // ================================ main ================================
 static void usage(void){
-    printf("usage: gemv_donor_bench <mode> [--reps N] [--check] [--seq] [--quick]\n");
+    printf("usage: gemv_donor_bench <mode> [--reps N] [--check] [--seq] [--quick] [--force-unclean]\n");
     printf("  repro     KNOWN-POSITIVE gate: reproduce PHASE64_BUDGET sec.1b (4..96 MB). All else void if this FAILs.\n");
     printf("  sweep     donor-scale fp32 curve 4..1024 MB, t1/t6, GB/s + GFLOP/s\n");
     printf("  organs    real Qwen2.5-1.5B per-organ shapes, resident vs streamed\n");
@@ -857,30 +1197,40 @@ static void usage(void){
     printf("  lut       ternary pshufb-LUT rate vs working set at donor dims (compute- vs bandwidth-bound)\n");
     printf("  lutrepro  KNOWN-POSITIVE #2: engine.c run_expert_rate() replica (published 7.45 t1 / 17.0 t6)\n");
     printf("  lutstack  one whole decode token of ternary MLP codes (578 MB)\n");
-    printf("  correct   float64 correctness table, every shape, no timing\n");
+    printf("  correct   float64 correctness table, every shape, no timing -- the only mode exempt from the\n");
+    printf("            machine-quiescence gate below, since it never measures a rate\n");
     printf("  control   planted controls, no timing that matters\n");
+    printf("  mlpint    engine-integrated dense ternary MLP at donor dims (the 21.25 GB/s measurement)\n");
+    printf("  mlpctl    planted controls for the integrated dense-MLP block\n");
+    printf("  d5        BRIEF_D5_LUT_RATE_AT_DONOR_WIDTH.md: rate(D,threads) + the four planted controls\n");
+    printf("  --force-unclean   override the machine-quiescence refusal (logged; disclose with any number quoted)\n");
 }
 int main(int argc,char**argv){
     if(argc<2){ usage(); return 1; }
     const char* mode=argv[1];
-    int reps=3, docheck=0, iid=1, quick=0;
+    int reps=3, docheck=0, iid=1, quick=0, force_unclean=0;
     for(int i=2;i<argc;i++){
         if(!strcmp(argv[i],"--reps")&&i+1<argc) reps=atoi(argv[++i]);
         else if(!strcmp(argv[i],"--check")) docheck=1;
         else if(!strcmp(argv[i],"--seq")) iid=0;
         else if(!strcmp(argv[i],"--quick")) quick=1;
+        else if(!strcmp(argv[i],"--force-unclean")) force_unclean=1;
         else { printf("unknown arg %s\n",argv[i]); usage(); return 1; }
     }
     if(reps<1) reps=1;
     const char* pb=getenv("OMP_PROC_BIND"); const char* pl=getenv("OMP_PLACES");
-    printf("# gemv_donor_bench | mode=%s reps=%d check=%d gather=%s\n",mode,reps,docheck,iid?"iid":"seq");
+    printf("# gemv_donor_bench | mode=%s reps=%d check=%d gather=%s force_unclean=%d\n",mode,reps,docheck,iid?"iid":"seq",force_unclean);
 #ifdef _OPENMP
     printf("# OpenMP ON, max_threads=%d | OMP_PROC_BIND=%s OMP_PLACES=%s\n",omp_get_max_threads(),pb?pb:"(unset)",pl?pl:"(unset)");
 #else
     printf("# OpenMP OFF - t6 columns are meaningless. Rebuild with -fopenmp.\n");
 #endif
     printf("# fp32 estimator: min-of-%d, ~2 GB streamed per timing window, x poisoned each pass (engine.c run_gemv_sweep)\n",reps);
-    printf("# cv%% = coefficient of variation of the per-rep rates. >5%% => the machine was not quiet, do not use the row.\n\n");
+    printf("# cv%% = coefficient of variation of the per-rep rates. >5%% => the machine was not quiet, do not use the row.\n");
+
+    int needs_quiet = strcmp(mode,"correct")!=0;   // every timing mode requires (or logs override of) a clean machine
+    if(!quiescence_gate(needs_quiet,force_unclean)) return 3;
+    printf("\n");
 
     if(!strcmp(mode,"repro"))          return mode_repro(reps,quick?15.0:8.0)?2:0;
     else if(!strcmp(mode,"sweep"))     mode_sweep(reps,docheck,quick?8:15);
@@ -893,6 +1243,7 @@ int main(int argc,char**argv){
     else if(!strcmp(mode,"control"))   mode_control();
     else if(!strcmp(mode,"mlpint"))    mode_mlpint(reps);
     else if(!strcmp(mode,"mlpctl"))    mode_mlpctl();
+    else if(!strcmp(mode,"d5"))        mode_d5(reps);
     else { usage(); return 1; }
     printf("\nSTOP. No commit, no push.\n");
     return 0;

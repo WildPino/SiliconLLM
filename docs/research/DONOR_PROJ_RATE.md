@@ -743,3 +743,83 @@ row exceeded 5% between runs.
 2. Annotate `PHASE64_BUDGET.md` §1b with the placement caveat (§2.3) and the measured >96 MB extension (§4).
 3. Scope Controller #2's Q3.2 compute-bound claim to `D=256` and correct audit F6's stated mechanism (§8.2-8.3).
 4. Measure the *engine-integrated* dense LUT rate at donor dims to close the §8.5 bracket.
+
+---
+
+## 12. BRIEF D5 — the ternary LUT rate at donor projection widths (IN PROGRESS)
+
+`docs/research/BRIEF_D5_LUT_RATE_AT_DONOR_WIDTH.md`. §10 above closed the *engine-integrated* MLP rate at
+`D=1536` (21.25 GB/s) but that number was measured at **our** model width. §8.3 already found once that a
+conclusion about which resource binds does not transfer across `D`; D5 asks the same question of the
+21.25 GB/s constant itself, at real donor widths. **This section reports what is built and what one finding
+already follows from shape arithmetic alone. No timing number in this section exists yet — see §12.4.**
+
+### 12.1 Harness
+
+`benchmarks/donor_adaptation/gemv_donor_bench.c`, new `d5` mode (and `benchmarks/donor_adaptation/build_d5_json.py`
+to turn its tagged stdout into the deliverable JSON without hand-transcription). Reuses the apparatus that
+produced every number in §8 and §10 verbatim: `MlpStack`/`mlp_alloc`/`mlp_time` (the engine-integrated path)
+and `matvec_lut_full`/`build_lut_t3` (the kernel-pure LUT path) are untouched; the new code is orchestration
+and capture around them, not new numeric kernels. Runs, in order: the four planted controls (brief §5) —
+STOPping immediately if control 1 fails — then `rate(D,threads)` for `D∈{1536,2048,4096,5120,8192}` (ffn:D
+ratio fixed at 3.5, the real Llama-3-70B ratio, so the `D=8192` point coincides with the real donor organ
+measured separately), a kernel-pure fp32-vs-ternary comparison at the identical shape for every `D` in that
+sweep (the direct compute-vs-bandwidth discriminator — see §12.3), and the real Llama-3-70B-class organ
+shapes (q/o, k/v, gate/up, down) via the same kernel-pure sweep used in §8.2.
+
+### 12.2 New permanent feature: the machine-quiescence gate
+
+Every timing mode (all but `correct`, which does no wall-clock measurement) now scans resident processes
+(`CreateToolhelp32Snapshot` + `GetProcessMemoryInfo`, `-lpsapi`) before running and **refuses** (`exit(3)`)
+if any process holds ≥1 GB working set, unless `--force-unclean` is passed — which is itself printed into
+the run header so it cannot be dropped when a number is later quoted. This is the standing law of §2.3 of
+this document (`PHASE64_BUDGET.md`'s 16–32 MB points are unreproducible because environment went unrecorded
+and swung 4.6× on placement alone) applied to the harness itself rather than to one experiment. **Verified
+firing, live**, before any `d5` timing code path ran: with a concurrent D4 run resident at 24–56 GB (it grew
+over several checks), `d5 --reps 2` printed the process list and refused at the top of `main()`, before
+`mlp_alloc` or any other allocation in the new code was reached. Re-invoking `correct` (exempt, no timing)
+in between confirmed the scan is live per-invocation, not cached.
+
+### 12.3 One finding that needs no timing — and the caution that goes with it
+
+**Derived, not measured** (pure byte arithmetic on the ternary block-packing formula `EB = (K/2)·((M+31)&~31)`,
+already used unmodified throughout §8):
+
+> At Llama-3-70B-class organ shapes (`d_model=8192`, `d_ffn=28672`), a single ternary-packed block of
+> `gate`/`up`/`down` is **112 MB** and `q`/`o` is **32 MB** — each exceeds the 16 MB L3 cliff (§3, `project_probe3_cache`)
+> on its own. Those organs are therefore **always in the streamed regime** at donor scale; `l3_resident` is
+> false for them regardless of pool size. Only `k`/`v` at **4 MB**/block can ever be L3-resident.
+
+This is true independent of whether any timing loop ever completes, which is why it is written down now
+rather than held for the sweep.
+
+**What it does not establish.** Exceeding L3 means the data must come from DRAM. It does **not** by itself
+mean the kernel is *bandwidth*-bound — those are different claims, and this document has already drawn that
+distinction once (§8.2 vs §8.3: compute-bound at `D=256`, bandwidth-bound at `D=1536`, a reversal driven by
+`D`, not by working-set size alone). The two banked numbers point toward the LUT path *still being
+compute-bound even while streamed* at donor width: the ternary path sustains **21.25 GB/s** (§10.2,
+integrated) against an fp32 DRAM ceiling of **38.84 GB/s** (§4) on the same silicon — if DRAM can deliver
+~39 and the LUT only draws ~21, the kernel, not the bus, may still be the limit. **This is exactly the open
+question D5's §12.1 fp32-vs-ternary matched-shape sweep is built to answer, and it has not run yet.** Do not
+read "always streamed" as "therefore bandwidth-bound" anywhere downstream of this paragraph until §12.4 is
+filled in with a measured ratio.
+
+**The stake.** `ADAPTER_MEMO_01_SPEED_BUDGET.md` §2.4's 5-trits-per-byte packing question (0.2 vs 0.5
+bytes/weight, ~2.5× on bytes moved) is conditional on exactly this. Still compute-bound → denser packing is
+roughly a 10% loss (fixed per-call overhead amortised over less work per byte). Bandwidth-bound → denser
+packing is roughly the full ~2.5× lever, and the budget's ~24 tok/s figure could move toward ~61. The
+`ratio_fp32_over_ternary` column in the (not yet run) fp32-vs-ternary sweep decides which, per `D`.
+
+### 12.4 Status
+
+**Blocked, not stalled.** A concurrent D4 run holds the machine (49+ GB working set, growing, mid-run on the
+probe the programme is waiting on). The quiescence gate in §12.2 will not let `d5` take a single timing
+measurement until that clears — verified, not assumed (§12.2). Nothing in §12.1–§12.3 required a clean
+machine to produce.
+
+**Not yet measured, pending a clean machine:** all four planted controls (brief §5, including whether the
+banked 21.25 GB/s reproduces at all — control 1 is a STOP condition if it does not); the `rate(D,threads)`
+curve itself; the L=2-vs-L=28 sensitivity check that licenses the D-sweep's cheaper `L`; the fp32-vs-ternary
+matched-shape ratio at each `D` (§12.3); and the timed (not just shape-derived) rate at the real Llama-3-70B
+organs. **No line above this one may be read as a rate measurement — only the shape arithmetic in §12.3 is
+established.**
