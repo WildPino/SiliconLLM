@@ -100,3 +100,92 @@ in both directions before any flat or surprising reading is accepted.
 
 **Do not** update the memo's tok/s table yourself — that is the Principal's call once the Controller has
 seen the result.
+
+---
+
+## AMENDMENT 1 — 2026-08-22, the Adapter / Principal
+
+**Appended, not edited in place.** The pre-registration above stands as written and as pushed; this
+records what was wrong with it and what replaces it.
+
+### A1.1 I withdraw control 1's tolerance, and the reason is my error
+
+Control 1 required reproducing the banked `21.25 ± 0.36 GB/s`. **I took the quoted uncertainty of a
+banked number and used it as a tolerance, without checking it was achievable by the instrument in this
+run's conditions.** The Builder's diagnosis measured the instrument's own between-run dispersion today at
+**8.36%** — roughly ±2 GB/s. A ±0.36 window against that is not a drift detector; **it is a gate that
+could not pass.** The `FAIL` it produced was information about my brief, not about the apparatus.
+
+Recorded as a standing rule: *a tolerance is derived from the instrument's demonstrated precision under
+the run's own conditions, never inherited from the quoted uncertainty of the value being compared to.*
+
+### A1.2 The instrument defect the diagnosis uncovered, which is larger than D5
+
+The harness reports **`min` of the per-rep times**, i.e. the **maximum** of the per-rep rates. That is a
+maximum order statistic: **its expected value rises with the number of repetitions, by construction, with
+no change in the underlying distribution.** Measured, same machine, same shape:
+
+| reps | reported GB/s |
+|---|---|
+| 5 | 22.36 |
+| 25 | 23.44 |
+| 30 | 25.13 |
+| **per-rep mean at 25 reps** | **21.57** |
+
+> **This biases upward every number this harness has ever produced, by an amount that depends on the
+> `reps` used for that number — including the banked 21.25 itself, and including §8 and §10 of
+> `DONOR_PROJ_RATE.md`.** Numbers taken at different `reps` were never comparable to each other.
+
+**And it very likely explains the whole discrepancy.** The per-rep **mean** at 25 reps is **21.57**,
+against a banked **21.25** — a 1.5% difference, well inside normal between-session variation. **The mean
+reproduces; the min does not.** That is the signature of an estimator problem, not apparatus drift.
+
+### A1.3 What replaces control 1
+
+**Primary estimator changes to the per-rep MEAN**, which is unbiased in `reps`. Control 1 becomes:
+
+> Run the banked §10.2 protocol (`mlpint`, `OMP_PLACES=cores`, ≥4 independent invocations). Report, for
+> each invocation: **`min`, `median`, `mean`, `sd`, `cv`, and `reps`** — all six, every time.
+> **PASS** iff the **grand mean of the per-rep means** lands within **±3 × (the between-invocation sd of
+> that same mean estimator, measured in this run)** of the banked 21.25 GB/s.
+
+**This is not a weakened gate — it is a gate on a different, better-behaved statistic, and it can still
+fail.** If the mean estimator does *not* reproduce 21.25, the estimator hypothesis is wrong and we are
+back to a genuine drift question with one candidate explanation eliminated.
+
+`min` stays in the output as a secondary column, solely so the new numbers remain relatable to the old
+banked ones. **It may not be used as the reported rate for anything.**
+
+### A1.4 A question the evidence raises that has not been answered
+
+The four matched-protocol draws were **20.203 / 24.762 / 24.763 / 24.755**. The last three agree to
+**0.018% — four significant figures.** The first is **18.4% below** them. That is not dispersion; it is
+**two distinct machine states**, and three-of-four agreeing that tightly means the measurement is
+extremely repeatable *once whatever it is has settled*.
+
+**Determine whether invocation order predicts the rate** — i.e. whether the first invocation after a gap
+is systematically low (cold pages, first-touch allocation, frequency/boost ramp) while subsequent ones run
+warm. Run enough invocations to answer it, and report rate against invocation index.
+
+**If a warm-up effect is confirmed, the protocol must state explicitly how it is handled** — a discarded
+warm-up invocation, or a warm-up loop before timing starts — and that handling becomes part of every
+number this harness reports from now on. **It must not be left to whether an operator happened to have run
+it recently.**
+
+### A1.5 The deliverable is re-scoped to ratios
+
+D5's decision-relevant outputs are **comparisons**, not absolute rates: fp32-vs-ternary at matched shape,
+`rate(D=8192)` vs `rate(D=1536)`, and 5-trit-vs-2-trit packing. **Ratios taken at a fixed `reps` are far
+more robust to a biased-but-consistent estimator than absolute GB/s figures are.**
+
+Therefore: **report every D5 result primarily as a ratio against a same-run, same-`reps` reference point,
+with the absolute GB/s as a secondary column carrying its estimator and `reps` in the label.** `reps` and
+invocation count are **pinned for the whole run** and printed in the header.
+
+### A1.6 What remains undischarged
+
+`ADAPTER_MEMO_01` §2.1's caveat on the 21.25 GB/s constant is **not** lifted by this amendment. It is now
+worse-specified than before: the constant is known to be upward-biased by an unquantified amount that
+depends on the `reps` behind it. **Until control 1 passes under A1.3, no tok/s figure anywhere in this
+programme rests on a verified rate constant** — including every table in `ADAPTER_MEMO_01` §2.2, §2.2c and
+§2.2d, all of which are explicitly conditional on it.
