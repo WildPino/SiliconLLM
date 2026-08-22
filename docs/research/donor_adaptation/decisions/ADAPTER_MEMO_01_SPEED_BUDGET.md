@@ -64,6 +64,10 @@ number in this table carries that caveat. → **queued as brief D5.**
 
 ### 2.2 Where the 2% has to come from — the part nobody had allocated
 
+> **⚠ READ §2.2f FIRST.** This section counts only the *retained* attention layers' weights. That is
+> wrong: converting a layer does not remove its `W_q`/`W_k`/`W_v`/`W_o`, and the geometry below is 68.5B,
+> not 100B. §2.2f corrects both and withdraws the conclusions that follow from them.
+
 A 100B-class geometry (`d_model = 8192`, `d_ffn = 28672`, `L = 80`):
 
 | | per layer | share |
@@ -324,6 +328,188 @@ records the tally as **one negative (Apple) and one positive (Neuralink), unreco
 claim of "two independent negatives" was my own miscount, already corrected there. **The FFN half rests on
 an open question with one supporting data point.** That should be stated plainly to the Owner rather than
 carried as an assumption.
+
+### 2.2e THE EXTRAPOLATION LEDGER — every quantity the ">20 tok/s" claim rests on, at its validated value
+
+§2.2c and §2.2d each found the same defect from a different side: **a required value was written into the
+budget without checking it against anything that had been measured.** Rather than keep discovering this
+one lever at a time, here is the whole dependency list in one table, each with the best value anyone —
+the literature or us — has actually demonstrated.
+
+| # | quantity | **validated value** | source | required by §2.2 |
+|---|---|---|---|---|
+| 1 | attention hybrid ratio | **12.5%** — and degradation still worsening there | lowest ratio in any donor-conversion paper | 5% |
+| 2 | FFN active fraction, dense + activation sparsity | **44.6%** (floor 33.3%) | `ENGINE_PLAN.md:56`, in-engine | 2% |
+| 3 | FFN active fraction, MoE-structured | **25%** (E32×h128, top-8) | probe-4, our own | 2% |
+| 4 | packing | **4 bits/weight** shipping | engine today | 1.6 bits (5-trit) |
+| 5 | rate constant | **21.25 GB/s, now known upward-biased** | D5 amendment A1.2 | assumed exact |
+| 6 | attention conversion quality | 96.5% at 1.5B (MOHAWK, *with* training) | `[T]` Table 1 | ≥90% at 100B, training-free |
+| 7 | training-free MoEfication of a donor | **1 positive, 1 negative, unreconciled** | `STRUCTURED_SPARSITY_PRIOR_ART.md` | assumed to work |
+
+**Setting every lever to its validated value at once:**
+
+| configuration | active | bytes/token | **tok/s** | vs target |
+|---|---|---|---|---|
+| attention 12.5%, FFN 25% (probe-4), 4-bit | 15.61 B | 7.80 GB | **2.72** | **7.3× short** |
+| attention 12.5%, FFN 25% (probe-4), 5-trit | 15.61 B | 3.12 GB | **6.81** | **2.9× short** |
+
+> **This is the honest floor of the programme as currently evidenced: 2.7 tok/s on what ships today.**
+> Every figure above 20 in this memo — including §2.2's headline 24.5 — depends on at least one lever
+> exceeding anything that has been measured.
+
+#### But the ledger also contains the way out, and it is not a wish
+
+Row 3 deserves a second look, because **reading probe-4's 25% as a property of the method is a mistake I
+nearly made.** Probe-4 validated an expert *granularity*: **expert size `h=128`, `top-k=8`.** Its FFN was
+`d_ffn = 4096`, so that granularity meant `E = 32` experts and `8×128 / 4096 = 25%` active.
+
+**A donor's FFN is `d_ffn = 28672`. Hold the validated expert size and `k` fixed and let `E` grow with
+width — which is what "fine-grained" means — and the same configuration gives `E = 224` experts and
+`8×128 / 28672 = 3.57%` active.** The 25% was never a property of the recipe; it was a property of a
+4096-wide FFN.
+
+| configuration | active | bytes/token | **tok/s** |
+|---|---|---|---|
+| attention 12.5%, FFN 3.57% (probe-4 granularity at donor width), 4-bit | 3.52 B | 1.762 GB | **12.1** |
+| **attention 12.5%, FFN 3.57%, 5-trit** | **3.52 B** | **0.705 GB** | **30.1** ✅ |
+| attention 5%, FFN 3.57%, 5-trit | 2.62 B | 0.524 GB | **40.6** ✅ |
+
+> **At the literature's lowest measured attention ratio, at probe-4's own validated expert granularity
+> carried to donor width, and with 5-trit packing: 30.1 tok/s. The budget closes without asking any lever
+> to beat its demonstrated value — except packing.**
+>
+> **At 4 bits/weight the identical configuration gives 12.1 tok/s and does not close.** So 5-trit is not an
+> optimisation. **It is the difference between a plan that closes on demonstrated values and one that does
+> not.** D5 is the single highest-leverage measurement in the programme.
+
+#### What this reframing does and does not buy
+
+**It does not make row 3 validated at donor scale.** Probe-4 measured quality at `top-8 of 32`; the donor
+configuration is `top-8 of 224`. The expert *size* and `k` are unchanged, but **the fraction of the FFN
+each token sees falls from 25% to 3.57%**, and nobody has shown quality holds there. That is a real open
+question — but it is a **far more natural extrapolation than "make the experts 3.7× smaller"**, and it is
+directly testable.
+
+**It does sharpen what to test, and in what order:**
+
+1. **D5** — does 5-trit packing pay at donor width? Rows 4 and the entire ✅ column depend on it.
+2. **D0** — can a donor's dense FFN be carved into experts at all, without training? Row 7 has one
+   supporting data point.
+3. **Expert-count scaling** — does `top-8 of 224` retain quality the way `top-8 of 32` did? **This is a new
+   probe that did not exist on the board this morning, and the ledger is what surfaced it.**
+4. **R1/R2** — the attention half, already in flight.
+
+#### Standing caveats that apply to every number above
+
+The rate constant (row 5) is **upward-biased by an unquantified amount** — see `BRIEF_D5` amendment A1.2 —
+so every tok/s figure in this memo, including the ✅ rows, is conditional on a constant that has not been
+verified. The 44.6% of row 2 was measured on our 8.3M model, not a donor. Row 6's 96.5% was obtained *with*
+3B tokens of training, on Phi-1.5, on a dense fp16 backbone — **not training-free, not at 100B, and not on
+a ternary sparsified backbone**; whether it composes with rows 2–4 is untested, and this project has
+repeatedly measured that sequential stages do not compose.
+
+**Nothing here is a promotion. It is an inventory of what would have to be true.**
+
+### 2.2f ⚠⚠ CORRECTION (2026-08-22) — converting a layer's attention does NOT remove its weights, and §2.2 was built on the assumption that it does
+
+Returned by the Controller against `BRIEF_R2`, auditing this memo as instructed. **It is the most
+consequential error in this document and it invalidates the ✅ rows of §2.2e.**
+
+#### The error
+
+§2.2 decomposes the budget as *"attention retained on 4 of 80 layers, the other 76 converted to a
+recurrent operator"*, and then counts **only the 4 retained layers' weights**. That silently assumes the
+76 converted layers' attention weights stop being read.
+
+**They do not.** Every linearisation method in the literature — and R2 by explicit construction — **reuses
+the donor's `W_q`, `W_k`, `W_v`, `W_o`.** LoLCATs freezes all four and adds LoRA; Mamba-in-the-Llama reuses
+the QKV projections; R2 keeps `W_q`/`W_k` fixed and *solves* for `W_v`. A linearised layer still projects
+every token through four matrices.
+
+> **So the attention weight stream is `L × 151M`, always, regardless of the hybrid ratio.**
+> At `L = 80` that is **12.08 B parameters active every token**, before the FFN contributes anything.
+>
+> **`4/80` and `10/80` give the same answer: ~3.2 tok/s.** The entire 5%-vs-12.5% analysis in §2.2c is
+> about a term that barely moves the weight budget.
+
+#### A second error in the same table: the geometry is not 100B
+
+`d_model=8192, d_ffn=28672, L=80` totals **68.5 B**, not 100 B. A real 100B-class model at this width needs
+**L ≈ 117**. Every row in §2.2, §2.2c and §2.2e was computed on a 68.5B model wearing a 100B label.
+
+**Both errors point the same way: they made the programme look better than it is.** Per the standing rule
+that a deviation flattering the hypothesis earns more scrutiny — this is the third time today that rule has
+paid, and this time against me twice in one table.
+
+#### The corrected arithmetic
+
+FFN at probe-4's granularity carried to donor width (3.57% active, §2.2e), attention projections retained
+on **all** layers because that is what conversion actually does:
+
+| geometry | packing | active | bytes/token | **tok/s** |
+|---|---|---|---|---|
+| L=80 (68.5B) | 4-bit | 14.09 B | 7.05 GB | **3.0** |
+| L=80 (68.5B) | 5-trit | 14.09 B | 2.82 GB | **7.5** |
+| **L=117 (a real 100B)** | 4-bit | 20.61 B | 10.31 GB | **2.1** |
+| **L=117 (a real 100B)** | **5-trit** | **20.61 B** | **4.12 GB** | **5.2** |
+
+> **The ✅ rows of §2.2e are withdrawn. On corrected geometry, with every other lever at its most
+> favourable evidenced value, a 100B donor gives 5.2 tok/s — not 30.**
+
+#### What linearisation actually buys, which is real and which I mis-attributed
+
+The Controller's third omission: **KV traffic is absent from this memo entirely.** At 128K context with 10
+attention layers it is **5.37 GB/token against 1.32 GB of weights** — four times the weight stream.
+
+> **Linearisation does not buy weight bytes. It buys the KV cache — and at long context the KV cache is
+> the larger of the two by far.** Stage 0 said exactly this (`e9503e3`: *"the KV read path at 128K is the
+> wall"*) and I then wrote a weight-only budget and forgot it.
+
+**Consequence for how this memo must be read from now on: a tok/s figure without a stated context length
+is meaningless.** At short context the weight stream dominates and the tables above apply. At 128K the KV
+path dominates and linearisation is the whole game. **§2.2's model — `tok/s = 21.25 ÷ weight-bytes` — is
+a short-context model and was never labelled as one.**
+
+The Controller also flags the model itself, not just its constant: `21.25 ÷ bytes` **is a bandwidth model,
+fed by a constant measured in a regime that may be compute-bound.** I have been flagging the constant
+(§2.1) and treating the model as sound. **Both need to be conditional, and D5 speaks to both.**
+
+#### The constructive result — solving the corrected equation the other way round
+
+Rather than ask "what tok/s at 100B", ask "**what size closes at 20 tok/s**", 5-trit, FFN at probe-4
+granularity:
+
+| attention projections | per-layer active | **donor size that reaches 20 tok/s** |
+|---|---|---|
+| **full** (what conversion actually leaves) | 176.2 M | **~26 B** |
+| **low-ranked to 17.6% of bytes** | 51.7 M | **~88 B** |
+
+The second row is not invented. **The Inventor side-lab measured `x_proj` low-rank `r=26` beating the dense
+projection 3/3 seeds at 17.6% of the bytes** — on a projection, on this codebase, with controls. Applying
+that to `W_q`/`W_o` (which are 89% of the attention block: 67.1M each of 151M) is a **new lever, with
+in-house precedent, that this memo did not have this morning.**
+
+> **The path to a 100B-class donor at >20 tok/s runs through low-ranking the attention projections.**
+> Without it, the honest ceiling for this engine and this rate constant is a **~26B donor** — which is a
+> real, defensible target and considerably better than the 1.5B the affordability fork was pointing at.
+
+**Note carefully what row 1 does NOT say.** It does not say 26B is the limit of the *method*; it says it is
+the limit of the method *with attention projections left at full width*. Those are different claims and
+only the second is evidenced.
+
+#### What this changes on the board
+
+1. **A new probe exists: low-rank attention projections on a donor.** D1 measured static *sparsity* on
+   q/k/v/o as catastrophic — **low-rank is not sparsity**, and the one in-house datapoint on projections is
+   positive. This should be costed and pre-registered.
+2. **§2.2c's hybrid-ratio analysis is demoted**, not deleted: the ratio governs KV traffic and quality, not
+   the weight stream. It matters at long context and for retention; it is nearly irrelevant to bytes.
+3. **D5 becomes more load-bearing, not less.** Every corrected row above still doubles or better under
+   5-trit, and the ~26B and ~88B figures are both 5-trit figures.
+4. **The Owner's fork should be restated.** "1.5B demonstration vs 100B research question" was framed when
+   the budget appeared to close at 100B. The corrected arithmetic suggests a **~26B target closes on
+   evidenced levers**, which is a different and better third option than either arm of the original fork.
+   **That is a sealed-scope question and I am not deciding it — I am putting it up.**
 
 ### 2.3 What this says about the sealed constraints
 
