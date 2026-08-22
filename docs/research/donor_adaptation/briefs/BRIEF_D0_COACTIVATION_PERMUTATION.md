@@ -130,3 +130,79 @@ that fact rather than forcing it into a row.
   the result lands in — **or that it lands in none of them.**
 
 **A failed control is a STOP and a message to the Principal, not a line in a log.**
+
+---
+
+## AMENDMENT 1 — 2026-08-22, the Adapter / Principal
+
+**Appended, not edited in place.** The brief above stands as written. This changes what D0 is *for*, and
+adds one mandatory column, because the arithmetic underneath it turned out to be decisive.
+
+### A1.1 The identity that reframes this probe
+
+`ADAPTER_MEMO_01` §2.2d records the measured in-engine FFN cost (`ENGINE_PLAN.md:56`, E3 CLOSED):
+**gate 100% + up 21.5% + down 12.3% = 44.6% of FFN weight-bytes per token.** The gate is 100% because it
+**is** the predictor — you cannot know which entries of `h` are zero until you have computed `W_gate·x` in
+full.
+
+So with a dense gate, for an up/down block-skippable fraction `s`:
+
+```
+    FFN_active = ( 1.0 + (1−s) + (1−s) ) / 3  =  (3 − 2s) / 3
+```
+
+| `s` | FFN active |
+|---|---|
+| 0.282 *(D0b structureless ref, block 12)* | 81.2% |
+| 0.656 *(D0b structureless ref, block 4)* | 56.2% |
+| 0.785 / 0.877 *(what our engine already achieves on up / down)* | ~44.6% |
+| 0.950 | 36.7% |
+| **1.000 — skip ALL of up and down** | **33.3%** |
+
+Setting `FFN_active = 0.02` and solving gives **`s = 1.470`**. `s` cannot exceed 1.
+
+> **The 2% FFN target is unreachable for ANY block-skippable fraction, including a perfect one. The dense
+> gate alone is 33.3% and it is never skipped. So no result D0 can return — however good — delivers the
+> speed budget in the framing of §3 above.**
+
+That is not a reason to cancel D0. **It is a reason to stop treating D0's headline number as the answer
+and to be explicit about the question it actually settles.**
+
+### A1.2 What D0 is actually for
+
+The escape from the 33.3% floor is not a better skip — it is **removing the full-width gate matvec**, which
+means restructuring the donor's dense FFN into an **MoE**: a small router selects a few experts, and the
+unselected experts' weights are never read at all.
+
+> **D0's real question is therefore not "how much can we skip" but "does this donor's activation pattern
+> contain cluster structure strong enough to carve the FFN into experts" — i.e. is MoEfication viable on
+> this donor, without training.** The permutation arms measure exactly that; only the reporting was aimed
+> at the wrong target.
+
+This makes D0 **load-bearing for the whole FFN half of the programme**, not a granularity study. It goes out
+the moment D5 releases the machine. It is queued behind an instrument, not behind a priority.
+
+### A1.3 Mandatory additional reporting
+
+Everything in §3–§5 above still stands. **Add these, and do not report the skippable table without them:**
+
+1. **Translate every skippable fraction into `FFN_active = (3 − 2s)/3`, and print it beside `s`.** A row
+   that reads `s = 0.66` looks like a success; the same row reads `56.2% active` and is plainly not one.
+   **Report the number that moves the budget, not the number that flatters the method.**
+2. **The implied MoE geometry**, per layer, for each permutation arm: how many clusters, their size
+   distribution, how many would have to be activated per token to retain the measured active neurons, and
+   the resulting **expert-active fraction** — the MoE analogue of `FFN_active`, this time *without* a dense
+   gate, plus the router's own cost stated explicitly rather than assumed negligible.
+3. **The duplication cost, already mandated in §5, now becomes budget-relevant rather than diagnostic.**
+   If neurons must be replicated across experts to preserve behaviour, that inflates total weights and eats
+   directly into the byte budget the MoE was adopted to save. **Report duplication as a weight-inflation
+   multiplier, not only as a count.**
+
+### A1.4 Standing caution, unchanged
+
+The 44.6% figure was measured on **our own 8.3M model in our own engine**, not on a donor, and must not be
+quoted as a donor number. **The structural argument — the gate is unskippable because it is the
+predictor — is architecture-level and does transfer.** And the literature tally on co-activation clustering
+remains **one negative (Apple), one positive (Neuralink), unreconciled**, with my own earlier miscount of
+LLaMA-MoE already corrected in `STRUCTURED_SPARSITY_PRIOR_ART.md` §2. **This probe adjudicates an open
+question; it does not confirm a settled one.**
