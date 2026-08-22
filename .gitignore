@@ -111,3 +111,10 @@ kaggle_rung1/*
 
 # ── Internal-only docs (raw ideation / dev journals): kept private ──
 docs/research/LLM_Reimagined_CPU_Native_Exploration_20260626/
+# Owner-facing notes that must never leave this machine: decision memos written TO the repository
+# owner (not research output), where the owner has said explicitly that this class of document is
+# not to be pushed. Anchored per the ANCHORING RULE above -- this names a PLACE, not a type, so a
+# `docs/internal/` created two levels deep somewhere else stays visible to git as intended. The
+# convention: anything that goes here is read locally by the owner and stays off the remote; put
+# a note here, don't delete it, and don't improvise a judgement call next time one of these shows up.
+/docs/internal/
