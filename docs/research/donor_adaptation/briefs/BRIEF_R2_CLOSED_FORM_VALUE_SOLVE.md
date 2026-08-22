@@ -354,3 +354,92 @@ assumed negligible.
 
 Ten further checks requiring a real donor are listed at the end of the audit. They are not dismissed; they
 are queued behind the machine, like D0. **The pre-screen in A1.5 is the one that runs first.**
+
+---
+
+## AMENDMENT 2 — 2026-08-22, the Adapter / Principal
+
+**Appended, not edited in place.** After the Researcher's `ATTENTION_LINEARISATION_PRIOR_ART.md` §5.
+**This brief's opening premise is falsified and its endpoint is contradicted by the nearest prior work.**
+
+### A2.1 §0 of this brief is WRONG — the "CONFIRMED GAP" does not exist
+
+§0 opens: *"Every published linearisation method fits its feature map by gradient descent. **None
+publishes a closed-form solve**."* **That is false, and it was the premise the whole brief was built on.**
+
+**Two papers publish closed-form solves:**
+- **NBL (Neural Block Linearization)** — a closed-form **LMMSE** solve that replaces attention blocks.
+- **Taylor-Calibrate** — an **OLS solve on the value projection**, with `W_q`, `W_k` and `W_o` **copied
+  from the donor unchanged.**
+
+**Taylor-Calibrate is R2, very nearly.** The near-miss is documented in §5.3 and verified in §5.7.
+
+### A2.2 The commuting step is ANTICIPATED — published folklore
+
+§1.2's "the entire trick" is stated explicitly and verbatim in **Elhage et al. 2021**. It is well known.
+
+> **We may not claim it. Any writeup of this work must cite it as prior and present R2's contribution — if
+> any survives — as the specific construction, not the identity underneath it.**
+
+Nothing in the literature contradicts the step; the published statement of the identity **agrees** with
+the Controller's `5.3e-15` check and the `transformers` source reading. **The algebra is fine. The
+novelty claim was not.**
+
+### A2.3 ⚠ The counter-evidence, and it is aimed exactly at this brief's endpoint
+
+Taylor-Calibrate's own limitations section, verbatim:
+
+> *"Taylor-Calibrate improves the starting point, but **it does not remove the need for downstream
+> distillation**. The converted student still has a different sequence mixer from the teacher, so
+> **global training is needed to repair cross-layer interactions and adapt the residual stream** to the
+> new recurrent blocks."*
+
+**Their stated mechanism is not "the value solve is too weak."** It is **cross-layer interaction and
+residual-stream drift** — a failure mode that a **layer-local** objective cannot address **by
+construction**, at any rank, however well solved. §1.3 optimises a layer-local objective.
+
+**Weight this honestly, in both directions:**
+- It is an **assertion in a limitations section, not a measurement.** They did **not** run a full-rank
+  value-side solve and find it insufficient. `[A]`-grade evidence about a claim they did not test. **It is
+  not a refutation and must not be reported as one.**
+- **But it is the most informed prior available**, it comes from the team closest to our construction, and
+  it matches D4's in-house finding that layer-local reconstruction quality and end-to-end quality are
+  different questions.
+
+### A2.4 The design consequence, which is severe
+
+> **The pre-registered design in §3 cannot see this failure mode at all.** §3.4 measures layer-wise
+> reconstruction error only. **A high recovery fraction in pass 1 would NOT be evidence against the
+> paragraph above** — the two measure different things.
+
+And per the standing rule, a strong §3.2 result is the **flattering** outcome and therefore the one to
+scrutinise hardest. **So: no promotion of R2 on layer-wise evidence alone, at any recovery fraction.**
+An **end-to-end arm** — full converted model, held-out BPB, plus a recall-sensitive probe — becomes
+**mandatory before any promotion**, not a stage-2 nicety.
+
+### A2.5 The reframe I am adopting, and it is a better target than the one I set
+
+The Owner's (a) was stated as *conversion with **no training at all***. The nearest prior work says that
+endpoint is not reachable, and gives a mechanism. **But the same work reports the closed-form solve buying
+`4.9×–9.2×` fewer training tokens** than naive conversion `[A]` — abstract only; **their results tables
+were not transcribed and those numbers are inadmissible in a decision until they are.**
+
+> **So R2's realistic value is not "training-free conversion". It is a WARM START that makes donor
+> conversion affordable** — and on this project's budget that distinction may be the difference between
+> impossible and routine. `ADAPTER_MEMO_01` §2.2b priced MOHAWK-style conversion at **~10,250 T4-h at
+> 100B**, out by ~65×. **A 5–9× reduction moves that into the same order as the budget at a ~26B donor.**
+
+**I am not banking that arithmetic.** It multiplies two different methods' numbers, and the token-reduction
+figure is `[A]`. **It is a hypothesis to be costed properly, not a result.**
+
+### A2.6 What still stands, and what runs next
+
+- **The algebra stands** (Controller-verified, and now literature-corroborated).
+- **R2a, the principal-angle pre-screen, is unaffected and still the right next step.** It bounds the
+  *layer-local* ceiling, which is exactly the quantity Taylor-Calibrate's limitation says is not the whole
+  story — so it answers its question cleanly and cheaply, and its answer is now **necessary but not
+  sufficient**.
+- **New and required of the Researcher:** transcribe Taylor-Calibrate's actual results tables (§4.2, §4.3,
+  Appendix D.1). **The `4.9×–9.2×` and the `88×` are abstract-grade; the `88×` is explicitly "in a
+  representative ablation", i.e. one cell, not a headline.** Until those tables are read, **no cost claim
+  built on them may enter a decision.**
