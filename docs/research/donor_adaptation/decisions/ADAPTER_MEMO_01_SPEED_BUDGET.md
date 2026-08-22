@@ -148,6 +148,98 @@ retention was measured on Phi-1.5, not on a 100B donor or on a ternary/sparsifie
 MOHAWK's frozen-MLP trick composes with the activation-sparsity route of §3c is completely untested — both
 modify the FFN's role, and this project has repeatedly measured that sequential stages do not compose.
 
+### 2.2c ⚠ AMENDMENT (2026-08-22) — the 5% attention budget is BELOW every ratio the literature has measured
+
+The Researcher's `ATTENTION_LINEARISATION_PRIOR_ART.md` came back, and it moves the §2.2 arithmetic.
+**§2.2's worked target is 4 of 80 layers = 5%. No published work has measured a donor-converted hybrid
+below 12.5%.** Mamba-in-the-Llama's lowest tested ratio is 12.5% `[T]`, and the reported degradation at
+that point is **still worsening, not plateauing.** Zoology reports a hybrid working at 6.3%, but that
+model is **trained from scratch, not converted from a donor** — a different construction, and not
+evidence for our case.
+
+> **So §2.2 did not derive 5% from evidence. It derived 5% from the speed budget and then assumed the
+> quality side would follow.** That is the same shape of error as the D1 bracket collapse: a number that
+> came out of one constraint, presented as though both constraints agreed on it. Correcting it.
+
+**Re-costing at the ratio the literature actually supports.** Same geometry, same 0.5 B/weight, same
+21.25 GB/s (still carrying its §2.1 caveat, and D5 has not yet discharged it):
+
+| attention layers | share | active | bytes/token | **tok/s** |
+|---|---|---|---|---|
+| 4 / 80 | 5.0% | 1.73 B | 0.866 GB | **24.5** ← §2.2's target, *unvalidated ratio* |
+| 6 / 80 | 7.5% | 2.03 B | 1.017 GB | **20.9** |
+| 7 / 80 | 8.8% | 2.19 B | 1.093 GB | **19.5** |
+| **10 / 80** | **12.5%** | **2.64 B** | **1.319 GB** | **16.1** ← *lowest ratio anyone has measured* |
+| 20 / 80 | 25.0% | 4.15 B | 2.074 GB | 10.2 |
+
+Solving for the constraint directly: **">20 tok/s" requires attention on ≤ 8.3% of layers** (≤6.6 of 80),
+because the FFN half already consumes 1.128 B of the 2.125 B active budget that 20 tok/s allows.
+
+> **The budget does not close at any ratio the literature has validated.** At 12.5% we get 16.1 tok/s.
+> To reach the Owner's target we must go **~1.5× below the lowest measured point, along a curve that was
+> still getting worse when the measurements stopped.**
+
+#### The consequence nobody had noticed: this makes D5 load-bearing, not a side question
+
+§2.4 raised 5-trit packing (1.6 bits/weight instead of 4) as a possible 2.5× at donor scale, conditional
+on the path being bandwidth-bound. Re-run the same table under that packing:
+
+| attention layers | share | 4-bit / 2-trit | **1.6-bit / 5-trit** |
+|---|---|---|---|
+| 4 / 80 | 5.0% | 24.5 | 61.3 |
+| 6 / 80 | 7.5% | 20.9 | 52.2 |
+| **10 / 80** | **12.5%** | **16.1** | **40.3** |
+| 20 / 80 | 25.0% | 10.2 | 25.6 |
+
+> **If 5-trit packing holds at donor width, the target closes at 12.5% — the ratio the literature has
+> actually measured — with 40 tok/s and no extrapolation at all. It even closes at 25%.**
+> **If it does not hold, we must push attention below every published data point.**
+
+**This is a reframe of what D5 is for.** I dispatched D5 as a packing-efficiency question. It is not. It
+is the question of **whether this programme has to out-perform the published literature on hybrid ratio,
+or merely match it.** That is a different order of risk, and it is now the most decision-relevant open
+measurement we have. D5's control-1 failure is therefore blocking more than a footnote.
+
+#### Method costs, restated with the new evidence
+
+Marked as **my** derivations. Conversion assumption: fp16 dense tensor-core peak, T4 65 / A100 312 /
+H100 495 TFLOPS, **at equal MFU** — optimistic, since larger GPUs typically achieve better MFU, so these
+T4-hour figures are if anything too low.
+
+| method | quality retention | cost, my est. at 100B | passes S4 (≥90%)? |
+|---|---|---|---|
+| MOHAWK | 62.6 vs 64.9 = **96.5%** `[T, Table 1]` | ~10,250 T4-h (~114 wk) | **yes** |
+| LoLCATs | **~83%** — gap of 10.8–11.2 MMLU points `[T]` | ~416–853 T4-h (~5–9 wk) | **NO** |
+| **R2 closed-form** | **unknown** | **~0 — no training** | to be measured |
+
+Two things to flag rather than smooth over:
+
+1. **LoLCATs' quality gap does not shrink with scale.** 10.8–11.2 MMLU points **at every scale measured**.
+   That is not a small-model artefact that a bigger donor fixes — it is the method's ceiling, and it sits
+   below the sealed S4 constraint. **The cheap published method is disqualified on quality, not on cost.**
+2. **My two LoLCATs anchors disagree.** Scaling 6.5 A100-h @ 7.5B linearly in N gives ~416 T4-h at 100B;
+   scaling 454 H100-h @ 405B gives ~853. **A 2× disagreement means the cost is not linear in N** — token
+   budget or adapter rank is growing with model size. I am reporting the range, not picking the flattering
+   end. Neither number may be quoted as *the* cost.
+
+#### What this does to the fork in §2.2b
+
+The fork was: (1) closed-form conversion, (2) accept a smaller donor, (3) keep more attention and lose
+speed. The Owner adjudicated **(2) as the deliverable and (1) as the research question, in parallel**,
+and stated (1) is the priority.
+
+**This amendment sharpens why that was the right call, and adds a fourth term the fork did not have.**
+Option (3) — "keep more attention and lose speed" — was priced at 10.2 tok/s at 25% and looked like a
+clear loss. **Under 5-trit packing it is 25.6 tok/s and clears the target.** So the fork is no longer
+purely between conversion quality and speed; **packing efficiency is a third axis that can buy back the
+quality budget**, and it costs no training at all. It is the cheapest lever on the board *if* D5 says it
+exists.
+
+**What is NOT established:** the 12.5% floor is the *lowest measured*, not a demonstrated floor — nobody
+has shown 5% fails, only that nobody has shown it works. The 5-trit rows are all conditional on D5, whose
+control has not yet passed. And R2's quality column is genuinely unknown; the pre-registered thresholds in
+`BRIEF_R2_CLOSED_FORM_VALUE_SOLVE.md` §3.2 exist so that it cannot be quietly filled in with a hope.
+
 ### 2.3 What this says about the sealed constraints
 
 - **S3 ("attention on a minority of layers") is now quantified and it is far more demanding than
