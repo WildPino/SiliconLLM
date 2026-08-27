@@ -22,8 +22,15 @@ Read this block before anything else.
 | §2.2e — the extrapolation ledger | ledger **stands**; its ✅ rows withdrawn by §2.2f; its "probe-4 granularity at donor width" reframe **withdrawn by §2.2g** |
 | **§2.2f — conversion does not remove a layer's weights; KV accounting** | **CURRENT. Start here.** |
 | **§2.2g — `h=128` is not scale-free; probe-4 never entered our regime** | **CURRENT.** Also: probe-4's own result is underpowered and missing its key control |
+| **§2.2h — the low-rank lever is not established** | **CURRENT.** Withdraws §2.2f's `~88B` row; flags that its `~26B` row rests on a transplant too |
+| §2.4 — 5-trit packing | **its central assumption was tested by D5 and did not hold.** See the banner on that section |
 | §3a — healing must happen in the consuming layer | stands, **but** see `BRIEF_R2` Amendment A1.5: applying it to R2 was pattern-matching |
 | §3c, §3d | stand |
+
+**Every size target in this memo is currently withdrawn or unaudited.** §2.2f's two rows are the last ones
+standing and **both rest on transplants** — one caught by §2.2g, one by §2.2h. **No donor-size figure here
+may be quoted until the D5 audit reports and the arithmetic is redone on a verified rate constant.**
+
 
 **The one-line state of the programme:** the weight-stream budget is governed by `L × 151M` of attention
 projections that conversion does not remove; the FFN half requires MoE restructuring, not activation
@@ -664,6 +671,64 @@ the fat end.
 > **So the FFN half is a measurable unknown rather than a wall — but it is 32× beyond the only point
 > anyone has measured, and that point is itself underpowered and missing its key control.**
 
+### 2.2h ⚠ (2026-08-23) — the low-rank lever is NOT ESTABLISHED, so §2.2f's `~88B` row is withdrawn
+
+§2.2f solved the corrected budget backwards and offered two rows: `~26B` with attention projections intact,
+`~88B` with them "low-ranked to 17.6% of bytes". **I sent that second row to the Researcher to check before
+building a plan on it. It does not survive.**
+
+**No size figures are recomputed here.** The rate constant is under audit (§2.1 banner) and 5-trit is dead
+(§2.4 banner), so any number I wrote today would be a third transplant. This section withdraws a lever; it
+does not replace an arithmetic.
+
+#### What the literature actually supports
+
+| finding | grade |
+|---|---|
+| **`W_o` is unexamined by every per-matrix analysis found.** That is *half the lever* — `W_q` and `W_o` are 67.1 M each of the 151 M block | **`[X]`** |
+| Direction supported *qualitatively* — ASVD reports q/k most compressible, MLP least | `[A]` |
+| **No per-matrix compression ratio is published anywhere.** Both papers give figures, not numbers | **`[X]`** |
+| SVD-LLM's training-free variant, downstream average at 0/20/40/60/80% compression: **`0.57 → 0.49 → 0.38 → 0.11 → 0.04`** | `[T]` |
+| **Low-rank does NOT compose with quantisation.** ASVD Table 4, ptb at 0.85 + NF4: **`59.84 → 427.59`** | `[T]` |
+
+SVD-LLM's own authors state their method should be *"comparable to quantization … rather than being
+combined with"* it. **We would be doing both.**
+
+> **The `~88B` row asked for ~82% compression of `W_q`/`W_o` and then ternarisation on top. The only
+> training-free datapoint in the literature has downstream quality at `0.11` by 60% compression, and the
+> one paper that measured the composition found it catastrophic.**
+
+#### Three errors in my own framing, returned with the verdict
+
+1. **My "17.6%" was a BYTES fraction; the in-house precedent is a RANK fraction.** At `d=8192`, 17.6% of
+   bytes is `r ≈ 721`, i.e. `r/d ≈ 8.8%` — a **~5× more generous rank budget** than the Inventor's `r=26`.
+   I carried a number across a change of unit without noticing. *(The unit-choice law, again.)*
+2. **The `~26B` row is not safe either.** It transplants probe-4's FFN granularity in exactly the way
+   §2.2g withdrew. **Both rows of that table rest on transplants; only one had been caught.**
+3. **A two-row table made a continuous lever look binary.** Partial compression is a real option and sits
+   at a size between the two rows — the table hid that by presenting only the endpoints.
+
+#### The one constructive thing, and it is genuinely useful
+
+> **Low-rank cuts MACs *and* bytes. Ternary packing cuts bytes only.** That is exactly why they diverge on
+> a compute-bound path: if D5's finding survives audit, **byte-only levers are dead and work-reducing
+> levers are all that remain** — which puts low-rank, MoE and activation sparsity in one class and 5-trit
+> packing in another.
+
+**So low-rank is not dead as a direction. It is unevidenced at the magnitude I claimed, unmeasured on half
+its target, and unsafe in combination with the quantisation we require.** Those are three separate things
+to fix, and none of them is fixed by wanting the row to be true.
+
+#### A reporting rule that now binds this whole programme
+
+Across LoLCATs and Taylor-Calibrate the same shape recurs: **an MMLU-sized hole that macro-averaging
+hides.** LoLCATs, `−11` MMLU. Taylor-Calibrate, `−4.5 to −10.9` MMLU **while its `Avg` recovers to within
+`1.2` of the teacher.**
+
+> **The sealed success criterion for this programme is general-purpose retention. MMLU may therefore never
+> be reported inside an average — in any probe, at any stage, by any agent.** A converted model that holds
+> its average while losing ten points of MMLU has failed S4 and would pass an averaged gate.
+
 ### 2.3 What this says about the sealed constraints
 
 - **S3 ("attention on a minority of layers") is now quantified and it is far more demanding than
@@ -677,6 +742,29 @@ the fat end.
 ---
 
 ## 2.4 "Va rifatta la lookuptable" — the packing question, and why it may reverse at donor scale
+
+> ### ⚠ D5 TESTED THIS SECTION'S CENTRAL ASSUMPTION AND IT DID NOT HOLD (2026-08-22, pending audit)
+>
+> This section's whole case rests on one sentence below: *"a path that streams tens of gigabytes per second
+> from main memory is **bandwidth-bound almost by definition**."* **That was an assumption written as a
+> deduction, and D5 was commissioned to test it.**
+>
+> **It measured the opposite.** At donor width the ternary path stays **compute-bound**, on two
+> independent signatures — the fp32/ternary byte-rate ratio rising to **3.412** at `D=8192`, and fp32's
+> thread-scaling saturating at ~1.5–1.6× (the DRAM-ceiling signature) while ternary scales 2.4–4.8×.
+> Exceeding L3 forces the data to come from DRAM; **it does not make the kernel bandwidth-bound.** Those
+> are different claims and this section conflated them.
+>
+> **Consequence: 5-trit packing does not pay.** It removes bytes without removing trits to process, so on
+> a compute-bound path it buys footprint, not speed — **the same verdict this section already recorded at
+> `D=1536`, which turns out not to reverse at donor scale after all.**
+>
+> **Note what this does NOT kill:** MoE and activation sparsity remove *work* as well as bytes, so they
+> survive a compute-bound path intact. The distinction is the useful part of this finding.
+>
+> **The Controller's audit of D5 is in progress. Until it reports, treat this box as the Builder's
+> reported result, not as settled fact — and treat the section below it as superseded either way.**
+
 
 The Owner's mandate names the lookup table explicitly as a thing that may need redoing. It has a concrete
 arithmetic behind it that has not been written down in this programme.
