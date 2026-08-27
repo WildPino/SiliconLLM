@@ -95,17 +95,21 @@ function of the kernel's shape and not a property of the DRAM. **This must be re
 projection widths before any tok/s figure derived from it is quoted to the Owner.** Until then every
 number in this table carries that caveat. → **queued as brief D5.**
 
-> ### ⚠ 2026-08-22 evening — the D5 sweep has COMPLETED and this constant is under revision
+> ### ⚠ 2026-08-23 — the constant is under revision; the ACCOMPANYING claim is BLOCKED
 >
-> D5 ran to completion with all four planted controls PASSing. **Its early reading indicates the
-> 21.25 GB/s does NOT transfer to donor width, and that the donor-width ternary path may be compute-bound
-> rather than bandwidth-bound.** If that survives audit, two things follow: every tok/s figure in this
-> memo moves, and **the 5-trit packing lever of §2.4 does not pay**, because bytes would not be the binding
-> constraint.
+> D5 ran to completion. **Claim 1 — that this constant does not transfer to donor width — SURVIVED audit
+> with flags**: the like-for-like engine-integrated point at `D=8192`, `L=28`, mean estimator, is
+> **10.38 GB/s** against control 1's **22.07**. The Controller confirms the comparison is genuinely
+> integrated-to-integrated and that direction and rough magnitude are safe. It should be quoted as
+> **"roughly 2×"**, not `2.13×` — `n=1` at the donor end against `n=14` at the reference end.
 >
-> **No number from that run may be quoted until the Builder has written it up and the Controller has
-> audited it.** I have deliberately not banked the figures here. **Treat every tok/s in this document as
-> provisional until this banner is removed.**
+> **Claim 2 — "the path is compute-bound, therefore 5-trit does not pay" — is BLOCKED and may be
+> backwards.** See the banner on §2.4.
+>
+> **Consequence for this memo: every tok/s figure in it is still provisional**, and now for a sharper
+> reason than yesterday — the rate constant is roughly halved at donor width **and** the bytes-per-weight
+> term may yet fall 2.5× if the packing lever turns out to be live. Those pull in opposite directions and
+> **neither may be applied until the discriminating measurement reports.**
 
 ### 2.2 Where the 2% has to come from — the part nobody had allocated
 
@@ -743,28 +747,40 @@ hides.** LoLCATs, `−11` MMLU. Taylor-Calibrate, `−4.5 to −10.9` MMLU **whi
 
 ## 2.4 "Va rifatta la lookuptable" — the packing question, and why it may reverse at donor scale
 
-> ### ⚠ D5 TESTED THIS SECTION'S CENTRAL ASSUMPTION AND IT DID NOT HOLD (2026-08-22, pending audit)
+> ### ⚠⚠ 2026-08-23 — THE PREVIOUS BANNER HERE WAS WRONG. D5's conclusion is BLOCKED and may be BACKWARDS.
 >
-> This section's whole case rests on one sentence below: *"a path that streams tens of gigabytes per second
-> from main memory is **bandwidth-bound almost by definition**."* **That was an assumption written as a
-> deduction, and D5 was commissioned to test it.**
+> Yesterday I stamped this section saying D5 had tested its central assumption and found it false, and that
+> **5-trit packing does not pay**. **The Controller has since BLOCKED that conclusion, and the argument
+> against it is one I cannot answer.**
 >
-> **It measured the opposite.** At donor width the ternary path stays **compute-bound**, on two
-> independent signatures — the fp32/ternary byte-rate ratio rising to **3.412** at `D=8192`, and fp32's
-> thread-scaling saturating at ~1.5–1.6× (the DRAM-ceiling signature) while ternary scales 2.4–4.8×.
-> Exceeding L3 forces the data to come from DRAM; **it does not make the kernel bandwidth-bound.** Those
-> are different claims and this section conflated them.
+> `matvec_lut_full` executes a **fixed instruction sequence per byte of `codes`** — bytes-per-instruction is
+> a compile-time constant, independent of `M`, `K`, `Mpad`, `T`. **So a compute-bound version of that kernel
+> must deliver shape-invariant GB/s.** The measured spread, all points streamed past L3 at `t6`, is
+> **8.92 → 29.23 GB/s — 3.28×.** That variation lives in the memory hierarchy, not the ALU.
 >
-> **Consequence: 5-trit packing does not pay.** It removes bytes without removing trits to process, so on
-> a compute-bound path it buys footprint, not speed — **the same verdict this section already recorded at
-> `D=1536`, which turns out not to reverse at donor scale after all.**
+> The "29–33% of ceiling at every `D`" figure was computed only over the gate/up-shaped sweep. **The log's
+> own `k/v` row — a real donor organ at donor width, fully past L3 — runs at 76% of the fp32 ceiling.** The
+> true range is **23–76%**, and the fast row was quoted elsewhere in the write-up but never carried into the
+> ceiling arithmetic.
 >
-> **Note what this does NOT kill:** MoE and activation sparsity remove *work* as well as bytes, so they
-> survive a compute-bound path intact. The distinction is the useful part of this finding.
+> **The Controller's hypothesis, if it holds, inverts the verdict:** the kernel reads 32 bytes of every
+> 64-byte line at stride `Mpad`, the other half consumed a full `EB`-pass later — so DRAM moves ~2×`EB` for
+> non-resident blocks **while the harness always charges `EB`**, and the fp32 arm reads sequentially at 100%
+> line utilisation. Corrected, ternary's real DRAM byte rate is **flat at ~21–23 GB/s across a 28×
+> block-size range** while its useful-work rate halves — **the signature of a traffic-limited kernel, in
+> which case 5-trit packing is exactly the right lever.**
 >
-> **The Controller's audit of D5 is in progress. Until it reports, treat this box as the Builder's
-> reported result, not as settled fact — and treat the section below it as superseded either way.**
-
+> **So this section is NOT withdrawn.** Its assumption is untested, not falsified. A discriminating
+> measurement is running (`Mpad` sweep at fixed `T` and fixed pool: compute-bound ⇒ flat GB/s).
+>
+> **One real constraint the packing lever carries regardless of the outcome, and which was never priced:**
+> **5 trits/byte has no 4-bit index, so it cannot use the `pshufb` LUT at all.** Whatever the bound turns
+> out to be, that is an implementation cost on this lever.
+>
+> **Recorded against myself:** I sent the Builder my reading and the conclusion I expected before it wrote
+> the analysis. That is a methodological error, and every defect the Controller found pushes the same
+> direction — the flattering direction here being *tidiness*, a negative result that closed an expensive
+> question cheaply.
 
 The Owner's mandate names the lookup table explicitly as a thing that may need redoing. It has a concrete
 arithmetic behind it that has not been written down in this programme.
