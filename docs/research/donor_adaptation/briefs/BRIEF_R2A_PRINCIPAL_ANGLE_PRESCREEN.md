@@ -128,3 +128,71 @@ project would far rather spend a few SVDs learning that than a Builder's week di
 > An instrument must **fire on a known positive** before its nulls mean anything.
 > A result that **flatters** the hypothesis earns more scrutiny, not less.
 > **Nothing here may be reported until C1 fires and the `T > D` refusal is demonstrated working.**
+
+---
+
+## AMENDMENT 1 — 2026-08-23, the Adapter / Principal
+
+**Appended, not edited in place.** The Researcher's `ATTENTION_LINEARISATION_PRIOR_ART.md` §5 has changed
+what this probe should sweep. **One arm is added. Nothing already registered is removed or reweighted.**
+
+### A1.1 Why — the effort is on the wrong side of the operator
+
+Taylor-Calibrate (2606.16429) is the nearest published relative of R2. Three things about it, all read
+from the paper:
+
+1. **It has a closed-form value-side solve** — Appendix A.5, *"Closed-Form Value-Side OLS Rescaling"*, with
+   `W_q`/`W_k`/`W_o` frozen, exactly our setup. **But it is one scalar per head**, and the authors scope it
+   themselves: *"it only matches output amplitude."*
+2. **Their own ablation prices it at zero.** Zero-Gate `22469.0` vs Taylor-Only `22470.6` `[T]` — the
+   closed-form calibration alone is worth nothing, while gradient alignment alone is worth 18.5×.
+3. **They have no feature map at all.** The student is **Gated DeltaNet**: per-head-normalised `q`/`k`, a
+   learned decay `exp(g_t)`, and a delta-rule erase term. **Three of their four calibrated quantities
+   shape the MIXING; only one touches the value path.**
+
+> **All four feature maps registered in §2 of this brief are memoryless — none carries decay, none carries
+> a window.** And this probe's first signal is that `elu(x)+1` lands **at or below the causal-uniform
+> floor**. Those two facts fit together: **a memoryless kernel applied to the donor's own `W_q`/`W_k`
+> reproduces roughly what uniform-over-prefix already gives for free.**
+
+**The structure the published methods rely on lives in the mixing, not in the value projection.** R2 as
+derived optimises the value side, which is the term the one paper that measured it found worth nothing.
+
+### A1.2 The added arm — a mixing that carries decay
+
+**Add a fifth `A_lin` construction: an exponentially-decaying causal kernel**, i.e.
+`A[t,s] ∝ γ^(t−s) · k(q_t, k_s)` on the donor's own `W_q`/`W_k`, swept over a small set of `γ`
+(state which, and report `γ` as ACHIEVED). Use the same normalisation, the same `T/D`, the same layers and
+the same heads as every other arm — **the comparison is void otherwise.**
+
+**Optional second variant if it is cheap given what you have already built:** a sliding-window causal
+kernel, as the crude version of the same idea. If it is not cheap, skip it and say so; the decay arm is
+the one that matters.
+
+**This is a pre-screen, so what is being asked is narrow and answerable:** does the residual
+`||W_v^donor Z*(I − P_Z)||_F / ||W_v^donor Z*||_F` **drop materially when the mixing carries decay**,
+holding everything else fixed?
+
+- **If it drops sharply**, the structure lives in the temporal envelope, not in the content kernel, and
+  that localises where any future effort belongs. **That is a real finding and worth more than a verdict
+  on R2.**
+- **If it does not drop**, then the layer-local ceiling is bad for memoryless *and* decaying mixings, and
+  **R2's line closes on evidence rather than on argument.**
+
+### A1.3 What does NOT change
+
+Every control stands: **C1 identity** (exactly 0, and labelled the tautology it is), **C6 causal-uniform**
+(the free floor — the decay arm must beat it or it has shown nothing), **C5′ wrong-sequence**, **C4
+wrong-layer**. The `T > D` refusal stands and must be demonstrated firing. The entropy stratification
+stands and is now **more** important, not less: a decay kernel is exactly the kind of thing that could
+look good on bulk rows while destroying the peaked, retrieval-like rows.
+
+### A1.4 A reporting rule this brief now inherits
+
+Across both LoLCATs and Taylor-Calibrate the Researcher found the same shape: **an MMLU-sized hole that
+macro-averaging hides** — LoLCATs `−11` MMLU; Taylor-Calibrate `−4.5 to −10.9` MMLU while its `Avg`
+recovers to within `1.2` of the teacher.
+
+> **The sealed success criterion for this programme is general-purpose retention. MMLU therefore may never
+> be reported inside an average, here or in any downstream stage of this line.** Stated once, applies
+> everywhere.
