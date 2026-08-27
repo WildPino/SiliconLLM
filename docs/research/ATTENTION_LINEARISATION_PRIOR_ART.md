@@ -852,3 +852,976 @@ partially true for quality, since the wall-solving mechanism is exactly what cap
    cost" and the single most expensive method found, in absolute 2×T4-hours.
 
 
+
+---
+
+# §5 — Novelty check on the R2 construction (the V-side closed-form solve)
+
+**Researcher pass, 2026-08-22.** Answers the narrow question posed by `BRIEF_R2_CLOSED_FORM_VALUE_SOLVE.md`
+§4.3 and Amendment 1: **has anyone published this specific construction** — fixed feature map `φ`, donor
+`W_q`/`W_k` reused unchanged, `W_v` solved in closed form against the donor's own attention outputs?
+
+**This section is written incrementally and was begun after one session-limit kill. Anything marked
+`[PENDING]` was not reached.**
+
+## 5.0 Headline, stated plainly and in the three-way vocabulary the brief asked for
+
+| sub-question | verdict |
+|---|---|
+| **(i) Is the commuting step (§1.2) novel?** | **ANTICIPATED — it is published, explicitly, and it is folklore.** Elhage et al. 2021. Citation and verbatim quote in §5.1. |
+| **(ii) Has anyone solved `W_v` in closed form against the donor's attention outputs?** | **ABSENT for the full matrix solve. ADJACENT twice, and one of the adjacents is closer than anything §4(b) found.** See §5.2, §5.3. |
+| **(iii) Does any linearisation paper solve *any* parameter in closed form?** | **NO LONGER ABSENT — §7's "no closed-form solve exists at all" is now falsified.** Two papers do. See §5.2, §5.3. |
+| **(iv) Does any paper consider and reject solving `W_v`?** | **`[X]` NOT FOUND — closed in §5.9.** No paper argues against it. LoLCATs is the nearest miss: it *freezes* `W_v` by explicit design choice, and states a reason that is about training cost, not about the solve. |
+| **(vi) Which feature map does Taylor-Calibrate use? (asked 2026-08-22 after R2a's signal)** | **NONE — it has no `φ`.** The Taylor expansion is an analysis lens for deriving calibration constants; the student is a **gated delta-rule recurrence (GDN)** with per-head-normalised `q`/`k` and a learned decay. **§5.10 — and it reframes the line: three of their four calibrated quantities shape the MIXING, only one touches the value path.** |
+| **(v) Is the commuting step wrong or narrower than stated?** | **No contrary evidence found.** Nothing located contradicts the Controller's `5.3e-15` numerical check or the `transformers` 4.57.6 source reading. The literature's own statement of the identity (§5.1) *agrees* with it. |
+
+> **The one-line answer to the Adapter's three-way question: the commuting observation is published
+> folklore, the full closed-form `W_v` solve is not anticipated, and nothing contradicts the algebra.**
+
+## 5.1 The commuting observation is stated explicitly, in a widely-read source, in 2021 — [T, verbatim]
+
+**Source:** Elhage, Nanda, Olsson, Henighan, Joseph, Mann, Askell, Bai, Chen, Conerly, DasSarma, Drain,
+Ganguli, Hatfield-Dodds, Hernandez, Jones, Kernion, Lovitt, Ndousse, Amodei, Brown, Clark, Kaplan,
+McCandlish, Olah — **"A Mathematical Framework for Transformer Circuits"**, Anthropic, *Transformer
+Circuits Thread*, December 2021. `https://transformer-circuits.pub/2021/framework/index.html`
+
+Retrieved and read from the page's own HTML source (not a summary), in the tensor-product derivation of
+the attention head. **Verbatim, in the page's own LaTeX:**
+
+```
+h(x)  =  (Id ⊗ W_O) · (A ⊗ Id) · (Id ⊗ W_V) · x
+```
+
+with the page's own figure captions on each factor, verbatim:
+
+- `(Id ⊗ W_V)` — *"Compute value vector for each token* `(v_i = W_V x_i)`*"*
+- `(A ⊗ Id)` — *"Mix value vectors **across** tokens to compute result vectors* `(r_i = Σ_j A_{i,j} v_j)`*"*
+- `(Id ⊗ W_O)` — *"Project result vectors out for each token* `(h(x)_i = W_O r_i)`*"*
+
+and then, verbatim: *"Applying the mixed product property and collapsing identities yields:"*
+
+```
+h(x)  =  (A ⊗ W_O W_V) · x
+```
+
+caption, verbatim: *"`A` mixes across tokens while `W_O W_V` acts on each vector independently."*
+
+**And the commuting claim itself, stated in as many words**, from the paper's tensor/Kronecker notation
+explanation, **verbatim:**
+
+> *"A product like `A ⊗ W` multiplies the vector at each position by `W` and across positions with `A`.
+> **It doesn't matter which order you do this in.**"*
+
+together with the mixed-product property, also stated verbatim on the same page:
+`(A ⊗ B) · (C ⊗ D) = (AC) ⊗ (BD)`, and the equivalent form `(A ⊗ W) x = A x Wᵀ`.
+
+> **That sentence is exactly §1.2 of the brief.** The mixing acts on the token index, `W_v` acts on the
+> channel index, the two indices are independent, so the order is free. The brief's
+> `out_t = W_v · (Σ_s A[t,s] x_s)` is the `A ⊗ W_V` identity read right-to-left.
+
+### What this does and does not cost us
+
+- **It costs the novelty of the observation.** The commuting step must be **cited, not claimed**. It is
+  five years old, it is in one of the most-read papers in mechanistic interpretability, and the brief's
+  framing of it as *"the entire trick"* would not survive a reviewer who knows this page. The
+  mixed-product property it rests on is standard multilinear algebra.
+- **It costs nothing of the algebra.** Elhage et al. state the identity and use it for *interpretation*
+  (path expansion, `W_OV` circuits, virtual heads, "attention is a generalisation of convolution").
+  **They never solve for `W_V`, never fit anything, never substitute a different `A`, and never touch
+  calibration data.** They factor a fixed model; R2 re-fits a matrix under a *changed* `A`. The identity
+  is the shared premise, not a shared method.
+- **It is, if anything, corroboration.** The Controller verified the step numerically at `5.3e-15` and
+  against `transformers` 4.57.6 source. The literature states the same thing symbolically. **Two
+  independent confirmations of the same step from different directions.** Nothing found this pass
+  narrows it or contradicts it. Specifically: no source found claims RoPE, RMSNorm, masking, the softmax
+  denominator or GQA breaks it — and Elhage's derivation is for a plain head, so it does not *by itself*
+  cover those; **the `transformers`-source check remains the load-bearing evidence for the modern
+  architecture, and the literature only covers the idealised case.** That asymmetry is worth keeping in
+  view: the published statement is weaker than the Controller's check, not stronger.
+
+> **Recording the general point, because this project has been burned in the other direction:** the brief
+> called §1.2 *"the entire trick, and it is why the problem is closed-form."* That is true of the
+> *problem structure* and false as a claim of *originality*. **The novelty, if any, lives in §1.3 —
+> solving `W_v` against a substituted `A` — not in §1.2.**
+
+## 5.2 ADJACENT #1 — Neural Block Linearization (NBL): a closed-form LMMSE solve that replaces attention
+
+**Source:** *"Efficient Large Language Model Inference with Neural Block Linearization"*, arXiv:2505.21077
+(v2 read, arXiv HTML).
+
+**This falsifies §7's blanket statement that no closed-form solve exists in this literature.** One does.
+
+### Mechanism [T, Proposition 3.1 + Eq. 2]
+
+For the `k`-th attention layer, take calibration inputs `X_k` and the layer's own outputs `Y_k`, and
+replace the entire block with the **Linear Minimum Mean Squared Error** estimator:
+
+```
+Ŷ = W X + b                                     (Eq. 2)
+W = C_YX · C_XX^{-1} ,   b = E[Y] − W·E[X]      (Proposition 3.1)
+```
+
+`C_XX` = input covariance, `C_YX` = output/input cross-covariance. **That is a normal equation on
+calibration statistics: closed-form, no gradient descent, no fine-tuning.** Layer selection is by a
+Canonical-Correlation-Analysis upper bound on the approximation error `[A]`.
+
+### How it differs from R2 — and the difference is the whole point
+
+| | NBL | R2 |
+|---|---|---|
+| what is replaced | **the entire attention block** | the softmax mixing only |
+| what survives | **nothing** — `W_q`,`W_k`,`W_v`,`W_o` all discarded | `W_q`,`W_k`,`W_o` reused; `W_v` re-solved |
+| replacement operator | a **token-wise linear map** `Ŷ_t = W x_t + b` — **no mixing across tokens at all** | a linear-attention recurrence — mixing retained, `O(1)` state |
+| what is solved for | the replacement map `W` | the *value projection* under a substituted mixing |
+| sequence dependence | **removed entirely** | retained, in recurrent form |
+
+> **NBL deletes the token mixing; R2 substitutes it.** An NBL-converted layer cannot move information
+> between positions at all — it is the `Id ⊗ W` term in Elhage's decomposition with the `A ⊗ …` term
+> thrown away. That is why NBL is applied only to **a minority of blocks** and is reported as a
+> speed/sparsity method, not as a linearisation method.
+
+### Results [T?, Table 1 — transcribed as read, flagged]
+
+| Method | Sparsity | Avg Score | Prefill | Throughput |
+|---|---|---|---|---|
+| Baseline | 0% | 70.2 | 1.00 | 1.00 |
+| Attn NBL-8 | 2.9% | 70.0 | 1.17 | 1.20 |
+| Attn NBL-12 | 4.3% | 68.3 | 1.28 | 1.27 |
+| Attn DROP-8 | 4.8% | 69.4 | 1.18 | 1.22 |
+
+> **⚠ Transcription caveat, stated because the project's rule demands it.** These cells came back through
+> a single fetch of the arXiv HTML and **were not re-verified against the raw table markup in a second
+> independent pass.** The model identity (reported as Mistral-7B) and the column semantics (a "sparsity"
+> of 2.9% for 8 replaced attention blocks) are **not** independently confirmed. Treat the table as
+> `[T?]`. **The load-bearing finding of §5.2 is the mechanism, which is `[T, Proposition 3.1]` and does
+> not depend on these numbers.**
+
+**The decision-relevant reading, independent of the numbers:** the closest published closed-form
+conversion of attention **had to throw away the token mixing to get its closed form**. NBL is evidence
+that the *solve-in-closed-form-against-calibration-outputs* move is established and publishable in this
+exact setting — which lowers the novelty bar R2 clears and raises the prior that the move is sane.
+**It is not evidence that R2's harder version works.**
+
+## 5.3 ADJACENT #2 — Taylor-Calibrate: an OLS solve on the value projection, with `W_q`/`W_k`/`W_o` copied unchanged
+
+**This is the closest match found to R2, and it is close enough that the Adapter needs to read it.**
+
+**Source:** Zhou, Wu, Wang, Mishra, Song, Athiwaratkun, Xu — *"Taylor-Calibrate: Principled Initialization
+for Hybrid Linear Attention Distillation"*, arXiv:2606.16429v1 (June 2026), arXiv HTML.
+
+### What it does [T, Eq. 8/9/36/42 as read]
+
+Converts a pretrained Transformer to a **hybrid Gated DeltaNet** student. **Phase 1 is analytical and
+training-free**, setting four GDN parameter groups from teacher attention statistics; **Phase 2 is a
+brief per-layer gradient alignment**, followed by full-model recovery training.
+
+Phase-1 assignments as read:
+
+```
+Eq. 8   dt_bias,h := softplus^{-1}( ln2 / d_h )                 d_h = attention-weighted mean look-back distance
+Eq. 9   (b_proj)_h,: ← [ logit(β*_h) / ū_h ] · (b_proj)_h,:     β*_h = 0.3 + 0.4·c_h  (entropy concentration)
+Eq. 36  σ*_h = Σ(y_T · y_S) / Σ(y_S²)  ;   W_V^{(h)} ← σ*_h · W_V^{(h)}
+Eq. 42  α*_ℓ = λ · RMS(y_T^{(ℓ)}) / RMS(SiLU(W_V x)) ,  λ = 0.01
+```
+
+**Eq. 36 is the one that matters.** `y_T` is the *teacher's* attention output, `y_S` the *student's*
+linear-attention output on the same calibration data, and the paper's own words for `σ*_h` are **"the
+standard one-dimensional ordinary least-squares solution"** matching teacher outputs. **`W_V` is then
+rescaled by it.** Q, K and O projections are **copied unchanged from the teacher** `[A]`.
+
+### The exact difference from R2 — stated precisely, because this is the near-miss
+
+**Same setup. Degenerate solve.**
+
+| | Taylor-Calibrate Eq. 36 | R2 §1.3 / A1.1 |
+|---|---|---|
+| target | donor's own attention output `y_T` on calibration data | **same** |
+| student mixing | fixed linear attention (GDN), teacher `W_q`/`W_k` reused | **same in kind** |
+| unknown | **one scalar per head**, `σ*_h ∈ ℝ` | **the full matrix** `W_v ∈ ℝ^{d_v × D}` |
+| solve | 1-D OLS, `Σ(y_T·y_S)/Σ(y_S²)` | `d_v × D` ridge normal equation `(W_v^donor(Z*Zᵀ+λI))(ZZᵀ+λI)^{-1}` |
+| degrees of freedom | `H` (≈64) per layer | `d_v × D` (≈8.4 M per KV head-group at donor width) |
+| is the solve the endpoint? | **No — it is an initializer.** Phase 2 gradient alignment follows, then recovery training | **Yes — R2 claims the solve *is* the method, no gradients at all** |
+| needs the commuting step? | **No** — a scalar commutes with anything trivially | load-bearing |
+
+> **So: the *idea* of closed-form-calibrating the value side against the teacher's attention outputs,
+> with Q/K/O frozen, is published as of June 2026. What is published is a single scalar per head, used
+> as an initializer for a distillation run — not a matrix solve, and not training-free end-to-end.**
+
+**Verdict on (ii): ADJACENT, not anticipated.** The gap between "one scalar per head" and "the full
+`d_v × D` matrix under a substituted mixing" is the entire content of R2 §1.2–1.3: a scalar rescale does
+not need the commuting identity, does not need `Z = X A_linᵀ`, and **cannot compensate for a wrong mixing
+*pattern* — only for a wrong output *magnitude*.** **But the Adapter should stop describing the setup as
+unexplored.** It is explored; what is unexplored is taking the solve to full rank and making it the
+endpoint rather than the initializer.
+
+### The part of Taylor-Calibrate that is decision-relevant beyond novelty
+
+Their Phase 1 exists **because a good initialization buys training tokens** — the paper's headline is
+`4.9×–9.2×` fewer recovery tokens and "up to 88×" zero-shot quality at initialization `[A, abstract]`.
+**They did not claim it removes the need for training.** That is the direct empirical counterweight to
+R2's ambition: **the one team that has published a closed-form value-side calibration treats it as an
+initializer worth ~5–9× of training, not as a replacement for training.** `[A]` — abstract-level, **not
+yet read in their own table. Flagged: if R2 proceeds, this is the single most important number in this
+section to pin down**, because it is the closest thing to a prior on what a value-side closed-form
+calibration actually buys.
+
+## 5.4 What §7's "CONFIRMED GAP" should now say
+
+§7 (prior pass) states: *"nobody in the literature surveyed has published a closed-form (single
+matrix-solve, no iterative gradient descent) per-layer fit."* **Amend, do not delete:**
+
+- **NBL (2505.21077) publishes exactly such a solve** — closed-form, per-layer, against calibration
+  activations — but for a **token-wise linear map replacing the whole block**, not for a linearised
+  attention operator.
+- **Taylor-Calibrate (2606.16429) publishes a closed-form per-head OLS on the value projection**, in the
+  exact frozen-Q/K/O setting, as an initializer.
+- **Neither is a closed-form fit of a linearised-attention operator's projections that is also the
+  endpoint.** That specific combination remains **ABSENT** after this pass.
+
+> The gap is **narrower and better-defined than §7 claimed, and §7's phrasing was too strong.** The
+> honest statement is: *closed-form solves against calibration activations are established practice in
+> this literature; what is unpublished is doing it at full matrix rank on `W_v` under a substituted
+> mixing, with no gradient step afterwards.*
+
+## 5.5 `[PENDING]` — remainder of the Question-1 sweep
+
+> **STATUS UPDATE (end of pass): items 1 and 3 below are now CLOSED in §5.9** (the consider-and-reject
+> question and the PTQ-crossover question, both `[X] not found`). **Liger remains the one genuinely
+> unread paper that belongs in §8'''s ranked table.** The list below is kept as written for the record.
+
+Not reached before this section was written down. Listed so a later pass knows the state:
+
+- Explicit **consider-and-reject** of a `W_v` solve in Hedgehog / LoLCATs / SUPRA / MOHAWK / Liger /
+  Mamba-in-the-Llama — **not found**, and absence here is weak evidence: papers rarely publish what they
+  rejected. `[X]`.
+- **Liger (arXiv:2503.01496, ICML 2025)** — repurposes the pretrained **key** matrix via parameter-free
+  pooling to build gates, "without introducing any learnable parameters", then LoRA fine-tunes; reported
+  to recover **93% of Transformer performance at 0.02% of pretraining tokens** `[A, abstract — NOT read
+  in its own table]`. **This is the closest published thing to "derive a linearisation parameter from an
+  existing donor matrix by a fixed rule with no training"**, and the §8 ranked table currently omits it.
+  Not fetched in full.
+- The PTQ / layer-wise-reconstruction lineage (SparseGPT / GPTQ / OBC) used to **heal an architectural
+  substitution** rather than quantisation or pruning: searched once, **nothing found** — searches return
+  only quantisation and pruning uses. `[X]`, low confidence, single search.
+- Surfaced but **not read**: `Exact Linear Attention` (2605.18848), `STILL` (2602.02180), `Retrofitting
+  Linear Attention into Diffusion LMs` (2608.06628), `Effective Distillation to Hybrid xLSTM`
+  (2603.15590), `What Matters in Linearizing Language Models?` (2504.14366), `LayerBoost` (2604.22050).
+
+## 5.6 Single-source and unverified claims in this section
+
+- **NBL Table 1 cells** — single fetch, not re-verified, model identity not independently confirmed.
+  Marked `[T?]`. The mechanism claim does not depend on them.
+- **Taylor-Calibrate Eq. 8/9/36/42** — single fetch of the HTML. The equation *forms* and the quoted
+  phrase "the standard one-dimensional ordinary least-squares solution" are as read; **the equation
+  numbers and the `λ = 0.01` constant are not re-verified.**
+- **Taylor-Calibrate's `4.9×–9.2×` and `88×`** — abstract-level `[A]`, not read in the paper's own table.
+  **Not admissible in a decision yet.**
+- **Liger's 93% / 0.02%** — abstract-level `[A]`, from search-result text, **not fetched from the paper
+  this pass.** Explicitly not admissible.
+- **Elhage et al. quotes in §5.1** — the exception: read directly from the page's own HTML source,
+  verbatim, with surrounding context, cross-checked at six separate occurrences of the notation.
+  **High confidence.**
+
+## 5.7 Verification pass on Taylor-Calibrate — upgrades §5.3, and finds the strongest counter-evidence against R2's "no training at all"
+
+Re-read from the paper's own HTML source text (`arXiv:2606.16429v1 [cs.LG] 15 Jun 2026`, CC BY 4.0),
+not from a summary. **This upgrades three `[A]`/`[T?]` tags from §5.3 and adds one finding that §5.3
+did not have.**
+
+**Authors, verified:** Zhongzhu Zhou (Univ. of Sydney / Together AI), Qingyang Wu (Together AI),
+Junxiong Wang (Microsoft), Mayank Mishra (UC Berkeley), Shuaiwen Leon Song (Together AI),
+Ben Athiwaratkun (Together AI), Chenfeng Xu (Together AI / UT Austin).
+Code: `https://github.com/FutureMLS-Lab/Taylor-Calibrate`.
+**Note the overlap with the LoLCATs / Mamba-in-the-Llama lineage (Junxiong Wang, Together AI)** — this is
+not an outside group, it is the same community that produced the methods in §1b and §2.
+
+### 5.7a Eq. (36) confirmed verbatim — [T], upgraded from [T?]
+
+Appendix **A.5 is titled "Closed-Form Value-Side OLS Rescaling"** — the paper names the move exactly as
+§5.3 characterised it. Verbatim, Eq. (35)→(36):
+
+> `dJ/dσ = −2 Σ_i u_i v_i + 2σ Σ_i v_i² = 0,`  (35)  *"so, provided the student context is not
+> identically zero,"*
+>
+> `σ*_h = (Σ_i u_i v_i)/(Σ_i v_i²) = (Σ_{b,t,d} y_{T,b,t,h,d} · y_{S,b,t,h,d}) / (Σ_{b,t,d} y_{S,b,t,h,d}²).`  (36)
+>
+> *"**This is the standard one-dimensional ordinary least-squares solution** [5]: it rescales the student
+> context along its current direction so that it best matches the teacher in squared error. The clipping
+> step mentioned in the main text is an implementation safeguard applied after this closed-form solution
+> is computed."*
+
+**Confirmed: one scalar per head, `σ*_h ∈ ℝ`, closed-form, plus a clipping safeguard.** §5.3's
+characterisation stands exactly.
+
+### 5.7b Donor projection reuse confirmed verbatim — [T], upgraded from [A]
+
+From §3.1 (Problem Setup), verbatim: students are given *"the same teacher `W_Q, W_K, W_V, W_O`, their
+initial PPL and task accuracy can vary sharply depending on how the newly introduced GDN gates are set.
+**The missing transfer information is therefore in the recurrent dynamics: memory timescale, write
+strength, and output gating.**"*
+
+And from the abstract, verbatim: *"**Simply copying the teacher attention projections into a Gated
+DeltaNet (GDN) student does not specify the new recurrent decay, write, and output-gating dynamics.**
+As a result, the converted model often starts in a poor dynamical regime and must spend many
+distillation tokens repairing initialization rather than learning the remaining teacher behavior."*
+
+> **This confirms §2.2f of `ADAPTER_MEMO_01` from a second, independent direction: conversion reuses all
+> four donor projections.** Taylor-Calibrate's entire premise is that the projections carry over and only
+> the *recurrent dynamics* are missing. **The attention weight stream is not removed by conversion.**
+
+### 5.7c The authors state the limitation that defines the gap R2 would fill — [T, Appendix C]
+
+Verbatim, from "Architecture specificity":
+
+> *"**The value-side least-squares step should transfer broadly because it only matches output
+> amplitude**, but the decay and gate calibration should be rederived for each architecture."*
+
+> **The authors themselves scope their value-side solve to amplitude only.** That is the precise sense in
+> which R2 is not anticipated: a scalar can fix magnitude, not the mixing pattern. **This is the cleanest
+> possible statement of the gap, and it comes from the paper rather than from us — which is the strongest
+> form this project accepts.**
+
+### 5.7d ⚠ The counter-evidence, and it is the most decision-relevant thing in §5
+
+Verbatim, Appendix C, "Downstream distillation dependence":
+
+> *"**Taylor-Calibrate improves the starting point, but it does not remove the need for downstream
+> distillation** [16, 13, 25]. **The converted student still has a different sequence mixer from the
+> teacher, so global training is needed to repair cross-layer interactions and adapt the residual stream
+> to the new recurrent blocks.** The final quality therefore depends on layer selection, retained-softmax
+> budget, distillation loss, optimizer settings, and the number of recovery tokens."*
+
+> **This is a direct, paper-stated argument against the R2 endpoint, from the team that has come closest
+> to R2's construction.** Their stated mechanism for why is *not* "the value solve is too weak" — it is
+> **cross-layer interaction and residual-stream drift**, which is a failure mode a per-layer solve of any
+> rank cannot address by construction. R2 §1.3 optimises a **layer-local** objective; this paragraph says
+> the layer-local objective is not the binding constraint.
+
+**How much weight this deserves, stated honestly in both directions:**
+
+- **It is an assertion in a limitations section, not a measurement.** They did not run a full-rank
+  value-side solve and find it insufficient. **It is `[A]`-grade evidence about a claim they did not
+  test.** It is not a refutation of R2 and must not be reported as one.
+- **But it is the most informed prior available**, and it points the way R2's amendment A1.6 already
+  worried about (layer-wise Frobenius error is blind to what breaks). It also matches D4's own
+  in-house experience that layer-local reconstruction quality and end-to-end quality are different
+  questions.
+- **The pre-registered design in the brief cannot see this failure mode at all.** §3.4 measures
+  layer-wise reconstruction only. **If R2's pass-1 returns a high recovery fraction, that is not yet
+  evidence against this paragraph** — the two are measuring different things, and a strong §3.2 result
+  would be exactly the "flattering" outcome the project's own rule says to scrutinise hardest.
+
+### 5.7e Headline numbers — verbatim from the abstract, still [A]
+
+> *"Across four teacher settings and three retained-layer policies, Taylor-Calibrate gives substantially
+> stronger zero-shot students, **with up to an 88× improvement in a representative ablation**, and
+> reaches matched recovery targets with **4.9×–9.2× fewer training tokens** than naive conversion."*
+
+**Note the qualifier that the search-result paraphrase had dropped: "in a representative ablation."**
+The 88× is a single ablation cell, not a headline result across settings. `[A]` — the paper's own
+results tables (§4.2, §4.3, Appendix D.1) were **not** transcribed this pass. **These numbers remain
+inadmissible in a decision until read in those tables.**
+
+### 5.7f Two further items from Appendix C that bear on this programme
+
+- **Head-wise vs layer-wise conversion is an open problem they name, not solve** — verbatim: *"Converting
+  all heads in a selected layer to GDN therefore may be too coarse, especially for models whose
+  long-context behavior depends on a small number of specialized attention heads. A natural next step is
+  head-wise conversion: keep retrieval-heavy heads as softmax, convert more local or diffuse heads to
+  GDN."* **This is independent support for R2 Amendment A1.6's entropy-stratification requirement**, and
+  it suggests the retained-attention budget could be spent per-head rather than per-layer — which is a
+  lever `ADAPTER_MEMO_01` has not costed.
+- **They propose extending the closed form — but to the gates, not to `W_v`** — verbatim: *"Future work
+  could replace these hand-designed maps with a **constrained matching objective that directly solves for
+  decay and gate parameters** from teacher statistics."* **So the "solve more of it in closed form"
+  direction is explicitly on their roadmap.** R2's specific target (full-rank `W_v`) is not named there;
+  but the general direction is claimed as future work by an active group with the code released. **This
+  is a novelty-window risk worth naming: the adjacent group is moving toward this area.**
+
+### 5.7g Net effect on §5.0's verdict
+
+**Unchanged: ADJACENT, not anticipated.** The verification made the adjacency *closer* (the paper names
+its own move "Closed-Form Value-Side OLS Rescaling") and simultaneously made the remaining gap *sharper*
+(the authors scope it to amplitude only, in their own words). **The novelty claim R2 can defend is
+narrow and specific:** full-rank `W_v` under a substituted mixing, as the endpoint. **The novelty claim
+R2 cannot defend is any of: the commuting step, the frozen-Q/K/O setup, closed-form calibration against
+teacher attention outputs, or "nobody solves anything in closed form."**
+
+## 5.8 Taylor-Calibrate — full table transcription, and what the two headline numbers actually are
+
+**Commissioned as the top priority after §5.7.** Every table below is parsed from the raw `<table>` markup
+of `arXiv:2606.16429v1` and **transcribed verbatim before any arithmetic was performed on it.** Where I
+compute, the computation is shown and labelled as mine.
+
+### 5.8a Setup, so the tables cannot be misread [T, §4.1 verbatim]
+
+**Four teachers:** Qwen2.5-1.5B-Instruct, Qwen2.5-3B-Instruct, Llama-3.2-3B-Instruct, Qwen3-8B.
+
+**Five initialization arms, verbatim:**
+> *"(i) **Baseline** — copy teacher `Q/K/V/O` projections, leave new recurrent parameters at their random
+> default; (ii) **Zero-Gate** — same projection copy, set output gates `g_proj = 0` so the recurrent
+> branch contributes nothing at step 0; (iii) **Small-Gate** — set `g_proj = ε` with `ε = 0.01`;
+> (iv) **Taylor-Only** — Phase 1 analytical calibration (Section 3) without per-layer alignment; and
+> (v) **Taylor-Calibrate** — full Phase 1 + Phase 2."*
+
+**Crucial for us, verbatim:** *"All variants use the same projection-transfer backbone: **we first copy
+the teacher `Q/K/V/O` weights** following RADLADS [13], which is also the conversion pipeline used by
+GA-S2 after layer selection [25]."*
+
+> **Third independent confirmation of `ADAPTER_MEMO_01` §2.2f.** Every arm in this paper, including the
+> baselines and the cited RADLADS/GA-S2 pipelines, **keeps all four donor projections.** The attention
+> weight stream is not removed by conversion, in any method this paper compares against.
+
+**"Budget" = retained softmax attention.** Verbatim: *"Table 2 summarizes zero-shot Avg and RULER for
+the Uniform policy across **25%, 50%, and 75% retained attention**."*
+**`Avg` = macro average over twelve downstream tasks, excluding PPL and RULER** (ARC-C/E, HellaSwag,
+PIQA, MMLU, OBQA, ReArc, WinoGrande, BoolQ, LAMBADA, COPA, SciQ) `[T, §4.1]`.
+**`RULER` = aggregate over 13 long-context subtasks** (8 NIAH variants + `ruler_vt`, `ruler_cwe`,
+`ruler_fwe`, `ruler_qa_squad`, `ruler_qa_hotpot`) `[T, §4.1]`.
+
+### 5.8b ⚠ The 88× is a ratio between two broken models — Table 4, transcribed verbatim [T]
+
+**Table 4 caption, verbatim:** *"Component ablation on Qwen2.5-3B-Instruct (Uniform). Avg denotes the
+short-context NLU average from this ablation sweep; MMLU is unavailable in this run."*
+
+| Variant | PPL ↓ | Avg | Description |
+|---|---|---|---|
+| Baseline | 37337.3 | 30.9 | projection copy only |
+| Zero-Gate | 22469.0 | 30.7 | output-path stabilization |
+| Taylor-Only | 22470.6 | 30.9 | Phase 1 only |
+| Alignment-Only | 2015.9 | 31.4 | Phase 2 only, no analytical calibration |
+| Taylor-Calibrate | 424.1 | 32.1 | Phase 1 + Phase 2 |
+
+**The Adapter asked: name the cell, its headers, and what the other cells say. Done above. Now the
+reading, and it is not the reading the abstract invites.**
+
+**Mine, computed from the two cells:** `37337.3 / 424.1 = 88.04`. **That is the 88×.** Row `Baseline`
+vs row `Taylor-Calibrate`, column `PPL ↓`. Confirmed by the paper's own conclusion, verbatim:
+*"improves the **worst initial PPL** by 88×"* — **the paper itself scopes it to the worst case.**
+
+> **⚠ The 88× is a ratio between a perplexity of 37,337 and a perplexity of 424.** Both are models that
+> do not work. The teacher for this row is Qwen2.5-3B, whose `Avg` is **67.3** `[T, Table 2]`. **Every
+> variant in Table 4 sits at `Avg` 30.7–32.1** — i.e. the 88× perplexity improvement corresponds to
+> **+1.2 `Avg` points, from 30.9 to 32.1, against a teacher at 67.3.**
+>
+> **The typical cell in this table is not 2×. There is no cell that is 2×. The table's whole dynamic
+> range is between two failure modes, and the `Avg` column shows the 88× buys almost nothing that a
+> downstream task can see.** The honest one-line summary of Table 4 is: *at initialization, before any
+> recovery training, every variant is broken; Taylor-Calibrate is less numerically broken.*
+
+**And the ablation the Adapter asked for is here in negative form.** `Zero-Gate` = 22469.0 and
+`Taylor-Only` = 22470.6. **Phase 1's entire analytical calibration — including the value-side OLS — is
+indistinguishable from setting the output gate to zero, and is in fact 1.6 PPL worse.** The paper says
+so itself, verbatim:
+
+> *"**Phase 2 alignment is essential.** Baseline starts at PPL 37337.3, while Zero-Gate and Taylor-Only
+> remain around 22470, so **Phase 1 alone is not enough.**"*
+
+### 5.8c ⚠⚠ The answer to "is there an isolated solve-vs-copy `W_v` ablation?" — and it is the most important cell in the paper for R2
+
+**Direct answer: NO isolated ablation of the value solve exists. `[X]`.** Table 4's `Taylor-Only` row
+bundles **all four** Phase-1 assignments (decay bias, write gate, value OLS, output gate). There is no
+row that varies only `W_V ← σ*_h W_V` with everything else held fixed.
+
+**But the bundle's result is itself decision-relevant, and it points against R2's premise:**
+
+| comparison | PPL | mine: ratio |
+|---|---|---|
+| Baseline → Zero-Gate (a one-line heuristic, no calibration at all) | 37337.3 → 22469.0 | 1.66× |
+| Zero-Gate → Taylor-Only (**adds the entire Phase-1 calibration, value OLS included**) | 22469.0 → 22470.6 | **0.9999× — nothing** |
+| Baseline → Alignment-Only (**gradient descent, no analytical calibration at all**) | 37337.3 → 2015.9 | 18.5× |
+| Alignment-Only → Taylor-Calibrate (adds Phase 1 on top of Phase 2) | 2015.9 → 424.1 | 4.75× |
+
+> **Read the second and third rows together.** The **closed-form analytical calibration contributes
+> nothing on its own** (row 2), while **a short gradient-based alignment contributes 18.5× on its own**
+> (row 3). The closed form only pays once gradients have run (row 4).
+>
+> **This is the single most decision-relevant set of cells found for `BRIEF_R2`.** R2's claim is that a
+> closed-form solve **is the endpoint**. The one paper that has published a closed-form value-side
+> calibration measured its own closed-form stage in isolation and got **zero**, and measured the gradient
+> stage in isolation and got **18.5×**.
+
+**Now the argument in the other direction, because it is real and must be stated with the same force:**
+
+- **Their closed form is a scalar per head; R2's is a full `d_v × D` matrix.** A scalar has ~64 degrees
+  of freedom per layer against ~8.4 M. **It is entirely coherent that a scalar does nothing and a full
+  matrix does a great deal.** Table 4 is *not* a measurement of R2; it is a measurement of the weakest
+  possible version of R2.
+- **The bundled row hides which component did what.** `Taylor-Only` also sets the decay bias and write
+  gate; a bad setting there could mask a good value solve. **Nothing in the table separates them.**
+- **The metric is initialization PPL on a fully-converted hybrid**, not the layer-wise reconstruction
+  error R2's §3.4 measures. **These are different quantities and the mapping between them is exactly
+  what nobody has published.**
+
+> **Net: this is `[T]`-grade evidence that the *weak* form of R2's move is worthless alone, and it is
+> `[X]` on whether the *strong* form is. It does not refute R2. It does establish that "a closed-form
+> value-side calibration" is not, by itself, known to be worth anything — and R2's pre-registration
+> should carry that as its prior rather than the optimistic one.**
+
+### 5.8d Zero-shot quality — Table 2, transcribed verbatim [T]
+
+**Caption, verbatim:** *"Compact zero-shot summary for the Uniform retained-layer policy. Each entry
+reports `Avg/RULER`; full task-level results and non-uniform layer-selection policies are reported in
+Appendix D.1. **Bold**: best non-teacher value within each model and budget row."*
+
+| Model | Budget | Teacher | Baseline | Zero-Gate | Small-Gate | Taylor-Only | Taylor-Calibrate |
+|---|---|---|---|---|---|---|---|
+| Qwen2.5-1.5B | 25% | 64.8 / 86.2 | 31.2 / 0.2 | 31.3 / 0.2 | 31.4 / 0.2 | 31.9 / 0.2 | 34.8 / 0.2 |
+| | 50% | 64.8 / 86.2 | 31.7 / 0.1 | 32.7 / 0.1 | 32.7 / 0.1 | 32.6 / 0.1 | 37.4 / 0.1 |
+| | 75% | 64.8 / 86.2 | 48.6 / 2.7 | 53.9 / 10.1 | 53.7 / 10.3 | 53.9 / 10.1 | 56.2 / 14.5 |
+| Qwen2.5-3B | 25% | 67.3 / 91.3 | 31.1 / 0.0 | 31.8 / 0.0 | 31.8 / 0.0 | 31.7 / 0.0 | 30.9 / 0.1 |
+| | 50% | 67.3 / 91.3 | 31.3 / 0.0 | 31.3 / 0.0 | 31.4 / 0.0 | 31.3 / 0.0 | 36.3 / 0.4 |
+| | 75% | 67.3 / 91.3 | 55.1 / 19.9 | 61.8 / 47.4 | 62.0 / 47.2 | 61.9 / 47.2 | 61.3 / 55.9 |
+| Llama-3.2-3B | 25% | 65.6 / 89.6 | 31.2 / 0.0 | 33.1 / 0.0 | 33.2 / 0.1 | 33.1 / 0.1 | 34.2 / 0.1 |
+| | 50% | 65.6 / 89.6 | 31.7 / 0.1 | 36.9 / 0.2 | 36.7 / 0.2 | 36.8 / 0.2 | 43.3 / 0.4 |
+| | 75% | 65.6 / 89.6 | 33.9 / 0.2 | 58.3 / 31.0 | 58.6 / 30.9 | 58.5 / 30.9 | 60.0 / 24.0 |
+| Qwen3-8B | 25% | 70.7 / 94.0 | 31.4 / 0.1 | 34.2 / 0.1 | 34.1 / 0.0 | 34.2 / 0.1 | 35.6 / 0.1 |
+| | 50% | 70.7 / 94.0 | 36.2 / 0.2 | 45.1 / 0.3 | 44.9 / 0.3 | 45.0 / 0.3 | 49.0 / 0.7 |
+| | 75% | 70.7 / 94.0 | 59.9 / 42.3 | 64.8 / 61.6 | 64.7 / 61.4 | 64.8 / 61.6 | 65.5 / 65.1 |
+
+**Reported separately as the rules require — perplexity/NLU vs long-context recall:**
+
+**Short-context (`Avg`):** at **75 % retained**, Taylor-Calibrate lands within 3.7–8.6 points of teacher
+(e.g. Qwen3-8B `65.5` vs `70.7`). At **50 % retained** it is 21–34 points below teacher. At **25 %
+retained** every model is at 30.9–35.6 against teachers of 64.8–70.7 — **chance-level or near it, for
+every arm including the best.**
+
+**Long-context (`RULER`) — and this is the number `ADAPTER_MEMO_01` needs:**
+
+> **At 25 % retained attention, RULER is 0.1–0.2 against teachers at 86.2–94.0. At 50 % retained it is
+> 0.1–0.7. Long-context retrieval is not degraded — it is at zero.**
+
+Even at **75 % retained**, RULER is 14.5 / 55.9 / 24.0 / 65.1 against 86.2 / 91.3 / 89.6 / 94.0. **The
+best case retains 69 % of teacher RULER while retaining 75 % of the attention layers.**
+
+The paper's own reading, verbatim: *"**aggressive conversion remains difficult at initialization**: with
+only 25% or 50% retained attention, all methods have very low RULER scores and the Baseline Avg is close
+to chance-level for several models"*, and *"layer-local alignment mainly improves the initial
+short-context Avg of the converted student, whereas **long-context retrieval still requires retained
+attention or later recovery training**."
+
+> **⚠ Direct consequence for `ADAPTER_MEMO_01` §2.2c, which needs attention retained on ≤ 8.3 % of
+> layers.** This paper's **most aggressive setting is 25 % retained** — three times more attention than
+> our budget allows — and at that setting long-context retrieval is **zero at initialization** across
+> four donors and five methods. **This is a second, independent literature floor sitting well above our
+> target, alongside Mamba-in-the-Llama's 12.5 %.** It is measured at initialization only; §5.8e shows
+> what recovery training buys back.
+
+### 5.8e Recovery — Table 3, transcribed verbatim [T]
+
+**Caption, verbatim:** *"Compact recovery summary for all teacher settings. Each entry reports
+`Avg/RULER`; detailed task-level metrics are reported in Appendix D.1. **Bold**: better value between
+Baseline and Taylor-Calibrate within each checkpoint."*
+
+| Model | Selection | Teacher | 100M Baseline | 100M Taylor-Cal. | 700M Baseline | 700M Taylor-Cal. |
+|---|---|---|---|---|---|---|
+| Qwen2.5-1.5B | Uniform | 64.8 / 86.2 | 37.2 / 0.6 | 62.6 / 7.7 | 61.4 / 39.9 | 64.4 / 59.8 |
+| | AR (LM-PPL) | 64.8 / 86.2 | 44.7 / 1.0 | 61.1 / 5.0 | 61.4 / 16.8 | 63.6 / 38.0 |
+| | GA-S2 | 64.8 / 86.2 | 43.6 / 0.5 | 62.0 / 7.1 | 60.3 / 27.0 | 63.8 / 47.6 |
+| Qwen2.5-3B | Uniform | 67.3 / 91.3 | 60.5 / 26.3 | 60.8 / 29.2 | 65.8 / 63.8 | 66.0 / 65.7 |
+| | AR (LM-PPL) | 67.3 / 91.3 | 62.1 / 11.5 | 62.1 / 11.7 | 65.8 / 56.1 | 66.1 / 57.9 |
+| | GA-S2 | 67.3 / 91.3 | 52.6 / 6.6 | 60.4 / 4.9 | 65.7 / 59.8 | 65.9 / 70.5 |
+| Llama-3.2-3B | Uniform | 65.6 / 89.6 | 59.7 / 5.7 | 61.3 / 6.6 | 64.3 / 60.0 | 64.8 / 63.4 |
+| | AR (LM-PPL) | 65.6 / 89.6 | 58.5 / 4.6 | 60.1 / 5.4 | 63.8 / 46.4 | 64.0 / 47.3 |
+| | GA-S2 | 65.6 / 89.6 | 57.8 / 5.0 | 59.5 / 4.2 | 62.3 / 41.1 | 63.9 / 46.5 |
+| Qwen3-8B | Uniform | 70.7 / 94.0 | 49.4 / 0.1 | 66.5 / 9.2 | 69.4 / 60.4 | 70.0 / 76.7 |
+| | AR (LM-PPL) | 70.7 / 94.0 | 44.7 / 0.2 | 67.6 / 15.4 | 69.2 / 62.2 | 70.1 / 69.8 |
+| | GA-S2 | 70.7 / 94.0 | 39.8 / 0.1 | 67.4 / 11.0 | 68.9 / 66.1 | 70.1 / 57.2 |
+
+**Two readings, separated as the rules require:**
+
+- **Short-context `Avg` recovers essentially fully by 700 M tokens.** Qwen3-8B reaches `70.0–70.1`
+  against a teacher at `70.7`. **And the Baseline reaches `68.9–69.4` at the same checkpoint** — i.e.
+  **by 700 M tokens the initialization advantage on `Avg` has shrunk to 0.6–1.2 points.**
+- **Long-context RULER does not recover fully.** Best case Qwen3-8B Uniform: `76.7` against teacher
+  `94.0` (**82 %**). Worst case Qwen2.5-1.5B AR: `38.0` against `86.2` (**44 %**). **Taylor-Calibrate's
+  RULER advantage over Baseline persists at 700 M where its `Avg` advantage has nearly vanished** — e.g.
+  Qwen2.5-1.5B Uniform `59.8` vs `39.9`.
+
+> **⚠ `[X]`: Table 3 does not state its retained-attention budget.** The caption, the section text and
+> the column headers give the selection policy and the token checkpoint but **not the hybrid ratio**.
+> Table 2 used 25/50/75 %; Table 3 does not say which it inherits. **Every number in Table 3 is therefore
+> uninterpretable as a hybrid-ratio datapoint**, and I am not going to guess. This is a real reporting
+> gap in the paper, not a search failure — I looked in §4.3, the caption, and §4.1.
+
+### 5.8f ⚠ The `4.9×–9.2×` is NOT in a table — it is text about a figure [A/F]
+
+**This is the number the Adapter flagged as the one that would rescue the budget, and it is the one that
+must be scrutinised hardest. Here is exactly what it is.**
+
+**Verbatim, §4.5.2 in full:**
+
+> *"A practical question is how much Stage-2 distillation is needed after initialization. **Figure 5**
+> compares the number of training tokens required for Baseline and Taylor-Calibrate to reach the same
+> target quality in **several representative settings**. **Across the representative runs in Figure 5**,
+> Taylor-Calibrate reaches the target with fewer tokens, yielding speedups from **4.9× to 9.2×**. This
+> suggests that a large fraction of the recovery budget is spent moving the converted model out of a poor
+> initial regime."*
+
+**Answering the Adapter's four questions directly:**
+
+| question | answer |
+|---|---|
+| **Fewer tokens than what baseline?** | **`Baseline`** — verbatim per §4.1: *"copy teacher `Q/K/V/O` projections, leave new recurrent parameters at their **random default**."* **Not a strong baseline.** It is not compared against Zero-Gate, which Table 4 shows gets 1.66× of the way for free with one line of code. |
+| **Which model and size?** | **`[X]` — not stated.** "Several representative settings" / "the representative runs in Figure 5". No model is named in the text, and the paper has four teachers spanning 1.5 B–8 B. |
+| **To reach what recovery target?** | **`[X]` — "the same target quality" is never defined.** No metric, no threshold. Given §5.8e, the answer differs enormously depending on whether the target is `Avg` (recovers fully) or `RULER` (does not). |
+| **Is the range across settings or seeds?** | **Across *settings*, not seeds** — "across the representative runs" in "several representative settings". **There is no seed variance reported anywhere in this paper.** Appendix C concedes it, verbatim: *"The current experiments also emphasize recovery checkpoints rather than exhaustive multi-seed sweeps."* |
+
+> **Verdict on the `4.9×–9.2×`: it is `[A/F]` — a text claim about an unlabelled figure, against a
+> random-default baseline, to an undefined target, on unnamed models, with no seed variance.**
+> **It does not meet this project's bar and must not enter any budget arithmetic.** Per the standing
+> rule that what flatters us gets scrutinised hardest: **this is the number that would have moved donor
+> conversion from unaffordable to affordable, and it is the least-supported number in the paper.**
+
+**What *is* `[T]`-grade about token efficiency, and it is a weaker claim:** Table 3's 100 M column shows
+Taylor-Calibrate reaching `Avg` 62.6 where Baseline is at 37.2 (Qwen2.5-1.5B Uniform), and `66.5` vs
+`49.4` (Qwen3-8B Uniform). **That is a real, table-sourced initialization advantage at a fixed small
+token budget.** But by 700 M the same pair is `64.4` vs `61.4` — **the advantage is largely a
+head-start, not a different destination**, which is exactly what Appendix C's "Downstream distillation
+dependence" paragraph (§5.7d) says.
+
+**Absolute cost, which is what our budget actually needs:** the recovery schedule is **100 M tokens
+(Stage 1) + 700 M tokens (Stage 2) = 800 M tokens** `[T, Table 3 column headers]`, on donors of
+1.5 B–8 B. **Even a true 9.2× saving is a saving on 800 M tokens, not on MOHAWK's 3 B** — and
+`ADAPTER_MEMO_01` §2.2b's FLOP model scales with `params × tokens`, so the donor-size term is untouched.
+**I am not doing that arithmetic here; the input numbers for it are `[A/F]` and it would be exactly the
+kind of derived figure this project has been burned by.**
+
+### 5.8g `[X]` — what Taylor-Calibrate does not report
+
+- The retained-attention budget for Table 3.
+- Any isolated ablation of the value-side OLS.
+- Any seed variance, anywhere.
+- Figure 5's underlying numbers (models, targets, per-setting speedups).
+- Any donor above 8 B — Appendix C states larger teachers were **not** run, verbatim: *"we keep the
+  quantitative claims in this paper to the completed teacher settings."*
+- Wall-clock or GPU-hour cost of either phase.
+
+### 5.8h Net effect on §5.0 and on `BRIEF_R2`
+
+**The novelty verdict is unchanged (ADJACENT, not anticipated).** What changes is the *prior on the
+mechanism working*, and it moves **against** R2 on the evidence now in hand:
+
+1. The one published closed-form value-side calibration **contributes nothing measurable on its own**
+   (`22469.0` → `22470.6`) `[T, Table 4]`.
+2. Its headline `88×` is a ratio between two broken models worth **+1.2 `Avg` points** `[T, Table 4]`.
+3. Its headline `4.9×–9.2×` is **figure-text against a random-default baseline to an undefined target**
+   `[A/F, §4.5.2]`.
+4. Its authors state plainly that closed-form initialization **does not remove the need for distillation**
+   `[T, Appendix C]`.
+5. **And the counter-argument stands: all of the above is about a one-scalar-per-head solve.** R2 proposes
+   ~8.4 M degrees of freedom where they used ~64. **Nothing here measures that.**
+
+> **The honest statement of where R2 now sits: the construction is sound (Controller), the commuting
+> step is prior art (§5.1), the setup is published (§5.3), the weak form of the solve is measured at
+> zero (§5.8c), and the strong form is unmeasured by anyone. `[X]` on the only question that decides it.**
+> **The A1.5 pre-screen — principal angles, one SVD per layer, before any apparatus — is the correct
+> next step and this section strengthens rather than weakens that.**
+
+## 5.9 Closing sub-question (iv) — does any paper consider and reject solving `W_v`? `[X]`
+
+**Answer: no. Searched across the methods surveyed in §1–§2 and read directly in LoLCATs' and
+Mamba-in-the-Llama's own text. `[X] not found` — which the brief named as a complete and valued answer.**
+
+**The nearest miss, and it is a design choice rather than a rejection.** LoLCATs (arXiv:2410.10254),
+verbatim from its attention-transfer description:
+
+> *"However, **to keep our training footprint low, we freeze the original pretrained attention layer's
+> parameters** and simply insert new `φ_q`, `φ_k` after `W_q`, `W_k` in each softmax attention (Fig. 1
+> left). We compute outputs `y`, `ŷ` with the same [inputs]."*
+
+So LoLCATs deliberately leaves `W_v` untouched during attention transfer and puts **all** the learnable
+capacity on the q/k side, in the feature maps. **Its stated reason is training footprint — not that a
+value-side fit was tried, considered, or judged unhelpful.** LoLCATs does later touch `W_v`, but only via
+LoRA and only in the second stage, verbatim: *"we freeze the linear attention weights and add LoRA
+weights to query, key, value, and output projections."*
+
+Mamba-in-the-Llama likewise reuses `W^V` by a shape-based remap (`V → X`) and states no consideration of
+solving it `[T, §3 equations]`.
+
+> **Interpretive weight, stated honestly: low.** Papers publish what they did, not what they rejected, so
+> **the absence of a stated rejection is weak evidence that nobody considered it.** What it does
+> establish is that **no published argument against the construction exists**, so R2 is not walking into
+> a known negative result. **The negative evidence that does exist is §5.8c's measurement, not an
+> argument** — and that measures the scalar form, not R2's.
+
+**Also closed this pass:** the PTQ / layer-wise-reconstruction crossover (SparseGPT / GPTQ / OBC used to
+heal an *architectural substitution* rather than quantisation or pruning). **`[X]` — searched, nothing
+found.** The nearest thing in the whole survey is **NBL (§5.2)**, which is a closed-form solve healing a
+substitution, but it comes from the LMMSE/estimation lineage rather than the OBS/Hessian lineage, and it
+substitutes the block away rather than replacing its mixing. **Note this absence is now doubly
+interesting: the low-rank companion file (`prior_art/LOWRANK_PROJECTION_PRIOR_ART.md` §3) finds that
+SVD-LLM's "layer-wise closed-form update" is structurally the same apparatus as our D4 solver, applied to
+compression. The apparatus is standard in compression and unused in architectural substitution.** That
+crossover remains the clearest unclaimed ground found across both questions.
+
+## 5.10 ⭐ Taylor-Calibrate's feature map — asked because R2a's pre-screen made it urgent, and the answer reframes the line
+
+**The Adapter asked:** *"Their name suggests a Taylor expansion of the exponential, which would be a very
+different object from `elu(x)+1`. If their `φ` is the reason their solve works, then `φ` — not the solve —
+is the load-bearing choice."*
+
+> ### **Answer: Taylor-Calibrate has no feature map. There is no `φ` anywhere in their student.**
+> **The Taylor expansion is an analysis device used to derive calibration constants, not the student's
+> kernel. Their student is a gated delta-rule recurrence with per-head-normalised `q`/`k`.**
+> **And the Adapter's conditional fires: the operator choice IS load-bearing, and their own ablation
+> (§5.8c) shows the value-side solve is not.**
+
+### 5.10a The Taylor expansion is a lens, not a kernel — [T, §2.2 verbatim]
+
+> *"A useful theoretical lens for our method is to expand the softmax numerator around a neutral logit
+> regime … `exp(s) = 1 + s + s²/2 + O(s³)`. **(3)** Truncating this expansion motivates a fixed-size
+> linear-recurrent approximation of softmax attention. **More importantly for our purposes, it yields a
+> calibration methodology**: second-order curvature can be compiled into a small number of effective
+> scaling terms. One convenient summary of this viewpoint is that the second-order correction can be
+> folded into an effective first-order sequence-mixing scale, often written as `γ² = 1 + μ₃/(2μ₂)` for
+> low-order logit moments `μ₂, μ₃`, **while the value pathway admits a per-head least-squares rescaling
+> factor `σ` that matches the teacher output amplitude.**"*
+
+**Read the emphasis.** Eq. (3) is *"a useful theoretical lens"* that *"motivates"* an approximation and
+*"yields a calibration methodology."* **It is never instantiated as the student's feature map.** The
+second-order Taylor kernel — the Based-style `φ` that R2's brief §3.4 proposes sweeping — is the thing
+this paper takes its *name* and its *statistics* from, and **not** the thing it runs.
+
+### 5.10b What their student actually is — [T, §2.3, Eq. 4–6 verbatim]
+
+**Gated DeltaNet.** Verbatim: *"In the variant used here, **queries and keys are projected from the same
+teacher-inherited hidden states and then normalized per head.**"* With `S_t ∈ ℝ^{d_h × d_h}` the
+recurrent state:
+
+```
+g_t = −exp(A_log) · softplus( a_proj(x_t) + dt_bias ) ,   β_t = σ( b_proj(x_t) )          (4)
+
+S_t = exp(g_t) · ( S_{t−1} − β_t S_{t−1} k_t k_tᵀ ) + β_t v_t k_tᵀ ,     o_t = S_t q_t     (5)
+
+y_t = W_O ( RMSNorm(o_t) ⊙ SiLU( g_proj(x_t) ) )                                           (6)
+```
+
+**So `φ` = per-head normalisation of `q` and `k`. That is the whole feature map.** No `elu+1`, no
+exponential Taylor kernel, no random features, no learned Hedgehog map.
+
+**And the mixing is not a kernel mixing at all.** Eq. (5) carries two things pure linear attention does
+not have:
+
+1. **A multiplicative, input-dependent decay `exp(g_t)`** — an explicit recency prior, with `A_log`,
+   `a_proj` and `dt_bias` as parameters.
+2. **A delta-rule removal term `− β_t S_{t−1} k_t k_tᵀ`** — the state *erases* before it writes.
+
+> **Consequence for R2, stated precisely: the `A_lin` induced by GDN is NOT of the form
+> `φ(q_t)ᵀ φ(k_s)`.** It is a gated, decaying, delta-rule mixing whose row `t` is shaped by learned
+> per-token gates. **R2's construction — a fixed `φ` inducing a fixed `A_lin`, then one linear solve —
+> does not describe Taylor-Calibrate's operator**, and Taylor-Calibrate's results therefore transfer to
+> R2 *less* directly than §5.3 implied. **§5.3's adjacency claim stands on the value-side move; it does
+> not extend to the mixing.**
+
+### 5.10c ⚠ Where their analytical budget actually went — and it is not the value path
+
+Cross-reading §5.7a/§5.8b against §2.2, the four Phase-1 assignments split as:
+
+| what is calibrated | how | degrees of freedom | what it controls |
+|---|---|---|---|
+| **decay bias** `dt_bias,h` | `softplus⁻¹(ln2 / d_h)`, `d_h` = teacher's **attention-weighted mean look-back distance** (Eq. 8) | 1/head | **the recency/decay structure of the mixing** |
+| **write gate** `b_proj` | row-scaled to `logit(β*_h)`, `β*_h = 0.3 + 0.4·c_h`, `c_h` = **attention entropy concentration** (Eq. 9) | 1/head | **how peaked vs diffuse each row of the mixing is** |
+| **output gate** `g_proj` | RMS-matched, `λ = 0.01` (Eq. 42) | 1/layer | amplitude of the branch |
+| **value path** `W_V` | **scalar OLS** `σ*_h` (Eq. 36) | 1/head | **output amplitude only** |
+
+> **Three of the four calibrated quantities shape the MIXING. Exactly one touches the value path, and
+> the authors scope it to amplitude in their own words** (§5.7c: *"the value-side least-squares step
+> should transfer broadly because **it only matches output amplitude**"*).
+>
+> **The team closest to R2 spent its analytical budget on getting the mixing's decay and peakedness
+> right, and gave the value side a single scalar. R2 proposes the opposite allocation: take the mixing
+> as given from a fixed `φ`, and put ~8.4 M degrees of freedom into the value side.**
+
+**Combined with §5.8c — where Phase 1 *in full* was worth `22469.0 → 22470.6`, i.e. nothing, against a
+gradient stage worth 18.5× — the reading is consistent and it is not the one R2 wants:** in the one
+published system of this shape, **the value-side solve is the least load-bearing component, and the
+mixing operator's structure is where the information is.**
+
+### 5.10d ⚠⚠ Direct bearing on the R2a pre-screen signal the Adapter reported
+
+The coordinator reports R2a's first signal: **`elu(x)+1` scores worse than a trivial causal-uniform
+mixing.** Nothing in this pass can confirm or refute that number — but **the literature makes it
+mechanistically unsurprising, and that is worth having before the sweep completes:**
+
+- **`elu(x)+1` produces a mixing with no recency structure.** Its row `t` weights positions by
+  `φ(q_t)ᵀφ(k_s)` with all `φ ≥ 0` and no positional term, so the induced `A_lin` is comparatively flat
+  over history.
+- **Causal-uniform is flat too — but correctly normalised and with the right support.** So a flat kernel
+  with the wrong scale can plausibly land *below* the trivial flat baseline. **This is the ≈0.05
+  structural floor Amendment A1.4 already identified** (`C6 causal-uniform = 0.059`).
+- **Every high-performing published operator in this literature has explicit decay or a local window.**
+  GDN has `exp(g_t)` (Eq. 5). LoLCATs has a 64-token sliding window (§2). Based has a short conv.
+  **§9 of this survey already flagged that the best methods are "linear attention plus a bounded local
+  piece"; §5.10b now adds that the 2026 state of the art replaces the bounded window with a learned
+  decay.**
+
+> **Predictive statement, offered as a prediction rather than a finding, so it can be scored:** if R2a's
+> sweep includes any `φ` carrying recency (a decay term, a local window, or a positional kernel) it
+> should separate cleanly from `elu(x)+1` and from causal-uniform. **If instead every `φ` in the sweep
+> lands near the causal-uniform floor, the correct reading is not that the solve failed — it is that
+> R2 §3.4's `φ` menu is drawn entirely from the recency-free corner of the design space**, and that is a
+> fixable design error rather than a refutation of the construction.
+
+**None of R2 brief §3.4's four proposed maps — `elu(x)+1`, Based 2nd-order Taylor, Performer FAVOR+, an
+unfitted Hedgehog map — carries a decay or a window.** `[T, brief §3.4]` **That is a gap in the
+pre-registered design which this section identifies and which A1.5's pre-screen will expose cheaply.**
+
+### 5.10e What this does NOT say
+
+- **It does not say R2 is wrong.** It says the one adjacent published system allocates its effort the
+  opposite way, and that its value-side component measured at zero **in scalar form**.
+- **It does not say a decay-bearing `φ` would rescue R2.** No paper found runs R2's construction with
+  any `φ`. `[X]`.
+- **It does not transfer Taylor-Calibrate's numbers to R2.** Different operator (§5.10b), different
+  solve rank (§5.3), different endpoint (§5.7d).
+
+## 5.11 Appendix D.1, Table 6 — the detailed recovery table, transcribed [T]
+
+**Caption, verbatim:** *"Detailed recovery results for all four teacher settings at 100M tokens after
+Stage 1 and 700M tokens after Stage 2. Avg is shown only when the full short-context set needed for that
+row is available; RULER is reported separately as a long-context probe. **Bold**: best non-teacher PPL
+(minimum), Avg (maximum), and RULER (maximum) within each model block."*
+
+**This table adds the PPL column that Table 3 omits, and per-task detail. It is where the two findings
+below come from — neither is discussed in the paper's own text.**
+
+### 5.11a Full transcription — Qwen3-8B, the largest donor [T]
+
+Columns: `Ckpt | Selection | Init | PPL↓ | ARC-C | ARC-E | Hella. | PIQA | MMLU | OBQA | RA | WG | BoolQ | LAMB. | COPA | SciQ | Avg | RULER`
+
+| Ckpt | Sel. | Init | PPL↓ | ARC-C | ARC-E | Hella. | PIQA | MMLU | OBQA | RA | WG | BoolQ | LAMB. | COPA | SciQ | Avg | RULER |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| — | — | **Teacher** | 9.73 | 56.7 | 80.9 | 74.9 | 77.9 | **74.9** | 41.8 | 41.4 | 68.0 | 86.6 | 64.1 | 85.0 | 96.6 | **70.7** | **94.0** |
+| 100M | Uniform | Baseline | 83.86 | 37.6 | 60.6 | 51.4 | 69.7 | 31.8 | 33.4 | 30.1 | 51.4 | 66.0 | 5.1 | 76.0 | 79.9 | 49.4 | 0.1 |
+| 100M | Uniform | Taylor-Cal. | 14.92 | 56.1 | 79.9 | 72.8 | 77.3 | 66.2 | 43.6 | 37.1 | 67.9 | 79.0 | 36.9 | 86.0 | 94.7 | 66.5 | 9.2 |
+| 100M | AR | Baseline | 172.30 | 32.4 | 51.6 | 49.0 | 68.4 | 27.2 | 32.6 | 29.4 | 51.1 | 57.3 | 3.0 | 69.0 | 65.0 | 44.7 | 0.2 |
+| 100M | AR | Taylor-Cal. | 11.47 | 55.5 | 79.2 | 72.5 | 77.3 | 66.4 | 43.6 | 37.2 | 68.3 | 78.9 | 53.4 | 84.0 | 95.0 | 67.6 | 15.4 |
+| 100M | GA-S2 | Baseline | 297.36 | 31.1 | 53.4 | 35.9 | 68.3 | 24.2 | 27.4 | 26.0 | 50.0 | 45.7 | 4.8 | 53.0 | 57.4 | 39.8 | 0.1 |
+| 100M | GA-S2 | Taylor-Cal. | 11.12 | 56.7 | 79.7 | 72.5 | 77.4 | 63.0 | 41.8 | 36.5 | 68.1 | 78.0 | 53.5 | 87.0 | 95.3 | 67.4 | 11.0 |
+| 700M | Uniform | Baseline | 10.40 | 56.2 | 80.1 | 73.5 | 78.0 | 67.9 | 42.4 | 36.6 | 69.2 | 82.3 | 61.3 | 89.0 | 96.2 | 69.4 | 60.4 |
+| 700M | Uniform | Taylor-Cal. | 9.98 | 56.1 | 80.3 | 74.4 | 78.3 | 70.2 | 42.4 | 38.0 | 69.2 | 84.6 | 63.1 | 87.0 | 96.3 | 70.0 | **76.7** |
+| 700M | AR | Baseline | 9.90 | 55.5 | 81.4 | 73.4 | 77.9 | 66.8 | 42.6 | 36.8 | 70.7 | 82.9 | 60.5 | 85.0 | 96.6 | 69.2 | 62.2 |
+| 700M | AR | Taylor-Cal. | **9.45** | 56.1 | 79.2 | 74.2 | 78.3 | 70.2 | 43.6 | 39.7 | 70.3 | 84.5 | 62.9 | 86.0 | 96.0 | 70.1 | 69.8 |
+| 700M | GA-S2 | Baseline | 10.18 | 55.2 | 79.8 | 73.9 | 79.0 | 62.9 | 43.8 | 36.8 | 70.3 | 83.7 | 59.7 | 86.0 | 96.1 | 68.9 | 66.1 |
+| 700M | GA-S2 | Taylor-Cal. | 9.46 | 56.9 | 80.7 | 74.0 | 78.3 | 69.0 | 43.0 | 40.1 | 71.4 | 82.9 | 61.9 | 87.0 | 96.0 | 70.1 | 57.2 |
+
+### 5.11b The other three donors — teacher rows and the decision-relevant columns [T]
+
+**Reduced view, flagged as a reduction:** `PPL / MMLU / Avg / RULER` only. The full 12-task rows are in
+the paper's Table 6 and were read; the omitted columns move consistently with `Avg` and none of them
+changes a conclusion below.
+
+**(a) Qwen2.5-1.5B-Instruct** — Teacher: `PPL 9.66 | MMLU 60.2 | Avg 64.8 | RULER 86.2`
+
+| Ckpt | Sel. | Init | PPL↓ | MMLU | Avg | RULER |
+|---|---|---|---|---|---|---|
+| 100M | Uniform | Baseline | 210.13 | 25.5 | 37.2 | 0.6 |
+| 100M | Uniform | Taylor-Cal. | 13.54 | 50.8 | 62.6 | 7.7 |
+| 100M | AR | Baseline | 58.71 | 23.1 | 44.7 | 1.0 |
+| 100M | AR | Taylor-Cal. | 12.89 | 53.4 | 61.1 | 5.0 |
+| 100M | GA-S2 | Baseline | 142.41 | 27.1 | 43.6 | 0.5 |
+| 100M | GA-S2 | Taylor-Cal. | 12.54 | 51.9 | 62.0 | 7.1 |
+| 700M | Uniform | Baseline | 11.99 | 44.1 | 61.4 | 39.9 |
+| 700M | Uniform | Taylor-Cal. | 10.76 | 53.1 | 64.4 | 59.8 |
+| 700M | AR | Baseline | 12.23 | 48.5 | 61.4 | 16.8 |
+| 700M | AR | Taylor-Cal. | 10.65 | 55.7 | 63.6 | 38.0 |
+| 700M | GA-S2 | Baseline | 11.96 | 41.6 | 60.3 | 27.0 |
+| 700M | GA-S2 | Taylor-Cal. | 10.57 | 54.6 | 63.8 | 47.6 |
+
+**(b) Qwen2.5-3B-Instruct** — Teacher: `PPL 8.56 | MMLU 66.4 | Avg 67.3 | RULER 91.3`
+
+| Ckpt | Sel. | Init | PPL↓ | MMLU | Avg | RULER |
+|---|---|---|---|---|---|---|
+| 100M | Uniform | Baseline | 10.78 | 48.5 | 60.5 | 26.3 |
+| 100M | Uniform | Taylor-Cal. | 10.83 | 51.5 | 60.8 | 29.2 |
+| 100M | AR | Baseline | 10.32 | 57.5 | 62.1 | 11.5 |
+| 100M | AR | Taylor-Cal. | 10.33 | 57.8 | 62.1 | 11.7 |
+| 100M | GA-S2 | Baseline | 15.97 | 49.8 | 52.6 | 6.6 |
+| 100M | GA-S2 | Taylor-Cal. | 11.73 | 57.2 | 60.4 | 4.9 |
+| 700M | Uniform | Baseline | 9.09 | 55.1 | 65.8 | 63.8 |
+| 700M | Uniform | Taylor-Cal. | 8.95 | 57.0 | 66.0 | 65.7 |
+| 700M | AR | Baseline | 9.08 | 61.5 | 65.8 | 56.1 |
+| 700M | AR | Taylor-Cal. | 8.98 | 61.8 | 66.1 | 57.9 |
+| 700M | GA-S2 | Baseline | 9.45 | 55.8 | 65.7 | 59.8 |
+| 700M | GA-S2 | Taylor-Cal. | 9.13 | 61.3 | 65.9 | 70.5 |
+
+**(c) Llama-3.2-3B-Instruct** — Teacher: `PPL 11.05 | MMLU 60.6 | Avg 65.6 | RULER 89.6`
+
+| Ckpt | Sel. | Init | PPL↓ | MMLU | Avg | RULER |
+|---|---|---|---|---|---|---|
+| 100M | Uniform | Baseline | 20.74 | 38.3 | 59.7 | 5.7 |
+| 100M | Uniform | Taylor-Cal. | 17.41 | 39.9 | 61.3 | 6.6 |
+| 100M | AR | Baseline | 20.43 | 31.3 | 58.5 | 4.6 |
+| 100M | AR | Taylor-Cal. | 17.45 | 36.1 | 60.1 | 5.4 |
+| 100M | GA-S2 | Baseline | 18.87 | 26.5 | 57.8 | 5.0 |
+| 100M | GA-S2 | Taylor-Cal. | 16.83 | 31.9 | 59.5 | 4.2 |
+| 700M | Uniform | Baseline | 12.05 | 49.6 | 64.3 | 60.0 |
+| 700M | Uniform | Taylor-Cal. | 11.62 | 49.7 | 64.8 | 63.4 |
+| 700M | AR | Baseline | 12.22 | 41.4 | 63.8 | 46.4 |
+| 700M | AR | Taylor-Cal. | 11.85 | 45.0 | 64.0 | 47.3 |
+| 700M | GA-S2 | Baseline | 12.05 | 34.6 | 62.3 | 41.1 |
+| 700M | GA-S2 | Taylor-Cal. | 11.92 | 42.1 | 63.9 | 46.5 |
+
+### 5.11c ⚠ Finding 1 — Taylor-Calibrate is WORSE than Baseline on long-context in some cells, and the paper does not say so
+
+**Qwen3-8B, 700M, GA-S2 selection: RULER Baseline `66.1` vs Taylor-Calibrate `57.2`.** `[T, Table 6(d)]`
+That is a **−8.9 point regression** on the largest donor at the final checkpoint.
+
+It is not isolated. From Table 2 (zero-shot, §5.8d): **Llama-3.2-3B at 75 % retained, RULER: Zero-Gate
+`31.0` and Small-Gate `30.9` vs Taylor-Calibrate `24.0`** — the trivial one-line gate heuristics beat the
+full method by ~7 points. **Qwen2.5-3B at 100M/GA-S2: RULER Baseline `6.6` vs Taylor-Calibrate `4.9`.**
+
+> **The paper's Table 6 caption bolds "best RULER within each model block", so these inversions are
+> visible in its own formatting, but the running text does not discuss them.** The §4.2 text says only
+> that *"RULER gains are more model- and budget-dependent"* — which is true and considerably softer than
+> "the method sometimes loses to doing nothing."
+
+**Why this matters to us specifically:** long-context retrieval is the capability
+`ADAPTER_MEMO_01` §2.2f cares about (the KV-traffic half) and the one this survey's §9 identified as
+architecturally capped. **A calibration method whose long-context effect is sign-unstable across layer-
+selection policies is not yet a controlled instrument for that capability**, and the variance is being
+absorbed into a "model- and budget-dependent" phrasing. **With no seed variance reported anywhere
+(§5.8g), it is not possible to tell whether these inversions are real effects or noise — and that is
+itself the finding.**
+
+### 5.11d ⚠ Finding 2 — MMLU does not recover, and it is the worst-recovering task in the table
+
+Teacher vs best 700M Taylor-Calibrate cell, per donor `[T, Table 6]`, **mine (subtraction only)**:
+
+| donor | teacher MMLU | best 700M Taylor-Cal. MMLU | gap | teacher Avg | best 700M Avg | gap |
+|---|---|---|---|---|---|---|
+| Qwen2.5-1.5B | 60.2 | 55.7 | **−4.5** | 64.8 | 64.4 | −0.4 |
+| Qwen2.5-3B | 66.4 | 61.8 | **−4.6** | 67.3 | 66.1 | −1.2 |
+| Llama-3.2-3B | 60.6 | 49.7 | **−10.9** | 65.6 | 64.8 | −0.8 |
+| Qwen3-8B | 74.9 | 70.2 | **−4.7** | 70.7 | 70.1 | −0.6 |
+
+> **`Avg` recovers to within 0.4–1.2 points of teacher while MMLU stays 4.5–10.9 points down.** Because
+> `Avg` is a macro-average over twelve tasks, **a large MMLU deficit is diluted to near-invisibility in
+> the headline number.** The `Avg`-recovers-fully story of §5.8e is true and incomplete.
+
+**This is the same shape as the finding already banked for LoLCATs in §2** (MMLU −11.2 / −11.1 / −10.8 at
+8B/70B/405B while most other tasks were near-lossless). **Two independent conversion methods, five years
+of technique apart, both leave a large MMLU-shaped hole.** That is now a pattern rather than a
+one-paper artefact, and it is the single most consistent quality signature in this whole survey.
+
+> **Consequence for the programme's success criterion.** The sealed constraint is *"successo = retention
+> general-purpose."* **MMLU is the closest thing in these benchmarks to general-purpose knowledge
+> retention, and it is the metric that conversion damages most and heals least.** Any in-house
+> conversion evaluation that reports a macro-average will hide exactly the deficit the constraint cares
+> about. **Report MMLU as its own line, never inside an average.**
+
+### 5.11e What Table 6 adds that Table 3 could not
+
+- **The PPL column.** Qwen3-8B at 100M/GA-S2: Baseline `297.36` vs Taylor-Calibrate `11.12` — **the
+  largest single initialization effect in the paper (mine: 26.7×), and it is larger than the abstract's
+  headline 88× is in `Avg` terms.** It confirms §5.8b's reading: the method's effect is overwhelmingly on
+  perplexity and only weakly on downstream task scores.
+- **Teacher PPL for all four donors** (`9.66 / 8.56 / 11.05 / 9.73`), absent from Tables 2–4, which makes
+  the 700M PPL cells interpretable for the first time: best-case Qwen3-8B reaches `9.45` against a
+  teacher `9.73` — **the converted student's perplexity slightly beats its teacher's while its MMLU is
+  4.7 points down.** A further, direct demonstration that PPL is not tracking the capability we care
+  about.
+- **`[X] still:** Table 6 does **not** state the retained-attention budget either.** The gap flagged in
+  §5.8e survives into the appendix. Across Tables 3 and 6, **the entire recovery half of this paper is
+  reported without its hybrid ratio.**
