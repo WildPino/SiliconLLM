@@ -1,0 +1,12 @@
+# gemv_donor_bench | mode=d5g reps=5 check=0 gather=iid force_unclean=0
+# OpenMP ON, max_threads=12 | OMP_PROC_BIND=close OMP_PLACES=cores
+# fp32 estimator: min-of-5, ~2 GB streamed per timing window, x poisoned each pass (engine.c run_gemv_sweep)
+# cv% = coefficient of variation of the per-rep rates. >5% => the machine was not quiet, do not use the row.
+# QUIESCENCE CHECK: threshold=1.0 GB resident working set | 0 process(es) at/above it:
+#   -- clean.
+
+==== d5g: generic six-stat shape probe (D=8192 HID=28672 L=28 nt=6 reps=5) ====
+
+D5A1CSV,d5g,D=8192,HID=28672,L=28,nt_requested=6,nt_achieved=6,reps=5,ntok_per_rep=8,ws_bytes=9865003008,min_gbps=8.8956,median_gbps=8.7284,mean_gbps=8.6542,sd_us=27215.1892,cv_pct=2.39
+
+STOP. No commit, no push.

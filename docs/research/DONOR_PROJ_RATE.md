@@ -947,6 +947,13 @@ sweep run (`gemv_donor_bench.exe d5 --reps 5`) plus follow-up measurements taken
 Principal's own reading of that sweep, per the Principal's explicit request not to let the raw log's
 numbers pass into the record unchallenged.
 
+> **SUPERSEDED 2026-08-29 -- see sec.12.6.** The Controller audited this section (`CONTROLLER_D5_RESULTS_AUDIT.md`)
+> and returned BLOCK on Claim 2 (compute-bound). The block-and-tackle measurements sec.12.6 ordered --
+> a fixed-`T` `Mpad` sweep and a causal compute-ablation, at two shapes on opposite sides of the break --
+> confirm the audit's BLOCK: the path is memory-bound, not compute-bound, and 5-trit packing is back on the
+> table pending a real measurement of a 5-trit decoder (not yet built). **Claim 2 as stated below (and the
+> packing conclusion drawn from it) is WITHDRAWN. Read sec.12.6 before acting on anything in sec.12.5.**
+
 ### 12.5.1 Reproducibility manifest
 
 | field | value |
@@ -1125,6 +1132,11 @@ both the same estimator -- not through this table.
 
 > **Does the 21.25 GB/s constant transfer to donor width? No. Is the donor-width path bandwidth-bound or
 > compute-bound? Compute-bound.**
+> **WITHDRAWN 2026-08-29 -- the "compute-bound" half of this answer is wrong. See sec.12.6.** The transfer
+> finding (constant does not survive to donor width) stands, revised to "roughly 2x" per finding 9 of the
+> Controller's audit. The compute-bound finding does not stand: a fixed-`T` `Mpad` sweep and a two-shape
+> causal ablation both say memory-bound. Do not read past this line for the bandwidth-vs-compute question.
+
 
 **The transfer question, answered at matched methodology (engine-integrated, `L=28`, mean estimator, same
 thread placement):**
@@ -1172,3 +1184,233 @@ building the denser packing path -- which is the point of having run this brief 
   correlational) compute-ablation test, costed above at 30-60 minutes, not yet built.
 - **This section is a measurement and an audit-in-progress, not a decision.** Per standing instruction,
   nothing above enters `ADAPTER_MEMO_01` or any other document until the Controller has reviewed it.
+
+## 12.6 Controller audit response — Claim 2 reversed (2026-08-29)
+
+**This section supersedes sec.12.5's Claim 2 (compute-bound) and the packing conclusion drawn from it.**
+`CONTROLLER_D5_RESULTS_AUDIT.md` returned BLOCK on that claim, on structural grounds requiring no new
+measurement (finding 2: the identical kernel spans 8.92-29.23 GB/s across shapes, which a compute-bound
+kernel with fixed bytes-per-instruction cannot produce). The two block-and-tackle measurements the
+Controller and the Principal ordered -- a fixed-`T` `Mpad` sweep and a causal compute-ablation at two
+shapes on opposite sides of the break -- were run to settle it decisively rather than argue it further.
+**They confirm the BLOCK. The donor-width ternary path is memory-bound, not compute-bound.**
+
+Manifest: git revision at time of these runs, build/env identical to sec.12.5.1 (`OMP_PROC_BIND=close
+OMP_PLACES=cores`, no `-ffast-math`, machine confirmed clean before each invocation). Raw output:
+`benchmarks/donor_adaptation/results/d5_auditresponse_raw.log` (`d5m`/`d5abl`/`d5cd`, one background job,
+`reps=8`) and `benchmarks/donor_adaptation/results/a1_4_donor_order/invocation_{1..6}.log` (six independent
+`d5g` invocations, `reps=5` each, for the A1.4 check below).
+
+### 12.6.1 The `Mpad` discriminator (audit item 1)
+
+`T=4096` fixed (`K=8192`), pool fixed at the same target (512 MB) across every point, `Mpad` swept
+1024/2048/4096/8192/28672. Bytes-per-instruction in `matvec_lut_full` is a compile-time constant
+independent of `Mpad`; the pre-registered read (printed into the run itself, before the numbers existed)
+was: **flat mean_gbps survives compute-bound, a fall that tracks `Mpad`/`EB` kills it.**
+
+| `Mpad` | `EB` | min GB/s | median GB/s | **mean GB/s** | sd (µs) | cv% |
+|---|---|---|---|---|---|---|
+| 1024 | 4 MiB | 28.76 | 25.55 | **22.73** | 44.58 | **24.15** |
+| 2048 | 8 MiB | 22.45 | 21.99 | **21.61** | 17.26 | 4.45 |
+| 4096 | 16 MiB | 17.08 | 16.09 | **15.26** | 107.42 | 9.77 |
+| 8192 | 32 MiB | 11.73 | 11.47 | **11.29** | 109.33 | 3.68 |
+| 28672 | 112 MiB | 11.14 | 10.82 | **10.72** | 408.04 | 3.73 |
+
+**Not flat. Monotonic, falling 2.12x from `Mpad=1024` to `Mpad=28672`, every point already past the 16 MiB
+L3 cliff by `Mpad=4096` onward. By the criterion printed into the run before it ran: Claim 2 is dead.**
+
+**Does the monotonicity survive dropping the noisy row?** `Mpad=1024`'s `cv=24.15%` is far over the
+harness's own 5% do-not-use line, and it is the fastest point in the sweep -- the one point that would, if
+discarded, most weaken "the curve falls." Dropping it: **21.61 -> 15.26 -> 11.29 -> 10.72, still strictly
+monotonic, still a 2.02x fall, and all three of those remaining points have `cv` under 5% (4.45%, 3.68%,
+3.73%).** The conclusion does not depend on the one flagged row; the three clean points alone already
+carry it. `Mpad=4096`'s `cv=9.77%` is the second flag in the table -- also over the line -- and dropping it
+too leaves 21.61 -> 11.29 -> 10.72, a 1.91x fall on three of the cleanest rows in the whole sweep. The
+finding survives every reasonable exclusion.
+
+**Where the fall actually happens** is informative on its own: the two largest single-step drops are
+`Mpad=2048->4096` (-29.4%, `EB` crossing 8->16 MiB, straddling the L3 cliff) and `Mpad=4096->8192` (-26.0%,
+`EB` crossing 16->32 MiB, now past it) -- then a near-flat -5.0% from `Mpad=8192` to `28672`, a further
+3.5x growth in `Mpad` for almost no further rate change. **A cliff at the L3 boundary followed by a
+plateau**, not a smooth power-law decline -- consistent with a residency/traffic mechanism, not a generic
+"bigger is slower" one.
+
+### 12.6.2 The causal ablation (audit item 2)
+
+`matvec_ablation`: identical load, identical 32-of-64-byte stride, identical `OMP_PFOR` structure as
+`matvec_lut_full` -- but the broadcast+`pshufb`+4x(`cvtepi8_epi32`+`vpaddd`) decode is replaced with one
+`vpaddb` of the raw bytes. Strips the compute, keeps the memory traffic and access pattern unchanged. Run
+at both shapes on opposite sides of the break, same pool, same `reps`, same process invocation per shape
+(so the real/ablated pair for each shape is a same-invocation comparison, not a cross-invocation one):
+
+| shape | `EB` | real mean GB/s | ablated mean GB/s | jump | ablated as % of fp32 ceiling (~38.7) |
+|---|---|---|---|---|---|
+| `k/v` (fast) | 4 MiB | 27.81 | 33.22 | **1.195x** | 85.9% |
+| `gate/up` (slow) | 112 MiB | 11.29 | 15.38 | **1.362x** | 39.7% |
+
+**A compute-bound kernel would have jumped hard when ~90% of its per-byte instructions were removed. It
+did not, at either shape.** Converting the jump ratio to a time fraction (`ablated_time/real_time =
+1/jump`): compute accounts for **~16% of `k/v`'s time and ~27% of `gate/up`'s** -- real, non-trivial, but
+not the dominant term at either shape, and smallest at the fast shape where a compute-bound story would
+need it largest. **The more telling number is the ceiling column**: even with compute almost entirely
+removed, `gate/up`'s ablated kernel reaches only 39.7% of the sequential fp32 rate on the *same silicon*.
+Something in the access pattern itself -- not the decode logic -- is capping it well below what this
+memory subsystem can deliver sequentially. `k/v`, whose blocks are small enough to see some residual cache
+assistance even streamed, reaches 85.9% of that same ceiling with the identical stripped kernel. **Two
+independent tests, same verdict: memory-bound, and specifically access-pattern-bound, not compute-bound.**
+
+### 12.6.3 `d5cd` -- the control the audit found missing (finding 6)
+
+Controls 2/3 (sec.12.5.2) validate the kernel-pure LUT meter only at the arbitrary 1536x1536 attention-proj
+shape. No control previously validated the meter at an actual donor shape -- precisely where Claim 2's
+whole evidence base lives. `k/v` (1024x8192) is the one real donor organ whose single block (4 MiB) fits
+under the 16 MiB L3 cliff, so it is the one donor shape that can run the same forced-resident /
+forced-streamed test controls 2/3 already run elsewhere:
+
+| condition | mean GB/s | cv% |
+|---|---|---|
+| resident (single 4 MiB block) | **71.71** | 1.09 |
+| streamed (512 MB pool, 16 blocks, iid) | **24.16** | 4.71 |
+
+**Drop ratio 2.968x (need >=2.0x): PASS. Resident 71.71 (need >=50, target ~100 per the banked L3 probe):
+PASS.** This is the first control this probe has ever had that validates the kernel-pure meter moves
+correctly, in both directions, at a real donor shape rather than only at the tiny stand-in shape. The gap
+the audit found (finding 6) is closed.
+
+One number worth flagging rather than smoothing over: this streamed reading (24.16) and `d5abl`'s `k/v`
+"real" reading (27.81) are the *same shape, same pool, same reps*, run as separate process invocations
+roughly a minute apart in the same session -- and differ by 15%. That is larger than, but the same
+phenomenon as, the ~4-8% between-invocation dispersion A1.3 already established at `D=1536`; it recurs
+here at a different shape and a larger magnitude. **Within-invocation comparisons (the `Mpad` sweep's own
+points, each ablation pair) are far more trustworthy than any single absolute GB/s figure taken across
+separate invocations** -- which is exactly why sec.12.6.1's and 12.6.2's conclusions are built entirely on
+within-invocation deltas, not on comparing this section's numbers against sec.12.5's.
+
+### 12.6.4 The byte-accounting verdict -- stated plainly
+
+**The two arms are not charged comparably, and this is a real defect affecting every ternary GB/s figure
+this probe has produced, including the banked 21.25.**
+
+`fp32_streamed_point` / `matvec` reads each row fully sequentially (`dotf`, contiguous 32-byte SIMD loads).
+Every byte fetched from DRAM is used. **Charged bytes = moved bytes, always, by construction, regardless of
+shape** -- confirmed by control 4 landing on the same ~38.7-39.4 GB/s across every `D` and pool size tested
+in this document.
+
+`matvec_lut_full` reads 32 bytes of every 64-byte line at stride `Mpad` (confirmed by direct source
+reading, `gemv_donor_bench.c:135-143`) and is charged exactly `EB` bytes regardless of how much DRAM
+traffic that access pattern actually generates. **This section's own two measurements now show the charged
+rate is NOT a stable multiple of moved bytes across shapes** -- it falls 2.12x with `Mpad` at fixed `T`,
+and the ablated (near-zero-compute) kernel caps at only 40% of the sequential ceiling at the slow shape.
+Both are consistent with, and neither is explained without, the ternary arm moving *more* DRAM traffic per
+charged byte at large `EB` than at small `EB` -- plausibly the ~2x the audit's finding 3 proposed (the
+line's other half fetched again after eviction, for blocks that don't stay resident), though this document
+has not measured DRAM traffic directly (that requires hardware performance counters, which the Controller
+already flagged as the one check nothing in this userspace harness can perform) and does not claim the
+factor is exactly 2x rather than some other value that also produces a cliff-then-plateau shape.
+
+**What this does and does not affect.** It does not affect Claim 1: `ADAPTER_MEMO_01`'s tok/s arithmetic
+multiplies a rate by code-bytes-per-token, and both the `D=1536` and `D=8192` rates in this document use
+the identical charged-byte convention on both sides of that multiplication (Controller finding 9). It
+**does** affect every reading of `ratio_fp32_over_ternary` as a direct "how close to the DRAM ceiling"
+measurement: the fp32 arm's rate is a moved-byte rate throughout, the ternary arm's is a charged-byte rate
+that understates its own moved bytes by an unknown, shape-dependent factor at large `EB`. A charged rate of
+~11 GB/s at `gate/up` could correspond to closer to ~20+ GB/s of actual DRAM traffic if the ~2x factor
+holds at that shape -- most of it wasted on unused half-lines, not absent.
+
+**The framing the Owner pushed, restated as what the evidence supports:** the 33.3% FFN floor, the 0.5
+bytes/weight packing, and the 48 KB block granularity are this programme's own choices, not physical laws.
+**If this access-pattern waste is real, it belongs on that same list -- a self-inflicted 2x, fixable by
+changing how `matvec_lut_full` walks memory (e.g. processing `base` and `base+32` together so both halves
+of each line are consumed while it is still hot), with no change to packing density, no new decoder to
+build, and no quality cost.** That is a stronger and cheaper claim than "5-trit packing pays," and this
+section's evidence supports investigating it before anything else on this list. It has not been built or
+measured; sec.12.6.1-12.6.2 are evidence *for* investigating it, not a measurement *of* it.
+
+### 12.6.5 The `q/o` correction (carried over from the prior audit round)
+
+**"Block size drives the rate" (sec.12.5.5) does not survive and should be struck.** `q/o` (`EB`=32 MiB)
+reads 8.92 GB/s at its largest tested pool; `gate/up` (`EB`=112 MiB, 3.5x bigger) reads 11.05 GB/s at its
+largest tested pool. A smaller block running slower than a much bigger one is backwards for any monotonic
+block-size claim. `q/o`'s own repeated condition (three true repeats at the degenerate 32 MB/single-block
+pool: 11.63/11.58/11.48, tight) sits on the same ~11 GB/s plateau as `gate/up` and as this section's own
+`Mpad=8192` sweep point (11.29, `reps=8`, `cv`=3.68%) -- **which resolves the open question from the prior
+round: `q/o`'s disputed 8.92 GB/s reading (a single, unrepeated measurement at its largest pool) does not
+reproduce under a proper repeated measurement at the identical condition (`Mpad=8192`, `EB`=32 MiB, 512 MB
+pool, `nblk`=16).** It was very likely a single noisy draw, of the same kind already documented elsewhere
+in this harness (the 130 ms single-rep stall in the A1.3 diagnostic trace), not a reproducible shape
+effect. The organising variable that survives is the `Mpad`/`EB`-vs-L3 relationship in sec.12.6.1, not
+block size taken alone.
+
+### 12.6.6 A1.4 -- discharged this session, not left open
+
+**Correction to the standing status: A1.4 is not undischarged.** Six independent `d5g` invocations were
+run at the actual donor shape (`D=8192, HID=28672, L=28, nt=6, reps=5`) during the same clear-machine
+window as sec.12.6.1-12.6.3, before `llama-server` returned. Artefact:
+`benchmarks/donor_adaptation/results/a1_4_donor_order/invocation_{1..6}.log`.
+
+| invocation | 1 | 2 | 3 | 4 | 5 | 6 |
+|---|---|---|---|---|---|---|
+| mean GB/s | 10.74 | 9.64 | 10.04 | 8.65 | 8.82 | 9.67 |
+| cv% | 4.75 | **9.96** | **7.73** | 2.39 | 3.49 | **7.04** |
+
+**No monotonic order effect.** The first invocation is the highest of the six, not the lowest -- the
+opposite of a cold-start/boost-ramp signature, which predicts the first invocation low. Half the
+invocations (2, 3, 6) exceed the harness's own 5% cv line. Between-invocation dispersion across all six:
+mean 9.60 GB/s, sd 8.07%; restricted to the three cv-clean invocations (1, 4, 5): mean 9.41, sd 12.3% --
+larger, not smaller, once the noisy rows are dropped, which argues against treating cv as a clean filter
+for this effect. **This reproduces, at donor width, the same conclusion A1.4 reached at `D=1536`
+(sec.12.4): rate does not depend on invocation order in any exploitable way; it depends on intermittent,
+unpredictable background interference of order 8-12% at this shape, somewhat larger than the ~4-8% seen at
+`D=1536`.** Protocol handling is therefore what sec.12.4 already recommended: no special discarding of
+invocation 1, run enough invocations (>=6) to average out the intermittent contamination, and read the
+resulting between-invocation sd as the honest uncertainty band.
+
+**This changes the donor-width figure used in Claim 1.** Folding this session's six invocations together
+with the earlier single `d5g` draw (10.38, sec.12.5.6) gives a 7-invocation grand mean of **9.71 GB/s**
+(sd 7.90%) -- a better-grounded donor-width figure than the single earlier draw. Against `D=1536`'s grand
+mean (22.07, sec.12.4) or this session's own `D=1536` reading (22.69, sec.12.6 manifest), the fall is
+**2.27x-2.34x** -- both round to **"roughly 2x,"** not the false three-significant-figure precision of
+"2.13x" the prior round quoted (Controller finding 9). **Quote it as roughly 2x.**
+
+**What remains genuinely open on A1.4**: whether the ~8-12% between-invocation dispersion itself has a
+cause (thermal, background OS scheduling, something else) is not established -- only that it is not
+ordered by invocation index. That question is not pursued further here.
+
+### 12.6.7 The actual answer, revised
+
+> **Does the 21.25 GB/s constant transfer to donor width? No -- it falls to roughly half (grand-mean
+> estimate: ~9.7 GB/s vs ~22.1-22.7 GB/s, a ~2x fall). Is the donor-width path bandwidth-bound or
+> compute-bound? Neither, cleanly -- it is memory-bound in a way that is not simply "DRAM is saturated":
+> the `Mpad` sweep and the two-shape ablation both say the ALU is not the constraint, and the ablated
+> kernel's failure to reach the sequential fp32 ceiling even stripped of compute points at the access
+> pattern itself, not at raw bandwidth exhaustion.**
+
+**Consequence for 5-trit packing: it is back on the table, and it is not priced here.** The
+pre-registered dichotomy (brief sec.4) said memory-bound -> packing is roughly the full ~2.5x lever
+(fewer bytes moved per weight). That reasoning applies with less force once the binding constraint looks
+like access-pattern waste rather than raw bandwidth exhaustion -- a 5-trit kernel with the *same* wasteful
+stride would still lose half its fetched bytes, unless it is also built with a better access pattern, in
+which case some of the benefit properly belongs to the access-pattern fix rather than to the packing
+density. **What would have to be built and measured to price 5-trit properly, not estimated from proxies:**
+
+1. **A real 5-trit decoder.** Finding 5 stands: 5 trits/byte has no 4-bit index and cannot use the
+   `pshufb`-LUT scheme this entire kernel is built on. It needs a base-3 extraction (division/modulo or an
+   equivalent bit-trick unpack), and that cost is per-byte, not the fixed per-call overhead the original
+   compute-bound dichotomy assumed. Nobody has written this kernel. The ablation's ~16-27% compute-time
+   estimate is a ceiling on how much *this* kernel's decode costs, not a measurement of what a *different*
+   decode (base-3, no LUT) would cost -- it could plausibly cost more of the per-byte budget, not less.
+2. **The same discriminators run against that decoder**: a matched-shape rate table across the `Mpad`
+   sweep's points, and ideally the same ablation (strip the base-3 unpack, keep the stride) to see whether
+   the new kernel is itself compute- or memory-bound at donor shapes.
+3. **Separately, and cheaper, the access-pattern fix sec.12.6.4 describes** (consume both halves of each
+   64-byte line while still hot) applied to the *existing* 2-trit kernel, measured the same way. If that
+   alone recovers a large fraction of the `Mpad=8192`-to-`Mpad=1024` gap, it argues for fixing the access
+   pattern before building a new decoder at all -- cheaper, no quality cost, and independent of whichever
+   way the packing-density question eventually lands.
+
+None of this has been built. Nothing above should be read as pricing 5-trit packing as a good or bad
+lever -- only as reopening the question the prior round closed on evidence that has since been overturned.
+
+**Status for the record, per standing instruction: nothing in sec.12.6 enters `ADAPTER_MEMO_01` or any
+decision document until the Controller has audited it.** This round tests the process from the other
+side -- a result that reverses the Principal's own prior reading, in the direction the Controller predicted.
