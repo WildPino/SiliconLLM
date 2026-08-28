@@ -1,0 +1,153 @@
+{
+  "env": {
+    "utc": "2026-08-22T21:07:11Z",
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+    "numpy": "2.4.6",
+    "torch": "2.12.0+cpu",
+    "transformers": "4.57.6",
+    "torch_threads": 6,
+    "seq_len": 1024,
+    "calib_seed": 20260822,
+    "alt_seed": 20260823,
+    "favor_seed": 424242,
+    "favor_m": 256,
+    "rank_tol_primary": 1e-06,
+    "rank_tols": [
+      1e-05,
+      1e-06,
+      1e-07
+    ],
+    "short_prefix": 32
+  },
+  "arch_achieved": {
+    "repo_id": "Qwen/Qwen2.5-1.5B",
+    "revision_pinned": "8faed761d45a263340a0528343f099c05c9a4323",
+    "n_layers_achieved": 28,
+    "D_achieved": 1536,
+    "q_out_achieved": 1536,
+    "k_out_achieved": 256,
+    "v_out_achieved": 256,
+    "o_in_achieved": 1536,
+    "head_dim_achieved": 128,
+    "n_q_heads_achieved": 12,
+    "n_kv_heads_achieved": 2,
+    "kv_groups_achieved": 6,
+    "scaling_achieved": 0.08838834764831845,
+    "q_bias_achieved": true,
+    "k_bias_achieved": true,
+    "v_bias_achieved": true,
+    "o_bias_achieved": false,
+    "sliding_window_achieved": null,
+    "layer_types_unique_achieved": [
+      "full_attention"
+    ],
+    "param_dtype_achieved": "torch.float32",
+    "rms_norm_eps_achieved": 1e-06,
+    "rope_theta_achieved": 1000000.0,
+    "n_params_achieved": 1543714304
+  },
+  "donor_revision": {
+    "snapshot_dir": "C:\\Users\\giosa\\.cache\\huggingface\\hub\\models--Qwen--Qwen2.5-1.5B\\snapshots\\8faed761d45a263340a0528343f099c05c9a4323",
+    "snapshot_leaf": "8faed761d45a263340a0528343f099c05c9a4323",
+    "config_sha256": "0e8c8aa86468aba09c9d32157ff4bc2301c7e6c50e4398960425b2ea71e66f77"
+  },
+  "S1_A_soft_vs_model_max_abs": 1.3307689182284754e-06,
+  "S2_commute_with_bias_max_abs": 1.3322676295501878e-15,
+  "S2_A_soft_rowsum_dev": 5.551115123125783e-16,
+  "S3_phi_rowsum": {
+    "elu1": [
+      0.9999999999999998,
+      1.0000000000000004,
+      0.0,
+      1.0
+    ],
+    "taylor2": [
+      0.9999999999999998,
+      1.0000000000000002,
+      0.0,
+      1.0
+    ],
+    "favor": [
+      1.0,
+      1.0,
+      0.0,
+      1.0
+    ],
+    "hedgehog0": [
+      0.9999999999999997,
+      1.0000000000000002,
+      0.0,
+      1.0
+    ]
+  },
+  "S4_refusal": "REFUSED [layer 3]: T=1024 <= D=1536. rowspace(Z) is generically all of R^T, P_Z = I and the residual is exactly 0 for EVERY phi including a nonsensical one. No residual is emitted. (brief section 1)",
+  "S4b_residual_when_T_le_D": {
+    "elu1": 0.048217197839440576,
+    "hedgehog0": 0.049454144922284456,
+    "nonsense_noncausal_uniform": 0.8260363531592845
+  },
+  "S5_C1_identity": {
+    "layer": 3,
+    "head": 0,
+    "kv_group": 0,
+    "arm": "C1_identity",
+    "T_achieved": 2048,
+    "D_achieved": 1536,
+    "TD_achieved": 1.3333333333333333,
+    "n_seq_achieved": 2,
+    "L_seq_achieved": 1024,
+    "rank_Z": 1535,
+    "rank_Zstar": 1535,
+    "cond_ZZt": 537739992672.74316,
+    "A_soft_rowsum_min": 0.9999999999999991,
+    "A_soft_rowsum_max": 1.000000000000001,
+    "residual": 3.431177633747552e-08,
+    "ent_q10_norm": 0.1312418008676184,
+    "ent_q50_norm": 0.21692206813572862,
+    "ent_q90_norm": 0.3249180093563903,
+    "residual@1e-05": 3.479446467428708e-06,
+    "rank_Z@1e-05": 1532,
+    "residual@1e-06": 3.431177633747552e-08,
+    "rank_Z@1e-06": 1535,
+    "residual@1e-07": 3.132222314684555e-08,
+    "rank_Z@1e-07": 1536,
+    "res_short_prefix": 1.348751886931964e-08,
+    "n_short_prefix": 64,
+    "res_peaked_d1": 9.27467590694531e-09,
+    "n_peaked_d1": 199,
+    "res_mid": 1.1830684998299202e-08,
+    "n_mid": 1586,
+    "res_diffuse_d10": 1.2579705919493388e-08,
+    "n_diffuse_d10": 199,
+    "res_all_long": 1.1417793302349723e-08,
+    "n_all_long": 1984,
+    "res_all": 1.1462595509421453e-08,
+    "n_all": 2048,
+    "residual_qr_route": 0.0,
+    "rank_Z_qr_route": 1535
+  },
+  "S6_planted_positive_residual": 2.264711729329376e-06,
+  "S7_transpose_trap": {
+    "correct": 0.1982602220096225,
+    "A_lin_untransposed": 0.19343648320271103
+  },
+  "S8_recurrence_vs_matrix": {
+    "max_abs": 7.105427357601002e-15,
+    "rel": 4.902747981359578e-16,
+    "state_shape_D_by_m": [
+      1536,
+      128
+    ],
+    "state_bytes_fp32_mix_then_project": 786432,
+    "state_bytes_fp32_project_then_mix": 65536
+  },
+  "S9_route_cross_check": {
+    "eigh_route": 0.1982602220096225,
+    "qr_route": 0.19826011343003186,
+    "rank_eigh": 1526,
+    "rank_qr": 1526
+  },
+  "wall_s": 71.19892287254333
+}

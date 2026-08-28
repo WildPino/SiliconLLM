@@ -1,0 +1,18 @@
+slice nesting verified: slice(n) == slice(nmax)[:n] for all n
+n_seq=1 T=1024: REFUSED [curve n_seq=1]: T=1024 <= D=1536. rowspace(Z) is generically all of R^T, P_Z = I and the residual is exactly 0 for EVERY phi including a nonsensical one. No residual is emitted. (brief section 1)
+  n_seq= 2 T/D= 1.33 layer  0 [16s]
+  n_seq= 2 T/D= 1.33 layer 14 [18s]
+  n_seq= 2 T/D= 1.33 layer 27 [19s]
+  n_seq= 4 T/D= 2.67 layer  0 [21s]
+  n_seq= 4 T/D= 2.67 layer 14 [21s]
+  n_seq= 4 T/D= 2.67 layer 27 [22s]
+  n_seq= 8 T/D= 5.33 layer  0 [29s]
+  n_seq= 8 T/D= 5.33 layer 14 [30s]
+  n_seq= 8 T/D= 5.33 layer 27 [31s]
+  n_seq=16 T/D=10.67 layer  0 [66s]
+  n_seq=16 T/D=10.67 layer 14 [72s]
+  n_seq=16 T/D=10.67 layer 27 [53s]
+  n_seq=32 T/D=21.33 layer  0 [69s]
+  n_seq=32 T/D=21.33 layer 14 [68s]
+  n_seq=32 T/D=21.33 layer 27 [67s]
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\r2\results\r2a_curve.json  [1031s]

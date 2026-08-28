@@ -1,0 +1,78 @@
+gamma stage: T=8192 D=1536 T/D=5.3333 (IDENTICAL to main and decay)
+ACHIEVED envelope:
+    decayonly_g0.1 {'gamma_requested': 0.1, 'gamma_achieved': 0.10000000000000002}
+    decayonly_g0.25 {'gamma_requested': 0.25, 'gamma_achieved': 0.25}
+    decayonly_g0.35 {'gamma_requested': 0.35, 'gamma_achieved': 0.35}
+    decayonly_g0.5 {'gamma_requested': 0.5, 'gamma_achieved': 0.5}
+    decayonly_g0.7 {'gamma_requested': 0.7, 'gamma_achieved': 0.7}
+    decayonly_g0.9 {'gamma_requested': 0.9, 'gamma_achieved': 0.9}
+    decayonly_g0.95 {'gamma_requested': 0.95, 'gamma_achieved': 0.95}
+    decayonly_g0.99 {'gamma_requested': 0.99, 'gamma_achieved': 0.99}
+    decayonly_g0.999 {'gamma_requested': 0.999, 'gamma_achieved': 0.999}
+    winonly_w32 {'window_requested': 32, 'window_achieved': 32, 'n_nonzero_in_row': 32}
+    winonly_w128 {'window_requested': 128, 'window_achieved': 128, 'n_nonzero_in_row': 128}
+    winonly_w512 {'window_requested': 512, 'window_achieved': 512, 'n_nonzero_in_row': 512}
+
+MIXING GEOMETRY (are the matrices themselves different?)
+  layer 0:
+    decay_g0.99 vs decayonly_g0.99       rel_fro=0.0049  row_cos=1.0000
+    decay_g0.5 vs decayonly_g0.5         rel_fro=0.0036  row_cos=1.0000
+    decay_g0.9 vs decayonly_g0.9         rel_fro=0.0053  row_cos=1.0000
+    win_w128 vs winonly_w128             rel_fro=0.0051  row_cos=1.0000
+    elu1 vs C6_causal_uniform            rel_fro=0.0043  row_cos=1.0000
+    taylor2 vs C6_causal_uniform         rel_fro=0.0451  row_cos=0.9995
+    elu1 vs C8_no_mixing                 rel_fro=0.9963  row_cos=0.0443
+    A_soft vs C6_causal_uniform          rel_fro=4.2724  row_cos=0.1279
+    A_soft vs elu1                       rel_fro=4.2722  row_cos=0.1279
+    A_soft vs decay_g0.5                 rel_fro=1.0171  row_cos=0.3783
+  layer 14:
+    decay_g0.99 vs decayonly_g0.99       rel_fro=0.0720  row_cos=0.9972
+    decay_g0.5 vs decayonly_g0.5         rel_fro=0.0422  row_cos=0.9995
+    decay_g0.9 vs decayonly_g0.9         rel_fro=0.0655  row_cos=0.9982
+    win_w128 vs winonly_w128             rel_fro=0.0727  row_cos=0.9971
+    elu1 vs C6_causal_uniform            rel_fro=0.0711  row_cos=0.9969
+    taylor2 vs C6_causal_uniform         rel_fro=0.7445  row_cos=0.8277
+    elu1 vs C8_no_mixing                 rel_fro=0.9961  row_cos=0.0462
+    A_soft vs C6_causal_uniform          rel_fro=8.4252  row_cos=0.0695
+    A_soft vs elu1                       rel_fro=8.4122  row_cos=0.0672
+    A_soft vs decay_g0.5                 rel_fro=1.5860  row_cos=0.0077
+  layer 27:
+    decay_g0.99 vs decayonly_g0.99       rel_fro=0.0534  row_cos=0.9981
+    decay_g0.5 vs decayonly_g0.5         rel_fro=0.0381  row_cos=0.9997
+    decay_g0.9 vs decayonly_g0.9         rel_fro=0.0559  row_cos=0.9986
+    win_w128 vs winonly_w128             rel_fro=0.0549  row_cos=0.9981
+    elu1 vs C6_causal_uniform            rel_fro=0.0487  row_cos=0.9980
+    taylor2 vs C6_causal_uniform         rel_fro=0.6757  row_cos=0.7429
+    elu1 vs C8_no_mixing                 rel_fro=0.9962  row_cos=0.0457
+    A_soft vs C6_causal_uniform          rel_fro=2.0934  row_cos=0.3234
+    A_soft vs elu1                       rel_fro=2.0815  row_cos=0.3271
+    A_soft vs decay_g0.5                 rel_fro=0.9872  row_cos=0.1527
+layer  0 [107s] decay_g0.1=0.3951  decay_g0.25=0.3724  decay_g0.35=0.3736  decay_g0.5=0.3979  decay_g0.7=0.4977  decayonly_g0.1=0.3952  decayonly_g0.25=0.3725  decayonly_g0.35=0.3737  decayonly_g0.7=0.4980
+layer  1 [67s] decay_g0.1=0.3992  decay_g0.25=0.3762  decay_g0.35=0.3632  decay_g0.5=0.3602  decay_g0.7=0.3478
+layer  2 [65s] decay_g0.1=0.4085  decay_g0.25=0.3985  decay_g0.35=0.3978  decay_g0.5=0.4033  decay_g0.7=0.4297
+layer  3 [65s] decay_g0.1=0.4691  decay_g0.25=0.4682  decay_g0.35=0.4704  decay_g0.5=0.4782  decay_g0.7=0.4852
+layer  4 [67s] decay_g0.1=0.5153  decay_g0.25=0.5035  decay_g0.35=0.4972  decay_g0.5=0.4902  decay_g0.7=0.5118
+layer  5 [67s] decay_g0.1=0.4363  decay_g0.25=0.4274  decay_g0.35=0.4176  decay_g0.5=0.4056  decay_g0.7=0.4615
+layer  6 [67s] decay_g0.1=0.3845  decay_g0.25=0.3751  decay_g0.35=0.3704  decay_g0.5=0.3661  decay_g0.7=0.4106
+layer  7 [111s] decay_g0.1=0.3558  decay_g0.25=0.3431  decay_g0.35=0.3336  decay_g0.5=0.3305  decay_g0.7=0.3490  decayonly_g0.1=0.3558  decayonly_g0.25=0.3431  decayonly_g0.35=0.3335  decayonly_g0.7=0.3495
+layer  8 [68s] decay_g0.1=0.4987  decay_g0.25=0.4964  decay_g0.35=0.4994  decay_g0.5=0.5000  decay_g0.7=0.4968
+layer  9 [71s] decay_g0.1=0.4633  decay_g0.25=0.4507  decay_g0.35=0.4461  decay_g0.5=0.4457  decay_g0.7=0.4688
+layer 10 [74s] decay_g0.1=0.4505  decay_g0.25=0.4386  decay_g0.35=0.4331  decay_g0.5=0.4203  decay_g0.7=0.4165
+layer 11 [70s] decay_g0.1=0.3487  decay_g0.25=0.3383  decay_g0.35=0.3337  decay_g0.5=0.3306  decay_g0.7=0.3484
+layer 12 [67s] decay_g0.1=0.4515  decay_g0.25=0.4423  decay_g0.35=0.4355  decay_g0.5=0.4306  decay_g0.7=0.4389
+layer 13 [67s] decay_g0.1=0.4884  decay_g0.25=0.4639  decay_g0.35=0.4480  decay_g0.5=0.4256  decay_g0.7=0.4033
+layer 14 [112s] decay_g0.1=0.4685  decay_g0.25=0.4631  decay_g0.35=0.4590  decay_g0.5=0.4469  decay_g0.7=0.4384  decayonly_g0.1=0.4685  decayonly_g0.25=0.4631  decayonly_g0.35=0.4591  decayonly_g0.7=0.4384
+layer 15 [65s] decay_g0.1=0.3914  decay_g0.25=0.3685  decay_g0.35=0.3531  decay_g0.5=0.3361  decay_g0.7=0.3338
+layer 16 [67s] decay_g0.1=0.3936  decay_g0.25=0.3876  decay_g0.35=0.3862  decay_g0.5=0.3851  decay_g0.7=0.3776
+layer 17 [65s] decay_g0.1=0.4185  decay_g0.25=0.4029  decay_g0.35=0.3916  decay_g0.5=0.3759  decay_g0.7=0.3621
+layer 18 [66s] decay_g0.1=0.4225  decay_g0.25=0.4171  decay_g0.35=0.4161  decay_g0.5=0.4086  decay_g0.7=0.3967
+layer 19 [65s] decay_g0.1=0.5183  decay_g0.25=0.5065  decay_g0.35=0.5003  decay_g0.5=0.4943  decay_g0.7=0.4955
+layer 20 [67s] decay_g0.1=0.4954  decay_g0.25=0.4725  decay_g0.35=0.4632  decay_g0.5=0.4526  decay_g0.7=0.4490
+layer 21 [108s] decay_g0.1=0.4061  decay_g0.25=0.3933  decay_g0.35=0.3869  decay_g0.5=0.3815  decay_g0.7=0.3860  decayonly_g0.1=0.4061  decayonly_g0.25=0.3933  decayonly_g0.35=0.3869  decayonly_g0.7=0.3859
+layer 22 [67s] decay_g0.1=0.5096  decay_g0.25=0.4971  decay_g0.35=0.4913  decay_g0.5=0.4882  decay_g0.7=0.4990
+layer 23 [66s] decay_g0.1=0.5028  decay_g0.25=0.5004  decay_g0.35=0.5010  decay_g0.5=0.5082  decay_g0.7=0.5315
+layer 24 [65s] decay_g0.1=0.4387  decay_g0.25=0.4347  decay_g0.35=0.4350  decay_g0.5=0.4399  decay_g0.7=0.4562
+layer 25 [66s] decay_g0.1=0.4266  decay_g0.25=0.4288  decay_g0.35=0.4365  decay_g0.5=0.4571  decay_g0.7=0.4761
+layer 26 [65s] decay_g0.1=0.4631  decay_g0.25=0.4609  decay_g0.35=0.4624  decay_g0.5=0.4695  decay_g0.7=0.4853
+layer 27 [105s] decay_g0.1=0.4201  decay_g0.25=0.4189  decay_g0.35=0.4129  decay_g0.5=0.4229  decay_g0.7=0.4352  decayonly_g0.1=0.4201  decayonly_g0.25=0.4190  decayonly_g0.35=0.4131  decayonly_g0.7=0.4358
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\r2\results\r2a_gamma.json  [2178s]

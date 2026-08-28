@@ -1,0 +1,46 @@
+nulls stage: T=8192 D=1536 T/D=5.3333 (IDENTICAL to main, decay, gamma)
+q.k LOGIT RANGE (causal pairs; taylor2 is non-monotone below z = -1)
+  layer  0 head0: min=  138.93 p0.1= 142.05 p50=396.23 max= 686.07  frac(z<-1)=0.0000 massfrac=0.0000
+  layer  0 head5: min=  -70.76 p0.1= -25.18 p50=175.04 max=2433.20  frac(z<-1)=0.0181 massfrac=0.0000
+  layer  0 head11: min=  -25.29 p0.1= -19.85 p50= 20.67 max=  63.92  frac(z<-1)=0.0590 massfrac=0.0047
+  layer  7 head0: min=  -10.41 p0.1=  -8.92 p50= -4.35 max=   3.71  frac(z<-1)=0.9747 massfrac=0.9951
+  layer  7 head5: min=  -16.58 p0.1= -12.53 p50= -5.96 max=   4.25  frac(z<-1)=0.9904 massfrac=0.9984
+  layer  7 head11: min=   -5.87 p0.1=  -0.16 p50=  9.08 max=  22.48  frac(z<-1)=0.0005 massfrac=0.0000
+  layer 14 head0: min=  -29.01 p0.1= -21.63 p50= -9.84 max=   7.38  frac(z<-1)=0.9872 massfrac=0.9989
+  layer 14 head5: min=  -39.98 p0.1= -29.74 p50=-12.14 max=   5.51  frac(z<-1)=0.9940 massfrac=0.9997
+  layer 14 head11: min=  -24.01 p0.1= -18.87 p50= -7.96 max=   7.09  frac(z<-1)=0.9601 massfrac=0.9971
+  layer 21 head0: min=  -22.60 p0.1= -17.48 p50= -7.57 max=   4.09  frac(z<-1)=0.9887 massfrac=0.9992
+  layer 21 head5: min=  -18.17 p0.1= -13.68 p50= -5.60 max=   6.42  frac(z<-1)=0.9719 massfrac=0.9971
+  layer 21 head11: min=  -19.71 p0.1= -14.92 p50= -6.93 max=   7.39  frac(z<-1)=0.9901 massfrac=0.9992
+  layer 27 head0: min=  -13.09 p0.1=  -9.10 p50=  0.40 max=  10.56  frac(z<-1)=0.3033 massfrac=0.2326
+  layer 27 head5: min=  -12.96 p0.1=  -8.56 p50=  1.50 max=  11.52  frac(z<-1)=0.1834 massfrac=0.0920
+  layer 27 head11: min=  -11.91 p0.1=  -7.01 p50=  1.72 max=  13.20  frac(z<-1)=0.1386 massfrac=0.0461
+layer  0 [100s] C5p_taylor2=0.7234  C4_taylor2=0.7617  C5p_hedgehog0=0.7201  C4_hedgehog0=0.7199  C5p_favor_d14=0.9039  C4_favor_d14=0.9084  C5p_elu1=0.7199  C4_elu1=0.7197
+layer  1 [35s] C5p_taylor2=0.4952  C4_taylor2=0.5491
+layer  2 [34s] C5p_taylor2=0.5866  C4_taylor2=0.5801
+layer  3 [33s] C5p_taylor2=0.6705  C4_taylor2=0.6049
+layer  4 [33s] C5p_taylor2=0.7394  C4_taylor2=0.6465
+layer  5 [33s] C5p_taylor2=0.6622  C4_taylor2=0.6009
+layer  6 [35s] C5p_taylor2=0.6751  C4_taylor2=0.5772
+layer  7 [101s] C5p_taylor2=0.5113  C4_taylor2=0.4708  C5p_hedgehog0=0.4637  C4_hedgehog0=0.4567  C5p_favor_d14=0.6284  C4_favor_d14=0.6461  C5p_elu1=0.4630  C4_elu1=0.4573
+layer  8 [35s] C5p_taylor2=0.7409  C4_taylor2=0.6521
+layer  9 [35s] C5p_taylor2=0.6774  C4_taylor2=0.6295
+layer 10 [33s] C5p_taylor2=0.6415  C4_taylor2=0.5979
+layer 11 [35s] C5p_taylor2=0.5203  C4_taylor2=0.4832
+layer 12 [35s] C5p_taylor2=0.6746  C4_taylor2=0.5853
+layer 13 [34s] C5p_taylor2=0.5559  C4_taylor2=0.5523
+layer 14 [102s] C5p_taylor2=0.6983  C4_taylor2=0.6308  C5p_hedgehog0=0.5814  C4_hedgehog0=0.5792  C5p_favor_d14=0.7373  C4_favor_d14=0.6745  C5p_elu1=0.5801  C4_elu1=0.5794
+layer 15 [34s] C5p_taylor2=0.5061  C4_taylor2=0.4592
+layer 16 [34s] C5p_taylor2=0.5745  C4_taylor2=0.5352
+layer 17 [35s] C5p_taylor2=0.6112  C4_taylor2=0.5358
+layer 18 [34s] C5p_taylor2=0.5915  C4_taylor2=0.5539
+layer 19 [35s] C5p_taylor2=0.7394  C4_taylor2=0.6549
+layer 20 [34s] C5p_taylor2=0.6560  C4_taylor2=0.6256
+layer 21 [103s] C5p_taylor2=0.5818  C4_taylor2=0.5107  C5p_hedgehog0=0.4898  C4_hedgehog0=0.4900  C5p_favor_d14=0.6359  C4_favor_d14=0.5695  C5p_elu1=0.4882  C4_elu1=0.4886
+layer 22 [34s] C5p_taylor2=0.7297  C4_taylor2=0.6531
+layer 23 [34s] C5p_taylor2=0.7313  C4_taylor2=0.6550
+layer 24 [34s] C5p_taylor2=0.5879  C4_taylor2=0.5371
+layer 25 [34s] C5p_taylor2=0.6482  C4_taylor2=0.5528
+layer 26 [35s] C5p_taylor2=0.6548  C4_taylor2=0.5330
+layer 27 [103s] C5p_taylor2=0.5565  C4_taylor2=0.4756  C5p_hedgehog0=0.5307  C4_hedgehog0=0.5344  C5p_favor_d14=0.6032  C4_favor_d14=0.5683  C5p_elu1=0.5288  C4_elu1=0.5320
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\r2\results\r2a_nulls.json  [1472s]

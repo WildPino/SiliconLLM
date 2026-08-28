@@ -1,0 +1,39 @@
+decay stage: T=8192 D=1536 T/D=5.3333 (IDENTICAL to the main sweep)
+ACHIEVED envelope, read back off the constructed A:
+    decayonly_g0.5 {'gamma_requested': 0.5, 'gamma_achieved': 0.5}
+    decayonly_g0.9 {'gamma_requested': 0.9, 'gamma_achieved': 0.9}
+    decayonly_g0.95 {'gamma_requested': 0.95, 'gamma_achieved': 0.95}
+    decayonly_g0.99 {'gamma_requested': 0.99, 'gamma_achieved': 0.99}
+    decayonly_g0.999 {'gamma_requested': 0.999, 'gamma_achieved': 0.999}
+    winonly_w32 {'window_requested': 32, 'window_achieved': 32, 'n_nonzero_in_row': 32}
+    winonly_w128 {'window_requested': 128, 'window_achieved': 128, 'n_nonzero_in_row': 128}
+    winonly_w512 {'window_requested': 512, 'window_achieved': 512, 'n_nonzero_in_row': 512}
+layer  0 [457s] favor_d14=0.9053  d_g0.99=0.6777  dO_g0.99=0.6784  win_w128=0.7303  winO_w128=0.7309  elu1_noscale=0.7168  hedgehog0_noscale=0.7201  d_g0.5=0.3979  dO_g0.5=0.3986  d_g0.9=0.6100  dO_g0.9=0.6105  d_g0.95=0.6406  dO_g0.95=0.6412  d_g0.999=0.7121  dO_g0.999=0.7129  win_w32=0.7294  winO_w32=0.7298  win_w512=0.7221  winO_w512=0.7228
+layer  1 [120s] favor_d14=0.6289  d_g0.99=0.4040  dO_g0.99=0.4110  win_w128=0.4894  winO_w128=0.4921
+layer  2 [118s] favor_d14=0.6165  d_g0.99=0.5108  dO_g0.99=0.5143  win_w128=0.5718  winO_w128=0.5762
+layer  3 [117s] favor_d14=0.7164  d_g0.99=0.5323  dO_g0.99=0.5365  win_w128=0.5919  winO_w128=0.5992
+layer  4 [118s] favor_d14=0.6843  d_g0.99=0.5876  dO_g0.99=0.5968  win_w128=0.6518  winO_w128=0.6569
+layer  5 [118s] favor_d14=0.6588  d_g0.99=0.5276  dO_g0.99=0.5312  win_w128=0.5861  winO_w128=0.5939
+layer  6 [118s] favor_d14=0.6333  d_g0.99=0.5167  dO_g0.99=0.5266  win_w128=0.5786  winO_w128=0.5921
+layer  7 [448s] favor_d14=0.6002  d_g0.99=0.3960  dO_g0.99=0.4018  win_w128=0.4647  winO_w128=0.4715  elu1_noscale=0.4140  hedgehog0_noscale=0.4392  d_g0.5=0.3305  dO_g0.5=0.3324  d_g0.9=0.3653  dO_g0.9=0.3670  d_g0.95=0.3760  dO_g0.95=0.3784  d_g0.999=0.4385  dO_g0.999=0.4495  win_w32=0.4627  winO_w32=0.4649  win_w512=0.4506  winO_w512=0.4634
+layer  8 [177s] favor_d14=0.7417  d_g0.99=0.5787  dO_g0.99=0.5815  win_w128=0.6353  winO_w128=0.6391
+layer  9 [172s] favor_d14=0.7411  d_g0.99=0.5335  dO_g0.99=0.5386  win_w128=0.5892  winO_w128=0.5970
+layer 10 [139s] favor_d14=0.7159  d_g0.99=0.4827  dO_g0.99=0.4877  win_w128=0.5262  winO_w128=0.5318
+layer 11 [115s] favor_d14=0.5504  d_g0.99=0.3710  dO_g0.99=0.3727  win_w128=0.4280  winO_w128=0.4328
+layer 12 [114s] favor_d14=0.6911  d_g0.99=0.4932  dO_g0.99=0.4934  win_w128=0.5564  winO_w128=0.5621
+layer 13 [116s] favor_d14=0.7010  d_g0.99=0.4575  dO_g0.99=0.4601  win_w128=0.5238  winO_w128=0.5288
+layer 14 [389s] favor_d14=0.7070  d_g0.99=0.5111  dO_g0.99=0.5111  win_w128=0.5808  winO_w128=0.5835  elu1_noscale=0.5588  hedgehog0_noscale=0.5836  d_g0.5=0.4469  dO_g0.5=0.4470  d_g0.9=0.4730  dO_g0.9=0.4745  d_g0.95=0.4844  dO_g0.95=0.4838  d_g0.999=0.5630  dO_g0.999=0.5640  win_w32=0.5721  winO_w32=0.5733  win_w512=0.5757  winO_w512=0.5780
+layer 15 [114s] favor_d14=0.5533  d_g0.99=0.3746  dO_g0.99=0.3768  win_w128=0.4226  winO_w128=0.4265
+layer 16 [114s] favor_d14=0.6204  d_g0.99=0.4156  dO_g0.99=0.4179  win_w128=0.4646  winO_w128=0.4691
+layer 17 [166s] favor_d14=0.6521  d_g0.99=0.4201  dO_g0.99=0.4221  win_w128=0.4834  winO_w128=0.4885
+layer 18 [118s] favor_d14=0.6772  d_g0.99=0.4660  dO_g0.99=0.4667  win_w128=0.5189  winO_w128=0.5201
+layer 19 [117s] favor_d14=0.7345  d_g0.99=0.5605  dO_g0.99=0.5606  win_w128=0.6263  winO_w128=0.6262
+layer 20 [118s] favor_d14=0.6912  d_g0.99=0.5136  dO_g0.99=0.5154  win_w128=0.5646  winO_w128=0.5667
+layer 21 [396s] favor_d14=0.5872  d_g0.99=0.4398  dO_g0.99=0.4405  win_w128=0.4854  winO_w128=0.4873  elu1_noscale=0.4614  hedgehog0_noscale=0.4832  d_g0.5=0.3815  dO_g0.5=0.3814  d_g0.9=0.4102  dO_g0.9=0.4103  d_g0.95=0.4200  dO_g0.95=0.4203  d_g0.999=0.4776  dO_g0.999=0.4780  win_w32=0.4783  winO_w32=0.4790  win_w512=0.4855  winO_w512=0.4867
+layer 22 [115s] favor_d14=0.7462  d_g0.99=0.5683  dO_g0.99=0.5689  win_w128=0.6287  winO_w128=0.6355
+layer 23 [114s] favor_d14=0.6988  d_g0.99=0.5870  dO_g0.99=0.5886  win_w128=0.6434  winO_w128=0.6480
+layer 24 [113s] favor_d14=0.6092  d_g0.99=0.5155  dO_g0.99=0.5169  win_w128=0.5566  winO_w128=0.5582
+layer 25 [147s] favor_d14=0.5637  d_g0.99=0.5485  dO_g0.99=0.5406  win_w128=0.5880  winO_w128=0.5825
+layer 26 [169s] favor_d14=0.5824  d_g0.99=0.5462  dO_g0.99=0.5437  win_w128=0.5897  winO_w128=0.5853
+layer 27 [224s] favor_d14=0.5173  d_g0.99=0.4865  dO_g0.99=0.4830  win_w128=0.5265  winO_w128=0.5241  elu1_noscale=0.4765  hedgehog0_noscale=0.4705  d_g0.5=0.4229  dO_g0.5=0.4233  d_g0.9=0.4575  dO_g0.9=0.4579  d_g0.95=0.4656  dO_g0.95=0.4654  d_g0.999=0.5246  dO_g0.999=0.5196  win_w32=0.5175  winO_w32=0.5169  win_w512=0.5297  winO_w512=0.5255
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\r2\results\r2a_decay.json  [4965s]

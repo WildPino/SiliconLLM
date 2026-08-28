@@ -1,0 +1,32 @@
+main: T=8192 D=1536 T/D=5.333  layers=0..27
+capturing activations ...
+captured, 175s
+layer  0 [710s] median residual: elu1=0.7193  taylor2=0.7157  favor=0.9120  hedgehog0=0.7193  C1_identity=0.0000  C6_causal_uniform=0.7200  C5p_wrong_sequence=0.7199  C4_wrong_layer=0.7197  C7_random_gauss=0.9006  C8_no_mixing=0.4148
+layer  1 [108s] median residual: elu1=0.4772  taylor2=0.3473  favor=0.7497  hedgehog0=0.4805  C1_identity=0.0000  C6_causal_uniform=0.4801  C8_no_mixing=0.4165
+layer  2 [115s] median residual: elu1=0.5633  taylor2=0.4704  favor=0.7640  hedgehog0=0.5701  C1_identity=0.0000  C6_causal_uniform=0.5711  C8_no_mixing=0.4181
+layer  3 [115s] median residual: elu1=0.5817  taylor2=0.5188  favor=0.8341  hedgehog0=0.5898  C1_identity=0.0000  C6_causal_uniform=0.5905  C8_no_mixing=0.4726
+layer  4 [114s] median residual: elu1=0.6493  taylor2=0.5718  favor=0.8791  hedgehog0=0.6497  C1_identity=0.0000  C6_causal_uniform=0.6555  C8_no_mixing=0.5245
+layer  5 [124s] median residual: elu1=0.5792  taylor2=0.5591  favor=0.8246  hedgehog0=0.5771  C1_identity=0.0000  C6_causal_uniform=0.5881  C8_no_mixing=0.4426
+layer  6 [104s] median residual: elu1=0.5678  taylor2=0.5046  favor=0.7957  hedgehog0=0.5726  C1_identity=0.0000  C6_causal_uniform=0.5960  C8_no_mixing=0.3952
+layer  7 [156s] median residual: elu1=0.4502  taylor2=0.3726  favor=0.7521  hedgehog0=0.4354  C1_identity=0.0000  C6_causal_uniform=0.4636  C5p_wrong_sequence=0.4630  C4_wrong_layer=0.4573  C7_random_gauss=0.8988  C8_no_mixing=0.3655
+layer  8 [123s] median residual: elu1=0.6393  taylor2=0.5805  favor=0.9188  hedgehog0=0.6242  C1_identity=0.0000  C6_causal_uniform=0.6426  C8_no_mixing=0.5059
+layer  9 [116s] median residual: elu1=0.5856  taylor2=0.5282  favor=0.9141  hedgehog0=0.5919  C1_identity=0.0000  C6_causal_uniform=0.5919  C8_no_mixing=0.4759
+layer 10 [110s] median residual: elu1=0.5170  taylor2=0.4574  favor=0.8787  hedgehog0=0.5231  C1_identity=0.0000  C6_causal_uniform=0.5296  C8_no_mixing=0.4610
+layer 11 [92s] median residual: elu1=0.4167  taylor2=0.3659  favor=0.7693  hedgehog0=0.4197  C1_identity=0.0000  C6_causal_uniform=0.4225  C8_no_mixing=0.3578
+layer 12 [98s] median residual: elu1=0.5522  taylor2=0.4517  favor=0.9036  hedgehog0=0.5363  C1_identity=0.0000  C6_causal_uniform=0.5621  C8_no_mixing=0.4551
+layer 13 [90s] median residual: elu1=0.5201  taylor2=0.3909  favor=0.9260  hedgehog0=0.5127  C1_identity=0.0000  C6_causal_uniform=0.5277  C8_no_mixing=0.5045
+layer 14 [585s] median residual: elu1=0.5782  taylor2=0.5053  favor=0.8782  hedgehog0=0.5648  C1_identity=0.0000  C6_causal_uniform=0.5795  C5p_wrong_sequence=0.5801  C4_wrong_layer=0.5794  C7_random_gauss=0.9014  C8_no_mixing=0.4804
+layer 15 [98s] median residual: elu1=0.4134  taylor2=0.3958  favor=0.8161  hedgehog0=0.4024  C1_identity=0.0000  C6_causal_uniform=0.4212  C8_no_mixing=0.4063
+layer 16 [92s] median residual: elu1=0.4598  taylor2=0.3717  favor=0.8432  hedgehog0=0.4355  C1_identity=0.0000  C6_causal_uniform=0.4656  C8_no_mixing=0.4001
+layer 17 [90s] median residual: elu1=0.4816  taylor2=0.4487  favor=0.9037  hedgehog0=0.4705  C1_identity=0.0000  C6_causal_uniform=0.4868  C8_no_mixing=0.4298
+layer 18 [91s] median residual: elu1=0.5161  taylor2=0.4466  favor=0.8836  hedgehog0=0.5156  C1_identity=0.0000  C6_causal_uniform=0.5200  C8_no_mixing=0.4314
+layer 19 [87s] median residual: elu1=0.6313  taylor2=0.5226  favor=0.9212  hedgehog0=0.6249  C1_identity=0.0000  C6_causal_uniform=0.6262  C8_no_mixing=0.5275
+layer 20 [92s] median residual: elu1=0.5617  taylor2=0.5099  favor=0.8951  hedgehog0=0.5514  C1_identity=0.0000  C6_causal_uniform=0.5638  C8_no_mixing=0.5108
+layer 21 [128s] median residual: elu1=0.4874  taylor2=0.3983  favor=0.8110  hedgehog0=0.4734  C1_identity=0.0000  C6_causal_uniform=0.4888  C5p_wrong_sequence=0.4882  C4_wrong_layer=0.4886  C7_random_gauss=0.9012  C8_no_mixing=0.4163
+layer 22 [100s] median residual: elu1=0.6283  taylor2=0.5711  favor=0.9158  hedgehog0=0.6289  C1_identity=0.0000  C6_causal_uniform=0.6351  C8_no_mixing=0.5200
+layer 23 [94s] median residual: elu1=0.6405  taylor2=0.5287  favor=0.8845  hedgehog0=0.6321  C1_identity=0.0000  C6_causal_uniform=0.6501  C8_no_mixing=0.5095
+layer 24 [89s] median residual: elu1=0.5624  taylor2=0.4340  favor=0.8180  hedgehog0=0.5540  C1_identity=0.0000  C6_causal_uniform=0.5659  C8_no_mixing=0.4440
+layer 25 [103s] median residual: elu1=0.5925  taylor2=0.4185  favor=0.7932  hedgehog0=0.5500  C1_identity=0.0000  C6_causal_uniform=0.5862  C8_no_mixing=0.4312
+layer 26 [119s] median residual: elu1=0.5962  taylor2=0.3995  favor=0.8163  hedgehog0=0.5493  C1_identity=0.0000  C6_causal_uniform=0.5868  C8_no_mixing=0.4677
+layer 27 [150s] median residual: elu1=0.5325  taylor2=0.2874  favor=0.6749  hedgehog0=0.5101  C1_identity=0.0000  C6_causal_uniform=0.5286  C5p_wrong_sequence=0.5288  C4_wrong_layer=0.5320  C7_random_gauss=0.9007  C8_no_mixing=0.4242
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\r2\results\r2a_main.json  [4273s]
