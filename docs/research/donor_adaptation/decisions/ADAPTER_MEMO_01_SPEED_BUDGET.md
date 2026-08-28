@@ -11,6 +11,10 @@ Architect/Owner alone adjudicates sealed gates.
 This memo has accumulated five amendments in one day, and **its original headline arithmetic is wrong.**
 Read this block before anything else.
 
+> **If a section is not listed in this table, it is NEWER than the table — read the section, not this row.**
+> This table has already gone stale twice in three days; treat a missing entry as "unsummarised", never as
+> "unchanged".
+
 | section | status |
 |---|---|
 | §1 — the two levers (static vs dynamic sparsity) | **stands** |
@@ -23,7 +27,8 @@ Read this block before anything else.
 | **§2.2f — conversion does not remove a layer's weights; KV accounting** | **CURRENT. Start here.** |
 | **§2.2g — `h=128` is not scale-free; probe-4 never entered our regime** | **CURRENT.** Also: probe-4's own result is underpowered and missing its key control |
 | **§2.2h — the low-rank lever is not established** | **CURRENT.** Withdraws §2.2f's `~88B` row; flags that its `~26B` row rests on a transplant too |
-| §2.4 — 5-trit packing | **NOT withdrawn — the previous banner here was WRONG.** Its assumption is untested, not falsified; the Controller BLOCKed D5's conclusion and it may be backwards. Discriminating measurement running |
+| §2.4 — 5-trit packing | **LIVE.** D5's Mpad sweep measured the donor-width path as MEMORY-bound (rate falls 2.1x monotonically with block size; stripping all compute buys only 1.2-1.36x). Byte-reduction pays. Pending Controller audit |
+| **§2.2j — R2 IS CLOSED** | **CURRENT.** Do not build the R2 solver: 42% of the head output is unreachable by any `W_v`, and `elu(x)+1`'s mixing IS a uniform causal average |
 | §3a — healing must happen in the consuming layer | stands, **but** see `BRIEF_R2` Amendment A1.5: applying it to R2 was pattern-matching |
 | §3c, §3d | stand |
 
@@ -735,7 +740,7 @@ hides.** LoLCATs, `−11` MMLU. Taylor-Calibrate, `−4.5 to −10.9` MMLU **whi
 
 ### 2.2j (2026-08-28) — R2 IS CLOSED. The pre-screen did its job: a few SVDs, not a Builder's month.
 
-`R2A_PRINCIPAL_ANGLE.md` (1433 lines, 10 412 rows, ~5.1 h CPU, Qwen2.5-1.5B rev `8faed76…`) returns a
+`R2A_PRINCIPAL_ANGLE.md` (~5.1 h CPU, Qwen2.5-1.5B rev `8faed76…`) returns a
 verdict: **do not build the R2 solver.** It closes the Owner's option (a) in its original form — *conversion
 with a closed-form value-side solve and no training* — **on evidence rather than on argument, and before
 any solver was written.**
