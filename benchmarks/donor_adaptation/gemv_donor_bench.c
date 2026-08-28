@@ -152,9 +152,24 @@ static void ref_t3(const int8_t* Wt,const int8_t* xq,int32_t* y,int M,int K){
 static void ref_lut_scalar(const int8_t* codes,const int8_t* lut,int32_t* y,int M,int Mpad,int T){
     for(int m=0;m<M;m++){ int s=0; for(int t=0;t<T;t++) s+=lut[t*16+(int)codes[(size_t)t*Mpad+m]]; y[m]=s; } }
 
+// CONTROLLER_D5_RESULTS_AUDIT.md finding 15: printed thread counts were the REQUESTED value (the
+// argument), never read back from the runtime. g_achieved_threads is populated by a trivial probe
+// parallel region -- negligible cost, run once per set_threads() call, outside every timed window
+// -- so ACHIEVED rows (the new D5A1CSV rows this audit response adds) can print what the runtime
+// actually gave, not what was asked for. Legacy D5CSV rows (control23/control4/dsweep/organs/
+// fp32_vs_ternary) still print the requested value -- a disclosed, not silently-ignored, gap.
+static int g_achieved_threads=1;
 static void set_threads(int nt){
 #ifdef _OPENMP
     omp_set_num_threads(nt);
+    g_achieved_threads=1;
+    #pragma omp parallel if(nt>1)
+    {
+        #pragma omp single
+        g_achieved_threads=omp_get_num_threads();
+    }
+#else
+    g_achieved_threads=1;
 #endif
     g_omp_on=(nt>1);
 }
@@ -1009,20 +1024,26 @@ static void d5_control1(int reps,int* passed,double* measured_t6){
     MlpStack S; mlp_alloc(&S,1536,8960,28,0);
     size_t codes=S.codes_layer*(size_t)28;
     double u1,c1,m1,med1,sd1, u6,c6,m6,med6,sd6;
-    mlp_time(&S,0,reps,1,&u1,&c1,&m1,&med1,&sd1);
-    mlp_time(&S,0,reps,6,&u6,&c6,&m6,&med6,&sd6);
+    mlp_time(&S,0,reps,1,&u1,&c1,&m1,&med1,&sd1); int a1t=g_achieved_threads;
+    mlp_time(&S,0,reps,6,&u6,&c6,&m6,&med6,&sd6); int a6t=g_achieved_threads;
     double min1=(double)codes/1e3/u1, median1=(double)codes/1e3/med1, mean1=(double)codes/1e3/m1;
     double min6=(double)codes/1e3/u6, median6=(double)codes/1e3/med6, mean6=(double)codes/1e3/m6;
-    printf("D5A1CSV,control1,nt=1,reps=%d,min_gbps=%.4f,median_gbps=%.4f,mean_gbps=%.4f,sd_us=%.4f,cv_pct=%.2f\n",
-           reps,min1,median1,mean1,sd1,c1);
-    printf("D5A1CSV,control1,nt=6,reps=%d,min_gbps=%.4f,median_gbps=%.4f,mean_gbps=%.4f,sd_us=%.4f,cv_pct=%.2f\n",
-           reps,min6,median6,mean6,sd6,c6);
+    printf("D5A1CSV,control1,nt_requested=1,nt_achieved=%d,reps=%d,min_gbps=%.4f,median_gbps=%.4f,mean_gbps=%.4f,sd_us=%.4f,cv_pct=%.2f\n",
+           a1t,reps,min1,median1,mean1,sd1,c1);
+    printf("D5A1CSV,control1,nt_requested=6,nt_achieved=%d,reps=%d,min_gbps=%.4f,median_gbps=%.4f,mean_gbps=%.4f,sd_us=%.4f,cv_pct=%.2f\n",
+           a6t,reps,min6,median6,mean6,sd6,c6);
     printf("D5NOTE,control1,informational_only,mean_gbps_t6=%.4f,dev_vs_banked21.25=%+.4f (not a verdict -- see A1.3)\n",
            mean6, mean6-21.25);
     mlp_free(&S);
+    // CONTROLLER_D5_RESULTS_AUDIT.md finding 8: this gate was satisfiable by construction (defaulted to
+    // PASS when GEMV_D5_A1_VERDICT was unset -- absence of evidence read as evidence). Default is now FAIL.
+    // A verdict can only be PASS if an external multi-invocation A1.3 study explicitly says so; an absent
+    // or non-"PASS" value must not let the rest of `d5` mode be read as if control 1 were validated.
     { const char* ext_verdict=getenv("GEMV_D5_A1_VERDICT");
-      int p = ext_verdict? !strcmp(ext_verdict,"PASS") : 1;
+      int p = ext_verdict? !strcmp(ext_verdict,"PASS") : 0;
       if(ext_verdict) printf("D5NOTE,control1,external_a1.3_verdict=%s (from GEMV_D5_A1_VERDICT)\n",ext_verdict);
+      else printf("D5NOTE,control1,external_a1.3_verdict=UNSET -- defaulting to FAIL (absence of evidence "
+                  "is not evidence; see CONTROLLER_D5_RESULTS_AUDIT.md finding 8)\n");
       *passed=p; }
     *measured_t6=mean6;
 }
@@ -1036,6 +1057,143 @@ static void d5_control1(int reps,int* passed,double* measured_t6){
 // ANY (D,HID,L) shape at a given thread count, so the L-sensitivity claim and any donor-width point can be
 // re-measured with the unbiased MEAN estimator directly, instead of reasoning about the min-of-reps bias
 // from a distance. Deliberately minimal: one shape, one thread count, one reps value, six stats out.
+
+// ============================ CONTROLLER AUDIT RESPONSE (2026-08-27) ============================
+// CONTROLLER_D5_RESULTS_AUDIT.md finding 2/3: does matvec_lut_full's GB/s track shape (Mpad/EB) at fixed
+// T -- which a compute-bound kernel cannot do -- and does stripping its compute (keeping identical bytes
+// and access pattern) change the rate? Both additive: new kernel variant, new probe function, new modes.
+// No existing call site, kernel, or control's pass/fail logic is touched.
+
+// Same load, same stride, same OMP_PFOR structure as matvec_lut_full -- but replaces the per-t
+// broadcast+pshufb+4x(cvtepi8_epi32+vpaddd) decode with a single vpaddb of the raw bytes. Reads the
+// IDENTICAL 32 bytes per t from the IDENTICAL address (codes+t*Mpad+base); strips the compute, not the
+// memory traffic. If the real kernel's shape-dependent collapse (finding 2) is a memory-hierarchy effect,
+// this should collapse the SAME way at the SAME shapes. If it is compute, this should be flat and fast
+// where the real kernel is slow.
+static void matvec_ablation(const int8_t* codes,const int8_t* lut,int32_t* y,int M,int Mpad,int T){
+    (void)lut;
+    OMP_PFOR for(int base=0;base<M;base+=32){
+        __m256i acc=_mm256_setzero_si256();
+        for(int t=0;t<T;t++){
+            __m256i idx=_mm256_loadu_si256((const __m256i*)(codes+(size_t)t*Mpad+base));
+            acc=_mm256_add_epi8(acc,idx);
+        }
+        int8_t tmp[32]; _mm256_storeu_si256((__m256i*)tmp,acc);
+        for(int r=0;r<32&&base+r<M;r++) y[base+r]=tmp[r];
+    }
+}
+
+typedef void (*LutKernelFn)(const int8_t*,const int8_t*,int32_t*,int,int,int);
+
+// Generic kernel-pure six-stat probe: same apparatus as `lut_one_point` (identical pool construction,
+// identical gather logic, identical warm-then-time structure) but (a) takes the kernel as a parameter so
+// the real and ablated paths are measured by the SAME code, and (b) reports min/median/mean/sd/cv, not
+// min+cv only (A1.3's six-stat requirement, applied here since these rows did not exist when A1.3 was
+// written). Does not modify or call `lut_one_point`; fully additive.
+static void lut_probe_generic(const char* section,const char* tag,LutKernelFn kern,int M,int K,double poolMB,
+                               int reps,int iid,int nt,double* min_g,double* median_g,double* mean_g,
+                               double* sd_us,double* cv,size_t* out_pool){
+    int Mpad=(M+31)&~31, T=K/2; size_t EB=(size_t)T*(size_t)Mpad;
+    int8_t* lut=xmalloc((size_t)T*16); int8_t* xq=xmalloc((size_t)K);
+    for(int i=0;i<K;i++) xq[i]=(int8_t)((i%5)-2); build_lut_t3(xq,T,lut);
+    int32_t* y=xmalloc((size_t)M*4);
+    long nblk = poolMB<=0.0 ? 1 : (long)((poolMB*1048576.0)/(double)EB);
+    if(nblk<1) nblk=1;
+    size_t pool=(size_t)nblk*EB;
+    int8_t* P=xmalloc(pool);
+    for(size_t i=0;i<pool;i++) P[i]=(int8_t)((i*2654435761u)%9u);
+    long touch=(long)(2048UL*1048576UL/EB); if(touch<nblk*2) touch=nblk*2; if(touch<64) touch=64;
+    set_threads(nt);
+    uint64_t rng=0x9e3779b97f4a7c15ULL;
+    kern(P,lut,y,M,Mpad,T);   // warm
+    double* samp=(double*)xmalloc((size_t)reps*sizeof(double));
+    double best=1e30,sum=0,sum2=0;
+    for(int rp=0;rp<reps;rp++){ double t0=now_s();
+        for(long t=0;t<touch;t++){ size_t b;
+            if(iid){ rng^=rng<<13; rng^=rng>>7; rng^=rng<<17; b=(size_t)(rng%(uint64_t)nblk); } else b=(size_t)(t%nblk);
+            kern(P+b*EB,lut,y,M,Mpad,T); }
+        double dt=now_s()-t0; if(dt<best)best=dt;
+        double us=dt/touch*1e6; samp[rp]=us; sum+=us; sum2+=us*us; }
+    double m=sum/reps, v=sum2/reps-m*m; if(v<0)v=0; double sd=sqrt(v);
+    for(int i=0;i<reps;i++) for(int j=i+1;j<reps;j++) if(samp[j]<samp[i]){double t=samp[i];samp[i]=samp[j];samp[j]=t;}
+    double med_us=(reps%2)? samp[reps/2] : 0.5*(samp[reps/2-1]+samp[reps/2]);
+    double us_min=best/touch*1e6;
+    double gmin=(double)EB/1e3/us_min, gmed=(double)EB/1e3/med_us, gmean=(double)EB/1e3/m;
+    double cvp=reps>1?100.0*sd/m:-1.0;
+    int l3=(pool<=L3_BYTES)?1:0;
+    printf("D5A1CSV,%s,%s,M=%d,K=%d,Mpad=%d,T=%d,EB=%zu,nt_requested=%d,nt_achieved=%d,reps=%d,pool_bytes=%zu,l3_resident=%d,"
+           "min_gbps=%.4f,median_gbps=%.4f,mean_gbps=%.4f,sd_us=%.4f,cv_pct=%.2f\n",
+           section,tag,M,K,Mpad,T,EB,nt,g_achieved_threads,reps,pool,l3,gmin,gmed,gmean,sd,cvp);
+    if(min_g)*min_g=gmin; if(median_g)*median_g=gmed; if(mean_g)*mean_g=gmean;
+    if(sd_us)*sd_us=sd; if(cv)*cv=cvp; if(out_pool)*out_pool=pool;
+    free(samp); free(P); free(lut); free(xq); free(y);
+}
+
+// AUDIT ITEM 1 (Controller, ~10 min, no new kernel): hold T=4096 fixed (K=8192) and sweep Mpad across
+// 1024/2048/4096/8192/28672 (M chosen equal to the target Mpad -- all multiples of 32 already) at a FIXED
+// pool size. Bytes-per-instruction in matvec_lut_full is a compile-time constant independent of Mpad/EB;
+// a genuinely compute-bound kernel must therefore report FLAT GB/s across this sweep. If it is not flat,
+// finding 2 is confirmed independently and Claim 2 (compute-bound) is dead as stated.
+
+// AUDIT-RESPONSE control (CONTROLLER_D5_RESULTS_AUDIT.md finding 6): controls 2/3 exercise the kernel-pure
+// LUT meter only at the tiny 1536x1536 attn-proj shape, never at a donor shape -- exactly where Claim 2's
+// whole evidence base lives. k/v (1024x8192) is the one real donor organ whose single block (4 MiB) fits
+// comfortably under the 16 MiB L3 cliff, so it is the one donor shape that CAN run both directions of the
+// planted-control test (forced-resident vs forced-streamed) the way controls 2/3 already do. This is a
+// SUPPLEMENTARY check, not a renumbering of the brief's four controls -- it is additive evidence that the
+// meter itself (not just the tiny attn shape) responds to a known mechanism, at the shape the blocked claim
+// actually rests on.
+static void mode_d5cd(int reps){
+    printf("==== d5cd: supplementary control -- kernel-pure LUT meter, forced resident/streamed AT A DONOR SHAPE (k/v 1024x8192) ====\n\n");
+    double mn0,md0,me0,sd0,cv0; size_t pool0;
+    double mn5,md5,me5,sd5,cv5; size_t pool5;
+    lut_probe_generic("d5cd_resident","kv_1024x8192",matvec_lut_full,1024,8192,0.0,reps,1,6,&mn0,&md0,&me0,&sd0,&cv0,&pool0);
+    lut_probe_generic("d5cd_streamed","kv_1024x8192",matvec_lut_full,1024,8192,512.0,reps,1,6,&mn5,&md5,&me5,&sd5,&cv5,&pool5);
+    double drop = me0/me5;
+    int pass_drop = drop >= 2.0;
+    int pass_resident = me0 >= 50.0;
+    printf("D5VERDICT,d5cd_drop,%s,resident_mean_gbps=%.4f,streamed512_mean_gbps=%.4f,drop_ratio=%.3fx (need >=2.0x)\n",
+           pass_drop?"PASS":"FAIL",me0,me5,drop);
+    printf("D5VERDICT,d5cd_resident,%s,resident_mean_gbps=%.4f (need >=50, target ~100 per the banked L3 probe)\n",
+           pass_resident?"PASS":"FAIL",me0);
+    printf("D5NOTE,d5cd,read: this validates the kernel-pure LUT meter moves correctly AT A DONOR SHAPE, not\n");
+    printf("               only at the arbitrary 1536x1536 attn shape controls 2/3 use.\n");
+}
+static void mode_d5m(int reps){
+    printf("==== d5m: Controller audit item 1 -- T=4096 fixed, Mpad swept, fixed pool (BLOCK on Claim 2) ====\n\n");
+    int Ms[5]={1024,2048,4096,8192,28672};
+    double poolMB=512.0;
+    for(int i=0;i<5;i++){
+        double mn,md,me,sd,cv; size_t pool;
+        lut_probe_generic("d5m","Mpad_sweep",matvec_lut_full,Ms[i],8192,poolMB,reps,1,6,&mn,&md,&me,&sd,&cv,&pool);
+    }
+    printf("D5NOTE,d5m,read: if mean_gbps is flat (+-few %%) across this row set, compute-bound survives;\n");
+    printf("               if it tracks Mpad/EB (falls as Mpad grows), finding 2 is confirmed and Claim 2 is dead.\n");
+}
+
+// AUDIT ITEM 2 (Controller): causal ablation at TWO shapes on opposite sides of the break -- k/v (76%% of
+// ceiling) and gate/up (29%%) -- comparing the real kernel against `matvec_ablation` (identical bytes and
+// access pattern, compute stripped) at the SAME shape and pool. If both shapes' rate jumps when compute is
+// stripped, compute-bound survives. If the fast shape (k/v) holds flat and the slow shape (gate/up) jumps,
+// or if neither jumps, the binding constraint is memory, not compute, and Claim 2 is backwards.
+static void mode_d5abl(int reps){
+    printf("==== d5abl: Controller audit item 2 -- compute-ablation at k/v (fast) and gate/up (slow) ====\n\n");
+    struct { const char* nm; int M,K; } shapes[2] = { {"kv_1024x8192",1024,8192}, {"gateup_28672x8192",28672,8192} };
+    for(int s=0;s<2;s++){
+        double poolMB = 512.0;
+        double rmn,rmd,rme,rsd,rcv; size_t rpool;
+        double amn,amd,ame,asd,acv; size_t apool;
+        lut_probe_generic("d5abl_real",shapes[s].nm,matvec_lut_full,shapes[s].M,shapes[s].K,poolMB,reps,1,6,
+                           &rmn,&rmd,&rme,&rsd,&rcv,&rpool);
+        lut_probe_generic("d5abl_ablated",shapes[s].nm,matvec_ablation,shapes[s].M,shapes[s].K,poolMB,reps,1,6,
+                           &amn,&amd,&ame,&asd,&acv,&apool);
+        double jump = ame/rme;
+        printf("D5NOTE,d5abl,%s,real_mean_gbps=%.4f,ablated_mean_gbps=%.4f,jump_ratio=%.3fx\n",
+               shapes[s].nm,rme,ame,jump);
+    }
+    printf("D5NOTE,d5abl,read: jump_ratio near 1.0x at a shape means stripping compute did not help there --\n");
+    printf("                memory-bound at that shape. A large jump_ratio means compute-bound there.\n");
+}
 static void mode_d5g(int reps,int D,int HID,int L,int nt){
     printf("==== d5g: generic six-stat shape probe (D=%d HID=%d L=%d nt=%d reps=%d) ====\n\n",D,HID,L,nt,reps);
     MlpStack S; mlp_alloc(&S,D,HID,L,0);
@@ -1044,8 +1202,8 @@ static void mode_d5g(int reps,int D,int HID,int L,int nt){
     mlp_time(&S,0,reps,nt,&u,&c,&m,&med,&sd);
     double min_g=(double)codes/1e3/u, median_g=(double)codes/1e3/med, mean_g=(double)codes/1e3/m;
     long ntok_est=(long)(2.0e9/(double)codes); if(ntok_est<8) ntok_est=8; if(ntok_est>3000) ntok_est=3000;
-    printf("D5A1CSV,d5g,D=%d,HID=%d,L=%d,nt=%d,reps=%d,ntok_per_rep=%ld,ws_bytes=%zu,min_gbps=%.4f,median_gbps=%.4f,mean_gbps=%.4f,sd_us=%.4f,cv_pct=%.2f\n",
-           D,HID,L,nt,reps,ntok_est,codes,min_g,median_g,mean_g,sd,c);
+    printf("D5A1CSV,d5g,D=%d,HID=%d,L=%d,nt_requested=%d,nt_achieved=%d,reps=%d,ntok_per_rep=%ld,ws_bytes=%zu,min_gbps=%.4f,median_gbps=%.4f,mean_gbps=%.4f,sd_us=%.4f,cv_pct=%.2f\n",
+           D,HID,L,nt,g_achieved_threads,reps,ntok_est,codes,min_g,median_g,mean_g,sd,c);
     mlp_free(&S);
 }
 static void mode_d5c1(int reps){
@@ -1056,24 +1214,31 @@ static void mode_d5c1(int reps){
 
 static void d5_lsensitivity(int reps){
     // NOT one of the four brief controls -- a supporting check for the design choice (L=2 in the D-sweep vs
-    // L=28 for the real donor / control-1 point). If the integrated rate is L-independent once one layer's
-    // working set already exceeds L3 (it does: 20.6 MB per layer at D=1536,HID=8960), L=2 is a valid, much
-    // cheaper stand-in for the D-sweep. This is measured, not assumed.
-    printf("---- SUPPORTING CHECK: L-sensitivity (not a brief-mandated control) ----\n");
+    // L=28 for the real donor / control-1 point).
+    // CORRECTED 2026-08-27 (CONTROLLER_D5_RESULTS_AUDIT.md finding 12): the comment this replaces claimed
+    // "every layer's working set already exceeds L3" and cited 20.6 MB/layer at D=1536,HID=8960 -- that is
+    // the CONTROL-1 shape, not the D-sweep's own shape at D=1536 (HID=5376, the Llama ratio). The sweep's
+    // actual per-layer block at D=1536 is ~11.81 MiB, UNDER the 16 MiB L3 cliff. L=2 is NOT a safe proxy
+    // there; re-measured directly (d5g, mean estimator) the L2/L28 gap at that shape is ~1.52x, not ~1.0x.
+    // At D=8192 the per-layer block is ~336 MiB, far past L3, where the gap shrinks to ~1.10x -- measured,
+    // not assumed. See DONOR_PROJ_RATE.md sec.12.5.3. This check below still runs at the CONTROL-1 shape
+    // (D=1536,HID=8960) for continuity with the banked constant; it is not the D-sweep's own shape and its
+    // result does not licence L=2 for the sweep at every D.
+printf("---- SUPPORTING CHECK: L-sensitivity (not a brief-mandated control) ----\n");
     double g6_L2,g6_L28,us,cv; size_t ws;
     mlp_point("lsens","D1536_HID8960_L2",1536,8960,2,0,reps,6,&g6_L2,0,&us,&cv,&ws);
     mlp_point("lsens","D1536_HID8960_L28",1536,8960,28,0,reps,6,&g6_L28,0,&us,&cv,&ws);
     printf("D5NOTE,lsensitivity,L2_t6_gbps=%.3f,L28_t6_gbps=%.3f,ratio=%.3f\n",g6_L2,g6_L28,g6_L2/g6_L28);
 }
 
-static void d5_control23(int reps,int* c2_pass,int* c3_pass){
+static void d5_control23(int reps,int iid,int* c2_pass,int* c3_pass){
     printf("---- CONTROLS 2 & 3: known-positive slowdown (push working set >16MB) and speedup (L3-resident) ----\n");
     printf("     shape: donor attn proj 1536x1536 (block EB=1.125 MB), same kernel, only pool size varies.\n");
     double g0[2],g16[2],g32[2],g512[2];
-    lut_one_point("control23","donor_attn_1536x1536",1536,1536,0.0,reps,1,g0);
-    lut_one_point("control23","donor_attn_1536x1536",1536,1536,16.0,reps,1,g16);
-    lut_one_point("control23","donor_attn_1536x1536",1536,1536,32.0,reps,1,g32);
-    lut_one_point("control23","donor_attn_1536x1536",1536,1536,512.0,reps,1,g512);
+    lut_one_point("control23","donor_attn_1536x1536",1536,1536,0.0,reps,iid,g0);
+    lut_one_point("control23","donor_attn_1536x1536",1536,1536,16.0,reps,iid,g16);
+    lut_one_point("control23","donor_attn_1536x1536",1536,1536,32.0,reps,iid,g32);
+    lut_one_point("control23","donor_attn_1536x1536",1536,1536,512.0,reps,iid,g512);
     double resident_t6=g0[1], streamed_t6=g512[1];
     double ratio = resident_t6/streamed_t6;
     int c2 = ratio>=2.0;    // known-positive: forced past-L3 pool must drop the rate sharply
@@ -1116,8 +1281,10 @@ static void d5_dsweep(int reps,double out_integrated_t6[5]){
     printf("---- PART A: rate(D, threads), engine-integrated dense ternary MLP, ffn:D ratio fixed at 3.5 ----\n");
     printf("     (3.5 = the real Llama-3-70B-class ratio 28672/8192, so the D=8192 point below coincides with\n");
     printf("      the real donor organ measured in Part B. L held at 2 -- see the L-sensitivity check above:\n");
-    printf("      every layer's working set already exceeds L3 at every D swept, so this is not a shortcut\n");
-    printf("      that changes the regime, only one that changes runtime.)\n");
+    printf("      L=2 is NOT a uniform proxy for L=28 -- measured gap is ~1.52x at D=1536 (per-layer\n");
+    printf("      block 11.8 MiB, UNDER the 16 MiB L3) and ~1.10x at D=8192 (per-layer block 336 MiB,\n");
+    printf("      far past L3). See DONOR_PROJ_RATE.md sec.12.5.3 -- the D-sweep below is an upper\n");
+    printf("      bound on the true L=28 curve, confirmed inflated by a shape-dependent amount.)\n");
     for(int i=0;i<5;i++){
         int D=D5_DS[i]; int HID=(int)(3.5*D+0.5);
         char tag[32]; snprintf(tag,32,"D%d",D);
@@ -1174,7 +1341,7 @@ static void fp32_streamed_point(const char* section,const char* tag,int M,int K,
 // makes the integrated 21.25 GB/s a different quantity from the fp32 38.84 GB/s asymptote (DONOR_PROJ_RATE.md
 // sec.8.5's caveat). The Part-A integrated rate is also carried through here, clearly labelled, for context --
 // it is NOT part of the ratio.
-static void d5_fp32_vs_ternary(int reps,const double integrated_t6[5]){
+static void d5_fp32_vs_ternary(int reps,int iid,const double integrated_t6[5]){
     printf("---- FP32-VS-TERNARY AT MATCHED DONOR SHAPES (the compute-vs-bandwidth discriminator) ----\n");
     printf("     shape = gate/up organ (HID x D) at each D-sweep point. Both arms kernel-pure, both streamed\n");
     printf("     past 256 MB where the shape itself does not already exceed that on its own.\n");
@@ -1182,7 +1349,7 @@ static void d5_fp32_vs_ternary(int reps,const double integrated_t6[5]){
         int D=D5_DS[i]; int HID=(int)(3.5*D+0.5);
         char ttag[32],ftag[32]; snprintf(ttag,32,"ternary_D%d",D); snprintf(ftag,32,"fp32_D%d",D);
         double gt[2],gf[2];
-        lut_one_point("fp32_vs_ternary",ttag,HID,D,512.0,reps,1,gt);
+        lut_one_point("fp32_vs_ternary",ttag,HID,D,512.0,reps,iid,gt);
         fp32_streamed_point("fp32_vs_ternary",ftag,HID,D,reps,gf);
         double ratio=gf[1]/gt[1];
         printf("D5NOTE,fp32_vs_ternary,D=%d,HID=%d,ternary_kernelpure_t6=%.2f,fp32_kernelpure_t6=%.2f,"
@@ -1196,7 +1363,7 @@ static void d5_fp32_vs_ternary(int reps,const double integrated_t6[5]){
     printf("     THIS RATIO, NOT AN ASSUMPTION, DECIDES IT.\n");
 }
 
-static void d5_organs(int reps){
+static void d5_organs(int reps,int iid){
     printf("---- PART B: real Llama-3-70B-class organ shapes, kernel-pure LUT rate vs working set ----\n");
     printf("     d_model=8192 d_ffn=28672. q/o 8192x8192, k/v 1024x8192, gate/up 28672x8192, down 8192x28672.\n");
     typedef struct { const char* nm; int M,K; } Sh;
@@ -1215,21 +1382,21 @@ static void d5_organs(int reps){
         double last_g[2]={0,0};
         for(int p=0;p<7;p++){
             double g[2];
-            lut_one_point("organs",shapes[s].nm,shapes[s].M,shapes[s].K,pools[p],reps,1,g);
+            lut_one_point("organs",shapes[s].nm,shapes[s].M,shapes[s].K,pools[p],reps,iid,g);
             if(p>0 && g[0]==last_g[0] && g[1]==last_g[1]) continue;  // degenerate duplicate (pool < 1 block)
             last_g[0]=g[0]; last_g[1]=g[1];
         }
     }
 }
 
-static void mode_d5(int reps){
+static void mode_d5(int reps,int iid){
     printf("==== BRIEF D5: ternary LUT rate at DONOR projection widths -- rate(D,threads) + planted controls ====\n");
     printf("     docs/research/donor_adaptation/briefs/BRIEF_D5_LUT_RATE_AT_DONOR_WIDTH.md. Controls run FIRST per brief sec.5.\n\n");
     int c1; double c1_rate;
     d5_control1(reps,&c1,&c1_rate);
     if(!c1){ printf("\nSTOPPED after control 1 FAIL. No further section of this mode was run.\n"); return; }
     printf("\n"); d5_lsensitivity(reps);
-    printf("\n"); int c2,c3; d5_control23(reps,&c2,&c3);
+    printf("\n"); int c2,c3; d5_control23(reps,iid,&c2,&c3);
     printf("\n"); int c4; d5_control4(reps,&c4);
     printf("\nD5SUMMARY,controls,c1=%s,c2=%s,c3=%s,c4=%s\n",
            c1?"PASS":"FAIL",c2?"PASS":"FAIL",c3?"PASS":"FAIL",c4?"PASS":"FAIL");
@@ -1238,10 +1405,11 @@ static void mode_d5(int reps){
                "line in a log. The sweep below still runs (so the STOP has data to point at) but must NOT be\n"
                "read as trustworthy until the failing control is understood.\n");
     }
+    printf("D5NOTE,controls,disclosure=controls 2 and 3 both read the SAME resident_t6 (pool=0) measurement -- three independent measurements back four PASS/FAIL lines, not four (CONTROLLER_D5_RESULTS_AUDIT.md finding 7).\n");
     double integrated_t6[5];
     printf("\n"); d5_dsweep(reps,integrated_t6);
-    printf("\n"); d5_fp32_vs_ternary(reps,integrated_t6);
-    printf("\n"); d5_organs(reps);
+    printf("\n"); d5_fp32_vs_ternary(reps,iid,integrated_t6);
+    printf("\n"); d5_organs(reps,iid);
 }
 
 // ================================ main ================================
@@ -1305,9 +1473,12 @@ int main(int argc,char**argv){
     else if(!strcmp(mode,"control"))   mode_control();
     else if(!strcmp(mode,"mlpint"))    mode_mlpint(reps);
     else if(!strcmp(mode,"mlpctl"))    mode_mlpctl();
-    else if(!strcmp(mode,"d5"))        mode_d5(reps);
+    else if(!strcmp(mode,"d5"))        mode_d5(reps,iid);
     else if(!strcmp(mode,"d5c1"))      mode_d5c1(reps);
     else if(!strcmp(mode,"d5g"))       mode_d5g(reps,g_D,g_HID,g_L,g_nt);
+    else if(!strcmp(mode,"d5cd"))      mode_d5cd(reps);
+    else if(!strcmp(mode,"d5m"))       mode_d5m(reps);
+    else if(!strcmp(mode,"d5abl"))     mode_d5abl(reps);
     else { usage(); return 1; }
     printf("\nSTOP. No commit, no push.\n");
     return 0;
