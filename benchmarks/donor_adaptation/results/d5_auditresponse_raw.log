@@ -1,0 +1,59 @@
+=== d5m (Mpad discriminator, T=4096 fixed) ===
+# gemv_donor_bench | mode=d5m reps=8 check=0 gather=iid force_unclean=0
+# OpenMP ON, max_threads=12 | OMP_PROC_BIND=close OMP_PLACES=cores
+# fp32 estimator: min-of-8, ~2 GB streamed per timing window, x poisoned each pass (engine.c run_gemv_sweep)
+# cv% = coefficient of variation of the per-rep rates. >5% => the machine was not quiet, do not use the row.
+# QUIESCENCE CHECK: threshold=1.0 GB resident working set | 0 process(es) at/above it:
+#   -- clean.
+
+==== d5m: Controller audit item 1 -- T=4096 fixed, Mpad swept, fixed pool (BLOCK on Claim 2) ====
+
+D5A1CSV,d5m,Mpad_sweep,M=1024,K=8192,Mpad=1024,T=4096,EB=4194304,nt_requested=6,nt_achieved=6,reps=8,pool_bytes=536870912,l3_resident=0,min_gbps=28.7619,median_gbps=25.5492,mean_gbps=22.7255,sd_us=44.5795,cv_pct=24.15
+D5A1CSV,d5m,Mpad_sweep,M=2048,K=8192,Mpad=2048,T=4096,EB=8388608,nt_requested=6,nt_achieved=6,reps=8,pool_bytes=536870912,l3_resident=0,min_gbps=22.4528,median_gbps=21.9892,mean_gbps=21.6073,sd_us=17.2568,cv_pct=4.45
+D5A1CSV,d5m,Mpad_sweep,M=4096,K=8192,Mpad=4096,T=4096,EB=16777216,nt_requested=6,nt_achieved=6,reps=8,pool_bytes=536870912,l3_resident=0,min_gbps=17.0826,median_gbps=16.0934,mean_gbps=15.2568,sd_us=107.4227,cv_pct=9.77
+D5A1CSV,d5m,Mpad_sweep,M=8192,K=8192,Mpad=8192,T=4096,EB=33554432,nt_requested=6,nt_achieved=6,reps=8,pool_bytes=536870912,l3_resident=0,min_gbps=11.7297,median_gbps=11.4737,mean_gbps=11.2937,sd_us=109.3295,cv_pct=3.68
+D5A1CSV,d5m,Mpad_sweep,M=28672,K=8192,Mpad=28672,T=4096,EB=117440512,nt_requested=6,nt_achieved=6,reps=8,pool_bytes=469762048,l3_resident=0,min_gbps=11.1416,median_gbps=10.8199,mean_gbps=10.7230,sd_us=408.0369,cv_pct=3.73
+D5NOTE,d5m,read: if mean_gbps is flat (+-few %) across this row set, compute-bound survives;
+               if it tracks Mpad/EB (falls as Mpad grows), finding 2 is confirmed and Claim 2 is dead.
+
+STOP. No commit, no push.
+
+=== d5abl (causal ablation, k/v and gate/up) ===
+# gemv_donor_bench | mode=d5abl reps=8 check=0 gather=iid force_unclean=0
+# OpenMP ON, max_threads=12 | OMP_PROC_BIND=close OMP_PLACES=cores
+# fp32 estimator: min-of-8, ~2 GB streamed per timing window, x poisoned each pass (engine.c run_gemv_sweep)
+# cv% = coefficient of variation of the per-rep rates. >5% => the machine was not quiet, do not use the row.
+# QUIESCENCE CHECK: threshold=1.0 GB resident working set | 0 process(es) at/above it:
+#   -- clean.
+
+==== d5abl: Controller audit item 2 -- compute-ablation at k/v (fast) and gate/up (slow) ====
+
+D5A1CSV,d5abl_real,kv_1024x8192,M=1024,K=8192,Mpad=1024,T=4096,EB=4194304,nt_requested=6,nt_achieved=6,reps=8,pool_bytes=536870912,l3_resident=0,min_gbps=29.1460,median_gbps=28.0569,mean_gbps=27.8071,sd_us=5.3588,cv_pct=3.55
+D5A1CSV,d5abl_ablated,kv_1024x8192,M=1024,K=8192,Mpad=1024,T=4096,EB=4194304,nt_requested=6,nt_achieved=6,reps=8,pool_bytes=536870912,l3_resident=0,min_gbps=35.4775,median_gbps=34.0264,mean_gbps=33.2193,sd_us=8.8277,cv_pct=6.99
+D5NOTE,d5abl,kv_1024x8192,real_mean_gbps=27.8071,ablated_mean_gbps=33.2193,jump_ratio=1.195x
+D5A1CSV,d5abl_real,gateup_28672x8192,M=28672,K=8192,Mpad=28672,T=4096,EB=117440512,nt_requested=6,nt_achieved=6,reps=8,pool_bytes=469762048,l3_resident=0,min_gbps=11.4787,median_gbps=11.3021,mean_gbps=11.2939,sd_us=125.7311,cv_pct=1.21
+D5A1CSV,d5abl_ablated,gateup_28672x8192,M=28672,K=8192,Mpad=28672,T=4096,EB=117440512,nt_requested=6,nt_achieved=6,reps=8,pool_bytes=469762048,l3_resident=0,min_gbps=15.7332,median_gbps=15.4576,mean_gbps=15.3771,sd_us=125.2545,cv_pct=1.64
+D5NOTE,d5abl,gateup_28672x8192,real_mean_gbps=11.2939,ablated_mean_gbps=15.3771,jump_ratio=1.362x
+D5NOTE,d5abl,read: jump_ratio near 1.0x at a shape means stripping compute did not help there --
+                memory-bound at that shape. A large jump_ratio means compute-bound there.
+
+STOP. No commit, no push.
+
+=== d5cd (donor-shape supplementary control, k/v resident vs streamed) ===
+# gemv_donor_bench | mode=d5cd reps=8 check=0 gather=iid force_unclean=0
+# OpenMP ON, max_threads=12 | OMP_PROC_BIND=close OMP_PLACES=cores
+# fp32 estimator: min-of-8, ~2 GB streamed per timing window, x poisoned each pass (engine.c run_gemv_sweep)
+# cv% = coefficient of variation of the per-rep rates. >5% => the machine was not quiet, do not use the row.
+# QUIESCENCE CHECK: threshold=1.0 GB resident working set | 0 process(es) at/above it:
+#   -- clean.
+
+==== d5cd: supplementary control -- kernel-pure LUT meter, forced resident/streamed AT A DONOR SHAPE (k/v 1024x8192) ====
+
+D5A1CSV,d5cd_resident,kv_1024x8192,M=1024,K=8192,Mpad=1024,T=4096,EB=4194304,nt_requested=6,nt_achieved=6,reps=8,pool_bytes=4194304,l3_resident=1,min_gbps=72.9526,median_gbps=71.8836,mean_gbps=71.7078,sd_us=0.6388,cv_pct=1.09
+D5A1CSV,d5cd_streamed,kv_1024x8192,M=1024,K=8192,Mpad=1024,T=4096,EB=4194304,nt_requested=6,nt_achieved=6,reps=8,pool_bytes=536870912,l3_resident=0,min_gbps=25.6149,median_gbps=24.5341,mean_gbps=24.1634,sd_us=8.1774,cv_pct=4.71
+D5VERDICT,d5cd_drop,PASS,resident_mean_gbps=71.7078,streamed512_mean_gbps=24.1634,drop_ratio=2.968x (need >=2.0x)
+D5VERDICT,d5cd_resident,PASS,resident_mean_gbps=71.7078 (need >=50, target ~100 per the banked L3 probe)
+D5NOTE,d5cd,read: this validates the kernel-pure LUT meter moves correctly AT A DONOR SHAPE, not
+               only at the arbitrary 1536x1536 attn shape controls 2/3 use.
+
+STOP. No commit, no push.
