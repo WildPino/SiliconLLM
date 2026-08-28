@@ -733,6 +733,66 @@ hides.** LoLCATs, `−11` MMLU. Taylor-Calibrate, `−4.5 to −10.9` MMLU **whi
 > be reported inside an average — in any probe, at any stage, by any agent.** A converted model that holds
 > its average while losing ten points of MMLU has failed S4 and would pass an averaged gate.
 
+### 2.2j (2026-08-28) — R2 IS CLOSED. The pre-screen did its job: a few SVDs, not a Builder's month.
+
+`R2A_PRINCIPAL_ANGLE.md` (1433 lines, 10 412 rows, ~5.1 h CPU, Qwen2.5-1.5B rev `8faed76…`) returns a
+verdict: **do not build the R2 solver.** It closes the Owner's option (a) in its original form — *conversion
+with a closed-form value-side solve and no training* — **on evidence rather than on argument, and before
+any solver was written.**
+
+#### The mechanism, which is the part that makes this a finding rather than a null
+
+> **The `elu(x)+1` mixing matrix IS a uniform causal average.** 0.4–7% away in Frobenius, row cosine
+> 0.997–1.000, and **exactly as far from the donor's real attention as that uniform average is**
+> (8.4122 vs 8.4252), measured in matrix space without ever touching the projector.
+
+**One mechanism explains all three nulls at once** — `elu1 ≈ C6`, `elu1 ≈ C5′/C4`, and `decay ≈ decay-only`.
+The memoryless feature maps were never carrying content; they were smoothing.
+
+#### The ceiling, and it is what closes the line
+
+| quantity | value |
+|---|---|
+| unreachable by **any** `W_v`, best pre-registered `φ` | **46%** of the head output's Frobenius norm |
+| unreachable, best arm anywhere (an **oracle**) | **42%** |
+| at `T/D = 21.33` | **51% — and still rising** |
+
+R2 requires `T/D ≥ 24`, so the last row is a **lower bound** on what it would face. Verified as the true
+minimum against brute-force `lstsq` at production shapes (`|diff| = 0.0`).
+
+> **No value-side solve, at any rank, with any of these mixings, can recover more than ~58% of the head
+> output — and the fraction it cannot reach grows with the calibration length R2 would need.**
+
+#### Two findings that are ours and are not in the literature
+
+1. **`taylor2` works, but not for the reason its name implies.** Measured on this donor — **nobody has
+   published a decoder-only `qᵀk` range** — **96–99% of causal pairs and 99.5–99.97% of kernel mass sit
+   below `z = −1`, where `1+z+z²/2` is *decreasing*.** `z` spans −40 to +2433. **Its content structure is
+   real; the exp-approximation interpretation is false.**
+2. **The optimal decay is depth-dependent as an inverted U, not a monotone rise.** Minimum interior at
+   **28 layers out of 28**, never at either limit; argmin by depth-third `0.42 / 0.64 / 0.38`, `r = −0.125`.
+   **HGRN argues for a monotone rise with depth. On this donor it does not hold.**
+
+#### The one direction the evidence points at, and its own ceiling
+
+**Effort belongs on the temporal envelope and its depth-dependence — not on feature maps, and not on the
+value-side solve.** Content adds **~0.0003** at all nine `γ` values tested.
+
+**But that direction is bounded by the same table.** The oracle arm still leaves 42% unreachable, so a
+better envelope buys a better ceiling, not a good one. And the stratification is the warning: **every arm
+damages retrieval rows more than diffuse rows, without exception, and the penalty rises monotonically with
+envelope length** (`+0.051 → +0.137`). `taylor2` **loses to no-mixing on peaked rows** (149/336).
+
+> **A longer envelope helps the bulk and hurts retrieval, monotonically. That is the fixed-state recall cap
+> showing up in our own measurement, on our own donor, exactly where the Researcher said it would.**
+
+#### What this was worth
+
+The pre-screen cost **a few SVDs per layer and no solver**. `BRIEF_R2` had a four-arm design, a threshold
+ladder and an apparatus behind it; **R2a answered the question the apparatus was going to ask, before it
+existed.** That is the pattern to repeat: *when a probe's central question has a geometric answer, compute
+the geometry first.*
+
 ### 2.3 What this says about the sealed constraints
 
 - **S3 ("attention on a minority of layers") is now quantified and it is far more demanding than
