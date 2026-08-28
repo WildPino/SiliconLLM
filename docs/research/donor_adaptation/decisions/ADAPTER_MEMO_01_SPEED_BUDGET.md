@@ -14,7 +14,7 @@ Read this block before anything else.
 | section | status |
 |---|---|
 | §1 — the two levers (static vs dynamic sparsity) | **stands** |
-| §2.1 — the headline table | **the rate constant is under active revision.** See the banner in §2.1 |
+| §2.1 — the headline table | rate constant **roughly halved at donor width — Claim 1 SURVIVED audit**; the accompanying compute-bound claim is BLOCKED. See the banner in §2.1 |
 | §2.2 — "attention on 4 of 80 layers, FFN at 2%" | **WRONG on two counts. Superseded by §2.2f** |
 | §2.2b — the attention half was uncosted | stands as a record; its fork is superseded by §2.2f |
 | §2.2c — the 5% attention ratio is below anything measured | **demoted by §2.2f**: the ratio governs KV traffic and quality, not the weight stream |
@@ -23,7 +23,7 @@ Read this block before anything else.
 | **§2.2f — conversion does not remove a layer's weights; KV accounting** | **CURRENT. Start here.** |
 | **§2.2g — `h=128` is not scale-free; probe-4 never entered our regime** | **CURRENT.** Also: probe-4's own result is underpowered and missing its key control |
 | **§2.2h — the low-rank lever is not established** | **CURRENT.** Withdraws §2.2f's `~88B` row; flags that its `~26B` row rests on a transplant too |
-| §2.4 — 5-trit packing | **its central assumption was tested by D5 and did not hold.** See the banner on that section |
+| §2.4 — 5-trit packing | **NOT withdrawn — the previous banner here was WRONG.** Its assumption is untested, not falsified; the Controller BLOCKed D5's conclusion and it may be backwards. Discriminating measurement running |
 | §3a — healing must happen in the consuming layer | stands, **but** see `BRIEF_R2` Amendment A1.5: applying it to R2 was pattern-matching |
 | §3c, §3d | stand |
 
