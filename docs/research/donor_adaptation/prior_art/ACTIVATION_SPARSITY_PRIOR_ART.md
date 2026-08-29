@@ -1343,3 +1343,342 @@ composition question, even though it still isn't a dense-donor
 conversion.**
 
 ---
+
+---
+
+# Pass 2 — 2026-08-28 — Predictor-based contextual sparsity, and the two F1 constructions
+
+**Scope of this pass.** Prior art for `BRIEF_F1_GATE_SIGN_PREDICTOR.md` including Amendment 1: (**A**) a closed-form, activation-weighted low-rank factorisation of `W_g` used as a *selector*; (**B**) an ANN/IVF-PQ index over the rows of `W_g` used to retrieve the active set. Plus the recall-first asymmetric-thresholding framing, and counter-evidence.
+
+**Why this is a separate pass.** The existing file covers the **thresholding** branch (ReLUfication, TEAL, CATS, bundling). It does **not** contain the **predictor** branch at all: before this pass, `Deja Vu` appeared **zero** times, `predictor` **zero** times, `Geva`/`Product-Key`/`IVF`/`nearest-neighbour` **zero** times. PowerInfer appeared 10 times but **only as the speedup harness quoted by ProSparse and Turbo Sparse** — its own predictor design was never read. That was the gap.
+
+**Literatures covered in this pass:** (i) contextual-sparsity predictor work (Deja Vu, PowerInfer, and what they cite forward/back); (ii) training-free activation sparsity already in this file (TEAL, CATS, R-Sparse — re-read for the low-rank-selector question rather than re-fetched); (iii) FFN-as-key-value-memory and retrieval-memory architectures (Geva et al., Product-Key Memory, Memory Layers); (iv) low-rank weight approximation used for *selection*. **Not covered:** KV-cache sparsity, attention-head pruning, MoE routing (covered by the companion pass), and speculative decoding.
+
+**Bottom line, before the detail — and it cuts against the brief in one place and for the brief in another:**
+
+| | verdict |
+|---|---|
+| **Construction B (ANN over `W_g` rows)** | **NOT novel. It is Deja Vu §4.1 Definition 4.1 as a formalisation, and Deja Vu Appendix C.2 as an executed, measured, published experiment** — HNSW over a pretrained OPT-1.3B's MLP, 90% sparsity, no perplexity drop. They rejected it on latency, **on GPU**, for a reason that does not obviously transfer to a CPU engine. |
+| **Construction A (closed-form low-rank selector)** | **Not found as such. [X]** — but it is a *linear, closed-form special case of an architecture Deja Vu already trains*, and the gap is much narrower than "nobody has done a low-rank gate predictor". |
+| **Recall-first asymmetric framing** | **Folklore in the strict sense: [X] for a stated false-positive/false-negative asymmetry with recall-first thresholding.** Every predictor paper found reports a single summed **accuracy**. |
+
+---
+
+## Q1: Deja Vu in detail
+
+**Source.** Zichang Liu, Jue Wang, Tri Dao, Tianyi Zhou, Binhang Yuan, Zhao Song, Anshumali Shrivastava, Ce Zhang, Yuandong Tian, Christopher Ré, Beidi Chen — *Deja Vu: Contextual Sparsity for Efficient LLMs at Inference Time*, arXiv:2310.17157, **v1 HTML read at `arxiv.org/html/2310.17157v1`** (ICML 2023).
+
+### Q1.1 What the predictor is — and it is trained, not closed-form
+
+§4.1 [A], verbatim:
+
+> "**Design** The standard state-of-the-art near-neighbor search methods and implementations slow down the computation. Take OPT-175B where `d` is 12288 as an example. **HNSW requires more than 10ms, and FAISS requires more than 4ms, while the MLP computation is only 0.2ms.** The high dimensionality and complications of data structure implementation on GPU make the search time longer than the MLP computation. Therefore, **we choose a neural network classifier as our near-neighbor search method** to exploit the fast matrix multiplication on GPU. **For each MLP block, we train a small two-layer fully connected network to predict contextual sparsity.** Collecting training data is straightforward because we know the contextual sparsity using dense computation."
+
+**Algorithm 1, "Sparse Predictor Training"** [A], transcribed: given a pretrained block with parameter set `M`, token embeddings `{x_i}`, and a threshold `t`, build `P₊ = {(x_i, m_r) | m_r(x_i) ≥ t}` and `P₋ = {(x_i, m_r) | m_r(x_i) < t}`, then `SP ← Train(P₊, P₋, L)`. **Supervised binary classification per neuron, with a threshold-defined label.**
+
+**Answer to "trained or closed-form": trained.** Explicitly, per-block, with collected data — §5.1 [A]: *"We collect training data for the sparsity predictor using 500 random data points from the C4 training dataset."* **500 data points is a small calibration set, and worth noting: it is the same order as the calibration sets this project already uses for activation-weighted SVD.**
+
+**The architectural point the brief should absorb.** A two-layer fully-connected network mapping `d → h → d_ffn` computes `A·σ(B·x)`. **Construction A's `ĝ = A(Bx)` is exactly that architecture with `σ` removed and `A`,`B` obtained in closed form instead of by SGD.** So the honest framing of Construction A is not "a low-rank predictor, which nobody has tried" — it is "**the linear, closed-form, activation-weighted special case of Deja Vu's predictor**". That is still a real difference (no training, no labels, no threshold-at-fit-time), but it is a difference of *fitting procedure*, not of architecture.
+
+### Q1.2 What sparsity it reaches, and the scale/activation-function collapse
+
+**Table 4 [T]**, *"Accuracy of zero-shot tasks and language modeling when sparsifying the MLP block and the Attention block separately. The sparsity is set at 85% for MLP-block and 50% for Attention-block. dejavu incurs no accuracy drop across the boards."*
+
+| Model | CB | COPA | Lambada | OpenBookQA | PIQA | RTE | Winogrande | Wikitext | C4 |
+|---|---|---|---|---|---|---|---|---|---|
+| OPT-175B | 0.3523 | 0.86 | 0.7584 | 0.446 | 0.8096 | 0.6029 | 0.7261 | 10.8221 | 7.7224 |
+| dejavu-MLP-OPT-175B | 0.3544 | 0.85 | 0.7619 | 0.446 | 0.8096 | 0.6065 | 0.7206 | 10.7988 | 7.7393 |
+| dejavu-Attention-OPT-175B | 0.3544 | 0.86 | 0.7586 | 0.4460 | 0.8063 | 0.5921 | 0.7245 | 10.8696 | 7.7393 |
+
+**Table 5 [T]**, *"dejavu-OPT66B on zero-shot downstream task"*:
+
+| Model | CB | COPA | Lambada | OpenBookQA | PIQA | RTE | Winogrande |
+|---|---|---|---|---|---|---|---|
+| OPT-66B | 0.3928 | 0.87 | 0.7508 | 0.426 | 0.7921 | 0.6028 | 0.6890 |
+| dejavu-OPT-66B | 0.4285 | 0.87 | 0.7458 | 0.434 | 0.7933 | 0.5884 | 0.6898 |
+
+**Table 6 [T]**, *"dejavu-BLOOM on zero-shot downstream task"*:
+
+| | CB | COPA | OpenBookQA | PIQA | RTE | Winogrande | Lambada |
+|---|---|---|---|---|---|---|---|
+| BLOOM | 0.455 | 0.8 | `0448` *(printed thus — evidently 0.448)* | 0.79 | 0.617 | 0.704 | 0.677 |
+| Dejavu-BLOOM | 0.448 | 0.8 | 0.44 | 0.787 | 0.606 | 0.710 | 0.675 |
+
+**Now read the sparsity levels those three tables were run at, from the prose [A]:**
+
+| model | MLP sparsity achieved | source |
+|---|---|---|
+| OPT-175B | **85%** (Table 4 caption [A]) — but end-to-end, §5.1 [A]: *"the average accuracy across tasks does not drop until **75%** sparsity"* | §5.1, §5.2 |
+| OPT-66B | **50%** — §5.2 [A]: *"we summarize the accuracy on zero-shot task at 50% sparsity"* | §5.2 |
+| BLOOM | **30%** — §5.2 [A]: *"we summarize the accuracy at attention sparsity 50% and **MLP sparsity 30%**. … **The lower sparsity level in MLP is due to the difference in activation function.**"* | §5.2 |
+
+**This is the single most important caveat in Deja Vu for our purposes, and it is the authors' own.** The achievable MLP sparsity falls **85% → 50% → 30%** as you move off OPT-175B, and the authors attribute the BLOOM collapse to **the activation function**. OPT is ReLU; BLOOM is GELU. **Our donor, Qwen2.5, is SwiGLU/SiLU — the non-ReLU side of that dichotomy, and the side where Deja Vu reports 30%.**
+
+Deja Vu's own mechanism sentence makes the dependence explicit, §4.1 [A]: *"the goal is to search for the neurons that have high inner products with the input, **because the activation function 'filters' low activation**."* With ReLU the filter is exact zero; with SiLU there is no exact zero and "active" must be defined by a threshold that the model itself never applies. **The brief is right to use a threshold τ — but that means the "true active set" is a construct we choose, not a property the donor exhibits.** §3.1's instruction to *"state how that threshold is defined and print it as ACHIEVED"* is therefore load-bearing, not bookkeeping.
+
+**MMLU: [X].** The string "MMLU" appears **zero** times in Deja Vu. Its evaluation is CB / COPA / Lambada / OpenBookQA / PIQA / RTE / Winogrande plus Wikitext and C4 perplexity. **No knowledge benchmark at any sparsity.** Per this project's rule, Deja Vu reports nothing about knowledge retention under contextual sparsity.
+
+### Q1.3 What the predictor costs — Deja Vu does not say, PowerInfer does
+
+**Deja Vu reports no predictor parameter count, no predictor byte fraction, and no predictor FLOP fraction. [X]** It reports latency end-to-end (§5.1 [A]: *"at around 75% sparsity, dejavu speeds up generation by 1.8-2× compared to … FasterTransformers and by 4.8-6× to Hugging Face"*), and it discusses predictor *latency* being hidden by asynchrony (§4.3, the look-ahead predictor), but it never prices the predictor's own bytes.
+
+**PowerInfer does, and the numbers are large.**
+
+**Source.** Yixin Song, Zeyu Mi, Haotong Xie, Haibo Chen — *PowerInfer: Fast Large Language Model Serving with a Consumer-grade GPU*, arXiv:2312.12456, **v2 HTML read at `arxiv.org/html/2312.12456v2`**.
+
+§5.1 [A], on Deja Vu's fixed-size predictors: *"the considerable memory requirements of numerous fixed-size predictors can encroach upon the space needed for storing LLM parameters. For example, **predictors for the OPT-175B model require around 27GB of GPU memory**, surpassing an NVIDIA RTX 4090 GPU's capacity. On the other hand, naively reducing predictor size impairs accuracy; **a decrease from 480MB to 320MB in predictor size dropped its accuracy from 92% to 84%**, further adversely affecting the overall LLM accuracy (e.g., winogrande task accuracy from 72.77% to 67.96%)."*
+
+**Table 6 [T]**, *"Predictor parameter sizes and ratios for various LLMs. The predictor ratio represents the percentage of predictor parameters relative to the original model parameters."* — these are PowerInfer's **own, adaptively shrunk** predictors, i.e. the optimised case:
+
+| Model | OPT-13B | OPT-66B | Falcon(ReLU)-40B | LLaMA(ReGLU)-70B |
+|---|---|---|---|---|
+| Predictor-params | 0.88B | 3.23B | 3.63B | 5.66B |
+| Predictor-ratio (%) | **6.71%** | **4.88%** | **8.68%** | **8.08%** |
+
+§8.3.4 [A]: *"On average, the execution of predictors constitutes **less than 10% of the total inference time** … which, as shown in Table 6, comprise only **7.09% of the model weights**."*
+
+**This is the answer to "what does the predictor cost as a fraction of what it predicts for": 4.88–8.68% of total model parameters, after deliberate size optimisation.** Deja Vu's unoptimised predictors were worse — 27GB against an OPT-175B whose fp16 weights are ~350GB is **≈7.7%** (derived; the 350GB is standard fp16 arithmetic for 175B params, **not** a figure read in either paper — flagged as such).
+
+**The comparison the brief needs, stated with its caveat.** `BRIEF_F1` §1 prices a rank-64 predictor at **1.0% of the FFN's bytes** at donor width. PowerInfer's tuned trained predictors cost **4.88–8.68% of the whole model**. These denominators differ (FFN bytes vs total model params), so **this is not a like-for-like ratio and must not be printed as one**. What can be said: **the published cost of a trained contextual-sparsity predictor is several percent of the model, not a fraction of a percent, and PowerInfer treats shrinking it as a research problem in its own right.** If a closed-form rank-64 selector achieves comparable recall at ~1% of FFN bytes, the cost side of the claim is real. The recall side is unmeasured.
+
+**Two further PowerInfer details that bear on the donor.**
+1. Its predictors are per-layer **adaptive**, sized from the layer's sparsity and skewness — §5.1 [A]: *"layers with higher activation sparsity simplify the task … allowing for smaller predictor models. In contrast, layers with lower activation sparsity necessitate larger models."* **Predictor cost is not a constant; it rises exactly where sparsity is low.** A single rank `r` across all layers is not what the tuned prior art does.
+2. The LLaMA entry in Table 6 is **LLaMA(ReGLU)-70B** and the Falcon entry is **Falcon(ReLU)-40B** — i.e. **both were ReLU-ified first.** PowerInfer does not report a predictor on a stock SwiGLU model. **[X] no predictor-ratio number for an unmodified SwiGLU donor in either paper.**
+
+
+---
+---
+
+# Pass 3 — 2026-08-29 — An external measurement on our exact donor, read against F1
+
+**Why this pass exists.** `arXiv:2509.00454`, *Universal Properties of Activation
+Sparsity in Modern Large Language Models*, contains a **[T] Table 1** row for
+**Qwen2.5-1.5B** — 28 layers, hidden 1536, intermediate 8960, which is our donor's
+geometry exactly. Our F1 probe measured, on `Qwen/Qwen2.5-1.5B` at revision
+`8faed761d45a263340a0528343f099c05c9a4323`, that only **4.94%** of FFN neurons are
+droppable at a 1% FFN-output-energy budget, and that an oracle reading `|h|` directly
+reaches only **16.4%**. Their `S_gate` of 25.93% is past our oracle bound, and their
+`S_inter` of 50.49% is three times past it.
+
+**The Adapter asked me to establish what each measures rather than to reconcile them.
+The answer is that they do not measure the same quantity, and I set out below exactly
+where they part company — followed by the one place a real tension survives.**
+
+## P3.1 The source, and its numbers
+
+Source: *Universal Properties of Activation Sparsity in Modern Large Language Models*,
+arXiv:2509.00454, **v1 HTML read at `arxiv.org/html/2509.00454v1`** (fetched
+2026-08-29). Affiliations listed: Warsaw University of Technology, IDEAS NCBR, NASK,
+Sapienza, University of Edinburgh, Miniml.AI, Jagiellonian, Tooploox.
+
+**[T] Table 1**, caption verbatim: *"Critical activation sparsity for pretrained and
+instruction-tuned models. S_inter, S_input, S_gate, and S_up_p refer to intermediate,
+input, gate, and up-projection activation sparsity, respectively."* The Qwen rows,
+transcribed verbatim (columns: layers `N_L`, hidden `dim_h`, intermediate `dim_i`, then
+the four Pretrained sparsities, then the four Instruction-Tuned sparsities):
+
+| Model | N_L | dim_h | dim_i | S_inter | S_input | S_gate | S_up_p | S_inter (IT) | S_input (IT) | S_gate (IT) | S_up_p (IT) |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Qwen2.5-0.5B | 24 | 896 | 4864 | 46.54 | 42.01 | 17.16 | 29.20 | 43.92 | 32.80 | 24.60 | 32.12 |
+| **Qwen2.5-1.5B** | **28** | **1536** | **8960** | **50.49** | **40.12** | **25.93** | **35.50** | 52.93 | 32.50 | 27.63 | 32.99 |
+| Qwen2.5-3B | 36 | 2048 | 11008 | 71.16 | 39.40 | 39.58 | 43.46 | 59.80 | 44.16 | 36.90 | 36.32 |
+| Qwen2.5-7B | 28 | 3584 | 18944 | 60.98 | 47.89 | 37.25 | 43.05 | 59.95 | 47.01 | 32.58 | 40.62 |
+| Qwen2.5-14B | 48 | 5120 | 13824 | 71.66 | 47.39 | 48.04 | 52.25 | 69.35 | 50.10 | 41.87 | 49.04 |
+| Qwen2.5-32B | 64 | 5120 | 27648 | 65.66 | 54.08 | 40.20 | 52.46 | 68.77 | 55.17 | 40.54 | 57.35 |
+
+**F1 used the base model, so the comparable block is the Pretrained one.** The geometry
+in their Qwen2.5-1.5B row (28 / 1536 / 8960) matches our donor's config exactly.
+
+## P3.2 The five questions, answered from their definitions
+
+**(1) What is zeroed?** Section 2 defines the FFN as
+`FFN(x) = W_d((W_u x) ⊙ σ(W_g x))` and names four vectors **[A]**, verbatim: *"we refer
+to the above-mentioned activation vectors in the FFN as x - input, u = W_u x -
+up-projection, g = σ(W_g x) - gate and i = (W_u x) ⊙ σ(W_g x) - intermediate vectors."*
+
+- **`i` (intermediate) is the neuron axis** — the same object as our `h`. Their
+  `S_inter` is therefore the quantity comparable to our `1 − a`.
+- **`g` is the POST-activation gate, `σ(W_g x)`.** Our F1 threshold rule is on the
+  **pre-activation** `W_g x` (our θ values are negative, e.g. −3.446). These are
+  different vectors and a magnitude rule on one is not a signed threshold on the other.
+- Nothing is done to weights. This is an activation mask, not pruning.
+
+**(2) Threshold rule or learned mask?** A pure threshold rule, no training, no
+calibration. Their `top-p` rule, Section 2, transcribed:
+
+> `top-p(v) = m_p ⊙ v ; m_p = argmin_m ||m||_0 s.t. ||m ⊙ v||_1 ≥ p·||v||_1, m ∈ {0,1}^n`
+
+i.e. **keep the largest-magnitude entries whose absolute values sum to at least a
+fraction `p` of the vector's L1 norm**; *"the induced sparsity is then the fraction of
+zeros in m_p."* They stress **[A]**: *"it can be applied to any FFN module without
+auxiliary training or calibration."* **Inside our constraints, and per-token dynamic —
+as is ours.**
+
+**(3) Per-layer or a global budget?** **[A]**, Section 3, verbatim: *"For each
+experiment, we fix a threshold p and apply the top-p rule **uniformly** to one of four
+activation types **across all model layers**. We then measure the **average induced
+sparsity** and the resulting performance drop."*
+
+**One global `p`, and the reported number is the mean of the per-layer induced
+sparsities.** Ours is the opposite construction: θ is fitted **per layer** so that each
+layer independently hits ε. So their figure permits tolerant layers to carry the budget
+in a way ours forbids — though since both end as means over 28 layers, this is a
+second-order difference, not the main one. **[X] They publish no per-layer breakdown for
+Qwen2.5-1.5B**, so I cannot check their distribution against ours, and our own
+distribution is strongly bimodal (layers 1-2 at `a ≈ 0.34-0.48`; the other 26 at
+`a ≈ 0.94-0.9995`).
+
+**(4) 99% retention of what, against which baseline?** **[A]**, Section 3: *"we use the
+concept of critical sparsity - the highest empirical sparsity level at which models
+still retain at least **99% of their accuracy**"*, where accuracy is *"the average
+sparsity and performance across all the tasks"*, zero-shot, via lm-eval-harness, and the
+baseline is the **unpruned model itself** (Figure 2's y-axis is *"Average accuracy
+across downstream tasks normalized by the original performance"*).
+
+**Which tasks: [X], and this is a real gap.** The paper says only *"we use the task
+suite from Mirzadeh et al. [27]"* and **never names a single benchmark anywhere in its
+text** — I grepped for ARC, HellaSwag, PIQA, BoolQ, LAMBADA, TriviaQA, WinoGrande, SciQ,
+OpenBookQA and MMLU and found zero occurrences of any of them (the 15 "arc" hits are all
+substrings of "architecture"). Mirzadeh et al. is ReLU Strikes Back, arXiv:2310.04564,
+whose zero-shot Table 1 suite I transcribed in Q1 of this file — Arc-E, Arc-C,
+HellaSwag, BoolQ, PIQA, LAMBADA, TriviaQA, WinoGrande, SciQ — but **whether they used
+all nine, or a subset, is not stated and I am inferring the suite from the cited paper,
+not reading it in this one.**
+
+**MMLU appears zero times in arXiv:2509.00454.** Their bar contains no knowledge
+benchmark and no generation task and no language-modelling loss.
+
+**(5) Same checkpoint and revision?** **[X].** The paper gives no HuggingFace repo id,
+no revision hash, and no checkpoint provenance — the strings "huggingface", "revision"
+and "checkpoint" do not occur in the text. It distinguishes only "Pretrained" from
+"Instruction-Tuned". F1 pinned `Qwen/Qwen2.5-1.5B` @ `8faed761...`; **that the two are
+the same weights is likely but unverifiable from the paper.**
+
+## P3.3 Do they conflict? No — and here is precisely why not
+
+**The two measurements use different bars, and the difference has a known sign.**
+
+| | F1 (ours) | arXiv:2509.00454 |
+|---|---|---|
+| vector masked | pre-activation `W_g x`; oracle arm uses `\|h\|` | `i`, `x`, `σ(W_g x)`, or `u` |
+| rule | fixed θ per layer, per-token | top-p on L1 mass, global p, per-token |
+| **bar** | **‖Y − Y(θ)‖_F / ‖Y‖_F ≤ 1%**, a reconstruction bound on the FFN block output | **≥99% of dense average zero-shot accuracy** |
+| reported | mean over 28 layers of held-out `a` | mean over layers of induced sparsity |
+| our figure | 4.94% droppable (gate rule); **16.4% (oracle on `\|h\|`)** | **50.49% (`S_inter`)** |
+
+**The comparable pair is our oracle-on-`|h|` against their `S_inter`, because both
+select on the intermediate vector.** 16.4% versus 50.49%. **These are not in
+contradiction because a 1% output-reconstruction budget and a 1% downstream-accuracy
+budget are not the same bar, and this very file now documents how far apart they can be:
+ShortGPT's [T] Table 4 shows a Llama2-7B whose perplexity rises from 8.03 to 40.78 — a
+5.1x degradation — while its MMLU ends *higher* than it started.** Downstream
+multiple-choice accuracy tolerates enormous representational damage. A criterion built
+on it will always license more sparsity than a criterion built on output energy.
+
+**How much more, measured on our own donor:** our own ε-ladder shows that relaxing the
+reconstruction bar five-fold, from ε=0.01 to ε=0.05, moves mean `a` only from 0.951 to
+0.909 — i.e. from 4.9% to 9.1% droppable. **Even a 5% output-energy budget does not
+approach 50%.** So the accuracy-based bar they use must correspond, on this donor, to an
+FFN-output reconstruction error very much larger than 5%. Both statements can be, and
+probably are, simultaneously true of the same weights.
+
+**Two further reasons their number is not an upper bound on ours.** First, their masking
+is applied to **one activation type at a time across all layers**, and never to two at
+once. Second — their own words, Section 4 **[A]** — *"Our results should be seen as a
+**lower bound** on activation sparsity, as we adopt a simple, broadly applicable
+framework."* They believe their numbers understate the truth, which widens the gap
+rather than closing it.
+
+> **Verdict, stated plainly as asked: this is not a conflict. The quantities differ, and
+> the sign of the difference is predictable. A Builder should not be sent to reconcile
+> them.**
+
+## P3.4 The tension that does survive, and it is the useful one
+
+Nothing above rescues the programme's premise, and one thing sharpens against it.
+
+**The open question is no longer "who is right" but "which bar predicts BPB".** Our
+sealed success criterion is general-purpose retention and our working metric is BPB — a
+language-modelling loss. The depth-pruning pass in `DEPTH_PRUNING_PRIOR_ART.md` §0
+establishes, in tables, that **language-modelling loss and multiple-choice accuracy
+decouple violently under structural intervention.** BPB is on the loss side of that
+split, not the accuracy side. So:
+
+- **Their bar (zero-shot accuracy) is the looser one and the less relevant one to us.**
+  A 50.49% sparsity that holds their bar tells us nothing about what it does to BPB.
+- **Our bar (1% FFN-output Frobenius error) is a reconstruction proxy, and it may be
+  stricter than BPB requires.** Nothing establishes that 1% output energy is the right
+  operating point for a 1% BPB cost; that mapping has not been measured.
+
+**The truth for our purposes lies between 4.9% and 50.49%, and neither number locates
+it.** The cheap experiment that would locate it is to apply their published `top-p` rule
+at their `p` to our pinned checkpoint and **measure BPB directly** — same donor, same
+revision, a rule that is fully specified in their Section 2 and needs no calibration or
+training. That is an observation about what is now cheaply answerable; **the decision
+whether to run it is the Adapter's, not mine.**
+
+## P3.5 An independent corroboration of the F1 retirement, on our exact donor
+
+Their Qwen2.5-1.5B row makes the gate the **worst** of the four masking sites:
+`S_gate` **25.93** versus `S_input` **40.12**, `S_up_p` **35.50**, `S_inter` **50.49**
+(**[T] Table 1**). Their general finding **[A]**, Section 3, verbatim:
+
+> *"Input-based sparsity appears the most practical for predictor-free methods, as it
+> matches gate sparsity while allowing the acceleration of all FFN modules.
+> **Gate-based sparsification, contrary to intuition, offers no clear advantage at our
+> scale**, though for models larger than ~30B parameters it may surpass input
+> sparsity."*
+
+and in Section 4: *"Computing gates to choose sparsity patterns is **wasteful** if they
+are no sparser than inputs."*
+
+**This is an external, independent, same-donor argument against the construction F1 was
+built on, arriving from a different direction than F1's own null.** F1 retired the
+gate-sign predictor because the donor had no sparsity for it to exploit; this paper adds
+that even where sparsity exists, **the gate is the wrong place to look for it at our
+scale**, and the input `x` is both cheaper and better. I record that as convergent
+evidence, not as a decision.
+
+Two cautions before it is leaned on. Their `S_gate` is a magnitude rule on the
+**post-SiLU** gate, whereas F1 thresholds the **pre-activation** — so this is
+corroboration by analogy, not replication. And their per-layer distribution for this
+model is **[X]** unpublished, so I cannot check whether their gate result is driven by
+the same two anomalous layers (1 and 2) that carry all the sparsity in our own table.
+
+## P3.6 Their other findings that bear on this programme
+
+- **Sparsity rises with model size [A]**, Section 3: *"activation sparsity tends to
+  increase with model size, though it cannot be directly determined based on the model
+  size alone."* Their own Qwen2.5 column shows it: `S_inter` 46.54 at 0.5B, 50.49 at
+  1.5B, 71.66 at 14B (**[T] Table 1**). **Our donor sits near the bottom of that
+  trend** — a 1.5B donor is close to the least sparse model they measured, and the
+  programme's premise would be materially better served by a larger donor.
+- **Qwen scales irregularly [A]**, Section 3: *"Slight deviations in the trends can be
+  attributed to non-uniform depth-width scaling, **especially in Qwen**, where
+  dimensions grow disproportionately with parameter count."* Note their own Qwen2.5-3B
+  row breaks monotonicity (`S_inter` 71.16, higher than the 7B's 60.98).
+- **Sparsity is strongly task-dependent [A]**, Section 3 and their Figure 3b: *"Critical
+  sparsity differs widely across the tasks, which indicates that the phenomenon of
+  activation sparsity is also highly task dependent."*
+- **They argue against calibrated methods [A]**, Section 4: *"The high variance of
+  critical sparsity across evaluation tasks and training recipes calls into question
+  methods that rely on extra training or threshold calibration on auxiliary datasets.
+  Our results suggest that sparsification methods should be **truly data-free**, as both
+  functional sparsity levels and resulting patterns can be prone to overfitting."*
+  **This cuts against TEAL, CATS and R-Sparse as covered in Q2 of this file, and it also
+  cuts against our own calibration-fitted θ** — F1 fits θ on 1024 calibration tokens and
+  reports `a` out-of-sample, which is the right guard, but the authors' point is about
+  the *pattern* overfitting, not just the threshold.
+
+## P3.7 What I could not verify in this source
+
+- **[X]** The benchmark suite is never enumerated in the paper.
+- **[X]** No checkpoint, repo id, or revision for any model.
+- **[X]** No per-layer sparsity numbers for Qwen2.5-1.5B; Figures 5 and 6 show per-layer
+  heat maps only for Gemma3 and Qwen2.5 at unspecified sizes, and I did not read values
+  off them.
+- **[X]** No seeds, no error bars, no repeats anywhere in the paper; every Table 1 cell
+  is a single number with no dispersion.
+- **[X]** No MMLU, no generation task, no perplexity or language-modelling loss.
+- **[X]** No wall-clock or throughput measurement — this is an analysis paper, not a
+  systems paper, and it proposes no kernel.

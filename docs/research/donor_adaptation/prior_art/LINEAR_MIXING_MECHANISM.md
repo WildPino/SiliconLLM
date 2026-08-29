@@ -899,6 +899,241 @@ Per instruction I do not interpret the new decay numbers. Three literature facts
 
 **Located, not read:** 2607.02303 (Hippocampus for Linear Attention), 2605.05838 (MDN), 2509.24552 (Short window attention enables long-term memorization).
 
+**Added for §13 (depth-pruning literature):** 2406.15786 *What Matters in Transformers? Not All Attention is Needed* — **v1** read at `arxiv.org/html/2406.15786v1`, Tables 1, 2, 3 transcribed. 2512.20636 *Data-Free Pruning of Self-Attention Layers in LLMs* — abstract and §1/§4 prose only, **no cells transcribed**.
+
 **Reached only through citing papers — every claim about them here is second-hand:** Grazzi et al. 2024 and Siems et al. 2025 (negative eigenvalues / state tracking), Liu et al. 2024 (Longhorn), the KDA paper, the Mamba-3 paper, Mamba-2/SSD, GLA, T2R, SUPRA, LoLCATs, MOHAWK.
 
 **Method note.** Every arXiv page was downloaded with `curl` and de-tagged locally, then read as text; no table number in this document came from a web-search summary, an abstract, or a third-party blog. Where the LaTeXML render scrambled a caption/table pairing (arXiv:2412.06464 Tables 3 and 4 are captioned on opposite sides of their bodies), that is noted at the point of use. One search-engine confabulation was caught and is recorded in §10.
+
+---
+
+## 13. Follow-up: does deletion beat linearisation? — attacking the flattering claim
+
+Asked because the two cells below, if they mean what they appear to mean, would reorganise the programme. **The direction of flattery has flipped, so this section is written to break the claim, not to support it.**
+
+**Headline verdict, up front, in three parts:**
+1. **The two cells cited do NOT support "deletion beats linearisation." Both compared rows are at chance on essentially every task.** The comparison is between two dead models and the 0.62-point margin is meaningless.
+2. **One of the two is mis-attributed, and the correct reading of the other kills the budget argument outright** — Liger's `w/o GLA` deletes no weight at all.
+3. **But there IS a published literature in which deletion is a deliberate method, it is training-free, it reports MMLU as its own column, and its numbers are far better than any conversion result in this document.** It is not the literature those two cells come from. It has a hard scale caveat that bears directly on a 1.5B donor.
+
+### 13.0 Two corrections to the question as posed
+
+**(a) The `1+ELU` 35.12 / no-attention 34.40 pair is arXiv:2510.05901 Table 4, not Liger Table 4.** Liger (arXiv:2503.01496) Table 4 is *"Scalability Analysis of Linearized Llama-3 Architectures across Model Sizes (1B to 8B)"* [A]. The Liger cell in play is **Table 6**, `w/o GLA`. The two cells are therefore **both from the linearisation-audit line**, and one of them is not about deletion at all.
+
+**(b) Liger's `w/o GLA` deletes nothing.** Liger Attention is an **intra-layer** hybrid — §3.3 [A]: *"an intra-layer hybrid attention mechanism, termed Liger Attention. This method integrates a hybrid form of Gated Recurrent Modeling (GRM) and Sliding Window Attention (SWA) with narrow softmax attention window size, by blending their outputs in a weighted manner"*, window size *"set to 64 in our default implementation"* [A]. And §3.2 [A]: *"all the trainable parameters `W_Q`, `W_K`, `W_V` are inherited from the pre-trained LLM."*
+
+So `w/o GLA` = **keep the sliding-window softmax attention in every layer, drop the linear branch.** `W_q`/`W_k`/`W_v`/`W_o` are all still present and still used by the SWA path; the KV cache is not removed, only bounded to 64 tokens — which SWA already did. **`w/o GLA` costs 0.05 PPL and 0.4 Avg-no-MMLU because it removes a redundant branch, not because deletion beats attention.** Per `ADAPTER_MEMO_01` §2.2f's accounting, that row removes **zero** weight traffic. It cannot support the budget argument.
+
+### 13.1 What exactly is the "no-attention" control? — the paper's own words
+
+**arXiv:2510.05901, §3.2 [A], verbatim:**
+
+> "We run four ablations **at inference time**: (i) SWA-only, disabling the LA module by **forcing its outputs to zeros**; (ii) LA-only where we disable SWA and retain only the LA component; (iii) attention sinks only, suppressing both SWA and LA and only passing the first 8 values through softmax attention; and (iv) **no attention where we return an all-zeros attention output, removing any contribution from the attention mechanism.**"
+
+**This is not deletion.** It is **zeroing the attention sub-layer's output at inference time**, on a model that was *trained with the attention present*. Given the residual connection, `Y = X + 0 = X`: the sub-layer becomes an identity pass-through, but **every weight is still in the file**. Nothing is removed; nothing is saved; no KV cache is reclaimed. It is a **diagnostic zero baseline**, and the paper introduces it as such — its purpose is to establish what "contributing nothing" scores, so that the LA branch can be measured against it.
+
+**And it is applied to an already-converted checkpoint.** The models in Table 1 were trained as SWA+LA hybrids and then had one branch zeroed at eval. **A model trained with a component and then run without it is a broken model.** That is the whole point of the ablation — and it is exactly why the resulting numbers cannot be read as a design comparison.
+
+**Recorded as [X]:** in the entire conversion literature covered here (T2R, SUPRA, Hedgehog, LoLCATs, Liger, arXiv:2510.05901), **no paper's "no attention" arm removes weights.** Every one is an inference-time zeroing or an intra-layer branch removal.
+
+### 13.2 The teacher baselines — and why the comparison is void
+
+The coordinator's guard was exactly right, and the table answers it. arXiv:2510.05901 Table 1 [T], with the base model in each block:
+
+| | base (teacher) | SWA+Linear | **Linear only** | **No Attention** | gap: teacher → Linear only |
+|---|---|---|---|---|---|
+| Mistral-7B | **68.26** | 65.48 | 34.78 | 34.40 | **−33.48** |
+| Llama3-8B | **71.32** | 67.55 | 33.55 | 34.17 | **−37.77** |
+| Llama3.1-8B (LoLCATs ckpt) | **73.01** | 71.08 | 33.96 | 33.93 | **−39.05** |
+
+**The teacher is 33–39 points above both arms.** The margin between them is 0.38 / −0.62 / 0.03. **Both arms are broken; the difference between them is a rounding artifact on a scale where the live model sits 35 points away.**
+
+**The demolition, per-task against chance.** Four-way benchmarks (ARC-E, ARC-C, HellaSwag, MMLU) have a 25.0 floor; PIQA and WinoGrande are binary with a 50.0 floor. Counting cells more than 3 points above their own floor (computed from the [T] cells above):
+
+| row | PIQA | ARC-E | ARC-C | HellaSwag | WG | MMLU | above chance |
+|---|---|---|---|---|---|---|---|
+| Mistral base | 79.27 | 80.01 | 52.22 | 74.60 | 69.93 | 53.51 | **6/6** |
+| Mistral SWA+Linear | 78.40 | 79.50 | 49.91 | 71.28 | 68.35 | 45.44 | **6/6** |
+| Mistral **Linear only** | 53.65 | 29.71 | 24.57 | 27.01 | 50.43 | 23.28 | **2/6** |
+| Mistral **No Attention** | 53.92 | 25.63 | 24.66 | 25.99 | 50.67 | 25.51 | **1/6** |
+| Llama3-8B base | 78.13 | 81.69 | 56.66 | 75.94 | 71.67 | 63.85 | **6/6** |
+| L3 SWA+Linear | 78.35 | 80.47 | 54.35 | 71.62 | 71.67 | 48.84 | **6/6** |
+| L3 **Linear only** | 52.07 | 25.97 | 25.77 | 26.31 | 48.22 | 22.95 | **0/6** |
+| L3 **No Attention** | 55.17 | 26.73 | 22.87 | 26.13 | 51.14 | 22.95 | **1/6** |
+| L3.1 base | 80.14 | 81.82 | 55.20 | 79.14 | 73.72 | 68.05 | **6/6** |
+| L3.1 SWA+Linear | 81.18 | 82.37 | 54.78 | 79.16 | 70.09 | 58.89 | **6/6** |
+| L3.1 **Linear only** | 51.52 | 25.00 | 25.51 | 26.37 | 52.25 | 23.09 | **0/6** |
+| L3.1 **No Attention** | 54.62 | 26.68 | 24.40 | 25.88 | 48.86 | 23.12 | **1/6** |
+
+(Chance floors are standard for these benchmarks; the counting is mine, the cells are [T].)
+
+**On Llama3-8B and Llama3.1-8B, the "Linear only" row is above chance on 0 of 6 tasks.** The MMLU cells are **identical to two decimals** — 22.95 vs 22.95 — for Linear-only and No-Attention on Llama3-8B, and both are **below** the 25.0 floor. **You cannot rank two models that are both producing chance output.** The only honest statement from Table 1 is: *both the converted linear branch alone and a zeroed attention produce a model that has stopped working.*
+
+The same test on Table 4 [T] (Mistral-7B, LA-only after one epoch of weights transfer) separates the arms that are actually alive:
+
+| Φ activation | AVG | margin over no-attention (34.40) | above chance |
+|---|---|---|---|
+| Softmax | 46.94 | **+12.54** | 4/6 |
+| Exponential | 46.11 | **+11.71** | 4/6 |
+| ReLU | 36.07 | +1.67 | 2/6 |
+| `1+ELU` | 35.12 | **+0.72** | 2/6 |
+| None | 34.81 | +0.41 | 1/6 |
+| No Attention | 34.40 | — | 1/6 |
+
+**So Table 4 does support a real finding — but it is "`1+ELU` produces a dead model", not "deletion beats linearisation".** The exponential-family rows are 12 points clear of the zero baseline and alive on 4/6 tasks. The instrument works; `1+ELU` fails it.
+
+### 13.3 Metric, direction, tasks, and MMLU
+
+- **Metric:** zero-shot accuracy, **higher is better**, via LM-Eval-Harness-style evaluation. AVG is an unweighted macro-average over the six tasks; "Rec. Perf" is that average as a percentage of the base model's.
+- **Tasks:** PIQA, ARC-Easy, ARC-Challenge, HellaSwag, WinoGrande, MMLU. **MMLU is inside the average** — one of six columns.
+- **The MMLU rule bites, hard.** Llama3.1-8B: AVG 73.01 → 71.08 (**−1.93**) while MMLU 68.05 → 58.89 (**−9.16**) — the average understates the MMLU loss by **4.7×**. Llama3-8B: AVG −3.77, MMLU **−15.01** — a factor of **4.0**. And **every LA-only row across Tables 1–4 is at or below the 25.0 chance floor** (22.95 / 23.09 / 23.28 / 23.82 / 23.52 / 25.64). A converted linear-only Mistral recovers **68.8% of the commonsense average and 0% of MMLU** (Table 4, softmax φ: AVG 46.94, MMLU 23.82). **This paper is the single best demonstration of the project's MMLU rule I have transcribed.**
+
+### 13.4 How many layers, and were the rest converted?
+
+- **arXiv:2510.05901: all layers converted.** LoLCATs-style conversion replaces the softmax attention in **every** layer with the SWA+LA hybrid; the ablations then toggle branches **globally at inference**, not per layer. There is no "some layers kept softmax" arm. **No layer count is a free variable in this table** — it is all-or-nothing, which is exactly why it cannot inform a ratio.
+- **Liger:** `w/o GLA` is applied to **every** Liger layer, and Liger's own architecture already interleaves *"a layer of standard attention Transformer blocks every a few (e.g. 7) layers of Liger Transformer blocks"* (Fig. 3 caption [A]). So Liger's headline model retains full softmax attention on roughly **1 layer in 8** — its 93%-recovery claim is a claim about a 7:1 hybrid, not about a fully linearised model.
+
+**Neither paper varies the deletion ratio. For a ratio, the question has to be taken to a different literature.**
+
+### 13.5 Deletion as a deliberate method — yes, it exists, and here are its numbers
+
+Literature covered for this sub-question: **structured depth pruning / layer dropping for decoder-only LLMs**, 2024-01 → 2026-08, reached by keyword search on attention-layer pruning, layer drop, depth pruning, and layer redundancy. Not covered: width/head pruning, unstructured sparsity, quantisation, and early-exit.
+
+**It is a named, published method, and there are at least two independent ones.**
+
+#### (a) Attention Drop — *What Matters in Transformers? Not All Attention is Needed*, arXiv:2406.15786 (v1 read at `arxiv.org/html/2406.15786v1`)
+
+**What it removes, §3 [A], Eq. 5:** the block computes `Y_A = X_A + Attention(LayerNorm(X_A))`. *"Like MLP Drop that takes attention layers and associated LayerNorm layers together"* — **Attention Drop removes the attention sub-layer AND its LayerNorm entirely**, leaving `Y = X`, a pure residual pass-through. **This is genuine deletion: the weights leave the checkpoint and the KV cache for those layers is gone.**
+
+**How layers are chosen:** a cosine-similarity importance score `S_A = 1 − Cosine(X_A, Y_A)`, computed **one-shot on a calibration dataset (C4)** [A]. **No fine-tuning, no retraining, no gradient.** The paper notes the pruned model *"can be easily loaded using existing packages … with just a change of the model configuration"* [A].
+
+**Table 1 [T]**, *"Experimental results of dropping different modules on Llama-2-13B and Mistral-7B … We drop a fixed number of modules … 'Memory' refers to the memory cost associated with deploying models."*
+
+**Llama-2-13B** (40 attention layers — stated at §4.2 [A] *"20 out of 40 attention layers"*):
+
+| Method | SpeedUp | Memory | ARC-C | BoolQ | HellaSwag | **MMLU** | OBQA | PIQA | RTE | WinoGrande | Avg. |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Baseline | 1.00× | 24.4GB | 59.9 | 80.7 | 82.2 | **55.1** | 45.6 | 80.5 | 65.0 | 77.0 | **68.2** |
+| Block-4 | 1.13× | 22.0GB | 54.8 | 73.3 | 80.6 | 54.8 | 45.8 | 79.1 | 60.3 | 77.5 | 65.8 |
+| Block-8 | 1.23× | 19.6GB | 48.0 | 56.8 | 75.3 | 53.8 | 41.2 | 75.3 | 59.9 | 75.6 | 60.7 |
+| MLP-4 | 1.05× | 22.8GB | 54.9 | 76.1 | 80.4 | 54.8 | 45.4 | 79.5 | 66.4 | 77.3 | 66.9 |
+| MLP-8 | 1.09× | 21.2GB | 49.2 | 63.4 | 75.6 | 54.5 | 42.2 | 76.0 | 59.2 | 75.1 | 61.9 |
+| **Attn-4** | 1.05× | 23.6GB | 58.8 | 80.4 | 82.0 | **54.7** | 46.2 | 80.5 | 67.9 | 77.2 | **68.5** |
+| **Attn-8** | 1.11× | 22.8GB | 58.2 | 80.5 | 82.2 | **54.5** | 47.0 | 80.5 | 64.3 | 77.4 | **68.1** |
+| **Attn-16** | 1.23× | 21.3GB | 56.4 | 79.2 | 81.9 | **48.2** | 47.4 | 79.5 | 59.9 | 76.2 | **66.1** |
+| **Attn-20** | 1.30× | 20.5GB | 53.8 | 76.9 | 78.6 | **51.5** | 44.4 | 77.6 | 59.2 | 77.1 | **64.9** |
+
+**Mistral-7B** (32 layers, standard config — **layer count not stated in the table I read**):
+
+| Method | SpeedUp | Memory | ARC-C | BoolQ | HellaSwag | **MMLU** | OBQA | PIQA | RTE | WinoGrande | Avg. |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Baseline | 1.00× | 14.0GB | 61.5 | 83.7 | 83.2 | **62.5** | 43.8 | 82.0 | 66.8 | 78.5 | **70.3** |
+| Block-8 | 1.29× | 10.6GB | 40.0 | 71.6 | 63.9 | 60.0 | 30.6 | 69.3 | 63.9 | 69.7 | 58.6 |
+| MLP-4 | 1.05× | 12.7GB | 53.2 | 80.3 | 77.7 | 61.7 | 40.0 | 77.6 | 67.5 | 77.3 | 66.9 |
+| MLP-8 | 1.09× | 11.3GB | 36.7 | 71.8 | 33.6 | 53.3 | 30.6 | 68.0 | 66.8 | 66.6 | 53.4 |
+| **Attn-4** | 1.09× | 13.6GB | 61.0 | 83.5 | 82.9 | **62.5** | 44.6 | 82.0 | 64.6 | 78.0 | **69.9** |
+| **Attn-8** | 1.17× | 13.2GB | 60.2 | 82.7 | 82.3 | **62.2** | 44.2 | 81.3 | 66.8 | 78.8 | **69.8** |
+| **Attn-12** | 1.24× | 12.8GB | 57.2 | 76.8 | 80.2 | **59.4** | 41.8 | 79.1 | 66.1 | 77.7 | **67.3** |
+
+**Table 2 [T]**, *"Block Drop and Layer Drop on Larger Models … Llama-2-70B"* (80 layers, standard config):
+
+| Method | SpeedUp | Memory | ARC-C | BoolQ | HellaSwag | **MMLU** | OBQA | PIQA | RTE | WinoGrande | Avg. |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Baseline | 1.00× | 128.7GB | 67.4 | 83.8 | 87.1 | **68.5** | 48.6 | 82.5 | 69.3 | 83.7 | **73.9** |
+| Block-16 | 1.32× | 103.3GB | 44.6 | 64.6 | 69.9 | 29.3 | 40.0 | 75.2 | 51.6 | 59.7 | 54.4 |
+| MLP-16 | 1.24× | 107.8GB | 57.5 | 53.6 | 81.6 | 69.1 | 46.0 | 79.2 | 58.8 | 81.7 | 65.9 |
+| **Attn-4** | 1.04× | 127.7GB | 67.2 | 84.0 | 87.0 | **68.6** | 48.8 | 82.5 | 69.3 | 83.3 | **73.8** |
+| **Attn-8** | 1.08× | 126.5GB | 67.3 | 83.8 | 86.9 | **68.5** | 48.4 | 82.9 | 69.0 | 82.6 | **73.7** |
+| **Attn-16** | 1.12× | 124.3GB | 67.8 | 83.9 | 87.2 | **68.5** | 49.0 | 83.0 | 68.2 | 82.8 | **73.8** |
+| **Attn-32** | 1.16× | 119.7GB | 67.2 | 84.8 | 87.2 | **68.4** | 49.6 | 81.8 | 67.5 | 83.5 | **73.8** |
+| **Attn-40** | 1.21× | 117.5GB | 63.7 | 82.8 | 84.4 | **66.2** | 46.8 | 80.1 | 66.8 | 81.3 | **71.5** |
+| **Attn-48** | 1.23× | 115.3GB | 58.5 | 73.7 | 80.6 | **56.8** | 45.0 | 79.8 | 59.6 | 81.0 | **66.9** |
+
+**Table 3 [T]**, *"Experimental results on Llama-3"* — a reduced task set (HellaSwag, MMLU, OBQA, WinoGrande):
+
+| Llama-3-8B | HellaSwag | **MMLU** | OBQA | WinoGrande | Avg. |
+|---|---|---|---|---|---|
+| Baseline | 82.2 | **65.5** | 45.0 | 77.7 | **67.6** |
+| Attn-4 | 81.6 | **65.1** | 44.8 | 78.2 | **67.4** |
+| Attn-8 | 81.1 | **65.1** | 45.0 | 78.4 | **67.4** |
+| Attn-12 | 79.4 | **63.9** | 42.2 | 77.8 | **65.8** |
+| Attn-16 | 71.2 | **38.2** | 39.4 | 72.8 | **55.4** |
+| Attn-20 | 42.2 | **23.0** | 30.6 | 58.7 | **38.6** |
+| **Llama-3-70B** | | | | | |
+| Baseline | 88.0 | **78.7** | 48.4 | 85.4 | **75.1** |
+| Attn-4 | 87.9 | **78.7** | 49.0 | — | — |
+
+**The numbers, derived:**
+- **Llama-2-70B, Attn-32 (40% of attention layers deleted, training-free): Avg −0.1, MMLU −0.1.** Attn-16 (20%): Avg −0.1, MMLU 0.0.
+- **Llama-2-13B, Attn-8 (20%): Avg −0.1, MMLU −0.6.** Attn-4 *improves* the average (68.5 vs 68.2).
+- **Mistral-7B, Attn-8 (25%): Avg −0.5, MMLU −0.3.**
+- **Llama-3-8B, Attn-8 (25%): Avg −0.2, MMLU −0.4.**
+
+#### (b) Gate-Norm — *Data-Free Pruning of Self-Attention Layers in LLMs*, arXiv:2512.20636
+
+A second, independent method, and cheaper still. Abstract [A]: *"We propose **Gate-Norm**, a one-shot, weight-only criterion that ranks attention sublayers by query–key coupling and removes the least coupled ones — **requiring no calibration data, no forward passes, no fine-tuning, and no specialized kernels**. On 40-layer, 13B-parameter LLaMA models, Gate-Norm prunes the model under a second. Pruning 8–16 attention sublayers yields up to **1.30× higher inference throughput while keeping average zero-shot accuracy within 2%** of the unpruned baseline across BoolQ, RTE, HellaSwag, WinoGrande, ARC-Easy/Challenge, and OpenBookQA. … Gate-Norm matches data-driven pruning methods in accuracy while being ~1000× faster to score layers."*
+
+And a **mechanism**, §Abstract [A] — the **Attention Suppression Hypothesis**: *"during pre-training, some deep attention layers learn to mute their own contribution, leaving the residual stream and the MLP to carry the representation."* Backed by a depth profile, §4 [A]: *"Early layers exhibit high ratios, mid layers plateau around 0.3, and **deeper layers collapse toward zero, confirming that later attention updates become negligible**"* (LLaMA-13B, 40 layers, calibration set of 1,024 sequences — used for the *analysis*, not for Gate-Norm's scoring).
+
+**MMLU caution [X]:** Gate-Norm's stated benchmark set is *"BoolQ, RTE, HellaSwag, WinoGrande, ARC-Easy/Challenge, and OpenBookQA."* **MMLU is not in it.** Its "within 2%" headline is on an **MMLU-free average**, and by this document's own rule that is not an answer about retention. arXiv:2406.15786 is the one that reports MMLU as its own column.
+
+### 13.6 The head-to-head, stated with its caveats
+
+The one place where the same donor family appears in both literatures with a comparable MMLU baseline:
+
+| donor | intervention | training cost | **MMLU** | Avg | source |
+|---|---|---|---|---|---|
+| Llama-3-8B | **delete 8 of 32 attention layers** | **none** (one-shot score on C4) | 65.5 → **65.1** (−0.4) | 67.6 → 67.4 | 2406.15786 Table 3 [T] |
+| Llama-3-8B | **convert all attention to SWA+linear** (LoLCATs) | LoRA fine-tune | 63.85 → **48.84** (−15.01) | 71.32 → 67.55 | 2510.05901 Table 1 [T] |
+| Mistral-7B | **delete 8 of 32 attention layers** | **none** | 62.5 → **62.2** (−0.3) | 70.3 → 69.8 | 2406.15786 Table 1 [T] |
+| Mistral-7B | **convert all attention to SWA+linear** | LoRA fine-tune | 53.51 → **45.44** (−8.07) | 68.26 → 65.48 | 2510.05901 Table 1 [T] |
+
+**Four caveats, all of which cut against reading this as a clean win:**
+1. **Not ratio-matched.** Deletion touches 25% of layers; conversion touches 100%. A conversion that touched only 25% of layers is not in either table — **[X]**.
+2. **Not harness-matched.** The MMLU baselines differ between papers for the same donor (65.5 vs 63.85 on Llama-3-8B; 62.5 vs 53.51 on Mistral-7B), so shot counts and/or harness settings differ. **The deltas are comparable in spirit only.** The 62.5-vs-53.51 gap on Mistral is large enough to be a different evaluation protocol entirely.
+3. **Not the same objective.** Deletion buys speed and KV cache; conversion buys *linear-time* scaling. At long context they are not substitutes.
+4. **Single-run, no seeds, in both papers. [X]**
+
+### 13.7 The two things most likely to break this for a 1.5B donor
+
+**(a) Attention redundancy scales with model size, steeply, and the small-model end is where it fails.** From Table 2 and Table 3 [T], deleting **50%** of attention layers:
+
+| model | layers deleted | Avg | **MMLU** |
+|---|---|---|---|
+| Llama-2-70B | 40/80 | 73.9 → 71.5 (−2.4) | 68.5 → 66.2 (**−2.3**) |
+| Llama-2-13B | 20/40 | 68.2 → 64.9 (−3.3) | 55.1 → 51.5 (**−3.6**) |
+| Llama-3-8B | 16/32 | 67.6 → **55.4** (−12.2) | 65.5 → **38.2** (**−27.3**) |
+
+**Llama-3-8B at 50% loses 27 MMLU points where Llama-2-70B loses 2.3.** At 62.5% (Attn-20) Llama-3-8B's MMLU is **23.0 — below chance**, and its average is 38.6. **The safe deletion fraction collapses as the model gets smaller and better-trained.** Note that Llama-3-8B is both *smaller* and *more token-saturated* than Llama-2-13B, and it is the more fragile of the two — so the trend may be about training saturation, not parameter count.
+**No source read here evaluates attention deletion below 7B. For a 1.5B donor, the safe fraction is [X] — and every trend in the table points the wrong way.**
+
+**(b) The memory saving is smaller than it sounds, in weight terms.** Derived from the Memory column [T]:
+
+| model | intervention | Memory | reduction |
+|---|---|---|---|
+| Llama-2-70B | Attn-32 (40% of attn layers) | 128.7 → 119.7 GB | **7.0%** |
+| Llama-2-13B | Attn-8 (20%) | 24.4 → 22.8 GB | **6.6%** |
+| Mistral-7B | Attn-8 (25%) | 14.0 → 13.2 GB | **5.7%** |
+
+**Deleting 40% of the attention layers of a 70B model removes 7% of its deployment memory**, because the MLP dominates the parameter count. The large win is the **KV cache**, and the paper quantifies it §4.1 [A]: *"an input with a batch size of 128 and a sequence length of 2048 for Llama-2-13B would result in about 70GB of kv cache. Our proposed Attention Drop method can safely remove 20 out of 40 attention layers, effectively reducing the kv cache by half."*
+**Flag on the word "safely":** the same paper's Table 1 [T] puts Attn-20 on Llama-2-13B at Avg 64.9 vs 68.2 and MMLU 51.5 vs 55.1 — **−3.3 and −3.6 points.** The prose says "safely"; the cells say a 3.5-point cost. **[A] overstates [T].**
+
+**(c) One number I could not verify.** A search summary attributed to this paper *"Llama-2-70B achieved a 48.4% speedup with only a 2.4% performance drop by pruning half of the attention layers."* In **v1 Table 2 [T]**, Attn-40 (half of 80) shows **SpeedUp 1.21× and Avg 73.9 → 71.5 (−2.4 points)**. The −2.4 matches; **the 48.4% does not appear anywhere in the v1 table I read — v1 says 1.21×, i.e. 21%. [X]** It may be from a later version, a different hardware setting, or a summary error. **The 48.4% figure does not enter this document.**
+
+### 13.8 What this section does and does not establish
+
+**Established [T]:**
+- The two cells that prompted the question do **not** show deletion beating linearisation. Both rows are at chance (0/6 above chance on two of three models), 33–39 points below their teacher, and one of the two removes no weights at all.
+- Deletion **is** a published deliberate method, under at least two independent names (**Attention Drop**, arXiv:2406.15786; **Gate-Norm**, arXiv:2512.20636), both **training-free and one-shot**, with a proposed mechanism (**Attention Suppression Hypothesis**: deep attention layers learn to mute themselves).
+- On 7B–70B donors, deleting 20–40% of attention layers costs **0.1–0.6 MMLU points** — against **8–15 MMLU points** for full linearisation of the same donor family. That contrast is large enough to survive the harness mismatch.
+- It is the **MLP, not attention, that cannot be deleted**: MLP-8 on Mistral-7B collapses the average to 53.4 from 70.3 [T].
+
+**Not established [X]:**
+- Anything at all about donors below 7B — **and the 8B-vs-70B contrast says the safe fraction shrinks as models get smaller and more saturated.**
+- A ratio-matched comparison (delete `k` layers vs convert `k` layers). Nobody has run it.
+- Deletion on a Qwen-family donor.
+- Whether deletion and linearisation compose (delete some layers, linearise others).
+- Seed variance for any of it.
+- The 48.4% speedup figure.
+
+**The claim to attack hardest, restated so it can be attacked:** *"deletion beats linearisation"* is **not** supported by the two cells cited, but a weaker and better-evidenced claim survives — *on 7B+ donors, deleting a minority of attention layers is training-free and costs under one MMLU point, while converting all of them costs eight to fifteen.* The load-bearing unknown is that **every published deletion result is on a model at least 4.5× larger than our donor, and the one 8B result in the set is the most fragile in the table.**
