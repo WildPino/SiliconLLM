@@ -1,0 +1,43 @@
+### machine state at C3 run time
+--- top RSS ---
+
+Name                           Id  WS_MB
+----                           --  -----
+python                      30592 1815,2
+Memory Compression           3220 1544,3
+llama-server                17708 1218,2
+Antigravity IDE             25012  479,7
+claude                      16580  471,5
+Antigravity IDE             23852  427,3
+MsMpEng                      4644  422,8
+language_server_windows_x64 12560    415
+chrome                      30004  371,4
+ChatGPT                     20288  366,9
+explorer                    10684    364
+Antigravity IDE             25460  313,4
+
+
+
+TotalVisibleMemoryMB= 81868
+FreePhysicalMB=      35969
+Get-Counter : Impossibile trovare l'oggetto specificato nel computer.
+In riga:5 car:42
++ ...      ' + [math]::Round((Get-Counter '\Memory\Committed Bytes').Counte ...
++                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidResult: (:) [Get-Counter], Exception
+    + FullyQualifiedErrorId : CounterApiError,Microsoft.PowerShell.Commands.GetCounterCommand
+ 
+Impossibile eseguire l'indicizzazione in una matrice null.
+In riga:5 car:1
++ 'CommittedMB=         ' + [math]::Round((Get-Counter '\Memory\Committ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : NullArray
+ 
+
+Name            Id WS_MB PrivateMB
+----            -- ----- ---------
+llama-server 17708 17602     32940
+
+
+

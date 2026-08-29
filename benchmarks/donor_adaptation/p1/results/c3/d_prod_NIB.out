@@ -1,0 +1,9 @@
+==== P1 C4 ACHIEVED ternary-code footprint ====
+  pack=nibble  ternary weight-code bytes (sum of _msize over every code array) = 1572864 B (1.500 MiB)
+  convention: ternary WEIGHT-CODE arrays only; fp32 tensors, per-row scales, activations and
+              LUTs are excluded, identically in both arms. Padding rows charged to both arms.
+dumped 2048 x 1024 fp32 logits -> benchmarks/donor_adaptation/p1/results/c3/d_prod_NIB.logits
+==== BPB (9728 tok): 0.907629 ====
+STOP. engine run above. No commit.
+engine weights ok (E1M1 dense)
+engine loaded: dense | mlp=lut skip=on exp=fast | ids=32723845

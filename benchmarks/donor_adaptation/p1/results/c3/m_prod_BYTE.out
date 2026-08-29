@@ -1,0 +1,9 @@
+==== P1 C4 ACHIEVED ternary-code footprint ====
+  pack=byte  ternary weight-code bytes (sum of _msize over every code array) = 9437184 B (9.000 MiB)
+  convention: ternary WEIGHT-CODE arrays only; fp32 tensors, per-row scales, activations and
+              LUTs are excluded, identically in both arms. Padding rows charged to both arms.
+dumped 1024 x 1024 fp32 logits -> benchmarks/donor_adaptation/p1/results/c3/m_prod_BYTE.logits
+==== BPB (4608 tok): 0.874376 ====
+STOP. engine run above. No commit.
+engine weights ok (E4M1 MoE)
+engine loaded: MoE | mlp=lut skip=on exp=fast | ids=32723845

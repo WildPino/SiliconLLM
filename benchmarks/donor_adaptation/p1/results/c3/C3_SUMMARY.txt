@@ -1,0 +1,54 @@
+==== C3 END-TO-END PARITY (real engine, real weights, real val stream) ====
+  instrument: raw fp32 logit stream (--dumplogits, the project parity-acceptance instrument),
+              its greedy argmax token stream, and the BPB line. Identity = SHA-256 of the stream.
+
+  --- dense prod  lut/skip-on/exp-fast ---
+    ACHIEVED logit stream: 8388608 bytes = 2048 tokens x 1024 fp32
+    byte   sha256 4277910243ad4cdedc9a690f045b93596cc95d758a265a26019647b96c7f7e94
+    nibble sha256 4277910243ad4cdedc9a690f045b93596cc95d758a265a26019647b96c7f7e94
+    logit-stream identity byte-vs-nibble : IDENTICAL
+    token-stream identity byte-vs-nibble : IDENTICAL (0/2048 tokens differ)
+    BPB byte  : ==== BPB (9728 tok): 0.907629 ====
+    BPB nibble: ==== BPB (9728 tok): 0.907629 ====
+    BPB identity: IDENTICAL
+    [regression guard] untouched git-HEAD binary vs patched --pack byte: IDENTICAL
+                       HEAD sha256 4277910243ad4cdedc9a690f045b93596cc95d758a265a26019647b96c7f7e94
+                       HEAD  BPB   ==== BPB (9728 tok): 0.907629 ====
+
+  --- dense E2    lut/skip-off/exp-exact ---
+    ACHIEVED logit stream: 8388608 bytes = 2048 tokens x 1024 fp32
+    byte   sha256 647020cb1739d7d4f03350b629353573bf8103a4ef749a20ed33225b458e59f4
+    nibble sha256 647020cb1739d7d4f03350b629353573bf8103a4ef749a20ed33225b458e59f4
+    logit-stream identity byte-vs-nibble : IDENTICAL
+    token-stream identity byte-vs-nibble : IDENTICAL (0/2048 tokens differ)
+    BPB byte  : ==== BPB (9728 tok): 0.907629 ====
+    BPB nibble: ==== BPB (9728 tok): 0.907629 ====
+    BPB identity: IDENTICAL
+    [regression guard] untouched git-HEAD binary vs patched --pack byte: IDENTICAL
+                       HEAD sha256 647020cb1739d7d4f03350b629353573bf8103a4ef749a20ed33225b458e59f4
+                       HEAD  BPB   ==== BPB (9728 tok): 0.907629 ====
+
+  --- dense fp32  (LUT path unused) ---
+    ACHIEVED logit stream: 8388608 bytes = 2048 tokens x 1024 fp32
+    byte   sha256 352e201a7d86a080a7b7b6c8f7f790704cc5b06947ae777fa205cbffecd69070
+    nibble sha256 352e201a7d86a080a7b7b6c8f7f790704cc5b06947ae777fa205cbffecd69070
+    logit-stream identity byte-vs-nibble : IDENTICAL
+    token-stream identity byte-vs-nibble : IDENTICAL (0/2048 tokens differ)
+    BPB byte  : ==== BPB (9728 tok): 0.907550 ====
+    BPB nibble: ==== BPB (9728 tok): 0.907550 ====
+    BPB identity: IDENTICAL
+
+  --- MoE  prod   lut/exp-fast ---
+    ACHIEVED logit stream: 4194304 bytes = 1024 tokens x 1024 fp32
+    byte   sha256 b54998bcaec7405d54b3a9ee71280e07f7dd17bf0121028f9ead82b116b6ff43
+    nibble sha256 b54998bcaec7405d54b3a9ee71280e07f7dd17bf0121028f9ead82b116b6ff43
+    logit-stream identity byte-vs-nibble : IDENTICAL
+    token-stream identity byte-vs-nibble : IDENTICAL (0/1024 tokens differ)
+    BPB byte  : ==== BPB (4608 tok): 0.874376 ====
+    BPB nibble: ==== BPB (4608 tok): 0.874376 ====
+    BPB identity: IDENTICAL
+    [regression guard] untouched git-HEAD binary vs patched --pack byte: IDENTICAL
+                       HEAD sha256 b54998bcaec7405d54b3a9ee71280e07f7dd17bf0121028f9ead82b116b6ff43
+                       HEAD  BPB   ==== BPB (4608 tok): 0.874376 ====
+
+  C3 VERDICT: PASS

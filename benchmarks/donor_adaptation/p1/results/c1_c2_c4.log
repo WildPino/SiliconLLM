@@ -1,0 +1,155 @@
+==== P1 Stage 1 — nibble packing correctness (C1/C2/C4). NO timing is produced here. ====
+  seed=0x9E3779B97F4A7C15  shapes=15
+
+  C4 CONVENTION (stated once, applied identically to both arms):
+    "bytes streamed per matvec" = bytes of the WEIGHT-CODE array fetched by the kernel,
+    counted as 32 B per _mm256_loadu_si256 from `codes`, summed over one complete matvec.
+    EXCLUDED from BOTH arms: the 16 B/tile LUT broadcasts (activation-derived, identical count
+    in both arms, L1-resident), the y output store, and the fp32 scale vectors.
+    bits/weight = 8 * counted_bytes / (M*K), i.e. padding rows are charged to BOTH arms alike.
+    The allocation figure is _msize() of the pointer malloc returned — not T*Mpad recomputed.
+
+==== C1 BIT-EXACT + C4 BYTES (per shape) ====
+  eng_dense_gate_up  M=1024   K=256    ACHIEVED T=128    Tp=64     Mpad=1024   | C1 PASS
+      alloc _msize  byte       131072 B   nib        65536 B   ratio 2.0000x
+      loads counted byte       131072 B   nib        65536 B   ratio 2.0000x   bits/weight  byte 4.0000  nib 2.0000
+  allocation inventory (ACHIEVED, _msize of the returned block) [eng_dense_gate_up]
+    Wt             requested       262144 B   _msize       262144 B
+    xq             requested          256 B   _msize          256 B
+    lut            requested         2048 B   _msize         2048 B
+    codes_byte     requested       131072 B   _msize       131072 B
+    codes_nib      requested        65536 B   _msize        65536 B
+    rowm_byte      requested       131072 B   _msize       131072 B
+    rowm_nib       requested        65536 B   _msize        65536 B
+    y_ref          requested         4096 B   _msize         4096 B
+    y_byte         requested         4096 B   _msize         4096 B
+    y_nib          requested         4096 B   _msize         4096 B
+    act            requested          512 B   _msize          512 B
+    TOTAL                                          670464 B (0.64 MiB)
+  eng_dense_down     M=256    K=1024   ACHIEVED T=512    Tp=256    Mpad=256    | C1 PASS
+      alloc _msize  byte       131072 B   nib        65536 B   ratio 2.0000x
+      loads counted byte       131072 B   nib        65536 B   ratio 2.0000x   bits/weight  byte 4.0000  nib 2.0000
+  allocation inventory (ACHIEVED, _msize of the returned block) [eng_dense_down]
+    Wt             requested       262144 B   _msize       262144 B
+    xq             requested         1024 B   _msize         1024 B
+    lut            requested         8192 B   _msize         8192 B
+    codes_byte     requested       131072 B   _msize       131072 B
+    codes_nib      requested        65536 B   _msize        65536 B
+    rowm_byte      requested       131072 B   _msize       131072 B
+    rowm_nib       requested        65536 B   _msize        65536 B
+    y_ref          requested         1024 B   _msize         1024 B
+    y_byte         requested         1024 B   _msize         1024 B
+    y_nib          requested         1024 B   _msize         1024 B
+    act            requested         2048 B   _msize         2048 B
+    TOTAL                                          669696 B (0.64 MiB)
+  eng_moe_gate_up    M=4096   K=256    ACHIEVED T=128    Tp=64     Mpad=4096   | C1 PASS
+      alloc _msize  byte       524288 B   nib       262144 B   ratio 2.0000x
+      loads counted byte       524288 B   nib       262144 B   ratio 2.0000x   bits/weight  byte 4.0000  nib 2.0000
+  eng_moe_down       M=256    K=128    ACHIEVED T=64     Tp=32     Mpad=256    | C1 PASS
+      alloc _msize  byte        16384 B   nib         8192 B   ratio 2.0000x
+      loads counted byte        16384 B   nib         8192 B   ratio 2.0000x   bits/weight  byte 4.0000  nib 2.0000
+  donor70b_kv        M=1024   K=8192   ACHIEVED T=4096   Tp=2048   Mpad=1024   | C1 PASS
+      alloc _msize  byte      4194304 B   nib      2097152 B   ratio 2.0000x
+      loads counted byte      4194304 B   nib      2097152 B   ratio 2.0000x   bits/weight  byte 4.0000  nib 2.0000
+  donor70b_qo        M=8192   K=8192   ACHIEVED T=4096   Tp=2048   Mpad=8192   | C1 PASS
+      alloc _msize  byte     33554432 B   nib     16777216 B   ratio 2.0000x
+      loads counted byte     33554432 B   nib     16777216 B   ratio 2.0000x   bits/weight  byte 4.0000  nib 2.0000
+  donor70b_gate_up   M=28672  K=8192   ACHIEVED T=4096   Tp=2048   Mpad=28672  | C1 PASS
+      alloc _msize  byte    117440512 B   nib     58720256 B   ratio 2.0000x
+      loads counted byte    117440512 B   nib     58720256 B   ratio 2.0000x   bits/weight  byte 4.0000  nib 2.0000
+  allocation inventory (ACHIEVED, _msize of the returned block) [donor70b_gate_up]
+    Wt             requested    234881024 B   _msize    234881024 B
+    xq             requested         8192 B   _msize         8192 B
+    lut            requested        65536 B   _msize        65536 B
+    codes_byte     requested    117440512 B   _msize    117440512 B
+    codes_nib      requested     58720256 B   _msize     58720256 B
+    rowm_byte      requested    117440512 B   _msize    117440512 B
+    rowm_nib       requested     58720256 B   _msize     58720256 B
+    y_ref          requested       114688 B   _msize       114688 B
+    y_byte         requested       114688 B   _msize       114688 B
+    y_nib          requested       114688 B   _msize       114688 B
+    act            requested        16384 B   _msize        16384 B
+    TOTAL                                       587636736 B (560.41 MiB)
+  donor70b_down      M=8192   K=28672  ACHIEVED T=14336  Tp=7168   Mpad=8192   | C1 PASS
+      alloc _msize  byte    117440512 B   nib     58720256 B   ratio 2.0000x
+      loads counted byte    117440512 B   nib     58720256 B   ratio 2.0000x   bits/weight  byte 4.0000  nib 2.0000
+  odd_T3_M37         M=37     K=6      ACHIEVED T=3      Tp=2      Mpad=64     | C1 PASS
+      alloc _msize  byte          192 B   nib          128 B   ratio 1.5000x
+      loads counted byte          192 B   nib          128 B   ratio 1.5000x   bits/weight  byte 6.9189  nib 4.6126
+  odd_T513_M97       M=97     K=1026   ACHIEVED T=513    Tp=257    Mpad=128    | C1 PASS
+      alloc _msize  byte        65664 B   nib        32896 B   ratio 1.9961x
+      loads counted byte        65664 B   nib        32896 B   ratio 1.9961x   bits/weight  byte 5.2784  nib 2.6443
+  odd_T4095_M8191    M=8191   K=8190   ACHIEVED T=4095   Tp=2048   Mpad=8192   | C1 PASS
+      alloc _msize  byte     33546240 B   nib     16777216 B   ratio 1.9995x
+      loads counted byte     33546240 B   nib     16777216 B   ratio 1.9995x   bits/weight  byte 4.0005  nib 2.0007
+  odd_T1_M1          M=1      K=2      ACHIEVED T=1      Tp=1      Mpad=32     | C1 PASS
+      alloc _msize  byte           32 B   nib           32 B   ratio 1.0000x
+      loads counted byte           32 B   nib           32 B   ratio 1.0000x   bits/weight  byte 128.0000  nib 128.0000
+  M31_T2             M=31     K=4      ACHIEVED T=2      Tp=1      Mpad=32     | C1 PASS
+      alloc _msize  byte           64 B   nib           32 B   ratio 2.0000x
+      loads counted byte           64 B   nib           32 B   ratio 2.0000x   bits/weight  byte 4.1290  nib 2.0645
+  M33_T2             M=33     K=4      ACHIEVED T=2      Tp=1      Mpad=64     | C1 PASS
+      alloc _msize  byte          128 B   nib           64 B   ratio 2.0000x
+      loads counted byte          128 B   nib           64 B   ratio 2.0000x   bits/weight  byte 7.7576  nib 3.8788
+  M32_T7odd          M=32     K=14     ACHIEVED T=7      Tp=4      Mpad=32     | C1 PASS
+      alloc _msize  byte          224 B   nib          128 B   ratio 1.7500x
+      loads counted byte          224 B   nib          128 B   ratio 1.7500x   bits/weight  byte 4.0000  nib 2.2857
+
+  C1 SUMMARY: 523395 exact int32 comparisons over 15 shapes; shapes failing = 0 -> C1 PASS
+
+==== C2 PLANTED (the instrument must fire on a known positive) ====
+  --- C2 on shape eng_dense_gate_up (M=1024 K=256 T=128 Tp=64 Mpad=1024) ---
+      C2a site0  swap t=(0,1) m=0 lo=4 hi=3 predicted +58 | rows differing=1 observed +58 -> C1 FAILED (control FIRES) [as predicted]
+      C2a site1  swap t=(0,1) m=1023 lo=6 hi=4 predicted -64 | rows differing=1 observed -64 -> C1 FAILED (control FIRES) [as predicted]
+      C2a site2  swap t=(126,127) m=0 lo=0 hi=7 predicted +81 | rows differing=1 observed +81 -> C1 FAILED (control FIRES) [as predicted]
+      C2a VERDICT: PASS (3/3 plants fire, each with the exact predicted delta)
+      C2b PADDING  n/a at this shape: M=1024 == Mpad=1024, so NO padding byte exists. NOT counted as a pass.
+      C2c ODD-T    n/a at this shape (T=128 is even)
+  --- C2 on shape donor70b_kv (M=1024 K=8192 T=4096 Tp=2048 Mpad=1024) ---
+      C2a site0  swap t=(0,1) m=0 lo=8 hi=7 predicted -42 | rows differing=1 observed -42 -> C1 FAILED (control FIRES) [as predicted]
+      C2a site1  swap t=(0,1) m=1023 lo=4 hi=0 predicted +1 | rows differing=1 observed +1 -> C1 FAILED (control FIRES) [as predicted]
+      C2a site2  swap t=(4094,4095) m=0 lo=3 hi=0 predicted -109 | rows differing=1 observed -109 -> C1 FAILED (control FIRES) [as predicted]
+      C2a VERDICT: PASS (3/3 plants fire, each with the exact predicted delta)
+      C2b PADDING  n/a at this shape: M=1024 == Mpad=1024, so NO padding byte exists. NOT counted as a pass.
+      C2c ODD-T    n/a at this shape (T=4096 is even)
+  --- C2 on shape odd_T513_M97 (M=97 K=1026 T=513 Tp=257 Mpad=128) ---
+      C2a site0  swap t=(0,1) m=0 lo=1 hi=8 predicted -108 | rows differing=1 observed -108 -> C1 FAILED (control FIRES) [as predicted]
+      C2a site1  swap t=(4,5) m=96 lo=3 hi=0 predicted -54 | rows differing=1 observed -54 -> C1 FAILED (control FIRES) [as predicted]
+      C2a site2  swap t=(510,511) m=0 lo=2 hi=5 predicted +66 | rows differing=1 observed +66 -> C1 FAILED (control FIRES) [as predicted]
+      C2a VERDICT: PASS (3/3 plants fire, each with the exact predicted delta)
+      C2b PADDING  7967 padding bytes set to 0x88 (code 8 = w=(+1,+1), the least neutral code)
+      C2b result   rows differing = 0  -> PASS (padding is discarded, as derived)
+      C2c ODD-T    high nibble of plane 256 (T=513 odd) set to 8 for all 128 bytes
+      C2c result   rows differing = 0  -> PASS (never loaded into a shuffle, as derived)
+  --- C2 on shape odd_T4095_M8191 (M=8191 K=8190 T=4095 Tp=2048 Mpad=8192) ---
+      C2a site0  swap t=(0,1) m=1 lo=0 hi=1 predicted +106 | rows differing=1 observed +106 -> C1 FAILED (control FIRES) [as predicted]
+      C2a site1  swap t=(0,1) m=8190 lo=4 hi=1 predicted -83 | rows differing=1 observed -83 -> C1 FAILED (control FIRES) [as predicted]
+      C2a site2  swap t=(4092,4093) m=0 lo=7 hi=4 predicted +16 | rows differing=1 observed +16 -> C1 FAILED (control FIRES) [as predicted]
+      C2a VERDICT: PASS (3/3 plants fire, each with the exact predicted delta)
+      C2b PADDING  2048 padding bytes set to 0x88 (code 8 = w=(+1,+1), the least neutral code)
+      C2b result   rows differing = 0  -> PASS (padding is discarded, as derived)
+      C2c ODD-T    high nibble of plane 2047 (T=4095 odd) set to 8 for all 8192 bytes
+      C2c result   rows differing = 0  -> PASS (never loaded into a shuffle, as derived)
+  --- C2 on shape M33_T2 (M=33 K=4 T=2 Tp=1 Mpad=64) ---
+      C2a site0  swap t=(0,1) m=1 lo=8 hi=5 predicted -16 | rows differing=1 observed -16 -> C1 FAILED (control FIRES) [as predicted]
+      C2a site1  swap t=(0,1) m=32 lo=0 hi=4 predicted +119 | rows differing=1 observed +119 -> C1 FAILED (control FIRES) [as predicted]
+      C2a site2  swap t=(0,1) m=1 lo=8 hi=5 predicted -16 | rows differing=1 observed -16 -> C1 FAILED (control FIRES) [as predicted]
+      C2a VERDICT: PASS (3/3 plants fire, each with the exact predicted delta)
+      C2b PADDING  31 padding bytes set to 0x88 (code 8 = w=(+1,+1), the least neutral code)
+      C2b result   rows differing = 0  -> PASS (padding is discarded, as derived)
+      C2c ODD-T    n/a at this shape (T=2 is even)
+  --- C2 on shape M32_T7odd (M=32 K=14 T=7 Tp=4 Mpad=32) ---
+      C2a site0  swap t=(0,1) m=0 lo=6 hi=8 predicted -118 | rows differing=1 observed -118 -> C1 FAILED (control FIRES) [as predicted]
+      C2a site1  swap t=(0,1) m=31 lo=4 hi=7 predicted +65 | rows differing=1 observed +65 -> C1 FAILED (control FIRES) [as predicted]
+      C2a site2  swap t=(4,5) m=0 lo=8 hi=1 predicted -143 | rows differing=1 observed -143 -> C1 FAILED (control FIRES) [as predicted]
+      C2a VERDICT: PASS (3/3 plants fire, each with the exact predicted delta)
+      C2b PADDING  n/a at this shape: M=32 == Mpad=32, so NO padding byte exists. NOT counted as a pass.
+      C2c ODD-T    high nibble of plane 3 (T=7 odd) set to 8 for all 32 bytes
+      C2c result   rows differing = 0  -> PASS (never loaded into a shuffle, as derived)
+
+  C2 SUMMARY: PASS
+              C2b padding-discard exercised on 3 shapes that actually HAVE padding;
+              C2c odd-T unread-nibble exercised on 3 shapes with odd T
+
+==== STAGE 1 VERDICT: C1 PASS, C2 PASS, C4 reported ====
+STOP. Stage 2 (timing) NOT run: gated on a clear machine.

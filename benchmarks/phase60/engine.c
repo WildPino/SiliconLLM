@@ -25,6 +25,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <math.h>
+#include <malloc.h>
 #include <immintrin.h>
 #ifdef _OPENMP
 #include <omp.h>
@@ -108,6 +109,22 @@ static inline void acc_add_i8x32(__m256i* acc,__m256i p){
     acc[0]=_mm256_add_epi32(acc[0],_mm256_cvtepi8_epi32(lo)); acc[1]=_mm256_add_epi32(acc[1],_mm256_cvtepi8_epi32(_mm_srli_si128(lo,8)));
     acc[2]=_mm256_add_epi32(acc[2],_mm256_cvtepi8_epi32(hi)); acc[3]=_mm256_add_epi32(acc[3],_mm256_cvtepi8_epi32(_mm_srli_si128(hi,8)));
 }
+// P1 (BRIEF_P1_NIBBLE_PACKING §1): the 2-trit code is an index the hardware reads as a NIBBLE, so two codes
+// fit one byte. `--pack nibble` selects the packed encoders/kernels; `--pack byte` (default) is the shipped
+// path, untouched. Both arms coexist so they can be compared; C3 is the end-to-end parity gate between them.
+static int g_pack_nib=0;
+#include "../donor_adaptation/nibble_pack.h"
+#define MV_FULL(c,l,y,M,Mp,T)     do{ if(g_pack_nib) matvec_lut_full_n(c,l,y,M,Mp,T);       else matvec_lut_full(c,l,y,M,Mp,T); }while(0)
+#define MV_SKIP(c,l,y,M,Mp,a,na)  do{ if(g_pack_nib) matvec_lut_tileskip_n(c,l,y,M,Mp,a,na);else matvec_lut_tileskip(c,l,y,M,Mp,a,na); }while(0)
+#define MV_ROWS(c,l,y,r0,M,Mp,T)  do{ if(g_pack_nib) matvec_lut_rows_n(c,l,y,r0,M,Mp,T);    else matvec_lut_rows(c,l,y,r0,M,Mp,T); }while(0)
+#define NPLANES(T)                 (g_pack_nib? NP_TP(T) : (T))            // byte-planes per code block
+#define RMCODE(cr,t)              (g_pack_nib? np_rm_code(cr,t) : (int)(cr)[t])
+#define BC_TM(W,M,K,Mp,c)         do{ if(g_pack_nib) bc_tm_n(W,M,K,Mp,c); else bc_tm(W,M,K,Mp,c); }while(0)
+#define BC_RM(W,M,K,c)            do{ if(g_pack_nib) bc_rm_n(W,M,K,c);    else bc_rm(W,M,K,c);    }while(0)
+// C4: ACHIEVED ternary-code bytes, summed from _msize() of the blocks malloc actually returned — never
+// recomputed from T*Mpad. Convention (identical for both arms): the ternary WEIGHT-CODE arrays only;
+// fp32 tensors, per-row scales, activations and LUTs are excluded from both arms alike.
+static size_t g_code_bytes=0;
 static void matvec_lut_full(const int8_t* codes,const int8_t* lut,int32_t* y,int M,int Mpad,int T){
     OMP_PFOR for(int base=0;base<M;base+=32){
         __m256i acc[4]={_mm256_setzero_si256(),_mm256_setzero_si256(),_mm256_setzero_si256(),_mm256_setzero_si256()};
@@ -218,25 +235,33 @@ static void load_weights(const char* path){
             egate_wt[l]=rdi8(f,(size_t)GH*D); egate_sc[l]=rd(f,GH);
             eup_wt[l]=rdi8(f,(size_t)GH*D); eup_sc[l]=rd(f,GH);
             eWd_wt[l]=rdi8(f,(size_t)E*D*HID_E); eWd_sc[l]=rd(f,(size_t)E*D);
-            egate_cd[l]=xmalloc((size_t)TUP*MPAD_GU); bc_tm(egate_wt[l],GH,D,MPAD_GU,egate_cd[l]);
-            eup_cd[l]=xmalloc((size_t)TUP*MPAD_GU); bc_tm(eup_wt[l],GH,D,MPAD_GU,eup_cd[l]);
-            eWd_cd[l]=xmalloc((size_t)E*TDE*MPAD_D);
-            for(int e=0;e<E;e++) bc_tm(eWd_wt[l]+(size_t)e*D*HID_E,D,HID_E,MPAD_D,eWd_cd[l]+(size_t)e*TDE*MPAD_D);
+            egate_cd[l]=xmalloc((size_t)NPLANES(TUP)*MPAD_GU); BC_TM(egate_wt[l],GH,D,MPAD_GU,egate_cd[l]);
+            eup_cd[l]=xmalloc((size_t)NPLANES(TUP)*MPAD_GU); BC_TM(eup_wt[l],GH,D,MPAD_GU,eup_cd[l]);
+            eWd_cd[l]=xmalloc((size_t)E*NPLANES(TDE)*MPAD_D);
+            for(int e=0;e<E;e++) BC_TM(eWd_wt[l]+(size_t)e*D*HID_E,D,HID_E,MPAD_D,eWd_cd[l]+(size_t)e*NPLANES(TDE)*MPAD_D);
+            g_code_bytes += _msize(egate_cd[l])+_msize(eup_cd[l])+_msize(eWd_cd[l]);
         }
     } else {
         for(int l=0;l<L;l++){ int8_t* gq=rdi8(f,(size_t)MLP_HID*D); gate_sc[l]=rd(f,MLP_HID);
             int8_t* uq=rdi8(f,(size_t)MLP_HID*D); up_sc[l]=rd(f,MLP_HID);
             int8_t* dq=rdi8(f,(size_t)D*MLP_HID); down_sc[l]=rd(f,D);
             int Mpg=(MLP_HID+31)&~31,Mpd=(D+31)&~31;
-            gate_tm[l]=xmalloc((size_t)TUP*Mpg); bc_tm(gq,MLP_HID,D,Mpg,gate_tm[l]);
-            up_tm[l]=xmalloc((size_t)TUP*Mpg); bc_tm(uq,MLP_HID,D,Mpg,up_tm[l]);
-            up_rm[l]=xmalloc((size_t)MLP_HID*TUP); bc_rm(uq,MLP_HID,D,up_rm[l]);
-            down_tm[l]=xmalloc((size_t)TDN*Mpd); bc_tm(dq,D,MLP_HID,Mpd,down_tm[l]);
+            gate_tm[l]=xmalloc((size_t)NPLANES(TUP)*Mpg); BC_TM(gq,MLP_HID,D,Mpg,gate_tm[l]);
+            up_tm[l]=xmalloc((size_t)NPLANES(TUP)*Mpg); BC_TM(uq,MLP_HID,D,Mpg,up_tm[l]);
+            up_rm[l]=xmalloc((size_t)MLP_HID*NPLANES(TUP)); BC_RM(uq,MLP_HID,D,up_rm[l]);
+            down_tm[l]=xmalloc((size_t)NPLANES(TDN)*Mpd); BC_TM(dq,D,MLP_HID,Mpd,down_tm[l]);
+            g_code_bytes += _msize(gate_tm[l])+_msize(up_tm[l])+_msize(up_rm[l])+_msize(down_tm[l]);
             free(gq);free(uq);free(dq); }
     }
     long pos=ftell(f); fseek(f,0,SEEK_END); long end=ftell(f); fclose(f);
     if(pos!=end) fprintf(stderr,"WARN %ld trailing bytes\n",end-pos);
     fprintf(stderr,"engine weights ok (%s)\n",g_moe?"E4M1 MoE":"E1M1 dense");
+    // C4 ACHIEVED (printed from the allocations themselves, not from a formula)
+    printf("==== P1 C4 ACHIEVED ternary-code footprint ====\n");
+    printf("  pack=%s  ternary weight-code bytes (sum of _msize over every code array) = %zu B (%.3f MiB)\n",
+           g_pack_nib?"nibble":"byte", g_code_bytes, g_code_bytes/1048576.0);
+    printf("  convention: ternary WEIGHT-CODE arrays only; fp32 tensors, per-row scales, activations and\n");
+    printf("              LUTs are excluded, identically in both arms. Padding rows charged to both arms.\n");
 }
 static void load_meta(const char* path){ FILE*f=fopen(path,"rb"); if(!f){fprintf(stderr,"no meta\n");exit(1);}
     uint32_t mg,vv,nt; if(fread(&mg,4,1,f)!=1||fread(&vv,4,1,f)!=1||fread(&nt,4,1,f)!=1){exit(1);}
@@ -257,20 +282,20 @@ static void mlp_dense(int l,const float* xn,float* out,int mlp_lut,int skip){
         for(int i=0;i<MLP_HID;i++) gh[i]=reluf(gh[i])*reluf(uh[i]); matvec(down_f[l],gh,out,D,MLP_HID); return; }
     int Mpg=(MLP_HID+31)&~31,Mpd=(D+31)&~31;
     float sa=quant_i8(xn,D,xqb); build_lut_t3(xqb,TUP,lutb);
-    matvec_lut_full(gate_tm[l],lutb,Sb,MLP_HID,Mpg,TUP);
+    MV_FULL(gate_tm[l],lutb,Sb,MLP_HID,Mpg,TUP);
     for(int i=0;i<MLP_HID;i++) gh[i]=(float)Sb[i]*sa*gate_sc[l][i];
     if(!skip){                                                    // E2: up full, relu*relu
-        matvec_lut_full(up_tm[l],lutb,Sb,MLP_HID,Mpg,TUP);
+        MV_FULL(up_tm[l],lutb,Sb,MLP_HID,Mpg,TUP);
         for(int i=0;i<MLP_HID;i++) uh[i]=(float)Sb[i]*sa*up_sc[l][i];
         for(int i=0;i<MLP_HID;i++) gh[i]=reluf(gh[i])*reluf(uh[i]);
     } else {                                                      // E3: exact up row-skip (gate<=0 -> h=0)
-        for(int i=0;i<MLP_HID;i++){ if(gh[i]>0.0f){ const int8_t* cr=up_rm[l]+(size_t)i*TUP; int S=0;
-                for(int t=0;t<TUP;t++) S+=lutb[t*16+cr[t]]; float u=(float)S*sa*up_sc[l][i]; gh[i]=gh[i]*reluf(u); } else gh[i]=0.0f; }
+        for(int i=0;i<MLP_HID;i++){ if(gh[i]>0.0f){ const int8_t* cr=up_rm[l]+(size_t)i*NPLANES(TUP); int S=0;
+                for(int t=0;t<TUP;t++) S+=lutb[t*16+RMCODE(cr,t)]; float u=(float)S*sa*up_sc[l][i]; gh[i]=gh[i]*reluf(u); } else gh[i]=0.0f; }
     }
     float sh=quant_i8(gh,MLP_HID,xqb); build_lut_t3(xqb,TDN,lutb);
-    if(!skip){ matvec_lut_full(down_tm[l],lutb,Sb,D,Mpd,TDN); }
+    if(!skip){ MV_FULL(down_tm[l],lutb,Sb,D,Mpd,TDN); }
     else { int na=0; for(int t=0;t<TDN;t++){ if(xqb[2*t]||xqb[2*t+1]) act_tiles[na++]=t; }
-        matvec_lut_tileskip(down_tm[l],lutb,Sb,D,Mpd,act_tiles,na); }
+        MV_SKIP(down_tm[l],lutb,Sb,D,Mpd,act_tiles,na); }
     for(int i=0;i<D;i++) out[i]=(float)Sb[i]*sh*down_sc[l][i];
 }
 
@@ -300,12 +325,12 @@ static void mlp_moe(int l,const float* xn,float* out,int mlp_lut){
                 float uu=dotf(eup_f[l]+(size_t)(e*HID_E+i)*D,xn,D); he[i]=reluf(gg)*reluf(uu)*tw; }
             for(int d=0;d<D;d++) out[d]+=dotf(eWd_f[l]+((size_t)e*D+d)*HID_E,he,HID_E);
         } else {
-            matvec_lut_rows(egate_cd[l],g_lut,g_S,e*HID_E,HID_E,MPAD_GU,TUP);
+            MV_ROWS(egate_cd[l],g_lut,g_S,e*HID_E,HID_E,MPAD_GU,TUP);
             float gg[HID_E]; for(int i=0;i<HID_E;i++) gg[i]=(float)g_S[i]*sa*egate_sc[l][e*HID_E+i];
-            matvec_lut_rows(eup_cd[l],g_lut,g_S,e*HID_E,HID_E,MPAD_GU,TUP);
+            MV_ROWS(eup_cd[l],g_lut,g_S,e*HID_E,HID_E,MPAD_GU,TUP);
             for(int i=0;i<HID_E;i++){ float uu=(float)g_S[i]*sa*eup_sc[l][e*HID_E+i]; he[i]=reluf(gg[i])*reluf(uu)*tw; }
             float sh=quant_i8(he,HID_E,g_hq); build_lut_t3(g_hq,TDE,g_lutd);
-            matvec_lut_rows(eWd_cd[l]+(size_t)e*TDE*MPAD_D,g_lutd,g_Sd,0,D,MPAD_D,TDE);
+            MV_ROWS(eWd_cd[l]+(size_t)e*NPLANES(TDE)*MPAD_D,g_lutd,g_Sd,0,D,MPAD_D,TDE);
             for(int d=0;d<D;d++) out[d]+=(float)g_Sd[d]*sh*eWd_sc[l][(size_t)e*D+d];
         }
     }
@@ -624,7 +649,7 @@ static size_t emu_setup(long emu_mb){
             add_slot((void**)&s->conv_b,DN*4); add_slot((void**)&s->x_proj,(size_t)(DTR+2*N)*DN*4); add_slot((void**)&s->dt_proj,(size_t)DN*DTR*4);
             add_slot((void**)&s->dt_b,DN*4); add_slot((void**)&s->A,(size_t)DN*N*4); add_slot((void**)&s->Dskip,DN*4); add_slot((void**)&s->out_proj,(size_t)D*DN*4); }
         add_slot((void**)&mlp_n2[l],D*4);
-        add_slot((void**)&gate_tm[l],(size_t)TUP*Mpg); add_slot((void**)&up_tm[l],(size_t)TUP*Mpg); add_slot((void**)&down_tm[l],(size_t)TDN*Mpd);
+        add_slot((void**)&gate_tm[l],(size_t)NPLANES(TUP)*Mpg); add_slot((void**)&up_tm[l],(size_t)NPLANES(TUP)*Mpg); add_slot((void**)&down_tm[l],(size_t)NPLANES(TDN)*Mpd);
         add_slot((void**)&gate_sc[l],(size_t)MLP_HID*4); add_slot((void**)&up_sc[l],(size_t)MLP_HID*4); add_slot((void**)&down_sc[l],(size_t)D*4);
     }
     add_slot((void**)&normf,D*4); add_slot((void**)&head,(size_t)V*D*4);
@@ -894,6 +919,9 @@ int main(int argc,char**argv){
     int do_bpb=0,do_logits=0,do_tm=0; long seqW=512,eval_tok=200000,ntok=10240,offset=0,timetok=3000;
     int threads=1; const char* wp=NULL; const char* dumpto=NULL;
     int block=0,gen_verify=0,nseed=3,do_g3b=0,do_g3c=0,do_gemvsweep=0,do_exprate=0; long genlen=800,emu_mb=128; const char* ngpath=NULL;
+    for(int i=1;i<argc;i++) if(!strcmp(argv[i],"--pack")&&i+1<argc){          // pre-scan: must be set before load_weights
+        if(!strcmp(argv[i+1],"nibble")) g_pack_nib=1; else if(!strcmp(argv[i+1],"byte")) g_pack_nib=0;
+        else { fprintf(stderr,"--pack must be byte|nibble\n"); return 1; } }
     for(int i=1;i<argc;i++){
         if(!strcmp(argv[i],"--threads")&&i+1<argc){ threads=atoi(argv[++i]); continue; }
         else if(!strcmp(argv[i],"--block")&&i+1<argc){ block=atoi(argv[++i]); continue; }
@@ -918,6 +946,7 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--ntok")&&i+1<argc) ntok=atol(argv[++i]);
         else if(!strcmp(argv[i],"--offset")&&i+1<argc) offset=atol(argv[++i]);
         else if(!strcmp(argv[i],"--time-tok")&&i+1<argc) timetok=atol(argv[++i]);
+        else if(!strcmp(argv[i],"--pack")&&i+1<argc){ i++; }              // already handled by the pre-scan
         else if(!strcmp(argv[i],"--kselftest")) return kernel_selftest();
         else if(!strcmp(argv[i],"--weights")&&i+1<argc) wp=argv[++i];
         else { fprintf(stderr,"unknown arg %s\n",argv[i]); return 1; }
@@ -945,7 +974,9 @@ int main(int argc,char**argv){
     int rc=0;
     if(gen_verify){ if(!ngpath){fprintf(stderr,"--gen-verify needs --ngram <path> --block K\n");return 1;} rc|=run_verify(block,ngpath,genlen,nseed,mlp_lut,skip,exp_fast); }
     if(do_g3b){ if(!ngpath){fprintf(stderr,"--g3b needs --ngram <path>\n");return 1;} run_g3b(ngpath,genlen,mlp_lut,skip,exp_fast); }
-    if(do_g3c){ if(!ngpath){fprintf(stderr,"--g3c needs --ngram <path>\n");return 1;} run_g3c(ngpath,emu_mb,mlp_lut,skip,exp_fast); }
+    if(do_g3c){ if(!ngpath){fprintf(stderr,"--g3c needs --ngram <path>\n");return 1;}
+        if(g_pack_nib){fprintf(stderr,"--g3c is NOT supported under --pack nibble: matvec_lut_full_K (the layer-major weight-once kernel) has no nibble variant. Refusing rather than silently mixing layouts.\n");return 1;}
+        run_g3c(ngpath,emu_mb,mlp_lut,skip,exp_fast); }
     if(dumpto) dump_logits(dumpto,seqW,ntok,offset,mlp_lut,skip,exp_fast);
     if(do_logits) rc|=gate_logits(seqW,ntok,mlp_lut,skip,exp_fast);
     if(do_bpb){ long nt; double b=run_bpb(seqW,eval_tok,mlp_lut,skip,exp_fast,&nt);
