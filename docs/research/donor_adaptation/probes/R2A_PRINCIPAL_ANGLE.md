@@ -24,7 +24,7 @@ an **upper bound on R2's achievable quality**, needing one eigendecomposition pe
 and no solver, no training, no apparatus.
 
 **At the pinned `T/D = 5.333` on Qwen2.5-1.5B, across all 28 layers and all 12 heads (336 pairs per
-arm), from five stages totalling 10 400 rows:**
+arm), from five measurement stages totalling **8 364 rows**:**
 
 | finding | number |
 |---|---|
@@ -753,7 +753,7 @@ residual.
 
 ### 8.6 Item 2 closed - the `gamma` minimum, located, on all 28 layers
 
-A follow-up stage (`gamma`, 2520 rows, 4270 s, same `T/D`, same slice, same layers and heads) filled
+A follow-up stage (`gamma`, **1920 rows, 2178 s**, same `T/D`, same slice, same layers and heads) filled
 `gamma = 0.1, 0.25, 0.35, 0.5, 0.7` on **all 28 layers**, with `C8_no_mixing` and
 `C6_causal_uniform` supplying the two limits. Median over 12 heads:
 
@@ -1362,7 +1362,8 @@ At `T/D = 21.333`, the largest measured and not converged, `taylor2` is at 0.510
 > **inverted-U in depth** - and the content kernel contributes `~0.0003` on top of it at all nine
 > `gamma` tested. Amendment 1 named that outcome in advance as *"worth more than a verdict on R2"*.
 >
-> **Total cost: five CPU stages, ~5.1 hours of one 6-core desktop, no GPU, no training, no solver.**
+> **Total cost: 8 364 measured rows across five measurement stages, plus a sixth diagnostic-only
+> `selfcheck` stage; 13 990 s = 3.89 hours of one 6-core desktop. No GPU, no training, no solver.**
 > `BRIEF_R2` Amendment A1.5 predicted the pre-screen would be the highest value per unit of compute
 > on the R2 line. On this evidence it was.
 
@@ -1393,7 +1394,8 @@ stratum by more than the `0.012` the short envelopes manage. Nothing tested does
 | python / numpy / torch / transformers | 3.12.10 / 2.4.6 / 2.12.0+cpu / 4.57.6 |
 | platform | Windows-11-10.0.26200, AMD Ryzen 5 3600X, 6 torch threads, CPU only |
 | precision | fp64 for all linear algebra; donor loaded fp32, `attn_implementation="eager"` |
-| wall clock | selfcheck 71 s; **main 4273 s** (2532 rows); **curve 1031 s** (360); **decay 4965 s** (2520); **gamma 4270 s** (2520); **nulls 1472 s** (1008). Total ~5.1 h, 10 412 rows, CPU only |
+| wall clock and rows | `selfcheck` 71 s (0 rows, diagnostics only); `main` 4273 s (**2532**); `curve` 1031 s (**360**); `decay` 4965 s (**2520**); `gamma` 2178 s (**1920**); `nulls` 1472 s (**1032**). **Totals: 13 990 s = 3.89 h; 2532+360+2520+1920+1032 = 8 364 rows.** CPU only |
+| row counts, derived | `main` 7 arms x 336 + 3 x 60; `curve` 8 x 45 (3 layers x 3 heads x 5 `T`); `decay` 5 x 336 + 14 x 60; `gamma` 5 x 336 + 4 x 60; `nulls` 2 x 336 + 6 x 60. **Every arm present at its full designed count; no arm silently failed to run.** |
 | `gamma` ladder | requested `0.1, 0.25, 0.35, 0.5, 0.7, 0.9, 0.95, 0.99, 0.999`; **every one read back off the constructed `A` and exact** |
 | window ladder | requested `32, 128, 512`; achieved 32, 128, 512 (`n_nonzero_in_row` counted off the matrix) |
 | matched nulls | `C5p_<phi>` / `C4_<phi>` built with the arm's OWN feature map; the elu1-matched pair reproduces the original arms at sd `0.0000` |
@@ -1429,5 +1431,25 @@ stratum by more than the `0.012` the short envelopes manage. Nothing tested does
 | "linear attention scores below no attention" cited as a ranking | withdrawn in section 11.5 - both models are at chance |
 | the `1+ELU` / no-attention table attributed to Liger | corrected to arXiv:2510.05901 Table 4 |
 | `favor` reported without noting its mis-scaling | section 11.1, and `favor_d14` added |
+| **the total row count, stated four ways and none agreeing (10 400 / 10 412 / 8 940 / 8 364)** | **fixed everywhere to the verified 8 364; cause in the note below** |
+| the `gamma` stage's own row count (2520) and wall time (4270 s) | corrected to **1920 rows / 2178 s** |
+| total wall clock quoted as ~5.1 h | corrected to **3.89 h** |
+
+**What caused the row-count discrepancy, since a number that should be identical in several places
+and is not has twice been a symptom here.** It was prose arithmetic, not data. The per-stage figures
+for `main`, `curve`, `decay` and `nulls` were transcribed from each stage's printed
+`wrote ... [Ns]` completion line and are all correct. **`gamma` is the only stage whose completion
+line I never read**: I wrote section 8.6 while it was still running, took its shape from the `decay`
+stage sitting above it in my notes (2520 rows), and invented a wall time. `nulls`' row count (1008)
+was likewise arithmetic done in prose rather than counted. The two document totals (10 400, 10 412)
+were never derived from anything at all — **they do not even equal the sum of my own stated
+components (8 940)**, which is the tell I should have caught.
+
+**No evidence is missing and no conclusion is affected.** A per-arm audit of all five result files
+confirms every arm ran at its full designed count — 336 rows for a 28-layer arm, 60 for a
+5-layer subset arm, 45 for a curve arm — with no partial or absent arm anywhere. Every headline
+number in this document was computed directly from the JSON and independently re-verified against
+it, with each comparison's `n` read from the data rather than asserted; that check is unaffected by
+how many rows the prose claimed in total.
 
 
