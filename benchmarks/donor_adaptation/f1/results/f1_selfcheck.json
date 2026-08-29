@@ -1,0 +1,290 @@
+{
+  "stage": "selfcheck",
+  "checks": {
+    "H_sqrt": {
+      "eig_max": 3058.98086840575,
+      "eig_min_raw": 0.21230956613362909,
+      "cond_after_floor_achieved": 14408.11605483854,
+      "n_eigs_floored_achieved": 0,
+      "ridge_rel_requested": 1e-10,
+      "ridge_abs_achieved": 3.05898086840575e-07
+    },
+    "H_sqrt_roundtrip_rel_err": 1.6826181323181499e-15,
+    "eckart_young_rel_err_k8": 0.0,
+    "orthonormality_k8": 1.9984014443252818e-15,
+    "random_factorisations_worse_k8": "200/200",
+    "eckart_young_rel_err_k32": 7.884307354992312e-15,
+    "orthonormality_k32": 2.220446049250313e-15,
+    "random_factorisations_worse_k32": "200/200",
+    "direct_svd_subspace_alignment_err": 3.9177165955806e-09,
+    "direct_svd_sigma_rel_err": 1.0200047587760286e-15,
+    "C4_planted_rank_achieved": 32,
+    "C4_planted_rank_requested": 32,
+    "C4_planted_firing": {
+      "8": {
+        "recall_at_tau_theta": 0.44936197916666665,
+        "S_frac_at_tau_theta": 0.030094401041666666,
+        "max_abs_ghat_minus_g": 2.8916501998901367,
+        "S_frac_at_recall_1.0": 0.940513671875
+      },
+      "16": {
+        "recall_at_tau_theta": 0.7734895833333333,
+        "S_frac_at_tau_theta": 0.045176432291666666,
+        "max_abs_ghat_minus_g": 1.4234540462493896,
+        "S_frac_at_recall_1.0": 0.40487890625
+      },
+      "32": {
+        "recall_at_tau_theta": 1.0,
+        "S_frac_at_tau_theta": 0.05000065104166666,
+        "max_abs_ghat_minus_g": 2.384185791015625e-06,
+        "S_frac_at_recall_1.0": 0.05
+      },
+      "64": {
+        "recall_at_tau_theta": 1.0,
+        "S_frac_at_tau_theta": 0.05000065104166666,
+        "max_abs_ghat_minus_g": 2.384185791015625e-06,
+        "S_frac_at_recall_1.0": 0.05
+      }
+    },
+    "C4_verdict": "FIRES: exact at r=32=planted rank, degraded at r=16 and worse at r=8",
+    "C1_fullrank_max_abs_dev": 1.33514404296875e-05,
+    "C1_fullrank_rel_dev": 6.874549285385001e-07,
+    "brief_table_reproduced": {
+      "0.1": {
+        "n3": 0.1033482142857143,
+        "n2": 0.07001488095238095
+      },
+      "0.05": {
+        "n3": 0.05334821428571429,
+        "n2": 0.03668154761904762
+      },
+      "0.02": {
+        "n3": 0.023348214285714288,
+        "n2": 0.01668154761904762
+      }
+    },
+    "brief_table_as_printed": {
+      "0.1": 0.103,
+      "0.05": 0.053,
+      "0.02": 0.0167
+    },
+    "BRIEF_TABLE_DISCREPANCY": {
+      "what": "BRIEF_F1 section 1's cost table is internally inconsistent, and the Builder has NOT altered the brief.",
+      "detail": {
+        "a=0.10": {
+          "brief": 0.103,
+          "n3_from_sec1_formula": 0.10335,
+          "n2": 0.07002
+        },
+        "a=0.05": {
+          "brief": 0.053,
+          "n3_from_sec1_formula": 0.05335,
+          "n2": 0.03668
+        },
+        "a=0.02": {
+          "brief": 0.0167,
+          "n3_from_sec1_formula": 0.02335,
+          "n2": 0.01668
+        }
+      },
+      "reading": "Rows 1 and 2 are the n=3 accounting that section 1's own formula and prose specify (exact gate recomputed on S).  Row 3 is the n=2 accounting.  Under the registered n=3 formula the 2% target row is 2.33%, not 1.67% -- 40% higher, at exactly the operating point the brief cares about.",
+      "knock_on": "Section 4's 's = 0.97 reaches 2%' is likewise 2.33% under n=3.  Reaching a true 0.02 needs s = 0.975 under n=2, or s = 0.9833 under n=3.",
+      "builder_choice": "n=3 is PRIMARY throughout, because it is what section 1's construction actually does and it is the conservative one.  n=2 is reported beside it everywhere as FFN_active_n2."
+    },
+    "predictor_term_r64_target_width": 0.010044642857142858,
+    "predictor_term_r64_achieved_width_1p5B": 0.04880952380952381,
+    "theta_rule_synthetic": {
+      "theta_zero": {
+        "theta": 0.0,
+        "rel_err_achieved": 0.0553911030292511,
+        "active_frac_achieved": 0.4997138977050781
+      },
+      "theta_by_eps": {
+        "0.01": {
+          "theta_achieved": -3.318993502158264,
+          "rel_err_achieved": 0.009999922476708889,
+          "active_frac_achieved": 0.8538932800292969,
+          "eps_requested": 0.01
+        }
+      },
+      "oracle_magnitude": {
+        "0.01": {
+          "oracle_drop_frac": 0.30859375,
+          "oracle_active_frac": 0.69140625,
+          "n_tokens_achieved": 512
+        }
+      }
+    },
+    "theta_grid_monotone": true
+  },
+  "elapsed_s": 5.9173195362091064,
+  "env": {
+    "python": "3.12.10",
+    "numpy": "2.4.6",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+    "cpu_count": 12,
+    "torch": "2.12.0+cpu",
+    "torch_threads": 6,
+    "transformers": "4.57.6"
+  },
+  "allocation_inventory": [
+    {
+      "stage": "capture",
+      "object": "donor fp32 (transformers)",
+      "shape": "1.54e9 params",
+      "bytes": 6200000000.0,
+      "note": "the dominant term; freed before analyse runs at all"
+    },
+    {
+      "stage": "capture",
+      "object": "H_fit accumulator",
+      "shape": "L x [D, D] fp64",
+      "bytes": 528482304,
+      "note": "0.53 GB; X_fit is NEVER materialised -- H is accumulated online, batch by batch"
+    },
+    {
+      "stage": "capture",
+      "object": "X_theta",
+      "shape": "L x [2048, D] fp32",
+      "bytes": 352321536,
+      "note": "0.35 GB"
+    },
+    {
+      "stage": "capture",
+      "object": "X_eval",
+      "shape": "L x [4096, D] fp32",
+      "bytes": 704643072,
+      "note": "0.70 GB"
+    },
+    {
+      "stage": "capture",
+      "object": "forward activations, batch=2 x 1024",
+      "shape": "transient",
+      "bytes": 300000000.0,
+      "note": "eager attention, 2 x 12 x 1024^2 fp32 scores per layer, freed"
+    },
+    {
+      "stage": "capture",
+      "object": "PEAK",
+      "bytes": 8000000000.0,
+      "note": "6.2 + 1.6 + transients"
+    },
+    {
+      "stage": "analyse",
+      "object": "W_g, W_u, W_d fp32 (one layer)",
+      "shape": "3 x [F, D]",
+      "bytes": 165150720,
+      "note": "0.165 GB; read straight from safetensors, one layer at a time -- the donor is never resident"
+    },
+    {
+      "stage": "analyse",
+      "object": "H, H^{1/2}, K, V fp64",
+      "shape": "4 x [D, D]",
+      "bytes": 75497472,
+      "note": "0.075 GB"
+    },
+    {
+      "stage": "analyse",
+      "object": "M = W_g H^{1/2} fp64",
+      "shape": "[F, D]",
+      "bytes": 110100480,
+      "note": "0.11 GB, transient per subspace"
+    },
+    {
+      "stage": "analyse",
+      "object": "subspace bank (pass A): U_actw + U_plain, ALL layers",
+      "shape": "2 x L x [F, 256] fp32",
+      "bytes": 513802240,
+      "note": "0.51 GB; held for the whole stage because C3 pairs layer L with (L+14) mod L in the MATCHING weighting -- the largest persistent allocation here"
+    },
+    {
+      "stage": "analyse",
+      "object": "per-(layer,rank) random subspaces (C2, C2b)",
+      "shape": "[F, r] / [r, D]",
+      "bytes": 18350080,
+      "note": "0.018 GB, freed each rank; drawn fresh per (layer, rank)"
+    },
+    {
+      "stage": "analyse",
+      "object": "U_full for C1",
+      "shape": "[F, D] fp32",
+      "bytes": 55050240,
+      "note": "0.055 GB, transient"
+    },
+    {
+      "stage": "analyse",
+      "object": "G (exact gate, eval)",
+      "shape": "[T_eval, F] fp32",
+      "bytes": 146800640,
+      "note": "0.147 GB"
+    },
+    {
+      "stage": "analyse",
+      "object": "Ghat (per arm, per rank)",
+      "shape": "[T_eval, F] fp32",
+      "bytes": 146800640,
+      "note": "0.147 GB, ONE live at a time (freed inside the loop)"
+    },
+    {
+      "stage": "analyse",
+      "object": "true_mask",
+      "shape": "[T_eval, F] bool",
+      "bytes": 36700160,
+      "note": "0.037 GB"
+    },
+    {
+      "stage": "analyse",
+      "object": "theta rule: g, u, h, Y on X_theta",
+      "shape": "3 x [T_theta, F] fp32 + [T_theta, D]",
+      "bytes": 293601280,
+      "note": "0.29 GB; the oracle-magnitude arm adds an argsort index [T_theta, F] int64 = 0.15 GB -- the largest single allocation in this stage"
+    },
+    {
+      "stage": "analyse",
+      "object": "PEAK",
+      "bytes": 1600000000.0,
+      "note": "no donor resident"
+    },
+    {
+      "stage": "ann",
+      "object": "keys K + reconstruction Krec fp64",
+      "shape": "2 x [F, D]",
+      "bytes": 220200960,
+      "note": "0.22 GB"
+    },
+    {
+      "stage": "ann",
+      "object": "approx_all (index's own scores)",
+      "shape": "[T_eval, F] fp32",
+      "bytes": 146800640,
+      "note": "0.147 GB"
+    },
+    {
+      "stage": "ann",
+      "object": "reach / Gh per nprobe",
+      "shape": "2 x [T_eval, F]",
+      "bytes": 183500800,
+      "note": "0.18 GB, freed each nprobe"
+    },
+    {
+      "stage": "ann",
+      "object": "kmeans distance matrix",
+      "shape": "[F, nlist] fp64",
+      "bytes": 6809600,
+      "note": "0.007 GB"
+    },
+    {
+      "stage": "ann",
+      "object": "PEAK",
+      "bytes": 1600000000.0,
+      "note": "no donor resident"
+    },
+    {
+      "stage": "disk",
+      "object": "CACHE_DIR",
+      "bytes": 1600000000.0,
+      "note": "H_fit + X_theta + X_eval for 28 layers, OUTSIDE the repo tree on purpose"
+    }
+  ]
+}

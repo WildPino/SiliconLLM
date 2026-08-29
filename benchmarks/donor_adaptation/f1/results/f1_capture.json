@@ -1,0 +1,214 @@
+{
+  "stage": "capture",
+  "arch_achieved": {
+    "n_layers": 28,
+    "d_model": 1536,
+    "d_ffn": 8960,
+    "n_heads": 12,
+    "n_kv_heads": 2,
+    "vocab": 151936,
+    "tie_word_embeddings": true,
+    "hidden_act": "silu",
+    "revision": "8faed761d45a263340a0528343f099c05c9a4323"
+  },
+  "slice_fit": {
+    "part": "calib",
+    "n_seq": 16,
+    "seq_len": 1024,
+    "seed": 20260822,
+    "n_rejected": 0,
+    "total_scored_bytes": 69494,
+    "bytes_per_token": 4.245723362658847,
+    "ids_sha256": "4daef4bc5a08b815d526f9465e2becbd4bff005921f6a81d7b544708248f0744",
+    "offsets_sha256": "8d53140fa61cd8ab77faceb777fbab872fccbd23047a85f4c8894761deb4d178",
+    "corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0"
+  },
+  "slice_eval": {
+    "part": "heldout",
+    "n_seq": 4,
+    "seq_len": 1024,
+    "seed": 20260828,
+    "n_rejected": 0,
+    "total_scored_bytes": 18761,
+    "bytes_per_token": 4.5847996089931575,
+    "ids_sha256": "b300731f54b1ac9ed69e7b7f4e09d7801e7da191509fc73413aae212fb86a248",
+    "offsets_sha256": "0dccb7924c7ec03b7a1cb4bbdb60333d408f3cc22ca7e8fa44dd74eb366d114f",
+    "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+  },
+  "T_fit_achieved": 16384,
+  "T_eval_achieved": 4096,
+  "T_theta_achieved": 2048,
+  "cache_dir": "D:\\_THINGS\\_scratch_f1",
+  "env": {
+    "python": "3.12.10",
+    "numpy": "2.4.6",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+    "cpu_count": 12,
+    "torch": "2.12.0+cpu",
+    "torch_threads": 6,
+    "transformers": "4.57.6"
+  },
+  "n_tokens_fit_achieved": 16384,
+  "n_tokens_eval_achieved": 4096,
+  "elapsed_s": 379.7802298069,
+  "allocation_inventory": [
+    {
+      "stage": "capture",
+      "object": "donor fp32 (transformers)",
+      "shape": "1.54e9 params",
+      "bytes": 6200000000.0,
+      "note": "the dominant term; freed before analyse runs at all"
+    },
+    {
+      "stage": "capture",
+      "object": "H_fit accumulator",
+      "shape": "L x [D, D] fp64",
+      "bytes": 528482304,
+      "note": "0.53 GB; X_fit is NEVER materialised -- H is accumulated online, batch by batch"
+    },
+    {
+      "stage": "capture",
+      "object": "X_theta",
+      "shape": "L x [2048, D] fp32",
+      "bytes": 352321536,
+      "note": "0.35 GB"
+    },
+    {
+      "stage": "capture",
+      "object": "X_eval",
+      "shape": "L x [4096, D] fp32",
+      "bytes": 704643072,
+      "note": "0.70 GB"
+    },
+    {
+      "stage": "capture",
+      "object": "forward activations, batch=2 x 1024",
+      "shape": "transient",
+      "bytes": 300000000.0,
+      "note": "eager attention, 2 x 12 x 1024^2 fp32 scores per layer, freed"
+    },
+    {
+      "stage": "capture",
+      "object": "PEAK",
+      "bytes": 8000000000.0,
+      "note": "6.2 + 1.6 + transients"
+    },
+    {
+      "stage": "analyse",
+      "object": "W_g, W_u, W_d fp32 (one layer)",
+      "shape": "3 x [F, D]",
+      "bytes": 165150720,
+      "note": "0.165 GB; read straight from safetensors, one layer at a time -- the donor is never resident"
+    },
+    {
+      "stage": "analyse",
+      "object": "H, H^{1/2}, K, V fp64",
+      "shape": "4 x [D, D]",
+      "bytes": 75497472,
+      "note": "0.075 GB"
+    },
+    {
+      "stage": "analyse",
+      "object": "M = W_g H^{1/2} fp64",
+      "shape": "[F, D]",
+      "bytes": 110100480,
+      "note": "0.11 GB, transient per subspace"
+    },
+    {
+      "stage": "analyse",
+      "object": "subspace bank (pass A): U_actw + U_plain, ALL layers",
+      "shape": "2 x L x [F, 256] fp32",
+      "bytes": 513802240,
+      "note": "0.51 GB; held for the whole stage because C3 pairs layer L with (L+14) mod L in the MATCHING weighting -- the largest persistent allocation here"
+    },
+    {
+      "stage": "analyse",
+      "object": "per-(layer,rank) random subspaces (C2, C2b)",
+      "shape": "[F, r] / [r, D]",
+      "bytes": 18350080,
+      "note": "0.018 GB, freed each rank; drawn fresh per (layer, rank)"
+    },
+    {
+      "stage": "analyse",
+      "object": "U_full for C1",
+      "shape": "[F, D] fp32",
+      "bytes": 55050240,
+      "note": "0.055 GB, transient"
+    },
+    {
+      "stage": "analyse",
+      "object": "G (exact gate, eval)",
+      "shape": "[T_eval, F] fp32",
+      "bytes": 146800640,
+      "note": "0.147 GB"
+    },
+    {
+      "stage": "analyse",
+      "object": "Ghat (per arm, per rank)",
+      "shape": "[T_eval, F] fp32",
+      "bytes": 146800640,
+      "note": "0.147 GB, ONE live at a time (freed inside the loop)"
+    },
+    {
+      "stage": "analyse",
+      "object": "true_mask",
+      "shape": "[T_eval, F] bool",
+      "bytes": 36700160,
+      "note": "0.037 GB"
+    },
+    {
+      "stage": "analyse",
+      "object": "theta rule: g, u, h, Y on X_theta",
+      "shape": "3 x [T_theta, F] fp32 + [T_theta, D]",
+      "bytes": 293601280,
+      "note": "0.29 GB; the oracle-magnitude arm adds an argsort index [T_theta, F] int64 = 0.15 GB -- the largest single allocation in this stage"
+    },
+    {
+      "stage": "analyse",
+      "object": "PEAK",
+      "bytes": 1600000000.0,
+      "note": "no donor resident"
+    },
+    {
+      "stage": "ann",
+      "object": "keys K + reconstruction Krec fp64",
+      "shape": "2 x [F, D]",
+      "bytes": 220200960,
+      "note": "0.22 GB"
+    },
+    {
+      "stage": "ann",
+      "object": "approx_all (index's own scores)",
+      "shape": "[T_eval, F] fp32",
+      "bytes": 146800640,
+      "note": "0.147 GB"
+    },
+    {
+      "stage": "ann",
+      "object": "reach / Gh per nprobe",
+      "shape": "2 x [T_eval, F]",
+      "bytes": 183500800,
+      "note": "0.18 GB, freed each nprobe"
+    },
+    {
+      "stage": "ann",
+      "object": "kmeans distance matrix",
+      "shape": "[F, nlist] fp64",
+      "bytes": 6809600,
+      "note": "0.007 GB"
+    },
+    {
+      "stage": "ann",
+      "object": "PEAK",
+      "bytes": 1600000000.0,
+      "note": "no donor resident"
+    },
+    {
+      "stage": "disk",
+      "object": "CACHE_DIR",
+      "bytes": 1600000000.0,
+      "note": "H_fit + X_theta + X_eval for 28 layers, OUTSIDE the repo tree on purpose"
+    }
+  ]
+}
