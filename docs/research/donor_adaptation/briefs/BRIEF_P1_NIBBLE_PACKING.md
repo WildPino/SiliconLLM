@@ -203,3 +203,107 @@ already pack two trits per nibble, or do they also spend a byte per 2-trit index
 > **The producer of a measurement must not be told the expected conclusion.** §4's prediction is registered
 > here, in the Principal's brief, and goes to the **Controller**. It is **not** to be restated to the
 > Builder as an expectation, and the Builder is to report what it measures without reference to it.
+
+---
+
+## AMENDMENT 1 — 2026-08-29, the Adapter / Principal
+
+**Appended, not edited in place.** The Controller's `audits/CONTROLLER_D5_126_AUDIT.md` has **BLOCKed both
+results that §0.1 and §4 of this brief were written on.** Stage 1 is untouched. Stage 2 is re-registered.
+
+### A1.1 What was withdrawn, and why
+
+**(a) The `39.7% / 76%` split does not exist — WITHDRAWN.**
+It divided a **charged-byte** numerator by a **moved-byte** denominator, and the numerator's bias differs
+~2× between the two rows. Corrected, the two sit at **85.8% (`k/v`)** and **~79.5% (`gate/up`)**. The
+46-point gap was the half-line waste counted a second time. **This is a units error, so no re-run can
+rescue it.**
+
+> **§4's registered prediction — "k/v gains more than gate/up" — is therefore malformed and is WITHDRAWN in
+> full.** It is not restated in weaker form. It is replaced, below, by a different question.
+
+**(b) The `Mpad` sweep's 2.12× monotonic fall does not survive its own document's correction — WITHDRAWN.**
+Applying §12.6.4's own stated correction to §12.6.1's own table leaves the sweep **flat at 21.4–22.7 GB/s
+across a 28× change in `Mpad`** — which is precisely the branch that run pre-registered as *"compute-bound
+survives."* Flatness holds across the whole 1–2× correction range that document endorses.
+
+> **§0.1's premise — "D5 §12.6 found the donor-width path memory-bound" — is no longer supported.**
+> Neither is §12.5's opposite claim. **The honest state of knowledge is that we do not know**, and two
+> rounds of work on this question have now produced no answer.
+
+### A1.2 What is NOT withdrawn — the whole of Stage 1
+
+**§0's observation is arithmetic and a correctness property, and no audit touches it.** The code value lies
+in `[0,8]`; `_mm256_shuffle_epi8` selects on bits `[3:0]` and zeroes on bit 7; the LUT is already 16 entries
+wide; bits 4–7 of every byte of `codes` are structurally zero. **4 bits/weight → 2 bits/weight is exactly
+2× fewer bytes, and that is true whatever the kernel turns out to be bound by.**
+
+**C1–C4 stand unchanged and remain the primary deliverable.** A green Stage 1 banks the 2× as *available*.
+
+### A1.3 The re-registered Stage 2 — P1 stops being a lever and becomes the instrument
+
+The two rounds that failed here used indirect discriminators: a shape sweep (confounded, see A1.5) and a
+compute ablation (which the audit found **removes a load** — `matvec_ablation` drops the `lut` load via
+`(void)lut`, going 2 loads/iteration → 1 — so it never was "compute stripped, memory intact").
+
+**P1 offers a direct one.** It changes the byte stream by exactly 2×, bit-exactly, with the per-weight
+`pshufb` count unchanged. That is a cleaner intervention than either prior attempt.
+
+> **Registered before any number exists. Report BOTH quantities for BOTH arms:**
+>
+> | | **matvecs/s** | **moved GB/s** |
+> |---|---|---|
+> | **if bandwidth-limited** | roughly **doubles** | roughly **invariant** |
+> | **if compute- or port-limited** | roughly **invariant** | roughly **halves** |
+>
+> **These two outcomes are mutually exclusive and jointly exhaustive at the level of the measurement, and
+> neither requires a "ceiling" to interpret.** That is the point: the audit's central complaint was that
+> §12.6's percentages were ratios against an incommensurable denominator. **This formulation has no
+> denominator to get wrong.**
+>
+> Intermediate outcomes are real answers too — a 1.4× on matvecs/s with a 1.4× fall in moved GB/s says the
+> path is jointly limited, and that is worth knowing and must be reported as such rather than rounded to
+> whichever pole is nearer.
+
+### A1.4 The byte convention, restated because it is what broke §12.6
+
+> **Report in MOVED bytes** — what the memory system actually transfers. **Charged bytes may be reported
+> alongside, in their own separate column, clearly labelled, and the two are NEVER combined in one ratio.**
+> State the convention once. Apply it identically to both arms. This single discipline is what the audit
+> found missing, and it is what turned a 46-point artefact into a headline.
+
+### A1.5 One added arm — the stride-conflict separation
+
+The Controller identified a confound that sits under **every** shape either D5 round measured:
+
+> **Every `Mpad` in the existing sweep is a power of two or a multiple of 4096.** Set-conflict eviction is
+> therefore completely unseparated from capacity. A fall attributed to "past L3" may be cache-set aliasing.
+
+**Padding each row stride by 64 bytes is a shape change, not a kernel change.** It is cheaper than any lever
+in §12.6.7's list and it is the only one that can *separate* the two mechanisms rather than re-measure their
+sum.
+
+**Add it as an arm to Stage 2**, applied identically to both the byte and the nibble arm. **If padding the
+stride by 64 recovers most of the fall, then the fall was aliasing all along** — and that would be a finding
+larger than P1 itself, obtained for the price of an allocation offset.
+
+### A1.6 The quiescence banner may not be trusted
+
+The audit found `quiescence_gate` is called **once**, from `main`, **before mode dispatch**.
+
+> Its `-- clean.` therefore certifies *"no process exceeded 1 GB at the instant the binary started"* — **not
+> that the run was uncontended.** A job starting mid-measurement is invisible to it; a job oscillating
+> across the threshold (one was observed at 0.89 / 1.35 / 1.67 GB inside a single minute) earns a clean
+> banner on a contended run. **This launders a contaminated number instead of refusing it**, and is the
+> cheapest available explanation for the 8–12% dispersion §12.6.6 leaves unexplained.
+
+**Sample the machine independently and repeatedly during each timing run, and record it per run.** Do not
+cite the banner as evidence of anything.
+
+### A1.7 What this amendment does not do
+
+It does not claim P1 will win. **A flat result — matvecs/s unmoved when the byte stream is halved — is a
+first-class outcome**, would establish compute- or port-boundedness more cleanly than anything either D5
+round produced, and would correctly retire 5-trit at the same time. **P1 was pre-registered as informative
+under every outcome, and that property survives the audit intact.** It is the only part of the original
+framing that does.
