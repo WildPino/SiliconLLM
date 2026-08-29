@@ -27,7 +27,8 @@ Read this block before anything else.
 | **§2.2f — conversion does not remove a layer's weights; KV accounting** | **CURRENT. Start here.** |
 | **§2.2g — `h=128` is not scale-free; probe-4 never entered our regime** | **CURRENT.** Also: probe-4's own result is underpowered and missing its key control |
 | **§2.2h — the low-rank lever is not established** | **CURRENT.** Withdraws §2.2f's `~88B` row; flags that its `~26B` row rests on a transplant too |
-| §2.4 — 5-trit packing | **LIVE.** D5's Mpad sweep measured the donor-width path as MEMORY-bound (rate falls 2.1x monotonically with block size; stripping all compute buys only 1.2-1.36x). Byte-reduction pays. Pending Controller audit |
+| §2.4 — 5-trit packing | **SUPERSEDED by §2.4b.** Its "MEMORY-bound" verdict is BLOCKED; that row was written while the audit was pending |
+| **§2.4b — the §12.6 reversal is itself BLOCKED** | **CURRENT.** Neither compute- nor memory-bound stands; the `39.7%` anomaly was a units error and is retracted; packing is UNPRICED; P1 is now the instrument that settles it |
 | **§2.2j — R2 IS CLOSED** | **CURRENT.** Do not build the R2 solver: 42% of the head output is unreachable by any `W_v`, and `elu(x)+1`'s mixing IS a uniform causal average |
 | §3a — healing must happen in the consuming layer | stands, **but** see `BRIEF_R2` Amendment A1.5: applying it to R2 was pattern-matching |
 | §3c, §3d | stand |
@@ -884,6 +885,104 @@ compute-bound at donor width. Sequence matters:
 
 Recorded here so that the packing question is not re-derived from scratch later, and so that its
 dependency on D5 is explicit rather than assumed.
+
+---
+
+---
+
+## 2.4b ⚠⚠ (2026-08-29) — the §12.6 reversal is ITSELF BLOCKED. Neither "compute-bound" nor "memory-bound" is supported, and the packing question is UNPRICED
+
+Source: `audits/CONTROLLER_D5_126_AUDIT.md`, commit `bcd5f63`. **This supersedes the §2.4 row of §0's table,
+which was written while that audit was still pending and is now the third stale entry in eight days.**
+
+### The state of the question, in one line
+
+> **§12.5 concluded compute-bound. §12.6 reversed it to memory-bound. The audit BLOCKs the reversal's
+> evidence and shows the corrected data is FLAT — which is the branch §12.6 itself pre-registered as
+> "compute-bound survives." Two rounds, no answer. We do not know what this path is bound by.**
+
+### The two BLOCKs that do the damage
+
+**A9 — the `39.7%` vs `76%` "wide-shape anomaly" does not exist.** It divided a **charged-byte** numerator
+(`lut_probe_generic`, `EB`) by a **moved-byte** denominator (sequential fp32, where charged ≡ moved by
+construction), with the numerator's bias differing ~2× between the two rows. Corrected: **`k/v` 85.8%,
+`gate/up` ~79.5%.** The 46-point gap was **the half-line waste counted a second time.**
+
+> **This is a units error, so no re-measurement can rescue it.** Commissioning a clean-machine run produces
+> the same two quantities in the same two incompatible units with tighter error bars. **Do not commission
+> one.**
+>
+> **What survives, correctly sized:** the half-line waste is real, and fixing it is worth **~2× on the
+> charged rate at past-L3 shapes and nothing at `k/v`-class shapes** — bounded by the moved-byte plateau,
+> not by the withdrawn `39.7 → 85.9` span. **The Principal passed the withdrawn version to the Owner as "a
+> free 2×". That was wrong in size and wrong in mechanism, and is retracted here.**
+
+**A2 — the `Mpad` sweep does not survive its own document's correction.** Applying §12.6.4's **own stated**
+correction to §12.6.1's **own table** leaves the sweep **flat at 21.4–22.7 GB/s across a 28× change in
+`Mpad`** — flat for any `f` in the 1–2× range that document endorses. The previous Controller round had
+**already published this correction in a table**; §12.6.4 cites that finding by name and then never applies
+it to §12.6.1 or §12.6.2.
+
+> **A11: that omission is the one that ran in the flattering direction.** A document may not state a
+> correction and decline to apply it to its own headline. **New standing rule, §4.**
+
+### The other three BLOCKs
+
+| id | finding |
+|---|---|
+| **A4** | **the compute ablation does not keep the loads.** `matvec_ablation` drops the `lut` load via `(void)lut` — 2 loads/iteration → 1. "Strips the compute, not the memory traffic" is false in the document *and* in the source comment. The 1.195×/1.362× figures therefore do not mean what §12.6 said they mean |
+| **A6** | **`d5cd` is structurally blind.** It runs at the one donor organ selected *because* it fits under L3 — i.e. not where the disputed claim lives — and at `f≈1` in both directions, so it cannot detect the defect it is offered as reassurance against |
+| **A7** | **the `2.34×` citation is fabricated.** "This session's own `D=1536` reading (22.69, §12.6 manifest)" does not exist: the manifest holds no rate, no `D=1536` run exists in any session artefact, and **22.69 is verbatim §12.5.4's ternary Gweights/s at `D=8192`**. **Quote 2.27×.** Every other A1.4 statistic, including the 9.71 grand mean, reproduces exactly |
+
+### What PASSED, and it matters
+
+- **A1 PASS** — the discriminator's premise could not be broken. `M ≡ Mpad`, all multiples of 32,
+  runtime-parameterised kernel, so `EB` is exactly the bytes loaded, and load imbalance runs *against* the
+  fall. **ALU-throughput-bound is genuinely dead.** (Note this does not resurrect memory-bound: A2's flat
+  sweep and A1's dead-ALU coexist, and what remains is a third thing — port, latency, or plateau limited.)
+- **A10 PASS on provenance.** The `a1_4_donor_order/` artefact, promoted into the tree from outside it, is
+  genuine harness output: **every log carries `ws_bytes=9865003008`, exactly `(4096·28672·2 + 14336·8192)·28`
+  from the committed `codes_layer`.** Only its *date* rests on testimony.
+- **A8 PASS, narrowed.** Claim 1's exemption from the accounting defect is real, **but not for the reason
+  given** — the two endpoints sit on *opposite* sides of the shape-dependence, and it survives only because
+  tok/s never divides by moved bytes.
+
+### Two apparatus findings worth more than the result
+
+**A12 — the quiescence gate certifies the start, not the run.** `quiescence_gate` is called **once**, from
+`main` at `:1462`, **before mode dispatch**. Its `-- clean.` therefore means *"no process exceeded 1 GB at
+the instant the binary started."* A job beginning mid-measurement is invisible to it; a job oscillating
+across the threshold (one was observed at 0.89 / 1.35 / 1.67 GB within a single minute) earns a clean banner
+on a contended run. **It launders a contaminated number instead of refusing it**, and is the cheapest
+available explanation for the 8–12% dispersion §12.6.6 leaves unexplained.
+
+**The stride confound — the cheapest unexploited lever we have.** **Every `Mpad` in the sweep is a power of
+two or a multiple of 4096**, so set-conflict eviction has never been separated from capacity. Padding each
+row stride by 64 bytes is **a shape change, not a kernel change** — an allocation offset — and it is the
+only move that can *separate* two mechanisms every measurement so far has reported only the sum of.
+**Registered as an arm of P1 Stage 2** (`BRIEF_P1_NIBBLE_PACKING.md` §A1.5).
+
+### Consequence for the packing question
+
+**§2.4 is UNPRICED, not LIVE and not dead.** 5-trit's value depended on the path being memory-bound; that is
+now unsupported in both directions.
+
+**The resolution is already dispatched and does not require settling §12.6 first.** `BRIEF_P1` packs two
+trits per **nibble** — `4 → 2 bits/weight`, exactly 2× fewer bytes, `pshufb` count per weight unchanged,
+bit-exact. Its Stage 2 is registered on a question **with no denominator to get wrong**: report `matvecs/s`
+**and** `moved GB/s` for both arms; bandwidth-limited ⇒ the first doubles and the second holds; compute- or
+port-limited ⇒ the reverse.
+
+> **P1 is no longer a lever justified by a verdict. It is the instrument that settles the verdict** — a
+> cleaner intervention than the shape sweep (confounded by aliasing, A2 + stride) or the ablation (which
+> removed a load, A4).
+
+### What this does NOT change
+
+**Claim 1 stands.** The rate constant does not transfer to donor width; the fall is **2.27×** (not 2.34×,
+per A7). §2.1's headline arithmetic is untouched — A8 confirms tok/s never divides by moved bytes.
+
+**Nothing here touches the FFN sparsity question**, which is where the donor sizing actually lives.
 
 ---
 
