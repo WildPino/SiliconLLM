@@ -258,3 +258,75 @@ know that the comparison is pending rather than assume it was covered.
 **And the same warning as §5 applies with more force here:** this construction is the one I would most like
 to be true, because it reuses machinery we already own and it is sublinear where everything else has been
 linear. **That is precisely why its favourable numbers need the hardest look.**
+
+
+---
+
+## AMENDMENT 1 — 2026-08-29, the Adapter / Principal
+
+**Appended, not edited in place.** Two corrections, both found by the Builder that ran this brief, and the
+second retires the brief's own thesis.
+
+### A1.1 An arithmetic error in §1's cost table — mine
+
+The `0.02` row reads **1.67%**. It is **2.33%**.
+
+`FFN_active = (p + 3a)/3` with `p = r(d + d_ffn)/(d·d_ffn) = 64·(8192+28672)/(8192·28672) = 1.0045%`.
+At `a = 0.02`: `(0.010045 + 0.060)/3 = 0.02335`. **1.67% is what you get from `2|S|/d_ffn`** — two organs,
+where the two rows above it correctly use three. Verified independently. **The `0.10` and `0.05` rows are
+right**; only the target row is wrong, and it is the row the brief leans on.
+
+### A1.2 §1's thesis — "the floor disappears" — is REFUTED by this brief's own run
+
+§1 argued that with a predictor `FFN_active` is bounded by the donor's real activation sparsity rather than
+by the 33.3% dense-gate artefact, and that the 2% target therefore *"becomes an empirical question about
+sparsity."* **It was the right question. The donor answered no.**
+
+Measured on the donor (`Qwen2.5-1.5B`-class, `silu`), `a` = the fraction of neurons that must stay active for
+the FFN block to lose at most `ε` of its output Frobenius energy, θ fitted on calib and reported on 4096
+**held-out** tokens, converging exactly on all 28 layers × 3 ε:
+
+| ε | mean `a` |
+|---|---|
+| 0.001 | 0.993 |
+| 0.01 | **0.951** |
+| 0.05 | 0.909 |
+| **oracle on `\|h_i\|`** (sees `W_u` too — stronger than anything this brief proposes) | **0.836** |
+| θ=0, the dReLU sign rule | 0.13–0.30, **at 41–88% relative output error** |
+
+> **Even a perfect oracle can skip only 16.4% of the neurons.** That is a ceiling on the *question*, not a
+> limit of our construction, and it sits an order of magnitude away from the `a = 0.02` the cost table was
+> built to price. **The 2% target is not reachable on this donor by selection of any kind.**
+
+**And the predictor is a pessimisation, not a shortfall.** Charged, at the measured `a`, the best
+`FFN_active` obtained anywhere is **0.7384**; the mean at `r = 64` is **0.9788** under a uniform-byte
+convention and **1.0022** when the predictor is charged at fp16 against ternary weights. **Above 1.0 means
+the predictor costs more than the dense FFN it was meant to skip.**
+
+### A1.3 What this brief got right, and what to keep
+
+- **The instrument fires.** C4 (planted rank) **fires 28/28** — exact at planted rank 32, rel dev 3e-7,
+  broken at r=16. C2, C2b and C3 are real controls. **C1 passes but cannot fail; it is a tautology and is
+  labelled one.** The nulls here are earned.
+- **`eff_rank_actw ≈ 2` must never be quoted as evidence of a compressible gate.** It is inherited from the
+  activation covariance: `eff_rank(H^{1/2})` = 2.0–24.3 tracks it, `H`'s top eigenvalue carries 19–71% of
+  its variance, and `W_g` itself needs **1452 of 1536** singular values for 99% energy, with `r=64`
+  capturing 14%.
+- **A resolution law worth keeping.** The resolvable span is `ρ(1−a)`, so at `a ≈ 0.999` every arm is pinned
+  inside a 0.001-wide window. Spearman ρ(available range, measured skill) = **−0.836, p = 3.1e-8**:
+  **apparent skill is highest exactly where there is no room for skill.** On the seven layers with a range
+  above 0.01, skill falls to 0.25–0.54. **Any future probe reporting a margin must first report the span
+  that margin had available.**
+- **Amendment 1's ANN arm is dead as specified.** The 0.99 recall target is met at exactly one setting —
+  `nprobe = nlist`, a full scan. The cheap rows are cheap because they retrieve nothing (`FFN_active` 0.0138
+  at recall 0.0007). Partition collapsed, PQ reconstruction error 0.826, and a Euclidean k-means was used to
+  route an inner-product query.
+
+### A1.4 The one gap that could still reopen this
+
+**Nothing here connects a per-layer ε to end-to-end quality, and no BPB was run.** Every number above is
+Frobenius energy of one FFN block's output. If the model tolerates far more than ε = 0.05 end-to-end, the
+ladder stops too early and `a` at the tolerable ε is unknown.
+
+**That is the only remaining route to a different answer, and it must be measured rather than argued.**
+Registered here so that the closure is conditional on it and cannot be quietly promoted to unconditional.

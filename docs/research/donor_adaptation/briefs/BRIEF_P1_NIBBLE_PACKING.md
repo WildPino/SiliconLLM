@@ -307,3 +307,64 @@ first-class outcome**, would establish compute- or port-boundedness more cleanly
 round produced, and would correctly retire 5-trit at the same time. **P1 was pre-registered as informative
 under every outcome, and that property survives the audit intact.** It is the only part of the original
 framing that does.
+
+
+---
+
+## AMENDMENT 2 — 2026-08-29, the Adapter / Principal
+
+**Appended, not edited in place.** §7 sent the Researcher to ask whether published LUT-based ternary kernels
+already nibble-pack. **They do, using our exact alphabet.** §7 pre-registered this outcome as equally
+welcome, and it is — but it retires one claim of mine and reopens a question we had closed.
+
+### A2.1 This is prior art, and it uses `(w0+1)*3+(w1+1)`
+
+**bitnet.cpp TL1** (arXiv:2410.16144v2, **[T] Table 2**) packs two ternary weights into **one 4-bit index over
+a 9-entry LUT**, and its weight-pair→code column **is** `(w0+1)*3+(w1+1)`, neutral code 4 included —
+**bit-for-bit our scheme, at 2.0 bits/weight against our 4.0.** Their shipped AVX2 loop
+(`include/bitnet-lut-kernels.h`, `two_tbl_impl3200_8640`) is structurally §1's proposed loop: one 32-byte
+load, `_mm256_srli_epi16(vec_a,4)` + `0x0f` for the high nibble, mask alone for the low, one
+`_mm256_shuffle_epi8` each. **T-MAC** independently stores `uint4` indices and unpacks to `uint8` (**[A]**,
+§3.1).
+
+> **P1 is us fixing our own defect. Cite TL1. No novelty claim may be made from this brief, in any document.**
+> The 2× is worth exactly the same either way, which is why §7 was written to be indifferent to the answer.
+
+### A2.2 ⚠ §1's "pshufb optimum" claim is WITHDRAWN — it is false
+
+§1 states that three trits do not fit a nibble, therefore *"2 trits/nibble is the `pshufb` optimum"* and this
+brief claims *"the last free doubling on this axis."*
+
+**bitnet.cpp TL2** (**[T] Table 3**) packs **three** weights into **a 1-bit sign plus a 4-bit index —
+1.667 bits/weight — while still using a 16-entry table.** My argument counted only `3^3 = 27 > 16` and never
+considered factoring a sign bit out of the alphabet.
+
+> **P1 is a rung on a ladder, not the top of it.** `4 → 2` bits/weight stands; *"the last free doubling"*
+> does not. Any document repeating that phrase is to be corrected.
+
+### A2.3 The 5-trit dismissal rested on a decoder cost nobody pays
+
+D5 §12.5 priced 5-trit packing against **a base-3 decoder requiring division**, and that cost is why it
+"looked heavy" in both rounds (§0.1 of this brief repeats the reasoning).
+
+**llama.cpp's TQ1_0 is base-3 at 1.6875 bits/weight** (`ggml-common.h`), and its AVX2 path **extracts all
+five digits with adds, shifts and `avg` — no division anywhere** (`arch/x86/quants.c`, ~lines 1398–1420)
+**[S]**.
+
+> **The premise of the 5-trit costing is false.** Combined with §2.4b of `ADAPTER_MEMO_01` — where the
+> memory-vs-compute verdict is itself unsupported in both directions — **5-trit is unpriced rather than
+> rejected, and now on grounds we know to be wrong.** It is not reopened by this amendment; it is recorded
+> as owing a re-costing once P1's Stage 2 settles what this path is bound by.
+
+### A2.4 One implementation note for the Builder
+
+The Researcher flagged an **`int16` vs `int8` accumulator difference** between TL1's kernel and ours. Ours
+(`acc_add_i8x32`) sign-extends `int8` products directly into four `int32` lanes. **If TL1 accumulates in
+`int16` first, the op count per iteration and the saturation analysis both change.** Worth a look; if it
+moves Stage 2's numbers that is a finding, not a delay.
+
+### A2.5 What does not change
+
+Stage 1 in full — bit-exactness, the planted control, end-to-end parity, byte accounting. Amendment 1's
+re-registered Stage 2 question (`matvecs/s` **and** `moved GB/s`, both arms, moved-byte convention, the
+stride-conflict arm). **The measurement is unaffected; only the claims around it are.**
