@@ -1,0 +1,353 @@
+{
+  "env": {
+    "stage": "controls",
+    "utc": "2026-08-28T23:35:17Z",
+    "git_revision": "3471116537cf53b2a2243c24397332f67c42954c",
+    "git_branch": "research/donor-adaptation",
+    "git_dirty_at_launch": true,
+    "command_line": "python d0_coactivation.py controls",
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+    "cpu_count": 12,
+    "torch": "2.12.0+cpu",
+    "numpy": "2.4.6",
+    "transformers": "4.57.6",
+    "torch_num_threads_achieved": 6,
+    "env_D_THREADS": 6,
+    "env_D0_ALL_LAYERS": true,
+    "memory_at_stage_start": {
+      "total_gb": 79.95,
+      "free_gb": 37.29
+    },
+    "resident_heavyweight_processes": [
+      {
+        "Name": "llama-server",
+        "Id": 17708,
+        "WS_GB": 22.73
+      },
+      {
+        "Name": "Memory Compression",
+        "Id": 3220,
+        "WS_GB": 3.2
+      },
+      {
+        "Name": "Antigravity IDE",
+        "Id": 25012,
+        "WS_GB": 0.5
+      },
+      {
+        "Name": "chrome",
+        "Id": 30004,
+        "WS_GB": 0.47
+      },
+      {
+        "Name": "MsMpEng",
+        "Id": 4644,
+        "WS_GB": 0.45
+      },
+      {
+        "Name": "claude",
+        "Id": 16580,
+        "WS_GB": 0.43
+      },
+      {
+        "Name": "explorer",
+        "Id": 10684,
+        "WS_GB": 0.37
+      },
+      {
+        "Name": "Antigravity IDE",
+        "Id": 23852,
+        "WS_GB": 0.35
+      }
+    ],
+    "quiescence_gate": "NONE BY DESIGN -- D0 measures activation statistics, not bandwidth.",
+    "pinned": {
+      "donor": "Qwen/Qwen2.5-1.5B",
+      "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+      "bpb_eval_slice": {
+        "part": "heldout",
+        "n_seq": 24,
+        "seq_len": 512,
+        "seed": 1234,
+        "source": "imported from d1_pruning.py"
+      },
+      "fit_slice": {
+        "part": "calib",
+        "n_seq": 32,
+        "seq_len": 512,
+        "seed": 42424
+      },
+      "score_slice": {
+        "part": "heldout",
+        "n_seq": 32,
+        "seq_len": 512,
+        "seed": 909001
+      },
+      "deep_layers": [
+        1,
+        7,
+        14,
+        21,
+        27
+      ],
+      "depth_sweep_E": 64,
+      "p_max_stored": 0.25,
+      "densities_requested": [
+        0.05,
+        0.1,
+        0.2
+      ],
+      "p_primary": 0.1,
+      "random_seeds": [
+        11,
+        22,
+        33,
+        44,
+        55,
+        66,
+        77,
+        88
+      ],
+      "cluster_seed": 7,
+      "lossless_perm_seed": 20260828,
+      "E_list": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "k_list": [
+        1,
+        2,
+        4,
+        8,
+        16
+      ],
+      "dup_tokens": 2048,
+      "fidelity_tokens": 4096,
+      "bytes_per_weight": 0.5,
+      "block_bytes": 49152
+    }
+  },
+  "controls": [
+    {
+      "name": "C2_planted_positive_coactivation_groups",
+      "construction": "N=8960, T=4096, 64 disjoint contiguous groups of 140 neurons, 6 WHOLE groups active per token, then scrambled by a known permutation (seed 4242)",
+      "density_achieved": 0.09375,
+      "k_active_achieved": 840,
+      "block_size": 140,
+      "skippable_planted_exact": 0.90625,
+      "skippable_identity_on_scrambled": 0.0,
+      "skippable_coactivation_recovered": 0.90625,
+      "recovery_ratio": 1.0,
+      "cluster_ARI_vs_planted_labels": 1.0,
+      "expect": "co-activation arm recovers >=90% of the planted skippable AND ARI>0.90, while the identity arm on the scrambled data stays near 0",
+      "fired": true
+    },
+    {
+      "name": "C3_planted_negative_iid_matched_density",
+      "construction": "N=8960, T=4096, exactly 896 active/token drawn uniformly",
+      "density_achieved": 0.1,
+      "expect": "all three arms land together on the analytic hypergeometric value; any arm that 'wins' on noise is broken",
+      "rows": [
+        {
+          "block": 4,
+          "analytic_iid_qB": 0.6561,
+          "analytic_hypergeom": 0.6560511714296903,
+          "identity": 0.6561195373535156,
+          "random_mean": 0.656029851096017,
+          "random_min": 0.6559776306152344,
+          "random_max": 0.6560828072684152,
+          "coactivation": 0.6574446541922433,
+          "all_arms_at_analytic": true
+        },
+        {
+          "block": 12,
+          "analytic_iid_qB": 0.2824295364810001,
+          "analytic_hypergeom": 0.2821982671049786,
+          "identity": 0.28222721703250675,
+          "random_mean": 0.2821313280202748,
+          "random_min": 0.28190780516923597,
+          "random_max": 0.2823208151809652,
+          "coactivation": 0.2886059635765751,
+          "all_arms_at_analytic": true
+        },
+        {
+          "block": 21,
+          "analytic_iid_qB": 0.10941898913151242,
+          "analytic_hypergeom": 0.10913395613913035,
+          "identity": 0.1092466255868545,
+          "random_mean": 0.10907254644402875,
+          "random_min": 0.10889703455105637,
+          "random_max": 0.10927069578931925,
+          "coactivation": 0.117014423782277,
+          "all_arms_at_analytic": true
+        },
+        {
+          "block": 64,
+          "analytic_iid_qB": 0.0011790184577738603,
+          "analytic_hypergeom": 0.0011497642172585854,
+          "identity": 0.0011160714285713969,
+          "random_mean": 0.0011648995535714218,
+          "random_min": 0.0011073521205356984,
+          "random_max": 0.0012189592633928825,
+          "coactivation": 0.002064732142857184,
+          "all_arms_at_analytic": true
+        },
+        {
+          "block": 140,
+          "analytic_iid_qB": 3.9260092771818286e-07,
+          "analytic_hypergeom": 3.4751069304892636e-07,
+          "identity": 0.0,
+          "random_mean": 0.0,
+          "random_min": 0.0,
+          "random_max": 0.0,
+          "coactivation": 3.814697265625e-06,
+          "all_arms_at_analytic": true
+        }
+      ],
+      "fired": true
+    },
+    {
+      "name": "C4_random_permutation_invariances",
+      "why": "two shuffle-based nulls on this programme turned out not to be null, and the most recent recovered BETTER than the real arm because the shuffle destroyed a structural constraint and made the problem easier.  So what this shuffle does and does not destroy is stated, then MEASURED, before the arm is trusted.",
+      "destroyed": "ONLY the alignment between neuron index and co-activation",
+      "preserved_exactly": [
+        "per-token active count",
+        "per-neuron firing-frequency multiset",
+        "the whole co-activation matrix up to relabelling (P^T C P is similar to C: same spectrum, same rank, same clusterability)"
+      ],
+      "consequence": "the random arm cannot make the problem easier here.  The only quantity it changes is the one the score depends on, and its expectation under a uniform permutation is the exact hypergeometric C(N-k,B)/C(N,B).  C3 checks that expectation is met; a deviation would be an instrument fault, not a finding.",
+      "measured": {
+        "bookkeeping_unpermute_is_exact_identity": true,
+        "per_token_active_count_identical": true,
+        "firing_frequency_multiset_identical": true,
+        "coactivation_spectrum_max_abs_diff": 0.0,
+        "coactivation_spectrum_identical": true,
+        "only_index_alignment_changes": [
+          {
+            "block": 12,
+            "identity": 0.28222721703250675,
+            "after_permutation": 0.282306742732071,
+            "analytic_hypergeom": 0.2821982671049786
+          },
+          {
+            "block": 64,
+            "identity": 0.0011160714285713969,
+            "after_permutation": 0.0011875697544643238,
+            "analytic_hypergeom": 0.0011497642172585854
+          }
+        ]
+      },
+      "expect": "all four invariances hold exactly; the shuffle is a null for INDEX ALIGNMENT and for nothing else",
+      "fired": true
+    },
+    {
+      "name": "C5_fast_path_equals_D0_layout_stats",
+      "expect": "agreement <1e-12 between this file's index-based accounting and d0_layout.layout_stats, so the memory-lean path inherits D0's own controls",
+      "rows": [
+        {
+          "block": 4,
+          "d0_layout_stats": 0.6561195373535156,
+          "fast_index_path": 0.6561195373535156,
+          "abs_diff": 0.0
+        },
+        {
+          "block": 12,
+          "d0_layout_stats": 0.28222721703250675,
+          "fast_index_path": 0.28222721703250675,
+          "abs_diff": 0.0
+        },
+        {
+          "block": 21,
+          "d0_layout_stats": 0.1092466255868545,
+          "fast_index_path": 0.1092466255868545,
+          "abs_diff": 0.0
+        },
+        {
+          "block": 64,
+          "d0_layout_stats": 0.0011160714285713969,
+          "fast_index_path": 0.0011160714285713969,
+          "abs_diff": 0.0
+        },
+        {
+          "block": 140,
+          "d0_layout_stats": 0.0,
+          "fast_index_path": 0.0,
+          "abs_diff": 0.0
+        }
+      ],
+      "fired": true
+    },
+    {
+      "name": "C6_hypergeometric_reference_vs_monte_carlo",
+      "expect": "closed form matches Monte-Carlo within sampling error (<0.01)",
+      "rows": [
+        {
+          "block": 4,
+          "closed_form": 0.6560511714296903,
+          "monte_carlo": 0.6582,
+          "abs_diff": 0.0021488285703097354
+        },
+        {
+          "block": 12,
+          "closed_form": 0.2821982671049786,
+          "monte_carlo": 0.28395,
+          "abs_diff": 0.0017517328950213962
+        },
+        {
+          "block": 21,
+          "closed_form": 0.10913395613913035,
+          "monte_carlo": 0.10405,
+          "abs_diff": 0.005083956139130347
+        },
+        {
+          "block": 64,
+          "closed_form": 0.0011497642172585854,
+          "monte_carlo": 0.0016,
+          "abs_diff": 0.00045023578274141465
+        }
+      ],
+      "fired": true
+    },
+    {
+      "name": "C7_amendment1_identity_reproduces_brief_table",
+      "rows": [
+        {
+          "s": 0.282,
+          "brief_A1_1": 0.812,
+          "computed": 0.8119999999999999,
+          "abs_diff": 1.1102230246251565e-16
+        },
+        {
+          "s": 0.656,
+          "brief_A1_1": 0.562,
+          "computed": 0.5626666666666666,
+          "abs_diff": 0.0006666666666665932
+        },
+        {
+          "s": 0.95,
+          "brief_A1_1": 0.367,
+          "computed": 0.3666666666666667,
+          "abs_diff": 0.0003333333333332966
+        },
+        {
+          "s": 1.0,
+          "brief_A1_1": 0.3333333333333333,
+          "computed": 0.3333333333333333,
+          "abs_diff": 0.0
+        }
+      ],
+      "s_required_for_2pct_FFN_active": 1.47,
+      "expect": "FFN_active=(3-2s)/3 reproduces A1.1's table to 1e-3 and the 2% budget needs s=1.470, which is impossible",
+      "fired": true
+    }
+  ],
+  "all_fired": true,
+  "_mem_at_write": {
+    "rss_gb": 0.0,
+    "peak_rss_gb": 0.0
+  }
+}

@@ -1,0 +1,2163 @@
+{
+  "env": {
+    "stage": "model",
+    "utc": "2026-08-28T23:36:11Z",
+    "git_revision": "1a8f512ff2fcc2f8e76f8e051d3439cc5e4da134",
+    "git_branch": "research/donor-adaptation",
+    "git_dirty_at_launch": true,
+    "command_line": "python d0_coactivation.py model",
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+    "cpu_count": 12,
+    "torch": "2.12.0+cpu",
+    "numpy": "2.4.6",
+    "transformers": "4.57.6",
+    "torch_num_threads_achieved": 6,
+    "env_D_THREADS": 6,
+    "env_D0_ALL_LAYERS": true,
+    "memory_at_stage_start": {
+      "total_gb": 79.95,
+      "free_gb": 37.13
+    },
+    "resident_heavyweight_processes": [
+      {
+        "Name": "llama-server",
+        "Id": 17708,
+        "WS_GB": 22.73
+      },
+      {
+        "Name": "Memory Compression",
+        "Id": 3220,
+        "WS_GB": 3.2
+      },
+      {
+        "Name": "Antigravity IDE",
+        "Id": 25012,
+        "WS_GB": 0.5
+      },
+      {
+        "Name": "chrome",
+        "Id": 30004,
+        "WS_GB": 0.49
+      },
+      {
+        "Name": "MsMpEng",
+        "Id": 4644,
+        "WS_GB": 0.44
+      },
+      {
+        "Name": "claude",
+        "Id": 16580,
+        "WS_GB": 0.41
+      },
+      {
+        "Name": "ChatGPT",
+        "Id": 20288,
+        "WS_GB": 0.38
+      },
+      {
+        "Name": "Antigravity IDE",
+        "Id": 23852,
+        "WS_GB": 0.38
+      }
+    ],
+    "quiescence_gate": "NONE BY DESIGN -- D0 measures activation statistics, not bandwidth.",
+    "pinned": {
+      "donor": "Qwen/Qwen2.5-1.5B",
+      "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+      "bpb_eval_slice": {
+        "part": "heldout",
+        "n_seq": 24,
+        "seq_len": 512,
+        "seed": 1234,
+        "source": "imported from d1_pruning.py"
+      },
+      "fit_slice": {
+        "part": "calib",
+        "n_seq": 32,
+        "seq_len": 512,
+        "seed": 42424
+      },
+      "score_slice": {
+        "part": "heldout",
+        "n_seq": 32,
+        "seq_len": 512,
+        "seed": 909001
+      },
+      "deep_layers": [
+        1,
+        7,
+        14,
+        21,
+        27
+      ],
+      "depth_sweep_E": 64,
+      "p_max_stored": 0.25,
+      "densities_requested": [
+        0.05,
+        0.1,
+        0.2
+      ],
+      "p_primary": 0.1,
+      "random_seeds": [
+        11,
+        22,
+        33,
+        44,
+        55,
+        66,
+        77,
+        88
+      ],
+      "cluster_seed": 7,
+      "lossless_perm_seed": 20260828,
+      "E_list": [
+        16,
+        32,
+        64,
+        128
+      ],
+      "k_list": [
+        1,
+        2,
+        4,
+        8,
+        16
+      ],
+      "dup_tokens": 2048,
+      "fidelity_tokens": 2048,
+      "bytes_per_weight": 0.5,
+      "block_bytes": 49152
+    }
+  },
+  "arch_achieved": {
+    "n_layers": 28,
+    "d_model": 1536,
+    "d_ffn": 8960,
+    "n_heads": 12,
+    "n_kv_heads": 2,
+    "vocab": 151936,
+    "tie_word_embeddings": true,
+    "hidden_act": "silu",
+    "revision": "8faed761d45a263340a0528343f099c05c9a4323"
+  },
+  "mem_after_load": {
+    "rss_gb": 0.0,
+    "peak_rss_gb": 0.0
+  },
+  "bpb_eval_slice": {
+    "part": "heldout",
+    "n_seq": 24,
+    "seq_len": 512,
+    "seed": 1234,
+    "n_rejected": 0,
+    "total_scored_bytes": 51870,
+    "bytes_per_token": 4.22945205479452,
+    "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+    "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+    "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+  },
+  "fit_slice": {
+    "part": "calib",
+    "n_seq": 32,
+    "seq_len": 512,
+    "seed": 42424,
+    "n_rejected": 0,
+    "total_scored_bytes": 67648,
+    "bytes_per_token": 4.136986301369863,
+    "ids_sha256": "c5509846cdc3aa44e45e77895b59a4638c49eb03790030d851e7bf1357ca4c0c",
+    "offsets_sha256": "c9bdfc96dd5addb8e02a48d553dfb11784734baa26f44aad53658ff8cd2a8cf0",
+    "corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0"
+  },
+  "score_slice": {
+    "part": "heldout",
+    "n_seq": 32,
+    "seq_len": 512,
+    "seed": 909001,
+    "n_rejected": 1,
+    "total_scored_bytes": 69198,
+    "bytes_per_token": 4.231775929549902,
+    "ids_sha256": "c223a6b74fdc120d5f807a8814d67472a65ae6e864d77e122e4c1d1a197be89b",
+    "offsets_sha256": "b86632e227b3e07faec99b3452b641b7483fd3d71019af556ede954f6fe8890a",
+    "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+  },
+  "disjointness_assertion": {
+    "fit_corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0",
+    "score_corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312",
+    "bpb_eval_corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312",
+    "fit_half": "calib",
+    "score_half": "heldout",
+    "fit_vs_bpb_eval_distinct_halves": true,
+    "fit_vs_score_distinct_ids_sha256": true,
+    "checked_in_code": "assert meta_fit['corpus_sha256'] != meta_ev['corpus_sha256'] and meta_fit['ids_sha256'] != meta_sc['ids_sha256']",
+    "note": "the co-activation ordering is FITTED on `fit` (calib half) and SCORED on `score` (held-out half).  The BPB path uses D1's own pinned slice, untouched."
+  },
+  "_mem_at_write": {
+    "rss_gb": 0.0,
+    "peak_rss_gb": 0.0
+  },
+  "control_C1_losslessness": {
+    "name": "C1_identity_losslessness",
+    "construction": "independent random permutation of all 8960 FFN neurons in ALL 28 layers (seed 20260828); gate/up rows and down columns permuted together, then inverted in place",
+    "bpb_identity": 0.7675949601147849,
+    "bpb_permuted": 0.7675949652076198,
+    "bpb_restored": 0.7675949601147849,
+    "delta_bpb_permuted_minus_identity": 5.092834931552659e-09,
+    "delta_bpb_restored_minus_identity": 0.0,
+    "max_abs_logit_deviation": 0.0001277923583984375,
+    "max_abs_logit_magnitude": 31.239229202270508,
+    "relative_logit_deviation": 4.090765414568852e-06,
+    "d1_published_baseline_bpb": 0.767595,
+    "matches_d1_baseline_to_6dp": true,
+    "sigma_seed_for_scale": 0.005,
+    "expect": "BPB unchanged to fp32 summation noise (|dBPB| < 1e-6, i.e. <2e-4 sigma_seed), restore EXACT, max|dlogit| at fp32 round-off relative to logit magnitude",
+    "note": "exact bitwise equality is NOT expected and is not the claim: permuting down_proj's columns changes the fp32 summation ORDER.  The claim is that the deviation is round-off, which is why max|dlogit| is reported rather than asserted to be zero.",
+    "fired": true
+  },
+  "capture": {
+    "fit": {
+      "layers": {
+        "0": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "a3c8d1fa25de78a9fe8ff01d38ef33b61be95bbe00e83c18fa2a0df9bb529542",
+          "bytes_on_disk": 73400580
+        },
+        "1": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": true,
+          "idx_sha256": "8accf69ce2be20309a13f336352504bfd8355d15ad894bc802ae8ffadece74c5",
+          "bytes_on_disk": 146801138
+        },
+        "2": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "626ebd7ad4e58f371cb9e3652332ae556b2308c1b94c6f6cb5d47d40dcc37ad6",
+          "bytes_on_disk": 73400580
+        },
+        "3": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "47ddb348ad283d75c4a3be483aefaf3acc155767e3f9943f6a606f473eea1462",
+          "bytes_on_disk": 73400580
+        },
+        "4": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "1d0117fa20d9c952a10fffeea66d494bc674795225238305369f11f3c836da7e",
+          "bytes_on_disk": 73400580
+        },
+        "5": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "13f76c6f2ea559d542ca9f994b37bf123c2729471053f6482c4ad243762b55ca",
+          "bytes_on_disk": 73400580
+        },
+        "6": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "4538307be3158dc1840743055efa9af9c1c5f1656b1663898aa3a769231547e7",
+          "bytes_on_disk": 73400580
+        },
+        "7": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": true,
+          "idx_sha256": "5000356f1cbac058271510f4fd7655054c03155bf70cf591712c9c9cdb834d15",
+          "bytes_on_disk": 146801138
+        },
+        "8": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "dda18282127a412a7ffa2df32faa4ea534def9afbf4a94a736531513a888ea33",
+          "bytes_on_disk": 73400580
+        },
+        "9": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "3c7b4a41a5cc65df6b704744dc89b09a17af6e9771156f980b9c3a2ad3b16930",
+          "bytes_on_disk": 73400580
+        },
+        "10": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "74dbc51dc6446931c96611b5616023257c97bebe12bf56f3a8bdc26ccf3be73e",
+          "bytes_on_disk": 73400580
+        },
+        "11": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "0d8b9e2a519b7019487af7e5b2d15c102ddb4d9d55b1ac8ca2fcb18b162fbc5f",
+          "bytes_on_disk": 73400580
+        },
+        "12": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "4b880411571531da00e49cbc1ab2709cff8fdeed7c6ede8e35ff883584348867",
+          "bytes_on_disk": 73400580
+        },
+        "13": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "63e31d055baf66e7ccb19c52e8844372a31360716d6d3549b789d573acc4fa5f",
+          "bytes_on_disk": 73400580
+        },
+        "14": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": true,
+          "idx_sha256": "2c309b837b7635c3c821af0b31a480b19fe9b06b52b8f3ff2acb38cfd7371559",
+          "bytes_on_disk": 146801138
+        },
+        "15": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "e83741085886e212cd28b09e5ea13064f1077f8e7b1492d628b34403ad11de81",
+          "bytes_on_disk": 73400580
+        },
+        "16": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "67a0d23a09595d376979771665aa1ac33fe46be92bfaad5ecdf35c1f8b5cbda8",
+          "bytes_on_disk": 73400580
+        },
+        "17": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "abb72db44c57cbce99bb03e8260a0b6b1e6a09af0069d9c15800ac04daae0a8b",
+          "bytes_on_disk": 73400580
+        },
+        "18": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "49a73eb2546be3ebb5eae560746e3f171f4ae34ce5b5be4da264fa53848c3560",
+          "bytes_on_disk": 73400580
+        },
+        "19": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "801dda0410250ff587f570287e02d4afd2c3e261a0e0d63a900de02830293b10",
+          "bytes_on_disk": 73400580
+        },
+        "20": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "50e7ba88b02a2d2f124124e0a43a2b517238fa5175921e22299093bb1df52739",
+          "bytes_on_disk": 73400580
+        },
+        "21": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": true,
+          "idx_sha256": "af2f079df170893917da5fabca5bb879f8ee591cdf0ffcd177a2019ed0700e21",
+          "bytes_on_disk": 146801138
+        },
+        "22": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "2f39c02fc0cf13952859355f2d1c4dc034975867c45d4b847f34bcecbbc2a2a8",
+          "bytes_on_disk": 73400580
+        },
+        "23": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "195cc62efb1b776c9c2602d6a7fc14472c125ab4d8c2a5a4684d1365fab6ca87",
+          "bytes_on_disk": 73400580
+        },
+        "24": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "f2e4f02e910aaa006b9d74055791ec900098eaf81058fdbdbbc3fba312b5f19b",
+          "bytes_on_disk": 73400580
+        },
+        "25": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "9a6b8d11ddb21ca89c9d9c8f51a775516f1c1ab362b8160126c54a27cdf18438",
+          "bytes_on_disk": 73400580
+        },
+        "26": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "34f8c080c7ab5d91b74cef88b939773c2bedb31e257360091beb231b4688be06",
+          "bytes_on_disk": 73400580
+        },
+        "27": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": true,
+          "idx_sha256": "932cfdb98aeb76702e754daf98a48d4b604ab502c1ec60efc0ea56b003dd983a",
+          "bytes_on_disk": 146801138
+        }
+      },
+      "seconds": 244.99828624725342,
+      "n_seq": 32
+    },
+    "score": {
+      "layers": {
+        "0": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "2867c083c2729821daae81257bdf31b0c0c598c00a415a799b18d49df6c5349e",
+          "bytes_on_disk": 73400580
+        },
+        "1": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": true,
+          "idx_sha256": "ea24798d4f5a6811f0b64b8ebdc1353a2282883596a28c8b99688f587658d8b8",
+          "bytes_on_disk": 146801138
+        },
+        "2": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "132e9bc693aff53405d56b289dab89b176f82200d40d6ea2a90092d4cef04c8a",
+          "bytes_on_disk": 73400580
+        },
+        "3": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "a52e5b1b4c53a0e52954c3f9b5a534b2a2b200b241e7e5a2b70501cf28b76307",
+          "bytes_on_disk": 73400580
+        },
+        "4": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "0b88ec427d3324c562053e979695a4334560d542655a852a033d1e439ba2510a",
+          "bytes_on_disk": 73400580
+        },
+        "5": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "a4004f73d31c12da4feb74d2f2549c7c89ff94b9b802c15867f672ce0d7d6724",
+          "bytes_on_disk": 73400580
+        },
+        "6": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "858b2301dfc80233b7a4a72ec3b84169cf164b2ab9bf31bc32f230895b1a5a6d",
+          "bytes_on_disk": 73400580
+        },
+        "7": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": true,
+          "idx_sha256": "3565b34162302f42b125cc4480c514833512c7a4bad240729ed0eb1ee1d77d23",
+          "bytes_on_disk": 146801138
+        },
+        "8": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "69f75ff51f1e7a3abc5e5f03bde8bcd6b484719b73535fe701d3def54650aac5",
+          "bytes_on_disk": 73400580
+        },
+        "9": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "7d5c6804e4011a9ea480f0b3afc22541d3c447a8097fe778733a7e6c4bbfc0e1",
+          "bytes_on_disk": 73400580
+        },
+        "10": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "6df1d68cecfc8c61e9489aa9331884117d097b58f7ce24c18c9b5ba650c80ffa",
+          "bytes_on_disk": 73400580
+        },
+        "11": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "6e481445d7801fa85b2fec14833f6451e09c3be351c2c15afeb61436430a9f42",
+          "bytes_on_disk": 73400580
+        },
+        "12": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "a6d41d4ecad34ccb14380a95ee3ba51a7b9d4d1442ce9db644ed48f11919c59f",
+          "bytes_on_disk": 73400580
+        },
+        "13": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "e250d1d54e00096f19a0bb3b3718792041eb0f5ce29e4f8fc2fa6b3f209eedf3",
+          "bytes_on_disk": 73400580
+        },
+        "14": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": true,
+          "idx_sha256": "bc74ab83e7ead9d7275d9d50d0f74778a2ad5f9b438dab9977d11b96673895a3",
+          "bytes_on_disk": 146801138
+        },
+        "15": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "dff1122f8def497eb0bb5021e34205be48ee75b93622e17a66bf9c4d1aec495a",
+          "bytes_on_disk": 73400580
+        },
+        "16": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "51405eb22c4bfbbb2662db86659e3e46623f86557a41a8ca48e9619d944ed4a0",
+          "bytes_on_disk": 73400580
+        },
+        "17": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "6509d9f26a9162a04a3c146dcff19e8d78f718945d75274d33290ea2c2edc9c0",
+          "bytes_on_disk": 73400580
+        },
+        "18": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "476db92aff9247c19f6c76e03410218fe8da5cc7f570d27069645c321915f33b",
+          "bytes_on_disk": 73400580
+        },
+        "19": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "44dbabc595fccce29196f32038812e6436116aeebe7bc222664e91c04909515d",
+          "bytes_on_disk": 73400580
+        },
+        "20": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "8ae6cb1dd6bd0e6679b3a2bf4349b4fa77fcb1f0c46cda5f9ee5873b256470ca",
+          "bytes_on_disk": 73400580
+        },
+        "21": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": true,
+          "idx_sha256": "7cf2e485154868e65d202737d85c0bf6b650126cdcc569b86e2f37e3f649f01f",
+          "bytes_on_disk": 146801138
+        },
+        "22": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "2984e37a9a153e19d013814333ac6f5559d3e370a597c3091b298af56a646e3e",
+          "bytes_on_disk": 73400580
+        },
+        "23": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "76bf3590a4ae030fda6bca1d01ec1fbd981449c99576e54953021042b9eda371",
+          "bytes_on_disk": 73400580
+        },
+        "24": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "a26633b48a4533ee9dbe075ad17d4c97d6365045f0f5c07105749a4115da8de4",
+          "bytes_on_disk": 73400580
+        },
+        "25": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "eb0ddc03cdf18f1598fd8515e951a0f003222798844c9239c000c181f8eb307d",
+          "bytes_on_disk": 73400580
+        },
+        "26": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": false,
+          "idx_sha256": "df21c26cb902d7f4938dd1e9e2b04bd5d4a2f4e1ef55bf22c4a419066f62d638",
+          "bytes_on_disk": 73400580
+        },
+        "27": {
+          "T_tokens_achieved": 16384,
+          "kmax_stored_achieved": 2240,
+          "p_max_achieved": 0.25,
+          "has_values": true,
+          "idx_sha256": "f9f8ac58f7534ffeb3554a307416396bf69350304cf571f2c0b06f397aff0688",
+          "bytes_on_disk": 146801138
+        }
+      },
+      "seconds": 247.08623242378235,
+      "n_seq": 32
+    }
+  },
+  "capture_kmax_requested": 2240,
+  "capture_maskdir": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\d0_masks",
+  "fidelity": {
+    "1": {
+      "rows": [
+        {
+          "E": 32,
+          "k": 1,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.04095137874428405,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 2,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.034750922373132674,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 4,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.03009218431327584,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 8,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.25,
+          "true_activation_fraction_achieved": 0.25,
+          "relerr": 0.024257281527167576,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 1,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.47182951078176566,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 2,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.20887890215500252,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 4,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.05357311496375247,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 8,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.25,
+          "true_activation_fraction_achieved": 0.25,
+          "relerr": 0.03538602411565173,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 1,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.04908646189452457,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 2,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.04182837133000683,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 4,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.035608596205731084,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 8,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.029877620891455327,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 1,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.47123769328715664,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 2,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.20915342927763939,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 4,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.055779434580026356,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 8,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.04058049726788688,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 1,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0078125,
+          "true_activation_fraction_achieved": 0.0078125,
+          "relerr": 0.05359840303790177,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 2,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.0454433301623073,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 4,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.038182004685987155,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 8,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.03220566039462541,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 1,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0078125,
+          "true_activation_fraction_achieved": 0.0078125,
+          "relerr": 0.47245682136879885,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 2,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.21013141559587345,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 4,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.05681477622576507,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 8,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.0422273562083743,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        }
+      ],
+      "n_tokens_achieved": 2048,
+      "token_source": "score slice (held-out half)",
+      "labels_fitted_on": "fit slice (calib half)"
+    },
+    "7": {
+      "rows": [
+        {
+          "E": 32,
+          "k": 1,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.9172448731215623,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 2,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.8683611724545375,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 4,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.803373879641195,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 8,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.25,
+          "true_activation_fraction_achieved": 0.25,
+          "relerr": 0.7038420514120372,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 1,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.9344526102427876,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 2,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.8965836476151126,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 4,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.8376260725044201,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 8,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.25,
+          "true_activation_fraction_achieved": 0.25,
+          "relerr": 0.7385347531369224,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 1,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.926801022418437,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 2,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.8878991666757153,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 4,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.8396484430091522,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 8,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.7744110447112105,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 1,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.9438751339441126,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 2,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.9151919445327773,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 4,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.874388492169094,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 8,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.8129350625706332,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 1,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0078125,
+          "true_activation_fraction_achieved": 0.0078125,
+          "relerr": 0.9385642222158763,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 2,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.9076376761864372,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 4,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.8684234607979959,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 8,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.8190044958513867,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 1,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0078125,
+          "true_activation_fraction_achieved": 0.0078125,
+          "relerr": 0.9490299838771005,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 2,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.92531291448833,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 4,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.8944119292612956,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 8,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.8523853996717536,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        }
+      ],
+      "n_tokens_achieved": 2048,
+      "token_source": "score slice (held-out half)",
+      "labels_fitted_on": "fit slice (calib half)"
+    },
+    "14": {
+      "rows": [
+        {
+          "E": 32,
+          "k": 1,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.9422052828093926,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 2,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.9033375754349586,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 4,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.8412353982762968,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 8,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.25,
+          "true_activation_fraction_achieved": 0.25,
+          "relerr": 0.7308340962088853,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 1,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.9598341453474223,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 2,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.9307925547103308,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 4,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.8791182596722282,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 8,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.25,
+          "true_activation_fraction_achieved": 0.25,
+          "relerr": 0.7833843058062913,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 1,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.9584777366462515,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 2,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.931891570021516,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 4,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.8898947124065953,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 8,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.8195629989188082,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 1,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.9690000100646888,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 2,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.9497849261114178,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 4,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.9174936195577966,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 8,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.8617901714655936,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 1,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0078125,
+          "true_activation_fraction_achieved": 0.0078125,
+          "relerr": 0.9658601580246551,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 2,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.9466109458826177,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 4,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.9161761747221356,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 8,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.8662682856037891,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 1,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0078125,
+          "true_activation_fraction_achieved": 0.0078125,
+          "relerr": 0.9742681902032059,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 2,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.9598316348255103,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 4,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.9379210997487369,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 8,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.9024700030855524,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        }
+      ],
+      "n_tokens_achieved": 2048,
+      "token_source": "score slice (held-out half)",
+      "labels_fitted_on": "fit slice (calib half)"
+    },
+    "21": {
+      "rows": [
+        {
+          "E": 32,
+          "k": 1,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.8783770337173762,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 2,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.8152264148070824,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 4,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.7348781813340418,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 8,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.25,
+          "true_activation_fraction_achieved": 0.25,
+          "relerr": 0.6271875107920579,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 1,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.9048695540530843,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 2,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.8544574942906125,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 4,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.7890900378613062,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 8,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.25,
+          "true_activation_fraction_achieved": 0.25,
+          "relerr": 0.6897850657210438,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 1,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.8875607718571298,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 2,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.8242774553455078,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 4,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.745189008467872,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 8,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.6565466186663004,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 1,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.9116697078942402,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 2,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.8694063730319876,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 4,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.8211510768775355,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 8,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.756715319247077,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 1,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0078125,
+          "true_activation_fraction_achieved": 0.0078125,
+          "relerr": 0.884953093411909,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 2,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.8371865219787157,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 4,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.7776259888697641,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 8,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.7051454503655614,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 1,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0078125,
+          "true_activation_fraction_achieved": 0.0078125,
+          "relerr": 0.9159794550198525,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 2,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.8768520419797907,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 4,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.8362193369667067,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 8,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.7860603018046497,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        }
+      ],
+      "n_tokens_achieved": 2048,
+      "token_source": "score slice (held-out half)",
+      "labels_fitted_on": "fit slice (calib half)"
+    },
+    "27": {
+      "rows": [
+        {
+          "E": 32,
+          "k": 1,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.5767266174129869,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 2,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.48987631272848614,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 4,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.39320302994319156,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 8,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.25,
+          "true_activation_fraction_achieved": 0.25,
+          "relerr": 0.28036160637334306,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 1,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.9004672096619507,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 2,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.8211332184248352,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 4,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.6832058825082586,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 32,
+          "k": 8,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.25,
+          "true_activation_fraction_achieved": 0.25,
+          "relerr": 0.5089417240322778,
+          "cluster_size_min": 280,
+          "cluster_size_max": 280,
+          "expert_bytes_per_organ": 215040.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 1,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.6526095565554435,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 2,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.5572744098220898,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 4,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.453777699008714,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 8,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.34848067802522414,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 1,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.9229329099473313,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 2,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.8692282975356684,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 4,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.7710064302076828,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 64,
+          "k": 8,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.125,
+          "true_activation_fraction_achieved": 0.125,
+          "relerr": 0.6199282931793467,
+          "cluster_size_min": 140,
+          "cluster_size_max": 140,
+          "expert_bytes_per_organ": 107520.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 1,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0078125,
+          "true_activation_fraction_achieved": 0.0078125,
+          "relerr": 0.6790718162444428,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 2,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.5950247245082069,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 4,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.4943502582766656,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 8,
+          "partition": "coactivation_balanced",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.38393943822579674,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 1,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0078125,
+          "true_activation_fraction_achieved": 0.0078125,
+          "relerr": 0.9139638999039529,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 2,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.015625,
+          "true_activation_fraction_achieved": 0.015625,
+          "relerr": 0.8626467143642401,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 4,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.03125,
+          "true_activation_fraction_achieved": 0.03125,
+          "relerr": 0.7753660481062964,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        },
+        {
+          "E": 128,
+          "k": 8,
+          "partition": "random_balanced_NULL",
+          "nominal_activation_fraction": 0.0625,
+          "true_activation_fraction_achieved": 0.0625,
+          "relerr": 0.6515574833497807,
+          "cluster_size_min": 70,
+          "cluster_size_max": 70,
+          "expert_bytes_per_organ": 53760.0,
+          "engine_legal_48KB": true
+        }
+      ],
+      "n_tokens_achieved": 2048,
+      "token_source": "score slice (held-out half)",
+      "labels_fitted_on": "fit slice (calib half)"
+    }
+  },
+  "mem_peak": {
+    "rss_gb": 0.0,
+    "peak_rss_gb": 0.0
+  }
+}

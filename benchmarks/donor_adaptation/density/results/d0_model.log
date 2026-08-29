@@ -1,0 +1,158 @@
+== D0 stage `model` -- donor resident ==
+{
+  "n_layers": 28,
+  "d_model": 1536,
+  "d_ffn": 8960,
+  "n_heads": 12,
+  "n_kv_heads": 2,
+  "vocab": 151936,
+  "tie_word_embeddings": true,
+  "hidden_act": "silu",
+  "revision": "8faed761d45a263340a0528343f099c05c9a4323"
+}
+  loaded in 100s  {'rss_gb': 0.0, 'peak_rss_gb': 0.0}
+
+-- C1 identity/losslessness control (runs FIRST; a failure voids everything) --
+  [bpb identity] 196.8s
+   BPB(identity)  = 0.767594960
+  [bpb permuted] 225.0s
+   BPB(permuted)  = 0.767594965   delta = +5.093e-09
+  [bpb restored] 146.5s
+   max|dlogit| = 1.278e-04  (|logit|max = 31.239, rel = 4.09e-06)
+   C1 -> FIRED
+
+-- capture: ranked top-2240 (p=0.2500) |h| indices, 28 layers, hooks on down_proj input (no extra FLOPs) --
+   [fit] 8/32 seqs  50s  {'rss_gb': 0.0, 'peak_rss_gb': 0.0}
+   [fit] 16/32 seqs  99s  {'rss_gb': 0.0, 'peak_rss_gb': 0.0}
+   [fit] 24/32 seqs  151s  {'rss_gb': 0.0, 'peak_rss_gb': 0.0}
+   [fit] 32/32 seqs  203s  {'rss_gb': 0.0, 'peak_rss_gb': 0.0}
+   [fit] captured 28 layers in 245s
+   [score] 8/32 seqs  52s  {'rss_gb': 0.0, 'peak_rss_gb': 0.0}
+   [score] 16/32 seqs  102s  {'rss_gb': 0.0, 'peak_rss_gb': 0.0}
+   [score] 24/32 seqs  156s  {'rss_gb': 0.0, 'peak_rss_gb': 0.0}
+   [score] 32/32 seqs  208s  {'rss_gb': 0.0, 'peak_rss_gb': 0.0}
+   [score] captured 28 layers in 247s
+
+-- fidelity: oracle-routed relative L2 error (upper bound on any router) --
+   L01 E= 32 k= 1 coactivation_balanced  act_true= 0.031 relerr=0.0410
+   L01 E= 32 k= 2 coactivation_balanced  act_true= 0.062 relerr=0.0348
+   L01 E= 32 k= 4 coactivation_balanced  act_true= 0.125 relerr=0.0301
+   L01 E= 32 k= 8 coactivation_balanced  act_true= 0.250 relerr=0.0243
+   L01 E= 32 k= 1 random_balanced_NULL   act_true= 0.031 relerr=0.4718
+   L01 E= 32 k= 2 random_balanced_NULL   act_true= 0.062 relerr=0.2089
+   L01 E= 32 k= 4 random_balanced_NULL   act_true= 0.125 relerr=0.0536
+   L01 E= 32 k= 8 random_balanced_NULL   act_true= 0.250 relerr=0.0354
+   L01 E= 64 k= 1 coactivation_balanced  act_true= 0.016 relerr=0.0491
+   L01 E= 64 k= 2 coactivation_balanced  act_true= 0.031 relerr=0.0418
+   L01 E= 64 k= 4 coactivation_balanced  act_true= 0.062 relerr=0.0356
+   L01 E= 64 k= 8 coactivation_balanced  act_true= 0.125 relerr=0.0299
+   L01 E= 64 k= 1 random_balanced_NULL   act_true= 0.016 relerr=0.4712
+   L01 E= 64 k= 2 random_balanced_NULL   act_true= 0.031 relerr=0.2092
+   L01 E= 64 k= 4 random_balanced_NULL   act_true= 0.062 relerr=0.0558
+   L01 E= 64 k= 8 random_balanced_NULL   act_true= 0.125 relerr=0.0406
+   L01 E=128 k= 1 coactivation_balanced  act_true= 0.008 relerr=0.0536
+   L01 E=128 k= 2 coactivation_balanced  act_true= 0.016 relerr=0.0454
+   L01 E=128 k= 4 coactivation_balanced  act_true= 0.031 relerr=0.0382
+   L01 E=128 k= 8 coactivation_balanced  act_true= 0.062 relerr=0.0322
+   L01 E=128 k= 1 random_balanced_NULL   act_true= 0.008 relerr=0.4725
+   L01 E=128 k= 2 random_balanced_NULL   act_true= 0.016 relerr=0.2101
+   L01 E=128 k= 4 random_balanced_NULL   act_true= 0.031 relerr=0.0568
+   L01 E=128 k= 8 random_balanced_NULL   act_true= 0.062 relerr=0.0422
+   L07 E= 32 k= 1 coactivation_balanced  act_true= 0.031 relerr=0.9172
+   L07 E= 32 k= 2 coactivation_balanced  act_true= 0.062 relerr=0.8684
+   L07 E= 32 k= 4 coactivation_balanced  act_true= 0.125 relerr=0.8034
+   L07 E= 32 k= 8 coactivation_balanced  act_true= 0.250 relerr=0.7038
+   L07 E= 32 k= 1 random_balanced_NULL   act_true= 0.031 relerr=0.9345
+   L07 E= 32 k= 2 random_balanced_NULL   act_true= 0.062 relerr=0.8966
+   L07 E= 32 k= 4 random_balanced_NULL   act_true= 0.125 relerr=0.8376
+   L07 E= 32 k= 8 random_balanced_NULL   act_true= 0.250 relerr=0.7385
+   L07 E= 64 k= 1 coactivation_balanced  act_true= 0.016 relerr=0.9268
+   L07 E= 64 k= 2 coactivation_balanced  act_true= 0.031 relerr=0.8879
+   L07 E= 64 k= 4 coactivation_balanced  act_true= 0.062 relerr=0.8396
+   L07 E= 64 k= 8 coactivation_balanced  act_true= 0.125 relerr=0.7744
+   L07 E= 64 k= 1 random_balanced_NULL   act_true= 0.016 relerr=0.9439
+   L07 E= 64 k= 2 random_balanced_NULL   act_true= 0.031 relerr=0.9152
+   L07 E= 64 k= 4 random_balanced_NULL   act_true= 0.062 relerr=0.8744
+   L07 E= 64 k= 8 random_balanced_NULL   act_true= 0.125 relerr=0.8129
+   L07 E=128 k= 1 coactivation_balanced  act_true= 0.008 relerr=0.9386
+   L07 E=128 k= 2 coactivation_balanced  act_true= 0.016 relerr=0.9076
+   L07 E=128 k= 4 coactivation_balanced  act_true= 0.031 relerr=0.8684
+   L07 E=128 k= 8 coactivation_balanced  act_true= 0.062 relerr=0.8190
+   L07 E=128 k= 1 random_balanced_NULL   act_true= 0.008 relerr=0.9490
+   L07 E=128 k= 2 random_balanced_NULL   act_true= 0.016 relerr=0.9253
+   L07 E=128 k= 4 random_balanced_NULL   act_true= 0.031 relerr=0.8944
+   L07 E=128 k= 8 random_balanced_NULL   act_true= 0.062 relerr=0.8524
+   L14 E= 32 k= 1 coactivation_balanced  act_true= 0.031 relerr=0.9422
+   L14 E= 32 k= 2 coactivation_balanced  act_true= 0.062 relerr=0.9033
+   L14 E= 32 k= 4 coactivation_balanced  act_true= 0.125 relerr=0.8412
+   L14 E= 32 k= 8 coactivation_balanced  act_true= 0.250 relerr=0.7308
+   L14 E= 32 k= 1 random_balanced_NULL   act_true= 0.031 relerr=0.9598
+   L14 E= 32 k= 2 random_balanced_NULL   act_true= 0.062 relerr=0.9308
+   L14 E= 32 k= 4 random_balanced_NULL   act_true= 0.125 relerr=0.8791
+   L14 E= 32 k= 8 random_balanced_NULL   act_true= 0.250 relerr=0.7834
+   L14 E= 64 k= 1 coactivation_balanced  act_true= 0.016 relerr=0.9585
+   L14 E= 64 k= 2 coactivation_balanced  act_true= 0.031 relerr=0.9319
+   L14 E= 64 k= 4 coactivation_balanced  act_true= 0.062 relerr=0.8899
+   L14 E= 64 k= 8 coactivation_balanced  act_true= 0.125 relerr=0.8196
+   L14 E= 64 k= 1 random_balanced_NULL   act_true= 0.016 relerr=0.9690
+   L14 E= 64 k= 2 random_balanced_NULL   act_true= 0.031 relerr=0.9498
+   L14 E= 64 k= 4 random_balanced_NULL   act_true= 0.062 relerr=0.9175
+   L14 E= 64 k= 8 random_balanced_NULL   act_true= 0.125 relerr=0.8618
+   L14 E=128 k= 1 coactivation_balanced  act_true= 0.008 relerr=0.9659
+   L14 E=128 k= 2 coactivation_balanced  act_true= 0.016 relerr=0.9466
+   L14 E=128 k= 4 coactivation_balanced  act_true= 0.031 relerr=0.9162
+   L14 E=128 k= 8 coactivation_balanced  act_true= 0.062 relerr=0.8663
+   L14 E=128 k= 1 random_balanced_NULL   act_true= 0.008 relerr=0.9743
+   L14 E=128 k= 2 random_balanced_NULL   act_true= 0.016 relerr=0.9598
+   L14 E=128 k= 4 random_balanced_NULL   act_true= 0.031 relerr=0.9379
+   L14 E=128 k= 8 random_balanced_NULL   act_true= 0.062 relerr=0.9025
+   L21 E= 32 k= 1 coactivation_balanced  act_true= 0.031 relerr=0.8784
+   L21 E= 32 k= 2 coactivation_balanced  act_true= 0.062 relerr=0.8152
+   L21 E= 32 k= 4 coactivation_balanced  act_true= 0.125 relerr=0.7349
+   L21 E= 32 k= 8 coactivation_balanced  act_true= 0.250 relerr=0.6272
+   L21 E= 32 k= 1 random_balanced_NULL   act_true= 0.031 relerr=0.9049
+   L21 E= 32 k= 2 random_balanced_NULL   act_true= 0.062 relerr=0.8545
+   L21 E= 32 k= 4 random_balanced_NULL   act_true= 0.125 relerr=0.7891
+   L21 E= 32 k= 8 random_balanced_NULL   act_true= 0.250 relerr=0.6898
+   L21 E= 64 k= 1 coactivation_balanced  act_true= 0.016 relerr=0.8876
+   L21 E= 64 k= 2 coactivation_balanced  act_true= 0.031 relerr=0.8243
+   L21 E= 64 k= 4 coactivation_balanced  act_true= 0.062 relerr=0.7452
+   L21 E= 64 k= 8 coactivation_balanced  act_true= 0.125 relerr=0.6565
+   L21 E= 64 k= 1 random_balanced_NULL   act_true= 0.016 relerr=0.9117
+   L21 E= 64 k= 2 random_balanced_NULL   act_true= 0.031 relerr=0.8694
+   L21 E= 64 k= 4 random_balanced_NULL   act_true= 0.062 relerr=0.8212
+   L21 E= 64 k= 8 random_balanced_NULL   act_true= 0.125 relerr=0.7567
+   L21 E=128 k= 1 coactivation_balanced  act_true= 0.008 relerr=0.8850
+   L21 E=128 k= 2 coactivation_balanced  act_true= 0.016 relerr=0.8372
+   L21 E=128 k= 4 coactivation_balanced  act_true= 0.031 relerr=0.7776
+   L21 E=128 k= 8 coactivation_balanced  act_true= 0.062 relerr=0.7051
+   L21 E=128 k= 1 random_balanced_NULL   act_true= 0.008 relerr=0.9160
+   L21 E=128 k= 2 random_balanced_NULL   act_true= 0.016 relerr=0.8769
+   L21 E=128 k= 4 random_balanced_NULL   act_true= 0.031 relerr=0.8362
+   L21 E=128 k= 8 random_balanced_NULL   act_true= 0.062 relerr=0.7861
+   L27 E= 32 k= 1 coactivation_balanced  act_true= 0.031 relerr=0.5767
+   L27 E= 32 k= 2 coactivation_balanced  act_true= 0.062 relerr=0.4899
+   L27 E= 32 k= 4 coactivation_balanced  act_true= 0.125 relerr=0.3932
+   L27 E= 32 k= 8 coactivation_balanced  act_true= 0.250 relerr=0.2804
+   L27 E= 32 k= 1 random_balanced_NULL   act_true= 0.031 relerr=0.9005
+   L27 E= 32 k= 2 random_balanced_NULL   act_true= 0.062 relerr=0.8211
+   L27 E= 32 k= 4 random_balanced_NULL   act_true= 0.125 relerr=0.6832
+   L27 E= 32 k= 8 random_balanced_NULL   act_true= 0.250 relerr=0.5089
+   L27 E= 64 k= 1 coactivation_balanced  act_true= 0.016 relerr=0.6526
+   L27 E= 64 k= 2 coactivation_balanced  act_true= 0.031 relerr=0.5573
+   L27 E= 64 k= 4 coactivation_balanced  act_true= 0.062 relerr=0.4538
+   L27 E= 64 k= 8 coactivation_balanced  act_true= 0.125 relerr=0.3485
+   L27 E= 64 k= 1 random_balanced_NULL   act_true= 0.016 relerr=0.9229
+   L27 E= 64 k= 2 random_balanced_NULL   act_true= 0.031 relerr=0.8692
+   L27 E= 64 k= 4 random_balanced_NULL   act_true= 0.062 relerr=0.7710
+   L27 E= 64 k= 8 random_balanced_NULL   act_true= 0.125 relerr=0.6199
+   L27 E=128 k= 1 coactivation_balanced  act_true= 0.008 relerr=0.6791
+   L27 E=128 k= 2 coactivation_balanced  act_true= 0.016 relerr=0.5950
+   L27 E=128 k= 4 coactivation_balanced  act_true= 0.031 relerr=0.4944
+   L27 E=128 k= 8 coactivation_balanced  act_true= 0.062 relerr=0.3839
+   L27 E=128 k= 1 random_balanced_NULL   act_true= 0.008 relerr=0.9140
+   L27 E=128 k= 2 random_balanced_NULL   act_true= 0.016 relerr=0.8626
+   L27 E=128 k= 4 random_balanced_NULL   act_true= 0.031 relerr=0.7754
+   L27 E=128 k= 8 random_balanced_NULL   act_true= 0.062 relerr=0.6516
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\d0_coactivation.model.json
+== stage `model` done in 1372s, peak {'rss_gb': 0.0, 'peak_rss_gb': 0.0} ==
