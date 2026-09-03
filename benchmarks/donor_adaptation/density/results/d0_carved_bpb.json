@@ -1,0 +1,210 @@
+{
+ "config": {
+  "E": 32,
+  "k": 8,
+  "nominal_activation": 0.25,
+  "cluster_seed": 7,
+  "b3_repair": "torch.manual_seed(CLUSTER_SEED) before every balanced_labels call",
+  "router": "ORACLE (top-k experts by ||h restricted||) -- upper bound on any real router",
+  "bpb_path": "C.bpb on D1's pinned heldout 24x512 s1234 slice, batch=1, fp32"
+ },
+ "env": {
+  "stage": "carved_bpb",
+  "utc": "2026-08-30T13:04:42Z",
+  "git_revision": "e79f548c7d3fa8dd85c50e8912537aec9a55fd29",
+  "git_branch": "research/donor-adaptation",
+  "git_dirty_at_launch": true,
+  "command_line": "python C:/Users/giosa/AppData/Local/Temp/claude/D---THINGS-Progetti-SiliconLLM/1f268f4b-0a3c-40c3-a2f9-63f38f70de0c/scratchpad/carved_bpb.py",
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+  "cpu_count": 12,
+  "torch": "2.12.0+cpu",
+  "numpy": "2.4.6",
+  "transformers": "4.57.6",
+  "torch_num_threads_achieved": 6,
+  "env_D_THREADS": 6,
+  "env_D0_ALL_LAYERS": true,
+  "memory_at_stage_start": {
+   "total_gb": 79.95,
+   "free_gb": 49.73
+  },
+  "resident_heavyweight_processes": [
+   {
+    "Name": "python",
+    "Id": 2380,
+    "WS_GB": 10.4
+   },
+   {
+    "Name": "Antigravity IDE",
+    "Id": 4708,
+    "WS_GB": 0.58
+   },
+   {
+    "Name": "chrome",
+    "Id": 13640,
+    "WS_GB": 0.54
+   },
+   {
+    "Name": "claude",
+    "Id": 8964,
+    "WS_GB": 0.47
+   },
+   {
+    "Name": "RiotClientServices",
+    "Id": 17112,
+    "WS_GB": 0.46
+   },
+   {
+    "Name": "MsMpEng",
+    "Id": 4224,
+    "WS_GB": 0.41
+   },
+   {
+    "Name": "Spotify",
+    "Id": 9268,
+    "WS_GB": 0.38
+   },
+   {
+    "Name": "chrome",
+    "Id": 23400,
+    "WS_GB": 0.38
+   }
+  ],
+  "quiescence_gate": "NONE BY DESIGN -- D0 measures activation statistics, not bandwidth.",
+  "pinned": {
+   "donor": "Qwen/Qwen2.5-1.5B",
+   "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+   "bpb_eval_slice": {
+    "part": "heldout",
+    "n_seq": 24,
+    "seq_len": 512,
+    "seed": 1234,
+    "source": "imported from d1_pruning.py"
+   },
+   "fit_slice": {
+    "part": "calib",
+    "n_seq": 32,
+    "seq_len": 512,
+    "seed": 42424
+   },
+   "score_slice": {
+    "part": "heldout",
+    "n_seq": 32,
+    "seq_len": 512,
+    "seed": 909001
+   },
+   "deep_layers": [
+    1,
+    7,
+    14,
+    21,
+    27
+   ],
+   "depth_sweep_E": 64,
+   "p_max_stored": 0.25,
+   "densities_requested": [
+    0.05,
+    0.1,
+    0.2
+   ],
+   "p_primary": 0.1,
+   "random_seeds": [
+    11,
+    22,
+    33,
+    44,
+    55,
+    66,
+    77,
+    88
+   ],
+   "cluster_seed": 7,
+   "lossless_perm_seed": 20260828,
+   "E_list": [
+    16,
+    32,
+    64,
+    128
+   ],
+   "k_list": [
+    1,
+    2,
+    4,
+    8,
+    16
+   ],
+   "dup_tokens": 2048,
+   "fidelity_tokens": 2048,
+   "bytes_per_weight": 0.5,
+   "block_bytes": 49152
+  }
+ },
+ "arch_achieved": {
+  "n_layers": 28,
+  "d_model": 1536,
+  "d_ffn": 8960,
+  "n_heads": 12,
+  "n_kv_heads": 2,
+  "vocab": 151936,
+  "tie_word_embeddings": true,
+  "hidden_act": "silu",
+  "revision": "8faed761d45a263340a0528343f099c05c9a4323"
+ },
+ "bpb_eval_slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+ },
+ "partition_achieved": {
+  "cluster_size_min": 280,
+  "cluster_size_max": 280,
+  "expert_bytes_per_organ": 215040.0,
+  "engine_legal_48KB": true
+ },
+ "baseline": {
+  "bpb": 0.7675949601147849,
+  "slice_bootstrap_se": 0.062208500588835335,
+  "n_layers_carved": 0
+ },
+ "carve_L27_only_coactivation": {
+  "bpb": 0.8325832415175802,
+  "slice_bootstrap_se": 0.06550778873639608,
+  "n_layers_carved": 1,
+  "delta_bpb_vs_baseline": 0.06498828140279533,
+  "delta_in_sigma_seed": 12.997656280559067
+ },
+ "carve_L27_only_random_NULL": {
+  "bpb": 0.9142022104312447,
+  "slice_bootstrap_se": 0.07105515541564109,
+  "n_layers_carved": 1,
+  "delta_bpb_vs_baseline": 0.14660725031645983,
+  "delta_in_sigma_seed": 29.321450063291966
+ },
+ "carve_all_layers_coactivation": {
+  "bpb": 1.8582178124743134,
+  "slice_bootstrap_se": 0.09112850486086828,
+  "n_layers_carved": 28,
+  "delta_bpb_vs_baseline": 1.0906228523595285,
+  "delta_in_sigma_seed": 218.12457047190568
+ },
+ "carve_all_layers_random_NULL": {
+  "bpb": 2.5787313710010062,
+  "slice_bootstrap_se": 0.12176656147999808,
+  "n_layers_carved": 28,
+  "delta_bpb_vs_baseline": 1.8111364108862213,
+  "delta_in_sigma_seed": 362.22728217724426
+ },
+ "sigma_seed_for_scale": 0.005,
+ "mem_peak": {
+  "rss_gb": 6.255,
+  "peak_rss_gb": 9.048
+ }
+}

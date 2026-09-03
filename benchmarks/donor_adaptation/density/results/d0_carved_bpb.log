@@ -1,0 +1,12 @@
+loaded in 13s  {'rss_gb': 6.173, 'peak_rss_gb': 9.048}
+eval slice: 24x512 seed 1234
+partitions for 28 layers in 186s
+
+-- BPB on a carved donor (E=32, k=8, oracle router) --
+  baseline (uncarved)                    BPB = 0.767594960   slice SE = 0.06221   (223s)
+  L27 only, co-activation                BPB = 0.832583242   slice SE = 0.06551   (218s)
+  L27 only, random NULL                  BPB = 0.914202210   slice SE = 0.07106   (220s)
+  ALL 28 layers, co-activation           BPB = 1.858217812   slice SE = 0.09113   (213s)
+  ALL 28 layers, random NULL             BPB = 2.578731371   slice SE = 0.12177   (518s)
+
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\d0_carved_bpb.json
