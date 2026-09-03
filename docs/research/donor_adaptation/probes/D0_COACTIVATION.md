@@ -1512,3 +1512,267 @@ The `analyse` stage closed the deliverable gaps Part I listed. These remain open
 Nothing in this document has been committed or pushed. All artefacts remain untracked in the working
 tree; the file list in section 7 is extended by `d0_coactivation.analyse.json`,
 `d0_coactivation.json`, `d0_analyse.log` and `d0_analyse.wallclock.txt`.*
+
+---
+
+# PART III - THE B3 REPAIR, AND THE NUMBER PARTS I AND II NEVER HAD
+
+*Part III answers the Controller audit of 2026-08-29 (`audits/CONTROLLER_D0_AUDIT.md`) on its one
+BLOCK that bore on the science, B3, and then does the thing both earlier parts deferred: it carves the
+donor and measures BPB end to end. Two new artefacts:
+`results/d0_b3_treatment_spread.json` (B3) and `results/d0_carved_bpb_paired.json` (the carve).
+Nothing here re-reads a mask that Part II did not already read.*
+
+---
+
+## 12. B3 - the arm was not reproducible; it is now, and its error bar was the wrong one
+
+### 12.1 The defect and the repair
+
+The Controller's B3 is upheld in full. `CLUSTER_SEED` was passed to `KMeans(random_state=)` only. The
+rank-64 sketch that *produces the features k-means clusters* comes from `torch.svd_lowrank(X, q=64,
+niter=4)` (`d0_layout.py:143`, `:182`), which draws a Gaussian from torch's **global** RNG, and
+`torch.manual_seed` was never called anywhere in `d0_coactivation.py`, `d0_layout.py` or `common.py`.
+Two identical invocations returned different partitions.
+
+The repair, recorded verbatim in `d0_b3_treatment_spread.json` under `repair`:
+
+> `torch.manual_seed(seed) before clustered_order; seed also passed to KMeans`
+
+Determinism check after the repair, `d0_b3_treatment_spread.json` -> `determinism_check`, on L27,
+`E = 64`, seed 7, same input array, repeat call:
+
+| | before repair (Controller, section B3) | after repair |
+|---|---|---|
+| ARI between two identical calls | ~0.43 | **1.0000** |
+| labels bitwise identical | no | **true** |
+
+**B3 is closed on reproducibility.** Every co-activation number in Parts I and II is now re-derivable
+from its seed.
+
+### 12.2 What the repair did *not* do: the partition is still not identified
+
+Determinism is not stability. With the RNG pinned, the arm was re-run at **8 seeds**
+(`[7, 11, 22, 33, 44, 55, 66, 77]`, `p_achieved = 0.10`, `k_active = 896`, `E = 64`). The partitions
+those seeds produce agree with each other about as badly as the unseeded ones did -
+`ARI_across_seeds_E64`, over all 28 pairs:
+
+| layer | mean ARI across seeds | min | max |
+|---|---|---|---|
+| L1 | 0.493 | - | - |
+| L7 | 0.529 | - | - |
+| L14 | 0.424 | - | - |
+| L21 | 0.514 | - | - |
+| L27 | **0.449** | 0.414 | 0.472 |
+
+**The statistic is reproducible; the expert assignment is not.** Two legitimate runs of this pipeline
+agree on roughly half the partition and report nearly the same skippable fraction. That is a real
+property of the object - the co-activation structure is diffuse, and many different partitions capture
+about the same amount of it - and it is fatal to any plan that wants to *ship one specific expert
+layout* as if it were the layout. It is not load-bearing for the aggregate claims below.
+
+### 12.3 The error bar in 11.3 was the null's, not the treatment's - correction
+
+Section 11.3 reads: *"With sd = 0.00079, the co-activation arm's +0.11051 margin at that cell is
+roughly **140 sd** above the null mean."*
+
+0.00079 is `random_std` - the **null arm's** spread across its 8 shuffles. It says how tightly the
+shuffle reproduces itself. It says nothing about how tightly *the co-activation arm* reproduces itself,
+which until now had never been measured. Now it has. Treatment sd across the 8 seeds
+(`treatment_stats[bs].sd`), against the margin at the same cell, all at `p = 0.10`:
+
+| layer | bs | margin | **treatment sd** | margin / treatment sd | null sd (what 11.3 used) |
+|---|---|---|---|---|---|
+| L1 | 12 | 0.11051 | 0.00266 | **41.6** | 0.00079 |
+| L1 | 21 | 0.11827 | 0.00238 | 49.7 | 0.00123 |
+| L1 | 140 | 0.00193 | 0.00029 | 6.6 | 0.00000 |
+| L7 | 12 | 0.03012 | 0.00083 | 36.1 | 0.00063 |
+| L7 | 140 | 0.00012 | 0.00003 | 4.7 | 0.00000 |
+| L14 | 12 | 0.03411 | 0.00173 | 19.8 | 0.00050 |
+| L21 | 12 | 0.09530 | 0.00351 | 27.2 | 0.00108 |
+| L21 | 21 | 0.09247 | 0.00328 | 28.2 | 0.00119 |
+| L27 | 12 | 0.23575 | 0.00434 | 54.3 | 0.00278 |
+| L27 | 21 | 0.27635 | 0.00486 | **56.9** | 0.00138 |
+| L27 | 64 | 0.15788 | 0.00341 | 46.3 | 0.00024 |
+| L27 | 140 | 0.06064 | 0.00518 | 11.7 | 0.00000 |
+
+**The correction:** at the cell 11.3 quoted, the honest figure is **41.6 sd, not 140 sd**. The
+sentence overstated the confidence by 3.4x by dividing by the wrong arm's spread. The treatment's own
+sd is 1.4x to 200x the null's, depending on the cell - and at block 140 the null's sd rounds to zero
+while the treatment's does not, which is exactly the regime where the old error bar was most
+flattering. **The direction of every claim survives; the precision claimed for it did not.**
+
+### 12.4 Re-counting the 210 cells against the treatment's own spread
+
+Part II's two counts are reproduced here unchanged, and the Controller's F1 is upheld: the row-1
+criterion (`coact_beats_identity AND coact_clears_random_spread`) is **209 of 210**, and
+`margin > generalisation_gap_in_minus_out` is **195 of 210**. Section 11.12 paired the first sentence
+with the second count.
+
+The new test - margin > 2x the treatment's *measured* sd:
+
+| test | count |
+|---|---|
+| beats identity AND clears the random spread (row-1) | 209 / 210 |
+| margin > in-sample-optimism gap (11.4) | 195 / 210 |
+| **margin > 2x measured treatment sd** | **190 / 210** |
+
+The 20 failures are not scattered. **All 20 sit at `p = 0.20`**, and 18 of the 20 at block >= 32:
+
+```
+L1  p=0.20 bs=64,128,140      L14 p=0.20 bs=32,42,64,128,140
+L7  p=0.20 bs=42,64,128,140   L21 p=0.20 bs=32,42,64,128,140
+L27 p=0.20 bs=64,128,140
+```
+
+That is the corner where the skippable fraction has already collapsed toward zero for every arm, so
+the finding is: **the structure is real everywhere it is large enough to matter, and indistinguishable
+from noise only where there is nothing left to skip.** It does not rescue any operating point.
+
+**Stated limit on this test:** the treatment sd was measured at `p = 0.10` only, and is applied here to
+the `p = 0.05` and `p = 0.20` cells unchanged. That is an extrapolation across density, not a
+measurement. It is the reason the count is reported as 190/210 rather than presented as a clean
+replacement for the other two.
+
+---
+
+## 13. The carve, measured in BPB
+
+Every number in Parts I and II is a **proxy** - skippable fraction, `relerr`, FFN output norm
+recovered. None of them is the quantity the project is judged on. This section carves the donor and
+measures BPB.
+
+### 13.1 Setup
+
+`d0_carved_bpb_paired.json` -> `config`:
+
+| | |
+|---|---|
+| experts `E` | 32 |
+| active `k` | 8 |
+| nominal activation | 0.25 |
+| `cluster_seed` | 7 |
+| router | **ORACLE top-k - upper bound** |
+| `b3_repair_applied` | **true** |
+
+The eval slice is the one every other stage used - `heldout`, 24 x 512, seed 1234, `ids_sha256`
+`a1a48dc9...`, 12,264 predicted tokens, 51,870 scored bytes - so these BPB values are directly
+comparable to the D1 baseline and to S1.
+
+The design is **paired**: per-sequence nats are written per arm to `results/d0_carved_arms/*.npy`, so
+the standard error is the paired one, not the marginal slice SE. This matters enormously here - the
+marginal slice SE on the baseline is 0.0622, which would swamp every effect below; the paired SE on
+the same comparison is 0.0042.
+
+**The router is an oracle.** It selects the `k` experts by true activation. No trainable router can
+beat it. Everything below is a **ceiling**.
+
+### 13.2 The result
+
+| arm | BPB | delta vs baseline | paired SE (seq bootstrap) | z (seq) | frac tokens worse | delta / sigma_seed |
+|---|---|---|---|---|---|---|
+| baseline (uncarved) | 0.7675950 | - | - | - | - | - |
+| L27 only, co-activation | 0.8325833 | **+0.06499** | 0.00423 | 15.4 | 0.564 | **13.0** |
+| L27 only, random null | 0.9142022 | +0.14661 | 0.00943 | 15.5 | 0.554 | 29.3 |
+| all 28 layers, co-activation | 1.8582178 | **+1.09062** | 0.06981 | 15.6 | 0.862 | **218.1** |
+| all 28 layers, random null | 2.5787313 | +1.81114 | 0.13999 | 12.9 | 0.919 | 362.2 |
+
+Co-activation against its null, paired directly (`paired_coact_vs_null`):
+
+| comparison | delta BPB | paired SE | z (seq) | z (token) |
+|---|---|---|---|---|
+| L27 only | **-0.08162** | 0.00612 | -13.3 | -27.3 |
+| all 28 layers | **-0.72051** | 0.11475 | -6.3 | -60.8 |
+
+### 13.3 The two readings, and they are both true
+
+**The permutation works.** Against a random carve at the identical budget, co-activation ordering
+recovers **0.7205 BPB of the 1.8111 a random carve costs - 39.8% of the damage** - at z = -6.3 paired
+on sequences and -60.8 on tokens. This is the first time the structure has been shown to matter on the
+*decision metric* rather than on a proxy. Part II's finding is confirmed end to end.
+
+**And the carve is unusable.** +1.09062 BPB is **218 sigma_seed**. The project's noise constant is
+0.005; this is two orders of magnitude past it. It is measured with an **oracle router**, so no
+routing improvement can move it. 86.2% of tokens get worse, so it is not a tail effect that a
+better-behaved subset could hide.
+
+The single-layer arm sharpens why. Carving **L27 alone** already costs +0.06499 - 13 sigma_seed - while
+moving only 56.4% of tokens past the median. Carving all 28 costs 1.09062, which is **16.8x** the
+single-layer cost across 28 layers: the damage compounds with depth rather than accumulating linearly,
+and there is no depth at which it is free.
+
+**40% of a catastrophe is a catastrophe.** The permutation is a real effect that is nowhere near large
+enough. That is the whole of D0 in one line, and it took an end-to-end BPB to say it.
+
+### 13.4 A free determinism check across processes
+
+The carve was measured twice, in two separate processes three days apart - the unpaired run
+(`d0_carved_bpb.json`, 2026-08-30 15:04-15:31) and the paired one (`d0_carved_bpb_paired.json`,
+2026-09-03 10:50-11:24):
+
+| arm | 08-30 run | 09-03 run | delta |
+|---|---|---|---|
+| baseline | 0.767594960 | 0.767594964 | 4e-09 |
+| L27_coact | 0.832583242 | 0.832583259 | 1.7e-08 |
+| L27_null | 0.914202210 | 0.914202210 | 0 |
+| all_coact | 1.858217812 | 1.858217850 | 3.8e-08 |
+| all_null | 2.578731371 | 2.578731345 | -2.6e-08 |
+
+Max absolute deviation **3.8e-08**, i.e. fp32 summation order, ~1e-5 of sigma_seed. The whole forward
+path, the partitioning, the oracle router and the BPB accounting reproduce across processes and across
+days. The baseline also matches C1's independently-measured 0.7675949601
+(section 11 `control_C1_losslessness`) and S1's 0.767594952 to 8 decimal places.
+
+---
+
+## 14. Where the audit's findings now stand
+
+| # | finding | status after Part III |
+|---|---|---|
+| B1 | `FFN_active` minimum is 0.3911, not 0.5097 | **UPHELD** - the 11.12 sentence is wrong and is withdrawn; the tables were always right |
+| B2 | 11.7b "per-token bytes, lossless" is not a byte count | **UPHELD, still open** - not touched by Part III; the column stays withdrawn pending a rewrite |
+| B3 | co-activation arm not reproducible at fixed seed | **CLOSED** - repaired, ARI 1.0000, labels identical (12.1); the treatment's real spread now measured (12.2-12.4) |
+| F1 | 195/210 attributed to the wrong test | **UPHELD** - the two counts are 209/210 and 195/210 (12.4) |
+| F4 | the real bound is `FFN_active >= (1+2p)/3` | **UPHELD, still open** |
+| F5 | "structure vanishes at block 140" is an absolute-margin artefact | **UPHELD** - 12.3 shows block 140 is where the *old* error bar was most flattering; in ratio the effect persists |
+| F6 | `coactivation_best` is a max over four arms selected on the held-out half | **UPHELD, and now moot** - section 13 selects nothing; it carves at a fixed `E`, `k` and measures BPB |
+| F8 | no positive control on the fidelity path | **PARTLY ANSWERED** - section 13's random-null arm is a genuine negative control on the *decision metric*, and the co-activation arm clears it at z = -6.3 |
+
+The Controller's summary judgement - *"three independent over-statements all push in the same
+direction... the failure is in the summary sentences, not in the measurement"* - is confirmed by
+Part III from the other side: the measurement was good enough that an end-to-end BPB carve landed
+exactly where the tables implied it would.
+
+---
+
+## 15. Verdict
+
+**FFN co-activation carving is closed as a negative on this donor, on both halves of the question.**
+
+1. **Fidelity (Part I):** with an oracle router, the carve loses 59.5% to 94.7% of the FFN output norm
+   at the budget the adapter needs.
+2. **Structure (Part II):** the co-activation permutation is real, and clears its null in 209 of 210
+   cells - but at a granularity (block 12-21) far finer than any expert layout can use.
+3. **Reproducibility (Part III, section 12):** the arm is now deterministic; its own error bar is
+   1.4-200x the one the document had been quoting; 190 of 210 cells survive that stricter test, and
+   the 20 that do not are all at the density where nothing is left to skip.
+4. **BPB (Part III, section 13):** the carve costs **+1.09 BPB = 218 sigma_seed with an oracle
+   router.** The structure is worth 39.8% of the damage. The remainder is disqualifying.
+
+**What stays open is not this axis - it is scale.** Every number above is measured at 1.5B, and FFN
+sparsity is known to rise with model size (46.5% / 50.5% / 71.7% at 0.5B / 1.5B / 14B). We are
+measuring at the bottom of that curve. Whether the carve is merely bad here or bad everywhere is the
+question S1 was pre-registered to answer, and it is why S1's scale arm was made mandatory
+(`briefs/BRIEF_S1_WHICH_BAR_PREDICTS_BPB.md`, Amendment 1, commit `f90ac3d`).
+
+**Do not open the joint sparsity+permutation brief on the strength of 13.3's first reading.** The
+39.8% recovery is real and it is not enough; the only thing that could change that verdict is a
+different point on the scale curve, not a better router - the router here is already an oracle.
+
+---
+
+*Part III added no new capture. Section 12 read mask files already on disk; section 13 loaded the donor
+and ran five BPB arms on the standing eval slice. Artefacts: `d0_b3_treatment_spread.json`,
+`d0_b3_sweep.log`, `d0_b3.wallclock.txt`, `d0_carved_bpb.json`, `d0_carved_bpb.log`,
+`d0_carved_bpb_paired.json`, `d0_carved_bpb_paired.log`, `d0_carved_arms/*.npy` (5 arms, per-sequence
+nats), `d0_carved_labels_E32.npz`. Peak RSS 9.05 GB.*

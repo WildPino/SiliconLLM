@@ -1,0 +1,249 @@
+{
+ "config": {
+  "E": 32,
+  "k": 8,
+  "nominal_activation": 0.25,
+  "cluster_seed": 7,
+  "router": "ORACLE top-k -- upper bound",
+  "b3_repair_applied": true
+ },
+ "env": {
+  "stage": "carved_bpb_paired",
+  "utc": "2026-09-03T09:24:14Z",
+  "git_revision": "684de6e59f787cc3c5bd24cb3378df388e747092",
+  "git_branch": "research/donor-adaptation",
+  "git_dirty_at_launch": true,
+  "command_line": "python C:/Users/giosa/AppData/Local/Temp/claude/D---THINGS-Progetti-SiliconLLM/1f268f4b-0a3c-40c3-a2f9-63f38f70de0c/scratchpad/carved_bpb_paired.py",
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+  "cpu_count": 12,
+  "torch": "2.12.0+cpu",
+  "numpy": "2.4.6",
+  "transformers": "4.57.6",
+  "torch_num_threads_achieved": 6,
+  "env_D_THREADS": 6,
+  "env_D0_ALL_LAYERS": true,
+  "memory_at_stage_start": {
+   "total_gb": 79.95,
+   "free_gb": 41.61
+  },
+  "resident_heavyweight_processes": [
+   {
+    "Name": "python",
+    "Id": 25280,
+    "WS_GB": 10.42
+   },
+   {
+    "Name": "python",
+    "Id": 24252,
+    "WS_GB": 7.17
+   },
+   {
+    "Name": "LeagueClient",
+    "Id": 28428,
+    "WS_GB": 1.04
+   },
+   {
+    "Name": "League of Legends",
+    "Id": 27496,
+    "WS_GB": 0.97
+   },
+   {
+    "Name": "chrome",
+    "Id": 28364,
+    "WS_GB": 0.54
+   },
+   {
+    "Name": "MsMpEng",
+    "Id": 14036,
+    "WS_GB": 0.49
+   },
+   {
+    "Name": "RiotClientServices",
+    "Id": 20452,
+    "WS_GB": 0.47
+   },
+   {
+    "Name": "claude",
+    "Id": 25160,
+    "WS_GB": 0.45
+   }
+  ],
+  "quiescence_gate": "NONE BY DESIGN -- D0 measures activation statistics, not bandwidth.",
+  "pinned": {
+   "donor": "Qwen/Qwen2.5-1.5B",
+   "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+   "bpb_eval_slice": {
+    "part": "heldout",
+    "n_seq": 24,
+    "seq_len": 512,
+    "seed": 1234,
+    "source": "imported from d1_pruning.py"
+   },
+   "fit_slice": {
+    "part": "calib",
+    "n_seq": 32,
+    "seq_len": 512,
+    "seed": 42424
+   },
+   "score_slice": {
+    "part": "heldout",
+    "n_seq": 32,
+    "seq_len": 512,
+    "seed": 909001
+   },
+   "deep_layers": [
+    1,
+    7,
+    14,
+    21,
+    27
+   ],
+   "depth_sweep_E": 64,
+   "p_max_stored": 0.25,
+   "densities_requested": [
+    0.05,
+    0.1,
+    0.2
+   ],
+   "p_primary": 0.1,
+   "random_seeds": [
+    11,
+    22,
+    33,
+    44,
+    55,
+    66,
+    77,
+    88
+   ],
+   "cluster_seed": 7,
+   "lossless_perm_seed": 20260828,
+   "E_list": [
+    16,
+    32,
+    64,
+    128
+   ],
+   "k_list": [
+    1,
+    2,
+    4,
+    8,
+    16
+   ],
+   "dup_tokens": 2048,
+   "fidelity_tokens": 2048,
+   "bytes_per_weight": 0.5,
+   "block_bytes": 49152
+  }
+ },
+ "arch_achieved": {
+  "n_layers": 28,
+  "d_model": 1536,
+  "d_ffn": 8960,
+  "n_heads": 12,
+  "n_kv_heads": 2,
+  "vocab": 151936,
+  "tie_word_embeddings": true,
+  "hidden_act": "silu",
+  "revision": "8faed761d45a263340a0528343f099c05c9a4323"
+ },
+ "bpb_eval_slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+ },
+ "n_predicted_tokens": 12264,
+ "bpb": {
+  "baseline": 0.7675949641196624,
+  "L27_coact": 0.8325832591829274,
+  "L27_null": 0.9142022099810019,
+  "all_coact": 1.8582178498441495,
+  "all_null": 2.5787313453805165
+ },
+ "marginal_slice_se": {
+  "baseline": 0.06220850117530875,
+  "L27_coact": 0.065507790363244,
+  "L27_null": 0.07105515371007201,
+  "all_coact": 0.09112850904947008,
+  "all_null": 0.12176656816859437
+ },
+ "paired_vs_baseline": {
+  "L27_coact": {
+   "delta_bpb": 0.06498829506326498,
+   "paired_se_sequence_bootstrap": 0.00422858597671264,
+   "paired_se_per_token": 0.0021330951561292348,
+   "n_sequences": 24,
+   "n_tokens": 12264,
+   "z_sequence_paired": 15.36880068684042,
+   "z_token_paired": 30.46666477889073,
+   "frac_tokens_worse": 0.5635192433137639
+  },
+  "L27_null": {
+   "delta_bpb": 0.14660724586133947,
+   "paired_se_sequence_bootstrap": 0.009430118645647911,
+   "paired_se_per_token": 0.0035480619160572903,
+   "n_sequences": 24,
+   "n_tokens": 12264,
+   "z_sequence_paired": 15.546702154060394,
+   "z_token_paired": 41.32037414506388,
+   "frac_tokens_worse": 0.5536529680365296
+  },
+  "all_coact": {
+   "delta_bpb": 1.090622885724487,
+   "paired_se_sequence_bootstrap": 0.06981146394634487,
+   "paired_se_per_token": 0.010888387323464524,
+   "n_sequences": 24,
+   "n_tokens": 12264,
+   "z_sequence_paired": 15.622403887171156,
+   "z_token_paired": 100.16385836809735,
+   "frac_tokens_worse": 0.8621167645140247
+  },
+  "all_null": {
+   "delta_bpb": 1.8111363812608539,
+   "paired_se_sequence_bootstrap": 0.13999832998571787,
+   "paired_se_per_token": 0.014235562872296484,
+   "n_sequences": 24,
+   "n_tokens": 12264,
+   "z_sequence_paired": 12.936842756950169,
+   "z_token_paired": 127.22618680470069,
+   "frac_tokens_worse": 0.9193574690150033
+  }
+ },
+ "paired_coact_vs_null": {
+  "L27": {
+   "delta_bpb": -0.08161895079807449,
+   "paired_se_sequence_bootstrap": 0.006118537016324521,
+   "paired_se_per_token": 0.0029905633848413813,
+   "n_sequences": 24,
+   "n_tokens": 12264,
+   "z_sequence_paired": -13.339618699749892,
+   "z_token_paired": -27.29216548687315,
+   "frac_tokens_worse": 0.46665035877364647
+  },
+  "all_layers": {
+   "delta_bpb": -0.7205134955363668,
+   "paired_se_sequence_bootstrap": 0.11475043281873985,
+   "paired_se_per_token": 0.011847419459491795,
+   "n_sequences": 24,
+   "n_tokens": 12264,
+   "z_sequence_paired": -6.2789610273147485,
+   "z_token_paired": -60.816070368734444,
+   "frac_tokens_worse": 0.28416503587736464
+  }
+ },
+ "sigma_seed_for_scale": 0.005,
+ "mem_peak": {
+  "rss_gb": 7.172,
+  "peak_rss_gb": 9.049
+ }
+}
