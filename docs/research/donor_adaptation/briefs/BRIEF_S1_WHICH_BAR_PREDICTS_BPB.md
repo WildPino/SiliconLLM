@@ -138,3 +138,102 @@ of that decoupling, but a few paragraphs of output cost nothing and have caught 
 > the whole programme**, since it reopens a lever we spent today closing.
 > **Write no number from a stage still running.**
 > `σ_seed = 0.005 BPB`. **MMLU never inside an average**, and it is not this probe's metric in any case.
+
+---
+
+## AMENDMENT 1 — 2026-09-03, the Adapter / Principal — the scale arm becomes runnable
+
+**Appended, not edited in place. Pre-registered before the arm exists.**
+
+§1 of this brief declared the scale question mandatory and then conceded it might be infeasible:
+*"If only one size is feasible, say so in the report's first paragraph and mark every conclusion
+size-local."* **The Owner has since made Kaggle T4×2 available, and the concession is withdrawn.** The scale
+arm is now required, not optional.
+
+### A1.1 Why this arm outranks everything else in the brief
+
+Every FFN-sparsity result this programme holds was measured at **Qwen2.5-1.5B**:
+
+| result | value | measured at |
+|---|---|---|
+| F1 oracle bound on `|h_i|` | `a` = **0.836** | 1.5B |
+| F1 threshold ladder | `a` = 0.951 at ε=0.01 | 1.5B |
+| D0 carved-model BPB, 28 layers, 25% active, oracle router | **+1.09 BPB** (0.7676 → 1.8582) | 1.5B |
+
+And the one published measurement on the size axis runs the other way — arXiv:2509.00454 **[T] Table 1**:
+`S_inter` **46.54%** at 0.5B, **50.49%** at 1.5B, **71.66%** at 14B.
+
+> **Our donor sits near the bottom of a rising trend, and the plan's targets are 26B and above.**
+> A negative measured there does not transfer upward. Treating it as if it did is the `h = 128` error with
+> the sign flipped — a quantity validated at one width and assumed scale-free. **This programme has made
+> that error before and it is the reason this arm exists.**
+
+### A1.2 ⚠ THE CONTROL THAT MAKES THE TREND READABLE — non-negotiable
+
+1.5B was measured **on this machine, on CPU, in fp32**. 7B and 14B would be measured **on Kaggle, on T4
+GPUs, in fp16**. Those differ in platform, in device, and in numerical precision.
+
+> **A trend computed across those two conditions confounds SCALE with PLATFORM, and would be worthless.**
+>
+> **Mandatory: reproduce the 1.5B point on the Kaggle GPU path, with the same code, and show it matches the
+> local CPU result.** That anchor is the control. **If the 1.5B GPU and CPU numbers disagree by more than
+> `σ_seed = 0.005 BPB`, STOP and report the discrepancy — do not proceed to the larger sizes**, because the
+> instrument would then be measuring the platform.
+
+Report fp16-vs-fp32 as a stated, quantified difference at 1.5B, not as an assumption.
+
+### A1.3 Sizes, and the memory arithmetic — read before choosing
+
+Kaggle T4×2 is **2 × 16 GB**, no NVLink, fp16 native (Turing — **no bf16**, see the project's training-infra
+note).
+
+| donor | fp16 weights | fits? |
+|---|---|---|
+| Qwen2.5-0.5B | ~1.0 GB | trivially |
+| **Qwen2.5-1.5B** | ~3.1 GB | trivially — **this is the anchor, run it first** |
+| **Qwen2.5-7B** | ~15.2 GB | **yes**, `device_map` across both cards |
+| Qwen2.5-14B | ~29.6 GB | tight across both cards; **see the warning below** |
+
+> **Do NOT reach for 8-bit or 4-bit quantisation to make 14B fit.** This probe measures **activation
+> statistics**, and quantising the weights changes the activations we are measuring. That would confound the
+> result with the very axis under test. **If 14B does not fit in fp16, run 7B and say 14B did not fit** —
+> three points (0.5B, 1.5B, 7B) already establish a trend, and an honest gap beats a contaminated point.
+
+**S1 scales far more easily than F1 does, and this is worth knowing:** S1's published rule is a **pure
+per-token threshold with no fitting**, so it needs **no covariance accumulator**. F1's `H` is `L × [D,D]`
+fp64 — 0.53 GB at 1.5B, but **~10 GB at 14B** (`D`=5120, `L`=48), which is what would actually break. Arms A,
+C and D need only the intermediate vector; **only arm B carries a fitted θ**, and it fits a scalar per layer.
+
+### A1.4 What to report
+
+**The deliverable becomes a family of curves: BPB against ACHIEVED FFN sparsity, one curve per donor size,
+on one set of axes.** All four arms at every size, at matched achieved sparsity, with paired standard errors
+as already required.
+
+Then the two questions that decide the programme:
+
+1. **Does the achievable sparsity at a fixed BPB cost rise with donor size?** If it does, at what rate, and
+   does an extrapolation to 26B clear the `α = 0.125` target the budget needs?
+2. **Does the oracle bound move?** F1's `a` = 0.836 is currently the ceiling that closes the lever.
+   **Compute the same oracle-on-`|h_i|` bound at every size.** If it falls materially with scale, F1's
+   closure is size-local and must be reopened — **and that is the outcome most worth finding.**
+
+### A1.5 Operational constraints
+
+- **Kaggle budget is 30 GPU-h/week per account across 3 accounts**, and this is measurement, not training —
+  no gradients, no optimiser, no distillation. **It touches no sealed constraint.**
+- **The Owner launches long runs.** Per standing practice: the Builder smokes it, verifies it end-to-end at
+  0.5B, **STOPs with a ready-to-run command and a stated GPU-hour estimate**, and does not start the real
+  run itself.
+- Existing plumbing: `scripts/kaggle_ops.py` and `kaggle_run.py`. **Reuse them; do not invent a new
+  launcher.** Note the known trap recorded in the project's Kaggle memory: **a global OAuth access token
+  overrides `KAGGLE_CONFIG_DIR`**, which has cost this project a night before.
+- Kaggle duplicates subprocess stdout 2–3×. **Do not count log lines as evidence; use logical invariants.**
+
+### A1.6 What does not change
+
+Everything in §2 through §5: the four arms, matched achieved sparsity, the four controls (C1 identity to
+full precision, C2 planted, C3 null fires, C4 achieved-from-masks), `σ_seed = 0.005`, ACHIEVED never
+requested, and §4's warning that **this probe measures whether the sparsity EXISTS, not whether our 48 KB
+block granularity can exploit it** — D0 has already answered the second question, and a good curve here does
+not revive the carve.
