@@ -118,3 +118,31 @@ between the two is the honest cost of being a real runtime rather than a weight-
 - Larger donors. Everything here is 0.5B; the exporter is size-agnostic but nothing above 0.5B has
   been exported or run.
 - KV cache is fp32 and unquantized. Untouched, and it is the term that grows with context.
+
+---
+
+## 8. AMENDMENT (2026-09-04, same day) — the rates in §4 and §6 were contended
+
+Everything above was timed while this machine was also running heavy probes. Re-measured on an
+idle machine, three consecutive `--bench 300` repetitions, same binary, same weights:
+
+| config | tok/s | reproducibility |
+|---|---|---|
+| packed + ternary head, t6 | **48.24 / 48.28 / 48.33** | ±0.05 |
+| **`--lut`** (built after this report) | 51.05 / 50.22 / 50.47 | one outlier at 46.44 |
+
+**§6's "40–46 tok/s" and `SPEED_LEDGER.md` §10's 36.1 tok/s are withdrawn as rates.** The honest
+figure for this runtime at 0.5B is **48.3 tok/s**, and the delivered weight rate is **25.1
+G-weights/s** (494.0 M active weights / 19.69 ms of weight-matvec), not the 18.6 that §10 recorded
+and that had already been propagated into `donor_speed_budget.py` and `INDEX.md`. The full
+re-measurement, with the per-organ profile, is `SPEED_LEDGER.md` §11.
+
+**§4.2 and §7 named the LUT kernel "the remaining lever on this term". It has been built, and it
+is worth 1.05×** — ffn ×1.07, head ×1.18, and `qkv_proj` actually got *slower*. Its correctness is
+established (bit-exact vs a scalar-integer reference, two planted controls firing) and its cost is
+not correctness but the int8 activations it requires, measured separately. So the sentence in §4.2
+stands as a description of where the time is, and fails as a prediction of what could be done
+about it: **§7's first owed item is now closed with a negative.**
+
+The trajectory in §1 of `INDEX.md` should be read as 23.5 → 38.0 (ternary head) → 48.3 (packed)
+→ 51.0 (LUT). **The only large win in that chain remains the one from profiling — the head.**
