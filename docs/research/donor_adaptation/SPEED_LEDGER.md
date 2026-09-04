@@ -1,6 +1,8 @@
 # The Speed Ledger — what a donor must cost per token for engine.c to hit 50 / 100 tok/s
 
 **Date: 2026-09-04. Author: the Adapter / Principal. Status: ARITHMETIC, NOT MEASUREMENT.**
+**AMENDED 2026-09-04 by `probes/P2_EXPERT_PATH_DECOMPOSITION.md`: §4's bracket is CLOSED and §3's
+optimistic headline is WITHDRAWN. The amendments are inline below, marked. Nothing has been deleted.**
 **Generator: `benchmarks/donor_adaptation/speed/donor_speed_budget.py` (`--show-sources` prints the
 provenance of every constant). Raw: `speed/donor_speed_budget_ctx4096.json`.**
 
@@ -78,16 +80,38 @@ Split-path model: FFN on the expert path (17.0 GB/s kernel-pure), attention + he
 | **4-bit (what the engine emits today)** | 5.24 ms | 34.00 ms | 2.80 ms | **23.8** | **≤ 35.2%** | ≤ 5.8% |
 | **1.6-bit (queued at E4, never built)** | 2.09 ms | 13.60 ms | 2.80 ms | **54.1** | *already fits dense* | ≤ 37.6% |
 
-Read the second row. **With the denser pack and the expert-path overhead fixed, Qwen2.5-1.5B reaches
+~~Read the second row. **With the denser pack and the expert-path overhead fixed, Qwen2.5-1.5B reaches
 50 tok/s with no carve at all — no quality damage of any kind.** And 100 tok/s needs only ≤ 37.6% FFN
-activation.
+activation.~~
+
+> ### ⛔ WITHDRAWN 2026-09-04 — P2 measured the assumption and it was wrong
+>
+> The 1.6-bit row above assumed a denser pack shrinks the FFN term by the full 2.5×.
+> **`probes/P2_EXPERT_PATH_DECOMPOSITION.md` measured the expert path's arithmetic floor directly and
+> found only ~40% of it is memory** (outcome MIXED, `c/r = 0.593`, five repeats, ordering and
+> planted-negative controls both passed). A denser pack therefore buys **1.32× on the FFN, not 2.5×**.
+> Corrected table:
+>
+> | packing | attn+head | FFN dense | KV | **dense tok/s** | FFN act. for 50 t/s |
+> |---|---|---|---|---|---|
+> | 4-bit | 5.24 ms | 33.60 ms | 2.80 ms | **24.0** | ≤ 35.6% |
+> | 1.6-bit | 2.09 ms | 25.39 ms | 2.80 ms | **33.0** | ≤ 59.5% |
+> | 1.6-bit, conservative | 5.24 ms | 25.39 ms | 2.80 ms | **29.9** | ≤ 47.1% |
+>
+> **Qwen2.5-1.5B does NOT reach 50 tok/s dense. It reaches 30-33 tok/s, and the target needs
+> sparsity after all** — but at **35.6%-59.5% FFN activation**, not the 25% D0/D0c carved at. What the
+> carve costs at 40-60% activation has never been measured, and that is now the obvious next quality
+> probe.
 
 Against that, what the carve costs: D0c measured **+0.70611 BPB = 141 σ_seed** at 25% activation, at
 the finest *legal* granularity, **with an oracle router** — on a baseline of 0.7676, i.e. nearly
 doubling bits per byte. The comparison is not close.
 
-> **The cheapest route to the speed target on this donor is not a better carve. It is two pieces of
-> engineering the project already identified and never built.**
+> **The cheapest route to the speed target on this donor is not a better carve** — but after P2 it is
+> not the packing alone either. The standing order is: the **~8.4 µs/expert integrated overhead**
+> (3.9×, and untouched by P2's decomposition) first; the denser pack second, now priced at **1.32× on
+> the FFN** rather than 2.5×; and then a carve at the **35-60% activation the target actually asks
+> for**, which is 1.4×-2.4× gentler than the 25% every carve result in this programme was measured at.
 
 ## 4. ⚠ The bracket I cannot close, and it is wide
 
@@ -103,13 +127,28 @@ Both readings, on Qwen2.5-1.5B at 1.6-bit:
 | bandwidth-bound (denser pack helps the FFN) | **54.1** |
 | gather-bound (denser pack helps attn+head and footprint only) | **25.7** |
 
-**That is a 2.1× bracket and it decides whether the goal is close or far.** It is closable by one
-cheap microbench on machinery that already exists (`benchmarks/phase64/bench_64_1b.sh`, the 64.1b
-expert-pool harness): re-run the 48 KB i.i.d. expert gather at a smaller bytes-per-expert and see
-whether µs/expert falls with the bytes or stays flat. **No new apparatus, no training, no GPU.**
+**That is a 2.1× bracket and it decides whether the goal is close or far.**
 
-Until it is run, the 1.6-bit column everywhere in the generator is an **upper bound on the FFN term**
-and unambiguous only on attention, the head, and DRAM footprint.
+> ### ✅ CLOSED 2026-09-04 — `probes/P2_EXPERT_PATH_DECOMPOSITION.md`
+>
+> Measured, not argued. Three arms over the identical kernel, varying only which expert each touch
+> reads: i.i.d. random (512 MB pool), sequential, and **constant expert 0** — the last one L1-resident,
+> so its µs/expert is the arithmetic floor with memory removed.
+>
+> **At t6: r = 2.857 µs, c = 1.693 µs → the memory term is 1.164 µs = 40.7% of the path.**
+> Outcome **MIXED** in all five repeats (`c/r` 0.490-0.632); neither pre-registered edge approached.
+> A cross-check nobody arranged: the isolated memory term divided by its bytes gives **42.2 GB/s**,
+> landing on the DRAM aggregate ceiling of 40-44 GB/s that §1 registers from a separate bench months
+> earlier.
+>
+> **The bracket collapses from 25.7-54.1 tok/s (2.10×) to 29.9-33.0 (1.10×), toward the pessimistic
+> edge.** The 1.6-bit column in the generator remains an **upper bound**, now a quantified one.
+>
+> **Still owed:** the same decomposition on the **proj** path. P2 split the expert path only, and §3's
+> attention/head figures still assume denser packing helps them in full. `PHASE64_BUDGET.md` §1 says
+> the fp32 projections run at aggregate bandwidth when threaded, which is evidence — but it was
+> measured on fp32, and P2's whole result is that a kernel can have a large compute floor at small
+> byte counts.
 
 ## 5. The donor menu — and the thing that was hiding in the cache
 

@@ -1,0 +1,29 @@
+# P2 expert-path decomposition -- brief BRIEF_P2_EXPERT_PATH_DECOMPOSITION.md
+# host: MINGW64_NT-10.0-26200 3600X reference; build: clang -O3 -mavx2 -mfma -ffp-contract=on -fopenmp (generic x86-64-v3, no -march)
+# OMP_PLACES=cores OMP_PROC_BIND=close
+# git: e77b790d7296f6d6e0c254d8b05005cb87fe7586
+# utc: 2026-09-04T10:26:47Z
+
+== kernel selftest ==
+==== engine kernel self-test (synthetic, no weights): all LUT paths vs scalar-int ====
+  73024 checks | worst |S - S_ref| = 0  PASS
+  exp256_ps vs libm on [-30,0]: max rel err = 1.191e-07  PASS (<=2e-6)
+
+== replication of registered 64.1b --expert-rate ==
+==== 64.1b(2) expert-pool DRAM rate (real LUT kernel; 512 MB pool = 10922 experts x 48 KB; 48 touches/token, i.i.d.) ====
+   threads |  GB/s   us/token  us/expert
+   1       |   7.98     295.8     6.162
+   6       |  17.29     136.5     2.843
+
+==== P2 expert-path decomposition (512 MB pool = 10922 experts x 48 KB; 48 touches/token) ====
+   arm                       threads |  GB/s   us/token  us/expert   checksum
+   R i.i.d. random (512 MB) 1       |   7.44     317.2     6.609  48954
+   R i.i.d. random (512 MB) 6       |  15.20     155.2     3.233  48954
+   S sequential stride-1     1       |   8.16     289.1     6.023  48009
+   S sequential stride-1     6       |  18.54     127.2     2.651  48009
+   C constant expert 0 (L1)  1       |  16.32     144.5     3.011  192000
+   C constant expert 0 (L1)  6       |  31.03      76.0     1.584  192000
+   -- t1   r=6.609  s=6.023  c=3.011 us/expert | memory_term=3.598 us (54.4% of r) | c/r=0.456 | ordering C<=S<=R: OK
+   -- t1   pre-registered label: MIXED
+   -- t6   r=3.233  s=2.651  c=1.584 us/expert | memory_term=1.649 us (51.0% of r) | c/r=0.490 | ordering C<=S<=R: OK
+   -- t6   pre-registered label: MIXED

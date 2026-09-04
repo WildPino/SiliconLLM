@@ -866,6 +866,57 @@ static void run_expert_rate(void){
     free(pool); free(y);
 }
 
+// ---------------- P2: expert-path decomposition (brief BRIEF_P2_EXPERT_PATH_DECOMPOSITION.md) ------
+// Three arms over the SAME kernel, same M/Mpad/T/EB, same LUT, same call count. The ONLY thing that
+// varies is WHICH expert each touch reads:
+//   R  i.i.d. random over the 512 MB pool  -- replicates 64.1b's registered 2.88 us/expert
+//   S  sequential stride 1                 -- prefetch-friendly edge of the memory term
+//   C  always expert 0 (48 KB, L1-resident) -- the pure ARITHMETIC floor, memory term ~0
+// memory_term = us/expert(R) - us/expert(C). Decides SPEED_LEDGER.md §4's 2.1x bracket.
+// This function is reached only via --expert-decomp; no existing code path is touched.
+static void run_expert_decomp(void){
+    const int M=384,Mpad=384,T=128; const size_t EB=(size_t)T*Mpad;   // 49152 B, identical to run_expert_rate
+    const size_t POOL=512UL*1048576; long NE=(long)(POOL/EB);
+    const int LAYERS=6,K=8; long per_tok=(long)LAYERS*K;
+    int8_t* pool=xmalloc((size_t)NE*EB);
+    for(size_t i=0;i<(size_t)NE*EB;i++) pool[i]=(int8_t)((i*2654435761u)%9u);
+    int8_t lut[T*16]; int8_t xq[2*T]; for(int i=0;i<2*T;i++) xq[i]=(int8_t)((i%5)-2); build_lut_t3(xq,T,lut);
+    int32_t* y=xmalloc((size_t)M*4);
+    printf("==== P2 expert-path decomposition (%ld MB pool = %ld experts x %ld KB; %ld touches/token) ====\n",
+           (long)(POOL/1048576),NE,(long)(EB/1024),per_tok);
+    printf("   arm                       threads |  GB/s   us/token  us/expert   checksum\n");
+    const char* names[3]={"R i.i.d. random (512 MB)","S sequential stride-1    ","C constant expert 0 (L1) "};
+    double us_exp[3][2];
+    for(int arm=0;arm<3;arm++) for(int ti=0;ti<2;ti++){ int nt=ti?6:1;
+#ifdef _OPENMP
+        omp_set_num_threads(nt); g_omp_on=(nt>1);
+#endif
+        uint64_t rng=0x9e3779b97f4a7c15ULL; long ntok=500,touches=0,seq=0;
+        for(long e=0;e<per_tok;e++){ rng^=rng<<13; rng^=rng>>7; rng^=rng<<17;
+            size_t idx = arm==0 ? (size_t)(rng%NE) : (arm==1 ? (size_t)((seq++)%NE) : (size_t)0);
+            matvec_lut_full(pool+idx*EB,lut,y,M,Mpad,T); }                                   // warm
+        long acc=0; double t0=now_s();
+        for(long tok=0;tok<ntok;tok++) for(long e=0;e<per_tok;e++){ rng^=rng<<13; rng^=rng>>7; rng^=rng<<17;
+            size_t idx = arm==0 ? (size_t)(rng%NE) : (arm==1 ? (size_t)((seq++)%NE) : (size_t)0);
+            matvec_lut_full(pool+idx*EB,lut,y,M,Mpad,T); touches++; acc+=y[0]; }
+        double dt=now_s()-t0;
+        us_exp[arm][ti]=dt/touches*1e6;
+        printf("   %s %-7d |  %5.2f  %8.1f  %8.3f  %ld\n",names[arm],nt,
+               (double)touches*EB/1e9/dt,dt/ntok*1e6,dt/touches*1e6,acc);
+    }
+    // The decomposition and its two pre-registered controls, computed here so no reader has to.
+    for(int ti=0;ti<2;ti++){ int nt=ti?6:1;
+        double r=us_exp[0][ti], sq=us_exp[1][ti], c=us_exp[2][ti];
+        int ordering_ok = (c<=sq*1.05) && (sq<=r*1.05);
+        printf("   -- t%-2d  r=%.3f  s=%.3f  c=%.3f us/expert | memory_term=%.3f us (%.1f%% of r) | c/r=%.3f | ordering C<=S<=R: %s\n",
+               nt,r,sq,c,r-c,100.0*(r-c)/r,c/r,ordering_ok?"OK":"VIOLATED -- RUN VOID");
+        printf("   -- t%-2d  pre-registered label: %s\n", nt,
+               (c>=0.95*r||!ordering_ok) ? "INSTRUMENT-FAILURE" :
+               (c<=0.30*r) ? "BANDWIDTH-BOUND" : (c>=0.70*r) ? "COMPUTE-BOUND" : "MIXED");
+    }
+    free(pool); free(y);
+}
+
 // ---------------- synthetic kernel self-tests (no weights; CI) ----------------
 static int kernel_selftest(void){
     int rc=0; srand(45678); long checks=0; int worst=0;
@@ -918,7 +969,7 @@ int main(int argc,char**argv){
     int mlp_lut=1,skip=1,exp_fast=1;                 // default = the full optimized config
     int do_bpb=0,do_logits=0,do_tm=0; long seqW=512,eval_tok=200000,ntok=10240,offset=0,timetok=3000;
     int threads=1; const char* wp=NULL; const char* dumpto=NULL;
-    int block=0,gen_verify=0,nseed=3,do_g3b=0,do_g3c=0,do_gemvsweep=0,do_exprate=0; long genlen=800,emu_mb=128; const char* ngpath=NULL;
+    int block=0,gen_verify=0,nseed=3,do_g3b=0,do_g3c=0,do_gemvsweep=0,do_exprate=0,do_expdecomp=0; long genlen=800,emu_mb=128; const char* ngpath=NULL;
     for(int i=1;i<argc;i++) if(!strcmp(argv[i],"--pack")&&i+1<argc){          // pre-scan: must be set before load_weights
         if(!strcmp(argv[i+1],"nibble")) g_pack_nib=1; else if(!strcmp(argv[i+1],"byte")) g_pack_nib=0;
         else { fprintf(stderr,"--pack must be byte|nibble\n"); return 1; } }
@@ -931,6 +982,7 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--g3c")){ do_g3c=1; continue; }
         else if(!strcmp(argv[i],"--gemv-sweep")){ do_gemvsweep=1; continue; }
         else if(!strcmp(argv[i],"--expert-rate")){ do_exprate=1; continue; }
+        else if(!strcmp(argv[i],"--expert-decomp")){ do_expdecomp=1; continue; }
         else if(!strcmp(argv[i],"--emu-mb")&&i+1<argc){ emu_mb=atol(argv[++i]); continue; }
         else if(!strcmp(argv[i],"--gen-len")&&i+1<argc){ genlen=atol(argv[++i]); continue; }
         else if(!strcmp(argv[i],"--seeds")&&i+1<argc){ nseed=atoi(argv[++i]); continue; }
@@ -951,12 +1003,13 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--weights")&&i+1<argc) wp=argv[++i];
         else { fprintf(stderr,"unknown arg %s\n",argv[i]); return 1; }
     }
-    if(do_gemvsweep||do_exprate){   // 64.1b microbenches: synthetic, weight-free, self-sweep threads {1,6}
+    if(do_gemvsweep||do_exprate||do_expdecomp){   // 64.1b microbenches: synthetic, weight-free, self-sweep threads {1,6}
 #ifdef _OPENMP
         omp_set_dynamic(0);
 #endif
         if(do_gemvsweep) run_gemv_sweep();
         if(do_exprate) run_expert_rate();
+        if(do_expdecomp) run_expert_decomp();
         return 0;
     }
     if(!wp){ fprintf(stderr,"usage: engine --weights <model.bin> [--threads N] [--mlp fp32|lut] [--skip on|off] [--exp exact|fast]\n"
