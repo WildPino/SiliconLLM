@@ -3,6 +3,12 @@
 **Date: 2026-09-04. Author: the Adapter / Principal. Status: ARITHMETIC, NOT MEASUREMENT.**
 **AMENDED 2026-09-04 by `probes/P2_EXPERT_PATH_DECOMPOSITION.md`: §4's bracket is CLOSED and §3's
 optimistic headline is WITHDRAWN. The amendments are inline below, marked. Nothing has been deleted.**
+**AMENDED AGAIN by `probes/P3_DONOR_SHAPE_ON_ENGINE.md`: this ledger prices DENSE FFNs at the
+expert path's i.i.d. GATHER rate (17.0 GB/s), which is wrong — a dense donor FFN is read
+contiguously. P3 drove the donor's real shapes through the engine's real kernels and measured
+Qwen2.5-1.5B at 30.7 tok/s (t6, matvec only), i.e. this ledger is ~18% CONSERVATIVE on dense
+donors. A carved MoE donor does pay the gather rate; a dense one does not, and the two must not
+share a row here. Every "dense tok/s" figure below is a floor, not an estimate.**
 **Generator: `benchmarks/donor_adaptation/speed/donor_speed_budget.py` (`--show-sources` prints the
 provenance of every constant). Raw: `speed/donor_speed_budget_ctx4096.json`.**
 

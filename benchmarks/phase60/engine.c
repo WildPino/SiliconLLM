@@ -917,6 +917,74 @@ static void run_expert_decomp(void){
     free(pool); free(y);
 }
 
+// ---------------- P3: DONOR-SHAPE weight traffic on the real engine kernels --------------------
+// The first time any donor shape touches engine.c. Allocates the FULL ternary-packed weight stack of
+// a real donor (all layers, all seven matrices per layer, plus the output head), at the exact
+// dimensions read from the donor's own config.json, and drives one token through it with the SAME
+// matvec_lut_full + build_lut_t3 the engine uses for its own model.
+//
+// WHAT THIS IS: a measurement of the per-token WEIGHT-MATVEC cost of a donor's shapes on this
+// machine, with real DRAM traffic (the stack is hundreds of MB, far beyond L3).
+// WHAT THIS IS NOT: a port. There is no attention, no RoPE, no softmax, no KV cache, no norms, no
+// residuals, no sampling, and the weights are pseudo-random rather than the donor's. It prices the
+// dominant term -- streaming and multiplying the weights -- and nothing else.
+//
+// PRE-STATED PREDICTION (written before the first run, so this tests the ledger rather than
+// confirming it): SPEED_LEDGER.md predicts 24.0 tok/s for Qwen2.5-1.5B at 4-bit, of which 33.60 ms
+// is FFN and 5.24 ms is attn+head, KV excluded here.
+typedef struct { const char* name; int M,K; } dmat_t;
+
+static void run_donor_shape(const char* which){
+    // shapes are the donor's own config.json values; see docs/research/donor_adaptation/SPEED_LEDGER.md
+    // (named zD/zF/... because D, MLP_HID etc. are compile-time macros of the engine's own model)
+    int zD,zF,zL,zV,znh,znkv,zhd;
+    if(!strcmp(which,"qwen2.5-0.5b")){ zD=896;  zF=4864;  zL=24; zV=151936; znh=14; znkv=2; zhd=64;  }
+    else if(!strcmp(which,"qwen2.5-3b")){ zD=2048; zF=11008; zL=36; zV=151936; znh=16; znkv=2; zhd=128; }
+    else { which="qwen2.5-1.5b";      zD=1536; zF=8960;  zL=28; zV=151936; znh=12; znkv=2; zhd=128; }
+    int zqo=znh*zhd, zkvo=znkv*zhd;
+    dmat_t mats[7]={{"q_proj",zqo,zD},{"k_proj",zkvo,zD},{"v_proj",zkvo,zD},{"o_proj",zD,zqo},
+                    {"gate_proj",zF,zD},{"up_proj",zF,zD},{"down_proj",zD,zF}};
+    printf("==== P3 donor-shape weight traffic: %s  (d_model=%d d_ffn=%d layers=%d vocab=%d, GQA %d/%d, head_dim %d) ====\n",
+           which,zD,zF,zL,zV,znh,znkv,zhd);
+
+    // allocate the whole stack so the traffic is real DRAM traffic, not an L3 replay
+    size_t per_layer=0; for(int m=0;m<7;m++){ int Mp=(mats[m].M+31)&~31; per_layer+=(size_t)(mats[m].K/2)*Mp; }
+    size_t tot=per_layer*(size_t)zL;
+    int zVp=(zV+31)&~31; size_t head_bytes=(size_t)(zD/2)*zVp; tot+=head_bytes;
+    printf("   packed stack: %.1f MB/layer x %d + %.1f MB head = %.2f GB (4-bit codes, 0.5 B/weight)\n",
+           per_layer/1048576.0,zL,head_bytes/1048576.0,tot/1073741824.0);
+    int8_t* W=xmalloc(tot);
+    for(size_t i=0;i<tot;i++) W[i]=(int8_t)((i*2654435761u)%9u);          // valid base-3 g=2 code indices
+    int maxK=zF>zD?zF:zD; if(zqo>maxK)maxK=zqo;
+    int8_t* xq=xmalloc((size_t)maxK); for(int i=0;i<maxK;i++) xq[i]=(int8_t)((i%5)-2);
+    int8_t* lut=xmalloc((size_t)(maxK/2)*16);
+    int32_t* y=xmalloc((size_t)zVp*4);
+
+    printf("   threads |   layers ms |   head ms |  total ms | tok/s |  GB/s\n");
+    for(int ti=0;ti<2;ti++){ int nt=ti?6:1;
+#ifdef _OPENMP
+        omp_set_num_threads(nt); g_omp_on=(nt>1);
+#endif
+        long acc=0; double t_lay=0,t_head=0;
+        for(int rep=0;rep<3;rep++){                                        // rep 0 = warm, 1-2 timed
+            double a=now_s(); size_t off=0;
+            for(int l=0;l<zL;l++) for(int m=0;m<7;m++){
+                int Mm=mats[m].M,Kk=mats[m].K,Mp=(Mm+31)&~31,T=Kk/2;
+                build_lut_t3(xq,T,lut); matvec_lut_full(W+off,lut,y,Mm,Mp,T); acc+=y[0];
+                off+=(size_t)T*Mp;
+            }
+            double b=now_s();
+            { int T=zD/2; build_lut_t3(xq,T,lut); matvec_lut_full(W+off,lut,y,zV,zVp,T); acc+=y[0]; }
+            double c=now_s();
+            if(rep){ t_lay+=b-a; t_head+=c-b; }
+        }
+        t_lay/=2; t_head/=2; double tt=t_lay+t_head;
+        printf("   %-7d | %11.2f | %9.2f | %9.2f | %5.1f | %5.2f   [checksum %ld]\n",
+               nt,t_lay*1e3,t_head*1e3,tt*1e3,1.0/tt,(double)tot/1e9/tt,acc);
+    }
+    free(W); free(xq); free(lut); free(y);
+}
+
 // ---------------- synthetic kernel self-tests (no weights; CI) ----------------
 static int kernel_selftest(void){
     int rc=0; srand(45678); long checks=0; int worst=0;
@@ -969,7 +1037,7 @@ int main(int argc,char**argv){
     int mlp_lut=1,skip=1,exp_fast=1;                 // default = the full optimized config
     int do_bpb=0,do_logits=0,do_tm=0; long seqW=512,eval_tok=200000,ntok=10240,offset=0,timetok=3000;
     int threads=1; const char* wp=NULL; const char* dumpto=NULL;
-    int block=0,gen_verify=0,nseed=3,do_g3b=0,do_g3c=0,do_gemvsweep=0,do_exprate=0,do_expdecomp=0; long genlen=800,emu_mb=128; const char* ngpath=NULL;
+    int block=0,gen_verify=0,nseed=3,do_g3b=0,do_g3c=0,do_gemvsweep=0,do_exprate=0,do_expdecomp=0; const char* donor=NULL; long genlen=800,emu_mb=128; const char* ngpath=NULL;
     for(int i=1;i<argc;i++) if(!strcmp(argv[i],"--pack")&&i+1<argc){          // pre-scan: must be set before load_weights
         if(!strcmp(argv[i+1],"nibble")) g_pack_nib=1; else if(!strcmp(argv[i+1],"byte")) g_pack_nib=0;
         else { fprintf(stderr,"--pack must be byte|nibble\n"); return 1; } }
@@ -983,6 +1051,7 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--gemv-sweep")){ do_gemvsweep=1; continue; }
         else if(!strcmp(argv[i],"--expert-rate")){ do_exprate=1; continue; }
         else if(!strcmp(argv[i],"--expert-decomp")){ do_expdecomp=1; continue; }
+        else if(!strcmp(argv[i],"--donor-shape")){ donor = (i+1<argc && argv[i+1][0]!='-') ? argv[++i] : "qwen2.5-1.5b"; continue; }
         else if(!strcmp(argv[i],"--emu-mb")&&i+1<argc){ emu_mb=atol(argv[++i]); continue; }
         else if(!strcmp(argv[i],"--gen-len")&&i+1<argc){ genlen=atol(argv[++i]); continue; }
         else if(!strcmp(argv[i],"--seeds")&&i+1<argc){ nseed=atoi(argv[++i]); continue; }
@@ -1003,13 +1072,14 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--weights")&&i+1<argc) wp=argv[++i];
         else { fprintf(stderr,"unknown arg %s\n",argv[i]); return 1; }
     }
-    if(do_gemvsweep||do_exprate||do_expdecomp){   // 64.1b microbenches: synthetic, weight-free, self-sweep threads {1,6}
+    if(do_gemvsweep||do_exprate||do_expdecomp||donor){   // 64.1b microbenches: synthetic, weight-free, self-sweep threads {1,6}
 #ifdef _OPENMP
         omp_set_dynamic(0);
 #endif
         if(do_gemvsweep) run_gemv_sweep();
         if(do_exprate) run_expert_rate();
         if(do_expdecomp) run_expert_decomp();
+        if(donor) run_donor_shape(donor);
         return 0;
     }
     if(!wp){ fprintf(stderr,"usage: engine --weights <model.bin> [--threads N] [--mlp fp32|lut] [--skip on|off] [--exp exact|fast]\n"

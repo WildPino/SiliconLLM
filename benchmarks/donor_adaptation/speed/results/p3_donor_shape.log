@@ -1,0 +1,26 @@
+# P3 donor-shape weight traffic on engine.c kernels
+# build: clang -O3 -mavx2 -mfma -ffp-contract=on -fopenmp (generic x86-64-v3)
+# OMP_PLACES=cores OMP_PROC_BIND=close | git 8d1b73208cf285f7fe169e6fa4b62146ed7cc5d0 | 2026-09-04T10:32:25Z
+# PRE-STATED PREDICTION (SPEED_LEDGER.md, before this bench existed): 24.0 tok/s for qwen2.5-1.5b at 4-bit incl. KV
+
+  73024 checks | worst |S - S_ref| = 0  PASS
+  exp256_ps vs libm on [-30,0]: max rel err = 1.191e-07  PASS (<=2e-6)
+
+==== P3 donor-shape weight traffic: qwen2.5-0.5b  (d_model=896 d_ffn=4864 layers=24 vocab=151936, GQA 14/2, head_dim 64) ====
+   packed stack: 7.1 MB/layer x 24 + 64.9 MB head = 0.23 GB (4-bit codes, 0.5 B/weight)
+   threads |   layers ms |   head ms |  total ms | tok/s |  GB/s
+   1       |       27.78 |      6.17 |     33.95 |  29.5 |  7.27   [checksum -30]
+   6       |        7.30 |      3.31 |     10.61 |  94.3 | 23.28   [checksum -30]
+
+==== P3 donor-shape weight traffic: qwen2.5-1.5b  (d_model=1536 d_ffn=8960 layers=28 vocab=151936, GQA 12/2, head_dim 128) ====
+   packed stack: 22.3 MB/layer x 28 + 111.3 MB head = 0.72 GB (4-bit codes, 0.5 B/weight)
+   threads |   layers ms |   head ms |  total ms | tok/s |  GB/s
+   1       |       83.10 |      9.75 |     92.85 |  10.8 |  8.31   [checksum 492]
+   6       |       28.55 |      5.35 |     33.89 |  29.5 | 22.77   [checksum 492]
+
+==== P3 donor-shape weight traffic: qwen2.5-3b  (d_model=2048 d_ffn=11008 layers=36 vocab=151936, GQA 16/2, head_dim 128) ====
+   packed stack: 36.8 MB/layer x 36 + 148.4 MB head = 1.44 GB (4-bit codes, 0.5 B/weight)
+   threads |   layers ms |   head ms |  total ms | tok/s |  GB/s
+   1       |      199.38 |     14.57 |    213.95 |   4.7 |  7.21   [checksum 0]
+   6       |       59.31 |      6.64 |     65.95 |  15.2 | 23.39   [checksum 0]
+
