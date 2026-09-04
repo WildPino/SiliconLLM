@@ -379,3 +379,42 @@ with a conversion that still costs +1.260 BPB on the FFN alone.
 on every token, and on a Qwen-family 10 B it is **622 M weights, larger than the entire 495 M
 budget**. A donor with a 32 K vocabulary carries 134 M for the same width. On this arithmetic
 **the tokenizer is a harder speed constraint than the kernel**, and it is chosen, not earned.
+
+## 11.4 Per-organ delivered rate — and a correction to §11.2's commit message
+
+The aggregate 25.1 G-weights/s hides a 4× spread. Same profile, same run, weights charged at
+the 0.5 B/weight the engine actually emits:
+
+| organ | weights/token | MB/token | ms | **GB/s** | matvec calls/token |
+|---|---|---|---|---|---|
+| **qkv** | 24,772,608 | 12.4 | 3.022 | **4.1** | 72 (24 × q,k,v) |
+| o_proj | 19,267,584 | 9.6 | 0.674 | 14.3 | 24 |
+| ffn | 313,786,368 | 156.9 | 12.380 | 12.7 | 72 (24 × gate,up,down) |
+| **head** | 136,134,656 | 68.1 | 3.866 | **17.6** | 1 |
+| **total** | 493,961,216 | 247.0 | 19.942 | **12.4** | 169 |
+
+> **CORRECTION.** The commit message for `--fuse` (`259e147`) states the head runs at
+> **35 GB/s, "at the machine's DRAM streaming rate"**. That is wrong: it charged the head's
+> *weight count* as megabytes. At 0.5 B/weight the head moves 68.1 MB, not 136, so the rate is
+> **17.6 GB/s**. The conclusion moves in the useful direction — **nothing here is at the
+> bandwidth wall**, DRAM aggregate on this machine is 40–44 GB/s and probe-3's post-L3-cliff
+> figure is ~28, so the headroom is real rather than closed.
+
+**Three bounds, and the measurement sits far from all of them.** DRAM 40–44 GB/s: we are at
+12.4. Instruction issue: the packed kernel spends ~0.56 vector ops per weight, so 494 M weights
+is ~277 M ops, and six cores at ~4 ops/cycle × 3.6 GHz would retire that in ~1.2 ms against the
+measured 19.9. Denser packing: `ternary_1p6bit` would cut bytes 2.5×, and **on a path that is
+nowhere near its bandwidth wall that buys nothing** — which is P2's conclusion, now generalised
+from the expert path to every organ in this runtime.
+
+**What the table does say is that the rate tracks how the work is CHOPPED.** The head is one
+matvec per token and is the fastest organ. `qkv` is three per layer, two of them 128 output rows
+— across six threads that is 21 rows each — and it is 4.3× slower than the head on the same
+kernel. The excess is 2.32 ms over 72 calls, **32 µs per call**, which is an order of magnitude
+more than an OpenMP barrier costs and points at threads being woken rather than merely
+synchronised.
+
+**Ceiling if every organ merely reached the head's own 17.6 GB/s: 14.03 ms of matvec, 15.23 ms
+wall, 65.7 tok/s — 1.37×.** That is larger than the LUT kernel delivered, it needs no numeric
+change at all, and `--fuse` plus `OMP_WAIT_POLICY` are the two experiments aimed at it
+(`bench_matrix.sh`, crossed, three reps, idle machine only).
