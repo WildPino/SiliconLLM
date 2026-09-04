@@ -64,6 +64,12 @@ typedef struct {
     const float *qb, *kb, *vb;
     const float* post_norm;
     mat_t gate, up, down;
+    // --fuse: q|k|v and gate|up concatenated by OUTPUT ROW. They share their input, so three
+    // matvecs become one and two become one. The point is not fewer instructions -- it is fewer
+    // OpenMP regions and bigger ones: k_proj and v_proj are 128 output rows, which across 6
+    // threads is 21 rows and ~4.6 us of real work per fork.
+    mat_t qkv, gateup;
+    const float* qkvb;
 } layer_t;
 
 typedef struct {
@@ -385,9 +391,55 @@ static void load(model_t* M,const char* path){
     fprintf(stderr,"  layout OK: consumed exactly %zu bytes\n",used);
 }
 
+// ---------------------------------------------------------------- --fuse
+// Concatenate matrices that share an input, by output row. Pure data movement: the codes, the
+// scales and the biases are copied unchanged, so a fused model computes bit-identical results
+// and the only thing that changes is how many OpenMP regions a token opens (169 -> 97).
+// It costs one extra copy of the fused weights in RAM (~117 MB on Qwen2.5-0.5B packed).
+static int g_fuse=0;
+static void fuse_mats(mat_t* dst,const mat_t* const* src,int n,int quant){
+    int out=0, in=src[0]->in;
+    for(int i=0;i<n;i++){ if(src[i]->in!=in) die("--fuse: inputs differ"); out+=src[i]->out; }
+    dst->out=out; dst->in=in; dst->packed=(quant==2); dst->tm=NULL; dst->Mpad=0;
+    dst->f32=NULL; dst->code=NULL; dst->scale=NULL;
+    if(quant==0){
+        float* w=xmalloc((size_t)out*in*4); size_t o=0;
+        for(int i=0;i<n;i++){ memcpy(w+o,src[i]->f32,(size_t)src[i]->out*in*4); o+=(size_t)src[i]->out*in; }
+        dst->f32=w;
+    } else {
+        size_t rb=(quant==2)?(size_t)(in/2):(size_t)in;
+        int8_t* c=xmalloc((size_t)out*rb); float* sc=xmalloc((size_t)out*4);
+        size_t bo=0; int so=0;
+        for(int i=0;i<n;i++){
+            memcpy(c+bo,src[i]->code,(size_t)src[i]->out*rb); bo+=(size_t)src[i]->out*rb;
+            memcpy(sc+so,src[i]->scale,(size_t)src[i]->out*4); so+=src[i]->out;
+        }
+        dst->code=c; dst->scale=sc;
+    }
+}
+static float* cat3f(const float* a,int na,const float* b,int nb,const float* c,int nc){
+    float* r=xmalloc((size_t)(na+nb+nc)*4);
+    memcpy(r,a,(size_t)na*4); memcpy(r+na,b,(size_t)nb*4); memcpy(r+na+nb,c,(size_t)nc*4);
+    return r;
+}
+static void build_fused(model_t* M){
+    size_t bytes=0;
+    for(int l=0;l<M->L;l++){ layer_t* L=&M->lay[l];
+        const mat_t* qkv[3]={&L->q,&L->k,&L->v};
+        const mat_t* gu[2]={&L->gate,&L->up};
+        fuse_mats(&L->qkv,qkv,3,M->quant);
+        fuse_mats(&L->gateup,gu,2,M->quant);
+        L->qkvb=cat3f(L->qb,L->q.out,L->kb,L->k.out,L->vb,L->v.out);
+        size_t rb=(M->quant==2)?(size_t)(M->D/2):(M->quant?(size_t)M->D:(size_t)M->D*4);
+        bytes+=(size_t)(L->qkv.out+L->gateup.out)*rb;
+    }
+    fprintf(stderr,"  --fuse: q|k|v and gate|up concatenated, +%.1f MB, matvec calls/token %d -> %d\n",
+            bytes/1048576.0, M->L*7+1, M->L*4+1);
+}
+
 // ------------------------------------------------------------------ state
 typedef struct {
-    float *x,*xb,*xb2,*q,*k,*v,*att,*attout,*hb,*hb2,*logits;
+    float *x,*xb,*xb2,*q,*k,*v,*att,*attout,*hb,*hb2,*logits,*qkvbuf,*gubuf;
     float *kcache,*vcache;      // [L][maxseq][KVO]
     int maxseq;
 } state_t;
@@ -403,6 +455,8 @@ static void state_init(state_t* s,const model_t* M,int maxseq){
     s->logits=xmalloc((size_t)M->V*4);
     s->kcache=xmalloc((size_t)M->L*maxseq*KVO*4);
     s->vcache=xmalloc((size_t)M->L*maxseq*KVO*4);
+    s->qkvbuf=xmalloc((size_t)(QO+2*KVO)*4);      // --fuse scratch; q|k|v land contiguous,
+    s->gubuf =xmalloc((size_t)(2*M->F)*4);        // gate|up likewise, and both are read in place
 }
 
 // one token at position `pos`; logits land in s->logits
@@ -414,18 +468,24 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
     for(int l=0;l<M->L;l++){
         const layer_t* L=&M->lay[l];
         { TIC; rmsnorm(s->x,L->in_norm,D,M->rms_eps,s->xb); TOC(T_NORM); }
+        float *qp=s->q,*kp=s->k,*vp=s->v;
         { TIC;
-          matvec(&L->q,s->xb,L->qb,s->q);
-          matvec(&L->k,s->xb,L->kb,s->k);
-          matvec(&L->v,s->xb,L->vb,s->v);
-          rope(s->q,NH,HD,pos,M->rope_theta);
-          rope(s->k,NKV,HD,pos,M->rope_theta);
+          if(g_fuse){
+              matvec(&L->qkv,s->xb,L->qkvb,s->qkvbuf);   // one region instead of three
+              qp=s->qkvbuf; kp=s->qkvbuf+QO; vp=s->qkvbuf+QO+KVO;   // read in place, no copy
+          } else {
+              matvec(&L->q,s->xb,L->qb,s->q);
+              matvec(&L->k,s->xb,L->kb,s->k);
+              matvec(&L->v,s->xb,L->vb,s->v);
+          }
+          rope(qp,NH,HD,pos,M->rope_theta);
+          rope(kp,NKV,HD,pos,M->rope_theta);
           TOC(T_QKV); }
 
         float* kc=s->kcache+((size_t)l*s->maxseq+pos)*KVO;
         float* vc=s->vcache+((size_t)l*s->maxseq+pos)*KVO;
-        memcpy(kc,s->k,(size_t)KVO*4);
-        memcpy(vc,s->v,(size_t)KVO*4);
+        memcpy(kc,kp,(size_t)KVO*4);
+        memcpy(vc,vp,(size_t)KVO*4);
 
         const float inv=1.0f/sqrtf((float)HD);
         TIC;
@@ -435,7 +495,7 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
         for(int h=0;h<NH;h++){
             const int kvh=h/GQA;
             float* a=s->att+(size_t)h*s->maxseq;      // preallocated, disjoint per head
-            const float* qh=s->q+(size_t)h*HD;
+            const float* qh=qp+(size_t)h*HD;
             float mx=-1e30f;
             for(int t=0;t<=pos;t++){
                 const float* kt=s->kcache+((size_t)l*s->maxseq+t)*KVO+(size_t)kvh*HD;
@@ -459,9 +519,15 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
 
         { TIC; rmsnorm(s->x,L->post_norm,D,M->rms_eps,s->xb); TOC(T_NORM); }
         { TIC;
-          matvec(&L->gate,s->xb,NULL,s->hb);
-          matvec(&L->up,  s->xb,NULL,s->hb2);
-          for(int i=0;i<F;i++) s->hb[i]=silu(s->hb[i])*s->hb2[i];
+          if(g_fuse){
+              matvec(&L->gateup,s->xb,NULL,s->gubuf);            // one region instead of two
+              const float* g=s->gubuf; const float* u=s->gubuf+F;
+              for(int i=0;i<F;i++) s->hb[i]=silu(g[i])*u[i];
+          } else {
+              matvec(&L->gate,s->xb,NULL,s->hb);
+              matvec(&L->up,  s->xb,NULL,s->hb2);
+              for(int i=0;i<F;i++) s->hb[i]=silu(s->hb[i])*s->hb2[i];
+          }
           matvec(&L->down,s->hb,NULL,s->xb2);
           for(int i=0;i<D;i++) s->x[i]+=s->xb2[i];
           TOC(T_FFN); }
@@ -569,6 +635,7 @@ int main(int argc,char** argv){
         else if(!strcmp(argv[i],"--lut-clip")&&i+1<argc){ g_clip=(float)atof(argv[++i]); }
         else if(!strcmp(argv[i],"--lut-no-down")){ g_lutnodown=1; }
         else if(!strcmp(argv[i],"--lut-no-head")){ g_lutnohead=1; }
+        else if(!strcmp(argv[i],"--fuse")){ g_fuse=1; }
         else if(!strcmp(argv[i],"--lut-group")&&i+1<argc){ g_group=atoi(argv[++i]);
             if(g_group&1) die("--lut-group must be even: a 2-trit LUT pair may not straddle a group");
             snprintf(g_grouplbl,sizeof g_grouplbl,"%d channels",g_group); }
@@ -582,16 +649,24 @@ int main(int argc,char** argv){
     if(threads<1) threads=1; omp_set_num_threads(threads); omp_set_dynamic(0);
 #endif
     model_t M; load(&M,wp);
+    if(g_fuse) build_fused(&M);          // BEFORE --lut: the tile-major copy must be of the
+                                         // fused matrices, or the LUT path would see the old ones
     if(g_lut){
         if(M.quant!=2) die("--lut requires a --quant packed model (the tile-major copy is a transpose of those bytes)");
         size_t tmb=0; double t0=now_s();
         for(int l=0;l<M.L;l++){ layer_t* L=&M.lay[l];
-            mat_t* mm[7]={&L->q,&L->k,&L->v,&L->o,&L->gate,&L->up,&L->down};
-            // mm[6] is down_proj. Its input is the SwiGLU product, whose crest factor
-            // (amax/rms) is 15 on average and 70 at worst -- an amax-scaled int8 grid leaves it
-            // ~4 usable levels of 63, and --lut-diag measures its round-trip error at 2x every
-            // other organ's. --lut-no-down leaves it on the fp32-activation packed kernel.
-            for(int j=0;j<7;j++){ if(j==6&&g_lutnodown) continue;
+            mat_t* mm[7];
+            if(g_fuse){ mm[0]=&L->qkv; mm[1]=&L->o; mm[2]=&L->gateup; mm[3]=&L->down;
+                        mm[4]=mm[5]=mm[6]=NULL; }
+            else      { mm[0]=&L->q; mm[1]=&L->k; mm[2]=&L->v; mm[3]=&L->o;
+                        mm[4]=&L->gate; mm[5]=&L->up; mm[6]=&L->down; }
+            // down_proj is the last entry either way. Its input is the SwiGLU product, whose
+            // crest factor (amax/rms) is 15 on average and 70 at worst -- an amax-scaled int8
+            // grid leaves it ~4 usable levels of 63, and --lut-diag measures its round-trip
+            // error at 2x every other organ's under a per-vector scale (--lut-group 32 removes
+            // that asymmetry). --lut-no-down leaves it on the fp32-activation packed kernel.
+            const int ndown = g_fuse ? 3 : 6;
+            for(int j=0;j<7&&mm[j];j++){ if(j==ndown&&g_lutnodown) continue;
                                   build_tm(mm[j]); tmb+=(size_t)(mm[j]->in/2)*mm[j]->Mpad; } }
         if(!M.tied&&!g_lutnohead){ build_tm(&M.head); tmb+=(size_t)(M.head.in/2)*M.head.Mpad; }
         fprintf(stderr,"  --lut: tile-major replica built, %.1f MB, %.2f s (activations int8, AQ=%d)\n",
