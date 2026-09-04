@@ -25,7 +25,7 @@
   "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
   "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
  },
- "smoke": false,
+ "smoke": true,
  "thresholds_from_brief_s4": {
   "CHEAP_MAX": 0.05,
   "FAIL_MIN": 0.3,
@@ -35,43 +35,16 @@
  },
  "arms": {
   "base": {
-   "bpb": 0.7675949584171732,
+   "bpb": 0.9601896546517529,
    "organs": [],
    "group": 0,
    "mode": "bitlinear158",
    "note": "replication gate",
    "n_substituted": 0,
-   "seconds": 125.67739486694336
-  },
-  "F": {
-   "bpb": 4.076694081452302,
-   "organs": [
-    "gate_proj",
-    "up_proj",
-    "down_proj"
-   ],
-   "group": 0,
-   "mode": "bitlinear158",
-   "note": "FFN, engine's per-row rule",
-   "n_substituted": 84,
-   "seconds": 125.56090879440308
-  },
-  "A": {
-   "bpb": 4.501506924246018,
-   "organs": [
-    "q_proj",
-    "k_proj",
-    "v_proj",
-    "o_proj"
-   ],
-   "group": 0,
-   "mode": "bitlinear158",
-   "note": "attention projections",
-   "n_substituted": 112,
-   "seconds": 120.11669564247131
+   "seconds": 10.637405633926392
   },
   "FA": {
-   "bpb": 5.505834290728114,
+   "bpb": 4.597138134321175,
    "organs": [
     "gate_proj",
     "up_proj",
@@ -84,37 +57,11 @@
    "group": 0,
    "mode": "bitlinear158",
    "note": "PRIMARY -- the engine's conversion",
-   "n_substituted": 196,
-   "seconds": 136.78311824798584
-  },
-  "Fg256": {
-   "bpb": 4.097747970011388,
-   "organs": [
-    "gate_proj",
-    "up_proj",
-    "down_proj"
-   ],
-   "group": 256,
-   "mode": "bitlinear158",
-   "note": "granularity sweep",
-   "n_substituted": 84,
-   "seconds": 151.9646258354187
-  },
-  "Fg64": {
-   "bpb": 4.152002756176524,
-   "organs": [
-    "gate_proj",
-    "up_proj",
-    "down_proj"
-   ],
-   "group": 64,
-   "mode": "bitlinear158",
-   "note": "granularity sweep",
-   "n_substituted": 84,
-   "seconds": 139.23031187057495
+   "n_substituted": 28,
+   "seconds": 10.77025556564331
   },
   "Z": {
-   "bpb": 4.768852282891286,
+   "bpb": 3.942765864862215,
    "organs": [
     "gate_proj",
     "up_proj",
@@ -123,25 +70,8 @@
    "group": 0,
    "mode": "random_sign",
    "note": "PLANTED CONTROL",
-   "n_substituted": 84,
-   "seconds": 150.41187453269958
-  },
-  "I": {
-   "bpb": 0.7675949584171732,
-   "organs": [
-    "gate_proj",
-    "up_proj",
-    "down_proj",
-    "q_proj",
-    "k_proj",
-    "v_proj",
-    "o_proj"
-   ],
-   "group": 0,
-   "mode": "identity",
-   "note": "INSTRUMENT CONTROL -- must equal base exactly",
-   "n_substituted": 196,
-   "seconds": 138.99673676490784
+   "n_substituted": 12,
+   "seconds": 13.192801475524902
   }
  },
  "zero_fraction": {
@@ -150,20 +80,39 @@
   "gate_proj_L0_g64": 0.3139175474643707
  },
  "delta_vs_base": {
-  "I": null
+  "FA": {
+   "delta_bpb": 3.636948479669422,
+   "paired_se_sequence_bootstrap": 0.5759858376591004,
+   "ci95": [
+    2.7785929973931913,
+    4.443052944497871
+   ],
+   "frac_seq_worse": 1.0
+  },
+  "Z": {
+   "delta_bpb": 2.9825762102104614,
+   "paired_se_sequence_bootstrap": 0.02760572207584667,
+   "ci95": [
+    2.94394141337137,
+    3.023715282279142
+   ],
+   "frac_seq_worse": 1.0
+  }
  },
  "decision": {
   "rule": "brief section 4, thresholds fixed before the run",
   "baseline_replication": {
-   "measured": 0.7675949584171732,
+   "measured": 0.9601896546517529,
    "standing": 0.7675949641196624,
    "ok": true
   },
   "planted_control_Z": null,
-  "OUTCOME_LABEL": "INCOMPLETE",
+  "OUTCOME_LABEL": "CONVERSION-FAILS",
+  "meaning": "naive post-training ternarization does not work on this donor; no amount of speed work matters until it is fixed, and healing becomes the critical path ahead of every structural probe",
   "delta_in_sigma_seed": {
-   "I": null
+   "FA": 727.3896959338844,
+   "Z": 596.5152420420923
   }
  },
- "total_seconds": 146.9451868534088
+ "total_seconds": 41.47794818878174
 }
