@@ -38,12 +38,19 @@ static double now_s(void){ struct timespec ts; clock_gettime(CLOCK_MONOTONIC,&ts
 #endif
 #include <immintrin.h>
 
+// per-organ wall-clock accounting: profile before optimising, always.
+enum { T_QKV=0, T_ATTN, T_O, T_FFN, T_HEAD, T_NORM, T_N };
+static double g_t[T_N]; static const char* g_tn[T_N]={"qkv_proj","attention","o_proj","ffn","head","norm+glue"};
+static int g_prof=0;
+#define TIC double _t0=g_prof?now_s():0.0
+#define TOC(k) do{ if(g_prof) g_t[k]+=now_s()-_t0; }while(0)
+
 static void* xmalloc(size_t n){ void* p=malloc(n); if(!p){ fprintf(stderr,"OOM %zu\n",n); exit(1);} return p; }
 static void die(const char* m){ fprintf(stderr,"FATAL: %s\n",m); exit(1); }
 
 // ------------------------------------------------------------------ weight matrix (either mode)
 typedef struct {
-    int out, in;
+    int out, in, packed;
     const float* f32;      // quant==0
     const int8_t* code;    // quant==1, [out, in] row-major, values in {-1,0,+1}
     const float* scale;    // quant==1, [out]
@@ -71,8 +78,42 @@ typedef struct {
 // ------------------------------------------------------------------ kernels
 // y[o] = sum_i W[o][i] * x[i]   (+ bias).  Both modes; ternary is codes*scale, which is exactly
 // what the exporter's `deq = wq * scale` means, computed without materialising deq.
+// De-interleaved activations for the packed path: byte j of a row holds the weights for input
+// features 2j (low trit) and 2j+1 (high trit), so the kernel needs x split by parity. Built once
+// per matvec call, outside the parallel region -- O(n_in) against the loop's O(n_out * n_in).
+static float *g_xe=NULL,*g_xo=NULL; static int g_xcap=0;
+
 static void matvec(const mat_t* m, const float* x, const float* bias, float* y){
     const int n_out=m->out, n_in=m->in;   // NOT "OUT"/"IN": windows.h defines those as SAL macros
+    if(m->packed){
+        const int H=n_in/2;
+        if(H>g_xcap){ free(g_xe); free(g_xo); g_xe=xmalloc((size_t)H*4); g_xo=xmalloc((size_t)H*4); g_xcap=H; }
+        for(int j=0;j<H;j++){ g_xe[j]=x[2*j]; g_xo[j]=x[2*j+1]; }
+        // pshufb tables: index is the packed byte v in [0,8];  low trit = v%3 - 1, high = v/3 - 1
+        const __m128i TLO=_mm_setr_epi8(-1,0,1,-1,0,1,-1,0,1,0,0,0,0,0,0,0);
+        const __m128i THI=_mm_setr_epi8(-1,-1,-1,0,0,0,1,1,1,0,0,0,0,0,0,0);
+#ifdef _OPENMP
+#pragma omp parallel for schedule(static)
+#endif
+        for(int o=0;o<n_out;o++){
+            const int8_t* c=m->code+(size_t)o*H;
+            __m256 acc=_mm256_setzero_ps(); int j=0;
+            for(;j+8<=H;j+=8){
+                __m128i b=_mm_loadl_epi64((const __m128i*)(c+j));   // 8 packed bytes
+                __m128i lo=_mm_shuffle_epi8(TLO,b), hi=_mm_shuffle_epi8(THI,b);
+                acc=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(lo)),
+                                    _mm256_loadu_ps(g_xe+j),acc);
+                acc=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(hi)),
+                                    _mm256_loadu_ps(g_xo+j),acc);
+            }
+            float s[8]; _mm256_storeu_ps(s,acc);
+            float t=s[0]+s[1]+s[2]+s[3]+s[4]+s[5]+s[6]+s[7];
+            for(;j<H;j++){ int v=(uint8_t)c[j]; int t0=v%3-1, t1=(v/3)-1; t+=(float)t0*g_xe[j]+(float)t1*g_xo[j]; }
+            t*=m->scale[o];
+            y[o]=bias?t+bias[o]:t;
+        }
+        return;
+    }
     if(m->f32){
 #ifdef _OPENMP
 #pragma omp parallel for schedule(static)
@@ -134,9 +175,11 @@ static void rope(float* v,int n_heads,int HD,int pos,float theta){
 static const char* rd(const char** p, size_t n){ const char* q=*p; *p+=n; return q; }
 
 static void read_mat(const char** p, mat_t* m, int out, int in, int quant){
-    m->out=out; m->in=in; m->f32=NULL; m->code=NULL; m->scale=NULL;
+    m->out=out; m->in=in; m->packed=(quant==2); m->f32=NULL; m->code=NULL; m->scale=NULL;
     if(quant==0){ m->f32=(const float*)rd(p,(size_t)out*in*4); }
-    else { m->code=(const int8_t*)rd(p,(size_t)out*in);
+    else if(quant==1){ m->code=(const int8_t*)rd(p,(size_t)out*in);
+                       m->scale=(const float*)rd(p,(size_t)out*4); }
+    else { m->code=(const int8_t*)rd(p,(size_t)out*(in/2));   // base-3 g=2, 2 trits/byte
            m->scale=(const float*)rd(p,(size_t)out*4); }
 }
 
@@ -156,7 +199,7 @@ static void load(model_t* M,const char* path){
     M->rms_eps=hf[0]; M->rope_theta=hf[1];
     const int QO=M->NH*M->HD, KVO=M->NKV*M->HD;
     fprintf(stderr,"  D=%d F=%d L=%d heads=%d/%d hd=%d V=%d tied=%d quant=%s eps=%g theta=%g\n",
-            M->D,M->F,M->L,M->NH,M->NKV,M->HD,M->V,M->tied,M->quant?"ternary":"fp32",
+            M->D,M->F,M->L,M->NH,M->NKV,M->HD,M->V,M->tied,M->quant==2?"packed(2 trits/byte)":M->quant?"ternary":"fp32",
             M->rms_eps,M->rope_theta);
     M->embed=(const float*)rd(&p,(size_t)M->V*M->D*4);
     M->lay=xmalloc((size_t)M->L*sizeof(layer_t));
@@ -210,12 +253,14 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
 
     for(int l=0;l<M->L;l++){
         const layer_t* L=&M->lay[l];
-        rmsnorm(s->x,L->in_norm,D,M->rms_eps,s->xb);
-        matvec(&L->q,s->xb,L->qb,s->q);
-        matvec(&L->k,s->xb,L->kb,s->k);
-        matvec(&L->v,s->xb,L->vb,s->v);
-        rope(s->q,NH,HD,pos,M->rope_theta);
-        rope(s->k,NKV,HD,pos,M->rope_theta);
+        { TIC; rmsnorm(s->x,L->in_norm,D,M->rms_eps,s->xb); TOC(T_NORM); }
+        { TIC;
+          matvec(&L->q,s->xb,L->qb,s->q);
+          matvec(&L->k,s->xb,L->kb,s->k);
+          matvec(&L->v,s->xb,L->vb,s->v);
+          rope(s->q,NH,HD,pos,M->rope_theta);
+          rope(s->k,NKV,HD,pos,M->rope_theta);
+          TOC(T_QKV); }
 
         float* kc=s->kcache+((size_t)l*s->maxseq+pos)*KVO;
         float* vc=s->vcache+((size_t)l*s->maxseq+pos)*KVO;
@@ -223,6 +268,7 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
         memcpy(vc,s->v,(size_t)KVO*4);
 
         const float inv=1.0f/sqrtf((float)HD);
+        TIC;
 #ifdef _OPENMP
 #pragma omp parallel for schedule(static)
 #endif
@@ -247,23 +293,28 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
                 for(int i=0;i<HD;i++) out[i]+=w*vt[i];
             }
         }
-        matvec(&L->o,s->attout,NULL,s->xb2);
-        for(int i=0;i<D;i++) s->x[i]+=s->xb2[i];
+        TOC(T_ATTN);
+        { TIC; matvec(&L->o,s->attout,NULL,s->xb2);
+          for(int i=0;i<D;i++) s->x[i]+=s->xb2[i]; TOC(T_O); }
 
-        rmsnorm(s->x,L->post_norm,D,M->rms_eps,s->xb);
-        matvec(&L->gate,s->xb,NULL,s->hb);
-        matvec(&L->up,  s->xb,NULL,s->hb2);
-        for(int i=0;i<F;i++) s->hb[i]=silu(s->hb[i])*s->hb2[i];
-        matvec(&L->down,s->hb,NULL,s->xb2);
-        for(int i=0;i<D;i++) s->x[i]+=s->xb2[i];
+        { TIC; rmsnorm(s->x,L->post_norm,D,M->rms_eps,s->xb); TOC(T_NORM); }
+        { TIC;
+          matvec(&L->gate,s->xb,NULL,s->hb);
+          matvec(&L->up,  s->xb,NULL,s->hb2);
+          for(int i=0;i<F;i++) s->hb[i]=silu(s->hb[i])*s->hb2[i];
+          matvec(&L->down,s->hb,NULL,s->xb2);
+          for(int i=0;i<D;i++) s->x[i]+=s->xb2[i];
+          TOC(T_FFN); }
     }
-    rmsnorm(s->x,M->final_norm,D,M->rms_eps,s->xb);
+    { TIC; rmsnorm(s->x,M->final_norm,D,M->rms_eps,s->xb); TOC(T_NORM); }
+    TIC;
     if(M->tied){
-        mat_t h={M->V,D,M->embed,NULL,NULL};
+        mat_t h={M->V,D,0,M->embed,NULL,NULL};   // packed=0: the tied head reads the fp32 embedding
         matvec(&h,s->xb,NULL,s->logits);
     } else {
         matvec(&M->head,s->xb,NULL,s->logits);
     }
+    TOC(T_HEAD);
 }
 
 // ------------------------------------------------------------------ modes
@@ -285,6 +336,7 @@ int main(int argc,char** argv){
         else if(!strcmp(argv[i],"--logits")&&i+3<argc){ mode="logits"; arg2=argv[++i]; arg3=atol(argv[++i]); logout=argv[++i]; }
         else if(!strcmp(argv[i],"--bpb")&&i+1<argc){ mode="bpb"; arg2=argv[++i]; }
         else if(!strcmp(argv[i],"--bench")&&i+1<argc){ mode="bench"; arg3=atol(argv[++i]); }
+        else if(!strcmp(argv[i],"--profile")){ g_prof=1; }
         else { fprintf(stderr,"unknown arg %s\n",argv[i]); return 1; }
     }
     if(!wp||!mode){ fprintf(stderr,
@@ -302,7 +354,15 @@ int main(int argc,char** argv){
         for(long i=0;i<arg3;i++) forward(&M,&s,1+(int)(i%100),(int)(i+1));
         double dt=now_s()-t0;
         printf("BENCH  %ld tokens  %.3f s  %.2f tok/s  (threads=%d, %s)\n",
-               arg3,dt,arg3/dt,threads,M.quant?"ternary":"fp32");
+               arg3,dt,arg3/dt,threads,M.quant==2?"packed":M.quant?"ternary":"fp32");
+        if(g_prof){
+            double tot=0; for(int k=0;k<T_N;k++) tot+=g_t[k];
+            printf("  organ        ms/token   %% of total\n");
+            for(int k=0;k<T_N;k++)
+                printf("  %-11s %9.3f   %5.1f%%\n",g_tn[k],g_t[k]/arg3*1e3,100.0*g_t[k]/tot);
+            printf("  %-11s %9.3f   (organs summed; wall %.3f ms/token)\n",
+                   "TOTAL",tot/arg3*1e3,dt/arg3*1e3);
+        }
         return 0;
     }
 

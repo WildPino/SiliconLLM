@@ -71,12 +71,36 @@ def w_tern(fh, w):
     return float((q == 0).float().mean())
 
 
+def w_packed(fh, w):
+    """base-3 g=2: TWO trits per byte, 4 bits/weight -- engine.c's own packing.
+
+    Byte value v = (t0+1) + 3*(t1+1) in [0,8], where t0 is the weight for input feature 2j and
+    t1 for 2j+1. Lossless with respect to the int8 codes, and exactly half the bytes; on a
+    bandwidth-bound path that is a free 2x, which is why engine.c uses it.
+    """
+    scale = w.abs().mean(dim=1, keepdim=True).clamp_min(1e-5)
+    q = (w / scale).round().clamp(-1, 1).to(torch.int8)
+    out_f, in_f = q.shape
+    assert in_f % 2 == 0, "in_features must be even to pack 2 trits per byte"
+    qn = q.numpy().astype(np.int16) + 1                      # {0,1,2}
+    packed = (qn[:, 0::2] + 3 * qn[:, 1::2]).astype(np.uint8)
+    assert packed.max() <= 8
+    fh.write(np.ascontiguousarray(packed).tobytes())
+    fh.write(np.ascontiguousarray(scale.squeeze(1).numpy(), dtype="<f4").tobytes())
+    return float((q == 0).float().mean())
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="Qwen/Qwen2.5-0.5B")
     ap.add_argument("--revision", default=None)
-    ap.add_argument("--quant", choices=("fp32", "ternary"), default="fp32")
+    ap.add_argument("--quant", choices=("fp32", "ternary", "packed"), default="fp32")
     ap.add_argument("--out", required=True)
+    ap.add_argument("--head-ternary", action="store_true",
+                    help="UNTIE the output head and store it ternary. The embedding table stays "
+                         "fp32 because it is a row LOOKUP (3.5 KB/token) and costs nothing to "
+                         "stream; the HEAD is a dense GEMV over the whole vocabulary and is 40.4%% "
+                         "of per-token time when left fp32 (measured, donor_engine --profile).")
     a = ap.parse_args()
 
     from transformers import AutoModelForCausalLM
@@ -91,8 +115,10 @@ def main():
     HD = getattr(c, "head_dim", D // NH)
     V = c.vocab_size
     tied = int(bool(getattr(c, "tie_word_embeddings", False)))
-    quant = 0 if a.quant == "fp32" else 1
-    W = w_fp32 if quant == 0 else w_tern
+    if a.head_ternary:
+        tied = 0          # write an explicit head; the embedding table is still written fp32
+    quant = {"fp32": 0, "ternary": 1, "packed": 2}[a.quant]
+    W = {0: w_fp32, 1: w_tern, 2: w_packed}[quant]
 
     print("exporting %s  D=%d F=%d L=%d heads=%d/%d hd=%d V=%d tied=%d quant=%s"
           % (a.model, D, F, L, NH, NKV, HD, V, tied, a.quant))
@@ -129,9 +155,11 @@ def main():
                       % (li + 1, L, fh.tell() / 2**30), flush=True)
         w_fp32(fh, m.model.norm.weight.data)
         if not tied:
-            r = W(fh, m.lm_head.weight.data)
+            hw = m.lm_head.weight.data
+            r = W(fh, hw)
             if r is not None:
                 zeros.append(r)
+            print("  head written explicitly: %s %s" % (tuple(hw.shape), a.quant))
 
     size = os.path.getsize(a.out)
     h = hashlib.sha256()
@@ -142,6 +170,7 @@ def main():
             "d_model": D, "d_ffn": F, "n_layers": L, "n_heads": NH, "n_kv_heads": NKV,
             "head_dim": HD, "vocab": V, "tied": tied,
             "rms_eps": float(c.rms_norm_eps), "rope_theta": float(c.rope_theta),
+            "head_ternary": bool(a.head_ternary),
             "bytes": size, "sha256": h.hexdigest(),
             "mean_ternary_zero_fraction": (float(np.mean(zeros)) if zeros else None)}
     json.dump(meta, open(a.out + ".json", "w", encoding="utf-8"), indent=1)

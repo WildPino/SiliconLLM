@@ -70,7 +70,17 @@ def main():
     assert ours.size == n * V, "engine returned %d floats, expected %d" % (ours.size, n * V)
     ours = ours.reshape(n, V)
 
-    # ---- PyTorch, given the SAME weights
+    # ---- PyTorch, given the SAME weights.
+    # The exporter's sidecar says whether the head was ternarized too; reading it here rather
+    # than taking a flag stops the reference and the engine drifting apart. On 2026-09-04 this
+    # gate FAILED at rel l2 0.48 purely because the engine had a ternary head and the reference
+    # did not -- the gate was right, the invocation was wrong.
+    side = a.weights + ".json"
+    head_tern = False
+    if os.path.exists(side):
+        meta = json.load(open(side))
+        head_tern = bool(meta.get("head_ternary"))
+        print("sidecar: quant=%s head_ternary=%s" % (meta.get("quant"), head_tern))
     n_sub = 0
     if a.quant == "ternary":
         for lay in m.model.layers:
@@ -82,7 +92,12 @@ def main():
                 mod = getattr(lay.mlp, organ)
                 mod.weight.data = ternarize(mod.weight.data)
                 n_sub += 1
-    print("ternarized %d tensors in the PyTorch reference" % n_sub)
+        if head_tern:
+            m.lm_head.weight = torch.nn.Parameter(ternarize(m.lm_head.weight.data.clone()),
+                                                  requires_grad=False)
+            n_sub += 1
+    print("ternarized %d tensors in the PyTorch reference (head_ternary=%s)"
+          % (n_sub, head_tern))
     with torch.no_grad():
         ref = m(torch.tensor(ids.astype(np.int64))[None, :]).logits[0].float().numpy()
 
