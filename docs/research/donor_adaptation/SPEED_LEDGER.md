@@ -241,3 +241,63 @@ python benchmarks/donor_adaptation/speed/donor_speed_budget.py --show-sources
 
 Reads only `config.json` files from the local HF cache and the constants in §1. No model weights are
 loaded, nothing is downloaded, and it runs in under a second.
+
+---
+
+## 10. AMENDED 2026-09-04 — the requirement, from the runtime that exists
+
+Sections 1–9 price the goal from *component* rates. `probes/R1_DONOR_RUNTIME.md` now supplies the
+only number that matters: what a **real transformer runtime** actually delivers, end to end,
+including everything the component model excluded.
+
+**Measured** (Qwen2.5-0.5B, `donor_engine.c`, t6, packed 2 trits/byte, ternary head, ctx ≤200):
+494.0 M active weights/token in 27.72 ms wall → **36.1 tok/s**, of which 26.59 ms is weight-matvec.
+
+> ### **DELIVERED RATE = 18.6 G-weights/s.**
+
+Everything about the goal follows from that one number:
+
+| target | max active weights/token | on a 10B donor that is |
+|---|---|---|
+| **50 tok/s** | **350 M** | **3.50% activation** |
+| **100 tok/s** | **165 M** | **1.65% activation** |
+
+**Qwen2.5-0.5B itself carries 494 M active weights — already over the 50 tok/s budget.** That is
+the whole explanation of why the smallest donor available runs at 36 and not 50, and it is not a
+statement about 0.5B: it is a statement about the kernel.
+
+### If the LUT kernel lands
+
+`PHASE64_BUDGET.md` §1b(b) measures the kernel-pure expert ceiling at 17.0 GB/s = **34 G-weights/s**
+at 0.5 B/weight — **1.83× what this runtime delivers today**. `donor_engine.c` does not use that
+path: it converts int8 codes to float and does FMAs, where the LUT path does table lookups and adds.
+At that ceiling:
+
+| target | max active weights/token | on a 10B donor |
+|---|---|---|
+| 50 tok/s | **641 M** | **6.41% activation** |
+| 100 tok/s | 301 M | 3.01% activation |
+
+### What that means against the donors that actually exist
+
+| donor | active weights/token | vs the 641 M budget |
+|---|---|---|
+| Qwen3-Next-80B-A3B | 2.78 G | **4.3× over** |
+| Qwen3-30B-A3B | 3.04 G | 4.7× over |
+| OLMoE-1B-7B | 1.18 G | 1.8× over |
+| Qwen2.5-0.5B | 0.49 G | fits, with margin |
+
+> **The goal as stated — ~10B at 50 tok/s — needs a donor with roughly 640 M active weights per
+> token, i.e. ~6.4% activation at 10B. Nothing shipping at that size is that sparse**, and the two
+> A3B models that come closest in *fraction* are 3–8× too heavy in absolute active weights because
+> they are 30 B and 80 B rather than 10 B.
+
+**Three honest routes out, and they are not exclusive:**
+1. **The LUT kernel** — 1.83× measured-ceiling headroom, unclaimed, and the only pure-engineering
+   one on this list.
+2. **A donor at ~10 B with ≤6.4% activation.** That is a search over what exists, not a technique.
+3. **Sparsify a donor further ourselves** — which is what D0/D0c/D1/S1 were doing, and which T1
+   says must now be composed with a conversion nobody has composed it with.
+
+**Caveat that applies to every row:** the 3600X is this project's *reference floor*, not its target
+(portability law, `ENGINE_PLAN.md`). These are per-machine numbers and a wider machine moves them.
