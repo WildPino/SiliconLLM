@@ -130,6 +130,36 @@ static void build_lut(const int8_t* xq,int T,int8_t* lut){
     for(int t=0;t<T;t++){ int x0=xq[2*t],x1=xq[2*t+1];
         for(int v=0;v<16;v++) lut[t*16+v]=(int8_t)(v<9 ? (v%3-1)*x0+(v/3-1)*x1 : 0); }
 }
+// Grouped variant: the input is cut into ng contiguous groups of gp PAIRS, each carrying its own
+// activation scale, and the int32 tile accumulator is folded to float at every group boundary.
+// This is what the crest numbers argue for: outlier channels in an LLM are persistent, so cutting
+// the input by channel index confines them to a few groups instead of setting the grid for all of
+// them. The extra cost is ng foldings of 32 lanes per tile -- O(ng * M) against the kernel's
+// O(T * Mpad), i.e. nothing.
+static void matvec_lut_g(const int8_t* codes,const int8_t* lut,float* y,int M,int Mpad,int T,
+                         int gp,const float* gs,int ng){
+#ifdef _OPENMP
+#pragma omp parallel for schedule(static)
+#endif
+    for(int base=0;base<Mpad;base+=32){
+        float f[32]; for(int r=0;r<32;r++) f[r]=0.0f;
+        for(int g=0;g<ng;g++){
+            int t0=g*gp, t1=t0+gp; if(t1>T) t1=T; if(t0>=t1) break;
+            __m256i acc[4]={_mm256_setzero_si256(),_mm256_setzero_si256(),
+                            _mm256_setzero_si256(),_mm256_setzero_si256()};
+            for(int t=t0;t<t1;t++){
+                __m256i tbl=_mm256_broadcastsi128_si256(_mm_loadu_si128((const __m128i*)(lut+(size_t)t*16)));
+                __m256i idx=_mm256_loadu_si256((const __m256i*)(codes+(size_t)t*Mpad+base));
+                acc_add_i8x32(acc,_mm256_shuffle_epi8(tbl,idx));
+            }
+            int32_t tmp[32];
+            _mm256_storeu_si256((__m256i*)(tmp+0),acc[0]);  _mm256_storeu_si256((__m256i*)(tmp+8),acc[1]);
+            _mm256_storeu_si256((__m256i*)(tmp+16),acc[2]); _mm256_storeu_si256((__m256i*)(tmp+24),acc[3]);
+            for(int r=0;r<32;r++) f[r]+=(float)tmp[r]*gs[g];
+        }
+        for(int r=0;r<32&&base+r<M;r++) y[base+r]=f[r];
+    }
+}
 static void matvec_lut(const int8_t* codes,const int8_t* lut,int32_t* y,int M,int Mpad,int T){
 #ifdef _OPENMP
 #pragma omp parallel for schedule(static)
@@ -163,6 +193,10 @@ static void build_tm(mat_t* m){
 
 static int32_t* g_i32b=NULL; static int g_i32cap=0;
 static int32_t* g_i32(int n){ if(n>g_i32cap){ free(g_i32b); g_i32b=xmalloc((size_t)n*4); g_i32cap=n; } return g_i32b; }
+static float* g_f32b=NULL; static int g_f32cap=0;
+static float* g_f32(int n){ if(n>g_f32cap){ free(g_f32b); g_f32b=xmalloc((size_t)n*4); g_f32cap=n; } return g_f32b; }
+static int g_group=0, g_gscap=0; static float* g_gs=NULL;   // --lut-group
+static char g_grouplbl[16]="";
 
 static void matvec(const mat_t* m, const float* x, const float* bias, float* y){
     const int n_out=m->out, n_in=m->in;   // NOT "OUT"/"IN": windows.h defines those as SAL macros
@@ -170,23 +204,44 @@ static void matvec(const mat_t* m, const float* x, const float* bias, float* y){
         const int H=n_in/2;
         if(H>g_lutcap){ free(g_xq); free(g_lutab);
             g_xq=xmalloc((size_t)H*2); g_lutab=xmalloc((size_t)H*16); g_lutcap=H; }
-        float sx=quant_i8(x,n_in,g_xq);
+        // --lut-group G: G input channels share one scale (G must be even so no PAIR straddles a
+        // boundary). G=0 keeps one scale for the whole vector, which is engine.c's convention.
+        int gsz = g_group>0 ? g_group : n_in;
+        if(gsz>n_in) gsz=n_in;
+        int ng = (n_in+gsz-1)/gsz;
+        if(ng>g_gscap){ free(g_gs); g_gs=xmalloc((size_t)ng*4); g_gscap=ng; }
+        for(int g=0;g<ng;g++){ int o0=g*gsz, len=(o0+gsz<=n_in)?gsz:(n_in-o0);
+            g_gs[g]=quant_i8(x+o0,len,g_xq+o0); }
+        float sx=g_gs[0];
         if(g_lutdiag){
             // Measure the damage on the INPUT SIDE ONLY. This is arithmetic on x and its int8
             // round-trip; the kernel is not involved, so it separates "int8 activations are
             // lossy on a donor" from "the kernel is wrong".
-            double s2=0,e2=0,amax=0;
-            for(int i=0;i<n_in;i++){ double v=x[i],r=(double)g_xq[i]*sx, d=v-r;
-                s2+=v*v; e2+=d*d; if(fabs(v)>amax) amax=fabs(v); }
-            double rms=sqrt(s2/n_in), rel=sqrt(e2/(s2>0?s2:1));
+            // crest is measured WITHIN each group, because that is what sets the grid: with
+            // --lut-group the whole-vector amax/rms no longer describes the resolution anyone gets.
+            double s2=0,e2=0,cs=0,cmax=0; int nc=0;
+            for(int g=0;g<ng;g++){ int o0=g*gsz, len=(o0+gsz<=n_in)?gsz:(n_in-o0);
+                double gs2=0,gam=0;
+                for(int i=o0;i<o0+len;i++){ double v=x[i]; gs2+=v*v; if(fabs(v)>gam) gam=fabs(v); }
+                double grms=sqrt(gs2/len);
+                if(grms>0){ double c=gam/grms; cs+=c; nc++; if(c>cmax) cmax=c; } }
+            for(int i=0;i<n_in;i++){ double v=x[i],r=(double)g_xq[i]*g_gs[i/gsz], d=v-r;
+                s2+=v*v; e2+=d*d; }
+            double rel=sqrt(e2/(s2>0?s2:1));
             int b = (n_in==4864)?1:0;                     // down_proj is the only in=4864 organ
-            g_dn[b]++; g_dcrest[b]+=(rms>0?amax/rms:0); g_drel[b]+=rel;
-            if(rms>0 && amax/rms>g_dcmax[b]) g_dcmax[b]=amax/rms;
+            g_dn[b]++; g_drel[b]+=rel;
+            g_dcrest[b]+=(nc?cs/nc:0); if(cmax>g_dcmax[b]) g_dcmax[b]=cmax;
         }
         build_lut(g_xq,H,g_lutab);
-        int32_t* acc=(int32_t*)g_i32(n_out);
-        matvec_lut(m->tm,g_lutab,acc,n_out,m->Mpad,H);
-        for(int o=0;o<n_out;o++){ float t=(float)acc[o]*sx*m->scale[o]; y[o]=bias?t+bias[o]:t; }
+        if(ng==1){
+            int32_t* acc=(int32_t*)g_i32(n_out);
+            matvec_lut(m->tm,g_lutab,acc,n_out,m->Mpad,H);
+            for(int o=0;o<n_out;o++){ float t=(float)acc[o]*sx*m->scale[o]; y[o]=bias?t+bias[o]:t; }
+        } else {
+            float* acc=g_f32(n_out);
+            matvec_lut_g(m->tm,g_lutab,acc,n_out,m->Mpad,H,gsz/2,g_gs,ng);
+            for(int o=0;o<n_out;o++){ float t=acc[o]*m->scale[o]; y[o]=bias?t+bias[o]:t; }
+        }
         return;
     }
     if(m->packed){
@@ -452,8 +507,25 @@ static int selftest_lut(void){
     printf("selftest-lut  A kernel vs scalar-int : %s (%ld/%d rows differ)\n",bad?"FAIL":"PASS",bad,M);
     printf("selftest-lut  B planted (swapped digits) must DIFFER: %s (%ld/%d rows differ)\n",
            badB?"PASS":"FAIL -- the comparison cannot tell a wrong kernel from a right one",badB,M);
-    printf("selftest-lut  VERDICT: %s\n",(bad==0&&badB>0)?"PASS":"FAIL");
-    return (bad==0&&badB>0)?0:1;
+    // Case C: the GROUPED kernel. Three groups with three different scales, against a scalar
+    // float reference built the same way. Grouping changes the fold, not the trits, so a
+    // disagreement here is the fold.
+    const int NG=3, GP=(H+NG-1)/NG;
+    float gs[3]={0.011f,0.25f,3.0f}; float* yf=xmalloc((size_t)Mpad*4);
+    matvec_lut_g(tm,lut,yf,M,Mpad,H,GP,gs,NG);
+    double worstC=0;
+    for(int m=0;m<M;m++){
+        double ref=0;
+        for(int t=0;t<H;t++){ int g=t/GP; if(g>=NG) g=NG-1;
+            ref+=gs[g]*((double)W[(size_t)m*K+2*t]*xq[2*t]+(double)W[(size_t)m*K+2*t+1]*xq[2*t+1]); }
+        double den=fabs(ref)>1e-6?fabs(ref):1e-6, e=fabs(yf[m]-ref)/den;
+        if(e>worstC) worstC=e;
+    }
+    printf("selftest-lut  C grouped kernel (3 scales) vs scalar float : %s (worst rel %.2e)\n",
+           worstC<1e-5?"PASS":"FAIL",worstC);
+    int ok=(bad==0&&badB>0&&worstC<1e-5);
+    printf("selftest-lut  VERDICT: %s\n",ok?"PASS":"FAIL");
+    return ok?0:1;
 }
 
 // --lut-diag: what int8 does to the ACTIVATIONS, measured on x alone. crest = amax/rms is the
@@ -461,12 +533,13 @@ static int selftest_lut(void){
 // between 0 and amax, so a vector whose typical element sits at rms gets only 63/crest of them.
 static void lut_diag_report(void){
     static const char* nm[2]={"all organs with in=896 (q,k,v,o,gate,up,head)","down_proj (in=4864)"};
-    fprintf(stderr,"\n  --lut-diag: activation int8 round-trip, AQ=%d, one amax scale per vector\n",AQ);
+    fprintf(stderr,"\n  --lut-diag: activation int8 round-trip, AQ=%d, amax scale per %s\n",
+            AQ, g_group>0?g_grouplbl:"whole vector");
     fprintf(stderr,"  %-46s %8s %9s %9s %10s\n","organ group","calls","crest avg","crest max","rel err");
     for(int b=0;b<2;b++){ if(!g_dn[b]) continue;
         fprintf(stderr,"  %-46s %8ld %9.1f %9.1f %9.4f\n",nm[b],g_dn[b],
                 g_dcrest[b]/g_dn[b],g_dcmax[b],g_drel[b]/g_dn[b]);
-        fprintf(stderr,"  %-46s %8s effective levels at rms: %.1f of %d\n","","",
+        fprintf(stderr,"  %-46s %8s effective levels at rms (in-group): %.1f of %d\n","","",
                 63.0/(g_dcrest[b]/g_dn[b]),AQ);
     }
 }
@@ -496,6 +569,9 @@ int main(int argc,char** argv){
         else if(!strcmp(argv[i],"--lut-clip")&&i+1<argc){ g_clip=(float)atof(argv[++i]); }
         else if(!strcmp(argv[i],"--lut-no-down")){ g_lutnodown=1; }
         else if(!strcmp(argv[i],"--lut-no-head")){ g_lutnohead=1; }
+        else if(!strcmp(argv[i],"--lut-group")&&i+1<argc){ g_group=atoi(argv[++i]);
+            if(g_group&1) die("--lut-group must be even: a 2-trit LUT pair may not straddle a group");
+            snprintf(g_grouplbl,sizeof g_grouplbl,"%d channels",g_group); }
         else if(!strcmp(argv[i],"--selftest-lut")){ return selftest_lut(); }
         else { fprintf(stderr,"unknown arg %s\n",argv[i]); return 1; }
     }
