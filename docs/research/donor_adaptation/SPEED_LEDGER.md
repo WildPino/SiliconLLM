@@ -301,3 +301,81 @@ At that ceiling:
 
 **Caveat that applies to every row:** the 3600X is this project's *reference floor*, not its target
 (portability law, `ENGINE_PLAN.md`). These are per-machine numbers and a wider machine moves them.
+
+---
+
+# 11. The LUT kernel, BUILT and MEASURED — and §10's rate withdrawn
+
+**Date: 2026-09-04. `donor_engine.c` @ `e02285c`, Qwen2.5-0.5B packed + ternary head, 3600X, t6.**
+**This section supersedes §10's rate and closes §10's route 1.**
+
+## 11.1 §10's number does not reproduce
+
+§10 recorded **27.72 ms wall / 26.59 ms matvec → 36.1 tok/s → 18.6 G-weights/s**, and that constant
+was propagated into `donor_speed_budget.py` and `INDEX.md`. Re-measured on an idle machine, three
+consecutive repetitions of `--bench 300`:
+
+| | rep 1 | rep 2 | rep 3 |
+|---|---|---|---|
+| packed, tok/s | 48.24 | 48.28 | 48.33 |
+
+and with `--profile`, wall **20.7–21.0 ms/token**, of which weight-matvec (`qkv + o_proj + ffn +
+head`) is **19.69 ms** and the fixed remainder (attention, RoPE, softmax, KV, norms, residuals) is
+**1.20 ms**.
+
+> **DELIVERED RATE = 493,961,216 / 19.691 ms = 25.1 G-weights/s.**
+> §10's 18.6 G-weights/s was almost certainly taken on a contended machine — this session ran a
+> 40 GB, 6-thread probe for 48 minutes — and **a contended timing is not a timing.** §10's rate is
+> withdrawn; the spread between the two is 35%, which is larger than any lever measured below.
+
+## 11.2 The LUT kernel buys 1.04×, not 1.83×
+
+`--lut` is probe-1's `pshufb`-LUT: tile-major codes, one 16-byte table per input pair, `shuffle`
+plus integer add instead of convert plus FMA. It is **bit-exact** against a scalar-integer
+reference and its two planted controls fire (`--selftest-lut`). Back to back, same binary:
+
+| config | tok/s | matvec ms | delivered | vs packed |
+|---|---|---|---|---|
+| packed | 48.13 | 19.69 | 25.1 G-w/s | — |
+| **`--lut`** | **51.05** | **18.75** | **26.3 G-w/s** | **1.05×** |
+| `--lut --lut-group 32` | 50.96 | 18.81 | 26.3 G-w/s | 1.05× |
+
+Per organ: ffn 12.38 → 11.56 (1.07×), head 3.87 → 3.29 (1.18×), and **qkv got slower**, 3.02 → 3.18.
+
+**§10's "IF the LUT kernel reached PHASE64's kernel-pure ceiling (34 G-weights/s, ×1.83)" is
+withdrawn as a measured fact.** The kernel is built; it reaches 26.3, not 34. On an operation
+count the LUT path issues ~0.20 vector ops per weight against the packed path's ~0.56 — it should
+have been ~2.8× — and it delivers 1.05×, which puts the real bound somewhere neither instruction
+count nor DRAM bandwidth explains (247 MB/token at 19.7 ms is 12.6 GB/s, a third of this machine's
+measured DRAM aggregate).
+
+**This is the third time this programme has watched a microbenchmark ceiling fail to compose.**
+`PHASE61_PROJQUANT` ("microbench compute-bound does not compose to an engine that is memory-bound"),
+then P2 → R1 on the packing (predicted ≤1.32×, delivered ~1.0×), now P64's kernel-pure ceiling
+(predicted 1.83×, delivered 1.05×). **The law is earning its keep: a kernel ceiling is not a
+runtime speedup until it is measured inside the runtime.**
+
+## 11.3 The budget, restated in measured units
+
+Fixed non-matvec cost 1.20 ms/token (measured at 0.5B and short context; it grows with layers and
+with context, so these are optimistic for a 10B).
+
+| target | at 25.1 G-w/s (packed) | at 26.3 G-w/s (LUT, built) |
+|---|---|---|
+| **50 tok/s** | **472 M active weights/token** = 4.7% of a 10B | **495 M** = 5.0% |
+| **100 tok/s** | **221 M** = 2.2% of a 10B | **232 M** = 2.3% |
+
+Against the donors on disk, at the 495 M figure: Qwen3-30B-A3B (3.04 G active) is **6.1× over**,
+Qwen3-Next-80B-A3B (2.78 G) is 5.6× over, OLMoE-1B-7B (1.18 G) is 2.4× over. Qwen2.5-0.5B, at
+0.494 G, is the only thing on this machine that fits — and it is 20× smaller than the target.
+
+**What §10's route 1 was, and what replaces it.** Route 1 was "the LUT kernel, 1.83× unclaimed".
+It is now claimed and worth 1.05×, so **the engineering headroom this ledger was counting on does
+not exist**. The remaining routes are unchanged and now carry the whole weight: a donor that is
+genuinely ~10 B with ≤5% activation, or sparsifying one ourselves — composed, as T1 and T2 insist,
+with a conversion that still costs +1.260 BPB on the FFN alone.
+
+**And the term that no route touches:** §7 of `INDEX.md` — the output head is a dense `D × V` GEMV
+on every token, and on a Qwen-family 10 B it is **622 M weights, larger than the entire 495 M
+budget**. A donor with a 32 K vocabulary carries 134 M for the same width. On this arithmetic
+**the tokenizer is a harder speed constraint than the kernel**, and it is chosen, not earned.

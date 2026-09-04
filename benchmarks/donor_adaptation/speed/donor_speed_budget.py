@@ -543,16 +543,24 @@ two engine states (today / overhead fixed) crossed with the two packings (built 
 *** SPEED_LEDGER.md s10.""")
 
     # -------- the same goal, in the currency that survived contact with a real runtime -----
-    # MEASURED: Qwen2.5-0.5B through donor_engine.c, t6, packed body + ternary head, 3600X.
-    # 494.0M active weights/token, 27.72 ms wall of which 26.59 ms is weight-matvec.
-    W_MEASURED   = 18.6e9    # 494.0e6 / 26.59e-3  -- what the built kernel DELIVERS
-    W_LUT_CEIL   = 34.0e9    # 17.0 GB/s kernel-pure / 0.5 B-per-weight, the LUT target (x1.83)
-    FIXED_MS     = 1.13      # 27.72 - 26.59: norms, attention, RoPE, softmax, KV, residuals
+    # MEASURED: Qwen2.5-0.5B through donor_engine.c, t6, packed body + ternary head, 3600X,
+    # SPEED_LEDGER.md s11. 493,961,216 active weights/token; 20.89 ms wall of which 19.69 ms is
+    # weight-matvec and 1.20 ms is everything else. Three consecutive reps, idle machine:
+    # 48.24 / 48.28 / 48.33 tok/s.
+    #
+    # s10's 18.6 G-w/s is WITHDRAWN: it was taken while a 40 GB 6-thread probe held the machine,
+    # and it does not reproduce. The gap between the two is 35%, larger than any lever here.
+    # The LUT figure below is likewise MEASURED, not a ceiling: s10 assumed the LUT kernel would
+    # reach 34 G-w/s (x1.83). It is built, bit-exact, and reaches 26.3 (x1.05).
+    W_MEASURED   = 25.1e9    # 493.961e6 / 19.691e-3  -- the packed kernel as built
+    W_LUT        = 26.3e9    # 493.961e6 / 18.752e-3  -- the LUT kernel as built
+    FIXED_MS     = 1.20      # 20.89 - 19.69, measured at 0.5B and short context: OPTIMISTIC for
+                             # a 10B, where attention and KV both grow.
     print()
     print("%-38s %16s %16s" % ("10.0G-param donor  (measured currency)", "50 tok/s", "100 tok/s"))
     print("-" * 72)
-    for label, wps in (("matvec as BUILT      18.6 G-w/s", W_MEASURED),
-                       ("matvec with LUT      34.0 G-w/s", W_LUT_CEIL)):
+    for label, wps in (("matvec packed        25.1 G-w/s", W_MEASURED),
+                       ("matvec LUT, built    26.3 G-w/s", W_LUT)):
         cells = []
         for tok_s, _ in TARGETS:
             ms = 1000.0 / tok_s - FIXED_MS           # budget left for weights after the fixed cost
@@ -560,27 +568,32 @@ two engine states (today / overhead fixed) crossed with the two packings (built 
             cells.append("%9s (%4.1f%%)" % (fmt_g(bw_), 100.0 * bw_ / TOTAL))
         print("%-38s %16s %16s" % (label, cells[0], cells[1]))
     print("""
-The LUT row is a TARGET, not a measurement: the kernel is written and bit-exact against a
-scalar-integer reference (donor_engine.c --selftest-lut) but its end-to-end rate on a donor
-is not yet measured, and it also quantizes activations to int8, whose BPB cost is unmeasured.
+BOTH ROWS ARE MEASURED. The LUT kernel is built, bit-exact against a scalar-integer reference
+(donor_engine.c --selftest-lut), and delivers 1.05x -- not the 1.83x this ledger assumed when
+the kernel was still hypothetical. It also quantizes activations to int8, at a cost measured
+separately (rel l2 3.1e-02 at 32 channels per scale) and NOT composed into these numbers.
 
 THE HEAD IS THE FLOOR, AND THE FLOOR IS SET BY THE TOKENIZER, NOT BY THE MODEL SIZE.
 The output head is a dense GEMV of D*V weights touched on every single token. No MoE, no
 carve, no activation sparsity and no reconstruction result in this programme touches it.
-Priced against the 641M budget above (LUT ceiling, 50 tok/s):""")
+Priced against the 495M budget above (LUT as built, 50 tok/s):""")
     print()
-    print("  %-34s %6s %8s %10s %16s" % ("donor", "D", "V", "head", "% of 641M budget"))
+    print("  %-34s %6s %8s %10s %16s" % ("donor", "D", "V", "head", "% of 495M budget"))
     for name, s, _a, _p in sorted(donors, key=lambda r: -r[1]["D"] * r[1]["V"])[:12]:
         h = s["D"] * s["V"]
         print("  %-34s %6d %8d %9.0fM %15.0f%%" % (name, s["D"], s["V"], h / 1e6,
-                                                   100.0 * h / 641e6))
+                                                   100.0 * h / 495e6))
     print("""
+Read the top row: on Qwen3-8B the output head ALONE is 126% of the entire 50 tok/s budget.
+The model cannot reach 50 tok/s on this machine even if every other weight in it were free.
+Four of the twelve rows are over 100%.
+
 Qwen3-8B and Mistral-7B-v0.3 are the same width (D=4096). Their heads differ by 4.6x --
 622M against 134M -- entirely because Qwen carries a 151,936-token vocabulary and Mistral a
-32,768-token one. On the Qwen line the head alone is ~97% of the whole 50 tok/s budget before
-a single layer runs. EVERY donor-adaptation probe this programme owns was measured on Qwen.
-Vocabulary size has never been treated as a speed variable, and on this arithmetic it is the
-largest one that is chosen rather than earned.""")
+32,768-token one, so Mistral's head is 27% of the budget where Qwen's is 126%. EVERY
+donor-adaptation probe this programme owns was measured on Qwen, which has the worst
+head-to-body ratio in this cache. Vocabulary size has never been treated as a speed variable,
+and on this arithmetic it is the largest one that is CHOSEN rather than earned.""")
 
     if args.json:
         with open(args.json, "w", encoding="utf-8") as fh:
