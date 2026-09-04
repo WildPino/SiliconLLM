@@ -1234,6 +1234,12 @@ duplication number below carries the actual signal.
 
 #### 11.7b The weight-inflation multiplier - and a correction to my own earlier report
 
+> **WITHDRAWN 2026-09-04 - the "per-token bytes, lossless" column below.** Controller
+> `CONTROLLER_D0_AUDIT.md` B2, upheld: that column is not a per-token byte count, and two of its five
+> entries sit below a hard analytic bound. **Do not read, cite or carry forward that column.** The
+> rest of this subsection stands. The column is left in place rather than deleted so the audit trail
+> is legible; it is struck, not corrected, because correcting it needs a re-derivation nobody has done.
+
 `dup_extra_greedy` solves, per neuron, a greedy set cover over the tokens where that neuron is
 active but its home expert was not loaded by an oracle top-`k` router. `1 + mean(dup_extra)` is the
 **weight-inflation multiplier**: the factor by which resident FFN weights grow to make top-`k`
@@ -1435,9 +1441,11 @@ measured it.
 alive; proceed to a joint sparsity+permutation brief."* The Amendment 1 arithmetic, applied to these
 same numbers, does not support proceeding:
 
-1. **`FFN_active` never goes below 0.5097** anywhere in 210 cells, against a dense-gate floor of
-   0.3333 that Amendment 1 proved unreachable-from-above by any block-skipping. The skippable route
-   cannot reach its own floor, let alone the 2% budget.
+1. ~~**`FFN_active` never goes below 0.5097** anywhere in 210 cells~~ **- WITHDRAWN 2026-09-04.**
+   The true minimum over the 210 cells is **0.3911**, not 0.5097 (Controller `CONTROLLER_D0_AUDIT.md`
+   B1, upheld). The claim as written was false and is struck. What survives is the weaker true
+   statement: `FFN_active` does not approach the 2% budget anywhere in the sweep. The binding floor is
+   not 0.3333 either - it is `(1 + 2p)/3` (Controller F4), which this document never stated.
 2. **At expert granularity the effect is gone.** Identity and random read 0.0000 at all 28 layers at
    block 140; co-activation reads 0.0000-0.0077 at 27 of them. The permutation works at block 12-21
    and the MoE needs block 140.
@@ -1547,8 +1555,17 @@ Determinism check after the repair, `d0_b3_treatment_spread.json` -> `determinis
 | ARI between two identical calls | ~0.43 | **1.0000** |
 | labels bitwise identical | no | **true** |
 
-**B3 is closed on reproducibility.** Every co-activation number in Parts I and II is now re-derivable
-from its seed.
+**B3 is closed on reproducibility going forward, and only going forward.**
+
+> **CORRECTED 2026-09-04 (Controller `CONTROLLER_D0_PART3_AUDIT.md` B2).** This paragraph originally
+> read *"every co-activation number in Parts I and II is now re-derivable from its seed."* **That is
+> false, and the Controller disproved it:** the main run's `coactivation_best` at `p = 0.10` does not
+> equal the seed-7 sweep value at any cell checked, and falls **outside the entire 8-seed range in 4
+> of 15** cells (e.g. L1 bs12: main run 0.394092, seed-7 0.392766, 8-seed range
+> [0.386931, 0.393278]). Parts I and II were drawn from an **unrecorded global RNG state**, and
+> nothing recovers it. **The repair fixes the future; it does not retro-fit the past.** Every
+> co-activation number in Parts I and II remains an n = 1 draw from a distribution whose spread is now
+> measured (12.2, 12.3) but whose particular draw is unrecoverable.
 
 ### 12.2 What the repair did *not* do: the partition is still not identified
 
@@ -1598,9 +1615,11 @@ which until now had never been measured. Now it has. Treatment sd across the 8 s
 
 **The correction:** at the cell 11.3 quoted, the honest figure is **41.6 sd, not 140 sd**. The
 sentence overstated the confidence by 3.4x by dividing by the wrong arm's spread. The treatment's own
-sd is 1.4x to 200x the null's, depending on the cell - and at block 140 the null's sd rounds to zero
-while the treatment's does not, which is exactly the regime where the old error bar was most
-flattering. **The direction of every claim survives; the precision claimed for it did not.**
+sd, measured over the 70 (layer, block) cells at `p = 0.10`, runs from **0.96x to 4545x** the null's.
+*(Corrected 2026-09-04, Controller F2: this sentence originally read "1.4x to 200x", which is wrong at
+both ends. It is not even always larger - at L7 bs16 the treatment sd is **smaller** than the null's,
+0.000630 against 0.000656.)* At block 140 the null's sd rounds to zero while the treatment's does not,
+which is exactly the regime where the old error bar was most flattering. **The direction of every claim survives; the precision claimed for it did not.**
 
 ### 12.4 Re-counting the 210 cells against the treatment's own spread
 
@@ -1615,9 +1634,11 @@ The new test - margin > 2x the treatment's *measured* sd:
 |---|---|
 | beats identity AND clears the random spread (row-1) | 209 / 210 |
 | margin > in-sample-optimism gap (11.4) | 195 / 210 |
-| **margin > 2x measured treatment sd** | **190 / 210** |
+| ~~margin > 2x measured treatment sd~~ | ~~190 / 210~~ **WITHDRAWN - see the correction below** |
 
-The 20 failures are not scattered. **All 20 sit at `p = 0.20`**, and 18 of the 20 at block >= 32:
+The 20 failures are not scattered. **All 20 sit at `p = 0.20`**, and **all 20** at block >= 32 - the list below is the proof, and the
+sentence originally read "18 of the 20", contradicting its own list *(corrected 2026-09-04, Controller
+F1)*:
 
 ```
 L1  p=0.20 bs=64,128,140      L14 p=0.20 bs=32,42,64,128,140
@@ -1629,10 +1650,35 @@ That is the corner where the skippable fraction has already collapsed toward zer
 the finding is: **the structure is real everywhere it is large enough to matter, and indistinguishable
 from noise only where there is nothing left to skip.** It does not rescue any operating point.
 
-**Stated limit on this test:** the treatment sd was measured at `p = 0.10` only, and is applied here to
-the `p = 0.05` and `p = 0.20` cells unchanged. That is an extrapolation across density, not a
-measurement. It is the reason the count is reported as 190/210 rather than presented as a clean
-replacement for the other two.
+> ### ⚠ CORRECTED 2026-09-04 - the 190/210 is an artefact of this test's own construction
+>
+> Controller `CONTROLLER_D0_PART3_AUDIT.md` **B3**, upheld and independently reproduced here. The
+> caveat below was stated but was **not adequate**, and the number it guards should not have been
+> carried into section 15 or into the handoff.
+>
+> **Split the count by density and the whole effect is in the extrapolated cells:**
+>
+> | density | passes 2x treatment sd | note |
+> |---|---|---|
+> | `p = 0.05` | **70 / 70** | sd imported from `p = 0.10` |
+> | `p = 0.10` | **70 / 70** | **the only density where the sd was measured** |
+> | `p = 0.20` | **50 / 70** | sd imported from `p = 0.10` |
+>
+> Every one of the 20 failures sits at the single density where the sd is borrowed. Worse, the
+> borrowed threshold is **not reachable** there: **19 of the 20 failing cells have a threshold larger
+> than the entire treatment statistic at that cell.** At L27 / `p = 0.20` / bs 128 the statistic is
+> 0.000133 and the threshold is 0.010401 - **78x the quantity being tested.** No amount of real
+> structure can pass a test like that; it is a statement about the imputation, not about the donor.
+>
+> Under two density-aware imputations the Controller ran, the count is **199/210**
+> (magnitude-matched) or **209/210** (proportional / relative-sd scaling).
+>
+> **The honest statement is: at the one density where the treatment sd was actually measured, the
+> count is 70 of 70.** The 190/210 headline is withdrawn.
+>
+> This is the same lean the previous audit found in Parts I and II: the correction in 12.3 was right,
+> and the re-count built on top of it **over-corrected in the direction that makes the negative look
+> wider.** That is the failure mode this programme keeps repeating and it repeated here.
 
 ---
 
@@ -1661,11 +1707,23 @@ comparable to the D1 baseline and to S1.
 
 The design is **paired**: per-sequence nats are written per arm to `results/d0_carved_arms/*.npy`, so
 the standard error is the paired one, not the marginal slice SE. This matters enormously here - the
-marginal slice SE on the baseline is 0.0622, which would swamp every effect below; the paired SE on
-the same comparison is 0.0042.
+marginal slice SE on the baseline is 0.0622 against a paired SE of 0.0042 on the L27 co-activation
+comparison - a 15x difference in resolving power. *(Corrected 2026-09-04, Controller F4: this sentence
+originally claimed the marginal SE "would swamp every effect below". It would not: 0.0622 does not
+swamp +1.09062 or +1.81114, which clear it even marginally - a two-sample marginal SE gives z = 9.9 for
+`all_coact`. It does swamp the two single-layer effects, +0.06499 and +0.14661. The original sentence
+also called two different quantities "the same comparison".)*
 
-**The router is an oracle.** It selects the `k` experts by true activation. No trainable router can
-beat it. Everything below is a **ceiling**.
+**The router is an oracle - on a proxy.** It selects the `k` experts greedily, per token and per
+layer, by **retained activation energy** (`(h**2) @ onehot`).
+
+> *(Scoped 2026-09-04, Controller F5.)* It is therefore an oracle **on retained energy, not on BPB**,
+> and it is **greedy per layer**, so it optimises no cross-layer interaction. The original claim here -
+> *"No trainable router can beat it"* - **is not established** and is withdrawn. What is established
+> is narrower: **no router can retain more activation energy at this budget under this per-layer
+> objective.** A router trained against BPB directly, or one allowed to trade energy across layers,
+> is not excluded by this measurement. Every Δ below remains a ceiling **for the energy objective**,
+> which is weaker than the ceiling this section originally claimed.
 
 ### 13.2 The result
 
@@ -1687,7 +1745,9 @@ Co-activation against its null, paired directly (`paired_coact_vs_null`):
 ### 13.3 The two readings, and they are both true
 
 **The permutation works.** Against a random carve at the identical budget, co-activation ordering
-recovers **0.7205 BPB of the 1.8111 a random carve costs - 39.8% of the damage** - at z = -6.3 paired
+recovers **0.7205 BPB of the 1.8111 a random carve costs - 39.8% of THE RANDOM CARVE'S damage**
+*(denominator named 2026-09-04, Controller F11: measured against the co-activation carve's own damage
+of 1.09062 the same 0.7205 is 66%, and the bare phrase "39.8% of the damage" hid which)* - at z = -6.3 paired
 on sequences and -60.8 on tokens. This is the first time the structure has been shown to matter on the
 *decision metric* rather than on a proxy. Part II's finding is confirmed end to end.
 
@@ -1698,8 +1758,11 @@ better-behaved subset could hide.
 
 The single-layer arm sharpens why. Carving **L27 alone** already costs +0.06499 - 13 sigma_seed - while
 moving only 56.4% of tokens past the median. Carving all 28 costs 1.09062, which is **16.8x** the
-single-layer cost across 28 layers: the damage compounds with depth rather than accumulating linearly,
-and there is no depth at which it is free.
+single-layer cost across 28 layers. **16.8 < 28, so the damage accumulates SUB-linearly with depth.**
+*(Corrected 2026-09-04, Controller F3: this sentence originally read "the damage compounds with depth
+rather than accumulating linearly", which inverts its own number.)* The honest reading is milder and
+still sufficient: carving every layer costs less than 28 independent single-layer carves would, and
+there is still no depth at which it is free.
 
 **40% of a catastrophe is a catastrophe.** The permutation is a real effect that is nowhere near large
 enough. That is the whole of D0 in one line, and it took an end-to-end BPB to say it.
@@ -1721,27 +1784,43 @@ The carve was measured twice, in two separate processes three days apart - the u
 Max absolute deviation **3.8e-08**, i.e. fp32 summation order, ~1e-5 of sigma_seed. The whole forward
 path, the partitioning, the oracle router and the BPB accounting reproduce across processes and across
 days. The baseline also matches C1's independently-measured 0.7675949601
-(section 11 `control_C1_losslessness`) and S1's 0.767594952 to 8 decimal places.
+(section 11 `control_C1_losslessness`) to 8 decimal places, and S1's 0.767594952 to **7**
+*(corrected 2026-09-04, Controller F10 - the original said 8 for both)*.
 
 ---
 
 ## 14. Where the audit's findings now stand
 
+*Rewritten 2026-09-04 after `CONTROLLER_D0_PART3_AUDIT.md`. The original table listed 8 of the previous
+audit's 15 findings and silently dropped 7 (Controller F7). All 15 are below; a finding this document
+has not acted on is marked NOT ADDRESSED rather than omitted.*
+
 | # | finding | status after Part III |
 |---|---|---|
-| B1 | `FFN_active` minimum is 0.3911, not 0.5097 | **UPHELD** - the 11.12 sentence is wrong and is withdrawn; the tables were always right |
-| B2 | 11.7b "per-token bytes, lossless" is not a byte count | **UPHELD, still open** - not touched by Part III; the column stays withdrawn pending a rewrite |
-| B3 | co-activation arm not reproducible at fixed seed | **CLOSED** - repaired, ARI 1.0000, labels identical (12.1); the treatment's real spread now measured (12.2-12.4) |
-| F1 | 195/210 attributed to the wrong test | **UPHELD** - the two counts are 209/210 and 195/210 (12.4) |
-| F4 | the real bound is `FFN_active >= (1+2p)/3` | **UPHELD, still open** |
+| B1 | `FFN_active` minimum is 0.3911, not 0.5097 | **UPHELD, and the sentence is NOW ACTUALLY STRUCK** at 11.12 point 1. The original 14 claimed a withdrawal that did not exist anywhere in the document (Controller P3-audit B4) |
+| B2 | 11.7b "per-token bytes, lossless" is not a byte count | **UPHELD, still open. The column is NOW ACTUALLY MARKED** at 11.7b. Same defect as B1: the withdrawal was claimed, never made |
+| B3 | co-activation arm not reproducible at fixed seed | **CLOSED FORWARD ONLY.** Repaired, ARI 1.0000, labels identical (12.1) - **and the repair is now committed to `d0_layout.py`**, which it was not when Part III was written (Controller P3-audit B1). It does **not** make Parts I/II re-derivable (12.1 correction, Controller P3-audit B2) |
+| F1 | 195/210 attributed to the wrong test | **UPHELD** - the two counts are 209/210 (row-1) and 195/210 (gap), reproduced in 12.4 |
+| F2 | 11.7a's "79 of 80" saturate is 72 of 80 | **NOT ADDRESSED** by Part III |
+| F3 | the block-size axis mixes two layout models; only block 64 is self-consistent | **NOT ADDRESSED** by Part III |
+| F4 | the real bound is `FFN_active >= (1+2p)/3` | **UPHELD, still open.** Now named at 11.12 point 1 as part of B1's strike |
 | F5 | "structure vanishes at block 140" is an absolute-margin artefact | **UPHELD** - 12.3 shows block 140 is where the *old* error bar was most flattering; in ratio the effect persists |
-| F6 | `coactivation_best` is a max over four arms selected on the held-out half | **UPHELD, and now moot** - section 13 selects nothing; it carves at a fixed `E`, `k` and measures BPB |
-| F8 | no positive control on the fidelity path | **PARTLY ANSWERED** - section 13's random-null arm is a genuine negative control on the *decision metric*, and the co-activation arm clears it at z = -6.3 |
+| F6 | `coactivation_best` is a max over four arms selected on the held-out half | **UPHELD. NOT moot** - the original claimed section 13 "selects nothing". It does: `E=32, k=8` is the argmax of Part I's 120-row fidelity table (relerr 0.0243, the single lowest). The selection runs in the conservative direction, but it is a selection (Controller P3-audit F8) |
+| F7 | C3 has no fit/score split | **NOT ADDRESSED** by Part III |
+| F8 | no positive control on the fidelity path | **NOT ANSWERED.** The original said "PARTLY ANSWERED". The audit asked for a **positive** control; section 13 supplies a **negative** one, on a different metric. Separately the carve hook itself has **no control of any kind** - the baseline arm installs no hook, so the hook path is never exercised against a known answer (Controller P3-audit F6) |
+| F9 | only one memory stage is measured | **NOT ADDRESSED** by Part III |
+| F10 | provenance: dirty git stamps, sklearn unpinned | **WORSE, NOT BETTER.** Both carve runs record `git_dirty_at_launch: true` and every Part III script was uncommitted at the time of writing (Controller P3-audit F7). The instrument is committed as of 2026-09-04; the runs' stamps cannot be retro-fitted |
+| F11 | contamination: D0 is a plausible contaminant of others | **NOT ADDRESSED** by Part III |
+| F12 | the `p_max` cap biases the realism check flatteringly | **NOT ADDRESSED** by Part III |
 
-The Controller's summary judgement - *"three independent over-statements all push in the same
-direction... the failure is in the summary sentences, not in the measurement"* - is confirmed by
-Part III from the other side: the measurement was good enough that an end-to-end BPB carve landed
-exactly where the tables implied it would.
+The previous audit's summary judgement - *"three independent over-statements all push in the same
+direction... the failure is in the summary sentences, not in the measurement"* - **repeated itself in
+Part III.** The Part III audit found 4 BLOCKs and 14 FLAGs, and its own verdict on direction is that
+Part III leans **the same way**: B3, F1, F3 and F5 each made the negative look wider or more final
+than the artefacts support. The tables were again right (six PASS findings, including the 12.3
+correction reproduced exactly and two independent SE estimators agreeing with the bootstrap to <= 3%)
+and the prose again was not. **That is now four probes in a row with the same signature, and it should
+be read as a property of how this document gets written, not as bad luck.**
 
 ---
 
@@ -1753,21 +1832,51 @@ exactly where the tables implied it would.
    at the budget the adapter needs.
 2. **Structure (Part II):** the co-activation permutation is real, and clears its null in 209 of 210
    cells - but at a granularity (block 12-21) far finer than any expert layout can use.
-3. **Reproducibility (Part III, section 12):** the arm is now deterministic; its own error bar is
-   1.4-200x the one the document had been quoting; 190 of 210 cells survive that stricter test, and
-   the 20 that do not are all at the density where nothing is left to skip.
+3. **Reproducibility (Part III, section 12):** the arm is now deterministic **from here on** - the
+   repair is in `d0_layout.py` as of 2026-09-04 - but Parts I and II are **not** re-derivable, because
+   they were drawn from an unrecorded global RNG state. Their numbers stay n = 1 draws from a spread
+   that is now measured but whose particular draw is lost. The treatment's own error bar runs
+   **0.96x to 4545x** the null's across the 70 measured cells. **At the one density where that sd was
+   actually measured (`p = 0.10`) the count is 70 of 70;** the 190/210 figure this verdict originally
+   cited is withdrawn as an artefact of imputing that sd to other densities (12.4).
 4. **BPB (Part III, section 13):** the carve costs **+1.09 BPB = 218 sigma_seed with an oracle
-   router.** The structure is worth 39.8% of the damage. The remainder is disqualifying.
+   router (on retained energy - see 13.1).** The structure is worth **39.8% of the random carve's
+   damage**, equivalently 66% of the co-activation carve's own. The remainder is disqualifying.
 
 **What stays open is not this axis - it is scale.** Every number above is measured at 1.5B, and FFN
-sparsity is known to rise with model size (46.5% / 50.5% / 71.7% at 0.5B / 1.5B / 14B). We are
+sparsity is reported to rise with model size (46.5% / 50.5% / 71.7% `S_inter` at 0.5B / 1.5B / 14B,
+**arXiv:2509.00454 Table 1**, carried here from `briefs/BRIEF_S1_WHICH_BAR_PREDICTS_BPB.md` §A1.1;
+*citation added 2026-09-04, Controller F13 - Part III originally gave these three numbers with no
+source at all. Per this programme's standing rule on literature figures, they are load-bearing for the
+scale argument and this document has NOT independently verified them against the paper's own table*).
+We are
 measuring at the bottom of that curve. Whether the carve is merely bad here or bad everywhere is the
 question S1 was pre-registered to answer, and it is why S1's scale arm was made mandatory
 (`briefs/BRIEF_S1_WHICH_BAR_PREDICTS_BPB.md`, Amendment 1, commit `f90ac3d`).
 
 **Do not open the joint sparsity+permutation brief on the strength of 13.3's first reading.** The
-39.8% recovery is real and it is not enough; the only thing that could change that verdict is a
-different point on the scale curve, not a better router - the router here is already an oracle.
+recovery is real and it is not enough.
+
+> **⚠ Two routes out of this verdict were closed by hand-waving, and 2026-09-04 reopened both.**
+>
+> The original text here said *"the only thing that could change that verdict is a different point on
+> the scale curve, not a better router - the router here is already an oracle."* **Both halves of that
+> were too strong.**
+>
+> - **The router.** The oracle is greedy, per-layer, on **retained activation energy**, not on BPB
+>   (13.1, Controller F5). A router trained against BPB, or one trading energy across layers, is not
+>   excluded by anything measured here.
+> - **The granularity.** Every BPB number in section 13 was measured at `E = 32` - **280 neurons per
+>   expert, the coarsest of the three granularities Part I itself swept** - while Part I's own fidelity
+>   table, read at matched achieved activation, favours the finer carve in every cell where two `E`
+>   values exist, by 0.08 to 0.11 relerr in the deep layers. `E = 128` is legal under the per-organ
+>   floor this document used and its BPB was never measured. This is pre-registered as
+>   **`briefs/BRIEF_D0C_CARVE_GRANULARITY.md`** (commit `4a98c89`) and is under measurement.
+>
+> **The two biases run in OPPOSITE directions and Part III originally stated only the first:** the
+> oracle router flatters the carve, the coarse granularity punishes it. Until D0c reports, section 13's
+> +1.09062 should be read as *"the cost at E = 32 under an energy oracle"*, not as *"the cost of
+> carving"*.
 
 ---
 

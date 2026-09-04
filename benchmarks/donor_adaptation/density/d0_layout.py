@@ -140,6 +140,10 @@ def clustered_order(B: torch.Tensor, E: int, seed: int, dim: int = 64):
     """Co-activation clustering, then lay the neurons out cluster-by-cluster."""
     from sklearn.cluster import KMeans
     X = B.float(); X = X - X.mean(0, keepdim=True)
+    # `svd_lowrank` draws its Gaussian sketch from torch's GLOBAL RNG.  Passing `seed` to KMeans
+    # alone leaves this call unseeded, and two identical invocations then return different
+    # partitions (measured: ARI 0.34-0.43).  This was Controller BLOCK B3.
+    torch.manual_seed(seed)
     _, _, Vh = torch.svd_lowrank(X, q=dim, niter=4)
     emb = Vh.numpy()
     emb = emb / (np.linalg.norm(emb, axis=1, keepdims=True) + 1e-9)
@@ -179,6 +183,9 @@ def balanced_labels(B: torch.Tensor, E: int, seed: int, dim: int = 64) -> np.nda
     """
     from sklearn.cluster import KMeans
     X = B.float(); X = X - X.mean(0, keepdim=True)
+    # See `clustered_order`: the sketch is drawn from torch's GLOBAL RNG and must be seeded here,
+    # or this function is not reproducible at fixed `seed`.  Controller BLOCK B3.
+    torch.manual_seed(seed)
     _, _, Vh = torch.svd_lowrank(X, q=dim, niter=4)
     emb = Vh.numpy()
     emb = emb / (np.linalg.norm(emb, axis=1, keepdims=True) + 1e-9)
