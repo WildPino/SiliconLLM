@@ -126,7 +126,7 @@ def r3_actsearch(w, act_rms):
     return _search(w, D_GRID, act_rms)
 
 
-def r4_gptq(w, H, percdamp=0.01, blocksize=128):
+def r4_gptq(w, H, percdamp=0.01, blocksize=128, alpha=None):
     """GPTQ / OBQ: quantize column by column, pushing each column's rounding error onto the
     columns not yet quantized through the inverse Hessian of the layer inputs.
 
@@ -136,7 +136,9 @@ def r4_gptq(w, H, percdamp=0.01, blocksize=128):
     """
     W = w.clone().double()
     n_out, n_in = W.shape
-    a = w.abs().mean(dim=1, keepdim=True).clamp_min(1e-5).double()      # fixed scale, R0's
+    # Fixed scale, chosen UP FRONT (standard GPTQ). R4 uses R0's mean|w|; R5 passes in the
+    # activation-weighted searched scale instead -- see the R5 note in ARMS.
+    a = (w.abs().mean(dim=1, keepdim=True).clamp_min(1e-5) if alpha is None else alpha).double()
 
     Hd = H.clone()
     dead = torch.diag(Hd) == 0
@@ -194,6 +196,16 @@ def apply_rule(model, rule, n_layers=None, act_rms=None, H_by=None):
                 q, a = r3_actsearch(w, act_rms[(li, organ)]); new = q * a
             elif rule == "R4":
                 q, a = r4_gptq(w, H_by[(li, organ)]); new = q * a
+            elif rule == "R5":
+                # POST-HOC ARM, NOT PRE-REGISTERED. Added after the smoke showed R4 (GPTQ on
+                # R0's scale) landing level with R2 while R3 (activation-weighted scale, no
+                # error compensation) beat both. R4 was compensating errors inside a quantizer
+                # whose SCALE was the thing R2/R3 had just shown to be wrong. R5 is the
+                # combination: R3's scale, R4's error compensation. It is a composition of two
+                # pre-registered arms, but the decision to run it came AFTER seeing results, so
+                # it does not carry the brief's label and is reported as post-hoc.
+                _, a3 = r3_actsearch(w, act_rms[(li, organ)])
+                q, a = r4_gptq(w, H_by[(li, organ)], alpha=a3); new = q * a
             elif rule == "Z":
                 q, a = r0_bitlinear(w)
                 g = torch.Generator().manual_seed(1000 + stats["n"])
@@ -261,7 +273,7 @@ def capture(model, ids, want_H, n_layers=None):
     return act_rms, H_by
 
 
-ARMS = ["base", "I", "R0", "R1", "R2", "R3", "Z"] + (["R4"] if WANT_R4 else [])
+ARMS = ["base", "I", "R0", "R1", "R2", "R3", "Z"] + (["R4", "R5"] if WANT_R4 else [])
 
 
 def main():
@@ -359,7 +371,9 @@ def main():
     dec["R0_replication"] = {"measured": dR0, "T1_standing": R0_STANDING,
                              "ok": (dR0 is not None and abs(dR0 - R0_STANDING) < 0.01)}
     cand = {k: v["delta_bpb"] for k, v in out["delta_vs_base"].items()
-            if v and k in ("R1", "R2", "R3", "R4")}
+            if v and k in ("R1", "R2", "R3", "R4")}      # brief section 4: R5 is post-hoc and
+    # deliberately excluded from the label, so a post-hoc arm cannot decide a pre-registered
+    # outcome. It is reported alongside.
     best_tag = min(cand, key=cand.get) if cand else None
     best = cand.get(best_tag) if best_tag else None
     dec["best_rule"] = best_tag
