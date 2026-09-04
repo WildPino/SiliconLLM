@@ -1,0 +1,17 @@
+donor: {"key": "qwen2.5-1.5b", "repo_id": "Qwen/Qwen2.5-1.5B", "revision_requested": "8faed761d45a263340a0528343f099c05c9a4323", "revision_achieved": "8faed761d45a263340a0528343f099c05c9a4323", "snapshot_dir": "C:\\Users\\giosa\\.cache\\huggingface\\hub\\models--Qwen--Qwen2.5-1.5B\\snapshots\\8faed761d45a263340a0528343f099c05c9a4323", "n_layers_achieved": 28, "d_model_achieved": 1536, "d_ffn_achieved": 8960, "vocab_achieved": 151936, "hidden_act_achieved": "silu", "n_params_achieved": 1543714304, "dtype_achieved": "torch.float32", "device_achieved": "cpu", "device_map_requested": null, "devices_in_use_achieved": ["cpu"], "tie_word_embeddings": true}
+slice: {"part": "heldout", "n_seq": 24, "seq_len": 512, "seed": 1234, "n_rejected": 0, "total_scored_bytes": 51870, "bytes_per_token": 4.22945205479452, "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65", "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd", "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312", "tokenizer_roundtrip_ok_achieved": true}
+BASELINE BPB = 0.767594952  (slice-resampling SE 0.0622)
+  p=1.0       A  achieved=0.000000  BPB=0.767594952  d=+0.000000  (paired SE 0.000000, marginal SE 0.0622)
+  p=1.0       B  achieved=0.000000  BPB=0.767594830  d=-0.000000  (paired SE 0.000000)
+  p=1.0       C  achieved=0.000000  BPB=0.767607258  d=+0.000012  (paired SE 0.000008)
+  p=1.0       D  achieved=0.000000  BPB=0.767594952  d=+0.000000  (paired SE 0.000000)
+  p=1.0       D2 achieved=0.000000  BPB=0.767594952  d=+0.000000  (paired SE 0.000000)
+  p=0.9999    A  achieved=0.019620  BPB=0.767593362  d=-0.000002  (paired SE 0.000002, marginal SE 0.0622)
+  p=0.9999    B  achieved=0.019620  BPB=0.772384679  d=+0.004790  (paired SE 0.000714)
+  p=0.9999    C  achieved=0.019620  BPB=0.785853784  d=+0.018259  (paired SE 0.001319)
+  p=0.9999    D  achieved=0.019620  BPB=0.767593362  d=-0.000002  (paired SE 0.000002)
+  p=0.9999    D2 achieved=0.019620  BPB=0.767593078  d=-0.000002  (paired SE 0.000002)
+  p=0.999     A  achieved=0.058037  BPB=0.767615081  d=+0.000020  (paired SE 0.000014, marginal SE 0.0622)
+  p=0.999     B  achieved=0.058037  BPB=0.791714212  d=+0.024119  (paired SE 0.002311)
+  p=0.999     C  achieved=0.058037  BPB=0.824397303  d=+0.056802  (paired SE 0.004138)
+  p=0.999     D  achieved=0.058037  BPB=0.767615081  d=+0.000020  (paired SE 0.000014)

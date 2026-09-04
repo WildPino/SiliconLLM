@@ -1,5 +1,5 @@
 # HANDOFF — CONTROLLORE — audit of D0 Part III
-updated: 2026-09-03T20:50+02:00   status: IN PROGRESS (Controller spawned, briefing read, recomputation started)
+updated: 2026-09-03T21:15+02:00   status: IN PROGRESS (10 findings settled; writing audit file)
 written by: the Adapter/Principal, before spawning you
 
 ## 1. The task, in one paragraph
@@ -43,6 +43,81 @@ reports an end-to-end BPB measurement of a carved donor. Its load-bearing claims
 6. The carve reproduces across two processes three days apart to 3.8e-08.
 7. Section 14 assigns a status to each finding of the previous audit; section 15 declares D0 closed
    as a negative at 1.5B.
+
+
+## 3b. CONTROLLER'S RUNNING LEDGER (written by the Controller, 2026-09-03 ~21:15)
+
+Everything below is recomputed by me from the rawest artefact, not read out of a JSON that also
+reports it. Reproduction commands are in the audit file
+`docs/research/donor_adaptation/audits/CONTROLLER_D0_PART3_AUDIT.md`.
+
+### Settled — CONFIRMED (no finding)
+- All five BPB values reproduce exactly from `d0_carved_arms/*.npy` as `nats.sum()/ln2/51870`
+  (max |diff| 4.4e-16 vs the JSON).
+- All paired SEs / z / frac_tokens_worse in `paired_vs_baseline` and `paired_coact_vs_null` reproduce
+  from the `.npy` + the pinned slice byte counts. Two *independent* SE estimators (jackknife over the
+  24 sequences, and a linearised ratio/delta-method SE) agree with the reported bootstrap to <=3%.
+  z(seq) = 15.37 / 15.55 / 15.62 / 12.94 and -13.34 / -6.28. **13.2 and the coact-vs-null table are
+  clean.**
+- 13.4's cross-process table reproduces (max dev 3.73e-8; report says 3.8e-8).
+- The eval slice `ids_sha256` on disk matches the pinned value; 24x512, 51870 bytes, 12264 tokens.
+- 12.2's ARI table reproduces exactly (L1 .493 / L7 .529 / L14 .424 / L21 .514 / L27 .449, min .414
+  max .472, 28 pairs).
+- 12.3's whole table reproduces exactly - margins (= `coactivation_best - random_max`), null sds,
+  treatment sds and every ratio, incl. the 41.6 correction of the 140.
+- 209/210 and 195/210 both reproduce from `d0_coactivation.analyse.json`.
+- 190/210 reproduces *arithmetically*, and so does the exact failing-cell list.
+- **I reproduced the carve partitions myself**: `torch.manual_seed(7)` + `balanced_labels(...,32,7)`
+  gives labels **bitwise identical** to `d0_carved_labels_E32.npz` for L0, L14, L27, in my own process.
+  Without the `manual_seed` the same call returns a different partition (ARI 0.34-0.38). So the repair
+  is real and load-bearing, and 13.4's partitioning claim holds.
+
+### Settled — FINDINGS (draft verdicts)
+1. **BLOCK - the B3 repair is not in the repo.** `grep manual_seed benchmarks/donor_adaptation/density/*.py`
+   returns only d2/d2b/d4. `d0_layout.py:143,182` still calls `torch.svd_lowrank` off the global RNG and
+   neither `d0_coactivation.py` nor `common.py` seeds it. The repair exists ONLY as a line inside two
+   scratchpad scripts in a session-temp dir (`.../1f268f4b-.../scratchpad/b3_sweep.py`,
+   `carved_bpb_paired.py`) that are not committed anywhere. 12.1's "B3 is closed on reproducibility" is
+   false at the repo level.
+2. **BLOCK - "Every co-activation number in Parts I and II is now re-derivable from its seed" is false,**
+   and I proved it: the main run's `coactivation_best` at p=0.10 does not equal the seed-7 sweep value at
+   any cell I checked, and falls OUTSIDE the whole 8-seed range in 4 of 15 (e.g. L1 bs12 0.394092 vs
+   seed-7 0.392766, 8-seed range [0.386931, 0.393278]). Parts I/II were drawn from an unrecorded global
+   RNG state; nothing recovers it. The repair fixes the future, not the past.
+3. **BLOCK - 190/210 is an artefact of the p=0.10 -> all-p sd extrapolation; the caveat is not adequate.**
+   Split by density: p=0.05 70/70, p=0.10 70/70, p=0.20 **50/70**. Every failure is at the one density
+   where the sd is imported. **19 of the 20 "failures" have 2*sd LARGER than the entire treatment
+   statistic at that cell** (L27 p=0.20 bs128: statistic 0.000133, threshold 0.010401 = 78x) - the test
+   cannot be passed there by any amount of structure. Re-run with a density-aware sd: magnitude-matched
+   imputation -> 199/210; proportional (relative-sd) scaling -> 209/210. Honest statement: at the only
+   density where the treatment sd was measured, the count is **70/70**.
+4. **FLAG - "18 of the 20 at block >= 32" contradicts its own printed list.** All 20 are at
+   bs in {32,42,64,128,140}. It is **20 of 20**. (Understates, so it leans the same way as #3.)
+5. **FLAG - "the treatment sd is 1.4x to 200x the null's" is wrong at both ends.** Over the 70
+   (layer,block) cells at p=0.10 the ratio runs **0.96x to 4545x**. At L7 bs16 the treatment sd is
+   SMALLER than the null's (0.000630 vs 0.000656), so "always larger" is false.
+6. **FLAG - "the damage compounds with depth rather than accumulating linearly" (13.3) inverts its own
+   number.** 28 layers cost 16.8x one layer. 16.8 < 28: that is SUB-linear. Same direction of lean.
+7. **FLAG - "the marginal slice SE ... would swamp every effect below" (13.1) is false for two of the
+   four effects.** 0.0622 does not swamp +1.09 or +1.81; a marginal two-sample SE gives z=9.9 for
+   all_coact. It also calls two different quantities "the same comparison".
+8. **FLAG - "No trainable router can beat it" / "no routing improvement can move it" is not established.**
+   The oracle is top-k by retained activation ENERGY (`(h**2) @ onehot`), per token, per layer, greedily.
+   That is an oracle on a proxy, not on BPB, and it ignores cross-layer interaction. Ceiling framing is
+   load-bearing for 13.3 and for 15's "do not open the joint brief".
+9. **FLAG - F8 is not "PARTLY ANSWERED".** The audit's F8 asked for a *positive* control on the
+   fidelity/geometry/duplication paths. Section 13 supplies a *negative* control on a *different* metric.
+   Under this programme's planted-control law that is a category substitution, not a partial answer.
+   Also: the carve hook itself has **no** control of any kind - the baseline arm installs no hook, so the
+   hook code path is never exercised against a known answer.
+10. **FLAG - section 14 silently omits 7 of the previous audit's 15 findings** (F2, F3, F7, F9, F10, F11,
+    F12). F10 (provenance) is live again: both carve runs record `git_dirty_at_launch: true`, and the
+    scripts that produced every Part III number are uncommitted scratchpad files.
+
+### Direction of the lean (trap 6 in section 6)
+Part III leans the SAME WAY as Parts I/II did: findings 3, 4, 6 and 8 each make the negative look wider
+or more final than the artefacts support. The correction in 12.3 is honest and correct; the re-count in
+12.4 over-corrects.
 
 ## 4. The artefacts. Every number above must come from one of these
 

@@ -1,0 +1,379 @@
+{
+  "stage": "selfcheck",
+  "checks": {
+    "l1_rule_gauss_p0.5": {
+      "n_rows": 300,
+      "n_mismatch": 0,
+      "mean_keep": 96.63
+    },
+    "l1_rule_gauss_p0.9": {
+      "n_rows": 300,
+      "n_mismatch": 0,
+      "mean_keep": 259.9433333333333
+    },
+    "l1_rule_gauss_p0.99": {
+      "n_rows": 300,
+      "n_mismatch": 0,
+      "mean_keep": 356.58
+    },
+    "l1_rule_gauss_p1.0": {
+      "n_rows": 300,
+      "n_mismatch": 0,
+      "mean_keep": 401.0
+    },
+    "l1_rule_heavy_tail_p0.5": {
+      "n_rows": 300,
+      "n_mismatch": 0,
+      "mean_keep": 9.846666666666666
+    },
+    "l1_rule_heavy_tail_p0.9": {
+      "n_rows": 300,
+      "n_mismatch": 0,
+      "mean_keep": 57.29333333333334
+    },
+    "l1_rule_heavy_tail_p0.99": {
+      "n_rows": 300,
+      "n_mismatch": 0,
+      "mean_keep": 142.08333333333334
+    },
+    "l1_rule_heavy_tail_p1.0": {
+      "n_rows": 300,
+      "n_mismatch": 0,
+      "mean_keep": 400.0
+    },
+    "l1_rule_with_exact_zeros_p0.5": {
+      "n_rows": 300,
+      "n_mismatch": 0,
+      "mean_keep": 58.71666666666667
+    },
+    "l1_rule_with_exact_zeros_p0.9": {
+      "n_rows": 300,
+      "n_mismatch": 0,
+      "mean_keep": 157.29
+    },
+    "l1_rule_with_exact_zeros_p0.99": {
+      "n_rows": 300,
+      "n_mismatch": 0,
+      "mean_keep": 215.39666666666668
+    },
+    "l1_rule_with_exact_zeros_p1.0": {
+      "n_rows": 300,
+      "n_mismatch": 0,
+      "mean_keep": 241.97666666666666
+    },
+    "l1_minimal_p0.5": {
+      "min_mass_at_k": 0.5001159533357008,
+      "max_mass_at_k_minus_1": 0.49969811166033923
+    },
+    "l1_minimal_p0.9": {
+      "min_mass_at_k": 0.9000632469572024,
+      "max_mass_at_k_minus_1": 0.8998824875903086
+    },
+    "l1_minimal_p0.99": {
+      "min_mass_at_k": 0.9900057928845227,
+      "max_mass_at_k_minus_1": 0.9899992722449806
+    },
+    "topk_mask": {
+      "counts_exact": true,
+      "min_kept_minus_max_dropped": 3.993511199951172e-06
+    },
+    "identity_p1_exact_trial0": {
+      "max_abs_dev": 0.0,
+      "mean_kept_frac": 1.0,
+      "n_dropped_all_zero": true
+    },
+    "identity_p1_exact_trial1": {
+      "max_abs_dev": 0.0,
+      "mean_kept_frac": 0.6998129487037659,
+      "n_dropped_all_zero": true
+    },
+    "armA_equals_armD_at_matched_k": true,
+    "armP_drops_the_largest": {
+      "kept_l1_mass_A": 0.9009531736373901,
+      "kept_l1_mass_P": 0.003128709737211466
+    },
+    "fast_path_equals_naive": {
+      "gauss_p0.5": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 144.375
+      },
+      "gauss_p0.9": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 389.19921875
+      },
+      "gauss_p0.99": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 533.9921875
+      },
+      "gauss_p0.999": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 580.125
+      },
+      "gauss_p1.0": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 601.0
+      },
+      "heavy_tail_p0.5": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 5.88671875
+      },
+      "heavy_tail_p0.9": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 39.75390625
+      },
+      "heavy_tail_p0.99": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 122.046875
+      },
+      "heavy_tail_p0.999": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 214.875
+      },
+      "heavy_tail_p1.0": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 590.96484375
+      },
+      "many_exact_zeros_p0.5": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 57.9375
+      },
+      "many_exact_zeros_p0.9": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 155.92578125
+      },
+      "many_exact_zeros_p0.99": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 214.0078125
+      },
+      "many_exact_zeros_p0.999": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 232.4453125
+      },
+      "many_exact_zeros_p1.0": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 240.46484375
+      },
+      "heavily_tied_8_levels_p0.5": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 140.78125
+      },
+      "heavily_tied_8_levels_p0.9": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 388.21484375
+      },
+      "heavily_tied_8_levels_p0.99": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 473.70703125
+      },
+      "heavily_tied_8_levels_p0.999": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 482.65625
+      },
+      "heavily_tied_8_levels_p1.0": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 482.7109375
+      },
+      "all_ties_one_value_p0.5": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 301.0
+      },
+      "all_ties_one_value_p0.9": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 541.0
+      },
+      "all_ties_one_value_p0.99": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 595.0
+      },
+      "all_ties_one_value_p0.999": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 601.0
+      },
+      "all_ties_one_value_p1.0": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 601.0
+      },
+      "single_spike_p0.5": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 1.0
+      },
+      "single_spike_p0.9": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 1.0
+      },
+      "single_spike_p0.99": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 1.0
+      },
+      "single_spike_p0.999": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 1.0
+      },
+      "single_spike_p1.0": {
+        "mask_identical": true,
+        "keep_identical": true,
+        "masked_vector_bit_identical": true,
+        "n_mask_differences": 0,
+        "mean_keep": 601.0
+      }
+    },
+    "FAST_PATH_VERDICT": "IDENTICAL on 30 (distribution, p) cases including all-ties and many-exact-zeros: mask, keep-count and masked vector all bit-identical to the naive two-sort form",
+    "null_rng_batch_independent": true,
+    "toy_C1_identity_max_abs_dev": 0.0,
+    "toy_C1_h_mask_max_abs_dev": 0.0,
+    "toy_C1_achieved_sparsity": 0.0,
+    "toy_matched_arms": {
+      "A": {
+        "achieved": 0.48335411471321693,
+        "rel_out_err": 0.10298430919647217
+      },
+      "B": {
+        "achieved": 0.48335411471321693,
+        "rel_out_err": 0.39140236377716064
+      },
+      "C": {
+        "achieved": 0.48335411471321693,
+        "rel_out_err": 0.7079508304595947
+      },
+      "D": {
+        "achieved": 0.48335411471321693,
+        "rel_out_err": 0.10298430919647217
+      },
+      "D2": {
+        "achieved": 0.48335411471321693,
+        "rel_out_err": 0.10184693336486816
+      },
+      "P": {
+        "achieved": 0.48335411471321693,
+        "rel_out_err": 0.9935942888259888
+      }
+    },
+    "toy_armA_achieved_p0.9": 0.48335411471321693,
+    "toy_sparsity_match_max_abs_dev": 0.0,
+    "toy_D2_beats_A_on_output_err": true,
+    "PLANTED_VERDICT": "FIRES: at matched budget the planted mask's output error is 9.6x arm A's"
+  },
+  "elapsed_s": 4.582463979721069,
+  "peak_rss_gb": 0.2155914306640625,
+  "env": {
+    "python": "3.12.10",
+    "numpy": "2.4.6",
+    "torch": "2.12.0+cpu",
+    "transformers": "4.57.6",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+    "cpu_count": 12,
+    "torch_threads": 12
+  },
+  "allocation_inventory": {
+    "policy": "every allocation that scales with the input, including the ones that fit",
+    "per_forward_batch": {
+      "logits [B, T, V] fp32": "4*512*151936*4 B = 1.24 GB at B=4, T=512, V=151936 -- the LARGEST single allocation in the probe, and it is the LM head's, not the mask's; log_softmax allocates a second one of the same size, so the true transient is ~2.5 GB",
+      "h / g / u  [B, T, F] fp32": "4*512*8960*4 B = 73 MB each at the 1.5B donor"
+    },
+    "per_layer_transient_mask": {
+      "sort buffer [chunk, F] fp64": "512*8960*8 B = 37 MB  (l1_keep_count, chunk=512)",
+      "argsort index [chunk, F] int64": "512*8960*8 B = 37 MB  (keep_mask_topk)",
+      "bool mask [B*T, F]": "2048*8960 B = 18 MB",
+      "arm C random scores [B*T, F] fp32": "2048*8960*4 B = 73 MB",
+      "note": "chunked over rows at MASK_CHUNK=512 precisely so these do NOT scale with B*T"
+    },
+    "persistent": {
+      "kdrop [L, n_seq, seq_len] int32": "28*24*512*4 B = 1.4 MB -- the transplanted budget",
+      "colnorm L x [F] fp32": "28*8960*4 B = 1.0 MB",
+      "stat_drop/stat_tot [L] fp64": "448 B",
+      "model fp32": "n_params * 4 B; 6.2 GB at 1.5B, 12.4 GB at 3B, 30.5 GB at 7B"
+    },
+    "NOT_allocated": [
+      "no activation cache on disk (unlike F1's capture stage) -- every arm re-runs the forward",
+      "no [T, F] float mask is ever materialised; the mask is bool and multiplied in place"
+    ]
+  }
+}
