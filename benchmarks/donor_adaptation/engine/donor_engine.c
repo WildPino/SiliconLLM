@@ -95,7 +95,8 @@ static float *g_xe=NULL,*g_xo=NULL; static int g_xcap=0;
 // (a) is exactly lossless. (b) is NOT -- it is the first activation quantization this programme has
 // ever run on a donor, BRIEF_T2 s5 records it as untested. Its cost is measured, not assumed.
 #define AQ 63
-static int      g_lut=0;                            // --lut
+static int      g_lut=0, g_lutdiag=0, g_lutnodown=0, g_lutnohead=0;  // --lut* family
+static long     g_dn[2]={0,0}; static double g_dcrest[2]={0,0},g_drel[2]={0,0},g_dcmax[2]={0,0};
 static int8_t  *g_xq=NULL,*g_lutab=NULL; static int g_lutcap=0;
 
 static inline void acc_add_i8x32(__m256i* acc,__m256i p){
@@ -106,10 +107,19 @@ static inline void acc_add_i8x32(__m256i* acc,__m256i p){
     acc[3]=_mm256_add_epi32(acc[3],_mm256_cvtepi8_epi32(_mm_srli_si128(hi,8)));
 }
 // x -> int8 with one scale for the whole vector; returns the scale (0 for an all-zero input).
+// g_clip > 0 sets the grid from k*rms instead of amax, saturating whatever lies beyond. The donor's
+// activations have a crest factor (amax/rms) of 8-70, so an amax grid spends its 63 steps covering
+// outliers and leaves ~4-8 of them for the bulk. Clipping trades a few saturated features for
+// resolution on the rest. k=0 keeps the amax behaviour, which is what engine.c does on a model
+// TRAINED for this format and is therefore the right default there and the wrong one here.
+static float g_clip=0.0f;
 static float quant_i8(const float* x,int n,int8_t* xq){
     float amax=0; for(int i=0;i<n;i++){ float a=fabsf(x[i]); if(a>amax) amax=a; }
     if(amax==0.0f){ memset(xq,0,(size_t)n); return 0.0f; }
-    float s=amax/(float)AQ, inv=1.0f/s;
+    float lim=amax;
+    if(g_clip>0.0f){ double s2=0; for(int i=0;i<n;i++) s2+=(double)x[i]*x[i];
+        float r=(float)sqrt(s2/n)*g_clip; if(r>0.0f&&r<lim) lim=r; }
+    float s=lim/(float)AQ, inv=1.0f/s;
     for(int i=0;i<n;i++){ int v=(int)lrintf(x[i]*inv); if(v>AQ)v=AQ; if(v<-AQ)v=-AQ; xq[i]=(int8_t)v; }
     return s;
 }
@@ -161,6 +171,18 @@ static void matvec(const mat_t* m, const float* x, const float* bias, float* y){
         if(H>g_lutcap){ free(g_xq); free(g_lutab);
             g_xq=xmalloc((size_t)H*2); g_lutab=xmalloc((size_t)H*16); g_lutcap=H; }
         float sx=quant_i8(x,n_in,g_xq);
+        if(g_lutdiag){
+            // Measure the damage on the INPUT SIDE ONLY. This is arithmetic on x and its int8
+            // round-trip; the kernel is not involved, so it separates "int8 activations are
+            // lossy on a donor" from "the kernel is wrong".
+            double s2=0,e2=0,amax=0;
+            for(int i=0;i<n_in;i++){ double v=x[i],r=(double)g_xq[i]*sx, d=v-r;
+                s2+=v*v; e2+=d*d; if(fabs(v)>amax) amax=fabs(v); }
+            double rms=sqrt(s2/n_in), rel=sqrt(e2/(s2>0?s2:1));
+            int b = (n_in==4864)?1:0;                     // down_proj is the only in=4864 organ
+            g_dn[b]++; g_dcrest[b]+=(rms>0?amax/rms:0); g_drel[b]+=rel;
+            if(rms>0 && amax/rms>g_dcmax[b]) g_dcmax[b]=amax/rms;
+        }
         build_lut(g_xq,H,g_lutab);
         int32_t* acc=(int32_t*)g_i32(n_out);
         matvec_lut(m->tm,g_lutab,acc,n_out,m->Mpad,H);
@@ -434,6 +456,21 @@ static int selftest_lut(void){
     return (bad==0&&badB>0)?0:1;
 }
 
+// --lut-diag: what int8 does to the ACTIVATIONS, measured on x alone. crest = amax/rms is the
+// number that decides whether an amax-scaled int8 grid is usable: the grid has AQ=63 steps
+// between 0 and amax, so a vector whose typical element sits at rms gets only 63/crest of them.
+static void lut_diag_report(void){
+    static const char* nm[2]={"all organs with in=896 (q,k,v,o,gate,up,head)","down_proj (in=4864)"};
+    fprintf(stderr,"\n  --lut-diag: activation int8 round-trip, AQ=%d, one amax scale per vector\n",AQ);
+    fprintf(stderr,"  %-46s %8s %9s %9s %10s\n","organ group","calls","crest avg","crest max","rel err");
+    for(int b=0;b<2;b++){ if(!g_dn[b]) continue;
+        fprintf(stderr,"  %-46s %8ld %9.1f %9.1f %9.4f\n",nm[b],g_dn[b],
+                g_dcrest[b]/g_dn[b],g_dcmax[b],g_drel[b]/g_dn[b]);
+        fprintf(stderr,"  %-46s %8s effective levels at rms: %.1f of %d\n","","",
+                63.0/(g_dcrest[b]/g_dn[b]),AQ);
+    }
+}
+
 // ------------------------------------------------------------------ modes
 static int32_t* read_ids(const char* path,long* n){
     FILE* f=fopen(path,"rb"); if(!f) die("cannot open ids");
@@ -455,6 +492,10 @@ int main(int argc,char** argv){
         else if(!strcmp(argv[i],"--bench")&&i+1<argc){ mode="bench"; arg3=atol(argv[++i]); }
         else if(!strcmp(argv[i],"--profile")){ g_prof=1; }
         else if(!strcmp(argv[i],"--lut")){ g_lut=1; }
+        else if(!strcmp(argv[i],"--lut-diag")){ g_lut=1; g_lutdiag=1; atexit(lut_diag_report); }
+        else if(!strcmp(argv[i],"--lut-clip")&&i+1<argc){ g_clip=(float)atof(argv[++i]); }
+        else if(!strcmp(argv[i],"--lut-no-down")){ g_lutnodown=1; }
+        else if(!strcmp(argv[i],"--lut-no-head")){ g_lutnohead=1; }
         else if(!strcmp(argv[i],"--selftest-lut")){ return selftest_lut(); }
         else { fprintf(stderr,"unknown arg %s\n",argv[i]); return 1; }
     }
@@ -470,8 +511,13 @@ int main(int argc,char** argv){
         size_t tmb=0; double t0=now_s();
         for(int l=0;l<M.L;l++){ layer_t* L=&M.lay[l];
             mat_t* mm[7]={&L->q,&L->k,&L->v,&L->o,&L->gate,&L->up,&L->down};
-            for(int j=0;j<7;j++){ build_tm(mm[j]); tmb+=(size_t)(mm[j]->in/2)*mm[j]->Mpad; } }
-        if(!M.tied){ build_tm(&M.head); tmb+=(size_t)(M.head.in/2)*M.head.Mpad; }
+            // mm[6] is down_proj. Its input is the SwiGLU product, whose crest factor
+            // (amax/rms) is 15 on average and 70 at worst -- an amax-scaled int8 grid leaves it
+            // ~4 usable levels of 63, and --lut-diag measures its round-trip error at 2x every
+            // other organ's. --lut-no-down leaves it on the fp32-activation packed kernel.
+            for(int j=0;j<7;j++){ if(j==6&&g_lutnodown) continue;
+                                  build_tm(mm[j]); tmb+=(size_t)(mm[j]->in/2)*mm[j]->Mpad; } }
+        if(!M.tied&&!g_lutnohead){ build_tm(&M.head); tmb+=(size_t)(M.head.in/2)*M.head.Mpad; }
         fprintf(stderr,"  --lut: tile-major replica built, %.1f MB, %.2f s (activations int8, AQ=%d)\n",
                 tmb/1048576.0,now_s()-t0,AQ);
     }
