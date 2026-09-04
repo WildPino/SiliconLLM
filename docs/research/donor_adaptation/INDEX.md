@@ -2,7 +2,7 @@
 
 **The goal:** run somebody else's pretrained LLM on our architecture (`engine.c`), target **~10B at
 50 tok/s** (good) / **100 tok/s** (excellent).
-**Last updated: 2026-09-04.**
+**Last updated: 2026-09-04 (T2 closed, LUT kernel built and characterised).**
 
 This is the map. Every row names the artefact that holds the detail; nothing here is a claim that
 is not written up somewhere with its controls and its pre-registration.
@@ -14,13 +14,20 @@ is not written up somewhere with its controls and its pre-registration.
 | | status |
 |---|---|
 | **A pretrained donor executes on our runtime** | ✅ **YES** — Qwen2.5-0.5B, parity vs PyTorch `rel l2 2.8e-06`, top-1 `1.0000` |
-| **At the target speed** | ❌ **40–46 tok/s at 0.5B**, and 0.5B is 20× smaller than the target |
-| **At usable quality** | ❌ **NO** — the conversion costs **+4.738 BPB** on a 0.7676 baseline |
-| **The binding constraint** | **quality, not speed** |
+| **At the target speed** | ❌ **36–46 tok/s at 0.5B** = **18.6 G-weights/s delivered**, and 0.5B is 20× smaller than the target |
+| **At usable quality** | ❌ **NO**, but the number moved: FFN conversion **+3.309 → +1.260 BPB** (T2), still 252 σ_seed |
+| **The binding constraint** | **still quality — but it is the RULE, not the format** (T2, `RULE-HELPS`) |
 
 **The one-line state:** the road exists end to end — safetensors → export → ternary runtime →
-generated tokens, with a parity gate at the seam — and the model that comes out the far end is
-destroyed by the numeric conversion. Everything else is downstream of fixing that.
+generated tokens, with a parity gate at the seam. T2 has now shown the damage at the far end was
+**62% a bad map into the format**, not the format itself, and removed that much of it on CPU with
+no gradients. What remains is a real quality gap and a 20× speed gap.
+
+**The two numbers that price everything else:**
+`SPEED_LEDGER.md` §10 — **18.6 G-weights/s measured**, so a 10B donor needs ≤350 M active
+weights/token for 50 tok/s (≤641 M if the LUT kernel reaches its ceiling).
+`donor_speed_budget.py` — **the output head alone is up to 97% of that budget**, and its size is
+set by the tokenizer, not the model.
 
 ## 1. The runtime (this is the deliverable)
 
@@ -44,7 +51,23 @@ Trajectory: 23.5 (fp32 head) → 38.0 (ternary head) → 40–46 (packed).
 | **R1** | what does a real runtime cost? | 40–46 tok/s at 0.5B. **The packing bought nothing, exactly as P2 predicted** | `probes/R1_DONOR_RUNTIME.md` |
 
 **Terms nobody had attacked before the ledger, now priced:** the **output head** (was 40.4% of every
-token in fp32 — fixed), the **KV cache** (still fp32, untouched), the **attention projections**.
+token in fp32 — fixed; and see §7, it is the floor a 10B cannot get under), the **KV cache** (still
+fp32, untouched), the **attention projections**.
+
+### 2.1 The LUT kernel — `donor_engine.c --lut`, the lever P2 and R1 named
+
+| what | status |
+|---|---|
+| tile-major layout, `pshufb` tables, grouped scales | **built.** A `--lut` model and a `--quant packed` model hold **bit-identical weights** — the copy is a pure transpose |
+| kernel correctness | **bit-exact** vs a scalar-integer reference; two planted controls fire (`--selftest-lut` cases B and C) |
+| numeric cost of the int8 activations it requires | **measured.** rel l2 `1.40e-01` per-vector → **`3.10e-02` at G=32 channels per scale** |
+| why it costs that | activation crest factor `amax/rms` is 8.3 avg / 69.6 max, so a 63-step grid leaves ~4–8 usable levels. `--lut-diag` measures it on `x` alone, so the kernel is not implicated |
+| **rate** | ❌ **never timed.** T2 owned the machine, and a contended timing is not a timing |
+| BPB through the runtime | ❌ not run |
+
+Two predictions were written before their sweeps and **both were wrong in magnitude**: clipping the
+grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) and per-group scales
+(predicted <0.02 at G=128; it is 0.052). Recorded in commits `95b7fd3` and `e02285c`.
 
 ## 3. The quality side — every structural result, and the conversion that undercuts them all
 
@@ -55,23 +78,41 @@ token in fp32 — fixed), the **KV cache** (still fp32, untouched), the **attent
 | **D2 / D3** | basis rotation, low-rank | see reports | `results/d2_basis.json` |
 | **D4** | solve for thin replacement weights (Hessian) | recovery 0.483 honest vs 0.859 leaked → in-sample optimism; budget never swept | `probes/D4_RECONSTRUCTION.md` |
 | **S1** | which bar predicts BPB under sparsity | \|h\| is the bar; A≡D at every digit | `benchmarks/donor_adaptation/s1/` |
-| **T1** | **ternarize the donor — the engine's own rule** | **+4.738 BPB = 948 σ_seed. CONVERSION-FAILS** | `probes/T1_DONOR_TERNARIZATION.md` |
-| **T2** | was that the FORMAT or one naive RULE? | pre-registered; TWN / α-search / activation-weighted / **GPTQ** | `briefs/BRIEF_T2_TERNARIZATION_RULE.md` |
+| **T1** | **ternarize the donor — the engine's own rule** | **+4.738 BPB = 948 σ_seed. CONVERSION-FAILS** (measurement stands; verdict superseded in scope by T2) | `probes/T1_DONOR_TERNARIZATION.md` |
+| **T2** | was that the FORMAT or one naive RULE? | **`RULE-HELPS`. It was the RULE.** FFN +3.309 → **+1.260**, 62% removed with no training. **BitLinear158 is statistically indistinguishable from RANDOM SIGNS** (−0.064 ± 0.126) | `probes/T2_TERNARIZATION_RULE.md` |
+| **T2b** | does the winning rule survive outside the FFN? | pre-registered, unrun. T2 covers 84 FFN tensors; a runnable model also converts `q/k/v/o` and the head | `briefs/BRIEF_T2B_ORGAN_COVERAGE.md` |
+
+**T2's decomposition, paired between arms** (`probes/T2_TERNARIZATION_RULE.md` §4):
+
+| what | Δ BPB | significant |
+|---|---|---|
+| searching the per-row scale at all | −0.686 | yes |
+| **weighting that search by activation RMS** | **−0.914** | yes |
+| GPTQ error compensation **on a well-placed grid** | −0.449 | yes |
+| GPTQ error compensation **on the naive grid** | +0.223 | **no** |
+| TWN instead of BitLinear158 | −0.225 | **no** |
 
 > ⚠ **Every structural result above was measured on fp32 weights the engine cannot consume**, and
-> none was ever composed with a conversion that costs +4.74 BPB on its own. "Does carving a
-> *ternarized* donor cost the same as carving an fp32 one?" has never been asked.
+> none was ever composed with the conversion. "Does carving a *ternarized* donor cost the same as
+> carving an fp32 one?" has never been asked — and it is now a cheaper question than it was, since
+> the conversion it would have to compose with costs +1.260 rather than +3.309.
 
 ## 4. Open, in priority order
 
-1. **T2** — is the ternarization damage a rule artefact? CPU-only, no training. **Running.**
-2. **Healing** (QAT / layer-wise distillation) if T2 says the format is the wall. This is training →
-   GPU. No brief yet.
-3. **The LUT kernel** in `donor_engine.c` — the only identified lever left on the FFN term (P2).
-4. **S1's scale arm** — blocked on the fp16 NaN (`eager` attention overflows QK^T; diagnosed, see
-   §5). Every sparsity result this programme owns is measured at one size.
-5. **D4b** — D4's calibration budget, pre-registered and never run.
-6. An already-MoE donor. `SPEED_LEDGER.md` §5 shows the arithmetic does not close for a *dense* 10B.
+1. **T2b** — does R3/R5 survive on `q/k/v/o` and the head? Pre-registered, cheap, and it decides
+   what the *runnable* model costs. T2's number is a lower bound on that, not an estimate.
+2. **Export with the winning rule and measure BPB THROUGH `donor_engine.c`.** Every quality number
+   this programme owns is a PyTorch number about a model the engine executes. `--bpb` exists and
+   has never been run at scale. This closes the loop.
+3. **D4b** — the calibration budget. Promoted from bookkeeping: T2's two best arms are both
+   calibration-driven, so every one of their numbers is a **floor**.
+4. **The LUT kernel** — built, bit-exact, and its numeric cost measured (§5, §7). Two things remain:
+   its **rate**, never timed, and per-group scales finer than G=32.
+5. **Healing** (QAT / layer-wise distillation) — still on the critical path per T2 §7, but it now
+   starts from +1.260 instead of +3.309, so the brief must be written against the new start.
+6. **S1's scale arm** — blocked on the fp16 NaN (`eager` attention overflows QK^T; diagnosed, §5).
+   Every sparsity result this programme owns is measured at one size.
+7. An already-MoE donor, and **a donor with a small vocabulary** (§7).
 
 ## 5. Bugs found in our own instruments (all fixed, all with controls added)
 
@@ -80,7 +121,9 @@ token in fp32 — fixed), the **KV cache** (still fp32, untouched), the **attent
 | **The A1.2 gate reported PASS over an all-NaN run** | `max(0.0, nan) == 0.0` in Python swallowed all 51 comparisons | hard-fail on any non-finite, minimum comparison count, and **7 planted self-test cases run before any model loads** — the old code fails 3 of them |
 | **`l1_keep_count` turned a NaN into a plausible measurement** | `clamp_(1, F)` mapped a NaN row to "keep 1 neuron" → achieved sparsity `8959/8960` | raises `FloatingPointError` on non-finite input |
 | **fp16 NaN blamed on the GPU** | my own diagnostic did not pass `attn_implementation` and tested SDPA, not the `eager` path the probe uses | reproduced on CPU with `--attn eager`; cause is HF eager computing QK^T in fp16 (**274,672 vs the 65,504 limit**) before dividing by √head_dim |
-| **T1's planted control was mis-specified** | required random signs ≫ ternarization; they are only 1.21× apart, so it returned VOID on sound numbers | identity-substitution control added (bit-exact), reasoning recorded rather than the label quietly overturned |
+| **T1's planted control was mis-specified** | required random signs ≫ ternarization; they are only 1.21× apart, so it returned VOID on sound numbers | identity-substitution control added (bit-exact). **T2 §4 then showed the premise itself was false**: random signs are not ≫ the treatment, they are indistinguishable from it |
+| **`--calib-seqs` defaulted to 8 while T2 measures at 32** | exporting `--rule R3` would have built a model on a quarter of the calibration budget that produced the number, and the BPB gap would have read as the runtime disagreeing with PyTorch | default → 32, stderr warning otherwise, and the sidecar records the budget and the organ lists |
+| **the LUT diagnostic reported whole-vector crest while groups were active** | it kept calling the derived figure "effective levels" when the grid was per-group, i.e. a plausible number describing the wrong thing | crest computed in-group, both labels corrected, header states which scale is in force |
 
 ## 6. Working rules this programme has paid for
 
@@ -90,3 +133,34 @@ token in fp32 — fixed), the **KV cache** (still fp32, untouched), the **attent
 - **When reproducing a failure, reproduce the CONFIGURATION, not just the model.** A different
   library default invalidated a conclusion. (§5, row 3)
 - **Byte-rate ÷ bytes-per-weight is only valid where the path is bandwidth-bound.** (P2 → R1)
+- **A Δ against a baseline cannot support a claim about one arm versus another.** The arms are
+  correlated across sequences; the contrast has to be bootstrapped paired. Doing it moved two of
+  T2's apparent results — TWN and GPTQ-on-the-naive-grid — from "worse/better" to *not
+  distinguishable*. (T2 §4)
+- **When an instrument returns an impossible ordering, test the instrument before the finding.**
+  GPTQ scoring below its own starting point is not physically possible; two controls showed the
+  code was right and the objective was wrong. (T2 §5)
+
+## 7. The head, the tokenizer, and the thing nobody priced
+
+`donor_speed_budget.py` prices the output head against the measured 18.6 G-weights/s and the LUT
+ceiling. The head is a dense GEMV of `D × V` touched on **every** token, and **no** MoE, carve,
+sparsity or reconstruction result in this programme touches it.
+
+| donor | D | V | head | % of the 641 M budget for 10B @ 50 tok/s |
+|---|---|---|---|---|
+| Qwen3-8B | 4096 | 151,936 | 622 M | **97%** |
+| openai/gpt-oss-20b | 2880 | 201,088 | 579 M | 90% |
+| Qwen2.5-Coder-7B | 3584 | 152,064 | 545 M | 85% |
+| mistralai/Mistral-7B-v0.3 | 4096 | 32,768 | 134 M | **21%** |
+| microsoft/Phi-3-mini | 3072 | 32,064 | 98 M | 15% |
+
+**Qwen3-8B and Mistral-7B are the same width.** Their heads differ by 4.6× entirely because of
+vocabulary size. Every donor-adaptation probe this programme owns was measured on Qwen, which has
+the worst head-to-body ratio on the disk. **Vocabulary is a speed variable, it is chosen rather
+than earned, and it has never been treated as one.**
+
+Two measured facts sharpen it: the head was 40.4% of every token in fp32 before R1 ternarized it
+(`probes/R1_DONOR_RUNTIME.md` §3), and it is the one organ that pays **nothing** for int8
+activations on the LUT path — 0.13997 → 0.14084 when excluded — because its input is the final
+RMSNorm output (`donor_engine.c --lut-no-head`, commit `95b7fd3`).
