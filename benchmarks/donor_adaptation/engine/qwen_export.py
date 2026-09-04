@@ -123,8 +123,15 @@ def main():
                          "executes any of them unchanged -- which is the point of T2 and the "
                          "reason a better rule needs no engine change. R3 needs per-input "
                          "activation RMS and therefore a calibration pass (--calib-seqs).")
-    ap.add_argument("--calib-seqs", type=int, default=8,
-                    help="calibration sequences for --rule R3, from the DISJOINT corpus half")
+    ap.add_argument("--calib-seqs", type=int, default=32,
+                    help="calibration sequences for --rule R3, from the DISJOINT corpus half. "
+                         "The default is 32 because that is T2's registered operating point "
+                         "(t2_rules.py N_CAL=32, SEQ_CAL=512, SEED_CAL=42424), inherited from "
+                         "D4. Exporting at any other budget produces a DIFFERENT quantization "
+                         "from the one T2 measured, so the value used is written to the sidecar "
+                         "and a mismatch is warned about on stderr. D4b was written to sweep "
+                         "this knob and has never been run: 32 is a registered point, not an "
+                         "optimum.")
     ap.add_argument("--head-ternary", action="store_true",
                     help="UNTIE the output head and store it ternary. The embedding table stays "
                          "fp32 because it is a row LOOKUP (3.5 KB/token) and costs nothing to "
@@ -164,6 +171,13 @@ def main():
         _, _, meta_ev = CD.get_slice(tk, "heldout", 24, 512, 1234)
         assert meta_cal["corpus_sha256"] != meta_ev["corpus_sha256"],             "calib and eval must be different corpus halves"
         ids_cal = ids_cal[: a.calib_seqs]
+        if ids_cal.shape[0] != 32:
+            print("  WARNING: --calib-seqs %d != 32. T2's numbers were measured at 32; this "
+                  "export is a DIFFERENT quantization and its BPB is unmeasured."
+                  % ids_cal.shape[0], flush=True)
+        # T2 applied the rule to the FFN organs ONLY (84 tensors = 28 layers x 3). This exporter
+        # applies it to the attention projections as well, which is what a runnable model needs
+        # and what BRIEF_T2 s4 explicitly forbids extrapolating to. The organ list is recorded.
         print("  R3: capturing activations over %d calib sequences..." % ids_cal.shape[0],
               flush=True)
         sums, cnts, hooks = {}, {}, []
@@ -242,7 +256,15 @@ def main():
             "rms_eps": float(c.rms_norm_eps), "rope_theta": float(c.rope_theta),
             "head_ternary": bool(a.head_ternary), "rule": a.rule,
             "bytes": size, "sha256": h.hexdigest(),
-            "mean_ternary_zero_fraction": (float(np.mean(zeros)) if zeros else None)}
+            "mean_ternary_zero_fraction": (float(np.mean(zeros)) if zeros else None),
+            # The seam between what T2 MEASURED and what this file CONTAINS. Recorded so a
+            # BPB gap between the two can be attributed instead of guessed at.
+            "calib_seqs": (a.calib_seqs if a.rule == "R3" else None),
+            "calib_matches_t2_operating_point": (a.calib_seqs == 32 if a.rule == "R3" else None),
+            "rule_applied_to": (["q_proj", "k_proj", "v_proj", "o_proj",
+                                 "gate_proj", "up_proj", "down_proj"]
+                                + (["lm_head"] if a.head_ternary else [])),
+            "t2_measured_organs": ["gate_proj", "up_proj", "down_proj"]}
     json.dump(meta, open(a.out + ".json", "w", encoding="utf-8"), indent=1)
     print("wrote %s  (%.2f GB)  sha256 %s" % (a.out, size / 2**30, h.hexdigest()[:16]))
     if zeros:
