@@ -65,6 +65,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="qwen2.5-1.5b")
     ap.add_argument("--tokens", type=int, default=128)
+    ap.add_argument("--attn", default=None,
+                    help="attn_implementation. The probe uses 'eager' (s1_sparsity_bpb.py:618); "
+                         "omitting it here silently tested SDPA instead and produced a wrong "
+                         "conclusion on 2026-09-04.")
     a = ap.parse_args()
     torch.set_num_threads(int(os.environ.get("D_THREADS", "6")))
 
@@ -74,12 +78,14 @@ def main():
     tok = AutoTokenizer.from_pretrained(repo, revision=rev)
     ids, byts, meta = C.get_slice(tok, "heldout", 24, 512, 1234)
     ids = ids[:1, : a.tokens]
-    print("slice ids_sha256 =", meta.get("ids_sha256"), "| tokens =", ids.shape[1])
+    print("slice ids_sha256 =", meta.get("ids_sha256"), "| tokens =", ids.shape[1],
+          "| attn_implementation =", a.attn or "(library default)")
 
     out = {"model": a.model, "repo": repo, "revision": rev, "tokens": int(ids.shape[1])}
     per = {}
     for dt in (torch.float32, torch.float16):
-        m = AutoModelForCausalLM.from_pretrained(repo, revision=rev, dtype=dt).eval()
+        kw = {"attn_implementation": a.attn} if a.attn else {}
+        m = AutoModelForCausalLM.from_pretrained(repo, revision=rev, dtype=dt, **kw).eval()
         recs, first = walk(m, ids, dt)
         per[str(dt)] = {"first_nonfinite_index": first, "n_modules": len(recs)}
         print("\n== %s ==  modules traced: %d" % (dt, len(recs)))

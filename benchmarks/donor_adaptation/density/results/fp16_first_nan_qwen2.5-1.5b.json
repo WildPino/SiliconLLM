@@ -40,7 +40,7 @@
      "name": "model.layers.27.mlp.down_proj",
      "cls": "Linear",
      "finite": true,
-     "max_abs": 328.0479431152344,
+     "max_abs": 328.0478515625,
      "n_nonfinite": 0,
      "numel": 786432
     },
@@ -67,7 +67,7 @@
      "name": "model.norm",
      "cls": "Qwen2RMSNorm",
      "finite": true,
-     "max_abs": 170.32864379882812,
+     "max_abs": 170.3286590576172,
      "n_nonfinite": 0,
      "numel": 786432
     },
@@ -83,42 +83,42 @@
    ]
   },
   "torch.float16": {
-   "first_nonfinite_index": null,
+   "first_nonfinite_index": 6,
    "n_modules": 284,
-   "largest": [
+   "context": [
     {
-     "i": 271,
-     "name": "model.layers.26.mlp.down_proj",
-     "cls": "Linear",
+     "i": 0,
+     "name": "model.embed_tokens",
+     "cls": "Embedding",
      "finite": true,
-     "max_abs": 5736.0,
+     "max_abs": 0.30078125,
      "n_nonfinite": 0,
      "numel": 786432
     },
     {
-     "i": 31,
-     "name": "model.layers.2.mlp.down_proj",
-     "cls": "Linear",
+     "i": 1,
+     "name": "model.rotary_emb",
+     "cls": "Qwen2RotaryEmbedding",
      "finite": true,
-     "max_abs": 3384.0,
+     "max_abs": 1.0,
+     "n_nonfinite": 0,
+     "numel": 65536
+    },
+    {
+     "i": 2,
+     "name": "model.layers.0.input_layernorm",
+     "cls": "Qwen2RMSNorm",
+     "finite": true,
+     "max_abs": 49.875,
      "n_nonfinite": 0,
      "numel": 786432
     },
     {
-     "i": 21,
-     "name": "model.layers.1.mlp.down_proj",
+     "i": 3,
+     "name": "model.layers.0.self_attn.q_proj",
      "cls": "Linear",
      "finite": true,
-     "max_abs": 2138.0,
-     "n_nonfinite": 0,
-     "numel": 786432
-    },
-    {
-     "i": 281,
-     "name": "model.layers.27.mlp.down_proj",
-     "cls": "Linear",
-     "finite": true,
-     "max_abs": 328.25,
+     "max_abs": 103.9375,
      "n_nonfinite": 0,
      "numel": 786432
     },
@@ -132,34 +132,25 @@
      "numel": 131072
     },
     {
-     "i": 20,
-     "name": "model.layers.1.mlp.up_proj",
+     "i": 5,
+     "name": "model.layers.0.self_attn.v_proj",
      "cls": "Linear",
      "finite": true,
-     "max_abs": 172.375,
+     "max_abs": 4.39453125,
      "n_nonfinite": 0,
-     "numel": 4587520
+     "numel": 131072
     },
     {
-     "i": 282,
-     "name": "model.norm",
-     "cls": "Qwen2RMSNorm",
-     "finite": true,
-     "max_abs": 170.375,
-     "n_nonfinite": 0,
-     "numel": 786432
-    },
-    {
-     "i": 41,
-     "name": "model.layers.3.mlp.down_proj",
+     "i": 6,
+     "name": "model.layers.0.self_attn.o_proj",
      "cls": "Linear",
-     "finite": true,
-     "max_abs": 117.0625,
-     "n_nonfinite": 0,
+     "finite": false,
+     "max_abs": NaN,
+     "n_nonfinite": 417792,
      "numel": 786432
     }
    ]
   }
  },
- "verdict": "NO-NAN-ON-CPU -- the fp16 forward is clean here over 512 tokens. The Kaggle NaN is then NOT a pure representability fact: it needs the GPU kernels (SDPA/flash backend, or a fused path) or a longer sequence to appear. Next: reproduce with the same attn_implementation the Kaggle run used, and at 512 tokens."
+ "verdict": "FP16-ONLY -- module #6 is finite in fp32 and non-finite in fp16. That module is the conversion casualty and the fix belongs there (upcast it, or run that organ in fp32)."
 }

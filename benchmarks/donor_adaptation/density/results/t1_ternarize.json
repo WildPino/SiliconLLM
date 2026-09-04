@@ -1,0 +1,224 @@
+{
+ "brief": "docs/research/donor_adaptation/briefs/BRIEF_T1_DONOR_TERNARIZATION.md @ 95cdf33",
+ "rule": "BitLinear158, verbatim from benchmarks/phase60/e1_export.py:34-38",
+ "env": {},
+ "arch_achieved": {
+  "n_layers": 28,
+  "d_model": 1536,
+  "d_ffn": 8960,
+  "n_heads": 12,
+  "n_kv_heads": 2,
+  "vocab": 151936,
+  "tie_word_embeddings": true,
+  "hidden_act": "silu",
+  "revision": "8faed761d45a263340a0528343f099c05c9a4323"
+ },
+ "slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+ },
+ "smoke": false,
+ "thresholds_from_brief_s4": {
+  "CHEAP_MAX": 0.05,
+  "FAIL_MIN": 0.3,
+  "GRAN_RECOVER": 0.1,
+  "sigma_seed": 0.005,
+  "baseline_standing": 0.7675949641196624
+ },
+ "arms": {
+  "base": {
+   "bpb": 0.7675949584171732,
+   "organs": [],
+   "group": 0,
+   "mode": "bitlinear158",
+   "note": "replication gate",
+   "n_substituted": 0,
+   "seconds": 125.67739486694336
+  },
+  "F": {
+   "bpb": 4.076694081452302,
+   "organs": [
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+   ],
+   "group": 0,
+   "mode": "bitlinear158",
+   "note": "FFN, engine's per-row rule",
+   "n_substituted": 84,
+   "seconds": 125.56090879440308
+  },
+  "A": {
+   "bpb": 4.501506924246018,
+   "organs": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj"
+   ],
+   "group": 0,
+   "mode": "bitlinear158",
+   "note": "attention projections",
+   "n_substituted": 112,
+   "seconds": 120.11669564247131
+  },
+  "FA": {
+   "bpb": 5.505834290728114,
+   "organs": [
+    "gate_proj",
+    "up_proj",
+    "down_proj",
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj"
+   ],
+   "group": 0,
+   "mode": "bitlinear158",
+   "note": "PRIMARY -- the engine's conversion",
+   "n_substituted": 196,
+   "seconds": 136.78311824798584
+  },
+  "Fg256": {
+   "bpb": 4.097747970011388,
+   "organs": [
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+   ],
+   "group": 256,
+   "mode": "bitlinear158",
+   "note": "granularity sweep",
+   "n_substituted": 84,
+   "seconds": 151.9646258354187
+  },
+  "Fg64": {
+   "bpb": 4.152002756176524,
+   "organs": [
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+   ],
+   "group": 64,
+   "mode": "bitlinear158",
+   "note": "granularity sweep",
+   "n_substituted": 84,
+   "seconds": 139.23031187057495
+  },
+  "Z": {
+   "bpb": 4.768852282891286,
+   "organs": [
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+   ],
+   "group": 0,
+   "mode": "random_sign",
+   "note": "PLANTED CONTROL",
+   "n_substituted": 84,
+   "seconds": 150.41187453269958
+  }
+ },
+ "zero_fraction": {
+  "gate_proj_L0_g0": 0.3163281977176666,
+  "gate_proj_L0_g256": 0.3158462643623352,
+  "gate_proj_L0_g64": 0.3139175474643707
+ },
+ "delta_vs_base": {
+  "F": {
+   "delta_bpb": 3.309099123035128,
+   "paired_se_sequence_bootstrap": 0.15259611670698617,
+   "ci95": [
+    3.02396224855591,
+    3.632740438396926
+   ],
+   "frac_seq_worse": 1.0
+  },
+  "A": {
+   "delta_bpb": 3.7339119658288453,
+   "paired_se_sequence_bootstrap": 0.08207650077385052,
+   "ci95": [
+    3.58700196791936,
+    3.9143789665113804
+   ],
+   "frac_seq_worse": 1.0
+  },
+  "FA": {
+   "delta_bpb": 4.73823933231094,
+   "paired_se_sequence_bootstrap": 0.17657472047346412,
+   "ci95": [
+    4.410270078371611,
+    5.115730426448118
+   ],
+   "frac_seq_worse": 1.0
+  },
+  "Fg256": {
+   "delta_bpb": 3.3301530115942137,
+   "paired_se_sequence_bootstrap": 0.1469381895564027,
+   "ci95": [
+    3.0433307224025175,
+    3.6291716695726284
+   ],
+   "frac_seq_worse": 1.0
+  },
+  "Fg64": {
+   "delta_bpb": 3.38440779775935,
+   "paired_se_sequence_bootstrap": 0.15564788115400538,
+   "ci95": [
+    3.0946062909272314,
+    3.702331190815715
+   ],
+   "frac_seq_worse": 1.0
+  },
+  "Z": {
+   "delta_bpb": 4.001257324474113,
+   "paired_se_sequence_bootstrap": 0.08764838015206584,
+   "ci95": [
+    3.8472500686771656,
+    4.185949909767266
+   ],
+   "frac_seq_worse": 1.0
+  }
+ },
+ "decision": {
+  "rule": "brief section 4, thresholds fixed before the run",
+  "baseline_replication": {
+   "measured": 0.7675949584171732,
+   "standing": 0.7675949641196624,
+   "ok": true
+  },
+  "planted_control_Z": {
+   "delta_Z": 4.001257324474113,
+   "delta_F": 3.309099123035128,
+   "fires": false,
+   "requirement": "Z must be >2x F and >0.30 BPB"
+  },
+  "OUTCOME_LABEL": "VOID",
+  "meaning": "arm Z is not catastrophically worse than arm F, so the harness is not really substituting weights. No other number in this probe may be read.",
+  "granularity": {
+   "delta_F_perrow": 3.309099123035128,
+   "delta_Fg64": 3.38440779775935,
+   "improvement": -0.07530867472422198,
+   "threshold": 0.1,
+   "label": "NOT-RECOVERABLE",
+   "byte_cost_note": "a per-row scale is 4 B/row; g=64 on down_proj (in=8960) is 4*8960/64 = 560 B/row against 4480 B of codes = +12.5% weight bytes"
+  },
+  "delta_in_sigma_seed": {
+   "F": 661.8198246070256,
+   "A": 746.782393165769,
+   "FA": 947.647866462188,
+   "Fg256": 666.0306023188427,
+   "Fg64": 676.88155955187,
+   "Z": 800.2514648948227
+  }
+ },
+ "total_seconds": 957.5865166187286
+}

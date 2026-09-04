@@ -1,0 +1,22 @@
+  base   BPB = 0.767594958   (0 tensors, 126s)
+  F      BPB = 4.076694081   (84 tensors, 126s)
+  A      BPB = 4.501506924   (112 tensors, 120s)
+  FA     BPB = 5.505834291   (196 tensors, 137s)
+  Fg256  BPB = 4.097747970   (84 tensors, 152s)
+  Fg64   BPB = 4.152002756   (84 tensors, 139s)
+  Z      BPB = 4.768852283   (84 tensors, 150s)
+
+==============================================================================
+  base   BPB 0.767595   [baseline]
+  F      BPB 4.076694   delta +3.309099 +/- 0.152596  (661.8 sigma_seed)
+  A      BPB 4.501507   delta +3.733912 +/- 0.082077  (746.8 sigma_seed)
+  FA     BPB 5.505834   delta +4.738239 +/- 0.176575  (947.6 sigma_seed)
+  Fg256  BPB 4.097748   delta +3.330153 +/- 0.146938  (666.0 sigma_seed)
+  Fg64   BPB 4.152003   delta +3.384408 +/- 0.155648  (676.9 sigma_seed)
+  Z      BPB 4.768852   delta +4.001257 +/- 0.087648  (800.3 sigma_seed)
+  planted control Z fires: False
+  OUTCOME: VOID
+  arm Z is not catastrophically worse than arm F, so the harness is not really substituting weights. No other number in this probe may be read.
+  granularity: NOT-RECOVERABLE (improvement -0.075309, threshold 0.10)
+==============================================================================
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\t1_ternarize.json
