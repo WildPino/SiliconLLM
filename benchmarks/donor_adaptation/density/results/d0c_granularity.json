@@ -1,0 +1,397 @@
+{
+ "brief": "docs/research/donor_adaptation/briefs/BRIEF_D0C_CARVE_GRANULARITY.md @ 4a98c89",
+ "config": {
+  "arms": [
+   {
+    "tag": "baseline",
+    "E": null,
+    "k": null,
+    "kind": null,
+    "neurons_per_expert": null
+   },
+   {
+    "tag": "A0",
+    "E": 32,
+    "k": 8,
+    "kind": "coact",
+    "neurons_per_expert": 280
+   },
+   {
+    "tag": "N0",
+    "E": 32,
+    "k": 8,
+    "kind": "null",
+    "neurons_per_expert": 280
+   },
+   {
+    "tag": "A1",
+    "E": 64,
+    "k": 16,
+    "kind": "coact",
+    "neurons_per_expert": 140
+   },
+   {
+    "tag": "N1",
+    "E": 64,
+    "k": 16,
+    "kind": "null",
+    "neurons_per_expert": 140
+   },
+   {
+    "tag": "A2",
+    "E": 128,
+    "k": 32,
+    "kind": "coact",
+    "neurons_per_expert": 70
+   },
+   {
+    "tag": "N2",
+    "E": 128,
+    "k": 32,
+    "kind": "null",
+    "neurons_per_expert": 70
+   },
+   {
+    "tag": "S1",
+    "E": 256,
+    "k": 64,
+    "kind": "coact",
+    "neurons_per_expert": 35
+   },
+   {
+    "tag": "S1n",
+    "E": 256,
+    "k": 64,
+    "kind": "null",
+    "neurons_per_expert": 35
+   }
+  ],
+  "cluster_seed": 7,
+  "coactivation_mask_density_p": 0.1,
+  "coactivation_mask_topk_neurons": 896,
+  "null_seed_formula": "np.random.default_rng(1000 + E)  [Part III used 1032 at E=32]",
+  "router": "ORACLE top-k -- upper bound",
+  "b3_repair_applied": true,
+  "carved_layers": "ALL 28",
+  "smoke": false,
+  "secondary_E256_included": true,
+  "decision_thresholds_from_brief_s4": {
+   "delta_bpb": 0.2,
+   "gap_bpb": 0.1,
+   "sigma_seed": 0.005,
+   "baseline": 0.7675949641196624
+  },
+  "part_iii_standing_numbers": {
+   "baseline_bpb": 0.7675949641196624,
+   "A0_delta": 1.090622885724487,
+   "N0_delta": 1.8111363812608539,
+   "G32": -0.7205134955363668
+  },
+  "replication_tolerance": 1e-06
+ },
+ "env": {
+  "stage": "d0c_granularity",
+  "utc": "2026-09-04T09:15:37Z",
+  "git_revision": "3ba9bbb3644b09e9f48a82b9436bc39ef8c84e64",
+  "git_branch": "research/donor-adaptation",
+  "git_dirty_at_launch": true,
+  "command_line": "python D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\d0c_granularity.py",
+  "python": "3.12.10",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+  "cpu_count": 12,
+  "torch": "2.12.0+cpu",
+  "numpy": "2.4.6",
+  "transformers": "4.57.6",
+  "torch_num_threads_achieved": 6,
+  "env_D_THREADS": 6,
+  "env_D0_ALL_LAYERS": true,
+  "memory_at_stage_start": {
+   "total_gb": 79.95,
+   "free_gb": 57.31
+  },
+  "resident_heavyweight_processes": [
+   {
+    "Name": "python",
+    "Id": 9788,
+    "WS_GB": 6.17
+   },
+   {
+    "Name": "MsMpEng",
+    "Id": 4324,
+    "WS_GB": 0.52
+   },
+   {
+    "Name": "chrome",
+    "Id": 19568,
+    "WS_GB": 0.47
+   },
+   {
+    "Name": "chrome",
+    "Id": 16348,
+    "WS_GB": 0.42
+   },
+   {
+    "Name": "claude",
+    "Id": 8420,
+    "WS_GB": 0.41
+   },
+   {
+    "Name": "Antigravity IDE",
+    "Id": 22788,
+    "WS_GB": 0.39
+   },
+   {
+    "Name": "Antigravity IDE",
+    "Id": 16328,
+    "WS_GB": 0.39
+   },
+   {
+    "Name": "chrome",
+    "Id": 4472,
+    "WS_GB": 0.38
+   }
+  ],
+  "quiescence_gate": "NONE BY DESIGN -- D0 measures activation statistics, not bandwidth.",
+  "pinned": {
+   "donor": "Qwen/Qwen2.5-1.5B",
+   "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+   "bpb_eval_slice": {
+    "part": "heldout",
+    "n_seq": 24,
+    "seq_len": 512,
+    "seed": 1234,
+    "source": "imported from d1_pruning.py"
+   },
+   "fit_slice": {
+    "part": "calib",
+    "n_seq": 32,
+    "seq_len": 512,
+    "seed": 42424
+   },
+   "score_slice": {
+    "part": "heldout",
+    "n_seq": 32,
+    "seq_len": 512,
+    "seed": 909001
+   },
+   "deep_layers": [
+    1,
+    7,
+    14,
+    21,
+    27
+   ],
+   "depth_sweep_E": 64,
+   "p_max_stored": 0.25,
+   "densities_requested": [
+    0.05,
+    0.1,
+    0.2
+   ],
+   "p_primary": 0.1,
+   "random_seeds": [
+    11,
+    22,
+    33,
+    44,
+    55,
+    66,
+    77,
+    88
+   ],
+   "cluster_seed": 7,
+   "lossless_perm_seed": 20260828,
+   "E_list": [
+    16,
+    32,
+    64,
+    128
+   ],
+   "k_list": [
+    1,
+    2,
+    4,
+    8,
+    16
+   ],
+   "dup_tokens": 2048,
+   "fidelity_tokens": 2048,
+   "bytes_per_weight": 0.5,
+   "block_bytes": 49152
+  }
+ },
+ "arch_achieved": {
+  "n_layers": 28,
+  "d_model": 1536,
+  "d_ffn": 8960,
+  "n_heads": 12,
+  "n_kv_heads": 2,
+  "vocab": 151936,
+  "tie_word_embeddings": true,
+  "hidden_act": "silu",
+  "revision": "8faed761d45a263340a0528343f099c05c9a4323"
+ },
+ "bpb_eval_slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+ },
+ "n_predicted_tokens": 12264,
+ "partition_checks": {
+  "E32": {
+   "E": 32,
+   "neurons_per_expert_expected": 280,
+   "coact_all_experts_exact": true,
+   "null_all_experts_exact": true
+  },
+  "E64": {
+   "E": 64,
+   "neurons_per_expert_expected": 140,
+   "coact_all_experts_exact": true,
+   "null_all_experts_exact": true
+  },
+  "E128": {
+   "E": 128,
+   "neurons_per_expert_expected": 70,
+   "coact_all_experts_exact": true,
+   "null_all_experts_exact": true
+  },
+  "E256": {
+   "E": 256,
+   "neurons_per_expert_expected": 35,
+   "coact_all_experts_exact": true,
+   "null_all_experts_exact": true
+  }
+ },
+ "partition_replication_E32": {
+  "reference": "results/d0_carved_labels_E32.npz (Part III)",
+  "coact_labels_identical_all_28_layers": true,
+  "null_labels_identical_all_28_layers": true
+ },
+ "arm_meta": {
+  "baseline": {
+   "arm": "baseline",
+   "E": null,
+   "k": null,
+   "kind": null,
+   "nominal_activation": null,
+   "achieved_activation": 1.0,
+   "n_carved_layers": 0,
+   "hook_token_layer_calls": 0,
+   "seconds": 131.19722509384155
+  },
+  "A0": {
+   "arm": "A0",
+   "E": 32,
+   "k": 8,
+   "kind": "coact",
+   "nominal_activation": 0.25,
+   "achieved_activation": 0.25,
+   "n_carved_layers": 28,
+   "hook_token_layer_calls": 344064,
+   "seconds": 142.6423602104187
+  },
+  "N0": {
+   "arm": "N0",
+   "E": 32,
+   "k": 8,
+   "kind": "null",
+   "nominal_activation": 0.25,
+   "achieved_activation": 0.25,
+   "n_carved_layers": 28,
+   "hook_token_layer_calls": 344064,
+   "seconds": 146.27480030059814
+  },
+  "A1": {
+   "arm": "A1",
+   "E": 64,
+   "k": 16,
+   "kind": "coact",
+   "nominal_activation": 0.25,
+   "achieved_activation": 0.25,
+   "n_carved_layers": 28,
+   "hook_token_layer_calls": 344064,
+   "seconds": 155.72246384620667
+  },
+  "N1": {
+   "arm": "N1",
+   "E": 64,
+   "k": 16,
+   "kind": "null",
+   "nominal_activation": 0.25,
+   "achieved_activation": 0.25,
+   "n_carved_layers": 28,
+   "hook_token_layer_calls": 344064,
+   "seconds": 153.66634273529053
+  },
+  "A2": {
+   "arm": "A2",
+   "E": 128,
+   "k": 32,
+   "kind": "coact",
+   "nominal_activation": 0.25,
+   "achieved_activation": 0.25,
+   "n_carved_layers": 28,
+   "hook_token_layer_calls": 344064,
+   "seconds": 159.06612086296082
+  },
+  "N2": {
+   "arm": "N2",
+   "E": 128,
+   "k": 32,
+   "kind": "null",
+   "nominal_activation": 0.25,
+   "achieved_activation": 0.25,
+   "n_carved_layers": 28,
+   "hook_token_layer_calls": 344064,
+   "seconds": 156.90854406356812
+  }
+ },
+ "bpb": {
+  "baseline": 0.7675949641196624,
+  "A0": 1.8582178498441495,
+  "N0": 2.5787313453805165,
+  "A1": 1.5926672649320703,
+  "N1": 2.1444988058088934,
+  "A2": 1.473701587811855,
+  "N2": 1.8969618936625072
+ },
+ "replication_check": {
+  "tolerance": 1e-06,
+  "checks": {
+   "baseline_bpb": {
+    "part_iii": 0.7675949641196624,
+    "d0c": 0.7675949641196624,
+    "abs_diff": 0.0,
+    "within_tolerance": true
+   },
+   "A0_delta": {
+    "part_iii": 1.090622885724487,
+    "d0c": 1.090622885724487,
+    "abs_diff": 0.0,
+    "within_tolerance": true
+   },
+   "N0_delta": {
+    "part_iii": 1.8111363812608539,
+    "d0c": 1.8111363812608539,
+    "abs_diff": 0.0,
+    "within_tolerance": true
+   },
+   "G32": {
+    "part_iii": -0.7205134955363668,
+    "d0c": -0.7205134955363668,
+    "abs_diff": 0.0,
+    "within_tolerance": true
+   }
+  },
+  "PASS": true
+ }
+}
