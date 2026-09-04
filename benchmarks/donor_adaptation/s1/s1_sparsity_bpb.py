@@ -218,6 +218,23 @@ def l1_keep_count(v: torch.Tensor, p: float, chunk: int = MASK_CHUNK) -> torch.T
     of that many positive terms loses enough precision to move the count near p -> 1.
     """
     N, F = v.shape
+    # ------------------------------------------------------------------ NON-FINITE GUARD
+    # A single NaN or Inf anywhere in a row makes cs[:, -1] non-finite, hence `thr` NaN,
+    # hence `(cs < thr)` False EVERYWHERE, hence the count 0 -- which `clamp_(1, F)` then
+    # turns into the perfectly plausible answer "keep 1".  On 2026-09-04 a Kaggle fp16 run
+    # of the 1.5B donor returned achieved sparsity 0.9998883928571428 = 8959/8960 on layers
+    # 1-27: exactly this, one surviving neuron per layer, reported without a single warning.
+    # The probe must refuse rather than answer.  (Verified separately: the donor's FFN
+    # intermediate has 14.4x headroom against the fp16 max, so the NaN enters upstream --
+    # see fp16_range_diag.py.  This guard does not fix that; it makes it impossible to miss.)
+    if not torch.isfinite(v).all():
+        n_bad = int((~torch.isfinite(v)).sum())
+        bad_rows = int((~torch.isfinite(v)).any(dim=-1).sum())
+        raise FloatingPointError(
+            "l1_keep_count received %d non-finite values across %d of %d rows. Refusing to "
+            "return a keep-count: a NaN row silently degrades to keep=1 (achieved sparsity "
+            "%.16f at F=%d), which looks like a measurement and is not one."
+            % (n_bad, bad_rows, N, 1.0 - 1.0 / F, F))
     out = torch.empty(N, dtype=torch.int64, device=v.device)
     for s in range(0, N, chunk):
         e = min(s + chunk, N)

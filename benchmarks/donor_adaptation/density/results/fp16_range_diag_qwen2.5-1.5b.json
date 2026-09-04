@@ -1,0 +1,221 @@
+{
+ "model": "qwen2.5-1.5b",
+ "repo": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "n_sequences": 3,
+ "slice_meta": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+ },
+ "fp16_max": 65504.0,
+ "fp16_min_normal": 6.103515625e-05,
+ "worst_abs_h": 4541.4794921875,
+ "n_layers_overflowing": 0,
+ "per_layer": {
+  "0": {
+   "max_abs_h": 17.556671142578125,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 7.262613296508789,
+   "max_abs_up": 5.304038047790527
+  },
+  "1": {
+   "max_abs_h": 4078.315673828125,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 41.53191375732422,
+   "max_abs_up": 172.3033905029297
+  },
+  "2": {
+   "max_abs_h": 2781.430419921875,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 51.336524963378906,
+   "max_abs_up": 54.18033981323242
+  },
+  "3": {
+   "max_abs_h": 307.6196594238281,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 16.79578971862793,
+   "max_abs_up": 18.315284729003906
+  },
+  "4": {
+   "max_abs_h": 168.4917755126953,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 13.86790657043457,
+   "max_abs_up": 12.149774551391602
+  },
+  "5": {
+   "max_abs_h": 211.09011840820312,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 14.24691390991211,
+   "max_abs_up": 20.3624324798584
+  },
+  "6": {
+   "max_abs_h": 17.407567977905273,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 11.056666374206543,
+   "max_abs_up": 7.580240249633789
+  },
+  "7": {
+   "max_abs_h": 18.338321685791016,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 7.059028625488281,
+   "max_abs_up": 6.736164569854736
+  },
+  "8": {
+   "max_abs_h": 25.476238250732422,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 8.876826286315918,
+   "max_abs_up": 7.461147308349609
+  },
+  "9": {
+   "max_abs_h": 16.389114379882812,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 8.988927841186523,
+   "max_abs_up": 5.858136177062988
+  },
+  "10": {
+   "max_abs_h": 17.708011627197266,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 8.345972061157227,
+   "max_abs_up": 6.889395236968994
+  },
+  "11": {
+   "max_abs_h": 15.712698936462402,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 10.253445625305176,
+   "max_abs_up": 6.839982032775879
+  },
+  "12": {
+   "max_abs_h": 18.128070831298828,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 10.219679832458496,
+   "max_abs_up": 6.162944793701172
+  },
+  "13": {
+   "max_abs_h": 13.901333808898926,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 10.169513702392578,
+   "max_abs_up": 7.131980895996094
+  },
+  "14": {
+   "max_abs_h": 21.703636169433594,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 8.978113174438477,
+   "max_abs_up": 5.7763261795043945
+  },
+  "15": {
+   "max_abs_h": 16.118953704833984,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 7.069459438323975,
+   "max_abs_up": 7.14512300491333
+  },
+  "16": {
+   "max_abs_h": 16.892030715942383,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 7.658178806304932,
+   "max_abs_up": 5.596715927124023
+  },
+  "17": {
+   "max_abs_h": 23.701120376586914,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 12.794486999511719,
+   "max_abs_up": 6.497038841247559
+  },
+  "18": {
+   "max_abs_h": 24.23146629333496,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 9.618134498596191,
+   "max_abs_up": 7.472832679748535
+  },
+  "19": {
+   "max_abs_h": 23.900177001953125,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 23.467029571533203,
+   "max_abs_up": 8.391407012939453
+  },
+  "20": {
+   "max_abs_h": 27.021514892578125,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 9.233298301696777,
+   "max_abs_up": 8.047001838684082
+  },
+  "21": {
+   "max_abs_h": 40.226200103759766,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 11.73337173461914,
+   "max_abs_up": 9.595541954040527
+  },
+  "22": {
+   "max_abs_h": 64.74263763427734,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 14.958074569702148,
+   "max_abs_up": 11.553912162780762
+  },
+  "23": {
+   "max_abs_h": 99.71868896484375,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 23.06539535522461,
+   "max_abs_up": 12.831422805786133
+  },
+  "24": {
+   "max_abs_h": 71.62593841552734,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 15.382740020751953,
+   "max_abs_up": 12.738147735595703
+  },
+  "25": {
+   "max_abs_h": 79.2390365600586,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 16.43886947631836,
+   "max_abs_up": 15.88504409790039
+  },
+  "26": {
+   "max_abs_h": 4541.4794921875,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 67.92166137695312,
+   "max_abs_up": 66.86349487304688
+  },
+  "27": {
+   "max_abs_h": 194.4427947998047,
+   "n_over_fp16max": 0,
+   "n": 13762560,
+   "max_abs_gate": 28.737205505371094,
+   "max_abs_up": 37.93375778198242
+  }
+ },
+ "verdict": "NO-OVERFLOW -- every value fits in fp16 with margin (worst 4541.5 vs 65504.0). The NaN did NOT come from the range of h, so it came from the masking/threshold code, and that is a CODE bug to find rather than a numeric one"
+}

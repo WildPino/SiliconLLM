@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import glob
 import json
+import math
 import os
 import sys
 import time
@@ -92,50 +93,166 @@ def load_anchor():
     return None
 
 
+MIN_ANCHOR_COMPARISONS = 20   # the bundled anchor carries 50 arm comparisons + baseline = 51.
+                              # A gate that silently compares nothing must not be able to pass.
+
+
+def _bad(v):
+    """True if v cannot participate in a threshold comparison at all."""
+    if v is None or isinstance(v, bool) or not isinstance(v, (int, float)):
+        return True
+    return math.isnan(float(v)) or math.isinf(float(v))
+
+
 def check_anchor(gpu_run, anchor, sigma=S.SIGMA_SEED_BPB):
     """A1.2.  Compare the GPU fp16 1.5B point to the local CPU fp32 one, p by p.
 
     Returns (ok, report).  `ok` False means STOP -- do not run the larger sizes.
+
+    -----------------------------------------------------------------------------------
+    REPAIR 2026-09-04, after this gate reported PASS over a dead anchor on a real run.
+
+    The original implementation accumulated `worst = max(worst, abs(d))`.  In Python
+    `max(0.0, nan)` returns **0.0** -- `nan > 0.0` is False, so max() keeps its first
+    argument.  The GPU 1.5B run came back with `baseline_bpb = NaN`; all 51 deltas were
+    NaN, all were swallowed, `worst` stayed 0.0, and the gate certified "PASS -- fp16/GPU
+    reproduces fp32/CPU within sigma_seed" while the probe's own C1_IDENTITY control in
+    the same manifest said "FAIL -- HARNESS IS WRONG, STOP".
+
+    A second, latent hole found while fixing the first: with an empty `results` the loop
+    adds no comparisons and the same `worst = 0.0` passes the gate having compared
+    nothing.  MIN_ANCHOR_COMPARISONS closes it.
+
+    This is a REPAIR, not an amendment to the pre-registration.  A1.2 says stop unless
+    every comparison is within sigma_seed; a NaN comparison is not "within" anything, and
+    certifying it as such was the code failing to implement its own spec.  The threshold
+    is untouched.
+    -----------------------------------------------------------------------------------
     """
     if not anchor:
         return False, {"verdict": "UNAVAILABLE -- no local CPU anchor was bundled; "
                                   "cannot certify the platform, so the ladder is NOT run",
                        "sigma_seed": sigma}
     rows = []
-    worst = 0.0
-    db = gpu_run["baseline_bpb"] - anchor["baseline_bpb"]
-    worst = max(worst, abs(db))
-    rows.append({"p": "baseline", "cpu": anchor["baseline_bpb"],
-                 "gpu": gpu_run["baseline_bpb"], "abs_delta": abs(db)})
+    deltas = []
+    nonfinite = []
+
+    def add(row, cpu, gpu):
+        if _bad(cpu) or _bad(gpu):
+            nonfinite.append(dict(row, cpu=cpu, gpu=gpu,
+                                  why="cpu or gpu value is NaN/Inf/missing"))
+            rows.append(dict(row, cpu=cpu, gpu=gpu, abs_delta=None, NONFINITE=True))
+            return
+        d = abs(float(gpu) - float(cpu))
+        deltas.append(d)
+        rows.append(dict(row, cpu=cpu, gpu=gpu, abs_delta=d))
+
+    add({"p": "baseline"}, anchor.get("baseline_bpb"), gpu_run.get("baseline_bpb"))
     for ps, arec in anchor.get("results", {}).items():
-        grec = gpu_run["results"].get(ps)
+        grec = gpu_run.get("results", {}).get(ps)
         if not grec:
             continue
         for arm in ("A", "B", "C", "D", "D2"):
             if arm in arec and arm in grec:
-                d = grec[arm]["bpb"] - arec[arm]["bpb"]
-                worst = max(worst, abs(d))
-                rows.append({"p": ps, "arm": arm, "cpu": arec[arm]["bpb"],
-                             "gpu": grec[arm]["bpb"], "abs_delta": abs(d),
-                             "cpu_achieved": arec[arm]["achieved"]["aggregate"],
-                             "gpu_achieved": grec[arm]["achieved"]["aggregate"]})
-    ok = worst <= sigma
+                add({"p": ps, "arm": arm}, arec[arm].get("bpb"), grec[arm].get("bpb"))
+                if rows[-1].get("abs_delta") is not None:
+                    rows[-1]["cpu_achieved"] = arec[arm]["achieved"]["aggregate"]
+                    rows[-1]["gpu_achieved"] = grec[arm]["achieved"]["aggregate"]
+
+    worst = max(deltas) if deltas else None
+
+    # Three independent ways to fail. Any one of them stops the ladder.
+    if nonfinite:
+        ok = False
+        verdict = ("FAIL -- STOP.  %d of %d comparisons are NaN/Inf/missing, so the anchor "
+                   "certifies nothing.  A non-finite comparison is NOT 'within sigma_seed'; "
+                   "it means the GPU run is broken.  (This is the failure mode that used to "
+                   "report PASS: max(0.0, nan) == 0.0 in Python.)  A1.2 requires the ladder "
+                   "NOT be run." % (len(nonfinite), len(rows)))
+    elif len(deltas) < MIN_ANCHOR_COMPARISONS:
+        ok = False
+        verdict = ("FAIL -- STOP.  Only %d finite comparisons were made, below the required "
+                   "minimum of %d.  A gate that compares nothing must not be able to pass."
+                   % (len(deltas), MIN_ANCHOR_COMPARISONS))
+    elif worst > sigma:
+        ok = False
+        verdict = ("FAIL -- STOP.  The GPU path and the CPU path disagree by more than "
+                   "sigma_seed, so a cross-size trend measured here would confound scale "
+                   "with platform.  A1.2 requires the ladder NOT be run.")
+    else:
+        ok = True
+        verdict = ("PASS -- fp16/GPU reproduces fp32/CPU within sigma_seed over %d finite "
+                   "comparisons with zero non-finite; the trend that follows is a SCALE "
+                   "trend, not a platform artefact" % len(deltas))
+
     return ok, {
         "sigma_seed": sigma,
         "max_abs_bpb_delta_cpu_vs_gpu_ACHIEVED": worst,
         "n_comparisons": len(rows),
+        "n_finite_comparisons": len(deltas),
+        "n_nonfinite_comparisons": len(nonfinite),
+        "nonfinite": nonfinite[:20],
+        "min_required_comparisons": MIN_ANCHOR_COMPARISONS,
         "rows": rows,
-        "verdict": ("PASS -- fp16/GPU reproduces fp32/CPU within sigma_seed; the trend that "
-                    "follows is a SCALE trend, not a platform artefact")
-        if ok else
-        ("FAIL -- STOP.  The GPU path and the CPU path disagree by more than sigma_seed, so a "
-         "cross-size trend measured here would confound scale with platform.  Amendment 1 "
-         "A1.2 requires the ladder NOT be run."),
+        "verdict": verdict,
     }
+
+
+def selftest_anchor_gate(verbose=True):
+    """PLANTED CONTROL FOR THE GATE ITSELF.
+
+    Standing project law: an instrument must be shown to FIRE on a known positive before
+    its passes mean anything.  This gate had never been shown to fire, and it did not --
+    it certified a run whose every value was NaN.  These cases are that proof, and they
+    run in the entry path before any real check, so a broken gate cannot reach a real run.
+    """
+    def mk(base, arm, n_p=10):
+        r = {"baseline_bpb": base, "results": {}}
+        for i in range(n_p):
+            r["results"]["%.4f" % (1.0 - i * 0.05)] = dict(
+                (a, {"bpb": arm, "achieved": {"aggregate": 0.5}})
+                for a in ("A", "B", "C", "D", "D2"))
+        return r
+
+    nan, inf = float("nan"), float("inf")
+    cases = [
+        ("clean identical            -> must PASS", mk(0.75, 0.80), mk(0.75, 0.80), True),
+        ("all-NaN GPU (the real bug) -> must FAIL", mk(0.75, 0.80), mk(nan, nan), False),
+        ("NaN baseline only          -> must FAIL", mk(0.75, 0.80), mk(nan, 0.80), False),
+        ("+Inf arm                   -> must FAIL", mk(0.75, 0.80), mk(0.75, inf), False),
+        ("delta 0.02 > sigma 0.005   -> must FAIL", mk(0.75, 0.80), mk(0.75, 0.82), False),
+        ("delta 0.001 < sigma        -> must PASS", mk(0.75, 0.80), mk(0.75, 0.801), True),
+        ("empty results (compares 0) -> must FAIL", mk(0.75, 0.80),
+         {"baseline_bpb": 0.75, "results": {}}, False),
+    ]
+    if verbose:
+        print("== A1.2 anchor-gate planted control ==")
+    bad = 0
+    for name, anchor, gpu, want in cases:
+        got, rep = check_anchor(gpu, anchor)
+        if got != want:
+            bad += 1
+        if verbose:
+            print("   %-6s %-42s got=%-5s want=%-5s  finite=%s nonfinite=%s"
+                  % ("ok" if got == want else "BROKEN", name, got, want,
+                     rep.get("n_finite_comparisons"), rep.get("n_nonfinite_comparisons")))
+    if verbose:
+        print("   %s (%d/%d)" % ("GATE CONTROL PASS" if not bad else "GATE CONTROL FAILED",
+                                 len(cases) - bad, len(cases)))
+    return bad == 0
 
 
 def main():
     t0 = time.time()
+
+    # The gate must prove it FIRES before it is allowed to certify anything. This runs before
+    # any model is loaded: a gate that cannot detect NaN, Inf, an over-threshold delta or an
+    # empty comparison set has no business gating a 5.8 GPU-hour ladder. On 2026-09-04 the
+    # previous implementation passed a run whose every value was NaN; these cases reproduce
+    # that failure exactly and the old code fails 3 of them.
+    if not selftest_anchor_gate():
+        raise SystemExit("A1.2 gate self-test FAILED -- refusing to run. The gate is broken.")
+
     outdir = os.environ.get("S1_RESULTS", S.RESULTS)
     os.makedirs(outdir, exist_ok=True)
     S.RESULTS = outdir

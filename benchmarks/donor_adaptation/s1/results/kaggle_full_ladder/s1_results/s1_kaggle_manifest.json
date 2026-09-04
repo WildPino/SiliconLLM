@@ -1,0 +1,554 @@
+{
+  "stage": "kaggle_scale_arm",
+  "gpu": {
+    "cuda_available": true,
+    "n_devices_achieved": 2,
+    "devices": [
+      {
+        "index": 0,
+        "name": "Tesla T4",
+        "total_mem_gb": 14.56,
+        "capability": "7.5"
+      },
+      {
+        "index": 1,
+        "name": "Tesla T4",
+        "total_mem_gb": 14.56,
+        "capability": "7.5"
+      }
+    ],
+    "torch": "2.10.0+cu128",
+    "torch_cuda": "12.8",
+    "bf16_supported_achieved": true
+  },
+  "env": {
+    "python": "3.12.13",
+    "numpy": "2.0.2",
+    "torch": "2.10.0+cu128",
+    "transformers": "5.0.0",
+    "platform": "Linux-6.12.90+-x86_64-with-glibc2.35",
+    "processor": "x86_64",
+    "cpu_count": 4,
+    "torch_threads": 12
+  },
+  "on_kaggle": true,
+  "ladder_requested": [
+    "qwen2.5-0.5b",
+    "qwen2.5-1.5b",
+    "qwen2.5-7b",
+    "qwen2.5-14b"
+  ],
+  "p_grid": [
+    1.0,
+    0.9999,
+    0.999,
+    0.99,
+    0.98,
+    0.95,
+    0.9,
+    0.8,
+    0.7,
+    0.5
+  ],
+  "results_dir": "/kaggle/working/s1_results",
+  "started_utc": "2026-09-04T10:07:14Z",
+  "sizes": {
+    "qwen2.5-0.5b": {
+      "status": "OK",
+      "baseline_bpb": 0.8718624937236495,
+      "n_params_achieved": 494032768,
+      "dtype_achieved": "torch.float16",
+      "devices_in_use_achieved": [
+        "cuda:0"
+      ],
+      "elapsed_s": 274.05648827552795,
+      "json": "/kaggle/working/s1_results/s1_run_qwen2.5-0.5b.json"
+    },
+    "qwen2.5-1.5b": {
+      "status": "OK",
+      "baseline_bpb": NaN,
+      "n_params_achieved": 1543714304,
+      "dtype_achieved": "torch.float16",
+      "devices_in_use_achieved": [
+        "cuda:0"
+      ],
+      "elapsed_s": 511.7762086391449,
+      "json": "/kaggle/working/s1_results/s1_run_qwen2.5-1.5b.json"
+    },
+    "qwen2.5-7b": {
+      "status": "DID NOT FIT in fp16 across the available cards -- SKIPPED, and NOT retried in 8-bit or 4-bit (Amendment 1 A1.3)"
+    },
+    "qwen2.5-14b": {
+      "status": "DID NOT FIT in fp16 across the available cards -- SKIPPED, and NOT retried in 8-bit or 4-bit (Amendment 1 A1.3)"
+    }
+  },
+  "anchor_check": {
+    "sigma_seed": 0.005,
+    "max_abs_bpb_delta_cpu_vs_gpu_ACHIEVED": 0.0,
+    "n_comparisons": 51,
+    "rows": [
+      {
+        "p": "baseline",
+        "cpu": 0.7675949524755323,
+        "gpu": NaN,
+        "abs_delta": NaN
+      },
+      {
+        "p": "1.0",
+        "arm": "A",
+        "cpu": 0.7675949524755323,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 4.1650266063456634e-07,
+        "gpu_achieved": 0.9794613964703618
+      },
+      {
+        "p": "1.0",
+        "arm": "B",
+        "cpu": 0.7675948302474922,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 4.1650266063456634e-07,
+        "gpu_achieved": 0.9794613964703618
+      },
+      {
+        "p": "1.0",
+        "arm": "C",
+        "cpu": 0.7676072584625169,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 4.1650266063456634e-07,
+        "gpu_achieved": 0.9794613964703618
+      },
+      {
+        "p": "1.0",
+        "arm": "D",
+        "cpu": 0.7675949524755323,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 4.1650266063456634e-07,
+        "gpu_achieved": 0.9794613964703618
+      },
+      {
+        "p": "1.0",
+        "arm": "D2",
+        "cpu": 0.7675949524755323,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 4.1650266063456634e-07,
+        "gpu_achieved": 0.9794613964703618
+      },
+      {
+        "p": "0.9999",
+        "arm": "A",
+        "cpu": 0.767593361813399,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.019620266414823985,
+        "gpu_achieved": 0.9798998070411942
+      },
+      {
+        "p": "0.9999",
+        "arm": "B",
+        "cpu": 0.7723846789174401,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.019620266414823985,
+        "gpu_achieved": 0.9798998070411942
+      },
+      {
+        "p": "0.9999",
+        "arm": "C",
+        "cpu": 0.7858537836877532,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.019620266414823985,
+        "gpu_achieved": 0.9798998070411942
+      },
+      {
+        "p": "0.9999",
+        "arm": "D",
+        "cpu": 0.767593361813399,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.019620266414823985,
+        "gpu_achieved": 0.9798998070411942
+      },
+      {
+        "p": "0.9999",
+        "arm": "D2",
+        "cpu": 0.7675930783122504,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.019620266414823985,
+        "gpu_achieved": 0.9798998070411942
+      },
+      {
+        "p": "0.999",
+        "arm": "A",
+        "cpu": 0.767615081057085,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.05803669877603752,
+        "gpu_achieved": 0.9807248209609466
+      },
+      {
+        "p": "0.999",
+        "arm": "B",
+        "cpu": 0.7917142116338659,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.05803669877603752,
+        "gpu_achieved": 0.9807248209609466
+      },
+      {
+        "p": "0.999",
+        "arm": "C",
+        "cpu": 0.8243973028800042,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.05803669877603752,
+        "gpu_achieved": 0.9807248209609466
+      },
+      {
+        "p": "0.999",
+        "arm": "D",
+        "cpu": 0.767615081057085,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.05803669877603752,
+        "gpu_achieved": 0.9807248209609466
+      },
+      {
+        "p": "0.999",
+        "arm": "D2",
+        "cpu": 0.7676095740048325,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.05803669877603752,
+        "gpu_achieved": 0.9807248209609466
+      },
+      {
+        "p": "0.99",
+        "arm": "A",
+        "cpu": 0.7677319743525443,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.1680795721456307,
+        "gpu_achieved": 0.9830062859723357
+      },
+      {
+        "p": "0.99",
+        "arm": "B",
+        "cpu": 0.8849589311412551,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.1680795721456307,
+        "gpu_achieved": 0.9830062859723357
+      },
+      {
+        "p": "0.99",
+        "arm": "C",
+        "cpu": 0.9682881232804401,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.1680795721456307,
+        "gpu_achieved": 0.9830062859723357
+      },
+      {
+        "p": "0.99",
+        "arm": "D",
+        "cpu": 0.7677319743525443,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.1680795721456307,
+        "gpu_achieved": 0.9830062859723357
+      },
+      {
+        "p": "0.99",
+        "arm": "D2",
+        "cpu": 0.7677820937906373,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.1680795721456307,
+        "gpu_achieved": 0.9830062859723357
+      },
+      {
+        "p": "0.98",
+        "arm": "A",
+        "cpu": 0.7680392293324436,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.22977973393031528,
+        "gpu_achieved": 0.9842591817687157
+      },
+      {
+        "p": "0.98",
+        "arm": "B",
+        "cpu": 0.9614634968933652,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.22977973393031528,
+        "gpu_achieved": 0.9842591817687157
+      },
+      {
+        "p": "0.98",
+        "arm": "C",
+        "cpu": 1.0991328463908805,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.22977973393031528,
+        "gpu_achieved": 0.9842591817687157
+      },
+      {
+        "p": "0.98",
+        "arm": "D",
+        "cpu": 0.7680392293324436,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.22977973393031528,
+        "gpu_achieved": 0.9842591817687157
+      },
+      {
+        "p": "0.98",
+        "arm": "D2",
+        "cpu": 0.7680502841796285,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.22977973393031528,
+        "gpu_achieved": 0.9842591817687157
+      },
+      {
+        "p": "0.95",
+        "arm": "A",
+        "cpu": 0.7689248037377882,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.3442605839294641,
+        "gpu_achieved": 0.9865580036526634
+      },
+      {
+        "p": "0.95",
+        "arm": "B",
+        "cpu": 1.1599215938732221,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.3442605839294641,
+        "gpu_achieved": 0.9865580036526634
+      },
+      {
+        "p": "0.95",
+        "arm": "C",
+        "cpu": 1.5832046203310353,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.3442605839294641,
+        "gpu_achieved": 0.9865580036526634
+      },
+      {
+        "p": "0.95",
+        "arm": "D",
+        "cpu": 0.7689248037377882,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.3442605839294641,
+        "gpu_achieved": 0.9865580036526634
+      },
+      {
+        "p": "0.95",
+        "arm": "D2",
+        "cpu": 0.7686917963506253,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.3442605839294641,
+        "gpu_achieved": 0.9865580036526634
+      },
+      {
+        "p": "0.9",
+        "arm": "A",
+        "cpu": 0.7717578570290161,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.46267818269275485,
+        "gpu_achieved": 0.9889180468864182
+      },
+      {
+        "p": "0.9",
+        "arm": "B",
+        "cpu": 1.5065532841669071,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.46267818269275485,
+        "gpu_achieved": 0.9889180468864182
+      },
+      {
+        "p": "0.9",
+        "arm": "C",
+        "cpu": 2.539551210085635,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.46267818269275485,
+        "gpu_achieved": 0.9889180468864182
+      },
+      {
+        "p": "0.9",
+        "arm": "D",
+        "cpu": 0.7717578570290161,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.46267818269275485,
+        "gpu_achieved": 0.9889180468864182
+      },
+      {
+        "p": "0.9",
+        "arm": "D2",
+        "cpu": 0.7716558356605782,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.46267818269275485,
+        "gpu_achieved": 0.9889180468864182
+      },
+      {
+        "p": "0.8",
+        "arm": "A",
+        "cpu": 0.7856338275390973,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.6131977811151621,
+        "gpu_achieved": 0.991915226955803
+      },
+      {
+        "p": "0.8",
+        "arm": "B",
+        "cpu": 2.1599879652532135,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.6131977811151621,
+        "gpu_achieved": 0.991915226955803
+      },
+      {
+        "p": "0.8",
+        "arm": "C",
+        "cpu": 3.6155551058754107,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.6131977811151621,
+        "gpu_achieved": 0.991915226955803
+      },
+      {
+        "p": "0.8",
+        "arm": "D",
+        "cpu": 0.7856338275390973,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.6131977811151621,
+        "gpu_achieved": 0.991915226955803
+      },
+      {
+        "p": "0.8",
+        "arm": "D2",
+        "cpu": 0.786125447390218,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.6131977811151621,
+        "gpu_achieved": 0.991915226955803
+      },
+      {
+        "p": "0.7",
+        "arm": "A",
+        "cpu": 0.8085788818098014,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.7158298132370929,
+        "gpu_achieved": 0.9939696347632375
+      },
+      {
+        "p": "0.7",
+        "arm": "B",
+        "cpu": 2.5872605387073473,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.7158298132370929,
+        "gpu_achieved": 0.9939696347632375
+      },
+      {
+        "p": "0.7",
+        "arm": "C",
+        "cpu": 3.987293695239115,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.7158298132370929,
+        "gpu_achieved": 0.9939696347632375
+      },
+      {
+        "p": "0.7",
+        "arm": "D",
+        "cpu": 0.8085788818098014,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.7158298132370929,
+        "gpu_achieved": 0.9939696347632375
+      },
+      {
+        "p": "0.7",
+        "arm": "D2",
+        "cpu": 0.8090411109101064,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.7158298132370929,
+        "gpu_achieved": 0.9939696347632375
+      },
+      {
+        "p": "0.5",
+        "arm": "A",
+        "cpu": 0.9127418569695896,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.8543732899386867,
+        "gpu_achieved": 0.9967896273346986
+      },
+      {
+        "p": "0.5",
+        "arm": "B",
+        "cpu": 2.937151225791958,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.8543732899386867,
+        "gpu_achieved": 0.9967896273346986
+      },
+      {
+        "p": "0.5",
+        "arm": "C",
+        "cpu": 4.025019746508548,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.8543732899386867,
+        "gpu_achieved": 0.9967896273346986
+      },
+      {
+        "p": "0.5",
+        "arm": "D",
+        "cpu": 0.9127418569695896,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.8543732899386867,
+        "gpu_achieved": 0.9967896273346986
+      },
+      {
+        "p": "0.5",
+        "arm": "D2",
+        "cpu": 0.9101164631768972,
+        "gpu": NaN,
+        "abs_delta": NaN,
+        "cpu_achieved": 0.8543732899386867,
+        "gpu_achieved": 0.9967896273346986
+      }
+    ],
+    "verdict": "PASS -- fp16/GPU reproduces fp32/CPU within sigma_seed; the trend that follows is a SCALE trend, not a platform artefact"
+  },
+  "dtype_policy": "fp16 on GPU, fp32 on CPU, and nothing else -- no 8-bit, no 4-bit (Amendment 1 A1.3: quantising weights would change the activation statistics this probe measures)",
+  "selfcheck_pass": true,
+  "selfcheck_fast_path": "IDENTICAL on 30 (distribution, p) cases including all-ties and many-exact-zeros: mask, keep-count and masked vector all bit-identical to the naive two-sort form",
+  "anchor_bundled": true,
+  "elapsed_s": 1248.2117266654968
+}
