@@ -1,0 +1,165 @@
+{
+ "model": "qwen2.5-1.5b",
+ "repo": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "tokens": 512,
+ "per_dtype": {
+  "torch.float32": {
+   "first_nonfinite_index": null,
+   "n_modules": 284,
+   "largest": [
+    {
+     "i": 271,
+     "name": "model.layers.26.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 5733.2646484375,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 31,
+     "name": "model.layers.2.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 3384.912353515625,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 21,
+     "name": "model.layers.1.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 2138.49853515625,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 281,
+     "name": "model.layers.27.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 328.0479431152344,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 4,
+     "name": "model.layers.0.self_attn.k_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 321.00872802734375,
+     "n_nonfinite": 0,
+     "numel": 131072
+    },
+    {
+     "i": 20,
+     "name": "model.layers.1.mlp.up_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 172.3033905029297,
+     "n_nonfinite": 0,
+     "numel": 4587520
+    },
+    {
+     "i": 282,
+     "name": "model.norm",
+     "cls": "Qwen2RMSNorm",
+     "finite": true,
+     "max_abs": 170.32864379882812,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 41,
+     "name": "model.layers.3.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 117.12906646728516,
+     "n_nonfinite": 0,
+     "numel": 786432
+    }
+   ]
+  },
+  "torch.float16": {
+   "first_nonfinite_index": null,
+   "n_modules": 284,
+   "largest": [
+    {
+     "i": 271,
+     "name": "model.layers.26.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 5736.0,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 31,
+     "name": "model.layers.2.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 3384.0,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 21,
+     "name": "model.layers.1.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 2138.0,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 281,
+     "name": "model.layers.27.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 328.25,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 4,
+     "name": "model.layers.0.self_attn.k_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 321.0,
+     "n_nonfinite": 0,
+     "numel": 131072
+    },
+    {
+     "i": 20,
+     "name": "model.layers.1.mlp.up_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 172.375,
+     "n_nonfinite": 0,
+     "numel": 4587520
+    },
+    {
+     "i": 282,
+     "name": "model.norm",
+     "cls": "Qwen2RMSNorm",
+     "finite": true,
+     "max_abs": 170.375,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 41,
+     "name": "model.layers.3.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 117.0625,
+     "n_nonfinite": 0,
+     "numel": 786432
+    }
+   ]
+  }
+ },
+ "verdict": "NO-NAN-ON-CPU -- the fp16 forward is clean here over 512 tokens. The Kaggle NaN is then NOT a pure representability fact: it needs the GPU kernels (SDPA/flash backend, or a fused path) or a longer sequence to appear. Next: reproduce with the same attn_implementation the Kaggle run used, and at 512 tokens."
+}
