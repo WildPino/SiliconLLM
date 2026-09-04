@@ -52,6 +52,12 @@ docs/research/training/
 # stages. Anchored to this one place per the ANCHORING RULE above -- the probe code and its small
 # (sub-3MB) result JSONs/logs stay tracked; only this one heavy directory is excluded.
 /benchmarks/donor_adaptation/density/results/d0_masks/
+# Detached-run PID files. These are transient process state, valid only while the run that wrote them
+# is alive on THIS machine; two were committed by accident (d0c_partitions.pid, run_1.5b.pid) and are
+# untracked in the same commit as this rule. Anchored to the two places that write them, per the
+# ANCHORING RULE above -- the .log/.err next to them stay tracked, because those ARE the evidence.
+/benchmarks/donor_adaptation/density/results/*.pid
+/benchmarks/donor_adaptation/s1/results/*.pid
 
 # ── Python environment and cache ──────────────────────────────────────────────
 .venv/

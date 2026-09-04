@@ -1,0 +1,36 @@
+loaded in 18s  |  threads=6  |  d_ffn=8960 n_layers=28
+slice 24x512 -> 12264 predicted tokens, 51870 scored bytes  |  ids_sha256 OK
+  partitions E=32: loaded from cache (28 layers)
+  partition check E=32: {'E': 32, 'neurons_per_expert_expected': 280, 'coact_all_experts_exact': True, 'null_all_experts_exact': True}
+  partitions E=64: loaded from cache (28 layers)
+  partition check E=64: {'E': 64, 'neurons_per_expert_expected': 140, 'coact_all_experts_exact': True, 'null_all_experts_exact': True}
+  partitions E=128: loaded from cache (28 layers)
+  partition check E=128: {'E': 128, 'neurons_per_expert_expected': 70, 'coact_all_experts_exact': True, 'null_all_experts_exact': True}
+  partitions E=256: loaded from cache (28 layers)
+  partition check E=256: {'E': 256, 'neurons_per_expert_expected': 35, 'coact_all_experts_exact': True, 'null_all_experts_exact': True}
+  E=32 label replication vs Part III cache: coact=True null=True
+  baseline  CACHED  BPB = 0.767594964  achieved_activation = 1.000000
+  A0        CACHED  BPB = 1.858217850  achieved_activation = 0.250000
+  N0        CACHED  BPB = 2.578731345  achieved_activation = 0.250000
+  REPLICATION GATE: PASS
+    baseline_bpb   partIII=0.767594964120  d0c=0.767594964120  |d|=0.000e+00  ok
+    A0_delta       partIII=1.090622885724  d0c=1.090622885724  |d|=0.000e+00  ok
+    N0_delta       partIII=1.811136381261  d0c=1.811136381261  |d|=0.000e+00  ok
+    G32            partIII=-0.720513495536  d0c=-0.720513495536  |d|=0.000e+00  ok
+  A1        CACHED  BPB = 1.592667265  achieved_activation = 0.250000
+  N1        CACHED  BPB = 2.144498806  achieved_activation = 0.250000
+  A2        CACHED  BPB = 1.473701588  achieved_activation = 0.250000
+  N2        CACHED  BPB = 1.896961894  achieved_activation = 0.250000
+  S1        BPB = 1.383867590  achieved_activation = 0.250000  (139s)
+  S1n       BPB = 1.644650512  achieved_activation = 0.250000  (143s)
+
+==============================================================================
+  E=  32 (n/expert 280)  Delta=+1.09062 +/- 0.06981   Delta_null=+1.81114   G=-0.72051 +/- 0.11475
+  E=  64 (n/expert 140)  Delta=+0.82507 +/- 0.05792   Delta_null=+1.37690   G=-0.55183 +/- 0.04958
+  E= 128 (n/expert  70)  Delta=+0.70611 +/- 0.05555   Delta_null=+1.12937   G=-0.42326 +/- 0.03014
+  E= 256 (n/expert  35)  Delta=+0.61627 +/- 0.05071   Delta_null=+0.87706   G=-0.26078 +/- 0.01728
+  Delta(128)-Delta(32) = -0.38452 +/- 0.04498   ci95 [-0.47267, -0.29636]
+  G(128)-G(32)         = +0.29725 +/- 0.11034   ci95 [+0.08100, +0.51351]
+  OUTCOME: PARTIAL
+==============================================================================
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\d0c_granularity.json
