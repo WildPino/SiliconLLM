@@ -1,6 +1,7 @@
 # HANDOFF — S1 SCALE ARM ON KAGGLE T4×2
-updated: 2026-09-04T11:20+02:00   status: **READY TO RUN. The blocker is gone.**
-written by: the Adapter/Principal
+updated: 2026-09-04T14:52+02:00   status: **SMOKE VERIFIED END-TO-END ON KAGGLE. Ready for the Owner to launch the real ladder.**
+written by: the Adapter/Principal — smoke executed by the Kaggle operator (fresh session, no
+prior context on this thread)
 
 > **Read this file and the brief it names. You need nothing else and no prior conversation.**
 > Everything that was blocking this arm has been done; what is left is Kaggle work.
@@ -45,6 +46,67 @@ trend, and an honest gap beats a contaminated point.
 This measures whether the sparsity **exists**, not whether our 48 KB block granularity can exploit it.
 That second question is answered elsewhere and is negative. **A good curve here does not revive the
 carve.** Do not write that it does.
+
+## 3a. Milestones done since the above (2026-09-04, this session)
+
+- **Step 0 (whoami)** — `python scripts/kaggle_ops.py whoami`: all three accounts answer with their
+  own server identity (`acct1=wildpino, acct2=giggio253, acct3=sirwildpino ok`). No OAuth-token
+  override in effect.
+- **Step 1 (local code smoke)** — `S1_ONLY=qwen2.5-0.5b S1_LADDER_GRID=1 python s1_kaggle_entry.py`
+  ran on CPU/fp32 (2039 s). **SELFCHECK PASS, C1 IDENTITY PASS, C2 PLANTED FIRES** (+3.808 BPB at the
+  full-precision comparison). NOTE for whoever runs this next on this machine: `os.path.isdir(
+  "/kaggle/working")` false-positives on this box because `D:\kaggle\working` exists (unrelated old
+  phase-56 scratch) — Python resolves a drive-less POSIX absolute path against the CWD's drive. Run
+  the smoke from a C:-drive CWD (`cd /c/Users/<x>` first) or `ON_KAGGLE` silently takes the Kaggle
+  branch and the local run dies on `glob.glob("/kaggle/input/...")` finding nothing.
+- **Bundle rebuilt** — `python s1_kaggle_pack.py build`: `anchor_cpu.json` written from the
+  COMPLETE local CPU run, 10/10 p-values, 257,336 B total.
+- **Step 2/3 (push + GPU smoke at 0.5B)** — uploaded `wildpino/s1-sparsity-bpb-code` (acct1), pushed
+  `wildpino/s1-sparsity-bpb-scale-arm` kernel version 1 with `--only qwen2.5-0.5b --ladder-grid`.
+  `_wait_datasets_ready()` cleared with no delay. Kernel reached `KernelWorkerStatus.COMPLETE`.
+  **Downloaded and verified from the JSON artefacts (never from log line counts):**
+  - `gpu.n_devices_achieved = 2`, both `Tesla T4`, `torch_cuda = "12.8"` — real T4×2.
+  - `dtype_achieved = "torch.float16"`, `devices_in_use_achieved = ["cuda:0"]` — fp16 policy held.
+  - `selfcheck_pass = true`.
+  - `sizes["qwen2.5-0.5b"].status = "OK"`, run `elapsed_s = 171.6`, kernel total `elapsed_s = 187.5`
+    → **≈ 0.052 GPU-h consumed on acct1** (2.3× faster than the `estimate` table's 0.12 GPU-h guess).
+  - `controls.C1_IDENTITY`: `bitwise_equal = true`, `verdict = "PASS"`.
+  - `controls.C2_PLANTED`: `ratio_to_sigma_seed = 763.4`, `verdict = "FIRES"`.
+  - `slice.ids_sha256 = a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65` — matches
+    §5's required hash exactly; this run scored the pinned span, not a redrawn one.
+  - GPU baseline BPB `0.8718624937236495` vs local CPU baseline `0.8717951206093644` at 0.5B — a
+    delta of ~0.00007, well inside `σ_seed = 0.005`. (0.5B is not the anchor size; this is a good
+    sign, not the A1.2 verdict, which is decided at 1.5B only.)
+  - Artefacts downloaded to `s1/results/kaggle_smoke_0.5b/s1_results/`.
+  - Cosmetic only: `kernels output` raised `UnicodeEncodeError` on a stray progress-bar glyph while
+    ECHOING the CLI's own stdout to this console — the downloaded files themselves are intact and
+    were read back successfully; this is the project's known "Kaggle duplicates/mangles stdout"
+    trap (§5), not a data problem.
+
+**Per standing practice (A1.5 / the project's "Owner launches long runs" rule), the Kaggle operator
+stops here.** The full ladder (1.5B anchor gate → 7B → 14B) is a long unattended run and is the
+Owner's to launch, not the operator's.
+
+### Ready-to-run command
+
+```
+cd benchmarks/donor_adaptation/s1
+python s1_kaggle_pack.py push acct1
+```
+(no `--only`, no `--ladder-grid` — the full `P_GRID`, the full `LADDER`.) This one kernel push runs
+1.5B first, self-evaluates the A1.2 anchor gate from the bundled `anchor_cpu.json`, and only
+continues to 7B/14B if it passes — otherwise it stops and reports the discrepancy, per Amendment 1.
+
+**Stated GPU-hour estimate** (from `python s1_kaggle_pack.py estimate`, all figures there are
+labelled ESTIMATED except the CPU timings; the one measured GPU data point above — 0.5B in 0.052 h
+against the table's 0.12 h guess — suggests the true total will land at or under, not over, this
+number): **≈ 5.8 GPU-h for the whole ladder** (0.5B+1.5B+7B+14B), well inside the 30 GPU-h/week
+budget on one account. 14B may not fit fp16 across 2×16 GB — if so the script reports that and stops
+there, per A1.3; it is not re-tried quantised.
+
+Poll with `python s1_kaggle_pack.py status acct1`, download with
+`python s1_kaggle_pack.py output acct1 -p <dir>` when `COMPLETE`. Read `anchor_check` out of
+`s1_kaggle_manifest.json`, not the log (§5's stdout-duplication trap).
 
 ## 3. State — everything upstream of you is DONE
 

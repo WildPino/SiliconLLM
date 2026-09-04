@@ -37,9 +37,14 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # /kaggle/working.  Locally both resolve to the repo.
 ON_KAGGLE = os.path.isdir("/kaggle/working")
 if ON_KAGGLE:
-    for cand in glob.glob("/kaggle/input/*/s1_sparsity_bpb.py"):
-        HERE = os.path.dirname(cand)
-        break
+    # RECURSIVE, and asserted UNIQUE.  `--dir-mode zip` puts the top-level .py files directly on
+    # the mount, but that is a property of the uploader, not a guarantee; a nested layout would
+    # make a one-level glob return NOTHING and this loop would then silently leave HERE pointing
+    # at the kernel's scratch dir, where the pinned eval slice does not exist -- and a redrawn
+    # slice is exactly the failure the A1.2 control cannot see.  Fail loudly instead.
+    cands = glob.glob("/kaggle/input/**/s1_sparsity_bpb.py", recursive=True)
+    assert len(cands) == 1, f"expected exactly one code bundle on the mount, found {cands}"
+    HERE = os.path.dirname(cands[0])
     sys.path.insert(0, HERE)
     sys.path.insert(0, os.path.abspath(os.path.join(HERE, "..", "density")))
     os.environ.setdefault("S1_RESULTS", "/kaggle/working/s1_results")

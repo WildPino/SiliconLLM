@@ -1,0 +1,54 @@
+{
+  "stage": "kaggle_scale_arm",
+  "gpu": {
+    "cuda_available": false,
+    "n_devices_achieved": 0,
+    "devices": [],
+    "torch": "2.12.0+cpu",
+    "torch_cuda": null,
+    "bf16_supported_achieved": false
+  },
+  "env": {
+    "python": "3.12.10",
+    "numpy": "2.4.6",
+    "torch": "2.12.0+cpu",
+    "transformers": "4.57.6",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+    "cpu_count": 12,
+    "torch_threads": 12
+  },
+  "on_kaggle": false,
+  "ladder_requested": [
+    "qwen2.5-0.5b"
+  ],
+  "p_grid": [
+    1.0,
+    0.999,
+    0.99,
+    0.95,
+    0.9,
+    0.8
+  ],
+  "results_dir": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results",
+  "started_utc": "2026-09-04T09:21:43Z",
+  "sizes": {
+    "qwen2.5-0.5b": {
+      "status": "OK",
+      "baseline_bpb": 0.8717951206093644,
+      "n_params_achieved": 494032768,
+      "dtype_achieved": "torch.float32",
+      "devices_in_use_achieved": [
+        "cpu"
+      ],
+      "elapsed_s": 2036.2426023483276,
+      "json": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\s1_run_qwen2.5-0.5b.json"
+    }
+  },
+  "anchor_check": null,
+  "dtype_policy": "fp16 on GPU, fp32 on CPU, and nothing else -- no 8-bit, no 4-bit (Amendment 1 A1.3: quantising weights would change the activation statistics this probe measures)",
+  "selfcheck_pass": true,
+  "selfcheck_fast_path": "IDENTICAL on 30 (distribution, p) cases including all-ties and many-exact-zeros: mask, keep-count and masked vector all bit-identical to the naive two-sort form",
+  "anchor_bundled": true,
+  "elapsed_s": 2038.781586408615
+}

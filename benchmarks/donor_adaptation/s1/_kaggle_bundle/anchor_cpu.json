@@ -1,9 +1,5 @@
 {
-  "_what": "A1.2 anchor: the local CPU fp32 1.5B point. The Kaggle GPU fp16 run reproduces this or the ladder does not run. Projected verbatim from the completed local artefact; nothing here is recomputed or rounded.",
-  "_source_artefact": "results/s1_run_qwen2.5-1.5b.json",
-  "_source_sha256": "f93a5be78e300381bb954becddd23b60d2abcf49fa1cf7b321d4a3c5fdac7bef",
-  "_built_utc": "2026-09-04T08:35:56.545994Z",
-  "_git_revision": "b72635d31d1f2f33d8280eb8b4725bc8d9293b29",
+  "baseline_bpb": 0.7675949524755323,
   "donor": {
     "key": "qwen2.5-1.5b",
     "repo_id": "Qwen/Qwen2.5-1.5B",
@@ -66,21 +62,22 @@
       "vocab_size": 151665
     }
   },
-  "baseline_bpb": 0.7675949524755323,
-  "baseline_slice_se": 0.06220850000665324,
-  "n_seq_achieved": 24,
-  "n_tokens_achieved": 12288,
-  "platform": {
-    "device": "cpu",
-    "dtype": "float32",
-    "torch_threads": null,
+  "env": {
+    "python": "3.12.10",
+    "numpy": "2.4.6",
     "torch": "2.12.0+cpu",
-    "platform": "Windows-11-10.0.26200-SP0"
+    "transformers": "4.57.6",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+    "cpu_count": 12,
+    "torch_threads": 12
   },
+  "elapsed_s": 8127.666817188263,
   "results": {
     "1.0": {
       "A": {
         "bpb": 0.7675949524755323,
+        "delta_bpb": 0.0,
         "achieved": {
           "aggregate": 4.1650266063456634e-07,
           "per_layer": [
@@ -118,6 +115,7 @@
       },
       "B": {
         "bpb": 0.7675948302474922,
+        "delta_bpb": -1.2222804013362065e-07,
         "achieved": {
           "aggregate": 4.1650266063456634e-07,
           "per_layer": [
@@ -155,6 +153,7 @@
       },
       "C": {
         "bpb": 0.7676072584625169,
+        "delta_bpb": 1.2305986984539885e-05,
         "achieved": {
           "aggregate": 4.1650266063456634e-07,
           "per_layer": [
@@ -192,6 +191,7 @@
       },
       "D": {
         "bpb": 0.7675949524755323,
+        "delta_bpb": 0.0,
         "achieved": {
           "aggregate": 4.1650266063456634e-07,
           "per_layer": [
@@ -229,6 +229,7 @@
       },
       "D2": {
         "bpb": 0.7675949524755323,
+        "delta_bpb": 0.0,
         "achieved": {
           "aggregate": 4.1650266063456634e-07,
           "per_layer": [
@@ -268,6 +269,7 @@
     "0.9999": {
       "A": {
         "bpb": 0.767593361813399,
+        "delta_bpb": -1.590662133343912e-06,
         "achieved": {
           "aggregate": 0.019620266414823985,
           "per_layer": [
@@ -305,6 +307,7 @@
       },
       "B": {
         "bpb": 0.7723846789174401,
+        "delta_bpb": 0.004789726441907782,
         "achieved": {
           "aggregate": 0.019620266414823985,
           "per_layer": [
@@ -342,6 +345,7 @@
       },
       "C": {
         "bpb": 0.7858537836877532,
+        "delta_bpb": 0.018258831212220827,
         "achieved": {
           "aggregate": 0.019620266414823985,
           "per_layer": [
@@ -379,6 +383,7 @@
       },
       "D": {
         "bpb": 0.767593361813399,
+        "delta_bpb": -1.590662133343912e-06,
         "achieved": {
           "aggregate": 0.019620266414823985,
           "per_layer": [
@@ -416,6 +421,7 @@
       },
       "D2": {
         "bpb": 0.7675930783122504,
+        "delta_bpb": -1.8741632819008203e-06,
         "achieved": {
           "aggregate": 0.019620266414823985,
           "per_layer": [
@@ -455,6 +461,7 @@
     "0.999": {
       "A": {
         "bpb": 0.767615081057085,
+        "delta_bpb": 2.0128581552647518e-05,
         "achieved": {
           "aggregate": 0.05803669877603752,
           "per_layer": [
@@ -492,6 +499,7 @@
       },
       "B": {
         "bpb": 0.7917142116338659,
+        "delta_bpb": 0.024119259158333572,
         "achieved": {
           "aggregate": 0.05803669877603752,
           "per_layer": [
@@ -529,6 +537,7 @@
       },
       "C": {
         "bpb": 0.8243973028800042,
+        "delta_bpb": 0.0568023504044719,
         "achieved": {
           "aggregate": 0.05803669877603752,
           "per_layer": [
@@ -566,6 +575,7 @@
       },
       "D": {
         "bpb": 0.767615081057085,
+        "delta_bpb": 2.0128581552647518e-05,
         "achieved": {
           "aggregate": 0.05803669877603752,
           "per_layer": [
@@ -603,6 +613,7 @@
       },
       "D2": {
         "bpb": 0.7676095740048325,
+        "delta_bpb": 1.4621529300207214e-05,
         "achieved": {
           "aggregate": 0.05803669877603752,
           "per_layer": [
@@ -642,6 +653,7 @@
     "0.99": {
       "A": {
         "bpb": 0.7677319743525443,
+        "delta_bpb": 0.00013702187701192248,
         "achieved": {
           "aggregate": 0.1680795721456307,
           "per_layer": [
@@ -679,6 +691,7 @@
       },
       "B": {
         "bpb": 0.8849589311412551,
+        "delta_bpb": 0.11736397866572279,
         "achieved": {
           "aggregate": 0.1680795721456307,
           "per_layer": [
@@ -716,6 +729,7 @@
       },
       "C": {
         "bpb": 0.9682881232804401,
+        "delta_bpb": 0.20069317080490778,
         "achieved": {
           "aggregate": 0.1680795721456307,
           "per_layer": [
@@ -753,6 +767,7 @@
       },
       "D": {
         "bpb": 0.7677319743525443,
+        "delta_bpb": 0.00013702187701192248,
         "achieved": {
           "aggregate": 0.1680795721456307,
           "per_layer": [
@@ -790,6 +805,7 @@
       },
       "D2": {
         "bpb": 0.7677820937906373,
+        "delta_bpb": 0.00018714131510499943,
         "achieved": {
           "aggregate": 0.1680795721456307,
           "per_layer": [
@@ -829,6 +845,7 @@
     "0.98": {
       "A": {
         "bpb": 0.7680392293324436,
+        "delta_bpb": 0.0004442768569112854,
         "achieved": {
           "aggregate": 0.22977973393031528,
           "per_layer": [
@@ -866,6 +883,7 @@
       },
       "B": {
         "bpb": 0.9614634968933652,
+        "delta_bpb": 0.19386854441783286,
         "achieved": {
           "aggregate": 0.22977973393031528,
           "per_layer": [
@@ -903,6 +921,7 @@
       },
       "C": {
         "bpb": 1.0991328463908805,
+        "delta_bpb": 0.33153789391534816,
         "achieved": {
           "aggregate": 0.22977973393031528,
           "per_layer": [
@@ -940,6 +959,7 @@
       },
       "D": {
         "bpb": 0.7680392293324436,
+        "delta_bpb": 0.0004442768569112854,
         "achieved": {
           "aggregate": 0.22977973393031528,
           "per_layer": [
@@ -977,6 +997,7 @@
       },
       "D2": {
         "bpb": 0.7680502841796285,
+        "delta_bpb": 0.0004553317040961735,
         "achieved": {
           "aggregate": 0.22977973393031528,
           "per_layer": [
@@ -1016,6 +1037,7 @@
     "0.95": {
       "A": {
         "bpb": 0.7689248037377882,
+        "delta_bpb": 0.0013298512622558212,
         "achieved": {
           "aggregate": 0.3442605839294641,
           "per_layer": [
@@ -1053,6 +1075,7 @@
       },
       "B": {
         "bpb": 1.1599215938732221,
+        "delta_bpb": 0.3923266413976898,
         "achieved": {
           "aggregate": 0.3442605839294641,
           "per_layer": [
@@ -1090,6 +1113,7 @@
       },
       "C": {
         "bpb": 1.5832046203310353,
+        "delta_bpb": 0.8156096678555029,
         "achieved": {
           "aggregate": 0.3442605839294641,
           "per_layer": [
@@ -1127,6 +1151,7 @@
       },
       "D": {
         "bpb": 0.7689248037377882,
+        "delta_bpb": 0.0013298512622558212,
         "achieved": {
           "aggregate": 0.3442605839294641,
           "per_layer": [
@@ -1164,6 +1189,7 @@
       },
       "D2": {
         "bpb": 0.7686917963506253,
+        "delta_bpb": 0.001096843875093012,
         "achieved": {
           "aggregate": 0.3442605839294641,
           "per_layer": [
@@ -1203,6 +1229,7 @@
     "0.9": {
       "A": {
         "bpb": 0.7717578570290161,
+        "delta_bpb": 0.004162904553483782,
         "achieved": {
           "aggregate": 0.46267818269275485,
           "per_layer": [
@@ -1240,6 +1267,7 @@
       },
       "B": {
         "bpb": 1.5065532841669071,
+        "delta_bpb": 0.7389583316913748,
         "achieved": {
           "aggregate": 0.46267818269275485,
           "per_layer": [
@@ -1277,6 +1305,7 @@
       },
       "C": {
         "bpb": 2.539551210085635,
+        "delta_bpb": 1.7719562576101027,
         "achieved": {
           "aggregate": 0.46267818269275485,
           "per_layer": [
@@ -1314,6 +1343,7 @@
       },
       "D": {
         "bpb": 0.7717578570290161,
+        "delta_bpb": 0.004162904553483782,
         "achieved": {
           "aggregate": 0.46267818269275485,
           "per_layer": [
@@ -1351,6 +1381,7 @@
       },
       "D2": {
         "bpb": 0.7716558356605782,
+        "delta_bpb": 0.004060883185045827,
         "achieved": {
           "aggregate": 0.46267818269275485,
           "per_layer": [
@@ -1390,6 +1421,7 @@
     "0.8": {
       "A": {
         "bpb": 0.7856338275390973,
+        "delta_bpb": 0.01803887506356494,
         "achieved": {
           "aggregate": 0.6131977811151621,
           "per_layer": [
@@ -1427,6 +1459,7 @@
       },
       "B": {
         "bpb": 2.1599879652532135,
+        "delta_bpb": 1.3923930127776811,
         "achieved": {
           "aggregate": 0.6131977811151621,
           "per_layer": [
@@ -1464,6 +1497,7 @@
       },
       "C": {
         "bpb": 3.6155551058754107,
+        "delta_bpb": 2.847960153399878,
         "achieved": {
           "aggregate": 0.6131977811151621,
           "per_layer": [
@@ -1501,6 +1535,7 @@
       },
       "D": {
         "bpb": 0.7856338275390973,
+        "delta_bpb": 0.01803887506356494,
         "achieved": {
           "aggregate": 0.6131977811151621,
           "per_layer": [
@@ -1538,6 +1573,7 @@
       },
       "D2": {
         "bpb": 0.786125447390218,
+        "delta_bpb": 0.018530494914685613,
         "achieved": {
           "aggregate": 0.6131977811151621,
           "per_layer": [
@@ -1577,6 +1613,7 @@
     "0.7": {
       "A": {
         "bpb": 0.8085788818098014,
+        "delta_bpb": 0.04098392933426909,
         "achieved": {
           "aggregate": 0.7158298132370929,
           "per_layer": [
@@ -1614,6 +1651,7 @@
       },
       "B": {
         "bpb": 2.5872605387073473,
+        "delta_bpb": 1.819665586231815,
         "achieved": {
           "aggregate": 0.7158298132370929,
           "per_layer": [
@@ -1651,6 +1689,7 @@
       },
       "C": {
         "bpb": 3.987293695239115,
+        "delta_bpb": 3.2196987427635824,
         "achieved": {
           "aggregate": 0.7158298132370929,
           "per_layer": [
@@ -1688,6 +1727,7 @@
       },
       "D": {
         "bpb": 0.8085788818098014,
+        "delta_bpb": 0.04098392933426909,
         "achieved": {
           "aggregate": 0.7158298132370929,
           "per_layer": [
@@ -1725,6 +1765,7 @@
       },
       "D2": {
         "bpb": 0.8090411109101064,
+        "delta_bpb": 0.04144615843457411,
         "achieved": {
           "aggregate": 0.7158298132370929,
           "per_layer": [
@@ -1764,6 +1805,7 @@
     "0.5": {
       "A": {
         "bpb": 0.9127418569695896,
+        "delta_bpb": 0.14514690449405732,
         "achieved": {
           "aggregate": 0.8543732899386867,
           "per_layer": [
@@ -1801,6 +1843,7 @@
       },
       "B": {
         "bpb": 2.937151225791958,
+        "delta_bpb": 2.1695562733164255,
         "achieved": {
           "aggregate": 0.8543732899386867,
           "per_layer": [
@@ -1838,6 +1881,7 @@
       },
       "C": {
         "bpb": 4.025019746508548,
+        "delta_bpb": 3.2574247940330157,
         "achieved": {
           "aggregate": 0.8543732899386867,
           "per_layer": [
@@ -1875,6 +1919,7 @@
       },
       "D": {
         "bpb": 0.9127418569695896,
+        "delta_bpb": 0.14514690449405732,
         "achieved": {
           "aggregate": 0.8543732899386867,
           "per_layer": [
@@ -1912,6 +1957,7 @@
       },
       "D2": {
         "bpb": 0.9101164631768972,
+        "delta_bpb": 0.14252151070136487,
         "achieved": {
           "aggregate": 0.8543732899386867,
           "per_layer": [
@@ -1948,5 +1994,29 @@
         }
       }
     }
-  }
+  },
+  "controls": {
+    "C1_IDENTITY": {
+      "p": 1.0,
+      "bpb_masked": 0.7675949524755323,
+      "bpb_unmodified": 0.7675949524755323,
+      "delta": 0.0,
+      "bitwise_equal": true,
+      "achieved_sparsity": 4.1650266063456634e-07,
+      "h_mask_max_abs_dev_achieved": 4.4277973757118894e-13,
+      "verdict": "PASS"
+    },
+    "C2_PLANTED": {
+      "p_budget": 0.99,
+      "achieved_sparsity": 0.1680795721456307,
+      "bpb": 5.301480021739659,
+      "delta_vs_baseline": 4.533885069264127,
+      "delta_vs_armA_same_budget": 4.533748047387115,
+      "ratio_to_sigma_seed": 906.7770138528253,
+      "verdict": "FIRES"
+    }
+  },
+  "PROVENANCE": "local CPU fp32 run on this machine; the A1.2 platform anchor",
+  "COMPLETE": true,
+  "p_values_missing_vs_P_GRID": []
 }
