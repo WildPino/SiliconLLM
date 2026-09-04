@@ -54,6 +54,8 @@ typedef struct {
     const float* f32;      // quant==0
     const int8_t* code;    // quant==1, [out, in] row-major, values in {-1,0,+1}
     const float* scale;    // quant==1, [out]
+    const int8_t* tm;      // --lut only: the SAME packed bytes, tile-major [in/2][Mpad]
+    int Mpad;              // out rounded up to 32, the tile width the LUT kernel writes
 } mat_t;
 
 typedef struct {
@@ -83,8 +85,88 @@ typedef struct {
 // per matvec call, outside the parallel region -- O(n_in) against the loop's O(n_out * n_in).
 static float *g_xe=NULL,*g_xo=NULL; static int g_xcap=0;
 
+// ---------------------------------------------------------------- the LUT path (--lut)
+// probe-1's pshufb-LUT, which is what engine.c's dense path uses and what R1 s4.2 identified as the
+// only lever left on the FFN term. Two changes at once, and they must not be conflated:
+//   (a) LAYOUT. The same packed bytes, transposed to tile-major [t][Mpad], so 32 output rows share
+//       one broadcast table and the shuffle result IS the partial product -- no FMA, no converts.
+//   (b) NUMERICS. Activations are quantized to int8 (AQ=63) so the table entries fit a byte.
+//       max |entry| = 2*63 = 126 <= 127; that bound is WHY AQ is 63 and not 127.
+// (a) is exactly lossless. (b) is NOT -- it is the first activation quantization this programme has
+// ever run on a donor, BRIEF_T2 s5 records it as untested. Its cost is measured, not assumed.
+#define AQ 63
+static int      g_lut=0;                            // --lut
+static int8_t  *g_xq=NULL,*g_lutab=NULL; static int g_lutcap=0;
+
+static inline void acc_add_i8x32(__m256i* acc,__m256i p){
+    __m128i lo=_mm256_castsi256_si128(p), hi=_mm256_extracti128_si256(p,1);
+    acc[0]=_mm256_add_epi32(acc[0],_mm256_cvtepi8_epi32(lo));
+    acc[1]=_mm256_add_epi32(acc[1],_mm256_cvtepi8_epi32(_mm_srli_si128(lo,8)));
+    acc[2]=_mm256_add_epi32(acc[2],_mm256_cvtepi8_epi32(hi));
+    acc[3]=_mm256_add_epi32(acc[3],_mm256_cvtepi8_epi32(_mm_srli_si128(hi,8)));
+}
+// x -> int8 with one scale for the whole vector; returns the scale (0 for an all-zero input).
+static float quant_i8(const float* x,int n,int8_t* xq){
+    float amax=0; for(int i=0;i<n;i++){ float a=fabsf(x[i]); if(a>amax) amax=a; }
+    if(amax==0.0f){ memset(xq,0,(size_t)n); return 0.0f; }
+    float s=amax/(float)AQ, inv=1.0f/s;
+    for(int i=0;i<n;i++){ int v=(int)lrintf(x[i]*inv); if(v>AQ)v=AQ; if(v<-AQ)v=-AQ; xq[i]=(int8_t)v; }
+    return s;
+}
+// One 16-byte table per input PAIR. Index is this runtime's packed byte v: low trit = v%3-1 pairs
+// with input 2t, high trit = v/3-1 with 2t+1. (engine.c uses the opposite digit order; the byte
+// layout here is the one qwen_export.py already writes, so the tile-major copy is a pure transpose.)
+static void build_lut(const int8_t* xq,int T,int8_t* lut){
+    for(int t=0;t<T;t++){ int x0=xq[2*t],x1=xq[2*t+1];
+        for(int v=0;v<16;v++) lut[t*16+v]=(int8_t)(v<9 ? (v%3-1)*x0+(v/3-1)*x1 : 0); }
+}
+static void matvec_lut(const int8_t* codes,const int8_t* lut,int32_t* y,int M,int Mpad,int T){
+#ifdef _OPENMP
+#pragma omp parallel for schedule(static)
+#endif
+    for(int base=0;base<Mpad;base+=32){
+        __m256i acc[4]={_mm256_setzero_si256(),_mm256_setzero_si256(),
+                        _mm256_setzero_si256(),_mm256_setzero_si256()};
+        for(int t=0;t<T;t++){
+            __m256i tbl=_mm256_broadcastsi128_si256(_mm_loadu_si128((const __m128i*)(lut+(size_t)t*16)));
+            __m256i idx=_mm256_loadu_si256((const __m256i*)(codes+(size_t)t*Mpad+base));
+            acc_add_i8x32(acc,_mm256_shuffle_epi8(tbl,idx));
+        }
+        int32_t tmp[32];
+        _mm256_storeu_si256((__m256i*)(tmp+0),acc[0]);  _mm256_storeu_si256((__m256i*)(tmp+8),acc[1]);
+        _mm256_storeu_si256((__m256i*)(tmp+16),acc[2]); _mm256_storeu_si256((__m256i*)(tmp+24),acc[3]);
+        for(int r=0;r<32&&base+r<M;r++) y[base+r]=tmp[r];
+    }
+}
+// Transpose the packed row-major bytes into tile-major. Pure data movement: no re-encoding, so a
+// --lut model and a --quant packed model hold bit-identical WEIGHTS and differ only in activations.
+static void build_tm(mat_t* m){
+    if(!m->packed||m->tm) return;
+    const int H=m->in/2; m->Mpad=((m->out+31)/32)*32;
+    int8_t* tm=xmalloc((size_t)H*m->Mpad);
+    for(int t=0;t<H;t++){
+        for(int o=0;o<m->out;o++) tm[(size_t)t*m->Mpad+o]=m->code[(size_t)o*H+t];
+        for(int o=m->out;o<m->Mpad;o++) tm[(size_t)t*m->Mpad+o]=4;   // code 4 == (0,0), a no-op row
+    }
+    m->tm=tm;
+}
+
+static int32_t* g_i32b=NULL; static int g_i32cap=0;
+static int32_t* g_i32(int n){ if(n>g_i32cap){ free(g_i32b); g_i32b=xmalloc((size_t)n*4); g_i32cap=n; } return g_i32b; }
+
 static void matvec(const mat_t* m, const float* x, const float* bias, float* y){
     const int n_out=m->out, n_in=m->in;   // NOT "OUT"/"IN": windows.h defines those as SAL macros
+    if(m->tm){                                                    // --lut
+        const int H=n_in/2;
+        if(H>g_lutcap){ free(g_xq); free(g_lutab);
+            g_xq=xmalloc((size_t)H*2); g_lutab=xmalloc((size_t)H*16); g_lutcap=H; }
+        float sx=quant_i8(x,n_in,g_xq);
+        build_lut(g_xq,H,g_lutab);
+        int32_t* acc=(int32_t*)g_i32(n_out);
+        matvec_lut(m->tm,g_lutab,acc,n_out,m->Mpad,H);
+        for(int o=0;o<n_out;o++){ float t=(float)acc[o]*sx*m->scale[o]; y[o]=bias?t+bias[o]:t; }
+        return;
+    }
     if(m->packed){
         const int H=n_in/2;
         if(H>g_xcap){ free(g_xe); free(g_xo); g_xe=xmalloc((size_t)H*4); g_xo=xmalloc((size_t)H*4); g_xcap=H; }
@@ -176,6 +258,7 @@ static const char* rd(const char** p, size_t n){ const char* q=*p; *p+=n; return
 
 static void read_mat(const char** p, mat_t* m, int out, int in, int quant){
     m->out=out; m->in=in; m->packed=(quant==2); m->f32=NULL; m->code=NULL; m->scale=NULL;
+    m->tm=NULL; m->Mpad=0;
     if(quant==0){ m->f32=(const float*)rd(p,(size_t)out*in*4); }
     else if(quant==1){ m->code=(const int8_t*)rd(p,(size_t)out*in);
                        m->scale=(const float*)rd(p,(size_t)out*4); }
@@ -317,6 +400,40 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
     TOC(T_HEAD);
 }
 
+// ---------------------------------------------------------------- --selftest-lut
+// The kernel is checked against a SCALAR INTEGER reference over the same trits and the same int8
+// activations, so any disagreement is the kernel and not the numerics. Case B is the planted
+// control: it feeds the reference the OPPOSITE digit order and requires the comparison to FIRE.
+// A gate never seen to trip is decoration (feedback_planted_controls).
+static int selftest_lut(void){
+    const int M=100, K=258;                       // M not a multiple of 32, K/2 odd: exercise padding
+    const int H=K/2, Mpad=((M+31)/32)*32;
+    int8_t* W=xmalloc((size_t)M*K); int8_t* code=xmalloc((size_t)M*H);
+    int8_t* tm=xmalloc((size_t)H*Mpad); float* x=xmalloc((size_t)K*4);
+    int8_t* xq=xmalloc((size_t)K); int8_t* lut=xmalloc((size_t)H*16);
+    int32_t* y=xmalloc((size_t)Mpad*4); unsigned r=12345u;
+    for(int i=0;i<M*K;i++){ r=r*1103515245u+12345u; W[i]=(int8_t)((int)((r>>16)%3)-1); }
+    for(int i=0;i<K;i++){ r=r*1103515245u+12345u; x[i]=((float)(r>>8&0xFFFF)/32768.0f-1.0f)*3.7f; }
+    for(int m=0;m<M;m++) for(int t=0;t<H;t++)                       // this runtime's byte: low=even
+        code[(size_t)m*H+t]=(int8_t)((W[(size_t)m*K+2*t]+1)+3*(W[(size_t)m*K+2*t+1]+1));
+    for(int t=0;t<H;t++){ for(int m=0;m<M;m++) tm[(size_t)t*Mpad+m]=code[(size_t)m*H+t];
+                          for(int m=M;m<Mpad;m++) tm[(size_t)t*Mpad+m]=4; }
+    quant_i8(x,K,xq); build_lut(xq,H,lut); matvec_lut(tm,lut,y,M,Mpad,H);
+    long bad=0, badB=0;
+    for(int m=0;m<M;m++){
+        long a=0,b=0;
+        for(int k=0;k<K;k++) a+=(long)W[(size_t)m*K+k]*xq[k];
+        for(int t=0;t<H;t++) b+=(long)W[(size_t)m*K+2*t]*xq[2*t+1]+(long)W[(size_t)m*K+2*t+1]*xq[2*t];
+        if(y[m]!=(int32_t)a) bad++;
+        if(y[m]!=(int32_t)b) badB++;
+    }
+    printf("selftest-lut  A kernel vs scalar-int : %s (%ld/%d rows differ)\n",bad?"FAIL":"PASS",bad,M);
+    printf("selftest-lut  B planted (swapped digits) must DIFFER: %s (%ld/%d rows differ)\n",
+           badB?"PASS":"FAIL -- the comparison cannot tell a wrong kernel from a right one",badB,M);
+    printf("selftest-lut  VERDICT: %s\n",(bad==0&&badB>0)?"PASS":"FAIL");
+    return (bad==0&&badB>0)?0:1;
+}
+
 // ------------------------------------------------------------------ modes
 static int32_t* read_ids(const char* path,long* n){
     FILE* f=fopen(path,"rb"); if(!f) die("cannot open ids");
@@ -337,6 +454,8 @@ int main(int argc,char** argv){
         else if(!strcmp(argv[i],"--bpb")&&i+1<argc){ mode="bpb"; arg2=argv[++i]; }
         else if(!strcmp(argv[i],"--bench")&&i+1<argc){ mode="bench"; arg3=atol(argv[++i]); }
         else if(!strcmp(argv[i],"--profile")){ g_prof=1; }
+        else if(!strcmp(argv[i],"--lut")){ g_lut=1; }
+        else if(!strcmp(argv[i],"--selftest-lut")){ return selftest_lut(); }
         else { fprintf(stderr,"unknown arg %s\n",argv[i]); return 1; }
     }
     if(!wp||!mode){ fprintf(stderr,
@@ -346,6 +465,16 @@ int main(int argc,char** argv){
     if(threads<1) threads=1; omp_set_num_threads(threads); omp_set_dynamic(0);
 #endif
     model_t M; load(&M,wp);
+    if(g_lut){
+        if(M.quant!=2) die("--lut requires a --quant packed model (the tile-major copy is a transpose of those bytes)");
+        size_t tmb=0; double t0=now_s();
+        for(int l=0;l<M.L;l++){ layer_t* L=&M.lay[l];
+            mat_t* mm[7]={&L->q,&L->k,&L->v,&L->o,&L->gate,&L->up,&L->down};
+            for(int j=0;j<7;j++){ build_tm(mm[j]); tmb+=(size_t)(mm[j]->in/2)*mm[j]->Mpad; } }
+        if(!M.tied){ build_tm(&M.head); tmb+=(size_t)(M.head.in/2)*M.head.Mpad; }
+        fprintf(stderr,"  --lut: tile-major replica built, %.1f MB, %.2f s (activations int8, AQ=%d)\n",
+                tmb/1048576.0,now_s()-t0,AQ);
+    }
 
     if(!strcmp(mode,"bench")){
         state_t s; state_init(&s,&M,arg3+2);
