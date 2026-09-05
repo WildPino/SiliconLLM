@@ -13,10 +13,15 @@ is not written up somewhere with its controls and its pre-registration.
 
 | | status |
 |---|---|
-| **A pretrained donor executes on our runtime** | ✅ **YES** — Qwen2.5-0.5B, parity vs PyTorch `rel l2 2.8e-06`, top-1 `1.0000` |
+| **A pretrained donor executes on our runtime** | ✅ **YES** — Qwen2.5-0.5B, parity vs PyTorch `rel l2 2.8e-06`, top-1 `1.0000`; and since E1 the engine **scores the same BPB as PyTorch to `1.5e-05`** on both donors, so the quality numbers below are statements about the deliverable, not about a simulation |
 | **At the target speed** | ❌ **56.1 tok/s at 0.5B** (3 reps at `--bench 300`, idle machine, `SPEED_LEDGER.md` §12) = **27.7 G-weights/s delivered**, and 0.5B is 20× smaller than the target |
 | **At usable quality** | ❌ **NO**, but the number moved: FFN conversion **+3.309 → +1.260 BPB** (T2), still 252 σ_seed. The **whole runnable model** costs **+2.708** (T2b), or **+2.497** with T3's fold |
 | **The binding constraint** | **still quality — but it is the RULE, not the format** (T2, `RULE-HELPS`) |
+
+> ⚠ **Until E1 (`33f0add`) the runtime could not load a model over 2 GB at all** — 32-bit
+> `ftell`, silently reported as `bad magic` against an intact file. The largest artifact it had
+> ever been given was 1.84 GB. **A 10B ternary packed model is ~5 GB**, so the target was not
+> slow, it was unloadable, and no speed probe could have found it.
 
 **The one-line state:** the road exists end to end — safetensors → export → ternary runtime →
 generated tokens, with a parity gate at the seam. T2 has now shown the damage at the far end was
@@ -95,6 +100,7 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 | **T2** | was that the FORMAT or one naive RULE? | **`RULE-HELPS`. It was the RULE.** FFN +3.309 → **+1.260**, 62% removed with no training. **BitLinear158 is statistically indistinguishable from RANDOM SIGNS** (−0.064 ± 0.126) | `probes/T2_TERNARIZATION_RULE.md` |
 | **T2b** | does the winning rule survive outside the FFN? | **`UNIFORM`, by 1.0% of its bar.** The runnable model (197 tensors, R3) costs **+2.708**, `1.584×` the FFN alone vs a 1.60 bar — ci95 `[1.514, 1.649]`, the bar is INSIDE it. Head ternarization **not** withdrawn: the head costs `+0.339` alone and **`−0.009 ± 0.020` on top of a ternary FFN+attention**. Per weight **attention is 4.98× the FFN** | `probes/T2B_ORGAN_COVERAGE.md` |
 | **T3** | rotate the residual basis (QuaRot/SpinQuant) before ternarizing | **`VOID` as written, `NULL` once the brief's own gate constant is corrected.** Rotation does not fail to help, it **hurts**: `+0.634 ± 0.039` (dense orth) and `+1.138 ± 0.072` (Hadamard) vs a fold-matched control. Kurtosis is not a predictor and cannot be made one. **Keeper: the RMSNorm fold alone is `−0.220 ± 0.053` free** | `probes/T3_ROTATION.md` |
+| **E1** | does the model the ENGINE executes score the BPB PyTorch says it does? | **`LOOP-CLOSED`** on the 0.5B; every term of the same rule met on the 1.5B (labels there are `INCOMPLETE` because the brief split the arms across two runs). Largest disagreement over 5 arms and 2 donors **`+1.53e-05` BPB** = `0.003 sigma_seed`, and the delta **does not grow with the arm**. Gate A bit-identical on up to **1,543,569,408 codes**. T2b's `+2.708111` replicated **bit-identically** by a second runner through a file round-trip. **Found on the way: the engine could not load a model over 2 GB** | `probes/E1_BPB_THROUGH_ENGINE.md` |
 
 **T2's decomposition, paired between arms** (`probes/T2_TERNARIZATION_RULE.md` §4):
 
@@ -113,16 +119,11 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 
 ## 4. Open, in priority order
 
-1. **Export with the winning rule and measure BPB THROUGH `donor_engine.c`.** Every quality number
-   this programme owns is a PyTorch number about a model the engine executes. `--bpb` exists and
-   has never been run at scale. This closes the loop.
-   **PRE-REGISTERED as E1** (`briefs/BRIEF_E1_BPB_THROUGH_ENGINE.md`, commit `f92af8a`); runner
-   and three exporter bug-fixes at `cdb7119`; **running**.
-2. **Fold the RMSNorm gains in the exporter** (T3 §4.4). `−0.220 ± 0.053` BPB — 44 σ_seed, 8.1% of
+1. **Fold the RMSNorm gains in the exporter** (T3 §4.4). `−0.220 ± 0.053` BPB — 44 σ_seed, 8.1% of
    the ternarization damage — for no format change, no kernel change and no runtime cost. Exact as
    a re-parameterization (T3 arm XN, `+6.8e-09`). It was measured as a control inside a `VOID` run
    and has never been seen through the engine, so it **owes its own confirmation** — and that
-   confirmation is the same export pass as item 1.
+   confirmation is the same export pass as E1's.
    **PRE-REGISTERED as E2** (`briefs/BRIEF_E2_RMSNORM_FOLD.md`, commit `338d187`), which splits
    the fold in two: writing the algebra out shows that with an **fp32 head** the final
    `model.norm → lm_head` gain is a re-parameterization of weights that are never rounded, so
@@ -131,19 +132,23 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
    runtime wants. E2 carries `NA − NL ≈ 0` as a **planted null** on that algebra. Recorded there
    too: `o_proj` and `down_proj` read an attention output and an FFN activation, not a norm, so
    the fold reaches **5 of the 7** converted tensors per layer and cannot help the other two.
-3. **D4b** — the calibration budget. Promoted from bookkeeping: T2's two best arms are both
+2. **D4b** — the calibration budget. Promoted from bookkeeping: T2's two best arms are both
    calibration-driven, so every one of their numbers is a **floor**.
-4. **Healing** (QAT / layer-wise distillation) — still on the critical path per T2 §7. It starts
+3. **Healing** (QAT / layer-wise distillation) — still on the critical path per T2 §7. It starts
    from +1.260 (FFN, R5) / **+2.708 (whole runnable model, R3, T2b §3)**, or **+2.497** with the
    fold on FFN+attention, and T2b §6 says where to aim it: **attention, 4.98× the FFN's damage per
    weight at 10% of the weights**.
-5. **S1's scale arm** — blocked on the fp16 NaN (`eager` attention overflows QK^T; diagnosed, §5).
+4. **S1's scale arm** — blocked on the fp16 NaN (`eager` attention overflows QK^T; diagnosed, §5).
    Every sparsity result this programme owns is measured at one size.
-6. An already-MoE donor, and **a donor with a small vocabulary** (§7).
+5. An already-MoE donor, and **a donor with a small vocabulary** (§7).
 
 **Closed since the last revision.** The `--fuse` × `OMP_WAIT_POLICY` matrix ran (`SPEED_LEDGER.md`
 §12.4 — both hypotheses die; `--fuse` not adopted). T3 ran and closes the residual-stream rotation
 line together with brief §5's two follow-ons (online Hadamard, activation-side rotation).
+**E1 ran and closes the standing item 1 on both donors** (`probes/E1_BPB_THROUGH_ENGINE.md`):
+the engine scores what PyTorch scores to `1.5e-05`, T2b's `+2.708111` is replicated bit-identically
+through a file round-trip, and the 2 GB load ceiling that would have blocked the target model
+outright was found and fixed.
 
 ## 5. Bugs found in our own instruments (all fixed, all with controls added)
 
@@ -162,6 +167,9 @@ line together with brief §5's two follow-ons (online Hadamard, activation-side 
 | **two exports of the same command produced different files** | R3's calibration forward changes its reduction order with torch's thread count: 6 vs 1 threads moved **102,123** `act_rms` elements (worst `1.9e-06`), so the sidecar recorded a sha256 it could not reproduce | `--threads`, recorded in the sidecar. **The thread count is part of the artifact's identity, not a speed knob** |
 | **the exporter was not loading the model the probes measured** | it omitted `attn_implementation`, so HF gave it **sdpa** while `common.load_model` — and therefore T1, T2, T2b, T3 — uses **eager**. E1's Gate A fired at `2.980e-08`, exactly one ulp. Measured: `act_rms` differs on **142,977** elements (worst rel `8.2e-06`), moving **132,844** stored scales by up to **6 ulp**. All **357,826,560 codes were identical throughout** — the artifact's *identity* was wrong, not its content | `eager` pinned in the exporter and recorded in the sidecar. Gate A then passed **as pre-registered**: 0 scales differing, 0.00 ulp. Same law as the fp16 row, in a second place: **reproduce the configuration, not just the model** |
 | **the best quality claim had no artifact** | `qwen05b_packed.bin`'s sidecar has no `rule` field — it predates `--rule`, so every speed number was taken on **R0/BitLinear158** (zero fraction `0.327`), the worst of T2's five rules. **No R3 model had ever been exported.** The format is identical so the speed numbers stand | E1 exports R3 (zero fraction `0.4922`, consistent with T2b's `0.4714` at full budget). Found by reading the sidecar of the file on disk rather than the command that was supposed to have written it |
+| **the engine could not load a model over 2 GB, and blamed the file** | E1's 1.5B fp32 arm died with `FATAL: bad magic -- not a QWENDON1 file` on a 6,174,857,268-byte export whose magic was intact. `long` is 32 bits on Windows even on x64, so `fseek(SEEK_END)` FAILS above 2 GB and `ftell` reports 0 → a zero-byte blob was allocated, zero bytes were read (**which equals the zero requested, so the `short read` guard passed**), and `memcmp` compared the magic against an empty buffer. The largest file the engine had ever been given was 1.84 GB, just under the ceiling. **A 10B ternary packed model is ~5 GB: the target was unloadable, and no speed probe could have found it** | 64-bit offsets chosen by platform (`_fseeki64`/`ftello`), a real error when the seek fails, 1 GB chunked reads. **Planted control before the rebuilt binary produced any number**: it re-scored the measured 0.5B TQ artifact at `NATS_TOTAL 162120.4241599279`, bit-identical. **Known-positive**: the 5.75 GB file then loaded and scored |
+| **a sweep's `untied` field recorded the wrong thing, and arm state leaked** | `t2b_organs.json` says `"untied": false` on arm FAH, an arm that ternarizes a *tied* head — which would mean the embedding was ternarized too. It was not: E1's arm TQH reproduces FAH **bit-identically**, and two different models cannot. Arm `I` reports `untied: true` and every later arm `false`, because T2b's `restore()` restores weights but never re-ties | no number changed and none is withdrawn — arm `I` returns the base BPB exactly. Recorded because it was caught by a **replication**, not by the sweep: **the field means "did this arm untie", not "is the head untied here"**, and state crossed arm boundaries |
+| **a result file was named after the model alone** | E1's pre-registered 1.5B fp32 **subset** run was about to overwrite the 55-minute TQ/TQH JSON written under the same name | a subset run now carries its arms and sequence count in the filename; only the canonical run keeps the bare name |
 
 ## 6. Working rules this programme has paid for
 
@@ -199,6 +207,20 @@ line together with brief §5's two follow-ons (online Hadamard, activation-side 
 - **A pre-registered threshold needs its own interval before the label is read as settled.** T2b
   passed its 1.60 bar at 1.584 — but the ratio's ci95 is `[1.514, 1.649]` and a third of the
   bootstrap lands on the other side. The label stands; the confidence in it does not. (T2b §5)
+
+- **A ceiling nothing has reached is a ceiling nobody has tested.** The runtime could not load a
+  model above 2 GB; the largest one ever handed to it was 1.84 GB, so the limit had never fired,
+  and the error it produced accused the artifact instead of the reader. The target model is ~5 GB.
+  **Before scaling a number up, check that the apparatus can hold the object the number is about.**
+  (E1 §4.4)
+- **An error message is a hypothesis, not a diagnosis.** `bad magic` was reported about a file
+  whose magic was intact, by code that had allocated a zero-byte buffer and passed its own
+  short-read guard because zero bytes read equals zero bytes requested. **A guard that compares a
+  quantity to itself checks nothing.** (E1 §4.4)
+- **A pre-registration that splits a decision across runs must say which run owns the label.**
+  E1's 1.5B arms were split across two invocations by the brief, so neither could evaluate the
+  decision function and both returned `INCOMPLETE` on numbers that met every term. Second time in
+  three probes that the brief, not the code, produced the mechanical label. (E1 §6.2, T3 §1.3)
 
 ## 7. The head, the tokenizer, and the thing nobody priced
 
