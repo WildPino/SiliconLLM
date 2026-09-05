@@ -1,0 +1,70 @@
+E2  Qwen/Qwen2.5-1.5B  arms=TQ,NL,TQH,NLH,NAH  seqs=24/24  bytes=51870  slice a1a48dc9fc5a6dc1
+
+[TQ] exporting: --model Qwen/Qwen2.5-1.5B --quant packed --out D:/_ktmp/e2\qwen25-15b_tq.bin --calib-seqs 32 --threads 6 --fold none --revision 8faed761d45a263340a0528343f099c05c9a4323 --rule R3
+     mean ternary zero-fraction across 196 matrices: 0.4714
+[TQ] building the PyTorch reference by reading the weights back out of the exported file...
+  R3: capturing activations over 32 calib sequences...
+  R3: captured 197 activation vectors
+[TQ] GATE A1 codes: 0 differing of 1310195712 -> PASS
+[TQ] GATE A2 scales: 0 differing, worst 0.00 ulp -> PASS
+[TQ] PyTorch BPB 3.484251281
+[TQ] engine  BPB 3.484253077   delta +0.000001797   per-seq max |delta| 1.39e-05   (861s)
+
+[NL] exporting: --model Qwen/Qwen2.5-1.5B --quant packed --out D:/_ktmp/e2\qwen25-15b_nl.bin --calib-seqs 32 --threads 6 --fold layers --revision 8faed761d45a263340a0528343f099c05c9a4323 --rule R3
+     mean ternary zero-fraction across 196 matrices: 0.5084
+[NL] building the PyTorch reference by reading the weights back out of the exported file...
+  R3: capturing activations over 32 calib sequences...
+  R3: captured 197 activation vectors
+[NL] GATE A1 codes: 0 differing of 1310195712 -> PASS
+[NL] GATE A2 scales: 0 differing, worst 0.00 ulp -> PASS
+[NL] PyTorch BPB 3.264250451
+[NL] engine  BPB 3.264252413   delta +0.000001962   per-seq max |delta| 8.03e-06   (865s)
+
+[TQH] exporting: --model Qwen/Qwen2.5-1.5B --quant packed --out D:/_ktmp/e2\qwen25-15b_tqh.bin --calib-seqs 32 --threads 6 --fold none --revision 8faed761d45a263340a0528343f099c05c9a4323 --rule R3 --head-ternary
+     mean ternary zero-fraction across 197 matrices: 0.4713
+[TQH] building the PyTorch reference by reading the weights back out of the exported file...
+  R3: capturing activations over 32 calib sequences...
+  R3: captured 197 activation vectors
+[TQH] GATE A1 codes: 0 differing of 1543569408 -> PASS
+[TQH] GATE A2 scales: 0 differing, worst 0.00 ulp -> PASS
+[TQH] PyTorch BPB 3.475705979
+[TQH] engine  BPB 3.475706692   delta +0.000000713   per-seq max |delta| 1.49e-05   (656s)
+
+[NLH] exporting: --model Qwen/Qwen2.5-1.5B --quant packed --out D:/_ktmp/e2\qwen25-15b_nlh.bin --calib-seqs 32 --threads 6 --fold layers --revision 8faed761d45a263340a0528343f099c05c9a4323 --rule R3 --head-ternary
+     mean ternary zero-fraction across 197 matrices: 0.5081
+[NLH] building the PyTorch reference by reading the weights back out of the exported file...
+  R3: capturing activations over 32 calib sequences...
+  R3: captured 197 activation vectors
+[NLH] GATE A1 codes: 0 differing of 1543569408 -> PASS
+[NLH] GATE A2 scales: 0 differing, worst 0.00 ulp -> PASS
+[NLH] PyTorch BPB 3.233373977
+[NLH] engine  BPB 3.233374462   delta +0.000000484   per-seq max |delta| 9.01e-06   (653s)
+
+[NAH] exporting: --model Qwen/Qwen2.5-1.5B --quant packed --out D:/_ktmp/e2\qwen25-15b_nah.bin --calib-seqs 32 --threads 6 --fold all --revision 8faed761d45a263340a0528343f099c05c9a4323 --rule R3 --head-ternary
+     mean ternary zero-fraction across 197 matrices: 0.5091
+[NAH] building the PyTorch reference by reading the weights back out of the exported file...
+  R3: capturing activations over 32 calib sequences...
+  R3: captured 197 activation vectors
+[NAH] GATE A1 codes: 0 differing of 1543569408 -> PASS
+[NAH] GATE A2 scales: 0 differing, worst 0.00 ulp -> PASS
+[NAH] PyTorch BPB 3.410356839
+[NAH] engine  BPB 3.410360248   delta +0.000003409   per-seq max |delta| 1.35e-05   (653s)
+
+arm   fold         BPB torch     BPB engine          delta   gate A
+TQ    none       3.484251281    3.484253077   +0.000001797     PASS
+NL    layers     3.264250451    3.264252413   +0.000001962     PASS
+TQH   none       3.475705979    3.475706692   +0.000000713     PASS
+NLH   layers     3.233373977    3.233374462   +0.000000484     PASS
+NAH   all        3.410356839    3.410360248   +0.000003409     PASS
+
+paired between-arm contrasts (PyTorch side, exact per-sequence nats, 2000 resamples seed 7)
+  NL_minus_TQ    -0.220001  SE 0.052861  ci95 [-0.324988, -0.119593]     44 sigma_seed  excludes 0
+  NLH_minus_TQH  -0.242332  SE 0.041038  ci95 [-0.321919, -0.166627]     48 sigma_seed  excludes 0
+  NAH_minus_NLH  +0.176983  SE 0.008303  ci95 [+0.161821, +0.193895]     35 sigma_seed  excludes 0
+  TQ  vs T3 arm Q / T2b arm FA (196 tensors, no fold)
+      +2.716656322 vs +2.716656309  residue +1.358e-08
+  NL  vs T3 arm N (196 tensors, fold) -- NEAR, not exact: T3 folded 2L+1 gains, NL folds 2L
+      +2.496655492 vs +2.496655520  residue -2.716e-08
+
+OUTCOME: FOLD-CONFIRMED / GATE-F-NOT-MEASURED-HERE (no F32/XF/XA arm in this invocation; brief s3.2 gives Gate F on this donor to run 3 -- not final until it passes)
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\e2_rmsnorm_fold_qwen25-15b_tqnltqhnlhnah_s24.json  (7272 s)

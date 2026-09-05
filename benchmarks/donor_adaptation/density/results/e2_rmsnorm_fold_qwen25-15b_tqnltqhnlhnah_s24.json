@@ -1,0 +1,252 @@
+{
+ "brief": "docs/research/donor_adaptation/briefs/BRIEF_E2_RMSNORM_FOLD.md @ 338d187, amended s3.1 @ edbe956",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "smoke": false,
+ "slice": {
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "n_seq": 24,
+  "seq_len": 512,
+  "bytes": 51870,
+  "subset_of_pinned_24": false
+ },
+ "calib_seqs": 32,
+ "threads": 6,
+ "thresholds_from_brief_s5": {
+  "GATE_F_FP32_TOL": 0.002,
+  "FOLD_CONFIRMED": -0.1,
+  "FOLD_SHRINKS": -0.02,
+  "sigma_seed": 0.005,
+  "boot_n": 2000,
+  "boot_seed": 7
+ },
+ "replication_constants": {
+  "T3_arm_N_delta": 2.496655519614986,
+  "T3_arm_Q_delta": 2.716656308667292,
+  "T3_fold": -0.220001,
+  "file": "density/results/t3_rotation.json / t2b_organs.json",
+  "note": "arm N folded 2L+1 gains; this probe's NL folds 2L. Brief s2 argues the difference is neutral for an fp32 head; XA is the arm that tests that claim, exactly, at fp32."
+ },
+ "arms": {
+  "TQ": {
+   "weights": "D:/_ktmp/e2\\qwen25-15b_tq.bin",
+   "fold": "none",
+   "quant": "packed",
+   "head_ternary": false,
+   "n_gains_folded": 0,
+   "n_gains_expected": null,
+   "untied_by_fold": false,
+   "sidecar_rule": "R3",
+   "sidecar_sha256": "ddfc676835be876de8b613b497947d88786e9acb9eafaee26082aa45e7f49fd0",
+   "mean_ternary_zero_fraction": 0.4714445757622622,
+   "gate_a": {
+    "n_codes": 1310195712,
+    "codes_differing": 0,
+    "scales_differing": 0,
+    "worst_scale_ulp": 0.0,
+    "worst_product_absdiff": 0.0,
+    "tensors": 196,
+    "worst_tensor": null,
+    "passes_A1_codes": true,
+    "passes_A2_scales": true,
+    "passes_as_registered": true,
+    "passes": true
+   },
+   "export_seconds": 569.8226957321167,
+   "bpb_torch": 3.4842512806653585,
+   "bpb_engine": 3.484253077409102,
+   "delta": 1.796743743565088e-06,
+   "n_predicted": 12264,
+   "nats_total_engine": 125271.2472164932,
+   "per_seq_max_abs_delta": 1.3890160130092255e-05,
+   "engine_seconds": 861.0024802684784
+  },
+  "NL": {
+   "weights": "D:/_ktmp/e2\\qwen25-15b_nl.bin",
+   "fold": "layers",
+   "quant": "packed",
+   "head_ternary": false,
+   "n_gains_folded": 56,
+   "n_gains_expected": 56,
+   "untied_by_fold": false,
+   "sidecar_rule": "R3",
+   "sidecar_sha256": "2a90b34bd2949ec5055729137c6c4dfb9622d8eefa92a8cdffe73d0150626e21",
+   "mean_ternary_zero_fraction": 0.5083734615116703,
+   "gate_a": {
+    "n_codes": 1310195712,
+    "codes_differing": 0,
+    "scales_differing": 0,
+    "worst_scale_ulp": 0.0,
+    "worst_product_absdiff": 0.0,
+    "tensors": 196,
+    "worst_tensor": null,
+    "passes_A1_codes": true,
+    "passes_A2_scales": true,
+    "passes_as_registered": true,
+    "passes": true
+   },
+   "export_seconds": 566.5774419307709,
+   "bpb_torch": 3.2642504508703727,
+   "bpb_engine": 3.264252413185089,
+   "delta": 1.9623147164971044e-06,
+   "n_predicted": 12264,
+   "nats_total_engine": 117361.443599044,
+   "per_seq_max_abs_delta": 8.030768824163204e-06,
+   "engine_seconds": 865.4066874980927
+  },
+  "TQH": {
+   "weights": "D:/_ktmp/e2\\qwen25-15b_tqh.bin",
+   "fold": "none",
+   "quant": "packed",
+   "head_ternary": true,
+   "n_gains_folded": 0,
+   "n_gains_expected": null,
+   "untied_by_fold": false,
+   "sidecar_rule": "R3",
+   "sidecar_sha256": "5d50e3778917a46f329c89334274be47941897f05b969b92bb4409fa3b0337eb",
+   "mean_ternary_zero_fraction": 0.47132473926858853,
+   "gate_a": {
+    "n_codes": 1543569408,
+    "codes_differing": 0,
+    "scales_differing": 0,
+    "worst_scale_ulp": 0.0,
+    "worst_product_absdiff": 0.0,
+    "tensors": 197,
+    "worst_tensor": null,
+    "passes_A1_codes": true,
+    "passes_A2_scales": true,
+    "passes_as_registered": true,
+    "passes": true
+   },
+   "export_seconds": 614.6823337078094,
+   "bpb_torch": 3.4757059788577203,
+   "bpb_engine": 3.47570669163278,
+   "delta": 7.127750598634464e-07,
+   "n_predicted": 12264,
+   "nats_total_engine": 124963.9743572584,
+   "per_seq_max_abs_delta": 1.4864656376900598e-05,
+   "engine_seconds": 656.091037273407
+  },
+  "NLH": {
+   "weights": "D:/_ktmp/e2\\qwen25-15b_nlh.bin",
+   "fold": "layers",
+   "quant": "packed",
+   "head_ternary": true,
+   "n_gains_folded": 56,
+   "n_gains_expected": 56,
+   "untied_by_fold": false,
+   "sidecar_rule": "R3",
+   "sidecar_sha256": "f6723b6bcd7a4b0e7cc677f323b0ba47e691682e8a151e25f5c59992af57a54e",
+   "mean_ternary_zero_fraction": 0.5080661687451571,
+   "gate_a": {
+    "n_codes": 1543569408,
+    "codes_differing": 0,
+    "scales_differing": 0,
+    "worst_scale_ulp": 0.0,
+    "worst_product_absdiff": 0.0,
+    "tensors": 197,
+    "worst_tensor": null,
+    "passes_A1_codes": true,
+    "passes_A2_scales": true,
+    "passes_as_registered": true,
+    "passes": true
+   },
+   "export_seconds": 620.6784844398499,
+   "bpb_torch": 3.2333739774843178,
+   "bpb_engine": 3.2333744616804383,
+   "delta": 4.841961205315215e-07,
+   "n_predicted": 12264,
+   "nats_total_engine": 116251.2718030979,
+   "per_seq_max_abs_delta": 9.005279855145432e-06,
+   "engine_seconds": 653.1616258621216
+  },
+  "NAH": {
+   "weights": "D:/_ktmp/e2\\qwen25-15b_nah.bin",
+   "fold": "all",
+   "quant": "packed",
+   "head_ternary": true,
+   "n_gains_folded": 57,
+   "n_gains_expected": 57,
+   "untied_by_fold": true,
+   "sidecar_rule": "R3",
+   "sidecar_sha256": "2105e55dac12bf010e294e5228714cdca9173dd61ba8ec1600385673c68eaa15",
+   "mean_ternary_zero_fraction": 0.5090934706823474,
+   "gate_a": {
+    "n_codes": 1543569408,
+    "codes_differing": 0,
+    "scales_differing": 0,
+    "worst_scale_ulp": 0.0,
+    "worst_product_absdiff": 0.0,
+    "tensors": 197,
+    "worst_tensor": null,
+    "passes_A1_codes": true,
+    "passes_A2_scales": true,
+    "passes_as_registered": true,
+    "passes": true
+   },
+   "export_seconds": 615.0290529727936,
+   "bpb_torch": 3.4103568386889833,
+   "bpb_engine": 3.410360247664846,
+   "delta": 3.4089758624844535e-06,
+   "n_predicted": 12264,
+   "nats_total_engine": 122614.5380921083,
+   "per_seq_max_abs_delta": 1.3512049831909678e-05,
+   "engine_seconds": 653.1018800735474
+  }
+ },
+ "replication": {
+  "TQ": {
+   "delta_vs_base": 2.7166563222481854,
+   "standing": 2.716656308667292,
+   "which": "T3 arm Q / T2b arm FA (196 tensors, no fold)",
+   "residue": 1.3580893298836827e-08
+  },
+  "NL": {
+   "delta_vs_base": 2.4966554924531996,
+   "standing": 2.496655519614986,
+   "which": "T3 arm N (196 tensors, fold) -- NEAR, not exact: T3 folded 2L+1 gains, NL folds 2L",
+   "residue": -2.7161786597673654e-08
+  }
+ },
+ "gate_F": {},
+ "contrasts": {
+  "NL_minus_TQ": {
+   "delta": -0.2200008297949857,
+   "paired_se": 0.05286069944987298,
+   "ci95": [
+    -0.3249876679555612,
+    -0.11959295861254163
+   ],
+   "sigma_seed": 44.00016595899714,
+   "excludes_zero": true
+  },
+  "NLH_minus_TQH": {
+   "delta": -0.2423320013734026,
+   "paired_se": 0.0410381857534996,
+   "ci95": [
+    -0.32191929651329904,
+    -0.16662680017867318
+   ],
+   "sigma_seed": 48.46640027468052,
+   "excludes_zero": true
+  },
+  "NAH_minus_NLH": {
+   "delta": 0.1769828612046654,
+   "paired_se": 0.008303293883908196,
+   "ci95": [
+    0.1618208216031327,
+    0.19389548335242696
+   ],
+   "sigma_seed": 35.396572240933075,
+   "excludes_zero": true
+  }
+ },
+ "decision": {
+  "rule": "brief section 5 as amended in s3.1, fixed before the run",
+  "gate_F_measured": false,
+  "gate_F_ok": false,
+  "fold_term_label": "FOLD-CONFIRMED",
+  "OUTCOME_LABEL": "FOLD-CONFIRMED / GATE-F-NOT-MEASURED-HERE (no F32/XF/XA arm in this invocation; brief s3.2 gives Gate F on this donor to run 3 -- not final until it passes)"
+ },
+ "total_seconds": 7272.4799518585205
+}
