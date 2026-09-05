@@ -11,7 +11,30 @@ mechanical label under a split) — **every amendment written before the run it 
 
 ## 0. Verdict
 
-*PENDING — run 2 owns the label (brief §3.2). Written from the JSON, verbatim, when it lands.*
+**`FOLD-CONFIRMED`** — assembled term by term in §3.4, because the brief split the decision across
+three runs and said so before any of them ran. Every term holds; none was rewritten.
+
+**The fold survives the trip to the artifact, at the value T3 measured, on the donor that decides.**
+`NL − TQ = −0.220001`, paired SE `0.052861`, ci95 `[−0.324988, −0.119593]`, **44 σ_seed** — against
+T3's `−0.220001 ± 0.052861`, measured in a `transformers` module in memory by a different runner.
+Point *and* dispersion (§4).
+
+**What the goal sees.** The whole runnable 1.5B model — FFN, attention and a ternary head, the
+thing `donor_engine.c` actually executes — goes from **`+2.708111`** to **`+2.465779`** BPB of
+ternarization damage. No format change, no kernel change, no runtime cost, no gradients.
+
+**Adopted** (`49b6654`): `qwen_export.py --fold` now defaults to `layers`, with `--fold none`
+pinned in E1's runner in the same commit so its published numbers keep reproducing. Both directions
+checked by sha256 against artifacts already on disk.
+
+**Not adopted:** `--fold all`. Folding the final gain into a **ternary** head *costs* BPB on both
+donors — `+0.176983` on the 1.5B, `+0.629949` on the 0.5B, both ci95 clear of zero. This arm had no
+prior and no pre-registered bar; it now has an answer (§5.3).
+
+**The 0.5B would have lied about it.** Every sign replicates across donors; **no magnitude does**,
+and one comparison inverts outright (§5.0). Brief §3.2 took decision authority away from the small
+donor before any number existed, and that is the only reason this report is not overstating the
+head result by 3.6× with one column backwards.
 
 ---
 
@@ -159,11 +182,58 @@ with `gate_F_measured: false`, `gate_F_ok: false`, `fold_term_label: "FOLD-CONFI
 
 ### 3.3 Run 3 — Qwen2.5-1.5B, `F32, XF, XA`, 4 seqs — Gate F on the deciding donor
 
-*PENDING.*
+A pinned **subset** of the 24-sequence slice (`subset_of_pinned_24: true`), 9,203 scored bytes,
+1,451 s. Four sequences because at 6.2 GB of weight traffic per token the full slice is ~40 minutes
+*per arm*, and these arms are an **exactness** test, not a number this programme quotes.
+
+| arm | fold | gains | BPB (PyTorch) | BPB (engine) | engine−torch | Gate A |
+|---|---|---|---|---|---|---|
+| `F32` | none | 0 | `0.702308545920` | `0.702318880488` | `+1.033e-05` | 338 tensors, `0.000e+00` |
+| `XF` | layers | 56 | `0.702308498080` | `0.702318880420` | `+1.038e-05` | 338 tensors, `0.000e+00` |
+| `XA` | all | 57 | `0.702308536352` | `0.702318884272` | `+1.035e-05` | **339** tensors, `0.000e+00` |
+
+`XA` carries one tensor more because the final fold **unties the head** — that extra tensor is the
+arm's entire point. `F32`'s two numbers reproduce E1's 1.5B fp32 arm exactly
+(`0.702308545920147` / `0.702318880488138`).
+
+**Gate F — PASSES on the deciding donor:**
+
+| | diff | tol | margin |
+|---|---|---|---|
+| `XF − F32` (PyTorch) | `−4.784e-08` | `0.002` | 4.2e+04× |
+| `XF − F32` (engine) | `−6.810e-11` | `0.002` | 2.9e+07× |
+| `XA − F32` (PyTorch) | `−9.568e-09` | `0.002` | 2.1e+05× |
+| `XA − F32` (engine) | `+3.784e-09` | `0.002` | 5.3e+05× |
+
+And `XA − XF` = `+3.827e-08`, paired SE `1.982e-08`, ci95 `[0, +8.012e-08]` — **contains zero**,
+unlike the same contrast on the 0.5B (§5.2). On the deciding donor the final gain with an fp32
+head is indistinguishable from nothing statistically as well as numerically.
+
+**Mechanical label: `INCOMPLETE (arms NL and TQ are both required for the decision)`** — exactly
+what brief §3.2 pre-registered for this run, which holds neither.
 
 ### 3.4 The label, assembled term by term
 
-*PENDING — assembled from runs 2 and 3 the way E1 §2.3 assembled its own, and reported verbatim.*
+No single invocation could print it, because the brief split the decision across runs and said so
+before any of them ran. Assembled the way E1 §2.3 assembled its own — each term named, with the
+run and file it comes from:
+
+| term of brief §5 | required | measured | from |
+|---|---|---|---|
+| **Gate E** | E1's label is `LOOP-CLOSED` | `LOOP-CLOSED` | `probes/E1_BPB_THROUGH_ENGINE.md` |
+| **Gate F**, `\|XF − F32\|` | ≤ `0.002` | `4.784e-08` (torch), `6.810e-11` (engine) | run 3, `…_f32xfxa_s4.json` |
+| **Gate F**, `\|XA − F32\|` | ≤ `0.002` | `9.568e-09` (torch), `3.784e-09` (engine) | run 3, same file |
+| `NL − TQ` ci95 | excludes 0 | `[−0.324988, −0.119593]` | run 2, `…_tqnltqhnlhnah_s24.json` |
+| `NL − TQ` point | ≤ `−0.10` | **`−0.220001`** | run 2, same file |
+
+All five hold. The `FOLD-CONFIRMED` row of brief §5's table reads:
+
+> *the fold survives to the artifact and buys at least half of T3's `−0.220`. It goes into the
+> exporter's **default** and every standing ternary number is superseded by a folded one.*
+
+**Assembled label: `FOLD-CONFIRMED`.** The two runs that could evaluate the fold term printed it
+mechanically and independently — run 1 on the 0.5B as `FOLD-CONFIRMED`, run 2 on the 1.5B as
+`FOLD-CONFIRMED / GATE-F-NOT-MEASURED-HERE`, whose missing term run 3 has now supplied.
 
 ---
 
@@ -255,11 +325,17 @@ re-derives it.
 
 ### 5.2 "ci95 excludes 0" is not "the effect matters"
 
-`XA − XF` is `+2.037e-08` BPB with a ci95 of `[+4.9e-09, +4.2e-08]` — **entirely above zero**. The
-bootstrap is right: the difference is deterministic, positive, and about the size of one fp32
-rounding. It is also **4.07e-06 σ_seed**, which is the column that decides. This is why the
-pre-registered rule pairs exclusion with a **magnitude threshold** and never uses exclusion alone.
-Kept as an illustration, not as a finding.
+On the **0.5B**, `XA − XF` is `+2.037e-08` BPB with a ci95 of `[+4.9e-09, +4.2e-08]` — **entirely
+above zero**. The bootstrap is right: the difference is deterministic, positive, and about the size
+of one fp32 rounding. It is also **4.07e-06 σ_seed**, which is the column that decides.
+
+On the **1.5B** the same contrast is `+3.827e-08` with ci95 `[0, +8.012e-08]` and **contains** zero.
+Same algebra, same arms, same code — and the flag flips, because the exclusion of a difference this
+small is decided by floating-point accumulation, not by the effect. Two donors, two answers, one
+irrelevant question.
+
+This is why the pre-registered rule pairs exclusion with a **magnitude threshold** and never uses
+exclusion alone. Kept as an illustration, not as a finding.
 
 ### 5.3 The head fold — a first look, answered on both donors
 
@@ -278,6 +354,31 @@ per-column structure of a gain fold was not measured.
 **What it settles operationally:** the runtime's configuration is **`--fold layers` with a ternary
 head**, and the final gain stays where it is. That is `NLH`, at `+2.465779` — the best of the five
 arms that can actually run.
+
+### 5.4 What this closes, and what it owes
+
+**Closes.** INDEX §4 item 1 — the fold was measured as a control inside a `VOID` run and owed its
+own confirmation through the engine. It has it, on both donors, with Gate A bit-identical and Gate F
+passing on the deciding one. It is adopted, not merely reported.
+
+**Supersedes.** Brief §5's `FOLD-CONFIRMED` row says every standing ternary number is superseded by
+a folded one. Concretely, the executable model's cost is now **`+2.465779`**, not `+2.708111`;
+T2b's per-organ table and T2's `+1.260` were measured unfolded and are floors, not the current
+state. **No number is withdrawn** — they were correct for unfolded exports, and the sidecar's
+`fold` field is what tells the two apart.
+
+**Owes.**
+
+1. **The mechanism is not claimed.** The same operation buys `−0.220` on `q,k,v,gate,up` and costs
+   `+0.177` on `lm_head`. §5.1 rules out the sparsity story and nothing here replaces it. The
+   per-row structure of R3's threshold search against the per-column structure of a gain fold was
+   not measured, and until it is, "why" is open.
+2. **Two donors is two donors.** Both are Qwen2.5, same tokenizer, same `V = 151936` — the family
+   the whole programme has measured on, and the worst-case side of the head budget (INDEX §7).
+3. **D4b still gates everything.** Every arm here is calibrated at 32 sequences under R3. The
+   calibration budget has never been swept, so `−0.220001` is itself a floor.
+4. **Nothing here is about speed.** The fold changes no format, no kernel and no traffic; it is
+   free by construction, and no timing was taken (the machine was under load throughout).
 
 ---
 
