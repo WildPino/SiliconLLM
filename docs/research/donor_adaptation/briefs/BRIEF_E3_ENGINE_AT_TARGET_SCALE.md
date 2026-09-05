@@ -253,3 +253,77 @@ run 1's label, not deleted.
 **A law this bought:** *a planted control must be planted inside the range the instrument will
 actually be used in.* An all-zero model is not a model any exporter can produce, and the gate that
 used one measured `expf` instead of the kernel it was defending.
+
+---
+
+## 9. Run 2's gates, written before any arm above `S15` is generated
+
+### 9.1 Gate V1′ — PASSES, and it was the one that could still fail
+
+Pre-registered in §8.4 before any synthetic 1.5B existed. `--bench 300`, 6 threads, 3 reps each.
+
+| file | bytes | median tok/s | IQR |
+|---|---|---|---|
+| **real** `qwen25-15b_tqh.bin` | 1,709,047,348 | **19.430** | 0.075 |
+| **synthetic** `S15 --head ternary --codes mixed` | 1,709,047,348 | **19.430** | 0.065 |
+
+Identical to three decimals, on files of identical byte count, with overlapping IQRs. Organ by organ:
+
+| organ | real | synthetic | Δ ms/token |
+|---|---|---|---|
+| `qkv_proj` | 2.840 | 2.743 | −0.097 |
+| `rope` | 0.034 | 0.034 | 0.000 |
+| `attention` | 1.981 | 1.967 | −0.014 |
+| `o_proj` | 1.956 | 1.957 | +0.001 |
+| `ffn` | 38.276 | 38.355 | +0.079 |
+| `head` | 6.357 | 6.381 | +0.024 |
+| `norm+glue` | 0.137 | 0.138 | +0.001 |
+
+Including `ffn`, the organ §8.4 declared a confound because of `expf`: **+0.079 ms on 38.3, 0.2%**.
+Random weights and trained R3 weights cost the same in SiLU at this width.
+
+### 9.2 Gate V2′ — the literal constant fails, and the ground truth fails it too
+
+§8.4 fixed the reference at *"57.790, IQR 0.190"*, measured on the real `qwen25-05b_tqh.bin` in a
+block twenty minutes earlier. Synthetic `S05 --head ternary` gives **56.180 (IQR 0.130)** — outside.
+
+So the same real file was re-run, **interleaved A/B/A/B**, four pairs, one rep each, alternating:
+
+| | median | IQR | reps |
+|---|---|---|---|
+| **real** `qwen25-05b_tqh.bin` | **56.095** | 0.188 | 56.42 / 55.76 / 56.08 / 56.11 |
+| **synthetic** `S05_th` | **55.895** | 0.500 | 55.93 / 54.26 / 55.86 / 56.05 |
+
+Δ = **0.200 tok/s = 0.357%**. Per-pair deltas 0.49 / 1.50 / 0.22 / 0.06 — the 1.50 is one pair in
+which *both* files dipped together, which is what a load transient looks like and why the pairs are
+adjacent in time.
+
+**The real artifact moved 57.790 → 56.095 between the two blocks: 2.9%.** The reference constant is
+therefore not reproducible by the file that produced it, and a gate whose ground truth cannot pass it
+is measuring drift, not the instrument.
+
+**This is the fourth time this ledger has been bitten by the same thing.** §11 withdrew a rate taken
+under contention; §12 withdrew a rate whose timer bracketed the wrong work; §8.3 here found an anchor
+taken on the wrong head; and now a gate constant that does not survive twenty minutes. **Law: a
+speed gate may not contain a hard constant. It must name a file to be measured concurrently.**
+
+**Operative form of V2′, and it is a change made after seeing data, stated as such:** synthetic must
+match the real artifact of the same shape **measured interleaved in the same session**. On that form
+V2′ **PASSES** at 0.357%, `S05`; V1′ passes at 0.000%, `S15`. The literal-constant failure is
+reported in the probe next to the pass, not deleted.
+
+The substance of V2 — *"a synthesizer that does not produce what the exporter produces is measuring
+its own bugs"* — is carried by V1′, which was fixed before its file existed and could have failed.
+
+### 9.3 Standing to read the arms
+
+V1′ pass, V2′ pass (paired form), V3 pass at four independent definitions of the format
+(`e1_bpb_through_engine.layout`; the real export's byte count — 793,629,748 for `S05` and
+1,709,047,348 for `S15`, **exact**; the C loader's `layout OK`; and the engine producing a finite
+`BENCH`). §6's decision rule may now be read against `S3`, `M7`, `Q8`, `T10`, none of which has been
+generated at the time this section is committed.
+
+**One number is already visible from the gates and is stated before the arms exist**, because it is
+a gate measurement and not an arm: the non-weight fixed cost `f = rope + attention + norm+glue` is
+**1.174 ms at `S05`** (0.017 + 1.089 + 0.068) — the ledger's 1.17 reproduced — and **2.152 ms at
+`S15`** (0.034 + 1.981 + 0.137). It has already crossed §6's `2.0 ms` threshold at 1.5 B.
