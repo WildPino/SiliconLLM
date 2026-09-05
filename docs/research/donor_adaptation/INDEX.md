@@ -2,7 +2,7 @@
 
 **The goal:** run somebody else's pretrained LLM on our architecture (`engine.c`), target **~10B at
 50 tok/s** (good) / **100 tok/s** (excellent).
-**Last updated: 2026-09-04 (T2 closed, LUT kernel built and characterised).**
+**Last updated: 2026-09-06 (E1 and E2 closed; the fold is adopted; the 2 GB load ceiling is gone).**
 
 This is the map. Every row names the artefact that holds the detail; nothing here is a claim that
 is not written up somewhere with its controls and its pre-registration.
@@ -15,7 +15,7 @@ is not written up somewhere with its controls and its pre-registration.
 |---|---|
 | **A pretrained donor executes on our runtime** | ✅ **YES** — Qwen2.5-0.5B, parity vs PyTorch `rel l2 2.8e-06`, top-1 `1.0000`; and since E1 the engine **scores the same BPB as PyTorch to `1.5e-05`** on both donors, so the quality numbers below are statements about the deliverable, not about a simulation |
 | **At the target speed** | ❌ **56.1 tok/s at 0.5B** (3 reps at `--bench 300`, idle machine, `SPEED_LEDGER.md` §12) = **27.7 G-weights/s delivered**, and 0.5B is 20× smaller than the target |
-| **At usable quality** | ❌ **NO**, but the number moved: FFN conversion **+3.309 → +1.260 BPB** (T2), still 252 σ_seed. The **whole runnable model** costs **+2.708** (T2b), or **+2.497** with T3's fold |
+| **At usable quality** | ❌ **NO**, but the number keeps moving: FFN conversion **+3.309 → +1.260 BPB** (T2), still 252 σ_seed. The **whole runnable model** cost **+2.708111** (T2b) and is now **+2.465779** — E2 confirmed the RMSNorm fold *through the engine* at T3's exact `−0.220001` and it is **adopted as the exporter default** |
 | **The binding constraint** | **still quality — but it is the RULE, not the format** (T2, `RULE-HELPS`) |
 
 > ⚠ **Until E1 (`33f0add`) the runtime could not load a model over 2 GB at all** — 32-bit
@@ -101,6 +101,7 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 | **T2b** | does the winning rule survive outside the FFN? | **`UNIFORM`, by 1.0% of its bar.** The runnable model (197 tensors, R3) costs **+2.708**, `1.584×` the FFN alone vs a 1.60 bar — ci95 `[1.514, 1.649]`, the bar is INSIDE it. Head ternarization **not** withdrawn: the head costs `+0.339` alone and **`−0.009 ± 0.020` on top of a ternary FFN+attention**. Per weight **attention is 4.98× the FFN** | `probes/T2B_ORGAN_COVERAGE.md` |
 | **T3** | rotate the residual basis (QuaRot/SpinQuant) before ternarizing | **`VOID` as written, `NULL` once the brief's own gate constant is corrected.** Rotation does not fail to help, it **hurts**: `+0.634 ± 0.039` (dense orth) and `+1.138 ± 0.072` (Hadamard) vs a fold-matched control. Kurtosis is not a predictor and cannot be made one. **Keeper: the RMSNorm fold alone is `−0.220 ± 0.053` free** | `probes/T3_ROTATION.md` |
 | **E1** | does the model the ENGINE executes score the BPB PyTorch says it does? | **`LOOP-CLOSED`** on the 0.5B; every term of the same rule met on the 1.5B (labels there are `INCOMPLETE` because the brief split the arms across two runs). Largest disagreement over 5 arms and 2 donors **`+1.53e-05` BPB** = `0.003 sigma_seed`, and the delta **does not grow with the arm**. Gate A bit-identical on up to **1,543,569,408 codes**. T2b's `+2.708111` replicated **bit-identically** by a second runner through a file round-trip. **Found on the way: the engine could not load a model over 2 GB** | `probes/E1_BPB_THROUGH_ENGINE.md` |
+| **E2** | does T3's RMSNorm fold survive into the artifact the engine runs? | **`FOLD-CONFIRMED`, and adopted.** `NL - TQ = -0.220001`, paired SE `0.052861`, ci95 `[-0.324988, -0.119593]`, 44 sigma_seed on the 1.5B -- **T3's point AND its dispersion**, now through the exporter, in the file format, on weights Gate A proves identical. The **runnable** model goes `+2.708111` -> **`+2.465779`**. Gate F passes on the deciding donor with 4.2e+04x of margin. **`--fold all` is NOT adopted**: folding the final gain into a *ternary* head COSTS `+0.176983` (1.5B) / `+0.629949` (0.5B). **Every sign replicates across donors; no magnitude does, and one comparison inverts** | `probes/E2_RMSNORM_FOLD.md` |
 
 **T2's decomposition, paired between arms** (`probes/T2_TERNARIZATION_RULE.md` §4):
 
@@ -119,25 +120,20 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 
 ## 4. Open, in priority order
 
-1. **Fold the RMSNorm gains in the exporter** (T3 §4.4). `−0.220 ± 0.053` BPB — 44 σ_seed, 8.1% of
-   the ternarization damage — for no format change, no kernel change and no runtime cost. Exact as
-   a re-parameterization (T3 arm XN, `+6.8e-09`). It was measured as a control inside a `VOID` run
-   and has never been seen through the engine, so it **owes its own confirmation** — and that
-   confirmation is the same export pass as E1's.
-   **PRE-REGISTERED as E2** (`briefs/BRIEF_E2_RMSNORM_FOLD.md`, commit `338d187`), which splits
-   the fold in two: writing the algebra out shows that with an **fp32 head** the final
-   `model.norm → lm_head` gain is a re-parameterization of weights that are never rounded, so
-   **all** of T3's `−0.220` belongs to the `2L` per-layer gains and none to the final one — and
-   the final one stops being neutral exactly when the head goes ternary, which is the arm the
-   runtime wants. E2 carries `NA − NL ≈ 0` as a **planted null** on that algebra. Recorded there
-   too: `o_proj` and `down_proj` read an attention output and an FFN activation, not a norm, so
-   the fold reaches **5 of the 7** converted tensors per layer and cannot help the other two.
-2. **D4b** — the calibration budget. Promoted from bookkeeping: T2's two best arms are both
-   calibration-driven, so every one of their numbers is a **floor**.
-3. **Healing** (QAT / layer-wise distillation) — still on the critical path per T2 §7. It starts
-   from +1.260 (FFN, R5) / **+2.708 (whole runnable model, R3, T2b §3)**, or **+2.497** with the
-   fold on FFN+attention, and T2b §6 says where to aim it: **attention, 4.98× the FFN's damage per
-   weight at 10% of the weights**.
+1. **D4b** — the calibration budget. Promoted from bookkeeping: T2's two best arms are both
+   calibration-driven, so every one of their numbers is a **floor** — and after E2 that now
+   includes the fold's own `−0.220001`, which was measured at 32 calibration sequences like
+   everything else.
+2. **Healing** (QAT / layer-wise distillation) — still on the critical path per T2 §7. **Its
+   starting point moved**: the whole runnable model is now **`+2.465779`** (E2 arm `NLH`), not
+   `+2.708111`. T2b §6 says where to aim it: **attention, 4.98× the FFN's damage per weight at 10%
+   of the weights**. Note that T2's GPTQ result — at ternary width the per-layer error is the wrong
+   objective on a badly-placed grid — constrains what "layer-wise" is allowed to mean here.
+3. **Why the same fold buys on the layers and costs on the head** (E2 §5.4). `q,k,v,gate,up` gain
+   `−0.220`; `lm_head` loses `+0.177`. E2 killed the obvious explanation — zero fraction does not
+   predict it and does not even hold its sign — and put nothing in its place. The per-row structure
+   of R3's threshold search against the per-column structure of a gain fold has not been measured.
+   Cheap, exporter-only, and it is the one place the fold left value on the table.
 4. **S1's scale arm** — blocked on the fp16 NaN (`eager` attention overflows QK^T; diagnosed, §5).
    Every sparsity result this programme owns is measured at one size.
 5. An already-MoE donor, and **a donor with a small vocabulary** (§7).
@@ -145,10 +141,15 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 **Closed since the last revision.** The `--fuse` × `OMP_WAIT_POLICY` matrix ran (`SPEED_LEDGER.md`
 §12.4 — both hypotheses die; `--fuse` not adopted). T3 ran and closes the residual-stream rotation
 line together with brief §5's two follow-ons (online Hadamard, activation-side rotation).
-**E1 ran and closes the standing item 1 on both donors** (`probes/E1_BPB_THROUGH_ENGINE.md`):
-the engine scores what PyTorch scores to `1.5e-05`, T2b's `+2.708111` is replicated bit-identically
-through a file round-trip, and the 2 GB load ceiling that would have blocked the target model
-outright was found and fixed.
+**E1 ran** (`probes/E1_BPB_THROUGH_ENGINE.md`): the engine scores what PyTorch scores to `1.5e-05`,
+T2b's `+2.708111` is replicated bit-identically through a file round-trip, and the 2 GB load ceiling
+that would have blocked the target model outright was found and fixed.
+**E2 ran and closes the standing item 1** (`probes/E2_RMSNORM_FOLD.md`): the fold survives to the
+artifact at T3's exact value **and its exact dispersion**, Gate F passes on the deciding donor with
+4.2e+04× of margin, and it is **adopted** — `qwen_export.py --fold` defaults to `layers` as of
+`49b6654`, with `--fold none` pinned in E1's runner in the same commit so its published numbers keep
+reproducing (both directions checked by sha256 against artifacts already on disk). `--fold all` is
+measured and **rejected**: into a ternary head the final gain costs BPB on both donors.
 
 ## 5. Bugs found in our own instruments (all fixed, all with controls added)
 
@@ -222,6 +223,25 @@ outright was found and fixed.
   E1's 1.5B arms were split across two invocations by the brief, so neither could evaluate the
   decision function and both returned `INCOMPLETE` on numbers that met every term. Second time in
   three probes that the brief, not the code, produced the mechanical label. (E1 §6.2, T3 §1.3)
+- **A small donor establishes the sign, not the magnitude — and not always the ordering.** Across
+  E2's two donors every sign that mattered replicated and **no magnitude did**: the fold's benefit
+  differed 1.5×, the head fold's cost 3.6×, the benefit a ternary head adds 8.9×, and one whole
+  comparison **inverted** (`--fold all` is worse than no fold on the 0.5B, better on the 1.5B).
+  Same shape as E1's "the head is free is a 1.5B result". **Give the deciding donor the label in
+  writing before the small one produces a number.** (E2 §5.0, §3.2 of its brief)
+- **A replication that shares the estimator's seed reproduces its dispersion too, and that is not
+  extra evidence.** E2 recovered T3's fold as `−0.220001 ± 0.052861` — point *and* paired SE at the
+  printed precision. Forced, not corroborating: same seed 7, same 24 sequences, same byte weights,
+  and per-sequence nats agreeing to `1e-07`. **Count it once.** (E2 §4)
+- **`ci95 excludes 0` is a statement about accumulation when the effect is at the ulp.** The same
+  contrast, same arms, same code, **excluded** zero on one donor (`+2.037e-08`) and **contained**
+  it on the other (`+3.827e-08`). Exclusion is not magnitude; a rule must pair it with a threshold.
+  (E2 §5.2)
+- **A default that changes behaviour is only safe when both sides are pinned to something already
+  on disk.** Adopting the fold flipped `--fold` to `layers`, which would have silently re-exported
+  every caller that omits the flag — including E1, whose reference builder still defaults to
+  unfolded. The flip and the pin went in one commit, and both directions were checked by **sha256
+  against artifacts that had actually been measured**. (E2, `49b6654`)
 
 ## 7. The head, the tokenizer, and the thing nobody priced
 
