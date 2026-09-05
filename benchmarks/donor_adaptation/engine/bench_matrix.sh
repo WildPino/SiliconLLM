@@ -1,4 +1,23 @@
 #!/usr/bin/env bash
+# SUPERSEDED by bench_matrix.py. Kept because its first and only run is the evidence for
+# why it was replaced: blocked reps (all three of a config back to back, medians compared
+# ACROSS blocks) gave within-config spreads of 3-5 tok/s on effects of 1-5%, and put
+# --lut at 0.955x where an idle measurement had it at 1.06x. Recorded here, not deleted:
+#
+#   config                       policy    rep1   rep2   rep3   median  vs base
+#   packed (baseline)            default  47.49  49.06  49.29   49.06   1.000x
+#   --fuse                       default  49.28  49.88  49.50   49.50   1.009x
+#   --lut --lut-group 32         default  50.01  44.88  46.87   46.87   0.955x
+#   --fuse --lut --lut-group 32  default  46.12  48.69  48.66   48.66   0.992x
+#   packed (baseline)            active   47.85  47.08  46.91   47.08   0.960x
+#   --fuse                       active   49.19  47.86  48.65   48.65   0.992x
+#   --lut --lut-group 32         active   48.26  48.24  47.37   48.24   0.983x
+#   --fuse --lut --lut-group 32  active   49.23  48.04  47.68   48.04   0.979x
+#
+# Every one of those ratios is inside the noise of the row above it. Use bench_matrix.py:
+# rounds instead of blocks, rotated order, --profile, and the baseline's own spread printed
+# first as the witness for whether anything may be read at all.
+#
 # bench_matrix.sh -- WHY is this runtime at 12.4 GB/s when DRAM is 40-44 and the instruction
 # issue bound is 16x away? Two hypotheses, crossed, three reps each.
 #
