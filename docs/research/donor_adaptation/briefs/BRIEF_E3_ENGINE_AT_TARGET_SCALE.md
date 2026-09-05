@@ -131,3 +131,125 @@ reps, the full `--profile` organ table in ms/token, delivered G-weights/s, measu
 budget re-derived from that arm's own `f`. Gate V1's two numbers, Gate V2's comparison against the
 real artifact, and the §6 label verbatim. The pre-stated predictions of §5 are reproduced next to
 the measurements, **including the ones that turn out wrong**.
+
+---
+
+## 8. AMENDMENT, written after run 1's gates and before run 2 exists
+
+Run 1 ran **the gates only**. No arm above `S05` was generated, no `T10` number exists, and nothing
+in §5 or §6 has been read against a measurement. This section is written now so that the repair is
+on the record before the run that uses it, as `feedback_media_manager` requires.
+
+### 8.1 Run 1's label, by §6 verbatim
+
+**`VOID`.** Gate V1 fired and Gate V2 failed. Per §6, *"nothing is read; the synthesizer is the
+finding"*. That is honoured: §8.2 and §8.3 are the finding.
+
+### 8.2 Gate V1 fired — and it localises to a transcendental, not to the matvec
+
+`S05`, `--bench 300`, 6 threads, 3 reps, background load 3–8%:
+
+| file | median tok/s | IQR |
+|---|---|---|
+| every code zero | **39.580** | 0.215 |
+| no code zero | **36.490** | 0.140 |
+
+3.090 tok/s apart against an IQR of ~0.2 — roughly 15×. The gate fired as written.
+
+The organ table says where, and it is one organ:
+
+| organ | zero | dense | Δ ms/token |
+|---|---|---|---|
+| `ffn` | 9.021 | 11.101 | **+2.080** |
+| `head` | 13.746 | 13.818 | +0.072 |
+| `qkv_proj` | 0.846 | 0.851 | +0.005 |
+| `o_proj` | 0.588 | 0.585 | −0.003 |
+| `attention` | 1.027 | 1.017 | −0.010 |
+| `rope` / `norm+glue` | 0.016 / 0.067 | 0.017 / 0.067 | ≤0.001 |
+
+`qkv_proj`, `o_proj` and `head` are pure packed matvecs and they are **flat to 0.005 ms** across a
+change from every weight zero to no weight zero. So §2's reading of the kernel — `pshufb` + FMA, no
+early exit — is not merely plausible, it is now **measured**: the matvec is value-independent.
+
+The `ffn` bucket is the only one that contains something that is not a matvec:
+`silu(x) = x / (1 + expf(-x))`, scalar `expf`, `F × L = 4864 × 24 = 116,736` calls per token. With
+every weight zero the SwiGLU argument is exactly `0.0f`, which is the early-out of every libm `expf`.
+2.080 ms over 116,736 calls is **17.8 ns per call** of difference — `expf` scale, not memory scale.
+
+**What this impeaches and what it does not.** It does not impeach the matvec, which is the part that
+extrapolates to `T10`. It impeaches the *design of the gate*: a trained model never has a zero
+fraction of 1.0, so the control was planted at a point outside the range any real artifact occupies,
+and what it detected is a property of `expf`, not of the instrument. **That is a flaw in my gate,
+not a licence to ignore it**, so the `VOID` stands and the repair below is a different gate, not a
+reinterpretation of this one.
+
+The realistic half of the same experiment is worth stating: `mixed` (zero fraction 0.47, what E2
+measured on real R3 exports) against `dense` (0.00) is **36.570 vs 36.490**, inside both IQRs. Across
+the range a real export can actually occupy, the timing is flat.
+
+### 8.3 Gate V2 failed — and the synthesizer is not the reason
+
+| file | median tok/s | IQR | head ms/token |
+|---|---|---|---|
+| synthetic `S05`, `mixed` | 36.570 | 0.040 | 13.724 |
+| **real** `qwen25-05b_tq.bin` (E2 arm TQ) | **36.440** | 0.540 | 13.829 |
+| **real** `qwen25-05b_nl.bin` (E2 arm NL, R3+fold) | 36.460 | 0.050 | 13.844 |
+
+The synthetic file and the real artifact of the same shape and the same byte count agree to
+**0.36%**, inside the real artifact's own IQR, organ by organ. Neither reaches 56.1.
+
+The cause is in `synth_export.py`, and it is mine: `SHAPES` carries each donor's own `tied` flag, and
+**a tied model runs its head as the fp32 embedding** — 151,936 × 896 × 4 = 544.6 MB/token, 13.8 ms,
+52% of the token. §3 of this brief asked for *"a ternary head (the runnable configuration E2
+settled)"*, which is **untied and packed**. `SPEED_LEDGER` §12.2 says so in its own table without
+naming it: `head 136,134,656 weights, 68.1 MB/token` is **0.5 bytes per weight**.
+
+Measured now, on the real untied ternary-head artifacts:
+
+| file | median tok/s | IQR | head ms/token |
+|---|---|---|---|
+| real `qwen25-05b_tqh.bin` | **57.790** | 0.190 | 3.619 |
+| real `qwen25-05b_nlh.bin` | 57.580 | 0.340 | 3.626 |
+| `SPEED_LEDGER` §12.2 | 56.1 (median of 56.41/55.75/56.14) | — | 3.673 |
+
+The ledger's anchor reproduces at +3.0% on tok/s and −1.5% on the head organ. **The 27.7 G-weights/s
+that prices this whole programme is a number about the untied ternary-head configuration**, and run 1
+compared it against a fp32-head file. `--head {ternary,donor}` is added, defaulting to `ternary`;
+`donor` is kept so run 1 stays replayable.
+
+### 8.4 The gates for run 2, fixed before run 2 exists
+
+**Gate V1′ — the instrument against ground truth, at a scale not yet used to choose it.** Run 1
+replaced a proxy with something better by accident: a synthetic file can be compared to a **real
+exported artifact of the same shape**, which is a stronger test than any synthetic-vs-synthetic
+control. That comparison is already known at `S05` (0.36%), so `S05` cannot be the gate — it would be
+chosen after seeing it pass. **The gate is at `S15`**, where `qwen25-15b_tqh.bin` exists on disk and
+no synthetic 1.5B has ever been generated: synthetic `S15 --head ternary --codes mixed` must land
+within the real artifact's IQR of `qwen25-15b_tqh.bin`, `--bench 300`, 6 threads, 3 reps each. **If
+it does not, the probe stops and reports that instead**, and no shape above 1.5B is read.
+
+**Gate V2′ — the known-positive, restated against what the ledger measured.** Synthetic
+`S05 --head ternary` must reproduce the **real** `qwen25-05b_tqh.bin` (57.790, IQR 0.190) within that
+IQR — not the ledger's 56.1, which was taken on another day on another build and is here quoted, not
+re-used, as `feedback_perf_parallelization` requires of any number taken under unknown load.
+
+**Gate V3 — unchanged, and it passed.** Byte-exact against `e1_bpb_through_engine.layout` (290
+tensors, 724,954,676 bytes), against the real export's own file size, and against the C loader's
+`layout OK: consumed exactly 724954676 bytes`. Three independent definitions of the format agree.
+
+**`expf` is now a declared confound, not a discovery to be made later.** Synthetic weights give
+activations whose SiLU cost is not guaranteed to be a trained model's. §8.3 measures that cost as
+equal to 0.36% at `S05`; V1′ measures it again at `S15`. Above 1.5B there is no real artifact and the
+`ffn` organ's absolute value carries that caveat explicitly wherever it is reported — the matvec
+organs do not, since §8.2 measured them value-independent.
+
+### 8.5 What does not change
+
+No threshold, no arm, no prediction and no decision rule. §5's predictions stand as written and will
+be reproduced against measurement including the wrong ones; §6's five outcomes and their constants
+(`f ≤ 2.0 ms`, ±10% of 27.7, 24.9 G-w/s) are untouched. Run 1's `VOID` is reported in the probe as
+run 1's label, not deleted.
+
+**A law this bought:** *a planted control must be planted inside the range the instrument will
+actually be used in.* An all-zero model is not a model any exporter can produce, and the gate that
+used one measured `expf` instead of the kernel it was defending.
