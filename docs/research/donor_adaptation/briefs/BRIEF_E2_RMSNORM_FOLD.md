@@ -81,6 +81,41 @@ planted-control law, an instrument that cannot return a known zero has not earne
 `XF` is the corresponding **known-positive-adjacent** control on the other side: it must return
 the F32 arm's BPB, through the engine's own RMSNorm now reading a vector of ones.
 
+## 3.1 AMENDMENT, 2026-09-05, before any E2 run — arm `NA` is not expressible
+
+Written into the brief rather than silently changed, because §3 was pre-registered.
+
+**Arm `NA` as §3 defines it — `--fold all`, `--quant packed`, fp32 head — cannot exist in this
+format.** A quantized file carries a *single* `quant` flag and `donor_engine.c:397` reads the
+untied head with it, so an untied head in a packed file is necessarily packed. "Fold everything
+but keep an fp32 head" is not something the format can say. `qwen_export.py` now **refuses** that
+combination rather than silently ternarizing a head nobody asked to ternarize (verified: exit 1,
+no file written).
+
+**What replaces it, and why the replacement is stronger.** The null `NA − NL ≈ 0` was an *algebra*
+check: with an fp32 head, folding `model.norm` into `lm_head` leaves the 196 quantized tensors and
+their calibration untouched, so the two arms must agree. That check does not need the engine, and
+it does not need quantization at all — it is sharper at fp32, where it must hold **exactly**
+rather than approximately:
+
+| arm | `--fold` | `--quant` | must equal | why |
+|---|---|---|---|---|
+| **F32** | none | fp32 | — | the reference |
+| **XF** | layers | fp32 | `F32` | the `2L` fold is a re-parameterization |
+| **XA** | all | fp32 | `F32` and `XF` | the final gain is one too, and it unties |
+
+`XA` is expressible (`quant == 0` writes an fp32 head), goes through the engine, and subsumes the
+retired `NA`: if the fold implementation folds the wrong gain, folds into the wrong linears, or
+mis-handles the untie, `XF` or `XA` moves. Gate F in §5 is amended to read
+`|BPB(XF) − BPB(F32)| ≤ 0.002` **and** `|BPB(XA) − BPB(F32)| ≤ 0.002`.
+
+Measured before this amendment was written, on the 0.5B, as an implementation check only (no BPB,
+no decision): `--fold layers` folds **48 = 2L** gains, leaves the final gain and the tie alone;
+`--fold all` folds **49 = 2L+1**, sets the final gain to ones and unties. Worst logit change
+`2.0e-05` absolute, `9.8e-07` relative — the size T3's arm `XN` residue (`+6.8e-09` BPB) predicts.
+
+The arms that carry the decision — `TQ`, `NL`, `TQH`, `NLH`, `NAH` — are **unchanged**.
+
 ## 4. Fixed before the run
 
 - **Slice:** the shared `heldout` slice, 24×512, seed 1234,

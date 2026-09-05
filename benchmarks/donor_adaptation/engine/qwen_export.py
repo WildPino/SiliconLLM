@@ -56,6 +56,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(HERE, "..", "ternary")))
 sys.path.insert(0, os.path.abspath(os.path.join(HERE, "..", "density")))
 from t1_ternarize import ternarize  # noqa: E402  -- the single definition of the conversion
 import t2_rules as T2               # noqa: E402  -- the alternative rules, same definitions
+from t3_rotation import fold_norms  # noqa: E402  -- ONE definition of the fold, shared with T3
 
 MAGIC = b"QWENDON1"
 
@@ -203,6 +204,12 @@ def main():
                          "fp32 because it is a row LOOKUP (3.5 KB/token) and costs nothing to "
                          "stream; the HEAD is a dense GEMV over the whole vocabulary and is 40.4%% "
                          "of per-token time when left fp32 (measured, donor_engine --profile).")
+    ap.add_argument("--fold", choices=("none", "layers", "all"), default="none",
+                    help="fold RMSNorm gains into the linears that read them before quantizing. "
+                         "'layers' folds the 2L per-layer gains (input_layernorm -> q/k/v, "
+                         "post_attention_layernorm -> gate/up); 'all' additionally folds "
+                         "model.norm into lm_head, which UNTIES the head. T3 measured the fold "
+                         "at -0.220 BPB on the 1.5B; see BRIEF_E2_RMSNORM_FOLD.md.")
     a = ap.parse_args()
 
     if a.threads > 0:
@@ -231,6 +238,26 @@ def main():
     if a.head_ternary:
         tied = 0          # write an explicit head; the embedding table is still written fp32
     quant = {"fp32": 0, "ternary": 1, "packed": 2}[a.quant]
+
+    # The fold has to happen BEFORE the calibration capture, not after: folding a gain into
+    # q/k/v changes what those linears SEE, so R3's per-input activation RMS is a different
+    # vector under a folded model. Calibrating a folded model on unfolded activations would be
+    # a different -- and worse -- experiment than the one E2 pre-registers.
+    n_folded, untied_by_fold = 0, False
+    if a.fold != "none":
+        # A packed/ternary file has ONE quant flag and the engine reads the head with it
+        # (donor_engine.c:397). So an untied head in a quantized file is necessarily quantized:
+        # "fold everything but keep an fp32 head" is not expressible in this format, and the
+        # exporter refuses rather than silently ternarizing a head nobody asked to ternarize.
+        if a.fold == "all" and quant != 0 and not a.head_ternary:
+            sys.exit("--fold all unties the head, and a quantized file has a single quant flag: "
+                     "the engine would read that head with it. Use --fold all --head-ternary, "
+                     "or --fold layers, or --quant fp32.")
+        n_folded, untied_by_fold = fold_norms(m, fold_final=(a.fold == "all"))
+        if untied_by_fold:
+            tied = 0
+        print("  folded %d RMSNorm gains (--fold %s), untied=%s"
+              % (n_folded, a.fold, untied_by_fold))
     W = {0: w_fp32, 1: w_tern, 2: w_packed}[quant]
 
     print("exporting %s  D=%d F=%d L=%d heads=%d/%d hd=%d V=%d tied=%d quant=%s rule=%s"
@@ -293,6 +320,9 @@ def main():
             "head_dim": HD, "vocab": V, "tied": tied,
             "rms_eps": float(c.rms_norm_eps), "rope_theta": float(c.rope_theta),
             "head_ternary": bool(a.head_ternary), "rule": a.rule,
+            # part of the artifact's identity: a folded export is a DIFFERENT quantization,
+            # because the fold changes what q/k/v/gate/up see and therefore R3's thresholds.
+            "fold": a.fold, "n_gains_folded": n_folded, "untied_by_fold": bool(untied_by_fold),
             "bytes": size, "sha256": h.hexdigest(),
             "mean_ternary_zero_fraction": (float(np.mean(zeros)) if zeros else None),
             # The seam between what T2 MEASURED and what this file CONTAINS. Recorded so a

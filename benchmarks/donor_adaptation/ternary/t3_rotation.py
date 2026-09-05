@@ -183,14 +183,20 @@ def _chunked(W, R, left):
 
 
 # ===================================================================== fold + rotate
-def fold_norms(model, n_layers=None):
+def fold_norms(model, n_layers=None, fold_final=True):
     """Fold every RMSNorm gain into the linears that read it, and set the gain to 1.
 
-    Returns the number of gains folded. Unties lm_head first if it shares storage with the
-    embedding -- the final norm's gain belongs to the head only.
+    Returns (number of gains folded, whether lm_head had to be untied). Unties lm_head first
+    if it shares storage with the embedding -- the final norm's gain belongs to the head only.
+
+    fold_final=False folds ONLY the 2L per-layer gains and leaves model.norm and lm_head
+    untouched, so nothing is untied.  E2 needs that split: with an fp32 head the final gain is
+    a re-parameterization of weights that are never rounded to {-1,0,+1}, so it contributes
+    nothing to quantization damage -- it only starts to matter when the head is ternary.
+    The default is True, which is exactly what T3 ran; T3's numbers are unaffected.
     """
     untied = False
-    if model.lm_head.weight.data_ptr() == model.model.embed_tokens.weight.data_ptr():
+    if fold_final and model.lm_head.weight.data_ptr() == model.model.embed_tokens.weight.data_ptr():
         model.lm_head.weight = torch.nn.Parameter(model.lm_head.weight.data.clone())
         untied = True
 
@@ -209,7 +215,7 @@ def fold_norms(model, n_layers=None):
             m.weight.data = m.weight.data * g.unsqueeze(0)
         lay.post_attention_layernorm.weight.data = torch.ones_like(g)
         n += 2
-    if n_layers is None:
+    if n_layers is None and fold_final:
         g = model.model.norm.weight.data
         model.lm_head.weight.data = model.lm_head.weight.data * g.unsqueeze(0)
         model.model.norm.weight.data = torch.ones_like(g)
