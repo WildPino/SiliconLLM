@@ -1,0 +1,15 @@
+round 0  packed 55.27 fuse+lut g32 active 53.46
+round 1  packed 53.92 fuse+lut g32 active 53.92
+round 2  packed 54.76 fuse+lut g32 active 57.39
+round 3  packed 55.09 fuse+lut g32 active 58.65
+round 4  packed 55.00 fuse+lut g32 active 56.75
+round 5  packed 54.92 fuse+lut g32 active 56.74
+
+packed               tok/s 53.92 54.76 54.92 55.00 55.09 55.27  median 54.96  spread 2.5%
+fuse+lut g32 active  tok/s 53.46 53.92 56.74 56.75 57.39 58.65  median 56.75  spread 9.1%
+
+within-round ratio: 0.9673 1.0000 1.0480 1.0646 1.0318 1.0331   median 1.0325  min 0.9673  max 1.0646
+
+config                qkv_proj      rope attention    o_proj       ffn      head norm+glue     TOTAL
+packed                   0.911     0.016     1.073     0.637    11.768     3.740     0.070    18.218
+fuse+lut g32 active      0.825     0.010     1.074     0.750    10.999     3.982     0.067    17.645

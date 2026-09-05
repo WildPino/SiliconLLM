@@ -1,0 +1,635 @@
+{
+ "weights": "D:/_ktmp/qwen05b_packed.bin",
+ "tokens": 300,
+ "rounds": 6,
+ "baseline_cell": "packed|default",
+ "idleness": {
+  "baseline_tok_s": [
+   50.92,
+   54.25,
+   54.53,
+   54.58,
+   55.1,
+   55.87
+  ],
+  "spread_pct_of_median": 9.073412152873239,
+  "verdict": "CONTENDED -- spread swamps the 1-5% effects this matrix exists to resolve",
+  "idle_reference_at_300_tokens": [
+   56.41,
+   55.75,
+   56.14
+  ],
+  "note": "a tok/s number is only comparable to one taken at the same --bench length: attention grows with position, so the bench average does too. 800 tokens costs ~1.7 ms/token more than 300 on this donor, entirely in the attention bucket."
+ },
+ "cells": {
+  "packed|default": {
+   "tok_s": [
+    55.87,
+    55.1,
+    54.25,
+    54.58,
+    54.53,
+    50.92
+   ],
+   "median_tok_s": 54.555,
+   "within_round_ratio": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "median_ratio": 1.0,
+   "organs_ms": [
+    {
+     "qkv_proj": 0.879,
+     "attention": 1.1,
+     "o_proj": 0.609,
+     "ffn": 11.566,
+     "head": 3.681,
+     "norm+glue": 0.069,
+     "TOTAL": 17.917
+    },
+    {
+     "qkv_proj": 0.914,
+     "attention": 1.058,
+     "o_proj": 0.63,
+     "ffn": 11.738,
+     "head": 3.745,
+     "norm+glue": 0.069,
+     "TOTAL": 18.169
+    },
+    {
+     "qkv_proj": 0.933,
+     "attention": 1.088,
+     "o_proj": 0.646,
+     "ffn": 11.92,
+     "head": 3.784,
+     "norm+glue": 0.069,
+     "TOTAL": 18.455
+    },
+    {
+     "qkv_proj": 0.953,
+     "attention": 1.106,
+     "o_proj": 0.638,
+     "ffn": 11.798,
+     "head": 3.768,
+     "norm+glue": 0.069,
+     "TOTAL": 18.348
+    },
+    {
+     "qkv_proj": 0.917,
+     "attention": 1.072,
+     "o_proj": 0.647,
+     "ffn": 11.864,
+     "head": 3.773,
+     "norm+glue": 0.069,
+     "TOTAL": 18.359
+    },
+    {
+     "qkv_proj": 1.066,
+     "attention": 1.163,
+     "o_proj": 0.704,
+     "ffn": 12.668,
+     "head": 3.968,
+     "norm+glue": 0.072,
+     "TOTAL": 19.658
+    }
+   ]
+  },
+  "fuse|default": {
+   "tok_s": [
+    56.14,
+    55.75,
+    55.32,
+    55.49,
+    55.33,
+    55.31
+   ],
+   "median_tok_s": 55.41,
+   "within_round_ratio": [
+    1.0048326472167532,
+    1.0117967332123412,
+    1.0197235023041475,
+    1.016672773909857,
+    1.0146708233999633,
+    1.0862136684996073
+   ],
+   "median_ratio": 1.0156717986549102,
+   "organs_ms": [
+    {
+     "qkv_proj": 0.776,
+     "attention": 1.112,
+     "o_proj": 0.616,
+     "ffn": 11.551,
+     "head": 3.697,
+     "norm+glue": 0.069,
+     "TOTAL": 17.836
+    },
+    {
+     "qkv_proj": 0.787,
+     "attention": 1.079,
+     "o_proj": 0.634,
+     "ffn": 11.643,
+     "head": 3.729,
+     "norm+glue": 0.069,
+     "TOTAL": 17.958
+    },
+    {
+     "qkv_proj": 0.793,
+     "attention": 1.086,
+     "o_proj": 0.642,
+     "ffn": 11.732,
+     "head": 3.755,
+     "norm+glue": 0.069,
+     "TOTAL": 18.092
+    },
+    {
+     "qkv_proj": 0.791,
+     "attention": 1.071,
+     "o_proj": 0.632,
+     "ffn": 11.718,
+     "head": 3.745,
+     "norm+glue": 0.069,
+     "TOTAL": 18.041
+    },
+    {
+     "qkv_proj": 0.796,
+     "attention": 1.08,
+     "o_proj": 0.642,
+     "ffn": 11.728,
+     "head": 3.764,
+     "norm+glue": 0.069,
+     "TOTAL": 18.093
+    },
+    {
+     "qkv_proj": 0.801,
+     "attention": 1.076,
+     "o_proj": 0.637,
+     "ffn": 11.725,
+     "head": 3.772,
+     "norm+glue": 0.07,
+     "TOTAL": 18.097
+    }
+   ]
+  },
+  "lut g32|default": {
+   "tok_s": [
+    51.03,
+    56.69,
+    56.2,
+    56.18,
+    55.84,
+    55.62
+   ],
+   "median_tok_s": 56.010000000000005,
+   "within_round_ratio": [
+    0.9133703239663505,
+    1.0288566243194193,
+    1.0359447004608295,
+    1.0293147673140344,
+    1.02402347331744,
+    1.0923016496465043
+   ],
+   "median_ratio": 1.0290856958167267,
+   "organs_ms": [
+    {
+     "qkv_proj": 1.426,
+     "attention": 1.118,
+     "o_proj": 0.748,
+     "ffn": 12.107,
+     "head": 4.139,
+     "norm+glue": 0.067,
+     "TOTAL": 19.615
+    },
+    {
+     "qkv_proj": 1.199,
+     "attention": 1.061,
+     "o_proj": 0.699,
+     "ffn": 11.295,
+     "head": 3.329,
+     "norm+glue": 0.065,
+     "TOTAL": 17.658
+    },
+    {
+     "qkv_proj": 1.201,
+     "attention": 1.07,
+     "o_proj": 0.696,
+     "ffn": 11.328,
+     "head": 3.438,
+     "norm+glue": 0.065,
+     "TOTAL": 17.807
+    },
+    {
+     "qkv_proj": 1.221,
+     "attention": 1.067,
+     "o_proj": 0.706,
+     "ffn": 11.359,
+     "head": 3.401,
+     "norm+glue": 0.065,
+     "TOTAL": 17.831
+    },
+    {
+     "qkv_proj": 1.24,
+     "attention": 1.066,
+     "o_proj": 0.703,
+     "ffn": 11.381,
+     "head": 3.466,
+     "norm+glue": 0.066,
+     "TOTAL": 17.932
+    },
+    {
+     "qkv_proj": 1.224,
+     "attention": 1.069,
+     "o_proj": 0.713,
+     "ffn": 11.448,
+     "head": 3.468,
+     "norm+glue": 0.066,
+     "TOTAL": 17.997
+    }
+   ]
+  },
+  "fuse lut g32|default": {
+   "tok_s": [
+    58.03,
+    55.59,
+    54.87,
+    58.18,
+    57.06,
+    54.63
+   ],
+   "median_tok_s": 56.325,
+   "within_round_ratio": [
+    1.0386611777340256,
+    1.0088929219600726,
+    1.0114285714285713,
+    1.0659582264565775,
+    1.046396479002384,
+    1.0728593872741556
+   ],
+   "median_ratio": 1.0425288283682048,
+   "organs_ms": [
+    {
+     "qkv_proj": 0.819,
+     "attention": 1.061,
+     "o_proj": 0.733,
+     "ffn": 11.151,
+     "head": 3.411,
+     "norm+glue": 0.066,
+     "TOTAL": 17.25
+    },
+    {
+     "qkv_proj": 0.823,
+     "attention": 1.06,
+     "o_proj": 0.742,
+     "ffn": 11.006,
+     "head": 4.31,
+     "norm+glue": 0.066,
+     "TOTAL": 18.017
+    },
+    {
+     "qkv_proj": 0.822,
+     "attention": 1.056,
+     "o_proj": 0.73,
+     "ffn": 11.244,
+     "head": 4.317,
+     "norm+glue": 0.066,
+     "TOTAL": 18.244
+    },
+    {
+     "qkv_proj": 0.809,
+     "attention": 1.065,
+     "o_proj": 0.727,
+     "ffn": 10.98,
+     "head": 3.554,
+     "norm+glue": 0.066,
+     "TOTAL": 17.211
+    },
+    {
+     "qkv_proj": 0.819,
+     "attention": 1.068,
+     "o_proj": 0.737,
+     "ffn": 10.823,
+     "head": 4.018,
+     "norm+glue": 0.066,
+     "TOTAL": 17.54
+    },
+    {
+     "qkv_proj": 0.817,
+     "attention": 1.075,
+     "o_proj": 0.732,
+     "ffn": 11.387,
+     "head": 4.24,
+     "norm+glue": 0.065,
+     "TOTAL": 18.326
+    }
+   ]
+  },
+  "packed|active": {
+   "tok_s": [
+    54.89,
+    55.24,
+    54.9,
+    54.99,
+    54.48,
+    55.22
+   ],
+   "median_tok_s": 54.945,
+   "within_round_ratio": [
+    0.9824592804725255,
+    1.002540834845735,
+    1.0119815668202765,
+    1.0075119091242215,
+    0.9990830735375023,
+    1.084446190102121
+   ],
+   "median_ratio": 1.0050263719849784,
+   "organs_ms": [
+    {
+     "qkv_proj": 0.901,
+     "attention": 1.07,
+     "o_proj": 0.644,
+     "ffn": 11.792,
+     "head": 3.748,
+     "norm+glue": 0.069,
+     "TOTAL": 18.239
+    },
+    {
+     "qkv_proj": 0.911,
+     "attention": 1.042,
+     "o_proj": 0.625,
+     "ffn": 11.732,
+     "head": 3.73,
+     "norm+glue": 0.069,
+     "TOTAL": 18.126
+    },
+    {
+     "qkv_proj": 0.905,
+     "attention": 1.08,
+     "o_proj": 0.636,
+     "ffn": 11.782,
+     "head": 3.747,
+     "norm+glue": 0.069,
+     "TOTAL": 18.235
+    },
+    {
+     "qkv_proj": 0.907,
+     "attention": 1.073,
+     "o_proj": 0.635,
+     "ffn": 11.753,
+     "head": 3.749,
+     "norm+glue": 0.069,
+     "TOTAL": 18.202
+    },
+    {
+     "qkv_proj": 0.926,
+     "attention": 1.079,
+     "o_proj": 0.638,
+     "ffn": 11.874,
+     "head": 3.776,
+     "norm+glue": 0.069,
+     "TOTAL": 18.379
+    },
+    {
+     "qkv_proj": 0.903,
+     "attention": 1.056,
+     "o_proj": 0.632,
+     "ffn": 11.712,
+     "head": 3.751,
+     "norm+glue": 0.068,
+     "TOTAL": 18.139
+    }
+   ]
+  },
+  "fuse|active": {
+   "tok_s": [
+    55.69,
+    54.75,
+    55.47,
+    55.63,
+    54.21,
+    55.06
+   ],
+   "median_tok_s": 55.265,
+   "within_round_ratio": [
+    0.9967782351888312,
+    0.9936479128856625,
+    1.0224884792626727,
+    1.0192378160498352,
+    0.9941316706400146,
+    1.0813040062843677
+   ],
+   "median_ratio": 1.0080080256193331,
+   "organs_ms": [
+    {
+     "qkv_proj": 0.796,
+     "attention": 1.056,
+     "o_proj": 0.627,
+     "ffn": 11.678,
+     "head": 3.734,
+     "norm+glue": 0.068,
+     "TOTAL": 17.975
+    },
+    {
+     "qkv_proj": 0.813,
+     "attention": 1.085,
+     "o_proj": 0.659,
+     "ffn": 11.882,
+     "head": 3.763,
+     "norm+glue": 0.069,
+     "TOTAL": 18.287
+    },
+    {
+     "qkv_proj": 0.791,
+     "attention": 1.072,
+     "o_proj": 0.635,
+     "ffn": 11.7,
+     "head": 3.763,
+     "norm+glue": 0.069,
+     "TOTAL": 18.044
+    },
+    {
+     "qkv_proj": 0.793,
+     "attention": 1.068,
+     "o_proj": 0.643,
+     "ffn": 11.671,
+     "head": 3.735,
+     "norm+glue": 0.069,
+     "TOTAL": 17.995
+    },
+    {
+     "qkv_proj": 0.837,
+     "attention": 1.092,
+     "o_proj": 0.649,
+     "ffn": 12.019,
+     "head": 3.799,
+     "norm+glue": 0.07,
+     "TOTAL": 18.481
+    },
+    {
+     "qkv_proj": 0.801,
+     "attention": 1.084,
+     "o_proj": 0.649,
+     "ffn": 11.811,
+     "head": 3.756,
+     "norm+glue": 0.07,
+     "TOTAL": 18.186
+    }
+   ]
+  },
+  "lut g32|active": {
+   "tok_s": [
+    56.36,
+    55.65,
+    55.9,
+    56.31,
+    55.63,
+    56.04
+   ],
+   "median_tok_s": 55.97,
+   "within_round_ratio": [
+    1.0087703597637372,
+    1.0099818511796732,
+    1.0304147465437787,
+    1.0316965921583,
+    1.0201723821749495,
+    1.1005498821681068
+   ],
+   "median_ratio": 1.0252935643593641,
+   "organs_ms": [
+    {
+     "qkv_proj": 1.216,
+     "attention": 1.064,
+     "o_proj": 0.684,
+     "ffn": 11.345,
+     "head": 3.375,
+     "norm+glue": 0.066,
+     "TOTAL": 17.759
+    },
+    {
+     "qkv_proj": 1.211,
+     "attention": 1.074,
+     "o_proj": 0.71,
+     "ffn": 11.468,
+     "head": 3.449,
+     "norm+glue": 0.067,
+     "TOTAL": 17.989
+    },
+    {
+     "qkv_proj": 1.226,
+     "attention": 1.075,
+     "o_proj": 0.7,
+     "ffn": 11.42,
+     "head": 3.405,
+     "norm+glue": 0.066,
+     "TOTAL": 17.902
+    },
+    {
+     "qkv_proj": 1.206,
+     "attention": 1.059,
+     "o_proj": 0.691,
+     "ffn": 11.33,
+     "head": 3.421,
+     "norm+glue": 0.066,
+     "TOTAL": 17.784
+    },
+    {
+     "qkv_proj": 1.228,
+     "attention": 1.072,
+     "o_proj": 0.704,
+     "ffn": 11.43,
+     "head": 3.485,
+     "norm+glue": 0.066,
+     "TOTAL": 17.995
+    },
+    {
+     "qkv_proj": 1.219,
+     "attention": 1.084,
+     "o_proj": 0.695,
+     "ffn": 11.429,
+     "head": 3.357,
+     "norm+glue": 0.065,
+     "TOTAL": 17.858
+    }
+   ]
+  },
+  "fuse lut g32|active": {
+   "tok_s": [
+    57.66,
+    57.6,
+    57.37,
+    55.8,
+    58.18,
+    59.3
+   ],
+   "median_tok_s": 57.629999999999995,
+   "within_round_ratio": [
+    1.032038661177734,
+    1.0453720508166968,
+    1.0575115207373271,
+    1.0223525100769513,
+    1.0669356317623326,
+    1.164571877454831
+   ],
+   "median_ratio": 1.051441785777012,
+   "organs_ms": [
+    {
+     "qkv_proj": 0.819,
+     "attention": 1.059,
+     "o_proj": 0.727,
+     "ffn": 10.982,
+     "head": 3.704,
+     "norm+glue": 0.066,
+     "TOTAL": 17.365
+    },
+    {
+     "qkv_proj": 0.82,
+     "attention": 1.074,
+     "o_proj": 0.73,
+     "ffn": 11.14,
+     "head": 3.543,
+     "norm+glue": 0.066,
+     "TOTAL": 17.382
+    },
+    {
+     "qkv_proj": 0.817,
+     "attention": 1.058,
+     "o_proj": 0.735,
+     "ffn": 11.007,
+     "head": 3.761,
+     "norm+glue": 0.067,
+     "TOTAL": 17.455
+    },
+    {
+     "qkv_proj": 0.816,
+     "attention": 1.063,
+     "o_proj": 0.739,
+     "ffn": 10.943,
+     "head": 4.299,
+     "norm+glue": 0.066,
+     "TOTAL": 17.936
+    },
+    {
+     "qkv_proj": 0.809,
+     "attention": 1.07,
+     "o_proj": 0.737,
+     "ffn": 11.03,
+     "head": 3.486,
+     "norm+glue": 0.066,
+     "TOTAL": 17.209
+    },
+    {
+     "qkv_proj": 0.821,
+     "attention": 1.073,
+     "o_proj": 0.738,
+     "ffn": 10.941,
+     "head": 3.232,
+     "norm+glue": 0.066,
+     "TOTAL": 16.881
+    }
+   ]
+  }
+ },
+ "seconds": 278.33884501457214
+}

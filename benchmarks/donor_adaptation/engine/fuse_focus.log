@@ -1,0 +1,18 @@
+round 0  packed 55.80 fuse 56.45
+round 1  packed 55.96 fuse 56.74
+round 2  packed 55.83 fuse 56.48
+round 3  packed 56.04 fuse 54.56
+round 4  packed 55.55 fuse 56.24
+round 5  packed 55.28 fuse 56.00
+
+packed   tok/s median 55.81  min 55.28  max 56.04  spread 1.4%
+fuse     tok/s median 56.34  min 54.56  max 56.74  spread 3.9%
+
+within-round fuse/packed tok/s ratio: 1.0116 1.0139 1.0116 0.9736 1.0124 1.0130   median 1.0120
+
+config    qkv_proj      rope attention    o_proj       ffn      head norm+glue     TOTAL
+packed       0.889     0.016     1.095     0.607    11.573     3.704     0.069    17.938
+fuse         0.770     0.015     1.097     0.606    11.496     3.703     0.069    17.766
+delta       -0.120    -0.001    +0.002    -0.001    -0.078    -0.001    +0.000    -0.172
+
+qkv calls/token 72 -> 24 (48 removed); saving 0.120 ms = 2.5 us per call removed

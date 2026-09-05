@@ -1,0 +1,41 @@
+bench_matrix: 8 cells x 6 rounds x 300 tokens, rotated order, --profile
+  paired within round against ('packed', 'default')
+
+round 0  (   46s)  packed/d 55.87  fuse/d 56.14  lut g32/d 51.03  fuse lut g32/d 58.03  packed/a 54.89  fuse/a 55.69  lut g32/a 56.36  fuse lut g32/a 57.66
+round 1  (   93s)  fuse/d 55.75  lut g32/d 56.69  fuse lut g32/d 55.59  packed/a 55.24  fuse/a 54.75  lut g32/a 55.65  fuse lut g32/a 57.60  packed/d 55.10
+round 2  (  139s)  lut g32/d 56.20  fuse lut g32/d 54.87  packed/a 54.90  fuse/a 55.47  lut g32/a 55.90  fuse lut g32/a 57.37  packed/d 54.25  fuse/d 55.32
+round 3  (  185s)  fuse lut g32/d 58.18  packed/a 54.99  fuse/a 55.63  lut g32/a 56.31  fuse lut g32/a 55.80  packed/d 54.58  fuse/d 55.49  lut g32/d 56.18
+round 4  (  232s)  packed/a 54.48  fuse/a 54.21  lut g32/a 55.63  fuse lut g32/a 58.18  packed/d 54.53  fuse/d 55.33  lut g32/d 55.84  fuse lut g32/d 57.06
+round 5  (  278s)  fuse/a 55.06  lut g32/a 56.04  fuse lut g32/a 59.30  packed/d 50.92  fuse/d 55.31  lut g32/d 55.62  fuse lut g32/d 54.63  packed/a 55.22
+
+== idleness witness: the baseline's own round-to-round spread ==
+  packed/default tok/s: 50.92  54.25  54.53  54.58  55.10  55.87
+  median 54.55   min 50.92   max 55.87   spread 9.1% of median
+  reference must be at the SAME --bench length: attention is O(position), so a
+  longer bench has a genuinely lower tok/s. At 300 tokens, idle, post-rope-hoist:
+  56.41 / 55.75 / 56.14  (spread 1.2%).  Pre-hoist at 300: 50.91 / 50.54 / 50.86.
+  -> CONTENDED -- spread swamps the 1-5% effects this matrix exists to resolve
+
+== tok/s, and the within-round ratio to that round's baseline ==
+config           policy     median      min      max   ratio med ratio min ratio max
+packed           default     54.55    50.92    55.87       1.000     1.000     1.000
+fuse             default     55.41    55.31    56.14       1.016     1.005     1.086
+lut g32          default     56.01    51.03    56.69       1.029     0.913     1.092
+fuse lut g32     default     56.33    54.63    58.18       1.043     1.009     1.073
+packed           active      54.95    54.48    55.24       1.005     0.982     1.084
+fuse             active      55.27    54.21    55.69       1.008     0.994     1.081
+lut g32          active      55.97    55.63    56.36       1.025     1.009     1.101
+fuse lut g32     active      57.63    55.80    59.30       1.051     1.022     1.165
+
+== per-organ ms/token (median over rounds) -- what H1 actually predicts ==
+config           policy    qkv_proj attention    o_proj       ffn      head norm+glue     TOTAL
+packed           default      0.925     1.094     0.642    11.831     3.771     0.069    18.354
+fuse             default      0.792     1.079     0.635    11.721     3.750     0.069    18.066
+lut g32          default      1.223     1.068     0.704    11.370     3.452     0.066    17.881
+fuse lut g32     default      0.819     1.063     0.732    11.079     4.129     0.066    17.779
+packed           active       0.906     1.071     0.635    11.768     3.748     0.069    18.218
+fuse             active       0.798     1.078     0.646    11.755     3.760     0.069    18.115
+lut g32          active       1.218     1.073     0.698    11.425     3.413     0.066    17.880
+fuse lut g32     active       0.818     1.067     0.736    10.994     3.623     0.066    17.373
+
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\bench_matrix.json  (278 s)

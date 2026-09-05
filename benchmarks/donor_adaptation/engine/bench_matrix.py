@@ -115,7 +115,9 @@ def main():
     print("  packed/default tok/s: %s" % "  ".join("%.2f" % x for x in bt))
     spread = (max(bt) - min(bt)) / med(bt) * 100.0
     print("  median %.2f   min %.2f   max %.2f   spread %.1f%% of median" % (med(bt), bt[0], bt[-1], spread))
-    print("  reference, idle, SPEED_LEDGER s11: 48.24 / 48.28 / 48.33  (spread 0.2%)")
+    print("  reference must be at the SAME --bench length: attention is O(position), so a")
+    print("  longer bench has a genuinely lower tok/s. At 300 tokens, idle, post-rope-hoist:")
+    print("  56.41 / 55.75 / 56.14  (spread 1.2%).  Pre-hoist at 300: 50.91 / 50.54 / 50.86.")
     verdict = ("USABLE for effects larger than the spread"
                if spread < 2.0 else
                "CONTENDED -- spread swamps the 1-5% effects this matrix exists to resolve")
@@ -148,9 +150,13 @@ def main():
 
     out = {"weights": a.weights, "tokens": a.tokens, "rounds": a.rounds,
            "baseline_cell": "packed|default",
-           "idleness": {"baseline_tok_s": bt, "spread_pct_of_median": spread,
+           "idleness": {"baseline_tok_s": bt, "iqr_pct_of_median": spread,
                         "verdict": verdict,
-                        "idle_reference": [48.24, 48.28, 48.33]},
+                        "idle_reference_at_300_tokens": [56.41, 55.75, 56.14],
+                        "note": ("a tok/s number is only comparable to one taken at the same "
+                                 "--bench length: attention grows with position, so the bench "
+                                 "average does too. 800 tokens costs ~1.7 ms/token more than "
+                                 "300 on this donor, entirely in the attention bucket.")},
            "cells": table, "seconds": time.time() - t0}
     json.dump(out, open(a.out, "w", encoding="utf-8"), indent=1)
     print("\nwrote %s  (%.0f s)" % (a.out, time.time() - t0))
