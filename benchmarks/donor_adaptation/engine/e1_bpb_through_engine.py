@@ -384,7 +384,11 @@ def main():
         if not (a.reuse and os.path.exists(wpath)):
             cmd = [sys.executable, os.path.join(HERE, "qwen_export.py"),
                    "--model", a.model, "--quant", quant, "--out", wpath,
-                   "--calib-seqs", str(a.calib_seqs), "--threads", str(THREADS)]
+                   "--calib-seqs", str(a.calib_seqs), "--threads", str(THREADS),
+                   # E2 made --fold=layers the exporter DEFAULT.  E1's published numbers
+                   # are unfolded, and build_reference() below still defaults fold="none",
+                   # so this must be pinned or every E1 arm silently changes model.
+                   "--fold", "none"]
             if a.revision:
                 cmd += ["--revision", a.revision]
             if quant != "fp32":

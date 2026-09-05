@@ -204,7 +204,7 @@ def main():
                          "fp32 because it is a row LOOKUP (3.5 KB/token) and costs nothing to "
                          "stream; the HEAD is a dense GEMV over the whole vocabulary and is 40.4%% "
                          "of per-token time when left fp32 (measured, donor_engine --profile).")
-    ap.add_argument("--fold", choices=("none", "layers", "all"), default="none",
+    ap.add_argument("--fold", choices=("none", "layers", "all"), default="layers",
                     help="fold RMSNorm gains into the linears that read them before quantizing. "
                          "'layers' folds the 2L per-layer gains (input_layernorm -> q/k/v, "
                          "post_attention_layernorm -> gate/up); 'all' additionally folds "
