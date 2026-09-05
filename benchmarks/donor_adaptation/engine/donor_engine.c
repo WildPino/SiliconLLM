@@ -361,11 +361,40 @@ static void read_mat(const char** p, mat_t* m, int out, int in, int quant){
            m->scale=(const float*)rd(p,(size_t)out*4); }
 }
 
+// 64-bit file offsets.  `long` is 32 bits on Windows even on x64, so plain fseek/ftell
+// cannot describe a file over 2 GB -- see the comment in load().
+#if defined(_WIN32)
+  #define XFSEEK _fseeki64
+  #define XFTELL _ftelli64
+  typedef long long xoff_t;
+#else
+  #define XFSEEK fseeko
+  #define XFTELL ftello
+  typedef off_t xoff_t;
+#endif
+
 static void load(model_t* M,const char* path){
     FILE* f=fopen(path,"rb"); if(!f) die("cannot open weights");
-    fseek(f,0,SEEK_END); long sz=ftell(f); fseek(f,0,SEEK_SET);
-    M->blob=xmalloc((size_t)sz); M->blob_bytes=(size_t)sz;
-    if(fread(M->blob,1,(size_t)sz,f)!=(size_t)sz) die("short read");
+    // This used to be `fseek(...,SEEK_END); long sz=ftell(f);`.  On Windows `long` is 32 bits
+    // even on x64, so for a file over 2 GB fseek(SEEK_END) FAILS (returns -1) and ftell then
+    // reports 0.  The old code allocated a zero-byte blob, read zero bytes -- which equals the
+    // zero it asked for, so the "short read" check passed -- and then announced
+    // "bad magic -- not a QWENDON1 file" about a file whose magic was perfectly intact.
+    // Measured on Qwen2.5-1.5B fp32 (6,174,857,268 bytes): fseek(END) = -1, ftell = 0.
+    // The largest artifact this engine had ever been given was 1.84 GB, just under the
+    // ceiling, so the ceiling had never been touched.  A 10B ternary packed model is ~5 GB.
+    if(XFSEEK(f,0,SEEK_END)!=0) die("cannot seek to end of weights file (over 2 GB without 64-bit offsets?)");
+    xoff_t szo=XFTELL(f);
+    if(szo<=0) die("cannot determine weights file size");
+    if(XFSEEK(f,0,SEEK_SET)!=0) die("cannot rewind weights file");
+    size_t sz=(size_t)szo;
+    M->blob=xmalloc(sz); M->blob_bytes=sz;
+    // Read in chunks: not every C runtime honours a single fread larger than 2 GB.
+    { char* dst=(char*)M->blob; size_t left=sz;
+      while(left){ size_t want=left>((size_t)1<<30)?((size_t)1<<30):left;
+                   size_t got=fread(dst,1,want,f);
+                   if(got!=want) die("short read");
+                   dst+=got; left-=got; } }
     fclose(f);
     const char* p=M->blob;
     if(memcmp(p,"QWENDON1",8)) die("bad magic -- not a QWENDON1 file");

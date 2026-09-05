@@ -1,0 +1,15 @@
+=== CONTROL: rebuilt engine on the 0.5B TQ artifact, expected NATS_TOTAL 162120.4241599279 ===
+NATS_TOTAL 162120.4241599279
+N_PREDICTED 12264
+=== now the 1.5B F32 subset arm ===
+E1  Qwen/Qwen2.5-1.5B  arms=F32  seqs=4/24  bytes=9203  slice a1a48dc9fc5a6dc1
+[F32] building the PyTorch reference by reading the weights back out of the exported file...
+[F32] GATE A (fp32 round-trip): 338 tensors, worst |diff| 0.000e+00 -> PASS
+[F32] PyTorch BPB 0.702308546
+[F32] engine  BPB 0.702318880   delta +0.000010335   per-seq max |delta| 1.34e-05   (400s)
+
+arm         BPB torch     BPB engine          delta     gate A
+F32       0.702308546    0.702318880   +0.000010335       PASS
+
+OUTCOME: INCOMPLETE (no ternary arm run)
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\e1_bpb_through_engine_qwen25-15b_f32_s4.json  (431 s)

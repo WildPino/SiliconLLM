@@ -1,0 +1,65 @@
+{
+ "brief": "docs/research/donor_adaptation/briefs/BRIEF_E1_BPB_THROUGH_ENGINE.md @ f92af8a",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "smoke": false,
+ "slice": {
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "n_seq": 4,
+  "seq_len": 512,
+  "bytes": 9203,
+  "subset_of_pinned_24": true
+ },
+ "calib_seqs": 32,
+ "threads": 6,
+ "thresholds_from_brief_s4": {
+  "GATE_B_TOL": 0.002,
+  "TERNARY_TOL": 0.01,
+  "ULP_TOL": 64,
+  "sigma_seed": 0.005,
+  "T2b_FA": 2.716656,
+  "T2b_FAH": 2.708111
+ },
+ "arms": {
+  "F32": {
+   "weights": "D:/_ktmp/e1\\qwen25-15b_f32.bin",
+   "quant": "fp32",
+   "head_ternary": false,
+   "sidecar_rule": "R0",
+   "sidecar_calib_seqs": null,
+   "sidecar_sha256": "2c640b4d488563f4036dd9b5db8bdc06f81ad6dcbff7b579a43c8aee42dc457a",
+   "mean_ternary_zero_fraction": null,
+   "gate_a": {
+    "n_codes": 0,
+    "codes_differing": 0,
+    "scales_differing": 0,
+    "worst_scale_ulp": 0.0,
+    "worst_product_absdiff": 0.0,
+    "tensors": 338,
+    "worst_tensor": null,
+    "passes_as_registered": true,
+    "passes": true
+   },
+   "export_seconds": 6.953672409057617,
+   "bpb_torch": 0.7023085459201466,
+   "bpb_engine": 0.7023188804881384,
+   "delta": 1.0334567991820975e-05,
+   "n_predicted": 2044,
+   "nats_total_engine": 4480.1156682078,
+   "per_seq_max_abs_delta": 1.3363797160104163e-05,
+   "engine_seconds": 400.4612092971802,
+   "per_seq_note": "recovered from the engine's cumulative running mean printed at 6 decimals; good to ~1e-5 BPB. Diagnostic, not a gate."
+  }
+ },
+ "replication_vs_t2b": {},
+ "decision": {
+  "rule": "brief section 4, thresholds fixed before the run",
+  "gate_A_all_pass": true,
+  "gate_B_delta_F32": 1.0334567991820975e-05,
+  "gate_B_ok": true,
+  "ternary_deltas": {},
+  "ternary_ok": false,
+  "OUTCOME_LABEL": "INCOMPLETE (no ternary arm run)"
+ },
+ "total_seconds": 430.7642889022827
+}
