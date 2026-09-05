@@ -137,6 +137,36 @@ Runs 1 and 3 will return `INCOMPLETE` mechanically, because neither holds `NL` a
 expected and pre-registered; **run 2 carries the label**, and Gate F is assembled from run 3 in
 the report, term by term, the way E1 §2.3 assembled its own.
 
+## 3.3 AMENDMENT, 2026-09-05, after run 1 and before run 2 — the mechanical label under a split
+
+§3.2 pre-registered the split but mispredicted what the runner would *print* under it, in two
+places. Both are corrected here, in writing, before run 2 is launched. **No threshold, no
+contrast, no arm and no decision changes** — only which sentence the runner is allowed to print
+when a term of the rule was never evaluated.
+
+**(a) Run 2 would have printed `VOID`, and the reason it gave would have been false.**
+Gate F is built only from arms `XF`/`XA` against `F32`. Run 2 carries none of them, so `gate_f`
+is empty, `gate_f_ok` is `False`, and the runner emits
+`VOID (Gate F failed: the fold is not exact where it must be)`. That string asserts a physical
+claim — the fold is inexact — from the fact that nobody looked. It is E1 §6's law turned on this
+programme's own code: *an error message is a hypothesis, not a diagnosis; a guard that cannot
+distinguish "measured and failed" from "not measured" checks nothing.* The runner now separates
+`gate_F_measured` from `gate_F_ok` and, when the gate was not measured in that invocation, prints
+the fold label followed by `GATE-F-NOT-MEASURED-HERE` naming run 3 as its owner. `VOID` is still
+printed, and only printed, when Gate F was measured and failed.
+
+**(b) Run 1 will *not* return `INCOMPLETE`.** §3.2 says runs 1 and 3 both will, "because neither
+holds `NL` and `TQ`". True of run 3; false of run 1, which holds all eight arms. Run 1 therefore
+produces a full, real, mechanical `FOLD-*` label on the 0.5B. That label is **not suppressed and
+not rewritten** — it is reported verbatim in §7 and marked apparatus-only, because §3.2 already
+denied this donor decision authority and that denial was fixed before any number existed. A
+0.5B label that agrees with run 2 is not evidence for run 2, and one that disagrees does not
+overturn it.
+
+Run 1's result JSON was written by the runner as it stood before this amendment. The change
+touches only the label string in the branch where `gate_f` is empty, which is not run 1's case,
+so run 1's output is bit-identical to what the corrected runner would have produced.
+
 ## 4. Fixed before the run
 
 - **Slice:** the shared `heldout` slice, 24×512, seed 1234,

@@ -272,7 +272,8 @@ def main():
             if v is not None and ref is not None:
                 gate_f["%s_vs_F32_%s" % (k, side.split("_")[1])] = {
                     "diff": v - ref, "tol": GATE_F_FP32_TOL, "ok": abs(v - ref) <= GATE_F_FP32_TOL}
-    gate_f_ok = bool(gate_f) and all(v["ok"] for v in gate_f.values())
+    gate_f_measured = bool(gate_f)
+    gate_f_ok = gate_f_measured and all(v["ok"] for v in gate_f.values())
 
     # the paired contrasts, on the exact PyTorch per-sequence nats
     contrasts = {}
@@ -286,21 +287,32 @@ def main():
                                "sigma_seed": abs(p) / SIGMA_SEED,
                                "excludes_zero": bool(lo > 0 or hi < 0)}
 
+    # the fold term of the rule, on its own
     fold_c = contrasts.get("NL_minus_TQ")
-    if not gate_f_ok:
-        label = "VOID (Gate F failed: the fold is not exact where it must be)"
-    elif fold_c is None:
-        label = "INCOMPLETE (arms NL and TQ are both required for the decision)"
+    if fold_c is None:
+        fold_label = "INCOMPLETE (arms NL and TQ are both required for the decision)"
     elif not fold_c["excludes_zero"]:
-        label = "FOLD-NULL"
+        fold_label = "FOLD-NULL"
     elif fold_c["ci95"][0] > 0:
-        label = "FOLD-HURTS"
+        fold_label = "FOLD-HURTS"
     elif fold_c["delta"] <= FOLD_CONFIRMED:
-        label = "FOLD-CONFIRMED"
+        fold_label = "FOLD-CONFIRMED"
     elif fold_c["delta"] <= FOLD_SHRINKS:
-        label = "FOLD-SHRINKS"
+        fold_label = "FOLD-SHRINKS"
     else:
-        label = "FOLD-NULL"
+        fold_label = "FOLD-NULL"
+
+    # brief s3.3(a): a gate nobody evaluated has not failed.  VOID is reserved for a Gate F
+    # that was measured and came back bad; an invocation carrying no fp32 arm says so instead
+    # and names the run that owes the gate, rather than asserting the fold is inexact.
+    if gate_f_measured and not gate_f_ok:
+        label = "VOID (Gate F failed: the fold is not exact where it must be)"
+    elif not gate_f_measured:
+        label = ("%s / GATE-F-NOT-MEASURED-HERE (no F32/XF/XA arm in this invocation; "
+                 "brief s3.2 gives Gate F on this donor to run 3 -- not final until it passes)"
+                 % fold_label)
+    else:
+        label = fold_label
 
     print("\n%-5s %-7s %14s %14s %14s %8s" % ("arm", "fold", "BPB torch", "BPB engine",
                                               "delta", "gate A"))
@@ -340,7 +352,9 @@ def main():
     out["gate_F"] = gate_f
     out["contrasts"] = contrasts
     out["decision"] = {"rule": "brief section 5 as amended in s3.1, fixed before the run",
-                       "gate_F_ok": gate_f_ok, "OUTCOME_LABEL": label}
+                       "gate_F_measured": gate_f_measured,
+                       "gate_F_ok": gate_f_ok, "fold_term_label": fold_label,
+                       "OUTCOME_LABEL": label}
     print("\nOUTCOME: %s" % label)
 
     out["total_seconds"] = time.time() - t_all
