@@ -116,6 +116,27 @@ no decision): `--fold layers` folds **48 = 2L** gains, leaves the final gain and
 
 The arms that carry the decision — `TQ`, `NL`, `TQH`, `NLH`, `NAH` — are **unchanged**.
 
+## 3.2 RUN PLAN, fixed before the run — which run owns the label
+
+E1 §6.2 cost this programme a law: *a pre-registration that splits a decision across runs must
+say which run owns the label.* E2 splits, so it says so here.
+
+| # | donor | arms | seqs | owns |
+|---|---|---|---|---|
+| 1 | 0.5B | all eight | 24 | the apparatus. Gate F on this donor; **no decision** |
+| 2 | 1.5B | `TQ, NL, TQH, NLH, NAH` | 24 | **THE LABEL.** Gate F's fp32 terms come from run 3 |
+| 3 | 1.5B | `F32, XF, XA` | 4 | Gate F on the deciding donor, as a pre-registered subset |
+
+Run 3 is a 4-sequence subset for the same reason E1 §3 made the 1.5B fp32 arm one: at 6.2 GB of
+weight traffic per token the full slice is ~40 minutes *per arm*, and these arms are an
+**exactness** test, not a number this programme will quote. Gate F must be evaluated on the
+deciding donor and not inherited from the 0.5B — "it is model-independent algebra" is exactly
+the kind of reasoning that has been wrong here before.
+
+Runs 1 and 3 will return `INCOMPLETE` mechanically, because neither holds `NL` and `TQ`. That is
+expected and pre-registered; **run 2 carries the label**, and Gate F is assembled from run 3 in
+the report, term by term, the way E1 §2.3 assembled its own.
+
 ## 4. Fixed before the run
 
 - **Slice:** the shared `heldout` slice, 24×512, seed 1234,

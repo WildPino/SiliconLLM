@@ -178,18 +178,29 @@ def hf_module(m, name):
     return getattr(lay.self_attn, nm) if nm in ATTN else getattr(lay.mlp, nm)
 
 
-def build_reference(model_id, revision, arm, calib_seqs, wpath, hdr):
+def build_reference(model_id, revision, arm, calib_seqs, wpath, hdr,
+                    spec=None, fold="none"):
     """The PyTorch model that IS the exported file, plus the gate evidence.
 
     The weights are READ BACK OUT OF THE FILE, so the engine and the reference hold the same
     numbers by construction and a BPB difference can only be the runtime.  What the in-process
     rule is used for is Gate A: did the exporter write the rule's output?
+
+    `spec` overrides ARM_SPEC[arm] with an explicit (quant, head_ternary) pair, and `fold` is
+    passed through to the same fold_norms the exporter calls.  Both default to E1's behaviour,
+    so E1 reproduces bit-identically; they exist so E2 can reuse this function instead of
+    growing a second copy of it.
     """
     from transformers import AutoModelForCausalLM, AutoTokenizer
     m = AutoModelForCausalLM.from_pretrained(model_id, revision=revision,
                                              dtype=torch.float32,
                                              attn_implementation="eager").eval()
-    quant, head_tern = ARM_SPEC[arm]
+    if fold != "none":
+        # Exactly what qwen_export.py does, in the same order: fold BEFORE the calibration
+        # capture, because the fold changes what q/k/v/gate/up see.
+        from t3_rotation import fold_norms
+        fold_norms(m, fold_final=(fold == "all"))
+    quant, head_tern = spec if spec is not None else ARM_SPEC[arm]
     tl = layout(hdr["D"], hdr["F"], hdr["L"], hdr["NH"], hdr["NKV"], hdr["HD"],
                 hdr["V"], hdr["tied"], hdr["quant"])
     offs, off = {}, hdr["off0"]

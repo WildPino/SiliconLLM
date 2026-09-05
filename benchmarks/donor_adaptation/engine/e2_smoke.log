@@ -1,0 +1,49 @@
+E2  Qwen/Qwen2.5-0.5B  arms=F32,XF,TQ,NL  seqs=2/24  bytes=4396  slice a1a48dc9fc5a6dc1
+
+[F32] exporting: --model Qwen/Qwen2.5-0.5B --quant fp32 --out D:/_ktmp/e2\qwen25-05b_f32.bin --calib-seqs 4 --threads 6 --fold none
+   wrote D:/_ktmp/e2\qwen25-05b_f32.bin  (1.84 GB)  sha256 ebed02f7ec8917d8
+[F32] building the PyTorch reference by reading the weights back out of the exported file...
+[F32] GATE A (fp32 round-trip): 290 tensors, worst |diff| 0.000e+00 -> PASS
+[F32] PyTorch BPB 1.083021936
+[F32] engine  BPB 1.083039399   delta +0.000017463   per-seq max |delta| 1.79e-05   (59s)
+
+[XF] exporting: --model Qwen/Qwen2.5-0.5B --quant fp32 --out D:/_ktmp/e2\qwen25-05b_xf.bin --calib-seqs 4 --threads 6 --fold layers
+   wrote D:/_ktmp/e2\qwen25-05b_xf.bin  (1.84 GB)  sha256 28e695d84eb44ed1
+[XF] building the PyTorch reference by reading the weights back out of the exported file...
+[XF] GATE A (fp32 round-trip): 290 tensors, worst |diff| 0.000e+00 -> PASS
+[XF] PyTorch BPB 1.083021816
+[XF] engine  BPB 1.083039386   delta +0.000017570   per-seq max |delta| 1.79e-05   (60s)
+
+[TQ] exporting: --model Qwen/Qwen2.5-0.5B --quant packed --out D:/_ktmp/e2\qwen25-05b_tq.bin --calib-seqs 4 --threads 6 --fold none --rule R3
+     mean ternary zero-fraction across 168 matrices: 0.4922
+[TQ] building the PyTorch reference by reading the weights back out of the exported file...
+  WARNING: --calib-seqs 4 != 32. T2's numbers were measured at 32; this export is a DIFFERENT quantization and its BPB is unmeasured.
+  R3: capturing activations over 4 calib sequences...
+  R3: captured 169 activation vectors
+[TQ] GATE A1 codes: 0 differing of 357826560 -> PASS
+[TQ] GATE A2 scales: 0 differing, worst 0.00 ulp -> PASS
+[TQ] PyTorch BPB 4.026070012
+[TQ] engine  BPB 4.026084748   delta +0.000014736   per-seq max |delta| 1.61e-05   (32s)
+
+[NL] exporting: --model Qwen/Qwen2.5-0.5B --quant packed --out D:/_ktmp/e2\qwen25-05b_nl.bin --calib-seqs 4 --threads 6 --fold layers --rule R3
+     mean ternary zero-fraction across 168 matrices: 0.5447
+[NL] building the PyTorch reference by reading the weights back out of the exported file...
+  WARNING: --calib-seqs 4 != 32. T2's numbers were measured at 32; this export is a DIFFERENT quantization and its BPB is unmeasured.
+  R3: capturing activations over 4 calib sequences...
+  R3: captured 169 activation vectors
+[NL] GATE A1 codes: 0 differing of 357826560 -> PASS
+[NL] GATE A2 scales: 0 differing, worst 0.00 ulp -> PASS
+[NL] PyTorch BPB 3.760061672
+[NL] engine  BPB 3.760088066   delta +0.000026394   per-seq max |delta| 3.26e-05   (32s)
+
+arm   fold         BPB torch     BPB engine          delta   gate A
+F32   none       1.083021936    1.083039399   +0.000017463     PASS
+XF    layers     1.083021816    1.083039386   +0.000017570     PASS
+TQ    none       4.026070012    4.026084748   +0.000014736     PASS
+NL    layers     3.760061672    3.760088066   +0.000026394     PASS
+
+paired between-arm contrasts (PyTorch side, exact per-sequence nats, 2000 resamples seed 7)
+  NL_minus_TQ    -0.266008  SE 0.093130  ci95 [-0.404793, -0.135672]     53 sigma_seed  excludes 0
+
+OUTCOME: FOLD-CONFIRMED
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\e2_rmsnorm_fold_smoke_qwen25-05b_f32xftqnl_s2.json  (437 s)
