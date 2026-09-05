@@ -1,0 +1,116 @@
+{
+ "brief": "docs/research/donor_adaptation/briefs/BRIEF_E1_BPB_THROUGH_ENGINE.md @ f92af8a",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "smoke": false,
+ "slice": {
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "n_seq": 24,
+  "seq_len": 512,
+  "bytes": 51870,
+  "subset_of_pinned_24": false
+ },
+ "calib_seqs": 32,
+ "threads": 6,
+ "thresholds_from_brief_s4": {
+  "GATE_B_TOL": 0.002,
+  "TERNARY_TOL": 0.01,
+  "ULP_TOL": 64,
+  "sigma_seed": 0.005,
+  "T2b_FA": 2.716656,
+  "T2b_FAH": 2.708111
+ },
+ "arms": {
+  "TQ": {
+   "weights": "D:/_ktmp/e1\\qwen25-15b_tq.bin",
+   "quant": "packed",
+   "head_ternary": false,
+   "sidecar_rule": "R3",
+   "sidecar_calib_seqs": 32,
+   "sidecar_sha256": "ddfc676835be876de8b613b497947d88786e9acb9eafaee26082aa45e7f49fd0",
+   "mean_ternary_zero_fraction": 0.4714445757622622,
+   "gate_a": {
+    "n_codes": 1310195712,
+    "codes_differing": 0,
+    "scales_differing": 0,
+    "worst_scale_ulp": 0.0,
+    "worst_product_absdiff": 0.0,
+    "tensors": 196,
+    "worst_tensor": null,
+    "passes_A1_codes": true,
+    "passes_A2_scales": true,
+    "passes_as_registered": true,
+    "passes": true
+   },
+   "export_seconds": 640.0027968883514,
+   "bpb_torch": 3.4842512806653585,
+   "bpb_engine": 3.484253077409102,
+   "delta": 1.796743743565088e-06,
+   "n_predicted": 12264,
+   "nats_total_engine": 125271.2472164932,
+   "per_seq_max_abs_delta": 1.3890160130092255e-05,
+   "engine_seconds": 950.8554737567902,
+   "per_seq_note": "recovered from the engine's cumulative running mean printed at 6 decimals; good to ~1e-5 BPB. Diagnostic, not a gate."
+  },
+  "TQH": {
+   "weights": "D:/_ktmp/e1\\qwen25-15b_tqh.bin",
+   "quant": "packed",
+   "head_ternary": true,
+   "sidecar_rule": "R3",
+   "sidecar_calib_seqs": 32,
+   "sidecar_sha256": "5d50e3778917a46f329c89334274be47941897f05b969b92bb4409fa3b0337eb",
+   "mean_ternary_zero_fraction": 0.47132473926858853,
+   "gate_a": {
+    "n_codes": 1543569408,
+    "codes_differing": 0,
+    "scales_differing": 0,
+    "worst_scale_ulp": 0.0,
+    "worst_product_absdiff": 0.0,
+    "tensors": 197,
+    "worst_tensor": null,
+    "passes_A1_codes": true,
+    "passes_A2_scales": true,
+    "passes_as_registered": true,
+    "passes": true
+   },
+   "export_seconds": 698.1817512512207,
+   "bpb_torch": 3.4757059788577203,
+   "bpb_engine": 3.47570669163278,
+   "delta": 7.127750598634464e-07,
+   "n_predicted": 12264,
+   "nats_total_engine": 124963.9743572584,
+   "per_seq_max_abs_delta": 1.4864656376900598e-05,
+   "engine_seconds": 706.0874376296997,
+   "per_seq_note": "recovered from the engine's cumulative running mean printed at 6 decimals; good to ~1e-5 BPB. Diagnostic, not a gate."
+  }
+ },
+ "replication_vs_t2b": {
+  "TQ": {
+   "delta_vs_base": 2.7166563222481854,
+   "t2b_standing": 2.716656,
+   "which": "T2b arm FA (196 tensors)",
+   "residue": 3.222481854692205e-07,
+   "ok": true
+  },
+  "TQH": {
+   "delta_vs_base": 2.708111020440547,
+   "t2b_standing": 2.708111,
+   "which": "T2b arm FAH (197 tensors)",
+   "residue": 2.044054703276288e-08,
+   "ok": true
+  }
+ },
+ "decision": {
+  "rule": "brief section 4, thresholds fixed before the run",
+  "gate_A_all_pass": true,
+  "gate_B_delta_F32": null,
+  "gate_B_ok": false,
+  "ternary_deltas": {
+   "TQ": 1.796743743565088e-06,
+   "TQH": 7.127750598634464e-07
+  },
+  "ternary_ok": true,
+  "OUTCOME_LABEL": "INCOMPLETE (arm F32 not run; Gate B cannot be evaluated)"
+ },
+ "total_seconds": 3268.9497170448303
+}

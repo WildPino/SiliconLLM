@@ -499,7 +499,13 @@ def main():
     print("\nOUTCOME: %s" % label)
 
     out["total_seconds"] = time.time() - t_all
-    name = "e1_bpb_through_engine%s_%s.json" % ("_smoke" if a.smoke else "", tag)
+    # The filename used to depend on the model alone, so the pre-registered 1.5B F32 SUBSET
+    # (--arms F32 --seqs 4) would have silently overwritten the 55-minute TQ/TQH result that
+    # had just been written under the same name.  A subset run now says so in its filename;
+    # only the canonical run -- all three arms over the full pinned 24 -- keeps the bare name.
+    canonical = (arms == ["F32", "TQ", "TQH"] and a.seqs == 24)
+    sub = "" if canonical else "_%s_s%d" % ("".join(x.lower() for x in arms), a.seqs)
+    name = "e1_bpb_through_engine%s_%s%s.json" % ("_smoke" if a.smoke else "", tag, sub)
     p = os.path.join(os.path.abspath(os.path.join(HERE, "..", "density", "results")), name)
     json.dump(out, open(p, "w", encoding="utf-8"), indent=1)
     print("wrote %s  (%.0f s)" % (p, out["total_seconds"]))
