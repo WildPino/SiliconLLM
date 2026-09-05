@@ -39,8 +39,8 @@ static double now_s(void){ struct timespec ts; clock_gettime(CLOCK_MONOTONIC,&ts
 #include <immintrin.h>
 
 // per-organ wall-clock accounting: profile before optimising, always.
-enum { T_QKV=0, T_ATTN, T_O, T_FFN, T_HEAD, T_NORM, T_N };
-static double g_t[T_N]; static const char* g_tn[T_N]={"qkv_proj","attention","o_proj","ffn","head","norm+glue"};
+enum { T_QKV=0, T_ROPE, T_ATTN, T_O, T_FFN, T_HEAD, T_NORM, T_N };
+static double g_t[T_N]; static const char* g_tn[T_N]={"qkv_proj","rope","attention","o_proj","ffn","head","norm+glue"};
 static int g_prof=0;
 #define TIC double _t0=g_prof?now_s():0.0
 #define TOC(k) do{ if(g_prof) g_t[k]+=now_s()-_t0; }while(0)
@@ -323,13 +323,25 @@ static void rmsnorm(const float* x,const float* w,int n,float eps,float* y){
 static float silu(float x){ return x/(1.0f+expf(-x)); }
 
 // HF "rotate_half": q'[j] = q[j]cos - q[j+h]sin ; q'[j+h] = q[j+h]cos + q[j]sin,  h = HD/2
-static void rope(float* v,int n_heads,int HD,int pos,float theta){
+// rope used to compute pow()+cosf()+sinf() PER HEAD PER LAYER, i.e. NH+NKV heads x L layers x
+// HD/2 elements of transcendentals per token -- 12,288 double-precision pow() calls per token on
+// this donor, for 32 distinct values. The angle depends only on (pos, j): not on the head, not on
+// the layer. Hoisted to one table per token. Bit-identical by construction: the same expression,
+// the same order, the same float rounding -- verified against a 64-token logit dump.
+#define ROPE_MAX_HD 512
+static void rope_table(float* cs,int HD,int pos,float theta){
+    const int h=HD/2;
+    for(int j=0;j<h;j++){
+        float f=(float)(pos*pow((double)theta,-2.0*(double)j/(double)HD));
+        cs[j]=cosf(f); cs[h+j]=sinf(f);
+    }
+}
+static void rope(float* v,int n_heads,int HD,const float* cs){
     const int h=HD/2;
     for(int head=0;head<n_heads;head++){
         float* p=v+(size_t)head*HD;
         for(int j=0;j<h;j++){
-            float f=(float)(pos*pow((double)theta,-2.0*(double)j/(double)HD));
-            float c=cosf(f), s=sinf(f);
+            float c=cs[j], s=cs[h+j];
             float a=p[j], b=p[j+h];
             p[j]=a*c-b*s; p[j+h]=b*c+a*s;
         }
@@ -465,6 +477,12 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
     const int QO=NH*HD, KVO=NKV*HD, GQA=NH/NKV;
     memcpy(s->x,M->embed+(size_t)token*D,(size_t)D*4);
 
+    float ropecs[ROPE_MAX_HD];
+    { TIC;
+      if(HD>ROPE_MAX_HD) die("head_dim > ROPE_MAX_HD: raise the constant");
+      rope_table(ropecs,HD,pos,M->rope_theta);   // once per TOKEN, not per head per layer
+      TOC(T_ROPE); }
+
     for(int l=0;l<M->L;l++){
         const layer_t* L=&M->lay[l];
         { TIC; rmsnorm(s->x,L->in_norm,D,M->rms_eps,s->xb); TOC(T_NORM); }
@@ -478,9 +496,13 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
               matvec(&L->k,s->xb,L->kb,s->k);
               matvec(&L->v,s->xb,L->vb,s->v);
           }
-          rope(qp,NH,HD,pos,M->rope_theta);
-          rope(kp,NKV,HD,pos,M->rope_theta);
           TOC(T_QKV); }
+        { TIC;
+          // split out of T_QKV on purpose: rope was inside it, so the per-organ GB/s the
+          // ledger derived for qkv charged rope's transcendentals to the weights.
+          rope(qp,NH,HD,ropecs);
+          rope(kp,NKV,HD,ropecs);
+          TOC(T_ROPE); }
 
         float* kc=s->kcache+((size_t)l*s->maxseq+pos)*KVO;
         float* vc=s->vcache+((size_t)l*s->maxseq+pos)*KVO;
