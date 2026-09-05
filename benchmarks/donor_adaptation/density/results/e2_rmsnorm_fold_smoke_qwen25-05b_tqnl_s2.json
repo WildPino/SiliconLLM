@@ -1,0 +1,120 @@
+{
+ "brief": "docs/research/donor_adaptation/briefs/BRIEF_E2_RMSNORM_FOLD.md @ 338d187, amended s3.1 @ edbe956",
+ "model": "Qwen/Qwen2.5-0.5B",
+ "revision": null,
+ "smoke": true,
+ "slice": {
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "n_seq": 2,
+  "seq_len": 512,
+  "bytes": 4396,
+  "subset_of_pinned_24": true
+ },
+ "calib_seqs": 4,
+ "threads": 6,
+ "thresholds_from_brief_s5": {
+  "GATE_F_FP32_TOL": 0.002,
+  "FOLD_CONFIRMED": -0.1,
+  "FOLD_SHRINKS": -0.02,
+  "sigma_seed": 0.005,
+  "boot_n": 2000,
+  "boot_seed": 7
+ },
+ "replication_constants": {
+  "T3_arm_N_delta": 2.496655519614986,
+  "T3_arm_Q_delta": 2.716656308667292,
+  "T3_fold": -0.220001,
+  "file": "density/results/t3_rotation.json / t2b_organs.json",
+  "note": "arm N folded 2L+1 gains; this probe's NL folds 2L. Brief s2 argues the difference is neutral for an fp32 head; XA is the arm that tests that claim, exactly, at fp32."
+ },
+ "arms": {
+  "TQ": {
+   "weights": "D:/_ktmp/e2\\qwen25-05b_tq.bin",
+   "fold": "none",
+   "quant": "packed",
+   "head_ternary": false,
+   "n_gains_folded": 0,
+   "n_gains_expected": null,
+   "untied_by_fold": false,
+   "sidecar_rule": "R3",
+   "sidecar_sha256": "e6bdc1f7e1048b31b72fef2314c285978b43b106e1791f9dbd499391e94f37be",
+   "mean_ternary_zero_fraction": 0.4922040926203841,
+   "gate_a": {
+    "n_codes": 357826560,
+    "codes_differing": 0,
+    "scales_differing": 0,
+    "worst_scale_ulp": 0.0,
+    "worst_product_absdiff": 0.0,
+    "tensors": 168,
+    "worst_tensor": null,
+    "passes_A1_codes": true,
+    "passes_A2_scales": true,
+    "passes_as_registered": true,
+    "passes": true
+   },
+   "export_seconds": 86.0331540107727,
+   "bpb_torch": 4.026070011920199,
+   "bpb_engine": 4.026084747615716,
+   "delta": 1.473569551713183e-05,
+   "n_predicted": 1022,
+   "nats_total_engine": 12267.782205457,
+   "per_seq_max_abs_delta": 1.609407126590412e-05,
+   "engine_seconds": 31.94906997680664
+  },
+  "NL": {
+   "weights": "D:/_ktmp/e2\\qwen25-05b_nl.bin",
+   "fold": "layers",
+   "quant": "packed",
+   "head_ternary": false,
+   "n_gains_folded": 48,
+   "n_gains_expected": 48,
+   "untied_by_fold": false,
+   "sidecar_rule": "R3",
+   "sidecar_sha256": "41d540774b3b72dd739a14ce6cabc09a4ae2195f63ff3a3ad49d0de9b6879b2f",
+   "mean_ternary_zero_fraction": 0.5446724655727545,
+   "gate_a": {
+    "n_codes": 357826560,
+    "codes_differing": 0,
+    "scales_differing": 0,
+    "worst_scale_ulp": 0.0,
+    "worst_product_absdiff": 0.0,
+    "tensors": 168,
+    "worst_tensor": null,
+    "passes_A1_codes": true,
+    "passes_A2_scales": true,
+    "passes_as_registered": true,
+    "passes": true
+   },
+   "export_seconds": 84.84998631477356,
+   "bpb_torch": 3.760061672199661,
+   "bpb_engine": 3.7600880663195957,
+   "delta": 2.6394119934547433e-05,
+   "n_predicted": 1022,
+   "nats_total_engine": 11457.2703662694,
+   "per_seq_max_abs_delta": 3.262021309202723e-05,
+   "engine_seconds": 32.209444761276245
+  }
+ },
+ "replication": {},
+ "gate_F": {},
+ "contrasts": {
+  "NL_minus_TQ": {
+   "delta": -0.2660083397205385,
+   "paired_se": 0.09312956036797519,
+   "ci95": [
+    -0.40479346858535314,
+    -0.13567153365384602
+   ],
+   "sigma_seed": 53.2016679441077,
+   "excludes_zero": true
+  }
+ },
+ "decision": {
+  "rule": "brief section 5 as amended in s3.1, fixed before the run",
+  "gate_F_measured": false,
+  "gate_F_ok": false,
+  "fold_term_label": "FOLD-CONFIRMED",
+  "OUTCOME_LABEL": "FOLD-CONFIRMED / GATE-F-NOT-MEASURED-HERE (no F32/XF/XA arm in this invocation; brief s3.2 gives Gate F on this donor to run 3 -- not final until it passes)"
+ },
+ "total_seconds": 243.12826204299927
+}

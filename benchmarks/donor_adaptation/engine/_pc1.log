@@ -1,0 +1,33 @@
+E2  Qwen/Qwen2.5-0.5B  arms=TQ,NL  seqs=2/24  bytes=4396  slice a1a48dc9fc5a6dc1
+
+[TQ] exporting: --model Qwen/Qwen2.5-0.5B --quant packed --out D:/_ktmp/e2\qwen25-05b_tq.bin --calib-seqs 4 --threads 6 --fold none --rule R3
+     mean ternary zero-fraction across 168 matrices: 0.4922
+[TQ] building the PyTorch reference by reading the weights back out of the exported file...
+  WARNING: --calib-seqs 4 != 32. T2's numbers were measured at 32; this export is a DIFFERENT quantization and its BPB is unmeasured.
+  R3: capturing activations over 4 calib sequences...
+  R3: captured 169 activation vectors
+[TQ] GATE A1 codes: 0 differing of 357826560 -> PASS
+[TQ] GATE A2 scales: 0 differing, worst 0.00 ulp -> PASS
+[TQ] PyTorch BPB 4.026070012
+[TQ] engine  BPB 4.026084748   delta +0.000014736   per-seq max |delta| 1.61e-05   (32s)
+
+[NL] exporting: --model Qwen/Qwen2.5-0.5B --quant packed --out D:/_ktmp/e2\qwen25-05b_nl.bin --calib-seqs 4 --threads 6 --fold layers --rule R3
+     mean ternary zero-fraction across 168 matrices: 0.5447
+[NL] building the PyTorch reference by reading the weights back out of the exported file...
+  WARNING: --calib-seqs 4 != 32. T2's numbers were measured at 32; this export is a DIFFERENT quantization and its BPB is unmeasured.
+  R3: capturing activations over 4 calib sequences...
+  R3: captured 169 activation vectors
+[NL] GATE A1 codes: 0 differing of 357826560 -> PASS
+[NL] GATE A2 scales: 0 differing, worst 0.00 ulp -> PASS
+[NL] PyTorch BPB 3.760061672
+[NL] engine  BPB 3.760088066   delta +0.000026394   per-seq max |delta| 3.26e-05   (32s)
+
+arm   fold         BPB torch     BPB engine          delta   gate A
+TQ    none       4.026070012    4.026084748   +0.000014736     PASS
+NL    layers     3.760061672    3.760088066   +0.000026394     PASS
+
+paired between-arm contrasts (PyTorch side, exact per-sequence nats, 2000 resamples seed 7)
+  NL_minus_TQ    -0.266008  SE 0.093130  ci95 [-0.404793, -0.135672]     53 sigma_seed  excludes 0
+
+OUTCOME: FOLD-CONFIRMED / GATE-F-NOT-MEASURED-HERE (no F32/XF/XA arm in this invocation; brief s3.2 gives Gate F on this donor to run 3 -- not final until it passes)
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\e2_rmsnorm_fold_smoke_qwen25-05b_tqnl_s2.json  (243 s)

@@ -1,0 +1,22 @@
+E2  Qwen/Qwen2.5-0.5B  arms=F32,XF  seqs=2/24  bytes=4396  slice a1a48dc9fc5a6dc1
+
+[F32] exporting: --model Qwen/Qwen2.5-0.5B --quant fp32 --out D:/_ktmp/e2\qwen25-05b_f32.bin --calib-seqs 4 --threads 6 --fold none
+   wrote D:/_ktmp/e2\qwen25-05b_f32.bin  (1.84 GB)  sha256 ebed02f7ec8917d8
+[F32] building the PyTorch reference by reading the weights back out of the exported file...
+[F32] GATE A (fp32 round-trip): 290 tensors, worst |diff| 0.000e+00 -> PASS
+[F32] PyTorch BPB 1.083021936
+[F32] engine  BPB 1.083039399   delta +0.000017463   per-seq max |delta| 1.79e-05   (59s)
+
+[XF] exporting: --model Qwen/Qwen2.5-0.5B --quant fp32 --out D:/_ktmp/e2\qwen25-05b_xf.bin --calib-seqs 4 --threads 6 --fold layers
+   wrote D:/_ktmp/e2\qwen25-05b_xf.bin  (1.84 GB)  sha256 28e695d84eb44ed1
+[XF] building the PyTorch reference by reading the weights back out of the exported file...
+[XF] GATE A (fp32 round-trip): 290 tensors, worst |diff| 0.000e+00 -> PASS
+[XF] PyTorch BPB 1.083021816
+[XF] engine  BPB 1.083039386   delta +0.000017570   per-seq max |delta| 1.79e-05   (59s)
+
+arm   fold         BPB torch     BPB engine          delta   gate A
+F32   none       1.083021936    1.083039399   +0.000017463     PASS
+XF    layers     1.083021816    1.083039386   +0.000017570     PASS
+
+OUTCOME: VOID (Gate F failed: the fold is not exact where it must be)
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\e2_rmsnorm_fold_smoke_qwen25-05b_f32xf_s2.json  (200 s)
