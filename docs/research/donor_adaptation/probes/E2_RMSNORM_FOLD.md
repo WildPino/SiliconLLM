@@ -128,7 +128,34 @@ evidence for run 2, and one that disagrees does not overturn it.
 
 ### 3.2 Run 2 — Qwen2.5-1.5B, `TQ, NL, TQH, NLH, NAH`, 24 seqs — **owns the label**
 
-*PENDING.*
+`L = 28`, so a layers-fold is `2L = 56` gains and a full fold `2L+1 = 57`. 7,272 s.
+
+| arm | fold | gains | BPB (PyTorch) | BPB (engine) | engine−torch | Δ vs base | mean zero frac | Gate A |
+|---|---|---|---|---|---|---|---|---|
+| `TQ` | none | 0 | `3.484251281` | `3.484253077` | `+1.797e-06` | `+2.716656322` | `0.4714446` | 1,310,195,712 codes, exact |
+| `NL` | layers | 56 | `3.264250451` | `3.264252413` | `+1.962e-06` | `+2.496655492` | `0.5083735` | 1,310,195,712 codes, exact |
+| `TQH` | none | 0 | `3.475705979` | `3.475706692` | `+7.128e-07` | `+2.708111021` | `0.4713247` | 1,543,569,408 codes, exact |
+| `NLH` | layers | 56 | `3.233373977` | `3.233374462` | `+4.842e-07` | `+2.465779019` | `0.5080662` | 1,543,569,408 codes, exact |
+| `NAH` | all | 57 | `3.410356839` | `3.410360248` | `+3.409e-06` | `+2.642761881` | `0.5090935` | 1,543,569,408 codes, exact |
+
+Δ is against the standing 1.5B baseline `0.7675949584171732`. The engine−torch residual spans
+`4.8e-07` to `3.4e-06` and does **not** order with the fold — E1's finding again: it is
+accumulation order, not a defect the fold would amplify.
+
+**Paired between-arm bootstrap**, 2000 resamples, seed 7, byte-weighted:
+
+| contrast | Δ | paired SE | ci95 | σ_seed | excludes 0 |
+|---|---|---|---|---|---|
+| **`NL − TQ`** | **`−0.220001`** | `0.052861` | `[−0.324988, −0.119593]` | 44.0 | yes |
+| `NLH − TQH` | `−0.242332` | `0.041038` | `[−0.321919, −0.166627]` | 48.5 | yes |
+| `NAH − NLH` | `+0.176983` | `0.008303` | `[+0.161821, +0.193895]` | 35.4 | yes |
+
+**Mechanical label, verbatim from the JSON:**
+
+> `FOLD-CONFIRMED / GATE-F-NOT-MEASURED-HERE (no F32/XF/XA arm in this invocation; brief s3.2`
+> `gives Gate F on this donor to run 3 -- not final until it passes)`
+
+with `gate_F_measured: false`, `gate_F_ok: false`, `fold_term_label: "FOLD-CONFIRMED"`.
 
 ### 3.3 Run 3 — Qwen2.5-1.5B, `F32, XF, XA`, 4 seqs — Gate F on the deciding donor
 
@@ -142,23 +169,57 @@ evidence for run 2, and one that disagrees does not overturn it.
 
 ## 4. Replication
 
-*PENDING — the two constants are 1.5B constants and belong to run 2:* arm `TQ` must reproduce
-`+2.7166563086672917` (T2b arm `FA`, 196 tensors, `density/results/t2b_organs.json`) and arm `NL`
-must land **near** `+2.4966555196149862` (T3 arm `N`, 196 tensors,
-`density/results/t3_rotation.json`) — *near*, not exactly, because T3's arm `N` folded the final
-gain too and `NL` does not. Run 1 reports an empty `replication` block for exactly this reason:
-the constants name a donor, and it is not this one.
+The constants are 1.5B constants and belong to run 2. Run 1 reports an empty `replication` block
+for exactly this reason: **a replication constant names a donor, an arm, an organ set and a file**,
+and run 1's donor is not the one they name.
+
+| arm | measured Δ | standing constant | arm / organ set / file | residue |
+|---|---|---|---|---|
+| `TQ` | `+2.7166563222481854` | `+2.7166563086672921` | T3 arm `Q` = T2b arm `FA`, 196 tensors, `t2b_organs.json` | **`+1.358e-08`** |
+| `NL` | `+2.4966554924531996` | `+2.4966555196149862` | T3 arm `N`, 196 tensors, `t3_rotation.json` | **`−2.716e-08`** |
+| `TQH` | BPB `3.475705979` | BPB `3.4757059788577203` | T2b arm `FAH`, 197 tensors, `t2b_organs.json` | at printed precision |
+
+**Brief §4's hedge was unnecessary, and that is itself a result.** It said `NL` would land *near*,
+not exactly, on T3's arm `N`, because arm `N` folded `2L+1` gains and `NL` folds `2L`. It lands at
+`2.7e-08`. Brief §2 had derived why — with an **fp32 head**, folding `model.norm` into `lm_head` is
+a re-parameterization of weights that are never rounded — and `XA` was built to test that algebra
+at fp32, where it must hold exactly. The replication tests it **at ternary width**, on 196 rounded
+tensors, and it holds there too.
+
+**And the fold reproduces its own dispersion.** T3 measured `−0.220001 ± 0.052861` in a
+`transformers` module in memory. E2 measures `−0.220001 ± 0.052861` through the exporter, in the
+file format, on weights Gate A proves identical, scored by `donor_engine.c` — point *and* paired
+SE at the printed precision. That is not a coincidence and not a leak: the paired bootstrap shares
+seed 7, the same 24 sequences and the same byte weights, and the per-sequence nats of the two arms
+agree to `1e-07`, so resampling them **must** return the same SE. It is the strongest available
+statement that the trip to the artifact moved nothing.
 
 ---
 
-## 5. What the run-1 numbers say
+## 5. What the numbers say
 
-Everything in this section is a statement about the **0.5B apparatus**. None of it is a decision.
+### 5.0 The two donors disagree about magnitude and agree about sign
+
+| contrast | 0.5B (apparatus) | 1.5B (**decides**) | ratio |
+|---|---|---|---|
+| `NL − TQ` — the fold, fp32 head | `−0.330880` | **`−0.220001`** | 1.50× |
+| `NLH − TQH` — the fold, ternary head | `−0.529249` | `−0.242332` | 2.18× |
+| `NAH − NLH` — plus the final gain, ternary head | `+0.629949` | `+0.176983` | 3.56× |
+| `NAH − TQH` — fold-all vs no fold | `+0.100721` | **`−0.065349`** | **sign flips** |
+| extra the fold gets from a ternary head | `−0.198369` | `−0.022331` | 8.88× |
+
+Every sign that matters replicates. **No magnitude does**, and the fourth row *inverts*: on the
+0.5B, `--fold all` is worse than not folding at all; on the 1.5B it is still better than not
+folding, just far worse than `--fold layers`.
+
+This is E1's shape again — "the head is free" was a 1.5B-only result — and it is why brief §3.2
+took decision authority away from the small donor **before any number existed**. Reading the head
+question off the 0.5B would have overstated it 3.6× and got the third comparison backwards.
 
 ### 5.1 The fold does not just rescale — it changes what R3 keeps
 
-The mean ternary zero fraction moves with the fold, and the three arms are arithmetically
-consistent with each other:
+The mean ternary zero fraction moves with the fold, and the arms are arithmetically consistent with
+each other. **On the 0.5B** (168 layer matrices, 169 with the head):
 
 - `TQ → NL`, 168 matrices, all of them re-scaled: `0.4913539 → 0.5427960`, **`+0.0514421`**.
 - `TQH → NLH`, 169 matrices, of which **`lm_head` is unchanged** (a layers-fold does not touch it):
@@ -175,6 +236,23 @@ the layers and **13.2 points in the head**. That is a description of the artifac
 it is derived by exact arithmetic from the reported means, and the per-tensor zero fractions were
 not recorded.
 
+The 1.5B behaves the same way and the internal consistency holds to the same precision — over 196
+matrices `TQ → NL` is `+0.0369289`, and over 197 `TQH → NLH` is `+0.0367415`, which scaled by
+`197/196` is `+0.0369290`.
+
+**And the obvious story is false.** It is tempting to say the fold sparsifies the head and that the
+sparsity *is* the damage. The two donors kill it:
+
+| | zeros gained by `lm_head` under the final fold | BPB it costs (`NAH − NLH`) |
+|---|---|---|
+| 0.5B | `+0.131959` | `+0.629949` |
+| 1.5B | **`+0.202378`** | **`+0.176983`** |
+
+The 1.5B head gains **half again as many zeros** and costs **3.6× less**. Zero fraction moves with
+the fold, and it does not predict what the fold costs — it does not even keep its sign against BPB,
+since in the layers more zeros accompany a *gain* of `−0.220`. Recorded as a dead end, so nobody
+re-derives it.
+
 ### 5.2 "ci95 excludes 0" is not "the effect matters"
 
 `XA − XF` is `+2.037e-08` BPB with a ci95 of `[+4.9e-09, +4.2e-08]` — **entirely above zero**. The
@@ -183,15 +261,23 @@ rounding. It is also **4.07e-06 σ_seed**, which is the column that decides. Thi
 pre-registered rule pairs exclusion with a **magnitude threshold** and never uses exclusion alone.
 Kept as an illustration, not as a finding.
 
-### 5.3 The head fold — a first look, and it points the wrong way
+### 5.3 The head fold — a first look, answered on both donors
 
-Brief §5 gave `NAH − NLH` **no bar**, because there is no prior to set one from. On this donor it
-is `+0.629949`, and `NAH` (`4.631941`) is worse than **`TQH` (`4.531234`)** — folding the final
-gain into a **ternary** head is worse than not folding at all, and it costs more than the whole
-`−0.529` that the layer fold bought on the same arm.
+Brief §5 gave `NAH − NLH` **no bar**, because there was no prior to set one from, and said it would
+be reported as a first look. It is one, and it has a clear answer:
 
-The brief predicted this arm would matter and did not predict its sign. Whether the sign survives
-to the 1.5B is run 2's to say.
+**Folding `model.norm` into a ternary head costs BPB, on both donors, with the ci95 well clear of
+zero** — `+0.629949 [+0.507, +0.739]` on the 0.5B, `+0.176983 [+0.162, +0.194]` on the 1.5B.
+
+The asymmetry with the layer fold is the interesting part. The same operation — push a gain vector
+into the columns of the matrix that reads it — **buys** `−0.220` when applied to `q,k,v,gate,up`
+and **costs** `+0.177` when applied to `lm_head`. E2 does not say why, and nothing here licenses a
+guess: §5.1 rules out the sparsity story, and the per-row structure of R3's search against the
+per-column structure of a gain fold was not measured.
+
+**What it settles operationally:** the runtime's configuration is **`--fold layers` with a ternary
+head**, and the final gain stays where it is. That is `NLH`, at `+2.465779` — the best of the five
+arms that can actually run.
 
 ---
 
