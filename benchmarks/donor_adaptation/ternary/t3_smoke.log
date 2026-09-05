@@ -1,0 +1,37 @@
+slice 3808624ff6fc5cb8 (4396 bytes)  calib T=2048  SMOKE: model truncated to 4 layers
+  base BPB = 4.092170961   basis=None      fold=0   rot=0    quant=0    6s
+  XN  BPB = 4.092170801   basis=None      fold=9   rot=0    quant=0    5s
+  XP  BPB = 4.092171122   basis=perm      fold=9   rot=30   quant=0    17s
+  XH  BPB = 4.092171602   basis=hadamard  fold=9   rot=30   quant=0    16s
+  XO  BPB = 4.092171602   basis=orth      fold=9   rot=30   quant=0    16s
+  Q   BPB = 4.568669170   basis=None      fold=0   rot=0    quant=28   28s
+  N   BPB = 4.753742598   basis=None      fold=9   rot=0    quant=28   27s
+  P   BPB = 4.754020144   basis=perm      fold=9   rot=30   quant=28   38s
+  H   BPB = 4.157366361   basis=hadamard  fold=9   rot=30   quant=28   39s
+  O   BPB = 4.221130285   basis=orth      fold=9   rot=30   quant=28   38s
+
+arm             BPB        delta         SE     sigma
+base    4.092170961   [baseline]
+XN      4.092170801    -0.000000   0.000000        -0
+XP      4.092171122    +0.000000   0.000000         0
+XH      4.092171602    +0.000001   0.000000         0
+XO      4.092171602    +0.000001   0.000000         0
+Q       4.568669170    +0.476498   0.062767        95
+N       4.753742598    +0.661572   0.081605       132
+P       4.754020144    +0.661849   0.081504       132
+H       4.157366361    +0.065195   0.038464        13
+O       4.221130285    +0.128959   0.032565        26
+
+  H_minus_P    -0.596654 +/- 0.119968  ci95 [-0.7754, -0.4288]
+  O_minus_P    -0.532890 +/- 0.114069  ci95 [-0.7029, -0.3732]
+  H_minus_N    -0.596376 +/- 0.120069  ci95 [-0.7753, -0.4283]
+  O_minus_N    -0.532612 +/- 0.114170  ci95 [-0.7028, -0.3728]
+  P_minus_N    +0.000278 +/- 0.000101  ci95 [+0.0001, +0.0004]
+  N_minus_Q    +0.185073 +/- 0.018838  ci95 [+0.1587, +0.2131]
+  H_minus_Q    -0.411303 +/- 0.101231  ci95 [-0.5622, -0.2696]
+  O_minus_Q    -0.347539 +/- 0.095332  ci95 [-0.4896, -0.2141]
+
+X controls pass: True | Q replicates: n/a (smoke) | P is N's null: False
+q = 0.4764982084504568   best = 0.06519539987141078 (H)
+OUTCOME: VOID
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\t3_rotation_smoke.json  (237 s)

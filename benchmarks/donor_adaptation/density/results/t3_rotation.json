@@ -1,0 +1,312 @@
+{
+ "brief": "docs/research/donor_adaptation/briefs/BRIEF_T3_ROTATION.md @ 7cdeca8",
+ "rule": "R3 (T2's pre-registered winner)",
+ "organs": [
+  "gate_proj",
+  "up_proj",
+  "down_proj",
+  "q_proj",
+  "k_proj",
+  "v_proj",
+  "o_proj"
+ ],
+ "smoke": false,
+ "arms": {
+  "base": {
+   "basis": null,
+   "folded": 0,
+   "rotated": 0,
+   "n_substituted": 0,
+   "bpb": 0.7675949584171732,
+   "seconds": 114.58282375335693
+  },
+  "XN": {
+   "basis": null,
+   "folded": 57,
+   "rotated": 0,
+   "n_substituted": 0,
+   "untied": true,
+   "bpb": 0.7675949652076198,
+   "seconds": 113.00526475906372
+  },
+  "XP": {
+   "basis": "perm",
+   "folded": 57,
+   "rotated": 198,
+   "n_substituted": 0,
+   "untied": true,
+   "R_orthogonality_maxdev": 0.0,
+   "bpb": 0.7675949652076198,
+   "seconds": 141.59962344169617
+  },
+  "XH": {
+   "basis": "hadamard",
+   "folded": 57,
+   "rotated": 198,
+   "n_substituted": 0,
+   "untied": true,
+   "R_orthogonality_maxdev": 1.1102230246251565e-16,
+   "bpb": 0.7675949660564257,
+   "seconds": 140.31905436515808
+  },
+  "XO": {
+   "basis": "orth",
+   "folded": 57,
+   "rotated": 198,
+   "n_substituted": 0,
+   "untied": true,
+   "R_orthogonality_maxdev": 3.552713678800501e-15,
+   "bpb": 0.7675949550219499,
+   "seconds": 141.68012881278992
+  },
+  "Q": {
+   "basis": null,
+   "folded": 0,
+   "rotated": 0,
+   "n_substituted": 196,
+   "mean_zero_frac": 0.4714445757622622,
+   "bpb": 3.484251267084465,
+   "seconds": 385.8793377876282
+  },
+  "N": {
+   "basis": null,
+   "folded": 57,
+   "rotated": 0,
+   "n_substituted": 196,
+   "untied": true,
+   "mean_zero_frac": 0.5083734615116703,
+   "bpb": 3.2642504780321593,
+   "seconds": 385.29909348487854
+  },
+  "P": {
+   "basis": "perm",
+   "folded": 57,
+   "rotated": 198,
+   "n_substituted": 196,
+   "untied": true,
+   "mean_zero_frac": 0.5083734797579902,
+   "bpb": 3.2643870474956618,
+   "seconds": 415.2535994052887
+  },
+  "H": {
+   "basis": "hadamard",
+   "folded": 57,
+   "rotated": 198,
+   "n_substituted": 196,
+   "untied": true,
+   "mean_zero_frac": 0.46102752308456263,
+   "bpb": 4.40186801118531,
+   "seconds": 412.18392872810364
+  },
+  "O": {
+   "basis": "orth",
+   "folded": 57,
+   "rotated": 198,
+   "n_substituted": 196,
+   "untied": true,
+   "mean_zero_frac": 0.46069675699180485,
+   "bpb": 3.8987393443579035,
+   "seconds": 400.0446357727051
+  }
+ },
+ "thresholds_from_brief_s4": {
+  "WINS_MARGIN": 0.3,
+  "MARGINAL_MARGIN": 0.05,
+  "PLANTED_MARGIN": 0.2,
+  "X_EXACTNESS_TOL": 0.0001,
+  "Q_REPLICATION_TOL": 0.01,
+  "T2_R3_standing": 1.709372,
+  "sigma_seed": 0.005
+ },
+ "slice": {
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "n_seq": 24,
+  "bytes": 51870
+ },
+ "calib_slice": {
+  "ids_sha256": "c5509846cdc3aa44e45e77895b59a4638c49eb03790030d851e7bf1357ca4c0c",
+  "tokens_T": 16384
+ },
+ "arch": {
+  "n_layers": 28,
+  "d_model": 1536,
+  "d_ffn": 8960,
+  "n_heads": 12,
+  "n_kv_heads": 2,
+  "vocab": 151936,
+  "tie_word_embeddings": true,
+  "hidden_act": "silu",
+  "revision": "8faed761d45a263340a0528343f099c05c9a4323"
+ },
+ "delta_vs_base": {
+  "XN": {
+   "delta_bpb": 6.790446674390405e-09,
+   "paired_se_sequence_bootstrap": 1.3612017172974992e-08,
+   "ci95": [
+    -1.9977122675833877e-08,
+    3.236165467580606e-08
+   ]
+  },
+  "XP": {
+   "delta_bpb": 6.790446669625885e-09,
+   "paired_se_sequence_bootstrap": 1.6566921420684366e-08,
+   "ci95": [
+    -2.3956697583567968e-08,
+    4.0016391406308286e-08
+   ]
+  },
+  "XH": {
+   "delta_bpb": 7.639252508954883e-09,
+   "paired_se_sequence_bootstrap": 1.853383292497131e-08,
+   "ci95": [
+    -2.8608657911667346e-08,
+    4.4862016899660785e-08
+   ]
+  },
+  "XO": {
+   "delta_bpb": -3.3952233356188013e-09,
+   "paired_se_sequence_bootstrap": 1.8110228023619743e-08,
+   "ci95": [
+    -3.81544781414756e-08,
+    3.174245031520196e-08
+   ]
+  },
+  "Q": {
+   "delta_bpb": 2.7166563086672917,
+   "paired_se_sequence_bootstrap": 0.1290009117571478,
+   "ci95": [
+    2.4776277396821156,
+    2.979651438370941
+   ]
+  },
+  "N": {
+   "delta_bpb": 2.496655519614986,
+   "paired_se_sequence_bootstrap": 0.11160736848413591,
+   "ci95": [
+    2.289631024007877,
+    2.7230119176017724
+   ]
+  },
+  "P": {
+   "delta_bpb": 2.4967920890784887,
+   "paired_se_sequence_bootstrap": 0.11162497071271754,
+   "ci95": [
+    2.2897627623835057,
+    2.7232346028858956
+   ]
+  },
+  "H": {
+   "delta_bpb": 3.634273052768136,
+   "paired_se_sequence_bootstrap": 0.07208216410402944,
+   "ci95": [
+    3.4975483911158243,
+    3.783722838358536
+   ]
+  },
+  "O": {
+   "delta_bpb": 3.13114438594073,
+   "paired_se_sequence_bootstrap": 0.1155081427060928,
+   "ci95": [
+    2.9267144842166197,
+    3.3744479153367437
+   ]
+  }
+ },
+ "contrasts": {
+  "H_minus_P": {
+   "delta_bpb": 1.1374809636896477,
+   "paired_se_sequence_bootstrap": 0.07239548298226134,
+   "ci95": [
+    0.9979683660744185,
+    1.2793096406119673
+   ]
+  },
+  "O_minus_P": {
+   "delta_bpb": 0.6343522968622416,
+   "paired_se_sequence_bootstrap": 0.038909318618237466,
+   "ci95": [
+    0.5600226673018297,
+    0.7119171263796448
+   ]
+  },
+  "H_minus_N": {
+   "delta_bpb": 1.1376175331531502,
+   "paired_se_sequence_bootstrap": 0.07239765758696842,
+   "ci95": [
+    0.9980185573115544,
+    1.279327898680958
+   ]
+  },
+  "O_minus_N": {
+   "delta_bpb": 0.6344888663257439,
+   "paired_se_sequence_bootstrap": 0.03897145718250391,
+   "ci95": [
+    0.5600538221538548,
+    0.7122474967117195
+   ]
+  },
+  "P_minus_N": {
+   "delta_bpb": 0.00013656946350232475,
+   "paired_se_sequence_bootstrap": 0.00011511040420787466,
+   "ci95": [
+    -9.54517114738365e-05,
+    0.00035310195486335975
+   ]
+  },
+  "N_minus_Q": {
+   "delta_bpb": -0.22000078905230566,
+   "paired_se_sequence_bootstrap": 0.05286072223185971,
+   "ci95": [
+    -0.3249876030621779,
+    -0.11959283268113087
+   ]
+  },
+  "H_minus_Q": {
+   "delta_bpb": 0.9176167441008444,
+   "paired_se_sequence_bootstrap": 0.09126978900786349,
+   "ci95": [
+    0.7396013469140481,
+    1.0962933684650067
+   ]
+  },
+  "O_minus_Q": {
+   "delta_bpb": 0.4144880772734383,
+   "paired_se_sequence_bootstrap": 0.047060827731894184,
+   "ci95": [
+    0.32508091188449084,
+    0.5066839206206859
+   ]
+  }
+ },
+ "decision": {
+  "rule": "brief section 4, thresholds fixed before the run",
+  "exactness_controls_X": {
+   "deltas": {
+    "XN": 6.790446674390405e-09,
+    "XP": 6.790446669625885e-09,
+    "XH": 7.639252508954883e-09,
+    "XO": -3.3952233356188013e-09
+   },
+   "tol": 0.0001,
+   "passes": true
+  },
+  "Q_replication": {
+   "measured": 2.7166563086672917,
+   "T2_standing": 1.709372,
+   "applicable": true,
+   "ok": false
+  },
+  "P_is_analytic_null_of_N": {
+   "P_minus_N": 0.00013656946350232475,
+   "tol": 0.001,
+   "passes": true,
+   "why": "a residual-stream permutation permutes a reader's columns and a writer's rows; R3 searches one scale per output row over (weight, act_rms) pairs, so both are invariant IN THE WEIGHTS. It is not invariant in the CALIBRATION: the forward pass sums squares over permuted channels, act_rms differs in its last bits, and a near-tie in the scale search can flip a code. Judged at 0.2 sigma_seed, not at fp round-off. A value LARGER than that is a bug in the rotation machinery."
+  },
+  "q": 2.7166563086672917,
+  "best": 3.13114438594073,
+  "best_arm": "O",
+  "OUTCOME_LABEL": "VOID",
+  "meaning": "the fold or the harness is wrong; report nothing else"
+ },
+ "total_seconds": 2656.1160459518433
+}

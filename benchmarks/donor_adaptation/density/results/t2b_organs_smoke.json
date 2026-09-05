@@ -1,0 +1,185 @@
+{
+ "brief": "briefs/BRIEF_T2B_ORGAN_COVERAGE.md",
+ "rule": "R3 (T2's pre-registered winner; R5 is post-hoc and not used here)",
+ "slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+ },
+ "smoke": true,
+ "thresholds_from_brief_s4": {
+  "UNIFORM_MAX_RATIO": 1.6,
+  "HEAD_BOUND_FRACTION": 0.5,
+  "F_REPLICATION_TOL": 0.01,
+  "T2_R3_standing": 1.709372,
+  "sigma_seed": 0.005
+ },
+ "arms": {
+  "base": {
+   "bpb": 0.9601896546517529,
+   "n_substituted": 0,
+   "mean_zero_frac": null,
+   "untied": false,
+   "seconds": 10.935296773910522
+  },
+  "I": {
+   "bpb": 0.9601896546517529,
+   "n_substituted": 29,
+   "mean_zero_frac": null,
+   "untied": true,
+   "seconds": 12.382263422012329
+  },
+  "F": {
+   "bpb": 1.4006798902318722,
+   "n_substituted": 12,
+   "mean_zero_frac": 0.4566919306914012,
+   "untied": false,
+   "seconds": 25.57041621208191
+  },
+  "A": {
+   "bpb": 1.3049844492026883,
+   "n_substituted": 16,
+   "mean_zero_frac": 0.47290425933897495,
+   "untied": false,
+   "seconds": 13.105231523513794
+  },
+  "H": {
+   "bpb": 1.2779002895857414,
+   "n_substituted": 1,
+   "mean_zero_frac": 0.45422160625457764,
+   "untied": false,
+   "seconds": 30.404911518096924
+  },
+  "FA": {
+   "bpb": 2.576300195055503,
+   "n_substituted": 28,
+   "mean_zero_frac": 0.4659561184900148,
+   "untied": false,
+   "seconds": 27.092657566070557
+  },
+  "FAH": {
+   "bpb": 2.6877330245110733,
+   "n_substituted": 29,
+   "mean_zero_frac": 0.46555148013706865,
+   "untied": false,
+   "seconds": 47.45996379852295
+  }
+ },
+ "calib_slice": {
+  "part": "calib",
+  "n_seq": 32,
+  "seq_len": 512,
+  "seed": 42424,
+  "n_rejected": 0,
+  "total_scored_bytes": 67648,
+  "bytes_per_token": 4.136986301369863,
+  "ids_sha256": "c5509846cdc3aa44e45e77895b59a4638c49eb03790030d851e7bf1357ca4c0c",
+  "offsets_sha256": "c9bdfc96dd5addb8e02a48d553dfb11784734baa26f44aad53658ff8cd2a8cf0",
+  "corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0"
+ },
+ "calib_eval_disjointness": {
+  "calib_corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0",
+  "eval_corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312",
+  "verified": true
+ },
+ "calib_tokens_T": 1024,
+ "delta_vs_base": {
+  "I": {
+   "delta_bpb": 0.0,
+   "paired_se_sequence_bootstrap": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  },
+  "F": {
+   "delta_bpb": 0.44049023558011924,
+   "paired_se_sequence_bootstrap": 0.07024670601845404,
+   "ci95": [
+    0.3358059859328675,
+    0.5388019989233036
+   ]
+  },
+  "A": {
+   "delta_bpb": 0.3447947945509353,
+   "paired_se_sequence_bootstrap": 0.04179493550888878,
+   "ci95": [
+    0.28251042976301344,
+    0.40328769822693256
+   ]
+  },
+  "H": {
+   "delta_bpb": 0.31771063493398854,
+   "paired_se_sequence_bootstrap": 0.018405420805182055,
+   "ci95": [
+    0.29028219343630135,
+    0.3434694139143927
+   ]
+  },
+  "FA": {
+   "delta_bpb": 1.6161105404037501,
+   "paired_se_sequence_bootstrap": 0.007774597240005596,
+   "ci95": [
+    1.6045245469172262,
+    1.6269912550631282
+   ]
+  },
+  "FAH": {
+   "delta_bpb": 1.72754336985932,
+   "paired_se_sequence_bootstrap": 0.015453970786066149,
+   "ci95": [
+    1.7059152081312372,
+    1.7505734509478894
+   ]
+  }
+ },
+ "increments": {
+  "FA_minus_F": {
+   "delta_bpb": 1.1756203048236311,
+   "paired_se_sequence_bootstrap": 0.0624721087784484,
+   "ci95": [
+    1.0881892561398248,
+    1.2687185609843588
+   ]
+  },
+  "FAH_minus_FA": {
+   "delta_bpb": 0.1114328294555698,
+   "paired_se_sequence_bootstrap": 0.023228568026071747,
+   "ci95": [
+    0.07892395306810895,
+    0.14604890403066317
+   ]
+  },
+  "FAH_minus_F": {
+   "delta_bpb": 1.2870531342792009,
+   "paired_se_sequence_bootstrap": 0.08570067680452015,
+   "ci95": [
+    1.1671132092079337,
+    1.414767465015022
+   ]
+  }
+ },
+ "decision": {
+  "rule": "brief section 4, thresholds fixed before the run",
+  "instrument_control_I": {
+   "delta": 0.0,
+   "passes": true
+  },
+  "F_replication": {
+   "measured": 0.44049023558011924,
+   "T2_standing": 1.709372,
+   "ok": false
+  },
+  "ratio_FAH_over_F": 3.921865299883823,
+  "OUTCOME_LABEL": "VOID",
+  "meaning": "arm I did not reproduce base exactly, or arm F missed T2's Delta by more than 0.01; instrument broken, report nothing else"
+ },
+ "total_seconds": 185.75611686706543
+}

@@ -1,0 +1,190 @@
+{
+ "brief": "briefs/BRIEF_T2_TERNARIZATION_RULE.md @ 1286faf",
+ "arch_achieved": {
+  "n_layers": 28,
+  "d_model": 1536,
+  "d_ffn": 8960,
+  "n_heads": 12,
+  "n_kv_heads": 2,
+  "vocab": 151936,
+  "tie_word_embeddings": true,
+  "hidden_act": "silu",
+  "revision": "8faed761d45a263340a0528343f099c05c9a4323"
+ },
+ "slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+ },
+ "smoke": true,
+ "thresholds_from_brief_s4": {
+  "RULE_BOUND_MAX": 0.5,
+  "HELPS_MIN_RECOVERY": 1.0,
+  "MARGINAL_MIN_RECOVERY": 0.2,
+  "R0_standing": 3.309099,
+  "sigma_seed": 0.005
+ },
+ "arms": {
+  "base": {
+   "bpb": 0.9601896546517529,
+   "n_substituted": 0,
+   "mean_zero_frac": null,
+   "seconds": 12.21603274345398
+  },
+  "I": {
+   "bpb": 0.9601896546517529,
+   "n_substituted": 12,
+   "mean_zero_frac": null,
+   "seconds": 12.191008567810059
+  },
+  "R0": {
+   "bpb": 2.4880134423779436,
+   "n_substituted": 12,
+   "mean_zero_frac": 0.31557754675547284,
+   "seconds": 13.370218515396118
+  },
+  "R1": {
+   "bpb": 2.6464116985016206,
+   "n_substituted": 12,
+   "mean_zero_frac": 0.4289543454845746,
+   "seconds": 14.287375926971436
+  },
+  "R2": {
+   "bpb": 2.209924886022595,
+   "n_substituted": 12,
+   "mean_zero_frac": 0.4803634211421013,
+   "seconds": 24.051353931427002
+  },
+  "R3": {
+   "bpb": 1.4006798902318722,
+   "n_substituted": 12,
+   "mean_zero_frac": 0.4566919306914012,
+   "seconds": 28.942647457122803
+  },
+  "Z": {
+   "bpb": 3.6307757678770067,
+   "n_substituted": 12,
+   "mean_zero_frac": 0.31557754675547284,
+   "seconds": 14.577518701553345
+  },
+  "R4": {
+   "bpb": 2.2125825641289727,
+   "n_substituted": 12,
+   "mean_zero_frac": 0.27004852145910263,
+   "seconds": 84.1699948310852
+  }
+ },
+ "d_grid": [
+  0.3,
+  0.4,
+  0.5,
+  0.6,
+  0.7,
+  0.8,
+  0.9,
+  1.0,
+  1.1,
+  1.2
+ ],
+ "calib_slice": {
+  "part": "calib",
+  "n_seq": 32,
+  "seq_len": 512,
+  "seed": 42424,
+  "n_rejected": 0,
+  "total_scored_bytes": 67648,
+  "bytes_per_token": 4.136986301369863,
+  "ids_sha256": "c5509846cdc3aa44e45e77895b59a4638c49eb03790030d851e7bf1357ca4c0c",
+  "offsets_sha256": "c9bdfc96dd5addb8e02a48d553dfb11784734baa26f44aad53658ff8cd2a8cf0",
+  "corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0"
+ },
+ "calib_eval_disjointness": {
+  "calib_corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0",
+  "eval_corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312",
+  "verified": true
+ },
+ "calib_tokens_T": 1024,
+ "delta_vs_base": {
+  "I": {
+   "delta_bpb": 0.0,
+   "paired_se_sequence_bootstrap": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  },
+  "R0": {
+   "delta_bpb": 1.5278237877261907,
+   "paired_se_sequence_bootstrap": 0.006550299108213256,
+   "ci95": [
+    1.5186565044149338,
+    1.5375852866771624
+   ]
+  },
+  "R1": {
+   "delta_bpb": 1.6862220438498676,
+   "paired_se_sequence_bootstrap": 0.0956181561840461,
+   "ci95": [
+    1.5524023948600907,
+    1.8287157706041302
+   ]
+  },
+  "R2": {
+   "delta_bpb": 1.2497352313708419,
+   "paired_se_sequence_bootstrap": 0.013458120230499441,
+   "ci95": [
+    1.2309003050641563,
+    1.2697910218533481
+   ]
+  },
+  "R3": {
+   "delta_bpb": 0.44049023558011924,
+   "paired_se_sequence_bootstrap": 0.07024670601845404,
+   "ci95": [
+    0.3358059859328675,
+    0.5388019989233036
+   ]
+  },
+  "Z": {
+   "delta_bpb": 2.6705861132252533,
+   "paired_se_sequence_bootstrap": 0.02061461514887231,
+   "ci95": [
+    2.639865448286749,
+    2.699436706808878
+   ]
+  },
+  "R4": {
+   "delta_bpb": 1.2523929094772195,
+   "paired_se_sequence_bootstrap": 0.014283480287678216,
+   "ci95": [
+    1.2324028741666617,
+    1.2736786821634731
+   ]
+  }
+ },
+ "decision": {
+  "rule": "brief section 4, thresholds fixed before the run",
+  "instrument_control_I": {
+   "delta": 0.0,
+   "passes": true
+  },
+  "R0_replication": {
+   "measured": 1.5278237877261907,
+   "T1_standing": 3.309099,
+   "ok": false
+  },
+  "best_rule": "R3",
+  "best_delta": 0.44049023558011924,
+  "recovery_vs_R0": 1.0873335521460714,
+  "OUTCOME_LABEL": "RULE-BOUND",
+  "meaning": "the format is fine and T1's number was the rule; the conversion is essentially solved without training"
+ },
+ "total_seconds": 227.16161489486694
+}

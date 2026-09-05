@@ -1,0 +1,311 @@
+{
+ "brief": "docs/research/donor_adaptation/briefs/BRIEF_T3_ROTATION.md @ 7cdeca8",
+ "rule": "R3 (T2's pre-registered winner)",
+ "organs": [
+  "gate_proj",
+  "up_proj",
+  "down_proj",
+  "q_proj",
+  "k_proj",
+  "v_proj",
+  "o_proj"
+ ],
+ "smoke": true,
+ "arms": {
+  "base": {
+   "basis": null,
+   "folded": 0,
+   "rotated": 0,
+   "n_substituted": 0,
+   "bpb": 4.092170961323062,
+   "seconds": 5.588435173034668
+  },
+  "XN": {
+   "basis": null,
+   "folded": 9,
+   "rotated": 0,
+   "n_substituted": 0,
+   "untied": true,
+   "bpb": 4.092170801077171,
+   "seconds": 5.429402589797974
+  },
+  "XP": {
+   "basis": "perm",
+   "folded": 9,
+   "rotated": 30,
+   "n_substituted": 0,
+   "untied": true,
+   "R_orthogonality_maxdev": 0.0,
+   "bpb": 4.092171121568954,
+   "seconds": 17.294386386871338
+  },
+  "XH": {
+   "basis": "hadamard",
+   "folded": 9,
+   "rotated": 30,
+   "n_substituted": 0,
+   "untied": true,
+   "R_orthogonality_maxdev": 1.1102230246251565e-16,
+   "bpb": 4.092171602306627,
+   "seconds": 16.35522770881653
+  },
+  "XO": {
+   "basis": "orth",
+   "folded": 9,
+   "rotated": 30,
+   "n_substituted": 0,
+   "untied": true,
+   "R_orthogonality_maxdev": 3.552713678800501e-15,
+   "bpb": 4.092171602306627,
+   "seconds": 16.402092695236206
+  },
+  "Q": {
+   "basis": null,
+   "folded": 0,
+   "rotated": 0,
+   "n_substituted": 28,
+   "mean_zero_frac": 0.46703087644917624,
+   "bpb": 4.56866916977352,
+   "seconds": 27.57507348060608
+  },
+  "N": {
+   "basis": null,
+   "folded": 9,
+   "rotated": 0,
+   "n_substituted": 28,
+   "untied": true,
+   "mean_zero_frac": 0.5097532910960061,
+   "bpb": 4.753742597938201,
+   "seconds": 27.229017734527588
+  },
+  "P": {
+   "basis": "perm",
+   "folded": 9,
+   "rotated": 30,
+   "n_substituted": 28,
+   "untied": true,
+   "mean_zero_frac": 0.5097530207463673,
+   "bpb": 4.754020143821846,
+   "seconds": 38.453285217285156
+  },
+  "H": {
+   "basis": "hadamard",
+   "folded": 9,
+   "rotated": 30,
+   "n_substituted": 28,
+   "untied": true,
+   "mean_zero_frac": 0.4518106366906847,
+   "bpb": 4.157366361194474,
+   "seconds": 38.74166941642761
+  },
+  "O": {
+   "basis": "orth",
+   "folded": 9,
+   "rotated": 30,
+   "n_substituted": 28,
+   "untied": true,
+   "mean_zero_frac": 0.45211511850357056,
+   "bpb": 4.22113028451935,
+   "seconds": 38.18675255775452
+  }
+ },
+ "thresholds_from_brief_s4": {
+  "WINS_MARGIN": 0.3,
+  "MARGINAL_MARGIN": 0.05,
+  "PLANTED_MARGIN": 0.2,
+  "X_EXACTNESS_TOL": 0.0001,
+  "Q_REPLICATION_TOL": 0.01,
+  "T2_R3_standing": 1.709372,
+  "sigma_seed": 0.005
+ },
+ "slice": {
+  "ids_sha256": "3808624ff6fc5cb8fa5911c9fbfb37a8bcbf4f08db83bb5b146887c267a9e62c",
+  "n_seq": 2,
+  "bytes": 4396
+ },
+ "calib_slice": {
+  "ids_sha256": "dca493320377830d3181bf1a84899f89ad1430c117237d50ceed127ede7642d8",
+  "tokens_T": 2048
+ },
+ "arch": {
+  "n_layers": 4,
+  "d_model": 1536,
+  "d_ffn": 8960,
+  "n_heads": 12,
+  "n_kv_heads": 2,
+  "vocab": 151936,
+  "tie_word_embeddings": true,
+  "hidden_act": "silu",
+  "revision": "8faed761d45a263340a0528343f099c05c9a4323"
+ },
+ "delta_vs_base": {
+  "XN": {
+   "delta_bpb": -1.602458913887734e-07,
+   "paired_se_sequence_bootstrap": 1.1450049963764253e-07,
+   "ci95": [
+    -3.3087878748006005e-07,
+    0.0
+   ]
+  },
+  "XP": {
+   "delta_bpb": 1.602458909586251e-07,
+   "paired_se_sequence_bootstrap": 1.1450049933028866e-07,
+   "ci95": [
+    0.0,
+    3.3087878659188164e-07
+   ]
+  },
+  "XH": {
+   "delta_bpb": 6.409835648132949e-07,
+   "paired_se_sequence_bootstrap": 1.394006955329134e-08,
+   "ci95": [
+    6.214741401500135e-07,
+    6.617575740719417e-07
+   ]
+  },
+  "XO": {
+   "delta_bpb": 6.409835650836276e-07,
+   "paired_se_sequence_bootstrap": 2.359710338214153e-07,
+   "ci95": [
+    3.1073707029705133e-07,
+    9.926363615520017e-07
+   ]
+  },
+  "Q": {
+   "delta_bpb": 0.4764982084504568,
+   "paired_se_sequence_bootstrap": 0.06276704485482874,
+   "ci95": [
+    0.38865439043715533,
+    0.5700359893035118
+   ]
+  },
+  "N": {
+   "delta_bpb": 0.6615716366151383,
+   "paired_se_sequence_bootstrap": 0.08160480573246678,
+   "ci95": [
+    0.5473639704687825,
+    0.7831821481951238
+   ]
+  },
+  "P": {
+   "delta_bpb": 0.6618491824987832,
+   "paired_se_sequence_bootstrap": 0.08150382285784868,
+   "ci95": [
+    0.547782844039288,
+    0.783309205649406
+   ]
+  },
+  "H": {
+   "delta_bpb": 0.06519539987141078,
+   "paired_se_sequence_bootstrap": 0.0384642245305603,
+   "ci95": [
+    0.007874584256407857,
+    0.11902690249352864
+   ]
+  },
+  "O": {
+   "delta_bpb": 0.12895932319628697,
+   "paired_se_sequence_bootstrap": 0.03256482246491173,
+   "ci95": [
+    0.0804300155908928,
+    0.17453448680099992
+   ]
+  }
+ },
+ "contrasts": {
+  "H_minus_P": {
+   "delta_bpb": -0.5966537826273726,
+   "paired_se_sequence_bootstrap": 0.119968047388409,
+   "ci95": [
+    -0.7754346213929981,
+    -0.42875594154575936
+   ]
+  },
+  "O_minus_P": {
+   "delta_bpb": -0.5328898593024962,
+   "paired_se_sequence_bootstrap": 0.11406864532276041,
+   "ci95": [
+    -0.7028791900585132,
+    -0.3732483572382881
+   ]
+  },
+  "H_minus_N": {
+   "delta_bpb": -0.5963762367437276,
+   "paired_se_sequence_bootstrap": 0.12006903026302708,
+   "ci95": [
+    -0.7753075639387159,
+    -0.42833706797525384
+   ]
+  },
+  "O_minus_N": {
+   "delta_bpb": -0.5326123134188515,
+   "paired_se_sequence_bootstrap": 0.1141696281973785,
+   "ci95": [
+    -0.702752132604231,
+    -0.37282948366778257
+   ]
+  },
+  "P_minus_N": {
+   "delta_bpb": 0.0002775458836448663,
+   "paired_se_sequence_bootstrap": 0.0001009828746180921,
+   "ci95": [
+    0.00012705745428220894,
+    0.000418873570505518
+   ]
+  },
+  "N_minus_Q": {
+   "delta_bpb": 0.18507342816468167,
+   "paired_se_sequence_bootstrap": 0.018837760877638034,
+   "ci95": [
+    0.15870958003162716,
+    0.21314615889161193
+   ]
+  },
+  "H_minus_Q": {
+   "delta_bpb": -0.41130280857904594,
+   "paired_se_sequence_bootstrap": 0.10123126938538904,
+   "ci95": [
+    -0.562161405047104,
+    -0.2696274879436267
+   ]
+  },
+  "O_minus_Q": {
+   "delta_bpb": -0.34753888525416976,
+   "paired_se_sequence_bootstrap": 0.09533186731974046,
+   "ci95": [
+    -0.489605973712619,
+    -0.2141199036361554
+   ]
+  }
+ },
+ "decision": {
+  "rule": "brief section 4, thresholds fixed before the run",
+  "exactness_controls_X": {
+   "deltas": {
+    "XN": -1.602458913887734e-07,
+    "XP": 1.602458909586251e-07,
+    "XH": 6.409835648132949e-07,
+    "XO": 6.409835650836276e-07
+   },
+   "tol": 0.0001,
+   "passes": true
+  },
+  "Q_replication": {
+   "measured": 0.4764982084504568,
+   "T2_standing": 1.709372,
+   "ok": false
+  },
+  "P_is_analytic_null_of_N": {
+   "P_minus_N": 0.0002775458836448663,
+   "tol": 0.0001,
+   "passes": false,
+   "why": "a residual-stream permutation permutes a reader's columns and a writer's rows; R3 searches one scale per output row over (weight, act_rms) pairs, so both are invariant. A nonzero value here is a bug in the rotation machinery."
+  },
+  "q": 0.4764982084504568,
+  "best": 0.06519539987141078,
+  "best_arm": "H",
+  "OUTCOME_LABEL": "VOID",
+  "meaning": "the fold or the harness is wrong; report nothing else"
+ },
+ "total_seconds": 236.86365032196045
+}

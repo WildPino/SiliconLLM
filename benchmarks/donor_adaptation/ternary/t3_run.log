@@ -1,0 +1,37 @@
+slice a1a48dc9fc5a6dc1 (51870 bytes)  calib T=16384
+  base BPB = 0.767594958   basis=None      fold=0   rot=0    quant=0    115s
+  XN  BPB = 0.767594965   basis=None      fold=57  rot=0    quant=0    113s
+  XP  BPB = 0.767594965   basis=perm      fold=57  rot=198  quant=0    142s
+  XH  BPB = 0.767594966   basis=hadamard  fold=57  rot=198  quant=0    140s
+  XO  BPB = 0.767594955   basis=orth      fold=57  rot=198  quant=0    142s
+  Q   BPB = 3.484251267   basis=None      fold=0   rot=0    quant=196  386s
+  N   BPB = 3.264250478   basis=None      fold=57  rot=0    quant=196  385s
+  P   BPB = 3.264387047   basis=perm      fold=57  rot=198  quant=196  415s
+  H   BPB = 4.401868011   basis=hadamard  fold=57  rot=198  quant=196  412s
+  O   BPB = 3.898739344   basis=orth      fold=57  rot=198  quant=196  400s
+
+arm             BPB        delta         SE     sigma
+base    0.767594958   [baseline]
+XN      0.767594965    +0.000000   0.000000         0
+XP      0.767594965    +0.000000   0.000000         0
+XH      0.767594966    +0.000000   0.000000         0
+XO      0.767594955    -0.000000   0.000000        -0
+Q       3.484251267    +2.716656   0.129001       543
+N       3.264250478    +2.496656   0.111607       499
+P       3.264387047    +2.496792   0.111625       499
+H       4.401868011    +3.634273   0.072082       727
+O       3.898739344    +3.131144   0.115508       626
+
+  H_minus_P    +1.137481 +/- 0.072395  ci95 [+0.9980, +1.2793]
+  O_minus_P    +0.634352 +/- 0.038909  ci95 [+0.5600, +0.7119]
+  H_minus_N    +1.137618 +/- 0.072398  ci95 [+0.9980, +1.2793]
+  O_minus_N    +0.634489 +/- 0.038971  ci95 [+0.5601, +0.7122]
+  P_minus_N    +0.000137 +/- 0.000115  ci95 [-0.0001, +0.0004]
+  N_minus_Q    -0.220001 +/- 0.052861  ci95 [-0.3250, -0.1196]
+  H_minus_Q    +0.917617 +/- 0.091270  ci95 [+0.7396, +1.0963]
+  O_minus_Q    +0.414488 +/- 0.047061  ci95 [+0.3251, +0.5067]
+
+X controls pass: True | Q replicates: False | P is N's null: True
+q = 2.7166563086672917   best = 3.13114438594073 (O)
+OUTCOME: VOID
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\t3_rotation.json  (2656 s)
