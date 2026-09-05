@@ -1,0 +1,33 @@
+E2  Qwen/Qwen2.5-1.5B  arms=F32,XF,XA  seqs=4/24  bytes=9203  slice a1a48dc9fc5a6dc1
+
+[F32] exporting: --model Qwen/Qwen2.5-1.5B --quant fp32 --out D:/_ktmp/e2\qwen25-15b_f32.bin --calib-seqs 32 --threads 6 --fold none --revision 8faed761d45a263340a0528343f099c05c9a4323
+   wrote D:/_ktmp/e2\qwen25-15b_f32.bin  (5.75 GB)  sha256 2c640b4d488563f4
+[F32] building the PyTorch reference by reading the weights back out of the exported file...
+[F32] GATE A (fp32 round-trip): 338 tensors, worst |diff| 0.000e+00 -> PASS
+[F32] PyTorch BPB 0.702308546
+[F32] engine  BPB 0.702318880   delta +0.000010335   per-seq max |delta| 1.34e-05   (345s)
+
+[XF] exporting: --model Qwen/Qwen2.5-1.5B --quant fp32 --out D:/_ktmp/e2\qwen25-15b_xf.bin --calib-seqs 32 --threads 6 --fold layers --revision 8faed761d45a263340a0528343f099c05c9a4323
+   wrote D:/_ktmp/e2\qwen25-15b_xf.bin  (5.75 GB)  sha256 3dfd8a43f03f8900
+[XF] building the PyTorch reference by reading the weights back out of the exported file...
+[XF] GATE A (fp32 round-trip): 338 tensors, worst |diff| 0.000e+00 -> PASS
+[XF] PyTorch BPB 0.702308498
+[XF] engine  BPB 0.702318880   delta +0.000010382   per-seq max |delta| 1.34e-05   (345s)
+
+[XA] exporting: --model Qwen/Qwen2.5-1.5B --quant fp32 --out D:/_ktmp/e2\qwen25-15b_xa.bin --calib-seqs 32 --threads 6 --fold all --revision 8faed761d45a263340a0528343f099c05c9a4323
+   wrote D:/_ktmp/e2\qwen25-15b_xa.bin  (6.62 GB)  sha256 e119761921b32e60
+[XA] building the PyTorch reference by reading the weights back out of the exported file...
+[XA] GATE A (fp32 round-trip): 339 tensors, worst |diff| 0.000e+00 -> PASS
+[XA] PyTorch BPB 0.702308536
+[XA] engine  BPB 0.702318884   delta +0.000010348   per-seq max |delta| 1.34e-05   (347s)
+
+arm   fold         BPB torch     BPB engine          delta   gate A
+F32   none       0.702308546    0.702318880   +0.000010335     PASS
+XF    layers     0.702308498    0.702318880   +0.000010382     PASS
+XA    all        0.702308536    0.702318884   +0.000010348     PASS
+
+paired between-arm contrasts (PyTorch side, exact per-sequence nats, 2000 resamples seed 7)
+  XA_minus_XF    +0.000000  SE 0.000000  ci95 [+0.000000, +0.000000]      0 sigma_seed  contains 0
+
+OUTCOME: INCOMPLETE (arms NL and TQ are both required for the decision)
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\e2_rmsnorm_fold_qwen25-15b_f32xfxa_s4.json  (1451 s)

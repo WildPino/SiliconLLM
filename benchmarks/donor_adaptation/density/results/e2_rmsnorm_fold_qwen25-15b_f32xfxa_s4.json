@@ -1,0 +1,168 @@
+{
+ "brief": "docs/research/donor_adaptation/briefs/BRIEF_E2_RMSNORM_FOLD.md @ 338d187, amended s3.1 @ edbe956",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "smoke": false,
+ "slice": {
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "n_seq": 4,
+  "seq_len": 512,
+  "bytes": 9203,
+  "subset_of_pinned_24": true
+ },
+ "calib_seqs": 32,
+ "threads": 6,
+ "thresholds_from_brief_s5": {
+  "GATE_F_FP32_TOL": 0.002,
+  "FOLD_CONFIRMED": -0.1,
+  "FOLD_SHRINKS": -0.02,
+  "sigma_seed": 0.005,
+  "boot_n": 2000,
+  "boot_seed": 7
+ },
+ "replication_constants": {
+  "T3_arm_N_delta": 2.496655519614986,
+  "T3_arm_Q_delta": 2.716656308667292,
+  "T3_fold": -0.220001,
+  "file": "density/results/t3_rotation.json / t2b_organs.json",
+  "note": "arm N folded 2L+1 gains; this probe's NL folds 2L. Brief s2 argues the difference is neutral for an fp32 head; XA is the arm that tests that claim, exactly, at fp32."
+ },
+ "arms": {
+  "F32": {
+   "weights": "D:/_ktmp/e2\\qwen25-15b_f32.bin",
+   "fold": "none",
+   "quant": "fp32",
+   "head_ternary": false,
+   "n_gains_folded": 0,
+   "n_gains_expected": null,
+   "untied_by_fold": false,
+   "sidecar_rule": "R0",
+   "sidecar_sha256": "2c640b4d488563f4036dd9b5db8bdc06f81ad6dcbff7b579a43c8aee42dc457a",
+   "mean_ternary_zero_fraction": null,
+   "gate_a": {
+    "n_codes": 0,
+    "codes_differing": 0,
+    "scales_differing": 0,
+    "worst_scale_ulp": 0.0,
+    "worst_product_absdiff": 0.0,
+    "tensors": 338,
+    "worst_tensor": null,
+    "passes_as_registered": true,
+    "passes": true
+   },
+   "export_seconds": 105.79732823371887,
+   "bpb_torch": 0.7023085459201466,
+   "bpb_engine": 0.7023188804881384,
+   "delta": 1.0334567991820975e-05,
+   "n_predicted": 2044,
+   "nats_total_engine": 4480.1156682078,
+   "per_seq_max_abs_delta": 1.3363797160104163e-05,
+   "engine_seconds": 344.83679270744324
+  },
+  "XF": {
+   "weights": "D:/_ktmp/e2\\qwen25-15b_xf.bin",
+   "fold": "layers",
+   "quant": "fp32",
+   "head_ternary": false,
+   "n_gains_folded": 56,
+   "n_gains_expected": 56,
+   "untied_by_fold": false,
+   "sidecar_rule": "R0",
+   "sidecar_sha256": "3dfd8a43f03f8900e77a5b01f386852f398d9a0db710a8ab733e9436881b4753",
+   "mean_ternary_zero_fraction": null,
+   "gate_a": {
+    "n_codes": 0,
+    "codes_differing": 0,
+    "scales_differing": 0,
+    "worst_scale_ulp": 0.0,
+    "worst_product_absdiff": 0.0,
+    "tensors": 338,
+    "worst_tensor": null,
+    "passes_as_registered": true,
+    "passes": true
+   },
+   "export_seconds": 114.1996865272522,
+   "bpb_torch": 0.7023084980797047,
+   "bpb_engine": 0.7023188804200403,
+   "delta": 1.0382340335568507e-05,
+   "n_predicted": 2044,
+   "nats_total_engine": 4480.1156677734,
+   "per_seq_max_abs_delta": 1.3446516856974178e-05,
+   "engine_seconds": 345.24609756469727
+  },
+  "XA": {
+   "weights": "D:/_ktmp/e2\\qwen25-15b_xa.bin",
+   "fold": "all",
+   "quant": "fp32",
+   "head_ternary": false,
+   "n_gains_folded": 57,
+   "n_gains_expected": 57,
+   "untied_by_fold": true,
+   "sidecar_rule": "R0",
+   "sidecar_sha256": "e119761921b32e60cbdfe36960b93950e8533ad5d3265e21fbaa6f353f90cad7",
+   "mean_ternary_zero_fraction": null,
+   "gate_a": {
+    "n_codes": 0,
+    "codes_differing": 0,
+    "scales_differing": 0,
+    "worst_scale_ulp": 0.0,
+    "worst_product_absdiff": 0.0,
+    "tensors": 339,
+    "worst_tensor": null,
+    "passes_as_registered": true,
+    "passes": true
+   },
+   "export_seconds": 134.18719506263733,
+   "bpb_torch": 0.7023085363520581,
+   "bpb_engine": 0.7023188842716583,
+   "delta": 1.0347919600195432e-05,
+   "n_predicted": 2044,
+   "nats_total_engine": 4480.115692343,
+   "per_seq_max_abs_delta": 1.3363797160104163e-05,
+   "engine_seconds": 346.58050560951233
+  }
+ },
+ "replication": {},
+ "gate_F": {
+  "XF_vs_F32_torch": {
+   "diff": -4.784044183026026e-08,
+   "tol": 0.002,
+   "ok": true
+  },
+  "XF_vs_F32_engine": {
+   "diff": -6.809808272834061e-11,
+   "tol": 0.002,
+   "ok": true
+  },
+  "XA_vs_F32_torch": {
+   "diff": -9.568088432665434e-09,
+   "tol": 0.002,
+   "ok": true
+  },
+  "XA_vs_F32_engine": {
+   "diff": 3.783519941791269e-09,
+   "tol": 0.002,
+   "ok": true
+  }
+ },
+ "contrasts": {
+  "XA_minus_XF": {
+   "delta": 3.8272353468111716e-08,
+   "paired_se": 1.9823366008902838e-08,
+   "ci95": [
+    0.0,
+    8.012294562489356e-08
+   ],
+   "sigma_seed": 7.654470693622344e-06,
+   "excludes_zero": false
+  }
+ },
+ "decision": {
+  "rule": "brief section 5 as amended in s3.1, fixed before the run",
+  "gate_F_measured": true,
+  "gate_F_ok": true,
+  "fold_term_label": "INCOMPLETE (arms NL and TQ are both required for the decision)",
+  "OUTCOME_LABEL": "INCOMPLETE (arms NL and TQ are both required for the decision)"
+ },
+ "total_seconds": 1450.9255566596985
+}
