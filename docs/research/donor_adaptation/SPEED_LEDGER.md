@@ -484,8 +484,19 @@ Qwen2.5-0.5B, 6 threads, `--quant packed`, `--bench 300`, idle machine, median o
 
 | target on a 10B donor | active weights/token | share of 10B |
 |---|---|---|
-| **50 tok/s** | **554 M** | **5.5%** |
-| 100 tok/s | 277 M | 2.8% |
+| **50 tok/s** | **522 M** | **5.2%** |
+| 100 tok/s | 245 M | 2.4% |
+
+> Those are **weight budgets after reserving the fixed 1.17 ms/token** (rope + attention + norm),
+> which is the convention §11.3 used and `donor_speed_budget.py` computes: `27.7 G-w/s ×
+> (20 − 1.17) ms = 522 M`, not `27.7 G-w/s / 50 = 554 M`. The 1.17 ms is measured at 0.5 B and
+> short context and is **optimistic for a 10 B**, where attention and the KV cache both grow.
+
+**Against the head table (§7 of INDEX):** the budget moving 495 M → 522 M takes **Qwen2.5-Coder-7B
+(98%) and Nemotron-H-8B (97%) back under 100%**. Two donors of twelve still cannot reach 50 tok/s
+on this machine even if every weight outside their output head were free — Qwen3-8B at 112% and
+gpt-oss-20b at 105%. That is the whole distance a 10.3% runtime win buys on the question that
+actually gates this programme.
 
 The spread across organs is now **1.3×**, not 4×, and the ordering is by matrix size:
 0.5 MB → 14.2, 9.6 MB → 16.0, 6.5 MB per layer → 13.6, 68 MB → 18.5. **Nothing in this runtime

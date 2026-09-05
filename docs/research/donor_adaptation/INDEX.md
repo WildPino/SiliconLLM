@@ -23,11 +23,13 @@ generated tokens, with a parity gate at the seam. T2 has now shown the damage at
 **62% a bad map into the format**, not the format itself, and removed that much of it on CPU with
 no gradients. What remains is a real quality gap and a 20× speed gap.
 
-**The two numbers that price everything else** (`SPEED_LEDGER.md` **§11**, which supersedes §10):
-**25.1 G-weights/s packed, 26.3 with the LUT kernel built** → a 10B donor needs **≤495 M active
-weights/token** for 50 tok/s (4.9%) and ≤231 M for 100 (2.3%).
-And **the output head alone exceeds that budget on four of twelve donors** — 126% on Qwen3-8B,
-27% on Mistral-7B of the same width. Its size is set by the **tokenizer**, not the model (§7).
+**The two numbers that price everything else** (`SPEED_LEDGER.md` **§12**, which supersedes §11.4
+and §10): **27.7 G-weights/s packed, 28.8 with `--fuse --lut`** → a 10B donor needs **≤522 M
+active weights/token** for 50 tok/s (5.2%) and ≤245 M for 100 (2.4%).
+And **the output head alone exceeds that budget on two of twelve donors, with two more within 3%**
+— 112% on Qwen3-8B, 24% on Mistral-7B of the same width. Its size is set by the **tokenizer**, not
+the model (§7). Raising the budget from 495 M to 522 M — the whole of a 10.3% runtime win — moved
+exactly two donors from over the line to just under it.
 
 ## 1. The runtime (this is the deliverable)
 
@@ -38,19 +40,28 @@ And **the output head alone exceeds that budget on four of twelve donors** — 1
 | Parity gate vs PyTorch on identical weights | `benchmarks/donor_adaptation/engine/parity_gate.py` |
 | Report: profile, the two optimisations, honest position vs the goal | `probes/R1_DONOR_RUNTIME.md` |
 
-**Measured, Qwen2.5-0.5B, 3600X:** 12.45 tok/s (t1) → **48.3 tok/s (t6, packed)**, three reps
-within ±0.05 on an idle machine; **51.0 with `--lut`**. Trajectory: 23.5 (fp32 head) → 38.0
-(ternary head) → 48.3 (packed) → 51.0 (LUT). R1's "40-46" and `SPEED_LEDGER.md` §10's 36.1 were
-both taken on a contended machine and do not reproduce; §11 records the re-measurement.
+**Measured, Qwen2.5-0.5B, 3600X, `--bench 300`, idle, median of 3:** 12.45 tok/s (t1) →
+**56.1 tok/s (t6, packed)**. Trajectory: 23.5 (fp32 head) → 38.0 (ternary head) → 48.3 (packed)
+→ 50.9 (same binary, re-measured 2026-09-05) → **56.1 (rope hoisted out of the head/layer loops,
+bit-identical, `SPEED_LEDGER.md` §12)**. `--fuse --lut --lut-group 32` adds ~3.9% on top, but the
+LUT half of that is not numerically free.
+
+> **Two rates have been withdrawn here for two different reasons, and both were load-bearing.**
+> R1's "40–46" and §10's 36.1 were taken on a **contended machine**. §11.4's per-organ table was
+> taken with **the wrong work inside the timer** — both `rope()` calls sat in the `qkv` bucket, so
+> it reported qkv at 4.1 GB/s (real: 14.2) and produced a "32 µs per call" anomaly that does not
+> exist. **A tok/s figure is also only comparable at the same `--bench` length**: attention is
+> `O(position)`, worth 1.7 ms/token between 300 and 800.
 
 ## 2. The speed side — what is priced and what is measured
 
 | probe | question | answer | where |
 |---|---|---|---|
-| **Ledger** | what must a donor cost per token to hit 50/100 tok/s? | **≤495 M active weights/token** for 50 tok/s, ≤231 M for 100 — from the *measured* 26.3 G-weights/s, not a byte-rate ÷ bits-per-weight | `SPEED_LEDGER.md` §11 |
+| **Ledger** | what must a donor cost per token to hit 50/100 tok/s? | **≤522 M active weights/token** for 50 tok/s, ≤245 M for 100 — from the *measured* **27.7 G-weights/s**, not a byte-rate ÷ bits-per-weight | `SPEED_LEDGER.md` §12.2 |
 | **P2** | is the expert path bandwidth- or compute-bound? | **MIXED — ~60% arithmetic.** A denser pack buys ≤1.32× on the FFN, not 2.5× | `probes/P2_EXPERT_PATH_DECOMPOSITION.md` |
 | **P3** | what do donor SHAPES cost on the engine's kernels? | 0.5B 81 / 1.5B 30.7 / 3B 15.1 tok/s (matvec only). The ledger was 18% conservative because it priced dense FFNs at a *gather* rate | `probes/P3_DONOR_SHAPE_ON_ENGINE.md` |
-| **R1** | what does a real runtime cost? | 48.3 tok/s at 0.5B (re-measured, §11). **The packing bought nothing, exactly as P2 predicted — and neither did the LUT kernel** | `probes/R1_DONOR_RUNTIME.md` |
+| **R1** | what does a real runtime cost? | **56.1 tok/s** at 0.5B (§12). The packing bought nothing, exactly as P2 predicted; the LUT buys 2.2% and is not free; **the one big win was a profiling artefact — `rope()` was 9.6% of every token** | `probes/R1_DONOR_RUNTIME.md`, `SPEED_LEDGER.md` §12 |
+| **P64 matrix** | is the runtime's rate set by OpenMP region count or thread wake-ups? | **neither.** A region costs **2.5–3.2 µs**, measured two ways; `OMP_WAIT_POLICY=active` does nothing. After the rope hoist all four organs sit in a **1.3× band** | `SPEED_LEDGER.md` §12.4, `engine/bench_matrix.py` |
 
 **Terms nobody had attacked before the ledger, now priced:** the **output head** (was 40.4% of every
 token in fp32 — fixed; and see §7, it is the floor a 10B cannot get under), the **KV cache** (still
@@ -64,7 +75,7 @@ fp32, untouched), the **attention projections**.
 | kernel correctness | **bit-exact** vs a scalar-integer reference; two planted controls fire (`--selftest-lut` cases B and C) |
 | numeric cost of the int8 activations it requires | **measured.** rel l2 `1.40e-01` per-vector → **`3.10e-02` at G=32 channels per scale** |
 | why it costs that | activation crest factor `amax/rms` is 8.3 avg / 69.6 max, so a 63-step grid leaves ~4–8 usable levels. `--lut-diag` measures it on `x` alone, so the kernel is not implicated |
-| **rate** | ⚠ **measured: 1.05×.** 48.13 → 51.05 tok/s; 25.1 → 26.3 G-weights/s. **Not the 1.83× the ledger assumed** (`SPEED_LEDGER.md` §11) |
+| **rate** | ⚠ **measured: 1.022×** after the rope hoist (`SPEED_LEDGER.md` §12.4). It helps the two big-matrix organs (ffn −0.40 ms, head −0.33) and **hurts the two small ones** (qkv +0.31, o_proj +0.06); `--fuse` first removes that penalty and the pair is worth 1.039×. **Not the 1.83× the ledger assumed** |
 | BPB through the runtime | ❌ not run |
 
 Two predictions were written before their sweeps and **both were wrong in magnitude**: clipping the
@@ -129,6 +140,8 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 | **T1's planted control was mis-specified** | required random signs ≫ ternarization; they are only 1.21× apart, so it returned VOID on sound numbers | identity-substitution control added (bit-exact). **T2 §4 then showed the premise itself was false**: random signs are not ≫ the treatment, they are indistinguishable from it |
 | **`--calib-seqs` defaulted to 8 while T2 measures at 32** | exporting `--rule R3` would have built a model on a quarter of the calibration budget that produced the number, and the BPB gap would have read as the runtime disagreeing with PyTorch | default → 32, stderr warning otherwise, and the sidecar records the budget and the organ lists |
 | **the LUT diagnostic reported whole-vector crest while groups were active** | it kept calling the derived figure "effective levels" when the grid was per-group, i.e. a plausible number describing the wrong thing | crest computed in-group, both labels corrected, header states which scale is in force |
+| **both `rope()` calls sat inside the `qkv` timer** | the per-organ table read qkv at **4.1 GB/s** against the head's 17.6 — a 4× anomaly that does not exist — and two experiments were built to chase it. It also hid that rope was **9.6% of every token** | `T_ROPE` is its own bucket; rope hoisted out of the head and layer loops (**+10.3%, bit-identical**); §11.4 marked superseded and its two derived claims withdrawn in §12.1 |
+| **the bench harness called an idle machine CONTENDED, twice** | once because it compared an 800-token run to a 300-token reference (attention is `O(position)`), once because min-max over 6 rounds is set by a single bad round | reference must match `--bench` length; the gate is now the IQR; the harness prints which of its two blocks is readable |
 
 ## 6. Working rules this programme has paid for
 
@@ -145,6 +158,12 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 - **When an instrument returns an impossible ordering, test the instrument before the finding.**
   GPTQ scoring below its own starting point is not physically possible; two controls showed the
   code was right and the objective was wrong. (T2 §5)
+- **A profiler bucket is a claim about what is inside it.** `rope()` inside the `qkv` timer both
+  hid a 9.6% cost and manufactured a 4× anomaly that two experiments were then aimed at. Before
+  deriving a rate from a bucket, name every operation the bracket contains. (§12.1)
+- **A throughput number carries its bench length.** Attention is `O(position)`, so a longer bench
+  has a genuinely lower tok/s — 1.7 ms/token between 300 and 800 on this donor. Two rates taken at
+  different lengths are not comparable and their difference is not contention. (§12.3)
 - **Quantization damage does not add across organs.** The head costs `+0.339` alone and
   `−0.009 ± 0.020` on top of a ternary FFN+attention; the three single-organ arms sum to `+3.184`
   where the combination measures `+2.708`. A per-organ cost is only a cost *in the company it was
@@ -155,21 +174,24 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 
 ## 7. The head, the tokenizer, and the thing nobody priced
 
-`donor_speed_budget.py` prices the output head against the measured 26.3 G-weights/s of the
-built LUT kernel (`SPEED_LEDGER.md` §11). The head is a dense GEMV of `D × V` touched on **every** token, and **no** MoE, carve,
-sparsity or reconstruction result in this programme touches it.
+`donor_speed_budget.py` prices the output head against the measured **27.7 G-weights/s** of the
+packed kernel after the rope hoist (`SPEED_LEDGER.md` §12.2). The head is a dense GEMV of `D × V`
+touched on **every** token, and **no** MoE, carve, sparsity or reconstruction result in this
+programme touches it.
 
-| donor | D | V | head | % of the 495 M budget for 10B @ 50 tok/s |
+| donor | D | V | head | % of the 522 M budget for 10B @ 50 tok/s |
 |---|---|---|---|---|
-| Qwen3-8B | 4096 | 151,936 | 622 M | **126%** |
-| openai/gpt-oss-20b | 2880 | 201,088 | 579 M | 117% |
-| Qwen2.5-Coder-7B | 3584 | 152,064 | 545 M | 110% |
-| nvidia/Nemotron-H-8B | 4096 | 131,072 | 537 M | 108% |
-| mistralai/Mistral-7B-v0.3 | 4096 | 32,768 | 134 M | **27%** |
-| microsoft/Phi-3-mini | 3072 | 32,064 | 98 M | 20% |
+| Qwen3-8B | 4096 | 151,936 | 622 M | **112%** |
+| openai/gpt-oss-20b | 2880 | 201,088 | 579 M | **105%** |
+| Qwen2.5-Coder-7B | 3584 | 152,064 | 545 M | 98% |
+| nvidia/Nemotron-H-8B | 4096 | 131,072 | 537 M | 97% |
+| mistralai/Mistral-7B-v0.3 | 4096 | 32,768 | 134 M | **24%** |
+| microsoft/Phi-3-mini | 3072 | 32,064 | 98 M | 18% |
 
-**Four of twelve donors on this disk have an output head larger than the entire 50 tok/s budget.**
-Qwen3-8B cannot reach 50 tok/s on this machine even if every other weight in it were free.
+**Two of twelve donors on this disk have an output head larger than the entire 50 tok/s budget,
+and two more are within 3% of it.** Qwen3-8B cannot reach 50 tok/s on this machine even if every
+other weight in it were free. It was four of twelve at the 495 M budget: **the entire 10.3% rope
+win bought exactly two rows crossing back under the line.**
 
 **Qwen3-8B and Mistral-7B are the same width.** Their heads differ by 4.6× entirely because of
 vocabulary size. Every donor-adaptation probe this programme owns was measured on Qwen, which has

@@ -544,23 +544,28 @@ two engine states (today / overhead fixed) crossed with the two packings (built 
 
     # -------- the same goal, in the currency that survived contact with a real runtime -----
     # MEASURED: Qwen2.5-0.5B through donor_engine.c, t6, packed body + ternary head, 3600X,
-    # SPEED_LEDGER.md s11. 493,961,216 active weights/token; 20.89 ms wall of which 19.69 ms is
-    # weight-matvec and 1.20 ms is everything else. Three consecutive reps, idle machine:
-    # 48.24 / 48.28 / 48.33 tok/s.
+    # --bench 300, idle machine, median of three (56.41 / 55.75 / 56.14 tok/s).
+    # SPEED_LEDGER.md s12.2. 493,961,216 active weights/token; 17.833 ms wall of which 16.659 ms
+    # is weight-matvec and 1.174 ms is everything else (rope 0.016, attention 1.092, norm 0.068).
     #
-    # s10's 18.6 G-w/s is WITHDRAWN: it was taken while a 40 GB 6-thread probe held the machine,
-    # and it does not reproduce. The gap between the two is 35%, larger than any lever here.
-    # The LUT figure below is likewise MEASURED, not a ceiling: s10 assumed the LUT kernel would
-    # reach 34 G-w/s (x1.83). It is built, bit-exact, and reaches 26.3 (x1.05).
-    W_MEASURED   = 25.1e9    # 493.961e6 / 19.691e-3  -- the packed kernel as built
-    W_LUT        = 26.3e9    # 493.961e6 / 18.752e-3  -- the LUT kernel as built
-    FIXED_MS     = 1.20      # 20.89 - 19.69, measured at 0.5B and short context: OPTIMISTIC for
+    # THREE rates have been withdrawn on the way here, all of them load-bearing when they stood:
+    #   s10's 18.6 G-w/s  -- taken while a 40 GB 6-thread probe held the machine. 35% off.
+    #   s10's LUT ceiling -- assumed 34 G-w/s (x1.83). Built, bit-exact, delivers x1.022.
+    #   s11.4's qkv row   -- both rope() calls sat inside the qkv timer, so it charged 1.89 ms of
+    #                        double-precision pow() to qkv's weights and read 4.1 GB/s (real:
+    #                        14.2). Hoisting rope out is +10.3% and bit-identical.
+    # A rate is only as good as (a) an idle machine, (b) what its timer bracket contains, and
+    # (c) the --bench length it was taken at: attention is O(position), worth 1.7 ms/token
+    # between 300 and 800 tokens on this donor.
+    W_MEASURED   = 27.7e9    # 493.961e6 / 17.833e-3  -- the packed kernel as built, post-rope
+    W_LUT        = 28.8e9    # 493.961e6 / 17.15e-3   -- --fuse --lut --lut-group 32, x1.039
+    FIXED_MS     = 1.17      # 17.833 - 16.659, measured at 0.5B and short context: OPTIMISTIC for
                              # a 10B, where attention and KV both grow.
     print()
     print("%-38s %16s %16s" % ("10.0G-param donor  (measured currency)", "50 tok/s", "100 tok/s"))
     print("-" * 72)
-    for label, wps in (("matvec packed        25.1 G-w/s", W_MEASURED),
-                       ("matvec LUT, built    26.3 G-w/s", W_LUT)):
+    for label, wps in (("matvec packed        27.7 G-w/s", W_MEASURED),
+                       ("packed +fuse +LUT    28.8 G-w/s", W_LUT)):
         cells = []
         for tok_s, _ in TARGETS:
             ms = 1000.0 / tok_s - FIXED_MS           # budget left for weights after the fixed cost
@@ -569,24 +574,27 @@ two engine states (today / overhead fixed) crossed with the two packings (built 
         print("%-38s %16s %16s" % (label, cells[0], cells[1]))
     print("""
 BOTH ROWS ARE MEASURED. The LUT kernel is built, bit-exact against a scalar-integer reference
-(donor_engine.c --selftest-lut), and delivers 1.05x -- not the 1.83x this ledger assumed when
-the kernel was still hypothetical. It also quantizes activations to int8, at a cost measured
-separately (rel l2 3.1e-02 at 32 channels per scale) and NOT composed into these numbers.
+(donor_engine.c --selftest-lut), and delivers 1.022x on its own and 1.039x with --fuse -- not the
+1.83x this ledger assumed when the kernel was still hypothetical. It also quantizes activations
+to int8, at a cost measured separately (rel l2 3.1e-02 at 32 channels per scale) and NOT composed
+into these numbers, so the top row is the one that is numerically free.
 
 THE HEAD IS THE FLOOR, AND THE FLOOR IS SET BY THE TOKENIZER, NOT BY THE MODEL SIZE.
 The output head is a dense GEMV of D*V weights touched on every single token. No MoE, no
 carve, no activation sparsity and no reconstruction result in this programme touches it.
-Priced against the 495M budget above (LUT as built, 50 tok/s):""")
+Priced against the 554M budget above (packed as built, 50 tok/s):""")
     print()
-    print("  %-34s %6s %8s %10s %16s" % ("donor", "D", "V", "head", "% of 495M budget"))
+    print("  %-34s %6s %8s %10s %16s" % ("donor", "D", "V", "head", "% of 554M budget"))
     for name, s, _a, _p in sorted(donors, key=lambda r: -r[1]["D"] * r[1]["V"])[:12]:
         h = s["D"] * s["V"]
         print("  %-34s %6d %8d %9.0fM %15.0f%%" % (name, s["D"], s["V"], h / 1e6,
-                                                   100.0 * h / 495e6))
+                                                   100.0 * h / 554e6))
     print("""
-Read the top row: on Qwen3-8B the output head ALONE is 126% of the entire 50 tok/s budget.
+Read the top row: on Qwen3-8B the output head ALONE is 112% of the entire 50 tok/s budget.
 The model cannot reach 50 tok/s on this machine even if every other weight in it were free.
-Four of the twelve rows are over 100%.
+Two of the twelve rows are over 100% and two more are within 3% of it -- it was four over 100%
+before the rope hoist raised the budget from 495M to 522M, which is the whole distance a 10.3%
+runtime win bought on this question.
 
 Qwen3-8B and Mistral-7B-v0.3 are the same width (D=4096). Their heads differ by 4.6x --
 622M against 134M -- entirely because Qwen carries a 151,936-token vocabulary and Mistral a
