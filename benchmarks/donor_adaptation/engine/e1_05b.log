@@ -1,0 +1,38 @@
+E1  Qwen/Qwen2.5-0.5B  arms=F32,TQ,TQH  seqs=24/24  bytes=51870  slice a1a48dc9fc5a6dc1
+
+[F32] exporting: --model Qwen/Qwen2.5-0.5B --quant fp32 --out D:/_ktmp/e1\qwen25-05b_f32.bin --calib-seqs 32 --threads 6
+   wrote D:/_ktmp/e1\qwen25-05b_f32.bin  (1.84 GB)  sha256 ebed02f7ec8917d8
+[F32] building the PyTorch reference by reading the weights back out of the exported file...
+[F32] GATE A (fp32 round-trip): 290 tensors, worst |diff| 0.000e+00 -> PASS
+[F32] PyTorch BPB 0.871795114
+[F32] engine  BPB 0.871810461   delta +0.000015347   per-seq max |delta| 2.26e-05   (742s)
+
+[TQ] exporting: --model Qwen/Qwen2.5-0.5B --quant packed --out D:/_ktmp/e1\qwen25-05b_tq.bin --calib-seqs 32 --threads 6 --rule R3
+     mean ternary zero-fraction across 168 matrices: 0.4914
+[TQ] building the PyTorch reference by reading the weights back out of the exported file...
+  R3: capturing activations over 32 calib sequences...
+  R3: captured 169 activation vectors
+[TQ] GATE A1 codes: 0 differing of 357826560 -> PASS
+[TQ] GATE A2 scales: 0 differing, worst 0.00 ulp (tol 64) -> PASS
+[TQ] brief's single gate as registered (product bit-identical): PASS (worst 0.000e+00)
+[TQ] PyTorch BPB 4.509151256
+[TQ] engine  BPB 4.509163909   delta +0.000012653   per-seq max |delta| 4.66e-05   (402s)
+
+[TQH] exporting: --model Qwen/Qwen2.5-0.5B --quant packed --out D:/_ktmp/e1\qwen25-05b_tqh.bin --calib-seqs 32 --threads 6 --rule R3 --head-ternary
+     mean ternary zero-fraction across 169 matrices: 0.4915
+[TQH] building the PyTorch reference by reading the weights back out of the exported file...
+  R3: capturing activations over 32 calib sequences...
+  R3: captured 169 activation vectors
+[TQH] GATE A1 codes: 0 differing of 493961216 -> PASS
+[TQH] GATE A2 scales: 0 differing, worst 0.00 ulp (tol 64) -> PASS
+[TQH] brief's single gate as registered (product bit-identical): PASS (worst 0.000e+00)
+[TQH] PyTorch BPB 4.531219311
+[TQH] engine  BPB 4.531233734   delta +0.000014422   per-seq max |delta| 5.55e-05   (277s)
+
+arm         BPB torch     BPB engine          delta     gate A
+F32       0.871795114    0.871810461   +0.000015347       PASS
+TQ        4.509151256    4.509163909   +0.000012653       PASS
+TQH       4.531219311    4.531233734   +0.000014422       PASS
+
+OUTCOME: LOOP-CLOSED
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\e1_bpb_through_engine_qwen25-05b.json  (2074 s)

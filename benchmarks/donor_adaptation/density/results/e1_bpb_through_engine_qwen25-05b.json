@@ -1,0 +1,130 @@
+{
+ "brief": "docs/research/donor_adaptation/briefs/BRIEF_E1_BPB_THROUGH_ENGINE.md @ f92af8a",
+ "model": "Qwen/Qwen2.5-0.5B",
+ "revision": null,
+ "smoke": false,
+ "slice": {
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "n_seq": 24,
+  "seq_len": 512,
+  "bytes": 51870,
+  "subset_of_pinned_24": false
+ },
+ "calib_seqs": 32,
+ "threads": 6,
+ "thresholds_from_brief_s4": {
+  "GATE_B_TOL": 0.002,
+  "TERNARY_TOL": 0.01,
+  "ULP_TOL": 64,
+  "sigma_seed": 0.005,
+  "T2b_FA": 2.716656,
+  "T2b_FAH": 2.708111
+ },
+ "arms": {
+  "F32": {
+   "weights": "D:/_ktmp/e1\\qwen25-05b_f32.bin",
+   "quant": "fp32",
+   "head_ternary": false,
+   "sidecar_rule": "R0",
+   "sidecar_calib_seqs": null,
+   "sidecar_sha256": "ebed02f7ec8917d825d031e0ab00677617f54cc87e7cc5a9e1b9b0cd860d5740",
+   "mean_ternary_zero_fraction": null,
+   "gate_a": {
+    "n_codes": 0,
+    "codes_differing": 0,
+    "scales_differing": 0,
+    "worst_scale_ulp": 0.0,
+    "worst_product_absdiff": 0.0,
+    "tensors": 290,
+    "worst_tensor": null,
+    "passes_as_registered": true,
+    "passes": true
+   },
+   "export_seconds": 36.98815846443176,
+   "bpb_torch": 0.8717951138189177,
+   "bpb_engine": 0.8718104610834241,
+   "delta": 1.5347264506360148e-05,
+   "n_predicted": 12264,
+   "nats_total_engine": 31344.6759950966,
+   "per_seq_max_abs_delta": 2.2620827544450606e-05,
+   "engine_seconds": 741.8559110164642,
+   "per_seq_note": "recovered from the engine's cumulative running mean printed at 6 decimals; good to ~1e-5 BPB. Diagnostic, not a gate."
+  },
+  "TQ": {
+   "weights": "D:/_ktmp/e1\\qwen25-05b_tq.bin",
+   "quant": "packed",
+   "head_ternary": false,
+   "sidecar_rule": "R3",
+   "sidecar_calib_seqs": 32,
+   "sidecar_sha256": "e145d790b5dac98f7400340a3120788498351e8f4b92dc7c952dd0ac1b37aac2",
+   "mean_ternary_zero_fraction": 0.4913539214148408,
+   "gate_a": {
+    "n_codes": 357826560,
+    "codes_differing": 0,
+    "scales_differing": 0,
+    "worst_scale_ulp": 0.0,
+    "worst_product_absdiff": 0.0,
+    "tensors": 168,
+    "worst_tensor": null,
+    "passes_A1_codes": true,
+    "passes_A2_scales": true,
+    "passes_as_registered": true,
+    "passes": true
+   },
+   "export_seconds": 204.48935103416443,
+   "bpb_torch": 4.509151256008091,
+   "bpb_engine": 4.509163909048454,
+   "delta": 1.265304036301984e-05,
+   "n_predicted": 12264,
+   "nats_total_engine": 162120.4241599279,
+   "per_seq_max_abs_delta": 4.65904833033548e-05,
+   "engine_seconds": 402.01724791526794,
+   "per_seq_note": "recovered from the engine's cumulative running mean printed at 6 decimals; good to ~1e-5 BPB. Diagnostic, not a gate."
+  },
+  "TQH": {
+   "weights": "D:/_ktmp/e1\\qwen25-05b_tqh.bin",
+   "quant": "packed",
+   "head_ternary": true,
+   "sidecar_rule": "R3",
+   "sidecar_calib_seqs": 32,
+   "sidecar_sha256": "011fa42faf7853e28135dccb6ae5bef0014c2e51dcb075362cb3e16b162cf35b",
+   "mean_ternary_zero_fraction": 0.4915175563132269,
+   "gate_a": {
+    "n_codes": 493961216,
+    "codes_differing": 0,
+    "scales_differing": 0,
+    "worst_scale_ulp": 0.0,
+    "worst_product_absdiff": 0.0,
+    "tensors": 169,
+    "worst_tensor": null,
+    "passes_A1_codes": true,
+    "passes_A2_scales": true,
+    "passes_as_registered": true,
+    "passes": true
+   },
+   "export_seconds": 252.53344678878784,
+   "bpb_torch": 4.531219311358794,
+   "bpb_engine": 4.531233733626962,
+   "delta": 1.4422268168168273e-05,
+   "n_predicted": 12264,
+   "nats_total_engine": 162913.9125746256,
+   "per_seq_max_abs_delta": 5.551595537589549e-05,
+   "engine_seconds": 276.96861696243286,
+   "per_seq_note": "recovered from the engine's cumulative running mean printed at 6 decimals; good to ~1e-5 BPB. Diagnostic, not a gate."
+  }
+ },
+ "replication_vs_t2b": {},
+ "decision": {
+  "rule": "brief section 4, thresholds fixed before the run",
+  "gate_A_all_pass": true,
+  "gate_B_delta_F32": 1.5347264506360148e-05,
+  "gate_B_ok": true,
+  "ternary_deltas": {
+   "TQ": 1.265304036301984e-05,
+   "TQH": 1.4422268168168273e-05
+  },
+  "ternary_ok": true,
+  "OUTCOME_LABEL": "LOOP-CLOSED"
+ },
+ "total_seconds": 2074.049879550934
+}
