@@ -1,0 +1,69 @@
+{
+ "brief": "docs/research/donor_adaptation/briefs/BRIEF_E1_BPB_THROUGH_ENGINE.md @ f92af8a",
+ "model": "Qwen/Qwen2.5-0.5B",
+ "revision": null,
+ "smoke": true,
+ "slice": {
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "n_seq": 2,
+  "seq_len": 512,
+  "bytes": 4396,
+  "subset_of_pinned_24": true
+ },
+ "calib_seqs": 4,
+ "threads": 6,
+ "thresholds_from_brief_s4": {
+  "GATE_B_TOL": 0.002,
+  "TERNARY_TOL": 0.01,
+  "ULP_TOL": 64,
+  "sigma_seed": 0.005,
+  "T2b_FA": 2.716656,
+  "T2b_FAH": 2.708111
+ },
+ "arms": {
+  "TQ": {
+   "weights": "D:/_ktmp/e1\\qwen25-05b_tq.bin",
+   "quant": "packed",
+   "head_ternary": false,
+   "sidecar_rule": "R3",
+   "sidecar_calib_seqs": 4,
+   "sidecar_sha256": "e6bdc1f7e1048b31b72fef2314c285978b43b106e1791f9dbd499391e94f37be",
+   "mean_ternary_zero_fraction": 0.4922040926203841,
+   "gate_a": {
+    "n_codes": 357826560,
+    "codes_differing": 0,
+    "scales_differing": 0,
+    "worst_scale_ulp": 0.0,
+    "worst_product_absdiff": 0.0,
+    "tensors": 168,
+    "worst_tensor": null,
+    "passes_A1_codes": true,
+    "passes_A2_scales": true,
+    "passes_as_registered": true,
+    "passes": true
+   },
+   "export_seconds": 94.30598545074463,
+   "bpb_torch": 4.026070011920199,
+   "bpb_engine": 4.026084747615716,
+   "delta": 1.473569551713183e-05,
+   "n_predicted": 1022,
+   "nats_total_engine": 12267.782205457,
+   "per_seq_max_abs_delta": 1.609407126590412e-05,
+   "engine_seconds": 34.34622144699097,
+   "per_seq_note": "recovered from the engine's cumulative running mean printed at 6 decimals; good to ~1e-5 BPB. Diagnostic, not a gate."
+  }
+ },
+ "replication_vs_t2b": {},
+ "decision": {
+  "rule": "brief section 4, thresholds fixed before the run",
+  "gate_A_all_pass": true,
+  "gate_B_delta_F32": null,
+  "gate_B_ok": false,
+  "ternary_deltas": {
+   "TQ": 1.473569551713183e-05
+  },
+  "ternary_ok": true,
+  "OUTCOME_LABEL": "INCOMPLETE (arm F32 not run; Gate B cannot be evaluated)"
+ },
+ "total_seconds": 133.1231656074524
+}

@@ -1,0 +1,19 @@
+E1  Qwen/Qwen2.5-0.5B  arms=TQ  seqs=2/24  bytes=4396  slice a1a48dc9fc5a6dc1
+
+[TQ] exporting: --model Qwen/Qwen2.5-0.5B --quant packed --out D:/_ktmp/e1\qwen25-05b_tq.bin --calib-seqs 4 --threads 6 --rule R3
+     mean ternary zero-fraction across 168 matrices: 0.4922
+[TQ] building the PyTorch reference by reading the weights back out of the exported file...
+  WARNING: --calib-seqs 4 != 32. T2's numbers were measured at 32; this export is a DIFFERENT quantization and its BPB is unmeasured.
+  R3: capturing activations over 4 calib sequences...
+  R3: captured 169 activation vectors
+[TQ] GATE A1 codes: 0 differing of 357826560 -> PASS
+[TQ] GATE A2 scales: 0 differing, worst 0.00 ulp (tol 64) -> PASS
+[TQ] brief's single gate as registered (product bit-identical): PASS (worst 0.000e+00)
+[TQ] PyTorch BPB 4.026070012
+[TQ] engine  BPB 4.026084748   delta +0.000014736   per-seq max |delta| 1.61e-05   (34s)
+
+arm         BPB torch     BPB engine          delta     gate A
+TQ        4.026070012    4.026084748   +0.000014736       PASS
+
+OUTCOME: INCOMPLETE (arm F32 not run; Gate B cannot be evaluated)
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\e1_bpb_through_engine_smoke_qwen25-05b.json  (133 s)

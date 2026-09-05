@@ -88,7 +88,10 @@ def w_tern(fh, w, rule="R0", act_rms=None):
     """int8 codes + fp32 per-row scales."""
     q, scale = quantize(w, rule, act_rms)
     fh.write(np.ascontiguousarray(q.numpy(), dtype="i1").tobytes())
-    fh.write(np.ascontiguousarray(scale.squeeze(1).numpy(), dtype="<f4").tobytes())
+    # quantize() already returns the scale as a [out] vector. This line used to squeeze it a
+    # SECOND time, which raises IndexError on a 1-D tensor -- so --quant ternary has been dead
+    # since --rule landed. --quant packed never had the bug, which is why nothing caught it.
+    fh.write(np.ascontiguousarray(scale.numpy(), dtype="<f4").tobytes())
     return float((q == 0).float().mean())
 
 
@@ -108,6 +111,60 @@ def w_packed(fh, w, rule="R0", act_rms=None):
     fh.write(np.ascontiguousarray(packed).tobytes())
     fh.write(np.ascontiguousarray(scale.numpy(), dtype="<f4").tobytes())
     return float((q == 0).float().mean())
+
+
+def capture_act_rms(m, tk, calib_seqs, L):
+    """Per-input activation RMS for rule R3, captured over the pinned calibration slice.
+
+    ONE definition, imported by both the exporter and E1's runner: a Gate-A check that
+    re-derived the calibration itself would be comparing two implementations, not the
+    exporter against the rule.
+
+    The calibration corpus half is DISJOINT from the eval half by construction
+    (build_calib.py) and the sha256s are asserted different, exactly as D4 and T2 do.
+    """
+    import common as CD
+    ids_cal, _, meta_cal = CD.get_slice(tk, "calib", 32, 512, 42424)
+    _, _, meta_ev = CD.get_slice(tk, "heldout", 24, 512, 1234)
+    assert meta_cal["corpus_sha256"] != meta_ev["corpus_sha256"], \
+        "calib and eval must be different corpus halves"
+    ids_cal = ids_cal[: calib_seqs]
+    if ids_cal.shape[0] != 32:
+        print("  WARNING: --calib-seqs %d != 32. T2's numbers were measured at 32; this "
+              "export is a DIFFERENT quantization and its BPB is unmeasured."
+              % ids_cal.shape[0], flush=True)
+    # T2 applied the rule to the FFN organs ONLY (84 tensors = 28 layers x 3). This exporter
+    # applies it to the attention projections as well, which is what a runnable model needs
+    # and what BRIEF_T2 s4 explicitly forbids extrapolating to. The organ list is recorded.
+    print("  R3: capturing activations over %d calib sequences..." % ids_cal.shape[0],
+          flush=True)
+    sums, cnts, hooks, act = {}, {}, [], {}
+
+    def mk(key):
+        def f(mod, inp, out):
+            x = inp[0].detach().reshape(-1, inp[0].shape[-1]).float()
+            sums[key] = (x * x).sum(0) if key not in sums else sums[key] + (x * x).sum(0)
+            cnts[key] = cnts.get(key, 0) + x.shape[0]
+        return f
+    for li, lay in enumerate(m.model.layers):
+        for nm, mod in (("q_proj", lay.self_attn.q_proj), ("o_proj", lay.self_attn.o_proj),
+                        ("gate_proj", lay.mlp.gate_proj), ("down_proj", lay.mlp.down_proj)):
+            hooks.append(mod.register_forward_hook(mk((li, nm))))
+    hl = m.lm_head.register_forward_hook(mk(("head", "head")))
+    with torch.no_grad():
+        for i in range(ids_cal.shape[0]):
+            m(ids_cal[i:i + 1])
+    for h in hooks:
+        h.remove()
+    hl.remove()
+    for k, v in sums.items():
+        act[k] = torch.sqrt(v / cnts[k]).clamp_min(1e-8)
+    for li in range(L):                      # organs that share an input
+        act[(li, "k_proj")] = act[(li, "q_proj")]
+        act[(li, "v_proj")] = act[(li, "q_proj")]
+        act[(li, "up_proj")] = act[(li, "gate_proj")]
+    print("  R3: captured %d activation vectors" % len(act), flush=True)
+    return act
 
 
 def main():
@@ -132,6 +189,15 @@ def main():
                          "and a mismatch is warned about on stderr. D4b was written to sweep "
                          "this knob and has never been run: 32 is a registered point, not an "
                          "optimum.")
+    ap.add_argument("--threads", type=int, default=0,
+                    help="torch thread count. NOT a speed knob: R3's calibration forward pass "
+                         "changes its REDUCTION ORDER with the thread count, so act_rms moves in "
+                         "its last bits and alpha=num/den moves with it. Measured on 0.5B: 6 vs 6 "
+                         "threads gives 0 differing activations, 6 vs 1 gives 102,123 (worst "
+                         "1.9e-06), which propagates to <=6 ulp on the stored scales. The CODES "
+                         "never moved (0 of 357,826,560), so the quantization is not in doubt -- "
+                         "but two exports of the same command produce different sha256 unless "
+                         "this matches. 0 leaves torch alone; the value used is recorded.")
     ap.add_argument("--head-ternary", action="store_true",
                     help="UNTIE the output head and store it ternary. The embedding table stays "
                          "fp32 because it is a row LOOKUP (3.5 KB/token) and costs nothing to "
@@ -139,9 +205,20 @@ def main():
                          "of per-token time when left fp32 (measured, donor_engine --profile).")
     a = ap.parse_args()
 
+    if a.threads > 0:
+        torch.set_num_threads(a.threads)
+
     from transformers import AutoModelForCausalLM
+    # attn_implementation="eager" is NOT cosmetic and NOT a speed choice: it is what
+    # common.load_model uses, and therefore what T1/T2/T2b/T3 measured. HF's default here is
+    # sdpa, and sdpa vs eager moves R3's calibration act_rms on 142,977 elements (worst rel
+    # 8.2e-06) -- which moved 132,844 stored scales by up to 6 ulp while leaving all
+    # 357,826,560 CODES identical. Nothing about the quantization was ever in doubt; the
+    # ARTIFACT simply was not the one the probes measured. Same class as the S1 fp16 bug:
+    # reproduce the CONFIGURATION, not just the model.
     m = AutoModelForCausalLM.from_pretrained(a.model, revision=a.revision,
-                                             dtype=torch.float32).eval()
+                                             dtype=torch.float32,
+                                             attn_implementation="eager").eval()
     c = m.config
     D = c.hidden_size
     F = c.intermediate_size
@@ -164,48 +241,9 @@ def main():
     # sha256s are asserted different, exactly as D4 and T2 do.
     act = {}
     if a.rule == "R3":
-        import common as CD
         from transformers import AutoTokenizer
         tk = AutoTokenizer.from_pretrained(a.model, revision=a.revision)
-        ids_cal, _, meta_cal = CD.get_slice(tk, "calib", 32, 512, 42424)
-        _, _, meta_ev = CD.get_slice(tk, "heldout", 24, 512, 1234)
-        assert meta_cal["corpus_sha256"] != meta_ev["corpus_sha256"],             "calib and eval must be different corpus halves"
-        ids_cal = ids_cal[: a.calib_seqs]
-        if ids_cal.shape[0] != 32:
-            print("  WARNING: --calib-seqs %d != 32. T2's numbers were measured at 32; this "
-                  "export is a DIFFERENT quantization and its BPB is unmeasured."
-                  % ids_cal.shape[0], flush=True)
-        # T2 applied the rule to the FFN organs ONLY (84 tensors = 28 layers x 3). This exporter
-        # applies it to the attention projections as well, which is what a runnable model needs
-        # and what BRIEF_T2 s4 explicitly forbids extrapolating to. The organ list is recorded.
-        print("  R3: capturing activations over %d calib sequences..." % ids_cal.shape[0],
-              flush=True)
-        sums, cnts, hooks = {}, {}, []
-
-        def mk(key):
-            def f(mod, inp, out):
-                x = inp[0].detach().reshape(-1, inp[0].shape[-1]).float()
-                sums[key] = (x * x).sum(0) if key not in sums else sums[key] + (x * x).sum(0)
-                cnts[key] = cnts.get(key, 0) + x.shape[0]
-            return f
-        for li, lay in enumerate(m.model.layers):
-            for nm, mod in (("q_proj", lay.self_attn.q_proj), ("o_proj", lay.self_attn.o_proj),
-                            ("gate_proj", lay.mlp.gate_proj), ("down_proj", lay.mlp.down_proj)):
-                hooks.append(mod.register_forward_hook(mk((li, nm))))
-        hl = m.lm_head.register_forward_hook(mk(("head", "head")))
-        with torch.no_grad():
-            for i in range(ids_cal.shape[0]):
-                m(ids_cal[i:i + 1])
-        for h in hooks:
-            h.remove()
-        hl.remove()
-        for k, v in sums.items():
-            act[k] = torch.sqrt(v / cnts[k]).clamp_min(1e-8)
-        for li in range(L):                      # organs that share an input
-            act[(li, "k_proj")] = act[(li, "q_proj")]
-            act[(li, "v_proj")] = act[(li, "q_proj")]
-            act[(li, "up_proj")] = act[(li, "gate_proj")]
-        print("  R3: captured %d activation vectors" % len(act), flush=True)
+        act = capture_act_rms(m, tk, a.calib_seqs, L)
 
     zeros = []
     with open(a.out, "wb") as fh:
@@ -260,6 +298,10 @@ def main():
             # The seam between what T2 MEASURED and what this file CONTAINS. Recorded so a
             # BPB gap between the two can be attributed instead of guessed at.
             "calib_seqs": (a.calib_seqs if a.rule == "R3" else None),
+            # part of the artifact's IDENTITY, not a performance note: see --threads.
+            "torch_threads": (a.threads if a.threads > 0 else torch.get_num_threads()),
+            "torch_threads_pinned": bool(a.threads > 0),
+            "attn_implementation": m.config._attn_implementation,
             "calib_matches_t2_operating_point": (a.calib_seqs == 32 if a.rule == "R3" else None),
             "rule_applied_to": (["q_proj", "k_proj", "v_proj", "o_proj",
                                  "gate_proj", "up_proj", "down_proj"]
