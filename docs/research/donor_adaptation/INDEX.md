@@ -82,7 +82,7 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 | **S1** | which bar predicts BPB under sparsity | \|h\| is the bar; A≡D at every digit | `benchmarks/donor_adaptation/s1/` |
 | **T1** | **ternarize the donor — the engine's own rule** | **+4.738 BPB = 948 σ_seed. CONVERSION-FAILS** (measurement stands; verdict superseded in scope by T2) | `probes/T1_DONOR_TERNARIZATION.md` |
 | **T2** | was that the FORMAT or one naive RULE? | **`RULE-HELPS`. It was the RULE.** FFN +3.309 → **+1.260**, 62% removed with no training. **BitLinear158 is statistically indistinguishable from RANDOM SIGNS** (−0.064 ± 0.126) | `probes/T2_TERNARIZATION_RULE.md` |
-| **T2b** | does the winning rule survive outside the FFN? | pre-registered, unrun. T2 covers 84 FFN tensors; a runnable model also converts `q/k/v/o` and the head | `briefs/BRIEF_T2B_ORGAN_COVERAGE.md` |
+| **T2b** | does the winning rule survive outside the FFN? | **`UNIFORM`, by 1.0% of its bar.** The runnable model (197 tensors, R3) costs **+2.708**, `1.584×` the FFN alone vs a 1.60 bar — ci95 `[1.514, 1.649]`, the bar is INSIDE it. Head ternarization **not** withdrawn: the head costs `+0.339` alone and **`−0.009 ± 0.020` on top of a ternary FFN+attention**. Per weight **attention is 4.98× the FFN** | `probes/T2B_ORGAN_COVERAGE.md` |
 
 **T2's decomposition, paired between arms** (`probes/T2_TERNARIZATION_RULE.md` §4):
 
@@ -101,17 +101,20 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 
 ## 4. Open, in priority order
 
-1. **T2b** — does R3/R5 survive on `q/k/v/o` and the head? Pre-registered, cheap, and it decides
-   what the *runnable* model costs. T2's number is a lower bound on that, not an estimate.
-2. **Export with the winning rule and measure BPB THROUGH `donor_engine.c`.** Every quality number
+1. **Export with the winning rule and measure BPB THROUGH `donor_engine.c`.** Every quality number
    this programme owns is a PyTorch number about a model the engine executes. `--bpb` exists and
    has never been run at scale. This closes the loop.
-3. **D4b** — the calibration budget. Promoted from bookkeeping: T2's two best arms are both
+2. **D4b** — the calibration budget. Promoted from bookkeeping: T2's two best arms are both
    calibration-driven, so every one of their numbers is a **floor**.
-4. **The LUT kernel** — built, bit-exact, and its numeric cost measured (§5, §7). Two things remain:
-   its **rate**, never timed, and per-group scales finer than G=32.
-5. **Healing** (QAT / layer-wise distillation) — still on the critical path per T2 §7, but it now
-   starts from +1.260 instead of +3.309, so the brief must be written against the new start.
+3. **`bench_matrix.sh`** — `--fuse` × `OMP_WAIT_POLICY`, crossed, 3 reps, idle machine only.
+   `--fuse` is built and verified bit-identical but **never timed**. This is the outstanding test of
+   the 32 µs/call hypothesis and the 1.37× ceiling (`SPEED_LEDGER.md` §11.4).
+4. **T3 — rotate the basis before ternarizing.** Pre-registered (`briefs/BRIEF_T3_ROTATION.md`),
+   runner not written. D2's kurtosis table is already on disk and is its enabling measurement.
+5. **Healing** (QAT / layer-wise distillation) — still on the critical path per T2 §7. It now
+   starts from +1.260 (FFN, R5) / **+2.708 (whole runnable model, R3, T2b §3)** rather than +3.309,
+   and T2b §6 says where to aim it: **attention, 4.98× the FFN's damage per weight at 10% of the
+   weights**.
 6. **S1's scale arm** — blocked on the fp16 NaN (`eager` attention overflows QK^T; diagnosed, §5).
    Every sparsity result this programme owns is measured at one size.
 7. An already-MoE donor, and **a donor with a small vocabulary** (§7).
@@ -142,6 +145,13 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 - **When an instrument returns an impossible ordering, test the instrument before the finding.**
   GPTQ scoring below its own starting point is not physically possible; two controls showed the
   code was right and the objective was wrong. (T2 §5)
+- **Quantization damage does not add across organs.** The head costs `+0.339` alone and
+  `−0.009 ± 0.020` on top of a ternary FFN+attention; the three single-organ arms sum to `+3.184`
+  where the combination measures `+2.708`. A per-organ cost is only a cost *in the company it was
+  measured in*. (T2b §4)
+- **A pre-registered threshold needs its own interval before the label is read as settled.** T2b
+  passed its 1.60 bar at 1.584 — but the ratio's ci95 is `[1.514, 1.649]` and a third of the
+  bootstrap lands on the other side. The label stands; the confidence in it does not. (T2b §5)
 
 ## 7. The head, the tokenizer, and the thing nobody priced
 

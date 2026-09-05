@@ -1,0 +1,28 @@
+== capturing activation RMS (T=16384, all organs incl. head) ==
+   done in 188s, 197 organ keys
+  base BPB = 0.767594958   (0 tensors, zero_frac 0.0000, 126s)
+  I    BPB = 0.767594958   (197 tensors, zero_frac 0.0000, 140s)
+  F    BPB = 2.476967449   (84 tensors, zero_frac 0.4642, 242s)
+  A    BPB = 1.903568524   (112 tensors, zero_frac 0.4769, 148s)
+  H    BPB = 1.106583608   (1 tensors, zero_frac 0.4478, 167s)
+  FA   BPB = 3.484251267   (196 tensors, zero_frac 0.4714, 292s)
+  FAH  BPB = 3.475705979   (197 tensors, zero_frac 0.4713, 336s)
+
+============================================================================
+  base BPB 0.767595   [baseline]
+  I    BPB 0.767595   delta +0.000000 +/- 0.000000  (0 sigma_seed)
+  F    BPB 2.476967   delta +1.709372 +/- 0.068968  (342 sigma_seed)
+  A    BPB 1.903569   delta +1.135974 +/- 0.036106  (227 sigma_seed)
+  H    BPB 1.106584   delta +0.338989 +/- 0.012674  (68 sigma_seed)
+  FA   BPB 3.484251   delta +2.716656 +/- 0.129001  (543 sigma_seed)
+  FAH  BPB 3.475706   delta +2.708111 +/- 0.124308  (542 sigma_seed)
+  increment FA_minus_F     +1.007284 +/- 0.079815  ci95 [+0.8514, +1.1674]
+  increment FAH_minus_FA   -0.008545 +/- 0.019903  ci95 [-0.0492, +0.0296]
+  increment FAH_minus_F    +0.998739 +/- 0.071760  ci95 [+0.8561, +1.1393]
+  instrument control I passes: True
+  F replicates T2's R3: True (measured 1.709372490350596 vs standing 1.709372)
+  ratio FAH/F: 1.5842720271490434   (UNIFORM bar 1.60)
+  OUTCOME: UNIFORM
+  the rule transfers; the runnable model costs what the FFN measurement said, and T2's number may be quoted for the whole model
+============================================================================
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\t2b_organs.json

@@ -1,0 +1,29 @@
+== capturing calibration activations (T=16384, H=True) ==
+   done in 499s
+  base BPB = 0.767594958   (0 tensors, zero_frac 0.0000, 127s)
+  I    BPB = 0.767594958   (84 tensors, zero_frac 0.0000, 131s)
+  R0   BPB = 4.076694081   (84 tensors, zero_frac 0.3166, 132s)
+  R1   BPB = 3.851979052   (84 tensors, zero_frac 0.4307, 136s)
+  R2   BPB = 3.390467023   (84 tensors, zero_frac 0.4831, 208s)
+  R3   BPB = 2.476967449   (84 tensors, zero_frac 0.4642, 237s)
+  Z    BPB = 4.140276456   (84 tensors, zero_frac 0.3166, 144s)
+  R4   BPB = 4.299819250   (84 tensors, zero_frac 0.2848, 589s)
+  R5   BPB = 2.027495180   (84 tensors, zero_frac 0.4346, 675s)
+
+============================================================================
+  base BPB 0.767595   [baseline]
+  I    BPB 0.767595   delta +0.000000 +/- 0.000000  (0 sigma_seed)
+  R0   BPB 4.076694   delta +3.309099 +/- 0.152596  (662 sigma_seed)
+  R1   BPB 3.851979   delta +3.084384 +/- 0.090542  (617 sigma_seed)
+  R2   BPB 3.390467   delta +2.622872 +/- 0.104125  (525 sigma_seed)
+  R3   BPB 2.476967   delta +1.709372 +/- 0.068968  (342 sigma_seed)
+  Z    BPB 4.140276   delta +3.372681 +/- 0.079844  (675 sigma_seed)
+  R4   BPB 4.299819   delta +3.532224 +/- 0.108934  (706 sigma_seed)
+  R5   BPB 2.027495   delta +1.259900 +/- 0.067779  (252 sigma_seed)
+  instrument control I passes: True
+  R0 replicates T1: True
+  best rule: R3  delta 1.709372490350596  recovery vs R0 1.599726632684532
+  OUTCOME: RULE-HELPS
+  a better rule recovers a large part but not enough; healing is still needed but starts from a much better place
+============================================================================
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\t2_rules.json
