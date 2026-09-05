@@ -14,8 +14,8 @@ is not written up somewhere with its controls and its pre-registration.
 | | status |
 |---|---|
 | **A pretrained donor executes on our runtime** | ✅ **YES** — Qwen2.5-0.5B, parity vs PyTorch `rel l2 2.8e-06`, top-1 `1.0000` |
-| **At the target speed** | ❌ **48.3 tok/s at 0.5B** (3 reps, ±0.05, idle machine) = **25.1 G-weights/s delivered**, and 0.5B is 20× smaller than the target |
-| **At usable quality** | ❌ **NO**, but the number moved: FFN conversion **+3.309 → +1.260 BPB** (T2), still 252 σ_seed |
+| **At the target speed** | ❌ **56.1 tok/s at 0.5B** (3 reps at `--bench 300`, idle machine, `SPEED_LEDGER.md` §12) = **27.7 G-weights/s delivered**, and 0.5B is 20× smaller than the target |
+| **At usable quality** | ❌ **NO**, but the number moved: FFN conversion **+3.309 → +1.260 BPB** (T2), still 252 σ_seed. The **whole runnable model** costs **+2.708** (T2b), or **+2.497** with T3's fold |
 | **The binding constraint** | **still quality — but it is the RULE, not the format** (T2, `RULE-HELPS`) |
 
 **The one-line state:** the road exists end to end — safetensors → export → ternary runtime →
@@ -94,6 +94,7 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 | **T1** | **ternarize the donor — the engine's own rule** | **+4.738 BPB = 948 σ_seed. CONVERSION-FAILS** (measurement stands; verdict superseded in scope by T2) | `probes/T1_DONOR_TERNARIZATION.md` |
 | **T2** | was that the FORMAT or one naive RULE? | **`RULE-HELPS`. It was the RULE.** FFN +3.309 → **+1.260**, 62% removed with no training. **BitLinear158 is statistically indistinguishable from RANDOM SIGNS** (−0.064 ± 0.126) | `probes/T2_TERNARIZATION_RULE.md` |
 | **T2b** | does the winning rule survive outside the FFN? | **`UNIFORM`, by 1.0% of its bar.** The runnable model (197 tensors, R3) costs **+2.708**, `1.584×` the FFN alone vs a 1.60 bar — ci95 `[1.514, 1.649]`, the bar is INSIDE it. Head ternarization **not** withdrawn: the head costs `+0.339` alone and **`−0.009 ± 0.020` on top of a ternary FFN+attention**. Per weight **attention is 4.98× the FFN** | `probes/T2B_ORGAN_COVERAGE.md` |
+| **T3** | rotate the residual basis (QuaRot/SpinQuant) before ternarizing | **`VOID` as written, `NULL` once the brief's own gate constant is corrected.** Rotation does not fail to help, it **hurts**: `+0.634 ± 0.039` (dense orth) and `+1.138 ± 0.072` (Hadamard) vs a fold-matched control. Kurtosis is not a predictor and cannot be made one. **Keeper: the RMSNorm fold alone is `−0.220 ± 0.053` free** | `probes/T3_ROTATION.md` |
 
 **T2's decomposition, paired between arms** (`probes/T2_TERNARIZATION_RULE.md` §4):
 
@@ -115,20 +116,24 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 1. **Export with the winning rule and measure BPB THROUGH `donor_engine.c`.** Every quality number
    this programme owns is a PyTorch number about a model the engine executes. `--bpb` exists and
    has never been run at scale. This closes the loop.
-2. **D4b** — the calibration budget. Promoted from bookkeeping: T2's two best arms are both
+2. **Fold the RMSNorm gains in the exporter** (T3 §4.4). `−0.220 ± 0.053` BPB — 44 σ_seed, 8.1% of
+   the ternarization damage — for no format change, no kernel change and no runtime cost. Exact as
+   a re-parameterization (T3 arm XN, `+6.8e-09`). It was measured as a control inside a `VOID` run
+   and has never been seen through the engine, so it **owes its own confirmation** — and that
+   confirmation is the same export pass as item 1.
+3. **D4b** — the calibration budget. Promoted from bookkeeping: T2's two best arms are both
    calibration-driven, so every one of their numbers is a **floor**.
-3. **`bench_matrix.sh`** — `--fuse` × `OMP_WAIT_POLICY`, crossed, 3 reps, idle machine only.
-   `--fuse` is built and verified bit-identical but **never timed**. This is the outstanding test of
-   the 32 µs/call hypothesis and the 1.37× ceiling (`SPEED_LEDGER.md` §11.4).
-4. **T3 — rotate the basis before ternarizing.** Pre-registered (`briefs/BRIEF_T3_ROTATION.md`),
-   runner not written. D2's kurtosis table is already on disk and is its enabling measurement.
-5. **Healing** (QAT / layer-wise distillation) — still on the critical path per T2 §7. It now
-   starts from +1.260 (FFN, R5) / **+2.708 (whole runnable model, R3, T2b §3)** rather than +3.309,
-   and T2b §6 says where to aim it: **attention, 4.98× the FFN's damage per weight at 10% of the
-   weights**.
-6. **S1's scale arm** — blocked on the fp16 NaN (`eager` attention overflows QK^T; diagnosed, §5).
+4. **Healing** (QAT / layer-wise distillation) — still on the critical path per T2 §7. It starts
+   from +1.260 (FFN, R5) / **+2.708 (whole runnable model, R3, T2b §3)**, or **+2.497** with the
+   fold on FFN+attention, and T2b §6 says where to aim it: **attention, 4.98× the FFN's damage per
+   weight at 10% of the weights**.
+5. **S1's scale arm** — blocked on the fp16 NaN (`eager` attention overflows QK^T; diagnosed, §5).
    Every sparsity result this programme owns is measured at one size.
-7. An already-MoE donor, and **a donor with a small vocabulary** (§7).
+6. An already-MoE donor, and **a donor with a small vocabulary** (§7).
+
+**Closed since the last revision.** The `--fuse` × `OMP_WAIT_POLICY` matrix ran (`SPEED_LEDGER.md`
+§12.4 — both hypotheses die; `--fuse` not adopted). T3 ran and closes the residual-stream rotation
+line together with brief §5's two follow-ons (online Hadamard, activation-side rotation).
 
 ## 5. Bugs found in our own instruments (all fixed, all with controls added)
 
@@ -142,6 +147,7 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 | **the LUT diagnostic reported whole-vector crest while groups were active** | it kept calling the derived figure "effective levels" when the grid was per-group, i.e. a plausible number describing the wrong thing | crest computed in-group, both labels corrected, header states which scale is in force |
 | **both `rope()` calls sat inside the `qkv` timer** | the per-organ table read qkv at **4.1 GB/s** against the head's 17.6 — a 4× anomaly that does not exist — and two experiments were built to chase it. It also hid that rope was **9.6% of every token** | `T_ROPE` is its own bucket; rope hoisted out of the head and layer loops (**+10.3%, bit-identical**); §11.4 marked superseded and its two derived claims withdrawn in §12.1 |
 | **the bench harness called an idle machine CONTENDED, twice** | once because it compared an 800-token run to a 300-token reference (attention is `O(position)`), once because min-max over 6 rounds is set by a single bad round | reference must match `--bench` length; the gate is now the IQR; the harness prints which of its two blocks is readable |
+| **a pre-registration contradicted itself and the gate fired on the contradiction** | T3 returned `VOID`: brief §3 fixed the organ set at FFN+attention (196 tensors), brief §4 pinned the replication constant to T2's **FFN-only** Δ (`+1.709372`, 84 tensors). The runner obeyed both halves and arm Q missed by 1.007 | the constant was checkable and was checked: arm Q reproduces T2b's arm FA **bit-identically** from a different runner. **A replication constant must name the arm, the organ set and the file it came from**, so a mismatch with the arms section is visible on the page |
 
 ## 6. Working rules this programme has paid for
 
@@ -168,6 +174,14 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
   `−0.009 ± 0.020` on top of a ternary FFN+attention; the three single-organ arms sum to `+3.184`
   where the combination measures `+2.708`. A per-organ cost is only a cost *in the company it was
   measured in*. (T2b §4)
+- **A smoke run establishes that the apparatus runs, not the sign of the effect.** T3's 4-of-28-layer
+  smoke passed every control (X at `6.4e-07`, planted null clean) and flipped the sign of all three
+  contrasts, returning the opposite label to the run. **A truncated model is not a small model.**
+  (T3 §4.5)
+- **A gate constant is a claim, and it is checkable against the arm that produced it.** T3's
+  `VOID` was a mis-specified constant, not a broken harness — provable because an independent
+  runner had already measured the identical arm to the last bit. Report the label the rule
+  returns, then show the check; do not rewrite the rule. (T3 §1.3)
 - **A pre-registered threshold needs its own interval before the label is read as settled.** T2b
   passed its 1.60 bar at 1.584 — but the ratio's ci95 is `[1.514, 1.649]` and a third of the
   bootstrap lands on the other side. The label stands; the confidence in it does not. (T2b §5)
