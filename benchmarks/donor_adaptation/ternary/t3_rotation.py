@@ -82,6 +82,12 @@ MARGINAL_MARGIN = 0.05             # q - 0.30 < best <= q - 0.05
 PLANTED_MARGIN = 0.20              # Delta(P) >= best + 0.20 for the mechanism to stand
 X_EXACTNESS_TOL = 1e-4             # arm X must reproduce base to better than this
 Q_REPLICATION_TOL = 0.01           # arm Q must land within this of T2's Delta
+# P vs N is an ANALYTIC null in the WEIGHTS (a permutation reshuffles float32 values, it does no
+# arithmetic on them) but NOT in the CALIBRATION: the forward pass sums squares over permuted
+# channels, so act_rms differs in its last bits, and R3 SEARCHES a scale -- a near-tie can flip a
+# code. Smoke measured +2.8e-04 (0.06 sigma_seed) with the unquantized permuted arm XP exact to
+# 1.6e-07, which is exactly that signature. Judged at 0.2 sigma_seed, and it gates.
+P_NULL_TOL = 1e-3
 
 N_CAL, SEQ_CAL, SEED_CAL = 32, 512, 42424      # identical to T2, T2b and D4
 
@@ -392,25 +398,33 @@ def main():
     dec["exactness_controls_X"] = {
         "deltas": x_arms, "tol": X_EXACTNESS_TOL,
         "passes": all(abs(v) < X_EXACTNESS_TOL for v in x_arms.values()) if x_arms else None}
+    # In SMOKE the model is 4 of 28 layers on 2 of 24 sequences, so Q CANNOT reproduce T2's
+    # number and the gate is not applicable there. It is applicable, and load-bearing, in the run.
     dec["Q_replication"] = {"measured": D.get("Q"), "T2_standing": T2_R3_STANDING,
-                            "ok": (D.get("Q") is not None
-                                   and abs(D["Q"] - T2_R3_STANDING) <= Q_REPLICATION_TOL)}
+                            "applicable": not SMOKE,
+                            "ok": (True if SMOKE else
+                                   (D.get("Q") is not None
+                                    and abs(D["Q"] - T2_R3_STANDING) <= Q_REPLICATION_TOL))}
     # departure (a): P is an analytic null against N, not against Q -- the fold differs
     dec["P_is_analytic_null_of_N"] = {
         "P_minus_N": (out["contrasts"].get("P_minus_N") or {}).get("delta_bpb"),
-        "tol": X_EXACTNESS_TOL,
+        "tol": P_NULL_TOL,
         "passes": (abs((out["contrasts"].get("P_minus_N") or {}).get("delta_bpb", 9.9))
-                   < X_EXACTNESS_TOL) if "P_minus_N" in out.get("contrasts", {}) else None,
+                   < P_NULL_TOL) if "P_minus_N" in out.get("contrasts", {}) else None,
         "why": ("a residual-stream permutation permutes a reader's columns and a writer's rows; "
                 "R3 searches one scale per output row over (weight, act_rms) pairs, so both are "
-                "invariant. A nonzero value here is a bug in the rotation machinery.")}
+                "invariant IN THE WEIGHTS. It is not invariant in the CALIBRATION: the forward "
+                "pass sums squares over permuted channels, act_rms differs in its last bits, and "
+                "a near-tie in the scale search can flip a code. Judged at 0.2 sigma_seed, not at "
+                "fp round-off. A value LARGER than that is a bug in the rotation machinery.")}
 
     q = D.get("Q")
     cand = {a: D[a] for a in ("H", "O") if D.get(a) is not None}
     best = min(cand.values()) if cand else None
     dec["q"], dec["best"], dec["best_arm"] = q, best, (min(cand, key=cand.get) if cand else None)
 
-    if not dec["exactness_controls_X"]["passes"] or not dec["Q_replication"]["ok"]:
+    if (not dec["exactness_controls_X"]["passes"] or not dec["Q_replication"]["ok"]
+            or dec["P_is_analytic_null_of_N"]["passes"] is False):
         dec["OUTCOME_LABEL"] = "VOID"
         dec["meaning"] = "the fold or the harness is wrong; report nothing else"
     elif best is None:
