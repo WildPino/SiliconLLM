@@ -116,11 +116,21 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 1. **Export with the winning rule and measure BPB THROUGH `donor_engine.c`.** Every quality number
    this programme owns is a PyTorch number about a model the engine executes. `--bpb` exists and
    has never been run at scale. This closes the loop.
+   **PRE-REGISTERED as E1** (`briefs/BRIEF_E1_BPB_THROUGH_ENGINE.md`, commit `f92af8a`); runner
+   and three exporter bug-fixes at `cdb7119`; **running**.
 2. **Fold the RMSNorm gains in the exporter** (T3 §4.4). `−0.220 ± 0.053` BPB — 44 σ_seed, 8.1% of
    the ternarization damage — for no format change, no kernel change and no runtime cost. Exact as
    a re-parameterization (T3 arm XN, `+6.8e-09`). It was measured as a control inside a `VOID` run
    and has never been seen through the engine, so it **owes its own confirmation** — and that
    confirmation is the same export pass as item 1.
+   **PRE-REGISTERED as E2** (`briefs/BRIEF_E2_RMSNORM_FOLD.md`, commit `338d187`), which splits
+   the fold in two: writing the algebra out shows that with an **fp32 head** the final
+   `model.norm → lm_head` gain is a re-parameterization of weights that are never rounded, so
+   **all** of T3's `−0.220` belongs to the `2L` per-layer gains and none to the final one — and
+   the final one stops being neutral exactly when the head goes ternary, which is the arm the
+   runtime wants. E2 carries `NA − NL ≈ 0` as a **planted null** on that algebra. Recorded there
+   too: `o_proj` and `down_proj` read an attention output and an FFN activation, not a norm, so
+   the fold reaches **5 of the 7** converted tensors per layer and cannot help the other two.
 3. **D4b** — the calibration budget. Promoted from bookkeeping: T2's two best arms are both
    calibration-driven, so every one of their numbers is a **floor**.
 4. **Healing** (QAT / layer-wise distillation) — still on the critical path per T2 §7. It starts
@@ -148,6 +158,10 @@ line together with brief §5's two follow-ons (online Hadamard, activation-side 
 | **both `rope()` calls sat inside the `qkv` timer** | the per-organ table read qkv at **4.1 GB/s** against the head's 17.6 — a 4× anomaly that does not exist — and two experiments were built to chase it. It also hid that rope was **9.6% of every token** | `T_ROPE` is its own bucket; rope hoisted out of the head and layer loops (**+10.3%, bit-identical**); §11.4 marked superseded and its two derived claims withdrawn in §12.1 |
 | **the bench harness called an idle machine CONTENDED, twice** | once because it compared an 800-token run to a 300-token reference (attention is `O(position)`), once because min-max over 6 rounds is set by a single bad round | reference must match `--bench` length; the gate is now the IQR; the harness prints which of its two blocks is readable |
 | **a pre-registration contradicted itself and the gate fired on the contradiction** | T3 returned `VOID`: brief §3 fixed the organ set at FFN+attention (196 tensors), brief §4 pinned the replication constant to T2's **FFN-only** Δ (`+1.709372`, 84 tensors). The runner obeyed both halves and arm Q missed by 1.007 | the constant was checkable and was checked: arm Q reproduces T2b's arm FA **bit-identically** from a different runner. **A replication constant must name the arm, the organ set and the file it came from**, so a mismatch with the arms section is visible on the page |
+| **`--quant ternary` had been dead since `--rule` landed** | `w_tern` squeezed a scale that `quantize()` already returns as a `[out]` vector → `IndexError`. Nothing caught it because every artifact this programme built used `--quant packed`, which does not go through that line | the second squeeze removed; verified empirically before the fix, not assumed |
+| **two exports of the same command produced different files** | R3's calibration forward changes its reduction order with torch's thread count: 6 vs 1 threads moved **102,123** `act_rms` elements (worst `1.9e-06`), so the sidecar recorded a sha256 it could not reproduce | `--threads`, recorded in the sidecar. **The thread count is part of the artifact's identity, not a speed knob** |
+| **the exporter was not loading the model the probes measured** | it omitted `attn_implementation`, so HF gave it **sdpa** while `common.load_model` — and therefore T1, T2, T2b, T3 — uses **eager**. E1's Gate A fired at `2.980e-08`, exactly one ulp. Measured: `act_rms` differs on **142,977** elements (worst rel `8.2e-06`), moving **132,844** stored scales by up to **6 ulp**. All **357,826,560 codes were identical throughout** — the artifact's *identity* was wrong, not its content | `eager` pinned in the exporter and recorded in the sidecar. Gate A then passed **as pre-registered**: 0 scales differing, 0.00 ulp. Same law as the fp16 row, in a second place: **reproduce the configuration, not just the model** |
+| **the best quality claim had no artifact** | `qwen05b_packed.bin`'s sidecar has no `rule` field — it predates `--rule`, so every speed number was taken on **R0/BitLinear158** (zero fraction `0.327`), the worst of T2's five rules. **No R3 model had ever been exported.** The format is identical so the speed numbers stand | E1 exports R3 (zero fraction `0.4922`, consistent with T2b's `0.4714` at full budget). Found by reading the sidecar of the file on disk rather than the command that was supposed to have written it |
 
 ## 6. Working rules this programme has paid for
 
