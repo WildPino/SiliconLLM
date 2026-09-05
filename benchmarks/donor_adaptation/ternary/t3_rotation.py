@@ -51,6 +51,7 @@ TWO DEPARTURES FROM THE BRIEF, both ADDITIVE -- controls added, nothing removed 
 Env: D_THREADS (6), T3_ONLY (comma list), T3_SMOKE (1 = 2 seq / 4 layers / 4 calib seq)
 """
 import json
+import math
 import os
 import sys
 import time
@@ -123,20 +124,40 @@ def truncate(model, k):
 
 # ===================================================================== the basis
 def build_R(kind, d):
-    """The same constructions d2_basis.py measured kurtosis with, same seed constant.
+    """The same constructions d2_basis.py measured kurtosis with, BUILT IN FLOAT64.
 
-    Not the identical random draw -- d2 drew from one running generator across many matrices --
-    but the same family and the same distribution. The kurtosis claim is about the family.
+    d2 built its bases in float32 because it only needed them to compute a kurtosis. Here they
+    multiply every weight in the model and arm X asks whether the result is exact, so a float32
+    R is not good enough: 1/sqrt(512) is not representable, and a float32 block Hadamard has
+    ||R^T R - I|| = 3.4e-08. That is 300x the tolerance arm X is judged at.
+
+    Same family, same seed constant. Not the identical random draw -- d2 drew from one running
+    generator across many matrices -- and the kurtosis claim is about the family, not the draw.
+    The hadamard and permutation cases are cross-checked against d2's own functions below.
     """
     if kind is None:
         return None
     gen = torch.Generator().manual_seed(D2_SEED)
     if kind == "hadamard":
-        return hadamard_blocks(d).double()
+        from scipy.linalg import hadamard as _had
+        b = 1
+        while b * 2 <= d and d % (b * 2) == 0:
+            b *= 2
+        H = torch.from_numpy(_had(b).astype(np.float64)) / math.sqrt(b)
+        R = torch.zeros(d, d, dtype=torch.float64)
+        for i in range(d // b):
+            R[i * b:(i + 1) * b, i * b:(i + 1) * b] = H
+        # control: this must be d2's own matrix, to float32 precision
+        assert float((R - hadamard_blocks(d).double()).abs().max()) < 1e-6, "hadamard drifted from d2"
+        return R
     if kind == "orth":
-        return dense_random_orth(d, gen).double()
+        A = torch.randn(d, d, generator=gen, dtype=torch.float64)
+        Q, Rq = torch.linalg.qr(A)
+        return Q * torch.sign(torch.diagonal(Rq)).unsqueeze(0)          # Haar on O(d)
     if kind == "perm":
-        return permutation(d, gen).double()
+        R = permutation(d, gen).double()
+        assert float((R.sum(0) - 1).abs().max()) == 0.0, "permutation is not a permutation"
+        return R
     raise ValueError(kind)
 
 
@@ -324,7 +345,7 @@ def main():
                     RR = R_cache[kind]
                     orth = float((RR.T @ RR - torch.eye(d, dtype=torch.float64)).abs().max())
                     info["R_orthogonality_maxdev"] = orth
-                    assert orth < 1e-9, "R is not orthogonal: %g" % orth
+                    assert orth < 1e-11, "R is not orthogonal: %g" % orth
                 info["rotated"] = rotate_model(model, R_cache[kind])
             if do_quant:
                 act = capture(model, ids_cal)
@@ -429,7 +450,8 @@ def main():
                   % (k, v["delta_bpb"], v["paired_se_sequence_bootstrap"],
                      v["ci95"][0], v["ci95"][1]))
     print("\nX controls pass: %s | Q replicates: %s | P is N's null: %s"
-          % (dec["exactness_controls_X"]["passes"], dec["Q_replication"]["ok"],
+          % (dec["exactness_controls_X"]["passes"],
+             ("n/a (smoke)" if SMOKE else dec["Q_replication"]["ok"]),
              dec["P_is_analytic_null_of_N"]["passes"]))
     print("q = %s   best = %s (%s)" % (q, best, dec["best_arm"]))
     print("OUTCOME: %s" % dec["OUTCOME_LABEL"])
