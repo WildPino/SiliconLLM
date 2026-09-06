@@ -108,7 +108,8 @@ static int      g_lut=0, g_lutdiag=0, g_lutnodown=0, g_lutnohead=0;  // --lut* f
 // -ffast-math, which is forbidden here (Phase 35).  These arms separate ILP from SIMD width so the
 // two explanations (latency vs load path) can be told apart instead of argued about.
 // Dispatched OUTSIDE the t loop, so the branch is paid L*NH times per token, not L*NH*pos.
-enum { ATTN_SERIAL=0, ATTN_ILP4=1, ATTN_AVX1=2, ATTN_AVX4=3, ATTN_SERIAL2=4 };
+enum { ATTN_SERIAL=0, ATTN_ILP4=1, ATTN_AVX1=2, ATTN_AVX4=3, ATTN_SERIAL2=4,
+       ATTN_SERIAL_E3=5, ATTN_SERIAL3=6 };
 static int g_attn=ATTN_SERIAL;
 
 static inline float hsum256(__m256 v){
@@ -130,6 +131,16 @@ static inline float dot_serial2(const float* a,const float* b,int n){
     for(int i=0;i<n;i++) d1+=a[i]*b[i];
     for(int i=0;i<n;i++) d2+=a[i]*b[i];
     return (d1+d2)*0.5f;
+}
+// G1' -- the SECOND planted point.  X (dot loop) and R (softmax + A.V) were solved from the 1x and
+// 2x organ times, so they fit those two by construction; 3x is a point they cannot be fitted to.
+// d1==d2==d3 bitwise, so (d2-d1) and (d3-d1) are exactly +0 and the sum is exactly d1.
+static inline float dot_serial3(const float* a,const float* b,int n){
+    float d1=0.0f,d2=0.0f,d3=0.0f;
+    for(int i=0;i<n;i++) d1+=a[i]*b[i];
+    for(int i=0;i<n;i++) d2+=a[i]*b[i];
+    for(int i=0;i<n;i++) d3+=a[i]*b[i];
+    return d1+(d2-d1)+(d3-d1);
 }
 // A1 -- ILP without SIMD: four scalar chains, so the reduction is 4 deep instead of n deep.
 static inline float dot_ilp4(const float* a,const float* b,int n){
@@ -611,6 +622,19 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
             const float* kbase=s->kcache+((size_t)l*s->maxseq)*KVO+(size_t)kvh*HD;
             // one branch per head, not per (head,position): the t loop below is unbranched.
             switch(g_attn){
+            case ATTN_SERIAL_E3:
+                // E3's loop byte for byte, INCLUDING the per-position address arithmetic that
+                // every other arm here hoists.  Gate G4' (brief s8.2): the arm that claims to
+                // reproduce E3 must recompute the address the way E3 did, or the 4-7% it saves
+                // is silently credited to the accumulators.
+                for(int t=0;t<=pos;t++){
+                    const float* kt=s->kcache+((size_t)l*s->maxseq+t)*KVO+(size_t)kvh*HD;
+                    float d=0.0f; for(int i=0;i<HD;i++) d+=qh[i]*kt[i];
+                    d*=inv; a[t]=d; if(d>mx) mx=d;
+                } break;
+            case ATTN_SERIAL3:
+                for(int t=0;t<=pos;t++){ float d=dot_serial3(qh,kbase+(size_t)t*KVO,HD)*inv;
+                                         a[t]=d; if(d>mx) mx=d; } break;
             case ATTN_ILP4:
                 for(int t=0;t<=pos;t++){ float d=dot_ilp4(qh,kbase+(size_t)t*KVO,HD)*inv;
                                          a[t]=d; if(d>mx) mx=d; } break;
@@ -767,6 +791,8 @@ int main(int argc,char** argv){
             else if(!strcmp(v,"avx1")) g_attn=ATTN_AVX1;
             else if(!strcmp(v,"avx4")) g_attn=ATTN_AVX4;
             else if(!strcmp(v,"serial2")) g_attn=ATTN_SERIAL2;
+            else if(!strcmp(v,"serial3")) g_attn=ATTN_SERIAL3;
+            else if(!strcmp(v,"serial_e3")) g_attn=ATTN_SERIAL_E3;
             else { fprintf(stderr,"--attn: unknown arm %s\n",v); return 1; } }
         else if(!strcmp(argv[i],"--lut-group")&&i+1<argc){ g_group=atoi(argv[++i]);
             if(g_group&1) die("--lut-group must be even: a 2-trit LUT pair may not straddle a group");
