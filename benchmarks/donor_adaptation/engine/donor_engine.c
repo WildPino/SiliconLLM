@@ -117,7 +117,13 @@ static int g_attn=ATTN_SERIAL;
 // These arms split R the way serial2/serial3 split the organ: each component is run 2x and 3x
 // VALUE-PRESERVINGLY, so S and Y are solved from the 1x/2x points and then PREDICTED at 3x.
 // Composes with --attn; every E5 arm is measured on top of --attn avx4.
-enum { ATTNR_NONE=0, ATTNR_SM2=1, ATTNR_SM3=2, ATTNR_AV2=3, ATTNR_AV3=4, ATTNR_FORK2=5 };
+enum { ATTNR_NONE=0, ATTNR_SM2=1, ATTNR_SM3=2, ATTNR_AV2=3, ATTNR_AV3=4, ATTNR_FORK2=5,
+       ATTNR_SM1=6, ATTNR_AV1=7 };
+// s10: sm1/av1 are the 1x point INSIDE the wrapped path.  Run 3 solved the component as
+// (2x - none) and tested it at 3x; the two increments (av2-none) and (av3-av2) are both
+// "one extra A.V pass" and disagreed by 1.28x at T10 @800, because `none` runs a DIFFERENT
+// code block from the wrapped arms.  With sm1/av1 the solve and the test share a code shape
+// and (1x - none) prices the code-path difference itself instead of hiding inside it.
 static int g_attnr=ATTNR_NONE;
 // fork2's extra region must not be elidable and must not be shrunk to its one read element,
 // hence volatile on the buffer itself.
@@ -624,7 +630,10 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
 
         const float inv=1.0f/sqrtf((float)HD);
         // loop-invariant, computed OUTSIDE the parallel region so no arm pays a branch per head
+        const int avwrap=(g_attnr==ATTNR_AV1||g_attnr==ATTNR_AV2||g_attnr==ATTNR_AV3);
         const int avrep=(g_attnr==ATTNR_AV3)?3:((g_attnr==ATTNR_AV2)?2:1);
+        const int smwrap=(g_attnr==ATTNR_SM1||g_attnr==ATTNR_SM2||g_attnr==ATTNR_SM3);
+        const int smrep=(g_attnr==ATTNR_SM3)?3:((g_attnr==ATTNR_SM2)?2:1);
         TIC;
 #ifdef _OPENMP
 #pragma omp parallel for schedule(static)
@@ -672,13 +681,15 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
             // The discarded passes omit the store into a[] and are therefore a slight
             // UNDER-count of S by one L1 store per expf; recorded in the probe, not hidden.
             float sum=0.0f;
-            if(g_attnr==ATTNR_SM2||g_attnr==ATTNR_SM3){
+            if(smwrap){
+                // ONE code shape for smrep = 1, 2 and 3.  The discarded passes read a[] before the
+                // kept pass overwrites it, and are folded back as exact zeros (s==sum bitwise).
                 float s0=0.0f,s1=0.0f;
-                for(int t=0;t<=pos;t++) s0+=expf(a[t]-mx);
-                if(g_attnr==ATTNR_SM3){ for(int t=0;t<=pos;t++) s1+=expf(a[t]-mx); }
-                else s1=s0;
+                if(smrep>=2){ for(int t=0;t<=pos;t++) s0+=expf(a[t]-mx); }
+                if(smrep>=3){ for(int t=0;t<=pos;t++) s1+=expf(a[t]-mx); }
                 for(int t=0;t<=pos;t++){ a[t]=expf(a[t]-mx); sum+=a[t]; }
-                sum=sum+(s0-sum)+(s1-sum);
+                if(smrep>=2) sum=sum+(s0-sum);
+                if(smrep>=3) sum=sum+(s1-sum);
             } else {
                 for(int t=0;t<=pos;t++){ a[t]=expf(a[t]-mx); sum+=a[t]; }
             }
@@ -688,7 +699,7 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
             // buffer and no extra traffic: between passes `out[i]-=out[i]` is exactly +0 for any
             // finite out[i], and because it READS out[i] the previous pass cannot be dead-coded.
             // avrep==1 takes a byte-for-byte copy of the baseline loop, so `none` is unchanged.
-            if(avrep==1){
+            if(!avwrap){
                 for(int i=0;i<HD;i++) out[i]=0.0f;
                 for(int t=0;t<=pos;t++){
                     const float* vt=s->vcache+((size_t)l*s->maxseq+t)*KVO+(size_t)kvh*HD;
@@ -855,6 +866,8 @@ int main(int argc,char** argv){
             else if(!strcmp(v,"av2")) g_attnr=ATTNR_AV2;
             else if(!strcmp(v,"av3")) g_attnr=ATTNR_AV3;
             else if(!strcmp(v,"fork2")) g_attnr=ATTNR_FORK2;
+            else if(!strcmp(v,"sm1")) g_attnr=ATTNR_SM1;
+            else if(!strcmp(v,"av1")) g_attnr=ATTNR_AV1;
             else { fprintf(stderr,"--attnr: unknown arm %s\n",v); return 1; } }
         else if(!strcmp(argv[i],"--lut-group")&&i+1<argc){ g_group=atoi(argv[++i]);
             if(g_group&1) die("--lut-group must be even: a 2-trit LUT pair may not straddle a group");

@@ -360,3 +360,104 @@ If `T10` @800 fails G0 again at six passes, E5 **reports the decomposition at wh
 and does not issue the §5 label at all.** It does not migrate the label to `T10` @300 or to `S05`,
 and it does not report a share from a voided cell with a caveat attached. §5 names one judging point
 and that point either produces a gated measurement or produces nothing.
+
+---
+
+## 10. AMENDMENT after run 3 — G1 did its job, and what it caught was my arms
+
+Pushed **before run 4 exists**. Run 3: `results/e5/arms3.json`, analysis `results/e5/analysis3.txt`,
+produced by `e5_analyse3.py`, which is frozen byte-for-byte as the file that issued this verdict.
+
+### 10.1 Run 3's verdict
+
+**G0 passes in all four cells** at six passes — the extra samples did what §9.3 said they would.
+**G1 fails at the judging cell**: `T10` @800 `sm3` lands at **−0.99%** (PASS) and `av3` at
+**+3.40%** (FAIL) against the 3% fixed before any arm existed. `S05` @300 `av3` misses at +7.04%
+and `S05` @800 `sm3` at +4.83%.
+
+Per §4, a component whose 3× prediction misses is **not established**, and `P` is a residual of
+`R − S − Y`, so a failed `Y` takes `P` with it. **§5's label is therefore not issued from run 3.**
+For completeness the arithmetic that would have produced one is in `analysis3.txt`; it is not
+quoted here as a result, because a number from a failed gate is not a result.
+
+Independently, §5's own G4 would have blocked it anyway: the leading share came out at **51.0%**,
+one point from the 0.50 boundary, and G4 withholds a label that lands within three.
+
+And a defect in my own analyser, found while writing this section and fixed here rather than after
+run 4 could benefit from it: `e5_analyse.py` implemented G4 as `share < 0.50 and near`, so it
+withheld a label only on the LOW side of the boundary and printed OVERHEAD-DOMINATED at 51.0%.
+G4 is symmetric by construction -- a share inside the instrument's dispersion decides nothing in
+either direction -- and the code now reads `abs(share - 0.50) <= 0.03`. The frozen `e5_analyse3.py`
+keeps the bug, because it is the file that issued run 3's verdict and is not editable after the
+fact; run 3's label is void for the reasons above regardless.
+
+### 10.2 The cause, and it is not the machine
+
+Both `av2 − none` and `av3 − av2` are, by construction, **one extra `A·V` pass**. They must be equal.
+Measured against `none` as the 1× point:
+
+| cell | `av2 − none` | `av3 − av2` | ratio |
+|---|---|---|---|
+| `T10` @300 | 0.672 | 0.681 | 1.01× |
+| **`T10` @800** | **1.905** | **2.439** | **1.28×** |
+| `S05` @300 | 0.079 | 0.135 | 1.71× |
+| `S05` @800 | 0.148 | 0.190 | 1.28× |
+
+`none` runs the **byte-for-byte baseline block**; `av2`/`av3` run the wrapped loop. Keeping `none`
+byte-identical was a deliberate choice made in §2 so that the baseline would still be E4's baseline
+— and it made the 1× point a *different piece of code* from the 2× and 3× points. `av2 − none` is
+therefore "one extra pass **plus** the difference between two code shapes", and the 3× test, which
+is blind to that offset, caught it. **This is the gate working exactly as designed: the prediction
+that could miss, missed, and it missed for a reason that is mine and not the model's.**
+
+### 10.3 Run 4 — the arms
+
+`--attnr sm1` and `--attnr av1`: the **1× point inside the wrapped path**. `smrep`/`avrep` are now
+runtime counts of 1, 2 or 3 taking one code shape, so:
+
+```
+S = sm2 − sm1        predict sm3 = sm1 + 2S        Y = av2 − av1        predict av3 = av1 + 2Y
+```
+
+and `sm1 − none`, `av1 − none` are reported as **the price of the code shape itself**, in their own
+table, instead of being absorbed into a component. Both increments (`2×−1×` and `3×−2×`) are printed
+side by side; if they disagree again the arms are still wrong and E5 will say so. `none` stays
+byte-identical to E4's baseline and remains what `R` and `X` are measured against.
+
+This is the same lesson E4 learned with `serial_e3` — a baseline that differs from the arms by
+anything other than the thing under test will be charged for that difference.
+
+### 10.4 Run 4 — the machine
+
+Run 3 passed G0 **at 5%** in every cell and still could not resolve a component, because 5% of the
+weight path (≈15 ms at `T10`) is larger than the components being estimated (`Y` ≈ 1.9 ms). Three
+changes, all fixed here before the run:
+
+- **G0 tightens to 1%.** Affordable: run 3's `T10` @800 keeps ≥2 measurements per arm even at 1%.
+  Cells that cannot meet it are VOID, including `S05` if it comes to that.
+- **The `cores_busy` witness of §9.3 is promoted to a gate**, announced in advance: a measurement
+  more than **+0.30 cores** above its cell's minimum is discarded. Run 3 showed the two instruments
+  already agree — kept measurements averaged 6.33–6.42 cores busy, discarded ones 6.99–7.59 — so
+  this is a second view of the same contamination, not a new licence to drop inconvenient points.
+- **Every arm runs at `HIGH_PRIORITY_CLASS`**, uniformly. It changes nothing about the code under
+  test; it changes how often a desktop's background work preempts it. Because every E5 conclusion is
+  a within-sweep difference, a uniform priority shift cancels — and it is recorded here because it
+  makes this sweep's **absolute** numbers incomparable to E4's, which G3's drift line must now say.
+
+### 10.5 What has still not changed
+
+The §3 predictions — `S` 0.8–2.0, `Y` 2.2–3.5, `P` 4.0–7.0, `fork2` 0.1–1.0 ms — are **still not
+re-fitted**, now against two runs that have printed numbers at them. §5's label rule, §4's 3%
+tolerance and 0.30 ms `INCONCLUSIVE` floor, and §9.4's fallback all stand as written: if `T10` @800
+cannot produce a gated decomposition at run 4, **E5 reports the cells that pass and issues no label**.
+
+### 10.6 A note on the machine, for the record
+
+The contention is real, external and persistent: the cleanest measurement in run 3 still read
+**6.06 cores busy** for a 6-thread engine, with bursts to **9.54**. `MsMpEng` (Defender) is a
+protected process and its CPU time is not readable, so it cannot be confirmed or cleared as the
+cause; what is measurable is that a 5 GB weights file is re-opened by a new process for every one of
+the 48 measurements in a cell. **This measurement wants a quiet machine** — the standing law that
+speed needs an idle box, met head-on. Elevating priority is what can be done from inside the
+experiment; closing the desktop's background work, or excluding `D:/_ktmp` from real-time scanning,
+is not mine to decide and is not done here.
