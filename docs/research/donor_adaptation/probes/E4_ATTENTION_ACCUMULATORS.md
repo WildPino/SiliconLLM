@@ -268,6 +268,36 @@ End-to-end the engine went **3.100 → 3.230 tok/s (+4.2%)** at `T10` @800. Both
 the second is the unimportant one — the dense path is still ~16× from 50 tok/s, and it is still the
 weights. What changed is that the **non-weight** wall stopped being the thing in front of it.
 
+### 4.7 The twelve-donor screen, re-priced — `f` had eaten the budget
+
+E3's screen fitted `f = A·L·NH·HD·pos + B·L·D` on its twelve points. E4 changed `A` by **2.04×**
+(`3.09445e-07 → 1.51461e-07` ms per FMA-unit), so the screen was **re-measured, not rescaled**: all
+six shapes under `--attn avx4` in one sweep, with `f` and `r_w` both taken from it
+(`results/e4/shapes_avx4.json`, `speed/e3_budget_by_shape.py --arms`).
+
+Residuals first, because they are the licence: **0.3–0.8% at the 7–10 B shapes that decide**, −0.2%
+to +7.8% at 1.5–3 B, and **−23% at `S05`** — with attention halved, the two-term model no longer
+fits the small end. No donor in the screen is below 1.5 B, so that residual prices nothing, but the
+fit is now unfit for a shape it used to fit.
+
+| donor, head as % of budget | @300 was → is | @800 was → is |
+|---|---|---|
+| **Mistral-7B-v0.3** (smallest vocabulary on disk) | 31% → **23%** | **141% → 33%** |
+| OLMo-2-7B | 94% → 71% | **432% → 102%** |
+| **Qwen3-8B** | 152% → **110%** | **2763% → 169%** |
+| Phi-3-mini | 21% → 17% | 44% → 22% |
+| Qwen3-1.7B | 59% → 53% | 81% → 60% |
+| Qwen2.5-1.5B | 42% → 39% | 53% → 42% |
+
+E3's headline at 800 context — *"the screen stops being about the head at all; every 7–8 B dense
+donor is over the line regardless of tokenizer, and Mistral-7B, the smallest vocabulary on disk, is
+at 141%"* — **is withdrawn. It was about `f`.**
+
+What survives is **Qwen3-8B**, which still breaks at 110% @300 and 169% @800 for the reason it always
+did: a 151,936-token vocabulary on a 4096-wide model is a 622 M head, charged in full every token.
+**The head is set by the tokenizer, not the model** — the one claim that has now survived three
+re-pricings.
+
 ---
 
 ## 5. The label
@@ -307,8 +337,9 @@ question of whether GQA re-reads reach DRAM — they do not (§4.2).
 1. **Decompose `R`.** It is 81.4% of the organ and the binding term in `f`. The same planted-control
    trick applies: an arm that runs the softmax loop twice, and one that runs `A·V` twice, both
    value-preserving, split `R` the way `serial2` split the organ. **This is now item 0.**
-2. Re-run E3's twelve-donor budget screen and `speed/e3_budget_by_shape.py` against the new `f` — the
-   fit's `A` coefficient (attention per FMA) is now wrong by ~2×.
+2. ~~Re-run E3's twelve-donor budget screen against the new `f`.~~ **Done** (§4.7). `A` was wrong by
+   2.04×; the screen was re-measured rather than rescaled, and `e3_budget_by_shape.py` now derives
+   `r_w` from whichever sweep it is given rather than from a hardcoded table.
 3. `f` beyond 800 tokens of context; still nothing measured bounds it.
 4. Every absolute tok/s in `SPEED_LEDGER` and E3 carries a ±5% between-sweep band that its published
    IQR does not show (§2.4). The **ratios** are unaffected. This wants a one-line note wherever an
