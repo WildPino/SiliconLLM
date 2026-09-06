@@ -96,5 +96,5 @@ bench 300:  f = 10.576 ms -> RESERVATION-BREAKS  |  r_wall = 32.76 -> RATE-ABOVE
 bench 800:  f = 26.088 ms -> RESERVATION-BREAKS  |  r_wall = 31.44 -> RATE-ABOVE-BAND (s6 has no such bucket)  (r_w = 34.05)
 
 === the goal, as arithmetic ===
-dense T10 at 50 tok/s needs 530 G-w/s; measured 33.8 -> 15.7x short
+dense T10 at 50 tok/s needs 530 G-w/s; measured 32.8 wall -> 16.18x short (cross-check, no rate: 50/3.090 = 16.18x)
 at the measured rate and measured f, the 50 tok/s weight budget is 318 M (INDEX s7 uses 522 M)

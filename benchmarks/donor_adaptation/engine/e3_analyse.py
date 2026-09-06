@@ -23,9 +23,6 @@ Definitions, stated here because every number below is one of them:
 
 The organ table comes from the median rep (e3_bench.py picks it); ms/token from different reps are
 not averaged, because they have different denominators.
-
-The organ table comes from the median rep (e3_bench.py picks it); ms/token from different reps are
-not averaged, because they have different denominators.
 """
 import json, os, sys
 
@@ -138,9 +135,15 @@ def main():
     t10 = [r for r in R if r["arm"] == "T10" and r["bench"] == 300]
     if t10:
         t = t10[0]
+        # `need` is weights per 20 ms of WALL, so it must be divided by r_wall.  Dividing it by
+        # r_w (the weight-organ rate) is the denominator swap this file exists to prevent, and it
+        # understates the gap: 15.7x instead of 16.2x.  The cross-check needs no rate at all:
+        # 50 / measured tok/s must give the same number.
         need = t["act"] / 20e-3
-        print("dense T10 at 50 tok/s needs %.0f G-w/s; measured %.1f -> %.1fx short"
-              % (need / 1e9, t["rate"] / 1e9, need / t["rate"]))
+        print("dense T10 at 50 tok/s needs %.0f G-w/s; measured %.1f wall -> %.2fx short "
+              "(cross-check, no rate: 50/%.3f = %.2fx)"
+              % (need / 1e9, t["rate_wall"] / 1e9, need / t["rate_wall"],
+                 t["med"], 50.0 / t["med"]))
         print("at the measured rate and measured f, the 50 tok/s weight budget is %.0f M "
               "(INDEX s7 uses 522 M)" % (t["budget"] / 1e6))
 

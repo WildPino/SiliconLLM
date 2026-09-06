@@ -688,8 +688,14 @@ has never been touched. **Parity gate mandatory:** accumulation order is exactly
 | `T10` (10.603 B active, ternary packed head) | **3.090 tok/s** @300, **2.960** @800 |
 | needed for 50 tok/s | 530 G-weights/s |
 | measured | 32.8 G-weights/s |
-| **short by** | **15.7×** |
+| **short by** | **16.2×** |
+| the same thing without any rate | `50 / 3.090` = **16.2×** |
 | ceiling at zero weight cost, @800 | **38.3 tok/s** |
+
+> **Corrected 2026-09-06, same day, same law.** This row was first published as **15.7×**,
+> which divided a *wall* quantity by `r_w` instead of `r_wall` — the §13.2 error committed a
+> second time, by me, in the section that names it. `50 / 3.090 = 16.18` is the form with no
+> denominator to swap, and it is the one to quote.
 
 The dense path is 16× away. **The last 1.3× of it is not reachable by any weight-side work at 800
 context**, which is the first time this ledger has been able to say where the wall is rather than how

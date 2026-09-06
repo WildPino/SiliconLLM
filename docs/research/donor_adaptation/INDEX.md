@@ -14,7 +14,7 @@ is not written up somewhere with its controls and its pre-registration.
 | | status |
 |---|---|
 | **A pretrained donor executes on our runtime** | ✅ **YES** — Qwen2.5-0.5B, parity vs PyTorch `rel l2 2.8e-06`, top-1 `1.0000`; and since E1 the engine **scores the same BPB as PyTorch to `1.5e-05`** on both donors, so the quality numbers below are statements about the deliverable, not about a simulation |
-| **At the target speed** | ❌ **measured at the target shape now, not extrapolated: 3.090 tok/s** (E3 `T10`, 10.6 B active, `--bench 300`, 3 reps, idle) — **15.7× short of 50**. The delivered rate is *better* than the ledger (32.8 vs 27.7 G-w/s, +18%); what breaks is the **non-weight** term: `f` = rope+attention+norm is **10.576 ms/token at 300 context and 26.088 at 800** against a **1.17 ms** reservation. **At 800 context a 10 B shape cannot pass 38.3 tok/s even with a free weight path** |
+| **At the target speed** | ❌ **measured at the target shape now, not extrapolated: 3.090 tok/s** (E3 `T10`, 10.6 B active, `--bench 300`, 3 reps, idle) — **16.2× short of 50** (`50 / 3.090`). The delivered rate is *better* than the ledger (32.8 vs 27.7 G-w/s, +18%); what breaks is the **non-weight** term: `f` = rope+attention+norm is **10.576 ms/token at 300 context and 26.088 at 800** against a **1.17 ms** reservation. **At 800 context a 10 B shape cannot pass 38.3 tok/s even with a free weight path** |
 | **At usable quality** | ❌ **NO**, but the number keeps moving: FFN conversion **+3.309 → +1.260 BPB** (T2), still 252 σ_seed. The **whole runnable model** cost **+2.708111** (T2b) and is now **+2.465779** — E2 confirmed the RMSNorm fold *through the engine* at T3's exact `−0.220001` and it is **adopted as the exporter default** |
 | **The binding constraint** | **still quality — but it is the RULE, not the format** (T2, `RULE-HELPS`) |
 
@@ -289,7 +289,10 @@ measured and **rejected**: into a ternary head the final gain costs BPB on both 
 - **A rate and a reservation must be read off the same denominator.** `27.7 G-w/s` is weights/**wall**,
   so pricing `27.7 × (20 − f)` charges `f` twice. The check that catches it is cheap: the two
   self-consistent forms — `r_wall × 20` and `r_w × (20 − f)` — must agree, and they do (554 vs 558 M).
-  (E3 §4.3)
+  **Committed a second time the same day, in the probe that wrote this law:** E3 first published the
+  gap to 50 tok/s as `530 / r_w = 15.7×` when `530 G-w/s` is a *wall* quantity — it is `530 / r_wall`
+  = **16.18×**, which is just `50 / 3.090`. *Where a rate-free form of the quantity exists, quote it:
+  it has no denominator to swap.* (E3 §4.3, §6.7)
 - **A configuration named in prose must be named in a flag.** E3's brief said "ternary head" and the
   code read `tied` out of a donor config; the two differ by 52% of the token. (E3 §2.3)
 - **Extrapolating a fit requires publishing its residuals first.** `f` is fitted per donor shape only

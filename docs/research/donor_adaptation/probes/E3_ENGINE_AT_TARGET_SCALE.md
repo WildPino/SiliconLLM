@@ -38,7 +38,8 @@ Consequences, each a measurement and not an extrapolation:
 - **The head stops being the floor.** 20.5% of the token at 0.5 B, **1.1%** at `T10`; the attention
   projections are 17.9%. The matched pair `M7`/`Q8` confirms the tokenizer sets the head end-to-end:
   4.629× the time for 4.637× the vocabulary, **0.2%**.
-- `T10` measured: **3.090 tok/s** @300, **2.960** @800 — the dense path is **15.7×** from the goal.
+- `T10` measured: **3.090 tok/s** @300, **2.960** @800 — the dense path is **16.2×** from the goal,
+  which is just `50 / 3.090` and needs no rate convention at all.
 - `f` is **one FMA per ~4 cycles per thread across all twelve points** (±7%), invariant to KV size,
   GQA and vocabulary: a serial FP reduction the build cannot vectorise, not a bandwidth wall.
   **The KV path has never been touched** and is where the remaining distance is.
@@ -469,7 +470,8 @@ said with a measurement:
 | `T10` measured | **3.090 tok/s** @300, **2.960** @800 |
 | needed for 50 tok/s | 530 G-weights/s |
 | measured | 32.8 G-weights/s (wall) |
-| **short by** | **15.7×** |
+| **short by** | **16.2×** |
+| the same thing without any rate | `50 / 3.090` = **16.2×** |
 | ceiling with a free weight path, @800 | **38.3 tok/s** |
 
 The dense path is 16× away, and **the last 1.3× of that is unreachable by any weight-side work at
@@ -514,7 +516,14 @@ screen is marked superseded**.
    weight-organ convention `r_w` is reported beside it and never substituted for it.
 6. `synth_export.py` gained `--head {ternary,donor}` between runs 1 and 2; `donor` reproduces run 1
    exactly, so run 1 remains replayable.
-7. **Not measured, and not claimed:** whether the GQA re-reads reach DRAM or hit L2; whether the
+7. **Corrected after first publication, 2026-09-06.** §0 and §4.8 first said **15.7×**. That was a
+   denominator swap of mine, and exactly the one §4.3 sanctions in `INDEX` §7: `530 G-weights/s` is
+   `active / 20 ms of **wall**`, so it must be divided by `r_wall` (32.76), not by `r_w` (33.78).
+   The correct figure is **16.18×**, and the cross-check that cannot be got wrong — `50 / 3.090` —
+   gives the same 16.18. `e3_analyse.py` now computes it from `rate_wall` and prints the
+   rate-free form beside it, so the swap cannot be made again silently. Nothing else moves: the
+   budget, `f`, and the ceilings never went through this quantity.
+8. **Not measured, and not claimed:** whether the GQA re-reads reach DRAM or hit L2; whether the
    attention loop is latency- or bandwidth-bound (§4.6 gives the discriminating experiment); anything
    at all about quality — the weights are noise.
 
