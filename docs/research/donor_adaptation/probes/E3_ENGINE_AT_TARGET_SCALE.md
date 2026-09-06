@@ -10,6 +10,27 @@ gates) at `a75e37b` before any arm above `S15` was generated.
 
 ---
 
+> ## ⚠ AMENDED 2026-09-06 by E4 — read this before quoting anything below
+>
+> **1. The ceiling claim is WITHDRAWN.** §4.5 concluded that a 10 B could not pass **38.3 tok/s at
+> 800 tokens of context even with a free weight path**, and §4.6 called the attention organ's
+> ~4 cycles/FMA constant *corroborated, not proven*. `probes/E4_ATTENTION_ACCUMULATORS.md` proved it
+> and removed it: the `Q·K` reduction was **latency-bound**, 40 lines of AVX2 took it 14.647 → 2.242
+> ms, `f` 24.678 → **12.735 ms** and the ceiling 40.5 → **78.5 tok/s**, at `|ΔBPB| = 3.03e-06`.
+> **50 tok/s at 800 context is a weight-side problem again**, and §4.5's budget of *zero* at 800 is
+> now **259 M**. §7's twelve-donor screen is re-priced in E4 §4.7.
+>
+> **2. ±5% band on every absolute tok/s in this probe.** E3's own binary, rebuilt and re-run in a
+> later session, missed this probe's published table by **−1.6% to −4.2%**, and the same code read
+> **3.240** and **3.030** at `T10` @300 two hours apart while the within-run IQR stayed at 0.005.
+> Between-sweep dispersion here is **5–10%**; within-sweep is 0.000–0.015 tok/s. Every absolute
+> tok/s and G-weights/s below carries that band. **The ratios do not** — they were taken inside one
+> sweep — and this probe's conclusions about *shape* (the rate improving with scale, the head
+> falling to 1.1%, `f` breaking its reservation) are ratios and stand.
+> `SPEED_LEDGER.md` §14.3 is the law; this is its instance here.
+
+---
+
 ## 0. Verdict
 
 **Run 1: `VOID`** (Gate V1 fired, Gate V2 failed — §2.2, §2.3).

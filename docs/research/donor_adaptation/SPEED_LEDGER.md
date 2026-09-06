@@ -12,6 +12,14 @@ share a row here. Every "dense tok/s" figure below is a floor, not an estimate.*
 **Generator: `benchmarks/donor_adaptation/speed/donor_speed_budget.py` (`--show-sources` prints the
 provenance of every constant). Raw: `speed/donor_speed_budget_ctx4096.json`.**
 
+> **BAND ON EVERY ABSOLUTE tok/s IN THIS FILE: ±5%** (§14.3, the law E4 closed with).
+> Between-sweep dispersion on this machine is 5–10%; the within-run IQRs printed in the tables
+> below are 0.000–0.015 tok/s and **do not show it**. Every absolute tok/s, G-weights/s and
+> active-weight budget here carries that band, wherever it appears and whether or not the band is
+> restated at that line. **Ratios taken inside one sweep do not** — that is why the conclusions of
+> §12–§14 are all ratios. A number from this file may not be compared to one measured in another
+> session unless the reference is re-measured alongside it.
+
 > **Not audited.** Written by the figure that built the generator. A Controller pass is owed.
 
 ---
@@ -253,6 +261,8 @@ including everything the component model excluded.
 **Measured** (Qwen2.5-0.5B, `donor_engine.c`, t6, packed 2 trits/byte, ternary head, ctx ≤200):
 494.0 M active weights/token in 27.72 ms wall → **36.1 tok/s**, of which 26.59 ms is weight-matvec.
 
+*(±5% band, §14.3 — this is an absolute tok/s, and so is the 18.6 G-weights/s below it.)*
+
 > ### **DELIVERED RATE = 18.6 G-weights/s.**
 
 Everything about the goal follows from that one number:
@@ -446,6 +456,8 @@ cases including both planted controls.
 | rope, after | **0.016** |
 
 **50.9 → 56.1 tok/s, +10.3%, at zero numeric cost.** Commit `4f7b33c`.
+
+*(±5% band, §14.3, on both absolutes; the +10.3% was taken inside one sweep and is not banded.)*
 
 ### 12.1 What it invalidates
 
@@ -690,7 +702,7 @@ has never been touched. **Parity gate mandatory:** accumulation order is exactly
 | measured | 32.8 G-weights/s |
 | **short by** | **16.2×** |
 | the same thing without any rate | `50 / 3.090` = **16.2×** |
-| ceiling at zero weight cost, @800 | **38.3 tok/s** |
+| ceiling at zero weight cost, @800 | **38.3 tok/s** — **WITHDRAWN by §14.1** |
 
 > **Corrected 2026-09-06, same day, same law.** This row was first published as **15.7×**,
 > which divided a *wall* quantity by `r_w` instead of `r_wall` — the §13.2 error committed a

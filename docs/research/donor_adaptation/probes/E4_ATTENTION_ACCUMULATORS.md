@@ -337,13 +337,19 @@ question of whether GQA re-reads reach DRAM — they do not (§4.2).
 1. **Decompose `R`.** It is 81.4% of the organ and the binding term in `f`. The same planted-control
    trick applies: an arm that runs the softmax loop twice, and one that runs `A·V` twice, both
    value-preserving, split `R` the way `serial2` split the organ. **This is now item 0.**
+   **Pre-registered as E5** (`briefs/BRIEF_E5_DECOMPOSE_R.md`, pushed at `c1bdd70` before the arms
+   existed; arms at `00f4538`), with a third component `P` — the OpenMP region, 48 forks per token —
+   that this probe did not name and that E5's own arithmetic says must exist.
 2. ~~Re-run E3's twelve-donor budget screen against the new `f`.~~ **Done** (§4.7). `A` was wrong by
    2.04×; the screen was re-measured rather than rescaled, and `e3_budget_by_shape.py` now derives
    `r_w` from whichever sweep it is given rather than from a hardcoded table.
 3. `f` beyond 800 tokens of context; still nothing measured bounds it.
-4. Every absolute tok/s in `SPEED_LEDGER` and E3 carries a ±5% between-sweep band that its published
-   IQR does not show (§2.4). The **ratios** are unaffected. This wants a one-line note wherever an
-   absolute is quoted, not a re-run.
+4. ~~Every absolute tok/s in `SPEED_LEDGER` and E3 carries a ±5% between-sweep band that its
+   published IQR does not show (§2.4).~~ **Done.** `SPEED_LEDGER.md` carries the band as a banner
+   binding the whole file plus a line at each headline absolute (§10, §12.3, §13.5 — the last is
+   marked withdrawn rather than banded); `probes/E3_ENGINE_AT_TARGET_SCALE.md` gained an amendment
+   banner carrying both the band and this probe's withdrawal of its ceiling. The **ratios** are
+   unaffected and are named as such in both places. No re-run.
 
 ---
 

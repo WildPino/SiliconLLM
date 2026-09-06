@@ -146,7 +146,12 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 
 ## 4. Open, in priority order
 
-0. **Decompose `R`** — new, and it inherits first place from the item E4 just closed. `R` = the
+0. **Decompose `R`** — new, and it inherits first place from the item E4 just closed.
+   **Pre-registered and running as E5**: `briefs/BRIEF_E5_DECOMPOSE_R.md` (`c1bdd70`, pushed before
+   the arms), arms `--attnr {sm2,sm3,av2,av3,fork2}` at `00f4538`, G2 passed **bit-identical on all
+   six arms**. The brief adds a third term this row did not name — `P`, the OpenMP region and
+   everything that is neither loop — because its own arithmetic for the two loops reaches 3.0–5.5 ms
+   against a measured `R` of 9.816, and pre-registers that 4–7 ms of the organ is in neither. `R` = the
    softmax pass + the `A·V` loop = **9.816 ms/token** at `T10` @800, **81.4% of the attention organ**
    after `avx4`, and the organ is ~97% of `f`. Nothing has ever measured what is inside it. The
    method is already built and already validated: E4's planted control split the organ by running the
