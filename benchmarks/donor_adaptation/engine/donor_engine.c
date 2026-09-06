@@ -112,6 +112,19 @@ enum { ATTN_SERIAL=0, ATTN_ILP4=1, ATTN_AVX1=2, ATTN_AVX4=3, ATTN_SERIAL2=4,
        ATTN_SERIAL_E3=5, ATTN_SERIAL3=6 };
 static int g_attn=ATTN_SERIAL;
 
+// --attnr {none,sm2,sm3,av2,av3,fork2}: BRIEF_E5_DECOMPOSE_R.md s2.  E4 left the attention organ
+// split as X (the Q.K dot loop, 2.242 ms after avx4) + R (everything else, 9.816 ms = 81.4%).
+// These arms split R the way serial2/serial3 split the organ: each component is run 2x and 3x
+// VALUE-PRESERVINGLY, so S and Y are solved from the 1x/2x points and then PREDICTED at 3x.
+// Composes with --attn; every E5 arm is measured on top of --attn avx4.
+enum { ATTNR_NONE=0, ATTNR_SM2=1, ATTNR_SM3=2, ATTNR_AV2=3, ATTNR_AV3=4, ATTNR_FORK2=5 };
+static int g_attnr=ATTNR_NONE;
+// fork2's extra region must not be elidable and must not be shrunk to its one read element,
+// hence volatile on the buffer itself.
+#define E5_MAXNH 1024
+static volatile float g_forkbuf[E5_MAXNH];
+static volatile float g_sink=0.0f;
+
 static inline float hsum256(__m256 v){
     __m128 lo=_mm256_castps256_ps128(v), hi=_mm256_extractf128_ps(v,1);
     lo=_mm_add_ps(lo,hi);
@@ -610,6 +623,8 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
         memcpy(vc,vp,(size_t)KVO*4);
 
         const float inv=1.0f/sqrtf((float)HD);
+        // loop-invariant, computed OUTSIDE the parallel region so no arm pays a branch per head
+        const int avrep=(g_attnr==ATTNR_AV3)?3:((g_attnr==ATTNR_AV2)?2:1);
         TIC;
 #ifdef _OPENMP
 #pragma omp parallel for schedule(static)
@@ -651,16 +666,55 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
                 for(int t=0;t<=pos;t++){ float d=dot_serial(qh,kbase+(size_t)t*KVO,HD)*inv;
                                          a[t]=d; if(d>mx) mx=d; } break;
             }
+            // ---- S, the softmax pass.  sm2/sm3 run it 2x/3x over the UNMODIFIED a[] and keep
+            // the LAST result; the discarded sums are folded back as exact zeros (s0==s1==sum
+            // bitwise, so both corrections are +0), which makes the arm bit-identical -- gate G2.
+            // The discarded passes omit the store into a[] and are therefore a slight
+            // UNDER-count of S by one L1 store per expf; recorded in the probe, not hidden.
             float sum=0.0f;
-            for(int t=0;t<=pos;t++){ a[t]=expf(a[t]-mx); sum+=a[t]; }
+            if(g_attnr==ATTNR_SM2||g_attnr==ATTNR_SM3){
+                float s0=0.0f,s1=0.0f;
+                for(int t=0;t<=pos;t++) s0+=expf(a[t]-mx);
+                if(g_attnr==ATTNR_SM3){ for(int t=0;t<=pos;t++) s1+=expf(a[t]-mx); }
+                else s1=s0;
+                for(int t=0;t<=pos;t++){ a[t]=expf(a[t]-mx); sum+=a[t]; }
+                sum=sum+(s0-sum)+(s1-sum);
+            } else {
+                for(int t=0;t<=pos;t++){ a[t]=expf(a[t]-mx); sum+=a[t]; }
+            }
             float rs=1.0f/sum;
             float* out=s->attout+(size_t)h*HD;
-            for(int i=0;i<HD;i++) out[i]=0.0f;
-            for(int t=0;t<=pos;t++){
-                const float* vt=s->vcache+((size_t)l*s->maxseq+t)*KVO+(size_t)kvh*HD;
-                float w=a[t]*rs;
-                for(int i=0;i<HD;i++) out[i]+=w*vt[i];
+            // ---- Y, the A.V loop.  av2/av3 run the SAME loop 2x/3x from zero.  No scratch
+            // buffer and no extra traffic: between passes `out[i]-=out[i]` is exactly +0 for any
+            // finite out[i], and because it READS out[i] the previous pass cannot be dead-coded.
+            // avrep==1 takes a byte-for-byte copy of the baseline loop, so `none` is unchanged.
+            if(avrep==1){
+                for(int i=0;i<HD;i++) out[i]=0.0f;
+                for(int t=0;t<=pos;t++){
+                    const float* vt=s->vcache+((size_t)l*s->maxseq+t)*KVO+(size_t)kvh*HD;
+                    float w=a[t]*rs;
+                    for(int i=0;i<HD;i++) out[i]+=w*vt[i];
+                }
+            } else {
+                for(int r=0;r<avrep;r++){
+                    if(r==0){ for(int i=0;i<HD;i++) out[i]=0.0f; }
+                    else    { for(int i=0;i<HD;i++) out[i]-=out[i]; }
+                    for(int t=0;t<=pos;t++){
+                        const float* vt=s->vcache+((size_t)l*s->maxseq+t)*KVO+(size_t)kvh*HD;
+                        float w=a[t]*rs;
+                        for(int i=0;i<HD;i++) out[i]+=w*vt[i];
+                    }
+                }
             }
+        }
+        // ---- P, priced directly: ONE extra fork/join per layer over the same iteration space,
+        // so the cost of the parallel region itself is read against the one already there.
+        if(g_attnr==ATTNR_FORK2&&NH<=E5_MAXNH){
+#ifdef _OPENMP
+#pragma omp parallel for schedule(static)
+#endif
+            for(int h=0;h<NH;h++) g_forkbuf[h]=(float)h;
+            g_sink+=g_forkbuf[0];
         }
         TOC(T_ATTN);
         { TIC; matvec(&L->o,s->attout,NULL,s->xb2);
@@ -794,6 +848,14 @@ int main(int argc,char** argv){
             else if(!strcmp(v,"serial3")) g_attn=ATTN_SERIAL3;
             else if(!strcmp(v,"serial_e3")) g_attn=ATTN_SERIAL_E3;
             else { fprintf(stderr,"--attn: unknown arm %s\n",v); return 1; } }
+        else if(!strcmp(argv[i],"--attnr")&&i+1<argc){ const char* v=argv[++i];
+            if(!strcmp(v,"none")) g_attnr=ATTNR_NONE;
+            else if(!strcmp(v,"sm2")) g_attnr=ATTNR_SM2;
+            else if(!strcmp(v,"sm3")) g_attnr=ATTNR_SM3;
+            else if(!strcmp(v,"av2")) g_attnr=ATTNR_AV2;
+            else if(!strcmp(v,"av3")) g_attnr=ATTNR_AV3;
+            else if(!strcmp(v,"fork2")) g_attnr=ATTNR_FORK2;
+            else { fprintf(stderr,"--attnr: unknown arm %s\n",v); return 1; } }
         else if(!strcmp(argv[i],"--lut-group")&&i+1<argc){ g_group=atoi(argv[++i]);
             if(g_group&1) die("--lut-group must be even: a 2-trit LUT pair may not straddle a group");
             snprintf(g_grouplbl,sizeof g_grouplbl,"%d channels",g_group); }

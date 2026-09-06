@@ -1,0 +1,25 @@
+# E5 -- static evidence taken from the object code BEFORE any arm was timed.
+# clang -O3 -mavx2 -mfma -ffp-contract=on -fopenmp -S donor_engine.c
+
+## 1. The duplicated softmax loops are PRESENT: four distinct 'callq exp' sites in
+##    forward.omp_outlined -- three from the sm2/sm3 branch, one from the baseline branch.
+##    G1's elision worry is answered by the compiler's own output, not by a timing.
+
+## 2. expf IS NOT SINGLE PRECISION on this toolchain.  One softmax element compiles to:
+.LBB11_103:                             #   Parent Loop BB11_6 Depth=1
+                                        # =>  This Inner Loop Header: Depth=2
+	vmovss	4(%rsi,%rdi,4), %xmm0           # xmm0 = mem[0],zero,zero,zero
+	vsubss	%xmm9, %xmm0, %xmm0
+	vcvtss2sd	%xmm0, %xmm0, %xmm0
+	vzeroupper
+	callq	exp
+	vcvtsd2ss	%xmm0, %xmm0, %xmm0
+	vaddss	%xmm0, %xmm10, %xmm10
+	movslq	(%r14), %r15
+	incq	%rdi
+	cmpq	%r15, %rdi
+
+##    i.e. vcvtss2sd -> callq exp (DOUBLE) -> vcvtsd2ss, with a vzeroupper before every
+##    call.  At T10 @800 that is 615,168 double-precision exp calls and 615,168 AVX/SSE
+##    transitions per token.  Recorded before the timing, so it cannot become a
+##    post-hoc explanation of whatever S turns out to be.

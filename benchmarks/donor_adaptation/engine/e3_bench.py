@@ -60,19 +60,22 @@ def main():
     # E4: the arm is a value, not a free-form passthrough -- argparse cannot carry "--attn avx4"
     # inside --extra (it reads the leading "--" as an option of its own).
     ap.add_argument("--attn", default="", help="E4 arm passed to donor_engine --attn")
+    # E5: the R-decomposition arm, orthogonal to --attn and composed with it on every point.
+    ap.add_argument("--attnr", default="", help="E5 arm passed to donor_engine --attnr")
     # E4 s8.2: to tell a code change from a machine that has drifted, the OLD binary must be
     # runnable in the SAME session as the new one.
     ap.add_argument("--exe", default="", help="binary to run instead of donor_engine.exe")
     a = ap.parse_args()
 
-    extra = list(a.extra) + (["--attn", a.attn] if a.attn else [])
+    extra = (list(a.extra) + (["--attn", a.attn] if a.attn else [])
+             + (["--attnr", a.attnr] if a.attnr else []))
     reps = [one(a.weights, a.bench, a.threads, extra, a.exe or None) for _ in range(a.reps)]
     rates = [r["tok_s"] for r in reps]
     med, iqr, q1, q3 = quart(rates)
     # organ table of the rep whose rate is closest to the median
     mid = min(reps, key=lambda r: abs(r["tok_s"] - med))
     rec = {"label": a.label or os.path.basename(a.weights), "weights": a.weights,
-           "bench": a.bench, "threads": a.threads, "reps": a.reps, "attn": a.attn or "serial", "exe": a.exe or "donor_engine.exe",
+           "bench": a.bench, "threads": a.threads, "reps": a.reps, "attn": a.attn or "serial", "attnr": a.attnr or "none", "exe": a.exe or "donor_engine.exe",
            "tok_s": rates, "median_tok_s": med, "iqr_tok_s": iqr, "q1": q1, "q3": q3,
            "median_rep_organs_ms": mid["organs"],
            "median_rep_wall_ms_token": mid["wall_ms_token"],
