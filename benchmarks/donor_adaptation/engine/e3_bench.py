@@ -57,15 +57,19 @@ def main():
     ap.add_argument("--label", default="")
     ap.add_argument("--out", default="")
     ap.add_argument("--extra", nargs="*", default=[])
+    # E4: the arm is a value, not a free-form passthrough -- argparse cannot carry "--attn avx4"
+    # inside --extra (it reads the leading "--" as an option of its own).
+    ap.add_argument("--attn", default="", help="E4 arm passed to donor_engine --attn")
     a = ap.parse_args()
 
-    reps = [one(a.weights, a.bench, a.threads, a.extra) for _ in range(a.reps)]
+    extra = list(a.extra) + (["--attn", a.attn] if a.attn else [])
+    reps = [one(a.weights, a.bench, a.threads, extra) for _ in range(a.reps)]
     rates = [r["tok_s"] for r in reps]
     med, iqr, q1, q3 = quart(rates)
     # organ table of the rep whose rate is closest to the median
     mid = min(reps, key=lambda r: abs(r["tok_s"] - med))
     rec = {"label": a.label or os.path.basename(a.weights), "weights": a.weights,
-           "bench": a.bench, "threads": a.threads, "reps": a.reps,
+           "bench": a.bench, "threads": a.threads, "reps": a.reps, "attn": a.attn or "serial",
            "tok_s": rates, "median_tok_s": med, "iqr_tok_s": iqr, "q1": q1, "q3": q3,
            "median_rep_organs_ms": mid["organs"],
            "median_rep_wall_ms_token": mid["wall_ms_token"],

@@ -102,6 +102,66 @@ static float *g_xe=NULL,*g_xo=NULL; static int g_xcap=0;
 // ever run on a donor, BRIEF_T2 s5 records it as untested. Its cost is measured, not assumed.
 #define AQ 63
 static int      g_lut=0, g_lutdiag=0, g_lutnodown=0, g_lutnohead=0;  // --lut* family
+// --attn {serial,ilp4,avx1,avx4,serial2}: BRIEF_E4_ATTENTION_ACCUMULATORS.md s2.  E3 s4.6 measured
+// the attention organ at ~4 cycles per FMA per thread at all twelve of its points, which is the
+// signature of a SERIAL FP reduction: `d+=qh[i]*kt[i]` cannot be reassociated or vectorised without
+// -ffast-math, which is forbidden here (Phase 35).  These arms separate ILP from SIMD width so the
+// two explanations (latency vs load path) can be told apart instead of argued about.
+// Dispatched OUTSIDE the t loop, so the branch is paid L*NH times per token, not L*NH*pos.
+enum { ATTN_SERIAL=0, ATTN_ILP4=1, ATTN_AVX1=2, ATTN_AVX4=3, ATTN_SERIAL2=4 };
+static int g_attn=ATTN_SERIAL;
+
+static inline float hsum256(__m256 v){
+    __m128 lo=_mm256_castps256_ps128(v), hi=_mm256_extractf128_ps(v,1);
+    lo=_mm_add_ps(lo,hi);
+    lo=_mm_add_ps(lo,_mm_movehl_ps(lo,lo));
+    lo=_mm_add_ss(lo,_mm_shuffle_ps(lo,lo,1));
+    return _mm_cvtss_f32(lo);
+}
+// A0 -- the loop exactly as it was before E4.  One accumulator, one dependency chain.
+static inline float dot_serial(const float* a,const float* b,int n){
+    float d=0.0f; for(int i=0;i<n;i++) d+=a[i]*b[i]; return d;
+}
+// G1 -- the PLANTED POSITIVE.  Twice the loads and twice the FMAs, and BIT-IDENTICAL to A0:
+// d1==d2 bitwise, d1+d2 is exact (same exponent, mantissa fits), and *0.5f is exact.  If the
+// attention organ does not rise ~2x under this arm, the timer is not attached to this loop.
+static inline float dot_serial2(const float* a,const float* b,int n){
+    float d1=0.0f,d2=0.0f;
+    for(int i=0;i<n;i++) d1+=a[i]*b[i];
+    for(int i=0;i<n;i++) d2+=a[i]*b[i];
+    return (d1+d2)*0.5f;
+}
+// A1 -- ILP without SIMD: four scalar chains, so the reduction is 4 deep instead of n deep.
+static inline float dot_ilp4(const float* a,const float* b,int n){
+    float d0=0.0f,d1=0.0f,d2=0.0f,d3=0.0f; int i=0;
+    for(;i+3<n;i+=4){ d0+=a[i]*b[i]; d1+=a[i+1]*b[i+1]; d2+=a[i+2]*b[i+2]; d3+=a[i+3]*b[i+3]; }
+    for(;i<n;i++) d0+=a[i]*b[i];
+    return (d0+d1)+(d2+d3);
+}
+// A2 -- SIMD width without extra ILP: 8 lanes, still ONE chain.
+static inline float dot_avx1(const float* a,const float* b,int n){
+    __m256 acc=_mm256_setzero_ps(); int i=0;
+    for(;i+7<n;i+=8) acc=_mm256_fmadd_ps(_mm256_loadu_ps(a+i),_mm256_loadu_ps(b+i),acc);
+    float d=hsum256(acc);
+    for(;i<n;i++) d+=a[i]*b[i];
+    return d;
+}
+// A3 -- both: 8 lanes x 4 chains = 32 FMAs in flight.
+static inline float dot_avx4(const float* a,const float* b,int n){
+    __m256 a0=_mm256_setzero_ps(),a1=_mm256_setzero_ps(),
+           a2=_mm256_setzero_ps(),a3=_mm256_setzero_ps();
+    int i=0;
+    for(;i+31<n;i+=32){
+        a0=_mm256_fmadd_ps(_mm256_loadu_ps(a+i   ),_mm256_loadu_ps(b+i   ),a0);
+        a1=_mm256_fmadd_ps(_mm256_loadu_ps(a+i+8 ),_mm256_loadu_ps(b+i+8 ),a1);
+        a2=_mm256_fmadd_ps(_mm256_loadu_ps(a+i+16),_mm256_loadu_ps(b+i+16),a2);
+        a3=_mm256_fmadd_ps(_mm256_loadu_ps(a+i+24),_mm256_loadu_ps(b+i+24),a3);
+    }
+    for(;i+7<n;i+=8) a0=_mm256_fmadd_ps(_mm256_loadu_ps(a+i),_mm256_loadu_ps(b+i),a0);
+    float d=hsum256(_mm256_add_ps(_mm256_add_ps(a0,a1),_mm256_add_ps(a2,a3)));
+    for(;i<n;i++) d+=a[i]*b[i];
+    return d;
+}
 static long     g_dn[2]={0,0}; static double g_dcrest[2]={0,0},g_drel[2]={0,0},g_dcmax[2]={0,0};
 static int8_t  *g_xq=NULL,*g_lutab=NULL; static int g_lutcap=0;
 
@@ -548,10 +608,24 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
             float* a=s->att+(size_t)h*s->maxseq;      // preallocated, disjoint per head
             const float* qh=qp+(size_t)h*HD;
             float mx=-1e30f;
-            for(int t=0;t<=pos;t++){
-                const float* kt=s->kcache+((size_t)l*s->maxseq+t)*KVO+(size_t)kvh*HD;
-                float d=0.0f; for(int i=0;i<HD;i++) d+=qh[i]*kt[i];
-                d*=inv; a[t]=d; if(d>mx) mx=d;
+            const float* kbase=s->kcache+((size_t)l*s->maxseq)*KVO+(size_t)kvh*HD;
+            // one branch per head, not per (head,position): the t loop below is unbranched.
+            switch(g_attn){
+            case ATTN_ILP4:
+                for(int t=0;t<=pos;t++){ float d=dot_ilp4(qh,kbase+(size_t)t*KVO,HD)*inv;
+                                         a[t]=d; if(d>mx) mx=d; } break;
+            case ATTN_AVX1:
+                for(int t=0;t<=pos;t++){ float d=dot_avx1(qh,kbase+(size_t)t*KVO,HD)*inv;
+                                         a[t]=d; if(d>mx) mx=d; } break;
+            case ATTN_AVX4:
+                for(int t=0;t<=pos;t++){ float d=dot_avx4(qh,kbase+(size_t)t*KVO,HD)*inv;
+                                         a[t]=d; if(d>mx) mx=d; } break;
+            case ATTN_SERIAL2:
+                for(int t=0;t<=pos;t++){ float d=dot_serial2(qh,kbase+(size_t)t*KVO,HD)*inv;
+                                         a[t]=d; if(d>mx) mx=d; } break;
+            default:
+                for(int t=0;t<=pos;t++){ float d=dot_serial(qh,kbase+(size_t)t*KVO,HD)*inv;
+                                         a[t]=d; if(d>mx) mx=d; } break;
             }
             float sum=0.0f;
             for(int t=0;t<=pos;t++){ a[t]=expf(a[t]-mx); sum+=a[t]; }
@@ -687,6 +761,13 @@ int main(int argc,char** argv){
         else if(!strcmp(argv[i],"--lut-no-down")){ g_lutnodown=1; }
         else if(!strcmp(argv[i],"--lut-no-head")){ g_lutnohead=1; }
         else if(!strcmp(argv[i],"--fuse")){ g_fuse=1; }
+        else if(!strcmp(argv[i],"--attn")&&i+1<argc){ const char* v=argv[++i];
+            if(!strcmp(v,"serial")) g_attn=ATTN_SERIAL;
+            else if(!strcmp(v,"ilp4")) g_attn=ATTN_ILP4;
+            else if(!strcmp(v,"avx1")) g_attn=ATTN_AVX1;
+            else if(!strcmp(v,"avx4")) g_attn=ATTN_AVX4;
+            else if(!strcmp(v,"serial2")) g_attn=ATTN_SERIAL2;
+            else { fprintf(stderr,"--attn: unknown arm %s\n",v); return 1; } }
         else if(!strcmp(argv[i],"--lut-group")&&i+1<argc){ g_group=atoi(argv[++i]);
             if(g_group&1) die("--lut-group must be even: a 2-trit LUT pair may not straddle a group");
             snprintf(g_grouplbl,sizeof g_grouplbl,"%d channels",g_group); }
