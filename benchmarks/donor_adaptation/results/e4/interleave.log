@@ -1,0 +1,13 @@
+pair1_A_serial_e3      bench=800  median    2.880 tok/s  IQR   0.000   reps 2.88
+   organs ms/tok: qkv_proj=35.624  rope=0.081  attention=27.287  o_proj=23.341  ffn=256.695  head=3.774  norm+glue=0.638
+pair1_B_avx4           bench=800  median    2.990 tok/s  IQR   0.000   reps 2.99
+   organs ms/tok: qkv_proj=35.625  rope=0.085  attention=13.585  o_proj=23.389  ffn=257.222  head=3.780  norm+glue=0.638
+pair2_A_serial_e3      bench=800  median    2.870 tok/s  IQR   0.000   reps 2.87
+   organs ms/tok: qkv_proj=35.678  rope=0.084  attention=27.698  o_proj=23.371  ffn=257.007  head=3.760  norm+glue=0.637
+pair2_B_avx4           bench=800  median    3.020 tok/s  IQR   0.000   reps 3.02
+   organs ms/tok: qkv_proj=35.238  rope=0.081  attention=12.964  o_proj=23.176  ffn=255.207  head=3.742  norm+glue=0.635
+pair3_A_serial_e3      bench=800  median    3.050 tok/s  IQR   0.000   reps 3.05
+   organs ms/tok: qkv_proj=33.465  rope=0.073  attention=25.054  o_proj=22.021  ffn=243.719  head=3.603  norm+glue=0.616
+pair3_B_avx4           bench=800  median    3.170 tok/s  IQR   0.000   reps 3.17
+   organs ms/tok: qkv_proj=33.480  rope=0.073  attention=12.215  o_proj=22.066  ffn=243.863  head=3.604  norm+glue=0.616
+INTERLEAVE DONE

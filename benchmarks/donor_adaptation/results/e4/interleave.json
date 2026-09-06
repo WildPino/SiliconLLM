@@ -1,0 +1,164 @@
+[
+ {
+  "label": "pair1_A_serial_e3",
+  "weights": "D:/_ktmp/e3/T10_th.bin",
+  "bench": 800,
+  "threads": 6,
+  "reps": 1,
+  "attn": "serial_e3",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   2.88
+  ],
+  "median_tok_s": 2.88,
+  "iqr_tok_s": 0.0,
+  "q1": 2.88,
+  "q3": 2.88,
+  "median_rep_organs_ms": {
+   "qkv_proj": 35.624,
+   "rope": 0.081,
+   "attention": 27.287,
+   "o_proj": 23.341,
+   "ffn": 256.695,
+   "head": 3.774,
+   "norm+glue": 0.638
+  },
+  "median_rep_wall_ms_token": 347.276,
+  "median_rep_organs_total_ms": 347.44
+ },
+ {
+  "label": "pair1_B_avx4",
+  "weights": "D:/_ktmp/e3/T10_th.bin",
+  "bench": 800,
+  "threads": 6,
+  "reps": 1,
+  "attn": "avx4",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   2.99
+  ],
+  "median_tok_s": 2.99,
+  "iqr_tok_s": 0.0,
+  "q1": 2.99,
+  "q3": 2.99,
+  "median_rep_organs_ms": {
+   "qkv_proj": 35.625,
+   "rope": 0.085,
+   "attention": 13.585,
+   "o_proj": 23.389,
+   "ffn": 257.222,
+   "head": 3.78,
+   "norm+glue": 0.638
+  },
+  "median_rep_wall_ms_token": 334.16,
+  "median_rep_organs_total_ms": 334.324
+ },
+ {
+  "label": "pair2_A_serial_e3",
+  "weights": "D:/_ktmp/e3/T10_th.bin",
+  "bench": 800,
+  "threads": 6,
+  "reps": 1,
+  "attn": "serial_e3",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   2.87
+  ],
+  "median_tok_s": 2.87,
+  "iqr_tok_s": 0.0,
+  "q1": 2.87,
+  "q3": 2.87,
+  "median_rep_organs_ms": {
+   "qkv_proj": 35.678,
+   "rope": 0.084,
+   "attention": 27.698,
+   "o_proj": 23.371,
+   "ffn": 257.007,
+   "head": 3.76,
+   "norm+glue": 0.637
+  },
+  "median_rep_wall_ms_token": 348.076,
+  "median_rep_organs_total_ms": 348.236
+ },
+ {
+  "label": "pair2_B_avx4",
+  "weights": "D:/_ktmp/e3/T10_th.bin",
+  "bench": 800,
+  "threads": 6,
+  "reps": 1,
+  "attn": "avx4",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   3.02
+  ],
+  "median_tok_s": 3.02,
+  "iqr_tok_s": 0.0,
+  "q1": 3.02,
+  "q3": 3.02,
+  "median_rep_organs_ms": {
+   "qkv_proj": 35.238,
+   "rope": 0.081,
+   "attention": 12.964,
+   "o_proj": 23.176,
+   "ffn": 255.207,
+   "head": 3.742,
+   "norm+glue": 0.635
+  },
+  "median_rep_wall_ms_token": 330.873,
+  "median_rep_organs_total_ms": 331.043
+ },
+ {
+  "label": "pair3_A_serial_e3",
+  "weights": "D:/_ktmp/e3/T10_th.bin",
+  "bench": 800,
+  "threads": 6,
+  "reps": 1,
+  "attn": "serial_e3",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   3.05
+  ],
+  "median_tok_s": 3.05,
+  "iqr_tok_s": 0.0,
+  "q1": 3.05,
+  "q3": 3.05,
+  "median_rep_organs_ms": {
+   "qkv_proj": 33.465,
+   "rope": 0.073,
+   "attention": 25.054,
+   "o_proj": 22.021,
+   "ffn": 243.719,
+   "head": 3.603,
+   "norm+glue": 0.616
+  },
+  "median_rep_wall_ms_token": 328.388,
+  "median_rep_organs_total_ms": 328.553
+ },
+ {
+  "label": "pair3_B_avx4",
+  "weights": "D:/_ktmp/e3/T10_th.bin",
+  "bench": 800,
+  "threads": 6,
+  "reps": 1,
+  "attn": "avx4",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   3.17
+  ],
+  "median_tok_s": 3.17,
+  "iqr_tok_s": 0.0,
+  "q1": 3.17,
+  "q3": 3.17,
+  "median_rep_organs_ms": {
+   "qkv_proj": 33.48,
+   "rope": 0.073,
+   "attention": 12.215,
+   "o_proj": 22.066,
+   "ffn": 243.863,
+   "head": 3.604,
+   "norm+glue": 0.616
+  },
+  "median_rep_wall_ms_token": 315.76,
+  "median_rep_organs_total_ms": 315.918
+ }
+]
