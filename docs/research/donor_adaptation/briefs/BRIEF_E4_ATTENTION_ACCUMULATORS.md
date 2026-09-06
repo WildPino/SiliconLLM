@@ -129,3 +129,88 @@ clang -O3 -mavx2 -mfma -ffp-contract=on -fopenmp donor_engine.c -o donor_engine.
 python e3_bench.py --weights D:/_ktmp/e3/T10_th.bin --bench 800 --reps 3 --extra --attn avx4
 donor_engine.exe --weights D:/_ktmp/e1/qwen25-05b_tqh.bin --bpb D:/_ktmp/e1/ids_qwen25-05b_tqh.bin --attn avx4
 ```
+
+---
+
+## 8. AMENDED after run 1 — **run 1 is `VOID`**, two gates failed, and both are my errors
+
+Appended 2026-09-06, **before run 2 exists**. Run 1's arms are in `results/e4/arms.json` and its
+analysis in `results/e4/analysis.txt`; nothing below deletes them.
+
+### 8.1 G1 failed at its threshold, and the threshold is what was wrong
+
+Required ≥1.7x. Measured **1.601x @300 and 1.602x @800** — the same number twice, from two
+independent context lengths.
+
+**Why 1.7 was the wrong number.** `serial2` doubles the **dot loop**, not the organ. §4 wrote the
+threshold as though the dot loop were the whole organ. Solve the two equations instead:
+
+| | @300 | @800 |
+|---|---|---|
+| `serial` = `X + R` | 9.123 | 24.270 |
+| `serial2` = `2X + R` | 14.603 | 38.876 |
+| **dot loop `X`** | **5.480** | **14.606** |
+| **the rest `R`** (softmax `expf` + the A·V loop) | **3.643** | **9.664** |
+| `R` as a share of the organ | **39.9%** | **39.8%** |
+
+Two context lengths, 2.7x apart in organ time, give the same 39.9% split. So the instrument fired
+exactly as its mechanism predicts; **the arithmetic in my threshold did not include `R`.**
+
+**That reasoning is not allowed to rescue the run.** It is a re-reading of a failed gate after seeing
+it fail, which is the move E3 §2.5 permits only once and only with the ground truth failing beside
+it. So the gate is not re-read: it is **replaced by one that tests the model instead of asserting
+it** (§8.3), and run 1 keeps the label `VOID`.
+
+### 8.2 G4 failed because I moved the baseline, and this one is a real defect
+
+Required: `--attn serial` reproduces E3 within its IQR (which is **0.005 and 0.000 tok/s** at `T10`).
+
+| point | E3 | run 1 `serial` | |
+|---|---|---|---|
+| `T10` @300 | 3.090 tok/s, attention 9.862 | 3.240, **9.123** | **+4.9% tok/s, −7.5% attention** |
+| `T10` @800 | 2.960, 25.385 | 3.090, **24.270** | +4.4%, −4.4% |
+| `S05` @300 | 55.700, 1.096 | 57.580, 1.033 | +3.4%, −5.7% |
+| `S05` @800 | 49.280, 2.847 | 52.710, 2.642 | +7.0%, −7.2% |
+
+**Cause, found by reading my own diff.** Extracting the dot product into a function also hoisted the
+KV address out of the `t` loop: E3 computes `s->kcache + ((l*maxseq + t)*KVO) + kvh*HD` at every
+position, run 1 computes `kbase` once per head and walks `kbase + t*KVO`. That is strength reduction
+of the address arithmetic — a **second, unannounced change** riding inside the arm labelled
+"unchanged". It is worth 4–7% on its own, bit-identically, and it means **no ratio in run 1 is
+against E3's baseline.**
+
+This is the same failure as E3 §2.3 (a configuration named in prose but not in a flag), one level
+down: *an arm named "unchanged" must be unchanged, and the way to know is to run it against the
+artifact it claims to reproduce* — which is exactly what G4 is for, and G4 caught it.
+
+### 8.3 Run 2 — fixed here, before it exists
+
+Two arms are added; **no threshold, prediction or decision rule from §3–§5 is altered**, and the
+§5 rule will be applied against the restored baseline.
+
+| new arm | what it is | what it is for |
+|---|---|---|
+| `serial_e3` | the dot loop **and** E3's exact per-position address arithmetic | the true baseline; every ratio is re-taken against it |
+| `serial3` | the dot loop **three** times, `d1 + (d2−d1) + (d3−d1)` | turns G1 from an assertion into a **test** |
+
+**G1′ — the planted control becomes a falsifiable model, not a threshold.** `X` and `R` above were
+solved from two points, so they fit those two points by construction. A third point cannot be fitted:
+with `X`, `R` already fixed, `serial3` must land on `3X + R`.
+
+| | predicted `attention` ms, stated before the arm exists |
+|---|---|
+| `T10` @300 | **20.083** |
+| `T10` @800 | **53.482** |
+
+**Required: within ±3% of those, at both context lengths, and `--logits` bit-identical to `serial`.**
+If it lands there, the organ is linear in dot-loop count, `X` and `R` are *measured* rather than
+assumed, and the instrument is proven on a known positive at a point it was not fitted to. If it does
+not, the linear model is wrong, §8.1's explanation of G1 collapses with it, and **E4 stays `VOID`**.
+
+**G4′ — unchanged in force, restated in target.** `serial_e3` must reproduce E3's `9.862` @300 and
+`25.385` @800 within E3's dispersion. Additionally reported, because run 1 makes it measurable:
+`serial_e3 − serial` is the **price of the per-position address arithmetic alone**, predicted
+**≈0.74 ms @300** and **≈1.12 ms @800** from run 1's difference.
+
+**What run 1's arms are allowed to be used for in the meantime:** nothing that carries a label. They
+are listed in the probe as measured, with `VOID` on them, exactly as E3 run 1 was.
