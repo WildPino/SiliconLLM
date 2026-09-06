@@ -206,3 +206,96 @@ python e5_analyse.py ../results/e5/arms.json
 
 Never `-ffast-math` (Phase 35): it would let the compiler reassociate the very reduction whose
 latency E4 measured, and every number in both probes would stop being about the code that ships.
+
+---
+
+## 8. AMENDMENT after run 1 — `VOID`, and the gate that was missing
+
+Pushed **before run 2 exists**. Run 1 (`results/e5/arms.json`, analysis at
+`results/e5/analysis.txt`, both committed) is **VOID at `T10`**, which is the point §5 judges.
+
+### 8.1 What run 1 did
+
+Five of the eight G1 predictions missed, two of them producing numbers that cannot be true:
+
+| point | solved | what it says |
+|---|---|---|
+| `T10` @300 | `S` = **−0.544 ms** | running the softmax pass **twice** made the organ *faster* |
+| `T10` @300 | `Y` = **−1.012 ms** | so did running the `A·V` loop twice |
+
+A negative component is not a small component; it is an instrument saying the difference it was
+asked for is smaller than the noise it is sitting in. The model was not wrong — it was never given
+a measurement to be wrong about.
+
+### 8.2 The defect, found in an organ no arm touches
+
+`qkv_proj`, `o_proj`, `ffn` and `head` are on the weight path. **No E5 arm modifies any of them**,
+so their sum `W` must be constant across the arms of a cell. It was not:
+
+| cell | `W` min | `W` max | spread |
+|---|---|---|---|
+| `S05` @300 | 16.8 | 17.2 | +2.6% |
+| `S05` @800 | 16.4 | 16.5 | +0.7% |
+| **`T10` @300** | 304.3 | 363.4 | **+19.4%** |
+| **`T10` @800** | 311.2 | 405.8 | **+30.4%** |
+
+At `T10` @800 the three arms that produced the impossible numbers — `sm2`, `sm3`, `av2` — are
+exactly the three that read `W ≈ 405` while every other arm read `W ≈ 311`. **The machine was
+contended during part of the `T10` block**, run 1 took all three repetitions of an arm back to back,
+so the episode landed inside single arms and presented itself as an arm effect. This is
+`feedback_perf_parallelization`'s law — *a contended timing is not a timing* — arriving in a form
+the existing gates could not see, because every gate E5 had was a comparison between arms and the
+contamination was **in** the arms.
+
+**Retroactive audit of E4 under the same check** (`results/e4/{arms2,shapes_avx4}.json`):
+
+| sweep | worst cell spread on `W` |
+|---|---|
+| E4 run 2, all four cells | **0.2% – 0.7%** |
+| E4 six-shape sweep, all twelve cells | **0.0%** |
+
+So this is a fact about E5's run 1, not about E4's numbers, and nothing published from E4 moves.
+
+### 8.3 G0 — pre-registered here, before run 2
+
+> **G0.** In every cell, `W = qkv_proj + o_proj + ffn + head` is invariant by construction. Any
+> single measurement whose `W` exceeds the **minimum `W` of its cell** by more than **5%** is
+> discarded as contended, before any arm difference is taken. If fewer than **2** measurements
+> survive for any arm in a cell, that cell is **VOID** and no share, label or ceiling is reported
+> from it. The number discarded is reported per cell.
+
+5% is not chosen from run 1's numbers: it is the between-sweep band E4 §2.4 fixed, and the claim
+G0 makes is that anything above that band **inside one sweep** is the machine, not the code.
+E4's sweeps clear it by an order of magnitude.
+
+### 8.4 The one design change: rep-major interleaving
+
+Run 1 was arm-major — three repetitions of `sm2`, then three of `sm3`, and so on — which is what let
+one contention episode become one arm's result. **Run 2 is rep-major**: one repetition of every arm,
+three times over. An episode is then spread across arms instead of concentrated in one, and G0 can
+drop the individual measurements it touched instead of voiding the cell. The reported value per arm
+is the median of its three interleaved single-rep measurements. This is the same remedy E4 §9 used
+when its own label sat inside the instrument's dispersion, applied to eight arms instead of two.
+
+### 8.5 A departure of the code from §2, recorded rather than back-edited
+
+§2 said `av2`/`av3` would accumulate the discarded passes into a `float tmp[128]` on the stack and
+fold them back as exact zeros, and it priced the 1 KB of extra L1 traffic that costs. **The arms as
+built (`00f4538`) do not do that.** They run the same loop from zero 2× or 3× and reset between
+passes with `out[i] -= out[i]`, which is exactly `+0` for any finite `out[i]` and — because it
+*reads* `out[i]` — keeps the previous pass from being dead-coded. That is strictly better: no
+scratch, **no extra traffic at all**, and `avrep==1` is a byte-for-byte copy of the baseline loop so
+`none` is unchanged. §2 is left as written; this paragraph is the correction, and the 1 KB it
+budgeted for is not spent.
+
+The `clang -S` output confirms both constructions survive `-O3`
+(`results/e5/asm_notes.txt`, taken before any arm was timed): four distinct `callq exp` sites for
+the softmax arms, and a vectorised `vsubps %ymm0,%ymm0,%ymm0` for the `A·V` reset.
+
+### 8.6 What run 2 does NOT change
+
+The arms, the model, the 3% tolerance, the 0.30 ms `INCONCLUSIVE` floor, the label rule of §5, and
+**the numeric predictions of §3** — `S` 0.8–2.0, `Y` 2.2–3.5, `P` 4.0–7.0, `fork2` 0.1–1.0 ms at
+`T10` @800. Those ranges are **not re-fitted** now that run 1 has printed numbers against them:
+run 1 is void, so its scoring of §3 is void with it, and a prediction revised after seeing even a
+void measurement is not a prediction. They stand exactly as pushed at `c1bdd70`.

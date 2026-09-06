@@ -26,6 +26,14 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 RES = os.path.join(HERE, "..", "results", "e5")
 FIXED = ("rope", "attention", "norm+glue")
+# G0 (brief s8.3, pre-registered after run 1's VOID): no E5 arm touches the weight path, so the sum
+# of these four organs is invariant across the arms of a cell.  Any measurement whose W exceeds its
+# cell's MINIMUM W by more than G0_TOL is a contended timing and is discarded before any difference
+# is taken.  Run 1 died of exactly this: +19.4% and +30.4% of W spread inside the T10 cells, with
+# the three arms carrying the excess producing NEGATIVE components.
+WEIGHT_ORGANS = ("qkv_proj", "o_proj", "ffn", "head")
+G0_TOL = 0.05
+G0_MIN_SURVIVORS = 2
 SCORED_BYTES = 51870
 SHAPES = {"S05": (896, 4864, 24, 14, 2, 64, 151936),
           "T10": (4096, 14336, 48, 32, 8, 128, 32768)}
@@ -53,19 +61,65 @@ def parity():
 
 
 def load(path):
-    A = {}
+    """Group every measurement by (shape, bench, attn, attnr), apply G0, then take the median of
+    the survivors.  Run 2 is rep-major, so a key carries three separate single-rep records; run 1
+    was arm-major and carries one record per key.  Both load; only the first can survive G0 when
+    the machine misbehaves, which is the point of the change."""
+    raw = {}
     for r in json.load(open(path, encoding="utf-8")):
         shape = r["label"].split("_")[0]
-        D, F, L, NH, NKV, HD, V = SHAPES[shape]
-        pos = (r["bench"] + 1) / 2.0
         o = r["median_rep_organs_ms"]
-        A[(shape, r["bench"], r.get("attn", "serial"), r.get("attnr", "none"))] = dict(
-            shape=shape, bench=r["bench"], attn=r.get("attn"), attnr=r.get("attnr"),
-            tok_s=r["median_tok_s"], iqr=r["iqr_tok_s"], organs=o, attn_ms=o["attention"],
-            f=sum(o[k] for k in FIXED), pos=pos, L=L, NH=NH, NKV=NKV, HD=HD,
+        key = (shape, r["bench"], r.get("attn", "serial"), r.get("attnr", "none"))
+        raw.setdefault(key, []).append(
+            dict(organs=o, tok_s=r["median_tok_s"], iqr=r["iqr_tok_s"],
+                 W=sum(o[k] for k in WEIGHT_ORGANS), attn_ms=o["attention"],
+                 f=sum(o[k] for k in FIXED)))
+    # G0 is a CELL-level test: the minimum W of the whole cell is the uncontended reference.
+    cells = {}
+    for (shape, b, at, ar), v in raw.items():
+        cells.setdefault((shape, b), []).extend(v)
+    floor = {k: min(x["W"] for x in v) for k, v in cells.items()}
+    A, G0 = {}, {}
+    for (shape, b, at, ar), v in sorted(raw.items()):
+        w0 = floor[(shape, b)]
+        keep = [x for x in v if x["W"] <= w0 * (1.0 + G0_TOL)]
+        G0.setdefault((shape, b), []).append((at, ar, len(v), len(keep),
+                                              max(x["W"] for x in v) / w0 - 1.0))
+        if len(keep) < min(G0_MIN_SURVIVORS, len(v)):
+            continue                      # arm has no clean measurement; cell will be voided
+        D, F, L, NH, NKV, HD, V = SHAPES[shape]
+        pos = (b + 1) / 2.0
+        med = lambda f: sorted(f(x) for x in keep)[len(keep) // 2]
+        A[(shape, b, at, ar)] = dict(
+            shape=shape, bench=b, attn=at, attnr=ar, n=len(v), n_kept=len(keep),
+            tok_s=med(lambda x: x["tok_s"]), iqr=med(lambda x: x["iqr"]),
+            attn_ms=med(lambda x: x["attn_ms"]), f=med(lambda x: x["f"]),
+            W=med(lambda x: x["W"]), pos=pos, L=L, NH=NH, NKV=NKV, HD=HD,
             expf_calls=L * NH * pos, v_unique=L * NKV * HD * pos * 4.0,
             v_touched=L * NH * HD * pos * 4.0)
-    return A
+    return A, G0
+
+
+def report_g0(G0):
+    print("## G0 -- the weight path is invariant across arms; anything else is the machine "
+          "(brief s8.3)\n")
+    print("| cell | measurements | kept | discarded | worst `W` excess | verdict |")
+    print("|---|---|---|---|---|---|")
+    dead = set()
+    for (shape, b), rows in sorted(G0.items()):
+        n = sum(r[2] for r in rows)
+        k = sum(r[3] for r in rows)
+        worst = max(r[4] for r in rows)
+        starved = [r for r in rows if r[3] < min(G0_MIN_SURVIVORS, r[2])]
+        ok = not starved
+        if not ok:
+            dead.add((shape, b))
+        print("| %s @%d | %d | %d | %d | +%.1f%% | %s |"
+              % (shape, b, n, k, n - k, 100.0 * worst,
+                 "PASS" if ok else "**VOID -- %d arm(s) with no clean measurement: %s**"
+                 % (len(starved), ", ".join(r[1] for r in starved))))
+    print()
+    return dead
 
 
 def cell(A, shape, b):
@@ -94,7 +148,7 @@ def cell(A, shape, b):
 
 def main():
     path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(RES, "arms.json")
-    A = load(path)
+    A, G0 = load(path)
 
     P = parity()
     if P:
@@ -113,7 +167,9 @@ def main():
         print("\nBPB = %.9f on the pinned 24x512 slice (%d scored bytes).\n"
               % (bpb(float(base)), SCORED_BYTES))
 
-    cells = [c for c in (cell(A, s, b) for s in ("T10", "S05") for b in (300, 800)) if c]
+    dead = report_g0(G0)
+    cells = [c for c in (cell(A, s, b) for s in ("T10", "S05") for b in (300, 800)) if c
+             and (c["shape"], c["bench"]) not in dead]
     if not cells:
         print("arms.json has no complete cell yet")
         return
