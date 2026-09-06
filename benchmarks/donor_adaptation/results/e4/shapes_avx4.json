@@ -1,0 +1,350 @@
+[
+ {
+  "label": "S05_b300",
+  "weights": "D:/_ktmp/e3/S05_th.bin",
+  "bench": 300,
+  "threads": 6,
+  "reps": 3,
+  "attn": "avx4",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   59.14,
+   58.95,
+   58.51
+  ],
+  "median_tok_s": 58.95,
+  "iqr_tok_s": 0.3149999999999977,
+  "q1": 58.730000000000004,
+  "q3": 59.045,
+  "median_rep_organs_ms": {
+   "qkv_proj": 0.856,
+   "rope": 0.016,
+   "attention": 0.661,
+   "o_proj": 0.587,
+   "ffn": 11.18,
+   "head": 3.612,
+   "norm+glue": 0.067
+  },
+  "median_rep_wall_ms_token": 16.964,
+  "median_rep_organs_total_ms": 16.98
+ },
+ {
+  "label": "S15_b300",
+  "weights": "D:/_ktmp/e3/S15_th.bin",
+  "bench": 300,
+  "threads": 6,
+  "reps": 3,
+  "attn": "avx4",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   20.38,
+   20.16,
+   20.31
+  ],
+  "median_tok_s": 20.31,
+  "iqr_tok_s": 0.10999999999999943,
+  "q1": 20.235,
+  "q3": 20.345,
+  "median_rep_organs_ms": {
+   "qkv_proj": 2.666,
+   "rope": 0.029,
+   "attention": 1.029,
+   "o_proj": 1.899,
+   "ffn": 37.359,
+   "head": 6.219,
+   "norm+glue": 0.134
+  },
+  "median_rep_wall_ms_token": 49.235,
+  "median_rep_organs_total_ms": 49.335
+ },
+ {
+  "label": "S3_b300",
+  "weights": "D:/_ktmp/e3/S3_th.bin",
+  "bench": 300,
+  "threads": 6,
+  "reps": 3,
+  "attn": "avx4",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   10.55,
+   10.53,
+   10.52
+  ],
+  "median_tok_s": 10.53,
+  "iqr_tok_s": 0.015000000000000568,
+  "q1": 10.524999999999999,
+  "q3": 10.54,
+  "median_rep_organs_ms": {
+   "qkv_proj": 5.503,
+   "rope": 0.04,
+   "attention": 1.603,
+   "o_proj": 4.234,
+   "ffn": 75.26,
+   "head": 8.3,
+   "norm+glue": 0.233
+  },
+  "median_rep_wall_ms_token": 94.955,
+  "median_rep_organs_total_ms": 95.173
+ },
+ {
+  "label": "M7_b300",
+  "weights": "D:/_ktmp/e3/M7_th.bin",
+  "bench": 300,
+  "threads": 6,
+  "reps": 3,
+  "attn": "avx4",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   4.85,
+   4.85,
+   4.84
+  ],
+  "median_tok_s": 4.85,
+  "iqr_tok_s": 0.004999999999999893,
+  "q1": 4.845,
+  "q3": 4.85,
+  "median_rep_organs_ms": {
+   "qkv_proj": 22.338,
+   "rope": 0.054,
+   "attention": 2.986,
+   "o_proj": 14.707,
+   "ffn": 162.654,
+   "head": 3.613,
+   "norm+glue": 0.414
+  },
+  "median_rep_wall_ms_token": 206.233,
+  "median_rep_organs_total_ms": 206.765
+ },
+ {
+  "label": "Q8_b300",
+  "weights": "D:/_ktmp/e3/Q8_th.bin",
+  "bench": 300,
+  "threads": 6,
+  "reps": 3,
+  "attn": "avx4",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   4.56,
+   4.56,
+   4.56
+  ],
+  "median_tok_s": 4.56,
+  "iqr_tok_s": 0.0,
+  "q1": 4.56,
+  "q3": 4.56,
+  "median_rep_organs_ms": {
+   "qkv_proj": 25.158,
+   "rope": 0.061,
+   "attention": 3.406,
+   "o_proj": 16.597,
+   "ffn": 157.451,
+   "head": 16.7,
+   "norm+glue": 0.466
+  },
+  "median_rep_wall_ms_token": 219.314,
+  "median_rep_organs_total_ms": 219.839
+ },
+ {
+  "label": "T10_b300",
+  "weights": "D:/_ktmp/e3/T10_th.bin",
+  "bench": 300,
+  "threads": 6,
+  "reps": 3,
+  "attn": "avx4",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   3.24,
+   3.24,
+   3.24
+  ],
+  "median_tok_s": 3.24,
+  "iqr_tok_s": 0.0,
+  "q1": 3.24,
+  "q3": 3.24,
+  "median_rep_organs_ms": {
+   "qkv_proj": 33.572,
+   "rope": 0.073,
+   "attention": 4.496,
+   "o_proj": 22.127,
+   "ffn": 244.902,
+   "head": 3.614,
+   "norm+glue": 0.618
+  },
+  "median_rep_wall_ms_token": 308.648,
+  "median_rep_organs_total_ms": 309.402
+ },
+ {
+  "label": "S05_b800",
+  "weights": "D:/_ktmp/e3/S05_th.bin",
+  "bench": 800,
+  "threads": 6,
+  "reps": 3,
+  "attn": "avx4",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   54.43,
+   54.47,
+   54.37
+  ],
+  "median_tok_s": 54.43,
+  "iqr_tok_s": 0.05000000000000426,
+  "q1": 54.4,
+  "q3": 54.45,
+  "median_rep_organs_ms": {
+   "qkv_proj": 0.889,
+   "rope": 0.016,
+   "attention": 1.713,
+   "o_proj": 0.598,
+   "ffn": 11.455,
+   "head": 3.653,
+   "norm+glue": 0.068
+  },
+  "median_rep_wall_ms_token": 18.372,
+  "median_rep_organs_total_ms": 18.393
+ },
+ {
+  "label": "S15_b800",
+  "weights": "D:/_ktmp/e3/S15_th.bin",
+  "bench": 800,
+  "threads": 6,
+  "reps": 3,
+  "attn": "avx4",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   19.59,
+   19.59,
+   19.57
+  ],
+  "median_tok_s": 19.59,
+  "iqr_tok_s": 0.010000000000001563,
+  "q1": 19.58,
+  "q3": 19.59,
+  "median_rep_organs_ms": {
+   "qkv_proj": 2.671,
+   "rope": 0.03,
+   "attention": 2.606,
+   "o_proj": 1.9,
+   "ffn": 37.487,
+   "head": 6.242,
+   "norm+glue": 0.135
+  },
+  "median_rep_wall_ms_token": 51.059,
+  "median_rep_organs_total_ms": 51.072
+ },
+ {
+  "label": "S3_b800",
+  "weights": "D:/_ktmp/e3/S3_th.bin",
+  "bench": 800,
+  "threads": 6,
+  "reps": 3,
+  "attn": "avx4",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   10.23,
+   10.23,
+   10.21
+  ],
+  "median_tok_s": 10.23,
+  "iqr_tok_s": 0.009999999999999787,
+  "q1": 10.22,
+  "q3": 10.23,
+  "median_rep_organs_ms": {
+   "qkv_proj": 5.502,
+   "rope": 0.04,
+   "attention": 4.127,
+   "o_proj": 4.248,
+   "ffn": 75.36,
+   "head": 8.309,
+   "norm+glue": 0.232
+  },
+  "median_rep_wall_ms_token": 97.774,
+  "median_rep_organs_total_ms": 97.82
+ },
+ {
+  "label": "M7_b800",
+  "weights": "D:/_ktmp/e3/M7_th.bin",
+  "bench": 800,
+  "threads": 6,
+  "reps": 3,
+  "attn": "avx4",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   4.73,
+   4.72,
+   4.72
+  ],
+  "median_tok_s": 4.72,
+  "iqr_tok_s": 0.004999999999999893,
+  "q1": 4.72,
+  "q3": 4.725,
+  "median_rep_organs_ms": {
+   "qkv_proj": 22.353,
+   "rope": 0.053,
+   "attention": 7.766,
+   "o_proj": 14.746,
+   "ffn": 162.978,
+   "head": 3.607,
+   "norm+glue": 0.415
+  },
+  "median_rep_wall_ms_token": 211.807,
+  "median_rep_organs_total_ms": 211.917
+ },
+ {
+  "label": "Q8_b800",
+  "weights": "D:/_ktmp/e3/Q8_th.bin",
+  "bench": 800,
+  "threads": 6,
+  "reps": 3,
+  "attn": "avx4",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   4.42,
+   4.43,
+   4.43
+  ],
+  "median_tok_s": 4.43,
+  "iqr_tok_s": 0.004999999999999893,
+  "q1": 4.425,
+  "q3": 4.43,
+  "median_rep_organs_ms": {
+   "qkv_proj": 25.172,
+   "rope": 0.062,
+   "attention": 9.349,
+   "o_proj": 16.609,
+   "ffn": 157.415,
+   "head": 16.69,
+   "norm+glue": 0.467
+  },
+  "median_rep_wall_ms_token": 225.674,
+  "median_rep_organs_total_ms": 225.764
+ },
+ {
+  "label": "T10_b800",
+  "weights": "D:/_ktmp/e3/T10_th.bin",
+  "bench": 800,
+  "threads": 6,
+  "reps": 3,
+  "attn": "avx4",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   3.16,
+   3.15,
+   3.16
+  ],
+  "median_tok_s": 3.16,
+  "iqr_tok_s": 0.004999999999999893,
+  "q1": 3.1550000000000002,
+  "q3": 3.16,
+  "median_rep_organs_ms": {
+   "qkv_proj": 33.599,
+   "rope": 0.076,
+   "attention": 11.872,
+   "o_proj": 22.171,
+   "ffn": 244.875,
+   "head": 3.613,
+   "norm+glue": 0.62
+  },
+  "median_rep_wall_ms_token": 316.666,
+  "median_rep_organs_total_ms": 316.826
+ }
+]

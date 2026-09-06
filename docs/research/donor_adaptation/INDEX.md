@@ -338,6 +338,44 @@ measured and **rejected**: into a ternary head the final gain costs BPB on both 
 
 ## 7. The head, the tokenizer, and the thing nobody priced
 
+> ### ⚠ SUPERSEDED AGAIN BY E4 (`probes/E4_ATTENTION_ACCUMULATORS.md`) — the screen re-opens
+>
+> E3's re-run below priced every donor against an `f` measured on an engine whose `Q·K` reduction was
+> latency-bound. E4 halved `f`, so the fit's attention coefficient `A` was wrong by **2.04×**
+> (`3.09445e-07` → `1.51461e-07` ms per FMA-unit). **Scaling the old table would have been a guess**,
+> so all six shapes were re-measured under `--attn avx4` **in one sweep** (`results/e4/shapes_avx4.json`)
+> and both `f` and `r_w` are taken from it — E4 §2.4 forbids a rate from one sweep meeting an `f` from
+> another.
+>
+> **Residuals first, because they are the licence** (`speed/e3_budget_by_shape.py --arms ...`):
+> **0.3–0.8% at the 7–10 B shapes that decide**, −0.2% to +7.8% at 1.5–3 B, and **−23% at `S05`** —
+> the two-term model no longer fits the small end, because with attention halved the per-call
+> overheads dominate there. **No donor in this screen is below 1.5 B**, so that residual does not
+> price anything; it is stated because the fit is now unfit for the shape it used to fit.
+>
+> | donor | head weights | **budget @300** | **head as % @300** | was (E3) | **budget @800** | **head as % @800** | was (E3) |
+> |---|---|---|---|---|---|---|---|
+> | Qwen3-8B | 622 M | **564 M** | **110%** | 152% | **369 M** | **169%** | 2763% |
+> | OLMo-2-7B | 411 M | 578 M | 71% | 94% | 404 M | **102%** | 432% |
+> | Mistral-7B-v0.3 | 134 M | 578 M | **23%** | 31% | 404 M | **33%** | **141%** |
+> | Phi-3-mini | 99 M | 575 M | 17% | 21% | 452 M | 22% | 44% |
+> | Qwen3-1.7B | 311 M | 592 M | 53% | 59% | 522 M | 60% | 81% |
+> | Qwen2.5-1.5B | 233 M | 604 M | 39% | 42% | 552 M | 42% | 53% |
+> | SmolLM2-1.7B | 101 M | 599 M | 17% | — | 539 M | 19% | 24% |
+>
+> **What changed.** E3's headline at 800 context was that the screen *stopped being about the head*:
+> every 7–8 B dense donor was over the line regardless of tokenizer, and **Mistral-7B — the smallest
+> vocabulary on disk — was at 141%**. It is now at **33%**. `f` had eaten the budget; it does not any
+> more.
+>
+> **What did not change.** **Qwen3-8B is still the one that breaks**, at 110% @300 and 169% @800, and
+> it breaks for the reason it always did: a 151,936-token vocabulary on a 4096-wide model is a 622 M
+> head, and the head is charged in full every token. OLMo-2-7B is marginal at 800 (102%). **The head
+> is set by the tokenizer, not the model** — the one claim that has survived every re-pricing.
+>
+> **The nine unpriceable donors are still unpriceable** (MoE and hybrid/SSM), for the same reason and
+> with the same withdrawal.
+>
 > ### ⚠ SUPERSEDED BY E3 (`probes/E3_ENGINE_AT_TARGET_SCALE.md`)
 >
 > The table below screens twelve donors against **522 M**. That constant is wrong twice: it charges

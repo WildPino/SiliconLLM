@@ -1,0 +1,46 @@
+f and r_w both taken from ..\results\e4\shapes_avx4.json
+r_w per shape, derived from that same sweep: 0.494B=30.1, 1.544B=32.0, 3.086B=33.1, 7.114B=35.0, 7.568B=35.1, 10.603B=34.9
+
+f(shape, ctx) = A*L*NH*HD*pos + B*L*D    A = 1.51461e-07 ms/FMA-unit   B = 3.66899e-06 ms
+
+| arm | bench | measured f | fitted f | residual | %% |
+|---|---|---|---|---|---|
+| `S05` | 300 | 0.744 | 0.569 | -0.175 | -23.5% |
+| `S15` | 300 | 1.192 | 1.138 | -0.054 | -4.5% |
+| `S3` | 300 | 1.876 | 1.951 | +0.075 | +4.0% |
+| `M7` | 300 | 3.454 | 3.469 | +0.015 | +0.4% |
+| `Q8` | 300 | 3.933 | 3.902 | -0.031 | -0.8% |
+| `T10` | 300 | 5.187 | 5.203 | +0.016 | +0.3% |
+| `S05` | 800 | 1.797 | 1.383 | -0.414 | -23.0% |
+| `S15` | 800 | 2.771 | 2.767 | -0.004 | -0.2% |
+| `S3` | 800 | 4.399 | 4.743 | +0.344 | +7.8% |
+| `M7` | 800 | 8.234 | 8.432 | +0.198 | +2.4% |
+| `Q8` | 800 | 9.878 | 9.486 | -0.392 | -4.0% |
+| `T10` | 800 | 12.568 | 12.648 | +0.080 | +0.6% |
+
+worst residual: 23.5%  -- the fit's licence to be extrapolated
+
+### Budget at ctx = 800, re-derived per shape (INDEX s7 used one number, 522 M)
+
+| donor | D | V | L | NH/NKV | head weights | fitted f ms | r_w | **budget** | **head as %% of budget** |
+|---|---|---|---|---|---|---|---|---|---|
+| HuggingFaceTB/SmolLM2-1.7B | 2048 | 49152 | 24 | 32/32 | 101 M | 3.162 | 32.0 | **539 M** | **19%** |
+| Qwen/Qwen2.5-1.5B | 1536 | 151936 | 28 | 12/2 | 233 M | 2.767 | 32.0 | **552 M** | **42%** |
+| Qwen/Qwen3-1.7B | 2048 | 151936 | 28 | 16/8 | 311 M | 3.689 | 32.0 | **522 M** | **60%** |
+| Qwen/Qwen3-8B | 4096 | 151936 | 36 | 32/8 | 622 M | 9.486 | 35.1 | **369 M** | **169%** |
+| allenai/OLMo-2-1124-7B | 4096 | 100352 | 32 | 32/32 | 411 M | 8.432 | 35.0 | **404 M** | **102%** |
+| microsoft/Phi-3-mini-4k-instruct | 3072 | 32064 | 32 | 32/32 | 99 M | 6.324 | 33.1 | **452 M** | **22%** |
+| mistralai/Mistral-7B-v0.3 | 4096 | 32768 | 32 | 32/8 | 134 M | 8.432 | 35.0 | **404 M** | **33%** |
+
+Not priced by this fit (the fit is for uniform dense attention only):
+  - Qwen/Qwen3-30B-A3B -- non-uniform (num_experts)
+  - Qwen/Qwen3-Next-80B-A3B-Instruct -- non-uniform (num_experts)
+  - Zyphra/Zamba2-2.7B -- non-uniform (mamba_d_state)
+  - allenai/OLMoE-1B-7B-0924 -- non-uniform (num_experts)
+  - deepseek-ai/DeepSeek-V2-Lite -- non-uniform (n_routed_experts)
+  - ibm-granite/granite-4.0-h-small -- non-uniform (num_local_experts)
+  - mistralai/Mixtral-8x7B-v0.1 -- non-uniform (num_local_experts)
+  - nvidia/Nemotron-H-8B-Base-8K -- non-uniform (hybrid_override_pattern)
+  - openai/gpt-oss-20b -- non-uniform (num_local_experts)
+  - state-spaces/mamba2-2.7b -- shape fields missing
+  - tiiuae/Falcon-H1-7B-Base -- non-uniform (mamba_d_state)

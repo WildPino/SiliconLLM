@@ -42,9 +42,24 @@ MEASURED_SHAPES = {
     "Q8":  (4096, 12288, 36, 32, 8, 128, 151936),
     "T10": (4096, 14336, 48, 32, 8, 128, 32768),
 }
-# E3 s4.2, measured r_w in G-weights/s per shape, keyed by active weights/token (B).
-R_W_BY_SIZE = [(0.494, 29.4), (1.544, 31.2), (3.086, 31.8),
-               (7.114, 33.8), (7.568, 33.9), (10.603, 33.8)]
+# r_w is DERIVED FROM THE SAME SWEEP as f, never hardcoded.  E4 s2.4: between-sweep dispersion on
+# this machine is 5-10% while within-sweep IQR is 0.000-0.015 tok/s, so a rate from one sweep and an
+# f from another do not belong in the same product.  Filled by rw_by_size() below.
+WEIGHT_ORGANS = ("qkv_proj", "o_proj", "ffn", "head")
+R_W_BY_SIZE = []
+
+
+def rw_by_size(recs):
+    """[(active weights in B, r_w in G-w/s)] per shape, from the arms file being used."""
+    out = {}
+    for r in recs:
+        arm = r["label"].rsplit("_b", 1)[0]
+        D, F, L_, NH, NKV, HD, V = MEASURED_SHAPES[arm]
+        act = active_weights(D, F, L_, NH, NKV, HD, V)
+        o = r["median_rep_organs_ms"]
+        wms = sum(o[k] for k in WEIGHT_ORGANS)
+        out.setdefault(act / 1e9, []).append(act / (wms * 1e-3) / 1e9)
+    return sorted((k, sum(v) / len(v)) for k, v in out.items())
 
 
 def active_weights(D, F, L, NH, NKV, HD, V):
@@ -61,6 +76,8 @@ def r_w_for(act_B):
 def fit(arms_path):
     """Least squares for A and B on the twelve measured points, no intercept."""
     recs = json.load(open(arms_path, encoding="utf-8"))
+    global R_W_BY_SIZE
+    R_W_BY_SIZE = rw_by_size(recs)
     rows = []
     for r in recs:
         arm, b = r["label"].rsplit("_b", 1)
@@ -120,9 +137,14 @@ def read_configs():
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--ctx", type=int, default=300)
+    ap.add_argument("--arms", default=ARMS,
+                    help="arms JSON to fit f and r_w on; default is E3's, which reproduces E3")
     a = ap.parse_args()
 
-    A, B, rows = fit(ARMS)
+    A, B, rows = fit(a.arms)
+    print("f and r_w both taken from %s" % os.path.relpath(a.arms, HERE))
+    print("r_w per shape, derived from that same sweep: %s\n"
+          % ", ".join("%.3fB=%.1f" % t for t in R_W_BY_SIZE))
     print("f(shape, ctx) = A*L*NH*HD*pos + B*L*D    A = %.6g ms/FMA-unit   B = %.6g ms\n" % (A, B))
     print("| arm | bench | measured f | fitted f | residual | %% |")
     print("|---|---|---|---|---|---|")

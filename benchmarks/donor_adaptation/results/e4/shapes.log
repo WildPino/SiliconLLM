@@ -1,0 +1,25 @@
+S05_b300               bench=300  median   58.950 tok/s  IQR   0.315   reps 59.14 58.95 58.51
+   organs ms/tok: qkv_proj=0.856  rope=0.016  attention=0.661  o_proj=0.587  ffn=11.180  head=3.612  norm+glue=0.067
+S15_b300               bench=300  median   20.310 tok/s  IQR   0.110   reps 20.38 20.16 20.31
+   organs ms/tok: qkv_proj=2.666  rope=0.029  attention=1.029  o_proj=1.899  ffn=37.359  head=6.219  norm+glue=0.134
+S3_b300                bench=300  median   10.530 tok/s  IQR   0.015   reps 10.55 10.53 10.52
+   organs ms/tok: qkv_proj=5.503  rope=0.040  attention=1.603  o_proj=4.234  ffn=75.260  head=8.300  norm+glue=0.233
+M7_b300                bench=300  median    4.850 tok/s  IQR   0.005   reps 4.85 4.85 4.84
+   organs ms/tok: qkv_proj=22.338  rope=0.054  attention=2.986  o_proj=14.707  ffn=162.654  head=3.613  norm+glue=0.414
+Q8_b300                bench=300  median    4.560 tok/s  IQR   0.000   reps 4.56 4.56 4.56
+   organs ms/tok: qkv_proj=25.158  rope=0.061  attention=3.406  o_proj=16.597  ffn=157.451  head=16.700  norm+glue=0.466
+T10_b300               bench=300  median    3.240 tok/s  IQR   0.000   reps 3.24 3.24 3.24
+   organs ms/tok: qkv_proj=33.572  rope=0.073  attention=4.496  o_proj=22.127  ffn=244.902  head=3.614  norm+glue=0.618
+S05_b800               bench=800  median   54.430 tok/s  IQR   0.050   reps 54.43 54.47 54.37
+   organs ms/tok: qkv_proj=0.889  rope=0.016  attention=1.713  o_proj=0.598  ffn=11.455  head=3.653  norm+glue=0.068
+S15_b800               bench=800  median   19.590 tok/s  IQR   0.010   reps 19.59 19.59 19.57
+   organs ms/tok: qkv_proj=2.671  rope=0.030  attention=2.606  o_proj=1.900  ffn=37.487  head=6.242  norm+glue=0.135
+S3_b800                bench=800  median   10.230 tok/s  IQR   0.010   reps 10.23 10.23 10.21
+   organs ms/tok: qkv_proj=5.502  rope=0.040  attention=4.127  o_proj=4.248  ffn=75.360  head=8.309  norm+glue=0.232
+M7_b800                bench=800  median    4.720 tok/s  IQR   0.005   reps 4.73 4.72 4.72
+   organs ms/tok: qkv_proj=22.353  rope=0.053  attention=7.766  o_proj=14.746  ffn=162.978  head=3.607  norm+glue=0.415
+Q8_b800                bench=800  median    4.430 tok/s  IQR   0.005   reps 4.42 4.43 4.43
+   organs ms/tok: qkv_proj=25.172  rope=0.062  attention=9.349  o_proj=16.609  ffn=157.415  head=16.690  norm+glue=0.467
+T10_b800               bench=800  median    3.160 tok/s  IQR   0.005   reps 3.16 3.15 3.16
+   organs ms/tok: qkv_proj=33.599  rope=0.076  attention=11.872  o_proj=22.171  ffn=244.875  head=3.613  norm+glue=0.620
+SHAPES DONE
