@@ -2,7 +2,7 @@
 
 **The goal:** run somebody else's pretrained LLM on our architecture (`engine.c`), target **~10B at
 50 tok/s** (good) / **100 tok/s** (excellent).
-**Last updated: 2026-09-06 (E1 and E2 closed; the fold is adopted; the 2 GB load ceiling is gone).**
+**Last updated: 2026-09-06 (E3 closed, `RESERVATION-BREAKS`: the engine is measured at the target shape for the first time — 3.090 tok/s on a 10.6 B, and the non-weight cost is 9–22× the reservation the budget was built on. §7's twelve-donor screen is superseded).**
 
 This is the map. Every row names the artefact that holds the detail; nothing here is a claim that
 is not written up somewhere with its controls and its pre-registration.
@@ -14,7 +14,7 @@ is not written up somewhere with its controls and its pre-registration.
 | | status |
 |---|---|
 | **A pretrained donor executes on our runtime** | ✅ **YES** — Qwen2.5-0.5B, parity vs PyTorch `rel l2 2.8e-06`, top-1 `1.0000`; and since E1 the engine **scores the same BPB as PyTorch to `1.5e-05`** on both donors, so the quality numbers below are statements about the deliverable, not about a simulation |
-| **At the target speed** | ❌ **56.1 tok/s at 0.5B** (3 reps at `--bench 300`, idle machine, `SPEED_LEDGER.md` §12) = **27.7 G-weights/s delivered**, and 0.5B is 20× smaller than the target |
+| **At the target speed** | ❌ **measured at the target shape now, not extrapolated: 3.090 tok/s** (E3 `T10`, 10.6 B active, `--bench 300`, 3 reps, idle) — **15.7× short of 50**. The delivered rate is *better* than the ledger (32.8 vs 27.7 G-w/s, +18%); what breaks is the **non-weight** term: `f` = rope+attention+norm is **10.576 ms/token at 300 context and 26.088 at 800** against a **1.17 ms** reservation. **At 800 context a 10 B shape cannot pass 38.3 tok/s even with a free weight path** |
 | **At usable quality** | ❌ **NO**, but the number keeps moving: FFN conversion **+3.309 → +1.260 BPB** (T2), still 252 σ_seed. The **whole runnable model** cost **+2.708111** (T2b) and is now **+2.465779** — E2 confirmed the RMSNorm fold *through the engine* at T3's exact `−0.220001` and it is **adopted as the exporter default** |
 | **The binding constraint** | **still quality — but it is the RULE, not the format** (T2, `RULE-HELPS`) |
 
@@ -28,13 +28,19 @@ generated tokens, with a parity gate at the seam. T2 has now shown the damage at
 **62% a bad map into the format**, not the format itself, and removed that much of it on CPU with
 no gradients. What remains is a real quality gap and a 20× speed gap.
 
-**The two numbers that price everything else** (`SPEED_LEDGER.md` **§12**, which supersedes §11.4
-and §10): **27.7 G-weights/s packed, 28.8 with `--fuse --lut`** → a 10B donor needs **≤522 M
-active weights/token** for 50 tok/s (5.2%) and ≤245 M for 100 (2.4%).
-And **the output head alone exceeds that budget on two of twelve donors, with two more within 3%**
-— 112% on Qwen3-8B, 24% on Mistral-7B of the same width. Its size is set by the **tokenizer**, not
-the model (§7). Raising the budget from 495 M to 522 M — the whole of a 10.3% runtime win — moved
-exactly two donors from over the line to just under it.
+**The number that prices everything else, re-derived by E3 at the shape it is about:** a 10B donor
+needs **≤318 M active weights/token — 3.0% of a 10 B — for 50 tok/s at 300 tokens of context**, and
+**at 800 tokens of context there is no budget at all**, because `f` alone exceeds the whole 20 ms.
+100 tok/s is **out of reach at any weight cost** at a 10 B shape: `f` = 10.576 ms > 10.
+
+The old figure, **522 M**, is superseded twice over. It was also **arithmetically wrong in its own
+terms**: `27.7 G-w/s` is `493,961,216 / 17.833 ms` = weights / **wall**, so `f` is already inside the
+denominator, and `× (20 − 1.17)` charges it a second time; self-consistently it is 554 M.
+
+**The head is no longer the floor.** It is 20.5% of the token at 0.5 B and **1.1% at a 10 B shape**;
+the attention projections are 17.9%, sixteen times more. The tokenizer claim itself survives and is
+now end-to-end rather than a weight count — `M7` and `Q8`, same width, **4.637× the vocabulary and
+4.629× the head time, 0.2%** (§7).
 
 ## 1. The runtime (this is the deliverable)
 
@@ -66,11 +72,21 @@ LUT half of that is not numerically free.
 | **P2** | is the expert path bandwidth- or compute-bound? | **MIXED — ~60% arithmetic.** A denser pack buys ≤1.32× on the FFN, not 2.5× | `probes/P2_EXPERT_PATH_DECOMPOSITION.md` |
 | **P3** | what do donor SHAPES cost on the engine's kernels? | 0.5B 81 / 1.5B 30.7 / 3B 15.1 tok/s (matvec only). The ledger was 18% conservative because it priced dense FFNs at a *gather* rate | `probes/P3_DONOR_SHAPE_ON_ENGINE.md` |
 | **R1** | what does a real runtime cost? | **56.1 tok/s** at 0.5B (§12). The packing bought nothing, exactly as P2 predicted; the LUT buys 2.2% and is not free; **the one big win was a profiling artefact — `rope()` was 9.6% of every token** | `probes/R1_DONOR_RUNTIME.md`, `SPEED_LEDGER.md` §12 |
+| **E3** | what does the engine actually do at the target shape, end to end? | **`RESERVATION-BREAKS`.** 6 shapes 0.5–10.6 B x 2 context lengths, synthetic weights gated against real artifacts at 0.000% (1.5 B) and 0.357% (0.5 B). `T10` = **3.090 tok/s**; rate **rises** to 32.8 G-w/s; **`f` is 9.0× the reservation at 300 context and 22.3× at 800** | `probes/E3_ENGINE_AT_TARGET_SCALE.md` |
 | **P64 matrix** | is the runtime's rate set by OpenMP region count or thread wake-ups? | **neither.** A region costs **2.5–3.2 µs**, measured two ways; `OMP_WAIT_POLICY=active` does nothing. After the rope hoist all four organs sit in a **1.3× band** | `SPEED_LEDGER.md` §12.4, `engine/bench_matrix.py` |
 
 **Terms nobody had attacked before the ledger, now priced:** the **output head** (was 40.4% of every
-token in fp32 — fixed; and see §7, it is the floor a 10B cannot get under), the **KV cache** (still
-fp32, untouched), the **attention projections**.
+token in fp32 — fixed; and E3 shows it is **not** the floor at 10 B, §7), the **KV cache** (still
+fp32, untouched — and E3 says this is now the binding term), the **attention projections** (17.9% of
+a 10 B token, `qkv` + `o_proj`).
+
+> **E3 changed which term this section is about.** The weight path is *faster* than the ledger says
+> at every shape above 0.5 B. What does not scale is `f`. E3 §4.6 measures the attention loop at
+> **one FMA per ~4 cycles per thread across twelve points, ±7%**, invariant to KV size (16× range),
+> GQA factor and vocabulary — the signature of a serial FP reduction, not a bandwidth wall:
+> `d += qh[i]*kt[i]` compiled without `-ffast-math` cannot be reassociated or vectorised, while
+> every matvec is hand-written AVX2 with an 8-wide accumulator. **The single highest-value engine
+> experiment now open is giving that loop independent accumulators.**
 
 ### 2.1 The LUT kernel — `donor_engine.c --lut`, the lever P2 and R1 named
 
@@ -120,6 +136,17 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 
 ## 4. Open, in priority order
 
+0. **The attention accumulator** — new, and it is now first. E3 §4.6 measured the attention loop at
+   **one FMA per ~4 cycles per thread across twelve points (±7%)**, invariant to KV size, GQA and
+   vocabulary: the signature of a serial FP reduction, and `d += qh[i]*kt[i]` built without
+   `-ffast-math` cannot be vectorised or reassociated. Give it 4–8 independent accumulators. **If
+   `f` drops by roughly the accumulator count it was latency; if it does not move, the lever is an
+   int8 KV cache instead** (the cache is fp32 and has never been touched). This is the only open
+   item that can move `f`, and until `f` moves there is **no active-weight budget at all at 800
+   tokens of context** (§0, §7). It is engine-only: no format change, no quality question, no
+   retraining. **Parity gate mandatory** — accumulation order is exactly what E1 traced its
+   `1.5e-05` engine/PyTorch delta to.
+
 1. **D4b** — the calibration budget. Promoted from bookkeeping: T2's two best arms are both
    calibration-driven, so every one of their numbers is a **floor** — and after E2 that now
    includes the fold's own `−0.220001`, which was measured at 32 calibration sequences like
@@ -136,7 +163,13 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
    Cheap, exporter-only, and it is the one place the fold left value on the table.
 4. **S1's scale arm** — blocked on the fp16 NaN (`eager` attention overflows QK^T; diagnosed, §5).
    Every sparsity result this programme owns is measured at one size.
-5. An already-MoE donor, and **a donor with a small vocabulary** (§7).
+5. An already-MoE donor, and **a donor with a small vocabulary** (§7). E3 sharpens both: a small
+   vocabulary buys much less than §7 used to imply (Mistral-7B is still at **141% of budget at 800
+   context** with the smallest vocabulary on the disk), and **nine of eighteen donors — every MoE
+   and every hybrid — have no measured `f` at all**, so their screen rows are withdrawn, not
+   restated.
+6. **`f` beyond 800 tokens of context.** It grows with position and nothing measured bounds it. The
+   two lengths E3 ran were chosen before the result; the shape of the growth past 800 is unknown.
 
 **Closed since the last revision.** The `--fuse` × `OMP_WAIT_POLICY` matrix ran (`SPEED_LEDGER.md`
 §12.4 — both hypotheses die; `--fuse` not adopted). T3 ran and closes the residual-stream rotation
@@ -172,6 +205,10 @@ measured and **rejected**: into a ternary head the final gain costs BPB on both 
 | **a sweep's `untied` field recorded the wrong thing, and arm state leaked** | `t2b_organs.json` says `"untied": false` on arm FAH, an arm that ternarizes a *tied* head — which would mean the embedding was ternarized too. It was not: E1's arm TQH reproduces FAH **bit-identically**, and two different models cannot. Arm `I` reports `untied: true` and every later arm `false`, because T2b's `restore()` restores weights but never re-ties | no number changed and none is withdrawn — arm `I` returns the base BPB exactly. Recorded because it was caught by a **replication**, not by the sweep: **the field means "did this arm untie", not "is the head untied here"**, and state crossed arm boundaries |
 | **a result file was named after the model alone** | E1's pre-registered 1.5B fp32 **subset** run was about to overwrite the 55-minute TQ/TQH JSON written under the same name | a subset run now carries its arms and sequence count in the filename; only the canonical run keeps the bare name |
 | **a gate that was never evaluated reported that it had failed** | E2's run 2 carries only the five ternary arms, so Gate F -- which is built from `XF`/`XA` against `F32` -- would have found no arms to compare, left `gate_f` empty, and printed `VOID (Gate F failed: the fold is not exact where it must be)`. The run owning the **label** would have reported the fold inexact on the strength of nobody having looked, and the brief itself had pre-registered the split that causes it (§3.2) without foreseeing what the runner would print under it. The same brief also predicted run 1 would return `INCOMPLETE`; run 1 holds all eight arms and returns a real label | `gate_F_measured` separated from `gate_F_ok`; `VOID` is now reachable only from a gate that was measured and failed, and a run missing the gate prints the fold term plus `GATE-F-NOT-MEASURED-HERE` naming the run that owes it. Brief §3.3 written before run 2, changing no threshold or arm. **All three states planted and shown to fire** (`3aa1bef`), the failing one via a copy with `GATE_F_FP32_TOL = -1.0` -- without it the patch would only have been shown not to say `VOID`, and a guard that never fires looks identical to one that fires correctly |
+| **a budget formula charged the same milliseconds twice** | `SPEED_LEDGER` §12.2 computes `Delivered: 493,961,216 / 17.833 ms = 27.7 G-weights/s`, where **17.833 ms is the wall** — so the 1.17 ms of non-weight work is already inside the denominator. It then prices the budget as `27.7 × (20 − 1.17) = 522 M`, subtracting it a second time. Self-consistently the figure is **554 M** (`r_wall × 20`) or **558 M** (`r_w × (20 − f)`), which agree to 0.7% | the error was ~6% and in the **safe** direction, which is why nothing caught it for two weeks. `e3_budget_by_shape.py` prints both conventions side by side and never mixes them. **A rate and a reservation must be read off the same denominator**, and the way to check is that the two self-consistent forms agree |
+| **a planted control was planted outside the range the instrument is used in** | E3's Gate V1 compared an **all-zero-code** model to a no-zero one and fired at 15× the IQR, voiding the run. The kernel was innocent: `qkv_proj`, `o_proj` and `head` — pure packed matvecs — were flat to **0.005 ms**, and the whole 2.080 ms sat in `ffn`, the only organ holding a transcendental. An all-zero model feeds `expf` exactly `0.0f`, every libm's early-out; 2.080 ms / 116,736 calls = **17.8 ns per call**. A zero fraction of 1.0 is not something any exporter can produce, and across the range a real export occupies (0.47 vs 0.00) the timing is flat to 0.08 tok/s | the `VOID` was honoured and no arm was generated under it. The replacement gate compares synthetic against a **real exported artifact of the same shape**, fixed at a scale where no synthetic file existed yet — and passed at **0.000%** (1.5 B). The failed gate is reported next to the pass, not deleted. The accident is that it also **measured** what it was meant to assume: the matvec's value-independence is no longer a reading of the source |
+| **a speed gate contained a hard constant, and its own ground truth could not pass it** | E3 brief §8.4 fixed Gate V2′ at *"57.790, IQR 0.190"*, measured on a real artifact twenty minutes earlier. The synthetic file gave 56.180 and failed. Re-run **interleaved A/B/A/B**, the *same real file* gave **56.095** — it had moved **2.9%** — while synthetic and real differed by **0.200 tok/s, 0.357%**, with one pair in which both dipped together | **fourth time this ledger has been bitten by the same family**: §11 a rate under contention, §12 a timer bracketing the wrong work, E3 §2.3 an anchor on the wrong head, now a constant that did not survive twenty minutes. The rule is now explicit: **a speed gate may not contain a constant; it must name a file to be measured concurrently, interleaved** |
+| **a brief asked for one configuration in prose and the code read another from a config file** | E3 §3 asked for *"a ternary head (the runnable configuration E2 settled)"*. `synth_export.py`'s `SHAPES` carried each donor's own `tied` flag, and **a tied model runs its head as the fp32 embedding** — 544.6 MB/token, 13.8 ms, **52% of the token**. Six arms were not generated on the strength of a configuration nobody intends to ship. `SPEED_LEDGER` §12.2 had said its anchor was untied and packed without naming it: `136,134,656 weights, 68.1 MB/token` is **0.5 bytes per weight** | found because the synthetic file agreed with the **real** artifact of the same configuration to 0.36% while both missed the ledger by 35% — a disagreement that could only be about *which* configuration. `--head {ternary,donor}` added, default `ternary`. **A configuration named in prose must be named in a flag**, and a table's units are a claim about which configuration produced it |
 
 ## 6. Working rules this programme has paid for
 
@@ -242,8 +279,78 @@ measured and **rejected**: into a ternary head the final gain costs BPB on both 
   every caller that omits the flag — including E1, whose reference builder still defaults to
   unfolded. The flip and the pin went in one commit, and both directions were checked by **sha256
   against artifacts that had actually been measured**. (E2, `49b6654`)
+- **A planted control must be planted inside the range the instrument will actually be used in.**
+  An all-zero model is not a model any exporter can produce; the gate that used one measured `expf`
+  instead of the kernel it was defending, and voided a run for it. (E3 §2.2)
+- **A speed gate may not contain a constant.** It must name a file to be measured **interleaved**
+  with the thing under test. E3's reference artifact moved 2.9% in twenty minutes and could not pass
+  the gate its own measurement had defined. Fourth instance of the same family in this ledger.
+  (E3 §2.5)
+- **A rate and a reservation must be read off the same denominator.** `27.7 G-w/s` is weights/**wall**,
+  so pricing `27.7 × (20 − f)` charges `f` twice. The check that catches it is cheap: the two
+  self-consistent forms — `r_wall × 20` and `r_w × (20 − f)` — must agree, and they do (554 vs 558 M).
+  (E3 §4.3)
+- **A configuration named in prose must be named in a flag.** E3's brief said "ternary head" and the
+  code read `tied` out of a donor config; the two differ by 52% of the token. (E3 §2.3)
+- **Extrapolating a fit requires publishing its residuals first.** `f` is fitted per donor shape only
+  because the fit reproduces the twelve measured points to 7.7% worst and **0.0–1.2% at the shapes
+  that decide**; the residual table is the licence, and it is printed above the extrapolation.
+  (E3, `speed/e3_budget_by_shape.py`)
+- **A shape can be measured without weights, but only if the instrument is gated against a real
+  artifact.** E3's synthetic files match real exports **byte-for-byte in size** and to **0.000% in
+  time** at 1.5 B — which is what buys the right to measure shapes nobody has 20 GB to download.
+  (E3 §2.1, §2.4)
 
 ## 7. The head, the tokenizer, and the thing nobody priced
+
+> ### ⚠ SUPERSEDED BY E3 (`probes/E3_ENGINE_AT_TARGET_SCALE.md`)
+>
+> The table below screens twelve donors against **522 M**. That constant is wrong twice: it charges
+> the fixed cost twice (§0), and — far larger — it uses a **1.17 ms** non-weight reservation that E3
+> measured at **10.576 ms** at a 10 B shape. The screen is re-run below from measured `f`, per shape.
+> `donor_speed_budget.py`, which produced the old table, says of itself that *"every attention row
+> below is priced by ANALOGY to the proj-GEMV path, and that analogy is the single largest source of
+> error here."* E3 measured it, so the analogy is retired.
+>
+> **The re-run.** `speed/e3_budget_by_shape.py` fits `f = A·L·NH·HD·pos + B·L·D` on E3's twelve
+> measured points — worst residual **7.7%**, and **0.0–1.2% at the 7–10 B shapes that decide** — then
+> applies it per donor. `budget = r_w × (20 ms − f)`, `r_w` measured per size class.
+>
+> | donor | D | V | head | fitted `f` @300 | **budget** | **head as % of budget** | was (§7) |
+> |---|---|---|---|---|---|---|---|
+> | Qwen3-8B | 4096 | 151,936 | 622 M | 7.928 | 409 M | **152%** | 112% |
+> | OLMo-2-7B | 4096 | 100,352 | 411 M | 7.047 | 438 M | **94%** | — |
+> | Mistral-7B-v0.3 | 4096 | 32,768 | 134 M | 7.047 | 438 M | **31%** | 24% |
+> | Phi-3-mini | 3072 | 32,064 | 99 M | 5.286 | 468 M | **21%** | 18% |
+> | Qwen3-1.7B | 2048 | 151,936 | 311 M | 3.083 | 528 M | **59%** | — |
+> | Qwen2.5-1.5B | 1536 | 151,936 | 233 M | 2.312 | 552 M | **42%** | — |
+> | SmolLM2-1.7B | 2048 | 49,152 | 101 M | 2.643 | 542 M | **19%** | — |
+>
+> **At 800 tokens of context the screen stops being about the head at all:**
+>
+> | donor | budget @800 | head as % |
+> |---|---|---|
+> | Qwen3-8B | 23 M | **2763%** |
+> | OLMo-2-7B | 95 M | **432%** |
+> | **Mistral-7B-v0.3** | 95 M | **141%** |
+> | Phi-3-mini | 226 M | 44% |
+>
+> **Mistral-7B has the smallest vocabulary on the disk and still cannot reach 50 tok/s at 800
+> context** — not because of its head, but because `f` has eaten the budget. Every 7–8 B dense donor
+> is over the line at 800 context regardless of tokenizer.
+>
+> **Nine of the eighteen donors on disk are not priced by this fit at all** — MoE (`Qwen3-30B-A3B`,
+> `Qwen3-Next-80B`, `OLMoE`, `DeepSeek-V2-Lite`, `Mixtral`, `gpt-oss-20b`, `granite-4.0-h`) and
+> hybrid/SSM (`Zamba2`, `Nemotron-H`, `Falcon-H1`, `mamba2`) do not have uniform dense attention in
+> every layer, so `f` at their shape has not been measured. **`gpt-oss-20b` at 105% and
+> `Nemotron-H-8B` at 97% in the old table rested entirely on the analogy `donor_speed_budget.py`
+> flagged as its own largest error, and are withdrawn rather than restated.**
+>
+> What survives from the old table unchanged: **the head's size is set by the tokenizer, not the
+> model** — and E3 turned that from a weight count into an end-to-end measurement, `M7` vs `Q8`,
+> 4.637× the vocabulary for 4.629× the head time (0.2%).
+
+### 7.1 The original screen, kept for the record
 
 `donor_speed_budget.py` prices the output head against the measured **27.7 G-weights/s** of the
 packed kernel after the rope hoist (`SPEED_LEDGER.md` §12.2). The head is a dense GEMV of `D × V`
