@@ -14,7 +14,7 @@ is not written up somewhere with its controls and its pre-registration.
 | | status |
 |---|---|
 | **A pretrained donor executes on our runtime** | ✅ **YES** — Qwen2.5-0.5B, parity vs PyTorch `rel l2 2.8e-06`, top-1 `1.0000`; and since E1 the engine **scores the same BPB as PyTorch to `1.5e-05`** on both donors, so the quality numbers below are statements about the deliverable, not about a simulation |
-| **At the target speed** | ❌ **measured at the target shape now, not extrapolated: 3.090 tok/s** (E3 `T10`, 10.6 B active, `--bench 300`, 3 reps, idle) — **16.2× short of 50** (`50 / 3.090`). The delivered rate is *better* than the ledger (32.8 vs 27.7 G-w/s, +18%); what breaks is the **non-weight** term: `f` = rope+attention+norm is **10.576 ms/token at 300 context and 26.088 at 800** against a **1.17 ms** reservation. **At 800 context a 10 B shape cannot pass 38.3 tok/s even with a free weight path** |
+| **At the target speed** | ❌ **measured at the target shape, not extrapolated: ~3.1–3.2 tok/s** (`T10`, 10.6 B active) — **~16× short of 50**, and it is the **weights** that are short. E3 found the *non-weight* term `f` broken (9.0× its reservation at 300 context, 22.3× at 800) and concluded a 10 B could not pass **38.3 tok/s at 800 context even with a free weight path**. **E4 overturned that**: the `Q·K` reduction was latency-bound, and 40 lines of AVX2 took `f` from 24.678 → **12.735 ms**, the ceiling `1000/f` from 40.5 → **78.5 tok/s**, and the 50 tok/s active-weight budget at 800 context from **0 → 259 M** — at **ΔBPB 3e-06**. **50 tok/s at 800 context is a weight-side problem again** |
 | **At usable quality** | ❌ **NO**, but the number keeps moving: FFN conversion **+3.309 → +1.260 BPB** (T2), still 252 σ_seed. The **whole runnable model** cost **+2.708111** (T2b) and is now **+2.465779** — E2 confirmed the RMSNorm fold *through the engine* at T3's exact `−0.220001` and it is **adopted as the exporter default** |
 | **The binding constraint** | **still quality — but it is the RULE, not the format** (T2, `RULE-HELPS`) |
 
@@ -73,12 +73,22 @@ LUT half of that is not numerically free.
 | **P3** | what do donor SHAPES cost on the engine's kernels? | 0.5B 81 / 1.5B 30.7 / 3B 15.1 tok/s (matvec only). The ledger was 18% conservative because it priced dense FFNs at a *gather* rate | `probes/P3_DONOR_SHAPE_ON_ENGINE.md` |
 | **R1** | what does a real runtime cost? | **56.1 tok/s** at 0.5B (§12). The packing bought nothing, exactly as P2 predicted; the LUT buys 2.2% and is not free; **the one big win was a profiling artefact — `rope()` was 9.6% of every token** | `probes/R1_DONOR_RUNTIME.md`, `SPEED_LEDGER.md` §12 |
 | **E3** | what does the engine actually do at the target shape, end to end? | **`RESERVATION-BREAKS`.** 6 shapes 0.5–10.6 B x 2 context lengths, synthetic weights gated against real artifacts at 0.000% (1.5 B) and 0.357% (0.5 B). `T10` = **3.090 tok/s**; rate **rises** to 32.8 G-w/s; **`f` is 9.0× the reservation at 300 context and 22.3× at 800** | `probes/E3_ENGINE_AT_TARGET_SCALE.md` |
+| **E4** | is the attention loop latency-bound, as E3 read it, or bandwidth-bound? | **`LATENCY-CONFIRMED`.** The `Q·K` dot loop was **6.5× below its own memory limit**: 14.647 → **2.242 ms**, **5.4 → 35.1 GB/s of unique K bytes**. ILP alone 2.31× (same bytes, less time — bandwidth falsified on its own), SIMD alone 4.28×, both **6.53×**. **`f` 24.678 → 12.735 ms, ceiling 40.5 → 78.5 tok/s**, ΔBPB **3.03e-06**. The floor is now `R` = softmax + `A·V`, **81.4%** of the organ | `probes/E4_ATTENTION_ACCUMULATORS.md` |
 | **P64 matrix** | is the runtime's rate set by OpenMP region count or thread wake-ups? | **neither.** A region costs **2.5–3.2 µs**, measured two ways; `OMP_WAIT_POLICY=active` does nothing. After the rope hoist all four organs sit in a **1.3× band** | `SPEED_LEDGER.md` §12.4, `engine/bench_matrix.py` |
 
 **Terms nobody had attacked before the ledger, now priced:** the **output head** (was 40.4% of every
 token in fp32 — fixed; and E3 shows it is **not** the floor at 10 B, §7), the **KV cache** (still
 fp32, untouched — and E3 says this is now the binding term), the **attention projections** (17.9% of
 a 10 B token, `qkv` + `o_proj`).
+
+> **E4 answered the question E3 left open, and moved the section on again.** The attention loop was
+> latency-bound and is not any more: with `R` (softmax + `A·V`) measured and subtracted, the `Q·K`
+> loop went **6.53×** and now runs at **35.1 GB/s of unique K bytes** — this machine's DRAM. Two
+> consequences. First, **the int8 KV cache named below is retired at ~1.16×** before being built:
+> it cuts the dot loop's bytes 4× but the dot loop is only 18.6% of the organ now. Second, **the
+> binding term is `R`**, 81.4% of the organ and untouched by anything measured so far. The GQA
+> re-reads do **not** reach DRAM — 140 GB/s of touched bytes is not achievable from it — which E3
+> explicitly declined to claim and E4 gets for free from the arithmetic.
 
 > **E3 changed which term this section is about.** The weight path is *faster* than the ledger says
 > at every shape above 0.5 B. What does not scale is `f`. E3 §4.6 measures the attention loop at
@@ -136,16 +146,19 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 
 ## 4. Open, in priority order
 
-0. **The attention accumulator** — new, and it is now first. E3 §4.6 measured the attention loop at
-   **one FMA per ~4 cycles per thread across twelve points (±7%)**, invariant to KV size, GQA and
-   vocabulary: the signature of a serial FP reduction, and `d += qh[i]*kt[i]` built without
-   `-ffast-math` cannot be vectorised or reassociated. Give it 4–8 independent accumulators. **If
-   `f` drops by roughly the accumulator count it was latency; if it does not move, the lever is an
-   int8 KV cache instead** (the cache is fp32 and has never been touched). This is the only open
-   item that can move `f`, and until `f` moves there is **no active-weight budget at all at 800
-   tokens of context** (§0, §7). It is engine-only: no format change, no quality question, no
-   retraining. **Parity gate mandatory** — accumulation order is exactly what E1 traced its
-   `1.5e-05` engine/PyTorch delta to.
+0. **Decompose `R`** — new, and it inherits first place from the item E4 just closed. `R` = the
+   softmax pass + the `A·V` loop = **9.816 ms/token** at `T10` @800, **81.4% of the attention organ**
+   after `avx4`, and the organ is ~97% of `f`. Nothing has ever measured what is inside it. The
+   method is already built and already validated: E4's planted control split the organ by running the
+   `Q·K` loop 2× and 3× **bit-identically** and predicting the third point to −0.56%. Do the same to
+   each half — an arm that runs the softmax loop twice, an arm that runs `A·V` twice, both
+   value-preserving — and `R` splits the same way. Cheap, engine-only, no format change. Candidate
+   levers once it is split: the softmax `sum` is a serial reduction over `pos` with a scalar `expf`
+   per element (`L*NH*pos` = 616 k calls/token at `T10` @800), and `A·V` reads V at the same byte
+   rate the `Q·K` loop reads K.
+   **~~The attention accumulator~~ — CLOSED by E4, `LATENCY-CONFIRMED`** (`probes/E4_ATTENTION_ACCUMULATORS.md`).
+   The dot loop went 6.53× and `f` halved. **The int8 KV cache that E3 named as the alternative lever
+   is retired at ~1.16×** — it was the right lever for the loop E4 already fixed.
 
 1. **D4b** — the calibration budget. Promoted from bookkeeping: T2's two best arms are both
    calibration-driven, so every one of their numbers is a **floor** — and after E2 that now
@@ -188,6 +201,8 @@ measured and **rejected**: into a ternary head the final gain costs BPB on both 
 
 | bug | how it presented | fix |
 |---|---|---|
+| **A floor prediction charged the wrong bytes and the measurement beat it** | E4's brief predicted the `Q·K` loop could not go below **5–8 ms** because "315 MB at 50 GB/s is 6.3 ms". It measured **2.242 ms**. The 315 MB is **touched** bytes (GQA re-reads); only the **78.7 MB unique** reach DRAM, at 35.1 GB/s | the two conventions were already law here — a ceiling is a denominator, and this is where the wrong one hid. E4 §4.3 reports the prediction as wrong beside the number that beat it |
+| **A gate compared across sessions and could not be answered** | E4's G4 required `serial` to reproduce E3's published tok/s; it missed by +3.4% to +7.0%. My first diagnosis blamed an address-arithmetic hoist — priced, that is **±2% with inconsistent sign**. Rebuilding **E3's own binary** and running it in the same session showed it misses **E3's own table** by −1.6% to −4.2% | the gate is `MALFORMED`, not failed. Any reference from another session must be **re-measured in the same sweep**; E4's run 2 re-timed all seven arms under one binary, which is the only reason the probe survived |
 | **The A1.2 gate reported PASS over an all-NaN run** | `max(0.0, nan) == 0.0` in Python swallowed all 51 comparisons | hard-fail on any non-finite, minimum comparison count, and **7 planted self-test cases run before any model loads** — the old code fails 3 of them |
 | **`l1_keep_count` turned a NaN into a plausible measurement** | `clamp_(1, F)` mapped a NaN row to "keep 1 neuron" → achieved sparsity `8959/8960` | raises `FloatingPointError` on non-finite input |
 | **fp16 NaN blamed on the GPU** | my own diagnostic did not pass `attn_implementation` and tested SDPA, not the `eager` path the probe uses | reproduced on CPU with `--attn eager`; cause is HF eager computing QK^T in fp16 (**274,672 vs the 65,504 limit**) before dividing by √head_dim |
@@ -286,6 +301,23 @@ measured and **rejected**: into a ternary head the final gain costs BPB on both 
   with the thing under test. E3's reference artifact moved 2.9% in twenty minutes and could not pass
   the gate its own measurement had defined. Fourth instance of the same family in this ledger.
   (E3 §2.5)
+- **A within-run IQR is not a reproducibility interval.** This machine's within-sweep
+  dispersion is **0.000–0.015 tok/s** and its **between-sweep dispersion is 5–10%** — E3's own
+  binary misses E3's own published table by −1.6% to −4.2%, and the same code read **3.240 and
+  3.030 two hours apart** while its IQR stayed at 0.005. A gate that compares a measurement to
+  a number from another session is measuring the calendar. **Re-measure the reference in the
+  same sweep.** Third instance: E3 §2.5's reference moved 2.9% in twenty minutes, and the
+  ledger's original 18.6 G-w/s was contended by 35%. (E4 §2.4)
+- **A threshold placed inside the instrument's dispersion cannot decide anything.** E4 §5 drew
+  `LATENCY-CONFIRMED` at ≤0.50× and the arm came in at **0.503×**. The remedy is not a new
+  threshold but a better measurement: **interleaved A/B/A/B/A/B**, ratio per adjacent pair.
+  The baseline arm moved **10.55%** across the three pairs; the ratio moved **2.98%**. That one
+  comparison is the whole case for interleaving, measured. (E4 §2.5)
+- **A planted control is worth more as a decomposition than as a gate.** E4's `serial2` runs
+  the dot loop twice **bit-identically**, which does not just prove the timer is attached — it
+  *solves* the organ into the loop under test and the rest. `serial3` then hits the third point
+  to **−0.56%**, so the split is measured rather than fitted. Every mechanism claim in E4 rests
+  on that, and the same trick is now the method for the next probe. (E4 §2.2–§2.3)
 - **A rate and a reservation must be read off the same denominator.** `27.7 G-w/s` is weights/**wall**,
   so pricing `27.7 × (20 − f)` charges `f` twice. The check that catches it is cheap: the two
   self-consistent forms — `r_wall × 20` and `r_w × (20 − f)` — must agree, and they do (554 vs 558 M).

@@ -700,3 +700,83 @@ has never been touched. **Parity gate mandatory:** accumulation order is exactly
 The dense path is 16× away. **The last 1.3× of it is not reachable by any weight-side work at 800
 context**, which is the first time this ledger has been able to say where the wall is rather than how
 far away it is.
+
+---
+
+## 14. AMENDED 2026-09-06 by E4 — §13.4 was right about the mechanism, and it was worth 2× on `f`
+
+`probes/E4_ATTENTION_ACCUMULATORS.md`. §13.4 marked its reading **corroborated, not proven** and
+named the experiment: *"give the `K` loop 4–8 independent accumulators. If `f` falls by roughly the
+accumulator count it was latency; if it does not move, the lever is an int8 KV cache instead."*
+
+It was latency. **`LATENCY-CONFIRMED`**, from an interleaved A/B measurement (median ratio 0.4875,
+spread 2.98%, all three pairs below the 0.50 line fixed before the run).
+
+### 14.1 What is withdrawn
+
+**§13.5's ceiling.** §13.1 stated: *"50 tok/s at 800 context is unreachable at a 10 B shape by any
+weight-side work whatsoever"*, from `1000/f = 38.3 tok/s`. That is withdrawn.
+
+| `T10`, one sweep | `serial` (E3's engine) | **`avx4`** |
+|---|---|---|
+| `f` @300 | 9.846 ms | **5.216 ms** |
+| `f` @800 | 24.678 ms | **12.735 ms** |
+| **ceiling `1000/f`** @800 | 40.5 tok/s | **78.5 tok/s** |
+| **budget at 50 tok/s** = `r_w × (20 − f)` @800 | **0** | **259 M** |
+| same, @300 | 359 M | **523 M** |
+
+**50 tok/s at 800 context is a weight-side problem again.** The absolute budgets carry the ±5%
+between-sweep band of §14.3; the ratios do not.
+
+**The cost.** `|ΔBPB| = 3.03e-06` on a real donor over the pinned 24×512 slice — **1650× under
+σ_seed**, and smaller than the `1.53e-05` that E1 measured between this engine and PyTorch.
+
+### 14.2 The mechanism, measured instead of inferred
+
+A planted control (`serial2`: the same dot product twice, `(d1+d2)*0.5f`, **bit-identical**) splits
+the organ into the loop under test and everything else; a third point (`serial3`) that cannot be
+fitted lands within **0.56%** of the prediction. So the split is a measurement:
+
+| `T10` @800 | organ ms | **`Q·K` loop** | speedup | unique K GB/s |
+|---|---|---|---|---|
+| `serial` | 24.463 | 14.647 | 1.00× | **5.4** |
+| `ilp4` — 4 scalar chains, no SIMD | 16.148 | 6.332 | 2.31× | 12.4 |
+| `avx1` — 8 lanes, one chain | 13.238 | 3.422 | 4.28× | 23.0 |
+| **`avx4`** | 12.058 | **2.242** | **6.53×** | **35.1** |
+
+**2.31× from breaking the dependency chain alone**, moving not one extra byte, settles the
+latency-vs-bandwidth question by itself. And the endpoint is informative: 35.1 GB/s of *unique* K
+bytes is this machine's DRAM read rate, so the loop that was **6.5× below its own memory limit** now
+sits on it. (140 GB/s of *touched* bytes is not achievable from DRAM — so the GQA re-reads are served
+by cache, which §13.4 explicitly declined to claim.)
+
+**The int8 KV cache is retired before being built.** §13.4 named it as the alternative lever. It cuts
+the dot loop's unique bytes 4×: 2.242 → ~0.6 ms, organ 12.058 → ~10.4 ms = **~1.16×**. It was the
+right lever for a loop that no longer exists.
+
+**The floor is now `R`** — the softmax pass plus the `A·V` loop — measured at **9.816 ms** and
+**81.4% of the organ**, untouched by every arm here. Its composition has never been measured and is
+not claimed. Decomposing it, with the same bit-identical doubling trick, is the next probe.
+
+### 14.3 A correction owed to every absolute number in this ledger
+
+E3's own binary was rebuilt from `d7977c8^` and timed in the same session as E4's arms:
+
+| point | published here | **E3's own binary, re-run** | |
+|---|---|---|---|
+| `T10` @300 | 3.090 | **3.040** | −1.6% |
+| `T10` @800 | 2.960 | **2.880** | −2.7% |
+| `S05` @300 | 55.700 | **53.370** | −4.2% |
+| `S05` @800 | 49.280 | **48.360** | −1.9% |
+
+The same code also read **3.240** and **3.030** at `T10` @300 two hours apart, while the within-run
+IQR stayed at **0.005**.
+
+> **Law: a within-run IQR is not a reproducibility interval.** Within-sweep dispersion on this
+> machine is 0.000–0.015 tok/s; **between-sweep dispersion is 5–10%**. Every absolute tok/s in this
+> ledger carries that band, and the published IQRs do not show it. **The ratios are unaffected** —
+> they were taken inside one sweep — and every conclusion in §12–§14 is a ratio.
+
+This is not a re-run request. It is a band to quote: **±5% on any absolute tok/s here**, and a
+prohibition on comparing a number in this ledger to one measured in another session without
+re-measuring the reference alongside it.
