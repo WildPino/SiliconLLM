@@ -37,6 +37,7 @@ WEIGHT_ORGANS = ("qkv_proj", "o_proj", "ffn", "head")
 # also showed T10 @800 keeping >=2 measurements per arm even at 1%, so 1% is affordable there.
 G0_TOL = 0.01
 G0_MIN_SURVIVORS = 2
+PRIO_HIGH = False
 # s10: the witness of s9.3 is promoted to a gate for run 4, ANNOUNCED IN ADVANCE.  cores_busy is
 # the mean number of cores burning machine-wide during a measurement; a clean 6-thread run sits
 # just above 6.  A measurement more than this far above its cell minimum is discarded.
@@ -56,8 +57,8 @@ def bpb(n):
     return n / math.log(2.0) / SCORED_BYTES
 
 
-def parity():
-    p = os.path.join(RES, "parity.txt")
+def parity(suffix=""):
+    p = os.path.join(RES, "parity%s.txt" % suffix)
     if not os.path.exists(p):
         return None
     txt = io.open(p, encoding="utf-8").read()
@@ -72,8 +73,10 @@ def load(path):
     the survivors.  Run 2 is rep-major, so a key carries three separate single-rep records; run 1
     was arm-major and carries one record per key.  Both load; only the first can survive G0 when
     the machine misbehaves, which is the point of the change."""
+    global PRIO_HIGH
     raw = {}
     for r in json.load(open(path, encoding="utf-8")):
+        PRIO_HIGH = PRIO_HIGH or (r.get("prio") == "high")
         shape = r["label"].split("_")[0]
         o = r["median_rep_organs_ms"]
         key = (shape, r["bench"], r.get("attn", "serial"), r.get("attnr", "none"))
@@ -81,7 +84,8 @@ def load(path):
         raw.setdefault(key, []).append(
             dict(organs=o, tok_s=r["median_tok_s"], iqr=r["iqr_tok_s"],
                  W=sum(o[k] for k in WEIGHT_ORGANS), attn_ms=o["attention"],
-                 cb=cb[0] if cb else None, f=sum(o[k] for k in FIXED)))
+                 cb=cb[0] if cb else None, prio=r.get("prio"),
+                 f=sum(o[k] for k in FIXED)))
     # G0 is a CELL-level test: the minimum W of the whole cell is the uncontended reference.
     cells = {}
     for (shape, b, at, ar), v in raw.items():
@@ -171,14 +175,16 @@ def main():
     path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(RES, "arms.json")
     A, G0 = load(path)
 
-    P = parity()
+    # s10: run 4's parity lives in parity4.txt, next to arms4.json
+    _b = os.path.basename(path)
+    P = parity(_b[4:-5] if _b.startswith("arms") and _b.endswith(".json") else "")
     if P:
         print("## G2 -- parity must be BIT-IDENTICAL (every arm is value-preserving by "
               "construction)\n")
         print("| arm | NATS_TOTAL (as printed) | vs `none` |")
         print("|---|---|---|")
         base = P.get("none")
-        for a in ("none", "sm2", "sm3", "av2", "av3", "fork2"):
+        for a in ("none", "sm1", "sm2", "sm3", "av1", "av2", "av3", "fork2"):
             if a not in P:
                 continue
             tag = ("baseline" if a == "none" else
@@ -206,11 +212,19 @@ def main():
             print("| %s | %.3f | %.3f | %+.1f%% |" % (nm, old, new, 100.0 * (new - old) / old))
         print("\nEvery number below is a difference between two arms of THIS sweep.  The table "
               "above is reported so the reader can see the machine move; it is not used.\n")
+        if PRIO_HIGH:
+            print("This sweep ran every arm at `HIGH_PRIORITY_CLASS` (brief s10.4), uniformly.  "
+                  "That cancels in every within-sweep difference and so in every number below, "
+                  "but it makes the ABSOLUTE column above incomparable to E4's: the drift shown "
+                  "is machine drift PLUS a scheduling change and cannot be read as either "
+                  "alone.\n")
 
     # ---------------- G1: the 3x points, which the model can miss
     print("## G1 -- the 3x arms, which S and Y are not fitted to (brief s4)\n")
-    print("| point | organ `none` | 2x arm | solved | predicted 3x | **measured 3x** | error | "
-          "verdict |")
+    # s10: the 1x column is the WRAPPED 1x arm (sm1/av1) -- what the component is solved from.
+    # It falls back to `none` only when reading a run-3 file, which had no 1x arm.
+    print("| point | organ 1x (`sm1`/`av1`) | 2x arm | solved | predicted 3x | **measured 3x** | "
+          "error | verdict |")
     print("|---|---|---|---|---|---|---|---|")
     fails = []
     for c in cells:
@@ -224,8 +238,8 @@ def main():
             if not ok and not small:
                 fails.append((c["shape"], c["bench"], nm))
             print("| %s @%d `%s` | %.3f | %.3f | %s = %.3f | %.3f | **%.3f** | %+.2f%% | %s |"
-                  % (c["shape"], c["bench"], lbl + "2/3", c["base"]["attn_ms"],
-                     c["base"]["attn_ms"] + c[nm], nm, c[nm], c[nm + "_pred"],
+                  % (c["shape"], c["bench"], lbl + "2/3", c[nm + "_base"],
+                     c[nm + "_base"] + c[nm], nm, c[nm], c[nm + "_pred"],
                      c[nm + "_meas"], 100.0 * c[nm + "_err"], v))
     print()
     if fails:
