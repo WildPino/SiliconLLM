@@ -9,6 +9,25 @@ across runs of different total speed would mix two different denominators.
 """
 import argparse, json, os, re, subprocess, sys, time
 
+# E5 s9: an independent witness to contention, at zero cost.  GetSystemTimes gives machine-wide
+# idle/kernel/user times; busy = (kernel + user) - idle is CPU-seconds actually burned by ANY
+# process.  Divided by the measurement's wall time it is "mean cores busy", which for a clean run
+# of a --threads N engine sits just above N and rises the moment something else runs.  G0 catches
+# contention through an organ no arm touches; this catches it at the machine, and the two agree
+# or one of them is wrong.
+def _system_busy():
+    try:
+        import ctypes
+        from ctypes import wintypes
+        i, k, u = wintypes.FILETIME(), wintypes.FILETIME(), wintypes.FILETIME()
+        if not ctypes.windll.kernel32.GetSystemTimes(ctypes.byref(i), ctypes.byref(k),
+                                                     ctypes.byref(u)):
+            return None
+        f = lambda t: ((t.dwHighDateTime << 32) | t.dwLowDateTime) / 1e7
+        return f(k) + f(u) - f(i)          # kernel time INCLUDES idle, so idle is subtracted once
+    except Exception:
+        return None
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 EXE = os.path.join(HERE, "donor_engine.exe")
 ORGANS = ("qkv_proj", "rope", "attention", "o_proj", "ffn", "head", "norm+glue")
@@ -17,8 +36,9 @@ ORGANS = ("qkv_proj", "rope", "attention", "o_proj", "ffn", "head", "norm+glue")
 def one(weights, bench, threads, extra, exe=None):
     cmd = [exe or EXE, "--bench", str(bench), "--weights", weights, "--threads", str(threads), "--profile"]
     cmd += list(extra)
-    t0 = time.time()
+    t0, b0 = time.time(), _system_busy()
     p = subprocess.run(cmd, capture_output=True, text=True)
+    b1 = _system_busy()
     if p.returncode != 0:
         raise SystemExit("engine failed (%d):\n%s\n%s" % (p.returncode, p.stdout[-2000:], p.stderr[-2000:]))
     out = p.stdout
@@ -34,7 +54,9 @@ def one(weights, bench, threads, extra, exe=None):
         if mm:
             org[k] = float(mm.group(1))
     mw = re.search(r"TOTAL\s+([\d.]+)\s+\(organs summed; wall ([\d.]+) ms/token\)", out)
+    dt = max(1e-9, time.time() - t0)
     return {"tok_s": toks, "wall_s": float(m.group(2)), "organs": org,
+            "cores_busy": ((b1 - b0) / dt) if (b0 is not None and b1 is not None) else None,
             "organs_total_ms": float(mw.group(1)) if mw else None,
             "wall_ms_token": float(mw.group(2)) if mw else None,
             "elapsed_s": time.time() - t0}
@@ -79,7 +101,8 @@ def main():
            "tok_s": rates, "median_tok_s": med, "iqr_tok_s": iqr, "q1": q1, "q3": q3,
            "median_rep_organs_ms": mid["organs"],
            "median_rep_wall_ms_token": mid["wall_ms_token"],
-           "median_rep_organs_total_ms": mid["organs_total_ms"]}
+           "median_rep_organs_total_ms": mid["organs_total_ms"],
+           "cores_busy": [r["cores_busy"] for r in reps]}
     print("%-22s bench=%-4d median %8.3f tok/s  IQR %7.3f   reps %s"
           % (rec["label"], a.bench, med, iqr, " ".join("%.2f" % x for x in rates)), flush=True)
     if mid["organs"]:

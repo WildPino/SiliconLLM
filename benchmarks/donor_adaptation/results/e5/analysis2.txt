@@ -1,0 +1,49 @@
+## G2 -- parity must be BIT-IDENTICAL (every arm is value-preserving by construction)
+
+| arm | NATS_TOTAL (as printed) | vs `none` |
+|---|---|---|
+| `none` | 166667.1361128952 | baseline |
+| `sm2` | 166667.1361128952 | **BIT-IDENTICAL** |
+| `sm3` | 166667.1361128952 | **BIT-IDENTICAL** |
+| `av2` | 166667.1361128952 | **BIT-IDENTICAL** |
+| `av3` | 166667.1361128952 | **BIT-IDENTICAL** |
+| `fork2` | 166667.1361128952 | **BIT-IDENTICAL** |
+
+BPB = 4.635624653 on the pinned 24x512 slice (51870 scored bytes).
+
+## G0 -- the weight path is invariant across arms; anything else is the machine (brief s8.3)
+
+| cell | measurements | kept | discarded | worst `W` excess | verdict |
+|---|---|---|---|---|---|
+| S05 @300 | 24 | 16 | 8 | +16.0% | **VOID -- 1 arm(s) with no clean measurement: sm3** |
+| S05 @800 | 24 | 22 | 2 | +6.1% | PASS |
+| T10 @300 | 24 | 24 | 0 | +4.8% | PASS |
+| T10 @800 | 24 | 14 | 10 | +36.5% | **VOID -- 3 arm(s) with no clean measurement: none, sm2, sm3** |
+
+## G3 -- the sweep against E4's published numbers (drift line, not an input)
+
+## G1 -- the 3x arms, which S and Y are not fitted to (brief s4)
+
+| point | organ `none` | 2x arm | solved | predicted 3x | **measured 3x** | error | verdict |
+|---|---|---|---|---|---|---|---|
+| T10 @300 `sm2/3` | 4.854 | 5.734 | S = 0.880 | 6.614 | **6.754** | +2.12% | PASS |
+| T10 @300 `av2/3` | 4.854 | 5.527 | Y = 0.673 | 6.200 | **6.239** | +0.63% | PASS |
+| S05 @800 `sm2/3` | 1.716 | 2.384 | S = 0.668 | 3.052 | **3.151** | +3.24% | **FAIL** |
+| S05 @800 `av2/3` | 1.716 | 1.922 | Y = 0.206 | 2.128 | **2.123** | -0.23% | PASS |
+
+**1 prediction(s) missed by more than 3% -> the decomposition is not established and E5 is VOID for those components.**
+
+## The decomposition of `R`
+
+| point | organ `avx4` | `X` | `S` softmax | `Y` A.V | `P` rest | S/R | Y/R | P/R | `f` | R/f |
+|---|---|---|---|---|---|---|---|---|---|---|
+| T10 @300 | 4.854 | 0.944 | **0.880** | **0.673** | **2.357** | 22.5% | 17.2% | 60.3% | 5.555 | 70.4% |
+| S05 @800 | 1.716 | 0.319 | **0.668** | **0.206** | **0.523** | 47.8% | 14.7% | 37.4% | 1.802 | 77.5% |
+
+## `fork2` -- one extra OpenMP region per layer, priced directly
+
+| point | regions/token | extra ms | us per region | as %% of `P` |
+|---|---|---|---|---|
+| T10 @300 | 48 | 0.169 | 3.5 | 7% |
+| S05 @800 | 24 | 0.033 | 1.4 | 6% |
+

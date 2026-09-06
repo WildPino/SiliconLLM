@@ -299,3 +299,64 @@ The arms, the model, the 3% tolerance, the 0.30 ms `INCONCLUSIVE` floor, the lab
 `T10` @800. Those ranges are **not re-fitted** now that run 1 has printed numbers against them:
 run 1 is void, so its scoring of §3 is void with it, and a prediction revised after seeing even a
 void measurement is not a prediction. They stand exactly as pushed at `c1bdd70`.
+
+---
+
+## 9. AMENDMENT after run 2 — the remedy worked, the gate still bites, and G0 is NOT being relaxed
+
+Pushed **before run 3 exists**. Run 2: `results/e5/arms2.json`, analysis `results/e5/analysis2.txt`.
+
+### 9.1 §8.4's remedy did what it was designed to do
+
+Rep-major interleaving separated the machine from the arms. The `T10` @800 cell, measurement by
+measurement, against its own cell minimum on the untouched weight path `W`:
+
+| pass | `serial` | `serial2` | `none` | `sm2` | `sm3` | `av2` | `av3` | `fork2` |
+|---|---|---|---|---|---|---|---|---|
+| 1 | +0.0% | +22.9% | +34.5% | +36.5% | +31.7% | +20.9% | +6.1% | +4.5% |
+| **2** | **+0.3%** | **+0.2%** | **+0.3%** | **+0.0%** | **+0.3%** | **+0.6%** | **+3.2%** | **+3.4%** |
+| 3 | +3.9% | +4.3% | +11.9% | +21.9% | +13.6% | +3.6% | +3.1% | +5.8% |
+
+**Pass 2 is a complete, clean set of all eight arms** measured inside one contiguous window — the
+contention is bursty in time, not attached to any arm, which is exactly what run 1 could not show
+and what §8.4 predicted.
+
+### 9.2 What G0 says, and what is not being done about it
+
+| cell | worst `W` excess | G0 |
+|---|---|---|
+| `T10` @300 | +4.8% | **PASS** |
+| `S05` @800 | +6.1% | **PASS** |
+| `S05` @300 | +16.0% | **VOID** (`sm3` has no clean measurement) |
+| **`T10` @800** | +36.5% | **VOID** (`none`, `sm2`, `sm3` have none) |
+
+G0 requires **two** clean measurements per arm. Pass 2 alone supplies one. **The gate is not being
+relaxed to one** — it was fixed at two in §8.3 before run 2 ran, and a threshold moved after seeing
+which side of it the data fell on is not a threshold. The cell needs **more samples, not a looser
+gate**.
+
+Run 2 did establish one cell under every gate it has: **`T10` @300 passes G0 and both of its 3×
+predictions** — `sm3` at **+2.12%** and `av3` at **+0.63%** against a 3% tolerance fixed before any
+arm existed. `S05` @800 passes G0 but its softmax 3× missed at **+3.24%**, so it is `FAIL` under
+G1 and reported as such.
+
+### 9.3 Run 3
+
+Identical in every respect to run 2 except **six passes instead of three**. Same arms, same order,
+same tolerances, same label rule, same §3 predictions — still not re-fitted.
+
+**A second, independent witness to contention**, recorded per measurement from this run on:
+`cores_busy` = `(kernel + user − idle)` CPU-seconds from `GetSystemTimes`, divided by the
+measurement's wall time — the mean number of cores burning on the whole machine, by any process.
+A clean 6-thread run sits a little under 6 (the single-threaded model load pulls the mean down);
+anything materially above it is another process. **It is a witness, not a gate.** G0 decides what is
+discarded; `cores_busy` either corroborates G0's verdict or contradicts it, and **a disagreement
+between the two is reported rather than resolved in favour of whichever is convenient.** No second
+discarding rule is being added after the fact.
+
+### 9.4 The fallback, fixed now so it cannot be chosen afterwards
+
+If `T10` @800 fails G0 again at six passes, E5 **reports the decomposition at whichever cells pass
+and does not issue the §5 label at all.** It does not migrate the label to `T10` @300 or to `S05`,
+and it does not report a share from a voided cell with a caveat attached. §5 names one judging point
+and that point either produces a gated measurement or produces nothing.
