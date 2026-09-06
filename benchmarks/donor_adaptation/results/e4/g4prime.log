@@ -1,0 +1,17 @@
+T10_e3binary_b300      bench=300  median    3.040 tok/s  IQR   0.005   reps 3.04 3.04 3.03
+   organs ms/tok: qkv_proj=35.526  rope=0.083  attention=10.229  o_proj=23.235  ffn=256.678  head=3.777  norm+glue=0.635
+T10_serial_e3_b300     bench=300  median    3.030 tok/s  IQR   0.005   reps 3.02 3.03 3.03
+   organs ms/tok: qkv_proj=35.588  rope=0.085  attention=10.120  o_proj=23.310  ffn=257.273  head=3.814  norm+glue=0.633
+S05_e3binary_b300      bench=300  median   53.370 tok/s  IQR   0.055   reps 53.37 53.29 53.40
+   organs ms/tok: qkv_proj=0.958  rope=0.018  attention=1.156  o_proj=0.656  ffn=12.133  head=3.766  norm+glue=0.070
+S05_serial_e3_b300     bench=300  median   53.400 tok/s  IQR   0.155   reps 53.40 53.59 53.28
+   organs ms/tok: qkv_proj=0.961  rope=0.018  attention=1.164  o_proj=0.650  ffn=12.102  head=3.783  norm+glue=0.069
+T10_e3binary_b800      bench=800  median    2.880 tok/s  IQR   0.005   reps 2.88 2.88 2.87
+   organs ms/tok: qkv_proj=35.557  rope=0.089  attention=27.502  o_proj=23.302  ffn=256.837  head=3.776  norm+glue=0.642
+T10_serial_e3_b800     bench=800  median    2.880 tok/s  IQR   0.000   reps 2.88 2.88 2.88
+   organs ms/tok: qkv_proj=35.547  rope=0.086  attention=27.636  o_proj=23.323  ffn=256.675  head=3.772  norm+glue=0.634
+S05_e3binary_b800      bench=800  median   48.360 tok/s  IQR   0.055   reps 48.46 48.35 48.36
+   organs ms/tok: qkv_proj=0.964  rope=0.018  attention=2.977  o_proj=0.661  ffn=12.181  head=3.798  norm+glue=0.070
+S05_serial_e3_b800     bench=800  median   48.390 tok/s  IQR   0.085   reps 48.43 48.39 48.26
+   organs ms/tok: qkv_proj=0.961  rope=0.017  attention=2.980  o_proj=0.663  ffn=12.178  head=3.788  norm+glue=0.070
+G4PRIME DONE

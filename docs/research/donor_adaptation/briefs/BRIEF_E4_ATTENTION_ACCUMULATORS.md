@@ -214,3 +214,81 @@ not, the linear model is wrong, §8.1's explanation of G1 collapses with it, and
 
 **What run 1's arms are allowed to be used for in the meantime:** nothing that carries a label. They
 are listed in the probe as measured, with `VOID` on them, exactly as E3 run 1 was.
+
+---
+
+## 9. AMENDED after run 2 — G4' was a malformed gate, and §5's threshold sits inside the noise
+
+Appended 2026-09-06 **before the interleaved measurement of §9.2 exists**.
+
+### 9.1 G4' cannot be failed or passed, because its reference is not stable
+
+G4/G4' compare a number measured now against a number E3 published yesterday. E3's own binary was
+rebuilt from `d7977c8^` (its `--logits` output is sha256-identical to `serial_e3`) and timed **in the
+same session** as `serial_e3`:
+
+| point | E3 published | **E3's own binary, now** | `serial_e3`, now | old vs new | **old vs its own published number** |
+|---|---|---|---|---|---|
+| `T10` @300 | 3.090 | **3.040** | 3.030 | −0.33% | **−1.6%** |
+| `T10` @800 | 2.960 | **2.880** | 2.880 | +0.00% | **−2.7%** |
+| `S05` @300 | 55.700 | **53.370** | 53.400 | +0.06% | **−4.2%** |
+| `S05` @800 | 49.280 | **48.360** | 48.390 | +0.06% | **−1.9%** |
+
+Two facts, and they point the same way:
+
+1. **`serial_e3` is E3's engine.** Four points, maximum disagreement **0.33%**, three of them ≤0.06%
+   — measured, on top of the bit-identity. G4''s *purpose* is satisfied.
+2. **E3's own binary cannot reproduce E3's own published table**, by −1.6% to −4.2%. And run 2
+   measured `serial_e3` at `T10` @300 as 3.240 two hours before this table measured it as 3.030 —
+   a **6.5% swing in the same code on the same machine**, while the within-run IQR stayed at 0.005.
+
+> **Law: a within-run IQR is not a reproducibility interval.** This machine's within-sweep dispersion
+> is 0.000–0.015 tok/s and its **between-sweep dispersion is 5–7%**, an order of magnitude larger. Any
+> gate that compares a measurement to a number from another session is measuring the calendar. The
+> only valid form is **re-measure the reference in the same sweep** — which is why run 2 re-timed all
+> seven arms under one binary, and why that decision is the reason the probe survives.
+>
+> Third instance in this programme: E3 §2.5's reference moved 2.9% in twenty minutes, T2's ledger
+> timing was contended by 35%. It is now a standing rule, not an observation.
+
+**Consequence for E4:** G4' is recorded as **MALFORMED**, replaced by the same-session comparison
+above, which passes at 0.06%. No result in E4 depends on any cross-session number.
+
+### 9.2 §5's threshold is inside the instrument's dispersion, so it cannot decide
+
+Run 2, `T10` @800, best arm `avx4` vs `serial_e3`: **12.058 / 23.978 = 0.503x**. §5 draws
+`LATENCY-CONFIRMED` at **≤0.50x**. The two differ by **0.6%**, and the seven arms of that block were
+measured sequentially across ~100 minutes of a machine whose between-point drift is several percent —
+the same code read 23.978, 24.270 and 24.463 across three separate measurements (±1%).
+
+> **Law: a threshold placed inside the instrument's dispersion cannot decide anything.** §5 wrote
+> 0.50 without knowing the dispersion, which was not measured until §9.1.
+
+**Fixed before the measurement:** `serial_e3` and `avx4` are re-timed at `T10` @800
+**interleaved A/B/A/B/A/B**, one rep each, so every pair straddles the same few minutes and the drift
+is differenced out. The ratio is taken **per adjacent pair** and the median of the three pairs decides:
+
+| ratio, median of 3 interleaved pairs | label |
+|---|---|
+| ≤ 0.50x | **LATENCY-CONFIRMED** |
+| 0.50x – 0.90x | **MIXED** |
+| ≥ 0.90x | **BANDWIDTH-BOUND** |
+
+unchanged from §5 in every threshold. **The spread of the three pairs is reported**, and if it
+straddles 0.50 the label is `MIXED` and the probe says the rule could not separate them — that is the
+outcome §9.2 exists to make sayable rather than to avoid.
+
+### 9.3 What does not depend on any of this
+
+G1' (§8.3) passed at four points against predictions fixed before the arm existed — `+1.43%` and
+`−0.04%` against the brief's own pre-registered `T10` numbers — and every one of those is a *ratio
+inside one sweep*. G2's parity is deterministic. **`X` and `R` are measurements**, and the reading
+they give does not move with the machine's mood:
+
+- the dot loop went **14.647 → 2.242 ms, 6.53x**, and with it from **5.4 → 35.1 GB/s of unique K
+  bytes** — from 6.5x below this machine's DRAM limit to sitting on it. That is latency, and it is
+  no longer latency.
+- **`R` (softmax + A·V) is 81.4% of the best arm's organ** and no arm here touched it. An int8 K
+  cache would now cut the dot loop's unique bytes 4x, worth **~1.16x on the organ** — so E3 §4.6's
+  named next step is **superseded before it is run**, and the lever is `R`. `R`'s composition is
+  measured only as a total; decomposing it is E4's owed follow-on, not a claim here.

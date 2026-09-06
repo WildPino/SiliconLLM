@@ -1,0 +1,234 @@
+[
+ {
+  "label": "T10_e3binary_b300",
+  "weights": "D:/_ktmp/e3/T10_th.bin",
+  "bench": 300,
+  "threads": 6,
+  "reps": 3,
+  "attn": "serial",
+  "exe": "C:/Users/giosa/AppData/Local/Temp/claude/D---THINGS-Progetti-SiliconLLM/59e78a85-8e62-4169-80cb-f4b1b5e7ca5a/scratchpad/engine_e3.exe",
+  "tok_s": [
+   3.04,
+   3.04,
+   3.03
+  ],
+  "median_tok_s": 3.04,
+  "iqr_tok_s": 0.004999999999999893,
+  "q1": 3.035,
+  "q3": 3.04,
+  "median_rep_organs_ms": {
+   "qkv_proj": 35.526,
+   "rope": 0.083,
+   "attention": 10.229,
+   "o_proj": 23.235,
+   "ffn": 256.678,
+   "head": 3.777,
+   "norm+glue": 0.635
+  },
+  "median_rep_wall_ms_token": 329.39,
+  "median_rep_organs_total_ms": 330.164
+ },
+ {
+  "label": "T10_serial_e3_b300",
+  "weights": "D:/_ktmp/e3/T10_th.bin",
+  "bench": 300,
+  "threads": 6,
+  "reps": 3,
+  "attn": "serial_e3",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   3.02,
+   3.03,
+   3.03
+  ],
+  "median_tok_s": 3.03,
+  "iqr_tok_s": 0.004999999999999893,
+  "q1": 3.025,
+  "q3": 3.03,
+  "median_rep_organs_ms": {
+   "qkv_proj": 35.588,
+   "rope": 0.085,
+   "attention": 10.12,
+   "o_proj": 23.31,
+   "ffn": 257.273,
+   "head": 3.814,
+   "norm+glue": 0.633
+  },
+  "median_rep_wall_ms_token": 330.006,
+  "median_rep_organs_total_ms": 330.824
+ },
+ {
+  "label": "S05_e3binary_b300",
+  "weights": "D:/_ktmp/e3/S05_th.bin",
+  "bench": 300,
+  "threads": 6,
+  "reps": 3,
+  "attn": "serial",
+  "exe": "C:/Users/giosa/AppData/Local/Temp/claude/D---THINGS-Progetti-SiliconLLM/59e78a85-8e62-4169-80cb-f4b1b5e7ca5a/scratchpad/engine_e3.exe",
+  "tok_s": [
+   53.37,
+   53.29,
+   53.4
+  ],
+  "median_tok_s": 53.37,
+  "iqr_tok_s": 0.054999999999999716,
+  "q1": 53.33,
+  "q3": 53.385,
+  "median_rep_organs_ms": {
+   "qkv_proj": 0.958,
+   "rope": 0.018,
+   "attention": 1.156,
+   "o_proj": 0.656,
+   "ffn": 12.133,
+   "head": 3.766,
+   "norm+glue": 0.07
+  },
+  "median_rep_wall_ms_token": 18.735,
+  "median_rep_organs_total_ms": 18.758
+ },
+ {
+  "label": "S05_serial_e3_b300",
+  "weights": "D:/_ktmp/e3/S05_th.bin",
+  "bench": 300,
+  "threads": 6,
+  "reps": 3,
+  "attn": "serial_e3",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   53.4,
+   53.59,
+   53.28
+  ],
+  "median_tok_s": 53.4,
+  "iqr_tok_s": 0.15500000000000114,
+  "q1": 53.34,
+  "q3": 53.495000000000005,
+  "median_rep_organs_ms": {
+   "qkv_proj": 0.961,
+   "rope": 0.018,
+   "attention": 1.164,
+   "o_proj": 0.65,
+   "ffn": 12.102,
+   "head": 3.783,
+   "norm+glue": 0.069
+  },
+  "median_rep_wall_ms_token": 18.728,
+  "median_rep_organs_total_ms": 18.747
+ },
+ {
+  "label": "T10_e3binary_b800",
+  "weights": "D:/_ktmp/e3/T10_th.bin",
+  "bench": 800,
+  "threads": 6,
+  "reps": 3,
+  "attn": "serial",
+  "exe": "C:/Users/giosa/AppData/Local/Temp/claude/D---THINGS-Progetti-SiliconLLM/59e78a85-8e62-4169-80cb-f4b1b5e7ca5a/scratchpad/engine_e3.exe",
+  "tok_s": [
+   2.88,
+   2.88,
+   2.87
+  ],
+  "median_tok_s": 2.88,
+  "iqr_tok_s": 0.004999999999999893,
+  "q1": 2.875,
+  "q3": 2.88,
+  "median_rep_organs_ms": {
+   "qkv_proj": 35.557,
+   "rope": 0.089,
+   "attention": 27.502,
+   "o_proj": 23.302,
+   "ffn": 256.837,
+   "head": 3.776,
+   "norm+glue": 0.642
+  },
+  "median_rep_wall_ms_token": 347.568,
+  "median_rep_organs_total_ms": 347.705
+ },
+ {
+  "label": "T10_serial_e3_b800",
+  "weights": "D:/_ktmp/e3/T10_th.bin",
+  "bench": 800,
+  "threads": 6,
+  "reps": 3,
+  "attn": "serial_e3",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   2.88,
+   2.88,
+   2.88
+  ],
+  "median_tok_s": 2.88,
+  "iqr_tok_s": 0.0,
+  "q1": 2.88,
+  "q3": 2.88,
+  "median_rep_organs_ms": {
+   "qkv_proj": 35.547,
+   "rope": 0.086,
+   "attention": 27.636,
+   "o_proj": 23.323,
+   "ffn": 256.675,
+   "head": 3.772,
+   "norm+glue": 0.634
+  },
+  "median_rep_wall_ms_token": 347.501,
+  "median_rep_organs_total_ms": 347.673
+ },
+ {
+  "label": "S05_e3binary_b800",
+  "weights": "D:/_ktmp/e3/S05_th.bin",
+  "bench": 800,
+  "threads": 6,
+  "reps": 3,
+  "attn": "serial",
+  "exe": "C:/Users/giosa/AppData/Local/Temp/claude/D---THINGS-Progetti-SiliconLLM/59e78a85-8e62-4169-80cb-f4b1b5e7ca5a/scratchpad/engine_e3.exe",
+  "tok_s": [
+   48.46,
+   48.35,
+   48.36
+  ],
+  "median_tok_s": 48.36,
+  "iqr_tok_s": 0.05499999999999261,
+  "q1": 48.355000000000004,
+  "q3": 48.41,
+  "median_rep_organs_ms": {
+   "qkv_proj": 0.964,
+   "rope": 0.018,
+   "attention": 2.977,
+   "o_proj": 0.661,
+   "ffn": 12.181,
+   "head": 3.798,
+   "norm+glue": 0.07
+  },
+  "median_rep_wall_ms_token": 20.679,
+  "median_rep_organs_total_ms": 20.67
+ },
+ {
+  "label": "S05_serial_e3_b800",
+  "weights": "D:/_ktmp/e3/S05_th.bin",
+  "bench": 800,
+  "threads": 6,
+  "reps": 3,
+  "attn": "serial_e3",
+  "exe": "donor_engine.exe",
+  "tok_s": [
+   48.43,
+   48.39,
+   48.26
+  ],
+  "median_tok_s": 48.39,
+  "iqr_tok_s": 0.08499999999999375,
+  "q1": 48.325,
+  "q3": 48.41,
+  "median_rep_organs_ms": {
+   "qkv_proj": 0.961,
+   "rope": 0.017,
+   "attention": 2.98,
+   "o_proj": 0.663,
+   "ffn": 12.178,
+   "head": 3.788,
+   "norm+glue": 0.07
+  },
+  "median_rep_wall_ms_token": 20.665,
+  "median_rep_organs_total_ms": 20.657
+ }
+]
