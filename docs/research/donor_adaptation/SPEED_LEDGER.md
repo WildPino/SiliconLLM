@@ -484,8 +484,13 @@ Qwen2.5-0.5B, 6 threads, `--quant packed`, `--bench 300`, idle machine, median o
 
 | target on a 10B donor | active weights/token | share of 10B |
 |---|---|---|
-| **50 tok/s** | **522 M** | **5.2%** |
-| 100 tok/s | 245 M | 2.4% |
+| ~~**50 tok/s**~~ | ~~**522 M**~~ | ~~**5.2%**~~ |
+| ~~100 tok/s~~ | ~~245 M~~ | ~~2.4%~~ |
+
+> ⚠ **SUPERSEDED BY §13.** Both rows are wrong twice: the arithmetic charges the fixed cost twice
+> (§13.2), and the 1.17 ms reservation below is **10.576 ms** at a 10 B shape (§13.1). Measured:
+> **318 M at 300 tokens of context, and no budget at all at 800.** 100 tok/s is unreachable at a 10 B
+> shape at any weight cost, because `f` alone is 10.576 ms > 10.
 
 > Those are **weight budgets after reserving the fixed 1.17 ms/token** (rope + attention + norm),
 > which is the convention §11.3 used and `donor_speed_budget.py` computes: `27.7 G-w/s ×
@@ -571,3 +576,121 @@ After the rope hoist the four organs sit in a **1.3× band** (13.6–18.5 GB/s) 
 matrix size. There is no outlier left to chase. **The remaining speed on this runtime is in the
 weight count, not in the kernel** — which is what §1's budget line has said from the beginning, and
 is why the open list leads with the quality side rather than with another kernel.
+
+---
+
+## 13. AMENDED 2026-09-06 by E3 — the last sentence of §12.2 was right, and it was worth 9×
+
+`probes/E3_ENGINE_AT_TARGET_SCALE.md`. §12.2 ends with a hedge about its own weakest constant:
+
+> *"The 1.17 ms is measured at 0.5 B and short context and is **optimistic for a 10 B**, where
+> attention and the KV cache both grow."*
+
+E3 measured six shapes from 0.494 B to 10.603 B active weights, at two context lengths, with
+synthetic weights gated against real exported artifacts (byte-identical file sizes; **0.000%**
+timing difference at 1.5 B, 0.357% at 0.5 B, interleaved). The hedge was correct and understated.
+
+### 13.1 What is withdrawn
+
+**`f`, the non-weight fixed cost.** §12.2 reserves **1.17 ms/token**. At 0.5 B that reproduces to 1%
+(measured 1.183). At a 10 B shape:
+
+| | `f` | vs 1.17 |
+|---|---|---|
+| `T10` @ 300 tokens of context | **10.576 ms** | **9.0×** |
+| `T10` @ 800 tokens of context | **26.088 ms** | **22.3×** |
+
+**`f` is work no weight format can remove.** `1000 / f` is therefore the engine's ceiling with an
+infinitely fast weight path: **94.6 tok/s** for a 10 B shape at 300 context, and **38.3 tok/s** at
+800. **50 tok/s at 800 context is unreachable at a 10 B shape by any weight-side work whatsoever**,
+and 100 tok/s is unreachable at 300.
+
+**The budget.** `27.7 G-w/s × (20 − 1.17) ms = 522 M` is superseded by `r_w × (20 − f)` with the
+measured `f`: **318 M at 300 context, and 0 at 800.**
+
+### 13.2 An arithmetic error in §12.2, independent of the above
+
+§12.2 states `Delivered: 493,961,216 / 17.833 ms = 27.7 G-weights/s`. **17.833 ms is the wall** — the
+same table's own `total` row — so the 1.17 ms of non-weight work is **already inside that
+denominator**. Multiplying by `(20 − 1.17)` charges it a second time.
+
+Each convention has exactly one self-consistent form, and the two agree to 0.7%:
+
+| | |
+|---|---|
+| `r_wall × 20` = 27.70 × 20 | **554 M** |
+| `r_w × (20 − f)` = 29.65 × 18.83 | **558 M** |
+| as published | 522 M |
+
+**~6% too tight, in the safe direction**, which is why it stood for two weeks. It is not the reason
+the budget moves — §13.1 is, and it moves the other way and much harder — but the two must not be
+confused, and `speed/e3_budget_by_shape.py` prints both conventions side by side rather than picking.
+
+> **Law:** *a rate and a reservation must be read off the same denominator.* The check is cheap and
+> would have caught this: the two self-consistent forms must agree.
+
+### 13.3 What is confirmed, and improved
+
+**The delivered rate does not degrade with scale — it rises.** In §12.2's own convention
+(weights / wall):
+
+| shape | active w/token | G-weights/s | weight-organ GB/s |
+|---|---|---|---|
+| `S05` 0.5 B | 0.494 B | **27.5** | 14.7 |
+| `S15` 1.5 B | 1.544 B | 29.9 | 15.6 |
+| `S3` 3 B | 3.086 B | 30.6 | 15.9 |
+| `M7` 7 B | 7.114 B | 32.8 | 16.9 |
+| `Q8` 8 B | 7.568 B | 32.8 | 17.0 |
+| `T10` 10 B | 10.603 B | **32.8** | 16.9 |
+
+`27.5` at `S05` reproduces §12.2's `27.7` to 0.7%. The rise to **32.8 (+18.3%)** is per-call overhead
+amortising over bigger matrices — consistent with the **2.5–3.2 µs** OpenMP region §12.4 measured,
+paid `7 × L` times per token. **§12.2's rate anchor is conservative, not optimistic.** Only `f` was
+optimistic, and only `f` mattered.
+
+**§12.2's organ ordering survives and sharpens.** The 1.3× band holds at every scale, and the
+ordering by matrix size holds — but *which* organ is largest changes completely:
+
+| share of the token, `--bench 300` | `S05` | `T10` |
+|---|---|---|
+| `ffn` | 64.7% | 78.0% |
+| `qkv_proj` + `o_proj` | 8.3% | **17.9%** |
+| **`head`** | **20.5%** | **1.1%** |
+| `attention` | 6.1% | 3.0% |
+
+**The head was the floor of a 0.5 B, not of a 10 B.** Every probe this programme owns was measured
+where the head was the obvious target.
+
+### 13.4 Where the remaining distance is, measured
+
+The `attention` organ costs **one FMA per ~4 cycles per thread across all twelve measured points
+(±7%)**, invariant to shape, context length, KV cache size over a 16× range, GQA factor and
+vocabulary. That is the signature of a **serial dependency chain**, not a bandwidth wall — 24 GB/s of
+touched bytes is well under this machine's DRAM, and a bandwidth limit would not produce a constant
+*per FMA*.
+
+The source agrees: the inner product is `for(i<HD) d += qh[i]*kt[i]`, a floating-point **reduction**,
+and the engine is built `clang -O3 -mavx2 -mfma -ffp-contract=on` with **no `-ffast-math`** (forbidden
+since Phase 35), so the compiler may neither reassociate nor vectorise it. **Every matvec in this
+engine is hand-written AVX2 with an 8-wide accumulator; the attention loop is the one hot loop that
+is not.**
+
+Marked **corroborated, not proven.** The experiment that settles it: give the `K` loop 4–8
+independent accumulators. If `f` falls by roughly the accumulator count it was latency; if it does
+not move, the lever is an **int8 KV cache** instead — the cache is `[L][maxseq][NKV×HD]` **fp32** and
+has never been touched. **Parity gate mandatory:** accumulation order is exactly what E1 traced its
+`1.5e-05` engine-vs-PyTorch delta to.
+
+### 13.5 The goal, stated from measurement
+
+| | |
+|---|---|
+| `T10` (10.603 B active, ternary packed head) | **3.090 tok/s** @300, **2.960** @800 |
+| needed for 50 tok/s | 530 G-weights/s |
+| measured | 32.8 G-weights/s |
+| **short by** | **15.7×** |
+| ceiling at zero weight cost, @800 | **38.3 tok/s** |
+
+The dense path is 16× away. **The last 1.3× of it is not reachable by any weight-side work at 800
+context**, which is the first time this ledger has been able to say where the wall is rather than how
+far away it is.
