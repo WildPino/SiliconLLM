@@ -341,3 +341,85 @@ tok/s**. §11 can move a 1600-context rate by at most 6.4%. **It cannot move the
 being run as though it could** — it is being run because §10-bis found a 4.3× discrepancy between
 an organ and a wall, and a discrepancy that size in the measuring apparatus is worth 40 minutes
 whatever it turns out to be.
+
+---
+
+## 11-bis. VERDICT on G-Y1b — **VOID by its own band**, and the defect it exposes is bigger than the question
+
+`--bench 1600`, arms interleaved per repetition, un-profiled:
+
+| pair | `serial` | `avx4` | ratio |
+|---|---|---|---|
+| 1 | 4.17 | 3.96 | **0.950** |
+| 2 | 4.04 | 4.42 | **1.094** |
+| 3 | 4.11 | 4.00 | **0.973** |
+| | spread **3.2%** | spread **11.5%** | **median 0.973** |
+
+**§11 fixed the band at 1.00–1.09 and said a paired median outside it means the pairing failed and
+the run is VOID. 0.973 is outside. G-Y1b is VOID.** No number from it enters anything.
+
+**I am not naming a cause I did not measure.** A CPU-load sample taken immediately after the run
+read 46%, but three samples minutes later read 7 / 13 / 14%, and nothing of mine was running in
+either case. A single instantaneous sample is not a load measurement, and "the machine was busy"
+is exactly the *plausible* artefact the planted-control law says this programme fails on. **What
+made the `avx4` arm scatter 11.5% is unknown.**
+
+What is *not* unknown is the consequence: **within-arm dispersion at the 1600 cell reached 11.5%,
+roughly double the largest effect attention can produce there (6.4%). The un-profiled 1600 cell
+cannot resolve this question with this instrument at all** — G-Y1 was underpowered, and G-Y1b
+shows the pairing does not rescue it.
+
+### 11-bis.1 The defect: `--bench` has no contention witness
+
+The `ffn`-invariance witness that made §8.2 trustworthy — the FFN organ cannot depend on context
+length, so a cell whose `ffn` leaves the plateau was measured under load — **exists only when
+`--profile` is on.** On the plain `--bench` path there is nothing to check. **Every un-profiled
+rate this programme has published rests on the operator's belief that the machine was idle, with
+no instrument that can contradict it.** That is a general defect, it is new, and it is worth more
+than the question §11 was asked.
+
+### 11-bis.2 The question §11 was built for, answered from data already in hand
+
+§11's third and most consequential outcome was: *the profiler's organ split is not additive to the
+wall, which reads every table in `SPEED_LEDGER` §12–§14.* **That outcome is excluded**, using the
+four witness-admissible 1600-context profiled cells (`ffn` all inside the 176–181 plateau):
+
+| cell | attention | `ffn` | TOTAL | wall | TOTAL vs wall | **TOTAL − attention − `ffn`** |
+|---|---|---|---|---|---|---|
+| `serial` A | 25.462 | 176.193 | 242.130 | 242.083 | **+0.019%** | 40.475 |
+| `serial` B | 25.636 | 179.518 | 247.313 | 247.265 | **+0.019%** | 42.159 |
+| `serial` C | 25.951 | 180.119 | 247.713 | 247.668 | **+0.018%** | 41.643 |
+| **`avx4` D** | **11.315** | 178.458 | 231.005 | 230.936 | **+0.030%** | **41.232** |
+
+Two things, and neither needs a new run:
+
+1. **The organs sum to the wall to 0.03% in every cell.** The split is additive by construction and
+   by measurement.
+2. **The remainder after removing the two organs that moved is arm-invariant.** `avx4`'s 41.232
+   sits *inside* the `serial` arm's own scatter (40.475–42.159, a 4.1% range). Swapping the
+   attention kernel changed the attention organ and nothing else.
+
+Taking the two cells with the closest `ffn` (B, 179.518, and D, 178.458): attention falls
+**14.32 ms**, `ffn` differs **−1.06 ms**, so the wall should fall **15.38 ms**; it falls
+**16.33 ms**. **Agreement to 0.95 ms — 0.4% of the token.**
+
+**So the `avx4` win does reach the wall, by about 6–7% at 1600 context.** That figure is stated
+from profiled walls and is therefore **NOT published as a rate** (`SPEED_LEDGER` §12: the profiler
+once manufactured a 9.6% anomaly, and profiled runs are for the organ split only). **E7 publishes
+no `avx4` rate.** The honest position is: the organ win is measured, its arithmetic consequence is
+consistent to 0.4%, and no un-profiled instrument on this machine can resolve 6–7% at the 1600
+cell.
+
+### 11-bis.3 What still stands, unchanged
+
+§10's G-Y2 accounting, fixed before any of this ran, is exactly what happened: attention is 2.2%
+of the token at 300 and 10.5% at 1600, the FFN is 73–80%, and **E7 remains 11.2× short of 50
+tok/s.** Two runs, ~80 minutes, and the goal moved by nothing — which is what §10 and §11 both
+said in advance they would be worth, and is why they were cheap to be wrong in.
+
+### 11-bis.4 Owed, and it is now the first item
+
+**Give `--bench` a contention witness.** The cheapest form: time the `ffn` organ on the plain
+`--bench` path and print it on the `BENCH` line, so every rate this programme publishes carries a
+number that says whether the machine was quiet. **Gate: the `BENCH` rate must be unchanged** —
+adding a timer to the hot path to measure contention would be a fine way to manufacture some.
