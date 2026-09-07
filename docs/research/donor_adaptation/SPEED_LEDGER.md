@@ -846,3 +846,39 @@ show that generation costs what teacher-forced decoding costs — the argmax ove
 the token feedback add nothing visible — and for no other purpose. **A2's 61 tok/s is not 50 tok/s
 reached**: 0.5 B, a context of 3–8 tokens, and output that `probes/E6_GENERATION.md` §2 shows is
 not language.
+
+
+## 16. AMENDED 2026-09-07 by E7 — the synthetic weights were an honest proxy, and the wall is real
+
+**§16.1 — the check nobody had run.** Every target-scale number in §13–§15 was measured on
+`T10`, a **synthetic** shape file: right dimensions, untrained weights. The defence was that a
+matvec does not care what the numbers are. E7 exported a **real** donor at a comparable size and
+measured the same thing:
+
+| | active weights/token | tok/s @300 | delivered weight rate |
+|---|---|---|---|
+| `T10`, synthetic 10.603 B (§13) | 10.603 B | 3.090 | **32.8 G-weights/s** |
+| **Qwen2.5-Coder-7B, real 7.072 B** | 7.072 B | **4.460** | **31.5 G-weights/s** |
+
+**−4.0%, inside §13's own ±5% band for an absolute rate** — the two are indistinguishable by
+the instrument. **The proxy holds and §13–§15 stand.**
+
+**§16.2 — the number, on trained weights.** `--bench` on the packed arm, 3 repetitions per cell:
+
+| cell | median | spread |
+|---|---|---|
+| 300 context | **4.460 tok/s** | 0.45% |
+| 800 context | **4.580 tok/s** | 0.00% |
+
+**11.2× short of 50 tok/s**, on 7.07 B of real weights, on an engine whose attention organ is
+already 6.5× faster (§14) and fully decomposed (§14.2-bis). The brief predicted **4.66** from
+§13's delivered rate alone, before the donor was exported: **−4.3%**. The weight-rate model
+transfers across shape and across trained-vs-synthetic.
+
+**§16.3 — an ordering that inverts, and is not yet measured.** 800 context is **faster** than 300
+here (4.580 vs 4.460), the opposite of `T10` (3.090 @300, 2.960 @800). Two-point arithmetic on the
+wall times — 67.276 s and 174.723 s — gives a marginal **214.9 ms/token** and a **fixed ~2.8 s
+inside the timed region**, plausibly first-touch of a 5.7 GB weight array amortising over more
+tokens; at `T10`'s 48 layers × 32 heads `f` grows fast enough to swamp it, at 28 × 28 it does not.
+**That is a two-point fit and not a measurement.** It is flagged here because a fixed cost inside a
+timed region would make every short `--bench` in this ledger read low.

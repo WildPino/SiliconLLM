@@ -215,8 +215,12 @@ def stage_bench():
                        "--bench", str(ctx)])
             for line in txt.splitlines():
                 if line.startswith("BENCH"):
-                    rates.append(float(line.split()[4]))
-                    print("  ctx %d rep %d : %s" % (ctx, rep + 1, line.strip()))
+                    # "BENCH  300 tokens  62.123 s  4.83 tok/s  (threads=6, packed)" -- read the
+                    # field BEFORE the unit rather than a fixed index, so a format change fails
+                    # loudly instead of parsing the unit as a number
+                    f = line.split()
+                    rates.append(float(f[f.index("tok/s") - 1]))
+                    print("  ctx %d rep %d : %s" % (ctx, rep + 1, line.strip()), flush=True)
         med = statistics.median(rates)
         spread = (max(rates) - min(rates)) / med * 100.0
         out["cells"][str(ctx)] = {"rates": rates, "median": med, "spread_pct": spread}

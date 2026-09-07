@@ -106,3 +106,32 @@ sound for what E7 measures — the fold is a **quality** optimisation (E2, −0.
 neither the file layout nor the weight count, and therefore cannot move a speed number. It does
 mean **E7's packed arm is not E1's `tqh` operating point** and its BPB is not comparable to one.
 E7 does not report a BPB.
+
+---
+
+## 8. VERDICT — `REAL-WEIGHTS-CONFIRMED` (added after the run; nothing above was edited)
+
+Written up in `probes/E7_REAL_LARGE_DONOR.md`. All five gates passed.
+
+| gate | threshold from §4 | result |
+|---|---|---|
+| G-L | exact byte consumption, header == config | **PASS** — `consumed exactly 30462466100 bytes` |
+| G-P | rel L2 <= 1e-4, top-1 == 1.0000 | **PASS** — 1.070e-05, 1.0000 |
+| G-G | >= 90% of 160 greedy positions | **PASS — 160/160** |
+| G-C | the packed arm must NOT pass | **PASS — 0/160** |
+| G-S | median inside 4.0-5.4 tok/s at 300 context | **PASS — 4.460**, spread 0.45% over 3 reps |
+
+**The prediction in §5 was 4.66 tok/s and the measurement is 4.460, off by -4.3%.** What passed is
+E3's delivered weight rate carried onto a shape it had never seen, on trained weights.
+
+**The unplanned result is §4 of the probe.** Delivered weight rate: `T10` synthetic 10.6 B gives
+32.8 G-weights/s, real Coder-7B gives **31.5** -- **-4.0%, inside this programme's own +/-5% band
+for an absolute rate.** The synthetic shape files E3, E4 and E5 all relied on are a **sound speed
+proxy**, checked rather than argued for the first time.
+
+**And the goal is unmoved.** A real 7 B donor decodes at 4.460 tok/s: **11.2x short of 50**, on an
+engine whose attention organ is already 6.5x faster (E4) and fully decomposed (E5). The gap is
+entirely the weight path, and that is now a statement about trained weights rather than a shape.
+
+**The exporter control over-delivered**: the 0.5 B sha256 pair matched each other AND matched E1's
+own `qwen25-05b_f32.bin` byte for byte, so `--load-dtype bfloat16` is provably the same exporter.
