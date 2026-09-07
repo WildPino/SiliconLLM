@@ -1505,3 +1505,172 @@ asserted without testing — is now **tested and holds**.
 **No third kernel to write.** The weight path is at 97% of this machine's demonstrated streaming
 rate. **§19.3 stands and is better supported than this morning: the remaining 5.4× is a property of
 the model.** The levers left are fewer active weights per token and residency — **E12**.
+
+---
+## §26 — E12: the exporter's default rule is at chance at every scale tested. `CHANCE-LINE`.
+
+Brief `11a9d83`, runner `87ba957`, §9 amendment + Z-dispersion diagnostic `ae403c2`, probe
+`probes/E12_TERNARY_COST_VS_SCALE.md`. Sweep 2161 s, 24×512 heldout, all layers, 6 threads, idle.
+
+**This section replaces an earlier §26 that returned `CONTROL-FAILED`. That verdict is withdrawn:
+it rested on a control this programme had already retired. See §26.4.**
+
+**This is the quality counterpart to §23/§25.** E10 and E13 closed the engine side — the weight path
+runs at 97% of this machine's demonstrated streaming rate and there is no third kernel to write. So
+the remaining 5.4× to 50 tok/s must come from **fewer active weights per token at ternary
+precision**, and that road rests on a quality number measured at **one shape** (T2 = Qwen2.5-1.5B).
+E12 went to draw the curve. It came back with something more basic.
+
+### 26.1 The chance line
+
+`log2(V) / (bytes per token)` = `log2(151936) / 4.229452` = **4.069819 BPB** — what a model scores by
+assigning every token equal probability. The padded config vocab is the conservative choice; on the
+151,665 tokens the tokenizer can emit it is 4.069210, and nothing here turns on the difference.
+
+| donor | BPB fp32 | BPB ternary (FA) | **dBPB** | FA vs chance line |
+|---|---|---|---|---|
+| 0.5 B | 0.871795121 | 4.587452739 | **3.715657618** | **+0.518 above** |
+| 1.5 B | 0.767594958 | 5.505834291 | **4.738239332** | **+1.436 above** |
+| 3 B | 0.724449797 | 5.734699003 | **5.010249206** | **+1.665 above** |
+
+Each donor against **its own** fp32 baseline; rule **imported** from `t1_ternarize.ternarize`, which
+is what `qwen_export.py` calls — and its `--rule` **defaults to `R0`**, so this is the conversion the
+exporter ships.
+
+**Every donor's fp32 baseline is far below the line (0.72–0.87). Every ternarized arm is above it,
+at all three scales.** The donors and the slice are fine; the conversion is what puts them past
+chance.
+
+### 26.2 Why the pre-registered ratio cannot be read
+
+`r = dBPB(3B)/dBPB(0.5B) = 1.3484` reads `COST-GROWS` mechanically. **It is not reported as a
+result.** A model above the chance line assigns the truth *less* probability than knowing nothing
+would; differences between two such models measure how confidently wrong each is, and have no reason
+to order by damage. The data shows exactly that, **above the line and deterministically**:
+
+| | 0.5 B | 1.5 B | 3 B |
+|---|---|---|---|
+| `F` (FFN only) | 4.546298 | 4.076694 | **5.928395** |
+| `FA` (FFN **and** attention) | 4.587453 | 5.505834 | **5.734699** |
+| more organs → more damage? | yes | yes | **no** |
+
+At 3 B, converting **more** organs did **less** damage by 0.194 BPB. Both arms are deterministic.
+
+**`COST-SHRINKS` and `COST-GROWS` both presuppose that dBPB measures cost. At `R0` it does not.**
+
+### 26.3 What E12 does establish
+
+1. **`R0` destroys every donor tested, worse as scale grows**: +0.518 / +1.436 / +1.665 past chance.
+   **No donor at any tested scale survives the exporter's default rule.**
+2. **The instrument is sound.** `I − base = +0.000e+00` **exactly at all three cells**, over
+   168/196/252 substituted tensors; counts structurally correct (7/layer FA, 3/layer F at 24/28/36
+   layers); tokenizers **verified identical** (1 fingerprint — the shared disk-cached slice requires
+   it); fp32 baselines monotone in scale. **The BPB numbers are sound.**
+3. **T2's §3 table re-reads against the line, and its §4(a) mechanism does not survive:**
+
+   | T2 arm | BPB | vs chance line |
+   |---|---|---|
+   | **R0 — what the exporter ships** | 4.076694 | **+0.007 ABOVE** |
+   | Z (random signs) | 4.140276 | **+0.070 ABOVE** |
+   | R4 (GPTQ on R0's grid) | 4.299819 | **+0.230 ABOVE** |
+   | R1 (TWN) | 3.851979 | −0.218 below |
+   | R2 (scale search) | 3.390467 | −0.679 below |
+   | **R3 (activation-weighted)** | 2.476967 | **−1.593 below** |
+   | **R5 (R3 + GPTQ)** | 2.027495 | **−2.042 below** |
+
+   T2 §4(a) read `R0 − Z = −0.064 ± 0.126` as "BitLinear158's choice of which sign carries no
+   measurable information about the donor". **That is a contrast between two points both pinned at
+   chance, and no such contrast can resolve anything.** The signs are `sign(w)` under every rule in
+   that table — a positive per-row scale cannot change them — and R3/R5 carry the identical signs to
+   1.6–2.0 BPB *below* the line. **T2's `RULE-HELPS` verdict is untouched; the mechanism §4(a)
+   claimed is withdrawn.** And it says what T2's 62% actually bought: not a cheaper conversion of the
+   same kind, but **the difference between a model at chance and a model that predicts**.
+
+### 26.4 The control that was retired, and the one that passed
+
+E12 adopted arm `Z` (`random_sign`, same organs as `F`) as its planted control and read it as failing
+at 3 B (`Z − F = −1.490`). **Three things were available before the run and I did not carry them in:**
+
+1. **T2 had already retired arm `Z`**, in terms: *"it is why arm Z was the wrong control: the brief
+   assumed Z would be far worse than the treatment, and it is not worse at all"* (T2 §4(a)).
+2. **The same amendment, dated 2026-09-04, sits in the docstring of `t1_ternarize.ternarize` — the
+   function E12 imports** — and names **arm `I`** as its replacement. `t1_ternarize.ARMS` labels its
+   own `Z` row `"PLANTED CONTROL (mis-specified, see report)"`.
+3. **E12's `Z` does not reproduce T2's `Z` at the shared cell**, while `F` reproduces to six decimals:
+
+   | source | `F` / `R0` | `Z` |
+   |---|---|---|
+   | T2 (`t2_rules.py`, seeds `1000 + stats["n"]`) | **+3.309099** | **+3.372681** |
+   | E12 (`t1_ternarize.apply_arm`, seeds `1000 + rng`) | **+3.309099** | **+4.001257** |
+
+   An **off-by-one in which per-tensor seed lands on which tensor** moves `Z` by **0.628 BPB =
+   126 σ_seed**.
+
+**Arm `I` — the control this programme actually sanctions — passed exactly, at every cell.**
+
+**`ternary/e12_zvar.py`, 2351 s.** `dBPB` of arm `Z`, five draws per cell:
+
+| cell | `Z` draws (dBPB), 5 seed bases | spread | mean | `F` | draws with **`Z` < `F`** (control fails) |
+|---|---|---|---|---|---|
+| 0.5 B | 3.601252 … 4.465219 | 0.863967 | 3.891365 | 3.674503 | **2 / 5** |
+| 1.5 B | 3.463229 … 4.042358 | 0.579129 | 3.793314 | 3.309099 | 0 / 5 |
+| **3 B** | 3.714379 … 5.410317 | **1.695938** | 4.524840 | 5.203945 | **4 / 5** |
+
+**G-Z0 passed at all three cells** — `seed_base = 1000` reproduced `e12_scale.json`'s `dBPB_Z` to the
+last digit (3.714379009 at 3 B), so the `seed_base` parameter left the default path untouched.
+
+**G-Z1: `spread(3B) = 1.695938 ≥ 1.490` → `Z-UNSTABLE`. The §9.3 prediction landed** — the third
+band in this programme to contain its own result, after E9 and E13, and derived the same way.
+
+Three readings, in order of what they license:
+
+1. **The 3 B spread (1.696) is larger than the entire `Z − F` gap (1.490) that `CONTROL-FAILED` was
+   read off.** A single draw of arm `Z` could not have decided that cell in either direction.
+2. **At 0.5 B the control's outcome flips with the seed** — 2 of 5 draws put `Z` below `F`. The cell
+   the first write-up recorded as "fires, +0.019" fires on three seeds and fails on two.
+3. **At 1.5 B it fires 5/5**, which is why T2's shape looked healthy. T2's own `Z` (`+3.372681`)
+   sits 0.091 below the five-draw minimum — consistent with being a sixth draw, so §4's off-by-one
+   explanation holds and no further implementation difference needs to be posited.
+
+**What this does NOT say.** At 3 B, 4 of 5 draws beat `F`, and the draw mean (4.524840) is 0.679
+below `F`. **That is not noise**: under this comparator the real rule really does tend to score worse
+than random signs at 3 B. **It still licenses no claim about damage**, because `F` and every `Z` draw
+at that cell sit above the chance line — `F` at 5.928 BPB, the `Z` draws at 4.439–6.135, against
+4.070. **The dispersion disqualifies reading any single draw as a gate; the chance line disqualifies
+the comparison itself.** §2 is the reason the verdict changed; §4.1 is only the reason the original
+gate could not have worked either way.
+
+
+### 26.5 Rules
+
+**A control must be checked as still sanctioned, not merely labelled.** The planted-control law says
+an instrument must fire on a known-positive before its nulls count. It does not say that an arm named
+"planted control" *is* one. Here the module being imported said so in three places.
+
+**A stochastic comparator needs its own dispersion before a single reading of it decides anything.**
+Same class of error as quoting a contended timing — one draw was published as a verdict.
+
+**A control that passes on a smoke is not thereby a control.** The 0.5 B smoke showed `Z − F =
++0.147`; the full 24×512 sweep showed **+0.019**. Full-scale margin is not predictable from smoke.
+
+**Read a converted model's BPB against `log2(V)/bpt` before concluding anything.** The constant costs
+one line and is computable from numbers already in every result file. **Both anomalies that sent me
+chasing an instrument bug are explained by it.**
+
+### 26.6 Owed
+
+1. **The same sweep with R3 (and R5) across scale.** This is the experiment E12 should have been.
+   R3 is the exporter's own `--rule R3` and needs only calibration activations; it lands 1.59 BPB
+   below the chance line at 1.5 B, the only regime where a cost ratio would mean anything.
+   **Until it runs, this programme has no measurement of how ternarization cost scales — only of how
+   `R0` fails.**
+2. **Re-read T2b's organ policy** against the `F` > `FA` inversion and against the chance line: if
+   T2b's arms sit above it, its organ ranking faces the same objection.
+3. **T3's rotation across scale** (`7cdeca8`), for the same reason as (1).
+4. **A diagnostic for the 3 B inversion** — per-tensor scale distributions and activation magnitudes
+   through the ternarized 3 B FFN against 1.5 B — but **after** (1), since it may be an artefact of
+   `R0` specifically.
+
+**§19.3 is unchanged and unrelieved: the remaining 5.4× is a property of the model. What E12 removes
+is the belief that this programme had measured the cost of getting it — it had measured one rule
+failing.**

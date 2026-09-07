@@ -1,0 +1,223 @@
+{
+ "brief": "docs/research/donor_adaptation/briefs/BRIEF_E12_TERNARY_COST_VS_SCALE.md @ 11a9d83",
+ "rule": "imported from t1_ternarize.ternarize -- BitLinear158, the exporter's oracle",
+ "smoke": false,
+ "bands": {
+  "SHRINK_MAX": 0.75,
+  "GROW_MIN": 1.25
+ },
+ "cells": {
+  "0.5B": {
+   "model_id": "Qwen/Qwen2.5-0.5B",
+   "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+   "arch": {
+    "n_layers": 24,
+    "d_model": 896,
+    "d_ffn": 4864,
+    "n_heads": 14,
+    "n_kv_heads": 2,
+    "vocab": 151936,
+    "tie_word_embeddings": true,
+    "hidden_act": "silu",
+    "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987"
+   },
+   "slice": {
+    "part": "heldout",
+    "n_seq": 24,
+    "seq_len": 512,
+    "seed": 1234,
+    "n_rejected": 0,
+    "total_scored_bytes": 51870,
+    "bytes_per_token": 4.22945205479452,
+    "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+    "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+    "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+   },
+   "arms": {
+    "base": {
+     "bpb": 0.8717951206093644,
+     "n_substituted": 0,
+     "mode": "bitlinear158",
+     "note": "this donor's own fp32 baseline",
+     "seconds": 45.49139451980591
+    },
+    "FA": {
+     "bpb": 4.587452738618405,
+     "n_substituted": 168,
+     "mode": "bitlinear158",
+     "note": "PRIMARY -- the engine's conversion",
+     "seconds": 45.80926203727722
+    },
+    "F": {
+     "bpb": 4.54629835379412,
+     "n_substituted": 72,
+     "mode": "bitlinear158",
+     "note": "the planted control's COMPARATOR (same organs)",
+     "seconds": 43.850131034851074
+    },
+    "Z": {
+     "bpb": 4.565323066754585,
+     "n_substituted": 72,
+     "mode": "random_sign",
+     "note": "PLANTED CONTROL -- mis-specified rule, SAME organs as F",
+     "seconds": 50.468602418899536
+    },
+    "I": {
+     "bpb": 0.8717951206093644,
+     "n_substituted": 168,
+     "mode": "identity",
+     "note": "INSTRUMENT CONTROL -- must equal base exactly",
+     "seconds": 44.91862654685974
+    }
+   },
+   "dBPB": 3.715657618009041,
+   "dBPB_F": 3.674503233184756,
+   "dBPB_Z": 3.693527946145221,
+   "I_minus_base": 0.0
+  },
+  "1.5B": {
+   "model_id": "Qwen/Qwen2.5-1.5B",
+   "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+   "arch": {
+    "n_layers": 28,
+    "d_model": 1536,
+    "d_ffn": 8960,
+    "n_heads": 12,
+    "n_kv_heads": 2,
+    "vocab": 151936,
+    "tie_word_embeddings": true,
+    "hidden_act": "silu",
+    "revision": "8faed761d45a263340a0528343f099c05c9a4323"
+   },
+   "slice": {
+    "part": "heldout",
+    "n_seq": 24,
+    "seq_len": 512,
+    "seed": 1234,
+    "n_rejected": 0,
+    "total_scored_bytes": 51870,
+    "bytes_per_token": 4.22945205479452,
+    "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+    "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+    "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+   },
+   "arms": {
+    "base": {
+     "bpb": 0.7675949584171732,
+     "n_substituted": 0,
+     "mode": "bitlinear158",
+     "note": "this donor's own fp32 baseline",
+     "seconds": 117.85873818397522
+    },
+    "FA": {
+     "bpb": 5.505834290728114,
+     "n_substituted": 196,
+     "mode": "bitlinear158",
+     "note": "PRIMARY -- the engine's conversion",
+     "seconds": 119.69922161102295
+    },
+    "F": {
+     "bpb": 4.076694081452302,
+     "n_substituted": 84,
+     "mode": "bitlinear158",
+     "note": "the planted control's COMPARATOR (same organs)",
+     "seconds": 115.60253572463989
+    },
+    "Z": {
+     "bpb": 4.768852282891286,
+     "n_substituted": 84,
+     "mode": "random_sign",
+     "note": "PLANTED CONTROL -- mis-specified rule, SAME organs as F",
+     "seconds": 126.79193377494812
+    },
+    "I": {
+     "bpb": 0.7675949584171732,
+     "n_substituted": 196,
+     "mode": "identity",
+     "note": "INSTRUMENT CONTROL -- must equal base exactly",
+     "seconds": 127.67725992202759
+    }
+   },
+   "dBPB": 4.738239332310941,
+   "dBPB_F": 3.3090991230351285,
+   "dBPB_Z": 4.001257324474113,
+   "I_minus_base": 0.0
+  },
+  "3B": {
+   "model_id": "Qwen/Qwen2.5-3B",
+   "revision": "3aab1f1954e9cc14eb9509a215f9e5ca08227a9b",
+   "arch": {
+    "n_layers": 36,
+    "d_model": 2048,
+    "d_ffn": 11008,
+    "n_heads": 16,
+    "n_kv_heads": 2,
+    "vocab": 151936,
+    "tie_word_embeddings": true,
+    "hidden_act": "silu",
+    "revision": "3aab1f1954e9cc14eb9509a215f9e5ca08227a9b"
+   },
+   "slice": {
+    "part": "heldout",
+    "n_seq": 24,
+    "seq_len": 512,
+    "seed": 1234,
+    "n_rejected": 0,
+    "total_scored_bytes": 51870,
+    "bytes_per_token": 4.22945205479452,
+    "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+    "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+    "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+   },
+   "arms": {
+    "base": {
+     "bpb": 0.7244497971214012,
+     "n_substituted": 0,
+     "mode": "bitlinear158",
+     "note": "this donor's own fp32 baseline",
+     "seconds": 214.29517340660095
+    },
+    "FA": {
+     "bpb": 5.734699002926883,
+     "n_substituted": 252,
+     "mode": "bitlinear158",
+     "note": "PRIMARY -- the engine's conversion",
+     "seconds": 222.08052968978882
+    },
+    "F": {
+     "bpb": 5.928395285595884,
+     "n_substituted": 108,
+     "mode": "bitlinear158",
+     "note": "the planted control's COMPARATOR (same organs)",
+     "seconds": 223.35262656211853
+    },
+    "Z": {
+     "bpb": 4.438828806276398,
+     "n_substituted": 108,
+     "mode": "random_sign",
+     "note": "PLANTED CONTROL -- mis-specified rule, SAME organs as F",
+     "seconds": 242.42996191978455
+    },
+    "I": {
+     "bpb": 0.7244497971214012,
+     "n_substituted": 252,
+     "mode": "identity",
+     "note": "INSTRUMENT CONTROL -- must equal base exactly",
+     "seconds": 216.55923461914062
+    }
+   },
+   "dBPB": 5.010249205805481,
+   "dBPB_F": 5.203945488474483,
+   "dBPB_Z": 3.7143790091549964,
+   "I_minus_base": 0.0
+  }
+ },
+ "tokenizer_fingerprints": {
+  "0.5B": "200574bf063dd5f60adf06d8722e79a76e53cf196a439ae4af05fa84f2ad2c00",
+  "1.5B": "200574bf063dd5f60adf06d8722e79a76e53cf196a439ae4af05fa84f2ad2c00",
+  "3B": "200574bf063dd5f60adf06d8722e79a76e53cf196a439ae4af05fa84f2ad2c00"
+ },
+ "r": 1.3484151988390471,
+ "verdict": "COST-GROWS",
+ "seconds_total": 2161.121558904648
+}
