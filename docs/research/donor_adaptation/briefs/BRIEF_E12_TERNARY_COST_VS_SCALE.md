@@ -84,3 +84,103 @@ No outcome of E12 makes anything faster. Coder-7B is **7.4× short of 50 tok/s**
 What E12 decides is whether the one remaining strategy is standing on a measurement or on a
 single-shape assumption — which, after E10 removed the engine's cover, is the question that
 determines what gets built next.
+
+---
+
+# VERDICT (added after the run): `CONTROL-FAILED` at 3 B
+
+Full write-up: `probes/E12_TERNARY_COST_VS_SCALE.md`. Ledger §26. Sweep 2161 s, 24x512, all layers.
+
+| donor | BPB fp32 | BPB ternary | **dBPB** | planted `Z` | real `F` | **Z-F** |
+|---|---|---|---|---|---|---|
+| 0.5 B | 0.871795 | 4.587453 | **3.715658** | 3.693528 | 3.674503 | **+0.019** |
+| 1.5 B | 0.767595 | 5.505834 | **4.738239** | 4.001257 | 3.309099 | **+0.692** |
+| 3 B | 0.724450 | 5.734699 | **5.010249** | 3.714379 | 5.203945 | **-1.490 FAIL** |
+
+**The pre-registered question is NOT answered.** `r = 1.3484` reads `COST-GROWS` mechanically, but
+its numerator is the cell whose planted control failed, and §4's rule is that a control must fire
+before the cell counts. **It is not reported as a result.**
+
+**What IS established**: at 3 B the mis-specified rule (`random_sign`, same organs) produces a
+**better** model than the real rule, by 1.49 BPB — and independently, `F` (FFN only) is worse than
+`FA` (FFN+ATTN), so converting *more* organs did *less* damage. **Two monotonicity violations at
+the same cell.** A rule beaten by random signs is not an expensive rule, it is a broken one.
+
+**Not an instrument bug**: `I - base = +0.000e+00` **exactly at all three cells**, over 168/196/252
+substituted tensors, and the substitution counts are structurally correct (7/layer FA, 3/layer F, at
+24/28/36 layers). The BPB numbers are trustworthy; the control's *premise* is what failed.
+
+**§1's framing holds, and harder than written.** T2's rule is measured at one shape and **the one
+cell where the known-positive fires convincingly is that same 1.5 B**. It fires at +0.019 (~3.8
+sigma_seed) at 0.5 B and fails at 3 B. **T2 is not retracted — it holds where it was measured — but
+it is now measured NOT to generalise.**
+
+**New, and it goes on the list**: the smoke showed `Z-F = +0.147` at 0.5 B where the full sweep
+shows **+0.019**. **A control that passes on a 2-sequence 4-layer smoke is not thereby a control**,
+and its full-scale margin is not predictable from the smoke.
+
+**§5's design fix earned its keep.** The `F` arm was added after the first smoke because `Z` was
+being compared against `FA` across different organ sets. **Without it the 3 B failure would have
+been confounded with organ coverage and unreadable.**
+
+---
+
+# §9 — AMENDMENT, pre-registered before the diagnostic runs
+
+**The verdict block above is suspended.** It was written before I checked E12's arm `Z` against the
+prior measurement of the same estimand, and that check does not pass.
+
+## 9.1 Two facts that were available before E12 ran, and that I did not carry in
+
+**(a) This programme had already retired arm `Z` as a control.** `probes/T2_TERNARIZATION_RULE.md`
+§4(a) measures `R0 - Z = -0.064 +/- 0.126`, ci95 `[-0.302, +0.205]`, **not significant**, and states
+in terms: *"it is why arm Z was the wrong control: the brief assumed Z would be far worse than the
+treatment, and it is not worse at all."* The same amendment, dated 2026-09-04, is written into the
+docstring of `t1_ternarize.ternarize` — **the function E12 imports** — which records that arm `Z`
+"turned out to test a SCIENTIFIC claim ('signs carry information') rather than an INSTRUMENT
+property", and that the control which replaced it is arm `I`. **`t1_ternarize.ARMS` even labels its
+own `Z` row `"PLANTED CONTROL (mis-specified, see report)"`.** E12's brief re-adopted it anyway.
+
+**Arm `I` is the control T2 installed in its place, and `I - base = +0.000e+00` exactly at all
+three cells.** The instrument control that this programme actually sanctions **passed everywhere**.
+
+**(b) E12's `Z` does not reproduce T2's `Z` at the shared cell.** At 1.5 B, on the same eval slice
+(`ids_sha256 a1a48dc9...`), same donor revision, same organs, same rule:
+
+| source | arm `F` / `R0` | arm `Z` |
+|---|---|---|
+| T2 (`t2_rules.py`) | **+3.309099** | **+3.372681** |
+| E12 (`e12_scale.py`) | **+3.309099** | **+4.001257** |
+
+**`F` reproduces to six decimals — so the harness, the slice and the rule are identical.** The only
+thing that differs is which per-tensor seed lands on which tensor: `t2_rules.py` seeds
+`1000 + stats["n"]`, `t1_ternarize.apply_arm` seeds `1000 + rng`, **off by one**. That off-by-one
+moves arm `Z` by **0.628 BPB = 126 sigma_seed**.
+
+## 9.2 What is measured, and the bands
+
+`ternary/e12_zvar.py`. Arm `Z`, **K = 5 draws** per cell, `seed_base` in `{1000, 2000, 3000, 4000,
+5000}`, everything else held. `s` = max - min of `dBPB_Z` at a cell.
+
+| gate | test | band |
+|---|---|---|
+| **G-Z0** — replication | `seed_base = 1000` vs `e12_scale.json`'s `dBPB_Z` | **must match to the last digit** at every cell. `apply_arm` gained a `seed_base` argument defaulting to 1000; if the default path moved, nothing below counts. |
+| **G-Z1** — the verdict | `s(3B)` against the observed `|Z - F|` = **1.490** | **`s >= 1.490` `Z-UNSTABLE`** · `0.10 <= s < 1.490` `Z-NOISY` · `s < 0.10` `Z-STABLE` |
+
+**`Z-UNSTABLE` means the 3 B "control failure" is inside the comparator's own dispersion and carries
+no information about the rule** — the `CONTROL-FAILED` verdict is withdrawn, arm `I` stands as the
+instrument control, and E12's measurements are read on their merits. **`Z-STABLE` means arm `Z` is a
+real quantity, the T2-vs-E12 gap in §9.1(b) needs its own explanation, and the 3 B inversion stands
+as a finding.**
+
+## 9.3 Prediction, on the record
+
+**`Z-UNSTABLE`.** Derived from a **measured** quantity — the **0.628 BPB** gap between two draws of
+the identical estimand in §9.1(b) — over a **structural** factor: 3 B has 36 layers to 1.5 B's 28
+and `d_ffn` 11008 to 8960, so it has **more** independently-seeded tensors, not fewer. This is the
+same shape of derivation that produced the only two predictions this programme has landed (E9, E13),
+and unlike E14 §5 it is **not** a magnitude guess.
+
+**What it does not decide.** `Z-UNSTABLE` does **not** rescue the ternary road and does **not**
+license `COST-GROWS` as a verdict on its own — see the rewritten probe. It decides only whether the
+3 B cell was disqualified for a real reason.

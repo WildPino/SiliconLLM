@@ -131,8 +131,13 @@ ARMS = [
 ARMS_SMOKE = [a for a in ARMS if a[0] in ("base", "FA", "Z")]
 
 
-def apply_arm(model, organs, group, mode, n_layers=None):
-    """Replace the named organs' weights in place. Returns a restore closure."""
+def apply_arm(model, organs, group, mode, n_layers=None, seed_base=1000):
+    """Replace the named organs' weights in place. Returns a restore closure.
+
+    seed_base: only reachable by mode="random_sign".  Default 1000 reproduces every arm Z ever
+    run through this function, bit for bit.  E12's Z-dispersion diagnostic varies it in order to
+    measure how much of arm Z's BPB is the DRAW rather than the rule -- see E12 section 9.
+    """
     saved = []
     layers = model.model.layers
     rng = 0
@@ -146,7 +151,7 @@ def apply_arm(model, organs, group, mode, n_layers=None):
             w = mod.weight.data
             saved.append((mod, w.clone()))
             rng += 1
-            mod.weight.data = ternarize(w, group=group, mode=mode, seed=1000 + rng)
+            mod.weight.data = ternarize(w, group=group, mode=mode, seed=seed_base + rng)
 
     def restore():
         for m, w in saved:
