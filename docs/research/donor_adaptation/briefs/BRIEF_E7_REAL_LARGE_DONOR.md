@@ -282,3 +282,62 @@ which kernel produced them. That sentence is owed regardless of how G-Y1 reads.
 baseline was taken on; flipping `g_attn` would silently re-base E1–E7. The default is a
 **documentation** defect, and the fix is a runner that passes `--attn` explicitly and a ledger line
 that names the kernel — not an edit that makes old numbers unreproducible.
+
+---
+
+## 10-bis. VERDICT on G-Y1 (added after the run; nothing above was edited) — and the instrument was not good enough
+
+`--bench {300, 1600} --attn avx4`, packed arm, 3 reps each, un-profiled, machine idle.
+
+| cell | `serial` (E7 §3 / §9) | **`avx4`** | Δ | §10 predicted | pre-registered band |
+|---|---|---|---|---|---|
+| 300 | **4.460** (spread 0.45%) | **4.450** (2.5%) | **−0.22%** | +1.2% | 4.35–4.70 ✓ |
+| 1600 | **4.230** (spread **6.1%**) | **4.290** (1.2%) | **+1.42%** | +5.7% | 4.30–4.70 ✗ by 0.23% |
+
+**The 300 cell is the NULL §10 called in advance, and it lands exactly where §10 said it would.**
+Attention is 2.2% of the token there; a 0.474× kernel on 2.2% is ~1%, and this programme cannot
+resolve 1%. Nothing is learned and nothing was expected to be.
+
+**The 1600 cell did not decide, and the reason is the instrument, not the engine.** §10 predicted
++5.7% from an organ saving of 13.5 ms. The saving is real and was measured directly and
+profiled-admissible: attention **25.64 → 11.315 ms/token, a saving of 14.33 ms**. But the *rate*
+moved by only **3.31 ms/token** — **4.3× less than the organ says it should have.**
+
+Before that gap gets a mechanism, note what §9-bis just finished teaching: **the `serial` 1600
+baseline has a 6.1% spread** (4.05 / 4.23 / 4.31), and its own maximum, 4.31, sits **above the
+`avx4` median of 4.290.** E4's law applies verbatim — *a threshold inside the dispersion of the
+instrument cannot decide* — and here the dispersion (6.1%) is larger than the effect (5.7%).
+**G-Y1 at 1600 is underpowered by its own baseline. It is not evidence either way**, and the
+0.23% band miss is not a refutation of anything.
+
+I am not going to fit a mechanism to a 4.3× discrepancy measured against a baseline that cannot
+support it. §11 builds the instrument that can.
+
+## 11. AMENDMENT, pre-registered before the run it governs — pair the arms instead of comparing two sweeps
+
+**G-Y1b.** The two arms at 1600 were measured as **separate sweeps**, minutes apart, and
+`SPEED_LEDGER` §13 already fixes the between-sweep dispersion at **5–10%** while stating that
+**ratios do not carry it**. So measure a ratio: **interleave the arms per repetition**, the method
+E4 built for exactly this (`e4_interleave.sh`).
+
+    for k in 1 2 3:  serial @1600  ->  avx4 @1600      # un-profiled, idle machine
+
+**Three paired ratios**, reported individually and as a median, plus each arm's own spread.
+
+**The call, fixed now.** The organ measurement says `avx4` removes **14.33 ms** from a **236.4 ms**
+token at 1600, which is **+6.4%**, so:
+
+| outcome | reading |
+|---|---|
+| paired median ratio **≥ 1.05** | the organ win reaches the rate; §10's G-Y2 accounting stands and the ledger gains a kernel note plus a real 1600-context figure |
+| paired median ratio **1.01 – 1.05** | the win **partly** reaches the rate; the residue is unexplained and becomes an owed item, not a story |
+| paired median ratio **≤ 1.01** | **the organ win does NOT reach the rate.** That is the interesting outcome and it would mean the profiler's organ split is not additive to the wall at this shape — a defect in the instrument that reads every table in `SPEED_LEDGER` §12–§14 |
+
+**Band: 1.00 – 1.09.** A paired ratio outside it means the pairing itself failed and the run is VOID.
+
+**What does not change either way**, restated so no later section can quietly forget it: attention
+is 2.2% of the token at 300 and 10.5% at 1600, the FFN is 73–80%, and E7 is **11.2× short of 50
+tok/s**. §11 can move a 1600-context rate by at most 6.4%. **It cannot move the goal, and it is not
+being run as though it could** — it is being run because §10-bis found a 4.3× discrepancy between
+an organ and a wall, and a discrepancy that size in the measuring apparatus is worth 40 minutes
+whatever it turns out to be.
