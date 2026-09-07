@@ -108,3 +108,34 @@ on a kernel that is otherwise finished.
 Ledger §19.3 caps *all* remaining engine work at **1.15–1.65×** from here. E10 cannot beat that
 cap; at best it says which of two doors the remaining factor is behind. **Coder-7B is 7.4× short of
 50 tok/s and no outcome of this brief changes that** — the gap stays a property of the model.
+
+---
+
+## 8. VERDICT — appended after the run
+
+**`CORE-BOUND`.** Full write-up: `probes/E10_PACKED_KERNEL_BINDER.md`. Ledger `§23`.
+
+| gate | fixed above | measured |
+|---|---|---|
+| **G-K0** planted control | fp32 L3 ÷ DRAM **≥ 2.0** or everything is void | **PASS 4.40** — and it reproduced probe-3's 16 MB L3 cliff unprompted (161.7 → 104.5 → 45.1 GB/s) |
+| **G-K1** discriminator | ≤1.15 CORE-BOUND / 1.15–1.6 MIXED / ≥1.6 STREAM | **1.022 → CORE-BOUND** |
+| **G-K2** does the bench measure the engine's kernel | ±15% of 26.1 GB/s | **PASS 25.49, ratio 0.977** |
+| **G-K3** dispersion | a spread wider than the effect cannot decide | **partly FAILED as written** — see below |
+
+**G-K3 did not do what §5 assumed it would, and that is recorded rather than smoothed.** The 4 MB
+cell's own spread is **30.6%**, wider than the 15% gap between 1.022 and the 1.15 boundary. **That
+single ratio therefore cannot decide, by E4's law, and it is not what the verdict rests on.** What
+decides is that **all seven packed cells sit within ±4% of their grand median** across a 512×
+footprint range that moves the fp32 arm 4.4× — a between-arms contrast the gate table did not
+anticipate needing. **The right gate would have been on the arm's flatness, not on one cell's
+ratio.** Third time in this programme that a pre-registered rule was aimed at the wrong statistic
+(cf. E8's discard rule, which discarded zero pairs).
+
+**§5's refusal to predict a magnitude was correct and is not retro-fitted:** the brief fixed three
+verdicts with no favourite, and the one that came out was the one that costs the project the most.
+
+**What the brief did not anticipate at all:** the kernel is not FMA-bound either — 0.29 FMA per
+cycle per core out of 2 — so `CORE-BOUND` names the side, not the mechanism. §6 said this verdict
+would "retire the assumption that the weight organs are bandwidth-bound"; it does, and ledger
+§19.4's 37 and 42 GB/s budget rows go with it. §7's honest ceiling holds: **Coder-7B is still 7.4×
+short of 50 tok/s, and the engine's cover for that gap is now smaller, not larger.**

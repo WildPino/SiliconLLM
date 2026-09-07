@@ -1253,3 +1253,80 @@ moves a whole sweep together. **Coder-7B packed, `--bench 300`, idle, `--mvacc 4
 122.9–126.8 ms before E9, 114.5–117.0 ms after.** A future sweep reading materially above its
 band is contended, whatever its own internal dispersion says. (0.5 B packed, for comparison:
 11.552–12.083 ms at `--mvacc 1`, **7.478 ms** on today's canonical binary.)
+
+## 23. AMENDED 2026-09-07 by E10 — §19's load-bearing assumption is MEASURED, and it is false
+
+`probes/E10_PACKED_KERNEL_BINDER.md`, verdict `CORE-BOUND`. Pre-registered and pushed as
+`briefs/BRIEF_E10_PACKED_KERNEL_BINDER.md` (`a0366d0`) before the bench existed. Closes E8 §9
+owed item 2.
+
+### 23.1 The measurement
+
+Same `matvec` **source**, unmodified (`kbench.c` includes `donor_engine.c` with `main` renamed).
+Row length `n_in` held **fixed at 3584**; only the footprint moves. 7 reps/cell, 6 threads,
+`--mvacc 4`.
+
+| footprint | packed GB/s | packed G-w/s | fp32 GB/s | fp32 G-w/s |
+|---|---|---|---|---|
+| 4 MB | 26.04 | 52.07 | **163.45** | 40.86 |
+| 12 MB | 25.20 | 50.40 | 161.72 | 40.43 |
+| 24 MB | 24.70 | 49.40 | 104.48 | 26.12 |
+| 48 MB | 24.55 | 49.11 | 45.10 | 11.28 |
+| 512 MB | 25.49 | 50.97 | 37.12 | 9.28 |
+| 2048 MB | 26.48 | 52.95 | 38.58 | 9.65 |
+
+**A 512× change in footprint moves the packed kernel by less than 8% and the fp32 kernel by 4.4×.**
+Every packed cell is within ±4% of the arm's grand median, 25.49 GB/s.
+
+Gates: **G-K0 planted control PASS at 4.40** (band ≥2.0) — the bench reproduced probe-3's 16 MB L3
+cliff unprompted; **G-K1 = 1.022 → CORE-BOUND** (band ≤1.15); **G-K2 PASS 0.977** against the
+engine's own 26.1 GB/s, which is also what excludes an elided loop. **G-K3 partly failed as
+written** — the 4 MB cell's 30.6% spread is wider than the 15% gap to the boundary, so that ratio
+alone cannot decide; the verdict rests on seven flat cells against a 4.4× fp32 contrast.
+
+### 23.2 The engine is already on the ceiling
+
+| | G-weights/s |
+|---|---|
+| engine `gate+up` (§22.3: 73.597 ms, 3.802 G weights) | **51.66** |
+| engine `down` (§22.3: 36.403 ms, 1.901 G weights) | **52.22** |
+| kernel bench, **every** footprint 4 MB → 2 GB | **49.11 – 52.95** |
+
+**There is no streaming headroom left in this kernel.**
+
+### 23.3 What is withdrawn from §19
+
+§19 priced the remaining engine budget by assuming the weight organs are **bandwidth-bound** and
+then asking what they would deliver at bandwidths this machine has been measured providing.
+**§19.5 named that as the weakest link in its own derivation. E10 measures it, and it is false for
+the packed kernel** — the kernel stops at ~25.5 GB/s with the data *in L3*, so feeding it faster
+changes nothing.
+
+| §19.4 row | status |
+|---|---|
+| 37.0 GB/s → 1094 M active weights at 50 tok/s | **WITHDRAWN for the packed path** |
+| 42 GB/s → 1242 M | **WITHDRAWN for the packed path** |
+| 28 GB/s → 665 M-ish | at the edge of, and above, what the kernel does |
+| **~25.5 GB/s / ~53 G-w/s** | **the kernel's own ceiling; the engine is at 51.7–52.2** |
+
+**The engine's remaining budget shrinks.** §19.3 had 1.7–2.5×; E8 and E9 took **1.52×**; §22.4 read
+the remainder as 1.15–1.65×. **E10 says the weight path's share of that remainder is ~1.03×.**
+Anything more requires **replacing the kernel**, not feeding it — and the rest must come from the
+non-weight organs.
+
+**§19.3's strategic conclusion is stronger, not weaker.** The missing 7.4× was already a property
+of the model; it now has less engine cover than it had this morning.
+
+### 23.4 The format's byte advantage is spent, and the kernel is not FMA-bound
+
+**Cache-resident, packed is only 1.27× faster per weight than fp32** (52.07 vs 40.86 G-w/s) while
+reading **8× fewer bytes**. Out of cache it is **5.6×** (52.07 vs 9.28) — which is exactly why the
+packed format is right for the engine, and exactly why its *kernel* is now the thing in the way.
+
+At 52 G-weights/s, 8 lanes/FMA, 6 cores, 3793 MHz, the loop issues **0.29 FMA per cycle per core
+against a capability of 2 — about 14%**. Arithmetic on measured rates and the published clock; no
+port model is asserted, and **E10 offers no mechanism for the remaining 7×.** The candidates named
+for E11: each `vpshufb` in `.LBB15_11` produces 16 bytes of which the `vpmovsxbd` consumes 8, four
+times per iteration; and the engine's own `--lut` path (`matvec_lut`, probe-1's int8-accumulate
+kernel) has **never been measured at donor scale** and may have a different per-weight ceiling
+altogether.
