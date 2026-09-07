@@ -1,0 +1,79 @@
+## G2 -- parity of the interleave (brief s12.2)
+
+| run | NATS_TOTAL (as printed) | test | verdict |
+|---|---|---|---|
+| `sweep (all ten arms interleaved per token)` | 166667.1642458600 | G2b between the pure arms, within 3.03e-06 BPB | PASS (7.82e-07) |
+| `sweep8 (the eight avx4 arms interleaved per token)` | 166667.1361128952 | G2a bit-identity | **BIT-IDENTICAL** |
+
+## G0 -- the weight path across the arms of ONE process (brief s11.5)
+
+| cell | runs | kept | worst `W` spread across arms | verdict |
+|---|---|---|---|---|
+| S05 @300 | 5 | 0 | +2.18% | **VOID -- fewer than 3 clean runs** |
+| S05 @800 | 5 | 1 | +1.35% | **VOID -- fewer than 3 clean runs** |
+| T10 @300 | 5 | 5 | +0.71% | PASS |
+| T10 @800 | 5 | 5 | +0.34% | PASS |
+
+## The spread ACROSS the 3-run set -- this is the reproducibility interval (s11.5)
+
+| cell | runs kept | `R` | `S` | `Y` | `P` | organ `none` |
+|---|---|---|---|---|---|---|
+| T10 @800 | 5 | 13.333 [10.786-13.565] | 3.037 [3.020-3.053] | 2.179 [2.083-2.424] | 8.104 [5.587-8.453] | 13.622 [11.644-13.784] |
+| T10 @300 | 5 | 4.785 [4.738-5.108] | 1.120 [1.055-1.247] | 0.703 [0.670-0.774] | 2.917 [2.857-3.372] | 4.498 [4.487-4.610] |
+
+Each cell is `median [min-max]` over the runs that passed G0.  A component whose band straddles zero, or whose band is wider than the component, decides nothing.
+
+## G1 -- the 3x arms, which S and Y are not fitted to (brief s4)
+
+| point | 1x arm | 2x arm | solved | predicted 3x | measured 3x | error (median) | verdict |
+|---|---|---|---|---|---|---|---|
+| T10 @800 `sm1/2/3` | 13.437 | 16.474 | S = 3.037 | 19.510 | **19.194** | -1.58% | PASS |
+| T10 @800 `av1/2/3` | 13.573 | 15.765 | Y = 2.179 | 17.899 | **17.842** | +0.06% | PASS |
+| T10 @300 `sm1/2/3` | 4.498 | 5.592 | S = 1.120 | 6.712 | **6.624** | -1.11% | PASS |
+| T10 @300 `av1/2/3` | 4.554 | 5.258 | Y = 0.703 | 5.961 | **5.957** | -0.87% | PASS |
+
+## Both increments are one extra pass; if they disagree the arms are wrong (s10.3)
+
+| cell | `S`: 2x-1x / 3x-2x | ratio | `Y`: 2x-1x / 3x-2x | ratio | `sm1`-`none` | `av1`-`none` |
+|---|---|---|---|---|---|---|
+| T10 @800 | 3.037 / 2.739 | 0.90x | 2.179 / 2.155 | 0.99x | -0.185 | -0.005 |
+| T10 @300 | 1.120 / 1.040 | 0.93x | 0.703 / 0.695 | 0.99x | -0.025 | +0.010 |
+
+`1x - none` is the price of the code SHAPE, not of a pass: both compute the same values.  It is reported, never absorbed into a component.
+
+## The decomposition of `R`
+
+| cell | organ `none` | `X` | `S` | `Y` | `P` | S/R | Y/R | P/R | `f` | ceiling 1000/f |
+|---|---|---|---|---|---|---|---|---|---|---|
+| T10 @800 | 13.622 | 0.289 | **3.037** | **2.179** | **8.104** | 22.8% | 16.3% | 60.8% | 14.314 | **69.9** |
+| T10 @300 | 4.498 | -0.287 | **1.120** | **0.703** | **2.917** | 23.4% | 14.7% | 61.0% | 5.184 | **192.9** |
+
+## `fork2` -- one extra OpenMP region per layer, priced directly
+
+| cell | `fork2` - `none` | as a share of `P` |
+|---|---|---|
+| T10 @800 | +0.087 | 1.1% |
+| T10 @300 | +0.074 | 2.5% |
+
+## s3 -- the predictions I registered before any arm existed, at `T10` @800
+
+| quantity | predicted (ms) | measured | verdict |
+|---|---|---|---|
+| `S` | 0.8 - 2.0 | **3.037** | **OUTSIDE -- my estimate was wrong, by +52%** |
+| `Y` | 2.2 - 3.5 | **2.179** | **OUTSIDE -- my estimate was wrong, by -1%** |
+| `P` | 4.0 - 7.0 | **8.104** | **OUTSIDE -- my estimate was wrong, by +16%** |
+| `fork` | 0.1 - 1.0 | **0.087** | **OUTSIDE -- my estimate was wrong, by -13%** |
+
+## s5 -- the label, at T10 @800
+
+`R` = 13.333 ms = `S` 3.037 + `Y` 2.179 + `P` 8.104;  largest is `P` at 60.8% -> **OVERHEAD-DOMINATED**
+
+| if this term went to zero | `f` ms | **ceiling 1000/f** |
+|---|---|---|
+| nothing (measured today) | 14.314 | **69.9** |
+| `P` | 6.210 | **161.0** |
+| `S` | 11.278 | **88.7** |
+| `Y` | 12.136 | **82.4** |
+| all of `R` | 0.982 | **1018.5** |
+
+Every absolute tok/s on this machine carries +-5%% (E4 s2.5); the ratios do not.

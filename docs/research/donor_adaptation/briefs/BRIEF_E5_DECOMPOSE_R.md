@@ -618,3 +618,107 @@ This is still a difference from runs 1-4, where each arm owned its own cache, an
 here so that it cannot be produced later as a surprise. If run 5's `none` organ disagrees materially
 with run 4's `none` organ, section 11.6 already commits to reporting that difference as the price of
 interleaving rather than absorbing it.
+
+---
+
+## 13. AMENDMENT after run 5 - S and Y are measured; R, X and P are not
+
+Pushed **before run 6 exists**. Run 5: `results/e5/sweep5.json` (20 records, 5 runs x 4 cells, ten
+arms interleaved inside each), parity `results/e5/parity5.txt`, analysis `results/e5/analysis5.txt`.
+
+### 13.1 The interleave works, and the gates say so
+
+| gate | result |
+|---|---|
+| G2a bit-identity (`--sweep8`) | **PASS** - `166667.1361128952`, identical to `none` |
+| G2b structural (ten-arm mixture) | **PASS** - 7.82e-07 BPB from `avx4`, inside E4's 3.03e-06 span |
+| G0 within-process, `T10` @800 | **PASS** - worst `W` spread across ten arms **+0.34%** |
+| G0 within-process, `T10` @300 | **PASS** - **+0.71%** |
+| G0, `S05` @300 and @800 | **VOID** - 0 and 1 clean runs of 5 |
+| G1 3x test, four points at `T10` | **PASS** - -1.58%, +0.06%, -1.11%, -0.87% |
+
+Compare what it replaced: run 4's between-process `W` spread at the same cell was **8.5%** at worst
+and its median measurement sat 1.98% off the floor. Inside one process the ten arms agree on the
+weight path to **0.34%**. The between-process term was the whole problem, and interleaving removed
+it. `S05` voids because 1% of a 16 ms weight path is 0.16 ms - the tolerance is a fixed fraction and
+that shape has no room in it. `S05` was never the judging cell.
+
+### 13.2 What is established
+
+At `T10` @800, over five runs, median [min-max]:
+
+| component | value (ms/token) | 3x test |
+|---|---|---|
+| `S` - the softmax pass | **3.037** [3.020 - 3.053] | -1.58% PASS |
+| `Y` - the `A.V` loop | **2.179** [2.083 - 2.424] | +0.06% PASS |
+
+and at `T10` @300, `S` = **1.120** [1.055 - 1.247] and `Y` = **0.703** [0.670 - 0.774], both passing.
+These are differences between arms of the **same code family** - `sm1/sm2/sm3` are one code shape at
+three repeat counts, and so are `av1/av2/av3` - measured in one process, and they carry their own
+3x prediction as a test they could have failed. The `1x - none` column, which prices the code shape
+itself, is **-0.185 ms** for `sm1` and **-0.005 ms** for `av1`: within the `avx4` family the shape
+costs essentially nothing, which is the condition S and Y need.
+
+### 13.3 What is NOT established, and how run 5 proved it
+
+`X` came out at **+0.289 ms** at `T10` @800 and **-0.287 ms** at `T10` @300 - and the second number
+is impossible. `X` is the time spent in the `Q.K` dot loop. **A loop cannot take negative time.**
+This is not noise: the five runs agree to within 0.26 ms at @300 and every one of them is negative.
+
+The cause is structural, and it is the one thing the interleave does not fix. `R` is obtained by
+E4's method, `R = 2*organ(serial) - organ(serial2)`, and `X = organ(none) - R`. Write each arm's
+measured organ as its true cost plus a per-arm overhead `d` for running one token in ten with cold
+code and cold state:
+
+    organ(serial)  = R + X_s + d_serial          2*organ(serial) - organ(serial2) = R + d_serial
+    organ(serial2) = R + 2*X_s + d_serial        X measured = organ(none) - R - d_serial
+                                                            = X_true + (d_avx4 - d_serial)
+
+**`X_s` survives the doubling exactly - and `R` absorbs the whole of `d`.** The proof that this happened needs no other sweep: a
+negative `X` is self-refuting. As a drift line only - never an input, gate G3 - E4's clean
+between-process sweep corroborates the shape of it: run 5's `X_serial` moved **+2.4%** (14.647 ->
+15.0) while `R` moved **+36%** (9.816 -> 13.3). The doubling is intact; the baseline is not.
+
+So the serial family and the `avx4` family do not share a `d`, and any subtraction that crosses them
+carries the difference. `S` and `Y` never cross - that is why they pass. `R`, `X`, and therefore
+`P = R - S - Y`, all cross - and none of them is a result of this experiment.
+
+**The label is WITHHELD**, not because it landed near a boundary but because `P` is not measured.
+The ceiling column of `analysis5.txt` is withheld with it: `f` is built from the interleaved `none`
+organ, which carries `d_avx4`.
+
+I did not have a gate for this. A gate that says *a duration must be positive* is not a threshold
+tuned to data, so it is added now and it fires on run 5 by inspection; it is codified for run 6.
+
+### 13.4 Run 6 - two changes, both pre-registered here
+
+**1. `X` moves inside the `avx4` family.** New arms `qk1`, `qk2`, `qk3`: the `Q.K` dot loop at one,
+two and three passes, value-preserving in exactly the way `av1/av2/av3` are, on the `avx4` path.
+Then
+
+    X = organ(qk2) - organ(qk1),   predicted at 3x by organ(qk1) + 2X,   R = organ(none) - X
+
+with every term in one family and one process. `serial` and `serial2` leave the sweep: they cross
+families, and run 5 is what that costs.
+
+**2. `d` stops being an unknown and becomes a measurement.** The schedule gains two entries that run
+**the same `none` code** in two different neighbourhoods: `none_iso`, which sits between two
+different arms, and `none_hot`, which sits inside a run of consecutive tokens of its own kind. They
+compute identically, so
+
+    d = organ(none_iso) - organ(none_hot)
+
+is the price of switching arms, measured **within the process**, not assumed. If `d` is small, run
+6's absolute organ times mean what they say. If it is not, it is subtracted from the arms it applies
+to, and that subtraction is stated in the results rather than folded in silently.
+
+**Gates for run 6**: G2a and G2b as in section 12.2, with the eight-arm bit-identity set extended to
+the new `qk` and `none_*` arms. G0 within-process at 1%, five runs, three needed. G1 at 3% on all
+three of `S`, `Y` and now `X`. **G5, new: any component that is a duration must be positive; a
+negative one voids that component and everything derived from it.** G4 unchanged.
+
+Section 3's predictions were scored against run 5 and **all four missed**: `S` 3.037 against
+0.8-2.0 (+52% over), `Y` 2.179 against 2.2-3.5 (-1%, just under the bottom of its own band),
+`P` 8.104 against 4.0-7.0 (+16%, and withheld anyway as unestablished), `fork` 0.087 against
+0.1-1.0 (-13%). Four bands, four misses, and the two that are established landed outside on
+opposite sides. They are **not re-fitted** for run 6.

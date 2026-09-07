@@ -1,0 +1,2662 @@
+[
+ {
+  "arms": {
+   "serial": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.85332,
+     "rope": 0.015177,
+     "attention": 1.175097,
+     "o_proj": 0.60687,
+     "ffn": 11.321997,
+     "head": 3.687277,
+     "norm+glue": 0.070673
+    }
+   },
+   "serial2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.869547,
+     "rope": 0.01469,
+     "attention": 1.629337,
+     "o_proj": 0.603517,
+     "ffn": 11.304473,
+     "head": 3.649693,
+     "norm+glue": 0.067527
+    }
+   },
+   "none": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.87234,
+     "rope": 0.01662,
+     "attention": 0.67715,
+     "o_proj": 0.59129,
+     "ffn": 11.345003,
+     "head": 3.650903,
+     "norm+glue": 0.06695
+    }
+   },
+   "sm1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.88416,
+     "rope": 0.01491,
+     "attention": 0.648007,
+     "o_proj": 0.594263,
+     "ffn": 11.316757,
+     "head": 3.641313,
+     "norm+glue": 0.067083
+    }
+   },
+   "sm2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.863717,
+     "rope": 0.015897,
+     "attention": 0.926173,
+     "o_proj": 0.593027,
+     "ffn": 11.26908,
+     "head": 3.62586,
+     "norm+glue": 0.067447
+    }
+   },
+   "sm3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.902203,
+     "rope": 0.01545,
+     "attention": 1.204227,
+     "o_proj": 0.603633,
+     "ffn": 11.34419,
+     "head": 3.651393,
+     "norm+glue": 0.07731
+    }
+   },
+   "av1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.863717,
+     "rope": 0.014983,
+     "attention": 0.683303,
+     "o_proj": 0.599487,
+     "ffn": 11.50806,
+     "head": 3.64718,
+     "norm+glue": 0.067623
+    }
+   },
+   "av2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.876147,
+     "rope": 0.015233,
+     "attention": 0.78527,
+     "o_proj": 0.604217,
+     "ffn": 11.50203,
+     "head": 3.651977,
+     "norm+glue": 0.06769
+    }
+   },
+   "av3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.917363,
+     "rope": 0.0153,
+     "attention": 0.866537,
+     "o_proj": 0.58787,
+     "ffn": 11.530853,
+     "head": 3.647203,
+     "norm+glue": 0.06747
+    }
+   },
+   "fork2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.87079,
+     "rope": 0.015363,
+     "attention": 0.723187,
+     "o_proj": 0.5866,
+     "ffn": 11.449107,
+     "head": 3.64117,
+     "norm+glue": 0.067893
+    }
+   }
+  },
+  "tok_s": 56.94,
+  "cores_busy": 6.313992575115446,
+  "wall_s": 5.545718431472778,
+  "shape": "S05",
+  "bench": 300,
+  "run": 1,
+  "threads": 6,
+  "prio": "high",
+  "label": "S05_b300_r1"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.86655,
+     "rope": 0.0153,
+     "attention": 2.986325,
+     "o_proj": 0.613025,
+     "ffn": 11.683856,
+     "head": 3.648835,
+     "norm+glue": 0.068295
+    }
+   },
+   "serial2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.867406,
+     "rope": 0.015214,
+     "attention": 4.48537,
+     "o_proj": 0.608946,
+     "ffn": 11.606526,
+     "head": 3.669933,
+     "norm+glue": 0.068818
+    }
+   },
+   "none": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.85746,
+     "rope": 0.014825,
+     "attention": 1.7813,
+     "o_proj": 0.598197,
+     "ffn": 11.582754,
+     "head": 3.678398,
+     "norm+glue": 0.068154
+    }
+   },
+   "sm1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.863376,
+     "rope": 0.019504,
+     "attention": 1.749375,
+     "o_proj": 0.601885,
+     "ffn": 11.622179,
+     "head": 3.675165,
+     "norm+glue": 0.068104
+    }
+   },
+   "sm2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.868907,
+     "rope": 0.015551,
+     "attention": 2.51792,
+     "o_proj": 0.60877,
+     "ffn": 11.654474,
+     "head": 3.691285,
+     "norm+glue": 0.068455
+    }
+   },
+   "sm3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.874888,
+     "rope": 0.015244,
+     "attention": 3.21439,
+     "o_proj": 0.612294,
+     "ffn": 11.600773,
+     "head": 3.674608,
+     "norm+glue": 0.068571
+    }
+   },
+   "av1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.883511,
+     "rope": 0.015595,
+     "attention": 1.792488,
+     "o_proj": 0.593639,
+     "ffn": 11.663712,
+     "head": 3.659043,
+     "norm+glue": 0.068732
+    }
+   },
+   "av2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.867974,
+     "rope": 0.014923,
+     "attention": 2.07321,
+     "o_proj": 0.603959,
+     "ffn": 11.578001,
+     "head": 3.648555,
+     "norm+glue": 0.068287
+    }
+   },
+   "av3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.86483,
+     "rope": 0.015321,
+     "attention": 2.290182,
+     "o_proj": 0.60932,
+     "ffn": 11.648154,
+     "head": 3.67118,
+     "norm+glue": 0.068463
+    }
+   },
+   "fork2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.856049,
+     "rope": 0.01504,
+     "attention": 1.852187,
+     "o_proj": 0.592618,
+     "ffn": 11.59404,
+     "head": 3.664926,
+     "norm+glue": 0.068256
+    }
+   }
+  },
+  "tok_s": 51.68,
+  "cores_busy": 6.258796974483106,
+  "wall_s": 15.752827644348145,
+  "shape": "S05",
+  "bench": 800,
+  "run": 1,
+  "threads": 6,
+  "prio": "high",
+  "label": "S05_b800_r1"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.68055,
+     "rope": 0.070033,
+     "attention": 10.446293,
+     "o_proj": 22.240593,
+     "ffn": 246.249887,
+     "head": 3.67088,
+     "norm+glue": 0.620363
+    }
+   },
+   "serial2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.80176,
+     "rope": 0.069147,
+     "attention": 15.784443,
+     "o_proj": 22.25139,
+     "ffn": 246.216023,
+     "head": 3.666913,
+     "norm+glue": 0.627403
+    }
+   },
+   "none": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.634257,
+     "rope": 0.06908,
+     "attention": 4.610187,
+     "o_proj": 22.13561,
+     "ffn": 245.755233,
+     "head": 3.631903,
+     "norm+glue": 0.621533
+    }
+   },
+   "sm1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.707427,
+     "rope": 0.073333,
+     "attention": 4.564147,
+     "o_proj": 22.196377,
+     "ffn": 246.261153,
+     "head": 3.6245,
+     "norm+glue": 0.62192
+    }
+   },
+   "sm2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.901887,
+     "rope": 0.068243,
+     "attention": 5.618953,
+     "o_proj": 22.275327,
+     "ffn": 246.38366,
+     "head": 3.60277,
+     "norm+glue": 0.633353
+    }
+   },
+   "sm3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.67677,
+     "rope": 0.068353,
+     "attention": 6.666717,
+     "o_proj": 22.223193,
+     "ffn": 246.127137,
+     "head": 3.637787,
+     "norm+glue": 0.627877
+    }
+   },
+   "av1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.797837,
+     "rope": 0.069907,
+     "attention": 4.593057,
+     "o_proj": 22.251683,
+     "ffn": 246.560113,
+     "head": 3.62269,
+     "norm+glue": 0.622783
+    }
+   },
+   "av2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.68606,
+     "rope": 0.068713,
+     "attention": 5.274707,
+     "o_proj": 22.244213,
+     "ffn": 246.267547,
+     "head": 3.623743,
+     "norm+glue": 0.622807
+    }
+   },
+   "av3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.750823,
+     "rope": 0.07089,
+     "attention": 6.048347,
+     "o_proj": 22.201973,
+     "ffn": 246.12831,
+     "head": 3.653537,
+     "norm+glue": 0.62197
+    }
+   },
+   "fork2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.679437,
+     "rope": 0.069703,
+     "attention": 4.625557,
+     "o_proj": 22.204107,
+     "ffn": 246.24901,
+     "head": 3.601293,
+     "norm+glue": 0.62365
+    }
+   }
+  },
+  "tok_s": 3.19,
+  "cores_busy": 6.124070191711176,
+  "wall_s": 96.71876406669617,
+  "shape": "T10",
+  "bench": 300,
+  "run": 1,
+  "threads": 6,
+  "prio": "high",
+  "label": "T10_b300_r1"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.822587,
+     "rope": 0.07029,
+     "attention": 27.412619,
+     "o_proj": 22.283063,
+     "ffn": 246.499816,
+     "head": 3.61174,
+     "norm+glue": 0.619624
+    }
+   },
+   "serial2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.834458,
+     "rope": 0.068239,
+     "attention": 42.173653,
+     "o_proj": 22.24065,
+     "ffn": 246.334862,
+     "head": 3.633786,
+     "norm+glue": 0.625743
+    }
+   },
+   "none": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.77713,
+     "rope": 0.072085,
+     "attention": 12.770761,
+     "o_proj": 22.288575,
+     "ffn": 246.5681,
+     "head": 3.634795,
+     "norm+glue": 0.622575
+    }
+   },
+   "sm1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.955755,
+     "rope": 0.069306,
+     "attention": 12.604311,
+     "o_proj": 22.327194,
+     "ffn": 246.945585,
+     "head": 3.639701,
+     "norm+glue": 0.621675
+    }
+   },
+   "sm2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.872174,
+     "rope": 0.06956,
+     "attention": 15.644506,
+     "o_proj": 22.317207,
+     "ffn": 246.910542,
+     "head": 3.631222,
+     "norm+glue": 0.623286
+    }
+   },
+   "sm3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.792236,
+     "rope": 0.070605,
+     "attention": 18.360223,
+     "o_proj": 22.28398,
+     "ffn": 246.626714,
+     "head": 3.649668,
+     "norm+glue": 0.619917
+    }
+   },
+   "av1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.826781,
+     "rope": 0.071535,
+     "attention": 12.771906,
+     "o_proj": 22.33477,
+     "ffn": 246.761269,
+     "head": 3.62518,
+     "norm+glue": 0.62345
+    }
+   },
+   "av2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.79985,
+     "rope": 0.06932,
+     "attention": 15.1964,
+     "o_proj": 22.319743,
+     "ffn": 246.875299,
+     "head": 3.645311,
+     "norm+glue": 0.623544
+    }
+   },
+   "av3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.859884,
+     "rope": 0.070124,
+     "attention": 17.631472,
+     "o_proj": 22.328901,
+     "ffn": 246.651257,
+     "head": 3.626275,
+     "norm+glue": 0.623498
+    }
+   },
+   "fork2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.982971,
+     "rope": 0.071746,
+     "attention": 12.881446,
+     "o_proj": 22.375565,
+     "ffn": 247.072221,
+     "head": 3.649524,
+     "norm+glue": 0.620265
+    }
+   }
+  },
+  "tok_s": 3.07,
+  "cores_busy": 6.204854826649838,
+  "wall_s": 263.3799533843994,
+  "shape": "T10",
+  "bench": 800,
+  "run": 1,
+  "threads": 6,
+  "prio": "high",
+  "label": "T10_b800_r1"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.874097,
+     "rope": 0.015313,
+     "attention": 1.17912,
+     "o_proj": 0.602573,
+     "ffn": 11.219077,
+     "head": 3.633233,
+     "norm+glue": 0.067943
+    }
+   },
+   "serial2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.882593,
+     "rope": 0.015987,
+     "attention": 1.66054,
+     "o_proj": 0.611983,
+     "ffn": 11.391073,
+     "head": 3.669223,
+     "norm+glue": 0.08066
+    }
+   },
+   "none": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.86477,
+     "rope": 0.01553,
+     "attention": 0.701953,
+     "o_proj": 0.58937,
+     "ffn": 11.435043,
+     "head": 3.690793,
+     "norm+glue": 0.068383
+    }
+   },
+   "sm1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.860557,
+     "rope": 0.014993,
+     "attention": 0.680557,
+     "o_proj": 0.589143,
+     "ffn": 11.359233,
+     "head": 3.661257,
+     "norm+glue": 0.067793
+    }
+   },
+   "sm2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.877653,
+     "rope": 0.015007,
+     "attention": 0.963257,
+     "o_proj": 0.585197,
+     "ffn": 11.345373,
+     "head": 3.652947,
+     "norm+glue": 0.06817
+    }
+   },
+   "sm3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.854247,
+     "rope": 0.01531,
+     "attention": 1.187767,
+     "o_proj": 0.59583,
+     "ffn": 11.386697,
+     "head": 3.689977,
+     "norm+glue": 0.069817
+    }
+   },
+   "av1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.863147,
+     "rope": 0.015333,
+     "attention": 0.67474,
+     "o_proj": 0.59371,
+     "ffn": 11.364627,
+     "head": 3.675237,
+     "norm+glue": 0.067963
+    }
+   },
+   "av2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.854127,
+     "rope": 0.015393,
+     "attention": 0.769507,
+     "o_proj": 0.601173,
+     "ffn": 11.328587,
+     "head": 3.658847,
+     "norm+glue": 0.068337
+    }
+   },
+   "av3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.881343,
+     "rope": 0.021393,
+     "attention": 0.856843,
+     "o_proj": 0.590243,
+     "ffn": 11.285323,
+     "head": 3.649103,
+     "norm+glue": 0.067753
+    }
+   },
+   "fork2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.912183,
+     "rope": 0.01524,
+     "attention": 0.719893,
+     "o_proj": 0.596287,
+     "ffn": 11.386057,
+     "head": 3.652923,
+     "norm+glue": 0.0676
+    }
+   }
+  },
+  "tok_s": 57.01,
+  "cores_busy": 6.181166504954535,
+  "wall_s": 5.533441781997681,
+  "shape": "S05",
+  "bench": 300,
+  "run": 2,
+  "threads": 6,
+  "prio": "high",
+  "label": "S05_b300_r2"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.870362,
+     "rope": 0.015043,
+     "attention": 2.968298,
+     "o_proj": 0.618619,
+     "ffn": 11.58221,
+     "head": 3.686364,
+     "norm+glue": 0.067923
+    }
+   },
+   "serial2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.868468,
+     "rope": 0.015289,
+     "attention": 4.498456,
+     "o_proj": 0.615455,
+     "ffn": 11.605554,
+     "head": 3.682054,
+     "norm+glue": 0.068251
+    }
+   },
+   "none": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.870904,
+     "rope": 0.01511,
+     "attention": 1.775471,
+     "o_proj": 0.611399,
+     "ffn": 11.543725,
+     "head": 3.702301,
+     "norm+glue": 0.068097
+    }
+   },
+   "sm1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.867366,
+     "rope": 0.01516,
+     "attention": 1.763715,
+     "o_proj": 0.602819,
+     "ffn": 11.618104,
+     "head": 3.676305,
+     "norm+glue": 0.068341
+    }
+   },
+   "sm2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.865276,
+     "rope": 0.015148,
+     "attention": 2.515632,
+     "o_proj": 0.612263,
+     "ffn": 11.670804,
+     "head": 3.6962,
+     "norm+glue": 0.068621
+    }
+   },
+   "sm3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.875781,
+     "rope": 0.015357,
+     "attention": 3.275793,
+     "o_proj": 0.611614,
+     "ffn": 11.74796,
+     "head": 3.695528,
+     "norm+glue": 0.068924
+    }
+   },
+   "av1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.860526,
+     "rope": 0.014984,
+     "attention": 1.798229,
+     "o_proj": 0.606616,
+     "ffn": 11.561122,
+     "head": 3.684554,
+     "norm+glue": 0.068305
+    }
+   },
+   "av2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.869669,
+     "rope": 0.01527,
+     "attention": 2.059286,
+     "o_proj": 0.6013,
+     "ffn": 11.665456,
+     "head": 3.719231,
+     "norm+glue": 0.068614
+    }
+   },
+   "av3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.878034,
+     "rope": 0.015215,
+     "attention": 2.31663,
+     "o_proj": 0.604466,
+     "ffn": 11.714056,
+     "head": 3.702501,
+     "norm+glue": 0.069111
+    }
+   },
+   "fork2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.866326,
+     "rope": 0.015714,
+     "attention": 1.831396,
+     "o_proj": 0.616099,
+     "ffn": 11.636423,
+     "head": 3.668511,
+     "norm+glue": 0.068392
+    }
+   }
+  },
+  "tok_s": 51.55,
+  "cores_busy": 6.170572988672259,
+  "wall_s": 15.788140773773193,
+  "shape": "S05",
+  "bench": 800,
+  "run": 2,
+  "threads": 6,
+  "prio": "high",
+  "label": "S05_b800_r2"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.877733,
+     "rope": 0.067793,
+     "attention": 10.180123,
+     "o_proj": 22.305623,
+     "ffn": 247.29237,
+     "head": 3.620613,
+     "norm+glue": 0.633313
+    }
+   },
+   "serial2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.948667,
+     "rope": 0.06791,
+     "attention": 15.5429,
+     "o_proj": 22.333067,
+     "ffn": 246.83283,
+     "head": 3.629313,
+     "norm+glue": 0.620227
+    }
+   },
+   "none": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.871733,
+     "rope": 0.067863,
+     "attention": 4.486677,
+     "o_proj": 22.292363,
+     "ffn": 247.229717,
+     "head": 3.61817,
+     "norm+glue": 0.61811
+    }
+   },
+   "sm1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.92499,
+     "rope": 0.070027,
+     "attention": 4.44186,
+     "o_proj": 22.40949,
+     "ffn": 247.924267,
+     "head": 3.612043,
+     "norm+glue": 0.620783
+    }
+   },
+   "sm2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.971823,
+     "rope": 0.06808,
+     "attention": 5.57701,
+     "o_proj": 22.23362,
+     "ffn": 247.576817,
+     "head": 3.67727,
+     "norm+glue": 0.62977
+    }
+   },
+   "sm3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.946053,
+     "rope": 0.068683,
+     "attention": 6.63736,
+     "o_proj": 22.348397,
+     "ffn": 247.379933,
+     "head": 3.640073,
+     "norm+glue": 0.621337
+    }
+   },
+   "av1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.801927,
+     "rope": 0.069307,
+     "attention": 4.49652,
+     "o_proj": 22.3383,
+     "ffn": 247.477023,
+     "head": 3.621857,
+     "norm+glue": 0.620897
+    }
+   },
+   "av2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.86147,
+     "rope": 0.06725,
+     "attention": 5.261507,
+     "o_proj": 22.31715,
+     "ffn": 247.232517,
+     "head": 3.64035,
+     "norm+glue": 0.618597
+    }
+   },
+   "av3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.96407,
+     "rope": 0.067327,
+     "attention": 5.956903,
+     "o_proj": 22.31216,
+     "ffn": 247.380617,
+     "head": 3.630107,
+     "norm+glue": 0.621947
+    }
+   },
+   "fork2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.861237,
+     "rope": 0.068533,
+     "attention": 4.560333,
+     "o_proj": 22.283083,
+     "ffn": 247.177223,
+     "head": 3.620453,
+     "norm+glue": 0.621427
+    }
+   }
+  },
+  "tok_s": 3.18,
+  "cores_busy": 6.143337910578956,
+  "wall_s": 96.65704274177551,
+  "shape": "T10",
+  "bench": 300,
+  "run": 2,
+  "threads": 6,
+  "prio": "high",
+  "label": "T10_b300_r2"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.979739,
+     "rope": 0.070779,
+     "attention": 25.809121,
+     "o_proj": 22.336119,
+     "ffn": 247.347731,
+     "head": 3.635245,
+     "norm+glue": 0.625882
+    }
+   },
+   "serial2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.915096,
+     "rope": 0.070619,
+     "attention": 40.832065,
+     "o_proj": 22.313225,
+     "ffn": 247.059616,
+     "head": 3.633926,
+     "norm+glue": 0.625731
+    }
+   },
+   "none": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.991274,
+     "rope": 0.07119,
+     "attention": 11.64422,
+     "o_proj": 22.356339,
+     "ffn": 247.435609,
+     "head": 3.629698,
+     "norm+glue": 0.627777
+    }
+   },
+   "sm1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.895613,
+     "rope": 0.070309,
+     "attention": 11.385315,
+     "o_proj": 22.366214,
+     "ffn": 247.225437,
+     "head": 3.633192,
+     "norm+glue": 0.626244
+    }
+   },
+   "sm2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.918764,
+     "rope": 0.071205,
+     "attention": 14.405681,
+     "o_proj": 22.338762,
+     "ffn": 247.361418,
+     "head": 3.64057,
+     "norm+glue": 0.620787
+    }
+   },
+   "sm3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.909364,
+     "rope": 0.071524,
+     "attention": 17.176176,
+     "o_proj": 22.387191,
+     "ffn": 247.424951,
+     "head": 3.644561,
+     "norm+glue": 0.626426
+    }
+   },
+   "av1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.893185,
+     "rope": 0.070434,
+     "attention": 11.539207,
+     "o_proj": 22.364738,
+     "ffn": 247.317686,
+     "head": 3.638146,
+     "norm+glue": 0.624694
+    }
+   },
+   "av2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 34.03976,
+     "rope": 0.07122,
+     "attention": 13.717854,
+     "o_proj": 22.35789,
+     "ffn": 247.4667,
+     "head": 3.642949,
+     "norm+glue": 0.629475
+    }
+   },
+   "av3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.934247,
+     "rope": 0.070405,
+     "attention": 15.92048,
+     "o_proj": 22.382187,
+     "ffn": 247.784361,
+     "head": 3.650371,
+     "norm+glue": 0.624134
+    }
+   },
+   "fork2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.928621,
+     "rope": 0.071709,
+     "attention": 11.668886,
+     "o_proj": 22.357504,
+     "ffn": 247.250839,
+     "head": 3.66952,
+     "norm+glue": 0.625146
+    }
+   }
+  },
+  "tok_s": 3.07,
+  "cores_busy": 6.198870564465075,
+  "wall_s": 262.6461317539215,
+  "shape": "T10",
+  "bench": 800,
+  "run": 2,
+  "threads": 6,
+  "prio": "high",
+  "label": "T10_b800_r2"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.871673,
+     "rope": 0.014653,
+     "attention": 1.15381,
+     "o_proj": 0.58205,
+     "ffn": 11.207423,
+     "head": 3.61293,
+     "norm+glue": 0.067687
+    }
+   },
+   "serial2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.84704,
+     "rope": 0.01445,
+     "attention": 1.620953,
+     "o_proj": 0.585327,
+     "ffn": 11.1295,
+     "head": 3.649717,
+     "norm+glue": 0.067523
+    }
+   },
+   "none": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.835643,
+     "rope": 0.014693,
+     "attention": 0.690333,
+     "o_proj": 0.578087,
+     "ffn": 11.212047,
+     "head": 3.650653,
+     "norm+glue": 0.06759
+    }
+   },
+   "sm1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.87295,
+     "rope": 0.014767,
+     "attention": 0.674527,
+     "o_proj": 0.581303,
+     "ffn": 11.277843,
+     "head": 3.685393,
+     "norm+glue": 0.068023
+    }
+   },
+   "sm2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.847227,
+     "rope": 0.013837,
+     "attention": 0.922133,
+     "o_proj": 0.60192,
+     "ffn": 11.200427,
+     "head": 3.683807,
+     "norm+glue": 0.0675
+    }
+   },
+   "sm3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.841273,
+     "rope": 0.01417,
+     "attention": 1.177213,
+     "o_proj": 0.58579,
+     "ffn": 11.289403,
+     "head": 3.620477,
+     "norm+glue": 0.070013
+    }
+   },
+   "av1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.85554,
+     "rope": 0.015197,
+     "attention": 0.684287,
+     "o_proj": 0.590573,
+     "ffn": 11.421743,
+     "head": 3.62099,
+     "norm+glue": 0.067997
+    }
+   },
+   "av2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.852287,
+     "rope": 0.014557,
+     "attention": 0.77213,
+     "o_proj": 0.58482,
+     "ffn": 11.279343,
+     "head": 3.664827,
+     "norm+glue": 0.067717
+    }
+   },
+   "av3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.84989,
+     "rope": 0.014117,
+     "attention": 0.84436,
+     "o_proj": 0.5723,
+     "ffn": 11.189273,
+     "head": 3.66117,
+     "norm+glue": 0.06792
+    }
+   },
+   "fork2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.84648,
+     "rope": 0.01493,
+     "attention": 0.718377,
+     "o_proj": 0.577793,
+     "ffn": 11.40107,
+     "head": 3.616907,
+     "norm+glue": 0.06794
+    }
+   }
+  },
+  "tok_s": 57.51,
+  "cores_busy": 6.172294032420804,
+  "wall_s": 5.498360872268677,
+  "shape": "S05",
+  "bench": 300,
+  "run": 3,
+  "threads": 6,
+  "prio": "high",
+  "label": "S05_b300_r3"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.865579,
+     "rope": 0.015686,
+     "attention": 3.005195,
+     "o_proj": 0.613518,
+     "ffn": 11.731894,
+     "head": 3.696246,
+     "norm+glue": 0.06873
+    }
+   },
+   "serial2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.888179,
+     "rope": 0.01532,
+     "attention": 4.458409,
+     "o_proj": 0.614579,
+     "ffn": 11.630977,
+     "head": 3.680446,
+     "norm+glue": 0.068676
+    }
+   },
+   "none": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.881605,
+     "rope": 0.015475,
+     "attention": 1.814867,
+     "o_proj": 0.605739,
+     "ffn": 11.701755,
+     "head": 3.699049,
+     "norm+glue": 0.068325
+    }
+   },
+   "sm1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.868555,
+     "rope": 0.015258,
+     "attention": 1.760308,
+     "o_proj": 0.594145,
+     "ffn": 11.599535,
+     "head": 3.695935,
+     "norm+glue": 0.068585
+    }
+   },
+   "sm2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.884094,
+     "rope": 0.015711,
+     "attention": 2.525242,
+     "o_proj": 0.613727,
+     "ffn": 11.734515,
+     "head": 3.696891,
+     "norm+glue": 0.068618
+    }
+   },
+   "sm3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.873514,
+     "rope": 0.015875,
+     "attention": 3.194465,
+     "o_proj": 0.605969,
+     "ffn": 11.6417,
+     "head": 3.67909,
+     "norm+glue": 0.068694
+    }
+   },
+   "av1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.885679,
+     "rope": 0.015525,
+     "attention": 1.820043,
+     "o_proj": 0.613615,
+     "ffn": 11.737568,
+     "head": 3.6998,
+     "norm+glue": 0.069042
+    }
+   },
+   "av2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.883779,
+     "rope": 0.015451,
+     "attention": 2.069498,
+     "o_proj": 0.60137,
+     "ffn": 11.709706,
+     "head": 3.704735,
+     "norm+glue": 0.068627
+    }
+   },
+   "av3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.860925,
+     "rope": 0.014936,
+     "attention": 2.304096,
+     "o_proj": 0.614786,
+     "ffn": 11.570031,
+     "head": 3.668889,
+     "norm+glue": 0.068229
+    }
+   },
+   "fork2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.872176,
+     "rope": 0.015119,
+     "attention": 1.801897,
+     "o_proj": 0.597387,
+     "ffn": 11.570006,
+     "head": 3.676186,
+     "norm+glue": 0.067942
+    }
+   }
+  },
+  "tok_s": 51.48,
+  "cores_busy": 6.201235734825999,
+  "wall_s": 15.825978755950928,
+  "shape": "S05",
+  "bench": 800,
+  "run": 3,
+  "threads": 6,
+  "prio": "high",
+  "label": "S05_b800_r3"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.903297,
+     "rope": 0.06909,
+     "attention": 10.207923,
+     "o_proj": 22.337203,
+     "ffn": 247.572717,
+     "head": 3.648517,
+     "norm+glue": 0.618807
+    }
+   },
+   "serial2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.91148,
+     "rope": 0.06924,
+     "attention": 15.63074,
+     "o_proj": 22.384893,
+     "ffn": 247.456353,
+     "head": 3.662063,
+     "norm+glue": 0.625413
+    }
+   },
+   "none": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.907457,
+     "rope": 0.06951,
+     "attention": 4.49788,
+     "o_proj": 22.357993,
+     "ffn": 247.211787,
+     "head": 3.626817,
+     "norm+glue": 0.61678
+    }
+   },
+   "sm1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.88636,
+     "rope": 0.069577,
+     "attention": 4.472533,
+     "o_proj": 22.253087,
+     "ffn": 247.027987,
+     "head": 3.651737,
+     "norm+glue": 0.6351
+    }
+   },
+   "sm2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.920943,
+     "rope": 0.069067,
+     "attention": 5.592347,
+     "o_proj": 22.318493,
+     "ffn": 247.394467,
+     "head": 3.658053,
+     "norm+glue": 0.632537
+    }
+   },
+   "sm3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 34.147033,
+     "rope": 0.06725,
+     "attention": 6.57479,
+     "o_proj": 22.467807,
+     "ffn": 248.76017,
+     "head": 3.636223,
+     "norm+glue": 0.61985
+    }
+   },
+   "av1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.925353,
+     "rope": 0.065843,
+     "attention": 4.4831,
+     "o_proj": 22.302987,
+     "ffn": 247.350923,
+     "head": 3.629653,
+     "norm+glue": 0.628463
+    }
+   },
+   "av2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.890817,
+     "rope": 0.069507,
+     "attention": 5.257507,
+     "o_proj": 22.29821,
+     "ffn": 247.234997,
+     "head": 3.637947,
+     "norm+glue": 0.616973
+    }
+   },
+   "av3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.910133,
+     "rope": 0.069777,
+     "attention": 5.95282,
+     "o_proj": 22.378163,
+     "ffn": 247.310253,
+     "head": 3.64301,
+     "norm+glue": 0.618403
+    }
+   },
+   "fork2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 34.060083,
+     "rope": 0.070187,
+     "attention": 4.564073,
+     "o_proj": 22.37304,
+     "ffn": 247.640153,
+     "head": 3.650027,
+     "norm+glue": 0.62146
+    }
+   }
+  },
+  "tok_s": 3.17,
+  "cores_busy": 6.170309406472306,
+  "wall_s": 96.62197804450989,
+  "shape": "T10",
+  "bench": 300,
+  "run": 3,
+  "threads": 6,
+  "prio": "high",
+  "label": "T10_b300_r3"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.922921,
+     "rope": 0.071689,
+     "attention": 28.571286,
+     "o_proj": 22.374985,
+     "ffn": 247.349924,
+     "head": 3.648585,
+     "norm+glue": 0.627466
+    }
+   },
+   "serial2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.854883,
+     "rope": 0.069021,
+     "attention": 43.747549,
+     "o_proj": 22.377565,
+     "ffn": 246.992563,
+     "head": 3.642284,
+     "norm+glue": 0.626973
+    }
+   },
+   "none": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.864356,
+     "rope": 0.070724,
+     "attention": 13.784205,
+     "o_proj": 22.389056,
+     "ffn": 247.150163,
+     "head": 3.647608,
+     "norm+glue": 0.632994
+    }
+   },
+   "sm1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.862182,
+     "rope": 0.071395,
+     "attention": 13.747395,
+     "o_proj": 22.394117,
+     "ffn": 247.363344,
+     "head": 3.646544,
+     "norm+glue": 0.636785
+    }
+   },
+   "sm2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.883332,
+     "rope": 0.0713,
+     "attention": 16.800594,
+     "o_proj": 22.382234,
+     "ffn": 247.49878,
+     "head": 3.636071,
+     "norm+glue": 0.624233
+    }
+   },
+   "sm3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.928117,
+     "rope": 0.070448,
+     "attention": 19.539583,
+     "o_proj": 22.387589,
+     "ffn": 247.641994,
+     "head": 3.650435,
+     "norm+glue": 0.627856
+    }
+   },
+   "av1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 34.08933,
+     "rope": 0.071351,
+     "attention": 13.890467,
+     "o_proj": 22.404254,
+     "ffn": 247.678373,
+     "head": 3.660513,
+     "norm+glue": 0.622561
+    }
+   },
+   "av2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.904371,
+     "rope": 0.069417,
+     "attention": 16.052521,
+     "o_proj": 22.351288,
+     "ffn": 247.477475,
+     "head": 3.63244,
+     "norm+glue": 0.623109
+    }
+   },
+   "av3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.980056,
+     "rope": 0.069795,
+     "attention": 18.207481,
+     "o_proj": 22.351311,
+     "ffn": 247.461799,
+     "head": 3.650966,
+     "norm+glue": 0.622846
+    }
+   },
+   "fork2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.891139,
+     "rope": 0.069929,
+     "attention": 13.990616,
+     "o_proj": 22.343601,
+     "ffn": 247.528485,
+     "head": 3.640096,
+     "norm+glue": 0.624021
+    }
+   }
+  },
+  "tok_s": 3.05,
+  "cores_busy": 6.188220502315725,
+  "wall_s": 264.5777771472931,
+  "shape": "T10",
+  "bench": 800,
+  "run": 3,
+  "threads": 6,
+  "prio": "high",
+  "label": "T10_b800_r3"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.85749,
+     "rope": 0.014587,
+     "attention": 1.198897,
+     "o_proj": 0.586333,
+     "ffn": 11.528533,
+     "head": 3.697057,
+     "norm+glue": 0.06772
+    }
+   },
+   "serial2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.877427,
+     "rope": 0.01484,
+     "attention": 1.678977,
+     "o_proj": 0.613817,
+     "ffn": 11.488227,
+     "head": 3.668157,
+     "norm+glue": 0.069733
+    }
+   },
+   "none": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.85933,
+     "rope": 0.014993,
+     "attention": 0.673083,
+     "o_proj": 0.5898,
+     "ffn": 11.41373,
+     "head": 3.67678,
+     "norm+glue": 0.067803
+    }
+   },
+   "sm1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.85988,
+     "rope": 0.014527,
+     "attention": 0.67717,
+     "o_proj": 0.593883,
+     "ffn": 11.43484,
+     "head": 3.668847,
+     "norm+glue": 0.069003
+    }
+   },
+   "sm2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.86152,
+     "rope": 0.014733,
+     "attention": 0.935463,
+     "o_proj": 0.619777,
+     "ffn": 11.44062,
+     "head": 3.706417,
+     "norm+glue": 0.067977
+    }
+   },
+   "sm3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.87637,
+     "rope": 0.015353,
+     "attention": 1.198083,
+     "o_proj": 0.605553,
+     "ffn": 11.491663,
+     "head": 3.699763,
+     "norm+glue": 0.068103
+    }
+   },
+   "av1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.890837,
+     "rope": 0.01484,
+     "attention": 0.689067,
+     "o_proj": 0.59725,
+     "ffn": 11.441213,
+     "head": 3.659737,
+     "norm+glue": 0.067963
+    }
+   },
+   "av2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.86416,
+     "rope": 0.015743,
+     "attention": 0.779517,
+     "o_proj": 0.6227,
+     "ffn": 11.598253,
+     "head": 3.67958,
+     "norm+glue": 0.06874
+    }
+   },
+   "av3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.878393,
+     "rope": 0.01518,
+     "attention": 0.86518,
+     "o_proj": 0.58665,
+     "ffn": 11.472197,
+     "head": 3.672977,
+     "norm+glue": 0.068863
+    }
+   },
+   "fork2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.883233,
+     "rope": 0.015633,
+     "attention": 0.695997,
+     "o_proj": 0.59185,
+     "ffn": 11.495897,
+     "head": 3.671517,
+     "norm+glue": 0.06813
+    }
+   }
+  },
+  "tok_s": 56.52,
+  "cores_busy": 6.1166926605532055,
+  "wall_s": 5.573886394500732,
+  "shape": "S05",
+  "bench": 300,
+  "run": 4,
+  "threads": 6,
+  "prio": "high",
+  "label": "S05_b300_r4"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.865574,
+     "rope": 0.015245,
+     "attention": 2.988295,
+     "o_proj": 0.616166,
+     "ffn": 11.662601,
+     "head": 3.689939,
+     "norm+glue": 0.068444
+    }
+   },
+   "serial2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.872935,
+     "rope": 0.01542,
+     "attention": 4.492146,
+     "o_proj": 0.60905,
+     "ffn": 11.663651,
+     "head": 3.674984,
+     "norm+glue": 0.068319
+    }
+   },
+   "none": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.877212,
+     "rope": 0.015311,
+     "attention": 1.819351,
+     "o_proj": 0.608506,
+     "ffn": 11.666217,
+     "head": 3.697584,
+     "norm+glue": 0.071653
+    }
+   },
+   "sm1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.873026,
+     "rope": 0.014838,
+     "attention": 1.756261,
+     "o_proj": 0.597393,
+     "ffn": 11.628686,
+     "head": 3.685695,
+     "norm+glue": 0.069058
+    }
+   },
+   "sm2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.877116,
+     "rope": 0.015824,
+     "attention": 2.511941,
+     "o_proj": 0.604624,
+     "ffn": 11.708908,
+     "head": 3.681681,
+     "norm+glue": 0.069366
+    }
+   },
+   "sm3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.860714,
+     "rope": 0.015265,
+     "attention": 3.20425,
+     "o_proj": 0.611692,
+     "ffn": 11.708945,
+     "head": 3.707592,
+     "norm+glue": 0.0686
+    }
+   },
+   "av1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.863799,
+     "rope": 0.015188,
+     "attention": 1.822079,
+     "o_proj": 0.613981,
+     "ffn": 11.656365,
+     "head": 3.682914,
+     "norm+glue": 0.068724
+    }
+   },
+   "av2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.871259,
+     "rope": 0.015254,
+     "attention": 2.034505,
+     "o_proj": 0.606693,
+     "ffn": 11.638776,
+     "head": 3.69377,
+     "norm+glue": 0.069
+    }
+   },
+   "av3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.864214,
+     "rope": 0.015022,
+     "attention": 2.283105,
+     "o_proj": 0.603466,
+     "ffn": 11.663205,
+     "head": 3.718639,
+     "norm+glue": 0.068823
+    }
+   },
+   "fork2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.877707,
+     "rope": 0.01534,
+     "attention": 1.872045,
+     "o_proj": 0.599551,
+     "ffn": 11.813634,
+     "head": 3.695216,
+     "norm+glue": 0.069289
+    }
+   }
+  },
+  "tok_s": 51.43,
+  "cores_busy": 6.215977821889667,
+  "wall_s": 15.82615041732788,
+  "shape": "S05",
+  "bench": 800,
+  "run": 4,
+  "threads": 6,
+  "prio": "high",
+  "label": "S05_b800_r4"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.99732,
+     "rope": 0.071053,
+     "attention": 10.20811,
+     "o_proj": 22.35163,
+     "ffn": 247.358153,
+     "head": 3.62587,
+     "norm+glue": 0.623277
+    }
+   },
+   "serial2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 34.151203,
+     "rope": 0.06796,
+     "attention": 15.64116,
+     "o_proj": 22.564997,
+     "ffn": 247.425963,
+     "head": 3.63658,
+     "norm+glue": 0.622797
+    }
+   },
+   "none": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.879233,
+     "rope": 0.067067,
+     "attention": 4.494847,
+     "o_proj": 22.149187,
+     "ffn": 247.173427,
+     "head": 3.638097,
+     "norm+glue": 0.622343
+    }
+   },
+   "sm1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.928773,
+     "rope": 0.072687,
+     "attention": 4.497603,
+     "o_proj": 22.301393,
+     "ffn": 247.25851,
+     "head": 3.650457,
+     "norm+glue": 0.622747
+    }
+   },
+   "sm2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.976517,
+     "rope": 0.06824,
+     "attention": 5.74481,
+     "o_proj": 22.372113,
+     "ffn": 247.541593,
+     "head": 3.610477,
+     "norm+glue": 0.62144
+    }
+   },
+   "sm3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.871883,
+     "rope": 0.067923,
+     "attention": 6.528717,
+     "o_proj": 22.241913,
+     "ffn": 246.797027,
+     "head": 3.624463,
+     "norm+glue": 0.622473
+    }
+   },
+   "av1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.974407,
+     "rope": 0.06802,
+     "attention": 4.55378,
+     "o_proj": 22.273783,
+     "ffn": 247.52626,
+     "head": 3.64573,
+     "norm+glue": 0.624947
+    }
+   },
+   "av2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.97015,
+     "rope": 0.07033,
+     "attention": 5.224233,
+     "o_proj": 22.312367,
+     "ffn": 247.484847,
+     "head": 3.639883,
+     "norm+glue": 0.62347
+    }
+   },
+   "av3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.91663,
+     "rope": 0.070393,
+     "attention": 5.972537,
+     "o_proj": 22.27104,
+     "ffn": 247.399783,
+     "head": 3.63208,
+     "norm+glue": 0.622833
+    }
+   },
+   "fork2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.76285,
+     "rope": 0.070003,
+     "attention": 4.60046,
+     "o_proj": 22.198377,
+     "ffn": 247.13915,
+     "head": 3.64086,
+     "norm+glue": 0.635957
+    }
+   }
+  },
+  "tok_s": 3.18,
+  "cores_busy": 6.150955376589273,
+  "wall_s": 96.55258226394653,
+  "shape": "T10",
+  "bench": 300,
+  "run": 4,
+  "threads": 6,
+  "prio": "high",
+  "label": "T10_b300_r4"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.894734,
+     "rope": 0.06826,
+     "attention": 28.324399,
+     "o_proj": 22.334141,
+     "ffn": 247.140471,
+     "head": 3.643855,
+     "norm+glue": 0.627699
+    }
+   },
+   "serial2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.906925,
+     "rope": 0.068705,
+     "attention": 43.3162,
+     "o_proj": 22.274845,
+     "ffn": 246.928584,
+     "head": 3.645886,
+     "norm+glue": 0.62309
+    }
+   },
+   "none": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.896762,
+     "rope": 0.06969,
+     "attention": 13.622051,
+     "o_proj": 22.376733,
+     "ffn": 247.416998,
+     "head": 3.650444,
+     "norm+glue": 0.622667
+    }
+   },
+   "sm1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.866857,
+     "rope": 0.068983,
+     "attention": 13.437263,
+     "o_proj": 22.369269,
+     "ffn": 247.438948,
+     "head": 3.642424,
+     "norm+glue": 0.626545
+    }
+   },
+   "sm2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.801278,
+     "rope": 0.069504,
+     "attention": 16.473852,
+     "o_proj": 22.374844,
+     "ffn": 247.298128,
+     "head": 3.660107,
+     "norm+glue": 0.625938
+    }
+   },
+   "sm3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.883313,
+     "rope": 0.068407,
+     "attention": 19.194379,
+     "o_proj": 22.355053,
+     "ffn": 247.317323,
+     "head": 3.65352,
+     "norm+glue": 0.623471
+    }
+   },
+   "av1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.861774,
+     "rope": 0.067611,
+     "attention": 13.573465,
+     "o_proj": 22.358839,
+     "ffn": 247.43165,
+     "head": 3.654218,
+     "norm+glue": 0.626964
+    }
+   },
+   "av2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.955001,
+     "rope": 0.071233,
+     "attention": 15.765089,
+     "o_proj": 22.476481,
+     "ffn": 247.484597,
+     "head": 3.646374,
+     "norm+glue": 0.627198
+    }
+   },
+   "av3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.956626,
+     "rope": 0.06731,
+     "attention": 17.842253,
+     "o_proj": 22.415307,
+     "ffn": 247.599838,
+     "head": 3.645325,
+     "norm+glue": 0.630276
+    }
+   },
+   "fork2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.930371,
+     "rope": 0.069363,
+     "attention": 13.709,
+     "o_proj": 22.331469,
+     "ffn": 247.316854,
+     "head": 3.651654,
+     "norm+glue": 0.633806
+    }
+   }
+  },
+  "tok_s": 3.05,
+  "cores_busy": 6.183083174250526,
+  "wall_s": 264.2365999221802,
+  "shape": "T10",
+  "bench": 800,
+  "run": 4,
+  "threads": 6,
+  "prio": "high",
+  "label": "T10_b800_r4"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.866257,
+     "rope": 0.015173,
+     "attention": 1.125717,
+     "o_proj": 0.61811,
+     "ffn": 11.271447,
+     "head": 3.6792,
+     "norm+glue": 0.06777
+    }
+   },
+   "serial2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.873397,
+     "rope": 0.014793,
+     "attention": 1.633823,
+     "o_proj": 0.59758,
+     "ffn": 11.26017,
+     "head": 3.6621,
+     "norm+glue": 0.06781
+    }
+   },
+   "none": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.872383,
+     "rope": 0.015197,
+     "attention": 0.674297,
+     "o_proj": 0.591473,
+     "ffn": 11.274223,
+     "head": 3.622437,
+     "norm+glue": 0.068107
+    }
+   },
+   "sm1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.868173,
+     "rope": 0.01463,
+     "attention": 0.680473,
+     "o_proj": 0.614407,
+     "ffn": 11.194543,
+     "head": 3.658573,
+     "norm+glue": 0.067563
+    }
+   },
+   "sm2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.865333,
+     "rope": 0.015383,
+     "attention": 0.915007,
+     "o_proj": 0.581627,
+     "ffn": 11.219997,
+     "head": 3.699957,
+     "norm+glue": 0.068047
+    }
+   },
+   "sm3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.84433,
+     "rope": 0.014773,
+     "attention": 1.188913,
+     "o_proj": 0.589597,
+     "ffn": 11.304567,
+     "head": 3.65282,
+     "norm+glue": 0.06789
+    }
+   },
+   "av1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.87553,
+     "rope": 0.015553,
+     "attention": 0.678907,
+     "o_proj": 0.60036,
+     "ffn": 11.367673,
+     "head": 3.689693,
+     "norm+glue": 0.068967
+    }
+   },
+   "av2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.86951,
+     "rope": 0.01531,
+     "attention": 0.794637,
+     "o_proj": 0.611127,
+     "ffn": 11.443817,
+     "head": 3.705163,
+     "norm+glue": 0.06818
+    }
+   },
+   "av3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.879887,
+     "rope": 0.01547,
+     "attention": 0.863007,
+     "o_proj": 0.601467,
+     "ffn": 11.503203,
+     "head": 3.70718,
+     "norm+glue": 0.067967
+    }
+   },
+   "fork2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 0.869143,
+     "rope": 0.014837,
+     "attention": 0.736677,
+     "o_proj": 0.584983,
+     "ffn": 11.502597,
+     "head": 3.690397,
+     "norm+glue": 0.06882
+    }
+   }
+  },
+  "tok_s": 57.06,
+  "cores_busy": 6.124557234661692,
+  "wall_s": 5.525909662246704,
+  "shape": "S05",
+  "bench": 300,
+  "run": 5,
+  "threads": 6,
+  "prio": "high",
+  "label": "S05_b300_r5"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.858594,
+     "rope": 0.015244,
+     "attention": 3.037182,
+     "o_proj": 0.612169,
+     "ffn": 11.612291,
+     "head": 3.682181,
+     "norm+glue": 0.068414
+    }
+   },
+   "serial2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.877415,
+     "rope": 0.018995,
+     "attention": 4.479775,
+     "o_proj": 0.61873,
+     "ffn": 11.566426,
+     "head": 3.668744,
+     "norm+glue": 0.068511
+    }
+   },
+   "none": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.883348,
+     "rope": 0.015434,
+     "attention": 1.818536,
+     "o_proj": 0.597755,
+     "ffn": 11.665476,
+     "head": 3.692804,
+     "norm+glue": 0.068862
+    }
+   },
+   "sm1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.86518,
+     "rope": 0.015109,
+     "attention": 1.782961,
+     "o_proj": 0.609229,
+     "ffn": 11.660112,
+     "head": 3.682419,
+     "norm+glue": 0.068459
+    }
+   },
+   "sm2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.856601,
+     "rope": 0.015129,
+     "attention": 2.528468,
+     "o_proj": 0.607991,
+     "ffn": 11.591905,
+     "head": 3.679243,
+     "norm+glue": 0.071099
+    }
+   },
+   "sm3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.884555,
+     "rope": 0.01822,
+     "attention": 3.189456,
+     "o_proj": 0.611731,
+     "ffn": 11.59911,
+     "head": 3.646955,
+     "norm+glue": 0.068338
+    }
+   },
+   "av1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.892364,
+     "rope": 0.014967,
+     "attention": 1.833415,
+     "o_proj": 0.611643,
+     "ffn": 11.719492,
+     "head": 3.716006,
+     "norm+glue": 0.068271
+    }
+   },
+   "av2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.922564,
+     "rope": 0.015518,
+     "attention": 2.066595,
+     "o_proj": 0.615922,
+     "ffn": 11.746431,
+     "head": 3.67288,
+     "norm+glue": 0.068449
+    }
+   },
+   "av3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.885745,
+     "rope": 0.015333,
+     "attention": 2.271345,
+     "o_proj": 0.614107,
+     "ffn": 11.602642,
+     "head": 3.701491,
+     "norm+glue": 0.06873
+    }
+   },
+   "fork2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 0.869869,
+     "rope": 0.015201,
+     "attention": 1.842811,
+     "o_proj": 0.59701,
+     "ffn": 11.622029,
+     "head": 3.675129,
+     "norm+glue": 0.06824
+    }
+   }
+  },
+  "tok_s": 51.52,
+  "cores_busy": 6.182331002176974,
+  "wall_s": 15.803606271743774,
+  "shape": "S05",
+  "bench": 800,
+  "run": 5,
+  "threads": 6,
+  "prio": "high",
+  "label": "S05_b800_r5"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.925503,
+     "rope": 0.06696,
+     "attention": 10.214383,
+     "o_proj": 22.33436,
+     "ffn": 246.99667,
+     "head": 3.648433,
+     "norm+glue": 0.619603
+    }
+   },
+   "serial2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.82554,
+     "rope": 0.069867,
+     "attention": 15.690477,
+     "o_proj": 22.29241,
+     "ffn": 247.22293,
+     "head": 3.623693,
+     "norm+glue": 0.61948
+    }
+   },
+   "none": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.851163,
+     "rope": 0.069387,
+     "attention": 4.50311,
+     "o_proj": 22.31878,
+     "ffn": 247.315907,
+     "head": 3.64292,
+     "norm+glue": 0.615887
+    }
+   },
+   "sm1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.81423,
+     "rope": 0.071017,
+     "attention": 4.513033,
+     "o_proj": 22.260467,
+     "ffn": 246.935273,
+     "head": 3.656007,
+     "norm+glue": 0.616823
+    }
+   },
+   "sm2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.87252,
+     "rope": 0.069593,
+     "attention": 5.584663,
+     "o_proj": 22.30876,
+     "ffn": 246.5358,
+     "head": 3.63231,
+     "norm+glue": 0.61666
+    }
+   },
+   "sm3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.951213,
+     "rope": 0.069557,
+     "attention": 6.624417,
+     "o_proj": 22.329237,
+     "ffn": 246.850027,
+     "head": 3.630017,
+     "norm+glue": 0.61969
+    }
+   },
+   "av1": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.934597,
+     "rope": 0.06799,
+     "attention": 4.55438,
+     "o_proj": 22.252013,
+     "ffn": 247.31595,
+     "head": 3.648677,
+     "norm+glue": 0.621017
+    }
+   },
+   "av2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.875857,
+     "rope": 0.06971,
+     "attention": 5.257767,
+     "o_proj": 22.30087,
+     "ffn": 247.355647,
+     "head": 3.660053,
+     "norm+glue": 0.618223
+    }
+   },
+   "av3": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.87796,
+     "rope": 0.069677,
+     "attention": 5.909227,
+     "o_proj": 22.31743,
+     "ffn": 247.262063,
+     "head": 3.645643,
+     "norm+glue": 0.616957
+    }
+   },
+   "fork2": {
+    "n": 30,
+    "organs": {
+     "qkv_proj": 33.841373,
+     "rope": 0.070343,
+     "attention": 4.579597,
+     "o_proj": 22.263747,
+     "ffn": 246.834527,
+     "head": 3.638633,
+     "norm+glue": 0.61799
+    }
+   }
+  },
+  "tok_s": 3.18,
+  "cores_busy": 6.17041330055622,
+  "wall_s": 96.45828747749329,
+  "shape": "T10",
+  "bench": 300,
+  "run": 5,
+  "threads": 6,
+  "prio": "high",
+  "label": "T10_b300_r5"
+ },
+ {
+  "arms": {
+   "serial": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 34.002999,
+     "rope": 0.068174,
+     "attention": 28.642591,
+     "o_proj": 22.419219,
+     "ffn": 247.986335,
+     "head": 3.652998,
+     "norm+glue": 0.625679
+    }
+   },
+   "serial2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.950054,
+     "rope": 0.065772,
+     "attention": 43.719868,
+     "o_proj": 22.30595,
+     "ffn": 247.22681,
+     "head": 3.648451,
+     "norm+glue": 0.61972
+    }
+   },
+   "none": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.884774,
+     "rope": 0.067805,
+     "attention": 13.73794,
+     "o_proj": 22.411039,
+     "ffn": 247.570235,
+     "head": 3.640691,
+     "norm+glue": 0.619161
+    }
+   },
+   "sm1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.961526,
+     "rope": 0.068386,
+     "attention": 13.52245,
+     "o_proj": 22.347038,
+     "ffn": 247.378685,
+     "head": 3.645669,
+     "norm+glue": 0.622628
+    }
+   },
+   "sm2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.984621,
+     "rope": 0.067877,
+     "attention": 16.552115,
+     "o_proj": 22.419133,
+     "ffn": 247.413504,
+     "head": 3.665012,
+     "norm+glue": 0.62504
+    }
+   },
+   "sm3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.92518,
+     "rope": 0.068584,
+     "attention": 19.328874,
+     "o_proj": 22.348577,
+     "ffn": 247.613084,
+     "head": 3.631056,
+     "norm+glue": 0.619618
+    }
+   },
+   "av1": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.911908,
+     "rope": 0.070724,
+     "attention": 13.732896,
+     "o_proj": 22.443709,
+     "ffn": 247.582568,
+     "head": 3.652063,
+     "norm+glue": 0.620079
+    }
+   },
+   "av2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.922372,
+     "rope": 0.067571,
+     "attention": 15.81574,
+     "o_proj": 22.399405,
+     "ffn": 247.50419,
+     "head": 3.650536,
+     "norm+glue": 0.621335
+    }
+   },
+   "av3": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 34.012113,
+     "rope": 0.069806,
+     "attention": 17.91004,
+     "o_proj": 22.421454,
+     "ffn": 247.532673,
+     "head": 3.649459,
+     "norm+glue": 0.619296
+    }
+   },
+   "fork2": {
+    "n": 80,
+    "organs": {
+     "qkv_proj": 33.857131,
+     "rope": 0.06852,
+     "attention": 13.793225,
+     "o_proj": 22.362586,
+     "ffn": 247.227432,
+     "head": 3.662286,
+     "norm+glue": 0.623444
+    }
+   }
+  },
+  "tok_s": 3.05,
+  "cores_busy": 6.193571211851824,
+  "wall_s": 264.5611181259155,
+  "shape": "T10",
+  "bench": 800,
+  "run": 5,
+  "threads": 6,
+  "prio": "high",
+  "label": "T10_b800_r5"
+ }
+]
