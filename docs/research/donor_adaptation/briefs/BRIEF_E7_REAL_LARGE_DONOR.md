@@ -166,3 +166,119 @@ absolute timings (`SPEED_LEDGER` §12: the profiler once manufactured a 9.6% ano
 runs are used for the organ SPLIT only and never for a rate.** Nothing bounds `f` above 800 today;
 this is the cheapest place it has ever been measurable, because the weight path here is ~215 ms
 and `f` is a few, so a 2x change in `f` is visible without being confounded by the weights.
+
+---
+
+## 9-bis. VERDICT on the extension (added after G-X1/G-X2 ran; nothing above was edited)
+
+**G-X1 — the fixed-cost reading is REFUTED.** `--bench 1600`, packed arm, 3 reps:
+
+    4.05 / 4.23 / 4.31 tok/s   ->  median 4.230, spread 6.1%
+
+§9's call was fixed before the run: *above 4.580 the fixed-cost reading survives, below 4.580 it is
+refuted.* **4.230 is below**, and it is below the fit's own reported band (4.50–4.68) by more than
+the band's width. The fit predicted **4.616** and missed by **−8.4%** — well outside the ±5% that
+governs an absolute rate here.
+
+So there is **no fixed cost inside the timed region**, and none of the SPEED_LEDGER's short
+`--bench` cells reads low. What the 300/800 pair was showing is `f` growth, sampled too coarsely
+to see: between 300 and 800 the attention organ costs less than the run-to-run noise, so the pair
+inverted on noise, not on a mechanism. **My §7 two-point fit was fitting noise** — the 300→800
+inversion is 2.7%, inside this programme's own ±5% band, and I should not have modelled it. It cost
+nothing only because §7 labelled it "a two-point fit, not a measurement" and §9 tested it.
+
+The 6.1% spread at 1600 is itself the reason a third point was needed rather than a third opinion.
+
+**G-X2 — `f` beyond 800 is measured, and it is linear.** E4's owed item 3, closed. Profiled runs
+are admissible only where the **`ffn`-invariance witness** holds: the FFN organ cannot depend on
+context length, so any cell whose `ffn` sits above the uncontended ~175–180 ms plateau was taken
+under load and its attention reading is thrown away. Six of nine profiled cells survived:
+
+| context | `ffn` (witness) | **attention ms/token** |
+|---|---|---|
+| 300 | 176.935 | **4.932** |
+| 800 | 177.832 / 175.730 | **13.092 / 12.713** |
+| 1600 | 176.193 / 179.518 / 180.119 | **25.462 / 25.636 / 25.951** |
+
+Discarded by the witness: `ffn` 237.124, 228.602, 213.422 — the cells that would have read
+attention as 8.031, 6.428 and 16.067 and manufactured a knee that is not there.
+
+Slope, on the surviving cells:
+
+| interval | Δ attention | per token of `--bench N` | **per token of actual context** |
+|---|---|---|---|
+| 300 → 800 | 7.97 ms | 0.01594 | **0.0319 ms** |
+| 800 → 1600 | 12.78 ms | 0.01597 | **0.0319 ms** |
+
+(`--bench N` averages the organ over positions 0…N−1, so mean context is N/2; the third column is
+the physical quantity.) **The two intervals agree to 0.2% over a 5.3× range in context. `f` is
+linear to 1600 tokens with no knee**, which is what a KV-cache-streaming organ should do and is
+now measured rather than assumed.
+
+**Correction to a claim I was about to make.** Comparing E7's attention (12.90 ms @800) against
+E4's `T10` figure (12.058 @800) looked like a ~2.2× anomaly: Coder-7B has 28 layers × 28 heads =
+**784 head-layers** against `T10`'s 48 × 32 = **1536**, so it should cost **0.510×**, not the same.
+The comparison was wrong, not the engine — E4's 12.058 is the **`avx4`** arm and E7 was running the
+**default**, which §10 shows is `serial`. Against E4's own `serial` row, 24.463 ms:
+
+    predicted   24.463 x (784/1536) = 12.49 ms
+    measured    12.90 ms  (median of the two admissible 800 cells)   ->  +3.3%
+
+**Inside the band.** A cross-model, cross-shape prediction of an organ cost from head-layer count
+alone, correct to 3.3%. There was never an anomaly.
+
+---
+
+## 10. AMENDMENT, pre-registered before the run it governs — the engine's default attention kernel is not the one E4 won with
+
+**The finding.** `donor_engine.c:116`:
+
+    static int g_attn=ATTN_SERIAL;
+
+The default attention kernel is `serial` — E4's **second-slowest** arm (`serial` 24.463 ms at
+`T10` @800, against `serial_e3` 23.978 and `avx4` **12.058**). E4's 6.53× win on the `Q·K` dot loop
+is reachable **only** via an explicit `--attn avx4`, and was never wired in as the default. E4's
+own runners pass `--attn` on every point (`e4_g4prime.sh`, `e4_interleave.sh`), so E4's table is
+sound; but **`e3_bench.py` defaults `--attn` to the empty string and does not pass it**, and
+neither did `e7_real7b.py`. Every E7 number above, and E3's `T10` baseline, is on `serial`.
+
+**Already in hand when this section was written** (declared, not hidden): one profiled `avx4` cell
+at 300 context, `ffn` 178.898 — admissible under the witness — reading attention **2.336 ms/token**
+against `serial`'s 4.932. That is **0.474×**, which matches E4's `T10` ratio of 0.493× to within
+4%: the arm transfers to a real donor at a different head count.
+
+What is **not** in hand, and is what this section pre-registers:
+
+**G-Y1 — does the rate move?** `--bench {300, 1600} --attn avx4` on the packed arm, **3 reps each,
+un-profiled**, dispersion reported, machine otherwise idle.
+
+The prediction is arithmetic on organ costs already measured, and it is deliberately unflattering:
+
+| cell | token now | attention saved | predicted token | **predicted tok/s** | measured now |
+|---|---|---|---|---|---|
+| 300 | 224.2 ms | 4.932 − 2.336 = **2.60 ms** | 221.6 ms | **4.512** (+1.2%) | 4.460 |
+| 1600 | 236.4 ms | 25.68 − ~12.2 = **13.5 ms** | 222.9 ms | **4.487** (+5.7%) | 4.230 |
+
+**The call, fixed now: at 300 the gain is ~1% and therefore BELOW this programme's own ±5%
+resolution — G-Y1 at 300 is expected to be a NULL, and a null there does not refute the kernel.
+At 1600 the gain is ~5.7% and sits right at the edge; that is the cell that can actually speak.**
+Bands: 300 → **4.35–4.70**; 1600 → **4.30–4.70**. A 1600 median at or below 4.230 (today's serial
+figure) refutes the claim that the kernel reaches the rate at all.
+
+**G-Y2 — what this does and does not cost the ledger.** Whatever G-Y1 reads, the honest accounting
+is fixed here before seeing it: attention is **2.2% of the token at 300 and 10.5% at 1600**, and
+the FFN is **73–80%**. Halving attention cannot move an 11.2× gap. **§10 is a correctness note
+about which kernel ran, not a speed result**, and E7's verdict, its 4.460 tok/s, its ±4.3% against
+the pre-registered prediction and its 31.5 G-weights/s proxy check all stand unless G-Y1 moves the
+300 cell by more than ±5% — which the table above predicts it will not.
+
+**G-Y3 — the ledger's `T10` figures.** E3's 3.090 tok/s at `T10` @300 was taken on the `serial`
+default. E4 measured `avx4` at `T10` @800 as **3.230 tok/s against `serial`'s 3.110 — +3.9%**,
+already published, already inside ±5%. So the ledger does not understate the engine by more than
+its own resolution, and **§13–§16 need no numeric correction**; they need the sentence that says
+which kernel produced them. That sentence is owed regardless of how G-Y1 reads.
+
+**What is NOT proposed here.** Changing the default. `serial` is the arm every prior probe's
+baseline was taken on; flipping `g_attn` would silently re-base E1–E7. The default is a
+**documentation** defect, and the fix is a runner that passes `--attn` explicitly and a ledger line
+that names the kernel — not an edit that makes old numbers unreproducible.
