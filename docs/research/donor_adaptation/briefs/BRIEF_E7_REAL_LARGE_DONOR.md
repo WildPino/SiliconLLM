@@ -135,3 +135,34 @@ entirely the weight path, and that is now a statement about trained weights rath
 
 **The exporter control over-delivered**: the 0.5 B sha256 pair matched each other AND matched E1's
 own `qwen25-05b_f32.bin` byte for byte, so `--load-dtype bfloat16` is provably the same exporter.
+
+---
+
+## 9. EXTENSION, pre-registered before it ran — is there a fixed cost inside the timed region?
+
+§8 left one thing unresolved and it is not cosmetic. At this shape the **800-context cell is faster
+than the 300-context cell** (4.580 vs 4.460), the opposite of `T10`. Two-point arithmetic on the
+wall times (67.276 s, 174.723 s) fits a marginal **214.894 ms/token** plus a **fixed 2.808 s**
+inside the timed region. If that fixed term is real, **every short `--bench` in the SPEED_LEDGER
+reads low**, including the 300-context cells §13 and §16 quote.
+
+A two-point fit cannot tell a fixed cost from a slowly-growing one. A third point can.
+
+**G-X1 — the discriminator.** `--bench 1600` on the packed arm, 3 repetitions.
+
+| model | prediction at 1600 |
+|---|---|
+| fixed cost + constant marginal (the fit) | `1600 x 0.214894 + 2.808 = 346.6 s` -> **4.616 tok/s** |
+| no fixed cost, `f` growing with position | **below 4.580** |
+
+**The call, fixed now: if the 1600 median is ABOVE 4.580 the fixed-cost reading survives; if it is
+BELOW 4.580, it is refuted and `f` growth is what the 300/800 pair was showing.** Reported band
+for the fit: **4.50 – 4.68** (the linear extrapolation minus whatever `f` adds between 800 and
+1600, which the fit cannot see).
+
+**G-X2 — `f` beyond 800 tokens, which is E4's owed item 3.** `--bench {300, 800, 1600} --profile`,
+one repetition each, reporting `rope + attention + norm/glue` in ms/token. Profiling perturbs
+absolute timings (`SPEED_LEDGER` §12: the profiler once manufactured a 9.6% anomaly), so **these
+runs are used for the organ SPLIT only and never for a rate.** Nothing bounds `f` above 800 today;
+this is the cheapest place it has ever been measurable, because the weight path here is ~215 ms
+and `f` is a few, so a 2x change in `f` is visible without being confounded by the weights.
