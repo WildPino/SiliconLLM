@@ -116,9 +116,9 @@ correction is recorded here, pushed, before `--lut`, `--lut-group 32` or `--lutb
 
 | | value |
 |---|---|
-| A0 | **13.564522 nats/token** = 19.569469 bits/token = **4.629230 BPB** |
+| A0 | **13.5645220434 nats/token** = 19.569470 bits/token = **4.629292115 BPB** |
 | chance, `log2(151936) / 4.227313` | **4.071878 BPB** (`ln V` = 11.931215 nats/token) |
-| **A0 − chance** | **+0.557 BPB, +1.633 nats/token** |
+| **A0 − chance** | **+0.557414 BPB, +1.633307 nats/token** |
 
 The slice is 12,288 tokens, 12,287 predicted, **51,941 scored bytes, 4.227313 bytes/token** —
 computed by decoding the slice, and **identical for the 0.5 B and 1.5 B ids files**, so one chance
