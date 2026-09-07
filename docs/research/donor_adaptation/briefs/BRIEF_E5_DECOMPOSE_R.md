@@ -461,3 +461,97 @@ the 48 measurements in a cell. **This measurement wants a quiet machine** — th
 speed needs an idle box, met head-on. Elevating priority is what can be done from inside the
 experiment; closing the desktop's background work, or excluding `D:/_ktmp` from real-time scanning,
 is not mine to decide and is not done here.
+
+---
+
+## 11. AMENDMENT after run 4 - the between-process design cannot resolve these components
+
+Pushed **before run 5 exists**. Run 4: `results/e5/arms4.json` (240 records, 10 arms x 6 passes x 4
+cells, every measurement at `HIGH_PRIORITY_CLASS`), analysis `results/e5/analysis4.txt`.
+
+### 11.1 Run 4's verdict: VOID, at the gate fixed in section 10.4
+
+| cell | measurements | kept at G0=1% | arms with <2 survivors |
+|---|---|---|---|
+| `T10` @800 | 60 | 18 | **2** - `av3`, `fork2` |
+| `T10` @300 | 60 | 15 | 5 |
+| `S05` @800 | 60 | 13 | 5 |
+| `S05` @300 | 60 | 10 | 8 |
+
+**All four cells are VOID.** G0 was tightened to 1% in section 10.4, before run 4 ran, and the rule
+is that a cell with fewer than two clean measurements on any arm is void. The judging cell missed by
+two arms. **It is not loosened now.** A gate moved after seeing which side of it the data fell on is
+not a gate, and the whole point of fixing 1% in advance was to make this outcome cost something.
+
+G2 passed: all eight new arms print `NATS_TOTAL 166667.1361128952`, bit-identical.
+
+### 11.2 The witness that was promoted to a gate did nothing
+
+Section 10.4 promoted `cores_busy` to a gate at +0.30 cores. Removing it changes the survivor count
+in **none** of the four cells - every measurement it would have discarded, the 1% `W` gate had
+already discarded. It is not a second, independent view of the contamination at this tolerance; it
+is a coarser view of the same one. Reported because it was announced as a gate and earned nothing.
+
+### 11.3 What run 4 actually establishes
+
+The `W` excess over the cell minimum at `T10` @800, across all 60 measurements: **median 1.98%, p75
+2.28%, max 8.54%** - against run 3's 29.6% max, so `HIGH_PRIORITY_CLASS` bought a real improvement,
+and it is still not enough. The reason is arithmetic and does not wait for a quieter machine:
+
+> The weight path at `T10` @800 is **301.2 ms**. One percent of it is **3.0 ms**. The component
+> being estimated, `Y`, is about **1.9 ms**. A gate loose enough for measurements minutes apart to
+> pass admits an excursion larger than the thing being measured; a gate tight enough to protect the
+> measurement rejects two thirds of it.
+
+**This is a property of the design, not of the run.** Three sweeps, each cleaner than the last, hit
+the same wall: E5 compares arms that live in *different processes*, minutes apart, each re-reading a
+5 GB weights file, and charges the difference between them to a 2 ms loop.
+
+### 11.4 Run 5 - one process, arms interleaved per token
+
+The fix is the one this project already wrote down after the 0.503-vs-0.50 case: when a difference
+is smaller than the instrument's drift, **interleave** it. Run 5 puts every arm inside a **single
+process** and rotates the arm **per token**:
+
+- An arm is a **pair** `(--attn, --attnr)`, so the ten arms of run 4 - `serial/none`,
+  `serial2/none`, `avx4/none`, then `sm1`, `sm2`, `sm3`, `av1`, `av2`, `av3`, `fork2` on `avx4` -
+  all live in one run. `X`, `R`, `S`, `Y` and `P` then come out of a single model load, with no
+  between-process term anywhere in the arithmetic.
+- The rotation is a **palindrome of period 2n**: `idx = pos % 2n`, then `arm = idx < n ? idx :
+  2n-1-idx`. Attention cost grows with position, so a plain round-robin would hand arm 0
+  systematically shorter contexts than arm n-1; under the palindrome each arm holds positions `b+i`
+  and `b+2n-1-i`, whose sum is the same for every `i`. **Every arm's mean position is exactly equal
+  by construction, not by averaging.** At n=10 with `--bench 800`, each arm gets 80 tokens and each
+  residue appears 40 times.
+- A contention episode now lands inside a few tokens and is shared by every arm holding a token in
+  that window, instead of landing on whichever arm happened to own the next four minutes.
+
+### 11.5 The gates for run 5, fixed here
+
+- **G2 (parity).** The rotation keys off `pos` inside `forward()`, so it is active in `--bpb` as
+  well as `--bench`: a single interleaved run must print the **same** `NATS_TOTAL` as `none`. This
+  is a strictly stronger G2 than run 4's - it tests every arm's value-preservation *while they are
+  mixed*, which is the configuration the timings come from.
+- **G0, now within-process.** `W` is still untouched by every arm, and the arms now share one
+  process, so `W` per arm must agree **within 1% across the arms of a single run**. Same number as
+  section 10.4, but now a test the design can pass: it asks whether the interleave distributed the
+  machine evenly, not whether the machine held still for seven hours. A run whose arms disagree by
+  more than 1% on `W` is discarded whole.
+- **G1 unchanged**: `S = sm2 - sm1`, `Y = av2 - av1`, predicted at 3x and tested at **3%**, with
+  both increments printed side by side. The `INCONCLUSIVE` floor stays at 0.30 ms.
+- **G4 unchanged**: a leading share within 3 points of 0.50 is withheld, in either direction.
+- **Repetitions**: **5 independent processes** per cell. The within-process arm differences are the
+  measurement; the spread of those differences *across* the five runs is the reproducibility
+  interval, and it is reported with every component. Fewer than 3 runs surviving G0 and G2 voids
+  the cell.
+
+### 11.6 The limitation this design introduces, stated before it is used
+
+An interleaved arm is measured **while the other arms run around it**. If interleaving itself has a
+cost - an instruction cache that no longer holds a single loop, a branch that is no longer predicted
+- that cost sits in every arm. So: **`none` inside the sweep is the baseline for everything in run
+5, and E4's `none` is never subtracted from a run-5 number.** The `1x - none` column of section 10.3
+keeps pricing the code-shape difference, and if the sweep's `none` organ differs materially from run
+4's `none` organ, that difference is reported as the price of interleaving rather than absorbed.
+
+Section 3's predictions are still **not re-fitted**. Section 9.4's fallback still stands.

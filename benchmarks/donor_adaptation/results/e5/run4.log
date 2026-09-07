@@ -1,0 +1,487 @@
+S05_serial_none_b300_r1 bench=300  median   57.570 tok/s  IQR   0.000   reps 57.57
+   organs ms/tok: qkv_proj=0.863  rope=0.016  attention=1.011  o_proj=0.596  ffn=11.202  head=3.639  norm+glue=0.068
+S05_serial2_none_b300_r1 bench=300  median   54.330 tok/s  IQR   0.000   reps 54.33
+   organs ms/tok: qkv_proj=0.927  rope=0.016  attention=1.628  o_proj=0.623  ffn=11.482  head=3.688  norm+glue=0.069
+S05_avx4_none_b300_r1  bench=300  median   56.910 tok/s  IQR   0.000   reps 56.91
+   organs ms/tok: qkv_proj=0.930  rope=0.017  attention=0.674  o_proj=0.626  ffn=11.575  head=3.718  norm+glue=0.070
+S05_avx4_sm1_b300_r1   bench=300  median   58.520 tok/s  IQR   0.000   reps 58.52
+   organs ms/tok: qkv_proj=0.865  rope=0.016  attention=0.639  o_proj=0.595  ffn=11.255  head=3.676  norm+glue=0.068
+S05_avx4_sm2_b300_r1   bench=300  median   58.230 tok/s  IQR   0.000   reps 58.23
+   organs ms/tok: qkv_proj=0.865  rope=0.016  attention=0.841  o_proj=0.599  ffn=11.160  head=3.653  norm+glue=0.068
+S05_avx4_sm3_b300_r1   bench=300  median   57.630 tok/s  IQR   0.000   reps 57.63
+   organs ms/tok: qkv_proj=0.863  rope=0.015  attention=1.079  o_proj=0.587  ffn=11.132  head=3.636  norm+glue=0.068
+S05_avx4_av1_b300_r1   bench=300  median   59.630 tok/s  IQR   0.000   reps 59.63
+   organs ms/tok: qkv_proj=0.849  rope=0.015  attention=0.626  o_proj=0.585  ffn=11.017  head=3.638  norm+glue=0.068
+S05_avx4_av2_b300_r1   bench=300  median   58.950 tok/s  IQR   0.000   reps 58.95
+   organs ms/tok: qkv_proj=0.857  rope=0.016  attention=0.704  o_proj=0.588  ffn=11.115  head=3.643  norm+glue=0.068
+S05_avx4_av3_b300_r1   bench=300  median   58.820 tok/s  IQR   0.000   reps 58.82
+   organs ms/tok: qkv_proj=0.857  rope=0.016  attention=0.798  o_proj=0.584  ffn=11.092  head=3.616  norm+glue=0.068
+S05_avx4_fork2_b300_r1 bench=300  median   59.280 tok/s  IQR   0.000   reps 59.28
+   organs ms/tok: qkv_proj=0.852  rope=0.017  attention=0.666  o_proj=0.584  ffn=11.085  head=3.622  norm+glue=0.068
+S05_serial_none_b800_r1 bench=800  median   52.900 tok/s  IQR   0.000   reps 52.90
+   organs ms/tok: qkv_proj=0.860  rope=0.015  attention=2.595  o_proj=0.598  ffn=11.133  head=3.631  norm+glue=0.068
+S05_serial2_none_b800_r1 bench=800  median   49.370 tok/s  IQR   0.000   reps 49.37
+   organs ms/tok: qkv_proj=0.859  rope=0.015  attention=3.971  o_proj=0.596  ffn=11.106  head=3.631  norm+glue=0.068
+S05_avx4_none_b800_r1  bench=800  median   54.750 tok/s  IQR   0.000   reps 54.75
+   organs ms/tok: qkv_proj=0.906  rope=0.016  attention=1.643  o_proj=0.611  ffn=11.340  head=3.676  norm+glue=0.069
+S05_avx4_sm1_b800_r1   bench=800  median   56.010 tok/s  IQR   0.000   reps 56.01
+   organs ms/tok: qkv_proj=0.871  rope=0.016  attention=1.546  o_proj=0.593  ffn=11.117  head=3.638  norm+glue=0.068
+S05_avx4_sm2_b800_r1   bench=800  median   53.840 tok/s  IQR   0.000   reps 53.84
+   organs ms/tok: qkv_proj=0.871  rope=0.016  attention=2.230  o_proj=0.604  ffn=11.148  head=3.634  norm+glue=0.068
+S05_avx4_sm3_b800_r1   bench=800  median   52.690 tok/s  IQR   0.000   reps 52.69
+   organs ms/tok: qkv_proj=0.857  rope=0.016  attention=2.744  o_proj=0.594  ffn=11.080  head=3.614  norm+glue=0.068
+S05_avx4_av1_b800_r1   bench=800  median   55.430 tok/s  IQR   0.000   reps 55.43
+   organs ms/tok: qkv_proj=0.865  rope=0.016  attention=1.611  o_proj=0.598  ffn=11.212  head=3.663  norm+glue=0.068
+S05_avx4_av2_b800_r1   bench=800  median   55.610 tok/s  IQR   0.000   reps 55.61
+   organs ms/tok: qkv_proj=0.849  rope=0.015  attention=1.794  o_proj=0.590  ffn=11.042  head=3.619  norm+glue=0.068
+S05_avx4_av3_b800_r1   bench=800  median   54.250 tok/s  IQR   0.000   reps 54.25
+   organs ms/tok: qkv_proj=0.863  rope=0.016  attention=2.050  o_proj=0.598  ffn=11.183  head=3.650  norm+glue=0.068
+S05_avx4_fork2_b800_r1 bench=800  median   55.840 tok/s  IQR   0.000   reps 55.84
+   organs ms/tok: qkv_proj=0.852  rope=0.015  attention=1.600  o_proj=0.588  ffn=11.129  head=3.648  norm+glue=0.068
+T10_serial_none_b300_r1 bench=300  median    3.210 tok/s  IQR   0.000   reps 3.21
+   organs ms/tok: qkv_proj=33.590  rope=0.072  attention=9.013  o_proj=22.101  ffn=243.058  head=3.620  norm+glue=0.612
+T10_serial2_none_b300_r1 bench=300  median    3.150 tok/s  IQR   0.000   reps 3.15
+   organs ms/tok: qkv_proj=33.735  rope=0.070  attention=14.615  o_proj=22.194  ffn=243.391  head=3.620  norm+glue=0.610
+T10_avx4_none_b300_r1  bench=300  median    3.220 tok/s  IQR   0.000   reps 3.22
+   organs ms/tok: qkv_proj=34.068  rope=0.072  attention=4.749  o_proj=22.381  ffn=246.051  head=3.667  norm+glue=0.615
+T10_avx4_sm1_b300_r1   bench=300  median    3.210 tok/s  IQR   0.000   reps 3.21
+   organs ms/tok: qkv_proj=34.066  rope=0.080  attention=4.632  o_proj=22.380  ffn=246.478  head=3.665  norm+glue=0.616
+T10_avx4_sm2_b300_r1   bench=300  median    3.210 tok/s  IQR   0.000   reps 3.21
+   organs ms/tok: qkv_proj=34.095  rope=0.072  attention=5.464  o_proj=22.402  ffn=246.450  head=3.660  norm+glue=0.612
+T10_avx4_sm3_b300_r1   bench=300  median    3.220 tok/s  IQR   0.000   reps 3.22
+   organs ms/tok: qkv_proj=33.840  rope=0.072  attention=6.276  o_proj=22.224  ffn=244.291  head=3.639  norm+glue=0.612
+T10_avx4_av1_b300_r1   bench=300  median    3.220 tok/s  IQR   0.000   reps 3.22
+   organs ms/tok: qkv_proj=34.044  rope=0.076  attention=4.631  o_proj=22.404  ffn=245.984  head=3.662  norm+glue=0.612
+T10_avx4_av2_b300_r1   bench=300  median    3.210 tok/s  IQR   0.000   reps 3.21
+   organs ms/tok: qkv_proj=34.129  rope=0.074  attention=5.275  o_proj=22.375  ffn=246.187  head=3.658  norm+glue=0.616
+T10_avx4_av3_b300_r1   bench=300  median    3.240 tok/s  IQR   0.000   reps 3.24
+   organs ms/tok: qkv_proj=33.685  rope=0.070  attention=5.841  o_proj=22.142  ffn=243.212  head=3.629  norm+glue=0.609
+T10_avx4_fork2_b300_r1 bench=300  median    3.260 tok/s  IQR   0.000   reps 3.26
+   organs ms/tok: qkv_proj=33.615  rope=0.072  attention=4.678  o_proj=22.133  ffn=242.883  head=3.616  norm+glue=0.607
+T10_serial_none_b800_r1 bench=800  median    3.070 tok/s  IQR   0.000   reps 3.07
+   organs ms/tok: qkv_proj=33.576  rope=0.072  attention=23.718  o_proj=22.096  ffn=242.642  head=3.610  norm+glue=0.610
+T10_serial2_none_b800_r1 bench=800  median    2.940 tok/s  IQR   0.000   reps 2.94
+   organs ms/tok: qkv_proj=33.550  rope=0.073  attention=38.331  o_proj=22.055  ffn=242.193  head=3.609  norm+glue=0.610
+T10_avx4_none_b800_r1  bench=800  median    3.180 tok/s  IQR   0.000   reps 3.18
+   organs ms/tok: qkv_proj=33.579  rope=0.070  attention=11.521  o_proj=22.110  ffn=242.781  head=3.619  norm+glue=0.608
+T10_avx4_sm1_b800_r1   bench=800  median    3.190 tok/s  IQR   0.000   reps 3.19
+   organs ms/tok: qkv_proj=33.575  rope=0.070  attention=11.350  o_proj=22.105  ffn=242.779  head=3.610  norm+glue=0.611
+T10_avx4_sm2_b800_r1   bench=800  median    3.170 tok/s  IQR   0.000   reps 3.17
+   organs ms/tok: qkv_proj=33.536  rope=0.070  attention=13.715  o_proj=22.089  ffn=242.344  head=3.610  norm+glue=0.610
+T10_avx4_sm3_b800_r1   bench=800  median    3.140 tok/s  IQR   0.000   reps 3.14
+   organs ms/tok: qkv_proj=33.582  rope=0.072  attention=16.085  o_proj=22.104  ffn=242.715  head=3.605  norm+glue=0.610
+T10_avx4_av1_b800_r1   bench=800  median    3.180 tok/s  IQR   0.000   reps 3.18
+   organs ms/tok: qkv_proj=33.590  rope=0.073  attention=11.476  o_proj=22.142  ffn=242.851  head=3.618  norm+glue=0.606
+T10_avx4_av2_b800_r1   bench=800  median    3.170 tok/s  IQR   0.000   reps 3.17
+   organs ms/tok: qkv_proj=33.564  rope=0.072  attention=13.072  o_proj=22.111  ffn=242.373  head=3.609  norm+glue=0.608
+T10_avx4_av3_b800_r1   bench=800  median    3.150 tok/s  IQR   0.000   reps 3.15
+   organs ms/tok: qkv_proj=33.531  rope=0.073  attention=14.824  o_proj=22.089  ffn=242.459  head=3.613  norm+glue=0.610
+T10_avx4_fork2_b800_r1 bench=800  median    3.190 tok/s  IQR   0.000   reps 3.19
+   organs ms/tok: qkv_proj=33.510  rope=0.073  attention=11.563  o_proj=22.061  ffn=242.488  head=3.605  norm+glue=0.605
+PASS 1 DONE
+S05_serial_none_b300_r2 bench=300  median   58.050 tok/s  IQR   0.000   reps 58.05
+   organs ms/tok: qkv_proj=0.867  rope=0.015  attention=0.997  o_proj=0.590  ffn=11.078  head=3.634  norm+glue=0.068
+S05_serial2_none_b300_r2 bench=300  median   55.400 tok/s  IQR   0.000   reps 55.40
+   organs ms/tok: qkv_proj=0.872  rope=0.016  attention=1.600  o_proj=0.604  ffn=11.263  head=3.653  norm+glue=0.068
+S05_avx4_none_b300_r2  bench=300  median   59.270 tok/s  IQR   0.000   reps 59.27
+   organs ms/tok: qkv_proj=0.862  rope=0.016  attention=0.627  o_proj=0.595  ffn=11.076  head=3.654  norm+glue=0.068
+S05_avx4_sm1_b300_r2   bench=300  median   59.440 tok/s  IQR   0.000   reps 59.44
+   organs ms/tok: qkv_proj=0.852  rope=0.015  attention=0.611  o_proj=0.588  ffn=11.068  head=3.644  norm+glue=0.069
+S05_avx4_sm2_b300_r2   bench=300  median   57.930 tok/s  IQR   0.000   reps 57.93
+   organs ms/tok: qkv_proj=0.885  rope=0.016  attention=0.878  o_proj=0.597  ffn=11.207  head=3.637  norm+glue=0.068
+S05_avx4_sm3_b300_r2   bench=300  median   57.400 tok/s  IQR   0.000   reps 57.40
+   organs ms/tok: qkv_proj=0.885  rope=0.015  attention=1.075  o_proj=0.597  ffn=11.155  head=3.650  norm+glue=0.068
+S05_avx4_av1_b300_r2   bench=300  median   59.310 tok/s  IQR   0.000   reps 59.31
+   organs ms/tok: qkv_proj=0.857  rope=0.016  attention=0.626  o_proj=0.586  ffn=11.082  head=3.646  norm+glue=0.068
+S05_avx4_av2_b300_r2   bench=300  median   59.040 tok/s  IQR   0.000   reps 59.04
+   organs ms/tok: qkv_proj=0.858  rope=0.016  attention=0.708  o_proj=0.594  ffn=11.071  head=3.646  norm+glue=0.068
+S05_avx4_av3_b300_r2   bench=300  median   57.630 tok/s  IQR   0.000   reps 57.63
+   organs ms/tok: qkv_proj=0.893  rope=0.016  attention=0.818  o_proj=0.611  ffn=11.309  head=3.659  norm+glue=0.068
+S05_avx4_fork2_b300_r2 bench=300  median   58.740 tok/s  IQR   0.000   reps 58.74
+   organs ms/tok: qkv_proj=0.863  rope=0.016  attention=0.661  o_proj=0.586  ffn=11.211  head=3.640  norm+glue=0.068
+S05_serial_none_b800_r2 bench=800  median   52.990 tok/s  IQR   0.000   reps 52.99
+   organs ms/tok: qkv_proj=0.854  rope=0.015  attention=2.585  o_proj=0.595  ffn=11.117  head=3.629  norm+glue=0.068
+S05_serial2_none_b800_r2 bench=800  median   49.570 tok/s  IQR   0.000   reps 49.57
+   organs ms/tok: qkv_proj=0.860  rope=0.015  attention=3.936  o_proj=0.603  ffn=11.055  head=3.630  norm+glue=0.068
+S05_avx4_none_b800_r2  bench=800  median   56.070 tok/s  IQR   0.000   reps 56.07
+   organs ms/tok: qkv_proj=0.864  rope=0.015  attention=1.564  o_proj=0.593  ffn=11.094  head=3.632  norm+glue=0.068
+S05_avx4_sm1_b800_r2   bench=800  median   55.470 tok/s  IQR   0.000   reps 55.47
+   organs ms/tok: qkv_proj=0.873  rope=0.015  attention=1.591  o_proj=0.602  ffn=11.227  head=3.645  norm+glue=0.068
+S05_avx4_sm2_b800_r2   bench=800  median   54.000 tok/s  IQR   0.000   reps 54.00
+   organs ms/tok: qkv_proj=0.851  rope=0.016  attention=2.224  o_proj=0.598  ffn=11.115  head=3.641  norm+glue=0.068
+S05_avx4_sm3_b800_r2   bench=800  median   52.350 tok/s  IQR   0.000   reps 52.35
+   organs ms/tok: qkv_proj=0.852  rope=0.016  attention=2.799  o_proj=0.594  ffn=11.136  head=3.635  norm+glue=0.068
+S05_avx4_av1_b800_r2   bench=800  median   54.550 tok/s  IQR   0.000   reps 54.55
+   organs ms/tok: qkv_proj=0.919  rope=0.016  attention=1.605  o_proj=0.618  ffn=11.418  head=3.680  norm+glue=0.069
+S05_avx4_av2_b800_r2   bench=800  median   55.200 tok/s  IQR   0.000   reps 55.20
+   organs ms/tok: qkv_proj=0.854  rope=0.015  attention=1.827  o_proj=0.594  ffn=11.120  head=3.636  norm+glue=0.068
+S05_avx4_av3_b800_r2   bench=800  median   54.390 tok/s  IQR   0.000   reps 54.39
+   organs ms/tok: qkv_proj=0.871  rope=0.017  attention=2.020  o_proj=0.602  ffn=11.163  head=3.638  norm+glue=0.068
+S05_avx4_fork2_b800_r2 bench=800  median   55.630 tok/s  IQR   0.000   reps 55.63
+   organs ms/tok: qkv_proj=0.863  rope=0.016  attention=1.620  o_proj=0.591  ffn=11.162  head=3.652  norm+glue=0.068
+T10_serial_none_b300_r2 bench=300  median    3.210 tok/s  IQR   0.000   reps 3.21
+   organs ms/tok: qkv_proj=33.647  rope=0.074  attention=9.119  o_proj=22.153  ffn=243.485  head=3.620  norm+glue=0.610
+T10_serial2_none_b300_r2 bench=300  median    3.160 tok/s  IQR   0.000   reps 3.16
+   organs ms/tok: qkv_proj=33.619  rope=0.072  attention=14.647  o_proj=22.113  ffn=242.807  head=3.616  norm+glue=0.606
+T10_avx4_none_b300_r2  bench=300  median    3.260 tok/s  IQR   0.000   reps 3.26
+   organs ms/tok: qkv_proj=33.677  rope=0.071  attention=4.555  o_proj=22.132  ffn=243.149  head=3.626  norm+glue=0.609
+T10_avx4_sm1_b300_r2   bench=300  median    3.250 tok/s  IQR   0.000   reps 3.25
+   organs ms/tok: qkv_proj=33.743  rope=0.074  attention=4.575  o_proj=22.167  ffn=243.439  head=3.621  norm+glue=0.610
+T10_avx4_sm2_b300_r2   bench=300  median    3.240 tok/s  IQR   0.000   reps 3.24
+   organs ms/tok: qkv_proj=33.749  rope=0.071  attention=5.425  o_proj=22.189  ffn=243.704  head=3.626  norm+glue=0.611
+T10_avx4_sm3_b300_r2   bench=300  median    3.240 tok/s  IQR   0.000   reps 3.24
+   organs ms/tok: qkv_proj=33.540  rope=0.074  attention=6.260  o_proj=22.083  ffn=242.834  head=3.616  norm+glue=0.606
+T10_avx4_av1_b300_r2   bench=300  median    3.260 tok/s  IQR   0.000   reps 3.26
+   organs ms/tok: qkv_proj=33.552  rope=0.073  attention=4.568  o_proj=22.100  ffn=242.577  head=3.620  norm+glue=0.609
+T10_avx4_av2_b300_r2   bench=300  median    3.250 tok/s  IQR   0.000   reps 3.25
+   organs ms/tok: qkv_proj=33.709  rope=0.076  attention=5.205  o_proj=22.142  ffn=243.323  head=3.621  norm+glue=0.607
+T10_avx4_av3_b300_r2   bench=300  median    3.250 tok/s  IQR   0.000   reps 3.25
+   organs ms/tok: qkv_proj=33.590  rope=0.073  attention=5.758  o_proj=22.077  ffn=242.389  head=3.613  norm+glue=0.607
+T10_avx4_fork2_b300_r2 bench=300  median    3.250 tok/s  IQR   0.000   reps 3.25
+   organs ms/tok: qkv_proj=33.770  rope=0.075  attention=4.749  o_proj=22.188  ffn=243.581  head=3.627  norm+glue=0.608
+T10_serial_none_b800_r2 bench=800  median    3.070 tok/s  IQR   0.000   reps 3.07
+   organs ms/tok: qkv_proj=33.570  rope=0.072  attention=23.696  o_proj=22.086  ffn=242.357  head=3.610  norm+glue=0.609
+T10_serial2_none_b800_r2 bench=800  median    2.940 tok/s  IQR   0.000   reps 2.94
+   organs ms/tok: qkv_proj=33.532  rope=0.071  attention=38.247  o_proj=22.064  ffn=241.996  head=3.603  norm+glue=0.609
+T10_avx4_none_b800_r2  bench=800  median    3.190 tok/s  IQR   0.000   reps 3.19
+   organs ms/tok: qkv_proj=33.532  rope=0.072  attention=11.500  o_proj=22.054  ffn=242.169  head=3.603  norm+glue=0.603
+T10_avx4_sm1_b800_r2   bench=800  median    3.190 tok/s  IQR   0.000   reps 3.19
+   organs ms/tok: qkv_proj=33.516  rope=0.072  attention=11.367  o_proj=22.076  ffn=242.195  head=3.601  norm+glue=0.610
+T10_avx4_sm2_b800_r2   bench=800  median    3.160 tok/s  IQR   0.000   reps 3.16
+   organs ms/tok: qkv_proj=33.673  rope=0.074  attention=13.855  o_proj=22.152  ffn=243.067  head=3.620  norm+glue=0.610
+T10_avx4_sm3_b800_r2   bench=800  median    3.140 tok/s  IQR   0.000   reps 3.14
+   organs ms/tok: qkv_proj=33.589  rope=0.071  attention=16.121  o_proj=22.100  ffn=242.644  head=3.612  norm+glue=0.606
+T10_avx4_av1_b800_r2   bench=800  median    3.190 tok/s  IQR   0.000   reps 3.19
+   organs ms/tok: qkv_proj=33.574  rope=0.077  attention=11.473  o_proj=22.112  ffn=242.472  head=3.609  norm+glue=0.607
+T10_avx4_av2_b800_r2   bench=800  median    3.160 tok/s  IQR   0.000   reps 3.16
+   organs ms/tok: qkv_proj=33.634  rope=0.075  attention=13.191  o_proj=22.145  ffn=242.914  head=3.620  norm+glue=0.612
+T10_avx4_av3_b800_r2   bench=800  median    3.060 tok/s  IQR   0.000   reps 3.06
+   organs ms/tok: qkv_proj=34.662  rope=0.077  attention=16.126  o_proj=22.756  ffn=249.025  head=3.699  norm+glue=0.625
+T10_avx4_fork2_b800_r2 bench=800  median    2.940 tok/s  IQR   0.000   reps 2.94
+   organs ms/tok: qkv_proj=36.747  rope=0.082  attention=13.071  o_proj=23.895  ffn=262.403  head=3.876  norm+glue=0.645
+PASS 2 DONE
+S05_serial_none_b300_r3 bench=300  median   52.280 tok/s  IQR   0.000   reps 52.28
+   organs ms/tok: qkv_proj=1.003  rope=0.017  attention=1.169  o_proj=0.680  ffn=12.349  head=3.867  norm+glue=0.071
+S05_serial2_none_b300_r3 bench=300  median   50.920 tok/s  IQR   0.000   reps 50.92
+   organs ms/tok: qkv_proj=0.995  rope=0.017  attention=1.776  o_proj=0.684  ffn=12.279  head=3.838  norm+glue=0.071
+S05_avx4_none_b300_r3  bench=300  median   53.710 tok/s  IQR   0.000   reps 53.71
+   organs ms/tok: qkv_proj=0.989  rope=0.017  attention=0.743  o_proj=0.665  ffn=12.300  head=3.858  norm+glue=0.071
+S05_avx4_sm1_b300_r3   bench=300  median   53.390 tok/s  IQR   0.000   reps 53.39
+   organs ms/tok: qkv_proj=1.008  rope=0.017  attention=0.743  o_proj=0.665  ffn=12.357  head=3.882  norm+glue=0.071
+S05_avx4_sm2_b300_r3   bench=300  median   52.210 tok/s  IQR   0.000   reps 52.21
+   organs ms/tok: qkv_proj=1.042  rope=0.018  attention=1.045  o_proj=0.682  ffn=12.457  head=3.864  norm+glue=0.071
+S05_avx4_sm3_b300_r3   bench=300  median   52.130 tok/s  IQR   0.000   reps 52.13
+   organs ms/tok: qkv_proj=1.001  rope=0.018  attention=1.280  o_proj=0.682  ffn=12.277  head=3.878  norm+glue=0.070
+S05_avx4_av1_b300_r3   bench=300  median   53.350 tok/s  IQR   0.000   reps 53.35
+   organs ms/tok: qkv_proj=1.005  rope=0.017  attention=0.745  o_proj=0.679  ffn=12.360  head=3.889  norm+glue=0.072
+S05_avx4_av2_b300_r3   bench=300  median   53.520 tok/s  IQR   0.000   reps 53.52
+   organs ms/tok: qkv_proj=0.984  rope=0.017  attention=0.851  o_proj=0.665  ffn=12.238  head=3.880  norm+glue=0.070
+S05_avx4_av3_b300_r3   bench=300  median   53.080 tok/s  IQR   0.000   reps 53.08
+   organs ms/tok: qkv_proj=0.989  rope=0.017  attention=0.929  o_proj=0.682  ffn=12.299  head=3.874  norm+glue=0.071
+S05_avx4_fork2_b300_r3 bench=300  median   50.190 tok/s  IQR   0.000   reps 50.19
+   organs ms/tok: qkv_proj=1.237  rope=0.018  attention=0.911  o_proj=0.738  ffn=13.000  head=3.993  norm+glue=0.074
+S05_serial_none_b800_r3 bench=800  median   47.470 tok/s  IQR   0.000   reps 47.47
+   organs ms/tok: qkv_proj=0.999  rope=0.018  attention=2.985  o_proj=0.694  ffn=12.406  head=3.883  norm+glue=0.071
+S05_serial2_none_b800_r3 bench=800  median   44.320 tok/s  IQR   0.000   reps 44.32
+   organs ms/tok: qkv_proj=0.986  rope=0.018  attention=4.559  o_proj=0.694  ffn=12.352  head=3.877  norm+glue=0.071
+S05_avx4_none_b800_r3  bench=800  median   50.270 tok/s  IQR   0.000   reps 50.27
+   organs ms/tok: qkv_proj=0.993  rope=0.017  attention=1.878  o_proj=0.678  ffn=12.349  head=3.899  norm+glue=0.071
+S05_avx4_sm1_b800_r3   bench=800  median   50.430 tok/s  IQR   0.000   reps 50.43
+   organs ms/tok: qkv_proj=0.992  rope=0.017  attention=1.845  o_proj=0.681  ffn=12.359  head=3.855  norm+glue=0.071
+S05_avx4_sm2_b800_r3   bench=800  median   48.480 tok/s  IQR   0.000   reps 48.48
+   organs ms/tok: qkv_proj=0.984  rope=0.017  attention=2.620  o_proj=0.688  ffn=12.380  head=3.860  norm+glue=0.071
+S05_avx4_sm3_b800_r3   bench=800  median   45.930 tok/s  IQR   0.000   reps 45.93
+   organs ms/tok: qkv_proj=1.073  rope=0.017  attention=3.347  o_proj=0.726  ffn=12.630  head=3.897  norm+glue=0.072
+S05_avx4_av1_b800_r3   bench=800  median   50.230 tok/s  IQR   0.000   reps 50.23
+   organs ms/tok: qkv_proj=1.011  rope=0.017  attention=1.879  o_proj=0.683  ffn=12.373  head=3.862  norm+glue=0.071
+S05_avx4_av2_b800_r3   bench=800  median   49.600 tok/s  IQR   0.000   reps 49.60
+   organs ms/tok: qkv_proj=0.999  rope=0.018  attention=2.135  o_proj=0.687  ffn=12.369  head=3.877  norm+glue=0.072
+S05_avx4_av3_b800_r3   bench=800  median   48.890 tok/s  IQR   0.000   reps 48.89
+   organs ms/tok: qkv_proj=1.004  rope=0.018  attention=2.405  o_proj=0.691  ffn=12.389  head=3.870  norm+glue=0.071
+S05_avx4_fork2_b800_r3 bench=800  median   50.190 tok/s  IQR   0.000   reps 50.19
+   organs ms/tok: qkv_proj=0.986  rope=0.017  attention=1.955  o_proj=0.655  ffn=12.365  head=3.865  norm+glue=0.071
+T10_serial_none_b300_r3 bench=300  median    2.940 tok/s  IQR   0.000   reps 2.94
+   organs ms/tok: qkv_proj=36.894  rope=0.084  attention=10.417  o_proj=24.088  ffn=264.680  head=3.895  norm+glue=0.655
+T10_serial2_none_b300_r3 bench=300  median    2.920 tok/s  IQR   0.000   reps 2.92
+   organs ms/tok: qkv_proj=36.675  rope=0.080  attention=16.343  o_proj=23.853  ffn=262.206  head=3.893  norm+glue=0.644
+T10_avx4_none_b300_r3  bench=300  median    3.040 tok/s  IQR   0.000   reps 3.04
+   organs ms/tok: qkv_proj=36.311  rope=0.079  attention=4.993  o_proj=23.682  ffn=260.458  head=3.841  norm+glue=0.645
+T10_avx4_sm1_b300_r3   bench=300  median    3.180 tok/s  IQR   0.000   reps 3.18
+   organs ms/tok: qkv_proj=34.242  rope=0.075  attention=4.536  o_proj=22.498  ffn=249.183  head=3.679  norm+glue=0.628
+T10_avx4_sm2_b300_r3   bench=300  median    3.180 tok/s  IQR   0.000   reps 3.18
+   organs ms/tok: qkv_proj=34.248  rope=0.071  attention=5.620  o_proj=22.482  ffn=248.883  head=3.674  norm+glue=0.622
+T10_avx4_sm3_b300_r3   bench=300  median    3.170 tok/s  IQR   0.000   reps 3.17
+   organs ms/tok: qkv_proj=34.074  rope=0.071  attention=6.688  o_proj=22.433  ffn=248.667  head=3.668  norm+glue=0.625
+T10_avx4_av1_b300_r3   bench=300  median    3.190 tok/s  IQR   0.000   reps 3.19
+   organs ms/tok: qkv_proj=34.168  rope=0.072  attention=4.585  o_proj=22.434  ffn=248.813  head=3.665  norm+glue=0.626
+T10_avx4_av2_b300_r3   bench=300  median    3.180 tok/s  IQR   0.000   reps 3.18
+   organs ms/tok: qkv_proj=34.249  rope=0.071  attention=5.333  o_proj=22.515  ffn=249.221  head=3.676  norm+glue=0.626
+T10_avx4_av3_b300_r3   bench=300  median    3.170 tok/s  IQR   0.000   reps 3.17
+   organs ms/tok: qkv_proj=34.202  rope=0.074  attention=6.057  o_proj=22.469  ffn=248.943  head=3.668  norm+glue=0.625
+T10_avx4_fork2_b300_r3 bench=300  median    3.200 tok/s  IQR   0.000   reps 3.20
+   organs ms/tok: qkv_proj=33.996  rope=0.068  attention=4.606  o_proj=22.333  ffn=248.185  head=3.656  norm+glue=0.621
+T10_serial_none_b800_r3 bench=800  median    2.990 tok/s  IQR   0.000   reps 2.99
+   organs ms/tok: qkv_proj=34.146  rope=0.069  attention=25.652  o_proj=22.437  ffn=248.371  head=3.666  norm+glue=0.629
+T10_serial2_none_b800_r3 bench=800  median    2.860 tok/s  IQR   0.000   reps 2.86
+   organs ms/tok: qkv_proj=34.038  rope=0.070  attention=41.308  o_proj=22.382  ffn=247.983  head=3.648  norm+glue=0.625
+T10_avx4_none_b800_r3  bench=800  median    3.120 tok/s  IQR   0.000   reps 3.12
+   organs ms/tok: qkv_proj=34.079  rope=0.073  attention=11.731  o_proj=22.425  ffn=248.343  head=3.658  norm+glue=0.622
+T10_avx4_sm1_b800_r3   bench=800  median    3.120 tok/s  IQR   0.000   reps 3.12
+   organs ms/tok: qkv_proj=34.099  rope=0.073  attention=11.556  o_proj=22.441  ffn=248.302  head=3.659  norm+glue=0.625
+T10_avx4_sm2_b800_r3   bench=800  median    3.090 tok/s  IQR   0.000   reps 3.09
+   organs ms/tok: qkv_proj=34.074  rope=0.068  attention=14.548  o_proj=22.424  ffn=248.249  head=3.659  norm+glue=0.624
+T10_avx4_sm3_b800_r3   bench=800  median    3.070 tok/s  IQR   0.000   reps 3.07
+   organs ms/tok: qkv_proj=34.038  rope=0.071  attention=17.356  o_proj=22.419  ffn=248.245  head=3.656  norm+glue=0.631
+T10_avx4_av1_b800_r3   bench=800  median    3.110 tok/s  IQR   0.000   reps 3.11
+   organs ms/tok: qkv_proj=34.130  rope=0.070  attention=11.743  o_proj=22.461  ffn=248.572  head=3.656  norm+glue=0.626
+T10_avx4_av2_b800_r3   bench=800  median    3.100 tok/s  IQR   0.000   reps 3.10
+   organs ms/tok: qkv_proj=34.064  rope=0.071  attention=13.890  o_proj=22.439  ffn=248.362  head=3.655  norm+glue=0.623
+T10_avx4_av3_b800_r3   bench=800  median    3.080 tok/s  IQR   0.000   reps 3.08
+   organs ms/tok: qkv_proj=34.075  rope=0.068  attention=16.045  o_proj=22.428  ffn=248.236  head=3.661  norm+glue=0.626
+T10_avx4_fork2_b800_r3 bench=800  median    3.120 tok/s  IQR   0.000   reps 3.12
+   organs ms/tok: qkv_proj=34.025  rope=0.074  attention=11.837  o_proj=22.379  ffn=248.053  head=3.651  norm+glue=0.627
+PASS 3 DONE
+S05_serial_none_b300_r4 bench=300  median   56.320 tok/s  IQR   0.000   reps 56.32
+   organs ms/tok: qkv_proj=0.871  rope=0.016  attention=1.096  o_proj=0.601  ffn=11.440  head=3.691  norm+glue=0.069
+S05_serial2_none_b300_r4 bench=300  median   54.200 tok/s  IQR   0.000   reps 54.20
+   organs ms/tok: qkv_proj=0.897  rope=0.016  attention=1.697  o_proj=0.616  ffn=11.511  head=3.670  norm+glue=0.069
+S05_avx4_none_b300_r4  bench=300  median   57.180 tok/s  IQR   0.000   reps 57.18
+   organs ms/tok: qkv_proj=0.910  rope=0.017  attention=0.704  o_proj=0.599  ffn=11.520  head=3.692  norm+glue=0.069
+S05_avx4_sm1_b300_r4   bench=300  median   57.620 tok/s  IQR   0.000   reps 57.62
+   organs ms/tok: qkv_proj=0.877  rope=0.016  attention=0.675  o_proj=0.605  ffn=11.456  head=3.681  norm+glue=0.069
+S05_avx4_sm2_b300_r4   bench=300  median   56.630 tok/s  IQR   0.000   reps 56.63
+   organs ms/tok: qkv_proj=0.873  rope=0.016  attention=0.947  o_proj=0.599  ffn=11.488  head=3.685  norm+glue=0.068
+S05_avx4_sm3_b300_r4   bench=300  median   55.960 tok/s  IQR   0.000   reps 55.96
+   organs ms/tok: qkv_proj=0.872  rope=0.016  attention=1.205  o_proj=0.596  ffn=11.465  head=3.671  norm+glue=0.069
+S05_avx4_av1_b300_r4   bench=300  median   57.690 tok/s  IQR   0.000   reps 57.69
+   organs ms/tok: qkv_proj=0.879  rope=0.016  attention=0.692  o_proj=0.595  ffn=11.427  head=3.675  norm+glue=0.069
+S05_avx4_av2_b300_r4   bench=300  median   57.330 tok/s  IQR   0.000   reps 57.33
+   organs ms/tok: qkv_proj=0.887  rope=0.016  attention=0.778  o_proj=0.595  ffn=11.432  head=3.684  norm+glue=0.069
+S05_avx4_av3_b300_r4   bench=300  median   57.080 tok/s  IQR   0.000   reps 57.08
+   organs ms/tok: qkv_proj=0.874  rope=0.016  attention=0.855  o_proj=0.598  ffn=11.451  head=3.681  norm+glue=0.069
+S05_avx4_fork2_b300_r4 bench=300  median   57.780 tok/s  IQR   0.000   reps 57.78
+   organs ms/tok: qkv_proj=0.868  rope=0.016  attention=0.716  o_proj=0.596  ffn=11.400  head=3.664  norm+glue=0.069
+S05_serial_none_b800_r4 bench=800  median   50.170 tok/s  IQR   0.000   reps 50.17
+   organs ms/tok: qkv_proj=0.918  rope=0.016  attention=2.890  o_proj=0.616  ffn=11.714  head=3.705  norm+glue=0.069
+S05_serial2_none_b800_r4 bench=800  median   46.810 tok/s  IQR   0.000   reps 46.81
+   organs ms/tok: qkv_proj=0.868  rope=0.015  attention=4.470  o_proj=0.607  ffn=11.644  head=3.686  norm+glue=0.069
+S05_avx4_none_b800_r4  bench=800  median   53.210 tok/s  IQR   0.000   reps 53.21
+   organs ms/tok: qkv_proj=0.873  rope=0.016  attention=1.808  o_proj=0.614  ffn=11.710  head=3.697  norm+glue=0.069
+S05_avx4_sm1_b800_r4   bench=800  median   53.230 tok/s  IQR   0.000   reps 53.23
+   organs ms/tok: qkv_proj=0.881  rope=0.016  attention=1.776  o_proj=0.613  ffn=11.717  head=3.709  norm+glue=0.069
+S05_avx4_sm2_b800_r4   bench=800  median   51.200 tok/s  IQR   0.000   reps 51.20
+   organs ms/tok: qkv_proj=0.876  rope=0.016  attention=2.536  o_proj=0.611  ffn=11.712  head=3.707  norm+glue=0.069
+S05_avx4_sm3_b800_r4   bench=800  median   49.620 tok/s  IQR   0.000   reps 49.62
+   organs ms/tok: qkv_proj=0.879  rope=0.016  attention=3.206  o_proj=0.608  ffn=11.682  head=3.689  norm+glue=0.069
+S05_avx4_av1_b800_r4   bench=800  median   52.780 tok/s  IQR   0.000   reps 52.78
+   organs ms/tok: qkv_proj=0.893  rope=0.016  attention=1.814  o_proj=0.618  ffn=11.801  head=3.726  norm+glue=0.069
+S05_avx4_av2_b800_r4   bench=800  median   51.990 tok/s  IQR   0.000   reps 51.99
+   organs ms/tok: qkv_proj=0.919  rope=0.016  attention=2.078  o_proj=0.623  ffn=11.796  head=3.722  norm+glue=0.069
+S05_avx4_av3_b800_r4   bench=800  median   49.100 tok/s  IQR   0.000   reps 49.10
+   organs ms/tok: qkv_proj=1.054  rope=0.017  attention=2.411  o_proj=0.689  ffn=12.316  head=3.800  norm+glue=0.071
+S05_avx4_fork2_b800_r4 bench=800  median   52.660 tok/s  IQR   0.000   reps 52.66
+   organs ms/tok: qkv_proj=0.944  rope=0.017  attention=1.860  o_proj=0.620  ffn=11.766  head=3.707  norm+glue=0.069
+T10_serial_none_b300_r4 bench=300  median    3.110 tok/s  IQR   0.000   reps 3.11
+   organs ms/tok: qkv_proj=34.659  rope=0.077  attention=9.889  o_proj=22.711  ffn=250.576  head=3.706  norm+glue=0.627
+T10_serial2_none_b300_r4 bench=300  median    3.040 tok/s  IQR   0.000   reps 3.04
+   organs ms/tok: qkv_proj=34.791  rope=0.073  attention=15.946  o_proj=22.777  ffn=251.398  head=3.707  norm+glue=0.632
+T10_avx4_none_b300_r4  bench=300  median    3.170 tok/s  IQR   0.000   reps 3.17
+   organs ms/tok: qkv_proj=34.483  rope=0.072  attention=4.611  o_proj=22.604  ffn=250.141  head=3.662  norm+glue=0.626
+T10_avx4_sm1_b300_r4   bench=300  median    3.200 tok/s  IQR   0.000   reps 3.20
+   organs ms/tok: qkv_proj=34.104  rope=0.074  attention=4.475  o_proj=22.379  ffn=248.388  head=3.655  norm+glue=0.625
+T10_avx4_sm2_b300_r4   bench=300  median    3.190 tok/s  IQR   0.000   reps 3.19
+   organs ms/tok: qkv_proj=34.036  rope=0.072  attention=5.574  o_proj=22.377  ffn=248.344  head=3.660  norm+glue=0.626
+T10_avx4_sm3_b300_r4   bench=300  median    3.170 tok/s  IQR   0.000   reps 3.17
+   organs ms/tok: qkv_proj=34.033  rope=0.072  attention=6.671  o_proj=22.390  ffn=248.362  head=3.655  norm+glue=0.625
+T10_avx4_av1_b300_r4   bench=300  median    3.200 tok/s  IQR   0.000   reps 3.20
+   organs ms/tok: qkv_proj=34.022  rope=0.069  attention=4.523  o_proj=22.362  ffn=248.185  head=3.660  norm+glue=0.626
+T10_avx4_av2_b300_r4   bench=300  median    3.190 tok/s  IQR   0.000   reps 3.19
+   organs ms/tok: qkv_proj=33.993  rope=0.070  attention=5.266  o_proj=22.369  ffn=248.112  head=3.657  norm+glue=0.623
+T10_avx4_av3_b300_r4   bench=300  median    3.170 tok/s  IQR   0.000   reps 3.17
+   organs ms/tok: qkv_proj=34.260  rope=0.070  attention=6.075  o_proj=22.508  ffn=249.148  head=3.667  norm+glue=0.625
+T10_avx4_fork2_b300_r4 bench=300  median    3.150 tok/s  IQR   0.000   reps 3.15
+   organs ms/tok: qkv_proj=34.802  rope=0.072  attention=4.815  o_proj=22.820  ffn=251.586  head=3.727  norm+glue=0.630
+T10_serial_none_b800_r4 bench=800  median    2.980 tok/s  IQR   0.000   reps 2.98
+   organs ms/tok: qkv_proj=34.374  rope=0.072  attention=25.560  o_proj=22.547  ffn=249.412  head=3.675  norm+glue=0.629
+T10_serial2_none_b800_r4 bench=800  median    2.870 tok/s  IQR   0.000   reps 2.87
+   organs ms/tok: qkv_proj=33.878  rope=0.068  attention=41.122  o_proj=22.326  ffn=247.251  head=3.641  norm+glue=0.624
+T10_avx4_none_b800_r4  bench=800  median    3.130 tok/s  IQR   0.000   reps 3.13
+   organs ms/tok: qkv_proj=33.917  rope=0.073  attention=11.633  o_proj=22.325  ffn=247.511  head=3.642  norm+glue=0.624
+T10_avx4_sm1_b800_r4   bench=800  median    3.130 tok/s  IQR   0.000   reps 3.13
+   organs ms/tok: qkv_proj=34.000  rope=0.072  attention=11.499  o_proj=22.375  ffn=247.861  head=3.647  norm+glue=0.624
+T10_avx4_sm2_b800_r4   bench=800  median    3.100 tok/s  IQR   0.000   reps 3.10
+   organs ms/tok: qkv_proj=33.932  rope=0.070  attention=14.493  o_proj=22.359  ffn=247.694  head=3.651  norm+glue=0.624
+T10_avx4_sm3_b800_r4   bench=800  median    3.070 tok/s  IQR   0.000   reps 3.07
+   organs ms/tok: qkv_proj=33.905  rope=0.069  attention=17.243  o_proj=22.359  ffn=247.597  head=3.646  norm+glue=0.624
+T10_avx4_av1_b800_r4   bench=800  median    3.130 tok/s  IQR   0.000   reps 3.13
+   organs ms/tok: qkv_proj=33.965  rope=0.071  attention=11.652  o_proj=22.357  ffn=247.679  head=3.651  norm+glue=0.623
+T10_avx4_av2_b800_r4   bench=800  median    3.110 tok/s  IQR   0.000   reps 3.11
+   organs ms/tok: qkv_proj=33.917  rope=0.072  attention=13.760  o_proj=22.353  ffn=247.552  head=3.648  norm+glue=0.625
+T10_avx4_av3_b800_r4   bench=800  median    3.080 tok/s  IQR   0.000   reps 3.08
+   organs ms/tok: qkv_proj=33.933  rope=0.069  attention=15.991  o_proj=22.371  ffn=247.700  head=3.641  norm+glue=0.626
+T10_avx4_fork2_b800_r4 bench=800  median    3.130 tok/s  IQR   0.000   reps 3.13
+   organs ms/tok: qkv_proj=33.912  rope=0.069  attention=11.716  o_proj=22.335  ffn=247.502  head=3.646  norm+glue=0.622
+PASS 4 DONE
+S05_serial_none_b300_r5 bench=300  median   56.800 tok/s  IQR   0.000   reps 56.80
+   organs ms/tok: qkv_proj=0.865  rope=0.015  attention=1.092  o_proj=0.597  ffn=11.328  head=3.665  norm+glue=0.069
+S05_serial2_none_b300_r5 bench=300  median   53.880 tok/s  IQR   0.000   reps 53.88
+   organs ms/tok: qkv_proj=0.899  rope=0.016  attention=1.710  o_proj=0.631  ffn=11.571  head=3.684  norm+glue=0.069
+S05_avx4_none_b300_r5  bench=300  median   57.520 tok/s  IQR   0.000   reps 57.52
+   organs ms/tok: qkv_proj=0.873  rope=0.016  attention=0.693  o_proj=0.600  ffn=11.471  head=3.683  norm+glue=0.068
+S05_avx4_sm1_b300_r5   bench=300  median   57.710 tok/s  IQR   0.000   reps 57.71
+   organs ms/tok: qkv_proj=0.880  rope=0.016  attention=0.674  o_proj=0.605  ffn=11.439  head=3.669  norm+glue=0.068
+S05_avx4_sm2_b300_r5   bench=300  median   56.940 tok/s  IQR   0.000   reps 56.94
+   organs ms/tok: qkv_proj=0.866  rope=0.016  attention=0.951  o_proj=0.596  ffn=11.421  head=3.664  norm+glue=0.068
+S05_avx4_sm3_b300_r5   bench=300  median   55.950 tok/s  IQR   0.000   reps 55.95
+   organs ms/tok: qkv_proj=0.876  rope=0.015  attention=1.211  o_proj=0.599  ffn=11.449  head=3.673  norm+glue=0.069
+S05_avx4_av1_b300_r5   bench=300  median   57.460 tok/s  IQR   0.000   reps 57.46
+   organs ms/tok: qkv_proj=0.870  rope=0.016  attention=0.687  o_proj=0.595  ffn=11.492  head=3.696  norm+glue=0.069
+S05_avx4_av2_b300_r5   bench=300  median   57.500 tok/s  IQR   0.000   reps 57.50
+   organs ms/tok: qkv_proj=0.865  rope=0.016  attention=0.778  o_proj=0.597  ffn=11.428  head=3.661  norm+glue=0.068
+S05_avx4_av3_b300_r5   bench=300  median   57.030 tok/s  IQR   0.000   reps 57.03
+   organs ms/tok: qkv_proj=0.866  rope=0.016  attention=0.871  o_proj=0.599  ffn=11.466  head=3.673  norm+glue=0.069
+S05_avx4_fork2_b300_r5 bench=300  median   57.640 tok/s  IQR   0.000   reps 57.64
+   organs ms/tok: qkv_proj=0.870  rope=0.015  attention=0.720  o_proj=0.599  ffn=11.412  head=3.685  norm+glue=0.068
+S05_serial_none_b800_r5 bench=800  median   50.430 tok/s  IQR   0.000   reps 50.43
+   organs ms/tok: qkv_proj=0.869  rope=0.016  attention=2.900  o_proj=0.610  ffn=11.661  head=3.697  norm+glue=0.069
+S05_serial2_none_b800_r5 bench=800  median   46.810 tok/s  IQR   0.000   reps 46.81
+   organs ms/tok: qkv_proj=0.866  rope=0.015  attention=4.482  o_proj=0.610  ffn=11.629  head=3.682  norm+glue=0.069
+S05_avx4_none_b800_r5  bench=800  median   53.360 tok/s  IQR   0.000   reps 53.36
+   organs ms/tok: qkv_proj=0.870  rope=0.016  attention=1.800  o_proj=0.606  ffn=11.679  head=3.696  norm+glue=0.069
+S05_avx4_sm1_b800_r5   bench=800  median   53.550 tok/s  IQR   0.000   reps 53.55
+   organs ms/tok: qkv_proj=0.865  rope=0.015  attention=1.760  o_proj=0.603  ffn=11.658  head=3.697  norm+glue=0.069
+S05_avx4_sm2_b800_r5   bench=800  median   51.270 tok/s  IQR   0.000   reps 51.27
+   organs ms/tok: qkv_proj=0.874  rope=0.015  attention=2.540  o_proj=0.609  ffn=11.691  head=3.696  norm+glue=0.069
+S05_avx4_sm3_b800_r5   bench=800  median   49.810 tok/s  IQR   0.000   reps 49.81
+   organs ms/tok: qkv_proj=0.874  rope=0.016  attention=3.174  o_proj=0.611  ffn=11.635  head=3.689  norm+glue=0.069
+S05_avx4_av1_b800_r5   bench=800  median   53.570 tok/s  IQR   0.000   reps 53.57
+   organs ms/tok: qkv_proj=0.863  rope=0.016  attention=1.793  o_proj=0.605  ffn=11.625  head=3.689  norm+glue=0.069
+S05_avx4_av2_b800_r5   bench=800  median   52.730 tok/s  IQR   0.000   reps 52.73
+   organs ms/tok: qkv_proj=0.864  rope=0.016  attention=2.066  o_proj=0.604  ffn=11.646  head=3.693  norm+glue=0.069
+S05_avx4_av3_b800_r5   bench=800  median   51.940 tok/s  IQR   0.000   reps 51.94
+   organs ms/tok: qkv_proj=0.867  rope=0.016  attention=2.310  o_proj=0.607  ffn=11.676  head=3.700  norm+glue=0.069
+S05_avx4_fork2_b800_r5 bench=800  median   53.410 tok/s  IQR   0.000   reps 53.41
+   organs ms/tok: qkv_proj=0.866  rope=0.016  attention=1.840  o_proj=0.596  ffn=11.643  head=3.688  norm+glue=0.069
+T10_serial_none_b300_r5 bench=300  median    3.150 tok/s  IQR   0.000   reps 3.15
+   organs ms/tok: qkv_proj=33.964  rope=0.069  attention=9.715  o_proj=22.359  ffn=247.840  head=3.651  norm+glue=0.622
+T10_serial2_none_b300_r5 bench=300  median    3.090 tok/s  IQR   0.000   reps 3.09
+   organs ms/tok: qkv_proj=33.950  rope=0.070  attention=15.729  o_proj=22.396  ffn=247.854  head=3.654  norm+glue=0.623
+T10_avx4_none_b300_r5  bench=300  median    3.210 tok/s  IQR   0.000   reps 3.21
+   organs ms/tok: qkv_proj=33.939  rope=0.072  attention=4.515  o_proj=22.313  ffn=247.625  head=3.641  norm+glue=0.623
+T10_avx4_sm1_b300_r5   bench=300  median    3.200 tok/s  IQR   0.000   reps 3.20
+   organs ms/tok: qkv_proj=34.006  rope=0.071  attention=4.471  o_proj=22.355  ffn=247.774  head=3.651  norm+glue=0.618
+T10_avx4_sm2_b300_r5   bench=300  median    3.190 tok/s  IQR   0.000   reps 3.19
+   organs ms/tok: qkv_proj=33.984  rope=0.070  attention=5.590  o_proj=22.353  ffn=247.900  head=3.650  norm+glue=0.619
+T10_avx4_sm3_b300_r5   bench=300  median    3.180 tok/s  IQR   0.000   reps 3.18
+   organs ms/tok: qkv_proj=33.933  rope=0.067  attention=6.641  o_proj=22.310  ffn=247.729  head=3.654  norm+glue=0.623
+T10_avx4_av1_b300_r5   bench=300  median    3.200 tok/s  IQR   0.000   reps 3.20
+   organs ms/tok: qkv_proj=33.951  rope=0.069  attention=4.518  o_proj=22.332  ffn=247.843  head=3.650  norm+glue=0.621
+T10_avx4_av2_b300_r5   bench=300  median    3.190 tok/s  IQR   0.000   reps 3.19
+   organs ms/tok: qkv_proj=34.025  rope=0.068  attention=5.268  o_proj=22.352  ffn=248.044  head=3.656  norm+glue=0.626
+T10_avx4_av3_b300_r5   bench=300  median    3.190 tok/s  IQR   0.000   reps 3.19
+   organs ms/tok: qkv_proj=33.912  rope=0.068  attention=5.994  o_proj=22.318  ffn=247.611  head=3.644  norm+glue=0.619
+T10_avx4_fork2_b300_r5 bench=300  median    3.200 tok/s  IQR   0.000   reps 3.20
+   organs ms/tok: qkv_proj=33.962  rope=0.071  attention=4.589  o_proj=22.325  ffn=247.832  head=3.657  norm+glue=0.624
+T10_serial_none_b800_r5 bench=800  median    3.000 tok/s  IQR   0.000   reps 3.00
+   organs ms/tok: qkv_proj=33.937  rope=0.069  attention=25.457  o_proj=22.322  ffn=247.306  head=3.645  norm+glue=0.623
+T10_serial2_none_b800_r5 bench=800  median    2.870 tok/s  IQR   0.000   reps 2.87
+   organs ms/tok: qkv_proj=33.893  rope=0.072  attention=41.154  o_proj=22.292  ffn=247.184  head=3.641  norm+glue=0.624
+T10_avx4_none_b800_r5  bench=800  median    3.130 tok/s  IQR   0.000   reps 3.13
+   organs ms/tok: qkv_proj=33.933  rope=0.072  attention=11.649  o_proj=22.342  ffn=247.479  head=3.640  norm+glue=0.622
+T10_avx4_sm1_b800_r5   bench=800  median    3.130 tok/s  IQR   0.000   reps 3.13
+   organs ms/tok: qkv_proj=33.898  rope=0.069  attention=11.440  o_proj=22.343  ffn=247.410  head=3.643  norm+glue=0.622
+T10_avx4_sm2_b800_r5   bench=800  median    3.100 tok/s  IQR   0.000   reps 3.10
+   organs ms/tok: qkv_proj=33.882  rope=0.072  attention=14.471  o_proj=22.318  ffn=247.385  head=3.645  norm+glue=0.626
+T10_avx4_sm3_b800_r5   bench=800  median    3.070 tok/s  IQR   0.000   reps 3.07
+   organs ms/tok: qkv_proj=33.923  rope=0.068  attention=17.241  o_proj=22.344  ffn=247.624  head=3.647  norm+glue=0.621
+T10_avx4_av1_b800_r5   bench=800  median    3.120 tok/s  IQR   0.000   reps 3.12
+   organs ms/tok: qkv_proj=34.050  rope=0.067  attention=11.622  o_proj=22.361  ffn=248.293  head=3.643  norm+glue=0.624
+T10_avx4_av2_b800_r5   bench=800  median    3.100 tok/s  IQR   0.000   reps 3.10
+   organs ms/tok: qkv_proj=33.991  rope=0.069  attention=13.813  o_proj=22.388  ffn=247.798  head=3.654  norm+glue=0.621
+T10_avx4_av3_b800_r5   bench=800  median    3.080 tok/s  IQR   0.000   reps 3.08
+   organs ms/tok: qkv_proj=33.980  rope=0.070  attention=15.978  o_proj=22.420  ffn=248.005  head=3.651  norm+glue=0.623
+T10_avx4_fork2_b800_r5 bench=800  median    3.130 tok/s  IQR   0.000   reps 3.13
+   organs ms/tok: qkv_proj=33.899  rope=0.069  attention=11.692  o_proj=22.304  ffn=247.454  head=3.641  norm+glue=0.620
+PASS 5 DONE
+S05_serial_none_b300_r6 bench=300  median   56.080 tok/s  IQR   0.000   reps 56.08
+   organs ms/tok: qkv_proj=0.885  rope=0.016  attention=1.104  o_proj=0.599  ffn=11.491  head=3.692  norm+glue=0.069
+S05_serial2_none_b300_r6 bench=300  median   54.130 tok/s  IQR   0.000   reps 54.13
+   organs ms/tok: qkv_proj=0.865  rope=0.016  attention=1.699  o_proj=0.603  ffn=11.557  head=3.686  norm+glue=0.069
+S05_avx4_none_b300_r6  bench=300  median   57.340 tok/s  IQR   0.000   reps 57.34
+   organs ms/tok: qkv_proj=0.871  rope=0.015  attention=0.690  o_proj=0.599  ffn=11.526  head=3.696  norm+glue=0.069
+S05_avx4_sm1_b300_r6   bench=300  median   58.120 tok/s  IQR   0.000   reps 58.12
+   organs ms/tok: qkv_proj=0.861  rope=0.016  attention=0.673  o_proj=0.594  ffn=11.359  head=3.660  norm+glue=0.068
+S05_avx4_sm2_b300_r6   bench=300  median   56.780 tok/s  IQR   0.000   reps 56.78
+   organs ms/tok: qkv_proj=0.870  rope=0.016  attention=0.949  o_proj=0.605  ffn=11.453  head=3.683  norm+glue=0.069
+S05_avx4_sm3_b300_r6   bench=300  median   55.990 tok/s  IQR   0.000   reps 55.99
+   organs ms/tok: qkv_proj=0.871  rope=0.015  attention=1.196  o_proj=0.602  ffn=11.442  head=3.686  norm+glue=0.068
+S05_avx4_av1_b300_r6   bench=300  median   57.060 tok/s  IQR   0.000   reps 57.06
+   organs ms/tok: qkv_proj=0.894  rope=0.016  attention=0.687  o_proj=0.606  ffn=11.572  head=3.700  norm+glue=0.069
+S05_avx4_av2_b300_r6   bench=300  median   57.340 tok/s  IQR   0.000   reps 57.34
+   organs ms/tok: qkv_proj=0.860  rope=0.016  attention=0.785  o_proj=0.598  ffn=11.443  head=3.688  norm+glue=0.068
+S05_avx4_av3_b300_r6   bench=300  median   57.190 tok/s  IQR   0.000   reps 57.19
+   organs ms/tok: qkv_proj=0.862  rope=0.016  attention=0.853  o_proj=0.599  ffn=11.423  head=3.688  norm+glue=0.068
+S05_avx4_fork2_b300_r6 bench=300  median   57.380 tok/s  IQR   0.000   reps 57.38
+   organs ms/tok: qkv_proj=0.869  rope=0.016  attention=0.724  o_proj=0.603  ffn=11.464  head=3.703  norm+glue=0.068
+S05_serial_none_b800_r6 bench=800  median   50.540 tok/s  IQR   0.000   reps 50.54
+   organs ms/tok: qkv_proj=0.870  rope=0.016  attention=2.893  o_proj=0.608  ffn=11.632  head=3.694  norm+glue=0.069
+S05_serial2_none_b800_r6 bench=800  median   46.550 tok/s  IQR   0.000   reps 46.55
+   organs ms/tok: qkv_proj=0.884  rope=0.016  attention=4.489  o_proj=0.621  ffn=11.705  head=3.691  norm+glue=0.069
+S05_avx4_none_b800_r6  bench=800  median   53.380 tok/s  IQR   0.000   reps 53.38
+   organs ms/tok: qkv_proj=0.875  rope=0.016  attention=1.804  o_proj=0.606  ffn=11.658  head=3.696  norm+glue=0.069
+S05_avx4_sm1_b800_r6   bench=800  median   53.420 tok/s  IQR   0.000   reps 53.42
+   organs ms/tok: qkv_proj=0.872  rope=0.016  attention=1.774  o_proj=0.607  ffn=11.679  head=3.698  norm+glue=0.069
+S05_avx4_sm2_b800_r6   bench=800  median   51.730 tok/s  IQR   0.000   reps 51.73
+   organs ms/tok: qkv_proj=0.870  rope=0.016  attention=2.498  o_proj=0.603  ffn=11.586  head=3.679  norm+glue=0.069
+S05_avx4_sm3_b800_r6   bench=800  median   49.530 tok/s  IQR   0.000   reps 49.53
+   organs ms/tok: qkv_proj=0.876  rope=0.017  attention=3.222  o_proj=0.609  ffn=11.690  head=3.696  norm+glue=0.069
+S05_avx4_av1_b800_r6   bench=800  median   53.310 tok/s  IQR   0.000   reps 53.31
+   organs ms/tok: qkv_proj=0.866  rope=0.016  attention=1.811  o_proj=0.607  ffn=11.679  head=3.703  norm+glue=0.069
+S05_avx4_av2_b800_r6   bench=800  median   52.590 tok/s  IQR   0.000   reps 52.59
+   organs ms/tok: qkv_proj=0.873  rope=0.016  attention=2.066  o_proj=0.605  ffn=11.681  head=3.696  norm+glue=0.069
+S05_avx4_av3_b800_r6   bench=800  median   51.670 tok/s  IQR   0.000   reps 51.67
+   organs ms/tok: qkv_proj=0.890  rope=0.016  attention=2.314  o_proj=0.614  ffn=11.727  head=3.714  norm+glue=0.069
+S05_avx4_fork2_b800_r6 bench=800  median   53.460 tok/s  IQR   0.000   reps 53.46
+   organs ms/tok: qkv_proj=0.871  rope=0.016  attention=1.843  o_proj=0.597  ffn=11.619  head=3.682  norm+glue=0.069
+T10_serial_none_b300_r6 bench=300  median    3.150 tok/s  IQR   0.000   reps 3.15
+   organs ms/tok: qkv_proj=33.978  rope=0.069  attention=9.723  o_proj=22.378  ffn=247.918  head=3.659  norm+glue=0.629
+T10_serial2_none_b300_r6 bench=300  median    3.090 tok/s  IQR   0.000   reps 3.09
+   organs ms/tok: qkv_proj=33.955  rope=0.071  attention=15.657  o_proj=22.390  ffn=247.613  head=3.648  norm+glue=0.620
+T10_avx4_none_b300_r6  bench=300  median    3.200 tok/s  IQR   0.000   reps 3.20
+   organs ms/tok: qkv_proj=34.044  rope=0.068  attention=4.518  o_proj=22.327  ffn=247.963  head=3.649  norm+glue=0.624
+T10_avx4_sm1_b300_r6   bench=300  median    3.200 tok/s  IQR   0.000   reps 3.20
+   organs ms/tok: qkv_proj=33.916  rope=0.070  attention=4.467  o_proj=22.327  ffn=247.843  head=3.647  norm+glue=0.621
+T10_avx4_sm2_b300_r6   bench=300  median    3.190 tok/s  IQR   0.000   reps 3.19
+   organs ms/tok: qkv_proj=33.952  rope=0.068  attention=5.575  o_proj=22.338  ffn=247.710  head=3.660  norm+glue=0.620
+T10_avx4_sm3_b300_r6   bench=300  median    3.180 tok/s  IQR   0.000   reps 3.18
+   organs ms/tok: qkv_proj=34.018  rope=0.067  attention=6.662  o_proj=22.363  ffn=247.890  head=3.641  norm+glue=0.622
+T10_avx4_av1_b300_r6   bench=300  median    3.200 tok/s  IQR   0.000   reps 3.20
+   organs ms/tok: qkv_proj=33.984  rope=0.068  attention=4.520  o_proj=22.380  ffn=248.233  head=3.649  norm+glue=0.620
+T10_avx4_av2_b300_r6   bench=300  median    3.200 tok/s  IQR   0.000   reps 3.20
+   organs ms/tok: qkv_proj=33.929  rope=0.070  attention=5.242  o_proj=22.316  ffn=247.726  head=3.651  norm+glue=0.623
+T10_avx4_av3_b300_r6   bench=300  median    3.180 tok/s  IQR   0.000   reps 3.18
+   organs ms/tok: qkv_proj=34.026  rope=0.068  attention=6.010  o_proj=22.367  ffn=248.147  head=3.652  norm+glue=0.623
+T10_avx4_fork2_b300_r6 bench=300  median    3.200 tok/s  IQR   0.000   reps 3.20
+   organs ms/tok: qkv_proj=33.935  rope=0.069  attention=4.581  o_proj=22.306  ffn=247.755  head=3.653  norm+glue=0.623
+T10_serial_none_b800_r6 bench=800  median    3.010 tok/s  IQR   0.000   reps 3.01
+   organs ms/tok: qkv_proj=33.870  rope=0.068  attention=25.417  o_proj=22.303  ffn=247.026  head=3.639  norm+glue=0.622
+T10_serial2_none_b800_r6 bench=800  median    2.870 tok/s  IQR   0.000   reps 2.87
+   organs ms/tok: qkv_proj=33.888  rope=0.071  attention=41.141  o_proj=22.254  ffn=246.757  head=3.638  norm+glue=0.621
+T10_avx4_none_b800_r6  bench=800  median    3.130 tok/s  IQR   0.000   reps 3.13
+   organs ms/tok: qkv_proj=33.868  rope=0.068  attention=11.619  o_proj=22.312  ffn=247.164  head=3.641  norm+glue=0.622
+T10_avx4_sm1_b800_r6   bench=800  median    3.140 tok/s  IQR   0.000   reps 3.14
+   organs ms/tok: qkv_proj=33.886  rope=0.069  attention=11.456  o_proj=22.310  ffn=247.156  head=3.646  norm+glue=0.621
+T10_avx4_sm2_b800_r6   bench=800  median    3.110 tok/s  IQR   0.000   reps 3.11
+   organs ms/tok: qkv_proj=33.835  rope=0.068  attention=14.412  o_proj=22.308  ffn=246.877  head=3.637  norm+glue=0.621
+T10_avx4_sm3_b800_r6   bench=800  median    3.080 tok/s  IQR   0.000   reps 3.08
+   organs ms/tok: qkv_proj=33.854  rope=0.072  attention=17.180  o_proj=22.300  ffn=246.937  head=3.640  norm+glue=0.623
+T10_avx4_av1_b800_r6   bench=800  median    3.140 tok/s  IQR   0.000   reps 3.14
+   organs ms/tok: qkv_proj=33.811  rope=0.071  attention=11.629  o_proj=22.282  ffn=246.913  head=3.633  norm+glue=0.621
+T10_avx4_av2_b800_r6   bench=800  median    3.120 tok/s  IQR   0.000   reps 3.12
+   organs ms/tok: qkv_proj=33.824  rope=0.068  attention=13.729  o_proj=22.293  ffn=246.940  head=3.631  norm+glue=0.619
+T10_avx4_av3_b800_r6   bench=800  median    3.090 tok/s  IQR   0.000   reps 3.09
+   organs ms/tok: qkv_proj=33.897  rope=0.070  attention=16.007  o_proj=22.313  ffn=247.235  head=3.640  norm+glue=0.619
+T10_avx4_fork2_b800_r6 bench=800  median    3.140 tok/s  IQR   0.000   reps 3.14
+   organs ms/tok: qkv_proj=33.816  rope=0.071  attention=11.708  o_proj=22.252  ffn=246.903  head=3.630  norm+glue=0.624
+PASS 6 DONE
+E5 RUN4 DONE
