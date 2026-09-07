@@ -1053,8 +1053,18 @@ bandwidth-limited at all. §12.2 says the opposite for `S05` (*"nothing here is 
 wall"*, ~1.2 ms of issue against 19.9 measured) and §13.4 found the attention organ to be
 **latency**-bound, not bandwidth-bound, which is why E4 bought 6.53× there. **If the weight organs
 are also latency- or overhead-bound rather than bandwidth-bound, §19.2's ceilings are too low and
-the engineering share is larger than 2.5×.** That is the experiment §19 argues for, and it is the
-open item `P` (§15, INDEX item 0) asked from the other end.
+the engineering share is larger than 2.5×.** That is the experiment §19 argues for.
+
+> **CORRECTION, same day.** This paragraph first pointed at open item `P` (§15, INDEX item 0) as
+> that experiment. **It is not.** `P` lives inside `R`, the *attention* residue — softmax + `A·V`
+> + `P` — and §19's ceilings are about the **weight** organs (`ffn`, `qkv`, `o`, `head`).
+> Decomposing `P` cannot move them. **The experiment §19.5 actually argues for is a decomposition
+> of the FFN organ itself**, on E5's method: is 176 ms at 16.9 GB/s a bandwidth wall, or is it
+> chopping and per-call overhead? §12.2 already has the clue — *"the rate tracks how the work is
+> CHOPPED"*, with ~32 µs per call unexplained on `qkv` — and E4's whole result was that an organ
+> everyone read as bandwidth-bound was latency-bound. **This is now the open item that sets the
+> activation budget any MoE design has to hit**, because §19.4's answer moves by up to 2.5×
+> depending on it: 4.6% of a 10 B active per token, or 11.4%.
 
 
 ## 20. AMENDED 2026-09-07 by E7 §11 — `--bench` carries a contention witness, and it was gated three ways
