@@ -24,21 +24,34 @@ static const cell_t CELLS[] = {
 #define NCELL (int)(sizeof(CELLS)/sizeof(CELLS[0]))
 
 /* one cell: returns GB/s of weight bytes delivered */
-static double run_cell(int packed,double mb,double* out_gbps_bytes){
-    const size_t row_bytes = packed ? (size_t)(NIN/2) : (size_t)NIN*4;
+/* mode: 1 packed, 0 fp32, 2 lut (E11 -- brief 00d4446).  ycap, when non-NULL, receives y. */
+static double run_cell_m(int mode,double mb,double* out_gbps_bytes,float* ycap,size_t ycapn){
+    const int packed = (mode==1);
+    const size_t row_bytes = (mode!=0) ? (size_t)(NIN/2) : (size_t)NIN*4;
     size_t n_out = (size_t)(mb*MB/(double)row_bytes);
     if(n_out<64) n_out=64;
     const size_t wbytes = n_out*row_bytes;
 
     mat_t m; memset(&m,0,sizeof(m));
     m.out=(int)n_out; m.in=NIN; m.packed=packed; m.tm=NULL; m.Mpad=0;
-    void* W = xmalloc(wbytes);
+    /* the LUT kernel writes 32-row tiles, so it needs the row count padded to 32 and the codes
+       held TILE-major [in/2][Mpad] -- the same bytes as the packed arm, transposed. */
+    const size_t Mpad = (mode==2) ? ((n_out+31)/32)*32 : 0;
+    void* W = xmalloc(mode==2 ? (size_t)(NIN/2)*Mpad : wbytes);
     float* scale = (float*)xmalloc(n_out*4);
     float* x = (float*)xmalloc((size_t)NIN*4);
     float* y = (float*)xmalloc(n_out*4);
 
     unsigned s=12345u;
-    if(packed){ int8_t* c=(int8_t*)W; for(size_t i=0;i<wbytes;i++){ s=s*1664525u+1013904223u; c[i]=(int8_t)((s>>16)%9); } m.code=(const int8_t*)W; }
+    if(mode==1){ int8_t* c=(int8_t*)W; for(size_t i=0;i<wbytes;i++){ s=s*1664525u+1013904223u; c[i]=(int8_t)((s>>16)%9); } m.code=(const int8_t*)W; }
+    else if(mode==2){
+        /* SAME rng stream as the packed arm, laid out tile-major, so G-L0 compares two spellings
+           of ONE matrix and not two different matrices. */
+        int8_t* t=(int8_t*)W; memset(t,4,(size_t)(NIN/2)*Mpad);   /* 4 = the (0,0) trit pair */
+        for(size_t o=0;o<n_out;o++) for(size_t j=0;j<(size_t)(NIN/2);j++){
+            s=s*1664525u+1013904223u; t[j*Mpad+o]=(int8_t)((s>>16)%9); }
+        m.tm=(const int8_t*)W; m.Mpad=(int)Mpad;
+    }
     else      { float* f=(float*)W;  for(size_t i=0;i<wbytes/4;i++){ s=s*1664525u+1013904223u; f[i]=(float)((int)(s>>20)%7-3)*0.01f; } m.f32=(const float*)W; }
     for(size_t o=0;o<n_out;o++) scale[o]=0.01f;
     m.scale=scale;
@@ -54,30 +67,53 @@ static double run_cell(int packed,double mb,double* out_gbps_bytes){
 
     double sink=0; for(size_t o=0;o<n_out;o+=997) sink+=y[o];
     if(sink==1.0e300) printf("");            /* keep y live */
+    if(ycap) for(size_t o=0;o<n_out&&o<ycapn;o++) ycap[o]=y[o];
 
     *out_gbps_bytes = (double)wbytes*(double)reps/dt/1e9;
     double gwps = (double)n_out*(double)NIN*(double)reps/dt/1e9;
     free(W); free(scale); free(x); free(y);
     return gwps;
 }
+static double run_cell(int packed,double mb,double* g){ return run_cell_m(packed,mb,g,NULL,0); }
 
 int main(int argc,char** argv){
     int nrep = argc>1 ? atoi(argv[1]) : 3;
 #ifdef _OPENMP
     omp_set_num_threads(6);
 #endif
-    printf("E10 kbench -- same matvec source, n_in=%d fixed, --mvacc %d, 6 threads\n",NIN,g_mvacc);
+    printf("E10/E11 kbench -- same matvec source, n_in=%d fixed, --mvacc %d, 6 threads\n",NIN,g_mvacc);
+
+    /* ---- G-L0: correctness of the LUT arm, read BEFORE any LUT timing (brief 00d4446 §4).
+       Same rng stream, tile-major instead of row-major: two spellings of ONE matrix. */
+    {
+        const size_t ncap = 2340;                      /* the 4 MB cell's row count */
+        float* yp=(float*)xmalloc(ncap*4); float* yl=(float*)xmalloc(ncap*4);
+        double g;
+        run_cell_m(1,4.0,&g,yp,ncap);
+        int saveg=g_group; g_group=0;  run_cell_m(2,4.0,&g,yl,ncap);
+        double e2=0,s2=0; for(size_t o=0;o<ncap;o++){ double d=yl[o]-yp[o]; e2+=d*d; s2+=(double)yp[o]*yp[o]; }
+        double rel0=sqrt(e2/(s2>0?s2:1));
+        g_group=32; run_cell_m(2,4.0,&g,yl,ncap);
+        e2=0; for(size_t o=0;o<ncap;o++){ double d=yl[o]-yp[o]; e2+=d*d; }
+        double rel32=sqrt(e2/(s2>0?s2:1));
+        g_group=saveg;
+        printf("G-L0  rel l2 lut-vs-packed: whole-vector %.3e   group32 %.3e   (gate <=0.20 and not ~0;\n"
+               "      published: 1.40e-01 whole-vector, 3.10e-02 at G=32)\n",rel0,rel32);
+        printf("G-L0  %s\n", (rel0<=0.20&&rel0>1e-4)?"PASS":"FAIL -- every LUT cell below is VOID");
+        free(yp); free(yl);
+    }
+
     printf("%-8s %-7s %10s %10s %10s   %s\n","arm","cell","GB/s med","G-w/s med","spread","reps");
-    for(int packed=1;packed>=0;packed--){
+    for(int mi=0;mi<3;mi++){
+        const int mode = (mi==0)?1:((mi==1)?2:0);
+        const char* tag = (mode==1)?"packed":((mode==2)?"lut":"fp32");
         for(int c=0;c<NCELL;c++){
             double g[16],b[16];
-            for(int r=0;r<nrep;r++) g[r]=run_cell(packed,CELLS[c].mb,&b[r]);
+            for(int r=0;r<nrep;r++) g[r]=run_cell_m(mode,CELLS[c].mb,&b[r],NULL,0);
             for(int i=1;i<nrep;i++) for(int j=0;j<nrep-i;j++)
                 if(b[j]>b[j+1]){ double t=b[j];b[j]=b[j+1];b[j+1]=t; t=g[j];g[j]=g[j+1];g[j+1]=t; }
-            double med=b[nrep/2], gmed=g[nrep/2];
-            double spread=(b[nrep-1]-b[0])/med*100.0;
             printf("%-8s %-7s %10.2f %10.2f %9.1f%%   %d\n",
-                   packed?"packed":"fp32", CELLS[c].tag, med, gmed, spread, nrep);
+                   tag, CELLS[c].tag, b[nrep/2], g[nrep/2], (b[nrep-1]-b[0])/b[nrep/2]*100.0, nrep);
             fflush(stdout);
         }
     }

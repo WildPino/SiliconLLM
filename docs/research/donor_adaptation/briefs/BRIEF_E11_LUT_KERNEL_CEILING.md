@@ -80,3 +80,60 @@ Even LUT-LIFTS at 1.5× moves Coder-7B from 6.79 to roughly 8.5 tok/s: **still ~
 and only if the quality cost were acceptable, which is not established. **This does not change the
 strategic picture** — §19.3 and §23.3 stand. It decides whether the engine's weight path is
 finished or has one more move in it.
+
+---
+
+## 7. RUN 1 — **VOID**, and the gate that caught it was the one added for this reason
+
+The LUT arm was built and the sweep ran. **G-L2, the harness known-positive, FAILED, so no cell in
+the run counts and none is quoted as a result.**
+
+| | E10, clean | run 1 |
+|---|---|---|
+| packed 4 MB | 52.07 G-w/s | **35.64** |
+| packed 12 MB | 50.40 | **39.54** |
+| packed 512 MB | 50.97 | **58.35** |
+| packed 2048 MB | 52.95 | **61.36** |
+| packed spread, worst cell | 30.6% | **37.8%** |
+| fp32 spread, worst cell | 37.0% | **77.7%** |
+
+The packed arm did not merely drift — it **acquired a slope it does not have**, rising 35.6 → 61.4
+across the sweep where E10 measured it flat to ±4%. The pre-registered rule said: *if the harness no
+longer reproduces the result it was built to produce, nothing in the run counts.* It doesn't, so it
+doesn't.
+
+**The cause, found by looking rather than assumed:**
+
+```
+D:\_THINGS\Progetti\SiliconLLM_private\...\donor_engine.exe
+  --weights D:\_ktmp\e7\qwen25-coder7b_f32.bin --threads 6 --vecexp 1
+  --generate D:\_ktmp\e7\p0.bin 32 D:\_ktmp\test_gen_p0
+```
+
+PID 7484, started 17:26:17, **six threads and a 30.46 GB fp32 model being streamed off disk**, from
+a **different checkout** (`SiliconLLM_private`) and carrying a **`--vecexp` flag that does not exist
+in this tree** — E9 §5's owed vectorised `expf`. **A concurrent worker, not an orphan of mine.**
+It was left running. E8's kill was of my own surviving child; this is somebody else's run.
+
+**This is the first time the absolute-plateau discipline has actually earned its keep.** E8 §9 item
+4 asked for a per-shape witness plateau *published as an absolute*, precisely because E8's
+within-sweep discard rule discarded zero pairs in a sweep that was 12% contaminated end to end. A
+within-run rule could not have flagged run 1 either — every cell was contaminated together. **What
+flagged it was a number carried in from a previous session** (E10's 49–53 G-w/s), compared from
+outside the run. G-L2 exists because E10 wrote that lesson down two hours earlier.
+
+**E10 is unaffected.** Its sweeps predate 17:26:17, its own dispersion was 0.8–30.6%, and its G-K2
+tied it to the engine's independently measured 26.1 GB/s — a cross-session anchor of exactly the
+kind that caught this.
+
+**One thing run 1 does establish, because it is deterministic and immune to load: G-L0 PASSES.**
+The LUT arm computes the same matvec as the packed arm — `rel l2` **8.31e-03** against the packed
+arm's output on the same matrix, non-zero (so the LUT branch really ran) and far under the 0.20
+gate. **But that number is NOT a quality measurement and must not be quoted as one:** the bench's
+synthetic `x` has a crest factor near 1.7, where the donor's activations measure **8.3 average and
+69.6 maximum** (INDEX §2.1). The published costs on real activations remain **1.40e-01**
+whole-vector and **3.10e-02** at `--lut-group 32`. G-L0 checks the arm, not the format.
+
+**Status: E11 is open. The gates stand as written; run 2 waits for an idle machine.** Quality and
+parity work is unaffected by the contention and can proceed meanwhile — that is the standing rule
+and it applies here.
