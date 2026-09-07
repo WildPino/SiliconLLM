@@ -131,6 +131,24 @@ static int g_attnr=ATTNR_NONE;
 static volatile float g_forkbuf[E5_MAXNH];
 static volatile float g_sink=0.0f;
 
+// s11: the IN-PROCESS INTERLEAVE.  Runs 1-4 compared arms living in different processes, minutes
+// apart; at T10 @800 the weight path is 301 ms, so the 1% G0 tolerance is 3.0 ms and the component
+// Y is 1.9 ms -- no between-process gate can be both protective and passable.  Here an arm is a
+// (attn, attnr) PAIR and the arm rotates PER TOKEN, keyed off `pos` inside forward() so the same
+// rotation is active in --bpb (which makes parity a test of the arms while they are MIXED).
+// The schedule is a palindrome of period 2n:  idx = pos % 2n,  arm = idx<n ? idx : 2n-1-idx.
+// Each arm then holds positions b+i and b+2n-1-i, whose sum is the same for every i, so every
+// arm's mean context length is EXACTLY equal -- by construction, not by averaging.  Attention cost
+// grows with position and a plain round-robin would have handed arm 0 systematically shorter
+// contexts than arm n-1, a bias of order 1/n on the very quantity being decomposed.
+#define E5_SW_MAX 16
+static int g_sw=0;                                  // arms in the sweep; 0 = off
+static int g_sw_attn[E5_SW_MAX], g_sw_attnr[E5_SW_MAX];
+static const char* g_sw_name[E5_SW_MAX];
+static double g_sw_t[E5_SW_MAX][T_N];
+static long g_sw_n[E5_SW_MAX];
+static int g_sw_cur=0;
+
 static inline float hsum256(__m256 v){
     __m128 lo=_mm256_castps256_ps128(v), hi=_mm256_extractf128_ps(v,1);
     lo=_mm_add_ps(lo,hi);
@@ -592,6 +610,11 @@ static void state_init(state_t* s,const model_t* M,int maxseq){
 
 // one token at position `pos`; logits land in s->logits
 static void forward(const model_t* M,state_t* s,int token,int pos){
+    if(g_sw){                                       // s11: palindrome schedule, period 2n
+        int idx=(int)(((unsigned)pos)%(unsigned)(2*g_sw));
+        g_sw_cur = idx<g_sw ? idx : 2*g_sw-1-idx;
+        g_attn=g_sw_attn[g_sw_cur]; g_attnr=g_sw_attnr[g_sw_cur];
+    }
     const int D=M->D, F=M->F, NH=M->NH, NKV=M->NKV, HD=M->HD;
     const int QO=NH*HD, KVO=NKV*HD, GQA=NH/NKV;
     memcpy(s->x,M->embed+(size_t)token*D,(size_t)D*4);
@@ -842,6 +865,28 @@ int main(int argc,char** argv){
         else if(!strcmp(argv[i],"--seqlen")&&i+1<argc) seqlen=atoi(argv[++i]);
         else if(!strcmp(argv[i],"--logits")&&i+3<argc){ mode="logits"; arg2=argv[++i]; arg3=atol(argv[++i]); logout=argv[++i]; }
         else if(!strcmp(argv[i],"--bpb")&&i+1<argc){ mode="bpb"; arg2=argv[++i]; }
+        else if(!strcmp(argv[i],"--sweep")){        // s11: the ten arms of run 4, in one process
+            static const int SA[10]={ATTN_SERIAL,ATTN_SERIAL2,ATTN_AVX4,ATTN_AVX4,ATTN_AVX4,
+                                     ATTN_AVX4,ATTN_AVX4,ATTN_AVX4,ATTN_AVX4,ATTN_AVX4};
+            static const int SR[10]={ATTNR_NONE,ATTNR_NONE,ATTNR_NONE,ATTNR_SM1,ATTNR_SM2,
+                                     ATTNR_SM3,ATTNR_AV1,ATTNR_AV2,ATTNR_AV3,ATTNR_FORK2};
+            static const char* SN[10]={"serial","serial2","none","sm1","sm2","sm3","av1","av2",
+                                       "av3","fork2"};
+            g_sw=10;
+            for(int a=0;a<10;a++){ g_sw_attn[a]=SA[a]; g_sw_attnr[a]=SR[a]; g_sw_name[a]=SN[a]; }
+        }
+        // --sweep8: the eight arms that are BIT-IDENTICAL to each other (all on avx4), for G2.
+        // The three --attn arms differ in summation order by construction -- E4 published serial
+        // at 166667.2449386003 against avx4's 166667.1361128952 -- so a run that mixes them cannot
+        // be bit-identical to either, and asking it to be was a mis-specified gate, not a defect.
+        else if(!strcmp(argv[i],"--sweep8")){
+            static const int SR8[8]={ATTNR_NONE,ATTNR_SM1,ATTNR_SM2,ATTNR_SM3,
+                                     ATTNR_AV1,ATTNR_AV2,ATTNR_AV3,ATTNR_FORK2};
+            static const char* SN8[8]={"none","sm1","sm2","sm3","av1","av2","av3","fork2"};
+            g_sw=8;
+            for(int a=0;a<8;a++){ g_sw_attn[a]=ATTN_AVX4; g_sw_attnr[a]=SR8[a];
+                                  g_sw_name[a]=SN8[a]; }
+        }
         else if(!strcmp(argv[i],"--bench")&&i+1<argc){ mode="bench"; arg3=atol(argv[++i]); }
         else if(!strcmp(argv[i],"--profile")){ g_prof=1; }
         else if(!strcmp(argv[i],"--lut")){ g_lut=1; }
@@ -907,10 +952,21 @@ int main(int argc,char** argv){
     }
 
     if(!strcmp(mode,"bench")){
+        // the palindrome balances mean position only over WHOLE periods; refuse a partial one
+        // rather than quietly hand the low-numbered arms an extra short context each
+        if(g_sw&&arg3%(2*g_sw)) die("--sweep needs --bench divisible by 2n (n arms)");
         state_t s; state_init(&s,&M,arg3+2);
         forward(&M,&s,1,0);                                   // warm
         double t0=now_s();
-        for(long i=0;i<arg3;i++) forward(&M,&s,1+(int)(i%100),(int)(i+1));
+        for(long i=0;i<arg3;i++){
+            double b4[T_N];
+            if(g_sw&&g_prof) for(int k=0;k<T_N;k++) b4[k]=g_t[k];
+            forward(&M,&s,1+(int)(i%100),(int)(i+1));
+            if(g_sw&&g_prof){                       // charge this token to the arm that ran it
+                for(int k=0;k<T_N;k++) g_sw_t[g_sw_cur][k]+=g_t[k]-b4[k];
+                g_sw_n[g_sw_cur]++;
+            }
+        }
         double dt=now_s()-t0;
         printf("BENCH  %ld tokens  %.3f s  %.2f tok/s  (threads=%d, %s)\n",
                arg3,dt,arg3/dt,threads,M.quant==2?"packed":M.quant?"ternary":"fp32");
@@ -921,6 +977,12 @@ int main(int argc,char** argv){
                 printf("  %-11s %9.3f   %5.1f%%\n",g_tn[k],g_t[k]/arg3*1e3,100.0*g_t[k]/tot);
             printf("  %-11s %9.3f   (organs summed; wall %.3f ms/token)\n",
                    "TOTAL",tot/arg3*1e3,dt/arg3*1e3);
+            for(int a=0;a<g_sw;a++){                // one line per arm, ms/token, machine-readable
+                printf("SWEEP %s n=%ld",g_sw_name[a],g_sw_n[a]);
+                for(int k=0;k<T_N;k++)
+                    printf(" %s=%.6f",g_tn[k],g_sw_n[a]?g_sw_t[a][k]/(double)g_sw_n[a]*1e3:0.0);
+                printf("\n");
+            }
         }
         return 0;
     }

@@ -555,3 +555,66 @@ keeps pricing the code-shape difference, and if the sweep's `none` organ differs
 4's `none` organ, that difference is reported as the price of interleaving rather than absorbed.
 
 Section 3's predictions are still **not re-fitted**. Section 9.4's fallback still stands.
+
+---
+
+## 12. AMENDMENT before run 5 - the parity gate of section 11.5 was mis-specified
+
+Pushed **before run 5 exists**, and before any run-5 timing exists. The interleave was built, and
+G2 was run first, as this brief has done since section 2. It failed, and it failed on my gate.
+
+### 12.1 What happened
+
+Section 11.5 said: *a single interleaved run must print the same `NATS_TOTAL` as `none`.* The
+ten-arm sweep printed **166667.1642458600** against `none`'s **166667.1361128952**. Not identical.
+
+It cannot be identical, and E4's own parity table says so:
+
+| pure arm (E4, `results/e4/parity.txt`) | `NATS_TOTAL` |
+|---|---|
+| `serial`, `serial2` | 166667.2449386003 |
+| `ilp4` | 166667.0811970976 |
+| `avx1` | 166667.1102566445 |
+| `avx4` | 166667.1361128952 |
+
+The three `--attn` arms of run 5 - `serial`, `serial2`, `avx4` - **differ from each other in the
+order they sum the `Q.K` dot product**. That difference is not incidental to E5; it is the thing
+`X` measures. A run that mixes them must land between the pure values, and the sweep did:
+`avx4` **166667.1361** < mixed **166667.1642** < `serial` **166667.2449**.
+
+The eight `--attnr` arms are a different matter: they are bit-identical to `none` one at a time
+(section 10, `results/e5/parity4.txt`), because every extra pass is folded back as an exact zero.
+
+**So the gate was asking a mixture of arms that are not bit-identical to be bit-identical.** That is
+a defect in the gate, not in the interleave, and it is the second time in this experiment that a
+gate I wrote has caught me rather than the machine - which is what they are for.
+
+### 12.2 The replacement, fixed here before the timings exist
+
+- **G2a - bit-identity, on the arms that have it.** `--sweep8` interleaves the eight `avx4/attnr`
+  arms and nothing else. Its `NATS_TOTAL` must equal `none`'s **exactly**. This is the strong test
+  section 11.5 wanted: it checks value-preservation of every repeat-count arm *while they are
+  mixed*, which is the configuration the timings come from.
+- **G2b - the structural test, on the arms that cannot have it.** The ten-arm sweep must land
+  **between** the pure `avx4` and pure `serial` values, and its distance from `avx4` must not
+  exceed the `serial`-to-`avx4` distance, **3.03e-06 BPB** - E4's published number, not one
+  measured today. Failing either voids run 5.
+
+Measured, for the record, both before any run-5 timing exists: **G2a passes** - `--sweep8` prints `166667.1361128952`, bit-identical to `none` (`results/e5/parity5.txt`). **G2b passes** - the mixture sits **7.83e-07 BPB** from `avx4`, inside a `serial`-to-`avx4`
+span of **3.03e-06 BPB**, both about four orders of magnitude below sigma_seed = 0.005.
+
+### 12.3 A real consequence of interleaving, stated now rather than found later
+
+A layer's K and V are computed from the previous layer's attention output. So in a mixed run the KV
+cache at a position carries values produced by whichever arm ran that position, and the arms of run
+5 therefore **do not** compute on bit-identical KV contents. Two things bound what that can do:
+
+1. The perturbation is the one measured above - order 1e-07 BPB, four orders under sigma_seed.
+2. The loops being timed have **no value-dependent control flow**: the trip counts are `pos` and
+   `HD`, the only data-dependent step is the max in the softmax, and none of the arms branch on a
+   value. A different bit in V changes what the FMA computes, not how long it takes.
+
+This is still a difference from runs 1-4, where each arm owned its own cache, and it is written down
+here so that it cannot be produced later as a surprise. If run 5's `none` organ disagrees materially
+with run 4's `none` organ, section 11.6 already commits to reporting that difference as the price of
+interleaving rather than absorbing it.
