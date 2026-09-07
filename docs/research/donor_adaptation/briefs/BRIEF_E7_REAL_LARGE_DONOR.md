@@ -577,3 +577,71 @@ no witness.
 
 **Unchanged and restated:** §13 is an instrument, not a speed result. E7 is **11.2× short of 50
 tok/s** and none of this moves it.
+
+---
+
+## 13-bis. VERDICT on §13 — **`WITNESS-CONFIRMED`. All three gates pass.**
+
+### G-W1b — PASS, and the revised prediction was right
+
+10 interleaved pairs, `--bench 300`, `qwen25-05b_tqh.bin`, ratio = witness / no-witness:
+
+    1.0022  0.9948  1.0092  0.9955  1.0574  0.9865  1.0056  0.9971  0.9968  1.0192
+
+**Median 0.9996.** Gate was ≥ 0.990: **PASS**. Pre-registered band 0.99–1.01: **inside**. And the
+prediction §13 wrote down, **0.995–1.000**, contains it — a prediction made *after* the first one
+missed by 150×, and made from the **measured** 1.2% divided by the **structural** 24× rather than
+from a nanosecond count. **The witness is free at the resolution this programme can measure.**
+
+| | failed build (§12) | **rebuilt (§13)** |
+|---|---|---|
+| timestamps per token | `2L` = 48 | **2** |
+| `now_s()` cost | `QueryPerformanceFrequency` + `Counter` | **`Counter` only** |
+| paired median | **0.9877** ❌ | **0.9996** ✅ |
+
+### G-W2b — PASS
+
+`--logits <ids> 8 <out>`, with and without the witness, 4,861,952 bytes each:
+
+    witness     d4960bc72b696c2bb4d8aaf818edf9c509b7907f0831755f333d6dee57950424
+    no-witness  d4960bc72b696c2bb4d8aaf818edf9c509b7907f0831755f333d6dee57950424
+
+**Byte-for-byte identical.** Phase 60's law is satisfied: the timer does not touch arithmetic, and
+that is now measured rather than assumed.
+
+### G-W3b — PASS, the cheaper witness still fires
+
+    known-negative, idle:            ffn~ 11.631 ms/tok   at 55.25 tok/s
+    known-positive, 6 busy threads:  ffn~ 16.225 ms/tok   at 40.41 tok/s
+
+**+34.3% above the idle arm's maximum across ten reps (12.083).** The gate was exactly that.
+Making the witness 24× cheaper did not cost it its sensitivity.
+
+### What the run showed that nobody asked for
+
+The `ffn~` plateau across ten idle reps is **11.552–12.083, a 4.6% spread**, against rate spreads
+of 4.2% (witnessed arm) and 6.2% (unwitnessed). **The witness's dispersion is comparable to the
+rate's**, which is what makes it usable: a reading off the plateau is off by more than the rate's
+own noise.
+
+And a coincidence worth one sentence and no more: the two slowest runs were pair 10's witnessed arm
+(53.71 tok/s, `ffn~` **12.083 — the plateau maximum**, correctly flagged) and pair 5's
+**un**witnessed arm (52.76, nothing recorded, because that arm has no witness). That is a picture
+of the defect and of the fix, at n = 1 each. **It is an illustration, not evidence.**
+
+### Standing, and the limits
+
+**`--bench` now carries a contention witness by default.** Every rate this programme publishes from
+here on comes with a number that says whether the machine was quiet, and that number has been shown
+to **fire** on a known-positive before any of its nulls are allowed to count.
+
+It does **not** retroactively validate anything. Every rate published before this commit — E1
+through E7, `SPEED_LEDGER` §§12–19 — was taken without it and still rests on the operator's belief.
+**§10.2's VOID stands. G-Y1's undecided 1600 cell stands undecided.** The witness makes the *next*
+measurement checkable, not the last one.
+
+**Declared cost, again, so it is not lost:** `now_s()` is cheaper, so **profiled walls taken after
+`02baefa` are not comparable to profiled walls taken before it.** Splits and slopes are unaffected.
+
+**And the goal is where it was: E7 is 11.2× short of 50 tok/s.** §§12–13 bought an instrument, not
+a token per second.
