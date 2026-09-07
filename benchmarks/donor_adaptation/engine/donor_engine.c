@@ -880,9 +880,21 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
                        matvec(&L->up,  s->xb,NULL,s->hb2); }
             TOCF(F_GU); }
           { TICF;
+            // E9: the SwiGLU glue was the only loop in the FFN with no parallel region, while
+            // every matvec on both sides of it runs on --threads.  530,432 expf per token at
+            // Coder-7B, 7.5% of the token, on ONE core.  Elementwise map, no reduction: each i
+            // is written once and reads only its own inputs, so splitting the range is
+            // BIT-IDENTICAL -- gated on sha256, not on parity.
             if(g_fuse){ const float* g=s->gubuf; const float* u=s->gubuf+F;
+#ifdef _OPENMP
+#pragma omp parallel for schedule(static)
+#endif
                         for(int i=0;i<F;i++) s->hb[i]=silu(g[i])*u[i]; }
-            else      { for(int i=0;i<F;i++) s->hb[i]=silu(s->hb[i])*s->hb2[i]; }
+            else      {
+#ifdef _OPENMP
+#pragma omp parallel for schedule(static)
+#endif
+                        for(int i=0;i<F;i++) s->hb[i]=silu(s->hb[i])*s->hb2[i]; }
             TOCF(F_GLUE); }
           { TICF; matvec(&L->down,s->hb,NULL,s->xb2); TOCF(F_DOWN); }
           { TICF; for(int i=0;i<D;i++) s->x[i]+=s->xb2[i]; TOCF(F_RES); }

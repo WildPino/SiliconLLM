@@ -1186,3 +1186,70 @@ binder** — settled by an invariant, not a timing.
 **And `glue(silu)` is now 7.4% of the whole token for zero weight traffic**: 530,432 `expf` calls
 per token, never charged in this ledger, untouched by E8. The rope `pow()` hoist of §12 was the
 same shape and worth +10.3%.
+
+## 22. AMENDED 2026-09-07 by E9 — the SwiGLU glue ran on one thread, and it was worth +5.6%
+
+`probes/E9_GLUE_PARALLEL.md`, verdict `GLUE-CONFIRMED`. Pre-registered and pushed as
+`briefs/BRIEF_E9_GLUE_PARALLEL.md` (`82dbb54`) before any measurement. Opened by §21.5's last
+paragraph — the item E8's decomposition found by accident.
+
+### 22.1 The measurement
+
+| Coder-7B packed, `--bench 300`, 10 interleaved pairs, idle, witness on | before | after |
+|---|---|---|
+| rate | 6.45 tok/s (spread 4.0%) | **6.79 tok/s** (spread 4.0%) |
+| `ffn~` witness | 123.812 ms | 116.205 ms |
+| **paired median ratio** | — | **1.0557** (spread 3.8%) |
+
+Bands fixed before the run: **≥1.035 CONFIRMED**, 1.015–1.035 UNDECIDED, ≤1.015 REFUTED.
+**Predicted 1.055–1.066 — it landed inside its own band**, the first prediction in this programme's
+last three to do so, and the first derived by E8 §3's corollary (from a *measured* quantity divided
+by a *structural* factor) rather than from first principles.
+
+### 22.2 The gate is sha256, not parity
+
+`s->hb[i] = silu(g[i]) * u[i]` is an **elementwise map with no reduction**: each `i` is written once
+and reads only its own inputs, so splitting the index range across threads cannot change a bit.
+E8 re-partitioned a float sum and could never claim this. **G-G1: `--logits` output byte-identical,
+`b94b56d002880d84…548765`, before and after.** +5.6% at zero numeric cost.
+
+### 22.3 The FFN sub-breakdown, updated (supersedes §21.5's `--mvacc 4` column)
+
+| inside `ffn` at Coder-7B, `--profile --bench 100` | before E9 | after E9 |
+|---|---|---|
+| gate+up | 75.078 | 73.597 |
+| **glue(silu)** | **11.346 (9.2% of ffn)** | **2.938 (2.6% of ffn)** |
+| down | 37.286 | 36.403 |
+| residual | 0.035 | 0.032 |
+| ffn | 123.752 | **112.980** |
+| TOTAL (organs summed) | 153.219 | **141.901** |
+| `sum/ffn` | 0.9999 | 0.9999 |
+| profiled rate | 6.59 | **7.12 tok/s** |
+
+**`rmsnorm` was left serial on purpose**, and the brief said so before the run: `norm+glue` is
+0.330 ms/token over 56 calls, and at §12.4's measured **2.7 µs per OpenMP region** the remedy would
+spend 0.151 ms to save at most 0.275 ms. **A remedy has to clear its own overhead.** Measured
+after: 0.327 → 0.329 ms, untouched, as intended.
+
+### 22.4 What §19 looks like after both of today's changes
+
+| Coder-7B, 7.072 B active/token | tok/s | GB/s on the weight path | short of 50 |
+|---|---|---|---|
+| §12.2 / E7 as published this morning | 4.460 | 16.7 | 11.2× |
+| after E8 | 6.37 | 22.5 | 7.8× |
+| **after E9** | **6.79** | **24.0** | **7.4×** |
+
+Delivered weight rate **48.0 G-weights/s**. At 0.5 B packed the same two changes take §12.2's
+56 tok/s to **79.12**.
+
+**§19.3 is untouched by both.** Engine work had **1.7–2.5×** in it; E8 and E9 have taken **1.52×**,
+leaving roughly **1.15–1.65×** to the measured streaming ceilings (28 / 37.0 / 42 GB/s). The
+missing **7.4×** remains a property of the model, not of the code.
+
+### 22.5 The witness plateau at 7 B, published as an absolute
+
+E8 §9 item 4 asked for this, because the within-sweep discard rule cannot see a contamination that
+moves a whole sweep together. **Coder-7B packed, `--bench 300`, idle, `--mvacc 4`: `ffn~`
+122.9–126.8 ms before E9, 114.5–117.0 ms after.** A future sweep reading materially above its
+band is contended, whatever its own internal dispersion says. (0.5 B packed, for comparison:
+11.552–12.083 ms at `--mvacc 1`, **7.478 ms** on today's canonical binary.)

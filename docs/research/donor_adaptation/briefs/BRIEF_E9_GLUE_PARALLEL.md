@@ -90,3 +90,31 @@ win is banked, not mixed into it.
 Even a perfect result here is **+6%**, and Coder-7B is **7.8× short of 50 tok/s**. This is banked
 because it is free and bit-exact, not because it changes the strategic picture — ledger §19.3 and
 §21.3 are untouched by it.
+
+---
+
+## 7. VERDICT — appended after the run
+
+**`GLUE-CONFIRMED`.** Full write-up: `probes/E9_GLUE_PARALLEL.md`. Ledger `§22`.
+
+| gate | fixed above | measured |
+|---|---|---|
+| **G-G1** | byte-identical `--logits` sha256 | **PASS** — `b94b56d002880d841a38e4dad786d0549460cfde95f5b86e16fc265811548765`, both arms |
+| **G-G2** | ≥1.035 CONFIRMED; predicted 1.055–1.066 | **CONFIRMED 1.0557**, 10 pairs, spread 3.8% — **inside the predicted band** |
+| **G-G3** | does `glue` fall, `sum/ffn` in 0.98–1.02 | **PASS** — 11.346 → **2.938 ms** (3.86×), `sum/ffn` 0.9999 both arms |
+
+Rate 6.45 → **6.79 tok/s**; profiled 6.59 → **7.12**; ffn 123.752 → 112.980; TOTAL 153.219 → 141.901.
+
+**What this brief got right, and it is worth naming because the last two did not.** §4 predicted
+**1.055–1.066** and §4's derivation predicted the glue itself at **2.0–3.5 ms**. Measured **1.0557**
+and **2.938**. Both bands came from a *measured* quantity (11.628 ms) divided by a *structural*
+factor (6 threads), plus §12.4's *measured* 2.7 µs region cost — the method E8 §3 was forced to
+write down after predicting 1.5–1.7× and getting 1.349, and after the witness cost missed by 150×.
+**It is the first band in three to contain its own result.**
+
+**What it did not anticipate:** `gate+up` and `down` each dropped ~2% (75.078 → 73.597,
+37.286 → 36.403) although nothing in them changed. The brief has no account of that; it is inside
+the ±5% law on absolute readings and is not claimed as an effect.
+
+§5's abstention held exactly as written: `norm+glue` 0.327 → 0.329 ms, rmsnorm untouched.
+§6's honest ceiling held too — **+5.6% on a donor still 7.4× short of 50 tok/s.**
