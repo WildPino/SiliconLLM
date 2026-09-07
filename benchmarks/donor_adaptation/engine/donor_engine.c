@@ -118,7 +118,7 @@ static int g_attn=ATTN_SERIAL;
 // VALUE-PRESERVINGLY, so S and Y are solved from the 1x/2x points and then PREDICTED at 3x.
 // Composes with --attn; every E5 arm is measured on top of --attn avx4.
 enum { ATTNR_NONE=0, ATTNR_SM2=1, ATTNR_SM3=2, ATTNR_AV2=3, ATTNR_AV3=4, ATTNR_FORK2=5,
-       ATTNR_SM1=6, ATTNR_AV1=7 };
+       ATTNR_SM1=6, ATTNR_AV1=7, ATTNR_QK1=8, ATTNR_QK2=9, ATTNR_QK3=10 };
 // s10: sm1/av1 are the 1x point INSIDE the wrapped path.  Run 3 solved the component as
 // (2x - none) and tested it at 3x; the two increments (av2-none) and (av3-av2) are both
 // "one extra A.V pass" and disagreed by 1.28x at T10 @800, because `none` runs a DIFFERENT
@@ -148,6 +148,11 @@ static const char* g_sw_name[E5_SW_MAX];
 static double g_sw_t[E5_SW_MAX][T_N];
 static long g_sw_n[E5_SW_MAX];
 static int g_sw_cur=0;
+// s13.4: an EXPLICIT schedule, used by --sweepd.  With g_sw_per==0 the palindrome of period 2n
+// applies and every arm's mean position is equal by symmetry; with an explicit schedule the table
+// is written so that the arms it compares have equal mean position by arithmetic instead.
+static int g_sw_per=0;
+static int g_sw_sched[64];
 
 static inline float hsum256(__m256 v){
     __m128 lo=_mm256_castps256_ps128(v), hi=_mm256_extractf128_ps(v,1);
@@ -610,9 +615,10 @@ static void state_init(state_t* s,const model_t* M,int maxseq){
 
 // one token at position `pos`; logits land in s->logits
 static void forward(const model_t* M,state_t* s,int token,int pos){
-    if(g_sw){                                       // s11: palindrome schedule, period 2n
-        int idx=(int)(((unsigned)pos)%(unsigned)(2*g_sw));
-        g_sw_cur = idx<g_sw ? idx : 2*g_sw-1-idx;
+    if(g_sw){                                       // s11: palindrome, or s13.4 explicit table
+        int per = g_sw_per ? g_sw_per : 2*g_sw;
+        int idx = (int)(((unsigned)pos)%(unsigned)per);
+        g_sw_cur = g_sw_per ? g_sw_sched[idx] : (idx<g_sw ? idx : 2*g_sw-1-idx);
         g_attn=g_sw_attn[g_sw_cur]; g_attnr=g_sw_attnr[g_sw_cur];
     }
     const int D=M->D, F=M->F, NH=M->NH, NKV=M->NKV, HD=M->HD;
@@ -657,6 +663,8 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
         const int avrep=(g_attnr==ATTNR_AV3)?3:((g_attnr==ATTNR_AV2)?2:1);
         const int smwrap=(g_attnr==ATTNR_SM1||g_attnr==ATTNR_SM2||g_attnr==ATTNR_SM3);
         const int smrep=(g_attnr==ATTNR_SM3)?3:((g_attnr==ATTNR_SM2)?2:1);
+        const int qkwrap=(g_attnr==ATTNR_QK1||g_attnr==ATTNR_QK2||g_attnr==ATTNR_QK3);
+        const int qkrep=(g_attnr==ATTNR_QK3)?3:((g_attnr==ATTNR_QK2)?2:1);
         TIC;
 #ifdef _OPENMP
 #pragma omp parallel for schedule(static)
@@ -689,8 +697,23 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
                 for(int t=0;t<=pos;t++){ float d=dot_avx1(qh,kbase+(size_t)t*KVO,HD)*inv;
                                          a[t]=d; if(d>mx) mx=d; } break;
             case ATTN_AVX4:
-                for(int t=0;t<=pos;t++){ float d=dot_avx4(qh,kbase+(size_t)t*KVO,HD)*inv;
-                                         a[t]=d; if(d>mx) mx=d; } break;
+                if(!qkwrap){
+                    for(int t=0;t<=pos;t++){ float d=dot_avx4(qh,kbase+(size_t)t*KVO,HD)*inv;
+                                             a[t]=d; if(d>mx) mx=d; }
+                } else {
+                    // s13.4: one code shape for qkrep = 1, 2 and 3.  `keep` is exactly +0 for any
+                    // finite mx, so a[t] is bit-identical to the unwrapped loop -- and 0.0f*mx is
+                    // NOT foldable without -ffast-math (mx could be NaN or Inf), so pass r+1's
+                    // stores genuinely depend on pass r and no pass can be elided.  It is a local,
+                    // so unlike a shared sink it adds no cross-thread traffic to what it measures.
+                    float keep=0.0f;
+                    for(int r=0;r<qkrep;r++){
+                        mx=-1e30f;
+                        for(int t=0;t<=pos;t++){ float d=dot_avx4(qh,kbase+(size_t)t*KVO,HD)*inv;
+                                                 a[t]=d+keep; if(d>mx) mx=d; }
+                        keep=0.0f*mx;
+                    }
+                } break;
             case ATTN_SERIAL2:
                 for(int t=0;t<=pos;t++){ float d=dot_serial2(qh,kbase+(size_t)t*KVO,HD)*inv;
                                          a[t]=d; if(d>mx) mx=d; } break;
@@ -875,6 +898,35 @@ int main(int argc,char** argv){
             g_sw=10;
             for(int a=0;a<10;a++){ g_sw_attn[a]=SA[a]; g_sw_attnr[a]=SR[a]; g_sw_name[a]=SN[a]; }
         }
+        // --sweep6: run 6's ten arms.  All ten are on avx4, so unlike run 5's set they are all
+        // bit-identical to `none` and G2a covers the whole sweep.  serial/serial2 are GONE: they
+        // are a different code family, and X = organ(none) - R across families came out negative.
+        else if(!strcmp(argv[i],"--sweep6")){
+            static const int SR6[10]={ATTNR_NONE,ATTNR_SM1,ATTNR_SM2,ATTNR_SM3,ATTNR_AV1,
+                                      ATTNR_AV2,ATTNR_AV3,ATTNR_QK1,ATTNR_QK2,ATTNR_QK3};
+            static const char* SN6[10]={"none","sm1","sm2","sm3","av1","av2","av3",
+                                        "qk1","qk2","qk3"};
+            g_sw=10; g_sw_per=0;
+            for(int a=0;a<10;a++){ g_sw_attn[a]=ATTN_AVX4; g_sw_attnr[a]=SR6[a];
+                                   g_sw_name[a]=SN6[a]; }
+        }
+        // --sweepd: the price of switching arms, measured.  Four entries, THREE of which run the
+        // identical `none` code and differ only in their neighbours; the fourth (sm2) is the
+        // stranger that isolates them.  Period 10, schedule  F I F E H H E F I F  :
+        //   `none_iso` at slots 1 and 8 -- both neighbours are sm2       mean position 4.5
+        //   `none_hot` at slots 4 and 5 -- both neighbours are none      mean position 4.5
+        //   `none_edge` at 3 and 6      -- one neighbour of each kind    mean position 4.5
+        // so d = organ(none_iso) - organ(none_hot) is a difference between identical code at
+        // identical mean context length, and nothing but the neighbourhood differs.
+        else if(!strcmp(argv[i],"--sweepd")){
+            static const int SRD[4]={ATTNR_NONE,ATTNR_NONE,ATTNR_NONE,ATTNR_SM2};
+            static const char* SND[4]={"none_iso","none_hot","none_edge","sm2_filler"};
+            static const int SCH[10]={3,0,3,2,1,1,2,3,0,3};
+            g_sw=4; g_sw_per=10;
+            for(int a=0;a<4;a++){ g_sw_attn[a]=ATTN_AVX4; g_sw_attnr[a]=SRD[a];
+                                  g_sw_name[a]=SND[a]; }
+            for(int a=0;a<10;a++) g_sw_sched[a]=SCH[a];
+        }
         // --sweep8: the eight arms that are BIT-IDENTICAL to each other (all on avx4), for G2.
         // The three --attn arms differ in summation order by construction -- E4 published serial
         // at 166667.2449386003 against avx4's 166667.1361128952 -- so a run that mixes them cannot
@@ -913,6 +965,9 @@ int main(int argc,char** argv){
             else if(!strcmp(v,"fork2")) g_attnr=ATTNR_FORK2;
             else if(!strcmp(v,"sm1")) g_attnr=ATTNR_SM1;
             else if(!strcmp(v,"av1")) g_attnr=ATTNR_AV1;
+            else if(!strcmp(v,"qk1")) g_attnr=ATTNR_QK1;
+            else if(!strcmp(v,"qk2")) g_attnr=ATTNR_QK2;
+            else if(!strcmp(v,"qk3")) g_attnr=ATTNR_QK3;
             else { fprintf(stderr,"--attnr: unknown arm %s\n",v); return 1; } }
         else if(!strcmp(argv[i],"--lut-group")&&i+1<argc){ g_group=atoi(argv[++i]);
             if(g_group&1) die("--lut-group must be even: a 2-trit LUT pair may not straddle a group");
@@ -954,7 +1009,8 @@ int main(int argc,char** argv){
     if(!strcmp(mode,"bench")){
         // the palindrome balances mean position only over WHOLE periods; refuse a partial one
         // rather than quietly hand the low-numbered arms an extra short context each
-        if(g_sw&&arg3%(2*g_sw)) die("--sweep needs --bench divisible by 2n (n arms)");
+        if(g_sw&&arg3%(g_sw_per?g_sw_per:2*g_sw))
+            die("--sweep needs --bench divisible by the schedule period");
         state_t s; state_init(&s,&M,arg3+2);
         forward(&M,&s,1,0);                                   // warm
         double t0=now_s();

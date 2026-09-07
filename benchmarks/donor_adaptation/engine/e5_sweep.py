@@ -31,9 +31,9 @@ def _system_busy():
         return None
 
 
-def run_once(weights, bench, threads, prio):
+def run_once(weights, bench, threads, prio, mode, narms):
     cmd = [ENGINE, "--weights", weights, "--threads", str(threads), "--profile",
-           "--sweep", "--bench", str(bench)]
+           "--" + mode, "--bench", str(bench)]
     flags = 0
     if prio == "high" and hasattr(subprocess, "HIGH_PRIORITY_CLASS"):
         flags = subprocess.HIGH_PRIORITY_CLASS
@@ -52,7 +52,7 @@ def run_once(weights, bench, threads, prio):
                             "organs": {k: float(org[k]) for k in ORGANS if k in org}}
     mt = re.search(r"BENCH\s+\d+ tokens\s+[\d.]+ s\s+([\d.]+) tok/s", p.stdout)
     missing = [k for k in arms if len(arms[k]["organs"]) != len(ORGANS)]
-    if len(arms) != 10 or missing:
+    if len(arms) != narms or missing:
         raise SystemExit("parsed %d arms, incomplete: %s" % (len(arms), missing))
     return {"arms": arms, "tok_s": float(mt.group(1)) if mt else None,
             "cores_busy": cb, "wall_s": t1 - t0}
@@ -67,11 +67,15 @@ def main():
     ap.add_argument("--prio", default="")
     ap.add_argument("--run", type=int, required=True)
     ap.add_argument("--out", required=True)
+    # s13.4: sweep6 is the ten avx4 arms (X now inside the family); sweepd is the four-entry
+    # d-probe, three of whose entries run identical `none` code in different neighbourhoods.
+    ap.add_argument("--mode", default="sweep", choices=("sweep", "sweep6", "sweepd"))
     a = ap.parse_args()
 
-    r = run_once(a.weights, a.bench, a.threads, a.prio)
+    narms = {"sweep": 10, "sweep6": 10, "sweepd": 4}[a.mode]
+    r = run_once(a.weights, a.bench, a.threads, a.prio, a.mode, narms)
     r.update(shape=a.shape, bench=a.bench, run=a.run, threads=a.threads, prio=a.prio,
-             label="%s_b%d_r%d" % (a.shape, a.bench, a.run))
+             mode=a.mode, label="%s_b%d_r%d_%s" % (a.shape, a.bench, a.run, a.mode))
     rec = []
     if os.path.exists(a.out):
         rec = json.load(open(a.out, encoding="utf-8"))
@@ -80,7 +84,7 @@ def main():
     print("%-16s %6.2f tok/s  cores_busy %.2f  attention ms/token: %s"
           % (r["label"], r["tok_s"] or 0.0, r["cores_busy"] or 0.0,
              "  ".join("%s=%.3f" % (k, r["arms"][k]["organs"]["attention"])
-                       for k in ("serial", "none", "sm2", "av2"))), flush=True)
+                       for k in sorted(r["arms"]))), flush=True)
 
 
 if __name__ == "__main__":
