@@ -1330,3 +1330,76 @@ for E11: each `vpshufb` in `.LBB15_11` produces 16 bytes of which the `vpmovsxbd
 times per iteration; and the engine's own `--lut` path (`matvec_lut`, probe-1's int8-accumulate
 kernel) has **never been measured at donor scale** and may have a different per-weight ceiling
 altogether.
+
+## 24. AMENDED 2026-09-07 by E11 — `--lut` is refuted as a speed lever, and §12's 1.05× is corrected
+
+`probes/E11_LUT_KERNEL_CEILING.md`, verdict `NO-LIFT`. Pre-registered and pushed (`00d4446`) before
+the arm was written. Closes E10 §6 owed item 1.
+
+### 24.1 The measurement
+
+E10's instrument, `n_in` 3584 fixed, 5 reps, third arm added that sets `m->tm` and lets the engine's
+own `matvec` take the `--lut` branch.
+
+| footprint | packed G-w/s | **lut G-w/s** | lut ÷ packed |
+|---|---|---|---|
+| 4 MB | 48.14 | **85.04** | **1.77** |
+| 8 MB | 50.13 | **91.07** | **1.82** |
+| 12 MB | 53.41 | **90.48** | **1.69** |
+| 24 MB | 51.41 | 44.66 | 0.87 |
+| 48 MB | 48.59 | 31.09 | 0.64 |
+| **512 MB — the verdict cell, named in the brief** | 55.95 | **21.90** | **0.391** |
+| 2048 MB | 60.25 | 21.42 | 0.36 |
+
+**G-L1 = 0.391 against a ≤1.15 NO-LIFT boundary.** At donor-scale footprints the LUT kernel is
+**~2.5× slower per weight** than packed.
+
+### 24.2 §12's `--lut` numbers are corrected
+
+§12 recorded `--lut` at **1.05×** over packed and INDEX §2.1 carried "`--fuse --lut` adds ~3.9%".
+**Both were measured against a packed arm that still had E8's single accumulator**, while
+`matvec_lut` already used four accumulators and was never touched by E8. **Post-E8 the ordering is
+reversed and the margin is not small.** The §12 rows are not withdrawn — they were correct for the
+engine of the day — but they must not be read as current, and the 3.9% line is superseded.
+
+### 24.3 The kernels swap places at exactly the L3 boundary
+
+**The LUT kernel is the fastest weight kernel this programme has measured — 91 G-weights/s — and
+only while L3-resident.** It falls **4.2×** across 16 MB; the packed kernel (E10) does not move
+across it at all.
+
+The mechanism is the layout, not the arithmetic. `matvec_lut` reads `codes + t*Mpad + base`, so
+consecutive `t` are `Mpad` apart: **2.3 KB at the 4 MB cell, 299 KB at 512 MB** — 1,792 reads of 32
+bytes across as many pages. **Tile-major is what makes one `vpshufb` serve 32 rows and it is the
+same thing that destroys the stream.**
+
+**Exploratory — not in the pre-registered bands**, reported because it is large, present in both
+runs, and specific.
+
+### 24.4 What it does and does not license
+
+**It does not move the goal**: §23.3 stands, the packed kernel remains the weight path with ~1.03×
+of headroom, and Coder-7B is 7.4× short of 50 tok/s.
+
+**It does bear on `SCALEUP_ARCHITECTURE`**, which specifies a cache-resident keystone **≤16 MB L3**
+with experts streamed from DRAM — the boundary probe-3 measured. **A kernel 1.8× faster inside it
+and 2.5× slower outside it is shaped for that split.** Before that becomes a plan it owes an
+end-to-end `--lut` rate with the parity gate (Phase 60: a kernel result never composes to a system
+claim; Phase 61: a microbench does not compose to an engine) and the activation-quantization cost on
+**real** activations — **1.40e-01** whole-vector, **3.10e-02** at G=32, which is not a rounding
+error.
+
+### 24.5 Two instrument failures, both recorded
+
+**Run 1 was VOID.** A concurrent worker in a different checkout streamed the 30.46 GB fp32 donor
+across six threads; the packed arm acquired a slope it does not have (35.6 → 61.4 where E10 measured
+it flat). **A within-run rule could not have caught it — every cell moved together.** What caught it
+was a number carried in from a previous session, compared from outside the run: E8 §9 item 4's
+absolute plateau, in its first real use.
+
+**G-L2 then failed in run 2 by mis-specification, not contamination.** The 49–53 G-w/s band was
+drawn from E10's 7-rep sweep while E10's *own* 3-rep sweep read 57.11 / 60.78 at the two largest
+cells; run 2's 55.95 / 60.25 is inside E10's between-run range and outside a band written from half
+of it. **A known-positive band must be drawn from every reading of the known-positive.** Fourth
+pre-registered rule in this programme aimed at the wrong number — after E8's discard rule, E10's
+G-K3, and this.

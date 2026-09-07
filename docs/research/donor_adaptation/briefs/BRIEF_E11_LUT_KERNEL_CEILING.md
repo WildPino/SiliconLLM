@@ -137,3 +137,68 @@ whole-vector and **3.10e-02** at `--lut-group 32`. G-L0 checks the arm, not the 
 **Status: E11 is open. The gates stand as written; run 2 waits for an idle machine.** Quality and
 parity work is unaffected by the contention and can proceed meanwhile — that is the standing rule
 and it applies here.
+
+---
+
+## 8. RUN 2 — VERDICT `NO-LIFT`, and a second result the bands did not ask for
+
+| gate | fixed in §4 | run 2 |
+|---|---|---|
+| **G-L0** | rel l2 ≤0.20 and not ≈0 | **PASS 8.31e-03** (load-immune, same as run 1) |
+| **G-L1** | LUT ÷ packed at 512 MB: ≥1.50 LIFTS / ≤1.15 NO-LIFT | **0.391 → NO-LIFT** |
+| **G-L2** | packed arm must reproduce E10's 49–53 G-w/s | **FAILS AS WRITTEN at 2 of 7 cells** — see below |
+| **G-L3** | ≥3 reps, verdict off the arm's flatness | 5 reps; the LUT arm is *not* flat and that is the finding |
+
+**G-L2 failed because I mis-specified it, not because the run was contaminated — and that is the
+fourth pre-registered rule in this programme aimed at the wrong number.** I drew the 49–53 band from
+E10's 7-rep sweep and ignored E10's *own* 3-rep sweep, which read **57.11 and 60.78** at the 512 MB
+and 2 GB cells. Run 2 reads **55.95 and 60.25** there — inside E10's own between-run range, outside
+the band I wrote from half of it. **A known-positive band must be drawn from every reading of the
+known-positive, not the most convenient one.** The five smaller cells (48.14–53.41) sit in band.
+
+**The verdict does not rest on that**: G-L1 is a **2.5×** effect, and run 1 — contended, and void —
+put the same ratio at 17.71 ÷ 58.35 = 0.30. Both runs agree the LUT path is far behind at donor
+footprints.
+
+### The unregistered result: the two kernels swap places at the L3 boundary
+
+| cell | packed G-w/s | lut G-w/s | lut ÷ packed |
+|---|---|---|---|
+| 4 MB | 48.14 | **85.04** | **1.77** |
+| 8 MB | 50.13 | **91.07** | **1.82** |
+| 12 MB | 53.41 | **90.48** | **1.69** |
+| 24 MB | 51.41 | 44.66 | 0.87 |
+| 48 MB | 48.59 | 31.09 | 0.64 |
+| 512 MB | 55.95 | 21.90 | **0.39** |
+| 2048 MB | 60.25 | 21.42 | 0.36 |
+
+**The LUT kernel is the fastest weight kernel this programme has measured — 91 G-weights/s — and
+only while its weights are L3-resident.** It falls **4.2×** across the 16 MB boundary; the packed
+kernel, per E10, does not move at all.
+
+**The mechanism is in the layout, and it is structural rather than modelled.** `matvec_lut` reads
+`codes + t*Mpad + base`: consecutive `t` are **`Mpad` bytes apart**. At the 4 MB cell `Mpad` ≈ 2,368,
+a 2.3 KB stride over a resident array. At 512 MB `Mpad` ≈ 299,600, so **1,792 reads of 32 bytes at a
+299 KB stride** — a sequential stream turned into a strided walk across as many pages. Tile-major is
+what makes one `vpshufb` serve 32 rows, and it is also what destroys the stream.
+
+**This is labelled exploratory: it was not in §4's bands and it is not the pre-registered result.**
+It is reported because it is large, reproduced in both runs, and points somewhere specific.
+
+## 9. What it means, and what it does not
+
+**For the dense streamed donor — the thing this programme is actually running — `--lut` is refuted
+as a speed lever, and E10's conclusion is untouched:** the packed kernel remains the engine's weight
+path, and §23.3's ~1.03× of remaining headroom stands.
+
+**Where it might matter is the architecture this project already wrote down.** `SCALEUP_ARCHITECTURE`
+specifies a **cache-resident keystone ≤16 MB L3** with experts streamed from DRAM, and probe-3
+located that boundary at exactly 16 MB. **A kernel that runs 1.8× faster inside L3 and 2.5× slower
+outside it is a kernel shaped for that split** — fast path resident, streamed path packed. That is a
+hypothesis with a measurement behind it, **not a plan**, and it owes: a `--lut` rate through the
+whole engine (Phase 60's law: a kernel result never composes to a system claim), and the activation
+quantization cost on real activations, which is **1.40e-01** whole-vector and **3.10e-02** at G=32
+and is not a rounding error.
+
+**None of this moves the goal.** Coder-7B is 7.4× short of 50 tok/s and every number above is a
+kernel measurement on a synthetic matrix.
