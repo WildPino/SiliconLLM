@@ -62,7 +62,10 @@ MAGIC = b"QWENDON1"
 
 
 def w_fp32(fh, w, rule="R0", act_rms=None):   # rule/act_rms ignored: fp32 keeps every weight
-    fh.write(np.ascontiguousarray(w.numpy(), dtype="<f4").tobytes())
+    # .float() is a no-op under --load-dtype float32 and the widening under bfloat16.
+    # bf16 -> fp32 is EXACT (it only pads the mantissa), so the bytes are the same either
+    # way; the 0.5 B sha256 control in E7 is what makes that a checked claim.
+    fh.write(np.ascontiguousarray(w.float().numpy(), dtype="<f4").tobytes())
 
 
 def quantize(w, rule="R0", act_rms=None):
@@ -71,6 +74,7 @@ def quantize(w, rule="R0", act_rms=None):
     Every rule returns the SAME format. The rules themselves are imported from t2_rules so the
     exporter, the T2 probe and the parity gate cannot drift apart -- one definition each.
     """
+    w = w.float()                 # the rules are defined on fp32; see w_fp32 above
     if rule == "R0":
         q, a = T2.r0_bitlinear(w)
     elif rule == "R1":
@@ -173,6 +177,12 @@ def main():
     ap.add_argument("--model", default="Qwen/Qwen2.5-0.5B")
     ap.add_argument("--revision", default=None)
     ap.add_argument("--quant", choices=("fp32", "ternary", "packed"), default="fp32")
+    ap.add_argument("--load-dtype", choices=("float32", "bfloat16"), default="float32",
+                    help="how the donor is held in RAM. float32 is what every export before "
+                         "E7 used. bfloat16 halves the peak (7.6 B: 30 GB -> 15 GB) and is "
+                         "the checkpoint's own precision; each tensor is widened to fp32 at "
+                         "write time, so the artifact is unchanged. Refuses --fold and --rule "
+                         "R3, whose arithmetic would then run in bf16.")
     ap.add_argument("--out", required=True)
     ap.add_argument("--rule", choices=("R0", "R1", "R2", "R3"), default="R0",
                     help="ternarization rule. R0 = BitLinear158, the engine's original and T1's. "
@@ -223,8 +233,18 @@ def main():
     # 357,826,560 CODES identical. Nothing about the quantization was ever in doubt; the
     # ARTIFACT simply was not the one the probes measured. Same class as the S1 fp16 bug:
     # reproduce the CONFIGURATION, not just the model.
+    if a.load_dtype != "float32":
+        # The fold multiplies a gain into every row and R3 runs forward passes: both would
+        # then be bf16 arithmetic, not bf16 STORAGE, and the artifact would differ. Refuse
+        # rather than quietly produce a different quantization.
+        if a.fold != "none":
+            sys.exit("--load-dtype %s needs --fold none: folding in bf16 is bf16 ARITHMETIC"
+                     % a.load_dtype)
+        if a.rule == "R3":
+            sys.exit("--load-dtype %s cannot run R3: its calibration forwards would be bf16"
+                     % a.load_dtype)
     m = AutoModelForCausalLM.from_pretrained(a.model, revision=a.revision,
-                                             dtype=torch.float32,
+                                             dtype=getattr(torch, a.load_dtype),
                                              attn_implementation="eager").eval()
     c = m.config
     D = c.hidden_size
@@ -316,6 +336,7 @@ def main():
         for chunk in iter(lambda: fh.read(1 << 20), b""):
             h.update(chunk)
     meta = {"model": a.model, "revision": a.revision, "quant": a.quant,
+            "load_dtype": a.load_dtype,
             "d_model": D, "d_ffn": F, "n_layers": L, "n_heads": NH, "n_kv_heads": NKV,
             "head_dim": HD, "vocab": V, "tied": tied,
             "rms_eps": float(c.rms_norm_eps), "rope_theta": float(c.rope_theta),

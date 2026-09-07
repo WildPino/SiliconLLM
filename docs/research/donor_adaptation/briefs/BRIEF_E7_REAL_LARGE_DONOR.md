@@ -79,3 +79,30 @@ nothing in the attention organ can move it.
 - **Not a quality result.** R0 ternary at 7 B will not write language; E6 §2 established what the
   ternary conversion costs and E7 adds nothing to it.
 - **Not that the fp32 arm is a deliverable.** A 30 GB fp32 file is a measuring instrument.
+
+---
+
+## 7. AMENDMENT — the first export attempt was killed for memory, and what that costs
+
+The packed export ran, loaded all four checkpoint shards (7 min 28 s) and was then **killed by the
+system for low memory**. `AutoModelForCausalLM(dtype=float32)` on a bf16 checkpoint materialises
+**~30 GB** of parameters before a single byte is written, and this machine carries a large resident
+background set.
+
+**The fix, and its risk.** `qwen_export.py` gains `--load-dtype {float32,bfloat16}`. Under
+`bfloat16` the donor is held at its **own checkpoint precision** (~15 GB) and every tensor is
+widened to fp32 at write time — inside `w_fp32` and inside `quantize`, one place each, so the
+arithmetic of the rules is unchanged. bf16 -> fp32 only pads the mantissa, so the artifact should be
+**byte-identical**. "Should be" is exactly the kind of claim this programme does not accept.
+
+**Control, threshold fixed before it ran:** export `Qwen2.5-0.5B --quant fp32 --fold none` twice,
+once per `--load-dtype`, and compare **sha256**. Anything but equality means the low-memory path is
+a different exporter and E7's artifacts cannot inherit E1's parity.
+
+**What it costs.** `--load-dtype bfloat16` **refuses** `--fold` and `--rule R3`: folding multiplies
+a gain into every row and R3 runs calibration forwards, and both would then be bf16 *arithmetic*
+rather than bf16 *storage*. So E7's two arms are exported **`--fold none`**, unlike E1's. That is
+sound for what E7 measures — the fold is a **quality** optimisation (E2, −0.220001 BPB), it changes
+neither the file layout nor the weight count, and therefore cannot move a speed number. It does
+mean **E7's packed arm is not E1's `tqh` operating point** and its BPB is not comparable to one.
+E7 does not report a BPB.
