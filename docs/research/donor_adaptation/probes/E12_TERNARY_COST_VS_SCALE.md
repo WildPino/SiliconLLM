@@ -32,8 +32,30 @@ are fine. **It is the conversion that puts them past it — at all three scales.
 
 Each donor is measured against **its own** fp32 baseline; `t1_ternarize.BASELINE_STANDING` is a
 1.5 B constant and was deliberately not reused. The rule is **imported** from
-`t1_ternarize.ternarize`, the same oracle `qwen_export.py` calls — and `qwen_export.py`'s `--rule`
-defaults to **`R0`**, so this is the conversion the exporter actually ships.
+`t1_ternarize.ternarize`, the same oracle `qwen_export.py` calls.
+
+**Correction, found while setting up E14 and after this probe was first pushed: `R0` is
+`qwen_export.py`'s flag DEFAULT, but it is NOT the rule this programme ships.** Every standing
+engine artifact was exported with `--rule R3` — `e1_bpb_through_engine.py:395` adds it for every
+non-fp32 arm. **So E12 measured a rule the pipeline does not use.** That does not change any
+number here, and it does not change the verdict — but it narrows what the verdict is *about*, and
+it promotes §6 item 1 from "the obvious next experiment" to "the measurement that was actually
+needed".
+
+**And E1 already holds two thirds of it.** Placing E1 §2.1/§2.2's R3 exports — same shared slice,
+so the same 4.069819 chance line — against it:
+
+| E1 arm, **rule R3** | BPB engine | vs chance line |
+|---|---|---|
+| 0.5 B `TQ` (FFN+ATTN, 168 tensors) | 4.509164 | **+0.439 ABOVE** |
+| 0.5 B `TQH` (+ ternary head) | 4.531234 | **+0.461 ABOVE** |
+| 1.5 B `TQ` (FFN+ATTN, 196 tensors) | 3.484253 | **−0.586 below** |
+| 1.5 B `TQH` (+ ternary head) | 3.475707 | **−0.594 below** |
+
+**The shipped rule crosses the chance line between 0.5 B and 1.5 B.** At 0.5 B even R3 is past
+chance; at 1.5 B it is a real model. **This is measured, it predates E12, and E12 should have
+read it before choosing R0 as its estimand.** What is still missing is the 3 B cell — which is
+exactly where R0 inverted, and where nothing about R3 is known.
 
 **Mechanically `r = dBPB(3B)/dBPB(0.5B) = 1.3484`, which the brief's §4 would read `COST-GROWS`.
 It is not reported as a result** — §2 says why.
@@ -62,7 +84,8 @@ does not.
 
 ## 3. What E12 does establish
 
-1. **The exporter's default rule (`R0`) destroys every donor tested, and worse as scale grows.**
+1. **`R0` — the exporter's flag default, though not the rule the pipeline passes — destroys
+   every donor tested, and worse as scale grows.**
    0.5 B lands +0.518 past chance, 1.5 B +1.436, 3 B +1.665. The direction is consistent even though
    the magnitudes are not interpretable as costs. **No donor at any tested scale survives `R0`.**
 2. **The instrument is sound.** `I` (identity substitution through the same code path) returns
@@ -76,7 +99,7 @@ does not.
 
    | T2 arm | BPB | vs chance line |
    |---|---|---|
-   | **R0 — what the exporter ships** | 4.076694 | **+0.007 ABOVE** |
+   | **R0 — the flag default E12 measured** | 4.076694 | **+0.007 ABOVE** |
    | Z (random signs) | 4.140276 | **+0.070 ABOVE** |
    | R4 (GPTQ on R0's grid) | 4.299819 | **+0.230 ABOVE** |
    | R1 (TWN) | 3.851979 | −0.218 below |
@@ -164,9 +187,9 @@ gate could not have worked either way.
 
 ## 5. What this cannot claim
 
-- **It does not price ternarization.** It prices `R0`, one rule, which T2 had already shown to be
-  the worst of five and which lands at chance. **The obvious experiment — R3/R5 across scale — has
-  never been run**, and is §6 item 1.
+- **It does not price ternarization, and it does not price what this programme ships.** It prices
+  `R0`: one rule, the worst of the five T2 tested, landing at chance — and **not** the rule the
+  exporter is actually invoked with (§1). **R3 across scale has never been completed**; §6 item 1.
 - **It does not extrapolate to 10 B.** 3 B is 3.3× below that.
 - **It does not identify why 3 B inverts.** The chance line explains why the inversion is *possible*
   and why it is *unreadable*; it does not explain the sign. The candidates — degenerate per-tensor
@@ -180,11 +203,12 @@ gate could not have worked either way.
 
 ## 6. Owed, in priority order
 
-1. **The same sweep with R3 (and R5), across scale.** This is now the experiment E12 should have
-   been. R3 is the exporter's own `--rule R3` and needs only calibration activations; it lands
-   1.59 BPB below the chance line at 1.5 B, which is the only regime where a cost ratio would mean
-   anything. **Until this runs, this programme has no measurement of how ternarization cost scales —
-   only of how `R0` fails.**
+1. **Finish the R3 sweep — the 3 B cell.** This is the experiment E12 should have been, and it is
+   two thirds done already: E1 has R3 at 0.5 B (+0.44/+0.46 **above** chance) and 1.5 B (−0.59
+   **below** it), so **the shipped rule crosses the chance line between those shapes and the
+   crossing is unlocated**. The missing cell is 3 B — exactly where R0 inverted. **Until it runs,
+   this programme has no measurement of how the SHIPPED conversion scales, only of how `R0`
+   fails.**
 2. **Re-read T2b's organ policy** against the `F` > `FA` inversion, and against the chance line: if
    T2b's arms sit above it, its organ ranking is subject to the same objection.
 3. **T3's rotation across scale** (`7cdeca8`), for the same reason as (1).

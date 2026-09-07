@@ -1534,8 +1534,14 @@ assigning every token equal probability. The padded config vocab is the conserva
 | 3 B | 0.724449797 | 5.734699003 | **5.010249206** | **+1.665 above** |
 
 Each donor against **its own** fp32 baseline; rule **imported** from `t1_ternarize.ternarize`, which
-is what `qwen_export.py` calls — and its `--rule` **defaults to `R0`**, so this is the conversion the
-exporter ships.
+is what `qwen_export.py` calls. **Correction, after this section was first written: `R0` is that
+script's flag DEFAULT but NOT the rule this programme ships** — every standing engine artifact was
+exported with `--rule R3` (`e1_bpb_through_engine.py:395`). **E12 measured a rule the pipeline does
+not use.** No number changes; what changes is what the verdict is about. And E1 already holds two
+thirds of the right sweep, on the same slice and so the same chance line: **R3 reads 4.509164 /
+4.531234 at 0.5 B (+0.44 / +0.46 ABOVE chance) and 3.484253 / 3.475707 at 1.5 B (−0.59 BELOW it)** —
+**the shipped rule crosses the chance line between 0.5 B and 1.5 B, and the crossing is unlocated.**
+The missing cell is 3 B, exactly where `R0` inverted.
 
 **Every donor's fp32 baseline is far below the line (0.72–0.87). Every ternarized arm is above it,
 at all three scales.** The donors and the slice are fine; the conversion is what puts them past
@@ -1570,7 +1576,7 @@ At 3 B, converting **more** organs did **less** damage by 0.194 BPB. Both arms a
 
    | T2 arm | BPB | vs chance line |
    |---|---|---|
-   | **R0 — what the exporter ships** | 4.076694 | **+0.007 ABOVE** |
+   | **R0 — the flag default E12 measured** | 4.076694 | **+0.007 ABOVE** |
    | Z (random signs) | 4.140276 | **+0.070 ABOVE** |
    | R4 (GPTQ on R0's grid) | 4.299819 | **+0.230 ABOVE** |
    | R1 (TWN) | 3.851979 | −0.218 below |
@@ -1659,11 +1665,10 @@ chasing an instrument bug are explained by it.**
 
 ### 26.6 Owed
 
-1. **The same sweep with R3 (and R5) across scale.** This is the experiment E12 should have been.
-   R3 is the exporter's own `--rule R3` and needs only calibration activations; it lands 1.59 BPB
-   below the chance line at 1.5 B, the only regime where a cost ratio would mean anything.
-   **Until it runs, this programme has no measurement of how ternarization cost scales — only of how
-   `R0` fails.**
+1. **Finish the R3 sweep — the 3 B cell.** Two thirds exists: E1 has the shipped rule at 0.5 B
+   (above chance) and 1.5 B (below it), so **it crosses the line somewhere between, unlocated**.
+   The missing cell is 3 B, exactly where `R0` inverted. **Until it runs, this programme has no
+   measurement of how the SHIPPED conversion scales — only of how `R0` fails.**
 2. **Re-read T2b's organ policy** against the `F` > `FA` inversion and against the chance line: if
    T2b's arms sit above it, its organ ranking faces the same objection.
 3. **T3's rotation across scale** (`7cdeca8`), for the same reason as (1).

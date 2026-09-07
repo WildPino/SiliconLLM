@@ -101,3 +101,69 @@ pre-registered band that could be justified from anything measured.
 decisive experiment and a six-thread competitor would roughly double its wall-clock. **E14 runs
 after E12 finishes**, and this brief is pushed now so the pre-registration precedes the run rather
 than the convenience.
+
+---
+
+# §10 — AMENDMENT, written after reading A0 and before any treatment arm
+
+**A0 is the baseline, not a treatment.** What it says is a property of the setup, so reading it does
+not consume the pre-registration — but it invalidates where §4's verdict was pointed, and the
+correction is recorded here, pushed, before `--lut`, `--lut-group 32` or `--lutblk` is run.
+
+## 10.1 The baseline does not predict
+
+`donor_engine --weights qwen25-05b_tqh.bin --bpb ids_qwen25-05b_tqh.bin --threads 6`, 11m48s:
+
+| | value |
+|---|---|
+| A0 | **13.564522 nats/token** = 19.569469 bits/token = **4.629230 BPB** |
+| chance, `log2(151936) / 4.227313` | **4.071878 BPB** (`ln V` = 11.931215 nats/token) |
+| **A0 − chance** | **+0.557 BPB, +1.633 nats/token** |
+
+The slice is 12,288 tokens, 12,287 predicted, **51,941 scored bytes, 4.227313 bytes/token** —
+computed by decoding the slice, and **identical for the 0.5 B and 1.5 B ids files**, so one chance
+line serves both cells.
+
+**Cross-checked two ways.** E12's PyTorch simulation of the same conversion reads 13.448727
+nats/token on a different slice — **0.86% from the engine's A0**, which is the first end-to-end
+corroboration of E12's finding on the real runtime. And E1 §2.1's published `TQH` number, 4.531234
+BPB on the shared density slice, sits **+0.461 above that slice's chance line**. **Three
+independent measurements agree that the 0.5 B ternary export does not predict.**
+
+## 10.2 What that does to §4's verdict gate
+
+**G-N2 cannot be read at 0.5 B.** `ΔBPB` between A1/A2 and A0 would be a difference between models
+that are all worse than guessing, and E12 §2 is the ruling on exactly that: above the chance line
+BPB measures how confidently wrong a model is, not how damaged it is. **G-N2's boundaries make it
+worse, not better**: 0.010 is 2 σ_seed and 0.020 is the bottom of what Phase 61 rejected, and
+**both were drawn from regimes where the model predicts**. A `ACTIVATION-CHEAP` reading here would
+mean "the activation quantization changes little about a model that already knows nothing", which
+is not the question and cannot license spending E13's 1.358× lever.
+
+## 10.3 The change, and its cost to the pre-registration
+
+**The verdict cell moves to the 1.5 B export**, `qwen25-15b_tqh.bin` with
+`ids_qwen25-15b_tqh.bin` — the same rule, the same pipeline, the same slice bytes, and a model E1
+measures at **3.475707 BPB, 0.594 BELOW chance**. It is the smallest standing artifact that
+predicts.
+
+**0.5 B is retained, demoted to instrument-only.** G-N0 and G-N1 are properties of the harness and
+the arms, not of where the model sits, so they are read at both cells:
+
+| gate | cell | unchanged? |
+|---|---|---|
+| **G-N0** `BPB(A3) − BPB(A1)` exactly 0 | both | yes — pure instrument, and a direct check of E13's bit-identity claim through a second mode |
+| **G-N1** `BPB(A2) < BPB(A1)` must fire | both | yes — the harness must resolve a 4.5× input-error difference |
+| **G-N2** the verdict, bands `0.010` / `0.020` | **1.5 B only** | **bands unchanged; the cell moved** |
+| **G-N3** greedy, descriptive | 1.5 B | unchanged |
+
+**This is a post-registration change and it is worth being explicit about the cost.** §4's bands
+were fixed before any run and are **not** touched; what moved is which cell they are read at, and
+the reason is a baseline property I should have checked when the brief was written. **§5's
+prediction was written for 0.5 B and is not rewritten** — it is carried to the 1.5 B cell as-is, and
+if it lands it lands at a shape it was not written for, which is weaker evidence than E9's or
+E13's and will be reported that way.
+
+**What this does not rescue.** Even a cheap verdict at 1.5 B does not make `--lutblk` shippable
+(§7 still stands), and it does not move the goal: the lever is 1.358× and Coder-7B would reach
+9.21 tok/s, still 5.4× short of 50.
