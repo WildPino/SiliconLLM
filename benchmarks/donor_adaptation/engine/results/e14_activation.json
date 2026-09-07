@@ -1,0 +1,109 @@
+{
+ "brief": "briefs/BRIEF_E14_ACTIVATION_INT8_COST.md @ a6a6607 + section 10",
+ "scored_bytes": 51941,
+ "n_predicted": 12287,
+ "bytes_per_token": 4.2273134206885326,
+ "chance_bpb": 4.071877929703704,
+ "bands": {
+  "CHEAP_MAX": 0.01,
+  "COSTLY_MIN": 0.02
+ },
+ "verdict_cell": "1.5B",
+ "cells": {
+  "0.5B": {
+   "weights": "D:\\_ktmp\\e1\\qwen25-05b_tqh.bin",
+   "ids": "D:\\_ktmp\\e1\\ids_qwen25-05b_tqh.bin",
+   "arms": {
+    "A0": {
+     "nats_per_token": 13.5645220434,
+     "nats_total": 166667.2823468747,
+     "bpb": 4.62929211453046,
+     "seconds": 681.0207104682922,
+     "cmd": "D:\\_ktmp\\e13\\donor_engine.exe --weights D:\\_ktmp\\e1\\qwen25-05b_tqh.bin --bpb D:\\_ktmp\\e1\\ids_qwen25-05b_tqh.bin --threads 6",
+     "note": "fp32 activations -- the baseline, the shipped path"
+    },
+    "A1": {
+     "nats_per_token": 12.644809277,
+     "nats_total": 155366.7715869592,
+     "bpb": 4.315413081896198,
+     "seconds": 698.8824305534363,
+     "cmd": "D:\\_ktmp\\e13\\donor_engine.exe --weights D:\\_ktmp\\e1\\qwen25-05b_tqh.bin --bpb D:\\_ktmp\\e1\\ids_qwen25-05b_tqh.bin --threads 6 --lut",
+     "note": "int8 activations, ONE scale per vector"
+    },
+    "A2": {
+     "nats_per_token": 13.5264104665,
+     "nats_total": 166199.0054022645,
+     "bpb": 4.616285417954569,
+     "seconds": 696.1311929225922,
+     "cmd": "D:\\_ktmp\\e13\\donor_engine.exe --weights D:\\_ktmp\\e1\\qwen25-05b_tqh.bin --bpb D:\\_ktmp\\e1\\ids_qwen25-05b_tqh.bin --threads 6 --lut --lut-group 32",
+     "note": "int8 activations, one scale per 32 channels"
+    },
+    "A3": {
+     "nats_per_token": 12.644809277,
+     "nats_total": 155366.7715869592,
+     "bpb": 4.315413081896198,
+     "seconds": 672.6279027462006,
+     "cmd": "D:\\_ktmp\\e13\\donor_engine.exe --weights D:\\_ktmp\\e1\\qwen25-05b_tqh.bin --bpb D:\\_ktmp\\e1\\ids_qwen25-05b_tqh.bin --threads 6 --lutblk",
+     "note": "E13 blocked layout -- MUST equal A1 exactly"
+    }
+   },
+   "gn0_a3_minus_a1": 0.0,
+   "gn0_pass": true,
+   "gn1_a2_minus_a1": 0.3008723360583714,
+   "gn1_fires": false,
+   "dBPB_A1": -0.3138790326342624,
+   "dBPB_A2": -0.013006696575891041,
+   "baseline_vs_chance": 0.5574141848267562
+  },
+  "1.5B": {
+   "weights": "D:\\_ktmp\\e1\\qwen25-15b_tqh.bin",
+   "ids": "D:\\_ktmp\\e1\\ids_qwen25-15b_tqh.bin",
+   "arms": {
+    "A0": {
+     "nats_per_token": 10.0983981137,
+     "nats_total": 124079.0176233253,
+     "bpb": 3.4463753759673943,
+     "seconds": 1461.2487134933472,
+     "cmd": "D:\\_ktmp\\e13\\donor_engine.exe --weights D:\\_ktmp\\e1\\qwen25-15b_tqh.bin --bpb D:\\_ktmp\\e1\\ids_qwen25-15b_tqh.bin --threads 6",
+     "note": "fp32 activations -- the baseline, the shipped path"
+    },
+    "A1": {
+     "nats_per_token": 10.0486990666,
+     "nats_total": 123468.3654308618,
+     "bpb": 3.4294141143686745,
+     "seconds": 1509.7980799674988,
+     "cmd": "D:\\_ktmp\\e13\\donor_engine.exe --weights D:\\_ktmp\\e1\\qwen25-15b_tqh.bin --bpb D:\\_ktmp\\e1\\ids_qwen25-15b_tqh.bin --threads 6 --lut",
+     "note": "int8 activations, ONE scale per vector"
+    },
+    "A2": {
+     "nats_per_token": 10.080843533,
+     "nats_total": 123863.324490023,
+     "bpb": 3.440384358978488,
+     "seconds": 1518.3817114830017,
+     "cmd": "D:\\_ktmp\\e13\\donor_engine.exe --weights D:\\_ktmp\\e1\\qwen25-15b_tqh.bin --bpb D:\\_ktmp\\e1\\ids_qwen25-15b_tqh.bin --threads 6 --lut --lut-group 32",
+     "note": "int8 activations, one scale per 32 channels"
+    },
+    "A3": {
+     "nats_per_token": 10.0486990666,
+     "nats_total": 123468.3654308618,
+     "bpb": 3.4294141143686745,
+     "seconds": 1291.5754199028015,
+     "cmd": "D:\\_ktmp\\e13\\donor_engine.exe --weights D:\\_ktmp\\e1\\qwen25-15b_tqh.bin --bpb D:\\_ktmp\\e1\\ids_qwen25-15b_tqh.bin --threads 6 --lutblk",
+     "note": "E13 blocked layout -- MUST equal A1 exactly"
+    }
+   },
+   "gn0_a3_minus_a1": 0.0,
+   "gn0_pass": true,
+   "gn1_a2_minus_a1": 0.010970244609813662,
+   "gn1_fires": false,
+   "dBPB_A1": -0.0169612615987198,
+   "dBPB_A2": -0.005991016988906139,
+   "baseline_vs_chance": -0.6255025537363097
+  }
+ },
+ "verdict": {
+  "A1": "ACTIVATION-CHEAP",
+  "A2": "ACTIVATION-CHEAP",
+  "readable": true
+ }
+}
