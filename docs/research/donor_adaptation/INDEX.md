@@ -215,8 +215,12 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
    context** with the smallest vocabulary on the disk), and **nine of eighteen donors — every MoE
    and every hybrid — have no measured `f` at all**, so their screen rows are withdrawn, not
    restated.
-6. **`f` beyond 800 tokens of context.** It grows with position and nothing measured bounds it. The
-   two lengths E3 ran were chosen before the result; the shape of the growth past 800 is unknown.
+6. ~~**`f` beyond 800 tokens of context.** It grows with position and nothing measured bounds it.~~
+   **CLOSED by E7 §8.2** (`probes/E7_REAL_LARGE_DONOR.md`): **linear, 0.0319 ms per token of actual
+   context, two intervals agreeing to 0.2% over a 5.3× range in context, no knee to 1600.**
+   Measured on the real Coder-7B, with contended cells excluded by the `ffn`-invariance witness —
+   six of nine survived, and the three discarded would have manufactured a knee between 300 and
+   800. `1000/f` may now be extrapolated linearly to at least 1600 tokens.
 
 **Closed since the last revision.** The `--fuse` × `OMP_WAIT_POLICY` matrix ran (`SPEED_LEDGER.md`
 §12.4 — both hypotheses die; `--fuse` not adopted). T3 ran and closes the residual-stream rotation

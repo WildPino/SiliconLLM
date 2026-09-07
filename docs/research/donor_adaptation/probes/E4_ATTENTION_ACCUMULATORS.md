@@ -345,7 +345,12 @@ question of whether GQA re-reads reach DRAM — they do not (§4.2).
 2. ~~Re-run E3's twelve-donor budget screen against the new `f`.~~ **Done** (§4.7). `A` was wrong by
    2.04×; the screen was re-measured rather than rescaled, and `e3_budget_by_shape.py` now derives
    `r_w` from whichever sweep it is given rather than from a hardcoded table.
-3. `f` beyond 800 tokens of context; still nothing measured bounds it.
+3. ~~`f` beyond 800 tokens of context; still nothing measured bounds it.~~ **Done.** E7 §8.2
+   measured it on a real 7.07 B donor: **linear, 0.0319 ms per token of actual context**, the
+   300→800 and 800→1600 intervals agreeing to **0.2%**, no knee. Cells admitted by the
+   `ffn`-invariance witness. Note also E7 §9: the readings above are the **`avx4`** arm, but the
+   engine's *default* is `serial` (`donor_engine.c:116`) — E4's runners pass `--attn` explicitly,
+   so this table is unaffected, but `e3_bench.py` does not.
 4. ~~Every absolute tok/s in `SPEED_LEDGER` and E3 carries a ±5% between-sweep band that its
    published IQR does not show (§2.4).~~ **Done.** `SPEED_LEDGER.md` carries the band as a banner
    binding the whole file plus a line at each headline absolute (§10, §12.3, §13.5 — the last is
