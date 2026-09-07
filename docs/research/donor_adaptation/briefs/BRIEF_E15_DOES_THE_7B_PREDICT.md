@@ -48,13 +48,38 @@ Nothing in the programme has ever contradicted this, because nothing ever looked
   is that **parity does not compose to quality**. Agreeing perfectly with a reference built from the
   same export says nothing about whether that export predicts.
 
-**A second axis, found in the export log.** `D:/_ktmp/e7/export_packed.log` reads
-`folded 56 RMSNorm gains (--fold layers)`. E2 made `--fold layers` the exporter default, and
-`e1_bpb_through_engine.py` pins `--fold none` precisely because otherwise "every E1 arm silently
-changes model". **The fold is not neutral under ternarization**: it multiplies a gain into every
-row before `sign(w)` and `mean|w|` are taken, so it changes the codes. The 7 B artifact therefore
-differs from the standing 0.5 B/1.5 B artifacts on **two** axes, rule *and* fold, and E2 measured
-the second one directly (section 3).
+**E7 said so itself, and said nobody had checked.** Probe section 5, on the packed arm answering
+every prompt with `ERCHANTABILITY` repeated to the end:
+
+> "This is not a clean statement that ternary damage grows with scale. [...] R0 is the weakest
+> rule in the family and T2 measured the rule as worth +3.309 -> +1.260 BPB. So the honest
+> reading is: **R0 at 7 B collapses completely**, and how much of that is the rule versus the
+> scale is a separate experiment nobody has run."
+
+**E15 is that experiment.** E7 declined to report a BPB deliberately and said why (brief section
+7). What has happened since is that 4.46 and then 6.79 tok/s went on being quoted as the rate on
+the real donor, while the sentence above stayed true and unquantified.
+
+**A second axis, and a documentation defect.** E7's brief section 7 states that both its arms are
+exported `--fold none`, because `--load-dtype bfloat16` refuses `--fold`. **That is true of the
+fp32 arm and false of the packed one.** The sidecars are the authority:
+
+```
+qwen25-coder7b_f32.bin.json :  "load_dtype": "bfloat16",  fold: none
+qwen25-coder7b_p.bin.json   :  (no load_dtype key)        "fold": "layers", "n_gains_folded": 56
+```
+
+and `export_packed.log` agrees: `folded 56 RMSNorm gains (--fold layers)`. The packed arm was
+exported under the default float32 load, before the low-memory path existed, and took the
+exporter's default fold. So **B1 is `--fold layers`, not `--fold none`** — a correction is filed
+against E7's probe in the same commit as this amendment.
+
+**This does not break the B0/B1 comparison, and E2 is why.** The fold is an exact
+reparameterization in fp32: E2's `XF` arm (fold layers, fp32 throughout) reads
+`0.871810461` against `F32`'s `0.871810461`, **delta `+0.000000000`** through the engine. So B0's
+BPB does not depend on which fold it carries. Under *ternarization* the fold is not neutral — it
+multiplies a gain into every row before `sign(w)` and `mean|w|` are taken, changing the codes —
+which is exactly why it matters for B1, and why section 6's prediction had to be rewritten.
 
 So the artifact carrying the headline rate diverges from its own donor on the first generated
 token of every prompt, was converted with the rule E12 measured at chance, and carries a fold no

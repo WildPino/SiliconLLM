@@ -380,3 +380,41 @@ per-`TIC` cost cancels in a difference, which is all §8.2 and §10.4 ever used.
    All three gates pass, including the planted control. It validates nothing retroactively.
 6. **A 1600-context `avx4` rate.** §10.4 says it should be 6–7% above `serial`; nothing on
    this machine has resolved it, and item 5 is the prerequisite.
+
+---
+
+## 12. CORRECTION, filed 2026-09-07 while pre-registering E15 — the packed arm is `--fold layers`
+
+**§6 and brief §7 say both E7 arms are exported `--fold none`.** That is true of the fp32 arm and
+**false of the packed one**. The sidecars are the authority and they disagree with the prose:
+
+| artifact | `load_dtype` | `fold` | `n_gains_folded` |
+|---|---|---|---|
+| `qwen25-coder7b_f32.bin` | `bfloat16` | none | — |
+| `qwen25-coder7b_p.bin` | *(absent)* | **`layers`** | **56** |
+
+`export_packed.log` agrees: `folded 56 RMSNorm gains (--fold layers)`, and its
+`sha256 d31c5047cb331f15…` matches the packed sidecar. The reasoning in §6 is sound — the bf16
+low-memory loader does refuse `--fold` — but it applies only to the **fp32** arm, which is the one
+that used it. The packed arm was exported before that path existed, under the default float32
+load, and took the exporter's default fold.
+
+**What this changes, and what it does not.**
+
+- **No speed number moves.** E7 brief §7 already argues the fold "changes neither the file layout
+  nor the weight count, and therefore cannot move a speed number", and that argument holds
+  regardless of which way the fold went. §8's `REAL-WEIGHTS-CONFIRMED` and every rate quoted from
+  this probe stand.
+- **No parity or greedy gate moves.** G-L, G-P, G-G and G-C all compare the engine against a
+  PyTorch reference **built from the same export**, so they are indifferent to the fold.
+- **It does change what the packed arm is.** §5's "§5's arm is R0/fold-none" is half right: R0 yes,
+  fold-none no. The packed 7 B is **R0 + `--fold layers` + `--head-ternary`**, a configuration no
+  other standing artifact matches on either axis.
+- **It matters because the fold is not neutral under ternarization.** It multiplies a gain into
+  every row before `sign(w)` and `mean|w|` are taken, so it changes the codes. E2 §3.1 measured
+  that at 0.5 B: `TQH` 4.531234 -> `NLH` 4.001988, **−0.529 BPB**, and `NLH` is the only 0.5 B
+  ternary artifact on record that lands *below* the chance line.
+
+**Nothing above §12 has been edited.** §5's honest reading — "R0 at 7 B collapses completely, and
+how much of that is the rule versus the scale is a separate experiment nobody has run" — is what
+E15 was pre-registered to answer (`briefs/BRIEF_E15_DOES_THE_7B_PREDICT.md`, `7c4243f`).
