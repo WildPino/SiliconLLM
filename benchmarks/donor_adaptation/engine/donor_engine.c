@@ -152,6 +152,20 @@ static float *g_xe=NULL,*g_xo=NULL; static int g_xcap=0;
 // ever run on a donor, BRIEF_T2 s5 records it as untested. Its cost is measured, not assumed.
 #define AQ 63
 static int      g_lut=0, g_lutdiag=0, g_lutnodown=0, g_lutnohead=0;  // --lut* family
+// ---- E13 (--lutblk): BLOCKED tile-major.  Plain tile-major stores [t][Mpad] and the kernel holds
+// `base` fixed while walking t, so consecutive 32-byte reads sit `Mpad` apart -- 18.5 KB at
+// gate/up, 3.5 KB at down, 299 KB at kbench's 512 MB cell.  Every read lands on a different page
+// and uses 32 of a 64-byte line, which is E11's candidate explanation for the LUT kernel falling
+// 4.2x across 16 MB where the packed kernel does not move at all.  E11 ASSERTED that mechanism and
+// never tested it; this is the test.  Blocked stores each 32-row tile's bytes contiguously, so
+// within a tile the walk is linear.  Same bytes, permuted: the t order and the accumulation tree
+// are untouched, so the result is BIT-IDENTICAL and the gate is sha256, not parity.
+// Default OFF so every --lut number already published reproduces byte for byte.
+static int      g_lutblk=0;
+// Where tile `base` starts, and how far apart consecutive t are, under each layout.
+#define TM_BASE(codes,base,T,Mpad) ((g_lutblk) ? (codes)+(size_t)((base)/32)*(size_t)(T)*32 \
+                                               : (codes)+(size_t)(base))
+#define TM_STRIDE(Mpad)            ((g_lutblk) ? (size_t)32 : (size_t)(Mpad))
 // --attn {serial,ilp4,avx1,avx4,serial2}: BRIEF_E4_ATTENTION_ACCUMULATORS.md s2.  E3 s4.6 measured
 // the attention organ at ~4 cycles per FMA per thread at all twelve of its points, which is the
 // signature of a SERIAL FP reduction: `d+=qh[i]*kt[i]` cannot be reassociated or vectorised without
@@ -311,6 +325,7 @@ static void matvec_lut_g(const int8_t* codes,const int8_t* lut,float* y,int M,in
 #pragma omp parallel for schedule(static)
 #endif
     for(int base=0;base<Mpad;base+=32){
+        const int8_t* cb=TM_BASE(codes,base,T,Mpad); const size_t cst=TM_STRIDE(Mpad);
         float f[32]; for(int r=0;r<32;r++) f[r]=0.0f;
         for(int g=0;g<ng;g++){
             int t0=g*gp, t1=t0+gp; if(t1>T) t1=T; if(t0>=t1) break;
@@ -318,7 +333,7 @@ static void matvec_lut_g(const int8_t* codes,const int8_t* lut,float* y,int M,in
                             _mm256_setzero_si256(),_mm256_setzero_si256()};
             for(int t=t0;t<t1;t++){
                 __m256i tbl=_mm256_broadcastsi128_si256(_mm_loadu_si128((const __m128i*)(lut+(size_t)t*16)));
-                __m256i idx=_mm256_loadu_si256((const __m256i*)(codes+(size_t)t*Mpad+base));
+                __m256i idx=_mm256_loadu_si256((const __m256i*)(cb+(size_t)t*cst));
                 acc_add_i8x32(acc,_mm256_shuffle_epi8(tbl,idx));
             }
             int32_t tmp[32];
@@ -334,11 +349,12 @@ static void matvec_lut(const int8_t* codes,const int8_t* lut,int32_t* y,int M,in
 #pragma omp parallel for schedule(static)
 #endif
     for(int base=0;base<Mpad;base+=32){
+        const int8_t* cb=TM_BASE(codes,base,T,Mpad); const size_t cst=TM_STRIDE(Mpad);
         __m256i acc[4]={_mm256_setzero_si256(),_mm256_setzero_si256(),
                         _mm256_setzero_si256(),_mm256_setzero_si256()};
         for(int t=0;t<T;t++){
             __m256i tbl=_mm256_broadcastsi128_si256(_mm_loadu_si128((const __m128i*)(lut+(size_t)t*16)));
-            __m256i idx=_mm256_loadu_si256((const __m256i*)(codes+(size_t)t*Mpad+base));
+            __m256i idx=_mm256_loadu_si256((const __m256i*)(cb+(size_t)t*cst));
             acc_add_i8x32(acc,_mm256_shuffle_epi8(tbl,idx));
         }
         int32_t tmp[32];
@@ -349,14 +365,23 @@ static void matvec_lut(const int8_t* codes,const int8_t* lut,int32_t* y,int M,in
 }
 // Transpose the packed row-major bytes into tile-major. Pure data movement: no re-encoding, so a
 // --lut model and a --quant packed model hold bit-identical WEIGHTS and differ only in activations.
+// Fill the tile-major replica from row-major codes, in whichever layout g_lutblk selects. The two
+// layouts hold the SAME bytes in the same tiles -- only the address of tile `b` at step `t` moves --
+// so a kernel reading through TM_BASE/TM_STRIDE gets an identical byte sequence either way.
+// Rows [out, Mpad) are padding and get code 4 == the (0,0) trit pair, a no-op row.
+static void tm_fill(int8_t* tm,const int8_t* code,int M,int Mpad,int H){
+    for(int b=0;b<Mpad;b+=32)
+        for(int t=0;t<H;t++){
+            int8_t* d = g_lutblk ? tm+((size_t)(b/32)*(size_t)H+(size_t)t)*32
+                                 : tm+(size_t)t*(size_t)Mpad+(size_t)b;
+            for(int r=0;r<32;r++){ int o=b+r; d[r]=(o<M)?code[(size_t)o*H+t]:(int8_t)4; }
+        }
+}
 static void build_tm(mat_t* m){
     if(!m->packed||m->tm) return;
     const int H=m->in/2; m->Mpad=((m->out+31)/32)*32;
     int8_t* tm=xmalloc((size_t)H*m->Mpad);
-    for(int t=0;t<H;t++){
-        for(int o=0;o<m->out;o++) tm[(size_t)t*m->Mpad+o]=m->code[(size_t)o*H+t];
-        for(int o=m->out;o<m->Mpad;o++) tm[(size_t)t*m->Mpad+o]=4;   // code 4 == (0,0), a no-op row
-    }
+    tm_fill(tm,m->code,m->out,m->Mpad,H);
     m->tm=tm;
 }
 
@@ -927,8 +952,8 @@ static int selftest_lut(void){
     for(int i=0;i<K;i++){ r=r*1103515245u+12345u; x[i]=((float)(r>>8&0xFFFF)/32768.0f-1.0f)*3.7f; }
     for(int m=0;m<M;m++) for(int t=0;t<H;t++)                       // this runtime's byte: low=even
         code[(size_t)m*H+t]=(int8_t)((W[(size_t)m*K+2*t]+1)+3*(W[(size_t)m*K+2*t+1]+1));
-    for(int t=0;t<H;t++){ for(int m=0;m<M;m++) tm[(size_t)t*Mpad+m]=code[(size_t)m*H+t];
-                          for(int m=M;m<Mpad;m++) tm[(size_t)t*Mpad+m]=4; }
+    tm_fill(tm,code,M,Mpad,H);   // whichever layout g_lutblk selects: --lutblk --selftest-lut tests
+                                 // the blocked one, and the order of the flags matters (arg loop).
     quant_i8(x,K,xq); build_lut(xq,H,lut); matvec_lut(tm,lut,y,M,Mpad,H);
     long bad=0, badB=0;
     for(int m=0;m<M;m++){
@@ -1058,6 +1083,7 @@ int main(int argc,char** argv){
         else if(!strcmp(argv[i],"--mvacc")&&i+1<argc){ g_mvacc=atoi(argv[++i]);
             if(g_mvacc!=1&&g_mvacc!=2&&g_mvacc!=4) die("--mvacc takes 1, 2 or 4"); }
         else if(!strcmp(argv[i],"--lut")){ g_lut=1; }
+        else if(!strcmp(argv[i],"--lutblk")){ g_lut=1; g_lutblk=1; }   // E13
         else if(!strcmp(argv[i],"--lut-diag")){ g_lut=1; g_lutdiag=1; atexit(lut_diag_report); }
         else if(!strcmp(argv[i],"--lut-clip")&&i+1<argc){ g_clip=(float)atof(argv[++i]); }
         else if(!strcmp(argv[i],"--lut-no-down")){ g_lutnodown=1; }
@@ -1119,7 +1145,8 @@ int main(int argc,char** argv){
             for(int j=0;j<7&&mm[j];j++){ if(j==ndown&&g_lutnodown) continue;
                                   build_tm(mm[j]); tmb+=(size_t)(mm[j]->in/2)*mm[j]->Mpad; } }
         if(!M.tied&&!g_lutnohead){ build_tm(&M.head); tmb+=(size_t)(M.head.in/2)*M.head.Mpad; }
-        fprintf(stderr,"  --lut: tile-major replica built, %.1f MB, %.2f s (activations int8, AQ=%d)\n",
+        fprintf(stderr,"  --lut: %s replica built, %.1f MB, %.2f s (activations int8, AQ=%d)\n",
+                g_lutblk?"BLOCKED tile-major (E13)":"tile-major",
                 tmb/1048576.0,now_s()-t0,AQ);
     }
 

@@ -24,9 +24,13 @@ static const cell_t CELLS[] = {
 #define NCELL (int)(sizeof(CELLS)/sizeof(CELLS[0]))
 
 /* one cell: returns GB/s of weight bytes delivered */
-/* mode: 1 packed, 0 fp32, 2 lut (E11 -- brief 00d4446).  ycap, when non-NULL, receives y. */
+/* mode: 1 packed, 0 fp32, 2 lut (E11 -- brief 00d4446), 3 BLOCKED lut (E13 -- brief 89fd63e).
+   Modes 2 and 3 are the SAME KERNEL over the SAME BYTES in two layouts, so their outputs must be
+   bit-identical (G-M0b below).  ycap, when non-NULL, receives y. */
 static double run_cell_m(int mode,double mb,double* out_gbps_bytes,float* ycap,size_t ycapn){
     const int packed = (mode==1);
+    const int lutm   = (mode==2||mode==3);
+    g_lutblk = (mode==3);                     /* read by build/TM_BASE/TM_STRIDE; set per cell */
     const size_t row_bytes = (mode!=0) ? (size_t)(NIN/2) : (size_t)NIN*4;
     size_t n_out = (size_t)(mb*MB/(double)row_bytes);
     if(n_out<64) n_out=64;
@@ -36,20 +40,24 @@ static double run_cell_m(int mode,double mb,double* out_gbps_bytes,float* ycap,s
     m.out=(int)n_out; m.in=NIN; m.packed=packed; m.tm=NULL; m.Mpad=0;
     /* the LUT kernel writes 32-row tiles, so it needs the row count padded to 32 and the codes
        held TILE-major [in/2][Mpad] -- the same bytes as the packed arm, transposed. */
-    const size_t Mpad = (mode==2) ? ((n_out+31)/32)*32 : 0;
-    void* W = xmalloc(mode==2 ? (size_t)(NIN/2)*Mpad : wbytes);
+    const size_t Mpad = lutm ? ((n_out+31)/32)*32 : 0;
+    void* W = xmalloc(lutm ? (size_t)(NIN/2)*Mpad : wbytes);
     float* scale = (float*)xmalloc(n_out*4);
     float* x = (float*)xmalloc((size_t)NIN*4);
     float* y = (float*)xmalloc(n_out*4);
 
     unsigned s=12345u;
     if(mode==1){ int8_t* c=(int8_t*)W; for(size_t i=0;i<wbytes;i++){ s=s*1664525u+1013904223u; c[i]=(int8_t)((s>>16)%9); } m.code=(const int8_t*)W; }
-    else if(mode==2){
+    else if(lutm){
         /* SAME rng stream as the packed arm, laid out tile-major, so G-L0 compares two spellings
-           of ONE matrix and not two different matrices. */
-        int8_t* t=(int8_t*)W; memset(t,4,(size_t)(NIN/2)*Mpad);   /* 4 = the (0,0) trit pair */
-        for(size_t o=0;o<n_out;o++) for(size_t j=0;j<(size_t)(NIN/2);j++){
-            s=s*1664525u+1013904223u; t[j*Mpad+o]=(int8_t)((s>>16)%9); }
+           of ONE matrix and not two different matrices.  mode 3 permutes the SAME bytes into the
+           blocked layout: tile b's T steps held contiguously instead of Mpad apart. */
+        const size_t T=(size_t)(NIN/2);
+        int8_t* t=(int8_t*)W; memset(t,4,T*Mpad);                 /* 4 = the (0,0) trit pair */
+        for(size_t o=0;o<n_out;o++) for(size_t j=0;j<T;j++){
+            s=s*1664525u+1013904223u;
+            size_t at = g_lutblk ? ((o/32)*T + j)*32 + (o%32) : j*Mpad + o;
+            t[at]=(int8_t)((s>>16)%9); }
         m.tm=(const int8_t*)W; m.Mpad=(int)Mpad;
     }
     else      { float* f=(float*)W;  for(size_t i=0;i<wbytes/4;i++){ s=s*1664525u+1013904223u; f[i]=(float)((int)(s>>20)%7-3)*0.01f; } m.f32=(const float*)W; }
@@ -100,13 +108,28 @@ int main(int argc,char** argv){
         printf("G-L0  rel l2 lut-vs-packed: whole-vector %.3e   group32 %.3e   (gate <=0.20 and not ~0;\n"
                "      published: 1.40e-01 whole-vector, 3.10e-02 at G=32)\n",rel0,rel32);
         printf("G-L0  %s\n", (rel0<=0.20&&rel0>1e-4)?"PASS":"FAIL -- every LUT cell below is VOID");
-        free(yp); free(yl);
+
+        /* ---- G-M0b (E13): the blocked arm is a PERMUTATION of the same bytes with the same t
+           order and the same accumulate tree, so it must be BIT-IDENTICAL to the plain LUT arm.
+           Read before any blocked timing: if a single bit moves, the index arithmetic is wrong
+           and every blocked cell below is void.  This is the microbench mirror of G-M0, which is
+           the same claim made end-to-end on the engine's logits. */
+        float* yb=(float*)xmalloc(ncap*4);
+        g_group=0; run_cell_m(2,4.0,&g,yl,ncap);
+        g_group=0; run_cell_m(3,4.0,&g,yb,ncap);
+        size_t nbit=0; for(size_t o=0;o<ncap;o++) if(memcmp(&yl[o],&yb[o],4)!=0) nbit++;
+        printf("G-M0b blocked vs tile-major, bitwise: %s (%zu/%zu floats differ)\n",
+               nbit?"FAIL -- every blocked cell below is VOID":"PASS", nbit, ncap);
+        g_group=saveg;
+        free(yp); free(yl); free(yb);
     }
 
     printf("%-8s %-7s %10s %10s %10s   %s\n","arm","cell","GB/s med","G-w/s med","spread","reps");
-    for(int mi=0;mi<3;mi++){
-        const int mode = (mi==0)?1:((mi==1)?2:0);
-        const char* tag = (mode==1)?"packed":((mode==2)?"lut":"fp32");
+    static const int MODES[4]={1,2,3,0};                 /* known-positive first, then the arms */
+    static const char* TAGS[4]={"packed","lut","lutblk","fp32"};
+    for(int mi=0;mi<4;mi++){
+        const int mode = MODES[mi];
+        const char* tag = TAGS[mi];
         for(int c=0;c<NCELL;c++){
             double g[16],b[16];
             for(int r=0;r<nrep;r++) g[r]=run_cell_m(mode,CELLS[c].mb,&b[r],NULL,0);
