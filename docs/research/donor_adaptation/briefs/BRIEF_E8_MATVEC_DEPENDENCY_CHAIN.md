@@ -237,3 +237,40 @@ Cheapest first, so a failure costs the least:
 
 Machine idle throughout; every rate carries its `--bench` length (§12.3) and its `ffn~` (§11).
 **Every absolute tok/s carries ±5% between sweeps; the paired ratios do not.**
+
+
+---
+
+## 8. VERDICT, 2026-09-07 — `CHAIN-CONFIRMED`
+
+Full write-up: `probes/E8_MATVEC_DEPENDENCY_CHAIN.md`. Every gate in §4 ran; nothing was added
+to the gate set after the fact, and nothing in it was relaxed.
+
+| gate | pass condition, fixed in §4 | result |
+|---|---|---|
+| G-Z0a | sha256 byte-identical | **PASS** `d4960bc7…950424` |
+| G-Z0b | paired median 0.99–1.01 | **PASS 1.0076** |
+| G-Z1 | `sum/ffn` in 0.98–1.02 | **PASS 1.0000** |
+| G-Z2a | rel L2 ≤ 1.0e-05, top-1 8/8 | **PASS 2.642e-06 / 3.349e-06** |
+| G-Z2b | 160/160 greedy identical | **PASS**, sha256 equal across all three arms |
+| G-Z3 | descriptive | m2/m1 **1.2125**, m4/m1 **1.2301** |
+| **G-Z5** | **0.99–1.03; ≥1.10 refutes §2** | **PASS 1.0029** |
+| **G-Z4** | ≥1.25 CONFIRMED | **CONFIRMED, 1.3491** |
+
+**Coder-7B: 4.73 → 6.37 tok/s.** Weight path 16.7 → 22.5 GB/s. All four weight organs moved
+1.41–1.49× from one change to one inner loop.
+
+**Three things this brief got wrong or under-specified, recorded rather than tidied away:**
+
+1. **The magnitude prediction, §4: 1.5–1.7× predicted, 1.349× measured.** The verdict band was
+   met, the derivation was not. Removing the chain did **not** hand the kernel to memory at
+   28 GB/s; it hit a second kernel-shaped limit at 22.5. Second missed cost prediction in two days.
+2. **The contention discard rule was useless.** "Either arm's `ffn~` more than 10% over that arm's
+   own median" cannot see a contamination that moves the whole sweep together — and one did, a
+   surviving child process of my own killed runner. It discarded **zero** pairs in every sweep,
+   contended and clean alike. Only the *absolute* plateau carried across sessions caught it.
+   Probe §7.2.
+3. **§2.3's alternative #2 was refuted by arithmetic, not by the experiment.** `gate+up` moves
+   exactly 2× `down`'s bytes while being chopped 10.6× differently; the measured ratio is
+   1.990–2.019. Per-row cost was never the binder, and the brief did not notice it had a free
+   test for that sitting in the decomposition.

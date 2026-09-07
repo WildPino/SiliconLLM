@@ -67,7 +67,12 @@ static const char* g_ffn[F_N]={"gate+up","glue(silu)","down","residual"};
 // bandwidth-bound was latency-bound, 6.53x -- asked of the WEIGHT path.  g_mvacc==1 is a
 // byte-for-byte copy of the original loop, so the baseline arm is unchanged and its logits stay
 // bit-identical to every number this programme has published.
-static int g_mvacc=1;
+// DEFAULT 4, adopted by E8 G-Z4: +34.9% at Coder-7B, parity-gated (160/160 greedy identical,
+// rel L2 3.3e-06 against the single-chain arm, itself 1.5e-05 from PyTorch).  --mvacc 1 restores
+// the single-chain loop BYTE FOR BYTE and is how every rate published before E8 is reproduced.
+// Defaulted rather than left as a flag because a flag a runner must remember to pass is exactly
+// the defect of s9, where --attn stayed on the slow kernel for every E3 and E7 number.
+static int g_mvacc=4;
 
 // ---- CONTENTION WITNESS (E7 s10.3).  The `ffn`-invariance witness -- the FFN organ cannot
 // depend on context length, so an ffn reading off its plateau means the machine was not idle --

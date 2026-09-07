@@ -1096,3 +1096,93 @@ timestamps per token with the frequency cached:
 > **It validates nothing retroactively.** Every rate in §§12–19 was taken without it. §18.1's VOID
 > stands and G-Y1's 1600 cell stands undecided. The witness makes the **next** measurement
 > checkable.
+
+
+## 21. AMENDED 2026-09-07 by E8 — §12.5 was wrong: the kernel was the lever, and it was worth 1.35×
+
+§12.5 closed with *"there is no outlier left to chase; the remaining speed on this runtime is in
+the weight count, not in the kernel."* It reached that from the **narrowness** of the organ band
+(13.6–18.5 GB/s, ordered by matrix size). **A narrow band is equally the signature of one shared
+ceiling**, and every one of those organs runs the same `matvec` inner loop.
+
+It did. `probes/E8_MATVEC_DEPENDENCY_CHAIN.md`, verdict `CHAIN-CONFIRMED`.
+
+**Every `matvec` accumulated into ONE register**, so consecutive FMAs were serially dependent and
+the loop ran at Zen 2's 5-cycle FMA **latency** rather than its 2/cycle throughput — verified in
+the emitted assembly before the claim was made. `-ffast-math` being forbidden here (Phase 35) is
+why the compiler had not removed it.
+
+### 21.1 The measurement
+
+`--mvacc {1,2,4}`; 1 is the old loop byte for byte. Coder-7B packed, `--bench 300`, 10 interleaved
+pairs, idle machine, witness on:
+
+| | `--mvacc 1` | `--mvacc 4` | ratio |
+|---|---|---|---|
+| rate | **4.73 tok/s** (1.9%) | **6.37 tok/s** (2.8%) | **1.3491** |
+| `ffn~` | 168.550 ms | 124.469 ms | 1.3529 |
+| **weight path** | **16.7 GB/s** | **22.5 GB/s** | |
+| delivered | 33.5 G-w/s | **45.0 G-w/s** | |
+
+Ten pairs, ratios 1.3368–1.3615, **1.8% spread, none dissenting.** At 0.5 B: 1.2301.
+
+**All four weight organs moved together** — qkv 1.427×, o_proj 1.431×, head 1.494×, ffn 1.409× —
+from one change to one loop, which is what a shared ceiling looks like when it lifts.
+
+### 21.2 The negative control, and an in-run bandwidth demonstration
+
+The same flag on the **fp32** kernel, where the chain has 3.5× slack over DRAM, **must** buy
+nothing. Predicted 0.99–1.03 in the pushed brief, ≥1.10 declared as refuting the mechanism.
+**Measured 1.0029.**
+
+Unasked for: that arm delivers **33.3 GB/s** through the same `matvec`, on the same machine, in the
+same run, while the packed arm managed 16.7. **The packed path was never at a memory limit** — an
+in-run demonstration, independent of any cycle counting.
+
+### 21.3 What it does to §19
+
+§19.3 said **1.7–2.5×** was the entire budget available to engine work. **E8 has taken 1.35× of
+it.** Remaining to the measured ceilings: **1.24×** (28), **1.64×** (37.0), **1.87×** (42).
+
+§19.4's sparsity budget, restated at the new rate:
+
+| weight path at | active weights/token at 50 tok/s | share of a 10.6 B |
+|---|---|---|
+| 16.9 GB/s (§19's "today") | 500 M | 4.7% |
+| **22.5 GB/s (today, after E8)** | **665 M** | **6.3%** |
+| 37.0 GB/s (proj-GEMV floor) | 1094 M | 10.3% |
+| 42 GB/s (DRAM) | 1242 M | 11.7% |
+
+**§19.3's conclusion stands and is better supported:** the engine had more in it than §12.5
+believed, and it still cannot close a gap that is a property of the model. Coder-7B is now
+**7.8× short of 50 tok/s**, where it was 11.2×.
+
+### 21.4 The convention this ledger now needs
+
+**Every rate published before `§21` is a `--mvacc 1` reading.** Not withdrawn, not wrong —
+labelled. `--mvacc 1` restores the single-chain loop byte for byte and reproduces them exactly
+(verified: `--logits` sha256 identical under the new binary). **The default is now 4**, because a
+flag a runner must remember to pass is exactly the §18 defect.
+
+**Profiled walls after E8's commit are not comparable to profiled walls before it** — the FFN
+carries four new `--profile`-only sub-timers. Second such declaration in two days; splits and
+slopes are unaffected.
+
+### 21.5 The FFN, decomposed — §19.5's owed item, closed
+
+| inside `ffn` at Coder-7B | `--mvacc 1` | `--mvacc 4` |
+|---|---|---|
+| gate+up | 109.599 | 76.661 |
+| down | 55.070 | 37.973 |
+| **glue(silu)** | **13.215** | **11.628** |
+| residual | 0.038 | 0.035 |
+| `sum/ffn` | 1.0000 | 0.9999 |
+
+**It was neither bandwidth nor chopping.** `gate+up` moves exactly **2×** `down`'s bytes while
+being chopped **10.6×** differently (37,888 output rows against 3,584); the measured ratio is
+**1.990** and **2.019**. A pure-bandwidth ratio is 2.000. **Per-row and per-call cost was never the
+binder** — settled by an invariant, not a timing.
+
+**And `glue(silu)` is now 7.4% of the whole token for zero weight traffic**: 530,432 `expf` calls
+per token, never charged in this ledger, untouched by E8. The rope `pow()` hoist of §12 was the
+same shape and worth +10.3%.
