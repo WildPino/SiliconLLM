@@ -1679,3 +1679,82 @@ chasing an instrument bug are explained by it.**
 **§19.3 is unchanged and unrelieved: the remaining 5.4× is a property of the model. What E12 removes
 is the belief that this programme had measured the cost of getting it — it had measured one rule
 failing.**
+
+---
+
+## §27 — E14: the lever's quality cost, measured. `CHEAP-BUT-NOT-NEUTRAL`.
+
+**§25/§26 left the 1.358× lever with an explicitly unmeasured quality cost.** `--lutblk` runs the
+LUT path's int8 activations at a measured **1.40e-01** relative L2 (E11), and no probe had ever
+carried that to BPB or to greedy on a donor. E14 carries it, at two scales, through the engine.
+
+`probes/E14_ACTIVATION_INT8_COST.md`. Pre-registered `a6a6607`, §10 amendment `47184ca` pushed
+after reading the fp32 baseline and **before any treatment arm ran**.
+
+### 27.1 The verdict cell — 1.5 B, sitting 0.625503 BELOW the chance line
+
+| arm | activations | BPB | `dBPB` from fp32 | greedy vs fp32-act |
+|---|---|---|---|---|
+| **A0** | fp32 (shipped) | 3.446375376 | — | — |
+| **A1** | int8, one scale/vector | 3.429414114 | **−0.016961** | **45.6%** (73/160) |
+| **A2** | int8, one scale/32 ch | 3.440384359 | **−0.005991** | **64.4%** (103/160) |
+| **A3** | int8, E13 blocked layout | 3.429414114 | −0.016961 | 45.6%, identical to A1 |
+
+**Int8 activations LOWER bits-per-byte, at a cell where BPB means what it usually means, while
+changing the top-1 token on 54% of positions.** BPB scores; greedy ranks; noise that softens an
+over-confident logit vector improves the first without improving the second.
+
+**The registered band returns `ACTIVATION-CHEAP` and the label does not survive.** §4's bands are
+one-sided — drawn for a *cost* — so a negative delta falls into `CHEAP` by construction. Under
+`|dBPB|` the whole-vector arm reads `MARGINAL` (0.016961 = 3.4 σ_seed) instead.
+
+### 27.2 What this does to the lever — it does NOT release it
+
+**The composition is crossed.** E13 measured **1.358×** with `--lutblk` alone, which G-N0 and G-N3
+both show is arm **A3 = A1** — the arm with the *larger* quality move (greedy 45.6%). The arm that
+is quality-cheap, **A2 (group-32), has no speed number at all**.
+
+| arm | quality (E14, 1.5 B) | speed (E13) |
+|---|---|---|
+| A1 / A3, whole-vector | `\|dBPB\|` 0.016961, greedy **45.6%** | **1.358× measured** |
+| A2, group-32 | `\|dBPB\|` 0.005991, greedy **64.4%** | **never measured** |
+
+`--lutblk` and `--lut-group` are orthogonal flags in `donor_engine.c`, so `--lutblk --lut-group 32`
+is reachable — but **Phase 61's law applies exactly here**: a kernel that gains 1.358× applying one
+scale per vector does not thereby gain it applying one per 32 channels, and the extra scales land
+in the inner loop. **Nothing licenses carrying 1.358× across to A2.**
+
+**So the quoted rate is unchanged: 6.79 tok/s exact on the real 7.072 B, packed remains the
+default, and the 1.358× lever remains unspent** — now for a *measured* reason rather than an
+unmeasured one.
+
+### 27.3 What it confirms, and what it costs the pre-registration
+
+- **E13's bit-identity now holds three independent ways**: sha256 over 311 MB of logits (E13),
+  `A3 − A1 = +0.000e+00` at both cells (G-N0), and **token-for-token identical greedy trajectories
+  across 160 tokens** (G-N3). `--lutblk` is a permutation of a permutation.
+- **G-N1 does not fire at either cell** (`A2 − A1` = +0.300872 at 0.5 B, +0.010970 at 1.5 B) and
+  fires at both in repaired form, `|A2−A0| < |A1−A0|`, separating **24×** and **2.83×** with the
+  more accurate arm nearer the reference — the direction E11's 4.5× input-error ratio predicts.
+  **The harness was never at fault; the direction written into the gate was.**
+- **Two of three gates assumed the answer's shape.** G-N1 assumed a *direction* that holds only
+  while the model predicts; G-N2 assumed a *sign* that holds only while quantization damages.
+  **Fifth pre-registered rule in this programme aimed at the wrong number**, and the second inside
+  one experiment.
+- **A protocol defect, recorded not smoothed.** E14 passed no `--seqlen`, and
+  `donor_engine.c:1249` defaults `SL = n`, so every arm was scored as **one 12,288-token
+  sequence**, not 24 documents of 512 — which is why A0 reads 4.629292 at 0.5 B where E1 reads
+  4.531234 on the identical file. The arm-to-arm gates are unaffected; **a `--seqlen 512` re-run is
+  owed** and until it lands these are 12 k-context numbers.
+
+### 27.4 Owed
+
+1. **A speed number for `--lutblk --lut-group 32`** at E13's 24–48 MB organ band. Until it exists
+   the quality-cheap arm and the fast arm are different arms.
+2. **The `--seqlen 512` re-run**, both cells, ~3 h.
+3. **A properly banded ranking gate.** Brief §6 forbade promoting G-N3 to a gate, correctly — no
+   band for it could be justified from anything measured. The band is still missing, and it is the
+   prerequisite for any future verdict that claims a conversion is harmless.
+
+**§19.3 is unchanged: the remaining gap is a property of the model. What E14 removes is the
+possibility of quietly buying 1.358× with a metric that was moving for the wrong reason.**
