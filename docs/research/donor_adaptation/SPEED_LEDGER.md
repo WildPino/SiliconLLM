@@ -875,10 +875,60 @@ already 6.5× faster (§14) and fully decomposed (§14.2-bis). The brief predict
 §13's delivered rate alone, before the donor was exported: **−4.3%**. The weight-rate model
 transfers across shape and across trained-vs-synthetic.
 
-**§16.3 — an ordering that inverts, and is not yet measured.** 800 context is **faster** than 300
-here (4.580 vs 4.460), the opposite of `T10` (3.090 @300, 2.960 @800). Two-point arithmetic on the
-wall times — 67.276 s and 174.723 s — gives a marginal **214.9 ms/token** and a **fixed ~2.8 s
-inside the timed region**, plausibly first-touch of a 5.7 GB weight array amortising over more
-tokens; at `T10`'s 48 layers × 32 heads `f` grows fast enough to swamp it, at 28 × 28 it does not.
-**That is a two-point fit and not a measurement.** It is flagged here because a fixed cost inside a
-timed region would make every short `--bench` in this ledger read low.
+**§16.3 — an ordering that inverted, and was noise.** *(This paragraph replaces a two-point fit
+that stood here from 2026-09-07 and was refuted the same day; the original is preserved verbatim in
+`probes/E7_REAL_LARGE_DONOR.md` §7.)* 800 context reads **faster** than 300 here (4.580 vs 4.460),
+the opposite of `T10`. Two-point arithmetic fitted a **fixed ~2.8 s inside the timed region**, which
+if real would make every short `--bench` in this ledger read low. A third point settled it:
+**`--bench 1600` medians 4.230**, against the fit's prediction of 4.616 (band 4.50–4.68) and against
+a threshold of 4.580 fixed before the run. **Refuted.** The inversion is **2.7% — inside §13's own
+±5% band.** No cell in this ledger reads low. *Standing law, reinforced: a difference smaller than
+the reproducibility band is not a phenomenon, and must not be given a mechanism.*
+
+## 17. AMENDED 2026-09-07 by E7 §8.2 — `f` is linear to 1600 tokens (E4's owed item 3, closed)
+
+Nothing in §§13–16 bounded `f` above 800 tokens of context; every `1000/f` ceiling quoted here was
+read at 300 or 800 and silently assumed to extrapolate. It does. Measured on the real Coder-7B,
+profiled runs admitted only where the **`ffn`-invariance witness** holds — the FFN organ cannot
+depend on context length, so any cell whose `ffn` leaves the uncontended ~175–180 ms plateau was
+taken under load and is discarded (six of nine cells survived; the three discarded would have
+manufactured a knee):
+
+| context | **attention ms/token** | slope per token of actual context |
+|---|---|---|
+| 300 | 4.932 | — |
+| 800 | 12.90 (median of 13.092, 12.713) | **0.0319 ms** |
+| 1600 | 25.64 (median of 25.462, 25.636, 25.951) | **0.0319 ms** |
+
+**Two intervals agreeing to 0.2% over a 5.3× range.** `--bench N` averages the organ over positions
+0…N−1, so mean context is N/2 and the slope column is the physical quantity. **`1000/f` may be
+extrapolated linearly to at least 1600 tokens**, and the ceilings in §§13–14 are not hiding a knee.
+
+## 18. AMENDED 2026-09-07 by E7 §9 — which attention kernel produced the numbers in this ledger
+
+`donor_engine.c:116` reads `static int g_attn = ATTN_SERIAL;`. **The engine's default attention
+kernel is `serial`** — E4's second-slowest arm — not the `avx4` that §14 credits with taking the
+`Q·K` dot loop 6.53× and `f` from 24.678 to 12.735 ms. `avx4` is reachable only via an explicit
+`--attn avx4`.
+
+**What this does and does not change.** E4's own runners pass `--attn` on every point, so **§14's
+table is sound**. `e3_bench.py` defaults `--attn` to the empty string and never passes it, so
+**E3's `T10` baseline (§13) and every E7 figure (§16) are `serial` readings.** E4 already published
+the rate consequence at `T10`: `avx4` **3.230** vs `serial` **3.110 tok/s, +3.9% — inside §13's own
+±5% band.** **No number in §§13–17 requires a numeric correction.** What was missing, and is
+supplied here, is the sentence naming the kernel.
+
+The arm transfers to a real donor — profiled, witness-admissible, on Coder-7B:
+
+| context | `serial` | `avx4` | ratio | E4's `T10` ratio |
+|---|---|---|---|---|
+| 300 | 4.932 | **2.336** | **0.474×** | — |
+| 800 | 12.90 | **5.737** | **0.445×** | 0.493× |
+
+**Scope, fixed before the rate was re-measured:** attention is **2.2% of the token at 300 context
+and 10.5% at 1600**; the FFN is **73–80%**. Halving a 2.2% organ cannot move an 11.2× gap. **This
+is a correctness note about which kernel ran, not a speed result.**
+
+**The default is deliberately NOT being changed.** `serial` is the arm every prior probe's baseline
+was taken on; flipping `g_attn` would silently re-base E1–E7. The fix is a runner that passes
+`--attn` explicitly and this section — not an edit that makes old numbers unreproducible.

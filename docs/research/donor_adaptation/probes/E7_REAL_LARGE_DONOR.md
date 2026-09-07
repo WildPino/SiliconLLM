@@ -1,8 +1,11 @@
 # E7 — a real 7.6 B donor, end to end, and the synthetic proxy finally checked against it
 
 **Status: CLOSED, `REAL-WEIGHTS-CONFIRMED`.** Brief: `briefs/BRIEF_E7_REAL_LARGE_DONOR.md`
-(§1–6 pushed at `cb03580` before the export ran; §7, the memory amendment, at `46496db`).
-**Every gate passed.**
+(§1–6 pushed at `cb03580` before the export ran; §7, the memory amendment, at `46496db`;
+§9, the extension, at `8252031`; §10, the attention-kernel amendment, at `9103c26` — each before
+the run it governs).
+**Every gate passed.** Extended twice since: §8 here closes E4's owed item 3, and §9 records a
+defect in which kernel the engine runs by default.
 
 | | |
 |---|---|
@@ -116,23 +119,111 @@ low-memory path is the same exporter, and it reproduces an E1 artifact exactly.
 `--load-dtype bfloat16` **refuses** `--fold` and `--rule R3`, because folding and calibration are
 arithmetic rather than storage. That is why §5's arm is R0/fold-none and why **E7 reports no BPB**.
 
-## 7. A measurement note worth keeping
+## 7. A measurement note worth keeping — **REFUTED by §8.1, kept as written**
 
 The 800-context cell is **faster** than the 300-context cell here (4.580 vs 4.460), the opposite of
 `T10`, where E3 read 3.090 @300 and 2.960 @800. Two-point arithmetic on the wall times
 (67.276 s and 174.723 s) gives a marginal cost of **214.9 ms/token** and a **fixed ~2.8 s inside
 the timed region** — plausibly first-touch of a 5.7 GB weight array, amortising over more tokens.
 At `T10` (48 layers × 32 heads) `f` grows fast enough to overwhelm that; here (28 × 28) it does
-not. **This is a two-point fit, not a measurement**, and §8 tests it.
+not. **This is a two-point fit, not a measurement**, and §8.1 tested it and **refuted it**. The
+inversion is 2.7%, inside this programme's own ±5% band for an absolute rate; there was no
+mechanism to model. Left standing verbatim because the brief called it a fit, not a result, and
+because the cost of the error — one 20-minute third point — is the whole argument for saying so
+out loud.
 
 Note also that wall time per repetition was dominated by **loading**, not computing: after writing
 a 30 GB file the page cache is cold and each `--bench` re-reads 5.7 GB. It does not touch the
 number — the `BENCH` line times only the decode loop — but it is why a 11-minute measurement took
 an hour.
 
-## 8. Owed
+## 8. Extension — the third point, and `f` beyond 800
+
+Pre-registered at `briefs/BRIEF_E7_REAL_LARGE_DONOR.md` §9, pushed at `8252031` **before** the run.
+Verdict at §9-bis (`9103c26`).
+
+### 8.1 G-X1 — the fixed cost does not exist
+
+`--bench 1600`, packed arm, 3 reps: **4.05 / 4.23 / 4.31 → median 4.230**, spread 6.1%.
+
+| | |
+|---|---|
+| §7's fit predicted | **4.616 tok/s**, band 4.50–4.68 |
+| the call fixed in the brief | *above 4.580 the fit survives, below it is refuted* |
+| measured | **4.230** — below the threshold, below the band, **−8.4%** off the prediction |
+
+**REFUTED.** There is no fixed cost inside the timed region, so no short `--bench` cell in the
+SPEED_LEDGER reads low. The 300→800 inversion §7 modelled is **2.7%** — inside the ±5% band this
+programme applies to every absolute rate. It was noise, and it should not have been modelled.
+
+### 8.2 G-X2 — `f` is linear to 1600 tokens (E4's owed item 3, closed)
+
+Profiled cells are admissible only where the **`ffn`-invariance witness** holds: the FFN organ
+cannot depend on context length, so a cell whose `ffn` sits above the uncontended ~175–180 ms
+plateau was measured under load and its attention reading is discarded. **Six of nine survived.**
+
+| context | `ffn` (the witness) | **attention ms/token** |
+|---|---|---|
+| 300 | 176.935 | **4.932** |
+| 800 | 177.832 / 175.730 | **13.092 / 12.713** |
+| 1600 | 176.193 / 179.518 / 180.119 | **25.462 / 25.636 / 25.951** |
+
+Discarded: `ffn` 237.124 / 228.602 / 213.422, which would have read attention as **8.031 / 6.428 /
+16.067** and manufactured a knee between 300 and 800 that does not exist.
+
+| interval | Δ attention | per token of `--bench N` | **per token of actual context** |
+|---|---|---|---|
+| 300 → 800 | 7.97 ms | 0.01594 | **0.0319 ms** |
+| 800 → 1600 | 12.78 ms | 0.01597 | **0.0319 ms** |
+
+`--bench N` averages the organ over positions 0…N−1, so mean context is N/2 and the third column
+is the physical slope. **The two intervals agree to 0.2% across a 5.3× range in context: `f` is
+linear to 1600 with no knee.** Nothing had bounded `f` above 800 before today.
+
+### 8.3 An anomaly that was not one
+
+E7's attention (12.90 ms @800) against E4's `T10` figure (12.058 @800) looks like a ~2.2× anomaly:
+Coder-7B has 28 layers × 28 heads = **784 head-layers**, `T10` has 48 × 32 = **1536**, so E7 should
+cost **0.510×** of `T10`, not the same. The comparison was wrong, not the engine — **E4's 12.058 is
+the `avx4` arm and E7 ran the default, which §9 shows is `serial`.** Against E4's own `serial` row:
+
+    predicted   24.463 ms x (784 / 1536)  =  12.49 ms
+    measured    12.90 ms                             ->  +3.3%
+
+An organ cost predicted across two different models and two different head counts, from head-layer
+count alone, correct to 3.3%.
+
+## 9. The engine's default attention kernel is not the one E4 won with
+
+`donor_engine.c:116` reads `static int g_attn = ATTN_SERIAL;`. That is E4's **second-slowest** arm
+(`T10` @800: `serial` **24.463 ms**, `serial_e3` 23.978, `avx4` **12.058**). E4's 6.53× win on the
+`Q·K` dot loop is reachable only through an explicit `--attn avx4` and **was never made the
+default**. E4's own runners pass `--attn` on every point, so E4's table is sound; `e3_bench.py`
+defaults it to the empty string and never passes it, and neither did `e7_real7b.py`. **Every number
+in §§1–8 above, and E3's `T10` baseline, is on `serial`.**
+
+The arm transfers to a real donor. Profiled, witness-admissible:
+
+| context | `serial` | `avx4` | ratio | E4's `T10` ratio |
+|---|---|---|---|---|
+| 300 | 4.932 | **2.336** | **0.474×** | — |
+| 800 | 12.90 | **5.737** | **0.445×** | 0.493× |
+
+**What it is worth, stated before the rate was measured** (brief §10, G-Y2): attention is **2.2% of
+the token at 300 and 10.5% at 1600**; the FFN is **73–80%**. Halving a 2.2% organ cannot move an
+11.2× gap. **§9 is a correctness note about which kernel ran, not a speed result.** E4 already
+published the rate consequence at `T10` — `avx4` 3.230 vs `serial` 3.110 tok/s, **+3.9%**, inside
+±5% — so §§13–16 of the SPEED_LEDGER need **no numeric correction**. What they need, and are owed,
+is a line naming the kernel that produced them.
+
+**Not proposed: changing the default.** `serial` is the arm every prior probe's baseline was taken
+on; flipping `g_attn` would silently re-base E1–E7. The defect is documentation, and the fix is a
+runner that passes `--attn` explicitly plus a ledger line that names the kernel — not an edit that
+makes old numbers unreproducible.
+
+## 10. Owed
 
 1. **A real 10 B.** Still the open item. E7 reached 67% of the size; the rest needs a download.
-2. **`f` beyond 800 tokens** — E4's owed item 3, and §7 says this shape is the cheap place to test it.
+2. ~~**`f` beyond 800 tokens** — E4's owed item 3.~~ **CLOSED by §8.2: linear, 0.0319 ms per token of context, no knee to 1600.**
 3. **R3 at 7 B**, if anyone wants a clean scale statement about the ternary damage.
 4. The 11.2× gap to 50 tok/s is **entirely the weight path**, now on trained weights.
