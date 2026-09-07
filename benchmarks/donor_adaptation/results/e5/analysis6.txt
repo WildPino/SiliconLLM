@@ -1,0 +1,97 @@
+## G2 -- parity (brief s12.2; every run-6 arm is on `avx4`, so all of it is G2a)
+
+| run | NATS_TOTAL (as printed) | verdict |
+|---|---|---|
+| `sweep6 (ten avx4 arms, incl. qk1/qk2/qk3)` | 166667.1361128952 | **BIT-IDENTICAL** |
+| `sweepd (the d-probe schedule)` | 166667.1361128952 | **BIT-IDENTICAL** |
+| `qk3 (pure)` | 166667.1361128952 | **BIT-IDENTICAL** |
+
+## `d` -- the price of switching arms, measured (brief s13.4)
+
+(`none_iso`, `none_hot` and `none_edge` run the IDENTICAL `none` code at the same mean context length; only their neighbours differ.)
+
+| cell | runs | `none_hot` | `none_iso` | **`d` = iso - hot** | `edge` - `hot` | `d` as %% of the organ |
+|---|---|---|---|---|---|---|
+| S05 @300 | 5 | 0.673 | 0.679 | **-0.009** | -0.006 | -1.4% |
+| S05 @800 | 5 | 1.741 | 1.740 | **+0.005** | +0.003 | +0.3% |
+| T10 @300 | 5 | 4.564 | 4.581 | **-0.007** | -0.003 | -0.1% |
+| T10 @800 | 5 | 13.597 | 13.588 | **+0.012** | +0.009 | +0.1% |
+
+## G0 -- the weight path across the arms of ONE process (brief s11.5)
+
+| cell | runs | kept | worst `W` spread across arms | verdict |
+|---|---|---|---|---|
+| S05 @300 | 5 | 0 | +3.14% | **VOID -- fewer than 3 clean runs** |
+| S05 @800 | 5 | 4 | +1.57% | PASS |
+| T10 @300 | 5 | 5 | +0.95% | PASS |
+| T10 @800 | 5 | 5 | +0.41% | PASS |
+
+## The spread ACROSS the runs -- this is the reproducibility interval (s11.5)
+
+| cell | runs kept | `X` | `S` | `Y` | `R` | `P` | organ `none` |
+|---|---|---|---|---|---|---|---|
+| T10 @800 | 5 | 2.253 [2.153-2.625] | 2.953 [2.791-2.961] | 2.406 [2.221-2.482] | 11.641 [11.306-11.697] | 6.317 [5.884-6.630] | 13.931 [13.628-14.129] |
+| T10 @300 | 5 | 0.713 [0.693-0.773] | 1.048 [1.014-1.149] | 0.781 [0.736-0.977] | 4.106 [4.061-4.163] | 2.243 [2.126-2.356] | 4.834 [4.798-4.865] |
+| S05 @800 | 4 | 0.245 [0.237-0.269] | 0.726 [0.705-0.745] | 0.203 [0.200-0.206] | 1.522 [1.496-1.563] | 0.597 [0.552-0.643] | 1.768 [1.761-1.800] |
+
+Each cell is `median [min-max]` over the runs that passed G0.
+
+## G5 -- a component that is a duration must be positive (brief s13.4)
+
+| cell | `X` | `S` | `Y` | `R` | `P` | verdict |
+|---|---|---|---|---|---|---|
+| T10 @800 | 2.253 | 2.953 | 2.406 | 11.641 | 6.317 | PASS |
+| T10 @300 | 0.713 | 1.048 | 0.781 | 4.106 | 2.243 | PASS |
+| S05 @800 | 0.245 | 0.726 | 0.203 | 1.522 | 0.597 | PASS |
+
+## G1 -- the 3x arms, which X, S and Y are not fitted to (brief s4)
+
+| point | 1x arm | 2x arm | solved | predicted 3x | measured 3x | error (median) | verdict |
+|---|---|---|---|---|---|---|---|
+| T10 @800 `qk1/2/3` | 13.755 | 16.192 | X = 2.253 | 18.446 | **18.454** | +0.73% | PASS |
+| T10 @800 `sm1/2/3` | 13.776 | 16.729 | S = 2.953 | 19.682 | **19.563** | -0.40% | PASS |
+| T10 @800 `av1/2/3` | 13.697 | 16.117 | Y = 2.406 | 18.537 | **18.504** | +0.32% | PASS |
+| T10 @300 `qk1/2/3` | 4.613 | 5.330 | X = 0.713 | 6.022 | **6.083** | +0.22% | PASS |
+| T10 @300 `sm1/2/3` | 4.615 | 5.634 | S = 1.048 | 6.675 | **6.741** | +0.47% | PASS |
+| T10 @300 `av1/2/3` | 4.562 | 5.348 | Y = 0.781 | 6.122 | **6.103** | -0.72% | PASS |
+| S05 @800 `qk1/2/3` | 1.754 | 2.006 | X = 0.245 | 2.252 | **2.220** | -1.15% | PASS |
+| S05 @800 `sm1/2/3` | 1.773 | 2.505 | S = 0.726 | 3.237 | **3.203** | -0.34% | PASS |
+| S05 @800 `av1/2/3` | 1.738 | 1.940 | Y = 0.203 | 2.143 | **2.168** | +0.68% | PASS |
+
+## Both increments are one extra pass; if they disagree the arms are wrong (s10.3)
+
+| cell | `X` inc 2-1 / 3-2 | `S` inc | `Y` inc | `qk1`-`none` | `sm1`-`none` | `av1`-`none` |
+|---|---|---|---|---|---|---|
+| T10 @800 | 2.253 / 2.414 (1.07x) | 2.953 / 2.881 (0.98x) | 2.406 / 2.387 (0.99x) | -0.243 | -0.227 | -0.292 |
+| T10 @300 | 0.713 / 0.727 (1.02x) | 1.048 / 1.085 (1.03x) | 0.781 / 0.737 (0.94x) | -0.235 | -0.230 | -0.275 |
+| S05 @800 | 0.245 / 0.225 (0.92x) | 0.726 / 0.715 (0.98x) | 0.203 / 0.218 (1.07x) | -0.028 | +0.008 | -0.026 |
+
+## The decomposition of `R`
+
+| cell | organ `none` | `X` | `S` | `Y` | `P` | S/R | Y/R | P/R | `f` | ceiling 1000/f |
+|---|---|---|---|---|---|---|---|---|---|---|
+| T10 @800 | 13.931 | 2.253 | **2.953** | **2.406** | **6.317** | 25.4% | 20.7% | 54.3% | 14.628 | **68.4** |
+| T10 @300 | 4.834 | 0.713 | **1.048** | **0.781** | **2.243** | 25.5% | 19.0% | 54.6% | 5.526 | **181.0** |
+| S05 @800 | 1.768 | 0.245 | **0.726** | **0.203** | **0.597** | 47.7% | 13.4% | 39.2% | 1.857 | **538.6** |
+
+## s3 -- the predictions I registered before any arm existed, at `T10` @800
+
+| quantity | predicted (ms) | measured | verdict |
+|---|---|---|---|
+| `S` | 0.8 - 2.0 | **2.953** | **OUTSIDE -- my estimate was wrong, by +48%** |
+| `Y` | 2.2 - 3.5 | **2.406** | inside |
+| `P` | 4.0 - 7.0 | **6.317** | inside |
+
+## s5 -- the label, at T10 @800
+
+`R` = 11.641 ms = `S` 2.953 + `Y` 2.406 + `P` 6.317;  largest is `P` at 54.3% -> **OVERHEAD-DOMINATED**
+
+| if this term went to zero | `f` ms | **ceiling 1000/f** |
+|---|---|---|
+| nothing (measured today) | 14.628 | **68.4** |
+| `P` | 8.311 | **120.3** |
+| `S` | 11.674 | **85.7** |
+| `Y` | 12.221 | **81.8** |
+| all of `R` | 2.986 | **334.9** |
+
+Every absolute tok/s on this machine carries +-5%% (E4 s2.5); the ratios do not.

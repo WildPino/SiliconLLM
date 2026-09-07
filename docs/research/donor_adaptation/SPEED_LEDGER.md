@@ -767,8 +767,27 @@ the dot loop's unique bytes 4×: 2.242 → ~0.6 ms, organ 12.058 → ~10.4 ms = 
 right lever for a loop that no longer exists.
 
 **The floor is now `R`** — the softmax pass plus the `A·V` loop — measured at **9.816 ms** and
-**81.4% of the organ**, untouched by every arm here. Its composition has never been measured and is
-not claimed. Decomposing it, with the same bit-identical doubling trick, is the next probe.
+**81.4% of the organ**, untouched by every arm here. Its composition is **now measured**.
+
+**§14.2-bis — what `R` is made of (E5, `probes/E5_DECOMPOSE_R.md`, verdict `OVERHEAD-DOMINATED`).**
+E5 split `R` with the same doubling trick, ten arms interleaved per token inside one process.
+Nine 3× predictions the components were not fitted to all passed, worst error −1.15%. Its `X` =
+**2.253 ms** reproduces §14's 2.242 to 0.5% by a method sharing no arm with it. Ratios travel
+between sweeps and absolutes do not, so E5's shares are applied to **this ledger's own `R`**:
+
+| term | share of `R` (E5) | ms/token on `R` = 9.816 |
+|---|---|---|
+| `S`, the softmax pass | 25.3% | **2.485** |
+| `Y`, the `A·V` loop | 20.6% | **2.020** |
+| `P`, neither loop | **54.0%** | **5.301** |
+
+**More than half the floor is not a loop.** The OpenMP fork — the one candidate that has been
+priced — is **1.4% of `P`**, so `P` is not the fork and what it is has never been measured.
+E5's own `1000/f` = 68.4 tok/s is **not** a correction to the 78.5 above: its sweep read the
+organ 15.5% high, and §14.7 of its brief refuses the absolute for exactly that reason.
+One more thing E5 hands over: at `S05` @800 the split **inverts** — 47.7% softmax, 39.2% `P` —
+so a softmax fix measured on the small model arrives at target scale worth about half of what it
+looked like.
 
 ### 14.3 A correction owed to every absolute number in this ledger
 

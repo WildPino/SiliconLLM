@@ -722,3 +722,121 @@ Section 3's predictions were scored against run 5 and **all four missed**: `S` 3
 `P` 8.104 against 4.0-7.0 (+16%, and withheld anyway as unestablished), `fork` 0.087 against
 0.1-1.0 (-13%). Four bands, four misses, and the two that are established landed outside on
 opposite sides. They are **not re-fitted** for run 6.
+
+---
+
+## 14. VERDICT after run 6 - E5 closes, OVERHEAD-DOMINATED
+
+Run 6: `results/e5/sweep6.json` (40 records, 5 runs x 4 cells x 2 modes), parity
+`results/e5/parity6.txt`, analysis `results/e5/analysis6.txt`, analyser `e5_analyse6.py`.
+
+### 14.1 Every gate, and what it said
+
+| gate | result |
+|---|---|
+| G2 bit-identity - `--sweep6`, `--sweepd`, pure `qk3` | **PASS**, all three `166667.1361128952` |
+| G0 within-process | **PASS** at `T10` @800 (+0.41%), `T10` @300 (+0.95%), `S05` @800 (+1.57%, 4 runs); `S05` @300 VOID |
+| G5 positivity | **PASS** - every component in every surviving cell |
+| G1, the 3x test, **nine** points | **PASS** - worst error **-1.15%**, against a 3% tolerance fixed before run 1 |
+| G4 boundary | leading share **54.3%**, 4.3 points clear of 0.50 - the label issues |
+
+The 3x errors, in full: `qk` +0.73 / +0.22 / -1.15, `sm` -0.40 / +0.47 / -0.34, `av` +0.32 / -0.72 /
++0.68 percent. Nine predictions that could each have missed, and none did.
+
+### 14.2 `d` - the price of interleaving, measured and negligible
+
+`none_iso`, `none_hot` and `none_edge` run identical code at identical mean context length and
+differ only in their neighbours:
+
+| cell | `none_hot` | `none_iso` | **`d`** | as % of the organ |
+|---|---|---|---|---|
+| `T10` @800 | 13.597 | 13.588 | **+0.012** | **+0.1%** |
+| `T10` @300 | 4.564 | 4.581 | -0.007 | -0.1% |
+| `S05` @800 | 1.741 | 1.740 | +0.005 | +0.3% |
+
+**Switching arms costs about a tenth of a percent of the organ.** The concern registered in section
+11.6 was real and had to be measured; measured, it is not a correction anyone needs. Nothing is
+subtracted from anything.
+
+### 14.3 The decomposition
+
+At `T10` @800, median over five runs, each run solved independently and then the shares taken:
+
+| term | ms/token | share of `R` | band across runs |
+|---|---|---|---|
+| `S` - the softmax pass | **2.953** | **25.3%** | 24.0 - 26.0% |
+| `Y` - the `A.V` loop | **2.406** | **20.6%** | 19.1 - 22.0% |
+| `P` - everything else | **6.317** | **54.0%** | 52.0 - 56.9% |
+| `R` | 11.641 | | 11.306 - 11.697 |
+| `X` - the `Q.K` loop | **2.253** | | 2.153 - 2.625 |
+
+**Label: OVERHEAD-DOMINATED.** `P` - which is neither of the two loops - is the largest single piece
+of `R`, and `R` is 84% of the attention organ. The thing E4 could not see inside is, more than half
+of it, not a loop at all.
+
+### 14.4 The independent check nobody arranged
+
+`X` is the `Q.K` dot loop. **Run 6 measures it at 2.253 ms** [2.153 - 2.625] by doubling it inside
+the `avx4` family in one process. **E4 measured 2.242 ms** by an entirely different route - a
+between-process subtraction across the `serial` family, on a different day, at a different process
+priority. **They agree to 0.5%.**
+
+Neither number was fitted to the other and the methods share no arm. Recorded as a drift line under
+gate G3, never as an input: it is corroboration, not a term.
+
+### 14.5 The shape changes with scale, and that is a result
+
+| cell | `S`/`R` | `Y`/`R` | `P`/`R` | label |
+|---|---|---|---|---|
+| `T10` @800 (10.6B) | 25.3% | 20.6% | 54.0% | OVERHEAD-DOMINATED |
+| `T10` @300 | 25.5% | 19.0% | 54.6% | OVERHEAD-DOMINATED |
+| `S05` @800 (0.5B) | **47.7%** | 13.4% | 39.2% | SOFTMAX-DOMINATED |
+
+The small model is dominated by its softmax; the target-scale model is dominated by everything that
+is not a loop. **A fix aimed at `expf` would be measured on `S05` and would not survive the trip to
+`T10`.** That is the same trap E3 and E4 both walked into from the other side, and it is now
+measured rather than argued.
+
+### 14.6 What `P` is NOT
+
+The one named candidate for `P` that has been priced is the OpenMP fork/join: run 5's `fork2` arm,
+one extra parallel region per layer, cost **+0.087 ms** - **1.4% of `P`**. So `P` is not the fork.
+
+`P` remains, by construction, a residual: the 32-heads-over-6-threads imbalance, per-head address
+arithmetic, `out[]` initialisation, the `mx` reduction, and whatever else lives in the per-head body.
+**E5 establishes its size and refuses to name its parts.** Decomposing `P` is a new experiment with
+its own arms, and it is owed, not answered here.
+
+### 14.7 The one number E5 does NOT publish
+
+Run 6's organ `none` is **13.931 ms** against E4's **12.058** for the same cell - **+15.5%**, and
+`f` follows it, 14.628 against 12.735. `d` rules out arm-switching as the cause (0.1%), so this is
+sweep-to-sweep drift on the attention organ, and it is larger than the +-5% band the ledger carries.
+
+Therefore: **E5 publishes ratios, and the ceiling stays E4's.** `1000/f` = 68.4 tok/s from run 6 is
+NOT a correction to E4's 78.5 and must not be quoted as one. What travels between sweeps is the
+share, so applying E5's ratios to E4's own `R` = 9.816:
+
+    S = 2.485 ms     Y = 2.020 ms     P = 5.301 ms      (E4's sweep, E5's shares)
+
+and that is the form in which E5's result enters the ledger.
+
+### 14.8 Section 3's predictions, scored one last time
+
+| quantity | predicted | measured (run 6) | verdict |
+|---|---|---|---|
+| `S` | 0.8 - 2.0 | **2.953** | **OUTSIDE, +48%** |
+| `Y` | 2.2 - 3.5 | **2.406** | inside |
+| `P` | 4.0 - 7.0 | **6.317** | inside |
+| `fork` | 0.1 - 1.0 | 0.087 (run 5) | **OUTSIDE, -13%** |
+
+Two of four inside. The one I was most confident about - that the softmax could not cost more than
+2 ms because "it is only an `expf` per position" - was wrong by half again, and the reason is in
+`asm_notes.txt`: `expf` is not single precision on this toolchain. It compiles to
+`vcvtss2sd -> callq exp -> vcvtsd2ss`, 615,168 double-precision calls per token at `T10` @800, each
+with a `vzeroupper` in front of it.
+
+That is a **candidate** explanation for a 48% miss, not a finding: E5 measured `S`, it did not
+measure why. A single-precision `expf` is an ARM, and it belongs to whatever probe runs it - with
+its own parity, because unlike every arm in E5 it would not be value-preserving. The bands were
+never re-fitted.

@@ -334,12 +334,14 @@ E3's 38.3 tok/s ceiling at 800 context. The int8-KV lever, retired at ~1.16× be
 question of whether GQA re-reads reach DRAM — they do not (§4.2).
 
 **Owes.**
-1. **Decompose `R`.** It is 81.4% of the organ and the binding term in `f`. The same planted-control
-   trick applies: an arm that runs the softmax loop twice, and one that runs `A·V` twice, both
-   value-preserving, split `R` the way `serial2` split the organ. **This is now item 0.**
-   **Pre-registered as E5** (`briefs/BRIEF_E5_DECOMPOSE_R.md`, pushed at `c1bdd70` before the arms
-   existed; arms at `00f4538`), with a third component `P` — the OpenMP region, 48 forks per token —
-   that this probe did not name and that E5's own arithmetic says must exist.
+1. ~~**Decompose `R`.**~~ **Done — E5, `probes/E5_DECOMPOSE_R.md`, verdict `OVERHEAD-DOMINATED`.**
+   `R` = `S` 25.3% + `Y` 20.6% + `P` 54.0% at `T10` @800; on this probe's own `R` = 9.816 that is
+   **`S` = 2.485, `Y` = 2.020, `P` = 5.301 ms**. The third component this probe did not name is the
+   **largest** one. Two corrections back to here: E5's `X` = 2.253 ms reproduces §4's 2.242 to
+   **0.5%** by a method sharing no arm with it — the strongest check this probe's headline number
+   has had; and the softmax, which §7 assumed was the cheap half of `R`, is 25.3% of it and came in
+   48% above the band E5 pre-registered. `P` is **not** the OpenMP fork: that was priced directly at
+   **1.4% of `P`**. What `P` is remains unmeasured, and is now item 0 of the INDEX.
 2. ~~Re-run E3's twelve-donor budget screen against the new `f`.~~ **Done** (§4.7). `A` was wrong by
    2.04×; the screen was re-measured rather than rescaled, and `e3_budget_by_shape.py` now derives
    `r_w` from whichever sweep it is given rather than from a hardcoded table.

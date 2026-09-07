@@ -146,7 +146,23 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
 
 ## 4. Open, in priority order
 
-0. **Decompose `R`** — new, and it inherits first place from the item E4 just closed.
+0. **Decompose `P`** — new, and it inherits first place from the item **E5 just closed**.
+
+   **E5 is CLOSED, `OVERHEAD-DOMINATED`** (`probes/E5_DECOMPOSE_R.md`, brief §14). At `T10` @800,
+   `R` = softmax `S` **25.3%** + `A·V` `Y` **20.6%** + `P` **54.0%** — **more than half of `R` is
+   neither loop.** Nine 3× predictions the components were not fitted to all passed, worst error
+   −1.15%; `X` = 2.253 ms independently reproduces E4's 2.242 by a method sharing no arm with it.
+   Taking E5's shares onto E4's own `R` = 9.816: **`S` = 2.485, `Y` = 2.020, `P` = 5.301 ms.**
+   The one candidate for `P` that has been priced — the OpenMP fork, run 5's `fork2` arm — is
+   **1.4% of it**. So `P` is not the fork, and what it *is* has never been measured: the
+   32-heads-over-6-threads imbalance, per-head address arithmetic, `out[]` init, the `mx` reduction.
+   **That is item 0.** Two further things E5 hands over: the shape *inverts with scale* (`S05` @800
+   is **SOFTMAX-dominated at 47.7%**, `T10` is OVERHEAD-dominated), so a softmax fix measured small
+   arrives at target scale worth half what it looked; and `S` came in **48% above** its
+   pre-registered band, with `expf` compiling to a *double-precision* `exp` call plus `vzeroupper`
+   as the untested candidate.
+
+   ~~**Decompose `R`** — inherited first place from the item E4 closed.~~ **Done.**
    **Pre-registered and running as E5**: `briefs/BRIEF_E5_DECOMPOSE_R.md` (`c1bdd70`, pushed before
    the arms), arms `--attnr {sm2,sm3,av2,av3,fork2}` at `00f4538`, G2 passed **bit-identical on all
    six arms**. The brief adds a third term this row did not name — `P`, the OpenMP region and
