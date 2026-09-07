@@ -36,17 +36,29 @@ Nothing in the programme has ever contradicted this, because nothing ever looked
 - **E7's `160/160 greedy` is the fp32 arm.** `G-G` gates `f32` against the PyTorch reference
   (1.0 agreement, 160/160). The packed arm is `G-C`, the *planted control*, which E7 requires to
   **fail**: `gc = summary["packed"]["agree"] < 0.90`.
-- **The packed arm scored `agree = 0.0` — 0 of 160**, first divergence at prompt 0, token 0, where
-  the reference's top-2 gap is **12.436 nats**. E7 recorded that as `G-C PASS`, which is correct
-  as a control: it proves the harness can tell arms apart.
+- **The packed arm scored `agree = 0.0` — 0 of 160**, and it disagrees with its own fp32
+  reference at the **very first generated token on all 5 prompts**, where the reference's top-2
+  margins are 1.43 / 1.54 / 1.54 / 1.45 / 2.92 nats. (E7's recorded `worst_gap_at_div = 12.436` is
+  the *largest* reference margin over all divergent positions, not the margin at the first one; an
+  earlier draft of this brief glossed it as the latter and that was wrong.) E7 recorded the whole
+  thing as `G-C PASS`, which is correct as a control: it proves the harness can tell arms apart.
+
 - **E7's parity gate (1.070e-05) is engine-vs-PyTorch on identical weights.** Phase 60's law is
   that kernel-bit-exactness does not compose to system correctness; the companion, which E15 tests,
   is that **parity does not compose to quality**. Agreeing perfectly with a reference built from the
   same export says nothing about whether that export predicts.
 
-So the artifact carrying the headline rate diverges from its own donor on the first token every
-time, at maximum reference confidence, and was converted with the rule E12 measured at chance.
-**Its BPB is the load-bearing unmeasured quantity in this programme.**
+**A second axis, found in the export log.** `D:/_ktmp/e7/export_packed.log` reads
+`folded 56 RMSNorm gains (--fold layers)`. E2 made `--fold layers` the exporter default, and
+`e1_bpb_through_engine.py` pins `--fold none` precisely because otherwise "every E1 arm silently
+changes model". **The fold is not neutral under ternarization**: it multiplies a gain into every
+row before `sign(w)` and `mean|w|` are taken, so it changes the codes. The 7 B artifact therefore
+differs from the standing 0.5 B/1.5 B artifacts on **two** axes, rule *and* fold, and E2 measured
+the second one directly (section 3).
+
+So the artifact carrying the headline rate diverges from its own donor on the first generated
+token of every prompt, was converted with the rule E12 measured at chance, and carries a fold no
+standing artifact carries. **Its BPB is the load-bearing unmeasured quantity in this programme.**
 
 ## 3. What is already known, and from which row
 
@@ -59,7 +71,11 @@ time, at maximum reference confidence, and was converted with the rule E12 measu
 | R0 ternary (FFN+ATTN), 0.5/1.5/3 B | +0.518 / +1.436 / +1.665 **above chance** | E12 |
 | R3 packed TQH, 0.5 B | 4.531234, **+0.461 above chance** | `e1_05b.log:30` |
 | R3 packed TQH, 1.5 B | 3.475707, **0.594 below chance** | E1 |
-| packed 7 B greedy vs its own fp32 | **0 / 160**, first divergence at a 12.436-nat gap | `results/e7/generate.json` |
+| R3 **fold none** + ternary head, 0.5 B (`TQH`) | 4.531234, **+0.461 above** | E2 section 3.1 |
+| R3 **fold layers** + ternary head, 0.5 B (`NLH`) | **4.001988, 0.068 BELOW** | E2 section 3.1 |
+| R3 fold layers, fp32 head, 0.5 B (`NL`) | 4.178296, +0.108 above | E2 section 3.1 |
+| R0 vs R3, FFN only, 1.5 B, fold none | 4.076694 vs 2.476967 — **R0 is +1.600 worse** | T2 |
+| packed 7 B greedy vs its own fp32 | **0 / 160**; diverges at token 0 on **5/5** prompts, reference margins 1.43–2.92 nats | `results/e7/generate.json` |
 | packed 7 B BPB | **never measured** | — |
 
 **Tokenizer crossing, checked not assumed.** `common.get_slice` caches on
@@ -122,20 +138,40 @@ damaged models.
 
 ## 6. Prediction, recorded before the run
 
-**B1 lands above the chance line, in the range 4.6 – 6.5 BPB.** Reasoning, from measured rows only:
-E12's R0 arms sit +0.518 / +1.436 / +1.665 above the line at 0.5 / 1.5 / 3 B — above at every
-scale and getting worse with scale — and the 7 B artifact carries *more* conversion than those
-arms did, since `--head-ternary` ternarizes the output head as well. E7's 0/160 greedy divergence
-at a 12.4-nat gap is consistent with a model that is not predicting.
+**Amended before any arm ran, after reading E2 section 3.1.** The gates in section 5 are
+untouched; what changed is the calibration claim, because my first draft predicted from the wrong
+configuration. Recorded rather than quietly replaced.
 
-**B0 lands in 0.55 – 0.85 BPB.** This band is wide on purpose, because two effects pull opposite
-ways and I do not know which dominates: 7 B is 2.3x the parameters of the 3 B that read 0.724450,
-which should push down; but **the corpus is 40% pg19 / 25% markdown / 25% python / 10% wikitext —
-majority prose — and Coder-7B is code-specialised**, which should push up. Stating this because I
-began drafting a much tighter band on the assumption that the density corpus was code. It is not.
+**The first draft said "above chance, 4.6 – 6.5", reasoning from E12's unfolded R0 arms. That
+reasoning did not apply**: the 7 B is `--fold layers`, and E2 measured the fold as worth
+**−0.529 BPB** at 0.5 B with a ternary head (`TQH` 4.531234 -> `NLH` 4.001988). `NLH` is the
+*only* 0.5 B ternary artifact on record that lands below the chance line, and it is the fold that
+puts it there.
 
-**A prediction is not a gate.** G-Q0's 1.000 is the gate; the 0.55–0.85 is a calibration claim that
-can miss without voiding anything, and will be reported as hit or missed either way.
+**The revised prediction is that this is too close to call, and I am not making a directional
+one.** Three measured forces, two of which point opposite ways:
+
+| force | measured | sign on B1 |
+|---|---|---|
+| the fold, already in the artifact | E2: `TQH` -> `NLH` = **−0.529** at 0.5 B | **down** (toward predicting) |
+| R0 instead of R3 | T2: **+1.600** at 1.5 B, FFN only, fold none | **up** |
+| 0.5 B -> 7 B | E1: R3 `TQH` 4.531234 -> 3.475707 = **−1.055** per 3x of scale | **down** |
+| — but E12's R0 arms got *worse* with scale | +0.518 / +1.436 / +1.665 at 0.5/1.5/3 B | **up** |
+
+Composed naively from the `NLH` anchor, B1 lands somewhere in **3.4 – 5.2 BPB**, straddling the
+4.070106 line. Every one of those adjustments is an extrapolation across a different organ set,
+scale or fold from the row it was measured on — the exact move E12 was written to forbid — so the
+range is offered as a sanity bound, not a claim.
+
+**That is the finding, before the run: the direction is not derivable from anything on record.**
+Which is the argument for measuring it rather than for arguing about it.
+
+**One directional datum does exist and cuts up**: the artifact disagrees with its own fp32
+reference on the first generated token of all five prompts, at reference margins of 1.4–2.9 nats.
+That is 5/5 independent failures at positions where the donor is reasonably confident. It is
+consistent with a model at or above chance, and it is also consistent with a heavily damaged model
+that still predicts — ternarization diverges fast even when it works. **It is not enough to call
+the direction**, which is why it is recorded here as evidence and not as a prediction.
 
 ## 7. Protocol
 
@@ -159,6 +195,9 @@ can miss without voiding anything, and will be reported as hit or missed either 
   whatever scale multiplies it; the kernel does the same work on the same bytes. E7/E8/E9/E10/E11/
   E13 measured the engine, and they still do. What a bad B1 would remove is the right to describe
   6.79 tok/s as a rate *for a working 7 B model*.
+- **It does not separate the rule from the fold.** B1 differs from the standing artifacts on both
+  axes at once. Separating them needs a `--fold none` 7 B export as a third arm, which is a 5.7 GB
+  export and its own run.
 - **It does not price R3 at 7 B.** If B1 fails, the immediate owed follow-on is B2: re-export with
   `--rule R3 --calib-seqs 32` and re-measure. That costs a 32 x 512 calibration forward pass
   through a 7.6 B fp32 model on CPU plus a 5.7 GB export, and it is a separate run.
