@@ -811,3 +811,38 @@ IQR stayed at **0.005**.
 This is not a re-run request. It is a band to quote: **±5% on any absolute tok/s here**, and a
 prohibition on comparing a number in this ledger to one measured in another session without
 re-measuring the reference alongside it.
+
+
+## 15. AMENDED 2026-09-07 by E6 — the ceiling is not the rate, and it had been read as one
+
+**§15.1 — the correction.** `f` is the non-weight cost per token; `1000/f` is the rate the engine
+would reach **if the weight path took zero time**. It is a denominator, not a measurement, and two
+figures in this ledger have been read as throughput when they are ceilings:
+
+| figure | § | what it is |
+|---|---|---|
+| `1000/f` = **78.5 tok/s**, `T10` @800 | §14 | ceiling, free weight path |
+| `1000/f` = **68.4 tok/s**, same cell | §14.2-bis | the same ceiling, on a sweep that ran 15.5% hot |
+| **3.09–3.14 tok/s** | E5 `results/e5/run6.log` | **measured throughput at that cell** |
+| 52.4–52.9 tok/s | same log | measured, `S05` @800 (0.5 B) |
+
+**The 10.6 B shape decodes at about 3.1 tok/s — roughly 16× short of the 50 tok/s goal.** Neither
+E4 nor E5 ever claimed otherwise; both published `1000/f` as a ceiling and said so. This section
+exists because the distance between "ceiling" and "rate" is one word in a table, and the ledger
+should not depend on the reader supplying it. **A ceiling is a denominator** — the same law that
+killed the 39.7% anomaly, in a new place.
+
+**§15.2 — the first generation rates, and why they are witnesses and not results.** E6 added a
+`--generate` mode (greedy argmax) and ran it on the real converted donors:
+
+| arm | weights | decode | prefill |
+|---|---|---|---|
+| A1 | `qwen25-05b_f32.bin` | 18.80–18.89 tok/s | 17.7–18.0 |
+| A2 | `qwen25-05b_tqh.bin` | 59.80–61.58 tok/s | 52.3–55.0 |
+| A3 | `qwen25-15b_tqh.bin` | 20.49–20.94 tok/s | 11.7–20.1 |
+
+**These were taken on a loaded machine and a contended timing is not a timing.** They are here to
+show that generation costs what teacher-forced decoding costs — the argmax over 151,936 logits and
+the token feedback add nothing visible — and for no other purpose. **A2's 61 tok/s is not 50 tok/s
+reached**: 0.5 B, a context of 3–8 tokens, and output that `probes/E6_GENERATION.md` §2 shows is
+not language.

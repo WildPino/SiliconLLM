@@ -1,0 +1,57 @@
+E6 -- a real pretrained donor generating text on donor_engine.c
+n_new=32, threads=6, greedy argmax, five prompts frozen in the brief
+
+G-P  prefill logits byte-identical to --logits : PASS
+G-D  same arm twice, byte-identical ids        : PASS
+
+arm  role                              agree first-div  worst gap decode
+A1   known-positive (fp32)            100.0%     none          - 18.84 tok/s
+A2   planted control (ternary+head)     1.9%     p0/0    11.6719 60.83 tok/s
+A3   planted control at 1.5B            6.2%     p0/0    15.9636 20.83 tok/s
+
+G-A  A1 vs PyTorch greedy, >=90% and any divergence a tie-break : PASS
+G-C  planted control: the ternary arms must NOT also pass       : PASS
+
+VERDICT: the donor speaks, and it is the same model PyTorch runs
+
+---- A1  qwen25-05b_f32.bin  (known-positive (fp32))
+  prompt : "The capital of France is"
+  ours   : " Paris. It is the largest city in Europe and the second largest in the world. It is also the capital of France, the second largest country in Europe,"
+  pytorch: " Paris. It is the largest city in Europe and the second largest in the world. It is also the capital of France, the second largest country in Europe,"
+  prompt : "def fibonacci(n):"
+  ours   : " \n    if n == 0: \n        return 0\n    elif n == 1: \n        return 1\n    else: \n       "
+  pytorch: " \n    if n == 0: \n        return 0\n    elif n == 1: \n        return 1\n    else: \n       "
+  prompt : "Water boils at"
+  ours   : " 212\u00b0F and ice melts at 32\u00b0F. What is the number of degrees by which the water temperature must be increased so that the boiling"
+  pytorch: " 212\u00b0F and ice melts at 32\u00b0F. What is the number of degrees by which the water temperature must be increased so that the boiling"
+  prompt : "The three laws of motion were formulated by"
+  ours   : " the French scientist ________.\nA. Newton\nB. Galileo\nC. Einstein\nD. Einstein\nAnswer:\nA\n\nThe three laws of motion"
+  pytorch: " the French scientist ________.\nA. Newton\nB. Galileo\nC. Einstein\nD. Einstein\nAnswer:\nA\n\nThe three laws of motion"
+  prompt : "import numpy as np"
+  ours   : "\nimport matplotlib.pyplot as plt\nimport pandas as pd\nimport seaborn as sns\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import Linear"
+  pytorch: "\nimport matplotlib.pyplot as plt\nimport pandas as pd\nimport seaborn as sns\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import Linear"
+
+---- A2  qwen25-05b_tqh.bin  (planted control (ternary+head))
+  prompt : "The capital of France is"
+  ours   : " the, for a on, A for the, V BaseEntity sond,3---</,3---</, in-:)\n0,3 (,3',...\n the,"
+  prompt : "def fibonacci(n):"
+  ours   : " ( ( ( ( (, ( ( ( ( ( ( ( ( (,, ( \":)\n ( ( ( ( ( ( ( \", (,,"
+  prompt : "Water boils at"
+  ours   : " 000000000000\u00a000\u00a00\u00a00\u00a00\u00a00\u00a00\u00a00\u00a00\u00a00"
+  prompt : "The three laws of motion were formulated by"
+  ours   : " for ,, l,* in,*;d,,,*, for**********\u00a0\u00a0 for00"
+  prompt : "import numpy as np"
+  ours   : ",0\u21980,\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0,\u00a0,,,,,,,,,,,,,,,,,,,"
+
+---- A3  qwen25-15b_tqh.bin  (planted control at 1.5B)
+  prompt : "The capital of France is"
+  ours   : " the\n\n the\n the the\n the\n the\n the\n the\n the\n the\n the\n the\n the\n the\n\n\n\n the\n the"
+  prompt : "def fibonacci(n):"
+  ours   : "                                "
+  prompt : "Water boils at"
+  ours   : "\n\n is\n\n\n\n is\n is\n is\n\n is\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+  prompt : "The three laws of motion were formulated by"
+  ours   : "\n the\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+  prompt : "import numpy as np"
+  ours   : " a\n the old is in\n is\n is\n is is is\n is is is is is is is is is is is is is is is is is"
+

@@ -2,7 +2,7 @@
 
 **The goal:** run somebody else's pretrained LLM on our architecture (`engine.c`), target **~10B at
 50 tok/s** (good) / **100 tok/s** (excellent).
-**Last updated: 2026-09-06 (E3 closed, `RESERVATION-BREAKS`: the engine is measured at the target shape for the first time — 3.090 tok/s on a 10.6 B, and the non-weight cost is 9–22× the reservation the budget was built on. §7's twelve-donor screen is superseded).**
+**Last updated: 2026-09-07 (E6 closed, `GENERATION-CONFIRMED`: the engine grew a fourth mode, `--generate`, and a real fp32 Qwen2.5-0.5B reproduces PyTorch's greedy continuation **160 of 160 tokens**, five prompts, zero divergences — the first time any donor has chosen a token on this runtime. The ternary arms, the planted control, agree 1.9% and 6.2% and do not write language. And a correction: `1000/f` is a **ceiling**, not a rate — measured throughput at the target shape is **3.09–3.14 tok/s**, not 78.5.)** Previously: (E3 closed, `RESERVATION-BREAKS`: the engine is measured at the target shape for the first time — 3.090 tok/s on a 10.6 B, and the non-weight cost is 9–22× the reservation the budget was built on. §7's twelve-donor screen is superseded).**
 
 This is the map. Every row names the artefact that holds the detail; nothing here is a claim that
 is not written up somewhere with its controls and its pre-registration.
@@ -14,6 +14,7 @@ is not written up somewhere with its controls and its pre-registration.
 | | status |
 |---|---|
 | **A pretrained donor executes on our runtime** | ✅ **YES** — Qwen2.5-0.5B, parity vs PyTorch `rel l2 2.8e-06`, top-1 `1.0000`; and since E1 the engine **scores the same BPB as PyTorch to `1.5e-05`** on both donors, so the quality numbers below are statements about the deliverable, not about a simulation |
+| **and generates its own text** | ✅ **YES, since E6** — `--generate`, greedy, real fp32 weights: **160/160 tokens identical to PyTorch's greedy trajectory** over five frozen prompts (`probes/E6_GENERATION.md`). Everything before E6 was **teacher-forced** — the next token always came from the corpus, and `--bench` feeds the engine a counter on purpose. **Not true of the ternary build**: it emits tokens, not language |
 | **At the target speed** | ❌ **measured at the target shape, not extrapolated: ~3.1–3.2 tok/s** (`T10`, 10.6 B active) — **~16× short of 50**, and it is the **weights** that are short. E3 found the *non-weight* term `f` broken (9.0× its reservation at 300 context, 22.3× at 800) and concluded a 10 B could not pass **38.3 tok/s at 800 context even with a free weight path**. **E4 overturned that**: the `Q·K` reduction was latency-bound, and 40 lines of AVX2 took `f` from 24.678 → **12.735 ms**, the ceiling `1000/f` from 40.5 → **78.5 tok/s**, and the 50 tok/s active-weight budget at 800 context from **0 → 259 M** — at **ΔBPB 3e-06**. **50 tok/s at 800 context is a weight-side problem again** |
 | **At usable quality** | ❌ **NO**, but the number keeps moving: FFN conversion **+3.309 → +1.260 BPB** (T2), still 252 σ_seed. The **whole runnable model** cost **+2.708111** (T2b) and is now **+2.465779** — E2 confirmed the RMSNorm fold *through the engine* at T3's exact `−0.220001` and it is **adopted as the exporter default** |
 | **The binding constraint** | **still quality — but it is the RULE, not the format** (T2, `RULE-HELPS`) |
@@ -23,8 +24,11 @@ is not written up somewhere with its controls and its pre-registration.
 > ever been given was 1.84 GB. **A 10B ternary packed model is ~5 GB**, so the target was not
 > slow, it was unloadable, and no speed probe could have found it.
 
-**The one-line state:** the road exists end to end — safetensors → export → ternary runtime →
-generated tokens, with a parity gate at the seam. T2 has now shown the damage at the far end was
+**The one-line state:** the road exists end to end — safetensors → export → runtime →
+**generated tokens** — and since **E6** that last clause is finally backed rather than asserted:
+the fp32 build reproduces PyTorch's greedy continuation **token for token**. The **ternary** build
+generates too, and what it generates is not language — which is what T2b's **+2.466 BPB** looks
+like when you read it instead of quoting it. T2 has now shown the damage at the far end was
 **62% a bad map into the format**, not the format itself, and removed that much of it on CPU with
 no gradients. What remains is a real quality gap and a 20× speed gap.
 
@@ -74,6 +78,8 @@ LUT half of that is not numerically free.
 | **R1** | what does a real runtime cost? | **56.1 tok/s** at 0.5B (§12). The packing bought nothing, exactly as P2 predicted; the LUT buys 2.2% and is not free; **the one big win was a profiling artefact — `rope()` was 9.6% of every token** | `probes/R1_DONOR_RUNTIME.md`, `SPEED_LEDGER.md` §12 |
 | **E3** | what does the engine actually do at the target shape, end to end? | **`RESERVATION-BREAKS`.** 6 shapes 0.5–10.6 B x 2 context lengths, synthetic weights gated against real artifacts at 0.000% (1.5 B) and 0.357% (0.5 B). `T10` = **3.090 tok/s**; rate **rises** to 32.8 G-w/s; **`f` is 9.0× the reservation at 300 context and 22.3× at 800** | `probes/E3_ENGINE_AT_TARGET_SCALE.md` |
 | **E4** | is the attention loop latency-bound, as E3 read it, or bandwidth-bound? | **`LATENCY-CONFIRMED`.** The `Q·K` dot loop was **6.5× below its own memory limit**: 14.647 → **2.242 ms**, **5.4 → 35.1 GB/s of unique K bytes**. ILP alone 2.31× (same bytes, less time — bandwidth falsified on its own), SIMD alone 4.28×, both **6.53×**. **`f` 24.678 → 12.735 ms, ceiling 40.5 → 78.5 tok/s**, ΔBPB **3.03e-06**. The floor is now `R` = softmax + `A·V`, **81.4%** of the organ | `probes/E4_ATTENTION_ACCUMULATORS.md` |
+| **E5** | what is `R`, the 81.4% of the attention organ E4 could not see inside? | **`OVERHEAD-DOMINATED`.** `R` = softmax `S` **25.3%** + `A·V` `Y` **20.6%** + `P` **54.0%** at `T10` @800 — **more than half of `R` is neither loop**. Nine 3× predictions passed, worst −1.15%; `X` = 2.253 ms reproduces E4's 2.242 by a method sharing no arm. The split **inverts with scale**: `S05` is SOFTMAX-dominated at 47.7% | `probes/E5_DECOMPOSE_R.md` |
+| **E6** | does a real donor actually generate text here, or only score it? | **`GENERATION-CONFIRMED`.** New `--generate` mode, greedy. fp32 Qwen2.5-0.5B: **160/160 tokens identical to PyTorch**, five prompts, no divergence. Planted control fires — ternary 0.5 B **1.9%**, ternary 1.5 B **6.2%**, neither writes language. G-P: the prefill logits are **byte-identical** to `--logits`, so this is E1's gated forward pass. **And `1000/f` is a ceiling, not a rate: measured is 3.09–3.14 tok/s at `T10`** | `probes/E6_GENERATION.md` |
 | **P64 matrix** | is the runtime's rate set by OpenMP region count or thread wake-ups? | **neither.** A region costs **2.5–3.2 µs**, measured two ways; `OMP_WAIT_POLICY=active` does nothing. After the rope hoist all four organs sit in a **1.3× band** | `SPEED_LEDGER.md` §12.4, `engine/bench_matrix.py` |
 
 **Terms nobody had attacked before the ledger, now priced:** the **output head** (was 40.4% of every
@@ -180,6 +186,8 @@ grid to `k·rms` (predicted an interior optimum; it is 3× worse at every `k`) a
    **~~The attention accumulator~~ — CLOSED by E4, `LATENCY-CONFIRMED`** (`probes/E4_ATTENTION_ACCUMULATORS.md`).
    The dot loop went 6.53× and `f` halved. **The int8 KV cache that E3 named as the alternative lever
    is retired at ~1.16×** — it was the right lever for the loop E4 already fixed.
+
+0-bis. **A real 10 B donor.** Opened by E6. Every measurement at target scale in E3, E4 and E5 was taken on `T10`, a **synthetic shape file** — correct dimensions, no trained weights. E6 showed a real donor generating text and could only do so at **0.5 B and 1.5 B**, because those are the only real weights on disk. So "10 B at 50 tok/s" currently has a measured *speed* and no measured *model*, and nothing has ever run end to end at the size the goal is about. Exporting one is a conversion job, not a research question, which is exactly why it keeps not happening.
 
 1. **D4b** — the calibration budget. Promoted from bookkeeping: T2's two best arms are both
    calibration-driven, so every one of their numbers is a **floor** — and after E2 that now

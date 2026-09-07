@@ -103,3 +103,34 @@ before any text is read**, so the transcript cannot be talked into meaning somet
 - **Not that a 10 B donor generates.** No real 10 B donor exists on this disk; `T10` is a
   synthetic shape file. E6 closes the demonstration gap at the sizes that have real weights and
   says plainly that it does not close it at the target size.
+
+---
+
+## 8. VERDICT — `GENERATION-CONFIRMED` (added after the run, nothing above was edited)
+
+Written up in `probes/E6_GENERATION.md`. Every gate in §6 passed, and each one could have failed.
+
+| gate | threshold, from §6 | result |
+|---|---|---|
+| G-P | byte-identical prefill logits | **PASS**, all 15 arm x prompt cells |
+| G-D | byte-identical ids on a repeat | **PASS**, all 15 |
+| G-A | A1 vs PyTorch greedy, >= 90% of 160 positions | **PASS at 100.0% — 160/160, no divergence to excuse** |
+| G-C | the ternary arms must NOT also pass | **PASS** — A2 1.9%, A3 6.2% |
+| G-T | reported, not gated | decode 18.8 / 60.8 / 20.8 tok/s, contended, witnesses only |
+
+**A1, our runtime on real fp32 Qwen2.5-0.5B weights, reproduces PyTorch's greedy continuation token
+for token over all five prompts.** "The capital of France is" -> " Paris. It is the largest city in
+Europe..." on both sides, character for character.
+
+**The planted control fired hard.** A2 answers the same prompt with
+`" the, for a on, A for the, V BaseEntity sond,3---</..."`. That is what **+2.466 BPB** (T2b, as
+folded by E2) is: not a degraded model, a model that does not write. The number has been on the
+INDEX for weeks; §2 of the probe is the first time it is legible.
+
+**What did not change.** §2 of this brief stands unaltered: the target shape still decodes at
+**3.09-3.14 tok/s**, and E6 adds no speed. A2's 61 tok/s is a 0.5 B model at a 3-8 token context
+producing unusable text, and is not "50 tok/s reached".
+
+**What E6 opened.** INDEX item 0-bis: every measurement at target scale in E3-E5 was taken on a
+**synthetic** 10 B shape. The demonstration closes at 1.5 B because that is where the real weights
+stop. "10 B at 50 tok/s" has a measured speed and no measured model.

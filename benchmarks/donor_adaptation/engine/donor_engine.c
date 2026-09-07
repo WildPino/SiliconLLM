@@ -15,6 +15,9 @@
 //   --logits <ids.bin> <n>   dump fp32 logits for the first n positions      (parity gate)
 //   --bpb <slice.bin>        bits per UTF-8 byte over an exported eval slice (quality)
 //   --bench <n>              time n single-token decode steps with a warm KV  (speed)
+//   --generate <ids.bin> <n> <prefix>
+//                            greedy-argmax continuation of a prompt          (E6, the model
+//                            actually speaking -- every other mode is teacher-forced)
 //
 // Build:
 //   clang -O3 -mavx2 -mfma -ffp-contract=on -fopenmp donor_engine.c -o donor_engine.exe -lm
@@ -888,6 +891,8 @@ int main(int argc,char** argv){
         else if(!strcmp(argv[i],"--seqlen")&&i+1<argc) seqlen=atoi(argv[++i]);
         else if(!strcmp(argv[i],"--logits")&&i+3<argc){ mode="logits"; arg2=argv[++i]; arg3=atol(argv[++i]); logout=argv[++i]; }
         else if(!strcmp(argv[i],"--bpb")&&i+1<argc){ mode="bpb"; arg2=argv[++i]; }
+        else if(!strcmp(argv[i],"--generate")&&i+3<argc){ mode="generate"; arg2=argv[++i];
+            arg3=atol(argv[++i]); logout=argv[++i]; }
         else if(!strcmp(argv[i],"--sweep")){        // s11: the ten arms of run 4, in one process
             static const int SA[10]={ATTN_SERIAL,ATTN_SERIAL2,ATTN_AVX4,ATTN_AVX4,ATTN_AVX4,
                                      ATTN_AVX4,ATTN_AVX4,ATTN_AVX4,ATTN_AVX4,ATTN_AVX4};
@@ -977,7 +982,8 @@ int main(int argc,char** argv){
     }
     if(!wp||!mode){ fprintf(stderr,
         "usage: donor_engine --weights <bin> [--threads N] [--seqlen N]\n"
-        "                    (--logits <ids.bin> <n> | --bpb <ids.bin> | --bench <n>)\n"); return 1; }
+        "                    (--logits <ids.bin> <n> <out> | --bpb <ids.bin> | --bench <n>\n"
+        "                     | --generate <ids.bin> <n_new> <out_prefix>)\n"); return 1; }
 #ifdef _OPENMP
     if(threads<1) threads=1; omp_set_num_threads(threads); omp_set_dynamic(0);
 #endif
@@ -1044,6 +1050,50 @@ int main(int argc,char** argv){
     }
 
     long n=0; int32_t* ids=read_ids(arg2,&n);
+
+    if(!strcmp(mode,"generate")){
+        // The generation path is deliberately the SAME forward() the parity gate validated in E1;
+        // it differs only in where the next token comes from -- the model instead of the corpus.
+        // G-P checks that by writing the prefill logits and comparing them byte-for-byte with
+        // what --logits writes for the same ids.
+        const long P=n, NG=arg3;
+        if(P<1) die("--generate needs at least one prompt token");
+        state_t s; state_init(&s,&M,(int)(P+NG+1));
+        char pth[1024];
+        snprintf(pth,sizeof pth,"%s.prefill.bin",logout);
+        FILE* pf=fopen(pth,"wb"); if(!pf) die("cannot open prefill output");
+        int32_t* out=xmalloc((size_t)(P+NG)*4);
+        for(long i=0;i<P;i++) out[i]=ids[i];
+
+        double t0=now_s();
+        for(long i=0;i<P;i++){ forward(&M,&s,ids[i],(int)i);
+                               fwrite(s.logits,4,(size_t)M.V,pf); }
+        double tpre=now_s()-t0;
+        fclose(pf);
+
+        // greedy argmax, first index wins a tie -- no temperature, no seed, so the run is a gate
+        double t1=now_s();
+        for(long g=0;g<NG;g++){
+            int best=0; float mx=s.logits[0];
+            for(int i=1;i<M.V;i++) if(s.logits[i]>mx){ mx=s.logits[i]; best=i; }
+            out[P+g]=best;
+            forward(&M,&s,best,(int)(P+g));       // always: NG decode steps, timed as NG
+        }
+        double tdec=now_s()-t1;
+
+        snprintf(pth,sizeof pth,"%s.ids.bin",logout);
+        FILE* of=fopen(pth,"wb"); if(!of) die("cannot open ids output");
+        fwrite(out,4,(size_t)(P+NG),of); fclose(of);
+
+        printf("GEN_PROMPT_TOKENS %ld\nGEN_NEW_TOKENS %ld\n",P,NG);
+        printf("GEN_PREFILL_S %.6f\nGEN_PREFILL_TOKS %.3f\n",tpre,P/tpre);
+        printf("GEN_DECODE_S %.6f\nGEN_DECODE_TOKS %.3f\n",tdec,NG/tdec);
+        printf("GEN_IDS");
+        for(long i=0;i<P+NG;i++) printf(" %d",out[i]);
+        printf("\n");
+        return 0;
+    }
+
     int SL = seqlen>0 ? seqlen : (int)n;
     if(n%SL){ fprintf(stderr,"ids length %ld not divisible by seqlen %d\n",n,SL); return 1; }
     long nseq=n/SL;
