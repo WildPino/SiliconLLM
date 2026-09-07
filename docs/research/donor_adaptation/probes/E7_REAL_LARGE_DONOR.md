@@ -303,16 +303,80 @@ the token at 300 and 10.5% at 1600**; the FFN is **73–80%**; **E7 remains 11.2
 tok/s.** Two runs, ~80 minutes, and the goal moved by nothing — which both §10 and §11 said in
 advance they would be worth, and is why being wrong in them was cheap.
 
-## 11. Owed
+## 11. The contention witness — `--bench` can now say whether the machine was quiet
+
+§10.3 found the defect and owed the fix first. Pre-registered as §12 of the brief (`55bd8c6`),
+**failed its own gate**, rebuilt and re-registered as §13 (`02baefa`), verdict §13-bis (`57ed5c8`).
+**`WITNESS-CONFIRMED`.**
+
+### 11.1 What it is
+
+`donor_engine.c`: a second macro pair `TICW`/`TOCW`, used at **the FFN block and nowhere else**,
+times **layer 0** on the plain `--bench` path and appends `ffn~ <x> ms/tok` to the `BENCH` line.
+**On by default**; `--no-witness` restores the old hot path exactly.
+
+**Why the FFN alone** — it is 73–80% of the token and *cannot depend on context length*, which is
+the entire content of the `ffn`-invariance witness that made §8.2 and ledger §17 admissible.
+**Why default-on** — a witness a runner must remember to pass is the same defect as §9, where
+`--attn` is a flag, no runner passed it, and every E3 and E7 number is a `serial` reading as a
+result. **Why the tilde** — `ffn~` is extrapolated ×`L` from one layer and is labelled so; against
+the profiler's own all-layer `ffn` of 12.091 it reads 11.556 / 11.711 / 12.202, ~4%.
+
+### 11.2 It failed the first time, at 48 timestamps per token
+
+| | first build | **rebuilt** |
+|---|---|---|
+| timestamps per token | `2L` = 48 | **2** |
+| `now_s()` | `QueryPerformanceFrequency` **+** `Counter`, every time | **`Counter` only** |
+| **G-W1 paired median** (gate ≥ 0.990) | **0.9877 ❌** | **0.9996 ✅** |
+
+The first build cost **1.2%** against a prediction of **0.008%** — **150× off**, so the mechanism
+was not the one costed. §12 had already fixed the consequence in advance: *rejected as built, made
+cheaper, not quietly kept.* The second prediction, **0.995–1.000**, was derived from the
+**measured** 1.2% divided by the **structural** 24× rather than from a nanosecond count, and it
+contains the result.
+
+**A filtered median is recorded but NOT counted.** The failed build's own readings flag three of
+ten pairs as off-plateau, and excluding them lifts its median to 0.9958 — above the gate. **Using
+the instrument under test to select the data that acquits it is circular and inadmissible.** It is
+written down so nobody later finds it and thinks it was hidden.
+
+### 11.3 The three gates, as passed
+
+| gate | test | result |
+|---|---|---|
+| **G-W1b** | 10 interleaved pairs, `--bench 300`, smallest/fastest shape (worst case for a per-token timer) | **PASS** — median **0.9996**, band 0.99–1.01, and inside the 0.995–1.000 predicted |
+| **G-W2b** | `--logits` sha256 with and without the witness | **PASS** — identical, `d4960bc7…0424`, 4,861,952 bytes |
+| **G-W3b** | **planted control**: it must FIRE under deliberate load | **PASS** — idle `ffn~` **11.631**, six busy threads **16.225**, **+34.3%** over the idle arm's maximum across ten reps |
+
+**G-W3b is the one that decides whether the other two mean anything.** *An instrument must be shown
+to fire on a known-positive before its nulls count* — and making it 24× cheaper did not cost it
+its sensitivity.
+
+Unasked for: the `ffn~` plateau spans **11.552–12.083, a 4.6% spread**, against rate spreads of
+4.2% (witnessed) and 6.2% (unwitnessed). **The witness's dispersion is comparable to the rate's**,
+which is what makes a reading off the plateau mean something.
+
+### 11.4 What it does not do
+
+**It validates nothing retroactively.** Every rate published before `02baefa` — E1 through E7,
+`SPEED_LEDGER` §§12–19 — was taken without it and still rests on the operator's belief that the
+machine was idle. **§10.2's VOID stands; G-Y1's 1600 cell stands undecided.** The witness makes the
+*next* measurement checkable, not the last one.
+
+**Declared cost:** `now_s()` is cheaper, so **profiled walls taken after `02baefa` are not
+comparable to profiled walls taken before it.** Organ splits and slopes are unaffected — a uniform
+per-`TIC` cost cancels in a difference, which is all §8.2 and §10.4 ever used.
+
+**And it buys no speed.** E7 is **11.2× short of 50 tok/s** and §11 moves that by nothing.
+
+## 12. Owed
 
 1. **A real 10 B.** Still the open item. E7 reached 67% of the size; the rest needs a download.
 2. ~~**`f` beyond 800 tokens** — E4's owed item 3.~~ **CLOSED by §8.2: linear, 0.0319 ms per token of context, no knee to 1600.**
 3. **R3 at 7 B**, if anyone wants a clean scale statement about the ternary damage.
 4. The 11.2× gap to 50 tok/s is **entirely the weight path**, now on trained weights.
-5. **FIRST: give `--bench` a contention witness.** §10.3. Cheapest form — time the `ffn`
-   organ on the plain `--bench` path and print it on the `BENCH` line, so every published
-   rate carries a number saying whether the machine was quiet. **Gate: the `BENCH` rate must
-   be unchanged**, since adding a timer to the hot path to measure contention would be a
-   fine way to manufacture some.
+5. ~~**FIRST: give `--bench` a contention witness.**~~ **DONE, §11, `WITNESS-CONFIRMED`.**
+   All three gates pass, including the planted control. It validates nothing retroactively.
 6. **A 1600-context `avx4` rate.** §10.4 says it should be 6–7% above `serial`; nothing on
    this machine has resolved it, and item 5 is the prerequisite.

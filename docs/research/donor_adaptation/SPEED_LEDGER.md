@@ -1055,3 +1055,34 @@ wall"*, ~1.2 ms of issue against 19.9 measured) and §13.4 found the attention o
 are also latency- or overhead-bound rather than bandwidth-bound, §19.2's ceilings are too low and
 the engineering share is larger than 2.5×.** That is the experiment §19 argues for, and it is the
 open item `P` (§15, INDEX item 0) asked from the other end.
+
+
+## 20. AMENDED 2026-09-07 by E7 §11 — `--bench` carries a contention witness, and it was gated three ways
+
+§18.1 recorded the defect: the `ffn`-invariance witness existed only under `--profile`, so every
+un-profiled rate in this ledger rested on the operator's belief that the machine was idle. Fixed.
+
+**What it is.** `TICW`/`TOCW` at the FFN block and nowhere else, timing **layer 0**, appending
+`ffn~ <x> ms/tok` to the `BENCH` line, **on by default** (`--no-witness` restores the old hot path).
+The FFN because it is 73–80% of the token and cannot depend on context length; default-on because
+a witness a runner must remember to pass is precisely the §18 defect.
+
+**It failed its first gate and was rebuilt.** At `2L` = 48 timestamps per token the paired median
+was **0.9877** against a gate of **0.990** — a **1.2%** cost against a **0.008%** prediction, 150×
+off. `now_s()` had been calling `QueryPerformanceFrequency` on every timestamp. Rebuilt to **2**
+timestamps per token with the frequency cached:
+
+| gate | result |
+|---|---|
+| **G-W1b** — 10 interleaved pairs, smallest/fastest shape | **PASS**, median **0.9996** (band 0.99–1.01; predicted 0.995–1.000) |
+| **G-W2b** — `--logits` sha256, witness vs none | **PASS**, identical `d4960bc7…0424` |
+| **G-W3b** — **planted control**, must fire under load | **PASS**, idle `ffn~` 11.631 → loaded **16.225**, **+34.3%** over the idle maximum of ten reps |
+
+> **DECLARED COST, and it touches this ledger. `now_s()` is cheaper as of `02baefa`, so profiled
+> walls taken after it are NOT comparable to profiled walls taken before it** — §§12, 14, 17, 18.1
+> and E7 §8.2/§10.4 are all pre-commit. **Organ splits and slopes are unaffected**: a uniform
+> per-`TIC` cost cancels in a difference, which is all those sections used.
+
+> **It validates nothing retroactively.** Every rate in §§12–19 was taken without it. §18.1's VOID
+> stands and G-Y1's 1600 cell stands undecided. The witness makes the **next** measurement
+> checkable.
