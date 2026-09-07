@@ -488,3 +488,92 @@ It is **not** a speed result and does not touch the goal. E7 is 11.2× short of 
 changes that by nothing. It is an instrument, built because §11-bis found that this programme has
 been publishing un-profiled rates with no way to tell whether the machine was quiet — including,
 today, two runs that could not decide and one that was VOID.
+
+---
+
+## 12-bis. VERDICT on §12 — **G-W1 FAILED its own gate.** G-W3 passed. G-W2 did not run.
+
+### G-W1 — FAIL
+
+10 interleaved pairs, `--bench 300`, `qwen25-05b_tqh.bin`, ratio = witness / no-witness:
+
+    0.9489  1.0483  0.9780  1.0218  0.9547  0.9812  0.9124  0.9958  0.9942  1.0041
+
+**Median 0.9877. The gate was ≥ 0.990. It FAILS**, and §12 already said what happens then: *the
+witness is rejected as built and must be made cheaper — not quietly kept.* §13 does that.
+
+The prediction was 0.008% and the measurement is a **1.2%** deficit — **150× the prediction**, so
+the mechanism was not what I costed. It is not only the clock read: `now_s()` called
+`QueryPerformanceFrequency` on **every** timestamp, and the `TICW` pair sits inside the per-layer
+loop where it also acts as a barrier the optimiser cannot move code across.
+
+**A filtered median is NOT reported as a result.** The witness's own readings flag pairs 5, 6 and 7
+as off-plateau (`ffn` 13.840 / 13.001 / 13.476 against a 12.02–12.57 plateau), and excluding them
+lifts the median to 0.9958 — above the gate. **That is circular: it uses the instrument under test
+to select the data that acquits it, and it is inadmissible.** It is written down here only so that
+nobody later finds it and thinks it was hidden.
+
+### G-W3 — PASS, and this is the one that matters
+
+    known-negative, idle:            ffn 11.889 ms/tok   at 54.34 tok/s
+    known-positive, 6 busy threads:  ffn 18.131 ms/tok   at 34.16 tok/s
+
+**+31.0% above the idle arm's own maximum across ten reps (13.840), and +50.8% above its minimum.**
+The gate was *"exceed the idle reading by more than the idle arm's own spread"*. **The witness
+fires on a known-positive.** The planted-control law is satisfied: its nulls now count for
+something.
+
+### G-W2 — did not run, and that is my error
+
+The gate script invoked `--logits <ids> <n> --out <path>`. The engine's form is
+`--logits <ids> <n> <outpath>` — there is no `--out`. Both invocations failed silently, wrote
+nothing, and the `sha256sum` compared two absent files. **A gate that produces no output is not a
+gate that passed**, and it is re-run in §13 rather than assumed.
+
+---
+
+## 13. AMENDMENT, pre-registered before the run it governs — the witness, rebuilt cheaper
+
+Two changes, both aimed at the mechanism §12-bis identified rather than at the number.
+
+**(a) `now_s()` no longer re-reads the timer frequency.** It called `QueryPerformanceFrequency`
+before every `QueryPerformanceCounter`; the frequency is fixed for the life of the process. Now
+read once. **Declared, not silent: this makes the PROFILER cheaper too, so profiled walls taken
+after this commit are not comparable to profiled walls taken before it.** Organ *splits* and
+*slopes* are unaffected — a uniform per-`TIC` cost cancels in a difference, which is all §8.2's
+slope and §10.4's additivity check ever used.
+
+**(b) The witness times ONE layer, not all `L`.** §12 named this remedy in advance. Cost falls from
+`2L` timestamps per token to **2**. Reported as **`ffn~`**, extrapolated ×`L` and labelled with the
+tilde, because the layers are structurally identical and under contention every layer is hit, so
+layer 0 witnesses what all of them see.
+
+**Sanity check already in hand** (idle, `--bench 300`, 0.5 B): `ffn~` reads **11.556 / 11.711 /
+12.202** against the profiler's own all-layer `ffn` of **12.091** — agreement to ~4%, so the
+extrapolation is not inventing a number that contradicts the profiler.
+
+### The gates, re-run in full, thresholds unchanged
+
+**G-W1b.** Identical to G-W1 — 10 interleaved pairs, `--bench 300`, `qwen25-05b_tqh.bin`, same
+shape for the same reason (worst case for a per-token timer). **Gate: paired median ≥ 0.990.**
+Band **0.99–1.01**.
+
+> **Prediction, and it is now a real one rather than an under-costed one: 0.995–1.000.** The
+> failed build cost 1.2% at `2L` timestamps; this one issues **1/24th of them**, each cheaper, so
+> the residue should be ~0.05% — but the failed build already proved I cannot cost this from first
+> principles, so the band is set from the *measured* 1.2% divided by the *structural* 24×, not
+> from a nanosecond count.
+>
+> **If G-W1b fails too, the witness is abandoned as a default and becomes an opt-in `--witness`
+> flag**, with §11-bis.4 reopened and the honest note that this programme has no cheap way to know
+> whether its machine was quiet.
+
+**G-W2b.** The parity gate, run correctly this time: `--logits <ids> 8 <out>` with and without the
+witness, **sha256 equal or the change is reverted.** No result from §12 is carried over.
+
+**G-W3b.** The planted control, repeated on the new build. **Gate: the loaded `ffn~` must exceed
+the idle arm's maximum across its 10 reps.** A cheaper witness that no longer fires is worse than
+no witness.
+
+**Unchanged and restated:** §13 is an instrument, not a speed result. E7 is **11.2× short of 50
+tok/s** and none of this moves it.

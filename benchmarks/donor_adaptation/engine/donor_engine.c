@@ -32,7 +32,9 @@
 #endif
 #if defined(_WIN32)
 #include <windows.h>
-static double now_s(void){ LARGE_INTEGER f,t; QueryPerformanceFrequency(&f); QueryPerformanceCounter(&t);
+static double now_s(void){ static LARGE_INTEGER f={0}; LARGE_INTEGER t;
+    if(!f.QuadPart) QueryPerformanceFrequency(&f);      // fixed for the life of the process
+    QueryPerformanceCounter(&t);
     return (double)t.QuadPart/(double)f.QuadPart; }
 #else
 #include <time.h>
@@ -55,12 +57,19 @@ static int g_prof=0;
 // block, and only it, is therefore timed on the plain --bench path too, and the reading is
 // printed on the BENCH line.  ON BY DEFAULT: a witness a runner has to remember to pass is the
 // same defect that left --attn on the slow kernel for every E3 and E7 number (s9).
-// Cost is 2 clock reads per layer per token against an FFN that is 73-80% of the token; the
-// claim that this does not move the rate is a GATE, not an assumption -- brief s12, and it is
-// measured at the SMALLEST/FASTEST shape, where per-token overhead is worst.
+// The claim that this does not move the rate is a GATE, not an assumption -- brief s12/s13 -- and
+// it is measured at the SMALLEST/FASTEST shape, where per-token overhead is worst.
+// REBUILT after G-W1 FAILED at 2L timestamps per token (paired median 0.9877 against a gate of
+// 0.990).  Brief 12 named the remedy before the run: time ONE layer.  Cost is now 2 timestamps per
+// token instead of 2L, and each is cheaper because now_s() no longer re-reads the timer frequency.
+// The reading is reported as `ffn~`, EXTRAPOLATED from layer 0 by xL and labelled as such -- the
+// layers are structurally identical, and under contention every layer is hit, so layer 0 witnesses
+// what all of them see.  It is a WITNESS, not a measurement: it says whether the machine was quiet.
 static int g_wit=1;
-#define TICW double _t0=(g_prof||g_wit)?now_s():0.0
-#define TOCW(k) do{ if(g_prof||g_wit) g_t[k]+=now_s()-_t0; }while(0)
+static double g_w0=0.0;              // layer-0 FFN seconds, witness path only, never the profiler's
+#define TICW double _t0=(g_prof||(g_wit&&l==0))?now_s():0.0
+#define TOCW(k) do{ if(g_prof) g_t[k]+=now_s()-_t0; \
+                    else if(g_wit&&l==0) g_w0+=now_s()-_t0; }while(0)
 
 static void* xmalloc(size_t n){ void* p=malloc(n); if(!p){ fprintf(stderr,"OOM %zu\n",n); exit(1);} return p; }
 static void die(const char* m){ fprintf(stderr,"FATAL: %s\n",m); exit(1); }
@@ -1050,7 +1059,7 @@ int main(int argc,char** argv){
                arg3,dt,arg3/dt,threads,M.quant==2?"packed":M.quant?"ternary":"fp32");
         // the witness, same convention as the profiler's own ffn row (divided by arg3, warm token
         // included) so the two are directly comparable against a plateau measured either way
-        if(g_wit&&!g_prof) printf("  ffn %.3f ms/tok",g_t[T_FFN]/arg3*1e3);
+        if(g_wit&&!g_prof) printf("  ffn~ %.3f ms/tok",g_w0/arg3*1e3*M.L);
         printf("\n");
         if(g_prof){
             double tot=0; for(int k=0;k<T_N;k++) tot+=g_t[k];
