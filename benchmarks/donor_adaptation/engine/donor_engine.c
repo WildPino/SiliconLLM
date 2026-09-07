@@ -50,6 +50,25 @@ static int g_prof=0;
 #define TIC double _t0=g_prof?now_s():0.0
 #define TOC(k) do{ if(g_prof) g_t[k]+=now_s()-_t0; }while(0)
 
+// ---- E8: the FFN organ, DECOMPOSED.  --profile only.  These are SUB-timers of T_FFN and are
+// deliberately NOT members of g_t, so the organ table and every percentage in it are unchanged;
+// they are printed separately and their sum is checked against the ffn organ (gate G-Z1).
+enum { F_GU=0, F_GLUE, F_DOWN, F_RES, F_N };
+static double g_ff[F_N];
+static const char* g_ffn[F_N]={"gate+up","glue(silu)","down","residual"};
+#define TICF double _f0=g_prof?now_s():0.0
+#define TOCF(k) do{ if(g_prof) g_ff[k]+=now_s()-_f0; }while(0)
+
+// ---- E8: independent accumulators in matvec.  Every weight organ in this engine -- qkv, o,
+// ffn, head -- goes through matvec, and every matvec inner loop accumulates into ONE register,
+// so consecutive FMAs are serially dependent.  On Zen2 an FMA has 5-cycle latency and 2/cycle
+// throughput: a single chain runs the loop at LATENCY, not at throughput, and no amount of
+// memory bandwidth can be used past it.  This is E4 s finding -- attention read as
+// bandwidth-bound was latency-bound, 6.53x -- asked of the WEIGHT path.  g_mvacc==1 is a
+// byte-for-byte copy of the original loop, so the baseline arm is unchanged and its logits stay
+// bit-identical to every number this programme has published.
+static int g_mvacc=1;
+
 // ---- CONTENTION WITNESS (E7 s10.3).  The `ffn`-invariance witness -- the FFN organ cannot
 // depend on context length, so an ffn reading off its plateau means the machine was not idle --
 // existed ONLY under --profile, so every un-profiled rate this programme published rested on the
@@ -396,12 +415,40 @@ static void matvec(const mat_t* m, const float* x, const float* bias, float* y){
         // pshufb tables: index is the packed byte v in [0,8];  low trit = v%3 - 1, high = v/3 - 1
         const __m128i TLO=_mm_setr_epi8(-1,0,1,-1,0,1,-1,0,1,0,0,0,0,0,0,0);
         const __m128i THI=_mm_setr_epi8(-1,-1,-1,0,0,0,1,1,1,0,0,0,0,0,0,0);
+        const int MA=g_mvacc;
 #ifdef _OPENMP
 #pragma omp parallel for schedule(static)
 #endif
         for(int o=0;o<n_out;o++){
             const int8_t* c=m->code+(size_t)o*H;
             __m256 acc=_mm256_setzero_ps(); int j=0;
+            if(MA>1){
+                // 2 chains (MA==2) or 4 (MA==4).  Same bytes read, same FMA count, same order
+                // WITHIN a chain -- only the partition of the sum changes, so this is NOT
+                // bit-identical and is gated on end-to-end parity, never on sha256.
+                __m256 a0=_mm256_setzero_ps(),a1=_mm256_setzero_ps();
+                __m256 a2=_mm256_setzero_ps(),a3=_mm256_setzero_ps();
+                if(MA>2) for(;j+16<=H;j+=16){
+                    __m128i b0=_mm_loadl_epi64((const __m128i*)(c+j));
+                    __m128i b1=_mm_loadl_epi64((const __m128i*)(c+j+8));
+                    a0=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(_mm_shuffle_epi8(TLO,b0))),
+                                       _mm256_loadu_ps(g_xe+j),a0);
+                    a1=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(_mm_shuffle_epi8(THI,b0))),
+                                       _mm256_loadu_ps(g_xo+j),a1);
+                    a2=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(_mm_shuffle_epi8(TLO,b1))),
+                                       _mm256_loadu_ps(g_xe+j+8),a2);
+                    a3=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(_mm_shuffle_epi8(THI,b1))),
+                                       _mm256_loadu_ps(g_xo+j+8),a3);
+                }
+                for(;j+8<=H;j+=8){
+                    __m128i b=_mm_loadl_epi64((const __m128i*)(c+j));
+                    a0=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(_mm_shuffle_epi8(TLO,b))),
+                                       _mm256_loadu_ps(g_xe+j),a0);
+                    a1=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(_mm_shuffle_epi8(THI,b))),
+                                       _mm256_loadu_ps(g_xo+j),a1);
+                }
+                acc=_mm256_add_ps(_mm256_add_ps(a0,a1),_mm256_add_ps(a2,a3));
+            } else
             for(;j+8<=H;j+=8){
                 __m128i b=_mm_loadl_epi64((const __m128i*)(c+j));   // 8 packed bytes
                 __m128i lo=_mm_shuffle_epi8(TLO,b), hi=_mm_shuffle_epi8(THI,b);
@@ -419,12 +466,29 @@ static void matvec(const mat_t* m, const float* x, const float* bias, float* y){
         return;
     }
     if(m->f32){
+        const int MA=g_mvacc;
 #ifdef _OPENMP
 #pragma omp parallel for schedule(static)
 #endif
         for(int o=0;o<n_out;o++){
             const float* w=m->f32+(size_t)o*n_in;
             __m256 acc=_mm256_setzero_ps(); int i=0;
+            if(MA>1){
+                __m256 a0=_mm256_setzero_ps(),a1=_mm256_setzero_ps();
+                __m256 a2=_mm256_setzero_ps(),a3=_mm256_setzero_ps();
+                if(MA>2) for(;i+32<=n_in;i+=32){
+                    a0=_mm256_fmadd_ps(_mm256_loadu_ps(w+i   ),_mm256_loadu_ps(x+i   ),a0);
+                    a1=_mm256_fmadd_ps(_mm256_loadu_ps(w+i+8 ),_mm256_loadu_ps(x+i+8 ),a1);
+                    a2=_mm256_fmadd_ps(_mm256_loadu_ps(w+i+16),_mm256_loadu_ps(x+i+16),a2);
+                    a3=_mm256_fmadd_ps(_mm256_loadu_ps(w+i+24),_mm256_loadu_ps(x+i+24),a3);
+                }
+                for(;i+16<=n_in;i+=16){
+                    a0=_mm256_fmadd_ps(_mm256_loadu_ps(w+i  ),_mm256_loadu_ps(x+i  ),a0);
+                    a1=_mm256_fmadd_ps(_mm256_loadu_ps(w+i+8),_mm256_loadu_ps(x+i+8),a1);
+                }
+                for(;i+8<=n_in;i+=8) a0=_mm256_fmadd_ps(_mm256_loadu_ps(w+i),_mm256_loadu_ps(x+i),a0);
+                acc=_mm256_add_ps(_mm256_add_ps(a0,a1),_mm256_add_ps(a2,a3));
+            } else
             for(;i+8<=n_in;i+=8) acc=_mm256_fmadd_ps(_mm256_loadu_ps(w+i),_mm256_loadu_ps(x+i),acc);
             float s[8]; _mm256_storeu_ps(s,acc);
             float t=s[0]+s[1]+s[2]+s[3]+s[4]+s[5]+s[6]+s[7];
@@ -805,17 +869,18 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
 
         { TIC; rmsnorm(s->x,L->post_norm,D,M->rms_eps,s->xb); TOC(T_NORM); }
         { TICW;
-          if(g_fuse){
-              matvec(&L->gateup,s->xb,NULL,s->gubuf);            // one region instead of two
-              const float* g=s->gubuf; const float* u=s->gubuf+F;
-              for(int i=0;i<F;i++) s->hb[i]=silu(g[i])*u[i];
-          } else {
-              matvec(&L->gate,s->xb,NULL,s->hb);
-              matvec(&L->up,  s->xb,NULL,s->hb2);
-              for(int i=0;i<F;i++) s->hb[i]=silu(s->hb[i])*s->hb2[i];
-          }
-          matvec(&L->down,s->hb,NULL,s->xb2);
-          for(int i=0;i<D;i++) s->x[i]+=s->xb2[i];
+          { TICF;
+            if(g_fuse) matvec(&L->gateup,s->xb,NULL,s->gubuf);   // one region instead of two
+            else     { matvec(&L->gate,s->xb,NULL,s->hb);
+                       matvec(&L->up,  s->xb,NULL,s->hb2); }
+            TOCF(F_GU); }
+          { TICF;
+            if(g_fuse){ const float* g=s->gubuf; const float* u=s->gubuf+F;
+                        for(int i=0;i<F;i++) s->hb[i]=silu(g[i])*u[i]; }
+            else      { for(int i=0;i<F;i++) s->hb[i]=silu(s->hb[i])*s->hb2[i]; }
+            TOCF(F_GLUE); }
+          { TICF; matvec(&L->down,s->hb,NULL,s->xb2); TOCF(F_DOWN); }
+          { TICF; for(int i=0;i<D;i++) s->x[i]+=s->xb2[i]; TOCF(F_RES); }
           TOCW(T_FFN); }
     }
     { TIC; rmsnorm(s->x,M->final_norm,D,M->rms_eps,s->xb); TOC(T_NORM); }
@@ -971,6 +1036,10 @@ int main(int argc,char** argv){
         else if(!strcmp(argv[i],"--profile")){ g_prof=1; }
         else if(!strcmp(argv[i],"--witness")){ g_wit=1; }
         else if(!strcmp(argv[i],"--no-witness")){ g_wit=0; }
+        // E8. 1 = the original single-chain loop, byte for byte. 2 and 4 break the serial
+        // FMA dependency; they are NOT bit-identical and are gated on end-to-end parity.
+        else if(!strcmp(argv[i],"--mvacc")&&i+1<argc){ g_mvacc=atoi(argv[++i]);
+            if(g_mvacc!=1&&g_mvacc!=2&&g_mvacc!=4) die("--mvacc takes 1, 2 or 4"); }
         else if(!strcmp(argv[i],"--lut")){ g_lut=1; }
         else if(!strcmp(argv[i],"--lut-diag")){ g_lut=1; g_lutdiag=1; atexit(lut_diag_report); }
         else if(!strcmp(argv[i],"--lut-clip")&&i+1<argc){ g_clip=(float)atof(argv[++i]); }
@@ -1068,6 +1137,16 @@ int main(int argc,char** argv){
                 printf("  %-11s %9.3f   %5.1f%%\n",g_tn[k],g_t[k]/arg3*1e3,100.0*g_t[k]/tot);
             printf("  %-11s %9.3f   (organs summed; wall %.3f ms/token)\n",
                    "TOTAL",tot/arg3*1e3,dt/arg3*1e3);
+            // E8 G-Z1: the ffn organ, decomposed. SUB-timers -- they are not in the table above
+            // and do not enter its percentages. The residual line is the gate: these four must
+            // sum to the ffn organ, or one of the brackets is holding work it does not name.
+            { double fs=0; for(int k=0;k<F_N;k++) fs+=g_ff[k];
+              printf("  -- ffn decomposed --\n");
+              for(int k=0;k<F_N;k++)
+                  printf("  %-11s %9.3f   %5.1f%% of ffn\n",
+                         g_ffn[k],g_ff[k]/arg3*1e3,g_t[T_FFN]>0?100.0*g_ff[k]/g_t[T_FFN]:0.0);
+              printf("  %-11s %9.3f   (sum/ffn = %.4f)\n","FFN-SUM",fs/arg3*1e3,
+                     g_t[T_FFN]>0?fs/g_t[T_FFN]:0.0); }
             for(int a=0;a<g_sw;a++){                // one line per arm, ms/token, machine-readable
                 printf("SWEEP %s n=%ld",g_sw_name[a],g_sw_n[a]);
                 for(int k=0;k<T_N;k++)
