@@ -423,3 +423,68 @@ said in advance they would be worth, and is why they were cheap to be wrong in.
 `--bench` path and print it on the `BENCH` line, so every rate this programme publishes carries a
 number that says whether the machine was quiet. **Gate: the `BENCH` rate must be unchanged** —
 adding a timer to the hot path to measure contention would be a fine way to manufacture some.
+
+---
+
+## 12. AMENDMENT, pre-registered before the run it governs — a contention witness for `--bench`
+
+§11-bis.4 owed this first. **Built, not yet gated**, at `donor_engine.c`: a second macro pair
+`TICW`/`TOCW` fires when `g_prof || g_wit`, used at **the FFN block and nowhere else**, and
+`--bench` appends `ffn <x> ms/tok` to the `BENCH` line. `g_wit` defaults to **1**.
+
+**Why default-on and not a flag.** A witness a runner has to remember to pass is *the same defect*
+as §9: `--attn` is a flag, no runner passed it, and every E3 and E7 number is consequently a
+`serial` reading. `--no-witness` exists for the arms that need the old hot path exactly.
+
+**Why the FFN and only the FFN.** It is 73–80% of the token and, by construction, cannot depend on
+context length — which is the entire content of the `ffn`-invariance witness that made §8.2 and
+ledger §17 admissible. Timing anything else would add cost without adding a witness.
+
+**The reading is on the profiler's own convention** — `g_t[T_FFN] / arg3`, warm token included —
+so a witness value and a `--profile` value are directly comparable against the same plateau.
+Appended to the `BENCH` line rather than inserted: `e3_bench.py` anchors a regex at the start of
+the line and `e7_real7b.py` indexes relative to `"tok/s"`, so both keep working. Verified by
+reading both parsers, not assumed.
+
+### The three gates, thresholds fixed now
+
+**G-W1 — the witness must not move the rate.** This is the load-bearing one and the reason §12 is
+pre-registered rather than just committed.
+
+*Measured at the smallest, fastest shape*, `qwen25-05b_tqh.bin` (0.5 B, 24 layers, ~58 tok/s),
+because that is the **worst case**: the cost is `2 × L` clock reads per token, so ~48 reads against
+a ~17 ms token, versus Coder-7B's 56 against a ~224 ms token — **~13× worse relative cost than
+where the witness will actually be used.** If it is invisible here it is invisible everywhere.
+
+`--bench 300`, arms **interleaved per repetition** (`--witness`, then `--no-witness`), **10 pairs**
+— cheap enough (~5 s a run) to afford real statistics, which is the direct lesson of G-Y1b.
+
+> **Prediction: indistinguishable from 1.000.** `now_s()` is `QueryPerformanceCounter`, ~20–30 ns;
+> 48 reads is ~1.2–1.4 µs against a ~17,300 µs token = **0.008%**.
+>
+> **Gate: paired median ratio ≥ 0.990.** Band **0.99–1.01**. Below 0.990 the witness is rejected
+> **as built** and must be made cheaper (time layer 0 only, or one token in K) — not quietly kept.
+
+**G-W2 — parity, mandatory and not negotiable.** Phase 60's law: *kernel-bit-exact does not compose
+to system-correctness → end-to-end parity always.* `--logits` on the same ids with and without the
+witness, **byte-for-byte identical or the change is reverted.** A timer should not touch arithmetic;
+"should not" is what the gate is for.
+
+**G-W3 — the planted control, and this is the one that decides whether the witness is worth
+anything.** *An instrument must be shown to FIRE on a known-positive before its nulls count.* A
+witness that reads a flat plateau on an idle machine and *also* reads it under load measures
+nothing.
+
+    known-negative: --bench 300 on an idle machine        -> ffn ON the plateau
+    known-positive: --bench 300 with 6 busy threads       -> ffn OFF the plateau
+
+> **Gate: the loaded reading must exceed the idle reading by more than the idle arm's own spread
+> across its 10 reps.** If it does not, **the witness does not work and §12 fails**, whatever G-W1
+> says.
+
+### What §12 is not
+
+It is **not** a speed result and does not touch the goal. E7 is 11.2× short of 50 tok/s and §12
+changes that by nothing. It is an instrument, built because §11-bis found that this programme has
+been publishing un-profiled rates with no way to tell whether the machine was quiet — including,
+today, two runs that could not decide and one that was VOID.

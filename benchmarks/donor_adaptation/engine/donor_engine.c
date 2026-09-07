@@ -48,6 +48,20 @@ static int g_prof=0;
 #define TIC double _t0=g_prof?now_s():0.0
 #define TOC(k) do{ if(g_prof) g_t[k]+=now_s()-_t0; }while(0)
 
+// ---- CONTENTION WITNESS (E7 s10.3).  The `ffn`-invariance witness -- the FFN organ cannot
+// depend on context length, so an ffn reading off its plateau means the machine was not idle --
+// existed ONLY under --profile, so every un-profiled rate this programme published rested on the
+// operator's BELIEF that the machine was quiet, with nothing able to contradict it.  The FFN
+// block, and only it, is therefore timed on the plain --bench path too, and the reading is
+// printed on the BENCH line.  ON BY DEFAULT: a witness a runner has to remember to pass is the
+// same defect that left --attn on the slow kernel for every E3 and E7 number (s9).
+// Cost is 2 clock reads per layer per token against an FFN that is 73-80% of the token; the
+// claim that this does not move the rate is a GATE, not an assumption -- brief s12, and it is
+// measured at the SMALLEST/FASTEST shape, where per-token overhead is worst.
+static int g_wit=1;
+#define TICW double _t0=(g_prof||g_wit)?now_s():0.0
+#define TOCW(k) do{ if(g_prof||g_wit) g_t[k]+=now_s()-_t0; }while(0)
+
 static void* xmalloc(size_t n){ void* p=malloc(n); if(!p){ fprintf(stderr,"OOM %zu\n",n); exit(1);} return p; }
 static void die(const char* m){ fprintf(stderr,"FATAL: %s\n",m); exit(1); }
 
@@ -781,7 +795,7 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
           for(int i=0;i<D;i++) s->x[i]+=s->xb2[i]; TOC(T_O); }
 
         { TIC; rmsnorm(s->x,L->post_norm,D,M->rms_eps,s->xb); TOC(T_NORM); }
-        { TIC;
+        { TICW;
           if(g_fuse){
               matvec(&L->gateup,s->xb,NULL,s->gubuf);            // one region instead of two
               const float* g=s->gubuf; const float* u=s->gubuf+F;
@@ -793,7 +807,7 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
           }
           matvec(&L->down,s->hb,NULL,s->xb2);
           for(int i=0;i<D;i++) s->x[i]+=s->xb2[i];
-          TOC(T_FFN); }
+          TOCW(T_FFN); }
     }
     { TIC; rmsnorm(s->x,M->final_norm,D,M->rms_eps,s->xb); TOC(T_NORM); }
     TIC;
@@ -946,6 +960,8 @@ int main(int argc,char** argv){
         }
         else if(!strcmp(argv[i],"--bench")&&i+1<argc){ mode="bench"; arg3=atol(argv[++i]); }
         else if(!strcmp(argv[i],"--profile")){ g_prof=1; }
+        else if(!strcmp(argv[i],"--witness")){ g_wit=1; }
+        else if(!strcmp(argv[i],"--no-witness")){ g_wit=0; }
         else if(!strcmp(argv[i],"--lut")){ g_lut=1; }
         else if(!strcmp(argv[i],"--lut-diag")){ g_lut=1; g_lutdiag=1; atexit(lut_diag_report); }
         else if(!strcmp(argv[i],"--lut-clip")&&i+1<argc){ g_clip=(float)atof(argv[++i]); }
@@ -1030,8 +1046,12 @@ int main(int argc,char** argv){
             }
         }
         double dt=now_s()-t0;
-        printf("BENCH  %ld tokens  %.3f s  %.2f tok/s  (threads=%d, %s)\n",
+        printf("BENCH  %ld tokens  %.3f s  %.2f tok/s  (threads=%d, %s)",
                arg3,dt,arg3/dt,threads,M.quant==2?"packed":M.quant?"ternary":"fp32");
+        // the witness, same convention as the profiler's own ffn row (divided by arg3, warm token
+        // included) so the two are directly comparable against a plateau measured either way
+        if(g_wit&&!g_prof) printf("  ffn %.3f ms/tok",g_t[T_FFN]/arg3*1e3);
+        printf("\n");
         if(g_prof){
             double tot=0; for(int k=0;k<T_N;k++) tot+=g_t[k];
             printf("  organ        ms/token   %% of total\n");
