@@ -932,3 +932,95 @@ is a correctness note about which kernel ran, not a speed result.**
 **The default is deliberately NOT being changed.** `serial` is the arm every prior probe's baseline
 was taken on; flipping `g_attn` would silently re-base E1–E7. The fix is a runner that passes
 `--attn` explicitly and this section — not an edit that makes old numbers unreproducible.
+
+## 19. DERIVED 2026-09-07 — how much of the 16.2× is engineering, and how much is not available at all
+
+**This section contains no new measurement.** It is arithmetic on numbers already published in
+§1, §12.2, §13 and §14, put together for the first time. Every input is cited; nothing is
+estimated. It exists because §13.5 says the dense path is **16.2× short of 50 tok/s** and does not
+say how much of that gap an engine could ever close.
+
+### 19.1 The inputs, all published
+
+| quantity | value | where |
+|---|---|---|
+| `T10` @300, measured | **3.090 tok/s** = 323.6 ms/token | §13.5 |
+| `f` at `T10` @300 (non-weight path), best measured | **5.216 ms** (`avx4`) | §14, row `f` @300 |
+| therefore the **weight organs** at `T10` @300 | **313.8 ms** (using §13.5's own `f` of 9.846 ms, the `serial` arm 3.090 was taken on) | subtraction |
+| weight-organ delivered bandwidth at `T10` | **16.9 GB/s** = 32.8 G-weights/s | §13.3 |
+| the engine's byte convention | **0.515 B/weight** (32.8 G-w/s ↔ 16.9 GB/s) | §13.3, self-consistent |
+
+And three *measured* ceilings for a streamed weight read on this machine, from slowest to fastest:
+
+| ceiling | value | what it actually is |
+|---|---|---|
+| probe-3, post-L3-cliff streaming | **~28 GB/s** | §12.2's correction note. Conservative: a different bench |
+| **proj-GEMV streamed floor** | **37.0 GB/s** | §1. **The closest analogue** — the same kernel shape reading streamed weights |
+| DRAM aggregate | **42 GB/s** | §1, saturated at 3 threads. Physics |
+
+### 19.2 The ceiling this engine can never pass at a 10 B dense shape
+
+Put the weight organs at each ceiling and keep the best measured `f`:
+
+| weight path at | weight organs | + `f` 5.216 | **ceiling** | headroom over today |
+|---|---|---|---|---|
+| **16.9 GB/s (today)** | 313.8 ms | 319.0 ms | **3.13 tok/s** | 1.00× |
+| 28 GB/s | 189.4 ms | 194.6 ms | **5.14 tok/s** | 1.66× |
+| **37.0 GB/s** | 143.3 ms | 148.5 ms | **6.73 tok/s** | 2.19× |
+| 42 GB/s | 126.2 ms | 131.4 ms | **7.61 tok/s** | 2.49× |
+
+> **A perfect engine — every weight organ at a bandwidth this machine has actually been measured
+> delivering, and the non-weight path already at E4's best `f` — tops out between 5.14 and
+> 7.61 tok/s on a dense 10.6 B. 50 tok/s is 6.6× to 9.7× beyond that.**
+
+These are **ceilings, and a ceiling is a denominator** (§12.2's law): they assume every organ
+simultaneously at a rate no organ has yet reached, and they still do not get within 6×.
+
+### 19.3 The 16.2×, split
+
+| | factor | what would have to happen |
+|---|---|---|
+| available from **engine work** | **1.7– 2.5×** | move every weight organ from 16.9 GB/s to a streaming rate this machine is measured at |
+| **not available at this shape, by any engine work** | **6.6– 9.7×** | — |
+| product | 16.2× | §13.5 |
+
+**This bounds every future optimisation on the weight path at 2.5× and no more, at a 10 B dense
+shape on this machine.** It is not an argument against doing that work — 2.5× is large — it is an
+argument that the work cannot finish the job, and a number to check any proposal against before
+building it.
+
+### 19.4 The same statement as a sparsity budget, which is the actionable form
+
+At 50 tok/s a token is 20.0 ms; `f` takes 5.216 of it, leaving **14.78 ms** for weights.
+
+| weight path at | active weights/token affordable | **as a share of 10.6 B** |
+|---|---|---|
+| **16.9 GB/s (today)** | **485 M** | **4.6%** |
+| 37.0 GB/s (proj-GEMV floor) | **1.06 G** | **10.0%** |
+| 42 GB/s (DRAM aggregate) | **1.21 G** | **11.4%** |
+
+> **Even a perfect engine on this machine permits at most ~11% of a 10 B to be active per token at
+> 50 tok/s. Today's engine permits 4.6%.** Engine work is worth roughly a **2.5× larger sparsity
+> budget** — real, bounded, and not a substitute for the sparsity.
+
+This restates §1's *"50 tok/s → ≤ 680 M active weights per token"* with two differences: it uses
+**this engine's own measured `T10` rate** rather than the expert path's kernel-pure ceiling, and it
+charges `f`, which §1 did not. **The direction of the correction is unfavourable** — 485 M, not
+680 M, at today's rate.
+
+### 19.5 What this does not say
+
+It does **not** say the goal is impossible; it says it is impossible *at a dense 10.6 B active
+per token on this machine*, which is a statement about the **model**, not the engine.
+`SCALEUP_ARCHITECTURE.md` already prescribes the remedy (thinking/knowing split, MoE, cache
+residency) and §1's budget rows already priced it; what was missing until now is the **bound on
+the alternative** — that no amount of engine work substitutes for it, and exactly how much engine
+work is worth.
+
+It also does **not** cover §19's own weakest assumption: that the weight organs are
+bandwidth-limited at all. §12.2 says the opposite for `S05` (*"nothing here is at the bandwidth
+wall"*, ~1.2 ms of issue against 19.9 measured) and §13.4 found the attention organ to be
+**latency**-bound, not bandwidth-bound, which is why E4 bought 6.53× there. **If the weight organs
+are also latency- or overhead-bound rather than bandwidth-bound, §19.2's ceilings are too low and
+the engineering share is larger than 2.5×.** That is the experiment §19 argues for, and it is the
+open item `P` (§15, INDEX item 0) asked from the other end.
