@@ -1403,3 +1403,105 @@ cells; run 2's 55.95 / 60.25 is inside E10's between-run range and outside a ban
 of it. **A known-positive band must be drawn from every reading of the known-positive.** Fourth
 pre-registered rule in this programme aimed at the wrong number — after E8's discard rule, E10's
 G-K3, and this.
+
+---
+
+## §25 — E13: the LUT collapse was the layout. `LAYOUT-CONFIRMED`.
+
+Brief `89fd63e` pushed before the arm existed; arm `076381a`; probe
+`probes/E13_BLOCKED_TILE_MAJOR.md`. **Closes E11 §7 item 1 and the 1.46× E10 left unclaimed.**
+
+### 25.1 The row E10 had not read in its own table
+
+| E10, 2048 MB, DRAM-resident, 6 threads | moved GB/s |
+|---|---|
+| fp32 arm | **38.58** |
+| packed arm | **26.48** |
+
+Same instrument, same threads, **same moved-byte convention on both sides**. The packed kernel was
+at **69%** of a streaming rate that sweep had just demonstrated, so §23's `CORE-BOUND` left
+**1.46× measured** rather than nothing. That is what E13 went after.
+
+### 25.2 The defect
+
+`build_tm` stored `tm[t*Mpad + o]` and `matvec_lut` walks `t` with `base` fixed, so consecutive
+32-byte reads sat `Mpad` apart: **18.5 KB** at `gate|up`, **3.5 KB** at `down`, **299 KB** at the
+512 MB cell — a different page nearly every read, 32 bytes used of every 64-byte line. Total bytes
+read were **identical** to the packed arm's. Purely an ordering defect.
+
+`--lutblk` stores each 32-row tile contiguously. Same bytes permuted; `t` order and accumulate tree
+untouched, so **bit-identical** and gated on sha256.
+
+### 25.3 The sweep, `n_in` 3584 fixed, 5 reps
+
+| footprint | packed | `lut` | **`lutblk`** | blk ÷ lut | blk ÷ packed |
+|---|---|---|---|---|---|
+| 4 MB | 51.40 | 83.80 | **87.84** | 1.05 | 1.71 |
+| 8 MB | 50.22 | 75.50 | **97.87** | 1.30 | 1.95 |
+| 12 MB | 51.59 | 86.55 | **103.05** | 1.19 | **2.00** |
+| 24 MB | 55.32 | 63.77 | **101.22** | 1.59 | 1.83 |
+| 48 MB | 48.34 | 34.90 | **73.11** | 2.09 | 1.51 |
+| **512 MB (verdict cell)** | 56.72 | 22.26 | **67.51** | **3.03** | **1.19** |
+| 2048 MB | 59.02 | 20.84 | **71.82** | **3.45** | 1.22 |
+
+G-w/s, medians of 5. **The `lut` 8 MB cell carried 100.8% spread; its median is not quotable** and
+is recorded rather than dropped. **G-M1 = 67.51 against a ≥65 boundary → `LAYOUT-CONFIRMED`, and
+the brief predicted 65–77.** Second prediction in this programme to land inside its own band, and
+derived the same way as E9's: a measured quantity over a structural factor.
+
+**Blocking recovers 3.0–3.5× at the two largest cells. The 4.2× L3 cliff becomes 1.53×.
+103.05 G-w/s at 12 MB is the fastest weight kernel this programme has measured.** At 512 MB
+`lutblk` moves **33.76 GB/s** against the fp32 arm's **34.75** in the same sweep — **97%**.
+**§25.1's 1.46× has been taken; ~3% remains at that footprint.**
+
+### 25.4 It composes — with the right cell
+
+| Coder-7B, `--bench 100`, 5 interleaved reps | median tok/s | spread | `ffn~` |
+|---|---|---|---|
+| **`--lutblk`** | **9.21** | 3.7% | 85.7–90.1 ms |
+| `--lut` | 3.78 | 9.0% | 175.5–184.8 ms |
+| packed (default) | 6.78 | 9.1% | 115.8–128.3 ms |
+
+**1.358× at donor scale.** `--lut` as shipped is **0.557×** — 1.8× slower through the engine, which
+**confirms E11's `NO-LIFT` end-to-end** rather than softening it.
+
+**Baseline reproduces to 0.15%**: packed 6.78 against E9's 6.79, `ffn~` 115.8/117.3/117.4 on reps
+3–5 against E9's published plateau 114.5–117.0 (reps 1–2 at 128.3/125.9 were warm-up).
+
+Coder-7B's fused organs are `gate|up` **67.9 MB** and `down` **33.9 MB** — the 24–48 MB band, where
+the sweep gives 1.83 and 1.51. Amdahl on a ~70–80% weight path predicts 1.3–1.4×; measured 1.358×.
+**The 512 MB cell's 1.19× was never the engine's number.**
+
+At 0.5 B, 7 interleaved reps: `lutblk` **91.31** vs packed **75.03** vs `lut` **59.72** =
+**1.217×**. A first 3-rep pass gave `lutblk` a **180% spread** and is discarded as warm-up —
+**three reps were not enough at that shape**, and it is recorded because it is the exact shape the
+≥3-rep rule exists to catch.
+
+### 25.5 What it does NOT license
+
+**`--lutblk` is not shippable on this.** The LUT path quantizes activations to int8 at a measured
+**1.40e-01** relative L2 whole-vector (**3.10e-02** at G=32) and **that has never been carried to
+BPB or greedy parity on the donor**. G-M0's sha256 identity is `--lut` vs `--lutblk` — the two LUT
+*layouts* agreeing with each other — and says nothing about either agreeing with the packed path,
+which by construction they do not. **E13 makes the LUT path fast enough to be worth the quality
+question; it does not answer it. The packed default stays the default.**
+
+**E11's `NO-LIFT` is explained, not overturned.** It was a correct verdict on the layout as
+shipped, its §12/INDEX §2.1 corrections stand, and its §3 mechanism paragraph — the one thing it
+asserted without testing — is now **tested and holds**.
+
+### 25.6 Where that leaves the goal
+
+| Coder-7B, 7.072 B active/token | tok/s | short of 50 | path |
+|---|---|---|---|
+| E7 | 4.460 | 11.2× | exact |
+| E8 | 6.37 | 7.8× | parity-gated |
+| E9 | 6.79 | 7.4× | bit-exact |
+| **E13 `--lutblk`** | **9.21** | **5.4×** | **LOSSY, quality unmeasured** |
+
+**The honest statement is 6.79 tok/s exact, with a 1.358× lever available on a lossy path.**
+2.065× in a day if the lever holds; 1.52× if it does not.
+
+**No third kernel to write.** The weight path is at 97% of this machine's demonstrated streaming
+rate. **§19.3 stands and is better supported than this morning: the remaining 5.4× is a property of
+the model.** The levers left are fewer active weights per token and residency — **E12**.

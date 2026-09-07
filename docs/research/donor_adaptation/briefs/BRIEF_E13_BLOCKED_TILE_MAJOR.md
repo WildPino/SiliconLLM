@@ -131,3 +131,35 @@ Speed requires an idle machine. Another checkout (`SiliconLLM_private`) is strea
 donor on six threads as this is written, and it voided E11 run 1. **G-M0 is deterministic and is run
 now; G-M1/G-M2/G-M3 are timings and wait for a quiet machine.** G-M2 is the witness that decides
 whether the wait was long enough.
+
+---
+
+# VERDICT (added after the run): `LAYOUT-CONFIRMED`
+
+Full write-up: `probes/E13_BLOCKED_TILE_MAJOR.md`. Ledger §25.
+
+- **G-M2** known-positive: packed **48.34–59.02** G-w/s, all inside 47–62, max/min **1.22** ≤ 1.30,
+  no slope. **PASS — the machine was quiet.** E10's own planted control also fired unprompted
+  inside the run (fp32 4 MB ÷ 512 MB = **4.91×**).
+- **G-M0** engine sha256: `7a9b3e04704aa416ba51ae88b26ccd499449dd687141e77217adeec0e2f48e44`
+  on both arms, 311 MB byte-identical. **PASS.** **G-M0b** bitwise: 0/2340. **PASS.**
+- **G-M1**: **67.51 G-w/s** at the 512 MB cell against **≥65**. **`LAYOUT-CONFIRMED`.**
+  **§5 predicted 65–77 — the measurement landed inside its own band.**
+- **G-M3**: Coder-7B **9.21 vs 6.78 tok/s = 1.358×**; 0.5 B **91.31 vs 75.03 = 1.217×**.
+  `--lut` as shipped reads **0.557×** at 7 B, confirming E11's `NO-LIFT` end-to-end.
+
+**§7's caveats all held and one bit harder than written.** The 1.358× is on the **lossy** path;
+`--lutblk` is not shippable until the int8-activation cost (1.40e-01 relative L2) is carried to BPB
+and greedy parity on the donor. **6.79 tok/s exact remains the quoted rate.**
+
+**§6's symmetric outcome did not occur**: E11 §3's mechanism paragraph is **confirmed**, not
+retracted.
+
+**§1's 1.46× is closed.** At the 512 MB cell `lutblk` moves 33.76 GB/s against the fp32 arm's 34.75
+in the same sweep — 97%. There is no third kernel to write on this path.
+
+**One thing §5 got wrong in its reasoning while getting the number right.** It justified the band by
+the blocked kernel "streaming the same bytes in the same order as packed"; the engine's organs are
+33.9–67.9 MB, not 512 MB, and it is the **24–48 MB** cells (1.83× and 1.51×) that predict the
+engine's 1.358×, not the verdict cell's 1.19×. **The verdict cell was the right place to gate and
+the wrong place to reason from**, and only the gate was pre-registered.
