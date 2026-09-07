@@ -933,6 +933,37 @@ is a correctness note about which kernel ran, not a speed result.**
 was taken on; flipping `g_attn` would silently re-base E1–E7. The fix is a runner that passes
 `--attn` explicitly and this section — not an edit that makes old numbers unreproducible.
 
+
+### 18.1 AMENDED same day — the arm's win reaches the wall, and the un-profiled path cannot see it
+
+Two pre-registered attempts to read the `avx4` win as a *rate* on the real donor (E7 §10):
+
+| | |
+|---|---|
+| **G-Y1** @300 | `serial` 4.460 → `avx4` **4.450**. **The null §18 called in advance** — attention is 2.2% of the token, the arm is 0.474×, the effect is ~1%, and nothing here resolves 1% |
+| **G-Y1** @1600 | `serial` 4.230 (spread **6.1%**) → `avx4` 4.290 (1.2%). **Did not decide**: the baseline's dispersion exceeds the effect and its maximum sits above the challenger's median |
+| **G-Y1b** @1600, arms interleaved | paired ratios 0.950 / 1.094 / 0.973, **median 0.973** against a pre-registered band of 1.00–1.09. **VOID.** Within-arm dispersion hit **11.5%**, ~2× the largest effect attention can produce there |
+
+**No cause is named for the 11.5%**: one CPU sample after the run read 46%, three minutes later
+read 7 / 13 / 14%, nothing of ours running either time, and a single instantaneous sample is not a
+load measurement.
+
+**The win does reach the wall**, established instead from four witness-admissible profiled cells at
+1600 (`ffn` all inside the 176–181 plateau): **the organs sum to the wall to 0.03% in every cell**,
+and **`TOTAL − attention − ffn` is arm-invariant** — `avx4`'s 41.232 sits inside `serial`'s own
+40.475–42.159 scatter. On the two cells with closest `ffn`, attention falls 14.32 ms, `ffn` differs
+−1.06, the wall *should* fall 15.38 and falls **16.33 — agreement to 0.4% of the token**. That is
+worth **~6–7% at 1600 context**, and it is **NOT published as a rate**, because it comes from
+profiled walls and §12 forbids exactly that.
+
+> **NEW DEFECT, and it is general. `--bench` has no contention witness.** The `ffn`-invariance
+> witness that makes §17 and E7 §8.2 trustworthy **exists only under `--profile`**. On the plain
+> `--bench` path nothing can contradict the operator's belief that the machine was idle — and
+> **every un-profiled rate in this ledger rests on that belief.** The fix, owed first: time the
+> `ffn` organ on the plain `--bench` path and print it on the `BENCH` line. **Gate: the `BENCH`
+> rate must be unchanged** — adding a timer to the hot path to detect contention would be an
+> excellent way to manufacture some.
+
 ## 19. DERIVED 2026-09-07 — how much of the 16.2× is engineering, and how much is not available at all
 
 **This section contains no new measurement.** It is arithmetic on numbers already published in

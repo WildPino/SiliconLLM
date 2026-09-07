@@ -221,9 +221,98 @@ on; flipping `g_attn` would silently re-base E1–E7. The defect is documentatio
 runner that passes `--attn` explicitly plus a ledger line that names the kernel — not an edit that
 makes old numbers unreproducible.
 
-## 10. Owed
+## 10. The kernel's win is real, and no un-profiled instrument here can see it
+
+Pre-registered as G-Y1 at brief §10 (`9103c26`) and G-Y1b at brief §11 (`db53f63`), each pushed
+before the run it governs. Verdicts at brief §10-bis and §11-bis (`f1b81ad`).
+
+### 10.1 G-Y1 — the null was called, and the other cell did not decide
+
+`--bench {300, 1600} --attn avx4`, 3 reps, un-profiled:
+
+| cell | `serial` | **`avx4`** | Δ | §10 predicted | band |
+|---|---|---|---|---|---|
+| 300 | 4.460 (spread 0.45%) | **4.450** (2.5%) | −0.22% | +1.2% | 4.35–4.70 ✅ |
+| 1600 | 4.230 (spread **6.1%**) | **4.290** (1.2%) | +1.42% | +5.7% | 4.30–4.70 ❌ by 0.23% |
+
+**300 is the null §10 called in advance**, and it lands where §10 said. **1600 did not decide:**
+the `serial` baseline's own spread (6.1%) exceeds the effect (5.7%) and its maximum, 4.31, sits
+*above* the `avx4` median. E4's law — *a threshold inside the instrument's dispersion cannot
+decide* — disposes of it, and the 0.23% band miss refutes nothing.
+
+### 10.2 G-Y1b — **VOID**, and pairing did not rescue it
+
+Arms interleaved per repetition at 1600, E4's own method, because §13 fixes between-sweep
+dispersion at 5–10% while ratios do not carry it:
+
+| pair | `serial` | `avx4` | ratio |
+|---|---|---|---|
+| 1 | 4.17 | 3.96 | 0.950 |
+| 2 | 4.04 | 4.42 | 1.094 |
+| 3 | 4.11 | 4.00 | 0.973 |
+| | spread 3.2% | spread **11.5%** | **median 0.973** |
+
+§11 fixed the band at **1.00–1.09** and declared a paired median outside it VOID. **0.973 is
+outside. G-Y1b is VOID and no number from it enters anything.**
+
+**The cause is not named, because it was not measured.** One CPU-load sample immediately after the
+run read 46%; three samples minutes later read 7 / 13 / 14%, with nothing of this programme's own
+running either time. A single instantaneous sample is not a load measurement, and *"the machine
+was busy"* is precisely the **plausible** artefact this programme fails on. What is certain is the
+consequence: **within-arm dispersion reached 11.5%, roughly double the largest effect attention
+can produce at 1600 (6.4%). The un-profiled 1600 cell cannot resolve this question at all.**
+
+### 10.3 The defect that is worth more than the question: `--bench` has no contention witness
+
+The `ffn`-invariance witness that made §8.2 trustworthy **exists only under `--profile`.** On the
+plain `--bench` path there is nothing to check. **Every un-profiled rate this programme has
+published rests on the operator's belief that the machine was idle, with no instrument able to
+contradict it.** New, general, and now the first owed item (§11.4).
+
+### 10.4 The consequential outcome is EXCLUDED, from data already in hand
+
+§11's third named outcome was: *the profiler's organ split is not additive to the wall*, which
+would read every table in `SPEED_LEDGER` §12–§14. Four witness-admissible 1600-context profiled
+cells (`ffn` all inside the 176–181 plateau) settle it:
+
+| cell | attention | `ffn` | TOTAL | wall | TOTAL vs wall | **TOTAL − attention − `ffn`** |
+|---|---|---|---|---|---|---|
+| `serial` A | 25.462 | 176.193 | 242.130 | 242.083 | **+0.019%** | 40.475 |
+| `serial` B | 25.636 | 179.518 | 247.313 | 247.265 | **+0.019%** | 42.159 |
+| `serial` C | 25.951 | 180.119 | 247.713 | 247.668 | **+0.018%** | 41.643 |
+| **`avx4` D** | **11.315** | 178.458 | 231.005 | 230.936 | **+0.030%** | **41.232** |
+
+**The organs sum to the wall to 0.03% in every cell**, and **the remainder after removing the two
+organs that moved is arm-invariant** — `avx4`'s 41.232 sits *inside* the `serial` arm's own
+40.475–42.159 scatter. Swapping the attention kernel changed the attention organ and nothing else.
+
+On the two cells with the closest `ffn` (B and D): attention falls **14.32 ms**, `ffn` differs
+**−1.06 ms**, so the wall should fall **15.38 ms** — it falls **16.33 ms**. **Agreement to
+0.95 ms, 0.4% of the token.**
+
+**So the `avx4` win does reach the wall, by roughly 6–7% at 1600 context.** That figure comes from
+profiled walls, so **E7 publishes no `avx4` rate** (§12's law: profiled runs are for the organ
+split only — the profiler once manufactured a 9.6% anomaly). The honest position: *the organ win
+is measured, its arithmetic consequence is consistent to 0.4%, and no un-profiled instrument on
+this machine can resolve 6–7% at the 1600 cell.*
+
+### 10.5 What did not move
+
+§9's accounting, fixed before any of this ran, is exactly what happened. Attention is **2.2% of
+the token at 300 and 10.5% at 1600**; the FFN is **73–80%**; **E7 remains 11.2× short of 50
+tok/s.** Two runs, ~80 minutes, and the goal moved by nothing — which both §10 and §11 said in
+advance they would be worth, and is why being wrong in them was cheap.
+
+## 11. Owed
 
 1. **A real 10 B.** Still the open item. E7 reached 67% of the size; the rest needs a download.
 2. ~~**`f` beyond 800 tokens** — E4's owed item 3.~~ **CLOSED by §8.2: linear, 0.0319 ms per token of context, no knee to 1600.**
 3. **R3 at 7 B**, if anyone wants a clean scale statement about the ternary damage.
 4. The 11.2× gap to 50 tok/s is **entirely the weight path**, now on trained weights.
+5. **FIRST: give `--bench` a contention witness.** §10.3. Cheapest form — time the `ffn`
+   organ on the plain `--bench` path and print it on the `BENCH` line, so every published
+   rate carries a number saying whether the machine was quiet. **Gate: the `BENCH` rate must
+   be unchanged**, since adding a timer to the hot path to measure contention would be a
+   fine way to manufacture some.
+6. **A 1600-context `avx4` rate.** §10.4 says it should be 6–7% above `serial`; nothing on
+   this machine has resolved it, and item 5 is the prerequisite.
