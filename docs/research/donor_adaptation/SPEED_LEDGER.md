@@ -1969,3 +1969,129 @@ measured conclusion rather than a preference.
 4. **The 3 B cell of the R3 sweep** (E12 §26.6 item 1) — the point between R3's minimum at 1.5 B and
    its return to the line at 7 B.
 5. **A fold sweep at 3 B**, to test whether −0.529 / −0.220 / −0.151 is smooth.
+
+---
+
+## §30 — E17: the head is not the mechanism, and BPB has no resolution where we ship. `HEAD-IS-NOT-THE-MECHANISM`.
+
+Pre-registered `cf33251`, pushed before any arm ran. Probe: `probes/E17_DOES_THE_HEAD_RANK.md`.
+Runner: `e17_head_rank.py`; follow-up: `e17_head_vs_twin.py`.
+
+**No timing was taken in E17. No rate in §§12–29 moves. 6.79 tok/s exact stands, §19.3 unchanged.**
+Decode rates were recorded by the engine and are discarded — the machine's idleness was not
+controlled, and a contended timing is not a timing.
+
+### 30.1 Why the head was the suspect
+
+Every E16 arm was exported `--head-ternary` (`e16_r3_at_7b.py:167`). `Qwen2.5-Coder-7B` has
+`tie_word_embeddings=False`, so that flag ternarizes a standalone **152064 × 3584 = 545 M-parameter**
+output projection — the one tensor whose entire job is ranking, and a candidate mechanism for E16's
+"0.155 nats/token better than uniform, 0/160 greedy". E1 §4.3 had already measured that tensor as
+nearly free **in BPB** (`−0.008546` at 1.5 B, `+0.022070` at 0.5 B); no probe had ever run a
+head-fp32 arm through `--generate` at any scale.
+
+Nothing was exported for E17. Every artifact was on disk from E1, every reference from E6.
+
+### 30.2 The gates, all four fired
+
+| gate | reading | label |
+|---|---|---|
+| `G-H0a` 0.5 B fp32 | **160/160** | FIRES |
+| `G-H0b` 1.5 B `TQH` (= E6 `A3` = E16 `C0`) | **10/160**, div at token 0 | REPLICATED |
+| `G-H0c` 1.5 B fp32 — new cell | **160/160** | FIRES |
+| `G-H0d` E13 build vs E6 build on `H0b` | token-identical | COMPARABLE |
+
+`G-H0c` is a third independent known-positive at a third scale, and it closes E1 §4.4's open
+question in the generate path: the engine loads a **6,174,857,268-byte** file and reproduces
+PyTorch exactly on it. `G-H0d` was registered rather than assumed because E6 used
+`engine/donor_engine.exe` (315,904 B) and E16 used `D:\_ktmp\e13\donor_engine.exe` (317,952 B);
+without it, §30.4's table could not be written at all.
+
+### 30.3 The head axis, and the distinction it forces
+
+| donor | head ternary | head fp32 | Δ | tokens identical to its own twin |
+|---|---|---|---|---|
+| **1.5 B** | `10/160` | **`12/160`** | **+2** | **81/160** — 49% of the output changes |
+| **0.5 B** | `3/160` | **`3/160`** | **0** | **28/160** — **82.5%** of the output changes |
+
+Both head-fp32 arms still diverge from the donor at **token 0**. Bars (brief §5, derived from the
+measured known-negative ceiling `10/160` and the known-positive band `160/160`): mechanism at
+`≥ 85/160`, not-mechanism at `≤ 20/160`. Both are far below the lower bar, so **stage 2 — the 7 B
+head-fp32 export — does not run**, exactly as the brief registered in advance.
+
+**The head is not inert; it is irrelevant.** It rewrites half the output at 1.5 B and five sixths of
+it at 0.5 B while changing the number of *correct* tokens by two and by zero. The two arms are not
+similar models — they are two differently-wrong ones.
+
+**REGOLA NUOVA: "questo componente cambia l'output" e "questo componente cambia la risposta" sono
+due misure diverse, e un nullo sulla seconda non autorizza a chiamare il componente inerte.**
+E17 nearly made that error itself: `G-H2`'s `3/160` against `A2`'s `3/160` reads as "the head does
+nothing", and the twin comparison shows 82.5% of the tokens moved underneath it.
+
+### 30.4 The population — every arm this programme has ever generated with
+
+Licensed by `G-H0d`. Chance `4.069819` at `V = 151936`, `4.070106` at `V = 152064`.
+
+| arm | scale | rule / fold / head | BPB | vs chance | greedy |
+|---|---|---|---|---|---|
+| fp32 | 0.5 B | — | `0.871810` | `−3.198` | **160/160** |
+| fp32 | 1.5 B | — | `0.767595` (E12 §1) | `−3.302` | **160/160** |
+| fp32 | 7 B | — | `0.674027` | `−3.396` | **160/160** |
+| `TQ` | 0.5 B | R3 / none / fp32 | `4.509164` | `+0.439345` | `3/160` |
+| `TQH` | 0.5 B | R3 / none / ternary | `4.531234` | `+0.461415` | `3/160` |
+| **`TQ`** | 1.5 B | R3 / none / fp32 | `3.484253` | `−0.585566` | **`12/160`** |
+| `TQH` | 1.5 B | R3 / none / ternary | `3.475707` | `−0.594112` | `10/160` |
+| `B1` | 7 B | R0 / layers / ternary | `5.299200` | `+1.229094` | `0/160` |
+| `B2` | 7 B | R3 / layers / ternary | `4.017233` | `−0.052874` | `0/160` |
+| `B3` | 7 B | R3 / none / ternary | `4.168325` | `+0.098219` | `0/160` |
+
+**Three known-positives at exactly 160/160 across three scales and two model families. Seven ternary
+arms across three scales, two rules, two folds and both head settings: best `12/160`, every one
+diverging at token 0.**
+
+### 30.5 What that does to the instrument this ledger is written in
+
+Across those seven ternary arms **BPB spans `1.823493`** — `+1.229094` above the chance line to
+`−0.594112` below it — while greedy agreement spans **0 to 12 out of 160**.
+
+**BPB is not broken.** Over the full range including fp32 it tracks perfectly: `0.67`–`0.87` goes
+with 160/160, `3.48`–`5.30` goes with 0–12/160. The problem is narrower and worse: **inside the
+ternary regime — the entire operating range in which this programme ships and in which every rate in
+§§12–29 was measured — BPB has resolution and ranking has none, because every ternary arm is already
+on the floor.** E16's `RULE-FIXES-IT` was read off `0.052874` of BPB movement in a regime where
+`1.8` BPB of movement buys nothing.
+
+### 30.6 Predictions, scored
+
+`G-H0a`/`G-H0b` held; `G-H0d` held; `G-H1` **inside the called 2–15% band** at `7.50%`, and its
+*reasoning* (the `TQ` arm retains ≈18% of the donor's information over uniform, so it should not
+reproduce the argmax) held as a direction and is **not** promoted for having landed; `G-H2` held
+under the bar at `1.88%`; `|Δagreement| < 10` points held at `1.25` and `0.00`; stage 2 did not run.
+
+**One called direction missed: `H2 > A2` at 0.5 B.** Predicted because the head costs `+0.022` BPB
+there — measured **exactly equal, `3/160` vs `3/160`**. §30.3's twin comparison shows the equality is
+a coincidence of counting, not similarity: 82.5% of the tokens differ.
+
+### 30.7 Where it leaves the goal
+
+By elimination, each step measured rather than argued: the **rule** is most of the BPB damage and
+does not restore ranking (§29, `G-R2 = −1.281967`); the **fold** is load-bearing in BPB and does not
+restore ranking (§29, `G-R4 = −0.151093`); the **head** is not the mechanism at either scale (here);
+and **scale does not rescue it** — the 1.5 B arm E16's brief called working because it sits `0.594`
+below the chance line is E6's *planted control*, emitting `" the\n\n the\n the the\n the"` since
+2026-09-05.
+
+**No post-hoc conversion of these donors has ever produced a model that can choose a token, at any
+scale, under any setting tried.** §29 concluded the binding constraint is the format rather than the
+rule; §30 removes the last cheap alternative to that reading.
+
+### 30.8 Owed
+
+1. **The frequency-coincidence floor** — new, and now the cheapest open item in the programme.
+   There is no measured baseline for agreement by luck: these arms emit ` the` and `\n` repeatedly
+   and PyTorch sometimes does too, so **`12/160` cannot be claimed to be above zero information.**
+   Every "best is 12/160" statement is an upper bound on a quantity whose lower bound is unknown.
+2. **The ranking band for intermediate values** — E14 §5 item 3, still owed, still needed for E14's
+   `45.6%`, and **not** supplied by E17.
+3. **`R1`/`R2` at 1.5 B** — only `R0` and `R3` have ever been generated with.
+4. Everything §29.6 still owes: the 3 B cell of the R3 sweep, a clean scale axis, a fold sweep at 3 B.

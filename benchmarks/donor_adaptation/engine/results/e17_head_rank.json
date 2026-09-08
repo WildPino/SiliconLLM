@@ -1,0 +1,336 @@
+{
+ "brief": "briefs/BRIEF_E17_DOES_THE_HEAD_RANK.md (cf33251)",
+ "engine": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\donor_engine.exe",
+ "engine_e16": "D:\\_ktmp\\e13\\donor_engine.exe",
+ "threads": 6,
+ "n_new": 32,
+ "prompts": [
+  "The capital of France is",
+  "def fibonacci(n):",
+  "Water boils at",
+  "The three laws of motion were formulated by",
+  "import numpy as np"
+ ],
+ "reference": "results/e6/ref.json -- PyTorch fp32 greedy, eager, threads 6",
+ "bands": {
+  "neg_ceiling": 0.0625,
+  "pos_band": 1.0,
+  "mechanism_bar": 0.53125,
+  "not_mechanism_bar": 0.125
+ },
+ "arms": {
+  "H0a": {
+   "weights": "D:\\_ktmp\\e1\\qwen25-05b_f32.bin",
+   "hf": "Qwen/Qwen2.5-0.5B",
+   "agree": 1.0,
+   "matched": 160,
+   "counted": 160,
+   "first_div": null,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 32,
+     "of": 32,
+     "diverges_at": null,
+     "decode_toks": 14.637
+    },
+    {
+     "prompt": 1,
+     "matched": 32,
+     "of": 32,
+     "diverges_at": null,
+     "decode_toks": 16.43
+    },
+    {
+     "prompt": 2,
+     "matched": 32,
+     "of": 32,
+     "diverges_at": null,
+     "decode_toks": 15.841
+    },
+    {
+     "prompt": 3,
+     "matched": 32,
+     "of": 32,
+     "diverges_at": null,
+     "decode_toks": 15.986
+    },
+    {
+     "prompt": 4,
+     "matched": 32,
+     "of": 32,
+     "diverges_at": null,
+     "decode_toks": 17.629
+    }
+   ],
+   "ids_sha": "ac9628c942d16b39",
+   "role": "known-positive (fp32 0.5B)",
+   "e6_expected_matched": 160,
+   "replicates_e6": true
+  },
+  "H0b": {
+   "weights": "D:\\_ktmp\\e1\\qwen25-15b_tqh.bin",
+   "hf": "Qwen/Qwen2.5-1.5B",
+   "agree": 0.0625,
+   "matched": 10,
+   "counted": 160,
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 2,
+     "of": 32,
+     "diverges_at": 0,
+     "decode_toks": 24.476
+    },
+    {
+     "prompt": 1,
+     "matched": 3,
+     "of": 32,
+     "diverges_at": 0,
+     "decode_toks": 28.192
+    },
+    {
+     "prompt": 2,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0,
+     "decode_toks": 28.259
+    },
+    {
+     "prompt": 3,
+     "matched": 4,
+     "of": 32,
+     "diverges_at": 0,
+     "decode_toks": 28.773
+    },
+    {
+     "prompt": 4,
+     "matched": 1,
+     "of": 32,
+     "diverges_at": 0,
+     "decode_toks": 27.067
+    }
+   ],
+   "ids_sha": "8e65a907a3bcdc9f",
+   "role": "known-negative (E6 A3 == E16 C0)",
+   "e6_expected_matched": 10,
+   "replicates_e6": true
+  },
+  "H0c": {
+   "weights": "D:\\_ktmp\\e1\\qwen25-15b_f32.bin",
+   "hf": "Qwen/Qwen2.5-1.5B",
+   "agree": 1.0,
+   "matched": 160,
+   "counted": 160,
+   "first_div": null,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 32,
+     "of": 32,
+     "diverges_at": null,
+     "decode_toks": 5.711
+    },
+    {
+     "prompt": 1,
+     "matched": 32,
+     "of": 32,
+     "diverges_at": null,
+     "decode_toks": 5.931
+    },
+    {
+     "prompt": 2,
+     "matched": 32,
+     "of": 32,
+     "diverges_at": null,
+     "decode_toks": 5.972
+    },
+    {
+     "prompt": 3,
+     "matched": 32,
+     "of": 32,
+     "diverges_at": null,
+     "decode_toks": 6.0
+    },
+    {
+     "prompt": 4,
+     "matched": 32,
+     "of": 32,
+     "diverges_at": null,
+     "decode_toks": 5.902
+    }
+   ],
+   "ids_sha": "4812ad1cb444f15d",
+   "role": "known-positive at 1.5B -- NEW cell",
+   "e6_expected_matched": null
+  },
+  "H1": {
+   "weights": "D:\\_ktmp\\e1\\qwen25-15b_tq.bin",
+   "hf": "Qwen/Qwen2.5-1.5B",
+   "agree": 0.075,
+   "matched": 12,
+   "counted": 160,
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 1,
+     "of": 32,
+     "diverges_at": 0,
+     "decode_toks": 15.144
+    },
+    {
+     "prompt": 1,
+     "matched": 3,
+     "of": 32,
+     "diverges_at": 0,
+     "decode_toks": 17.682
+    },
+    {
+     "prompt": 2,
+     "matched": 2,
+     "of": 32,
+     "diverges_at": 0,
+     "decode_toks": 18.336
+    },
+    {
+     "prompt": 3,
+     "matched": 4,
+     "of": 32,
+     "diverges_at": 0,
+     "decode_toks": 17.61
+    },
+    {
+     "prompt": 4,
+     "matched": 2,
+     "of": 32,
+     "diverges_at": 0,
+     "decode_toks": 18.487
+    }
+   ],
+   "ids_sha": "ed0bfe25fb4c3ce4",
+   "role": "head fp32, ternary body -- 1.5B",
+   "e6_expected_matched": null
+  },
+  "H2": {
+   "weights": "D:\\_ktmp\\e1\\qwen25-05b_tq.bin",
+   "hf": "Qwen/Qwen2.5-0.5B",
+   "agree": 0.01875,
+   "matched": 3,
+   "counted": 160,
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 1,
+     "of": 32,
+     "diverges_at": 0,
+     "decode_toks": 43.373
+    },
+    {
+     "prompt": 1,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0,
+     "decode_toks": 43.377
+    },
+    {
+     "prompt": 2,
+     "matched": 2,
+     "of": 32,
+     "diverges_at": 1,
+     "decode_toks": 43.829
+    },
+    {
+     "prompt": 3,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0,
+     "decode_toks": 43.193
+    },
+    {
+     "prompt": 4,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0,
+     "decode_toks": 40.726
+    }
+   ],
+   "ids_sha": "241dc5dbef32f239",
+   "role": "head fp32, ternary body -- 0.5B",
+   "e6_expected_matched": null
+  }
+ },
+ "prompt_ids_cross_tokenizer": "IDENTICAL under 0.5B and 1.5B tokenizers, and equal to E6",
+ "axis_gate": {
+  "1.5B": {
+   "single_axis": true,
+   "unadmitted_moves": []
+  },
+  "0.5B": {
+   "single_axis": true,
+   "unadmitted_moves": []
+  }
+ },
+ "G_H0d": {
+  "binary": "D:\\_ktmp\\e13\\donor_engine.exe",
+  "token_identical": true,
+  "agree": 0.0625,
+  "matched": 10,
+  "verdict": "COMPARABLE"
+ },
+ "gates": {
+  "G_H0a": {
+   "agree": 1.0,
+   "required": 1.0,
+   "verdict": "FIRES"
+  },
+  "G_H0b": {
+   "matched": 10,
+   "required": 10,
+   "first_div": [
+    0,
+    0
+   ],
+   "verdict": "REPLICATED"
+  },
+  "G_H0c": {
+   "agree": 1.0,
+   "matched": 160,
+   "verdict": "FIRES"
+  },
+  "G_H1": {
+   "agree": 0.075,
+   "verdict": "HEAD-IS-NOT-THE-MECHANISM",
+   "vs_H0b_points": 1.2499999999999998
+  },
+  "G_H2": {
+   "agree": 0.01875,
+   "verdict": "HEAD-IS-NOT-THE-MECHANISM",
+   "vs_A2_points": 0.0
+  },
+  "G_H3": {
+   "1.5B": {
+    "dBPB_head": -0.00854638577632194,
+    "dAgree_points_head": -1.2499999999999998
+   },
+   "0.5B": {
+    "dBPB_head": 0.022069824578507813,
+    "dAgree_points_head": 0.0
+   },
+   "note": "dBPB and dAgree are both (head-ternary MINUS head-fp32); BPB is E1's engine column, never re-measured here"
+  }
+ },
+ "verdict": "HEAD-IS-NOT-THE-MECHANISM",
+ "stage2_runs": false
+}

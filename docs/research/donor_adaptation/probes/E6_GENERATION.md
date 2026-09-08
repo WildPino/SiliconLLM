@@ -142,3 +142,23 @@ not language, and the INDEX now says so.
    a gate.
 4. Longer generations: 32 tokens exercises no context beyond the prompt. E4's owed item 3 —
    `f` beyond 800 tokens — is the same hole seen from the speed side.
+
+---
+
+## 8. Appended after E17 — arm `A3` was read as a BPB number for three days
+
+`A3` (`qwen25-15b_tqh.bin`) is filed above as a **planted control**: a known-negative whose job was
+to fail so that `A1`'s pass would mean something. It agrees with PyTorch on `10/160` and emits
+`" the\n\n the\n the the\n the"`.
+
+**The same file is E16's `C0`, and E16's brief selected the rule `R3` for a 7 B export on the
+grounds that it "works at 1.5 B" — reading that artifact's `3.475707` BPB, `0.594` below the chance
+line, and not this transcript.** See `E16_R3_AT_7B.md` §10.
+
+E17 then measured the two cells `A2` and `A3` left empty — the same bodies with the head kept in
+fp32 — and found `3/160` and `12/160`: **the head is not why these arms fail.** E6's arms are now
+three of the seven members of the ternary population tabulated in `E17_DOES_THE_HEAD_RANK.md` §4,
+and `A1`'s `160/160` is one of the three known-positive readings the band is drawn from.
+
+Nothing above is corrected. This note exists because a *label* in one probe ("planted control") and
+a *number* in another ("0.594 below chance") described the same file and were never read together.

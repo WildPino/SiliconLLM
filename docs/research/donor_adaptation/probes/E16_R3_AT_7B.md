@@ -216,3 +216,28 @@ was not available.
    smooth.
 6. E14's owed items are untouched: the `--lutblk --lut-group 32` speed number, the `--seqlen 512`
    re-run, G-N1 in repaired form.
+
+---
+
+## 10. Appended after E17 — the reference this probe reasoned from was already a planted control
+
+E16 chose `R3` because it "works at 1.5 B": `qwen25-15b_tqh.bin` reads `3.475707`, `0.594` below the
+chance line, and §2 of this probe used that as the reason the rule was worth hours of export.
+
+**That file is E6's arm `A3`, which E6 labelled "planted control at 1.5 B" — a known-NEGATIVE — on
+2026-09-05.** It agrees with PyTorch on **10/160** greedy tokens, diverges at token 0, and emits
+`" the\n\n the\n the the\n the\n the\n the\n the"`. This probe read that artifact's BPB and
+never its transcript, three days after the transcript was filed in this same directory.
+
+Nothing in §§0–9 is withdrawn: `C0` was used as a *replication* target for `G-R0`, and it replicated
+to `3.20e-07`, which is all `G-R0` ever claimed. What is withdrawn is the **motivation** in §2 — "R3
+is the rule that works at 1.5 B" — which was true of the chance line and false of the model, the
+same error §0 names at 7 B. **The probe committed at its start the mistake it discovered at its
+end.**
+
+E17 (`probes/E17_DOES_THE_HEAD_RANK.md`) also closes §9 item 1 only *partially*: it supplies the
+known-positive band (three readings, all exactly `160/160`) and the known-negative population
+(seven arms, best `12/160`), which is enough to convict `0/160`. **It does not supply a band for
+intermediate agreements**, so E14's `45.6%` stays unbanded, and it adds a new prerequisite — there
+is no measured floor for agreement by *frequency coincidence*, so `12/160` is not yet known to beat
+zero information.
