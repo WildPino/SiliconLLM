@@ -1,0 +1,117 @@
+{
+ "source": "results/e6/ref.json",
+ "note": "no engine run; computed from the reference continuations alone",
+ "n_positions": 160,
+ "models": {
+  "Qwen/Qwen2.5-0.5B": {
+   "n_positions": 160,
+   "distinct_tokens": 91,
+   "floor_const_matched": 11,
+   "floor_const_frac": 0.06875,
+   "floor_const_token_id": 198,
+   "floor_const_token": "\n",
+   "top5": [
+    {
+     "id": 198,
+     "tok": "\n",
+     "n": 11
+    },
+    {
+     "id": 279,
+     "tok": " the",
+     "n": 9
+    },
+    {
+     "id": 13,
+     "tok": ".",
+     "n": 7
+    },
+    {
+     "id": 220,
+     "tok": " ",
+     "n": 6
+    },
+    {
+     "id": 715,
+     "tok": " \n",
+     "n": 4
+    }
+   ],
+   "uniform_expected_matches": 0.0010530749789385003
+  },
+  "Qwen/Qwen2.5-1.5B": {
+   "n_positions": 160,
+   "distinct_tokens": 82,
+   "floor_const_matched": 12,
+   "floor_const_frac": 0.075,
+   "floor_const_token_id": 198,
+   "floor_const_token": "\n",
+   "top5": [
+    {
+     "id": 198,
+     "tok": "\n",
+     "n": 12
+    },
+    {
+     "id": 13,
+     "tok": ".",
+     "n": 8
+    },
+    {
+     "id": 315,
+     "tok": " of",
+     "n": 8
+    },
+    {
+     "id": 279,
+     "tok": " the",
+     "n": 7
+    },
+    {
+     "id": 220,
+     "tok": " ",
+     "n": 7
+    }
+   ],
+   "uniform_expected_matches": 0.0010530749789385003
+  }
+ },
+ "arms": {
+  "A1": {
+   "label": "A1  0.5B fp32",
+   "hf": "Qwen/Qwen2.5-0.5B",
+   "matched": 160,
+   "dominant_token_id": 198,
+   "dominant_token": "\n",
+   "dominant_emitted_n": 11,
+   "dominant_as_constant_predictor": 11,
+   "excess_over_own_dominant_const": 149,
+   "floor_const_matched": 11,
+   "excess_over_floor_const": 149
+  },
+  "A2": {
+   "label": "A2  0.5B TQH",
+   "hf": "Qwen/Qwen2.5-0.5B",
+   "matched": 3,
+   "dominant_token_id": 11,
+   "dominant_token": ",",
+   "dominant_emitted_n": 45,
+   "dominant_as_constant_predictor": 2,
+   "excess_over_own_dominant_const": 1,
+   "floor_const_matched": 11,
+   "excess_over_floor_const": -8
+  },
+  "A3": {
+   "label": "A3  1.5B TQH",
+   "hf": "Qwen/Qwen2.5-1.5B",
+   "matched": 10,
+   "dominant_token_id": 198,
+   "dominant_token": "\n",
+   "dominant_emitted_n": 77,
+   "dominant_as_constant_predictor": 12,
+   "excess_over_own_dominant_const": -2,
+   "floor_const_matched": 12,
+   "excess_over_floor_const": -2
+  }
+ }
+}
