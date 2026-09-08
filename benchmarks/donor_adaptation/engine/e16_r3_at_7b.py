@@ -216,6 +216,12 @@ def main():
             prev = json.load(open(OUT))
             if prev.get("n_seq") == N_SEQ:
                 out["arms"] = prev.get("arms", {})
+                # G-R0 is recorded when C0 RUNS.  A later invocation that finds C0 cached
+                # skips that branch, so without this the verdict would be dropped from the
+                # file by the next arm's write -- the control would silently stop being on
+                # the record it licenses.
+                if "G_R0" in prev:
+                    out["G_R0"] = prev["G_R0"]
         except Exception:
             pass
 

@@ -1,0 +1,33 @@
+{
+ "brief": "briefs/BRIEF_E16_R3_AT_7B.md",
+ "smoke": false,
+ "n_seq": 24,
+ "seq_len": 512,
+ "threads": 6,
+ "reference_B1_bpb": 5.299200075086085,
+ "reference_C0_e1_bpb": 3.47570669163278,
+ "arms": {
+  "C0": {
+   "weights": "D:\\_ktmp\\e1\\qwen25-15b_tqh.bin",
+   "model": "Qwen/Qwen2.5-1.5B",
+   "vocab_padded": 151936,
+   "tokenizer_len": 151665,
+   "scored_bytes": 51870,
+   "bytes_per_token": 4.22945205479452,
+   "chance_bpb": 4.069818973389018,
+   "band": 0.0006089570138918532,
+   "nats_total": 124963.9628600173,
+   "n_predicted": 12264,
+   "nats_per_token": 10.189494688520654,
+   "bpb": 3.4757063718523145,
+   "vs_chance": -0.5941126015367035,
+   "seconds": 488.87791776657104,
+   "note": "1.5B R3 fold-none -- PLANTED CONTROL, must reproduce E1 and sit below chance"
+  }
+ },
+ "G_R0": {
+  "fires": true,
+  "abs_delta_vs_e1": 3.197804656629444e-07,
+  "tol": 0.01
+ }
+}
