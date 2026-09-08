@@ -1885,3 +1885,36 @@ and ran five BPB arms on the standing eval slice. Artefacts: `d0_b3_treatment_sp
 `d0_b3_sweep.log`, `d0_b3.wallclock.txt`, `d0_carved_bpb.json`, `d0_carved_bpb.log`,
 `d0_carved_bpb_paired.json`, `d0_carved_bpb_paired.log`, `d0_carved_arms/*.npy` (5 arms, per-sequence
 nats), `d0_carved_labels_E32.npz`. Peak RSS 9.05 GB.*
+
+---
+
+## 16. Appended 2026-09-08 after E19 — §13's carve has now been read in GENERATION
+
+§13 measured the carve in BPB. E19 ran the same carve — **this probe's own partitions**, loaded from
+the label caches D0c's run wrote, and an oracle hook that reproduces D0c's published BPB to
+`0.000e+00` — through greedy generation against the donor's own continuations
+(`probes/E19_DOES_THE_CARVE_RANK.md`, ledger §32).
+
+| arm | activation | BPB | vs chance `4.069819` | greedy agreement |
+|---|---|---|---|---|
+| `base` | 100% | `0.767595` | `−3.302224` | **160/160** |
+| `FULL` (`k = E`) | 100% | `0.767595` | `−3.302224` | **160/160**, token-identical |
+| `V52` | 51.95% | `0.909441` | `−3.160378` | **12/160** |
+| `S1` (E=256, k=64) | 25% | `1.383868` | `−2.685951` | 7/160 |
+| **`A0` (E=32, k=8)** | 25% | `1.858218` | `−2.211601` | **5/160** |
+| **`N0` (null)** | 25% | `2.578731` | `−1.491088` | **6/160** |
+| `D10` | 10.16% | `2.806167` | `−1.263652` | 3/160 |
+
+The floor for agreement by frequency coincidence is `12/160` (E18 part A). **Every carved arm is at
+or below it**, including one that keeps 52% of the FFN for `+0.141846` BPB.
+
+**This bears directly on §13 and §15.** The `+1.09062 BPB` headline is `A0`, and `A0` scores
+`5/160`. **The oracle-routed fidelity §13 reports is fidelity of a model that cannot choose a
+token.** Nothing here is withdrawn — every BPB in §13 was reproduced to sixteen decimals by an
+independent harness, which is a strong replication of this probe — but the *interpretation* of the
+carve as a graded quality cost does not survive the second metric.
+
+**And §13's co-activation-beats-null result does not transfer.** `A0 − N0 = −0.720513` BPB is real;
+in ranking it is `5/160` vs `6/160`, i.e. absent (and inside floor noise, so no reverse claim is
+made either). The partition axis this probe exists to measure is **invisible to the ranking
+instrument**, because both partitions are already degenerate at 25%.

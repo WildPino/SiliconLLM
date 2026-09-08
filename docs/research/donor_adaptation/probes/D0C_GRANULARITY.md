@@ -200,3 +200,35 @@ Wall clock 131–159 s per arm, 9 arms.
   measured the co-activation structure collapsing, making this donor possibly the **worst** width in
   the range for this mechanism — remains a hypothesis. **S1's scale arm is where it is tested**, and
   that arm is now unblocked and queued on Kaggle.
+
+---
+
+## 10. Appended 2026-09-08 after E19 — the granularity decision rests on a gap with no ranking signal
+
+E19 re-ran this probe's arms in **generation**, using **these partitions** (`results/d0c_labels/
+labels_E*.npz`, the caches this run wrote — nothing re-clustered) and an oracle hook gated by
+reproducing this probe's published BPB: `base`, `S1`, `A0`, `N0` all matched to **`0.000e+00`**,
+sixteen decimals. That is a complete independent replication of §3's numbers.
+
+**What does not replicate is the meaning.** Greedy agreement against the donor's own continuations,
+floor `12/160` (E18 part A):
+
+| arm | BPB | greedy |
+|---|---|---|
+| `S1` (E=256, k=64, 25%) | `1.383868` | 7/160 |
+| `A0` (E=32, k=8, 25%) | `1.858218` | 5/160 |
+| `N0` (null, 25%) | `2.578731` | 6/160 |
+| `V52` (E=256, k=133, **51.95%**) | `0.909441` | **12/160** |
+
+**Every arm is at or below the floor**, and `V52` — a granularity/depth combination finer and
+shallower than anything §3 measured, costing only `+0.141846` BPB — sits **exactly** on it.
+
+§4's decision (`Δ_128 − Δ_32 = −0.3845`, `z = −8.5` sequence-paired) is a true statement about BPB.
+§7 called it "the programme-level pattern this is the first instance of"; **E19 supplies the second
+half of that pattern: finer carving does help in BPB, monotonically — `r(BPB, agreement) = −0.8562`
+across E19's carved arms, the expected sign — and the entire ordered range lies at or under a model
+that emits `'\n'` forever.** Granularity buys score in a regime where score is not competence.
+
+The `G32` co-activation-vs-null gap (`−0.720513` BPB at E=32) produces **no** ranking difference:
+`5/160` vs `6/160`, inside floor noise. **§5's PARTIAL outcome and §9's owed audit should be read
+with that added:** the axis this probe swept is real in BPB and invisible in ranking.

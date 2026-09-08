@@ -2261,3 +2261,116 @@ which carries one global `quant` field. One donor, one scale (1.5 B), one rule, 
 4. **`R1`/`R2`**, deprioritized in brief §7 with the reason recorded: both are worse than `R3` at
    equal coverage and `R3` at *any* coverage is now at the floor, so neither can open a route.
 5. Everything §29.6/§30.8 still owes: the 3 B cell of the R3 sweep, a clean scale axis, a fold sweep.
+
+---
+
+## §32 — E19: the carve does not rank, and FFN-only carving cannot reach the target. `CARVE-DOES-NOT-RANK`.
+
+Brief `briefs/BRIEF_E19_DOES_THE_CARVE_RANK.md`, **pushed before part B ran** (`3173edc`); runner
+`bdd87a4`. Probe `probes/E19_DOES_THE_CARVE_RANK.md`. Run 2280 s, `VOID: none`.
+**No timing taken. `6.79 tok/s` stays exact; §19.3 unchanged.**
+
+§31 closed conversion on both axes and left one structural escape: 50 tok/s is a ~10%-activation
+budget, and the only lever that reaches an activation budget is conditional activation — carving.
+
+### 32.1 Part A — FFN-only carving cannot reach the target, at any depth
+
+Derivation over measured quantities, importing `qwen_shapes` and the bytes-per-weight verification
+from §31's runner rather than restating them. Every weight charged as **ternary** (`0.500000` B) —
+the friendliest possible assumption, since it grants full ternarization for free.
+
+| model | active/token | FFN | **attn + head** | tok/s with the **FFN at ZERO** |
+|---|---|---|---|---|
+| Qwen2.5-Coder-7B | `7.070 G` | `5.703 G` (80.7%) | **`1.367 G`** | **35.9 – 38.8** |
+| Qwen2.5-1.5B | `1.544 G` | `1.156 G` (74.9%) | `0.388 G` | 126.7 – 136.8 |
+
+**`attn + head` on the 7 B (`1.367 G`) exceed the ENTIRE 50 tok/s budget (`0.982–1.060 G`), so
+deleting the whole FFN still leaves 35.9–38.8 tok/s.** Every carve this programme has built (D0,
+D0c, Probe-4) is FFN-only. Projected to the goal's size on each donor's measured attn+head share —
+a projection, labelled as one, no config invented — a 10 B carries a **`1.93–2.51 G` uncarvable
+floor = `1.82–2.37×` the whole budget**, i.e. **19.6–27.4 tok/s with its FFN carved to zero**.
+
+Published in the brief **before** part B ran, and it fixed part B's arm list: at 1.5 B, 50 tok/s
+needs FFN activation `0.5144–0.5817`, so the verdict cell is **51.95%**, and the 25% cells D0/D0c
+scored are *more* aggressive than that donor's own budget requires.
+
+### 32.2 The controls, at zero error
+
+`G-C0`: `base` reproduces E6's reference at **`160/160`**. `G-C1`: `FULL` (`k = E`, the hook runs
+and removes nothing) is **token-identical** to `base`, BPB difference **`0.000e+00`**.
+
+**`G-C2`** — the hook had to be restated (`d0c_granularity.py` loads a model at import and cannot be
+imported), so it is gated **behaviourally**: `base`, `S1`, `A0`, `N0` reproduce D0c's published BPB
+to **`0.000e+00` — sixteen decimals, all four**. The partitions are literally D0c's, loaded from the
+caches its run wrote, so `CLUSTER_SEED` and the B3 repair are inherited by construction.
+`G-C4`: achieved activation equals nominal **exactly** on all six carved arms.
+
+### 32.3 The ladder — every carved arm at the floor
+
+| arm | activation | BPB | vs chance `4.069819` | greedy | label |
+|---|---|---|---|---|---|
+| `base` | 100% | `0.767595` | `−3.302224` | **160/160** | `G-C0` FIRES |
+| `FULL` | 100% | `0.767595` | `−3.302224` | **160/160** | `G-C1` FIRES |
+| **`V52`** | **51.95%** | **`0.909441`** | `−3.160378` | **12/160** | **`AT-FLOOR`** |
+| `S1` | 25% | `1.383868` | `−2.685951` | 7/160 | `AT-FLOOR` |
+| `A0` | 25% | `1.858218` | `−2.211601` | 5/160 | `AT-FLOOR` |
+| `N0` | 25% null | `2.578731` | `−1.491088` | 6/160 | `AT-FLOOR` |
+| `D10` | 10.16% | `2.806167` | `−1.263652` | 3/160 | `AT-FLOOR` |
+
+**`V52` is the cell that matters and it is worse news than §31's `H`.** Keeping 52% of the FFN — the
+depth this donor's own budget requires, selected by an **oracle** reading the true activation mass —
+costs **`+0.141846` BPB**, lands `3.160` below the chance line, and **agrees with its own donor on
+12 of 160 tokens: exactly the constant-`'\n'` floor**, diverging at token 0.
+
+**Unlike §31, the ordering is not scrambled**: `r(BPB, agreement) = **−0.8562**` across the five
+carved arms, the expected sign, over a `1.896726` BPB span. **That sharpens the result rather than
+softening it — the degradation is well-behaved and its first usable point is already at zero
+information.** No depth is both fast enough to matter and able to choose a token.
+
+### 32.4 Co-activation buys BPB and buys nothing in ranking
+
+D0's headline and D0c's decision rest on the co-activation partition beating a matched random one.
+At 25% that gap is large in BPB: `A0 − N0 = **−0.720513**`. In ranking it is **absent**: `5/160` vs
+`6/160`. The reading is not that the null ranks better — `5` vs `6` is floor noise by §31's own law
+— it is that **`0.72` BPB of partition quality produces no measurable ranking difference**, because
+both arms are already degenerate. D0c §3.2's `G32` gap and the granularity decision built on it are
+statements about score in a regime where score does not correspond to competence.
+
+### 32.5 Predictions — three called directions, three misses, again
+
+`G-C0`/`G-C1` held; `G-C2` held **exactly**; `D10 → AT-FLOOR` held. **`V52 → RANKS` WRONG**
+(`12/160`). **`S1`/`A0` → `PARTIAL` WRONG** (both `AT-FLOOR`; the `S1 > A0` ordering held).
+**`N0 < A0` WRONG** (floor noise).
+
+Prediction 3 was argued from a real mechanism — a carve leaves every surviving weight **bit-exact**
+and computes a *subset* of the true function, where ternarization perturbs every weight. The
+mechanism is true and the call was still wrong by 68 tokens. **A different kind of damage is not a
+smaller kind of damage.**
+
+Fourth consecutive experiment (E16, E17, E18, E19) whose directions missed and whose verdict
+survived because the brief registered the alternative first — §31.6's law, now paid for a fourth
+time.
+
+### 32.6 Where it leaves the goal
+
+**Quality**: the donor's argmax survives neither precision change (§§30–31) nor structural sparsity
+(§32), at any depth, under an oracle router, on an otherwise intact donor. The failure is not a
+property of ternarization but of **post-hoc modification of a pretrained dense model as such**.
+
+**Speed**: even granting a carve that worked, FFN-only carving cannot reach 50 tok/s at 7 B or
+above. A carve that reached the target would have to cut **attention and the output head too** —
+never attempted, and prima facie hostile to §30's finding that the head is where ranking lives.
+
+The remaining branch is unchanged and now sole: **train into the format**, ~10% active per token.
+Within the donor route only **healing** is untested, and §32 raises its bar — it would have to
+repair a model degenerate under *either* kind of modification.
+
+### 32.7 Owed
+
+1. **Healing**, §31.8 item 1, unchanged and sharpened: heal `V52` (cheapest at `+0.141846` BPB) and
+   re-measure ranking. If `160/160` does not return there it will not return anywhere on this route.
+2. **The intermediate ranking band** — E14 §5 item 3, **still** not supplied: every arm here is
+   degenerate too.
+3. **Carving attention and the head** — what part A says the target actually requires.
+4. A re-read of **D0 §III and D0c §5**, whose decisions rest on a BPB gap §32.4 shows carries no
+   ranking signal. Their numbers stand; the decisions built on them need restating.
