@@ -1,0 +1,124 @@
+{
+ "note": "DERIVATION over measured quantities; no timing taken, none quotable",
+ "imports": "shapes and bytes/weight verification from e18_ladder_bandwidth.py",
+ "bytes_per_weight_verified": {
+  "artifact": "D:\\_ktmp\\e1\\qwen25-15b_tqh.bin",
+  "file_bytes": 1709047348,
+  "ternary_weights": 1543569408,
+  "embed_bytes": 933494784,
+  "scale_bytes": 3188224,
+  "norm_bytes": 350208,
+  "bias_bytes": 229376,
+  "header_bytes": 52,
+  "code_bytes": 771784704,
+  "bytes_per_weight": 0.5,
+  "bits_per_weight": 4.0
+ },
+ "rate_span_G_w_s": {
+  "kernel bench low (s23.2)": 49.11,
+  "engine gate+up (s23.2)": 51.66,
+  "engine down (s23.2)": 52.22,
+  "kernel bench high (s23.2)": 52.95,
+  "ledger rounded companion (s23.3)": 53.0,
+  "derived: 25.5 GB/s / 0.500000 B-per-weight": 51.0
+ },
+ "convention": "moved bytes; every weight charged as ternary (0.5 B) -- the FRIENDLIEST possible assumption, since it grants full ternarization for free",
+ "models": {
+  "Qwen2.5-Coder-7B": {
+   "D": 3584,
+   "F": 18944,
+   "L": 28,
+   "V": 152064,
+   "attn": 822083584,
+   "ffn": 5703204864,
+   "head": 544997376,
+   "active_per_token": 7070285824,
+   "uncarvable_floor_attn_plus_head": 1367080960,
+   "floor_share_of_active": 0.1933558266286011,
+   "budget_50": {
+    "low": 982200000.0,
+    "high": 1060000000.0
+   },
+   "budget_100": {
+    "low": 491100000.0,
+    "high": 530000000.0
+   },
+   "tok_s_with_ffn_at_zero": {
+    "low": 35.92325651291347,
+    "high": 38.76873539369607
+   },
+   "floor_exceeds_50_budget": true,
+   "required_ffn_carve": {
+    "50": {
+     "required_ffn_active_fraction_low": -0.06748503151788587,
+     "required_ffn_active_fraction_high": -0.053843578711045226,
+     "reachable_by_carving_ffn_alone": false
+    },
+    "100": {
+     "required_ffn_active_fraction_low": -0.1535945106109378,
+     "required_ffn_active_fraction_high": -0.14677378420751747,
+     "reachable_by_carving_ffn_alone": false
+    }
+   },
+   "projection_to_10B_same_proportions": {
+    "assumption": "attn+head keep this donor's MEASURED share of active weights",
+    "attn_plus_head_share": 0.1933558266286011,
+    "projected_attn_plus_head": 1933558266.286011,
+    "budget_50_high": 1060000000.0,
+    "times_over_the_50_budget": 1.8241115719679348,
+    "tok_s_with_ffn_at_zero": {
+     "low": 25.39876912751678,
+     "high": 27.410604026845636
+    }
+   }
+  },
+  "Qwen2.5-1.5B (D0/D0c donor)": {
+   "D": 1536,
+   "F": 8960,
+   "L": 28,
+   "V": 151936,
+   "attn": 154140672,
+   "ffn": 1156055040,
+   "head": 233373696,
+   "active_per_token": 1543569408,
+   "uncarvable_floor_attn_plus_head": 387514368,
+   "floor_share_of_active": 0.25105082155139474,
+   "budget_50": {
+    "low": 982200000.0,
+    "high": 1060000000.0
+   },
+   "budget_100": {
+    "low": 491100000.0,
+    "high": 530000000.0
+   },
+   "tok_s_with_ffn_at_zero": {
+    "low": 126.73078485698883,
+    "high": 136.76912232580753
+   },
+   "floor_exceeds_50_budget": false,
+   "required_ffn_carve": {
+    "50": {
+     "required_ffn_active_fraction_low": 0.5144094454187925,
+     "required_ffn_active_fraction_high": 0.5817072792658731,
+     "reachable_by_carving_ffn_alone": true
+    },
+    "100": {
+     "required_ffn_active_fraction_low": 0.08960268189306973,
+     "required_ffn_active_fraction_high": 0.12325159881660998,
+     "reachable_by_carving_ffn_alone": true
+    }
+   },
+   "projection_to_10B_same_proportions": {
+    "assumption": "attn+head keep this donor's MEASURED share of active weights",
+    "attn_plus_head_share": 0.25105082155139474,
+    "projected_attn_plus_head": 2510508215.5139475,
+    "budget_50_high": 1060000000.0,
+    "times_over_the_50_budget": 2.3684039768999505,
+    "tok_s_with_ffn_at_zero": {
+     "low": 19.561776255707763,
+     "high": 21.11126331811263
+    }
+   }
+  }
+ }
+}
