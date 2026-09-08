@@ -193,3 +193,34 @@ news of this run: the organ the speed ledger most wants ternary is not special.
 | head ternarization (R1 §4.1, 23.5 → 38.0 tok/s) | at risk — the smoke suggested HEAD-BOUND | **not withdrawn**; the head is free once FFN+attention are ternary |
 | where per-organ treatment should go | unknown | **attention**: 5× the FFN's damage per weight, at 10% of the weights |
 | FFN→whole-model multiplier | assumed ≈ uniform (1.335×) | **1.584×**, ci95 `[1.514, 1.649]` |
+
+---
+
+## 9. Appended 2026-09-08 after E18 — these arms have now been read in GENERATION
+
+T2b scored its arms in BPB only. E18 ran the same `ARM_ORGANS` table — imported from this probe's
+own runner, not re-derived — through greedy generation against the donor's own continuations
+(`probes/E18_THE_RANKING_LADDER.md`, ledger §31). Five of the six had never been generated with.
+
+| arm | BPB (this probe) | vs chance `4.069819` | greedy agreement |
+|---|---|---|---|
+| `base` / `I` | `0.767595` | `−3.302224` | **160/160** |
+| `H` | `1.106584` | `−2.963235` | **9/160** |
+| `A` | `1.903569` | `−2.166250` | **4/160** |
+| `F` | `2.476967` | `−1.592852` | **5/160** |
+| `FA` | `3.484251` | `−0.585568` | `12/160` |
+| `FAH` | `3.475706` | `−0.594113` | `10/160` |
+
+The floor for agreement by frequency coincidence is `12/160` (E18 part A: the best possible constant
+predictor, `'\n'`). **Every converted arm in §4's table is at or below it.**
+
+Nothing here is withdrawn — the increments in §4 are exact, `I − base = +0.000e+00` still holds, and
+E18's `G-L1` re-confirmed it in generation as token-identical. What changes is what §5's decision
+was choosing *between*. **§6's "per weight, attention is 5× the FFN — and it does not matter" is
+correct and now has a second reason: at the ranking instrument, none of these arms differ, because
+none of them rank.** §5's organ policy was a choice among points that are, to a reader of output
+tokens, the same point.
+
+**And §4's ordering does not survive the second metric**: the best-BPB converted arm here (`H`,
+`1.106584`) ranks **worse** (`9/160`) than the worst (`FA`, `3.484251` → `12/160`);
+`r(BPB, agreement) = +0.4989` across the five, the wrong sign.

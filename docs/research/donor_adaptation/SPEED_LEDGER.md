@@ -2095,3 +2095,169 @@ rule; §30 removes the last cheap alternative to that reading.
    `45.6%`, and **not** supplied by E17.
 3. **`R1`/`R2` at 1.5 B** — only `R0` and `R3` have ever been generated with.
 4. Everything §29.6 still owes: the 3 B cell of the R3 sweep, a clean scale axis, a fold sweep at 3 B.
+
+---
+
+## §31 — E18: the ladder is a cliff, and 50 tok/s is a 10% budget. `CLIFF-NOT-SLOPE`.
+
+Brief `briefs/BRIEF_E18_THE_RANKING_LADDER.md`, part B **pre-registered and pushed before any arm
+ran** (`2ac74f5`). Probe `probes/E18_THE_RANKING_LADDER.md`. Runners `e18_agreement_floor.py`,
+`ternary/e18_ranking_ladder.py`, `e18_ladder_bandwidth.py`.
+
+**No timing was taken. `6.79 tok/s` on the real 7.072 B donor stands exactly; §19.3 unchanged.**
+§31.4 is arithmetic over §§23/26 and is labelled as such everywhere it appears.
+
+### 31.1 The floor §30.8 item 1 asked for
+
+Computed from the reference continuations in `results/e6/ref.json` alone — no engine, no weights, so
+it cannot be contaminated by the arms it judges. The floor is the score of the best possible
+**constant** predictor: the strongest zero-information model.
+
+| reference | positions | distinct tokens | best CONSTANT predictor | token |
+|---|---|---|---|---|
+| Qwen2.5-0.5B | 160 | 91 | **`11/160` = 6.88%** | `'\n'` |
+| Qwen2.5-1.5B | 160 | 82 | **`12/160` = 7.50%** | `'\n'` |
+
+**§30.4's best ternary arm scored exactly `12/160`.** Every "best is 12/160" in §30 and in E17 must
+be read as **"best is exactly the floor"**; the `TQH` arm at `10/160` is *below* it and emits `'\n'`
+**77 times of 160**. Nothing in §30 is withdrawn — §30.8 had already refused the claim this settles
+— but §30.5's finding is stronger than it was written: BPB does not merely have poor resolution in
+the ternary regime, it spans `1.82` across models that are, to the ranking instrument, uniformly
+indistinguishable from a constant `'\n'` emitter.
+
+### 31.2 The controls, which are why the empty rungs count
+
+`G-L0`: `base` reproduces `results/e6/ref.json` at **`160/160`** — the PyTorch harness fires on the
+known-positive first. `G-L1`: the identity arm, which walks the substitution path and substitutes
+nothing, is **token-identical** to `base` (T2b gated this in BPB at `+0.000e+00`; it had never been
+gated in generation).
+
+**`G-L2` — the harness reproduces the engine EXACTLY**, not "within the margin":
+
+| arm | E18 (PyTorch) | engine | Δ |
+|---|---|---|---|
+| `FA` (= E1 `TQ`) | **12/160** | 12/160 (E17 `G-H1`) | **0** |
+| `FAH` (= `TQH`) | **10/160** | 10/160 (E6 `A3`) | **0** |
+
+Two independent known values reproduced across two instruments before one empty rung was read.
+That is the entire licence for §31.3 (Phase 60's law, taken in the direction it actually runs).
+
+### 31.3 The cliff
+
+Bands fixed in the brief before the run: floor `12` (§31.1), margin `2` (E17's own — a change that
+rewrote 49% of the output moved 2 tokens), so `AT-FLOOR ≤ 14`, `RANKS ≥ 80`.
+
+| arm | organs ternarized | BPB | vs chance `4.069819` | greedy | label |
+|---|---|---|---|---|---|
+| `base` | — | `0.767595` | `−3.302224` | **160/160** | `G-L0` FIRES |
+| `I` | identity path | `0.767595` | `−3.302224` | **160/160** | `G-L1` FIRES |
+| **`H`** | `lm_head` only | **`1.106584`** | `−2.963235` | **9/160** | **`AT-FLOOR`** |
+| **`A`** | `q,k,v,o` only | `1.903569` | `−2.166250` | **4/160** | **`AT-FLOOR`** |
+| **`F`** | `gate,up,down` only | `2.476967` | `−1.592852` | **5/160** | **`AT-FLOOR`** |
+| `FA` | `F+A` | `3.484251` | `−0.585568` | `12/160` | `AT-FLOOR` |
+| `FAH` | `FA+H` | `3.475706` | `−0.594113` | `10/160` | `AT-FLOOR` |
+
+Five of the seven rungs had never been generated with. **All five are at the floor. There is no rung
+between "exact" and "broken".**
+
+**The sharpest reading is `H`.** It ternarizes **one tensor**, leaves the whole body in fp32, costs
+**`+0.338989` BPB** against the untouched donor and lands `2.963` *below* the chance line — by the
+metric this ledger is written in, a better model than most arms the programme has ever shipped.
+**It agrees with its own donor on 9 of 160 greedy tokens, below the constant-`'\n'` floor of 12.**
+
+### 31.4 The same ladder on the speed axis — DERIVATION, no timing
+
+Every input measured and cited; **bytes-per-weight is recomputed from `qwen25-15b_tqh.bin` rather
+than assumed and comes out to exactly `0.500000` B (`4.0000` bits)**. Moved-byte convention
+throughout (§23's `25.5 GB/s` packed, §26's `34.75 GB/s` fp32, from the same sweeps): **an fp32
+weight costs `5.87×` a ternary one on this machine.**
+
+| arm | ternary G-w | fp32 G-w | tok/s (weight path) |
+|---|---|---|---|
+| `base` | 0.000 | 7.070 | **1.23** |
+| `H` | 0.545 | 6.525 | 1.31 |
+| `A` | 0.822 | 6.248 | 1.36 |
+| `F` | 5.703 | 1.367 | 3.71 |
+| `FA` | 6.525 | 0.545 | 5.24 |
+| **`FAH`** | 7.070 | 0.000 | **7.21** |
+
+Self-check: the derived `FAH` weight path `7.21` sits just **above** the engine's measured `6.79`
+(ratio `1.06`) — the correct side, since the weight path excludes attention math, norms, softmax and
+glue. **The fastest rung is the one that converts everything, and it is `6.9×` short of 50 tok/s.
+Quality improves down that table and speed improves up it.**
+
+**The budget the goal implies**, at the packed kernel's measured rate:
+
+| target | active ternary weights / token | share of a 10 B model |
+|---|---|---|
+| **50 tok/s** | **0.982 – 1.060 G** | **9.8 – 10.6%** |
+| 100 tok/s | 0.491 – 0.530 G | 4.9 – 5.3% |
+
+Reported as a span, not a point: **§23.3 pairs "~25.5 GB/s" with "~53 G-w/s" in one row, and
+`25.5 / 0.5 = 51.0`** — its own two companion numbers disagree by **4%**. Recorded here rather than
+resolved by quietly picking one.
+
+### 31.5 BPB and ranking run backwards inside the converted regime
+
+Across the five converted arms, spanning **`2.377667` BPB**: **`r(BPB, agreement) = +0.4989`** — a
+*positive* correlation. The best-scoring converted arm, `H` at `1.106584`, ranks **worse** (`9/160`)
+than the worst-scoring one, `FA` at `3.484251` (`12/160`).
+
+Honest reading: n = 5 and all five are at the floor, so the ordering *inside* the floor is noise and
+`+0.4989` is not a mechanism — it is what "no signal" looks like when a correlation is computed on
+it anyway. It is recorded because the **absence of the expected negative correlation across 2.4 BPB**
+is the finding. §30.5 said BPB has resolution in the ternary regime and ranking has none; §31 adds
+the regime §30 never sampled — **`H` is not "in the ternary regime" by any BPB reading and still
+cannot rank. The decoupling is a property of CONVERTED models, not of bad ones.**
+
+### 31.6 Predictions, scored — three called directions, three misses
+
+`G-L0`/`G-L1` held. `G-L2` held **exactly, zero error on both**. **`H` → `RANKS`: WRONG** (`9/160`).
+**`A` → `RANKS`: WRONG** (`4/160`; the "below `H`" half held). **`F` →
+`ABOVE-FLOOR-DOES-NOT-RANK`: WRONG** (`5/160`). Prediction 3 was flagged in the brief as "the least
+confident call" and was still wrong by 71 tokens.
+
+**What preserved the reading was not the forecasting but brief §6 prediction 6, written before the
+data existed:** *"If instead `H`, `A` and `F` all come back at the floor, the collapse is at the very
+first rung and the readable conclusion is far stronger — that ternarizing any single organ of this
+donor destroys ranking."*
+
+**Law: registering the ALTERNATIVE outcome is worth more than getting the direction right, because
+the alternative is what protects the reading when the direction fails.** Missed directions now in
+E16 (`G-R3`), E17 (`H2 > A2`) and E18 (three of three); all three verdicts survived because the
+brief had said in advance what each outcome would mean.
+
+### 31.7 Where it leaves the goal
+
+Both axes now fail independently, each measured rather than argued.
+
+**Quality**: there is no partial-conversion operating point. Ternarizing one organ of a frozen donor
+— even the one that costs `0.34` BPB — takes it from `160/160` to below a constant-`'\n'` emitter.
+With §§28–30 the elimination is complete across rule, fold, head, organ coverage and scale.
+
+**Speed**: 50 tok/s permits **0.98–1.06 G active ternary weights per token, 9.8–10.6% of a 10 B
+model**. The 7 B donor activates `7.07 G`. The fastest possible point on the conversion ladder is
+**6.9× short**, and every rung that would improve quality is slower still.
+
+The target is therefore not reachable by converting a dense donor, at any conversion quality, for
+two independent reasons. **It requires a model trained INTO the format that activates ~10% of itself
+per token** — `SCALEUP_ARCHITECTURE`'s premise and Phase 64's actual programme. §29 called the
+constraint the format; §30 removed the last cheap alternative; **§31 gives it a number on both axes.**
+
+### 31.8 Scope, and what is owed
+
+**E18 tests conversion WITHOUT healing, fine-tuning or QAT.** That a *converted* donor cannot rank
+says nothing about a donor *healed* into the format, and the literature's ternary results are all
+trained-in. **This is the largest scope limit and it names the only branch of the conversion route
+left standing.** Part B is PyTorch, not the engine (`G-L2` bridges them exactly at the two rungs
+where both exist); `H`/`A`/`F` cannot be built as engine artifacts without changing `QWENDON1`,
+which carries one global `quant` field. One donor, one scale (1.5 B), one rule, 160 positions.
+
+1. **The same ladder WITH healing** — convert one organ, fine-tune briefly, re-measure ranking.
+   If it recovers `160/160` the route reopens; if not, it closes.
+2. **The intermediate ranking band** — E14 §5 item 3, owed since E14, **not** supplied by §31.1,
+   which bounds a *degenerate* model only: **E14's `45.6%` remains unbanded.**
+3. **The cliff at 7 B** — measured here at 1.5 B; E16's `0/160` is consistent but a different family.
+4. **`R1`/`R2`**, deprioritized in brief §7 with the reason recorded: both are worse than `R3` at
+   equal coverage and `R3` at *any* coverage is now at the floor, so neither can open a route.
+5. Everything §29.6/§30.8 still owes: the 3 B cell of the R3 sweep, a clean scale axis, a fold sweep.

@@ -202,3 +202,43 @@ now supported by an eliminated alternative rather than by a preference.
    firing, and it did not.
 5. Everything E16 §9 still owes: the 3 B cell of the R3 sweep, a clean scale axis (Qwen2.5-7B), a
    fold sweep at 3 B.
+
+---
+
+## 10. Appended after E18 part A — "best is 12/160" means "at the floor"
+
+E17 §7 recorded that no floor for agreement by frequency coincidence had been measured, and that
+`12/160` therefore could not be claimed to be above zero information. **`e18_agreement_floor.py`
+measured it**, from the reference continuations alone — no engine, no weights, so it cannot be
+contaminated by the arms it judges:
+
+| reference | positions | distinct tokens | best CONSTANT predictor | token |
+|---|---|---|---|---|
+| Qwen2.5-0.5B | 160 | 91 | **11/160 = 6.88%** | `'\n'` |
+| Qwen2.5-1.5B | 160 | 82 | **12/160 = 7.50%** | `'\n'` |
+
+Against which §4's ternary population reads:
+
+| arm | scored | floor | excess |
+|---|---|---|---|
+| 1.5 B `TQ` (this probe's `H1`) | `12/160` | 12 | **0** |
+| 1.5 B `TQH` (`H0b`) | `10/160` | 12 | **−2**, and it emits `'\n'` **77 times of 160** |
+| 0.5 B `TQ` (`H2`) / `TQH` (`A2`) | `3/160` | 11 | **−8** |
+| 7 B `B1`/`B2`/`B3` | `0/160` | — | below |
+| fp32, all three scales | `160/160` | 11–12 | **+149** |
+
+**Every sentence in this probe that reads "the best is `12/160`" must be read as "the best is
+exactly the floor".** §4's ternary column does not describe weak rankers; it describes models that
+carry **no ranking information at all**, and the `0`–`12/160` spread §5 contrasted against
+`1.823493` of BPB movement is dispersion around a degenerate baseline rather than a range of
+partial competence.
+
+Nothing in §§0–9 is withdrawn — every number stands, `G-H1` and `G-H2` keep their labels, and §7
+had already refused the claim this note now settles. What changes is the *reading*: §5's finding is
+stronger than it was stated. BPB does not merely have poor resolution inside the ternary regime —
+**it spans 1.8 across a set of models that are, to the ranking instrument, uniformly
+indistinguishable from a constant `'\n'` emitter.**
+
+The **intermediate** ranking band is still owed and still unsupplied: this floor bounds a
+*degenerate* model from below and says nothing about what a genuinely different but equally good
+model produces, so **E14's `45.6%` remains unbanded.**

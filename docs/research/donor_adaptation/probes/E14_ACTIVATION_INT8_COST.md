@@ -268,3 +268,22 @@ not thereby gain it applying one per 32 channels, and the extra scales land in t
    prerequisite for any verdict that claims a conversion is harmless.
 5. **A Coder-7B repeat**, per section 4 — and note that E15 now measures whether that donor's
    shipped artifact predicts at all, which has to be answered before pricing a lever on it.
+
+---
+
+## 6. Appended 2026-09-08 after E18 — §5 item 3 is still owed, and here is what did NOT pay it
+
+E18 measured a floor for greedy agreement (`probes/E18_THE_RANKING_LADDER.md` part A, ledger §31.1):
+the best possible **constant** token predictor scores `11/160` at 0.5 B and `12/160` at 1.5 B, both
+`'\n'`. That is a lower bound on *degenerate* output, and it is the only band this programme has.
+
+**It does not band §3's `45.6%`.** The int8-activation arm is not a degenerate model — it reads
+`0.625503` BELOW the chance line, in the regime where BPB means what it usually means — so knowing
+what a constant emitter scores says nothing about what a *genuinely different but equally good*
+model scores against a reference continuation. **§5 item 3 — the intermediate ranking band — remains
+owed and unsupplied.** Until it exists, `45.6%` is a measured number without an interpretation, and
+the repaired `G-N1` (§4, distances from the reference) is still the only gate here that decides.
+
+E18 does add one thing §5 could not assume: the two instruments **can** be made to agree exactly
+when both are pointed at the same artifact. `G-L2` reproduced the engine's `12/160` and `10/160`
+from PyTorch with zero error, so a future band for §5 item 3 can be built in either harness.
