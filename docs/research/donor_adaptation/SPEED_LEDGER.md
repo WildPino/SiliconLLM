@@ -1758,3 +1758,114 @@ unmeasured one.
 
 **§19.3 is unchanged: the remaining gap is a property of the model. What E14 removes is the
 possibility of quietly buying 1.358× with a metric that was moving for the wrong reason.**
+
+---
+
+## §28 — E15: the artifact every donor rate is quoted on does not predict. `DOES-NOT-PREDICT`.
+
+Pre-registered `7c4243f`, amended `c92ffd4`, both pushed before any arm ran.
+Probe: `probes/E15_DOES_THE_7B_PREDICT.md`. Runner: `engine/e15_donor7b_bpb.py`.
+
+**No timing was taken in E15. No rate in §§12–27 moves. What moves is what the rate may be called.**
+
+### 28.1 The measurement
+
+Density `heldout`, 24×512, `ids_sha256 a1a48dc9fc5a6dc1`, 51,870 scored bytes, 4.229452 bytes/token,
+`--seqlen 512` passed explicitly, `--threads 6`. Chance line `log2(152064)/4.229452` = **4.070106**,
+band **0.000896** (the padded-vs-emittable vocab ambiguity, derived per E8 §3).
+
+| arm | what it is | BPB | vs chance | gate |
+|---|---|---|---|---|
+| **B0** | `qwen25-coder7b_f32.bin`, fp32 — **planted control** | **0.674026555** | **−3.396080** | **G-Q0 FIRES** (< 1.000) |
+| **B1** | `qwen25-coder7b_p.bin`, packed `R0` + `fold layers` + `--head-ternary` | **5.299200075** | **+1.229094** | **G-Q1 `DOES-NOT-PREDICT`** |
+| G-Q2 | `B1 − B0` | +4.625173520 | — | descriptive only (E12 §2) |
+
+**+1.229094 against a band of 0.000896 is 1,372× the band.** No vocabulary convention, slice choice
+or protocol detail comes within three orders of magnitude of closing it.
+
+### 28.2 What this does to the ledger's headline rate
+
+**The two halves of the E7 headline are about different artifacts.**
+
+| artifact | greedy vs PyTorch | BPB | rate |
+|---|---|---|---|
+| `qwen25-coder7b_f32.bin` | **160/160** (E7 §2) | **0.674027** — predicts | fp32 path |
+| `qwen25-coder7b_p.bin` | **0/160**, diverges at token 0, 5/5 prompts (E7 §5) | **5.299200** — worse than uniform | **6.79 tok/s** (§§12–19) |
+
+E7 §5 already said so — "R0 at 7 B collapses completely, and how much of that is the rule versus the
+scale is a separate experiment nobody has run" — and reported no BPB deliberately. **E15 ran it, and
+the answer is that the artifact is past the chance line.** What happened in between is that 4.46 and
+then 6.79 tok/s went on being quoted as *the rate on the real donor* while that sentence stayed true
+and unmeasured for a month.
+
+**Every engine number stands, and the reason is structural: a ternary weight costs the same
+bandwidth whatever scale multiplies it.** The kernel reads the same bytes in the same order and does
+the same work; the per-row scale is one multiply at the end. So **6.79 tok/s exact, 24.0 GB/s,
+48.0 G-weights/s, E8's 1.349×, E9's 1.056×, E10's `CORE-BOUND`, E11's `NO-LIFT`, E13's 1.358× lever
+and E14's `CHEAP-BUT-NOT-NEUTRAL` are all unaffected.**
+
+**§19.3 is unchanged. What §28 removes is the phrase "on a working 7 B".**
+
+### 28.3 The donor is fine, and it is the best one here
+
+| donor | fp32 BPB | chance | vs chance | source |
+|---|---|---|---|---|
+| Qwen2.5-0.5B | 0.871795 | 4.069819 | −3.198 | E12 §1 (PyTorch) |
+| Qwen2.5-1.5B | 0.767595 | 4.069819 | −3.302 | E12 §1 (PyTorch) |
+| Qwen2.5-3B | 0.724450 | 4.069819 | −3.345 | E12 §1 (PyTorch) |
+| **Qwen2.5-Coder-7B** | **0.674027** | 4.070106 | **−3.396** | **E15 (engine)** |
+
+**Monotone in scale, and the 7 B is the best model this programme has ever run** — on a
+prose-majority corpus (40% pg19 / 25% markdown / 25% python / 10% wikitext), with a code-specialised
+donor. The two conventions in the last column are interchangeable here: E1 §2.1 measured engine
+against PyTorch on the identical 0.5 B arm at `+1.5347e-05`. **This is also the first evidence
+bearing on the open "pull a real ~10 B" question: bigger donors keep paying, in fp32.**
+
+### 28.4 The format's speed value, stated as what it is
+
+E7's `--stage generate` ran both arms in the same run under the same conditions: fp32
+**1.382–1.392 tok/s**, packed **4.853–4.888** — a **3.51× ratio**. Those are **generate-stage
+figures, not witnessed `--bench` rates**; E7 §11's contention witness postdates them and validates
+nothing retroactively, so the **ratio** is the durable part and the absolutes are not quoted.
+
+**This programme has a 7 B that predicts and a 7 B that is 3.51× faster, and they are not the same
+7 B. Making them the same artifact is now the binding problem, and it is not an engine problem.**
+
+### 28.5 Predictions, scored — and the amendment made it worse
+
+| prediction | registered | measured | outcome |
+|---|---|---|---|
+| B0 fp32 control | **0.55 – 0.85** | 0.674027 | **INSIDE** |
+| B1, first draft (withdrawn) | above chance, 4.6 – 6.5 | 5.299200 | would have been **INSIDE** |
+| B1, amended (the one that stood) | 3.4 – 5.2, direction **not** called | 5.299200 | **MISSED by 0.099** |
+
+The first draft reasoned from E12's unfolded `R0` arms and landed. The amendment composed E2's fold
+credit (−0.529, measured at **0.5 B under R3**), T2's rule penalty (+1.600, measured at **1.5 B,
+FFN-only, fold none**) and a scale term — **three different configurations**. The brief named that
+"the exact move E12 was written to forbid" and did it anyway to set a bound, and **it degraded the
+estimate**: the fold credit measured under R3 did not carry to R0 at 7 B.
+
+**Rule, and it is E12's arriving from the other direction: composing measured deltas across
+configurations is not conservative just because each delta is measured.** The costliest half was
+refusing to call the direction — E12's R0 sweep and E7's 0/160 both supported the call that was
+declined.
+
+### 28.6 Owed — B2, and it is now the programme's most consequential open measurement
+
+1. **B2 — re-export the 7 B with `--rule R3 --calib-seqs 32`, keeping `--fold layers` and
+   `--head-ternary` so the RULE is the only variable against B1**, and re-measure on this slice.
+   **This is E7 §12 owed item 3, promoted from optional to load-bearing.** R3 is what
+   `e1_bpb_through_engine.py:395` ships for every other standing artifact, and **it works at 1.5 B**:
+   E1 reads `TQH` at **3.475707, 0.594 BELOW** the line. A ternary 7 B that predicts is not ruled out
+   by anything measured — it has never been built. Cost: R3 refuses the bf16 loader
+   (`qwen_export.py:243`), so the calibration pass runs under a float32 load at ~30 GB resident;
+   plus a 5.7 GB write and a ~31 min BPB run. **~2–3 h, one heavy job, run alone.**
+2. **B3 — the same export with `--fold none`**, which separates the two axes E15 could not: B1
+   differs from the standing 0.5 B/1.5 B artifacts on **both** rule and fold.
+3. **E12 §26.6 item 1 (the R3 sweep's 3 B cell) is now the same question one scale down** and should
+   be read together with B2.
+
+**If B2 also lands above the line, no rule in this exporter produces a working 7 B**, the binding
+constraint moves from the rule to the format, and the case for **training into the format rather
+than converting into it** — `SCALEUP_ARCHITECTURE`'s premise — stops being a preference and becomes
+the measured conclusion.

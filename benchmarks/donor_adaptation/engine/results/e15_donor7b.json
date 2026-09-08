@@ -1,0 +1,44 @@
+{
+ "brief": "briefs/BRIEF_E15_DOES_THE_7B_PREDICT.md",
+ "model": "Qwen/Qwen2.5-Coder-7B",
+ "smoke": false,
+ "slice": {
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "n_seq": 24,
+  "seq_len": 512,
+  "scored_bytes": 51870,
+  "n_predicted": 12264,
+  "bytes_per_token": 4.22945205479452
+ },
+ "chance_bpb": 4.070106221274352,
+ "chance_bpb_tokenizer_vocab": 4.069210016375126,
+ "band": 0.0008962048992255944,
+ "vocab_padded": 152064,
+ "tokenizer_len": 151665,
+ "threads": 6,
+ "arms": {
+  "B1": {
+   "weights": "D:\\_ktmp\\e7\\qwen25-coder7b_p.bin",
+   "nats_total": 190525.0244191215,
+   "n_predicted": 12264,
+   "nats_per_token": 15.535308579510886,
+   "bpb": 5.299200075086085,
+   "vs_chance": 1.229093853811733,
+   "seconds": 1859.943524837494,
+   "note": "packed R0 head-ternary -- the shipped artifact"
+  },
+  "B0": {
+   "weights": "D:\\_ktmp\\e7\\qwen25-coder7b_f32.bin",
+   "nats_total": 24233.6435831788,
+   "n_predicted": 12264,
+   "nats_per_token": 1.9759983352233204,
+   "bpb": 0.674026555236605,
+   "vs_chance": -3.3960796660377466,
+   "seconds": 9230.731388092041,
+   "note": "fp32 -- the planted control, must predict"
+  }
+ },
+ "G_Q0": true,
+ "G_Q1": "DOES-NOT-PREDICT",
+ "G_Q2_distance": 4.62517351984948
+}

@@ -383,7 +383,7 @@ per-`TIC` cost cancels in a difference, which is all §8.2 and §10.4 ever used.
 
 ---
 
-## 12. CORRECTION, filed 2026-09-07 while pre-registering E15 — the packed arm is `--fold layers`
+## 13. CORRECTION, filed 2026-09-07 while pre-registering E15 — the packed arm is `--fold layers`
 
 **§6 and brief §7 say both E7 arms are exported `--fold none`.** That is true of the fp32 arm and
 **false of the packed one**. The sidecars are the authority and they disagree with the prose:
@@ -418,3 +418,30 @@ load, and took the exporter's default fold.
 **Nothing above §12 has been edited.** §5's honest reading — "R0 at 7 B collapses completely, and
 how much of that is the rule versus the scale is a separate experiment nobody has run" — is what
 E15 was pre-registered to answer (`briefs/BRIEF_E15_DOES_THE_7B_PREDICT.md`, `7c4243f`).
+
+---
+
+## 14. §5's question is answered — E15, and it is worse than "collapses"
+
+§5 wrote that "R0 at 7 B collapses completely, and how much of that is the rule versus the scale is
+a separate experiment nobody has run", and deliberately reported no BPB. **E15 ran it.**
+`qwen25-coder7b_p.bin`, full 24×512 heldout slice, `--seqlen 512`:
+
+| arm | BPB | chance 4.070106 |
+|---|---|---|
+| fp32 `qwen25-coder7b_f32.bin` | **0.674026555** | **−3.396080** |
+| packed `qwen25-coder7b_p.bin` | **5.299200075** | **+1.229094** |
+
+**The packed artifact is 1.229 BPB WORSE than guessing uniformly.** §5's refusal to quote a number
+was right, and its `0/160` greedy — E7's planted control, required to fail — was reading a model
+that genuinely carries no information about the next token.
+
+**This does not move a single number in §§3, 8, 9, 10 or 11.** Those measured the engine on a
+ternary weight stream, and a ternary weight costs the same bandwidth whatever scale multiplies it.
+**What it removes is the right to call 6.79 tok/s a rate for a working 7 B model.** Both halves of
+E7's headline stay true and they are about different artifacts: the fp32 arm at `160/160` predicts
+(0.674027) and the packed arm at `4.853–4.888 tok/s` does not.
+
+**§12 owed item 3 is promoted, not closed.** E15 measured `R0` at 7 B; `R3` at 7 B has still never
+been built, and E15 §7 makes it the programme's most consequential open measurement — R3 reads
+3.475707 at 1.5 B, **0.594 below** the line, so a ternary 7 B that predicts is not ruled out.
