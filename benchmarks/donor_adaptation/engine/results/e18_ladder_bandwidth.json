@@ -1,0 +1,196 @@
+{
+ "note": "DERIVATION over measured quantities; no timing taken, none quotable",
+ "convention": "moved bytes throughout: 0.5 B/weight packed, 4 B/weight fp32, against 25.5 and 34.75 GB/s from the same sweeps",
+ "inputs": {
+  "packed_G_weights_per_s": 53000000000.0,
+  "packed_GB_s": 25500000000.0,
+  "fp32_GB_s": 34750000000.0,
+  "measured_7B_toks": 6.79,
+  "citations": {
+   "packed ceiling": "ledger s23.2/s23.3 (E10)",
+   "fp32 stream": "ledger s26 (E13), same sweep",
+   "6.79 tok/s": "ledger s19/s22"
+  },
+  "rate_span_G_w_s": {
+   "kernel bench low (s23.2)": 49.11,
+   "derived: 25.5 GB/s / 0.5 B-per-weight": 51.0,
+   "engine gate+up (s23.2)": 51.66,
+   "engine down (s23.2)": 52.22,
+   "kernel bench high (s23.2)": 52.95,
+   "ledger rounded companion (s23.3)": 53.0
+  }
+ },
+ "bytes_per_weight_verified": {
+  "artifact": "D:\\_ktmp\\e1\\qwen25-15b_tqh.bin",
+  "file_bytes": 1709047348,
+  "ternary_weights": 1543569408,
+  "embed_bytes": 933494784,
+  "scale_bytes": 3188224,
+  "norm_bytes": 350208,
+  "bias_bytes": 229376,
+  "header_bytes": 52,
+  "code_bytes": 771784704,
+  "bytes_per_weight": 0.5,
+  "bits_per_weight": 4.0
+ },
+ "derived_rates": {
+  "ternary_weights_per_s": 51000000000.0,
+  "fp32_weights_per_s": 8687500000.0,
+  "fp32_weight_costs_x_ternary": 5.870503597122302
+ },
+ "rate_span_note": "ledger s23.3 pairs ~25.5 GB/s with ~53 G-w/s, but 25.5/0.5 = 51.0; the two companion numbers disagree by 4%, so the budget is given across the measured span rather than at one rounded point",
+ "budget": {
+  "good_50": {
+   "tok_s": 50.0,
+   "active_ternary_weights_low": 982200000.0,
+   "active_ternary_weights_high": 1060000000.0,
+   "share_of_a_10B_model_low": 0.09822,
+   "share_of_a_10B_model_high": 0.106,
+   "per_rate": {
+    "derived: 25.5 GB/s / 0.5 B-per-weight": {
+     "weights": 1020000000.0,
+     "share_of_10B": 0.102
+    },
+    "engine down (s23.2)": {
+     "weights": 1044400000.0,
+     "share_of_10B": 0.10444
+    },
+    "engine gate+up (s23.2)": {
+     "weights": 1033200000.0,
+     "share_of_10B": 0.10332
+    },
+    "kernel bench high (s23.2)": {
+     "weights": 1059000000.0,
+     "share_of_10B": 0.1059
+    },
+    "kernel bench low (s23.2)": {
+     "weights": 982200000.0,
+     "share_of_10B": 0.09822
+    },
+    "ledger rounded companion (s23.3)": {
+     "weights": 1060000000.0,
+     "share_of_10B": 0.106
+    }
+   }
+  },
+  "great_100": {
+   "tok_s": 100.0,
+   "active_ternary_weights_low": 491100000.0,
+   "active_ternary_weights_high": 530000000.0,
+   "share_of_a_10B_model_low": 0.04911,
+   "share_of_a_10B_model_high": 0.053,
+   "per_rate": {
+    "derived: 25.5 GB/s / 0.5 B-per-weight": {
+     "weights": 510000000.0,
+     "share_of_10B": 0.051
+    },
+    "engine down (s23.2)": {
+     "weights": 522200000.0,
+     "share_of_10B": 0.05222
+    },
+    "engine gate+up (s23.2)": {
+     "weights": 516600000.0,
+     "share_of_10B": 0.05166
+    },
+    "kernel bench high (s23.2)": {
+     "weights": 529500000.0,
+     "share_of_10B": 0.05295
+    },
+    "kernel bench low (s23.2)": {
+     "weights": 491100000.0,
+     "share_of_10B": 0.04911
+    },
+    "ledger rounded companion (s23.3)": {
+     "weights": 530000000.0,
+     "share_of_10B": 0.053
+    }
+   }
+  }
+ },
+ "coder7b": {
+  "attn": 822083584,
+  "ffn": 5703204864,
+  "head": 544997376,
+  "active_per_token": 7070285824,
+  "shares": {
+   "ffn": 0.8066441733713989,
+   "attn": 0.11627303399948093,
+   "head": 0.07708279262912017
+  }
+ },
+ "ladder": [
+  {
+   "arm": "base",
+   "ternary_organs": [],
+   "ternary_weights": 0,
+   "fp32_weights": 7070285824,
+   "seconds_per_token_weight_path": 0.8138458502446043,
+   "tok_s_weight_path": 1.2287339177307919,
+   "short_of_50": 40.69229251223022
+  },
+  {
+   "arm": "H",
+   "ternary_organs": [
+    "head"
+   ],
+   "ternary_weights": 544997376,
+   "fp32_weights": 6525288448,
+   "seconds_per_token_weight_path": 0.761798562396953,
+   "tok_s_weight_path": 1.312682970749591,
+   "short_of_50": 38.08992811984765
+  },
+  {
+   "arm": "A",
+   "ternary_organs": [
+    "attn"
+   ],
+   "ternary_weights": 822083584,
+   "fp32_weights": 6248202240,
+   "seconds_per_token_weight_path": 0.7353368099895613,
+   "tok_s_weight_path": 1.3599210408278022,
+   "short_of_50": 36.766840499478064
+  },
+  {
+   "arm": "F",
+   "ternary_organs": [
+    "ffn"
+   ],
+   "ternary_weights": 5703204864,
+   "fp32_weights": 1367080960,
+   "seconds_per_token_weight_path": 0.26918938347524335,
+   "tok_s_weight_path": 3.7148567565702955,
+   "short_of_50": 13.459469173762168
+  },
+  {
+   "arm": "FA",
+   "ternary_organs": [
+    "attn",
+    "ffn"
+   ],
+   "ternary_weights": 6525288448,
+   "fp32_weights": 544997376,
+   "seconds_per_token_weight_path": 0.19068034322020033,
+   "tok_s_weight_path": 5.244379064522587,
+   "short_of_50": 9.534017161010016
+  },
+  {
+   "arm": "FAH",
+   "ternary_organs": [
+    "attn",
+    "ffn",
+    "head"
+   ],
+   "ternary_weights": 7070285824,
+   "fp32_weights": 0,
+   "seconds_per_token_weight_path": 0.13863305537254902,
+   "tok_s_weight_path": 7.213286883944792,
+   "short_of_50": 6.931652768627451
+  }
+ ],
+ "sanity": {
+  "FAH_weight_path_tok_s": 7.213286883944792,
+  "measured_engine_tok_s": 6.79,
+  "ratio": 1.0623397472672742,
+  "note": "the weight path alone is an UPPER bound; the engine also does attention math, norms, softmax and the glue, so measured < derived is the expected direction"
+ }
+}
