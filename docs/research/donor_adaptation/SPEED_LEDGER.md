@@ -1869,3 +1869,103 @@ declined.
 constraint moves from the rule to the format, and the case for **training into the format rather
 than converting into it** — `SCALEUP_ARCHITECTURE`'s premise — stops being a preference and becomes
 the measured conclusion.
+
+---
+
+## §29 — E16: the rule was most of it, and fixing it still does not predict. `SCORE-CROSSES-RANK-DOES-NOT`.
+
+Pre-registered `be65920`, runner `2247923`, control `34e7ba3`, all pushed before the arms ran.
+Probe: `probes/E16_R3_AT_7B.md`.
+
+**No timing was taken in E16. No rate in §§12–28 moves.**
+
+### 29.1 The measurement
+
+Same slice, protocol and binary as E15: heldout 24×512, `--seqlen 512`, `--threads 6`, chance
+**4.070106** (V=152064) band **0.000896**; Qwen2.5 chance 4.069819.
+
+| arm | rule | fold | BPB | vs chance | greedy vs fp32 |
+|---|---|---|---|---|---|
+| **C0** Qwen2.5-1.5B, planted control | R3 | none | 3.475706372 | −0.594113 | — |
+| **B1** E15's shipped artifact | R0 | layers | 5.299200075 | +1.229094 | **0/160** |
+| **B2** | **R3** | layers | **4.017232598** | **−0.052874** | **0/160** |
+| **B3** | R3 | none | 4.168325483 | +0.098219 | **0/160** |
+| fp32 (E15's B0) | — | — | 0.674026555 | −3.396080 | 160/160 |
+
+- **G-R0 FIRES** — C0 reproduces E1's `3.475706691632780` to **3.20e-07** (tol 0.01, predicted
+  `<1e-4`).
+- **G-R1 `RULE-FIXES-IT`**, B2 0.052874 below the line = 59× the band.
+- **G-R2 = −1.281967477** — the rule's worth at 7 B with everything else fixed, and a damage figure
+  rather than a distance because B2 is below the line (E12 §2).
+- **G-R3: B3 is +0.098219 ABOVE**; `B3 − C0 = +0.692618791`.
+- **G-R4 = −0.151092884** — the fold, and the entire reason B2 is below the line where B3 is above.
+
+### 29.2 The two metrics disagree, and that is the result
+
+B2 is **0.155 nats/token** better than uniform (11.777051 vs `ln(152064)` = 11.932057) — 59× the
+band, so it carries real information — **and agrees with its own fp32 donor on 0 of 160 greedy
+tokens, diverging at token 0**, identical to E7's planted control.
+
+**`RULE-FIXES-IT` is true of the band and false of the model.** E14's law, written one day earlier
+against a different experiment — *pair every scoring metric with a ranking one* — is what caught
+it, and **E16's brief registered only scoring metrics**. The ranking run (`e16_greedy_rank.py`) was
+added afterwards and **reports rather than decides**, per E14 §6. The registered gate set would have
+announced that the rule fixes a model which never once picks the donor's next token. It validates
+itself first: B1 reproduces E7's published `0/160` against E7's own stored fp32 continuations.
+
+### 29.3 R3's damage grows with scale too
+
+| donor | R3, fold none | vs chance |
+|---|---|---|
+| 0.5 B | 4.531234 | +0.461415 |
+| 1.5 B | 3.475707 | −0.594112 |
+| **7 B** | **4.168325** | **+0.098219** |
+
+**Non-monotone: above, well below, back above.** E12 found `R0`'s damage grows with scale; `R3`'s
+does too — it starts from a better place and takes one more octave to show it. The 1.5 B → 7 B step
+crosses model families, so `+0.692619` is not a pure scale term and is not reported as one.
+
+**The fold is load-bearing and shrinking**: −0.529 (0.5 B, E2), −0.220 (1.5 B, T3), **−0.151
+(7 B, E16)**. E15's B1 was a wrong rule over a *correct* fold — and this is by how much E15's
+amended prediction was wrong to import the 0.5 B credit.
+
+### 29.4 Predictions, scored
+
+| gate | registered | measured | outcome |
+|---|---|---|---|
+| G-R0 | `< 1e-4` | 3.20e-07 | **INSIDE** |
+| G-R1 | below the line, 2.3–4.0 | 4.017233 | direction RIGHT, band missed by 0.018 |
+| G-R2 | −3.0 to −1.3 | −1.281967 | **the same constraint as G-R1**, one miss not two |
+| G-R3 | below the line, 2.5–4.0 | 4.168325 | **DIRECTION WRONG** |
+| export | 1–3 h | 0.51 h, 0.46 h | below the band |
+
+**G-R3 is the real failure and the reasoning failed before the band did**: a trend extrapolated
+from two points in the same configuration. The brief defended that as legitimate against E15's
+cross-configuration composition, and noted in the same paragraph that two points cannot establish
+curvature — then relied on them. **Rule: a trend read from two points is a direction, not a law.**
+What worked was calling directions at all; E15's post-mortem said refusing to was the costlier half.
+
+### 29.5 Where it leaves the goal
+
+**§19.3 is unchanged and 6.79 tok/s exact stands.** The engine is at 97% of this machine's
+demonstrated streaming rate on the weight path with the kernel on its own ceiling at every
+footprint; the donor is excellent (0.674027 fp32, monotone in scale); **the conversion destroys it,
+the rule was most of the destruction, the fold is load-bearing, and what remains after fixing both
+is still at chance.**
+
+E15's conditional — *"if B2 also lands above the line, the binding constraint moves from the rule to
+the format"* — did not fire as written, because B2 landed 0.053 **below**. **The greedy result
+reaches the same place by another route.** With the honest qualifiers that only two of four rules
+were tested and no clean scale axis was available, **the binding constraint at this scale is the
+format, not the rule**, and *training into the format rather than converting into it* becomes a
+measured conclusion rather than a preference.
+
+### 29.6 Owed
+
+1. **A ranking band** — E14 §5 item 3, now twice load-bearing. Without it `0/160` and `45.6%` are
+   observations that cannot convict.
+2. **`R1`/`R2` at 7 B**, if a cheap 1.5 B screen suggests either beats R3 there.
+3. **Qwen2.5-7B** for a clean scale axis (~15 GB), so `+0.692619` can be attributed.
+4. **The 3 B cell of the R3 sweep** (E12 §26.6 item 1) — the point between R3's minimum at 1.5 B and
+   its return to the line at 7 B.
+5. **A fold sweep at 3 B**, to test whether −0.529 / −0.220 / −0.151 is smooth.

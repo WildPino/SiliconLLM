@@ -1,0 +1,146 @@
+{
+ "brief": "briefs/BRIEF_E16_R3_AT_7B.md -- NOT a registered gate",
+ "not_a_gate": "E14 s6's rule: no band for this was justified before the run, so no verdict is read off it",
+ "model": "Qwen/Qwen2.5-Coder-7B",
+ "n_new": 32,
+ "prompts": [
+  "The capital of France is",
+  "def fibonacci(n):",
+  "Water boils at",
+  "The three laws of motion were formulated by",
+  "import numpy as np"
+ ],
+ "threads": 6,
+ "reference": "E7 f32_p*.ids.bin (qwen25-coder7b_f32.bin, 160/160 vs PyTorch)",
+ "arms": {
+  "B1": {
+   "weights": "D:\\_ktmp\\e7\\qwen25-coder7b_p.bin",
+   "note": "R0, fold layers -- E7's planted control, 0/160",
+   "agree": 0.0,
+   "matched": 0,
+   "counted": 160,
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 1,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 2,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 3,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 4,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0
+    }
+   ]
+  },
+  "B2": {
+   "weights": "D:\\_ktmp\\e7\\qwen25-coder7b_p_r3.bin",
+   "note": "R3, fold layers -- BPB 4.017233, -0.052874 vs chance",
+   "agree": 0.0,
+   "matched": 0,
+   "counted": 160,
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 1,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 2,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 3,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 4,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0
+    }
+   ]
+  },
+  "B3": {
+   "weights": "D:\\_ktmp\\e7\\qwen25-coder7b_p_r3_nofold.bin",
+   "note": "R3, fold none",
+   "agree": 0.0,
+   "matched": 0,
+   "counted": 160,
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 1,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 2,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 3,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 4,
+     "matched": 0,
+     "of": 32,
+     "diverges_at": 0
+    }
+   ]
+  }
+ }
+}

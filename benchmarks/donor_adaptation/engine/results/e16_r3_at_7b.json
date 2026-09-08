@@ -23,11 +23,50 @@
    "vs_chance": -0.5941126015367035,
    "seconds": 488.87791776657104,
    "note": "1.5B R3 fold-none -- PLANTED CONTROL, must reproduce E1 and sit below chance"
+  },
+  "B2": {
+   "weights": "D:\\_ktmp\\e7\\qwen25-coder7b_p_r3.bin",
+   "model": "Qwen/Qwen2.5-Coder-7B",
+   "vocab_padded": 152064,
+   "tokenizer_len": 151665,
+   "scored_bytes": 51870,
+   "bytes_per_token": 4.22945205479452,
+   "chance_bpb": 4.070106221274352,
+   "band": 0.0008962048992255944,
+   "nats_total": 144433.7500135936,
+   "n_predicted": 12264,
+   "nats_per_token": 11.777050718655708,
+   "bpb": 4.0172325984501205,
+   "vs_chance": -0.05287362282423125,
+   "seconds": 1973.3049354553223,
+   "note": "7B R3 fold-LAYERS -- the rule at 7B, everything else as B1"
+  },
+  "B3": {
+   "weights": "D:\\_ktmp\\e7\\qwen25-coder7b_p_r3_nofold.bin",
+   "model": "Qwen/Qwen2.5-Coder-7B",
+   "vocab_padded": 152064,
+   "tokenizer_len": 151665,
+   "scored_bytes": 51870,
+   "bytes_per_token": 4.22945205479452,
+   "chance_bpb": 4.070106221274352,
+   "band": 0.0008962048992255944,
+   "nats_total": 149866.0747218484,
+   "n_predicted": 12264,
+   "nats_per_token": 12.21999956962234,
+   "bpb": 4.168325482913159,
+   "vs_chance": 0.0982192616388069,
+   "seconds": 1964.0302653312683,
+   "note": "7B R3 fold-none -- the scale, rule and fold fixed against C0"
   }
  },
  "G_R0": {
   "fires": true,
   "abs_delta_vs_e1": 3.197804656629444e-07,
   "tol": 0.01
- }
+ },
+ "G_R1": "RULE-FIXES-IT",
+ "G_R2_vs_B1": -1.2819674766359643,
+ "G_R3": "RULE-IS-NOT-THE-PROBLEM",
+ "G_R3_vs_C0_reference": 0.6926187912803785,
+ "G_R4_fold": -0.15109288446303815
 }
