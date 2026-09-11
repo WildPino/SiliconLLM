@@ -184,3 +184,40 @@ and `+3.309` on the FFN organs. Both numbers replicate exactly. What changes is 
    *new* starting point.
 4. **D4b** is no longer optional bookkeeping: two of the best arms here are calibration-driven and
    their budget has never been swept.
+
+---
+
+## 10. Appended 2026-09-11 after E20 — this probe's rules, read in RANKING for the first time
+
+T2 measured six rules in **BPB only**; the ranking instrument did not exist yet. E20 applied this
+probe's own definitions — imported from `t2_rules`, not restated — to `lm_head` on the 1.5 B and
+read greedy agreement against the donor's own continuations
+(`probes/E20_RULE_OR_FORMAT.md`, ledger §33). Floor `12/160` (E18 part A):
+
+| rule | BPB on the head | greedy | teacher-forced top-1 | mean rank of donor token |
+|---|---|---|---|---|
+| `R0` | `1.319900` | 17/160 | 107/160 | `16.92` |
+| `R1` | `1.280712` | 13/160 | 114/160 | `12.85` |
+| `R2` | `1.288465` | **41/160** | 116/160 | `13.96` |
+| **`R3`** (this probe's winner) | `1.106584` | 9/160 | 110/160 | `2.98` |
+| `R4` | `1.031616` | 15/160 | 115/160 | `2.40` |
+| **`R5`** (this probe's post-hoc best) | `0.940203` | 9/160 | 112/160 | `2.71` |
+
+**§4's ordering is confirmed in BPB and does not survive into ranking.** `R5` beats `R3` by
+`−0.166380` on the head against this probe's `−0.449472` on the FFN — same sign, and §4's
+decomposition is not in question. But `R3` and `R5` score **identically at 9/160**, and the best
+ranking in the table belongs to `R2`, the *unweighted* search, which §4 shows is `−0.914` worse
+in BPB than weighting by activation RMS.
+
+**E20 part B supplies the mechanism, and it vindicates this probe's objective while limiting it.**
+With the donor's context held fixed, the data-aware rules put the donor's token at mean rank
+`2.40`-`2.98` versus `12.85`-`16.92` for the weight-space rules — **the activation weighting does
+exactly what §4 says it does, it preserves the logit geometry.** What it does not preserve
+preferentially is the top-1/top-2 boundary, which is where argmax lives.
+
+**Two things this changes for this probe.** §3's `⚠ R5 is POST-HOC and gates nothing` was correct
+discipline and stands. Its untracked consequence is now recorded: **`R5` is not implemented in
+`qwen_export.quantize`**, which dispatches `R0`/`R1`/`R2`/`R3` only, so **the best rule this probe
+measured has never been in a shipped artefact**. And E20's brief mis-stated the shipped rule as
+`R0`, which its replication gate caught — `t2_rules.r3_actsearch` **does** use calibration
+activations, on the head included.

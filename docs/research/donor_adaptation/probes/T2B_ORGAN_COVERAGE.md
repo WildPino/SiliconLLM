@@ -224,3 +224,31 @@ tokens, the same point.
 **And §4's ordering does not survive the second metric**: the best-BPB converted arm here (`H`,
 `1.106584`) ranks **worse** (`9/160`) than the worst (`FA`, `3.484251` → `12/160`);
 `r(BPB, agreement) = +0.4989` across the five, the wrong sign.
+
+---
+
+## 10. Appended 2026-09-11 after E20 — the `H` arm replicated to 1.09e-08, and the rule axis on it
+
+E20 needed an anchor before it could read any new ternary head, and this probe's `H` arm was it.
+**Not re-derived: E20's `R3H` arm calls `t2b_organs.apply_arm(model, "H", act_rms, None)` — this
+file's own code path** — over this file's own calibration slice (32×512, seed 42424).
+
+**`G-Q2` fires on both published anchors.** BPB `1.1065835970951252` against §3's
+`1.1065836079824596`, **absolute difference `1.09e-08`**, and **`9/160`** against E18's ladder. A
+first attempt (E20 run 1, `6c7b7a4`) used `mean|w|` RTN instead of `r3_actsearch` and read
+`1.319900` / `17/160`; **the gate VOIDed that run**, which is the cleanest demonstration this
+probe's numbers have had that they are reproducible and that they discriminate.
+
+**The rule axis on the head, which §8's organ axis could not reach.** Holding the format exactly
+fixed and changing only how codes and scales are chosen (`probes/E20_RULE_OR_FORMAT.md`):
+
+| rule on `lm_head` | BPB | Δ vs base | greedy |
+|---|---|---|---|
+| `R3` — **this probe's arm `H`** | `1.106584` | `+0.338989` | 9/160 |
+| `R5` (GPTQ + act-searched scale) | `0.940203` | `+0.172608` | 9/160 |
+| best available (`GPTQH`) | `0.938009` | **`+0.170414`** | 11/160 |
+
+§3's `+0.338989` for the head **can be halved by a better rule and the ranking does not move.**
+Nothing here is withdrawn — the BPB replicated to eight decimal places — but the head's cost is
+not a property of the head, it is a property of `R3`, and the ranking failure is a property of
+neither.

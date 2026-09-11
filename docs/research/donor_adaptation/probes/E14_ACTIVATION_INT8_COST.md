@@ -287,3 +287,30 @@ the repaired `G-N1` (§4, distances from the reference) is still the only gate h
 E18 does add one thing §5 could not assume: the two instruments **can** be made to agree exactly
 when both are pointed at the same artifact. `G-L2` reproduced the engine's `12/160` and `10/160`
 from PyTorch with zero error, so a future band for §5 item 3 can be built in either harness.
+
+---
+
+## 7. Appended 2026-09-11 after E20 — §5 item 3's intermediate band, supplied and then qualified
+
+§5 item 3 asked for a ranking measurement strictly between "at the floor" and "reproduces the
+donor", so that a number like this probe's `45.6%` could be banded. E17, E18 and E19 all failed to
+supply one. **E20 supplies four** (`probes/E20_RULE_OR_FORMAT.md` §4): ternary heads scoring `17`,
+`41`, `15` and `42` of 160 against a floor of `12` and a `RANKS` bar of `80`.
+
+**Two qualifications come with them, and both matter for how §5 item 3 should be used.**
+
+**The band is not partial competence.** `R2H` scores `[1, 3, 32, 2, 3]` across the five prompts and
+`OPTH` `[2, 2, 32, 3, 3]`: each reproduces **one prompt whole** and sits at floor noise on the
+other four. **160 positions are five trials of thirty-two**, so the instrument's effective *n* is
+**5** and the difference between `41/160` and `9/160` is largely which prompt survived.
+
+**And §6's law applies to the metric itself.** E20 part B teacher-forces the donor's own context
+and finds every ternary head keeps the donor's token first at **67-74%** of positions, against
+`6`-`26%` free-running. Free-running greedy agreement is **per-step argmax fidelity convolved with
+autoregressive drift**; the exact identity `G-B1` (`50/50`) ties the two harnesses together.
+
+**This does not re-open this probe's verdict** — `CHEAP-BUT-NOT-NEUTRAL` was read off `G-N3`'s
+free-running greedy, which is what a runnable model does. It does mean **`45.6%` is still not
+banded**: it is a different treatment (int8 activations, not a ternary head) on a compound metric,
+and the honest reading is that it needs its own teacher-forced number, which is now cheap
+(`459 s` for ten arms).

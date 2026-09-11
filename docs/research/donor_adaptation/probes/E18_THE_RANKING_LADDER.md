@@ -225,3 +225,28 @@ alternative; **E18 gives the constraint a number on both axes.**
    recorded: both are worse than `R3` at equal coverage, and `R3` at *any* coverage is now at the
    floor, so they cannot open a route.
 5. Everything E16 §9 still owes: the 3 B cell of the R3 sweep, a clean scale axis, a fold sweep.
+
+---
+
+## 10. Appended 2026-09-11 after E20 — the floor is doing more work than part A could show
+
+Part A's floor (`12/160`, best constant-token predictor, `'\n'`) has now gated three experiments.
+E20 used it unchanged and produced the first arms above it (`probes/E20_RULE_OR_FORMAT.md`,
+ledger §33): `17`, `41`, `15`, `42` of 160.
+
+**Part B's `H` arm is replicated exactly.** E20's `R3H` — `t2b_organs.apply_arm(model, "H", ...)`,
+this ladder's own construction — reads **`9/160`**, identical to this probe's rung, and BPB
+`1.1065835970951252` against T2b's `1.1065836079824596`.
+
+**And the cliff is partly an artefact of the metric, though not of this probe's conclusion.**
+E20 part B teacher-forces the donor's context and finds every ternary head keeps the donor's token
+first at **67-74%** of positions. So the ladder's rungs are not "empty": `H` at `9/160` is a head
+that is right 110 times out of 160 per step and cannot survive its first mistake. **`CLIFF-NOT-
+SLOPE` stands as a statement about free-running behaviour** — which is what a runnable model does
+— but the cliff is in the *compounding*, not in the per-step damage, and part A's floor is what
+makes the compounded numbers look flat.
+
+**§7's `r(BPB, agreement) = +0.4989` has a third data point.** E19 read `−0.8562`, E20 reads
+**`+0.6238`**. Inside the ternary regime the sign of this correlation is not stable, and E20 part B
+says why: BPB tracks the logit geometry, which the data-aware rules preserve well, while argmax
+tracks the top-1/top-2 boundary, which none of them protects.

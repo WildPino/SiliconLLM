@@ -241,3 +241,29 @@ known-positive band (three readings, all exactly `160/160`) and the known-negati
 intermediate agreements**, so E14's `45.6%` stays unbanded, and it adds a new prerequisite — there
 is no measured floor for agreement by *frequency coincidence*, so `12/160` is not yet known to beat
 zero information.
+
+---
+
+## 11. Appended 2026-09-11 after E20 — §9's rule qualifier, discharged on one tensor
+
+This probe promoted the constraint **from the rule to the format** and recorded in the same breath
+that **only 2 of 4 rules had been tested**. E20 tested **six**, holding the format exactly fixed at
+what `QWENDON1` stores and changing only how codes and scales are chosen, on `lm_head` at 1.5 B
+(`probes/E20_RULE_OR_FORMAT.md`, ledger §33).
+
+**The promotion survives.** The best ternary head anyone here can build — GPTQ with a
+Hessian-searched scale — costs `+0.170414` BPB over the intact donor, sits `3.131810` **below**
+the chance line, and agrees with its own donor on **11 of 160** greedy positions: **below the
+`12/160` constant-token floor.** Six rules, two of them the literature's strongest post-training
+quantizers, and **not one reaches the `RANKS` band.**
+
+**One correction this probe should carry.** E20's brief claimed the programme had only ever run
+weight-space rules; that is false, and `t2_rules.r3_actsearch` — the rule this probe's own arms
+used — is activation-weighted. The qualifier §9 recorded was about *E16's* sweep, not the
+programme's, and T2 had already run GPTQ on the FFN (`R4` `4.299819`, `R5` `2.027495`).
+
+**And one thing §9 could not have known.** E20 part B shows this probe's `0/160` and the whole
+family of near-zero agreements are **compound**: per-step argmax fidelity at fixed context is
+`67`-`74%`, and the rest is autoregressive drift. `SCORE-CROSSES-RANK-DOES-NOT` stands as a
+statement about free-running behaviour. The mechanism behind it was not "the model cannot choose a
+token"; it is "the model chooses two times in three and cannot survive the third".

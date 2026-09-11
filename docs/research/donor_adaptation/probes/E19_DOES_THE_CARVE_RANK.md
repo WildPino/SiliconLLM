@@ -179,3 +179,28 @@ now have to repair a model that is degenerate under *either* kind of modificatio
    never attempted, and prima facie hostile to E17's finding that the head is where ranking lives.
 4. A re-read of **D0 §III and D0c §5**: their decisions rest on a BPB gap (`0.720513`) that §4 shows
    carries no ranking signal. Their numbers stand; the decisions built on them need restating.
+
+---
+
+## 9. Appended 2026-09-11 after E20 — the carve's floor readings are compound too
+
+§8 item 2 recorded that every arm here was degenerate and so this probe could not supply the
+intermediate band E14 §5 item 3 asked for. E20 supplied four such points and then showed what they
+are worth (`probes/E20_RULE_OR_FORMAT.md`, ledger §33): **160 greedy positions are five trials of
+thirty-two**, and two of the four intermediate arms are one prompt at `32/32` plus floor noise.
+
+**More directly relevant to this probe**: E20 part B teacher-forces the donor's own context and
+finds ternary heads keep the donor's token first at **67-74%** of positions against `6-26%`
+free-running, with an exact identity (`G-B1`, `50/50`) tying the two harnesses. **Every agreement
+number in §5 — `V52` 12, `S1` 7, `A0` 5, `N0` 6, `D10` 3 — is therefore a compound** of per-step
+argmax fidelity and autoregressive drift, and none of them has been decomposed. **`V52`'s
+`12/160` at `+0.141846` BPB is the cell most likely to be understating a carve**: its BPB cost is
+smaller than any head arm E20 measured, and no teacher-forced number exists for it.
+
+**Nothing here is withdrawn.** `CARVE-DOES-NOT-RANK` is a statement about free-running generation,
+which is what a runnable model does, and part A's arithmetic — FFN-only carving cannot reach
+50 tok/s at any depth — is untouched by any of this. **Owed, new: teacher-forced top-1 for the
+carve arms**, which is cheap and would say whether a carve damages a step or only compounds.
+
+**§7's `r(BPB, agreement) = −0.8562`, the expected sign, is now the minority reading**: E18 gave
+`+0.4989` and E20 `+0.6238`. Two of three occurrences have the wrong sign.

@@ -2374,3 +2374,140 @@ repair a model degenerate under *either* kind of modification.
 3. **Carving attention and the head** — what part A says the target actually requires.
 4. A re-read of **D0 §III and D0c §5**, whose decisions rest on a BPB gap §32.4 shows carries no
    ranking signal. Their numbers stand; the decisions built on them need restating.
+
+---
+
+## §33 — E20: the rule axis is exhausted, and the ranking metric was two things.
+`RULE-EXHAUSTED-DRIFT-DOMINATES`.
+
+Brief `briefs/BRIEF_E20_RULE_OR_FORMAT.md`, **pushed before any arm ran** (`e5d438c`); run 1 VOID
+(`6c7b7a4`); probe `probes/E20_RULE_OR_FORMAT.md`. Part A 3449 s, part B 459 s, `VOID: none`.
+**No timing taken. `6.79 tok/s` stays exact; §19.3 unchanged.**
+
+§29 promoted the constraint from the rule to the format while recording that only 2 of 4 rules had
+been tested. §§30–32 then eliminated the head, the organ ladder and structural sparsity. E20 pays
+off §29's qualifier on the one tensor whose job is ranking.
+
+### 33.1 The gate voided run 1, and the brief's premise with it
+
+`BRIEF_E20` §0 asserts that every ternarization here is `mean|w|` round-to-nearest, citing
+`t1_ternarize.py:97-98`. **That is `R0`.** The shipped rule is `qwen_export.quantize` under
+`--rule R3` = `t2_rules.r3_actsearch`, an **activation-RMS-weighted** per-row threshold search over
+the calibration slice, and `qwen_export.py:148` hooks `lm_head` too — **the shipped head
+quantization already looks at tokens.** Run 1's `R3H` was therefore `R0` on the head and `G-Q2`
+read `1.319900` / `17/160` against the registered `1.106584` / `9/160`. **VOID as registered.**
+
+GPTQ was also not untried: `t2_rules.r4_gptq` has existed since T2, which ran it on the FFN —
+`R4` `4.299819` (**above** the chance line) and `R5` `2.027495`, **the best rule ever measured
+here**, `0.449472` better than the shipped `R3` and marked post-hoc under T2's own decision rule.
+Its consequence had gone unstated: **`R5` is not implemented in the exporter** (`quantize`
+dispatches `R0`/`R1`/`R2`/`R3` only) and had never been read in ranking. The decomposition row
+`GPTQ error compensation on a well-placed grid − 0.449` has been sitting in `INDEX.md` §3 the
+whole time.
+
+Run 2 imports every rule from `t2_rules` — *one definition each* — and its `R3H` arm is
+`t2b_organs.apply_arm(model, "H", act_rms, None)` itself.
+
+### 33.2 Part A — eight ternary heads, one format, none of them ranks
+
+Format held exactly at what `QWENDON1` stores: ternary codes, **one fp32 scale per output row**,
+same bytes, same kernel, `0.500000` B/weight. `lm_head` only; every other weight bit-exact.
+Bands unchanged from §§30–32: floor `12`, margin `2`, `AT-FLOOR ≤ 14`, `RANKS ≥ 80`.
+
+| arm | knows the data? | BPB | Δ vs base | vs chance `4.069819` | greedy | band |
+|---|---|---|---|---|---|---|
+| `base` / `ID` | — | `0.767595` | `0.000000` | `−3.302224` | **160/160** | — |
+| `R0H` `mean|w|` RTN | no | `1.319900` | `+0.552305` | `−2.749919` | 17/160 | PARTIAL |
+| `R1H` TWN | no | `1.280712` | `+0.513117` | `−2.789107` | 13/160 | AT-FLOOR |
+| `R2H` unweighted search | no | `1.288465` | `+0.520871` | `−2.781354` | **41/160** | PARTIAL |
+| **`R3H` SHIPPED** | yes | `1.106584` | `+0.338989` | `−2.963235` | 9/160 | AT-FLOOR |
+| `R4H` GPTQ | yes | `1.031616` | `+0.264021` | `−3.038203` | 15/160 | PARTIAL |
+| `R5H` GPTQ + act scale | yes | `0.940203` | `+0.172608` | `−3.129616` | 9/160 | AT-FLOOR |
+| `OPTH` scale grid (E20's) | no | `1.293924` | `+0.526329` | `−2.775895` | **42/160** | PARTIAL |
+| **`GPTQH`** (E20's) | yes | **`0.938009`** | **`+0.170414`** | `−3.131810` | 11/160 | **AT-FLOOR** |
+
+**The registered verdict arm reads `AT-FLOOR`**, so the brief's registered alternative — *"if
+`GPTQH` comes back `RANKS` or `PARTIAL` the conversion route reopens"* — **does not fire.** The
+best ternary head anyone here can build costs `+0.170414` BPB, sits `3.131810` below chance, and
+agrees with its own donor on 11 of 160 tokens, **below the constant-`'\n'` floor.**
+
+Gates: `G-Q0` `160/160`; `G-Q1` token-identical, BPB diff `0.000e+00`; **`G-Q2` hits BOTH published
+anchors — `1.1065835970951252` against T2b's `1.1065836079824596` (`abs diff 1.09e-08`) and `9/160`
+against E18's `9`.** `G-Q4` holds: the best-BPB arm is data-aware, and `R5H − R3H = −0.166380`
+here against `−0.449472` on T2's FFN.
+
+**`r(BPB, agreement) = +0.6238` over a `0.381891` BPB span — the wrong sign, third occurrence**
+(§31 `+0.4989`, §32 `−0.8562`). The two best-ranking heads are both **data-free** and are the
+worst-scoring of the search family.
+
+### 33.3 The `PARTIAL` band is one prompt, and that prompt has no near-tie
+
+E14 §5 item 3 has owed an intermediate point since 2026-09-07. E20 produces four — and the split
+shows what they are: `R2H` scores `[1, 3, 32, 2, 3]` and `OPTH` `[2, 2, 32, 3, 3]`. **Both
+reproduce prompt 2 WHOLE and sit at floor noise on the other four.** Prompt 2 is not degenerate
+(18 distinct ids in 32 tokens) and it is **the only prompt with no near-tie anywhere**: its minimum
+donor top-2 gap is `1.1630` while prompts 0/1/3/4 dip to `0.0739`/`0.0453`/`0.2740`/`0.0081`.
+
+**160 positions are five trials of thirty-two.** Every ranking number published since §E7 carries
+an effective *n* of **5**, and `41/160` differs from `9/160` largely by which prompt survived.
+
+### 33.4 Part B — per-step argmax fidelity is 67-74%, and the rest is drift
+
+**Unregistered; reports, does not decide (E14 §6).** Teacher-forcing the donor's own continuation
+makes each of the 160 positions an independent test with the context held identical.
+
+| arm | free-running | **teacher-forced** | drift cost | mean rank of donor token |
+|---|---|---|---|---|
+| `base` / `ID` | 160/160 | **160/160** | 0 | `1.00` |
+| `R0H` | 17/160 | **107/160** | −90 | `16.92` |
+| `R1H` | 13/160 | **114/160** | −101 | `12.85` |
+| `R2H` | 41/160 | **116/160** | −75 | `13.96` |
+| `R3H` | 9/160 | **110/160** | −101 | `2.98` |
+| `R4H` | 15/160 | **115/160** | −100 | `2.40` |
+| `R5H` | 9/160 | **112/160** | −103 | `2.71` |
+| `OPTH` | 42/160 | **119/160** | −77 | `13.26` |
+| `GPTQH` | 11/160 | **117/160** | −106 | `2.88` |
+
+**`G-B1`, an exact identity, holds `50/50`**: an arm matching the donor at every position `< k`
+under teacher forcing must first diverge at exactly `k` free-running. Both harnesses are therefore
+mutually consistent and the drift account is arithmetic.
+
+Three readings. **(1)** Per-step fidelity spans 12 tokens across the eight arms; free-running
+spreads them over 33 — most of what the metric measured was *where the first miss fell*.
+**(2)** The families separate on **mean rank**: data-aware arms `2.40`-`2.98`, weight-space arms
+`12.85`-`16.92`. The Hessian- and activation-weighted objectives do exactly what they promise —
+preserve the logit geometry — which buys BPB and neighbourhood, **not the top-1/top-2 boundary
+where argmax lives.** That is §33.2's inversion, measured. **(3)** Survival tracks the donor's own
+margin: in the top tercile of donor top-2 gap (`4.4439`-`15.9636`) every arm scores **94-98%**; in
+the bottom tercile (`0.0081`-`1.7294`), **38-47%**. A drift model `5·(1−p³²)/(1−p)` predicts
+`15.1`-`19.5` free-running; six of eight arms land in `9`-`17`.
+
+### 33.5 What moves
+
+**No speed number moves.** Same format, same bytes, same kernel — a rule change moves no byte.
+`6.79 tok/s` exact, §19.3 unchanged, §32's FFN-carving arithmetic unchanged.
+
+**The donor route still fails.** 70% per step compounds to nothing over 32, and the best head costs
+`+0.170414` BPB for `11/160`. Nothing reopens the conversion route.
+
+**§29's rule qualifier is discharged on this tensor**: six rules, two of them the literature's
+strongest post-training quantizers, one format, and the best is still below the floor. **The
+constraint is the format.**
+
+**But the standing claim needs re-wording.** "These conversions cannot choose a token" is too
+strong. They choose the donor's token about two times in three at fixed context and rank it 2nd-3rd
+when they miss; **what they cannot do is survive their own first mistake.**
+
+### 33.6 Owed
+
+1. **Healing / QAT**, unchanged as first since §31.8, and now sharply targeted: repair a head that
+   is already right 70% of the time per step. **Needs GPU; the user launches it.**
+2. **Re-read every published ranking number as a compound** of per-step fidelity and drift over an
+   effective *n* of 5. No verdict is withdrawn — free-running is what a runnable model does — but
+   the mechanism attributed to each needs restating.
+3. **Adopt teacher-forced top-1 as the standing second metric.** 459 s for ten arms, no drift,
+   fires exactly on the known-positive.
+4. **`R5` in the exporter** — a branch in `qwen_export.quantize`. It improves every quoted BPB and,
+   on this evidence, changes no answer. Recorded so nobody later fixes the exporter and believes
+   they fixed the model.
+5. **The rule axis on the FFN in ranking** — T2's six rules were read in BPB only.

@@ -1,0 +1,703 @@
+{
+ "brief": "briefs/BRIEF_E20_RULE_OR_FORMAT.md (e5d438c)",
+ "supersedes": "run 1, commit 6c7b7a4, VOID on G-Q2: its R3H arm was R0, not the shipped rule. Its base/ID/OPTH/GPTQH arms are re-measured here.",
+ "question": "is the constraint the RULE or the FORMAT? format held fixed at what QWENDON1 stores: ternary codes, one fp32 scale per output row",
+ "rules_imported_from": "t2_rules.py (r0_bitlinear, r1_twn, r2_search, r3_actsearch, r4_gptq); the R3H arm is t2b_organs.apply_arm(model,'H',...) itself, so the anchor gate compares like with like",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "smoke": true,
+ "threads": 6,
+ "n_new": 8,
+ "n_prompts": 2,
+ "eval_slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+ },
+ "calib_slice": {
+  "part": "calib",
+  "n_seq": 32,
+  "seq_len": 512,
+  "seed": 42424,
+  "n_rejected": 0,
+  "total_scored_bytes": 67648,
+  "bytes_per_token": 4.136986301369863,
+  "ids_sha256": "c5509846cdc3aa44e45e77895b59a4638c49eb03790030d851e7bf1357ca4c0c",
+  "offsets_sha256": "c9bdfc96dd5addb8e02a48d553dfb11784734baa26f44aad53658ff8cd2a8cf0",
+  "corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0"
+ },
+ "calib_tokens": 1024,
+ "knows_data": {
+  "R0H": false,
+  "R1H": false,
+  "R2H": false,
+  "R3H": true,
+  "R4H": true,
+  "R5H": true,
+  "OPTH": false,
+  "GPTQH": true
+ },
+ "hessian": {
+  "damping_frac": 0.01,
+  "scale_grid_points": 40,
+  "gptq_block": 128,
+  "eig_min": -0.06986131751187533,
+  "eig_max": 12628259.8378358,
+  "lambda": 180.75721504394275,
+  "act_rms_vs_diagH_max_abs_diff": 7.62939453125e-06
+ },
+ "bands": {
+  "floor_E18_partA": 12,
+  "margin_E17": 2,
+  "at_floor_max": 14,
+  "ranks_min": 80,
+  "ceiling": 16
+ },
+ "chance_bpb": 4.069819,
+ "anchors": {
+  "t2b_H_bpb": 1.1065836079824596,
+  "e18_H_agree": 9
+ },
+ "arms": {
+  "base": {
+   "arm": "base",
+   "knows_data": null,
+   "bpb": 0.9601896565954627,
+   "vs_chance": -3.1096293434045372,
+   "matched": 16,
+   "counted": 16,
+   "agree": 1.0,
+   "first_div": null,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 8,
+     "of": 8,
+     "diverges_at": null
+    },
+    {
+     "prompt": 1,
+     "matched": 8,
+     "of": 8,
+     "diverges_at": null
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     9625,
+     374,
+     1083
+    ],
+    [
+     671,
+     308,
+     374,
+     279,
+     1372,
+     315,
+     3793,
+     198
+    ]
+   ],
+   "seconds": 27.81370186805725,
+   "text": [
+    " Paris. The capital of France is also",
+    " # n is the number of terms\n"
+   ],
+   "quantize_seconds": 0.0,
+   "zero_fraction": 0.0,
+   "rel_weight_error": 0.0,
+   "identical_to_donor": true,
+   "G_Q0": "FIRES"
+  },
+  "ID": {
+   "arm": "ID",
+   "knows_data": null,
+   "bpb": 0.9601896565954627,
+   "vs_chance": -3.1096293434045372,
+   "matched": 16,
+   "counted": 16,
+   "agree": 1.0,
+   "first_div": null,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 8,
+     "of": 8,
+     "diverges_at": null
+    },
+    {
+     "prompt": 1,
+     "matched": 8,
+     "of": 8,
+     "diverges_at": null
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     9625,
+     374,
+     1083
+    ],
+    [
+     671,
+     308,
+     374,
+     279,
+     1372,
+     315,
+     3793,
+     198
+    ]
+   ],
+   "seconds": 27.976289987564087,
+   "text": [
+    " Paris. The capital of France is also",
+    " # n is the number of terms\n"
+   ],
+   "quantize_seconds": 0.1077888011932373,
+   "zero_fraction": 0.0,
+   "rel_weight_error": 0.0,
+   "identical_to_donor": true,
+   "G_Q1_token_identical": true,
+   "G_Q1_bpb_diff": 0.0,
+   "G_Q1": "FIRES"
+  },
+  "R0H": {
+   "arm": "R0H",
+   "knows_data": false,
+   "bpb": 1.6295315836205277,
+   "vs_chance": -2.440287416379472,
+   "matched": 3,
+   "counted": 16,
+   "agree": 0.1875,
+   "first_div": [
+    0,
+    2
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 2,
+     "of": 8,
+     "diverges_at": 2
+    },
+    {
+     "prompt": 1,
+     "matched": 1,
+     "of": 8,
+     "diverges_at": 1
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     13,
+     12095,
+     374,
+     911,
+     32671,
+     13,
+     911
+    ],
+    [
+     671,
+     4067,
+     1723,
+     94166,
+     198,
+     262,
+     1173,
+     1445
+    ]
+   ],
+   "seconds": 27.333208322525024,
+   "text": [
+    " Paris. Paris is about ______. about",
+    " # Recursividad\n    print(n"
+   ],
+   "quantize_seconds": 1.0279278755187988,
+   "zero_fraction": 0.3123719096183777,
+   "rel_weight_error": 0.5126063227653503,
+   "identical_to_donor": false,
+   "G_Q3": "NOT-APPLICABLE (smoke)"
+  },
+  "R1H": {
+   "arm": "R1H",
+   "knows_data": false,
+   "bpb": 1.639443775232175,
+   "vs_chance": -2.4303752247678245,
+   "matched": 3,
+   "counted": 16,
+   "agree": 0.1875,
+   "first_div": [
+    0,
+    1
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 1,
+     "of": 8,
+     "diverges_at": 1
+    },
+    {
+     "prompt": 1,
+     "matched": 2,
+     "of": 8,
+     "diverges_at": 2
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     624,
+     2152,
+     198,
+     3872,
+     279,
+     2701,
+     5114
+    ],
+    [
+     671,
+     308,
+     284,
+     98194,
+     198,
+     262,
+     421,
+     308
+    ]
+   ],
+   "seconds": 28.72664999961853,
+   "text": [
+    " Paris.\nno\nIs the following statement",
+    " # n = posi\u00e7\u00e3o\n    if n"
+   ],
+   "quantize_seconds": 1.81064772605896,
+   "zero_fraction": 0.42618274688720703,
+   "rel_weight_error": 0.4463752806186676,
+   "identical_to_donor": false,
+   "G_Q3": "NOT-APPLICABLE (smoke)"
+  },
+  "R2H": {
+   "arm": "R2H",
+   "knows_data": false,
+   "bpb": 1.6512170664745418,
+   "vs_chance": -2.418601933525458,
+   "matched": 2,
+   "counted": 16,
+   "agree": 0.125,
+   "first_div": [
+    0,
+    1
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 1,
+     "of": 8,
+     "diverges_at": 1
+    },
+    {
+     "prompt": 1,
+     "matched": 1,
+     "of": 8,
+     "diverges_at": 1
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     624,
+     2753,
+     382,
+     3838,
+     4041,
+     1283,
+     7015
+    ],
+    [
+     671,
+     1688,
+     75698,
+     1445,
+     340,
+     262,
+     4210,
+     8994
+    ]
+   ],
+   "seconds": 40.66696548461914,
+   "text": [
+    " Paris.\nNo.\n\nWhat comes after sun",
+    " #function fibonacci(n)\n    \"\"\"Print"
+   ],
+   "quantize_seconds": 16.449448108673096,
+   "zero_fraction": 0.4759466052055359,
+   "rel_weight_error": 0.4451737701892853,
+   "identical_to_donor": false,
+   "G_Q3": "NOT-APPLICABLE (smoke)"
+  },
+  "R3H": {
+   "arm": "R3H",
+   "knows_data": true,
+   "bpb": 1.2779002514482454,
+   "vs_chance": -2.7919187485517547,
+   "matched": 4,
+   "counted": 16,
+   "agree": 0.25,
+   "first_div": [
+    0,
+    1
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 4,
+     "of": 8,
+     "diverges_at": 1
+    },
+    {
+     "prompt": 1,
+     "matched": 0,
+     "of": 8,
+     "diverges_at": 0
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     323,
+     279,
+     6722,
+     315,
+     17689,
+     374,
+     892
+    ],
+    [
+     220,
+     671,
+     220,
+     220,
+     15,
+     220,
+     220,
+     16
+    ]
+   ],
+   "seconds": 48.33264470100403,
+   "text": [
+    " Paris and the capital of Spain is which",
+    "  #  0  1"
+   ],
+   "quantize_seconds": 22.727452039718628,
+   "zero_fraction": 0.45422160625457764,
+   "rel_weight_error": 0.4570677578449249,
+   "identical_to_donor": false,
+   "via": "t2b_organs.apply_arm(model,'H',act_rms)",
+   "t2b_stats": {
+    "n": 1
+   },
+   "G_Q3": "NOT-APPLICABLE (smoke)"
+  },
+  "R4H": {
+   "arm": "R4H",
+   "knows_data": true,
+   "bpb": 1.3580893131706184,
+   "vs_chance": -2.7117296868293814,
+   "matched": 0,
+   "counted": 16,
+   "agree": 0.0,
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 0,
+     "of": 8,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 1,
+     "matched": 0,
+     "of": 8,
+     "diverges_at": 0
+    }
+   ],
+   "ids": [
+    [
+     198,
+     32,
+     13,
+     12095,
+     198,
+     33,
+     13,
+     12095
+    ],
+    [
+     220,
+     671,
+     308,
+     481,
+     220,
+     16,
+     198,
+     262
+    ]
+   ],
+   "seconds": 66.7224051952362,
+   "text": [
+    "\nA. Paris\nB. Paris",
+    "  # n - 1\n   "
+   ],
+   "quantize_seconds": 40.579033851623535,
+   "zero_fraction": 0.26723212003707886,
+   "rel_weight_error": 0.669654130935669,
+   "identical_to_donor": false,
+   "G_Q3": "NOT-APPLICABLE (smoke)"
+  },
+  "R5H": {
+   "arm": "R5H",
+   "knows_data": true,
+   "bpb": 1.171310199595741,
+   "vs_chance": -2.898508800404259,
+   "matched": 1,
+   "counted": 16,
+   "agree": 0.0625,
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 1,
+     "of": 8,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 1,
+     "matched": 0,
+     "of": 8,
+     "diverges_at": 0
+    }
+   ],
+   "ids": [
+    [
+     279,
+     3283,
+     315,
+     12095,
+     13,
+     1084,
+     374,
+     279
+    ],
+    [
+     220,
+     671,
+     220,
+     15,
+     11,
+     220,
+     16,
+     11
+    ]
+   ],
+   "seconds": 84.52774214744568,
+   "text": [
+    " the city of Paris. It is the",
+    "  # 0, 1,"
+   ],
+   "quantize_seconds": 60.27410435676575,
+   "zero_fraction": 0.41094106435775757,
+   "rel_weight_error": 0.6273787617683411,
+   "identical_to_donor": false,
+   "G_Q3": "NOT-APPLICABLE (smoke)"
+  },
+  "OPTH": {
+   "arm": "OPTH",
+   "knows_data": false,
+   "bpb": 1.6561296222882727,
+   "vs_chance": -2.4136893777117274,
+   "matched": 4,
+   "counted": 16,
+   "agree": 0.25,
+   "first_div": [
+    0,
+    2
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 2,
+     "of": 8,
+     "diverges_at": 2
+    },
+    {
+     "prompt": 1,
+     "matched": 2,
+     "of": 8,
+     "diverges_at": 2
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     13,
+     12095,
+     5380,
+     1075,
+     5382,
+     1052,
+     624
+    ],
+    [
+     671,
+     308,
+     284,
+     98194,
+     198,
+     262,
+     421,
+     308
+    ]
+   ],
+   "seconds": 51.00530219078064,
+   "text": [
+    " Paris. Parisians like living there.\n",
+    " # n = posi\u00e7\u00e3o\n    if n"
+   ],
+   "quantize_seconds": 26.403006315231323,
+   "zero_fraction": 0.4660966694355011,
+   "rel_weight_error": 0.4449470043182373,
+   "identical_to_donor": false,
+   "G_Q3": "NOT-APPLICABLE (smoke)"
+  },
+  "GPTQH": {
+   "arm": "GPTQH",
+   "knows_data": true,
+   "bpb": 1.1695025091982143,
+   "vs_chance": -2.9003164908017856,
+   "matched": 0,
+   "counted": 16,
+   "agree": 0.0,
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 0,
+     "of": 8,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 1,
+     "matched": 0,
+     "of": 8,
+     "diverges_at": 0
+    }
+   ],
+   "ids": [
+    [
+     320,
+     362,
+     13,
+     12095,
+     425,
+     13,
+     7148,
+     356
+    ],
+    [
+     220,
+     671,
+     220,
+     15,
+     11,
+     220,
+     16,
+     11
+    ]
+   ],
+   "seconds": 97.2466254234314,
+   "text": [
+    " ( A. Paris B. London C",
+    "  # 0, 1,"
+   ],
+   "quantize_seconds": 71.502610206604,
+   "zero_fraction": 0.4071412682533264,
+   "rel_weight_error": 0.6256894469261169,
+   "identical_to_donor": false,
+   "G_Q3": "NOT-APPLICABLE (smoke)"
+  }
+ },
+ "VOID": [],
+ "G_Q4": {
+  "bpb": {
+   "R0H": 1.6295315836205277,
+   "R1H": 1.639443775232175,
+   "R2H": 1.6512170664745418,
+   "R3H": 1.2779002514482454,
+   "R4H": 1.3580893131706184,
+   "R5H": 1.171310199595741,
+   "OPTH": 1.6561296222882727,
+   "GPTQH": 1.1695025091982143
+  },
+  "best_rule": "GPTQH",
+  "best_is_data_aware": true,
+  "r5_beats_r3": true,
+  "r5_minus_r3": -0.10659005185250447,
+  "T2_ffn_r5_minus_r3": -0.4494722684040533,
+  "note": "sanity, not a verdict: a rule that cannot win on the objective it optimises has not been demonstrated to work"
+ },
+ "G_Q3": {
+  "R0H": "NOT-APPLICABLE (smoke)",
+  "R1H": "NOT-APPLICABLE (smoke)",
+  "R2H": "NOT-APPLICABLE (smoke)",
+  "R3H": "NOT-APPLICABLE (smoke)",
+  "R4H": "NOT-APPLICABLE (smoke)",
+  "R5H": "NOT-APPLICABLE (smoke)",
+  "OPTH": "NOT-APPLICABLE (smoke)",
+  "GPTQH": "NOT-APPLICABLE (smoke)"
+ },
+ "data_axis": {
+  "data_aware": {
+   "n": 4,
+   "best_bpb": 1.1695025091982143,
+   "best_agree": 4
+  },
+  "weight_space": {
+   "n": 4,
+   "best_bpb": 1.6295315836205277,
+   "best_agree": 4
+  }
+ },
+ "r_bpb_agreement": 0.5744482792178965,
+ "bpb_span": 0.48662711309005835,
+ "seconds_total": 369.2184896469116
+}

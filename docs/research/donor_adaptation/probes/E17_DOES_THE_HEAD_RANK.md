@@ -242,3 +242,27 @@ indistinguishable from a constant `'\n'` emitter.**
 The **intermediate** ranking band is still owed and still unsupplied: this floor bounds a
 *degenerate* model from below and says nothing about what a genuinely different but equally good
 model produces, so **E14's `45.6%` remains unbanded.**
+
+---
+
+## 11. Appended 2026-09-11 after E20 — the head measured again, with the drift taken out
+
+This probe found the head **not inert but irrelevant**: removing its ternarization rewrites half
+the output and changes the *correct* tokens by two. E20 ternarized `lm_head` **alone**, eight
+different ways, leaving every other weight bit-exact (`probes/E20_RULE_OR_FORMAT.md`, ledger §33).
+
+**Free-running, §9's reading holds and hardens.** Eight ternary heads span `0.938009`-`1.319900`
+BPB and score `9`-`42` of 160; the best-scoring head (`+0.170414` over the intact donor) scores
+`11`. **A ternary head of any quality is at or near the floor.**
+
+**Teacher-forced, the picture is different and §9's phrasing needs care.** With the donor's own
+context held fixed, **every ternary head keeps the donor's token first at 67-74% of positions**,
+and the data-aware rules put it at **mean rank `2.40`-`2.98`**. The head is therefore neither inert
+nor irrelevant *per step* — it is **mostly right and not right enough**, and survival tracks the
+donor's own margin: **94-98%** of positions in the top tercile of donor top-2 gap, **38-47%** in the
+bottom.
+
+**§10's floor note gains a companion.** The floor explains why a broken model still scores ~12;
+E20's terciles explain why a **working-ish** head still scores ~12: one near-tie ends the match,
+and four of the five reference prompts contain one (minimum donor top-2 gap `0.0081`-`0.2740`).
+The single prompt with no near-tie (minimum `1.1630`) is reproduced **whole, 32/32**, by two arms.

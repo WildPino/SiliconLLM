@@ -1,0 +1,36 @@
+== loading Qwen/Qwen2.5-1.5B ==
+slice 24x512, 51870 scored bytes  |  ids_sha256 OK
+== calibration pass: act_rms (t2b_organs.capture) + head H, 16384 tokens ==
+   done in 209s, 197 organ keys, H over 16384 tokens  |  eig min 1.482e-01 max 3.004e+08  cond(damped) 8.853e+04
+   act_rms vs sqrt(diag(H)/n) max abs diff 3.815e-06
+  base   BPB 0.767595 (-3.302224)  zero 0.0000 relerr 0.0000  160/160 100.00%  div None     FIRES    [309s]
+  ID     BPB 0.767595 (-3.302224)  zero 0.0000 relerr 0.0000  160/160 100.00%  div None     FIRES    [309s]
+  R0H    BPB 1.319900 (-2.749919)  zero 0.3124 relerr 0.5126   17/160  10.62%  div [0, 2]   PARTIAL  [314s]
+  R1H    BPB 1.280712 (-2.789107)  zero 0.4262 relerr 0.4464   13/160   8.12%  div [0, 1]   AT-FLOOR [323s]
+  R2H    BPB 1.288465 (-2.781354)  zero 0.4759 relerr 0.4452   41/160  25.62%  div [0, 1]   PARTIAL  [326s]
+  R3H    BPB 1.106584 (-2.963235)  zero 0.4478 relerr 0.4616    9/160   5.62%  div [0, 1]   AT-FLOOR [322s]
+  R4H    BPB 1.031616 (-3.038203)  zero 0.2877 relerr 0.6019   15/160   9.38%  div [0, 2]   PARTIAL  [312s]
+  R5H    BPB 0.940203 (-3.129616)  zero 0.4276 relerr 0.5484    9/160   5.62%  div [0, 0]   AT-FLOOR [347s]
+  OPTH   BPB 1.293924 (-2.775895)  zero 0.4661 relerr 0.4449   42/160  26.25%  div [0, 2]   PARTIAL  [311s]
+  GPTQH  BPB 0.938009 (-3.131810)  zero 0.4234 relerr 0.5474   11/160   6.88%  div [0, 2]   AT-FLOOR [359s]
+
+  bands: floor 12, margin 2, AT-FLOOR <= 14, RANKS >= 80, ceiling 160
+
+  arm    knows   BPB        vs chance   greedy   band
+    base   --     0.767595  -3.302224  160/160 
+    ID     --     0.767595  -3.302224  160/160 
+    R0H    no     1.319900  -2.749919   17/160 PARTIAL
+    R1H    no     1.280712  -2.789107   13/160 AT-FLOOR
+    R2H    no     1.288465  -2.781354   41/160 PARTIAL
+    R3H    DATA   1.106584  -2.963235    9/160 AT-FLOOR
+    R4H    DATA   1.031616  -3.038203   15/160 PARTIAL
+    R5H    DATA   0.940203  -3.129616    9/160 AT-FLOOR
+    OPTH   no     1.293924  -2.775895   42/160 PARTIAL
+    GPTQH  DATA   0.938009  -3.131810   11/160 AT-FLOOR
+
+  G_Q4  best rule = GPTQH (data-aware: True), R5H-R3H = -0.166380 here vs -0.449472 on T2's FFN
+  data axis  data-aware best 15/160 at BPB 0.938009  |  weight-space best 42/160 at BPB 1.280712
+  r(BPB, agreement) = +0.6238 over a BPB span of 0.381891
+
+  VOID: none
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e20_rules_on_the_head.json  [3449s total]

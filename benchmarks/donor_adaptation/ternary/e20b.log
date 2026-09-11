@@ -1,0 +1,29 @@
+== loading Qwen/Qwen2.5-1.5B ==
+== calibration pass (identical to part A) ==
+   done in 186s, H over 16384 tokens
+  base   teacher-forced 160/160  100.00%  | median rank 1      rank<=5 160  | terciles [53, 53, 54]  [5s]
+  ID     teacher-forced 160/160  100.00%  | median rank 1      rank<=5 160  | terciles [53, 53, 54]  [6s]
+  R0H    teacher-forced 107/160   66.88%  | median rank 1      rank<=5 140  | terciles [20, 35, 52]  [6s]
+  R1H    teacher-forced 114/160   71.25%  | median rank 1      rank<=5 139  | terciles [21, 42, 51]  [7s]
+  R2H    teacher-forced 116/160   72.50%  | median rank 1      rank<=5 139  | terciles [23, 40, 53]  [19s]
+  R3H    teacher-forced 110/160   68.75%  | median rank 1      rank<=5 152  | terciles [24, 35, 51]  [23s]
+  R4H    teacher-forced 115/160   71.88%  | median rank 1      rank<=5 148  | terciles [21, 44, 50]  [42s]
+  R5H    teacher-forced 112/160   70.00%  | median rank 1      rank<=5 155  | terciles [22, 38, 52]  [60s]
+  OPTH   teacher-forced 119/160   74.38%  | median rank 1      rank<=5 140  | terciles [25, 41, 53]  [28s]
+  GPTQH  teacher-forced 117/160   73.12%  | median rank 1      rank<=5 151  | terciles [24, 40, 53]  [68s]
+
+  G-B1 divergence identity: 50/50 agree
+
+  arm     BPB        free-running   teacher-forced   drift cost
+    base   0.767595  160/160        160/160          +0
+    ID     0.767595  160/160        160/160          +0
+    R0H    1.319900   17/160        107/160          -90
+    R1H    1.280712   13/160        114/160          -101
+    R2H    1.288465   41/160        116/160          -75
+    R3H    1.106584    9/160        110/160          -101
+    R4H    1.031616   15/160        115/160          -100
+    R5H    0.940203    9/160        112/160          -103
+    OPTH   1.293924   42/160        119/160          -77
+    GPTQH  0.938009   11/160        117/160          -106
+
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e20b_teacher_forced.json  [459s]

@@ -124,3 +124,37 @@ real possible outcome and is registered as such rather than being available as a
 `H` capture on 16,384 calibration tokens (one forward pass), then five arms × (BPB on the frozen
 24×512 heldout + 160 greedy positions). GPTQ over 1536 input columns on a 151936-row matrix is
 `~1.8e11` element-updates, minutes on 6 threads. **Estimated 60–90 minutes, CPU only, one job.**
+
+---
+
+## 8. Appended 2026-09-11 — the premise in §0 is WRONG, and the gate caught it
+
+**Nothing above has been edited.** This section is appended after the fact and records what the
+run found about the pre-registration itself.
+
+**§0's central claim is false.** *"Every ternarization this programme has ever run is a weight-space
+rule that never looks at a single token"* cites `t1_ternarize.py:97-98`, which is **`R0`**. The
+shipped rule is `qwen_export.quantize` under `--rule R3` = `t2_rules.r3_actsearch`, a per-row
+threshold search minimising the **activation-RMS-weighted** error over the calibration slice — and
+`qwen_export.py:148` hooks `lm_head`, so **the shipped head quantization already looks at tokens.**
+
+**§0's second claim is also false.** GPTQ is not new here: `t2_rules.r4_gptq` has existed since T2,
+which ran it on the FFN and published `R4 = 4.299819` and `R5 = 2.027495` — the latter **the best
+rule ever measured in this programme**, `0.449472` better than the shipped `R3`, marked post-hoc
+and correctly excluded from T2's registered decision. The decomposition row *"GPTQ error
+compensation on a well-placed grid, `−0.449`"* has been in `INDEX.md` §3 the whole time, in a table
+I maintain.
+
+**`G-Q2` — registered in §3 as a replication requirement, not as a safety net — VOIDed run 1**
+(`6c7b7a4`): the `R3H` arm, built from §0's wrong premise, read `1.319900` / `17/160` against the
+required `1.106584` / `9/160`. Run 2 imports every rule from `t2_rules` and reaches
+`1.1065835970951252` / `9/160`.
+
+**What survives.** §2's format constraint, §3's four gates, §4's bands and §5's predictions are all
+unchanged and were all readable. Prediction 3 — **`GPTQH → AT-FLOOR`** — **held** (`11/160`), and
+§5's registered alternative **did not fire**. §6's five limits all stand.
+
+**What the brief should have said** is that only 2 of 4 rules had been tested *in E16*, that T2 had
+already tested six *in BPB*, and that what had never been done is reading any of them **in
+ranking**. That is what E20 actually did. Verdict, probe and full tables:
+`probes/E20_RULE_OR_FORMAT.md`, ledger §33.
