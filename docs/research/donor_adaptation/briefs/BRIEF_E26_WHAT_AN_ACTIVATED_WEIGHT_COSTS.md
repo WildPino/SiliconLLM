@@ -112,9 +112,48 @@ and never from the writer** — that separation is the whole value of the size g
 
 ---
 
-## 3. Result of part A
+## 3. Result of part A — every gate fires, and part B is BLOCKED on an idle box
 
-*(filled in from the runs; §§4–8 below were written before any timing existed)*
+| gate | result |
+|---|---|
+| `G-E26a` | sha256 `c638214ef1661fcc…` on a `quant == 2` file and `7130ac5ea0346955…` on E25's `quant == 3` `QO512-TB`, **identical on the pre- and post-patch engines**. |
+| `G-E26b` / `G-E26L` | `GATE V3` on all five synthetic arms; `GATE E26-L` on the real export, `1,597,287,796` bytes, against E1's independent `layout_bytes_v4`. |
+| `G-E26c` | `layout OK: consumed exactly 1597287796 bytes`. |
+| **`G-E26P`** | worst relative l2 **`4.481e-06`** (bar `1e-4`), top-1 **`1.0000`** on 8/8. **FIRES.** |
+| **`G-E26S`** | **224 / 224 selections IDENTICAL** (8 positions × 28 layers). **FIRES.** |
+| **`G-E26R`** | worst relative l2 **`1.156e-06`** (bar `2e-3`), top-1 **`1.0000`**. **FIRES.** |
+
+The artifacts are Qwen2.5-1.5B at the pinned revision, `--rule R0 --fold none`, exported twice:
+once dense (`quant == 2`, `1,591,752,756` bytes) and once carved (`quant == 4`, `E = 256` from
+D0c's labels, `1,597,287,796` bytes). The reference dequantizes through **`qwen_export.quantize`
+itself** and builds the router through **`carve_common.router_weights`**, the same function the
+exporter called — neither side reads the artifact under test.
+
+**Disclosure on `G-E26R`**: with a *random* router at `k = 64` the model is destroyed and both
+sides predict `<|endoftext|>` at 7 of 8 positions, so top-1 agreement is cheap there. The
+load-bearing numbers are the relative l2 over the full 151,936-dim vector and `G-E26S`, which
+compares sets and cannot be passed by agreeing on garbage.
+
+**Two layout decisions were forced by measurement, and both are recorded as tuning, not as
+findings.** The first cut stored the transposed `down` row-major and read the byte-neutral
+control at **−17%**; block-major storage (`[(D/2)/64][F][64]`, the move E13 made on the LUT
+path) recovered most of it. `PT_BLK = 64` was chosen against 32 on `S15` (20.8 vs 17.6 tok/s at
+`k = E`, 45.2 vs 36.6 at `k = 64`) and is now a **format** constant.
+
+### 3.1 Part B ran, and the run is VOID
+
+The first part B attempt completed all 12 arms × 3 reps in 363 s and **none of it counts**.
+`S15-DENSE` read **16.21 tok/s** where E25 read **29.50** on the same shape, `T10-DENSE` read
+**2.55** where E25 read **4.70**, and the dispersions were 20–39%. The box was running a game:
+**5.82 of 12 logical cores were busy.** A contended timing is not a timing, and this one is
+kept only as a witness, at `engine/results/e26_carve_cost_contended.json`.
+
+So idleness is now an **instrument** rather than an intention. `e26_carve_cost.py` samples
+system-wide CPU before the run and after every repetition (`Win32_PerfFormattedData_PerfOS_Processor`,
+chosen because the `Get-Counter` path is *localized* and does not exist on this box's Italian
+Windows), **refuses to start above 12%**, and stamps any record whose witness peaks above the
+bar `VOID_AS_A_TIMING`. It fired on its known-positive the moment it existed: `63% busy →
+REFUSING`. Part B is **owed and unrun**; §§4–8 stand exactly as pre-registered.
 
 ---
 

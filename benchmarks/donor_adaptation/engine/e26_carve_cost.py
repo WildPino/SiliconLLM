@@ -26,7 +26,12 @@ with FK_DENSE on every layer, so the container is not a variable either.
 
 PROTOCOL.  Idle box, --threads 6, --fuse off everywhere (a carved FFN cannot fuse gate|up),
 >= 3 repetitions INTERLEAVED by rep so a thermal drift hits every arm equally, dispersion
-printed with every rate.  A contended timing is not a timing.
+printed with every rate.  A contended timing is not a timing -- and the first attempt at this
+run PROVED that the hard way: it read S15 dense at 16.21 tok/s where E25 read 29.50 on the
+same shape, with dispersions of 20-39%, because the box was running a game and 5.82 of 12
+cores were busy.  So idleness is now an INSTRUMENT and not an intention: cpu_busy_pct()
+samples the system before the run and after every repetition, the run REFUSES to start on a
+busy box, and any sample above the bar marks the whole record contended.
 
   python e26_carve_cost.py --dir D:/_ktmp/e26 --engine ./donor_engine_e26.exe --reps 3
   python e26_carve_cost.py --smoke                  # S05 only, 1 rep
@@ -53,6 +58,26 @@ RE_BENCH = re.compile(r"BENCH\s+(\d+) tokens\s+([\d.]+) s\s+([\d.]+) tok/s")
 
 def log(m):
     print(m, flush=True)
+
+
+# ---------------------------------------------------------------- the contention witness
+# Locale-independent on purpose: the Get-Counter path '\Processor(_Total)\% Processor Time'
+# does NOT exist on this box, whose Windows is Italian and localizes counter names.  CIM class
+# and property names are not localized.
+IDLE_BAR = 12.0          # percent of all logical cores; the engine wants 6 of 12 to itself
+PS_BUSY = ("$v=@(); 1..%d | %%{ $p = Get-CimInstance Win32_PerfFormattedData_PerfOS_Processor"
+           " | Where-Object {$_.Name -eq '_Total'}; $v += [int]$p.PercentProcessorTime;"
+           " Start-Sleep -Milliseconds 700 }; ($v | Measure-Object -Maximum).Maximum")
+
+
+def cpu_busy_pct(samples=3):
+    """System-wide CPU busy, worst of `samples` readings.  -1 if it cannot be read."""
+    r = subprocess.run(["powershell", "-NoProfile", "-NonInteractive", "-Command",
+                        PS_BUSY % samples], capture_output=True)
+    try:
+        return float(r.stdout.decode(errors="replace").strip())
+    except ValueError:
+        return -1.0
 
 
 def active(shape, k, head_ternary=True):
@@ -115,6 +140,9 @@ def main():
     ap.add_argument("--threads", type=int, default=6)
     ap.add_argument("--tokens", type=int, default=0, help="0 = per-shape default")
     ap.add_argument("--smoke", action="store_true")
+    ap.add_argument("--allow-contended", action="store_true",
+                    help="run even though the box is busy.  The record is then stamped "
+                         "contended and NO number from it may enter a ledger.")
     ap.add_argument("--out", default=os.path.join(HERE, "results", "e26_carve_cost.json"))
     a = ap.parse_args()
     os.makedirs(a.dir, exist_ok=True)
@@ -126,6 +154,17 @@ def main():
         return 2
     if a.out.endswith(".json") and a.smoke:
         a.out = a.out[:-5] + "_smoke.json"
+    busy0 = cpu_busy_pct()
+    log("  contention witness: %.0f%% of all logical cores busy before the run (bar %.0f%%)"
+        % (busy0, IDLE_BAR))
+    if busy0 > IDLE_BAR and not a.allow_contended:
+        log("")
+        log("REFUSING: a contended timing is not a timing.  The first E26 part B attempt read")
+        log("  S15 dense at 16.21 tok/s where E25 read 29.50 on the same shape, because the")
+        log("  box was busy.  Close what is using the machine and run this again, or pass")
+        log("  --allow-contended to produce a record that is explicitly void.")
+        return 3
+    busy = [busy0]
     t_start = time.time()
 
     # (tag, shape, k)  -- k == 0 is the dense control, and it is a DIFFERENT file; every k > 0
@@ -167,11 +206,21 @@ def main():
                       a.threads, max(k, 0))
             rates[tag].append(v)
             log("  rep %d  %-14s %7.2f tok/s   (%d tokens)" % (rep + 1, tag, v, n))
+        busy.append(cpu_busy_pct(2))
+        log("  rep %d  contention witness: %.0f%% busy" % (rep + 1, busy[-1]))
+    contended = max(busy) > IDLE_BAR
     log("")
+    if contended:
+        log("  *** CONTENDED: the witness peaked at %.0f%% against a %.0f%% bar. Every number"
+            % (max(busy), IDLE_BAR))
+        log("      below is VOID as a timing and none of it may enter a ledger. ***")
+        log("")
 
     rec = {"brief": "BRIEF_E26_WHAT_AN_ACTIVATED_WEIGHT_COSTS.md", "reps": reps,
            "threads": a.threads, "smoke": bool(a.smoke), "E": E_GROUPS,
-           "k_grid": list(K_GRID), "arms": {}}
+           "k_grid": list(K_GRID), "arms": {},
+           "cpu_busy_pct": busy, "idle_bar_pct": IDLE_BAR, "contended": bool(contended),
+           "VOID_AS_A_TIMING": bool(contended)}
     log("  arm            active/tok    mean tok/s   spread   vs DENSE   byte prediction   "
         "G weights/s")
     for tag, s, k in arms:

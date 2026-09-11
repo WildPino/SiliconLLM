@@ -1,0 +1,246 @@
+{
+ "brief": "BRIEF_E26_WHAT_AN_ACTIVATED_WEIGHT_COSTS.md",
+ "reps": 3,
+ "threads": 6,
+ "smoke": false,
+ "E": 256,
+ "k_grid": [
+  256,
+  128,
+  64,
+  16,
+  4
+ ],
+ "arms": {
+  "S15-PACKED": {
+   "shape": "S15",
+   "k": -1,
+   "active_weights_per_token": 1543569408,
+   "rates": [
+    21.42,
+    14.6,
+    16.27
+   ],
+   "mean_tok_s": 17.43,
+   "spread": 0.3912794033275962,
+   "ratio_vs_dense": 1.0752621838371375,
+   "byte_ratio_prediction": 1.0,
+   "charged_G_weights_per_s": 26.90441478144
+  },
+  "S15-DENSE": {
+   "shape": "S15",
+   "k": 0,
+   "active_weights_per_token": 1543569408,
+   "rates": [
+    18.93,
+    14.24,
+    15.46
+   ],
+   "mean_tok_s": 16.21,
+   "spread": 0.2893275755706354,
+   "ratio_vs_dense": 1.0,
+   "byte_ratio_prediction": 1.0,
+   "charged_G_weights_per_s": 25.02126010368
+  },
+  "S15-K256": {
+   "shape": "S15",
+   "k": 256,
+   "active_weights_per_token": 1554579456,
+   "rates": [
+    16.29,
+    14.56,
+    15.62
+   ],
+   "mean_tok_s": 15.49,
+   "spread": 0.11168495803744342,
+   "ratio_vs_dense": 0.9555829734731647,
+   "byte_ratio_prediction": 0.9929176678892121,
+   "charged_G_weights_per_s": 24.080435773439998
+  },
+  "S15-K128": {
+   "shape": "S15",
+   "k": 128,
+   "active_weights_per_token": 976551936,
+   "rates": [
+    22.75,
+    17.75,
+    18.4
+   ],
+   "mean_tok_s": 19.633333333333333,
+   "spread": 0.2546689303904924,
+   "ratio_vs_dense": 1.2111865103845363,
+   "byte_ratio_prediction": 1.580632172337427,
+   "charged_G_weights_per_s": 19.172969676799998,
+   "ratio_net_of_overhead": 1.2674843985366904
+  },
+  "S15-K64": {
+   "shape": "S15",
+   "k": 64,
+   "active_weights_per_token": 687538176,
+   "rates": [
+    30.49,
+    30.53,
+    30.81
+   ],
+   "mean_tok_s": 30.61,
+   "spread": 0.010454099967330948,
+   "ratio_vs_dense": 1.8883405305367056,
+   "byte_ratio_prediction": 2.245067200457535,
+   "charged_G_weights_per_s": 21.04554356736,
+   "ratio_net_of_overhead": 1.9761136216914137
+  },
+  "S15-K16": {
+   "shape": "S15",
+   "k": 16,
+   "active_weights_per_token": 470777856,
+   "rates": [
+    46.48,
+    47.34,
+    40.95
+   ],
+   "mean_tok_s": 44.92333333333334,
+   "spread": 0.14224233879943607,
+   "ratio_vs_dense": 2.771334567139626,
+   "byte_ratio_prediction": 3.278763833785759,
+   "charged_G_weights_per_s": 21.14891055104,
+   "ratio_net_of_overhead": 2.9001506348181625
+  },
+  "S15-K4": {
+   "shape": "S15",
+   "k": 4,
+   "active_weights_per_token": 416587776,
+   "rates": [
+    56.36,
+    52.91,
+    45.15
+   ],
+   "mean_tok_s": 51.47333333333333,
+   "spread": 0.21778267063851836,
+   "ratio_vs_dense": 3.1754061279045853,
+   "byte_ratio_prediction": 3.7052681257742908,
+   "charged_G_weights_per_s": 21.44316145664,
+   "ratio_net_of_overhead": 3.3230040886593497
+  },
+  "T10-DENSE": {
+   "shape": "T10",
+   "k": 0,
+   "active_weights_per_token": 10603200512,
+   "rates": [
+    2.74,
+    2.22,
+    2.68
+   ],
+   "mean_tok_s": 2.546666666666667,
+   "spread": 0.20418848167539266,
+   "ratio_vs_dense": 1.0,
+   "byte_ratio_prediction": 1.0,
+   "charged_G_weights_per_s": 27.002817303893334
+  },
+  "T10-K256": {
+   "shape": "T10",
+   "k": 256,
+   "active_weights_per_token": 10653532160,
+   "rates": [
+    2.23,
+    2.66,
+    2.64
+   ],
+   "mean_tok_s": 2.5100000000000002,
+   "spread": 0.17131474103585662,
+   "ratio_vs_dense": 0.9856020942408377,
+   "byte_ratio_prediction": 0.9952755905511811,
+   "charged_G_weights_per_s": 26.740365721600003
+  },
+  "T10-K128": {
+   "shape": "T10",
+   "k": 128,
+   "active_weights_per_token": 6425673728,
+   "rates": [
+    4.05,
+    3.92,
+    3.79
+   ],
+   "mean_tok_s": 3.92,
+   "spread": 0.06632653061224485,
+   "ratio_vs_dense": 1.5392670157068062,
+   "byte_ratio_prediction": 1.650130548302872,
+   "charged_G_weights_per_s": 25.188641013759998,
+   "ratio_net_of_overhead": 1.5617529880478087
+  },
+  "T10-K64": {
+   "shape": "T10",
+   "k": 64,
+   "active_weights_per_token": 4311744512,
+   "rates": [
+    5.86,
+    5.84,
+    6.04
+   ],
+   "mean_tok_s": 5.913333333333334,
+   "spread": 0.033821871476888414,
+   "ratio_vs_dense": 2.3219895287958114,
+   "byte_ratio_prediction": 2.4591439688715955,
+   "charged_G_weights_per_s": 25.496782547626673,
+   "ratio_net_of_overhead": 2.355909694555113
+  },
+  "T10-K16": {
+   "shape": "T10",
+   "k": 16,
+   "active_weights_per_token": 2726297600,
+   "rates": [
+    9.25,
+    7.64,
+    10.17
+   ],
+   "mean_tok_s": 9.02,
+   "spread": 0.2804878048780488,
+   "ratio_vs_dense": 3.5418848167539263,
+   "byte_ratio_prediction": 3.8892307692307693,
+   "charged_G_weights_per_s": 24.591204352,
+   "ratio_net_of_overhead": 3.593625498007968
+  },
+  "T10-K4": {
+   "shape": "T10",
+   "k": 4,
+   "active_weights_per_token": 2329935872,
+   "rates": [
+    10.91,
+    10.99,
+    11.9
+   ],
+   "mean_tok_s": 11.266666666666666,
+   "spread": 0.08786982248520712,
+   "ratio_vs_dense": 4.424083769633508,
+   "byte_ratio_prediction": 4.550855085508551,
+   "charged_G_weights_per_s": 26.250610824533332,
+   "ratio_net_of_overhead": 4.48871181938911
+  }
+ },
+ "overhead": {
+  "S15": {
+   "measured": 0.9555829734731647,
+   "byte_expected": 0.9929176678892121,
+   "own_cost": 0.9623990028343286
+  },
+  "T10": {
+   "measured": 0.9856020942408377,
+   "byte_expected": 0.9952755905511811,
+   "own_cost": 0.9902805851945126
+  }
+ },
+ "charged_throughput": {
+  "S15": {
+   "min": 19.172969676799998,
+   "max": 25.02126010368,
+   "mean": 21.985380188159997,
+   "band": 0.2660081552753652
+  },
+  "T10": {
+   "min": 24.591204352,
+   "max": 27.002817303893334,
+   "mean": 25.878403627235556,
+   "band": 0.09319017458075542
+  }
+ },
+ "seconds": 363.4981896877289
+}
