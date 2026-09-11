@@ -343,3 +343,52 @@ and E17's open ground, and which is unmeasured on quality at `r/D = 1/8` and `1/
 `tf ≥ 48` measured on CPU in fp32, and it is still the first thing the T4 is being asked for.
 H1/H2, if they are requested, should now be requested at `k = 156` and their success criterion
 read against `118/160`, not `102/160`.
+
+---
+
+## 10. E27 closes the hope §9 ended on — and names a cheaper H-arm than either
+
+§9 closed by naming the lever that would open the goal's shape: *"rank on `q/o` at `D = 4096`,
+then the head … unmeasured on quality at `r/D = 1/8` and `1/16`."* **E27 measured exactly those
+two fractions and they do not survive:**
+
+| `r/D` | teacher-forced | BPB |
+|---|---|---|
+| 1/3 (E21's validated point) | **144/160** | 0.820284 |
+| 1/8 | 56/160 | 1.856378 |
+| 1/16 | 42/160 | 2.097275 |
+
+It is a cliff, not a slope. **There is no rank fraction that lowers the `T10` floor into the
+budget and leaves a model behind**, and `FLOOR-MIN` — `r_qo = 192`, `r_kv = 96`, 36 of 48 layers,
+the cheapest floor E27 could assemble and the only arm with real FFN room (`k = 17.3` of 256) —
+reads `38/160`. §9's closing sentence should now be read as answered in the negative.
+
+**What E27 found instead is worth more to this proposal than what it closed.** At 21 of 28 layers,
+choosing *which* layers to drop by the pre-registered `MINRES` rule instead of dropping the last
+`n` is worth **56 teacher-forced tokens at identical cost**:
+
+| arm | layers dropped | charged | teacher-forced | BPB |
+|---|---|---|---|---|
+| `L21-LAST` | 21–27 | 1.2160 G | 57/160 | 2.500083 |
+| **`L21-MINRES`** | **12–18** | **1.2160 G** | **113/160** | **0.993446** |
+
+**`L21-MINRES` is the best quality-per-weight point the donor branch has produced without an
+oracle, and it is the cheapest thing to train in this whole proposal.** It has **no router to fit**,
+**nothing to calibrate at inference**, and **no factorisation to keep numerically stable** — it is
+the donor with seven contiguous middle blocks deleted and `layer_idx` reindexed. Compared with
+`QO512 + K156`, which needs a ridge router fitted on a calibration slice and a low-rank form that
+has to survive ternarisation (E22's `+0.908657` BPB when both factors are ternarised), it is a much
+smaller ask of a T4.
+
+**Proposed, but NOT requested yet.** If H0 returns and its gate fires, the natural next arm is
+`H3 = L21-MINRES`, healed, with its criterion read against **`113/160`** — the same way §9 reset
+H1/H2's criterion to `118/160`. I am not asking for it now: **H0 is still the only outstanding
+T4 request, and nothing here changes it.** H0 remains router-free and carve-free by construction,
+its gate is still `tf ≥ 48` measured on CPU in fp32, and E23, E24 and E27 all leave it untouched.
+
+**And the honest caveat, in the same place as the last one.** `L21-MINRES` at `T10` is `7.75 tok/s`
+with a dense FFN, not 50. The floor alone at 36 layers is `1.6819 G` = **1.68× the entire per-token
+budget**, so even deleting the FFN completely reaches `29.7 tok/s`. Healing `L21-MINRES` would
+establish that depth surgery plus healing is a real mechanism at the donor's scale. **It would not
+produce the goal's artifact, and this proposal should stop implying that any single one of these
+arms can.**
