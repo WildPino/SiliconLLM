@@ -296,3 +296,50 @@ surrounding arithmetic:
 - **Nine tenths of the remaining gap is the FFN** (8.45 G of `T10`). That is E19's carve and
   E23/E24's router, and **E24 is still unrun** — which is where the next CPU work belongs, not
   on the GPU.
+
+---
+
+## 9. E24 restores the H1/H2 target — at a different depth, and with a caveat that is new
+
+**2026-09-11, after E24** (`probes/E24_THE_DEPTH_THE_BUDGET_PERMITS.md`, brief `b78ce4d`).
+
+§8 ended with "E24 is still unrun — which is where the next CPU work belongs". It has now run,
+nine arms, `VOID: none`, no timing taken.
+
+**The verdict is `DEPTH-RECOVERS`, and E24 §5's registered alternative is the one that fired.**
+E23's `ROUTER-COSTS` — the result that put this proposal's H1/H2 request in doubt — was measured
+at `k = 133`, a depth inherited from E19 and fixed before a router cost anything, and **2.8%
+below the budget floor**. At the depths the budget actually permits, with the same closed-form
+ridge router charged at `11.0 M` and executed:
+
+| depth | active/token | teacher-forced | band |
+|---|---|---|---|
+| `k = 133` (E23's, out of budget) | 0.9551 G | 102/160 | WORSE |
+| `k = 139` | 0.9822 G | 105/160 | WORSE |
+| `k = 148` | 1.0228 G | 110/160 | **COMPARABLE** |
+| **`k = 156`** | **1.0590 G** | **118/160** | **COMPARABLE** |
+
+**So the healing target is restored, and it is `QO512 + K156` (`E = 256`, `k = 156`), not
+`QO512 + V52` (`k = 133`).** That object is in budget, uses no oracle anywhere, and ranks
+COMPARABLE with the router included in its own cost. Nothing new was invented to get there — it
+is the depth E23 §7's arithmetic had already permitted.
+
+**What is still 12 tokens away, and is what healing would be for.** `K156-ORACLE` reads `130`
+against `K156-LINEAR`'s `118`. The oracle is a ceiling no router can reach, but the gap is the
+measured size of what a better router — or training the model to live with this one — has to
+work with. It was 24 tokens at `k = 133`; going 9 points shallower halved it.
+
+**The caveat, which is new and belongs here rather than in a footnote.** E24 §6 transposes the
+winning recipe to `T10`, the goal's shape, on E25's measured charged throughput: `QO512 + K156`
+is `6.14 G` active there = **≈ 8.1 tok/s, not 50**, and at `T10` the 50 tok/s budget leaves the
+FFN only `k ≈ 2 … 8` of 256 — and **nothing at all** if `q/o` stays dense or is cut only to
+`r = D/3`. The 1.5 B lands in the budget band at 58–61% activation *because it is a 1.5 B*.
+**Healing `QO512 + K156` would therefore validate the mechanism at the donor's scale; it would
+not, on its own, produce the goal's artifact.** The lever that opens the goal's shape is the one
+that lowers the non-FFN floor — rank on `q/o` at `D = 4096`, then the head — which is E21 §8's
+and E17's open ground, and which is unmeasured on quality at `r/D = 1/8` and `1/16`.
+
+**Nothing here changes H0.** H0 is router-free and carve-free by construction, its gate is still
+`tf ≥ 48` measured on CPU in fp32, and it is still the first thing the T4 is being asked for.
+H1/H2, if they are requested, should now be requested at `k = 156` and their success criterion
+read against `118/160`, not `102/160`.
