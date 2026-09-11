@@ -1,0 +1,40 @@
+{
+ "gates": [
+  "E26-P",
+  "E26-S",
+  "E26-R"
+ ],
+ "model": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "dense": "D:/_ktmp/e26/q15_dense.bin",
+ "carved": "D:/_ktmp/e26/q15_carve.bin",
+ "E": 256,
+ "k": 64,
+ "n": 8,
+ "rule": "R0",
+ "router_seed": 26,
+ "labels": "../density/results/d0c_labels/labels_E256.npz",
+ "P_worst_rel_l2": 4.481310043047415e-06,
+ "P_top1": 1.0,
+ "P_tol": 0.0001,
+ "P_fires": true,
+ "S_comparisons": 224,
+ "S_disagreements": 0,
+ "S_fires": true,
+ "R_worst_rel_l2": 1.1559147878870135e-06,
+ "R_top1": 1.0,
+ "R_tol": 0.002,
+ "R_fires": true,
+ "all_fire": true,
+ "tokens": [
+  785,
+  6722,
+  315,
+  9625,
+  374,
+  12095,
+  11,
+  323
+ ],
+ "seconds": 23.23081398010254
+}

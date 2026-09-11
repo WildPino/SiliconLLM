@@ -53,9 +53,11 @@ static int g_prof=0;
 // ---- E8: the FFN organ, DECOMPOSED.  --profile only.  These are SUB-timers of T_FFN and are
 // deliberately NOT members of g_t, so the organ table and every percentage in it are unchanged;
 // they are printed separately and their sum is checked against the ffn organ (gate G-Z1).
-enum { F_GU=0, F_GLUE, F_DOWN, F_RES, F_N };
+enum { F_GU=0, F_GLUE, F_DOWN, F_RES, F_ROUTER, F_N };
 static double g_ff[F_N];
-static const char* g_ffn[F_N]={"gate+up","glue(silu)","down","residual"};
+// E26 appends `router` LAST so every F_* value already published keeps its number; the router
+// bracket is zero on a dense FFN, so the G-Z1 sum check is unchanged there.
+static const char* g_ffn[F_N]={"gate+up","glue(silu)","down","residual","router+select"};
 #define TICF double _f0=g_prof?now_s():0.0
 #define TOCF(k) do{ if(g_prof) g_ff[k]+=now_s()-_f0; }while(0)
 
@@ -114,6 +116,13 @@ typedef struct mat_s {
     int rank;
     struct mat_s *fa, *fb;   // A [out, rank] and B [rank, in]
     const float* fs;         // s [rank], fp32, applied to the intermediate; NULL = identity
+    // ---- E26: the TRANSPOSED packed kind.  Same trits, same per-output-row scales, stored
+    // code[in][out/2] instead of code[out][in/2] -- two trits per byte along OUT.  It exists so
+    // a carved FFN can skip a down_proj neuron: in [D,F] a neuron is a COLUMN, half a byte
+    // inside a 64-byte line, and skipping it saves nothing at all.  Transposed it is a whole
+    // contiguous row of out/2 bytes.  Exactly the same size as the untransposed matrix.
+    int tposed;
+    int blk;                 // MK_PACKED_T only: bytes of one output block, == PT_BLK
 } mat_t;
 
 typedef struct {
@@ -128,6 +137,14 @@ typedef struct {
     // threads is 21 rows and ~4.6 us of real work per fork.
     mat_t qkv, gateup;
     const float* qkvb;
+    // ---- E26: the CARVED FFN (quant==4, ffn_kind==FK_CARVED).  `carved` is 0 on every file
+    // written before this kind existed, so the dense path below is untouched.  The neurons are
+    // stored in GROUP-MAJOR order -- group g owns rows [g*GSZ, (g+1)*GSZ) of gate/up and the
+    // same rows of the transposed down -- which the EXPORTER produces by permuting the F axis.
+    // A permutation of F is exact: it moves rows of gate/up and columns of down and changes
+    // nothing the model computes.
+    int carved, E, GSZ, kdef;
+    mat_t router;            // [E, D]
 } layer_t;
 
 typedef struct {
@@ -386,6 +403,7 @@ static void tm_fill(int8_t* tm,const int8_t* code,int M,int Mpad,int H){
         }
 }
 static void build_tm(mat_t* m){
+    if(m->tposed) die("--lut has no tile-major form for a transposed matrix");
     if(!m->packed||m->tm) return;
     const int H=m->in/2; m->Mpad=((m->out+31)/32)*32;
     int8_t* tm=xmalloc((size_t)H*m->Mpad);
@@ -415,8 +433,18 @@ static float* g_lrb=NULL; static int g_lrcap=0;
 static float* g_lr(int n){ if(n>g_lrcap){ free(g_lrb); g_lrb=xmalloc((size_t)n*4); g_lrcap=n; }
                            return g_lrb; }
 
-static void matvec(const mat_t* m, const float* x, const float* bias, float* y){
+// E26: matvec_sel is matvec with an optional ROW LIST.  rows==NULL is the dense call and is
+// arithmetically identical to what it was -- the only change in the hot loop is one predictable
+// compare per OUTPUT ROW, against in/2 bytes of work inside it.  With a row list the output is
+// COMPACTED: y[t] holds the result for row rows[t], and the bias is still read at rows[t].
+static void matvec(const mat_t* m, const float* x, const float* bias, float* y);
+static void matvec_sel(const mat_t* m, const float* x, const float* bias, float* y,
+                       const int* rows, int nr){
     const int n_out=m->out, n_in=m->in;   // NOT "OUT"/"IN": windows.h defines those as SAL macros
+    const int NSEL = rows ? nr : n_out;
+    if(m->tposed) die("a transposed packed matrix must go through matvec_colacc, not matvec");
+    if(rows && (m->rank||m->tm||!m->packed))
+        die("row-selected matvec is implemented for the plain packed kind only");
     if(m->rank){
         float* h=g_lr(m->rank);
         matvec(m->fb,x,NULL,h);
@@ -482,7 +510,8 @@ static void matvec(const mat_t* m, const float* x, const float* bias, float* y){
 #ifdef _OPENMP
 #pragma omp parallel for schedule(static)
 #endif
-        for(int o=0;o<n_out;o++){
+        for(int tt=0;tt<NSEL;tt++){
+            const int o = rows ? rows[tt] : tt;
             const int8_t* c=m->code+(size_t)o*H;
             __m256 acc=_mm256_setzero_ps(); int j=0;
             if(MA>1){
@@ -524,7 +553,7 @@ static void matvec(const mat_t* m, const float* x, const float* bias, float* y){
             float t=s[0]+s[1]+s[2]+s[3]+s[4]+s[5]+s[6]+s[7];
             for(;j<H;j++){ int v=(uint8_t)c[j]; int t0=v%3-1, t1=(v/3)-1; t+=(float)t0*g_xe[j]+(float)t1*g_xo[j]; }
             t*=m->scale[o];
-            y[o]=bias?t+bias[o]:t;
+            y[tt]=bias?t+bias[o]:t;
         }
         return;
     }
@@ -580,6 +609,82 @@ static void matvec(const mat_t* m, const float* x, const float* bias, float* y){
     }
 }
 
+static void matvec(const mat_t* m, const float* x, const float* bias, float* y){
+    matvec_sel(m,x,bias,y,NULL,0);
+}
+
+// ---------------------------------------------------------------- E26: the transposed kernel
+// y[d] = scale[d] * sum_t codeT[rows[t]][d] * h[t].  An ACCUMULATE over kept rows into a
+// D-float accumulator, not D independent dot products -- same trits, same FMA count, a
+// different partition of the sum, so this is NOT bit-identical to the dense down_proj and is
+// gated on end-to-end parity (Phase 60's law), never on sha256.
+// ONE OpenMP region per call: the thread split is over the accumulator range (each thread owns
+// a private, contiguous, 8-aligned slice, so there is no reduction) and the row loop runs
+// INSIDE the region.  Putting the pragma on the inner loop would open nr regions per call.
+// The accumulator is blocked so it never leaves a REGISTER.  Walking rows on the outside and
+// the accumulator on the inside is the obvious shape and it is the wrong one: it loads and
+// stores 64 bytes of accumulator for every 8 bytes of weight, and at D=896 leaves each thread
+// a ten-iteration inner loop.  Measured on the S05 smoke it read the byte-neutral control at
+// -21%, which is a defect of the kernel and says nothing about the carve.
+// So: split the OUTPUT range into 32-byte pieces -- four ymm pairs, 64 outputs -- and put the
+// ROW loop inside.  Eight accumulators stay in registers for the whole pass, and each row
+// contributes 32 CONTIGUOUS bytes to it.
+// PT_BLK: the bytes of a stored row one pass covers -- PT_BLK/8 ymm pairs, 2*PT_BLK outputs,
+// and the block size the file is written in.  64 is one cache line and divides out/2 at every
+// shape here (448, 768, 2048).  Measured against 32 on S15 while the layout was still
+// row-major: 20.8 vs 17.6 tok/s at k=E and 45.2 vs 36.6 at k=64.  That is a property of this
+// machine and not of the carve -- 32 covers half a line per pass and pays for the other half
+// twice -- and it is why the block size is a FORMAT constant and not a build flag.
+#define PT_BLK 64
+#define CA_BLK PT_BLK
+#define CA_NV (CA_BLK/8)
+static void matvec_colacc(const mat_t* m,const float* h,const int* rows,int nr,float* y){
+    if(!m->tposed||!m->packed) die("matvec_colacc needs a transposed packed matrix");
+    const int n_out=m->out;            // D
+    const int Hd=n_out/2;              // bytes per stored row: two trits per byte along OUT
+    const int nb=Hd/CA_BLK;            // whole blocks; the remainder is done serially below
+    const __m128i TLO=_mm_setr_epi8(-1,0,1,-1,0,1,-1,0,1,0,0,0,0,0,0,0);
+    const __m128i THI=_mm_setr_epi8(-1,-1,-1,0,0,0,1,1,1,0,0,0,0,0,0,0);
+#ifdef _OPENMP
+#pragma omp parallel for schedule(static)
+#endif
+    for(int bb=0;bb<nb;bb++){
+        const int j0=bb*CA_BLK;
+        __m256 e[CA_NV],o[CA_NV];
+        for(int u=0;u<CA_NV;u++){ e[u]=_mm256_setzero_ps(); o[u]=_mm256_setzero_ps(); }
+        for(int t=0;t<nr;t++){
+            const int f = rows ? rows[t] : t;
+            const __m256 hv=_mm256_set1_ps(h[t]);
+            // BLOCK-MAJOR: block bb's bytes for all `in` rows sit contiguously, so this
+            // walk is linear in f and a carved walk reads whole lines in per-group runs.
+            const int8_t* c=m->code+((size_t)bb*(size_t)m->in+(size_t)f)*CA_BLK;
+            for(int u=0;u<CA_NV;u++){
+                __m128i b=_mm_loadl_epi64((const __m128i*)(c+8*u));
+                e[u]=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(
+                        _mm_shuffle_epi8(TLO,b))),hv,e[u]);
+                o[u]=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(
+                        _mm_shuffle_epi8(THI,b))),hv,o[u]);
+            }
+        }
+        float se[CA_BLK],so[CA_BLK];
+        for(int u=0;u<CA_NV;u++){ _mm256_storeu_ps(se+8*u,e[u]); _mm256_storeu_ps(so+8*u,o[u]); }
+        for(int u=0;u<CA_BLK;u++){ const int j=j0+u;
+            y[2*j]  =se[u]*m->scale[2*j];
+            y[2*j+1]=so[u]*m->scale[2*j+1]; }
+    }
+    // The remainder: fewer than CA_BLK bytes of a row.  Empty at every shape this programme
+    // uses (D is a multiple of 128, so Hd is a multiple of 64), kept
+    // because "empty at every shape I tried" is not a format guarantee.
+    for(int j=nb*CA_BLK;j<Hd;j++){
+        float ae=0.0f, ao=0.0f;
+        for(int t=0;t<nr;t++){ const int f=rows?rows[t]:t;
+            const int v=(unsigned char)m->code[((size_t)(j/CA_BLK)*(size_t)m->in
+                                                +(size_t)f)*CA_BLK+(j%CA_BLK)];
+            ae+=(float)(v%3-1)*h[t]; ao+=(float)(v/3-1)*h[t]; }
+        y[2*j]=ae*m->scale[2*j]; y[2*j+1]=ao*m->scale[2*j+1];
+    }
+}
+
 static void rmsnorm(const float* x,const float* w,int n,float eps,float* y){
     double ss=0.0; for(int i=0;i<n;i++) ss+=(double)x[i]*x[i];
     float inv=(float)(1.0/sqrt(ss/(double)n+(double)eps));
@@ -622,11 +727,16 @@ static const char* rd(const char** p, size_t n){ const char* q=*p; *p+=n; return
 // convenience -- it is exactly the configuration E22/E23 measured (k/v left fp32) and the one
 // H0 trains, and a single global quant flag cannot express it.  quant 0/1/2 stay untagged and
 // byte-for-byte unchanged, so every artifact already on disk still loads.
-enum { MK_PACKED=0, MK_FACTORED=1, MK_F32=2 };
+// E26 adds MK_PACKED_T and quant==4 ("tagged-v2"): quant==3 with an int32 ffn_kind in front of
+// every layer's FFN.  quant==3 files are FROZEN -- they load through the same code, byte for
+// byte, and G-E26a holds the pre- and post-patch engines bit-identical on one of them.
+enum { MK_PACKED=0, MK_FACTORED=1, MK_F32=2, MK_PACKED_T=3 };
+enum { FK_DENSE=0, FK_CARVED=1 };
 
 static void read_mat(const char** p, mat_t* m, int out, int in, int quant){
     m->out=out; m->in=in; m->packed=(quant==2); m->f32=NULL; m->code=NULL; m->scale=NULL;
     m->tm=NULL; m->Mpad=0; m->rank=0; m->fa=NULL; m->fb=NULL; m->fs=NULL;
+    m->tposed=0; m->blk=0;
     if(quant==3){
         int kind; memcpy(&kind,rd(p,4),4);
         if(kind==MK_PACKED){
@@ -636,6 +746,20 @@ static void read_mat(const char** p, mat_t* m, int out, int in, int quant){
             m->scale=(const float*)rd(p,(size_t)out*4);
         } else if(kind==MK_F32){
             m->f32=(const float*)rd(p,(size_t)out*in*4);
+        } else if(kind==MK_PACKED_T){
+            // Two trits per byte along OUT, so the parity requirement moves from `in` to `out`
+            // -- which is why a 35-neuron group stops being a problem.  Stored BLOCK-MAJOR:
+            // [ (out/2)/blk ][ in ][ blk ], so one pass of matvec_colacc over one output block
+            // is a single linear run instead of one 64-byte piece out of every (out/2)-byte
+            // row.  blk is in the file so the layout is self-describing, and the engine
+            // refuses a file whose blk it was not compiled for rather than mis-stride it.
+            int blk; memcpy(&blk,rd(p,4),4);
+            m->packed=1; m->tposed=1; m->blk=blk;
+            if(out&1) die("transposed packed matrix with odd out_features");
+            if(blk!=PT_BLK) die("transposed packed matrix: block size is not PT_BLK");
+            if((out/2)%blk) die("transposed packed matrix: blk must divide out/2");
+            m->code=(const int8_t*)rd(p,(size_t)in*(out/2));
+            m->scale=(const float*)rd(p,(size_t)out*4);
         } else if(kind==MK_FACTORED){
             int r; memcpy(&r,rd(p,4),4);
             if(r<=0||(r&1)) die("factored matrix: rank must be positive and even");
@@ -706,25 +830,53 @@ static void load(model_t* M,const char* path){
     const int QO=M->NH*M->HD, KVO=M->NKV*M->HD;
     fprintf(stderr,"  D=%d F=%d L=%d heads=%d/%d hd=%d V=%d tied=%d quant=%s eps=%g theta=%g\n",
             M->D,M->F,M->L,M->NH,M->NKV,M->HD,M->V,M->tied,
+            M->quant==4?"tagged-v2(per-matrix kind + per-layer FFN kind)":
             M->quant==3?"tagged(per-matrix kind)":
             M->quant==2?"packed(2 trits/byte)":M->quant?"ternary":"fp32",
             M->rms_eps,M->rope_theta);
     M->embed=(const float*)rd(&p,(size_t)M->V*M->D*4);
     M->lay=xmalloc((size_t)M->L*sizeof(layer_t));
+    // quant==4 is quant==3's per-matrix tagging plus a per-layer FFN kind; every matrix in it
+    // is read with the SAME tag reader, so there is one definition of a tagged matrix.
+    const int tagq = (M->quant==4) ? 3 : M->quant;
+    int ncarved=0;
     for(int l=0;l<M->L;l++){
         layer_t* L=&M->lay[l];
+        L->carved=0; L->E=0; L->GSZ=0; L->kdef=0;
         L->in_norm=(const float*)rd(&p,(size_t)M->D*4);
-        read_mat(&p,&L->q,QO,M->D,M->quant);  L->qb=(const float*)rd(&p,(size_t)QO*4);
-        read_mat(&p,&L->k,KVO,M->D,M->quant); L->kb=(const float*)rd(&p,(size_t)KVO*4);
-        read_mat(&p,&L->v,KVO,M->D,M->quant); L->vb=(const float*)rd(&p,(size_t)KVO*4);
-        read_mat(&p,&L->o,M->D,QO,M->quant);
+        read_mat(&p,&L->q,QO,M->D,tagq);  L->qb=(const float*)rd(&p,(size_t)QO*4);
+        read_mat(&p,&L->k,KVO,M->D,tagq); L->kb=(const float*)rd(&p,(size_t)KVO*4);
+        read_mat(&p,&L->v,KVO,M->D,tagq); L->vb=(const float*)rd(&p,(size_t)KVO*4);
+        read_mat(&p,&L->o,M->D,QO,tagq);
         L->post_norm=(const float*)rd(&p,(size_t)M->D*4);
-        read_mat(&p,&L->gate,M->F,M->D,M->quant);
-        read_mat(&p,&L->up,  M->F,M->D,M->quant);
-        read_mat(&p,&L->down,M->D,M->F,M->quant);
+        int fk=FK_DENSE;
+        if(M->quant==4) memcpy(&fk,rd(&p,4),4);
+        if(fk==FK_CARVED){
+            int hdr[2]; memcpy(hdr,rd(&p,8),8);
+            L->E=hdr[0]; L->kdef=hdr[1];
+            if(L->E<=0||M->F%L->E) die("carved FFN: E must be positive and divide F");
+            if(L->kdef<1||L->kdef>L->E) die("carved FFN: k must be in [1, E]");
+            L->GSZ=M->F/L->E; L->carved=1; ncarved++;
+            read_mat(&p,&L->router,L->E,M->D,tagq);
+            read_mat(&p,&L->gate,M->F,M->D,tagq);
+            read_mat(&p,&L->up,  M->F,M->D,tagq);
+            read_mat(&p,&L->down,M->D,M->F,tagq);
+            if(!L->down.tposed)
+                die("carved FFN: down_proj must be stored transposed (MK_PACKED_T)");
+            if(!L->gate.packed||L->gate.tposed||!L->up.packed||L->up.tposed)
+                die("carved FFN: gate/up must be plain packed matrices");
+        } else if(fk==FK_DENSE){
+            read_mat(&p,&L->gate,M->F,M->D,tagq);
+            read_mat(&p,&L->up,  M->F,M->D,tagq);
+            read_mat(&p,&L->down,M->D,M->F,tagq);
+        } else {
+            die("unknown ffn_kind in a quant=4 file");
+        }
     }
+    if(ncarved) fprintf(stderr,"  carved FFN on %d/%d layers: E=%d, group=%d neurons, k=%d in the file\n",
+                        ncarved,M->L,M->lay[0].E,M->lay[0].GSZ,M->lay[0].kdef);
     M->final_norm=(const float*)rd(&p,(size_t)M->D*4);
-    if(!M->tied) read_mat(&p,&M->head,M->V,M->D,M->quant);
+    if(!M->tied) read_mat(&p,&M->head,M->V,M->D,tagq);
     size_t used=(size_t)(p-M->blob);
     if(used!=M->blob_bytes){
         fprintf(stderr,"  FATAL: consumed %zu of %zu bytes -- layout mismatch\n",used,M->blob_bytes);
@@ -747,6 +899,7 @@ static void fuse_mats(mat_t* dst,const mat_t* const* src,int n,int quant){
         // is [KVO,r'], and their B's are different matrices entirely.  Refuse rather than
         // silently fuse the wrong thing.
         if(src[i]->rank) die("--fuse cannot concatenate a FACTORED matrix -- run without --fuse");
+        if(src[i]->tposed) die("--fuse cannot concatenate a TRANSPOSED matrix -- run without --fuse");
         if(src[i]->packed!=src[0]->packed || (src[i]->f32!=NULL)!=(src[0]->f32!=NULL))
             die("--fuse: matrices in one group have different kinds");
         out+=src[i]->out;
@@ -754,7 +907,7 @@ static void fuse_mats(mat_t* dst,const mat_t* const* src,int n,int quant){
     (void)quant;   // the KIND now comes from the sources, so a tagged file fuses correctly too
     dst->out=out; dst->in=in; dst->packed=src[0]->packed; dst->tm=NULL; dst->Mpad=0;
     dst->f32=NULL; dst->code=NULL; dst->scale=NULL;
-    dst->rank=0; dst->fa=NULL; dst->fb=NULL; dst->fs=NULL;
+    dst->rank=0; dst->fa=NULL; dst->fb=NULL; dst->fs=NULL; dst->tposed=0;
     if(src[0]->f32){
         float* w=xmalloc((size_t)out*in*4); size_t o=0;
         for(int i=0;i<n;i++){ memcpy(w+o,src[i]->f32,(size_t)src[i]->out*in*4); o+=(size_t)src[i]->out*in; }
@@ -777,6 +930,9 @@ static float* cat3f(const float* a,int na,const float* b,int nb,const float* c,i
 }
 static void build_fused(model_t* M){
     size_t bytes=0;
+    for(int l=0;l<M->L;l++) if(M->lay[l].carved)
+        die("--fuse cannot be combined with a carved FFN: fusing gate|up by output row destroys "
+            "the group-major row order the router selects on");
     for(int l=0;l<M->L;l++){ layer_t* L=&M->lay[l];
         const mat_t* qkv[3]={&L->q,&L->k,&L->v};
         const mat_t* gu[2]={&L->gate,&L->up};
@@ -810,6 +966,65 @@ static void state_init(state_t* s,const model_t* M,int maxseq){
     s->vcache=xmalloc((size_t)M->L*maxseq*KVO*4);
     s->qkvbuf=xmalloc((size_t)(QO+2*KVO)*4);      // --fuse scratch; q|k|v land contiguous,
     s->gubuf =xmalloc((size_t)(2*M->F)*4);        // gate|up likewise, and both are read in place
+}
+
+// ---------------------------------------------------------------- E26: the CARVED FFN
+// The router scores E neuron groups, top-k picks k of them, and ONLY those neurons' rows of
+// gate/up are computed and only those rows of the transposed down are accumulated.  Nothing is
+// zeroed and nothing is read that is not used -- which is the whole point.  E19 measured this
+// carve with a PyTorch forward-pre-hook that ZEROES the non-kept activations, and a zeroed
+// weight is still read, still multiplied, still streamed: that hook priced the carve's QUALITY
+// and could not price its COST.
+static int   g_carvek=-1;      // --carve-k: runtime override, so ONE artifact serves every k
+static int   g_carvedump=0;    // --carve-dump: print the selected groups (stderr), gate G-E26S
+static float*g_rt=NULL;   static int g_rtcap=0;
+static int  *g_sel=NULL;  static int g_selcap=0;
+static int  *g_rows=NULL; static int g_rowscap=0;
+static unsigned char* g_taken=NULL; static int g_takencap=0;
+
+// top-k by value, ties to the LOWER index -- the PyTorch reference mirrors that, and G-E26S
+// compares the selected SETS, not the logits.  Returned sorted ASCENDING so the row list is
+// monotone.  O(k*E): 33 k compares a layer at E=256,k=128, against 24 M weights in the same
+// layer, and at k>=E the selection does not run at all.
+static void topk_idx(const float* sc,int n,int k,int* out){
+    if(k>=n){ for(int i=0;i<n;i++) out[i]=i; return; }
+    if(n>g_takencap){ free(g_taken); g_taken=(unsigned char*)xmalloc((size_t)n); g_takencap=n; }
+    memset(g_taken,0,(size_t)n);
+    for(int r=0;r<k;r++){
+        int best=-1; float bv=0.0f;
+        for(int i=0;i<n;i++){ if(g_taken[i]) continue;
+                              if(best<0||sc[i]>bv){ best=i; bv=sc[i]; } }
+        g_taken[best]=1; out[r]=best;
+    }
+    for(int a=1;a<k;a++){ int v=out[a],b=a-1;
+        while(b>=0&&out[b]>v){ out[b+1]=out[b]; b--; } out[b+1]=v; }
+}
+
+static void ffn_carved(const model_t* M,const layer_t* L,state_t* s,int li){
+    const int D=M->D, E=L->E, GSZ=L->GSZ;
+    int k = g_carvek>0 ? g_carvek : L->kdef;
+    if(k>E) k=E; if(k<1) k=1;
+    if(E>g_rtcap){ free(g_rt);  g_rt =(float*)xmalloc((size_t)E*4);     g_rtcap=E; }
+    if(E>g_selcap){ free(g_sel); g_sel=(int*)  xmalloc((size_t)E*4);     g_selcap=E; }
+    if(E*GSZ>g_rowscap){ free(g_rows); g_rows=(int*)xmalloc((size_t)E*GSZ*4); g_rowscap=E*GSZ; }
+    { TICF; matvec(&L->router,s->xb,NULL,g_rt);
+            topk_idx(g_rt,E,k,g_sel); TOCF(F_ROUTER); }
+    if(g_carvedump){ fprintf(stderr,"CARVE l=%d k=%d:",li,k);
+                     for(int i=0;i<k;i++) fprintf(stderr," %d",g_sel[i]);
+                     fprintf(stderr,"\n"); }
+    int nr=0;
+    for(int i=0;i<k;i++){ const int g0=g_sel[i]*GSZ;
+                          for(int j=0;j<GSZ;j++) g_rows[nr++]=g0+j; }
+    { TICF; matvec_sel(&L->gate,s->xb,NULL,s->hb ,g_rows,nr);
+            matvec_sel(&L->up  ,s->xb,NULL,s->hb2,g_rows,nr); TOCF(F_GU); }
+    { TICF;
+#ifdef _OPENMP
+#pragma omp parallel for schedule(static)
+#endif
+      for(int i=0;i<nr;i++) s->hb[i]=silu(s->hb[i])*s->hb2[i];
+      TOCF(F_GLUE); }
+    { TICF; matvec_colacc(&L->down,s->hb,g_rows,nr,s->xb2); TOCF(F_DOWN); }
+    { TICF; for(int i=0;i<D;i++) s->x[i]+=s->xb2[i]; TOCF(F_RES); }
 }
 
 // one token at position `pos`; logits land in s->logits
@@ -978,6 +1193,7 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
 
         { TIC; rmsnorm(s->x,L->post_norm,D,M->rms_eps,s->xb); TOC(T_NORM); }
         { TICW;
+          if(L->carved){ ffn_carved(M,L,s,l); } else {
           { TICF;
             if(g_fuse) matvec(&L->gateup,s->xb,NULL,s->gubuf);   // one region instead of two
             else     { matvec(&L->gate,s->xb,NULL,s->hb);
@@ -1002,6 +1218,7 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
             TOCF(F_GLUE); }
           { TICF; matvec(&L->down,s->hb,NULL,s->xb2); TOCF(F_DOWN); }
           { TICF; for(int i=0;i<D;i++) s->x[i]+=s->xb2[i]; TOCF(F_RES); }
+          }
           TOCW(T_FFN); }
     }
     { TIC; rmsnorm(s->x,M->final_norm,D,M->rms_eps,s->xb); TOC(T_NORM); }
@@ -1166,6 +1383,10 @@ int main(int argc,char** argv){
         else if(!strcmp(argv[i],"--lut-diag")){ g_lut=1; g_lutdiag=1; atexit(lut_diag_report); }
         else if(!strcmp(argv[i],"--lut-clip")&&i+1<argc){ g_clip=(float)atof(argv[++i]); }
         else if(!strcmp(argv[i],"--lut-no-down")){ g_lutnodown=1; }
+        // E26: one carved artifact serves every k in the sweep, so no cell can be confounded
+        // by a different file.  --carve-k on a file with no carved layer is a no-op and says so.
+        else if(!strcmp(argv[i],"--carve-k")&&i+1<argc){ g_carvek=atoi(argv[++i]); }
+        else if(!strcmp(argv[i],"--carve-dump")){ g_carvedump=1; }
         else if(!strcmp(argv[i],"--lut-no-head")){ g_lutnohead=1; }
         else if(!strcmp(argv[i],"--fuse")){ g_fuse=1; }
         else if(!strcmp(argv[i],"--attn")&&i+1<argc){ const char* v=argv[++i];
@@ -1204,6 +1425,12 @@ int main(int argc,char** argv){
     if(threads<1) threads=1; omp_set_num_threads(threads); omp_set_dynamic(0);
 #endif
     model_t M; load(&M,wp);
+    if(g_carvek>0){
+        int any=0; for(int l=0;l<M.L;l++) if(M.lay[l].carved) any=1;
+        if(!any) fprintf(stderr,"  --carve-k %d IGNORED: no layer in this file has a carved FFN\n",g_carvek);
+        else fprintf(stderr,"  --carve-k %d (file default %d of E=%d)\n",
+                     g_carvek,M.lay[0].kdef,M.lay[0].E);
+    }
     if(g_fuse) build_fused(&M);          // BEFORE --lut: the tile-major copy must be of the
                                          // fused matrices, or the LUT path would see the old ones
     if(g_lut){

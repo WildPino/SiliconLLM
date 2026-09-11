@@ -38,7 +38,10 @@ sys.path.insert(0, HERE)
 MAGIC = b"QWENDON1"
 QUANT_PACKED = 2
 QUANT_TAGGED = 3
-MK_PACKED, MK_FACTORED, MK_F32 = 0, 1, 2
+QUANT_V4 = 4                      # E26: tagged + a per-layer int32 ffn_kind
+PT_BLK = 64                       # E26: the transposed kind's block size, one cache line
+MK_PACKED, MK_FACTORED, MK_F32, MK_PACKED_T = 0, 1, 2, 3
+FK_DENSE, FK_CARVED = 0, 1
 
 # Real donor shapes, read off benchmarks/donor_adaptation/configs/*.json.  T10 is synthetic and
 # is marked so everywhere it appears.  (D, F, L, NH, NKV, HD, V, tied, source)
@@ -52,11 +55,28 @@ SHAPES = {
 }
 
 
-def active_weights(D, F, L, NH, NKV, HD, V):
+def active_weights(D, F, L, NH, NKV, HD, V, E=0, k=0):
     """Weights touched by a matvec on every decoded token.  The embedding is a gather, not a
-    matvec, so it is not here; the head is, tied or not."""
-    per = NH * HD * D + 2 * (NKV * HD * D) + NH * HD * D + 3 * D * F
-    return per * L + V * D
+    matvec, so it is not here; the head is, tied or not.
+
+    E26: with a carve (E groups, k kept) the FFN term is E*D for the router plus 3*D*(F/E)*k
+    for the kept neurons.  The router is CHARGED -- leaving it out would flatter the carve by
+    50.3 M weights a token at the goal's shape.
+    """
+    per = NH * HD * D + 2 * (NKV * HD * D) + NH * HD * D
+    ffn = 3 * D * F if not E else (E * D + 3 * D * (F // E) * k)
+    return (per + ffn) * L + V * D
+
+
+def _codes(rng, r, c, mode):
+    """[r, c] of trit codes SHIFTED to {0,1,2}.  Split out of w_packed so the transposed
+    writer packs along the other axis without a second definition of the value distribution."""
+    if mode == "zero":
+        return np.ones((r, c), dtype=np.int16)                             # trit 0 -> code 1
+    if mode == "dense":
+        return rng.integers(0, 2, size=(r, c), dtype=np.int16) * 2         # {-1,+1} -> {0,2}
+    u = rng.random((r, c), dtype=np.float32)
+    return np.where(u < 0.47, 1, np.where(u < 0.735, 0, 2)).astype(np.int16)
 
 
 def w_packed(fh, rng, n_out, n_in, mode):
@@ -73,13 +93,7 @@ def w_packed(fh, rng, n_out, n_in, mode):
     CH = max(1, (1 << 24) // max(1, n_in))
     for r0 in range(0, n_out, CH):
         r1 = min(n_out, r0 + CH)
-        if mode == "zero":
-            qn = np.ones((r1 - r0, n_in), dtype=np.int16)                  # trit 0 -> code 1
-        elif mode == "dense":
-            qn = rng.integers(0, 2, size=(r1 - r0, n_in), dtype=np.int16) * 2   # {-1,+1} -> {0,2}
-        else:
-            u = rng.random((r1 - r0, n_in), dtype=np.float32)
-            qn = np.where(u < 0.47, 1, np.where(u < 0.735, 0, 2)).astype(np.int16)
+        qn = _codes(rng, r1 - r0, n_in, mode)
         packed = (qn[:, 0::2] + 3 * qn[:, 1::2]).astype(np.uint8)
         fh.write(np.ascontiguousarray(packed).tobytes())
     scale = (rng.random(n_out, dtype=np.float32) * 0.01 + 0.005)
@@ -89,6 +103,28 @@ def w_packed(fh, rng, n_out, n_in, mode):
 def w_tag_packed(fh, rng, n_out, n_in, mode):
     fh.write(struct.pack("<i", MK_PACKED))
     w_packed(fh, rng, n_out, n_in, mode)
+
+
+def w_tag_packed_t(fh, rng, n_out, n_in, mode):
+    """kind 3: the same [n_out, n_in] matrix stored TRANSPOSED -- code[n_in][n_out/2], two
+    trits per byte along OUT, per-output-row scale unchanged at [n_out].
+
+    This is what lets a carved FFN skip a down_proj neuron.  In [D, F] a neuron is a column,
+    half a byte inside a 64-byte line, and skipping it saves nothing; transposed it is a whole
+    contiguous row of D/2 bytes.  Exactly the same number of bytes either way.
+    """
+    assert n_out % 2 == 0, "the transposed layout pairs OUTPUT rows; odd n_out is not expressible"
+    assert (n_out // 2) % PT_BLK == 0, "PT_BLK must divide n_out/2"
+    fh.write(struct.pack("<ii", MK_PACKED_T, PT_BLK))
+    nb = (n_out // 2) // PT_BLK
+    # Block-major, so the writer allocates the whole [n_in, n_out/2] plane once rather than
+    # streaming rows: at the shapes here that is 29 MB (T10), not a reason to chunk.
+    qn = _codes(rng, n_in, n_out, mode)
+    packed = (qn[:, 0::2] + 3 * qn[:, 1::2]).astype(np.uint8)            # [n_in, n_out/2]
+    bm = packed.reshape(n_in, nb, PT_BLK).transpose(1, 0, 2)             # [nb, n_in, blk]
+    fh.write(np.ascontiguousarray(bm).tobytes())
+    scale = (rng.random(n_out, dtype=np.float32) * 0.01 + 0.005)
+    fh.write(np.ascontiguousarray(scale, dtype="<f4").tobytes())
 
 
 def w_tag_factored(fh, rng, n_out, n_in, mode, r):
@@ -142,6 +178,18 @@ def main():
                          "bytes per matrix, so a --rank R arm differs from it in ONE thing.")
     ap.add_argument("--tagged", action="store_true",
                     help="write the quant==3 tagged layout even at --rank 0")
+    ap.add_argument("--carve", type=int, default=0,
+                    help="E26: write a CARVED FFN with this many neuron groups (E), which "
+                         "forces the quant==4 layout.  The neurons are already group-major "
+                         "here because they are noise; on a real donor the exporter permutes "
+                         "the F axis.  Implies --v4.")
+    ap.add_argument("--carve-k", type=int, default=0,
+                    help="the k stored IN the file; the engine's --carve-k overrides it, which "
+                         "is how one artifact serves every cell of the sweep.  Default E.")
+    ap.add_argument("--v4", action="store_true",
+                    help="write the quant==4 container with FK_DENSE on every layer -- the "
+                         "matched control for a --carve arm: same container, same tags, same "
+                         "bytes, one thing different.")
     ap.add_argument("--seed", type=int, default=1234)
     ap.add_argument("--rms-eps", type=float, default=1e-6)
     ap.add_argument("--rope-theta", type=float, default=1000000.0)
@@ -151,8 +199,19 @@ def main():
     if a.head == "ternary":
         tied = 0                       # untie so the head is written as packed codes, not fp32
     rng = np.random.default_rng(a.seed)
-    tagged = bool(a.tagged or a.rank)
-    quant = QUANT_TAGGED if tagged else QUANT_PACKED
+    v4 = bool(a.v4 or a.carve)
+    tagged = bool(a.tagged or a.rank or v4)
+    quant = QUANT_V4 if v4 else (QUANT_TAGGED if tagged else QUANT_PACKED)
+    if a.carve:
+        if F % a.carve:
+            sys.exit("--carve %d does not divide F=%d" % (a.carve, F))
+        if D % 2:
+            sys.exit("the transposed down_proj pairs OUTPUT rows; D=%d is odd" % D)
+        if a.rank:
+            sys.exit("--carve and --rank are separate axes; E26 moves one at a time")
+    carve_k = a.carve_k or a.carve
+    if a.carve and not (1 <= carve_k <= a.carve):
+        sys.exit("--carve-k must be in [1, %d]" % a.carve)
     if a.rank and (a.rank % 2 or a.rank <= 0):
         sys.exit("--rank must be positive and even (two trits per byte)")
     if a.rank and a.rank >= min(D, NH * HD):
@@ -160,13 +219,18 @@ def main():
               "the factored form moves MORE weights than the dense one here."
               % (a.rank, NH * HD, D, D, NH * HD), flush=True)
     act = active_weights(D, F, L, NH, NKV, HD, V)
-    act_r = act
+    act_r = active_weights(D, F, L, NH, NKV, HD, V, a.carve, carve_k) if a.carve else act
     if a.rank:
         dense_qo = (NH * HD * D + D * NH * HD) * L
         fact_qo = (a.rank * (NH * HD + D) + a.rank * (D + NH * HD)) * L
         act_r = act - dense_qo + fact_qo
     print("[%s] %s  D=%d F=%d L=%d H=%d/%d hd=%d V=%d tied=%d head=%s  active=%.3f B  codes=%s"
           % (a.shape, src, D, F, L, NH, NKV, HD, V, tied, a.head, act_r / 1e9, a.codes), flush=True)
+    if a.carve:
+        print("  --carve E=%d, group=%d neurons, k=%d in the file: active %.4f B -> %.4f B "
+              "(%+.2f%%), router charged at E*D = %.1f M/token"
+              % (a.carve, F // a.carve, carve_k, act / 1e9, act_r / 1e9,
+                 100.0 * (act_r - act) / act, a.carve * D * L / 1e6), flush=True)
     if a.rank:
         print("  --rank %d on q_proj/o_proj: active %.4f B -> %.4f B  (%+.2f%%), "
               "matvec calls/token %d -> %d"
@@ -194,9 +258,18 @@ def main():
             else:
                 wp(D, QD)
             w_ones(fh, D)                                      # post_attention_layernorm
-            wp(F, D)                                           # gate
-            wp(F, D)                                           # up
-            wp(D, F)                                           # down
+            if v4:
+                fh.write(struct.pack("<i", FK_CARVED if a.carve else FK_DENSE))
+            if a.carve:
+                fh.write(struct.pack("<2i", a.carve, carve_k))
+                wp(a.carve, D)                                 # router [E, D]
+                wp(F, D)                                       # gate, group-major rows
+                wp(F, D)                                       # up,   group-major rows
+                w_tag_packed_t(fh, rng, D, F, a.codes)         # down, TRANSPOSED
+            else:
+                wp(F, D)                                       # gate
+                wp(F, D)                                       # up
+                wp(D, F)                                       # down
             if (li + 1) % 8 == 0 or li == L - 1:
                 print("  layer %d/%d  (%.2f GB written)" % (li + 1, L, fh.tell() / 2 ** 30),
                       flush=True)
@@ -215,7 +288,9 @@ def main():
                     ("HD", HD), ("V", V), ("tied", tied), ("quant", quant)):
         assert hdr[k] == want, "header %s: wrote %r, read back %r" % (k, want, hdr[k])
     lay = E1.layout(D, F, L, NH, NKV, HD, V, tied, quant)
-    if tagged:
+    if v4:
+        want = E1.layout_bytes_v4(D, F, L, NH, NKV, HD, V, tied, a.carve)
+    elif tagged:
         def spec_of(name, o, i):
             return ("factored", a.rank) if (a.rank and (name.endswith(".q_proj")
                                                         or name.endswith(".o_proj"))) else "packed"
@@ -232,7 +307,9 @@ def main():
             "shape": a.shape, "shape_source": src, "codes": a.codes, "seed": a.seed,
             "d_model": D, "d_ffn": F, "n_layers": L, "n_heads": NH, "n_kv_heads": NKV,
             "head_dim": HD, "vocab": V, "tied": tied, "head": a.head,
-            "quant": "tagged" if tagged else "packed", "rank": a.rank,
+            "quant": ("tagged-v2" if v4 else "tagged") if tagged else "packed",
+            "rank": a.rank, "carve_E": a.carve, "carve_k_in_file": carve_k,
+            "carve_group_size": (F // a.carve) if a.carve else 0,
             "active_weights_per_token": int(act_r),
             "active_weights_per_token_dense_qo": int(act), "bytes": size,
             "WARNING": "weights are NOISE -- this file has no meaningful BPB and none is computed"}

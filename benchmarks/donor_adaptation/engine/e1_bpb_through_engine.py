@@ -149,18 +149,55 @@ def nbytes(kind, out, in_, quant):
 def nbytes_tagged(spec, out, in_):
     """Bytes of ONE matrix in the quant==3 layout, its int32 kind tag included.
 
-    spec: "packed" | "f32" | ("factored", rank).  A factored matrix stores A [out,rank] and
-    B [rank,in_] as ordinary TAGGED matrices, so each of them carries a kind tag of its own.
+    spec: "packed" | "packedT" | "f32" | ("factored", rank).  A factored matrix stores A
+    [out,rank] and B [rank,in_] as ordinary TAGGED matrices, each carrying a kind tag of its
+    own.  "packedT" (E26) is the SAME matrix stored [in_][out/2] -- two trits per byte along
+    OUT instead of along IN -- with the same per-output-row fp32 scale, so it occupies exactly
+    as many bytes as "packed" and differs only in which axis has to be even.
     """
     if spec == "f32":
         return 4 + 4 * out * in_
     if spec == "packed":
         return 4 + out * (in_ // 2) + 4 * out
+    if spec == "packedT":
+        # E26: the same trits and the SAME per-output-row scales, stored block-major as
+        # [(out/2)/blk][in_][blk] behind an int32 kind and an int32 blk.  Four bytes more than
+        # "packed"; only the axis that has to be even moves from `in_` to `out`.
+        return 8 + in_ * (out // 2) + 4 * out
     kind, r = spec
     assert kind == "factored" and r > 0 and r % 2 == 0
     a = 4 + out * (r // 2) + 4 * out               # A, tagged packed
     b = 4 + r * (in_ // 2) + 4 * r                 # B, tagged packed
     return 4 + 4 + a + 4 * r + b                   # kind, rank, A, s, B
+
+
+def layout_bytes_v4(D, F, L, NH, NKV, HD, V, tied, E=0):
+    """Total file bytes for a quant==4 ("tagged-v2") file in which every matrix is PACKED.
+
+    quant==4 is quant==3 plus an int32 ffn_kind in front of each layer's FFN; with E > 0 that
+    kind is FK_CARVED and the FFN carries, in order: int32 E, int32 k, a tagged router [E, D],
+    gate and up [F, D] in group-major row order, and down stored TRANSPOSED.  Derived here from
+    the format description and never from a writer: that separation is the whole value of the
+    gate, because a writer and its checker have to be wrong in the SAME way to agree.
+    """
+    QD, KD = NH * HD, NKV * HD
+    n = 52 + 4 * V * D                                        # header + embed fp32
+    for _ in range(L):
+        n += 4 * D                                            # input_layernorm
+        for o in (QD, KD, KD):
+            n += nbytes_tagged("packed", o, D) + 4 * o        # q/k/v + fp32 bias
+        n += nbytes_tagged("packed", D, QD)                   # o_proj
+        n += 4 * D                                            # post_attention_layernorm
+        n += 4                                                # int32 ffn_kind
+        if E:
+            n += 8                                            # int32 E, int32 k
+            n += nbytes_tagged("packed", E, D)                # router
+        n += 2 * nbytes_tagged("packed", F, D)                # gate, up
+        n += nbytes_tagged("packedT" if E else "packed", D, F)
+    n += 4 * D                                                # model.norm
+    if not tied:
+        n += nbytes_tagged("packed", V, D)
+    return n
 
 
 def layout_bytes_tagged(D, F, L, NH, NKV, HD, V, tied, spec_of):

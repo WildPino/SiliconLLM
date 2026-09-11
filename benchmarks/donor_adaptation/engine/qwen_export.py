@@ -143,12 +143,37 @@ def w_packed(fh, w, rule="R0", act_rms=None):
 
 
 # ---------------------------------------------------------------------- the tagged writers
-MK_PACKED, MK_FACTORED, MK_F32 = 0, 1, 2
+MK_PACKED, MK_FACTORED, MK_F32, MK_PACKED_T = 0, 1, 2, 3
+FK_DENSE, FK_CARVED = 0, 1
+PT_BLK = 64                       # E26: the transposed kind's block size, one cache line
 
 
 def w_tag_packed(fh, w, rule="R0", act_rms=None):
     fh.write(struct.pack("<i", MK_PACKED))
     return w_packed(fh, w, rule, act_rms)
+
+
+def w_tag_packed_t(fh, w, rule="R0", act_rms=None):
+    """kind 3 (E26): the SAME quantization, stored transposed -- code[in][out/2], scale[out].
+
+    The trits and the per-output-row scales are byte-for-byte what w_tag_packed would produce;
+    only the axis the pairs are taken along changes.  A carved FFN needs it because in [D, F]
+    a down_proj neuron is a COLUMN, half a byte inside a 64-byte line, and skipping it saves
+    nothing at all.
+    """
+    q, scale = quantize(w, rule, act_rms)
+    out_f, in_f = q.shape
+    assert out_f % 2 == 0, "the transposed layout pairs OUTPUT rows; odd out_features"
+    assert (out_f // 2) % PT_BLK == 0, "PT_BLK must divide out_features/2"
+    fh.write(struct.pack("<ii", MK_PACKED_T, PT_BLK))
+    qn = np.ascontiguousarray(q.numpy().astype(np.int16).T) + 1          # [in, out], {0,1,2}
+    packed = (qn[:, 0::2] + 3 * qn[:, 1::2]).astype(np.uint8)            # [in, out/2]
+    assert packed.max() <= 8
+    nb = (out_f // 2) // PT_BLK
+    bm = packed.reshape(in_f, nb, PT_BLK).transpose(1, 0, 2)             # [nb, in, blk]
+    fh.write(np.ascontiguousarray(bm).tobytes())
+    fh.write(np.ascontiguousarray(scale.numpy(), dtype="<f4").tobytes())
+    return float((q == 0).float().mean())
 
 
 def w_tag_f32(fh, w, rule="R0", act_rms=None):
@@ -242,7 +267,19 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="Qwen/Qwen2.5-0.5B")
     ap.add_argument("--revision", default=None)
-    ap.add_argument("--quant", choices=("fp32", "ternary", "packed", "tagged"), default="fp32")
+    ap.add_argument("--quant", choices=("fp32", "ternary", "packed", "tagged", "carved"),
+                    default="fp32")
+    ap.add_argument("--carve-labels", default=None,
+                    help="E26: an .npz of per-neuron group labels (density/results/d0c_labels/"
+                         "labels_E*.npz, key c<li>).  Turns the F axis into a GROUP-MAJOR "
+                         "permutation -- exact, since permuting F permutes rows of gate/up and "
+                         "columns of down and changes nothing the model computes.")
+    ap.add_argument("--carve-k", type=int, default=0,
+                    help="the k stored in the file; the engine's --carve-k overrides it.")
+    ap.add_argument("--carve-seed", type=int, default=26,
+                    help="seed of the synthetic router (carve_common.router_weights).  E26 "
+                         "prices the carve and does not evaluate the router; a trained router "
+                         "is E24's object.  The router is still executed and CHARGED.")
     ap.add_argument("--factors", default=None,
                     help="npz of fp32 low-rank masters in h0_factorize.py's layout "
                          "(L%%02d.<organ>.{A,s,B,rms_in,rms_A}).  Every organ it holds is "
@@ -334,7 +371,31 @@ def main():
     tied = int(bool(getattr(c, "tie_word_embeddings", False)))
     if a.head_ternary:
         tied = 0          # write an explicit head; the embedding table is still written fp32
-    quant = {"fp32": 0, "ternary": 1, "packed": 2, "tagged": 3}[a.quant]
+    quant = {"fp32": 0, "ternary": 1, "packed": 2, "tagged": 3, "carved": 4}[a.quant]
+    carve_E, carve_k, carve_perm = 0, 0, None
+    if a.quant == "carved":
+        import carve_common as CV
+        if not a.carve_labels:
+            sys.exit("--quant carved needs --carve-labels")
+        if a.fold != "none":
+            sys.exit("--quant carved needs --fold none: the labels were fitted on the "
+                     "UNFOLDED donor and a fold rescales the FFN rows the groups name")
+        _lab = np.load(a.carve_labels)
+        carve_perm = {}
+        for _li in range(L):
+            _l = _lab["c%d" % _li]
+            _E = int(_l.max()) + 1
+            if carve_E and _E != carve_E:
+                sys.exit("labels disagree on E between layers")
+            carve_E = _E
+            carve_perm[_li] = CV.perm_from_labels(_l, _E)
+        carve_k = a.carve_k or carve_E
+        if not (1 <= carve_k <= carve_E):
+            sys.exit("--carve-k must be in [1, %d]" % carve_E)
+        if F % carve_E:
+            sys.exit("E=%d does not divide F=%d" % (carve_E, F))
+        print("  --quant carved: E=%d, group=%d neurons, k=%d in the file, router seed %d"
+              % (carve_E, F // carve_E, carve_k, a.carve_seed))
     fp32_organs = tuple(x for x in a.fp32_organs.split(",") if x)
     if a.factors and a.quant != "tagged":
         sys.exit("--factors needs --quant tagged: no other layout can carry a factored matrix")
@@ -370,7 +431,7 @@ def main():
             tied = 0
         print("  folded %d RMSNorm gains (--fold %s), untied=%s"
               % (n_folded, a.fold, untied_by_fold))
-    W = {0: w_fp32, 1: w_tern, 2: w_packed, 3: w_tag_packed}[quant]
+    W = {0: w_fp32, 1: w_tern, 2: w_packed, 3: w_tag_packed, 4: w_tag_packed}[quant]
 
     def emit(fh, li, organ, w, rule, act):
         """One matrix, in whichever kind this organ gets.  The only place that decides."""
@@ -383,7 +444,7 @@ def main():
                                       _t.from_numpy(fac[pre + ".B"]),
                                       _t.from_numpy(fac[pre + ".rms_in"]),
                                       _t.from_numpy(fac[pre + ".rms_A"]), H0)
-        if quant == 3 and organ in fp32_organs:
+        if quant >= 3 and organ in fp32_organs:
             return w_tag_f32(fh, w)
         return W(fh, w, rule, act)
 
@@ -421,7 +482,29 @@ def main():
                 zeros.append(r)
             assert lay.self_attn.o_proj.bias is None
             w_fp32(fh, lay.post_attention_layernorm.weight.data)
-            for name in ("gate_proj", "up_proj", "down_proj"):
+            if quant == 4:
+                fh.write(struct.pack("<i", FK_CARVED if carve_E else FK_DENSE))
+            if carve_E:
+                import carve_common as CV
+                fh.write(struct.pack("<2i", carve_E, carve_k))
+                rw = torch.from_numpy(CV.router_weights(D, carve_E, a.carve_seed, li))
+                zeros.append(w_tag_packed(fh, rw, a.rule, None))
+                pm = torch.from_numpy(carve_perm[li])
+                # A permutation of the F axis: rows of gate/up, columns of down.  Exact.
+                zeros.append(w_tag_packed(fh, lay.mlp.gate_proj.weight.data[pm], a.rule,
+                                          act.get((li, "gate_proj"))))
+                zeros.append(w_tag_packed(fh, lay.mlp.up_proj.weight.data[pm], a.rule,
+                                          act.get((li, "up_proj"))))
+                # down is quantized per OUTPUT row, and permuting its columns does not move a
+                # scale -- so the trits here are the same trits the dense export writes, only
+                # reordered and repacked along the other axis.
+                dw = lay.mlp.down_proj.weight.data[:, pm]
+                dact = act.get((li, "down_proj"))
+                if dact is not None:
+                    dact = dact[pm]
+                zeros.append(w_tag_packed_t(fh, dw, a.rule, dact))
+            else:
+              for name in ("gate_proj", "up_proj", "down_proj"):
                 mod = getattr(lay.mlp, name)
                 assert mod.bias is None
                 r = emit(fh, li, name, mod.weight.data, a.rule, act.get((li, name)))
@@ -446,6 +529,12 @@ def main():
     # gate would have caught was real: w_tag_factored wrote A's and B's payloads without their
     # own kind tags, and the file parsed until the engine read a weight CODE as a KIND.  The
     # engine's own "consumed exactly N bytes" found it, but only after a 3-minute write.
+    if quant == 4:
+        import e1_bpb_through_engine as E1
+        want = E1.layout_bytes_v4(D, F, L, NH, NKV, HD, V, tied, carve_E)
+        assert want == size, ("GATE E26-L FAILED: the format says %d bytes, the file is %d "
+                              "(%+d)." % (want, size, size - want))
+        print("  GATE E26-L: %d bytes, matches E1's independent quant==4 layout exactly" % size)
     if quant == 3:
         import e1_bpb_through_engine as E1
 
@@ -488,6 +577,9 @@ def main():
                                 + (["lm_head"] if a.head_ternary else [])),
             "t2_measured_organs": ["gate_proj", "up_proj", "down_proj"],
             "factors": a.factors,
+            "carve_E": carve_E, "carve_k_in_file": carve_k,
+            "carve_group_size": (F // carve_E) if carve_E else 0,
+            "carve_labels": a.carve_labels, "carve_seed": (a.carve_seed if carve_E else None),
             "factored_organs": (["L%02d.%s" % lo for lo in have] if fac is not None else []),
             "fp32_organs": list(fp32_organs)}
     json.dump(meta, open(a.out + ".json", "w", encoding="utf-8"), indent=1)
