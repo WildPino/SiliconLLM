@@ -346,6 +346,13 @@ read against `118/160`, not `102/160`.
 
 ---
 
+> **E29 (2026-09-12) checked this recommendation against a fair control and it stands, at half the
+> advertised size.** §10 rests on `L21-MINRES`'s `113/160`, quoted in E27 as `+56` over `L21-LAST`.
+> `LAST` was a bad control. Against seven layers drawn at random from the same interior band the
+> margin is **`+24`** (113 vs 89.0 over three seeds, spread 3), and the anti-rule `MAXRES-IN` reads
+> 78 — so the residual does rank layers and `L21-MINRES` is still the right candidate, but the
+> case for it is 24 tokens wide, not 56. `probes/E29_DOES_THE_RESIDUAL_RANK.md`.
+
 ## 10. E27 closes the hope §9 ended on — and names a cheaper H-arm than either
 
 §9 closed by naming the lever that would open the goal's shape: *"rank on `q/o` at `D = 4096`,

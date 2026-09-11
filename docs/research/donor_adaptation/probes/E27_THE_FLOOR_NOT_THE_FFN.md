@@ -1,5 +1,15 @@
 # E27 — the floor, not the FFN
 
+> **CORRECTION, 2026-09-12, from E29 (`probes/E29_DOES_THE_RESIDUAL_RANK.md`).** §3's headline
+> quotes `L21-MINRES` as beating `L21-LAST` by **+56** teacher-forced tokens. That comparison was
+> not a fair one: `LAST` deletes layer 27, which carries the second-highest residual of all 28.
+> **Against a fair control — seven layers drawn at random from the same interior band, three seeds
+> — the honest margin is `+24` (113 against a mean of 89.0, spread 3).** The finding SURVIVES:
+> E29's registered ordering `MAXRES-IN (78) < RANDMID (89) < MINRES (113)` holds and the residual
+> does rank layers. But **the size of the effect is half what this document says**, and every
+> number in it is otherwise reproduced by E29 at `abs_diff 0.000e+00`. Quote `+24`, not `+56`.
+
+
 **Brief**: `briefs/BRIEF_E27_THE_FLOOR_NOT_THE_FFN.md`, pushed at `808ba43` **before this runner
 existed**.
 **Code**: `ternary/e27_floor.py`, committed at `f652688`.
@@ -40,7 +50,8 @@ nothing left for any FFN at all.
 
 **The one real positive result is not on the budget axis at all: `L21-MINRES` reads `113/160`
 teacher-forced against `L21-LAST`'s `57/160` at exactly the same depth, the same parameter count and
-the same charged cost — a gain of 56 tokens from choosing *which* seven layers to drop.** That is
+the same charged cost — a gain of 56 tokens from choosing *which* seven layers to drop.**
+[E29 correction: against a FAIR control the gain is **+24**, not +56; see the banner at the top.] That is
 four times the registered 0–15 band (§5).
 
 ---
@@ -157,7 +168,11 @@ residual of all 28.
 | **`L21-MINRES`** | **12–18** | **113/160** | **0.993446** |
 | `L14-MINRES` | 9–18, 20, 24–26 | 54/160 | 1.824140 |
 
-**`L21-MINRES` beats `L21-LAST` by 56 teacher-forced tokens and by 1.51 BPB at identical cost.** Same
+**`L21-MINRES` beats `L21-LAST` by 56 teacher-forced tokens and by 1.51 BPB at identical cost.**
+**[E29, 2026-09-12: `LAST` is a BAD control — it deletes layer 27, the second-most-active block of
+the 28. Against seven layers drawn at random from the interior band the margin is `+24` (113 vs
+89.0, three seeds, spread 3), and the anti-rule `MAXRES-IN` reads 78. The rule is real; the number
+is 24.]** Same
 21 layers, same 1.2160 G active, same everything except the choice of which seven to remove. It is
 the only non-`base` arm in E27 that lands COMPARABLE, and it does so at 75% of the donor's layers
 with **no carve, no router, no rank, and no retraining of any kind.**
@@ -233,7 +248,8 @@ land COMPARABLE (it is the worst arm in the probe bar none).
 - **No timing was taken.** Every tok/s in §4 is E25's measured charged-throughput line applied to a
   weight count, carrying E25's own ±5% on any absolute figure. Ratios between rows do not carry it.
 - **`MINRES` is a heuristic, not a theory.** It was defined before the run and it worked, but E27
-  ran exactly one competing rule (`LAST`). It is not established that `MINRES` is the *best* rule,
+  ran exactly one competing rule (`LAST`). **[E29 ran four more — three random draws and the
+  anti-rule — and the ordering holds; see `probes/E29_DOES_THE_RESIDUAL_RANK.md`.]** It is not established that `MINRES` is the *best* rule,
   only that it is decisively better than the default one, and that the choice of layers is a
   first-order lever where I had assumed it was a second-order one.
 - **The residual profile is the donor's, on one calibration slice.** Whether a 10 B model's profile

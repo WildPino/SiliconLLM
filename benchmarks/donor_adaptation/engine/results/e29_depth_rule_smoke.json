@@ -1,0 +1,1109 @@
+{
+ "brief": "briefs/BRIEF_E29_DOES_THE_RESIDUAL_RANK.md (d804b88)",
+ "question": "E27 reported MINRES beating LAST by 56 tf tokens, but LAST deletes layer 27 which carries the second-highest residual of all 28.  Does the residual RANK layers, or is the finding just 'don't touch the ends'?",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "smoke": true,
+ "n_new": 8,
+ "n_prompts": 2,
+ "eval_slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+ },
+ "calib_slice": {
+  "part": "calib",
+  "n_seq": 32,
+  "seq_len": 512,
+  "seed": 42424,
+  "n_rejected": 0,
+  "total_scored_bytes": 67648,
+  "bytes_per_token": 4.136986301369863,
+  "ids_sha256": "c5509846cdc3aa44e45e77895b59a4638c49eb03790030d851e7bf1357ca4c0c",
+  "offsets_sha256": "c9bdfc96dd5addb8e02a48d553dfb11784734baa26f44aad53658ff8cd2a8cf0",
+  "corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0"
+ },
+ "shape": {
+  "D": 1536,
+  "QD": 1536,
+  "KD": 256,
+  "F": 8960,
+  "L": 8,
+  "V": 151936
+ },
+ "interior_band": [
+  3,
+  4
+ ],
+ "margin": 3,
+ "randmid_near_bar": 8,
+ "anchors": {
+  "base_bpb": 0.7675949641196624,
+  "L21-MINRES": {
+   "bpb": 0.9934455803226115,
+   "free": 14,
+   "tf": 113
+  },
+  "L21-LAST": {
+   "bpb": 2.500082955827561,
+   "free": 1,
+   "tf": 57
+  },
+  "repl_tol": 1e-09,
+  "verified_against_e27_json": {
+   "L21-MINRES": {
+    "bpb_on_disk": 0.9934455803226115,
+    "free_on_disk": 14,
+    "tf_on_disk": 113,
+    "matches_literal": true
+   },
+   "L21-LAST": {
+    "bpb_on_disk": 2.500082955827561,
+    "free_on_disk": 1,
+    "tf_on_disk": 57,
+    "matches_literal": true
+   }
+  }
+ },
+ "minres_residual": [
+  19.31233501434326,
+  1.1216487884521484,
+  0.6508992314338684,
+  0.538971871137619,
+  0.5062592923641205,
+  0.48321108520030975,
+  0.474784716963768,
+  0.4584593176841736
+ ],
+ "G_E29d": null,
+ "bars": {
+  "tf_comparable": [
+   107,
+   119
+  ]
+ },
+ "chance_bpb": 4.069819,
+ "donor_full_active": {
+  "q_o": 37748736,
+  "k_v": 6291456,
+  "head": 233373696,
+  "router": 0,
+  "ffn": 330301440,
+  "total": 607715328
+ },
+ "arms": {
+  "base": {
+   "arm": "base",
+   "n_dropped": 0,
+   "depth_rule": null,
+   "seed": null,
+   "rule_note": null,
+   "layers_kept": null,
+   "layers_dropped": [],
+   "n_layers": 8,
+   "bpb": 3.587995430505802,
+   "vs_chance": -0.4818235694941979,
+   "matched": 0,
+   "counted": 16,
+   "agree": 0.0,
+   "teacher_forced": 1,
+   "tf_frac": 0.0625,
+   "mean_rank": 5589.125,
+   "median_rank": 884.0,
+   "rank_le5": 2,
+   "donor_active": {
+    "q_o": 37748736,
+    "k_v": 6291456,
+    "head": 233373696,
+    "router": 0,
+    "ffn": 330301440,
+    "total": 607715328
+   },
+   "donor_active_G": 0.607715328,
+   "T10": {
+    "r_qo": null,
+    "r_kv": null,
+    "L": 48,
+    "floor": 2197815296,
+    "floor_G": 2.197815296,
+    "ffn_full_G": 8.455716864,
+    "k_permitted": -36.32485816592262,
+    "activation_permitted": -0.14189397721063524,
+    "param_fraction_kept": 1.0
+   },
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 1
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     116693,
+     34,
+     99,
+     72363,
+     105,
+     30543,
+     30543,
+     82
+    ],
+    [
+     37881,
+     44861,
+     529,
+     865,
+     51,
+     60461,
+     37403,
+     90919
+    ]
+   ],
+   "text": [
+    "\u6b22\u8fce\u60a8C\ufffd \u200b\u200b\ufffd\ufe0f\ufe0fs",
+    "PYdigertickT=T.;\n\u5176\u4e2d"
+   ],
+   "seconds": 15.466781377792358,
+   "G_E29a": "SMOKE"
+  },
+  "L21-MINRES": {
+   "arm": "L21-MINRES",
+   "n_dropped": 2,
+   "depth_rule": "MINRES",
+   "seed": null,
+   "rule_note": null,
+   "layers_kept": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "layers_dropped": [
+    6,
+    7
+   ],
+   "n_layers": 6,
+   "bpb": 3.799133855072703,
+   "vs_chance": -0.2706851449272967,
+   "matched": 0,
+   "counted": 16,
+   "agree": 0.0,
+   "teacher_forced": 0,
+   "tf_frac": 0.0,
+   "mean_rank": 5050.0625,
+   "median_rank": 1096.5,
+   "rank_le5": 3,
+   "donor_active": {
+    "q_o": 28311552,
+    "k_v": 4718592,
+    "head": 233373696,
+    "router": 0,
+    "ffn": 247726080,
+    "total": 514129920
+   },
+   "donor_active_G": 0.51412992,
+   "T10": {
+    "r_qo": null,
+    "r_kv": null,
+    "L": 36,
+    "floor": 1681915904,
+    "floor_G": 1.681915904,
+    "ffn_full_G": 6.341787648,
+    "k_permitted": -27.607747395833332,
+    "activation_permitted": -0.10784276326497395,
+    "param_fraction_kept": 0.75
+   },
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     1374,
+     78,
+     538,
+     28827,
+     68,
+     97,
+     3439,
+     68
+    ],
+    [
+     5120,
+     81592,
+     96236,
+     64114,
+     64114,
+     76659,
+     8666,
+     75033
+    ]
+   ],
+   "text": [
+    " Exoog Masone\ufffdgethere",
+    "ev,evInSeconds(Duration(Duration(minutesamm(am"
+   ],
+   "seconds": 13.106396913528442
+  },
+  "L21-LAST": {
+   "arm": "L21-LAST",
+   "n_dropped": 2,
+   "depth_rule": "LAST",
+   "seed": null,
+   "rule_note": null,
+   "layers_kept": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "layers_dropped": [
+    6,
+    7
+   ],
+   "n_layers": 6,
+   "bpb": 3.799133855072703,
+   "vs_chance": -0.2706851449272967,
+   "matched": 0,
+   "counted": 16,
+   "agree": 0.0,
+   "teacher_forced": 0,
+   "tf_frac": 0.0,
+   "mean_rank": 5050.0625,
+   "median_rank": 1096.5,
+   "rank_le5": 3,
+   "donor_active": {
+    "q_o": 28311552,
+    "k_v": 4718592,
+    "head": 233373696,
+    "router": 0,
+    "ffn": 247726080,
+    "total": 514129920
+   },
+   "donor_active_G": 0.51412992,
+   "T10": {
+    "r_qo": null,
+    "r_kv": null,
+    "L": 36,
+    "floor": 1681915904,
+    "floor_G": 1.681915904,
+    "ffn_full_G": 6.341787648,
+    "k_permitted": -27.607747395833332,
+    "activation_permitted": -0.10784276326497395,
+    "param_fraction_kept": 0.75
+   },
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     1374,
+     78,
+     538,
+     28827,
+     68,
+     97,
+     3439,
+     68
+    ],
+    [
+     5120,
+     81592,
+     96236,
+     64114,
+     64114,
+     76659,
+     8666,
+     75033
+    ]
+   ],
+   "text": [
+    " Exoog Masone\ufffdgethere",
+    "ev,evInSeconds(Duration(Duration(minutesamm(am"
+   ],
+   "seconds": 12.643752098083496
+  },
+  "L21-RANDMID-s1": {
+   "arm": "L21-RANDMID-s1",
+   "n_dropped": 2,
+   "depth_rule": "RANDMID",
+   "seed": 1,
+   "rule_note": {
+    "dropped": [
+     3,
+     4
+    ],
+    "note": "uniform from the interior band [3,4], seed 1"
+   },
+   "layers_kept": [
+    0,
+    1,
+    2,
+    5,
+    6,
+    7
+   ],
+   "layers_dropped": [
+    3,
+    4
+   ],
+   "n_layers": 6,
+   "bpb": 3.9045972817120065,
+   "vs_chance": -0.16522171828799337,
+   "matched": 0,
+   "counted": 16,
+   "agree": 0.0,
+   "teacher_forced": 0,
+   "tf_frac": 0.0,
+   "mean_rank": 2773.6875,
+   "median_rank": 468.0,
+   "rank_le5": 1,
+   "donor_active": {
+    "q_o": 28311552,
+    "k_v": 4718592,
+    "head": 233373696,
+    "router": 0,
+    "ffn": 247726080,
+    "total": 514129920
+   },
+   "donor_active_G": 0.51412992,
+   "T10": {
+    "r_qo": null,
+    "r_kv": null,
+    "L": 36,
+    "floor": 1681915904,
+    "floor_G": 1.681915904,
+    "ffn_full_G": 6.341787648,
+    "k_permitted": -27.607747395833332,
+    "activation_permitted": -0.10784276326497395,
+    "param_fraction_kept": 0.75
+   },
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     4102,
+     4102,
+     2146,
+     49,
+     19382,
+     86698,
+     118882,
+     43550
+    ],
+    [
+     20128,
+     37,
+     107,
+     2090,
+     82,
+     114728,
+     14586,
+     52793
+    ]
+   ],
+   "text": [
+    "\u00a0\u00a0...\n\nR/R|R\u534f\u4f1a\u4f1a\u5458-member",
+    "euF\ufffdnesss\u7172tailTs"
+   ],
+   "seconds": 13.053020000457764
+  },
+  "L21-RANDMID-s2": {
+   "arm": "L21-RANDMID-s2",
+   "n_dropped": 2,
+   "depth_rule": "RANDMID",
+   "seed": 2,
+   "rule_note": {
+    "dropped": [
+     3,
+     4
+    ],
+    "note": "uniform from the interior band [3,4], seed 2"
+   },
+   "layers_kept": [
+    0,
+    1,
+    2,
+    5,
+    6,
+    7
+   ],
+   "layers_dropped": [
+    3,
+    4
+   ],
+   "n_layers": 6,
+   "bpb": 3.9045972817120065,
+   "vs_chance": -0.16522171828799337,
+   "matched": 0,
+   "counted": 16,
+   "agree": 0.0,
+   "teacher_forced": 0,
+   "tf_frac": 0.0,
+   "mean_rank": 2773.6875,
+   "median_rank": 468.0,
+   "rank_le5": 1,
+   "donor_active": {
+    "q_o": 28311552,
+    "k_v": 4718592,
+    "head": 233373696,
+    "router": 0,
+    "ffn": 247726080,
+    "total": 514129920
+   },
+   "donor_active_G": 0.51412992,
+   "T10": {
+    "r_qo": null,
+    "r_kv": null,
+    "L": 36,
+    "floor": 1681915904,
+    "floor_G": 1.681915904,
+    "ffn_full_G": 6.341787648,
+    "k_permitted": -27.607747395833332,
+    "activation_permitted": -0.10784276326497395,
+    "param_fraction_kept": 0.75
+   },
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     4102,
+     4102,
+     2146,
+     49,
+     19382,
+     86698,
+     118882,
+     43550
+    ],
+    [
+     20128,
+     37,
+     107,
+     2090,
+     82,
+     114728,
+     14586,
+     52793
+    ]
+   ],
+   "text": [
+    "\u00a0\u00a0...\n\nR/R|R\u534f\u4f1a\u4f1a\u5458-member",
+    "euF\ufffdnesss\u7172tailTs"
+   ],
+   "seconds": 12.418025970458984
+  },
+  "L21-RANDMID-s3": {
+   "arm": "L21-RANDMID-s3",
+   "n_dropped": 2,
+   "depth_rule": "RANDMID",
+   "seed": 3,
+   "rule_note": {
+    "dropped": [
+     3,
+     4
+    ],
+    "note": "uniform from the interior band [3,4], seed 3"
+   },
+   "layers_kept": [
+    0,
+    1,
+    2,
+    5,
+    6,
+    7
+   ],
+   "layers_dropped": [
+    3,
+    4
+   ],
+   "n_layers": 6,
+   "bpb": 3.9045972817120065,
+   "vs_chance": -0.16522171828799337,
+   "matched": 0,
+   "counted": 16,
+   "agree": 0.0,
+   "teacher_forced": 0,
+   "tf_frac": 0.0,
+   "mean_rank": 2773.6875,
+   "median_rank": 468.0,
+   "rank_le5": 1,
+   "donor_active": {
+    "q_o": 28311552,
+    "k_v": 4718592,
+    "head": 233373696,
+    "router": 0,
+    "ffn": 247726080,
+    "total": 514129920
+   },
+   "donor_active_G": 0.51412992,
+   "T10": {
+    "r_qo": null,
+    "r_kv": null,
+    "L": 36,
+    "floor": 1681915904,
+    "floor_G": 1.681915904,
+    "ffn_full_G": 6.341787648,
+    "k_permitted": -27.607747395833332,
+    "activation_permitted": -0.10784276326497395,
+    "param_fraction_kept": 0.75
+   },
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     4102,
+     4102,
+     2146,
+     49,
+     19382,
+     86698,
+     118882,
+     43550
+    ],
+    [
+     20128,
+     37,
+     107,
+     2090,
+     82,
+     114728,
+     14586,
+     52793
+    ]
+   ],
+   "text": [
+    "\u00a0\u00a0...\n\nR/R|R\u534f\u4f1a\u4f1a\u5458-member",
+    "euF\ufffdnesss\u7172tailTs"
+   ],
+   "seconds": 13.124345541000366
+  },
+  "L21-MAXRES-IN": {
+   "arm": "L21-MAXRES-IN",
+   "n_dropped": 2,
+   "depth_rule": "MAXRES-IN",
+   "seed": null,
+   "rule_note": {
+    "dropped": [
+     3,
+     4
+    ],
+    "note": "the 2 LARGEST residuals inside [3,4]"
+   },
+   "layers_kept": [
+    0,
+    1,
+    2,
+    5,
+    6,
+    7
+   ],
+   "layers_dropped": [
+    3,
+    4
+   ],
+   "n_layers": 6,
+   "bpb": 3.9045972817120065,
+   "vs_chance": -0.16522171828799337,
+   "matched": 0,
+   "counted": 16,
+   "agree": 0.0,
+   "teacher_forced": 0,
+   "tf_frac": 0.0,
+   "mean_rank": 2773.6875,
+   "median_rank": 468.0,
+   "rank_le5": 1,
+   "donor_active": {
+    "q_o": 28311552,
+    "k_v": 4718592,
+    "head": 233373696,
+    "router": 0,
+    "ffn": 247726080,
+    "total": 514129920
+   },
+   "donor_active_G": 0.51412992,
+   "T10": {
+    "r_qo": null,
+    "r_kv": null,
+    "L": 36,
+    "floor": 1681915904,
+    "floor_G": 1.681915904,
+    "ffn_full_G": 6.341787648,
+    "k_permitted": -27.607747395833332,
+    "activation_permitted": -0.10784276326497395,
+    "param_fraction_kept": 0.75
+   },
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     4102,
+     4102,
+     2146,
+     49,
+     19382,
+     86698,
+     118882,
+     43550
+    ],
+    [
+     20128,
+     37,
+     107,
+     2090,
+     82,
+     114728,
+     14586,
+     52793
+    ]
+   ],
+   "text": [
+    "\u00a0\u00a0...\n\nR/R|R\u534f\u4f1a\u4f1a\u5458-member",
+    "euF\ufffdnesss\u7172tailTs"
+   ],
+   "seconds": 13.030865907669067
+  },
+  "L21-NOADJ": {
+   "arm": "L21-NOADJ",
+   "n_dropped": 2,
+   "depth_rule": "NOADJ",
+   "seed": null,
+   "rule_note": {
+    "dropped": [
+     5,
+     7
+    ],
+    "note": "ascending residual, no two adjacent"
+   },
+   "layers_kept": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6
+   ],
+   "layers_dropped": [
+    5,
+    7
+   ],
+   "n_layers": 6,
+   "bpb": 3.9193688939315923,
+   "vs_chance": -0.15045010606840759,
+   "matched": 0,
+   "counted": 16,
+   "agree": 0.0,
+   "teacher_forced": 0,
+   "tf_frac": 0.0,
+   "mean_rank": 11866.25,
+   "median_rank": 1220.0,
+   "rank_le5": 2,
+   "donor_active": {
+    "q_o": 28311552,
+    "k_v": 4718592,
+    "head": 233373696,
+    "router": 0,
+    "ffn": 247726080,
+    "total": 514129920
+   },
+   "donor_active_G": 0.51412992,
+   "T10": {
+    "r_qo": null,
+    "r_kv": null,
+    "L": 36,
+    "floor": 1681915904,
+    "floor_G": 1.681915904,
+    "ffn_full_G": 6.341787648,
+    "k_permitted": -27.607747395833332,
+    "activation_permitted": -0.10784276326497395,
+    "param_fraction_kept": 0.75
+   },
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     25,
+     220,
+     41693,
+     17121,
+     44173,
+     18690,
+     11130,
+     12
+    ],
+    [
+     9752,
+     6243,
+     78,
+     4997,
+     2090,
+     288,
+     42339,
+     1280
+    ]
+   ],
+   "text": [
+    ":     \n    \n    \n Major/ministratorcy-",
+    "global settingohsnessesplatting"
+   ],
+   "seconds": 13.591090679168701
+  },
+  "L18-MINRES": {
+   "arm": "L18-MINRES",
+   "n_dropped": 3,
+   "depth_rule": "MINRES",
+   "seed": null,
+   "rule_note": null,
+   "layers_kept": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "layers_dropped": [
+    5,
+    6,
+    7
+   ],
+   "n_layers": 5,
+   "bpb": 4.011130085388792,
+   "vs_chance": -0.058688914611208176,
+   "matched": 0,
+   "counted": 16,
+   "agree": 0.0,
+   "teacher_forced": 0,
+   "tf_frac": 0.0,
+   "mean_rank": 11162.25,
+   "median_rank": 1805.0,
+   "rank_le5": 1,
+   "donor_active": {
+    "q_o": 23592960,
+    "k_v": 3932160,
+    "head": 233373696,
+    "router": 0,
+    "ffn": 206438400,
+    "total": 467337216
+   },
+   "donor_active_G": 0.467337216,
+   "T10": {
+    "r_qo": null,
+    "r_kv": null,
+    "L": 30,
+    "floor": 1423966208,
+    "floor_G": 1.423966208,
+    "ffn_full_G": 5.28482304,
+    "k_permitted": -20.634058779761904,
+    "activation_permitted": -0.08060179210844494,
+    "param_fraction_kept": 0.625
+   },
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     1163,
+     16731,
+     60461,
+     19093,
+     77486,
+     8226,
+     1280,
+     1154
+    ],
+    [
+     5120,
+     72458,
+     50496,
+     50496,
+     20390,
+     43321,
+     8023,
+     12326
+    ]
+   ],
+   "text": [
+    " Tr/T=T celRolkitting ,",
+    "ev(EVENT(events(events).__AMSphere[@"
+   ],
+   "seconds": 11.554780006408691
+  },
+  "L17-MINRES": {
+   "arm": "L17-MINRES",
+   "n_dropped": 3,
+   "depth_rule": "MINRES",
+   "seed": null,
+   "rule_note": null,
+   "layers_kept": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "layers_dropped": [
+    5,
+    6,
+    7
+   ],
+   "n_layers": 5,
+   "bpb": 4.011130085388792,
+   "vs_chance": -0.058688914611208176,
+   "matched": 0,
+   "counted": 16,
+   "agree": 0.0,
+   "teacher_forced": 0,
+   "tf_frac": 0.0,
+   "mean_rank": 11162.25,
+   "median_rank": 1805.0,
+   "rank_le5": 1,
+   "donor_active": {
+    "q_o": 23592960,
+    "k_v": 3932160,
+    "head": 233373696,
+    "router": 0,
+    "ffn": 206438400,
+    "total": 467337216
+   },
+   "donor_active_G": 0.467337216,
+   "T10": {
+    "r_qo": null,
+    "r_kv": null,
+    "L": 30,
+    "floor": 1423966208,
+    "floor_G": 1.423966208,
+    "ffn_full_G": 5.28482304,
+    "k_permitted": -20.634058779761904,
+    "activation_permitted": -0.08060179210844494,
+    "param_fraction_kept": 0.625
+   },
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     1163,
+     16731,
+     60461,
+     19093,
+     77486,
+     8226,
+     1280,
+     1154
+    ],
+    [
+     5120,
+     72458,
+     50496,
+     50496,
+     20390,
+     43321,
+     8023,
+     12326
+    ]
+   ],
+   "text": [
+    " Tr/T=T celRolkitting ,",
+    "ev(EVENT(events(events).__AMSphere[@"
+   ],
+   "seconds": 11.557832717895508
+  }
+ },
+ "three_point_test": {
+  "MINRES_tf": 0,
+  "RANDMID_tf": [
+   0,
+   0,
+   0
+  ],
+  "RANDMID_mean": 0.0,
+  "RANDMID_spread": 0,
+  "MAXRES_IN_tf": 0,
+  "gap_MINRES_minus_RANDMID": 0.0,
+  "near_bar": 8,
+  "ordering_MAXRES_lt_RAND_lt_MINRES": false,
+  "name": "RESIDUAL-DOES-NOT-RANK"
+ },
+ "seconds_total": 170.52474904060364
+}
