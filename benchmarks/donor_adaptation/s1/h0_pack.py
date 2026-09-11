@@ -31,7 +31,9 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 RES = os.path.join(HERE, "results", "h0")
 OUT = os.path.join(HERE, "_h0_bundle")
-E22_TB_TF = 28
+E22_TB = {"tf": 28, "free": 1, "bpb": 2.812226, "mean_rank": 1476}
+E22_TB_TF = E22_TB["tf"]
+BPB_REL_TOL = 1e-4       # see the note in main(): factored execution vs re-densified
 
 
 def sha(p):
@@ -146,10 +148,16 @@ def main():
     gate_ok = True
     if os.path.exists(evj):
         ev = json.load(open(evj, encoding="utf-8"))
-        tf = ev["teacher_forced"]
-        gate_ok = (tf == E22_TB_TF)
-        log("  init eval  tf %d/160  vs E22's published QO512-TB %d  -> %s"
-            % (tf, E22_TB_TF, "MATCHES" if gate_ok else "*** DOES NOT MATCH ***"))
+        tf, fr, bp = ev["teacher_forced"], ev["free"], ev["bpb"]
+        rel = abs(bp - E22_TB["bpb"]) / E22_TB["bpb"]
+        gate_ok = (tf == E22_TB_TF) and (fr == E22_TB["free"]) and (rel <= BPB_REL_TOL)
+        log("  init eval  tf %d (E22 %d)  free %d (E22 %d)  BPB %.6f (E22 %.6f, rel %.2e)  -> %s"
+            % (tf, E22_TB_TF, fr, E22_TB["free"], bp, E22_TB["bpb"], rel,
+               "MATCHES" if gate_ok else "*** DOES NOT MATCH ***"))
+        log("     both TOKEN metrics are exact.  The BPB difference is expected and is the")
+        log("     first measurement of its kind here: E21 and E22 installed A.B as a DENSE")
+        log("     matrix, this runs it as two GEMVs with an intermediate of size r -- the")
+        log("     form the engine would use.  Same product, different summation order.")
         if not gate_ok and os.environ.get("H0_SKIP_EVALCHECK") != "1":
             log("REFUSING TO PACK: the assembled model does not reproduce E22's start state, so")
             log("the H0 delta would be measured from an unknown baseline.")

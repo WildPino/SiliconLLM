@@ -1,0 +1,71 @@
+{
+ "plan": "decisions/T4_HEALING_PROPOSAL.md s3 (H0)",
+ "tag": "init",
+ "factors": "results/h0/h0_factors.npz",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "eval_slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+ },
+ "bpb": 2.8122382062527334,
+ "vs_chance": -1.2575807937472665,
+ "free": 1,
+ "counted": 160,
+ "teacher_forced": 28,
+ "mean_rank": 1476.4125,
+ "rank_le5": 68,
+ "band_free": "AT-FLOOR",
+ "band_tf": "WORSE",
+ "per_prompt": [
+  {
+   "prompt": 0,
+   "free": 0,
+   "tf": 3
+  },
+  {
+   "prompt": 1,
+   "free": 0,
+   "tf": 11
+  },
+  {
+   "prompt": 2,
+   "free": 1,
+   "tf": 6
+  },
+  {
+   "prompt": 3,
+   "free": 0,
+   "tf": 5
+  },
+  {
+   "prompt": 4,
+   "free": 0,
+   "tf": 3
+  }
+ ],
+ "text": [
+  " now divided into the Simplatran-based company of the Ontario Gazette/plainautgmailarticlesof NorthScores 1 2.2 Redistributions of 1",
+  "return 1\\n\u5ff1u\u8005ucceeded<|endoftext|>The Fibonacci numbers are placed in a Fibonacci sequence A sequence of the Fibonacci sequence is defined as follows: Fn=0",
+  " 1000000, { 1 FAILED   FAILED\n1\n\nA 1. 1ll 1.\u3000",
+  " the end of the 19300000 2\n\nThe solution manual at the end of every time series of 201 \u00a0",
+  "')[1]`\nSyntax(\"The GEDTEQUICK`\", what is the probability of selecting the 1000000000"
+ ],
+ "gate": {
+  "metric": "teacher_forced",
+  "threshold": 48,
+  "start_E22_QO512_TB": 28,
+  "ceiling_E21_fp32": 144,
+  "passes": false,
+  "delta_from_start": 0
+ },
+ "seconds": 930.316032409668
+}

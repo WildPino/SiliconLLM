@@ -221,3 +221,48 @@ before the week starts rather than during it.
 - **The head is untouched by all of this.** `233 M` at 1.5 B, `545 M` at 7 B = 51–56% of a 7 B's
   entire budget. Neither cut in §1 touches it and no lever measured here shrinks it (E21 §7).
 - **1.5 B is not 10 B.** §0.
+
+---
+
+## 7. H0 IS BUILT AND VERIFIED — the handover, 2026-09-11
+
+**Bundle:** `benchmarks/donor_adaptation/s1/_h0_bundle/` — 417.0 MB, `RUN.md` and `MANIFEST.json`
+inside it. Commits `e3dcdd1`, `511cf42`, `cd92b36`.
+
+### 7.1 Every gate, measured
+
+| gate | what it asserts | result |
+|---|---|---|
+| **`G-H0a`** | the masters ARE E22's `QO512-TB`: ternary codes identical as integers, scales identical, products identical, vs `e22_compose.ternary_factors(balanced=True)` | **FIRES at exactly `0.0`, 56/56 organs** |
+| **`G-H0b`** | the self-contained trainer's quantizer == `t2_rules.r3_actsearch`, on the real masters | **112/112 factors, codes and scales** |
+| **`G-H0c`** | the assembled module's forward == E22's ternary product, probed with the identity | **`1.665e-07` relative** |
+| **`G-H0d`** | the straight-through derivative is the identity it claims | **exactly `1`** |
+| **`G-H0e`** | the masters MOVE after one optimizer step, or the run aborts | **`1.59e-04` on all three watched, CPU smoke** |
+| **end-to-end** | the assembled model reproduces E22's published start state | **tf `28` ✓, free `1` ✓, mean rank `1476` ✓, BPB `4.34e-06` relative** |
+
+`88,109,056` trainable fp32 masters — matching to the parameter the `88.1 M` the budget
+arithmetic charges to rank-512 `q/o`. Training stream `16,000,000` tokens from `calib.txt` only,
+seed `90011`, disjoint from the frozen eval half by corpus construction.
+
+### 7.2 One new fact, found by building it
+
+**The factored form has never before been EXECUTED as a factored matvec here.** E21 and E22 both
+computed `A·B` and installed the result as a single dense matrix. `h0_eval.py` installs a module
+that actually runs two GEMVs with an intermediate of size `r = 512` — **the form `engine.c` would
+use**. The two agree exactly on both token metrics and to `4.34e-06` relative on BPB, the
+residue being fp32 summation order over 512 terms.
+
+That is a small, real, favourable result: **the factored execution path is not a source of
+error beyond round-off.** It does **not** discharge the owed `engine.c` item — there is still no
+factored matvec in the engine and no kind for one in `QWENDON1`, so **no tok/s number moves and
+`6.79 tok/s` stays exact.**
+
+### 7.3 What is still true and unpleasant
+
+- **§0 stands.** A healed 1.5 B is a structure validation, not the goal.
+- **The honest prior is still against it.** Five post-hoc routes have closed.
+- **`>= 48` is a signal-detection bar, not success.** Clearing it means gradients move this
+  object; it does not mean the object works. `RANKS >= 80` free-running is H2's bar and nothing
+  in this programme has ever reached it.
+- **A FAIL closes the donor route end to end**, and §5's second withdrawal condition then
+  applies in full.
