@@ -1,0 +1,617 @@
+{
+ "brief": "briefs/BRIEF_E22_DOES_CHEAP_COMPOSE.md (3f8465a)",
+ "question": "does cheap compose?  nothing exported, no timing taken, 6.79 tok/s untouched; the carve's router is an ORACLE = a ceiling",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "smoke": true,
+ "threads": 6,
+ "n_new": 8,
+ "n_prompts": 2,
+ "eval_slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+ },
+ "calib_slice": {
+  "part": "calib",
+  "n_seq": 32,
+  "seq_len": 512,
+  "seed": 42424,
+  "n_rejected": 0,
+  "total_scored_bytes": 67648,
+  "bytes_per_token": 4.136986301369863,
+  "ids_sha256": "c5509846cdc3aa44e45e77895b59a4638c49eb03790030d851e7bf1357ca4c0c",
+  "offsets_sha256": "c9bdfc96dd5addb8e02a48d553dfb11784734baa26f44aad53658ff8cd2a8cf0",
+  "corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0"
+ },
+ "calib_tokens": 1024,
+ "rank": 512,
+ "carve": {
+  "E": 256,
+  "k": 133
+ },
+ "act_rms_vs_diagH_maxabs": 9.5367431640625e-07,
+ "anchors": {
+  "E21_QO512": {
+   "bpb": 0.8202837636996289,
+   "free": 26,
+   "tf": 144
+  },
+  "E19_V52_bpb": 0.909440994415161,
+  "E19_V52_free": 12,
+  "base_bpb": 0.7675949641196624,
+  "repl_tol": 1e-09
+ },
+ "bands": {
+  "free": {
+   "floor": 12,
+   "at_floor_max": 14,
+   "ranks_min": 80,
+   "ceiling": 16
+  },
+  "teacher_forced_from_E20": [
+   107,
+   119
+  ],
+  "additivity_tol": 0.02
+ },
+ "chance_bpb": 4.069819,
+ "arms": {
+  "base": {
+   "arm": "base",
+   "lowrank": false,
+   "ternary_factors": false,
+   "carve": false,
+   "ffn_head_ternary": false,
+   "bpb": 0.9601896565954627,
+   "vs_chance": -3.1096293434045372,
+   "matched": 16,
+   "counted": 16,
+   "agree": 1.0,
+   "teacher_forced": 16,
+   "tf_frac": 1.0,
+   "mean_rank": 1.0,
+   "median_rank": 1.0,
+   "rank_le5": 16,
+   "achieved_activation": 1.0,
+   "first_div": null,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 8,
+     "diverges_at": null,
+     "tf": 8
+    },
+    {
+     "prompt": 1,
+     "free": 8,
+     "diverges_at": null,
+     "tf": 8
+    }
+   ],
+   "band_free": "PARTIAL",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     9625,
+     374,
+     1083
+    ],
+    [
+     671,
+     308,
+     374,
+     279,
+     1372,
+     315,
+     3793,
+     198
+    ]
+   ],
+   "text": [
+    " Paris. The capital of France is also",
+    " # n is the number of terms\n"
+   ],
+   "seconds": 27.746020078659058,
+   "n_lowrank": 0,
+   "seconds_apply": 0.0,
+   "rel_weight_error": null,
+   "energy_kept_weighted": null,
+   "gs5_max_rel": null,
+   "saving_vs_dense": 0.0,
+   "G_S0": "FIRES"
+  },
+  "QO512": {
+   "arm": "QO512",
+   "lowrank": true,
+   "ternary_factors": false,
+   "carve": false,
+   "ffn_head_ternary": false,
+   "bpb": 1.2990060338933618,
+   "vs_chance": -2.770812966106638,
+   "matched": 7,
+   "counted": 16,
+   "agree": 0.4375,
+   "teacher_forced": 11,
+   "tf_frac": 0.6875,
+   "mean_rank": 1.3125,
+   "median_rank": 1.0,
+   "rank_le5": 16,
+   "achieved_activation": 1.0,
+   "first_div": [
+    0,
+    7
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 7,
+     "diverges_at": 7,
+     "tf": 7
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 4
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     9625,
+     374,
+     12095
+    ],
+    [
+     715,
+     262,
+     421,
+     308,
+     621,
+     220,
+     15,
+     25
+    ]
+   ],
+   "text": [
+    " Paris. The capital of France is Paris",
+    " \n    if n == 0:"
+   ],
+   "seconds": 35.686732053756714,
+   "n_lowrank": 8,
+   "params_dense": 18874368,
+   "params_factored": 12582912,
+   "damping": 3.1978704214220244,
+   "seconds_apply": 7.8948516845703125,
+   "rel_weight_error": 0.5135531984269619,
+   "energy_kept_weighted": 0.9959344494902171,
+   "gs5_max_rel": null,
+   "saving_vs_dense": 0.33333333333333337
+  },
+  "V52": {
+   "arm": "V52",
+   "lowrank": false,
+   "ternary_factors": false,
+   "carve": true,
+   "ffn_head_ternary": false,
+   "bpb": 0.9745885910140207,
+   "vs_chance": -3.0952304089859792,
+   "matched": 15,
+   "counted": 16,
+   "agree": 0.9375,
+   "teacher_forced": 15,
+   "tf_frac": 0.9375,
+   "mean_rank": 1.0625,
+   "median_rank": 1.0,
+   "rank_le5": 16,
+   "achieved_activation": 0.51953125,
+   "first_div": [
+    0,
+    7
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 7,
+     "diverges_at": 7,
+     "tf": 7
+    },
+    {
+     "prompt": 1,
+     "free": 8,
+     "diverges_at": null,
+     "tf": 8
+    }
+   ],
+   "band_free": "PARTIAL",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     9625,
+     374,
+     12095
+    ],
+    [
+     671,
+     308,
+     374,
+     279,
+     1372,
+     315,
+     3793,
+     198
+    ]
+   ],
+   "text": [
+    " Paris. The capital of France is Paris",
+    " # n is the number of terms\n"
+   ],
+   "seconds": 25.942660570144653,
+   "n_lowrank": 0,
+   "params_dense": 0,
+   "params_factored": 0,
+   "seconds_apply": 0.012834787368774414,
+   "rel_weight_error": null,
+   "energy_kept_weighted": null,
+   "gs5_max_rel": null,
+   "saving_vs_dense": 0.0
+  },
+  "QO512+V52": {
+   "arm": "QO512+V52",
+   "lowrank": true,
+   "ternary_factors": false,
+   "carve": true,
+   "ffn_head_ternary": false,
+   "bpb": 1.1812578863925856,
+   "vs_chance": -2.8885611136074143,
+   "matched": 1,
+   "counted": 16,
+   "agree": 0.0625,
+   "teacher_forced": 10,
+   "tf_frac": 0.625,
+   "mean_rank": 1.375,
+   "median_rank": 1.0,
+   "rank_le5": 16,
+   "achieved_activation": 0.51953125,
+   "first_div": [
+    0,
+    1
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 1,
+     "diverges_at": 1,
+     "tf": 6
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 4
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     12095,
+     11,
+     323,
+     279,
+     6722,
+     315,
+     9625,
+     374
+    ],
+    [
+     715,
+     262,
+     421,
+     308,
+     621,
+     220,
+     15,
+     25
+    ]
+   ],
+   "text": [
+    " Paris, and the capital of France is",
+    " \n    if n == 0:"
+   ],
+   "seconds": 33.840893030166626,
+   "n_lowrank": 8,
+   "params_dense": 18874368,
+   "params_factored": 12582912,
+   "damping": 3.1978704214220244,
+   "seconds_apply": 7.8259193897247314,
+   "rel_weight_error": 0.5135531984269619,
+   "energy_kept_weighted": 0.9959344494902171,
+   "gs5_max_rel": null,
+   "saving_vs_dense": 0.33333333333333337
+  },
+  "QO512-T": {
+   "arm": "QO512-T",
+   "lowrank": true,
+   "ternary_factors": true,
+   "carve": false,
+   "ffn_head_ternary": false,
+   "bpb": 3.6987170697466403,
+   "vs_chance": -0.3711019302533596,
+   "matched": 0,
+   "counted": 16,
+   "agree": 0.0,
+   "teacher_forced": 0,
+   "tf_frac": 0.0,
+   "mean_rank": 11889.125,
+   "median_rank": 1020.0,
+   "rank_le5": 1,
+   "achieved_activation": 1.0,
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     279,
+     320,
+     220,
+     16,
+     58978,
+     320,
+     320,
+     320
+    ],
+    [
+     220,
+     16,
+     220,
+     17,
+     49896,
+     40,
+     11,
+     220
+    ]
+   ],
+   "text": [
+    " the ( 1dto ( ( (",
+    " 1 2TCPI, "
+   ],
+   "seconds": 34.880030155181885,
+   "n_lowrank": 8,
+   "params_dense": 18874368,
+   "params_factored": 12582912,
+   "damping": 3.1978704214220244,
+   "zero_frac_A": 0.7964363098144531,
+   "zero_frac_B": 0.4464683532714844,
+   "seconds_apply": 9.129834175109863,
+   "rel_weight_error": null,
+   "energy_kept_weighted": null,
+   "gs5_max_rel": 1.8345920693718654e-07,
+   "saving_vs_dense": 0.33333333333333337
+  },
+  "QO512-T+V52": {
+   "arm": "QO512-T+V52",
+   "lowrank": true,
+   "ternary_factors": true,
+   "carve": true,
+   "ffn_head_ternary": false,
+   "bpb": 3.916735535511015,
+   "vs_chance": -0.1530834644889847,
+   "matched": 0,
+   "counted": 16,
+   "agree": 0.0,
+   "teacher_forced": 0,
+   "tf_frac": 0.0,
+   "mean_rank": 19226.875,
+   "median_rank": 1117.5,
+   "rank_le5": 0,
+   "achieved_activation": 0.51953125,
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     17,
+     488,
+     10126,
+     27,
+     220,
+     819,
+     2240,
+     198
+    ],
+    [
+     320,
+     220,
+     198,
+     54114,
+     27877,
+     537,
+     13874,
+     220
+    ]
+   ],
+   "text": [
+    "2 + theory< ings None\n",
+    " ( \n_soc&# not`` "
+   ],
+   "seconds": 34.51417303085327,
+   "n_lowrank": 8,
+   "params_dense": 18874368,
+   "params_factored": 12582912,
+   "damping": 3.1978704214220244,
+   "zero_frac_A": 0.7964363098144531,
+   "zero_frac_B": 0.4464683532714844,
+   "seconds_apply": 8.728951454162598,
+   "rel_weight_error": null,
+   "energy_kept_weighted": null,
+   "gs5_max_rel": 1.8345920693718654e-07,
+   "saving_vs_dense": 0.33333333333333337
+  },
+  "STACK": {
+   "arm": "STACK",
+   "lowrank": true,
+   "ternary_factors": true,
+   "carve": true,
+   "ffn_head_ternary": true,
+   "bpb": 4.096345594879372,
+   "vs_chance": 0.026526594879372034,
+   "matched": 0,
+   "counted": 16,
+   "agree": 0.0,
+   "teacher_forced": 0,
+   "tf_frac": 0.0,
+   "mean_rank": 16699.375,
+   "median_rank": 2365.0,
+   "rank_le5": 0,
+   "achieved_activation": 0.51953125,
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     11,
+     149547,
+     220,
+     120335,
+     355,
+     198,
+     25908,
+     11
+    ],
+    [
+     435,
+     89388,
+     220,
+     13,
+     315,
+     115529,
+     198,
+     855
+    ]
+   ],
+   "text": [
+    ",\u10ed \u6849us\nanas,",
+    " r.zh . of\u6e38\u620f\u526f\u672c\n pre"
+   ],
+   "seconds": 69.18623948097229,
+   "n_lowrank": 8,
+   "params_dense": 18874368,
+   "params_factored": 12582912,
+   "damping": 3.1978704214220244,
+   "zero_frac_A": 0.7964363098144531,
+   "zero_frac_B": 0.4464683532714844,
+   "ternary_F_n": 12,
+   "ternary_H_n": 1,
+   "seconds_apply": 43.37554144859314,
+   "rel_weight_error": null,
+   "energy_kept_weighted": null,
+   "gs5_max_rel": 1.8345920693718654e-07,
+   "saving_vs_dense": 0.33333333333333337
+  }
+ },
+ "additivity": {
+  "QO512+V52": {
+   "parts": [
+    "QO512",
+    "V52"
+   ],
+   "additive_prediction": 1.3134049683119198,
+   "measured": 1.1812578863925856,
+   "excess": -0.13214708191933422,
+   "score_band": "SUB-ADDITIVE",
+   "tf_measured": 10,
+   "tf_min_of_parts": 11,
+   "rank_band": "RANK-SUPER-ADDITIVE"
+  },
+  "QO512-T+V52": {
+   "parts": [
+    "QO512-T",
+    "V52"
+   ],
+   "additive_prediction": 3.7131160041651987,
+   "measured": 3.916735535511015,
+   "excess": 0.20361953134581645,
+   "score_band": "SUPER-ADDITIVE",
+   "tf_measured": 0,
+   "tf_min_of_parts": 0,
+   "rank_band": "RANK-SUB-ADDITIVE"
+  }
+ },
+ "VOID": [],
+ "seconds_total": 297.8876130580902
+}
