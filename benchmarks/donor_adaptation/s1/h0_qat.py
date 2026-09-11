@@ -116,17 +116,35 @@ class TernaryLowRank(nn.Module):
         self.B = nn.Parameter(B.float())
         self.register_buffer("rms_in", rms_in.float())
         self.register_buffer("rms_A", rms_A.float())
+        self._ck, self._cv = None, None
         if bias is None:
             self.bias = None
         else:
             self.register_buffer("bias_buf", bias.clone())
             self.bias = "buf"
 
+    def _quant(self):
+        """(At, Bt) for the current masters, cached when nothing has changed.
+
+        The D_GRID search is ~0.07% of a TRAINING step and dominates a CPU EVAL, where the
+        masters are frozen and the same 112 searches would be repeated for every one of the 160
+        greedy positions.  The key is torch's own _version counter, which increments on the
+        in-place write the optimizer makes -- so the cache is exact rather than a mode flag that
+        can go stale between an eval, a train and another eval.
+        """
+        key = (self.A._version, self.B._version, self.s._version)
+        if self._ck == key:
+            return self._cv
+        Bt = ste(self.B, self.rms_in)
+        At = ste(self.A, self.rms_A * self.s.detach().abs().clamp_min(1e-8))
+        if not torch.is_grad_enabled():
+            self._ck, self._cv = key, (At, Bt)
+        return At, Bt
+
     def forward(self, x):
         # quantizer in fp32, outside autocast: the format must not depend on the compute dtype
         with torch.autocast(device_type=("cuda" if x.is_cuda else "cpu"), enabled=False):
-            Bt = ste(self.B, self.rms_in)
-            At = ste(self.A, self.rms_A * self.s.detach().abs().clamp_min(1e-8))
+            At, Bt = self._quant()
         h = F.linear(x, Bt.to(x.dtype))
         h = h * self.s.to(x.dtype)
         y = F.linear(h, At.to(x.dtype))

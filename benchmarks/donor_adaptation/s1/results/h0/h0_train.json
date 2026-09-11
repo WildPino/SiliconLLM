@@ -1,0 +1,19 @@
+{
+ "plan": "decisions/T4_HEALING_PROPOSAL.md s3 (H0)",
+ "what": "pre-tokenized H0 training stream; ids only, NO byte accounting, no BPB from this",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "smoke": false,
+ "part": "calib",
+ "seed": 90011,
+ "seq_len": 512,
+ "n_seq": 31250,
+ "n_tokens": 16000000,
+ "n_rejected": 24,
+ "tries": 31274,
+ "ids_sha256": "9bb5229fad6542aa8b3fd7edfc3b8d1dff965a573d7aa8379385caacc9d614da",
+ "corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0",
+ "eval_slice_sha256_NOT_THIS": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+ "calib_seed_deliberately_avoided": 42424,
+ "seconds": 239.86122941970825
+}
