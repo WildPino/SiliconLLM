@@ -250,3 +250,33 @@ makes the compounded numbers look flat.
 **`+0.6238`**. Inside the ternary regime the sign of this correlation is not stable, and E20 part B
 says why: BPB tracks the logit geometry, which the data-aware rules preserve well, while argmax
 tracks the top-1/top-2 boundary, which none of them protects.
+
+---
+
+## 11. Appended 2026-09-11 after E22 — "train into the format" gets a target
+
+§8's conclusion was that no rung of the conversion ladder is both fast and good, so the model must
+be **trained into** the format rather than converted into it. E22 supplies the structure that
+training should aim at, and — more usefully — proves that structure cannot be reached by
+conversion.
+
+**The budget, satisfied for the first time.** §31's derivation fixed 50 tok/s at
+`0.982–1.060 G` active ternary weights per token. E22's `QO512+V52` — activation-weighted rank-512
+on `q_proj`+`o_proj` (E21) plus E19's 52% FFN carve — is **`0.9441 G`**, 3.9% under the low end.
+At fp32 it reads **126/160 teacher-forced**, above every ternary head E20 measured, at
+`+0.237444` BPB.
+
+**And the format takes it away.** That `0.9441 G` was priced in ternary; the arm that reads 126 is
+fp32. Ternarize the two low-rank factors and it reads `2.812226` BPB / **28/160**; assemble the
+whole runnable model (`STACK`) and it reads `3.947669` / free `5` / **tf `4`**. **The
+budget-feasible object and the working object are two different objects.**
+
+**That is §8's conclusion made concrete rather than overturned.** The ladder's rungs were all
+conversions; E22 adds a rung that is structural rather than precision-based, finds it is the best
+one ever measured, and finds it still cannot be *converted* into the shipping format. What is left
+is what §9 item 1 has said since this probe closed — **healing/QAT** — now with a fully specified
+starting point: a 1.5 B that is budget-feasible, right 79% of the time per step, and whose defect
+is drift plus a format conversion that has to be learned instead of applied.
+
+**§4's floor is unmoved.** `QO512+V52` free-running is `15/160` against the constant-token floor
+of `12`. Three tokens. **The best structure this programme has built still cannot generate.**

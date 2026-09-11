@@ -232,3 +232,38 @@ teacher-forced where its two halves read 68 and 93 alone -- **while its BPB beat
 prediction by `0.342498`** (E21 §4a: the two metrics disagree in opposite directions). The obvious next
 move — stack `QO-ACT-512` on `V52` to land the 1.5 B at ≈`0.98 G` — must therefore be **measured,
 not assumed additive** (`probes/E21_CAN_RANK_BUY_IT.md` §8 item 1).
+
+---
+
+## 11. Appended 2026-09-11 after E22 — `V52`'s teacher-forced number, owed since §8
+
+E19 and E18 both owed it. E22 measured it as a by-product of its replication anchor, under the
+same oracle router, on the same five prompts:
+
+| | BPB | free-running | **teacher-forced** | mean rank | rank ≤ 5 |
+|---|---|---|---|---|---|
+| `V52` | `0.909441` | 12/160 | **117/160** | `2.49` | 151/160 |
+
+**`G-S2` reproduced §4's numbers exactly** — BPB to `< 1e-9`, free-running `12`, achieved
+activation `0.51953125` — so this teacher-forced figure attaches to the identical arm and not to
+a re-run that drifted.
+
+**Two readings.**
+
+**(1) §4's `AT-FLOOR` was a drift verdict, not a competence verdict.** With the donor's context
+held fixed, the 52% carve puts the donor's token first **73% of the time** and in the top five at
+151 of 160 positions. E20 part B's law applies here exactly as it did to the ternary heads:
+*an autoregressive metric is not a measure of the component.* E19's verdict `CARVE-DOES-NOT-RANK`
+stands as written — free-running is what a runnable model does — but the mechanism behind the 12
+is now known to be the same as everywhere else in this programme.
+
+**(2) It lands inside E20's ternary band, and that was a registered contest.** `117` sits in
+`107`–`119`, which is `COMPARABLE`, and it equals E20's best ternary head (`GPTQH`, also `117`) to
+the token, at a lower BPB cost (`+0.141846` vs `+0.170414`). E22's brief registered this as a
+conflict between BPB ordering and E21 §4a's "BPB does not order across axes"; **BPB ordering won,
+and E21 §4a is weakened as a result** (E22 §7).
+
+**And composed, it gets better, not worse.** `QO512+V52` — this carve plus E21's rank-512 `q/o` —
+reads **126/160**, above both its parts' worse half and above every ternary head, at `0.9441 G`
+active, inside the 50 tok/s budget. That composition is the subject of `E22_DOES_CHEAP_COMPOSE.md`,
+and §10's warning that composition can be worse than either part did **not** reproduce here.

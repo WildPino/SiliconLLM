@@ -156,6 +156,14 @@ is `0.34` *better* than adding the parts; in per-step argmax it is `20` tokens *
 better half and 20 worse than the worse half*. So "damage compounds" is true of ranking and false
 of BPB, and the unqualified sentence should not be used.
 
+> **Corrected 2026-09-11 after E22.** The sentence "BPB does not order interventions across
+> axes", as stated in §6's third asymmetry, is too general. It was derived from one pair
+> (`H-ACT-256` vs E20's `R0H`: within `0.011` BPB, 68 vs 107 teacher-forced). E22 measured a
+> second pair and the ordering held to the token — E19's `V52` costs `+0.141846`, less than E20's
+> best ternary head at `+0.170414`, and reads `117` teacher-forced against that head's `117`.
+> **The claim that survives both is weaker: BPB ordering *can* fail across axes, so it must be
+> checked rather than assumed.** E22 §7 carries the measurement.
+
 The mechanism is §6's third asymmetry again. Weighted low-rank preserves logit *geometry* --
 which is what BPB scores, and two geometry-preserving perturbations overlap rather than stack --
 while argmax lives on the top-1/top-2 boundary, where two independent perturbations each get a
@@ -254,3 +262,29 @@ now has.
    Vocabulary-side factorisation and tied output clusters are untouched here.
 6. **Unchanged from E20**: healing/QAT (GPU, user launches); re-read published ranking numbers as
    compounds; `R5` in the exporter.
+
+---
+
+## 9. Appended 2026-09-11 after E22 — both owed items 1 and 2 are discharged, oppositely
+
+**§8 item 1 — compose `QO512` with E19's `V52`.** Done, and it is the best result the donor
+programme has: **`0.9441 G` active (inside E18's 50 tok/s budget), BPB `1.005039`, 126/160
+teacher-forced, above every ternary head E20 measured**, per-prompt `[27, 24, 22, 28, 25]`.
+§8 item 1 warned not to assume additivity, and it was right to: the pair is **super-additive in
+BPB** (`+0.042909`) while ranking **above its worse half** (126 ≥ 117) — the exact mirror of §4a's
+reading of `BOTH-ACT-256`. Four compositions now exist and no two behave alike; the operative rule
+is that a stack must be measured.
+
+**§8 item 2 — rank × precision.** Done, and it closes the axis. Ternarizing both factors of the
+rank-512 form costs `2.812226` BPB / 28 teacher-forced, against T2b's **dense** ternary attention
+at `1.903569` on a harder organ set (`k/v` included): **`+0.908657` worse.** Layer 0 `q_proj`,
+relative weight error: dense ternary `0.8084`, fp32 rank-512 `0.3515`, two ternary factors
+`0.9874`. **The factors' errors multiply.** `QO-ACT-512` is `+0.052689` BPB *in fp32 only*, and
+that qualifier belongs on every future quotation of it.
+
+**§0's headline therefore needs its second clause.** "The least damaging structural modification
+ever measured here" is true and stays — **and it cannot currently be shipped**, because the format
+it would ship in costs more than the modification saves. What E22 leaves standing is the target
+for healing, not a runnable artefact.
+
+`probes/E22_DOES_CHEAP_COMPOSE.md` carries both.

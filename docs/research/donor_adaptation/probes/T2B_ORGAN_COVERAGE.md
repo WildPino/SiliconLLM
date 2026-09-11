@@ -252,3 +252,30 @@ fixed and changing only how codes and scales are chosen (`probes/E20_RULE_OR_FOR
 Nothing here is withdrawn — the BPB replicated to eight decimal places — but the head's cost is
 not a property of the head, it is a property of `R3`, and the ranking failure is a property of
 neither.
+
+---
+
+## 11. Appended 2026-09-11 after E22 — arm `A` is the control that kills ternary low-rank
+
+T2b's arm `A` — every attention projection ternarized with `R3` — has sat at **`1.903569`** BPB
+since this probe ran. E22 needed a baseline for a question T2b could not have asked: what does it
+cost to ternarize a **factored** attention projection, i.e. to compose the rank axis with the
+precision axis? Arm `A` is that baseline, and it wins comfortably.
+
+| attention, ternary, same donor, same slice | BPB | organs converted |
+|---|---|---|
+| **T2b arm `A`** | **`1.903569`** | `q`, `k`, `v`, `o` |
+| E22 `QO512-TB` — rank-512 `q/o`, **both factors** `R3` | `2.812226` | `q`, `o` only (`k/v` left fp32) |
+
+**`+0.908657` BPB worse while converting a strictly easier organ set**, since the factored arm
+leaves `k/v` (22.0 M) untouched. A like-for-like repeat would only widen it.
+
+The mechanism, measured on layer 0's `q_proj` as relative weight error: dense ternary `R3`
+**`0.8084`**, the fp32 rank-512 factorisation **`0.3515`**, the two ternary factors **`0.9874`**.
+**The factors' errors multiply.** A rank-`r` decomposition halves the parameter count and then
+hands the quantizer two matrices instead of one, each of which it damages by ~50–80% relative;
+the product is worse than either ingredient and worse than not factoring at all.
+
+**So arm `A` is not just a row in T2b's table any more — it is the control that closes the
+rank × precision axis**, which E21 §8 listed as owed item 2 and which E22 discharges.
+`probes/E22_DOES_CHEAP_COMPOSE.md` §5 carries the detail.

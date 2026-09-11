@@ -2603,9 +2603,11 @@ factored matvec and `QWENDON1` has no kind for one.** No rank result converts to
    68 and 93 (**worse than either**). The two metrics disagree in opposite directions about the
    same pair, so "damage compounds" is true of ranking only. Any plan that stacks cheap cuts must
    measure the stack, on both metrics.
-3. **BPB does not order interventions across axes.** `H-ACT-256` (BPB `1.330385`) and E20's `R0H`
-   (`1.319900`) are within `0.01` BPB and read **68** and **107** teacher-forced. §33.4's lesson
-   generalises: *the two metrics are not substitutes, in either direction.*
+3. **BPB ordering can fail across axes and must be checked.** `H-ACT-256` (BPB `1.330385`) and
+   E20's `R0H` (`1.319900`) are within `0.01` BPB and read **68** and **107** teacher-forced.
+   **Weakened by §35.6**: E22 measured a second pair (`V52` `+0.141846` vs E20's best head
+   `+0.170414`, teacher-forced `117` against `117`) where the ordering held to the token. A
+   failure mode to test for, not a rule.
 
 ### 34.5 Predictions
 
@@ -2632,3 +2634,113 @@ healing — is claimed for **attention only**.
 6. **Healing / QAT**, unchanged as first since §31.8 and now retargeted by §34.1: the best-posed
    starting point available is **low-rank attention at 90% per-step fidelity**, not a ternary donor
    at 70%. **Needs GPU; the user launches it, and has offered T4 weeks for exactly this.**
+
+---
+
+## 35. E22 — the budget-feasible object and the working object are not the same object
+
+**Probe**: `probes/E22_DOES_CHEAP_COMPOSE.md`. **Brief**:
+`briefs/BRIEF_E22_DOES_CHEAP_COMPOSE.md` @ `3f8465a`, pushed before the runner existed.
+**Runner**: `ternary/e22_compose.py`. **Results**: `engine/results/e22_compose.json`, nine arms,
+3793 s, `VOID: none`.
+
+**No timing taken. Nothing exported. `6.79 tok/s` exact, §19.3 unchanged.**
+
+### 35.1 Three replications, then the verdict
+
+`G-S0`, `G-S1`, `G-S2` all **FIRE exactly**: `base` at `0.767595`/160/160, `QO512` reproducing
+**E21** (`0.8202837636996289`, free `26`, tf `144`) and `V52` reproducing **E19**
+(`0.909440994415161`, free `12`, activation `0.51953125`), each to `< 1e-9`. Two prior runs from
+two runners written weeks apart, reproduced before any composed arm was read — possible only
+because the runner imports `e21_rank.lowrank`, `e19_carve_rank.install` and `t2_rules.r3_actsearch`.
+
+| arm | BPB | Δ base | free | **tf** | mean rank | active | band-tf |
+|---|---|---|---|---|---|---|---|
+| `base` | `0.767595` | — | 160 | 160 | `1.00` | `1.5436 G` | — |
+| `QO512` | `0.820284` | `+0.052689` | 26 | 144 | `1.16` | `1.4995 G` | CHEAPER |
+| `V52` | `0.909441` | `+0.141846` | 12 | **117** | `2.49` | `0.9882 G` | COMPARABLE |
+| **`QO512+V52`** | **`1.005039`** | **`+0.237444`** | **15** | **126** | **`2.03`** | **`0.9441 G`** | **CHEAPER** |
+| `QO512-TB` | `2.812226` | `+2.044631` | 1 | 28 | `1476` | — | WORSE |
+| `STACK` | `3.947669` | `+3.180074` | 5 | 4 | `24829` | `0.9441 G` | WORSE |
+
+### 35.2 The half that is good news
+
+**`QO512+V52` is the first configuration this programme has derived inside the 50 tok/s budget**
+— `0.9441 G` active against `0.982–1.060 G` (E18 §31), 3.9% under the low end — **and it is the
+best-ranking modified donor ever measured here**, 126/160 teacher-forced, above every ternary head
+E20 read. Per-prompt `[27, 24, 22, 28, 25]`, uniform; median rank `1.0`; top-5 at 148/160.
+**The registered alternative fires.**
+
+### 35.3 The half that takes it back
+
+**That artefact is fp32; the `0.9441 G` was priced in ternary at `0.500000` B/weight.** Convert
+the same configuration into the format it would have to ship in and it dies:
+
+| attention, ternary | BPB | organs |
+|---|---|---|
+| **T2b arm `A`** — dense, `R3` | **`1.903569`** | `q`, `k`, `v`, `o` |
+| `QO512-TB` — rank-512 `q/o`, both factors `R3` | `2.812226` | `q`, `o` only (`k/v` fp32) |
+
+**`+0.908657` BPB worse on a strictly easier organ set.** Layer 0 `q_proj`, relative weight error:
+dense ternary `0.8084`, fp32 rank-512 `0.3515`, **two ternary factors `0.9874`** — the errors
+multiply. `STACK`, the whole runnable model, reads BPB `3.947669` (`0.122` below chance), free
+`5/160`, teacher-forced `4/160`.
+
+**So the budget-feasible object and the well-ranking object are two different objects, and what
+separates them is the format.** That is E18's conclusion arriving from a new direction, with a
+target attached: the structure to *train into* is low-rank attention plus a carved FFN.
+
+### 35.4 The construction defect the smoke caught
+
+Brief §3 registered `A = W H^½ Bᵣ`, `B = Bᵣᵀ H^-½`, both ternarized. That puts the whole
+singular-value range into A's **columns** (spread `5.2e2` on layer 0 `q_proj`) while
+`r3_actsearch` has only a per-**row** scale: **77.6% of A goes to zero** and the product lands at
+relative error `1.5570`, worse than zeroing the matrix. Folding A's column norms into B's rows is
+exactly identity-preserving (`2.3e-16`), free (B's format already carries a per-row scale), and
+recovers `0.9874`. **Both were run and both are in the table** — repairing a registered
+construction quietly is how E20 run 1 went wrong.
+
+### 35.5 Additivity — three data, and E21 was the outlier
+
+`excess = BPB(A+B) − [BPB(A) + BPB(B) − BPB(base)]`, band `±0.020`, registered before the run.
+
+| composition | excess | score band | tf vs min(parts) |
+|---|---|---|---|
+| `QO512+V52` | **`+0.042909`** | SUPER-ADDITIVE | 126 vs 117 → RANK-**SUB**-ADDITIVE |
+| `QO512-T+V52` | `+0.064067` | SUPER-ADDITIVE | 1 vs 1 (both at floor) |
+| `QO512-TB+V52` | `+0.146241` | SUPER-ADDITIVE | 12 vs 28 → RANK-SUPER-ADDITIVE |
+| *E21 `BOTH-ACT-256`* | *`−0.342498`* | *SUB-ADDITIVE* | *48 vs 68 → RANK-SUPER-ADDITIVE* |
+
+All three of E22's are super-additive; E21's lone datum was sub-additive by seven times the
+margin. E21 composed two cuts sharing **one objective** (overlapping errors); E22 composes rank
+with sparsity (**different mechanisms**, interacting errors). **Neither is a law. Four
+compositions is not a law either** — the operative rule is that *a stack must be measured, on both
+metrics, because the two halves can disagree in either direction.*
+
+### 35.6 §34.4 item 3, weakened
+
+E21 wrote "BPB does not order interventions across axes" from one pair. E22 measured a second and
+**the ordering held to the token**: `V52` costs `+0.141846` against E20's best ternary head's
+`+0.170414`, and reads `117` teacher-forced against that head's `117`. The surviving claim is
+weaker — *BPB ordering can fail across axes and must therefore be checked, not assumed.* §34.4
+item 3 and `E21_CAN_RANK_BUY_IT.md` §4a are corrected in place.
+
+### 35.7 Predictions
+
+Three held (the three replication gates; `V52` ≥ 107; `STACK` at floor), **two missed** — both
+additivity calls, and **both in the favourable direction**: the composition is super-additive in
+BPB where sub-additive was registered, and ranks *above* its worse half where below was registered.
+Prediction 4 was registered as a conflict between two published laws; BPB ordering won.
+
+### 35.8 Owed
+
+1. **Healing / QAT on `QO512+V52`** — first since §31.8 and now fully specified: a 1.5 B,
+   budget-feasible at `0.9441 G`, right 79% per step, whose defect is drift and whose format
+   conversion must be **learned**, not applied (§35.3: post-hoc it reads 28/160).
+   **Needs GPU; the user launches it, and has offered T4 weeks for exactly this.**
+2. **A real router for the carve** — every `V52` number here is an oracle ceiling.
+3. **`k/v` in the factored arms**, left fp32 throughout §35.3, which makes that comparison
+   favourable to E22; a like-for-like repeat widens the gap.
+4. **A factored matvec in `engine.c`, a kind in `QWENDON1`** — unchanged from §34.6.
+5. **The head** — the only organ neither cut touches, `545 M` on a 7 B, unchanged from §34.3.
+6. Unchanged: the rank fraction at scale, `R5` in the exporter, the E14 and E19 items.
