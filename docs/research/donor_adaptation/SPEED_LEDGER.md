@@ -3241,3 +3241,73 @@ Predictions **4 HIT / 1 MISS** — the miss is the band name, by 0.009.
 byte-EFFICIENCY, bounded by 1.24x, not bytes. **Every subsequent probe belongs on the denominator,
 against a hard target of 1.45 G moved weights/token.**
 
+---
+
+## 41. E31 — a gathered byte costs 42% of the budget at row granularity, and nothing at 32 KB
+
+**Probe**: `probes/E31_WHAT_A_GATHERED_BYTE_COSTS.md`. **Brief**:
+`briefs/BRIEF_E31_THE_GATHERED_BYTE.md`, pushed at `8003fa3` before the runner existed and
+before the instrument had ever been timed. **Result**: `engine/results/e31_gathered_byte.json`
+(run 4; runs 1-3 VOID and kept). Witness 7.2% mean / 14% peak against a 25% bar; 12 s.
+**Instrument**: `engine/e31_gather.c`.
+
+### 41.1 The denominator's own ceiling
+
+Section 40 left one variable -- bytes per token, at most **1.45 G moved weights** for 50 tok/s --
+and **that number came off a DENSE stream**. Every road to it (MoE, carve, sparsity) reads a
+SUBSET, and a subset is not read the way a matrix is read. 2 GB buffer, one group in eight
+(256 MB useful, far outside the 16 MB L3 line of section 40), 6 threads, 9 INTERLEAVED reps.
+
+| group | `sorted` GB/s | `contig` GB/s | **`sorted/contig`** | budget for 50 tok/s | % of T10's dense token |
+|---|---|---|---|---|---|
+| 64 B (a cache line) | 9.65 | 36.60 | **0.264** | 0.383 G | 3.61% |
+| 768 B (an S15 FFN row) | 18.21 | 38.83 | **0.469** | 0.681 G | 6.42% |
+| **2048 B (a T10 FFN row)** | 21.50 | 37.14 | **0.579** | **0.840 G** | **7.93%** |
+| 8 KB (4 rows) | 31.31 | 37.21 | 0.842 | 1.222 G | 11.52% |
+| **32 KB (16 rows)** | 34.37 | 36.41 | **0.944** | **1.371 G** | **12.93%** |
+| 128 KB | 34.06 | 34.75 | 0.980 | 1.423 G | 13.42% |
+| *dense (section 40)* | | | *1.000* | *1.452 G* | *13.69%* |
+
+**Verdict `GATHER-COSTS`.** Both gates fire: `G-E31A` (same-volume control, worst `-6.5%`, spread
+`11.2%` on a `+-15%` bar) and `G-E31B` (E26's known positive -- the 768 B S15 row MUST read below
+the 2048 B T10 row, and does).
+
+### 41.2 The design statement
+
+> **Neuron-granular sparsity costs 42% of the budget. Activating in blocks of >= 16 consecutive
+> rows costs 6%. The difference between those two designs is `1.63x` on the only axis the goal
+> still has** -- against the `1.24x` that was all the numerator had left after section 40.
+
+Crossover to 0.90 of dense: **32 KB**, bracketed in `(8 KB, 32 KB]`. Ordering matters only below
+8 KB (`sorted/random` = `1.34x` at 64 B, within 5% from 8 KB up); **a naive unsorted gather at
+cache-line granularity delivers `0.197` of the machine, the worst number in this programme.**
+
+With section 40's resident half, the goal is now fully priced in one line:
+
+> **~32 M weights resident and free, plus <= 0.84 G streamed at row granularity -- or <= 1.37 G
+> if the architecture activates in >= 32 KB contiguous blocks. Per token, for 50 tok/s.**
+
+### 41.3 The lever this promotes
+
+**E26 section 9's owed item is now priced and it is the largest single lever left anywhere in the
+programme.** E26 concluded "a coarser carve, and it is a change to the EXPORTER, not the engine";
+E31 says what it is worth: at S15's 768-byte rows the carve runs at **0.469** of dense and a
+32 KB group would run at **0.944** -- **`2.01x`, free of quality cost by construction**, the same
+weights in a different order in the file.
+
+And E18's "50 tok/s is a ~10%-activation budget", read from the numerator side, meets **7.93% /
+12.93%** read from the memory side. The two roads arrive at the same number.
+
+### 41.4 Three VOID runs, and the gate was never widened
+
+Run 1 `-15.4%`, spread `24.4%`: **the control walked the offset array**, so it carried the
+gathered arms' own per-group bookkeeping and moved with the variable it controlled for -- while
+sitting in the DENOMINATOR of every ratio. Fixed to one unbroken run (the stricter reading);
+the old behaviour kept as `contig_ind`, a DIAGNOSTIC. Run 2 spread `17.4%`, run 3 spread `29.5%`
+**with reps raised 3 -> 15** -- and that non-response is the diagnosis: `contig` is identical
+code over identical volume at every row, so the spread was block-correlated drift, because each
+arm's reps sat in one contiguous wall-clock window. **Reps moved OUTERMOST** (section 39's own
+interleaving methodology, which this instrument had exactly backwards). Run 4 fires at `11.2%`.
+Predictions **5 HIT / 1 PARTIAL** -- the partial is mine: I put the ordering crossover `16x` too
+coarse.
+

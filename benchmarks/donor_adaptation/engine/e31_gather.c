@@ -181,54 +181,80 @@ int main(int argc, char** argv){
     if(!buf){ fprintf(stderr,"allocation of %.0f MB failed\n", bufmb); return 2; }
     for(size_t i=0;i<n;i++) buf[i] = (uint64_t)i*2654435761u;      // first-touch every page
 
+    /* ---- plan every (granularity, order) cell up front, so the TIMED loop can interleave.
+       RUNS 1-3 WERE VOIDED.  Run 1: the control walked the offset array and so moved with the
+       variable it controlled for.  Runs 2 and 3: the control was honest but each arm's reps sat
+       in one contiguous wall-clock window, so a slow phase took a whole block and `contig` --
+       identical code over identical volume at every row -- read 29.89 GB/s at one granularity
+       and 40.38 at the next.  Raising reps from 3 to 15 did not help, which is the signature of
+       block-correlated drift rather than per-rep noise.
+
+       E28's registered methodology is INTERLEAVED reps so that drift is COMMON-MODE across the
+       arms a ratio is taken over.  This instrument had reps innermost and arms outermost, the
+       exact opposite.  Reps are now OUTERMOST.  That is the programme's own standard and it is
+       stricter, not looser: the gate is unchanged. */
+    size_t* offs[NGROUPS][NORDERS];
+    size_t  nsels[NGROUPS], gwordss[NGROUPS];
+    int     live[NGROUPS];
     for(int gi=0; gi<NGROUPS; gi++){
         size_t gwords = GROUPS[gi]/8;
-        size_t ngrp = n/gwords;
-        size_t nsel = ngrp/(size_t)div;
-        if(nsel < 8) continue;                        // too few groups to say anything
+        size_t ngrp = n/gwords, nsel = ngrp/(size_t)div;
+        gwordss[gi] = gwords; nsels[gi] = nsel;
+        live[gi] = (nsel >= 8);
+        for(int o=0;o<NORDERS;o++) offs[gi][o] = NULL;
+        if(!live[gi]) continue;
 
-        /* choose nsel distinct groups: partial Fisher-Yates over a group-index array */
         size_t* idx = (size_t*)malloc(ngrp*sizeof(size_t));
+        if(!idx){ fprintf(stderr,"index array for %zu B groups failed\n", GROUPS[gi]);
+                  live[gi]=0; continue; }
         for(size_t i=0;i<ngrp;i++) idx[i]=i;
         for(size_t k=0;k<nsel;k++){
             size_t j = k + (size_t)(rnd() % (uint64_t)(ngrp-k));
             size_t t = idx[k]; idx[k]=idx[j]; idx[j]=t;
         }
-        size_t* off = (size_t*)malloc(nsel*sizeof(size_t));
+        size_t* so = (size_t*)malloc(nsel*sizeof(size_t));      /* sorted  */
+        size_t* ro = (size_t*)malloc(nsel*sizeof(size_t));      /* random  */
+        size_t* co = (size_t*)malloc(nsel*sizeof(size_t));      /* contig_ind (contig needs none) */
+        for(size_t k=0;k<nsel;k++){ so[k]=idx[k]; ro[k]=idx[k]*gwords; co[k]=k*gwords; }
+        qsort(so, nsel, sizeof(size_t), cmpsz);
+        for(size_t k=0;k<nsel;k++) so[k] *= gwords;
+        free(idx);
+        offs[gi][ORD_SORTED]=so; offs[gi][ORD_RANDOM]=ro;
+        offs[gi][ORD_CONTIG]=co; offs[gi][ORD_CONTIG_IND]=co;   /* aliased; contig ignores it */
+    }
 
-        for(int ord=0; ord<NORDERS; ord++){
-            if(ord==ORD_SORTED){
-                size_t* sel = (size_t*)malloc(nsel*sizeof(size_t));
-                memcpy(sel, idx, nsel*sizeof(size_t));
-                qsort(sel, nsel, sizeof(size_t), cmpsz);
-                for(size_t k=0;k<nsel;k++) off[k] = sel[k]*gwords;
-                free(sel);
-            } else if(ord==ORD_RANDOM){
-                for(size_t k=0;k<nsel;k++) off[k] = idx[k]*gwords;
-            } else {                                   /* contig and contig_ind address the
-                                                          same unbroken run */
-                for(size_t k=0;k<nsel;k++) off[k] = k*gwords;
-            }
-            double gbs[MAXREPS];
-            for(int r=0;r<reps;r++){
+    /* ---- the timed loop: REPS OUTERMOST, every cell visited once per rep */
+    static double gbs[NGROUPS][NORDERS][MAXREPS];
+    for(int r=0; r<reps; r++){
+        for(int gi=0; gi<NGROUPS; gi++){
+            if(!live[gi]) continue;
+            size_t gwords = gwordss[gi], nsel = nsels[gi];
+            for(int ord=0; ord<NORDERS; ord++){
                 double t0 = now_s();
-                /* ORD_CONTIG is the REGISTERED control and reads the run FLAT;
-                   ORD_CONTIG_IND reads the identical addresses through the group loop, so
-                   the gap between the two IS this harness's per-group bookkeeping at this
-                   granularity -- reported, never silently folded into a verdict. */
-                uint64_t acc = (ord==ORD_CONTIG) ? flat_sum(buf, nsel*gwords)
-                                                 : gather_sum(buf, off, nsel, gwords);
+                /* ORD_CONTIG is the REGISTERED control and reads the run FLAT; ORD_CONTIG_IND
+                   reads the identical addresses through the group loop, so the gap between the
+                   two IS this harness's per-group bookkeeping at this granularity. */
+                uint64_t acc = (ord==ORD_CONTIG)
+                    ? flat_sum(buf, nsel*gwords)
+                    : gather_sum(buf, offs[gi][ord], nsel, gwords);
                 double dt = now_s()-t0;
                 g_sink += acc;
-                gbs[r] = (double)(nsel*gwords*8) / dt / 1e9;     // USEFUL bytes only
+                gbs[gi][ord][r] = (double)(nsel*gwords*8) / dt / 1e9;   /* USEFUL bytes only */
             }
-            double sorted_[MAXREPS]; memcpy(sorted_,gbs,sizeof(double)*reps);
-            qsort(sorted_,reps,sizeof(double),cmpd);
-            printf("%zu,%s,%.1f,%.3f,%.3f\n", GROUPS[gi], ORDNAME[ord],
-                   (double)(nsel*gwords*8)/1048576.0, sorted_[reps-1], sorted_[reps/2]);
-            fflush(stdout);
         }
-        free(off); free(idx);
+    }
+
+    for(int gi=0; gi<NGROUPS; gi++){
+        if(!live[gi]) continue;
+        for(int ord=0; ord<NORDERS; ord++){
+            double srt[MAXREPS]; memcpy(srt, gbs[gi][ord], sizeof(double)*reps);
+            qsort(srt, reps, sizeof(double), cmpd);
+            printf("%zu,%s,%.1f,%.3f,%.3f\n", GROUPS[gi], ORDNAME[ord],
+                   (double)(nsels[gi]*gwordss[gi]*8)/1048576.0, srt[reps-1], srt[reps/2]);
+        }
+        fflush(stdout);
+        free(offs[gi][ORD_SORTED]); free(offs[gi][ORD_RANDOM]);
+        free(offs[gi][ORD_CONTIG]);          /* ORD_CONTIG_IND aliases it -- freed once */
     }
     free(buf);
     if(g_sink == 0xdeadbeef) printf("# impossible\n");

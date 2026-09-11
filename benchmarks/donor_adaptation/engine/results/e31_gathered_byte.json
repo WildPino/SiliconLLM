@@ -1,0 +1,374 @@
+{
+ "brief": "briefs/BRIEF_E31_THE_GATHERED_BYTE.md (8003fa3)",
+ "threads": 6,
+ "reps": 9,
+ "buffer_MB": 2048.0,
+ "select_1_in": 8,
+ "cpu_busy_mean_pct": 7.25,
+ "cpu_busy_peak_pct": 14.0,
+ "bands": [
+  [
+   0.85,
+   "GATHER-IS-FREE"
+  ],
+  [
+   0.5,
+   "GATHER-COSTS"
+  ],
+  [
+   0.0,
+   "GATHER-DOMINATES"
+  ]
+ ],
+ "e30_anchor_256MB_GB_s": 37.16,
+ "e30_ceiling_GB_s": 36.299,
+ "run": 2,
+ "run1": "VOID on G-E31A -- the control walked the offset array and so carried the gathered arms' own per-group bookkeeping; results/e31_gathered_byte_run1_VOID.json",
+ "G_E31C": {
+  "line": "# SELFTEST gather over 195 groups of 7 words: ref 7416904953786510 got 7416904953786510 -> OK\r\n# SELFTEST flat over 1364 words: ref 2467473232619274 got 2467473232619274 -> OK",
+  "fires": true
+ },
+ "sweep": [
+  {
+   "group_bytes": 64,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 11.874,
+   "median": 9.647
+  },
+  {
+   "group_bytes": 64,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 9.016,
+   "median": 7.198
+  },
+  {
+   "group_bytes": 64,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 41.133,
+   "median": 36.598
+  },
+  {
+   "group_bytes": 64,
+   "order": "contig_ind",
+   "useful_MB": 256.0,
+   "best": 35.498,
+   "median": 32.452
+  },
+  {
+   "group_bytes": 128,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 11.973,
+   "median": 11.608
+  },
+  {
+   "group_bytes": 128,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 9.92,
+   "median": 8.52
+  },
+  {
+   "group_bytes": 128,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 40.128,
+   "median": 35.899
+  },
+  {
+   "group_bytes": 128,
+   "order": "contig_ind",
+   "useful_MB": 256.0,
+   "best": 36.34,
+   "median": 33.976
+  },
+  {
+   "group_bytes": 256,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 14.991,
+   "median": 13.988
+  },
+  {
+   "group_bytes": 256,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 10.025,
+   "median": 8.904
+  },
+  {
+   "group_bytes": 256,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 39.82,
+   "median": 35.723
+  },
+  {
+   "group_bytes": 256,
+   "order": "contig_ind",
+   "useful_MB": 256.0,
+   "best": 39.859,
+   "median": 34.56
+  },
+  {
+   "group_bytes": 768,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 19.478,
+   "median": 18.21
+  },
+  {
+   "group_bytes": 768,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 14.385,
+   "median": 13.694
+  },
+  {
+   "group_bytes": 768,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 40.649,
+   "median": 38.832
+  },
+  {
+   "group_bytes": 768,
+   "order": "contig_ind",
+   "useful_MB": 256.0,
+   "best": 38.558,
+   "median": 35.691
+  },
+  {
+   "group_bytes": 2048,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 22.778,
+   "median": 21.497
+  },
+  {
+   "group_bytes": 2048,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 21.022,
+   "median": 19.85
+  },
+  {
+   "group_bytes": 2048,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 39.503,
+   "median": 37.142
+  },
+  {
+   "group_bytes": 2048,
+   "order": "contig_ind",
+   "useful_MB": 256.0,
+   "best": 39.291,
+   "median": 35.477
+  },
+  {
+   "group_bytes": 8192,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 34.29,
+   "median": 31.311
+  },
+  {
+   "group_bytes": 8192,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 33.792,
+   "median": 30.867
+  },
+  {
+   "group_bytes": 8192,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 40.027,
+   "median": 37.206
+  },
+  {
+   "group_bytes": 8192,
+   "order": "contig_ind",
+   "useful_MB": 256.0,
+   "best": 40.755,
+   "median": 36.895
+  },
+  {
+   "group_bytes": 32768,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 38.722,
+   "median": 34.37
+  },
+  {
+   "group_bytes": 32768,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 38.02,
+   "median": 34.117
+  },
+  {
+   "group_bytes": 32768,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 41.725,
+   "median": 36.406
+  },
+  {
+   "group_bytes": 32768,
+   "order": "contig_ind",
+   "useful_MB": 256.0,
+   "best": 41.044,
+   "median": 36.935
+  },
+  {
+   "group_bytes": 131072,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 37.894,
+   "median": 34.057
+  },
+  {
+   "group_bytes": 131072,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 39.653,
+   "median": 34.842
+  },
+  {
+   "group_bytes": 131072,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 38.18,
+   "median": 34.754
+  },
+  {
+   "group_bytes": 131072,
+   "order": "contig_ind",
+   "useful_MB": 256.0,
+   "best": 41.383,
+   "median": 34.229
+  },
+  {
+   "group_bytes": 524288,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 38.976,
+   "median": 35.495
+  },
+  {
+   "group_bytes": 524288,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 41.229,
+   "median": 35.121
+  },
+  {
+   "group_bytes": 524288,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 39.619,
+   "median": 35.387
+  },
+  {
+   "group_bytes": 524288,
+   "order": "contig_ind",
+   "useful_MB": 256.0,
+   "best": 39.86,
+   "median": 36.176
+  },
+  {
+   "group_bytes": 2097152,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 39.303,
+   "median": 35.583
+  },
+  {
+   "group_bytes": 2097152,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 39.784,
+   "median": 35.654
+  },
+  {
+   "group_bytes": 2097152,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 40.09,
+   "median": 36.016
+  },
+  {
+   "group_bytes": 2097152,
+   "order": "contig_ind",
+   "useful_MB": 256.0,
+   "best": 38.717,
+   "median": 35.656
+  }
+ ],
+ "G_E31A": {
+  "contig_GB_s": {
+   "64": 36.598,
+   "128": 35.899,
+   "256": 35.723,
+   "768": 38.832,
+   "2048": 37.142,
+   "8192": 37.206,
+   "32768": 36.406,
+   "131072": 34.754,
+   "524288": 35.387,
+   "2097152": 36.016
+  },
+  "anchor_GB_s": 37.16,
+  "tol": 0.15,
+  "worst_group_bytes": 131072,
+  "worst_rel_dev": -0.06474703982777175,
+  "contig_spread": 0.11204435615708197,
+  "fires": true
+ },
+ "G_E31B": {
+  "sorted_768_GB_s": 18.21,
+  "sorted_2048_GB_s": 21.497,
+  "ratio_768_over_2048": 0.8470949434804856,
+  "source": "E26 measured S15 (768 B rows) suffering more than T10 (2048 B rows), bands 18.00% vs 12.54%, disjoint",
+  "fires": true
+ },
+ "bookkeeping_diagnostic": {
+  "WHAT": "contig_ind / contig -- the SAME addresses read through the group loop vs read flat.  It prices this harness's per-group overhead at each granularity, and it is the defect that voided run 1 when it was sitting in the DENOMINATOR.  Reported, never folded into a verdict.",
+  "ratio": {
+   "64": 0.8867151210448658,
+   "128": 0.9464330482743252,
+   "256": 0.9674439436777427,
+   "768": 0.9191131025957974,
+   "2048": 0.9551720424317482,
+   "8192": 0.9916411331505671,
+   "32768": 1.0145305718837556,
+   "131072": 0.9848938251712034,
+   "524288": 1.022296323508633,
+   "2097152": 0.9900044424700133
+  }
+ },
+ "verdict": {
+  "name": "GATHER-COSTS",
+  "cell": "sorted(2048) / contig(2048)",
+  "r_T10": 0.5787787410478703,
+  "r_S15": 0.46894313967861556,
+  "crossover_bytes_at_0.90": 32768,
+  "crossover_in_T10_rows": 16.0,
+  "sorted_over_random_at_64B": 1.3402333981661572,
+  "sorted_random_converge_at_bytes": 8192,
+  "dense_budget_G_weights_per_token": 1.45196,
+  "sparse_budget_G_weights_per_token": 0.8403635808518657,
+  "T10_dense_G_weights_per_token": 10.6032005,
+  "activation_fraction_needed": 0.07925565312585249
+ },
+ "cpu_busy_after": [
+  11.0,
+  15.0
+ ],
+ "seconds": 12.462077379226685
+}
