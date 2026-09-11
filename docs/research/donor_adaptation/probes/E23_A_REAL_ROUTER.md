@@ -105,7 +105,7 @@ sense that *both* of its measured composition directions were oracle-conditioned
 | # | registered | measured | |
 |---|---|---|---|
 | 1 | `G-T0`, `G-T1` fire; oracle reproduces E22 to the token | both fire, both oracles exact | **HELD** |
-| 2 | STATIC and RANDOM both `AT-FLOOR` free and **below 40** tf | RANDOM 42 (≈), **STATIC 99** | **MISSED** |
+| 2 | STATIC and RANDOM both `AT-FLOOR` free and **below 40** tf | both AT-FLOOR, but **RANDOM 42** and **STATIC 99** | **MISSED on both** |
 | 3 | `V52-LINEAR` reads `ROUTER-COSTS`, retention 0.40–0.80 | **0.9067 → `ROUTER-HOLDS`** | **MISSED** |
 | 4 | `QO512+V52-LINEAR` falls below `V52-LINEAR` by more than the fp32 pair did | −8 vs oracle's +9 | **HELD** |
 | 5 | `G-T4` exact on every arm — top-`k` is a hard count | no failures | **HELD** |
@@ -115,7 +115,7 @@ sense that *both* of its measured composition directions were oracle-conditioned
 router is weak and wrong about how weak, which is the honest way to report it rather than
 claiming the band "basically held".
 
-**Prediction 2 is the substantive miss, and it falsifies a transfer I asserted.** The brief
+**Prediction 2 missed on both arms.** `RANDOM` read `42` against a registered `below 40` — a small miss, and it is still a miss; the number is recorded rather than rounded into the band. **`STATIC` is the substantive one, and it falsifies a transfer I asserted.** The brief
 argued from Probe-4 that *"a static choice of experts should be worthless"* because working sets
 are approximately i.i.d. across tokens. **`V52-STATIC` reads 99/160** — retention 0.76, seven
 tokens short of `ROUTER-HOLDS` on its own, from a router that does not look at the token at all.
