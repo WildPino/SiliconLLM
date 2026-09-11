@@ -1,0 +1,365 @@
+{
+ "model": "qwen2.5-1.5b",
+ "repo": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "tokens": 512,
+ "gpu": {
+  "name": "Tesla T4",
+  "torch": "2.10.0+cu128",
+  "bf16_supported_achieved": true
+ },
+ "slice_ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+ "configs": [
+  {
+   "label": "eager_fp16",
+   "dtype_requested": "torch.float16",
+   "attn_implementation": "eager",
+   "sdpa_backend_forced": null,
+   "param_dtypes_achieved": [
+    "torch.float16"
+   ],
+   "n_modules": 284,
+   "first_nonfinite_index": 6,
+   "finite": false,
+   "first_nonfinite_module": "model.layers.0.self_attn.o_proj",
+   "context": [
+    {
+     "i": 0,
+     "name": "model.embed_tokens",
+     "cls": "Embedding",
+     "finite": true,
+     "max_abs": 0.30078125,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 1,
+     "name": "model.rotary_emb",
+     "cls": "Qwen2RotaryEmbedding",
+     "finite": true,
+     "max_abs": 1.0,
+     "n_nonfinite": 0,
+     "numel": 65536
+    },
+    {
+     "i": 2,
+     "name": "model.layers.0.input_layernorm",
+     "cls": "Qwen2RMSNorm",
+     "finite": true,
+     "max_abs": 49.875,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 3,
+     "name": "model.layers.0.self_attn.q_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 103.9375,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 4,
+     "name": "model.layers.0.self_attn.k_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 321.0,
+     "n_nonfinite": 0,
+     "numel": 131072
+    },
+    {
+     "i": 5,
+     "name": "model.layers.0.self_attn.v_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 4.39453125,
+     "n_nonfinite": 0,
+     "numel": 131072
+    },
+    {
+     "i": 6,
+     "name": "model.layers.0.self_attn.o_proj",
+     "cls": "Linear",
+     "finite": false,
+     "max_abs": NaN,
+     "n_nonfinite": 417792,
+     "numel": 786432
+    }
+   ]
+  },
+  {
+   "label": "sdpa_default_fp16",
+   "dtype_requested": "torch.float16",
+   "attn_implementation": "sdpa",
+   "sdpa_backend_forced": null,
+   "param_dtypes_achieved": [
+    "torch.float16"
+   ],
+   "n_modules": 284,
+   "first_nonfinite_index": null,
+   "finite": true,
+   "largest": [
+    {
+     "i": 271,
+     "name": "model.layers.26.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 5740.0,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 31,
+     "name": "model.layers.2.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 3384.0,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 21,
+     "name": "model.layers.1.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 2138.0,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 281,
+     "name": "model.layers.27.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 327.5,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 4,
+     "name": "model.layers.0.self_attn.k_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 321.0,
+     "n_nonfinite": 0,
+     "numel": 131072
+    },
+    {
+     "i": 20,
+     "name": "model.layers.1.mlp.up_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 172.375,
+     "n_nonfinite": 0,
+     "numel": 4587520
+    },
+    {
+     "i": 282,
+     "name": "model.norm",
+     "cls": "Qwen2RMSNorm",
+     "finite": true,
+     "max_abs": 170.25,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 41,
+     "name": "model.layers.3.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 117.0625,
+     "n_nonfinite": 0,
+     "numel": 786432
+    }
+   ]
+  },
+  {
+   "label": "sdpa_MATH_fp16",
+   "dtype_requested": "torch.float16",
+   "attn_implementation": "sdpa",
+   "sdpa_backend_forced": "MATH",
+   "param_dtypes_achieved": [
+    "torch.float16"
+   ],
+   "n_modules": 284,
+   "first_nonfinite_index": null,
+   "finite": true,
+   "largest": [
+    {
+     "i": 271,
+     "name": "model.layers.26.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 5740.0,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 31,
+     "name": "model.layers.2.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 3384.0,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 21,
+     "name": "model.layers.1.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 2138.0,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 281,
+     "name": "model.layers.27.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 327.5,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 4,
+     "name": "model.layers.0.self_attn.k_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 321.0,
+     "n_nonfinite": 0,
+     "numel": 131072
+    },
+    {
+     "i": 20,
+     "name": "model.layers.1.mlp.up_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 172.375,
+     "n_nonfinite": 0,
+     "numel": 4587520
+    },
+    {
+     "i": 282,
+     "name": "model.norm",
+     "cls": "Qwen2RMSNorm",
+     "finite": true,
+     "max_abs": 170.25,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 41,
+     "name": "model.layers.3.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 117.0625,
+     "n_nonfinite": 0,
+     "numel": 786432
+    }
+   ]
+  },
+  {
+   "label": "sdpa_EFFICIENT_fp16",
+   "dtype_requested": "torch.float16",
+   "attn_implementation": "sdpa",
+   "sdpa_backend_forced": "EFFICIENT_ATTENTION",
+   "error": "RuntimeError('No available kernel. Aborting execution.')"
+  },
+  {
+   "label": "sdpa_FLASH_fp16",
+   "dtype_requested": "torch.float16",
+   "attn_implementation": "sdpa",
+   "sdpa_backend_forced": "FLASH_ATTENTION",
+   "error": "RuntimeError('No available kernel. Aborting execution.')"
+  },
+  {
+   "label": "sdpa_default_fp32_CTRL",
+   "dtype_requested": "torch.float32",
+   "attn_implementation": "sdpa",
+   "sdpa_backend_forced": null,
+   "param_dtypes_achieved": [
+    "torch.float32"
+   ],
+   "n_modules": 284,
+   "first_nonfinite_index": null,
+   "finite": true,
+   "largest": [
+    {
+     "i": 271,
+     "name": "model.layers.26.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 5733.259765625,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 31,
+     "name": "model.layers.2.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 3384.91064453125,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 21,
+     "name": "model.layers.1.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 2138.49755859375,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 281,
+     "name": "model.layers.27.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 328.0487976074219,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 4,
+     "name": "model.layers.0.self_attn.k_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 321.00872802734375,
+     "n_nonfinite": 0,
+     "numel": 131072
+    },
+    {
+     "i": 20,
+     "name": "model.layers.1.mlp.up_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 172.30343627929688,
+     "n_nonfinite": 0,
+     "numel": 4587520
+    },
+    {
+     "i": 282,
+     "name": "model.norm",
+     "cls": "Qwen2RMSNorm",
+     "finite": true,
+     "max_abs": 170.32862854003906,
+     "n_nonfinite": 0,
+     "numel": 786432
+    },
+    {
+     "i": 41,
+     "name": "model.layers.3.mlp.down_proj",
+     "cls": "Linear",
+     "finite": true,
+     "max_abs": 117.1290283203125,
+     "n_nonfinite": 0,
+     "numel": 786432
+    }
+   ]
+  }
+ ],
+ "reading": "EAGER NON-FINITE, AT LEAST ONE SDPA BACKEND FINITE -- unexpected inversion of the naive hypothesis; report exactly which backend(s) were finite."
+}

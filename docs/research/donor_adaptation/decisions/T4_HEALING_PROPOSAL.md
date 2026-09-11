@@ -97,6 +97,45 @@ programme.
 **Either way the weeks are not wasted, because both outcomes close a route that is currently
 open and expensive to leave open.**
 
+## 5b. Two hardware facts measured on a real T4, which change the trainer
+
+**These were measured on a Tesla T4 (`torch 2.10.0+cu128`) in a previous session and were sitting
+in an untracked file. They are load-bearing and would each have cost a week.**
+Artefact: `benchmarks/donor_adaptation/s1/results/nanhunt_gpu/nanhunt/fp16_gpu_nan_hunt_qwen2.5-1.5b.json`,
+runner `s1/fp16_gpu_nan_hunt.py`, same frozen 512-token slice (`a1a48dc9…`).
+
+**(1) This donor in fp16 on a T4 is non-finite under `eager` attention, and finite under `sdpa`.**
+
+| config | finite? | first non-finite module |
+|---|---|---|
+| `eager`, fp16 | **NO** | **`model.layers.0.self_attn.o_proj`** — index 6 of 284 |
+| `sdpa` default, fp16 | yes | — |
+| `sdpa` MATH, fp16 | yes | — |
+| `sdpa` EFFICIENT / FLASH, fp16 | *unavailable* | `RuntimeError: No available kernel` |
+| `sdpa` default, fp32 (control) | yes | — |
+
+The CPU probes that preceded it (`fp16_range_diag.py`, `fp16_first_nan.py`) had already refuted
+"the numbers overflow fp16": everything is finite on CPU in fp16 at 128 and 512 tokens. **The
+variable is the GPU execution path, not the dtype.** So **every T4 script here must pass
+`attn_implementation="sdpa"`**, and flash/efficient attention are not options on this card.
+
+**And the organ that blows up first is `o_proj` — exactly the organ H0 trains.** That is not a
+coincidence to shrug at; it is the reason for (2).
+
+**(2) The factored form must carry an explicit fp32 scale, not fold the range into a factor.**
+E22 §5 balanced `W ≈ A·B` by folding A's column norms into B's rows — correct for the *quantizer*
+(B's format already has a per-row scale) and **wrong for fp16**, because it puts a dynamic range
+of `5.2e2` into the intermediate `B·x`, which is the one tensor fp16 has to hold. H0 therefore
+trains **`A_t · diag(s) · B_t`** with `s` an explicit fp32 vector of length `r`: both factors stay
+unit-scaled and quantizer-friendly, the range lives in `s`, and `s` is `512 × 56 = 28,672` floats
+for the whole model — free at any budget. **This is a design decision for the training run, not a
+retroactive change to E22's registered arms**, which stay exactly as published.
+
+**`bf16_supported_achieved` reported `True` on that T4**, contradicting the standing note that
+Turing is fp16-only. It is emulated and slow, so H0 will not rely on it for throughput — but it
+is available as a numerical fallback if fp16 loss-scaling misbehaves, and that is worth knowing
+before the week starts rather than during it.
+
 ## 6. Standing caveats that do not go away
 
 - **No speed claim anywhere in here.** `6.79 tok/s` is exact and untouched. `engine.c` has no
