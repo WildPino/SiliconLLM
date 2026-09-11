@@ -230,3 +230,28 @@ retention `0.9067` (`ROUTER-HOLDS`), the composed configuration at `0.7143` (`RO
 `QO512+V52` at `k = 133` is therefore **no longer the T4 healing target**. E23 §7 re-derives the
 depth the budget permits once the router is charged — `k = 139 … 156`, where `k = 133` sits 2.8%
 *under* the floor — and that sweep is E24.
+
+
+---
+
+## 10 — E25 discharges this probe's owed item, and prices the cut
+
+**`engine.c` now has a factored matvec** (`probes/E25_WHAT_THE_RANK_COSTS.md`, verdict
+`RANK-PAYS-WHAT-IT-WEIGHS`). §8 carried the item forward. **The `0.9441 G` this probe derived is now a charge the engine honours**: the rank term is paid at `2·D·r` and nothing is lost to the extra call.
+
+- **Correctness first.** `G-E25P`: worst relative l2 `6.445e-04` against a `2e-3` bar, top-1
+  `1.0000` on 10/10, on E22's `QO512-TB` against a PyTorch reference running
+  `h0_qat.TernaryLowRank`. `G-E25a`: the patched engine is **bit-identical** to the unpatched one
+  on `qwen25-15b_tq.bin`.
+- **The planted control.** At `r = D/2` a square projection is byte-neutral to the last weight,
+  so what it loses IS the factored path's own cost: `−0.43%` at the 10 B shape and `−2.46%` at
+  the 1.5 B shape, dispersions 7.3% and 6.4%. **Neither is resolvable from zero** — the second
+  matvec call costs less than this box can measure.
+- **The price.** At `T10` (10.60 G active, the goal's dimensions) rank-512 `q/o` reads
+  **5.36 vs 4.70 tok/s = `+14.12%`**, against a byte prediction of `+12.86%`. Four `T10` arms
+  whose rates differ by 15% deliver charged throughput inside a **1.54% band** — **the engine
+  converts active weights into time at a rate that does not care how they are arranged**, so
+  `2·D·r` is the right charge and this probe's arithmetic stands.
+
+**What it does not touch**: every quality number in this probe. E25's timing weights are noise,
+and `T10-R512` is `r/D = 1/8` where E21 validated only `r/D ≈ 1/3` at `D = 1536`.

@@ -2864,3 +2864,101 @@ but its second half — that `QO512+V52` is "constructible without an oracle" �
    about it. See `decisions/T4_HEALING_PROPOSAL.md` §3.
 3. Unchanged from §35.8: `k/v` in the factored arms, a factored matvec in `engine.c` and a kind
    in `QWENDON1`, the head, the rank fraction at scale, `R5` in the exporter, the E14/E19 items.
+
+
+## 37. E25 — the factored matvec exists, and the rank lever pays exactly what it weighs
+
+**Probe**: `probes/E25_WHAT_THE_RANK_COSTS.md`. **Brief**: `briefs/BRIEF_E25_WHAT_THE_RANK_COSTS_IN_THE_ENGINE.md`, pushed at `e506c7b` before the runner ran.
+**Verdict `RANK-PAYS-WHAT-IT-WEIGHS`.** Results: `engine/results/e25_rank_cost.json`, `engine/results/e25_parity_factored.json`.
+
+### 37.1 The item that was owed since E21 §8
+
+E21, E22, E23 and the T4 proposal each closed with the same sentence: **`engine.c` has no
+factored matvec.** Both E21 and E22 measured the rank cut by computing `A·B` and installing a
+DENSE matrix — the right way to price its **quality**, and no way at all to price its **cost**.
+Everything the rank axis contributes to tok/s — §31's budget line, E23 §7's `k = 139…156`, the
+reason `q/o` at rank 512 is in the plan — rested on `2·D·r < D²`, which nothing had executed.
+**It has now been executed and measured.**
+
+`donor_engine.c` gains a factored `mat_t` kind (`y = A·(s ⊙ (B·x)) + b`, two calls to the same
+kernels, intermediate of size `r` in its own buffer) and `quant == 3`, a **tagged container**
+where every matrix carries its own `int32` kind. The container is what makes the measured
+configurations expressible at all: E21/E22/E23 all left `k/v` **fp32** while cutting `q/o`, and a
+single global `quant` flag cannot say that. **Until `quant == 3` existed, every rank result in
+this ledger was a PyTorch number with no runnable artifact behind it.**
+
+### 37.2 Correctness first — `G-E25P` fires
+
+Worst relative l2 **`6.445e-04`** against a `2e-3` bar, top-1 agreement **`1.0000`** on 10/10
+positions, on Qwen2.5-1.5B with `h0_factors.npz` installed on `q/o` — E22's `QO512-TB`, the
+state H0 starts from — against a PyTorch reference running `h0_qat.TernaryLowRank`, the same
+module the T4 trains. `G-E25a` separately holds the legacy paths still: patched and unpatched
+engines produce **bit-identical** logits on `qwen25-15b_tq.bin`, sha256
+`e09b30c847f3956142fb3bc670214cb13aba327f`.
+
+### 37.3 The measurement, and the planted control that makes it readable
+
+Idle box, `--threads 6`, 3 repetitions interleaved by rep, dispersion with every rate, `--fuse`
+off everywhere. Synthetic shapes (`synth_export.py`): weights are noise, which E3 §4's Gate V1
+established is legitimate for timing and illegitimate for anything else.
+
+| arm | active/token | tok/s | spread | vs `R0` | byte prediction |
+|---|---|---|---|---|---|
+| `S15-PACKED` (untagged) | 1.5436 G | 29.70 | 2.1% | +0.67% | 0 |
+| `S15-TAG-R0` | 1.5436 G | 29.50 | 1.3% | — | 0 |
+| **`S15-R768`** byte-neutral | 1.5436 G | 28.78 | 6.4% | −2.46% | 0 |
+| `S15-R512` | 1.4995 G | 30.40 | 3.2% | +3.03% | +2.94% |
+| `S15-R256` | 1.4555 G | 30.51 | 3.3% | +3.42% | +6.05% |
+| `T10-TAG-R0` | 10.6032 G | **4.70** | 6.6% | — | 0 |
+| **`T10-R2048`** byte-neutral | 10.6032 G | 4.68 | 7.3% | −0.43% | 0 |
+| `T10-R512` | 9.3952 G | **5.36** | 3.7% | **+14.12%** | +12.86% |
+| `T10-R256` | 9.1939 G | 5.43 | 6.8% | +15.68% | +15.33% |
+
+**The planted control.** At `r = D/2` a square projection is byte-neutral **to the last weight**
+(`2·D·(D/2) = D²`), so whatever the `R768`/`R2048` arms lose IS the factored path's own cost —
+the second call, the extra OpenMP region, the intermediate. They read `−2.46%` and `−0.43%` at
+spreads of 6.4% and 7.3%: **neither resolvable from zero.** The extra 56 / 96 regions per token
+cost less than this box can measure. *(Disclosure: `S15-R768`'s `−2.46%` is carried by one rep —
+27.55, then 29.39, 29.39; reps 2–3 alone give `−0.74%`. The outlier is kept.)*
+
+**The container is free**: `+0.67%` at spreads of 1.3–2.1%, so no tagged number carries an
+offset.
+
+### 37.4 The invariant — charged throughput does not care how the weights are arranged
+
+| shape | `G active weights/s` across arms | band | charged GB/s |
+|---|---|---|---|
+| `S15` | 44.41 … 45.84 (mean 45.16) | **3.17%** | 22.58 |
+| `T10` | 49.59 … 50.36 (mean **49.92**) | **1.54%** | 24.96 |
+
+**Four `T10` arms whose rates differ by 15% deliver charged throughput inside 1.54%.** The rank
+axis buys speed through exactly one mechanism — fewer weights — and dense-vs-factored,
+one-call-vs-two changes nothing else. **This is the statement worth keeping**, because it
+predicts arms that were never run, and it is why `2·D·r` is the right charge.
+
+`GB/s` here is **charged** bytes at the packed format's exactly 0.500000 B/weight, never moved
+bytes; the two conventions must not meet in a fraction (§19.3's law).
+
+### 37.5 §31's budget line, checked at the goal's shape for the first time
+
+§31 derived that 50 tok/s needs **`0.982–1.060 G` active ternary weights/token**. At `T10`'s
+measured **`49.80 G weights/s`** that band maps to **47.0 – 50.7 tok/s**. The budget was built
+from smaller shapes; **it brackets 50 at the goal's dimensions, measured.**
+
+### 37.6 The distance to the goal, measured instead of derived
+
+**`T10` — 10.60 G active weights, the goal's "es 10B" dimensions — runs at 4.70 tok/s on this
+box. The target is 50. That is 10.6× away, and rank-512 `q/o` closes it to 9.3×.**
+
+Rank on `q/o` is worth **1.2 G** of the 9.6 G that must come out. **The FFN is 8.45 G of `T10`
+and that is nine tenths of the remaining problem** — which is precisely where E19's carve and
+E23/E24's router are aimed, and **E24 is still unrun**.
+
+Two things keep this number from being worse than it looks and one keeps it from being better:
+`T10` carries **Mistral's 32,768 vocabulary**, so its head is 134 M — a Qwen-vocabulary 10 B
+carries 622 M and would be slower (INDEX's head table); the weights are noise, so **`T10` is a
+shape and not a model**; and `T10-R512` is `r/D = 1/8`, where E21 validated only `r/D = 1/3` at
+`D = 1536`, so **nothing here says a model survives that rank**.
+
+**`6.79 tok/s` is untouched** — that is the real 7.072 B packed donor, a different artifact and
+a real one.

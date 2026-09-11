@@ -266,3 +266,33 @@ factored matvec in the engine and no kind for one in `QWENDON1`, so **no tok/s n
   in this programme has ever reached it.
 - **A FAIL closes the donor route end to end**, and §5's second withdrawal condition then
   applies in full.
+
+---
+
+## 8. §6's blocker is gone — and the distance is now measured, not derived
+
+**2026-09-11, after E25** (`probes/E25_WHAT_THE_RANK_COSTS.md`).
+
+§6 listed, as the item that keeps every rank result off the speed ledger, that `engine.c` has no
+factored matvec and `QWENDON1` no kind for one. **Both exist**: a factored `mat_t` kind running
+`y = A·(s ⊙ (B·x)) + b` as two calls to the same kernels, and `quant == 3`, a tagged container
+in which every matrix carries its own kind — which is what finally makes *this proposal's own
+object* expressible in a file, since it leaves `k/v` fp32 while cutting `q/o`. The exported
+`QO512-TB` artifact passes end-to-end parity against `h0_qat.TernaryLowRank` at
+`6.445e-04` / top-1 `1.0000`.
+
+**This changes nothing about H0's gate**, which is `tf ≥ 48` measured on CPU in fp32, and nothing
+about the T4 request, which is unchanged and still waiting. What it changes is the honesty of the
+surrounding arithmetic:
+
+- The rank charge `2·D·r` that §3's budget table and E23 §7's `k = 139…156` both rest on is
+  **measured correct**: at the goal's shape the factored form returns `+14.12%` against a
+  `+12.86%` byte prediction, and the byte-neutral planted control shows the extra call costs
+  less than this box can resolve.
+- **The distance to the goal is now a measurement.** A 10.60 G-active shape with the goal's
+  dimensions runs at **4.70 tok/s** on this box — 10.6× short of 50, 9.3× with rank-512 `q/o`.
+  E18 §31's budget band maps to 47.0–50.7 tok/s at that measured throughput, so the budget line
+  holds at the shape it was written for.
+- **Nine tenths of the remaining gap is the FFN** (8.45 G of `T10`). That is E19's carve and
+  E23/E24's router, and **E24 is still unrun** — which is where the next CPU work belongs, not
+  on the GPU.

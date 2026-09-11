@@ -1,0 +1,152 @@
+{
+ "brief": "BRIEF_E25_WHAT_THE_RANK_COSTS_IN_THE_ENGINE.md",
+ "reps": 3,
+ "threads": 6,
+ "smoke": false,
+ "arms": {
+  "S15-PACKED": {
+   "shape": "S15",
+   "rank": 0,
+   "tagged": false,
+   "active_weights_per_token": 1543569408,
+   "rates": [
+    29.59,
+    29.44,
+    30.07
+   ],
+   "mean_tok_s": 29.7,
+   "spread": 0.02121212121212118,
+   "ratio_vs_R0": 1.0066659134561067,
+   "byte_ratio_prediction": 1.0
+  },
+  "S15-TAG-R0": {
+   "shape": "S15",
+   "rank": 0,
+   "tagged": true,
+   "active_weights_per_token": 1543569408,
+   "rates": [
+    29.29,
+    29.55,
+    29.67
+   ],
+   "mean_tok_s": 29.503333333333334,
+   "spread": 0.012879900576206164,
+   "ratio_vs_R0": 1.0,
+   "byte_ratio_prediction": 1.0
+  },
+  "S15-R768": {
+   "shape": "S15",
+   "rank": 768,
+   "tagged": true,
+   "active_weights_per_token": 1543569408,
+   "rates": [
+    27.55,
+    29.39,
+    29.39
+   ],
+   "mean_tok_s": 28.776666666666667,
+   "spread": 0.06394069269083748,
+   "ratio_vs_R0": 0.9753700146876059,
+   "byte_ratio_prediction": 1.0
+  },
+  "S15-R512": {
+   "shape": "S15",
+   "rank": 512,
+   "tagged": true,
+   "active_weights_per_token": 1499529216,
+   "rates": [
+    30.67,
+    30.75,
+    29.77
+   ],
+   "mean_tok_s": 30.396666666666665,
+   "spread": 0.03224037723434589,
+   "ratio_vs_R0": 1.0302790645124844,
+   "byte_ratio_prediction": 1.0293693457453783,
+   "ratio_net_of_overhead": 1.056295609869107
+  },
+  "S15-R256": {
+   "shape": "S15",
+   "rank": 256,
+   "tagged": true,
+   "active_weights_per_token": 1455489024,
+   "rates": [
+    30.8,
+    30.87,
+    29.87
+   ],
+   "mean_tok_s": 30.513333333333335,
+   "spread": 0.03277255844439589,
+   "ratio_vs_R0": 1.0342334199525478,
+   "byte_ratio_prediction": 1.0605160070241795,
+   "ratio_net_of_overhead": 1.0603498204563884
+  },
+  "T10-TAG-R0": {
+   "shape": "T10",
+   "rank": 0,
+   "tagged": true,
+   "active_weights_per_token": 10603200512,
+   "rates": [
+    4.76,
+    4.51,
+    4.82
+   ],
+   "mean_tok_s": 4.696666666666666,
+   "spread": 0.0660042583392478,
+   "ratio_vs_R0": 1.0,
+   "byte_ratio_prediction": 1.0
+  },
+  "T10-R2048": {
+   "shape": "T10",
+   "rank": 2048,
+   "tagged": true,
+   "active_weights_per_token": 10603200512,
+   "rates": [
+    4.8,
+    4.46,
+    4.77
+   ],
+   "mean_tok_s": 4.676666666666667,
+   "spread": 0.0727013542409123,
+   "ratio_vs_R0": 0.9957416607523067,
+   "byte_ratio_prediction": 1.0
+  },
+  "T10-R512": {
+   "shape": "T10",
+   "rank": 512,
+   "tagged": true,
+   "active_weights_per_token": 9395240960,
+   "rates": [
+    5.27,
+    5.47,
+    5.34
+   ],
+   "mean_tok_s": 5.359999999999999,
+   "spread": 0.037313432835820934,
+   "ratio_vs_R0": 1.141234918381831,
+   "byte_ratio_prediction": 1.1285714285714286,
+   "ratio_net_of_overhead": 1.1461154668567355
+  },
+  "T10-R256": {
+   "shape": "T10",
+   "rank": 256,
+   "tagged": true,
+   "active_weights_per_token": 9193914368,
+   "rates": [
+    5.24,
+    5.45,
+    5.61
+   ],
+   "mean_tok_s": 5.433333333333334,
+   "spread": 0.06809815950920248,
+   "ratio_vs_R0": 1.156848828956707,
+   "byte_ratio_prediction": 1.1532846715328466,
+   "ratio_net_of_overhead": 1.1617961511047754
+  }
+ },
+ "overhead": {
+  "S15": 0.9753700146876059,
+  "T10": 0.9957416607523067
+ },
+ "seconds": 1335.6962099075317
+}

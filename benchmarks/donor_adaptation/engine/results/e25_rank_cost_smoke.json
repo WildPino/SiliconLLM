@@ -1,0 +1,52 @@
+{
+ "brief": "BRIEF_E25_WHAT_THE_RANK_COSTS_IN_THE_ENGINE.md",
+ "reps": 1,
+ "threads": 6,
+ "smoke": true,
+ "arms": {
+  "S05-TAG-R0": {
+   "shape": "S05",
+   "rank": 0,
+   "tagged": true,
+   "active_weights_per_token": 493961216,
+   "rates": [
+    78.48
+   ],
+   "mean_tok_s": 78.48,
+   "spread": 0.0,
+   "ratio_vs_R0": 1.0,
+   "byte_ratio_prediction": 1.0
+  },
+  "S05-R448": {
+   "shape": "S05",
+   "rank": 448,
+   "tagged": true,
+   "active_weights_per_token": 493961216,
+   "rates": [
+    78.69
+   ],
+   "mean_tok_s": 78.69,
+   "spread": 0.0,
+   "ratio_vs_R0": 1.0026758409785932,
+   "byte_ratio_prediction": 1.0
+  },
+  "S05-R256": {
+   "shape": "S05",
+   "rank": 256,
+   "tagged": true,
+   "active_weights_per_token": 477446144,
+   "rates": [
+    79.31
+   ],
+   "mean_tok_s": 79.31,
+   "spread": 0.0,
+   "ratio_vs_R0": 1.0105759429153924,
+   "byte_ratio_prediction": 1.0345904395868364,
+   "ratio_net_of_overhead": 1.0078790189350617
+  }
+ },
+ "overhead": {
+  "S05": 1.0026758409785932
+ },
+ "seconds": 138.62632513046265
+}

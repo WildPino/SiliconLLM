@@ -1,0 +1,451 @@
+{
+ "brief": "briefs/BRIEF_E19_DOES_THE_CARVE_RANK.md (3173edc)",
+ "instrument": "PyTorch fp32 eager; ORACLE top-k router = upper bound on any router",
+ "partitions": "D0c's own caches results/d0c_labels/labels_E*.npz -- not re-clustered",
+ "hook_provenance": "restated (d0c_granularity.py loads a model at import); gated BEHAVIOURALLY by G-C2 -- BPB reproduced to <1e-6 on 4 published arms",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "smoke": true,
+ "threads": 6,
+ "n_new": 8,
+ "n_prompts": 2,
+ "carve_layers": 1,
+ "bands": {
+  "floor_E18_partA": 12,
+  "margin_E17": 2,
+  "at_floor_max": 14,
+  "ranks_min": 80,
+  "ceiling": 16
+ },
+ "chance_bpb": 4.069819,
+ "d0c_published_bpb": {
+  "base": 0.7675949641196624,
+  "S1": 1.3838675903770394,
+  "A0": 1.8582178498441495,
+  "N0": 2.5787313453805165
+ },
+ "arms": {
+  "base": {
+   "arm": "base",
+   "E": null,
+   "k": null,
+   "kind": null,
+   "nominal_activation": null,
+   "achieved_activation": 1.0,
+   "bpb": 0.9601896565954627,
+   "vs_chance": -3.1096293434045372,
+   "matched": 16,
+   "counted": 16,
+   "agree": 1.0,
+   "first_div": null,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 8,
+     "of": 8,
+     "diverges_at": null
+    },
+    {
+     "prompt": 1,
+     "matched": 8,
+     "of": 8,
+     "diverges_at": null
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     9625,
+     374,
+     1083
+    ],
+    [
+     671,
+     308,
+     374,
+     279,
+     1372,
+     315,
+     3793,
+     198
+    ]
+   ],
+   "seconds": 25.843671560287476,
+   "text": [
+    " Paris. The capital of France is also",
+    " # n is the number of terms\n"
+   ],
+   "G_C0": "FIRES"
+  },
+  "FULL": {
+   "arm": "FULL",
+   "E": 256,
+   "k": 256,
+   "kind": "coact",
+   "nominal_activation": 1.0,
+   "achieved_activation": 1.0,
+   "bpb": 0.9601896565954627,
+   "vs_chance": -3.1096293434045372,
+   "matched": 16,
+   "counted": 16,
+   "agree": 1.0,
+   "first_div": null,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 8,
+     "of": 8,
+     "diverges_at": null
+    },
+    {
+     "prompt": 1,
+     "matched": 8,
+     "of": 8,
+     "diverges_at": null
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     9625,
+     374,
+     1083
+    ],
+    [
+     671,
+     308,
+     374,
+     279,
+     1372,
+     315,
+     3793,
+     198
+    ]
+   ],
+   "seconds": 25.675093173980713,
+   "text": [
+    " Paris. The capital of France is also",
+    " # n is the number of terms\n"
+   ],
+   "G_C4_activation_matches": true,
+   "G_C1_token_identical_to_base": true,
+   "G_C1": "FIRES"
+  },
+  "V52": {
+   "arm": "V52",
+   "E": 256,
+   "k": 133,
+   "kind": "coact",
+   "nominal_activation": 0.51953125,
+   "achieved_activation": 0.51953125,
+   "bpb": 0.9653580845010477,
+   "vs_chance": -3.104460915498952,
+   "matched": 7,
+   "counted": 16,
+   "agree": 0.4375,
+   "first_div": [
+    0,
+    5
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 5,
+     "of": 8,
+     "diverges_at": 5
+    },
+    {
+     "prompt": 1,
+     "matched": 2,
+     "of": 8,
+     "diverges_at": 2
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     279,
+     3639,
+     4180
+    ],
+    [
+     671,
+     308,
+     284,
+     220,
+     15,
+     11,
+     220,
+     16
+    ]
+   ],
+   "seconds": 25.05203866958618,
+   "text": [
+    " Paris. The capital of the United States",
+    " # n = 0, 1"
+   ],
+   "G_C4_activation_matches": true,
+   "G_C3": "NOT-APPLICABLE (smoke)"
+  },
+  "S1": {
+   "arm": "S1",
+   "E": 256,
+   "k": 64,
+   "kind": "coact",
+   "nominal_activation": 0.25,
+   "achieved_activation": 0.25,
+   "bpb": 0.9729531733954904,
+   "vs_chance": -3.0968658266045095,
+   "matched": 5,
+   "counted": 16,
+   "agree": 0.3125,
+   "first_div": [
+    0,
+    5
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 5,
+     "of": 8,
+     "diverges_at": 5
+    },
+    {
+     "prompt": 1,
+     "matched": 0,
+     "of": 8,
+     "diverges_at": 0
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     279,
+     3639,
+     15072
+    ],
+    [
+     715,
+     262,
+     421,
+     308,
+     621,
+     220,
+     15,
+     25
+    ]
+   ],
+   "seconds": 25.0559823513031,
+   "text": [
+    " Paris. The capital of the United Kingdom",
+    " \n    if n == 0:"
+   ],
+   "G_C4_activation_matches": true,
+   "G_C3": "NOT-APPLICABLE (smoke)"
+  },
+  "A0": {
+   "arm": "A0",
+   "E": 32,
+   "k": 8,
+   "kind": "coact",
+   "nominal_activation": 0.25,
+   "achieved_activation": 0.25,
+   "bpb": 1.0274020861384259,
+   "vs_chance": -3.042416913861574,
+   "matched": 1,
+   "counted": 16,
+   "agree": 0.0625,
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 0,
+     "of": 8,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 1,
+     "matched": 1,
+     "of": 8,
+     "diverges_at": 1
+    }
+   ],
+   "ids": [
+    [
+     7407,
+     304,
+     892,
+     315,
+     279,
+     2701,
+     13604,
+     5267
+    ],
+    [
+     671,
+     729,
+     7271,
+     198,
+     262,
+     421,
+     308,
+     621
+    ]
+   ],
+   "seconds": 25.146365642547607,
+   "text": [
+    " located in which of the following regions?\n",
+    " # function definition\n    if n =="
+   ],
+   "G_C4_activation_matches": true,
+   "G_C3": "NOT-APPLICABLE (smoke)"
+  },
+  "N0": {
+   "arm": "N0",
+   "E": 32,
+   "k": 8,
+   "kind": "null",
+   "nominal_activation": 0.25,
+   "achieved_activation": 0.25,
+   "bpb": 1.1033239047340808,
+   "vs_chance": -2.966495095265919,
+   "matched": 2,
+   "counted": 16,
+   "agree": 0.125,
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 0,
+     "of": 8,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 1,
+     "matched": 2,
+     "of": 8,
+     "diverges_at": 2
+    }
+   ],
+   "ids": [
+    [
+     1304,
+     12148,
+     32,
+     13,
+     12095,
+     198,
+     33,
+     13
+    ],
+    [
+     671,
+     308,
+     284,
+     220,
+     15,
+     11,
+     220,
+     16
+    ]
+   ],
+   "seconds": 26.92387890815735,
+   "text": [
+    " ____\nA. Paris\nB.",
+    " # n = 0, 1"
+   ],
+   "G_C4_activation_matches": true,
+   "G_C3": "NOT-APPLICABLE (smoke)"
+  },
+  "D10": {
+   "arm": "D10",
+   "E": 256,
+   "k": 26,
+   "kind": "coact",
+   "nominal_activation": 0.1015625,
+   "achieved_activation": 0.1015625,
+   "bpb": 1.001890558980197,
+   "vs_chance": -3.067928441019803,
+   "matched": 0,
+   "counted": 16,
+   "agree": 0.0,
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 0,
+     "of": 8,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 1,
+     "matched": 0,
+     "of": 8,
+     "diverges_at": 0
+    }
+   ],
+   "ids": [
+    [
+     7407,
+     304,
+     279,
+     7436,
+     198,
+     32,
+     13,
+     17968
+    ],
+    [
+     715,
+     262,
+     421,
+     308,
+     2651,
+     220,
+     16,
+     25
+    ]
+   ],
+   "seconds": 26.355268001556396,
+   "text": [
+    " located in the ___\nA. Rh",
+    " \n    if n <= 1:"
+   ],
+   "G_C4_activation_matches": true,
+   "G_C3": "NOT-APPLICABLE (smoke)"
+  }
+ },
+ "VOID": [],
+ "G_C3": {
+  "V52": "NOT-APPLICABLE (smoke)",
+  "S1": "NOT-APPLICABLE (smoke)",
+  "A0": "NOT-APPLICABLE (smoke)",
+  "N0": "NOT-APPLICABLE (smoke)",
+  "D10": "NOT-APPLICABLE (smoke)"
+ },
+ "seconds_total": 204.3892834186554
+}

@@ -46,9 +46,25 @@ is that H0's trained scale is fp32 while the factors are not.
 `G-E25P` is the one that matters. Phase 60's law — *kernel-bit-exact does not compose to
 system-correctness* — means a new kernel is gated end to end or not at all.
 
-## 3. Result of part A
+## 3. Result of part A — all four gates fire
 
-*(filled in from the runs; §§4–8 were written before any timing existed)*
+| gate | result |
+|---|---|
+| `G-E25a` | sha256 `e09b30c847f3956142fb3bc670214cb13aba327f` on **both** engines. Bit-identical. |
+| `G-E25b` | `GATE V3` on 9 synthetic arms, `GATE E25-L` on the real export (`5,690,990,052` bytes). |
+| `G-E25c` | `layout OK: consumed exactly 5690990052 bytes`. |
+| **`G-E25P`** | worst relative l2 **`6.445e-04`** (bar `2e-3`), top-1 **`1.0000`** on 10/10. **FIRES.** |
+
+The artifact is Qwen2.5-1.5B at the pinned revision, fp32 everywhere except `q_proj`/`o_proj`
+on all 28 layers, which carry `h0_factors.npz` — **E22's `QO512-TB`**, the state H0 starts from.
+The reference installs `h0_qat.TernaryLowRank`, the same module the T4 trains.
+
+**One bug, caught by the readers and not by reasoning**: the first tagged writer emitted `A` and
+`B` without their own kind tags, and the engine died reading a weight *code* as a *kind*.
+`GATE E25-L` now catches that class in the writer.
+
+Results: `probes/E25_WHAT_THE_RANK_COSTS.md`. Verdict **`RANK-PAYS-WHAT-IT-WEIGHS`**; the
+registered alternative in §7 did **not** fire.
 
 ## 4. Part B — the arms
 

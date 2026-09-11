@@ -1,0 +1,746 @@
+{
+ "brief": "briefs/BRIEF_E21_CAN_RANK_BUY_IT.md (24b8832)",
+ "question": "can RANK buy what precision and sparsity could not? nothing exported, no timing taken, 6.79 tok/s untouched",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "smoke": true,
+ "threads": 6,
+ "n_new": 8,
+ "n_prompts": 2,
+ "eval_slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+ },
+ "calib_slice": {
+  "part": "calib",
+  "n_seq": 32,
+  "seq_len": 512,
+  "seed": 42424,
+  "n_rejected": 0,
+  "total_scored_bytes": 67648,
+  "bytes_per_token": 4.136986301369863,
+  "ids_sha256": "c5509846cdc3aa44e45e77895b59a4638c49eb03790030d851e7bf1357ca4c0c",
+  "offsets_sha256": "c9bdfc96dd5addb8e02a48d553dfb11784734baa26f44aad53658ff8cd2a8cf0",
+  "corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0"
+ },
+ "calib_tokens": 1024,
+ "damping_frac": 0.01,
+ "bands": {
+  "free": {
+   "floor": 12,
+   "at_floor_max": 14,
+   "ranks_min": 80,
+   "ceiling": 16
+  },
+  "teacher_forced_from_E20": [
+   107,
+   119
+  ]
+ },
+ "chance_bpb": 4.069819,
+ "arms": {
+  "base": {
+   "arm": "base",
+   "organs": null,
+   "rank": null,
+   "weighted": null,
+   "bpb": 0.9601896565954627,
+   "vs_chance": -3.1096293434045372,
+   "matched": 16,
+   "counted": 16,
+   "first_div": null,
+   "teacher_forced": 16,
+   "mean_rank_of_donor_token": 1.0,
+   "rank_le_5": 16,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 8,
+     "diverges_at": null,
+     "tf": 8
+    },
+    {
+     "prompt": 1,
+     "free": 8,
+     "diverges_at": null,
+     "tf": 8
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     9625,
+     374,
+     1083
+    ],
+    [
+     671,
+     308,
+     374,
+     279,
+     1372,
+     315,
+     3793,
+     198
+    ]
+   ],
+   "seconds": 0.0,
+   "text": [
+    " Paris. The capital of France is also",
+    " # n is the number of terms\n"
+   ],
+   "n": 0,
+   "rel_weight_error": 0.0,
+   "energy_kept_weighted": null,
+   "saving_vs_dense": 0.0,
+   "G_R0": "FIRES"
+  },
+  "FULL": {
+   "arm": "FULL",
+   "organs": "head",
+   "rank": null,
+   "weighted": false,
+   "bpb": 0.9601896565954627,
+   "vs_chance": -3.1096293434045372,
+   "matched": 16,
+   "counted": 16,
+   "first_div": null,
+   "teacher_forced": 16,
+   "mean_rank_of_donor_token": 1.0,
+   "rank_le_5": 16,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 8,
+     "diverges_at": null,
+     "tf": 8
+    },
+    {
+     "prompt": 1,
+     "free": 8,
+     "diverges_at": null,
+     "tf": 8
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     9625,
+     374,
+     1083
+    ],
+    [
+     671,
+     308,
+     374,
+     279,
+     1372,
+     315,
+     3793,
+     198
+    ]
+   ],
+   "seconds": 10.314580202102661,
+   "text": [
+    " Paris. The capital of France is also",
+    " # n is the number of terms\n"
+   ],
+   "n": 1,
+   "params_dense": 233373696,
+   "params_factored": 235732992,
+   "damping": 0.0,
+   "H_cond_damped": 1.0,
+   "rel_weight_error": 7.657969455025088e-18,
+   "energy_kept_weighted": 1.0,
+   "saving_vs_dense": -0.010109519797809607,
+   "G_R1_token_identical": true,
+   "G_R1_bpb_diff": 0.0,
+   "G_R1": "FIRES"
+  },
+  "H-SVD-256": {
+   "arm": "H-SVD-256",
+   "organs": "head",
+   "rank": 256,
+   "weighted": false,
+   "bpb": 4.295681829478474,
+   "vs_chance": 0.22586282947847458,
+   "matched": 0,
+   "counted": 16,
+   "first_div": [
+    0,
+    0
+   ],
+   "teacher_forced": 0,
+   "mean_rank_of_donor_token": 61667.875,
+   "rank_le_5": 1,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "ids": [
+    [
+     19490,
+     19490,
+     19490,
+     19490,
+     19490,
+     19490,
+     19490,
+     19490
+    ],
+    [
+     59479,
+     37265,
+     319,
+     25974,
+     25974,
+     25974,
+     25974,
+     25974
+    ]
+   ],
+   "seconds": 9.577051639556885,
+   "text": [
+    " Beautiful Beautiful Beautiful Beautiful Beautiful Beautiful Beautiful Beautiful",
+    "**\r\n\u3002\r\n\r\n*\r\n*\r\n*\r\n*\r\n*\r\n"
+   ],
+   "n": 1,
+   "params_dense": 233373696,
+   "params_factored": 39288832,
+   "damping": 0.0,
+   "H_cond_damped": 1.0,
+   "rel_weight_error": 0.798148512840271,
+   "energy_kept_weighted": 0.36375245567032327,
+   "saving_vs_dense": 0.8316484133670318,
+   "G_R3_free": "n/a (smoke)",
+   "G_R4_tf": "n/a (smoke)"
+  },
+  "H-SVD-512": {
+   "arm": "H-SVD-512",
+   "organs": "head",
+   "rank": 512,
+   "weighted": false,
+   "bpb": 4.074932031866189,
+   "vs_chance": 0.005113031866189388,
+   "matched": 0,
+   "counted": 16,
+   "first_div": [
+    0,
+    0
+   ],
+   "teacher_forced": 0,
+   "mean_rank_of_donor_token": 51988.25,
+   "rank_le_5": 2,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "ids": [
+    [
+     19490,
+     62541,
+     62541,
+     62541,
+     62541,
+     62541,
+     62541,
+     62541
+    ],
+    [
+     2529,
+     2529,
+     10852,
+     723,
+     95255,
+     10852,
+     723,
+     95255
+    ]
+   ],
+   "seconds": 9.121270656585693,
+   "text": [
+    " Beautiful Landscape Landscape Landscape Landscape Landscape Landscape Landscape",
+    " \r\n \r\nfpft[]\r\nfpft[]\r\n"
+   ],
+   "n": 1,
+   "params_dense": 233373696,
+   "params_factored": 78577664,
+   "damping": 0.0,
+   "H_cond_damped": 1.0,
+   "rel_weight_error": 0.6860072016716003,
+   "energy_kept_weighted": 0.5319154700000818,
+   "saving_vs_dense": 0.6632968267340635,
+   "G_R3_free": "n/a (smoke)",
+   "G_R4_tf": "n/a (smoke)"
+  },
+  "H-ACT-256": {
+   "arm": "H-ACT-256",
+   "organs": "head",
+   "rank": 256,
+   "weighted": true,
+   "bpb": 1.7031167908873603,
+   "vs_chance": -2.3667022091126393,
+   "matched": 0,
+   "counted": 16,
+   "first_div": [
+    0,
+    0
+   ],
+   "teacher_forced": 6,
+   "mean_rank_of_donor_token": 121.0,
+   "rank_le_5": 8,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 3
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 3
+    }
+   ],
+   "ids": [
+    [
+     264,
+     1602,
+     2244,
+     3283,
+     11,
+     323,
+     279,
+     3283
+    ],
+    [
+     220,
+     366,
+     220,
+     366,
+     220,
+     366,
+     220,
+     366
+    ]
+   ],
+   "seconds": 9.474702835083008,
+   "text": [
+    " a very great city, and the city",
+    "  <  <  <  <"
+   ],
+   "n": 1,
+   "params_dense": 233373696,
+   "params_factored": 39288832,
+   "damping": 180.75721504394275,
+   "H_cond_damped": 69891.11487112344,
+   "rel_weight_error": 0.8456904292106628,
+   "energy_kept_weighted": 0.9333704651651252,
+   "saving_vs_dense": 0.8316484133670318,
+   "G_R3_free": "n/a (smoke)",
+   "G_R4_tf": "n/a (smoke)"
+  },
+  "H-ACT-512": {
+   "arm": "H-ACT-512",
+   "organs": "head",
+   "rank": 512,
+   "weighted": true,
+   "bpb": 1.4147598106365544,
+   "vs_chance": -2.6550591893634454,
+   "matched": 0,
+   "counted": 16,
+   "first_div": [
+    0,
+    0
+   ],
+   "teacher_forced": 7,
+   "mean_rank_of_donor_token": 13.5,
+   "rank_le_5": 8,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 3
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 4
+    }
+   ],
+   "ids": [
+    [
+     264,
+     1602,
+     11245,
+     323,
+     5411,
+     1992,
+     13,
+     1084
+    ],
+    [
+     220,
+     671,
+     220,
+     45181,
+     16,
+     12,
+     16,
+     15
+    ]
+   ],
+   "seconds": 9.2469642162323,
+   "text": [
+    " a very famous and popular place. It",
+    "  # \u4ece1-10"
+   ],
+   "n": 1,
+   "params_dense": 233373696,
+   "params_factored": 78577664,
+   "damping": 180.75721504394275,
+   "H_cond_damped": 69891.11487112344,
+   "rel_weight_error": 0.7465651631355286,
+   "energy_kept_weighted": 0.9801707853028849,
+   "saving_vs_dense": 0.6632968267340635,
+   "G_R3_free": "n/a (smoke)",
+   "G_R4_tf": "n/a (smoke)"
+  },
+  "QO-SVD-256": {
+   "arm": "QO-SVD-256",
+   "organs": "qo",
+   "rank": 256,
+   "weighted": false,
+   "bpb": 3.749297838346159,
+   "vs_chance": -0.3205211616538408,
+   "matched": 0,
+   "counted": 16,
+   "first_div": [
+    0,
+    0
+   ],
+   "teacher_forced": 0,
+   "mean_rank_of_donor_token": 4322.6875,
+   "rank_le_5": 0,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "ids": [
+    [
+     594,
+     594,
+     4891,
+     34,
+     18,
+     220,
+     5755,
+     16
+    ],
+    [
+     25,
+     151643,
+     151643,
+     29,
+     13507,
+     220,
+     220,
+     220
+    ]
+   ],
+   "seconds": 4.4743123054504395,
+   "text": [
+    "'s's \ufffdC3  Page1",
+    ":<|endoftext|><|endoftext|>>}>   "
+   ],
+   "n": 8,
+   "params_dense": 18874368,
+   "params_factored": 6291456,
+   "damping": 0.0,
+   "H_cond_damped": 1.0,
+   "rel_weight_error": 0.6077993176877499,
+   "energy_kept_weighted": 0.6242041028692106,
+   "saving_vs_dense": 0.6666666666666667,
+   "G_R3_free": "n/a (smoke)",
+   "G_R4_tf": "n/a (smoke)"
+  },
+  "QO-ACT-256": {
+   "arm": "QO-ACT-256",
+   "organs": "qo",
+   "rank": 256,
+   "weighted": true,
+   "bpb": 1.8602859686966637,
+   "vs_chance": -2.2095330313033363,
+   "matched": 4,
+   "counted": 16,
+   "first_div": [
+    0,
+    1
+   ],
+   "teacher_forced": 5,
+   "mean_rank_of_donor_token": 69.0,
+   "rank_le_5": 10,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 4,
+     "diverges_at": 1,
+     "tf": 5
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     11,
+     279,
+     6722,
+     315,
+     9448,
+     374,
+     7148
+    ],
+    [
+     1648,
+     1648,
+     1648,
+     1648,
+     1648,
+     1648,
+     1648,
+     1648
+    ]
+   ],
+   "seconds": 7.658337354660034,
+   "text": [
+    " Paris, the capital of England is London",
+    "):):):):):):):):"
+   ],
+   "n": 8,
+   "params_dense": 18874368,
+   "params_factored": 6291456,
+   "damping": 3.1978704214220244,
+   "H_cond_damped": 53190.3067243839,
+   "rel_weight_error": 0.7127624973654747,
+   "energy_kept_weighted": 0.9773705731205333,
+   "saving_vs_dense": 0.6666666666666667,
+   "G_R3_free": "n/a (smoke)",
+   "G_R4_tf": "n/a (smoke)"
+  },
+  "QO-ACT-512": {
+   "arm": "QO-ACT-512",
+   "organs": "qo",
+   "rank": 512,
+   "weighted": true,
+   "bpb": 1.2990060338933618,
+   "vs_chance": -2.770812966106638,
+   "matched": 7,
+   "counted": 16,
+   "first_div": [
+    0,
+    7
+   ],
+   "teacher_forced": 11,
+   "mean_rank_of_donor_token": 1.3125,
+   "rank_le_5": 16,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 7,
+     "diverges_at": 7,
+     "tf": 7
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 4
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     9625,
+     374,
+     12095
+    ],
+    [
+     715,
+     262,
+     421,
+     308,
+     621,
+     220,
+     15,
+     25
+    ]
+   ],
+   "seconds": 7.817698240280151,
+   "text": [
+    " Paris. The capital of France is Paris",
+    " \n    if n == 0:"
+   ],
+   "n": 8,
+   "params_dense": 18874368,
+   "params_factored": 12582912,
+   "damping": 3.1978704214220244,
+   "H_cond_damped": 53190.3067243839,
+   "rel_weight_error": 0.5135531984269619,
+   "energy_kept_weighted": 0.9959344494902171,
+   "saving_vs_dense": 0.33333333333333337,
+   "G_R3_free": "n/a (smoke)",
+   "G_R4_tf": "n/a (smoke)"
+  },
+  "BOTH-ACT-256": {
+   "arm": "BOTH-ACT-256",
+   "organs": "both",
+   "rank": 256,
+   "weighted": true,
+   "bpb": 2.113599888655442,
+   "vs_chance": -1.956219111344558,
+   "matched": 0,
+   "counted": 16,
+   "first_div": [
+    0,
+    0
+   ],
+   "teacher_forced": 4,
+   "mean_rank_of_donor_token": 177.0625,
+   "rank_le_5": 7,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 3
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 1
+    }
+   ],
+   "ids": [
+    [
+     264,
+     1602,
+     2244,
+     3283,
+     11,
+     323,
+     279,
+     3283
+    ],
+    [
+     220,
+     220,
+     220,
+     220,
+     220,
+     220,
+     220,
+     220
+    ]
+   ],
+   "seconds": 17.70647358894348,
+   "text": [
+    " a very great city, and the city",
+    "        "
+   ],
+   "n": 9,
+   "params_dense": 252248064,
+   "params_factored": 45580288,
+   "damping": 180.75721504394275,
+   "H_cond_damped": 69891.11487112344,
+   "rel_weight_error": 0.7275322675704956,
+   "energy_kept_weighted": 0.9724816722365992,
+   "saving_vs_dense": 0.8193037152507144,
+   "G_R3_free": "n/a (smoke)",
+   "G_R4_tf": "n/a (smoke)"
+  }
+ },
+ "VOID": [],
+ "G_R2": {
+  "pairs": {
+   "head r=256": {
+    "svd": 4.295681829478474,
+    "act": 1.7031167908873603,
+    "act_minus_svd": -2.592565038591114,
+    "act_wins": true
+   },
+   "head r=512": {
+    "svd": 4.074932031866189,
+    "act": 1.4147598106365544,
+    "act_minus_svd": -2.660172221229635,
+    "act_wins": true
+   },
+   "q/o r=256": {
+    "svd": 3.749297838346159,
+    "act": 1.8602859686966637,
+    "act_minus_svd": -1.8890118696494953,
+    "act_wins": true
+   }
+  },
+  "holds": true,
+  "note": "sanity, not a verdict: a construction that cannot win on the objective it optimises has not been demonstrated to work"
+ },
+ "seconds_total": 392.447340965271
+}
