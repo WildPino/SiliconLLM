@@ -42,19 +42,40 @@ matrix.
 abstract. It is one specific thing: **learn the format instead of applying it**, starting from a
 structure that already gets 79% of tokens right per step at fp32.
 
-## 2. What must happen first — and it is CPU, free, and mine
+## 2. The precondition is DISCHARGED, and it moved the target
 
-**Every carve number in this programme — D0, D0c, E19, E22 — uses an ORACLE router.** It reads
-the true squared activation mass and then keeps the top `k` experts. No real router has ever been
-built here. D0c §132–135 says so in its own text: *"the oracle router flatters the carve"*.
+**E23 has run.** `probes/E23_A_REAL_ROUTER.md` (`e23_router.json`, 7 arms, `VOID: none`). It
+replaced the oracle with a per-layer ridge regression from the block input to `sqrt(group mass)`
+— closed form, no gradients, no tuning, `11.0 M` charged to the budget — and the answer is split:
 
-So `V52`'s `+0.141846` and `QO512+V52`'s `126/160` are **ceilings**. Spending T4 weeks healing a
-configuration whose FFN routing is a ceiling would be healing something that cannot be built.
+| configuration | oracle tf | **real-router tf** | retention | band |
+|---|---|---|---|---|
+| `V52` (carve only) | 117 | **110** | 0.9067 | **`ROUTER-HOLDS`** |
+| `QO512+V52` (§1's target) | 126 | **102** | 0.7143 | **`ROUTER-COSTS`** |
 
-**`E23` measures a real router on CPU, and it is pre-registered at
-`briefs/BRIEF_E23_A_REAL_ROUTER.md`.** It is cheap, it is mine to run, and it decides whether the
-healing target is `QO512+V52` as written or a shallower carve. **I will not ask you to launch
-anything until E23 reports.**
+**The carve is not an oracle artefact** — that half of E23's registered alternative fired. **But
+§1's composed target is, partly**: the composition *gains* 9 teacher-forced tokens under the
+oracle and *loses* 8 under a real router, because the oracle scores from true post-gate
+activations while a real router reads the block input that the rank cut has already perturbed.
+
+**So §1's `QO512+V52` at `k = 133` is NOT the H1/H2 target any more.** §5's withdrawal trigger
+was *"the real router costs most of the carve"*; retention `0.71` is not "most", so the request
+stands — but the brief's own band for `ROUTER-COSTS` says the target must be **re-derived at a
+different depth**, and E23 §7 did that arithmetic:
+
+> With the router charged, fixed cost is `354.5 M` (`q/o` at r=512 `88.1` + `k/v` `22.0` + head
+> `233.4` + router `11.0`), so the FFN allowance is `627.5–705.5 M` = **54.28%–61.03% activation
+> = `k = 139 … 156` of 256**. **`k = 133` gives `0.9551 G`, 2.8% UNDER the budget floor.**
+
+`k = 133` was inherited from E19, fixed before any router cost anything. **The shallower carve is
+not a retreat — it is the depth the budget always permitted, and it is free quality.** Whether it
+recovers the 5 teacher-forced tokens needed to clear `107` is **not predicted**; that is **E24**,
+CPU, mine, and it gates H1 and H2 — **not H0.**
+
+**H0 IS UNAFFECTED AND CAN START NOW.** H0 trains the ternary low-rank attention factors with
+**no FFN carve and no router at all** — a choice made when H0 was designed, specifically so that
+E23 could not invalidate it. Its start state (`QO512-TB`, tf `28/160`), its fp32 ceiling
+(`QO512`, tf `144/160`) and its gate (`≥ 48`) contain nothing E23 measured.
 
 ## 3. The staged plan, costed
 
@@ -64,7 +85,7 @@ student and its optimizer.
 
 | stage | question | budget | gate to continue |
 |---|---|---|---|
-| **H0 — MVE** | does straight-through training move the ternary factored form *at all*? | **≤ 3 GPU-h** | `STACK`'s teacher-forced rises from `4/160` by **≥ 20 tokens**. Below that, stop. |
+| **H0 — MVE** | does straight-through training move the ternary factored form *at all*? | **≤ 3 GPU-h** | **`QO512-TB`'s teacher-forced rises from `28/160` to `≥ 48`** — the same `+20` delta, read on the ROUTER-FREE object. Below that, stop. |
 | **H1 — heal the format** | can QAT recover the fp32 configuration's per-step fidelity in ternary? | **≤ 25 GPU-h** | teacher-forced **≥ 107** (into E20's ternary band) at the `STACK` configuration |
 | **H2 — heal the drift** | can it generate? | **≤ 60 GPU-h** | free-running **≥ 80/160** (`RANKS`), the band E17 fixed and nothing has ever reached |
 
@@ -72,8 +93,12 @@ student and its optimizer.
 cheap, decisive part; H2 is the one that would actually matter and the one I would not start
 without H1 passing.
 
-**Why the gates are where they are.** `4 → 24` at H0 is a signal-detection bar, not a success
-bar — it only asks whether gradients move this object. `107` at H1 is E20's measured ternary
+**Why the gates are where they are.** `28 → 48` at H0 is a signal-detection bar, not a success
+bar — it only asks whether gradients move this object. **The gate was restated from the original
+`STACK` `4 → 24` when H0 was built**, for a reason that E23 then vindicated: `STACK` bundles the
+ternary factors with a ternary FFN, a ternary head AND an oracle-routed carve, so a movement in
+it could not be attributed, and the carve half was exactly what E23 went on to unsettle.
+`QO512-TB` isolates the one thing H0 trains. The delta is unchanged at `+20`. `107` at H1 is E20's measured ternary
 band, so passing it means *the trained ternary model is no worse per step than ternarizing a
 single organ post-hoc*, which is the whole claim. `80` at H2 is `RANKS`, the band that says a
 model reproduces its own donor's text — never reached by anything, by any route, in this
@@ -81,8 +106,8 @@ programme.
 
 ## 4. What I need from you, concretely
 
-1. **Nothing yet.** E23 runs on CPU first and I will report it.
-2. **Then: launch H0.** I will hand you a smoke-tested command and a `STOP` — the standing rule is
+1. ~~**Nothing yet.** E23 runs on CPU first and I will report it.~~ **DONE — E23 reported, §2.**
+2. **Launch H0.** I will hand you a smoke-tested command and a `STOP` — the standing rule is
    that you launch the long training runs, I do smoke + stop + ready command.
 3. **A decision after H0**, which is a 3 GPU-h question, not a week.
 

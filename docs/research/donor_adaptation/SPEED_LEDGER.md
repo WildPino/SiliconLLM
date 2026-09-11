@@ -2744,3 +2744,123 @@ Prediction 4 was registered as a conflict between two published laws; BPB orderi
 4. **A factored matvec in `engine.c`, a kind in `QWENDON1`** — unchanged from §34.6.
 5. **The head** — the only organ neither cut touches, `545 M` on a 7 B, unchanged from §34.3.
 6. Unchanged: the rank fraction at scale, `R5` in the exporter, the E14 and E19 items.
+
+---
+
+## 36. E23 — a real router: the carve survives contact, the COMPOSITION does not
+
+`probes/E23_A_REAL_ROUTER.md`, brief `25bde22` pushed before the runner existed, runner
+`7d33921`, results `engine/results/e23_router.json`. Seven arms, 2694 s, CPU only.
+**Nothing exported, no timing taken; `6.79 tok/s` remains exact.**
+
+### 36.1 What was replaced
+
+Every carve number in this programme — D0, D0c, E19, §35's `V52` — used an **oracle** router:
+it reads the true squared activation mass per expert group and keeps the top `k`. D0c §132–135
+says so in its own text. E23 substitutes a per-layer **ridge regression from the block input to
+`sqrt(group mass)`**, `λ = 0.01·mean(diag(XᵀX))`, closed form, no gradients, no tuning, fitted on
+the frozen calibration slice and read on held-out. Only the SCORE changed: the hook is
+`e19_carve_rank.install`'s, so every arm pays the identical top-`k` cost (`G-T4`, no failures).
+
+### 36.2 The table
+
+| arm | router | BPB | free | **tf** | mean rank | band-tf |
+|---|---|---|---|---|---|---|
+| `base` | — | 0.767595 | 160 | 160 | 1.00 | CHEAPER |
+| `V52-ORACLE` | true mass | 0.909441 | 12 | 117 | 2.49 | COMPARABLE |
+| `V52-STATIC` | top-`k` by mean calib mass | 1.191953 | 9 | **99** | 6.26 | WORSE |
+| `V52-RANDOM` | fixed random | 2.156555 | 4 | 42 | 232.56 | WORSE |
+| **`V52-LINEAR`** | ridge | 1.004558 | 7 | **110** | 4.17 | **COMPARABLE** |
+| `QO512+V52-ORACLE` | true mass | 1.005039 | 15 | 126 | 2.03 | CHEAPER |
+| **`QO512+V52-LINEAR`** | ridge | 1.201477 | 9 | **102** | 5.15 | **WORSE** |
+
+`G-T0`, `G-T1`, `G-T2`, `G-T4` all fire; `VOID: none`. Both oracles reproduce E22 exactly.
+
+### 36.3 The verdict is split, and the half that matters is the weaker one
+
+`retention = (tf(LINEAR) − tf(RANDOM)) / (tf(ORACLE) − tf(RANDOM))`
+
+| configuration | retention | BPB cost of a real router | band |
+|---|---|---|---|
+| `V52` alone | **0.9067** | `+0.095117` | **`ROUTER-HOLDS`** |
+| `QO512+V52` | **0.7143** | `+0.196438` | **`ROUTER-COSTS`** |
+
+The composed configuration is the one §35.8 item 1 proposed for GPU weeks. **It reads
+`ROUTER-COSTS` and its teacher-forced count falls below E20's `107` floor.**
+
+### 36.4 Composition reverses sign under a real router
+
+| | `V52` | `QO512+V52` | composition |
+|---|---|---|---|
+| oracle | 117 | 126 | **+9** |
+| ridge | 110 | 102 | **−8** |
+
+§35.5 read the composed arm as RANK-SUB-ADDITIVE (`126 ≥ min(144,117)`). **That was
+oracle-conditioned.** The oracle scores from true post-gate activations, so upstream damage
+cannot reach it; the ridge router reads the **block input**, which the rank-512 attention cut has
+already perturbed. The two cuts are independent under an oracle and **coupled through the
+router's input** under a real one — a 17-token swing. Mean rank locates it: `2.03 → 5.15`
+composed against `2.49 → 4.17` on the carve alone.
+
+**Consequence for the ledger: §35.5's additivity table is a statement about oracle carves, and
+is annotated as such. Five composition measurements now exist and they do not agree; there is
+still no additivity law, and §35.5's own warning — "a stack MUST be measured" — is reinforced,
+not replaced.**
+
+### 36.5 The static router is most of the story, and Probe-4 does not forbid it
+
+`V52-STATIC` — the same `k` groups for every token, chosen by mean mass on calibration —
+reads **99/160**, retention 0.76, from a router that never looks at the token. **The entire
+token-dependent routing decision is worth 11 teacher-forced tokens** (110 − 99); the gap to
+random is 68. The brief predicted STATIC below 40, arguing from Probe-4's falsified hot-pool
+(working sets ≈ i.i.d. across tokens). **That transfer is wrong: Probe-4's finding is about
+per-NEURON working sets, and group mass over D0c's 256 co-activation groups is not i.i.d. on
+this donor.** A static set is also free — no `11.0 M`, no per-token score — which makes it a
+budget question and not only a quality one. Carried into E24 as a registered arm.
+
+### 36.6 The re-derivation, and `k = 133` was never the budget-maximal depth
+
+The router is charged at `1536 × 256 × 28 = 11,010,048` = `11.0 M`, active every token.
+
+| component | active weights/token |
+|---|---|
+| `q/o` at rank 512 | 88.1 M |
+| `k/v` | 22.0 M |
+| head | 233.4 M |
+| router | 11.0 M |
+| **fixed subtotal** | **354.5 M** |
+| FFN, full | 1156.1 M |
+
+Against §31's `0.982–1.060 G`, the FFN allowance is **`627.5–705.5 M` = 54.28%–61.03%
+activation = `k = 139 … 156` of 256.**
+
+| `k` | activation | total | |
+|---|---|---|---|
+| **133** (E19, §35, E23) | 0.5195 | **0.9551 G** | **2.8% UNDER the floor** |
+| 139 | 0.5430 | 0.9822 G | in budget |
+| 148 | 0.5781 | 1.0228 G | in budget |
+| 156 | 0.6094 | 1.0590 G | in budget |
+
+**`k = 133` was inherited from E19, where it was fixed before any router was charged to
+anything.** So the shallower carve `ROUTER-COSTS` demands is not a retreat — it is the depth the
+budget always permitted, and it is free quality. **Whether `k = 139…156` buys the 5 teacher-forced
+tokens needed to clear `107` is NOT predicted here; it is what E24 measures.**
+
+### 36.7 Predictions
+
+Three held, two missed. Prediction 3 missed on the arm it named (registered `ROUTER-COSTS`, read
+`ROUTER-HOLDS` at 0.9067) and **held on the composed arm** (0.7143, inside the band) — reported
+that way rather than as "the band basically held". Prediction 2 is the substantive miss (§36.5).
+**The registered alternative fired on `V52-LINEAR` only**: the carve is not an oracle artefact,
+but its second half — that `QO512+V52` is "constructible without an oracle" — is refused.
+
+### 36.8 Owed
+
+1. **E24 — the depth sweep the verdict requires**: ridge router at `k ∈ {139, 148, 156}`, plus
+   `V52-STATIC` at the same depths and a `log1p`-target router (§36.5 and the declined variant,
+   which moved L27 overlap `0.7404 → 0.8197` on the pre-run diagnostic and was **not** adopted
+   because it was not registered). **CPU, mine.**
+2. **H0 is NOT blocked by any of this** and is deliberately router-free — §36 changes nothing
+   about it. See `decisions/T4_HEALING_PROPOSAL.md` §3.
+3. Unchanged from §35.8: `k/v` in the factored arms, a factored matvec in `engine.c` and a kind
+   in `QWENDON1`, the head, the rank fraction at scale, `R5` in the exporter, the E14/E19 items.

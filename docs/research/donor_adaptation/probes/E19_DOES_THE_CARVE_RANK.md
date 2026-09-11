@@ -267,3 +267,29 @@ and E21 §4a is weakened as a result** (E22 §7).
 reads **126/160**, above both its parts' worse half and above every ternary head, at `0.9441 G`
 active, inside the 50 tok/s budget. That composition is the subject of `E22_DOES_CHEAP_COMPOSE.md`,
 and §10's warning that composition can be worse than either part did **not** reproduce here.
+
+## 12. Appended 2026-09-11 after E23 — the oracle caveat on every number here now has a FLOOR
+
+Every carve arm in this probe used an **oracle** router, and §§1–8 said so. `probes/E23_A_REAL_ROUTER.md`
+built the first real one — a per-layer ridge from the block input to `sqrt(group mass)`, closed
+form, `11.0 M` charged to the budget — and measured how far below the ceiling it lands.
+
+| | oracle | ridge | retention |
+|---|---|---|---|
+| `V52` teacher-forced | 117 | **110** | **0.9067** → `ROUTER-HOLDS` |
+| `V52` BPB | 0.909441 | 1.004558 | cost of a real router: `+0.095117` |
+
+**This probe's `V52` verdict is unchanged and is now bounded.** `CARVE-DOES-NOT-RANK` rested on
+free-running `12/160` at the floor; the ridge reads `7/160`, also at the floor. The carve still
+does not rank, and it no longer does so only in a ceiling.
+
+**But `k = 133` — this probe's depth, carried by E22 and E23 — was chosen before any router was
+charged to anything, and E23's arithmetic shows it is 2.8% BELOW the 50 tok/s budget floor.**
+With the router's `11.0 M` included the fixed cost is `354.5 M` and the FFN allowance is
+`627.5–705.5 M`, i.e. `k = 139 … 156` of 256. **The depth this probe fixed was never the
+budget-maximal one**, which is a defect in `V52`'s derivation here and not in its measurement.
+E24 sweeps the depths the budget actually permits.
+
+E23 also found that a **static** set — the same `k` groups for every token — reads `99/160`
+teacher-forced against the ridge's 110, so most of what the carve retains does not require a
+router at all. That bears on this probe's §7 framing of routing as the carve's core cost.

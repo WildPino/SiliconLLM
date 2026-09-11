@@ -193,3 +193,40 @@ verdict was predicted to fail and did not.
    it no rank result becomes tok/s.
 5. **The head** — unchanged, and now the only organ neither cut touches. `545 M` on a 7 B.
 6. **The rank fraction at scale**, `R5` in the exporter, and the E14/E19 items — unchanged.
+
+## 9. Appended 2026-09-11 after E23 — §6's additivity reading was ORACLE-CONDITIONED
+
+`probes/E23_A_REAL_ROUTER.md` replaced the oracle router with a closed-form ridge regression and
+re-read both composed arms. **The composition reverses sign.**
+
+| | `V52` | `QO512+V52` | composition |
+|---|---|---|---|
+| **oracle** (this probe) | 117 | 126 | **+9** |
+| **ridge** (E23) | 110 | 102 | **−8** |
+
+§5 read `QO512+V52` as RANK-SUB-ADDITIVE — `126 ≥ min(144, 117)`, better than either part
+predicted — and §6 built on it. **That reading holds only under an oracle.** The oracle scores
+expert groups from the *true* post-gate activations, so damage done upstream by the rank-512
+attention cut cannot reach its decision; a real router reads the **block input**, which that same
+cut has already perturbed. **Under an oracle the two cuts are independent; under a real router
+they are coupled through the router's input.** Mean rank locates the coupling: `2.03 → 5.15` on
+the composed arm against `2.49 → 4.17` on the carve alone.
+
+**What is withdrawn and what is not.** The measurements in §§4–5 stand exactly as published —
+they were labelled oracle numbers throughout and E23's `G-T1` reproduces both of them to the
+digit. What is withdrawn is any reading of them as a statement about *composition in a buildable
+model*: `+0.042909`, `+0.064067`, `+0.146241` are oracle-conditioned super-additivity, and the
+sign of the ranking half is not robust to making the router real.
+
+**§7's prediction 4 is unaffected** — it was about BPB-versus-ranking disagreement within this
+probe's own arms, not about routers.
+
+**And §5's own warning is reinforced rather than replaced.** It said four compositions do not
+make a law and a stack must be measured on both metrics. There are now five, they disagree, and
+E23 adds the reason they disagree: **the measuring apparatus was part of the result.**
+
+**Owed item 1 (a real router) is discharged.** The answer is split: the carve alone survives at
+retention `0.9067` (`ROUTER-HOLDS`), the composed configuration at `0.7143` (`ROUTER-COSTS`), and
+`QO512+V52` at `k = 133` is therefore **no longer the T4 healing target**. E23 §7 re-derives the
+depth the budget permits once the router is charged — `k = 139 … 156`, where `k = 133` sits 2.8%
+*under* the floor — and that sweep is E24.

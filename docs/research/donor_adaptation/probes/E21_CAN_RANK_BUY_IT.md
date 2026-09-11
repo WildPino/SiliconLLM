@@ -288,3 +288,26 @@ it would ship in costs more than the modification saves. What E22 leaves standin
 for healing, not a runnable artefact.
 
 `probes/E22_DOES_CHEAP_COMPOSE.md` carries both.
+
+## 10. Appended 2026-09-11 after E23 — both composition data points were oracle-conditioned
+
+§4a corrected this probe's "damage compounds" overstatement using `BOTH-ACT-256`, and §9 recorded
+E22 weakening it further. `probes/E23_A_REAL_ROUTER.md` now adds a boundary that applies to
+**both** prior corrections at once.
+
+E22's composed arms — the ones §9 used to weaken §4a — all routed their FFN carve with an
+**oracle**. E23 re-read them with a closed-form ridge router and the composition **changed sign**:
+`+9` teacher-forced tokens under the oracle, `−8` under a real router, a 17-token swing. So the
+`QO512+V52` datum that §9 leaned on is not a statement about a buildable model.
+
+**What survives unchanged is this probe's own datum**, `BOTH-ACT-256`: two rank cuts, no router
+anywhere, BPB sub-additive by `−0.342498` while ranking falls below both halves (48 vs 68 and 93).
+**That one involves no oracle and no routing, so E23 does not touch it.**
+
+**The honest position after three corrections**: there is no additivity law in either direction,
+the two metrics can disagree about the same pair, **and whether a composition is even measurable
+depends on whether the apparatus measuring it is buildable.** §4a's surviving sentence — *it can
+fail, so it must be CHECKED, not assumed* — is the whole of it.
+
+§7's "the head is the named binding constraint" is untouched: E23 changes nothing about the head,
+which no lever in this programme has yet made smaller.
