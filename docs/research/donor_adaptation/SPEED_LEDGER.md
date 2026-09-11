@@ -2597,8 +2597,12 @@ factored matvec and `QWENDON1` has no kind for one.** No rank result converts to
 1. **Attention tolerates rank; the head does not.** Same construction, same rank, same run:
    `+0.0527`/144 vs `+0.2781`/101. The head maps 1536 dims to 151,936 logits whose top-2 gap *is*
    the answer; attention feeds a residual stream that sums 28 layers.
-2. **Damage compounds, it does not add.** `BOTH-ACT-256` reads **48** teacher-forced where its two
-   halves read 68 and 93 alone. Any plan that stacks cheap cuts must measure the stack.
+2. **Composition is sub-additive in BPB and below both parts in ranking.** `BOTH-ACT-256` reads
+   BPB `1.766172` against an additive prediction of `1.330385 + 1.545880 − 0.767595 = 2.108670`
+   (**excess `−0.342498`** — *better* than adding) and **48/160** teacher-forced against parts of
+   68 and 93 (**worse than either**). The two metrics disagree in opposite directions about the
+   same pair, so "damage compounds" is true of ranking only. Any plan that stacks cheap cuts must
+   measure the stack, on both metrics.
 3. **BPB does not order interventions across axes.** `H-ACT-256` (BPB `1.330385`) and E20's `R0H`
    (`1.319900`) are within `0.01` BPB and read **68** and **107** teacher-forced. §33.4's lesson
    generalises: *the two metrics are not substitutes, in either direction.*

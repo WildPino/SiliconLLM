@@ -228,6 +228,7 @@ brief's `r = 256` — `BOTH-ACT-256` shows this donor cannot take that), `attn+h
 arithmetic stands; the binding term is now named, and it is the head.
 
 **And E19's own §8 item on composition acquires a warning.** `BOTH-ACT-256` reads **48/160**
-teacher-forced where its two halves read 68 and 93 alone: **damage compounds.** The obvious next
+teacher-forced where its two halves read 68 and 93 alone -- **while its BPB beats the additive
+prediction by `0.342498`** (E21 §4a: the two metrics disagree in opposite directions). The obvious next
 move — stack `QO-ACT-512` on `V52` to land the 1.5 B at ≈`0.98 G` — must therefore be **measured,
 not assumed additive** (`probes/E21_CAN_RANK_BUY_IT.md` §8 item 1).

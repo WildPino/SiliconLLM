@@ -23,7 +23,8 @@ cheaper than the best ternarization (E20 `GPTQH`, `+0.170414`) and cheaper than 
 
 **But the configuration the brief was built to test failed.** `BOTH-ACT-256` — head and `q/o`
 together at rank 256, the §2 budget configuration — reads `+0.998577` BPB and **48/160**
-teacher-forced, worse than either organ alone (68 and 93). **Damage compounds; it does not add.**
+teacher-forced, worse than either organ alone (68 and 93) -- **while its BPB is `0.342498` BETTER than the
+additive prediction.** The composition is sub-additive in BPB and below both parts in ranking; see §4a.
 
 ---
 
@@ -138,6 +139,29 @@ rank.
 
 ---
 
+## 4a. Composition: sub-additive in BPB, below both parts in ranking
+
+Define `excess = BPB(A+B) − [BPB(A) + BPB(B) − BPB(base)]`, zero if the two damages simply add.
+
+| | BPB | teacher-forced |
+|---|---|---|
+| `H-ACT-256` alone | `1.330385` | 68/160 |
+| `QO-ACT-256` alone | `1.545880` | 93/160 |
+| additive prediction | `2.108670` | — |
+| **`BOTH-ACT-256` measured** | **`1.766172`** | **48/160** |
+| **excess** | **`−0.342498`** | **below both parts** |
+
+**The two metrics disagree about the same composition, in opposite directions.** In BPB the pair
+is `0.34` *better* than adding the parts; in per-step argmax it is `20` tokens *worse than the
+better half and 20 worse than the worse half*. So "damage compounds" is true of ranking and false
+of BPB, and the unqualified sentence should not be used.
+
+The mechanism is §6's third asymmetry again. Weighted low-rank preserves logit *geometry* --
+which is what BPB scores, and two geometry-preserving perturbations overlap rather than stack --
+while argmax lives on the top-1/top-2 boundary, where two independent perturbations each get a
+fresh chance to flip the order. **Sub-additivity in a score metric is not evidence of tolerance in
+a rank metric**, which is E14 §3's law arriving on a third axis.
+
 ## 5. What this does *not* buy, priced honestly
 
 **The §2 budget configuration failed, and the saving does not transfer as written.** `r = 512` on
@@ -217,8 +241,8 @@ now has.
 
 1. **Compose the two cheapest cuts.** `QO-ACT-512` (`+0.052689`) and E19's `V52` FFN carve
    (`+0.141846`) together land the **1.5 B** at ≈`0.98 G` active — inside the 50 tok/s budget.
-   Is the damage additive? `BOTH-ACT-256` says compounding can be much worse than additive, so
-   this must be measured, not assumed. **Cheap, CPU, and directly on-goal.**
+   Is the damage additive? §4a says the two metrics answer that differently for the same pair,
+   so it must be measured on BOTH, not assumed from either. **Cheap, CPU, and directly on-goal.**
 2. **Rank × precision.** Every arm here is fp32. The engine ships ternary. A ternary low-rank
    `q/o` is the artefact that would actually run, and the two damages have never been composed.
 3. **The rank fraction at scale.** `r/D = 1/3` was validated at `D = 1536` only. The 7B claim in
