@@ -1,0 +1,336 @@
+{
+ "brief": "briefs/BRIEF_E20_RULE_OR_FORMAT.md (e5d438c)",
+ "question": "is the constraint the RULE or the FORMAT? format held fixed at what QWENDON1 stores: ternary codes, one fp32 scale per output row",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "smoke": true,
+ "threads": 6,
+ "n_new": 8,
+ "n_prompts": 2,
+ "calib_tokens": 1024,
+ "hessian": {
+  "damping_frac": 0.01,
+  "scale_grid_points": 40,
+  "gptq_block": 128,
+  "eig_min": -1.255302929241971e-05,
+  "eig_max": 12332.285015155096
+ },
+ "bands": {
+  "floor_E18_partA": 12,
+  "margin_E17": 2,
+  "at_floor_max": 14,
+  "ranks_min": 80,
+  "ceiling": 16
+ },
+ "chance_bpb": 4.069819,
+ "t2b_H_reference": {
+  "bpb": 1.106584,
+  "agree": 9
+ },
+ "arms": {
+  "base": {
+   "arm": "base",
+   "bpb": 0.9601896565954627,
+   "vs_chance": -3.1096293434045372,
+   "matched": 16,
+   "counted": 16,
+   "agree": 1.0,
+   "first_div": null,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 8,
+     "of": 8,
+     "diverges_at": null
+    },
+    {
+     "prompt": 1,
+     "matched": 8,
+     "of": 8,
+     "diverges_at": null
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     9625,
+     374,
+     1083
+    ],
+    [
+     671,
+     308,
+     374,
+     279,
+     1372,
+     315,
+     3793,
+     198
+    ]
+   ],
+   "seconds": 24.254801034927368,
+   "text": [
+    " Paris. The capital of France is also",
+    " # n is the number of terms\n"
+   ],
+   "quantize_seconds": 0.0,
+   "zero_fraction": 0.0,
+   "rel_weight_error": 0.0,
+   "identical_to_donor": true,
+   "G_Q0": "FIRES"
+  },
+  "ID": {
+   "arm": "ID",
+   "bpb": 0.9601896565954627,
+   "vs_chance": -3.1096293434045372,
+   "matched": 16,
+   "counted": 16,
+   "agree": 1.0,
+   "first_div": null,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 8,
+     "of": 8,
+     "diverges_at": null
+    },
+    {
+     "prompt": 1,
+     "matched": 8,
+     "of": 8,
+     "diverges_at": null
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     9625,
+     374,
+     1083
+    ],
+    [
+     671,
+     308,
+     374,
+     279,
+     1372,
+     315,
+     3793,
+     198
+    ]
+   ],
+   "seconds": 25.446505069732666,
+   "text": [
+    " Paris. The capital of France is also",
+    " # n is the number of terms\n"
+   ],
+   "quantize_seconds": 0.240478515625,
+   "zero_fraction": 2.035362285823794e-06,
+   "rel_weight_error": 0.0,
+   "identical_to_donor": true,
+   "G_Q1_token_identical": true,
+   "G_Q1_bpb_diff": 0.0,
+   "G_Q1": "FIRES"
+  },
+  "R3H": {
+   "arm": "R3H",
+   "bpb": 1.6295315836205277,
+   "vs_chance": -2.440287416379472,
+   "matched": 3,
+   "counted": 16,
+   "agree": 0.1875,
+   "first_div": [
+    0,
+    2
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 2,
+     "of": 8,
+     "diverges_at": 2
+    },
+    {
+     "prompt": 1,
+     "matched": 1,
+     "of": 8,
+     "diverges_at": 1
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     13,
+     12095,
+     374,
+     911,
+     32671,
+     13,
+     911
+    ],
+    [
+     671,
+     4067,
+     1723,
+     94166,
+     198,
+     262,
+     1173,
+     1445
+    ]
+   ],
+   "seconds": 25.37801194190979,
+   "text": [
+    " Paris. Paris is about ______. about",
+    " # Recursividad\n    print(n"
+   ],
+   "quantize_seconds": 0.8682117462158203,
+   "zero_fraction": 0.3123719096183777,
+   "rel_weight_error": 0.5126063227653503,
+   "identical_to_donor": false,
+   "G_Q3": "NOT-APPLICABLE (smoke)"
+  },
+  "OPTH": {
+   "arm": "OPTH",
+   "bpb": 1.6561296222882727,
+   "vs_chance": -2.4136893777117274,
+   "matched": 4,
+   "counted": 16,
+   "agree": 0.25,
+   "first_div": [
+    0,
+    2
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 2,
+     "of": 8,
+     "diverges_at": 2
+    },
+    {
+     "prompt": 1,
+     "matched": 2,
+     "of": 8,
+     "diverges_at": 2
+    }
+   ],
+   "ids": [
+    [
+     12095,
+     13,
+     12095,
+     5380,
+     1075,
+     5382,
+     1052,
+     624
+    ],
+    [
+     671,
+     308,
+     284,
+     98194,
+     198,
+     262,
+     421,
+     308
+    ]
+   ],
+   "seconds": 49.472628116607666,
+   "text": [
+    " Paris. Parisians like living there.\n",
+    " # n = posi\u00e7\u00e3o\n    if n"
+   ],
+   "quantize_seconds": 24.50296711921692,
+   "zero_fraction": 0.4660966694355011,
+   "rel_weight_error": 0.4449470043182373,
+   "identical_to_donor": false,
+   "G_Q3": "NOT-APPLICABLE (smoke)"
+  },
+  "GPTQH": {
+   "arm": "GPTQH",
+   "bpb": 1.170556222762074,
+   "vs_chance": -2.899262777237926,
+   "matched": 0,
+   "counted": 16,
+   "agree": 0.0,
+   "first_div": [
+    0,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "matched": 0,
+     "of": 8,
+     "diverges_at": 0
+    },
+    {
+     "prompt": 1,
+     "matched": 0,
+     "of": 8,
+     "diverges_at": 0
+    }
+   ],
+   "ids": [
+    [
+     320,
+     362,
+     13,
+     12095,
+     425,
+     13,
+     7148,
+     356
+    ],
+    [
+     220,
+     671,
+     220,
+     15,
+     11,
+     220,
+     16,
+     11
+    ]
+   ],
+   "seconds": 73.74991130828857,
+   "text": [
+    " ( A. Paris B. London C",
+    "  # 0, 1,"
+   ],
+   "quantize_seconds": 48.92307114601135,
+   "zero_fraction": 0.4071402847766876,
+   "rel_weight_error": 0.6256911754608154,
+   "identical_to_donor": false,
+   "G_Q3": "NOT-APPLICABLE (smoke)"
+  }
+ },
+ "VOID": [],
+ "G_Q4": {
+  "bpb": {
+   "R3H": 1.6295315836205277,
+   "OPTH": 1.6561296222882727,
+   "GPTQH": 1.170556222762074
+  },
+  "gptq_beats_opt": true,
+  "opt_beats_or_equals_r3": false,
+  "gptq_margin_over_r3": 0.4589753608584537,
+  "holds": false,
+  "note": "sanity, not a verdict: a quantizer that cannot win on the objective it optimises has not been demonstrated to work"
+ },
+ "G_Q3": {
+  "R3H": "NOT-APPLICABLE (smoke)",
+  "OPTH": "NOT-APPLICABLE (smoke)",
+  "GPTQH": "NOT-APPLICABLE (smoke)"
+ },
+ "seconds_total": 221.25271582603455
+}

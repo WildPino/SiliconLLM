@@ -1,0 +1,24 @@
+== loading Qwen/Qwen2.5-1.5B ==
+slice 24x512, 51870 scored bytes  |  ids_sha256 OK
+== capturing head Hessian on 16384 calib tokens ==
+   H over 16384 tokens in 186s  |  eig min 9.047e-06 max 1.833e+04  lambda 2.0707e-01  cond(damped) 8.853e+04
+  base   BPB 0.767595 (-3.302224)  zero 0.0000  relerr 0.0000  160/160 100.00%  div None     FIRES [345s]
+  ID     BPB 0.767595 (-3.302224)  zero 0.0000  relerr 0.0000  160/160 100.00%  div None     FIRES [279s]
+  R3H    BPB 1.319900 (-2.749919)  zero 0.3124  relerr 0.5126   17/160  10.62%  div [0, 2]   PARTIAL [279s]
+  OPTH   BPB 1.293924 (-2.775895)  zero 0.4661  relerr 0.4449   42/160  26.25%  div [0, 2]   PARTIAL [337s]
+  GPTQH  BPB 0.938018 (-3.131801)  zero 0.4234  relerr 0.5474   11/160   6.88%  div [0, 2]   AT-FLOOR [335s]
+
+  bands: floor 12, margin 2, AT-FLOOR <= 14, RANKS >= 80, ceiling 160
+  G_Q4  {"R3H": 1.319900355951153, "OPTH": 1.2939239896779458, "GPTQH": 0.9380182675122468}
+        holds=True  GPTQH beats R3H by +0.381882 BPB
+  G_Q3  {"R3H": "PARTIAL", "OPTH": "PARTIAL", "GPTQH": "AT-FLOOR"}
+
+  arm ladder (how much the quantizer knows -> BPB vs chance -> agreement):
+    base   -3.302224  ->  160/160
+    ID     -3.302224  ->  160/160
+    R3H    -2.749919  ->   17/160
+    OPTH   -2.775895  ->   42/160
+    GPTQH  -3.131801  ->   11/160
+
+  VOID: G-Q2: R3H did not replicate T2b/E18 (bpb_ok=False agree_ok=False)
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e20_rule_or_format.json  [1768s total]
