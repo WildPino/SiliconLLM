@@ -36,6 +36,20 @@ FORMAT (little-endian, no padding):
 
   where W is:  quant==0 -> fp32 [out, in]
                quant==1 -> int8 [out, in] codes, then fp32 [out] scales
+               quant==2 -> packed base-3 g=2 [out, in/2] bytes, then fp32 [out] scales
+               quant==3 -> TAGGED: int32 kind, then
+                             kind 0 (packed)   : exactly quant==2's payload
+                             kind 2 (fp32)     : exactly quant==0's payload
+                             kind 1 (factored) : int32 rank, then A [out,rank] as kind 0/2,
+                                                 then fp32 s [rank],
+                                                 then B [rank,in] as kind 0/2
+
+THE TAGGED KIND EXISTS BECAUSE THE CONFIGURATIONS THIS PROGRAMME MEASURES ARE MIXED.  E21, E22
+and E23 all left k_proj/v_proj fp32 and cut only q_proj/o_proj, and H0 trains exactly that
+object; a single global quant flag cannot express it, so until quant==3 existed every rank
+result was a PyTorch number with no runnable artifact behind it.  The factored kind is also the
+first time the low-rank form is stored AS a factored form: E21 and E22 computed A.B and
+installed the dense product, which prices the cut's quality and never its cost.
 
 Usage:
     python qwen_export.py --model Qwen/Qwen2.5-0.5B --quant fp32    --out qwen05b_fp32.bin
@@ -100,14 +114,13 @@ def w_tern(fh, w, rule="R0", act_rms=None):
     return float((q == 0).float().mean())
 
 
-def w_packed(fh, w, rule="R0", act_rms=None):
-    """base-3 g=2: TWO trits per byte, 4 bits/weight -- engine.c's own packing.
+def write_packed_pair(fh, q, scale):
+    """Write already-quantized (codes, per-row scale) in engine.c's packed layout.
 
-    Byte value v = (t0+1) + 3*(t1+1) in [0,8], where t0 is the weight for input feature 2j and
-    t1 for 2j+1. Lossless with respect to the int8 codes, and exactly half the bytes; on a
-    bandwidth-bound path that is a free 2x, which is why engine.c uses it.
+    Split out of w_packed so the FACTORED writer can hand it a pair produced by h0_qat's
+    quantizer instead of re-deriving one here -- the factors must be quantized by the same code
+    that trained them, or the artifact is not the object that was measured.
     """
-    q, scale = quantize(w, rule, act_rms)
     out_f, in_f = q.shape
     assert in_f % 2 == 0, "in_features must be even to pack 2 trits per byte"
     qn = q.numpy().astype(np.int16) + 1                      # {0,1,2}
@@ -116,6 +129,59 @@ def w_packed(fh, w, rule="R0", act_rms=None):
     fh.write(np.ascontiguousarray(packed).tobytes())
     fh.write(np.ascontiguousarray(scale.numpy(), dtype="<f4").tobytes())
     return float((q == 0).float().mean())
+
+
+def w_packed(fh, w, rule="R0", act_rms=None):
+    """base-3 g=2: TWO trits per byte, 4 bits/weight -- engine.c's own packing.
+
+    Byte value v = (t0+1) + 3*(t1+1) in [0,8], where t0 is the weight for input feature 2j and
+    t1 for 2j+1. Lossless with respect to the int8 codes, and exactly half the bytes; on a
+    bandwidth-bound path that is a free 2x, which is why engine.c uses it.
+    """
+    q, scale = quantize(w, rule, act_rms)
+    return write_packed_pair(fh, q, scale)
+
+
+# ---------------------------------------------------------------------- the tagged writers
+MK_PACKED, MK_FACTORED, MK_F32 = 0, 1, 2
+
+
+def w_tag_packed(fh, w, rule="R0", act_rms=None):
+    fh.write(struct.pack("<i", MK_PACKED))
+    return w_packed(fh, w, rule, act_rms)
+
+
+def w_tag_f32(fh, w, rule="R0", act_rms=None):
+    fh.write(struct.pack("<i", MK_F32))
+    w_fp32(fh, w)
+    return None
+
+
+def w_tag_factored(fh, A, s, B, rms_in, rms_A, H0):
+    """kind 1: A [out,r] packed, s [r] fp32, B [r,in] packed.
+
+    The two ternarizations are h0_qat's OWN calls, not a re-derivation: A is quantized against
+    rms_A * |s| and B against rms_in, exactly as TernaryLowRank._quant does at every training
+    step and at every eval position.  If these two lines and that method ever disagree, the
+    exported model is not the model the gate was measured on, and the parity gate is what
+    catches it.
+    """
+    import torch
+    r = int(s.shape[0])
+    assert A.shape[1] == r and B.shape[0] == r
+    qA, aA = H0.r3_actsearch(A.float(), rms_A.float() * s.float().abs().clamp_min(1e-8))
+    qB, aB = H0.r3_actsearch(B.float(), rms_in.float())
+    fh.write(struct.pack("<ii", MK_FACTORED, r))
+    # A and B are themselves TAGGED matrices -- the reader calls read_mat recursively with
+    # quant=3 and expects a kind tag on each factor, which is what lets one factor be fp32 and
+    # the other packed.  Omitting these two tags writes a file that parses as far as the first
+    # factor and then dies on a byte that is a CODE being read as a KIND.
+    fh.write(struct.pack("<i", MK_PACKED))
+    zA = write_packed_pair(fh, qA.to(torch.int8), aA.squeeze(1))
+    fh.write(np.ascontiguousarray(s.float().numpy(), dtype="<f4").tobytes())
+    fh.write(struct.pack("<i", MK_PACKED))
+    zB = write_packed_pair(fh, qB.to(torch.int8), aB.squeeze(1))
+    return 0.5 * (zA + zB)
 
 
 def capture_act_rms(m, tk, calib_seqs, L):
@@ -176,7 +242,18 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="Qwen/Qwen2.5-0.5B")
     ap.add_argument("--revision", default=None)
-    ap.add_argument("--quant", choices=("fp32", "ternary", "packed"), default="fp32")
+    ap.add_argument("--quant", choices=("fp32", "ternary", "packed", "tagged"), default="fp32")
+    ap.add_argument("--factors", default=None,
+                    help="npz of fp32 low-rank masters in h0_factorize.py's layout "
+                         "(L%%02d.<organ>.{A,s,B,rms_in,rms_A}).  Every organ it holds is "
+                         "written as the FACTORED kind; everything else follows --quant. "
+                         "Requires --quant tagged and --fold none: the masters were fitted on "
+                         "the UNFOLDED donor, and folding a norm gain into q would make the "
+                         "exported matrix a different matrix from the one that was measured.")
+    ap.add_argument("--fp32-organs", default="",
+                    help="comma-separated organs written as the fp32 kind in --quant tagged "
+                         "(e.g. k_proj,v_proj).  This is not a convenience: E21/E22/E23 all "
+                         "left k/v fp32 and their numbers are the numbers for THAT object.")
     ap.add_argument("--load-dtype", choices=("float32", "bfloat16"), default="float32",
                     help="how the donor is held in RAM. float32 is what every export before "
                          "E7 used. bfloat16 halves the peak (7.6 B: 30 GB -> 15 GB) and is "
@@ -257,7 +334,22 @@ def main():
     tied = int(bool(getattr(c, "tie_word_embeddings", False)))
     if a.head_ternary:
         tied = 0          # write an explicit head; the embedding table is still written fp32
-    quant = {"fp32": 0, "ternary": 1, "packed": 2}[a.quant]
+    quant = {"fp32": 0, "ternary": 1, "packed": 2, "tagged": 3}[a.quant]
+    fp32_organs = tuple(x for x in a.fp32_organs.split(",") if x)
+    if a.factors and a.quant != "tagged":
+        sys.exit("--factors needs --quant tagged: no other layout can carry a factored matrix")
+    if a.factors and a.fold != "none":
+        sys.exit("--factors needs --fold none: the masters were fitted on the UNFOLDED donor")
+    if fp32_organs and a.quant != "tagged":
+        sys.exit("--fp32-organs needs --quant tagged")
+    fac, H0 = None, None
+    if a.factors:
+        sys.path.insert(0, os.path.abspath(os.path.join(HERE, "..", "s1")))
+        import h0_qat as H0                                       # noqa: F811
+        fac = np.load(a.factors)
+        have = sorted({(int(k[1:3]), k.split(".")[1]) for k in fac.files if k.startswith("L")})
+        print("  --factors: %d organs, ranks %s"
+              % (len(have), sorted({int(fac["L%02d.%s.s" % lo].shape[0]) for lo in have})))
 
     # The fold has to happen BEFORE the calibration capture, not after: folding a gain into
     # q/k/v changes what those linears SEE, so R3's per-input activation RMS is a different
@@ -278,7 +370,22 @@ def main():
             tied = 0
         print("  folded %d RMSNorm gains (--fold %s), untied=%s"
               % (n_folded, a.fold, untied_by_fold))
-    W = {0: w_fp32, 1: w_tern, 2: w_packed}[quant]
+    W = {0: w_fp32, 1: w_tern, 2: w_packed, 3: w_tag_packed}[quant]
+
+    def emit(fh, li, organ, w, rule, act):
+        """One matrix, in whichever kind this organ gets.  The only place that decides."""
+        if fac is not None:
+            pre = "L%02d.%s" % (li, organ)
+            if pre + ".A" in fac.files:
+                import torch as _t
+                return w_tag_factored(fh, _t.from_numpy(fac[pre + ".A"]),
+                                      _t.from_numpy(fac[pre + ".s"]),
+                                      _t.from_numpy(fac[pre + ".B"]),
+                                      _t.from_numpy(fac[pre + ".rms_in"]),
+                                      _t.from_numpy(fac[pre + ".rms_A"]), H0)
+        if quant == 3 and organ in fp32_organs:
+            return w_tag_f32(fh, w)
+        return W(fh, w, rule, act)
 
     print("exporting %s  D=%d F=%d L=%d heads=%d/%d hd=%d V=%d tied=%d quant=%s rule=%s"
           % (a.model, D, F, L, NH, NKV, HD, V, tied, a.quant, a.rule))
@@ -303,12 +410,13 @@ def main():
             w_fp32(fh, lay.input_layernorm.weight.data)
             for name in ("q_proj", "k_proj", "v_proj"):
                 mod = getattr(lay.self_attn, name)
-                r = W(fh, mod.weight.data, a.rule, act.get((li, name)))
+                r = emit(fh, li, name, mod.weight.data, a.rule, act.get((li, name)))
                 if r is not None:
                     zeros.append(r)
                 assert mod.bias is not None, "%s has no bias -- Qwen2 should" % name
                 w_fp32(fh, mod.bias.data)
-            r = W(fh, lay.self_attn.o_proj.weight.data, a.rule, act.get((li, "o_proj")))
+            r = emit(fh, li, "o_proj", lay.self_attn.o_proj.weight.data, a.rule,
+                     act.get((li, "o_proj")))
             if r is not None:
                 zeros.append(r)
             assert lay.self_attn.o_proj.bias is None
@@ -316,7 +424,7 @@ def main():
             for name in ("gate_proj", "up_proj", "down_proj"):
                 mod = getattr(lay.mlp, name)
                 assert mod.bias is None
-                r = W(fh, mod.weight.data, a.rule, act.get((li, name)))
+                r = emit(fh, li, name, mod.weight.data, a.rule, act.get((li, name)))
                 if r is not None:
                     zeros.append(r)
             if (li + 1) % 8 == 0 or li == L - 1:
@@ -331,6 +439,27 @@ def main():
             print("  head written explicitly: %s %s" % (tuple(hw.shape), a.quant))
 
     size = os.path.getsize(a.out)
+
+    # ---- GATE E25-L: does the file have the size the FORMAT says it should?
+    # e1_bpb_through_engine.layout_bytes_tagged walks the layout from the header alone, as a
+    # third party would, and knows nothing about the loop above.  The first tagged export this
+    # gate would have caught was real: w_tag_factored wrote A's and B's payloads without their
+    # own kind tags, and the file parsed until the engine read a weight CODE as a KIND.  The
+    # engine's own "consumed exactly N bytes" found it, but only after a 3-minute write.
+    if quant == 3:
+        import e1_bpb_through_engine as E1
+
+        def spec_of(name, o, i):
+            organ = name.split(".")[-1]
+            li = int(name.split(".")[0][1:]) if name.startswith("L") else -1
+            if fac is not None and ("L%02d.%s.A" % (li, organ)) in fac.files:
+                return ("factored", int(fac["L%02d.%s.s" % (li, organ)].shape[0]))
+            return "f32" if organ in fp32_organs else "packed"
+        want = E1.layout_bytes_tagged(D, F, L, NH, NKV, HD, V, tied, spec_of)
+        assert want == size, ("GATE E25-L FAILED: the format says %d bytes, the file is %d "
+                              "(%+d)." % (want, size, size - want))
+        print("  GATE E25-L: %d bytes, matches E1's independent tagged layout exactly" % size)
+
     h = hashlib.sha256()
     with open(a.out, "rb") as fh:
         for chunk in iter(lambda: fh.read(1 << 20), b""):
@@ -357,7 +486,10 @@ def main():
             "rule_applied_to": (["q_proj", "k_proj", "v_proj", "o_proj",
                                  "gate_proj", "up_proj", "down_proj"]
                                 + (["lm_head"] if a.head_ternary else [])),
-            "t2_measured_organs": ["gate_proj", "up_proj", "down_proj"]}
+            "t2_measured_organs": ["gate_proj", "up_proj", "down_proj"],
+            "factors": a.factors,
+            "factored_organs": (["L%02d.%s" % lo for lo in have] if fac is not None else []),
+            "fp32_organs": list(fp32_organs)}
     json.dump(meta, open(a.out + ".json", "w", encoding="utf-8"), indent=1)
     print("wrote %s  (%.2f GB)  sha256 %s" % (a.out, size / 2**30, h.hexdigest()[:16]))
     if zeros:

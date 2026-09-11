@@ -99,13 +99,21 @@ static void* xmalloc(size_t n){ void* p=malloc(n); if(!p){ fprintf(stderr,"OOM %
 static void die(const char* m){ fprintf(stderr,"FATAL: %s\n",m); exit(1); }
 
 // ------------------------------------------------------------------ weight matrix (either mode)
-typedef struct {
+typedef struct mat_s {
     int out, in, packed;
     const float* f32;      // quant==0
     const int8_t* code;    // quant==1, [out, in] row-major, values in {-1,0,+1}
     const float* scale;    // quant==1, [out]
     const int8_t* tm;      // --lut only: the SAME packed bytes, tile-major [in/2][Mpad]
     int Mpad;              // out rounded up to 32, the tile width the LUT kernel writes
+    // ---- E25: the FACTORED kind.  W ~= A diag(s) B with A [out,rank], B [rank,in], each of
+    // them an ordinary mat_t in the SAME on-disk format as everything else here, so the two
+    // halves run through the SAME kernels and nothing about the numerics is new.
+    // rank==0 means "not factored"; read_mat writes 0 for quant 0/1/2, so every file written
+    // before this kind existed loads and executes bit-identically.
+    int rank;
+    struct mat_s *fa, *fb;   // A [out, rank] and B [rank, in]
+    const float* fs;         // s [rank], fp32, applied to the intermediate; NULL = identity
 } mat_t;
 
 typedef struct {
@@ -392,8 +400,33 @@ static float* g_f32(int n){ if(n>g_f32cap){ free(g_f32b); g_f32b=xmalloc((size_t
 static int g_group=0, g_gscap=0; static float* g_gs=NULL;   // --lut-group
 static char g_grouplbl[16]="";
 
+// ---------------------------------------------------------------- the FACTORED path (E25)
+// y = A (s * (B x)) + bias, run as TWO matvecs with an intermediate of size `rank`.
+// This is the first time this programme EXECUTES a low-rank form as a low-rank form.  E21 and
+// E22 both computed the product A.B and installed a DENSE matrix, so every rank number
+// published here priced the QUALITY of the cut and never its COST.  A rank-r cut of an
+// [out,in] matrix moves r*(out+in) weights per token instead of out*in -- at D=1536, r=512
+// that is 1.57 M against 2.36 M -- and that ratio is the only reason the rank axis appears in
+// the 50 tok/s budget table at all.  Until this path existed, that ratio was arithmetic.
+// The intermediate needs its OWN buffer: matvec's LUT path reuses g_i32b/g_f32b inside a
+// single call, so the two halves may not share them.  matvec is called from forward() in
+// serial (the parallelism is inside it), so one global suffices; nesting is refused at load.
+static float* g_lrb=NULL; static int g_lrcap=0;
+static float* g_lr(int n){ if(n>g_lrcap){ free(g_lrb); g_lrb=xmalloc((size_t)n*4); g_lrcap=n; }
+                           return g_lrb; }
+
 static void matvec(const mat_t* m, const float* x, const float* bias, float* y){
     const int n_out=m->out, n_in=m->in;   // NOT "OUT"/"IN": windows.h defines those as SAL macros
+    if(m->rank){
+        float* h=g_lr(m->rank);
+        matvec(m->fb,x,NULL,h);
+        // s multiplies the INTERMEDIATE, not either factor: folding it into B would change B's
+        // per-row ternarization and folding it into A would change A's.  The whole point of
+        // carrying it is that the trained scale is fp32 while the factors are not.
+        if(m->fs) for(int i=0;i<m->rank;i++) h[i]*=m->fs[i];
+        matvec(m->fa,h,bias,y);
+        return;
+    }
     if(m->tm){                                                    // --lut
         const int H=n_in/2;
         if(H>g_lutcap){ free(g_xq); free(g_lutab);
@@ -584,9 +617,42 @@ static void rope(float* v,int n_heads,int HD,const float* cs){
 // ------------------------------------------------------------------ model loading
 static const char* rd(const char** p, size_t n){ const char* q=*p; *p+=n; return q; }
 
+// quant==3 is the TAGGED layout: every matrix carries its own int32 kind, so one file can hold
+// packed-ternary FFNs, fp32 k/v and factored q/o at the same time.  That mix is not a
+// convenience -- it is exactly the configuration E22/E23 measured (k/v left fp32) and the one
+// H0 trains, and a single global quant flag cannot express it.  quant 0/1/2 stay untagged and
+// byte-for-byte unchanged, so every artifact already on disk still loads.
+enum { MK_PACKED=0, MK_FACTORED=1, MK_F32=2 };
+
 static void read_mat(const char** p, mat_t* m, int out, int in, int quant){
     m->out=out; m->in=in; m->packed=(quant==2); m->f32=NULL; m->code=NULL; m->scale=NULL;
-    m->tm=NULL; m->Mpad=0;
+    m->tm=NULL; m->Mpad=0; m->rank=0; m->fa=NULL; m->fb=NULL; m->fs=NULL;
+    if(quant==3){
+        int kind; memcpy(&kind,rd(p,4),4);
+        if(kind==MK_PACKED){
+            m->packed=1;
+            if(in&1) die("tagged packed matrix with odd in_features");
+            m->code=(const int8_t*)rd(p,(size_t)out*(in/2));
+            m->scale=(const float*)rd(p,(size_t)out*4);
+        } else if(kind==MK_F32){
+            m->f32=(const float*)rd(p,(size_t)out*in*4);
+        } else if(kind==MK_FACTORED){
+            int r; memcpy(&r,rd(p,4),4);
+            if(r<=0||(r&1)) die("factored matrix: rank must be positive and even");
+            m->rank=r;
+            m->fa=(mat_t*)xmalloc(sizeof(mat_t));
+            m->fb=(mat_t*)xmalloc(sizeof(mat_t));
+            read_mat(p,m->fa,out,r,3);
+            m->fs=(const float*)rd(p,(size_t)r*4);
+            read_mat(p,m->fb,r,in,3);
+            // One level only.  A factor of a factor would need a second intermediate buffer and
+            // nothing asks for one; refuse at LOAD rather than compute the wrong thing at run.
+            if(m->fa->rank||m->fb->rank) die("factored matrix: a factor may not itself be factored");
+        } else {
+            die("unknown matrix kind in a quant=3 file");
+        }
+        return;
+    }
     if(quant==0){ m->f32=(const float*)rd(p,(size_t)out*in*4); }
     else if(quant==1){ m->code=(const int8_t*)rd(p,(size_t)out*in);
                        m->scale=(const float*)rd(p,(size_t)out*4); }
@@ -639,7 +705,9 @@ static void load(model_t* M,const char* path){
     M->rms_eps=hf[0]; M->rope_theta=hf[1];
     const int QO=M->NH*M->HD, KVO=M->NKV*M->HD;
     fprintf(stderr,"  D=%d F=%d L=%d heads=%d/%d hd=%d V=%d tied=%d quant=%s eps=%g theta=%g\n",
-            M->D,M->F,M->L,M->NH,M->NKV,M->HD,M->V,M->tied,M->quant==2?"packed(2 trits/byte)":M->quant?"ternary":"fp32",
+            M->D,M->F,M->L,M->NH,M->NKV,M->HD,M->V,M->tied,
+            M->quant==3?"tagged(per-matrix kind)":
+            M->quant==2?"packed(2 trits/byte)":M->quant?"ternary":"fp32",
             M->rms_eps,M->rope_theta);
     M->embed=(const float*)rd(&p,(size_t)M->V*M->D*4);
     M->lay=xmalloc((size_t)M->L*sizeof(layer_t));
@@ -673,15 +741,26 @@ static void load(model_t* M,const char* path){
 static int g_fuse=0;
 static void fuse_mats(mat_t* dst,const mat_t* const* src,int n,int quant){
     int out=0, in=src[0]->in;
-    for(int i=0;i<n;i++){ if(src[i]->in!=in) die("--fuse: inputs differ"); out+=src[i]->out; }
-    dst->out=out; dst->in=in; dst->packed=(quant==2); dst->tm=NULL; dst->Mpad=0;
+    for(int i=0;i<n;i++){
+        if(src[i]->in!=in) die("--fuse: inputs differ");
+        // A factored matrix has no single row space to concatenate along: q's A is [QO,r], k's
+        // is [KVO,r'], and their B's are different matrices entirely.  Refuse rather than
+        // silently fuse the wrong thing.
+        if(src[i]->rank) die("--fuse cannot concatenate a FACTORED matrix -- run without --fuse");
+        if(src[i]->packed!=src[0]->packed || (src[i]->f32!=NULL)!=(src[0]->f32!=NULL))
+            die("--fuse: matrices in one group have different kinds");
+        out+=src[i]->out;
+    }
+    (void)quant;   // the KIND now comes from the sources, so a tagged file fuses correctly too
+    dst->out=out; dst->in=in; dst->packed=src[0]->packed; dst->tm=NULL; dst->Mpad=0;
     dst->f32=NULL; dst->code=NULL; dst->scale=NULL;
-    if(quant==0){
+    dst->rank=0; dst->fa=NULL; dst->fb=NULL; dst->fs=NULL;
+    if(src[0]->f32){
         float* w=xmalloc((size_t)out*in*4); size_t o=0;
         for(int i=0;i<n;i++){ memcpy(w+o,src[i]->f32,(size_t)src[i]->out*in*4); o+=(size_t)src[i]->out*in; }
         dst->f32=w;
     } else {
-        size_t rb=(quant==2)?(size_t)(in/2):(size_t)in;
+        size_t rb=src[0]->packed?(size_t)(in/2):(size_t)in;
         int8_t* c=xmalloc((size_t)out*rb); float* sc=xmalloc((size_t)out*4);
         size_t bo=0; int so=0;
         for(int i=0;i<n;i++){
@@ -704,7 +783,7 @@ static void build_fused(model_t* M){
         fuse_mats(&L->qkv,qkv,3,M->quant);
         fuse_mats(&L->gateup,gu,2,M->quant);
         L->qkvb=cat3f(L->qb,L->q.out,L->kb,L->k.out,L->vb,L->v.out);
-        size_t rb=(M->quant==2)?(size_t)(M->D/2):(M->quant?(size_t)M->D:(size_t)M->D*4);
+        size_t rb=L->qkv.f32?(size_t)M->D*4:(L->qkv.packed?(size_t)(M->D/2):(size_t)M->D);
         bytes+=(size_t)(L->qkv.out+L->gateup.out)*rb;
     }
     fprintf(stderr,"  --fuse: q|k|v and gate|up concatenated, +%.1f MB, matvec calls/token %d -> %d\n",
@@ -1169,7 +1248,8 @@ int main(int argc,char** argv){
         }
         double dt=now_s()-t0;
         printf("BENCH  %ld tokens  %.3f s  %.2f tok/s  (threads=%d, %s)",
-               arg3,dt,arg3/dt,threads,M.quant==2?"packed":M.quant?"ternary":"fp32");
+               arg3,dt,arg3/dt,threads,
+               M.quant==3?"tagged":M.quant==2?"packed":M.quant?"ternary":"fp32");
         // the witness, same convention as the profiler's own ffn row (divided by arg3, warm token
         // included) so the two are directly comparable against a plateau measured either way
         if(g_wit&&!g_prof) printf("  ffn~ %.3f ms/tok",g_w0/arg3*1e3*M.L);

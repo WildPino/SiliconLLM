@@ -141,6 +141,36 @@ def nbytes(kind, out, in_, quant):
     return out * (in_ // 2) + 4 * out              # two trits per byte + fp32 per-row scale
 
 
+# ---------------------------------------------------------------- E25: the tagged layout
+# quant==3 gives every matrix its own int32 kind, so a file can mix packed FFNs, fp32 k/v and
+# factored q/o.  These sizes are derived HERE, from the format description, and never from the
+# writer -- that separation is the whole value of Gate V3: if the writer and this function are
+# both wrong they have to be wrong in the same way to agree.
+def nbytes_tagged(spec, out, in_):
+    """Bytes of ONE matrix in the quant==3 layout, its int32 kind tag included.
+
+    spec: "packed" | "f32" | ("factored", rank).  A factored matrix stores A [out,rank] and
+    B [rank,in_] as ordinary TAGGED matrices, so each of them carries a kind tag of its own.
+    """
+    if spec == "f32":
+        return 4 + 4 * out * in_
+    if spec == "packed":
+        return 4 + out * (in_ // 2) + 4 * out
+    kind, r = spec
+    assert kind == "factored" and r > 0 and r % 2 == 0
+    a = 4 + out * (r // 2) + 4 * out               # A, tagged packed
+    b = 4 + r * (in_ // 2) + 4 * r                 # B, tagged packed
+    return 4 + 4 + a + 4 * r + b                   # kind, rank, A, s, B
+
+
+def layout_bytes_tagged(D, F, L, NH, NKV, HD, V, tied, spec_of):
+    """Total file bytes for a quant==3 file, given spec_of(name, out, in_) -> spec."""
+    n = 52
+    for (name, kind, out, in_) in layout(D, F, L, NH, NKV, HD, V, tied, 3):
+        n += 4 * out * in_ if kind == "f" else nbytes_tagged(spec_of(name, out, in_), out, in_)
+    return n
+
+
 def read_header(path):
     with open(path, "rb") as fh:
         assert fh.read(8) == X.MAGIC, "not a QWENDON1 file: " + path

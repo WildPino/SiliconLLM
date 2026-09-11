@@ -37,6 +37,8 @@ sys.path.insert(0, HERE)
 
 MAGIC = b"QWENDON1"
 QUANT_PACKED = 2
+QUANT_TAGGED = 3
+MK_PACKED, MK_FACTORED, MK_F32 = 0, 1, 2
 
 # Real donor shapes, read off benchmarks/donor_adaptation/configs/*.json.  T10 is synthetic and
 # is marked so everywhere it appears.  (D, F, L, NH, NKV, HD, V, tied, source)
@@ -84,6 +86,28 @@ def w_packed(fh, rng, n_out, n_in, mode):
     fh.write(np.ascontiguousarray(scale, dtype="<f4").tobytes())
 
 
+def w_tag_packed(fh, rng, n_out, n_in, mode):
+    fh.write(struct.pack("<i", MK_PACKED))
+    w_packed(fh, rng, n_out, n_in, mode)
+
+
+def w_tag_factored(fh, rng, n_out, n_in, mode, r):
+    """kind 1: A [n_out, r] packed, s [r] fp32, B [r, n_in] packed.
+
+    WHY THIS BELONGS IN A SYNTHETIC WRITER.  Time depends on shape and format, not on values
+    (brief s4 Gate V1 plants that as a control).  The factored form changes the SHAPE of the
+    work -- r*(out+in) weights instead of out*in, and two matvec calls instead of one -- and
+    that is exactly what has never been measured: E21 and E22 installed the dense product A.B,
+    so every rank number this programme published priced the cut's QUALITY and never its COST.
+    """
+    assert r > 0 and r % 2 == 0 and n_in % 2 == 0
+    fh.write(struct.pack("<ii", MK_FACTORED, r))
+    w_tag_packed(fh, rng, n_out, r, mode)                          # A
+    fh.write(np.ascontiguousarray(rng.random(r, dtype=np.float32) * 0.5 + 0.75,
+                                  dtype="<f4").tobytes())          # s
+    w_tag_packed(fh, rng, r, n_in, mode)                           # B
+
+
 def w_fp32(fh, rng, *shape):
     if len(shape) == 1:
         a = rng.random(shape[0], dtype=np.float32) * 0.04 - 0.02
@@ -111,6 +135,13 @@ def main():
     # 68.1 MB/token, the configuration SPEED_LEDGER s12.2 actually measured its 56.1 tok/s on.
     # Default is therefore `ternary`; `donor` reproduces run 1 and is kept so run 1 stays replayable.
     ap.add_argument("--head", default="ternary", choices=("ternary", "donor"))
+    ap.add_argument("--rank", type=int, default=0,
+                    help="E25: write q_proj and o_proj as the FACTORED kind at this rank, which "
+                         "forces the quant==3 tagged layout.  0 keeps every matrix dense-packed. "
+                         "--rank 0 --tagged is the matched control: same layout, same tags, same "
+                         "bytes per matrix, so a --rank R arm differs from it in ONE thing.")
+    ap.add_argument("--tagged", action="store_true",
+                    help="write the quant==3 tagged layout even at --rank 0")
     ap.add_argument("--seed", type=int, default=1234)
     ap.add_argument("--rms-eps", type=float, default=1e-6)
     ap.add_argument("--rope-theta", type=float, default=1000000.0)
@@ -120,32 +151,58 @@ def main():
     if a.head == "ternary":
         tied = 0                       # untie so the head is written as packed codes, not fp32
     rng = np.random.default_rng(a.seed)
+    tagged = bool(a.tagged or a.rank)
+    quant = QUANT_TAGGED if tagged else QUANT_PACKED
+    if a.rank and (a.rank % 2 or a.rank <= 0):
+        sys.exit("--rank must be positive and even (two trits per byte)")
+    if a.rank and a.rank >= min(D, NH * HD):
+        print("  NOTE: rank %d is not a REDUCTION at this shape (q is [%d,%d], o is [%d,%d]) -- "
+              "the factored form moves MORE weights than the dense one here."
+              % (a.rank, NH * HD, D, D, NH * HD), flush=True)
     act = active_weights(D, F, L, NH, NKV, HD, V)
+    act_r = act
+    if a.rank:
+        dense_qo = (NH * HD * D + D * NH * HD) * L
+        fact_qo = (a.rank * (NH * HD + D) + a.rank * (D + NH * HD)) * L
+        act_r = act - dense_qo + fact_qo
     print("[%s] %s  D=%d F=%d L=%d H=%d/%d hd=%d V=%d tied=%d head=%s  active=%.3f B  codes=%s"
-          % (a.shape, src, D, F, L, NH, NKV, HD, V, tied, a.head, act / 1e9, a.codes), flush=True)
+          % (a.shape, src, D, F, L, NH, NKV, HD, V, tied, a.head, act_r / 1e9, a.codes), flush=True)
+    if a.rank:
+        print("  --rank %d on q_proj/o_proj: active %.4f B -> %.4f B  (%+.2f%%), "
+              "matvec calls/token %d -> %d"
+              % (a.rank, act / 1e9, act_r / 1e9, 100.0 * (act_r - act) / act,
+                 L * 7 + 1, L * 7 + 1 + 2 * L), flush=True)
 
     QD, KD = NH * HD, NKV * HD
     with open(a.out, "wb") as fh:
         fh.write(MAGIC)
-        fh.write(struct.pack("<9i", D, F, L, NH, NKV, HD, V, tied, QUANT_PACKED))
+        fh.write(struct.pack("<9i", D, F, L, NH, NKV, HD, V, tied, quant))
         fh.write(struct.pack("<2f", float(a.rms_eps), float(a.rope_theta)))
+        wp = (lambda o, i: w_tag_packed(fh, rng, o, i, a.codes)) if tagged else \
+             (lambda o, i: w_packed(fh, rng, o, i, a.codes))
         w_fp32(fh, rng, V, D)                                  # embed
         for li in range(L):
             w_ones(fh, D)                                      # input_layernorm
-            for n_out in (QD, KD, KD):                         # q, k, v  -- each with a bias
-                w_packed(fh, rng, n_out, D, a.codes)
+            for nm, n_out in (("q", QD), ("k", KD), ("v", KD)):   # each with a bias
+                if nm == "q" and a.rank:
+                    w_tag_factored(fh, rng, n_out, D, a.codes, a.rank)
+                else:
+                    wp(n_out, D)
                 w_fp32(fh, rng, n_out)
-            w_packed(fh, rng, D, QD, a.codes)                  # o_proj, no bias
+            if a.rank:
+                w_tag_factored(fh, rng, D, QD, a.codes, a.rank)   # o_proj, no bias
+            else:
+                wp(D, QD)
             w_ones(fh, D)                                      # post_attention_layernorm
-            w_packed(fh, rng, F, D, a.codes)                   # gate
-            w_packed(fh, rng, F, D, a.codes)                   # up
-            w_packed(fh, rng, D, F, a.codes)                   # down
+            wp(F, D)                                           # gate
+            wp(F, D)                                           # up
+            wp(D, F)                                           # down
             if (li + 1) % 8 == 0 or li == L - 1:
                 print("  layer %d/%d  (%.2f GB written)" % (li + 1, L, fh.tell() / 2 ** 30),
                       flush=True)
         w_ones(fh, D)                                          # model.norm
         if not tied:
-            w_packed(fh, rng, V, D, a.codes)                   # lm_head
+            wp(V, D)                                           # lm_head
 
     size = os.path.getsize(a.out)
 
@@ -155,10 +212,16 @@ def main():
     import e1_bpb_through_engine as E1
     hdr = E1.read_header(a.out)
     for k, want in (("D", D), ("F", F), ("L", L), ("NH", NH), ("NKV", NKV),
-                    ("HD", HD), ("V", V), ("tied", tied), ("quant", QUANT_PACKED)):
+                    ("HD", HD), ("V", V), ("tied", tied), ("quant", quant)):
         assert hdr[k] == want, "header %s: wrote %r, read back %r" % (k, want, hdr[k])
-    lay = E1.layout(D, F, L, NH, NKV, HD, V, tied, QUANT_PACKED)
-    want = hdr["off0"] + sum(E1.nbytes(kind, o, i, QUANT_PACKED) for (_, kind, o, i) in lay)
+    lay = E1.layout(D, F, L, NH, NKV, HD, V, tied, quant)
+    if tagged:
+        def spec_of(name, o, i):
+            return ("factored", a.rank) if (a.rank and (name.endswith(".q_proj")
+                                                        or name.endswith(".o_proj"))) else "packed"
+        want = E1.layout_bytes_tagged(D, F, L, NH, NKV, HD, V, tied, spec_of)
+    else:
+        want = hdr["off0"] + sum(E1.nbytes(kind, o, i, QUANT_PACKED) for (_, kind, o, i) in lay)
     assert want == size, ("GATE V3 FAILED: E1's layout says %d bytes, the file is %d (%+d). "
                           "The write order or a tensor size disagrees with the format."
                           % (want, size, size - want))
@@ -168,11 +231,13 @@ def main():
     meta = {"synthetic": True, "brief": "BRIEF_E3_ENGINE_AT_TARGET_SCALE.md @ d4937a2",
             "shape": a.shape, "shape_source": src, "codes": a.codes, "seed": a.seed,
             "d_model": D, "d_ffn": F, "n_layers": L, "n_heads": NH, "n_kv_heads": NKV,
-            "head_dim": HD, "vocab": V, "tied": tied, "head": a.head, "quant": "packed",
-            "active_weights_per_token": int(act), "bytes": size,
+            "head_dim": HD, "vocab": V, "tied": tied, "head": a.head,
+            "quant": "tagged" if tagged else "packed", "rank": a.rank,
+            "active_weights_per_token": int(act_r),
+            "active_weights_per_token_dense_qo": int(act), "bytes": size,
             "WARNING": "weights are NOISE -- this file has no meaningful BPB and none is computed"}
     json.dump(meta, open(a.out + ".json", "w", encoding="utf-8"), indent=1)
-    print("wrote %s  (%.2f GB)  active %.3f B weights/token" % (a.out, size / 2 ** 30, act / 1e9))
+    print("wrote %s  (%.2f GB)  active %.3f B weights/token" % (a.out, size / 2 ** 30, act_r / 1e9))
 
 
 if __name__ == "__main__":
