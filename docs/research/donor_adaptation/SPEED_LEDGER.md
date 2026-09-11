@@ -2962,3 +2962,152 @@ shape and not a model**; and `T10-R512` is `r/D = 1/8`, where E21 validated only
 
 **`6.79 tok/s` is untouched** — that is the real 7.072 B packed donor, a different artifact and
 a real one.
+
+---
+
+## 38. E26 — a gathered weight costs more than a streamed one, and §37's invariant does not extend to the carve
+
+**Probe**: `probes/E26_WHAT_AN_ACTIVATED_WEIGHT_COSTS.md`. **Brief**:
+`briefs/BRIEF_E26_WHAT_AN_ACTIVATED_WEIGHT_COSTS.md`, pushed before the runner existed.
+**Results**: part A `engine/results/e26_parity_carve.json`, part B
+`engine/results/e26_carve_cost.json`. The VOID first attempt is kept as
+`engine/results/e26_carve_cost_contended.json`.
+
+### 38.1 What §37 established and what §38 takes back
+
+§37.3 is the load-bearing paragraph of this ledger's budget arithmetic: at `T10`, four arms whose
+**rates** differ by 15% delivered **charged throughput inside a 1.54% band** (49.59-50.36 G active
+weights/s). That is what licenses charging a rank cut `2*D*r` and reading tok/s straight off a
+weight count.
+
+**E26 asks whether the same holds when the weights are GATHERED instead of streamed, and it does
+not.**
+
+| | E25, rank | E26, carve `T10` | E26, carve `S15` |
+|---|---|---|---|
+| charged-throughput band | **1.54%** | **12.54%** | **18.00%** |
+| range, G active weights/s | 49.59-50.36 | 38.03-43.12 | 34.34-41.12 |
+
+**The charge model `3*D*GSZ*k` is therefore optimistic**, and every `k` in every budget table in
+this programme -- 31 (E18), 32 (E19), 36 (E23 s7), E24, E27 -- inherits that.
+
+### 38.2 The planted control, and this time it resolves
+
+At `k = E` the carve keeps every group, so it moves the dense arm's weights plus the router:
+byte-neutral to a **registered** `-0.47%` at `T10` and `-0.71%` at `S15`. What it loses below that
+offset is the carve machinery itself -- the router matvec, the top-`k`, the row list, the gather,
+the transposed kernel's access pattern.
+
+| shape | `k = E` measured | bytes predicted | **machinery's own cost** |
+|---|---|---|---|
+| `S15` | -4.98% | -0.71% | **-4.30%** |
+| `T10` | -6.80% | -0.47% | **-6.36%** |
+
+**Contrast with 37.3.** E25's planted control at `r = D/2` read `-0.43%` / `-2.46%` with
+dispersions of 7.3% / 6.4% -- **not resolvable from zero**, i.e. the rank path's own cost is below
+what this box can measure. **The carve path's own cost IS resolvable**: 4-6%, paid before a single
+group is dropped, and charged to nothing anywhere in this ledger until now.
+
+A second control separates the machinery from the format it lives in: `S15-PACKED` vs `S15-DENSE`
+are the same weights in the untagged and the `quant == 4` container with no carving, and read
+**1.0056** (paired 1.0079) against a byte prediction of exactly 1.0000. **The container is free;
+the carve is not.**
+
+### 38.3 The shape of the loss -- a U, and why the registered trigger missed it
+
+The brief registered: *if the deep arms (`K16`, `K4`) fall below 40 G weights/s, a gathered weight
+costs more than a streamed one.* **`T10-K16` reads 41.41 and `T10-K4` 41.67. The trigger does NOT
+fire**, and it is not claimed that it did. It was the wrong statistic. Charged throughput relative
+to each shape's own dense control:
+
+| `k` | `T10` | `S15` |
+|---|---|---|
+| 256 | 0.936 | 0.957 |
+| 128 | 0.902 | 0.835 |
+| 64 | **0.882** | 0.879 |
+| 16 | 0.960 | 0.880 |
+| 4 | 0.967 | 0.941 |
+
+**At small `k` the FFN is a small share of the token** -- 5.7% of active weights at `T10-K4` -- so
+the arm is nearly all dense non-FFN floor and its charged throughput returns to the dense rate
+whatever the gathered path costs. **The dense floor masks the effect exactly where the trigger was
+looking.** The band was the right statistic and it was already in the brief.
+
+Attributing the floor to the dense rate and solving `1/r = (1-f) + f/x` for the gathered FFN's own
+efficiency `x`, with intervals from each arm's own dispersion:
+
+| arm | FFN share | `x` | interval |
+|---|---|---|---|
+| `S15-PACKED` | 0.749 | **1.008** | [0.969, 1.047] -- the null behaves |
+| `S15-K256` | 0.751 | 0.943 | [0.903, 0.985] |
+| `S15-K128` | 0.603 | 0.754 | [0.701, 0.808] |
+| `S15-K16` | 0.177 | **0.564** | [0.479, 0.673] |
+| `T10-K256` | 0.794 | 0.921 | [0.831, 1.015] |
+| `T10-K64` | 0.490 | 0.786 | [0.724, 0.852] |
+| `T10-K16` | 0.194 | 0.825 | [0.740, 0.925] |
+| `T10-K4` | 0.057 | 0.621 | [0.390, 1.339] -- **not resolvable, do not quote** |
+
+**This is a post-hoc model and per E14 s6 it is not a gate.** It also cannot separate the gather's
+locality cost from fixed per-token selection overhead; both produce this shape. 38.6 item 1 is the
+arm that would.
+
+### 38.4 Row length is the variable -- prediction 5, registered as a direction, lands
+
+A kept row is **768 B at `S15` and 2048 B at `T10`**. The brief predicted the short-row shape would
+suffer more, and it does, on three independent comparisons: the band is **18.00% at `S15` vs
+12.54% at `T10`**; gathered-FFN efficiency at `k = 16` is **0.564 vs 0.825** with **disjoint**
+intervals; and net of machinery the `S15` arms fall 17-24 points short of their byte prediction
+while the `T10` deep arms overshoot theirs.
+
+**So it is a locality cost with a lever attached**: a coarser carve -- fewer, longer runs for the
+same activated fraction -- should recover part of it, and that is an exporter change, not a kernel
+change.
+
+### 38.5 What it costs the tables, and what it does not change
+
+The correction multiplies the **FFN term**, not the token:
+
+- **E24's `K156` at `T10`** (E24 s6: `6.14 G` ~ 8.1 tok/s): `T10`'s ratio interpolates to ~0.91
+  between `K128` 0.902 and `K256` 0.936, so **~7.4 tok/s**.
+- **E27's `FLOOR-MIN`** at `k = 17.3`, where `T10` measures 0.960: `9.37` becomes **~9.0**.
+- **In general**, at the depths the 50 tok/s budget permits at `T10` (`k ~ 2...18`) the correction
+  on the token is **3-5%** because the floor dominates, but on the **FFN allowance itself** it is
+  **~17%** (`x ~ 0.83`) -- the budget permits about a sixth fewer groups than the charge model says.
+
+**No verdict moves.** 32's "FFN-only carving cannot reach the target", E24's `DEPTH-RECOVERS` and
+E27's `FLOOR-IS-NOT-ENOUGH` are negative or quality-conditioned, and a correction that makes the
+carve worse strengthens all three. What changes is that carved tok/s figures are now known to be
+optimistic and by how much.
+
+### 38.6 Validity, stated as a constraint and not a footnote
+
+The first attempt was run with a game open, 5.82 of 12 cores held, and was **VOIDed**. This run
+carries three idleness instruments:
+
+1. **The witness, rebuilt.** The old one gated on the *max* of a short sample at 12% and refused an
+   idle desktop three times running. It now gates on the **mean**, and `--selftest` is a planted
+   control on the instrument: quiet **12.1%**, six spinning processes **61.5%**, fires on the
+   known-positive and accepts the quiet box. The bar moved to 25% **by derivation between those two
+   populations**, with the reasoning and the admission written above `IDLE_BAR`. In-run readings:
+   10.6 / 5.8 / 6.5 / 8.0% mean.
+2. **The E25 anchor, which is the real instrument and which nearly failed.** `S15-PACKED` reads
+   **26.79 tok/s against E25's published 29.70 -- `-9.81%` against a `+-10%` bar.** It passed by
+   0.19 of a point. Both `S15` arms decline monotonically across reps (28.04/27.53/24.34 and
+   27.27/27.32/25.77), which is thermal drift, not contention.
+3. **The pairing check.** Because arms are interleaved by rep, a common-mode drift cancels in the
+   ratios. Verified: recomputing every ratio paired within each rep changes nothing (`T10-K256`
+   0.9312 paired vs 0.9320, largest disagreement anywhere 0.4%).
+
+**Therefore: this record is a RATIO record.** No absolute tok/s from it enters this ledger, and the
+registered absolute form of prediction 3 (*every carved arm inside 45-55 G weights/s*) is
+**untestable here** -- the dense control itself reads 43.12 where E25 read ~49.9 -- so its failure
+is not counted as evidence.
+
+**Owed**: (1) one arm that runs the selection and then uses every group anyway, to split fixed
+overhead from the gather; (2) the coarse-granularity arm 38.4 implies; (3) a cold-box re-run with
+cooldowns between reps, which would make the absolute form testable; (4) **the E25 anchor should
+become standard equipment on every timing probe here** -- a CPU percentage is a pre-filter, a
+reproduced published rate is the instrument.
+
+**`6.79 tok/s` is untouched** -- that is the real 7.072 B packed donor, and nothing here is a
+measurement of it.

@@ -27,7 +27,7 @@ with FK_DENSE on every layer, so the container is not a variable either.
 PROTOCOL.  Idle box, --threads 6, --fuse off everywhere (a carved FFN cannot fuse gate|up),
 >= 3 repetitions INTERLEAVED by rep so a thermal drift hits every arm equally, dispersion
 printed with every rate.  A contended timing is not a timing -- and the first attempt at this
-run PROVED that the hard way: it read S15 dense at 16.21 tok/s where E25 read 29.50 on the
+run PROVED that the hard way: it read S15 dense at 16.21 tok/s where E25 read 29.70 on the
 same shape, with dispersions of 20-39%, because the box was running a game and 5.82 of 12
 cores were busy.  So idleness is now an INSTRUMENT and not an intention: cpu_busy_pct()
 samples the system before the run and after every repetition, the run REFUSES to start on a
@@ -64,20 +64,61 @@ def log(m):
 # Locale-independent on purpose: the Get-Counter path '\Processor(_Total)\% Processor Time'
 # does NOT exist on this box, whose Windows is Italian and localizes counter names.  CIM class
 # and property names are not localized.
-IDLE_BAR = 12.0          # percent of all logical cores; the engine wants 6 of 12 to itself
+# THE BAR, DERIVED RATHER THAN TUNED -- and the reasoning is here because the first version of
+# this number (12%) was set by intuition and turned out to sit INSIDE this box's noise.
+#
+# Measured with --selftest on a box with only an IDE and a browser open: the idle floor is
+# 11-13% mean with peaks to 28%, and six spinning processes read 67%.  So:
+#   * a bar at 12% rejects a genuinely idle desktop for its own background, and
+#   * the run this instrument exists to reject had 5.82 of 12 cores = 48% held by a game.
+# The bar therefore has to sit between this box's idle floor and that failure.  25% is two
+# standard desktop baselines above the floor and half the load that ruined the first attempt.
+#
+# IT IS A COARSE PRE-FILTER AND NOTHING MORE.  A CPU percentage cannot resolve the few percent
+# that separates a good timing from a bad one -- to hold the error under 5% the background would
+# have to stay below ~0.3 of a core, which is below the floor of any real desktop.  The
+# LOAD-BEARING validity test is the E25 ANCHOR at the bottom of this file: reproduce a rate that
+# was measured on an idle box and published, or the record is void whatever this number said.
+IDLE_BAR = 25.0          # percent of all logical cores, MEAN; see the derivation above
 PS_BUSY = ("$v=@(); 1..%d | %%{ $p = Get-CimInstance Win32_PerfFormattedData_PerfOS_Processor"
            " | Where-Object {$_.Name -eq '_Total'}; $v += [int]$p.PercentProcessorTime;"
-           " Start-Sleep -Milliseconds 700 }; ($v | Measure-Object -Maximum).Maximum")
+           " Start-Sleep -Milliseconds 700 }; $m=($v | Measure-Object -Average -Maximum);"
+           " \"$($m.Average) $($m.Maximum)\"")
 
 
-def cpu_busy_pct(samples=3):
-    """System-wide CPU busy, worst of `samples` readings.  -1 if it cannot be read."""
+def cpu_busy(samples=6):
+    """System-wide CPU busy over `samples` readings ~700 ms apart: (mean, max), -1 if unreadable.
+
+    THE GATE IS THE MEAN, NOT THE MAX, and that is a correction to the first version of this
+    instrument rather than a convenience.  What ruins a six-minute timing is SUSTAINED
+    contention -- the first attempt had a game holding 5.82 of 12 cores for the whole run.  A
+    desktop with an IDE and a browser open never reads zero and spikes to 20% for 700 ms, and
+    barring on the max of a few instantaneous samples rejects an idle box for those spikes.  The
+    max is still measured and still recorded, because a big spike during a rep is worth seeing.
+
+    Changing a gate in order to pass it is how an instrument stops being one, so this version is
+    re-validated on a PLANTED load before it is used -- see `--selftest`.
+    """
     r = subprocess.run(["powershell", "-NoProfile", "-NonInteractive", "-Command",
                         PS_BUSY % samples], capture_output=True)
     try:
-        return float(r.stdout.decode(errors="replace").strip())
+        mean_s, max_s = r.stdout.decode(errors="replace").strip().split()
+        return float(mean_s), float(max_s)
     except ValueError:
-        return -1.0
+        return -1.0, -1.0
+
+
+def cpu_busy_pct(samples=3):
+    """Back-compat for anything that wants one number: the mean."""
+    return cpu_busy(samples)[0]
+
+
+# The SECOND, independent idleness test, and the stronger one: E25 measured this exact shape in
+# this exact container on an idle box and published it.  A CPU percentage is a proxy; reproducing
+# a published rate is the thing itself.  Read from e25_rank_cost.json's own S15-PACKED row:
+# rates [29.59, 29.44, 30.07], mean 29.70, spread 2.1%.
+E25_S15_PACKED = 29.70
+ANCHOR_TOL = 0.10
 
 
 def active(shape, k, head_ternary=True):
@@ -132,6 +173,43 @@ def bench(engine, w, ntok, threads, k=0):
     return float(m.group(3))
 
 
+def selftest_witness():
+    """THE PLANTED CONTROL ON THE INSTRUMENT ITSELF.
+
+    The gate moved from the max of a few samples to the mean, and a gate that is relaxed in
+    order to pass it is not a gate.  So: read the box, then hold 6 of 12 logical cores with
+    spinning processes -- the same order of contention the first attempt actually suffered --
+    and require the witness to FIRE.  If it does not, the instrument is broken and no timing
+    taken with it counts.
+    """
+    log("== self-test of the contention witness ==")
+    m0, p0 = cpu_busy(8)
+    log("  quiet:  %.1f%% mean / %.0f%% peak   (bar %.0f%% on the mean)" % (m0, p0, IDLE_BAR))
+    # Built line by line so no backslash escape has to survive a shell round-trip.
+    spin = "\n".join(["import time", "t = time.time()", "x = 0.0",
+                      "while time.time() - t < 30.0:", "    x += 1.0"])
+    kids = [subprocess.Popen([sys.executable, "-c", spin],
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            for _ in range(6)]
+    try:
+        m1, p1 = cpu_busy(8)
+    finally:
+        for k in kids:
+            k.kill()
+        for k in kids:
+            k.wait()
+    log("  loaded: %.1f%% mean / %.0f%% peak   (6 spinning processes, 6 of 12 cores)"
+        % (m1, p1))
+    fires = m1 > IDLE_BAR
+    quiet_ok = 0.0 <= m0 <= IDLE_BAR
+    log("")
+    log("  FIRES ON THE KNOWN-POSITIVE: %s   (reads the quiet box as idle: %s)"
+        % ("YES" if fires else "NO -- THE INSTRUMENT IS BROKEN", "yes" if quiet_ok else "no"))
+    m2, _ = cpu_busy(6)
+    log("  after:  %.1f%% mean  (the load is gone)" % m2)
+    return 0 if fires else 4
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dir", default="D:/_ktmp/e26")
@@ -140,11 +218,16 @@ def main():
     ap.add_argument("--threads", type=int, default=6)
     ap.add_argument("--tokens", type=int, default=0, help="0 = per-shape default")
     ap.add_argument("--smoke", action="store_true")
+    ap.add_argument("--selftest", action="store_true",
+                    help="re-validate the contention witness on a PLANTED load and exit: it "
+                         "must read idle, then FIRE while 6 spinning processes hold the box.")
     ap.add_argument("--allow-contended", action="store_true",
                     help="run even though the box is busy.  The record is then stamped "
                          "contended and NO number from it may enter a ledger.")
     ap.add_argument("--out", default=os.path.join(HERE, "results", "e26_carve_cost.json"))
     a = ap.parse_args()
+    if a.selftest:
+        return selftest_witness()
     os.makedirs(a.dir, exist_ok=True)
     os.makedirs(os.path.dirname(a.out), exist_ok=True)
     shapes = SHAPES_SMOKE if a.smoke else SHAPES_FULL
@@ -154,9 +237,9 @@ def main():
         return 2
     if a.out.endswith(".json") and a.smoke:
         a.out = a.out[:-5] + "_smoke.json"
-    busy0 = cpu_busy_pct()
-    log("  contention witness: %.0f%% of all logical cores busy before the run (bar %.0f%%)"
-        % (busy0, IDLE_BAR))
+    busy0, peak0 = cpu_busy(8)
+    log("  contention witness: %.1f%% mean / %.0f%% peak of all logical cores busy before the "
+        "run (bar %.0f%% on the MEAN)" % (busy0, peak0, IDLE_BAR))
     if busy0 > IDLE_BAR and not a.allow_contended:
         log("")
         log("REFUSING: a contended timing is not a timing.  The first E26 part B attempt read")
@@ -164,7 +247,7 @@ def main():
         log("  box was busy.  Close what is using the machine and run this again, or pass")
         log("  --allow-contended to produce a record that is explicitly void.")
         return 3
-    busy = [busy0]
+    busy, peaks = [busy0], [peak0]
     t_start = time.time()
 
     # (tag, shape, k)  -- k == 0 is the dense control, and it is a DIFFERENT file; every k > 0
@@ -206,8 +289,10 @@ def main():
                       a.threads, max(k, 0))
             rates[tag].append(v)
             log("  rep %d  %-14s %7.2f tok/s   (%d tokens)" % (rep + 1, tag, v, n))
-        busy.append(cpu_busy_pct(2))
-        log("  rep %d  contention witness: %.0f%% busy" % (rep + 1, busy[-1]))
+        m, pk = cpu_busy(4)
+        busy.append(m)
+        peaks.append(pk)
+        log("  rep %d  contention witness: %.1f%% mean / %.0f%% peak" % (rep + 1, m, pk))
     contended = max(busy) > IDLE_BAR
     log("")
     if contended:
@@ -219,7 +304,8 @@ def main():
     rec = {"brief": "BRIEF_E26_WHAT_AN_ACTIVATED_WEIGHT_COSTS.md", "reps": reps,
            "threads": a.threads, "smoke": bool(a.smoke), "E": E_GROUPS,
            "k_grid": list(K_GRID), "arms": {},
-           "cpu_busy_pct": busy, "idle_bar_pct": IDLE_BAR, "contended": bool(contended),
+           "cpu_busy_mean_pct": busy, "cpu_busy_peak_pct": peaks,
+           "idle_bar_pct": IDLE_BAR, "contended": bool(contended),
            "VOID_AS_A_TIMING": bool(contended)}
     log("  arm            active/tok    mean tok/s   spread   vs DENSE   byte prediction   "
         "G weights/s")
@@ -277,6 +363,32 @@ def main():
         log("        2*D*r and 3*D*GSZ*k the right charges.  A band that opens up says a")
         log("        GATHERED weight costs more than a STREAMED one, and every k in every")
         log("        budget table here is optimistic.")
+    # ---- THE SECOND IDLENESS TEST, and the stronger one.
+    # A CPU percentage is a proxy for "the box was idle".  Reproducing a rate that was measured
+    # on an idle box and published IS the thing itself.  E25 ran this exact shape in this exact
+    # untagged container and recorded S15-PACKED at 29.70 tok/s (rates 29.59 / 29.44 / 30.07,
+    # spread 2.1%).  If this run cannot reproduce that within the +-5% every absolute timing
+    # here carries, doubled for safety, then something held the machine and NOTHING in this
+    # record is a timing -- whatever the witness said.
+    anch = None
+    if "S15-PACKED" in rec["arms"]:
+        got = rec["arms"]["S15-PACKED"]["mean_tok_s"]
+        dev = (got - E25_S15_PACKED) / E25_S15_PACKED
+        anch = {"arm": "S15-PACKED", "measured": got, "e25_published": E25_S15_PACKED,
+                "rel_dev": dev, "tol": ANCHOR_TOL, "passes": bool(abs(dev) <= ANCHOR_TOL)}
+        log("")
+        log("  E25 ANCHOR  S15-PACKED reads %.2f tok/s against E25's published %.2f (%+.2f%%, "
+            "bar +-%.0f%%) -> %s"
+            % (got, E25_S15_PACKED, 100 * dev, 100 * ANCHOR_TOL,
+               "PASS" if anch["passes"] else "FAIL"))
+        if not anch["passes"]:
+            log("  *** THE ANCHOR FAILED.  This run did not reproduce a rate measured on an")
+            log("      idle box in the same container at the same shape, so the box was not")
+            log("      idle and this record is VOID AS A TIMING regardless of the witness. ***")
+            rec["contended"] = True
+            rec["VOID_AS_A_TIMING"] = True
+    rec["e25_anchor"] = anch
+
     rec["seconds"] = time.time() - t_start
     json.dump(rec, open(a.out, "w", encoding="utf-8"), indent=1)
     log("")

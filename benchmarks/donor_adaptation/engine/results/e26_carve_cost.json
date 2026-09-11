@@ -1,0 +1,269 @@
+{
+ "brief": "BRIEF_E26_WHAT_AN_ACTIVATED_WEIGHT_COSTS.md",
+ "reps": 3,
+ "threads": 6,
+ "smoke": false,
+ "E": 256,
+ "k_grid": [
+  256,
+  128,
+  64,
+  16,
+  4
+ ],
+ "arms": {
+  "S15-PACKED": {
+   "shape": "S15",
+   "k": -1,
+   "active_weights_per_token": 1543569408,
+   "rates": [
+    27.27,
+    27.32,
+    25.77
+   ],
+   "mean_tok_s": 26.786666666666665,
+   "spread": 0.05786460925833751,
+   "ratio_vs_dense": 1.0056313352521586,
+   "byte_ratio_prediction": 1.0,
+   "charged_G_weights_per_s": 41.34707920896
+  },
+  "S15-DENSE": {
+   "shape": "S15",
+   "k": 0,
+   "active_weights_per_token": 1543569408,
+   "rates": [
+    28.04,
+    27.53,
+    24.34
+   ],
+   "mean_tok_s": 26.636666666666667,
+   "spread": 0.13890626955324736,
+   "ratio_vs_dense": 1.0,
+   "byte_ratio_prediction": 1.0,
+   "charged_G_weights_per_s": 41.115543797760004
+  },
+  "S15-K256": {
+   "shape": "S15",
+   "k": 256,
+   "active_weights_per_token": 1554579456,
+   "rates": [
+    26.24,
+    24.58,
+    25.11
+   ],
+   "mean_tok_s": 25.31,
+   "spread": 0.06558672461477677,
+   "ratio_vs_dense": 0.950193968214241,
+   "byte_ratio_prediction": 0.9929176678892121,
+   "charged_G_weights_per_s": 39.34640603136
+  },
+  "S15-K128": {
+   "shape": "S15",
+   "k": 128,
+   "active_weights_per_token": 976551936,
+   "rates": [
+    37.0,
+    33.67,
+    34.83
+   ],
+   "mean_tok_s": 35.166666666666664,
+   "spread": 0.09469194312796204,
+   "ratio_vs_dense": 1.3202352646727569,
+   "byte_ratio_prediction": 1.580632172337427,
+   "charged_G_weights_per_s": 34.342076416,
+   "ratio_net_of_overhead": 1.389437639931516
+  },
+  "S15-K64": {
+   "shape": "S15",
+   "k": 64,
+   "active_weights_per_token": 687538176,
+   "rates": [
+    54.46,
+    52.72,
+    50.49
+   ],
+   "mean_tok_s": 52.55666666666667,
+   "spread": 0.07553751506310646,
+   "ratio_vs_dense": 1.9730947315730198,
+   "byte_ratio_prediction": 2.245067200457535,
+   "charged_G_weights_per_s": 36.13471473664001,
+   "ratio_net_of_overhead": 2.0765178453839064
+  },
+  "S15-K16": {
+   "shape": "S15",
+   "k": 16,
+   "active_weights_per_token": 470777856,
+   "rates": [
+    72.68,
+    79.86,
+    77.99
+   ],
+   "mean_tok_s": 76.84333333333333,
+   "spread": 0.09343686288118673,
+   "ratio_vs_dense": 2.8848704792892,
+   "byte_ratio_prediction": 3.278763833785759,
+   "charged_G_weights_per_s": 36.176139714559994,
+   "ratio_net_of_overhead": 3.03608586856315
+  },
+  "S15-K4": {
+   "shape": "S15",
+   "k": 4,
+   "active_weights_per_token": 416587776,
+   "rates": [
+    95.85,
+    92.41,
+    90.29
+   ],
+   "mean_tok_s": 92.85000000000001,
+   "spread": 0.05988152934841128,
+   "ratio_vs_dense": 3.4857965210862223,
+   "byte_ratio_prediction": 3.7052681257742908,
+   "charged_G_weights_per_s": 38.680175001600006,
+   "ratio_net_of_overhead": 3.668510470169894
+  },
+  "T10-DENSE": {
+   "shape": "T10",
+   "k": 0,
+   "active_weights_per_token": 10603200512,
+   "rates": [
+    4.29,
+    4.14,
+    3.77
+   ],
+   "mean_tok_s": 4.066666666666666,
+   "spread": 0.1278688524590164,
+   "ratio_vs_dense": 1.0,
+   "byte_ratio_prediction": 1.0,
+   "charged_G_weights_per_s": 43.11968208213333
+  },
+  "T10-K256": {
+   "shape": "T10",
+   "k": 256,
+   "active_weights_per_token": 10653532160,
+   "rates": [
+    4.04,
+    3.9,
+    3.43
+   ],
+   "mean_tok_s": 3.7900000000000005,
+   "spread": 0.16094986807387857,
+   "ratio_vs_dense": 0.9319672131147543,
+   "byte_ratio_prediction": 0.9952755905511811,
+   "charged_G_weights_per_s": 40.3768868864
+  },
+  "T10-K128": {
+   "shape": "T10",
+   "k": 128,
+   "active_weights_per_token": 6425673728,
+   "rates": [
+    6.15,
+    6.06,
+    5.95
+   ],
+   "mean_tok_s": 6.053333333333334,
+   "spread": 0.03303964757709254,
+   "ratio_vs_dense": 1.4885245901639346,
+   "byte_ratio_prediction": 1.650130548302872,
+   "charged_G_weights_per_s": 38.89674496682667,
+   "ratio_net_of_overhead": 1.5971855760773965
+  },
+  "T10-K64": {
+   "shape": "T10",
+   "k": 64,
+   "active_weights_per_token": 4311744512,
+   "rates": [
+    8.55,
+    9.34,
+    8.57
+   ],
+   "mean_tok_s": 8.82,
+   "spread": 0.08956916099773232,
+   "ratio_vs_dense": 2.1688524590163936,
+   "byte_ratio_prediction": 2.4591439688715955,
+   "charged_G_weights_per_s": 38.02958659584,
+   "ratio_net_of_overhead": 2.3271767810026383
+  },
+  "T10-K16": {
+   "shape": "T10",
+   "k": 16,
+   "active_weights_per_token": 2726297600,
+   "rates": [
+    15.48,
+    15.37,
+    14.72
+   ],
+   "mean_tok_s": 15.19,
+   "spread": 0.05003291639236338,
+   "ratio_vs_dense": 3.7352459016393444,
+   "byte_ratio_prediction": 3.8892307692307693,
+   "charged_G_weights_per_s": 41.412460544,
+   "ratio_net_of_overhead": 4.007915567282321
+  },
+  "T10-K4": {
+   "shape": "T10",
+   "k": 4,
+   "active_weights_per_token": 2329935872,
+   "rates": [
+    17.98,
+    18.73,
+    16.95
+   ],
+   "mean_tok_s": 17.886666666666667,
+   "spread": 0.09951546775997025,
+   "ratio_vs_dense": 4.398360655737705,
+   "byte_ratio_prediction": 4.550855085508551,
+   "charged_G_weights_per_s": 41.674786297173334,
+   "ratio_net_of_overhead": 4.719437115215479
+  }
+ },
+ "cpu_busy_mean_pct": [
+  10.625,
+  5.75,
+  6.5,
+  8.0
+ ],
+ "cpu_busy_peak_pct": [
+  23.0,
+  12.0,
+  18.0,
+  19.0
+ ],
+ "idle_bar_pct": 25.0,
+ "contended": false,
+ "VOID_AS_A_TIMING": false,
+ "overhead": {
+  "S15": {
+   "measured": 0.950193968214241,
+   "byte_expected": 0.9929176678892121,
+   "own_cost": 0.9569715586129159
+  },
+  "T10": {
+   "measured": 0.9319672131147543,
+   "byte_expected": 0.9952755905511811,
+   "own_cost": 0.9363911081137167
+  }
+ },
+ "charged_throughput": {
+  "S15": {
+   "min": 34.342076416,
+   "max": 41.115543797760004,
+   "mean": 37.63250928298667,
+   "band": 0.17998978837221022
+  },
+  "T10": {
+   "min": 38.02958659584,
+   "max": 43.11968208213333,
+   "mean": 40.58502456206222,
+   "band": 0.1254180708578753
+  }
+ },
+ "e25_anchor": {
+  "arm": "S15-PACKED",
+  "measured": 26.786666666666665,
+  "e25_published": 29.7,
+  "rel_dev": -0.09809203142536478,
+  "tol": 0.1,
+  "passes": true
+ },
+ "seconds": 242.92946648597717
+}
