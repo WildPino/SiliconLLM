@@ -3111,3 +3111,60 @@ reproduced published rate is the instrument.
 
 **`6.79 tok/s` is untouched** -- that is the real 7.072 B packed donor, and nothing here is a
 measurement of it.
+
+## 39. E28 — the numerator was never a constant: 49.9 becomes 61.64 at the goal's shape
+
+**Probe**: `probes/E28_DOES_THE_KERNEL_TRANSFER.md`. **Brief**:
+`briefs/BRIEF_E28_THE_OTHER_FACTOR.md`, pushed at `bb48974` before the runner existed.
+**Result**: `engine/results/e28_kernel_transfer.json`. Idle box, witness 5.5% mean / 14% peak
+against a 25% bar; 254 s, six arms, three interleaved reps.
+
+### 39.1 The constant this ledger has charged everything against since §10
+
+`THROUGHPUT_G = 49.9` G active weights/s is the number that turns a weight count into a token
+rate here, and §37.3 hardened it: four arms differing 15% in rate delivered charged throughput
+inside **1.54%**. §38 found the first thing it does not cover (the carve). **§39 finds that it was
+never a property of the machine at all -- it is a property of one kernel and one LAYOUT.**
+
+| shape | packed | `--lut` | `--lutblk` | best charged G-w/s |
+|---|---|---|---|---|
+| S15 | 29.30 tok/s | 22.54 | **36.80** | **56.81** |
+| T10 | 4.35 tok/s | 2.49 | **5.81** | **61.64** |
+
+**61.64 against 49.9 is 1.235x**, and the whole of it comes from E13's blocked tile-major layout
+running at the goal's shape for the first time.
+
+### 39.2 The lever GROWS with the shape -- the only thing in this programme that has
+
+0.5 B **1.217x** (E13, published) -> S15 **1.258x** -> T10 **1.338x**, all end-to-end
+`--lutblk` over the packed default, the last two paired within reps here. Every other lever in
+this programme has either failed to transfer upward or transferred as a fraction and lost its
+absolute value doing it.
+
+### 39.3 The budget, and the condition that keeps it from being spendable
+
+`50 tok/s` has meant `<= 0.998 G active/token` (`49.9 / 50`) in every table here. On the measured
+numerator it is **`1.2328 G/token`, 23.5% more room**: E27's `FLOOR-MIN` goes from `k = 17.3` to
+`k = 26.8` of 256, `QO192+KV96` from `8.6` to `15.7`.
+
+**NONE OF THOSE ARMS CAN USE THE KERNEL THAT PRODUCED THE NUMBER.** `donor_engine.c:1437`
+refuses `--lut` on any container that is not `quant==2`, and rank is `quant==3`, carve is
+`quant==4`. So §39.3 is a budget that WOULD exist if the fast kernel composed with the quality
+levers, and today it composes with none of them. That gap is now measured at **1.34x** and is
+the first item this ledger owes forward.
+
+### 39.4 Honesty about the band name
+
+The registered verdict cell `T10-LUTBLK / T10-PACKED` reads **1.3354** (means) / **1.3378**
+(paired), against a registered boundary at 1.30 -- but the three reps read **1.2022, 1.3640,
+1.4471**, so the boundary lies INSIDE the dispersion and rep 1 alone would have named the other
+band. The reps were not dropped and will not be. **The existence and rough size of the lever are
+solid (every rep >= 1.20, known-positive fires at 1.633); the band name is not.**
+
+### 39.5 What it does to the goal
+
+`4.70 -> 5.81 tok/s` dense at `T10`; E27's best COMPARABLE arm scaled by the lever reads
+**10.35 tok/s**. **The gap to 50 tok/s closes from 10.6x to 8.60x** -- the first time since §10
+that it has moved from the engine side, and a long way from enough. Prediction 5 of the brief
+registered exactly this before the run.
+

@@ -1,0 +1,241 @@
+{
+ "brief": "BRIEF_E28_THE_OTHER_FACTOR.md (bb48974)",
+ "question": "Is 49.9 G active weights/s a property of this engine at this shape, or of the container E25 happened to measure it in?",
+ "smoke": false,
+ "threads": 6,
+ "reps": 3,
+ "anchors": {
+  "S15-PACKED": 29.7,
+  "T10-PACKED": 4.6967,
+  "tol": 0.1,
+  "container_note": "E25: S15-PACKED 29.70 vs S15-TAG-R0 29.50, 0.7% -- the container is free"
+ },
+ "obstruction": "donor_engine.c:1437 -- --lut requires M.quant==2, so it refuses quant==3 (rank) and quant==4 (carve)",
+ "verdict_cell": "T10-LUTBLK / T10-PACKED",
+ "idle_bar_pct": 25.0,
+ "cpu_busy_mean_pct": [
+  5.5,
+  14.6666666666667,
+  0.333333333333333,
+  3.66666666666667
+ ],
+ "cpu_busy_peak_pct": [
+  14.0,
+  30.0,
+  1.0,
+  8.0
+ ],
+ "G_E28C": {
+  "per_shape": {
+   "S15": {
+    "lut_sha256": "6fcf94f2eb2d7e744053230f1320676b2b607fd21d3163371e4fa2fe83ed5653",
+    "lutblk_sha256": "6fcf94f2eb2d7e744053230f1320676b2b607fd21d3163371e4fa2fe83ed5653",
+    "identical": true,
+    "n_tokens": 8,
+    "ids": [
+     101,
+     202,
+     303,
+     404,
+     505,
+     606,
+     707,
+     808
+    ]
+   },
+   "T10": {
+    "lut_sha256": "484d011a52eda7d99a45528f002823fd8a0c11e700642a2b340a0bcb09ab8cc8",
+    "lutblk_sha256": "484d011a52eda7d99a45528f002823fd8a0c11e700642a2b340a0bcb09ab8cc8",
+    "identical": true,
+    "n_tokens": 8,
+    "ids": [
+     101,
+     202,
+     303,
+     404,
+     505,
+     606,
+     707,
+     808
+    ]
+   }
+  },
+  "fires": true
+ },
+ "arms": {
+  "S15-PACKED": {
+   "shape": "S15",
+   "flags": [],
+   "rates": [
+    28.2,
+    30.01,
+    29.69
+   ],
+   "mean_tok_s": 29.3,
+   "spread": 0.06177474402730383,
+   "active_weights_per_token": 1543569408,
+   "charged_G_weights_per_s": 45.2265836544
+  },
+  "S15-LUT": {
+   "shape": "S15",
+   "flags": [
+    "--lut"
+   ],
+   "rates": [
+    19.94,
+    23.81,
+    23.86
+   ],
+   "mean_tok_s": 22.536666666666665,
+   "spread": 0.1739387664546664,
+   "active_weights_per_token": 1543569408,
+   "charged_G_weights_per_s": 34.78690922496
+  },
+  "S15-LUTBLK": {
+   "shape": "S15",
+   "flags": [
+    "--lutblk"
+   ],
+   "rates": [
+    38.27,
+    34.81,
+    37.33
+   ],
+   "mean_tok_s": 36.803333333333335,
+   "spread": 0.09401322343990583,
+   "active_weights_per_token": 1543569408,
+   "charged_G_weights_per_s": 56.80849944576
+  },
+  "T10-PACKED": {
+   "shape": "T10",
+   "flags": [],
+   "rates": [
+    4.45,
+    4.45,
+    4.16
+   ],
+   "mean_tok_s": 4.3533333333333335,
+   "spread": 0.0666156202143951,
+   "active_weights_per_token": 10603200512,
+   "charged_G_weights_per_s": 46.15926622890667
+  },
+  "T10-LUT": {
+   "shape": "T10",
+   "flags": [
+    "--lut"
+   ],
+   "rates": [
+    2.51,
+    2.58,
+    2.37
+   ],
+   "mean_tok_s": 2.486666666666667,
+   "spread": 0.0844504021447721,
+   "active_weights_per_token": 10603200512,
+   "charged_G_weights_per_s": 26.366625273173337
+  },
+  "T10-LUTBLK": {
+   "shape": "T10",
+   "flags": [
+    "--lutblk"
+   ],
+   "rates": [
+    5.35,
+    6.07,
+    6.02
+   ],
+   "mean_tok_s": 5.813333333333333,
+   "spread": 0.12385321100917444,
+   "active_weights_per_token": 10603200512,
+   "charged_G_weights_per_s": 61.639938976426656
+  }
+ },
+ "G_E28A": {
+  "measured": 29.3,
+  "e25_published": 29.7,
+  "rel_dev": -0.01346801346801342,
+  "tol": 0.1,
+  "passes": true
+ },
+ "G_E28B": {
+  "measured": 4.3533333333333335,
+  "e25_published": 4.6967,
+  "rel_dev": -0.07310806878588506,
+  "tol": 0.1,
+  "passes": true
+ },
+ "VOID_AS_A_TIMING": false,
+ "G_E28D": {
+  "ratio": 1.6330424493418134,
+  "bar": 1.5,
+  "fires": true,
+  "e13_microbench_512MB": 3.03
+ },
+ "verdict": {
+  "name": "CONTAINER-COSTS",
+  "cell": "T10-LUTBLK / T10-PACKED",
+  "ratio": 1.3353751914241958,
+  "bands": {
+   "CONTAINER-COSTS": "> 1.30",
+   "KERNEL-TRANSFERS": "1.10 - 1.30",
+   "NO-TRANSFER": "< 1.10"
+  },
+  "t10_dense_tok_s": 5.813333333333333,
+  "e27_L21MINRES_scaled_tok_s": 10.349157733537517,
+  "still_short_of_50_by": 4.831311038768868
+ },
+ "seconds": 253.8635175228119,
+ "log": [
+  "== E28: does E13's kernel lever reach the goal's shape? ==",
+  "  engine donor_engine_e26.exe   threads 6   reps 3",
+  "",
+  "  contention witness: 5.5% mean / 14% peak before the run (bar 25% on the MEAN)",
+  "  have  s15_packed    e25_s15_packed.bin",
+  "  have  t10_packed    e28_t10_packed.bin",
+  "",
+  "  -- G-E28C: --lut vs --lutblk must be BYTE-IDENTICAL (sha256, not parity)",
+  "     S15  lut 6fcf94f2eb2d7e744053230f1320676b",
+  "     S15  blk 6fcf94f2eb2d7e744053230f1320676b   -> IDENTICAL",
+  "     T10  lut 484d011a52eda7d99a45528f002823fd",
+  "     T10  blk 484d011a52eda7d99a45528f002823fd   -> IDENTICAL",
+  "",
+  "  rep 1  S15-PACKED     28.20 tok/s   (120 tokens)",
+  "  rep 1  S15-LUT        19.94 tok/s   (120 tokens)",
+  "  rep 1  S15-LUTBLK     38.27 tok/s   (120 tokens)",
+  "  rep 1  T10-PACKED      4.45 tok/s   (40 tokens)",
+  "  rep 1  T10-LUT         2.51 tok/s   (40 tokens)",
+  "  rep 1  T10-LUTBLK      5.35 tok/s   (40 tokens)",
+  "  rep 1  contention witness: 14.7% mean / 30% peak",
+  "  rep 2  S15-PACKED     30.01 tok/s   (120 tokens)",
+  "  rep 2  S15-LUT        23.81 tok/s   (120 tokens)",
+  "  rep 2  S15-LUTBLK     34.81 tok/s   (120 tokens)",
+  "  rep 2  T10-PACKED      4.45 tok/s   (40 tokens)",
+  "  rep 2  T10-LUT         2.58 tok/s   (40 tokens)",
+  "  rep 2  T10-LUTBLK      6.07 tok/s   (40 tokens)",
+  "  rep 2  contention witness: 0.3% mean / 1% peak",
+  "  rep 3  S15-PACKED     29.69 tok/s   (120 tokens)",
+  "  rep 3  S15-LUT        23.86 tok/s   (120 tokens)",
+  "  rep 3  S15-LUTBLK     37.33 tok/s   (120 tokens)",
+  "  rep 3  T10-PACKED      4.16 tok/s   (40 tokens)",
+  "  rep 3  T10-LUT         2.37 tok/s   (40 tokens)",
+  "  rep 3  T10-LUTBLK      6.02 tok/s   (40 tokens)",
+  "  rep 3  contention witness: 3.7% mean / 8% peak",
+  "",
+  "  arm            shape  kernel      mean tok/s   spread   charged G-w/s",
+  "  S15-PACKED    S15    packed          29.30     6.2%         45.23",
+  "  S15-LUT       S15    --lut           22.54    17.4%         34.79",
+  "  S15-LUTBLK    S15    --lutblk        36.80     9.4%         56.81",
+  "  T10-PACKED    T10    packed           4.35     6.7%         46.16",
+  "  T10-LUT       T10    --lut            2.49     8.4%         26.37",
+  "  T10-LUTBLK    T10    --lutblk         5.81    12.4%         61.64",
+  "",
+  "  ANCHOR  S15-PACKED   reads 29.30 against E25's published 29.70 (-1.35%, bar +-10%) -> PASS",
+  "  ANCHOR  T10-PACKED   reads 4.35 against E25's published 4.70 (-7.31%, bar +-10%) -> PASS",
+  "  G-E28D  known-positive  S15-LUTBLK / S15-LUT = 1.633  (bar >= 1.50) -> FIRES",
+  "",
+  "  VERDICT CELL  T10-LUTBLK / T10-PACKED = 1.335  ->  CONTAINER-COSTS",
+  "     T10 dense on the fast kernel: 5.81 tok/s",
+  "     E27's best COMPARABLE floor arm (L21-MINRES, 7.75) scaled by this lever: 10.35 tok/s",
+  "     STILL SHORT OF 50 tok/s BY 4.8x -- the numerator alone does not close the gap."
+ ]
+}
