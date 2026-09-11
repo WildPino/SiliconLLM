@@ -1,0 +1,115 @@
+{
+ "plan": "decisions/T4_HEALING_PROPOSAL.md s3 (H0), s5b",
+ "what": "fp32 masters for ternarize(A).diag(s).ternarize(B) on q_proj/o_proj, rank 512",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "smoke": true,
+ "threads": 6,
+ "rank": 512,
+ "organs": [
+  "q_proj",
+  "o_proj"
+ ],
+ "layers": [
+  0,
+  27
+ ],
+ "calib_slice": {
+  "part": "calib",
+  "n_seq": 4,
+  "seq_len": 512,
+  "seed": 42424,
+  "n_rejected": 0,
+  "total_scored_bytes": 8166,
+  "bytes_per_token": 3.9951076320939336,
+  "ids_sha256": "dca493320377830d3181bf1a84899f89ad1430c117237d50ceed127ede7642d8",
+  "offsets_sha256": "764d7c68a34620d6486bfcad05b7a9fcff13c4c1ac936a8b1beeaac7b133510c",
+  "corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0"
+ },
+ "calib_tokens": 2048,
+ "e22_tb_anchor": {
+  "bpb": 2.812226,
+  "free": 1,
+  "tf": 28
+ },
+ "G_H0a": {
+  "claim": "the diag(s) form IS E22's QO512-TB: (i) identical ternary codes, zero tolerance; (ii) scales and the per-row identity s*aB == aB_e22 to fp32 round-off; (iii) assembled products to fp32 round-off",
+  "note": "(iii) cannot be exact -- (A_t*s).B_t0 and A_t.(s*B_t0) are the same product in a different summation order; (i) is the structural claim",
+  "prod_tol": 0.0,
+  "organs_with_different_codes": [],
+  "worst_scale_rel": 0.0,
+  "worst_prod_rel": 0.0,
+  "worst_organ": null,
+  "fires": true
+ },
+ "trainable_params": 6293504,
+ "s5b2_withdrawn": {
+  "claim_in_proposal": "E22's fold puts a large dynamic range into B.x, the fp16 intermediate, so pull A's column norms out into an fp32 s",
+  "measured": "FALSE, and in the opposite direction -- the fold is better on BOTH axes in every organ; see rows[].range_Bx_* and rows[].rownorm_*",
+  "why": "c = ||A column|| and ||B row|| are near-reciprocal (corr(log,log) ~ -0.99) because A = W H^1/2 Br carries the singular values and B = Br' H^-1/2 their inverse, so folding c into B BALANCES the pair rather than unbalancing it",
+  "kept_instead": "E22's fold verbatim; s survives as a per-rank learned scale initialised to ones (0.03% of trainable mass)"
+ },
+ "rows": [
+  {
+   "layer": 0,
+   "organ": "q_proj",
+   "codes_identical": true,
+   "scale_relmax": 0.0,
+   "prod_relmax": 0.0,
+   "rel_err": 0.9947624802589417,
+   "zero_A": 0.3536491394042969,
+   "zero_B": 0.44964599609375,
+   "c_spread": 762.0096359593343,
+   "range_Bx_folded_KEPT": 22.36485481262207,
+   "range_Bx_unfolded": 36.742149353027344,
+   "rownorm_spread_folded_KEPT": 15.645291328430176,
+   "rownorm_spread_unfolded": 51.70508575439453
+  },
+  {
+   "layer": 0,
+   "organ": "o_proj",
+   "codes_identical": true,
+   "scale_relmax": 0.0,
+   "prod_relmax": 0.0,
+   "rel_err": 0.857900857925415,
+   "zero_A": 0.4138374328613281,
+   "zero_B": 0.5823440551757812,
+   "c_spread": 77.8460680602473,
+   "range_Bx_folded_KEPT": 3.441390037536621,
+   "range_Bx_unfolded": 24.03324317932129,
+   "rownorm_spread_folded_KEPT": 2.881863594055176,
+   "rownorm_spread_unfolded": 28.020248413085938
+  },
+  {
+   "layer": 27,
+   "organ": "q_proj",
+   "codes_identical": true,
+   "scale_relmax": 0.0,
+   "prod_relmax": 0.0,
+   "rel_err": 0.7639462947845459,
+   "zero_A": 0.44153594970703125,
+   "zero_B": 0.4042002260684967,
+   "c_spread": 96.82636089690422,
+   "range_Bx_folded_KEPT": 8.18612003326416,
+   "range_Bx_unfolded": 12.396819114685059,
+   "rownorm_spread_folded_KEPT": 4.635687351226807,
+   "rownorm_spread_unfolded": 22.424280166625977
+  },
+  {
+   "layer": 27,
+   "organ": "o_proj",
+   "codes_identical": true,
+   "scale_relmax": 0.0,
+   "prod_relmax": 0.0,
+   "rel_err": 0.8373183012008667,
+   "zero_A": 0.3512980043888092,
+   "zero_B": 0.520135223865509,
+   "c_spread": 286.4438904823693,
+   "range_Bx_folded_KEPT": 7.199665546417236,
+   "range_Bx_unfolded": 40.9821891784668,
+   "rownorm_spread_folded_KEPT": 4.748021602630615,
+   "rownorm_spread_unfolded": 62.75260925292969
+  }
+ ],
+ "seconds": 103.99162936210632
+}

@@ -122,14 +122,39 @@ variable is the GPU execution path, not the dtype.** So **every T4 script here m
 **And the organ that blows up first is `o_proj` — exactly the organ H0 trains.** That is not a
 coincidence to shrug at; it is the reason for (2).
 
-**(2) The factored form must carry an explicit fp32 scale, not fold the range into a factor.**
-E22 §5 balanced `W ≈ A·B` by folding A's column norms into B's rows — correct for the *quantizer*
-(B's format already has a per-row scale) and **wrong for fp16**, because it puts a dynamic range
-of `5.2e2` into the intermediate `B·x`, which is the one tensor fp16 has to hold. H0 therefore
-trains **`A_t · diag(s) · B_t`** with `s` an explicit fp32 vector of length `r`: both factors stay
-unit-scaled and quantizer-friendly, the range lives in `s`, and `s` is `512 × 56 = 28,672` floats
-for the whole model — free at any budget. **This is a design decision for the training run, not a
-retroactive change to E22's registered arms**, which stay exactly as published.
+**(2) ~~The factored form must carry an explicit fp32 scale, not fold the range into a factor.~~**
+
+> **WITHDRAWN 2026-09-11, same day, by the file written to implement it.** I argued that E22's
+> fold — A's column norms `c` pushed into B's rows — puts a dynamic range of `5.2e2` into `B·x`,
+> the one intermediate fp16 must hold, and that an explicit `diag(s)` would pull it out. I had
+> not measured it. `s1/h0_factorize.py` measures it, and **it is false in the opposite
+> direction**: the fold is the *better*-conditioned half, on both axes I invoked, in 4/4 organs.
+>
+> | layer.organ | row scale of `B·x`, **folded** | unfolded | row-norm spread, **folded** | unfolded | `c` spread |
+> |---|---|---|---|---|---|
+> | `L00.q_proj` | **22.4** | 36.7 | **15.6** | 51.7 | 762 |
+> | `L00.o_proj` | **3.4** | 24.0 | **2.9** | 28.0 | 78 |
+> | `L27.q_proj` | **8.2** | 12.4 | **4.6** | 22.4 | 97 |
+> | `L27.o_proj` | **7.2** | 41.0 | **4.7** | 62.8 | 286 |
+>
+> **Why I had it backwards.** `5.2e2` is the spread of `c` — a *weight-space* quantity — and I
+> read it as an activation range. It is not. `c = ‖A column‖` and `‖B row‖` are near-perfectly
+> reciprocal, `corr(log c, log‖B row‖) = −0.997 … −0.984`, because `A = W H^½ Bᵣ` carries the
+> singular values and `B = Bᵣᵀ H^-½` carries their inverse. **Folding `c` into `B` balances the
+> pair; it does not unbalance it.** That is the same reason E22's balanced arm worked at relative
+> error `0.9874` and its registered arm failed at `1.5570`, which I should have read off E22's own
+> diagnostic table before writing this section.
+>
+> **What is kept instead.** E22's fold, verbatim. `s` survives as something I can defend: a
+> **per-rank learned scale initialised to ones** — the standard learned-step-size device in QAT, a
+> continuous degree of freedom the ternary codes cannot express. At `s = 1` the initialisation is
+> `QO512-TB` *identically*, so the trainer's planted control (`G-H0a`) is an identity rather than
+> an argument, and it measures **exactly `0.0`** on codes, scales and products against
+> `e22_compose.ternary_factors(balanced=True)`. `s` is 28,672 floats = **0.03% of the trainable
+> mass**, so it cannot be doing the work on its own, and H0 can measure whether it does anything.
+>
+> **Item (1) is untouched.** The fp16/eager/`sdpa` result is measured on the card. Only my
+> inference from it was wrong, and the inference is what is withdrawn.
 
 **`bf16_supported_achieved` reported `True` on that T4**, contradicting the standing note that
 Turing is fp16-only. It is emulated and slow, so H0 will not rely on it for throughput — but it
