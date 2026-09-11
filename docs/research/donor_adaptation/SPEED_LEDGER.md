@@ -2511,3 +2511,120 @@ when they miss; **what they cannot do is survive their own first mistake.**
    on this evidence, changes no answer. Recorded so nobody later fixes the exporter and believes
    they fixed the model.
 5. **The rule axis on the FFN in ranking** — T2's six rules were read in BPB only.
+
+---
+
+## 34. E21 — rank: attention yes, the head no
+
+**Probe**: `probes/E21_CAN_RANK_BUY_IT.md`. **Brief**: `briefs/BRIEF_E21_CAN_RANK_BUY_IT.md` @
+`24b8832`, pushed before any arm ran. **Runner**: `ternary/e21_rank.py`. **Results**:
+`engine/results/e21_rank.json`, 3445 s, `VOID: none`.
+
+**No timing taken. Nothing exported. `6.79 tok/s` exact, §19.3 unchanged.**
+
+### 34.1 The axis, and the one number that matters
+
+Rank had never been measured end to end here — D2 computed spectra for three layers and stopped.
+E21 replaces donor matrices with the exact rank-`r` minimiser of the **activation-weighted** error
+`‖(W − Wᵣ)X‖_F` (not `‖W − Wᵣ‖_F`), `H = XᵀX` over the frozen 32×512 seed-42424 calibration slice,
+damping `λ = 0.01·mean(diag H)` as E20.
+
+| arm | BPB | Δ base | free-running | **teacher-forced** | mean rank | band |
+|---|---|---|---|---|---|---|
+| `base` / `FULL` | `0.767595` | `0` | 160/160 | 160/160 | `1.00` | controls FIRE |
+| `H-SVD-256` | `3.826871` | `+3.059276` | 1 | 12 | `39258` | WORSE |
+| `H-SVD-512` | `3.480711` | `+2.713116` | 0 | 27 | `32055` | WORSE |
+| `H-ACT-256` | `1.330385` | `+0.562790` | 7 | 68 | `22.38` | WORSE |
+| `H-ACT-512` | `1.045691` | `+0.278096` | 9 | 101 | `4.83` | WORSE |
+| `QO-SVD-256` | `4.686939` | `+3.919344` | 1 | 2 | `28329` | WORSE |
+| `QO-ACT-256` | `1.545880` | `+0.778285` | 7 | 93 | `43.31` | WORSE |
+| **`QO-ACT-512`** | **`0.820284`** | **`+0.052689`** | **26** | **144** | **`1.16`** | **CHEAPER** |
+| `BOTH-ACT-256` | `1.766172` | `+0.998577` | 4 | 48 | `103.96` | WORSE |
+
+**`QO-ACT-512` — activation-weighted rank-512 on all 28 layers' `q_proj` and `o_proj` — costs
+`+0.052689` BPB and keeps the donor's token first at 144 of 160 fixed-context positions.** It is
+the **least damaging structural modification this programme has measured** (against E20's best
+ternary head `+0.170414` and E19's `V52` `+0.141846`), the **only arm in E18/E19/E20/E21 to read
+`RANK-IS-CHEAPER`**, and it puts the donor's token in the **top 5 at all 160 positions**. Its
+per-prompt teacher-forced split `[30, 26, 30, 29, 29]` is **uniform** — §33.3's one-prompt trap
+was checked for and is absent — and it is the first modified donor here that writes correct text
+(Paris, 212/32 °F, a working Fibonacci branch).
+
+### 34.2 `G-R2` — the data weighting is doing all the work
+
+| pair | plain SVD | activation-weighted | Δ |
+|---|---|---|---|
+| head r=256 | `3.826871` | `1.330385` | **`−2.496486`** |
+| head r=512 | `3.480711` | `1.045691` | **`−2.435020`** |
+| `q/o` r=256 | `4.686939` | `1.545880` | **`−3.141059`** |
+
+Plain SVD on `q/o` at r=256 is **above the chance line** (`4.686939` vs `4.069819`) — worse than
+guessing — while the same rank weighted reads `1.545880`. D2's spectra said these matrices are
+**not** low-rank in weight space (`o_proj` needs 596–937 of 1536 for 90% Frobenius energy) and
+they are right: the weighted construction keeps `0.8937` of the energy **in the directions the
+data occupies** where plain SVD keeps `0.3638` of the Frobenius energy. **A matrix that is not
+low-rank in weight space can be low-rank where it is used.** D4's Hessian ablation, confirmed on a
+second axis.
+
+### 34.3 What moves on the speed side — and what does not
+
+**No measurement moves.** What moves is §32's arithmetic floor. E19 fixed `attn+head` on the
+Coder-7B at **`1.367 G`** against a 50 tok/s budget of `0.982–1.060 G`. Charging every weight as
+ternary (`0.500000` B) and using **the rank fraction actually validated** (`r/D ≈ 1/3`, not the
+brief's `r = 256` which at `D = 3584` is 1/14 and which `BOTH-ACT-256` shows this donor cannot
+take):
+
+| Coder-7B | dense | `q/o` at `r/D = 1/3` |
+|---|---|---|
+| `q + o` | `719.3 M` | `479.5 M` |
+| `k + v` | `102.8 M` | `102.8 M` |
+| `lm_head` | `545.0 M` | `545.0 M` |
+| **`attn + head`** | **`1.367 G`** | **`1.127 G`** |
+
+**`1.127 G` is still 1.06–1.15× the whole budget with the FFN at zero.** E19's floor drops by
+`240 M` and the conclusion survives: **the head is the binding constraint.** It is `545 M` =
+51–56% of a 7B's entire 50 tok/s budget, it resists rank (`H-ACT-512`: `+0.278096` BPB, 101/160
+against `q/o`'s `+0.052689` / 144 at the same rank), and E20 showed its cheapest known treatment
+costs `+0.170414`. **No lever measured in this programme makes the output head small.**
+
+**And the kernel is not written.** A factored tensor is two GEMVs with an intermediate of size `r`.
+The weight *bytes* fall with the parameter count — which is what a memory-bound engine charges
+(§19.3, E13: the weight path runs at 97% of demonstrated stream) — but **`engine.c` has no
+factored matvec and `QWENDON1` has no kind for one.** No rank result converts to tok/s until it does.
+
+### 34.4 Three asymmetries worth keeping
+
+1. **Attention tolerates rank; the head does not.** Same construction, same rank, same run:
+   `+0.0527`/144 vs `+0.2781`/101. The head maps 1536 dims to 151,936 logits whose top-2 gap *is*
+   the answer; attention feeds a residual stream that sums 28 layers.
+2. **Damage compounds, it does not add.** `BOTH-ACT-256` reads **48** teacher-forced where its two
+   halves read 68 and 93 alone. Any plan that stacks cheap cuts must measure the stack.
+3. **BPB does not order interventions across axes.** `H-ACT-256` (BPB `1.330385`) and E20's `R0H`
+   (`1.319900`) are within `0.01` BPB and read **68** and **107** teacher-forced. §33.4's lesson
+   generalises: *the two metrics are not substitutes, in either direction.*
+
+### 34.5 Predictions
+
+Two held (`G-R0`/`G-R1` exact; `G-R2` by `−2.44` to `−3.14`), one held in direction (`QO-ACT-256`
+93 > `H-ACT-256` 68), **two missed**: prediction 3 put `H-ACT-256` in `107`–`119` and it read `68`;
+prediction 5 put `BOTH-ACT-256` at `RANK-IS-COMPARABLE` and it read `RANK-IS-WORSE`.
+
+**The registered alternative was keyed to `BOTH-ACT-256` and did not fire there.** `QO-ACT-512`
+reading `RANK-IS-CHEAPER` is a pre-registered arm against a pre-registered band and stands on its
+own, **but it is not the §2 configuration**, and the alternative's consequence — retargeting the
+healing — is claimed for **attention only**.
+
+### 34.6 Owed
+
+1. **Compose `QO-ACT-512` with E19's `V52`.** `+0.052689` and `+0.141846`; together they land the
+   1.5 B at ≈`0.98 G` active, inside the budget. **§34.4 item 2 says do not assume additive.**
+   Cheap, CPU, on-goal.
+2. **Rank × precision.** Every E21 arm is fp32; the engine ships ternary. A ternary low-rank `q/o`
+   is the artefact that would run, and the two damages have never been composed.
+3. **The rank fraction at scale** — `r/D = 1/3` validated at `D = 1536` only; §34.3's 7B row is a
+   projection, and E16's non-monotonicity applies.
+4. **A factored matvec in `engine.c` and a kind in `QWENDON1`** — §34.3.
+5. **The head.** §34.3. Vocabulary-side factorisation and tied output clusters are untouched.
+6. **Healing / QAT**, unchanged as first since §31.8 and now retargeted by §34.1: the best-posed
+   starting point available is **low-rank attention at 90% per-step fidelity**, not a ternary donor
+   at 70%. **Needs GPU; the user launches it, and has offered T4 weeks for exactly this.**

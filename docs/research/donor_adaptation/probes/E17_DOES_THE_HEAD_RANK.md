@@ -266,3 +266,28 @@ bottom.
 E20's terciles explain why a **working-ish** head still scores ~12: one near-tie ends the match,
 and four of the five reference prompts contain one (minimum donor top-2 gap `0.0081`-`0.2740`).
 The single prompt with no near-tie (minimum `1.1630`) is reproduced **whole, 32/32**, by two arms.
+
+---
+
+## 12. Appended 2026-09-11 after E21 — the head is the organ that resists rank too
+
+E17 found the output head is where ranking lives. E21 tested it on a third axis and the finding
+hardens: **the head is the organ that tolerates the least of everything.**
+
+Same construction, same rank, same run, activation-weighted low-rank:
+
+| organ at `r = 512` | BPB cost | teacher-forced top-1 | mean rank |
+|---|---|---|---|
+| `q_proj`+`o_proj`, all 28 layers | **`+0.052689`** | **144/160** | `1.16` |
+| `lm_head` | `+0.278096` | 101/160 | `4.83` |
+
+Five times the BPB cost and 43 fewer tokens, for the same fraction of rank removed. The mechanism
+is E17's own: the head maps 1536 dims onto 151,936 logits **whose top-2 difference is the answer**,
+so it is near-full-rank by construction, while attention's output is summed into a residual stream
+over 28 layers that absorbs per-layer error.
+
+**This is now a budget problem, not only a quality one.** On the Coder-7B the head is `545 M`
+active weights = **51–56% of the entire 50 tok/s budget** (E18 §31: `0.982–1.060 G`). It resists
+rank (above), it costs `+0.170414` BPB to ternarize at best (E20 §3), and **no lever measured in
+this programme makes it small.** E17's "the head is where ranking lives" has become the single
+most specific open problem the goal has.

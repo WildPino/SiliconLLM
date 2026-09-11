@@ -204,3 +204,30 @@ carve arms**, which is cheap and would say whether a carve damages a step or onl
 
 **§7's `r(BPB, agreement) = −0.8562`, the expected sign, is now the minority reading**: E18 gave
 `+0.4989` and E20 `+0.6238`. Two of three occurrences have the wrong sign.
+
+---
+
+## 10. Appended 2026-09-11 after E21 — the "cut attention too" owed item is answered, half yes
+
+§7 closed FFN-only carving and left one instruction: **a carve that reaches the budget would have
+to cut attention and the output head too, and that has never been attempted.** E21 attempted it,
+by rank rather than by carving.
+
+**Attention: yes.** Activation-weighted rank-512 on all 28 layers' `q_proj`+`o_proj`
+(`QO-ACT-512`) costs **`+0.052689` BPB** — against `V52`'s `+0.141846` — and keeps the donor's
+token first at **144/160** fixed-context positions. It is the cheapest structural cut this
+programme has measured.
+
+**The head: no.** The same construction at the same rank on `lm_head` costs `+0.278096` BPB and
+101/160. The head is `545 M` on the Coder-7B = **51–56% of the entire 50 tok/s budget**, and no
+lever measured here shrinks it.
+
+**So §7's floor moves and does not open.** At the validated rank fraction (`r/D ≈ 1/3`, not the
+brief's `r = 256` — `BOTH-ACT-256` shows this donor cannot take that), `attn+head` falls from
+**`1.367 G` to `1.127 G`**, still **1.06–1.15×** the whole budget with the FFN at zero. E19's
+arithmetic stands; the binding term is now named, and it is the head.
+
+**And E19's own §8 item on composition acquires a warning.** `BOTH-ACT-256` reads **48/160**
+teacher-forced where its two halves read 68 and 93 alone: **damage compounds.** The obvious next
+move — stack `QO-ACT-512` on `V52` to land the 1.5 B at ≈`0.98 G` — must therefore be **measured,
+not assumed additive** (`probes/E21_CAN_RANK_BUY_IT.md` §8 item 1).

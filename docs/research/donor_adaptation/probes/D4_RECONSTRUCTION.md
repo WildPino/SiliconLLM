@@ -751,3 +751,32 @@ live.
 4. **A LAMBDA_SCALE sweep** at the T/D margin actually used.
 5. **Run `d4_conditioning_and_nulls.py`** to obtain the second ablated point it was written for.
 6. **Mask-equality assertions** for the 5 points §7.4 could not settle.
+
+---
+
+## 10. Appended 2026-09-11 after E21 — the Hessian ablation confirmed on a second axis
+
+D4's ablation (§4) established on the *precision* axis that weight-space reconstruction is the
+wrong objective: `real_H` recovers **`+0.48272`**, `identity_H` **`0.0`** by construction,
+`shuffled_H` **`−1.59517`**. E21 ran the same contrast on the **rank** axis, where `identity_H` is
+not a tautology but an ordinary, widely-used method — plain SVD.
+
+| pair | plain SVD (`H = I`) | activation-weighted | Δ BPB |
+|---|---|---|---|
+| `lm_head`, r=256 | `3.826871` | `1.330385` | **`−2.496486`** |
+| `lm_head`, r=512 | `3.480711` | `1.045691` | **`−2.435020`** |
+| `q_proj`+`o_proj`, r=256 | `4.686939` | `1.545880` | **`−3.141059`** |
+
+**Plain SVD on `q/o` at r=256 lands above the chance line (`4.686939` vs `4.069819`)** — a model
+worse than guessing uniformly — while the identical rank, weighted by `H = XᵀX` over the same
+calibration slice D4 used, reads `1.545880`.
+
+This is a **stronger** demonstration than D4's own, because here `H = I` is a real baseline method
+rather than a degenerate one, and the gap is `2.4`–`3.1` BPB rather than `0.48`. D2's spectra said
+these matrices are not low-rank in weight space (`o_proj` needs 596–937 of 1536 for 90% Frobenius
+energy) and were correct: the weighted construction keeps **`0.8937`** of the energy *in the
+directions the data occupies* where plain SVD keeps `0.3638` of the Frobenius energy.
+
+**The generalisation D4 licensed now has two axes under it**: *what a trained matrix is for is
+defined by the activations it meets, and any objective stated over the weights alone is measuring
+the wrong thing.*

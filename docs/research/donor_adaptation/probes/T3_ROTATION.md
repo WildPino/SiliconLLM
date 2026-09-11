@@ -306,3 +306,30 @@ T3_ONLY=base,Q,N python t3_rotation.py            # the fold contrast alone
 Outputs `density/results/t3_rotation.json` and `density/results/t3_arms/<arm>.npy` (24
 per-sequence BPB values per arm; every contrast in §3.1 is recomputable from those files and the
 byte weights, with `numpy.random.default_rng(7)`).
+
+---
+
+## 8. Appended 2026-09-11 after E21 — a basis change that pays, and why it is not a reversal
+
+T3 closed the rotation line: an orthogonal change of basis applied to the residual stream **costs**
+`+0.634` at best and `+1.138` on the arm the brief expected to win. E21 changed basis too — and
+gained. The two results do not conflict, and the difference is the whole point.
+
+**T3 rotated and kept everything.** A Hadamard is full-rank and information-preserving; the only
+thing it can change is how the *format* (ternary, one scale per row) lands on the numbers. It
+landed worse.
+
+**E21 rotates and throws away.** `Wᵣ = W H^½ Bᵣ Bᵣᵀ H^-½` projects onto the top `r` eigenvectors of
+`H^½ WᵀW H^½` — a basis chosen **by the data**, then truncated in it. What pays is not the rotation
+but *which directions the rotation makes discardable*, and that is decided by `H`, not by the
+matrix. The control proves it: the same truncation in the plain (unweighted) basis costs `2.4`–`3.1`
+BPB more and, on `q/o` at r=256, lands above the chance line.
+
+**So T3's standing conclusion holds** — a basis change that preserves everything buys nothing here
+— **and gains a companion**: a basis change chosen by the activations, used to *remove* rank, buys
+`+0.052689` BPB for a third of `q_proj`/`o_proj` (`probes/E21_CAN_RANK_BUY_IT.md` §0).
+
+**And §5's standing aim is confirmed from the other side.** T2b §6 said to aim healing at
+**attention** — 4.98× the damage per weight at 10% of the weights. E21 finds attention is also the
+organ that gives up rank most cheaply, at 144/160 fixed-context fidelity. Attention is where both
+the damage and the slack are.

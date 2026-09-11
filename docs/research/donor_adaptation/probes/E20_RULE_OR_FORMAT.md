@@ -316,3 +316,29 @@ shipped rule and T2's R4/R5 unmentioned.
    the head. The FFN is 80.7% of the weights and has different conditioning.
 6. **Unchanged from E19**: carving attention and the head; the D0 §III / D0c §5 re-read; the cliff
    at 7 B.
+
+---
+
+## 9. Appended 2026-09-11 after E21 — the teacher-forced band, used once, and what it caught
+
+§8 item 3 asked that teacher-forced top-1 become the standing second metric. E21 is the first
+experiment to use it as a **pre-registered band**: `> 119` = `RANK-IS-CHEAPER`, `107`–`119` =
+`RANK-IS-COMPARABLE`, `< 107` = `RANK-IS-WORSE`, taken directly from §5's eight ternary heads.
+
+**It separated what BPB could not.** `H-ACT-256` scores BPB `1.330385` — within `0.011` of `R0H`'s
+`1.319900` in §3 — and reads **68/160** teacher-forced against `R0H`'s **107**. Two interventions
+indistinguishable in BPB, thirty-nine tokens apart in per-step fidelity. **§6's lesson generalises
+in the other direction too: the two metrics are not substitutes, whichever is quoted.**
+
+**And one arm cleared the band from above.** `QO-ACT-512` (activation-weighted rank-512 on
+`q_proj`+`o_proj`) reads **144/160**, above every ternary head measured here, at **`+0.052689`**
+BPB against the best ternary head's `+0.170414`. That is the first time any intervention in this
+programme has beaten the ternary band rather than failing to reach it.
+
+**§5's drift account transfers intact.** `QO-ACT-512` is 144 teacher-forced and 26 free-running —
+a drift cost of 118, in the same `75`–`106`+ range, from a *much* higher per-step rate. The drift
+model is a property of 32-step greedy generation, not of the damage.
+
+**§8 item 1 is retargeted.** "Repair a head that is already right 70% of the time per step" becomes
+**"repair low-rank attention that is already right 90% of the time per step"** — a better-posed
+optimisation, and the head is now the named constraint rather than the healing target.
