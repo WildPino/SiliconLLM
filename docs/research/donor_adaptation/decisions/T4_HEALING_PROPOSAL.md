@@ -181,6 +181,33 @@ coincidence to shrug at; it is the reason for (2).
 > **Item (1) is untouched.** The fp16/eager/`sdpa` result is measured on the card. Only my
 > inference from it was wrong, and the inference is what is withdrawn.
 
+**(3) A third trap, found by building the trainer, that would have FAKED H0's null.**
+`density/common.py` line 28 calls `torch.set_grad_enabled(False)` **at module import**. That is
+correct for every probe in this programme — D0 through E23 are all inference — and it saves
+memory. But **any trainer that imports it, directly or transitively, silently trains nothing**:
+every gradient is `None`, the optimizer steps on nothing, the loss curve is flat, and the run
+reports *"gradients do not move this object"* — **which is word for word H0's null hypothesis.**
+A T4 week would have come back with a confident, wrong FAIL, and §5's second withdrawal
+condition would have closed the donor route on an artefact.
+
+`common.py` is **not** changed — every published number depends on its semantics and nothing
+else in the repo trains. The defence is in H0 instead, in three layers:
+
+- `h0_qat.py` imports **nothing** from this repo (the Kaggle bundle is self-contained anyway),
+  and re-enables grad explicitly with an assert.
+- **`G-H0e`**, the planted control for the trainer itself: three masters are snapshotted and
+  must have **moved** after the first optimizer step, or the run aborts. Measured in the CPU
+  smoke at `1.59e-04` on all three. **A null from H0 only means something if the instrument can
+  be shown to move first** — the planted-control law, applied to a trainer rather than a probe.
+- `h0_selftest.py` re-enables grad before it checks the straight-through derivative, which is
+  how the trap surfaced at all.
+
+A second, independent instance of the same class: with the embedding frozen and gradient
+checkpointing on, the checkpointed blocks receive inputs that do not require grad, so autograd
+builds no graph through them and **every master grad is `None` again** — same silent flat loss.
+Fixed with `model.enable_input_require_grads()`. `G-H0e` catches both, which is the point of
+having it rather than trusting the fix.
+
 **`bf16_supported_achieved` reported `True` on that T4**, contradicting the standing note that
 Turing is fp16-only. It is emulated and slow, so H0 will not rely on it for throughput — but it
 is available as a numerical fallback if fp16 loss-scaling misbehaves, and that is worth knowing
