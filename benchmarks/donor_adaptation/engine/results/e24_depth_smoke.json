@@ -1,0 +1,865 @@
+{
+ "brief": "briefs/BRIEF_E24_THE_DEPTH_THE_BUDGET_PERMITS.md (b78ce4d)",
+ "question": "E23's ROUTER-COSTS was measured at k=133, a depth 2.8% BELOW the budget floor and inherited from before routers cost anything.  At the three depths the 50 tok/s budget actually permits with the router charged -- 139, 148, 156 of 256 -- does the composed configuration recover?  Nothing exported, no timing taken.",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "smoke": true,
+ "threads": 6,
+ "n_new": 8,
+ "n_prompts": 2,
+ "eval_slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+ },
+ "calib_slice": {
+  "part": "calib",
+  "n_seq": 32,
+  "seq_len": 512,
+  "seed": 42424,
+  "n_rejected": 0,
+  "total_scored_bytes": 67648,
+  "bytes_per_token": 4.136986301369863,
+  "ids_sha256": "c5509846cdc3aa44e45e77895b59a4638c49eb03790030d851e7bf1357ca4c0c",
+  "offsets_sha256": "c9bdfc96dd5addb8e02a48d553dfb11784734baa26f44aad53658ff8cd2a8cf0",
+  "corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0"
+ },
+ "carve_E": 256,
+ "rank": 512,
+ "targets": [
+  "sqrt",
+  "log1p"
+ ],
+ "router": {
+  "kind": "ridge, block input -> f(group mass)",
+  "ridge_frac": 0.01,
+  "params": 1572864,
+  "params_M": 1.572864
+ },
+ "router_diag": {
+  "0": {
+   "ridge_lambda": 1.049808081306542,
+   "n_tokens": 1024,
+   "router_fro": 28.80031394958496,
+   "xty_fro": 44354.939085319726,
+   "router_fro_by_target": {
+    "sqrt": 28.80031394958496,
+    "log1p": 19.628429412841797
+   }
+  },
+  "1": {
+   "ridge_lambda": 42.6003318220297,
+   "n_tokens": 1024,
+   "router_fro": 156.54513549804688,
+   "xty_fro": 639304.8691115945,
+   "router_fro_by_target": {
+    "sqrt": 156.54513549804688,
+    "log1p": 3.6961841583251953
+   }
+  },
+  "2": {
+   "ridge_lambda": 24.480017558634195,
+   "n_tokens": 1024,
+   "router_fro": 72.18213653564453,
+   "xty_fro": 1390572.3390565407,
+   "router_fro_by_target": {
+    "sqrt": 72.18213653564453,
+    "log1p": 6.218505382537842
+   }
+  },
+  "3": {
+   "ridge_lambda": 14.425709140707998,
+   "n_tokens": 1024,
+   "router_fro": 16.08172607421875,
+   "xty_fro": 389990.0545580404,
+   "router_fro_by_target": {
+    "sqrt": 16.08172607421875,
+    "log1p": 8.827103614807129
+   }
+  }
+ },
+ "anchors": {
+  "base_bpb": 0.7675949641196624,
+  "K133-LINEAR": {
+   "bpb": 1.2014771810176486,
+   "free": 9,
+   "tf": 102,
+   "e23_arm": "QO512+V52-LINEAR"
+  },
+  "K133-ORACLE": {
+   "bpb": 1.0050386831300866,
+   "free": 15,
+   "tf": 126,
+   "e23_arm": "QO512+V52-ORACLE"
+  },
+  "repl_tol": 1e-09,
+  "verified_against_e23_json": {
+   "K133-LINEAR": {
+    "e23_arm": "QO512+V52-LINEAR",
+    "bpb_on_disk": 1.2014771810176486,
+    "free_on_disk": 9,
+    "tf_on_disk": 102,
+    "matches_literal": true
+   },
+   "K133-ORACLE": {
+    "e23_arm": "QO512+V52-ORACLE",
+    "bpb_on_disk": 1.0050386831300866,
+    "free_on_disk": 15,
+    "tf_on_disk": 126,
+    "matches_literal": true
+   }
+  }
+ },
+ "bands": {
+  "free": {
+   "floor": 12,
+   "at_floor_max": 14,
+   "ranks_min": 80,
+   "ceiling": 16
+  },
+  "teacher_forced_from_E20": [
+   107,
+   119
+  ],
+  "budget_G": [
+   0.982,
+   1.06
+  ]
+ },
+ "budget": {
+  "133": {
+   "q_o_rank": 88080384,
+   "k_v": 22020096,
+   "head": 233373696,
+   "router": 11010048,
+   "ffn_full": 1156055040,
+   "ffn_at_k": 600606720,
+   "total": 955090944,
+   "total_G": 0.955090944,
+   "activation": 0.51953125,
+   "in_budget": false
+  },
+  "139": {
+   "q_o_rank": 88080384,
+   "k_v": 22020096,
+   "head": 233373696,
+   "router": 11010048,
+   "ffn_full": 1156055040,
+   "ffn_at_k": 627701760,
+   "total": 982185984,
+   "total_G": 0.982185984,
+   "activation": 0.54296875,
+   "in_budget": true
+  },
+  "148": {
+   "q_o_rank": 88080384,
+   "k_v": 22020096,
+   "head": 233373696,
+   "router": 11010048,
+   "ffn_full": 1156055040,
+   "ffn_at_k": 668344320,
+   "total": 1022828544,
+   "total_G": 1.022828544,
+   "activation": 0.578125,
+   "in_budget": true
+  },
+  "156": {
+   "q_o_rank": 88080384,
+   "k_v": 22020096,
+   "head": 233373696,
+   "router": 11010048,
+   "ffn_full": 1156055040,
+   "ffn_at_k": 704471040,
+   "total": 1058955264,
+   "total_G": 1.058955264,
+   "activation": 0.609375,
+   "in_budget": true
+  },
+  "148_no_router": {
+   "q_o_rank": 88080384,
+   "k_v": 22020096,
+   "head": 233373696,
+   "router": 0,
+   "ffn_full": 1156055040,
+   "ffn_at_k": 668344320,
+   "total": 1011818496,
+   "total_G": 1.011818496,
+   "activation": 0.578125,
+   "in_budget": true
+  }
+ },
+ "chance_bpb": 4.069819,
+ "arms": {
+  "base": {
+   "arm": "base",
+   "k": null,
+   "router": null,
+   "target": null,
+   "lowrank": false,
+   "bpb": 0.9601896565954627,
+   "vs_chance": -3.1096293434045372,
+   "matched": 16,
+   "counted": 16,
+   "agree": 1.0,
+   "teacher_forced": 16,
+   "tf_frac": 1.0,
+   "mean_rank": 1.0,
+   "median_rank": 1.0,
+   "rank_le5": 16,
+   "achieved_activation": 1.0,
+   "charged_activation": 1.0,
+   "G_U2": true,
+   "charged_G": null,
+   "first_div": null,
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 8,
+     "diverges_at": null,
+     "tf": 8
+    },
+    {
+     "prompt": 1,
+     "free": 8,
+     "diverges_at": null,
+     "tf": 8
+    }
+   ],
+   "band_free": "PARTIAL",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     9625,
+     374,
+     1083
+    ],
+    [
+     671,
+     308,
+     374,
+     279,
+     1372,
+     315,
+     3793,
+     198
+    ]
+   ],
+   "text": [
+    " Paris. The capital of France is also",
+    " # n is the number of terms\n"
+   ],
+   "seconds": 26.593685388565063,
+   "G_U0": "FIRES"
+  },
+  "K133-LINEAR": {
+   "arm": "K133-LINEAR",
+   "k": 133,
+   "router": "linear",
+   "target": "sqrt",
+   "lowrank": true,
+   "bpb": 1.9346420125803678,
+   "vs_chance": -2.135176987419632,
+   "matched": 7,
+   "counted": 16,
+   "agree": 0.4375,
+   "teacher_forced": 7,
+   "tf_frac": 0.4375,
+   "mean_rank": 14.375,
+   "median_rank": 2.0,
+   "rank_le5": 12,
+   "achieved_activation": 0.51953125,
+   "charged_activation": 0.51953125,
+   "G_U2": true,
+   "charged_G": 0.955090944,
+   "first_div": [
+    0,
+    7
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 7,
+     "diverges_at": 7,
+     "tf": 7
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     9625,
+     374,
+     12095
+    ],
+    [
+     308,
+     25,
+     308,
+     25,
+     308,
+     25,
+     308,
+     25
+    ]
+   ],
+   "text": [
+    " Paris. The capital of France is Paris",
+    " n: n: n: n:"
+   ],
+   "seconds": 25.90940546989441
+  },
+  "K133-ORACLE": {
+   "arm": "K133-ORACLE",
+   "k": 133,
+   "router": "oracle",
+   "target": null,
+   "lowrank": true,
+   "bpb": 1.1812578863925856,
+   "vs_chance": -2.8885611136074143,
+   "matched": 1,
+   "counted": 16,
+   "agree": 0.0625,
+   "teacher_forced": 10,
+   "tf_frac": 0.625,
+   "mean_rank": 1.375,
+   "median_rank": 1.0,
+   "rank_le5": 16,
+   "achieved_activation": 0.51953125,
+   "charged_activation": 0.51953125,
+   "G_U2": true,
+   "charged_G": 0.955090944,
+   "first_div": [
+    0,
+    1
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 1,
+     "diverges_at": 1,
+     "tf": 6
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 4
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     12095,
+     11,
+     323,
+     279,
+     6722,
+     315,
+     9625,
+     374
+    ],
+    [
+     715,
+     262,
+     421,
+     308,
+     621,
+     220,
+     15,
+     25
+    ]
+   ],
+   "text": [
+    " Paris, and the capital of France is",
+    " \n    if n == 0:"
+   ],
+   "seconds": 26.352884769439697
+  },
+  "K139-LINEAR": {
+   "arm": "K139-LINEAR",
+   "k": 139,
+   "router": "linear",
+   "target": "sqrt",
+   "lowrank": true,
+   "bpb": 1.9033718838319489,
+   "vs_chance": -2.166447116168051,
+   "matched": 1,
+   "counted": 16,
+   "agree": 0.0625,
+   "teacher_forced": 6,
+   "tf_frac": 0.375,
+   "mean_rank": 49.1875,
+   "median_rank": 2.0,
+   "rank_le5": 10,
+   "achieved_activation": 0.54296875,
+   "charged_activation": 0.54296875,
+   "G_U2": true,
+   "charged_G": 0.982185984,
+   "first_div": [
+    0,
+    1
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 1,
+     "diverges_at": 1,
+     "tf": 6
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     12095,
+     11,
+     323,
+     279,
+     6722,
+     315,
+     9448,
+     374
+    ],
+    [
+     308,
+     25,
+     308,
+     25,
+     308,
+     25,
+     308,
+     25
+    ]
+   ],
+   "text": [
+    " Paris, and the capital of England is",
+    " n: n: n: n:"
+   ],
+   "seconds": 25.78659725189209
+  },
+  "K148-LINEAR": {
+   "arm": "K148-LINEAR",
+   "k": 148,
+   "router": "linear",
+   "target": "sqrt",
+   "lowrank": true,
+   "bpb": 1.8546206187527088,
+   "vs_chance": -2.215198381247291,
+   "matched": 1,
+   "counted": 16,
+   "agree": 0.0625,
+   "teacher_forced": 7,
+   "tf_frac": 0.4375,
+   "mean_rank": 12.6875,
+   "median_rank": 2.0,
+   "rank_le5": 12,
+   "achieved_activation": 0.578125,
+   "charged_activation": 0.578125,
+   "G_U2": true,
+   "charged_G": 1.022828544,
+   "first_div": [
+    0,
+    1
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 1,
+     "diverges_at": 1,
+     "tf": 6
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 1
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     12095,
+     11,
+     323,
+     279,
+     6722,
+     315,
+     9448,
+     374
+    ],
+    [
+     151643,
+     151643,
+     25,
+     151643,
+     151643,
+     25,
+     549,
+     549
+    ]
+   ],
+   "text": [
+    " Paris, and the capital of England is",
+    "<|endoftext|><|endoftext|>:<|endoftext|><|endoftext|>: : :"
+   ],
+   "seconds": 26.172897338867188
+  },
+  "K156-LINEAR": {
+   "arm": "K156-LINEAR",
+   "k": 156,
+   "router": "linear",
+   "target": "sqrt",
+   "lowrank": true,
+   "bpb": 1.8545300565331035,
+   "vs_chance": -2.2152889434668963,
+   "matched": 7,
+   "counted": 16,
+   "agree": 0.4375,
+   "teacher_forced": 7,
+   "tf_frac": 0.4375,
+   "mean_rank": 65.125,
+   "median_rank": 2.0,
+   "rank_le5": 12,
+   "achieved_activation": 0.609375,
+   "charged_activation": 0.609375,
+   "G_U2": true,
+   "charged_G": 1.058955264,
+   "first_div": [
+    0,
+    7
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 7,
+     "diverges_at": 7,
+     "tf": 7
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     9625,
+     374,
+     12095
+    ],
+    [
+     308,
+     25,
+     308,
+     25,
+     308,
+     25,
+     308,
+     25
+    ]
+   ],
+   "text": [
+    " Paris. The capital of France is Paris",
+    " n: n: n: n:"
+   ],
+   "seconds": 25.770761728286743
+  },
+  "K156-ORACLE": {
+   "arm": "K156-ORACLE",
+   "k": 156,
+   "router": "oracle",
+   "target": null,
+   "lowrank": true,
+   "bpb": 1.2846825156336452,
+   "vs_chance": -2.7851364843663546,
+   "matched": 7,
+   "counted": 16,
+   "agree": 0.4375,
+   "teacher_forced": 12,
+   "tf_frac": 0.75,
+   "mean_rank": 1.25,
+   "median_rank": 1.0,
+   "rank_le5": 16,
+   "achieved_activation": 0.609375,
+   "charged_activation": 0.609375,
+   "G_U2": true,
+   "charged_G": 1.058955264,
+   "first_div": [
+    0,
+    7
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 7,
+     "diverges_at": 7,
+     "tf": 7
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 5
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     9625,
+     374,
+     12095
+    ],
+    [
+     715,
+     262,
+     421,
+     308,
+     621,
+     220,
+     15,
+     25
+    ]
+   ],
+   "text": [
+    " Paris. The capital of France is Paris",
+    " \n    if n == 0:"
+   ],
+   "seconds": 26.57378911972046
+  },
+  "K148-STATIC": {
+   "arm": "K148-STATIC",
+   "k": 148,
+   "router": "static",
+   "target": null,
+   "lowrank": true,
+   "bpb": 1.7932173770954258,
+   "vs_chance": -2.276601622904574,
+   "matched": 8,
+   "counted": 16,
+   "agree": 0.5,
+   "teacher_forced": 9,
+   "tf_frac": 0.5625,
+   "mean_rank": 152.6875,
+   "median_rank": 1.0,
+   "rank_le5": 11,
+   "achieved_activation": 0.578125,
+   "charged_activation": 0.578125,
+   "G_U2": true,
+   "charged_G": 1.011818496,
+   "first_div": [
+    1,
+    0
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 8,
+     "diverges_at": null,
+     "tf": 8
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 1
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     12095,
+     13,
+     576,
+     6722,
+     315,
+     9625,
+     374,
+     1083
+    ],
+    [
+     25,
+     25,
+     25,
+     25,
+     25,
+     25,
+     25,
+     25
+    ]
+   ],
+   "text": [
+    " Paris. The capital of France is also",
+    "::::::::"
+   ],
+   "seconds": 25.79039430618286,
+   "router_charged_M": 0.0
+  },
+  "K148-LOG1P": {
+   "arm": "K148-LOG1P",
+   "k": 148,
+   "router": "linear",
+   "target": "log1p",
+   "lowrank": true,
+   "bpb": 1.8523972464556884,
+   "vs_chance": -2.2174217535443113,
+   "matched": 1,
+   "counted": 16,
+   "agree": 0.0625,
+   "teacher_forced": 6,
+   "tf_frac": 0.375,
+   "mean_rank": 33.25,
+   "median_rank": 2.0,
+   "rank_le5": 13,
+   "achieved_activation": 0.578125,
+   "charged_activation": 0.578125,
+   "G_U2": true,
+   "charged_G": 1.022828544,
+   "first_div": [
+    0,
+    1
+   ],
+   "per_prompt": [
+    {
+     "prompt": 0,
+     "free": 1,
+     "diverges_at": 1,
+     "tf": 6
+    },
+    {
+     "prompt": 1,
+     "free": 0,
+     "diverges_at": 0,
+     "tf": 0
+    }
+   ],
+   "band_free": "AT-FLOOR",
+   "band_tf": "WORSE",
+   "ids": [
+    [
+     12095,
+     11,
+     323,
+     279,
+     6722,
+     315,
+     9625,
+     374
+    ],
+    [
+     707,
+     25,
+     707,
+     25,
+     707,
+     25,
+     707,
+     25
+    ]
+   ],
+   "text": [
+    " Paris, and the capital of France is",
+    " def: def: def: def:"
+   ],
+   "seconds": 26.447777032852173
+  }
+ },
+ "VOID": [],
+ "G_U2_failures": [],
+ "G_U3": {
+  "curve": [
+   [
+    139,
+    6
+   ],
+   [
+    148,
+    7
+   ],
+   [
+    156,
+    7
+   ]
+  ],
+  "steps": [
+   -1,
+   0
+  ],
+  "worst_drop": 0,
+  "monotone_within_tol": true,
+  "verdict": "MONOTONE"
+ },
+ "G_U4": {
+  "best_k": 148,
+  "best_tf": 7,
+  "anchor_tf_k133": 102,
+  "gain_over_k133": -95,
+  "verdict": "DEPTH-IS-NOT-THE-LEVER"
+ },
+ "router_worth_its_budget": {
+  "tf_static": 9,
+  "tf_linear": 7,
+  "gap": -2,
+  "within_prediction_4": true,
+  "static_ties_or_beats": true,
+  "note": "STATIC ties or beats the ridge: the 11.0 M router is not worth its budget and this depth grid is obsolete on its own result"
+ },
+ "target_axis": {
+  "tf_log1p": 6,
+  "tf_sqrt": 7,
+  "gain": -1,
+  "bpb_log1p": 1.8523972464556884,
+  "bpb_sqrt": 1.8546206187527088
+ },
+ "ceiling_at_deepest": {
+  "tf_oracle_k156": 12,
+  "tf_oracle_k133": 126,
+  "tf_linear_k156": 7,
+  "oracle_ridge_gap": 5
+ },
+ "seconds_total": 276.87342977523804
+}

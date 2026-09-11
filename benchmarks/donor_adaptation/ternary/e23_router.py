@@ -178,15 +178,35 @@ def clear_taps():
 
 
 # ====================================================== fitting the routers
+# E24 adds a second TARGET for the same fit.  The accumulation, the damping and the solve are
+# untouched; only which function of the per-group mass the ridge regresses onto changes.  Kept
+# here rather than copied into e24_depth.py so there is ONE definition of the router fit, and
+# E24's G-U1 (reproduce E23's two anchors to 1e-9) is what proves this refactor is inert.
+TARGETS = {"sqrt": lambda m: m.sqrt(),
+           "log1p": lambda m: torch.log1p(m)}
+
+
 def fit_routers(model, ids_cal, layer_ids, lab_map):
-    """Ridge from the block input x to sqrt(per-group mass), accumulated in normal-equation form.
+    """E23's signature, unchanged: the sqrt-target ridge routers."""
+    R, diag, acc = fit_routers_multi(model, ids_cal, layer_ids, lab_map, ("sqrt",))
+    return R["sqrt"], diag, acc
+
+
+def fit_routers_multi(model, ids_cal, layer_ids, lab_map, targets=("sqrt",)):
+    """Ridge from the block input x to f(per-group mass), accumulated in normal-equation form.
 
     Accumulating X'X [D,D] and X'Y [D,E] instead of storing X keeps this O(D^2 + D E) per layer
     regardless of the token count -- the scale law applies to the REMEDY too, so nothing here is
-    O(tokens).
+    O(tokens).  Several targets share ONE calibration pass: only X'Y is per-target, and the
+    solve reuses the same factorable X'X.
+
+    Returns ({target: {layer: R}}, diag, acc).  `diag` is reported off targets[0], which keeps
+    its shape exactly what E23 wrote.
     """
+    for t in targets:
+        assert t in TARGETS, "unknown router target %r" % (t,)
     D = model.config.hidden_size
-    XtX, XtY, N, acc = {}, {}, {}, {}
+    XtX, XtY, N, acc = {}, {t: {} for t in targets}, {}, {}
     ohs = {}
     for L in layer_ids:
         lab = torch.from_numpy(lab_map[L].astype(np.int64))
@@ -195,7 +215,8 @@ def fit_routers(model, ids_cal, layer_ids, lab_map):
         oh[torch.arange(len(lab)), lab] = 1.0
         ohs[L] = oh
         XtX[L] = torch.zeros(D, D, dtype=torch.float64)
-        XtY[L] = torch.zeros(D, E, dtype=torch.float64)
+        for t in targets:
+            XtY[t][L] = torch.zeros(D, E, dtype=torch.float64)
         acc[L] = torch.zeros(E, dtype=torch.float64)
         N[L] = 0
 
@@ -212,10 +233,10 @@ def fit_routers(model, ids_cal, layer_ids, lab_map):
             h = inp[0].detach().reshape(-1, inp[0].shape[-1]).float()   # post-SwiGLU
             m = ((h ** 2) @ ohs[L]).clamp_min(0)                        # [n, E]
             acc[L] += m.sum(0).double()   # STATIC's target, same pass
-            y = m.sqrt()
             x = pend[L]
             XtX[L] += (x.T @ x).double()
-            XtY[L] += (x.T @ y).double()
+            for t in targets:
+                XtY[t][L] += (x.T @ TARGETS[t](m)).double()
             N[L] += x.shape[0]
         return f
 
@@ -229,17 +250,24 @@ def fit_routers(model, ids_cal, layer_ids, lab_map):
     for h in hooks:
         h.remove()
 
-    routers, diag = {}, {}
+    routers = {t: {} for t in targets}
+    diag = {}
     for L in layer_ids:
         A = XtX[L]
         lam = RIDGE_FRAC * float(torch.diagonal(A).mean())
-        R = torch.linalg.solve(A + torch.eye(A.shape[0], dtype=torch.float64) * lam, XtY[L])
-        routers[L] = R.float()
-        # in-sample R^2, reported not gated: how much of the mass a linear map can even see
-        ss_tot = float((XtY[L] ** 2).sum())
+        Ainv = A + torch.eye(A.shape[0], dtype=torch.float64) * lam
+        for t in targets:
+            R = torch.linalg.solve(Ainv, XtY[t][L])
+            routers[t][L] = R.float()
+        R0 = routers[targets[0]][L]
+        # in-sample scale, reported not gated: how much of the mass a linear map can even see
+        ss_tot = float((XtY[targets[0]][L] ** 2).sum())
         diag[L] = {"ridge_lambda": lam, "n_tokens": N[L],
-                   "router_fro": float(torch.linalg.norm(R)),
+                   "router_fro": float(torch.linalg.norm(R0)),
                    "xty_fro": ss_tot ** 0.5}
+        if len(targets) > 1:
+            diag[L]["router_fro_by_target"] = {t: float(torch.linalg.norm(routers[t][L]))
+                                               for t in targets}
     return routers, diag, acc
 
 
