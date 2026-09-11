@@ -1,0 +1,282 @@
+{
+ "brief": "briefs/BRIEF_E30_THE_WALL.md (63515b4)",
+ "question": "E28 broke the 49.9 constant.  How much of the remaining 8.60x to the goal is available to KERNEL work at all?  Everything is in the MOVED-BYTE convention and the ceiling is measured on this box.",
+ "threads": 6,
+ "reps": 3,
+ "ntok": 40,
+ "T10": {
+  "D": 4096,
+  "QD": 4096,
+  "KD": 1024,
+  "F": 14336,
+  "L": 48,
+  "V": 32768
+ },
+ "goal_tok_s": 50.0,
+ "idle_bar_pct": 25.0,
+ "cpu_busy_mean_pct": [
+  2.75,
+  15.5,
+  0.5,
+  7.5
+ ],
+ "cpu_busy_peak_pct": [
+  7.0,
+  31.0,
+  1.0,
+  15.0
+ ],
+ "bands": [
+  [
+   0.85,
+   "AT-THE-WALL"
+  ],
+  [
+   0.6,
+   "PARTIALLY-BOUND"
+  ],
+  [
+   0.0,
+   "STILL-CORE-BOUND"
+  ]
+ ],
+ "bw_sweep": [
+  {
+   "bytes": 4194304,
+   "MB": 4.0,
+   "best": 301.748,
+   "median": 255.75
+  },
+  {
+   "bytes": 8388608,
+   "MB": 8.0,
+   "best": 288.268,
+   "median": 278.691
+  },
+  {
+   "bytes": 12582912,
+   "MB": 12.0,
+   "best": 454.257,
+   "median": 280.243
+  },
+  {
+   "bytes": 16777216,
+   "MB": 16.0,
+   "best": 448.589,
+   "median": 233.666
+  },
+  {
+   "bytes": 20971520,
+   "MB": 20.0,
+   "best": 401.753,
+   "median": 78.663
+  },
+  {
+   "bytes": 25165824,
+   "MB": 24.0,
+   "best": 98.69,
+   "median": 59.536
+  },
+  {
+   "bytes": 33554432,
+   "MB": 32.0,
+   "best": 57.505,
+   "median": 42.265
+  },
+  {
+   "bytes": 67108864,
+   "MB": 64.0,
+   "best": 41.448,
+   "median": 39.506
+  },
+  {
+   "bytes": 268435456,
+   "MB": 256.0,
+   "best": 37.348,
+   "median": 37.161
+  },
+  {
+   "bytes": 1073741824,
+   "MB": 1024.0,
+   "best": 36.598,
+   "median": 36.299
+  },
+  {
+   "bytes": 2147483648,
+   "MB": 2048.0,
+   "best": 35.575,
+   "median": 34.669
+  },
+  {
+   "bytes": 4294967296,
+   "MB": 4096.0,
+   "best": 39.244,
+   "median": 38.363
+  },
+  {
+   "bytes": 8589934592,
+   "MB": 8192.0,
+   "best": 35.49,
+   "median": 34.808
+  }
+ ],
+ "G_E30A": {
+  "resident_best_GB_s": 454.257,
+  "dram_plateau_GB_s": 36.299,
+  "ratio": 12.514311689027247,
+  "bar": 3.0,
+  "fires": true
+ },
+ "bw_ceiling_GB_s": 36.299,
+ "G_E30B": {
+  "per_token_bytes": 5312757760,
+  "per_token_GB": 5.31275776,
+  "file_bytes": 5849628724,
+  "accounted_file_bytes": 5849628724,
+  "unaccounted_bytes": 0,
+  "tol_bytes": 0,
+  "fires": true,
+  "parts": {
+   "per_layer": 109281280,
+   "layers": 5245501440,
+   "head": 67239936,
+   "embed_row": 16384,
+   "total": 5312757760,
+   "embed_table_fp32": 536870912,
+   "header": 52,
+   "final_norm": 16384
+  },
+  "brief_table_GB": 5.3116,
+  "note": "the brief's SS1 table omitted the q/k/v fp32 biases, 24576 B/layer"
+ },
+ "arms": {
+  "T10-PACKED": {
+   "rates": [
+    4.32,
+    4.42,
+    4.35
+   ],
+   "mean_tok_s": 4.363333333333333,
+   "spread": 0.022918258212375777,
+   "GB_per_s": 23.18133302613333
+  },
+  "T10-LUTBLK": {
+   "rates": [
+    6.21,
+    6.23,
+    6.2
+   ],
+   "mean_tok_s": 6.213333333333334,
+   "spread": 0.00482832618025755,
+   "GB_per_s": 33.00993488213334
+  }
+ },
+ "G_E30C": {
+  "T10-PACKED": {
+   "measured": 4.363333333333333,
+   "e28_published": 4.3533333333333335,
+   "rel_dev": 0.0022970903522203656,
+   "tol": 0.1,
+   "passes": true
+  },
+  "T10-LUTBLK": {
+   "measured": 6.213333333333334,
+   "e28_published": 5.813333333333333,
+   "rel_dev": 0.06880733944954143,
+   "tol": 0.1,
+   "passes": true
+  }
+ },
+ "VOID_AS_A_TIMING": false,
+ "verdict": {
+  "name": "AT-THE-WALL",
+  "cell": "T10-LUTBLK GB/s / BW-CEIL",
+  "engine_GB_s": 33.00993488213334,
+  "ceiling_GB_s": 36.299,
+  "ratio": 0.9093896493604049,
+  "packed_ratio": 0.6386218084832456,
+  "headroom_left_x": 1.0996386430209795,
+  "tok_s_if_perfect_kernel": 6.8324214353036865,
+  "goal_needs_GB_s": 265.637888,
+  "goal_over_ceiling_x": 7.318049753436733,
+  "bytes_per_token_for_goal_GB": 0.72598,
+  "ternary_G_weights_per_token_for_goal": 1.45196
+ },
+ "seconds": 93.7285807132721,
+ "robustness_post_hoc": {
+  "WHAT": "three EXTRA sweeps of the same instrument (7 reps each), run after the registered result because the verdict cell landed 0.059 above a band boundary and the DENOMINATOR is the noisy side.  POST-HOC: this is a dispersion bound on the registered ceiling, NOT a gate and NOT a re-verdict (E14 sec.6).  The registered cell stands as measured.",
+  "extra_sweeps_ge_1GB": [
+   {
+    "MB": 1024,
+    "best": 40.81,
+    "median": 37.66
+   },
+   {
+    "MB": 2048,
+    "best": 39.9,
+    "median": 39.69
+   },
+   {
+    "MB": 4096,
+    "best": 39.46,
+    "median": 37.97
+   },
+   {
+    "MB": 8192,
+    "best": 38.18,
+    "median": 36.09
+   },
+   {
+    "MB": 1024,
+    "best": 37.86,
+    "median": 37.02
+   },
+   {
+    "MB": 2048,
+    "best": 34.6,
+    "median": 32.28
+   },
+   {
+    "MB": 4096,
+    "best": 37.41,
+    "median": 35.83
+   },
+   {
+    "MB": 8192,
+    "best": 39.88,
+    "median": 39.43
+   },
+   {
+    "MB": 1024,
+    "best": 39.05,
+    "median": 38.86
+   },
+   {
+    "MB": 2048,
+    "best": 39.3,
+    "median": 38.1
+   },
+   {
+    "MB": 4096,
+    "best": 39.97,
+    "median": 39.36
+   },
+   {
+    "MB": 8192,
+    "best": 40.16,
+    "median": 38.97
+   }
+  ],
+  "pooled_medians_n": 16,
+  "pooled_median_GB_s": 37.815,
+  "pooled_min_GB_s": 32.28,
+  "pooled_max_GB_s": 39.69,
+  "most_generous_ceiling_GB_s": 40.81,
+  "ratio_at_registered_ceiling": 0.9093896493604049,
+  "ratio_at_pooled_median": 0.8729322988796334,
+  "ratio_at_most_generous_ceiling": 0.808868779273054,
+  "band_at_pooled_median": "AT-THE-WALL",
+  "band_at_most_generous_ceiling": "PARTIALLY-BOUND",
+  "headroom_bound_x_worst_case": 1.2362944715194957
+ }
+}

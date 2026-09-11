@@ -3168,3 +3168,76 @@ solid (every rep >= 1.20, known-positive fires at 1.633); the band name is not.*
 that it has moved from the engine side, and a long way from enough. Prediction 5 of the brief
 registered exactly this before the run.
 
+---
+
+## 40. E30 — the wall is measured: 36.3 GB/s, and the engine is already at 0.909 of it
+
+**Probe**: `probes/E30_IS_THE_ENGINE_AT_THE_WALL.md`. **Brief**: `briefs/BRIEF_E30_THE_WALL.md`,
+pushed at `63515b4` before the runner existed. **Result**: `engine/results/e30_the_wall.json`.
+Idle box, witness 2.8% mean / 7% peak against a 25% bar; 94 s.
+**Instrument**: `engine/e30_bandwidth.c`, read-only streaming sum, engine flags, no `-ffast-math`.
+
+### 40.1 The denominator this ledger never had
+
+Every rate in §§10-39 was divided by something implicit. E30 measures it: **`BW-CEIL = 36.30
+GB/s`**, the median of four buffer sizes >= 1 GB, 6 threads, on this box. The planted control
+`G-E30A` fires at **12.5x** — L3-resident 454.3 GB/s against the DRAM plateau — and the cliff
+falls at **16 MB**, exactly where Probe-3 put it.
+
+### 40.2 The engine against it, in MOVED BYTES on both sides
+
+T10 moves **5,312,757,760 bytes/token** = 5.31276 GB, and `G-E30B` reproduces the artifact **to
+the byte** (`5,849,628,724`, unaccounted **0**). *The brief's own pre-registered table was short
+by the q/k/v fp32 biases, 24,576 B/layer — 5.3116 vs 5.31276, +0.022%; the gate caught it.*
+
+| arm | tok/s | GB/s moved | ÷ `BW-CEIL` |
+|---|---|---|---|
+| `T10-PACKED` | 4.363 | 23.18 | **0.639** |
+| `T10-LUTBLK` | 6.213 | 33.01 | **0.909** |
+| *perfect kernel* | *6.832* | *36.30* | *1.000* |
+| *the goal* | *50* | *265.64* | ***7.318*** |
+
+**Verdict `AT-THE-WALL`.** E10's "core-bound" was right *for the kernel it tested* — packed still
+leaves a third of the machine on the floor — and what moved is the kernel, not the machine.
+**Both E28 anchors pass** (`+0.23%`, `+6.88%`), so §39's readings and these come off the same box.
+
+### 40.3 The number that supersedes `THROUGHPUT_G`
+
+`THROUGHPUT_G = 49.9` (§10) became 61.64 in §39. It is now bounded from above, permanently, on
+this box:
+
+| budget for 50 tok/s at T10 | G weights/token |
+|---|---|
+| §10 numerator 49.9 G-w/s | 0.998 |
+| §39 numerator 61.64 G-w/s | 1.2328 |
+| **§40 — the physical bound, perfect kernel, 100% of measured bandwidth** | **1.452** |
+
+**§39's widened budget is already 85% of the physical bound: the numerator has `1.178x` left in
+it in total, forever, here.** E27 measured that everything inside 0.998 G is broken and everything
+that holds sits 5-8x away; `1.45x` does not close that.
+
+### 40.4 The cliff is the constructive half
+
+A 16 MB resident core costs **0.035 ms of a 20 ms token — 0.18%, free**. The specification of the
+goal on this machine is therefore an inequality in two currencies, priced together for the first
+time:
+
+> **~32 M weights resident and free, plus <= 1.45 G streamed, per token, for 50 tok/s.**
+
+Which is Probe-3's "<=16 MB active slice ~ 24-40 M ternary params/token" arriving from the
+bandwidth side, and `SCALEUP_ARCHITECTURE.md`'s thinking/knowing split written as a bound.
+
+### 40.5 Honesty, and what it changes in the plan
+
+The cell landed **0.059 above** the 0.85 boundary and the **denominator** is the noisy side: three
+extra sweeps (post-hoc, not a gate, the registered cell stands) give a pooled median of 37.81
+(ratio 0.873, same band) and a best-ever 40.81 (**ratio 0.809, `PARTIALLY-BOUND`**). **Against the
+most generous denominator this box has ever produced the engine still uses 81% of its entire read
+bandwidth**, headroom bound **1.24x**, and the brief wrote one disposition for both bands.
+Predictions **4 HIT / 1 MISS** — the miss is the band name, by 0.009.
+
+**Plan change recorded here**: §39's owed item 1 (the per-matrix `--lut` guard at
+`donor_engine.c:1437`) is **demoted from "the next build" to "worth doing"** — it buys
+byte-EFFICIENCY, bounded by 1.24x, not bytes. **Every subsequent probe belongs on the denominator,
+against a hard target of 1.45 G moved weights/token.**
+
