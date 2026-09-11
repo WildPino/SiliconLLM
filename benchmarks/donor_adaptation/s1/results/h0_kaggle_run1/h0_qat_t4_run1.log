@@ -1,0 +1,31 @@
+RUN: /usr/bin/python3 h0_qat.py --factors h0_factors.npz --train h0_train.npz --probe h0_probe.json --out h0_trained.npz --steps 4000 --bs 2 --accum 8 --lr 2e-4 --every 250 --max-hours 2.8
+== H0 QAT ==  device cuda  torch 2.10.0+cu128
+   gpu Tesla T4  bf16_supported True
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+   attn_implementation = sdpa  (asserted)
+   replaced 56 organs, 88109056 trainable params (5.7% of donor)
+   train stream 16,000,000 tokens, probe 5 prompts x 32
+
+   step 0 teacher-forced (fp16, GPU, WATCHABLE NOT THE GATE): 27/160
+   E22 QO512-TB measured 28/160 on CPU fp32; H0 gate is >= 48 re-measured there
+
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+/kaggle/working/run/h0_qat.py:308: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  sched.step()
+   G-H0e after step 1, masters moved by: L00.q_proj.A 0.000e+00  L00.o_proj.B 0.000e+00  L27.q_proj.s 0.000e+00
+G-H0e FAILS: a master did not move after one optimizer step. This run would report H0's null as a result.  STOP.
+Traceback (most recent call last):
+  File "/kaggle/src/script.py", line 15, in <module>
+    shutil.copy('h0_trained.npz', '/kaggle/working/h0_trained.npz')
+  File "/usr/lib/python3.12/shutil.py", line 435, in copy
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+  File "/usr/lib/python3.12/shutil.py", line 260, in copyfile
+    with open(src, 'rb') as fsrc:
+         ^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'h0_trained.npz'
+/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+  cells[i][c] = re.sub('\\\\\|', '|', cell)
+/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+[NbConvertApp] Converting notebook __script__.ipynb to html
+[NbConvertApp] Writing 278218 bytes to __results__.html

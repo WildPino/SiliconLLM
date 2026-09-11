@@ -141,3 +141,9 @@ docs/research/LLM_Reimagined_CPU_Native_Exploration_20260626/
 # would also hide one somewhere else.  h0_pack.py rebuilds it and refuses to if the gates did
 # not fire, so nothing is lost by not storing it.
 /benchmarks/donor_adaptation/s1/_h0_bundle/
+
+# What a Kaggle H0 job hands back: the job's working directory, which is the 417 MB bundle
+# copied back verbatim (the same .npz files ignored above, plus scripts that ARE tracked).  The
+# LOG beside it is the evidence and is tracked; the copies are not.  Anchored to the place per
+# the ANCHORING RULE above.
+/benchmarks/donor_adaptation/s1/results/h0_kaggle_run*/run/

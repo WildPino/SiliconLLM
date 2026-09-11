@@ -77,9 +77,22 @@ checkpoint, so an interrupted run is still usable.
 
 ## Stop conditions — stop early and say so if any of these happens
 
-1. **`G-H0e` fails at step 1.** The script aborts by itself. It means the masters did not move
-   after one optimizer step, i.e. the trainer is not training, and any "no effect" conclusion
-   would be an artefact. Nothing to debug on your side — send the log.
+1. **`G-H0e` aborts.** The script stops by itself, and there are now **two different aborts**
+   — the message says which, and they mean opposite things.
+
+   * `G-H0e FAILS: a master did not move after an update the optimizer APPLIED.` The trainer is
+     not training and any "no effect" conclusion would be an artefact. Nothing to debug on your
+     side — send the log.
+   * `G-H0e CANNOT BE READ: the GradScaler declined all 25 of the first steps.` The optimizer
+     never got an update in at all, which is a numerical-scale problem and **not** H0's answer.
+     Send the log; the fallback is bf16, which this card reports as supported.
+
+   **Lines that read `step N DECLINED by the GradScaler` are NORMAL at warm-up and are not an
+   error.** `GradScaler` deliberately starts at a scale of 65536 and halves it until the
+   gradients fit in fp16; a handful of declined steps at the start is the intended behaviour.
+   Run 1 (2026-09-11) died because the gate read the masters after step 1 whether or not the
+   step had been applied, so a perfectly ordinary declined first step looked like "the trainer
+   cannot move this object". **That was a defect in the gate, not in the run and not in H0.**
 2. **`nonfinite` climbs above ~1% of microbatches.** fp16 loss scaling is not holding. Send the
    log; the fallback is bf16, which this card reports as supported.
 3. **The job dies on attention.** The script asserts `sdpa` at load and refuses to start

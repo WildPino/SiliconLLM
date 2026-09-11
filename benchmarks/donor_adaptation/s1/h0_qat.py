@@ -34,9 +34,24 @@ which are inference-only, and it saves memory.  But any trainer that imports it,
 transitively, silently trains NOTHING: every grad is None, the optimizer steps on nothing, the
 loss never moves, and the run reports "gradients do not move this object" -- which is EXACTLY
 H0's null hypothesis.  This file therefore (a) imports nothing from the repo, (b) re-enables
-grad explicitly and asserts it, and (c) carries G-H0e: after the first step the masters must
-have MOVED, checked against a snapshot, or the run aborts.  A null from this experiment only
-means something if the instrument can be shown to move.
+grad explicitly and asserts it, and (c) carries G-H0e: after the first update THE SCALER
+ACTUALLY APPLIED, the masters must have MOVED, checked against a snapshot, or the run aborts.
+A null from this experiment only means something if the instrument can be shown to move.
+
+RUN 1 (2026-09-11) DIED HERE, AND THE GATE WAS THE THING THAT WAS WRONG.  G-H0e originally read
+the masters after `step == 1` unconditionally.  But torch.amp.GradScaler starts at
+init_scale = 65536 BY DESIGN, and `scaler.step(opt)` DECLINES the update whenever unscale_ finds
+an inf in the scaled gradients -- which at that starting scale is ordinary warm-up behaviour and
+not a pathology.  A declined step is not an optimizer step, so the masters could not have moved,
+so the gate fired on its own unmet precondition and stopped a run with nothing wrong with it.
+The corroborating signature in that log is PyTorch's own "lr_scheduler.step() before
+optimizer.step()" warning, which is emitted for exactly this reason.
+
+The fix does not weaken the gate -- it makes the code test the sentence the gate was always
+written in.  It waits up to G_H0E_WINDOW declined steps for an APPLIED one, reads the masters
+after that one, and if the scaler declines every step in the window it aborts with a DIFFERENT
+message: "the trainer never got an update in" and "gradients do not move this object" are two
+different findings, and only the second one is H0's null.
 
 WHAT THIS SCRIPT DOES NOT DO: measure the gate.  It reports an in-job teacher-forced count in
 fp16 on the GPU so the run is watchable, but the H0 gate is re-measured on CPU in fp32 by
@@ -63,6 +78,31 @@ ORGANS = ("q_proj", "o_proj")
 
 def log(m):
     print(m, flush=True)
+
+
+# How many DECLINED steps G-H0e will sit through before giving up.  The scaler halves on every
+# decline, so from init_scale 65536 it passes through every scale a T4 can represent in 16 of
+# them; a window of 25 therefore cannot hide a real "the gradients are inf forever" failure, and
+# widening it would not turn a failing run into a passing one -- it would only change which of
+# the two abort messages is printed.
+G_H0E_WINDOW = 25
+
+
+def applied_steps(opt):
+    """Updates the optimizer has ACTUALLY APPLIED, read out of AdamW's own per-parameter state.
+
+    `scaler.step(opt)` is a no-op when unscale_ found an inf, and it returns None either way, so
+    the only honest way to ask "did an update happen" is to ask the optimizer.  AdamW creates
+    state["step"] on the first update it applies to a parameter and increments it after that.
+    """
+    n = 0
+    for g in opt.param_groups:
+        for prm in g["params"]:
+            st = opt.state.get(prm)
+            if st and "step" in st:
+                v = st["step"]
+                n = max(n, int(v.item() if hasattr(v, "item") else v))
+    return n
 
 
 # --------------------------------------------------------------------------------------------
@@ -131,9 +171,20 @@ class TernaryLowRank(nn.Module):
         greedy positions.  The key is torch's own _version counter, which increments on the
         in-place write the optimizer makes -- so the cache is exact rather than a mode flag that
         can go stale between an eval, a train and another eval.
+
+        IT IS AN EVAL-ONLY CACHE AND IT IS NEVER SERVED UNDER GRAD, which the first version of
+        this method got wrong and G-H0e caught on the CPU smoke of 2026-09-11.  The cached (At,
+        Bt) are built under no_grad, so handing them back inside a training step silently takes
+        A and B OUT OF THE GRAPH: their .grad stays None, the optimizer skips them, and the only
+        master that still learns is s -- 512 numbers of the 88.1 M this experiment is about.
+        The step-0 teacher-forced probe runs under no_grad and fills the cache, and the masters
+        have not moved since, so the key still MATCHED at step 1: the run would have reported
+        "gradients do not move this object" having never sent a gradient to A or B at all.  That
+        is H0's null, fabricated.  G-H0g in h0_selftest.py is the planted control and it FIRES
+        on the unguarded version.
         """
         key = (self.A._version, self.B._version, self.s._version)
-        if self._ck == key:
+        if self._ck == key and not torch.is_grad_enabled():
             return self._cv
         Bt = ste(self.B, self.rms_in)
         At = ste(self.A, self.rms_A * self.s.detach().abs().clamp_min(1e-8))
@@ -286,6 +337,7 @@ def main():
     t0 = time.time()
     rng = np.random.default_rng(1717)
     nonfinite = 0
+    declined = 0
     run_loss, nb = 0.0, 0
     for step in range(1, a.steps + 1):
         opt.zero_grad(set_to_none=True)
@@ -302,20 +354,48 @@ def main():
             run_loss += float(loss.detach()) * a.accum
             nb += 1
         scaler.unscale_(opt)
-        torch.nn.utils.clip_grad_norm_(train_params, 1.0)
-        scaler.step(opt)
+        # after unscale_ this is the TRUE fp32 gradient norm, so an inf here NAMES the reason the
+        # scaler is about to decline the step instead of leaving it to be inferred from a warning
+        gnorm = float(torch.nn.utils.clip_grad_norm_(train_params, 1.0))
+        before = applied_steps(opt)
+        scale_used = scaler.get_scale()
+        scaler.step(opt)                  # DECLINES the update if unscale_ found an inf
         scaler.update()
-        sched.step()
+        sched.step()                      # OneCycleLR counts ITERATIONS, so it advances on a
+                                          # declined step too -- that, and nothing else, is what
+                                          # raises PyTorch's "lr_scheduler.step() before
+                                          # optimizer.step()" warning during warm-up
+        applied = applied_steps(opt) > before
 
-        if step == 1:
-            moved = {k: float((v.detach() - s0).abs().max())
-                     for (k, v), (_, s0) in zip(watch, snap)}
-            log("   G-H0e after step 1, masters moved by: %s"
-                % "  ".join("%s %.3e" % (k, m) for k, m in moved.items()))
-            if not all(m > 0 for m in moved.values()):
-                raise SystemExit("G-H0e FAILS: a master did not move after one optimizer step. "
-                                 "This run would report H0's null as a result.  STOP.")
-            gh0e = moved
+        if gh0e is None:
+            if applied:
+                moved = {k: float((v.detach() - s0).abs().max())
+                         for (k, v), (_, s0) in zip(watch, snap)}
+                log("   G-H0e read at step %d, the first update the optimizer APPLIED "
+                    "(scale %.0f, grad-norm %.3e, %d declined before it)"
+                    % (step, scale_used, gnorm, declined))
+                log("   G-H0e masters moved by: %s"
+                    % "  ".join("%s %.3e" % (k, m) for k, m in moved.items()))
+                if not all(m > 0 for m in moved.values()):
+                    raise SystemExit("G-H0e FAILS: a master did not move after an update the "
+                                     "optimizer APPLIED.  This run would report H0's null as a "
+                                     "result.  STOP.")
+                gh0e = {"moved": moved, "first_applied_step": step, "declined_before": declined,
+                        "scale_at_first_applied": scale_used,
+                        "grad_norm_at_first_applied": gnorm}
+            else:
+                declined += 1
+                log("   step %d DECLINED by the GradScaler (scale %.0f -> %.0f, grad-norm %s) "
+                    "-- G-H0e waits, %d of %d"
+                    % (step, scale_used, scaler.get_scale(),
+                       "inf/nan" if not math.isfinite(gnorm) else "%.3e" % gnorm,
+                       declined, G_H0E_WINDOW))
+                if declined >= G_H0E_WINDOW:
+                    raise SystemExit(
+                        "G-H0e CANNOT BE READ: the GradScaler declined all %d of the first "
+                        "steps, so no update was ever applied and the masters could not have "
+                        "moved.  That is a NUMERICAL-SCALE failure of the TRAINER and it is NOT "
+                        "H0's null -- do not report it as one.  STOP." % declined)
 
         el = time.time() - t0
         if step % a.every == 0 or step == a.steps:
@@ -326,13 +406,15 @@ def main():
                    sched.get_last_lr()[0], nonfinite))
             hist.append({"step": step, "tf_fp16_gpu": tf, "loss": ml, "seconds": el})
             run_loss, nb = 0.0, 0
-            save(model, layer_ids, a, hist, tf0, nonfinite, el, done=False, gh0e=gh0e)
+            save(model, layer_ids, a, hist, tf0, nonfinite, el, done=False, gh0e=gh0e,
+                 declined=declined)
         if el > a.max_hours * 3600:
             log("  TIME CAP %.1f h reached at step %d -- stopping cleanly" % (a.max_hours, step))
             break
 
     el = time.time() - t0
-    save(model, layer_ids, a, hist, tf0, nonfinite, el, done=True, gh0e=gh0e)
+    save(model, layer_ids, a, hist, tf0, nonfinite, el, done=True, gh0e=gh0e,
+         declined=declined)
     log("")
     log("  wrote %s" % a.out)
     log("  RUN COMPLETE.  The gate is NOT decided here: bring %s back and run h0_eval.py on CPU."
@@ -340,7 +422,7 @@ def main():
     return 0
 
 
-def save(model, layer_ids, a, hist, tf0, nonfinite, el, done, gh0e=None):
+def save(model, layer_ids, a, hist, tf0, nonfinite, el, done, gh0e=None, declined=0):
     store = {}
     for li in layer_ids:
         attn = model.model.layers[li].self_attn
@@ -356,7 +438,8 @@ def save(model, layer_ids, a, hist, tf0, nonfinite, el, done, gh0e=None):
     json.dump({"plan": "decisions/T4_HEALING_PROPOSAL.md s3 (H0)",
                "complete": done, "steps_requested": a.steps, "bs": a.bs, "accum": a.accum,
                "lr": a.lr, "seconds": el, "nonfinite_microbatches": nonfinite,
-               "tf_fp16_gpu_step0": tf0, "history": hist, "G_H0e_masters_moved": gh0e,
+               "tf_fp16_gpu_step0": tf0, "history": hist, "G_H0e": gh0e,
+               "scaler_declined_before_first_applied": declined,
                "gate": "NOT decided here -- h0_eval.py on CPU fp32, tf >= 48",
                "e22_anchor_tf": 28, "e21_fp32_ceiling_tf": 144},
               open(os.path.splitext(a.out)[0] + ".json", "w", encoding="utf-8"), indent=1)
