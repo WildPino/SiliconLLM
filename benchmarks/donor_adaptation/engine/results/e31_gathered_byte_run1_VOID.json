@@ -1,0 +1,269 @@
+{
+ "brief": "briefs/BRIEF_E31_THE_GATHERED_BYTE.md (8003fa3)",
+ "threads": 6,
+ "reps": 3,
+ "buffer_MB": 2048.0,
+ "select_1_in": 8,
+ "cpu_busy_mean_pct": 5.75,
+ "cpu_busy_peak_pct": 8.0,
+ "bands": [
+  [
+   0.85,
+   "GATHER-IS-FREE"
+  ],
+  [
+   0.5,
+   "GATHER-COSTS"
+  ],
+  [
+   0.0,
+   "GATHER-DOMINATES"
+  ]
+ ],
+ "e30_anchor_256MB_GB_s": 37.16,
+ "e30_ceiling_GB_s": 36.299,
+ "G_E31C": {
+  "line": "# SELFTEST gather over 195 groups of 7 words: ref 7416904953786510 got 7416904953786510 -> OK",
+  "fires": true
+ },
+ "sweep": [
+  {
+   "group_bytes": 64,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 10.209,
+   "median": 7.465
+  },
+  {
+   "group_bytes": 64,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 9.989,
+   "median": 8.777
+  },
+  {
+   "group_bytes": 64,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 34.581,
+   "median": 34.343
+  },
+  {
+   "group_bytes": 128,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 15.941,
+   "median": 15.616
+  },
+  {
+   "group_bytes": 128,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 10.796,
+   "median": 9.334
+  },
+  {
+   "group_bytes": 128,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 36.196,
+   "median": 35.748
+  },
+  {
+   "group_bytes": 256,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 15.346,
+   "median": 14.503
+  },
+  {
+   "group_bytes": 256,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 10.577,
+   "median": 9.193
+  },
+  {
+   "group_bytes": 256,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 35.209,
+   "median": 31.438
+  },
+  {
+   "group_bytes": 768,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 18.876,
+   "median": 18.004
+  },
+  {
+   "group_bytes": 768,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 15.64,
+   "median": 14.312
+  },
+  {
+   "group_bytes": 768,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 41.098,
+   "median": 37.768
+  },
+  {
+   "group_bytes": 2048,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 23.513,
+   "median": 23.135
+  },
+  {
+   "group_bytes": 2048,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 20.953,
+   "median": 20.656
+  },
+  {
+   "group_bytes": 2048,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 40.193,
+   "median": 39.961
+  },
+  {
+   "group_bytes": 8192,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 31.716,
+   "median": 31.651
+  },
+  {
+   "group_bytes": 8192,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 30.532,
+   "median": 30.299
+  },
+  {
+   "group_bytes": 8192,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 39.497,
+   "median": 38.605
+  },
+  {
+   "group_bytes": 32768,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 38.562,
+   "median": 38.48
+  },
+  {
+   "group_bytes": 32768,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 38.27,
+   "median": 36.729
+  },
+  {
+   "group_bytes": 32768,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 40.776,
+   "median": 39.473
+  },
+  {
+   "group_bytes": 131072,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 40.751,
+   "median": 37.847
+  },
+  {
+   "group_bytes": 131072,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 38.272,
+   "median": 37.064
+  },
+  {
+   "group_bytes": 131072,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 41.305,
+   "median": 39.005
+  },
+  {
+   "group_bytes": 524288,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 40.257,
+   "median": 39.412
+  },
+  {
+   "group_bytes": 524288,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 41.234,
+   "median": 40.583
+  },
+  {
+   "group_bytes": 524288,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 40.814,
+   "median": 40.588
+  },
+  {
+   "group_bytes": 2097152,
+   "order": "sorted",
+   "useful_MB": 256.0,
+   "best": 40.462,
+   "median": 39.934
+  },
+  {
+   "group_bytes": 2097152,
+   "order": "random",
+   "useful_MB": 256.0,
+   "best": 41.475,
+   "median": 39.56
+  },
+  {
+   "group_bytes": 2097152,
+   "order": "contig",
+   "useful_MB": 256.0,
+   "best": 39.807,
+   "median": 38.239
+  }
+ ],
+ "G_E31A": {
+  "contig_GB_s": {
+   "64": 34.343,
+   "128": 35.748,
+   "256": 31.438,
+   "768": 37.768,
+   "2048": 39.961,
+   "8192": 38.605,
+   "32768": 39.473,
+   "131072": 39.005,
+   "524288": 40.588,
+   "2097152": 38.239
+  },
+  "anchor_GB_s": 37.16,
+  "tol": 0.15,
+  "worst_group_bytes": 256,
+  "worst_rel_dev": -0.15398277717976316,
+  "contig_spread": 0.2438907369498465,
+  "fires": false
+ },
+ "G_E31B": {
+  "sorted_768_GB_s": 18.004,
+  "sorted_2048_GB_s": 23.135,
+  "ratio_768_over_2048": 0.7782148260211801,
+  "source": "E26 measured S15 (768 B rows) suffering more than T10 (2048 B rows), bands 18.00% vs 12.54%, disjoint",
+  "fires": true
+ },
+ "VOID": "G-E31A did not fire"
+}

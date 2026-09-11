@@ -60,8 +60,9 @@ static const size_t GROUPS[] = {64, 128, 256, 768, 2048, 8192, 32768, 131072, 52
 #define NGROUPS ((int)(sizeof(GROUPS)/sizeof(GROUPS[0])))
 #define MAXREPS 16
 
-enum { ORD_SORTED = 0, ORD_RANDOM = 1, ORD_CONTIG = 2 };
-static const char* ORDNAME[3] = {"sorted", "random", "contig"};
+enum { ORD_SORTED = 0, ORD_RANDOM = 1, ORD_CONTIG = 2, ORD_CONTIG_IND = 3 };
+static const char* ORDNAME[4] = {"sorted", "random", "contig", "contig_ind"};
+#define NORDERS 4
 
 static int cmpd(const void* a, const void* b){
     double x=*(const double*)a, y=*(const double*)b; return (x>y)-(x<y);
@@ -104,6 +105,35 @@ static uint64_t gather_sum(const uint64_t* buf, const size_t* off, size_t nsel, 
     return acc;
 }
 
+/* THE REGISTERED PLANTED CONTROL: the same VOLUME as one unbroken run, read as one
+   unbroken run -- no per-group indirection at all.
+
+   RUN 1 WAS VOIDED BY G-E31A because this control was implemented as a walk through the
+   offset array.  That carries the gathered arms' own per-group bookkeeping, so it sagged
+   from 39.96 GB/s at 2048 B groups to 34.34 at 64 B -- it MOVED WITH THE VARIABLE IT WAS
+   CONTROLLING FOR, which is not a control, and it flattered every small-group ratio it
+   was the denominator of.  The gate caught it; the fix is the stricter reading of the
+   brief ("one unbroken run"), not a looser gate.  `contig_ind` keeps the old behaviour as
+   a DIAGNOSTIC so the bookkeeping is quantified instead of hidden. */
+static uint64_t flat_sum(const uint64_t* buf, size_t nwords){
+    uint64_t acc = 0;
+#ifdef _OPENMP
+    #pragma omp parallel
+    {
+        uint64_t a0=0,a1=0,a2=0,a3=0;
+        #pragma omp for schedule(static)
+        for(long long i=0;i<(long long)nwords;i+=4){
+            a0+=buf[i]; a1+=buf[i+1]; a2+=buf[i+2]; a3+=buf[i+3];
+        }
+        #pragma omp atomic
+        acc += a0+a1+a2+a3;
+    }
+#else
+    for(size_t i=0;i<nwords;i++) acc += buf[i];
+#endif
+    return acc;
+}
+
 static int selftest(void){
     /* The gather must read EXACTLY the selected groups and nothing else.  Checked against a
        serial reference on a buffer small enough to verify by hand, at a group size that is not
@@ -121,8 +151,14 @@ static int selftest(void){
     printf("# SELFTEST gather over %zu groups of %zu words: ref %llu got %llu -> %s\n",
            nsel, gwords, (unsigned long long)ref, (unsigned long long)got,
            ref==got ? "OK" : "MISMATCH");
+    size_t fw = (nsel*gwords) & ~(size_t)3;          /* flat_sum sums a multiple of 4 */
+    uint64_t fref = 0; for(size_t i=0;i<fw;i++) fref += buf[i];
+    uint64_t fgot = flat_sum(buf, fw);
+    printf("# SELFTEST flat over %zu words: ref %llu got %llu -> %s\n",
+           fw, (unsigned long long)fref, (unsigned long long)fgot,
+           fref==fgot ? "OK" : "MISMATCH");
     free(off); free(buf);
-    return ref==got ? 0 : 1;
+    return (ref==got && fref==fgot) ? 0 : 1;
 }
 
 int main(int argc, char** argv){
@@ -160,7 +196,7 @@ int main(int argc, char** argv){
         }
         size_t* off = (size_t*)malloc(nsel*sizeof(size_t));
 
-        for(int ord=0; ord<3; ord++){
+        for(int ord=0; ord<NORDERS; ord++){
             if(ord==ORD_SORTED){
                 size_t* sel = (size_t*)malloc(nsel*sizeof(size_t));
                 memcpy(sel, idx, nsel*sizeof(size_t));
@@ -169,14 +205,19 @@ int main(int argc, char** argv){
                 free(sel);
             } else if(ord==ORD_RANDOM){
                 for(size_t k=0;k<nsel;k++) off[k] = idx[k]*gwords;
-            } else {                                   /* the planted control: same volume,
-                                                          one unbroken run */
+            } else {                                   /* contig and contig_ind address the
+                                                          same unbroken run */
                 for(size_t k=0;k<nsel;k++) off[k] = k*gwords;
             }
             double gbs[MAXREPS];
             for(int r=0;r<reps;r++){
                 double t0 = now_s();
-                uint64_t acc = gather_sum(buf, off, nsel, gwords);
+                /* ORD_CONTIG is the REGISTERED control and reads the run FLAT;
+                   ORD_CONTIG_IND reads the identical addresses through the group loop, so
+                   the gap between the two IS this harness's per-group bookkeeping at this
+                   granularity -- reported, never silently folded into a verdict. */
+                uint64_t acc = (ord==ORD_CONTIG) ? flat_sum(buf, nsel*gwords)
+                                                 : gather_sum(buf, off, nsel, gwords);
                 double dt = now_s()-t0;
                 g_sink += acc;
                 gbs[r] = (double)(nsel*gwords*8) / dt / 1e9;     // USEFUL bytes only
