@@ -70,6 +70,8 @@ SHAPES = {
     # where the carve makes it nearly free.  F=48128 is 256*188, so --carve 256 divides it.
     "A10B-R512": (4096, 48128, 16, 32, 8, 128, 32768, 0,
                   "E39 -- SYNTHETIC, A10B's exact parameter count, put somewhere else"),
+    "A10B-NKV2": (4096, 48640, 16, 32, 2, 128, 32768, 0, "E40 -- SYNTHETIC, A10B's exact parameter count, k/v heads 8 -> 2"),
+    "A10B-R128": (4096, 49152, 16, 32, 2, 128, 32768, 0, "E40 addendum A -- SYNTHETIC, A10B's exact parameter count, every lever that is REAL on this engine"),
 }
 
 

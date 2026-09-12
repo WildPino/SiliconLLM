@@ -3949,3 +3949,84 @@ Predictions **1 HIT / 4 MISS**, sharing one error: I priced factored attention a
 49% fewer weights bought 49% less time. It bought **41.5%** (17.2 → 10.06 ms), because what
 remains moves ~12% slower per weight. **Phase 61's law arriving on the speed side: a desk model
 does not carry across a change of matvec KIND.**
+
+
+## 50. E40 — after every attention lever, how much FFN can 50 tok/s buy at ten billion?
+
+**Verdict `ATTENTION-LEVERS-EXHAUSTED`** (run 1, registered) — **and the band edge runs through
+the measurement**: 5.99% (run 1), 6.18% (run 2), 6.49% / 6.00% on the same runs' medians, against
+a bar at 6.00%. **The band carries no information; the number is `6.0 ± 0.3%`.**
+
+Three arms, each **exactly 9,999,220,736** parameters, `F` solved to hit E36's integer with
+`F % 256 == 0`:
+
+| arm | `NKV` | rank `q/o` | `F` | base charged | **floor tok/s** | **50 tok/s buys** | **100 tok/s buys** |
+|---|---|---|---|---|---|---|---|
+| `R512` (E39) | 8 | 512 | 48,128 | 0.419 G | 95.4 / 90.2 | 4.03% / 4.45% | ~0% |
+| `NKV2` | **2** | 512 | 48,640 | 0.319 G | 129.3 / 124.8 | 4.67% / 4.24% | 0.86% / 0.70% |
+| **`R128`** | **2** | **128** | 49,152 | **0.218 G** | **161.3 / 164.7** | **5.99% / 6.18%** | **1.65% / 1.74%** |
+
+### 50.1 The milestone: 100 tok/s at ten billion with the FFN still alive
+
+`R128` at `k = 3` reads **112.73 / 106.44 tok/s** and crosses 100 tok/s at **1.65% / 1.74%**
+activation. **E39's `R512` reached 100 only at `k* ≈ 0`, with the FFN switched off; this one does
+not.** First artifact that is simultaneously a genuine 10 B, above the EXCELLENT target, and
+computing something in its FFN. **Weights are noise — this is the speed half only.**
+
+Floor ladder: E36 `A10B` 58.1 → E39 `R512` ~93 → `NKV2` ~127 → **`R128` ~163 tok/s**. **2.8× on
+the term E34 named as the wall**, and `NKV` 8 → 2 is the cheapest large lever in the programme
+(the parameters go straight back into `F`, so the count never moves).
+
+### 50.2 Why ~6% closes the post-hoc route
+
+| activation | what the box charges | what the best attainable selector reads (E38, fp32) |
+|---|---|---|
+| 25% | ~16 tok/s (`R128`'s own fit, extrapolated) | **1.5689** — the peak value of selection |
+| **~6%** | **50 tok/s, measured, every real lever pulled** | **3.597** — 86% of the way to chance |
+| 1.17% | **~110 tok/s, measured** | **4.398** — above chance |
+
+Dense fp32 `0.767595`, chance `4.069819`. **The rate the box affords and the rate selection is
+worth anything at do not overlap, and the gap is 4× — not one lever wide.** E37 showed the
+conversion fails at the rate speed demands, E38 showed no router rescues it, E40 shows the box
+cannot be made to afford the place where selection pays. **Post-hoc conversion is finished as a
+route to this goal. Training into the format (H0's axis) is what is left.**
+
+### 50.3 Gates — one went VOID and took an arm with it
+
+`G-E40A` (parameter count from each file's own header == the integer) **read
+`ALL 10133438464` on the first build, over by `V·D` exactly.** Cause: `synth_export.py:207` — a
+tied model runs its head as the fp32 **embedding** (52% of the token at S05), so `--head ternary`
+forces `tied = 0`. **Tying saves parameters, never charged weights, and on this engine's runnable
+head it is a 5× slowdown** — a lever that costs speed had no business in an arm called `ALL`.
+Addendum A withdrew it for **`R128`**, a *stronger* arm (base 0.218 G vs 0.252 G), pushed before
+the replacement existed. **Prediction 1 scored MISS; the gate was not re-run to a pass.**
+
+`G-E40B` charged vs an independently written closed form, zero tolerance, fires. **`G-E40C`, the
+planted control** — `NKV2` charges strictly less than `R512` so it must be faster — **fires in
+both runs at all five `k`.** All three artifacts matched E1's independent v4 layout exactly.
+
+### 50.4 The factored penalty is SHAPE, not call count
+
+Measured base rates: rank 512 at `NKV` 8 → **38.9** G-w/s, rank 512 at `NKV` 2 → **40.5**, rank
+128 → **35.6**. **`R128` holds the matvec call count fixed at 145 and still loses 12% per charged
+weight**, which answers E39 §8 item 2: the cost is the shape of the factored kernel, not the
+extra calls. Every floor a desk model predicts is optimistic by roughly the amount the rank was
+cut — prediction 3 missed `R128`'s floor by 16% for exactly this reason.
+
+### 50.5 Predictions and dispersion
+
+**0 clean HIT, 2 split, 3 MISS.** Band HIT by 0.01 of a point with the number missed by 7.8%;
+`NKV2`'s floor HIT at −1.9% and `R128`'s MISSED at −16%; the factored-penalty mechanism HIT with
+its number MISSED (35.2 vs a registered 39–41); `k*₁₀₀` MISSED in the good direction (4.2 groups
+against a registered ≤2 — **four times more FFN alive at 100 tok/s than predicted**).
+
+**Dispersion is poor and it is reported, not smoothed**: two first-rep outliers (`R128_k4` run 1
+reads 61.6 among ~105; `R128_k3` run 2 reads 84.2 among ~112). Medians would give 6.49% on run 1
+— within a hundredth of the registered prediction — **and are NOT taken** (E14 §6). Both sessions
+were comparable on the shared control (−1.8%, −2.6%), which E39's were not.
+
+### 50.6 What the floor is made of now
+
+`R128`'s 0.218 G base: **head 134,217,728 (61.5%)**, attention 67,108,864 (30.8%), router
+16,777,216 (7.7%). **The untied head is now bigger than all the attention put together** and has
+never been probed on this axis; `V = 32768` is a choice, not a law.

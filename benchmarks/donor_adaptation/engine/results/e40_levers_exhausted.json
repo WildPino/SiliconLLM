@@ -1,0 +1,509 @@
+{
+ "brief": "BRIEF_E40 (pre-registered)",
+ "arms": {
+  "R512": {
+   "file": "D:/_ktmp/e39/e39_r512.bin",
+   "shape": "A10B-R512",
+   "rank": 512,
+   "role": "E39's object, re-timed: the control and the session check",
+   "bytes": 5486052536,
+   "header": {
+    "D": 4096,
+    "F": 48128,
+    "L": 16,
+    "NH": 32,
+    "NKV": 8,
+    "HD": 128,
+    "V": 32768,
+    "tied": 0
+   },
+   "total_from_header": 9999220736,
+   "charged_k3": 530317312
+  },
+  "NKV2": {
+   "file": "D:/_ktmp/e40\\e40_nkv2.bin",
+   "shape": "A10B-NKV2",
+   "rank": 512,
+   "role": "one lever: k/v heads 8 -> 2, nothing else moves",
+   "bytes": 5485921464,
+   "header": {
+    "D": 4096,
+    "F": 48640,
+    "L": 16,
+    "NH": 32,
+    "NKV": 2,
+    "HD": 128,
+    "V": 32768,
+    "tied": 0
+   },
+   "total_from_header": 9999220736,
+   "charged_k3": 430833664
+  },
+  "R128": {
+   "file": "D:/_ktmp/e40\\e40_r128.bin",
+   "shape": "A10B-R128",
+   "rank": 128,
+   "role": "addendum A: every REAL lever -- NKV 2 + q/o rank 128",
+   "bytes": 5485888696,
+   "header": {
+    "D": 4096,
+    "F": 49152,
+    "L": 16,
+    "NH": 32,
+    "NKV": 2,
+    "HD": 128,
+    "V": 32768,
+    "tied": 0
+   },
+   "total_from_header": 9999220736,
+   "charged_k3": 331350016
+  }
+ },
+ "G_E40A": {
+  "per_arm": {
+   "R512": 9999220736,
+   "NKV2": 9999220736,
+   "R128": 9999220736
+  },
+  "bar": 9999220736,
+  "fires": true
+ },
+ "G_E40B": {
+  "per_arm": {
+   "R512": {
+    "1": {
+     "from_header": 456392704,
+     "closed_form": 456392704,
+     "agrees": true
+    },
+    "2": {
+     "from_header": 493355008,
+     "closed_form": 493355008,
+     "agrees": true
+    },
+    "3": {
+     "from_header": 530317312,
+     "closed_form": 530317312,
+     "agrees": true
+    },
+    "4": {
+     "from_header": 567279616,
+     "closed_form": 567279616,
+     "agrees": true
+    },
+    "6": {
+     "from_header": 641204224,
+     "closed_form": 641204224,
+     "agrees": true
+    }
+   },
+   "NKV2": {
+    "1": {
+     "from_header": 356122624,
+     "closed_form": 356122624,
+     "agrees": true
+    },
+    "2": {
+     "from_header": 393478144,
+     "closed_form": 393478144,
+     "agrees": true
+    },
+    "3": {
+     "from_header": 430833664,
+     "closed_form": 430833664,
+     "agrees": true
+    },
+    "4": {
+     "from_header": 468189184,
+     "closed_form": 468189184,
+     "agrees": true
+    },
+    "6": {
+     "from_header": 542900224,
+     "closed_form": 542900224,
+     "agrees": true
+    }
+   },
+   "R128": {
+    "1": {
+     "from_header": 255852544,
+     "closed_form": 255852544,
+     "agrees": true
+    },
+    "2": {
+     "from_header": 293601280,
+     "closed_form": 293601280,
+     "agrees": true
+    },
+    "3": {
+     "from_header": 331350016,
+     "closed_form": 331350016,
+     "agrees": true
+    },
+    "4": {
+     "from_header": 369098752,
+     "closed_form": 369098752,
+     "agrees": true
+    },
+    "6": {
+     "from_header": 444596224,
+     "closed_form": 444596224,
+     "agrees": true
+    }
+   }
+  },
+  "fires": true
+ },
+ "order": "forward",
+ "reps": 5,
+ "ntok": 40,
+ "ten_b_bar": 9999220736,
+ "speed_arms": {
+  "R512_k1": {
+   "arm": "R512",
+   "k": 1,
+   "rates": [
+    90.42,
+    89.31,
+    88.37,
+    90.74,
+    92.19
+   ],
+   "mean_tok_s": 90.20599999999999,
+   "median_tok_s": 90.42,
+   "spread": 0.042347515686317914,
+   "charged": 456392704,
+   "charged_G_w_per_s": 41.169360257023996
+  },
+  "R512_k2": {
+   "arm": "R512",
+   "k": 2,
+   "rates": [
+    80.28,
+    78.79,
+    73.98,
+    83.99,
+    76.16
+   ],
+   "mean_tok_s": 78.64,
+   "median_tok_s": 78.79,
+   "spread": 0.12728891149542207,
+   "charged": 493355008,
+   "charged_G_w_per_s": 38.79743782912
+  },
+  "R512_k3": {
+   "arm": "R512",
+   "k": 3,
+   "rates": [
+    75.26,
+    79.13,
+    72.94,
+    78.56,
+    79.46
+   ],
+   "mean_tok_s": 77.07000000000001,
+   "median_tok_s": 78.56,
+   "spread": 0.08459841702348508,
+   "charged": 530317312,
+   "charged_G_w_per_s": 40.871555235840006
+  },
+  "R512_k4": {
+   "arm": "R512",
+   "k": 4,
+   "rates": [
+    72.12,
+    61.31,
+    63.9,
+    70.38,
+    73.97
+   ],
+   "mean_tok_s": 68.336,
+   "median_tok_s": 70.38,
+   "spread": 0.18526106298290793,
+   "charged": 567279616,
+   "charged_G_w_per_s": 38.765619838976
+  },
+  "R512_k6": {
+   "arm": "R512",
+   "k": 6,
+   "rates": [
+    64.77,
+    66.45,
+    59.83,
+    64.88,
+    60.91
+   ],
+   "mean_tok_s": 63.367999999999995,
+   "median_tok_s": 64.77,
+   "spread": 0.10446913268526709,
+   "charged": 641204224,
+   "charged_G_w_per_s": 40.631829266432
+  },
+  "NKV2_k1": {
+   "arm": "NKV2",
+   "k": 1,
+   "rates": [
+    106.68,
+    110.23,
+    112.73,
+    116.21,
+    114.16
+   ],
+   "mean_tok_s": 112.002,
+   "median_tok_s": 112.73,
+   "spread": 0.08508776628988757,
+   "charged": 356122624,
+   "charged_G_w_per_s": 39.886446133248
+  },
+  "NKV2_k2": {
+   "arm": "NKV2",
+   "k": 2,
+   "rates": [
+    98.46,
+    106.21,
+    114.5,
+    103.87,
+    102.9
+   ],
+   "mean_tok_s": 105.18800000000002,
+   "median_tok_s": 103.87,
+   "spread": 0.1524888770582196,
+   "charged": 393478144,
+   "charged_G_w_per_s": 41.38917901107201
+  },
+  "NKV2_k3": {
+   "arm": "NKV2",
+   "k": 3,
+   "rates": [
+    99.27,
+    98.36,
+    75.35,
+    91.96,
+    92.23
+   ],
+   "mean_tok_s": 91.434,
+   "median_tok_s": 92.23,
+   "spread": 0.2616094669379006,
+   "charged": 430833664,
+   "charged_G_w_per_s": 39.392845234176
+  },
+  "NKV2_k4": {
+   "arm": "NKV2",
+   "k": 4,
+   "rates": [
+    82.71,
+    86.85,
+    85.64,
+    87.01,
+    82.13
+   ],
+   "mean_tok_s": 84.868,
+   "median_tok_s": 85.64,
+   "spread": 0.057501060470377646,
+   "charged": 468189184,
+   "charged_G_w_per_s": 39.734279667711995
+  },
+  "NKV2_k6": {
+   "arm": "NKV2",
+   "k": 6,
+   "rates": [
+    72.76,
+    75.85,
+    71.93,
+    71.16,
+    67.24
+   ],
+   "mean_tok_s": 71.788,
+   "median_tok_s": 71.93,
+   "spread": 0.1199364796344793,
+   "charged": 542900224,
+   "charged_G_w_per_s": 38.973721280512
+  },
+  "R128_k1": {
+   "arm": "R128",
+   "k": 1,
+   "rates": [
+    134.85,
+    148.35,
+    150.31,
+    139.64,
+    138.3
+   ],
+   "mean_tok_s": 142.29000000000002,
+   "median_tok_s": 139.64,
+   "spread": 0.10865134584299674,
+   "charged": 255852544,
+   "charged_G_w_per_s": 36.40525848576
+  },
+  "R128_k2": {
+   "arm": "R128",
+   "k": 2,
+   "rates": [
+    113.21,
+    132.98,
+    128.55,
+    130.78,
+    134.85
+   ],
+   "mean_tok_s": 128.074,
+   "median_tok_s": 130.78,
+   "spread": 0.16896481721504755,
+   "charged": 293601280,
+   "charged_G_w_per_s": 37.60269033472
+  },
+  "R128_k3": {
+   "arm": "R128",
+   "k": 3,
+   "rates": [
+    105.27,
+    118.18,
+    119.41,
+    104.21,
+    116.59
+   ],
+   "mean_tok_s": 112.732,
+   "median_tok_s": 116.59,
+   "spread": 0.1348330553879999,
+   "charged": 331350016,
+   "charged_G_w_per_s": 37.353750003712
+  },
+  "R128_k4": {
+   "arm": "R128",
+   "k": 4,
+   "rates": [
+    61.62,
+    108.66,
+    105.72,
+    98.74,
+    106.32
+   ],
+   "mean_tok_s": 96.212,
+   "median_tok_s": 105.72,
+   "spread": 0.488920301001954,
+   "charged": 369098752,
+   "charged_G_w_per_s": 35.511729127424005
+  },
+  "R128_k6": {
+   "arm": "R128",
+   "k": 6,
+   "rates": [
+    85.69,
+    89.11,
+    89.27,
+    89.82,
+    88.99
+   ],
+   "mean_tok_s": 88.576,
+   "median_tok_s": 89.11,
+   "spread": 0.04662662572254331,
+   "charged": 444596224,
+   "charged_G_w_per_s": 39.380555137024
+  }
+ },
+ "cpu_busy_pct": [
+  5.83333333333333,
+  12.6666666666667,
+  10.0,
+  9.0,
+  11.5
+ ],
+ "cpu_peak_pct": [
+  17.0,
+  23.0,
+  33.0,
+  18.0,
+  27.0
+ ],
+ "G_E40C": {
+  "per_k": {
+   "1": {
+    "r512": 90.20599999999999,
+    "nkv2": 112.002,
+    "faster": true
+   },
+   "2": {
+    "r512": 78.64,
+    "nkv2": 105.18800000000002,
+    "faster": true
+   },
+   "3": {
+    "r512": 77.07000000000001,
+    "nkv2": 91.434,
+    "faster": true
+   },
+   "4": {
+    "r512": 68.336,
+    "nkv2": 84.868,
+    "faster": true
+   },
+   "6": {
+    "r512": 63.367999999999995,
+    "nkv2": 71.788,
+    "faster": true
+   }
+  },
+  "fires": true
+ },
+ "session_vs_e39": {
+  "r512_k3_now": 77.07000000000001,
+  "e39": 78.456,
+  "rel": -0.017665952890792203,
+  "within_5pct": true
+ },
+ "fits": {
+  "R512": {
+   "ms_base": 10.486929643981917,
+   "ms_per_group": 0.9223057630237665,
+   "F": 48128,
+   "group_size": 188,
+   "floor_tok_s": 95.35679497705652,
+   "base_G_w_per_s": 39.99553865994481,
+   "group_G_w_per_s": 40.07597640810527,
+   "gather_penalty": 1.0020111680166222,
+   "k_star_100": -0.5279481745679704,
+   "k_star_100_neurons": -99.25425681877843,
+   "k_star_100_pct": -0.20622975569061344,
+   "k_star_50": 10.314443146088143,
+   "k_star_50_neurons": 1939.1153114645708,
+   "k_star_50_pct": 4.029079353940681
+  },
+  "NKV2": {
+   "ms_base": 7.732210330550727,
+   "ms_per_group": 1.026494232819197,
+   "F": 48640,
+   "group_size": 190,
+   "floor_tok_s": 129.32912546997088,
+   "base_G_w_per_s": 41.22587078891526,
+   "group_G_w_per_s": 36.39135886560764,
+   "gather_penalty": 0.8827311144484663,
+   "k_star_100": 2.2092570975493375,
+   "k_star_100_neurons": 419.7588485343741,
+   "k_star_100_pct": 0.8629910537302099,
+   "k_star_50": 11.951153038392254,
+   "k_star_50_neurons": 2270.7190772945282,
+   "k_star_50_pct": 4.668419155621974
+  },
+  "R128": {
+   "ms_base": 6.197736720199644,
+   "ms_per_group": 0.9000782930362432,
+   "F": 49152,
+   "group_size": 192,
+   "floor_tok_s": 161.34922232833853,
+   "base_G_w_per_s": 35.19087980764926,
+   "group_G_w_per_s": 41.93939159743738,
+   "gather_penalty": 1.191768771530436,
+   "k_star_100": 4.224369490096404,
+   "k_star_100_neurons": 811.0789420985095,
+   "k_star_100_pct": 1.6501443320689078,
+   "k_star_50": 15.334514104590882,
+   "k_star_50_neurons": 2944.2267080814495,
+   "k_star_50_pct": 5.9900445721058135
+  }
+ },
+ "seconds": 0.0021462440490722656,
+ "verdict": {
+  "cell": "R128 activation % at 50 tok/s",
+  "pct": 5.9900445721058135,
+  "name": "ATTENTION-LEVERS-EXHAUSTED"
+ }
+}
