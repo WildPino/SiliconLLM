@@ -242,3 +242,80 @@ an interim point on a curve with two points. The gate in §5.2 is evaluated **af
 5. The bundle, its `MANIFEST.json` with sha256s, and **`RUN.md` with the exact command.**
 6. **STOP. I do not launch the T4 sessions** — I hand over the ready command, per the standing
    rule that the user launches the long runs.
+
+---
+
+# ADDENDUM A — `G-H1c` was MIS-SPECIFIED, and the joint router is UNSTABLE
+
+**Written and pushed BEFORE the T4 runs and before any H1 number on the real donor exists.**
+Everything here comes from a CPU smoke on a *toy* shape (`D=32, F=128, E=8, k=2`, random
+weights), whose only job is to check wiring and find design faults cheaply. **No number in this
+addendum is a result about the donor, and none of them may be quoted as one.**
+
+## A.1 What fired, and stands
+
+| check | result |
+|---|---|
+| `G-H1a` — `k = E` bit-identical to the uncarved ternary FFN | **FIRES**, max abs difference **exactly 0.0** |
+| the carve actually masks at the real `k` | **FIRES** — output differs, `k*GSZ` neurons live, gate values exactly `{0, 1}` at init |
+| gradient reaches `gate`, `up`, `down` **and** `router` | **FIRES** — all four non-`None`, all non-zero |
+
+## A.2 `G-H1c` as registered in §5.1 is WRONG, and it is replaced
+
+§5.1 registered *"the router learns: recall@k strictly above `k/E`"*. **That gate measures the
+wrong thing and it must not be used.** `recall@k` scores agreement with the top-`k` groups **by
+activation mass**, and a jointly trained router is not trying to match mass — it is minimising
+loss, and it is free to pick a different set and compensate with its gate weights. Measured on
+the toy: after training, recall sat at chance (0.2646 vs `k/E` = 0.2500) **while the router was
+simultaneously beating the exhaustive best fixed pair on reconstruction loss.** A gate that a
+working instrument fails is not a gate — that is E42's error, and E43 §0.1 exists to stop it.
+
+**Worse, the yardstick is one this programme has already retired.** E38 handed the carve a
+per-token mass **oracle** and it still read above chance. Scoring a router by how well it
+imitates that oracle asks it to reproduce a known-insufficient criterion.
+
+**`G-H1c` is REPLACED, ORDINAL, no tolerance:**
+
+> **`G-H1c` (revised)** — on **held-out** tokens, the jointly trained router must be strictly
+> better than **`STATIC`**: the same model with the top-`k` groups chosen once by global
+> activation mass over the calibration stream and used for *every* token.
+
+That is E23's comparison (`V52-STATIC` read 99/160 against the linear router's 110) and it
+prices the only thing a router can sell — **the per-token decision.** If it cannot beat a fixed
+selection, the router is not earning its 5.1% of the charged weights.
+
+## A.3 The instability, found before the GPU and not after it
+
+Training the router is **not stable**, and this would have consumed a whole T4 session. Toy,
+held-out loss, `STATIC` control at ~0.015:
+
+| router LR | 50 steps | 300 steps |
+|---|---|---|
+| `3e-2` | 0.104 | 0.132 |
+| `3e-3` | **0.0141 — beats `STATIC`** | 0.089 |
+
+It is **not overfitting**: 64 and 2,048 training sequences behave identically. It is divergence.
+Adding the standard Switch load-balancing auxiliary loss spreads occupancy as intended (max
+group share 0.23 → 0.15) but **does not fix it** — held-out loss still walks 0.0136 → 0.0861
+between steps 50 and 300, because on a random-weight toy the best policy is to keep picking the
+heavy groups and load balancing actively forbids that.
+
+**Registered consequences:**
+
+1. **The router gets its OWN optimizer param group with its own LR**, separate from the experts.
+2. **That LR and the auxiliary-loss coefficient are fixed by a CPU smoke on the REAL donor
+   before the T4 runs, and recorded in an addendum at that time.** They are **not** tuned on
+   the T4, and **not** tuned on the toy — the toy has random weights, no structure to route on,
+   and §A.3's numbers are therefore evidence about *stability*, not about *what setting to use*.
+3. **If the CPU smoke cannot find a setting where `G-H1c` (revised) fires on the real donor,
+   H1 does not launch** and the T4 hours are handed back unspent. A router that cannot beat a
+   fixed selection on CPU will not learn to on a T4.
+
+## A.4 What does NOT change
+
+The question (§0), the damage decomposition (§1), the 8 registered layers and the reason for
+them (§2), `k = 16` (§3), the `applied-8L` matched control (§4), the **ORDINAL gate `G-H1` and
+its bands** (§5.2), the separation of progress metrics from the gate (§5.3), both sessions
+(§7), and every scope limit in §9. **§6's disclosure is now sharper, not weaker:** H1 still
+cannot separate the carve from the router, and §A.2 means a *failure* of `G-H1c` would at least
+say the router half is the part that did not earn its place.
