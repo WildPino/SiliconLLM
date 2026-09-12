@@ -1,0 +1,174 @@
+{
+ "what": "E43 G-E43A session control, taken REPEATEDLY on a contended box and NOT used as a measurement.  The registered bar is +-5% of E40 run 1's 112.73 tok/s; every batch here is 35-37% low, so G-E43A would go VOID and the registered consequence is that no rate in E43 counts.  The timing is therefore NOT taken.  Recorded because it is the first quantification on this box of the standing rule that a contended timing is not a timing -- the rule was written after a ledger number turned out 35% off, and this is that same 35%, reproduced on purpose.",
+ "file_under_test": "D:/_ktmp/e40/e40_r128.bin (E40's own artifact, byte-identical)",
+ "engine": "donor_engine_e26.exe",
+ "threads": 6,
+ "ntok": 40,
+ "carve_k": 3,
+ "e40_run1_idle": 112.73,
+ "bar": 0.05,
+ "e40_e39_session_busy_range_pct": [
+  3.2,
+  22.5
+ ],
+ "load_source": "user's Chrome (~2.6 cores of 12) plus Task Manager and the IDE -- not mine, and not touched",
+ "batches": [
+  {
+   "box_busy_pct": 44.8,
+   "peak_core_pct": 68.0,
+   "note": "cold, straight after writing 17 GB of exports",
+   "rates": [
+    36.44,
+    60.87,
+    69.28
+   ],
+   "mean": 55.53,
+   "rel_to_e40": -0.5074070788609952,
+   "spread": 0.5913920403385557
+  },
+  {
+   "box_busy_pct": 40.8,
+   "peak_core_pct": 46.0,
+   "note": "warm, page cache settled",
+   "rates": [
+    70.35,
+    60.7,
+    64.79,
+    74.8,
+    71.17,
+    71.63
+   ],
+   "mean": 68.90666666666667,
+   "rel_to_e40": -0.3887459711996215,
+   "spread": 0.2046246130030959
+  },
+  {
+   "box_busy_pct": 44.7,
+   "peak_core_pct": 51.0,
+   "note": "box read 22.3% before the batch and 44.7% after -- bursty",
+   "rates": [
+    91.69,
+    60.76,
+    65.79,
+    65.48
+   ],
+   "mean": 70.93,
+   "rel_to_e40": -0.37079748070611196,
+   "spread": 0.43606372479909766
+  }
+ ],
+ "all_rates": [
+  36.44,
+  60.87,
+  69.28,
+  70.35,
+  60.7,
+  64.79,
+  74.8,
+  71.17,
+  71.63,
+  91.69,
+  60.76,
+  65.79,
+  65.48
+ ],
+ "overall_mean": 66.4423076923077,
+ "overall_rel_to_e40": -0.4106066912773202,
+ "overall_spread": 0.8315484804630969,
+ "verdict": "BLOCKED -- needs an idle box.  COMMUNICATION.md APERTO 2.",
+ "desk_model": {
+  "caveat": "DESK MODEL, not a measurement.  tok/s is straight 1/charged scaling from E40's 112.73; brief prediction 4 registers that the small-V arms will read BELOW this, so treat it as an upper bound.  Only bytes_per_token is measured.",
+  "per_V": {
+   "2048": {
+    "V": 2048,
+    "F": 50432,
+    "base": 92274688,
+    "head": 8388608,
+    "head_frac_of_base": 0.09090909090909091,
+    "charged_k3": 208470016,
+    "bytes_per_token_MEASURED": 2.647374062165059,
+    "tok_s_DESK": 179.17726501100282,
+    "bytes_per_s_DESK": 474.3492439198038
+   },
+   "8192": {
+    "V": 8192,
+    "F": 50176,
+    "base": 117440512,
+    "head": 33554432,
+    "head_frac_of_base": 0.2857142857142857,
+    "charged_k3": 233046016,
+    "bytes_per_token_MEASURED": 3.3103580317825005,
+    "tok_s_DESK": 160.28202474690664,
+    "bytes_per_s_DESK": 530.5908879712839
+   },
+   "14336": {
+    "V": 14336,
+    "F": 49920,
+    "base": 142606336,
+    "head": 58720256,
+    "head_frac_of_base": 0.4117647058823529,
+    "charged_k3": 257622016,
+    "bytes_per_token_MEASURED": 3.5625,
+    "tok_s_DESK": 144.99182905113202,
+    "bytes_per_s_DESK": 516.5333909946578
+   },
+   "20480": {
+    "V": 20480,
+    "F": 49664,
+    "base": 167772160,
+    "head": 83886080,
+    "head_frac_of_base": 0.5,
+    "charged_k3": 282198016,
+    "bytes_per_token_MEASURED": 3.714817732578959,
+    "tok_s_DESK": 132.3648118903855,
+    "bytes_per_s_DESK": 491.7111503798823
+   },
+   "26624": {
+    "V": 26624,
+    "F": 49408,
+    "base": 192937984,
+    "head": 109051904,
+    "head_frac_of_base": 0.5652173913043478,
+    "charged_k3": 306774016,
+    "bytes_per_token_MEASURED": 3.7966622749231447,
+    "tok_s_DESK": 121.76092287972655,
+    "bytes_per_s_DESK": 462.28510245728415
+   },
+   "32768": {
+    "V": 32768,
+    "F": 49152,
+    "base": 218103808,
+    "head": 134217728,
+    "head_frac_of_base": 0.6153846153846154,
+    "charged_k3": 331350016,
+    "bytes_per_token_MEASURED": 3.8631116407239143,
+    "tok_s_DESK": 112.73,
+    "bytes_per_s_DESK": 435.48857525880686
+   },
+   "51200": {
+    "V": 51200,
+    "F": 48384,
+    "base": 293601280,
+    "head": 209715200,
+    "head_frac_of_base": 0.7142857142857143,
+    "charged_k3": 405078016,
+    "bytes_per_token_MEASURED": 3.9683268303878814,
+    "tok_s_DESK": 92.21208218734833,
+    "bytes_per_s_DESK": 365.9276798299868
+   },
+   "131072": {
+    "V": 131072,
+    "F": 45056,
+    "base": 620756992,
+    "head": 536870912,
+    "head_frac_of_base": 0.8648648648648649,
+    "charged_k3": 724566016,
+    "bytes_per_token_MEASURED": 4.123539232053423,
+    "tok_s_DESK": 51.55235890014472,
+    "bytes_per_s_DESK": 212.57817442964517
+   }
+  },
+  "peak_V": 8192,
+  "cell_if_desk_were_right": 1.218380729404804
+ }
+}

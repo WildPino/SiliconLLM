@@ -1,0 +1,257 @@
+{
+ "brief": "BRIEF_E43 (pre-registered, 4b4ebf2)",
+ "phase": "build",
+ "arms": {
+  "V2048": {
+   "file": "D:/_ktmp/e43\\e43_v2048.bin",
+   "shape": "A10B-V2048",
+   "V": 2048,
+   "bytes": 5045527736,
+   "header": {
+    "D": 4096,
+    "F": 50432,
+    "L": 16,
+    "NH": 32,
+    "NKV": 2,
+    "HD": 128,
+    "V": 2048,
+    "tied": 0
+   },
+   "total_from_header": 9999220736,
+   "closed_form_total": 9999220736,
+   "base": 92274688,
+   "charged_k3": 208470016,
+   "head": 8388608,
+   "head_frac_of_base": 0.09090909090909091
+  },
+  "V8192": {
+   "file": "D:/_ktmp/e43\\e43_v8192.bin",
+   "shape": "A10B-V8192",
+   "V": 8192,
+   "bytes": 5133599928,
+   "header": {
+    "D": 4096,
+    "F": 50176,
+    "L": 16,
+    "NH": 32,
+    "NKV": 2,
+    "HD": 128,
+    "V": 8192,
+    "tied": 0
+   },
+   "total_from_header": 9999220736,
+   "closed_form_total": 9999220736,
+   "base": 117440512,
+   "charged_k3": 233046016,
+   "head": 33554432,
+   "head_frac_of_base": 0.2857142857142857
+  },
+  "V32768": {
+   "file": "D:/_ktmp/e40/e40_r128.bin",
+   "shape": "A10B-R128",
+   "V": 32768,
+   "bytes": 5485888696,
+   "header": {
+    "D": 4096,
+    "F": 49152,
+    "L": 16,
+    "NH": 32,
+    "NKV": 2,
+    "HD": 128,
+    "V": 32768,
+    "tied": 0
+   },
+   "total_from_header": 9999220736,
+   "closed_form_total": 9999220736,
+   "base": 218103808,
+   "charged_k3": 331350016,
+   "head": 134217728,
+   "head_frac_of_base": 0.6153846153846154
+  },
+  "V131072": {
+   "file": "D:/_ktmp/e43\\e43_v131072.bin",
+   "shape": "A10B-V131072",
+   "V": 131072,
+   "bytes": 6895043768,
+   "header": {
+    "D": 4096,
+    "F": 45056,
+    "L": 16,
+    "NH": 32,
+    "NKV": 2,
+    "HD": 128,
+    "V": 131072,
+    "tied": 0
+   },
+   "total_from_header": 9999220736,
+   "closed_form_total": 9999220736,
+   "base": 620756992,
+   "charged_k3": 724566016,
+   "head": 536870912,
+   "head_frac_of_base": 0.8648648648648649
+  }
+ },
+ "G_E43B": {
+  "per_arm": {
+   "V2048": {
+    "total": {
+     "from_header": 9999220736,
+     "closed_form": 9999220736,
+     "bar": 9999220736,
+     "agrees": true
+    },
+    "k0": {
+     "charged": 92274688,
+     "closed_form": 92274688,
+     "agrees": true
+    },
+    "k1": {
+     "charged": 131006464,
+     "closed_form": 131006464,
+     "agrees": true
+    },
+    "k2": {
+     "charged": 169738240,
+     "closed_form": 169738240,
+     "agrees": true
+    },
+    "k3": {
+     "charged": 208470016,
+     "closed_form": 208470016,
+     "agrees": true
+    },
+    "k4": {
+     "charged": 247201792,
+     "closed_form": 247201792,
+     "agrees": true
+    },
+    "k6": {
+     "charged": 324665344,
+     "closed_form": 324665344,
+     "agrees": true
+    },
+    "all": true
+   },
+   "V8192": {
+    "total": {
+     "from_header": 9999220736,
+     "closed_form": 9999220736,
+     "bar": 9999220736,
+     "agrees": true
+    },
+    "k0": {
+     "charged": 117440512,
+     "closed_form": 117440512,
+     "agrees": true
+    },
+    "k1": {
+     "charged": 155975680,
+     "closed_form": 155975680,
+     "agrees": true
+    },
+    "k2": {
+     "charged": 194510848,
+     "closed_form": 194510848,
+     "agrees": true
+    },
+    "k3": {
+     "charged": 233046016,
+     "closed_form": 233046016,
+     "agrees": true
+    },
+    "k4": {
+     "charged": 271581184,
+     "closed_form": 271581184,
+     "agrees": true
+    },
+    "k6": {
+     "charged": 348651520,
+     "closed_form": 348651520,
+     "agrees": true
+    },
+    "all": true
+   },
+   "V32768": {
+    "total": {
+     "from_header": 9999220736,
+     "closed_form": 9999220736,
+     "bar": 9999220736,
+     "agrees": true
+    },
+    "k0": {
+     "charged": 218103808,
+     "closed_form": 218103808,
+     "agrees": true
+    },
+    "k1": {
+     "charged": 255852544,
+     "closed_form": 255852544,
+     "agrees": true
+    },
+    "k2": {
+     "charged": 293601280,
+     "closed_form": 293601280,
+     "agrees": true
+    },
+    "k3": {
+     "charged": 331350016,
+     "closed_form": 331350016,
+     "agrees": true
+    },
+    "k4": {
+     "charged": 369098752,
+     "closed_form": 369098752,
+     "agrees": true
+    },
+    "k6": {
+     "charged": 444596224,
+     "closed_form": 444596224,
+     "agrees": true
+    },
+    "all": true
+   },
+   "V131072": {
+    "total": {
+     "from_header": 9999220736,
+     "closed_form": 9999220736,
+     "bar": 9999220736,
+     "agrees": true
+    },
+    "k0": {
+     "charged": 620756992,
+     "closed_form": 620756992,
+     "agrees": true
+    },
+    "k1": {
+     "charged": 655360000,
+     "closed_form": 655360000,
+     "agrees": true
+    },
+    "k2": {
+     "charged": 689963008,
+     "closed_form": 689963008,
+     "agrees": true
+    },
+    "k3": {
+     "charged": 724566016,
+     "closed_form": 724566016,
+     "agrees": true
+    },
+    "k4": {
+     "charged": 759169024,
+     "closed_form": 759169024,
+     "agrees": true
+    },
+    "k6": {
+     "charged": 828375040,
+     "closed_form": 828375040,
+     "agrees": true
+    },
+    "all": true
+   }
+  },
+  "fires": true
+ },
+ "ten_b_bar": 9999220736,
+ "seconds": 854.3779530525208
+}
