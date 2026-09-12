@@ -124,3 +124,72 @@ weight does not go faster, the stopwatch is not on the shape and nothing below i
 - **Nothing about whether ~6% can be TRAINED into.** That is the question this hands to the T4
   clause, and E40 cannot answer it on a CPU with noise for weights.
 - **One box, one thread count, one engine build.**
+
+---
+
+# ADDENDUM A — `G-E40A` went VOID on the `ALL` arm, and the arm is replaced
+
+**Pushed before the replacement object exists and before any timing.** The original brief above
+is unedited; this addendum is additive and is scored alongside it.
+
+## What fired
+
+`G-E40A` requires every arm's parameter count, recomputed **from its own exported header**, to
+equal 9,999,220,736 exactly. As built:
+
+```
+G-E40A  ALL 10133438464 == NKV2 9999220736 == R512 9999220736 == 9999220736 ?  -> VOID
+```
+
+`ALL` is over by **134,217,728 = V·D exactly**, i.e. one whole head.
+
+## Why — and it is a rule I should have read first, not a bug
+
+`synth_export.py:207` carries a comment that predates this probe by many experiments:
+
+> **RUN 1 WROTE THE WRONG ARM.** SHAPES carries the donor's own `tied` flag, and a tied model runs
+> its head as the fp32 **EMBEDDING**: 544 MB/token at S05, 13.8 ms, **52% of the token**. […] the
+> runnable configuration is UNTIED and packed — 68.1 MB/token, the configuration
+> `SPEED_LEDGER §12.2` actually measured its 56.1 tok/s on.
+
+So `--head ternary`, the default and the only head any speed number in this programme was ever
+measured on, **forces `tied = 0`**. The exporter honoured that and wrote an untied head; the
+object is therefore a real 10.13 B and not the ten billion the gate demands.
+
+**My §2 was wrong twice about tying, in opposite directions.** First, tying saves *parameters*,
+never *charged weights* — the output projection is read every token either way (I caught that one
+before the brief was written and the brief's table is already built on the corrected version).
+Second, and not caught: at this engine's runnable head, tying is not a lever at all — **it is a
+5× slowdown on the head**, which is why the exporter refuses it. **A lever that costs speed had no
+business in an arm called `ALL`.**
+
+## The replacement arm
+
+`ALL` is withdrawn and replaced by **`R128`**, which pulls every lever that is *real* on this
+engine — `k/v` heads 8 → 2 and the `q/o` rank down to 128 — and hits the integer exactly:
+
+| arm | `F` | `NKV` | head | rank on `q/o` | base charged | total |
+|---|---|---|---|---|---|---|
+| `R512` | 48,128 | 8 | untied | 512 | 0.419 G | 9,999,220,736 |
+| `NKV2` | 48,640 | **2** | untied | 512 | 0.319 G | 9,999,220,736 |
+| **`R128`** | **49,152** | **2** | untied | **128** | **0.218 G** | **9,999,220,736** |
+
+`R128` is a *stronger* arm than the withdrawn `ALL` (base 0.218 G against 0.252 G), so this
+replacement makes the registered prediction **harder to miss in the direction I predicted**, not
+easier. That is the only direction in which a mid-probe substitution is defensible, and the
+numbers above are on the record before the object exists.
+
+## What this does to the registered predictions
+
+- **Prediction 1 (all gates fire) is already a MISS** and is scored as one. `G-E40A` went VOID on
+  the first build. It is not re-run to a pass — it fired, that is what it is for, and the arm it
+  disqualified is gone.
+- **Prediction 2's band and number stand as written** (`ATTENTION-LEVERS-EXHAUSTED`, `6.50%`) and
+  are now scored on `R128`. Recomputed on the replacement arm the same desk model says **7.21%**;
+  **the registered 6.50% is what gets scored**, because the whole point is that the number was
+  fixed before the measurement.
+- **Prediction 3's floors**: `NKV2` 131.8 tok/s stands unchanged. `ALL`'s 166.9 is withdrawn with
+  the arm; the desk model puts `R128` at **192.7 tok/s**, registered here.
+- **Predictions 4 and 5** are scored on `R128` in place of `ALL`. Prediction 4 said rank 256 would
+  push the base rate to 39–41 G-w/s; **rank 128 is a stronger form of the same prediction and it
+  is left at 39–41 rather than widened.**
