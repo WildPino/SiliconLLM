@@ -1,0 +1,62 @@
+== E33: is `down` the whole carve locality cost? ==
+  E31 s6.1's desk model, the thing this probe may kill:
+     S15-E256    GSZ   35   gate/up run     26880 B   down run     2240 B
+     S15-E64     GSZ  140   gate/up run    107520 B   down run     8960 B
+     S15-E16     GSZ  560   gate/up run    430080 B   down run    35840 B
+     T10-E256    GSZ   56   gate/up run    114688 B   down run     3584 B
+     T10-E16     GSZ  896   gate/up run   1835008 B   down run    57344 B
+     predicted S15-E16/S15-E256 = 1.253 ;  T10-E16/T10-E256 = 1.145
+  anchors READ FROM FILE: E26 S15-K64 52.557 (ratio_vs_dense 1.9731), E28 S15-PACKED 29.30
+
+  have  S15-DENSE   e33_s15_dense.bin
+  have  S15-E256    e33_s15_e256.bin
+  have  S15-E64     e33_s15_e64.bin
+  have  S15-E16     e33_s15_e16.bin
+  have  T10-E256    e33_t10_e256.bin
+  have  T10-E16     e33_t10_e16.bin
+
+  G-E33C  S15-E256    charges    687538176  (+0.000% vs E256)
+  G-E33C  S15-E64     charges    679280640  (-1.201% vs E256)
+  G-E33C  S15-E16     charges    677216256  (-1.501% vs E256)
+          -> FAIL as written (identical) | PASS amended (<=2.0%)
+  G-E33C  T10-E256    charges   4311744512  (+0.000% vs E256)
+  G-E33C  T10-E16     charges   4264558592  (-1.094% vs E256)
+          -> FAIL as written (identical) | PASS amended (<=2.0%)
+
+  contention witness: 14.8% mean / 24% peak (bar 25% on the MEAN)
+
+  rep 1  S15-DENSE     28.59 tok/s
+  rep 1  S15-E256      58.91 tok/s
+  rep 1  S15-E64       65.25 tok/s
+  rep 1  S15-E16       60.12 tok/s
+  rep 1  T10-E256       8.91 tok/s
+  rep 1  T10-E16       10.09 tok/s
+         box 6.0% mean / 10% peak
+  rep 2  S15-DENSE     28.33 tok/s
+  rep 2  S15-E256      54.84 tok/s
+  rep 2  S15-E64       60.85 tok/s
+  rep 2  S15-E16       63.40 tok/s
+  rep 2  T10-E256       9.29 tok/s
+  rep 2  T10-E16        9.86 tok/s
+         box 35.5% mean / 41% peak
+  rep 3  S15-DENSE     27.69 tok/s
+  rep 3  S15-E256      57.75 tok/s
+  rep 3  S15-E64       61.85 tok/s
+  rep 3  S15-E16       61.86 tok/s
+  rep 3  T10-E256       9.72 tok/s
+  rep 3  T10-E16       10.47 tok/s
+         box 8.0% mean / 10% peak
+
+  worst spread across arms: 8.7%
+
+  G-E33A  abs   S15-E256 57.17 vs E26's 52.56  (+8.8%)  -> PASS   [informational]
+  G-E33A' ratio S15-E256/S15-DENSE 2.0269 vs E26's 1.9731  (+2.7%)  -> PASS   [DECIDES]
+  G-E33B        S15-DENSE 28.20 vs E28's 29.30  (-3.7%)  -> PASS   [DECIDES]
+
+  VERDICT CELL  S15-E16 / S15-E256
+     raw         1.081  -> LOCALITY-PARTIAL      (desk model said 1.253)
+     normalised  1.065  -> LOCALITY-PARTIAL      (x0.98499, removes the charged-router confound)
+     T10  raw 1.090 / norm 1.078 (desk 1.145); smaller than S15's? False  -- prediction 3
+     E64 sits 119% of the way from E256 to E16 (desk model said 77%) -- pred 4
+
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e33_down_locality.json  [87s]

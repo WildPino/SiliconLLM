@@ -3335,3 +3335,76 @@ interleaving methodology, which this instrument had exactly backwards). Run 4 fi
 Predictions **5 HIT / 1 PARTIAL** -- the partial is mine: I put the ordering crossover `16x` too
 coarse.
 
+
+
+---
+
+## 42. E32 -- `--lutblk` does NOT survive its own protocol (`ACTIVATION-COSTLY`, `+0.048991`)
+
+**Probe** `probes/E32_THE_OWED_PROTOCOL.md` | **brief** `briefs/BRIEF_E32_THE_OWED_PROTOCOL.md`
+(`1fb4c18`) | **runner** `engine/e32_owed_protocol.py` (`f5e773b`) | **result**
+`engine/results/e32_owed_protocol.json`. 3,211 s, eight arms. **Quality only -- no timing.**
+
+### 42.1 The re-run three probes had been carrying as owed
+
+E14 disqualified its own verdict in its own section 1: with no `--seqlen` the engine scores the
+whole ids file as ONE sequence (`donor_engine.c:1556`), so E14 read a single 12,288-token
+sequence against bands drawn from 512-context regimes. E14 section 5, E28 section 8 and E30
+section 8 all carried the re-run. **Meanwhile the whole engine-side story -- 61.64 G-w/s, 33.01
+GB/s, `0.909` of the ceiling -- was measured on the arm that verdict licensed.**
+
+All three gates fire: E1's own published anchor (`A0(0.5B)` 4.531236572 vs `e1_05b.log:31`'s
+4.531233734, **2.8e-6** on a 1e-3 bar), the known positive (`A3 - A1 = +0.000e+00` at BOTH
+cells), and the readability gate (`A0(1.5B)` sits `-0.594113` below the 4.069819 chance line).
+
+### 42.2 The sign flipped
+
+| cell | `dBPB(A1)` = `dBPB(A3)` | `dBPB(A2)` | E14 at 12 k |
+|---|---|---|---|
+| 0.5 B (instrument-only, `A0` is `+0.461` ABOVE chance) | `-0.113201139` | `+0.001180774` | `-0.313878918` |
+| **1.5 B (the verdict cell)** | **`+0.048990745`** | `+0.011739023` | `-0.016961262` |
+
+`+0.049` is **2.4x** E14's own `ACTIVATION-COSTLY` line of `0.020` and about **10x** the
+`sigma_seed ~ 0.005` constant -- and that flatters it, because the arms share weights and inputs,
+so the difference is DETERMINISTIC, not a draw. `A0(1.5B)` rose `+0.029331` going from 12 k to
+512, the sane direction for a harder prediction problem.
+
+### 42.3 The operative numerator falls back to packed
+
+| | `--lutblk` as published | packed, operative |
+|---|---|---|
+| T10 rate (E30's session) | 6.213 tok/s | **4.363 tok/s** |
+| of the measured 36.30 GB/s ceiling | `0.909` | **`0.639`** |
+| charged numerator (E28's session) | 61.64 G-w/s | **46.16 G-w/s** |
+| gap to 50 tok/s at T10 | `8.05x` | **`11.46x`** |
+
+Rows pair arms measured in ONE session. **No architectural conclusion moves** -- E32 prediction 6
+registered that before the number existed: a perfect kernel at T10 still reads 6.83 tok/s, 50
+tok/s still needs `7.32x` the machine's whole read bandwidth. What changes is that the engine is
+**`1.57x`** from the wall, not `1.10x`: MORE kernel headroom than E30 reported, and it has to be
+bought without `--lutblk`'s quality cost. Correction banners added at the TOP of E28 and E30, as
+the brief required.
+
+### 42.4 The constructive half: the cost is the SCALE GRANULARITY, not int8
+
+`--lut --lut-group 32` costs `+0.011739` where `--lutblk` costs `+0.048991`: **finer activation
+scaling recovers 76% of the loss.** The same shape as E31's finding on the read side -- the
+expensive thing was never "sparsity" or "int8", it is the GRANULARITY. **And `A2` has never been
+timed** (E14 section 0, still owed): E28 timed `--lut` (S15 22.54, slower than packed's 29.30)
+and `--lutblk` (36.80), never `--lut --lut-group 32`. The fast kernel is the costly one and the
+cheap kernel is unmeasured -- now the highest-value measurement left in the engine branch.
+
+### 42.5 Predictions 3 HIT / 2 MISS, and the misses are mine on the cell that matters
+
+I registered that the verdict would NOT flip and that `dBPB(A3)` would land in `[-0.015, +0.005]`.
+It flipped, and landed at `+0.049`. The load-bearing error is quoted in the probe: *"E14's
+arm-vs-arm comparisons were protocol-invariant by construction."* **They are not** -- the
+activation distribution is a function of context length, so the quantiser sees different vectors
+at 512 than at 12 k, and `dBPB` was never a property of the kernel alone.
+
+The RANK partner (E14 section 3's law) is **verified at source rather than assumed**:
+`e14_gn3_greedy.py` drives `--generate`, and that branch returns at `donor_engine.c:1513`, BEFORE
+`SL` is computed at `:1556`, so `--seqlen` is unreachable from the generation path and E14's
+`45.6%` top-1 agreement stands at this protocol. **Both halves now agree: the score says costly
+and the rank says broken.** The score/rank divergence that made E14 hard to read was itself an
+artifact of the contaminated protocol.

@@ -1,0 +1,40 @@
+== E32: the --seqlen 512 re-run E14 owes ==
+  protocol: --seqlen 512, E1's convention -- 51870 scored bytes over 12264 predictions
+  chance line at THIS denominator: 4.069819 BPB   (bytes/token 4.229452)
+  QUALITY ONLY -- deterministic; no timing is produced or quotable from this run.
+
+  ---- 0.5B  qwen25-05b_tqh.bin
+    A0  (fp32 activations)                 BPB 4.531236572   n_pred 12264   [224s]
+    A1  --lut                              BPB 4.418035433   n_pred 12264   [265s]
+    A2  --lut --lut-group 32               BPB 4.532417346   n_pred 12264   [271s]
+    A3  --lutblk                           BPB 4.418035433   n_pred 12264   [186s]
+    A0 sits +0.461418 vs the chance line (ABOVE -- instrument only, E14 s2's demotion applies)
+    dBPB(A1) = -0.113201139    (E14 at 12k: -0.313878918)
+    dBPB(A2) = +0.001180774    (E14 at 12k: -0.013006582)
+    dBPB(A3) = -0.113201139    (E14 at 12k: -0.313878918)
+    A3 - A1 = +0.000e+00
+
+  ---- 1.5B  qwen25-15b_tqh.bin
+    A0  (fp32 activations)                 BPB 3.475706372   n_pred 12264   [556s]
+    A1  --lut                              BPB 3.524697116   n_pred 12264   [666s]
+    A2  --lut --lut-group 32               BPB 3.487445395   n_pred 12264   [630s]
+    A3  --lutblk                           BPB 3.524697116   n_pred 12264   [407s]
+    A0 sits -0.594113 vs the chance line (BELOW -- BPB means what it usually means)
+    dBPB(A1) = +0.048990745    (E14 at 12k: -0.016961262)
+    dBPB(A2) = +0.011739023    (E14 at 12k: -0.005991017)
+    dBPB(A3) = +0.048990745    (E14 at 12k: -0.016961262)
+    A3 - A1 = +0.000e+00
+
+  G-E32A  A0(0.5B) reads 4.531237 against E1's 4.531234, |diff| 0.000003 (bar 0.001) -> FIRES
+  G-E32B  A3 - A1 = 0.5B +0.000e+00, 1.5B +0.000e+00 -> FIRES
+  G-E32C  A0(1.5B) sits -0.594113 vs chance -> FIRES, the verdict cell is readable
+
+  VERDICT CELL  dBPB(A3) at 1.5B, 512 context = +0.048990745  ->  ACTIVATION-COSTLY
+     E14 read -0.016961262 at 12k; this does NOT move toward zero
+
+     RANK PARTNER (mandatory, E14 s3's law): run e14_gn3_greedy.py -- E14 read
+     45.6% top-1 agreement A3 vs A0 at 1.5B, and generation was NEVER contaminated
+     by the --seqlen defect, so that number stands at this protocol already.
+     A cheap BPB with a broken trajectory is reported as exactly that.
+
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e32_owed_protocol.json  [3211s]

@@ -1,5 +1,43 @@
 # E30 — is the engine still core-bound, or has the fast kernel put it against the memory wall?
 
+> ## CORRECTION — the quality licence for `--lutblk` was REVOKED by E32
+>
+> **Everything measured in this document was measured correctly and nothing here is withdrawn as a
+> measurement.** What is withdrawn is the licence to treat `--lutblk` as the engine's *operative*
+> path.
+>
+> This probe's headline arm is `--lutblk`. Its quality licence came from **E14**, which read
+> int8 activations as a BPB *gain* of `-0.016961` at 1.5 B — and E14 had disqualified its own
+> protocol in its own section 1 (no `--seqlen`, so one 12,288-token sequence instead of 24
+> documents of 512). **E32 re-ran it under E1's protocol and the sign flipped**: `dBPB(A3) =
+> **+0.048990745**` at 1.5 B, `2.4x` E14's own `ACTIVATION-COSTLY` line of `0.020`, with the rank
+> partner still at `45.6%` top-1 agreement. All three of E32's gates fire, including E1's own
+> published anchor to `2.8e-6`.
+>
+> **So the operative kernel is the packed default**, and every number in this document that is
+> read off `--lutblk` must be paired with its packed counterpart from the same session:
+>
+> | | `--lutblk` (as published here) | packed (operative) |
+> |---|---|---|
+> | T10 rate, E30's session | 6.213 tok/s | **4.363 tok/s** |
+> | fraction of the measured 36.30 GB/s ceiling | 0.909 | **0.639** |
+> | charged numerator, E28's session | 61.64 G-w/s | **46.16 G-w/s** |
+> | gap to 50 tok/s at T10 | 8.05x | **11.46x** |
+>
+> **No architectural conclusion in this document changes** -- E32 prediction 6 registered that in
+> advance, before the number existed. A *perfect* kernel at T10 still reads 6.83 tok/s on this
+> box; 50 tok/s still needs 7.32x the machine's entire read bandwidth. What changes is that the
+> engine sits **1.57x** from the wall rather than `1.10x`: there is MORE kernel headroom than was
+> reported here, and it has to be bought without `--lutblk`'s quality cost.
+>
+> **And there is a cheaper arm nobody has timed.** `--lut --lut-group 32` costs `+0.011739` --
+> a quarter of `--lutblk`'s cost -- so the expensive thing is the *granularity of the activation
+> scale*, not int8. It has **no speed number at all** (E14 section 0, still owed). That is now the
+> highest-value measurement left in the engine branch.
+>
+> Full reading: `probes/E32_THE_OWED_PROTOCOL.md`.
+
+
 **Verdict: `AT-THE-WALL`.** The registered cell reads **0.909** — `T10-LUTBLK` moves **33.01 GB/s**
 against a ceiling of **36.30 GB/s** measured on this box, at this thread count, in this session.
 An *infinitely good* kernel at the goal's shape reads **6.83 tok/s**. That is the hard cap on all

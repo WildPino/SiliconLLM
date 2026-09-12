@@ -1,0 +1,192 @@
+{
+ "brief": "briefs/BRIEF_E32_THE_OWED_PROTOCOL.md (1fb4c18)",
+ "seqlen": 512,
+ "scored_bytes": 51870,
+ "n_pred": 12264,
+ "bytes_per_token": 4.22945205479452,
+ "chance_bpb": 4.069818973389018,
+ "bands": {
+  "cheap_max": 0.01,
+  "costly_min": 0.02
+ },
+ "e14_12k": {
+  "0.5B": {
+   "A0": 4.629292,
+   "A1": 4.315413082,
+   "A2": 4.616285418,
+   "A3": 4.315413082
+  },
+  "1.5B": {
+   "A0": 3.446375376,
+   "A1": 3.429414114,
+   "A2": 3.440384359,
+   "A3": 3.429414114
+  }
+ },
+ "threads": 6,
+ "cells": {
+  "0.5B": {
+   "weights": "D:\\_ktmp\\e1\\qwen25-05b_tqh.bin",
+   "ids": "D:\\_ktmp\\e1\\ids_qwen25-05b_tqh.bin",
+   "arms": {
+    "A0": {
+     "nats_per_token": 13.2839216103,
+     "nats_total": 162914.0146282309,
+     "n_predicted": 12264,
+     "bpb": 4.5312365721258,
+     "seconds": 223.8448498249054,
+     "cmd": "D:\\_ktmp\\e13\\donor_engine.exe --weights D:\\_ktmp\\e1\\qwen25-05b_tqh.bin --threads 6 --seqlen 512 --bpb D:\\_ktmp\\e1\\ids_qwen25-05b_tqh.bin",
+     "flags": [],
+     "note": "fp32 activations -- the shipped packed path"
+    },
+    "A1": {
+     "nats_per_token": 12.9520574428,
+     "nats_total": 158844.0324788312,
+     "n_predicted": 12264,
+     "bpb": 4.418035433420787,
+     "seconds": 265.2294201850891,
+     "cmd": "D:\\_ktmp\\e13\\donor_engine.exe --weights D:\\_ktmp\\e1\\qwen25-05b_tqh.bin --threads 6 --seqlen 512 --bpb D:\\_ktmp\\e1\\ids_qwen25-05b_tqh.bin --lut",
+     "flags": [
+      "--lut"
+     ],
+     "note": "int8 activations, ONE scale per vector"
+    },
+    "A2": {
+     "nats_per_token": 13.2873832057,
+     "nats_total": 162956.4676353008,
+     "n_predicted": 12264,
+     "bpb": 4.532417346006776,
+     "seconds": 270.5839579105377,
+     "cmd": "D:\\_ktmp\\e13\\donor_engine.exe --weights D:\\_ktmp\\e1\\qwen25-05b_tqh.bin --threads 6 --seqlen 512 --bpb D:\\_ktmp\\e1\\ids_qwen25-05b_tqh.bin --lut --lut-group 32",
+     "flags": [
+      "--lut",
+      "--lut-group",
+      "32"
+     ],
+     "note": "int8 activations, one scale per 32 channels"
+    },
+    "A3": {
+     "nats_per_token": 12.9520574428,
+     "nats_total": 158844.0324788312,
+     "n_predicted": 12264,
+     "bpb": 4.418035433420787,
+     "seconds": 185.6613473892212,
+     "cmd": "D:\\_ktmp\\e13\\donor_engine.exe --weights D:\\_ktmp\\e1\\qwen25-05b_tqh.bin --threads 6 --seqlen 512 --bpb D:\\_ktmp\\e1\\ids_qwen25-05b_tqh.bin --lutblk",
+     "flags": [
+      "--lutblk"
+     ],
+     "note": "E13 blocked layout -- what E28/E30 measured"
+    }
+   },
+   "dBPB": {
+    "A1": -0.11320113870501292,
+    "A2": 0.0011807738809759272,
+    "A3": -0.11320113870501292
+   },
+   "A0_vs_chance": 0.4614175987367819,
+   "A3_minus_A1": 0.0,
+   "shift_vs_E14_12k": {
+    "A0": -0.09805542787420052,
+    "A1": 0.1026223514207869,
+    "A2": -0.08386807199322455,
+    "A3": 0.1026223514207869
+   }
+  },
+  "1.5B": {
+   "weights": "D:\\_ktmp\\e1\\qwen25-15b_tqh.bin",
+   "ids": "D:\\_ktmp\\e1\\ids_qwen25-15b_tqh.bin",
+   "arms": {
+    "A0": {
+     "nats_per_token": 10.1894946885,
+     "nats_total": 124963.9628600173,
+     "n_predicted": 12264,
+     "bpb": 3.47570637184527,
+     "seconds": 556.4620928764343,
+     "cmd": "D:\\_ktmp\\e13\\donor_engine.exe --weights D:\\_ktmp\\e1\\qwen25-15b_tqh.bin --threads 6 --seqlen 512 --bpb D:\\_ktmp\\e1\\ids_qwen25-15b_tqh.bin",
+     "flags": [],
+     "note": "fp32 activations -- the shipped packed path"
+    },
+    "A1": {
+     "nats_per_token": 10.3331175604,
+     "nats_total": 126725.3537606391,
+     "n_predicted": 12264,
+     "bpb": 3.524697116358728,
+     "seconds": 666.2586600780487,
+     "cmd": "D:\\_ktmp\\e13\\donor_engine.exe --weights D:\\_ktmp\\e1\\qwen25-15b_tqh.bin --threads 6 --seqlen 512 --bpb D:\\_ktmp\\e1\\ids_qwen25-15b_tqh.bin --lut",
+     "flags": [
+      "--lut"
+     ],
+     "note": "int8 activations, ONE scale per vector"
+    },
+    "A2": {
+     "nats_per_token": 10.2239091937,
+     "nats_total": 125386.0223521077,
+     "n_predicted": 12264,
+     "bpb": 3.4874453950907056,
+     "seconds": 629.6826553344727,
+     "cmd": "D:\\_ktmp\\e13\\donor_engine.exe --weights D:\\_ktmp\\e1\\qwen25-15b_tqh.bin --threads 6 --seqlen 512 --bpb D:\\_ktmp\\e1\\ids_qwen25-15b_tqh.bin --lut --lut-group 32",
+     "flags": [
+      "--lut",
+      "--lut-group",
+      "32"
+     ],
+     "note": "int8 activations, one scale per 32 channels"
+    },
+    "A3": {
+     "nats_per_token": 10.3331175604,
+     "nats_total": 126725.3537606391,
+     "n_predicted": 12264,
+     "bpb": 3.524697116358728,
+     "seconds": 406.8222019672394,
+     "cmd": "D:\\_ktmp\\e13\\donor_engine.exe --weights D:\\_ktmp\\e1\\qwen25-15b_tqh.bin --threads 6 --seqlen 512 --bpb D:\\_ktmp\\e1\\ids_qwen25-15b_tqh.bin --lutblk",
+     "flags": [
+      "--lutblk"
+     ],
+     "note": "E13 blocked layout -- what E28/E30 measured"
+    }
+   },
+   "dBPB": {
+    "A1": 0.048990744513458306,
+    "A2": 0.011739023245435742,
+    "A3": 0.048990744513458306
+   },
+   "A0_vs_chance": -0.5941126015437481,
+   "A3_minus_A1": 0.0,
+   "shift_vs_E14_12k": {
+    "A0": 0.02933099584526966,
+    "A1": 0.09528300235872811,
+    "A2": 0.04706103609070578,
+    "A3": 0.09528300235872811
+   }
+  }
+ },
+ "G_E32A": {
+  "measured": 4.5312365721258,
+  "e1_published": 4.531234,
+  "abs_diff": 2.572125799460423e-06,
+  "tol": 0.001,
+  "source": "e1_05b.log:30, same artifact, slice and protocol",
+  "fires": true
+ },
+ "G_E32B": {
+  "A3_minus_A1": {
+   "0.5B": 0.0,
+   "1.5B": 0.0
+  },
+  "source": "E14 measured +0.000e+00 at both cells",
+  "fires": true
+ },
+ "G_E32C": {
+  "A0_1.5B_vs_chance": -0.5941126015437481,
+  "fires": true
+ },
+ "verdict": {
+  "cell": "dBPB(A3) at 1.5B, --seqlen 512",
+  "dBPB": 0.048990744513458306,
+  "abs": 0.048990744513458306,
+  "name": "ACTIVATION-COSTLY",
+  "e14_12k_dBPB": -0.016961262000000144,
+  "moved_toward_zero": false
+ },
+ "seconds": 3211.0143032073975
+}

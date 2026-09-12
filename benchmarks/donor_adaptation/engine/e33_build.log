@@ -1,0 +1,49 @@
+== E33: is `down` the whole carve locality cost? ==
+  E31 s6.1's desk model, the thing this probe may kill:
+     S15-E256    GSZ   35   gate/up run     26880 B   down run     2240 B
+     S15-E64     GSZ  140   gate/up run    107520 B   down run     8960 B
+     S15-E16     GSZ  560   gate/up run    430080 B   down run    35840 B
+     T10-E256    GSZ   56   gate/up run    114688 B   down run     3584 B
+     T10-E16     GSZ  896   gate/up run   1835008 B   down run    57344 B
+     predicted S15-E16/S15-E256 = 1.253 ;  T10-E16/T10-E256 = 1.145
+  anchors READ FROM FILE: E26 S15-K64 52.557 (ratio_vs_dense 1.9731), E28 S15-PACKED 29.30
+
+  build S15-DENSE   S15 --out D:/_ktmp/e33\e33_s15_dense.bin --codes mixed --seed 1234
+        GATE V3: 339 tensors, 1709047348 bytes, matches E1's independent layout exactly
+        wrote D:/_ktmp/e33\e33_s15_dense.bin  (1.59 GB)  active 1.544 B weights/token
+        [97s]
+  build S15-E256    S15 --out D:/_ktmp/e33\e33_s15_e256.bin --codes mixed --seed 1234 --carve 256 --carve-k 64
+        --carve E=256, group=35 neurons, k=64 in the file: active 1.5436 B -> 0.6875 B (-55.46%), router charged at E*D = 11.0 M/token
+        GATE V3: 339 tensors, 1714582392 bytes, matches E1's independent layout exactly
+        wrote D:/_ktmp/e33\e33_s15_e256.bin  (1.60 GB)  active 0.688 B weights/token
+        [132s]
+  build S15-E64     S15 --out D:/_ktmp/e33\e33_s15_e64.bin --codes mixed --seed 1234 --carve 64 --carve-k 16
+        --carve E=64, group=140 neurons, k=16 in the file: active 1.5436 B -> 0.6793 B (-55.99%), router charged at E*D = 2.8 M/token
+        GATE V3: 339 tensors, 1710432120 bytes, matches E1's independent layout exactly
+        wrote D:/_ktmp/e33\e33_s15_e64.bin  (1.59 GB)  active 0.679 B weights/token
+        [96s]
+  build S15-E16     S15 --out D:/_ktmp/e33\e33_s15_e16.bin --codes mixed --seed 1234 --carve 16 --carve-k 4
+        --carve E=16, group=560 neurons, k=4 in the file: active 1.5436 B -> 0.6772 B (-56.13%), router charged at E*D = 0.7 M/token
+        GATE V3: 339 tensors, 1709394552 bytes, matches E1's independent layout exactly
+        wrote D:/_ktmp/e33\e33_s15_e16.bin  (1.59 GB)  active 0.677 B weights/token
+        [58s]
+  build T10-E256    T10 --out D:/_ktmp/e33\e33_t10_e256.bin --codes mixed --seed 1234 --carve 256 --carve-k 64
+        --carve E=256, group=56 neurons, k=64 in the file: active 10.6032 B -> 4.3117 B (-59.34%), router charged at E*D = 50.3 M/token
+        GATE V3: 579 tensors, 5874846008 bytes, matches E1's independent layout exactly
+        wrote D:/_ktmp/e33\e33_t10_e256.bin  (5.47 GB)  active 4.312 B weights/token
+        [308s]
+  build T10-E16     T10 --out D:/_ktmp/e33\e33_t10_e16.bin --codes mixed --seed 1234 --carve 16 --carve-k 4
+        --carve E=16, group=896 neurons, k=4 in the file: active 10.6032 B -> 4.2646 B (-59.78%), router charged at E*D = 3.1 M/token
+        GATE V3: 579 tensors, 5851206968 bytes, matches E1's independent layout exactly
+        wrote D:/_ktmp/e33\e33_t10_e16.bin  (5.45 GB)  active 4.265 B weights/token
+        [314s]
+
+  G-E33C  S15-E256    charges    687538176  (+0.000% vs E256)
+  G-E33C  S15-E64     charges    679280640  (-1.201% vs E256)
+  G-E33C  S15-E16     charges    677216256  (-1.501% vs E256)
+          -> FAIL as written (identical) | PASS amended (<=2.0%)
+  G-E33C  T10-E256    charges   4311744512  (+0.000% vs E256)
+  G-E33C  T10-E16     charges   4264558592  (-1.094% vs E256)
+          -> FAIL as written (identical) | PASS amended (<=2.0%)
+
+  --build-only: artifacts exported and G-E33C' checked, no timing taken
