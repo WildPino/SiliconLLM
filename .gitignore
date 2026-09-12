@@ -149,6 +149,15 @@ docs/research/LLM_Reimagined_CPU_Native_Exploration_20260626/
 # not fire, so nothing is lost by not storing it.
 /benchmarks/donor_adaptation/s1/_h0_bundle/
 
+# The CONTINUATION bundle (run 3), assembled by hand rather than by h0_pack.py -- whose init
+# gate asserts tf == 28 and is right to, for a FRESH launch.  Same 417 MB of .npz, same
+# anchoring rule.  Unlike the bundle above this one is NOT rebuildable: h0_start.npz is run 2's
+# output and the T4 that produced it is gone, so the .npz are ignored while RUN.md and
+# MANIFEST.json -- the documentation and the hashes -- are tracked.
+/benchmarks/donor_adaptation/s1/_h0_bundle2/*
+!/benchmarks/donor_adaptation/s1/_h0_bundle2/RUN.md
+!/benchmarks/donor_adaptation/s1/_h0_bundle2/MANIFEST.json
+
 # What a Kaggle H0 job hands back: the job's working directory, which is the 417 MB bundle
 # copied back verbatim (the same .npz files ignored above, plus scripts that ARE tracked).  The
 # LOG beside it is the evidence and is tracked; the copies are not.  Anchored to the place per

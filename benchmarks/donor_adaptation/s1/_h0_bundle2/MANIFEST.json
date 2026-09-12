@@ -1,0 +1,42 @@
+{
+ "what": "H0 CONTINUATION bundle (run 3) -- resumes from run 2 step 500",
+ "plan": "decisions/T4_HEALING_PROPOSAL.md s11",
+ "built": "2026-09-12",
+ "files": {
+  "h0_qat.py": {
+   "sha256": "7889d9919420dac3a95ebe489f2b98c6681137e90a77c9c098e43c2f905975d3",
+   "bytes": 23445,
+   "from": "h0_qat.py"
+  },
+  "h0_start.npz": {
+   "sha256": "6d3fd3e3d0a15f5c60cd63a38563f4a4994c35e28005290de06ecb6374b54764",
+   "bytes": 352967686,
+   "from": "results\\h0_kaggle_run2\\h0_trained.npz"
+  },
+  "h0_train.npz": {
+   "sha256": "0cdaa28f405c3a8c6a8589af8e88788b33131bc7d4f1096da6c1fedf78caa9d9",
+   "bytes": 64000260,
+   "from": "results\\h0\\h0_train.npz"
+  },
+  "h0_probe.json": {
+   "sha256": "5c24f463d796d1338c671063ad4628130316a3ee9f976583dc7ecb3e1d875e2f",
+   "bytes": 2135,
+   "from": "results\\h0\\h0_probe.json"
+  }
+ },
+ "resume": {
+  "start_factors": "h0_start.npz  (= run 2 h0_trained.npz, tf 111/160 on CPU fp32)",
+  "run2_steps_done": 500,
+  "run2_of": 4000,
+  "seed_must_differ": "run 2 used 1717; run 3 uses 909091 or the batches are replayed",
+  "adam_state": "NOT checkpointed -- run 3 restarts the moments, stated not hidden"
+ },
+ "gate": {
+  "metric": "teacher_forced_cpu_fp32",
+  "decided_on": "the CPU box, by h0_eval.py",
+  "run2_value": 111,
+  "threshold_already_passed": 48,
+  "question_for_run3": "is the tf curve flat? run 2 read 110 at step 250 and 112 at step 500"
+ },
+ "NOT_packed_by": "h0_pack.py -- its init gate asserts tf == 28 (E22), correct for a FRESH launch and wrong for a continuation. The gate was not weakened; this bundle is assembled beside it."
+}
