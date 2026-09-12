@@ -171,7 +171,7 @@ def nbytes_tagged(spec, out, in_):
     return 4 + 4 + a + 4 * r + b                   # kind, rank, A, s, B
 
 
-def layout_bytes_v4(D, F, L, NH, NKV, HD, V, tied, E=0):
+def layout_bytes_v4(D, F, L, NH, NKV, HD, V, tied, E=0, rank=0):
     """Total file bytes for a quant==4 ("tagged-v2") file in which every matrix is PACKED.
 
     quant==4 is quant==3 plus an int32 ffn_kind in front of each layer's FFN; with E > 0 that
@@ -179,14 +179,21 @@ def layout_bytes_v4(D, F, L, NH, NKV, HD, V, tied, E=0):
     gate and up [F, D] in group-major row order, and down stored TRANSPOSED.  Derived here from
     the format description and never from a writer: that separation is the whole value of the
     gate, because a writer and its checker have to be wrong in the SAME way to agree.
+
+    E39: with `rank` set, q_proj and o_proj are MK_FACTORED -- an int32 kind and an int32 rank,
+    then a tagged [out, r], then r fp32 scales, then a tagged [r, in].  Added here because the
+    gate FIRED on the combined carve+rank arm before this line existed: E1's layout said
+    794,325,176 bytes against a file of 780,612,344, the shortfall being exactly the two
+    factored matrices a layer.  Kept derived from the format, not from synth_export's writer.
     """
     QD, KD = NH * HD, NKV * HD
     n = 52 + 4 * V * D                                        # header + embed fp32
     for _ in range(L):
         n += 4 * D                                            # input_layernorm
-        for o in (QD, KD, KD):
-            n += nbytes_tagged("packed", o, D) + 4 * o        # q/k/v + fp32 bias
-        n += nbytes_tagged("packed", D, QD)                   # o_proj
+        qspec = ("factored", rank) if rank else "packed"
+        for nm, o in (("q", QD), ("k", KD), ("v", KD)):
+            n += nbytes_tagged(qspec if nm == "q" else "packed", o, D) + 4 * o
+        n += nbytes_tagged(qspec, D, QD)                      # o_proj
         n += 4 * D                                            # post_attention_layernorm
         n += 4                                                # int32 ffn_kind
         if E:

@@ -65,28 +65,42 @@ SHAPES = {
     # down_proj runs are 11,520 B -- the FLAT part of E31's curve, not the steep part every
     # earlier carve arm sat on.  Total 9,999,220,736 weights; charged 822,083,584 + 35,389,440*k.
     "A10B": (4096, 46080, 16, 32, 8, 128, 32768, 0, "E36 -- SYNTHETIC, ~10 B at the E35 envelope"),
+    # E39: the SAME 9,999,220,736 parameters as A10B and the same per-layer total to the
+    # parameter, with weight moved out of q/o (write it with --rank 512) and into the FFN,
+    # where the carve makes it nearly free.  F=48128 is 256*188, so --carve 256 divides it.
+    "A10B-R512": (4096, 48128, 16, 32, 8, 128, 32768, 0,
+                  "E39 -- SYNTHETIC, A10B's exact parameter count, put somewhere else"),
 }
 
 
-def total_weights(D, F, L, NH, NKV, HD, V, tied):
+def total_weights(D, F, L, NH, NKV, HD, V, tied, rank=0):
     """Every weight IN THE FILE, charged or not.  E36 needs this and active_weights() cannot
     give it: a carved file's whole point is that most of its parameters are never read on a
     given token, so "how big is this model" and "how much does a token cost" are two different
     numbers and this programme has only ever computed the second one.  Norms and biases are
     left out -- they are 5 numbers in 10^10 and counting them would flatter the total."""
-    per = NH * HD * D + 2 * (NKV * HD * D) + NH * HD * D
+    QO = NH * HD
+    qo = 2 * (rank * (QO + D)) if rank else 2 * (QO * D)
+    per = qo + 2 * (NKV * HD * D)
     return (per + 3 * D * F) * L + V * D * (1 if tied else 2)
 
 
-def active_weights(D, F, L, NH, NKV, HD, V, E=0, k=0):
+def active_weights(D, F, L, NH, NKV, HD, V, E=0, k=0, rank=0):
     """Weights touched by a matvec on every decoded token.  The embedding is a gather, not a
     matvec, so it is not here; the head is, tied or not.
 
     E26: with a carve (E groups, k kept) the FFN term is E*D for the router plus 3*D*(F/E)*k
     for the kept neurons.  The router is CHARGED -- leaving it out would flatter the carve by
     50.3 M weights a token at the goal's shape.
+
+    E39: with `rank` set, q_proj and o_proj are the FACTORED kind, so each costs r*(QO+D)
+    instead of QO*D.  k_proj and v_proj stay dense.  This used to be open-coded in main() and
+    OVERWROTE the carve's number, which is why the two axes could not be combined; there is one
+    definition now and the carve and the rank compose.
     """
-    per = NH * HD * D + 2 * (NKV * HD * D) + NH * HD * D
+    QO = NH * HD
+    qo = 2 * (rank * (QO + D)) if rank else 2 * (QO * D)
+    per = qo + 2 * (NKV * HD * D)
     ffn = 3 * D * F if not E else (E * D + 3 * D * (F // E) * k)
     return (per + ffn) * L + V * D
 
@@ -230,8 +244,17 @@ def main():
             sys.exit("--carve %d does not divide F=%d" % (a.carve, F))
         if D % 2:
             sys.exit("the transposed down_proj pairs OUTPUT rows; D=%d is odd" % D)
+        # E26 kept --carve and --rank apart because it was PRICING one axis at a time, and
+        # a two-axis arm cannot price either.  E39's question IS the combination -- the same
+        # ten billion with weight moved out of q/o and into the carved FFN -- so the guard is
+        # scoped to the probe that needs it rather than to the format, which never cared:
+        # donor_engine.c reads q/k/v/o with the same tagged reader in a quant==4 file (:841)
+        # and matvec dispatches on m->rank (:448).  No accounting is loosened; active_weights()
+        # composes both terms and the runner checks it against its own closed form.
         if a.rank:
-            sys.exit("--carve and --rank are separate axes; E26 moves one at a time")
+            print("  --carve WITH --rank: two axes at once, which E26 forbade and E39 requires. "
+                  "Any arm built this way prices the COMBINATION and neither axis alone.",
+                  flush=True)
     carve_k = a.carve_k or a.carve
     if a.carve and not (1 <= carve_k <= a.carve):
         sys.exit("--carve-k must be in [1, %d]" % a.carve)
@@ -242,11 +265,7 @@ def main():
               "the factored form moves MORE weights than the dense one here."
               % (a.rank, NH * HD, D, D, NH * HD), flush=True)
     act = active_weights(D, F, L, NH, NKV, HD, V)
-    act_r = active_weights(D, F, L, NH, NKV, HD, V, a.carve, carve_k) if a.carve else act
-    if a.rank:
-        dense_qo = (NH * HD * D + D * NH * HD) * L
-        fact_qo = (a.rank * (NH * HD + D) + a.rank * (D + NH * HD)) * L
-        act_r = act - dense_qo + fact_qo
+    act_r = active_weights(D, F, L, NH, NKV, HD, V, a.carve, carve_k, a.rank)
     print("[%s] %s  D=%d F=%d L=%d H=%d/%d hd=%d V=%d tied=%d head=%s  active=%.3f B  codes=%s"
           % (a.shape, src, D, F, L, NH, NKV, HD, V, tied, a.head, act_r / 1e9, a.codes), flush=True)
     if a.carve:
@@ -312,7 +331,7 @@ def main():
         assert hdr[k] == want, "header %s: wrote %r, read back %r" % (k, want, hdr[k])
     lay = E1.layout(D, F, L, NH, NKV, HD, V, tied, quant)
     if v4:
-        want = E1.layout_bytes_v4(D, F, L, NH, NKV, HD, V, tied, a.carve)
+        want = E1.layout_bytes_v4(D, F, L, NH, NKV, HD, V, tied, a.carve, a.rank)
     elif tagged:
         def spec_of(name, o, i):
             return ("factored", a.rank) if (a.rank and (name.endswith(".q_proj")
