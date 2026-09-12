@@ -76,6 +76,13 @@ NULL_VS = [2048, 32768]
 NULL_SEED = 43043
 
 # --- brief s5
+# --- addendum A rule 3, registered at 3342175 BEFORE the re-run: a rep whose recorded box
+# reading is at or above this is discarded before any arm statistic is computed.  25% is not
+# taken from E43's numbers -- it is just above the 22.5% maximum that E39's and E40's own
+# ACCEPTED sessions ran at.  Fewer than MIN_REPS survivors voids the session.
+BUSY_MAX, MIN_REPS = 25.0, 3
+SUF = ""
+
 BANDS = [(1.50, "VOCABULARY-IS-A-BIG-LEVER"), (1.15, "VOCABULARY-IS-A-LEVER"),
          (1.05, "VOCABULARY-IS-A-SMALL-LEVER"), (0.0, "VOCABULARY-IS-NOT-A-LEVER")]
 
@@ -386,6 +393,8 @@ def phase_build(a):
 
 def phase_time(a):
     import numpy as np
+    global SUF
+    SUF = "_order_reversed" if a.order == "reversed" else ""
     t0 = time.time()
     bp = os.path.join(RES, "e43_build.json")
     if not os.path.exists(bp):
@@ -410,19 +419,36 @@ def phase_time(a):
             log("    rep %d  %-8s k=%-2d %8.2f tok/s" % (rep, arm, k, r))
         log("         box %.1f%% busy, peak core %.1f%%" % (bz, pk))
 
+    # ---- addendum A rule 3: drop contended reps by their OWN recorded box reading, before any
+    #      arm statistic exists.  The rule and the number were registered before this ran.
+    keep = [i for i, bz in enumerate(busy) if bz < BUSY_MAX]
+    dropped = [(i + 1, round(busy[i], 1)) for i in range(len(busy)) if i not in keep]
+    session_void = len(keep) < MIN_REPS
+    log("")
+    log("  rule 3  %d of %d reps survive the %.0f%% box bar%s"
+        % (len(keep), len(busy), BUSY_MAX,
+           "" if not dropped else "  (dropped: %s)"
+           % ", ".join("rep %d @ %.1f%%" % d for d in dropped)))
+    if session_void:
+        log("          fewer than %d survivors -> THIS SESSION IS VOID (addendum A rule 3)"
+            % MIN_REPS)
+
     arms_out = {}
     for key, rs in rates.items():
         arm, k = key.rsplit("_k", 1); k = int(k)
-        m = sum(rs) / len(rs)
-        arms_out[key] = {"arm": arm, "k": k, "rates": rs, "mean_tok_s": m,
-                         "median_tok_s": sorted(rs)[len(rs) // 2],
-                         "spread": (max(rs) - min(rs)) / m, "charged": charged(arm, k)}
+        kept = [rs[i] for i in keep] if keep else list(rs)
+        m = sum(kept) / len(kept)
+        arms_out[key] = {"arm": arm, "k": k, "rates": rs, "rates_kept": kept,
+                         "mean_tok_s": m, "median_tok_s": sorted(kept)[len(kept) // 2],
+                         "spread": (max(kept) - min(kept)) / m, "charged": charged(arm, k)}
 
     out = dict(b)
     out["phase"] = "time"
     out["speed_arms"] = arms_out
     out["cpu_busy_pct"] = busy
     out["cpu_peak_pct"] = peaks
+    out["rule3"] = {"busy_max": BUSY_MAX, "min_reps": MIN_REPS, "kept_reps": [i + 1 for i in keep],
+                    "dropped_reps": dropped, "session_void": session_void}
     out["order"] = a.order
     out["reps"] = a.reps
     out["ntok"] = a.ntok
@@ -438,6 +464,7 @@ def phase_time(a):
            "FIRES" if ga["fires"] else "VOID"))
     if not ga["fires"]:
         log("          the sessions are not comparable.  NO RATE IN E43 COUNTS.")
+    ga["session_void_rule3"] = session_void
     out["G_E43A"] = ga
 
     # ---- the two-term fit per arm (E40's, unchanged), and the floor.
@@ -466,7 +493,7 @@ def phase_time(a):
         log("")
         log("  no e43_vocab.json: rates are written, the CELLS are not computed.")
         out["seconds"] = time.time() - t0
-        json.dump(out, open(os.path.join(RES, "e43_vocabulary.json"), "w",
+        json.dump(out, open(os.path.join(RES, "e43_vocabulary%s.json" % SUF), "w",
                             encoding="utf-8"), indent=1)
         return 0
     voc = json.load(open(vp, encoding="utf-8"))
@@ -476,7 +503,7 @@ def phase_time(a):
         log("  cells (brief s6).  Rates are written and stand on G-E43A alone.")
         out["cells_void_reason"] = "G-E43C/D"
         out["seconds"] = time.time() - t0
-        json.dump(out, open(os.path.join(RES, "e43_vocabulary.json"), "w",
+        json.dump(out, open(os.path.join(RES, "e43_vocabulary%s.json" % SUF), "w",
                             encoding="utf-8"), indent=1)
         return 0
 
@@ -518,7 +545,7 @@ def phase_time(a):
         log("  ...and G-E43A is VOID, so none of this counts (brief s6).")
 
     out["seconds"] = time.time() - t0
-    p = os.path.join(RES, "e43_vocabulary.json")
+    p = os.path.join(RES, "e43_vocabulary%s.json" % SUF)
     json.dump(out, open(p, "w", encoding="utf-8"), indent=1)
     log("")
     log("  wrote %s  [%.0fs]" % (p, out["seconds"]))
