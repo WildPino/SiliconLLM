@@ -512,7 +512,17 @@ def main():
                 fh.write(struct.pack("<2i", carve_E, carve_k))
                 rw = torch.from_numpy(carve_router[li] if carve_router is not None
                                       else CV.router_weights(D, carve_E, a.carve_seed, li))
-                zeros.append(w_tag_packed(fh, rw, a.rule, None))
+                # E37: the router's calibration is gate_proj's, and passing None here made
+                # `--quant carved --rule R3` DEAD -- quantize() asserts act_rms is not None
+                # under R3, so the export crashed on the first carved layer.  Same class of
+                # bug as the `--quant ternary` one recorded in w_tern above, and it survived
+                # because E26 priced the carve under R0 and never needed R3.
+                # The fix is not a convenience: donor_engine.c's ffn_carved calls
+                #   matvec(&L->router, s->xb, ...)  and  matvec_sel(&L->gate, s->xb, ...)
+                # on the SAME s->xb, so the router reads exactly the vector gate_proj reads
+                # and gate_proj's activation RMS is the router's activation RMS.
+                # Inert for R0/R1/R2, which ignore act_rms -- no existing artifact moves.
+                zeros.append(w_tag_packed(fh, rw, a.rule, act.get((li, "gate_proj"))))
                 pm = torch.from_numpy(carve_perm[li])
                 # A permutation of the F axis: rows of gate/up, columns of down.  Exact.
                 zeros.append(w_tag_packed(fh, lay.mlp.gate_proj.weight.data[pm], a.rule,
