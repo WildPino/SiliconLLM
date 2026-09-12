@@ -1,0 +1,100 @@
+{
+ "brief": "BRIEF_E37 (3072941) + addendum (8cc405a)",
+ "protocol": {
+  "seqlen": 512,
+  "scored_bytes": 51870,
+  "n_pred": 12264,
+  "bytes_per_token": 4.22945205479452,
+  "chance_bpb": 4.069818973389018,
+  "donor": "Qwen/Qwen2.5-1.5B",
+  "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+  "rule": "R3",
+  "fold": "none",
+  "E": 256,
+  "GSZ": 35
+ },
+ "bands": [
+  [
+   3.7,
+   "SPARSITY-SURVIVES"
+  ],
+  [
+   4.069818973389018,
+   "SPARSITY-DEGRADES"
+  ],
+  [
+   Infinity,
+   "SPARSITY-DESTROYS"
+  ]
+ ],
+ "G_E37C": {
+  "per_k": {
+   "256": {
+    "exporter_from_header": 1554579456,
+    "runner": 1554579456,
+    "agrees": true
+   },
+   "64": {
+    "exporter_from_header": 687538176,
+    "runner": 687538176,
+    "agrees": true
+   },
+   "32": {
+    "exporter_from_header": 543031296,
+    "runner": 543031296,
+    "agrees": true
+   },
+   "16": {
+    "exporter_from_header": 470777856,
+    "runner": 470777856,
+    "agrees": true
+   },
+   "8": {
+    "exporter_from_header": 434651136,
+    "runner": 434651136,
+    "agrees": true
+   },
+   "4": {
+    "exporter_from_header": 416587776,
+    "runner": 416587776,
+    "agrees": true
+   },
+   "3": {
+    "exporter_from_header": 412071936,
+    "runner": 412071936,
+    "agrees": true
+   },
+   "2": {
+    "exporter_from_header": 407556096,
+    "runner": 407556096,
+    "agrees": true
+   },
+   "1": {
+    "exporter_from_header": 403040256,
+    "runner": 403040256,
+    "agrees": true
+   }
+  },
+  "file_k": 256,
+  "exporter_json_key": null,
+  "header": {
+   "D": 1536,
+   "F": 8960,
+   "L": 28,
+   "NH": 12,
+   "NKV": 2,
+   "HD": 128,
+   "V": 151936,
+   "tied": 0,
+   "quant": 4
+  },
+  "fires": true
+ },
+ "artifacts": {
+  "dense_nf": "D:/_ktmp/e37\\e37_dense_nf.bin",
+  "carved_nf": "D:/_ktmp/e37\\e37_carved_nf.bin",
+  "anchor": "D:\\_ktmp\\e1\\qwen25-15b_tqh.bin",
+  "routers": "D:/_ktmp/e37/e37_routers_E256.npz"
+ },
+ "build_seconds": 1.5636813640594482
+}

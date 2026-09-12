@@ -190,20 +190,40 @@ def main():
         build(d, "carved_nf", ["--quant", "carved", "--carve-labels", a.labels,
                                "--carve-router", a.routers, "--carve-k", str(E_GROUPS)])
 
-        # ---- G-E37C: charged accounting, zero tolerance, at every k
+        # ---- G-E37C: charged accounting, zero tolerance, at every k.
+        #
+        # AS REGISTERED THIS GATE NAMED A FIELD qwen_export HAS NEVER PRODUCED.
+        # `active_weights_per_token` is synth_export.py's key; the donor exporter never counted
+        # what a token charges, so the gate was unsatisfiable as written -- the same class of
+        # defect as G-E33C.  It is not widened here, it is IMPLEMENTED: the exporter side is
+        # computed by synth_export.active_weights (written for E26 and used by every synthetic
+        # probe since) from the SHAPE READ BACK OUT OF THE ARTIFACT'S OWN HEADER, and compared
+        # against this file's independently written charged().  Two functions, two authors,
+        # two occasions, zero tolerance.  Reading the header rather than my constants is also
+        # what makes it a check on the FILE and not on my typing.
+        import e1_bpb_through_engine as E1
+        import synth_export as SX
         meta = json.load(open(carved + ".json"))
+        hdr = E1.read_header(carved)
         gc, ok = {}, True
         for k in KS:
-            want = charged(k)
-            gc[str(k)] = {"runner": int(want)}
-        want_file = charged(E_GROUPS)
-        got_file = meta.get("active_weights_per_token")
-        ok = (got_file == want_file)
-        out["G_E37C"] = {"per_k": gc, "file_k": E_GROUPS, "exporter": got_file,
-                         "runner": int(want_file), "fires": bool(ok)}
+            ex = int(SX.active_weights(hdr["D"], hdr["F"], hdr["L"], hdr["NH"], hdr["NKV"],
+                                       hdr["HD"], hdr["V"], E_GROUPS, k))
+            rn = int(charged(k))
+            agree = (ex == rn)
+            ok = ok and agree
+            gc[str(k)] = {"exporter_from_header": ex, "runner": rn, "agrees": bool(agree)}
+        out["G_E37C"] = {"per_k": gc, "file_k": E_GROUPS,
+                         "exporter_json_key": meta.get("active_weights_per_token"),
+                         "header": dict((x, hdr[x]) for x in ("D", "F", "L", "NH", "NKV",
+                                                              "HD", "V", "tied", "quant")),
+                         "fires": bool(ok)}
         log("")
-        log("  G-E37C  exporter %s  runner %d  -> %s"
-            % (got_file, want_file, "FIRES" if ok else "MISMATCH"))
+        for k in KS:
+            log("  G-E37C  k=%-4d exporter(header) %10d  runner %10d -> %s"
+                % (k, gc[str(k)]["exporter_from_header"], gc[str(k)]["runner"],
+                   "OK" if gc[str(k)]["agrees"] else "MISMATCH"))
+        log("  G-E37C  -> %s" % ("FIRES" if ok else "MISMATCH"))
         log("  charged/token: k=%d %.4f G   k=%d %.4f G   dense %.4f G"
             % (E_GROUPS, charged(E_GROUPS) / 1e9, VERDICT_K, charged(VERDICT_K) / 1e9,
                ((NH * HD * D + 2 * (NKV * HD * D) + NH * HD * D + 3 * D * F) * L + V * D) / 1e9))

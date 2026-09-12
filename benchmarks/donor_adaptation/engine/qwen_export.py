@@ -71,6 +71,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(HERE, "..", "density")))
 from t1_ternarize import ternarize  # noqa: E402  -- the single definition of the conversion
 import t2_rules as T2               # noqa: E402  -- the alternative rules, same definitions
 from t3_rotation import fold_norms  # noqa: E402  -- ONE definition of the fold, shared with T3
+import synth_export as _SX         # noqa: E402  -- ONE definition of the charged-weight count
 
 MAGIC = b"QWENDON1"
 
@@ -613,6 +614,13 @@ def main():
             "factors": a.factors,
             "carve_E": carve_E, "carve_k_in_file": carve_k,
             "carve_group_size": (F // carve_E) if carve_E else 0,
+            # E37: this exporter never computed what a token CHARGES -- that key existed only
+            # in synth_export.py, so any gate asking qwen_export for it was unsatisfiable.
+            # Imported rather than re-derived, so the number here and the one every synthetic
+            # probe since E26 quotes come from ONE function.
+            "active_weights_per_token": int(_SX.active_weights(
+                D, F, L, NH, NKV, HD, V, carve_E, carve_k)) if carve_E else
+                int(_SX.active_weights(D, F, L, NH, NKV, HD, V)),
             "carve_labels": a.carve_labels, "carve_seed": (a.carve_seed if carve_E else None),
             "carve_router": (a.carve_router if carve_E else None),
             "carve_router_kind": (("fitted" if a.carve_router else "synthetic")
