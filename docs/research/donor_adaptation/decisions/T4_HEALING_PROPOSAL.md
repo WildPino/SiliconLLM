@@ -1,5 +1,30 @@
 # T4 healing — what I would spend the weeks on, costed, and what must happen first
 
+> **SUPERSEDED NUMBER, 2026-09-12, from E28 / E30 / E31.** Every budget figure in this
+> document is derived from `THROUGHPUT_G = 49.9 G active weights/s`, which gave **`<= 0.998 G`
+> active weights per token for 50 tok/s at T10**. That constant has moved three times since, and
+> **the budget now depends on HOW the arm reads its weights**:
+>
+> | | budget for 50 tok/s at T10 | applies to |
+> |---|---|---|
+> | as written here (E10/E25) | `0.998 G` charged | — superseded |
+> | E28 `CONTAINER-COSTS` | `1.2328 G` charged | E13's layout at the goal's shape, `61.64 G-w/s` |
+> | **E30 `AT-THE-WALL`** | **`1.452 G` moved** | the PHYSICAL ceiling: this box's entire `36.30 GB/s` with a perfect kernel. **Nothing can exceed it.** |
+> | **E31 `GATHER-COSTS`** | **`1.371 G` in `>= 32 KB` blocks, `0.840 G` at row granularity** | **only arms that ACTIVATE A SUBSET** — carve, MoE, structured sparsity |
+>
+> **A dense or rank arm streams its weights contiguously and pays no gather penalty**: it is
+> priced against E30's line, not E31's. **A carved or routed arm is priced against E31's**, and
+> which E31 row applies depends on the exporter's group size.
+>
+> **For this document specifically**: the proposed object is a **rank** object at `0.9441 G`
+> charged, and a rank arm STREAMS — E31's gather penalty does not apply to it. Against E30's
+> physical ceiling of `1.452 G` moved it sits comfortably inside, **more comfortably than the
+> `0.982–1.060 G` window quoted in §1**. Nothing in §§1–9 needs re-deciding on budget grounds.
+> What E30 and E31 change is the *road after* H0: see `probes/E30_IS_THE_ENGINE_AT_THE_WALL.md`
+> §6 and `probes/E31_WHAT_A_GATHERED_BYTE_COSTS.md` §6, which together say the remaining gap is
+> architectural and name the activation granularity it has to respect.
+
+
 **Written 2026-09-11, after E22.** This is the communication the goal directive asks for:
 *"Se ti serve possiamo fare sessioni brevi (settimane) su T4 per rifiniture, in quel caso però
 me lo devi comunicare."*

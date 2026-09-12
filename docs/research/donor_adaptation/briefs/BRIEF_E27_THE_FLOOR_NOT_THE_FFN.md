@@ -1,5 +1,27 @@
 # E27 — the floor, not the FFN
 
+> **SUPERSEDED NUMBER, 2026-09-12, from E28 / E30 / E31.** Every budget figure in this
+> document is derived from `THROUGHPUT_G = 49.9 G active weights/s`, which gave **`<= 0.998 G`
+> active weights per token for 50 tok/s at T10**. That constant has moved three times since, and
+> **the budget now depends on HOW the arm reads its weights**:
+>
+> | | budget for 50 tok/s at T10 | applies to |
+> |---|---|---|
+> | as written here (E10/E25) | `0.998 G` charged | — superseded |
+> | E28 `CONTAINER-COSTS` | `1.2328 G` charged | E13's layout at the goal's shape, `61.64 G-w/s` |
+> | **E30 `AT-THE-WALL`** | **`1.452 G` moved** | the PHYSICAL ceiling: this box's entire `36.30 GB/s` with a perfect kernel. **Nothing can exceed it.** |
+> | **E31 `GATHER-COSTS`** | **`1.371 G` in `>= 32 KB` blocks, `0.840 G` at row granularity** | **only arms that ACTIVATE A SUBSET** — carve, MoE, structured sparsity |
+>
+> **A dense or rank arm streams its weights contiguously and pays no gather penalty**: it is
+> priced against E30's line, not E31's. **A carved or routed arm is priced against E31's**, and
+> which E31 row applies depends on the exporter's group size.
+>
+> **For this document specifically**: its arms are rank and depth arms, which stream — so the
+> applicable ceiling is E30's `1.452 G`, a `1.45x` widening of the `0.998` used throughout. **The
+> qualitative conclusions are unaffected**: every configuration this document rejects is rejected
+> by a factor of 5–8, and `1.45x` does not close that.
+
+
 **Pre-registration. Nothing in §§3–8 has been measured.**
 
 ---
