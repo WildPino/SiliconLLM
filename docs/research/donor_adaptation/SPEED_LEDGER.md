@@ -3593,3 +3593,86 @@ neurons per layer**, i.e. **~1.2% activation** -- desk arithmetic on measured in
 target of the next probe rather than a claim of this one. Gates: `G-E35A` **-0.8%** against
 E34's own artifact (the tightest session-to-session agreement in the branch), `G-E35B` exact on
 all five arms at zero tolerance, `G-E35C` five of five `GATE V3`.
+
+
+## 46. E36 -- ten billion parameters at fifty tokens a second
+
+**Probe**: `probes/E36_TEN_BILLION_AT_FIFTY.md`. **Brief** `1738aa2`, pushed before the runner
+existed. **Runner** `engine/e36_ten_billion.py`; **results** `engine/results/e36_ten_billion.json`
+(run 1, registered) and `..._order_reversed.json` (run 2, the order control).
+
+**SPEED ONLY.** Synthetic weights. This section says nothing about quality and nothing about
+whether such a model can be trained.
+
+### 46.1 The artifact, and the ratio that is the point
+
+`A10B`: `D=4096, F=46080, L=16, NH=32, NKV=8, HD=128, V=32768`, `--carve 256` (group = 180
+neurons). **9,999,220,736 parameters, 5,485,658,936 bytes.** Charged at `k=3`:
+**928,251,904** a token. **The file weighs 10.77x what a token costs** -- the first artifact in
+this branch whose SIZE and whose COST are different numbers. Every earlier 10 B-shaped file
+(`T10`, 10.74 B) was dense-active at 10.6 G a token.
+
+### 46.2 Verdict `TEN-B-NEAR-FIFTY`: 49.96 against a 50.0 bar
+
+| arm | neurons | charged | run 1 (registered) | run 2 (order control) |
+|---|---|---|---|---|
+| `T10-L16` control | -- | 0.8331 G | 58.08 (+3.4% vs E35) | 54.85 (-2.3%) |
+| `A10B-K1` | 180 (0.39%) | 0.8575 G | **54.86** | **56.67** |
+| `A10B-K2` | 360 (0.78%) | 0.8929 G | **51.50** | **52.65** |
+| **`A10B-K3`** | **540 (1.17%)** | **0.9283 G** | **49.96** | **51.50** |
+| `A10B-K4` | 720 (1.56%) | 0.9636 G | **47.74** | **46.21** |
+| `A10B-K6` | 1080 (2.34%) | 1.0344 G | **43.78** | **44.93** |
+
+**The crossing is the robust number, not the verdict cell.** Measured twice under OPPOSITE arm
+orders: **`k* = 2.867` and `k* = 2.861`** -- **516 and 515 of 46,080 neurons, 1.12% activation,
+agreeing to one neuron in forty-six thousand.** RANK partner (E14 sez.3): both runs strictly
+monotone in `k`, 5 of 5, under opposite orders.
+
+### 46.3 Run 2 printed 51.50 on the verdict cell and did NOT promote it
+
+Run 1's arms ran in a FIXED order inside each rep and the box drifted within reps (rep 1 opened
+with the fastest control of the run, 62.33, and closed with the slowest `k=6`, 40.60) -- a fixed
+order under drift charges the drift to the HIGH-`k` arms, which is the slope the verdict stands
+on. **The rule was pushed at `9819226` before run 2 existed**: run 2's only question is whether
+the k-slope depends on arm order; agreement leaves the verdict unchanged NO MATTER WHAT NUMBER
+IT PRINTS. Slopes **0.8995 vs 0.9553 ms/group, +6.2%**, far inside the reps' own dispersion
+(worst per-arm spread 12.4% / 19.3%) -> **agree -> verdict unchanged at 49.96.** And the control
+answered against my suspicion: reversing the order made the slope STEEPER, not shallower. The
+fixed order was not manufacturing the slope.
+
+### 46.4 The finding: the envelope is TWO numbers, and an FFN weight costs 1.25x an attention weight
+
+Prediction 3 (the measurement beats the model, because `GSZ=180` puts `down` runs at 11,520 B on
+the flat part of E31's curve) is a **MISS in both runs** (-2.4%, -0.8%). Splitting the cost
+instead of averaging it says why. Fit `time(k) = a + b*k`:
+
+| | run 1 | run 2 | E35's envelope rate |
+|---|---|---|---|
+| **base** (attention + head + router, 0.8221 G) | **47.214 G-w/s** | **48.548 G-w/s** | **47.254** |
+| **marginal carve group** (180 neurons, 0.0354 G) | **39.345 G-w/s** | **37.046 G-w/s** | |
+| **gather penalty at `GSZ=180`** | **0.833** | **0.763** | |
+| R2 | 0.995 | 0.920 | |
+
+**The base reads at the FULL envelope rate. It is the marginal group that is expensive, at
+~0.80 of it.** Not a per-layer fixed cost (the brief's own stated alternative), not a failure of
+E35's envelope -- the gather, still, at four times the granularity of any previous arm, and
+**E31's ~0.85 at 11,520 B was OPTIMISTIC.**
+
+```
+time per token = 17.2 ms (attention + head + router) + 0.93 ms per carve group of 180 neurons
+```
+
+**Every budget from here must price an FFN weight at ~0.80 of the attention rate.** Third cut to
+the same claim (E26 `2.01x` -> E31 `1.25x` -> E33 `1.12x`), and the first measured PER GROUP
+rather than inferred from a curve fitted at another granularity.
+
+### 46.5 What it says about 100 tok/s
+
+The base term alone is **17.2 ms**, so `L=16` at 4096 wide caps at **~58 tok/s with a
+zero-cost FFN**. 100 tok/s wants the whole token in 10 ms, which at the measured base rate buys
+**~8 layers with no FFN at all**. **100 tok/s at 4096 wide is not an FFN problem, it is an
+attention problem** -- E34 said it, this prices it.
+
+Predictions **3 HIT / 1 MISS / 2 held**. Gates: `G-E36A` +3.4%; `G-E36B` 9,999,220,736 from the
+exporter == the same recomputed from the FILE'S OWN HEADER, `>= 9.9 G`, with bytes on disk ==
+E1's independently written v4 layout exactly; `G-E36C` exact at every `k` at zero tolerance.
