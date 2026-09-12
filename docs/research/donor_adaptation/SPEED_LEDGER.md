@@ -3792,3 +3792,74 @@ mass is missing, and it is not.** Addendum B: **3 HIT / 0 MISS.**
 One donor, one scale (1.5 B), one label set, one ridge router family, no healing of any kind.
 **It does not prove no sparse 10 B exists — it proves this CONVERSION does not produce one.**
 The lever it leaves standing is **training inside the format**, not converting harder.
+
+---
+
+## 48. E38 — is there any selector at all? (no speed; recorded here because it closes a branch)
+
+**Probe**: `probes/E38_IS_THERE_ANY_SELECTOR_AT_ALL.md`. **Brief** pre-registered and pushed
+before the runner existed. **Runner**: `engine/e38_oracle_ceiling.py`. No timing.
+
+### 48.1 Why a quality probe is in the speed ledger
+
+E37 left the decisive question unasked: `fitted ≈ random` says the ridge family is not the
+lever and says nothing about whether **any** selector is. The two readings send the next
+GPU-hour to opposite places. **This settles it on CPU, for free, before any T4 time is spent.**
+
+### 48.2 The verdict, and its margin
+
+**`SELECTION-IS-DEAD`** — the oracle at `k = 3` reads **4.131817**, which is **0.062 ABOVE the
+chance line**. A perfect, per-token, unattainable selector at the activation rate E36's speed
+requires still produces a worse-than-chance model. **No router can be built that changes this.**
+
+**The margin is 0.0416 BPB.** The band needed the oracle within 0.50 of random and it came in at
+0.4584. Registered as it stands, and **not a strong result** — §48.3 is what should be quoted.
+
+### 48.3 The finding: the value of selection PEAKS, and the goal's rate is past the peak
+
+| k | activation | oracle | fitted | random | static | oracle − random |
+|---|---|---|---|---|---|---|
+| 256 | 100% | 0.767595 | 0.767595 | 0.767595 | 0.767595 | 0.0000 |
+| 64 | 25% | **1.383412** | 1.568866 | 3.938012 | 2.211871 | **2.5546** |
+| 16 | 6.25% | 3.449466 | 3.597108 | 4.233244 | 4.338377 | 0.7838 |
+| **3** | **1.17%** | **4.131817** | 4.398009 | 4.590205 | 4.574275 | **0.4584** |
+| 1 | 0.39% | 4.612284 | 4.654301 | 4.638128 | 4.624240 | 0.0258 |
+
+Zero at both ends for structural reasons — nothing to choose at `k = E`, nothing worth choosing
+at `k = 1` — and **2.55 BPB in between.** E36's speed requirement sits below the peak.
+
+**And the knee's position is a property of the SELECTOR, not of the shape**: at `k = 64` the
+oracle has paid 18% of its eventual damage and `random` has paid 83%. No probe in this branch
+had shown that.
+
+### 48.4 A correction to E37's INTERPRETATION (no number moves)
+
+| | dense | chance | room |
+|---|---|---|---|
+| E37, ternary | 3.475706 | 4.069819 | **0.5941 BPB** |
+| E38, fp32 | 0.767595 | 4.069819 | **3.3022 BPB** |
+
+E38's fitted-vs-random gap at `k = 64` is **2.37 BPB — four times E37's entire window.**
+E37's addendum-B comparison **could not have resolved a router effect of any size**, because
+ternarization had already spent 82% of the distance to chance before the carve was applied.
+`ROUTER-IS-NOT-THE-CONSTRAINT` is true *of a ternarized carved model at 1.17%*; it is not the
+general claim. E37's probe now carries a forward pointer at that paragraph, and its verdict cell
+and prediction scoring are untouched.
+
+**The symmetry is kept honestly**: this does not show ternarization *destroys* routing either.
+Floor-compression and destruction both fit, and separating them needs a ternary oracle arm the
+engine cannot currently express (`--carve-sel`, owed).
+
+### 48.5 Gates and predictions
+
+`G-E38A` mask inert at `k = E` for all four selectors, worst **0.00e+00**. `G-E38B` dense fp32
+**0.767594964** against E22's published `0.767595`, diff **−3.59e-08**. `G-E38C` oracle ≤ every
+attainable selector, **0 violations**. All three fire.
+
+Predictions **3 HIT / 1 MISS / 1 split**: 1 HIT; 2 HIT by 0.0416; 3 HIT below `k = 16` and
+marginal at it; 4 HIT for the oracle (+0.031) and MISS for random (−0.289) and static (−0.409);
+5 **MISS**, and it produced §48.3's finding.
+
+**The partition is an unpriced design parameter**: `static` at `k = 64` reads 2.2119 on the D0c
+labels and 4.5833 on a random equal partition — **a 2.37 BPB swing from the grouping alone**,
+and every carve in this programme has used one label family.

@@ -145,6 +145,18 @@ nominally *better*. `G-E37D`'s win is **real and inert**: the fitted router pred
 far better than random and the model does not care. **The damage is about how few neurons
 survive, not which ones.**
 
+> **⚠ CORRECTED READING — see `E38_IS_THERE_ANY_SELECTOR_AT_ALL.md` §4 (added 2026-09-12).**
+> The band above is assigned correctly by addendum B's own pre-registered rule and the verdict
+> cell does not move. **What it licenses is narrower than the sentence in bold.** E38 measured
+> the same donor, labels and routers in **fp32** and found the fitted router beating a random
+> one by **2.37 BPB at `k = 64`** — **four times the entire window this table lives in**
+> (E37's dense-to-chance room is `0.5941` BPB; fp32's is `3.3022`). Ternarization had already
+> spent 82% of the distance to chance before the carve was applied, so this comparison could
+> not have resolved a router effect of any size. **`ROUTER-IS-NOT-THE-CONSTRAINT` is true of a
+> ternarized carved model at 1.17% activation. It is NOT the general claim that routing quality
+> does not matter**, and §6's scoring of addendum B's predictions is left exactly as it was
+> measured.
+
 **Addendum B's rule held: the verdict cell did not move.** `S15-K3 = 4.029398` and its band were
 measured and committed at `341b505` before this control existed, and this control could not
 re-open them. All three of its predictions HIT.

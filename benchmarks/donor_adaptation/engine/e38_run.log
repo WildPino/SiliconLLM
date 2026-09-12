@@ -1,0 +1,48 @@
+== E38: the ORACLE ceiling on the carve ==
+  fp32, NOT ternary -- selection isolated from format (brief s2).  Absolute BPB is
+  NOT comparable to E37's; only the gaps within E38 are.
+`torch_dtype` is deprecated! Use `dtype` instead!
+  donor Qwen/Qwen2.5-1.5B  D=1536 F=8960 L=28  E=256 (group = 35 neurons)
+  eval slice 24 x 512, 51870 scored bytes, ids_sha a1a48dc9fc5a6dc1
+  grouping A = D0c labels (E37's); grouping B = random equal partition, seed 38038
+  routers: fitted from e37_fit_routers.py, random = carve_common seed 26
+
+  G-E38B  dense fp32 = 0.767594964  vs E22 base 0.767595  diff -3.59e-08 -> FIRES
+  static selection fitted on a SEPARATE calib slice (8 x 512, seed 424242), never the eval one
+
+  -- grouping A (D0c labels, E37's) --
+    oracle   k=256   BPB 0.767595   vs dense +0.0000   vs chance -3.3022  [158s]
+    fitted   k=256   BPB 0.767595   vs dense +0.0000   vs chance -3.3022  [155s]
+    random   k=256   BPB 0.767595   vs dense +0.0000   vs chance -3.3022  [155s]
+    static   k=256   BPB 0.767595   vs dense +0.0000   vs chance -3.3022  [165s]
+    oracle   k=64    BPB 1.383412   vs dense +0.6158   vs chance -2.6864  [158s]
+    fitted   k=64    BPB 1.568866   vs dense +0.8013   vs chance -2.5010  [160s]
+    random   k=64    BPB 3.938012   vs dense +3.1704   vs chance -0.1318  [159s]
+    static   k=64    BPB 2.211871   vs dense +1.4443   vs chance -1.8579  [160s]
+    oracle   k=16    BPB 3.449466   vs dense +2.6819   vs chance -0.6204  [160s]
+    fitted   k=16    BPB 3.597108   vs dense +2.8295   vs chance -0.4727  [168s]
+    random   k=16    BPB 4.233244   vs dense +3.4656   vs chance +0.1634  [168s]
+    static   k=16    BPB 4.338377   vs dense +3.5708   vs chance +0.2686  [167s]
+    oracle   k=3     BPB 4.131817   vs dense +3.3642   vs chance +0.0620  [162s]
+    fitted   k=3     BPB 4.398009   vs dense +3.6304   vs chance +0.3282  [167s]
+    random   k=3     BPB 4.590205   vs dense +3.8226   vs chance +0.5204  [166s]
+    static   k=3     BPB 4.574275   vs dense +3.8067   vs chance +0.5045  [164s]
+    oracle   k=1     BPB 4.612284   vs dense +3.8447   vs chance +0.5425  [160s]
+    fitted   k=1     BPB 4.654301   vs dense +3.8867   vs chance +0.5845  [162s]
+    random   k=1     BPB 4.638128   vs dense +3.8705   vs chance +0.5683  [154s]
+    static   k=1     BPB 4.624240   vs dense +3.8566   vs chance +0.5544  [155s]
+
+  -- grouping B (random equal partition) --
+    oracle   k=64    BPB 1.645502   vs dense +0.8779   vs chance -2.4243  [157s]
+    random   k=64    BPB 4.041039   vs dense +3.2734   vs chance -0.0288  [162s]
+    static   k=64    BPB 4.583270   vs dense +3.8157   vs chance +0.5135  [156s]
+    oracle   k=3     BPB 4.162848   vs dense +3.3953   vs chance +0.0930  [155s]
+    random   k=3     BPB 4.301093   vs dense +3.5335   vs chance +0.2313  [154s]
+    static   k=3     BPB 4.164856   vs dense +3.3973   vs chance +0.0950  [153s]
+
+  G-E38A  mask inert at k=E: FIRES  (worst 0.00e+00, tol 1e-06)
+  G-E38C  oracle <= every attainable selector: FIRES
+
+  VERDICT  oracle k=3 = 4.131817  (dense +3.3642, beats random by 0.4584) -> SELECTION-IS-DEAD
+
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e38_oracle_ceiling.json  [4364s]
