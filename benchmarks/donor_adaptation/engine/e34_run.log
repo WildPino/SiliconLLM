@@ -1,0 +1,59 @@
+== E34: what does T10 read with the FFN gone? ==
+  anchors READ FROM FILE: E28 T10-PACKED 4.353 tok/s, E30 ceiling 36.299 GB/s
+     E26 T10-DENSE    4.067 tok/s  ratio_vs_dense 1.000  act 10.6032 G
+     E26 T10-K128     6.053 tok/s  ratio_vs_dense 1.489  act 6.4257 G
+     E26 T10-K16     15.190 tok/s  ratio_vs_dense 3.735  act 2.7263 G
+     E26 T10-K256     3.790 tok/s  ratio_vs_dense 0.932  act 10.6535 G
+     E26 T10-K4      17.887 tok/s  ratio_vs_dense 4.398  act 2.3299 G
+     E26 T10-K64      8.820 tok/s  ratio_vs_dense 2.169  act 4.3117 G
+
+  RUNNER's own floor (attention + head), charged: 2147483648
+     brief s2 hand table said 2147483648  ->  AGREES
+  RUNNER's own floor, MOVED bytes: 1078624256 (1.0786 GB)
+     brief s2 hand table said 1.0786 GB  ->  +0.002%
+  have  e34_t10_carve.bin
+  dense control e26_t10_dense.bin  (tagged-v2, 10603200512 charged)
+  G-E34B  exporter says 2230845440 active at k=1, runner says 2230845440 -> FIRES
+          the FFN residue left at k=1 is 83361792 weights (3.882% of the floor)
+
+  contention witness: 10.5% mean / 22% peak (bar 25% on the MEAN)
+
+  rep 1  T10-DENSE     4.56 tok/s
+  rep 1  T10-K16      15.53 tok/s
+  rep 1  T10-K4       18.80 tok/s
+  rep 1  T10-FLOOR    20.49 tok/s
+         box 2.0% mean / 4% peak
+  rep 2  T10-DENSE     4.40 tok/s
+  rep 2  T10-K16      15.95 tok/s
+  rep 2  T10-K4       19.43 tok/s
+  rep 2  T10-FLOOR    19.17 tok/s
+         box 10.5% mean / 20% peak
+  rep 3  T10-DENSE     4.34 tok/s
+  rep 3  T10-K16      15.66 tok/s
+  rep 3  T10-K4       18.85 tok/s
+  rep 3  T10-FLOOR    19.66 tok/s
+         box 2.0% mean / 3% peak
+  rep 4  T10-DENSE     4.34 tok/s
+  rep 4  T10-K16      16.28 tok/s
+  rep 4  T10-K4       19.72 tok/s
+  rep 4  T10-FLOOR    21.45 tok/s
+         box 3.0% mean / 6% peak
+  rep 5  T10-DENSE     4.40 tok/s
+  rep 5  T10-K16      15.94 tok/s
+  rep 5  T10-K4       18.33 tok/s
+  rep 5  T10-FLOOR    19.38 tok/s
+         box 13.0% mean / 17% peak
+
+  G-E34A  T10-K16/T10-DENSE 3.601 vs E26's 3.735 (-3.6%) -> FIRES
+  G-E34C  numerator 46.74 G-w/s (this session, dense) predicts T10-K4 = 20.06, measured 19.03 (+5.4%) -> FIRES
+
+  VERDICT CELL  T10-FLOOR = 20.03 tok/s  ->  FLOOR-IS-THE-WALL   (goal 50, short by 2.50x)
+     floor is 2297319028.69x the charged budget for 50 tok/s (0.0000 G) -- WITH ZERO FFN
+     a PERFECT kernel on this floor reads 33.7 tok/s (36.30 GB/s ceiling / 1.0786 GB)
+     floor is 1.49x the MOVED budget for 50 tok/s (0.7260 GB)
+     T10-FLOOR vs T10-K4: +5.3% (prediction 3 said under 12%) -> HIT
+
+  PREDICTION 6 (desk arithmetic on a measured ceiling, NOT a recommendation):
+     at T10's width, 50 tok/s fits 31 attention layers of the 48 (65% of the depth), with the FFN at zero
+
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e34_floor_under_floor.json  [205s]

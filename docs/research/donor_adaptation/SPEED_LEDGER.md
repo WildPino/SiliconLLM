@@ -3465,3 +3465,75 @@ E33 adds is that MY OWN documentation work is contention.**
 Predictions **2 HIT / 2 MISS / 1 conditional**: the size (`1.18-1.32`) missed, `E64`'s position
 missed (`50.4%` of the way, not `77%`), T10-smaller-than-S15 hit, and the no-effect-on-E30/E31
 registration holds.
+
+
+---
+
+## 44. E34 -- `FLOOR-IS-THE-WALL`: with the FFN GONE, T10 reads 20.03 tok/s
+
+**Probe** `probes/E34_THE_FLOOR_UNDER_THE_FLOOR.md` | **brief**
+`briefs/BRIEF_E34_THE_FLOOR_UNDER_THE_FLOOR.md` (`684e677`) | **runner**
+`engine/e34_floor_under_floor.py` | **result** `engine/results/e34_floor_under_floor.json`.
+205 s, four arms, five interleaved reps, idle box.
+
+### 44.1 The question nobody had asked
+
+Every probe from E18 to E33 attacked the FFN, because at T10 the FFN is nine tenths of the
+weight. **Nobody had measured what is left when it is gone.**
+
+| arm | `k` | charged/token | mean tok/s | charged G-w/s |
+|---|---|---|---|---|
+| `T10-DENSE` (E26's own dense file) | -- | 10.6032 G | **4.408** | 46.74 |
+| `T10-K16` | 16 | 2.7263 G | 15.872 | 43.27 |
+| `T10-K4` | 4 | 2.3299 G | 19.026 | 44.33 |
+| **`T10-FLOOR`** | **1** | **2.2308 G** | **20.030** | 44.68 |
+
+### 44.2 The wall, in both conventions, kept apart
+
+| charged | | moved | |
+|---|---|---|---|
+| numerator this session | **46.74 G-w/s** | ceiling (E30) | **36.30 GB/s** |
+| budget for 50 tok/s | 0.9348 G | budget for 50 tok/s | 0.7260 GB |
+| attention+head floor | **2.1475 G** | attention+head floor | **1.0786 GB** |
+| **floor / budget** | **2.297x** | **perfect-kernel floor rate** | **33.65 tok/s** |
+| measured floor rate | **20.03** (2.50x short) | **floor / budget** | **1.486x** |
+
+**At T10's LITERAL shape, 50 tok/s is not reachable on this box by any amount of FFN work** --
+the current engine is 2.50x short on the floor alone, and a PERFECT kernel is still 1.49x short.
+The measured floor arm charges 3.882% more than the pure floor (the charged router plus one
+surviving group), so the verdict is conservative.
+
+**Residency cannot close it**: 16 MB of L3 is `0.016 GB` of the floor's `1.0786 GB` while the gap
+is `0.353 GB` -- **22x the whole L3**. Registered in the brief before the run.
+
+### 44.3 The gates, and why `G-E34C` is the load-bearing one
+
+`G-E34A` uses E26's RATIO not its absolute (E33 addendum s2): `T10-K16/T10-DENSE` reads `3.601`
+against E26's `3.735`, `-3.6%`. `G-E34B`: the runner recomputed both floors independently and the
+brief's hand table **agreed to the byte** on charged (`2,147,483,648`) and to `+0.002%` on moved.
+`G-E34C`: this session's numerator **46.74 G-w/s** predicts `T10-K4` at `20.06` against `19.03`
+measured, `+5.4%` -- **and it lands within 1.3% of E28's independently measured packed numerator
+(46.16)**, a different session and a different file, after E32 made packed operative. The model
+behind every prediction here is not fitted to the points it predicts.
+
+### 44.4 What the budget buys in DEPTH -- desk arithmetic on a measured ceiling
+
+At T10's width, FFN at zero, perfect kernel: attention is `21,069,824 B/layer` moved, the head
+`67,239,936 B`, the 50 tok/s budget `726,000,000 B` -> **31 of the 48 attention layers fit, 65% of
+the depth**, before the FFN gets any budget at all. E27 measured that depth cuts cheaply IF the
+right layers go (`L21-MINRES` 113/160 vs `L21-LAST` 57/160 at identical cost) and E29 confirmed
+the ordering against a proper control; **E34 is the first time the engine side has said how much
+depth the budget actually buys.** Predictions **5 HIT / 0 MISS** -- which is a sign this probe was
+confirmatory, not a virtue: the two probes today where I was WRONG moved the programme further.
+
+### 44.5 Run 1 VOID (the controls caught me) and a unit slip (the law caught me)
+
+`ARMS` ran `T10-DENSE` with no `--carve-k` on the CARVED file, and an un-flagged carved file uses
+the `k` stored in it -- 1 -- so the dense arm was **the floor arm wearing the dense arm's label
+and its 10.6 G charge**. `G-E34A` read `0.783` against `3.735`; `G-E34C`'s numerator came out at
+`217.62 G-w/s`, 4.7x the machine's entire throughput. **The void run's floor arm landed at 21.27,
+close to my prediction, and is not quoted** -- a number that agrees with me is the one I should be
+least willing to keep from a void run. And the runner printed the charged ratio as
+`2297319028.69x`: `floor_charged` in WEIGHTS over a budget in G-WEIGHTS, **the unit hiding in the
+denominator**, which is precisely what this programme's byte-convention law is about. Corrected
+on recorded values; the JSON carries the erratum.

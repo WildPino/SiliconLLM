@@ -1,0 +1,211 @@
+{
+ "brief": "briefs/BRIEF_E34_THE_FLOOR_UNDER_THE_FLOOR.md (684e677)",
+ "shape": {
+  "D": 4096,
+  "QD": 4096,
+  "KD": 1024,
+  "F": 14336,
+  "L": 48,
+  "V": 32768,
+  "NH": 32,
+  "NKV": 8,
+  "HD": 128
+ },
+ "E": 256,
+ "ntok": 40,
+ "threads": 6,
+ "reps": 5,
+ "anchors_from_file": {
+  "e26_T10": {
+   "T10-DENSE": {
+    "mean": 4.066666666666666,
+    "ratio": 1.0,
+    "act": 10603200512
+   },
+   "T10-K256": {
+    "mean": 3.7900000000000005,
+    "ratio": 0.9319672131147543,
+    "act": 10653532160
+   },
+   "T10-K128": {
+    "mean": 6.053333333333334,
+    "ratio": 1.4885245901639346,
+    "act": 6425673728
+   },
+   "T10-K64": {
+    "mean": 8.82,
+    "ratio": 2.1688524590163936,
+    "act": 4311744512
+   },
+   "T10-K16": {
+    "mean": 15.19,
+    "ratio": 3.7352459016393444,
+    "act": 2726297600
+   },
+   "T10-K4": {
+    "mean": 17.886666666666667,
+    "ratio": 4.398360655737705,
+    "act": 2329935872
+   }
+  },
+  "e28_T10_PACKED": 4.3533333333333335,
+  "e30_bw_ceil_gb_s": 36.299,
+  "e30_raw_keys": [
+   "G_E30A",
+   "G_E30B",
+   "G_E30C",
+   "T10",
+   "VOID_AS_A_TIMING",
+   "arms",
+   "bands",
+   "brief",
+   "bw_ceiling_GB_s",
+   "bw_sweep",
+   "cpu_busy_mean_pct",
+   "cpu_busy_peak_pct",
+   "goal_tok_s",
+   "idle_bar_pct",
+   "ntok",
+   "question",
+   "reps",
+   "robustness_post_hoc",
+   "seconds",
+   "threads",
+   "verdict"
+  ]
+ },
+ "goal_tok_s": 50.0,
+ "bands": [
+  [
+   50.0,
+   "FLOOR-CLEARS"
+  ],
+  [
+   25.0,
+   "FLOOR-BINDS"
+  ],
+  [
+   0.0,
+   "FLOOR-IS-THE-WALL"
+  ]
+ ],
+ "floor_charged_runner": 2147483648,
+ "floor_charged_brief": 2147483648,
+ "floor_charged_agrees": true,
+ "floor_moved_runner": 1078624256,
+ "floor_moved_brief": 1078600000.0,
+ "active_dense": 10603200512,
+ "active_by_k": {
+  "1": 2230845440,
+  "4": 2329935872,
+  "16": 2726297600
+ },
+ "arms": {
+  "T10-DENSE": {
+   "rates": [
+    20.69,
+    20.38,
+    21.02,
+    19.01,
+    21.52
+   ],
+   "mean_tok_s": 20.524,
+   "median_tok_s": 20.69,
+   "carve_k": null,
+   "spread": 0.12229584876242437,
+   "active_weights_per_token": 10603200512,
+   "charged_G_w_per_s": 217.62008730828802
+  },
+  "T10-K16": {
+   "rates": [
+    16.24,
+    14.72,
+    16.93,
+    16.14,
+    16.34
+   ],
+   "mean_tok_s": 16.074,
+   "median_tok_s": 16.24,
+   "carve_k": 16,
+   "spread": 0.13748911285305454,
+   "active_weights_per_token": 2726297600,
+   "charged_G_w_per_s": 43.8225076224
+  },
+  "T10-K4": {
+   "rates": [
+    19.05,
+    19.2,
+    20.22,
+    20.71,
+    20.13
+   ],
+   "mean_tok_s": 19.862000000000002,
+   "median_tok_s": 20.13,
+   "carve_k": 4,
+   "spread": 0.08357667908569127,
+   "active_weights_per_token": 2329935872,
+   "charged_G_w_per_s": 46.277186289664
+  },
+  "T10-FLOOR": {
+   "rates": [
+    21.2,
+    20.94,
+    20.89,
+    22.06,
+    21.24
+   ],
+   "mean_tok_s": 21.266,
+   "median_tok_s": 21.2,
+   "carve_k": 1,
+   "spread": 0.05501739866453485,
+   "active_weights_per_token": 2230845440,
+   "charged_G_w_per_s": 47.441159127039995
+  }
+ },
+ "artifact": {
+  "path": "D:/_ktmp/e34\\e34_t10_carve.bin",
+  "bytes": 5874846008,
+  "active_weights_per_token": 2230845440,
+  "carve_E": 256,
+  "carve_k_in_file": 1
+ },
+ "G_E34B": {
+  "exporter_active": 2230845440,
+  "runner_active_k1": 2230845440,
+  "fires": true,
+  "floor_charged": 2147483648,
+  "ffn_residue_at_k1": 83361792
+ },
+ "cpu_busy_mean_pct": [
+  11.75,
+  0.5,
+  3.0,
+  8.0,
+  0.0,
+  9.0
+ ],
+ "cpu_busy_peak_pct": [
+  21.0,
+  1.0,
+  6.0,
+  16.0,
+  0.0,
+  18.0
+ ],
+ "G_E34A": {
+  "measured_ratio": 0.7831806665367376,
+  "e26_ratio": 3.7352459016393444,
+  "rel_dev": -0.7903268788293132,
+  "tol": 0.1,
+  "fires": false
+ },
+ "G_E34C": {
+  "numerator_G_w_per_s": 217.62008730828802,
+  "predicted_K4": 93.4017497749775,
+  "measured_K4": 19.862000000000002,
+  "rel_dev": 3.702534980111645,
+  "tol": 0.15,
+  "fires": false
+ },
+ "VOID": "a deciding anchor did not fire"
+}

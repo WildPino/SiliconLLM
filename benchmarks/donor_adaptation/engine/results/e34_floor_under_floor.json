@@ -1,0 +1,238 @@
+{
+ "brief": "briefs/BRIEF_E34_THE_FLOOR_UNDER_THE_FLOOR.md (684e677)",
+ "shape": {
+  "D": 4096,
+  "QD": 4096,
+  "KD": 1024,
+  "F": 14336,
+  "L": 48,
+  "V": 32768,
+  "NH": 32,
+  "NKV": 8,
+  "HD": 128
+ },
+ "E": 256,
+ "ntok": 40,
+ "threads": 6,
+ "reps": 5,
+ "anchors_from_file": {
+  "e26_T10": {
+   "T10-DENSE": {
+    "mean": 4.066666666666666,
+    "ratio": 1.0,
+    "act": 10603200512
+   },
+   "T10-K256": {
+    "mean": 3.7900000000000005,
+    "ratio": 0.9319672131147543,
+    "act": 10653532160
+   },
+   "T10-K128": {
+    "mean": 6.053333333333334,
+    "ratio": 1.4885245901639346,
+    "act": 6425673728
+   },
+   "T10-K64": {
+    "mean": 8.82,
+    "ratio": 2.1688524590163936,
+    "act": 4311744512
+   },
+   "T10-K16": {
+    "mean": 15.19,
+    "ratio": 3.7352459016393444,
+    "act": 2726297600
+   },
+   "T10-K4": {
+    "mean": 17.886666666666667,
+    "ratio": 4.398360655737705,
+    "act": 2329935872
+   }
+  },
+  "e28_T10_PACKED": 4.3533333333333335,
+  "e30_bw_ceil_gb_s": 36.299,
+  "e30_raw_keys": [
+   "G_E30A",
+   "G_E30B",
+   "G_E30C",
+   "T10",
+   "VOID_AS_A_TIMING",
+   "arms",
+   "bands",
+   "brief",
+   "bw_ceiling_GB_s",
+   "bw_sweep",
+   "cpu_busy_mean_pct",
+   "cpu_busy_peak_pct",
+   "goal_tok_s",
+   "idle_bar_pct",
+   "ntok",
+   "question",
+   "reps",
+   "robustness_post_hoc",
+   "seconds",
+   "threads",
+   "verdict"
+  ]
+ },
+ "goal_tok_s": 50.0,
+ "bands": [
+  [
+   50.0,
+   "FLOOR-CLEARS"
+  ],
+  [
+   25.0,
+   "FLOOR-BINDS"
+  ],
+  [
+   0.0,
+   "FLOOR-IS-THE-WALL"
+  ]
+ ],
+ "floor_charged_runner": 2147483648,
+ "floor_charged_brief": 2147483648,
+ "floor_charged_agrees": true,
+ "floor_moved_runner": 1078624256,
+ "floor_moved_brief": 1078600000.0,
+ "active_dense": 10603200512,
+ "active_by_k": {
+  "1": 2230845440,
+  "4": 2329935872,
+  "16": 2726297600
+ },
+ "arms": {
+  "T10-DENSE": {
+   "rates": [
+    4.56,
+    4.4,
+    4.34,
+    4.34,
+    4.4
+   ],
+   "mean_tok_s": 4.4079999999999995,
+   "median_tok_s": 4.4,
+   "carve_k": null,
+   "file": "dense",
+   "spread": 0.049909255898366554,
+   "active_weights_per_token": 10603200512,
+   "charged_G_w_per_s": 46.738907856896
+  },
+  "T10-K16": {
+   "rates": [
+    15.53,
+    15.95,
+    15.66,
+    16.28,
+    15.94
+   ],
+   "mean_tok_s": 15.872,
+   "median_tok_s": 15.94,
+   "carve_k": 16,
+   "file": "carve",
+   "spread": 0.0472530241935485,
+   "active_weights_per_token": 2726297600,
+   "charged_G_w_per_s": 43.2717955072
+  },
+  "T10-K4": {
+   "rates": [
+    18.8,
+    19.43,
+    18.85,
+    19.72,
+    18.33
+   ],
+   "mean_tok_s": 19.026,
+   "median_tok_s": 18.85,
+   "carve_k": 4,
+   "file": "carve",
+   "spread": 0.07305792074003997,
+   "active_weights_per_token": 2329935872,
+   "charged_G_w_per_s": 44.329359900671996
+  },
+  "T10-FLOOR": {
+   "rates": [
+    20.49,
+    19.17,
+    19.66,
+    21.45,
+    19.38
+   ],
+   "mean_tok_s": 20.03,
+   "median_tok_s": 19.66,
+   "carve_k": 1,
+   "file": "carve",
+   "spread": 0.11382925611582613,
+   "active_weights_per_token": 2230845440,
+   "charged_G_w_per_s": 44.683834163200004
+  }
+ },
+ "artifact": {
+  "path": "D:/_ktmp/e34\\e34_t10_carve.bin",
+  "bytes": 5874846008,
+  "active_weights_per_token": 2230845440,
+  "carve_E": 256,
+  "carve_k_in_file": 1
+ },
+ "G_E34B": {
+  "exporter_active": 2230845440,
+  "runner_active_k1": 2230845440,
+  "fires": true,
+  "floor_charged": 2147483648,
+  "ffn_residue_at_k1": 83361792
+ },
+ "cpu_busy_mean_pct": [
+  10.5,
+  2.0,
+  10.5,
+  2.0,
+  3.0,
+  13.0
+ ],
+ "cpu_busy_peak_pct": [
+  22.0,
+  4.0,
+  20.0,
+  3.0,
+  6.0,
+  17.0
+ ],
+ "G_E34A": {
+  "measured_ratio": 3.6007259528130677,
+  "e26_ratio": 3.7352459016393444,
+  "rel_dev": -0.03601367951899437,
+  "tol": 0.1,
+  "fires": true
+ },
+ "G_E34C": {
+  "numerator_G_w_per_s": 46.738907856896,
+  "predicted_K4": 20.06016921692169,
+  "measured_K4": 19.026,
+  "rel_dev": 0.05435557746881581,
+  "tol": 0.15,
+  "fires": true
+ },
+ "verdict": {
+  "name": "FLOOR-IS-THE-WALL",
+  "cell": "T10-FLOOR tok/s",
+  "tok_s": 20.03,
+  "goal": 50.0,
+  "short_by": 2.4962556165751373,
+  "floor_over_charged_budget": 2.297319028693515,
+  "charged_budget_for_50": 0.93477815713792,
+  "perfect_kernel_floor_rate": 33.65305369138667,
+  "moved_budget_for_50_bytes": 725980000.0,
+  "floor_over_moved_budget": 1.4857492713297886,
+  "floor_vs_K4_gap": 0.052769893829496484,
+  "prediction3_under_12pct": true,
+  "floor_over_charged_budget_ERRATUM": "recorded as 2.29732e+09 by the runner: floor_charged is in WEIGHTS and charged_budget_for_50 is in G-weights, so the ratio was 1e9 too large.  Arithmetic on recorded values, no re-run."
+ },
+ "prediction6_desk": {
+  "note": "DESK ARITHMETIC on a measured ceiling -- not a recommendation",
+  "attention_bytes_per_layer_moved": 21069824.0,
+  "head_bytes_moved": 67239936,
+  "layers_that_fit_at_50_tok_s": 31,
+  "layers_now": 48,
+  "fraction_of_depth": 0.6458333333333334
+ },
+ "seconds": 204.65877723693848
+}

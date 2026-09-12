@@ -1,0 +1,49 @@
+== E34: what does T10 read with the FFN gone? ==
+  anchors READ FROM FILE: E28 T10-PACKED 4.353 tok/s, E30 ceiling 36.299 GB/s
+     E26 T10-DENSE    4.067 tok/s  ratio_vs_dense 1.000  act 10.6032 G
+     E26 T10-K128     6.053 tok/s  ratio_vs_dense 1.489  act 6.4257 G
+     E26 T10-K16     15.190 tok/s  ratio_vs_dense 3.735  act 2.7263 G
+     E26 T10-K256     3.790 tok/s  ratio_vs_dense 0.932  act 10.6535 G
+     E26 T10-K4      17.887 tok/s  ratio_vs_dense 4.398  act 2.3299 G
+     E26 T10-K64      8.820 tok/s  ratio_vs_dense 2.169  act 4.3117 G
+
+  RUNNER's own floor (attention + head), charged: 2147483648
+     brief s2 hand table said 2147483648  ->  AGREES
+  RUNNER's own floor, MOVED bytes: 1078624256 (1.0786 GB)
+     brief s2 hand table said 1.0786 GB  ->  +0.002%
+  have  e34_t10_carve.bin
+  G-E34B  exporter says 2230845440 active at k=1, runner says 2230845440 -> FIRES
+          the FFN residue left at k=1 is 83361792 weights (3.882% of the floor)
+
+  contention witness: 11.8% mean / 21% peak (bar 25% on the MEAN)
+
+  rep 1  T10-DENSE    20.69 tok/s
+  rep 1  T10-K16      16.24 tok/s
+  rep 1  T10-K4       19.05 tok/s
+  rep 1  T10-FLOOR    21.20 tok/s
+         box 0.5% mean / 1% peak
+  rep 2  T10-DENSE    20.38 tok/s
+  rep 2  T10-K16      14.72 tok/s
+  rep 2  T10-K4       19.20 tok/s
+  rep 2  T10-FLOOR    20.94 tok/s
+         box 3.0% mean / 6% peak
+  rep 3  T10-DENSE    21.02 tok/s
+  rep 3  T10-K16      16.93 tok/s
+  rep 3  T10-K4       20.22 tok/s
+  rep 3  T10-FLOOR    20.89 tok/s
+         box 8.0% mean / 16% peak
+  rep 4  T10-DENSE    19.01 tok/s
+  rep 4  T10-K16      16.14 tok/s
+  rep 4  T10-K4       20.71 tok/s
+  rep 4  T10-FLOOR    22.06 tok/s
+         box 0.0% mean / 0% peak
+  rep 5  T10-DENSE    21.52 tok/s
+  rep 5  T10-K16      16.34 tok/s
+  rep 5  T10-K4       20.13 tok/s
+  rep 5  T10-FLOOR    21.24 tok/s
+         box 9.0% mean / 18% peak
+
+  G-E34A  T10-K16/T10-DENSE 0.783 vs E26's 3.735 (-79.0%) -> VOID
+  G-E34C  numerator 217.62 G-w/s (this session, dense) predicts T10-K4 = 93.40, measured 19.86 (+370.3%) -> VOID
+
+  VOID -- no verdict is quotable from this run.
