@@ -90,8 +90,9 @@ neighbours.** The single point *over* the chance line is `k=32`, in the middle o
 
 ## 4. The exchange rate — both axes on one artifact, the first time in this branch
 
-Idle box, five reps, reps outermost, one warm token before `--bench`. CPU busy during the timing
-phase: **13.0% mean / 23% peak** on the verdict rep.
+Idle box, five reps, reps outermost, one warm token before `--bench`. CPU busy sampled per rep:
+mean **6.75 / 2.0 / 12.0 / 0.0 / 7.5 / 13.0 %**, peak **16 / 4 / 24 / 0 / 10 / 23 %**. Every arm
+is measured in every rep, so occupancy does not fall on one arm.
 
 | arm | tok/s | spread | charged/token | numerator | BPB | ΔBPB per Δtok/s |
 |---|---|---|---|---|---|---|

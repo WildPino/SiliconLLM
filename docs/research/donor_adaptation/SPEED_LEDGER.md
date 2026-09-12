@@ -3715,7 +3715,9 @@ coin-flipping by four hundredths of a bit and is not a model.
 | `K2` | 107.71 | 11.4% | 0.4076 G | 43.899 | 4.014866 | 0.006985 |
 | `K1` | 101.59 | 26.1% | 0.4030 G | 40.944 | 3.989839 | 0.007235 |
 
-Five reps, reps outermost, one warm token before `--bench`, box 13.0% mean / 23% peak.
+Five reps, reps outermost, one warm token before `--bench`. Box occupancy sampled per rep:
+mean **6.75 / 2.0 / 12.0 / 0.0 / 7.5 / 13.0 %**, peak **16 / 4 / 24 / 0 / 10 / 23 %** — the
+busiest sample is the last, not a rep the verdict rests on more than any other.
 **Dispersions are large** (26.1% on the shortest arm): the absolute tok/s carry that on top of
 the standing ±5%, **the ratios and the slope are what is load-bearing.**
 
