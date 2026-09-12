@@ -4033,7 +4033,16 @@ never been probed on this axis; `V = 32768` is a choice, not a law.
 
 ---
 
-## 51. E41 — is the PARTITION the lever? (no speed; recorded here because it closes a branch)
+## 51. E41 — is the PARTITION the lever? **`VERDICT-UNRESOLVABLE`** (no speed)
+
+> ⚠ **CORRECTION, same day, by my own registered rule.** §51.1–51.6 were written and committed
+> (`d136f98`) **before addendum B had printed a number**, on purpose. B then refit all six
+> routers at the budget the band boundary was actually measured at (32 seqs / seed 42424) and
+> **the ordering changed**: `COACT` **3.583800** takes first place and **crosses the 3.597108
+> boundary by −0.013308**. The brief registered that outcome as making the cell
+> **unresolvable**, so `PARTITION-IS-NOT-THE-LEVER` is **withdrawn** and **E41 does NOT
+> strengthen the T4 ask** — the count of independent measurements of the closed road stays at
+> **three** (E37, E38, E40), not four. See §51.7 and the probe's §0.0/§10.
 
 `probes/E41_PARTITION_IS_NOT_THE_LEVER.md`. Brief pushed before the runner;
 addenda A and B pushed at `fadeb42`, B before its runner existed.
@@ -4114,8 +4123,51 @@ is distributed across groups, and the quantity that actually decides the attaina
 
 ### 51.6 What it does to the programme
 
-**Fourth independent measurement of the same closed road**: E37 (post-hoc conversion), E38 (any
-selector), E40 (any attention shape at 10 B), E41 (any of six groupings). **The affordable rate
-and the useful rate do not overlap and re-grouping does not move either.** The T4 ask in
-`COMMUNICATION.md` — H1, the carve *trained* rather than *applied* — stands, strengthened by one
-more measurement rather than by argument.
+⚠ **WITHDRAWN by §51.7.** What stood here — that E41 is a *fourth* independent measurement of
+the closed road and strengthens the T4 ask — is wrong. The count is **three** (E37, E38, E40).
+What survives both instruments: at 6.25% the best of six groupings loses **85.3%–92.0%** of the
+dense→chance window and misses the usability bar by **2.58 BPB**; at 1.17% all twelve cells are
+above chance. **Re-grouping moves hundredths where the goal needs units** — but E41 does not get
+to be counted as the measurement that says so.
+
+### 51.7 ADDENDUM B — the known-good instrument, and the verdict it withdrew
+
+Pre-registered at `fadeb42` before its runner existed, outcome rule written in advance. Only the
+router's calibration budget changes: partitions rebuilt from the **same registered 8-seq
+statistics**, routers refit on **32 seqs / seed 42424** (`e23_router`'s constants, what E38's
+boundary was fit at). 2,501 s.
+
+**`G-E41D`, a known positive, fires to seven digits**: `D0C` refit at 32/42424 = **3.597108**
+against E38's published **3.597108**, diff **−4.73e−07**. The calibration budget was the *entire*
+`+0.207238` discrepancy of §51.4 and nothing else was.
+
+| partition | addendum B | run 1 | Δ from 4× calibration | vs chance |
+|---|---|---|---|---|
+| **`COACT`** | **3.583800** | 3.887003 | **−0.303203** | −0.4860 |
+| `D0C` | 3.597108 | 3.804346 | −0.207239 | −0.4727 |
+| `PERM` | 3.597415 | 3.804346 | −0.206932 | −0.4724 |
+| `CONC` | 3.726419 | 3.815911 | −0.089492 | −0.3434 |
+| `STRIPE` | 4.359874 | 4.415238 | −0.055364 | +0.2901 |
+| `RAND` | 4.535312 | 4.530484 | **+0.004828** | +0.4655 |
+
+Ordering run 1 `D0C < PERM < CONC < COACT < STRIPE < RAND`; addendum B
+`COACT < D0C < PERM < CONC < STRIPE < RAND` — **CHANGED**, best crosses the boundary by
+**−0.013308**. **Registered consequence: the cell is UNRESOLVABLE, both tables stand, neither
+promotes the other.**
+
+**The Δ column is the most informative thing in the probe.** Gain from 4× calibration is not
+uniform and is not noise: `RAND` gains **nothing and loses 0.0048** (a random grouping has no
+structure for a linear router to learn — exactly what a null arm should do), `STRIPE` 0.055,
+`CONC` 0.089, the two D0c-derived arms 0.207 each, **`COACT` 0.303, the most of the six.** That
+is the *predictability* axis §51.2 identified, read directly. **My own registered prediction 4
+said `COACT` would gain most for that reason — it did, and then overtook `D0C`, which the same
+prediction said it would not.**
+
+**Dispersion.** At 8 seqs `PERM fitted` matched `D0C fitted` to sixteen digits; at 32 it does not
+(`+3.070e-04`), which is the only noise estimate on the fitted path — `COACT`'s margin is **43×**
+it. **That is not enough**: it bounds *relabelling* noise, while the axis that reversed the
+ordering is the *calibration slice*, on which this probe has two points, one seed each, and no
+replication. **A margin of 0.0133 on an axis whose dispersion is unmeasured is why the cell is
+unresolvable rather than merely overturned.**
+
+**Predictions across the whole probe: 1 HIT, 4 split, 5 MISS of ten.**
