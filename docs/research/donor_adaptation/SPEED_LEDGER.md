@@ -4030,3 +4030,92 @@ were comparable on the shared control (−1.8%, −2.6%), which E39's were not.
 `R128`'s 0.218 G base: **head 134,217,728 (61.5%)**, attention 67,108,864 (30.8%), router
 16,777,216 (7.7%). **The untied head is now bigger than all the attention put together** and has
 never been probed on this axis; `V = 32768` is a choice, not a law.
+
+---
+
+## 51. E41 — is the PARTITION the lever? (no speed; recorded here because it closes a branch)
+
+`probes/E41_PARTITION_IS_NOT_THE_LEVER.md`. Brief pushed before the runner;
+addenda A and B pushed at `fadeb42`, B before its runner existed.
+**Quality only, fp32, a really trained donor. Nothing here is a timing.**
+
+### 51.1 The cell
+
+**Six ways of grouping the same 8,960 neurons into 256 carve groups, and at the activation E40
+measured 50 tok/s buying at ten billion, the best attainable selector is the label family every
+carve in this programme already used.** `D0C` **3.804346** BPB at `k = 16`; no partition beats
+it. Band **`PARTITION-IS-NOT-THE-LEVER`** (boundary 3.597108, usability bar 1.005039).
+
+`S15` fp32, `E=256`, heldout 24×512, 51,870 scored bytes, dense **0.767595**, chance
+**4.069819** (window **3.302224**). 31 cells, 5,558 s.
+
+| `k=16` | oracle | fitted | gap |
+|---|---|---|---|
+| `COACT` | **3.095548** | 3.887003 | **0.791455** |
+| `CONC` | 3.369107 | 3.815911 | 0.446805 |
+| `D0C` | 3.449466 | **3.804346** | **0.354880** |
+| `PERM` | 3.448246 | 3.804346 | 0.356101 |
+| `STRIPE` | 3.813485 | 4.415238 | 0.601753 |
+| `RAND` | 3.902486 | 4.530484 | 0.627998 |
+
+At `k = 3` (1.17%) **all twelve cells are above the chance line** — the best oracle on the best
+of six groupings is `+0.0561` worse than a coin.
+
+### 51.2 The result worth more than the verdict: the ordering REVERSES
+
+Oracle order `COACT < CONC < D0C < STRIPE < RAND`; fitted order `D0C < CONC < COACT < STRIPE <
+RAND` (`ρ = 0.60`). **`COACT` has the best ceiling of the six and the worst realization gap.**
+Pricing groupings by their oracle — the cheap measurement — picks `COACT` and ships the
+third-best model. **E14 §3 and E37's `ROUTER-IS-NOT-THE-CONSTRAINT` on a third axis.**
+
+The grouping swing itself decays with the rate: same selector, `D0C` against a random equal
+partition, oracle **+0.453019** at `k=16` and **+0.031031** at `k=3` — activation falls 5.3×,
+the value of grouping well falls 14.6×. E38's `static` at `k=64` saw 2.37 (different selector,
+different column). **The partition's value peaks where selection's value peaks, at 25%, and the
+affordable rate is far below the knee.**
+
+### 51.3 Gates, and the one that went VOID
+
+`G-E41A` inertness at `k=E` fires at **exactly 0.00e+00** in all six partitions. `G-E41B` dense
+fires at **−3.59e−08** from E22's base. **`G-E41C`, the planted control, went VOID**: `PERM` is
+`D0C` relabelled and had to read the same number bit-for-bit — it did at `k=3` (`+0.000e+00`)
+and missed at `k=16` by `−1.221e-03`.
+
+**Addendum A diagnosed it and the gate was NOT re-run to a pass.** My float32-accumulation
+hypothesis is wrong and recorded as wrong: group mass is **bit-identical** under relabelling
+(max abs diff `0.000e+00` over 344,064 rows). The cause is **two rows of 344,064 with
+bitwise-equal float32 mass astride the boundary** — `topk` breaks the tie by index, permuting
+names flips it, and two flips (layers 1 and 11) cascade into the whole `1.22e-3`. Repair
+verified with float64 accumulation (0 ties, 0 flips); **`e38_oracle_ceiling.py` deliberately not
+edited.** Jitter floor `1.2e-3`: 290–660× below every oracle difference reported, 9.5× below the
+tightest comparison in the probe.
+
+**Three of E38's published numbers reproduce free** on a harness that refit its own routers:
+oracle `k=3` **4.131817**, oracle `k=16` **3.449466**, and the `k=3` grouping swing **+0.031031**
+against E38's `+0.0310`.
+
+### 51.4 The instrument defect in my own brief
+
+`D0C` fitted reads **3.804346** here against E38's **3.597108** — `+0.207238`, **29% of the whole
+spread across partitions**. Cause: `§2` registered the calibration slice at **8** sequences /
+seed 424242 (`e38_oracle_ceiling`'s constant, used there only for `static`), while the boundary
+it is compared to came from a router fit on **32** / seed 42424. The verdict's *direction*
+survives — the winner is the control — but the *ordering* might not, so **addendum B** refits all
+six routers at 32/42424 and re-runs the six verdict cells, with `G-E41D` demanding `D0C`
+reproduce 3.597108 ±0.001 as a known positive. **E36's run-2 rule governs: B may not promote the
+registered verdict.**
+
+### 51.5 Predictions
+
+**0 clean HIT, 2 split, 3 MISS.** The band and the number both missed (registered 2.90, measured
+3.804346). Three of the five misses are one mistake: I modelled the partition's value as how mass
+is distributed across groups, and the quantity that actually decides the attainable column is the
+**oracle→fitted gap** — how predictable the grouping is from `x` — which I had no model of.
+
+### 51.6 What it does to the programme
+
+**Fourth independent measurement of the same closed road**: E37 (post-hoc conversion), E38 (any
+selector), E40 (any attention shape at 10 B), E41 (any of six groupings). **The affordable rate
+and the useful rate do not overlap and re-grouping does not move either.** The T4 ask in
+`COMMUNICATION.md` — H1, the carve *trained* rather than *applied* — stands, strengthened by one
+more measurement rather than by argument.
