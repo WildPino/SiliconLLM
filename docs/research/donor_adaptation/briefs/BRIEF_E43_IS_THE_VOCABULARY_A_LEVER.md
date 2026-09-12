@@ -276,3 +276,100 @@ rather than quietly fixed.
 The units half stands: `G-E43B`, `G-E43C` and `G-E43D` all fired and none of them depends on the
 stopwatch. The measured `bytes/token` column is unaffected by anything in this addendum. And the
 scope in §8 is unchanged — **still not one BPB, and E43 still cannot move the T4 ask.**
+
+---
+
+# ADDENDUM C — `G-E43A` is MIS-SPECIFIED, and I can prove it from data that predates E43
+
+**Written and pushed BEFORE the re-run, after a pre-flight control probe and before the
+registered attempt is spent.** The attempt of addendum A is **still unspent**: rule 2 requires
+the control to be probed independently first, and that probe is what produced this.
+
+## C.1 The pre-flight probe, on the quietest box this programme has measured
+
+The user shut down Chrome and Task Manager. Five independent reps of **E40's own
+`e40_r128.bin`**, `k=3`, 40 tokens, 6 threads:
+
+| rep | tok/s | box busy | peak core |
+|---|---|---|---|
+| 1 | 134.33 | 4.5% | 10.0% |
+| 2 | 125.85 | 5.3% | 13.0% |
+| 3 | 129.25 | 12.7% | 19.0% |
+| 4 | 127.73 | **1.5%** | 6.0% |
+| 5 | 125.54 | 9.0% | 26.0% |
+
+**Mean 128.54 = +14.0% against E40's 112.73, spread 6.8%.** `G-E43A` fails — **in the opposite
+direction from run 1.** The box is not contended; it is cleaner than the box E40 ran on
+(E40's own `cpu_busy_pct` was 5.0–22.5%).
+
+## C.2 The gate was never sound, and the evidence was on disk before E43 was written
+
+From `results/e40_levers_exhausted*.json`, **E40's own `R128 k=3` reps**:
+
+| E40 session | rates | mean | **spread** |
+|---|---|---|---|
+| forward | 105.27, 118.18, 119.41, 104.21, 116.59 | **112.732** | **13.5%** |
+| reversed | 84.24, 121.41, 118.25, 105.24, 103.04 | 106.436 | **34.9%** |
+
+**The ±5% bar is three to seven times TIGHTER than the measured dispersion of the very number
+it is anchored to.** E40's own forward reps span 104.21–119.41: *four of its five reps would
+fail a ±5% bar against their own mean*, and its two orders disagree by 5.9% — already outside
+the bar, in the session that defined it.
+
+**This is E42's error, committed again by me, in the very brief that registered the rule
+against it.** §0.1 says *"every gate is either ORDINAL or uses a tolerance this programme has
+already measured on that exact axis."* The ±5% is the programme's convention for **absolute
+tok/s**; it was never measured as the session-to-session dispersion of this arm, and the
+measurement that contradicts it was sitting in E40's result file the whole time. I did not
+look. Run 1's VOID still stands on its own evidence — the box demonstrably filled from 8.2% to
+45.0% *during* the run — but **the bar it was judged against was not sound.**
+
+## C.3 What replaces it, and why this is not moving the goalposts
+
+**`G-E43A` is the wrong KIND of control for E43's result.** Both E43 cells are **RATIOS taken
+inside one session** (`BPS_peak / BPS(V=32768)`), and this programme's standing rule is *every
+absolute tok/s carries ±5%; ratios do not.* A cross-session absolute anchor certifies something
+the cell does not need. What a ratio needs is that the session is internally consistent.
+
+**`G-E43A` is RETIRED.** It is not widened, not re-run to a pass, and no number of E43's is
+compared to 112.73 again. In its place, registered now, before the session:
+
+1. **`G-E43A1` — within-session dispersion.** On the surviving reps the control arm's own
+   spread must be **≤ 13.5%**, the spread E40's *accepted* forward session recorded **on this
+   exact arm at this exact `k`**. A measured tolerance on the exact axis, per §0.1 — the thing
+   the original gate failed to be.
+2. **`G-E43A2` — the two orders must agree on the SIGN of the cell** (already addendum A rule
+   4, restated as a gate).
+3. **Addendum A rule 3 is unchanged**: reps at ≥25% busy discarded before any statistic, fewer
+   than three survivors voids the session.
+4. **Absolute rates are reported WITHOUT any claim of comparability to E40's session.**
+
+**Stated plainly, because it is the uncomfortable part: I already know the pre-flight probe's
+6.8% spread would pass `G-E43A1`.** Registering a control I expect to pass is not the sin —
+H0's planted controls were all expected to pass. The sin is adjusting a gate that determines
+**what the answer is**, and `G-E43A1` determines only whether the session is readable. **The
+cell itself — which `V` wins, and which side of it `V=32768` falls on — is still unknown, still
+predicted in §5 of the brief, and `G-E43A2` is a gate whose outcome I cannot predict.**
+
+**This is still the ONE attempt** of addendum A. If `G-E43A1` or `G-E43A2` fails, E43 has no
+speed half, permanently, exactly as registered.
+
+## C.4 A finding that is bigger than E43, and it is owed
+
+**`112.73 tok/s` is softer than this programme has been writing it.** Its own session dispersion
+is 13.5%, its reversed partner reads 106.44, and on a quiet box today the same file reads
+**128.54**. The quantity is roughly **113 ± 15 tok/s**, and the INDEX, the ledger, the memory
+index and the pitch all quote `112.7` as though the last digit meant something.
+
+**Direction matters: this makes the speed claim STRONGER, not weaker** — the measured rate on a
+quiet box is higher than the published one. But the precision was overstated, and a number
+quoted to four significant figures with a 13.5% dispersion is the same unit error this
+programme has caught twice before.
+
+**A plausible mechanism, registered as a HYPOTHESIS and not a finding:** the arm is a 5.49 GB
+file on a box with 80 GB of RAM, and it has been read many times today. **Page-cache residency
+was never controlled, by E39, E40 or E43.** Today's charged throughput is `331,350,016 × 128.54
+= 42.6 G weights/s` against the 35–40 G w/s band E40 recorded across every arm — above the
+invariant E25 called stable to 1.54%. That is consistent with a warm cache and is **not
+established**; it is a question for a successor, and it may mean every absolute rate in this
+programme is a cache-state measurement as much as an engine measurement.
