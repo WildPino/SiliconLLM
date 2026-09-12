@@ -139,3 +139,62 @@ named here and in `COMMUNICATION.md` so the pointer survives this session.
 4. **The carve, trained rather than applied** — E37 measured that applying it costs +0.55 BPB
    with the router provably irrelevant. H0 says the format can be trained into. Nobody has put
    those two facts in the same run.
+
+---
+
+## 8. RUN 3 — steps 500→1000, and it supersedes two bullets above — 2026-09-12
+
+Adjudication and the decision it feeds live in `decisions/T4_HEALING_PROPOSAL.md` §12. This
+section records only what the probe itself now measures.
+
+**Run 3 is a genuine continuation, verified not assumed**: the file it resumed from,
+`_h0_bundle2/h0_start.npz`, is **byte-identical** to run 2's output
+(`sha256 6d3fd3e3d0a15f5c60cd63a38563f4a4994c35e28005290de06ecb6374b54764`, both). It stopped at
+the same **2.8 h wall** after **500 more steps** — cumulative **1000 of 4000** — and
+`adam_state_restarted: true`, so the second block ran on a **fresh Adam state**.
+
+| | BPB | free | band | tf | mean rank | rank≤5 |
+|---|---|---|---|---|---|---|
+| run 2 — 500 steps | 0.825358 | 8 | `AT-FLOOR` | 111 | **7.10** | 144 |
+| **run 3 — 1000 steps** | **0.810022** | **15** | **`PARTIAL`** | **115** | **20.51** | 148 |
+
+Trainer health: `nonfinite_microbatches: 0`, `scaler_declined_before_first_applied: 0`, first
+update applied at **step 1** (run 2 needed rejections first), 280/280 arrays finite.
+
+**§5 bullet 2 is superseded.** It said *"Nothing about generation. Free-running is 8/160, in the
+`AT-FLOOR` band."* Free-running is now **15/160, band `PARTIAL`** — **level with E22's fp32
+`QO512+V52` arm**, the comparison §5 used to mark how far below par it sat. It moved. It is still
+nowhere near the intact donor's 160 and the bullet's substance — **BPB and teacher-forced are not
+a generator** — stands untouched.
+
+**§5 bullet 4 is partly superseded.** It said the last two GPU fp16 probes read *"tf 110 → 112,
+which is flat, and flat at step 500 is not evidence about step 4000 either way."* That was right
+to hedge and **too kind to the probe**: across the window where the fp16 tf probe read 111 → 112
+→ 110, BPB fell **0.0153** and free-running nearly doubled. `tf` was flat on *both* instruments
+(111 → 115 on CPU fp32) — **the metric, not the format, was the thing that could not see it.**
+Still 1000 of 4000, so the bullet's core claim is unchanged: **the curve past step 1000 is
+unmeasured.**
+
+**§7 owed items 1 and 3 both move but neither closes.** Item 1 (the other 3500 steps) is now
+**priced** rather than unknown, and §12 of the proposal declines to buy it. Item 3 (free-running
+recovery) went from "did not move" to "moved 8 → 15 and is still the worst axis."
+
+**New, and owed by this section:** **mean rank went the wrong way, 7.10 → 20.51, while rank≤5
+went the right way, 144 → 148.** The body tightened and the tail lengthened. Whether extended
+healing trades tail behaviour for body accuracy is unmeasured and is now the most interesting
+free question H0 has left.
+
+### 8.1 Where run 3's weights are
+
+Same rule as §6 — **not regenerable**, and less so than run 2's: run 3 resumed from run 2's
+output and **both** T4 instances are gone. Two copies, both on disk:
+
+```
+benchmarks/donor_adaptation/s1/results/h0_kaggle_run3/h0_trained3.npz   (working copy)
+D:\_ktmp\h0_run3_final\h0_trained3.npz                                  (backup, + the .json)
+352,967,686 bytes   sha256 dd62482d65accb34129a7b7a3f8baf75b0ccf3c4fdf2481233f1b9ce823927d8
+280 keys = 56 organs x 5 tensors (A, s, B, rms_in, rms_A), 0 non-finite of 280 -- re-verified
+here from the files on disk, not quoted from the run report
+```
+
+Gitignored at `.gitignore` by place, not by type; the `.json` beside them is tracked.

@@ -1,0 +1,49 @@
+{
+ "plan": "decisions/T4_HEALING_PROPOSAL.md s3 (H0)",
+ "complete": true,
+ "steps_requested": 4000,
+ "bs": 2,
+ "accum": 8,
+ "lr": 0.0002,
+ "seed": 909091,
+ "resumed_from": "h0_start.npz",
+ "adam_state_restarted": true,
+ "seconds": 10094.029132604599,
+ "nonfinite_microbatches": 0,
+ "tf_fp16_gpu_step0": 111,
+ "history": [
+  {
+   "step": 0,
+   "tf_fp16_gpu": 111,
+   "loss": null,
+   "seconds": 0.0
+  },
+  {
+   "step": 250,
+   "tf_fp16_gpu": 112,
+   "loss": 2.3342689845263958,
+   "seconds": 3795.1944019794464
+  },
+  {
+   "step": 500,
+   "tf_fp16_gpu": 110,
+   "loss": 2.333872546121478,
+   "seconds": 7598.781385421753
+  }
+ ],
+ "G_H0e": {
+  "moved": {
+   "L00.q_proj.A": 8.001923561096191e-06,
+   "L00.o_proj.B": 8.001923561096191e-06,
+   "L27.q_proj.s": 7.987022399902344e-06
+  },
+  "first_applied_step": 1,
+  "declined_before": 0,
+  "scale_at_first_applied": 65536.0,
+  "grad_norm_at_first_applied": 1.6186200380325317
+ },
+ "scaler_declined_before_first_applied": 0,
+ "gate": "NOT decided here -- h0_eval.py on CPU fp32, tf >= 48",
+ "e22_anchor_tf": 28,
+ "e21_fp32_ceiling_tf": 144
+}

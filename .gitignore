@@ -143,6 +143,13 @@ docs/research/LLM_Reimagined_CPU_Native_Exploration_20260626/
 # rather than in git.  The .json beside them carries every gate and IS tracked.
 /benchmarks/donor_adaptation/s1/results/h0_kaggle_run2/*.npz
 
+# The TRAINED factors from run 3 (steps 500-1000), same 352 MB shape and the same anchoring
+# rule -- to the place, not to the type.  These are even less recoverable than run 2's: run 3
+# resumed from run 2's output and BOTH T4s are gone, so the two files on disk (the repo path
+# and D:/_ktmp/h0_run3_final/) are the only copies of 1000 steps of GPU time that exist.  Kept
+# in two places deliberately.  The .json beside them carries every gate and IS tracked.
+/benchmarks/donor_adaptation/s1/results/h0_kaggle_run3/*.npz
+
 # The assembled T4 bundle: 417 MB of the two files above plus copies of scripts that ARE
 # tracked.  Anchored to the place, not to a type, per the .gitignore audit -- a bare `_h0_bundle`
 # would also hide one somewhere else.  h0_pack.py rebuilds it and refuses to if the gates did

@@ -467,3 +467,138 @@ follow-ups, in the order I would ask for them:
    at the speed's activation rate, **with the router provably not the constraint**. H0 measured
    that the format can be trained into. **Nobody has put those two facts in one run**, and that
    is now the single most informative GPU-hour available to this programme.
+
+---
+
+## 12. H0 RAN AGAIN — the healing had NOT stopped, and H0 closes anyway — 2026-09-12
+
+**Run 3**: `results/h0_kaggle_run3/h0_trained3.{npz,json}`, eval `results/h0/h0_eval_trained3.json`.
+Resumed from a file **bit-identical** to run 2's output (`sha256` both begin `6d3fd3e3d0a15f5c`),
+so this is a genuine cumulative **1000 of 4000 steps** — with `adam_state_restarted: true`, which
+§12.4 charges. It hit the same **2.8 h wall** at step 500, not the ~1100 that was estimated.
+
+### 12.1 The four rows, one instrument, all re-run today
+
+| | BPB | vs intact | free | band | **tf** | mean rank | rank≤5 |
+|---|---|---|---|---|---|---|---|
+| `base`, intact — **planted control** | **0.767595** | — | **160** | `RANKS` | **160** | **1.00** | 160 |
+| `QO512-TB` **init** — low anchor | 2.812238 | +2.044643 | 1 | `AT-FLOOR` | **28** | 1476.41 | 68 |
+| **run 2** — 500 steps | 0.825358 | +0.057763 | 8 | `AT-FLOOR` | 111 | **7.10** | 144 |
+| **run 3** — 1000 steps | **0.810022** | **+0.042428** | **15** | **`PARTIAL`** | **115** | **20.51** | 148 |
+
+**The planted control was re-run today against this exact reading** and reproduces the morning's
+intact row **bit-exactly** — `bpb` diff `0.0` to the last bit, 160/160 on both axes, and the
+same generated text token for token (`results/h0/h0_eval_intact_recheck.json`). `h0_eval.py` is
+unchanged since `511cf42`. **The instrument fires on the known-positive, so its readings count.**
+
+**Gate `tf ≥ 48`: PASS at 115, delta +87.** Damage removed **97.175% → 97.925%**. The second 500
+steps removed **26.6% of the residual that survived the first 500**.
+
+### 12.2 The finding, and it is about the METRIC, not about the GPU
+
+The operator reported the in-training fp16 proxy as **111 → 112 → 110, flat**, and explicitly
+declined to interpret it. On the registered CPU fp32 instrument the same window reads:
+
+- **BPB 0.825358 → 0.810022** — moved;
+- **free-running 8 → 15/160**, band `AT-FLOOR` → `PARTIAL` — nearly doubled;
+- **tf 111 → 115** — **also nearly flat.**
+
+**So the proxy was not wrong about `tf`. `tf` really is flat. The error is that the gate is
+written on `tf`, and `tf` is the one axis with almost no headroom left** — at 115/160 with
+rank≤5 at 148/160, a further 500 steps of real healing can only show up in it as single counts.
+The axes that moved are the **continuous** one (BPB) and the one with **145 counts of headroom**
+(free-running). That is mine to own: §3 chose `tf` as the gate, and §11 read progress off it.
+
+This is **E14 §3 running in reverse.** E14 §3 says every SCORE metric needs a RANK partner, because
+a score can move while the ordering does not. Here the gate is the count-like metric and it
+**saturated**, and only its SCORE partner could see that the run was still working. **A gate is a
+floor, not a progress meter** — and nothing in this programme had said so out loud before.
+
+**Registered consequence:** no future H-arm reports progress on `tf` alone. `tf` stays the gate
+(it is a floor and it is doing its job); **BPB and free-running are what a continuation is judged
+on.** The in-training fp16 proxy stays useful for exactly one thing — confirming the run is alive
+and finite — and is not evidence about whether to buy more steps.
+
+### 12.3 The counter-signal, which must not be buried
+
+**Mean rank got WORSE: 7.10 → 20.51**, while **rank≤5 got better, 144 → 148**. Both are true and
+they are not in conflict: the body of the distribution **tightened** (four more tokens entered the
+top five) and the **tail lengthened** — mean rank is an average over 160 and a handful of very bad
+positions dominate it. BPB, free-running and rank≤5 all improved; mean rank is the single number
+that went the other way, and it is reported here because it went the other way.
+
+It does **not** flip the reading — BPB is the calibrated continuous measure and it fell — but it
+is the seed of a real question: **whether extended healing trades tail behaviour for body
+accuracy.** Nobody has measured that, and one more H0 session would answer it for free.
+
+### 12.4 What run 3 does NOT establish
+
+1. **Two points cannot fit a curve.** 500 and 1000 steps are the only two trained readings that
+   exist. Any claim about where H0 asymptotes is a **desk model**, and is labelled as one below.
+2. **`adam_state_restarted: true`.** The second 500 steps ran on a **fresh Adam state**, so
+   "1000 steps" is not the same object as 1000 contiguous steps would be. The measured
+   improvement is therefore, if anything, a **lower bound** on what a contiguous schedule does —
+   but that direction is an argument, not a measurement.
+3. **Still H0's scope**: 1.5 B, `q/o` only, **no carve, no router, no ternary FFN, no ternary
+   head**. Nothing here touches the object that ships, and nothing here is a speed number.
+
+**DESK MODEL, explicitly not a measurement** — holding the *fractional* residual removal (26.6%
+per 500 steps) constant, which is exactly the assumption two points cannot test:
+
+| cumulative steps | residual | BPB | damage removed |
+|---|---|---|---|
+| 1,000 *(measured)* | **0.042428** | **0.810022** | **97.925%** |
+| 2,000 | 0.022890 | 0.790485 | 98.880% |
+| 3,000 | 0.012349 | 0.779944 | 99.396% |
+| 4,000 *(full schedule)* | 0.006662 | 0.774257 | 99.674% |
+
+### 12.5 The decision this was bought to make — the registered branch FIRES, and H0 closes
+
+The branch was **pre-registered in `COMMUNICATION.md` APERTO 1, before the session was launched**,
+and it was written on `tf`:
+
+> *"Se il numero torna vicino a 111, i 3500 step che restano non valgono sei sessioni e H0 e
+> finito a 111. Se sale, allora te le chiedo, con il motivo in mano."*
+
+**`tf` came back at 115.** On a 160-count integer metric that is "vicino a 111". **The registered
+branch fires: H0's remaining 3,000 steps — ~17 GPU-h, six more 2.8 h sessions at the measured
+rate — are NOT requested, and H0 closes here.**
+
+**And I am not allowed to reverse that because BPB is more interesting.** This is the E40
+addendum A precedent applied to a branch instead of a gate: *a registered rule that fires is
+doing its job and is not re-argued once the data are in.* The rule was mine, it was written
+down before the run, and I had the whole session to write it on BPB instead.
+
+**Stated plainly, because it is the uncomfortable half: had the branch been registered on BPB, it
+would have gone the other way.** BPB fell 0.0153 and the second 500 steps removed a quarter of
+the surviving damage — on that metric the schedule visibly has more in it. The decision therefore
+rests on a metric choice §12.2 has just shown to be a poor progress meter, and that is a defect
+in the pre-registration, recorded here rather than repaired retroactively.
+
+**What makes me comfortable is that the cost argument agrees independently.** H0 is the structure
+validation — 1.5 B, `q/o` only, no carve, no router, no ternary FFN, no ternary head. It has
+already returned its finding (the format **can** be trained into, gate passed at +87) and 97.9%
+of the damage is gone. Seventeen GPU-h to move 97.9% → ~99.7% (desk model, §12.4) on **an object
+that does not ship** is the most expensive remaining question in this document, not the cheapest.
+§11 ranked #1 "cheapest" when the healing curve was unknown; **run 3 bought that unknown for
+2.8 h, which is exactly what one session was for.**
+
+### 12.6 Where the GPU hours go instead — APERTO 0 unchanged, and STRONGER
+
+**APERTO 0 stands exactly as written: H1, the carve trained rather than applied, two 2.8 h
+sessions (~5.6 GPU-h).** Run 3 does not weaken it and does not merely leave it alone:
+
+- §11's #3 is still the single most informative GPU-hour available, for §11's own reason: E37
+  measured that *applying* the carve costs **+0.5537 BPB** at the speed's activation rate **with
+  the router provably not the constraint**; H0 measured that the format can be *trained* into;
+  **nobody has put those two facts in one run.**
+- **Run 3 says one session will under-read H1.** H0's first 500 steps left 2.8% of the damage and
+  the *next* 500 removed **a quarter of what remained**. An H1 session that reads disappointing
+  at 500 steps **cannot be called a failure** — H0 would have been called flat at that point, by
+  this very document, on this very metric. **APERTO 0 already asked for two sessions; run 3 is
+  why the second one is not optional, and why H1 must be judged on BPB and free-running.**
+
+**What run 3 actually delivered is an instrument finding, not an H0 finding** — and instrument
+findings transfer, which is why 2.8 h on a non-shipping object was still worth spending:
+*healing continues measurably past the point where the cheap in-training signal says it has
+stopped, and the gate metric is not the place to look for it.*
