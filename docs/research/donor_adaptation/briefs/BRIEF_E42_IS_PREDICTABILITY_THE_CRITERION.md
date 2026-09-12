@@ -148,3 +148,75 @@ says so instead of reporting a difference.**
   and E42 moves how the partition is *built*, which is still not the selector.
 - **Nothing that resolves E41's cell by fiat.** If §5's secondary question comes back inside 2σ,
   E41 stays unresolvable and this brief says so in advance.
+
+---
+
+# ADDENDUM A — `G-E42C` went VOID, and the gate is mis-specified. It is NOT re-run to a pass.
+
+**Written after the run. §0–§8 above are unedited.** Precedent: E40 addendum A, E41 addendum A.
+
+## What fired
+
+```
+G-E42C  RAND mean 4.456739  vs its E41 32-seq reading 4.535312  -> gain +0.078573 (max 0.010)  -> VOID
+```
+
+Both clauses of §6's `G-E42C` fail, not one. The operational clause fails by `7.9×` the
+tolerance. The prose clause — *"`RAND`'s across-seed spread must be the smallest improvement of
+the four arms"* — also fails: `RAND`'s across-seed standard deviation is **0.099072**, the
+**second largest** of the four, against `D0C`'s 0.026676.
+
+**Prediction 1 (all four gates fire) is a MISS and is scored as one.**
+
+## Why the gate is mis-specified, and it is my error
+
+The gate compares a **three-seed mean** against a **one-seed value** with a tolerance of
+**0.010**, while the arm's own across-seed standard deviation turns out to be **0.099** — ten
+times the tolerance. **A control that a null arm's ordinary dispersion is guaranteed to trip is
+not a control.** I set the tolerance before any dispersion on this axis had ever been measured,
+which is precisely the number E42 was built to measure; I should have specified the gate in units
+of the arm's own measured spread, or compared seed-for-seed.
+
+## The inference the gate names is separately refuted
+
+`G-E42C`'s registered consequence reads: *"if it improves with a change of calibration seed, the
+harness is fitting the eval and no arm below counts."* The eval-fitting hypothesis is testable
+directly and it fails:
+
+| cell | published elsewhere | E42, seed 42424 | difference |
+|---|---|---|---|
+| `D0C` fitted `k=16` | E38 **3.597108** | **3.597107527** | **−4.73e−07** |
+| `RAND` fitted `k=16` | E41 addendum B **4.535311855** | **4.535311605** | **−2.50e−07** |
+
+**Two independently published cells reproduce to better than `5e-07` on this harness at the
+shared seed.** A harness fitting the eval does not reproduce other sessions' numbers to seven
+digits. What `RAND` actually does across seeds is **vary** (4.345445 / 4.489461 / 4.535312) —
+dispersion, not monotone improvement.
+
+## What happens to E42's verdict, and I am applying the harsh reading
+
+**The registered consequence stands: no arm below the gate counts, so E42 yields NO REGISTERED
+VERDICT.** `PREDICTABILITY-IS-NOT-THE-CRITERION` is what the runner printed and it is reported as
+a **measurement, not a verdict.** The gate is not re-run, not re-scoped and not re-toleranced
+after seeing the numbers.
+
+Two things are said alongside, neither of which rescues it:
+
+- **The failure mode the gate guards against cannot manufacture E42's result.** A harness fitting
+  the eval makes arms look *better*; E42's headline is that the new arm is *worse* than both
+  incumbents at every seed. The direction is wrong for the artifact.
+- **The dispersion figures are the point of the probe and are reported as measured-not-
+  registered.** They are what a repaired successor must re-establish, and they are what finally
+  explains E41.
+
+## The repair, specified here for the successor
+
+A null-arm control must be expressed in units the probe itself measures:
+
+> `RAND` must not beat its own seed-matched reading at any shared seed by more than **1σ of its
+> own across-seed spread**, with σ estimated from the same run — and the comparison must be
+> **seed-for-seed**, never a mean against a single point.
+
+On E42's own numbers that repaired gate **would have fired** (`RAND` at seed 42424 reproduces
+E41's reading to `2.5e-07`, and there are no other shared seeds). **That is stated to show the
+repair is not a loophole — it is not applied, and E42's gate stays VOID.**

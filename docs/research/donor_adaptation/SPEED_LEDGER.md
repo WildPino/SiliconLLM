@@ -4171,3 +4171,104 @@ replication. **A margin of 0.0133 on an axis whose dispersion is unmeasured is w
 unresolvable rather than merely overturned.**
 
 **Predictions across the whole probe: 1 HIT, 4 split, 5 MISS of ten.**
+
+---
+
+## 52. E42 — is PREDICTABILITY the criterion? **NO REGISTERED VERDICT** (no speed)
+
+`probes/E42_PREDICTABILITY_IS_NOT_THE_CRITERION.md`. Brief pushed at `22653fd` before the runner
+existed; addendum A (the `G-E42C` diagnosis) written after the run.
+**Quality only, fp32, a really trained donor, zero GPU. Nothing here is a timing.** 5,990 s.
+
+### 52.1 The control failed, so there is no verdict
+
+**`G-E42C`, the null-arm control, went VOID**, and the registered consequence — *"no arm below
+counts"* — is applied in full. Everything in §52.3 is a **measurement, not a verdict**, and the
+gate is **not re-run, re-scoped or re-toleranced** (E40 addendum A's standing precedent).
+
+```
+G-E42C  RAND mean 4.456739 vs its E41 32-seq reading 4.535312 -> gain +0.078573 (max 0.010) -> VOID
+```
+
+**Both clauses fail and the error is mine and arithmetic**: the gate compares a three-seed *mean*
+to a one-seed *value* with a tolerance of 0.010, while the arm's own across-seed σ turns out to
+be **0.099** — ten times the tolerance. A control that ordinary dispersion is guaranteed to trip
+is not a control, and I fixed that tolerance before any dispersion on this axis had been
+measured, which is the very quantity E42 was built to measure. `RAND` across seeds does not
+improve, it **varies**: 4.535312 / 4.345445 / 4.489461.
+
+**The failure mode the gate names is separately refuted by direct test.** Two published cells
+reproduce on this harness at the shared seed: `D0C` = **3.597107527** against E38's
+**3.597108** (`−4.73e−07`), and `RAND` = **4.535311605** against E41 addendum B's
+**4.535311855** (`−2.50e−07`). A harness fitting the eval does not reproduce other sessions'
+numbers to seven digits. **That does not make the gate fire.** The other two gates do:
+`G-E42B` inertness at exactly **0.00e+00** on all four arms, `G-E42D` confirming `PRED` is
+256 groups of exactly 35 in every layer and disagrees with `COACT` on **93.7%** of neurons in
+the worst layer.
+
+### 52.2 Repair, specified and deliberately not applied
+
+A null-arm control must be expressed **seed-for-seed** and in units of **the arm's own measured
+σ**, never as a mean against a single point. On E42's own numbers the repaired gate *would* have
+fired — **stated to show the repair is not a loophole; it is not applied and the gate stays
+VOID.**
+
+### 52.3 The measurement (no registered force)
+
+`k = 16`, i.e. 6.25%, what E40 measured 50 tok/s buying at ten billion. Partitions built **once**
+on the reference calibration slice (32 seqs, seed 42424); only the **router's** seed varies.
+Dense **0.767594964** (`−3.59e−08` from E22), chance **4.069819**, window **3.302224**.
+
+| arm | 42424 | 42425 | 42426 | **mean** | **σ** | % of window lost |
+|---|---|---|---|---|---|---|
+| `COACT` | 3.565004 | 3.346968 | 3.616657 | **3.509543** | **0.143143** | 83.0% |
+| `D0C` | 3.597108 | 3.601264 | 3.645249 | **3.614540** | **0.026676** | 86.2% |
+| **`PRED`** | 3.837749 | 3.769874 | 3.831349 | **3.812991** | **0.037477** | 92.2% |
+| `RAND` | 4.535312 | 4.345445 | 4.489461 | **4.456739** | **0.099072** | 111.7% |
+
+**The criterion E41 pointed at, built properly, is WORSE than both incumbents at every seed** —
+`+0.198450` on `D0C` and `+0.303448` on `COACT`. And it worked *mechanically*: `PRED`'s
+across-seed σ is **3.8× tighter than `COACT`'s**, so the router really did become less dependent
+on which slice it saw. **The construction succeeded and the model got worse.** Registered as a
+*hypothesis* and not a claim: predictability is bought with **coverage** — neurons sharing a
+predictor direction carry similar information, so 16 predictability-coherent groups span fewer
+distinct output directions than 16 diverse ones. Testable on CPU by the effective rank of the
+kept `down_proj` rows; **E42 does not measure it.**
+
+### 52.4 The number that outlives the probe, and it settles E41 from behind
+
+**σ on the fitted column is 0.027–0.143 BPB from changing nothing but the router's calibration
+seed.** This is the instrument constant the programme was missing.
+
+| comparison | size | in units of `COACT`'s σ |
+|---|---|---|
+| E41 addendum B's `COACT − D0C` | **−0.013308** | **0.09σ** |
+| E42's `COACT − D0C` (3 seeds) | −0.104997 ± 0.129309 | 0.73σ — **unresolved at 2σ** |
+| `PRED − D0C` | +0.198450 | 1.4σ (**5.3σ** of `PRED`'s own) |
+| `RAND − D0C` | **+0.842199** | **5.9σ** |
+
+**Only the gross distinction survives: a structured partition beats a random one by 0.84 BPB.
+The ordering among structured partitions lives inside the noise** — which is exactly why E41's
+cell was declared unresolvable, now measured instead of argued.
+
+**And E41's `COACT` was not even the same object**: rebuilt on 32 calibration sequences instead
+of 8 it reads **3.565004** at the shared seed against E41's **3.583800** — the partition's own
+construction budget moves it **−0.018796**, *larger* than the 0.013308 margin addendum B won by.
+`D0C`, which depends on no statistics, reproduces to `4.7e-07`.
+
+### 52.5 Predictions
+
+**0 HIT, 1 split, 4 MISS.** The only thing right is the one registered against myself — that the
+`COACT − D0C` question would come back unresolved a second time. Registered 3.52 for `PRED`,
+measured **3.812991**; registered σ in [0.005, 0.030] for every arm, measured 0.027–0.143 with
+three of four outside; registered `RAND` as the tightest arm, measured second loosest; registered
+`PRED` beating `COACT` at every seed, measured losing at all three. **Second probe running, same
+error: I price this axis in units and it moves in hundredths and tenths I cannot call.**
+
+### 52.6 What it does to the programme
+
+**Nothing, deliberately.** E42 has no registered verdict, so it neither closes the door E41 left
+ajar nor re-strengthens anything. **The T4 ask in `COMMUNICATION.md` still rests on E37, E38 and
+E40 — exactly where it stood before E41 and E42 were run.** What the two probes together *have*
+bought is an instrument: a measured σ for the fitted column, and the knowledge that no partition
+comparison below roughly **0.3 BPB** is resolvable at three seeds on this harness.
