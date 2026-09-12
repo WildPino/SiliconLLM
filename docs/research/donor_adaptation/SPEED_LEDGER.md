@@ -3537,3 +3537,59 @@ least willing to keep from a void run. And the runner printed the charged ratio 
 `2297319028.69x`: `floor_charged` in WEIGHTS over a budget in G-WEIGHTS, **the unit hiding in the
 denominator**, which is precisely what this programme's byte-convention law is about. Corrected
 on recorded values; the JSON carries the erratum.
+
+
+---
+
+## 45. E35 -- the 50 tok/s envelope, bracketed by measurement on BOTH sides
+
+**Probe** `probes/E35_THE_FIFTY_TOK_S_ENVELOPE.md` | **brief**
+`briefs/BRIEF_E35_THE_FIFTY_TOK_S_ENVELOPE.md` (`17e7fc8`) | **runner** `engine/e35_envelope.py`
+| **result** `engine/results/e35_envelope.json`. 75 s of timing, five arms, five interleaved
+reps, idle box (witness 5.2% before, 2.5/0.5/0/0/0 between reps).
+
+### 45.1 The first arms in this programme to CLEAR 50 tok/s at a 4096-wide shape
+
+| arm | `L` | charged | measured | registered model | dev | room to 50 |
+|---|---|---|---|---|---|---|
+| `T10-L48` | 48 | 2.2308 G | **19.88** | 20.95 | **-5.1%** | `-1.2858 G` |
+| `T10-L32` | 32 | 1.5320 G | **30.24** | 30.51 | -0.9% | `-0.5869 G` |
+| `T10-L24` | 24 | 1.1825 G | **40.35** | 39.52 | +2.1% | `-0.2375 G` |
+| **`T10-L16`** | 16 | 0.8331 G | **56.16** | 56.10 | +0.1% | **`+0.1120 G`** |
+| **`T10-L12`** | 12 | 0.6584 G | **71.35** | 70.99 | +0.5% | **`+0.2867 G`** |
+
+**THE ENVELOPE: at 50 tok/s this box affords `0.9451 G` ACTIVE CHARGED weights per token**,
+interpolated between two arms that bracket the goal. Implied numerator **47.254 G-w/s** against
+E34's independent dense **46.74** (+1.1%). **And it is gather-inclusive**: every arm is a
+`quant==4` carved artifact reading one group per layer, so E31's penalty at `GSZ=56`
+(`down` runs of 3,584 B) is already inside the number.
+
+At `L=16` the room is **111,980,220 weights/token = 7.0 M per layer = ~10 carve groups = 560 of
+14,336 neurons = 3.9% activation.**
+
+### 45.2 Verdict `DEPTH-IS-HALVED`, and the UNIT decides one of my predictions
+
+`L* = 19.33` under the model as registered (brief predicted 19). But the brief's model is
+labelled "FFN at carve k=1" while its per-layer coefficient is the **pure floor**
+(`41,943,040`); the arms measured carry the residue and read **`43,679,744`** per layer, 4.14%
+more. Same crossing, two conventions: **19.33 as registered (prediction 3 MISS), 18.56
+residue-inclusive (would have been a HIT).** Scored as registered -- **the reading that flatters
+the prediction is not taken** -- and both are reported, because 19.33 is the depth of a TRUE
+zero-FFN model and 18.56 the depth of an arm like the ones on the box. Same class of defect as
+E33's `G-E33C`: a model labelled as one object whose arithmetic describes another.
+
+Prediction 4 (linear in `1/charged` within 5%) **BREAKS at 5.1%** -- on one arm, `L=48`, and
+slow. Four of five sit within **2.1%**. A charged-weight model cannot see a PER-LAYER FIXED
+COST, which is what makes deep arms read slower than their weight count says; E26 measured the
+carve machinery at `-6.36%` before a group falls, and E34's floor arm missed in the same
+direction. **The model is excellent where the goal lives (`L <= 32`) and pessimistic at depth.**
+
+### 45.3 What it licenses, and what it does not
+
+`T10-L16` at 56 tok/s is **0.8 G of attention, not a 10 B** -- registered as prediction 5 before
+the run. What E35 licenses is a SPEC: **~16 layers at 4096 wide with ~560 FFN neurons activated
+per layer per token, in carve groups.** Sizing a 10 B total at that shape needs **~46,000 FFN
+neurons per layer**, i.e. **~1.2% activation** -- desk arithmetic on measured inputs, and the
+target of the next probe rather than a claim of this one. Gates: `G-E35A` **-0.8%** against
+E34's own artifact (the tightest session-to-session agreement in the branch), `G-E35B` exact on
+all five arms at zero tolerance, `G-E35C` five of five `GATE V3`.

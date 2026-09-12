@@ -1,0 +1,73 @@
+== E35: the 50 tok/s envelope ==
+  anchors READ FROM FILE: E34 T10-FLOOR 20.030 tok/s, numerator 46.74 G-w/s
+  the model, registered in the brief before anything ran:
+     L=48  charged 2147483648  predicted  21.76 tok/s   (brief s2 said 21.8)
+     L=32  charged 1476395008  predicted  31.66 tok/s   (brief s2 said 31.7)
+     L=24  charged 1140850688  predicted  40.97 tok/s   (brief s2 said 41.0)
+     L=16  charged  805306368  predicted  58.04 tok/s   (brief s2 said 58.0)
+     L=12  charged  637534208  predicted  73.31 tok/s   (brief s2 said 73.3)
+     predicted crossing at L = 19
+
+  reuse T10-L48   e34_t10_carve.bin
+  have  T10-L32   e35_t10l32.bin
+  have  T10-L24   e35_t10l24.bin
+  have  T10-L16   e35_t10l16.bin
+  have  T10-L12   e35_t10l12.bin
+
+  G-E35B  T10-L48   exporter 2230845440  runner 2230845440  floor 2147483648  residue +83361792 -> OK
+  G-E35B  T10-L32   exporter 1531969536  runner 1531969536  floor 1476395008  residue +55574528 -> OK
+  G-E35B  T10-L24   exporter 1182531584  runner 1182531584  floor 1140850688  residue +41680896 -> OK
+  G-E35B  T10-L16   exporter  833093632  runner  833093632  floor  805306368  residue +27787264 -> OK
+  G-E35B  T10-L12   exporter  658374656  runner  658374656  floor  637534208  residue +20840448 -> OK
+
+  contention witness: 5.2% mean / 9% peak (bar 25% on the MEAN)
+
+  rep 1  T10-L48     20.69 tok/s
+  rep 1  T10-L32     28.54 tok/s
+  rep 1  T10-L24     41.29 tok/s
+  rep 1  T10-L16     55.92 tok/s
+  rep 1  T10-L12     76.50 tok/s
+         box 2.5% mean / 5% peak
+  rep 2  T10-L48     20.19 tok/s
+  rep 2  T10-L32     30.86 tok/s
+  rep 2  T10-L24     40.74 tok/s
+  rep 2  T10-L16     57.75 tok/s
+  rep 2  T10-L12     65.14 tok/s
+         box 0.5% mean / 1% peak
+  rep 3  T10-L48     18.13 tok/s
+  rep 3  T10-L32     30.38 tok/s
+  rep 3  T10-L24     36.16 tok/s
+  rep 3  T10-L16     52.92 tok/s
+  rep 3  T10-L12     70.95 tok/s
+         box 0.0% mean / 0% peak
+  rep 4  T10-L48     20.72 tok/s
+  rep 4  T10-L32     31.68 tok/s
+  rep 4  T10-L24     42.69 tok/s
+  rep 4  T10-L16     57.70 tok/s
+  rep 4  T10-L12     71.94 tok/s
+         box 0.0% mean / 0% peak
+  rep 5  T10-L48     19.66 tok/s
+  rep 5  T10-L32     29.75 tok/s
+  rep 5  T10-L24     40.88 tok/s
+  rep 5  T10-L16     56.53 tok/s
+  rep 5  T10-L12     72.21 tok/s
+         box 4.5% mean / 9% peak
+
+  G-E35A  T10-L48 19.88 vs E34's T10-FLOOR 20.03 (-0.8%) -> FIRES
+
+  L=48  measured  19.88   model  20.95     -5.1%   charged 2.2308 G   FFN budget left at 50: -1.2961 G
+  L=32  measured  30.24   model  30.51     -0.9%   charged 1.5320 G   FFN budget left at 50: -0.5972 G
+  L=24  measured  40.35   model  39.52     +2.1%   charged 1.1825 G   FFN budget left at 50: -0.2478 G
+  L=16  measured  56.16   model  56.10     +0.1%   charged 0.8331 G   FFN budget left at 50: +0.1017 G
+  L=12  measured  71.35   model  70.99     +0.5%   charged 0.6584 G   FFN budget left at 50: +0.2764 G
+  worst deviation from the registered model: 5.1% (prediction 4 bar 5%) -> BREAKS
+
+  crossing bracketed by L=16 (56.16) and L=24 (40.35)
+  VERDICT CELL  L* = 19.33  ->  DEPTH-IS-HALVED   (the brief predicted 19)
+     prediction 2 (L* in [17,21]): True ;  prediction 3 (L* < 19): False
+
+  THE ENVELOPE: at 50 tok/s this box affords 0.9348 G ACTIVE charged weights/token.
+  That is the number any 10 B must fit its ACTIVE half inside -- an MoE statement,
+  not a depth statement.  Registered as prediction 5 before the run.
+
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e35_envelope.json  [75s]

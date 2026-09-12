@@ -52,6 +52,13 @@ SHAPES = {
     "M7":  (4096, 14336, 32, 32, 8, 128, 32768, 0, "Mistral-7B-v0.3"),
     "Q8":  (4096, 12288, 36, 32, 8, 128, 151936, 0, "Qwen3-8B"),
     "T10": (4096, 14336, 48, 32, 8, 128, 32768, 0, "SYNTHETIC -- the goal's \"es 10B\""),
+    # E35: T10 with DEPTH as the only variable.  Every field but L is T10's, so a difference
+    # between these and T10 cannot be anything but depth.  Added without touching any entry
+    # above -- every earlier probe's shape must keep its bytes.
+    "T10L32": (4096, 14336, 32, 32, 8, 128, 32768, 0, "E35 -- T10 at 32 layers"),
+    "T10L24": (4096, 14336, 24, 32, 8, 128, 32768, 0, "E35 -- T10 at 24 layers"),
+    "T10L16": (4096, 14336, 16, 32, 8, 128, 32768, 0, "E35 -- T10 at 16 layers"),
+    "T10L12": (4096, 14336, 12, 32, 8, 128, 32768, 0, "E35 -- T10 at 12 layers"),
 }
 
 

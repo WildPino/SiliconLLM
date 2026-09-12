@@ -1,0 +1,219 @@
+{
+ "brief": "briefs/BRIEF_E35_THE_FIFTY_TOK_S_ENVELOPE.md (17e7fc8)",
+ "goal_tok_s": 50.0,
+ "E": 256,
+ "carve_k": 1,
+ "ntok": 40,
+ "threads": 6,
+ "reps": 5,
+ "bands": [
+  [
+   24.0,
+   "DEPTH-IS-AFFORDABLE"
+  ],
+  [
+   16.0,
+   "DEPTH-IS-HALVED"
+  ],
+  [
+   0.0,
+   "DEPTH-COLLAPSES"
+  ]
+ ],
+ "e34_control_tok_s": 20.03,
+ "numerator_w_per_s": 46738907856.895996,
+ "brief_predicted": {
+  "48": 21.8,
+  "32": 31.7,
+  "24": 41.0,
+  "16": 58.0,
+  "12": 73.3
+ },
+ "brief_crossing_L": 19,
+ "arms": {
+  "T10-L48": {
+   "L": 48,
+   "shape": "T10",
+   "rates": [
+    20.69,
+    20.19,
+    18.13,
+    20.72,
+    19.66
+   ],
+   "mean_tok_s": 19.878,
+   "median_tok_s": 20.19,
+   "spread": 0.1302947982694436,
+   "charged": 2230845440,
+   "floor_charged": 2147483648,
+   "predicted_tok_s": 20.951208460634547,
+   "rel_dev_vs_model": -0.05122417939046375,
+   "charged_G_w_per_s": 44.34474565632,
+   "ffn_budget_left_at_50": -1296067282.86208
+  },
+  "T10-L32": {
+   "L": 32,
+   "shape": "T10L32",
+   "rates": [
+    28.54,
+    30.86,
+    30.38,
+    31.68,
+    29.75
+   ],
+   "mean_tok_s": 30.242,
+   "median_tok_s": 30.38,
+   "spread": 0.10382911183122812,
+   "charged": 1531969536,
+   "floor_charged": 1476395008,
+   "predicted_tok_s": 30.509032169746746,
+   "rel_dev_vs_model": -0.008752561151760818,
+   "charged_G_w_per_s": 46.329822707712,
+   "ffn_budget_left_at_50": -597191378.8620801
+  },
+  "T10-L24": {
+   "L": 24,
+   "shape": "T10L24",
+   "rates": [
+    41.29,
+    40.74,
+    36.16,
+    42.69,
+    40.88
+   ],
+   "mean_tok_s": 40.352,
+   "median_tok_s": 40.88,
+   "spread": 0.16182593180015864,
+   "charged": 1182531584,
+   "floor_charged": 1140850688,
+   "predicted_tok_s": 39.52444779428065,
+   "rel_dev_vs_model": 0.020937729731902888,
+   "charged_G_w_per_s": 47.717514477567995,
+   "ffn_budget_left_at_50": -247753426.8620801
+  },
+  "T10-L16": {
+   "L": 16,
+   "shape": "T10L16",
+   "rates": [
+    55.92,
+    57.75,
+    52.92,
+    57.7,
+    56.53
+   ],
+   "mean_tok_s": 56.164,
+   "median_tok_s": 56.53,
+   "spread": 0.085998148280037,
+   "charged": 833093632,
+   "floor_charged": 805306368,
+   "predicted_tok_s": 56.10282693517935,
+   "rel_dev_vs_model": 0.001090374017896245,
+   "charged_G_w_per_s": 46.789870747648,
+   "ffn_budget_left_at_50": 101684525.1379199
+  },
+  "T10-L12": {
+   "L": 12,
+   "shape": "T10L12",
+   "rates": [
+    76.5,
+    65.14,
+    70.95,
+    71.94,
+    72.21
+   ],
+   "mean_tok_s": 71.348,
+   "median_tok_s": 71.94,
+   "spread": 0.15921959970847116,
+   "charged": 658374656,
+   "floor_charged": 637534208,
+   "predicted_tok_s": 70.9913533744774,
+   "rel_dev_vs_model": 0.005023803724959253,
+   "charged_G_w_per_s": 46.973714956288,
+   "ffn_budget_left_at_50": 276403501.1379199
+  }
+ },
+ "G_E35B": {
+  "per_arm": {
+   "T10-L48": {
+    "exporter": 2230845440,
+    "runner": 2230845440,
+    "floor": 2147483648,
+    "residue": 83361792,
+    "agrees": true
+   },
+   "T10-L32": {
+    "exporter": 1531969536,
+    "runner": 1531969536,
+    "floor": 1476395008,
+    "residue": 55574528,
+    "agrees": true
+   },
+   "T10-L24": {
+    "exporter": 1182531584,
+    "runner": 1182531584,
+    "floor": 1140850688,
+    "residue": 41680896,
+    "agrees": true
+   },
+   "T10-L16": {
+    "exporter": 833093632,
+    "runner": 833093632,
+    "floor": 805306368,
+    "residue": 27787264,
+    "agrees": true
+   },
+   "T10-L12": {
+    "exporter": 658374656,
+    "runner": 658374656,
+    "floor": 637534208,
+    "residue": 20840448,
+    "agrees": true
+   }
+  },
+  "fires": true
+ },
+ "cpu_busy_mean_pct": [
+  5.25,
+  2.5,
+  0.5,
+  0.0,
+  0.0,
+  4.5
+ ],
+ "cpu_busy_peak_pct": [
+  9.0,
+  5.0,
+  1.0,
+  0.0,
+  0.0,
+  9.0
+ ],
+ "G_E35A": {
+  "measured": 19.878,
+  "e34": 20.03,
+  "rel_dev": -0.007588617074388515,
+  "tol": 0.1,
+  "fires": true
+ },
+ "linearity": {
+  "rel_dev_vs_model": {
+   "T10-L48": -0.05122417939046375,
+   "T10-L32": -0.008752561151760818,
+   "T10-L24": 0.020937729731902888,
+   "T10-L16": 0.001090374017896245,
+   "T10-L12": 0.005023803724959253
+  },
+  "worst": 0.05122417939046375,
+  "tol": 0.05,
+  "holds": false
+ },
+ "verdict": {
+  "name": "DEPTH-IS-HALVED",
+  "L_star": 19.3323165,
+  "brief_predicted_L": 19,
+  "in_17_21": true,
+  "below_19": false,
+  "active_budget_at_50_G": 0.9347781571379199
+ },
+ "seconds": 75.0297498703003
+}
