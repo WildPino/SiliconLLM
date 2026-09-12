@@ -96,5 +96,128 @@
   "anchor": "D:\\_ktmp\\e1\\qwen25-15b_tqh.bin",
   "routers": "D:/_ktmp/e37/e37_routers_E256.npz"
  },
- "build_seconds": 1.5636813640594482
+ "build_seconds": 1.5636813640594482,
+ "G_E37B1": {
+  "bpb": 3.47570637184527,
+  "anchor": 3.475706372,
+  "diff": -1.5473000658516867e-10,
+  "tol": 0.001,
+  "fires": true,
+  "seconds": 516.2412486076355
+ },
+ "S15_DENSE_NF": {
+  "nats_per_token": 10.1894946885,
+  "bpb": 3.47570637184527,
+  "n_predicted": 12264,
+  "seconds": 516.0152208805084
+ },
+ "fold_cost_bpb": 0.0,
+ "G_E37A": {
+  "bpb_carved_kE": 3.4757066520304316,
+  "bpb_dense": 3.47570637184527,
+  "bpb_diff": 2.801851617384443e-07,
+  "bpb_tol": 0.0001,
+  "worst_rel_l2": 4.986800195183605e-05,
+  "l2_tol": 0.0001,
+  "top1": 1.0,
+  "tokens": 8,
+  "fires": true
+ },
+ "quality_arms": {
+  "K256": {
+   "nats_per_token": 10.1894955099,
+   "bpb": 3.4757066520304316,
+   "n_predicted": 12264,
+   "seconds": 546.7462837696075,
+   "k": 256,
+   "charged": 1554579456,
+   "activation_pct": 100.0
+  },
+  "K64": {
+   "nats_per_token": 11.5136468422,
+   "bpb": 3.9273837335403514,
+   "n_predicted": 12264,
+   "seconds": 304.5197172164917,
+   "k": 64,
+   "charged": 687538176,
+   "activation_pct": 25.0
+  },
+  "K32": {
+   "nats_per_token": 11.944735475,
+   "bpb": 4.074431016419263,
+   "n_predicted": 12264,
+   "seconds": 251.54056358337402,
+   "k": 32,
+   "charged": 543031296,
+   "activation_pct": 12.5
+  },
+  "K16": {
+   "nats_per_token": 11.6878363097,
+   "bpb": 3.9868009530008397,
+   "n_predicted": 12264,
+   "seconds": 224.78015327453613,
+   "k": 16,
+   "charged": 470777856,
+   "activation_pct": 6.25
+  },
+  "K8": {
+   "nats_per_token": 11.7168372157,
+   "bpb": 3.9966933605102373,
+   "n_predicted": 12264,
+   "seconds": 210.2206370830536,
+   "k": 8,
+   "charged": 434651136,
+   "activation_pct": 3.125
+  },
+  "K4": {
+   "nats_per_token": 11.7952457241,
+   "bpb": 4.0234390393278865,
+   "n_predicted": 12264,
+   "seconds": 203.40009927749634,
+   "k": 4,
+   "charged": 416587776,
+   "activation_pct": 1.5625
+  },
+  "K3": {
+   "nats_per_token": 11.8127162352,
+   "bpb": 4.029398350226611,
+   "n_predicted": 12264,
+   "seconds": 202.39414477348328,
+   "k": 3,
+   "charged": 412071936,
+   "activation_pct": 1.171875
+  },
+  "K2": {
+   "nats_per_token": 11.7701129493,
+   "bpb": 4.0148660778430445,
+   "n_predicted": 12264,
+   "seconds": 200.44420623779297,
+   "k": 2,
+   "charged": 407556096,
+   "activation_pct": 0.78125
+  },
+  "K1": {
+   "nats_per_token": 11.6967412854,
+   "bpb": 3.989838501154876,
+   "n_predicted": 12264,
+   "seconds": 198.34654641151428,
+   "k": 1,
+   "charged": 403040256,
+   "activation_pct": 0.390625
+  }
+ },
+ "verdict": {
+  "cell": "S15-K3",
+  "bpb": 4.029398350226611,
+  "name": "SPARSITY-DEGRADES",
+  "vs_dense": 0.553691978381341,
+  "vs_chance": -0.04042062316240713,
+  "activation_pct": 1.171875
+ },
+ "knee": {
+  "largest_k_within_0.10_of_dense": 256,
+  "smallest_k_within_0.10_of_dense": 256,
+  "smallest_k_beating_chance": 1
+ },
+ "quality_seconds": 3378.9258110523224
 }
