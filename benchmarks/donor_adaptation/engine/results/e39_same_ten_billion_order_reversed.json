@@ -1,0 +1,264 @@
+{
+ "brief": "BRIEF_E39 (pre-registered)",
+ "arms": {
+  "A10B": {
+   "file": "D:/_ktmp/e36/e36_a10b.bin",
+   "shape": "A10B",
+   "rank": 0,
+   "role": "E36's object: the MATCHED-PARAMETER-COUNT control",
+   "bytes": 5485658936,
+   "total_weights": 9999220736,
+   "charged_k3": 928251904
+  },
+  "R512": {
+   "file": "D:/_ktmp/e39\\e39_r512.bin",
+   "shape": "A10B-R512",
+   "rank": 512,
+   "role": "the verdict object: A10B's parameters, put somewhere else",
+   "bytes": 5486052536,
+   "total_weights": 9999220736,
+   "charged_k3": 530317312
+  },
+  "R0": {
+   "file": "D:/_ktmp/e39\\e39_r0.bin",
+   "shape": "A10B-R512",
+   "rank": 0,
+   "role": "same FFN as R512, DENSE q/o: the rank axis alone (NOT 10 B)",
+   "bytes": 5687247672,
+   "total_weights": 10401873920,
+   "charged_k3": 932970496
+  },
+  "R4096": {
+   "file": "D:/_ktmp/e39\\e39_r4096.bin",
+   "shape": "A10B-R512",
+   "rank": 4096,
+   "role": "G-E39C planted control: a rank that moves MORE weights",
+   "bytes": 5956732088,
+   "total_weights": 10938744832,
+   "charged_k3": 1469841408
+  }
+ },
+ "G_E39A": {
+  "A10B": {
+   "from_header": 9999220736,
+   "expected": 9999220736,
+   "agrees": true
+  },
+  "R512": {
+   "from_header": 9999220736,
+   "expected": 9999220736,
+   "agrees": true
+  },
+  "fires": true
+ },
+ "G_E39B": {
+  "per_k": {
+   "1": {
+    "from_header": 456392704,
+    "closed_form": 456392704,
+    "agrees": true
+   },
+   "2": {
+    "from_header": 493355008,
+    "closed_form": 493355008,
+    "agrees": true
+   },
+   "3": {
+    "from_header": 530317312,
+    "closed_form": 530317312,
+    "agrees": true
+   },
+   "4": {
+    "from_header": 567279616,
+    "closed_form": 567279616,
+    "agrees": true
+   },
+   "6": {
+    "from_header": 641204224,
+    "closed_form": 641204224,
+    "agrees": true
+   }
+  },
+  "closed_form": "419430400 + 36962304*k",
+  "fires": true
+ },
+ "order": "reversed",
+ "reps": 5,
+ "ntok": 40,
+ "ten_b_bar": 9999220736,
+ "speed_arms": {
+  "R4096_k3": {
+   "arm": "R4096",
+   "k": 3,
+   "rates": [
+    30.45,
+    31.99,
+    32.47,
+    32.87,
+    30.52
+   ],
+   "mean_tok_s": 31.659999999999997,
+   "median_tok_s": 31.99,
+   "spread": 0.07643714466203406,
+   "charged": 1469841408,
+   "charged_G_w_per_s": 46.53517897728
+  },
+  "R0_k3": {
+   "arm": "R0",
+   "k": 3,
+   "rates": [
+    46.79,
+    46.91,
+    49.16,
+    50.78,
+    50.04
+   ],
+   "mean_tok_s": 48.736000000000004,
+   "median_tok_s": 49.16,
+   "spread": 0.0818696651346028,
+   "charged": 932970496,
+   "charged_G_w_per_s": 45.469250093056004
+  },
+  "A10B_k3": {
+   "arm": "A10B",
+   "k": 3,
+   "rates": [
+    48.64,
+    48.01,
+    50.24,
+    49.05,
+    48.5
+   ],
+   "mean_tok_s": 48.888,
+   "median_tok_s": 48.64,
+   "spread": 0.04561446571755858,
+   "charged": 928251904,
+   "charged_G_w_per_s": 45.380379082752
+  },
+  "R512_k6": {
+   "arm": "R512",
+   "k": 6,
+   "rates": [
+    65.56,
+    66.5,
+    66.28,
+    69.22,
+    67.46
+   ],
+   "mean_tok_s": 67.00399999999999,
+   "median_tok_s": 66.5,
+   "spread": 0.05462360456092169,
+   "charged": 641204224,
+   "charged_G_w_per_s": 42.963247824895994
+  },
+  "R512_k4": {
+   "arm": "R512",
+   "k": 4,
+   "rates": [
+    74.03,
+    74.8,
+    74.29,
+    77.81,
+    75.62
+   ],
+   "mean_tok_s": 75.31,
+   "median_tok_s": 74.8,
+   "spread": 0.05019253751161866,
+   "charged": 567279616,
+   "charged_G_w_per_s": 42.72182788096
+  },
+  "R512_k3": {
+   "arm": "R512",
+   "k": 3,
+   "rates": [
+    82.82,
+    79.23,
+    79.57,
+    81.39,
+    79.73
+   ],
+   "mean_tok_s": 80.548,
+   "median_tok_s": 79.73,
+   "spread": 0.04456969757163417,
+   "charged": 530317312,
+   "charged_G_w_per_s": 42.715998846976
+  },
+  "R512_k2": {
+   "arm": "R512",
+   "k": 2,
+   "rates": [
+    86.65,
+    84.46,
+    85.16,
+    91.35,
+    83.96
+   ],
+   "mean_tok_s": 86.316,
+   "median_tok_s": 85.16,
+   "spread": 0.08561564483989063,
+   "charged": 493355008,
+   "charged_G_w_per_s": 42.584430870528
+  },
+  "R512_k1": {
+   "arm": "R512",
+   "k": 1,
+   "rates": [
+    90.6,
+    91.5,
+    93.89,
+    88.81,
+    95.18
+   ],
+   "mean_tok_s": 91.99600000000001,
+   "median_tok_s": 91.5,
+   "spread": 0.06924214096265059,
+   "charged": 456392704,
+   "charged_G_w_per_s": 41.98630319718401
+  }
+ },
+ "cpu_busy_pct": [
+  11.0,
+  2.16666666666667,
+  6.66666666666667,
+  10.5,
+  14.0
+ ],
+ "cpu_peak_pct": [
+  29.0,
+  6.0,
+  11.0,
+  25.0,
+  35.0
+ ],
+ "G_E39C": {
+  "rank4096_tok_s": 31.659999999999997,
+  "dense_tok_s": 48.736000000000004,
+  "rank4096_charged": 1469841408,
+  "dense_charged": 932970496,
+  "fires": true
+ },
+ "session_vs_e36": {
+  "a10b_k3_now": 48.888,
+  "e36": 49.96,
+  "rel": -0.02145716573258616,
+  "within_5pct": true
+ },
+ "verdict": {
+  "cell": "R512_k3",
+  "tok_s": 80.548,
+  "name": "TEN-B-NEAR-HUNDRED",
+  "vs_a10b": 1.612249799839872
+ },
+ "slope_fit": {
+  "ms_base": 9.995878918257509,
+  "ms_per_group": 0.8183668482278172,
+  "base_G_w_per_s": 41.96033219589214,
+  "group_G_w_per_s": 45.16593515492752,
+  "gather_penalty": 1.0763960338557377,
+  "k_star_100": 0.00503573886383073,
+  "k_star_100_neurons": 0.9467189064001772,
+  "k_star_50": 12.224494556941707,
+  "k_star_50_neurons": 2298.2049767050407
+ },
+ "seconds": 132.58641862869263
+}

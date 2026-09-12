@@ -183,16 +183,17 @@ def main():
     log("")
     log("  timing: %d arms x %d reps x %d tokens, reps OUTERMOST, order %s"
         % (len(plan), a.reps, a.ntok, a.order))
-    rates, busy = {}, []
+    rates, busy, peaks = {}, [], []
     for rep in range(1, a.reps + 1):
-        b = cpu_busy()
+        b, pk = cpu_busy()          # returns (mean, peak); run 1 crashed formatting the pair
         busy.append(b)
+        peaks.append(pk)
         for arm, k in plan:
             r = bench(a.engine, winpath(files[arm]), a.ntok, a.threads,
                       ["--carve-k", str(k)])
             rates.setdefault("%s_k%d" % (arm, k), []).append(r)
             log("    rep %d  %-6s k=%-2d %8.2f tok/s" % (rep, arm, k, r))
-        log("         box %.1f%% busy" % b)
+        log("         box %.1f%% busy, peak core %.1f%%" % (b, pk))
 
     arms_out = {}
     for key, rs in rates.items():
@@ -206,6 +207,7 @@ def main():
                          "charged_G_w_per_s": c * m / 1e9}
     out["speed_arms"] = arms_out
     out["cpu_busy_pct"] = busy
+    out["cpu_peak_pct"] = peaks
 
     # ---- G-E39C: a rank that moves MORE weights must COST more.
     r4 = arms_out.get("R4096_k%d" % VERDICT_K)

@@ -3863,3 +3863,89 @@ marginal at it; 4 HIT for the oracle (+0.031) and MISS for random (−0.289) and
 **The partition is an unpriced design parameter**: `static` at `k = 64` reads 2.2119 on the D0c
 labels and 4.5833 on a random equal partition — **a 2.37 BPB swing from the grouping alone**,
 and every carve in this programme has used one label family.
+
+
+## 49. E39 — the same ten billion, put somewhere else
+
+**Verdict `RANK-BUYS-SPEED`** (run 1, registered). `A10B-R512`: `D=4096, F=48128, L=16, NH=32,
+NKV=8, HD=128, V=32768`, untied, `--carve 256` (group 188), `q_proj`/`o_proj` written as
+`MK_FACTORED` at rank 512. **Exactly 9,999,220,736 parameters — E36's integer, and the same
+per-layer total (608,174,080). The two shapes differ in one thing: where the weight sits.**
+
+`charged(k) = 419,430,400 + 36,962,304·k` — **1.75× cheaper per token than `A10B` at `k=3`.**
+
+### 49.1 The two runs, and the rule applied against me
+
+| | run 1 (forward, registered) | run 2 (reversed, order control) |
+|---|---|---|
+| `R512` at `k=3` | **78.456** → `RANK-BUYS-SPEED` | **80.548** → `TEN-B-NEAR-HUNDRED` |
+| slope, ms/group | 0.9134 | 0.8184 (**−10.4%**) |
+| base, ms | **10.059** | **9.996** (**−0.62%**) |
+| worst per-arm spread | **19.3%** | 8.6% |
+| `A10B` control vs E36's 49.96 | **−7.2%** | −2.1% |
+
+E36's run-2 rule (pushed `9819226`, adopted by E39's brief §4 before either run existed): slopes
+agreeing inside the reps' own dispersion leave the verdict UNCHANGED, and run 2 may not promote
+it. **10.4% < 19.3% → agree → `RANK-BUYS-SPEED` stands.** The registered run is also the one that
+failed prediction 5 (control −7.2%), so **the band is not a result of this probe** and the
+cross-session ratio the runner printed (`1.61×`) is withheld. Within-session: **1.693× / 1.648×**.
+
+### 49.2 The floor, which both runs agree on to 0.62% — and it is the finding
+
+| shape | attention+head floor | tok/s | source |
+|---|---|---|---|
+| T10, dense `q/o`, `L=48` | 46.5 ms | **20.03** | E34, `--carve-k 1` |
+| `A10B`, dense `q/o`, `L=16` | 17.2 ms | 58.1 | E36 fit |
+| **`A10B-R512`**, rank-512 `q/o` | **10.0 ms** | **99.7** | E39, both runs |
+
+**First shape in the programme whose floor sits at the EXCELLENT target while holding ten billion
+parameters.** `k*` for 100 tok/s is −0.064 / +0.005 groups — **zero**: 100 tok/s costs the whole
+FFN. E34 §7 and E36 §9 item 2 asked for the attention shape to be moved; this moves one axis of
+it and the lever is as large as they implied.
+
+Base breakdown of the 419,430,400: `q/k/v/o` **268,435,456 (64.0%)**, head 134,217,728 (32.0%),
+router 16,777,216 (4.0%). Inside attention the split is now **exactly even** — `q/o` factored
+8,388,608 a layer, `k/v` dense 8,388,608 a layer.
+
+### 49.3 The factored path costs 4–6% per charged weight (controlled, not fitted)
+
+`R0` is the same file shape with dense `q/o`, so the two differ only in matvec kind:
+
+| charged G-weights/s at `k=3` | run 1 | run 2 |
+|---|---|---|
+| `R0`, dense `q/o` | 43.359 | 45.469 |
+| `R512`, rank-512 `q/o` | 41.607 | 42.716 |
+| **factored penalty** | **−4.0%** | **−6.1%** |
+
+Mechanism from the exporter's own log: rank 512 on `q/o` takes matvec calls per token **113 →
+145**. **E25 measured the rank axis inside a 1.54% band and concluded charged-throughput
+invariance; that conclusion does not extend to 10 B with 32 extra calls per token.**
+
+Against the comparable session (run 2): base **41.96** G-w/s vs E36's 47.2–48.5 envelope
+(**−11 to −13%**), marginal group **45.17** vs 37–39 (**+16 to +22%**), so the **gather penalty of
+0.80 is gone — but from two opposite causes**, and it reads ~1.0 ± 0.1 across the two runs, not a
+third decimal.
+
+### 49.4 What it buys the goal
+
+| | active FFN neurons/layer at 50 tok/s | fraction of `F` |
+|---|---|---|
+| `A10B` (E36) | 540 of 46,080 | **1.17%** |
+| **`A10B-R512`** | 2,046 / 2,298 of 48,128 | **4.25% / 4.78%** |
+
+**Same ten billion parameters; the 50 tok/s budget buys ~4× the active FFN.** First movement on
+this axis since E35 fixed the envelope, and bought with zero parameters. It does not make the
+model good: E37 read `4.029398` BPB at 1.17% and E38 put the peak value of selection at 25%.
+
+### 49.5 Gates and predictions
+
+`G-E39A` parameter count from each file's own header == 9,999,220,736 exactly, both files.
+`G-E39B` charged == the closed form at every `k`, zero tolerance. `G-E39C` **planted control**:
+rank 4096 (charged 1.4698 G vs `R0`'s 0.9330 G) reads **30.80 < 46.47** and **31.66 < 48.74** —
+a rank that costs more did cost more, so the stopwatch is on the factored path. All three fire in
+both runs. All four artifacts matched E1's independent v4 layout at zero tolerance.
+
+Predictions **1 HIT / 4 MISS**, sharing one error: I priced factored attention as though moving
+49% fewer weights bought 49% less time. It bought **41.5%** (17.2 → 10.06 ms), because what
+remains moves ~12% slower per weight. **Phase 61's law arriving on the speed side: a desk model
+does not carry across a change of matvec KIND.**
