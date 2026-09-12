@@ -491,3 +491,98 @@ applied-8L 1.096636  −  h0-run3 0.810022  =  0.286614
    stand and this is the number that makes them concrete.
 4. **`G-H1` is unchanged and still the right gate.** *Does training beat applying* is exactly
    the question 0.287 BPB of headroom can answer.
+
+---
+
+# ADDENDUM D — the router smoke: layer 3 says GO, and the SELECTION RULE is registered here, before the other seven layers run
+
+**Written and pushed BEFORE layers 6–24 are measured.** Layer 3 is done and in
+`results/h1/h1_router_smoke_L3.json`. This addendum exists because the remaining layers will
+decide which setting ships, and the rule for reading them must be on disk first.
+
+## D.1 What layer 3 says
+
+`h1_router_smoke.py`, CPU fp32, real donor, H0's q/o installed, the real R3 calibration,
+`E = 256`, `k = 16`, 4,096 held-out tokens, 300 steps per setting, 12,685 s.
+
+**The smoke's own planted control FIRES first**: router gradient `1.361e+00`, router moved
+`1.000e-03` on the real donor. Without that, "no setting beat STATIC" would be
+indistinguishable from "nothing was ever trained" — and that reading would hand back the T4
+hours for a wiring reason.
+
+| | value |
+|---|---|
+| layer 3's uncarved output power | 0.13067 |
+| **STATIC** (top-`k` once by global mass) | **0.108585 — 83.1% of the power** |
+| untrained router (zeros, index tie-break) | 0.124098 |
+
+**The carve at `k=16` destroys 83% of this layer's FFN output energy**, which is worth stating
+plainly: `applied-8L`'s +0.149 BPB is what that costs after the residual stream and 27 other
+layers absorb it.
+
+| lr | aux | held-out | ratio vs STATIC | `occ_max` | |
+|---|---|---|---|---|---|
+| 3e-4 | 0 | 0.097016 | **0.8935** | **0.818** | beats |
+| 3e-4 | 0.01 | 0.101815 | **0.9377** | **0.161** | beats |
+| 3e-4 | 0.1 | 0.114619 | 1.0556 | 0.151 | |
+| 1e-3 | 0 | 0.103940 | **0.9572** | **0.909** | beats |
+| 1e-3 | 0.01 | 0.105409 | **0.9708** | **0.162** | beats |
+| 1e-3 | 0.1 | 0.116434 | 1.0723 | 0.149 | |
+| 3e-3 | 0 / 0.01 / 0.1 | 0.121–0.124 | 1.118–1.142 | 0.968 / 0.254 / 0.253 | |
+| 1e-2 | 0 / 0.01 / 0.1 | 0.133–0.157 | 1.228–1.443 | **1.000** / 0.613 / 0.528 | |
+
+**GO on layer 3: 4 of 12 settings beat STATIC**, and they are exactly the two lowest learning
+rates at aux 0 and 0.01. This reproduces addendum A's instability finding on the real donor —
+the router trains, and it trains only in a narrow corner.
+
+## D.2 The BEST RATIO IS NOT THE SETTING TO SHIP, and why
+
+Read `occ_max`, the fraction of tokens selecting the single most-used group. Uniform at
+`k = 16` of `E = 256` is **0.0625**.
+
+* **`aux = 0` wins the ratio and very nearly COLLAPSES**: 0.818, 0.909, 0.968, and at lr 1e-2
+  exactly **1.000** — one group selected by *every* token.
+* **`aux = 0.01` still beats STATIC and stays near-balanced**: 0.161, 0.162 — about 2.6×
+  uniform.
+
+**A collapsed router is a STATIC router with extra steps.** The whole thing a router sells is
+the per-token decision (addendum B, and E23's `V52-STATIC` before it); a router that picks the
+same group for 82–91% of tokens has mostly re-derived the control it is being scored against,
+and in H1's real run — where the experts train too — it would starve every group it stops
+selecting. Taking `0.8935` because it is the smallest number would be optimising the proxy and
+losing the thing the proxy stands for.
+
+## D.3 The selection rule, REGISTERED NOW
+
+Applied to the eight-layer table once it exists, in this order:
+
+1. **Eligible** = settings whose `occ_max` ≤ **0.5**, averaged over the measured layers. (0.5
+   is 8× uniform and half of total collapse — a generous bar chosen to exclude *collapse*, not
+   to pick a winner; layer 3's eligible set is exactly the `aux = 0.01` pair, and its
+   ineligible set is exactly the `aux = 0` pair.)
+2. Among eligible settings, take the one that **beats STATIC on the most layers**.
+3. Ties broken by the **best mean ratio**.
+4. **If NO eligible setting beats STATIC on a majority of layers**, that is recorded as such
+   and the shipped setting is the best *eligible* one with the shortfall stated — not the best
+   collapsed one.
+5. **If no setting of either kind beats STATIC on any layer**, addendum A consequence 3 fires:
+   **H1 does not launch and the hours go back unspent.**
+
+**`G-H1e` itself is unchanged.** It is scored end-to-end by `h1_qat.py` at the end of the T4
+run, on held-out LM loss, against STATIC. This smoke is a **local proxy** whose only job is to
+choose `--router-lr` and `--aux`; a local win need not survive composition through 8 layers and
+a head, and `G-H1e` may still fail.
+
+## D.4 The grid is NARROWED for layers 6–24, and this does not force the answer
+
+One layer cost **3.5 hours**; eight at twelve settings is ~28 h. The grid for the remaining
+seven layers drops the settings that lost on layer 3 **by more than 11%** — every `lr ≥ 3e-3`
+cell (ratios 1.118–1.443, all collapsing) and every `aux = 0.1` cell (1.056–1.443) — leaving
+
+> **lr ∈ {3e-4, 1e-3} × aux ∈ {0, 0.01}**, ~6 h.
+
+**Why this is a search narrowing and not a result narrowing:** all four survivors are kept,
+including both `aux = 0` cells that §D.3 rule 1 makes **ineligible**. So the remaining layers
+can still return NO-GO for every eligible setting, and the eligible pair can still lose to the
+collapsed pair without that changing what ships. `--steps 300`, `--cap 4096` and the seeds are
+held **identical to layer 3**, so all eight layers stay comparable cell by cell.

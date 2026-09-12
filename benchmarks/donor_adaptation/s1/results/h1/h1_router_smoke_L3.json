@@ -1,0 +1,242 @@
+{
+ "brief": "briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md addendum A cons. 2 and 3",
+ "what": "LOCAL proxy for G-H1e on the REAL donor -- NOT G-H1e itself",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "calib_slice": {
+  "part": "calib",
+  "n_seq": 32,
+  "seq_len": 512,
+  "seed": 42424,
+  "n_rejected": 0,
+  "total_scored_bytes": 67648,
+  "bytes_per_token": 4.136986301369863,
+  "ids_sha256": "c5509846cdc3aa44e45e77895b59a4638c49eb03790030d851e7bf1357ca4c0c",
+  "offsets_sha256": "c9bdfc96dd5addb8e02a48d553dfb11784734baa26f44aad53658ff8cd2a8cf0",
+  "corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0"
+ },
+ "heldout_slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+ },
+ "layers": [
+  3
+ ],
+ "k": 16,
+ "E": 256,
+ "steps": 300,
+ "batch": 256,
+ "cap_tokens": 4096,
+ "lrs": [
+  0.0003,
+  0.001,
+  0.003,
+  0.01
+ ],
+ "auxs": [
+  0.0,
+  0.01,
+  0.1
+ ],
+ "per_layer": {
+  "3": {
+   "static": 0.10858479887247086,
+   "init": 0.12409786134958267,
+   "power": 0.1306685358285904,
+   "best": {
+    "heldout": 0.09701567888259888,
+    "lr": 0.0003,
+    "aux": 0.0
+   },
+   "best_ratio": 0.8934554365804046
+  }
+ },
+ "grid": [
+  {
+   "layer": 3,
+   "lr": 0.0003,
+   "aux": 0.0,
+   "heldout": 0.09701567888259888,
+   "static": 0.10858479887247086,
+   "ratio": 0.8934554365804046,
+   "beats": true,
+   "occ_max": 0.817626953125
+  },
+  {
+   "layer": 3,
+   "lr": 0.0003,
+   "aux": 0.01,
+   "heldout": 0.101814866065979,
+   "static": 0.10858479887247086,
+   "ratio": 0.9376530336033232,
+   "beats": true,
+   "occ_max": 0.16064453125
+  },
+  {
+   "layer": 3,
+   "lr": 0.0003,
+   "aux": 0.1,
+   "heldout": 0.11461938172578812,
+   "static": 0.10858479887247086,
+   "ratio": 1.0555748402721146,
+   "beats": false,
+   "occ_max": 0.15087890625
+  },
+  {
+   "layer": 3,
+   "lr": 0.001,
+   "aux": 0.0,
+   "heldout": 0.10394033044576645,
+   "static": 0.10858479887247086,
+   "ratio": 0.9572272686883255,
+   "beats": true,
+   "occ_max": 0.909423828125
+  },
+  {
+   "layer": 3,
+   "lr": 0.001,
+   "aux": 0.01,
+   "heldout": 0.10540900379419327,
+   "static": 0.10858479887247086,
+   "ratio": 0.9707528575707227,
+   "beats": true,
+   "occ_max": 0.162353515625
+  },
+  {
+   "layer": 3,
+   "lr": 0.001,
+   "aux": 0.1,
+   "heldout": 0.11643434315919876,
+   "static": 0.10858479887247086,
+   "ratio": 1.0722895319440333,
+   "beats": false,
+   "occ_max": 0.1494140625
+  },
+  {
+   "layer": 3,
+   "lr": 0.003,
+   "aux": 0.0,
+   "heldout": 0.12141158431768417,
+   "static": 0.10858479887247086,
+   "ratio": 1.1181268978568348,
+   "beats": false,
+   "occ_max": 0.968017578125
+  },
+  {
+   "layer": 3,
+   "lr": 0.003,
+   "aux": 0.01,
+   "heldout": 0.1239931657910347,
+   "static": 0.10858479887247086,
+   "ratio": 1.14190169414653,
+   "beats": false,
+   "occ_max": 0.25439453125
+  },
+  {
+   "layer": 3,
+   "lr": 0.003,
+   "aux": 0.1,
+   "heldout": 0.12192251533269882,
+   "static": 0.10858479887247086,
+   "ratio": 1.122832261962309,
+   "beats": false,
+   "occ_max": 0.2529296875
+  },
+  {
+   "layer": 3,
+   "lr": 0.01,
+   "aux": 0.0,
+   "heldout": 0.13331405818462372,
+   "static": 0.10858479887247086,
+   "ratio": 1.2277414478724276,
+   "beats": false,
+   "occ_max": 1.0
+  },
+  {
+   "layer": 3,
+   "lr": 0.01,
+   "aux": 0.01,
+   "heldout": 0.14822520315647125,
+   "static": 0.10858479887247086,
+   "ratio": 1.365064030100168,
+   "beats": false,
+   "occ_max": 0.612548828125
+  },
+  {
+   "layer": 3,
+   "lr": 0.01,
+   "aux": 0.1,
+   "heldout": 0.15671949088573456,
+   "static": 0.10858479887247086,
+   "ratio": 1.4432912572762258,
+   "beats": false,
+   "occ_max": 0.527587890625
+  }
+ ],
+ "tally": {
+  "lr=0.0003,aux=0": {
+   "won": 1,
+   "of": 1
+  },
+  "lr=0.0003,aux=0.01": {
+   "won": 1,
+   "of": 1
+  },
+  "lr=0.0003,aux=0.1": {
+   "won": 0,
+   "of": 1
+  },
+  "lr=0.001,aux=0": {
+   "won": 1,
+   "of": 1
+  },
+  "lr=0.001,aux=0.01": {
+   "won": 1,
+   "of": 1
+  },
+  "lr=0.001,aux=0.1": {
+   "won": 0,
+   "of": 1
+  },
+  "lr=0.003,aux=0": {
+   "won": 0,
+   "of": 1
+  },
+  "lr=0.003,aux=0.01": {
+   "won": 0,
+   "of": 1
+  },
+  "lr=0.003,aux=0.1": {
+   "won": 0,
+   "of": 1
+  },
+  "lr=0.01,aux=0": {
+   "won": 0,
+   "of": 1
+  },
+  "lr=0.01,aux=0.01": {
+   "won": 0,
+   "of": 1
+  },
+  "lr=0.01,aux=0.1": {
+   "won": 0,
+   "of": 1
+  }
+ },
+ "decision": {
+  "go": true,
+  "router_lr": 0.0003,
+  "aux": 0.0,
+  "layers_won": 1,
+  "layers_total": 1
+ },
+ "seconds": 12685.082669973373
+}

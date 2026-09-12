@@ -100,8 +100,14 @@ def main():
     ap.add_argument("--cap", type=int, default=4096, help="tokens kept per layer, per half")
     ap.add_argument("--only-layer", type=int, default=None,
                     help="smoke a single layer first (cheap); default is all 8")
+    ap.add_argument("--lrs", default=None,
+                    help="comma-separated router lrs; default is the full LRS grid")
+    ap.add_argument("--auxs", default=None,
+                    help="comma-separated aux coefficients; default is the full AUXS grid")
     ap.add_argument("--out", default=None)
     a = ap.parse_args()
+    lrs = tuple(float(x) for x in a.lrs.split(",")) if a.lrs else LRS
+    auxs = tuple(float(x) for x in a.auxs.split(",")) if a.auxs else AUXS
     os.makedirs(OUTDIR, exist_ok=True)
     layers = [int(x) for x in a.layers.split(",") if x.strip() != ""]
     if a.only_layer is not None:
@@ -198,8 +204,8 @@ def main():
         log("   layer %-3d  uncarved power %.5f   STATIC %.6f (%.4f of power)   init %.6f"
             % (li, denom, static, static / denom, init))
         best = None
-        for lr in LRS:
-            for aux in AUXS:
+        for lr in lrs:
+            for aux in auxs:
                 torch.manual_seed(1717)
                 m.router.data.zero_()
                 opt = torch.optim.AdamW([m.router], lr=lr, weight_decay=0.0)
@@ -259,7 +265,7 @@ def main():
            "model": C.MODEL_ID, "revision": C.REVISION,
            "calib_slice": mc, "heldout_slice": me,
            "layers": layers, "k": a.k, "E": a.groups, "steps": a.steps, "batch": BATCH,
-           "cap_tokens": a.cap, "lrs": list(LRS), "auxs": list(AUXS),
+           "cap_tokens": a.cap, "lrs": list(lrs), "auxs": list(auxs),
            "per_layer": {str(k): v for k, v in results.items()}, "grid": rows,
            "tally": {"lr=%g,aux=%g" % k: {"won": v[0], "of": v[1]} for k, v in tally.items()},
            "decision": {"go": bool(any_win), "router_lr": blr, "aux": baux,
