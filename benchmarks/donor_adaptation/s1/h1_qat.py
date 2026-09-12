@@ -29,13 +29,19 @@ pretrained FFN and the router has only ever been an oracle, a seeded matrix, or 
 ridge.  E37/E38/E40 close the POST-HOC carve, not the carve.  This is the first jointly
 trained router on this branch.
 
-THE GATE IS FORWARD-IDENTITY, ON PURPOSE.  g_e = 1 + E*(p_e - p_e.detach()) with p = softmax
-over all E groups.  The forward value is EXACTLY 1, so a selected group is passed through
-unscaled and `k = E` reproduces the uncarved ternary FFN BIT-FOR-BIT -- which is what G-H1a
-checks and the only thing that rules out a mis-wired mask or a bad group indexing.  The
-gradient is E*dp_e and reaches EVERY group through the softmax denominator, including the ones
-top-k did not select, so the router can learn to select something new.  A plain hard mask would
-give the router no gradient at all; a plain softmax gate would break G-H1a.
+THE GATE, AND THE ONE THAT WAS REPLACED BEFORE ANY GPU HOUR WAS SPENT.  The gate in force is
+Mixtral's renormalised top-k, rescaled by k so the gates AVERAGE 1 instead of summing to 1:
+g_e = k * p_e / sum_{selected} p_j on the selected groups and 0 elsewhere, p = softmax over all
+E.  At init the router is zeros, so p is uniform, so every selected g_e is EXACTLY 1.0 and
+`k = E` reproduces the uncarved ternary FFN BIT-FOR-BIT -- that is G-H1a, a WIRING check run at
+init.  The forward genuinely DEPENDS on the router, which is what makes the router trainable.
+
+The FIRST version was g = sel * (1 + E*(p - p.detach())), forward-identical to a hard mask at
+EVERY step rather than only at init.  ITS PLANTED CONTROL DID NOT FIRE: pinning the forward
+value to 1 makes the loss completely insensitive to the router, and on a known-positive task
+recall went 0.2754 -> 0.2568 against a chance of 0.2500 -- it got WORSE.  Addendum A records it.
+group_mask's own docstring carries the detail; this paragraph exists so the header cannot drift
+back to describing a gate the code does not have.
 
 NO PERMUTATION HERE, AND THAT IS NOT A DEVIATION.  carve_common.perm_from_labels permutes the F
 axis so each group is a contiguous run -- a LAYOUT decision for the engine's prefetcher, and it
@@ -66,6 +72,10 @@ FFN_ORGANS = ("gate_proj", "up_proj", "down_proj")
 H1_LAYERS = (3, 6, 9, 12, 15, 18, 21, 24)        # registered in the brief s2, before any number
 E_GROUPS = 256
 K_DEFAULT = 16                                    # 6.25% -- brief s3
+LN2 = 0.6931471805599453
+# H0's G-H0e window: how many opening steps the GradScaler may decline before the
+# planted control is declared UNREADABLE.  A scale failure is not H1's null.
+G_H1B_WINDOW = 40
 
 
 def log(m):
@@ -179,6 +189,10 @@ class TernaryCarvedFFN(nn.Module):
         self.router = nn.Parameter(torch.zeros(E, D))          # init 0 -> uniform p, no bias
         self.k, self.E = int(k), int(E)
         self._ck, self._cv = None, None
+        self._static = None        # [F] mask when the STATIC control of G-H1e is forced on
+        self._aux = None           # last forward's load-balancing term, read by the trainer
+        self._occ = None           # last forward's per-group occupancy, DIAGNOSTIC
+        self._mass = None          # [E] accumulator for STATIC's calibration, when armed
 
     def _quant(self):
         key = (self.gate._version, self.up._version, self.down._version)
@@ -215,24 +229,92 @@ class TernaryCarvedFFN(nn.Module):
         gate is bounded on purpose: sum_sel g = k, so a concentrating router cannot blow a
         selected group up by a factor of E.
         """
-        scores = F.linear(x.float(), self.router)              # [.., E]
+        if self._static is not None:
+            # G-H1e's control: a FIXED set of k groups, gates exactly 1, no router in the path.
+            self._aux, self._occ = None, None
+            return self._static.to(x.dtype if x.is_floating_point() else torch.float32)
+        xr = x.float()
+        if getattr(self, "route_norm", False):
+            # OFF BY DEFAULT, AND THE HYPOTHESIS THAT MOTIVATED IT DID NOT HOLD.  The idea:
+            # scores = router . x scales with ||x||, so the softmax temperature is set by the
+            # activation magnitude, which differs per layer; routing on x/rms(x) would make the
+            # router scale-invariant.  MEASURED on the toy, 12 lr x steps settings per cell,
+            # counting how often the router beats STATIC out-of-sample:
+            #     activation scale   x1.0     x3.0     x10.0
+            #     route_norm off     11/12     2/12     7/12
+            #     route_norm on       8/12     8/12     6/12
+            # It rescues the x3.0 cell and COSTS the other two; 20/36 against 22/36 overall is
+            # not a fix.  And the collapse is not monotone in scale at all -- x10.0 off reads
+            # better than x3.0 off -- which is what actually kills the scale story.  Kept, off,
+            # so a successor does not spend the same afternoon rediscovering it.
+            xr = xr / xr.pow(2).mean(dim=-1, keepdim=True).add(1e-6).sqrt()
+        scores = F.linear(xr, self.router)                     # [.., E]
         p = torch.softmax(scores, dim=-1)
         if self.k >= self.E:
             sel = torch.ones_like(p)
         else:
             idx = torch.topk(scores, self.k, dim=-1).indices
             sel = torch.zeros_like(p).scatter_(-1, idx, 1.0)
+        if getattr(self, "hard_gate", False):
+            # E23/E37's APPLIED carve: hard selection, gates EXACTLY 1, no gate weighting.
+            # This is what `applied-8L` must use to be a matched control -- the engine's carve
+            # masks and does not reweight.  The router gets no gradient in this mode, which is
+            # correct: applied-8L is not trained.
+            self._aux, self._occ = None, sel.reshape(-1, self.E).mean(dim=0).detach()
+            return sel @ self.onehot.t()
         ps = p * sel
         g = self.k * ps / ps.sum(dim=-1, keepdim=True).clamp_min(1e-9)
+        # Switch's load-balancing term, generalised to top-k and normalised so a UNIFORM router
+        # reads EXACTLY 1.0: f_e = fraction of tokens selecting e (sums to k), P_e = mean prob
+        # (sums to 1), aux = (E/k) * sum_e f_e * P_e.  Addendum A registered a separate router
+        # LR and this coefficient as the two things the CPU smoke on the real donor must fix.
+        f = sel.reshape(-1, self.E).mean(dim=0)
+        P = p.reshape(-1, self.E).mean(dim=0)
+        self._aux = (float(self.E) / float(self.k)) * (f * P).sum()
+        self._occ = f.detach()
         return g @ self.onehot.t()                             # [.., E] -> [.., F]
+
+    @torch.no_grad()
+    def set_static(self, idx):
+        """Force the STATIC control of `G-H1e` (addendum B): the same k groups for EVERY token.
+
+        `idx` is a [k] long tensor of group ids, or None to hand the selection back to the
+        router.  Gates are exactly 1 inside the chosen groups, so STATIC at `k = E` is also
+        bit-identical to the uncarved forward and `G-H1a` still holds under it.
+        """
+        if idx is None:
+            self._static = None
+            return
+        m = torch.zeros(self.E, device=self.onehot.device, dtype=self.onehot.dtype)
+        m[idx.to(self.onehot.device).long()] = 1.0
+        self._static = m @ self.onehot.t()                     # [E] -> [F]
 
     def forward(self, x):
         with torch.autocast(device_type=("cuda" if x.is_cuda else "cpu"), enabled=False):
             gq, uq, dq = self._quant()
             m = self.group_mask(x)
         h = F.silu(F.linear(x, gq.to(x.dtype))) * F.linear(x, uq.to(x.dtype))
+        if self._mass is not None:                 # armed only by arm_mass(), for STATIC
+            with torch.no_grad():
+                flat = h.detach().abs().float().reshape(-1, h.shape[-1])
+                self._mass += flat.sum(0) @ self.onehot
         h = h * m.to(h.dtype)
         return F.linear(h, dq.to(x.dtype))
+
+    def arm_mass(self, on=True):
+        """Start/stop accumulating UNMASKED per-group activation mass, for STATIC's calibration.
+
+        The mass is taken BEFORE the mask, which is the point: STATIC picks its k groups once
+        by global activation mass over the calibration stream, exactly E23's `V52-STATIC`.
+        """
+        self._mass = torch.zeros(self.E, device=self.onehot.device) if on else None
+
+    @torch.no_grad()
+    def static_from_mass(self):
+        """Top-k groups by the accumulated mass -> the STATIC index set.  Does not install it."""
+        if self._mass is None:
+            raise RuntimeError("arm_mass() was never called -- no calibration mass to rank")
+        return torch.topk(self._mass, self.k).indices.clone()
 
 
 def build_qo(model, bundle, device):
@@ -363,3 +445,321 @@ def applied_steps(opt):
                 s = st["step"]
                 n = max(n, int(s.item() if torch.is_tensor(s) else s))
     return n
+
+
+def ffn_mods(model, layers):
+    """The carved FFNs, in layer order.  One place that knows where they live."""
+    return [(li, model.model.layers[li].mlp) for li in layers]
+
+
+@torch.no_grad()
+def heldout_nats(model, ids, dev, cuda, bs=1):
+    """Sum of token nats and the token count on a held-out stream.  fp16 on GPU is fine here:
+    this is a PROGRESS metric, and the GATE is re-measured on CPU fp32 by h1_eval.py."""
+    tot, n = 0.0, 0
+    for i in range(0, ids.shape[0], bs):
+        ch = ids[i:i + bs].to(dev)
+        with torch.autocast("cuda", dtype=torch.float16, enabled=cuda):
+            lg = model(ch).logits
+        lp = F.log_softmax(lg[:, :-1].float(), dim=-1)
+        tot += float(-lp.gather(-1, ch[:, 1:].unsqueeze(-1)).squeeze(-1).double().sum())
+        n += int(ch[:, 1:].numel())
+    return tot, n
+
+
+@torch.no_grad()
+def g_h1e(model, mods, ids_cal, ids_ev, dev, cuda):
+    """G-H1e (addendum B) -- ORDINAL, no tolerance: on HELD-OUT tokens the jointly trained
+    router must be strictly better than STATIC.
+
+    STATIC = the same model with the top-k groups chosen ONCE by global activation mass over
+    the calibration stream and used for EVERY token.  That is E23's `V52-STATIC` comparison,
+    and it prices the only thing a router can sell -- the per-token decision.  If the router
+    cannot beat a fixed selection it is not earning its 5.1% of the charged weights.
+
+    Returns (router_nats_per_token, static_nats_per_token, fires).
+    """
+    for _, m in mods:
+        m.arm_mass(True)
+    heldout_nats(model, ids_cal, dev, cuda)             # calibration pass, mass only
+    picks = {}
+    for li, m in mods:
+        picks[li] = m.static_from_mass()
+        m.arm_mass(False)
+
+    r_tot, r_n = heldout_nats(model, ids_ev, dev, cuda)   # router
+    for li, m in mods:
+        m.set_static(picks[li])
+    try:
+        s_tot, s_n = heldout_nats(model, ids_ev, dev, cuda)   # STATIC
+    finally:
+        for _, m in mods:
+            m.set_static(None)
+    r, s = r_tot / max(1, r_n), s_tot / max(1, s_n)
+    return r, s, bool(r < s), {li: picks[li].tolist() for li in picks}
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--factors", required=True,
+                    help="H0 run 3's bundle -- the trained q/o organs, INSTALLED AND FROZEN")
+    ap.add_argument("--labels", required=True, help="density/results/d0c_labels/labels_E256.npz")
+    ap.add_argument("--stats", default=None, help="per-organ activation RMS; ones if absent")
+    ap.add_argument("--train", required=True)
+    ap.add_argument("--heldout", required=True, help="npz with 'ids' -- the PROGRESS stream")
+    ap.add_argument("--calib", default=None, help="npz with 'ids' for STATIC; --heldout if absent")
+    ap.add_argument("--bpt", type=float, default=4.22945205479452,
+                    help="bytes per token of the held-out stream; the frozen slice's own value")
+    ap.add_argument("--out", default="h1_trained.npz")
+    ap.add_argument("--layers", default=",".join(str(x) for x in H1_LAYERS))
+    ap.add_argument("--k", type=int, default=K_DEFAULT)
+    ap.add_argument("--groups", type=int, default=E_GROUPS)
+    ap.add_argument("--steps", type=int, default=int(os.environ.get("H1_STEPS", "4000")))
+    ap.add_argument("--bs", type=int, default=int(os.environ.get("H1_BS", "2")))
+    ap.add_argument("--accum", type=int, default=int(os.environ.get("H1_ACCUM", "8")))
+    ap.add_argument("--lr", type=float, default=float(os.environ.get("H1_LR", "2e-4")),
+                    help="the EXPERTS' lr (H0's value on the same shape)")
+    ap.add_argument("--router-lr", type=float, default=float(os.environ.get("H1_RLR", "0")),
+                    help="the ROUTER's own lr -- addendum A consequence 1.  0 = NOT SET, and "
+                         "the run refuses to start: the CPU smoke on the real donor fixes it")
+    ap.add_argument("--aux", type=float, default=float(os.environ.get("H1_AUX", "-1")),
+                    help="load-balancing coefficient -- same rule, -1 = NOT SET")
+    ap.add_argument("--every", type=int, default=int(os.environ.get("H1_EVERY", "250")))
+    ap.add_argument("--max-hours", type=float, default=2.8)
+    # As in H0: --factors takes any bundle with this key layout, so a previous H1 output is the
+    # resume path for the WEIGHTS.  Batches come from a FIXED rng, so a continuation MUST pass a
+    # different seed or it retrains the same draws.  Adam moments are NOT checkpointed.
+    ap.add_argument("--seed", type=int, default=1717)
+    ap.add_argument("--dev", default=os.environ.get("H1_DEV", None))
+    a = ap.parse_args()
+
+    if a.router_lr <= 0 or a.aux < 0:
+        raise SystemExit(
+            "--router-lr and --aux are NOT SET.  Addendum A registered both as fixed by a CPU "
+            "smoke on the REAL donor before any GPU hour is spent, because the jointly trained "
+            "router DIVERGED at every obvious setting on the toy.  Refusing to guess them on a "
+            "T4.  STOP.")
+
+    # density/common.py calls torch.set_grad_enabled(False) at import; this file imports nothing
+    # from the repo, and asserts anyway -- an inference default here fabricates H1's null.
+    torch.set_grad_enabled(True)
+    if not torch.is_grad_enabled():
+        raise SystemExit("AUTOGRAD IS DISABLED -- STOP.  This run would train nothing and "
+                         "report H1's null as a result.")
+
+    dev = a.dev or ("cuda" if torch.cuda.is_available() else "cpu")
+    cuda = dev.startswith("cuda")
+    layers = [int(x) for x in a.layers.split(",") if x.strip() != ""]
+    log("== H1 QAT ==  device %s  torch %s" % (dev, torch.__version__))
+    log("   layers %s   k %d of E %d  (%.2f%% activation)"
+        % (layers, a.k, a.groups, 100.0 * a.k / a.groups))
+    if cuda:
+        log("   gpu %s" % torch.cuda.get_device_name(0))
+
+    from transformers import AutoModelForCausalLM
+    MODEL_ID = "Qwen/Qwen2.5-1.5B"
+    REVISION = "8faed761d45a263340a0528343f099c05c9a4323"
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL_ID, revision=REVISION,
+        dtype=torch.float16 if cuda else torch.float32,
+        attn_implementation="sdpa")        # MANDATORY -- eager fp16 is non-finite on a T4
+    impl = getattr(model.config, "_attn_implementation", None)
+    if impl != "sdpa":
+        raise SystemExit("ATTENTION IS %r, NOT sdpa -- STOP (H0 s5b(1))." % impl)
+    model.to(dev)
+    for p in model.parameters():
+        p.requires_grad_(False)
+
+    n_qo, qo_layers = build_qo(model, a.factors, dev)
+    for p in model.parameters():
+        p.requires_grad_(False)            # q/o are RESUMED and FROZEN -- brief s3
+    n_ffn = build_ffn(model, a.labels, a.stats, layers, a.k, a.groups, dev)
+    mods = ffn_mods(model, layers)
+
+    expert_params, router_params = [], []
+    for _, m in mods:
+        expert_params += [m.gate, m.up, m.down]
+        router_params.append(m.router)
+    for p in expert_params + router_params:
+        p.requires_grad_(True)
+    n_exp = sum(p.numel() for p in expert_params)
+    n_rt = sum(p.numel() for p in router_params)
+    log("   q/o installed %d organs over layers %s -- FROZEN" % (n_qo, qo_layers))
+    log("   FFN carved on %d layers: %s masters + %s router = %.2f GB of AdamW state"
+        % (n_ffn, f"{n_exp:,}", f"{n_rt:,}", 16.0 * (n_exp + n_rt) / 2**30))
+
+    model.gradient_checkpointing_enable()
+    model.enable_input_require_grads()     # frozen embedding + checkpointing = no graph at all
+    model.train()
+
+    ids = torch.from_numpy(np.load(a.train)["ids"]).long()
+    ev = torch.from_numpy(np.load(a.heldout)["ids"]).long()
+    cal = torch.from_numpy(np.load(a.calib)["ids"]).long() if a.calib else ev
+    log("   train %s tokens, heldout %s tokens, calib %s tokens"
+        % (f"{ids.numel():,}", f"{ev.numel():,}", f"{cal.numel():,}"))
+
+    # Addendum A consequence 1: the router is its OWN param group with its OWN lr.
+    opt = torch.optim.AdamW([{"params": expert_params, "lr": a.lr},
+                             {"params": router_params, "lr": a.router_lr}],
+                            weight_decay=0.0, betas=(0.9, 0.95))
+    sched = torch.optim.lr_scheduler.OneCycleLR(
+        opt, max_lr=[a.lr, a.router_lr], total_steps=a.steps, pct_start=0.05,
+        anneal_strategy="cos")
+    scaler = torch.amp.GradScaler("cuda", enabled=cuda)
+
+    # ---- G-H1a, run BEFORE a single step: k = E must be bit-identical to uncarved ---------
+    probe_x = torch.randn(2, 8, model.config.hidden_size, device=dev,
+                          dtype=torch.float16 if cuda else torch.float32)
+    gates = {}
+    li0, m0 = mods[0]
+    same, dmax = g_h1a(m0, probe_x)
+    live, ldmax = carve_is_live(m0, probe_x)
+    log("   G-H1a  k=E bit-identical to uncarved : %s  (max |diff| %.3e)"
+        % ("FIRES" if same else "FAILS", dmax))
+    log("   carve actually masks at k=%d        : %s  (max |diff| %.3e)"
+        % (a.k, "FIRES" if live else "FAILS", ldmax))
+    if not same:
+        raise SystemExit("G-H1a FAILS -- the mask is not wired to what the measurement claims. "
+                         "H1 has no result and the hours are not spent.  STOP.")
+    if not live:
+        raise SystemExit("The carve does not mask at the real k.  A mask that is wired right "
+                         "but never masks passes G-H1a and measures NOTHING.  STOP.")
+    gates["G_H1a"] = {"bit_identical": bool(same), "max_abs_diff": dmax}
+    gates["carve_is_live"] = {"differs": bool(live), "max_abs_diff": ldmax}
+
+    n0, t0n = heldout_nats(model, ev, dev, cuda)
+    bpb0 = n0 / (LN2 * a.bpt * t0n)
+    log("")
+    log("   step 0 held-out BPB (fp16, GPU, PROGRESS not the gate): %.6f" % bpb0)
+    log("   the GATE is trained BPB < applied-8L, re-measured on CPU fp32 by h1_eval.py")
+    log("")
+
+    # ---- G-H1b / G-H1c: the first update the optimizer APPLIED, and the masters moved ------
+    watch = [("L%02d.gate" % mods[0][0], mods[0][1].gate),
+             ("L%02d.down" % mods[-1][0], mods[-1][1].down),
+             ("L%02d.router" % mods[0][0], mods[0][1].router)]
+    snap = [(kk, v.detach().clone()) for kk, v in watch]
+
+    hist = [{"step": 0, "bpb_fp16_gpu": bpb0, "loss": None, "seconds": 0.0}]
+    t0 = time.time()
+    rng = np.random.default_rng(a.seed)
+    nonfinite, declined, gh1bc = 0, 0, None
+    run_loss, run_aux, nb = 0.0, 0.0, 0
+    for step in range(1, a.steps + 1):
+        opt.zero_grad(set_to_none=True)
+        for _ in range(a.accum):
+            sel = rng.integers(0, ids.shape[0], size=a.bs)
+            batch = ids[torch.from_numpy(sel)].to(dev)
+            with torch.autocast("cuda", dtype=torch.float16, enabled=cuda):
+                out = model(batch, labels=batch)
+                aux = sum(m._aux for _, m in mods if m._aux is not None)
+                loss = (out.loss + a.aux * aux) / a.accum
+            if not torch.isfinite(loss):
+                nonfinite += 1
+                continue
+            scaler.scale(loss).backward()
+            run_loss += float(out.loss.detach())
+            run_aux += float(aux.detach()) if torch.is_tensor(aux) else float(aux)
+            nb += 1
+        scaler.unscale_(opt)
+        gnorm = float(torch.nn.utils.clip_grad_norm_(expert_params + router_params, 1.0))
+        before = applied_steps(opt)
+        scale_used = scaler.get_scale()
+        scaler.step(opt)
+        scaler.update()
+        sched.step()
+        applied = applied_steps(opt) > before
+
+        if gh1bc is None:
+            if applied:
+                moved = {kk: float((v.detach() - s0).abs().max())
+                         for (kk, v), (_, s0) in zip(watch, snap)}
+                log("   G-H1b read at step %d, the first update the optimizer APPLIED "
+                    "(scale %.0f, grad-norm %.3e, %d declined before it)"
+                    % (step, scale_used, gnorm, declined))
+                log("   G-H1c masters moved by: %s"
+                    % "  ".join("%s %.3e" % (kk, mv) for kk, mv in moved.items()))
+                if not all(mv > 0 for mv in moved.values()):
+                    raise SystemExit(
+                        "G-H1c FAILS: a master did not move after an update the optimizer "
+                        "APPLIED.  This run would report H1's null as a result.  STOP.")
+                gh1bc = {"moved": moved, "first_applied_step": step,
+                         "declined_before": declined, "scale": scale_used, "grad_norm": gnorm}
+                gates["G_H1b"] = {"first_applied_step": step, "declined_before": declined}
+                gates["G_H1c"] = {"moved": moved, "fires": True}
+            else:
+                declined += 1
+                log("   step %d DECLINED by the GradScaler (scale %.0f -> %.0f) -- G-H1b waits, "
+                    "%d of %d" % (step, scale_used, scaler.get_scale(), declined, G_H1B_WINDOW))
+                if declined >= G_H1B_WINDOW:
+                    raise SystemExit(
+                        "G-H1b CANNOT BE READ: the GradScaler declined all %d of the first "
+                        "steps, so no update was ever applied and the masters could not have "
+                        "moved.  That is a NUMERICAL-SCALE failure of the TRAINER and it is NOT "
+                        "H1's null -- do not report it as one.  STOP." % declined)
+
+        el = time.time() - t0
+        if step % a.every == 0 or step == a.steps:
+            nt, tn = heldout_nats(model, ev, dev, cuda)
+            bpb = nt / (LN2 * a.bpt * tn)
+            occ = [float(m._occ.max()) for _, m in mods if m._occ is not None]
+            log("  step %5d/%d  loss %.4f  aux %.3f  BPB %.6f  %5.0fs  lr %.2e/%.2e  "
+                "occ_max %.3f  nonfinite %d"
+                % (step, a.steps, run_loss / max(1, nb), run_aux / max(1, nb), bpb, el,
+                   sched.get_last_lr()[0], sched.get_last_lr()[1],
+                   max(occ) if occ else float("nan"), nonfinite))
+            hist.append({"step": step, "bpb_fp16_gpu": bpb, "loss": run_loss / max(1, nb),
+                         "aux": run_aux / max(1, nb), "occ_max": max(occ) if occ else None,
+                         "seconds": el})
+            run_loss, run_aux, nb = 0.0, 0.0, 0
+            save(model, mods, a, layers, hist, bpb0, nonfinite, el, False, gates, declined)
+        if el > a.max_hours * 3600:
+            log("  TIME CAP %.1f h reached at step %d -- stopping cleanly" % (a.max_hours, step))
+            break
+
+    el = time.time() - t0
+    model.eval()
+    r, s, fires, picks = g_h1e(model, mods, cal, ev, dev, cuda)
+    log("")
+    log("  G-H1e  router %.6f vs STATIC %.6f nats/token  ->  %s"
+        % (r, s, "FIRES" if fires else "FAILS"))
+    gates["G_H1e"] = {"router_nats": r, "static_nats": s, "fires": fires,
+                      "static_groups": picks}
+    save(model, mods, a, layers, hist, bpb0, nonfinite, el, True, gates, declined)
+    log("  wrote %s" % a.out)
+    log("  THE GATE IS NOT DECIDED HERE.  Bring %s back and run h1_eval.py on CPU fp32: "
+        "G-H1 is trained BPB < applied-8L, both on the frozen slice."
+        % os.path.basename(a.out))
+    return 0
+
+
+def save(model, mods, a, layers, hist, bpb0, nonfinite, el, done, gates, declined):
+    store = {}
+    for li, m in mods:
+        p = "L%02d" % li
+        store[p + ".gate"] = m.gate.detach().float().cpu().numpy()
+        store[p + ".up"] = m.up.detach().float().cpu().numpy()
+        store[p + ".down"] = m.down.detach().float().cpu().numpy()
+        store[p + ".router"] = m.router.detach().float().cpu().numpy()
+        store[p + ".rms_in"] = m.rms_in.detach().float().cpu().numpy()
+        store[p + ".rms_h"] = m.rms_h.detach().float().cpu().numpy()
+        store[p + ".labels"] = m.labels.detach().cpu().numpy()
+    np.savez(a.out, **store)
+    json.dump({"brief": "briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md",
+               "complete": done, "layers": layers, "k": a.k, "E": a.groups,
+               "steps_requested": a.steps, "bs": a.bs, "accum": a.accum,
+               "lr": a.lr, "router_lr": a.router_lr, "aux": a.aux, "seed": a.seed,
+               "resumed_qo_from": a.factors, "adam_state_restarted": True,
+               "bytes_per_token": a.bpt, "seconds": el,
+               "nonfinite_microbatches": nonfinite,
+               "scaler_declined_before_first_applied": declined,
+               "bpb_fp16_gpu_step0": bpb0, "history": hist, "gates": gates,
+               "gate": "NOT decided here -- h1_eval.py on CPU fp32, BPB < applied-8L",
+               "anchors": {"dense_fp32": 0.767595, "ternary_all_groups_E37": 3.475707,
+                           "carved_k16_E37": 3.986801, "chance": 4.069819,
+                           "h0_run3": 0.810022, "applied_8L": None}},
+              open(os.path.splitext(a.out)[0] + ".json", "w", encoding="utf-8"), indent=1)
+
+
+if __name__ == "__main__":
+    sys.exit(main())
