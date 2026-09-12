@@ -276,6 +276,16 @@ def main():
                          "columns of down and changes nothing the model computes.")
     ap.add_argument("--carve-k", type=int, default=0,
                     help="the k stored in the file; the engine's --carve-k overrides it.")
+    ap.add_argument("--carve-router", default=None,
+                    help="E37: an .npz of FITTED router matrices, key r<li> of shape [E, D] "
+                         "fp32, used instead of the synthetic one.  Until this existed the "
+                         "exporter could only write carve_common.router_weights -- a RANDOM "
+                         "matrix, which selects random neuron groups.  That is correct for "
+                         "E26, which prices the carve and says so, and useless for any "
+                         "statement about quality.  NOTE the router is written through the "
+                         "same --rule as every other matrix, so it is TERNARIZED on the way "
+                         "in: what the engine selects with is not the fp32 matrix that was "
+                         "fitted, and E37's G-E37D therefore scores the router AS WRITTEN.")
     ap.add_argument("--carve-seed", type=int, default=26,
                     help="seed of the synthetic router (carve_common.router_weights).  E26 "
                          "prices the carve and does not evaluate the router; a trained router "
@@ -372,7 +382,7 @@ def main():
     if a.head_ternary:
         tied = 0          # write an explicit head; the embedding table is still written fp32
     quant = {"fp32": 0, "ternary": 1, "packed": 2, "tagged": 3, "carved": 4}[a.quant]
-    carve_E, carve_k, carve_perm = 0, 0, None
+    carve_E, carve_k, carve_perm, carve_router = 0, 0, None, None
     if a.quant == "carved":
         import carve_common as CV
         if not a.carve_labels:
@@ -394,8 +404,21 @@ def main():
             sys.exit("--carve-k must be in [1, %d]" % carve_E)
         if F % carve_E:
             sys.exit("E=%d does not divide F=%d" % (carve_E, F))
-        print("  --quant carved: E=%d, group=%d neurons, k=%d in the file, router seed %d"
-              % (carve_E, F // carve_E, carve_k, a.carve_seed))
+        if a.carve_router:
+            _rt = np.load(a.carve_router)
+            carve_router = {}
+            for _li in range(L):
+                _r = _rt["r%d" % _li]
+                if _r.shape != (carve_E, D):
+                    sys.exit("--carve-router r%d has shape %r, expected (%d, %d)"
+                             % (_li, _r.shape, carve_E, D))
+                carve_router[_li] = np.ascontiguousarray(_r, dtype=np.float32)
+            print("  --quant carved: E=%d, group=%d neurons, k=%d in the file, router FITTED "
+                  "from %s" % (carve_E, F // carve_E, carve_k, a.carve_router))
+        else:
+            print("  --quant carved: E=%d, group=%d neurons, k=%d in the file, router seed %d "
+                  "(SYNTHETIC -- prices the carve, says nothing about quality)"
+                  % (carve_E, F // carve_E, carve_k, a.carve_seed))
     fp32_organs = tuple(x for x in a.fp32_organs.split(",") if x)
     if a.factors and a.quant != "tagged":
         sys.exit("--factors needs --quant tagged: no other layout can carry a factored matrix")
@@ -487,7 +510,8 @@ def main():
             if carve_E:
                 import carve_common as CV
                 fh.write(struct.pack("<2i", carve_E, carve_k))
-                rw = torch.from_numpy(CV.router_weights(D, carve_E, a.carve_seed, li))
+                rw = torch.from_numpy(carve_router[li] if carve_router is not None
+                                      else CV.router_weights(D, carve_E, a.carve_seed, li))
                 zeros.append(w_tag_packed(fh, rw, a.rule, None))
                 pm = torch.from_numpy(carve_perm[li])
                 # A permutation of the F axis: rows of gate/up, columns of down.  Exact.
@@ -580,6 +604,9 @@ def main():
             "carve_E": carve_E, "carve_k_in_file": carve_k,
             "carve_group_size": (F // carve_E) if carve_E else 0,
             "carve_labels": a.carve_labels, "carve_seed": (a.carve_seed if carve_E else None),
+            "carve_router": (a.carve_router if carve_E else None),
+            "carve_router_kind": (("fitted" if a.carve_router else "synthetic")
+                                  if carve_E else None),
             "factored_organs": (["L%02d.%s" % lo for lo in have] if fac is not None else []),
             "fp32_organs": list(fp32_organs)}
     json.dump(meta, open(a.out + ".json", "w", encoding="utf-8"), indent=1)
