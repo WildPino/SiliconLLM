@@ -3408,3 +3408,60 @@ The RANK partner (E14 section 3's law) is **verified at source rather than assum
 `45.6%` top-1 agreement stands at this protocol. **Both halves now agree: the score says costly
 and the rank says broken.** The score/rank divergence that made E14 hard to read was itself an
 artifact of the contaminated protocol.
+
+
+---
+
+## 43. E33 -- the coarse-carve lever is `1.12x` at S15 and NOT RESOLVABLE at the goal's shape
+
+**Probe** `probes/E33_IS_DOWN_THE_WHOLE_COST.md` | **brief** `briefs/BRIEF_E33_IS_DOWN_THE_WHOLE_COST.md`
+(`2fa83e9`) + **addendum** `briefs/BRIEF_E33_ADDENDUM_TWO_GATES_CANNOT_FIRE.md` (`c6090f4`, pushed
+before any artifact was exported) | **runner** `engine/e33_down_locality.py` (`f5e773b`) |
+**result** `engine/results/e33_down_locality.json`. 144 s, six arms, five interleaved reps.
+
+### 43.1 Verdict `LOCALITY-PARTIAL`
+
+| cell | raw | normalised | band | desk model | fraction realised |
+|---|---|---|---|---|---|
+| **`S15-E16 / S15-E256`** | **1.1334** | **1.1164** | `LOCALITY-PARTIAL` | 1.253 | **46%** |
+| `T10-E16 / T10-E256` | 1.0548 | **1.0432** | below the `1.06` line | 1.145 | 30% |
+
+Jackknife (leave one rep out, five ways, normalised): S15 `1.089 / 1.115 / 1.125 / 1.108 / 1.145`
+-- **`LOCALITY-PARTIAL` every time, and under the median too**. T10 `1.040 / 1.049 / 1.029 /
+1.053 / 1.045` -- **below `1.06` every time**, with the RAW reading flipping band across
+jackknives. **At the goal's own shape the exporter knob is worth nothing measurable.**
+
+### 43.2 Third cut to the same claim, and the second from a measurement
+
+`2.01x` claimed -> `1.25x` after reading the engine (E31 correction banner) -> **`1.12x` measured
+at S15, `1.04x` unresolvable at T10.** The brief bound the disposition in advance:
+`LOCALITY-PARTIAL` means the knob is still worth setting, **but E31 section 6.1's arithmetic may
+not be used to price anything else.** In force from here.
+
+**Why it over-credited**: the desk model charged the whole FFN read at the rate E31 measured for
+the `down` run's granularity, when `gate` and `up` -- two of three matrices, two thirds of the
+bytes -- were ALREADY in the flat part of the curve at `E=256` and had nothing to gain. Same
+class of error as the `2.01x` it replaced: **a measured curve applied to the wrong denominator.**
+
+### 43.3 Gates, and the two that could not fire as written
+
+`G-E33C` as written demanded IDENTICAL charged weights across `E`; the addendum computed, before
+exporting, that this is unsatisfiable because the router is charged (`synth_export.py:66`) and
+shrinks with `E` (`-1.201% / -1.501%` at S15, `-1.094%` at T10; exact equalisation needs
+`k = 4.1429`). Recorded FAILED as written, `G-E33C'` decides at 2.0% and fires. `G-E33A` was
+anchored to an E26 ABSOLUTE that E26 disowned, so `G-E33A'` (same-session `S15-E256 / S15-DENSE`
+against E26's `ratio_vs_dense 1.9731`) decides: reads `1.9247`, `-2.5%`. `G-E33B`: `S15-DENSE`
+`27.74` vs E28's `29.30`, `-5.3%`. Six exports, six `GATE V3` passes.
+
+### 43.4 Run 1 VOID, and the contention was the operator's own documentation work
+
+Pre-run witness `14.8%`, post-rep-2 witness **`35.5%`** -- caused by me running the E32 doc patch
+scripts during the timing. Not cosmetic: all three reps read `1.081` (`PARTIAL`), reps 1+3 read
+`1.046` (`ABSENT`). **A band that depends on a contended rep is not a band.** Kept at
+`results/e33_down_locality_void_run1.json`. Run 2 used five reps with the operator idle, and its
+band survives every jackknife. **The law already said a contended timing is not a timing; what
+E33 adds is that MY OWN documentation work is contention.**
+
+Predictions **2 HIT / 2 MISS / 1 conditional**: the size (`1.18-1.32`) missed, `E64`'s position
+missed (`50.4%` of the way, not `77%`), T10-smaller-than-S15 hit, and the no-effect-on-E30/E31
+registration holds.

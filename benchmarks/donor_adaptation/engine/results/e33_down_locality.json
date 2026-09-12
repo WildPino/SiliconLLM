@@ -1,0 +1,246 @@
+{
+ "brief": "briefs/BRIEF_E33_IS_DOWN_THE_WHOLE_COST.md (2fa83e9)",
+ "addendum": "briefs/BRIEF_E33_ADDENDUM_TWO_GATES_CANNOT_FIRE.md",
+ "PT_BLK": 64,
+ "desk_model": {
+  "S15": 1.2528622832842657,
+  "T10": 1.1445350734094617
+ },
+ "threads": 6,
+ "reps": 5,
+ "bands": [
+  [
+   1.18,
+   "LOCALITY-CONFIRMED"
+  ],
+  [
+   1.06,
+   "LOCALITY-PARTIAL"
+  ],
+  [
+   0.0,
+   "LOCALITY-ABSENT"
+  ]
+ ],
+ "verdict_cell": [
+  "S15-E16",
+  "S15-E256"
+ ],
+ "anchors_from_file": {
+  "e26_S15_K64": 52.55666666666667,
+  "e26_S15_DENSE": 26.636666666666667,
+  "e26_S15_K64_ratio_vs_dense": 1.9730947315730198,
+  "e28_S15_PACKED": 29.3
+ },
+ "engine": "donor_engine_e26.exe",
+ "arms": {
+  "S15-DENSE": {
+   "rates": [
+    25.45,
+    28.09,
+    28.61,
+    28.23,
+    28.31
+   ],
+   "mean_tok_s": 27.738,
+   "median_tok_s": 28.23,
+   "spread": 0.11392313793352081,
+   "shape": "S15",
+   "E": 0,
+   "k": 0,
+   "gate_run_bytes": null,
+   "down_run_bytes": null,
+   "active_weights_per_token": 1543569408
+  },
+  "S15-E256": {
+   "rates": [
+    52.52,
+    53.12,
+    55.4,
+    51.75,
+    54.15
+   ],
+   "mean_tok_s": 53.388,
+   "median_tok_s": 53.12,
+   "spread": 0.06836742339102418,
+   "shape": "S15",
+   "E": 256,
+   "k": 64,
+   "gate_run_bytes": 26880,
+   "down_run_bytes": 2240,
+   "active_weights_per_token": 687538176
+  },
+  "S15-E64": {
+   "rates": [
+    55.9,
+    55.43,
+    60.04,
+    58.48,
+    55.05
+   ],
+   "mean_tok_s": 56.98,
+   "median_tok_s": 55.9,
+   "spread": 0.08757458757458761,
+   "shape": "S15",
+   "E": 64,
+   "k": 16,
+   "gate_run_bytes": 107520,
+   "down_run_bytes": 8960,
+   "active_weights_per_token": 679280640
+  },
+  "S15-E16": {
+   "rates": [
+    65.4,
+    60.58,
+    60.89,
+    60.53,
+    55.15
+   ],
+   "mean_tok_s": 60.510000000000005,
+   "median_tok_s": 60.58,
+   "spread": 0.1693934886795572,
+   "shape": "S15",
+   "E": 16,
+   "k": 4,
+   "gate_run_bytes": 430080,
+   "down_run_bytes": 35840,
+   "active_weights_per_token": 677216256
+  },
+  "T10-E256": {
+   "rates": [
+    9.92,
+    10.06,
+    9.07,
+    9.87,
+    8.9
+   ],
+   "mean_tok_s": 9.564,
+   "median_tok_s": 9.87,
+   "spread": 0.12128816394813886,
+   "shape": "T10",
+   "E": 256,
+   "k": 64,
+   "gate_run_bytes": 114688,
+   "down_run_bytes": 3584,
+   "active_weights_per_token": 4311744512
+  },
+  "T10-E16": {
+   "rates": [
+    10.6,
+    10.38,
+    10.13,
+    10.02,
+    9.31
+   ],
+   "mean_tok_s": 10.088,
+   "median_tok_s": 10.13,
+   "spread": 0.1278747026169706,
+   "shape": "T10",
+   "E": 16,
+   "k": 4,
+   "gate_run_bytes": 1835008,
+   "down_run_bytes": 57344,
+   "active_weights_per_token": 4264558592
+  }
+ },
+ "G_E33C_as_written": {
+  "per_shape": {
+   "S15": {
+    "active_weights_per_token": {
+     "S15-E256": 687538176,
+     "S15-E64": 679280640,
+     "S15-E16": 677216256
+    },
+    "dev_vs_E256": {
+     "S15-E256": 0.0,
+     "S15-E64": -0.012010294538175592,
+     "S15-E16": -0.015012868172719518
+    },
+    "identical": false,
+    "within_2pct": true
+   },
+   "T10": {
+    "active_weights_per_token": {
+     "T10-E256": 4311744512,
+     "T10-E16": 4264558592
+    },
+    "dev_vs_E256": {
+     "T10-E256": 0.0,
+     "T10-E16": -0.010943579766536926
+    },
+    "identical": false,
+    "within_2pct": true
+   }
+  },
+  "fires": false,
+  "note": "expected FAIL: the router is charged and shrinks with E -- addendum s1, a defect of my brief, not of the box"
+ },
+ "G_E33C_amended": {
+  "tol": 0.02,
+  "fires": true
+ },
+ "cpu_busy_mean_pct": [
+  10.5,
+  5.0,
+  2.0,
+  18.0,
+  10.0,
+  13.0
+ ],
+ "cpu_busy_peak_pct": [
+  25.0,
+  7.0,
+  3.0,
+  34.0,
+  18.0,
+  25.0
+ ],
+ "worst_spread": 0.1693934886795572,
+ "G_E33A_absolute_informational": {
+  "measured": 53.388,
+  "e26": 52.55666666666667,
+  "rel_dev": 0.01581784740280323,
+  "tol": 0.1,
+  "fires": true,
+  "note": "informational only -- E26 disowned its absolutes (addendum s2)"
+ },
+ "G_E33A_ratio_decides": {
+  "measured_ratio": 1.9247242050616482,
+  "e26_ratio": 1.9730947315730198,
+  "rel_dev": -0.024515055327733237,
+  "tol": 0.1,
+  "fires": true
+ },
+ "G_E33B": {
+  "measured": 27.738,
+  "e28": 29.3,
+  "rel_dev": -0.05331058020477819,
+  "tol": 0.1,
+  "fires": true
+ },
+ "verdict": {
+  "cell": "S15-E16 / S15-E256",
+  "S15": {
+   "raw": 1.1334007642166781,
+   "charge_factor": 0.9849871318272805,
+   "normalised": 1.1163851679566337,
+   "band_raw": "LOCALITY-PARTIAL",
+   "band_normalised": "LOCALITY-PARTIAL",
+   "desk": 1.2528622832842657
+  },
+  "T10": {
+   "raw": 1.054788791300711,
+   "charge_factor": 0.9890564202334631,
+   "normalised": 1.0432456260262626,
+   "band_raw": "LOCALITY-ABSENT",
+   "band_normalised": "LOCALITY-ABSENT",
+   "desk": 1.1445350734094617
+  },
+  "name": "LOCALITY-PARTIAL",
+  "bands_disagree": false,
+  "reported_band": "LOCALITY-PARTIAL",
+  "T10_smaller_than_S15": true,
+  "E64_fraction_of_the_way": 0.5043527099129451
+ },
+ "seconds": 143.73671507835388
+}

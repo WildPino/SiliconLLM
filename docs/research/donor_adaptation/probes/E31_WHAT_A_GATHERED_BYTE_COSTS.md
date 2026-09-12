@@ -1,5 +1,12 @@
 # E31 — what does a GATHERED byte cost, and at what granularity does the penalty go away?
 
+> ### SECOND CORRECTION — **E33 MEASURED IT, and the corrected number was still too big**
+>
+> The banner below cuts §6.1's lever from `2.01×` to `1.25×` at S15 / `1.14×` at T10 by reading the engine. **E33 then measured it end to end: `1.1164` normalised at S15 — 46% of the predicted gain — and `1.0432` at T10, below the resolvable line in every one of five jackknives.** The mechanism survives (monotone in group size at both shapes); the size is wrong twice over, and at the goal's own shape there is nothing measurable to take.
+>
+> **Disposition, fixed in E33's brief before the run: §6.1's arithmetic may not be used to price anything else.** It over-credited because it charged the whole FFN read at the `down` run's granularity when `gate` and `up` — two of three matrices, two thirds of the bytes — were already in the flat part of the curve. Same class of error as the `2.01×` it replaced: a measured curve applied to the wrong denominator. Full reading: `probes/E33_IS_DOWN_THE_WHOLE_COST.md`.
+
+
 > **CORRECTION TO §6.1, 2026-09-12, same day, found by reading the engine instead of my own
 > summary.** §6.1 said the carve reads **one FFN row at a time** (768 B at S15) and that a
 > coarser group is therefore worth **`2.01×`**, "the largest single lever left anywhere in
