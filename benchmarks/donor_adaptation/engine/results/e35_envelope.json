@@ -213,7 +213,9 @@
   "brief_predicted_L": 19,
   "in_17_21": true,
   "below_19": false,
-  "active_budget_at_50_G": 0.9347781571379199
+  "active_budget_at_50_G": 0.9347781571379199,
+  "active_budget_at_50_G_LABEL_ERRATUM": "MISLABELLED KEY, found by E36's runner.  `active_budget_at_50_G` above holds E34's DENSE numerator / 50 = 0.9348 G.  It is NOT the envelope this probe's section 4 publishes, which is the numerator INTERPOLATED between the two arms that bracket the goal: 47.253693 G-w/s -> 0.945074 G.  The two differ by 1.1%.  The E35 DOCUMENT is correct; this key's name is not.  No value recorded in this file has been changed.",
+  "active_budget_at_50_G_interpolated": 0.9450738522521601
  },
  "seconds": 75.0297498703003
 }
