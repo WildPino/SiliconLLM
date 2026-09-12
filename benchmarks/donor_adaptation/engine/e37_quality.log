@@ -1,0 +1,25 @@
+== E37 quality: BPB through the engine.  DETERMINISTIC -- a loaded box is legal ==
+  chance line 4.069819 at 51870 scored bytes / 12264 predictions
+
+  G-E37B1  running the PUBLISHED artifact unchanged ...
+  G-E37B1  3.475706372 vs 3.475706372  (-0.000000000)  -> FIRES  [516s]
+
+  S15-DENSE-NF (--fold none) ...
+  S15-DENSE-NF 3.475706372   fold cost vs the published --fold layers artifact: +0.000000000
+     (REPORTED, NOT GATED -- addendum 8cc405a registered this and did not
+      predict its sign or size.)
+
+  G-E37A'  parity at k=E=256 (nothing dropped) ...
+  G-E37A'  BPB 3.475706652 vs 3.475706372 (|d| 2.802e-07, bar 1e-04) | worst rel L2 4.987e-05 (bar 1e-04) | top-1 1.0000 -> FIRES
+
+  k=64    2240/8960 neurons (25.00%)  charged 0.6875 G  BPB 3.927384  (+0.451677 vs dense, under chance)  [305s]
+  k=32    1120/8960 neurons (12.50%)  charged 0.5430 G  BPB 4.074431  (+0.598725 vs dense, OVER chance)  [252s]
+  k=16     560/8960 neurons ( 6.25%)  charged 0.4708 G  BPB 3.986801  (+0.511095 vs dense, under chance)  [225s]
+  k=8      280/8960 neurons ( 3.12%)  charged 0.4347 G  BPB 3.996693  (+0.520987 vs dense, under chance)  [210s]
+  k=4      140/8960 neurons ( 1.56%)  charged 0.4166 G  BPB 4.023439  (+0.547733 vs dense, under chance)  [203s]
+  k=3      105/8960 neurons ( 1.17%)  charged 0.4121 G  BPB 4.029398  (+0.553692 vs dense, under chance)  [202s]
+  k=2       70/8960 neurons ( 0.78%)  charged 0.4076 G  BPB 4.014866  (+0.539160 vs dense, under chance)  [200s]
+  k=1       35/8960 neurons ( 0.39%)  charged 0.4030 G  BPB 3.989839  (+0.514132 vs dense, under chance)  [198s]
+
+  VERDICT CELL  S15-K3  BPB 4.029398  ->  SPARSITY-DEGRADES   (dense 3.475706, chance 4.069819)
+  knee: largest k within +0.10 of dense = 256 ; smallest k beating chance = 1

@@ -1,0 +1,17 @@
+== E37 addendum B: the SYNTHETIC-router control ==
+  building the synthetic-router twin ...
+        --quant carved: E=256, group=35 neurons, k=256 in the file, router seed 26 (SYNTHETIC -- prices the carve, says nothing about quality)
+        exporting Qwen/Qwen2.5-1.5B  D=1536 F=8960 L=28 heads=12/2 hd=128 V=151936 tied=0 quant=carved rule=R3
+        head written explicitly: (151936, 1536) carved
+        GATE E26-L: 1714582392 bytes, matches E1's independent quant==4 layout exactly
+        wrote D:/_ktmp/e37\e37_carved_syn.bin  (1.60 GB)  sha256 79b8a0f1db00b2ea
+  k           fitted    synthetic d(syn-fit)
+  64        3.927384     4.059717  +0.132334
+  32        4.074431     3.998745  -0.075686
+  16        3.986801     4.074449  +0.087649
+  3         4.029398     4.020624  -0.008774   <- decides
+  1         3.989839     3.974800  -0.015039
+
+  VERDICT  synthetic - fitted at k=3 = -0.008774 BPB (bar 0.05) -> ROUTER-IS-NOT-THE-CONSTRAINT
+  synthetic curve non-monotone: True (prediction 3)
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e37_router_control.json  [1549s]

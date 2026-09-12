@@ -1,0 +1,14 @@
+== E37 step 1: fit the routers on the REAL donor ==
+  donor Qwen/Qwen2.5-1.5B, E=256, calib (32 x 512, seed 42424) -- all imported from E23
+`torch_dtype` is deprecated! Use `dtype` instead!
+  loaded: D=1536 L=28 F=8960  [8s]
+  fitting (ridge in normal-equation form: O(D^2 + D*E) per layer, not O(tokens)) ...
+  fitted 28 layers in 214s
+  wrote D:/_ktmp/e37\e37_routers_E256.npz
+  G-E37D on a HELD-OUT slice (8 x 512, seed 909090), k=3 of 256
+
+            recall@3   mass fraction of oracle
+  fitted    0.5075      0.7132
+  random    0.0102      0.0608
+  layers where fitted beats random: 28/28 -> G-E37D FIRES
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e37_routers.json  [275s]

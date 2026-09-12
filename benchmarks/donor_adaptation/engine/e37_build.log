@@ -1,0 +1,17 @@
+== E37 build: two artifacts, --fold none, rule R3 ==
+  the fold is NOT a choice: qwen_export.py:390 refuses --quant carved unless
+  --fold none, because the labels were fitted on the UNFOLDED donor.  The
+  addendum (8cc405a) registered this and split G-E37B accordingly.
+  build dense_nf     --quant packed
+        wrote D:/_ktmp/e37\e37_dense_nf.bin  (1.59 GB)  sha256 5d50e3778917a46f
+        [390s]
+  build carved_nf    --quant carved --carve-labels D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\density\results\d0c_labels\labels_E256.npz --carve-router D:/_ktmp/e37/e37_routers_E256.npz --carve-k 256
+        --quant carved: E=256, group=35 neurons, k=256 in the file, router FITTED from D:/_ktmp/e37/e37_routers_E256.npz
+        exporting Qwen/Qwen2.5-1.5B  D=1536 F=8960 L=28 heads=12/2 hd=128 V=151936 tied=0 quant=carved rule=R3
+        head written explicitly: (151936, 1536) carved
+        GATE E26-L: 1714582392 bytes, matches E1's independent quant==4 layout exactly
+        wrote D:/_ktmp/e37\e37_carved_nf.bin  (1.60 GB)  sha256 fae666d2a4d4de7e
+        [384s]
+
+  G-E37C  exporter None  runner 1554579456  -> MISMATCH
+  charged/token: k=256 1.5546 G   k=3 0.4121 G   dense 1.5436 G
