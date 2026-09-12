@@ -1,0 +1,52 @@
+{
+ "brief": "BRIEF_E43 (pre-registered, 4b4ebf2)",
+ "phase": "vocab",
+ "smoke": true,
+ "G_E43C": {
+  "scored_bytes": 51870,
+  "bar_bytes": 51870,
+  "qwen_tokens": 12264,
+  "qwen_bpt": 4.22945205479452,
+  "bar_bpt": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "fires": true
+ },
+ "corpus": {
+  "file": "calib_utf8_8000000.txt",
+  "bytes": 8000000,
+  "invalid_bytes_dropped": 572,
+  "sha256": "d06c6d7a97cc8d5874b662f9e1ca33cab931688aa43033de661635fa14b86571"
+ },
+ "vocab": {
+  "2048": {
+   "V": 2048,
+   "bytes_per_token": 2.6293911897399505,
+   "tokens": 19727,
+   "vocab_sha256": "741be90ee420a1913269e88591de1c717a676aa8f0abbeb76bedd3d31f1b0936",
+   "real_vocab_size": 2048,
+   "trained": "1s"
+  },
+  "8192": {
+   "V": 8192,
+   "bytes_per_token": 3.275034726606895,
+   "tokens": 15838,
+   "vocab_sha256": "4f1e2d2bb47577cf3fe85eecb6bb4ebb95c8e5744fefb6aea3e2dee5c4af90f2",
+   "real_vocab_size": 8192,
+   "trained": "2s"
+  }
+ },
+ "train_bytes": 8000000,
+ "G_E43D": {
+  "per_V": {
+   "2048": {
+    "V": 2048,
+    "null_bpt": 1.8757458503598163,
+    "real_bpt": 2.6293911897399505,
+    "null_is_worse": true,
+    "vocab_sha256": "877e94ebcc88726bee368d6d6fac4ea1b81b88b0eba336ab4bfa3c394dda86ed"
+   }
+  },
+  "fires": true
+ },
+ "seconds": 20.43214440345764
+}

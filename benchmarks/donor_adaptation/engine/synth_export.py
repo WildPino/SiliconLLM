@@ -72,6 +72,14 @@ SHAPES = {
                   "E39 -- SYNTHETIC, A10B's exact parameter count, put somewhere else"),
     "A10B-NKV2": (4096, 48640, 16, 32, 2, 128, 32768, 0, "E40 -- SYNTHETIC, A10B's exact parameter count, k/v heads 8 -> 2"),
     "A10B-R128": (4096, 49152, 16, 32, 2, 128, 32768, 0, "E40 addendum A -- SYNTHETIC, A10B's exact parameter count, every lever that is REAL on this engine"),
+    # E43: the VOCABULARY axis.  Same 9,999,220,736 parameters as A10B-R128 and the same
+    # everything else -- only V moves, and F absorbs it so the count never changes.  Untied, so
+    # the file carries 2*V*D of embedding+head and active_weights charges V*D of it per token.
+    # F stays a multiple of 256 for --carve 256, which is why the reachable grid is
+    # V = 32768 + 6144*n and V = 4096 / 16384 / 65536 are NOT on it.
+    "A10B-V2048":   (4096, 50432, 16, 32, 2, 128,   2048, 0, "E43 -- SYNTHETIC, R128 with V=2048"),
+    "A10B-V8192":   (4096, 50176, 16, 32, 2, 128,   8192, 0, "E43 -- SYNTHETIC, R128 with V=8192"),
+    "A10B-V131072": (4096, 45056, 16, 32, 2, 128, 131072, 0, "E43 -- SYNTHETIC, R128 with V=131072"),
 }
 
 

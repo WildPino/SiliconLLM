@@ -1,0 +1,107 @@
+{
+ "brief": "BRIEF_E43 (pre-registered, 4b4ebf2)",
+ "phase": "vocab",
+ "smoke": false,
+ "G_E43C": {
+  "scored_bytes": 51870,
+  "bar_bytes": 51870,
+  "qwen_tokens": 12264,
+  "qwen_bpt": 4.22945205479452,
+  "bar_bpt": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "fires": true
+ },
+ "corpus": {
+  "file": "calib_utf8.txt",
+  "bytes": 140933059,
+  "invalid_bytes_dropped": 572,
+  "sha256": "b5b63f61f5c71820f554b1fa4a5be40d9ca5b7ec85efb1e1ff91ad085b97d5a8"
+ },
+ "vocab": {
+  "2048": {
+   "V": 2048,
+   "bytes_per_token": 2.647374062165059,
+   "tokens": 19593,
+   "vocab_sha256": "404d99cfee51ef0d3fb21e4dcaf1a569e49777ab22a897b4f11b0b913a9d0adc",
+   "real_vocab_size": 2048,
+   "trained": "15s"
+  },
+  "8192": {
+   "V": 8192,
+   "bytes_per_token": 3.3103580317825005,
+   "tokens": 15669,
+   "vocab_sha256": "25f0281b6d4903381fcbd1f26430c592f1d55f7ca3f66e537206074c38836d75",
+   "real_vocab_size": 8192,
+   "trained": "18s"
+  },
+  "14336": {
+   "V": 14336,
+   "bytes_per_token": 3.5625,
+   "tokens": 14560,
+   "vocab_sha256": "ce540d76a38483ff04e64ca1d2fdfad7117775a580e303b70c14be0afd9efc1e",
+   "real_vocab_size": 14336,
+   "trained": "18s"
+  },
+  "20480": {
+   "V": 20480,
+   "bytes_per_token": 3.714817732578959,
+   "tokens": 13963,
+   "vocab_sha256": "3ab195f532aecf02f42fa37d0097279f8c3f431477ae14ce8ace11ef7dff724c",
+   "real_vocab_size": 20480,
+   "trained": "19s"
+  },
+  "26624": {
+   "V": 26624,
+   "bytes_per_token": 3.7966622749231447,
+   "tokens": 13662,
+   "vocab_sha256": "28787342fc442f8ff186e9dafc6aafd51af0622dfec5aaff7557f18e8722fbab",
+   "real_vocab_size": 26624,
+   "trained": "19s"
+  },
+  "32768": {
+   "V": 32768,
+   "bytes_per_token": 3.8631116407239143,
+   "tokens": 13427,
+   "vocab_sha256": "df59b28b0db8f222c19c1209f928672c3e76fefd7e3b10d7f4988b4a4cbf178e",
+   "real_vocab_size": 32768,
+   "trained": "23s"
+  },
+  "51200": {
+   "V": 51200,
+   "bytes_per_token": 3.9683268303878814,
+   "tokens": 13071,
+   "vocab_sha256": "90d5f4c0b377b51e1b3d6d4f79aa17ad0670efb7fd3f6c030279f1d3fdfc7504",
+   "real_vocab_size": 51200,
+   "trained": "26s"
+  },
+  "131072": {
+   "V": 131072,
+   "bytes_per_token": 4.123539232053423,
+   "tokens": 12579,
+   "vocab_sha256": "d268bbc7790e758d19ed0364022ef1600771c74373207681f018209a1a5ee4ee",
+   "real_vocab_size": 131072,
+   "trained": "28s"
+  }
+ },
+ "train_bytes": 140933059,
+ "G_E43D": {
+  "per_V": {
+   "2048": {
+    "V": 2048,
+    "null_bpt": 1.8776470588235294,
+    "real_bpt": 2.647374062165059,
+    "null_is_worse": true,
+    "vocab_sha256": "a1be4b6e570df195e44b425a0c5d40addda4d754253aa55c32723dc5e040002d"
+   },
+   "32768": {
+    "V": 32768,
+    "null_bpt": 2.4809872291576984,
+    "real_bpt": 3.8631116407239143,
+    "null_is_worse": true,
+    "vocab_sha256": "7ddcd3f476f877fb71b75c70e91b778aeec8148f5d8c3c74954f047559c9431c"
+   }
+  },
+  "fires": true
+ },
+ "seconds": 416.9489405155182
+}
