@@ -205,3 +205,74 @@ training has never been measured on this harness, so per §0.1 no number may be 
   tells H1 which `V` to be trained at, and it will say so in exactly those words.
 - **Every absolute tok/s here carries ±5%. The ratios do not** — and both cells are ratios, on
   purpose.
+
+---
+
+# ADDENDUM A — run 1's `G-E43A` went VOID, and I found an ORDER CONFOUND in my own plan
+
+**Written and pushed BEFORE the re-run, and before any re-run number exists.** Run 1 is
+`results/e43_vocabulary.json`, committed with this addendum.
+
+## A.1 What happened
+
+`G-E43A` read **79.27 tok/s** on the control at `k=3` against E40 run 1's **112.73** — **−29.7%**
+on a **±5%** bar. **VOID.** The registered consequence applies in full: **no rate from run 1
+counts**, the two cells it printed (`1.3425`, `VOCABULARY-IS-A-LEVER`, control **above** the peak)
+carry **no registered force**, and they are reported only as a record of what the arithmetic did.
+
+The gate was not mis-specified — **it caught exactly what it was built to catch.** The box was
+verified at **5.8% busy** immediately before launch, with the control reading **115.02 (+2.0%,
+spread 8.0%)** across five reps. It then degraded monotonically *during* the run:
+
+| rep | box busy | control `V32768 k=3` | vs 112.73 |
+|---|---|---|---|
+| 1 | **8.2%** | **115.82** | **+2.7%** |
+| 2 | **12.8%** | **114.20** | **+1.3%** |
+| 3 | 19.7% | 38.26 | −66.1% |
+| 4 | 42.8% | 75.06 | −33.4% |
+| 5 | 45.0% | 53.01 | −53.0% |
+
+**Reps 1 and 2 are clean and their control sits inside the bar. They are NOT used.** Choosing the
+reps that pass, with a threshold picked after seeing which ones do, is the same error that voided
+E42 — a bar fixed after the data. Run 1 is void as a whole.
+
+## A.2 The confound, which is mine and is worse than the VOID
+
+Run 1 timed `plan = [(arm, k) for arm in order for k in KS]` with **reps outermost**, which
+spreads drift across arms *between* reps. It does **not** spread it *within* a rep: inside every
+rep the arms are timed in **ascending `V`** — `V2048` first, `V131072` last. So a box load that
+rises monotonically **penalises arms in proportion to their position in the plan**, and the plan
+position is ordered by `V`.
+
+**That bias points in exactly the direction of the registered prediction.** A drifting box would
+manufacture "small `V` is faster" out of nothing. Run 1's box drifted 8.2% → 45.0%, so run 1
+cannot distinguish the effect from the artifact even if `G-E43A` had fired.
+
+E40 already had the antidote and used it — it ran `--order reversed` as a second session. **I ran
+only `forward`.** That is an execution gap on my side, not a design gap, and it is registered here
+rather than quietly fixed.
+
+## A.3 What the re-run is allowed to be, fixed here
+
+1. **Exactly ONE re-run attempt.** Two sessions, `--order forward` and `--order reversed`. If
+   `G-E43A` goes VOID again, **E43 has no speed half and no cells, permanently**, and the probe
+   reports the units half alone. I am not running this until it passes.
+2. **Box verified before AND after each session**, with the control probed independently
+   beforehand. A session launched on an unverified box does not count.
+3. **Rep validity, fixed NOW and not after the data:** a rep whose recorded box reading is
+   **≥ 25% busy** is discarded before any arm statistic is computed. 25% is not a number I chose
+   from E43's readings — it is just above the **22.5%** maximum that E39's and E40's own accepted
+   sessions actually ran at, a measured range, per §0.1. **If fewer than 3 reps survive in a
+   session, that session is VOID** (three reps is this programme's standing minimum for a rate).
+4. **Both orders must agree** on the second cell — which side of the peak `V = 32768` falls on —
+   or the cell is **unresolvable** and is reported as such. The first cell is reported from
+   `forward` with `reversed` alongside; E36's run-2 rule governs any disagreement beyond
+   dispersion.
+5. **Nothing else moves.** Same arms, same files on disk, same engine, same `k` grid, same
+   bands, same predictions. The vocabulary half is finished and is not re-measured.
+
+## A.4 What does NOT change
+
+The units half stands: `G-E43B`, `G-E43C` and `G-E43D` all fired and none of them depends on the
+stopwatch. The measured `bytes/token` column is unaffected by anything in this addendum. And the
+scope in §8 is unchanged — **still not one BPB, and E43 still cannot move the T4 ask.**
