@@ -1,5 +1,46 @@
 # E31 — what does a GATHERED byte cost, and at what granularity does the penalty go away?
 
+> **CORRECTION TO §6.1, 2026-09-12, same day, found by reading the engine instead of my own
+> summary.** §6.1 said the carve reads **one FFN row at a time** (768 B at S15) and that a
+> coarser group is therefore worth **`2.01×`**, "the largest single lever left anywhere in
+> this programme". **The mechanism is wrong and so is the number.**
+>
+> `synth_export.py:266` writes `gate` and `up` as plain packed `[F, D]` with **group-major rows**,
+> so one carve group is **already one contiguous run** of `GSZ × D/2` bytes — 26.9 KB at
+> S15 with `E=256`, 114.7 KB at T10. Those are past this probe's own crossover and cost almost
+> nothing. **The fine granularity is `down`**, which `donor_engine.c:864` *requires* to be
+> `MK_PACKED_T`, block-major at **`PT_BLK = 64` — exactly one cache line per selected
+> neuron** (`donor_engine.c:638`). A group therefore contributes `GSZ × 64` contiguous bytes
+> to `down`: **2,240 B at S15, 3,584 B at T10**, squarely in the steep part of §3's curve.
+>
+> Applying §3's measured curve to that layout (**desk arithmetic on a measured table, NOT a
+> measurement** — no carved artifact was timed for this note):
+>
+> | | `gate`/`up` run | `down` run | relative time |
+> |---|---|---|---|
+> | S15 `E=256` (E26's setting) | 26.9 KB, `r=0.929` | **2,240 B, `r=0.596`** | 3.830 |
+> | S15 `E=16` | 430 KB, `r=1.000` | 35.8 KB, `r=0.946` | 3.057 |
+> | T10 `E=256` | 114.7 KB, `r=0.976` | **3,584 B, `r=0.685`** | 3.508 |
+> | T10 `E=16` | 1.84 MB, `r=0.989` | 57.3 KB, `r=0.959` | 3.065 |
+>
+> **The coarse-carve lever is `1.25×` at S15 and `1.14×` at T10, not `2.01×`** —
+> comparable to the `1.24×` E30 left in the numerator, not dwarfing it. **§6.1's
+> DIRECTION survives and its size does not**, and "the largest single lever left anywhere in this
+> programme" is withdrawn.
+>
+> **What the correction gains is a sharper target.** `gate` and `up` are already effectively free;
+> **`down` alone carries the entire carve locality cost**, and that is a much more actionable
+> statement than "the rows are short". It also exposes a second knob §6.1 never saw:
+> **`PT_BLK` itself**. At `PT_BLK = 512` one neuron's `down` contribution is 512 B and an `E=256`
+> group is 17.9 KB (`r≈0.90`), worth `1.17×` at S15 **without changing the carve at
+> all** — but `PT_BLK` is a compiled kernel constant, so that is an engine change with a
+> kernel rewrite behind it, not the exporter-only change §6.1 promised.
+>
+> Everything in §§1–5 and §7 is unaffected: the measurement, the gates, the
+> verdict cell `0.579`, the crossover, and the budget table are all readings of the instrument and
+> none of them depend on how the carve happens to be laid out. **§6.2 and §6.3 stand.**
+
+
 **Verdict: `GATHER-COSTS`, `r_T10 = 0.579`.** Reading one T10 FFN row at a time delivers **58% of
 the dense rate in the bytes you asked for**. E30's budget of 1.45 G moved weights/token was
 derived from a dense stream; at row granularity the real budget is **0.840 G/token — 7.93% of

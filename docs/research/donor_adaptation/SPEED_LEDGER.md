@@ -3287,13 +3287,37 @@ With section 40's resident half, the goal is now fully priced in one line:
 > **~32 M weights resident and free, plus <= 0.84 G streamed at row granularity -- or <= 1.37 G
 > if the architecture activates in >= 32 KB contiguous blocks. Per token, for 50 tok/s.**
 
-### 41.3 The lever this promotes
+### 41.3 The lever this promotes -- CORRECTED the same day
 
-**E26 section 9's owed item is now priced and it is the largest single lever left anywhere in the
-programme.** E26 concluded "a coarser carve, and it is a change to the EXPORTER, not the engine";
-E31 says what it is worth: at S15's 768-byte rows the carve runs at **0.469** of dense and a
-32 KB group would run at **0.944** -- **`2.01x`, free of quality cost by construction**, the same
-weights in a different order in the file.
+**First reading, and it was wrong**: E26 section 9 had left "a coarser carve, and it is a change
+to the EXPORTER, not the engine" unpriced, and E31's first write-up priced it at `2.01x` on the
+assumption that the carve reads one FFN ROW at a time. **Reading the code instead of my own
+summary says it does not.** `synth_export.py:266` writes `gate`/`up` group-major, so **a carve
+group is ALREADY one contiguous run** -- 26.9 KB at S15 with `E=256`, 114.7 KB at T10, both past
+this probe's crossover and nearly free. The fine granularity is **`down`**, which
+`donor_engine.c:864` REQUIRES to be `MK_PACKED_T` at **`PT_BLK = 64`, exactly one cache line per
+selected neuron**: a group contributes `GSZ x 64` bytes -- **2,240 B at S15, 3,584 B at T10**.
+
+Applying 41.1's measured curve to that layout (**desk arithmetic on a measured table, not a
+measurement**):
+
+| | `gate`/`up` run | `down` run | relative time |
+|---|---|---|---|
+| S15 `E=256` (E26's setting) | 26.9 KB, `r=0.929` | **2,240 B, `r=0.596`** | 3.830 |
+| S15 `E=16` | 430 KB, `r=1.000` | 35.8 KB, `r=0.946` | 3.057 |
+| T10 `E=256` | 114.7 KB, `r=0.976` | **3,584 B, `r=0.685`** | 3.508 |
+| T10 `E=16` | 1.84 MB, `r=0.989` | 57.3 KB, `r=0.959` | 3.065 |
+
+**The coarse-carve lever is `1.25x` at S15 and `1.14x` at T10, not `2.01x`** -- comparable to the
+`1.24x` section 40 left in the numerator, not dwarfing it. The direction survives; the size does
+not, and "the largest single lever left in the programme" is withdrawn.
+
+**What the correction gains is a sharper target**: `gate` and `up` are already effectively free
+and **`down` alone carries the whole carve locality cost.** It also exposes a knob the first
+reading never saw -- **`PT_BLK`**. At `PT_BLK = 512` a neuron's `down` contribution is 512 B and
+an `E=256` group is 17.9 KB (`r ~ 0.90`), worth `1.17x` at S15 **without touching the carve** --
+but `PT_BLK` is a compiled kernel constant, so that is an engine change with a kernel rewrite
+behind it, not the exporter-only change first advertised.
 
 And E18's "50 tok/s is a ~10%-activation budget", read from the numerator side, meets **7.93% /
 12.93%** read from the memory side. The two roads arrive at the same number.
