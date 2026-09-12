@@ -3676,3 +3676,117 @@ attention problem** -- E34 said it, this prices it.
 Predictions **3 HIT / 1 MISS / 2 held**. Gates: `G-E36A` +3.4%; `G-E36B` 9,999,220,736 from the
 exporter == the same recomputed from the FILE'S OWN HEADER, `>= 9.9 G`, with bytes on disk ==
 E1's independently written v4 layout exactly; `G-E36C` exact at every `k` at zero tolerance.
+
+---
+
+## 47. E37 — what E36's speed costs a model that was actually trained
+
+**Probe**: `probes/E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md`.
+**Brief** `3072941`, **addendum A** `8cc405a`, **addendum B** `341b505` — all pushed before the
+thing they govern existed.
+**Runners**: `engine/e37_fit_routers.py`, `engine/e37_sparsity_cost.py`, `engine/e37_router_control.py`.
+
+### 47.1 The structural gap this closes
+
+Every real-weights probe in this branch (E21, E22, E23, E24, E27, E29) says **"no timing"** in
+its own text; every timed probe since E25 ran on **synthetic noise**. **No probe had ever put a
+stopwatch and a BPB on one file.** E37 does, and it is answerable today rather than at 10 B
+because of a coincidence: `S15`'s `F = 8960` over the label file's `E = 256` groups gives 35
+neurons a group, so **`k = 3` at S15 is 1.17% activation — exactly the rate `A10B` needs.**
+
+### 47.2 The verdict
+
+**`S15-K3 = 4.029398` BPB → `SPARSITY-DEGRADES`.** +0.5537 above dense (3.475706), **0.0404
+below the 4.069819 chance line.** A really-trained donor forced to E36's activation rate beats
+coin-flipping by four hundredths of a bit and is not a model.
+
+### 47.3 Both axes, one artifact
+
+| arm | tok/s | spread | charged | numerator | BPB | ΔBPB/Δtok/s |
+|---|---|---|---|---|---|---|
+| `DENSE-NF` | **30.52** | 10.1% | 1.5436 G | **47.116 G-w/s** | 3.475706 | — |
+| `K256` | 28.34 | 13.1% | 1.5546 G | 44.060 | 3.475707 | −0.000000 |
+| `K64` | 55.05 | 13.2% | 0.6875 G | 37.852 | 3.927384 | 0.018413 |
+| `K32` | 73.24 | 17.5% | 0.5430 G | 39.771 | **4.074431** | 0.014017 |
+| `K16` | 88.71 | 13.0% | 0.4708 G | 41.762 | 3.986801 | 0.008784 |
+| `K8` | 95.19 | 18.8% | 0.4347 G | 41.376 | 3.996693 | 0.008056 |
+| `K4` | 104.79 | 10.0% | 0.4166 G | 43.653 | 4.023439 | 0.007375 |
+| **`K3`** | **107.84** | 4.8% | 0.4121 G | 44.436 | **4.029398** | **0.007162** |
+| `K2` | 107.71 | 11.4% | 0.4076 G | 43.899 | 4.014866 | 0.006985 |
+| `K1` | 101.59 | 26.1% | 0.4030 G | 40.944 | 3.989839 | 0.007235 |
+
+Five reps, reps outermost, one warm token before `--bench`, box 13.0% mean / 23% peak.
+**Dispersions are large** (26.1% on the shortest arm): the absolute tok/s carry that on top of
+the standing ±5%, **the ratios and the slope are what is load-bearing.**
+
+### 47.4 Three cross-checks that came free, and all three land
+
+* **`DENSE-NF` reads 47.116 G-w/s** — inside **E36's base envelope of 47.2–48.5**, measured here
+  on a different shape, a different scale, and **real weights instead of noise.**
+* **`K256` is −7.15% against `DENSE-NF` at byte-neutral cost.** **E26's planted control read
+  −6.80%.** The carve machine costs ~7% before one group is dropped, now confirmed twice.
+* Fitting `time = c₀ + c₁·k` over the eight arms below `K256`: **9.16 ms + 0.140 ms per group**
+  → base **43.5 G-w/s**, marginal group **32.2 G-w/s**, **gather penalty 0.74** (0.81 restricted
+  to `k ≤ 16`). **E36 measured 0.80 at A10B.** An FFN weight costs ~1.25× an attention weight at
+  both shapes.
+
+### 47.5 The finding: the damage is HOW FEW, not WHICH
+
+`G-E37D` fired hard — the fitted router recovers **0.5075** of the oracle's top-3 groups against
+**0.0102** random, and **0.7132** of its mass against **0.0608**, on 28/28 layers. **Addendum B
+was pushed before the control ran** to ask whether that buys a model.
+
+| k | fitted | synthetic | syn − fit |
+|---|---|---|---|
+| 64 | 3.927384 | 4.059717 | **+0.1323** |
+| 32 | 4.074431 | 3.998745 | −0.0757 |
+| 16 | 3.986801 | 4.074449 | +0.0876 |
+| **3** | **4.029398** | **4.020624** | **−0.0088** |
+| 1 | 3.989839 | 3.974800 | −0.0150 |
+
+**`ROUTER-IS-NOT-THE-CONSTRAINT`.** At the deciding `k` the **synthetic** router is nominally
+better. `G-E37D`'s win is **real and inert** — the mirror of E14 §3, a RANK result standing in
+for a SCORE result it does not imply. **The verdict cell did not move**, per addendum B's own
+rule pushed before the run.
+
+### 47.6 The curve is a cliff and then a plateau
+
+`k=64` (25% activation) already costs **+0.4517**. From `k=16` to `k=1` everything sits in
+**3.99–4.03**: a **40× change in activation that moves quality less than the spread between
+neighbours.** The only point over the chance line is `k=32`, in the middle.
+
+**Registered before it could be fitted** (addendum B §5), and strengthened by the control, since
+the synthetic curve is non-monotone too: **a partial FFN is worse than almost no FFN.**
+`down_proj` sums the survivors; dropping most of them does not shrink the update toward zero, it
+makes it **systematically wrong at roughly the original magnitude.** Untestable on this engine —
+`ffn_carved` clamps `k ≥ 1`. **Plumbing ruled out**: `--carve-dump` shows exactly `k` distinct
+in-range groups per layer per token, 0 malformed.
+
+### 47.7 Gates, and two of mine that were wrong as written
+
+`G-E37A′` BPB diff **2.80e-07**, worst rel L2 **4.99e-05**, top-1 **1.0000** — fires.
+`G-E37B1` **3.47570637184527** vs the published **3.475706372**, diff **−1.5e-10** — fires.
+`G-E37C` agrees at **all nine `k`** at zero tolerance — fires. `G-E37D` fires (and §47.5 is what
+that is worth). **Fold cost exactly 0.000000**: `e37_dense_nf.bin` is **byte-identical** to the
+anchor (sha256 `5d50e377…`, 1,709,047,348 B) because the anchor's JSON has **no `fold` key**.
+
+Addendum A, pushed before any artifact: `G-E37A`'s 1e-6 bar ignored that `ffn_carved` accumulates
+`down` in router-selection order (adopted `e26_parity_carve.py:49`'s existing `TOL_P = 1e-4`
+instead of inventing a number); `G-E37B` compared against a reference the carve is forbidden to
+match (`qwen_export.py:390`). `G-E37C` named `active_weights_per_token`, **a key the exporter had
+never written** — not widened, reimplemented from the artifact's own header.
+
+### 47.8 Predictions
+
+Brief §6: **3 HIT / 3 MISS**. MISS 2 (`SPARSITY-DESTROYS` registered; came in 0.0404 *under*
+chance), MISS 3 (knee registered at `k ≥ 64` within +0.10; it costs +0.4517 there), MISS 4 (I
+wrote that the dense donor at S15 "already clears 50 tok/s" — it reads **30.52**). HIT 1, HIT 5
+(charged weights fall 3.746×, speed rises 3.533× = **0.943** of what a weight count promises),
+6 held. **All three MISSes are one error: I modelled the damage as a function of how much FFN
+mass is missing, and it is not.** Addendum B: **3 HIT / 0 MISS.**
+
+### 47.9 What this does NOT say
+
+One donor, one scale (1.5 B), one label set, one ridge router family, no healing of any kind.
+**It does not prove no sparse 10 B exists — it proves this CONVERSION does not produce one.**
+The lever it leaves standing is **training inside the format**, not converting harder.
