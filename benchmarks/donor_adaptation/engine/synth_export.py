@@ -59,7 +59,23 @@ SHAPES = {
     "T10L24": (4096, 14336, 24, 32, 8, 128, 32768, 0, "E35 -- T10 at 24 layers"),
     "T10L16": (4096, 14336, 16, 32, 8, 128, 32768, 0, "E35 -- T10 at 16 layers"),
     "T10L12": (4096, 14336, 12, 32, 8, 128, 32768, 0, "E35 -- T10 at 12 layers"),
+    # E36: the first shape in this programme that is ACTUALLY ~10 B on disk and whose ACTIVE
+    # slice is sized to E35's measured envelope.  L and D are E35's crossing arm; F is whatever
+    # makes the parameter count 10 B.  F = 46080 = 256*180, so --carve 256 gives GSZ=180 and the
+    # down_proj runs are 11,520 B -- the FLAT part of E31's curve, not the steep part every
+    # earlier carve arm sat on.  Total 9,999,220,736 weights; charged 822,083,584 + 35,389,440*k.
+    "A10B": (4096, 46080, 16, 32, 8, 128, 32768, 0, "E36 -- SYNTHETIC, ~10 B at the E35 envelope"),
 }
+
+
+def total_weights(D, F, L, NH, NKV, HD, V, tied):
+    """Every weight IN THE FILE, charged or not.  E36 needs this and active_weights() cannot
+    give it: a carved file's whole point is that most of its parameters are never read on a
+    given token, so "how big is this model" and "how much does a token cost" are two different
+    numbers and this programme has only ever computed the second one.  Norms and biases are
+    left out -- they are 5 numbers in 10^10 and counting them would flatter the total."""
+    per = NH * HD * D + 2 * (NKV * HD * D) + NH * HD * D
+    return (per + 3 * D * F) * L + V * D * (1 if tied else 2)
 
 
 def active_weights(D, F, L, NH, NKV, HD, V, E=0, k=0):
@@ -317,6 +333,7 @@ def main():
             "quant": ("tagged-v2" if v4 else "tagged") if tagged else "packed",
             "rank": a.rank, "carve_E": a.carve, "carve_k_in_file": carve_k,
             "carve_group_size": (F // a.carve) if a.carve else 0,
+            "total_weights": int(total_weights(D, F, L, NH, NKV, HD, V, tied)),
             "active_weights_per_token": int(act_r),
             "active_weights_per_token_dense_qo": int(act), "bytes": size,
             "WARNING": "weights are NOISE -- this file has no meaningful BPB and none is computed"}
