@@ -373,3 +373,125 @@ was never controlled, by E39, E40 or E43.** Today's charged throughput is `331,3
 invariant E25 called stable to 1.54%. That is consistent with a warm cache and is **not
 established**; it is a question for a successor, and it may mean every absolute rate in this
 programme is a cache-state measurement as much as an engine measurement.
+
+---
+
+# ADDENDUM D — THE ONE ATTEMPT IS SPENT. `G-E43A2` FIRES, `G-E43A1` FAILS, AND E43 HAS NO SPEED HALF
+
+**Both sessions ran. Both are recorded. The speed half of E43 is VOID, permanently, exactly as
+addendum C registered it before the runs.**
+
+## D.1 What was run, and on the quietest box this programme has measured
+
+Two sessions, back to back, on a machine the user emptied for the purpose. `e43_vocabulary.py`
+unmodified from the version that predates addendum C — the new gates are computed from the
+`spread` and the cell sign it already records, so nothing in the instrument was touched between
+registering the gates and reading them.
+
+| session | command | reps kept (rule 3) | box busy per rep | seconds |
+|---|---|---|---|---|
+| forward | `--phase time --reps 5 --order forward` | **5 of 5** | 6.8, 10.2, 8.5, 5.2, 13.3 % | 253 |
+| reversed | `--phase time --reps 5 --order reversed` | **5 of 5** | 6.5, 5.5, **1.0**, 9.2, 5.7 % | 244 |
+
+No rep was dropped by rule 3, so the session-void clause (fewer than three survivors) never
+engaged. `results/e43_vocabulary.json` and `results/e43_vocabulary_order_reversed.json`.
+
+## D.2 `G-E43A2` FIRES — the two orders agree, and they agree closely
+
+| arm | `V` | B/tok | **bytes/s forward** | **bytes/s reversed** |
+|---|---|---|---|---|
+| V2048 | 2,048 | 2.64737 | 461.7 | 454.2 |
+| V8192 | 8,192 | 3.31036 | **521.2** | **558.5** |
+| V32768 (control) | 32,768 | 3.86311 | 476.4 | 503.4 |
+| V131072 | 131,072 | 4.12354 | 274.9 | 288.8 |
+
+Both orders put the peak at **`V8192`** and both put the control **above** the peak. The cells
+are `1.0939` (forward) and `1.1095` (reversed) — they agree on the sign, which is what the gate
+demanded, and they happen to agree to 1.4%, which it did not. **`G-E43A2` was the gate whose
+outcome I said in C.3 I could not predict. It fired.**
+
+## D.3 `G-E43A1` FAILS — and it fails on the control cell of the reversed session
+
+The registered bar: the control arm's own spread over surviving reps **≤ 13.5%**, E40's measured
+forward-session spread on this exact arm at this exact `k`. Spread is `(max − min) / mean`, the
+definition `e43_vocabulary.py` already computes and the one under which E40's numbers read
+13.5% / 34.9%.
+
+| session | `V32768 k=3` rates | mean | **spread** | vs bar |
+|---|---|---|---|---|
+| forward | 128.02, 122.20, 126.47, 117.00, 122.95 | 123.33 | **0.089** | PASS |
+| reversed | 120.42, 131.98, 125.60, 123.99, **149.51** | 130.30 | **0.223** | **FAIL** |
+
+**22.3% against a 13.5% bar.** One gate, one failure, and that is the whole adjudication.
+
+**The outlier was checked and it is not removable.** Rep 5 is not a fast rep: its mean rate
+relative to each cell's own mean is **1.0153**, inside the pack and below rep 2's 1.0163, so
+this is not a warm-cache or a turbo-clock rep that could be argued away as a whole-rep artifact.
+It is one cell reading 14.7% above its own mean, on a box that was **5.7% busy**. And rule 3 —
+the only rep-dropping rule this brief registered — drops reps by **box occupancy**, never by
+value. Dropping 149.51 because it is inconvenient is precisely the post-hoc gate adjustment
+addendum C was written to stop, two paragraphs after I wrote that addendum.
+
+**The bad luck is real and it changes nothing.** In the reversed session the control cell is the
+**worst of all 20 cells** (rank 20/20); in the forward session the same cell was 5th best
+(rank 5/20). Had the gate been anchored to any other cell it would have passed. A gate is a
+floor, not a tachometer, and a floor that only holds when the draw is kind is not a floor.
+
+## D.4 The verdict, and the numbers that may not be cited
+
+**E43 HAS NO SPEED HALF. PERMANENTLY.** Addendum A registered ONE attempt; addendum C
+re-registered it verbatim — *"If `G-E43A1` or `G-E43A2` fails, E43 has no speed half,
+permanently, exactly as registered."* It is spent.
+
+Consequences, stated so no successor has to reconstruct them:
+
+1. **The cell `1.09–1.11` is NOT a result and must not be quoted**, in the INDEX, the ledger,
+   the pitch or anywhere else. Neither is `VOCABULARY-IS-A-SMALL-LEVER`. Both sessions'
+   JSONs stay on disk, complete and unedited, so the data is auditable — being unusable is not
+   a reason to delete it — but the citation bar is absolute.
+2. **`CELL 2` — "`V=32768` is above the peak" — is also void**, even though both orders agree
+   on it. It is a reading of the same session pair.
+3. **The runner's own `G-E43A ... VOID` line in both logs is superseded**, not authoritative:
+   addendum C retired `G-E43A` before these runs and the file was deliberately left unmodified.
+   Two independent quiet-box readings of the control (123.33, 130.30) plus the pre-flight probe
+   (128.54) all land **above** 112.73 — which is §D.5's subject, not a comparability failure.
+4. **E43's other half is untouched.** `B/tok` per vocabulary, the head's share of the charged
+   floor, and `G-E43B` are arithmetic on the shape, deterministic, and measured before any of
+   this. They stand.
+
+**Was `G-E43A1` a rubber stamp?** C.3 recorded the uncomfortable admission that I already knew
+the pre-flight probe's 6.8% would pass it. It passed forward at 8.9% and **failed reversed at
+22.3%**. A gate I expected to pass, failed. That is the answer to the objection, and it is the
+only good news in this addendum.
+
+## D.5 The finding that survives, and it is bigger than E43
+
+**On a genuinely idle box this engine's absolute tok/s has a dispersion of ~9–22%, and it is
+intrinsic, not contention.** Forty cells across the two sessions, every rep between 1.0% and
+13.3% box occupancy:
+
+| session | cells | min spread | median | max | cells over 13.5% |
+|---|---|---|---|---|---|
+| forward | 20 | 0.035 | **0.109** | 0.184 | 4 of 20 |
+| reversed | 20 | 0.048 | **0.092** | 0.223 | 4 of 20 |
+
+This is the same magnitude E40 recorded (13.5% forward, 34.9% reversed) on a busier box, so
+**emptying the machine did not shrink the dispersion.** The programme's standing rule — *a
+contended timing is not a timing* — is correct and insufficient: an **uncontended** timing is
+also not a point estimate.
+
+**What that prices.** `112.73 tok/s` is quoted to four significant figures in the INDEX, the
+SPEED_LEDGER, the memory index and the pitch. Its own session spread is 13.5%; three
+independent quiet-box readings of the same file now read 128.54, 123.33 and 130.30. **The
+quantity is roughly `113–130`, and writing `112.73` asserts a precision the instrument does not
+have.** Direction favours the claim — the quiet box is *faster* — but the correction is owed
+across those four places and it is a correction, not a promotion: no new headline number may be
+minted from these VOID sessions either.
+
+**The page-cache hypothesis is not resolved and is now better posed.** C.4 proposed warm cache
+as the mechanism. §D.3 weakens it as an explanation for the *outlier* (rep 5 was not uniformly
+fast) but leaves it entirely open for the *level* shift: the arm is a 5.49 GB file on an 80 GB
+box, residency was never controlled by E39/E40/E43, and the reversed session — which touches
+`V131072` first and `V2048` last — reads the control 5.7% higher than the forward one. Still a
+hypothesis. It needs a probe that controls residency explicitly, and that probe is worth more
+than re-running E43.
