@@ -9,11 +9,20 @@ THE QUESTION.  E37 measured the cost of APPLYING the ternary+carved FFN to a tra
 H0 measured that a ternary format can be TRAINED INTO.  Nobody has put those two facts in one
 run.  H1 does.
 
-WHAT IS BEING HEALED, AND IT IS NOT MOSTLY THE CARVE.  Off e37_sparsity_cost.json, one
-instrument, the frozen 51,870-byte slice:  fp32 dense 0.767595 -> ternary FFN with ALL 256
-groups on 3.475707 (+2.708) -> carved to k=16 3.986801 (+0.511).  Ternarisation is the big
-half; the carve ladder is nearly flat from k=64 (3.927) to k=1 (3.990).  H1 must heal +3.22
-BPB combined, 1.6x what H0 healed, on the organ holding nine tenths of the weights.
+WHAT IS BEING HEALED -- MEASURED ON THE 8 LAYERS, NOT QUOTED FROM 28.  The "+3.22 BPB
+combined" this docstring used to claim is RETIRED (addendum C): it was E37's ALL-28-LAYER
+figure, and H1 does not build that object.  On the 8 layers a 16 GB T4 affords, measured on
+the frozen 51,870-byte slice by h1_applied.py:
+
+    h0-run3     0.810022     H1's start line -- q/o trained, FFN untouched
+    ternary-8L  0.947851     + ternary FFN, k = E, no carve        (+0.137829)
+    applied-8L  1.096636     + the carve at k=16, E37's router     (+0.148785)
+
+So the whole prize is 0.286614 BPB, of which the carve is 0.148785 -- about 30 sigma against
+this programme's seed constant (0.005), so a small claim but not a weak instrument.  E37's
+28-layer numbers (3.475707, 3.986801) are NOT the comparison and are not thresholds here; the
+damage is plainly not additive in layers, and nothing H1 measures may be multiplied up to 28
+layers or to 10 B.
 
 WHY ONLY 8 LAYERS, AND WHY THESE 8.  Training the whole 1.5B FFN needs 17.2 GB of AdamW state
 (1,156,055,040 masters x 16 B) and DOES NOT FIT a 16 GB T4 -- computed in the brief s2 before
@@ -755,9 +764,18 @@ def save(model, mods, a, layers, hist, bpb0, nonfinite, el, done, gates, decline
                "scaler_declined_before_first_applied": declined,
                "bpb_fp16_gpu_step0": bpb0, "history": hist, "gates": gates,
                "gate": "NOT decided here -- h1_eval.py on CPU fp32, BPB < applied-8L",
-               "anchors": {"dense_fp32": 0.767595, "ternary_all_groups_E37": 3.475707,
-                           "carved_k16_E37": 3.986801, "chance": 4.069819,
-                           "h0_run3": 0.810022, "applied_8L": None}},
+               # addendum C: the bands are the MATCHED 8-layer ladder, measured by
+               # h1_applied.py.  E37's 28-layer numbers are kept for reference ONLY and are
+               # not thresholds -- using one as a band edge is the defect addendum C repaired.
+               "anchors": {"dense_fp32": 0.767595, "chance": 4.069819,
+                           "h0_run3": 0.810022, "ternary_8L": 0.947851,
+                           "applied_8L": 1.096636,
+                           "e37_28L_reference_only": {"ternary_all_groups": 3.475707,
+                                                      "carved_k16": 3.986801}},
+               "bands": {"CARVE-NOT-TRAINABLE": ">= 1.096636",
+                         "TRAINING-HELPS": "[0.947851, 1.096636)",
+                         "CARVE-IS-TRAINABLE": "(0.810022, 0.947851)",
+                         "CARVE-IS-FREE": "<= 0.810022"}},
               open(os.path.splitext(a.out)[0] + ".json", "w", encoding="utf-8"), indent=1)
 
 

@@ -354,3 +354,140 @@ The recall-vs-mass claim was **prediction 5 in §8**, a prediction, not a gate. 
 addendum that misstates which gate it is overriding is exactly the kind of small, plausible
 error this programme fails on — and the fix costs one section, whereas discovering at verdict
 time that two different gates share a name costs the run.
+
+---
+
+# ADDENDUM C — `applied-8L` MEASURED, and it BREAKS §5.2's band table
+
+**Written and pushed BEFORE the T4 sessions, as §10 item 3 requires.** Everything here is CPU,
+fp32, free, on the frozen 24×512 slice. `benchmarks/donor_adaptation/s1/h1_applied.py`,
+`results/h1/h1_applied_8L.json`.
+
+## C.1 The instrument first, then the number
+
+Three checks before any arm counts, all exact:
+
+| check | read | demanded |
+|---|---|---|
+| frozen slice | 51,870 scored bytes, `4.22945205479452` B/token | the registered `ids_sha a1a48dc9…` |
+| `intact` | **0.767595** | E12's dense anchor — **planted control, FIRES** |
+| `h0-run3` | **0.810022** | H0 run 3's own reading — H1's start line reproduced |
+| **`G-H1a` on the REAL donor shape** | max abs diff **0.0e+00** | bit-identical at `k = E`, zero tolerance — **FIRES** |
+
+`G-H1a` had only ever fired on a toy. It now fires on `D=1536, F=8960, E=256, GSZ=35` with the
+H0 organs installed, which is the configuration the T4 run will train.
+
+| arm | BPB | vs previous |
+|---|---|---|
+| `intact` | 0.767595 | — |
+| `h0-run3` (q/o trained, FFN untouched) | 0.810022 | +0.042427 |
+| `ternary-8L` (ternary FFN on 8 layers, `k = E`, no carve) | **0.947851** | **+0.137829** |
+| **`applied-8L`** (`k = 16`, E37's own fitted router, hard gate) | **1.096636** | **+0.148785** |
+
+**`applied-8L = 1.096636` is the number H1's gate argues with. It is registered here and may
+not be adjusted afterwards.**
+
+## C.2 `G-H1d` FIRES
+
+`applied-8L` 1.096636 **>** `ternary-8L` 0.947851, **+0.148785**, ordinal and no tolerance. The
+matched control is reading **the carve** and not an artifact of the 8-layer restriction. For
+scale: this programme's own seed constant is **σ ≈ 0.005** (R1 calibration), so the carve cost
+is about **30 σ** — comfortably measurable, which is what `G-H1d` had to establish.
+
+## C.3 §5.2's BAND TABLE IS BROKEN, and the repair makes it HARDER
+
+As registered, with `applied-8L = 1.096636` substituted in:
+
+```
+CARVE-NOT-TRAINABLE   BPB >= 1.096636
+TRAINING-HELPS        3.475707 <= BPB < 1.096636      <-- EMPTY: 3.475707 > 1.096636
+CARVE-IS-TRAINABLE    0.810022 <  BPB < 3.475707      <-- OVERLAPS the first band
+CARVE-IS-FREE         BPB <= 0.810022
+```
+
+**`TRAINING-HELPS` is empty and `CARVE-IS-TRAINABLE` overlaps `CARVE-NOT-TRAINABLE`.** The
+cause is exactly the category error this brief named when it invented `applied-8L` in the first
+place: **`3.475707` is an ALL-28-LAYER number** (E37's ternary-everywhere arm) used as a
+threshold in an **8-layer** comparison. §2 wrote *"E37's all-28-layer anchors are NOT the
+comparison"* and then §5.2 used one as a band edge.
+
+**The repair is to swap that one threshold for its matched counterpart**, `ternary-8L`,
+measured in the same session, on the same instrument, on the same 8 layers:
+
+| band | condition | reading |
+|---|---|---|
+| `CARVE-NOT-TRAINABLE` | BPB ≥ **1.096636** (`applied-8L`) | training buys nothing; the T4 branch closes |
+| `TRAINING-HELPS` | **0.947851** (`ternary-8L`) ≤ BPB < 1.096636 | the carve partly heals; ternarisation does not |
+| `CARVE-IS-TRAINABLE` | **0.810022** (`h0-run3`) < BPB < 0.947851 | the carve fully heals AND some ternarisation does — **the result that opens 10 B** |
+| `CARVE-IS-FREE` | BPB ≤ **0.810022** | indistinguishable from never touching the FFN |
+
+Now monotone — `applied-8L > ternary-8L > h0-run3` — with every edge a number measured today.
+
+**This is a TIGHTENING, and that is the point.** Under the registered table a trained result of
+`1.05` would have fallen in `CARVE-IS-TRAINABLE`, i.e. *"the result that opens 10 B"*, because
+that band ran all the way up to 3.475707. Under the repair the same `1.05` reads
+`TRAINING-HELPS` — a far more modest claim. The old table would have **over-claimed on almost
+any outcome**; the repair makes the good-news band roughly **twelve times narrower** (0.138 wide
+instead of 2.666). A gate change that makes the answer harder, registered before the run, is
+not a goalpost move — and **`G-H1`'s gate itself is untouched: trained BPB < `applied-8L`.**
+
+## C.4 A defect in my own run, and the sensitivity arm it turned into
+
+**I launched the first `applied-8L` WITHOUT `--stats`**, so `h1_qat.build_ffn` took its
+`rms = ones` fallback — and that function's own docstring says what that means: *"the R3 rule
+is activation-weighted and using ones here would silently change the format from the one the
+engine ships."* That run measured a **different quantization** from E37's and **cannot be the
+anchor.** It is kept, labelled, as `results/h1/h1_applied_8L_ONES_sensitivity.json`, and
+`h1_stats.py` now captures the real calibration by importing `qwen_export.capture_act_rms` —
+the definition the exporter and E1 already share — over T2/E23/E37's pinned
+`(calib, 32, 512, 42424)`, on the plain donor, because E37 calibrated there.
+
+**How much the defect was worth, measured rather than assumed:**
+
+| arm | R3 (anchor) | `ones` | difference |
+|---|---|---|---|
+| `intact` | 0.767595 | 0.767595 | 0.000000 |
+| `h0-run3` | 0.810022 | 0.810022 | 0.000000 |
+| `ternary-8L` | 0.947851 | 0.946799 | **+0.001052** |
+| `applied-8L` | 1.096636 | 1.100281 | **−0.003645** |
+
+**Both differences are below this programme's seed constant σ ≈ 0.005**, and they point in
+opposite directions. So on this donor at this shape the R3 activation calibration is worth
+**less than noise** — it neither rescues nor damages the carve.
+
+**And there is a derivation that explains why the effect is this small, which is the part worth
+keeping.** `r3_actsearch` is **invariant to a global rescaling of `act_rms`**: with `ww → c·ww`,
+the scale `a = (w·q·ww²)/(kept·ww²)` is unchanged and the error `(r²·ww²)` scales by `c²`
+uniformly, so the argmin over `D_GRID` does not move. The two arms therefore differ **only
+through the per-column profile inside a layer**, never through its magnitude — and the measured
+answer is that the profile is worth under 0.004 BPB here. **This does NOT rescue the `ones` run
+as the anchor**: E37 used the real profile and a control that does not match E37 is not a
+control. It does mean the defect cost wall time, not correctness.
+
+## C.5 What the number does to H1's stated motivation, and this is uncomfortable
+
+**The prize is 0.287 BPB, not the 3.22 the brief's own header advertises.** `h1_qat.py`'s
+docstring says *"H1 must heal +3.22 BPB combined, 1.6× what H0 healed"* — and `+3.22` is an
+**all-28-layer** figure taken from E37. On the 8 layers H1 can actually afford, the entire
+damage between H1's start line and its control is:
+
+```
+applied-8L 1.096636  −  h0-run3 0.810022  =  0.286614
+   of which the carve  +0.148785
+   and ternarisation   +0.137829
+```
+
+**Registered consequences:**
+
+1. **The `+3.22` framing is RETIRED.** No H1 document may quote it as what this run heals. It
+   describes a 28-layer object H1 does not build.
+2. **The measurement is still comfortably resolvable** — 0.287 BPB is ~57 σ and the carve half
+   alone is ~30 σ — so the smaller prize is a smaller *claim*, not a weaker instrument.
+3. **A limitation that is now sharper, and it is NOT new, only quantified.** Eight layers of
+   twenty-eight is what a 16 GB T4 affords (§2), and the damage does not look additive: E37
+   reads +2.708 for ternarising 28 layers while 8 layers here read +0.138, which is far less
+   than `28/8 ×`. Whatever H1 measures is therefore **a statement about training the carve at
+   all**, not a per-layer coefficient to multiply up to 28 layers or to 10 B. §9's scope limits
+   stand and this is the number that makes them concrete.
+4. **`G-H1` is unchanged and still the right gate.** *Does training beat applying* is exactly
+   the question 0.287 BPB of headroom can answer.
