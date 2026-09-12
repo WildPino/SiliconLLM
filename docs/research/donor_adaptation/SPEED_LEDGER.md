@@ -4272,3 +4272,144 @@ ajar nor re-strengthens anything. **The T4 ask in `COMMUNICATION.md` still rests
 E40 — exactly where it stood before E41 and E42 were run.** What the two probes together *have*
 bought is an instrument: a measured σ for the fitted column, and the knowledge that no partition
 comparison below roughly **0.3 BPB** is resolvable at three seeds on this harness.
+
+---
+
+## 53. E43 — is the VOCABULARY a lever, and what is a token worth? **UNITS HALF DONE · SPEED HALF BLOCKED** (no verdict, no rate)
+
+`briefs/BRIEF_E43_IS_THE_VOCABULARY_A_LEVER.md`, pushed at `4b4ebf2` before the runner existed
+and before any vocabulary had been trained; **addendum A** at `3342175`, pushed before the
+re-run. Runner `engine/e43_vocabulary.py` (`6881be7`, rule 3 at `17b3825`).
+
+**This section is INCOMPLETE and says so. Three gates of four have fired; the fourth is the
+speed control and it cannot be taken on a contended box. There is no verdict and no rate.**
+
+### 53.1 Why the vocabulary, and why it was never asked
+
+E40 §50.6 decomposed the floor and left one term alone: the head is `V × D`, it sits **outside
+the layer loop** (`active_weights` ends in `+ V * D`), it is charged **in full on every token**,
+and at `R128` it is **61.5% of the base** — bigger than all the attention put together. Every
+lever this programme has pulled — `NKV` 8→2, rank 512→128 — attacked a smaller term.
+
+At a fixed **9,999,220,736** parameters a weight taken out of the head goes into `F`, and `F` is
+charged at `k/E` = **1.2% at k=3**. That is the `NKV` lever's mechanism — the one the ledger
+calls the cheapest large lever in the programme — applied to a term three times the size.
+`F % 256 == 0` for the carve forces the reachable grid to `V ≡ 32768 (mod 6144)`, so
+`V = 4096`, `16384` and `65536` do not exist on it.
+
+### 53.2 The half that is finished: **a token is not a fixed amount of text**
+
+The goal is written in **tokens per second**. `V` moves the rate and the bytes a token carries in
+**opposite** directions, and **this programme had never measured the denominator.** That is the
+charged-bytes-vs-moved-bytes error one level up, sitting underneath the target itself.
+
+Eight BPE vocabularies, byte-level, trained on `calib.txt` and measured on the **frozen 51,870
+bytes** of the heldout span — never the same half. All eight reached their exact target size.
+
+| `V` | bytes/token | vs `V=32768` | head | head % of base | charged `k=3` |
+|---|---|---|---|---|---|
+| 2,048 | **2.64737** | **0.685×** | 8,388,608 | **9.1%** | 208,470,016 |
+| 8,192 | 3.31036 | 0.857× | 33,554,432 | 28.6% | 233,046,016 |
+| 14,336 | 3.56250 | 0.922× | 58,720,256 | 41.2% | 257,622,016 |
+| 20,480 | 3.71482 | 0.962× | 83,886,080 | 50.0% | 282,198,016 |
+| 26,624 | 3.79666 | 0.983× | 109,051,904 | 56.5% | 306,774,016 |
+| **32,768** | **3.86311** | **1.000×** | **134,217,728** | **61.5%** | **331,350,016** |
+| 51,200 | 3.96833 | 1.027× | 209,715,200 | 71.4% | 405,078,016 |
+| 131,072 | 4.12354 | 1.067× | 536,870,912 | 86.5% | 724,566,016 |
+
+**A token is worth between 2.647 and 4.124 bytes across the reachable grid at an identical
+parameter count — a 1.56× range.** So *"50 tok/s"* under-specifies the target by up to 56% in
+delivered text, and the specification gap is a free parameter nobody chose deliberately.
+
+External reference: Qwen2.5's own `V = 151936` tokenizer reads **4.22945205479452** on the same
+bytes, against my in-domain BPE's 4.124 at `V = 131072` — **a production tokenizer beats mine by
+~2.5% at comparable size**, so this curve is probably a near-uniform underestimate. Both of
+E43's cells are **ratios**, and a constant factor cancels out of a ratio.
+
+### 53.3 The gates — three fired, the fourth cannot be taken
+
+| gate | demand | result |
+|---|---|---|
+| `G-E43B` | four arms exactly 9,999,220,736; closed form (written **without** calling `synth_export`) == header == charged at every `k`, zero tolerance | **FIRES** |
+| `G-E43C` | the units instrument reproduces the frozen slice | **FIRES exactly** — 51,870 B and `4.22945205479452` B/token, last digit, registered `ids_sha` |
+| `G-E43D` | character-shuffled null vocabulary strictly worse — **ORDINAL, no number** | **FIRES** — 1.87765 vs 2.64737 at `V=2048`; 2.48099 vs 3.86311 at `V=32768` |
+| `G-E43A` | control within **±5%** of E40's 112.73 | **VOID** on run 1 — see §53.5 |
+
+`G-E43D` carries no number **on purpose**. E42's null went VOID because a tolerance of `0.010`
+was fixed on an axis whose dispersion turned out to be `0.099`; the brief's §0.1 makes the repair
+a rule — *every gate is either ordinal or uses a tolerance already measured on that exact axis.*
+
+### 53.4 The desk model, labelled as such
+
+Straight `1/charged` scaling from E40's 112.73 against the **measured** bytes/token. **Not a
+measurement**, and brief prediction 4 registers the small-`V` arms as coming in *below* it, so it
+is an upper bound.
+
+Peak at **`V = 8192`, 530.6 B/s against the control's 435.5 — cell 1.218** — with `V = 2048`
+**below** it at 474.3. So the optimum is interior (not "smaller is always better"), and the
+inherited `V = 32768` would sit on the **wrong side** of it. **The measurement is what decides
+and it has not been taken.**
+
+### 53.5 Why there is no rate, and the confound that is mine
+
+Run 1 (`results/e43_vocabulary_run1_VOID.json`) was launched on a box **verified at 5.8% busy**
+with the control reading **115.02 (+2.0%, spread 8.0%)**. The box then filled **during** the run:
+
+| rep | box busy | control `V32768 k=3` |
+|---|---|---|
+| 1 | **8.2%** | **115.82** (+2.7%) |
+| 2 | **12.8%** | **114.20** (+1.3%) |
+| 3 | 19.7% | 38.26 |
+| 4 | 42.8% | 75.06 |
+| 5 | 45.0% | 53.01 |
+
+Mean 79.27 = **−29.7%** on a ±5% bar → **`G-E43A` VOID** → **no rate in E43 counts**. The cells
+run 1 printed (`1.3425`, `VOCABULARY-IS-A-LEVER`, control **above** the peak) have **no
+registered force** and appear here only as a record.
+
+**Reps 1 and 2 are clean and inside the bar. They are NOT used.** Selecting the reps that pass,
+with a threshold chosen after seeing which ones do, is the error that voided E42.
+
+**And the confound is worse than the VOID, and it is mine.** Within each rep the arms are timed
+in **ascending `V`**, so a monotonically rising box load penalises arms **in proportion to their
+plan position — and plan position is ordered by `V`**. A drifting box **manufactures "small `V`
+is faster"**, which is exactly the registered prediction. E40 had the antidote and used it
+(`--order reversed` as a second session); **E43 run 1 ran only forward.** Registered in addendum
+A rather than quietly fixed.
+
+**This is also the first quantification on this box of the standing rule that a contended timing
+is not a timing.** Thirteen reps of the *same file* E40 timed, at 22–45% busy, read **66.44 tok/s
+= −41.1% with an 83% spread**, against a bar of ±5%. The rule was written after a ledger number
+turned out 35% off under load; this is that same 35%, reproduced deliberately.
+`results/e43_session_control.json`.
+
+### 53.6 What the re-run is allowed to be
+
+Addendum A, registered before it runs: **exactly one attempt**, both orders; box verified before
+and after each session; reps at **≥25% busy** discarded before any statistic (25% is just above
+the **22.5%** ceiling E39's and E40's *accepted* sessions ran at — not a number from E43's data);
+fewer than three survivors voids the session; **both orders must agree** on which side of the
+peak `V = 32768` falls or that cell is unresolvable. **If `G-E43A` voids again, E43 has no speed
+half permanently** and publishes the units half alone. Blocking on `COMMUNICATION.md` **APERTO 2**.
+
+### 53.7 What E43 cannot claim, unchanged
+
+**Not one BPB.** Whether a smaller vocabulary costs quality per *byte* is a **training** question,
+it needs the GPU, and E43 cannot see one bit of it. **E43 therefore cannot strengthen or weaken
+the T4 ask** — at most it says which `V` to train H1 at. Nothing about `D` or `L`, still the
+untouched axes of E40 §7. And nothing about retrofitting a donor: changing a trained model's
+vocabulary replaces its head and its embedding, which is training, not conversion.
+
+### 53.8 Two defects found, neither of which moves a published number
+
+1. **The frozen corpus is not valid UTF-8.** `calib.txt` and `heldout.txt` were assembled from
+   8,192-byte chunks and characters are cut in half at the joins — first bad byte at **184,359**
+   in `calib.txt`, **755,568** in `heldout.txt`. Every probe has absorbed this silently through
+   `make_slice`'s `decode("utf-8", "ignore")`, and **no published number moves**; but a BPE
+   trainer refuses the stream outright. E43 sanitises **only the training corpus** the same way
+   and records the count — **572 bytes of 140,933,631**. The measured span comes from
+   `make_slice` untouched, which is why `G-E43C` still reproduces to the last digit.
+2. **E42 did not persist its partitions.** `results/e42_predictability.json` holds summary
+   statistics only, so every follow-up on E42's arms — the coverage hypothesis its own §6 owes —
+   has to recompute the whole statistics pass over 32 sequences before it can measure anything.
+   The fix is one `np.savez` in the successor; logged, not applied retroactively.
