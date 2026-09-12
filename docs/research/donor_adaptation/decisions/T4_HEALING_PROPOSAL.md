@@ -424,3 +424,46 @@ budget**, so even deleting the FFN completely reaches `29.7 tok/s`. Healing `L21
 establish that depth surgery plus healing is a real mechanism at the donor's scale. **It would not
 produce the goal's artifact, and this proposal should stop implying that any single one of these
 arms can.**
+
+---
+
+## 11. H0 RAN, AND ITS GATE PASSED — 2026-09-12
+
+**Probe**: `probes/H0_TRAINING_INTO_THE_FORMAT.md`. **Gate as registered in §3**: *"`QO512-TB`'s
+teacher-forced rises from `28/160` to `≥ 48`. Below that, stop."*
+
+| | BPB | vs intact | free | **teacher-forced** |
+|---|---|---|---|---|
+| `base`, intact — **the planted control, run today** | **0.7675949641** (E22: 0.767595, **diff −3.6e-08**) | — | **160** | **160** |
+| `QO512-TB` **init** — the low anchor, run today | **2.8122382** (E22: 2.812226) | +2.044643 | 1 | **28** |
+| **`QO512-TB` trained** | **0.825358** | **+0.057763** | **8** | **111** |
+
+**PASS, at 111 against a bar of 48**, and **97.2% of the BPB damage removed** — on **500 of 4000
+steps**, because the job stopped itself at its 2.8 h wall. Both anchors reproduce E22, so the
+instrument is the one §3 specified.
+
+**§0's own framing holds exactly as written.** This is a **structure validation**, not the goal:
+1.5 B, `q/o` only, no carve, no router, no ternary FFN, no ternary head. §0 said *"if it
+validates, the structure is what a big model gets trained into — which is Phase 64's business."*
+It validated.
+
+**And §0's honest prior was wrong in the productive direction.** Every post-hoc route had closed
+(E18, E19, E20, E21, E22 — and E37 closed the carve on the same day). The one branch never tested
+is the one that moved.
+
+**The axis that did NOT move, and it is the one the goal's sentence is about**: free-running
+generation reads **8/160**, in the `AT-FLOOR` band, *below* E22's fp32 `QO512+V52` at `15/160`.
+**Teacher-forced and BPB recovered; the generator did not.** No arm proposed in this document
+addresses that directly, and the next request should.
+
+**What §4 asked for is discharged.** There is no outstanding T4 request. The three cheapest
+follow-ups, in the order I would ask for them:
+
+1. **Finish H0's own schedule** — the remaining 3500 steps, ~20 GPU-h. The cheapest question in
+   this document now that the gate is passed, and the only one whose answer is already half paid.
+2. **`STACK` under training** — the object that actually ships (ternary factors + `V52` + ternary
+   FFN + ternary head), which reads `4/160` post-hoc and which H0 deliberately excluded.
+3. **The carve, trained rather than applied.** E37 measured that applying it costs `+0.5537` BPB
+   at the speed's activation rate, **with the router provably not the constraint**. H0 measured
+   that the format can be trained into. **Nobody has put those two facts in one run**, and that
+   is now the single most informative GPU-hour available to this programme.

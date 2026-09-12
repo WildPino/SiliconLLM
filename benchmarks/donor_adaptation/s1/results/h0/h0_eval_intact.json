@@ -1,0 +1,71 @@
+{
+ "plan": "decisions/T4_HEALING_PROPOSAL.md s3 (H0)",
+ "tag": "intact",
+ "factors": null,
+ "model": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "eval_slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+ },
+ "bpb": 0.7675949641196625,
+ "vs_chance": -3.302224035880337,
+ "free": 160,
+ "counted": 160,
+ "teacher_forced": 160,
+ "mean_rank": 1.0,
+ "rank_le5": 160,
+ "band_free": "RANKS",
+ "band_tf": "CHEAPER",
+ "per_prompt": [
+  {
+   "prompt": 0,
+   "free": 32,
+   "tf": 32
+  },
+  {
+   "prompt": 1,
+   "free": 32,
+   "tf": 32
+  },
+  {
+   "prompt": 2,
+   "free": 32,
+   "tf": 32
+  },
+  {
+   "prompt": 3,
+   "free": 32,
+   "tf": 32
+  },
+  {
+   "prompt": 4,
+   "free": 32,
+   "tf": 32
+  }
+ ],
+ "text": [
+  " Paris. The capital of France is also the capital of the European Union. The capital of France is also the capital of the European Union. The capital of France",
+  " # n is the number of terms\n    a = 0\n    b = 1\n    if n < 0:\n        print(\"Incorrect input",
+  " 212 \u00b0F or 100 \u00b0C and ice melts at 32 \u00b0F or 0 \u00b0C. If the temperature of",
+  " which scientist?\nA. Newton\nB. Einstein\nC. Galileo\nD. Archimedes\nAnswer:\nA\n\nWhich of the following statements about",
+  "\nimport matplotlib.pyplot as plt\nimport pandas as pd\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn.metrics"
+ ],
+ "gate": {
+  "metric": "teacher_forced",
+  "threshold": 48,
+  "start_E22_QO512_TB": 28,
+  "ceiling_E21_fp32": 144,
+  "passes": true,
+  "delta_from_start": 132
+ },
+ "seconds": 370.02296805381775
+}

@@ -136,6 +136,13 @@ docs/research/LLM_Reimagined_CPU_Native_Exploration_20260626/
 /benchmarks/donor_adaptation/s1/results/h0/*.npz
 /benchmarks/donor_adaptation/s1/results/h0/*.bin
 
+# The TRAINED factors that came back from the T4 (run 2).  Same 352 MB shape as the bundle
+# above, and the only copy that exists -- anchored to the place, not to a type.  Unlike the
+# init bundle these CANNOT be regenerated from pinned inputs (they are the output of a GPU run
+# that no longer exists), so WHERE THEY LIVE is recorded in the probe and in COMMUNICATION.md
+# rather than in git.  The .json beside them carries every gate and IS tracked.
+/benchmarks/donor_adaptation/s1/results/h0_kaggle_run2/*.npz
+
 # The assembled T4 bundle: 417 MB of the two files above plus copies of scripts that ARE
 # tracked.  Anchored to the place, not to a type, per the .gitignore audit -- a bare `_h0_bundle`
 # would also hide one somewhere else.  h0_pack.py rebuilds it and refuses to if the gates did

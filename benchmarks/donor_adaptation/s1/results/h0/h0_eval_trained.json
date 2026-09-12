@@ -1,0 +1,71 @@
+{
+ "plan": "decisions/T4_HEALING_PROPOSAL.md s3 (H0)",
+ "tag": "trained",
+ "factors": "results/h0_kaggle_run2/h0_trained.npz",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "eval_slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+ },
+ "bpb": 0.8253578783084097,
+ "vs_chance": -3.2444611216915904,
+ "free": 8,
+ "counted": 160,
+ "teacher_forced": 111,
+ "mean_rank": 7.1,
+ "rank_le5": 144,
+ "band_free": "AT-FLOOR",
+ "band_tf": "COMPARABLE",
+ "per_prompt": [
+  {
+   "prompt": 0,
+   "free": 1,
+   "tf": 24
+  },
+  {
+   "prompt": 1,
+   "free": 2,
+   "tf": 23
+  },
+  {
+   "prompt": 2,
+   "free": 0,
+   "tf": 21
+  },
+  {
+   "prompt": 3,
+   "free": 0,
+   "tf": 19
+  },
+  {
+   "prompt": 4,
+   "free": 5,
+   "tf": 24
+  }
+ ],
+ "text": [
+  " a city of 1,000,000 inhabitants, and\nthe capital of the United States of America is a city of 1,",
+  "  # pragma: no cover\r\n        if n == 0:\r\n            return 0\r\n        elif n == 1:\r\n            return 1\r\n       ",
+  " the bottom of the\nsea, and the water is soapy, that it is difficult to stir it up\nagain. The sea is so full of these",
+  " Galileo. These laws are the basis for the laws of motion in physics. The first law states that an object will continue in motion unless acted upon by an",
+  "\nimport numpy.ma as ma\nimport numpy.testing as npt\nimport numpy.typing as ntp\nimport numpy.typing._array_like as array_like"
+ ],
+ "gate": {
+  "metric": "teacher_forced",
+  "threshold": 48,
+  "start_E22_QO512_TB": 28,
+  "ceiling_E21_fp32": 144,
+  "passes": true,
+  "delta_from_start": 83
+ },
+ "seconds": 300.3379588127136
+}
