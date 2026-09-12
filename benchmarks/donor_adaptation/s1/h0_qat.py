@@ -256,6 +256,13 @@ def main():
     ap.add_argument("--lr", type=float, default=float(os.environ.get("H0_LR", "2e-4")))
     ap.add_argument("--every", type=int, default=int(os.environ.get("H0_EVERY", "250")))
     ap.add_argument("--max-hours", type=float, default=2.8)
+    # RESUME.  --factors accepts any bundle with this key layout, so a previous run's
+    # h0_trained.npz IS the resume path for the WEIGHTS.  The batches, however, are drawn
+    # i.i.d. from a FIXED rng, so continuing with the same seed would redraw the same
+    # sequence the first run already trained on.  Default is 1717 so every existing run
+    # reproduces bit for bit; a continuation must pass a different one.  Adam moments are
+    # NOT checkpointed and a resume restarts them -- stated, not hidden.
+    ap.add_argument("--seed", type=int, default=1717)
     ap.add_argument("--smoke", action="store_true", default=os.environ.get("H0_SMOKE") == "1")
     a = ap.parse_args()
 
@@ -335,7 +342,7 @@ def main():
     gh0e = None
     hist = [{"step": 0, "tf_fp16_gpu": tf0, "loss": None, "seconds": 0.0}]
     t0 = time.time()
-    rng = np.random.default_rng(1717)
+    rng = np.random.default_rng(a.seed)
     nonfinite = 0
     declined = 0
     run_loss, nb = 0.0, 0
@@ -437,7 +444,9 @@ def save(model, layer_ids, a, hist, tf0, nonfinite, el, done, gh0e=None, decline
     np.savez(a.out, **store)
     json.dump({"plan": "decisions/T4_HEALING_PROPOSAL.md s3 (H0)",
                "complete": done, "steps_requested": a.steps, "bs": a.bs, "accum": a.accum,
-               "lr": a.lr, "seconds": el, "nonfinite_microbatches": nonfinite,
+               "lr": a.lr, "seed": a.seed, "resumed_from": a.factors,
+               "adam_state_restarted": True,
+               "seconds": el, "nonfinite_microbatches": nonfinite,
                "tf_fp16_gpu_step0": tf0, "history": hist, "G_H0e": gh0e,
                "scaler_declined_before_first_applied": declined,
                "gate": "NOT decided here -- h0_eval.py on CPU fp32, tf >= 48",
