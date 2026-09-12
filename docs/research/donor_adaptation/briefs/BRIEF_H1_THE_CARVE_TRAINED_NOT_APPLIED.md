@@ -319,3 +319,38 @@ its bands** (§5.2), the separation of progress metrics from the gate (§5.3), b
 (§7), and every scope limit in §9. **§6's disclosure is now sharper, not weaker:** H1 still
 cannot separate the carve from the router, and §A.2 means a *failure* of `G-H1c` would at least
 say the router half is the part that did not earn its place.
+
+---
+
+# ADDENDUM B — addendum A misnamed the gate it was correcting
+
+**Same day, before any run. Correcting my own error rather than editing §A.2 in place.**
+
+**§A.2 says "§5.1 registered `G-H1c` as recall@k". It did not.** §5.1 registers `G-H1c` as
+*"the FFN masters **move** after that first applied update"* — the H0-style trap check for the
+new organ. **That gate is correct, it is untouched, and §A.2 had no business replacing it.**
+
+The recall-vs-mass claim was **prediction 5 in §8**, a prediction, not a gate. So:
+
+1. **`G-H1c` stands exactly as first registered** (FFN masters move). `G-H1a`, `G-H1b` and
+   `G-H1d` are likewise unchanged.
+2. **The router gate introduced by §A.2 is renamed `G-H1e`** and added to §5.1 rather than
+   replacing anything:
+
+   > **`G-H1e`** — on **held-out** tokens the jointly trained router must be strictly better
+   > than **`STATIC`** (top-`k` chosen once by global activation mass and used for every
+   > token). ORDINAL, no tolerance. E23's comparison; it prices the per-token decision, which
+   > is the only thing a router sells.
+
+3. **Prediction 5 of §8 is RETIRED, not scored.** It predicted the router would beat `k/E`
+   recall "by a wide margin" on a yardstick §A.2 then showed to be the wrong one. A prediction
+   measured on a retired metric cannot be marked hit or missed, and marking it either way would
+   be scoring myself against a ruler I had already thrown out. **It is replaced by nothing** —
+   `G-H1e` is a gate, and gates are not predictions.
+4. Everything else in addendum A stands: the gate-formula fix, §A.1's three wiring checks, and
+   §A.3's instability finding with all three of its registered consequences.
+
+**Why this is written down rather than quietly fixed.** Addendum A was pushed at `35b755b`. An
+addendum that misstates which gate it is overriding is exactly the kind of small, plausible
+error this programme fails on — and the fix costs one section, whereas discovering at verdict
+time that two different gates share a name costs the run.
