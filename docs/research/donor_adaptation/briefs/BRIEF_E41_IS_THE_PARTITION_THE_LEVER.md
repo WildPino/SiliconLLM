@@ -128,3 +128,150 @@ predicts", not a threshold chosen to be reachable.
 - **Nothing about criteria beyond these five.** E38 §7 item 1 (a criterion sweep for the
   *selector*) stays owed; this probe moves the *partition*, which is the other half.
 - **One `E`.** 256 groups throughout. Group count is a third axis and is not touched.
+
+---
+
+# ADDENDUM A — `G-E41C` went VOID, and the cause is a TIE, not a bug
+
+**Written after the sweep, before addendum B's runner exists. §0–§7 above are unedited.**
+This addendum reports a forensic measurement of a gate that already fired. **It does not re-run
+any cell to a pass** — E40 addendum A's precedent, and E14 §6.
+
+## What fired
+
+```
+G-E41C  PERM oracle == D0C oracle EXACTLY ?  -> VOID
+        k=16  diff -1.221e-03     (D0C 3.449466, PERM 3.448246)
+        k=3   diff +0.000e+00     (D0C 4.131817, PERM 4.131817)
+```
+
+`§4` demanded bit-exactness and `§6` prediction 1 registered it. **Prediction 1 is a MISS and is
+scored as one.**
+
+## What actually happened — measured, not argued
+
+`e41_g41c_diag.py` replays the `D0C` oracle trajectory at `k=16` on the registered 24×512 slice
+and, at every masked layer, computes the `PERM` selection **from the identical activations**.
+Until the first divergence the two runs are the same run, so the first row it finds is the cause
+of the whole `1.22e-3`.
+
+| quantity | measured |
+|---|---|
+| group mass bit-identical under relabelling | **True**, max abs diff **0.000e+00** |
+| rows (layer × token) examined | 344,064 |
+| rows whose KEPT SET differs | **2** (5.8e-6 of rows), in layers **1** and **11** |
+| rows with an EXACT tie at the `k`-th/`(k+1)`-th boundary | **2** |
+| differing rows that ARE exact ties | **2 of 2** |
+| first divergence | seq 2, layer 11, row 175; masses around the boundary `… 7.731276, 6.865127086639404, 6.865127086639404, 6.751404 …`, relative gap **0.000e+00** |
+
+**My first hypothesis was wrong and is recorded as wrong.** I expected float32 accumulation order
+inside `mass.index_add_(1, lab, flat.float()**2)` to make the masses themselves differ. It does
+not: permuting labels does not change which neurons land in a group nor the order they are
+summed in, and the masses come out **bit-identical**. A two-minute synthetic check said so before
+the model was loaded, and the full-slice run confirms it at 344,064 rows.
+
+**The real cause is that the oracle is not a single-valued function.** Two groups carried
+*bitwise equal* float32 mass astride the `k`-th boundary; `topk` breaks that tie by index, and
+permuting the names changes which index is smaller. Two flipped selections out of 344,064 — one
+in layer 1, one in layer 11 — cascade through the remaining depth into `1.22e-3` of BPB.
+
+Exact float32 collisions at that rate are what the arithmetic predicts, not a surprise: near
+`6.87` the float32 spacing is `~4.8e-7`, so a handful of collisions among a few boundary
+candidates over 344,064 rows is the expected order of magnitude. **`k=3` saw none**, which is why
+it read exactly zero, and the 2-sequence smoke saw none, which is why it fired there.
+
+## The repair, verified
+
+Accumulate group mass in **float64**. Re-running the same diagnostic with `--f64`, on the same
+slice:
+
+```
+group mass bit-identical under relabelling: True  (max abs diff 0.000e+00)
+rows whose KEPT SET differs        : 0  (0.000e+00 of 344064)
+rows with an EXACT tie at boundary : 0
+layers with any divergence: none
+```
+
+**`e38_oracle_ceiling.py` is NOT edited.** Its results are published and E38's numbers must keep
+reproducing bit-for-bit; the repair is specified here for the next probe that needs an oracle,
+which must carry it in its own subclass.
+
+## What this does and does not license
+
+- **The gate stays VOID.** It is not re-run to a pass. It was asked for bit-exactness, it did not
+  get it, and that is what it is for.
+- **It gives the instrument a measured jitter floor of `1.2e-3` BPB on oracle cells.** Every
+  oracle difference E41 reports is 0.35–0.81 BPB, i.e. **290–660×** the floor; the tightest
+  comparison in the whole probe — `D0C` 3.804346 against `CONC` 3.815911 at the verdict cell — is
+  **9.5×** the floor. No conclusion in this probe is inside the jitter.
+- **The verdict cell is not an oracle cell and shows zero tie flips.** `PERM fitted` reproduced
+  `D0C fitted` to all sixteen digits at **both** `k` (3.8043462251479396 and 4.574331071853627).
+  That is a planted control passing on the selector that decides — **and because it was not
+  registered as a gate it may not be promoted to one** (E14 §6). It is reported, not counted.
+
+---
+
+# ADDENDUM B — the band's reference number and E41's own numbers were fit on different routers
+
+**Pre-registered. Pushed before the runner exists.** Additive; nothing above is edited.
+
+## The defect, and it is mine
+
+`§2` registered the calibration slice as `"calib"`, **seed 424242** — which is
+`e38_oracle_ceiling.NCAL/SEEDCAL = 8, 424242`, the slice E38 used **only for its `static`
+selector**. But `§5`'s band boundary, `D0C` fitted **3.597108**, was measured by E38 with the
+router npz `e37_fit_routers.py` wrote, and **that fit used `e23_router.NCAL/SEEDCAL = 32, 42424`
+— four times the calibration data, on a different slice.**
+
+So every `fitted` number in E41 comes from a router fit on 8 sequences and is compared to a
+boundary set by a router fit on 32. The size of the mismatch is measured:
+
+| | `D0C` fitted, `k=16` |
+|---|---|
+| E38, router fit on 32 seqs (seed 42424) | **3.597108** |
+| E41, router refit on 8 seqs (seed 424242) | **3.804346** |
+| difference | **+0.207238** |
+
+**That is 29% of the entire spread E41 measures across all six partitions** (0.726138). The
+instrument difference is larger than most of the effects the instrument is used to compare.
+
+**The registered verdict is unaffected in direction** — the best partition at the verdict cell
+*is* `D0C`, the control, so "no partition beats the control" holds on E41's own instrument
+whatever the absolute. But whether a *better-fit* router reorders the partitions is an open
+question, and it is exactly the question the T4 ask turns on.
+
+## What B runs
+
+Refit all six routers with **`NCAL, SEEDCAL = 32, 42424`** — `e23_router`'s own constants, the
+ones E38's boundary was fit at — and re-run **only the six `fitted` cells at `k = 16`**. Model,
+slice, labels, partition construction, `Carve`, eval loop: unchanged. ~40 minutes of CPU.
+
+## The rule that governs it, inherited verbatim from E36
+
+> **Run 1 is the registered measurement and its verdict stands.** B's only question is whether
+> the *ordering* of partitions depends on the router's calibration budget. **If the ordering is
+> unchanged the verdict is UNCHANGED — B may not promote it over the bar no matter what number it
+> prints.** If B's best partition crosses **3.597**, both are reported and **the verdict cell is
+> declared unresolvable**; in that case E41 does not strengthen the T4 ask and must say so.
+
+## The gate
+
+**`G-E41D` — the planted control, and it is a known positive.** `D0C` refit at 32/42424 must
+reproduce **E38's published 3.597108 within ±0.001**. If it does not, the calibration budget is
+not what separates the two numbers, B has explained nothing, and B's table is reported as
+uninterpretable rather than as a correction.
+
+## Predictions — fixed here, before the runner exists
+
+1. **`G-E41D` fires**: `D0C` at 32/42424 reads `3.597108 ± 0.001`.
+2. **The ordering at `k=16` fitted is unchanged**: `D0C` < `CONC` < `COACT` < `STRIPE` < `RAND`.
+3. **No partition crosses 3.597.** The closest is `CONC`, and I predict its gap above `D0C`
+   stays near the `+0.011565` measured at 8 sequences — **`+0.012 ± 0.030`**.
+4. **`COACT` gains the most from the larger fit.** It has the best oracle (3.095548) and the
+   worst realization gap (0.791455 against `D0C`'s 0.354880), so more calibration should help it
+   most — **I predict it closes to within `+0.04` of `D0C` and still does not overtake it.**
+5. **`RAND` stays last, and `STRIPE` crosses BACK below the chance line.** At 8 sequences *two*
+   partitions read above chance (`RAND` 4.530484 and `STRIPE` 4.415238) — I am predicting the
+   larger fit moves `STRIPE` below **4.069819** and leaves `RAND` as the only one above it. That
+   asks `STRIPE` for `-0.346` where `D0C` gained `+0.207`'s worth going the other way, so it is
+   the prediction here most likely to be wrong, and it is registered because of that.
