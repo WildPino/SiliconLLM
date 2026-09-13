@@ -114,3 +114,75 @@ I expect **BRIDGE HOLDS**: `|r − 1|` under 2%, comfortably inside the pairing 
 ternary kernels are fixed-work and the zero fraction should not reach a branch. I am recording
 that because it is the boring outcome, and because if the ratio comes back at 1.10 it would
 invalidate the programme's headline claim and I want it on the record that I did not expect it.
+
+---
+
+# ADDENDUM B — THE PAIR DIFFERS IN TWO THINGS, NOT ONE, AND THAT FIXES WHICH `k` DECIDES
+
+**Written and pushed before any E45 measurement.** The brief's §1 table describes the pair as
+"same shape, same quant, same byte count, different values". Reading the two sidecars on disk
+shows that is **incomplete**, and the omission is mine:
+
+| field | `e37_carved_nf.bin` | `e37_carved_syn.bin` |
+|---|---|---|
+| `sha256` | `fae666d2…31b7150` | `79b8a0f1…eabb950e` |
+| `bytes` | 1,714,582,392 | 1,714,582,392 |
+| `mean_ternary_zero_fraction` | 0.4809541542 | 0.4698122995 |
+| `carve_router` | `e37_routers_E256.npz` | **`null`** |
+| `carve_router_kind` | **`fitted`** | **`synthetic`** |
+
+The two artifacts differ in **the expert weight values** *and* in **the router baked into the
+file**. The real arm carries a router fitted on real activations; the synthetic arm carries a
+drawn one. That is not a flaw to be apologised for — it is exactly the contrast the bridge
+needs, because `e40_r128.bin`, the artifact every 10B rate comes from, is synthetic **in both
+respects too**. But it means a difference in rate could come from either factor, and a brief
+that says "values" while measuring "values + router" is the kind of sentence this programme has
+been burned by before.
+
+## B.1 A fourth mechanism, named before the run
+
+§2 listed three ways speed could depend on values. The router adds a fourth, and it is the most
+plausible of the four:
+
+4. **Selection locality.** At `k < E` the router decides *which* expert groups are read. The
+   number of groups is fixed, so the *work* is fixed — but the *addresses* are not. A peaked
+   router re-reads the same groups and can hold them in the 32 MB L3; a flat one walks the whole
+   expert table and pays DRAM. The L3 cliff at 16 MB (probe-3) is a measured feature of this
+   box, so this is a live mechanism, not a hypothetical.
+
+## B.2 Which `k` decides, registered now
+
+The mechanism above is **absent at `k = E = 256`**: when every group is selected, the router
+changes nothing about which memory is touched, and the only thing left between the two files is
+the weight values themselves.
+
+* **`K256` is the PRIMARY arm and the one `G-E45c`'s verdict is read from.** It is the clean
+  value-only comparison, and it is also the arm that matches the headline it is defending: the
+  10B claim (`R128`, ≈113–130 tok/s) is quoted **with the FFN fully on**.
+* **`K16` is the SECONDARY arm**, reported with its own `G-E45c` verdict and its own dispersion,
+  and labelled **value + selection**. It may not override the primary. If the two disagree —
+  primary HOLDS, secondary BROKEN — that is not a contradiction and must not be written as one:
+  it localises the effect in the *router*, not in the values, and the correct report is "the
+  bridge holds for values and the selection pattern is worth its own experiment".
+* **`K16` is also the arm `G-E45a` plants its control in**, because that is where E37 measured
+  the 89.83 tok/s that the control has to resolve against dense's 30.75.
+
+## B.3 `G-E45a`, made falsifiable in numbers
+
+The brief says the control must "see" a ~2.9× gap. Stated so it can fail: with `DENSE-NF`
+(no carve flags) and `K16` (`--carve-k 16`) raced interleaved for ≥3 pairs, `G-E45a` **fires iff
+the median per-pair ratio `K16/DENSE` is ≥ 2.0 and every individual pair exceeds 1.5.** Below
+that the instrument has not been shown to resolve a difference that is really there, and per the
+planted-control law nothing else in E45 may be reported as a null.
+
+## B.4 One identity check before anything is timed
+
+The two files must be shown to be **the same size and different content** — equal `bytes`, and
+`sha256` values that differ. Racing a file against itself would return `r = 1` with a tiny
+spread and look exactly like the registered prediction. That check runs first and aborts on
+failure.
+
+Nothing else in the brief changes. §7's prediction stands as written, and it is now a prediction
+about **`K256`**.
+
+**No cell of E45 has been measured at the time this addendum is pushed.**
