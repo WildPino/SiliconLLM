@@ -4898,3 +4898,34 @@ source must be opened and its scope quoted beside it — which kernel, which pre
 pattern. §56.7 named its source and its reason for preferring §1 over the older 34.75 figure, and
 still went wrong, because it never asked whether §1's floor applied to a *packed* kernel. A ratio
 whose denominator's scope is unstated is not a ratio.
+
+
+### 57.6 CORRECTION, same evening — §57's title says PACKED now, and the first draft did not
+
+The first draft of this section was titled *"the engine has ×1.11–×1.17"*. **Wrong, and wrong
+inside the section that registers the scope rule.** Every ceiling in §57.2 is the **packed**
+kernel's. The same binary ships `--lutblk`, and §25 (E13) measured it **end-to-end**:
+
+| E13 §5, interleaved reps, idle box | packed default | `--lutblk` | ratio |
+|---|---|---|---|
+| `Qwen2.5-0.5B`, `--bench 300` | 75.03 tok/s | **91.31** | **×1.217** |
+| `Qwen2.5-Coder-7B`, `--bench 100` | 6.78 tok/s | **9.21** | **×1.358** |
+
+and at kernel level **67.51 G-w/s at 512 MB, 103.05 at 12 MB**, against E10's best packed cell of
+52.95 — the figure §57.2 calls a ceiling. **`--lutblk` is 1.28–1.95× above it.**
+
+Transferring E13's *ratios* to E58's *rates* (a ratio transfer, not a measurement): `15b_tqh`
+29.51 → **35.9–40.1 tok/s**, i.e. **72–80% of the good bar**, not 67%. **Also withdrawn:** the
+§57.2 sentence *"a healed ternary 1.5 B tops out at ~33.5 tok/s"*, which is true of the packed
+default only.
+
+**The price, and why neither number is quotable yet.** The LUT path quantises activations to int8:
+E11 measured **1.40e-01** relative L2 whole-vector, **3.10e-02** at `--lut-group 32`; E14 carried
+it to BPB and returned `CHEAP-BUT-NOT-NEUTRAL` — dBPB **−0.017** (better) with **greedy agreement
+45.6% / 64.4%** against fp32 activations. E13 §8 item 2 owes the donor's own fidelity under int8
+activations and it is **still owed**. **E59** is registered to close it: both trained ternary arms,
+both LUT groupings, speed under E58's discipline and quality by E51's scorer against E6's stored
+references, packed interleaved as control.
+
+**The rule this adds to §57.5:** a scope that exists only in the table has not been stated. "The
+engine" is not a scope; "the engine on its default kernel" is.

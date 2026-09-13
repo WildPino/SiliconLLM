@@ -708,3 +708,27 @@ path on 2026-09-07. E58 opens the 1.5 B artifact's organs and measures the real 
   derived from the artifact side.
 
 **Still not requested. H1 remains the only open ask.**
+
+### 13.5 CORRECTION to 13.4, same evening — the ~33.5 tok/s ceiling is the DEFAULT kernel's
+
+§13.4 wrote *"a healed 1.5 B tops out at ~33.5 tok/s — 67% of the bar"* and *"the kernel has ×1.14
+left, measured."* **Both are true of the packed default and false of the binary.**
+`donor_engine_e53.exe` also carries **`--lutblk`**, measured **end-to-end** by E13 §5 at **×1.217**
+(0.5 B, `--bench 300`, 7 interleaved reps) and **×1.358** (Coder-7B, `--bench 100`). Transferring
+those ratios to E58's measured rates, `15b_tqh` reads **35.9–40.1 tok/s = 72–80% of the good bar**.
+
+**What that does and does not change for the hours being asked for:**
+
+* **`H2T` is unchanged and still the arm.** Healing is a quality operation; which kernel serves the
+  result afterwards is a separate decision made after the fact.
+* **The demonstration's honest range widens to ~29.5–40 tok/s**, depending on a kernel choice that
+  is **not free**: the LUT path quantises activations to int8 (E11: 1.40e-01 rel-L2 whole-vector,
+  3.10e-02 at `--lut-group 32`), and E14 measured **greedy agreement 45.6% / 64.4%** against fp32
+  activations while BPB *improved* by 0.017. **A healed model served on that kernel may lose the
+  fidelity the healing bought.** E13 §8 item 2 has owed this measurement since it was written;
+  **E59** is registered to take it, on the trained artifacts, before any of it is quoted.
+* **The 50 tok/s conclusion is unchanged**: even at ×1.358 a healed 1.5 B is short, and closing the
+  gap still needs **33.7% fewer streamed weights** (a 45% FFN cut). That is quality work, not
+  engine work, and it is the same answer §13.4 gave.
+
+**Still not requested. H1 remains the only open ask.**

@@ -1,4 +1,6 @@
-# E58 — the 1.75× went nowhere. It was never there.
+# E58 — the ×1.75 went nowhere. It was never there.
+
+> **READ ADDENDUM A FIRST (same evening).** The tables below stand; the sentence *"the engine has ×1.11–×1.17 left"* does **not**. That is the **packed** kernel's remainder. The same binary ships `--lutblk`, which E13 measured end-to-end at **×1.217 / ×1.358** against the packed default — on a **lossy** path whose fidelity on a trained artifact is still unmeasured (E59).
 
 **Verdict: `NO-HEADROOM`.** Scores `briefs/BRIEF_E58_WHERE_DID_THE_1_75x_GO.md`, pre-registered
 and pushed (`a9f5697`) before the runner existed. Runner `benchmarks/donor_adaptation/engine/
@@ -268,3 +270,102 @@ shape footer identifying *which model it just timed* to **stderr**. The first ve
 captured both but parsed only stdout, and would have timed an artifact without ever seeing which
 one it was. Same class as `feedback_config_must_appear_in_output`, one stream over. The runner now
 parses both streams and refuses to proceed if no shape footer is found.
+
+---
+
+# Addendum A, same evening — CORRECTION. "The engine has ×1.11–1.17 left" is FALSE, and I made §8's error inside §8's document.
+
+**What is corrected:** not a table. **Every table above stands exactly as measured.** What is
+withdrawn is the sentence the tables were compressed into — the headline of this probe, the INDEX
+headline, ledger §57's title, and **what I told the user in plain language**.
+
+## A.1 The claim, and why it is wrong
+
+The tables say: *if every organ reached E10's best **packed** cell, ×1.17 and ×1.14.* Correctly
+scoped, still true.
+
+The headline says: **"the engine has ×1.11–×1.17 left."** That drops the word *packed*, and it is
+false. **The same binary carries a second weight kernel behind a flag**, and this programme has
+already measured it end-to-end, faster:
+
+| `probes/E13_BLOCKED_TILE_MAJOR.md` §5, engine end-to-end, interleaved reps, idle box | packed default | **`--lutblk`** | ratio |
+|---|---|---|---|
+| `Qwen2.5-0.5B`, `--bench 300`, 7 reps | 75.03 tok/s | **91.31** | **×1.217** |
+| `Qwen2.5-Coder-7B`, `--bench 100`, 5 reps | 6.78 tok/s | **9.21** | **×1.358** |
+
+And at the kernel level E13's sweep reads **67.51 G-w/s at the 512 MB cell and 103.05 at 12 MB**,
+against E10's best packed cell of 52.95 — the number §4 above calls "the fastest that kernel has
+ever been made to go" and then quietly treats as the fastest *anything* has gone.
+**`--lutblk` is 1.28–1.95× above it.** E13 §4 says so in a table titled *"the LUT kernel now beats
+packed at every footprint measured."*
+
+I ran `donor_engine_e53.exe` with **no `--lut` flag**, measured the default kernel against the
+default kernel's own ceiling — which is a correct, scoped measurement — and then wrote it up as a
+statement about **the engine**.
+
+## A.2 What the corrected statement is
+
+**Engine-side, on the ternary path, there is more than ×1.14 available, and the extra is on a
+LOSSY kernel whose fidelity on a trained artifact has never been measured.**
+
+Transferring E13's measured *ratios* to E58's measured *rates* — a ratio transfer, explicitly not
+a measurement, and E13's own law says every absolute carries ±5% while ratios do not:
+
+| arm | E58 measured (packed) | × E13's 0.5 B ratio 1.217 | × E13's 7 B ratio 1.358 |
+|---|---|---|---|
+| `05b_tqh` | 87.58 tok/s | 106.6 | 118.9 |
+| `15b_tqh` | 29.51 tok/s | **35.9** | **40.1** |
+
+**So "a healed 1.5 B tops out at ~33.5 tok/s = 67% of the bar" is withdrawn too.** On the packed
+default it is right; with the kernel the binary already ships it is **~36–40 tok/s, 72–80% of the
+bar** — still short of 50, still needing the FFN cut §6 prices, but **not the same distance**, and
+I told the user the wrong one.
+
+**And the price is real, not hypothetical.** The LUT path quantises activations to int8. E11
+measured **1.40e-01** relative L2 whole-vector and **3.10e-02** at `--lut-group 32`. E14 carried
+that to BPB and found `CHEAP-BUT-NOT-NEUTRAL`: dBPB **−0.017** (better) while **greedy agreement
+against fp32 activations is 45.6% whole-vector and 64.4% at group-32** — the argmax moves on a
+third to a half of all positions. **BPB scores; greedy ranks** (E14 §0, and E14 §3 is where the
+SCORE/RANK law comes from). E13 §6 and §8 item 2 both say the donor's own fidelity under int8
+activations has never been measured, and that is still true tonight.
+
+**Neither number above is therefore quotable as a rate this programme has.** They are what E59 is
+for.
+
+## A.3 E59, registered here in one line
+
+> **E59 — does the fastest kernel this programme has (`--lutblk`) survive contact with a TRAINED
+> artifact, in speed and in fidelity at the same time?** Both ternary trained arms, both LUT
+> groupings (whole-vector and `--lut-group 32`), speed under E58's discipline and quality by
+> E51's scorer against E6's stored HuggingFace references, with the packed arm interleaved as the
+> control. Closes E13 §8 item 2 and supplies the column E57's table never had.
+
+A capability smoke is already done and is not a measurement: `donor_engine_e53.exe --lutblk` loads
+`qwen25-05b_tqh.bin`, builds a 235.5 MB blocked tile-major replica in 0.13 s, reports
+`activations int8, AQ=63`, and decodes.
+
+## A.4 Cause — and it is not the cause §8 named
+
+§8's rule was *"a bound is a number with a scope; quote the scope beside it."* **I did.** §4's rows
+say "E10's best kernel cell" and §2's header says which column compares to E10. **The scope was in
+the table and died on the way to the sentence** — and the sentence is what goes in the INDEX
+headline, in the ledger title, and into the user's hands.
+
+That is not a new failure. It is `feedback_exact_tables_overstating_prose`, **fourth occurrence**:
+*"three probes audited, three times the tables are perfect and the prose is not."* The clause that
+was missing:
+
+> **A scope that only exists in the table has not been stated.** Before a measured comparison is
+> compressed into a headline, the headline must carry the restriction — *which kernel, which
+> precision, which flag* — or the comparison must be re-run without the restriction. "The engine"
+> is not a scope; "the engine on its default kernel" is.
+
+Filed against `feedback_exact_tables_overstating_prose.md`, not a new memory: the pattern already
+has a home and a fourth tally belongs in it.
+
+**What is NOT withdrawn, and it is most of the probe:** `G-E58a` closing at +0.24%/+0.35%; the
+organ tables; `qkv_proj` as laggard at both scales; **`Rem` at 3.7% and 2.0%** — the finding that
+there is no glue cost hiding a multiple, which is *why* a faster weight kernel is the only
+engine-side lever and is what makes E59 worth running; the withdrawal of E57 D.3's ×1.75 and
+47.71 tok/s, which was a comparison against a bound withdrawn for that path and is wrong on any
+kernel; and §6's budget, which is about **weights streamed**, not about how fast they stream.
