@@ -4532,3 +4532,72 @@ explanation of the *outlier*; it is untouched as an explanation of the *level*. 
 reversed session — which touches `V131072` first and `V2048` last — reads the control **5.7%
 higher** than the forward one. A successor probe that controls residency explicitly is worth
 more than any re-run of E43.
+
+---
+
+## 54. E44 run 2 and E52 — the first rate with a measured interval, and the bar that decides which rates count
+
+*Written 2026-09-13. E44–E51 are in their briefs; only the parts that change what this ledger
+may quote are recorded here. §53 above closes with "an **uncontended** timing is not a point
+estimate either" — this section is what that cost to fix.*
+
+### 54.1 The reading
+
+`G-E44b2`, arm R128 `--carve-k 3`, `--bench 300` (**mean context position 150**, not 20),
+`--threads 6`, on `donor_engine.exe` — sha256-identical to `donor_engine_e50.exe`, so the avx4
+default is on:
+
+    110-112 tok/s   median 110.62   5 reps   spread 2.3%   foreign occupancy median 3.8%
+
+**The spread is the result as much as the median.** §53 recorded 9–22% dispersion "on a quiet
+box" and priced `112.73` at roughly `113–130`. At 2.3%, the dispersion this programme has been
+budgeting for turns out to be **mostly conditions, not the engine**.
+
+Unarranged corroboration: E49's `avx4` fit predicts **105.61 tok/s** at mean position 150 against
+the measured **110.62** — `+4.7%`, inside the standing ±5%.
+
+### 54.2 Why a second run of the same thing disagreed by 7.5%
+
+E44 run 1 read **102.90**. Both runs passed `OCC_BAR = 15.0`. So the bar did not deliver the one
+thing a bar is for — that two readings which pass are comparable.
+
+### 54.3 E52 measured what a busy box costs
+
+Six deliberate foreign levels, three reps, level order rotated each rep, `L=0` drift witness
+opening and closing. Fit against **measured** foreign occupancy, over `L ≤ 6` only (a level
+excluded before the data on hardware grounds, plus §4's 6% dispersion rule):
+
+    rate = 111.19 * (1 - 0.2622/100 * f)        k = 0.262% of rate per point of foreign occupancy
+
+Residuals within **±1.4%** across the whole fitted domain, out to **46.1% foreign**. Light load
+is cheap: five busy single-core processes cost **3% of rate**. At `L = 8` — more foreign
+processes than the cores the engine is not using — the rate falls to a third and the dispersion
+goes to 46.5%. **That is a cliff, not a bend**, and it is a different mechanism.
+
+### 54.4 The bar, and what it does and does not buy
+
+`G-E52d`, registered before the data: *the bar is the largest foreign occupancy whose predicted
+rate cost is at most half the instrument's 2.3% zero-load dispersion.*
+
+    OCC_BAR:  15.0%  ->  4.39%          (1.15 / 0.262;  e44_interval.py:74)
+
+| rate | foreign | under 4.39%? | citable? |
+|---|---|---|---|
+| 102.90 (E44 run 1) | ~12.6% | no | **no** |
+| **110.62 (E44 run 2)** | **3.8%** | yes | **yes** |
+
+**NECESSARY, NOT SUFFICIENT.** The fitted cost of the 12.6% → 3.8% difference is **2.33 points**
+of the **7.50** between the two runs. **5.2 points are not explained by foreign load at all.**
+The standing suspicion is thermal soak — run 1 followed 35 minutes of load — and nothing in this
+programme measures it. So passing the bar means a reading is not *load*-contaminated; it does not
+make two passing readings comparable, and **the ±5% on every absolute rate stays**.
+
+### 54.5 What this ledger may now quote
+
+* **`110.62 tok/s`, spread 2.3%, at mean context position 150**, arm R128 `--carve-k 3`, synthetic
+  weights, foreign occupancy 3.8% — the first rate here with a measured interval on a box proven
+  quiet by an instrument with a discrimination control.
+* `112.73` keeps §53's correction: the quantity was roughly `113–130` and the four-figure
+  precision was asserted, not measured.
+* Nothing from E52 itself. It measures the instrument; its `109.99 tok/s` at `L=0` is a y-axis
+  unit, not a result.
