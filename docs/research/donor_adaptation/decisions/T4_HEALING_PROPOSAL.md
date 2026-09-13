@@ -676,3 +676,35 @@ Two consequences, and they should be said plainly rather than deferred:
 
 This is written here, in the document that asks for the GPU hours, because **the person being
 asked should know what the hours cannot buy before deciding to spend them.**
+
+### 13.4 APPENDED 2026-09-13 after E58 — the 1.5 B demonstration has a ceiling, and it is below the bar
+
+§13.2 offers `H2T` on the grounds that a healed 1.5 B "lands at 1.5–1.9× the fp32 arm's 19.09
+with a real quality number attached." **That is still true and the arm is unchanged.** What E58
+adds is the number the *other* end of it stops at, and it is not the one E57 published.
+
+E57 addendum D said a healed 1.5 B at `15b_tqh`'s bytes would read **47.71 tok/s — 95% of the
+good bar**. **Withdrawn** (`probes/E58_WHERE_DID_THE_1_75x_GO.md` §5, ledger §57.1): that divided
+a packed-kernel rate by the *fp32* streamed floor, a bound §23.3 had withdrawn for the packed
+path on 2026-09-07. E58 opens the 1.5 B artifact's organs and measures the real ceiling:
+
+| | measured today | ceiling, every organ at E10's best kernel cell |
+|---|---|---|
+| `15b_tqh` | **29.51 tok/s** | **33.54 tok/s** — **67% of the 50 tok/s bar** |
+
+**So the honest offer to the person spending the hours is:**
+
+* `H2T` buys a **trained, healed, faithful-enough 1.5 B at ~29.5–33.5 tok/s**. That is the first
+  point in this programme that is trained *and* timed *and* quality-scored, and it is worth
+  having. **It is not 50 tok/s and no amount of engine work makes it 50 tok/s** — the kernel has
+  ×1.14 left, measured, and E10 already said that on 2026-09-07.
+* Reaching 50 tok/s **even at 1.5 B** needs **33.7% fewer streamed weights** — a **45% FFN cut** —
+  on top of healing. E19 measured a 52% FFN carve and E22 assembled a budget-feasible object at
+  0.9441 G that **stops working when ternarised**. So the 50 tok/s bar is a *joint* quality +
+  sparsity problem at every scale, not only at 10 B.
+* §13.3's conclusion is **unchanged and now better supported**: the deliverable the T4 weeks can
+  buy is the 1.5 B demonstration plus a measured budget, and E58 reproduces that budget
+  (1.024 G active ternary weights/token) from the engine side, inside E18 §31's 0.982–1.060 G
+  derived from the artifact side.
+
+**Still not requested. H1 remains the only open ask.**

@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\e50_default_kernel.py", line 540, in <module>
+    main()
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\e50_default_kernel.py", line 533, in main
+    phase_drift(out)
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\e50_default_kernel.py", line 476, in phase_drift
+    occ.start()
+    ^^^^^^^^^
+AttributeError: 'Occupancy' object has no attribute 'start'

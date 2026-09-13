@@ -1,0 +1,53 @@
+== E28: does E13's kernel lever reach the goal's shape? ==
+  engine donor_engine_e26.exe   threads 6   reps 3
+
+  contention witness: 5.5% mean / 14% peak before the run (bar 25% on the MEAN)
+  have  s15_packed    e25_s15_packed.bin
+  have  t10_packed    e28_t10_packed.bin
+
+  -- G-E28C: --lut vs --lutblk must be BYTE-IDENTICAL (sha256, not parity)
+     S15  lut 6fcf94f2eb2d7e744053230f1320676b
+     S15  blk 6fcf94f2eb2d7e744053230f1320676b   -> IDENTICAL
+     T10  lut 484d011a52eda7d99a45528f002823fd
+     T10  blk 484d011a52eda7d99a45528f002823fd   -> IDENTICAL
+
+  rep 1  S15-PACKED     28.20 tok/s   (120 tokens)
+  rep 1  S15-LUT        19.94 tok/s   (120 tokens)
+  rep 1  S15-LUTBLK     38.27 tok/s   (120 tokens)
+  rep 1  T10-PACKED      4.45 tok/s   (40 tokens)
+  rep 1  T10-LUT         2.51 tok/s   (40 tokens)
+  rep 1  T10-LUTBLK      5.35 tok/s   (40 tokens)
+  rep 1  contention witness: 14.7% mean / 30% peak
+  rep 2  S15-PACKED     30.01 tok/s   (120 tokens)
+  rep 2  S15-LUT        23.81 tok/s   (120 tokens)
+  rep 2  S15-LUTBLK     34.81 tok/s   (120 tokens)
+  rep 2  T10-PACKED      4.45 tok/s   (40 tokens)
+  rep 2  T10-LUT         2.58 tok/s   (40 tokens)
+  rep 2  T10-LUTBLK      6.07 tok/s   (40 tokens)
+  rep 2  contention witness: 0.3% mean / 1% peak
+  rep 3  S15-PACKED     29.69 tok/s   (120 tokens)
+  rep 3  S15-LUT        23.86 tok/s   (120 tokens)
+  rep 3  S15-LUTBLK     37.33 tok/s   (120 tokens)
+  rep 3  T10-PACKED      4.16 tok/s   (40 tokens)
+  rep 3  T10-LUT         2.37 tok/s   (40 tokens)
+  rep 3  T10-LUTBLK      6.02 tok/s   (40 tokens)
+  rep 3  contention witness: 3.7% mean / 8% peak
+
+  arm            shape  kernel      mean tok/s   spread   charged G-w/s
+  S15-PACKED    S15    packed          29.30     6.2%         45.23
+  S15-LUT       S15    --lut           22.54    17.4%         34.79
+  S15-LUTBLK    S15    --lutblk        36.80     9.4%         56.81
+  T10-PACKED    T10    packed           4.35     6.7%         46.16
+  T10-LUT       T10    --lut            2.49     8.4%         26.37
+  T10-LUTBLK    T10    --lutblk         5.81    12.4%         61.64
+
+  ANCHOR  S15-PACKED   reads 29.30 against E25's published 29.70 (-1.35%, bar +-10%) -> PASS
+  ANCHOR  T10-PACKED   reads 4.35 against E25's published 4.70 (-7.31%, bar +-10%) -> PASS
+  G-E28D  known-positive  S15-LUTBLK / S15-LUT = 1.633  (bar >= 1.50) -> FIRES
+
+  VERDICT CELL  T10-LUTBLK / T10-PACKED = 1.335  ->  CONTAINER-COSTS
+     T10 dense on the fast kernel: 5.81 tok/s
+     E27's best COMPARABLE floor arm (L21-MINRES, 7.75) scaled by this lever: 10.35 tok/s
+     STILL SHORT OF 50 tok/s BY 4.8x -- the numerator alone does not close the gap.
+
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e28_kernel_transfer.json  [254s]

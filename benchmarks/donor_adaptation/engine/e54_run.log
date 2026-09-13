@@ -1,0 +1,61 @@
+E54 -- is the droop TIME, or is it the WORK that ran before it?
+brief: BRIEF_E54_IS_THE_DROOP_TIME_OR_IS_IT_THE_WORK_BEFORE_IT.md
+
+== self-test.  Every decision function must fire on a known-positive. ==
+  B-1 a monotone series reads TIME                 fires
+  B-2 a sawtooth reads WORK                        fires
+  B-3 noise wider than the effect is UNRESOLVABLE  fires
+  B-4 a recovery of exactly the spread does not tip fires
+  B-5 a rise at the end is NEITHER, not TIME       fires
+  B-6 a flat series is UNRESOLVABLE, not TIME      fires
+  C-1 a planted slope is recovered                 fires
+  C-2 and it is scored as fully explained          fires
+  C-3 a predictor noisier than its target is REFUSED fires
+  C-4 too few cells is NOT COMPUTABLE              fires
+  C-5 partial explanation reports a fraction below 1 fires
+
+  11 of 11 fire.
+
+== W0 | HEAVY 180s | W1 | LIGHT 180s | W2 | HEAVY 180s | W3 ==
+  Blocks are bounded by TIME, not by cell count: if the light block were shorter,
+  elapsed time and block weight would be confounded again -- the defect being fixed.
+
+    W0  rep 1/3   116.29 tok/s  foreign  13.9%  clock 106.52%  t+   3.2s   <-- ABOVE THE BAR
+    W0  rep 2/3   118.78 tok/s  foreign  13.6%  clock 105.97%  t+   6.3s   <-- ABOVE THE BAR
+    W0  rep 3/3   116.24 tok/s  foreign  12.4%  clock 105.79%  t+   9.6s   <-- ABOVE THE BAR
+    W0   median  116.29 tok/s   spread  2.18%
+
+    HEAVY-1 block: --bench 1280 until 180 s of wall time
+    HEAVY-1 block done: 11 cells, 193.4 s, rate 79.51 .. 82.56 tok/s, clock 103.81 .. 104.48%
+
+    W1  rep 1/3   116.98 tok/s  foreign   4.5%  clock 105.13%  t+ 206.1s   <-- ABOVE THE BAR
+    W1  rep 2/3   118.19 tok/s  foreign   3.8%  clock 105.48%  t+ 209.3s
+    W1  rep 3/3   117.52 tok/s  foreign   3.4%  clock 105.49%  t+ 212.4s
+    W1   median  117.52 tok/s   spread  1.03%
+
+    LIGHT block: --bench 160 until 180 s of wall time
+    LIGHT block done: 58 cells, 181.2 s, rate 114.92 .. 128.73 tok/s, clock 105.37 .. 105.83%
+
+    W2  rep 1/3   119.97 tok/s  foreign   2.8%  clock 105.68%  t+ 396.8s
+    W2  rep 2/3   120.10 tok/s  foreign   3.8%  clock 105.66%  t+ 399.9s
+    W2  rep 3/3   122.69 tok/s  foreign   3.9%  clock 105.67%  t+ 403.0s
+    W2   median  120.10 tok/s   spread  2.26%
+
+    HEAVY-2 block: --bench 1280 until 180 s of wall time
+    HEAVY-2 block done: 10 cells, 180.2 s, rate 76.66 .. 82.01 tok/s, clock 104.16 .. 104.58%
+
+    W3  rep 1/3   117.04 tok/s  foreign   3.8%  clock 105.09%  t+ 586.4s
+    W3  rep 2/3   116.85 tok/s  foreign   4.5%  clock 105.19%  t+ 589.6s   <-- ABOVE THE BAR
+    W3  rep 3/3   116.37 tok/s  foreign   4.5%  clock 105.33%  t+ 592.7s   <-- ABOVE THE BAR
+    W3   median  116.85 tok/s   spread  0.57%
+
+  G-E54b (TIME or WORK) : UNRESOLVABLE
+     the widest witness spread (2.72 tok/s) exceeds the whole W0-W3 range (0.56 tok/s) -- this instrument cannot see an effect smaller than its own noise and will not guess
+
+  G-E54c (does the clock explain it?) : FIT
+     rate = 195.404 + -0.719 * clock%;  the clock's own 1.43-point range predicts -1.03 tok/s of the 13.81 tok/s observed = -7% of the droop
+
+  OCCUPANCY: 34 of 91 cells above the 4.39% bar
+  RUN       : 9.9 minutes, 91 cells
+
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e54_droop.json

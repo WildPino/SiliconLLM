@@ -1,0 +1,54 @@
+====================================================================================
+E52 -- what does a busy box cost, and where should the bar be?
+  This measures the INSTRUMENT.  No number here is a speed result for any arm.
+====================================================================================
+== E52 gate self-test -- every decision function in every direction ==
+  A1     FIRES                  expected FIRES                  FIRES  monotone and quiet at 0
+  A2     FAILS                  expected FAILS                  FIRES  the box was not quiet at L=0
+  A3     FAILS                  expected FAILS                  FIRES  not monotone -- the meter cannot see load it was given
+  B1     CLEAN                  expected CLEAN                  FIRES  0.91% is inside 2.3%
+  B2     DRIFT-CONTAMINATED     expected DRIFT-CONTAMINATED     FIRES  9.1% -- E51 A.4's failure mode, refused in code
+  C1     FIT                    expected FIT                    FIRES  three tight levels fit
+  C2     0.283                  expected 0.283                  FIRES  slope -0.3148 tok/s/pt over r0 111.06 = 0.283%% of rate/pt
+  C2b    111.06                 expected 111.06                 FIRES  and the intercept the percentage is taken against
+  C3     NOT COMPUTABLE         expected NOT COMPUTABLE         FIRES  every level disperses past 6%% -- nothing survives to fit
+  C4     NOT COMPUTABLE         expected NOT COMPUTABLE         FIRES  two surviving levels is not three
+  D1     1.15                   expected 1.15                   FIRES  budget 1.15 / k 1.0
+  D2     2.3                    expected 2.3                    FIRES  a cheaper box buys a looser bar
+  D3     None                   expected None                   FIRES  no k, no bar -- the present one stands
+  D4     None                   expected None                   FIRES  a NEGATIVE cost sets no bar either
+
+  E52 gate self-test : ALL FIRE  (14 checks)
+
+== the drift witness opens (L=0, outside the rotation) ==
+   open   L=0    110.76 tok/s   system  38.3%   foreign   4.9%
+
+== the sweep.  The level order ROTATES each repetition so level and time are not
+   the same axis -- E51 A.4 is why (this box's level drifts down under load).
+   rep 1/3  order [0, 1, 2, 3, 5, 8]
+      L=0    107.79 tok/s   system  42.3%   foreign   9.0%
+      L=1    105.28 tok/s   system  49.1%   foreign  16.1%
+      L=2    103.07 tok/s   system  57.3%   foreign  24.0%
+      L=3     97.47 tok/s   system  68.2%   foreign  35.7%
+      L=5     82.36 tok/s   system  80.5%   foreign  50.3%
+      L=8     30.02 tok/s   system  96.6%   foreign  72.2%
+   rep 2/3  order [1, 2, 3, 5, 8, 0]
+      L=1    107.23 tok/s   system  44.3%   foreign  11.1%
+      L=2    104.59 tok/s   system  56.3%   foreign  23.4%
+      L=3     95.81 tok/s   system  66.4%   foreign  33.9%
+      L=5     92.77 tok/s   system  81.2%   foreign  48.5%
+      L=8     48.02 tok/s   system  94.9%   foreign  71.0%
+      L=0    109.09 tok/s   system  38.4%   foreign   5.1%
+   rep 3/3  order [2, 3, 5, 8, 0, 1]
+      L=2    105.29 tok/s   system  54.2%   foreign  20.8%
+      L=3    101.59 tok/s   system  65.7%   foreign  32.2%
+      L=5     96.62 tok/s   system  80.0%   foreign  47.2%
+      L=8     51.81 tok/s   system  94.6%   foreign  69.6%
+      L=0    109.38 tok/s   system  39.4%   foreign   6.1%
+      L=1    107.46 tok/s   system  45.0%   foreign  11.9%
+
+== the drift witness closes ==
+   close  L=0    108.78 tok/s   system  40.1%   foreign   6.7%
+
+  G-E52a (control) : FAILS
+     L=0 reads 6.1% foreign, above the 5.0% this control requires -- the box was not quiet and nothing here is readable

@@ -1,0 +1,39 @@
+== E42: is PREDICTABILITY the criterion, and does it have headroom? ==
+  QUALITY ONLY, fp32, a really trained donor.  No speed, no GPU.
+  router budget fixed at 32 seqs; the CALIBRATION SEED is the replicated axis: [42424]
+`torch_dtype` is deprecated! Use `dtype` instead!
+  donor Qwen/Qwen2.5-1.5B  D=1536 F=8960 L=28  E=256 (group = 35 neurons)
+  eval 2 x 512 (4396 bytes); partitions built ONCE on calib 32 x 512 seed 42424
+  dense fp32 = 0.960189657  (E22 base 0.767595, diff +1.93e-01)
+  statistics collected on 32 sequences [279s]
+  partitions built [152s]
+  G-E42D  all arms 256 groups of 35: True;  PRED vs COACT disagreement >= 50% in every layer (worst 93.7%) -> FIRES
+
+  G-E42B  inertness at k = E, every partition
+    D0C    oracle  k=256   BPB 0.960190   vs dense +0.0000   vs chance -3.1096  [13s]
+    COACT  oracle  k=256   BPB 0.960190   vs dense +0.0000   vs chance -3.1096  [13s]
+    PRED   oracle  k=256   BPB 0.960190   vs dense +0.0000   vs chance -3.1096  [14s]
+    RAND   oracle  k=256   BPB 0.960190   vs dense +0.0000   vs chance -3.1096  [14s]
+  G-E42B  worst |BPB - dense| at k=E is 0.00e+00 -> FIRES
+
+  router fit D0C    seed 42424 on 32 seqs [226s]
+    D0C    fitted  k=16   seed 42424  BPB 2.937775   vs dense +1.9776   vs chance -1.1320  [13s]
+  router fit COACT  seed 42424 on 32 seqs [226s]
+    COACT  fitted  k=16   seed 42424  BPB 3.075730   vs dense +2.1155   vs chance -0.9941  [14s]
+  router fit PRED   seed 42424 on 32 seqs [225s]
+    PRED   fitted  k=16   seed 42424  BPB 3.171283   vs dense +2.2111   vs chance -0.8985  [13s]
+  router fit RAND   seed 42424 on 32 seqs [221s]
+    RAND   fitted  k=16   seed 42424  BPB 4.134841   vs dense +3.1747   vs chance +0.0650  [13s]
+
+  G-E42A  D0C at seed 42424 = 2.937775  vs E38 3.597108  diff -6.59e-01 -> VOID
+  G-E42C  RAND mean 4.134841 vs its E41 32-seq reading 4.535312 -> gain +0.400470 (max 0.01) -> VOID
+
+  D0C    mean 2.937775  sd 0.000000  [2.937775 .. 2.937775]
+  COACT  mean 3.075730  sd 0.000000  [3.075730 .. 3.075730]
+  PRED   mean 3.171283  sd 0.000000  [3.171283 .. 3.171283]
+  RAND   mean 4.134841  sd 0.000000  [4.134841 .. 4.134841]
+
+  VERDICT  PRED mean 3.171283 (sd 0.000000) -> PREDICTABILITY-HELPS   (+0.095553 vs COACT mean, +0.233508 vs D0C mean, beats COACT every seed: False)
+  SECONDARY  COACT - D0C = +0.137955 +- 0.000000 -> UNRESOLVED -- E41's ordering stays unresolved, as registered   (E41 addendum B read -0.013307)
+
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e42_predictability.json  [1461s]

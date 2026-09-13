@@ -1,0 +1,127 @@
+==================================================================================
+E48 part 2 -- where, inside the engine, does the context slope live?
+  --sweep6 --profile: ten bit-identical arms in ONE process, palindrome period 20.
+  Shares are the result; milliseconds are the arithmetic (addendum A.4).
+==================================================================================
+== E48 gate self-test -- every decision function in every direction ==
+  A1   True           expected True           FIRES   three positive terms rising 4x with context
+  A2   False          expected False          FIRES   a flat probe cannot see an O(pos) loop -> must refuse
+  A3   False          expected False          FIRES   a NEGATIVE term means the 2x arm was faster than the 1x -- refuse
+  B1   True           expected True           FIRES   equal increments -- the wrappers are doing one extra pass each
+  B2   False          expected False          FIRES   sm's second increment 50% off its first -> the arm is not one extra pass
+  B3   True           expected True           FIRES   6.7% off is inside the registered 15%
+  B4   True           expected True           FIRES   a miss at the SMALLEST window is reported, not gated (A.3)
+  B5   False          expected False          FIRES   ...and it is still recorded as a miss
+  C1   True           expected True           FIRES   token and organ slopes agree to 4.8% -- attention owns the slope
+  C2   False          expected False          FIRES   the token rises twice as fast as attention -> something else has a slope
+  D1   True           expected True           FIRES   same ordering at different magnitudes -> the rank travels
+  D2   False          expected False          FIRES   the largest term changes with the shape -> no lever may be ranked
+  F1   1.00000/2.000e-03 expected 1.00000/2.000e-03 FIRES   the fit recovers a planted line over E48's own windows
+  E48 gate self-test : ALL FIRE
+
+== A10B R128 --carve-k 3 (the headline arm) ==
+  windows 160, 640, 1280, 2560, 5 reps, round robin with reps outermost
+    n=160   rep 1/5  organ   0.730  X  0.141  S  0.269  Y  0.138  Rem  0.182  tok   9.087 ms  dt    1.54s occ 43.1%
+    n=640   rep 1/5  organ   2.594  X  0.446  S  0.779  Y  0.530  Rem  0.839  tok  11.300 ms  dt    7.60s occ 62.2%
+    n=1280  rep 1/5  organ   4.998  X  0.963  S  1.565  Y  1.085  Rem  1.384  tok  13.712 ms  dt   18.68s occ 54.9%
+    n=2560  rep 1/5  organ   9.917  X  2.241  S  3.326  Y  2.243  Rem  2.107  tok  18.494 ms  dt   53.60s occ 59.4%
+    n=160   rep 2/5  organ   0.672  X  0.113  S  0.142  Y  0.111  Rem  0.307  tok   8.584 ms  dt    1.39s occ 33.6%
+    n=640   rep 2/5  organ   2.560  X  0.470  S  0.741  Y  0.455  Rem  0.895  tok  10.938 ms  dt    7.28s occ 51.1%
+    n=1280  rep 2/5  organ   5.141  X  1.057  S  1.660  Y  1.078  Rem  1.346  tok  13.935 ms  dt   18.88s occ 59.9%
+    n=2560  rep 2/5  organ   9.891  X  2.160  S  3.197  Y  2.149  Rem  2.385  tok  18.311 ms  dt   52.88s occ 57.9%
+    n=160   rep 3/5  organ   0.698  X  0.094  S  0.195  Y  0.155  Rem  0.254  tok   8.479 ms  dt    1.37s occ 33.9%
+    n=640   rep 3/5  organ   2.507  X  0.452  S  0.760  Y  0.478  Rem  0.817  tok  10.768 ms  dt    7.21s occ 48.4%
+    n=1280  rep 3/5  organ   4.960  X  0.915  S  1.641  Y  0.998  Rem  1.406  tok  13.320 ms  dt   18.62s occ 55.7%
+    n=2560  rep 3/5  organ   9.911  X  2.156  S  3.233  Y  2.103  Rem  2.418  tok  18.439 ms  dt   53.41s occ 59.9%
+    n=160   rep 4/5  organ   0.679  X  0.049  S  0.185  Y  0.130  Rem  0.315  tok   8.330 ms  dt    1.46s occ 42.9%
+    n=640   rep 4/5  organ   2.508  X  0.491  S  0.818  Y  0.470  Rem  0.729  tok  10.743 ms  dt    7.18s occ 48.0%
+    n=1280  rep 4/5  organ   5.029  X  1.016  S  1.703  Y  1.111  Rem  1.199  tok  13.539 ms  dt   18.92s occ 57.8%
+    n=2560  rep 4/5  organ   9.934  X  2.091  S  3.141  Y  2.171  Rem  2.532  tok  18.401 ms  dt   53.84s occ 60.4%
+    n=160   rep 5/5  organ   0.647  X  0.096  S  0.149  Y  0.113  Rem  0.289  tok   8.263 ms  dt    1.41s occ 39.0%
+    n=640   rep 5/5  organ   2.623  X  0.623  S  0.890  Y  0.524  Rem  0.586  tok  11.448 ms  dt    7.86s occ 63.1%
+    n=1280  rep 5/5  organ   4.983  X  1.031  S  1.641  Y  1.085  Rem  1.225  tok  13.555 ms  dt   18.49s occ 52.8%
+    n=2560  rep 5/5  organ  10.208  X  2.161  S  3.242  Y  2.168  Rem  2.637  tok  19.879 ms  dt   54.86s occ 62.9%
+
+  -- A10B R128 --carve-k 3 (the headline arm) --
+  term                     slope ms/pos   intercept ms      share
+  X   Q.K loop               1.7295e-03        -0.0677      22.5%
+  S   softmax                2.5478e-03        -0.0181      33.1%
+  Y   A.V loop               1.7179e-03        -0.0309      22.3%
+  Rem non-loop resid         1.7459e-03         0.2050      22.7%
+  attention organ            7.6876e-03         0.0797     100.0%
+  whole token                8.1821e-03         8.1071
+
+  G-E48a  planted control : FIRES
+     X   positive True   rise  22.50x (bar 1.05)  fires
+     S   positive True   rise  17.46x (bar 1.05)  fires
+     Y   positive True   rise  16.67x (bar 1.05)  fires
+  G-E48b1 the 3x test     : PASSES   (gated at 1280, 2560)
+     n=160   X inc  0.096/ 0.131 =  1.37x MISS  S inc  0.185/ 0.182 =  0.98x ok  Y inc  0.130/ 0.116 =  0.89x ok
+     n=640   X inc  0.470/ 0.449 =  0.96x ok  S inc  0.779/ 0.833 =  1.07x ok  Y inc  0.478/ 0.518 =  1.08x ok
+     n=1280  X inc  1.016/ 1.041 =  1.02x ok  S inc  1.641/ 1.498 =  0.91x ok  Y inc  1.085/ 1.051 =  0.97x ok
+     n=2560  X inc  2.160/ 2.086 =  0.97x ok  S inc  3.233/ 3.192 =  0.99x ok  Y inc  2.168/ 2.133 =  0.98x ok
+  G-E48b2 only attention has a slope : FIRES   token 8.1821e-03 vs organ 7.6876e-03, 6.4% apart
+  drift line (A.4, NOT a gate) : E48 b = 8.1821e-06 vs E46 b = 2.0307e-05   ratio 0.403
+  organs of `none` at the largest window (ms/token):
+     qkv_proj 1.480  rope 0.030  attention 9.917  o_proj 0.606  ffn 3.482  head 2.720  norm+glue 0.210
+
+== S15, the real 1.5B ==
+  windows 160, 640, 1280, 2560, 5 reps, round robin with reps outermost
+    n=160   rep 1/5  organ   0.771  X  0.026  S  0.216  Y  0.079  Rem  0.450  tok  40.562 ms  dt    6.46s occ 63.3%
+    n=640   rep 1/5  organ   2.608  X  0.319  S  0.303  Y  0.471  Rem  1.514  tok  42.847 ms  dt   28.81s occ 70.8%
+    n=1280  rep 1/5  organ   4.896  X  0.488  S  1.023  Y  0.729  Rem  2.656  tok  44.771 ms  dt   60.33s occ 68.1%
+    n=2560  rep 1/5  organ   9.318  X  1.332  S  1.875  Y  1.346  Rem  4.764  tok  49.215 ms  dt  131.77s occ 66.4%
+    n=160   rep 2/5  organ   0.747  X  0.062  S  0.113  Y  0.158  Rem  0.413  tok  40.530 ms  dt    6.45s occ 62.6%
+    n=640   rep 2/5  organ   2.562  X  0.257  S  0.498  Y  0.475  Rem  1.331  tok  43.713 ms  dt   28.06s occ 67.2%
+    n=1280  rep 2/5  organ   5.109  X  0.933  S  1.107  Y  0.375  Rem  2.695  tok  48.491 ms  dt   65.38s occ 73.7%
+    n=2560  rep 2/5  organ  10.079  X  1.218  S  1.953  Y  1.711  Rem  5.198  tok  54.112 ms  dt  139.29s occ 70.8%
+    n=160   rep 3/5  organ   0.895  X -0.043  S  0.133  Y  0.061  Rem  0.743  tok  42.737 ms  dt    7.29s occ 72.7%
+    n=640   rep 3/5  organ   2.916  X  0.384  S  0.438  Y  1.093  Rem  1.001  tok  47.453 ms  dt   31.01s occ 70.9%
+    n=1280  rep 3/5  organ   5.148  X  1.958  S  0.138  Y  0.472  Rem  2.580  tok  48.296 ms  dt   67.05s occ 74.1%
+    n=2560  rep 3/5  organ  10.270  X  1.441  S  1.797  Y  1.752  Rem  5.280  tok  58.222 ms  dt  142.77s occ 73.5%
+    n=160   rep 4/5  organ   1.010  X  0.076  S -0.147  Y -0.035  Rem  1.116  tok  58.430 ms  dt    7.61s occ 75.2%
+    n=640   rep 4/5  organ   2.698  X  0.311  S  0.500  Y  0.742  Rem  1.145  tok  44.709 ms  dt   29.41s occ 72.1%
+    n=1280  rep 4/5  organ   5.143  X  0.658  S  1.173  Y  0.856  Rem  2.457  tok  47.856 ms  dt   63.58s occ 72.3%
+    n=2560  rep 4/5  organ  10.172  X  1.659  S  2.442  Y  1.544  Rem  4.527  tok  55.947 ms  dt  146.59s occ 73.8%
+    n=160   rep 5/5  organ   0.988  X  0.253  S  0.138  Y  0.674  Rem -0.078  tok  47.108 ms  dt    7.34s occ 72.3%
+    n=640   rep 5/5  organ   2.691  X  0.836  S  0.779  Y  0.455  Rem  0.620  tok  44.776 ms  dt   31.59s occ 74.0%
+    n=1280  rep 5/5  organ   5.083  X  0.898  S  0.975  Y  0.893  Rem  2.317  tok  46.714 ms  dt   61.60s occ 70.6%
+    n=2560  rep 5/5  organ   9.972  X  1.416  S  2.131  Y  1.642  Rem  4.783  tok  53.373 ms  dt  138.99s occ 72.1%
+
+  -- S15, the real 1.5B --
+  term                     slope ms/pos   intercept ms      share
+  X   Q.K loop               1.1474e-03         0.0083      15.0%
+  S   softmax                1.5191e-03         0.0206      19.8%
+  Y   A.V loop               1.2692e-03        -0.0049      16.6%
+  Rem non-loop resid         3.6739e-03         0.1089      48.0%
+  attention organ            7.6615e-03         0.2499     100.0%
+  whole token                9.5619e-03        41.8074
+
+  G-E48a  planted control : FIRES
+     X   positive True   rise  22.69x (bar 1.05)  fires
+     S   positive True   rise  14.64x (bar 1.05)  fires
+     Y   positive True   rise  20.68x (bar 1.05)  fires
+  G-E48b1 the 3x test     : *** FAILS ***   (gated at 1280, 2560)
+     n=160   X inc  0.062/ 0.099 =  1.59x MISS  S inc  0.133/ 0.136 =  1.02x ok  Y inc  0.079/ 0.046 =  0.58x MISS
+     n=640   X inc  0.319/ 0.190 =  0.60x MISS  S inc  0.498/ 0.569 =  1.14x ok  Y inc  0.475/ 0.371 =  0.78x MISS
+     n=1280  X inc  0.898/ 0.597 =  0.66x MISS  S inc  1.023/ 1.177 =  1.15x MISS  Y inc  0.729/ 0.835 =  1.15x ok
+     n=2560  X inc  1.416/ 1.364 =  0.96x ok  S inc  1.953/ 1.932 =  0.99x ok  Y inc  1.642/ 1.817 =  1.11x ok
+  G-E48b2 only attention has a slope : *** FAILS ***   token 9.5619e-03 vs organ 7.6615e-03, 24.8% apart
+  drift line (A.4, NOT a gate) : E48 b = 9.5619e-06 vs E46 b = 1.6276e-05   ratio 0.587
+  organs of `none` at the largest window (ms/token):
+     qkv_proj 3.410  rope 0.032  attention 10.079  o_proj 2.073  ffn 33.336  head 5.189  norm+glue 0.154
+
+==================================================================================
+  G-E48c -- the shares (a SCORE; its RANK partner is G-E48d)
+  term                           r128          s15
+  X                             22.5%        15.0%
+  S                             33.1%        19.8%
+  Y                             22.3%        16.6%
+  Rem                           22.7%        48.0%
+
+  G-E48d -- does the ordering survive the change of shape?
+     r128   S > Rem > X > Y
+     s15    Rem > S > Y > X
+     *** FAILS *** -- the rank is a property of the SHAPE, and no lever may be prioritised from it
+==================================================================================
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e48_slope_decomposition.json

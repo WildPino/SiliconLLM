@@ -1,0 +1,17 @@
+== E43 phase VOCAB: what is a token worth? ==
+  G-E43C  frozen span 51870 B (bar 51870), Qwen V=151936 reads 4.22945205479452 B/tok (bar 4.22945205479452) -> FIRES
+  training on calib_utf8.txt (140933059 B, 572 invalid UTF-8 bytes dropped -- see below), measuring on
+  the frozen 51870 B of heldout
+    V=2048     2.64737 B/tok  ( 19593 tokens, vocab 2048)  [15s]
+    V=8192     3.31036 B/tok  ( 15669 tokens, vocab 8192)  [18s]
+    V=14336    3.56250 B/tok  ( 14560 tokens, vocab 14336)  [18s]
+    V=20480    3.71482 B/tok  ( 13963 tokens, vocab 20480)  [19s]
+    V=26624    3.79666 B/tok  ( 13662 tokens, vocab 26624)  [19s]
+    V=32768    3.86311 B/tok  ( 13427 tokens, vocab 32768)  [23s]
+    V=51200    3.96833 B/tok  ( 13071 tokens, vocab 51200)  [26s]
+    V=131072   4.12354 B/tok  ( 12579 tokens, vocab 131072)  [28s]
+  building the character-shuffled corpus (seed 43043)...
+    null V=2048     1.87765 B/tok  vs real  2.64737  -> null worse (as it must be)
+    null V=32768    2.48099 B/tok  vs real  3.86311  -> null worse (as it must be)
+  G-E43D  character-shuffled BPE strictly worse at every V tested (ORDINAL) -> FIRES
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e43_vocab.json  [417s]

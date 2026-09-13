@@ -1,0 +1,58 @@
+==============================================================================
+E45 -- does the engine's speed depend on the weight VALUES?
+  engine donor_engine_e26.exe   ntok 40   threads 6
+  THIS SCRIPT PRINTS THE GATES THE BRIEF REGISTERED.  It mints no rate and it
+  may not be quoted for an absolute tok/s -- E43 stands, E44 addendum A did not
+  repeal it.  Absolute rates below carry their dispersion and nothing else.
+==============================================================================
+== identity of the pair (addendum B, B.4) ==
+  NF      1714582392 bytes  sha fae666d2a4d4de7e  zerofrac 0.4809541542  router fitted  [1s]
+  SYN     1714582392 bytes  sha 79b8a0f1db00b2ea  zerofrac 0.4698122995  router synthetic  [1s]
+  equal bytes, different sha256, sidecars agree with the files : FIRES
+
+== G-E45a -- PLANTED CONTROL.  Nothing below counts until this fires ==
+  known positive: E37 read DENSE-NF 30.75 and K16 89.83 tok/s, a 2.92x gap.
+  the instrument must resolve it: median K16/DENSE >= 2.0 and every pair > 1.5
+  G-E45a -- 3 interleaved pairs of K16 / DENSE
+    pair 1  K16   79.73 tok/s (occ 48.9%, load   0.5s)  DENSE   26.65 tok/s (occ 18.3%, load  15.8s)   ->  K16/DENSE = 2.9917
+    pair 2  K16   78.72 tok/s (occ 46.2%, load   0.6s)  DENSE   27.05 tok/s (occ 57.5%, load   0.6s)   ->  K16/DENSE = 2.9102
+    pair 3  K16   77.59 tok/s (occ 50.6%, load   0.6s)  DENSE   27.44 tok/s (occ 55.4%, load   0.6s)   ->  K16/DENSE = 2.8276
+  median K16/DENSE 2.9102  (min 2.8276, max 2.9917)
+  G-E45a : FIRES
+
+== K256  (PRIMARY -- value only, the router cannot change which memory is touched) ==
+  K256 -- 5 interleaved pairs of NF / SYN
+    pair 1  NF   25.80 tok/s (occ 54.5%, load   0.6s)  SYN   24.64 tok/s (occ 58.9%, load   0.6s)   ->  NF/SYN = 1.0471
+    pair 2  NF   24.78 tok/s (occ 57.0%, load   0.6s)  SYN   23.63 tok/s (occ 60.5%, load   0.6s)   ->  NF/SYN = 1.0487
+    pair 3  NF   22.94 tok/s (occ 65.0%, load   0.7s)  SYN   22.41 tok/s (occ 73.8%, load   0.7s)   ->  NF/SYN = 1.0237
+    pair 4  NF   24.12 tok/s (occ 61.8%, load   0.6s)  SYN   24.06 tok/s (occ 63.2%, load   0.6s)   ->  NF/SYN = 1.0025
+    pair 5  NF   23.44 tok/s (occ 65.2%, load   0.6s)  SYN   19.77 tok/s (occ 78.6%, load   0.7s)   ->  NF/SYN = 1.1856
+  NF  median   24.12 tok/s  (min 22.94, max 25.80, rel spread 0.1181)
+  SYN median   23.63 tok/s  (min 19.77, max 24.64, rel spread 0.2126)
+  per-pair ratio NF/SYN : median 1.0471   spread (max-min) 0.1831   |r-1| 0.0471
+  G-E45c on K256 : BRIDGE HOLDS
+
+== K16  (SECONDARY -- value + selection, may not override the primary) ==
+  K16 -- 5 interleaved pairs of NF / SYN
+    pair 1  NF   71.25 tok/s (occ 64.7%, load   0.6s)  SYN   72.93 tok/s (occ 56.9%, load   0.6s)   ->  NF/SYN = 0.9770
+    pair 2  NF   66.31 tok/s (occ 65.2%, load   0.6s)  SYN   63.96 tok/s (occ 75.8%, load   0.7s)   ->  NF/SYN = 1.0367
+    pair 3  NF   77.69 tok/s (occ 52.0%, load   0.6s)  SYN   77.72 tok/s (occ 52.6%, load   0.6s)   ->  NF/SYN = 0.9996
+    pair 4  NF   80.96 tok/s (occ 44.9%, load   0.6s)  SYN   10.34 tok/s (occ 90.3%, load   0.6s)   ->  NF/SYN = 7.8298
+    pair 5  NF   77.79 tok/s (occ 51.3%, load   0.6s)  SYN   74.38 tok/s (occ 51.4%, load   0.6s)   ->  NF/SYN = 1.0458
+  NF  median   77.69 tok/s  (min 66.31, max 80.96, rel spread 0.1959)
+  SYN median   72.93 tok/s  (min 10.34, max 77.72, rel spread 1.1255)
+  per-pair ratio NF/SYN : median 1.0367   spread (max-min) 6.8528   |r-1| 0.0367
+  G-E45c on K16 : BRIDGE HOLDS
+
+== G-E45b -- the ratio is reported with dispersion or not at all ==
+  5 pairs per arm (>= 5), median and min-max printed for every arm : FIRES
+
+==============================================================================
+E45 REGISTERED VERDICT (addendum B, B.2: read from K256)
+  K256  PRIMARY   r = 1.0471   s = 0.1831   |r-1| = 0.0471   -> BRIDGE HOLDS
+  K16   secondary r = 1.0367   s = 6.8528   |r-1| = 0.0367   -> BRIDGE HOLDS   (value+selection)
+
+  This is measured at 1.5B.  Brief section 5: E45 MAY NOT claim the result composes
+  to 10B by itself, and MAY NOT mint any headline rate.
+==============================================================================
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e45_weight_values.json

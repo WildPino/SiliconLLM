@@ -1,0 +1,64 @@
+== E41: is the PARTITION the lever? ==
+  QUALITY ONLY, fp32, a really trained donor.  No speed, no synthetic weights.
+  E38 s7 item 3: every carve here has used ONE label family, never audited.
+`torch_dtype` is deprecated! Use `dtype` instead!
+  donor Qwen/Qwen2.5-1.5B  D=1536 F=8960 L=28  E=256 (group = 35 neurons)
+  eval slice 24 x 512, 51870 scored bytes, ids_sha a1a48dc9fc5a6dc1
+  calib slice 8 x 512, seed 424242 -- NEVER the eval one
+
+  G-E41B  dense fp32 = 0.767594964  vs E22 base 0.767595  diff -3.59e-08 -> FIRES
+  per-neuron calibration statistics collected on 8 sequences
+  partition D0C    groups 256, size min/max 35/35
+  partition RAND   groups 256, size min/max 35/35
+  partition CONC   groups 256, size min/max 35/35
+  partition STRIPE groups 256, size min/max 35/35
+  partition COACT  groups 256, size min/max 35/35
+  partition PERM   groups 256, size min/max 35/35
+  router refit for D0C    [55s]
+  router refit for RAND   [54s]
+  router refit for CONC   [55s]
+  router refit for STRIPE [54s]
+  router refit for COACT  [55s]
+  router refit for PERM   [55s]
+
+  G-E41A  inertness at k = E, every partition
+    D0C    oracle  k=256   BPB 0.767595   vs dense +0.0000   vs chance -3.3022  [152s]
+    RAND   oracle  k=256   BPB 0.767595   vs dense +0.0000   vs chance -3.3022  [157s]
+    CONC   oracle  k=256   BPB 0.767595   vs dense +0.0000   vs chance -3.3022  [172s]
+    STRIPE oracle  k=256   BPB 0.767595   vs dense +0.0000   vs chance -3.3022  [183s]
+    COACT  oracle  k=256   BPB 0.767595   vs dense +0.0000   vs chance -3.3022  [170s]
+    PERM   oracle  k=256   BPB 0.767595   vs dense +0.0000   vs chance -3.3022  [174s]
+  G-E41A  worst |BPB - dense| at k=E is 0.00e+00 -> FIRES
+
+    D0C    oracle  k=16    BPB 3.449466   vs dense +2.6819   vs chance -0.6204  [178s]
+    D0C    fitted  k=16    BPB 3.804346   vs dense +3.0368   vs chance -0.2655  [180s]
+    RAND   oracle  k=16    BPB 3.902486   vs dense +3.1349   vs chance -0.1673  [182s]
+    RAND   fitted  k=16    BPB 4.530484   vs dense +3.7629   vs chance +0.4607  [179s]
+    CONC   oracle  k=16    BPB 3.369107   vs dense +2.6015   vs chance -0.7007  [172s]
+    CONC   fitted  k=16    BPB 3.815911   vs dense +3.0483   vs chance -0.2539  [179s]
+    STRIPE oracle  k=16    BPB 3.813485   vs dense +3.0459   vs chance -0.2563  [169s]
+    STRIPE fitted  k=16    BPB 4.415238   vs dense +3.6476   vs chance +0.3454  [180s]
+    COACT  oracle  k=16    BPB 3.095548   vs dense +2.3280   vs chance -0.9743  [172s]
+    COACT  fitted  k=16    BPB 3.887003   vs dense +3.1194   vs chance -0.1828  [179s]
+    PERM   oracle  k=16    BPB 3.448246   vs dense +2.6807   vs chance -0.6216  [178s]
+    PERM   fitted  k=16    BPB 3.804346   vs dense +3.0368   vs chance -0.2655  [181s]
+    D0C    oracle  k=3     BPB 4.131817   vs dense +3.3642   vs chance +0.0620  [175s]
+    D0C    fitted  k=3     BPB 4.574331   vs dense +3.8067   vs chance +0.5045  [167s]
+    RAND   oracle  k=3     BPB 4.162848   vs dense +3.3953   vs chance +0.0930  [155s]
+    RAND   fitted  k=3     BPB 4.691421   vs dense +3.9238   vs chance +0.6216  [154s]
+    CONC   oracle  k=3     BPB 4.203996   vs dense +3.4364   vs chance +0.1342  [151s]
+    CONC   fitted  k=3     BPB 4.874205   vs dense +4.1066   vs chance +0.8044  [151s]
+    STRIPE oracle  k=3     BPB 4.254170   vs dense +3.4866   vs chance +0.1844  [155s]
+    STRIPE fitted  k=3     BPB 4.818690   vs dense +4.0511   vs chance +0.7489  [153s]
+    COACT  oracle  k=3     BPB 4.125956   vs dense +3.3584   vs chance +0.0561  [154s]
+    COACT  fitted  k=3     BPB 4.522115   vs dense +3.7545   vs chance +0.4523  [159s]
+    PERM   oracle  k=3     BPB 4.131817   vs dense +3.3642   vs chance +0.0620  [155s]
+    PERM   fitted  k=3     BPB 4.574331   vs dense +3.8067   vs chance +0.5045  [156s]
+
+  G-E41C  PERM oracle == D0C oracle EXACTLY ? -> VOID  (k16 diff -1.221e-03 k3 diff +0.000e+00)
+          permuting group NAMES moved the number: the instrument is selecting on
+          labels, not on neurons.  No partition comparison below this counts.
+
+  VERDICT  best fitted at k=16 is D0C -> 3.804346 BPB  (+0.2072 vs D0C fitted, +0.3549 vs D0C oracle) -> PARTITION-IS-NOT-THE-LEVER
+
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e41_partition_lever.json  [5558s]

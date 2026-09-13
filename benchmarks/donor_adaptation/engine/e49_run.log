@@ -1,0 +1,28 @@
+====================================================================================
+E49 -- the attention kernel was never switched on
+  donor_engine.c:202 defaults to ATTN_SERIAL and no runner since E26 passes --attn.
+  PARITY FIRST: if G-E49a does not pass, every speed number below is void.
+====================================================================================
+== E49 gate self-test -- every decision function in every direction ==
+  A1   PARITY HOLDS               expected PARITY HOLDS               FIRES   E4's OWN two published values: 6.5e-10 apart, and a control 50% away
+  A2   PARITY FAILS               expected PARITY FAILS               FIRES   1% apart is 500x the bar -> the kernels do not compute the same thing
+  A3   VOID                       expected VOID                       FIRES   a control that does NOT fire voids the null, however good the null looks
+  A4   PARITY HOLDS               expected PARITY HOLDS               FIRES   1.9e-5 is inside the 2e-5 the |dBPB| < 1e-4 bar implies
+  A5   PARITY FAILS               expected PARITY FAILS               FIRES   2.1e-5 is outside it -- the bar is a bar
+  A6   2e-05                      expected 2e-05                      FIRES   1e-4 BPB over a BPB bounded by 5 is 2e-5 relative
+  C1   True                       expected True                       FIRES   +2.0% at context 20 -> inside the band the ledger already carries
+  C2   False                      expected False                      FIRES   +19.8% -> the headline is restated, not defended
+  C3   False                      expected False                      FIRES   the gate must also fire when the kernel makes it WORSE
+  D1   575                        expected 575                        FIRES   E46's own C50, serial
+  D2   1454                       expected 1454                       FIRES   E48's own C50, avx4 under sweep6
+  E49 gate self-test : ALL FIRE
+
+== G-E49a -- PARITY.  Nothing else in E49 counts until this passes. ==
+  S15 serial   NATS_TOTAL 124963.9729339122  n=12264  (588.4 s)
+  S15 avx4     NATS_TOTAL 124963.9517608703          (539.6 s)
+  CONTROL dense serial  NATS_TOTAL 124963.9628600173  (527.3 s)
+
+  planted control : *** DOES NOT FIRE ***   (8.061e-08 apart, bar 1e-03)
+  avx4 vs serial  : 1.694e-07 relative -> |dBPB| <= 8.47e-07   (bar 2e-05 relative)
+  G-E49a : VOID
+  the planted control did not fire: the harness cannot see a difference that IS there, so its null says nothing

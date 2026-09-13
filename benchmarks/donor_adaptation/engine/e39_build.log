@@ -1,0 +1,23 @@
+== E39: the same ten billion, put somewhere else ==
+  SPEED ONLY and the weights are NOISE -- same limit as E36, stated in the brief s0.
+  have  A10B  <- D:/_ktmp/e36/e36_a10b.bin  (E36's own artifact, not rebuilt)
+  build R512   A10B-R512 rank=512  (~5.5 GB)
+        --carve WITH --rank: two axes at once, which E26 forbade and E39 requires. Any arm built this way prices the COMBINATION and neither axis alone.
+        --rank 512 on q_proj/o_proj: active 10.2677 B -> 0.5303 B  (-94.84%), matvec calls/token 113 -> 145
+        GATE V3: 195 tensors, 5486052536 bytes, matches E1's independent layout exactly
+        wrote D:/_ktmp/e39\e39_r512.bin  (5.11 GB)  active 0.530 B weights/token
+        [150s]
+  build R0     A10B-R512 rank=0  (~5.5 GB)
+        GATE V3: 195 tensors, 5687247672 bytes, matches E1's independent layout exactly
+        wrote D:/_ktmp/e39\e39_r0.bin  (5.30 GB)  active 0.933 B weights/token
+        [211s]
+  build R4096  A10B-R512 rank=4096  (~5.5 GB)
+        --carve WITH --rank: two axes at once, which E26 forbade and E39 requires. Any arm built this way prices the COMBINATION and neither axis alone.
+        --rank 4096 on q_proj/o_proj: active 10.2677 B -> 1.4698 B  (-85.68%), matvec calls/token 113 -> 145
+        GATE V3: 195 tensors, 5956732088 bytes, matches E1's independent layout exactly
+        wrote D:/_ktmp/e39\e39_r4096.bin  (5.55 GB)  active 1.470 B weights/token
+        [176s]
+
+  G-E39A  A10B 9999220736 == R512 9999220736 == 9999220736 ?  -> FIRES
+  G-E39B  charged == 419430400 + 36962304*k at every k, zero tolerance -> FIRES
+  --build-only: wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e39_same_ten_billion.json  [538s]

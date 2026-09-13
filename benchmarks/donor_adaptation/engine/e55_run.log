@@ -1,0 +1,78 @@
+E55 -- the demonstration table, with an interval that survives
+brief: BRIEF_E55_THE_DEMONSTRATION_TABLE_WITH_AN_INTERVAL_THAT_SURVIVES.md
+
+  SHAPE REAL      e40_r128.bin, 5.11 GB, E=256 experts, k=3 active = 1.17% of the FFN, GQA
+  WEIGHTS SYNTHETIC   these are not a trained model's parameters (E45: rate does not depend
+                      on weight VALUES, bounded under 5% -- supported, not certified)
+  QUALITY NOT DEMONSTRATED AT THIS SHAPE   E37's verdict on post-hoc conversion was NO;
+                      the trained-carve attempt is H1 and is not finished
+  => a SPEED claim about the SHAPE.  NOT a working-model claim.
+
+== self-test.  Every decision function must fire on a known-positive. ==
+  Q-1 the quantile of a known set is exact             fires
+  Q-2 and it interpolates                              fires
+  Q-3 IQR of a uniform ramp is half its range          fires
+  A-1 a converged sample is STABLE                     fires
+  A-2 a sample dominated by two outliers is UNSTABLE   fires
+  A-3 too few reps is UNSTABLE, not PASS               fires
+  B-1 p25 above 100 is EXCELLENT                       fires
+  B-2 p25 between 50 and 100 is TARGET                 fires
+  B-3 p25 below 50 is BELOW TARGET                     fires
+  B-4 exactly 50 HOLDS (the bar is inclusive)          fires
+  C-1 a planted crossing is recovered exactly          fires
+  C-2 identical fits give a zero-width band            fires
+  C-3 a pessimistic band is narrower on the p25 side   fires
+  C-4 fewer than three stable windows is REFUSED       fires
+
+  14 of 14 fire.
+
+== warm-up cell, DISCARDED (E54 B.4: a run's own launch sits inside its first cells) ==
+   discarded: 125.90 tok/s  foreign 3.9%  clock 106.86%
+   CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=ternary
+
+== sweep.  Window order ROTATES each repetition (E54 s2: an ascending ladder makes
+   'time elapsed' and 'heavy work just finished' the same observation). ==
+
+   rep  5/40 done  (t+ 385.4s, 20 cells)
+   rep 10/40 done  (t+ 793.0s, 40 cells)
+   rep 15/40 done  (t+1188.3s, 60 cells)
+   rep 20/40 done  (t+1333.4s, 75 cells)
+   rep 25/40 done  (t+1478.6s, 90 cells)
+   rep 30/40 done  (t+1494.1s, 95 cells)
+   rep 35/40 done  (t+1509.8s, 100 cells)
+   rep 40/40 done  (t+1525.4s, 105 cells)
+
+== G-E55a / G-E55b -- the table ==
+
+   N      mean pos   reps      p25   median      p75     IQR min-max  verdict
+   160    80           25   118.47   119.57   121.27   2.34%   9.10%  EXCELLENT HELD
+   640    320          16    98.77    99.34   100.20   1.43%   4.66%  TARGET HELD
+   1280   640          17    79.14    80.89    81.35   2.73%   7.50%  NOT CLAIMED (interval unstable)
+   2560   1280          8    49.57    51.98    54.43   9.34%  11.68%  NOT CLAIMED (interval unstable)
+
+   N=160   G-E55a PASS      IQR 2.34% on 25 reps vs 2.49% on a random half = 7% apart
+   N=640   G-E55a PASS      IQR 1.43% on 16 reps vs 1.54% on a random half = 8% apart
+   N=1280  G-E55a UNSTABLE  IQR 2.73% on 17 reps vs 3.52% on a random half = 29% apart, past the 20% bar -- this is not an interval, it is a sample
+   N=2560  G-E55a UNSTABLE  IQR 9.34% on 8 reps vs 4.63% on a random half = 50% apart, past the 20% bar -- this is not an interval, it is a sample
+
+   (IQR is the statistic that converges; min-max is printed beside it only to show
+    how much larger the number this programme used to quote would have been.)
+
+== G-E55c -- how far does it hold? ==
+   REFUSED : only 2 of 4 windows passed G-E55a; a fit needs three
+
+== G-E55d -- occupancy ==
+   N=160   15 of 40 cells above the 4.39% bar, excluded from the quantiles; median with them = 119.09 (without = 119.57)
+   N=640    9 of 25 cells above the 4.39% bar, excluded from the quantiles; median with them = 99.52 (without = 99.34)
+   N=1280   8 of 25 cells above the 4.39% bar, excluded from the quantiles; median with them = 80.53 (without = 80.89)
+   N=2560   7 of 15 cells above the 4.39% bar, excluded from the quantiles; median with them = 53.32 (without = 51.98)
+
+   RUN: 25.4 minutes, 105 cells (+1 discarded warm-up)
+
+  SHAPE REAL      e40_r128.bin, 5.11 GB, E=256 experts, k=3 active = 1.17% of the FFN, GQA
+  WEIGHTS SYNTHETIC   these are not a trained model's parameters (E45: rate does not depend
+                      on weight VALUES, bounded under 5% -- supported, not certified)
+  QUALITY NOT DEMONSTRATED AT THIS SHAPE   E37's verdict on post-hoc conversion was NO;
+                      the trained-carve attempt is H1 and is not finished
+  => a SPEED claim about the SHAPE.  NOT a working-model claim.
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e55_table.json

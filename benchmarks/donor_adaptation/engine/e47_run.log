@@ -1,0 +1,113 @@
+==============================================================================
+E47 -- is the cost of CONTEXT query FLOPs or KV bytes?
+  Three shapes, identical but for the head counts.  E47 reads the SLOPE of
+  per-token cost against context position, never a rate.
+==============================================================================
+== E47 gate self-test -- G-E47b in all four directions ==
+  Y1   QUERY-BOUND  expected QUERY-BOUND  FIRES   slope tracks query FLOPs and ignores KV
+  Y2   KV-BOUND     expected KV-BOUND     FIRES   slope tracks KV bytes and ignores query FLOPs
+  Y3   MIXED        expected MIXED        FIRES   both terms real
+  Y4   NEITHER      expected NEITHER      FIRES   nothing moves -- the marginal cost is something else entirely
+  Y5   MIXED        expected MIXED        FIRES   high on both is MIXED, not two verdicts at once
+  Y6   NEITHER      expected NEITHER      FIRES   a small rise on both is not evidence for either
+  E47 gate self-test : ALL FIRE
+
+== BASE  (NH 16, NKV 2 -- query 12288, KV 1536) ==
+  BASE -- windows 40, 160, 640, 1280, 5 reps, round robin
+    n=40    rep 1/5    57.96 tok/s  dt    0.690 s  occ 64.2%  load   0.2s
+    n=160   rep 1/5    53.81 tok/s  dt    2.974 s  occ 72.9%  load   0.2s
+    n=640   rep 1/5    54.40 tok/s  dt   11.765 s  occ 68.4%  load   0.2s
+    n=1280  rep 1/5    50.56 tok/s  dt   25.316 s  occ 70.2%  load   0.2s
+    n=40    rep 2/5    55.31 tok/s  dt    0.723 s  occ 74.9%  load   0.2s
+    n=160   rep 2/5    59.60 tok/s  dt    2.684 s  occ 66.2%  load   0.2s
+    n=640   rep 2/5    57.05 tok/s  dt   11.218 s  occ 63.4%  load   0.2s
+    n=1280  rep 2/5    52.87 tok/s  dt   24.212 s  occ 62.6%  load   0.2s
+    n=40    rep 3/5    63.40 tok/s  dt    0.631 s  occ 55.6%  load   0.2s
+    n=160   rep 3/5    64.15 tok/s  dt    2.494 s  occ 57.9%  load   0.2s
+    n=640   rep 3/5    55.70 tok/s  dt   11.489 s  occ 65.9%  load   0.2s
+    n=1280  rep 3/5    50.35 tok/s  dt   25.420 s  occ 68.8%  load   0.2s
+    n=40    rep 4/5    52.83 tok/s  dt    0.757 s  occ 82.9%  load   0.2s
+    n=160   rep 4/5    54.84 tok/s  dt    2.917 s  occ 75.7%  load   0.2s
+    n=640   rep 4/5    53.69 tok/s  dt   11.921 s  occ 64.8%  load   0.2s
+    n=1280  rep 4/5    50.85 tok/s  dt   25.170 s  occ 67.4%  load   0.2s
+    n=40    rep 5/5    63.17 tok/s  dt    0.633 s  occ 55.3%  load   0.2s
+    n=160   rep 5/5    52.88 tok/s  dt    3.026 s  occ 75.6%  load   0.2s
+    n=640   rep 5/5    54.65 tok/s  dt   11.710 s  occ 70.6%  load   0.2s
+    n=1280  rep 5/5    50.53 tok/s  dt   25.330 s  occ 67.4%  load   0.2s
+  fit  s/tok = 0.017566 + 2.5707e-06 * pos   ->  56.93 tok/s at position 0
+  G-E46a rise 1.0607 : FIRES   G-E46b dt(1280) pred 24.592 obs 25.316 rel 0.0294 : SURVIVES
+
+== QUERY  (NH 32, NKV 2 -- query 24576, KV 1536) ==
+  QUERY -- windows 40, 160, 640, 1280, 5 reps, round robin
+    n=40    rep 1/5    54.42 tok/s  dt    0.735 s  occ 62.7%  load   0.2s
+    n=160   rep 1/5    46.82 tok/s  dt    3.417 s  occ 79.6%  load   0.2s
+    n=640   rep 1/5    46.74 tok/s  dt   13.694 s  occ 69.1%  load   0.2s
+    n=1280  rep 1/5    40.84 tok/s  dt   31.343 s  occ 71.8%  load   0.2s
+    n=40    rep 2/5    54.96 tok/s  dt    0.728 s  occ 61.8%  load   0.2s
+    n=160   rep 2/5    54.10 tok/s  dt    2.957 s  occ 63.1%  load   0.2s
+    n=640   rep 2/5    46.44 tok/s  dt   13.782 s  occ 68.0%  load   0.2s
+    n=1280  rep 2/5    41.29 tok/s  dt   31.000 s  occ 72.1%  load   0.2s
+    n=40    rep 3/5    59.78 tok/s  dt    0.669 s  occ 57.3%  load   0.2s
+    n=160   rep 3/5    55.32 tok/s  dt    2.892 s  occ 64.8%  load   0.2s
+    n=640   rep 3/5    48.95 tok/s  dt   13.074 s  occ 64.6%  load   0.2s
+    n=1280  rep 3/5    44.50 tok/s  dt   28.765 s  occ 63.7%  load   0.2s
+    n=40    rep 4/5    60.48 tok/s  dt    0.661 s  occ 55.2%  load   0.2s
+    n=160   rep 4/5    58.22 tok/s  dt    2.748 s  occ 61.4%  load   0.2s
+    n=640   rep 4/5    47.59 tok/s  dt   13.447 s  occ 68.8%  load   0.2s
+    n=1280  rep 4/5    42.00 tok/s  dt   30.478 s  occ 70.8%  load   0.2s
+    n=40    rep 5/5    54.58 tok/s  dt    0.733 s  occ 68.0%  load   0.2s
+    n=160   rep 5/5    57.42 tok/s  dt    2.786 s  occ 60.3%  load   0.2s
+    n=640   rep 5/5    49.68 tok/s  dt   12.882 s  occ 63.3%  load   0.2s
+    n=1280  rep 5/5    44.22 tok/s  dt   28.949 s  occ 64.7%  load   0.2s
+  fit  s/tok = 0.017669 + 1.0188e-05 * pos   ->  56.60 tok/s at position 0
+  G-E46a rise 1.1544 : FIRES   G-E46b dt(1280) pred 30.969 obs 30.478 rel 0.0158 : SURVIVES
+
+== KV  (NH 16, NKV 8 -- query 12288, KV 6144) ==
+  KV -- windows 40, 160, 640, 1280, 5 reps, round robin
+    n=40    rep 1/5    61.43 tok/s  dt    0.651 s  occ 54.5%  load   0.2s
+    n=160   rep 1/5    54.09 tok/s  dt    2.958 s  occ 69.7%  load   0.3s
+    n=640   rep 1/5    48.36 tok/s  dt   13.234 s  occ 73.2%  load   0.2s
+    n=1280  rep 1/5    45.36 tok/s  dt   28.217 s  occ 68.5%  load   0.2s
+    n=40    rep 2/5    59.01 tok/s  dt    0.678 s  occ 57.3%  load   0.2s
+    n=160   rep 2/5    58.27 tok/s  dt    2.746 s  occ 63.9%  load   0.2s
+    n=640   rep 2/5    53.36 tok/s  dt   11.994 s  occ 63.7%  load   0.2s
+    n=1280  rep 2/5    46.46 tok/s  dt   27.552 s  occ 68.6%  load   0.2s
+    n=40    rep 3/5    59.00 tok/s  dt    0.678 s  occ 64.7%  load   0.2s
+    n=160   rep 3/5    49.74 tok/s  dt    3.217 s  occ 76.5%  load   0.2s
+    n=640   rep 3/5    52.18 tok/s  dt   12.265 s  occ 63.7%  load   0.2s
+    n=1280  rep 3/5    46.70 tok/s  dt   27.411 s  occ 66.2%  load   0.2s
+    n=40    rep 4/5    47.13 tok/s  dt    0.849 s  occ 69.0%  load   0.2s
+    n=160   rep 4/5    57.10 tok/s  dt    2.802 s  occ 64.5%  load   0.2s
+    n=640   rep 4/5    47.33 tok/s  dt   13.523 s  occ 74.6%  load   0.2s
+    n=1280  rep 4/5    45.81 tok/s  dt   27.943 s  occ 67.5%  load   0.2s
+    n=40    rep 5/5    62.89 tok/s  dt    0.636 s  occ 53.6%  load   0.2s
+    n=160   rep 5/5    59.69 tok/s  dt    2.680 s  occ 64.2%  load   0.2s
+    n=640   rep 5/5    52.54 tok/s  dt   12.181 s  occ 64.6%  load   0.2s
+    n=1280  rep 5/5    46.00 tok/s  dt   27.827 s  occ 69.3%  load   0.2s
+  fit  s/tok = 0.016862 + 7.2377e-06 * pos   ->  59.30 tok/s at position 0
+  G-E46a rise 1.1306 : FIRES   G-E46b dt(1280) pred 27.517 obs 27.827 rel 0.0112 : SURVIVES
+
+== G-E47a -- the law must hold on EVERY arm, or no slope means anything ==
+  BASE   G-E46a FIRES   G-E46b rel err 0.0294 SURVIVES
+  QUERY  G-E46a FIRES   G-E46b rel err 0.0158 SURVIVES
+  KV     G-E46a FIRES   G-E46b rel err 0.0112 SURVIVES
+  G-E47a : FIRES
+
+== the slopes ==
+  arm        NH    NKV        query           KV  b (s/tok/pos)
+  BASE       16      2        12288         1536     2.5707e-06
+  QUERY      32      2        24576         1536     1.0188e-05
+  KV         16      8        12288         6144     7.2377e-06
+
+  query heads x2 -> slope x 3.963   (query FLOPs predict 2.00, KV bytes predict 1.00)
+  KV heads    x4 -> slope x 2.815   (query FLOPs predict 1.00, KV bytes predict 4.00)
+
+==============================================================================
+  G-E47b : MIXED
+  both terms move (q 3.96, v 2.82) -- the two-term model is now TESTED
+
+  E46's C50 = 575 does NOT depend on this answer -- it was measured, not derived.
+  What this decides is WHICH lever moves it.
+==============================================================================
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e47_head_counts.json
+exit=0

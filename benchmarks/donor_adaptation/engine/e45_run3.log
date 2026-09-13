@@ -1,0 +1,93 @@
+==============================================================================
+E45 run 3 -- H-WINDOW: is the dispersion an artifact of a 40-token window?
+  engine donor_engine_e26.exe   threads 6   reps 7
+  arm NF (real weights) only.  This run does not compare NF against SYN and
+  may not revise run 1 or run 2 (E36's run-2 rule).  It may not mint a rate.
+==============================================================================
+== run-3 gate self-test -- every gate must fire in every direction ==
+  W1   True                   expected True                   FIRES   first and last agree -> the drift control passes
+  W2   False                  expected False                  FIRES   the box drifted 30% across the sweep -> VOID, as it must
+  W3   True                   expected True                   FIRES   dt scales with the window
+  W4   False                  expected False                  FIRES   --bench N decoding a different N -> refuses
+  W5   SHORT-WINDOW ARTIFACT  expected SHORT-WINDOW ARTIFACT  FIRES   cv falls 4x with the window
+  W6   SCALE-FREE             expected SCALE-FREE             FIRES   cv does not fall -- the BIGGER outcome
+  W7   PARTIAL                expected PARTIAL                FIRES   between the two, reported as the curve
+  W8   BOOST-INFLATED         expected BOOST-INFLATED         FIRES   the long window reads 20% slower than the short one
+  W9   NO WINDOW EFFECT       expected NO WINDOW EFFECT       FIRES   the gap is inside the long window's own dispersion
+  W10  INCONCLUSIVE           expected INCONCLUSIVE           FIRES   2.7% slower: outside cv but inside the 5% bar
+  W10b INCONCLUSIVE           expected INCONCLUSIVE           FIRES   the LONG window reads FASTER -- resolved, but not inflation
+  W11  INCONCLUSIVE           expected INCONCLUSIVE           FIRES   a 47% gap may NOT be swallowed by a cv of 0.90 (D.5's cap)
+  W12  INCONCLUSIVE           expected INCONCLUSIVE           FIRES   and the cap bites just above 0.10 even when the arms agree
+  run-3 gate self-test : ALL FIRE
+
+== block A -- NTOK 40, first (G-E45g's first half) ==
+    K256 n40 A     rep 1/7    25.67 tok/s  dt   1.558 s  occ 58.0%  load  0.5s
+    K256 n40 A     rep 2/7    25.91 tok/s  dt   1.544 s  occ 56.2%  load  0.6s
+    K256 n40 A     rep 3/7    24.77 tok/s  dt   1.615 s  occ 61.0%  load  0.6s
+    K256 n40 A     rep 4/7    26.37 tok/s  dt   1.517 s  occ 59.6%  load  0.6s
+    K256 n40 A     rep 5/7    25.40 tok/s  dt   1.575 s  occ 58.9%  load  0.6s
+    K256 n40 A     rep 6/7    26.05 tok/s  dt   1.535 s  occ 58.2%  load  0.6s
+    K256 n40 A     rep 7/7    24.49 tok/s  dt   1.633 s  occ 59.3%  load  0.6s
+    K16  n40 A     rep 1/7    82.34 tok/s  dt   0.486 s  occ 46.5%  load  0.6s
+    K16  n40 A     rep 2/7    79.94 tok/s  dt   0.500 s  occ 61.1%  load  0.6s
+    K16  n40 A     rep 3/7    83.14 tok/s  dt   0.481 s  occ 45.0%  load  0.6s
+    K16  n40 A     rep 4/7    78.43 tok/s  dt   0.510 s  occ 46.3%  load  0.5s
+    K16  n40 A     rep 5/7    83.91 tok/s  dt   0.477 s  occ 44.3%  load  0.6s
+    K16  n40 A     rep 6/7    83.36 tok/s  dt   0.480 s  occ 49.6%  load  0.5s
+    K16  n40 A     rep 7/7    82.69 tok/s  dt   0.484 s  occ 45.5%  load  0.5s
+
+== round robin over K256_160, K256_640, K256_2560, K16_2560, reps outermost ==
+    K256_160       rep 1/7    25.31 tok/s  dt   6.322 s  occ 60.6%  load  0.6s
+    K256_640       rep 1/7    22.43 tok/s  dt  28.537 s  occ 67.0%  load  0.6s
+    K256_2560      rep 1/7    17.39 tok/s  dt 147.186 s  occ 66.4%  load  0.6s
+    K16_2560       rep 1/7    33.51 tok/s  dt  76.389 s  occ 66.3%  load  0.6s
+    K256_160       rep 2/7    23.76 tok/s  dt   6.733 s  occ 66.2%  load  0.6s
+    K256_640       rep 2/7    21.99 tok/s  dt  29.106 s  occ 67.9%  load  0.6s
+    K256_2560      rep 2/7    17.54 tok/s  dt 145.987 s  occ 66.0%  load  0.6s
+    K16_2560       rep 2/7    34.42 tok/s  dt  74.384 s  occ 63.0%  load  0.5s
+    K256_160       rep 3/7    24.58 tok/s  dt   6.510 s  occ 61.0%  load  0.6s
+    K256_640       rep 3/7    23.13 tok/s  dt  27.675 s  occ 62.0%  load  0.6s
+    K256_2560      rep 3/7    16.98 tok/s  dt 150.769 s  occ 69.3%  load  0.6s
+    K16_2560       rep 3/7    33.22 tok/s  dt  77.073 s  occ 67.4%  load  0.6s
+    K256_160       rep 4/7    23.34 tok/s  dt   6.854 s  occ 70.8%  load  0.6s
+    K256_640       rep 4/7    20.45 tok/s  dt  31.293 s  occ 73.7%  load  0.6s
+    K256_2560      rep 4/7    12.24 tok/s  dt 209.140 s  occ 81.8%  load  0.6s
+    K16_2560       rep 4/7    31.09 tok/s  dt  82.331 s  occ 74.5%  load  0.5s
+    K256_160       rep 5/7    23.70 tok/s  dt   6.752 s  occ 71.9%  load  0.7s
+    K256_640       rep 5/7    16.93 tok/s  dt  37.796 s  occ 84.8%  load  0.6s
+    K256_2560      rep 5/7    16.14 tok/s  dt 158.602 s  occ 74.8%  load  1.0s
+    K16_2560       rep 5/7    31.94 tok/s  dt  80.162 s  occ 70.3%  load  1.0s
+    K256_160       rep 6/7    21.54 tok/s  dt   7.427 s  occ 73.3%  load  0.6s
+    K256_640       rep 6/7    20.82 tok/s  dt  30.746 s  occ 71.6%  load  0.6s
+    K256_2560      rep 6/7    17.14 tok/s  dt 149.331 s  occ 68.1%  load  0.6s
+    K16_2560       rep 6/7    32.75 tok/s  dt  78.169 s  occ 68.8%  load  0.5s
+    K256_160       rep 7/7    26.03 tok/s  dt   6.148 s  occ 56.0%  load  0.6s
+    K256_640       rep 7/7    23.10 tok/s  dt  27.704 s  occ 63.9%  load  0.5s
+    K256_2560      rep 7/7    18.12 tok/s  dt 141.284 s  occ 61.6%  load  0.6s
+    K16_2560       rep 7/7    34.93 tok/s  dt  73.282 s  occ 61.7%  load  0.6s
+
+== block Z -- NTOK 40, last (G-E45g's second half) ==
+    K256 n40 Z     rep 1/7    27.11 tok/s  dt   1.475 s  occ 49.4%  load  0.6s
+    K256 n40 Z     rep 2/7    25.56 tok/s  dt   1.565 s  occ 55.7%  load  0.6s
+    K256 n40 Z     rep 3/7    27.19 tok/s  dt   1.471 s  occ 47.4%  load  0.6s
+    K256 n40 Z     rep 4/7    27.02 tok/s  dt   1.480 s  occ 55.2%  load  0.6s
+    K256 n40 Z     rep 5/7    25.77 tok/s  dt   1.552 s  occ 56.3%  load  0.5s
+    K256 n40 Z     rep 6/7    27.43 tok/s  dt   1.458 s  occ 47.0%  load  0.5s
+    K256 n40 Z     rep 7/7    25.65 tok/s  dt   1.560 s  occ 54.4%  load  0.5s
+    K16  n40 Z     rep 1/7    87.03 tok/s  dt   0.460 s  occ 35.5%  load  0.5s
+    K16  n40 Z     rep 2/7    88.49 tok/s  dt   0.452 s  occ 33.1%  load  0.5s
+    K16  n40 Z     rep 3/7    80.72 tok/s  dt   0.496 s  occ 50.4%  load  0.5s
+    K16  n40 Z     rep 4/7    71.23 tok/s  dt   0.562 s  occ 52.1%  load  0.5s
+    K16  n40 Z     rep 5/7    80.59 tok/s  dt   0.496 s  occ 60.4%  load  0.6s
+    K16  n40 Z     rep 6/7    84.08 tok/s  dt   0.476 s  occ 41.2%  load  0.6s
+    K16  n40 Z     rep 7/7    79.69 tok/s  dt   0.502 s  occ 55.6%  load  0.6s
+
+== G-E45g -- DRIFT CONTROL.  Nothing below counts until it fires ==
+  K256  first   25.67  last   27.02  gap 0.0512  bar 0.0737  : FIRES
+  K16   first   82.69  last   80.72  gap 0.0241  bar 0.2113  : FIRES
+
+== G-E45h -- LINEARITY CONTROL ==
+  K256  dt(2560)/dt(40) = 96.47  expected 64  rel err 0.5073 (tol 0.15) : *** FAILS ***
+  K16   dt(2560)/dt(40) = 158.91  expected 64  rel err 1.4830 (tol 0.15) : *** FAILS ***
+G-E45h did not fire: --bench N is not measuring what its name says, so no window conclusion may be drawn from it.  STOP.
+exit=1

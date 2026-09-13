@@ -1,0 +1,113 @@
+  contention witness: 10.6% mean / 23% peak of all logical cores busy before the run (bar 25% on the MEAN)
+== E26 part B: what an activated weight costs ==
+  engine donor_engine_e26.exe   threads 6   reps 3   E=256
+
+  arm            shape     k   %of F   active weights/token   vs its DENSE control
+  S15-PACKED     S15       -   100%              1.5436 G     +0.00%
+  S15-DENSE      S15       -   100%              1.5436 G     +0.00%
+  S15-K256       S15     256 100.0%              1.5546 G     +0.71%
+  S15-K128       S15     128  50.0%              0.9766 G    -36.73%
+  S15-K64        S15      64  25.0%              0.6875 G    -55.46%
+  S15-K16        S15      16   6.2%              0.4708 G    -69.50%
+  S15-K4         S15       4   1.6%              0.4166 G    -73.01%
+  T10-DENSE      T10       -   100%             10.6032 G     +0.00%
+  T10-K256       T10     256 100.0%             10.6535 G     +0.47%
+  T10-K128       T10     128  50.0%              6.4257 G    -39.40%
+  T10-K64        T10      64  25.0%              4.3117 G    -59.34%
+  T10-K16        T10      16   6.2%              2.7263 G    -74.29%
+  T10-K4         T10       4   1.6%              2.3299 G    -78.03%
+
+  have  s15_dense      e26_s15_dense.bin
+  have  s15_carve256   e26_s15_carve256.bin
+  have  s15_packed     e26_s15_packed.bin
+  have  t10_dense      e26_t10_dense.bin
+  have  t10_carve256   e26_t10_carve256.bin
+
+  rep 1  S15-PACKED       27.27 tok/s   (120 tokens)
+  rep 1  S15-DENSE        28.04 tok/s   (120 tokens)
+  rep 1  S15-K256         26.24 tok/s   (120 tokens)
+  rep 1  S15-K128         37.00 tok/s   (120 tokens)
+  rep 1  S15-K64          54.46 tok/s   (120 tokens)
+  rep 1  S15-K16          72.68 tok/s   (120 tokens)
+  rep 1  S15-K4           95.85 tok/s   (120 tokens)
+  rep 1  T10-DENSE         4.29 tok/s   (40 tokens)
+  rep 1  T10-K256          4.04 tok/s   (40 tokens)
+  rep 1  T10-K128          6.15 tok/s   (40 tokens)
+  rep 1  T10-K64           8.55 tok/s   (40 tokens)
+  rep 1  T10-K16          15.48 tok/s   (40 tokens)
+  rep 1  T10-K4           17.98 tok/s   (40 tokens)
+  rep 1  contention witness: 5.8% mean / 12% peak
+  rep 2  S15-PACKED       27.32 tok/s   (120 tokens)
+  rep 2  S15-DENSE        27.53 tok/s   (120 tokens)
+  rep 2  S15-K256         24.58 tok/s   (120 tokens)
+  rep 2  S15-K128         33.67 tok/s   (120 tokens)
+  rep 2  S15-K64          52.72 tok/s   (120 tokens)
+  rep 2  S15-K16          79.86 tok/s   (120 tokens)
+  rep 2  S15-K4           92.41 tok/s   (120 tokens)
+  rep 2  T10-DENSE         4.14 tok/s   (40 tokens)
+  rep 2  T10-K256          3.90 tok/s   (40 tokens)
+  rep 2  T10-K128          6.06 tok/s   (40 tokens)
+  rep 2  T10-K64           9.34 tok/s   (40 tokens)
+  rep 2  T10-K16          15.37 tok/s   (40 tokens)
+  rep 2  T10-K4           18.73 tok/s   (40 tokens)
+  rep 2  contention witness: 6.5% mean / 18% peak
+  rep 3  S15-PACKED       25.77 tok/s   (120 tokens)
+  rep 3  S15-DENSE        24.34 tok/s   (120 tokens)
+  rep 3  S15-K256         25.11 tok/s   (120 tokens)
+  rep 3  S15-K128         34.83 tok/s   (120 tokens)
+  rep 3  S15-K64          50.49 tok/s   (120 tokens)
+  rep 3  S15-K16          77.99 tok/s   (120 tokens)
+  rep 3  S15-K4           90.29 tok/s   (120 tokens)
+  rep 3  T10-DENSE         3.77 tok/s   (40 tokens)
+  rep 3  T10-K256          3.43 tok/s   (40 tokens)
+  rep 3  T10-K128          5.95 tok/s   (40 tokens)
+  rep 3  T10-K64           8.57 tok/s   (40 tokens)
+  rep 3  T10-K16          14.72 tok/s   (40 tokens)
+  rep 3  T10-K4           16.95 tok/s   (40 tokens)
+  rep 3  contention witness: 8.0% mean / 19% peak
+
+  arm            active/tok    mean tok/s   spread   vs DENSE   byte prediction   G weights/s
+  S15-PACKED       1.5436 G       26.79     5.8%      +0.56%      +0.00%         41.35
+  S15-DENSE        1.5436 G       26.64    13.9%      +0.00%      +0.00%         41.12
+  S15-K256         1.5546 G       25.31     6.6%      -4.98%      -0.71%         39.35
+  S15-K128         0.9766 G       35.17     9.5%     +32.02%     +58.06%         34.34
+  S15-K64          0.6875 G       52.56     7.6%     +97.31%    +124.51%         36.13
+  S15-K16          0.4708 G       76.84     9.3%    +188.49%    +227.88%         36.18
+  S15-K4           0.4166 G       92.85     6.0%    +248.58%    +270.53%         38.68
+  T10-DENSE       10.6032 G        4.07    12.8%      +0.00%      +0.00%         43.12
+  T10-K256        10.6535 G        3.79    16.1%      -6.80%      -0.47%         40.38
+  T10-K128         6.4257 G        6.05     3.3%     +48.85%     +65.01%         38.90
+  T10-K64          4.3117 G        8.82     9.0%    +116.89%    +145.91%         38.03
+  T10-K16          2.7263 G       15.19     5.0%    +273.52%    +288.92%         41.41
+  T10-K4           2.3299 G       17.89    10.0%    +339.84%    +355.09%         41.67
+
+  PLANTED CONTROL S15   S15-K256 keeps every group: reads -4.98%, bytes predict -0.71%
+     -> the carve machinery's OWN cost at this shape is -4.30%.  Every deeper
+        arm's gain below is gross; net of this is what the bytes bought.
+        S15-K128       gross  +32.02%   net of machinery  +38.94%   bytes predict  +58.06%
+        S15-K64        gross  +97.31%   net of machinery +107.65%   bytes predict +124.51%
+        S15-K16        gross +188.49%   net of machinery +203.61%   bytes predict +227.88%
+        S15-K4         gross +248.58%   net of machinery +266.85%   bytes predict +270.53%
+     CHARGED THROUGHPUT S15   34.34 - 41.12 G active weights/s, band 18.00%  (E25 read 44.41-45.84, band 3.17%)
+        A band of a few percent says the engine converts active weights into time
+        at a rate that does not care how they are ARRANGED -- which is what makes
+        2*D*r and 3*D*GSZ*k the right charges.  A band that opens up says a
+        GATHERED weight costs more than a STREAMED one, and every k in every
+        budget table here is optimistic.
+  PLANTED CONTROL T10   T10-K256 keeps every group: reads -6.80%, bytes predict -0.47%
+     -> the carve machinery's OWN cost at this shape is -6.36%.  Every deeper
+        arm's gain below is gross; net of this is what the bytes bought.
+        T10-K128       gross  +48.85%   net of machinery  +59.72%   bytes predict  +65.01%
+        T10-K64        gross +116.89%   net of machinery +132.72%   bytes predict +145.91%
+        T10-K16        gross +273.52%   net of machinery +300.79%   bytes predict +288.92%
+        T10-K4         gross +339.84%   net of machinery +371.94%   bytes predict +355.09%
+     CHARGED THROUGHPUT T10   38.03 - 43.12 G active weights/s, band 12.54%  (E25 read 49.59-50.36, band 1.54%)
+        A band of a few percent says the engine converts active weights into time
+        at a rate that does not care how they are ARRANGED -- which is what makes
+        2*D*r and 3*D*GSZ*k the right charges.  A band that opens up says a
+        GATHERED weight costs more than a STREAMED one, and every k in every
+        budget table here is optimistic.
+
+  E25 ANCHOR  S15-PACKED reads 26.79 tok/s against E25's published 29.70 (-9.81%, bar +-10%) -> PASS
+
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e26_carve_cost.json  [243s]

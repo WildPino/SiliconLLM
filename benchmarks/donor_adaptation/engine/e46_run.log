@@ -1,0 +1,106 @@
+==============================================================================
+E46 -- what does a token cost at a REAL context?
+  Every tok/s this programme has published was measured over 40 tokens, at a
+  mean context position of 20.  This measures the cost as context grows.
+==============================================================================
+== E46 gate self-test -- every gate in every direction ==
+  X1   0.010000/1.00e-05                  expected 0.010000/1.00e-05                  FIRES   the fit recovers a planted line exactly
+  X2   1.0000                             expected 1.0000                             FIRES   dt of a flat cost is a*n
+  X3   12.0000                            expected 12.0000                            FIRES   dt of a pure slope is b*n*(n+1)/2
+  X4   True                               expected True                               FIRES   run 3's own rise, 17.6%
+  X5   False                              expected False                              FIRES   a flat engine -> refuses, as it must
+  X6   True                               expected True                               FIRES   5% out of sample
+  X7   False                              expected False                              FIRES   30% out -> the law is wrong
+  X8   True                               expected True                               FIRES   the slope scales exactly with layer count
+  X9   False                              expected False                              FIRES   no scaling at all -> the mechanism is not KV depth
+  X10  TARGET IS CONTEXT-LIMITED          expected TARGET IS CONTEXT-LIMITED          FIRES   the brief's own desk arithmetic: C50 ~ 1343
+  X11  TARGET HOLDS AT REALISTIC CONTEXT  expected TARGET HOLDS AT REALISTIC CONTEXT  FIRES   a shallower slope clears 2048
+  X12  TARGET IS CONTEXT-LIMITED          expected TARGET IS CONTEXT-LIMITED          FIRES   below target even at context 0
+  E46 gate self-test : ALL FIRE
+
+== PHASE A -- the linear law, out of sample, on REAL 1.5B weights ==
+  phase A (S15 carved, k=256) -- windows 40, 160, 640, 1280, 5 reps, round robin
+    n=40    rep 1/5    26.90 tok/s  dt    1.487 s  occ 51.5%  load   0.6s
+    n=160   rep 1/5    23.49 tok/s  dt    6.811 s  occ 69.4%  load   0.6s
+    n=640   rep 1/5    23.79 tok/s  dt   26.898 s  occ 58.6%  load   0.6s
+    n=1280  rep 1/5    21.39 tok/s  dt   59.845 s  occ 60.2%  load   0.6s
+    n=40    rep 2/5    28.03 tok/s  dt    1.427 s  occ 43.9%  load   0.6s
+    n=160   rep 2/5    25.39 tok/s  dt    6.302 s  occ 57.8%  load   0.6s
+    n=640   rep 2/5    23.81 tok/s  dt   26.875 s  occ 56.1%  load   0.6s
+    n=1280  rep 2/5    21.46 tok/s  dt   59.657 s  occ 59.4%  load   0.6s
+    n=40    rep 3/5    25.93 tok/s  dt    1.543 s  occ 59.4%  load   0.7s
+    n=160   rep 3/5    25.52 tok/s  dt    6.270 s  occ 59.3%  load   0.6s
+    n=640   rep 3/5    23.15 tok/s  dt   27.645 s  occ 62.1%  load   0.6s
+    n=1280  rep 3/5    21.51 tok/s  dt   59.504 s  occ 58.7%  load   0.6s
+    n=40    rep 4/5    27.91 tok/s  dt    1.433 s  occ 47.4%  load   0.6s
+    n=160   rep 4/5    25.69 tok/s  dt    6.228 s  occ 60.3%  load   0.5s
+    n=640   rep 4/5    23.58 tok/s  dt   27.138 s  occ 58.5%  load   0.6s
+    n=1280  rep 4/5    21.18 tok/s  dt   60.432 s  occ 62.6%  load   0.6s
+    n=40    rep 5/5    26.41 tok/s  dt    1.515 s  occ 54.1%  load   0.6s
+    n=160   rep 5/5    25.80 tok/s  dt    6.202 s  occ 58.4%  load   0.6s
+    n=640   rep 5/5    23.53 tok/s  dt   27.200 s  occ 60.9%  load   0.6s
+    n=1280  rep 5/5    21.50 tok/s  dt   59.525 s  occ 58.4%  load   0.6s
+  fit on [40, 160, 640]:  s/tok = 0.037310 + 1.6276e-05 * pos   ->  26.80 tok/s at position 0
+    pos     20  obs 0.037175  fit 0.037635  resid -1.2%
+    pos     80  obs 0.039188  fit 0.038612  resid +1.5%
+    pos    320  obs 0.042403  fit 0.042518  resid -0.3%
+  G-E46a  s/tok(640)/s/tok(40) = 1.1406  bar 1.05 : FIRES
+  G-E46b  dt(1280) predicted 61.100 s, observed 59.657 s, rel err 0.0236 (tol 0.10) : SURVIVES
+
+== PHASE B -- the slope at the TARGET shape (A10B R128, k=3, synthetic) ==
+  The headline arm itself: E40 read median 116.59 tok/s here, at context 20.
+  This is a SPEED measurement on noise.  E45's bridge is bounded under 5% at
+  1.5B and is still not certified at 10B -- nothing here changes that.
+  phase B (A10B R128, FFN on) -- windows 40, 160, 640, 1280, 5 reps, round robin
+    n=40    rep 1/5   102.44 tok/s  dt    0.390 s  occ 33.4%  load   1.9s
+    n=160   rep 1/5    96.23 tok/s  dt    1.663 s  occ 47.5%  load   1.9s
+    n=640   rep 1/5    69.38 tok/s  dt    9.224 s  occ 50.8%  load   1.8s
+    n=1280  rep 1/5    48.78 tok/s  dt   26.238 s  occ 54.6%  load   1.8s
+    n=40    rep 2/5   119.80 tok/s  dt    0.334 s  occ 30.1%  load   1.8s
+    n=160   rep 2/5    93.66 tok/s  dt    1.708 s  occ 40.5%  load   1.8s
+    n=640   rep 2/5    66.56 tok/s  dt    9.616 s  occ 61.3%  load   1.9s
+    n=1280  rep 2/5    48.40 tok/s  dt   26.445 s  occ 58.2%  load   2.0s
+    n=40    rep 3/5   125.00 tok/s  dt    0.320 s  occ 22.8%  load   1.8s
+    n=160   rep 3/5   104.04 tok/s  dt    1.538 s  occ 34.2%  load   1.8s
+    n=640   rep 3/5    67.69 tok/s  dt    9.455 s  occ 54.6%  load   1.8s
+    n=1280  rep 3/5    47.93 tok/s  dt   26.707 s  occ 59.4%  load   1.9s
+    n=40    rep 4/5   117.26 tok/s  dt    0.341 s  occ 19.9%  load   1.8s
+    n=160   rep 4/5   107.22 tok/s  dt    1.492 s  occ 35.6%  load   1.8s
+    n=640   rep 4/5    66.61 tok/s  dt    9.608 s  occ 56.5%  load   1.9s
+    n=1280  rep 4/5    47.64 tok/s  dt   26.867 s  occ 57.9%  load   1.8s
+    n=40    rep 5/5    99.73 tok/s  dt    0.401 s  occ 33.3%  load   1.9s
+    n=160   rep 5/5    97.91 tok/s  dt    1.634 s  occ 42.9%  load   1.9s
+    n=640   rep 5/5    67.92 tok/s  dt    9.423 s  occ 55.5%  load   1.9s
+    n=1280  rep 5/5    48.06 tok/s  dt   26.631 s  occ 59.2%  load   1.9s
+  fit on [40, 160, 640]:  s/tok = 0.008327 + 2.0307e-05 * pos   ->  120.09 tok/s at position 0
+    pos     20  obs 0.008525  fit 0.008733  resid -2.4%
+    pos     80  obs 0.010212  fit 0.009952  resid +2.6%
+    pos    320  obs 0.014773  fit 0.014826  resid -0.4%
+  G-E46a  s/tok(640)/s/tok(40) = 1.7330  bar 1.05 : FIRES
+  G-E46b  dt(1280) predicted 27.307 s, observed 26.631 s, rel err 0.0248 (tol 0.10) : SURVIVES
+
+== G-E46c -- does the slope scale with layer count? ==
+  b(S15) 1.6276e-05  *16/28 = 9.3006e-06   b(A10B) 2.0307e-05   rel err 1.1834 (tol 0.30) : *** FAILS -- the mechanism is not KV depth ***
+
+== PHASE C -- the sustained rate at a real context (A10B R128) ==
+     context        s/token          tok/s
+          40       0.009140          109.4
+         512       0.018724           53.4
+        2048       0.049916           20.0
+        4096       0.091504           10.9
+
+== G-E46d -- THE DECISION ==
+  C50 = 575 tokens (the largest context still at 50 tok/s), bar 2048
+  TARGET IS CONTEXT-LIMITED
+
+  Phase C is an EXTRAPOLATION of phase B's fit, licensed only by G-E46b
+  surviving out of sample at n=1280.  It is not a measured cell at 2048 or
+  4096 and must never be quoted as one.
+
+==============================================================================
+  E46 may not revise any published rate: those were measured, at context 20.
+  The repair is to quote the context beside them.  Phase B is synthetic
+  weights, so nothing here says anything about quality.
+==============================================================================
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e46_context_cost.json
+exit=0

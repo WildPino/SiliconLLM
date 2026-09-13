@@ -1,0 +1,23 @@
+== E43 phase BUILD: four arms, all exactly 9999220736 parameters ==
+  SPEED ONLY and the weights are NOISE -- the same limit as E36, E39 and E40.
+  build V2048    A10B-V2048
+        GATE V3: 195 tensors, 5045527736 bytes, matches E1's independent layout exactly
+        wrote D:/_ktmp/e43\e43_v2048.bin  (4.70 GB)  active 0.208 B weights/token
+        [290s]
+  build V8192    A10B-V8192
+        GATE V3: 195 tensors, 5133599928 bytes, matches E1's independent layout exactly
+        wrote D:/_ktmp/e43\e43_v8192.bin  (4.78 GB)  active 0.233 B weights/token
+        [254s]
+  have  V32768   <- D:/_ktmp/e40/e40_r128.bin  (E40's OWN artifact, not rebuilt: that is the control)
+  build V131072  A10B-V131072
+        GATE V3: 195 tensors, 6895043768 bytes, matches E1's independent layout exactly
+        wrote D:/_ktmp/e43\e43_v131072.bin  (6.42 GB)  active 0.725 B weights/token
+        [310s]
+
+  G-E43B  header total == closed form == 9999220736, and charged == closed form at every k,
+          zero tolerance -> FIRES
+    V2048    V=2048    F=50432  base    92274688  head     8388608 ( 9.1%)  charged k=3   208470016
+    V8192    V=8192    F=50176  base   117440512  head    33554432 (28.6%)  charged k=3   233046016
+    V32768   V=32768   F=49152  base   218103808  head   134217728 (61.5%)  charged k=3   331350016
+    V131072  V=131072  F=45056  base   620756992  head   536870912 (86.5%)  charged k=3   724566016
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e43_build.json  [854s]

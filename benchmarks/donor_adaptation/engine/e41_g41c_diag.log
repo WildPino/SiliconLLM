@@ -1,0 +1,14 @@
+== E41 addendum A: why G-E41C moved at k=16 ==
+`torch_dtype` is deprecated! Use `dtype` instead!
+  24 x 512 tokens, ids_sha a1a48dc9fc5a6dc1
+  first divergence in sequence 2
+
+  group mass bit-identical under relabelling: True  (max abs diff 0.000e+00)
+  rows (layer x token) examined      : 344064
+  rows whose KEPT SET differs        : 2  (5.813e-06 of rows)
+  rows with an EXACT tie at boundary : 2
+  differing rows that ARE exact ties : 2
+  first divergence: seq 2 layer 11 row 175  exact_tie=True  rel_gap 0.000e+00
+    masses around the boundary: [8.037376403808594, 7.73127555847168, 6.865127086639404, 6.865127086639404, 6.75140380859375, 6.624218940734863]
+  layers with any divergence: [(1, 1), (11, 1)]
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e41_g41c_diag.json  [189s]

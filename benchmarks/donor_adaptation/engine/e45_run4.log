@@ -1,0 +1,93 @@
+==============================================================================
+E45 -- does the engine's speed depend on the weight VALUES?
+  engine donor_engine_e26.exe   ntok 40   threads 6
+  THIS SCRIPT PRINTS THE GATES THE BRIEF REGISTERED.  It mints no rate and it
+  may not be quoted for an absolute tok/s -- E43 stands, E44 addendum A did not
+  repeal it.  Absolute rates below carry their dispersion and nothing else.
+==============================================================================
+== G-E45d self-test -- the gate must FIRE in all four directions ==
+  S1   BRIDGE BROKEN  expected BRIDGE BROKEN  FIRES   tight spread, 10% apart
+  S2   INCONCLUSIVE   expected INCONCLUSIVE   FIRES   spread 0.30 -- cannot answer a 5% question
+  S3   INCONCLUSIVE   expected INCONCLUSIVE   FIRES   every pair discarded above the occupancy bar
+  S4   DIRECTIONAL    expected DIRECTIONAL    FIRES   5 of 5 on one side, inside the floor
+  S5   BRIDGE HOLDS   expected BRIDGE HOLDS   FIRES   direction split, inside the floor
+  S6   5/7            expected 5/7            FIRES   the exclusion reads occupancy only and drops pairs 2 and 4
+  S7   BRIDGE HOLDS   expected BRIDGE HOLDS   FIRES   and the outliers it dropped do not reach the statistic
+  S8   INCONCLUSIVE   expected INCONCLUSIVE   FIRES   run 1's own K16 shape: G-E45c said HOLDS, G-E45d must not
+  G-E45d self-test : ALL FIRE
+
+  RUN 4 (addendum E, E.3).  12 pairs, 5 reps per cell, interleaved at the rep
+  level, NTOK 40 unchanged so the cells stay comparable with E37 and E40.
+  G-E45d decides.  Runs 1-3 stand as recorded and this run may not promote them.
+== identity of the pair (addendum B, B.4) ==
+  NF      1714582392 bytes  sha fae666d2a4d4de7e  zerofrac 0.4809541542  router fitted  [1s]
+  SYN     1714582392 bytes  sha 79b8a0f1db00b2ea  zerofrac 0.4698122995  router synthetic  [1s]
+  equal bytes, different sha256, sidecars agree with the files : FIRES
+
+== G-E45a -- PLANTED CONTROL.  Nothing below counts until this fires ==
+  known positive: E37 read DENSE-NF 30.75 and K16 89.83 tok/s, a 2.92x gap.
+  the instrument must resolve it: median K16/DENSE >= 2.0 and every pair > 1.5
+  G-E45a -- 3 interleaved pairs of K16 / DENSE
+    pair 1  K16   85.33 tok/s (occ 39.0%, load   0.5s)  DENSE   29.74 tok/s (occ 44.9%, load   0.5s)   ->  K16/DENSE = 2.8692
+    pair 2  K16   72.78 tok/s (occ 57.2%, load   0.5s)  DENSE   27.82 tok/s (occ 58.6%, load   0.6s)   ->  K16/DENSE = 2.6161
+    pair 3  K16   84.08 tok/s (occ 46.8%, load   0.6s)  DENSE   29.23 tok/s (occ 45.4%, load   0.6s)   ->  K16/DENSE = 2.8765
+  median K16/DENSE 2.8692  (min 2.6161, max 2.8765)
+  G-E45a : FIRES
+
+== K256  (PRIMARY -- value only, the router cannot change which memory is touched) ==
+  K256 -- 12 pairs of NF / SYN, 5 reps per cell, interleaved at the rep level
+    pair  1  NF   27.36 (cv 0.1516)   SYN   27.39 (cv 0.0949)   occ max 61.4%  ->  NF/SYN = 0.9989
+    pair  2  NF   26.90 (cv 0.1128)   SYN   26.65 (cv 0.0874)   occ max 61.9%  ->  NF/SYN = 1.0094
+    pair  3  NF   27.71 (cv 0.0964)   SYN   26.68 (cv 0.0686)   occ max 61.2%  ->  NF/SYN = 1.0386
+    pair  4  NF   28.07 (cv 0.0579)   SYN   27.49 (cv 0.1157)   occ max 55.9%  ->  NF/SYN = 1.0211
+    pair  5  NF   27.91 (cv 0.0258)   SYN   28.34 (cv 0.0756)   occ max 54.6%  ->  NF/SYN = 0.9848
+    pair  6  NF   26.20 (cv 0.0900)   SYN   27.04 (cv 0.0925)   occ max 62.0%  ->  NF/SYN = 0.9689
+    pair  7  NF   27.67 (cv 0.0763)   SYN   28.13 (cv 0.1317)   occ max 57.5%  ->  NF/SYN = 0.9836
+    pair  8  NF   27.25 (cv 0.0811)   SYN   27.92 (cv 0.0140)   occ max 50.9%  ->  NF/SYN = 0.9760
+    pair  9  NF   25.11 (cv 0.1173)   SYN   26.76 (cv 0.1593)   occ max 68.5%  ->  NF/SYN = 0.9383
+    pair 10  NF   26.08 (cv 0.1001)   SYN   25.83 (cv 0.0799)   occ max 57.1%  ->  NF/SYN = 1.0097
+    pair 11  NF   26.86 (cv 0.1173)   SYN   26.72 (cv 0.1185)   occ max 63.4%  ->  NF/SYN = 1.0052
+    pair 12  NF   27.66 (cv 0.0388)   SYN   28.37 (cv 0.1281)   occ max 61.7%  ->  NF/SYN = 0.9750
+  NF  pair medians   25.11 min /   28.07 max   all 60 cells: median   27.38, rel spread 0.1680
+  SYN pair medians   25.83 min /   28.37 max   all 60 cells: median   27.30, rel spread 0.1749
+  per-pair ratio NF/SYN : median 0.9919   spread (max-min) 0.1003   |r-1| 0.0081
+  G-E45c on K256 : BRIDGE HOLDS   (run 1's gate, printed for continuity)
+  exclusion: 0 of 12 pairs discarded above 70% occupancy
+  surviving 12  r = 0.9919  s = 0.1003  |r-1| = 0.0081  5/12 above 1
+  G-E45d on K256 : INCONCLUSIVE  (spread 0.1003 exceeds 0.10 -- too noisy to answer a 5% question)
+
+== K16  (SECONDARY -- value + selection, may not override the primary) ==
+  K16 -- 12 pairs of NF / SYN, 5 reps per cell, interleaved at the rep level
+    pair  1  NF   85.27 (cv 0.0609)   SYN   87.65 (cv 0.0251)   occ max 54.2%  ->  NF/SYN = 0.9728
+    pair  2  NF   88.55 (cv 0.0491)   SYN   87.66 (cv 0.0765)   occ max 40.0%  ->  NF/SYN = 1.0102
+    pair  3  NF   87.12 (cv 0.0646)   SYN   87.19 (cv 0.3175)   occ max 51.1%  ->  NF/SYN = 0.9992
+    pair  4  NF   85.87 (cv 0.0735)   SYN   83.59 (cv 0.1543)   occ max 66.0%  ->  NF/SYN = 1.0273
+    pair  5  NF   87.82 (cv 0.2269)   SYN   87.67 (cv 0.0863)   occ max 56.3%  ->  NF/SYN = 1.0017
+    pair  6  NF   87.60 (cv 0.0508)   SYN   86.91 (cv 0.0835)   occ max 42.3%  ->  NF/SYN = 1.0079
+    pair  7  NF   84.30 (cv 0.1125)   SYN   84.03 (cv 0.2884)   occ max 60.7%  ->  NF/SYN = 1.0032
+    pair  8  NF   89.62 (cv 0.0725)   SYN   85.84 (cv 0.0480)   occ max 42.4%  ->  NF/SYN = 1.0440
+    pair  9  NF   88.46 (cv 0.0922)   SYN   89.50 (cv 0.0516)   occ max 39.7%  ->  NF/SYN = 0.9884
+    pair 10  NF   88.00 (cv 0.0859)   SYN   84.68 (cv 0.3337)   occ max 59.6%  ->  NF/SYN = 1.0392
+    pair 11  NF   77.07 (cv 0.1364)   SYN   81.04 (cv 0.2162)   occ max 65.1%  ->  NF/SYN = 0.9510
+    pair 12  NF   87.83 (cv 0.1748)   SYN   88.29 (cv 0.0327)   occ max 47.7%  ->  NF/SYN = 0.9948
+  NF  pair medians   77.07 min /   89.62 max   all 60 cells: median   87.20, rel spread 0.2659
+  SYN pair medians   81.04 min /   89.50 max   all 60 cells: median   86.88, rel spread 0.3926
+  per-pair ratio NF/SYN : median 1.0025   spread (max-min) 0.0930   |r-1| 0.0025
+  G-E45c on K16 : BRIDGE HOLDS   (run 1's gate, printed for continuity)
+  exclusion: 0 of 12 pairs discarded above 70% occupancy
+  surviving 12  r = 1.0025  s = 0.0930  |r-1| = 0.0025  7/12 above 1
+  G-E45d on K16 : BRIDGE HOLDS  (7 of 12 above 1, |r-1| 0.0025, spread 0.0930)
+
+== G-E45b -- the ratio is reported with dispersion or not at all ==
+  12 pairs per arm (>= 5), median and min-max printed for every arm : FIRES
+
+==============================================================================
+E45 RUN 4 REGISTERED VERDICT -- G-E45d, read from K256 (addendum B, B.2)
+  K256  PRIMARY   r = 0.9919   s = 0.1003   |r-1| = 0.0081   -> INCONCLUSIVE
+  K16   secondary r = 1.0025   s = 0.0930   |r-1| = 0.0025   -> BRIDGE HOLDS   (value+selection)
+
+  This is measured at 1.5B.  Brief section 5: E45 MAY NOT claim the result composes
+  to 10B by itself, and MAY NOT mint any headline rate.
+==============================================================================
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e45_weight_values_run4.json
+exit=0

@@ -1,0 +1,31 @@
+== E41 ADDENDUM B: the router's calibration budget ==
+  partitions from the REGISTERED 8-seq stats (seed 424242); routers refit on 32 seqs (seed 42424)
+  only the 6 `fitted` cells at k=16 are re-run.  E36's run-2 rule governs.
+`torch_dtype` is deprecated! Use `dtype` instead!
+  eval 24 x 512 (51870 bytes); partition stats 8 seqs; router fit 32 seqs
+  dense fp32 = 0.767594964  (E22 base 0.767595, diff -3.59e-08)
+  partitions rebuilt; D0C/RAND/PERM are seeded, CONC/STRIPE/COACT come from the same
+  8-sequence statistics run 1 used, so only the router differs.
+  router refit for D0C    on 32 seqs [220s]
+  router refit for RAND   on 32 seqs [221s]
+  router refit for CONC   on 32 seqs [218s]
+  router refit for STRIPE on 32 seqs [219s]
+  router refit for COACT  on 32 seqs [218s]
+  router refit for PERM   on 32 seqs [217s]
+
+    D0C    fitted k=16  BPB 3.597108   (run 1 3.804346, -0.207239)   vs chance -0.4727  [168s]
+    RAND   fitted k=16  BPB 4.535312   (run 1 4.530484, +0.004828)   vs chance +0.4655  [161s]
+    CONC   fitted k=16  BPB 3.726419   (run 1 3.815911, -0.089492)   vs chance -0.3434  [165s]
+    STRIPE fitted k=16  BPB 4.359874   (run 1 4.415238, -0.055364)   vs chance +0.2901  [164s]
+    COACT  fitted k=16  BPB 3.583800   (run 1 3.887003, -0.303203)   vs chance -0.4860  [161s]
+    PERM   fitted k=16  BPB 3.597415   (run 1 3.804346, -0.206932)   vs chance -0.4724  [160s]
+
+  G-E41D  D0C refit at 32/42424 = 3.597108  vs E38 3.597108  diff -0.000000 (tol 0.001) -> FIRES
+
+  ordering run 1      : D0C < PERM < CONC < COACT < STRIPE < RAND
+  ordering addendum B : COACT < D0C < PERM < CONC < STRIPE < RAND   -> CHANGED
+  best is COACT at 3.583800 -> band PARTITION-HELPS-A-LITTLE
+  CROSSES 3.597108 -- per the registered rule the verdict cell is UNRESOLVABLE and
+  E41 does NOT strengthen the T4 ask.
+
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e41_addendum_b.json  [2501s]

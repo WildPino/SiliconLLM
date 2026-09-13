@@ -1,0 +1,65 @@
+== E39: the same ten billion, put somewhere else ==
+  SPEED ONLY and the weights are NOISE -- same limit as E36, stated in the brief s0.
+  have  A10B  <- D:/_ktmp/e36/e36_a10b.bin  (E36's own artifact, not rebuilt)
+  have  R512   e39_r512.bin
+  have  R0     e39_r0.bin
+  have  R4096  e39_r4096.bin
+
+  G-E39A  A10B 9999220736 == R512 9999220736 == 9999220736 ?  -> FIRES
+  G-E39B  charged == 419430400 + 36962304*k at every k, zero tolerance -> FIRES
+
+  timing: 8 arms x 5 reps x 40 tokens, reps OUTERMOST, order forward
+    rep 1  R512   k=1     88.51 tok/s
+    rep 1  R512   k=2     85.05 tok/s
+    rep 1  R512   k=3     76.96 tok/s
+    rep 1  R512   k=4     72.56 tok/s
+    rep 1  R512   k=6     66.38 tok/s
+    rep 1  A10B   k=3     47.57 tok/s
+    rep 1  R0     k=3     48.57 tok/s
+    rep 1  R4096  k=3     31.37 tok/s
+         box 15.7% busy, peak core 38.0%
+    rep 2  R512   k=1     89.55 tok/s
+    rep 2  R512   k=2     83.48 tok/s
+    rep 2  R512   k=3     78.43 tok/s
+    rep 2  R512   k=4     72.98 tok/s
+    rep 2  R512   k=6     64.96 tok/s
+    rep 2  A10B   k=3     41.99 tok/s
+    rep 2  R0     k=3     47.52 tok/s
+    rep 2  R4096  k=3     30.64 tok/s
+         box 7.0% busy, peak core 14.0%
+    rep 3  R512   k=1     93.96 tok/s
+    rep 3  R512   k=2     89.14 tok/s
+    rep 3  R512   k=3     79.53 tok/s
+    rep 3  R512   k=4     71.91 tok/s
+    rep 3  R512   k=6     64.53 tok/s
+    rep 3  A10B   k=3     46.82 tok/s
+    rep 3  R0     k=3     47.78 tok/s
+    rep 3  R4096  k=3     31.15 tok/s
+         box 5.3% busy, peak core 16.0%
+    rep 4  R512   k=1     92.32 tok/s
+    rep 4  R512   k=2     84.16 tok/s
+    rep 4  R512   k=3     77.93 tok/s
+    rep 4  R512   k=4     70.65 tok/s
+    rep 4  R512   k=6     60.13 tok/s
+    rep 4  A10B   k=3     49.02 tok/s
+    rep 4  R0     k=3     48.74 tok/s
+    rep 4  R4096  k=3     31.56 tok/s
+         box 13.8% busy, peak core 25.0%
+    rep 5  R512   k=1     85.42 tok/s
+    rep 5  R512   k=2     85.18 tok/s
+    rep 5  R512   k=3     79.43 tok/s
+    rep 5  R512   k=4     74.73 tok/s
+    rep 5  R512   k=6     65.46 tok/s
+    rep 5  A10B   k=3     46.32 tok/s
+    rep 5  R0     k=3     39.76 tok/s
+    rep 5  R4096  k=3     29.29 tok/s
+         box 11.0% busy, peak core 29.0%
+
+  G-E39C  rank 4096 30.80 tok/s < dense q/o 46.47 tok/s ? -> FIRES
+  session check  A10B k=3 now 46.34 vs E36's 49.96  (-7.2%) -> NOT comparable; ratios only
+
+  VERDICT  R512 k=3 = 78.46 tok/s  (1.57x A10B's 49.96) -> RANK-BUYS-SPEED
+  slope    time = 10.059 ms + 0.9134 ms/group   base 41.7 G-w/s, group 40.5, penalty 0.970
+  CROSSING 100 tok/s at k* = -0.064  (-12 of 48128 neurons a layer)
+
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e39_same_ten_billion.json  [134s]

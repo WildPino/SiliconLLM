@@ -1,0 +1,86 @@
+====================================================================================
+E50 -- turn the fast kernel on by default, gated on the claim it can break
+  donor_engine.c:202 ATTN_SERIAL -> ATTN_AVX4, and every mode now prints its arm.
+  E49 gated BPB, a scalar average.  Greedy argmax is DISCRETE, and E6's 160/160
+  was measured with no --attn.  That is what G-E50a is for.
+====================================================================================
+== E50 gate self-test -- every decision function in every direction ==
+  A1    PASS                   expected PASS                   FIRES   E6's own reading on both kernels
+  A2    FAIL                   expected FAIL                   FIRES   avx4 falls, serial holds -> attributed to the kernel
+  A3    VOID                   expected VOID                   FIRES   BOTH fall -> drift between E6's binary and E26's, not this change
+  A4    PASS-AND-A-FINDING     expected PASS-AND-A-FINDING     FIRES   the gate passes and an unrelated finding opens
+  A5    VOID                   expected VOID                   FIRES   a control that AGREES voids the null, however good the null looks
+  A6    VOID                   expected VOID                   FIRES   a control that moved 3 -> 9 is its own finding, not this gate's
+  A7    PASS                   expected PASS                   FIRES   3 -> 5 is inside the +-2 addendum A allows
+  B1    PASS                   expected PASS                   FIRES   both to every digit
+  B2    FAIL                   expected FAIL                   FIRES   a digit is a digit -- the engine is deterministic, so this is not noise
+  B3    FAIL-DIAGNOSE          expected FAIL-DIAGNOSE          FIRES   the serial half missing means build-vs-change is unresolved
+  B4    FAIL                   expected FAIL                   FIRES   the default still running serial is exactly what E50 exists to prevent
+  C1    PASS                   expected PASS                   FIRES   reported, and it changes
+  C2    FAIL                   expected FAIL                   FIRES   a line that prints a constant is not a witness
+  C3    FAIL                   expected FAIL                   FIRES   --bpb is where parity is decided and it prints no BENCH line
+  C4    FAIL                   expected FAIL                   FIRES   the default did not actually change
+  D1    PASS                   expected PASS                   FIRES   the arm goes AFTER tok/s, where no parser looks
+  D2    FAIL                   expected FAIL                   FIRES   the arm placed BEFORE tok/s breaks every parser -- this is the version not shipped
+  E50 gate self-test : ALL FIRE  (17 checks)
+
+== G-E50c -- the witness must be shown to WITNESS, and G-E50d -- nobody is broken ==
+  CONFIG arm reported:  bench default avx4 / bench serial serial / logits default avx4 / logits serial serial
+  G-E50c : PASS
+  the arm is reported, it changes with the flag, and it is reported in --bpb too -- which prints no BENCH line at all
+
+  the new BENCH line, verbatim:
+    BENCH  20 tokens  1.273 s  15.71 tok/s  (threads=6, fp32, attn=avx4)  ffn~ 42.570 ms/tok
+  G-E50d : PASS
+  all 7 parsers match and agree on (tokens, seconds, tok/s) = ('20', '1.273', '15.71')
+
+== G-E50a -- E6's 160/160 greedy claim must survive the new default ==
+  addendum A.2: BOTH kernels are run, so a failure can be ATTRIBUTED
+  -- avx4 --
+    avx4   A1 p0  G-P PASS  G-D PASS  decode 16.56 tok/s
+    avx4   A1 p1  G-P PASS  G-D PASS  decode 17.55 tok/s
+    avx4   A1 p2  G-P PASS  G-D PASS  decode 17.27 tok/s
+    avx4   A1 p3  G-P PASS  G-D PASS  decode 15.99 tok/s
+    avx4   A1 p4  G-P PASS  G-D PASS  decode 16.23 tok/s
+    avx4   A2 p0  G-P PASS  G-D PASS  decode 77.96 tok/s
+    avx4   A2 p1  G-P PASS  G-D PASS  decode 83.19 tok/s
+    avx4   A2 p2  G-P PASS  G-D PASS  decode 79.54 tok/s
+    avx4   A2 p3  G-P PASS  G-D PASS  decode 81.94 tok/s
+    avx4   A2 p4  G-P PASS  G-D PASS  decode 81.48 tok/s
+    avx4   A3 p0  G-P PASS  G-D PASS  decode 24.10 tok/s
+    avx4   A3 p1  G-P PASS  G-D PASS  decode 28.48 tok/s
+    avx4   A3 p2  G-P PASS  G-D PASS  decode 26.96 tok/s
+    avx4   A3 p3  G-P PASS  G-D PASS  decode 27.69 tok/s
+    avx4   A3 p4  G-P PASS  G-D PASS  decode 29.03 tok/s
+  -- serial --
+    serial A1 p0  G-P PASS  G-D PASS  decode 16.61 tok/s
+    serial A1 p1  G-P PASS  G-D PASS  decode 17.32 tok/s
+    serial A1 p2  G-P PASS  G-D PASS  decode 15.79 tok/s
+    serial A1 p3  G-P PASS  G-D PASS  decode 14.21 tok/s
+    serial A1 p4  G-P PASS  G-D PASS  decode 17.73 tok/s
+    serial A2 p0  G-P PASS  G-D PASS  decode 81.41 tok/s
+    serial A2 p1  G-P PASS  G-D PASS  decode 80.99 tok/s
+    serial A2 p2  G-P PASS  G-D PASS  decode 82.22 tok/s
+    serial A2 p3  G-P PASS  G-D PASS  decode 81.80 tok/s
+    serial A2 p4  G-P PASS  G-D PASS  decode 80.71 tok/s
+    serial A3 p0  G-P PASS  G-D PASS  decode 28.03 tok/s
+    serial A3 p1  G-P PASS  G-D PASS  decode 26.62 tok/s
+    serial A3 p2  G-P PASS  G-D PASS  decode 29.51 tok/s
+    serial A3 p3  G-P PASS  G-D PASS  decode 28.69 tok/s
+    serial A3 p4  G-P PASS  G-D PASS  decode 29.47 tok/s
+
+  arm  E6 (serial) E50 avx4   E50 serial
+  A1   160/160     160/160    160/160   
+  A2   3/160       3/160      3/160     
+  A3   10/160      10/160     10/160    
+
+  G-E50a : PASS
+  A1 is 160/160 on both kernels -- the default may change
+
+== G-E50b -- the new default must reproduce E49's two values BIT FOR BIT ==
+  no flag        NATS_TOTAL 124963.9517608703  n=12264  (540 s)   E49 avx4   124963.9517608703
+  --attn serial  NATS_TOTAL 124963.9729339122  n=12264  (559 s)   E49 serial 124963.9729339122
+  G-E50b : PASS
+  both values reproduce to every digit -- the default IS avx4 and every pre-E50 serial reading stays reproducible
+
+== the drift line -- NOT A GATE.  The machine is not certified idle (E43/E44). ==

@@ -1,0 +1,62 @@
+==================================================================================
+E48 B.5 -- pure `none`, one dataset, two fits.  E46 says C50 = 575, E48 says 1454.
+==================================================================================
+== E48 B.5 gate self-test -- every branch of G-E48e, on built data ==
+  E1   THE LAW IS NOT LINEAR        expected THE LAW IS NOT LINEAR        FIRES   the two prior answers, reproduced from one dataset
+  E2   THE SWEEP INSTRUMENT IS BIASED expected THE SWEEP INSTRUMENT IS BIASED FIRES   pure none is steep at BOTH ranges
+  E3   E46's PHASE B IS THE OUTLIER expected E46's PHASE B IS THE OUTLIER FIRES   pure none is shallow at BOTH ranges
+  E4   INCONCLUSIVE                 expected INCONCLUSIVE                 FIRES   neither number is reproduced -> no verdict
+  E5   INCONCLUSIVE                 expected INCONCLUSIVE                 FIRES   the BACKWARDS shape -- shallow short, steep long -- has no branch in B.5 and must not be forced into one
+  E6   True                         expected True                         FIRES   24% off is inside the registered 25%
+  E7   False                        expected False                        FIRES   26% off is outside it
+  E8   False                        expected False                        FIRES   E46's b and E48's b must be DISTINGUISHABLE at this tolerance, or the gate cannot separate its own branches
+  E9   575                          expected 575                          FIRES   E46's own C50
+  E10  1454                         expected 1454                         FIRES   E48's own C50
+  self-test : ALL FIRE
+
+  pure none -- no --sweep6, no --profile.  windows 40, 160, 640, 1280, 2560, 5 reps, round robin
+    n=40    rep 1/5    74.75 tok/s   13.3750 ms/tok  dt    0.54s  occ 60.0%
+    n=160   rep 1/5    86.03 tok/s   11.6250 ms/tok  dt    1.86s  occ 54.0%
+    n=640   rep 1/5    63.45 tok/s   15.7594 ms/tok  dt   10.09s  occ 60.0%
+    n=1280  rep 1/5    45.83 tok/s   21.8188 ms/tok  dt   27.93s  occ 60.9%
+    n=2560  rep 1/5    28.45 tok/s   35.1516 ms/tok  dt   89.99s  occ 66.6%
+    n=40    rep 2/5   111.23 tok/s    9.0000 ms/tok  dt    0.36s  occ 28.9%
+    n=160   rep 2/5    96.37 tok/s   10.3750 ms/tok  dt    1.66s  occ 46.5%
+    n=640   rep 2/5    64.19 tok/s   15.5797 ms/tok  dt    9.97s  occ 57.7%
+    n=1280  rep 2/5    45.63 tok/s   21.9148 ms/tok  dt   28.05s  occ 61.4%
+    n=2560  rep 2/5    28.55 tok/s   35.0230 ms/tok  dt   89.66s  occ 65.5%
+    n=40    rep 3/5   113.73 tok/s    8.8000 ms/tok  dt    0.35s  occ 28.4%
+    n=160   rep 3/5    94.00 tok/s   10.6375 ms/tok  dt    1.70s  occ 43.6%
+    n=640   rep 3/5    64.29 tok/s   15.5547 ms/tok  dt    9.96s  occ 61.2%
+    n=1280  rep 3/5    42.15 tok/s   23.7242 ms/tok  dt   30.37s  occ 69.9%
+    n=2560  rep 3/5    28.83 tok/s   34.6891 ms/tok  dt   88.80s  occ 65.2%
+    n=40    rep 4/5   111.43 tok/s    8.9750 ms/tok  dt    0.36s  occ 27.3%
+    n=160   rep 4/5    96.25 tok/s   10.3875 ms/tok  dt    1.66s  occ 42.6%
+    n=640   rep 4/5    63.73 tok/s   15.6906 ms/tok  dt   10.04s  occ 61.8%
+    n=1280  rep 4/5    44.90 tok/s   22.2695 ms/tok  dt   28.50s  occ 64.5%
+    n=2560  rep 4/5    28.74 tok/s   34.7945 ms/tok  dt   89.07s  occ 66.1%
+    n=40    rep 5/5   100.86 tok/s    9.9250 ms/tok  dt    0.40s  occ 36.3%
+    n=160   rep 5/5    81.30 tok/s   12.3000 ms/tok  dt    1.97s  occ 65.2%
+    n=640   rep 5/5    63.25 tok/s   15.8094 ms/tok  dt   10.12s  occ 62.0%
+    n=1280  rep 5/5    45.83 tok/s   21.8203 ms/tok  dt   27.93s  occ 61.6%
+    n=2560  rep 5/5    28.28 tok/s   35.3664 ms/tok  dt   90.54s  occ 68.0%
+
+  window     mean pos       ms/tok         spread        occ
+  40             20.0       9.0000          50.8%      28.9%
+  160            80.0      10.6375          18.1%      46.5%
+  640           320.0      15.6906           1.6%      61.2%
+  1280          640.0      21.9148           8.7%      61.6%
+  2560         1280.0      35.0230           1.9%      66.1%
+
+  fit on E46's windows [40, 160, 640] :  ms/tok = 8.7036 + 0.021946*pos   -> C50 = 515
+  fit on E48's windows [160, 640, 1280, 2560] :  ms/tok = 9.0673 + 0.020257*pos   -> C50 = 540
+  fit on ALL windows      :  ms/tok = 8.8795 + 0.020457*pos   -> C50 = 544
+
+  references:  E46 b = 0.020307   E48 b = 0.008182   tolerance +-25%
+  b_short matches: E46 True, E48 False      b_long matches: E46 True, E48 False
+
+==================================================================================
+  G-E48e : THE SWEEP INSTRUMENT IS BIASED
+  pure `none` reproduces E46 at BOTH fit ranges, so E48's shares are measured in a regime the engine never runs in and B.1 is withdrawn
+==================================================================================
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e48_none_control.json

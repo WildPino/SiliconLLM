@@ -1,0 +1,99 @@
+==============================================================================
+E45 -- does the engine's speed depend on the weight VALUES?
+  engine donor_engine_e26.exe   ntok 40   threads 6
+  THIS SCRIPT PRINTS THE GATES THE BRIEF REGISTERED.  It mints no rate and it
+  may not be quoted for an absolute tok/s -- E43 stands, E44 addendum A did not
+  repeal it.  Absolute rates below carry their dispersion and nothing else.
+==============================================================================
+  RUN 2 (addendum C, C.5).  15 attempted pairs, pairs discarded above 70%
+  occupancy, and G-E45d instead of G-E45c.  Run 1 stands as recorded and this
+  run may not promote it (E36's run-2 rule).
+== G-E45d self-test -- the gate must FIRE in all four directions ==
+  S1   BRIDGE BROKEN  expected BRIDGE BROKEN  FIRES   tight spread, 10% apart
+  S2   INCONCLUSIVE   expected INCONCLUSIVE   FIRES   spread 0.30 -- cannot answer a 5% question
+  S3   INCONCLUSIVE   expected INCONCLUSIVE   FIRES   every pair discarded above the occupancy bar
+  S4   DIRECTIONAL    expected DIRECTIONAL    FIRES   5 of 5 on one side, inside the floor
+  S5   BRIDGE HOLDS   expected BRIDGE HOLDS   FIRES   direction split, inside the floor
+  S6   5/7            expected 5/7            FIRES   the exclusion reads occupancy only and drops pairs 2 and 4
+  S7   BRIDGE HOLDS   expected BRIDGE HOLDS   FIRES   and the outliers it dropped do not reach the statistic
+  S8   INCONCLUSIVE   expected INCONCLUSIVE   FIRES   run 1's own K16 shape: G-E45c said HOLDS, G-E45d must not
+  G-E45d self-test : ALL FIRE
+
+== identity of the pair (addendum B, B.4) ==
+  NF      1714582392 bytes  sha fae666d2a4d4de7e  zerofrac 0.4809541542  router fitted  [1s]
+  SYN     1714582392 bytes  sha 79b8a0f1db00b2ea  zerofrac 0.4698122995  router synthetic  [1s]
+  equal bytes, different sha256, sidecars agree with the files : FIRES
+
+== G-E45a -- PLANTED CONTROL.  Nothing below counts until this fires ==
+  known positive: E37 read DENSE-NF 30.75 and K16 89.83 tok/s, a 2.92x gap.
+  the instrument must resolve it: median K16/DENSE >= 2.0 and every pair > 1.5
+  G-E45a -- 3 interleaved pairs of K16 / DENSE
+    pair 1  K16   68.59 tok/s (occ 60.4%, load   0.6s)  DENSE   25.29 tok/s (occ 66.1%, load   0.7s)   ->  K16/DENSE = 2.7121
+    pair 2  K16   81.11 tok/s (occ 62.8%, load   0.7s)  DENSE   27.22 tok/s (occ 55.3%, load   0.6s)   ->  K16/DENSE = 2.9798
+    pair 3  K16   78.77 tok/s (occ 49.5%, load   0.6s)  DENSE   28.03 tok/s (occ 52.4%, load   0.6s)   ->  K16/DENSE = 2.8102
+  median K16/DENSE 2.8102  (min 2.7121, max 2.9798)
+  G-E45a : FIRES
+
+== K256  (PRIMARY -- value only, the router cannot change which memory is touched) ==
+  K256 -- 15 interleaved pairs of NF / SYN
+    pair 1  NF   25.62 tok/s (occ 55.6%, load   0.6s)  SYN   25.84 tok/s (occ 55.8%, load   0.6s)   ->  NF/SYN = 0.9915
+    pair 2  NF   24.91 tok/s (occ 55.2%, load   0.6s)  SYN   24.85 tok/s (occ 57.7%, load   0.6s)   ->  NF/SYN = 1.0024
+    pair 3  NF   26.17 tok/s (occ 51.2%, load   0.6s)  SYN   22.35 tok/s (occ 62.2%, load   0.6s)   ->  NF/SYN = 1.1709
+    pair 4  NF   24.76 tok/s (occ 61.3%, load   0.7s)  SYN   25.03 tok/s (occ 60.0%, load   0.6s)   ->  NF/SYN = 0.9892
+    pair 5  NF   24.83 tok/s (occ 59.8%, load   0.6s)  SYN   24.93 tok/s (occ 59.7%, load   0.6s)   ->  NF/SYN = 0.9960
+    pair 6  NF   25.15 tok/s (occ 62.5%, load   0.6s)  SYN   25.93 tok/s (occ 55.5%, load   0.6s)   ->  NF/SYN = 0.9699
+    pair 7  NF   24.99 tok/s (occ 58.4%, load   0.6s)  SYN   25.55 tok/s (occ 55.4%, load   0.6s)   ->  NF/SYN = 0.9781
+    pair 8  NF   25.77 tok/s (occ 56.1%, load   0.5s)  SYN   25.84 tok/s (occ 59.3%, load   0.6s)   ->  NF/SYN = 0.9973
+    pair 9  NF   26.10 tok/s (occ 55.0%, load   0.6s)  SYN   26.78 tok/s (occ 54.2%, load   0.6s)   ->  NF/SYN = 0.9746
+    pair 10  NF   22.53 tok/s (occ 64.7%, load   0.6s)  SYN   24.51 tok/s (occ 58.7%, load   0.6s)   ->  NF/SYN = 0.9192
+    pair 11  NF   26.52 tok/s (occ 55.4%, load   0.6s)  SYN   24.67 tok/s (occ 55.8%, load   0.6s)   ->  NF/SYN = 1.0750
+    pair 12  NF   19.35 tok/s (occ 71.9%, load   0.6s)  SYN   21.80 tok/s (occ 69.8%, load   0.6s)   ->  NF/SYN = 0.8876
+    pair 13  NF   19.66 tok/s (occ 80.2%, load   0.7s)  SYN   25.72 tok/s (occ 63.5%, load   0.6s)   ->  NF/SYN = 0.7644
+    pair 14  NF   21.71 tok/s (occ 76.9%, load   0.7s)  SYN   23.28 tok/s (occ 64.6%, load   0.6s)   ->  NF/SYN = 0.9326
+    pair 15  NF   26.19 tok/s (occ 53.6%, load   0.6s)  SYN   24.96 tok/s (occ 54.8%, load   0.6s)   ->  NF/SYN = 1.0493
+  NF  median   24.99 tok/s  (min 19.35, max 26.52, rel spread 0.2953)
+  SYN median   24.96 tok/s  (min 21.80, max 26.78, rel spread 0.2008)
+  per-pair ratio NF/SYN : median 0.9892   spread (max-min) 0.4065   |r-1| 0.0108
+  G-E45c on K256 : BRIDGE HOLDS   (run 1's gate, printed for continuity)
+  exclusion: 3 of 15 pairs discarded above 70% occupancy  -> pairs 12, 13, 14
+  surviving 12  r = 0.9937  s = 0.2517  |r-1| = 0.0063  4/12 above 1
+  G-E45d on K256 : INCONCLUSIVE  (spread 0.2517 exceeds 0.10 -- too noisy to answer a 5% question)
+
+== K16  (SECONDARY -- value + selection, may not override the primary) ==
+  K16 -- 15 interleaved pairs of NF / SYN
+    pair 1  NF   73.66 tok/s (occ 47.7%, load   0.6s)  SYN   82.07 tok/s (occ 43.2%, load   0.5s)   ->  NF/SYN = 0.8975
+    pair 2  NF   70.04 tok/s (occ 59.9%, load   0.6s)  SYN   66.37 tok/s (occ 48.1%, load   0.6s)   ->  NF/SYN = 1.0553
+    pair 3  NF   76.54 tok/s (occ 48.2%, load   0.6s)  SYN   85.29 tok/s (occ 49.4%, load   0.6s)   ->  NF/SYN = 0.8974
+    pair 4  NF   75.44 tok/s (occ 55.6%, load   0.6s)  SYN   80.78 tok/s (occ 42.9%, load   0.5s)   ->  NF/SYN = 0.9339
+    pair 5  NF   78.12 tok/s (occ 53.4%, load   0.6s)  SYN   81.06 tok/s (occ 41.4%, load   0.5s)   ->  NF/SYN = 0.9637
+    pair 6  NF   79.52 tok/s (occ 49.2%, load   0.6s)  SYN   55.19 tok/s (occ 67.1%, load   0.6s)   ->  NF/SYN = 1.4408
+    pair 7  NF   81.80 tok/s (occ 44.0%, load   0.6s)  SYN   79.59 tok/s (occ 50.9%, load   0.6s)   ->  NF/SYN = 1.0278
+    pair 8  NF   72.49 tok/s (occ 52.6%, load   0.6s)  SYN   82.82 tok/s (occ 41.4%, load   0.6s)   ->  NF/SYN = 0.8753
+    pair 9  NF   78.56 tok/s (occ 53.1%, load   0.6s)  SYN   78.76 tok/s (occ 46.5%, load   0.6s)   ->  NF/SYN = 0.9975
+    pair 10  NF   77.79 tok/s (occ 46.0%, load   0.5s)  SYN   83.96 tok/s (occ 39.7%, load   0.6s)   ->  NF/SYN = 0.9265
+    pair 11  NF   82.21 tok/s (occ 41.2%, load   0.5s)  SYN   79.48 tok/s (occ 51.0%, load   0.6s)   ->  NF/SYN = 1.0343
+    pair 12  NF   71.78 tok/s (occ 49.1%, load   0.6s)  SYN   85.85 tok/s (occ 46.9%, load   0.6s)   ->  NF/SYN = 0.8361
+    pair 13  NF   81.91 tok/s (occ 39.9%, load   0.6s)  SYN   71.56 tok/s (occ 52.6%, load   0.6s)   ->  NF/SYN = 1.1446
+    pair 14  NF   82.05 tok/s (occ 43.7%, load   0.6s)  SYN   80.47 tok/s (occ 48.7%, load   0.6s)   ->  NF/SYN = 1.0196
+    pair 15  NF   83.12 tok/s (occ 44.3%, load   0.6s)  SYN   81.79 tok/s (occ 42.8%, load   0.5s)   ->  NF/SYN = 1.0163
+  NF  median   78.12 tok/s  (min 70.04, max 83.12, rel spread 0.1684)
+  SYN median   80.78 tok/s  (min 55.19, max 85.85, rel spread 0.3914)
+  per-pair ratio NF/SYN : median 0.9975   spread (max-min) 0.6047   |r-1| 0.0025
+  G-E45c on K16 : BRIDGE HOLDS   (run 1's gate, printed for continuity)
+  exclusion: 0 of 15 pairs discarded above 70% occupancy
+  surviving 15  r = 0.9975  s = 0.6047  |r-1| = 0.0025  7/15 above 1
+  G-E45d on K16 : INCONCLUSIVE  (spread 0.6047 exceeds 0.10 -- too noisy to answer a 5% question)
+
+== G-E45b -- the ratio is reported with dispersion or not at all ==
+  15 pairs per arm (>= 5), median and min-max printed for every arm : FIRES
+
+==============================================================================
+E45 RUN 2 REGISTERED VERDICT -- G-E45d, read from K256 (addendum B, B.2)
+  K256  PRIMARY   r = 0.9937   s = 0.2517   |r-1| = 0.0063   -> INCONCLUSIVE
+  K16   secondary r = 0.9975   s = 0.6047   |r-1| = 0.0025   -> INCONCLUSIVE   (value+selection)
+
+  This is measured at 1.5B.  Brief section 5: E45 MAY NOT claim the result composes
+  to 10B by itself, and MAY NOT mint any headline rate.
+==============================================================================
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e45_weight_values_run2.json
+exit=0

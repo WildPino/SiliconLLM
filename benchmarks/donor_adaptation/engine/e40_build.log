@@ -1,0 +1,19 @@
+== E40: after every attention lever, how much FFN can 50 tok/s buy? ==
+  SPEED ONLY and the weights are NOISE -- same limit as E36 and E39, brief s0.
+  have  R512  <- D:/_ktmp/e39/e39_r512.bin  (E39's own artifact, not rebuilt)
+  build NKV2  A10B-NKV2 rank=512
+        --carve WITH --rank: two axes at once, which E26 forbade and E39 requires. Any arm built this way prices the COMBINATION and neither axis alone.
+        --rank 512 on q_proj/o_proj: active 10.2677 B -> 0.4308 B  (-95.80%), matvec calls/token 113 -> 145
+        GATE V3: 195 tensors, 5485921464 bytes, matches E1's independent layout exactly
+        wrote D:/_ktmp/e40\e40_nkv2.bin  (5.11 GB)  active 0.431 B weights/token
+        [252s]
+  build ALL   A10B-ALL rank=256
+        --carve WITH --rank: two axes at once, which E26 forbade and E39 requires. Any arm built this way prices the COMBINATION and neither axis alone.
+        --rank 256 on q_proj/o_proj: active 10.4690 B -> 0.3661 B  (-96.50%), matvec calls/token 113 -> 145
+        GATE V3: 195 tensors, 5553095864 bytes, matches E1's independent layout exactly
+        wrote D:/_ktmp/e40\e40_all.bin  (5.17 GB)  active 0.366 B weights/token
+        [245s]
+
+  G-E40A  ALL 10133438464 == NKV2 9999220736 == R512 9999220736 == 9999220736 ?  -> VOID
+  G-E40B  charged == the runner's own closed form at every k, zero tolerance -> FIRES
+  --build-only: wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e40_levers_exhausted.json  [496s]

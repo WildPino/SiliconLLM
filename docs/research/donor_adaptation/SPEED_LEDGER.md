@@ -4806,8 +4806,8 @@ artifact.
 | `15b_f32` | 6174.9 | 6.27 | **38.7** | **at the wall** |
 | `05b_tq` | 725.0 | 44.13 | 32.0 | near it |
 | `15b_tq` | 1591.8 | 19.19 | 30.5 | near it |
-| `15b_tqh` | 775.6 | 30.03 | 23.3 | 1.59× to the 37.0 floor |
-| `05b_tqh` | 249.1 | 84.88 | 21.1 | 1.75× to the 37.0 floor |
+| `15b_tqh` | 775.6 | 30.03 | 23.3 | ~~1.59× to the 37.0 floor~~ **WITHDRAWN — §57.1** |
+| `05b_tqh` | 249.1 | 84.88 | 21.1 | ~~1.75× to the 37.0 floor~~ **WITHDRAWN — §57.1** |
 
 **The two fp32 arms differ 3.13× in size and agree to 0.62%** — an unarranged check on the
 bytes-per-token model, tighter than the ±5% every absolute rate here carries.
@@ -4817,7 +4817,84 @@ registers DRAM aggregate **40–44** and a proj-GEMV streamed floor of **37.0**.
 between them. The multipliers above use 37.0, the conservative choice for that purpose.
 
 **What this ledger takes from it:** *no kernel work can move a faithful trained arm on this
-machine* — 19.09 tok/s at 0.5B is a bandwidth fact, not an engineering one — and *the
-1.16–1.75× that remains is on the ternary path only*, where it transfers to any healed artifact
-with the same byte count. A healed 1.5B at `15b_tqh`'s byte count at the streamed floor reads
-**47.71 tok/s**.
+machine* — 19.09 tok/s at 0.5B is a bandwidth fact, not an engineering one. **That half stands:
+the fp32 arms stream fp32 and §1's floor is the right bound for them.**
+
+> **⚠ WITHDRAWN 2026-09-13 by E58 (§57.1).** The rest of this paragraph read: *"the
+> 1.16–1.75× that remains is on the ternary path only, where it transfers to any healed
+> artifact with the same byte count. A healed 1.5B at `15b_tqh`'s byte count at the streamed
+> floor reads **47.71 tok/s**."* The packed path is not governed by 37.0 GB/s — §23.3 withdrew
+> that bound for it on 2026-09-07. Measured replacement: **×1.11–×1.17**, and a healed 1.5B
+> tops out at **~33.5 tok/s**, not 47.71.
+
+---
+
+## 57. E58 — the ×1.75 in §56.7 is WITHDRAWN. The packed path has ×1.11–1.17, and §23.3 said so on 2026-09-07.
+
+`probes/E58_WHERE_DID_THE_1_75x_GO.md`, verdict **`NO-HEADROOM`**. Pre-registered and pushed
+(`a9f5697`) before the runner existed. `donor_engine_e53.exe`, `--threads 6 --bench 160
+--profile`, k = 9 + discarded warm-up, idle box (foreign 4.65–4.86%).
+
+### 57.1 CORRECTION to §56.7 — the denominator was out of scope
+
+§56.7 divided the packed arms' moved bytes by **37.0 GB/s**, the proj-GEMV streamed floor from
+§1, and read ×1.59 and ×1.75 of headroom. **§23.3 of this same file had already withdrawn 37.0
+for the packed path** six days earlier: E10 measures that kernel `CORE-BOUND` at ~25.5 GB/s /
+49.11–52.95 G-weights/s, flat to within 8% across a 512× change in footprint. Feeding it faster
+changes nothing, so a ratio against a feed rate is not a headroom.
+
+**Struck from §56.7:** the `1.59× to the 37.0 floor` and `1.75× to the 37.0 floor` cells, the
+sentence *"the 1.16–1.75× that remains is on the ternary path only"*, and **`47.71 tok/s`** for a
+healed 1.5 B. The GB/s column itself stands — it is a measured rate — and so does everything §56.7
+says about the **fp32** arms, which stream fp32 and are correctly judged against §1's floor.
+
+### 57.2 What replaces it, measured rather than projected
+
+Per-organ, trained artifacts, `G-E58a` closing at **+0.24% / +0.35%** against a ±8% bar:
+
+| | `qkv_proj` | `o_proj` | `ffn` | `head` | weight path | `Rem` |
+|---|---|---|---|---|---|---|
+| `05b_tqh` G-w/s | **34.41** | 41.35 | 44.27 | **50.10** | **44.94** | 0.427 ms = 3.7% |
+| `15b_tqh` G-w/s | **41.76** | 45.97 | 46.24 | **49.94** | **46.46** | 0.668 ms = 2.0% |
+| E10's kernel bench | | | | | **49.11 – 52.95** | |
+
+**The engine is at 85–88% of the best cell E10 ever measured**, and `head`, `down` and `gate+up`
+are inside E10's band. `Rem` — attention, rope, norms, glue, sampling — is **2–4% of the token**,
+eleven times smaller than the 5.05 ms it would have needed to be for the ×1.75 to live outside the
+kernels.
+
+| arm | measured | every organ at the fastest organ | every organ at E10's best cell |
+|---|---|---|---|
+| `05b_tqh` | 87.58 tok/s | 97.22 (×1.11) | 102.50 (**×1.17**) |
+| `15b_tqh` | 29.51 tok/s | 31.67 (×1.07) | 33.54 (**×1.14**) |
+
+**A healed ternary 1.5 B at `15b_tqh`'s byte count tops out at ~33.5 tok/s — 67% of the good bar,
+not 95%.**
+
+### 57.3 The budget, reproduced from the other side
+
+20.0 ms minus the measured `Rem` of 0.668 ms, at 52.95 G-w/s, buys **1.024 G active ternary
+weights per token**. `E18_THE_RANKING_LADDER.md` §31 derived **0.982–1.060 G** from the artifact
+rather than the engine. **E58 lands inside E18's band by an independent route** — E18 priced the
+format, E58 timed the organs, neither used the withdrawn floor. §56.7 was the outlier.
+
+`15b_tqh` streams 1.544 G, so **50 tok/s at the 1.5 B shape needs 33.7% fewer streamed weights**,
+against ×1.14 available from the kernel. The FFN is 74.9% of those weights, so that is a **45.0%
+FFN cut** — the same order as E19's measured 52% carve, and why E22's `QO512+V52` came in at
+0.9441 G (E18 §11: *"the budget-feasible object and the working object are two different
+objects"*).
+
+### 57.4 A scale term this ledger did not have
+
+The FFN's share of the token is **62.1% at 0.5 B and 73.8% at 1.5 B**. The arithmetic ceiling of
+any FFN-sparsity or MoE work therefore rises with scale: **×2.64 at 0.5 B, ×3.81 at 1.5 B**. The
+×1.52 MoE ceiling recorded for the donor shape is **scale-dependent, not a constant.** Arithmetic
+on measured shares; no claim that such work succeeds.
+
+### 57.5 The rule this adds
+
+**A bound is a number with a scope.** Before a measured rate is divided by a bound, the bound's
+source must be opened and its scope quoted beside it — which kernel, which precision, which access
+pattern. §56.7 named its source and its reason for preferring §1 over the older 34.75 figure, and
+still went wrong, because it never asked whether §1's floor applied to a *packed* kernel. A ratio
+whose denominator's scope is unstated is not a ratio.

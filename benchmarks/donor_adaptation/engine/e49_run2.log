@@ -1,0 +1,131 @@
+====================================================================================
+E49 -- the attention kernel was never switched on
+  donor_engine.c:202 defaults to ATTN_SERIAL and no runner since E26 passes --attn.
+  PARITY FIRST: if G-E49a does not pass, every speed number below is void.
+====================================================================================
+== E49 gate self-test -- every decision function in every direction ==
+  A1   PARITY HOLDS               expected PARITY HOLDS               FIRES   E4's OWN two published values: 6.5e-10 apart, and a control 50% away
+  A2   PARITY FAILS               expected PARITY FAILS               FIRES   1% apart is 500x the bar -> the kernels do not compute the same thing
+  A3   VOID                       expected VOID                       FIRES   a control that does NOT fire voids the null, however good the null looks
+  A4   PARITY HOLDS               expected PARITY HOLDS               FIRES   1.9e-5 is inside the 2e-5 the |dBPB| < 1e-4 bar implies
+  A5   PARITY FAILS               expected PARITY FAILS               FIRES   2.1e-5 is outside it -- the bar is a bar
+  A6   2e-05                      expected 2e-05                      FIRES   1e-4 BPB over a BPB bounded by 5 is 2e-5 relative
+  C1   True                       expected True                       FIRES   +2.0% at context 20 -> inside the band the ledger already carries
+  C2   False                      expected False                      FIRES   +19.8% -> the headline is restated, not defended
+  C3   False                      expected False                      FIRES   the gate must also fire when the kernel makes it WORSE
+  D1   575                        expected 575                        FIRES   E46's own C50, serial
+  D2   1454                       expected 1454                       FIRES   E48's own C50, avx4 under sweep6
+  E49 gate self-test : ALL FIRE
+
+== G-E49a -- PARITY.  Nothing else in E49 counts until this passes. ==
+  S15 k=256 serial   NATS_TOTAL 124963.9729339122  n=12264  (558.0 s)
+  S15 k=256 avx4     NATS_TOTAL 124963.9517608703          (537.0 s)
+  CONTROL k=3 serial NATS_TOTAL 144871.1519082308          (205.0 s)
+
+  planted control : FIRES   (1.593e-01 apart, bar 1e-03)
+  avx4 vs serial  : 1.694e-07 relative -> |dBPB| <= 8.47e-07   (bar 2e-05 relative)
+  G-E49a : PARITY HOLDS
+  avx4 and serial agree to 1.694e-07 relative, inside the 2e-05 that |dBPB| < 1e-4 implies
+
+== G-E49b -- the speed, both kernels, PURE (no --sweep6, no --profile) ==
+    serial  n=40    rep 1/5    98.77 tok/s   10.1250 ms/tok  occ 33.6%
+    avx4    n=40    rep 1/5   117.26 tok/s    8.5250 ms/tok  occ 39.6%
+    serial  n=160   rep 1/5    96.70 tok/s   10.3438 ms/tok  occ 52.6%
+    avx4    n=160   rep 1/5   119.29 tok/s    8.3812 ms/tok  occ 42.7%
+    serial  n=640   rep 1/5    69.96 tok/s   14.2937 ms/tok  occ 50.1%
+    avx4    n=640   rep 1/5    92.44 tok/s   10.8172 ms/tok  occ 47.6%
+    serial  n=1280  rep 1/5    49.11 tok/s   20.3633 ms/tok  occ 54.7%
+    avx4    n=1280  rep 1/5    70.71 tok/s   14.1430 ms/tok  occ 62.7%
+    serial  n=2560  rep 1/5    29.73 tok/s   33.6391 ms/tok  occ 59.6%
+    avx4    n=2560  rep 1/5    54.35 tok/s   18.3992 ms/tok  occ 57.9%
+    serial  n=40    rep 2/5   121.38 tok/s    8.2500 ms/tok  occ 20.1%
+    avx4    n=40    rep 2/5   121.65 tok/s    8.2250 ms/tok  occ 21.1%
+    serial  n=160   rep 2/5   104.60 tok/s    9.5625 ms/tok  occ 33.8%
+    avx4    n=160   rep 2/5   112.89 tok/s    8.8562 ms/tok  occ 39.2%
+    serial  n=640   rep 2/5    66.92 tok/s   14.9437 ms/tok  occ 58.2%
+    avx4    n=640   rep 2/5    88.97 tok/s   11.2406 ms/tok  occ 55.7%
+    serial  n=1280  rep 2/5    48.68 tok/s   20.5430 ms/tok  occ 55.4%
+    avx4    n=1280  rep 2/5    74.62 tok/s   13.4008 ms/tok  occ 53.9%
+    serial  n=2560  rep 2/5    30.17 tok/s   33.1445 ms/tok  occ 61.2%
+    avx4    n=2560  rep 2/5    53.13 tok/s   18.8211 ms/tok  occ 59.7%
+    serial  n=40    rep 3/5   114.79 tok/s    8.7000 ms/tok  occ 33.9%
+    avx4    n=40    rep 3/5   126.79 tok/s    7.8750 ms/tok  occ 22.3%
+    serial  n=160   rep 3/5   107.79 tok/s    9.2750 ms/tok  occ 35.6%
+    avx4    n=160   rep 3/5   114.14 tok/s    8.7625 ms/tok  occ 39.8%
+    serial  n=640   rep 3/5    69.71 tok/s   14.3453 ms/tok  occ 50.2%
+    avx4    n=640   rep 3/5    89.89 tok/s   11.1250 ms/tok  occ 51.3%
+    serial  n=1280  rep 3/5    47.35 tok/s   21.1180 ms/tok  occ 60.0%
+    avx4    n=1280  rep 3/5    74.92 tok/s   13.3484 ms/tok  occ 54.9%
+    serial  n=2560  rep 3/5    30.27 tok/s   33.0367 ms/tok  occ 60.3%
+    avx4    n=2560  rep 3/5    53.79 tok/s   18.5914 ms/tok  occ 59.4%
+    serial  n=40    rep 4/5   112.14 tok/s    8.9250 ms/tok  occ 27.8%
+    avx4    n=40    rep 4/5   122.73 tok/s    8.1500 ms/tok  occ 25.0%
+    serial  n=160   rep 4/5    85.91 tok/s   11.6375 ms/tok  occ 48.3%
+    avx4    n=160   rep 4/5   100.10 tok/s    9.9875 ms/tok  occ 54.6%
+    serial  n=640   rep 4/5    69.07 tok/s   14.4781 ms/tok  occ 53.6%
+    avx4    n=640   rep 4/5    89.57 tok/s   11.1641 ms/tok  occ 51.0%
+    serial  n=1280  rep 4/5    48.59 tok/s   20.5813 ms/tok  occ 56.9%
+    avx4    n=1280  rep 4/5    71.75 tok/s   13.9375 ms/tok  occ 61.0%
+    serial  n=2560  rep 4/5    30.57 tok/s   32.7133 ms/tok  occ 59.6%
+    avx4    n=2560  rep 4/5    54.25 tok/s   18.4324 ms/tok  occ 58.0%
+    serial  n=40    rep 5/5   112.19 tok/s    8.9250 ms/tok  occ 39.1%
+    avx4    n=40    rep 5/5   119.87 tok/s    8.3500 ms/tok  occ 38.2%
+    serial  n=160   rep 5/5   109.36 tok/s    9.1438 ms/tok  occ 37.4%
+    avx4    n=160   rep 5/5   111.76 tok/s    8.9500 ms/tok  occ 41.4%
+    serial  n=640   rep 5/5    69.92 tok/s   14.3031 ms/tok  occ 49.9%
+    avx4    n=640   rep 5/5    92.20 tok/s   10.8453 ms/tok  occ 51.5%
+    serial  n=1280  rep 5/5    47.88 tok/s   20.8875 ms/tok  occ 59.1%
+    avx4    n=1280  rep 5/5    74.11 tok/s   13.4930 ms/tok  occ 55.1%
+    serial  n=2560  rep 5/5    30.49 tok/s   32.8004 ms/tok  occ 60.1%
+    avx4    n=2560  rep 5/5    53.42 tok/s   18.7188 ms/tok  occ 61.5%
+
+  serial  ms/tok = 8.2419 + 0.019334*pos   ->  C50 = 608
+     n=40    pos   20.0    8.9250 ms/tok   112.19 tok/s  spread  21.0%  occ 33.6%
+     n=160   pos   80.0    9.5625 ms/tok   104.60 tok/s  spread  26.1%  occ 37.4%
+     n=640   pos  320.0   14.3453 ms/tok    69.71 tok/s  spread   4.5%  occ 50.2%
+     n=1280  pos  640.0   20.5813 ms/tok    48.59 tok/s  spread   3.7%  occ 56.9%
+     n=2560  pos 1280.0   33.0367 ms/tok    30.27 tok/s  spread   2.8%  occ 60.1%
+
+  avx4    ms/tok = 8.2468 + 0.008144*pos   ->  C50 = 1443
+     n=40    pos   20.0    8.2250 ms/tok   121.65 tok/s  spread   7.9%  occ 25.0%
+     n=160   pos   80.0    8.8562 ms/tok   112.89 tok/s  spread  18.1%  occ 41.4%
+     n=640   pos  320.0   11.1250 ms/tok    89.89 tok/s  spread   3.8%  occ 51.3%
+     n=1280  pos  640.0   13.4930 ms/tok    74.11 tok/s  spread   5.9%  occ 55.1%
+     n=2560  pos 1280.0   18.5914 ms/tok    53.79 tok/s  spread   2.3%  occ 59.4%
+
+  b(serial)/b(avx4) = 2.374      C50 608 -> 1443
+
+== G-E49c -- does the published headline move?  (at NTOK=40, mean position 20) ==
+  serial  112.19 tok/s   avx4  121.65 tok/s   delta +8.4%  (band +-5%)
+  THE HEADLINE IS RESTATED -- the kernel moves it by more than the band the ledger carries
+
+== G-E49d -- the whole ladder at n=1280, so `avx4 is best` is measured ==
+    serial   rep 1/3    48.23 tok/s
+    serial2  rep 1/3    34.52 tok/s
+    serial3  rep 1/3    26.75 tok/s
+    ilp4     rep 1/3    64.61 tok/s
+    avx1     rep 1/3    73.07 tok/s
+    avx4     rep 1/3    73.24 tok/s
+    serial   rep 2/3    49.12 tok/s
+    serial2  rep 2/3    34.61 tok/s
+    serial3  rep 2/3    27.15 tok/s
+    ilp4     rep 2/3    63.08 tok/s
+    avx1     rep 2/3    69.67 tok/s
+    avx4     rep 2/3    73.55 tok/s
+    serial   rep 3/3    48.53 tok/s
+    serial2  rep 3/3    34.68 tok/s
+    serial3  rep 3/3    27.16 tok/s
+    ilp4     rep 3/3    61.68 tok/s
+    avx1     rep 3/3    72.56 tok/s
+    avx4     rep 3/3    74.94 tok/s
+
+  kernel           tok/s    vs serial
+  avx4             73.55       1.516x
+  avx1             72.56       1.495x
+  ilp4             63.08       1.300x
+  serial           48.53       1.000x
+  serial2          34.61       0.713x
+  serial3          27.15       0.559x
+  fastest : avx4
+
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e49_attn_kernel.json
