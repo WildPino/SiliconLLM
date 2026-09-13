@@ -214,8 +214,11 @@ clause is about the bound, not the search:
 > which access pattern it was measured on. A ratio whose denominator's scope is unstated is not a
 > ratio, and "the ledger's current headline figure" is not a scope.
 
-Registered as `feedback_a_bound_has_a_scope.md`. The runner now enforces the visible half: it
-prints **both** bounds on every row and names which section withdrew which.
+Registered by extending `feedback_charged_vs_moved_bytes.md` rather than as a new memory: that
+file already said *"a ceiling is a denominator, and a denominator is where the wrong unit hides"*
+and **it was not enough, because the unit was right and the scope was wrong.** The second question
+belongs next to the first. The runner enforces the visible half: it prints **both** bounds on every
+row and names which section withdrew which.
 
 ## 9. `G-E58d` — nothing is promoted
 
