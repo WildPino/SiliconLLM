@@ -1,0 +1,37 @@
+E53 -- vexpf8 against (float)exp((double)x), which is what expf IS here.
+sweep: 1048576 points over [-104.0, 89.0]
+bars: normal ref -> rel <= 1e-06 (G-E53b, as registered)
+      denormal ref -> abs <= 1 denormal ulp;  zero/inf -> exact
+
+  kernel    normal: max rel 1.1920e-07 at x= -65.156  max ulp 1      (956536 pts)
+            denorm: max abs 1.4013e-45 (1.00 denormal ulp) at x= -97.015  (90382 pts)
+            exact : zero-mismatch 0/152   inf-mismatch 0/1506
+  degraded  normal: max rel 5.5718e-05 at x=  77.286  max ulp 661    (956536 pts)
+            denorm: max abs 4.6243e-43 (330.00 denormal ulp) at x= -87.683  (90382 pts)
+            exact : zero-mismatch 0/152   inf-mismatch 0/1506
+
+  special cases (identity, not tolerance):
+     x=0          got 1              ref 1              ulp 0       exp(0) == 1 exactly
+     x=-0         got 1              ref 1              ulp 0       exp(-0) == 1 exactly
+     x=1          got 2.718282       ref 2.718282       ulp 0       exp(1)
+     x=-1         got 0.3678795      ref 0.3678795      ulp 0       exp(-1)
+     x=88         got 1.651636e+38   ref 1.651636e+38   ulp 0       just under overflow
+     x=88.7       got 3.325977e+38   ref 3.325977e+38   ulp 0       the last finite
+     x=89         got inf            ref inf            ulp 0       over overflow -> +inf
+     x=-87        got 1.645811e-38   ref 1.645811e-38   ulp 0       last normal
+     x=-95        got 5.521116e-42   ref 5.521116e-42   ulp 0       denormal band
+     x=-103       got 1.401298e-45   ref 1.401298e-45   ulp 0       deep denormal
+     x=-105       got 0              ref 0              ulp 0       under -> +0
+     x=inf        got inf            ref inf            ulp 0       +inf -> +inf
+     x=-inf       got 0              ref 0              ulp 0       -inf -> +0
+     x=NaN      got nan                                NaN preserved
+
+  G-E53a (planted control) : FIRES
+     the degree-2 kernel reads 5.5718e-05 on the normal region, 56x the
+     1e-06 bar -- the harness can see a bad exponential, so its reading of
+     the good one counts
+
+  G-E53b (numeric bar)     : PASS
+     normal   max rel 1.1920e-07  (8x inside the bar), max ulp 1
+     denormal max abs 1.4013e-45  (1.00 denormal ulp)
+     every zero, infinity, NaN and special case exact
