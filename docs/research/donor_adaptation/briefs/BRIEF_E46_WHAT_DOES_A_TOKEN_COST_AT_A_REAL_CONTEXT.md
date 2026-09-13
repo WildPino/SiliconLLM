@@ -115,3 +115,33 @@ read from the USB disk. Both artifacts already exist.
    3000**. I am recording that because it is the outcome that costs this programme its headline,
    and because if the measurement comes back saying 50 tok/s holds at 4096 I want it on the
    record that I did not expect it.
+
+---
+
+# ADDENDUM A — THE HEADLINE ARM IS `k = 3`, NOT "THE FFN FULLY ON"
+
+**Written and pushed before any E46 measurement.** §2 and §3 described phase B as the R128
+artifact "FFN fully on". That is wrong, and the error is carried in the project's own index
+line, so it is worth fixing where it can be seen.
+
+Read out of `results/e40_levers_exhausted.json`:
+
+| arm | mean tok/s | median tok/s |
+|---|---|---|
+| `R128_k1` | — | 139.64 |
+| `R128_k2` | 128.074 | 130.78 |
+| **`R128_k3`** | **112.732** | **116.59** |
+| `R128_k4` | — | 105.72 |
+| `NKV2_k1` | 112.002 | 112.73 |
+
+**The 112.7 that this programme quotes is `R128` at `--carve-k 3`** — 3 groups of `E = 256`,
+**1.17% of the FFN**, which is exactly the activation budget E36 required and E37 priced. It is
+not the FFN fully on. (`112.73` also appears as `NKV2_k1`'s median, which is a different arm
+with the same leading digits; the R128 figure is the mean `112.732`.)
+
+**Consequence for phase B:** it must run **the headline's own flags**, `--carve-k 3` on
+`donor_engine_e26.exe`, or it prices a different arm and `G-E46d` decides about a rate nobody
+published. The runner is written that way and records the flags in its output.
+
+Nothing else changes: §2's desk table used `1/113` as the position-0 cost, and `1/112.7` is
+that same arm, so the registered prediction of §7 stands as written.
