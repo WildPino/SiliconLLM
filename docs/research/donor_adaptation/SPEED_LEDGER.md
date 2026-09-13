@@ -4601,3 +4601,83 @@ make two passing readings comparable, and **the ±5% on every absolute rate stay
   precision was asserted, not measured.
 * Nothing from E52 itself. It measures the instrument; its `109.99 tok/s` at `L=0` is a y-axis
   unit, not a result.
+
+---
+
+## 55. E53 run 2 — a direction without a rate, and the first evidence that the leftover term is time, not load
+
+*Written 2026-09-13, late. §54 closed with "5.2 points are not explained by foreign load at all"
+and named thermal soak as a suspicion **nothing measures**. This section is the first measurement
+that narrows it, and the reason this ledger still may not quote a `C50` from E53.*
+
+### 55.1 The conditions, measured and not assumed
+
+Chrome closed at the user's hand. Per-process CPU over 10 s with nothing of mine running:
+**1.68% of the box**, against `OCC_BAR = 4.39`. Across the run, **38 of 50 cells** stayed under
+the bar (run 1 of E53: **0 of 50**). The 12 breaches ran 4.40–7.32%, marginal rather than
+structural.
+
+### 55.2 What may be read from it
+
+**`G-E53f`, a rank test registered before the run**: every `--fexp poly` repetition beat every
+`--fexp libm` repetition at mean context position 160, 320 and 640; the two short windows refused
+themselves on dispersion. `p = 2/C(10,5) = 0.0079` per window. Worst-case gaps `+0.39%`,
+`+7.38%`, `+10.37%`.
+
+It holds after deleting every cell above the occupancy bar (5v5, 4v3, 5v4), and the drift cannot
+have produced it: within-window early-vs-late trends are mixed-sign with mean `+0.07%`, and the
+alternating arm order puts libm in the earlier slot on three reps of five, favouring the arm that
+lost.
+
+> **This ledger may quote: the vectorised exponential is faster at every context long enough to
+> resolve, and monotonically more so with context. It may NOT quote a rate, a ratio or a `C50`
+> from it.** A rank test answers *which*, never *how much*.
+
+### 55.3 The drift, and why load is now ruled out as its cause
+
+`G-E53e` fired at **4.64%** (witnesses `121.49 → 115.98 tok/s`, same cell, same binary, forty
+minutes apart). Three readings say this is not contention:
+
+1. The box was at **1.68%** foreign at launch and most cells stayed under the bar.
+2. The opening witness ran at **5.7%** foreign and the closing at **3.1%**. Correcting both to a
+   common load with §54's `k = 0.262%/point` moves the open cell to **122.33** and makes the
+   drift **5.33%**. **Load correction makes it bigger.**
+3. The closing witness repeats the `n=160` libm cell, whose own five reps read
+   `124.26 119.44 122.04 122.46 122.94`. The **opening** witness sits inside that range; the
+   **closing** one sits **2.90% below its minimum**.
+
+**§54.4's 5.2 unexplained points reproduce with load eliminated, and they track time-in-run.**
+Thermal soak remains the hypothesis; it now has a reproduced signature and a direction, and it is
+the largest uncontrolled term in every absolute rate in this ledger.
+
+### 55.4 The consequence for `C50 = 1443`
+
+`--fexp libm` on `donor_engine_e53.exe` is bit-identical to the pre-E53 engine (`c0`, every digit)
+and ran on the arm E49 used. So the two fits measure the same thing in different sessions:
+
+| | E49 | E53 run 2 |
+|---|---|---|
+| ladder (mean pos) | 20, 80, 320, 640, 1280 | 160, 320, 640 |
+| slope `b` (ms/pos) | **0.008144** | **0.007282** (−10.6%) |
+| `C50` | 1443 — 1.13× beyond the data | 1693 — **2.6×** beyond the data |
+
+The ladders are not matched, so this is one disagreement and **not a dispersion**. It is still
+enough to change what this ledger says:
+
+* **`C50 = 1443` keeps its value and gains a caveat**: *single session, reproducibility never
+  measured, and the only cross-session read of its slope disagrees by 10.6%.* Every quotation of
+  it carries that sentence until a matched repeat exists.
+* **Nothing from E53's own fit is quotable** — `G-E53d` is refused by `G-E53e`, and its
+  `libm 1693 / poly 2558` extrapolate 2.6× past their furthest cell because the two short windows
+  were thrown out. They appear in E53 addendum C.4 only so that a refusal cannot quietly protect
+  two predictions that would both have been wrong.
+
+### 55.5 What this ledger may now quote, updated from §54.5
+
+* **`110.62 tok/s`, spread 2.3%, at mean context position 150** — unchanged, still the only rate
+  here with a measured interval.
+* **`C50 = 1443`** — with §55.4's caveat attached, always.
+* **The direction of E53**: `--fexp poly` is faster at long context, by a rank test that survives
+  the occupancy filter and the drift. No number.
+* `112.73` keeps §53's correction.
+* Nothing from E52 or from E53's speed fit.
