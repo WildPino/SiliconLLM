@@ -602,3 +602,77 @@ sessions (~5.6 GPU-h).** Run 3 does not weaken it and does not merely leave it a
 findings transfer, which is why 2.8 h on a non-shipping object was still worth spending:
 *healing continues measurably past the point where the cheap in-training signal says it has
 stopped, and the gate metric is not the place to look for it.*
+
+---
+
+## 13. E57 CHANGES WHICH ARM IS WORTH THE HOURS — and it prices the 10 B clause of the goal for the first time
+
+**2026-09-13, after E57.** Nothing here is requested yet: **APERTO 0 (H1, in flight) stays the
+only open ask**, and this section exists so that the *next* one is chosen on measured grounds.
+
+### 13.1 What E57 measured that this document did not have
+
+Every arm in §§1–12 was chosen from **BPB and teacher-forced counts**. Nobody had a **rate** for
+a trained model — E17 §7 explicitly refused to quote its decode rates, and every tok/s in the
+programme was synthetic. E57 supplies both halves in one table
+(`briefs/BRIEF_E57_…md` addendum A, ledger §56):
+
+| arm | rate (p25) | greedy vs HF | BPB (E1, R3, `fold=none`) | chance = 4.070 |
+|---|---|---|---|---|
+| `05b_f32` | **19.09** | **160/160** | 0.872 | −3.198 |
+| `05b_tq` | **43.69** | 3/160 | **4.509** | **+0.439 ABOVE** |
+| `05b_tqh` | **83.41** | 3/160 | 4.531 | **+0.461 ABOVE** |
+| `15b_f32` | 6.25 | **160/160** | 0.702 | −3.368 |
+| `15b_tq` | 19.15 | 12/160 | 3.484 | −0.586 |
+| `15b_tqh` | 29.18 | 10/160 | 3.476 | −0.594 |
+
+**Three things follow that bear directly on where hours go.**
+
+1. **The organ is the BODY, not the head** (addendum C.3): `tq → tqh` costs **+0.022 BPB** at
+   0.5 B and **−0.0085** at 1.5 B, where ternarising the head *improves* BPB. H0 healed the
+   *factored `q/o`* — a body organ — and that choice is now measured to be the right family.
+2. **At 0.5 B the post-hoc ternary model is above chance.** Healing at 0.5 B would have to
+   rebuild a non-model, not repair a damaged one. **H0's 1.5 B remains the right size**, and
+   E57 is the reason, measured: at 1.5 B the converted model still predicts (0.586 below
+   chance) and there is something for gradients to hold on to.
+3. **A healed arm now has a RATE waiting for it.** `15b_tq` runs at **19.15 tok/s** and
+   `15b_tqh` at **29.18**. If healing recovers usable quality on the ternary body at 1.5 B,
+   the programme gets its first point that is **trained, faithful-enough, and timed** — and it
+   lands at 1.5–1.9× the fp32 arm's 19.09 with a real quality number attached.
+
+### 13.2 The arm E57 would put next, costed — **`H2T`, heal the ternary BODY at 1.5 B**
+
+| | |
+|---|---|
+| **object** | `Qwen2.5-1.5B`, body ternary by `R3`, head fp32 — i.e. the **`15b_tq` artifact that already exists and already has a rate** |
+| **trained** | fp32 masters of the ternarised body organs, STE through the shipped quantizer, exactly H0's mechanism (`s1/h0_qat.py`), head/embedding/norms frozen |
+| **why it is not H0 again** | H0 trained `q/o` **low-rank factors** (88.1 M, 5.7% of the donor) as a *structure* validation on an object that does not ship. `H2T` trains **the organs the shipped artifact actually converts**, and the artifact is one this engine already runs at a measured 19.15 tok/s |
+| **cost** | **2 sessions × 2.8 h = 5.6 GPU-h** for the first read, on H0's measured step rate; §12.6's rule applies — *one session will under-read it* |
+| **criterion** | **BPB and free-running**, never `tf` (§12.2, and `feedback_gate_is_not_a_progress_meter`): the bar is BPB crossing **below 1.5** (the converted arm sits at 3.484, the fp32 at 0.702) and free-running ≥ E17's `RANKS` band |
+| **what a null means** | if gradients cannot move the *full body* the way they moved `q/o`, then post-hoc conversion is not merely lossy but **unrepairable at this budget**, and the donor route to a fast trained model is closed — which is a finding worth 5.6 GPU-h on its own |
+
+**Not requested here.** H1 is in flight and its two sessions are the standing ask.
+
+### 13.3 The 10 B clause, priced — **desk model, explicitly marked**
+
+The goal is *"un modello grande (es 10B) a 50 tok/s"*. E55 showed the **engine** does that shape
+at 49.57–118.47 tok/s. E57 showed the **weights** are the problem. So: what would a 10 B trained
+into this format cost, and can the offered T4 weeks buy it?
+
+**They cannot, and the blocker is memory, not hours.** A T4 is **16 GB**. A 10 B model in fp16
+masters plus AdamW states is ~**120 GB** before activations; even fp16 weights alone are 20 GB.
+**No 10 B trains on a T4 at any number of hours**, with or without the 30 GPU-h/week ceiling.
+The hour arithmetic is therefore not the binding constraint and is not offered as one.
+
+Two consequences, and they should be said plainly rather than deferred:
+
+* **The literal 10 B clause is out of reach of the hardware available to this project**, by a
+  factor that no scheduling fixes. What the T4 weeks *can* buy is the **1.5 B demonstration**
+  (13.2) and the scaling statement that goes with it.
+* **The honest deliverable is therefore: a trained LLM, faithful, fast, at 1.5 B, with the 10 B
+  requirement stated as a measured budget rather than a demonstration.** E18 already gives that
+  budget — ≤0.98–1.06 G active ternary weights/token — and E39 gives the shape that fits inside
+  it. What is missing is not an argument; it is 120 GB of accelerator.
+
+This is written here, in the document that asks for the GPU hours, because **the person being
+asked should know what the hours cannot buy before deciding to spend them.**
