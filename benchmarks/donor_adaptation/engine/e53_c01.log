@@ -1,0 +1,46 @@
+E53 -- a real exponential instead of a libm call
+brief: BRIEF_E53_A_REAL_EXPONENTIAL_INSTEAD_OF_A_LIBM_CALL.md
+
+== self-test.  Every decision function must fire on a known-positive. ==
+  C0-1 identical is IDENTICAL                    fires
+  C0-2 one part in 1e14 is MOVED                 fires
+  C0-3 a real change is MOVED                    fires
+  C1-1 identical arms hold                       fires
+  C1-2 5e-7 relative holds                       fires
+  C1-3 5e-3 relative BREAKS                      fires
+  C1-4 a dead control is caught                  fires
+  C2-1 160/160 with live controls passes         fires
+  C2-2 159/160 FAILS                             fires
+  C2-3 a control that matches is caught          fires
+  E-1 1%% drift is CLEAN                         fires
+  E-2 5%% drift is CONTAMINATED                  fires
+  E-3 the rule is symmetric in sign              fires
+  D-1 a clean sweep FITS                         fires
+  D-2 the fit recovers the planted slopes        fires
+  D-3 the fit recovers the planted intercept     fires
+  D-4 one resolvable window declines to extrapolate fires
+  D-5 two survivors still fit                    fires
+  D-6 exactly at the tolerance is JUDGED         fires
+
+  19 of 19 fire.
+
+== c0 -- the refactor must not have moved the libm arm ==
+  compared against the PUBLISHED pre-E53 value, not one measured beside it.
+  CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=ternary
+  e53 --fexp libm   NATS_TOTAL 124963.9517608703  n=12264  (508 s)
+  pre-E53 published NATS_TOTAL 124963.9517608703
+
+  c0 : IDENTICAL
+     libm after the refactor reads 124963.9517608703, the pre-E53 value to every digit
+
+== G-E53c1 -- continuous parity, libm vs poly ==
+  CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=ternary
+  libm   k=256   NATS_TOTAL 124963.9517608703  n=12264  (509 s)
+  CONFIG  attn=avx4  attnr=none  fexp=poly  mvacc=4  threads=6  quant=ternary
+  poly   k=256   NATS_TOTAL 124963.9588801368         (484 s)
+  CTRL   k=3     NATS_TOTAL 144871.9226166338         (184 s)
+
+  G-E53c1 : PARITY HOLDS
+     poly vs libm 5.697e-08 relative, inside the 1e-03 bar; control fires at 1.593e-01
+
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e53_fexp.json

@@ -1,0 +1,32 @@
+{
+ "brief": "BRIEF_E53_A_REAL_EXPONENTIAL_INSTEAD_OF_A_LIBM_CALL.md",
+ "base": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\donor_engine_e52.exe",
+ "e53": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\donor_engine_e53.exe",
+ "threads": 6,
+ "windows": [
+  40,
+  160,
+  320,
+  640,
+  1280
+ ],
+ "reps": 5,
+ "c0": {
+  "verdict": "IDENTICAL",
+  "why": "libm after the refactor reads 124963.9517608703, the pre-E53 value to every digit",
+  "nats": 124963.9517608703,
+  "known": 124963.9517608703,
+  "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=ternary\r"
+ },
+ "G_E53c1": {
+  "verdict": "PARITY HOLDS",
+  "why": "poly vs libm 5.697e-08 relative, inside the 1e-03 bar; control fires at 1.593e-01",
+  "rel": 5.697056143471684e-08,
+  "control_rel": 0.15930970952214418,
+  "nats_libm": 124963.9517608703,
+  "nats_poly": 124963.9588801368,
+  "nats_control": 144871.9226166338,
+  "config_libm": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=ternary\r",
+  "config_poly": "CONFIG  attn=avx4  attnr=none  fexp=poly  mvacc=4  threads=6  quant=ternary\r"
+ }
+}
