@@ -1,0 +1,125 @@
+E53 -- a real exponential instead of a libm call
+brief: BRIEF_E53_A_REAL_EXPONENTIAL_INSTEAD_OF_A_LIBM_CALL.md
+
+== self-test.  Every decision function must fire on a known-positive. ==
+  C0-1 identical is IDENTICAL                    fires
+  C0-2 one part in 1e14 is MOVED                 fires
+  C0-3 a real change is MOVED                    fires
+  C1-1 identical arms hold                       fires
+  C1-2 5e-7 relative holds                       fires
+  C1-3 5e-3 relative BREAKS                      fires
+  C1-4 a dead control is caught                  fires
+  C2-1 160/160 with live controls passes         fires
+  C2-2 159/160 FAILS                             fires
+  C2-3 a control that matches is caught          fires
+  E-1 1%% drift is CLEAN                         fires
+  E-2 5%% drift is CONTAMINATED                  fires
+  E-3 the rule is symmetric in sign              fires
+  D-1 a clean sweep FITS                         fires
+  D-2 the fit recovers the planted slopes        fires
+  D-3 the fit recovers the planted intercept     fires
+  D-4 one resolvable window declines to extrapolate fires
+  D-5 two survivors still fit                    fires
+  D-6 exactly at the tolerance is JUDGED         fires
+
+  19 of 19 fire.
+
+== G-E53d -- the speed, interleaved and rotated, under OCC_BAR = 4.39 (E52) ==
+  5 windows x 5 reps x 2 arms.  The ARM ORDER alternates each repetition so arm
+  and time are not the same axis -- E51 A.4 is why, E52 is the design that worked.
+
+  drift witness opens  libm n=160  115.36 tok/s  foreign 8.4%
+
+    n=40    libm rep 1/5   110.04 tok/s  system  29.3%  foreign  14.4%   <-- ABOVE THE BAR
+    n=40    poly rep 1/5   111.73 tok/s  system  31.5%  foreign  16.8%   <-- ABOVE THE BAR
+    n=40    poly rep 2/5   122.92 tok/s  system  20.8%  foreign   6.1%   <-- ABOVE THE BAR
+    n=40    libm rep 2/5   127.38 tok/s  system  25.7%  foreign  11.3%   <-- ABOVE THE BAR
+    n=40    libm rep 3/5   126.96 tok/s  system  22.7%  foreign   8.4%   <-- ABOVE THE BAR
+    n=40    poly rep 3/5   121.73 tok/s  system  30.2%  foreign  15.9%   <-- ABOVE THE BAR
+    n=40    poly rep 4/5   128.15 tok/s  system  29.7%  foreign  15.3%   <-- ABOVE THE BAR
+    n=40    libm rep 4/5   108.03 tok/s  system  29.2%  foreign  14.3%   <-- ABOVE THE BAR
+    n=40    libm rep 5/5   129.31 tok/s  system  34.1%  foreign  20.4%   <-- ABOVE THE BAR
+    n=40    poly rep 5/5   131.82 tok/s  system  20.3%  foreign   5.8%   <-- ABOVE THE BAR
+
+    n=160   libm rep 1/5   118.28 tok/s  system  33.9%  foreign   8.1%   <-- ABOVE THE BAR
+    n=160   poly rep 1/5   121.77 tok/s  system  32.1%  foreign   6.6%   <-- ABOVE THE BAR
+    n=160   poly rep 2/5   121.96 tok/s  system  35.6%  foreign  10.4%   <-- ABOVE THE BAR
+    n=160   libm rep 2/5   118.76 tok/s  system  33.2%  foreign   7.6%   <-- ABOVE THE BAR
+    n=160   libm rep 3/5   116.35 tok/s  system  36.9%  foreign  11.1%   <-- ABOVE THE BAR
+    n=160   poly rep 3/5   126.99 tok/s  system  30.4%  foreign   5.4%   <-- ABOVE THE BAR
+    n=160   poly rep 4/5   122.57 tok/s  system  33.9%  foreign   8.7%   <-- ABOVE THE BAR
+    n=160   libm rep 4/5   119.24 tok/s  system  33.6%  foreign   7.6%   <-- ABOVE THE BAR
+    n=160   libm rep 5/5   120.39 tok/s  system  33.4%  foreign   7.5%   <-- ABOVE THE BAR
+    n=160   poly rep 5/5   102.22 tok/s  system  45.1%  foreign  19.4%   <-- ABOVE THE BAR
+
+    n=320   libm rep 1/5   106.90 tok/s  system  40.9%  foreign   7.3%   <-- ABOVE THE BAR
+    n=320   poly rep 1/5   115.00 tok/s  system  40.5%  foreign   7.0%   <-- ABOVE THE BAR
+    n=320   poly rep 2/5   112.84 tok/s  system  40.9%  foreign   7.7%   <-- ABOVE THE BAR
+    n=320   libm rep 2/5    96.78 tok/s  system  49.9%  foreign  16.6%   <-- ABOVE THE BAR
+    n=320   libm rep 3/5    97.42 tok/s  system  56.5%  foreign  23.8%   <-- ABOVE THE BAR
+    n=320   poly rep 3/5   111.03 tok/s  system  43.1%  foreign   9.9%   <-- ABOVE THE BAR
+    n=320   poly rep 4/5   111.52 tok/s  system  42.7%  foreign   9.9%   <-- ABOVE THE BAR
+    n=320   libm rep 4/5   108.66 tok/s  system  44.6%  foreign  11.3%   <-- ABOVE THE BAR
+    n=320   libm rep 5/5   108.39 tok/s  system  40.6%  foreign   6.6%   <-- ABOVE THE BAR
+    n=320   poly rep 5/5   115.34 tok/s  system  40.1%  foreign   6.8%   <-- ABOVE THE BAR
+
+    n=640   libm rep 1/5    94.12 tok/s  system  47.9%  foreign   6.9%   <-- ABOVE THE BAR
+    n=640   poly rep 1/5    97.40 tok/s  system  51.5%  foreign  12.1%   <-- ABOVE THE BAR
+    n=640   poly rep 2/5    99.22 tok/s  system  48.4%  foreign   8.1%   <-- ABOVE THE BAR
+    n=640   libm rep 2/5    90.74 tok/s  system  50.3%  foreign   9.4%   <-- ABOVE THE BAR
+    n=640   libm rep 3/5    90.65 tok/s  system  49.7%  foreign   9.2%   <-- ABOVE THE BAR
+    n=640   poly rep 3/5    98.35 tok/s  system  48.9%  foreign   9.0%   <-- ABOVE THE BAR
+    n=640   poly rep 4/5    96.72 tok/s  system  51.2%  foreign  11.8%   <-- ABOVE THE BAR
+    n=640   libm rep 4/5    90.66 tok/s  system  48.6%  foreign   7.7%   <-- ABOVE THE BAR
+    n=640   libm rep 5/5    90.01 tok/s  system  50.5%  foreign  10.0%   <-- ABOVE THE BAR
+    n=640   poly rep 5/5    97.42 tok/s  system  50.5%  foreign  10.4%   <-- ABOVE THE BAR
+
+    n=1280  libm rep 1/5    70.53 tok/s  system  56.1%  foreign  10.8%   <-- ABOVE THE BAR
+    n=1280  poly rep 1/5    84.74 tok/s  system  53.5%  foreign   8.5%   <-- ABOVE THE BAR
+    n=1280  poly rep 2/5    86.33 tok/s  system  51.6%  foreign   6.7%   <-- ABOVE THE BAR
+    n=1280  libm rep 2/5    75.54 tok/s  system  51.2%  foreign   5.6%   <-- ABOVE THE BAR
+    n=1280  libm rep 3/5    74.71 tok/s  system  53.1%  foreign   7.8%   <-- ABOVE THE BAR
+    n=1280  poly rep 3/5    86.08 tok/s  system  51.3%  foreign   6.2%   <-- ABOVE THE BAR
+    n=1280  poly rep 4/5    86.48 tok/s  system  49.9%  foreign   4.9%   <-- ABOVE THE BAR
+    n=1280  libm rep 4/5    73.37 tok/s  system  55.6%  foreign  10.4%   <-- ABOVE THE BAR
+    n=1280  libm rep 5/5    72.62 tok/s  system  55.3%  foreign  10.2%   <-- ABOVE THE BAR
+    n=1280  poly rep 5/5    84.61 tok/s  system  52.8%  foreign   8.2%   <-- ABOVE THE BAR
+
+  drift witness closes libm n=160  122.10 tok/s  foreign 6.6%
+
+  G-E53e (drift)   : DRIFT-CONTAMINATED
+     the bracketing cells differ by 5.68%, above 2.3% -- the cells are printed and the fit is NOT read as a difference between arms
+
+  OCCUPANCY: 50 cell(s) read above the 4.39% bar: [(40, 'libm', 1, 14.373601789709172), (40, 'poly', 1, 16.84567552289429), (40, 'poly', 2, 6.128640776699029), (40, 'libm', 2, 11.25748502994012), (40, 'libm', 3, 8.394160583941606), (40, 'poly', 3, 15.907746895328208), (40, 'poly', 4, 15.335648148148149), (40, 'libm', 4, 14.326484018264841)]
+     Those cells are recorded and NOT citable (E52 / G-E44b2).
+
+  n      mean pos   libm tok/s (sp)    poly tok/s (sp)    delta   in the fit?
+  40     20          126.96 (16.8%)      122.92 (16.3%)    -3.18%  UNRESOLVABLE
+  160    80          118.76 ( 3.4%)      121.96 (20.3%)    +2.69%  UNRESOLVABLE
+  320    160         106.90 (11.1%)      112.84 ( 3.8%)    +5.56%  UNRESOLVABLE
+  640    320          90.66 ( 4.5%)       97.42 ( 2.6%)    +7.46%  JUDGED
+  1280   640          73.37 ( 6.8%)       86.08 ( 2.2%)   +17.32%  UNRESOLVABLE
+
+  G-E53d : C50 NOT COMPUTABLE
+     1 window(s) survived the dispersion rule and a straight line needs two.  That is the instrument declining to extrapolate, NOT a measurement of the kernel.
+
+== attribution -- WHICH site paid.  Reported, not gated (brief section 4). ==
+  attention: S = attention(sm2) - attention(sm1), E51's difference probe.
+  FFN:       glue(silu), timed directly by the engine.  No new probe was built;
+             section 4's `silurep` would be a weaker instrument for the same thing.
+
+    libm rep 1/3   S = 1.6010 ms   glue(silu) = 0.0900 ms
+    libm rep 2/3   S = 1.7880 ms   glue(silu) = 0.0880 ms
+    libm rep 3/3   S = 1.6530 ms   glue(silu) = 0.0950 ms
+    libm  S 1.6530 ms (spread 11.3%)   glue 0.0900 ms (spread 7.8%)   token 13.5099 ms
+    poly rep 1/3   S = 0.0060 ms   glue(silu) = 0.0380 ms
+    poly rep 2/3   S = 0.0960 ms   glue(silu) = 0.0370 ms
+    poly rep 3/3   S = 0.0540 ms   glue(silu) = 0.0380 ms
+    poly  S 0.0540 ms (spread 166.7%)   glue 0.0380 ms (spread 2.6%)   token 12.0106 ms
+
+  attention softmax S : 1.6530 -> 0.0540 ms   (-1.5990, -96.7%)
+  FFN glue(silu)      : 0.0900 -> 0.0380 ms   (-0.0520, -57.8%)
+  Neither number carries a verdict.  A difference read on an arm whose reps
+  disperse more than the difference is not a measurement -- the spreads are above.
+
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e53_fexp.json

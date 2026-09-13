@@ -269,7 +269,7 @@ Per-level medians entering the fit, with their three-rep spread:
 | the bar | 1–2% | 2–4% | **4.39%** | **WRONG in both** — above both ranges |
 | shape | "linear to ~20% foreign, bend after" | — | linear and tight to **46.1%** | **WRONG** |
 | span `L=0 → L=8` | — | ~11× | **16.1×** | **WRONG**, in the safe direction |
-| "a bar the machine cannot meet" | — | asserted | `L=0` reads 4.4%, close witness 4.0% | **WRONG at the margin** — the box just meets it |
+| "a bar the machine cannot meet" | — | asserted | `L=0` reads 4.4%, close witness 4.0% | **scored WRONG here; CORRECTED to right in B.7 below** |
 | `G-E52a2` | fires | fires | fires | right |
 | `G-E52b` | CLEAN | CLEAN | CLEAN, 2.09% | right |
 | `L=8` collapses | yes (§5) | yes | 31–53 tok/s, 46.5% spread | right |
@@ -355,3 +355,24 @@ run 2 remains the registered reading at that shape.
 3. The vectorised `exp2` softmax brief, which E52 exists to protect, is now unblocked: at
    `k = 0.262` the instrument can resolve a change of 12.2% of the token provided the box is kept
    under the new bar.
+
+---
+
+## B.7 A correction to B.2, written the same day, after E53 ran under this bar
+
+Addendum A.6 predicted the derived bar would be **"a bar the machine cannot meet"**. B.2 scored
+that **WRONG at the margin**, because E52's own `L = 0` cells read 4.4% and the closing witness
+4.0%.
+
+**E53's speed phase read foreign occupancy between 4.9% and 23.8% on all fifty of its cells,
+every one above the bar**, and a per-process sample taken afterwards with no engine running put
+the box at **5.6%**, of which **Chrome alone is about 4.2%**. A.6 was right and my scoring of it
+was wrong: E52's quiet `L = 0` cells were a quiet *moment*, not the machine's normal state, and I
+read one session's floor as the floor. That is the same error as `OCC_BAR = 15.0` itself -- a
+constant taken from the range one session happened to observe -- committed while scoring the
+experiment that fixed it.
+
+**Corrected, run 2's scorecard is 3 right / 4 wrong, and the prediction I got right is the
+uncomfortable one.** The bar is not re-opened: it comes from a rule fixed before the data, it is
+doing exactly what it was derived to do, and a bar that refuses most sessions is information
+about the sessions.

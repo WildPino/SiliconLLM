@@ -291,3 +291,144 @@ wherever its number appears.
 
 Both are **reported with their own dispersion and carry no verdict** — §4 already said
 attribution is reported, not gated, and E14 §6 forbids promoting it afterwards.
+
+---
+
+# ADDENDUM B — QUALITY PASSES EVERYWHERE; THE SPEED PHASE IS **NOT CITABLE** AND SAYS SO ON ITS OWN
+
+## B.1 The quality gates, all four
+
+| gate | verdict | number |
+|---|---|---|
+| `G-E53a` kernel control | **FIRES** | degree-2 kernel 5.5718e-05 / **661 ulp**, 56× the bar |
+| `G-E53b2` kernel | **PASS** | **1 ulp everywhere**; 1.1920e-07 relative on normals; denormals 1 ulp; zero, both infinities, NaN and every special case exact |
+| `c0` refactor regression | **IDENTICAL** | `NATS_TOTAL 124963.9517608703`, the published pre-E53 value, **every digit** |
+| `G-E53c1` continuous parity | **PARITY HOLDS** | poly `124963.9588801368` vs libm `124963.9517608703` = **5.697e-08** relative over 12,264 positions; k=3 control fires at **1.593e-01** |
+| `G-E53c2` discrete parity | **PASS** | **A1 160/160**; planted controls **3/160** and **10/160**, reproducing E6 to the token; `G-D` **15 of 15** |
+
+**`G-E53c2` is the one that could have broken.** A different approximation, summed in a
+different order, reproduces this engine's greedy output token for token at 1.5B. It was scored
+against E6's stored HuggingFace reference and not against my own libm arm, which would have
+proved nothing.
+
+`c1` and `c2` exercise **both call sites at once**, so these are joint passes and a failure would
+not have localised. §4 registered the bisect in advance for that case; it is not needed.
+
+## B.2 The speed phase: three gates, three refusals
+
+    drift witness opens  libm n=160  115.36 tok/s  foreign  8.4%
+    drift witness closes libm n=160  122.10 tok/s  foreign  6.6%
+
+| gate | verdict | |
+|---|---|---|
+| `G-E53e` drift | **DRIFT-CONTAMINATED** | the bracketing cells differ by **5.68%**, above the registered 2.3% |
+| occupancy | **50 of 50 cells above the bar** | foreign ran **4.9% to 23.8%** against `OCC_BAR = 4.39` |
+| `G-E53d` | **C50 NOT COMPUTABLE** | **1 of 5** windows survived the 6% dispersion rule |
+
+**Nothing in the speed phase is citable and no rate from it is quoted anywhere.**
+
+**Why the box was loaded, measured after the run rather than guessed.** Sampling per-process CPU
+over 8 seconds with no engine running: **5.6% of the box**, of which **Chrome alone is ~4.2%**
+(three processes) and Task Manager 0.8%. **The machine as it normally sits cannot meet the 4.39%
+bar.** E52 addendum A.6 predicted exactly this and I scored that prediction **WRONG at the
+margin** because E52's own `L=0` cells happened to read 4.4%. A.6 was right and my scoring of it
+was wrong; that correction is made here and in E52's record.
+
+This is the derived bar doing precisely what it was derived to do, on the first experiment to run
+under it. **It is not re-run to a pass** (E40 addendum A). It is re-run on a quiet box, and that
+needs the user — the request is in `COMMUNICATION.md`.
+
+## B.3 Two diagnostics, labelled, carrying no verdict
+
+### B.3.1 The attribution — the softmax exponential essentially disappears
+
+| | libm | poly | |
+|---|---|---|---|
+| attention `S` = `sm2 − sm1` | **1.6530 ms** (range 1.6010–1.7880) | **0.0540 ms** (range 0.0060–0.0960) | **−96.7%** |
+| FFN `glue(silu)`, timed directly | 0.0900 ms | 0.0380 ms | −57.8% |
+| token at `--bench 1280` | 13.5099 ms | 12.0106 ms | −11.10% |
+
+**A correction to my own runner's reasoning, which printed the wrong caveat.** It said a
+difference is not a measurement when an arm's reps disperse by more than the difference, and
+pointed at poly's **166.7%** spread on `S`. That is the wrong comparison: 166.7% of 0.054 ms is
+**0.09 ms**, and the difference is **1.599 ms** — seventeen times larger. *A percentage of a
+near-zero quantity is not a dispersion you can compare to anything.* The two ranges do not come
+within an order of magnitude of touching. The runner now prints `S` ranges in milliseconds.
+
+**Unarranged corroboration.** `S` on the libm arm reads **1.6530 ms** at mean position 640 here,
+against E51's **1.6890 ms** on the e50 build — **−2.1%**, a different build, a different session
+and a different runner. E51's central number reproduces.
+
+**A projection, and it is a projection and not a result.** If the whole of that `S` difference is
+slope, `b` would go `0.008144 → 0.005646 ms/pos` and `C50` `1443 → 2082`. It is written here only
+because leaving it out would look like hiding it. It rests on a contaminated session and on the
+weaker of the two attribution instruments (§A.8), and **the registered gate refused to compute
+`C50` at all.**
+
+### B.3.2 The arms do not overlap where the mechanism says they should not
+
+Five reps per arm per window, arm order alternating each repetition:
+
+| n | mean pos | libm reps | poly reps | disjoint? |
+|---|---|---|---|---|
+| 40 | 20 | 108.0 110.0 127.0 127.4 129.3 | 111.7 121.7 122.9 128.2 131.8 | no |
+| 160 | 80 | 116.3 118.3 118.8 119.2 120.4 | 102.2 121.8 122.0 122.6 127.0 | no |
+| 320 | 160 | 96.8 97.4 106.9 108.4 108.7 | 111.0 111.5 112.8 115.0 115.3 | **yes**, gap +2.18% |
+| 640 | 320 | 90.0 90.7 90.7 90.7 94.1 | 96.7 97.4 97.4 98.3 99.2 | **yes**, gap +2.76% |
+| 1280 | 640 | 70.5 72.6 73.4 74.7 75.5 | 84.6 84.7 86.1 86.3 86.5 | **yes**, gap +12.01% |
+
+Separation appears only at long context and grows monotonically with it, and is absent at the
+two short windows — which is the signature of a **slope** change and is what §1 said the
+mechanism would produce. It is not an ordering artefact: libm goes first in reps 1, 3, 5 and
+second in 2, 4, and poly is high in both positions.
+
+**This is not scored, and run 1 is not re-scored by it.** The statistic was noticed after seeing
+the cells, and E52's precedent is the one that applies: run 1 stays as the record of gates that
+fired, and the successor gate judges a fresh run.
+
+## B.4 `G-E53f`, registered now, before the re-run
+
+E14 §3 requires every SCORE metric to have a RANK partner. `G-E53d` is a SCORE — it compares two
+medians and refuses when the reps disperse, because a wandering level can fake a ratio. It has
+never had a partner, and B.3.2 is what the missing partner would have looked at.
+
+> **`G-E53f`** — for each window, do the two arms' repetition sets **overlap**? Complete
+> separation of `k` against `k` is non-parametric: it does not care how wide either arm is, only
+> that they do not meet. Under exchangeability the chance of all `k` of one arm beating all `k`
+> of the other, either way round, is `2 / C(2k, k)` — at `k = 5`, **0.0079** per window.
+> **Windows separating in BOTH directions is `INCONSISTENT` and yields nothing**: that is the
+> level wandering, not an effect.
+>
+> **It answers *which* arm is faster and never *by how much*.** The how-much stays `G-E53d`'s,
+> and `G-E53d` may still refuse it.
+
+Eight planted controls, all firing: a fully separated window, the exact `2/252`, **one**
+overlapping repetition killing the separation, the reverse direction, both directions at once
+returning `INCONSISTENT`, identical arms returning nothing, too few reps taking no verdict, and a
+hair's separation still counting because it is a rank test. The runner is now **27 of 27**.
+
+## B.5 The scorecard so far — 3 right, 3 wrong, and the speed row is still blank
+
+| prediction | measured | |
+|---|---|---|
+| `G-E53a` control exceeds the bar "by at least two orders" | 56× = 1.75 orders | **WRONG** |
+| `G-E53b` max rel err 1e-7 to 5e-7 | 1.1920e-07 | **right** |
+| `G-E53c1` PARITY HOLDS | holds | **right** |
+| `G-E53c1` lands at 1e-6 to 1e-5 | **5.697e-08** | **WRONG**, eighteen times tighter |
+| `G-E53c2` 160/160 holds | 160/160 | **right** |
+| fraction of `S` recovered, 50–75% | diagnostic says 96.7% | **not scored** — no citable run |
+| `b`, `C50`, the short-context headline | — | **not scored** |
+
+Both misses are magnitude, in opposite directions, and both come from the same habit: guessing
+the size of something I had a way to compute. The `G-E53c1` miss in particular — I did not
+account for the softmax **normalising**, which divides most of a 1-ulp kernel error straight back
+out.
+
+## B.6 What is owed
+
+1. **A quiet box, and a re-run of `d` and `attrib` only.** `c0`, `c1` and `c2` are quality gates,
+   deterministic, and are not re-run. Cost: about 50 minutes hands-off.
+2. The re-run is judged by `G-E53d` **and** `G-E53f`, both registered, with the occupancy bar and
+   the drift witness unchanged.
+3. If the box still cannot hold 4.39%, that is a finding about the machine and not about the
+   kernel, and it is reported as one.

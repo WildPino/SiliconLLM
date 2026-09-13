@@ -179,6 +179,62 @@ def g_e53d(rows):
 
 
 # ==================================================================================
+def _nck(n, k):
+    r = 1
+    for i in range(k):
+        r = r * (n - i) // (i + 1)
+    return r
+
+
+def g_e53f(rows):
+    """The RANK partner to G-E53d's SCORE, required by E14 section 3.
+
+    G-E53d compares two MEDIANS and refuses a verdict when the reps disperse past
+    6%.  That rule protects a RATIO, which a wandering level can fake.  It says
+    nothing about a different question: do the two arms' repetitions OVERLAP at
+    all?  Complete separation of k reps against k reps is non-parametric -- it
+    does not care how wide either arm is, only that they do not meet.
+
+    Under exchangeability (the arms are the same thing relabelled) the chance that
+    all k of one arm beat all k of the other, either way round, is 2 / C(2k, k).
+    At k = 5 that is 2/252 = 0.0079 per window.
+
+    It is NOT a licence to quote a rate.  It answers "is one arm faster", never
+    "by how much" -- the how-much is G-E53d's and G-E53d may still refuse it.
+    """
+    out, sep = [], []
+    for r in rows:
+        L, P = sorted(r["all_libm"]), sorted(r["all_poly"])
+        k = min(len(L), len(P))
+        if k < 3:
+            out.append(dict(r, sep="TOO FEW REPS", p=float("nan")))
+            continue
+        pfast = max(L) < min(P)
+        lfast = max(P) < min(L)
+        pval = 2.0 / _nck(2 * k, k)
+        if pfast:
+            out.append(dict(r, sep="POLY", p=pval, gap=100.0 * (min(P) / max(L) - 1.0)))
+            sep.append("POLY")
+        elif lfast:
+            out.append(dict(r, sep="LIBM", p=pval, gap=100.0 * (min(L) / max(P) - 1.0)))
+            sep.append("LIBM")
+        else:
+            out.append(dict(r, sep="OVERLAP", p=float("nan"), gap=0.0))
+    if not sep:
+        return "NO SEPARATION", out, ("no window separates; the arms' repetitions overlap"
+                                      " everywhere, so this instrument sees no ordering")
+    if len(set(sep)) > 1:
+        return ("INCONSISTENT", out,
+                "windows separate in BOTH directions (%s) -- that is not an effect, it is the"
+                " level wandering, and no ordering may be read from it" % sorted(set(sep)))
+    which = sep[0]
+    return ("SEPARATED -- %s FASTER IN %d OF %d WINDOWS" % (which, len(sep), len(rows)), out,
+            "every repetition of %s beats every repetition of the other arm in %d of %d"
+            " windows, one-window p = %.4f under exchangeability.  This says WHICH arm is"
+            " faster and NOT by how much." % (which, len(sep), len(rows), out[0].get("p", 0)
+                                              if out else 0))
+
+
 def selftest():
     """Every decision function must FIRE on a known-positive before its nulls count."""
     ok = [0]
@@ -242,6 +298,29 @@ def selftest():
         r["sp_libm"] = 100.0 * SPREAD_TOL
     v, judged, why, fits = g_e53d(edge)
     chk("D-6 exactly at the tolerance is JUDGED", v == "FIT" and len(judged) == len(WINDOWS))
+
+    # ---- G-E53f, the rank partner ----
+    def mk(nn, l, p):
+        return {"n": nn, "all_libm": list(l), "all_poly": list(p),
+                "ms_libm": 1.0, "ms_poly": 1.0, "sp_libm": 1.0, "sp_poly": 1.0}
+
+    v, o, _ = g_e53f([mk(1, [70, 71, 72, 73, 74], [80, 81, 82, 83, 84])])
+    chk("F-1 a fully separated window separates", v.startswith("SEPARATED -- POLY"))
+    chk("F-2 and reports 2/C(10,5)", abs(o[0]["p"] - 2.0 / 252.0) < 1e-12)
+    v, _, _ = g_e53f([mk(1, [70, 71, 72, 73, 84], [80, 81, 82, 83, 90])])
+    chk("F-3 ONE overlapping rep kills the separation", v == "NO SEPARATION")
+    v, _, _ = g_e53f([mk(1, [80, 81, 82, 83, 84], [70, 71, 72, 73, 74])])
+    chk("F-4 it reads the other direction too", v.startswith("SEPARATED -- LIBM"))
+    v, _, _ = g_e53f([mk(1, [70, 71, 72, 73, 74], [80, 81, 82, 83, 84]),
+                      mk(2, [80, 81, 82, 83, 84], [70, 71, 72, 73, 74])])
+    chk("F-5 opposite directions are INCONSISTENT, not a result", v == "INCONSISTENT")
+    v, _, _ = g_e53f([mk(1, [70, 71, 72, 73, 74], [70, 71, 72, 73, 74])])
+    chk("F-6 identical arms do not separate", v == "NO SEPARATION")
+    v, _, _ = g_e53f([mk(1, [70, 71], [80, 81])])
+    chk("F-7 too few reps takes no verdict", v == "NO SEPARATION")
+    v, _, _ = g_e53f([mk(1, [70, 71, 72, 73, 74], [74.0001, 81, 82, 83, 84])])
+    chk("F-8 a hair's separation still counts (it is a RANK test)",
+        v.startswith("SEPARATED -- POLY"))
 
     log("")
     log("  %d of %d fire." % (ok[0], ok[0]))
@@ -445,6 +524,17 @@ def phase_d(out):
     log("  G-E53d : %s" % v)
     log("     %s" % why)
     log("")
+    fv, frows, fwhy = g_e53f(rows)
+    log("  G-E53f (rank partner to G-E53d's score, E14 section 3) : %s" % fv)
+    log("     %s" % fwhy)
+    for r in frows:
+        if r.get("sep") in ("POLY", "LIBM"):
+            log("     n=%-5d %s: every rep beats every rep, worst-case gap %+.2f%%"
+                % (r["n"], r["sep"], r.get("gap", 0.0)))
+    log("")
+    out["G_E53f"] = {"verdict": fv, "why": fwhy,
+                     "rows": [{k: rr[k] for k in ("n", "sep", "p", "gap") if k in rr}
+                              for rr in frows]}
     out["G_E53e"] = {"verdict": dv, "why": dwhy, "drift_pct": drift,
                      "open": r_open, "close": r_close}
     out["G_E53d"] = {"verdict": v, "why": why, "rows": rows, "fits": fits,
@@ -501,8 +591,13 @@ def phase_attrib(out):
     log("  FFN glue(silu)      : %.4f -> %.4f ms   (%+.4f, %+.1f%%)"
         % (rec["libm"]["glue"], rec["poly"]["glue"], dG,
            100.0 * dG / rec["libm"]["glue"] if rec["libm"]["glue"] else float("nan")))
-    log("  Neither number carries a verdict.  A difference read on an arm whose reps")
-    log("  disperse more than the difference is not a measurement -- the spreads are above.")
+    log("  Neither number carries a verdict (brief section 4: reported, not gated).")
+    log("  Read the spreads in MILLISECONDS, not percent: a percentage of a near-zero")
+    log("  quantity is not a dispersion you can compare to anything.  The comparison that")
+    log("  means something is whether the two arms' rep RANGES overlap, printed above.")
+    for arm in ("libm", "poly"):
+        v_ = rec[arm]["S_all"]
+        log("     %-4s S range %.4f .. %.4f ms" % (arm, min(v_), max(v_)))
     log("")
     out["attrib"] = {"window": ATTRIB_WINDOW, "reps": ATTRIB_REPS, "arms": rec,
                      "dS": dS, "dGlue": dG}
