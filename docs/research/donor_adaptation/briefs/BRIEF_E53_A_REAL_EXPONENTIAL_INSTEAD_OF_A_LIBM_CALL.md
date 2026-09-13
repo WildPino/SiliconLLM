@@ -432,3 +432,219 @@ out.
    the drift witness unchanged.
 3. If the box still cannot hold 4.39%, that is a finding about the machine and not about the
    kernel, and it is reported as one.
+
+---
+
+# ADDENDUM C — THE QUIET BOX: `G-E53f` SEPARATES, `G-E53d` IS REFUSED AGAIN, AND THE THING THAT REFUSES IT IS **NOT LOAD**
+
+## C.0 The box, measured before the run and not assumed
+
+The user closed Chrome (`COMMUNICATION.md` item 1). Per-process CPU sampled over 10 s with
+nothing of mine running:
+
+    claude 0.44%  CrossDeviceService 0.39%  chrome 0.33%  WindowsTerminal 0.18%
+    chrome 0.14%  FanControl 0.08%  powershell 0.07%  explorer 0.05%
+    TOTAL 1.68% of the box, against OCC_BAR = 4.39%
+
+Chrome went from ~4.2% to 0.47% across its ten surviving processes. The run was launched
+immediately after this reading and **the box was not touched until it exited** — E52's lesson,
+where I was the foreign load in the experiment about foreign load.
+
+Run: 52 engine invocations, 5 windows × 5 reps × 2 arms plus two witnesses, ~48 minutes,
+finishing 19:24:53.
+
+## C.1 What the registered gates say
+
+| gate | verdict | number |
+|---|---|---|
+| occupancy (`G-E44b2`, `OCC_BAR = 4.39`) | **12 of 50 cells above the bar** | breaches 4.40–7.32%; the other 38 ran 2.5–4.4% |
+| `G-E53e` drift | **DRIFT-CONTAMINATED** | witnesses 121.49 → 115.98 tok/s = **4.64%**, above 2.3% |
+| `G-E53d` (SCORE) | prints `FIT` and is **NOT READ** | subordinate to `G-E53e`: §A.5 registered that on drift the fit *"is not read as a difference between arms"* |
+| **`G-E53f` (RANK)** | **SEPARATED — POLY FASTER IN 3 OF 5 WINDOWS** | p = **0.0079** per window; worst-case gaps +0.39%, +7.38%, +10.37% |
+
+The occupancy picture is completely different from run 1, and that is the user's doing: run 1 had
+**50 of 50** cells above the bar at 4.9–23.8% foreign. Run 2 has **12 of 50**, the worst at 7.32%,
+and every breach is marginal rather than structural.
+
+## C.2 `G-E53f` is the result, and it is a direction and nothing else
+
+> **Poly is faster than libm at mean position 160, 320 and 640. It is not separably faster at
+> mean position 20 or 80. No rate, no ratio and no `C50` follows from this.**
+
+Every repetition of poly beat every repetition of libm in those three windows, with the arm order
+alternating each repetition so arm and time are not the same axis. Under exchangeability that is
+`2/C(10,5) = 0.0079` per window.
+
+**It survives the occupancy filter.** Dropping every cell above 4.39% and re-testing on what is
+left:
+
+| n | mean pos | kept | separated? | worst-case gap |
+|---|---|---|---|---|
+| 320 | 160 | 5 v 5 | **POLY** | +0.39% |
+| 640 | 320 | 4 v 3 | **POLY** | +7.38% |
+| 1280 | 640 | 5 v 4 | **POLY** | +11.27% |
+
+The filtered n=160 window would also separate (+3.03%), but only 2 poly reps survive there and
+`G-E53f`'s own `k < 3` rule takes no verdict on it — **the gate refuses the cell that would have
+helped me**, which is the only reason the three rows above are worth anything.
+
+**It survives the mechanism that contaminates `G-E53d`.** The 4.64% is between two cells forty
+minutes apart. `G-E53f` compares arms *inside* a window, interleaved. Early-vs-late within each
+window, same arm, all ten arm-window pairs:
+
+    +1.94  +5.42  +0.70  +0.01  -3.10  -3.81  -0.95  +0.57  +0.85  -0.98   (percent)
+
+Mixed sign, mean +0.07%. There is no within-window trend for a between-window drift to ride in
+on. And the rotation puts libm in the earlier slot on reps 1, 3, 5 and the later slot on 2, 4, so
+a declining level would favour **libm** — the arm that lost.
+
+This is what E14 §3 was for. `G-E53d` was a SCORE with no RANK partner for its whole life; the
+partner was registered in B.4 before this run, and on the run where the SCORE is refused the RANK
+is the only thing that survives.
+
+## C.3 The drift fired again — and this time load cannot be the cause
+
+This is the finding of the addendum.
+
+E52 B.4 left 5.2 of the 7.50 points between E44's two runs unexplained, named thermal soak as the
+standing suspicion, and recorded that **nothing measures it**. Run 2 of E53 is the first
+measurement, because it removes the competing explanation:
+
+1. The box was at **1.68%** foreign at launch, and 38 of 50 cells ran under the bar.
+2. The opening witness itself read **5.7%** foreign and the closing witness **3.1%**. Correcting
+   both to a common load with E52's `k = 0.262%/point` moves the open cell to **122.33** and
+   makes the drift **5.33%**, not 4.64%. **Load correction makes the drift bigger, not smaller.**
+3. The closing witness is not noise around the level. It repeats the `n=160` libm cell, and that
+   window's own five reps read `124.26 119.44 122.04 122.46 122.94`. The **opening** witness,
+   121.49, sits inside that range. The **closing** witness, 115.98, sits **2.90% below its
+   minimum**.
+
+So: same cell, same binary, same arm, quiet box, forty minutes apart, and the late one is outside
+the distribution the early one sits in. **The unexplained term of E52 B.4 reproduces with load
+eliminated, and it is a function of time-in-run.** Thermal soak remains the hypothesis and is
+still not directly measured — but it now has a reproduced signature and a sign.
+
+`G-E53e` firing twice is not a reason to run a third time (E40 addendum A). It is a reason to
+build the witness E52 B.6 asked for.
+
+## C.4 What is refused — with the numbers printed anyway, so the refusal cannot protect me
+
+E52's law: *when a fit excludes cells, compute the counterfactual without the exclusions.* The
+same applies when a whole fit is refused. These are **NOT SCORED**, and they are printed because
+leaving them out would let a refusal launder a prediction I got wrong:
+
+| | libm | poly |
+|---|---|---|
+| intercept `a` (ms) | 7.6700 | 7.6957 |
+| slope `b` (ms/pos) | 0.007282 | **0.004811** |
+| `C50` | 1693 | **2558** |
+
+| prediction (§5 / B.5) | what the refused fit says | |
+|---|---|---|
+| poly `b` lands 0.0062–0.0068 | 0.004811 | would have been **WRONG**, below |
+| poly `C50` lands 1750–2000 | 2558 | would have been **WRONG**, above |
+| short-context headline +2–5% | n=40 reads +0.42%, window **UNRESOLVABLE** (7.1% / 9.3%) | **not scorable** |
+
+Both short windows refused themselves on dispersion, exactly as registered: n=40 at 7.1%/9.3% and
+n=160 at 3.9%/6.1% against the 6% tolerance. **The two windows the headline lives at are the two
+the instrument cannot resolve** — that is not new to this run and it is the standing reason the
+headline is a context-20 number with a ±5% band.
+
+## C.5 A cross-session check on the **control** arm, which is the one comparison nobody arranged
+
+`libm` on `donor_engine_e53.exe` is bit-identical to the pre-E53 engine (`c0`, every digit), run
+on the same arm E49 used (`R128 --carve-k 3 --threads 6`, `avx4`). So E49's published fit and this
+one measure the same thing in different sessions:
+
+| | E49 | E53 run 2 |
+|---|---|---|
+| ladder (mean pos) | 20, 80, 320, 640, 1280 | 160, 320, 640 |
+| `b` (ms/pos) | **0.008144** | **0.007282** (**−10.6%**) |
+| `C50` | 1443 (1.13× beyond the data) | 1693 (**2.6× beyond the data**) |
+
+The ladders are not matched, so this is not a clean repeat and I am not turning it into a
+dispersion — *one disagreement is not a dispersion.* What it is enough for:
+
+- **`C50 = 1443` has never had a session term measured, and the only cross-session read that
+  exists disagrees by 10.6% on the slope it rests on.** The published number keeps its ±5%
+  band on absolute rate; this says nothing yet attaches to `C50` itself, and something should.
+- E53's own 1693 is the **weaker** of the two on its own terms, refused or not: it extrapolates
+  2.6× past its furthest cell because the two short windows were thrown out.
+
+## C.6 Attribution on the quiet box — reported, not gated (§4)
+
+| | libm | poly | |
+|---|---|---|---|
+| attention `S` = `sm2 − sm1` | **1.4350 ms** (1.4130 … 1.4410) | **0.0160 ms** (0.0080 … 0.0450) | **−98.9%** |
+| FFN `glue(silu)` | 0.0830 ms | 0.0350 ms | −57.8% |
+| token at `--bench 1280` | 12.3244 ms | 10.7112 ms | −13.09% |
+
+Ranges in milliseconds, per the law this experiment produced: poly's `S` spread is 231% and
+0.037 ms, against a difference of 1.419 ms. The ranges are two orders of magnitude apart.
+
+**The libm `S` reading itself moves between sessions**: E51 read 1.6890 ms, E53's contaminated run
+1.6530 ms, and this quiet run **1.4350 ms** — 15.0% below E51. The difference probe is cheaper on
+an idle box, which is the direction it should move and a size worth remembering before anyone
+quotes `S` to three digits.
+
+## C.7 Two defects in my own runner, found reading its output, fixed, verdicts unchanged
+
+1. **`G-E53f`'s reason string printed `p = nan`** next to a verdict computed correctly. It took
+   the p-value from `out[0]` — the first window in the ladder — which was an `OVERLAP` row
+   carrying `nan`. The per-window p values in the record were right all along (0.0079365). Fixed
+   to read from a window that actually separated. *A decision function whose reason string is
+   wrong is still wrong*, and this one would have been quoted.
+2. **The occupancy line printed `breached[:8]` next to a count of 12**, rendering a
+   complete-looking Python list that was not the list. The JSON always held all 12. Fixed to
+   print every breach on its own line. Same defect class as a config that does not appear in the
+   output: nothing errors, the reader is just told something false.
+
+Self-tests re-run after both edits: **27 of 27 fire**. The corrected lines in C.1/C.2 were
+recomputed from the stored cells, **not re-measured**; `e53_d2.log` is kept as written and carries
+the pre-fix strings.
+
+## C.8 The scorecard, closed
+
+| prediction | measured | |
+|---|---|---|
+| `G-E53a` control exceeds the bar "by at least two orders" | 56× | **WRONG** |
+| `G-E53b` max rel err 1e-7 to 5e-7 | 1.1920e-07 | **right** |
+| `G-E53c1` PARITY HOLDS | holds | **right** |
+| `G-E53c1` lands at 1e-6 to 1e-5 | 5.697e-08 | **WRONG**, 18× tighter |
+| `G-E53c2` 160/160 holds | 160/160 | **right** |
+| fraction of `S` recovered, 50–75% | **98.9%** | **WRONG** |
+| poly `b`, poly `C50`, short-context headline | fit refused | **not scored** (C.4 prints what they would have been: wrong, wrong, unresolvable) |
+
+**3 right, 3 wrong, 3 unscorable.** Every direction I predicted was right and every magnitude was
+wrong — and the misses are not symmetric. On the four axes where the kernel acted (`c1` error,
+`S`, `b`, `C50`) I **underestimated it every time**. The single overestimate was of my own planted
+control. *I am systematically pessimistic about a treatment and optimistic about my instrument,
+which is the wrong way round for both.*
+
+## C.9 Where E53 stands
+
+**Quality: closed and passed, every gate.** A hand-written AVX2 exponential accurate to 1 ulp,
+summed in a different order, reproduces this engine's greedy output token for token at 1.5B
+(`G-E53c2` A1 160/160) and its continuous score to 5.697e-08 (`G-E53c1`), with `c0` bit-identical
+so the refactor moved nothing.
+
+**Speed: a direction, not a rate.** `G-E53f` says poly is faster at every context long enough to
+resolve, monotonically more so, surviving both the occupancy filter and the drift. `G-E53d` is
+refused and nothing about `C50` is citable from this run.
+
+**The blocker is named.** It is not Chrome, it is not the bar, and it is not the kernel. It is a
+~4.6% end-of-run droop on a quiet box that grows with time-in-run and that nothing in this lab
+measures.
+
+## C.10 What is owed
+
+1. **A thermal witness**, promoted from E52 B.6 item 1 to the top of the queue. It is now the
+   largest uncontrolled term in every absolute timing here and the only thing standing between
+   `G-E53f`'s direction and a citable rate. Cheapest first cut, free: record wall-clock-since-run-
+   start and per-rep sequence position alongside every cell, and re-read the ladder in **reversed
+   window order** — if `C50` moves when only the order moves, the fit is measuring the clock.
+2. **A session term for `C50`.** C.5 is one disagreement, not a dispersion. `C50 = 1443` needs
+   either a repeat on E49's own ladder or an explicit "single-session, no reproducibility
+   measured" caveat wherever it is quoted.
+3. `--fexp poly` is **not** promoted to the default. The quality case is complete; the speed case
+   is a direction. Promotion waits on a rate, and a rate waits on item 1.

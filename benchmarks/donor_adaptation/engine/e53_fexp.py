@@ -228,11 +228,16 @@ def g_e53f(rows):
                 "windows separate in BOTH directions (%s) -- that is not an effect, it is the"
                 " level wandering, and no ordering may be read from it" % sorted(set(sep)))
     which = sep[0]
+    # The p belongs to a window that SEPARATED.  Reading it off out[0] took it from the
+    # first window in the ladder, which may be an OVERLAP row carrying nan -- and did, on
+    # the 2026-09-13 run, printing "p = nan" next to a verdict computed correctly from the
+    # cells.  A decision function whose reason string is wrong is still wrong.
+    psep = [r["p"] for r in out if r["sep"] in ("POLY", "LIBM")]
     return ("SEPARATED -- %s FASTER IN %d OF %d WINDOWS" % (which, len(sep), len(rows)), out,
             "every repetition of %s beats every repetition of the other arm in %d of %d"
             " windows, one-window p = %.4f under exchangeability.  This says WHICH arm is"
-            " faster and NOT by how much." % (which, len(sep), len(rows), out[0].get("p", 0)
-                                              if out else 0))
+            " faster and NOT by how much." % (which, len(sep), len(rows),
+                                              psep[0] if psep else float("nan")))
 
 
 def selftest():
@@ -496,8 +501,12 @@ def phase_d(out):
     log("     %s" % dwhy)
     log("")
     if breached:
-        log("  OCCUPANCY: %d cell(s) read above the %.2f%% bar: %s"
-            % (len(breached), OCC_BAR, breached[:8]))
+        # Print ALL of them.  Slicing to 8 next to a count of 12 renders a complete-looking
+        # list that is not the list, which is the same defect class as a config that does
+        # not appear in the output.
+        log("  OCCUPANCY: %d cell(s) read above the %.2f%% bar:" % (len(breached), OCC_BAR))
+        for (bn, barm, brep, bfoc) in breached:
+            log("     n=%-5d %-4s rep %d   foreign %5.2f%%" % (bn, barm, brep, bfoc))
         log("     Those cells are recorded and NOT citable (E52 / G-E44b2).")
         log("")
 
