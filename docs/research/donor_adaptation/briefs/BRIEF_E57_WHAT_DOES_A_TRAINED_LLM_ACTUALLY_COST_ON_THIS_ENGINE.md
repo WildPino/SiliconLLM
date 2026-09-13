@@ -484,3 +484,170 @@ predictions. Nothing checks a sentence that says "this has never been measured".
 
 The quality numbers are E17's, replicated. The rates, the intervals and the prohibition are
 E57's.
+
+---
+
+# ADDENDUM C — THE CONTINUOUS PARTNER, READ OFF PUBLISHED RESULTS: THE BODY IS THE ORGAN, 0.5B TERNARY IS NOT A MODEL, AND THERE IS NO SCALE TREND THAT RESCUES CONVERSION
+
+**Zero new compute.** A.10 item 3 asked for a BPB reading to separate "lossy but functioning"
+from "broken", because `3/160` is a discrete count at the top of a ladder. **Applying addendum
+B's own rule before running anything, I searched `*/results/` by artifact name first — and the
+reading already exists**, in `density/results/e1_bpb_through_engine_*.json` (E1), on one slice
+(`sha a1a48dc9…`, 24 × 512, 12264 predicted tokens), one rule (`R3`), `fold=none`, engine and
+PyTorch agreeing to 1.5e-05. A run of mine that would have re-measured it was **killed 25
+minutes in** when the search returned E1.
+
+## C.1 The table that was already there
+
+Chance on this slice is **4.069819 BPB** (E16, `V = 151936`).
+
+| model | arm | BPB | damage vs its own fp32 | vs chance |
+|---|---|---|---|---|
+| Qwen2.5-0.5B | fp32 | **0.871810** | — | −3.198 |
+| Qwen2.5-0.5B | `tq` (ternary body) | **4.509164** | **+3.637354** | **+0.439345 ABOVE** |
+| Qwen2.5-0.5B | `tqh` (+ ternary head) | 4.531234 | +3.659424 | **+0.461415 ABOVE** |
+| Qwen2.5-1.5B | fp32 | **0.702319** | — | −3.368 |
+| Qwen2.5-1.5B | `tq` | **3.484253** | **+2.781934** | −0.585566 |
+| Qwen2.5-1.5B | `tqh` | 3.475707 | +2.773388 | −0.594112 |
+
+## C.2 It answers A.10 item 3, and the answer is "broken", not "lossy"
+
+**At 0.5B the ternary model is ABOVE chance — by 0.439 BPB with the fp32 head and 0.461 with
+the ternary one.** A model that scores worse than the uniform distribution over its own
+vocabulary is not a degraded model; **there is nothing left to match**, and that is why `3/160`
+and why the divergence is at token 0. E14 §3 asks for a continuous partner to every discrete
+score, and here the partner does not merely agree, it **reclassifies the finding**: `3/160` is
+not "very lossy", it is "not a model".
+
+At 1.5B the same conversion lands **0.586 below chance**. It predicts — badly, at 4.96× its
+fp32 BPB — but it predicts. **So the same treatment produces a non-model at 0.5B and a weak
+model at 1.5B**, which is the first thing in this programme to give the discrete `3/160` vs
+`12/160` gap a mechanism instead of a magnitude.
+
+## C.3 The body is the organ, confirmed on the continuous metric — and at 1.5B the head is NEGATIVE
+
+| | `tq` → `tqh` |
+|---|---|
+| 0.5B | **+0.022070 BPB** (0.6% of the body's damage) |
+| 1.5B | **−0.008546 BPB** — ternarising the head **IMPROVES** BPB |
+
+A.2 concluded from greedy counts that the body is what breaks the model and the head is a
+second-order perturbation. The continuous metric says the same thing and then says something
+the counts could not: **at 1.5B the head's ternarisation is not even a perturbation in the
+damaging direction.** The whole of the damage, on both models, is the body.
+
+This also retires a live suspicion. §2 attributed `05b_tqh`'s 1.90× speed advantage to
+ternarising a 933 MB tied embedding/head — that is a **bandwidth** statement and it stands
+(7.64 → 7.70 ms `ffn~`, the head is 47% of the token). What does **not** follow, and what I had
+half-assumed, is that the head is where the quality went. It is not, at either size.
+
+## C.4 And there is no scale trend that rescues conversion — the only bigger model on the disk is above chance
+
+The obvious hope after C.1 is that damage shrinks with scale (+3.637 at 0.5B → +2.782 at 1.5B,
+**−23.5%** for 3×), and that at 10B post-hoc conversion would simply work. **The third point
+kills it.** E16's `B3` is the fold-matched, rule-matched 7B:
+
+| model | params | damage vs own fp32 | vs chance |
+|---|---|---|---|
+| Qwen2.5-**0.5B** | 0.49 B | +3.637354 | **+0.439 above** |
+| Qwen2.5-**1.5B** | 1.54 B | **+2.781934** | −0.586 below |
+| Qwen2.5-**Coder-7B** (`B3`, R3, `fold=none`) | 7.07 B | **+3.494298** | **+0.098 above** |
+
+**Non-monotone, and the largest model is the second-worst.** `B3` is `R3` and `fold=none`,
+matched to the other two on rule and on fold — E16 built it for exactly this comparison — so
+the confound that remains is **family**: `Coder-7B` is a code model, not a base model, and
+E16 §0 already refused to read `+0.692619` across that boundary as a scale term. **That refusal
+is honoured here: no scale law is claimed and no line is fitted through three points, two of
+which are the same family.**
+
+What *is* claimed is the negative, and it is enough:
+
+> **Nothing measured in this programme supports the expectation that post-hoc ternarisation
+> becomes survivable at larger scale. Two of the three models converted this way score ABOVE
+> chance, and the largest of them is one of the two.**
+
+That is the cheapest remaining route to a fast 10B, and it is now closed on evidence rather
+than on the E37 verdict alone.
+
+## C.5 What this does to the conclusion
+
+Nothing, and that is the point — it hardens it. A.9's table gains a column:
+
+| | trained weights, greedy | trained weights, BPB | rate |
+|---|---|---|---|
+| **fp32** | 160/160 | 0.872 / 0.702 | 19.09 / 6.25 |
+| **ternary body, post-hoc** | 3/160, 12/160 | **4.509 (above chance)** / 3.484 | 43.69 / 19.15 |
+| **+ ternary head** | 3/160, 10/160 | 4.531 / 3.476 | 83.41 / 29.18 |
+| **ternary by TRAINING** | — | — | — |
+
+The bottom row is still empty, it is still the goal, and the only evidence that it can be
+filled is **H0**, which took a ternarised factored attention from `28/160` to `115/160`
+teacher-forced and removed **97.9%** of its BPB damage in 1000 steps. **That is the experiment
+to scale, and it needs a GPU session.**
+
+## C.6 Checked, not assumed — the section this brief was missing
+
+Applying addendum B.3's rule retroactively to everything above:
+
+* `grep -rln "qwen25-05b_tq\.bin|qwen25-15b_tq\.bin|qwen25-05b_f32\.bin" */*/results/*.json`
+  → returned `e1_bpb_through_engine_qwen25-05b.json`,
+  `e1_bpb_through_engine_qwen25-15b_tqtqh_s24.json`, `e17_head_rank.json`,
+  `e49_attn_kernel.json`. **Run before writing this addendum; it is what killed the redundant
+  BPB job and what produced C.1.**
+* `ls docs/research/donor_adaptation/briefs/` → `BRIEF_E16_R3_AT_7B.md`, read before C.4 was
+  written; C.4's three-point table is E16's own comparison and its refusal to cross the family
+  boundary is E16 §0's, quoted.
+* **`BRIEF_E12_TERNARY_COST_VS_SCALE.md` — read AFTER C.4 was drafted, which is the rule being
+  broken again in the same addendum that restates it.** The listing above surfaced the filename
+  and I wrote C.4 from the filename. See C.7, which is the correction; C.4's numbers stand, its
+  claim to originality does not.
+* Chance BPB, the slice sha, the rule and the fold were read **out of the result files**, not
+  assumed from memory.
+
+## C.7 CORRECTION to C.4, one hour later: E12 asked this exact question, ran, and its verdict is SUSPENDED
+
+**`BRIEF_E12_TERNARY_COST_VS_SCALE.md` is titled *"does the ternarization cost shrink with donor
+scale?"* and its §1 calls it "the oldest open item in this programme, and after E10 the only one
+that can still move the goal".** It ran: a 2161 s sweep over **0.5 B / 1.5 B / 3 B** — a third
+**same-family** point that C.4 said did not exist.
+
+| donor | BPB fp32 | BPB ternary | **dBPB** | planted `Z` | real `F` | `Z-F` |
+|---|---|---|---|---|---|---|
+| 0.5 B | 0.871795 | 4.587453 | **3.715658** | 3.693528 | 3.674503 | +0.019 |
+| 1.5 B | 0.767595 | 5.505834 | **4.738239** | 4.001257 | 3.309099 | +0.692 |
+| 3 B | 0.724450 | 5.734699 | **5.010249** | 3.714379 | 5.203945 | **−1.490 FAIL** |
+
+**E12's verdict is `CONTROL-FAILED`, and §9 suspends even that.** At 3 B the mis-specified rule
+(`random_sign`) produced a **better** model than the real one by 1.49 BPB, and converting *more*
+organs did *less* damage — two monotonicity violations in one cell — so by E12 §4's own rule
+the cell does not count and `r = 1.3484` (`COST-GROWS`) **is not reported as a result**.
+
+**What this does to C.4:**
+
+* **C.4's numbers are untouched.** They are E1's and E16's, on rule `R3`, `fold=none`, one
+  slice. E12 used a **different conversion** (`t1_ternarize.ternarize`, BitLinear158) and a
+  different organ set — its 0.5 B ternary reads 4.587453 against E1's 4.509164 — so the two
+  tables are not the same estimand and neither corrects the other.
+* **C.4's claim to be asking a new question is wrong**, exactly as §3's was. The question is the
+  programme's oldest open item.
+* **And the two tables point in OPPOSITE directions.** C.4's same-family pair has damage
+  *falling* 23.5% from 0.5 B to 1.5 B; E12's same-family pair has it *growing* 27.5%
+  (3.716 → 4.738). Same two donors, different rule and organ set, opposite sign. **That is a
+  stronger negative than either table alone**: the sign of the scale trend is not even stable
+  across conversion rules, so no scale argument — in either direction — is available to this
+  programme today.
+
+**The negative in C.4 therefore survives and is restated more carefully:**
+
+> **There is no measured, control-passing scale trend for post-hoc ternarisation damage in this
+> programme.** The only experiment designed to find one returned `CONTROL-FAILED` at its largest
+> cell and is suspended; the two readable pairs disagree in sign; and two of the three `R3`
+> models score ABOVE chance, the largest among them. Nothing here supports the expectation that
+> conversion becomes survivable at 10 B, and nothing here supports the opposite either. **The
+> question is open, it has been open since E12, and it is not what E57 closed.**
+
+**Cause, again.** I ran the search, it returned the filename, and I wrote the paragraph without
+opening the file. Addendum B.3's rule says *search by artifact name and name the search*; it
+does not say *read what the search returns*, because I did not think that needed saying.
+**Amendment to the rule: the search is not complete until every brief it returns has been
+opened, and the "Checked, not assumed" entry records what each one said** — not that it exists.
