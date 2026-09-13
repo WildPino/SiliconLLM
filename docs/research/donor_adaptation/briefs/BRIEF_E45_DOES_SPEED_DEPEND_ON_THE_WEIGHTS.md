@@ -290,3 +290,96 @@ distance to the registered BROKEN floor. **§5 is unchanged:** E45 may not mint 
 and may not claim the result composes to 10B.
 
 **No cell of run 2 has been measured at the time this addendum is pushed.**
+
+---
+
+# ADDENDUM D — RUN 2 IS INCONCLUSIVE, AND THE BLOCKER IS THE MEASUREMENT WINDOW, NOT THE BOX
+
+**Written after run 2 (`e264319`) and pushed before any run-3 cell exists.** Run 2's numbers are
+recorded in `results/e45_weight_values_run2.json` and are not revised here.
+
+## D.1 What run 2 returned
+
+`G-E45d`'s eight planted controls fire, `G-E45a` re-fires on run 2's own cells (median
+`K16/DENSE` **2.8102**, min 2.7121), the identity check fires, and then:
+
+| arm | discarded | n | `r` | `s` | \|r−1\| | above 1 | verdict |
+|---|---|---|---|---|---|---|---|
+| **K256** primary | 3 of 15 | 12 | 0.9937 | 0.2517 | 0.0063 | 4/12 | **INCONCLUSIVE** |
+| K16 secondary | 0 of 15 | 15 | 0.9975 | 0.6047 | 0.0025 | 7/15 | **INCONCLUSIVE** |
+
+**Run 1's flag is dead.** Run 1 had 5 of 5 K256 pairs with NF faster, median 1.0471, in the
+direction a zero-skipping path predicts. Run 2 reads **0.9937** — the other side of 1, 4 of 12
+above it. It was noise. Registering it instead of promoting it is the only reason that sentence
+can be written today rather than retracted later.
+
+## D.2 The occupancy bar is not why it is inconclusive
+
+The exclusion dropped **3** pairs at K256 and **none** at K16, and the spread stayed at 0.25 and
+0.60. So the noise is not external contention, and it is not the slow drift that interleaving
+cancels. It is **E43's intrinsic per-cell oscillation**, which lands *inside* each cell and
+therefore enters the ratio **twice**: NF's own relative spread is 0.2953 at K256 and SYN's
+0.2008, on cells whose occupancy never exceeded 65%. A single-shot paired ratio inherits about
+√2 of that, which is exactly the 0.25–0.60 observed.
+
+**No quieter box fixes this.** The design is wrong for the noise it faces, and that is mine to
+fix rather than the user's.
+
+## D.3 The thing run 2 exposed, which is bigger than E45
+
+Every cell in E45, and **`NTOK = 40` in `e40_levers_exhausted.py` — the file the 10B headline
+comes from** — measures a decode window of **40 tokens**. At the R128 rate that is **≈0.35
+seconds**. At E45's K256 rate it is 1.6 s.
+
+A third of a second is squarely inside the window where a Zen 2 part is still on **boost
+clock**. So the programme's headline 10B rate is not merely noisy: it may be **systematically
+fast**, measured before the clock settles, and nothing in this programme has ever measured a
+*sustained* rate. `e44_interval.py` already chose `--ntok 300` for that reason, but `G-E44b` has
+never run and no curve exists.
+
+**`H-WINDOW`**: *the engine's 9–22% dispersion, and possibly its central value, are artifacts of
+a ~0.35–1.6 s measurement window.*
+
+## D.4 RUN 3, registered now, before its data exists
+
+**Arms:** `NF`, at `K256` (primary) and `K16`. **Windows:** `NTOK ∈ {40, 160, 640, 2560}` at
+K256; `{40, 2560}` at K16. **≥7 reps per cell.** The windows are **interleaved in round-robin**,
+not measured longest-last, so session-long thermal drift cannot load onto one window.
+
+Let `m(n)` be the median rate at window `n` and `cv(n)` its relative spread `(max−min)/mean`.
+
+**`G-E45g` — THE DRIFT CONTROL, and nothing below counts until it fires.** The `NTOK = 40` block
+is measured **twice**, once at the start and once at the end of the whole sweep. The two must
+agree to within the wider of their two `cv`s. If they do not, the session drifted monotonically,
+the window curve is confounded, and run 3 reports **VOID** rather than a curve. *A comparison
+across a sweep needs a control that the sweep itself did not move.*
+
+**`G-E45h` — THE LINEARITY CONTROL.** The engine's own reported `dt` must scale with the window:
+`dt(2560) / dt(40)` within **±15%** of 64. If it does not, `--bench N` is not measuring what its
+name says and no window conclusion may be drawn from it.
+
+**`G-E45i` — THE DISPERSION QUESTION.**
+* **SHORT-WINDOW ARTIFACT** iff `cv(2560) ≤ 0.5 · cv(40)`.
+* **SCALE-FREE** iff `cv(2560) ≥ 0.8 · cv(40)`. This is the **bigger** outcome: it would mean no
+  absolute tok/s on this machine can be given a ±5% interval by measuring longer, that E43's
+  oscillation is a property of the part and not of the probe, and that E45's question cannot be
+  settled here at any affordable cost.
+* Anything between is **PARTIAL** and is reported as the curve, not as a word.
+
+**`G-E45j` — THE CENTRAL-VALUE QUESTION, which is the one that touches the headline.** Let
+`w = m(2560) / m(40)`.
+* **BOOST-INFLATED** iff `w < 0.95` **and** `|1 − w| > cv(2560)` — the short window reads at
+  least 5% fast by more than the long window's own dispersion. Then **every rate this programme
+  has published is biased upward by a measured factor**, including the 10B headline, and that
+  factor is run 3's product.
+* **NO WINDOW EFFECT** iff `|1 − w| ≤ cv(2560)`.
+* Otherwise **INCONCLUSIVE**.
+
+**What run 3 may NOT do.** It may not revise run 1 or run 2 (E36's run-2 rule), it may not mint
+a headline rate (§5), and a favourable `G-E45i` does **not** by itself answer E45's own question
+— it only licenses a run 4 of the NF/SYN pairing at the window `G-E45i` identifies, with
+`G-E45d` unchanged.
+
+**Cost:** ~20–25 minutes, CPU only, no user action.
+
+**No cell of run 3 has been measured at the time this addendum is pushed.**
