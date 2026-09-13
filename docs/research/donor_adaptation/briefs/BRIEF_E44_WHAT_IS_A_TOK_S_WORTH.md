@@ -116,3 +116,103 @@ explain**, i.e. `G-E44d` returns *not explained* or *inconclusive*, and the resi
 DVFS/boost behaviour rather than I/O. I am recording that so that a clean "residency explains
 it" result counts for something, and so that the more likely messy outcome cannot be
 retro-fitted into a tidier story.
+
+---
+
+# ADDENDUM A — H-CACHE IS DEAD, AND THE PROGRAM TEXT KILLED IT BEFORE A SINGLE REP WAS SPENT
+
+**Written and pushed before any E44 measurement.** The brief's §2 premise is **wrong, and it was
+mine**: *"The arm reads a 5.49 GB file, repeatedly."* It does not. It reads it **once, into
+private memory, before the clock starts.**
+
+## A.1 Three independent facts, all in `donor_engine.c`
+
+**1. There is no mapping.** `load()` is `xmalloc(sz)` followed by a chunked `fread`
+(`donor_engine.c:800-820`). No `mmap`, no `CreateFileMapping`, no `MapViewOfFile` anywhere in
+the file. After `load()` returns, every weight lives in the process's **anonymous private
+heap**, which the OS page cache does not serve.
+
+**2. There is nothing left to fault.** `fread` *writes* every byte of the blob, so every page is
+committed and resident by the time `load()` returns. There is no lazy first-touch cost waiting
+inside the decode loop — not even for a carved run, where a single forward touches only 6.25% of
+the expert weights and would otherwise leave most pages cold.
+
+**3. The clock excludes all of it.** In `bench` mode (`donor_engine.c:1459-1477`):
+
+```c
+state_init(&s,&M,arg3+2);
+forward(&M,&s,1,0);                 // warm
+double t0=now_s();                  // <- the clock starts HERE
+for(long i=0;i<arg3;i++) forward(...);
+double dt=now_s()-t0;
+```
+
+`t0` is taken after the file read, after `state_init`, and after a warm forward. **No file is
+read inside the timed window.** A mechanism that is absent from the window cannot explain
+variance measured in it.
+
+## A.2 What that retires, and what it does not
+
+**RETIRED:**
+
+* the **COLD** and **WARM** arms as explanations of the 9–22% dispersion;
+* **`G-E44a`**, the eviction planted control — doubly. It is **moot** (nothing to evict in the
+  window) and it is **unsatisfiable on this box**: the session is not elevated and neither
+  RAMMap nor EmptyStandbyList is present, so eviction could not have been *demonstrated*. Its
+  own clause then applies verbatim — *"If eviction cannot be demonstrated, E44 reports that it
+  could not be run and spends nothing further."* It is recorded as **not run**, and no null is
+  claimed from it;
+* **`G-E44c`** (`COLD ≥ WARM`) — moot with its arms;
+* **`G-E44d`**, the decision gate — it **cannot fire in either direction** and is withdrawn. It
+  could only ever have returned "not explained", and returning that from a live experiment
+  would have dressed a structural fact as an empirical one.
+
+**NOT RETIRED — this is the part that matters:**
+
+* **The dispersion is real and still unexplained.** 40 cells, 9–22% on the quietest box ever
+  measured here (1.0–13.3% occupancy), same magnitude on a busier one. Item 0-A's actual content
+  stands untouched: **no absolute tok/s in this programme carries a measured interval**, and
+  `112.73` is really ≈113–130.
+* **`G-E44b` survives unchanged** — every rate reported with dispersion or not at all, ≥5 reps,
+  idle box. It is now the *whole* of E44.
+* **§7's registered prediction is confirmed, and by the wrong method.** I wrote *"the residual
+  points at DVFS/boost behaviour rather than I/O"* before knowing any of this. It is right, but
+  it is now established **structurally** rather than measured, so it counts as a prediction that
+  survived, not as a result E44 produced.
+
+## A.3 `OVER` is not retired. It is re-aimed, and it found a design constraint
+
+`OVER` asked what happens when the weight footprint exceeds free RAM. The answer is not
+"slower". **The loader `xmalloc`s the entire blob, so this engine cannot run a model that does
+not fit in RAM at all — it dies rather than degrades.**
+
+For the target shape that is fine with margin: the 10 B ternary blob is **5,485,888,696 bytes
+(5.49 GB)** against **~59 GB available**. But `SCALEUP_ARCHITECTURE`'s knowing-half is
+explicitly *"experts streamed from DRAM"*, and a streamed design needs a loader this engine does
+not have. **That is a constraint discovered now, on a 5 GB artifact, instead of at 10× the size.**
+
+## A.4 A fact about this box that the programme had never recorded
+
+`D:` — where **every** weight artifact lives, including `e40_r128.bin` — is a **Seagate Basic
+external hard disk on USB 3.1**, not internal storage. (`C:` is a Kingston NVMe SSD with only
+**40.2 GB** free.)
+
+This does **not** touch any published tok/s, for exactly the reason in §A.1: storage is outside
+the timed window. It matters in two other places, and both are worth having on the record:
+
+* **startup**, which is real time the user waits and which has never been reported beside a rate;
+* **any future streaming design**, which would be reading at USB-HDD rates (~100–140 MB/s for
+  this class of drive), not at NVMe rates. A design that assumes it can stream experts from
+  storage on this machine is assuming a bandwidth this machine does not have on that path.
+
+## A.5 What E44 is now, and what it needs
+
+E44 collapses from a three-arm residency experiment to one question — **the interval question** —
+and one gate, `G-E44b`. Reporting load time beside decode rate is added, because it is free and
+because §A.4 makes it non-trivial.
+
+It is a **speed** measurement, so the standing rule applies in full and then some: the box must
+be idle, ≥5 reps, median and spread, no single number. That is the one thing here I cannot do
+alone, and it is recorded in `COMMUNICATION.md` rather than left in chat.
+
+**No cell of E44 has been measured at the time this addendum is pushed.**
