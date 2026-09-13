@@ -4635,8 +4635,9 @@ lost.
 
 ### 55.3 The drift, and why load is now ruled out as its cause
 
-`G-E53e` fired at **4.64%** (witnesses `121.49 → 115.98 tok/s`, same cell, same binary, forty
-minutes apart). Three readings say this is not contention:
+`G-E53e` fired at **4.64%** (witnesses `121.49 → 115.98 tok/s`, same cell, same binary,
+**9.7 minutes apart** — 19:15:09 to 19:24:53, at a 43.8% duty cycle). Three readings say this is
+not contention:
 
 1. The box was at **1.68%** foreign at launch and most cells stayed under the bar.
 2. The opening witness ran at **5.7%** foreign and the closing at **3.1%**. Correcting both to a
@@ -4647,8 +4648,17 @@ minutes apart). Three readings say this is not contention:
    **closing** one sits **2.90% below its minimum**.
 
 **§54.4's 5.2 unexplained points reproduce with load eliminated, and they track time-in-run.**
-Thermal soak remains the hypothesis; it now has a reproduced signature and a direction, and it is
-the largest uncontrolled term in every absolute rate in this ledger.
+It is the largest uncontrolled term in every absolute rate in this ledger.
+
+**Thermal soak is no longer the comfortable explanation.** A deliberate all-core burn the same
+night drops this part's clock 3.9 points instantly and then decays only 1.70 points more, mostly
+**inside 25 seconds**. A 4.64% droop still developing at **9.7 minutes** is far outside where
+that curve moves fast. Time-in-run is the measured fact; the mechanism is open. The clock witness
+now exists (`e54_clock.py`, fired against a known-positive); nothing yet explains the droop.
+
+*An earlier version of this section said forty minutes. The duration was never measured — no
+runner here timestamps a cell — and the corrected figure weakens the hypothesis it was quoted to
+support. See E53 addendum C.0.*
 
 ### 55.4 The consequence for `C50 = 1443`
 

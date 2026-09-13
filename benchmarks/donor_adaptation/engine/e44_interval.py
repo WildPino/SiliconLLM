@@ -110,6 +110,27 @@ def _process_times(h):
     return k.val() + u.val()
 
 
+# ---- cell timing metadata (E53 addendum C.0) --------------------------------------------
+import time as _time
+
+try:
+    from e54_clock import ClockWitness as _ClockWitness
+    _CW = _ClockWitness()
+except Exception:                                   # no PDH, no counter, wrong platform
+    _CW = None
+
+
+def _clock_witness():
+    """Percent of nominal CPU clock, or nan.  Never raises: a witness that can take a run
+    down is worse than no witness."""
+    if _CW is None:
+        return float("nan")
+    try:
+        return _CW.sample()
+    except Exception:
+        return float("nan")
+
+
 class Split(object):
     """System busy and FOREIGN busy over one interval, in percent.
 
@@ -120,18 +141,41 @@ class Split(object):
     why the pre-run guard and its planted control are unchanged.
     """
 
+    # E53 addendum C.0: this meter records what a cell COST and never recorded WHEN it ran, and
+    # the gap let an unmeasured "~48 minutes" reach a published brief for a run that took 9.7.
+    # A cell's position in time is a measurement like any other.  _T0 is set at import so every
+    # runner sharing this module shares one clock origin.
+    _T0 = _time.time()
+    _SEQ = [0]
+
     def __init__(self):
         self.prev = _system_times()
+        self.t_start = _time.time()
+        self.seq = Split._SEQ[0]
+        Split._SEQ[0] += 1
+        self.clock = _clock_witness()      # % of nominal CPU clock, or nan where unavailable
 
     def close(self, child_ticks):
         cur = _system_times()
         di = cur[0] - self.prev[0]
         dt = (cur[1] - self.prev[1]) + (cur[2] - self.prev[2])
         self.prev = cur
+        self.t_end = _time.time()
+        self.wall = self.t_end - self.t_start
+        self.since_start = self.t_end - Split._T0
+        # Sampled at the END of the cell, while the engine has just been running -- the clock
+        # recovers within about five seconds of the load stopping, so a reading taken between
+        # cells measures the idle boost and says nothing about the cell.  See e54_clock.py.
+        self.clock = _clock_witness()
         if dt <= 0:
             return float("nan"), float("nan")
         busy = float(dt - di)
         return 100.0 * busy / dt, 100.0 * max(0.0, busy - float(child_ticks)) / dt
+
+    def record(self):
+        """The timing metadata of this cell, for the runner to store beside the rate."""
+        return {"seq": self.seq, "since_start_s": round(self.since_start, 3),
+                "wall_s": round(self.wall, 3), "clock_pct": self.clock}
 
 
 class Occupancy(object):

@@ -450,8 +450,17 @@ Chrome went from ~4.2% to 0.47% across its ten surviving processes. The run was 
 immediately after this reading and **the box was not touched until it exited** — E52's lesson,
 where I was the foreign load in the experiment about foreign load.
 
-Run: 52 engine invocations, 5 windows × 5 reps × 2 arms plus two witnesses, ~48 minutes,
-finishing 19:24:53.
+Run: 52 engine invocations, 5 windows × 5 reps × 2 arms plus two witnesses,
+**19:15:09 → 19:24:53 = 9.7 minutes** (file creation to last write), of which **255.7 s is
+decode — a 43.8% duty cycle** and 6.31 s of non-decode per cell.
+
+> **CORRECTION, and it is not cosmetic.** The first version of this addendum said "~48 minutes"
+> and §C.3 said the two witnesses were "forty minutes apart". **I never measured the run's
+> duration; I estimated it from how long I expected it to take and wrote it as a fact** — in
+> this brief, in the ledger, in the INDEX headline, in the commit message and in what I told the
+> user. It is 9.7 minutes. **The runner records every cell's rate and occupancy and does not
+> record a single timestamp**, which is exactly the "free first cut" §C.10 lists as owed and
+> which I had not built. The consequence for the argument is in §C.3.
 
 ## C.1 What the registered gates say
 
@@ -519,10 +528,20 @@ measurement, because it removes the competing explanation:
    121.49, sits inside that range. The **closing** witness, 115.98, sits **2.90% below its
    minimum**.
 
-So: same cell, same binary, same arm, quiet box, forty minutes apart, and the late one is outside
-the distribution the early one sits in. **The unexplained term of E52 B.4 reproduces with load
-eliminated, and it is a function of time-in-run.** Thermal soak remains the hypothesis and is
-still not directly measured — but it now has a reproduced signature and a sign.
+So: same cell, same binary, same arm, quiet box, **9.7 minutes apart**, and the late one is
+outside the distribution the early one sits in. **The unexplained term of E52 B.4 reproduces with
+load eliminated, and it is a function of time-in-run.**
+
+**What the corrected duration does to the thermal hypothesis: it weakens it.** A 4.64% droop over
+forty minutes at a low duty cycle is an easy thing to call soak. A 4.64% droop over **9.7 minutes
+at a 43.8% duty cycle** is harder, because the soak this part actually shows settles much faster
+than that — a deliberate 12-process all-core burn run the same night (`e54_burn.py`) drops the
+clock 3.9 points instantly and then decays only 1.70 points more, **mostly within 25 seconds**,
+still creeping at 60 s. Nine minutes is far outside where that curve is still moving fast.
+
+So thermal soak remains *a* hypothesis and is no longer the comfortable one. **Time-in-run is the
+measured fact; the mechanism is open**, and it now needs an instrument rather than a name. That is
+E54, and the clock witness it needs has been built and fired against a known-positive (§C.10).
 
 `G-E53e` firing twice is not a reason to run a third time (E40 addendum A). It is a reason to
 build the witness E52 B.6 asked for.
@@ -632,17 +651,35 @@ so the refactor moved nothing.
 resolve, monotonically more so, surviving both the occupancy filter and the drift. `G-E53d` is
 refused and nothing about `C50` is citable from this run.
 
-**The blocker is named.** It is not Chrome, it is not the bar, and it is not the kernel. It is a
-~4.6% end-of-run droop on a quiet box that grows with time-in-run and that nothing in this lab
-measures.
+**The blocker is named but not explained.** It is not Chrome, it is not the bar, and it is not
+the kernel. It is a **4.64% droop across 9.7 minutes** on a quiet box, tracking time-in-run, and
+the obvious mechanism — CPU thermal soak — settles far too fast on this part to account for it
+comfortably. The witness now exists; the explanation does not.
 
 ## C.10 What is owed
 
-1. **A thermal witness**, promoted from E52 B.6 item 1 to the top of the queue. It is now the
-   largest uncontrolled term in every absolute timing here and the only thing standing between
-   `G-E53f`'s direction and a citable rate. Cheapest first cut, free: record wall-clock-since-run-
-   start and per-rep sequence position alongside every cell, and re-read the ladder in **reversed
-   window order** — if `C50` moves when only the order moves, the fit is measuring the clock.
+1. **A clock witness — BUILT, and it fires.** `e54_clock.py` reads
+   `\Processor Information(_Total)\% Processor Performance` through `PdhAddEnglishCounterW`, so
+   the English counter path works on this Italian-locale box instead of being hardfit to one
+   spelling. Known-positive run first (`e54_burn.py`, 12 processes):
+
+       idle          105.4 .. 107.2 %      4008 .. 4069 MHz
+       burn    5 s   102.47 %              3887 MHz
+       burn   60 s   100.73 %              3821 MHz   (still falling)
+       recovery 5 s  106.20 %              4029 MHz
+
+   Complete separation between idle and sustained load, recovery inside five seconds. **Two of
+   the four candidate counters are DEAD on this part** — `% Performance Limit` sat at 100.0 and
+   `Performance Limit Flags` at 0 throughout — and that is only known because the known-positive
+   was run before the nulls were trusted. A second burn minutes later decayed only 0.49 points
+   instead of 1.70, *because the part started warm*, which is itself the soak showing its hand.
+
+2. **Every runner must timestamp every cell.** Wall-clock-since-run-start and sequence index
+   alongside rate and occupancy. Its absence is what let a guessed duration into a published
+   brief; see the correction in §C.0.
+
+3. **Re-read the ladder in reversed window order** — if `C50` moves when only the order moves,
+   the fit is measuring the clock and not the context.
 2. **A session term for `C50`.** C.5 is one disagreement, not a dispersion. `C50 = 1443` needs
    either a repeat on E49's own ladder or an explicit "single-session, no reproducibility
    measured" caveat wherever it is quoted.
