@@ -128,3 +128,78 @@ It does not re-measure speed — E49 owns those numbers and E44 owns their inter
 touch quality. It does not revisit `--attnr`, whose default (`none`) is correct. And it does not
 retro-fit the arm into any published log: **everything measured between E26 and E48 stays a
 `serial` number**, and `G-E50b`'s second half is what keeps that statement checkable.
+
+---
+
+# ADDENDUM A — `G-E50a` AS WRITTEN CANNOT ATTRIBUTE A FAILURE, AND `G-E50b` CANNOT TELL MY CHANGE FROM THE BUILD
+
+**Written before any E50 cell exists, after reading what the runners actually pin.** Both
+additions are *arms*, not tolerances: no bar moves, no gate is relaxed, and every PASS condition
+in §4 stands exactly as pushed.
+
+## A.1 What §3 missed: E6 did not run the binary E49 ran
+
+`e6_generate.py:33` pins `ENG = donor_engine.exe`, and E6 ran on **2026-09-07**. Every experiment
+from E26 onward instead pins the frozen **`donor_engine_e26.exe`** (built 2026-09-11 18:34) —
+`e26`, `e28`, `e30`, `e33`, `e34`, `e35`, `e36`, `e37`, `e39`, … and `e49`. Between those two
+dates `donor_engine.c` took **E13** (`076381a`, blocked tile-major), **E25** (`e506c7b`, the
+factored matvec) and **E26** (`1674e0c`, the carved FFN).
+
+So re-running E6's engine stage on a fresh build tests **my one-line change PLUS six days of
+accumulated engine drift**, and a fallen `A1` would not say which. An instrument that cannot
+attribute its own failure is not finished.
+
+`git log` confirms the other half of it: `1674e0c` is the **last commit to touch
+`donor_engine.c`**, and the only working-tree diff is mine. So HEAD's source **is** the source of
+`donor_engine_e26.exe`, and the drift above is entirely between E6's binary and E26's.
+
+## A.2 The added arm — `G-E50a` gets a `serial` twin
+
+`G-E50a` runs E6's engine stage **twice** on the new binary: once with no flag (the new default,
+`avx4`) and once with **`--attn serial`** (the old default restored exactly). Both are scored
+against E6's frozen `ref.json`. The four-way reading:
+
+| `A1` avx4 | `A1` serial | reading |
+|---|---|---|
+| 160/160 | 160/160 | **PASS.** The default may change; nothing else moved either. |
+| **< 160** | 160/160 | **FAIL, attributed to the kernel.** The default does not change, and E6 would have to be re-opened before it could. |
+| 160/160 | **< 160** | **PASS on the gate, but an unrelated finding is now open**: something between E6 and E26 moved the `serial` trajectory. Report it, do not fold it in. |
+| **< 160** | **< 160** | **VOID, not FAIL.** The change is not what broke it; E13/E25/E26 drift is, and that is a separate experiment. |
+
+The last row is the one this addendum exists for. Under §4 as pushed it would have been recorded
+as my change failing, which would have been **false**.
+
+## A.3 The same hole in `G-E50b`, and the same shape of fix
+
+`G-E50b` asks the new build to reproduce E49's two `NATS_TOTAL` values bit for bit — but E49
+produced them with `donor_engine_e26.exe`, and I am running a **freshly compiled** binary. A
+mismatch would therefore have two possible causes: my change, or the build not being reproducible
+from the same source and flags.
+
+The `--attn serial` half already discriminates them, and that is why it was registered: **if
+`--attn serial` reproduces `124963.9729339122` exactly, the build is reproducible and my change is
+the only delta.** So the addition here is only a *diagnostic*, and it is conditional:
+
+* **If `G-E50b` passes, nothing extra runs.**
+* **If it fails**, and only then, HEAD's **unmodified** source is compiled to a third binary and
+  the `serial` arm is re-run on it. If that also misses, the defect is the toolchain and not this
+  change, and `G-E50b` is recorded **VOID** rather than FAILED — `feedback_runner_verdict_outlives_spec`,
+  same as `G-E48d`.
+
+Registering the diagnostic *before* the run is the point: deciding after a failure which extra run
+would exonerate me is how a gate gets talked out of firing.
+
+## A.4 One more thing the run must not silently do
+
+E6's stage writes `results/e6/engine.json`. E50 must **not** overwrite it — §4 already says so,
+and the runner enforces it by pointing E6's `RES` at `results/e50/` before calling the stage, and
+by refusing to start if `results/e6/engine.json` is missing or unreadable (it is the record being
+compared against, and a run that silently regenerated it would be comparing the new binary to
+itself).
+
+## A.5 Prediction for the added arm
+
+`A1` reads **160/160 on both kernels**. The accumulated E13/E25/E26 changes are all behind flags
+(`--lutblk`, `--rank`, `--carve-k`) that E6's command line does not pass, so the fp32 0.5B path
+should be untouched by them. **If that is wrong, the third row of A.2 is the interesting one and I
+would rather find it here than have it found for me later.**
