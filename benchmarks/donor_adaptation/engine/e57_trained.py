@@ -267,6 +267,11 @@ def main():
             log("   rep %2d/%2d done" % (rep + 1, REPS))
     log("")
 
+    # E55 A.3 measured that OCC_BAR rejects ~40%% of cells and that the rejected ones are NOT
+    # slower, and the idle floor read before this run was 3.27%% -- most of the bar.  The bar
+    # is therefore still applied as the registered analysis (E55's), and the ALL-CELL
+    # counterfactual is printed beside it, because E52's law is that a refusal must never
+    # launder a number.
     rows = []
     log("   %-12s %5s %8s %8s %8s %7s  %-9s %s"
         % ("arm", "cells", "p25", "median", "p75", "IQR", "G-E55a2", "G-E57d"))
@@ -279,16 +284,34 @@ def main():
         st, rel, why = g_e55a2(v, rng)
         p25 = quantile(v, 0.25)
         d = g_e57d(qual[tag]["verdict"], p25) if st == "PASS" else "NO CLAIM (interval unstable)"
+        va = [c["rate"] for c in allc]
         rows.append({"arm": tag, "weights": wp, "hf": hf, "role": role,
                      "cells": len(allc), "used": len(use), "p25": p25,
                      "median": statistics.median(v), "p75": quantile(v, 0.75),
                      "iqr_pct": iqr_pct(v), "stable": st, "stable_why": why,
                      "quality": qual[tag]["verdict"],
                      "matched": qual[tag]["matched"], "counted": qual[tag]["counted"],
-                     "verdict": d})
+                     "verdict": d,
+                     "all_p25": quantile(va, 0.25), "all_median": statistics.median(va),
+                     "all_iqr_pct": iqr_pct(va), "all_cells": len(va),
+                     "all_verdict": g_e57d(qual[tag]["verdict"], quantile(va, 0.25)),
+                     "foreign_median": statistics.median([c["foreign"] for c in allc]),
+                     "clock_median": statistics.median(
+                         [c["clock_pct"] for c in allc
+                          if c["clock_pct"] == c["clock_pct"]] or [float("nan")])})
         log("   %-12s %5d %8.2f %8.2f %8.2f %6.2f%%  %-9s %s"
             % (tag, len(use), p25, statistics.median(v), quantile(v, 0.75),
                iqr_pct(v), st, d))
+    log("")
+    log("   counterfactual, ALL cells including those over OCC_BAR = %.2f (E52's law: a"
+        % OCC_BAR)
+    log("   refusal must not launder a number; E55 A.3 found the rejected cells are not slower)")
+    log("   %-12s %5s %8s %8s %7s %9s %8s  %s"
+        % ("arm", "cells", "p25", "median", "IQR", "foreign", "clock", "G-E57d"))
+    for r in rows:
+        log("   %-12s %5d %8.2f %8.2f %6.2f%% %8.2f%% %7.1f%%  %s"
+            % (r["arm"], r["all_cells"], r["all_p25"], r["all_median"], r["all_iqr_pct"],
+               r["foreign_median"], r["clock_median"], r["all_verdict"]))
     log("")
     for r in rows:
         log("   %-12s %s" % (r["arm"], r["stable_why"]))
@@ -311,6 +334,14 @@ def main():
         fast = max(rows, key=lambda r: r["p25"])
         log("   The fastest arm overall is %s at p25 %.2f tok/s and it is %s."
             % (fast["arm"], fast["p25"], fast["quality"]))
+    dis = [r for r in rows if r["all_verdict"] != r["verdict"]
+           and not r["verdict"].startswith("NO CLAIM (interval")]
+    if dis:
+        log("")
+        log("   THE TWO ANALYSES DISAGREE, which is itself the finding:")
+        for r in dis:
+            log("     %-12s clean %s   /   all cells %s"
+                % (r["arm"], r["verdict"], r["all_verdict"]))
     log("")
 
     if not os.path.isdir(OUTDIR):
