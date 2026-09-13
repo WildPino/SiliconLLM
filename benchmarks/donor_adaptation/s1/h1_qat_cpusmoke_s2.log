@@ -1,0 +1,9 @@
+== H1 QAT ==  device cpu  torch 2.12.0+cpu
+   layers [3, 6, 9, 12, 15, 18, 21, 24]   k 16 of E 256  (6.25% activation)
+   RESUMED the FFN masters and routers of 8 layers from D:/_ktmp/h1/smoke/h1_smoke_s1.npz
+   q/o installed 56 organs over layers [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27] -- FROZEN
+   FFN carved on 8 layers: 330,301,440 masters + 3,145,728 router = 4.97 GB of AdamW state
+   train 32,768 tokens, heldout 1,024 tokens, calib 1,024 tokens
+   G-H1a  k=E bit-identical to uncarved : FAILS  (max |diff| 3.222e-02)
+   carve actually masks at k=16        : FIRES  (max |diff| 3.411e+01)
+G-H1a FAILS -- the mask is not wired to what the measurement claims. H1 has no result and the hours are not spent.  STOP.

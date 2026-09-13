@@ -1044,3 +1044,160 @@ aggregate baseline 7.4% and would otherwise have gone into the record permanentl
 routers, so nothing here ever needs retraining to be re-scored; and (d) two falsified predictions,
 including a mechanism error — `occ_max` is not a proxy for soft-gate damage — that I would
 otherwise still believe.
+
+---
+
+# ADDENDUM I — THE CPU SMOKE OF THE TRAINER KILLED SESSION 2 AT STARTUP, AND IT WAS THE SAME ROOT CAUSE A FOURTH TIME
+
+`h1_qat.py` had never been run end to end on the real bundle path. It has now been, twice: a
+fresh session 1 and a `--resume` session 2, eight layers, tiny slices, 2 steps, CPU fp32.
+
+Session 1 was clean. **Session 2 died at startup:**
+
+```
+G-H1a  k=E bit-identical to uncarved : FAILS  (max |diff| 3.222e-02)
+G-H1a FAILS -- the mask is not wired to what the measurement claims.  STOP.
+```
+
+The bundle was not mis-wired. **The check was asking the wrong question**, and it is the same
+wrong question as everywhere else in this brief.
+
+## I.1 The root cause, stated once for all four instances
+
+`G-H1a` says: at `k = E` the carved forward is bit-identical to the uncarved one, because the
+gates are then exactly 1. That is true under **either** of two conditions and **neither** of them
+is unconditional:
+
+* **(a) the HARD gate**, for any router at all — `sel` is all-ones, gates are exactly 1;
+* **(b) the SOFT gate, but only at a ZERO router** — `p` is uniform, so
+  `g = k·p/Σ_sel p = 1` exactly, for every `k`.
+
+Half of H1's apparatus was written while the router happened to always be zero, so (b) looked
+unconditional. It is not. A `--resume` starts from a **trained** router, and (b) then fails **by
+construction**.
+
+The same root cause has now produced **four distinct defects** in this brief:
+
+| # | where | what it did | found by |
+|---|---|---|---|
+| 1 | `G-H1` | scored a soft-gated trained model against a hard-gated control, charging H1 ~0.80 BPB before training counted | null control (addendum F) |
+| 2 | `G-H1e` | pitted a soft router against a hard fixed selection; read "FAILS" with zero training | null control (addendum F) |
+| 3 | `h1_router_smoke.py` | same, for 11.7 h, on the comparison that chose what to ship | audit after F (addendum G) |
+| 4 | `h1_qat.py`'s `G-H1a` | **aborted session 2 at startup, on the command RUN.md prints** | this CPU smoke |
+
+Defect 4 is the expensive one. It fires **after session 1 has already spent its 2.8 GPU-h**, on
+a machine the user is paying for, with a message that says the model is broken when it is not.
+
+## I.2 The repair, and its planted control
+
+`h1_qat.py` now checks **both** forms and requires **both** to fire:
+
+```
+G-H1a  k=E identical, HARD gate, any router : FIRES  (max |diff| 0.000e+00)
+G-H1a  k=E identical, SOFT gate, router=0   : FIRES  (max |diff| 0.000e+00)
+carve actually masks at k=16                : FIRES  (max |diff| 2.575e+01)
+```
+
+Per the planted-control law, a repair is not trusted until the **wrong** question is shown to
+fail on a **known-good** module. `h1_selftest.py` gained **T8**, on a toy whose router is
+deliberately non-zero:
+
+```
+T8a  the WRONG form (soft gate, trained router) FAILS as it must (max|d| 3.011e+00)  FIRES
+T8   HARD gate, any router: bit-identical at k=E (max|d| 0.0e+00)                    FIRES
+T8b  SOFT gate at a ZERO router: bit-identical at k=E (max|d| 0.0e+00)               FIRES
+```
+
+All of T1–T8 fire.
+
+## I.3 The resume is real, and here is the number that proves it
+
+`T7` proved a resumed module's *forward* is bit-identical to the saved one, on a toy. It did not
+prove that a resumed **run** continues rather than silently restarting. The smoke gives that for
+free, and it is a clean ordinal control:
+
+| | held-out BPB at step 0 |
+|---|---|
+| session 1, fresh | **1.442147** |
+| session 1, after its 2 steps | **1.431063** |
+| session 2, `--resume`, step 0 | **1.431063** |
+
+Session 2 opens exactly where session 1 closed, to all six digits. A silent restart would have
+read 1.442147. **This is the check the two-session design actually rests on**, and until now
+nothing had run it.
+
+## I.4 Two smaller things the smoke caught
+
+**A label that lied.** The progress line hardcoded `"(fp16, GPU, PROGRESS not the gate)"` and
+printed it next to a CPU fp32 number. True on the T4, false on the smoke — the exact defect
+class this brief keeps finding, in miniature. It now reports what actually ran, and the record
+carries `progress_precision`.
+
+**A warning that does not mean what it looks like.** Torch prints
+`None of the inputs have requires_grad=True. Gradients will be None` from
+`torch/utils/checkpoint.py`. It comes from the **eval** pass — gradient checkpointing under
+`no_grad` — not from training. `model.enable_input_require_grads()` is called for the training
+path, and `G-H1c` demonstrates the point rather than asserting it: masters move at **both depth
+extremes**, `L03.gate` and `L24.down`, i.e. the backward chain traverses the full carved stack.
+The warning is now explained in the CPU-run output so nobody stops a T4 session over it.
+
+## I.5 What this says about the two-session plan
+
+Nothing changes in the plan: `--factors` stays H0's bundle in both sessions, `--resume`
+continues the FFN masters and the router, the seeds still differ (1717, 2718), and the shipped
+router setting is still `--router-lr 0.0003 --aux 0.01` as addendum H confirmed.
+
+What changes is that **the session-2 command has now actually been executed** rather than
+reasoned about. It was wrong, it is fixed, and the fix has a control that fails on purpose.
+
+## I.6 And then the smoke caught a regression I had just introduced
+
+Fixing the lying label in §I.4 defined `prec` inside `main()` and referenced it inside `save()`,
+which is a separate function. The next resume run died at the **first periodic checkpoint**:
+
+```
+File "h1_qat.py", line 896, in save
+    "bpb_fp16_gpu_step0": bpb0, "progress_precision": prec,
+NameError: name 'prec' is not defined
+```
+
+Worth recording rather than quietly fixing, for three reasons. It was a **fresh** defect,
+introduced ~40 minutes earlier while repairing a different one — session 1 had run that exact
+code path twice, successfully, before the patch. It sat on the `--every` checkpoint path, so on
+the T4 it would have destroyed **the whole session's output** at the first 250-step save while
+the run appeared healthy up to that moment. And it was invisible to `py_compile`, to
+`ast.parse`, and to the self-test, all of which passed.
+
+`prec` is now an explicit parameter of `save()`, and the function was scanned for any other free
+name that could do the same thing (**none**). The general point is not about this variable:
+**a patch that adds a field to a record written by another function is a cross-function change,
+and "it compiles" is not evidence about it.** The only thing that caught it was running the
+program.
+
+## I.7 A gate value nobody could reproduce
+
+Running the same bundle three times printed `carve actually masks at k=16` with
+`max |diff|` **2.082e+01**, **2.575e+01**, **2.231e+01**. The verdict is robust — the point is
+only that the carve *does* mask — but that number is **stored in the run record** as
+`carve_is_live.max_abs_diff`, and it came from an unseeded `torch.randn` probe. A gate value
+that changes run to run is not evidence, even when the verdict it carries is. The probe is now
+seeded (90210); the verdicts do not depend on it.
+
+## I.8 Final state of the trainer, verified by running it
+
+| | session 1 (fresh) | session 2 (`--resume`) |
+|---|---|---|
+| `G-H1a` hard gate, any router | FIRES 0.0e+00 | FIRES 0.0e+00 |
+| `G-H1a` soft gate, router = 0 | FIRES 0.0e+00 | FIRES 0.0e+00 |
+| `carve_is_live` | FIRES | FIRES |
+| `G-H1b` first applied update | step 1, 0 declined | step 1, 0 declined |
+| `G-H1c` masters moved | L03.gate, L24.down, L03.router | same |
+| step-0 held-out BPB | 1.442147 | **1.431063** = session 1's last |
+| `resumed_ffn_from` in the record | — | `h1_smoke_s1.npz` |
+| periodic save + final save | both | both |
+| `complete` | true | true |
+
+`G-H1e` reads FAILS in both (4.195582 / 4.192291 against STATIC 4.115758 / 4.116145) — expected
+and meaningless at 2 steps on 64 sequences, and already re-registered as the expectation for the
+real run in §H.5. The gate that decides H1 is `G-H1`, scored afterwards by `h1_eval.py` on CPU
+fp32 against `applied-8L = 1.096636`.

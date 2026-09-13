@@ -1,0 +1,23 @@
+== H1 QAT ==  device cpu  torch 2.12.0+cpu
+   layers [3, 6, 9, 12, 15, 18, 21, 24]   k 16 of E 256  (6.25% activation)
+   q/o installed 56 organs over layers [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27] -- FROZEN
+   FFN carved on 8 layers: 330,301,440 masters + 3,145,728 router = 4.97 GB of AdamW state
+   train 32,768 tokens, heldout 1,024 tokens, calib 1,024 tokens
+   G-H1a  k=E bit-identical to uncarved : FIRES  (max |diff| 0.000e+00)
+   carve actually masks at k=16        : FIRES  (max |diff| 2.082e+01)
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+C:\Users\giosa\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\utils\checkpoint.py:238: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  check_backward_validity(args)
+
+   step 0 held-out BPB (fp16, GPU, PROGRESS not the gate): 1.442147
+   the GATE is trained BPB < applied-8L, HARD-gated (addendum F), re-measured on
+   CPU fp32 by h1_eval.py.  The soft number is a diagnostic, not the gate.
+
+   G-H1b read at step 1, the first update the optimizer APPLIED (scale 1, grad-norm 1.758e+00, 0 declined before it)
+   G-H1c masters moved by: L03.gate 1.083e-04  L24.down 1.083e-04  L03.router 1.624e-04
+  step     1/2  loss 3.7426  aux 8.000  BPB soft 1.428513 hard 1.428601 (gap -0.0001)     53s  lr 8.00e-10/1.20e-09  occ_max 1.000  nonfinite 0
+  step     2/2  loss 2.4941  aux 8.020  BPB soft 1.431063 hard 1.431142 (gap -0.0001)    189s  lr 1.08e-04/1.62e-04  occ_max 1.000  nonfinite 0
+
+  G-H1e  router 4.195582 vs STATIC 4.115758 nats/token  ->  FAILS
+  wrote D:/_ktmp/h1/smoke/h1_smoke_s1.npz
+  THE GATE IS NOT DECIDED HERE.  Bring h1_smoke_s1.npz back and run h1_eval.py on CPU fp32: G-H1 is trained BPB < applied-8L, both on the frozen slice.

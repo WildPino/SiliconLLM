@@ -279,6 +279,38 @@ def main():
     check("T7b", ok_guard,
           "resuming onto a DIFFERENT partition is refused, not silently accepted")
 
+    # ---- T8: G-H1a HAS TWO FORMS, and the resume path can only satisfy one of them --------
+    # The session-2 CPU smoke died at startup with G-H1a max|d| 3.222e-02 on a bundle that was
+    # perfectly well wired.  The check was asking the SOFT-gate form, which at k = E is
+    # bit-identical only when the router is ZERO -- true on a fresh run, false by construction
+    # after --resume.  T8 is the planted control for that repair: the WRONG question must be
+    # shown to fail on a known-good module before the RIGHT one is trusted to pass.
+    log("")
+    log("  T8  G-H1a's two forms, on a module whose router is NOT zero (the resume case)")
+    m8 = build_toy(seed=11)
+    with torch.no_grad():
+        m8.router.data.normal_(0.0, 1.0, generator=torch.Generator().manual_seed(99))
+    m8.invalidate()
+    x8 = torch.randn(3, 5, D, generator=torch.Generator().manual_seed(31))
+
+    m8.hard_gate = False
+    bad_same, bad_d = g_h1a(m8, x8)
+    check("T8a", not bad_same,
+          "the WRONG form (soft gate, trained router) FAILS as it must (max|d| %.3e)" % bad_d)
+
+    m8.hard_gate = True
+    hard_same, hard_d = g_h1a(m8, x8)
+    check("T8", hard_same,
+          "HARD gate, any router: bit-identical at k=E (max|d| %.1e)" % hard_d)
+
+    m8.hard_gate = False
+    with torch.no_grad():
+        m8.router.data.zero_()
+    m8.invalidate()
+    zero_same, zero_d = g_h1a(m8, x8)
+    check("T8b", zero_same,
+          "SOFT gate at a ZERO router: bit-identical at k=E (max|d| %.1e)" % zero_d)
+
     log("")
     if fails:
         log("  SELF-TEST FAILED: %s" % ", ".join(fails))

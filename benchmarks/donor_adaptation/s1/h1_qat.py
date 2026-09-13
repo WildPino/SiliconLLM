@@ -700,15 +700,46 @@ def main():
     scaler = torch.amp.GradScaler("cuda", enabled=cuda)
 
     # ---- G-H1a, run BEFORE a single step: k = E must be bit-identical to uncarved ---------
-    probe_x = torch.randn(2, 8, model.config.hidden_size, device=dev,
-                          dtype=torch.float16 if cuda else torch.float32)
+    # SEEDED.  The gate record stores carve_is_live's max_abs_diff, and with an unseeded
+    # probe that number differed on every run (2.082e+01, 2.575e+01, 2.231e+01 across three
+    # CPU smokes of the same bundle).  A gate value nobody can reproduce is not evidence,
+    # even when the verdict it carries is robust.  The verdicts do not depend on the seed.
+    probe_x = torch.randn(2, 8, model.config.hidden_size,
+                          generator=torch.Generator().manual_seed(90210),
+                          dtype=torch.float32).to(
+                              device=dev, dtype=torch.float16 if cuda else torch.float32)
     gates = {}
     li0, m0 = mods[0]
-    same, dmax = g_h1a(m0, probe_x)
+    # G-H1a HAS TWO FORMS AND ASKING FOR THE WRONG ONE IS A FALSE ALARM THAT COSTS A SESSION.
+    # At k = E the gates are exactly 1 -- hence bit-identity -- under EITHER of:
+    #   (a) the HARD gate, for any router at all;
+    #   (b) the SOFT gate, but ONLY at a zero router, where p is uniform and
+    #       g = k*p/sum_sel p = 1 exactly.
+    # A fresh run starts with router = 0, so asking (b) alone passed.  A --RESUME starts with
+    # a TRAINED router, and (b) then fails by construction -- not because the mask is
+    # mis-wired but because the question is wrong.  The CPU smoke of session 2 hit exactly
+    # this (max|d| 3.222e-02) and it would have killed the second T4 session at startup,
+    # running the command RUN.md prints.  Both forms are now checked and both must fire.
+    prev_hard = getattr(m0, "hard_gate", False)
+    m0.hard_gate = True
+    same_h, dmax_h = g_h1a(m0, probe_x)
+    m0.hard_gate = False
+    saved_r = m0.router.detach().clone()
+    with torch.no_grad():
+        m0.router.data.zero_()
+    m0.invalidate()
+    same_s, dmax_s = g_h1a(m0, probe_x)
+    with torch.no_grad():
+        m0.router.data.copy_(saved_r)
+    m0.invalidate()
+    m0.hard_gate = prev_hard
+    same, dmax = (same_h and same_s), max(dmax_h, dmax_s)
     live, ldmax = carve_is_live(m0, probe_x)
-    log("   G-H1a  k=E bit-identical to uncarved : %s  (max |diff| %.3e)"
-        % ("FIRES" if same else "FAILS", dmax))
-    log("   carve actually masks at k=%d        : %s  (max |diff| %.3e)"
+    log("   G-H1a  k=E identical, HARD gate, any router : %s  (max |diff| %.3e)"
+        % ("FIRES" if same_h else "FAILS", dmax_h))
+    log("   G-H1a  k=E identical, SOFT gate, router=0   : %s  (max |diff| %.3e)"
+        % ("FIRES" if same_s else "FAILS", dmax_s))
+    log("   carve actually masks at k=%d                : %s  (max |diff| %.3e)"
         % (a.k, "FIRES" if live else "FAILS", ldmax))
     if not same:
         raise SystemExit("G-H1a FAILS -- the mask is not wired to what the measurement claims. "
@@ -716,13 +747,24 @@ def main():
     if not live:
         raise SystemExit("The carve does not mask at the real k.  A mask that is wired right "
                          "but never masks passes G-H1a and measures NOTHING.  STOP.")
-    gates["G_H1a"] = {"bit_identical": bool(same), "max_abs_diff": dmax}
+    gates["G_H1a"] = {"bit_identical": bool(same),
+                      "hard_gate_any_router": {"fires": bool(same_h), "max_abs_diff": dmax_h},
+                      "soft_gate_zero_router": {"fires": bool(same_s), "max_abs_diff": dmax_s},
+                      "max_abs_diff": dmax}
     gates["carve_is_live"] = {"differs": bool(live), "max_abs_diff": ldmax}
 
     n0, t0n = heldout_nats(model, ev, dev, cuda)
     bpb0 = n0 / (LN2 * a.bpt * t0n)
     log("")
-    log("   step 0 held-out BPB (fp16, GPU, PROGRESS not the gate): %.6f" % bpb0)
+    # The label used to be hardcoded "fp16, GPU".  On the T4 that is true; on the CPU
+    # smoke it was a lie printed next to a number, which is the exact defect class this
+    # brief keeps finding.  Report what actually ran.
+    prec = "fp16, GPU" if cuda else "fp32, CPU"
+    log("   step 0 held-out BPB (%s, PROGRESS not the gate): %.6f" % (prec, bpb0))
+    if not cuda:
+        log("   (CPU run: torch warns 'None of the inputs have requires_grad' from the EVAL")
+        log("    pass -- gradient checkpointing under no_grad.  Training is unaffected and")
+        log("    G-H1c below proves it, by moving masters at BOTH depth extremes.)")
     log("   the GATE is trained BPB < applied-8L, HARD-gated (addendum F), re-measured on")
     log("   CPU fp32 by h1_eval.py.  The soft number is a diagnostic, not the gate.")
     log("")
@@ -815,7 +857,7 @@ def main():
                          "aux": run_aux / max(1, nb), "occ_max": max(occ) if occ else None,
                          "seconds": el})
             run_loss, run_aux, nb = 0.0, 0.0, 0
-            save(model, mods, a, layers, hist, bpb0, nonfinite, el, False, gates, declined)
+            save(model, mods, a, layers, hist, bpb0, nonfinite, el, False, gates, declined, prec)
         if el > a.max_hours * 3600:
             log("  TIME CAP %.1f h reached at step %d -- stopping cleanly" % (a.max_hours, step))
             break
@@ -828,7 +870,7 @@ def main():
         % (r, s, "FIRES" if fires else "FAILS"))
     gates["G_H1e"] = {"router_nats": r, "static_nats": s, "fires": fires,
                       "static_groups": picks}
-    save(model, mods, a, layers, hist, bpb0, nonfinite, el, True, gates, declined)
+    save(model, mods, a, layers, hist, bpb0, nonfinite, el, True, gates, declined, prec)
     log("  wrote %s" % a.out)
     log("  THE GATE IS NOT DECIDED HERE.  Bring %s back and run h1_eval.py on CPU fp32: "
         "G-H1 is trained BPB < applied-8L, both on the frozen slice."
@@ -836,7 +878,7 @@ def main():
     return 0
 
 
-def save(model, mods, a, layers, hist, bpb0, nonfinite, el, done, gates, declined):
+def save(model, mods, a, layers, hist, bpb0, nonfinite, el, done, gates, declined, prec):
     store = {}
     for li, m in mods:
         p = "L%02d" % li
@@ -857,7 +899,8 @@ def save(model, mods, a, layers, hist, bpb0, nonfinite, el, done, gates, decline
                "bytes_per_token": a.bpt, "seconds": el,
                "nonfinite_microbatches": nonfinite,
                "scaler_declined_before_first_applied": declined,
-               "bpb_fp16_gpu_step0": bpb0, "history": hist, "gates": gates,
+               "bpb_fp16_gpu_step0": bpb0, "progress_precision": prec,
+               "history": hist, "gates": gates,
                "gate": "NOT decided here -- h1_eval.py on CPU fp32, BPB < applied-8L",
                # addendum C: the bands are the MATCHED 8-layer ladder, measured by
                # h1_applied.py.  E37's 28-layer numbers are kept for reference ONLY and are
