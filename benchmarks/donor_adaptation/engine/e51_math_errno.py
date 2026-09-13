@@ -156,6 +156,40 @@ def g_e51c(cells):
     return rows
 
 
+def g_e51c_summary(rows):
+    """One line for the whole gate, DESCRIPTIVE only.
+
+    It introduces no threshold the brief did not register: `C50` needs a line and a line needs
+    two points, so "fewer than two windows survived the dispersion rule" is a statement about
+    the instrument, not about the flag.  E51 run 1 crashed here -- `fit()` raised on a single
+    judged window and G-E51c never printed a verdict at all, which is worse than any verdict
+    it could have printed.
+    """
+    judged = [r for r in rows if r["verdict"] == "JUDGED"]
+    npos = len({r["n"] for r in judged})
+    if npos == 0:
+        return {"verdict": "UNRESOLVABLE THROUGHOUT",
+                "why": "no window's observed spread was inside the %.0f%% tolerance, so the "
+                       "run measures the machine, not the flag" % (100 * G51C_SPREAD_TOL),
+                "n_judged": 0}
+    sep = [r for r in judged if r.get("separable")]
+    if npos < 2:
+        return {"verdict": "NO FIT -- ONE RESOLVABLE WINDOW",
+                "why": "the single judged window (n=%d) reads %+.1f%% and the arms are %s; "
+                       "C50 needs two points and cannot be computed"
+                       % (judged[0]["n"], 100 * judged[0]["delta"],
+                          "SEPARABLE" if sep else "NOT separable"),
+                "n_judged": len(judged)}
+    if not sep:
+        return {"verdict": "NOT SEPARABLE",
+                "why": "%d windows are judgeable and in none of them do the two arms' "
+                       "repetitions separate" % len(judged),
+                "n_judged": len(judged)}
+    return {"verdict": "SEPARABLE AT %d OF %d JUDGED WINDOWS" % (len(sep), len(judged)),
+            "why": "windows %s separate" % ",".join(str(r["n"]) for r in sep),
+            "n_judged": len(judged)}
+
+
 def g_e51d(s_base, s_e51, total_base, total_e51):
     """Attribution: a faster engine is not evidence that the SOFTMAX got faster."""
     d_total = total_base - total_e51
@@ -212,6 +246,18 @@ def selftest():
     olap = {1280: {"base": [48.0, 50.0, 49.0], "e51": [49.5, 50.5, 50.0]}}
     chk("C4", g_e51c(olap)[0]["separable"], False,
         "judgeable by spread and STILL not separable -- the two tests are not the same test")
+
+    # C5-C7: the crash run 1 died on.  One judged window is not a line, and a gate that
+    # raises prints no verdict at all -- which is worse than any verdict it could print.
+    one = dict(tight); one.update(loose)
+    chk("C5", g_e51c_summary(g_e51c(one))["verdict"], "NO FIT -- ONE RESOLVABLE WINDOW",
+        "1280 is judgeable and 40 is not; C50 needs two points")
+    chk("C6", g_e51c_summary(g_e51c(loose))["verdict"], "UNRESOLVABLE THROUGHOUT",
+        "nothing survived the dispersion rule -- the run measured the machine")
+    two = {640: {"base": [96.0, 97.0, 98.0], "e51": [104.0, 105.0, 106.0]},
+           1280: {"base": [48.0, 48.5, 49.0], "e51": [54.0, 54.5, 55.0]}}
+    chk("C7", g_e51c_summary(g_e51c(two))["verdict"], "SEPARABLE AT 2 OF 2 JUDGED WINDOWS",
+        "two resolvable windows, both separating -- the case C50 is computable in")
 
     chk("D1", g_e51d(4.0, 2.0, 13.5, 11.0)[0], "ATTRIBUTED TO S", "S falls 2.0 of 2.5 = 80%")
     chk("D2", g_e51d(4.0, 3.9, 13.5, 11.0)[0], "PARTLY ELSEWHERE", "S falls 0.1 of 2.5 = 4%")
@@ -393,21 +439,32 @@ def phase_speed(out):
                "" if r["verdict"] == "UNRESOLVABLE"
                else ("  separable" if r["separable"] else "  NOT separable")))
     log("")
+    summary = g_e51c_summary(rows)
+    log("  G-E51c : %s" % summary["verdict"])
+    log("  %s" % summary["why"])
+    log("")
     judged = [r for r in rows if r["verdict"] == "JUDGED"]
     fits = {}
-    for tag in ("base", "e51"):
-        # fit() takes [(mean_pos, per_token)] and returns (a, b) in whatever unit it is
-        # given; E49 feeds it ms/tok, so C50 = (20 ms - a) / b.  Same convention here.
-        a, b = fit([(r["n"] / 2.0, 1000.0 / r[tag]) for r in judged])
-        c50 = (20.0 - a) / b if b > 0 else float("inf")
-        fits[tag] = {"a": a, "b": b, "C50": c50}
-        log("  %-5s ms/tok = %.4f + %.6f*pos   ->  C50 = %.0f   (fit on the %d JUDGED windows)"
-            % (tag, a, b, c50, len(judged)))
-    if fits["e51"]["b"] > 0:
-        log("  b(base)/b(e51) = %.3f      C50 %.0f -> %.0f"
-            % (fits["base"]["b"] / fits["e51"]["b"], fits["base"]["C50"], fits["e51"]["C50"]))
+    if len({r["n"] for r in judged}) < 2:
+        log("  C50 NOT COMPUTABLE -- %d window(s) survived the dispersion rule and a straight"
+            " line needs two." % len(judged))
+        log("  That is the instrument declining to extrapolate, NOT a measurement of the flag.")
+    else:
+        for tag in ("base", "e51"):
+            # fit() takes [(mean_pos, per_token)] and returns (a, b) in whatever unit it is
+            # given; E49 feeds it ms/tok, so C50 = (20 ms - a) / b.  Same convention here.
+            a, b = fit([(r["n"] / 2.0, 1000.0 / r[tag]) for r in judged])
+            c50 = (20.0 - a) / b if b > 0 else float("inf")
+            fits[tag] = {"a": a, "b": b, "C50": c50}
+            log("  %-5s ms/tok = %.4f + %.6f*pos   ->  C50 = %.0f   (fit on the %d JUDGED "
+                "windows)" % (tag, a, b, c50, len(judged)))
+        if fits["e51"]["b"] > 0:
+            log("  b(base)/b(e51) = %.3f      C50 %.0f -> %.0f"
+                % (fits["base"]["b"] / fits["e51"]["b"],
+                   fits["base"]["C50"], fits["e51"]["C50"]))
     log("")
     out["G_E51c"] = {"rows": rows, "fits": fits, "cells": cells,
+                     "summary": summary,
                      "tolerance": G51C_SPREAD_TOL, "reps": REPS}
 
 
