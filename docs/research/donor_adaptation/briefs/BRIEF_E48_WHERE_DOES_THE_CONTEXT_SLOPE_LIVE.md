@@ -196,3 +196,89 @@ recorded on the same terms.
 It cannot open `P′`. It measures `P′` as a residual, exactly as E5 did, and inherits E5's refusal to
 name its parts. **Decomposing `P′` is E49 and it is owed.** Part 2's only claim on `P′` is a number
 and a rank.
+
+---
+
+# ADDENDUM A — THE INSTRUMENT IS BETTER THAN THE ONE I REGISTERED, AND MY CLOSURE GATE WAS VACUOUS
+
+**Written after smoking the arms and before any E48 cell exists.** Part 2 §3.1 and §3.2 are
+replaced by this section. §3.3's prediction is **not** revised — it is scored as written.
+
+## A.1 The method changes: `--sweep6`, one process, ten arms
+
+§3.1 registered seven separate processes per window. The engine already has a better instrument
+and E5 validated it: **`--sweep6 --profile`** runs ten arms — `none, sm1/2/3, av1/2/3, qk1/2/3` —
+**inside one process**, rotating by position on a palindrome of period 20, and prints per-arm
+per-organ milliseconds per token. Three things follow:
+
+* **Every arm gets the same mean context position** (`a` and `19−a` in each period), so no arm is
+  handed a longer or shorter context than another. E5 §14.2 measured the residual at **0.1% of the
+  organ** with `--sweepd`.
+* **Process-to-process variance is gone**, which was the whole difficulty: the sub-terms are
+  differences of two totals, and at window 40 `X` is ~3% of a total that E43 showed oscillates
+  9–22%.
+* It is roughly **seven times cheaper**, and it prices the **attention organ** directly (`T_ATTN`)
+  rather than the whole token, so the term I want is not buried under the FFN.
+
+The engine refuses a `--bench` not divisible by the schedule period, so every window is a multiple
+of 20.
+
+## A.2 The shapes change: `E47-BASE` is the badly-conditioned one, and E47 said so
+
+§3.1 named `E47-BASE` as the cheap shape. Smoking it at window 160 shows why that was wrong:
+attention is **1.5%** of its token there, and the measured increments come back **non-monotone** —
+`av3 (0.262) < av2 (0.388)`, which is impossible for a loop run three times against twice. That is
+exactly the conditioning failure **E47 addendum C.3 already recorded**, and I walked into it again
+one experiment later.
+
+The two shapes are therefore the two whose total slope E46 measured independently:
+
+| shape | `a` (s/tok) | `b` (s/tok/pos) | attention share at pos 640 |
+|---|---|---|---|
+| **A10B R128 `--carve-k 3`** | 0.008327 | 2.0307e-05 | **61%** |
+| **S15** (`e37_carved_nf.bin`, the real 1.5B) | 0.037310 | 1.6276e-05 | 22% |
+
+Windows: **{160, 640, 1280, 2560}**, all divisible by 20, weighted to where attention is a large
+share of the token. `REPS = 5`, windows round-robin with reps outermost.
+
+## A.3 `G-E48b` as registered is VACUOUS, and it is replaced
+
+§3.2 asked that "`X`, `S`, `Y` and the residual" sum to the measured total. Under this instrument
+the residual is **defined** as `Rem = organ(none) − X − S − Y`, so the sum is an identity and the
+gate could not fail. **A gate that cannot fail is not a gate** — this programme has now written one
+too tight to ever fire (`G-E43A`), one passed by being noisy (`G-E45c`, `G-E45j`), and here one
+that is true by construction. Same law, third face:
+`feedback_gate_vs_measured_dispersion`.
+
+`G-E48b` is replaced by two things that genuinely can fail:
+
+* **`G-E48b1` — the 3× test.** Each wrapper family runs its loop once, twice and three times. The
+  second increment must equal the first: `qk3−qk2 = qk2−qk1`, and likewise for `sm` and `av`.
+  **Three predictions per window per shape, twenty-four in all, each able to miss.** Tolerance
+  **±15%**, at the two largest windows only (at window 160 the term is too small to resolve and
+  the test is reported, not gated). This is E5's own G1, which passed nine times out of nine at a
+  3% tolerance — so it is a **known-positive**, and the planted-control law is satisfied: the
+  instrument has fired before.
+* **`G-E48b2` — nothing else may have a context slope.** §1 claims from the source that the
+  attention block holds every `pos`-dependent loop in the engine. Fit the `none` arm's
+  **whole-token** cost and its **attention-organ** cost separately against mean position; the two
+  slopes must agree within **±15%**. If `qkv_proj`, `ffn`, `head` or `o_proj` carries a slope, the
+  structural claim in §1 is false and part 1 goes with it.
+
+## A.4 E46's `b` becomes a drift line, not a gate
+
+The smoke run reads **89.13 tok/s** at window 640 where E46's fit for the same arm predicts
+**67.5** at the same mean position — **32% apart**, and that is with the sweep's doubled arms
+making it *slower*, not faster. E43's 9–22% intrinsic oscillation does not cover 32%; E5 §14.7 met
+the same thing (**+15.5%** organ drift between sweeps) and responded by publishing **ratios only**.
+
+So: **every slope E48 reports is measured inside one sweep**, and the comparison to E46's
+`b = 2.0307e-05` is recorded as a **drift line under `G-E48b2`, never as a gate and never as a
+correction to E46.** A share travels between sweeps; a millisecond does not.
+
+This also means E48 **cannot** revise `C50 = 575`, and does not try to.
+
+## A.5 What is unchanged
+
+`G-E48a` (planted control), `G-E48c` (shares as a SCORE), `G-E48d` (the RANK partner across two
+shapes) and **§3.3's registered prediction** all stand exactly as pushed in `275538f`.
