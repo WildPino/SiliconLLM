@@ -207,3 +207,133 @@ and is not re-run to a pass**) and the E36 run-2 rule (**run 1 is the registered
 
 Corpus for the re-run: the full 24×512 slice (`ids_qwen25-15b_tq.bin`), as E1 and E37 use. The
 truncated prefix in A.3 is a smoke and is not the measurement.
+
+---
+
+# ADDENDUM B — E49 CLOSES: PARITY HOLDS, `C50` GOES 608 → 1443, AND THE HEADLINE IS RESTATED
+
+**Results: `results/e49_attn_kernel.json`, log `e49_run2.log`, run at `917ea94`.**
+
+## B.1 `G-E49a` — PARITY HOLDS
+
+| | `NATS_TOTAL` | |
+|---|---|---|
+| S15 `--carve-k 256` `serial` | 124963.9729339122 | n = 12,264 |
+| S15 `--carve-k 256` `avx4` | 124963.9517608703 | pair **1.694e-07** relative → `|ΔBPB| ≤ 8.47e-07` |
+| CONTROL `--carve-k 3` `serial` | 144871.1519082308 | **1.593e-01** apart, bar 1e-03 → **FIRES** |
+
+The bar is 2e-05 relative (what `|ΔBPB| < 1e-4` implies); the pair is **118× inside it**. The two
+kernels compute the same thing end to end. Phase 60's law is satisfied without claiming
+bit-identity, which `avx4` does not have and was never going to have.
+
+The pair reproduced addendum A.1's value **to the last digit** — the engine is deterministic — but
+it counts now and did not then, because only now has the harness been shown to fire.
+
+## B.2 `G-E49b` — the speed, and this is the result
+
+`e40_r128.bin`, `--carve-k 3`, 6 threads, pure (no `--sweep6`, no `--profile`), 5 reps, kernels
+interleaved at rep level.
+
+| | `serial` (the default) | `avx4` | ratio |
+|---|---|---|---|
+| `a` — position-0 cost (ms) | 8.2419 | 8.2468 | **1.0006** |
+| `b` — context slope (ms/pos) | 0.019334 | **0.008144** | **2.374** |
+| **`C50`** | **608** | **1443** | **2.37** |
+| tok/s at mean position 20 | 112.19 | 121.65 | 1.084 |
+| tok/s at mean position 320 | 69.71 | 89.89 | 1.289 |
+| tok/s at mean position 640 | 48.59 | 74.11 | 1.525 |
+| tok/s at mean position 1280 | 30.27 | **53.79** | 1.777 |
+
+Dispersion at the three large windows: 2.3–5.9%. At the two small ones it is 7.9–26.1%, which is
+E43's intrinsic oscillation showing up where the per-cell time is under two seconds; the fit is
+dominated by the large windows and the small ones are reported rather than leaned on.
+
+**The intercepts agree to 0.06%.** The kernel moves the context term and nothing else — which is
+what §1 read out of the source, now confirmed by measurement at a place the source could not
+promise it.
+
+**Three independent corroborations, none arranged:**
+
+1. `avx4`'s `C50 = 1443` lands **0.8%** from E48's sweep-derived **1454**. That is the strongest
+   possible confirmation that E48's `--sweep6` was measuring `avx4` all along, arrived at by a
+   different route on a different day.
+2. `serial`'s `C50 = 608` sits with E46's **575** and B.5's **515 / 540 / 544**.
+3. `serial` at `NTOK = 40` reads **112.19 tok/s** against E40's published **112.73** — the
+   headline reproduces to **0.5%**, which also settles that the headline was a `serial` number.
+
+## B.3 `G-E49c` — THE HEADLINE IS RESTATED, and it was a two-sided gate
+
+**+8.4%** at `NTOK = 40` (112.19 → 121.65 tok/s), outside the ±5% band the ledger carries. The
+gate was written to be able to go either way and it went the way I did not predict.
+
+**So the published figure becomes `121.65 tok/s` at mean context position 20 on `avx4`**, and
+`112.7` is retained as the `serial` number it always was. Neither is quotable without its context
+position and now also without its kernel.
+
+## B.4 `G-E49d` — the ladder
+
+| kernel | tok/s at n=1280 | vs `serial` |
+|---|---|---|
+| **`avx4`** | **73.55** | **1.516×** |
+| `avx1` | 72.56 | 1.495× |
+| `ilp4` | 63.08 | 1.300× |
+| `serial` (default) | 48.53 | 1.000× |
+| `serial2` | 34.61 | 0.713× |
+| `serial3` | 27.15 | 0.559× |
+
+`avx4` is fastest, and `avx1` is within 1.4% of it — so most of the win is *any* vectorisation,
+not the four-accumulator version specifically. Two of the six arms are **slower than the default**,
+which is why the ladder was worth running: "switch the kernel on" is not uniformly good advice.
+
+That `avx1` gap of 1.4% is the **portability** reading, and it is good news under
+`feedback_portability_no_hardfit`: the win belongs to the **x86-64-v3 class**, not to a
+four-accumulator schedule tuned to this 3600X. A machine where the four-accumulator version
+schedules badly still collects ~1.50× of the 1.52×.
+
+## B.5 What this buys the goal, stated with its limits
+
+**The 10B target arm holds above 50 tok/s out to ~1443 tokens of context instead of ~608, and
+reads 121.65 tok/s at short context** — past the 100 tok/s "ottimo" mark, and still **53.79 tok/s
+at mean position 1280**. The cost of obtaining this was one flag that has been in the engine since
+E4.
+
+What it does **not** change:
+
+* **The weights are synthetic.** E45 bounds any value-dependence of speed well under 5% with no
+  reproducible sign, but that is a bound and not a measurement at 10B.
+* **`--carve-k 3` is 1.17% of the FFN**, and quality at that operating point is near chance
+  (E37: 4.029 BPB against a chance of 4.070). **Speed is real; quality at that carve is not
+  there.** This is the standing gap and E49 does not touch it.
+* Every absolute above carries the standing ±5%; the ratios do not.
+
+## B.6 My prediction (§5), scored
+
+| quantity | predicted | measured | verdict |
+|---|---|---|---|
+| parity passes, `ΔBPB` < 1e-5 | passes | 8.47e-07 | **right** |
+| control fires | fires | 1.59e-01 | right, but **the control artifact was replaced** by addendum A, so the clause naming the dense artifact is void |
+| `b(avx4)` | 0.008–0.010 | **0.008144** | **right** |
+| `C50(avx4)` | 1100–1500 | **1443** | **right** |
+| headline moves < 5% | survives | **+8.4%, restated** | **WRONG** |
+| `avx4` fastest, `avx1`/`ilp4` between | as stated | exactly that | **right** |
+
+**Four right, one wrong, one void.** The best scorecard of the session, and the one I got wrong is
+the one where I assumed the context-20 blind spot would protect the old number.
+
+## B.7 What is now owed — and the fix for the *class* of defect
+
+1. **The engine's default should change to `avx4`, and E49 has established that it deserves to.**
+   Parity holds, it beats `serial` at all five windows of `G-E49b` and wins the `G-E49d` ladder at
+   1280, and leaving the fast kernel behind a flag is how this went unnoticed for twenty-two
+   experiments. That is a one-line change to
+   `donor_engine.c:202` and it gets its own parity gate rather than riding on this one.
+2. **The real fix is that the engine must say which kernel it ran.** The `BENCH` line prints
+   threads and quantisation and not the attention arm. Had it printed the arm, this would have
+   been visible in every log since E26. **A configuration that does not appear in the output is a
+   configuration nobody can audit** — that is the generalisable lesson, and it is worth more than
+   the 2.37× it cost to learn.
+3. **E48's B.1 shares stand, re-scoped to `avx4`** (see §3), and their RANK partner is still
+   missing, so the softmax's 33.1% remains a score at one shape and not yet a ranked lever.
+4. **Everything measured between E26 and E48 is a `serial` number.** Nothing is wrong, but the
+   ledger's speed entries now carry a kernel as well as a context. The ones that matter —
+   E40's 112.7 and E46's `C50` — are reproduced above and restated rather than discarded.
