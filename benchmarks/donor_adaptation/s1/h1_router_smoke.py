@@ -172,7 +172,28 @@ def main():
                          "would be a WIRING failure, not addendum A's answer.  STOP.")
     _m0.router.data.zero_()
 
+    # ---- FREEZE-CACHE THE QUANTISED EXPERTS, and prove it changes nothing -----------------
+    # The experts are frozen here (only the router trains), so ste() is a CONSTANT -- yet
+    # _quant recomputed r3_actsearch every step: a 10-point grid over three [8960,1536]
+    # tensors, ~3.3G element-ops per forward.  That was 92% of the cost of this file.
+    # Caching is exactly equivalent, and "exactly" is asserted rather than argued: the cached
+    # tensors must be torch.equal to what _quant returns.  30x measured on this shape, which
+    # is why this run can afford the FULL grid instead of one narrowed on distorted numbers.
+    n_cached = 0
+    for li in layers:
+        m = mods[li]
+        ref = m._quant()
+        with torch.no_grad():
+            cq = (H1.ste(m.gate, m.rms_in), H1.ste(m.up, m.rms_in), H1.ste(m.down, m.rms_h))
+        if not all(torch.equal(c, r) for c, r in zip(cq, ref)):
+            raise SystemExit("layer %d: the quantisation cache is NOT bit-identical to "
+                             "_quant().  Refusing to trade correctness for speed.  STOP." % li)
+        m._quant = (lambda t: (lambda: t))(cq)
+        n_cached += 1
+    log("   quantisation cached on %d layers, bit-identical to _quant() on every one" % n_cached)
+
     results, rows = {}, []
+    routers_out = {}
     for li in layers:
         m = mods[li]
         xtr, xev = xc[li], xe[li]
@@ -220,16 +241,31 @@ def main():
                     loss.backward()
                     opt.step()
                 with torch.no_grad():
-                    v = float((m(xev) - tev).square().mean())
+                    # ADDENDUM G: evaluate the trained router with the HARD gate, because
+                    # STATIC (set_static) has gates of exactly 1.  The first version of this
+                    # file scored a SOFT-gated router against a HARD-gated control, which on
+                    # the real donor is worth +0.80 BPB of pure gate form (addendum F) and is
+                    # WORSE for peaked routers -- i.e. the distortion interacts with `aux`,
+                    # the very parameter being chosen.  Training stays soft: a hard gate has
+                    # no gradient to the router at all.
                     occ = float(m._occ.max()) if m._occ is not None else float("nan")
+                    m.hard_gate = True
+                    v = float((m(xev) - tev).square().mean())
+                    v_soft = float("nan")
+                    m.hard_gate = False
+                    v_soft = float((m(xev) - tev).square().mean())
                 win = v < static
                 if best is None or v < best[0]:
                     best = (v, lr, aux)
-                log("      lr %-7g aux %-5g -> %.6f  ratio %.4f  occ_max %.3f%s"
-                    % (lr, aux, v, v / static, occ, "   beats STATIC" if win else ""))
+                log("      lr %-7g aux %-5g -> %.6f  ratio %.4f  occ_max %.3f  "
+                    "(soft %.6f)%s"
+                    % (lr, aux, v, v / static, occ, v_soft,
+                       "   beats STATIC" if win else ""))
                 rows.append({"layer": li, "lr": lr, "aux": aux, "heldout": v,
+                             "heldout_soft_DIAGNOSTIC": v_soft,
                              "static": static, "ratio": v / static, "beats": bool(win),
-                             "occ_max": occ})
+                             "gate": "hard on both arms", "occ_max": occ})
+                routers_out["r%d_lr%g_aux%g" % (li, lr, aux)] =                     m.router.detach().cpu().numpy().copy()
         m.router.data.zero_()
         results[li] = {"static": static, "init": init, "power": denom,
                        "best": {"heldout": best[0], "lr": best[1], "aux": best[2]},
@@ -272,7 +308,15 @@ def main():
                         "layers_won": bw, "layers_total": bn},
            "seconds": time.time() - t0}
     out = a.out or os.path.join(OUTDIR, "h1_router_smoke.json")
+    # The trained routers themselves.  The first version of this file threw them away, so when
+    # its evaluation turned out to be mis-gated the ONLY way to re-read it was to retrain
+    # everything.  Never again: a measurement that cannot be re-scored is a measurement that
+    # must be re-run.
+    rpath = os.path.splitext(out)[0] + "_routers.npz"
+    np.savez(rpath, **routers_out)
+    rec["routers_npz"] = rpath
     json.dump(rec, open(out, "w", encoding="utf-8"), indent=1)
+    log("   wrote %s  (%d trained routers)" % (rpath, len(routers_out)))
     log("   wrote %s  [%.0fs]" % (out, rec["seconds"]))
     return 0 if any_win else 1
 

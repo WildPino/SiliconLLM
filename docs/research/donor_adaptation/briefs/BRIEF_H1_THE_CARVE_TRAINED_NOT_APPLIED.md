@@ -811,3 +811,102 @@ deciding the soft gate was unfair. It is on disk now, with the run that produced
   visible while the run is in flight rather than only at the end.
 * The null control is re-run against the repaired specification, and `h1_pack.py` will not pack
   until it fires again.
+
+---
+
+# ADDENDUM G — THE ROUTER SMOKE HAD THE SAME CONFOUND. ADDENDUM E's SELECTION IS RETIRED, AND THE RE-RUN COSTS 1.1 HOURS INSTEAD OF 33
+
+**Written and pushed BEFORE the re-run.** Addendum F found that the soft gate is worth
++0.801377 BPB by itself and repaired `G-H1` and `G-H1e`. Checking whether anything else shared
+the defect found that the router smoke — all 11.7 hours of it, and the selection addendum E
+shipped — had it too.
+
+## G.1 What was wrong
+
+`h1_router_smoke.py` never set `hard_gate`. So per cell:
+
+* the **STATIC** arm ran `set_static(pick)`, which installs gates of **exactly 1** — hard;
+* the **trained router** arm ran `m(xev)` at the default, i.e. the **renormalised soft gate**.
+
+Every `ratio` in addendum D's and addendum E's tables is therefore *soft router ÷ hard STATIC*.
+It was never a measurement of selection.
+
+**And the distortion is not a constant offset — it interacts with the parameter being chosen.**
+The soft gate's damage grows with router peakedness, because `g_e = k·p_e / Σ_sel p_j`
+amplifies a dominant group. `aux` exists precisely to keep the router flat. So:
+
+* `aux = 0` cells (collapsed, `occ_max` 0.82–1.00) were **maximally** penalised;
+* `aux = 0.01` cells (`occ_max` ≈ 0.13–0.16) were **barely** penalised.
+
+The comparison that decided what ships — balanced against collapsed — is exactly the
+comparison the artefact corrupts. This is not a small correction to a verdict; it removes the
+basis for the verdict.
+
+## G.2 What is retired, and what survives
+
+**RETIRED — may not be cited:**
+
+* addendum D.1's layer-3 table and its "GO, 4 of 12 settings";
+* addendum D.4's **grid narrowing**, which dropped eight settings for losing "by more than
+  11%" on distorted numbers;
+* addendum E.1's eight-layer table, the shipped `--router-lr 3e-4 --aux 0.01`, the "2 of 8
+  layers" shortfall, and the +2.27%/−1.43% error-mass figures;
+* addendum E's registered expectation that `G-H1e` fails, **which was derived from those
+  numbers**. It is withdrawn rather than carried forward, because a prediction inherited from a
+  void instrument is not a prediction.
+
+**SURVIVES:**
+
+* the **planted control** — the router moves on the real donor (grad 1.361e+00 / 3.983e-01).
+  It is a wiring check and is gate-independent;
+* `init` and `denom`, which are measured at a **zero** router where soft and hard coincide
+  exactly, so they were never confounded;
+* **the selection RULE of addendum D.3**, which is about eligibility and layers-won and says
+  nothing about gates. It is re-applied unchanged to the new table — and re-applying a rule
+  registered before either dataset is the strongest form this can take;
+* the **structural** reading of §E.4 — the carve's damage concentrates in deep layers (layer 24
+  = 41.1% of total, 21+24 = 60.3%). Those are `STATIC` and uncarved-power numbers, both
+  hard-gated, both unaffected.
+
+## G.3 Why the re-run is cheap, and why that matters here
+
+The smoke freezes the experts and trains only the router — yet `_quant` re-ran `r3_actsearch`
+every step: a 10-point grid over three `[8960, 1536]` tensors, ~3.3 G element-ops per forward.
+That was **92% of the file's cost**. With the experts frozen, `ste()` is a constant.
+
+> Measured on the real shape: **4.164 s/step → 0.138 s/step, 30×**, and the cached tensors are
+> `torch.equal` to what `_quant` returns. The run **asserts** that equality per layer and
+> refuses to start if it does not hold — speed is not traded against correctness on a promise.
+
+Consequence: the **full 12-setting grid on all 8 layers is ~1.1 h**, against 33 h before. So the
+re-run does **not** inherit addendum D.4's narrowing. Every setting the first pass discarded on
+distorted evidence is measured again, correctly gated. **The narrowing objection disappears
+rather than being argued about.**
+
+## G.4 What changes in the runner
+
+1. The trained arm is evaluated with `hard_gate = True`, matching STATIC. **Only the selection
+   differs.** Training stays soft — a hard gate has no router gradient.
+2. The soft number is kept per cell as a diagnostic, so the gate-form gap is measurable per
+   setting instead of being invisible.
+3. The quantisation cache, with its bit-exactness assertion.
+4. **The trained routers are SAVED** (`*_routers.npz`). The first version discarded them, which
+   is why a mis-gated *evaluation* forced a full *retrain*. A measurement that cannot be
+   re-scored is a measurement that must be re-run, and that is a defect in the harness, not
+   bad luck.
+
+## G.5 The registered prediction for the re-run
+
+Two things, written before the numbers exist:
+
+1. **More settings will beat STATIC than before**, because the handicap is removed from the
+   router arm and from nothing else.
+2. **`aux = 0` will gain more than `aux = 0.01`**, because it was penalised more. So the
+   collapsed settings may now win on ratio where they previously lost — and **rule 1 still
+   excludes them on `occ_max`, unchanged, for the reason §D.2 gave: a collapsed router is a
+   STATIC router with extra steps.** That rule was registered before any of this and is not
+   being touched now.
+
+If instead the new table looks like the old one, then the gate form was not load-bearing in the
+smoke and addendum E's selection returns on its own merits — stated here so that outcome is
+available rather than embarrassing.
