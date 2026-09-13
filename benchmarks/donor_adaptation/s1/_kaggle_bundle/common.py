@@ -72,6 +72,41 @@ def _sha(b: bytes) -> str:
     return hashlib.sha256(b).hexdigest()
 
 
+# A tokenizer is identified by what it DOES, not by the name it was loaded from: two repos can
+# ship the same BPE and one repo can change it across revisions.  Short, fixed, and covering
+# prose, code and non-ASCII, because those are the three things this corpus contains.
+_TOK_PROBE = (
+    "The quick brown fox jumps over the lazy dog." + chr(10) +
+    "def f(x):" + chr(10) + "    return x ** 2  # " +
+    chr(232) + chr(233) + " " + chr(20013) + chr(25991) + chr(10))
+
+
+def tok_fingerprint(tok) -> str:
+    """Stable 16-hex id for a tokenizer's behaviour.  Cheap: no model, no corpus.
+
+    The probe alone is NOT enough -- Qwen2.5-1.5B and Qwen2.5-Coder-7B encode it identically,
+    which is exactly the crossing E15 and E16 had to check by hand -- so the vocabulary and the
+    added/special tokens go in too.  That separates the two.  It is still only a NECESSARY
+    condition: two tokenizers with the same vocabulary can still reject different candidates in
+    make_slice.  The sufficient check is re-derivation, and get_slice does that.
+    """
+    try:
+        ids = tok(_TOK_PROBE, add_special_tokens=False)["input_ids"]
+    except Exception:
+        ids = tok.encode(_TOK_PROBE)
+    try:
+        vocab = sorted(tok.get_vocab().items(), key=lambda kv: kv[1])
+        vsig = _sha(json.dumps(vocab, ensure_ascii=True).encode())
+    except Exception:
+        vsig = "no-vocab"
+    try:
+        added = sorted(str(t) for t in tok.get_added_vocab())
+    except Exception:
+        added = []
+    return _sha(json.dumps([int(getattr(tok, "vocab_size", -1) or -1), vsig, added,
+                            [int(i) for i in ids]], ensure_ascii=True).encode())[:16]
+
+
 def make_slice(tok, part: str, n_seq: int, seq_len: int, seed: int):
     """Draw `n_seq` sequences of `seq_len` tokens from a pinned corpus half.
 
@@ -111,6 +146,7 @@ def make_slice(tok, part: str, n_seq: int, seq_len: int, seed: int):
     ids = torch.tensor(ids_all, dtype=torch.long)
     meta = {
         "part": part, "n_seq": len(ids_all), "seq_len": seq_len, "seed": seed,
+        "tok_fp_ok": [tok_fingerprint(tok)],
         "n_rejected": rejected,
         "total_scored_bytes": int(sum(byts)),
         "bytes_per_token": sum(byts) / max(1, len(ids_all) * (seq_len - 1)),
@@ -123,14 +159,77 @@ def make_slice(tok, part: str, n_seq: int, seq_len: int, seed: int):
 
 
 def get_slice(tok, part: str, n_seq: int, seq_len: int, seed: int):
-    """Disk-cached slice so every probe scores the byte-identical span."""
+    """Disk-cached slice so every probe scores the byte-identical span.
+
+    The cache key is (part, n_seq, seq_len, seed) and deliberately NOT the tokenizer: E15 and
+    E16 load these files by literal name, so renaming them would break published probes.  The
+    tokenizer is therefore CHECKED rather than keyed.
+
+    Before this, the crossing was caught by hand, once per script: E15 s4 verified the heldout
+    slice across the Qwen2.5 -> Coder tokenizer and `e16_calib_slice_check.py` verified the
+    calib slice, because make_slice's rejection loop is tokenizer-dependent and one different
+    rejection shifts every offset after it.  Both checks passed; the defect is that they were
+    manual, so the next script got the hazard back for free.
+
+    What happens here:
+
+    * Each file records `tok_fp_ok`, the fingerprints already PROVEN to reproduce it.  A caller
+      in that list is served from cache with no work.
+    * A caller not in the list is not refused and not trusted: the slice is RE-DERIVED under
+      that tokenizer and the ids and byte total compared.  Match -> the fingerprint joins the
+      list, so the cost is paid once per (file, tokenizer).  Mismatch -> RuntimeError, which is
+      the case E16 was written to look for by hand.
+    * If the corpus is not on disk to re-derive from (the Kaggle bundle ships a slice and no
+      corpus) a legacy file with no list at all is served with `tok_fp_unverified` in its meta,
+      so the fact travels into whatever JSON the probe writes; a file that DOES name other
+      tokenizers raises, because there we know it was built by a different one and cannot check.
+    """
     os.makedirs(RESULTS, exist_ok=True)
     key = f"slice_{part}_{n_seq}x{seq_len}_s{seed}.pt"
     p = os.path.join(RESULTS, key)
-    if os.path.exists(p):
-        d = torch.load(p)
-        return d["ids"], d["byts"], d["meta"]
-    ids, byts, meta = make_slice(tok, part, n_seq, seq_len, seed)
+    fp = tok_fingerprint(tok)
+
+    if not os.path.exists(p):
+        ids, byts, meta = make_slice(tok, part, n_seq, seq_len, seed)
+        torch.save({"ids": ids, "byts": byts, "meta": meta}, p)
+        return ids, byts, meta
+
+    d = torch.load(p)
+    ids, byts, meta = d["ids"], d["byts"], d["meta"]
+    ok = list(meta.get("tok_fp_ok") or ([meta["tok_fp"]] if meta.get("tok_fp") else []))
+    if fp in ok:
+        return ids, byts, meta
+
+    try:
+        _, _, meta2 = make_slice(tok, part, n_seq, seq_len, seed)
+    except Exception as e:                                   # corpus not present (bundle)
+        if ok:
+            raise RuntimeError(
+                "CANNOT VERIFY %s: it was built by tokenizer(s) %s, this caller is %s, and the "
+                "corpus is not available to re-derive from (%s: %s).  Returning it would risk "
+                "scoring one model's text with another model's ids."
+                % (key, ",".join(ok), fp, type(e).__name__, e))
+        meta = dict(meta)
+        meta["tok_fp_unverified"] = True
+        meta["tok_fp_caller"] = fp
+        print("WARN  %s predates the tokenizer fingerprint and the corpus is not available to "
+              "re-derive it (%s: %s).  Proceeding UNVERIFIED." % (key, type(e).__name__, e))
+        return ids, byts, meta
+
+    same_ids = meta2["ids_sha256"] == meta["ids_sha256"]
+    same_bytes = int(meta2["total_scored_bytes"]) == int(meta["total_scored_bytes"])
+    if not (same_ids and same_bytes):
+        raise RuntimeError(
+            "SLICE DOES NOT CROSS: %s re-derives to ids %s / %d bytes under tokenizer %s, but "
+            "holds ids %s / %d bytes from %s.  This is the hazard E16 was written to check, and "
+            "here it FAILED." % (
+                key, meta2["ids_sha256"][:16], int(meta2["total_scored_bytes"]), fp,
+                meta["ids_sha256"][:16], int(meta["total_scored_bytes"]),
+                ",".join(ok) or "an unrecorded tokenizer"))
+
+    meta = dict(meta)
+    meta["tok_fp_ok"] = ok + [fp]
+    meta.pop("tok_fp_unverified", None)
     torch.save({"ids": ids, "byts": byts, "meta": meta}, p)
     return ids, byts, meta
 
