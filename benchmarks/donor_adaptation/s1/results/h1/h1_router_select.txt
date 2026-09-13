@@ -1,0 +1,38 @@
+== H1 router selection -- addendum D.3, applied verbatim ==
+   layers [3, 6, 9, 12, 15, 18, 21, 24]   settings measured on all 8: 4   partial (dropped): ['lr=0.0003,aux=0.1', 'lr=0.001,aux=0.1', 'lr=0.003,aux=0', 'lr=0.003,aux=0.01', 'lr=0.003,aux=0.1', 'lr=0.01,aux=0', 'lr=0.01,aux=0.01', 'lr=0.01,aux=0.1']
+
+   layer   power     STATIC    STATIC/power
+       3   0.13067   0.108585   0.8310
+       6   0.12701   0.109205   0.8598
+       9   0.10499   0.093466   0.8902
+      12   0.09241   0.077691   0.8408
+      15   0.08570   0.072258   0.8431
+      18   0.16527   0.134604   0.8145
+      21   0.38677   0.287808   0.7441
+      24   0.97868   0.615886   0.6293
+   TOTAL STATIC ERROR MASS 1.499502   (layer 24 alone = 41.1%)
+
+   setting             layers won      mean occ_max  elig  mean ratio  error mass   vs STATIC
+   lr=0.0003,aux=0     2 of 8 [3, 24]    0.7610        no    1.0082      1.478007   -1.4335%
+   lr=0.0003,aux=0.01  2 of 8 [3, 24]    0.3014        YES   1.0379      1.533524   +2.2689%
+   lr=0.001,aux=0      1 of 8 [3]        0.8096        no    1.0996      1.810509   +20.7407%
+   lr=0.001,aux=0.01   1 of 8 [3]        0.2930        YES   1.0714      1.615651   +7.7458%
+
+   rule 1 eligible: lr=0.0003,aux=0.01, lr=0.001,aux=0.01
+   rule 2 most layers won among eligible: lr=0.0003,aux=0.01 (2)
+   rule 3 tie-break by mean ratio: not needed
+
+   SHIPPED: lr=0.0003,aux=0.01
+   RULE 4 FIRES -- SHORTFALL: it beats STATIC on 2 of 8 layers,
+   below the majority of 5.  Recorded as measured.
+
+   -- NOT part of the rule, reported beside it --
+   score partner (E14 s3): total error mass +2.2689% vs STATIC -- WORSE in aggregate
+   best aggregate error mass of ANY setting: lr=0.0003,aux=0 -1.4335% (eligible: NO -- collapsed)
+   rule-1 averaging sensitivity: wins on layers whose OWN occ_max <= 0.5
+      lr=0.0003,aux=0     won [3, 24]     clean []          occ at wins ['0.818', '0.998']
+      lr=0.0003,aux=0.01  won [3, 24]     clean [3]         occ at wins ['0.161', '0.998']
+      lr=0.001,aux=0      won [3]         clean []          occ at wins ['0.909']
+      lr=0.001,aux=0.01   won [3]         clean [3]         occ at wins ['0.162']
+   under per-layer eligibility the same rule would ship: lr=0.0003,aux=0.01
+   -> SAME setting; the defect does not move the answer.

@@ -586,3 +586,122 @@ including both `aux = 0` cells that §D.3 rule 1 makes **ineligible**. So the re
 can still return NO-GO for every eligible setting, and the eligible pair can still lose to the
 collapsed pair without that changing what ships. `--steps 300`, `--cap 4096` and the seeds are
 held **identical to layer 3**, so all eight layers stay comparable cell by cell.
+
+---
+
+# ADDENDUM E — the rule was registered, the eight layers landed, and the rule FIRES ITS SHORTFALL CLAUSE
+
+All eight layers are measured. `results/h1/h1_router_smoke_L3.json` (12,685 s) and
+`results/h1/h1_router_smoke_L6-24.json` (29,316 s), 11.7 h of CPU in total, both with the
+smoke's own planted control FIRING first (router gradient `1.361e+00` and `3.983e-01`, router
+moved `1.000e-03`, on the real donor).
+
+§D.3's rule is executed by `s1/h1_router_select.py` — a script that makes **no choices of its
+own**; it reads the two JSONs and applies the five clauses in order. Its output is frozen at
+`results/h1/h1_router_select.txt`.
+
+## E.1 The eight-layer table
+
+| setting | layers won | mean `occ_max` | eligible | mean ratio | Σ error | vs STATIC |
+|---|---|---|---|---|---|---|
+| lr 3e-4, aux 0 | **2 of 8** — 3, 24 | 0.7610 | no | 1.0082 | 1.478007 | **−1.43%** |
+| **lr 3e-4, aux 0.01** | **2 of 8** — 3, 24 | **0.3014** | **YES** | 1.0379 | 1.533524 | **+2.27%** |
+| lr 1e-3, aux 0 | 1 of 8 — 3 | 0.8096 | no | 1.0996 | 1.810509 | +20.74% |
+| lr 1e-3, aux 0.01 | 1 of 8 — 3 | 0.2930 | YES | 1.0714 | 1.615651 | +7.75% |
+
+**Rule 1** → eligible = the two `aux = 0.01` settings. **Rule 2** → `lr 3e-4, aux 0.01`, 2 layers.
+**Rule 3** → not needed. **Rule 4 FIRES**: 2 of 8 is below the majority of 5.
+
+> **SHIPPED: `--router-lr 0.0003 --aux 0.01`, with the shortfall stated — it beats STATIC on
+> two of eight layers and loses on six.**
+
+**Rule 5 does not fire** (settings do beat STATIC on layers 3 and 24), so addendum A
+consequence 3 does not fire either: **H1 launches.** §E.4 says on what basis.
+
+## E.2 THE RUNNER'S OWN HEADLINE IS NOT THE ANSWER, and this is the E43 trap again
+
+`h1_router_smoke.py` printed `GO. Best setting: --router-lr 0.0003 --aux 0`. That line is
+**superseded and must not be quoted.** Three reasons, all structural:
+
+1. It ranks by layers-won only. The occupancy criterion lives in this brief, not in the script
+   — deliberately, since §D.3 was written after the script.
+2. The L6–24 process **never saw layer 3**, so its "1 of 7" tallies are over the wrong
+   denominator.
+3. Its 1-of-7 four-way tie was broken by list order, not by anything measured.
+
+This is the same class of trap as E43's stale `G-E43A ... VOID` runner line: **a script's
+printed verdict outlives the specification it was written against.** Recorded here, in
+`results/h1/h1_router_select.txt`, and in the log note beside the JSON.
+
+## E.3 THE RANK METRIC AND THE SCORE METRIC DISAGREE, and I am reporting both
+
+E14 §3: every SCORE metric needs a RANK partner. Here the pair is registered (layers-won) and
+computed (Σ error over the 8 layers) — and **they point opposite ways**:
+
+* The shipped eligible setting is **+2.27% WORSE than STATIC in aggregate error mass.**
+* The only setting that is *better* in aggregate (**−1.43%**) is `aux = 0`, which is
+  **ineligible** — mean `occ_max` 0.761, and 0.998 on layer 24.
+
+E14 §6 forbids promoting a post-hoc metric to a gate, so Σ error does **not** change what
+ships. But it changes what may be *claimed*: **this smoke does not establish that a trained
+router beats a static one in this regime.** It establishes that a trained router can beat
+STATIC on 2 of 8 layers while losing aggregate error, and that the version which wins
+aggregate error has collapsed onto one group. Anyone reading only §E.1's "SHIPPED" line would
+have the wrong impression, which is why this section is not a footnote.
+
+**A defect in my own rule, found by applying it.** Rule 1 averages `occ_max` *across* layers,
+so a setting can pass the bar while collapsing *on* a layer — exactly what the shipped setting
+does: `occ_max` 0.161 on layer 3 (a clean win) and **0.998 on layer 24** (a collapsed one). Its
+two wins are one of each. Sensitivity run in the same script: under **per-layer** eligibility
+the rule ships **the same setting**, because every alternative loses its wins too. The defect
+is real, it is recorded, and **it is not load-bearing here** — I am not re-specifying the rule
+after seeing the data.
+
+## E.4 What the eight layers say that the rule did not ask about — WHERE THE CARVE ACTUALLY HURTS
+
+| layer | uncarved power | STATIC error | error / power |
+|---|---|---|---|
+| 3 | 0.13067 | 0.108585 | 0.8310 |
+| 6 | 0.12701 | 0.109205 | 0.8598 |
+| 9 | 0.10499 | 0.093466 | 0.8902 |
+| 12 | 0.09241 | 0.077691 | 0.8408 |
+| 15 | 0.08570 | 0.072258 | 0.8431 |
+| 18 | 0.16527 | 0.134604 | 0.8145 |
+| 21 | 0.38677 | 0.287808 | 0.7441 |
+| 24 | 0.97868 | 0.615886 | **0.6293** |
+
+Two facts, neither of which H1's design anticipated:
+
+1. **The damage is nowhere near evenly spread.** Layer 24 alone carries **41.1%** of the total
+   carve error and layers 21+24 carry **60.3%**, because their uncarved output power is 3–8×
+   the mid-stack's. `H1_LAYERS = (3, 6, 9, 12, 15, 18, 21, 24)` is an *even* spread over a
+   *very uneven* target.
+2. **Relative damage FALLS with depth** (0.89 at layer 9 → 0.63 at layer 24) while absolute
+   damage rises. The carve is relatively kindest exactly where it costs most.
+
+Both are single-run, single-donor observations on a frozen-expert proxy. They are **not** gates
+and nothing is re-planned on them; they are logged because they are the first map of where the
+`k = 16` carve's error lives, and they name an obvious follow-up (**a depth-weighted layer
+choice**) that H1 will not take, because changing `H1_LAYERS` now would break comparability
+with the `applied-8L` anchor 1.096636 that §C registered.
+
+## E.5 Why H1 still launches on a 2-of-8 router result
+
+The honest statement of what was and was not shown:
+
+* The smoke is a **frozen-expert local proxy**: it trains the router alone against a per-layer
+  reconstruction target, with the experts held fixed. H1's real run trains **both**, against LM
+  loss. A router that cannot help frozen experts may still help jointly — it changes *which
+  experts receive gradient*, which is the one mechanism the proxy is structurally blind to.
+* That cuts both ways and is stated as such: it is equally the reason this GO is **weak
+  evidence**, and it is why `h1_qat.py`'s refusal to start at `--router-lr 0` (addendum A
+  cons. 2) stands rather than being relaxed to "just freeze the router".
+* **H1's primary gate is `G-H1`, not `G-H1e`.** `G-H1` asks whether the *trained* carve beats
+  `applied-8L` 1.096636 — that is about the **experts**. The router smoke only ever chose two
+  hyper-parameters.
+
+**Registered prediction, before the T4 hours are spent:** on this evidence I expect **`G-H1e`
+to FAIL** — the trained router will not beat STATIC end-to-end. I am writing that down now so
+that a failure cannot later be presented as expected-all-along, and so that a *pass* counts for
+something: it would mean the joint regime does what the frozen-expert proxy says it cannot,
+which is a result about MoE on this branch and not a hyper-parameter.
