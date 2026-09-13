@@ -198,6 +198,14 @@ def main():
         m = mods[li]
         xtr, xev = xc[li], xe[li]
         with torch.no_grad():
+            # ADDENDUM G, G.2: `denom`/`init` are claimed UNCONFOUNDED because at a ZERO
+            # router the soft gate is exactly 1 -- p is uniform, so k*p/sum_sel p = 1 for
+            # every k.  That claim is true only while the router IS zero here, so assert it
+            # rather than rely on the loop resetting it below.
+            if float(m.router.detach().abs().max()) != 0.0:
+                raise SystemExit("layer %d: the router is NOT zero where the uncarved target "
+                                 "and `init` are measured.  Soft and hard no longer coincide "
+                                 "and both become gate-confounded.  STOP." % li)
             k0 = m.k
             m.k = m.E
             ttr, tev = m(xtr), m(xev)
@@ -265,7 +273,8 @@ def main():
                              "heldout_soft_DIAGNOSTIC": v_soft,
                              "static": static, "ratio": v / static, "beats": bool(win),
                              "gate": "hard on both arms", "occ_max": occ})
-                routers_out["r%d_lr%g_aux%g" % (li, lr, aux)] =                     m.router.detach().cpu().numpy().copy()
+                routers_out["r%d_lr%g_aux%g" % (li, lr, aux)] = (
+                    m.router.detach().cpu().numpy().copy())
         m.router.data.zero_()
         results[li] = {"static": static, "init": init, "power": denom,
                        "best": {"heldout": best[0], "lr": best[1], "aux": best[2]},
@@ -287,8 +296,13 @@ def main():
     any_win = bw > 0
     log("")
     if any_win:
-        log("   GO.  Best setting: --router-lr %g --aux %g  (%d of %d layers beat STATIC)"
-            % (blr, baux, bw, bn))
+        log("   GO.  Best single-line ranking (layers won, ties by lr): "
+            "--router-lr %g --aux %g  (%d of %d layers beat STATIC)" % (blr, baux, bw, bn))
+        log("   *** THIS LINE IS NOT THE DECISION. ***  The registered selection rule lives in")
+        log("   the brief (addendum D.3), not in this script: it ALSO applies an occupancy")
+        log("   eligibility bar and a majority clause, and the first time the two were compared")
+        log("   they disagreed.  Run  h1_router_select.py  and read its verdict; h1_pack.py")
+        log("   reads that file and nothing typed by hand.")
         if bw < bn:
             log("   PARTIAL: it does NOT win on every layer.  Recorded as measured; G-H1e is")
             log("   still scored end-to-end and may still fail there.")
