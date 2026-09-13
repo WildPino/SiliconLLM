@@ -136,6 +136,8 @@ single 2.8 h session would have declared H0 dead. Brief §7.
    bf16, which this card reports as supported.
    Individual `step N DECLINED by the GradScaler` lines at warm-up are **normal**, not errors.
 4. **`nonfinite` climbs above ~1% of microbatches.** fp16 loss scaling is not holding.
+   (The progress line reads `BPB soft ... hard ... (gap ...)`. **The hard one is the gate.**
+   A large gap is expected at the start and is not a fault.)
 5. **The job dies on attention.** The script asserts `sdpa` at load. Do not work around it:
    `eager` fp16 on a T4 goes non-finite at `layers.0.self_attn.o_proj`.
 
@@ -162,10 +164,14 @@ the instrument every published number in this programme used.
 | donor, untouched | 0.767595 |
 | H1's start line — H0 run 3 | 0.810022 |
 | the 8 layers ternarised, NOT carved | 0.947851 |
-| **`applied-8L` — the matched post-hoc control** | **1.096636** |
-| **`G-H1` passes iff trained-8L** | **< 1.096636** |
+| **`applied-8L` — the matched post-hoc control, HARD gate** | **1.096636** |
+| **`G-H1` passes iff trained-8L, HARD gate** | **< 1.096636** |
 
-Ordinal, no tolerance. The bands below it are `TRAINING-HELPS` [0.947851, 1.096636),
+Ordinal, no tolerance. **The gate is scored with the HARD `{0,1}` gate** — the one `engine.c`
+runs and the one the control uses (addendum F). Training itself stays on the soft gate, because
+a hard gate has no gradient to the router; the run prints **both** numbers so the gap is
+visible while it is in flight. On an untrained bundle that gap is **+0.80 BPB**, so do not be
+alarmed by a large soft number — watch the hard one. The bands below it are `TRAINING-HELPS` [0.947851, 1.096636),
 `CARVE-IS-TRAINABLE` (0.810022, 0.947851), `CARVE-IS-FREE` <= 0.810022.
 
 ## What is already known to be against us, stated before the hours are spent
@@ -263,8 +269,11 @@ def main():
             log("and zero router.  It does not, so h1_eval.py's arms are not isolating what")
             log("their names claim and the decomposition would be an attribution artefact.")
             return 2
-        log("     (gate-form is the price of the soft gate with ZERO training in the model --")
-        log("      the term H1's own result has to beat to mean anything)")
+        log("     gate-form %+.6f is the price of the SOFT gate with zero training."
+            % d["gate_form"])
+        log("     Addendum F: that is why G-H1 is scored HARD -- engine.c runs the hard gate")
+        log("     and applied-8L is hard, so a soft score would charge H1 that much before")
+        log("     training counted.  The term stays as the train/eval mismatch.")
     elif os.environ.get("H1_SKIP_NULLCHECK") == "1":
         log("  *** WARNING: packing WITHOUT h1_eval.py's null control (H1_SKIP_NULLCHECK=1).")
         log("  *** The decomposition is UNVERIFIED and may attribute the delta to the wrong")
@@ -323,6 +332,10 @@ def main():
                "gates_fired": {"selftest_T1_T7": True,
                                "G_H1d": True, "G_H1a_real_shape": True,
                                "null_control_decomposition": os.path.exists(nulj)},
+               "gate_form_price_soft_vs_hard": (
+                   json.load(open(nulj, encoding="utf-8"))
+                   ["decomposition_DIAGNOSTIC_NOT_A_GATE"]["gate_form"]
+                   if os.path.exists(nulj) else None),
                "applied_meta": appj, "select_meta": selj, "null_meta": nulj,
                "files": files},
               open(os.path.join(OUT, "MANIFEST.json"), "w", encoding="utf-8"), indent=1)

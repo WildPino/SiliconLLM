@@ -157,6 +157,17 @@ docs/research/LLM_Reimagined_CPU_Native_Exploration_20260626/
 # not fire, so nothing is lost by not storing it.
 /benchmarks/donor_adaptation/s1/_h0_bundle/
 
+# H1's assembled T4 bundle: 419 MB, of which 417 MB is h0_trained3.npz + h1_train.npz --
+# both already ignored or living outside the repo -- plus copies of scripts that ARE tracked.
+# Same anchoring rule as _h0_bundle: the PLACE, not the type.  h1_pack.py rebuilds it and
+# REFUSES to unless the self-test runs and passes, G-H1d/G-H1a fired, applied-8L is the
+# registered number, the router selection says launch and the null control read zero/zero --
+# so the bundle is a function of tracked inputs and nothing is lost by not storing it.
+# RUN.md and MANIFEST.json ARE tracked: they are the documentation and the hashes.
+/benchmarks/donor_adaptation/s1/_h1_bundle/*
+!/benchmarks/donor_adaptation/s1/_h1_bundle/RUN.md
+!/benchmarks/donor_adaptation/s1/_h1_bundle/MANIFEST.json
+
 # The CONTINUATION bundle (run 3), assembled by hand rather than by h0_pack.py -- whose init
 # gate asserts tf == 28 and is right to, for a FRESH launch.  Same 417 MB of .npz, same
 # anchoring rule.  Unlike the bundle above this one is NOT rebuildable: h0_start.npz is run 2's

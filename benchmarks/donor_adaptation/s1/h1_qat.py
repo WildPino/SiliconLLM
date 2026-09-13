@@ -549,8 +549,18 @@ def g_h1e(model, mods, ids_cal, ids_ev, dev, cuda):
     and it prices the only thing a router can sell -- the per-token decision.  If the router
     cannot beat a fixed selection it is not earning its 5.1% of the charged weights.
 
+    ADDENDUM F: BOTH ARMS ARE HARD-GATED.  `set_static` has always installed gates of exactly
+    1, so scoring the router arm with the renormalised soft gate made this a comparison of GATE
+    FORM and not of selection: on an untrained bundle with E37's own router it read 5.564279
+    against STATIC's 3.435791 nats/token and "FAILED", with nothing trained at all.  Only the
+    SELECTION -- per-token against fixed -- may differ here.  The caller's `hard_gate` state is
+    saved and restored.
+
     Returns (router_nats_per_token, static_nats_per_token, fires).
     """
+    prev_hard = [getattr(m, "hard_gate", False) for _, m in mods]
+    for _, m in mods:
+        m.hard_gate = True
     for _, m in mods:
         m.arm_mass(True)
     heldout_nats(model, ids_cal, dev, cuda)             # calibration pass, mass only
@@ -565,8 +575,9 @@ def g_h1e(model, mods, ids_cal, ids_ev, dev, cuda):
     try:
         s_tot, s_n = heldout_nats(model, ids_ev, dev, cuda)   # STATIC
     finally:
-        for _, m in mods:
+        for (_, m), ph in zip(mods, prev_hard):
             m.set_static(None)
+            m.hard_gate = ph
     r, s = r_tot / max(1, r_n), s_tot / max(1, s_n)
     return r, s, bool(r < s), {li: picks[li].tolist() for li in picks}
 
@@ -712,7 +723,8 @@ def main():
     bpb0 = n0 / (LN2 * a.bpt * t0n)
     log("")
     log("   step 0 held-out BPB (fp16, GPU, PROGRESS not the gate): %.6f" % bpb0)
-    log("   the GATE is trained BPB < applied-8L, re-measured on CPU fp32 by h1_eval.py")
+    log("   the GATE is trained BPB < applied-8L, HARD-gated (addendum F), re-measured on")
+    log("   CPU fp32 by h1_eval.py.  The soft number is a diagnostic, not the gate.")
     log("")
 
     # ---- G-H1b / G-H1c: the first update the optimizer APPLIED, and the masters moved ------
@@ -784,12 +796,22 @@ def main():
             nt, tn = heldout_nats(model, ev, dev, cuda)
             bpb = nt / (LN2 * a.bpt * tn)
             occ = [float(m._occ.max()) for _, m in mods if m._occ is not None]
-            log("  step %5d/%d  loss %.4f  aux %.3f  BPB %.6f  %5.0fs  lr %.2e/%.2e  "
-                "occ_max %.3f  nonfinite %d"
-                % (step, a.steps, run_loss / max(1, nb), run_aux / max(1, nb), bpb, el,
-                   sched.get_last_lr()[0], sched.get_last_lr()[1],
+            # addendum F: the HARD-gated number is the deployable one and is what h1_eval.py
+            # scores G-H1 on, so print it here too -- watching only the soft one would show a
+            # run failing by ~0.8 BPB of gate form that the engine never pays.
+            for _, m in mods:
+                m.hard_gate = True
+            nth, tnh = heldout_nats(model, ev, dev, cuda)
+            for _, m in mods:
+                m.hard_gate = False
+            bpb_hard = nth / (LN2 * a.bpt * tnh)
+            log("  step %5d/%d  loss %.4f  aux %.3f  BPB soft %.6f hard %.6f (gap %+.4f)  "
+                "%5.0fs  lr %.2e/%.2e  occ_max %.3f  nonfinite %d"
+                % (step, a.steps, run_loss / max(1, nb), run_aux / max(1, nb), bpb, bpb_hard,
+                   bpb - bpb_hard, el, sched.get_last_lr()[0], sched.get_last_lr()[1],
                    max(occ) if occ else float("nan"), nonfinite))
-            hist.append({"step": step, "bpb_fp16_gpu": bpb, "loss": run_loss / max(1, nb),
+            hist.append({"step": step, "bpb_fp16_gpu": bpb, "bpb_fp16_gpu_hard": bpb_hard,
+                         "loss": run_loss / max(1, nb),
                          "aux": run_aux / max(1, nb), "occ_max": max(occ) if occ else None,
                          "seconds": el})
             run_loss, run_aux, nb = 0.0, 0.0, 0

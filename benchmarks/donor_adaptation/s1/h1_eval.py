@@ -231,23 +231,53 @@ def main():
         % (n_ffn, os.path.basename(a.labels)))
 
     # ---- the wiring gates, on the REAL shape ------------------------------------------------
+    # G-H1a IS ONLY BIT-IDENTICAL WHERE THE GATES ARE EXACTLY 1, and that is TWO situations,
+    # not one.  Under the HARD gate every selected group passes at 1.0 whatever the router
+    # says, so k=E must reproduce the uncarved forward for ANY router.  Under the SOFT gate
+    # g_e = k*p_e / sum_sel p_j, which is 1 at k=E only when p is uniform -- i.e. only at a
+    # ZERO router.  Checking a fitted router under the soft gate asks for an identity that
+    # cannot hold, and the first version of this file did exactly that: the NULL CONTROL
+    # caught it on its first use, before any trained weights existed.  Both are checked.
+    m0 = mods[0][1]
     x = torch.randn(1, 6, model.config.hidden_size)
-    same, dmax = H1.g_h1a(mods[0][1], x)
-    live, ldmax = H1.carve_is_live(mods[0][1], x)
-    log("   G-H1a  k=E bit-identical to uncarved : %s  (max|d| %.1e)"
-        % ("FIRES" if same else "*** FAILS ***", dmax))
-    log("   carve actually masks at k=%-3d        : %s  (max|d| %.1e)"
+    m0.hard_gate = True
+    same_h, dmax_h = H1.g_h1a(m0, x)
+    m0.hard_gate = False
+    saved_r = m0.router.detach().clone()
+    m0.router.data.zero_()
+    m0.invalidate()
+    same_s, dmax_s = H1.g_h1a(m0, x)
+    m0.router.data.copy_(saved_r)
+    m0.invalidate()
+    live, ldmax = H1.carve_is_live(m0, x)
+    log("   G-H1a  k=E identical, HARD gate, any router : %s  (max|d| %.1e)"
+        % ("FIRES" if same_h else "*** FAILS ***", dmax_h))
+    log("   G-H1a  k=E identical, SOFT gate, router=0   : %s  (max|d| %.1e)"
+        % ("FIRES" if same_s else "*** FAILS ***", dmax_s))
+    log("   carve actually masks at k=%-3d               : %s  (max|d| %.1e)"
         % (a.k, "FIRES" if live else "*** FAILS ***", ldmax))
+    same = same_h and same_s
     if not same or not live:
         raise SystemExit("A wiring gate FAILS on the real shape.  The number this run would "
                          "print is not a measurement of the carve.  STOP.")
 
-    # ---- THE GATE ---------------------------------------------------------------------------
+    # ---- THE GATE, and it is the HARD-gated arm -- addendum F --------------------------------
+    # The soft gate costs +0.801377 BPB by ITSELF on an untrained bundle (the null control),
+    # and engine.c runs the hard gate.  Scoring G-H1 soft would charge H1 ~0.80 BPB of gate
+    # form before training counted, against a control that is hard, for an object that cannot
+    # ship.  Both are measured; the HARD one is the gate.
     for _, m in mods:
         m.k, m.hard_gate = a.k, False
+    rows["trained-8L-soft"] = bpb(model, ids, nb)
+    log("   trained-8L-soft %.6f   (k = %d, trained router, SOFT gate -- DIAGNOSTIC)"
+        % (rows["trained-8L-soft"], a.k))
+    for _, m in mods:
+        m.hard_gate = True
     rows["trained-8L"] = bpb(model, ids, nb)
-    log("   trained-8L  %.6f   (k = %d, trained router, SOFT gate)  <- THE GATE NUMBER"
+    log("   trained-8L      %.6f   (k = %d, trained router, HARD gate)  <- THE GATE NUMBER"
         % (rows["trained-8L"], a.k))
+    log("   train/eval gap  %+.6f   (soft minus hard: what the engine DISCARDS)"
+        % (rows["trained-8L-soft"] - rows["trained-8L"]))
 
     # ---- the additive decomposition, DIAGNOSTIC ----------------------------------------------
     decomp = None
@@ -256,11 +286,12 @@ def main():
             log("   decomposition SKIPPED: %s absent" % a.routers)
         else:
             saved = {li: m.router.detach().clone() for li, m in mods}
-            for _, m in mods:
-                m.hard_gate = True
-            rows["arm-ER"] = bpb(model, ids, nb)
-            log("   arm-ER      %.6f   (trained experts + trained router + HARD gate)"
-                % rows["arm-ER"])
+            # arm-ER IS the hard-gated trained arm measured just above -- same weights, same
+            # router, same gate.  Reusing it costs one fewer pass and, more to the point,
+            # makes the decomposition exact by construction rather than by luck.
+            rows["arm-ER"] = rows["trained-8L"]
+            log("   arm-ER      %.6f   (trained experts + trained router + HARD gate "
+                "-- same as the gate arm)" % rows["arm-ER"])
             rz = np.load(a.routers)
             for li, m in mods:
                 w = torch.from_numpy(rz["r%d" % li]).float()
@@ -278,30 +309,37 @@ def main():
                 m.hard_gate = False
             decomp = {"experts": rows["arm-E"] - applied,
                       "router": rows["arm-ER"] - rows["arm-E"],
-                      "gate_form": rows["trained-8L"] - rows["arm-ER"]}
-            tot = rows["trained-8L"] - applied
+                      "gate_form": rows["trained-8L-soft"] - rows["arm-ER"]}
+            tot = rows["trained-8L-soft"] - applied
             resid = abs(sum(decomp.values()) - tot)
             log("")
-            log("   DECOMPOSITION of %+.6f (trained-8L - applied-8L), DIAGNOSTIC not a gate:"
+            log("   DECOMPOSITION of %+.6f (trained-8L-SOFT - applied-8L), DIAGNOSTIC:"
                 % tot)
             log("      experts trained   %+.6f" % decomp["experts"])
             log("      router trained    %+.6f" % decomp["router"])
             log("      soft vs hard gate %+.6f" % decomp["gate_form"])
             log("      (additive by construction; residual %.1e)" % resid)
-            if decomp["gate_form"] < 0 and decomp["experts"] >= 0 and decomp["router"] >= 0:
-                log("      READ THIS CAREFULLY: the improvement is the GATE FORM, not")
-                log("      training.  A post-hoc carve given the soft gate would get the")
-                log("      same thing for free, and H1's claim would not stand.")
+            log("      the first two terms are the GATE's own decomposition (both hard);")
+            log("      the third is the train/eval mismatch the engine discards.")
+            if decomp["experts"] >= 0 and decomp["router"] >= 0:
+                log("      NOTE: neither training term is negative, so nothing H1 trained")
+                log("      improved the deployable arm.  G-H1 cannot pass on this reading.")
 
     # ---- G-H1e, re-measured in fp32 ------------------------------------------------------------
     gh1e = None
     if not a.no_gh1e:
+        # addendum F: BOTH arms hard.  STATIC always had gates exactly 1, so a soft router arm
+        # made G-H1e a gate-form comparison -- the null control read 5.564279 vs 3.435791 with
+        # ZERO training.  Only the SELECTION may differ.
+        for _, m in mods:
+            m.hard_gate = True
         ids_cal, _, meta_cal = C.get_slice(tok, "calib", 32, 512, 42424)
         r, s, fires_e, picks = H1.g_h1e(model, mods, ids_cal, ids, "cpu", False)
         gh1e = {"router_nats": r, "static_nats": s, "fires": bool(fires_e),
+                "gate": "hard on BOTH arms (addendum F)",
                 "calib_slice": meta_cal, "static_groups": picks}
         log("")
-        log("   G-H1e (fp32, this box)  router %.6f vs STATIC %.6f nats/token  ->  %s"
+        log("   G-H1e (fp32, HARD both arms)  router %.6f vs STATIC %.6f nats/token -> %s"
             % (r, s, "FIRES" if fires_e else "FAILS"))
         log("      addendum E registered the expectation that this FAILS: the CPU smoke gave")
         log("      2 of 8 layers and +2.27%% aggregate error against STATIC.  A PASS here is a")
@@ -336,14 +374,19 @@ def main():
            "bpb": rows, "vs_chance": {k: v - CHANCE for k, v in rows.items()},
            "anchors": {"intact": INTACT, "h0_run3": H0_RUN3, "ternary_8L": TERNARY_8L,
                        "applied_8L": applied, "chance": CHANCE},
-           "G_H1": {"metric": "heldout BPB, CPU fp32, frozen slice",
+           "G_H1": {"metric": "heldout BPB, CPU fp32, frozen slice, HARD gate (add. F)",
                     "threshold": applied, "value": trained,
                     "delta": trained - applied, "passes": bool(passes),
                     "ordinal": True, "band": band},
-           "G_H1a_real_shape": {"bit_identical": bool(same), "max_abs_diff": dmax},
+           "G_H1a_real_shape": {"bit_identical": bool(same),
+                                "hard_gate_any_router": {"bit_identical": bool(same_h),
+                                                         "max_abs_diff": dmax_h},
+                                "soft_gate_zero_router": {"bit_identical": bool(same_s),
+                                                          "max_abs_diff": dmax_s}},
            "carve_is_live": {"differs": bool(live), "max_abs_diff": ldmax},
            "G_H1e_fp32": gh1e,
            "decomposition_DIAGNOSTIC_NOT_A_GATE": decomp,
+           "train_eval_gap_soft_minus_hard": rows["trained-8L-soft"] - rows["trained-8L"],
            "train_meta": meta_train, "seconds": time.time() - t0}
     out = a.out or os.path.join(OUTDIR, "h1_eval_%s.json" % tag.replace(os.sep, "_"))
     json.dump(rec, open(out, "w", encoding="utf-8"), indent=1)

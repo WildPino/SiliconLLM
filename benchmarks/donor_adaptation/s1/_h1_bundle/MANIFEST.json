@@ -1,0 +1,86 @@
+{
+ "brief": "briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md",
+ "stage": "H1",
+ "budget_gpu_hours": 5.6,
+ "sessions": 2,
+ "gate": {
+  "metric": "heldout_BPB_cpu_fp32",
+  "threshold": 1.096636,
+  "ordinal": true,
+  "start_h0_run3": 0.810022,
+  "ternary_8L": 0.947851,
+  "dense": 0.767595
+ },
+ "command": {
+  "steps": 4000,
+  "bs": 2,
+  "accum": 8,
+  "lr": "2e-4",
+  "every": 250,
+  "hours": 2.8,
+  "seed1": 1717,
+  "seed2": 2718,
+  "rlr": "0.0003",
+  "aux": "0.01",
+  "budget": 5.6,
+  "window": 40,
+  "bundle_mb": 352.967686
+ },
+ "router_setting": {
+  "router_lr": 0.0003,
+  "aux": 0.01,
+  "chosen_by": "addendum D.3, h1_router_select.py",
+  "layers_won": [
+   3,
+   24
+  ],
+  "rule4_shortfall": true,
+  "G_H1e_expected": "FAIL (addendum E, registered)"
+ },
+ "gates_fired": {
+  "selftest_T1_T7": true,
+  "G_H1d": true,
+  "G_H1a_real_shape": true,
+  "null_control_decomposition": false
+ },
+ "applied_meta": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_applied_8L.json",
+ "select_meta": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_router_select.json",
+ "null_meta": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_eval_NULLCONTROL.json",
+ "files": {
+  "h1_qat.py": {
+   "sha256": "4de842dde4e6228f9038e6950cf67b3aba4d2075ba92e746079b6807e9be6696",
+   "bytes": 43754,
+   "from": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\h1_qat.py"
+  },
+  "h0_trained3.npz": {
+   "sha256": "dd62482d65accb34129a7b7a3f8baf75b0ccf3c4fdf2481233f1b9ce823927d8",
+   "bytes": 352967686,
+   "from": "D:/_ktmp/h0_run3_final/h0_trained3.npz"
+  },
+  "labels_E256.npz": {
+   "sha256": "c39d0740b7f754daf168d811c77120c5394ae677e3882fef208d331d8c333c9c",
+   "bytes": 859537,
+   "from": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\d0c_labels\\labels_E256.npz"
+  },
+  "h1_actstats.npz": {
+   "sha256": "49fd2f659a37237ead850ea86057664b74db4f2286dc7146abf87e197e6887fe",
+   "bytes": 1189630,
+   "from": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_actstats.npz"
+  },
+  "h1_train.npz": {
+   "sha256": "0cdaa28f405c3a8c6a8589af8e88788b33131bc7d4f1096da6c1fedf78caa9d9",
+   "bytes": 64000260,
+   "from": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h0\\h0_train.npz"
+  },
+  "h1_heldout.npz": {
+   "sha256": "110a90ab358efcacdc090fdf0fce62bb74d6d06df02d1083cf4cf7e752529d35",
+   "bytes": 98564,
+   "from": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_heldout.npz"
+  },
+  "h1_calib.npz": {
+   "sha256": "b8d4184db0988f4d86ae3089e99ba167b8e05e6dcdbbc504f7679729fe7aa019",
+   "bytes": 131332,
+   "from": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_calib.npz"
+  }
+ }
+}
