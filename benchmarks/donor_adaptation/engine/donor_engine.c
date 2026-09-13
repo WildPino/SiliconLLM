@@ -75,6 +75,10 @@ static const char* g_ffn[F_N]={"gate+up","glue(silu)","down","residual","router+
 // the single-chain loop BYTE FOR BYTE and is how every rate published before E8 is reproduced.
 // Defaulted rather than left as a flag because a flag a runner must remember to pass is exactly
 // the defect of s9, where --attn stayed on the slow kernel for every E3 and E7 number.
+// E61: that defence did NOT cover the case that actually happened.  Until E61 the int8/ternary
+// UNPACKED branch never read this variable at all, so CONFIG printed "mvacc=4" on E55, E57 and
+// E60 cells whose kernel was running one chain -- a config line true about the flag and false
+// about the kernel.  All three matvec_sel weight branches now honour it.
 static int g_mvacc=4;
 
 // ---- CONTENTION WITNESS (E7 s10.3).  The `ffn`-invariance witness -- the FFN organ cannot
@@ -615,12 +619,49 @@ static void matvec_sel(const mat_t* m, const float* x, const float* bias, float*
         }
         return;
     }
+    // E61: the LAST kernel to get E8's treatment, and the only one that needed it on a path
+    // anybody measures.  E8 wired --mvacc into the packed and fp32 branches and left this one
+    // alone because in 2026-09-07 it was dead code (E8 s9 item 3: "not on the measured path,
+    // so not urgent").  E60 made it the measured path -- it is the int8 rung, the only arm that
+    // is both above the bar and faithful -- and the assembly still read ymm0->ymm1->ymm0 with
+    // 4 FMAs per 32 weight bytes on ONE chain (.LBB17_77).  At 5-cycle FMA latency that caps
+    // this loop at 8 B / 5 cycles / thread = 36.4 GB/s at 3.793 GHz, and E60 measured 31.7-33.1:
+    // 87-91% of its own latency wall, where fp32 sits at 6.5% of its and packed at 30% of its.
+    // MA==1 is a BYTE-FOR-BYTE copy of the pre-E61 loop, so every E60 number reproduces and
+    // G-E61a can be an sha256 gate.  MA>1 is NOT bit-identical -- same bytes, same FMA count,
+    // same order within a chain, different partition of the sum -- and is gated on end-to-end
+    // parity and per-position top-1, never on sha256 (Phase 60's law).
+    const int MA=g_mvacc;
 #ifdef _OPENMP
 #pragma omp parallel for schedule(static)
 #endif
     for(int o=0;o<n_out;o++){
         const int8_t* c=m->code+(size_t)o*n_in;
         __m256 acc=_mm256_setzero_ps(); int i=0;
+        if(MA>1){
+            __m256 a0=_mm256_setzero_ps(),a1=_mm256_setzero_ps();
+            __m256 a2=_mm256_setzero_ps(),a3=_mm256_setzero_ps();
+            if(MA>2) for(;i+32<=n_in;i+=32){
+                a0=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(
+                       _mm_loadl_epi64((const __m128i*)(c+i   )))),_mm256_loadu_ps(x+i   ),a0);
+                a1=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(
+                       _mm_loadl_epi64((const __m128i*)(c+i+8 )))),_mm256_loadu_ps(x+i+8 ),a1);
+                a2=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(
+                       _mm_loadl_epi64((const __m128i*)(c+i+16)))),_mm256_loadu_ps(x+i+16),a2);
+                a3=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(
+                       _mm_loadl_epi64((const __m128i*)(c+i+24)))),_mm256_loadu_ps(x+i+24),a3);
+            }
+            for(;i+16<=n_in;i+=16){
+                a0=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(
+                       _mm_loadl_epi64((const __m128i*)(c+i  )))),_mm256_loadu_ps(x+i  ),a0);
+                a1=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(
+                       _mm_loadl_epi64((const __m128i*)(c+i+8)))),_mm256_loadu_ps(x+i+8),a1);
+            }
+            for(;i+8<=n_in;i+=8)
+                a0=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(
+                       _mm_loadl_epi64((const __m128i*)(c+i)))),_mm256_loadu_ps(x+i),a0);
+            acc=_mm256_add_ps(_mm256_add_ps(a0,a1),_mm256_add_ps(a2,a3));
+        } else
         for(;i+8<=n_in;i+=8){
             // 8 ternary codes -> int32 -> float, then FMA against the activations
             __m128i c8=_mm_loadl_epi64((const __m128i*)(c+i));
@@ -1426,6 +1467,7 @@ static int32_t* read_ids(const char* path,long* n){
 int main(int argc,char** argv){
     const char* wp=NULL; const char* mode=NULL; const char* arg2=NULL; long arg3=0;
     const char* logout=NULL;
+    const char* top1out=NULL;   // E61
     int threads=1, seqlen=0;
     for(int i=1;i<argc;i++){
         if(!strcmp(argv[i],"--weights")&&i+1<argc) wp=argv[++i];
@@ -1433,6 +1475,13 @@ int main(int argc,char** argv){
         else if(!strcmp(argv[i],"--seqlen")&&i+1<argc) seqlen=atoi(argv[++i]);
         else if(!strcmp(argv[i],"--logits")&&i+3<argc){ mode="logits"; arg2=argv[++i]; arg3=atol(argv[++i]); logout=argv[++i]; }
         else if(!strcmp(argv[i],"--bpb")&&i+1<argc){ mode="bpb"; arg2=argv[++i]; }
+        // E61: --bpb's argmax, one int32 LE per PREDICTED position, to a file.  This is the
+        // metric E60 registered as the replacement for its defective greedy counter: per-position
+        // top-1 under TEACHER FORCING over all 12264 positions of the standard slice, instead of
+        // 5x32 free-running tokens where a tie-break reads as a fidelity loss.  The argmax is
+        // taken inside the max scan --bpb already runs, with the SAME strict > , so NATS is
+        // bit-identical whether the flag is present or not.
+        else if(!strcmp(argv[i],"--top1")&&i+1<argc){ top1out=argv[++i]; }
         else if(!strcmp(argv[i],"--generate")&&i+3<argc){ mode="generate"; arg2=argv[++i];
             arg3=atol(argv[++i]); logout=argv[++i]; }
         else if(!strcmp(argv[i],"--sweep")){        // s11: the ten arms of run 4, in one process
@@ -1704,21 +1753,31 @@ int main(int argc,char** argv){
 
     // --bpb: total NLL over next-token prediction, per sequence
     double tot_nats=0.0; long npred=0;
+    FILE* t1f=NULL;
+    if(top1out){ if(strcmp(mode,"bpb")) die("--top1 only means anything with --bpb");
+                 t1f=fopen(top1out,"wb"); if(!t1f) die("cannot open top1 output"); }
     double t0=now_s();
     for(long q=0;q<nseq;q++){
         const int32_t* seq=ids+q*SL;
         for(int t=0;t<SL;t++){
             forward(&M,&s,seq[t],t);
             if(t+1<SL){
-                float mx=-1e30f; for(int i=0;i<M.V;i++) if(s.logits[i]>mx) mx=s.logits[i];
+                float mx=-1e30f; int32_t am=0;
+                // Two loops, not one with a branch inside: the no---top1 path stays exactly the
+                // scan it was, and both use the same strict > , so mx -- and therefore NATS --
+                // is the same float either way.
+                if(t1f){ for(int i=0;i<M.V;i++) if(s.logits[i]>mx){ mx=s.logits[i]; am=i; } }
+                else   { for(int i=0;i<M.V;i++) if(s.logits[i]>mx) mx=s.logits[i]; }
                 double sum=0.0; for(int i=0;i<M.V;i++) sum+=exp((double)(s.logits[i]-mx));
                 tot_nats += -((double)(s.logits[seq[t+1]]-mx) - log(sum));
+                if(t1f) fwrite(&am,4,1,t1f);
                 npred++;
             }
         }
         fprintf(stderr,"  seq %ld/%ld  running nats/token %.6f  (%.1fs)\n",
                 q+1,nseq,tot_nats/(double)npred,now_s()-t0);
     }
+    if(t1f){ fclose(t1f); fprintf(stderr,"wrote %ld top-1 ids to %s\n",npred,top1out); }
     printf("NATS_TOTAL %.10f\nN_PREDICTED %ld\nNATS_PER_TOKEN %.10f\n",
            tot_nats,npred,tot_nats/(double)npred);
     return 0;
