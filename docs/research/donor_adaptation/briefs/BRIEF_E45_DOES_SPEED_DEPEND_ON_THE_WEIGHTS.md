@@ -398,3 +398,85 @@ certify anything about a 5% question. Both shapes are now planted controls in
 `e45_window.py --selftest` (`W11`, `W12`), which runs at the head of every invocation.
 
 The rest of D.4 is unchanged.
+
+---
+
+# ADDENDUM E — RUN 3 IS VOID, THE WINDOW LEVER DOES NOT EXIST, AND RUN 4 USES THE ONE THAT DOES
+
+**Written after run 3 (`0897e70`) and pushed before any run-4 cell exists.**
+
+## E.1 `G-E45h` refused, and it refused for a mechanism
+
+| arm | `dt(2560)/dt(40)` | expected | rel err | |
+|---|---|---|---|---|
+| K256 | 96.47 | 64 | 0.507 | *** FAILS *** |
+| K16 | 158.91 | 64 | 1.483 | *** FAILS *** |
+
+`G-E45i` and `G-E45j` were never evaluated. `G-E45g` fired first on both arms (K256 gap 0.0512
+against bar 0.0737; K16 0.0241 against 0.2113), so the box did **not** drift under the sweep —
+the refusal is about the instrument, not the conditions.
+
+**`--bench N` decodes at positions 1…N.** A longer window is therefore *not* the same work per
+token: the KV cache grows and attention is charged for every earlier position. **Window length
+and context length are the same knob in this engine**, and `H-WINDOW` asked about one while
+moving both. The control caught it on the first run that could have produced a headline.
+
+## E.2 So the window lever is unavailable, and D.4's run 3 is withdrawn
+
+There is no way, in `bench` mode, to lengthen the timing window at fixed context. `H-WINDOW`
+cannot be tested with this engine as written, and **run 3 is not re-run** — a control that fires
+is doing its job (E40 addendum A). What remains of H-WINDOW moves to its own pre-registration,
+because it is a different and larger question (see E.4).
+
+## E.3 RUN 4 — the lever that does exist is REPS PER CELL
+
+Run 2 failed because a **single-shot** paired ratio inherits E43's intrinsic per-cell
+oscillation twice. The fix is not a longer window and not a quieter box: it is to **take the
+median of `m` reps within each cell before forming the ratio**, which averages the oscillation
+down while leaving context fixed at the value every other number in this programme uses.
+
+Sizing it from run 3's own quietest block (`K256_40_last`, cv 0.0705 over 7 reps, so
+sd is about 2.4%): a ratio of two `m`-rep medians has sd about 2.4% * sqrt(2)/sqrt(m), and over
+12 pairs the range is about 3.5 sd. At **`m = 5`** that is `s` about 0.05, inside `G-E45d`'s
+0.10 requirement with margin.
+
+* **`NTOK = 40`, unchanged**, so run 4 is comparable with E37, E40 and runs 1-2.
+* **12 pairs**, **`m = 5` reps per cell**, interleaved **at the rep level**: `NF SYN NF SYN ...`
+  five times, then the pair's two medians form one ratio.
+* **`G-E45d` is unchanged and is the verdict**, including the occupancy exclusion at 70% and the
+  `s > 0.10` INCONCLUSIVE clause. A pair is excluded if **any** of its ten cells breaches.
+* **`G-E45a` re-fires on run 4's own cells**, and the gate self-test runs first.
+* If `s` still exceeds 0.10 at `m = 5`, the answer is INCONCLUSIVE and **the pairing is not
+  re-run at larger `m` in this experiment** — that would be tuning until it passes. It would
+  instead mean the oscillation does not average down, which is a finding about the box and
+  belongs to the item in E.4.
+
+**Registered prediction for run 4:** `s` under 0.08 and **BRIDGE HOLDS**, with `|r-1|` under 2%.
+Run 1 said +4.7% and run 2 said -0.6%; the two disagree in sign, so I expect a value-independent
+engine and I am recording that before the third look.
+
+**Cost:** about 8 minutes, CPU only, no user action.
+
+## E.4 What run 3's raw cells left behind, which is bigger than E45
+
+Reported as a post-hoc fit and **not promoted to a gate** (E14 section 6). Per-token cost against
+mean context position, least squares over run 3's cells:
+
+| arm | fit | at position 0 | residuals |
+|---|---|---|---|
+| K256 | `s/tok = 0.039967 + 1.454e-05 * pos` | 25.02 tok/s | -3.9%, +2.3%, +1.9%, -0.4% |
+| K16 | `s/tok = 0.011840 + 1.427e-05 * pos` | 84.46 tok/s | two points, exact by construction |
+
+**The two slopes agree to 1.9% across arms that differ 3.3x in FFN work** — which is what must
+happen if the marginal cost is attention, since the carve does not touch it. And the marginal
+cost is **9.0-9.2x its own bandwidth floor**: 1.44e-05 s per token per position against 57,344
+bytes of fp32 KV, which at E30's measured 36.30 GB/s would cost 1.58e-06 s.
+
+Two consequences, both for a separate brief rather than this one:
+
+1. **Every tok/s this programme has published was measured at context <= 40, mean position 20**,
+   including the 10B headline. A rate at a realistic context has never been measured.
+2. **If attention costs 9x its bandwidth floor, E34's wall is soft** — and E34 already found
+   attention, not the FFN, is where the budget goes.
+
+**No cell of run 4 has been measured at the time this addendum is pushed.**
