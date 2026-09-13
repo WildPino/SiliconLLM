@@ -383,3 +383,18 @@ a headline rate (§5), and a favourable `G-E45i` does **not** by itself answer E
 **Cost:** ~20–25 minutes, CPU only, no user action.
 
 **No cell of run 3 has been measured at the time this addendum is pushed.**
+
+## D.5 — A PATCH TO `G-E45j`, MADE BEFORE ANY RUN-3 CELL EXISTED
+
+Writing the gate's planted controls caught me **reproducing addendum C's own defect one
+addendum later**. As registered in D.4, `G-E45j` returns **NO WINDOW EFFECT** whenever
+`|1 − w| ≤ cv(2560)` — *inside my own dispersion* — so a long window that is itself noisy
+passes the gate by being noisy. The control that exposed it: `m(40) = 113`, `m(2560) = 60`,
+`cv(2560) = 0.90` returned **NO WINDOW EFFECT** for a **47% gap**.
+
+**Patched, before a single cell was measured:** if `cv(2560) > 0.10` the verdict is
+**INCONCLUSIVE** regardless of `w`. A long window that cannot hold its own rate to 10% cannot
+certify anything about a 5% question. Both shapes are now planted controls in
+`e45_window.py --selftest` (`W11`, `W12`), which runs at the head of every invocation.
+
+The rest of D.4 is unchanged.
