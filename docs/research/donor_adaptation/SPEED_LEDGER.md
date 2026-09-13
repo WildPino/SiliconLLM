@@ -5001,3 +5001,89 @@ because packed is already wrong almost everywhere.
 This is `feedback_gate_is_not_a_progress_meter` **inverted** — that law covers a counter at its
 *ceiling* (H0's `tf` 115/160); E59 is the floor case, and it is the more dangerous half because the
 failing direction is the one a gate exists to catch.
+
+---
+
+## 59. E60 — the middle rung exists, it is BPB-free, and the byte ladder is NOT a bandwidth ladder
+
+`probes/E60_THE_RUNG_THAT_WAS_NEVER_BUILT.md`, verdict **`THE-CLIFF-IS-BELOW-ONE-BYTE`**.
+Brief pushed before the runner existed; apparatus (`quant=5`, rule `R8`, runner) pushed before the
+run. `donor_engine_e60.exe`, every arm on one binary, 9 reps interleaved, `--bench 160`.
+
+### 59.1 The rung
+
+| | | `05b` | | | `15b` | |
+|---|---|---|---|---|---|---|
+| arm | B/w | tok/s (95% CI) | dBPB | greedy | tok/s (95% CI) | dBPB | greedy |
+| `F32` | 4.0 | 19.08 (18.89–19.16) | — | 160/160 | 6.28 (6.27–6.30) | — | 160/160 |
+| **`I8`** | **1.0** | **63.87 (61.76–64.01)** | **+0.000066** | 145/160 | **21.39 (21.35–21.50)** | **+0.001252** | 129/160 |
+| `PACKED` | 0.5 | 86.23 (85.31–87.07) | +3.659423 | 3/160 | 29.32 (29.19–30.10) | +2.708100 | 10/160 |
+
+**`G-E60d` ABOVE at 0.5 B, BELOW at 1.5 B.** ×3.35 / ×3.41 over the faithful arm, at **0.013 σ_seed**
+and **0.250 σ_seed** of modelling cost. The first 4× byte cut is free; the next 2× costs **2,162×**
+to **55,096×** more and lands above chance. **The precision cliff is between 1 B and 0.5 B.**
+
+### 59.2 THE CORRECTION THIS SECTION EXISTS FOR — one box has THREE bandwidths
+
+Moved bytes from the shape (`tqh` unties → fp32 embedding GATHERED, not streamed; per-row scales
+charged):
+
+| size | `F32` (4 B/w) | `I8` (1 B/w) | `PACKED` (0.5 B/w) |
+|---|---|---|---|
+| `05b` | 1976.1 MB → **37.70 GB/s** | 495.8 MB → **31.67 GB/s** (84.0%) | 249.1 MB → **21.48 GB/s** (57.0%) |
+| `15b` | 6174.9 MB → **38.78 GB/s** | 1546.8 MB → **33.09 GB/s** (85.3%) | 775.6 MB → **22.74 GB/s** (58.6%) |
+
+**Achieved bandwidth falls monotonically as bytes per weight fall.** The identity closes at every
+cell to within **0.4%**:
+
+> **rate ratio = byte ratio × bandwidth-efficiency ratio**
+
+| | byte ratio | × efficiency | predicted | measured |
+|---|---|---|---|---|
+| `05b` `I8`/`F32` | 4 | 0.840 | 3.359 | **3.347** |
+| `05b` `PACKED`/`F32` | 8 | 0.570 | 4.557 | **4.519** |
+| `15b` `I8`/`F32` | 4 | 0.853 | 3.413 | **3.406** |
+| `15b` `PACKED`/`F32` | 8 | 0.586 | 4.691 | **4.669** |
+
+**No projection in this ledger may divide one format's byte count by another format's bandwidth.**
+§1's 40–44 aggregate, §23.3's withdrawal of 37.0 for the packed path and E58 §8's *"a bound is a
+number with a scope"* were all pointing here; §59 replaces the caution with the curve. The three
+operative denominators on this box are **37.7–38.8 / 31.7–33.1 / 21.5–22.7 GB/s** for
+4 / 1 / 0.5 B per weight.
+
+Corollary, priced: the `quant==1` branch still has **a single accumulator chain** (E13 §8, owed
+since 2026-09-07). At 84–85% of achievable, closing it is worth up to **×1.19** — `05b` ~76 tok/s,
+`15b` ~25.
+
+### 59.3 The 10 B line, desk model, on E36's registered cell
+
+E36 `A10B-K3`: 540 of 46,080 FFN neurons/layer (1.17%), **0.9283 G charged weights/token**,
+**49.96 tok/s** — **noise weights** (E36 §0). At §59.2's measured per-format bandwidths:
+
+| the same 10 B shape at… | tok/s | % of bar | quality |
+|---|---|---|---|
+| fp32, 4 B/w | **10.2** | 20% | faithful |
+| **int8, 1 B/w** | **34.1 – 35.6** | **68–71%** | +6.6e-05 … +1.25e-03 BPB |
+| packed, 0.5 B/w | 49.96 | 100% | 3/160-class, BPB above chance |
+
+**The faithful-to-bar gap at 10 B was ×4.9; it is ×1.4.** Desk model on a synthetic artifact.
+A *dense* 10 B at 1 B/weight reads ~3.3 tok/s — **on the goal's shape int8 is strictly worse than
+ternary**, doubling E34's attention+head floor. Everything above depends on the 1.17%-active MoE
+shape, still unbuilt as a trained model.
+
+### 59.4 Gates
+
+- **`G-E60a` FIRES 4/4** (planted): `e60` ≡ frozen `e53`, 184/184 on `F32` and `PACKED`, both scales.
+- **`G-E60b` FIRES 4/4** (planted): instrument reproduces E57 exactly — 160/3/160/10. BPB instrument
+  replicated E1's `05b F32` to **4.47e-09**.
+- **`G-E60c` UNRESOLVABLE**: `I8` − `T1` = **1.98 tok/s** vs a 1.13 half-width, at *identical bytes*.
+  The brief's "speed is a function of bytes, not values" is **not supported**; likely subnormals in
+  a broken model. Owed.
+- **`G-E60e` DEGRADED**, left alone (E40 addendum A). The gate is also **defective**: its two clauses
+  disagree by 301×/16×, because a 160-token greedy count absorbs — one tipped tie costs up to 31
+  downstream tokens. Replacement registered: per-position top-1 under teacher forcing over the
+  12,264-position slice.
+- **`15b F32` BPB on the full 24×512 slice = 0.767606373**, owed since E1 ran it at 4 sequences.
+
+Conduct: foreign occupancy **3.70–9.72%** mean vs `OCC_BAR = 4.39`, worst cell **10.92%**, all on
+the treatment → readings conservative. Reported, not cleaned. Absolute rates ±5%; ratios not.
