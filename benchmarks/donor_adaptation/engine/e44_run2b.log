@@ -1,0 +1,43 @@
+== E44 -- the interval on a tok/s ==  arm R128, 300 tokens, 6 threads
+   brief: BRIEF_E44_WHAT_IS_A_TOK_S_WORTH.md addendum A -- G-E44b is all that is left
+   engine  D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\donor_engine.exe
+   weights D:/_ktmp/e40/e40_r128.bin  (5.11 GB)
+
+  PLANTED CONTROL for the occupancy guard -- loading the box on purpose
+     12 busy processes -> occupancy median 100.0% (min 100.0, max 100.0), bar 15.0%
+     guard REFUSES on a loaded box : FIRES
+
+  GUARD -- is the box quiet enough for a timing to mean anything?
+     occupancy over 20s: median 2.2%  (min 1.2, max 3.8)  bar 15.0%
+     box is quiet enough -- proceeding
+
+  rep    tok/s     engine dt     wall      outside      system   FOREIGN
+    1    112.44      2.668 s      4.45 s      1.78 s      36.8%      3.8%
+
+  PLANTED CONTROL C2 -- does the meter separate the engine from the box?
+     rep 1: system 36.8%, foreign 3.8%, separation 33.1 points (minimum 25.0)
+     C2 FIRES -- the engine's own 33.1 points are attributed to the engine
+
+  rep    tok/s     engine dt     wall      outside      system   FOREIGN
+    2    111.25      2.697 s      4.48 s      1.78 s      37.1%      3.8%
+    3    110.62      2.712 s      4.53 s      1.82 s      38.2%      5.3%
+    4    110.61      2.712 s      4.49 s      1.78 s      36.9%      3.6%
+    5    109.85      2.731 s      4.55 s      1.82 s      39.6%      6.5%
+
+  RATE      median 110.62 tok/s   min 109.85   max 112.44   spread 2.3% of median
+  OUTSIDE   median 1.78 s spent loading and warming, which no published rate has
+            ever carried.  D: is a USB 3.1 external HDD (addendum A section 4).
+  OCCUPANCY system median 37.1% during the reps -- MOST OF WHICH IS THE ENGINE
+            FOREIGN median 3.8% (bar 15.0%), which is what G-E44b2 judges
+
+  G-E44b   (system-wide occupancy) : MALFORMED -- brief addendum B.2.  The meter
+           counts the engine's own six threads, so no box could ever pass it.
+           For the record it would read: reps above the bar [1, 2, 3, 4, 5]
+  G-E44b2  >= 5 reps, FOREIGN occupancy under the bar, median AND spread : FIRES
+
+  THE BAND, and it replaces a point rather than adding one:
+     R128 reads 110-112 tok/s (median 110.62, 5 reps, spread 2.3%).
+     Addendum A: this may NOT be quoted as a new headline.  It is the same engine
+     measured with an interval, and the arm it came from is named above.
+
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e44_interval.json  [58s]

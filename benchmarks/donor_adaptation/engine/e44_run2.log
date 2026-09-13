@@ -1,0 +1,35 @@
+== E44 -- the interval on a tok/s ==  arm R128, 300 tokens, 6 threads
+   brief: BRIEF_E44_WHAT_IS_A_TOK_S_WORTH.md addendum A -- G-E44b is all that is left
+   engine  D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\donor_engine.exe
+   weights D:/_ktmp/e40/e40_r128.bin  (5.11 GB)
+
+  PLANTED CONTROL for the occupancy guard -- loading the box on purpose
+     12 busy processes -> occupancy median 100.0% (min 100.0, max 100.0), bar 15.0%
+     guard REFUSES on a loaded box : FIRES
+
+  GUARD -- is the box quiet enough for a timing to mean anything?
+     occupancy over 20s: median 10.4%  (min 6.2, max 21.1)  bar 15.0%
+     box is quiet enough -- proceeding
+
+  rep    tok/s     engine dt     wall      outside window    occupancy during
+    1    103.36      2.902 s      4.88 s       1.98 s         41.9%
+    2    102.90      2.915 s      4.88 s       1.96 s         43.2%
+    3    101.35      2.960 s      4.90 s       1.94 s         49.5%
+    4     98.32      3.051 s      5.01 s       1.95 s         49.5%
+    5    104.16      2.880 s      4.74 s       1.86 s         46.5%
+
+  RATE      median 102.90 tok/s   min 98.32   max 104.16   spread 5.7% of median
+  OUTSIDE   median 1.95 s spent loading and warming, which no published rate has
+            ever carried.  D: is a USB 3.1 external HDD (addendum A section 4).
+  OCCUPANCY median 46.5% during the reps (bar 15.0%)
+
+  G-E44b  >= 5 reps, quiet box, median AND spread reported : *** FAILS ***
+     reps above the bar during the run: [1, 2, 3, 4, 5] -- the guard passed BEFORE the reps
+     and the box moved under them.  The rate is recorded and NOT citable.
+
+  THE BAND, and it replaces a point rather than adding one:
+     R128 reads 98-104 tok/s (median 102.90, 5 reps, spread 5.7%).
+     Addendum A: this may NOT be quoted as a new headline.  It is the same engine
+     measured with an interval, and the arm it came from is named above.
+
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e44_interval.json  [61s]

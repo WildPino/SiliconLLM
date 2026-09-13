@@ -1,0 +1,43 @@
+====================================================================================
+E51 -- the softmax was paying for errno
+  -fno-math-errno and nothing else.  NOT -ffast-math: no reassociation, no FTZ,
+  no reciprocal substitution, -ffp-contract=on unchanged.  expf(x) and
+  (float)exp((double)x) are different functions, so this is NOT bit-exact.
+====================================================================================
+== E51 gate self-test -- every decision function in every direction ==
+  A1    PARITY HOLDS         expected PARITY HOLDS         FIRES   1e-7 is inside 2e-5
+  A2    PARITY FAILS         expected PARITY FAILS         FIRES   1e-3 is 50x the bar
+  A3    VOID                 expected VOID                 FIRES   a control that does not fire voids the null however good it looks
+  A4    PARITY FAILS         expected PARITY FAILS         FIRES   the bar is a bar
+  A5    PARITY HOLDS         expected PARITY HOLDS         FIRES   and so is its other side
+  B1    PASS                 expected PASS                 FIRES   E6's own reading
+  B2    FAIL                 expected FAIL                 FIRES   one token is one token
+  B3    VOID                 expected VOID                 FIRES   a control that agrees is not one
+  B4    VOID                 expected VOID                 FIRES   a control that moved is its own finding
+  C1    JUDGED               expected JUDGED               FIRES   spreads 2.0%/1.8% are inside the tolerance
+  C2    UNRESOLVABLE         expected UNRESOLVABLE         FIRES   spreads 20.2%/7.8% exceed it -- THIS is the E49c defect, now refused in code
+  C3    True                 expected True                 FIRES   the ranges do not overlap
+  C4    False                expected False                FIRES   judgeable by spread and STILL not separable -- the two tests are not the same test
+  C5    NO FIT -- ONE RESOLVABLE WINDOW expected NO FIT -- ONE RESOLVABLE WINDOW FIRES   1280 is judgeable and 40 is not; C50 needs two points
+  C6    UNRESOLVABLE THROUGHOUT expected UNRESOLVABLE THROUGHOUT FIRES   nothing survived the dispersion rule -- the run measured the machine
+  C7    SEPARABLE AT 2 OF 2 JUDGED WINDOWS expected SEPARABLE AT 2 OF 2 JUDGED WINDOWS FIRES   two resolvable windows, both separating -- the case C50 is computable in
+  D1    ATTRIBUTED TO S      expected ATTRIBUTED TO S      FIRES   S falls 2.0 of 2.5 = 80%
+  D2    PARTLY ELSEWHERE     expected PARTLY ELSEWHERE     FIRES   S falls 0.1 of 2.5 = 4%
+  D3    STORY IS WRONG       expected STORY IS WRONG       FIRES   the engine got faster and the softmax got SLOWER -- section 1 would be wrong
+  D4    NO IMPROVEMENT       expected NO IMPROVEMENT       FIRES   nothing to attribute
+  E51 gate self-test : ALL FIRE  (20 checks)
+
+== G-E51d -- attribution.  A faster engine is not evidence the SOFTMAX got faster. ==
+    base  rep 1/3   S = (sm2 - sm1) = 1.6890 ms   attention sm1 5.0790 ms
+    base  rep 2/3   S = (sm2 - sm1) = 1.6740 ms   attention sm1 5.0630 ms
+    base  rep 3/3   S = (sm2 - sm1) = 1.7040 ms   attention sm1 5.0720 ms
+    base   S 1.6890 ms   attention(none) 5.6120 ms   token 13.8870 ms
+    e51   rep 1/3   S = (sm2 - sm1) = 2.8900 ms   attention sm1 5.0190 ms
+    e51   rep 2/3   S = (sm2 - sm1) = 1.6600 ms   attention sm1 5.0080 ms
+    e51   rep 3/3   S = (sm2 - sm1) = 1.5020 ms   attention sm1 6.2260 ms
+    e51    S 1.6600 ms   attention(none) 5.6550 ms   token 14.0430 ms
+
+  G-E51d : NO IMPROVEMENT
+  the total did not improve; nothing to attribute
+
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e51_math_errno.json

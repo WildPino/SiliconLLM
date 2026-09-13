@@ -1,0 +1,121 @@
+====================================================================================
+E51 -- the softmax was paying for errno
+  -fno-math-errno and nothing else.  NOT -ffast-math: no reassociation, no FTZ,
+  no reciprocal substitution, -ffp-contract=on unchanged.  expf(x) and
+  (float)exp((double)x) are different functions, so this is NOT bit-exact.
+====================================================================================
+== E51 gate self-test -- every decision function in every direction ==
+  A1    PARITY HOLDS         expected PARITY HOLDS         FIRES   1e-7 is inside 2e-5
+  A2    PARITY FAILS         expected PARITY FAILS         FIRES   1e-3 is 50x the bar
+  A3    VOID                 expected VOID                 FIRES   a control that does not fire voids the null however good it looks
+  A4    PARITY FAILS         expected PARITY FAILS         FIRES   the bar is a bar
+  A5    PARITY HOLDS         expected PARITY HOLDS         FIRES   and so is its other side
+  B1    PASS                 expected PASS                 FIRES   E6's own reading
+  B2    FAIL                 expected FAIL                 FIRES   one token is one token
+  B3    VOID                 expected VOID                 FIRES   a control that agrees is not one
+  B4    VOID                 expected VOID                 FIRES   a control that moved is its own finding
+  C1    JUDGED               expected JUDGED               FIRES   spreads 2.0%/1.8% are inside the tolerance
+  C2    UNRESOLVABLE         expected UNRESOLVABLE         FIRES   spreads 20.2%/7.8% exceed it -- THIS is the E49c defect, now refused in code
+  C3    True                 expected True                 FIRES   the ranges do not overlap
+  C4    False                expected False                FIRES   judgeable by spread and STILL not separable -- the two tests are not the same test
+  D1    ATTRIBUTED TO S      expected ATTRIBUTED TO S      FIRES   S falls 2.0 of 2.5 = 80%
+  D2    PARTLY ELSEWHERE     expected PARTLY ELSEWHERE     FIRES   S falls 0.1 of 2.5 = 4%
+  D3    STORY IS WRONG       expected STORY IS WRONG       FIRES   the engine got faster and the softmax got SLOWER -- section 1 would be wrong
+  D4    NO IMPROVEMENT       expected NO IMPROVEMENT       FIRES   nothing to attribute
+  E51 gate self-test : ALL FIRE  (17 checks)
+
+== G-E51a -- BPB parity.  Nothing in E51 counts until this and G-E51b pass. ==
+  base  k=256   NATS_TOTAL 124963.9517608703  n=12264  (585 s)
+  e51   k=256   NATS_TOTAL 124963.9517608703         (496 s)
+  CTRL  k=3     NATS_TOTAL 144871.9226166338         (175 s)
+
+  planted control : FIRES   (1.593e-01 apart, bar 1e-03)
+  e51 vs base     : 0.000e+00 relative
+  G-E51a : PARITY HOLDS
+  0.000e+00 relative -> |dBPB| <= 0.00e+00, inside the 2e-05 the 1e-4 bar implies
+
+== G-E51b -- the DISCRETE test.  E50 showed a BPB average does not settle an argmax. ==
+    e51   A1 p0  G-D PASS  decode 19.23 tok/s
+    e51   A1 p1  G-D PASS  decode 19.21 tok/s
+    e51   A1 p2  G-D PASS  decode 19.24 tok/s
+    e51   A1 p3  G-D PASS  decode 19.24 tok/s
+    e51   A1 p4  G-D PASS  decode 18.89 tok/s
+    e51   A2 p0  G-D PASS  decode 83.19 tok/s
+    e51   A2 p1  G-D PASS  decode 84.35 tok/s
+    e51   A2 p2  G-D PASS  decode 82.92 tok/s
+    e51   A2 p3  G-D PASS  decode 83.61 tok/s
+    e51   A2 p4  G-D PASS  decode 85.17 tok/s
+    e51   A3 p0  G-D PASS  decode 28.46 tok/s
+    e51   A3 p1  G-D PASS  decode 28.42 tok/s
+    e51   A3 p2  G-D PASS  decode 29.79 tok/s
+    e51   A3 p3  G-D PASS  decode 29.22 tok/s
+    e51   A3 p4  G-D PASS  decode 31.62 tok/s
+
+  arm  E6           E51         
+  A1   160/160      160/160     
+  A2   3/160        3/160       
+  A3   10/160       10/160      
+
+  G-E51b : PASS
+  A1 is 160/160 -- the greedy trajectory is unchanged
+
+== G-E51c -- the speed, judged ONLY where the dispersion permits (E49 addendum C) ==
+  tolerance 6%; any window whose OBSERVED spread exceeds it takes NO verdict.
+    base  n=40    rep 1/5   121.29 tok/s   occ 21.3%
+    e51   n=40    rep 1/5   128.15 tok/s   occ 19.9%
+    base  n=160   rep 1/5   116.80 tok/s   occ 30.3%
+    e51   n=160   rep 1/5   117.07 tok/s   occ 29.9%
+    base  n=640   rep 1/5    98.73 tok/s   occ 43.7%
+    e51   n=640   rep 1/5    96.27 tok/s   occ 47.9%
+    base  n=1280  rep 1/5    81.67 tok/s   occ 49.8%
+    e51   n=1280  rep 1/5    81.54 tok/s   occ 48.4%
+    base  n=2560  rep 1/5    60.21 tok/s   occ 51.6%
+    e51   n=2560  rep 1/5    60.51 tok/s   occ 50.7%
+    base  n=40    rep 2/5   133.78 tok/s   occ 18.0%
+    e51   n=40    rep 2/5   119.98 tok/s   occ 18.3%
+    base  n=160   rep 2/5   116.26 tok/s   occ 30.2%
+    e51   n=160   rep 2/5   116.88 tok/s   occ 30.2%
+    base  n=640   rep 2/5    97.44 tok/s   occ 47.6%
+    e51   n=640   rep 2/5    99.80 tok/s   occ 44.3%
+    base  n=1280  rep 2/5    82.91 tok/s   occ 48.0%
+    e51   n=1280  rep 2/5    82.78 tok/s   occ 48.0%
+    base  n=2560  rep 2/5    62.03 tok/s   occ 51.4%
+    e51   n=2560  rep 2/5    61.69 tok/s   occ 50.9%
+    base  n=40    rep 3/5   124.07 tok/s   occ 18.1%
+    e51   n=40    rep 3/5   135.08 tok/s   occ 17.9%
+    base  n=160   rep 3/5   122.89 tok/s   occ 27.9%
+    e51   n=160   rep 3/5   120.41 tok/s   occ 29.0%
+    base  n=640   rep 3/5   102.98 tok/s   occ 42.5%
+    e51   n=640   rep 3/5   101.43 tok/s   occ 44.0%
+    base  n=1280  rep 3/5    84.33 tok/s   occ 48.3%
+    e51   n=1280  rep 3/5    83.09 tok/s   occ 49.3%
+    base  n=2560  rep 3/5    55.16 tok/s   occ 51.5%
+    e51   n=2560  rep 3/5    55.17 tok/s   occ 51.4%
+    base  n=40    rep 4/5   121.89 tok/s   occ 19.1%
+    e51   n=40    rep 4/5   124.82 tok/s   occ 19.5%
+    base  n=160   rep 4/5   120.60 tok/s   occ 29.4%
+    e51   n=160   rep 4/5   119.83 tok/s   occ 29.4%
+    base  n=640   rep 4/5    93.50 tok/s   occ 46.7%
+    e51   n=640   rep 4/5    94.14 tok/s   occ 44.1%
+    base  n=1280  rep 4/5    75.89 tok/s   occ 48.4%
+    e51   n=1280  rep 4/5    75.96 tok/s   occ 48.4%
+    base  n=2560  rep 4/5    55.56 tok/s   occ 51.3%
+    e51   n=2560  rep 4/5    55.32 tok/s   occ 51.3%
+    base  n=40    rep 5/5   125.99 tok/s   occ 18.4%
+    e51   n=40    rep 5/5   125.96 tok/s   occ 18.8%
+    base  n=160   rep 5/5   117.89 tok/s   occ 29.8%
+    e51   n=160   rep 5/5   117.67 tok/s   occ 30.0%
+    base  n=640   rep 5/5    94.34 tok/s   occ 44.3%
+    e51   n=640   rep 5/5    94.21 tok/s   occ 44.3%
+    base  n=1280  rep 5/5    75.85 tok/s   occ 49.9%
+    e51   n=1280  rep 5/5    76.15 tok/s   occ 47.9%
+    base  n=2560  rep 5/5    55.26 tok/s   occ 51.7%
+    e51   n=2560  rep 5/5    55.38 tok/s   occ 51.0%
+
+  n           base       e51    delta  sp_base   sp_e51  verdict
+  40       124.07    125.96     +1.5%    10.1%    12.0%  UNRESOLVABLE
+  160      117.89    117.67     -0.2%     5.6%     3.0%  JUDGED  NOT separable
+  640       97.44     96.27     -1.2%     9.7%     7.6%  UNRESOLVABLE
+  1280      81.67     81.54     -0.2%    10.4%     8.7%  UNRESOLVABLE
+  2560      55.56     55.38     -0.3%    12.4%    11.8%  UNRESOLVABLE
+
