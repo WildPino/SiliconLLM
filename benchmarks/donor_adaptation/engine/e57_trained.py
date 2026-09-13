@@ -273,8 +273,12 @@ def main():
     # counterfactual is printed beside it, because E52's law is that a refusal must never
     # launder a number.
     rows = []
-    log("   %-12s %5s %8s %8s %8s %7s  %-9s %s"
-        % ("arm", "cells", "p25", "median", "p75", "IQR", "G-E55a2", "G-E57d"))
+    # The 'cells' column USED to be ambiguous: four of six arms fell back to the all-cell set
+    # because fewer than six of their cells cleared OCC_BAR, and the table printed the count
+    # without saying which set it came from -- a column labelled one thing holding another,
+    # the same defect class as G-E53f's 'p = nan'.  The analysis is now named per row.
+    log("   %-12s %5s %-6s %8s %8s %8s %7s  %-9s %s"
+        % ("arm", "cells", "set", "p25", "median", "p75", "IQR", "G-E55a2", "G-E57d"))
     for tag, wp, hf, role, stored in live:
         allc = cells[tag]
         clean = [c for c in allc if not (c["foreign"] == c["foreign"]
@@ -299,9 +303,14 @@ def main():
                      "clock_median": statistics.median(
                          [c["clock_pct"] for c in allc
                           if c["clock_pct"] == c["clock_pct"]] or [float("nan")])})
-        log("   %-12s %5d %8.2f %8.2f %8.2f %6.2f%%  %-9s %s"
-            % (tag, len(use), p25, statistics.median(v), quantile(v, 0.75),
-               iqr_pct(v), st, d))
+        rows[-1]["set"] = "clean" if use is clean else "ALL"
+        log("   %-12s %5d %-6s %8.2f %8.2f %8.2f %6.2f%%  %-9s %s"
+            % (tag, len(use), rows[-1]["set"], p25, statistics.median(v),
+               quantile(v, 0.75), iqr_pct(v), st, d))
+    log("")
+    log("   'set' = ALL means fewer than six of that arm's cells cleared OCC_BAR = %.2f and"
+        % OCC_BAR)
+    log("   the row fell back to every cell; it is not a clean-cell number.")
     log("")
     log("   counterfactual, ALL cells including those over OCC_BAR = %.2f (E52's law: a"
         % OCC_BAR)

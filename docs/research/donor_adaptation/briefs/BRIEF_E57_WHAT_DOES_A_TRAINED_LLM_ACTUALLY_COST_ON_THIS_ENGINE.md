@@ -133,3 +133,251 @@ It does not test a 10B trained model — none exists locally, and acquiring one 
 decision with a real download cost. It does not test the carve on trained weights (that is H1).
 It does not change the engine. **It measures what is already on this disk and has never been
 read.**
+
+---
+
+# ADDENDUM A — THE THREE CONTROLS REPRODUCE, THE PREDICTION IS WRONG IN THE OPPOSITE DIRECTION, AND NO TRAINED MODEL RUNS FAITHFULLY ABOVE 19 tok/s
+
+Run: **30 greedy generations + 90 timed cells + 1 discarded warm-up, 16.1 minutes measured**
+(runner start 20:30:25, last timed cell at 966.2 s; quality phase 1.7 min, speed phase 14.4 min).
+`CONFIG attn=avx4 attnr=none fexp=libm mvacc=4 threads=6 quant=ternary`, printed per cell.
+Weight files were warm in the page cache: a 6.17 GB load costs ~2 s of a 27.65 s cell, not the
+~50 s a cold read from the USB HDD would cost.
+
+## A.1 `G-E57a` FIRES — all three stored controls reproduce E6 exactly, seven days apart
+
+| arm | matched | E6 | |
+|---|---|---|---|
+| A1 `05b_f32` | **160/160** | 160 | REPRODUCED |
+| A2 `05b_tqh` | **3/160** | 3 | REPRODUCED |
+| A3 `15b_tqh` | **10/160** | 10 | REPRODUCED |
+
+The scorer fires on a known-positive and on two known-negatives at different degradation
+levels. The nulls below therefore count.
+
+## A.2 `G-E57b` — and the prediction was wrong in the *opposite* direction
+
+| arm | matched | first divergence, per prompt | verdict |
+|---|---|---|---|
+| `05b_f32` | 160/160 | never | **FAITHFUL** |
+| `05b_tq` | **3/160** | 0, 0, 1, 0, 0 | NOT FAITHFUL |
+| `05b_tqh` | 3/160 | 0, 0, 1, 0, 0 | NOT FAITHFUL |
+| `15b_f32` | **160/160** | never | **FAITHFUL** |
+| `15b_tq` | **12/160** | 0, 0, 0, 0, 0 | NOT FAITHFUL |
+| `15b_tqh` | 10/160 | 0, 0, 0, 0, 0 | NOT FAITHFUL |
+
+§6 predicted `05b_tq` and `15b_tq` at **160/160 FAITHFUL**, on the reasoning that "the body is
+ternary in both A1-adjacent arms and E6 showed ternarising the *body* is survivable; it is the
+*head* that breaks A2". **That is backwards.** The ternary **body alone** diverges at **token 0**
+in four of five prompts at 0.5B and in **five of five** at 1.5B. Ternarising the head on top of
+it changes the count by 0 at 0.5B and by 2 at 1.5B.
+
+**The check that number needed.** `05b_tq` and `05b_tqh` returned the *same* count *and* the
+same divergence positions, which is the shape a code-path defect makes. Re-generating both and
+comparing the two arms **to each other**:
+
+    05b_tq   vs 05b_tqh  : 0 of 5 prompt sequences IDENTICAL,  28 of 160 tokens equal
+    15b_tq   vs 15b_tqh  : 1 of 5 prompt sequences IDENTICAL,  81 of 160 tokens equal
+
+So the coincidence was in the *counts*, not in the *sequences* — the two arms are genuinely
+different models. The second row is the interesting one: at 1.5B the two ternary arms agree with
+**each other** on 81/160 tokens while agreeing with HuggingFace on 12 and 10. **Ternarising the
+body moves the model to a common different place, and the head is a second-order perturbation
+on top of it.**
+
+## A.3 `G-E57c` — the speed table
+
+All-cell analysis (see A.6 for why this is the honest column), with bootstrap 95% intervals from
+2000 resamples, reported as **data, not as a gate**:
+
+| arm | cells | **p25** | 95% CI | median | 95% CI | IQR |
+|---|---|---|---|---|---|---|
+| `05b_f32` | 15 | **19.09** | [18.55, 19.47] | 19.47 | [19.12, 19.54] | 2.29% |
+| `05b_tq` | 15 | **43.69** | [42.44, 44.13] | 44.13 | [43.86, 44.18] | 1.20% |
+| `05b_tqh` | 15 | **83.41** | [82.37, 84.91] | 84.88 | [83.31, 85.76] | 2.62% |
+| `15b_f32` | 15 | **6.25** | [6.02, 6.28] | 6.27 | [6.24, 6.28] | 0.56% |
+| `15b_tq` | 15 | **19.15** | [18.75, 19.23] | 19.19 | [19.16, 19.45] | 1.35% |
+| `15b_tqh` | 15 | **29.18** | [28.85, 30.03] | 30.03 | [29.39, 30.37] | 3.58% |
+
+The single-cell probes in §2 were 18.98 / 42.83 / 81.28 / 6.08 / 18.32 / 29.14. **Fifteen
+replicated cells reproduce every one of them to within 2.7%**, so §2's probes were not flukes —
+they were just uninterval'd.
+
+## A.4 `G-E57d` — the joint claim
+
+> **NO ARM DEMONSTRATES THE TARGET.**
+> The fastest **FAITHFUL** arm is `05b_f32` at p25 **19.09 tok/s** (160/160) — **38% of the
+> 50 tok/s bar** and 19% of the 100 tok/s bar.
+> The fastest arm overall is `05b_tqh` at p25 **83.41 tok/s** and it is **NOT FAITHFUL** (3/160).
+
+That is the sentence §5 was written to force, and the numbers arrived in exactly the
+configuration it was written to prevent being combined: **the speed is on one arm and the
+correctness is on another, and they are 4.4× apart.**
+
+§6 predicted `05b_tq` FAITHFUL at p25 44–50 and therefore a narrow miss. The **rate** was right
+(43.69, inside the predicted band) and the **quality** was wrong by 157 tokens. The registered
+sentence — *"I am predicting that nothing demonstrates the target"* — holds, but for a
+completely different reason than the one given.
+
+## A.5 `G-E55a2` REFUSED all six arms, and it is MALFORMED — its verdict depends on the rep count and on nothing else
+
+Every arm came back `UNSTABLE`, on IQRs of **0.56% to 2.29%** — tighter than any window E55
+measured, and E55 *passed* two windows at 1.43% and 2.34%.
+
+    A1_05b_f32   IQR 2.29% on 15 reps; median |half-full|/full over 200 splits = 35%
+    05b_tq       IQR 1.20% on 15 reps;                                          75%
+    A2_05b_tqh   IQR 1.31% on  8 reps;                                          23%
+    15b_f32      IQR 0.56% on 15 reps;                                          29%
+    15b_tq       IQR 1.35% on 15 reps;                                          27%
+    A3_15b_tqh   IQR 1.21% on 10 reps;                                          37%
+
+A gate that refuses data four times tighter than data it previously passed is making a
+statement about something other than the data. **P(`G-E55a2` = PASS) over 300 independent
+draws from a clean Gaussian population, at four true dispersions spanning 30×:**
+
+| true σ | k=8 | **k=15** | k=25 | k=40 | k=80 |
+|---|---|---|---|---|---|
+| 0.1% | 2% | **24%** | 69% | 94% | 100% |
+| 0.5% | 3% | **22%** | 70% | 93% | 100% |
+| 1.0% | 1% | **28%** | 71% | 94% | 100% |
+| 3.0% | 3% | **22%** | 67% | 93% | 100% |
+
+**The columns are flat and the rows are identical.** The verdict is a function of `k` alone and
+is completely blind to the dispersion it claims to gate — because `|IQR(half) − IQR(full)| /
+IQR(full)` is the *relative sampling error of the IQR estimator*, and that is **scale-free**: it
+depends on how many points you have, never on how tight they are. At the `k = 15` this
+experiment registered, the gate says PASS **22–28% of the time no matter how good the
+measurement is**.
+
+**This is the same defect as `G-E44b`, one level up.** E55 A.2 found that `G-E55a`'s single
+split was a coin flip and registered `G-E55a2` as the repair — *"a variance reduction on the
+same statistic"*. The repair is real: it removed the **split** noise. But **the statistic was
+the wrong one**, so the **sample** noise walked straight through it. I measured the noise of the
+gate I was replacing and did not measure the noise of the gate I replaced it with, in the very
+addendum that established the principle.
+
+**Handling, and what is NOT done:**
+
+* `G-E55a2` is recorded **MALFORMED**, not failed (E4 precedent). It cannot be answered at the
+  `k` it was registered at by any measurement of any quality.
+* **E57 run 1 is not re-labelled** (E36 run-2 rule). The `NO CLAIM (interval unstable)` verdicts
+  stand as printed, and A.3's quantiles are reported as data with bootstrap intervals beside
+  them — which is what a refused gate leaves behind.
+* **The conclusion does not depend on it.** `G-E57d` turns on quality, and on 19.09 against a
+  bar of 50 — a factor of **2.6**, against measured IQRs under 2.3%. No interval gate changes
+  that verdict in either direction.
+* **The replacement is not chosen here**, because choosing it after seeing which arms it would
+  pass is the move this programme exists to prevent. What is registered is the *requirement*:
+  the gate must watch **the quantity actually quoted** (the p25 / median), not the IQR, and it
+  must have a bar that a tight sample can clear at its own `k`. The bootstrap interval in A.3 is
+  a candidate and is reported here only as data.
+
+## A.6 The occupancy bar rejected the memory-bound arms almost entirely, and that is E56's answer arriving early
+
+| arm | cells clearing `OCC_BAR = 4.39` | median foreign | median clock | rate |
+|---|---|---|---|---|
+| `15b_f32` | **0 of 15** | 7.20% | 107.0% | 6.27 |
+| `05b_f32` | **1 of 15** | 6.19% | 107.0% | 19.47 |
+| `15b_tq` | 3 of 15 | 4.85% | 104.9% | 19.19 |
+| `05b_tq` | 4 of 15 | 5.14% | 105.6% | 44.13 |
+| `05b_tqh` | 8 of 15 | 4.17% | 104.2% | 84.88 |
+| `15b_tqh` | 10 of 15 | 3.96% | 103.7% | 30.03 |
+
+**Pearson r(rate, foreign) = −0.651 across the six arms.** The slower the arm, the more
+"foreign" occupancy it is charged — and the two fp32 arms, which stream the most bytes per
+token, are charged the most and are rejected almost completely.
+
+This is not contention. Nothing else was running. It is exactly the mechanism E55 A.3 proposed
+and registered as E56: **`foreign = system − child` counts kernel work done *on behalf of* the
+engine** — page faults, zeroing, TLB shootdowns — which `GetProcessTimes` does not attribute to
+the child. E55 inferred it from a floor; **E57 measures it as a gradient**, because here the
+memory traffic differs by a factor of 8.6 between arms while the box is equally idle.
+
+**Consequence, stated plainly: `OCC_BAR` is biased against the treatment.** Applying it here
+would discard 15 of 15 cells of the slowest arm and 8 of 15 of the fastest, which is a
+selection on the very axis being measured. Four of six arms fell below the six-cell minimum and
+fell back to the all-cell set automatically; A.3 therefore reports the all-cell analysis for
+every arm, and the clean-cell column is in the JSON for anyone who wants it. **The clock witness
+agrees and is doing its job**: 107.0% on both fp32 arms against 103.7% on the fastest ternary
+one — the memory-bound arms leave the cores idle enough to boost harder.
+
+## A.7 A display defect of mine, found and fixed
+
+The first speed table printed a `cells` column with no indication of **which set** the count came
+from. Four of six arms had silently fallen back to the all-cell set, so the column showed 15 for
+rows computed one way and 8 or 10 for rows computed the other. The verdicts were unaffected —
+both analyses are in the JSON and they agree to 2.8% at worst — but a column labelled one thing
+and holding another is the same defect class as `G-E53f`'s `p = nan`. The runner now names the
+analysis per row and says what `ALL` means.
+## A.8 Scorecard
+
+| §6 prediction | measured | |
+|---|---|---|
+| `G-E57a`: all three controls reproduce | 160/160, 3/160, 10/160 — exact | **right** |
+| `05b_tq` quality 160/160 FAITHFUL | **3/160**, diverges at token 0 | **WRONG, and backwards** |
+| `15b_tq` quality 160/160 FAITHFUL | **12/160**, diverges at token 0 | **WRONG, and backwards** |
+| `15b_f32` quality 160/160 | **160/160** | **right** |
+| `05b_tq` p25 in 44–50 | **43.69** [42.44, 44.13] | **just outside**, 0.7% low |
+| `15b_tq` p25 near 18 | **19.15** | **right** |
+| best faithful arm `05b_tq` at 42–48 | best faithful arm is `05b_f32` at **19.09** | **WRONG** |
+| *"nothing demonstrates the target"* | nothing demonstrates the target | **right, wrong reason** |
+
+**4 right, 4 wrong.** The rates were predicted well (two of three inside or within 1% of the
+band); **every quality prediction about a ternary arm was wrong, and wrong in the direction
+that flattered the programme.** That is the fourth experiment in a row with the same signature —
+directions right, magnitudes wrong — except that here the error is not a magnitude. It is a
+mechanism: I had the wrong organ.
+
+## A.9 What this changes, and what is now the actual blocker
+
+**The good half, and it is newly demonstrated, not assumed:** a trained LLM runs on this engine
+**token-for-token identically to HuggingFace, at two different model sizes** — `05b_f32`
+160/160 and `15b_f32` 160/160, the second scored here for the first time. The engine is not
+wrong. That part of the goal — *far funzionare un LLM già addestrato* — is met, in fp32.
+
+**The blocking half:** it is met only at **19.09 tok/s** (0.5B) and **6.25 tok/s** (1.5B), and
+**every configuration that is fast is a configuration that is broken.**
+
+    FAITHFUL  and slow :  05b_f32  19.09    15b_f32   6.25
+    FAST      and broken:  05b_tqh 83.41    05b_tq   43.69    15b_tqh 29.18    15b_tq 19.15
+
+**The programme's headline rate has, all along, been standing on the broken side of this
+table.** E55's 118.47 / 98.77 / 79.14 / 49.57 are ternary **and** `--carve-k 3` — ternary
+quantisation plus 1.17% FFN activation — measured on synthetic weights. E57 is the first
+measurement of what those two treatments do to a **trained** model's output, and the answer for
+the first of them alone is: **it diverges at the first token.**
+
+**That is not an engine defect and it should not be reported as one.** It is the known cost of
+**post-hoc** ternarisation, and E37 already returned `NO` on post-hoc conversion. What E57 adds
+is the number and the *organ*: the body, not the head, and at token 0, not by drift.
+
+**So the route to the goal narrows to one thing, and it is a training question, not an engine
+question.** A trained model that is fast on this engine must be **ternary by training**
+(quantisation-aware), not ternary by conversion. Everything the engine can do has now been
+measured on both sides:
+
+| | trained weights | synthetic weights |
+|---|---|---|
+| **fp32** | faithful, 19.09 tok/s | — |
+| **ternary, post-hoc** | 3/160, 43.69–83.41 tok/s | — |
+| **ternary + carve, post-hoc** | never scored | 49.57–118.47 tok/s (E55) |
+| **ternary by training** | **never built at donor scale** | — |
+
+The empty cell in the bottom-left is the goal.
+
+## A.10 What is owed
+
+1. **`G-E55a2` is malformed and the programme currently has no working interval gate.** The
+   requirement is registered in A.5; the replacement is not chosen here and must be registered
+   before the run that uses it.
+2. **E56 is now over-determined** — A.6 turns E55's floor argument into a gradient with
+   `r = −0.651`. `OCC_BAR` must be re-derived against the foreign floor measured *with the
+   engine running*, and `system − child` decomposed into contention versus
+   kernel-on-behalf-of-the-child. Until then the bar is biased against memory-bound arms.
+3. **A `tq` arm has never been given a continuous quality metric.** `3/160` is a discrete count
+   at the top of a ladder; it cannot distinguish "lossy but functioning" from "broken". A BPB
+   reading on the same ids file, across `f32` / `tq` / `tqh`, separates those two and is owed
+   before anyone argues about how much QAT would have to recover.
+4. **The 10B question is untouched and is now sharper, not vaguer**: no trained 10B model exists
+   locally, and E57 has just measured that the cheap route to making one fast — convert it —
+   destroys it.
