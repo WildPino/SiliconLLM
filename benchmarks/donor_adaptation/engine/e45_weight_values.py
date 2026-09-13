@@ -72,6 +72,11 @@ OCC_EXCLUDE_BAR = 70.0
 # answer a 5% question.  This is the clause run 1 lacked.
 RUN2_S_MAX = 0.10
 
+# ADDENDUM E, E.3 -- run 4.  Registered before run 4's data existed (eb47b2f).
+# The lever is reps per cell, not a longer window (E.1: window length and context
+# length are the same knob in this engine) and not a quieter box (E.2).
+RUN4_PAIRS, RUN4_M = 12, 5
+
 
 def sha256(path):
     h = hashlib.sha256()
@@ -151,6 +156,40 @@ def race(occ, arms, pairs, label):
         log("    pair %d  %s   ->  %s/%s = %.4f" % (i + 1, "  ".join(line), a, b, r))
     ratios = [rates[arms[0][0]][i] / rates[arms[1][0]][i] for i in range(pairs)]
     return rates, dts, walls, occs, ratios
+
+
+def race_medians(occ, arms, pairs, m, label):
+    """ADDENDUM E, E.3.  Interleaved AT THE REP LEVEL: A B A B ... m times, then the
+    pair's two MEDIANS form one ratio.  Averaging inside the cell is what run 2 lacked;
+    the context stays at NTOK so the number remains comparable with E37 and E40."""
+    a, b = arms[0][0], arms[1][0]
+    cells = dict((t, []) for t, _, _ in arms)
+    occs = dict((t, []) for t, _, _ in arms)
+    pair_med, pair_occ_max, ratios = {a: [], b: []}, [], []
+    log("  %s -- %d pairs of %s, %d reps per cell, interleaved at the rep level"
+        % (label, pairs, " / ".join(t for t, _, _ in arms), m))
+    for i in range(pairs):
+        cur = dict((t, []) for t, _, _ in arms)
+        curo = []
+        for _ in range(m):
+            for tag, w, flags in arms:
+                occ.sample()
+                v, dt, wall = one_rep(ENGINE, w, NTOK, THREADS, flags)
+                o = occ.sample()
+                cur[tag].append(v)
+                cells[tag].append(v)
+                occs[tag].append(o)
+                curo.append(o)
+        ma, mb = statistics.median(cur[a]), statistics.median(cur[b])
+        pair_med[a].append(ma)
+        pair_med[b].append(mb)
+        pair_occ_max.append(max(curo))
+        ratios.append(ma / mb)
+        log("    pair %2d  %s %7.2f (cv %.4f)   %s %7.2f (cv %.4f)   occ max %4.1f%%  "
+            "->  %s/%s = %.4f"
+            % (i + 1, a, ma, rel_spread(cur[a]), b, mb, rel_spread(cur[b]),
+               pair_occ_max[-1], a, b, ratios[-1]))
+    return cells, occs, pair_med, pair_occ_max, ratios
 
 
 def arm_summary(rates, dts, walls, occs, tag):
@@ -271,6 +310,10 @@ def main():
     ap.add_argument("--run2", action="store_true",
                     help="ADDENDUM C, C.5: %d attempted pairs, the occupancy "
                          "exclusion, and G-E45d instead of G-E45c." % RUN2_PAIRS)
+    ap.add_argument("--run4", action="store_true",
+                    help="ADDENDUM E, E.3: %d pairs of %d reps per cell, interleaved at "
+                         "the rep level, G-E45d deciding." % (RUN4_PAIRS, RUN4_M))
+    ap.add_argument("--reps-per-cell", type=int, default=RUN4_M)
     ap.add_argument("--selftest", action="store_true",
                     help="run the G-E45d planted controls and stop.  Touches no engine.")
     ap.add_argument("--out", default=None)
@@ -280,6 +323,15 @@ def main():
         selftest()
         return
 
+    if a.run2 and a.run4:
+        raise SystemExit("--run2 and --run4 are different registered designs.  Pick one.  STOP.")
+    if a.run4:
+        if a.pairs == MIN_PAIRS:
+            a.pairs = RUN4_PAIRS
+        if a.pairs < RUN4_PAIRS or a.reps_per_cell < RUN4_M:
+            raise SystemExit("ADDENDUM E E.3 registers %d pairs of %d reps per cell.  %d/%d is "
+                             "below it and the design is not tunable downward.  STOP."
+                             % (RUN4_PAIRS, RUN4_M, a.pairs, a.reps_per_cell))
     if a.run2:
         if a.pairs == MIN_PAIRS:
             a.pairs = RUN2_PAIRS
@@ -288,7 +340,11 @@ def main():
                              "below it and the gate is not tunable downward.  STOP."
                              % (RUN2_PAIRS, a.pairs))
     if a.out is None:
-        a.out = os.path.join(RES, "e45_weight_values_run2.json") if a.run2 else OUT
+        a.out = OUT
+        if a.run2:
+            a.out = os.path.join(RES, "e45_weight_values_run2.json")
+        elif a.run4:
+            a.out = os.path.join(RES, "e45_weight_values_run4.json")
     if a.pairs < MIN_PAIRS:
         raise SystemExit("G-E45b registers >= %d interleaved pairs.  %d is below the gate's own "
                          "number and the gate is not tunable downward.  STOP."
@@ -310,10 +366,20 @@ def main():
     log("=" * 78)
 
     out = {"brief": "BRIEF_E45_DOES_SPEED_DEPEND_ON_THE_WEIGHTS.md",
-           "brief_commits": ["f2c1485", "d50e59e"] + (["d890f13"] if a.run2 else []),
-           "run": 2 if a.run2 else 1,
+           "brief_commits": (["f2c1485", "d50e59e"]
+                             + (["d890f13"] if a.run2 else [])
+                             + (["d890f13", "eb47b2f"] if a.run4 else [])),
+           "run": 2 if a.run2 else (4 if a.run4 else 1),
+           "reps_per_cell": a.reps_per_cell if a.run4 else 1,
            "engine": os.path.basename(ENGINE), "ntok": NTOK, "threads": THREADS,
            "pairs": a.pairs, "started": time.strftime("%Y-%m-%d %H:%M:%S")}
+    if a.run4:
+        selftest()
+        log("")
+        log("  RUN 4 (addendum E, E.3).  %d pairs, %d reps per cell, interleaved at the rep"
+            % (RUN4_PAIRS, a.reps_per_cell))
+        log("  level, NTOK %d unchanged so the cells stay comparable with E37 and E40." % NTOK)
+        log("  G-E45d decides.  Runs 1-3 stand as recorded and this run may not promote them.")
     if a.run2:
         log("  RUN 2 (addendum C, C.5).  %d attempted pairs, pairs discarded above %.0f%%"
             % (RUN2_PAIRS, OCC_EXCLUDE_BAR))
@@ -365,17 +431,30 @@ def main():
     for tag, flags, why in plan:
         log("")
         log("== %s  (%s) ==" % (tag, why))
-        rr, dd, ww, oo, ratios = race(
-            occ, [("NF", nf, flags), ("SYN", syn, flags)], a.pairs, tag)
-        vd = verdict_e45c(ratios)
         arms2 = [("NF", nf, flags), ("SYN", syn, flags)]
-        vd2 = verdict_e45d(ratios, [pair_occ(oo, arms2, i) for i in range(a.pairs)])             if a.run2 else None
-        log("  NF  median %7.2f tok/s  (min %.2f, max %.2f, rel spread %.4f)"
-            % (statistics.median(rr["NF"]), min(rr["NF"]), max(rr["NF"]),
-               rel_spread(rr["NF"])))
-        log("  SYN median %7.2f tok/s  (min %.2f, max %.2f, rel spread %.4f)"
-            % (statistics.median(rr["SYN"]), min(rr["SYN"]), max(rr["SYN"]),
-               rel_spread(rr["SYN"])))
+        if a.run4:
+            cells, occs, pmed, pocc, ratios = race_medians(
+                occ, arms2, a.pairs, a.reps_per_cell, tag)
+            vd = verdict_e45c(ratios)
+            vd2 = verdict_e45d(ratios, pocc)
+            for t in ("NF", "SYN"):
+                log("  %-3s pair medians %7.2f min / %7.2f max   all %d cells: median %7.2f, "
+                    "rel spread %.4f"
+                    % (t, min(pmed[t]), max(pmed[t]), len(cells[t]),
+                       statistics.median(cells[t]), rel_spread(cells[t])))
+            armrec = dict((t, {"pair_medians": pmed[t], "all_rates": cells[t],
+                               "median_tok_s": statistics.median(cells[t]),
+                               "rel_spread_all_cells": rel_spread(cells[t]),
+                               "occupancy_pct": occs[t]}) for t in ("NF", "SYN"))
+            armrec["pair_occ_max_pct"] = pocc
+        else:
+            rr, dd, ww, oo, ratios = race(occ, arms2, a.pairs, tag)
+            vd = verdict_e45c(ratios)
+            vd2 = verdict_e45d(ratios, [pair_occ(oo, arms2, i) for i in range(a.pairs)])                 if a.run2 else None
+            for t in ("NF", "SYN"):
+                log("  %-3s median %7.2f tok/s  (min %.2f, max %.2f, rel spread %.4f)"
+                    % (t, statistics.median(rr[t]), min(rr[t]), max(rr[t]), rel_spread(rr[t])))
+            armrec = dict((t, arm_summary(rr, dd, ww, oo, t)) for t in ("NF", "SYN"))
         log("  per-pair ratio NF/SYN : median %.4f   spread (max-min) %.4f   |r-1| %.4f"
             % (vd["median_ratio"], vd["spread"], vd["abs_r_minus_1"]))
         log("  G-E45c on %s : %s   (run 1's gate, printed for continuity)"
@@ -393,10 +472,8 @@ def main():
                     % (vd2["surviving"], vd2["median_ratio"], vd2["spread"],
                        vd2["abs_r_minus_1"], vd2["u_above_one"], vd2["surviving"]))
                 log("  G-E45d on %s : %s  (%s)" % (tag, vd2["verdict"], vd2["reason"]))
-        out["arms"][tag] = {"why": why, "flags": flags,
-                            "NF": arm_summary(rr, dd, ww, oo, "NF"),
-                            "SYN": arm_summary(rr, dd, ww, oo, "SYN"),
-                            "G_E45c": vd, "G_E45d": vd2}
+        armrec.update({"why": why, "flags": flags, "G_E45c": vd, "G_E45d": vd2})
+        out["arms"][tag] = armrec
 
     # ---------------------------------------------------------------- G-E45b
     every = []
@@ -410,7 +487,7 @@ def main():
     out["G_E45b"] = {"pairs": a.pairs, "min_pairs": MIN_PAIRS, "fires": bool(b_fires)}
 
     # ------------------------------------------------------------- the report
-    gk = "G_E45d" if a.run2 else "G_E45c"
+    gk = "G_E45d" if (a.run2 or a.run4) else "G_E45c"
     prim = out["arms"]["K256"][gk]
     sec = out["arms"]["K16"][gk]
 
@@ -423,7 +500,7 @@ def main():
     log("")
     log("=" * 78)
     log("E45 RUN %d REGISTERED VERDICT -- %s, read from K256 (addendum B, B.2)"
-        % (2 if a.run2 else 1, gk.replace("_", "-")))
+        % (out["run"], gk.replace("_", "-")))
     log(_line("K256", "PRIMARY", prim))
     log(_line("K16", "secondary", sec) + "   (value+selection)")
     if prim["verdict"] == "BRIDGE HOLDS" and sec["verdict"] == "BRIDGE BROKEN":
