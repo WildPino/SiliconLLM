@@ -199,7 +199,27 @@ static int      g_lutblk=0;
 // Dispatched OUTSIDE the t loop, so the branch is paid L*NH times per token, not L*NH*pos.
 enum { ATTN_SERIAL=0, ATTN_ILP4=1, ATTN_AVX1=2, ATTN_AVX4=3, ATTN_SERIAL2=4,
        ATTN_SERIAL_E3=5, ATTN_SERIAL3=6 };
-static int g_attn=ATTN_SERIAL;
+// DEFAULT avx4, adopted by E50 (BRIEF_E50_TURN_THE_FAST_KERNEL_ON_BY_DEFAULT.md).  It was
+// ATTN_SERIAL until 2026-09-13 and NO runner from E26 onward passed --attn, so every tok/s
+// this programme published between E26 and E48 timed the SCALAR kernel -- which is the very
+// defect lines 76 and 85 above cite, by name, as the reason g_mvacc and g_wit are defaults
+// rather than flags.  The lesson was written here and not applied to the flag it came from.
+// E49 measured the cost: b(serial)/b(avx4) = 2.374, C50 608 -> 1443, intercepts equal to
+// 0.06%, at |dBPB| <= 8.47e-07 with a planted control that fires.  E50 gated the change on
+// the claim it could break -- E6's 160/160 greedy-identical trajectory, which was itself
+// measured on serial -- and on both of E49's NATS_TOTAL values still reproducing BIT FOR
+// BIT, the second of which is what keeps every pre-E50 serial reading repeatable:
+//     --attn serial   restores the old default exactly.
+static int g_attn=ATTN_AVX4;
+
+// E50: the arm must appear in the OUTPUT.  A configuration that does not is a configuration
+// nobody can audit, and that is how the line above stayed wrong for twenty-two experiments.
+static const char* attn_name(int a){
+    switch(a){ case ATTN_SERIAL:  return "serial";  case ATTN_ILP4:    return "ilp4";
+               case ATTN_AVX1:    return "avx1";    case ATTN_AVX4:    return "avx4";
+               case ATTN_SERIAL2: return "serial2"; case ATTN_SERIAL3: return "serial3";
+               case ATTN_SERIAL_E3: return "serial_e3"; default: return "?"; }
+}
 
 // --attnr {none,sm2,sm3,av2,av3,fork2}: BRIEF_E5_DECOMPOSE_R.md s2.  E4 left the attention organ
 // split as X (the Q.K dot loop, 2.242 ms after avx4) + R (everything else, 9.816 ms = 81.4%).
@@ -214,6 +234,11 @@ enum { ATTNR_NONE=0, ATTNR_SM2=1, ATTNR_SM3=2, ATTNR_AV2=3, ATTNR_AV3=4, ATTNR_F
 // code block from the wrapped arms.  With sm1/av1 the solve and the test share a code shape
 // and (1x - none) prices the code-path difference itself instead of hiding inside it.
 static int g_attnr=ATTNR_NONE;
+static const char* attnr_name(int a){
+    static const char* N[11]={"none","sm2","sm3","av2","av3","fork2",
+                              "sm1","av1","qk1","qk2","qk3"};
+    return (a>=0&&a<11)?N[a]:"?";
+}
 // fork2's extra region must not be elidable and must not be shrunk to its one read element,
 // hence volatile on the buffer itself.
 #define E5_MAXNH 1024
@@ -1456,6 +1481,15 @@ int main(int argc,char** argv){
                 tmb/1048576.0,now_s()-t0,AQ);
     }
 
+    // E50 G-E50c: every mode says what it ran.  --bpb prints no BENCH line at all and it is
+    // where parity is decided, so the witness cannot live on the BENCH line alone.
+    printf("CONFIG  attn=%s  attnr=%s  mvacc=%d  threads=%d  quant=%s%s\n",
+           g_sw?"sweep":attn_name(g_attn), g_sw?"sweep":attnr_name(g_attnr),
+           g_mvacc, threads,
+           M.quant==3?"tagged":M.quant==2?"packed":M.quant?"ternary":"fp32",
+           g_lut?"  lut=1":"");
+    fflush(stdout);
+
     if(!strcmp(mode,"bench")){
         // the palindrome balances mean position only over WHOLE periods; refuse a partial one
         // rather than quietly hand the low-numbered arms an extra short context each
@@ -1474,9 +1508,12 @@ int main(int argc,char** argv){
             }
         }
         double dt=now_s()-t0;
-        printf("BENCH  %ld tokens  %.3f s  %.2f tok/s  (threads=%d, %s)",
+        // the arm goes AFTER `tok/s`: every BENCH-parsing regex in the tree stops there,
+        // so the eight of them (e3/e5/e25/e26/e28/e30/e44/e48) keep matching -- G-E50d.
+        printf("BENCH  %ld tokens  %.3f s  %.2f tok/s  (threads=%d, %s, attn=%s)",
                arg3,dt,arg3/dt,threads,
-               M.quant==3?"tagged":M.quant==2?"packed":M.quant?"ternary":"fp32");
+               M.quant==3?"tagged":M.quant==2?"packed":M.quant?"ternary":"fp32",
+               g_sw?"sweep":attn_name(g_attn));
         // the witness, same convention as the profiler's own ffn row (divided by arg3, warm token
         // included) so the two are directly comparable against a plateau measured either way
         if(g_wit&&!g_prof) printf("  ffn~ %.3f ms/tok",g_w0/arg3*1e3*M.L);

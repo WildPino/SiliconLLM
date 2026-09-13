@@ -1,0 +1,102 @@
+{
+ "brief": "BRIEF_E50_TURN_THE_FAST_KERNEL_ON_BY_DEFAULT.md",
+ "engine": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\donor_engine.exe",
+ "threads": 6,
+ "note": "run 1 (e50_run1.log).  The drift line crashed on an Occupancy API misuse AFTER every gate had returned; this file is rebuilt from run 1's own artifacts and no gate was re-run.",
+ "G_E50a": {
+  "verdict": "PASS",
+  "why": "A1 is 160/160 on both kernels -- the default may change",
+  "avx4": {
+   "A1": {
+    "matched": 160,
+    "counted": 160,
+    "agree": 1.0,
+    "first_div": null,
+    "worst_gap_at_div": null
+   },
+   "A2": {
+    "matched": 3,
+    "counted": 160,
+    "agree": 0.01875,
+    "first_div": [
+     0,
+     0
+    ],
+    "worst_gap_at_div": 11.671914100646973
+   },
+   "A3": {
+    "matched": 10,
+    "counted": 160,
+    "agree": 0.0625,
+    "first_div": [
+     0,
+     0
+    ],
+    "worst_gap_at_div": 15.963579177856445
+   }
+  },
+  "serial": {
+   "A1": {
+    "matched": 160,
+    "counted": 160,
+    "agree": 1.0,
+    "first_div": null,
+    "worst_gap_at_div": null
+   },
+   "A2": {
+    "matched": 3,
+    "counted": 160,
+    "agree": 0.01875,
+    "first_div": [
+     0,
+     0
+    ],
+    "worst_gap_at_div": 11.671914100646973
+   },
+   "A3": {
+    "matched": 10,
+    "counted": 160,
+    "agree": 0.0625,
+    "first_div": [
+     0,
+     0
+    ],
+    "worst_gap_at_div": 15.963579177856445
+   }
+  }
+ },
+ "G_E50b": {
+  "verdict": "PASS",
+  "why": "both values reproduce to every digit -- the default IS avx4 and every pre-E50 serial reading stays reproducible",
+  "nats_default": "124963.9517608703",
+  "nats_serial": "124963.9729339122",
+  "e49_avx4": "124963.9517608703",
+  "e49_serial": "124963.9729339122"
+ },
+ "G_E50c": {
+  "verdict": "PASS",
+  "why": "the arm is reported, it changes with the flag, and it is reported in --bpb too -- which prints no BENCH line at all",
+  "arms_reported": "bench default avx4 / bench serial serial / logits default avx4 / logits serial serial"
+ },
+ "G_E50d": {
+  "verdict": "PASS",
+  "why": "all 7 parsers match and agree on (tokens, seconds, tok/s) = ('20', '1.273', '15.71')",
+  "bench_line": "BENCH  20 tokens  1.273 s  15.71 tok/s  (threads=6, fp32, attn=avx4)  ffn~ 42.570 ms/tok"
+ },
+ "drift": [
+  {
+   "n": 40,
+   "tok_s": 124.67,
+   "e49_avx4": 121.65,
+   "delta_pct": 2.4825318536785828,
+   "occ": 25.920810313075503
+  },
+  {
+   "n": 1280,
+   "tok_s": 74.47,
+   "e49_avx4": 74.11,
+   "delta_pct": 0.48576440426393125,
+   "occ": 54.92332526230832
+  }
+ ]
+}

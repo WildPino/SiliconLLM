@@ -203,3 +203,119 @@ itself).
 (`--lutblk`, `--rank`, `--carve-k`) that E6's command line does not pass, so the fp32 0.5B path
 should be untouched by them. **If that is wrong, the third row of A.2 is the interesting one and I
 would rather find it here than have it found for me later.**
+
+---
+
+# ADDENDUM B — ALL FOUR GATES PASS, AND THE DEFAULT IS CHANGED
+
+**Results: `results/e50_default_kernel.json`, log `e50_run1.log`, engine `donor_engine_e50.exe`
+(frozen).** 17 decision-function self-tests fired in both directions before any cell was measured.
+
+## B.1 `G-E50a` — E6's greedy claim survives, and the controls reproduced E6 EXACTLY
+
+| arm | E6 (serial, 2026-09-07) | E50 `avx4` | E50 `serial` |
+|---|---|---|---|
+| **A1** — fp32 0.5B, the known-positive | **160/160** | **160/160** | **160/160** |
+| A2 — ternary+head 0.5B, planted control | 3/160 | **3/160** | **3/160** |
+| A3 — 1.5B, planted control | 10/160 | **10/160** | **10/160** |
+
+**`G-E50a`: PASS.** A1 is 160/160 on both kernels, so the default may change.
+
+Three things this says that the gate did not have to give:
+
+1. **The controls did not merely stay inside the ±2 addendum A allows — they reproduced E6's
+   counts to the token.** The scorer is demonstrably seeing the same disagreements E6 saw, on
+   artifacts whose disagreement is caused by ternarisation and not by the kernel.
+2. **The `serial` twin came back at 160/160 too**, which rules out A.2's third row: the six days
+   of E13/E25/E26 drift between E6's binary and E26's left the fp32 greedy trajectory untouched.
+   That was the row I most wanted not to find, and the arm existed so that I could not have
+   confused it with my own change.
+3. **`G-P` and `G-D` passed 30 times out of 30** — prefill logits byte-identical to `--logits`,
+   and the same arm run twice byte-identical — across both kernels and all three arms.
+
+So the discrete claim now stands where E49 only had the scalar one: `avx4` does not move a single
+greedy token of the fp32 donor over five prompts and 160 steps.
+
+## B.2 `G-E50b` — both values to every digit
+
+| | measured | E49 |
+|---|---|---|
+| no flag | **124963.9517608703** | 124963.9517608703 (`avx4`) |
+| `--attn serial` | **124963.9729339122** | 124963.9729339122 (`serial`) |
+
+**`G-E50b`: PASS**, and the addendum A.3 diagnostic never ran because it did not have to. The
+first line says the default really is `avx4`. The second says **every pre-E50 `serial` reading
+stays reproducible on demand** — which is the condition on which E26–E48's numbers remain part
+of the ledger rather than becoming orphans. It also settles A.3's other question: the build is
+reproducible from the same source and flags.
+
+## B.3 `G-E50c` — the witness witnesses
+
+    CONFIG  attn=avx4  attnr=none  mvacc=4  threads=6  quant=fp32
+    CONFIG  attn=serial  attnr=none  mvacc=4  threads=6  quant=fp32
+
+Reported in `--bench` **and** in `--logits`, which prints no `BENCH` line at all, and it changes
+with the flag. **PASS.** Under `--sweep*` it prints `attn=sweep`, because there the arm rotates
+per token and a single name would be a lie.
+
+## B.4 `G-E50d` — nobody is broken
+
+    BENCH  20 tokens  1.181 s  16.93 tok/s  (threads=6, fp32, attn=avx4)  ffn~ 39.381 ms/tok
+
+**PASS.** Eight call sites — `e3`, `e5`, `e25`, `e26`, `e28`, `e30` (which imports `e28`'s),
+`e44`, `e48` — seven distinct regexes, all still matching and all returning the same
+`(tokens, seconds, tok/s)`. The arm was placed **after** `tok/s` for exactly this reason; the
+self-test `D2` runs the version that puts it before, and that version breaks every parser.
+
+## B.5 The drift line — not a gate
+
+| window | measured | E49 `avx4` | | occupancy | arm reported |
+|---|---|---|---|---|---|
+| n=40 | 124.67 tok/s | 121.65 | +2.5% | 25.9% | `avx4` |
+| n=1280 | 74.47 tok/s | 74.11 | +0.5% | 54.9% | `avx4` |
+
+Inside the dispersion E49 measured, and **with no flag passed** — which is the whole point. It
+carries no verdict: the machine is not certified idle and E44 owns the interval.
+
+## B.6 Prediction scorecard — 6 of 6, and they were easy
+
+Every row of §5 came in as registered, including the two that could have gone otherwise (`A1`
+surviving, and the controls not moving). §5 said in advance that these were weaker claims than
+E49's and that only `G-E50a` carried real uncertainty; scoring them 6/6 is worth less than E49's
+4-of-6, and is recorded that way rather than banked.
+
+## B.7 What changed on disk, and what it means for everything else
+
+* `donor_engine.c:202` is now `static int g_attn=ATTN_AVX4;`, with the E49/E50 provenance written
+  above it and `--attn serial` named as the way to restore the old default exactly.
+* Every mode prints a `CONFIG` line naming the arm. **The class defect is closed**: the thing
+  that hid for twenty-two experiments can no longer hide, because it now appears in every log.
+* `donor_engine_e50.exe` is frozen next to `donor_engine_e25/e26.exe`, following the convention
+  that a published number names the binary that produced it.
+
+**Three consequences that are now true and were not before:**
+
+1. **`e44_interval.py` defaults to `donor_engine.exe`** (line 188), so when the idle-machine
+   window arrives E44 measures the **restated** headline on `avx4` without any change to it — and
+   its log will say `attn=avx4` rather than leaving it to be inferred.
+2. **Every runner still pinned to `donor_engine_e26.exe` keeps measuring `serial`**, deliberately:
+   those are the binaries their numbers were taken on. Re-pointing them is a separate decision per
+   runner, not a sweep.
+3. **`--sweep6`'s silent `ATTN_AVX4` is no longer silent, and no longer a discrepancy** — the
+   sweep and the default now agree, which is what made E48 and E46 look like they contradicted
+   each other.
+
+## B.8 A defect of my own, recorded because it nearly cost run 1
+
+The drift phase crashed on `Occupancy.start()`, a method that does not exist — `e44_interval.py`'s
+`Occupancy` exposes `sample()`, which returns the busy fraction **since the previous read**. It
+crashed **after every gate had returned**, and because the runner wrote its JSON only at the very
+end, a clean four-for-four run produced **no results file at all**. Both are fixed: the call is
+correct, and the runner now writes `results/e50_default_kernel.json` **after every phase**, so a
+later crash cannot take the phases that already ran with it.
+
+No gate was re-run. `results/e50_default_kernel.json` is rebuilt from run 1's own artifacts —
+the greedy ids in `results/e50/engine_{avx4,serial}.json` are **re-scored** by the same decision
+function, and the two `NATS_TOTAL` values are transcribed from `e50_run1.log`. Only the drift
+line, which is not a gate, was executed a second time. **Run 1 remains the measurement**
+(E36 run-2 rule).
