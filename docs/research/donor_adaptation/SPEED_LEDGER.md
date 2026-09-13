@@ -4756,3 +4756,19 @@ here and remain **synthetic weights, ternary, `--carve-k 3`**. E57 measured what
 those two treatments does to a trained model: **it diverges at the first token.** So the ledger's
 fast numbers and its faithful numbers describe different objects, and the gap between them —
 **19.09 against 50** — is the whole remaining problem, and it is a **training** problem.
+
+### 56.5 CORRECTION, same day — the quality column of §56's table is E17's, replicated
+
+`BRIEF_E57` addendum B retracts this brief's §3: the `tq` arms and `15b_f32` were **not**
+unscored. E17 (2026-09-07) registered them as `H0c`, `H1`, `H2` and `results/e17_head_rank.json`
+holds 160/160, 12/160 and 3/160 — **the same numbers E57 measured, to the token**, together with
+the twin comparisons 81/160 and 28/160.
+
+**What this ledger may therefore quote from E57 is the RATE column only.** The match counts in
+§56's table are E17's, and E57's contribution to them is a replication across two engine builds
+(`donor_engine_e13` → `donor_engine_e53`) and six days — a cross-version parity result, which is
+worth recording and is not a new quality finding.
+
+The rates themselves are untouched by this correction: E17 §7 states that nothing in it was
+timed and that its decode rates are "explicitly not quotable". **§56 remains the first and only
+place in this ledger where a trained model has a rate with an interval.**

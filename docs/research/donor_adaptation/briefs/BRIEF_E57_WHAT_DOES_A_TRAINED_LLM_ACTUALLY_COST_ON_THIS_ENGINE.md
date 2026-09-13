@@ -381,3 +381,106 @@ The empty cell in the bottom-left is the goal.
 4. **The 10B question is untouched and is now sharper, not vaguer**: no trained 10B model exists
    locally, and E57 has just measured that the cheap route to making one fast — convert it —
    destroys it.
+
+---
+
+# ADDENDUM B — CORRECTION: §3'S PREMISE WAS FALSE. E17 SCORED THESE ARMS SIX DAYS AGO, AND E57'S QUALITY PHASE IS A REPLICATION, NOT A DISCOVERY
+
+**This addendum retracts a claim in §3 and in addendum A of this brief, in the INDEX headline,
+in `SPEED_LEDGER` §56 and in the commit message that carried them.**
+
+## B.1 What I wrote, and what was already in the repository
+
+§3 of this brief says, in bold, of `05b_tq` / `15b_tq` / `15b_f32`:
+
+> *"**And the `tq` arms — ternary body, fp32 head — have never been scored.** … Whether a
+> trained LLM runs correctly on this engine above 20 tok/s is an open question, and it has been
+> open since E6 without anyone noticing."*
+
+**It was not open, and someone had noticed: me, on 2026-09-07.**
+`BRIEF_E17_DOES_THE_HEAD_RANK.md` registered those exact three artifacts as arms `H0c`, `H1`
+and `H2` and `results/e17_head_rank.json` holds their scores:
+
+| E17 arm | artifact | E17, 2026-09-07 | E57, 2026-09-13 |
+|---|---|---|---|
+| `H0a` | `qwen25-05b_f32.bin` | 160/160 | **160/160** |
+| `H0b` | `qwen25-15b_tqh.bin` | 10/160 | **10/160** |
+| `H0c` | `qwen25-15b_f32.bin` | 160/160 | **160/160** |
+| `H1` | `qwen25-15b_tq.bin` | 12/160 | **12/160** |
+| `H2` | `qwen25-05b_tq.bin` | 3/160 | **3/160** |
+
+And `results/e17_head_vs_twin.json` holds the arm-versus-twin comparison that addendum A.2
+presents as "the check that number needed":
+
+| | E17 | E57 |
+|---|---|---|
+| `15b_tq` vs `15b_tqh` | 81/160, first diff [0, 1] | **81/160** |
+| `05b_tq` vs `05b_tqh` | 28/160, first diff [0, 0] | **28/160** |
+
+**Every single number matches.** I ran, as a new experiment, a measurement that was already in
+`results/`, and wrote a pre-registration whose motivating claim contradicted a brief in the same
+directory.
+
+## B.2 What this costs, itemised
+
+**Retracted:**
+
+* §3's *"never been scored"* / *"open since E6 without anyone noticing"* — **false**.
+* The INDEX headline's *"`15b_f32` is scored for the first time"* — **false**; E17 `H0c`, and
+  E17's own brief calls it a "NEW cell", so the phrase was even taken from the right place and
+  attached to the wrong experiment.
+* Addendum A.2's framing of the twin comparison as a check *I* devised in response to a
+  suspicious coincidence. I did devise it in response to the coincidence — I simply did not know
+  it already existed, which is worse, not better.
+* The commit message's implication that the quality half of E57 is new.
+
+**What stands, and is not diminished:**
+
+* **The speed table is new and E17 explicitly could not produce it.** E17 §7: *"No speed number
+  moves. Nothing here is timed and nothing may be quoted from it… Decode rates are recorded by
+  the engine and are **explicitly not quotable** — the machine's idleness is not being controlled
+  for and a contended timing is not a timing."* E57's 90 replicated cells, occupancy, timestamps,
+  clock witness and bootstrap intervals are the thing E17 refused to claim.
+* **`G-E57d` — the joint claim — is new**, because it is the first time quality and rate are
+  measured in one run and a rule forbids crossing them.
+* **The replication itself is worth having, and is stronger evidence than a single reading.**
+  E17 ran on `donor_engine.exe`/`donor_engine_e13.exe`; E57 ran on `donor_engine_e53.exe`, which
+  carries E49's `avx4` attention kernel and E53's `vexpf8` exponential. **Five quality readings
+  and two twin comparisons are bit-stable across two engine builds and six days.** That is a
+  cross-version parity result nobody registered and it should be recorded as one.
+* The instrument findings (A.5 `G-E55a2` malformed, A.6 `OCC_BAR` biased) are untouched.
+
+**And the prediction is worse than A.8 recorded.** §6 predicted `05b_tq` and `15b_tq` at
+**160/160**. They were **published at 3/160 and 12/160 in this repository when I wrote the
+prediction.** A.8 scored that as "WRONG, and backwards". It is not merely wrong: **it was
+contradicted by a file in `results/` at the moment of writing.** A pre-registration that
+contradicts the record is not a prediction, it is a failure to read.
+
+## B.3 Cause, and the rule that follows
+
+Not a slip. **I asserted the absence of a measurement without searching for it.** The search that
+would have caught it is `grep -rn "05b_tq" docs/ benchmarks/*/results/` and it takes four
+seconds; I ran it *after* the experiment, while looking for a BPB baseline, and it returned E17
+immediately.
+
+This is the same shape as the fabricated duration of E53: **a statement about the CONDUCT of the
+programme — what has been done, how long something took — rather than about its RESULTS, and
+those statements pass through every gate here untouched.** Gates check numbers against
+predictions. Nothing checks a sentence that says "this has never been measured".
+
+**Registered rule, and it is cheap enough to be unconditional:**
+
+> **A brief may not claim that something is unmeasured until the claim has been searched for by
+> artifact name across `docs/` and `*/results/`, and the search is named in the brief's
+> "Checked, not assumed" section.** E17 has such a section; E57 does not, and that is the
+> difference between the two briefs.
+
+## B.4 What E57's one-line finding actually is, restated honestly
+
+> **A trained LLM runs on this engine at 19.09 tok/s with its output identical to HuggingFace,
+> and at 43.69–83.41 tok/s with its output destroyed. Both halves of that sentence were known
+> separately; E57 is the first time they are in the same table, with intervals, and with a rule
+> forbidding them from being combined.**
+
+The quality numbers are E17's, replicated. The rates, the intervals and the prohibition are
+E57's.
