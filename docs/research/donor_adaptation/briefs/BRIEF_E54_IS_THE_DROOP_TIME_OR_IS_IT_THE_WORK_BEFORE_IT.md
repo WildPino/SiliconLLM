@@ -144,3 +144,46 @@ and which the *window* axis never got.
 
 It does not produce a rate, improve one, or touch quality. It does not promote `--fexp poly`. It
 decides whether the drift refusal can be replaced by a correction, and that is all.
+
+---
+
+# ADDENDUM A — `G-E54b`'s `TIME` BRANCH WAS MALFORMED, REPAIRED BEFORE ANY CELL RAN
+
+**Written before the run. No measurement existed when this was changed.**
+
+§5 registered `TIME` as *"`W0 > W1 > W2 > W3` monotonically **and** `W2 − W1` is within the
+spreads"*. Those two clauses contradict each other. Under a monotone decline `W2 − W1` is
+negative and as large as the decline itself, so **no genuinely monotone series could ever
+satisfy the conjunction** — a 120/117/114/111 series with 0.2% spreads returns `NEITHER`.
+
+Planted control **B-1** caught it on the runner's first execution, which is what planted
+controls are for. **MALFORMED under the E4 precedent, not failed.**
+
+### The repair
+
+> **`TIME` if `W0 > W1 > W2 > W3` monotonically.** Nothing else.
+
+Monotonicity already excludes a recovery, so the second clause was redundant at best and
+contradictory at worst.
+
+**The direction of the change is the part that needs stating.** This makes `TIME` *strictly
+easier* to reach and leaves `WORK`, `UNRESOLVABLE` and `NEITHER` untouched. §6 predicts
+**`WORK`**. So the repair relaxes the branch that would prove me **wrong** and tightens nothing
+in my favour — which is the only kind of pre-data repair that should be allowed to stand without
+a fresh registration.
+
+### The controls, all firing
+
+    B-1  a monotone series reads TIME
+    B-2  a sawtooth reads WORK
+    B-3  noise wider than the effect is UNRESOLVABLE
+    B-4  a recovery of exactly the spread does not tip
+    B-5  a rise at the end is NEITHER, not TIME
+    B-6  a flat series is UNRESOLVABLE, not TIME
+    C-1  a planted slope is recovered
+    C-2  and it is scored as fully explained
+    C-3  a predictor noisier than its target is REFUSED
+    C-4  too few cells is NOT COMPUTABLE
+    C-5  partial explanation reports a fraction below 1
+
+    11 of 11 fire.
