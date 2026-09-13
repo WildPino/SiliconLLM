@@ -1,0 +1,27 @@
+{
+ "brief": "BRIEF_E52_WHAT_DOES_A_BUSY_BOX_COST.md",
+ "engine": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\donor_engine.exe",
+ "levels": [
+  0,
+  1,
+  2,
+  3,
+  5,
+  8
+ ],
+ "reps": 3,
+ "ntok": 300,
+ "threads": 6,
+ "G_E52a": {
+  "verdict": "FAILS",
+  "why": "L=0 reads 6.1% foreign, above the 5.0% this control requires -- the box was not quiet and nothing here is readable",
+  "foreign_median": {
+   "0": 6.107305936073059,
+   "1": 11.865839909808344,
+   "2": 23.399558498896248,
+   "3": 33.86422976501306,
+   "5": 48.45771144278607,
+   "8": 71.0362047440699
+  }
+ }
+}

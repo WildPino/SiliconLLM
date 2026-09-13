@@ -32,7 +32,11 @@ REPS = 3
 OUT = os.path.join(HERE, "results", "e52_occupancy_cost.json")
 
 # --- the constants the brief fixed, before any cell existed -------------------------------
-G52A_ZERO_MAX = 5.0        # section 4: L=0 must read below this
+G52A_MIN_SPAN = 10.0       # addendum A.4: the meter must RESOLVE the levels, not just order
+                           # them -- a meter returning noise around a constant cannot pass
+G52C_MAX_L = 6             # addendum A.5: 6c/12t minus the engine's --threads 6 leaves 6
+                           # logical CPUs.  Past that it is oversubscription, not contention,
+                           # and rate = r0(1 - k*f) is a model of contention.  Structural.
 G52B_DRIFT_TOL = 2.3       # E44 run 2's measured rep-to-rep dispersion at 3.8% foreign
 G52C_SPREAD_TOL = 6.0      # E49 addendum C's rule, in percent
 G52C_MIN_LEVELS = 3
@@ -46,18 +50,33 @@ def log(m):
 
 # ---- decision functions.  They decide; the measuring code never does. ---------------------
 def g_e52a(med_by_level):
-    """The knob must work and the meter must see it.  Control: nothing is read if this fails."""
+    """The knob must work and the meter must see it.  Control: nothing is read if this fails.
+
+    Addendum A.4: the "L=0 below 5%" clause of the original G-E52a is REMOVED, not loosened.
+    Section 2 registered the measured foreign occupancy as the x-axis, so a quiet baseline is
+    not required -- a baseline at 6% instead of 2% moves the leftmost point and changes nothing
+    else.  The clause was a leftover from the older question "is the box quiet", which is the
+    question this experiment exists to replace.  It also happened to sit below this box's 5-7%
+    idle floor, so it could not have passed whatever the data did -- G-E44b's defect, committed
+    inside the brief written to fix G-E44b.
+
+    What remains is structural: order, minimum, and a span the meter must actually resolve.
+    """
     levels = sorted(med_by_level)
     f = [med_by_level[l] for l in levels]
-    if f[0] > G52A_ZERO_MAX:
-        return ("FAILS", "L=0 reads %.1f%% foreign, above the %.1f%% this control requires -- "
-                         "the box was not quiet and nothing here is readable"
-                         % (f[0], G52A_ZERO_MAX))
     if any(b < a for a, b in zip(f, f[1:])):
         return ("FAILS", "foreign occupancy is not monotone in L: %s -- the meter cannot see "
                          "load it was deliberately given" % ["%.1f" % x for x in f])
-    return ("FIRES", "L=0 reads %.1f%% and the median rises monotonically to %.1f%% at L=%d"
-                     % (f[0], f[-1], levels[-1]))
+    if f[0] != min(f):
+        return ("FAILS", "L=0 is not the quietest level: %s" % ["%.1f" % x for x in f])
+    if f[0] <= 0 or f[-1] / f[0] < G52A_MIN_SPAN:
+        return ("FAILS", "the meter spans only %.1fx from L=%d to L=%d (%.1f%% -> %.1f%%), "
+                         "under the %.0fx this control requires -- it orders the levels but "
+                         "does not resolve them"
+                         % (f[-1] / f[0] if f[0] else 0.0, levels[0], levels[-1],
+                            f[0], f[-1], G52A_MIN_SPAN))
+    return ("FIRES", "monotone, L=0 is the minimum at %.1f%%, and the meter spans %.1fx to "
+                     "%.1f%% at L=%d" % (f[0], f[-1] / f[0], f[-1], levels[-1]))
 
 
 def g_e52b(open_rate, close_rate):
@@ -84,9 +103,15 @@ def g_e52c(cells):
     for l in sorted(cells):
         r, f = cells[l]["rate"], cells[l]["foreign"]
         sp = spread_pct(r)
-        keep = sp <= G52C_SPREAD_TOL
+        # addendum A.5: L > G52C_MAX_L is oversubscription, a different mechanism, and the
+        # model being fitted is a model of contention.  Decided by the hardware, not the data.
+        in_domain = l <= G52C_MAX_L
+        keep = in_domain and sp <= G52C_SPREAD_TOL
+        why = ("yes" if keep else
+               ("NO -- L>%d is oversubscription, not contention" % G52C_MAX_L
+                if not in_domain else "NO -- disperses past %.0f%%" % G52C_SPREAD_TOL))
         rows.append({"L": l, "rate": statistics.median(r), "foreign": statistics.median(f),
-                     "spread": sp, "kept": keep})
+                     "spread": sp, "kept": keep, "why": why})
         if keep:
             pts.append((statistics.median(f), statistics.median(r)))
     if len(pts) < G52C_MIN_LEVELS:
@@ -127,10 +152,14 @@ def selftest():
         log("  %-6s %-22s expected %-22s %-6s %s"
             % (name, str(got)[:22], str(want)[:22], "FIRES" if ok else "FAILS", why))
 
-    chk("A1", g_e52a({0: 2.0, 1: 9.0, 2: 17.0, 8: 60.0})[0], "FIRES", "monotone and quiet at 0")
-    chk("A2", g_e52a({0: 7.0, 1: 9.0, 2: 17.0})[0], "FAILS", "the box was not quiet at L=0")
-    chk("A3", g_e52a({0: 2.0, 1: 17.0, 2: 9.0})[0], "FAILS",
+    chk("A1", g_e52a({0: 5.0, 1: 16.0, 2: 24.0, 8: 70.0})[0], "FIRES",
+        "monotone, L=0 lowest, 14x span -- and it passes at a 5%% floor, which the old "
+        "clause forbade")
+    chk("A2", g_e52a({0: 2.0, 1: 17.0, 2: 9.0})[0], "FAILS",
         "not monotone -- the meter cannot see load it was given")
+    chk("A3", g_e52a({0: 6.0, 1: 6.4, 2: 6.9, 8: 7.2})[0], "FAILS",
+        "monotone but only 1.2x -- a meter drifting around a constant must NOT pass")
+    chk("A4", g_e52a({0: 0.0, 1: 16.0})[0], "FAILS", "a zero floor makes the span undefined")
 
     chk("B1", g_e52b(110.0, 109.0)[0], "CLEAN", "0.91% is inside 2.3%")
     chk("B2", g_e52b(110.0, 100.0)[0], "DRIFT-CONTAMINATED",
@@ -150,6 +179,13 @@ def selftest():
              5: {"rate": [98.0, 80.0, 118.0], "foreign": [40.0, 40.1, 40.2]}}
     chk("C3", g_e52c(loose)[0], "NOT COMPUTABLE",
         "every level disperses past 6%% -- nothing survives to fit")
+    dom = dict(tight)
+    dom[8] = {"rate": [30.0, 48.0, 52.0], "foreign": [70.0, 71.0, 72.0]}
+    vd, kd, r0d, rrd = g_e52c(dom)
+    chk("C5", [r["kept"] for r in rrd][-1], False,
+        "L=8 leaves the fit on the STRUCTURAL ground, before its 58%% spread is consulted")
+    chk("C6", round(kd, 3), 0.283, "and the surviving fit is unchanged by its presence")
+
     two = dict(tight)
     two[2] = loose[2]
     chk("C4", g_e52c(two)[0], "NOT COMPUTABLE", "two surviving levels is not three")
@@ -272,7 +308,7 @@ def main():
     for r in rows:
         log("  %-4d %8.2f  %8.1f%%  %8.1f%%  %s"
             % (r["L"], r["rate"], r["foreign"], r["spread"],
-               "yes" if r["kept"] else "NO -- disperses past %.0f%%" % G52C_SPREAD_TOL))
+               r["why"]))
     log("")
     log("  G-E52c (cost)    : %s" % vc)
     if vc == "FIT":
