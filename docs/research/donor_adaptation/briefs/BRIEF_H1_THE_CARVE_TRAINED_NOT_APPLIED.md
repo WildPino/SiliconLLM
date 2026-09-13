@@ -705,3 +705,109 @@ to FAIL** — the trained router will not beat STATIC end-to-end. I am writing t
 that a failure cannot later be presented as expected-all-along, and so that a *pass* counts for
 something: it would mean the joint regime does what the frozen-expert proxy says it cannot,
 which is a result about MoE on this branch and not a hyper-parameter.
+
+---
+
+# ADDENDUM F — THE NULL CONTROL PRICED THE GATE FORM AT +0.80 BPB, AND TWO REGISTERED GATES WERE MEASURING IT INSTEAD OF TRAINING
+
+**Written and pushed BEFORE the T4 sessions, and before any trained weights exist.** That
+timing is the whole justification for changing anything, and §F.4 says so explicitly.
+
+`h1_nullbundle.py` builds a bundle that is the donor's own experts plus E37's own routers with
+**zero training** — by construction, exactly the model `h1_applied.py` measured as
+`applied-8L`. Run through `h1_eval.py` it must decompose to zeros. It does:
+
+```
+arm-E   1.096636   (untrained experts + E37 router  + HARD gate)   experts  +0.000000
+arm-ER  1.096636   (untrained experts + E37 router  + HARD gate)   router   +0.000000
+trained-8L 1.898014 (same weights     + same router + SOFT gate)   gate form +0.801377
+                                                        residual 0.0e+00
+```
+
+**The decomposition control FIRES.** And the third term is the finding.
+
+## F.1 The soft gate costs +0.801377 BPB by itself
+
+Nothing is trained in that bundle. The only difference between `1.096636` and `1.898014` is
+the gate form: E37's hard `{0, 1}` against the renormalised
+
+    g_e = k * p_e / sum_{j in sel} p_j ,   sum_sel g = k
+
+The mechanism is not mysterious. The gates AVERAGE 1 across the selected groups but are not
+each 1: with a peaked router a dominant group is amplified by up to `k * p_max / sum_sel p`,
+which at `k = 16` can be a factor of ten or more, and the experts underneath were never
+trained to expect it. At **~160 σ** against the programme's seed constant 0.005 this is not a
+subtlety — it is the largest single effect measured anywhere in H1's apparatus.
+
+**This is exactly the confound the decomposition was built to find, found at the only moment
+it could be acted on honestly.**
+
+## F.2 `G-H1` as registered compares gate FORM, not training
+
+`G-H1` reads *trained-8L < applied-8L*. As implemented, the trained arm ran the **soft** gate
+and `applied-8L` is **hard**. So H1 would have had to recover **+0.80 BPB of gate-form
+handicap before training counted for anything** — a bar that has nothing to do with the
+question §0 asks.
+
+And there is a second, independent reason the soft number is the wrong one: **`engine.c` runs
+the hard gate.** `carve_common` passes selected groups at exactly 1.0; `h1_applied.py`'s own
+docstring says so and that is why the control was built hard. A soft-gated BPB measures an
+object the deliverable cannot execute.
+
+> **`G-H1` is scored on the HARD-gated trained model.** Same weights, same router, same `k`,
+> gates in `{0, 1}` — like-for-like with `applied-8L`, and the form the engine ships.
+> The soft-gated number is still measured and still reported, as the diagnostic it is.
+
+**Training stays SOFT and that is not a contradiction.** A hard gate has no gradient to the
+router at all — that is precisely why addendum A's first gate formula failed its planted
+control. Train soft, evaluate hard, and *measure the gap*: `trained-8L(soft) − arm-ER(hard)`
+is already a term of the decomposition, so the train/eval mismatch is quantified in every run
+rather than assumed away. **If that term is large at the end of training, the trained model is
+leaning on gate magnitudes the engine discards, and that is a result about the format.**
+
+## F.3 `G-H1e` as registered CANNOT isolate routing, and is repaired
+
+Worse than `G-H1`, because it is not merely handicapped — it is measuring the wrong thing
+entirely. `STATIC` installs a fixed set of `k` groups with **gates exactly 1**. The router arm
+ran the **soft** gate. So `G-H1e` compared *soft router* against *hard fixed selection*, and
+the null control shows what that is worth: **router 5.564279 vs STATIC 3.435791 nats/token,
+"FAILS", with zero training and E37's own router.** A 62% gap produced by gate form alone.
+
+> **Both arms of `G-H1e` are measured with the HARD gate.** Only the *selection* differs —
+> per-token router against a fixed set — which is the only thing `G-H1e` ever claimed to test
+> (addendum B, and E23's `V52-STATIC` before it).
+
+This does not rescue the router. Addendum E's expectation stands and is unchanged: the CPU
+smoke gave 2 of 8 layers and +2.27% aggregate error, so **`G-H1e` is still expected to FAIL** —
+but it will now fail, or pass, on routing.
+
+## F.4 Why this is a legitimate change and not moving the goalposts
+
+The test this programme applies to itself (E36 run-2 rule, E40 addendum A precedent, addendum
+C's own repair) is whether a result could have influenced the change. Here:
+
+1. **No trained weights exist.** H1 has not run. There is no H1 number to make this choice
+   flattering or unflattering to.
+2. The evidence is a **NULL bundle** — untrained weights, whose decomposition is required to be
+   zeros and *is* zeros. The instrument certified itself and then reported the confound.
+3. The change is derived from a **property of the deliverable** (`engine.c` runs hard gates),
+   not from a preference about the outcome.
+4. It cuts **both ways**: it removes a handicap from `G-H1`, and it removes a spurious 62%
+   advantage that `G-H1e`'s STATIC arm was enjoying. One gate gets easier to pass, the other
+   gets harder.
+5. `G-H1`'s **threshold does not move**: `applied-8L` is still `1.096636`, still read back from
+   its own file and refused if it has drifted. The bands are untouched.
+
+**What would NOT have been legitimate:** discovering this after H1 returned `1.9` and then
+deciding the soft gate was unfair. It is on disk now, with the run that produced it
+(`results/h1/h1_eval_NULLCONTROL.json`), before the hours are spent.
+
+## F.5 What changes in the code
+
+* `h1_eval.py` — `G-H1` scored on the hard-gated arm; `trained-8L(soft)` kept and reported;
+  `G-H1e` measured hard on both arms.
+* `h1_qat.py` — `g_h1e` hard-gates the router arm; the `--every` progress line prints the
+  held-out BPB **both ways**, so the watched number is the deployable one and the gap is
+  visible while the run is in flight rather than only at the end.
+* The null control is re-run against the repaired specification, and `h1_pack.py` will not pack
+  until it fires again.

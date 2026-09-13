@@ -3,3 +3,34 @@
    bundle: 0 steps requested, complete=True, router_lr 0.0, aux 0.0, 0.00 h
    slice 24 seqs, 51870 scored bytes, 4.22945205479452 B/token
    intact      0.767595   (anchor 0.767595)  PLANTED CONTROL FIRES
+   h0-run3     0.810022   (56 organs over 28 layers; anchor 0.810022)
+   installed the trained carve on 8 layers (partition asserted against labels_E256.npz)
+   G-H1a  k=E identical, HARD gate, any router : FIRES  (max|d| 0.0e+00)
+   G-H1a  k=E identical, SOFT gate, router=0   : FIRES  (max|d| 0.0e+00)
+   carve actually masks at k=16                : FIRES  (max|d| 4.3e+01)
+   trained-8L  1.898014   (k = 16, trained router, SOFT gate)  <- THE GATE NUMBER
+   arm-ER      1.096636   (trained experts + trained router + HARD gate)
+   arm-E       1.096636   (trained experts + E37 router    + HARD gate)
+
+   DECOMPOSITION of +0.801377 (trained-8L - applied-8L), DIAGNOSTIC not a gate:
+      experts trained   +0.000000
+      router trained    +0.000000
+      soft vs hard gate +0.801377
+      (additive by construction; residual 0.0e+00)
+
+   G-H1e (fp32, this box)  router 5.564279 vs STATIC 3.435791 nats/token  ->  FAILS
+      addendum E registered the expectation that this FAILS: the CPU smoke gave
+      2 of 8 layers and +2.27%% aggregate error against STATIC.  A PASS here is a
+      result about joint training, not a hyper-parameter.
+
+   G-H1  trained-8L < applied-8L   (ORDINAL, no tolerance)
+         1.898014  >=  1.096636   ->  FAIL   (delta +0.801377)
+
+   the REPAIRED bands (addendum C), every edge a matched 8-layer number:
+     CARVE-IS-FREE         BPB <= 0.810022
+     CARVE-IS-TRAINABLE    0.810022 <= BPB < 0.947851
+     TRAINING-HELPS        0.947851 <= BPB < 1.096636
+     CARVE-NOT-TRAINABLE   BPB >= 1.096636  <-- HERE
+   -> CARVE-NOT-TRAINABLE
+
+  wrote results/h1/h1_eval_NULLCONTROL.json  [1360s]
