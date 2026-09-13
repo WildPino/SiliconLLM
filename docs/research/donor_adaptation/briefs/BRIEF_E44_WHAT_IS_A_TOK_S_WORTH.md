@@ -216,3 +216,104 @@ be idle, ≥5 reps, median and spread, no single number. That is the one thing h
 alone, and it is recorded in `COMMUNICATION.md` rather than left in chat.
 
 **No cell of E44 has been measured at the time this addendum is pushed.**
+
+---
+
+# ADDENDUM B — `G-E44b` IS MALFORMED: THE OCCUPANCY METER COUNTS THE ENGINE'S OWN THREADS
+
+**Registered before run 2 exists.** Run 1 (2026-09-13, the first time the box was ever quiet
+enough for the guard to pass) is reported in full below, and nothing in it is re-run.
+
+## B.1 What run 1 did
+
+The guard's **planted control fired** — 12 deliberately busy processes read `occupancy median
+100.0%` against the `15.0%` bar and the guard refused, as it must. Then the real guard:
+
+    occupancy over 20s: median 10.4%  (min 6.2, max 21.1)  bar 15.0%
+    box is quiet enough -- proceeding
+
+    rep    tok/s     engine dt     wall      outside window    occupancy during
+      1    103.36      2.902 s      4.88 s       1.98 s         41.9%
+      2    102.90      2.915 s      4.88 s       1.96 s         43.2%
+      3    101.35      2.960 s      4.90 s       1.94 s         49.5%
+      4     98.32      3.051 s      5.01 s       1.95 s         49.5%
+      5    104.16      2.880 s      4.74 s       1.86 s         46.5%
+
+    RATE      median 102.90 tok/s   min 98.32   max 104.16   spread 5.7% of median
+    G-E44b  >= 5 reps, quiet box, median AND spread reported : *** FAILS ***
+       reps above the bar during the run: [1, 2, 3, 4, 5]
+
+## B.2 Why that is a defect in the gate and not a reading of the box
+
+`Occupancy.sample()` is `1 - idle/(kernel+user)` from `GetSystemTimes` — **system-wide, and the
+engine is part of the system.** The engine runs `--threads 6` on a 6c/12t part, so while it is
+decoding it *is* roughly 50% of the machine by construction. The guard reads 10.4% with nothing
+running and 42-50% with the engine running, and the difference is the engine.
+
+`OCC_BAR = 15.0` is documented in the source as the bar for *"a box quieter than the quietest
+conditions this programme has ever achieved"* — a statement about **foreign** load. Comparing it
+to a number that structurally includes the treatment means:
+
+* **No possible state of the machine can pass it.** Not an idle box, not a box with the user
+  logged out. The gate could never have fired, on any run, ever.
+* It is therefore **MALFORMED, not FAILED** — the E4 precedent, where a gate that could not be
+  answered was recorded as `MALFORMED` rather than scored.
+
+Run 1's own verdict line stands as printed and the band it produced is **not citable**, exactly
+as the runner says. What is withdrawn is the *interpretation* that the box moved under the reps.
+It did not; the engine did.
+
+The same meter produced the `occ 18-52%` column in E51's speed phase. Nothing in E51 changes —
+no E51 gate consumed occupancy — but that column should be read the same way.
+
+## B.3 `G-E44b2`, registered here, with NOTHING relaxed
+
+Same arm, same `--bench 300`, same `--threads 6`, **same `OCC_BAR = 15.0`**, same
+`MIN_REPS = 5`. One thing changes, and it is *what is measured*:
+
+> **Foreign occupancy** over an interval = system busy time minus the engine process's own CPU
+> time (`GetProcessTimes` on the child handle, kernel + user), divided by the interval's total
+> CPU time. Clamped at zero.
+
+With no engine running this is identical to the old quantity, so the pre-run guard and its
+planted control are unchanged.
+
+**`G-E44b2` FIRES iff** there are at least 5 reps and **no rep's FOREIGN occupancy exceeds the
+bar**. The band, median and spread are reported either way.
+
+## B.4 Two planted controls, and the second one is the one that matters
+
+**C1 — the meter must still refuse a genuinely busy box.** 12 burn processes, no engine: foreign
+occupancy must exceed the bar. This is run 1's existing control, re-run against the new
+quantity.
+
+**C2 — the meter must DISCRIMINATE, not merely return a small number.** A metric that always
+returned zero would pass every box and look exactly like a correct one. So, during a real engine
+rep, the run must show **system busy above the bar AND foreign below it, separated by at least
+25 percentage points.** If foreign tracks system, the subtraction is not happening and the run
+**STOPs without producing a rate**.
+
+Without C2 this addendum would be indistinguishable from lowering the bar until the gate passes,
+which is what `feedback_gate_vs_measured_dispersion` and the `G-E45c` precedent forbid.
+
+## B.5 What is and is not allowed to come out of run 2
+
+* Run 1's rates are **kept** in the results file and not overwritten. Run 2 writes its own.
+* If `G-E44b2` fires, **its** band is the citable interval for this arm. That is not run 2
+  promoting run 1: run 1's gate is malformed, so there is no registered measurement being
+  overturned, and the E36 run-2 rule has nothing to protect here.
+* The band may still **not** be quoted as a new headline — addendum A's restriction is
+  untouched. It replaces a point with an interval on an arm that is named.
+
+## B.6 Prediction, registered
+
+| quantity | prediction |
+|---|---|
+| C1 | fires, foreign ≈ 100% on the loaded box |
+| C2 | fires, system ≈ 45% and foreign ≈ 1-8% during a rep, separated by ~40 points |
+| `G-E44b2` | **FIRES** |
+| the band | within a few percent of run 1's 98-104 tok/s — the box really was quiet, so the corrected meter should not move the rates at all, only the verdict about them |
+| spread | 4-8%, i.e. the same order as run 1's 5.7% and well below E43's 9-22% |
+
+If the band moves a lot, something other than the meter is wrong and this prediction is the
+thing that says so.
