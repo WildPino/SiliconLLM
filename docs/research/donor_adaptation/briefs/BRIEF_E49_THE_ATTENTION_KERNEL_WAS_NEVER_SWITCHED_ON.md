@@ -337,3 +337,96 @@ the one where I assumed the context-20 blind spot would protect the old number.
 4. **Everything measured between E26 and E48 is a `serial` number.** Nothing is wrong, but the
    ledger's speed entries now carry a kernel as well as a context. The ones that matter —
    E40's 112.7 and E46's `C50` — are reproduced above and restated rather than discarded.
+
+---
+
+# ADDENDUM C — `G-E49c` IS WITHDRAWN AS UNRESOLVABLE. THE HEADLINE IS NOT RESTATED, AND I MIS-SPECIFIED THE GATE FOR THE THIRD TIME
+
+**Written from run 2's own cells. No cell is re-run, no arm is added, and nothing in `G-E49a`,
+`G-E49b` or `G-E49d` is touched.** This addendum only removes a claim.
+
+## C.1 What the check is
+
+`G-E49c` compared the two kernels' **medians** at `NTOK = 40` and read `+8.4%` against a `±5%`
+band. `feedback_gate_vs_measured_dispersion` says a gate whose tolerance is tighter than the
+dispersion measured on the axis it watches is mis-specified. The dispersions at that window,
+printed by the runner itself in the same table, are **21.0% (serial)** and **7.9% (avx4)**.
+
+So I asked whether the two five-rep sets are even separable there.
+
+| n | `serial` [min..max] med | `avx4` [min..max] med | Δ median | separable? |
+|---|---|---|---|---|
+| **40** | [98.77 .. **121.38**] 112.19 | [117.26 .. 126.79] **121.65** | +8.4% | **NO — the ranges overlap** |
+| **160** | [85.91 .. 109.36] 104.60 | [100.10 .. 119.29] 112.89 | +7.9% | **NO — the ranges overlap** |
+| 640 | [66.92 .. 69.96] 69.71 | [88.97 .. 92.44] 89.89 | +28.9% | yes, clean |
+| 1280 | [47.35 .. 49.11] 48.59 | [70.71 .. 74.92] 74.11 | +52.5% | yes, clean |
+| 2560 | [29.73 .. 30.57] 30.27 | [53.13 .. 54.35] 53.79 | +77.7% | yes, clean |
+
+**At `NTOK = 40`, `serial`'s best repetition (121.38) is `avx4`'s median (121.65).** The two arms
+are not distinguishable at the window `G-E49c` was registered on.
+
+## C.2 What the same run says the effect actually is there
+
+`G-E49b`'s fit uses all five windows and is dominated by the three whose dispersion is 2.3–5.9%.
+Its estimate of the kernel's effect, window by window:
+
+| n | mean pos | Δ (ms) | as % of the `avx4` token | cells said |
+|---|---|---|---|---|
+| **40** | 20 | **0.224** | **+2.7%** | +8.4% (overlapping) |
+| 160 | 80 | 0.895 | +10.1% | +7.9% (overlapping) |
+| 640 | 320 | 3.581 | +33.0% | +28.9% |
+| 1280 | 640 | 7.162 | +53.2% | +52.5% |
+| 2560 | 1280 | 14.323 | +76.7% | +77.7% |
+
+Where the cells are separable the two columns agree to a few points. Where they are not, they
+disagree — which is what "not resolvable" means, and it is the first two rows that carry the
+disagreement.
+
+**So the kernel's effect at mean context position 20 is ~2.7%, inside the ±5% the ledger carries.**
+
+## C.3 The verdict, and how it is scored
+
+**`G-E49c` is VOID — the gate could not answer the question it asked.** It is not recorded as a
+pass, and my §5 prediction is **not** promoted to "right" on the strength of a re-analysis I ran
+after seeing the answer. A void gate scores nothing in either direction. E49's scorecard is
+therefore **4 right, 0 wrong, 2 void** (this and the control clause superseded by addendum A),
+not the 5-of-6 addendum B claimed.
+
+**The headline is NOT restated.** What replaces addendum B.3:
+
+* At mean context position 20 the target arm reads **~112–122 tok/s on either kernel**, and the
+  two are **not separable on this instrument**. E40's published **112.7** stands as the number at
+  that context, and `avx4` is not shown to move it.
+* **This does not touch `G-E49b`.** `C50` 608 → 1443, `b(serial)/b(avx4) = 2.374` and the
+  intercepts agreeing to 0.06% all rest on the three large windows, whose dispersion is 2.3–5.9%
+  and whose separation is total. **The result of E49 is intact; only its claim about the headline
+  is withdrawn.**
+* The honest one-line statement of the win is therefore about **context, not about the headline**:
+  the kernel buys nothing measurable at context 20 and buys **+29% at 320, +53% at 640 and +78%
+  at 1280**, which is exactly what a change to the context term and not the intercept must look
+  like.
+
+One consequence for the goal, stated plainly because I overstated it: **passing 100 tok/s at
+short context was already true before E49** (E40's 112.7). It is not something the kernel bought.
+What the kernel bought is the context at which 50 tok/s still holds.
+
+## C.4 Third time, same law
+
+`feedback_gate_vs_measured_dispersion` has now been broken three times by me:
+
+1. **`G-E43A`** — a ±5% tolerance on an axis dispersing 9–22%: too tight, could never fire.
+2. **`G-E45c`** — "inside my own dispersion" as a PASS condition: passed by being noisy.
+3. **`G-E49c`** — a ±5% tolerance read off a cell dispersing 21.0%: **fired when it should have
+   been unresolvable**, which is the first of the three to produce a false POSITIVE.
+
+The first two produced nulls that went nowhere. This one produced a **published claim** that
+reached the index, the ledger row, two memory files and a verbal report before I checked it. That
+is the difference worth recording: a mis-specified gate that fails costs a run; one that fires
+costs a retraction.
+
+**The procedural fix, adopted here and owed to every future speed gate:** a gate on a rate may
+only be registered against a window whose **dispersion has already been measured**, and the
+runner must **refuse to judge** any cell whose observed spread exceeds the gate's own tolerance —
+printing the numbers and `UNRESOLVABLE` instead of a verdict. `G-E49c`'s own runner printed the
+21.0% two lines above the verdict it contradicted, and nothing connected them. That connection
+belongs in code, not in my reading of a table.
