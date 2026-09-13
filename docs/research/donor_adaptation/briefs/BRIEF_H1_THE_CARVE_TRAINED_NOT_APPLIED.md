@@ -910,3 +910,137 @@ Two things, written before the numbers exist:
 If instead the new table looks like the old one, then the gate form was not load-bearing in the
 smoke and addendum E's selection returns on its own merits — stated here so that outcome is
 available rather than embarrassing.
+
+---
+
+# ADDENDUM H — THE CORRECTED GRID SHIPS THE SAME SETTING. BOTH OF MY REGISTERED PREDICTIONS ARE WRONG, AND A THIRD DEFECT TURNED UP THAT WAS NOT A GATE
+
+The full 12-setting × 8-layer grid re-ran in **4542 s (1.26 h)** with the hard-gated evaluation,
+the bit-exactness-asserted quantisation cache, and the trained routers saved. Addendum G said
+what to expect. It was wrong twice, and the honest summary is one line:
+
+> **The registered rule, applied verbatim to the corrected data, ships
+> `--router-lr 0.0003 --aux 0.01` — the same setting, on the same 2 of 8 layers `[3, 24]`, with
+> the same rule-4 shortfall. Not one of the 96 cells changed its beats-STATIC verdict.**
+
+That is the branch §G.5 wrote in as the uncomfortable outcome: *"if the new table looks like the
+old one, gate form was not load-bearing in the smoke and addendum E's selection returns on its
+own merits."* It does.
+
+## H.1 Prediction 1 — FALSIFIED
+
+Registered: *"more settings will beat STATIC than before, because the handicap is removed from
+the router arm and from nothing else."*
+
+Measured: **identical tally.** `lr=3e-4,aux=0` and `lr=3e-4,aux=0.01` win 2 of 8; `lr=1e-3,aux=0`
+and `lr=1e-3,aux=0.01` win 1 of 8; the other eight settings win 0 of 8. **Cells whose verdict the
+gate repair flipped: 0 of 96.**
+
+## H.2 Prediction 2 — FALSIFIED IN DIRECTION, and the mechanism I gave was wrong
+
+Registered: *"`aux = 0` will gain more than `aux = 0.01`, because it was penalised more"* — the
+reasoning being that `aux=0` collapses the router (`occ_max` 0.82–1.00) and a collapsed router
+is what the soft gate punishes.
+
+Measured gate-form gap, `(soft − hard)/hard`, mean over the 8 layers:
+
+| lr \ aux | 0 | 0.01 | 0.1 |
+|---|---|---|---|
+| **0.0003** | −0.25% | −0.25% | −0.40% |
+| **0.001** | +0.16% | −0.07% | −0.26% |
+| **0.003** | +0.70% | +1.68% | +0.77% |
+| **0.01** | **+7.53%** | **+13.49%** | **+18.69%** |
+
+Pooled over lr: `aux=0` **+2.03%**, `aux=0.01` **+3.71%**, `aux=0.1` **+4.70%**. Largest single
+cell: layer 24, `lr 0.01 aux 0.1`, hard 0.798996 against soft 1.065250, **+33.3%**.
+
+So the gap is governed by **lr**, not by `aux` — and at fixed lr it **grows** with `aux`, the
+opposite of what I registered.
+
+**Why my mechanism was wrong, stated plainly because it is reusable.** The soft gate is
+`g_e = k·p_e / Σ_{j∈sel} p_j`. Its distortion is set by the spread of `p` **inside the selected
+k**, and by nothing else. `occ_max` measures something different — how many *tokens* share a
+group. `aux` flattens the token-level load `f`, and the way a router achieves that is by
+discriminating *more* sharply per token, pushing different tokens to different groups. Flatter
+occupancy and sharper within-top-k probabilities are the same behaviour seen from two sides.
+**I used `occ_max` as a proxy for a quantity it does not proxy.** The right diagnostic for the
+soft gate is the within-top-k probability spread, which nothing here logs.
+
+This also scopes addendum F's headline honestly. The **+0.801377 BPB** gate-form cost was
+measured with **E37's post-hoc fitted router**, which is sharply peaked. A router trained here at
+`lr 3e-4` gives a gap under **0.4%**. Both numbers are right; they are about different routers.
+The engine ships the hard gate either way, so hard is the correct measurement regardless of how
+big the gap happens to be.
+
+## H.3 The defect the re-run actually caught — and it was not a gate
+
+The original grid ran as **two processes with different `--layers`**: one for layer 3, one for
+layers 6–24. `capture_inputs` runs a forward through the model **with the carved FFNs already
+installed**, so the activations reaching layer 6 depend on whether layer 3 is carved. The L6-24
+process captured with **layer 3 uncarved** — i.e. against a model H1 will never run.
+
+| layer | power old → new | STATIC old → new |
+|---|---|---|
+| 3 | 0.130669 → 0.130669 **identical** | 0.108585 → 0.108585 **identical** |
+| 6 | 0.127010 → 0.117859 | 0.109205 → 0.102206 |
+| 9 | 0.104992 → 0.103310 | 0.093466 → 0.090933 |
+| 12 | 0.092406 → 0.092600 | 0.077691 → 0.077131 |
+| 15 | 0.085702 → 0.084618 | 0.072258 → 0.070932 |
+| 18 | 0.165270 → 0.161773 | 0.134604 → 0.130777 |
+| 21 | 0.386770 → 0.364360 | 0.287808 → 0.271097 |
+| 24 | 0.978680 → 0.884009 | 0.615886 → 0.536754 |
+
+**Layer 3 reproduces to every printed digit across two separate processes**, which is a free
+control: the harness is deterministic, so every downstream difference is the carve composing and
+not run-to-run noise. Total STATIC error mass **1.499502 → 1.388415, −7.41%**.
+
+§E.4's structural finding survives with its magnitude trimmed: layer 24 alone **41.1% → 38.7%**
+of total error, layers 21+24 **60.3% → 58.2%**, and relative damage still falls monotonically
+with depth (STATIC/power 0.8310 at L3 → 0.6072 at L24). The reading does not change; two of its
+points were borrowed from a model missing a carve.
+
+**The general rule, which is the part worth keeping:** *a grid split across processes is only one
+experiment if every process installs the same model.* Here the split silently changed the
+measurement target, and it is invisible in the per-cell numbers — only the re-run with all eight
+layers installed at once exposed it.
+
+## H.4 Addendum D.4's narrowing is vindicated after the fact
+
+G.2 retired the narrowing because it dropped eight settings on distorted numbers, and that was
+the right call on the evidence available. Measured correctly, all eight win **0 of 8**:
+
+`lr 3e-4 aux 0.1` 1.0939 · `lr 1e-3 aux 0.1` 1.1179 · `lr 3e-3 aux 0` 1.1554 ·
+`lr 3e-3 aux 0.01` 1.1276 · `lr 3e-3 aux 0.1` 1.1474 · `lr 1e-2 aux 0` 1.1823 ·
+`lr 1e-2 aux 0.01` 1.1931 · `lr 1e-2 aux 0.1` 1.1798 (mean ratio vs STATIC).
+
+**It discarded nothing.** Retiring it was still correct — a decision made on void evidence is
+void even when it lands on the right answer — but the record should say that the narrowing cost
+us no information, only the right to cite it.
+
+## H.5 What ships, and the re-registered expectation
+
+`h1_router_select.json`: `launch = true`, `router_lr = 0.0003`, `aux = 0.01`, layers won
+`[3, 24]`, `rule4_shortfall = true`, mean `occ_max` 0.2974 (eligible), mean ratio 1.0399, error
+mass **+2.67% worse than STATIC** in aggregate. The only setting better in aggregate is
+`lr=3e-4,aux=0` at **−2.02%**, and rule 1 excludes it at mean `occ_max` 0.7720 — collapsed, with
+`occ_max` 1.000 on the very layer it wins. The per-layer eligibility sensitivity ships the same
+setting, so rule 1's averaging is not load-bearing here.
+
+**Re-registered, on a valid instrument this time:** `G-H1e` is expected to **FAIL**. Addendum G
+withdrew addendum E's version of this prediction because it was derived from a void table; this
+one is derived from the corrected table, is written before the T4 run, and rests on the same two
+facts as before — 2 of 8 layers, and +2.67% aggregate error against STATIC. A PASS would be a
+result about *joint* training, not about a hyper-parameter.
+
+`G-H1` — the experts, `trained-8L < applied-8L = 1.096636`, hard gate — is untouched by all of
+this and remains the primary gate.
+
+## H.6 What 1.26 hours bought
+
+Stated flatly, because the temptation is to dress it up: **the gate repair changed no decision.**
+It bought (a) a selection that rests on a matched instrument instead of a confounded one, which
+is worth having before spending GPU hours on it; (b) the split-process defect, which moved the
+aggregate baseline 7.4% and would otherwise have gone into the record permanently; (c) 96 saved
+routers, so nothing here ever needs retraining to be re-scored; and (d) two falsified predictions,
+including a mechanism error — `occ_max` is not a proxy for soft-gate damage — that I would
+otherwise still believe.

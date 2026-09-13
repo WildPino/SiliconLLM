@@ -28,8 +28,14 @@ import json, os, sys
 
 OCC_BAR = 0.5
 HERE = os.path.dirname(os.path.abspath(__file__))
-FILES = [os.path.join(HERE, "results/h1/h1_router_smoke_L3.json"),
-         os.path.join(HERE, "results/h1/h1_router_smoke_L6-24.json")]
+# ADDENDUM G: the two files below are RETIRED.  They were produced by a runner that
+# never set `hard_gate`, so their trained arm was soft-gated against a hard STATIC; and
+# they were produced by TWO processes with different --layers, so the L6-24 process
+# captured activations through a model whose layer 3 was UNCARVED.  Kept on disk for the
+# record, not read.  The RULE below is unchanged and is applied verbatim to the re-run.
+RETIRED = [os.path.join(HERE, "results/h1/h1_router_smoke_L3.json"),
+           os.path.join(HERE, "results/h1/h1_router_smoke_L6-24.json")]
+FILES = sys.argv[1:] or [os.path.join(HERE, "results/h1/h1_router_smoke_G_FULLGRID.json")]
 OUT = os.path.join(HERE, "results/h1/h1_router_select.json")
 
 
@@ -142,7 +148,9 @@ def main():
                         "DIFFERENT -- the defect is load-bearing, see the addendum."))
 
     json.dump({"rule": "briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md addendum D.3, "
-                       "registered BEFORE layers 6-24 ran (5604b0d)",
+                       "registered BEFORE layers 6-24 ran (5604b0d); unchanged by "
+                       "addendum G, which retired the DATA and not the rule",
+               "inputs": FILES,
                "launch": True, "occ_bar": OCC_BAR, "layers": layers,
                "router_lr": win["cells"][layers[0]]["lr"],
                "aux": win["cells"][layers[0]]["aux"],

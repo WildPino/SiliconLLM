@@ -182,3 +182,11 @@ docs/research/LLM_Reimagined_CPU_Native_Exploration_20260626/
 # LOG beside it is the evidence and is tracked; the copies are not.  Anchored to the place per
 # the ANCHORING RULE above.
 /benchmarks/donor_adaptation/s1/results/h0_kaggle_run*/run/
+
+# H1 router smoke: the 96 TRAINED ROUTERS from the corrected full grid (addendum G/H).
+# 12 settings x 8 layers x [256,1536] fp32 = 151 MB, over GitHub's 100 MB file limit.
+# They exist so a re-score never forces a retrain -- that is a LOCAL guarantee; the
+# grid's every number is in the .json beside them, which IS tracked.  Anchored to the
+# place, not the type: results/h1/*.npz stays visible so h1_heldout/h1_calib/h1_actstats
+# keep being pushed.
+/benchmarks/donor_adaptation/s1/results/h1/h1_router_smoke_*_routers.npz

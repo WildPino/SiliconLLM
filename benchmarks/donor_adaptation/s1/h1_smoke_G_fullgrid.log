@@ -1,0 +1,142 @@
+== H1 router smoke (GO/NO-GO) ==  CPU fp32, layers [3, 6, 9, 12, 15, 18, 21, 24], k 16 of E 256
+   capturing activations (calib 32 seqs, heldout 24 seqs, cap 4096 tokens/layer)...
+   captured  {3: (4096, 1536), 6: (4096, 1536), 9: (4096, 1536), 12: (4096, 1536), 15: (4096, 1536), 18: (4096, 1536), 21: (4096, 1536), 24: (4096, 1536)}
+   planted control: router grad 1.361e+00, moved 1.000e-03  -> FIRES
+   quantisation cached on 8 layers, bit-identical to _quant() on every one
+
+   layer 3    uncarved power 0.13067   STATIC 0.108585 (0.8310 of power)   init 0.124098
+      lr 0.0003  aux 0     -> 0.097402  ratio 0.8970  occ_max 0.754  (soft 0.097016)   beats STATIC
+      lr 0.0003  aux 0.01  -> 0.101756  ratio 0.9371  occ_max 0.172  (soft 0.101815)   beats STATIC
+      lr 0.0003  aux 0.1   -> 0.115608  ratio 1.0647  occ_max 0.129  (soft 0.114619)
+      lr 0.001   aux 0     -> 0.103971  ratio 0.9575  occ_max 0.863  (soft 0.103940)   beats STATIC
+      lr 0.001   aux 0.01  -> 0.105166  ratio 0.9685  occ_max 0.156  (soft 0.105409)   beats STATIC
+      lr 0.001   aux 0.1   -> 0.117388  ratio 1.0811  occ_max 0.113  (soft 0.116434)
+      lr 0.003   aux 0     -> 0.121384  ratio 1.1179  occ_max 0.961  (soft 0.121412)
+      lr 0.003   aux 0.01  -> 0.121786  ratio 1.1216  occ_max 0.223  (soft 0.123993)
+      lr 0.003   aux 0.1   -> 0.120402  ratio 1.1088  occ_max 0.215  (soft 0.121923)
+      lr 0.01    aux 0     -> 0.124706  ratio 1.1485  occ_max 1.000  (soft 0.133314)
+      lr 0.01    aux 0.01  -> 0.124998  ratio 1.1512  occ_max 0.566  (soft 0.148225)
+      lr 0.01    aux 0.1   -> 0.123644  ratio 1.1387  occ_max 0.473  (soft 0.156719)
+
+   layer 6    uncarved power 0.11786   STATIC 0.102206 (0.8672 of power)   init 0.110286
+      lr 0.0003  aux 0     -> 0.105276  ratio 1.0300  occ_max 0.613  (soft 0.105277)
+      lr 0.0003  aux 0.01  -> 0.106405  ratio 1.0411  occ_max 0.125  (soft 0.106381)
+      lr 0.0003  aux 0.1   -> 0.107111  ratio 1.0480  occ_max 0.137  (soft 0.107084)
+      lr 0.001   aux 0     -> 0.109060  ratio 1.0671  occ_max 0.582  (soft 0.109232)
+      lr 0.001   aux 0.01  -> 0.107747  ratio 1.0542  occ_max 0.109  (soft 0.107791)
+      lr 0.001   aux 0.1   -> 0.107647  ratio 1.0532  occ_max 0.141  (soft 0.107630)
+      lr 0.003   aux 0     -> 0.109922  ratio 1.0755  occ_max 0.770  (soft 0.110706)
+      lr 0.003   aux 0.01  -> 0.109362  ratio 1.0700  occ_max 0.156  (soft 0.110709)
+      lr 0.003   aux 0.1   -> 0.109098  ratio 1.0674  occ_max 0.164  (soft 0.109313)
+      lr 0.01    aux 0     -> 0.110588  ratio 1.0820  occ_max 1.000  (soft 0.116440)
+      lr 0.01    aux 0.01  -> 0.110723  ratio 1.0833  occ_max 0.375  (soft 0.123064)
+      lr 0.01    aux 0.1   -> 0.110228  ratio 1.0785  occ_max 0.348  (soft 0.136674)
+
+   layer 9    uncarved power 0.10331   STATIC 0.090933 (0.8802 of power)   init 0.096699
+      lr 0.0003  aux 0     -> 0.092511  ratio 1.0173  occ_max 0.602  (soft 0.092483)
+      lr 0.0003  aux 0.01  -> 0.091950  ratio 1.0112  occ_max 0.129  (soft 0.091931)
+      lr 0.0003  aux 0.1   -> 0.093240  ratio 1.0254  occ_max 0.125  (soft 0.093206)
+      lr 0.001   aux 0     -> 0.093586  ratio 1.0292  occ_max 0.746  (soft 0.093774)
+      lr 0.001   aux 0.01  -> 0.093707  ratio 1.0305  occ_max 0.113  (soft 0.093795)
+      lr 0.001   aux 0.1   -> 0.093680  ratio 1.0302  occ_max 0.133  (soft 0.093670)
+      lr 0.003   aux 0     -> 0.095814  ratio 1.0537  occ_max 0.887  (soft 0.096700)
+      lr 0.003   aux 0.01  -> 0.095319  ratio 1.0482  occ_max 0.160  (soft 0.096930)
+      lr 0.003   aux 0.1   -> 0.095219  ratio 1.0471  occ_max 0.141  (soft 0.096360)
+      lr 0.01    aux 0     -> 0.097110  ratio 1.0679  occ_max 0.984  (soft 0.103576)
+      lr 0.01    aux 0.01  -> 0.096790  ratio 1.0644  occ_max 0.316  (soft 0.113477)
+      lr 0.01    aux 0.1   -> 0.096238  ratio 1.0583  occ_max 0.305  (soft 0.113540)
+
+   layer 12   uncarved power 0.09260   STATIC 0.077131 (0.8330 of power)   init 0.086628
+      lr 0.0003  aux 0     -> 0.079489  ratio 1.0306  occ_max 0.875  (soft 0.079502)
+      lr 0.0003  aux 0.01  -> 0.083646  ratio 1.0845  occ_max 0.129  (soft 0.083611)
+      lr 0.0003  aux 0.1   -> 0.083848  ratio 1.0871  occ_max 0.129  (soft 0.083818)
+      lr 0.001   aux 0     -> 0.081779  ratio 1.0603  occ_max 0.973  (soft 0.082075)
+      lr 0.001   aux 0.01  -> 0.084356  ratio 1.0937  occ_max 0.125  (soft 0.084428)
+      lr 0.001   aux 0.1   -> 0.084544  ratio 1.0961  occ_max 0.137  (soft 0.084524)
+      lr 0.003   aux 0     -> 0.083227  ratio 1.0790  occ_max 0.973  (soft 0.084055)
+      lr 0.003   aux 0.01  -> 0.085721  ratio 1.1114  occ_max 0.215  (soft 0.086504)
+      lr 0.003   aux 0.1   -> 0.085966  ratio 1.1145  occ_max 0.160  (soft 0.086061)
+      lr 0.01    aux 0     -> 0.086367  ratio 1.1197  occ_max 1.000  (soft 0.090278)
+      lr 0.01    aux 0.01  -> 0.087154  ratio 1.1299  occ_max 0.301  (soft 0.095874)
+      lr 0.01    aux 0.1   -> 0.086857  ratio 1.1261  occ_max 0.293  (soft 0.097221)
+
+   layer 15   uncarved power 0.08462   STATIC 0.070932 (0.8383 of power)   init 0.078350
+      lr 0.0003  aux 0     -> 0.073759  ratio 1.0399  occ_max 0.660  (soft 0.073760)
+      lr 0.0003  aux 0.01  -> 0.076602  ratio 1.0799  occ_max 0.121  (soft 0.076568)
+      lr 0.0003  aux 0.1   -> 0.077451  ratio 1.0919  occ_max 0.129  (soft 0.077422)
+      lr 0.001   aux 0     -> 0.075347  ratio 1.0622  occ_max 0.684  (soft 0.075552)
+      lr 0.001   aux 0.01  -> 0.077212  ratio 1.0885  occ_max 0.129  (soft 0.077215)
+      lr 0.001   aux 0.1   -> 0.077911  ratio 1.0984  occ_max 0.145  (soft 0.077879)
+      lr 0.003   aux 0     -> 0.076405  ratio 1.0772  occ_max 0.801  (soft 0.077087)
+      lr 0.003   aux 0.01  -> 0.078020  ratio 1.0999  occ_max 0.141  (soft 0.078445)
+      lr 0.003   aux 0.1   -> 0.078378  ratio 1.1050  occ_max 0.152  (soft 0.078420)
+      lr 0.01    aux 0     -> 0.078770  ratio 1.1105  occ_max 1.000  (soft 0.083085)
+      lr 0.01    aux 0.01  -> 0.079368  ratio 1.1189  occ_max 0.336  (soft 0.085518)
+      lr 0.01    aux 0.1   -> 0.079138  ratio 1.1157  occ_max 0.273  (soft 0.087266)
+
+   layer 18   uncarved power 0.16177   STATIC 0.130777 (0.8084 of power)   init 0.151599
+      lr 0.0003  aux 0     -> 0.131808  ratio 1.0079  occ_max 0.738  (soft 0.131819)
+      lr 0.0003  aux 0.01  -> 0.140197  ratio 1.0720  occ_max 0.223  (soft 0.140128)
+      lr 0.0003  aux 0.1   -> 0.143650  ratio 1.0984  occ_max 0.141  (soft 0.143563)
+      lr 0.001   aux 0     -> 0.138241  ratio 1.0571  occ_max 0.859  (soft 0.138646)
+      lr 0.001   aux 0.01  -> 0.143058  ratio 1.0939  occ_max 0.203  (soft 0.143275)
+      lr 0.001   aux 0.1   -> 0.145696  ratio 1.1141  occ_max 0.129  (soft 0.145652)
+      lr 0.003   aux 0     -> 0.143469  ratio 1.0971  occ_max 0.934  (soft 0.144507)
+      lr 0.003   aux 0.01  -> 0.147160  ratio 1.1253  occ_max 0.168  (soft 0.148817)
+      lr 0.003   aux 0.1   -> 0.148338  ratio 1.1343  occ_max 0.176  (soft 0.148706)
+      lr 0.01    aux 0     -> 0.150518  ratio 1.1510  occ_max 1.000  (soft 0.156631)
+      lr 0.01    aux 0.01  -> 0.153203  ratio 1.1715  occ_max 0.367  (soft 0.169259)
+      lr 0.01    aux 0.1   -> 0.152131  ratio 1.1633  occ_max 0.395  (soft 0.166856)
+
+   layer 21   uncarved power 0.36436   STATIC 0.271097 (0.7440 of power)   init 0.346258
+      lr 0.0003  aux 0     -> 0.290362  ratio 1.0711  occ_max 0.934  (soft 0.290401)
+      lr 0.0003  aux 0.01  -> 0.304783  ratio 1.1243  occ_max 0.516  (soft 0.304552)
+      lr 0.0003  aux 0.1   -> 0.325890  ratio 1.2021  occ_max 0.121  (soft 0.325750)
+      lr 0.001   aux 0     -> 0.306254  ratio 1.1297  occ_max 0.969  (soft 0.307096)
+      lr 0.001   aux 0.01  -> 0.317445  ratio 1.1710  occ_max 0.449  (soft 0.318418)
+      lr 0.001   aux 0.1   -> 0.332436  ratio 1.2263  occ_max 0.113  (soft 0.332467)
+      lr 0.003   aux 0     -> 0.326877  ratio 1.2058  occ_max 0.996  (soft 0.328982)
+      lr 0.003   aux 0.01  -> 0.331031  ratio 1.2211  occ_max 0.371  (soft 0.336398)
+      lr 0.003   aux 0.1   -> 0.337013  ratio 1.2431  occ_max 0.246  (soft 0.338729)
+      lr 0.01    aux 0     -> 0.330198  ratio 1.2180  occ_max 1.000  (soft 0.375599)
+      lr 0.01    aux 0.01  -> 0.347208  ratio 1.2808  occ_max 0.629  (soft 0.392217)
+      lr 0.01    aux 0.1   -> 0.343984  ratio 1.2689  occ_max 0.500  (soft 0.397602)
+
+   layer 24   uncarved power 0.88401   STATIC 0.536754 (0.6072 of power)   init 0.840712
+      lr 0.0003  aux 0     -> 0.489727  ratio 0.9124  occ_max 1.000  (soft 0.481736)   beats STATIC
+      lr 0.0003  aux 0.01  -> 0.520198  ratio 0.9692  occ_max 0.965  (soft 0.510720)   beats STATIC
+      lr 0.0003  aux 0.1   -> 0.608306  ratio 1.1333  occ_max 0.859  (soft 0.595342)
+      lr 0.001   aux 0     -> 0.795038  ratio 1.4812  occ_max 0.820  (soft 0.792912)
+      lr 0.001   aux 0.01  -> 0.579812  ratio 1.0802  occ_max 0.977  (soft 0.571079)
+      lr 0.001   aux 0.1   -> 0.667491  ratio 1.2436  occ_max 0.664  (soft 0.660005)
+      lr 0.003   aux 0     -> 0.824939  ratio 1.5369  occ_max 0.988  (soft 0.830296)
+      lr 0.003   aux 0.01  -> 0.656631  ratio 1.2233  occ_max 0.906  (soft 0.686044)
+      lr 0.003   aux 0.1   -> 0.729257  ratio 1.3586  occ_max 0.402  (soft 0.748061)
+      lr 0.01    aux 0     -> 0.837924  ratio 1.5611  occ_max 1.000  (soft 0.951816)
+      lr 0.01    aux 0.01  -> 0.829008  ratio 1.5445  occ_max 0.801  (soft 0.992550)
+      lr 0.01    aux 0.1   -> 0.798996  ratio 1.4886  occ_max 0.598  (soft 1.065250)
+
+   settings ranked by layers won:
+      lr 0.0003  aux 0       2 of 8 layers
+      lr 0.0003  aux 0.01    2 of 8 layers
+      lr 0.001   aux 0       1 of 8 layers
+      lr 0.001   aux 0.01    1 of 8 layers
+      lr 0.0003  aux 0.1     0 of 8 layers
+      lr 0.001   aux 0.1     0 of 8 layers
+      lr 0.003   aux 0       0 of 8 layers
+      lr 0.003   aux 0.01    0 of 8 layers
+      lr 0.003   aux 0.1     0 of 8 layers
+      lr 0.01    aux 0       0 of 8 layers
+      lr 0.01    aux 0.01    0 of 8 layers
+      lr 0.01    aux 0.1     0 of 8 layers
+
+   GO.  Best single-line ranking (layers won, ties by lr): --router-lr 0.0003 --aux 0  (2 of 8 layers beat STATIC)
+   *** THIS LINE IS NOT THE DECISION. ***  The registered selection rule lives in
+   the brief (addendum D.3), not in this script: it ALSO applies an occupancy
+   eligibility bar and a majority clause, and the first time the two were compared
+   they disagreed.  Run  h1_router_select.py  and read its verdict; h1_pack.py
+   reads that file and nothing typed by hand.
+   PARTIAL: it does NOT win on every layer.  Recorded as measured; G-H1e is
+   still scored end-to-end and may still fail there.
+   wrote results/h1/h1_router_smoke_G_FULLGRID_routers.npz  (96 trained routers)
+   wrote results/h1/h1_router_smoke_G_FULLGRID.json  [4542s]

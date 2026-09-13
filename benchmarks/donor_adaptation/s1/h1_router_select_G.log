@@ -1,0 +1,55 @@
+== H1 router selection -- addendum D.3, applied verbatim ==
+   layers [3, 6, 9, 12, 15, 18, 21, 24]   settings measured on all 8: 12   partial (dropped): none
+
+   layer   power     STATIC    STATIC/power
+       3   0.13067   0.108585   0.8310
+       6   0.11786   0.102206   0.8672
+       9   0.10331   0.090933   0.8802
+      12   0.09260   0.077131   0.8330
+      15   0.08462   0.070932   0.8383
+      18   0.16177   0.130777   0.8084
+      21   0.36436   0.271097   0.7440
+      24   0.88401   0.536754   0.6072
+   TOTAL STATIC ERROR MASS 1.388415   (layer 24 alone = 38.7%)
+
+   setting             layers won      mean occ_max  elig  mean ratio  error mass   vs STATIC
+   lr=0.0003,aux=0     2 of 8 [3, 24]    0.7720        no    1.0008      1.360334   -2.0225%
+   lr=0.0003,aux=0.01  2 of 8 [3, 24]    0.2974        YES   1.0399      1.425536   +2.6737%
+   lr=0.0003,aux=0.1   0 of 8 []         0.2212        YES   1.0939      1.555105   +12.0058%
+   lr=0.001,aux=0      1 of 8 [3]        0.8120        no    1.1055      1.703276   +22.6777%
+   lr=0.001,aux=0.01   1 of 8 [3]        0.2827        YES   1.0726      1.508502   +8.6492%
+   lr=0.001,aux=0.1    0 of 8 []         0.1968        YES   1.1179      1.626791   +17.1690%
+   lr=0.003,aux=0      0 of 8 []         0.9136        no    1.1554      1.782038   +28.3506%
+   lr=0.003,aux=0.01   0 of 8 []         0.2925        YES   1.1276      1.625031   +17.0422%
+   lr=0.003,aux=0.1    0 of 8 []         0.2070        YES   1.1474      1.703671   +22.7062%
+   lr=0.01,aux=0       0 of 8 []         0.9980        no    1.1823      1.816182   +30.8098%
+   lr=0.01,aux=0.01    0 of 8 []         0.4614        YES   1.1931      1.828452   +31.6935%
+   lr=0.01,aux=0.1     0 of 8 []         0.3979        YES   1.1798      1.791216   +29.0116%
+
+   rule 1 eligible: lr=0.0003,aux=0.01, lr=0.001,aux=0.01, lr=0.0003,aux=0.1, lr=0.001,aux=0.1, lr=0.003,aux=0.01, lr=0.003,aux=0.1, lr=0.01,aux=0.1, lr=0.01,aux=0.01
+   rule 2 most layers won among eligible: lr=0.0003,aux=0.01 (2)
+   rule 3 tie-break by mean ratio: not needed
+
+   SHIPPED: lr=0.0003,aux=0.01
+   RULE 4 FIRES -- SHORTFALL: it beats STATIC on 2 of 8 layers,
+   below the majority of 5.  Recorded as measured.
+
+   -- NOT part of the rule, reported beside it --
+   score partner (E14 s3): total error mass +2.6737% vs STATIC -- WORSE in aggregate
+   best aggregate error mass of ANY setting: lr=0.0003,aux=0 -2.0225% (eligible: NO -- collapsed)
+   rule-1 averaging sensitivity: wins on layers whose OWN occ_max <= 0.5
+      lr=0.0003,aux=0     won [3, 24]     clean []          occ at wins ['0.754', '1.000']
+      lr=0.0003,aux=0.01  won [3, 24]     clean [3]         occ at wins ['0.172', '0.965']
+      lr=0.0003,aux=0.1   won []          clean []          occ at wins []
+      lr=0.001,aux=0      won [3]         clean []          occ at wins ['0.863']
+      lr=0.001,aux=0.01   won [3]         clean [3]         occ at wins ['0.156']
+      lr=0.001,aux=0.1    won []          clean []          occ at wins []
+      lr=0.003,aux=0      won []          clean []          occ at wins []
+      lr=0.003,aux=0.01   won []          clean []          occ at wins []
+      lr=0.003,aux=0.1    won []          clean []          occ at wins []
+      lr=0.01,aux=0       won []          clean []          occ at wins []
+      lr=0.01,aux=0.01    won []          clean []          occ at wins []
+      lr=0.01,aux=0.1     won []          clean []          occ at wins []
+   under per-layer eligibility the same rule would ship: lr=0.0003,aux=0.01
+   -> SAME setting; the defect does not move the answer.
+   wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\s1\results/h1/h1_router_select.json

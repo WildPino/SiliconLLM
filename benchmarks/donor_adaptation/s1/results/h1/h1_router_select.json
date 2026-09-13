@@ -1,5 +1,8 @@
 {
- "rule": "briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md addendum D.3, registered BEFORE layers 6-24 ran (5604b0d)",
+ "rule": "briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md addendum D.3, registered BEFORE layers 6-24 ran (5604b0d); unchanged by addendum G, which retired the DATA and not the rule",
+ "inputs": [
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results/h1/h1_router_smoke_G_FULLGRID.json"
+ ],
  "launch": true,
  "occ_bar": 0.5,
  "layers": [
@@ -21,9 +24,9 @@
  ],
  "majority_needed": 5,
  "rule4_shortfall": true,
- "mean_occ_max": 0.301422119140625,
- "mean_ratio": 1.0379254069146056,
- "total_static_error": 1.499502070248127,
+ "mean_occ_max": 0.29736328125,
+ "mean_ratio": 1.0399028907980414,
+ "total_static_error": 1.3884146809577942,
  "table": [
   {
    "setting": "lr=0.0003,aux=0",
@@ -31,11 +34,11 @@
     3,
     24
    ],
-   "mean_occ_max": 0.761016845703125,
+   "mean_occ_max": 0.77197265625,
    "eligible": false,
-   "mean_ratio": 1.0082359762316666,
-   "error_mass": 1.4780068099498749,
-   "vs_static_pct": -1.4334932058276628,
+   "mean_ratio": 1.0007710046153733,
+   "error_mass": 1.360333800315857,
+   "vs_static_pct": -2.022513952572569,
    "clean_wins": []
   },
   {
@@ -44,25 +47,35 @@
     3,
     24
    ],
-   "mean_occ_max": 0.301422119140625,
+   "mean_occ_max": 0.29736328125,
    "eligible": true,
-   "mean_ratio": 1.0379254069146056,
-   "error_mass": 1.5335238724946976,
-   "vs_static_pct": 2.2688733094540448,
+   "mean_ratio": 1.0399028907980414,
+   "error_mass": 1.4255363792181015,
+   "vs_static_pct": 2.6736751468732,
    "clean_wins": [
     3
    ]
+  },
+  {
+   "setting": "lr=0.0003,aux=0.1",
+   "layers_won": [],
+   "mean_occ_max": 0.22119140625,
+   "eligible": true,
+   "mean_ratio": 1.0938621620267523,
+   "error_mass": 1.5551048889756203,
+   "vs_static_pct": 12.00579411209015,
+   "clean_wins": []
   },
   {
    "setting": "lr=0.001,aux=0",
    "layers_won": [
     3
    ],
-   "mean_occ_max": 0.80963134765625,
+   "mean_occ_max": 0.81201171875,
    "eligible": false,
-   "mean_ratio": 1.0995891912903129,
-   "error_mass": 1.8105094879865646,
-   "vs_static_pct": 20.740712794546145,
+   "mean_ratio": 1.1055254861750399,
+   "error_mass": 1.703275866806507,
+   "vs_static_pct": 22.67774823812052,
    "clean_wins": []
   },
   {
@@ -70,18 +83,88 @@
    "layers_won": [
     3
    ],
-   "mean_occ_max": 0.292999267578125,
+   "mean_occ_max": 0.28271484375,
    "eligible": true,
-   "mean_ratio": 1.0713585684857667,
-   "error_mass": 1.615651048719883,
-   "vs_static_pct": 7.745836486410207,
+   "mean_ratio": 1.0725658692645943,
+   "error_mass": 1.5085017010569572,
+   "vs_static_pct": 8.649218547323434,
    "clean_wins": [
     3
    ]
+  },
+  {
+   "setting": "lr=0.001,aux=0.1",
+   "layers_won": [],
+   "mean_occ_max": 0.19677734375,
+   "eligible": true,
+   "mean_ratio": 1.1178647659918972,
+   "error_mass": 1.6267914101481438,
+   "vs_static_pct": 17.168986503794812,
+   "clean_wins": []
+  },
+  {
+   "setting": "lr=0.003,aux=0",
+   "layers_won": [],
+   "mean_occ_max": 0.91357421875,
+   "eligible": false,
+   "mean_ratio": 1.1553704769990105,
+   "error_mass": 1.7820380702614784,
+   "vs_static_pct": 28.35056375463736,
+   "clean_wins": []
+  },
+  {
+   "setting": "lr=0.003,aux=0.01",
+   "layers_won": [],
+   "mean_occ_max": 0.29248046875,
+   "eligible": true,
+   "mean_ratio": 1.127602252443729,
+   "error_mass": 1.6250307336449623,
+   "vs_static_pct": 17.042174498179396,
+   "clean_wins": []
+  },
+  {
+   "setting": "lr=0.003,aux=0.1",
+   "layers_won": [],
+   "mean_occ_max": 0.20703125,
+   "eligible": true,
+   "mean_ratio": 1.147372648962059,
+   "error_mass": 1.703670620918274,
+   "vs_static_pct": 22.706180241698483,
+   "clean_wins": []
+  },
+  {
+   "setting": "lr=0.01,aux=0",
+   "layers_won": [],
+   "mean_occ_max": 0.998046875,
+   "eligible": false,
+   "mean_ratio": 1.1823394651307386,
+   "error_mass": 1.816181868314743,
+   "vs_static_pct": 30.809756856060822,
+   "clean_wins": []
+  },
+  {
+   "setting": "lr=0.01,aux=0.01",
+   "layers_won": [],
+   "mean_occ_max": 0.46142578125,
+   "eligible": true,
+   "mean_ratio": 1.1930628439168758,
+   "error_mass": 1.8284524381160736,
+   "vs_static_pct": 31.69353963145367,
+   "clean_wins": []
+  },
+  {
+   "setting": "lr=0.01,aux=0.1",
+   "layers_won": [],
+   "mean_occ_max": 0.39794921875,
+   "eligible": true,
+   "mean_ratio": 1.1797519934951892,
+   "error_mass": 1.791215717792511,
+   "vs_static_pct": 29.011580067479947,
+   "clean_wins": []
   }
  ],
  "DIAGNOSTIC_not_a_gate": {
-  "shipped_error_mass_vs_static_pct": 2.2688733094540448,
+  "shipped_error_mass_vs_static_pct": 2.6736751468732,
   "best_error_mass_setting": "lr=0.0003,aux=0",
   "best_error_mass_eligible": false,
   "per_layer_eligibility_would_ship": "lr=0.0003,aux=0.01"
