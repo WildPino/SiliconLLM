@@ -282,3 +282,155 @@ This also means E48 **cannot** revise `C50 = 575`, and does not try to.
 
 `G-E48a` (planted control), `G-E48c` (shares as a SCORE), `G-E48d` (the RANK partner across two
 shapes) and **§3.3's registered prediction** all stand exactly as pushed in `275538f`.
+
+---
+
+# ADDENDUM B — WHAT E48 MEASURED, WHAT IS VOID, AND A 2.5× DISAGREEMENT WITH E46 ON C50
+
+**Written against `results/e48_slope_decomposition.json` (run `c89928f`), before the adjudicating
+run in B.5 exists.**
+
+## B.1 R128, the target shape: every gate fires
+
+| term | slope (ms/pos) | intercept (ms) | **share of the organ's slope** |
+|---|---|---|---|
+| `X` — Q·K loop | 1.7295e-03 | −0.068 | **22.5%** |
+| `S` — softmax | 2.5478e-03 | −0.018 | **33.1%** |
+| `Y` — A·V loop | 1.7179e-03 | −0.031 | **22.3%** |
+| `Rem` — non-loop residual | 1.7459e-03 | +0.205 | **22.7%** |
+| attention organ | 7.6876e-03 | +0.080 | 100% |
+| whole token | 8.1821e-03 | +8.107 | |
+
+* **`G-E48a` FIRES** — all three priced terms positive at every window, rising 16.7–22.5× across
+  the range against a bar of 1.05.
+* **`G-E48b1` PASSES** — the 3× test, 6/6 at the two gated windows, worst 9%. At the ungated
+  window 160 `X` misses at 1.37×, exactly as addendum A.3 anticipated when it carved that window
+  out **in advance**.
+* **`G-E48b2` FIRES** — whole-token slope 8.1821e-03 against organ slope 7.6876e-03, **6.4%
+  apart**. Nothing but attention carries a context slope, which is what §1 read out of the source.
+* Dispersion at the largest window across five reps: `X` 0.07, `S` 0.06, `Y` 0.06, organ 0.032.
+
+**At the target shape the softmax is the single largest piece of the context slope, at 33.1%** —
+and E5 §14.8 already established that this engine's `expf` compiles to a scalar **double-precision**
+`exp` call with a `vzeroupper` in front of each one. That is the most concrete lever this
+programme has found on `C50`.
+
+## B.2 S15 is VOID by its own instrument gates
+
+`G-E48b1` **FAILS** (5 misses of 12, including 0.60× and 0.66× on `X` at gated windows) and
+`G-E48b2` **FAILS** (whole token 24.8% steeper than the organ). The cells are rejected. Causes,
+both visible in the log and both predicted in advance by addendum A.2:
+
+* **Conditioning.** Attention is 10.08 ms of a 49–58 ms token — the FFN alone is 33.34 ms — so the
+  priced terms are ~1% differences of a large number. Rep 3 at n=1280 reads `X = 1.958` where rep
+  1 reads `0.488`, a 4× spread.
+* **Load.** S15 ran at 62–75% occupancy against R128's 34–63%, and the same window drifts 44%
+  between reps (n=160 reads 40.6 ms at rep 1 and 58.4 ms at rep 4).
+
+**No S15 share is reported.** This is the instrument refusing data, not a result.
+
+## B.3 `G-E48d` is VOID, not FAILED — and that is a defect in my runner
+
+The runner printed `G-E48d ... FAILS` and it had no business doing so: **one of its two inputs had
+already been rejected by that shape's own instrument gates.** A rank comparison against a void arm
+is not a failed rank, it is no measurement. `G-E48d` should have been made conditional on
+`G-E48b1` and `G-E48b2` firing on *both* shapes, and it was not.
+
+**Recorded as: `G-E48d` VOID.** This is the fourth time the law in
+`feedback_runner_verdict_outlives_spec` has earned its keep — the script prints numbers, the brief
+decides — and the first time it has caught my own gate wiring rather than a stale rule.
+
+Consequence: **`G-E48c`'s shares have no RANK partner**, so per E14 §3 the R128 shares in B.1 are a
+SCORE with no rank, and **no lever may be prioritised from them yet**. The softmax's 33.1% is a
+measured number at one shape; it is not yet "the biggest lever".
+
+## B.4 Part 1 and part 2 disagree about the ordering, which is a result in itself
+
+Put on the same footing (part 1's `P′` and "organ outside `R`" both belong in `Rem`):
+
+| | `X` | `S` | `Y` | `Rem` | ordering |
+|---|---|---|---|---|---|
+| `T10`, part 1 desk, GQA 4 | 16.9% | 20.9% | 17.9% | 45.1% | `Rem > S > Y > X` |
+| **R128, part 2 measured, GQA 16** | **22.5%** | **33.1%** | **22.3%** | **22.7%** | **`S > Rem > X > Y`** |
+
+The largest term is not the same one. Part 1 was explicit that it is post-hoc, at a different
+shape, and carries no gate — §2.6 item 3 said "the *argument* travels, the *number* does not", and
+that has now been demonstrated rather than asserted. **Part 1's 27.9% for `P′` does not survive to
+the target shape.** What does survive is the structural claim (§1), which `G-E48b2` confirmed
+independently at 6.4%.
+
+## B.5 THE 2.5× DISAGREEMENT WITH E46, AND THE RUN THAT ADJUDICATES IT
+
+This is the most important thing in E48 and it is not about the decomposition.
+
+| | `a` (ms) | `b` (ms/pos) | `C50` |
+|---|---|---|---|
+| E46, phase B | 8.327 | **0.02031** | **575** |
+| E48, same arm | 8.107 | **0.00818** | **1454** |
+
+Same engine, same weights file, same `--carve-k 3`, same machine. **The intercepts agree to 2.6%
+and the slopes differ by 2.5×.** So this is not overall machine speed and not a drift in level: it
+is specifically and only the **context-dependent term** — the one thing `C50` is made of.
+
+Addendum A.4 already forbade E48 from revising `C50`, and that clause was written before these
+data. It holds. But E48 may not leave `C50` standing unqualified either: **`C50` is currently a
+number with two incompatible measurements, 575 and 1454.**
+
+Candidate causes, none of them yet evidence:
+
+1. **The fit range.** E46 fitted `{40, 160, 640}`; E48 fitted `{160, 640, 1280, 2560}`. If
+   per-token cost is not one straight line over the whole range, both fits can be locally right
+   and `C50` sits inside the bend. E46's out-of-sample check reached only 1280.
+2. **The instrument.** Under `--sweep6` the `none` arm's tokens are surrounded by arms that walk
+   the same K and V, which could leave the cache warmer than a pure `none` run ever finds it. E5
+   measured neighbour effects at **0.1% of the organ** with `--sweepd` — but at mean position 4.5,
+   not 1280.
+3. **An L3 crossing.** For R128 the KV cache is `2·L·pos·NKV·HD·4 = 32,768·pos` bytes, so it
+   crosses the measured 32 MB L3 at **position ≈ 1024** — inside E48's range and outside E46's.
+   Note this predicts E48's slope should be *steeper*, not shallower, so it argues against itself.
+
+**Registered now, before the run: `e48_none_control.py`.** Pure `none` — no `--sweep6`, no
+`--profile`, nothing but `--carve-k 3 --bench N` — at windows **{40, 160, 640, 1280, 2560}**, which
+contains E46's three fit windows and E48's four, **5 reps**, round-robin. One dataset, then two
+fits of it.
+
+**`G-E48e`, the adjudication, written as a four-way decision function so that the runner cannot
+choose:**
+
+Let `b_short` = the fit on `{40, 160, 640}` (E46's windows) and `b_long` = the fit on
+`{160, 640, 1280, 2560}` (E48's windows), both from the same pure-`none` cells. Tolerance **±25%**,
+set against E43's measured 9–22% intrinsic oscillation on this engine compounded across a fit, and
+fixed before the numbers exist.
+
+| condition | verdict |
+|---|---|
+| `b_short` ≈ E46 **and** `b_long` ≈ E48 | **THE LAW IS NOT LINEAR** — both prior fits are locally right, `C50` sits in the bend, and E46's linearity claim is scoped to short context |
+| `b_short` ≈ `b_long` ≈ E46's `b` | **THE SWEEP INSTRUMENT IS BIASED** — E48's shares are measured in a regime the engine never runs in, and B.1 is withdrawn |
+| `b_short` ≈ `b_long` ≈ E48's `b` | **E46's PHASE B IS THE OUTLIER** — `C50 = 575` is not reproduced and must be re-measured |
+| anything else | **INCONCLUSIVE** — no verdict, and `C50` carries both numbers |
+
+**My prediction, registered:** the first row — not linear, `b_short` high and `b_long` low. I say
+so because E46's out-of-sample check at 1280 passed at 2.48% on a quantity `b` dominates, which is
+hard to reconcile with E46 simply being wrong, and because `a` agrees to 2.6% between the two runs,
+which is hard to reconcile with a machine-state explanation. I have been wrong on my last three
+registered predictions and this one is recorded on the same terms.
+
+**Whatever it returns, E48 does not rewrite `C50` on its own.** If the law is not linear, `C50`
+needs a fit that is not a straight line, and that is E49.
+
+## B.6 My registered prediction (§3.3), scored
+
+| quantity | predicted | measured | verdict |
+|---|---|---|---|
+| `G-E48a` fires on all three, both shapes | fires | fires at R128; S15 void | **partly** |
+| `G-E48b` closure within 10% | passes | `G-E48b2` 6.4% at R128 | **right** |
+| largest share at R128 | **`P′`**, 25–35% | **`S`** at 33.1%; `Rem` 22.7% | **WRONG** |
+| `S` share at R128 | 15–25% | **33.1%** | **WRONG** |
+| `X + Y` share at R128 vs `T10`'s 34.8% | **lower** | **44.8%**, higher | **WRONG** |
+| `G-E48d` ordering holds | holds | **VOID** | not scorable |
+
+**Two right, three wrong, one void.** The reasoning behind the `X + Y` prediction was explicitly
+that GQA 16 gives four times the reuse of GQA 4 and should make the data loops cheaper in share.
+It went the other way. That reasoning is the same one §2.3 used to call `X` and `Y`
+bandwidth-saturated, so **§2.3 is now under suspicion at the target shape** and B.5's run is the
+first thing that can speak to it.
