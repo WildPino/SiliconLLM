@@ -80,6 +80,17 @@ SHAPES = {
     "A10B-V2048":   (4096, 50432, 16, 32, 2, 128,   2048, 0, "E43 -- SYNTHETIC, R128 with V=2048"),
     "A10B-V8192":   (4096, 50176, 16, 32, 2, 128,   8192, 0, "E43 -- SYNTHETIC, R128 with V=8192"),
     "A10B-V131072": (4096, 45056, 16, 32, 2, 128, 131072, 0, "E43 -- SYNTHETIC, R128 with V=131072"),
+    # E47: the HEAD-COUNT axis, and the only axis these three move.  D, F, L, HD, V and tied
+    # are identical across all three, so the marginal cost per unit of CONTEXT -- the only
+    # thing E47 reads -- can differ between them for exactly one reason.  Query FLOPs per
+    # position go as NH*HD*L and KV bytes as NKV*HD*L, and H-QUERY doubles the first at
+    # constant second while H-KV quadruples the second at constant first.  The models are
+    # small on purpose: E47 reads a SLOPE, not a rate, and the position-0 term is allowed to
+    # differ (it does -- the q/o projections change size with NH).  NH*HD != D here, which the
+    # engine supports: QO = NH*HD is carried separately from D throughout donor_engine.c.
+    "E47-BASE":  (2048, 8192, 12, 16, 2, 64, 16384, 0, "E47 -- head-count reference"),
+    "E47-QUERY": (2048, 8192, 12, 32, 2, 64, 16384, 0, "E47 -- 2x query heads, KV unchanged"),
+    "E47-KV":    (2048, 8192, 12, 16, 8, 64, 16384, 0, "E47 -- 4x KV heads, query unchanged"),
 }
 
 
