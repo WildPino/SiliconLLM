@@ -1,0 +1,45 @@
+{
+ "plan": "decisions/T4_HEALING_PROPOSAL.md s3 (H0)",
+ "complete": true,
+ "steps_requested": 3,
+ "bs": 1,
+ "accum": 2,
+ "lr": 0.0002,
+ "seconds": 127.04415106773376,
+ "nonfinite_microbatches": 0,
+ "tf_fp16_gpu_step0": 91,
+ "history": [
+  {
+   "step": 0,
+   "tf_fp16_gpu": 91,
+   "loss": null,
+   "seconds": 0.0
+  },
+  {
+   "step": 1,
+   "tf_fp16_gpu": 84,
+   "loss": 3.610295295715332,
+   "seconds": 35.4930465221405
+  },
+  {
+   "step": 2,
+   "tf_fp16_gpu": 86,
+   "loss": 3.242964029312134,
+   "seconds": 77.91020274162292
+  },
+  {
+   "step": 3,
+   "tf_fp16_gpu": 86,
+   "loss": 2.093213677406311,
+   "seconds": 120.5122172832489
+  }
+ ],
+ "G_H0e_masters_moved": {
+  "L00.q_proj.A": 0.00015923380851745605,
+  "L00.o_proj.B": 0.00015923380851745605,
+  "L27.q_proj.s": 0.00015926361083984375
+ },
+ "gate": "NOT decided here -- h0_eval.py on CPU fp32, tf >= 48",
+ "e22_anchor_tf": 28,
+ "e21_fp32_ceiling_tf": 144
+}

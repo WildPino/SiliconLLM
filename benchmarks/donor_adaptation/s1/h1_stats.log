@@ -1,0 +1,7 @@
+== H1 activation stats ==  CPU fp32, 28 layers, 32 calib seqs
+  R3: capturing activations over 32 calib sequences...
+  R3: captured 197 activation vectors
+   rms_in  mean over layers 0.6100   min-layer 0.2643   max-layer 1.0556
+   rms_h   mean over layers 0.2382   min-layer 0.0931   max-layer 0.8437
+   wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\s1\results\h1\h1_actstats.npz  [269s]
+   Now re-run h1_applied.py WITH --stats h1_actstats.npz -- the run without it is not E37's format.

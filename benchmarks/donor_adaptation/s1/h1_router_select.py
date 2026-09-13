@@ -24,11 +24,13 @@ because they are the rule's blind spots and must be on the record next to it:
 Neither is allowed to change the shipped setting.  E14 s6 forbids promoting a
 post-hoc metric to a gate.
 """
-import json, sys
+import json, os, sys
 
 OCC_BAR = 0.5
-FILES = ["results/h1/h1_router_smoke_L3.json",
-         "results/h1/h1_router_smoke_L6-24.json"]
+HERE = os.path.dirname(os.path.abspath(__file__))
+FILES = [os.path.join(HERE, "results/h1/h1_router_smoke_L3.json"),
+         os.path.join(HERE, "results/h1/h1_router_smoke_L6-24.json")]
+OUT = os.path.join(HERE, "results/h1/h1_router_select.json")
 
 
 def key(g):
@@ -89,11 +91,15 @@ def main():
     if not any(r["won"] for r in rows):
         print("   RULE 5 FIRES: nothing beats STATIC on any layer.")
         print("   Addendum A consequence 3: H1 DOES NOT LAUNCH.")
+        json.dump({"rule": "addendum D.3", "launch": False, "rule5_fires": True,
+                   "layers": layers}, open(OUT, "w", encoding="utf-8"), indent=1)
         return 2
 
     elig = [r for r in rows if r["elig"]]
     if not elig:
         print("   NO ELIGIBLE SETTING (every setting collapses on average).")
+        json.dump({"rule": "addendum D.3", "launch": False, "no_eligible": True,
+                   "layers": layers}, open(OUT, "w", encoding="utf-8"), indent=1)
         return 2
     elig.sort(key=lambda r: (-len(r["won"]), r["mrat"]))
     win = elig[0]
@@ -134,6 +140,29 @@ def main():
     print("   -> %s" % ("SAME setting; the defect does not move the answer."
                         if alt and alt[0]["k"] == win["k"] else
                         "DIFFERENT -- the defect is load-bearing, see the addendum."))
+
+    json.dump({"rule": "briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md addendum D.3, "
+                       "registered BEFORE layers 6-24 ran (5604b0d)",
+               "launch": True, "occ_bar": OCC_BAR, "layers": layers,
+               "router_lr": win["cells"][layers[0]]["lr"],
+               "aux": win["cells"][layers[0]]["aux"],
+               "setting": win["k"], "layers_won": win["won"],
+               "majority_needed": maj, "rule4_shortfall": bool(short),
+               "mean_occ_max": win["mocc"], "mean_ratio": win["mrat"],
+               "total_static_error": tot_static,
+               "table": [{"setting": r["k"], "layers_won": r["won"],
+                          "mean_occ_max": r["mocc"], "eligible": r["elig"],
+                          "mean_ratio": r["mrat"], "error_mass": r["mass"],
+                          "vs_static_pct": 100.0 * (r["mass"] / tot_static - 1.0),
+                          "clean_wins": r["clean"]} for r in rows],
+               "DIAGNOSTIC_not_a_gate": {
+                   "shipped_error_mass_vs_static_pct":
+                       100.0 * (win["mass"] / tot_static - 1.0),
+                   "best_error_mass_setting": best_mass["k"],
+                   "best_error_mass_eligible": bool(best_mass["elig"]),
+                   "per_layer_eligibility_would_ship": alt[0]["k"] if alt else None}},
+              open(OUT, "w", encoding="utf-8"), indent=1)
+    print("   wrote %s" % OUT)
     return 0
 
 

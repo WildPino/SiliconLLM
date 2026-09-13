@@ -1,0 +1,43 @@
+== H1 router smoke (GO/NO-GO) ==  CPU fp32, layers [3], k 16 of E 256
+   capturing activations (calib 32 seqs, heldout 24 seqs, cap 4096 tokens/layer)...
+   captured  {3: (4096, 1536)}
+   planted control: router grad 1.361e+00, moved 1.000e-03  -> FIRES
+
+   layer 3    uncarved power 0.13067   STATIC 0.108585 (0.8310 of power)   init 0.124098
+      lr 0.0003  aux 0     -> 0.097016  ratio 0.8935  occ_max 0.818   beats STATIC
+      lr 0.0003  aux 0.01  -> 0.101815  ratio 0.9377  occ_max 0.161   beats STATIC
+      lr 0.0003  aux 0.1   -> 0.114619  ratio 1.0556  occ_max 0.151
+      lr 0.001   aux 0     -> 0.103940  ratio 0.9572  occ_max 0.909   beats STATIC
+      lr 0.001   aux 0.01  -> 0.105409  ratio 0.9708  occ_max 0.162   beats STATIC
+      lr 0.001   aux 0.1   -> 0.116434  ratio 1.0723  occ_max 0.149
+      lr 0.003   aux 0     -> 0.121412  ratio 1.1181  occ_max 0.968
+      lr 0.003   aux 0.01  -> 0.123993  ratio 1.1419  occ_max 0.254
+      lr 0.003   aux 0.1   -> 0.121923  ratio 1.1228  occ_max 0.253
+      lr 0.01    aux 0     -> 0.133314  ratio 1.2277  occ_max 1.000
+      lr 0.01    aux 0.01  -> 0.148225  ratio 1.3651  occ_max 0.613
+      lr 0.01    aux 0.1   -> 0.156719  ratio 1.4433  occ_max 0.528
+
+   settings ranked by layers won:
+      lr 0.0003  aux 0       1 of 1 layers
+      lr 0.0003  aux 0.01    1 of 1 layers
+      lr 0.001   aux 0       1 of 1 layers
+      lr 0.001   aux 0.01    1 of 1 layers
+      lr 0.0003  aux 0.1     0 of 1 layers
+      lr 0.001   aux 0.1     0 of 1 layers
+      lr 0.003   aux 0       0 of 1 layers
+      lr 0.003   aux 0.01    0 of 1 layers
+      lr 0.003   aux 0.1     0 of 1 layers
+      lr 0.01    aux 0       0 of 1 layers
+      lr 0.01    aux 0.01    0 of 1 layers
+      lr 0.01    aux 0.1     0 of 1 layers
+
+   GO.  Best setting: --router-lr 0.0003 --aux 0  (1 of 1 layers beat STATIC)
+   wrote results/h1/h1_router_smoke_L3.json  [12685s]
+
+--- NOTE ADDED AFTER THE RUN ---
+The "GO. Best setting: --router-lr 0.0003 --aux 0" line above is SUPERSEDED and must
+not be quoted.  It ranks by layers-won only; the occupancy criterion lives in
+BRIEF_H1 addendum D.3, not in this script, and the L6-24 process never saw layer 3.
+The registered rule applied to all eight layers ships --router-lr 0.0003 --aux 0.01
+with a stated shortfall (2 of 8 layers).  See addendum E and
+results/h1/h1_router_select.txt.

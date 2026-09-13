@@ -1,0 +1,15 @@
+== H0 QAT ==  device cpu  torch 2.12.0+cpu
+   attn_implementation = sdpa  (asserted)
+   replaced 4 organs, 6293504 trainable params (0.4% of donor)
+   train stream 200,192 tokens, probe 5 prompts x 32
+
+   step 0 teacher-forced (fp16, GPU, WATCHABLE NOT THE GATE): 91/160
+   E22 QO512-TB measured 28/160 on CPU fp32; H0 gate is >= 48 re-measured there
+
+`use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+   G-H0e read at step 1, the first update the optimizer APPLIED (scale 1, grad-norm 1.206e+02, 0 declined before it)
+   G-H0e masters moved by: L00.q_proj.A 1.592e-04  L00.o_proj.B 1.592e-04  L27.q_proj.s 1.593e-04
+  step     3/3  loss 2.9822  tf(fp16,gpu)  86/160    921s  lr 5.48e-05  nonfinite 0
+
+  wrote C:/Users/giosa/AppData/Local/Temp/claude/D---THINGS-Progetti-SiliconLLM/59e78a85-8e62-4169-80cb-f4b1b5e7ca5a/scratchpad/h0_smoke_trained.npz
+  RUN COMPLETE.  The gate is NOT decided here: bring h0_smoke_trained.npz back and run h0_eval.py on CPU.

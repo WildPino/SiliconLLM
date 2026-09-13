@@ -40,7 +40,13 @@ import sys
 import torch
 import torch.nn.functional as F
 
-from h1_qat import TernaryCarvedFFN, g_h1a, carve_is_live, router_recall, applied_steps, log
+import os
+import tempfile
+
+import numpy as np
+
+from h1_qat import (TernaryCarvedFFN, g_h1a, carve_is_live, router_recall, applied_steps,
+                    resume_ffn, log)
 
 D, F_DIM, E, GSZ, K = 32, 128, 8, 16, 2
 SEED = 1717
@@ -222,6 +228,56 @@ def main():
     check("T6", wins >= T6_MIN_WINS,
           "G-H1e's instrument CAN fire: %d of %d lrs beat STATIC (need %d)"
           % (wins, len(T6_LRS), T6_MIN_WINS))
+
+    # ---- T7: the SESSION-2 RESUME PATH, which did not exist until it was tested ----------
+    log("")
+    log("  T7  --resume continues a run instead of silently restarting it")
+    src = build_toy(seed=7)
+    with torch.no_grad():                         # make it unmistakably NOT the fresh donor
+        src.gate.add_(0.37)
+        src.down.mul_(1.23)
+        src.router.add_(torch.randn(src.router.shape, generator=torch.Generator().manual_seed(5)))
+    xr = torch.randn(4, 6, D, generator=torch.Generator().manual_seed(11))
+    with torch.no_grad():
+        want = src.forward(xr)
+
+    tmpd = tempfile.mkdtemp(prefix="h1_t7_")
+    bundle = os.path.join(tmpd, "b.npz")
+    labels_f = os.path.join(tmpd, "labels.npz")
+    np.savez(bundle, **{"L03.gate": src.gate.detach().numpy(),
+                        "L03.up": src.up.detach().numpy(),
+                        "L03.down": src.down.detach().numpy(),
+                        "L03.router": src.router.detach().numpy(),
+                        "L03.rms_in": src.rms_in.numpy(),
+                        "L03.rms_h": src.rms_h.numpy(),
+                        "L03.labels": src.labels.numpy()})
+    np.savez(labels_f, **{"c3": src.labels.numpy()})
+
+    fresh = build_toy(seed=7)
+    with torch.no_grad():
+        before = fresh.forward(xr)
+    check("T7a", not torch.equal(before, want),
+          "a FRESH module differs from the saved one -- otherwise T7 proves nothing "
+          "(max|d| %.3e)" % (before - want).abs().max().item())
+
+    n_res = resume_ffn([(3, fresh)], bundle, labels_f, "cpu")
+    with torch.no_grad():
+        got = fresh.forward(xr)
+    check("T7", n_res == 1 and torch.equal(got, want),
+          "resumed %d layer, forward bit-identical to the saved run (max|d| %.1e)"
+          % (n_res, (got - want).abs().max().item()))
+
+    np.savez(os.path.join(tmpd, "bad.npz"),
+             **{k: v for k, v in np.load(bundle).items()})
+    badlab = os.path.join(tmpd, "badlab.npz")
+    np.savez(badlab, **{"c3": (src.labels.numpy() + 1) % E})
+    try:
+        resume_ffn([(3, build_toy(seed=7))], bundle, badlab, "cpu")
+        ok_guard = False
+    except SystemExit:
+        ok_guard = True
+    check("T7b", ok_guard,
+          "resuming onto a DIFFERENT partition is refused, not silently accepted")
 
     log("")
     if fails:

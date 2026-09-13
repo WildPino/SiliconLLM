@@ -1,0 +1,19 @@
+== H1 applied-8L ==  CPU fp32, layers [3, 6, 9, 12, 15, 18, 21, 24], k 16 of E 256
+   slice 24 seqs, 51870 scored bytes, 4.22945205479452 B/token
+   intact      0.767595   (anchor 0.767595)  PLANTED CONTROL FIRES
+   h0-run3     0.810022   (56 organs over 28 layers; H0 run 3 read 0.810022)
+   G-H1a (real shape, layer 3)  bit-identical at k=E: FIRES  (max|d| 0.0e+00)
+   ternary-8L  0.946799   (k = E = 256, NO carve)
+   applied-8L  1.100281   (k = 16, E37's router, hard gate)  <- THE NUMBER
+
+   G-H1d  carving the 8 layers is strictly worse than not carving them (ORDINAL)
+          applied-8L 1.100281  >  ternary-8L 0.946799   ->  FIRES  (delta +0.153482)
+
+   H1's bands, with applied-8L now filled in:
+     CARVE-NOT-TRAINABLE   BPB >= 1.100281
+     TRAINING-HELPS        3.475707 <= BPB < 1.100281
+     CARVE-IS-TRAINABLE    0.810022 <  BPB < 3.475707
+     CARVE-IS-FREE         BPB <= 0.810022
+
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\s1\results\h1\h1_applied_8L.json  [684s]
+  RECORD THIS IN AN ADDENDUM BEFORE THE T4 RUNS (brief s10 item 3).

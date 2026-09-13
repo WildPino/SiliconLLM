@@ -1,0 +1,65 @@
+== H1 router smoke (GO/NO-GO) ==  CPU fp32, layers [6, 9, 12, 15, 18, 21, 24], k 16 of E 256
+   capturing activations (calib 32 seqs, heldout 24 seqs, cap 4096 tokens/layer)...
+   captured  {6: (4096, 1536), 9: (4096, 1536), 12: (4096, 1536), 15: (4096, 1536), 18: (4096, 1536), 21: (4096, 1536), 24: (4096, 1536)}
+   planted control: router grad 3.983e-01, moved 1.000e-03  -> FIRES
+
+   layer 6    uncarved power 0.12701   STATIC 0.109205 (0.8598 of power)   init 0.118990
+      lr 0.0003  aux 0     -> 0.115767  ratio 1.0601  occ_max 0.477
+      lr 0.0003  aux 0.01  -> 0.114406  ratio 1.0476  occ_max 0.123
+      lr 0.001   aux 0     -> 0.117361  ratio 1.0747  occ_max 0.597
+      lr 0.001   aux 0.01  -> 0.116651  ratio 1.0682  occ_max 0.151
+
+   layer 9    uncarved power 0.10499   STATIC 0.093466 (0.8902 of power)   init 0.098027
+      lr 0.0003  aux 0     -> 0.094811  ratio 1.0144  occ_max 0.587
+      lr 0.0003  aux 0.01  -> 0.094022  ratio 1.0059  occ_max 0.136
+      lr 0.001   aux 0     -> 0.096052  ratio 1.0277  occ_max 0.656
+      lr 0.001   aux 0.01  -> 0.095752  ratio 1.0245  occ_max 0.147
+
+   layer 12   uncarved power 0.09241   STATIC 0.077691 (0.8408 of power)   init 0.086509
+      lr 0.0003  aux 0     -> 0.080358  ratio 1.0343  occ_max 0.904
+      lr 0.0003  aux 0.01  -> 0.084036  ratio 1.0817  occ_max 0.144
+      lr 0.001   aux 0     -> 0.081748  ratio 1.0522  occ_max 0.979
+      lr 0.001   aux 0.01  -> 0.084891  ratio 1.0927  occ_max 0.147
+
+   layer 15   uncarved power 0.08570   STATIC 0.072258 (0.8431 of power)   init 0.079401
+      lr 0.0003  aux 0     -> 0.075552  ratio 1.0456  occ_max 0.619
+      lr 0.0003  aux 0.01  -> 0.077668  ratio 1.0749  occ_max 0.125
+      lr 0.001   aux 0     -> 0.076787  ratio 1.0627  occ_max 0.680
+      lr 0.001   aux 0.01  -> 0.078266  ratio 1.0831  occ_max 0.149
+
+   layer 18   uncarved power 0.16527   STATIC 0.134604 (0.8145 of power)   init 0.154917
+      lr 0.0003  aux 0     -> 0.139027  ratio 1.0329  occ_max 0.734
+      lr 0.0003  aux 0.01  -> 0.144332  ratio 1.0723  occ_max 0.128
+      lr 0.001   aux 0     -> 0.144325  ratio 1.0722  occ_max 0.859
+      lr 0.001   aux 0.01  -> 0.148058  ratio 1.1000  occ_max 0.136
+
+   layer 21   uncarved power 0.38677   STATIC 0.287808 (0.7441 of power)   init 0.367392
+      lr 0.0003  aux 0     -> 0.304551  ratio 1.0582  occ_max 0.950
+      lr 0.0003  aux 0.01  -> 0.320957  ratio 1.1152  occ_max 0.597
+      lr 0.001   aux 0     -> 0.333551  ratio 1.1589  occ_max 0.969
+      lr 0.001   aux 0.01  -> 0.340244  ratio 1.1822  occ_max 0.457
+
+   layer 24   uncarved power 0.97868   STATIC 0.615886 (0.6293 of power)   init 0.930552
+      lr 0.0003  aux 0     -> 0.570926  ratio 0.9270  occ_max 0.998   beats STATIC
+      lr 0.0003  aux 0.01  -> 0.596289  ratio 0.9682  occ_max 0.998   beats STATIC
+      lr 0.001   aux 0     -> 0.856746  ratio 1.3911  occ_max 0.828
+      lr 0.001   aux 0.01  -> 0.646382  ratio 1.0495  occ_max 0.994
+
+   settings ranked by layers won:
+      lr 0.0003  aux 0       1 of 7 layers
+      lr 0.0003  aux 0.01    1 of 7 layers
+      lr 0.001   aux 0       0 of 7 layers
+      lr 0.001   aux 0.01    0 of 7 layers
+
+   GO.  Best setting: --router-lr 0.0003 --aux 0  (1 of 7 layers beat STATIC)
+   PARTIAL: it does NOT win on every layer.  Recorded as measured; G-H1e is
+   still scored end-to-end and may still fail there.
+   wrote results/h1/h1_router_smoke_L6-24.json  [29316s]
+
+--- NOTE ADDED AFTER THE RUN ---
+The "GO. Best setting: --router-lr 0.0003 --aux 0" line above is SUPERSEDED and must
+not be quoted.  It ranks by layers-won only; the occupancy criterion lives in
+BRIEF_H1 addendum D.3, not in this script, and the L6-24 process never saw layer 3.
+The registered rule applied to all eight layers ships --router-lr 0.0003 --aux 0.01
+with a stated shortfall (2 of 8 layers).  See addendum E and
+results/h1/h1_router_select.txt.

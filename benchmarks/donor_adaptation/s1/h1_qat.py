@@ -203,6 +203,21 @@ class TernaryCarvedFFN(nn.Module):
         self._occ = None           # last forward's per-group occupancy, DIAGNOSTIC
         self._mass = None          # [E] accumulator for STATIC's calibration, when armed
 
+    def invalidate(self):
+        """Drop the quantisation cache.  MUST be called after ANY write through `.data`.
+
+        `_quant` keys its cache on the parameters' autograd `_version`, and a `.data.copy_()`
+        deliberately does NOT bump that -- bypassing version tracking is what `.data` is for.
+        So a module that has already run a forward under no_grad will keep serving the
+        weights it was just told to replace, silently and with no error anywhere.
+
+        Found by h1_selftest T7, which is the reason that check exists: the failure is
+        invisible in h1_qat's own flow (resume happens before the first forward) and would
+        have surfaced for the first time in a SECOND T4 session, as a continuation that
+        trained the donor again while reporting that it had resumed.
+        """
+        self._ck, self._cv = None, None
+
     def _quant(self):
         key = (self.gate._version, self.up._version, self.down._version)
         if self._ck == key and not torch.is_grad_enabled():
@@ -345,6 +360,13 @@ def build_qo(model, bundle, device):
                 None if old.bias is None else old.bias.data.detach().clone())
             setattr(attn, nm, mod.to(device))
             n += 1
+    if n == 0:
+        raise SystemExit(
+            "build_qo installed ZERO organs from %s.  Its keys carry no '.A', so this is not "
+            "an H0 factor bundle -- most likely it is an H1 OUTPUT bundle passed to --factors. "
+            "The FFN resume path is --resume; --factors is the q/o base and must be H0's. "
+            "Continuing would train H1's FFN on the RAW donor's attention while the log said "
+            "otherwise.  STOP." % bundle)
     return n, have
 
 
@@ -461,6 +483,47 @@ def ffn_mods(model, layers):
     return [(li, model.model.layers[li].mlp) for li in layers]
 
 
+def resume_ffn(mods, bundle, labels_npz, device):
+    """Continue a previous H1 session: load its FFN masters AND its router.
+
+    The brief s7 says the second session is not optional, so this path is load-bearing and not
+    a convenience.  Everything is asserted rather than assumed -- in particular the bundle's
+    own `labels`, because a run resumed onto a DIFFERENT partition would train happily, report
+    a BPB, and be incomparable with the applied-8L control the gate argues with.
+
+    Adam moments are deliberately NOT restored: they are not in the bundle, the optimizer is
+    rebuilt, and save() records adam_state_restarted so the discontinuity is on the record.
+    """
+    z = np.load(bundle)
+    lz = np.load(labels_npz)
+    n = 0
+    for li, m in mods:
+        p = "L%02d" % li
+        need = [p + s for s in (".gate", ".up", ".down", ".router", ".labels")]
+        miss = [q for q in need if q not in z.files]
+        if miss:
+            raise SystemExit("--resume bundle %s is missing %s -- STOP" % (bundle, miss))
+        lab_b = torch.from_numpy(z[p + ".labels"]).long()
+        lab_f = torch.from_numpy(lz["c%d" % li]).long()
+        if not torch.equal(lab_b, lab_f):
+            raise SystemExit(
+                "layer %d: the resumed bundle's partition DIFFERS from %s.  The continuation "
+                "would be a different experiment from the one it claims to continue.  STOP."
+                % (li, labels_npz))
+        for nm in ("gate", "up", "down", "router", "rms_in", "rms_h"):
+            if p + "." + nm not in z.files:
+                continue
+            src = torch.from_numpy(z[p + "." + nm]).float()
+            dst = getattr(m, nm)
+            if tuple(src.shape) != tuple(dst.shape):
+                raise SystemExit("layer %d %s is %s, module wants %s -- STOP"
+                                 % (li, nm, tuple(src.shape), tuple(dst.shape)))
+            dst.data.copy_(src.to(dst.dtype).to(device))
+        m.invalidate()
+        n += 1
+    return n
+
+
 @torch.no_grad()
 def heldout_nats(model, ids, dev, cuda, bs=1):
     """Sum of token nats and the token count on a held-out stream.  fp16 on GPU is fine here:
@@ -535,9 +598,15 @@ def main():
                     help="load-balancing coefficient -- same rule, -1 = NOT SET")
     ap.add_argument("--every", type=int, default=int(os.environ.get("H1_EVERY", "250")))
     ap.add_argument("--max-hours", type=float, default=2.8)
-    # As in H0: --factors takes any bundle with this key layout, so a previous H1 output is the
-    # resume path for the WEIGHTS.  Batches come from a FIXED rng, so a continuation MUST pass a
-    # different seed or it retrains the same draws.  Adam moments are NOT checkpointed.
+    # SESSION 2 RESUMES HERE, NOT THROUGH --factors.  H0 could reuse --factors as its resume
+    # path because its trainer rebuilt the same organs it wrote; H1 cannot -- an H1 bundle
+    # carries FFN keys (L**.gate/up/down/router) and no '.A', so build_qo would install NOTHING
+    # from it and the run would train on the RAW donor's attention.  build_qo now refuses that
+    # outright, and this is the flag that actually continues a run.
+    ap.add_argument("--resume", default=None,
+                    help="a previous H1 bundle -- continues its FFN masters AND router")
+    # Batches come from a FIXED rng, so a continuation MUST pass a different seed or it
+    # retrains the same draws.  Adam moments are NOT checkpointed.
     ap.add_argument("--seed", type=int, default=1717)
     ap.add_argument("--dev", default=os.environ.get("H1_DEV", None))
     a = ap.parse_args()
@@ -584,6 +653,9 @@ def main():
         p.requires_grad_(False)            # q/o are RESUMED and FROZEN -- brief s3
     n_ffn = build_ffn(model, a.labels, a.stats, layers, a.k, a.groups, dev)
     mods = ffn_mods(model, layers)
+    if a.resume:
+        n_res = resume_ffn(mods, a.resume, a.labels, dev)
+        log("   RESUMED the FFN masters and routers of %d layers from %s" % (n_res, a.resume))
 
     expert_params, router_params = [], []
     for _, m in mods:
@@ -758,7 +830,8 @@ def save(model, mods, a, layers, hist, bpb0, nonfinite, el, done, gates, decline
                "complete": done, "layers": layers, "k": a.k, "E": a.groups,
                "steps_requested": a.steps, "bs": a.bs, "accum": a.accum,
                "lr": a.lr, "router_lr": a.router_lr, "aux": a.aux, "seed": a.seed,
-               "resumed_qo_from": a.factors, "adam_state_restarted": True,
+               "resumed_qo_from": a.factors, "resumed_ffn_from": a.resume,
+               "adam_state_restarted": True,
                "bytes_per_token": a.bpt, "seconds": el,
                "nonfinite_microbatches": nonfinite,
                "scaler_declined_before_first_applied": declined,

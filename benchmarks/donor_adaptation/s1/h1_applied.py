@@ -170,11 +170,14 @@ def main():
         log("          the 8-layer restriction rather than the carve, and the anchor is unusable.")
 
     log("")
-    log("   H1's bands, with applied-8L now filled in:")
+    log("   H1's bands, REPAIRED -- every edge is a MATCHED 8-layer number measured above.")
+    log("   The version this replaced used E37's all-28-layer 3.475707 as an edge, which made")
+    log("   TRAINING-HELPS EMPTY and overlapped two other bands: addendum C.")
     log("     CARVE-NOT-TRAINABLE   BPB >= %.6f" % rows["applied-8L"])
-    log("     TRAINING-HELPS        3.475707 <= BPB < %.6f" % rows["applied-8L"])
-    log("     CARVE-IS-TRAINABLE    0.810022 <  BPB < 3.475707")
-    log("     CARVE-IS-FREE         BPB <= 0.810022")
+    log("     TRAINING-HELPS        %.6f <= BPB < %.6f"
+        % (rows["ternary-8L"], rows["applied-8L"]))
+    log("     CARVE-IS-TRAINABLE    %.6f <  BPB < %.6f" % (H0_RUN3, rows["ternary-8L"]))
+    log("     CARVE-IS-FREE         BPB <= %.6f" % H0_RUN3)
 
     rec = {"brief": "briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md s4 + G-H1d",
            "model": C.MODEL_ID, "revision": C.REVISION, "eval_slice": meta,
@@ -182,8 +185,17 @@ def main():
            "factors": a.factors, "routers": a.routers, "gate_mode": "hard",
            "bpb": rows, "vs_chance": {k: v - CHANCE for k, v in rows.items()},
            "anchors_expected": {"intact": INTACT, "h0_run3": H0_RUN3,
-                                "e37_ternary_all_28L": 3.475707,
-                                "e37_carved_k16_28L": 3.986801, "chance": CHANCE},
+                                "e37_28L_reference_only": {"ternary_all_groups": 3.475707,
+                                                           "carved_k16": 3.986801},
+                                "chance": CHANCE},
+           # addendum C: matched 8-layer edges only.  An all-28-layer number is NOT a
+           # threshold for an 8-layer comparison.
+           "bands_repaired": {"CARVE-NOT-TRAINABLE": ">= %.6f" % rows["applied-8L"],
+                              "TRAINING-HELPS": "[%.6f, %.6f)" % (rows["ternary-8L"],
+                                                                  rows["applied-8L"]),
+                              "CARVE-IS-TRAINABLE": "(%.6f, %.6f)" % (H0_RUN3,
+                                                                      rows["ternary-8L"]),
+                              "CARVE-IS-FREE": "<= %.6f" % H0_RUN3},
            "G_H1a_real_shape": {"bit_identical": bool(same), "max_abs_diff": dmax},
            "G_H1d": {"applied_8L": rows["applied-8L"], "ternary_8L": rows["ternary-8L"],
                      "delta": rows["applied-8L"] - rows["ternary-8L"], "fires": bool(fires)},
