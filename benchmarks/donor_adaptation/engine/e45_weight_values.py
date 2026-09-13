@@ -61,6 +61,17 @@ MIN_PAIRS = 5
 # brief section 4, G-E45c
 BROKEN_FLOOR = 0.05
 
+# ADDENDUM C, C.5 -- run 2.  Registered before run 2's data existed (d890f13).
+RUN2_PAIRS = 15
+RUN2_MIN_SURVIVING = 5
+# a pair is discarded if occupancy across EITHER cell exceeds this.  The bar comes
+# from C.3: six threads on twelve logical CPUs is ~50% before any contention exists,
+# so 70 leaves 20 points of slack.  The rule never looks at the rates.
+OCC_EXCLUDE_BAR = 70.0
+# INCONCLUSIVE above this: twice the BROKEN floor.  A pairing that noisy cannot
+# answer a 5% question.  This is the clause run 1 lacked.
+RUN2_S_MAX = 0.10
+
 
 def sha256(path):
     h = hashlib.sha256()
@@ -168,14 +179,116 @@ def verdict_e45c(ratios):
             "ratios": list(ratios)}
 
 
+def verdict_e45d(ratios, occ_pairs):
+    """ADDENDUM C, C.5's G-E45d, applied verbatim.  The exclusion runs FIRST and on
+    occupancy alone -- it never sees a rate."""
+    kept, dropped = [], []
+    for i, r in enumerate(ratios):
+        (kept if occ_pairs[i] <= OCC_EXCLUDE_BAR else dropped).append(i)
+    rs = [ratios[i] for i in kept]
+    n = len(rs)
+    out = {"attempted": len(ratios), "surviving": n, "discarded": len(dropped),
+           "discarded_idx": dropped, "occ_bar": OCC_EXCLUDE_BAR,
+           "pair_occupancy_pct": list(occ_pairs), "surviving_ratios": rs}
+    if n < RUN2_MIN_SURVIVING:
+        out.update({"median_ratio": None, "spread": None, "abs_r_minus_1": None,
+                    "u_above_one": None, "verdict": "INCONCLUSIVE",
+                    "reason": "only %d pairs survived the occupancy exclusion, the gate "
+                              "registers %d" % (n, RUN2_MIN_SURVIVING)})
+        return out
+    r = statistics.median(rs)
+    sp = max(rs) - min(rs)
+    d = abs(r - 1.0)
+    u = sum(1 for x in rs if x > 1.0)
+    w = sum(1 for x in rs if x < 1.0)
+    if sp > RUN2_S_MAX:
+        v, why = "INCONCLUSIVE", ("spread %.4f exceeds %.2f -- too noisy to answer a %.0f%% "
+                                  "question" % (sp, RUN2_S_MAX, 100 * BROKEN_FLOOR))
+    elif d > BROKEN_FLOOR:
+        v, why = "BRIDGE BROKEN", "|r-1| %.4f exceeds %.2f at a spread of %.4f" % (
+            d, BROKEN_FLOOR, sp)
+    elif u == n or w == n:
+        v, why = "DIRECTIONAL", ("%d of %d pairs on the same side of 1 -- a consistent "
+                                 "difference smaller than the BROKEN floor.  A RESULT, not "
+                                 "a pass." % (max(u, w), n))
+    else:
+        v, why = "BRIDGE HOLDS", "%d of %d above 1, |r-1| %.4f, spread %.4f" % (u, n, d, sp)
+    out.update({"median_ratio": r, "spread": sp, "abs_r_minus_1": d, "u_above_one": u,
+                "w_below_one": w, "verdict": v, "reason": why})
+    return out
+
+
+def selftest():
+    """The planted-control law applies to the DECISION FUNCTION too.  G-E45d must be
+    shown to return each of its four outcomes on data built to force it, including the
+    three that are not the convenient one, before its verdict on real cells is worth
+    reading.  No argument here touches a rate the engine produced."""
+    log("== G-E45d self-test -- the gate must FIRE in all four directions ==")
+    ok = [True]
+
+    def check(name, got, want, note):
+        good = (got == want)
+        ok[0] = ok[0] and good
+        log("  %-4s %-14s expected %-14s %s   %s"
+            % (name, got, want, "FIRES" if good else "*** FAILS ***", note))
+
+    lo = [50.0] * 5
+    check("S1", verdict_e45d([1.10, 1.11, 1.09, 1.10, 1.105], lo)["verdict"],
+          "BRIDGE BROKEN", "tight spread, 10% apart")
+    check("S2", verdict_e45d([0.90, 1.20, 1.05, 0.95, 1.10], lo)["verdict"],
+          "INCONCLUSIVE", "spread 0.30 -- cannot answer a 5% question")
+    check("S3", verdict_e45d([1.00] * 5, [95.0] * 5)["verdict"],
+          "INCONCLUSIVE", "every pair discarded above the occupancy bar")
+    check("S4", verdict_e45d([1.010, 1.020, 1.015, 1.030, 1.025], lo)["verdict"],
+          "DIRECTIONAL", "5 of 5 on one side, inside the floor")
+    check("S5", verdict_e45d([0.990, 1.010, 1.005, 0.995, 1.020], lo)["verdict"],
+          "BRIDGE HOLDS", "direction split, inside the floor")
+    v = verdict_e45d([1.010, 9.9, 0.990, 9.9, 1.005, 0.995, 1.020],
+                     [50.0, 95.0, 50.0, 80.0, 50.0, 60.0, 50.0])
+    check("S6", "%d/%d" % (v["surviving"], v["attempted"]), "5/7",
+          "the exclusion reads occupancy only and drops pairs 2 and 4")
+    check("S7", v["verdict"], "BRIDGE HOLDS",
+          "and the outliers it dropped do not reach the statistic")
+    # S8: the run-1 defect must NOT be reproducible -- a huge spread can no longer pass
+    check("S8", verdict_e45d([1.04, 1.04, 1.02, 1.00, 7.83], lo)["verdict"],
+          "INCONCLUSIVE", "run 1's own K16 shape: G-E45c said HOLDS, G-E45d must not")
+    log("  G-E45d self-test : %s" % ("ALL FIRE" if ok[0] else "*** SOMETHING FAILED ***"))
+    if not ok[0]:
+        raise SystemExit("the decision function does not behave as registered.  STOP.")
+    return True
+
+
+def pair_occ(occs, arms, i):
+    """The occupancy the exclusion rule reads: the worse of the pair's two cells."""
+    return max(occs[arms[0][0]][i], occs[arms[1][0]][i])
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dir", default="D:/_ktmp/e37")
     ap.add_argument("--pairs", type=int, default=MIN_PAIRS)
     ap.add_argument("--control-pairs", type=int, default=G45A_PAIRS)
-    ap.add_argument("--out", default=OUT)
+    ap.add_argument("--run2", action="store_true",
+                    help="ADDENDUM C, C.5: %d attempted pairs, the occupancy "
+                         "exclusion, and G-E45d instead of G-E45c." % RUN2_PAIRS)
+    ap.add_argument("--selftest", action="store_true",
+                    help="run the G-E45d planted controls and stop.  Touches no engine.")
+    ap.add_argument("--out", default=None)
     a = ap.parse_args()
 
+    if a.selftest:
+        selftest()
+        return
+
+    if a.run2:
+        if a.pairs == MIN_PAIRS:
+            a.pairs = RUN2_PAIRS
+        if a.pairs < RUN2_PAIRS:
+            raise SystemExit("ADDENDUM C C.5 registers >= %d attempted pairs for run 2.  %d is "
+                             "below it and the gate is not tunable downward.  STOP."
+                             % (RUN2_PAIRS, a.pairs))
+    if a.out is None:
+        a.out = os.path.join(RES, "e45_weight_values_run2.json") if a.run2 else OUT
     if a.pairs < MIN_PAIRS:
         raise SystemExit("G-E45b registers >= %d interleaved pairs.  %d is below the gate's own "
                          "number and the gate is not tunable downward.  STOP."
@@ -197,10 +310,19 @@ def main():
     log("=" * 78)
 
     out = {"brief": "BRIEF_E45_DOES_SPEED_DEPEND_ON_THE_WEIGHTS.md",
-           "brief_commits": ["f2c1485", "d50e59e"],
+           "brief_commits": ["f2c1485", "d50e59e"] + (["d890f13"] if a.run2 else []),
+           "run": 2 if a.run2 else 1,
            "engine": os.path.basename(ENGINE), "ntok": NTOK, "threads": THREADS,
            "pairs": a.pairs, "started": time.strftime("%Y-%m-%d %H:%M:%S")}
+    if a.run2:
+        log("  RUN 2 (addendum C, C.5).  %d attempted pairs, pairs discarded above %.0f%%"
+            % (RUN2_PAIRS, OCC_EXCLUDE_BAR))
+        log("  occupancy, and G-E45d instead of G-E45c.  Run 1 stands as recorded and this")
+        log("  run may not promote it (E36's run-2 rule).")
 
+    if a.run2:
+        selftest()
+        log("")
     out["identity"] = identity_check(nf, syn)
 
     occ = Occupancy()
@@ -246,6 +368,8 @@ def main():
         rr, dd, ww, oo, ratios = race(
             occ, [("NF", nf, flags), ("SYN", syn, flags)], a.pairs, tag)
         vd = verdict_e45c(ratios)
+        arms2 = [("NF", nf, flags), ("SYN", syn, flags)]
+        vd2 = verdict_e45d(ratios, [pair_occ(oo, arms2, i) for i in range(a.pairs)])             if a.run2 else None
         log("  NF  median %7.2f tok/s  (min %.2f, max %.2f, rel spread %.4f)"
             % (statistics.median(rr["NF"]), min(rr["NF"]), max(rr["NF"]),
                rel_spread(rr["NF"])))
@@ -254,11 +378,25 @@ def main():
                rel_spread(rr["SYN"])))
         log("  per-pair ratio NF/SYN : median %.4f   spread (max-min) %.4f   |r-1| %.4f"
             % (vd["median_ratio"], vd["spread"], vd["abs_r_minus_1"]))
-        log("  G-E45c on %s : %s" % (tag, vd["verdict"]))
+        log("  G-E45c on %s : %s   (run 1's gate, printed for continuity)"
+            % (tag, vd["verdict"]))
+        if vd2 is not None:
+            log("  exclusion: %d of %d pairs discarded above %.0f%% occupancy%s"
+                % (vd2["discarded"], vd2["attempted"], OCC_EXCLUDE_BAR,
+                   ("  -> pairs " + ", ".join(str(i + 1) for i in vd2["discarded_idx"]))
+                   if vd2["discarded"] else ""))
+            if vd2["median_ratio"] is None:
+                log("  surviving %d  ->  G-E45d on %s : %s  (%s)"
+                    % (vd2["surviving"], tag, vd2["verdict"], vd2["reason"]))
+            else:
+                log("  surviving %d  r = %.4f  s = %.4f  |r-1| = %.4f  %d/%d above 1"
+                    % (vd2["surviving"], vd2["median_ratio"], vd2["spread"],
+                       vd2["abs_r_minus_1"], vd2["u_above_one"], vd2["surviving"]))
+                log("  G-E45d on %s : %s  (%s)" % (tag, vd2["verdict"], vd2["reason"]))
         out["arms"][tag] = {"why": why, "flags": flags,
                             "NF": arm_summary(rr, dd, ww, oo, "NF"),
                             "SYN": arm_summary(rr, dd, ww, oo, "SYN"),
-                            "G_E45c": vd}
+                            "G_E45c": vd, "G_E45d": vd2}
 
     # ---------------------------------------------------------------- G-E45b
     every = []
@@ -272,15 +410,22 @@ def main():
     out["G_E45b"] = {"pairs": a.pairs, "min_pairs": MIN_PAIRS, "fires": bool(b_fires)}
 
     # ------------------------------------------------------------- the report
-    prim = out["arms"]["K256"]["G_E45c"]
-    sec = out["arms"]["K16"]["G_E45c"]
+    gk = "G_E45d" if a.run2 else "G_E45c"
+    prim = out["arms"]["K256"][gk]
+    sec = out["arms"]["K16"][gk]
+
+    def _line(tag, role, v):
+        if v["median_ratio"] is None:
+            return "  %-5s %-9s -> %s  (%s)" % (tag, role, v["verdict"], v["reason"])
+        return "  %-5s %-9s r = %.4f   s = %.4f   |r-1| = %.4f   -> %s" % (
+            tag, role, v["median_ratio"], v["spread"], v["abs_r_minus_1"], v["verdict"])
+
     log("")
     log("=" * 78)
-    log("E45 REGISTERED VERDICT (addendum B, B.2: read from K256)")
-    log("  K256  PRIMARY   r = %.4f   s = %.4f   |r-1| = %.4f   -> %s"
-        % (prim["median_ratio"], prim["spread"], prim["abs_r_minus_1"], prim["verdict"]))
-    log("  K16   secondary r = %.4f   s = %.4f   |r-1| = %.4f   -> %s   (value+selection)"
-        % (sec["median_ratio"], sec["spread"], sec["abs_r_minus_1"], sec["verdict"]))
+    log("E45 RUN %d REGISTERED VERDICT -- %s, read from K256 (addendum B, B.2)"
+        % (2 if a.run2 else 1, gk.replace("_", "-")))
+    log(_line("K256", "PRIMARY", prim))
+    log(_line("K16", "secondary", sec) + "   (value+selection)")
     if prim["verdict"] == "BRIDGE HOLDS" and sec["verdict"] == "BRIDGE BROKEN":
         log("  the two do NOT contradict each other: addendum B B.2 registered this case in")
         log("  advance -- it localises the effect in the ROUTER, not in the values.")
@@ -288,7 +433,8 @@ def main():
     log("  This is measured at 1.5B.  Brief section 5: E45 MAY NOT claim the result composes")
     log("  to 10B by itself, and MAY NOT mint any headline rate.")
     log("=" * 78)
-    out["verdict"] = {"primary_arm": "K256", "primary": prim, "secondary": sec}
+    out["verdict"] = {"primary_arm": "K256", "gate": gk.replace("_", "-"),
+                      "primary": prim, "secondary": sec}
     out["finished"] = time.strftime("%Y-%m-%d %H:%M:%S")
 
     if not os.path.isdir(RES):
