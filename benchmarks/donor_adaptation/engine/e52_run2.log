@@ -1,0 +1,56 @@
+== the drift witness opens (L=0, outside the rotation) ==
+   open   L=0    107.05 tok/s   system  41.9%   foreign   8.9%
+
+== the sweep.  The level order ROTATES each repetition so level and time are not
+   the same axis -- E51 A.4 is why (this box's level drifts down under load).
+   rep 1/3  order [0, 1, 2, 3, 5, 8]
+      L=0    108.24 tok/s   system  39.5%   foreign   6.2%
+      L=1    104.15 tok/s   system  49.8%   foreign  16.6%
+      L=2    102.85 tok/s   system  59.1%   foreign  26.1%
+      L=3    102.85 tok/s   system  64.0%   foreign  30.9%
+      L=5     97.05 tok/s   system  79.0%   foreign  46.1%
+      L=8     46.97 tok/s   system  95.9%   foreign  71.3%
+   rep 2/3  order [1, 2, 3, 5, 8, 0]
+      L=1    105.64 tok/s   system  47.9%   foreign  14.9%
+      L=2    105.69 tok/s   system  54.3%   foreign  21.0%
+      L=3    103.84 tok/s   system  62.8%   foreign  29.8%
+      L=5     97.90 tok/s   system  78.3%   foreign  44.9%
+      L=8     53.30 tok/s   system  94.5%   foreign  69.4%
+      L=0    110.35 tok/s   system  37.8%   foreign   4.4%
+   rep 3/3  order [2, 3, 5, 8, 0, 1]
+      L=2    105.56 tok/s   system  53.6%   foreign  20.2%
+      L=3    104.41 tok/s   system  62.4%   foreign  29.1%
+      L=5     96.46 tok/s   system  80.1%   foreign  47.6%
+      L=8     31.46 tok/s   system  96.6%   foreign  71.7%
+      L=0    109.99 tok/s   system  37.6%   foreign   4.4%
+      L=1    108.06 tok/s   system  45.5%   foreign  12.0%
+
+== the drift witness closes ==
+   close  L=0    109.29 tok/s   system  37.4%   foreign   4.0%
+
+  G-E52a (control) : FIRES
+     monotone, L=0 is the minimum at 4.4%, and the meter spans 16.1x to 71.3% at L=8
+
+  G-E52b (drift)   : CLEAN
+     the bracketing L=0 cells agree to 2.09%, inside the 2.3% dispersion this instrument shows at zero load
+
+  L        tok/s    foreign    spread  in the fit?
+  0      109.99       4.4%       1.9%  yes
+  1      105.64      14.9%       3.7%  yes
+  2      105.56      21.0%       2.7%  yes
+  3      103.84      29.8%       1.5%  yes
+  5       97.05      46.1%       1.5%  yes
+  8       46.97      71.3%      46.5%  NO -- L>6 is oversubscription, not contention
+
+  G-E52c (cost)    : FIT
+     rate = 111.19 * (1 - 0.2622/100 * foreign)   ->  k = 0.262% of rate per point
+
+  G-E52d (the bar) : 4.39% foreign occupancy
+     cost budget 1.15% of rate / k 0.262% per point = 4.39% foreign
+     present OCC_BAR is 15.0%.  This rule was fixed before the data and its
+     answer is taken whichever way it points.
+
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e52_occupancy_cost.json
+=== err ===
+
+[exited with code 0]

@@ -217,3 +217,141 @@ and stand as they were. One is added, because A.5 changed the fit's domain:
 | `G-E52a2` | fires; the span from `L=0` to `L=8` is ~11× (6% → 70%) |
 | `k`, now fitted on `L ≤ 6` only | **0.3–0.7% of rate per point** — below §5's 0.6–1.2, because that guess was anchored on E44's two runs, whose difference I now suspect was part thermal |
 | `G-E52d` | bar at **2–4% foreign** — and on this box's 5–7% floor, **that is a bar the machine cannot meet**, which would be the finding rather than a failure |
+
+---
+
+# ADDENDUM B — RUN 2: ALL FOUR GATES FIRE, THE BAR IS **4.39%**, AND MOST OF MY PREDICTIONS WERE WRONG
+
+Run 2 completed on an idle box with no polling. Every gate returned a verdict.
+
+## B.1 The run
+
+    open   L=0    107.05 tok/s   system 41.9%   foreign  8.9%      <- the witness, before anything
+    rep 1/3  order [0,1,2,3,5,8]
+       L=0  108.24  foreign  6.2%      L=3  102.85  foreign 30.9%
+       L=1  104.15  foreign 16.6%      L=5   97.05  foreign 46.1%
+       L=2  102.85  foreign 26.1%      L=8   46.97  foreign 71.3%
+    rep 2/3  order [1,2,3,5,8,0]
+       L=1  105.64  foreign 14.9%      L=8   53.30  foreign 69.4%
+       L=2  105.69  foreign 21.0%      L=0  110.35  foreign  4.4%
+       L=3  103.84  foreign 29.8%
+       L=5   97.90  foreign 44.9%
+    rep 3/3  order [2,3,5,8,0,1]
+       L=2  105.56  foreign 20.2%      L=0  109.99  foreign  4.4%
+       L=3  104.41  foreign 29.1%      L=1  108.06  foreign 12.0%
+       L=5   96.46  foreign 47.6%
+       L=8   31.46  foreign 71.7%
+    close  L=0    109.29 tok/s   system 37.4%   foreign  4.0%
+
+| gate | verdict | number |
+|---|---|---|
+| `G-E52a2` (control) | **FIRES** | monotone; `L=0` is the minimum at 4.4%; span **16.1×** to 71.3% |
+| `G-E52b` (drift) | **CLEAN** | bracketing `L=0` cells agree to **2.09%**, inside the registered 2.3% |
+| `G-E52c` (cost) | **FIT** | `rate = 111.19 · (1 − 0.2622/100 · f)` → **k = 0.262% of rate per point** |
+| `G-E52d` (the bar) | **4.39% foreign** | `1.15 / 0.262`; previous `OCC_BAR` was 15.0 |
+
+Per-level medians entering the fit, with their three-rep spread:
+
+| L | tok/s | foreign | spread | in the fit? |
+|---|---|---|---|---|
+| 0 | 109.99 | 4.4% | 1.9% | yes |
+| 1 | 105.64 | 14.9% | 3.7% | yes |
+| 2 | 105.56 | 21.0% | 2.7% | yes |
+| 3 | 103.84 | 29.8% | 1.5% | yes |
+| 5 | 97.05 | 46.1% | 1.5% | yes |
+| 8 | 46.97 | 71.3% | **46.5%** | **NO** — `L > 6`, excluded structurally by A.5, and it would also have failed the 6% dispersion rule |
+
+## B.2 The scorecard, and it is mostly **wrong**
+
+| quantity | §5 predicted | A.6 revised | measured | verdict |
+|---|---|---|---|---|
+| `k` | 0.6–1.2 %/pt | 0.3–0.7 %/pt | **0.262 %/pt** | **WRONG in both** — below even the revised floor |
+| the bar | 1–2% | 2–4% | **4.39%** | **WRONG in both** — above both ranges |
+| shape | "linear to ~20% foreign, bend after" | — | linear and tight to **46.1%** | **WRONG** |
+| span `L=0 → L=8` | — | ~11× | **16.1×** | **WRONG**, in the safe direction |
+| "a bar the machine cannot meet" | — | asserted | `L=0` reads 4.4%, close witness 4.0% | **WRONG at the margin** — the box just meets it |
+| `G-E52a2` | fires | fires | fires | right |
+| `G-E52b` | CLEAN | CLEAN | CLEAN, 2.09% | right |
+| `L=8` collapses | yes (§5) | yes | 31–53 tok/s, 46.5% spread | right |
+
+**3 right, 5 wrong.** The pattern in the misses is one error, made twice: I assumed light foreign
+load is expensive. It is not. Six free hyperthreads absorb five busy processes with a **3%**
+total loss of rate, and the linear form stays inside ±1.4% of the fit across the whole fitted
+domain:
+
+    f= 4.4%   measured 109.99   fit 109.91   residual +0.08%
+    f=14.9%   measured 105.64   fit 106.85   residual -1.13%
+    f=21.0%   measured 105.56   fit 105.07   residual +0.47%
+    f=29.8%   measured 103.84   fit 102.50   residual +1.31%
+    f=46.1%   measured  97.05   fit  97.75   residual -0.72%
+
+The bend I predicted at 20% is not there. What *is* there is a cliff, and it is not a bend in the
+same curve: at `L = 8` the engine's six threads are being descheduled, the rate falls to a third
+and the dispersion goes to 46.5%.
+
+**Two independent rules exclude that level** — A.5's structural `L ≤ 6` domain, and §4's
+pre-existing 6% dispersion rule, which 46.5% fails by a factor of eight. Either alone suffices,
+so the fit is not resting on the rule I added after seeing run 1. But it is worth stating what
+the fit would have said with **neither**: `k = 0.724 %/pt`, `r0 = 122.6`, bar **1.59%**. That is
+**inside §5's predicted `k` of 0.6–1.2 and inside §5's predicted bar of 1–2%.** My original
+predictions would have been scored as *correct* by a fit that had oversubscription in it. The
+scorecard above is worse for me than the one I would have written without the exclusion rules,
+which is the whole point of registering them first.
+
+## B.3 Consequence 1 — `OCC_BAR` becomes 4.39
+
+Registered in §4: *"Whatever it returns is the new `OCC_BAR` ... The rule is registered, not the
+number."* Applied: `e44_interval.py:74` changes `OCC_BAR = 15.0` → `OCC_BAR = 4.39`.
+
+The bar now means something checkable: **at 4.39% foreign the predicted rate cost is 1.15%, half
+the 2.3% dispersion the instrument shows at zero load** — i.e. load is not permitted to move the
+reading by more than a fraction of what the reading wobbles anyway. At the old 15.0 the permitted
+cost was **3.93%**, nearly double the whole dispersion budget.
+
+**One asymmetry, recorded because the same constant now guards two different quantities.**
+`G-E44b2` judges *during-rep* foreign occupancy, which is what `k` was fitted against — that is
+the matching use. The pre-flight guard compares the same 4.39 against *idle* system busy with no
+engine running, and those are not the same number: during-rep foreign still contains OS work the
+engine induces but that `GetProcessTimes` does not charge to it (page faults, I/O completion,
+scheduling). Idle reads lower — E44 run 2's guard read **2.2%** where E52's `L = 0` cells read
+**4.4%** — so applying the bar to the guard is the conservative direction and is left as is. It
+does mean the guard now has little headroom on this box; a refusal there is the bar working, not
+a fault, and it is not to be raised to get a run through.
+
+## B.4 Consequence 2 — E44 addendum C's open question is answered, and only half in my favour
+
+| E44 run | foreign during reps | new bar | status |
+|---|---|---|---|
+| 1 | ~12.6% | 4.39% | **not citable** — 3.3% of rate lost to load |
+| 2 | **3.8%** | 4.39% | **CITABLE** — 1.0% of rate lost, under budget |
+
+So **110.62 tok/s stands** and 102.90 does not, which is the outcome E44 addendum C suspected but
+could not justify. That is the half in my favour.
+
+**The other half is not.** The two runs differ by 7.50% (102.90 → 110.62). The fitted cost of the
+load difference, 12.6% → 3.8% foreign, is only **2.33 points**. **5.2 points of the gap are not
+explained by foreign occupancy at all** — consistent with E44 addendum C's thermal-soak diagnosis,
+which this experiment does not measure and cannot close.
+
+**Therefore the bar is necessary and is not sufficient.** A reading that passes `OCC_BAR = 4.39`
+is not thereby comparable to another that passes it; it is only not *load*-contaminated. The ±5%
+on absolute rates stays, and E44's stated reason for it stays with it. Anyone reading this as
+"the instrument is now calibrated" is reading it wrong — one confound of at least two is priced.
+
+## B.5 What E52 is not
+
+No rate in this brief is a speed result for any arm. `109.99 tok/s` at `L=0` is the standing arm
+at `--bench 300`, mean position 150, on synthetic weights; it is here as a y-axis unit and E44
+run 2 remains the registered reading at that shape.
+
+## B.6 Owed
+
+1. **A thermal witness.** The residual in B.4 is the largest uncontrolled term in every absolute
+   timing this programme publishes, and nothing measures it. A first cut costs nothing: record
+   wall-clock-since-boot and the per-rep sequence position alongside each cell, and look for the
+   soak in data already being collected.
+2. **The bar is derived from one box on one day.** `k` is a property of this Zen 2 part with
+   `--threads 6`; the *rule* ports, the *4.39* does not.
+3. The vectorised `exp2` softmax brief, which E52 exists to protect, is now unblocked: at
+   `k = 0.262` the instrument can resolve a change of 12.2% of the token provided the box is kept
+   under the new bar.

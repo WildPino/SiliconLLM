@@ -56,11 +56,22 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUTDIR = os.path.join(HERE, "results")
 RE_BENCH = re.compile(r"BENCH\s+(\d+)\s+tokens\s+([\d.]+)\s+s\s+([\d.]+)\s+tok/s")
 
-# E43 measured its quiet sessions at 1.0-13.3% occupancy and still saw 9-22% dispersion.
-# The bar is set just above that band: a box quieter than this is as quiet as the
-# quietest conditions this programme has ever achieved, and a reading taken above it is
-# not comparable with anything already published.
-OCC_BAR = 15.0
+# E52 (2026-09-13) replaced the guessed bar with a derived one.  The old value, 15.0, was
+# taken from the range E43 happened to observe and had never been measured against what it
+# buys: at 15.0% foreign the fitted cost is 3.93% of rate, nearly twice the 2.3% dispersion
+# this instrument shows at zero load, so two readings could both pass and disagree -- and
+# E44's own two runs did exactly that (7.50% apart, both under 15.0).
+#
+# G-E52d's rule, registered before the data: the bar is the largest foreign occupancy whose
+# predicted rate cost is at most HALF the zero-load dispersion.  Measured k = 0.262% of rate
+# per point of foreign occupancy (fit over L<=6, r0 = 111.19), so 1.15 / 0.262 = 4.39.
+#
+# NECESSARY, NOT SUFFICIENT: passing this bar means the reading is not LOAD-contaminated.
+# 5.2 of the 7.50 points between E44 run 1 and run 2 are still unexplained (thermal soak is
+# the standing suspicion, and nothing measures it yet).  See BRIEF_E52 addendum B.4.
+#
+# k is a property of this Zen 2 part at --threads 6.  The rule ports; 4.39 does not.
+OCC_BAR = 4.39
 MIN_REPS = 5          # G-E44b's own number, not tunable downward -- see main()
 
 
