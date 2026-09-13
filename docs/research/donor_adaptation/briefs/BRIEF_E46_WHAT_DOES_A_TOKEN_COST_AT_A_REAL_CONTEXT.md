@@ -145,3 +145,86 @@ published. The runner is written that way and records the flags in its output.
 
 Nothing else changes: §2's desk table used `1/113` as the position-0 cost, and `1/112.7` is
 that same arm, so the registered prediction of §7 stands as written.
+
+---
+
+# ADDENDUM B — WHAT `G-E46c`'s FAILURE POINTS AT, AND WHY IT CANNOT BE CONCLUDED FROM TWO SHAPES
+
+**Written after the measurement (`868f379`).** `G-E46c` failed, which the brief said would be a
+result. This is what it is a result *about*, kept strictly separate from what it licenses.
+
+## B.1 The two candidate mechanisms, and what each predicts
+
+Per position of context, attention does two different things:
+
+* **reads KV** — proportional to `NKV · HD · L`;
+* **arithmetic over the query heads** — `QK` and `AV` are each `NH · HD` MACs per position per
+  layer, so proportional to `NH · HD · L`.
+
+| | S15 | A10B | ratio A10B/S15 |
+|---|---|---|---|
+| `NKV · HD · L` (KV bytes) | 7,168 | 4,096 | **0.571** |
+| `NH · HD · L` (query FLOPs) | 43,008 | 65,536 | **1.524** |
+| **measured `b`** | 1.6276e-05 | 2.0307e-05 | **1.248** |
+
+The KV-bytes prediction is **off by a factor of 2.2 and in the wrong direction**. The
+query-FLOPs prediction is **22% high and in the right direction**. That is why `G-E46c` failed:
+A10B has **fewer** KV bytes per position than S15 and a **steeper** slope.
+
+**This matters beyond bookkeeping.** GQA — `NKV = 2` against `NH = 32` — is a *memory*
+optimisation, and if the marginal cost is query-head arithmetic then GQA buys nothing on this
+axis, and neither would KV quantisation or any other KV-compression idea. The lever would be
+`NH · HD · L`, or the kernel itself.
+
+## B.2 The two-term fit, and why it is NOT evidence
+
+Fitting `b = α · (NH·HD·L) + β · (NKV·HD·L)` to the two measured slopes gives
+`α = 2.687e-10`, `β = 6.585e-10`, both positive. **Two equations, two unknowns: the fit has
+zero degrees of freedom.** It cannot fail, so it is not a test, and per E14 §6 it does not
+become one by being plausible. It is written here only so the numbers are on the record.
+
+## B.3 E47, registered now
+
+**Question:** does the marginal cost per unit of context scale with `NH · HD · L`, with
+`NKV · HD · L`, or with a mixture?
+
+**Design.** Build **three small synthetic artifacts** (a few hundred MB each, `synth_export.py`,
+minutes not hours) that hold `HD`, `L`, `D` and the FFN fixed and move only the head counts:
+
+| arm | `NH` | `NKV` | what it separates |
+|---|---|---|---|
+| `H-BASE` | 16 | 2 | the reference |
+| `H-QUERY` | **32** | 2 | doubles query FLOPs, KV bytes unchanged |
+| `H-KV` | 16 | **8** | quadruples KV bytes, query FLOPs unchanged |
+
+Then measure `b` on each with E46's own method (fit on `{40, 160, 640}`, out-of-sample check at
+1280) and read the two slope ratios.
+
+**`G-E47a` — the control that must fire first:** `G-E46b` must survive on **every** arm. If the
+linear law does not hold at these shapes, no slope from them means anything.
+
+**`G-E47b` — the decision, registered so every outcome is a result.** Let
+`q = b(H-QUERY)/b(H-BASE)` and `v = b(H-KV)/b(H-BASE)`.
+* **QUERY-BOUND** iff `q ≥ 1.5` and `v ≤ 1.5`.
+* **KV-BOUND** iff `v ≥ 2.5` and `q ≤ 1.3`.
+* **MIXED** iff both rise materially (`q ≥ 1.3` and `v ≥ 1.5`) — then `α` and `β` are both
+  real and B.2's two-term model is tested rather than fitted.
+* **NEITHER** otherwise, which would mean the marginal cost is something neither term captures
+  and B.1 is withdrawn.
+
+**Why it is worth the hour.** If the answer is QUERY-BOUND, then every KV-side idea in
+`SCALEUP_ARCHITECTURE` is aimed at the wrong term at long context, and the context ceiling
+`C50 = 575` moves only by changing `NH · HD · L` or the attention kernel. If it is KV-BOUND,
+then A10B's steeper slope has some other cause and E46's fit needs re-examining before anything
+is designed on it.
+
+**Cost:** CPU only, no user action, well under an hour including the builds.
+
+**Registered prediction:** **QUERY-BOUND**, with `q` near 1.7 and `v` near 1.1. I am recording
+it because B.1 already points there and I want the prediction dated before the artifacts exist.
+
+## B.4 What this does NOT change
+
+`C50 = 575` stands as measured — it does not depend on *why*. `G-E46d`'s verdict, TARGET IS
+CONTEXT-LIMITED, stands. And §5's limits are unchanged: no published rate is revised, phase B
+was synthetic, and nothing here speaks to quality.
