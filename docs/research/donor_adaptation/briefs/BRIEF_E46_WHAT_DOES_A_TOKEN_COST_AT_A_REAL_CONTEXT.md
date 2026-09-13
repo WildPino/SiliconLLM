@@ -228,3 +228,55 @@ it because B.1 already points there and I want the prediction dated before the a
 `C50 = 575` stands as measured — it does not depend on *why*. `G-E46d`'s verdict, TARGET IS
 CONTEXT-LIMITED, stands. And §5's limits are unchanged: no published rate is revised, phase B
 was synthetic, and nothing here speaks to quality.
+
+---
+
+# ADDENDUM C — E47 ANSWERED: **MIXED**, AND B.1's GQA SENTENCE IS WITHDRAWN
+
+**Written after E47 (`dd5f1d0`).** `G-E47a` fired on all three arms; `G-E47b` returned **MIXED**.
+
+| arm | `NH` | `NKV` | query units | KV units | fitted `b` | `G-E46b` out of sample |
+|---|---|---|---|---|---|---|
+| BASE | 16 | 2 | 12,288 | 1,536 | 2.5707e-06 | 2.94% |
+| QUERY | 32 | 2 | 24,576 | 1,536 | 1.0188e-05 | 1.58% |
+| KV | 16 | 8 | 12,288 | 6,144 | 7.2377e-06 | 1.12% |
+
+`q = 3.963` (query ×2), `v = 2.815` (KV ×4).
+
+## C.1 Both single-term models are refuted
+
+* **Query-only** predicts `v = 1.00`. Measured **2.82**.
+* **KV-only** predicts `q = 1.00`. Measured **3.96**.
+
+Neither term alone survives a third shape. B.2's two-term model, which had **zero degrees of
+freedom** when it was written, now has data it could have failed against and did not.
+
+## C.2 **B.1's sentence about GQA is withdrawn**
+
+B.1 said that if the marginal cost were query FLOPs then *"GQA and every KV-compression idea in
+`SCALEUP_ARCHITECTURE` is aimed at the wrong term at long context"*. **That is wrong.**
+Quadrupling KV heads raised the slope **2.2–2.8×**, so reducing them — which is what GQA does —
+**buys context**. GQA is not the whole story and it is not nothing.
+
+## C.3 The verdict is robust; the numbers are not
+
+Refitting each arm on **four** windows instead of the registered three moves `b(BASE)` from
+2.5707e-06 to **3.4640e-06 (+35%)**, and the ratios to `q = 2.769`, `v = 2.201`. **MIXED holds
+under both fits** (`q ≥ 1.3` and `v ≥ 1.5` either way), but the magnitudes move by a third.
+
+The cause is **conditioning**: the context term is only **6.0%** of BASE's per-token cost at
+position 320 and **11.3%** at 640, so BASE has the worst-determined slope of the three — and it
+is the **denominator of both ratios**. Any future arithmetic on `q` and `v` needs a BASE arm
+where context is a larger share of the cost (fewer FFN weights per token, or longer windows).
+
+## C.4 Named, not concluded
+
+Even the conservative `q = 2.77` exceeds the **2.00** that doubling query FLOPs predicts.
+Something scales **worse than linearly in `NH`**. That is a puzzle with a number on it.
+
+## C.5 My prediction, and what this buys the goal
+
+**The registered prediction (QUERY-BOUND, `q ≈ 1.7`, `v ≈ 1.1`) is wrong on all three counts.**
+
+For the goal: **`C50 = 575` moves on both head axes**, and reducing `NH` moves it *more than
+proportionally*. `C50` itself does not depend on any of this — it was measured, not derived.
