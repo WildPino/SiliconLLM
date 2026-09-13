@@ -480,3 +480,62 @@ Two consequences, both for a separate brief rather than this one:
    attention, not the FFN, is where the budget goes.
 
 **No cell of run 4 has been measured at the time this addendum is pushed.**
+
+---
+
+# ADDENDUM F — E45 CLOSES. THE VERDICT OF RECORD, AND WHAT IT DOES NOT BUY
+
+**Written after run 4 (`b9550a2`).** E45 is closed here; nothing below is a new measurement.
+
+## F.1 The four runs
+
+| run | design | K256 (primary) | K16 (secondary) |
+|---|---|---|---|
+| 1 | 5 single-shot pairs, `G-E45c` | `r` 1.0471, `s` 0.1831 — HOLDS, **voided by C.2** | 1.0367, `s` 6.8528 — voided |
+| 2 | 15 pairs + occupancy exclusion, `G-E45d` | 0.9937, `s` 0.2517 — **INCONCLUSIVE** | 0.9975, `s` 0.6047 — INCONCLUSIVE |
+| 3 | window sweep | **VOID** — `G-E45h` refused (E.1) | VOID |
+| 4 | 12 pairs × 5 reps/cell, `G-E45d` | 0.9919, `s` **0.1003** — **INCONCLUSIVE** | 1.0025, `s` 0.0930 — **BRIDGE HOLDS** |
+
+`G-E45a` fired on runs 1, 2 and 4, each time on that run's own cells (2.9102 / 2.8102 / and
+again in run 4), against E37's 2.92×. The instrument resolves a real difference. Its nulls are
+admissible.
+
+## F.2 The verdict of record
+
+**The bridge is SUPPORTED and NOT CERTIFIED at the primary arm.**
+
+* **K16 — BRIDGE HOLDS.** The registered gate cleared on the registered design.
+* **K256 — INCONCLUSIVE by three parts in ten thousand** (0.1003 against a 0.10 bar), and
+  **not re-run**: E.3 wrote that clause in advance for exactly this moment. The two arms sit at
+  the same resolution limit and a threshold put one on each side of it. Calling that "K16 passed
+  and K256 failed" would be reading a coin flip as a mechanism.
+* **Across every measured run**: K256 read +4.7% / −0.6% / −0.8%, K16 +3.7% / −0.25% / +0.25%.
+  Run 1's unanimous direction **reversed** in both later runs. Every `|r−1|` since the
+  instrument was repaired is **under 1%**, against a harness that demonstrably resolves 2.9×.
+
+So: **any dependence of this engine's speed on weight VALUES, at this shape, is bounded well
+under 5% with no reproducible sign.** That is a bound, and it is the honest product of E45.
+
+## F.3 What it does not buy
+
+* **It is 1.5B.** §5 stands: E45 may not compose to 10B. The 10B pair does not exist and
+  building it is a separate job — and now a cheaper-looking one, since the bound at 1.5B removes
+  most of the reason to fear the answer.
+* **It mints no rate.** Every absolute tok/s in this document is a context-20 number, which is
+  E46's subject.
+* **The one thing that would certify K256** is a box quieter than this one has been all day.
+  That is already item 1 of `COMMUNICATION.md`, beside `G-E44b`, and E45 does not add a new
+  request for it: the bound above is enough to stop treating the bridge as an unexamined
+  assumption, which is what §0 set out to do.
+
+## F.4 The two things E45 cost, kept as lessons
+
+1. **A gate whose PASS condition is "inside my own dispersion" is passed by being noisy.** Found
+   in `G-E45c` (C.2), then **reproduced by me one addendum later** in `G-E45j` and caught by its
+   own planted control before any data (D.5). It is the mirror of E43's `G-E43A`, whose
+   tolerance was *tighter* than the dispersion it watched. Both are the same error: **a gate must
+   be specified against the measured dispersion of the axis it watches, in the right direction.**
+2. **Sizing a design from the quietest block you have is a selection effect.** Run 4's `m = 5`
+   came from run 3's `K256_40_last` (cv 0.0705), the calmest block on hand. Run 4's own cells
+   read cv up to 0.16 at K256 and 0.32 at K16, and the primary arm missed its bar by 0.3% as a
+   direct result.
