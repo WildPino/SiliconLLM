@@ -1,0 +1,108 @@
+{
+ "note": "derivation over measured quantities; no timing taken, none quotable",
+ "dram_band": [
+  40.0,
+  44.0
+ ],
+ "proj_floor": 37.0,
+ "tie_check": [
+  {
+   "arm": "05b_f32",
+   "layout": "tied",
+   "n_codes": 0,
+   "recon_bytes": 1976131124,
+   "residual_frac": 0.0
+  },
+  {
+   "arm": "05b_tq",
+   "layout": "tied",
+   "n_codes": 357826560,
+   "recon_bytes": 723451904.0,
+   "residual_frac": 0.0020729185558077566
+  },
+  {
+   "arm": "05b_tqh",
+   "layout": "UNTIED",
+   "n_codes": 493961216,
+   "recon_bytes": 791519232.0,
+   "residual_frac": 0.002659320678589281
+  },
+  {
+   "arm": "15b_f32",
+   "layout": "tied",
+   "n_codes": 0,
+   "recon_bytes": 6174857268,
+   "residual_frac": 0.0
+  },
+  {
+   "arm": "15b_tq",
+   "layout": "tied",
+   "n_codes": 1310195712,
+   "recon_bytes": 1588592640.0,
+   "residual_frac": 0.0019853058134111376
+  },
+  {
+   "arm": "15b_tqh",
+   "layout": "UNTIED",
+   "n_codes": 1543569408,
+   "recon_bytes": 1705279488.0,
+   "residual_frac": 0.0022046551281386735
+  }
+ ],
+ "rows": [
+  {
+   "arm": "05b_f32",
+   "file_bytes": 1976131124,
+   "gathered_bytes": 0,
+   "moved_bytes": 1976131124,
+   "tok_s": 19.47,
+   "GB_s": 38.47527298428,
+   "verdict": "AT THE WALL (>= proj floor 37)"
+  },
+  {
+   "arm": "05b_tq",
+   "file_bytes": 724954676,
+   "gathered_bytes": 0,
+   "moved_bytes": 724954676,
+   "tok_s": 44.13,
+   "GB_s": 31.99224985188,
+   "verdict": "near it"
+  },
+  {
+   "arm": "05b_tqh",
+   "file_bytes": 793629748,
+   "gathered_bytes": 544538624,
+   "moved_bytes": 249091124,
+   "tok_s": 84.88,
+   "GB_s": 21.14285460512,
+   "verdict": "BELOW it -- 1.75x of headroom to 37 GB/s"
+  },
+  {
+   "arm": "15b_f32",
+   "file_bytes": 6174857268,
+   "gathered_bytes": 0,
+   "moved_bytes": 6174857268,
+   "tok_s": 6.27,
+   "GB_s": 38.71635507036,
+   "verdict": "AT THE WALL (>= proj floor 37)"
+  },
+  {
+   "arm": "15b_tq",
+   "file_bytes": 1591752756,
+   "gathered_bytes": 0,
+   "moved_bytes": 1591752756,
+   "tok_s": 19.19,
+   "GB_s": 30.545735387640004,
+   "verdict": "near it"
+  },
+  {
+   "arm": "15b_tqh",
+   "file_bytes": 1709047348,
+   "gathered_bytes": 933494784,
+   "moved_bytes": 775552564,
+   "tok_s": 30.03,
+   "GB_s": 23.289843496920003,
+   "verdict": "BELOW it -- 1.59x of headroom to 37 GB/s"
+  }
+ ]
+}

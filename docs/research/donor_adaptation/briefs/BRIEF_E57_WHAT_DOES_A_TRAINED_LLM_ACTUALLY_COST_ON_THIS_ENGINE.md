@@ -651,3 +651,114 @@ opening the file. Addendum B.3's rule says *search by artifact name and name the
 does not say *read what the search returns*, because I did not think that needed saying.
 **Amendment to the rule: the search is not complete until every brief it returns has been
 opened, and the "Checked, not assumed" entry records what each one said** — not that it exists.
+
+---
+
+# ADDENDUM D — WHICH ARM IS AT THE WALL: THE FAITHFUL ONE, AND ONLY THE FAITHFUL ONE
+
+**Derivation over measured quantities** (`e57_wall.py`, `results/e57_wall.json`). No timing is
+taken; the rates are addendum A's medians and the bandwidth bounds are the ledger's
+(proj-GEMV streamed floor **37.0 GB/s**, DRAM aggregate **40–44 GB/s**, ledger §1). **Nothing
+here is quotable as a rate.**
+
+## D.1 The unit trap this had to avoid first
+
+A file size is not a moved byte. Qwen2.5 **ties** its embedding to its head, so in the `f32` and
+`tq` artifacts one matrix is *gathered* once per token (4·D bytes, noise) **and streamed** once
+per token as the head. But `tqh` ternarises the head, and the exporter therefore **unties** them:
+an fp32 embedding that is only gathered, plus a separate ternary head that is streamed. Charging
+that fp32 embedding to a `tqh` token reads **67 GB/s on a machine whose DRAM ceiling is 44** —
+the byte-convention law (E31) in its purest form, and it would have been invisible as an error
+because 67 is merely *implausible*, not *impossible-looking*.
+
+**The inference is checked, not asserted.** Reconstructing each artifact from E1's stored ternary
+code counts:
+
+| arm | layout | ternary codes | reconstruction | residual |
+|---|---|---|---|---|
+| `05b_tq` | tied | 357,826,560 | 723.5 MB | **+0.21%** |
+| `05b_tqh` | **untied** | 493,961,216 | 791.5 MB | **+0.27%** |
+| `15b_tq` | tied | 1,310,195,712 | 1588.6 MB | **+0.20%** |
+| `15b_tqh` | **untied** | 1,543,569,408 | 1705.3 MB | **+0.22%** |
+
+Every residual is positive and under 0.3% — scales, norms and header, in the right direction and
+the right size. And the `tqh` code counts decompose exactly: `493,961,216 − 357,826,560 =
+136,134,656 = 151936 × 896`, the head. (The two `f32` rows reconstruct trivially by construction
+and are **not** a check; they are in the table for completeness.)
+
+## D.2 The table
+
+| arm | file MB | gathered MB | **moved MB/token** | tok/s | **GB/s** | |
+|---|---|---|---|---|---|---|
+| `05b_f32` | 1976.1 | 0.0 | **1976.1** | 19.47 | **38.5** | **AT THE WALL** |
+| `15b_f32` | 6174.9 | 0.0 | **6174.9** | 6.27 | **38.7** | **AT THE WALL** |
+| `05b_tq` | 725.0 | 0.0 | 725.0 | 44.13 | 32.0 | near it |
+| `15b_tq` | 1591.8 | 0.0 | 1591.8 | 19.19 | 30.5 | near it |
+| `15b_tqh` | 1709.0 | 933.5 | 775.6 | 30.03 | 23.3 | **1.59× of headroom** |
+| `05b_tqh` | 793.6 | 544.5 | 249.1 | 84.88 | 21.1 | **1.75× of headroom** |
+
+**A consistency check nobody arranged.** The two fp32 arms differ **3.13× in size** and read
+**38.5 and 38.7 GB/s — 0.62% apart.** A bytes-per-token model that is wrong does not agree with
+itself across a threefold change of denominator, and the agreement is tighter than the ±5% every
+absolute rate in this programme carries.
+
+## D.3 What it says, and it is the sharpest thing E57 produced
+
+**The faithful arm is bandwidth-bound and there is no engine work left on it.** 38.5 and 38.7
+GB/s sit **above** the proj-GEMV streamed floor of 37 and inside the 40–44 GB/s DRAM band. A
+faster kernel, a better exponential, a smarter attention — E49, E51, E53, all of it — cannot move
+`05b_f32` off 19.09 tok/s, because it is not waiting on arithmetic. **The only lever on a
+faithful arm is fewer bytes, fewer bytes means quantisation, and quantisation is precisely what
+addendum C measured destroying it.** That is the whole of the programme's problem in one
+sentence, and it is now measured rather than argued.
+
+**And the broken arms are NOT at the wall**, which is where the remaining engine work is:
+
+| arm | now | at the 37 GB/s floor | |
+|---|---|---|---|
+| `05b_tqh` | 84.88 | **148.54** | ×1.75 |
+| `15b_tqh` | 30.03 | 47.71 | ×1.59 |
+| `15b_tq` | 19.19 | 23.24 | ×1.21 |
+| `05b_tq` | 44.13 | 51.04 | ×1.16 |
+
+This is consistent with the ledger's own correction after E28 — *"nothing here is at the
+bandwidth wall"* — which was made about ternary configurations, and is confirmed here with the
+fp32 counter-example that gives it a scale.
+
+**The consequence for the goal is a division of labour, and it is not the one the programme has
+been assuming.** Engine work has ~1.6–1.75× left *on the ternary path only*. Quality work has
+everything. A healed ternary 1.5B at `15b_tqh`'s byte count, running at the streamed floor,
+would read **47.71 tok/s** — 95% of the good bar, from a 1.5B, with the 1.59× coming from work
+that has nothing to do with training. **That is the first time the two halves of the goal have
+had a common denominator.**
+
+## D.4 Checked, not assumed
+
+* Structural quantities (`V`, `D`, file sizes, ternary code counts) **read** from the artifacts
+  and from `e1_bpb_through_engine_*.json`; none typed from memory.
+* The tie/untie inference **reconstructed and closed to <0.3%** (D.1) rather than inferred from
+  the size ordering alone — which is what first suggested it (`tqh` is *larger* than `tq`, which
+  is impossible under a tied layout).
+* Bandwidth bounds taken from `SPEED_LEDGER` §1 (DRAM 40–44, proj floor 37.0), not from the
+  34.75 GB/s figure quoted in older sections, which §1's correction supersedes.
+* `grep -rln "GB/s" briefs/` run first, and per C.7's amended rule the returned probes were
+  **opened and read**, not listed:
+  * **`probes/E30_IS_THE_ENGINE_AT_THE_WALL.md`** returns `AT-THE-WALL` for `T10-LUTBLK` at
+    **33.01 GB/s against a ceiling of 36.30 GB/s measured on this box** (0.909), and carries a
+    correction: the *operative* packed path reads 0.639 of that ceiling, so the engine sits
+    **1.57× from the wall**, not 1.10×. E30 asks the question of the **engine at a synthetic
+    shape**; it had no trained rate to ask it with, because E17 §7 refused to time.
+  * **`probes/E31_WHAT_A_GATHERED_BYTE_COSTS.md`** carries two corrections of its own and its
+    surviving statement is that the gathered-byte lever is **1.0432 normalised at T10, below the
+    resolvable line in five jackknives**. It is about *carved* reads and does not bear on a dense
+    stream, which is what every arm here is.
+* **A bound disagreement that must be named rather than smoothed.** E30 measured **36.30 GB/s**
+  as this box's ceiling in its session; `SPEED_LEDGER` §1 registers a DRAM aggregate of
+  **40–44 GB/s** and a proj-GEMV streamed floor of **37.0**. **E57's fp32 arms read 38.5 and
+  38.7 — above E30's figure and below the ledger's band.** Exceeding a measured ceiling is a
+  reason to check, not to celebrate: the check is D.1's reconstruction plus the 0.62% agreement
+  between two arms 3.13× apart, and a dense sequential fp32 stream is a *friendlier* access
+  pattern than the packed/LUT reads E30 timed. **The honest statement is therefore "between the
+  two bounds this programme has measured, and at or above both estimates of the streamed floor"
+  — which is what "at the wall" means here, and the D.3 multipliers use the 37.0 floor, the
+  more conservative of the two for that purpose.**
