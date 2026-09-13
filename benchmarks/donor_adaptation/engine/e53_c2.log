@@ -1,0 +1,54 @@
+E53 -- a real exponential instead of a libm call
+brief: BRIEF_E53_A_REAL_EXPONENTIAL_INSTEAD_OF_A_LIBM_CALL.md
+
+== self-test.  Every decision function must fire on a known-positive. ==
+  C0-1 identical is IDENTICAL                    fires
+  C0-2 one part in 1e14 is MOVED                 fires
+  C0-3 a real change is MOVED                    fires
+  C1-1 identical arms hold                       fires
+  C1-2 5e-7 relative holds                       fires
+  C1-3 5e-3 relative BREAKS                      fires
+  C1-4 a dead control is caught                  fires
+  C2-1 160/160 with live controls passes         fires
+  C2-2 159/160 FAILS                             fires
+  C2-3 a control that matches is caught          fires
+  E-1 1%% drift is CLEAN                         fires
+  E-2 5%% drift is CONTAMINATED                  fires
+  E-3 the rule is symmetric in sign              fires
+  D-1 a clean sweep FITS                         fires
+  D-2 the fit recovers the planted slopes        fires
+  D-3 the fit recovers the planted intercept     fires
+  D-4 one resolvable window declines to extrapolate fires
+  D-5 two survivors still fit                    fires
+  D-6 exactly at the tolerance is JUDGED         fires
+
+  19 of 19 fire.
+
+== G-E53c2 -- DISCRETE parity.  The argmax is not a mean. ==
+  Scored against E6's stored HuggingFace reference, not against the libm arm:
+  the claim is 160/160 vs HF, and two of my own arms agreeing proves nothing.
+    e53poly  A1 p0  G-D PASS  decode 17.68 tok/s
+    e53poly  A1 p1  G-D PASS  decode 18.91 tok/s
+    e53poly  A1 p2  G-D PASS  decode 18.15 tok/s
+    e53poly  A1 p3  G-D PASS  decode 17.83 tok/s
+    e53poly  A1 p4  G-D PASS  decode 17.84 tok/s
+    e53poly  A2 p0  G-D PASS  decode 87.20 tok/s
+    e53poly  A2 p1  G-D PASS  decode 91.97 tok/s
+    e53poly  A2 p2  G-D PASS  decode 101.63 tok/s
+    e53poly  A2 p3  G-D PASS  decode 95.98 tok/s
+    e53poly  A2 p4  G-D PASS  decode 98.22 tok/s
+    e53poly  A3 p0  G-D PASS  decode 32.33 tok/s
+    e53poly  A3 p1  G-D PASS  decode 32.19 tok/s
+    e53poly  A3 p2  G-D PASS  decode 32.23 tok/s
+    e53poly  A3 p3  G-D PASS  decode 31.72 tok/s
+    e53poly  A3 p4  G-D PASS  decode 19.18 tok/s
+
+  arm  E6           E53 poly     role
+  A1   160/160      160/160      known-positive (fp32)
+  A2   3/160        3/160        planted control (ternary+head)
+  A3   10/160       10/160       planted control at 1.5B
+
+  G-E53c2 : PASS
+     A1 160/160, planted controls [3, 10] -- reproducing E6 to the token
+
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e53_fexp.json

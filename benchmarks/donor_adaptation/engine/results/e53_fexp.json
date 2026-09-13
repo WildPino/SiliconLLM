@@ -28,5 +28,31 @@
   "nats_control": 144871.9226166338,
   "config_libm": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=ternary\r",
   "config_poly": "CONFIG  attn=avx4  attnr=none  fexp=poly  mvacc=4  threads=6  quant=ternary\r"
+ },
+ "G_E53c2": {
+  "verdict": "PASS",
+  "why": "A1 160/160, planted controls [3, 10] -- reproducing E6 to the token",
+  "a1": 160,
+  "controls": [
+   3,
+   10
+  ],
+  "summary": {
+   "A1": {
+    "matched": 160,
+    "counted": 160,
+    "agree": 1.0
+   },
+   "A2": {
+    "matched": 3,
+    "counted": 160,
+    "agree": 0.01875
+   },
+   "A3": {
+    "matched": 10,
+    "counted": 160,
+    "agree": 0.0625
+   }
+  }
  }
 }
