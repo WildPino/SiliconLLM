@@ -129,3 +129,81 @@ It does not claim a new headline, it does not revise `C50` until `G-E49b` measur
 not touch quality. It also does **not** change the engine's default — changing `g_attn`'s
 initialiser is a separate, gated change, and E49's job is to establish first whether it deserves to
 be made.
+
+---
+
+# ADDENDUM A — `G-E49a` RETURNED VOID, AND THE CONTROL I CHOSE COULD NEVER HAVE FIRED
+
+**Written against `e49_run.log` (run `3ee8735`), before the re-run.** Only the *identity of the
+planted control artifact* changes. The bar, the `ΔBPB`→relative mapping, the VOID logic and §5's
+prediction are untouched.
+
+## A.1 What the first run returned
+
+| | `NATS_TOTAL` | |
+|---|---|---|
+| S15 `serial` | 124963.9729339122 | |
+| S15 `avx4` | 124963.9517608703 | pair: **1.694e-07** relative, i.e. `|ΔBPB| ≤ 8.5e-07` |
+| control `e37_dense_nf.bin` `serial` | 124963.9628600173 | control: **8.061e-08** apart, bar 1e-03 |
+
+**`G-E49a`: VOID.** The runner refused to run the speed phase, as §4 requires. The pair reading
+looks excellent and **it does not count**: an instrument not shown capable of firing says nothing
+when it is silent.
+
+## A.2 The control could not have fired, and the record already said so
+
+`e37_dense_nf.bin` and `e37_carved_nf.bin` are **equivalent by construction when the carve is
+fully on**, and E37 measured exactly that — `results/e37_sparsity_cost.json`:
+
+    G_E37A/bpb_carved_kE   3.4757066520304316
+    G_E37A/bpb_dense       3.47570637184527
+    G_E37A/bpb_diff        2.801851617384443e-07     tol 1e-4
+
+**That was E37's own parity gate and it passed.** I chose, as my proof that the harness can see a
+difference, the one pair in the programme that is *proven* to have none. This was knowable before
+the run from a results file already in the repo, and it cost 28 minutes of engine time.
+
+A second thing I read wrong on the way: 10.19 nats/token looked like near-uniform garbage and I
+took it for a corpus mismatch. It is **correct** — these artifacts read **3.476 BPB against a
+chance of 4.070** (E37 `S15_DENSE_NF/bpb`, `protocol/chance_bpb`). They are genuinely near-chance
+models. The engine was never misbehaving.
+
+## A.3 The replacement control, from E37's own table
+
+One artifact, one flag. `e37_carved_nf.bin` has `carve_E = 256`, so `--carve-k 256` is the full
+carve and `--carve-k 3` is the target operating point. E37 measured both:
+
+    quality_arms/K256/bpb   3.4757066520304316
+    quality_arms/K3/bpb     4.029398350226611     -> 0.5537 BPB apart
+
+**0.5537 BPB is 5,537× the gate's own 1e-4 bar.** This control is *provably capable* of firing,
+from a measurement that already exists.
+
+The parity **pair** is therefore also pinned to `--carve-k 256`, so both kernels are compared at
+one fixed operating point rather than at the artifact's default.
+
+Smoked on a 2-sequence prefix (`D:/_ktmp/e49_ids_tq_2seq.bin`, 1024 tokens) before registering:
+
+| run | `NATS_TOTAL` | |
+|---|---|---|
+| `--carve-k 256` `serial` | 9215.2183202812 | |
+| `--carve-k 3` `serial` | 11199.3301610758 | **control 21.5% apart → FIRES** |
+| `--carve-k 256` `avx4` | 9215.2209920680 | pair **2.899e-07**, inside the 2e-5 bar |
+
+## A.4 Why this is a correction and not a gate re-rolled until it passed
+
+This programme's two standing rules here are E40 addendum A (**a gate that fires is doing its job
+and is not re-run to a pass**) and the E36 run-2 rule (**run 1 is the registered measurement; run
+2 may not promote it**). Neither is being bent, and the distinction matters:
+
+* `G-E49a` did not *fire against the treatment*. It returned **VOID**, which means **no
+  measurement was made**. There is no verdict to re-roll and nothing to promote.
+* The control's incapacity is **provable from the prior record, independently of the numbers it
+  returned**. I could have established it before running and did not. It is not being replaced
+  because its answer was inconvenient; it is being replaced because it was never an instrument.
+* **Run 1's pair reading of 1.694e-07 is NOT carried forward.** It was taken under a void gate.
+  The re-run is the measurement of record, and if the re-run's pair disagrees with 1.694e-07, the
+  re-run wins.
+
+Corpus for the re-run: the full 24×512 slice (`ids_qwen25-15b_tq.bin`), as E1 and E37 use. The
+truncated prefix in A.3 is a smoke and is not the measurement.

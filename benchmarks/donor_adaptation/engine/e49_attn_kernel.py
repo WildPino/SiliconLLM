@@ -44,7 +44,14 @@ ENGINE = os.path.join(HERE, "donor_engine_e26.exe")
 R128 = "D:/_ktmp/e40/e40_r128.bin"
 R128_FLAGS = ["--carve-k", "3"]
 S15 = "D:/_ktmp/e37/e37_carved_nf.bin"
-S15_CONTROL = "D:/_ktmp/e37/e37_dense_nf.bin"      # the planted control artifact
+# ADDENDUM A.  The control was e37_dense_nf.bin and it COULD NOT FIRE: E37's own gate
+# G_E37A measured dense against carved-at-k=E at 2.801851617384443e-07 with a 1e-4
+# tolerance -- they are equivalent BY CONSTRUCTION.  The replacement is one artifact and
+# one flag: E37 measured K256 at 3.4757066520304316 BPB and K3 at 4.029398350226611,
+# 0.5537 apart = 5,537x this gate's own bar.  The parity PAIR is pinned to k=256 so both
+# kernels are compared at one fixed operating point.
+PARITY_K = ["--carve-k", "256"]                    # full carve = E37's kE point
+CONTROL_K = ["--carve-k", "3"]                     # the target operating point
 IDS = "D:/_ktmp/e1/ids_qwen25-15b_tq.bin"
 SEQLEN = 512                                        # e1_bpb_through_engine's own slicing
 
@@ -176,15 +183,15 @@ def selftest():
 def phase_parity(out):
     log("")
     log("== G-E49a -- PARITY.  Nothing else in E49 counts until this passes. ==")
-    for p in (S15, S15_CONTROL, IDS):
+    for p in (S15, IDS):
         if not os.path.exists(p):
             raise SystemExit("missing %s.  STOP." % p)
-    ns, np_, ts = nats(S15, "serial")
-    log("  S15 serial   NATS_TOTAL %.10f  n=%d  (%.1f s)" % (ns, np_, ts))
-    na, _, ta = nats(S15, "avx4")
-    log("  S15 avx4     NATS_TOTAL %.10f          (%.1f s)" % (na, ta))
-    nc, _, tc = nats(S15_CONTROL, "serial")
-    log("  CONTROL dense serial  NATS_TOTAL %.10f  (%.1f s)" % (nc, tc))
+    ns, np_, ts = nats(S15, "serial", PARITY_K)
+    log("  S15 k=256 serial   NATS_TOTAL %.10f  n=%d  (%.1f s)" % (ns, np_, ts))
+    na, _, ta = nats(S15, "avx4", PARITY_K)
+    log("  S15 k=256 avx4     NATS_TOTAL %.10f          (%.1f s)" % (na, ta))
+    nc, _, tc = nats(S15, "serial", CONTROL_K)
+    log("  CONTROL k=3 serial NATS_TOTAL %.10f          (%.1f s)" % (nc, tc))
     g = g_e49a(ns, na, nc)
     log("")
     log("  planted control : %s   (%.3e apart, bar %.0e)"
@@ -307,7 +314,8 @@ def main():
            "brief_commit": "fbb977e", "engine": os.path.basename(ENGINE),
            "threads": THREADS, "reps": a.reps, "windows": WINDOWS,
            "weights_speed": R128, "flags_speed": R128_FLAGS,
-           "weights_parity": S15, "control_parity": S15_CONTROL, "ids": IDS,
+           "weights_parity": S15, "parity_k": PARITY_K, "control_k": CONTROL_K,
+           "ids": IDS, "addendum": "A",
            "started": time.strftime("%Y-%m-%d %H:%M:%S")}
     occ = Occupancy()
     occ.sample()

@@ -1,0 +1,41 @@
+{
+ "brief": "BRIEF_E49_THE_ATTENTION_KERNEL_WAS_NEVER_SWITCHED_ON.md",
+ "brief_commit": "fbb977e",
+ "engine": "donor_engine_e26.exe",
+ "threads": 6,
+ "reps": 5,
+ "windows": [
+  40,
+  160,
+  640,
+  1280,
+  2560
+ ],
+ "weights_speed": "D:/_ktmp/e40/e40_r128.bin",
+ "flags_speed": [
+  "--carve-k",
+  "3"
+ ],
+ "weights_parity": "D:/_ktmp/e37/e37_carved_nf.bin",
+ "control_parity": "D:/_ktmp/e37/e37_dense_nf.bin",
+ "ids": "D:/_ktmp/e1/ids_qwen25-15b_tq.bin",
+ "started": "2026-09-13 14:49:12",
+ "G_E49a": {
+  "nats_serial": 124963.9729339122,
+  "nats_avx4": 124963.9517608703,
+  "nats_control": 124963.9628600173,
+  "rel_pair": 1.6943316860740908e-07,
+  "rel_control": 8.061439357489838e-08,
+  "rel_bar": 2e-05,
+  "control_min": 0.001,
+  "control_fired": false,
+  "implied_dbpb_upper": 8.471658430370454e-07,
+  "verdict": "VOID",
+  "reason": "the planted control did not fire: the harness cannot see a difference that IS there, so its null says nothing"
+ },
+ "parity_seconds": {
+  "serial": 588.4304013252258,
+  "avx4": 539.627209186554,
+  "control": 527.3331069946289
+ }
+}
