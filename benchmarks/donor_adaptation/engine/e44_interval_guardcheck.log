@@ -1,0 +1,19 @@
+== E44 -- the interval on a tok/s ==  arm R128, 300 tokens, 6 threads
+   brief: BRIEF_E44_WHAT_IS_A_TOK_S_WORTH.md addendum A -- G-E44b is all that is left
+   engine  D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\donor_engine.exe
+   weights D:/_ktmp/e40/e40_r128.bin  (5.11 GB)
+
+  PLANTED CONTROL for the occupancy guard -- loading the box on purpose
+     12 busy processes -> occupancy median 100.0% (min 100.0, max 100.0), bar 15.0%
+     guard REFUSES on a loaded box : FIRES
+
+  GUARD -- is the box quiet enough for a timing to mean anything?
+     occupancy over 20s: median 20.8%  (min 11.1, max 39.3)  bar 15.0%
+
+     REFUSED.  median 20.8% is above the 15.0% bar.
+     E43's quiet sessions ran at 1.0-13.3%% and STILL dispersed 9-22%%; a reading
+     taken above the bar is not comparable with anything already published, and
+     a contended one was measured off by 35-41%%.  No rate is produced.
+     Free the machine and run this again -- the command is unchanged.
+
+  wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e44_interval.json

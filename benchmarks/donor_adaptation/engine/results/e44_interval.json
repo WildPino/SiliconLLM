@@ -1,0 +1,53 @@
+{
+ "brief": "BRIEF_E44_WHAT_IS_A_TOK_S_WORTH.md addendum A",
+ "gate": "G-E44b -- every rate with dispersion or not at all",
+ "arm": "R128",
+ "engine": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\donor_engine.exe",
+ "weights": "D:/_ktmp/e40/e40_r128.bin",
+ "weights_bytes": 5485888696,
+ "ntok": 300,
+ "threads": 6,
+ "reps_requested": 5,
+ "occ_bar": 15.0,
+ "flags": [],
+ "planted_control": {
+  "busy_procs": 12,
+  "median": 100.0,
+  "min": 100.0,
+  "max": 100.0,
+  "fires": true
+ },
+ "guard": {
+  "median": 20.832542115400265,
+  "min": 11.082138200782266,
+  "max": 39.322916666666664,
+  "samples": [
+   24.083769633507856,
+   20.98445595854922,
+   21.0594315245478,
+   21.475625823451917,
+   15.958815958815965,
+   16.276041666666664,
+   14.041994750656173,
+   29.715762273901813,
+   20.68062827225131,
+   29.01554404145078,
+   31.10236220472441,
+   22.42503259452412,
+   16.861219195849543,
+   11.082138200782266,
+   15.394566623544637,
+   17.317708333333336,
+   39.322916666666664,
+   20.572916666666664,
+   23.567708333333336,
+   14.973958333333337
+  ]
+ },
+ "verdict": "REFUSED -- box not quiet",
+ "G_E44b": {
+  "fires": false,
+  "reason": "occupancy above bar, no rate taken"
+ },
+ "seconds": 35.12168550491333
+}
