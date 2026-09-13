@@ -145,3 +145,132 @@ weights and the bridge to real weights is E45's, *supported and not certified*.
 `donor_engine_e52.exe` — byte-identical to the present `donor_engine.exe`, itself identical to
 `donor_engine_e50.exe` — is frozen before the first edit, so every pre-E53 reading stays
 reproducible by command.
+
+---
+
+# ADDENDUM A — THE KERNEL PASSED, `G-E53b` AS WRITTEN WAS MALFORMED, AND FOUR THINGS ARE REGISTERED BEFORE THE ENGINE RUNS
+
+**§A.1 and §A.2 report measurements already taken** (the kernel's own gates, which §4
+registered before the kernel existed). **§A.3 onward is registered before any engine cell
+exists** and is pushed before the runner is started.
+
+## A.1 `G-E53a` FIRES and the kernel is good to 1 ulp
+
+`e53_vexpf8_test.c` includes `vexpf8.h`, the same header `donor_engine.c` includes. There is
+one definition of the kernel and this is a measurement of that one.
+
+| | max rel (normal ref) | max ulp | denormal band | zero / inf / NaN |
+|---|---|---|---|---|
+| `vexpf8` | **1.1920e-07** | **1** | 1.00 denormal ulp | all exact |
+| degree-2 control | 5.5718e-05 | 661 | 330 denormal ulp | all exact |
+
+**`G-E53a` FIRES**: the degraded kernel reads 5.57e-05, **56× the 1e-06 bar**. The harness can
+see a bad exponential, so its reading of the good one counts.
+
+**Two predictions scored, one right and one wrong.**
+
+* `G-E53b` max rel err: §5 said **1e-7 to 5e-7**; measured **1.1920e-07**, exactly one ulp — the
+  smallest value the prediction could have taken. **Right.**
+* `G-E53a` control: §5 said the degraded kernel would exceed the bar **"by at least two orders"**;
+  measured **56×**, which is 1.75 orders. **WRONG**, and in the direction that matters least but
+  is still wrong: I over-estimated how badly a truncated minimax degrades. (The control as built
+  keeps three coefficients, so `P(r)` is degree 2 and `e^r` is degree 4 overall, against the good
+  kernel's degree 7 — §4 described it as "truncated to degree 3", which is the same operation
+  counted the other way round. The change is in the counting, not in the control.)
+
+## A.2 `G-E53b` as written cannot be answered by anything, so it is MALFORMED
+
+§4 says *"max relative error … ≤ 1e-6"* over `x ∈ [−104, 89]`. At the bottom of that interval
+the answer is a denormal or nothing at all:
+
+    exp(-104)                        = 6.813557e-46
+    the two representable neighbours = +0  and  1.401298e-45
+    relative error of +0             = 1.0000
+    relative error of 1 denormal ulp = 1.0566
+
+**Every float that could be returned there is at least 100% off.** The reference itself —
+`(float)exp((double)x)`, i.e. the function being replaced — returns `+0` and is 100% off. A bar
+no implementation can meet, the incumbent included, is not a bar the treatment failed; it is a
+bar that was never answerable. **E4's precedent applies: MALFORMED, not failed, and it may be
+re-specified.**
+
+I want to be exact about the order of events, because this is the move I keep warning myself
+about: **I noticed this because the first sweep failed.** The re-specification is therefore
+post-hoc with respect to the kernel measurement, and the only thing that makes it legitimate is
+that the replacement is **strictly tighter**:
+
+### `G-E53b2`, registered
+
+> **Max 1 ulp against `(float)exp((double)x)`, everywhere in `[−104, 89]`, normal and denormal
+> alike, plus exact identity at zero, at both infinities and at NaN.**
+
+One uniform criterion, no domain split, no threshold of mine anywhere in it. On normals 1 ulp is
+`1.19e-07` relative, so **`G-E53b2` implies the registered `1e-6` with eight times the margin**.
+The planted control must still fire against it and does, at **661 ulp**.
+
+If I had loosened anything, this paragraph would say so. What was replaced was unanswerable;
+what replaced it is eight times stricter.
+
+## A.3 Four defects the self-test found in my own kernel, recorded because each was silent
+
+The kernel failed its own test three times before passing. Not one of these would have shown up
+as a crash, and all four produce plausible numbers:
+
+1. **`r = x·log2e − n` loses accuracy at large `|x|`.** Single-precision scaling puts ~6e-8
+   relative into `y`, which at `y = 127` is 7.6e-6 *absolute*, and `2^y` turns that back into
+   5e-6 relative. Read **30 ulp at x = 88**. Fixed with Cody-Waite reduction. *The softmax never
+   visits that end of the range; the FFN does.*
+2. **`(n+127)<<23` in one step breaks for `n < −126`** — the entire denormal band.
+3. **`p·(s1·s2)` overflows and underflows where `(p·s1)·s2` does not** — returned `+inf` at
+   **1883 points where `exp` is perfectly finite**.
+4. **Clamping `n` instead of `x` leaves `r` unreduced**: `exp(−inf)` came back as **`−inf`**.
+
+Recorded in the header of `vexpf8.h` next to the lines that fix them.
+
+**§2's description of the kernel is superseded by this list**, and the shipped kernel is what
+`vexpf8.h` says it is: Cody-Waite reduction against `ln2` split in two, a Cephes degree-5
+minimax for `e^r` (not an `exp2` minimax for `2^r`), `x` clamped to `[−110, 95]` instead of a
+flush at −103, and no denormal shortcut — the denormal band is computed, and correctly. §2 was
+an outline written before the kernel existed and three of its four steps did not survive
+contact with the self-test. That is what the self-test is for; it is recorded rather than
+quietly edited into §2.
+
+## A.4 `c0` — a regression control the brief did not ask for, registered now
+
+The brief's design forced a refactor: the softmax loop and the three SwiGLU loops now go through
+`sm_exp_pass` and `swiglu`. **A refactor that silently moved the libm arm would make every later
+comparison meaningless**, and it would look like a plausible number rather than an error.
+
+> **`c0`: `donor_engine_e53.exe --fexp libm` must reproduce `NATS_TOTAL 124963.9517608703` — the
+> published pre-E53 value — to every digit.**
+
+Compared against the *published* number, not one measured beside it in the same session, so the
+control cannot drift with me. Anything but bit-identity stops the experiment.
+
+## A.5 `G-E53e` — a drift witness, because E51's speed phase failed without one
+
+E51's speed phase resolved **one window in five**: both arms stepped down together at the same
+repetition under sustained load and stayed down. E52 then showed the fix works — rotation plus a
+bracketing witness gave a **CLEAN** run at 2.09%.
+
+Registered for `G-E53d`, all three together:
+
+1. **The arm order alternates each repetition** (`libm,poly` on even reps, `poly,libm` on odd),
+   so arm and time are not the same axis.
+2. **An `L`-free drift witness**: one `libm` cell at `n = 160` before the sweep and one after.
+3. **`G-E53e`**: if the two differ by more than **2.3%** — E52's `G-E52b` constant, which is
+   E44 run 2's measured zero-load dispersion — the run is **DRIFT-CONTAMINATED**, the cells are
+   printed, and **the fit is not read as a difference between arms**.
+
+`REPS = 5`, the brief's "≥ 5 reps", kept as written.
+
+## A.6 What `G-E53d` inherits from E52
+
+`OCC_BAR = 4.39`, foreign occupancy per cell via `GetProcessTimes`, and any cell above the bar
+recorded and **not citable**. This is the first experiment to run under the derived bar.
+
+## A.7 The runner
+
+`e53_fexp.py`, **19 of 19 self-tests fire**, including three that plant a *dead control* (a
+parity control that does not separate, a greedy control that matches, a one-window fit) and one
+that checks the fit recovers a planted slope and intercept exactly.

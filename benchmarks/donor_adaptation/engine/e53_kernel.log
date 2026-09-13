@@ -1,7 +1,8 @@
 E53 -- vexpf8 against (float)exp((double)x), which is what expf IS here.
 sweep: 1048576 points over [-104.0, 89.0]
-bars: normal ref -> rel <= 1e-06 (G-E53b, as registered)
-      denormal ref -> abs <= 1 denormal ulp;  zero/inf -> exact
+G-E53b as written is MALFORMED (every float at x=-104 is >=100% off);
+G-E53b2 replaces it, STRICTER: max 1 ulp everywhere, exact at 0/inf/NaN.
+on normals 1 ulp is 1.19e-07 relative, 8x inside the registered 1e-06.
 
   kernel    normal: max rel 1.1920e-07 at x= -65.156  max ulp 1      (956536 pts)
             denorm: max abs 1.4013e-45 (1.00 denormal ulp) at x= -97.015  (90382 pts)
@@ -31,7 +32,7 @@ bars: normal ref -> rel <= 1e-06 (G-E53b, as registered)
      1e-06 bar -- the harness can see a bad exponential, so its reading of
      the good one counts
 
-  G-E53b (numeric bar)     : PASS
+  G-E53b2 (numeric bar)    : PASS
      normal   max rel 1.1920e-07  (8x inside the bar), max ulp 1
      denormal max abs 1.4013e-45  (1.00 denormal ulp)
      every zero, infinity, NaN and special case exact

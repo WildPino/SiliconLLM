@@ -42,6 +42,7 @@ static double now_s(void){ struct timespec ts; clock_gettime(CLOCK_MONOTONIC,&ts
     return ts.tv_sec+ts.tv_nsec*1e-9; }
 #endif
 #include <immintrin.h>
+#include "vexpf8.h"   // E53: one AVX2 exponential, one definition
 
 // per-organ wall-clock accounting: profile before optimising, always.
 enum { T_QKV=0, T_ROPE, T_ATTN, T_O, T_FFN, T_HEAD, T_NORM, T_N };
@@ -718,6 +719,102 @@ static void rmsnorm(const float* x,const float* w,int n,float eps,float* y){
 
 static float silu(float x){ return x/(1.0f+expf(-x)); }
 
+// ---- E53: --fexp {libm,poly} -------------------------------------------------
+// `expf` on this toolchain IS (float)exp((double)x): cvtss2sd; callq <exp>; cvtsd2ss; retq
+// (E51, read out of the object code).  Every softmax element and every SwiGLU element pays
+// a call frame, two conversions and the whole double routine to produce a float.
+//
+// g_fexp==0 keeps expf and MUST stay bit-identical to every pre-E53 reading -- that is
+// G-E53c0, checked against NATS_TOTAL 124963.9517608703.  g_fexp==1 runs vexpf8.
+// Parity for the poly arm cannot be bit-exact and the brief says so in advance: a minimax
+// polynomial is a different approximation, and the softmax's horizontal sum is a different
+// summation order.  The gates that decide are end-to-end (G-E53c1/c2), never the kernel bound.
+static int g_fexp=0;
+static const char* fexp_name(int f){ return f?"poly":"libm"; }
+
+static inline float vexpf8_hsum(__m256 acc){
+    __m128 lo=_mm256_castps256_ps128(acc), hi=_mm256_extractf128_ps(acc,1);
+    __m128 s4=_mm_add_ps(lo,hi);
+    s4=_mm_add_ps(s4,_mm_movehl_ps(s4,s4));
+    s4=_mm_add_ss(s4,_mm_shuffle_ps(s4,s4,1));
+    return _mm_cvtss_f32(s4);
+}
+
+// The softmax exponential pass.  Returns sum_t exp(a[t]-mx); writes the exponentials back
+// into a[] when store!=0.  ONE code shape for the kept pass and for smrep's discarded ones,
+// which is what keeps their fold-back exactly zero: store changes no arithmetic.
+static inline float sm_exp_pass(float* a,int n,float mx,int store){
+    float sum=0.0f; int t=0;
+    if(g_fexp){
+        const __m256 vmx=_mm256_set1_ps(mx);
+        __m256 acc=_mm256_setzero_ps();
+        for(; t+8<=n; t+=8){
+            __m256 e=vexpf8(_mm256_sub_ps(_mm256_loadu_ps(a+t),vmx));
+            if(store) _mm256_storeu_ps(a+t,e);
+            acc=_mm256_add_ps(acc,e);
+        }
+        sum=vexpf8_hsum(acc);
+        if(t<n){
+            // the tail goes through the SAME kernel, padded with a value whose exponential
+            // is +0 and which is never read back.  A scalar expf tail would make the arm a
+            // mixture of two exponentials and no gate would see it.
+            float buf[8]; int k=n-t,j;
+            for(j=0;j<k;j++) buf[j]=a[t+j]-mx;
+            for(;j<8;j++)    buf[j]=-1.0e30f;
+            _mm256_storeu_ps(buf,vexpf8(_mm256_loadu_ps(buf)));
+            for(j=0;j<k;j++){ if(store) a[t+j]=buf[j]; sum+=buf[j]; }
+        }
+        return sum;
+    }
+    for(; t<n; t++){ float e=expf(a[t]-mx); if(store) a[t]=e; sum+=e; }
+    return sum;
+}
+
+// SwiGLU glue.  dst[i] = silu(g[i]) * u[i].  dst may alias g.  E9 established that splitting
+// this range is bit-identical (elementwise map, no reduction) and gated it on sha256; that is
+// still true here, and unlike the softmax this site has NO reduction, so the poly arm differs
+// from the libm arm only by the kernel's own few-ulp error.
+static inline void swiglu_range(float* dst,const float* g,const float* u,int lo,int hi){
+    int i=lo;
+    if(g_fexp){
+        const __m256 one=_mm256_set1_ps(1.0f);
+        for(; i+8<=hi; i+=8){
+            __m256 gv=_mm256_loadu_ps(g+i);
+            __m256 e=vexpf8(_mm256_sub_ps(_mm256_setzero_ps(),gv));
+            __m256 sv=_mm256_div_ps(gv,_mm256_add_ps(one,e));
+            _mm256_storeu_ps(dst+i,_mm256_mul_ps(sv,_mm256_loadu_ps(u+i)));
+        }
+        if(i<hi){
+            float bg[8],bu[8]; int k=hi-i,j;
+            for(j=0;j<k;j++){ bg[j]=g[i+j]; bu[j]=u[i+j]; }
+            for(;j<8;j++){ bg[j]=0.0f; bu[j]=0.0f; }
+            __m256 gv=_mm256_loadu_ps(bg);
+            __m256 e=vexpf8(_mm256_sub_ps(_mm256_setzero_ps(),gv));
+            __m256 sv=_mm256_div_ps(gv,_mm256_add_ps(_mm256_set1_ps(1.0f),e));
+            _mm256_storeu_ps(bg,_mm256_mul_ps(sv,_mm256_loadu_ps(bu)));
+            for(j=0;j<k;j++) dst[i+j]=bg[j];
+        }
+        return;
+    }
+    for(; i<hi; i++) dst[i]=silu(g[i])*u[i];
+}
+
+// The whole range, split the way E9 split it.  Bit-identical to the loop it replaces when
+// g_fexp==0: same expf, same per-i independence, same schedule(static).
+static inline void swiglu(float* dst,const float* g,const float* u,int n){
+#ifdef _OPENMP
+#pragma omp parallel
+    {
+        int nt=omp_get_num_threads(), id=omp_get_thread_num();
+        int chunk=(n+nt-1)/nt, lo=id*chunk, hi=lo+chunk;
+        if(hi>n) hi=n;
+        if(lo<n) swiglu_range(dst,g,u,lo,hi);
+    }
+#else
+    swiglu_range(dst,g,u,0,n);
+#endif
+}
+
 // HF "rotate_half": q'[j] = q[j]cos - q[j+h]sin ; q'[j+h] = q[j+h]cos + q[j]sin,  h = HD/2
 // rope used to compute pow()+cosf()+sinf() PER HEAD PER LAYER, i.e. NH+NKV heads x L layers x
 // HD/2 elements of transcendentals per token -- 12,288 double-precision pow() calls per token on
@@ -1043,10 +1140,7 @@ static void ffn_carved(const model_t* M,const layer_t* L,state_t* s,int li){
     { TICF; matvec_sel(&L->gate,s->xb,NULL,s->hb ,g_rows,nr);
             matvec_sel(&L->up  ,s->xb,NULL,s->hb2,g_rows,nr); TOCF(F_GU); }
     { TICF;
-#ifdef _OPENMP
-#pragma omp parallel for schedule(static)
-#endif
-      for(int i=0;i<nr;i++) s->hb[i]=silu(s->hb[i])*s->hb2[i];
+      swiglu(s->hb,s->hb,s->hb2,nr);
       TOCF(F_GLUE); }
     { TICF; matvec_colacc(&L->down,s->hb,g_rows,nr,s->xb2); TOCF(F_DOWN); }
     { TICF; for(int i=0;i<D;i++) s->x[i]+=s->xb2[i]; TOCF(F_RES); }
@@ -1170,13 +1264,13 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
                 // ONE code shape for smrep = 1, 2 and 3.  The discarded passes read a[] before the
                 // kept pass overwrites it, and are folded back as exact zeros (s==sum bitwise).
                 float s0=0.0f,s1=0.0f;
-                if(smrep>=2){ for(int t=0;t<=pos;t++) s0+=expf(a[t]-mx); }
-                if(smrep>=3){ for(int t=0;t<=pos;t++) s1+=expf(a[t]-mx); }
-                for(int t=0;t<=pos;t++){ a[t]=expf(a[t]-mx); sum+=a[t]; }
+                if(smrep>=2){ s0=sm_exp_pass(a,pos+1,mx,0); }
+                if(smrep>=3){ s1=sm_exp_pass(a,pos+1,mx,0); }
+                sum=sm_exp_pass(a,pos+1,mx,1);
                 if(smrep>=2) sum=sum+(s0-sum);
                 if(smrep>=3) sum=sum+(s1-sum);
             } else {
-                for(int t=0;t<=pos;t++){ a[t]=expf(a[t]-mx); sum+=a[t]; }
+                sum=sm_exp_pass(a,pos+1,mx,1);
             }
             float rs=1.0f/sum;
             float* out=s->attout+(size_t)h*HD;
@@ -1230,16 +1324,8 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
             // Coder-7B, 7.5% of the token, on ONE core.  Elementwise map, no reduction: each i
             // is written once and reads only its own inputs, so splitting the range is
             // BIT-IDENTICAL -- gated on sha256, not on parity.
-            if(g_fuse){ const float* g=s->gubuf; const float* u=s->gubuf+F;
-#ifdef _OPENMP
-#pragma omp parallel for schedule(static)
-#endif
-                        for(int i=0;i<F;i++) s->hb[i]=silu(g[i])*u[i]; }
-            else      {
-#ifdef _OPENMP
-#pragma omp parallel for schedule(static)
-#endif
-                        for(int i=0;i<F;i++) s->hb[i]=silu(s->hb[i])*s->hb2[i]; }
+            if(g_fuse){ swiglu(s->hb,s->gubuf,s->gubuf+F,F); }
+            else      { swiglu(s->hb,s->hb,s->hb2,F); }
             TOCF(F_GLUE); }
           { TICF; matvec(&L->down,s->hb,NULL,s->xb2); TOCF(F_DOWN); }
           { TICF; for(int i=0;i<D;i++) s->x[i]+=s->xb2[i]; TOCF(F_RES); }
@@ -1414,6 +1500,11 @@ int main(int argc,char** argv){
         else if(!strcmp(argv[i],"--carve-dump")){ g_carvedump=1; }
         else if(!strcmp(argv[i],"--lut-no-head")){ g_lutnohead=1; }
         else if(!strcmp(argv[i],"--fuse")){ g_fuse=1; }
+        else if(!strcmp(argv[i],"--fexp")&&i+1<argc){ const char* v=argv[++i];
+            if(!strcmp(v,"libm")) g_fexp=0;
+            else if(!strcmp(v,"poly")) g_fexp=1;
+            else { fprintf(stderr,"--fexp wants libm or poly, got '%s'\n",v); return 2; }
+        }
         else if(!strcmp(argv[i],"--attn")&&i+1<argc){ const char* v=argv[++i];
             if(!strcmp(v,"serial")) g_attn=ATTN_SERIAL;
             else if(!strcmp(v,"ilp4")) g_attn=ATTN_ILP4;
@@ -1483,8 +1574,9 @@ int main(int argc,char** argv){
 
     // E50 G-E50c: every mode says what it ran.  --bpb prints no BENCH line at all and it is
     // where parity is decided, so the witness cannot live on the BENCH line alone.
-    printf("CONFIG  attn=%s  attnr=%s  mvacc=%d  threads=%d  quant=%s%s\n",
+    printf("CONFIG  attn=%s  attnr=%s  fexp=%s  mvacc=%d  threads=%d  quant=%s%s\n",
            g_sw?"sweep":attn_name(g_attn), g_sw?"sweep":attnr_name(g_attnr),
+           fexp_name(g_fexp),
            g_mvacc, threads,
            M.quant==3?"tagged":M.quant==2?"packed":M.quant?"ternary":"fp32",
            g_lut?"  lut=1":"");

@@ -7,21 +7,24 @@
  * toolchain (E51, read out of the object code).  So "relative error against the
  * reference" here means relative error against the function being replaced.
  *
- * ---- A SPECIFICATION REFINEMENT, MADE BEFORE ANY ENGINE MEASUREMENT ---------
+ * ---- G-E53b AS WRITTEN IS MALFORMED, AND IS RE-SPECIFIED TIGHTER ----------
  * The brief states the bar as "max relative error <= 1e-6" over [-104, 89].
- * Below x = -87.34 the reference is a DENORMAL, and a relative error against a
- * denormal is not a bounded quantity for ANY implementation -- at the bottom of
- * the range exp(x) sits between 0 and the single smallest denormal, so the two
- * nearest representable answers differ from each other by 100%.
+ * NO implementation can answer that, including the reference itself:
+ *     exp(-104)          = 6.813557e-46
+ *     the two representable neighbours are +0 and 1.401298e-45
+ *     relative error of +0            = 1.0000
+ *     relative error of 1 denormal ulp = 1.0566
+ * Every float you could return at that point is at least 100% off.  A gate that
+ * cannot be answered is MALFORMED, not failed -- the E4 precedent -- and may be
+ * re-specified.
  *
- * So the domain is split, and the 1e-6 VALUE IS NOT TOUCHED:
- *    ref normal   (>= FLT_MIN)   -> relative error, bar 1e-6      (as registered)
- *    ref denormal (0 < ref < FLT_MIN) -> ABSOLUTE error, bar 1 denormal ulp
- *    ref zero or infinite        -> exact identity required
- * The denormal criterion is STRICTER in absolute terms than any relative bar
- * would be, and the planted control is required to fire on the NORMAL region,
- * so nothing is let through by the split.  This is the same move as E52 A.5:
- * a domain fixed on arithmetic grounds, not a threshold moved to fit data.
+ * G-E53b2, and it is STRICTER than what it replaces, not looser:
+ *     max 1 ulp against (float)exp((double)x), EVERYWHERE in [-104, 89],
+ *     normal and denormal alike, plus exact identity at zero, infinity and NaN.
+ * On normals 1 ulp is 1.19e-7 relative, so this implies the registered 1e-6 with
+ * eight times the margin, and it is one uniform criterion instead of a domain
+ * split I would have had to choose after seeing the data.
+ * The planted control must still fire, and it does, at 661 ulp.
  * ---------------------------------------------------------------------------
  *
  * Build:
@@ -35,7 +38,8 @@
 #include <stdint.h>
 #include "vexpf8.h"
 
-#define BAR_REL   1e-6      /* G-E53b, registered in the brief.  Unchanged. */
+#define BAR_REL   1e-6      /* the brief's value; reported, but G-E53b2 is the gate */
+#define BAR_ULP   1         /* G-E53b2: 1 ulp everywhere.  Implies 1.19e-7 relative. */
 #define NSWEEP    (1 << 20) /* brief section 4: 2^20 points */
 #define LO        (-104.0)
 #define HI        (89.0)
@@ -162,8 +166,11 @@ int main(void)
 
     printf("E53 -- vexpf8 against (float)exp((double)x), which is what expf IS here.\n");
     printf("sweep: %d points over [%.1f, %.1f]\n", NSWEEP, LO, HI);
-    printf("bars: normal ref -> rel <= %.0e (G-E53b, as registered)\n", BAR_REL);
-    printf("      denormal ref -> abs <= 1 denormal ulp;  zero/inf -> exact\n\n");
+    printf("G-E53b as written is MALFORMED (every float at x=-104 is >=100%% off);\n");
+    printf("G-E53b2 replaces it, STRICTER: max %d ulp everywhere, exact at 0/inf/NaN.\n",
+           BAR_ULP);
+    printf("on normals %d ulp is 1.19e-07 relative, %.0fx inside the registered %.0e.\n\n",
+           BAR_ULP, BAR_REL / 1.1920929e-7, BAR_REL);
 
     sweep(vexpf8,          "kernel",   &G);
     sweep(vexpf8_degraded, "degraded", &B);
@@ -183,8 +190,9 @@ int main(void)
         return 1;
     }
 
-    printf("\n  G-E53b (numeric bar)     : ");
-    if (G.max_rel <= BAR_REL && G.max_abs <= DEN_ULP
+    printf("\n  G-E53b2 (numeric bar)    : ");
+    if (G.max_ulp <= BAR_ULP && G.max_abs <= BAR_ULP * DEN_ULP
+        && G.max_rel <= BAR_REL
         && G.bad_zero == 0 && G.bad_inf == 0 && nbad == 0) {
         printf("PASS\n     normal   max rel %.4e  (%.0fx inside the bar), max ulp %d\n"
                "     denormal max abs %.4e  (%.2f denormal ulp)\n"
