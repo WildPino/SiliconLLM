@@ -129,7 +129,18 @@ measured, so the comparison is against arms that exist):
 | `F32` | `qwen25-{05b,15b}_f32.bin` | 0 | — | 4.0 | **exists.** faithful control |
 | `PACKED` | `qwen25-{05b,15b}_tqh.bin` | 2 | R0 | 0.5 | **exists.** fast control |
 | `I8` | `qwen25-{05b,15b}_i8h.bin` | **5** | **R8 (new)** | **1.0** | **the treatment** |
-| `T1` | `qwen25-05b_t1h.bin` | **5** | R0 | **1.0** | 0.5 B only. the SAME trits at 1 B/weight |
+| `T1` | `qwen25-05b_t1h.bin` | **1** | **R3** | **1.0** | 0.5 B only. the SAME trits at 1 B/weight |
+
+**Amendment, before any export ran:** `T1` is written at `quant=1`, not `quant=5`, and at
+**rule R3, not R0** — R3 is what E1 used for every existing `tq`/`tqh` artifact, so R3 is what
+makes `T1` hold *exactly* `PACKED`'s trits. Every E60 export uses E1's protocol verbatim
+(`--fold none`, `--calib-seqs 32`, `--head-ternary`) so that the weight format is the only thing
+that differs from the arms already measured. Both are one
+byte per weight and the same payload; `quant=1` prints `ternary` and `quant=5` prints `int8`, so
+the two 1 B/weight arms are told apart by the `CONFIG` line exactly as §4 requires — which is
+better than what the table first said. The exporter enforces it: `--quant int8` and `--rule R8`
+may only be used together, so a ternary-valued file cannot call itself int8 and `R8`'s 127 levels
+cannot be silently clipped to 3 by a packed writer.
 
 `R8` is round-to-nearest with one scale per output row: `s = amax(w_row)/127`,
 `q = clip(round(w/s), -127, 127)`. It goes in `ternary/t2_rules.py` beside R0–R3 so the exporter

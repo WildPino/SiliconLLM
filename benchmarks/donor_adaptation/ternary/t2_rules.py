@@ -73,6 +73,19 @@ def r0_bitlinear(w):
     return q, a
 
 
+def r8_int8_rtn(w):
+    """E60: NOT a ternary rule. int8 round-to-nearest, one scale per output row.
+
+    Same (codes, scale) contract as R0-R4 so the exporter's w_tern writer takes it unchanged --
+    only the code RANGE differs: [-127, +127] instead of {-1, 0, +1}.  The engine's quant==1/5
+    fallback in matvec_sel is a general int8 x fp32 dot with a per-row scale and never assumed
+    |code| <= 1, so nothing downstream needs to know which rule produced the bytes.
+    """
+    a = (w.abs().amax(dim=1, keepdim=True) / 127.0).clamp_min(1e-12)
+    q = (w / a).round().clamp(-127, 127)
+    return q, a
+
+
 def r1_twn(w):
     """Ternary Weight Networks: Delta = 0.7*E|w|, alpha = E(|w| : |w|>Delta)."""
     m = w.abs().mean(dim=1, keepdim=True)

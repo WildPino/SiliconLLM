@@ -900,7 +900,11 @@ static void read_mat(const char** p, mat_t* m, int out, int in, int quant){
         return;
     }
     if(quant==0){ m->f32=(const float*)rd(p,(size_t)out*in*4); }
-    else if(quant==1){ m->code=(const int8_t*)rd(p,(size_t)out*in);
+    // E60: quant==5 is quant==1's payload byte for byte -- int8 [out,in] codes plus one
+    // fp32 scale per output row.  It exists ONLY so an int8-VALUED file and a ternary-VALUED
+    // file do not print the same CONFIG line; matvec_sel's fallback is already a general
+    // int8 x fp32 dot and never assumed |code| <= 1.
+    else if(quant==1||quant==5){ m->code=(const int8_t*)rd(p,(size_t)out*in);
                        m->scale=(const float*)rd(p,(size_t)out*4); }
     else { m->code=(const int8_t*)rd(p,(size_t)out*(in/2));   // base-3 g=2, 2 trits/byte
            m->scale=(const float*)rd(p,(size_t)out*4); }
@@ -954,6 +958,7 @@ static void load(model_t* M,const char* path){
             M->D,M->F,M->L,M->NH,M->NKV,M->HD,M->V,M->tied,
             M->quant==4?"tagged-v2(per-matrix kind + per-layer FFN kind)":
             M->quant==3?"tagged(per-matrix kind)":
+            M->quant==5?"int8(1 B/weight)":
             M->quant==2?"packed(2 trits/byte)":M->quant?"ternary":"fp32",
             M->rms_eps,M->rope_theta);
     M->embed=(const float*)rd(&p,(size_t)M->V*M->D*4);
@@ -1578,7 +1583,7 @@ int main(int argc,char** argv){
            g_sw?"sweep":attn_name(g_attn), g_sw?"sweep":attnr_name(g_attnr),
            fexp_name(g_fexp),
            g_mvacc, threads,
-           M.quant==3?"tagged":M.quant==2?"packed":M.quant?"ternary":"fp32",
+           M.quant==5?"int8":M.quant==3?"tagged":M.quant==2?"packed":M.quant?"ternary":"fp32",
            g_lut?"  lut=1":"");
     fflush(stdout);
 
@@ -1604,7 +1609,7 @@ int main(int argc,char** argv){
         // so the eight of them (e3/e5/e25/e26/e28/e30/e44/e48) keep matching -- G-E50d.
         printf("BENCH  %ld tokens  %.3f s  %.2f tok/s  (threads=%d, %s, attn=%s)",
                arg3,dt,arg3/dt,threads,
-               M.quant==3?"tagged":M.quant==2?"packed":M.quant?"ternary":"fp32",
+               M.quant==5?"int8":M.quant==3?"tagged":M.quant==2?"packed":M.quant?"ternary":"fp32",
                g_sw?"sweep":attn_name(g_attn));
         // the witness, same convention as the profiler's own ffn row (divided by arg3, warm token
         // included) so the two are directly comparable against a plateau measured either way

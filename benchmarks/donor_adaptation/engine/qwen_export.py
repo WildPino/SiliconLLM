@@ -96,6 +96,8 @@ def quantize(w, rule="R0", act_rms=None):
         q, a = T2.r1_twn(w)
     elif rule == "R2":
         q, a = T2.r2_search(w)
+    elif rule == "R8":
+        q, a = T2.r8_int8_rtn(w)        # E60: int8 RTN, [-127,127], not a ternary rule
     elif rule == "R3":
         assert act_rms is not None, "R3 needs calibration activations"
         q, a = T2.r3_actsearch(w, act_rms)
@@ -268,7 +270,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="Qwen/Qwen2.5-0.5B")
     ap.add_argument("--revision", default=None)
-    ap.add_argument("--quant", choices=("fp32", "ternary", "packed", "tagged", "carved"),
+    ap.add_argument("--quant", choices=("fp32", "ternary", "packed", "tagged", "carved", "int8"),
                     default="fp32")
     ap.add_argument("--carve-labels", default=None,
                     help="E26: an .npz of per-neuron group labels (density/results/d0c_labels/"
@@ -309,7 +311,7 @@ def main():
                          "write time, so the artifact is unchanged. Refuses --fold and --rule "
                          "R3, whose arithmetic would then run in bf16.")
     ap.add_argument("--out", required=True)
-    ap.add_argument("--rule", choices=("R0", "R1", "R2", "R3"), default="R0",
+    ap.add_argument("--rule", choices=("R0", "R1", "R2", "R3", "R8"), default="R0",
                     help="ternarization rule. R0 = BitLinear158, the engine's original and T1's. "
                          "R1/R2/R3 are T2's alternatives; ALL of them land in the same format "
                          "(codes in {-1,0,+1} + one fp32 scale per output row), so the runtime "
@@ -382,7 +384,15 @@ def main():
     tied = int(bool(getattr(c, "tie_word_embeddings", False)))
     if a.head_ternary:
         tied = 0          # write an explicit head; the embedding table is still written fp32
-    quant = {"fp32": 0, "ternary": 1, "packed": 2, "tagged": 3, "carved": 4}[a.quant]
+    quant = {"fp32": 0, "ternary": 1, "packed": 2, "tagged": 3, "carved": 4,
+             "int8": 5}[a.quant]
+    # E60: quant=5 is quant=1's payload with a different NAME, so the engine's CONFIG line can
+    # tell an int8-valued file from a ternary-valued one.  The two must not be mixed up:
+    # --quant int8 without --rule R8 would write ternary codes into a file that calls itself
+    # int8, and --rule R8 into a ternary/packed file would silently clip 127 levels to 3.
+    if (a.quant == "int8") != (a.rule == "R8"):
+        sys.exit("--quant int8 and --rule R8 must be used together (E60): "
+                 "quant=%s rule=%s" % (a.quant, a.rule))
     carve_E, carve_k, carve_perm, carve_router = 0, 0, None, None
     if a.quant == "carved":
         import carve_common as CV
@@ -455,7 +465,8 @@ def main():
             tied = 0
         print("  folded %d RMSNorm gains (--fold %s), untied=%s"
               % (n_folded, a.fold, untied_by_fold))
-    W = {0: w_fp32, 1: w_tern, 2: w_packed, 3: w_tag_packed, 4: w_tag_packed}[quant]
+    W = {0: w_fp32, 1: w_tern, 2: w_packed, 3: w_tag_packed, 4: w_tag_packed,
+         5: w_tern}[quant]
 
     def emit(fh, li, organ, w, rule, act):
         """One matrix, in whichever kind this organ gets.  The only place that decides."""
