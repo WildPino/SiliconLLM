@@ -314,3 +314,70 @@ controls at 3/160 and 10/160.
 2. The **scored byte total** in the ids sidecar, so `|dBPB|` stops resting on an assumed 5.0.
 3. The **paired-interleaved dispersion rule** of A.4, registered as its own gate with its own
    planted control, before it judges anything.
+
+---
+
+# ADDENDUM B — `G-E51d` RAN, AND IT PRICES THE EXPERIMENT §6 DEFERS
+
+The phase owed by A.7 item 1. Run on the same two frozen binaries, `--profile` with `--attnr
+sm1` and `sm2`, `S = (sm2 − sm1)`, 3 reps per build, `--bench 1280`.
+
+## B.1 The verdict as registered
+
+| build | S (ms/token) | attention, no reduction | token | S as share of token |
+|---|---|---|---|---|
+| base (`e50`) | **1.6890** | 5.6120 | **13.8870** | **12.16%** |
+| e51 | 1.6600 | 5.6550 | 14.0430 | 11.82% |
+
+**`G-E51d` : NO IMPROVEMENT — the total did not improve; nothing to attribute.** The total is
+in fact **+1.12% slower** on the e51 build, which is the direction A.2 predicts once the flag is
+understood as adding a call frame rather than removing work, though it is well inside this
+instrument's noise and is not claimed as a slowdown.
+
+**The between-build comparison of S is not usable and is not used.** The base arm's three reps
+are `1.6890 / 1.6740 / 1.7040`, a **1.8%** spread; the e51 arm's are `2.8900 / 1.6600 / 1.5020`,
+an **83.6%** spread. One arm is measured and the other is not. This is the same rule A.4 and
+E49 addendum C apply to rates, applied here to an organ: **a number whose repetitions disperse
+by 84% does not get compared to one that disperses by 2%.**
+
+## B.2 What IS measured, and it is the point of running this phase
+
+**The softmax's exponential is `1.689 ms` of a `13.887 ms` token at mean context position 640
+(`--bench 1280`) — `12.2%`, from three repetitions dispersing `1.8%`.**
+
+That is the ceiling on the experiment §6 defers. A vectorised polynomial `exp2` softmax cannot
+buy more than ~12% of the token at this context, and will buy less, because the replacement is
+not free — it still evaluates a polynomial per element, it only stops calling out to a
+double-precision routine and stops processing one element at a time.
+
+Two things make that ceiling more attractive than it looks, and one makes it less:
+
+* **It is a context-dependent cost.** `S` is work over the KV span, so its share grows with
+  position exactly as E49's `b` term does. At short context it is worth much less; at the
+  contexts where `C50` is decided it is worth this much or more.
+* **Both builds pay it in full.** A.2 established that the entire double-precision `exp`
+  routine still runs once per element in *both* binaries. Nothing on the E51 axis touches it.
+* **Against it:** E48 put `S` at 33.1% of the `avx4` attention organ, and that remains a SCORE
+  with no RANK partner (`G-E48d` is VOID). This measurement is of the same family and inherits
+  the same caution — `12.2%` is a share, and a share is not a speedup.
+
+## B.3 The scorecard line A.5 left open
+
+| §5 prediction | outcome |
+|---|---|
+| `G-E51d`: S falls and accounts for most of the improvement | **WRONG, and unscoreable in the way it was phrased.** There is no improvement to account for, so the gate returns `NO IMPROVEMENT` as registered. S does not fall in any resolvable sense — the treated arm's own reps disperse 84% |
+
+E51's final scorecard: **3 right, 2 wrong, 1 half, 1 unscorable.** Both wrong ones are §1.1's
+mechanism, and A.2 is why.
+
+## B.4 What is now owed
+
+A.7's item 1 is discharged. The remaining two stand, plus one:
+
+1. ~~`G-E51d`~~ — done.
+2. The **scored byte total** in the ids sidecar, so `|dBPB|` stops resting on an assumed 5.0.
+3. The **paired-interleaved dispersion rule** of A.4, registered as its own gate with its own
+   planted control, before it judges anything.
+4. **New:** the vectorised `exp2` softmax now has a measured ceiling of `12.2%` of the token at
+   mean position 640 and a known obstacle — it must clear a real libm routine, not the
+   `errno` promise E51 removed. It is worth a brief; it was not worth one before this number.

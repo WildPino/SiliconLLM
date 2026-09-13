@@ -85,6 +85,44 @@ def _system_times():
     return idle.val(), kern.val(), user.val()
 
 
+SEPARATION_MIN = 25.0   # G-E44b2 control C2: below this the subtraction is not happening
+
+
+def _process_times(h):
+    """Kernel+user CPU of ONE process, in the same 100ns units as GetSystemTimes."""
+    c, e, k, u = _FT(), _FT(), _FT(), _FT()
+    if not ctypes.windll.kernel32.GetProcessTimes(
+            ctypes.c_void_p(h), ctypes.byref(c), ctypes.byref(e),
+            ctypes.byref(k), ctypes.byref(u)):
+        raise SystemExit("GetProcessTimes failed -- without it 'foreign occupancy' is an "
+                         "assumption, not a measurement.  STOP.")
+    return k.val() + u.val()
+
+
+class Split(object):
+    """System busy and FOREIGN busy over one interval, in percent.
+
+    Brief addendum B.2: the engine runs --threads 6 on a 6c/12t part, so while it decodes it
+    IS about half the machine, and a system-wide meter scores the treatment as contention.
+    G-E44b could therefore never fire on any box.  Foreign subtracts the engine's own CPU
+    time over the same interval; with no engine running the two are the same number, which is
+    why the pre-run guard and its planted control are unchanged.
+    """
+
+    def __init__(self):
+        self.prev = _system_times()
+
+    def close(self, child_ticks):
+        cur = _system_times()
+        di = cur[0] - self.prev[0]
+        dt = (cur[1] - self.prev[1]) + (cur[2] - self.prev[2])
+        self.prev = cur
+        if dt <= 0:
+            return float("nan"), float("nan")
+        busy = float(dt - di)
+        return 100.0 * busy / dt, 100.0 * max(0.0, busy - float(child_ticks)) / dt
+
+
 class Occupancy(object):
     """System-wide busy fraction between successive reads.  `kern` INCLUDES idle on
     Windows, which is the documented trap here: busy = 1 - idle/(kern+user)."""
@@ -162,7 +200,8 @@ def planted_control(seconds, bar):
 
 
 def one_rep(engine, weights, ntok, threads, flags):
-    """One engine invocation.  Returns tok/s, the engine's OWN dt, and the wall time.
+    """One engine invocation.  Returns tok/s, the engine's OWN dt, the wall time and the
+    engine process's own CPU ticks (G-E44b2 needs the last one to subtract itself out).
 
     wall - dt is everything outside the timed window: the fread of the weight file from
     D: (a USB 3.1 external HDD -- addendum A section 4), the blob allocation, state_init
@@ -171,16 +210,18 @@ def one_rep(engine, weights, ntok, threads, flags):
     cmd = [engine, "--weights", weights, "--threads", str(threads)] + list(flags) + \
           ["--bench", str(ntok)]
     t0 = time.time()
-    r = subprocess.run(cmd, capture_output=True)
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out, errb = p.communicate()
+    child = _process_times(int(p._handle))      # read BEFORE the handle is released
     wall = time.time() - t0
-    if r.returncode != 0:
-        log(r.stderr.decode(errors="replace")[-1200:])
+    if p.returncode != 0:
+        log(errb.decode(errors="replace")[-1200:])
         raise SystemExit("engine failed: " + " ".join(cmd))
-    m = RE_BENCH.search(r.stdout.decode(errors="replace"))
+    m = RE_BENCH.search(out.decode(errors="replace"))
     if not m:
-        log(r.stdout.decode(errors="replace")[-1200:])
+        log(out.decode(errors="replace")[-1200:])
         raise SystemExit("could not parse the BENCH line")
-    return float(m.group(3)), float(m.group(2)), wall
+    return float(m.group(3)), float(m.group(2)), wall, child
 
 
 def main():
@@ -255,19 +296,34 @@ def main():
 
     log("     box is quiet enough -- proceeding")
     log("")
-    log("  rep    tok/s     engine dt     wall      outside window    occupancy during")
-    rates, dts, walls, occs = [], [], [], []
+    log("  rep    tok/s     engine dt     wall      outside      system   FOREIGN")
+    rates, dts, walls, occs, focs = [], [], [], [], []
     for i in range(a.reps):
-        o = Occupancy()
-        o.sample()
-        rate, dt, wall = one_rep(a.engine, a.weights, a.ntok, a.threads, flags)
-        occ = o.sample()
+        sp = Split()
+        rate, dt, wall, child = one_rep(a.engine, a.weights, a.ntok, a.threads, flags)
+        occ, foc = sp.close(child)
         rates.append(rate)
         dts.append(dt)
         walls.append(wall)
         occs.append(occ)
-        log("  %3d   %7.2f   %8.3f s   %7.2f s   %8.2f s        %5.1f%%"
-            % (i + 1, rate, dt, wall, wall - dt, occ))
+        focs.append(foc)
+        log("  %3d   %7.2f   %8.3f s   %7.2f s   %7.2f s    %6.1f%%   %6.1f%%"
+            % (i + 1, rate, dt, wall, wall - dt, occ, foc))
+        if i == 0:
+            # ---- C2: the meter must DISCRIMINATE, not merely return a small number ----
+            sep = occ - foc
+            log("")
+            log("  PLANTED CONTROL C2 -- does the meter separate the engine from the box?")
+            log("     rep 1: system %.1f%%, foreign %.1f%%, separation %.1f points "
+                "(minimum %.1f)" % (occ, foc, sep, SEPARATION_MIN))
+            if not (sep >= SEPARATION_MIN and occ > a.occ_bar):
+                log("     C2 FAILS -- foreign tracks system, so the subtraction is not")
+                log("     happening and a low number here would mean nothing.")
+                raise SystemExit("G-E44b2 control C2 failed.  No rate is produced.  STOP.")
+            log("     C2 FIRES -- the engine's own %.1f points are attributed to the engine"
+                % sep)
+            log("")
+            log("  rep    tok/s     engine dt     wall      outside      system   FOREIGN")
 
     rmed, rlo, rhi = summarise(rates)
     spread = 100.0 * (rhi - rlo) / rmed
@@ -279,16 +335,24 @@ def main():
     log("  OUTSIDE   median %.2f s spent loading and warming, which no published rate has"
         % statistics.median(outside))
     log("            ever carried.  D: is a USB 3.1 external HDD (addendum A section 4).")
-    log("  OCCUPANCY median %.1f%% during the reps (bar %.1f%%)" % (omed, a.occ_bar))
+    fmed = statistics.median(focs)
+    log("  OCCUPANCY system median %.1f%% during the reps -- MOST OF WHICH IS THE ENGINE"
+        % omed)
+    log("            FOREIGN median %.1f%% (bar %.1f%%), which is what G-E44b2 judges"
+        % (fmed, a.occ_bar))
     log("")
-    breached = [i + 1 for i, x in enumerate(occs) if x == x and x > a.occ_bar]
+    breached = [i + 1 for i, x in enumerate(focs) if x == x and x > a.occ_bar]
+    sys_breached = [i + 1 for i, x in enumerate(occs) if x == x and x > a.occ_bar]
     fires = (len(rates) >= MIN_REPS) and not breached
-    log("  G-E44b  >= %d reps, quiet box, median AND spread reported : %s"
+    log("  G-E44b   (system-wide occupancy) : MALFORMED -- brief addendum B.2.  The meter")
+    log("           counts the engine's own six threads, so no box could ever pass it.")
+    log("           For the record it would read: reps above the bar %s" % sys_breached)
+    log("  G-E44b2  >= %d reps, FOREIGN occupancy under the bar, median AND spread : %s"
         % (MIN_REPS, "FIRES" if fires else "*** FAILS ***"))
     if breached:
-        log("     reps above the bar during the run: %s -- the guard passed BEFORE the reps"
+        log("     reps whose FOREIGN occupancy is above the bar: %s -- something other than"
             % breached)
-        log("     and the box moved under them.  The rate is recorded and NOT citable.")
+        log("     the engine was running.  The rate is recorded and NOT citable.")
     log("")
     log("  THE BAND, and it replaces a point rather than adding one:")
     log("     %s reads %.0f-%.0f tok/s (median %.2f, %d reps, spread %.1f%%)."
@@ -298,6 +362,8 @@ def main():
 
     rec.update({"rates": rates, "engine_dt": dts, "wall": walls,
                 "outside_window": outside, "occ_during": occs,
+                "foreign_during": focs, "foreign_median": fmed,
+                "gate": "G-E44b2", "G_E44b": "MALFORMED (brief addendum B.2)",
                 "rate_median": rmed, "rate_min": rlo, "rate_max": rhi,
                 "spread_pct_of_median": spread,
                 "outside_window_median": statistics.median(outside),

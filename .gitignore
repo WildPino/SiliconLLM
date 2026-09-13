@@ -190,3 +190,8 @@ docs/research/LLM_Reimagined_CPU_Native_Exploration_20260626/
 # place, not the type: results/h1/*.npz stays visible so h1_heldout/h1_calib/h1_actstats
 # keep being pushed.
 /benchmarks/donor_adaptation/s1/results/h1/h1_router_smoke_*_routers.npz
+
+# E43 vocabulary probe: the corpus copies it tokenizes, not results.  140 MB each and
+# over GitHub's 100 MB limit; regenerable from the frozen corpus with the recorded seed.
+# Anchored to the place, not to a type (feedback_gitignore_audit).
+benchmarks/donor_adaptation/engine/results/e43_vocab/*.txt

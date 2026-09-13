@@ -317,3 +317,111 @@ which is what `feedback_gate_vs_measured_dispersion` and the `G-E45c` precedent 
 
 If the band moves a lot, something other than the meter is wrong and this prediction is the
 thing that says so.
+
+---
+
+# ADDENDUM C — `G-E44b2` FIRES, AND IT COST ME THE PREDICTION I REGISTERED TO CATCH THIS
+
+**Run 2, 2026-09-13, under the gate registered in addendum B.** Nothing was tuned between B and
+this run: same arm, same `--bench 300`, same `--threads 6`, same `OCC_BAR = 15.0`, same 5-rep
+minimum. The meter was pre-flighted on a synthetic one-core child before the engine ran — it
+charged the child `8.1` points against a `100/12 = 8.3` expectation, so the subtraction works.
+
+## C.1 The run
+
+    PLANTED CONTROL (guard)   12 busy processes -> 100.0% vs a 15.0% bar : FIRES
+    GUARD                     occupancy over 20s: median 2.2% (min 1.2, max 3.8) : proceed
+
+    rep    tok/s     engine dt     wall      outside      system   FOREIGN
+      1    112.44      2.668 s      4.45 s      1.78 s      36.8%      3.8%
+      2    111.25      2.697 s      4.48 s      1.78 s      37.1%      3.8%
+      3    110.62      2.712 s      4.53 s      1.82 s      38.2%      5.3%
+      4    110.61      2.712 s      4.49 s      1.78 s      36.9%      3.6%
+      5    109.85      2.731 s      4.55 s      1.82 s      39.6%      6.5%
+
+    PLANTED CONTROL C2   rep 1: system 36.8%, foreign 3.8%, separation 33.1 points : FIRES
+    RATE       median 110.62 tok/s   min 109.85   max 112.44   spread 2.3% of median
+    OCCUPANCY  system median 37.1% -- MOST OF WHICH IS THE ENGINE
+               FOREIGN median 3.8% (bar 15.0%)
+    G-E44b   : MALFORMED (addendum B.2)
+    G-E44b2  : FIRES
+
+**`G-E44b2` FIRES. The band is `110-112 tok/s`, median `110.62`, spread `2.3%`.** It is
+measured on `donor_engine.exe`, which is **sha256-identical to `donor_engine_e50.exe`** — so
+this is the avx4 default, and `--bench 300` means mean context position **150**, not 20.
+
+Addendum A's restriction stands: this is not a new headline. It is an interval where the
+programme previously had a point, on a named arm at a named context.
+
+## C.2 The prediction I got wrong, and it is the useful part
+
+B.6 predicted the band would land *"within a few percent of run 1's 98-104 tok/s — the box
+really was quiet, so the corrected meter should not move the rates at all, only the verdict
+about them"*, and added: *"If the band moves a lot, something other than the meter is wrong and
+this prediction is the thing that says so."*
+
+**It moved +7.5%** (median 102.90 -> 110.62). So, as registered, something other than the meter:
+
+| | run 1 | run 2 |
+|---|---|---|
+| guard, before the reps (no engine, so system = foreign) | **10.4%** | **2.2%** |
+| system occupancy during the reps | 41.9-49.5% | 36.8-39.6% |
+| foreign occupancy during the reps | not measured; **~12.6 points implied** | **3.6-6.5%** |
+| median rate | 102.90 | **110.62** |
+| spread | 5.7% | **2.3%** |
+
+The engine's own share is `33.1` points (C2, run 2). Subtracting it from run 1's mean system
+occupancy of `45.7%` leaves **~12.6 points of foreign load** that run 1 carried and run 2 did
+not — my own tooling, plus run 1 having started minutes after a 35-minute sustained AVX2 soak
+(E51's speed phase) and immediately after its own planted control burned twelve cores.
+
+**Run 1's box was not quiet. Its guard said 10.4% and passed.**
+
+## C.3 What that does to the bar, and what it does NOT do
+
+Under `G-E44b2` run 1 would have read **~12.6% foreign, under the 15.0% bar, and FIRED** —
+producing a citable `102.90 tok/s` where run 2 produces a citable `110.62`. Two runs, the same
+gate, the same arm, **7.5% apart, both passing.**
+
+So the corrected *quantity* is right and the *bar on it is too loose*: across these two runs,
+roughly **0.85% of the rate per point of foreign occupancy**, over a 3.8 -> 12.6 point range.
+
+**That coefficient is not promoted to anything.** It rests on two runs whose foreign load is
+confounded with their thermal history, and E51 addendum A.4 has just shown this machine's level
+drifts with sustained load. It is a hypothesis with a number attached, not a calibration.
+
+What follows immediately, and does not need the coefficient:
+
+1. **Every band this gate produces must be quoted with the guard reading and the foreign median
+   beside it.** A rate that passed at 12.6% foreign and one that passed at 3.8% are not
+   comparable, and the gate as it stands says nothing about which you have.
+2. **The bar is owed a measurement, not an opinion.** Deliberately loading the box to a
+   sequence of foreign levels and reading the rate at each is one short experiment, and it
+   would replace `OCC_BAR = 15.0` — a constant chosen from E43's observed range — with a number
+   that knows what it buys. Lowering it now, on two points, would be choosing a threshold after
+   seeing which side my data fell on.
+3. Run 1 stays in `results/e44_interval_run1.json`, non-citable, as its own runner ruled.
+
+## C.4 Corroboration, unarranged
+
+E49's `avx4` fit is `ms/tok = 8.2468 + 0.008144·pos`. At mean position 150 that is **105.61
+tok/s**. This run reads **110.62**, `+4.7%` — inside the ±5% every absolute in this programme
+carries, from a fit built on entirely different windows in a different session.
+
+And the spread is the other result: **2.3% across five reps.** E43 measured 9-22% on what it
+called quiet boxes; E51's own speed phase saw 8-12% across a 35-minute run. At 3.8% foreign
+load and 58 seconds, this engine's rate disperses by **2.3%**. The dispersion this programme has
+been budgeting for is mostly *conditions*, not the engine.
+
+## C.5 Scorecard
+
+| B.6 prediction | outcome |
+|---|---|
+| C1 fires, foreign ≈ 100% on the loaded box | **RIGHT**, 100.0% |
+| C2 fires, system ≈ 45% / foreign ≈ 1-8%, separated by ~40 points | **RIGHT**, 36.8% / 3.8%, separation 33.1 |
+| `G-E44b2` FIRES | **RIGHT** |
+| the band within a few percent of 98-104 | **WRONG**, +7.5% — and C.2 is what the prediction was for |
+| spread 4-8% | **WRONG, low side**: 2.3%, better than predicted |
+
+**3 right, 2 wrong.** Both wrong ones point at the same thing: run 1 was not measuring a quiet
+box, and the gate could not tell.
