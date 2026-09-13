@@ -4772,3 +4772,23 @@ worth recording and is not a new quality finding.
 The rates themselves are untouched by this correction: E17 §7 states that nothing in it was
 timed and that its decode rates are "explicitly not quotable". **§56 remains the first and only
 place in this ledger where a trained model has a rate with an interval.**
+
+### 56.6 The quality column's continuous partner, and what it means for the rates
+
+E1 already held the BPB for all six artifacts on one slice (`R3`, `fold=none`, engine vs
+PyTorch to 1.5e-05). Against a chance line of **4.069819**:
+
+| arm | rate p25 | BPB | vs chance |
+|---|---|---|---|
+| `05b_f32` | 19.09 | 0.871810 | −3.198 |
+| `05b_tq` | 43.69 | **4.509164** | **+0.439 ABOVE** |
+| `05b_tqh` | 83.41 | **4.531234** | **+0.461 ABOVE** |
+| `15b_f32` | 6.25 | 0.702319 | −3.368 |
+| `15b_tq` | 19.15 | 3.484253 | −0.586 |
+| `15b_tqh` | 29.18 | 3.475707 | −0.594 |
+
+**The two fastest rates this ledger carries for a trained model belong to models that score
+worse than guessing.** 83.41 and 43.69 tok/s are real rates of a real artifact and they are
+rates of a **non-model**; they may be quoted only with `+0.44` and `+0.46 BPB above chance` in
+the same sentence. This is the strictest form of the byte-convention law: **a rate is a
+statement about an object, and naming the object is part of the number.**
