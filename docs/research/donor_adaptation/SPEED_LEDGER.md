@@ -4691,3 +4691,68 @@ enough to change what this ledger says:
   the occupancy filter and the drift. No number.
 * `112.73` keeps §53's correction.
 * Nothing from E52 or from E53's speed fit.
+
+---
+
+## §56 — E57: the first speed numbers this ledger has ever carried for a TRAINED model
+
+Every rate in §1–§55 was measured on `e40_r128.bin` or on a donor artifact scored for *parity*,
+never for *rate*. E57 measured six real trained Qwen2.5 arms, 15 replicated cells each at
+`--bench 160`, 90 cells in 14.4 minutes, quality scored in the same run.
+
+| arm | weights | p25 | bootstrap 95% CI on p25 | median | IQR | HF greedy |
+|---|---|---|---|---|---|---|
+| `05b_f32` | trained, fp32 | **19.09** | [18.55, 19.47] | 19.47 | 2.29% | **160/160** |
+| `05b_tq` | trained, ternary body | 43.69 | [42.44, 44.13] | 44.13 | 1.20% | 3/160 |
+| `05b_tqh` | trained, ternary + head | **83.41** | [82.37, 84.91] | 84.88 | 2.62% | 3/160 |
+| `15b_f32` | trained, fp32 | **6.25** | [6.02, 6.28] | 6.27 | 0.56% | **160/160** |
+| `15b_tq` | trained, ternary body | 19.15 | [18.75, 19.23] | 19.19 | 1.35% | 12/160 |
+| `15b_tqh` | trained, ternary + head | 29.18 | [28.85, 30.03] | 30.03 | 3.58% | 10/160 |
+
+### 56.1 What this ledger may quote from it
+
+* **`19.09 tok/s` (p25) / `19.47` (median) — the fastest rate at which a trained LLM has been
+  shown to emit HuggingFace's exact greedy tokens on this runtime.** It carries a quality proof,
+  which no other rate in this ledger does.
+* **`6.25 tok/s` at 1.5B, same standard.**
+* The four ternary rates **as rates**, always with their match count in the same row. They are
+  not rates *of a working model* and must never be quoted without `3/160`, `3/160`, `12/160`,
+  `10/160` attached.
+* The single-cell probes of §2 of the brief reproduce to within 2.7% at 15 cells, so this
+  ledger's older habit of quoting one cell was **not** producing wrong central values — it was
+  producing values with no interval.
+
+### 56.2 What it may NOT quote
+
+* **No `G-E55a2` verdict from this run.** The gate is malformed (addendum A.5: P(PASS) is
+  22–28% at `k=15` regardless of the true dispersion, because the relative sampling error of an
+  IQR estimator is scale-free). The interquartile widths above are reported as **data**, and the
+  bootstrap intervals beside them likewise — neither passed a gate, because the programme
+  currently has no working interval gate.
+* **No clean-cell analysis.** Four of six arms had fewer than six cells clearing `OCC_BAR` and
+  fell back to the all-cell set; `15b_f32` cleared **0 of 15** on an idle box. See 56.3.
+
+### 56.3 `OCC_BAR` is biased against the memory-bound arm, measured
+
+| arm | cells clearing 4.39 | median foreign | median clock | rate |
+|---|---|---|---|---|
+| `15b_f32` | **0 of 15** | 7.20% | 107.0% | 6.27 |
+| `05b_f32` | 1 of 15 | 6.19% | 107.0% | 19.47 |
+| `15b_tq` | 3 of 15 | 4.85% | 104.9% | 19.19 |
+| `05b_tq` | 4 of 15 | 5.14% | 105.6% | 44.13 |
+| `05b_tqh` | 8 of 15 | 4.17% | 104.2% | 84.88 |
+| `15b_tqh` | 10 of 15 | 3.96% | 103.7% | 30.03 |
+
+**Pearson `r`(rate, foreign) = −0.651.** Nothing else was running. E55 A.3 inferred from a floor
+that `foreign = system − child` counts kernel work done on behalf of the engine; **E57 measures
+it as a gradient**, because here the memory traffic differs 8.6× between arms on the same idle
+box. Until E56 re-derives the zero point, **applying `OCC_BAR` is a selection on the axis being
+measured** and this ledger will not accept a clean-cell-only number.
+
+### 56.4 The sentence this ledger now leads with
+
+`110.62 tok/s` (§54.5) and E55's `118.47 / 98.77 / 79.14 / 49.57` remain the fastest numbers
+here and remain **synthetic weights, ternary, `--carve-k 3`**. E57 measured what the first of
+those two treatments does to a trained model: **it diverges at the first token.** So the ledger's
+fast numbers and its faithful numbers describe different objects, and the gap between them —
+**19.09 against 50** — is the whole remaining problem, and it is a **training** problem.
