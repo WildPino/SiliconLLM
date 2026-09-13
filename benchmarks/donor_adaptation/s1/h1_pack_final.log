@@ -1,0 +1,19 @@
+  running h1_selftest.py ...
+  self-test  ALL CHECKS FIRE  (T1-T8, including --resume and G-H1a's two forms)
+  G-H1d  FIRES  (applied-8L 1.096636 > ternary-8L 0.947851, delta +0.148785)
+  router setting from addendum D.3: --router-lr 0.0003 --aux 0.01   (2 of 8 layers, SHORTFALL recorded)
+  null control  experts +0.000000000000  router +0.000000000000  gate-form +0.801377  -> FIRES
+     gate-form +0.801377 is the price of the SOFT gate with zero training.
+     Addendum F: that is why G-H1 is scored HARD -- engine.c runs the hard gate
+     and applied-8L is hard, so a soft score would charge H1 that much before
+     training counted.  The term stays as the train/eval mismatch.
+  streams  heldout a1a48dc9fc5a (51870 bytes)  calib c5509846cdc3 -- disjoint
+  + h1_qat.py               0.0 MB
+  + h0_trained3.npz       353.0 MB
+  + labels_E256.npz         0.9 MB
+  + h1_actstats.npz         1.2 MB
+  + h1_train.npz           64.0 MB
+  + h1_heldout.npz          0.1 MB
+  + h1_calib.npz            0.1 MB
+
+  bundle D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\s1\_h1_bundle   419.3 MB total

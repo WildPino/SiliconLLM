@@ -157,6 +157,25 @@ session wrote, whatever its printed number says.
 **The gate is NOT decided on the GPU.** `h1_eval.py` re-measures it on the CPU box in fp32 with
 the instrument every published number in this programme used.
 
+## What the first 30 seconds should print, and what to ignore
+
+```
+   G-H1a  k=E identical, HARD gate, any router : FIRES  (max |diff| 0.000e+00)
+   G-H1a  k=E identical, SOFT gate, router=0   : FIRES  (max |diff| 0.000e+00)
+   carve actually masks at k=16                : FIRES
+```
+
+**Both `G-H1a` lines, every time — session 2 included.** There are two of them because at
+`k = E` the gates are exactly 1 under the hard gate for *any* router, but under the soft gate
+*only* at a zero router. Session 2 resumes a **trained** router, so asking the soft form alone
+aborts a perfectly good run; that is exactly what happened on the CPU smoke and it is fixed
+(addendum I). If either line says FAILS, stop and report it — do not re-run hoping it passes.
+
+Torch will print `use_cache=True is incompatible with gradient checkpointing` and
+`None of the inputs have requires_grad=True`. **Both are benign.** The second comes from the
+*eval* pass (checkpointing under `no_grad`); training is unaffected, and `G-H1c` proves it a few
+lines later by reporting that masters moved at both depth extremes, `L03.gate` and `L24.down`.
+
 ## The gate, fixed before the run
 
 | | held-out BPB, CPU fp32, frozen 24x512 slice |
@@ -167,7 +186,7 @@ the instrument every published number in this programme used.
 | **`applied-8L` — the matched post-hoc control, HARD gate** | **1.096636** |
 | **`G-H1` passes iff trained-8L, HARD gate** | **< 1.096636** |
 
-Ordinal, no tolerance. **The gate is scored with the HARD `{0,1}` gate** — the one `engine.c`
+Ordinal, no tolerance. **The gate is scored with the HARD `{{0,1}}` gate** — the one `engine.c`
 runs and the one the control uses (addendum F). Training itself stays on the soft gate, because
 a hard gate has no gradient to the router; the run prints **both** numbers so the gap is
 visible while it is in flight. On an untrained bundle that gap is **+0.80 BPB**, so do not be
@@ -176,10 +195,18 @@ alarmed by a large soft number — watch the hard one. The bands below it are `T
 
 ## What is already known to be against us, stated before the hours are spent
 
-The CPU router smoke (11.7 h, all 8 layers, addendum E) shipped `--router-lr {rlr} --aux {aux}`
-**with a stated shortfall**: it beats a STATIC selection on **2 of 8 layers**, and in total
-error mass it is **2.27% worse** than STATIC. `G-H1e` is therefore **expected to fail**, and
-that expectation is registered. It does not block H1, because H1's primary gate is `G-H1` — the
+The CPU router smoke shipped `--router-lr {rlr} --aux {aux}` **with a stated shortfall**: it
+beats a STATIC selection on **2 of 8 layers** (`[3, 24]`), and in total error mass it is
+**2.67% worse** than STATIC. `G-H1e` is therefore **expected to fail**, and that expectation is
+registered in addendum H.
+
+Read the second sentence of that paragraph carefully, because the first version of this smoke
+was wrong. It ran 11.7 h with the trained arm on the **soft** gate against a **hard** STATIC
+control, and addenda D and E's whole table was retired for it (addendum G). The grid was re-run
+correctly in **1.26 h** — the experts are frozen, so their quantisation is a constant and
+caching it is 30x and bit-exact — over the **full** 12-setting grid, with no narrowing. The
+corrected table ships the **same** setting, on the **same** two layers, and **0 of 96 cells**
+changed their verdict (addendum H). The numbers above are the corrected ones. It does not block H1, because H1's primary gate is `G-H1` — the
 experts — and the smoke is a frozen-expert proxy that is structurally blind to the one thing
 joint training changes: which experts receive gradient.
 
@@ -216,7 +243,7 @@ def main():
         log("REFUSING TO PACK: the self-test FAILED.")
         log(r.stdout[-2000:])
         return 2
-    log("  self-test  ALL CHECKS FIRE  (T1-T7, including --resume)")
+    log("  self-test  ALL CHECKS FIRE  (T1-T8, including --resume and G-H1a's two forms)")
 
     # ---- 2. the threshold ------------------------------------------------------------------
     if not os.path.exists(appj):
@@ -328,8 +355,8 @@ def main():
                                   "chosen_by": "addendum D.3, h1_router_select.py",
                                   "layers_won": sel["layers_won"],
                                   "rule4_shortfall": sel.get("rule4_shortfall"),
-                                  "G_H1e_expected": "FAIL (addendum E, registered)"},
-               "gates_fired": {"selftest_T1_T7": True,
+                                  "G_H1e_expected": "FAIL -- re-registered in addendum H on the CORRECTED grid; addendum E's version was withdrawn in G as derived from a gate-confounded table"},
+               "gates_fired": {"selftest_T1_T8": True,
                                "G_H1d": True, "G_H1a_real_shape": True,
                                "null_control_decomposition": os.path.exists(nulj)},
                "gate_form_price_soft_vs_hard": (
