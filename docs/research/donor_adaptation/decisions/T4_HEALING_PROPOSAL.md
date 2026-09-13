@@ -732,3 +732,47 @@ those ratios to E58's measured rates, `15b_tqh` reads **35.9–40.1 tok/s = 72�
   engine work, and it is the same answer §13.4 gave.
 
 **Still not requested. H1 remains the only open ask.**
+
+### 13.6 APPENDED 2026-09-13 after E59 — `H2T` should heal against the ACTIVATION quantiser too, and it costs no extra hours
+
+**This is the only change E59 makes to the ask, and it changes what the same sessions optimise,
+not how many there are.**
+
+§13.5 said the demonstration's honest range widens to ~29.5–40 tok/s "depending on a kernel choice
+that is not free", and owed the measurement. `probes/E59_THE_FAST_KERNEL_DOES_NOT_SURVIVE.md` took
+it, on the trained artifacts:
+
+| `qwen25-15b_tqh` | speed | greedy agreement with the packed path, same bytes |
+|---|---|---|
+| `PACKED` | 28.87 tok/s | — |
+| `--lutblk` | **38.48** (×1.333, intervals separated) | **55/160 = 34.4%** |
+| `--lutblk --lut-group 32` | 38.38 (×1.329) | **92/160 = 57.5%** |
+
+**So the ×1.33 is real and it is currently unusable on anything that works.** A model healed to be
+right would be served by a kernel that changes 42–66% of its tokens.
+
+**But every one of those numbers is int8 activations applied POST HOC to a model that never saw
+them — and post-hoc is the exact thing this programme keeps measuring as fatal and training as
+survivable.** Ternary weights post-hoc: 3/160 (E1/E17/E57). The same organs *trained*: H0 removed
+**97.9%** of the damage in half a schedule. E18 §8: *"the model must be trained into the format
+rather than converted into it."* **The activation quantiser is a format, and nothing has ever been
+trained into it.**
+
+**The change to `H2T`:**
+
+> Heal the ternary body at 1.5 B **with a fake-quant of the layer inputs in the forward pass**,
+> matching what `--lut` actually does: per-group amax to int8 at `AQ = 63`, **group 32**
+> (`donor_engine.c:1531` requires an even group; `--lut-group 32` is the arm E59 measured as the
+> Pareto point). STE through it, exactly as `s1/h0_qat.py` already does through the weight
+> quantizer.
+
+| | |
+|---|---|
+| **cost** | **zero extra GPU hours** — same 2 × 2.8 h, same data, same optimiser; one extra fake-quant in the forward |
+| **engineering** | small: the STE machinery exists; the activation quantiser is a per-group amax, and E59 fixes its parameters (`AQ=63`, `G=32`) rather than leaving them to be chosen |
+| **what it buys if it works** | the healed 1.5 B is served at the **measured 38.48 tok/s = 77% of the good bar**, not 28.87 = 58% |
+| **what a null means** | the activation quantiser is *not* learnable at this budget, the LUT lever is closed for faithful models for good, and E58's packed ceiling is final. **That is worth knowing and costs nothing to find out** |
+| **risk to `H2T` itself** | it makes the healing problem harder (two quantisers instead of one). **Mitigation: the run reports BPB and free-running for the weight-only objective as well**, so a `H2T` that succeeds on weights and fails on activations is still a success on its own terms |
+
+**Still not requested. H1 remains the only open ask**, and this is written down now so the next
+one is specified before it is made rather than after.

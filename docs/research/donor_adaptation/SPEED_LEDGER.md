@@ -4929,3 +4929,75 @@ references, packed interleaved as control.
 
 **The rule this adds to §57.5:** a scope that exists only in the table has not been stated. "The
 engine" is not a scope; "the engine on its default kernel" is.
+
+---
+
+## 58. E59 — the fast kernel is real (×1.253 / ×1.333 on TRAINED weights) and it changes 42–74% of the tokens
+
+`probes/E59_THE_FAST_KERNEL_DOES_NOT_SURVIVE.md`, verdict **`FAST-AND-LOSSY`**. Pre-registered and
+pushed (`c8aa28a`) before the runner existed. Closes E13 §8 item 2, open since 2026-09-07.
+`donor_engine_e53.exe`, `--threads 6 --bench 160`, k = 9, arms **interleaved in one sweep**,
+discarded warm-up per arm.
+
+### 58.1 Speed — §57.6's correction, now measured instead of transferred
+
+| artifact | `PACKED` | `--lutblk` | `--lutblk --lut-group 32` | ratio | intervals |
+|---|---|---|---|---|---|
+| `qwen25-05b_tqh` | 85.32 tok/s | **106.88** | 105.44 | **×1.253** | **SEPARATED** |
+| `qwen25-15b_tqh` | 28.87 tok/s | **38.48** | 38.38 | **×1.333** | **SEPARATED** |
+
+Bootstrap 95%: packed [84.43, 86.37] and [28.63, 29.41]; `lutblk` [105.70, 107.71] and
+[34.56, 39.20]. IQR 0.95–2.21%. **This reproduces E13 §5 on different weights** (×1.217 at 0.5 B,
+×1.358 on Coder-7B) and confirms §57.6's ratio transfer by direct measurement.
+
+**Contamination, reported not cleaned:** the `15b_tqh` `lutblk` cells sat at **7.14%** foreign
+occupancy against `OCC_BAR = 4.39`, `lutblk32` at 5.42%, packed at 3.60%. **The load is on the
+treatment, so it biases the ratio DOWN** — at E52's `k = 0.262%/point` the 3.54-point excess is
+~0.93%, corrected ratio ~**×1.345**. The wide `[34.56, 39.20]` interval comes from those cells;
+the gate reads the *separation*, not the width.
+
+### 58.2 Fidelity — the price, and it is larger than E14's anchor
+
+Greedy, 5 prompts × 32 new tokens, **paired against the packed path on the same bytes**:
+
+| artifact | `--lutblk` | `--lutblk --lut-group 32` |
+|---|---|---|
+| `05b_tqh` | **41/160 = 25.6%** agreement | **67/160 = 41.9%** |
+| `15b_tqh` | **55/160 = 34.4%** | **92/160 = 57.5%** |
+
+`--lut` and `--lutblk` came back **160/160 identical** on both artifacts — E13's `G-M0` sha256
+identity reproduced on trained weights through a different instrument. The LUT arms diverge at
+**token 0** on 8 of their 10 prompts.
+
+**`--lut-group 32` is a Pareto point nobody had measured:** it costs **1.4% / 0.3% of speed** and
+buys **+16.3 / +23.1 points of agreement**. E11 had the activation-error half (1.40e-01 rel-L2
+whole-vector against 3.10e-02 at G=32) and E14 the BPB half; the token-level consequence *with the
+speed beside it* is new. **If this kernel is ever used it is used at group-32.**
+
+### 58.3 What this ledger may and may not quote
+
+* **May:** ×1.253 / ×1.333 **only with the agreement figure attached** (E13 §7's law, and
+  `G-E59d`). On a **broken** artifact the ratio is free and worth nothing — a faster wrong answer.
+* **May not:** any statement that the engine now serves a faithful trained model faster.
+  **§58.2 is why E58's packed ceiling still governs the case that matters**, reached by a different
+  road than E58 took and for a reason E58 did not know.
+* **New number for the goal, conditional and labelled:** a healed 1.5 B **healed against the
+  activation quantiser too** would be served at the **measured 38.48 tok/s = 77% of the good bar**.
+  Nothing has ever been trained into that quantiser; see `decisions/T4_HEALING_PROPOSAL.md` §13.6.
+
+### 58.4 The methodological result, which outranks the rates
+
+Scoring the LUT arms against **HuggingFace** — the obvious fidelity test — reads 3/160 → 3/160 →
+**4/160** and 10/160 → 5/160 → **10/160**, i.e. *"the kernel costs nothing and group-32 is an
+improvement."* **Both readings are false by 42–74 percentage points.** The counter cannot move
+because packed is already wrong almost everywhere.
+
+> **A fidelity gate must be measured against a reference the treatment can still move.** State the
+> control arm's current reading first and ask how far the counter can travel *in the failing
+> direction*; if the answer is "a few counts", the gate is on its floor and will PASS a treatment
+> that destroys the model. Pair it with a **paired** comparison against the untreated arm, whose
+> range is the full 0–100%.
+
+This is `feedback_gate_is_not_a_progress_meter` **inverted** — that law covers a counter at its
+*ceiling* (H0's `tf` 115/160); E59 is the floor case, and it is the more dangerous half because the
+failing direction is the one a gate exists to catch.
