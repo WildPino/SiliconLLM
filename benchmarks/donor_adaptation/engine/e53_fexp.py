@@ -73,6 +73,16 @@ DRIFT_TOL  = 2.3                # E52's G-E52b constant, and E44 run 2's measure
 DRIFT_WINDOW = 160
 OCC_BAR    = E44.OCC_BAR        # 4.39, derived by G-E52d
 
+# ---- attribution (reported, not gated) -------------------------------------------
+# Section 4 said a "silurep probe".  None was built: the engine ALREADY times the
+# SwiGLU glue directly as the organ `glue(silu)` under --profile (donor_engine.c:61,
+# :1627), so a repetition probe would be a second, weaker instrument measuring what a
+# direct timer already measures.  The attention side keeps E51's smrep difference,
+# because there is no direct timer for the softmax pass alone.
+ATTRIB_WINDOW = 1280
+ATTRIB_REPS = 3
+RE_GLUE = re.compile(r"^\s+glue\(silu\)\s+([\d.]+)", re.M)
+
 
 def log(m):
     sys.stdout.write(m + "\n")
@@ -440,10 +450,67 @@ def phase_d(out):
                      "breached": breached, "occ_bar": OCC_BAR, "reps": REPS}
 
 
+def profile_once(arm, attnr):
+    txt, _ = E51.run([E53, "--weights", R128, "--threads", str(THREADS)] + R128_FLAGS
+                     + ["--fexp", arm, "--profile", "--attnr", attnr,
+                        "--bench", str(ATTRIB_WINDOW)], "profile")
+    organs = {}
+    for m in E51.RE_ORGAN.finditer(txt):
+        organs[m.group(1)] = float(m.group(2))
+    g = RE_GLUE.search(txt)
+    tot = E44.RE_BENCH.search(txt)
+    return organs, (float(g.group(1)) if g else float("nan")), 1000.0 / float(tot.group(3))
+
+
+def phase_attrib(out):
+    log("== attribution -- WHICH site paid.  Reported, not gated (brief section 4). ==")
+    log("  attention: S = attention(sm2) - attention(sm1), E51's difference probe.")
+    log("  FFN:       glue(silu), timed directly by the engine.  No new probe was built;")
+    log("             section 4's `silurep` would be a weaker instrument for the same thing.")
+    log("")
+    rec = {}
+    for arm in ("libm", "poly"):
+        s_vals, glue_vals, tot_vals = [], [], []
+        for rep in range(ATTRIB_REPS):
+            o1, g1, _ = profile_once(arm, "sm1")
+            o2, _, t2 = profile_once(arm, "sm2")
+            s = o2.get("attention", 0.0) - o1.get("attention", 0.0)
+            s_vals.append(s)
+            glue_vals.append(g1)
+            tot_vals.append(t2)
+            log("    %-4s rep %d/%d   S = %.4f ms   glue(silu) = %.4f ms"
+                % (arm, rep + 1, ATTRIB_REPS, s, g1))
+        o0, g0, t0 = profile_once(arm, "none")
+        rec[arm] = {"S": statistics.median(s_vals), "S_all": s_vals,
+                    "glue": statistics.median(glue_vals), "glue_all": glue_vals,
+                    "glue_none": g0, "total_ms": t0,
+                    "S_spread": 100.0 * (max(s_vals) - min(s_vals)) / statistics.median(s_vals)
+                    if statistics.median(s_vals) else float("nan"),
+                    "glue_spread": 100.0 * (max(glue_vals) - min(glue_vals))
+                    / statistics.median(glue_vals) if statistics.median(glue_vals) else float("nan")}
+        log("    %-4s  S %.4f ms (spread %.1f%%)   glue %.4f ms (spread %.1f%%)   token %.4f ms"
+            % (arm, rec[arm]["S"], rec[arm]["S_spread"], rec[arm]["glue"],
+               rec[arm]["glue_spread"], t0))
+    log("")
+    dS = rec["poly"]["S"] - rec["libm"]["S"]
+    dG = rec["poly"]["glue"] - rec["libm"]["glue"]
+    log("  attention softmax S : %.4f -> %.4f ms   (%+.4f, %+.1f%%)"
+        % (rec["libm"]["S"], rec["poly"]["S"], dS,
+           100.0 * dS / rec["libm"]["S"] if rec["libm"]["S"] else float("nan")))
+    log("  FFN glue(silu)      : %.4f -> %.4f ms   (%+.4f, %+.1f%%)"
+        % (rec["libm"]["glue"], rec["poly"]["glue"], dG,
+           100.0 * dG / rec["libm"]["glue"] if rec["libm"]["glue"] else float("nan")))
+    log("  Neither number carries a verdict.  A difference read on an arm whose reps")
+    log("  disperse more than the difference is not a measurement -- the spreads are above.")
+    log("")
+    out["attrib"] = {"window": ATTRIB_WINDOW, "reps": ATTRIB_REPS, "arms": rec,
+                     "dS": dS, "dGlue": dG}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--selftest", action="store_true")
-    ap.add_argument("--phase", default=None, choices=["c0", "c1", "c2", "d"])
+    ap.add_argument("--phase", default=None, choices=["c0", "c1", "c2", "d", "attrib"])
     a = ap.parse_args()
 
     log("E53 -- a real exponential instead of a libm call")
@@ -460,7 +527,7 @@ def main():
     out = {"brief": "BRIEF_E53_A_REAL_EXPONENTIAL_INSTEAD_OF_A_LIBM_CALL.md",
            "base": BASE, "e53": E53, "threads": THREADS, "windows": WINDOWS, "reps": REPS}
 
-    phases = [a.phase] if a.phase else ["c0", "c1", "c2", "d"]
+    phases = [a.phase] if a.phase else ["c0", "c1", "c2", "d", "attrib"]
     for ph in phases:
         if ph == "c0":
             if not phase_c0(out) and not a.phase:
@@ -477,6 +544,8 @@ def main():
                                  "  No speed is measured.  STOP.")
         elif ph == "d":
             phase_d(out)
+        elif ph == "attrib":
+            phase_attrib(out)
         json.dump(out, open(OUT, "w"), indent=1)
     log("wrote " + OUT)
 

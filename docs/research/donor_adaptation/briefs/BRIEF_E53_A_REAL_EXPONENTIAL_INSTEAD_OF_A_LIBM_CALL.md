@@ -274,3 +274,20 @@ recorded and **not citable**. This is the first experiment to run under the deri
 `e53_fexp.py`, **19 of 19 self-tests fire**, including three that plant a *dead control* (a
 parity control that does not separate, a greedy control that matches, a one-window fit) and one
 that checks the fit recovers a planted slope and intercept exactly.
+
+## A.8 The attribution instrument, changed before it runs
+
+§4 promised the site attribution would come from the `smrep` probe and *"a matching `silurep`
+probe"*. **No `silurep` probe was built, and none should be.** The engine already times the
+SwiGLU glue directly, as the organ `glue(silu)` (`donor_engine.c:61`, printed at `:1627`). A
+repetition probe would be a second and strictly weaker instrument measuring what a direct timer
+already measures — weaker because it infers a cost from a difference of two runs rather than
+reading it, and E51 showed exactly how that inference dies when the two runs drift apart.
+
+So: **the FFN site is read from `glue(silu)` directly; the attention site keeps E51's `sm2−sm1`
+difference**, because there is no direct timer for the softmax pass alone. The two sides are
+therefore measured by instruments of different strength, and the weaker one is named as such
+wherever its number appears.
+
+Both are **reported with their own dispersion and carry no verdict** — §4 already said
+attribution is reported, not gated, and E14 §6 forbids promoting it afterwards.
