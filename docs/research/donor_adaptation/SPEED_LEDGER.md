@@ -4792,3 +4792,32 @@ worse than guessing.** 83.41 and 43.69 tok/s are real rates of a real artifact a
 rates of a **non-model**; they may be quoted only with `+0.44` and `+0.46 BPB above chance` in
 the same sentence. This is the strictest form of the byte-convention law: **a rate is a
 statement about an object, and naming the object is part of the number.**
+
+### 56.7 Where each trained arm sits against the wall (E57 addendum D, derivation)
+
+Moved bytes per token — **not** file size: `tqh` unties the embedding from the head, so its fp32
+embedding is gathered, never streamed, and charging it reads 67 GB/s on a 44 GB/s box. The
+tie/untie inference is reconstructed from E1's ternary code counts and closes to <0.3% on every
+artifact.
+
+| arm | moved MB/token | tok/s | **GB/s** | |
+|---|---|---|---|---|
+| `05b_f32` | 1976.1 | 19.47 | **38.5** | **at the wall** |
+| `15b_f32` | 6174.9 | 6.27 | **38.7** | **at the wall** |
+| `05b_tq` | 725.0 | 44.13 | 32.0 | near it |
+| `15b_tq` | 1591.8 | 19.19 | 30.5 | near it |
+| `15b_tqh` | 775.6 | 30.03 | 23.3 | 1.59× to the 37.0 floor |
+| `05b_tqh` | 249.1 | 84.88 | 21.1 | 1.75× to the 37.0 floor |
+
+**The two fp32 arms differ 3.13× in size and agree to 0.62%** — an unarranged check on the
+bytes-per-token model, tighter than the ±5% every absolute rate here carries.
+
+**Bounds disagree and are reported disagreeing:** E30 measured this box at **36.30 GB/s**; §1
+registers DRAM aggregate **40–44** and a proj-GEMV streamed floor of **37.0**. The fp32 arms sit
+between them. The multipliers above use 37.0, the conservative choice for that purpose.
+
+**What this ledger takes from it:** *no kernel work can move a faithful trained arm on this
+machine* — 19.09 tok/s at 0.5B is a bandwidth fact, not an engineering one — and *the
+1.16–1.75× that remains is on the ternary path only*, where it transfers to any healed artifact
+with the same byte count. A healed 1.5B at `15b_tqh`'s byte count at the streamed floor reads
+**47.71 tok/s**.
