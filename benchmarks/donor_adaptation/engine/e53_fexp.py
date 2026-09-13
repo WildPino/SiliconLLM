@@ -380,7 +380,8 @@ def one_bench(engine, flags, n):
 
 def phase_d(out):
     log("== G-E53d -- the speed, interleaved and rotated, under OCC_BAR = %.2f (E52) ==" % OCC_BAR)
-    log("  %d windows x %d reps x 2 arms.  The ARM ORDER alternates each repetition so arm")
+    log("  %d windows x %d reps x 2 arms.  The ARM ORDER alternates each repetition so arm"
+        % (len(WINDOWS), REPS))
     log("  and time are not the same axis -- E51 A.4 is why, E52 is the design that worked.")
     log("")
 
@@ -510,7 +511,8 @@ def phase_attrib(out):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--selftest", action="store_true")
-    ap.add_argument("--phase", default=None, choices=["c0", "c1", "c2", "d", "attrib"])
+    ap.add_argument("--phase", default=None,
+                    help="comma-separated subset of c0,c1,c2,d,attrib (default: all, in order)")
     a = ap.parse_args()
 
     log("E53 -- a real exponential instead of a libm call")
@@ -524,10 +526,23 @@ def main():
 
     if not os.path.isdir(os.path.dirname(OUT)):
         os.makedirs(os.path.dirname(OUT))
-    out = {"brief": "BRIEF_E53_A_REAL_EXPONENTIAL_INSTEAD_OF_A_LIBM_CALL.md",
-           "base": BASE, "e53": E53, "threads": THREADS, "windows": WINDOWS, "reps": REPS}
+    # MERGE, never overwrite: phases are run in separate invocations so that a bug in a
+    # later one cannot cost an earlier one's cells.  E50 B.8's habit.
+    out = {}
+    if os.path.exists(OUT):
+        try:
+            out = json.load(open(OUT))
+        except Exception:
+            out = {}
+    out.update({"brief": "BRIEF_E53_A_REAL_EXPONENTIAL_INSTEAD_OF_A_LIBM_CALL.md",
+                "base": BASE, "e53": E53, "threads": THREADS,
+                "windows": WINDOWS, "reps": REPS})
 
-    phases = [a.phase] if a.phase else ["c0", "c1", "c2", "d", "attrib"]
+    allp = ["c0", "c1", "c2", "d", "attrib"]
+    phases = [x.strip() for x in a.phase.split(",")] if a.phase else allp
+    for ph in phases:
+        if ph not in allp:
+            raise SystemExit("unknown phase %r; choose from %s" % (ph, allp))
     for ph in phases:
         if ph == "c0":
             if not phase_c0(out) and not a.phase:
