@@ -293,3 +293,44 @@ is live here.** The next binder below 145.6 GB/s may again not be memory.
    `benchmarks/phase60/engine.c` is worth porting (E60 §7 item 6).
 5. Channel-granularity mixed precision: 1% of weights at 8 bits costs +1% of bytes (E60 §7 item 7).
 6. `G-E55a2`'s replacement interval gate; E56's `OCC_BAR` zero point; E42's void control.
+
+---
+
+## 10. VERDICT, 2026-09-14 — `THE-CHAIN-WAS-NOT-THE-BINDER`
+
+Full write-up: `probes/E61_THE_CHAIN_ON_THE_BYTE_THAT_WORKS.md`. Every gate in 6 ran; nothing was
+added to the gate set after the fact, and nothing in it was relaxed. Run 65.1 minutes, one binary.
+
+| gate | pass condition, fixed in 6 | result |
+|---|---|---|
+| G-E61a | sha256 byte-identical, both sizes | **FIRES** `1057025199fbe92d` / `1df3baeee7e9ec40` |
+| G-E61d | rel L2 <= 1.0e-05 | **ADMISSIBLE** 2.4222e-06 / 3.2506e-06 |
+| G-E61e0 | F32 twice = 100.000%, PACKED vs F32 < 50% | **BRACKETS** 12264/12264 and 281/12264 = 2.29% |
+| G-E61e | top-1 >= 99.0%, \|dBPB\| <= 0.0005 | **FAITHFUL** 100.0000% both, dBPB ~3e-09 |
+| **G-E61b** | **>= 1.10 or every null below is void** | **FIRES 1.2745** |
+| **G-E61c** | 0.97-1.05 null; >= 1.10 refutes the mechanism | **OUT-OF-BAND 1.0947** |
+| **G-E61f** | >= 1.12 confirms; <= 1.06 refutes | **REFUTED 1.0507 (05b) / UNDECIDED 1.0662 (15b)** |
+| G-E61g | descriptive | gap +0.68 -> +0.88 tok/s, against E60's +1.98 |
+
+**05b I8: 65.13 -> 68.52 tok/s. 15b I8: 20.61 -> 22.56.** The debt was worth ~5%, not the 19% 3.1
+derived.
+
+**Four things this brief got wrong, recorded rather than tidied away:**
+
+1. **3.2's discriminating observation was killed by this brief's own planted positive.** `PACKED`
+   sits at **90.5%** of its single-chain ceiling — the same place the int8 branch sits — and gained
+   27% where int8 gained 5%. "Fraction of its own chain ceiling" predicts nothing, and the table
+   that led 3 was arithmetic true of two kernels and explanatory of neither.
+2. **Prediction 5, again.** 1.12-1.22 predicted, 1.0507 measured. E8 predicted 1.5-1.7 and measured
+   1.349. **Two for two: the chain-latency derivation gets the direction right and the magnitude
+   wrong**, because removing a chain hands the kernel to whatever is next, not to the number the
+   derivation names. That belongs in the next brief that tries it.
+3. **3.3's alternative 3 won -- the one ranked last.** A 1 B/weight stream genuinely binds near
+   34-35 GB/s on this box. So 59.2 is **corrected upward (31.7-33.1 -> 34.0-34.9) and NOT
+   withdrawn**: E61 set out to undermine it and ended up load-bearing for it, because equalising
+   every kernel to four chains leaves the byte ladder's shape, ordering and verdict intact.
+4. **The null control went out of band at 1.0947, missing refutation of the mechanism by 0.0053**,
+   on an arm whose `m1` cells ran at **19.57% foreign, 9/9 over `OCC_BAR`** against 11.28% on `m4`.
+   The sweep was dirtier than E60's throughout. The headline survives (its own contamination was
+   asymmetric the other way, so 1.0507 is an overestimate), but `G-E61c` is **owed a repeat on an
+   idle box** and will not be re-run to a pass.

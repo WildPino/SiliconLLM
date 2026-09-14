@@ -5087,3 +5087,109 @@ shape, still unbuilt as a trained model.
 
 Conduct: foreign occupancy **3.70–9.72%** mean vs `OCC_BAR = 4.39`, worst cell **10.92%**, all on
 the treatment → readings conservative. Reported, not cleaned. Absolute rates ±5%; ratios not.
+
+
+---
+
+## §60 — E61: the chain was not the binder, and §59.2 survives the audit it invited
+
+`probes/E61_THE_CHAIN_ON_THE_BYTE_THAT_WORKS.md`, verdict **`THE-CHAIN-WAS-NOT-THE-BINDER`**.
+Pre-registered `ab2a537`, apparatus `f9fa2c0`, both pushed before the run. One binary
+(`donor_engine_e61.exe`), 9 reps, arms **and both `--mvacc` settings interleaved inside every
+rep**, 65.1 minutes.
+
+§59.2's priced corollary said the `quant==1` branch's single accumulator chain was worth **up to
+×1.19**. It is worth **×1.05**.
+
+### 60.1 The debt, paid
+
+| | `--mvacc 1` | `--mvacc 4` | paired median | paired 95% CI | registered verdict |
+|---|---|---|---|---|---|
+| `05b I8` | 65.13 | **68.52** | **1.0507** | 1.0482–1.0706 | **REFUTED** (floor 1.06) |
+| `15b I8` | 20.61 | **22.56** | **1.0662** | 0.9936–1.1768 | **UNDECIDED** |
+| `05b PACKED` (planted +) | 66.11 | 82.89 | **1.2745** | 1.1682–1.3573 | **FIRES** |
+| `05b F32` (planted null) | 17.28 | 19.05 | **1.0947** | 1.0041–1.1250 | **OUT-OF-BAND** |
+| `05b T1` (diagnostic) | 64.45 | 67.64 | 1.0667 | 1.0374–1.1518 | descriptive |
+
+Derived: ×1.12–1.22. At `05b` the effect is real (CI excludes 1.0) and **a fifth of the
+derivation**; at `15b` the paired CI straddles 1.0.
+
+### 60.2 Why the derivation failed, in one row of its own control
+
+| `05b`, m1 | achieved GB/s | its single-chain ceiling | fraction | gain from 4 chains |
+|---|---|---|---|---|
+| `PACKED` | 16.47 | 18.2 | **90.5%** | **×1.2745** |
+| `I8` | 32.29 | 36.4 | **88.7%** | **×1.0507** |
+
+**Two kernels at the same fraction of their own latency wall; one gains 27%, the other 5%.**
+The brief's discriminating table — *"the int8 branch runs at 87–91% of its wall, everything else
+under a third"* — is dead, killed by the arm it planted to prove the instrument worked.
+**Fraction-of-chain-ceiling predicts nothing.**
+
+### 60.3 §59.2, re-measured at matched kernel quality — CORRECTED UPWARD, NOT WITHDRAWN
+
+E61 existed partly because §59's byte ladder compared a **4-chain packed arm against a 1-chain
+int8 arm**. That criticism was correct and it changes the middle number by 6% and nothing else:
+
+| B/weight | arm | §59.2 (int8 at 1 chain) | **§60 (all at 4 chains)** |
+|---|---|---|---|
+| 4.0 | `05b F32` | 37.70 GB/s | **37.64** |
+| 1.0 | `05b I8` | 31.67 | **33.97** |
+| 1.0 | `15b I8` | 33.09 | **34.90** |
+| 0.5 | `05b PACKED` | 21.48 | **20.65** |
+
+**The three operative denominators on this box become 37.6–38.8 / 34.0–34.9 / 20.7–22.7 GB/s at
+4 / 1 / 0.5 B per weight.** The ordering, the shape and §59's verdict are unchanged: a finer
+weight stream genuinely uses this memory system worse, and it is not an artefact of unequal
+kernel quality. **The rule stands unaltered: no projection in this ledger may divide one format's
+byte count by another format's bandwidth.**
+
+### 60.4 What it moves on the goal
+
+| | §59 | **§60** |
+|---|---|---|
+| `05b` faithful arm | 63.87 tok/s | **68.52** |
+| `15b` faithful arm | 21.39 | **22.56** |
+| `I8 ÷ F32` at `05b` | ×3.35 | **×3.60** |
+| 10 B desk model at 1 B/weight (E36 `A10B-K3`, **noise weights**) | 34.1–35.6 tok/s, 68–71% of bar | **36.6–37.6, 73–75%** |
+| faithful-to-bar gap at 10 B | ×1.40 | **×1.33–1.37** |
+
+Unchanged: a **dense** 10 B at 1 B/weight still reads **3.40-3.49 tok/s** (10 GB/token at 34.0-34.9 GB/s), so on the goal's own shape int8
+remains strictly worse than ternary. Everything above depends on the 1.17%-active MoE shape,
+still unbuilt as a trained model.
+
+### 60.5 Gates
+
+- **`G-E61a` FIRES** (planted): `--mvacc 1` sha256-identical to `donor_engine_e60.exe` at both
+  scales — `1057025199fbe92d`, `1df3baeee7e9ec40`. Every §59 number reproduces on this binary.
+- **`G-E61b` FIRES 1.2745** (planted positive; E8 G-Z3 read 1.2301). The nulls under it count.
+- **`G-E61c` OUT-OF-BAND 1.0947** where E8 G-Z5 read 1.0029 — **0.0053 short of refuting the
+  mechanism outright**, on cells at **19.57% foreign, 9/9 over `OCC_BAR`** against 11.28% on the
+  paired arm. At E52's `k = 0.262%`/point that 8.29-point asymmetry buys ~2.2 of the 9.5 points.
+  **Owed a repeat on an idle box; it will not be re-run to a pass** (E40 addendum A).
+- **`G-E61d` ADMISSIBLE**: rel L2 2.4222e-06 / 3.2506e-06 against E8's unchanged ≤ 1.0e-05.
+- **`G-E61e0` BRACKETS** (planted, on the metric itself, because ~100% is a **ceiling**):
+  `F32` run A vs run B **12264/12264 = 100.000000%**; `PACKED` vs `F32` **281/12264 = 2.29%**.
+- **`G-E61e` FAITHFUL**: **100.0000% per-position top-1 over 12,264 positions** at both scales,
+  dBPB **+3.27e-09** / **−5.77e-09**. This is the metric §59.4 registered as `G-E60e`'s
+  replacement, now built (`--bpb --top1`, NATS bit-identical with the flag on or off).
+- **`G-E61g`**: E60's **1.98 tok/s** `I8`−`T1` value-dependence **did not replicate** — +0.68
+  (m1) → +0.88 (m4), on a `T1` arm spanning 8.5 tok/s. It did not close when the chain broke, so
+  the chain is ruled out as its cause, but **the question reopens**.
+- Incidental: `05b PACKED` BPB re-measured at **4.531246373** against E1's **4.531233734**,
+  **|d| = 1.26e-05** — the accumulated float-rounding of every summation-order change since E1
+  (E8's `mvacc=4`, E49/E50's attention kernel). **No attribution of shares is claimed.**
+
+Conduct: foreign occupancy **4.44–19.57%** mean against `OCC_BAR = 4.39`, **nine of ten
+cell-groups over the bar** — dirtier than §59's sweep throughout, and reported rather than
+cleaned. The `I8` cells were the cleanest and their `m1` was contended *more* than their `m4`, so
+**1.0507 is an overestimate** (~1.048 corrected) and REFUTED hardens. Absolute rates ±5%; the
+paired ratios do not carry that.
+
+### 60.6 The law this adds
+
+**A chain-latency derivation predicts a direction and has never predicted a magnitude.** E8:
+predicted 1.5–1.7, measured 1.349. E61: predicted 1.12–1.22, measured 1.0507. Both times the sign
+was right and both times removing the chain handed the kernel to *whatever was next* rather than
+to the number the derivation named. **0 for 2 on magnitude, 2 for 2 on direction** — to be quoted
+in the next brief that reaches for this arithmetic.

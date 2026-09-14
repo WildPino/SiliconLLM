@@ -1,0 +1,186 @@
+E61 -- the only kernel that works is the only kernel still running a single accumulator
+brief: BRIEF_E61_THE_CHAIN_ON_THE_BYTE_THAT_WORKS.md  (pre-registered, ab2a537)
+
+== self-test ==
+   self-test: 35/35 PASS
+
+== G-E61a -- PLANTED: --mvacc 1 must be BYTE-FOR-BYTE the pre-E61 loop ==
+   e61 --mvacc 1  vs  e60 (which had no --mvacc on this branch at all).
+   05b  I8   e61 m1 1057025199fbe92d
+        I8   e60    1057025199fbe92d   IDENTICAL
+   15b  I8   e61 m1 1df3baeee7e9ec40
+        I8   e60    1df3baeee7e9ec40   IDENTICAL
+   G-E61a : FIRES
+
+== G-E61d -- parity: rel L2 of --mvacc 4 against --mvacc 1, <= 1.0e-05 ==
+   05b  I8   rel L2 = 2.4222e-06
+   15b  I8   rel L2 = 3.2506e-06
+   G-E61d : ADMISSIBLE
+
+== G-E61e0 -- PLANTED, on the fidelity metric itself ==
+   ~100%% agreement is a CEILING; a counter on its ceiling cannot show damage either.
+   F32 twice must read 100.000%%; PACKED against F32 must read under 50%%.
+   05b F32  run A  BPB 0.871810466   (710 s)
+   05b F32  run B  BPB 0.871810466   (711 s)
+   05b PACKED     BPB 4.531246373   (205 s)
+   F32 vs F32      12264/12264 = 100.000000%
+   PACKED vs F32     281/12264 = 2.2913%
+        F32_a   vs E60's 0.871810466 -> |d| = 0.00e+00
+        F32_b   vs E60's 0.871810466 -> |d| = 0.00e+00
+        PACKED  vs E60's 4.531233734 -> |d| = 1.26e-05
+   G-E61e0 : BRACKETS
+
+== G-E61e -- per-position top-1 under teacher forcing, 12264 positions ==
+   I8 --mvacc 4 against I8 --mvacc 1.  Pass: >= 99.0%% and |dBPB| <= 0.0005.
+   05b  m1 BPB 0.871876884 (250 s)  (E60 m1: 0.871876884, |d| = 0.00e+00)
+        m4 BPB 0.871876887 (238 s)   dBPB = +0.000000003
+        top-1  12264/12264 = 100.0000%
+   15b  m1 BPB 0.768858838 (652 s)  (E60 m1: 0.768858838, |d| = 0.00e+00)
+        m4 BPB 0.768858832 (611 s)   dBPB = -0.000000006
+        top-1  12264/12264 = 100.0000%
+   G-E61e : FAITHFUL
+
+== G-E61b / G-E61c / G-E61f / G-E61g -- speed, 9 reps, --bench 160 ==
+   arms AND mvacc settings interleaved inside every rep, one binary, one sweep.
+
+-- 05b --
+   warm-up PACKED  m1 DISCARDED:   66.76 tok/s
+   warm-up PACKED  m4 DISCARDED:   86.04 tok/s
+   warm-up F32     m1 DISCARDED:   19.37 tok/s
+   warm-up F32     m4 DISCARDED:   18.27 tok/s
+   warm-up I8      m1 DISCARDED:   55.73 tok/s
+   warm-up I8      m4 DISCARDED:   60.86 tok/s
+   warm-up T1      m1 DISCARDED:   63.99 tok/s
+   warm-up T1      m4 DISCARDED:   67.50 tok/s
+   rep 1  PACKED  m1   66.96 tok/s  foreign  3.11%
+   rep 1  PACKED  m4   83.87 tok/s  foreign  3.51%
+   rep 1  F32     m1   18.59 tok/s  foreign 10.99%
+   rep 1  F32     m4   17.01 tok/s  foreign 24.96%
+   rep 1  I8      m1   64.28 tok/s  foreign  6.87%
+   rep 1  I8      m4   68.92 tok/s  foreign  3.84%
+   rep 1  T1      m1   65.20 tok/s  foreign  3.42%
+   rep 1  T1      m4   67.53 tok/s  foreign  8.18%
+   rep 2  PACKED  m1   67.39 tok/s  foreign  1.77%
+   rep 2  PACKED  m4   85.89 tok/s  foreign  3.38%
+   rep 2  F32     m1   18.27 tok/s  foreign 15.36%
+   rep 2  F32     m4   19.03 tok/s  foreign 11.04%
+   rep 2  I8      m1   65.60 tok/s  foreign  4.13%
+   rep 2  I8      m4   68.90 tok/s  foreign  3.25%
+   rep 2  T1      m1   64.45 tok/s  foreign  5.35%
+   rep 2  T1      m4   68.75 tok/s  foreign  6.16%
+   rep 3  PACKED  m1   67.07 tok/s  foreign  2.43%
+   rep 3  PACKED  m4   78.35 tok/s  foreign 13.59%
+   rep 3  F32     m1   17.11 tok/s  foreign 25.64%
+   rep 3  F32     m4   18.73 tok/s  foreign 14.47%
+   rep 3  I8      m1   65.37 tok/s  foreign  3.24%
+   rep 3  I8      m4   68.52 tok/s  foreign  4.34%
+   rep 3  T1      m1   65.41 tok/s  foreign  2.83%
+   rep 3  T1      m4   65.71 tok/s  foreign  8.52%
+   rep 4  PACKED  m1   67.16 tok/s  foreign  3.36%
+   rep 4  PACKED  m4   84.54 tok/s  foreign  6.59%
+   rep 4  F32     m1   17.15 tok/s  foreign 22.64%
+   rep 4  F32     m4   18.83 tok/s  foreign 14.24%
+   rep 4  I8      m1   63.77 tok/s  foreign  9.90%
+   rep 4  I8      m4   68.27 tok/s  foreign  5.22%
+   rep 4  T1      m1   65.12 tok/s  foreign  4.42%
+   rep 4  T1      m4   68.97 tok/s  foreign  5.76%
+   rep 5  PACKED  m1   60.91 tok/s  foreign 16.06%
+   rep 5  PACKED  m4   82.89 tok/s  foreign  8.48%
+   rep 5  F32     m1   16.84 tok/s  foreign 28.78%
+   rep 5  F32     m4   19.25 tok/s  foreign  7.21%
+   rep 5  I8      m1   65.13 tok/s  foreign  2.81%
+   rep 5  I8      m4   68.63 tok/s  foreign  4.35%
+   rep 5  T1      m1   59.65 tok/s  foreign 10.16%
+   rep 5  T1      m4   69.20 tok/s  foreign  2.91%
+   rep 6  PACKED  m1   66.11 tok/s  foreign  5.57%
+   rep 6  PACKED  m4   84.44 tok/s  foreign  7.65%
+   rep 6  F32     m1   17.27 tok/s  foreign 26.13%
+   rep 6  F32     m4   19.05 tok/s  foreign 10.32%
+   rep 6  I8      m1   64.95 tok/s  foreign  4.83%
+   rep 6  I8      m4   68.24 tok/s  foreign  5.29%
+   rep 6  T1      m1   65.20 tok/s  foreign  2.91%
+   rep 6  T1      m4   67.64 tok/s  foreign  6.11%
+   rep 7  PACKED  m1   60.90 tok/s  foreign 17.47%
+   rep 7  PACKED  m4   82.66 tok/s  foreign  7.67%
+   rep 7  F32     m1   17.28 tok/s  foreign 23.02%
+   rep 7  F32     m4   19.44 tok/s  foreign  6.09%
+   rep 7  I8      m1   65.41 tok/s  foreign  3.79%
+   rep 7  I8      m4   68.43 tok/s  foreign  4.75%
+   rep 7  T1      m1   59.82 tok/s  foreign 10.94%
+   rep 7  T1      m4   68.90 tok/s  foreign  4.41%
+   rep 8  PACKED  m1   65.28 tok/s  foreign 10.69%
+   rep 8  PACKED  m4   74.93 tok/s  foreign 33.91%
+   rep 8  F32     m1   18.15 tok/s  foreign 16.91%
+   rep 8  F32     m4   19.48 tok/s  foreign  5.95%
+   rep 8  I8      m1   65.40 tok/s  foreign  3.66%
+   rep 8  I8      m4   68.57 tok/s  foreign  4.44%
+   rep 8  T1      m1   57.61 tok/s  foreign 15.30%
+   rep 8  T1      m4   63.11 tok/s  foreign 14.63%
+   rep 9  PACKED  m1   59.29 tok/s  foreign 25.01%
+   rep 9  PACKED  m4   79.26 tok/s  foreign 14.89%
+   rep 9  F32     m1   19.33 tok/s  foreign  6.63%
+   rep 9  F32     m4   19.41 tok/s  foreign  7.23%
+   rep 9  I8      m1   60.23 tok/s  foreign 11.14%
+   rep 9  I8      m4   68.33 tok/s  foreign  4.44%
+   rep 9  T1      m1   56.90 tok/s  foreign 22.57%
+   rep 9  T1      m4   61.26 tok/s  foreign 25.88%
+
+   arm      mv    median      min..max             95% CI   foreign    >bar
+   PACKED    1     66.11  59.3..67.4     60.90..67.07        9.50%     5/9
+           E60 read 86.23 on this arm (different binary, +-5% between sweeps -- context, not a gate)
+   PACKED    4     82.89  74.9..85.9     78.35..84.54       11.07%     7/9
+   F32       1     17.28  16.8..19.3     17.11..18.27       19.57%     9/9
+           E60 read 19.08 on this arm (different binary, +-5% between sweeps -- context, not a gate)
+   F32       4     19.05  17.0..19.5     18.73..19.44       11.28%     9/9
+   I8        1     65.13  60.2..65.6     64.28..65.41        5.60%     4/9
+           E60 read 63.87 on this arm (different binary, +-5% between sweeps -- context, not a gate)
+   I8        4     68.52  68.2..68.9     68.27..68.90        4.44%     5/9
+   T1        1     64.45  56.9..65.4     57.61..65.20        8.66%     6/9
+           E60 read 61.89 on this arm (different binary, +-5% between sweeps -- context, not a gate)
+   T1        4     67.64  61.3..69.2     63.11..68.97        9.17%     8/9
+
+   arm      paired median   median ratio        paired 95% CI
+   PACKED          1.2745         1.2538    1.1682..1.3573   
+   F32             1.0947         1.1024    1.0041..1.1250   
+   I8              1.0507         1.0520    1.0482..1.0706   
+   T1              1.0667         1.0495    1.0374..1.1518   
+
+   G-E61b : FIRES   (packed m4/m1 = 1.2745; E8 G-Z3 read 1.2301)
+   G-E61c : OUT-OF-BAND -- the brief registered no verdict here; reported, not adjudicated   (fp32 m4/m1 = 1.0947; E8 G-Z5 read 1.0029)
+   G-E61g : I8-T1 gap  m1 +0.68 tok/s -> m4 +0.88 tok/s   (E60 read +1.98; descriptive, no verdict)
+   G-E61f : REFUTED -- 31.7-33.1 GB/s is a property of the box, and 59.2 stands as written
+            I8 65.13 -> 68.52 tok/s, paired median 1.0507
+
+-- 15b --
+   warm-up I8      m1 DISCARDED:   21.28 tok/s
+   warm-up I8      m4 DISCARDED:   22.82 tok/s
+   rep 1  I8      m1   19.57 tok/s  foreign 18.19%
+   rep 1  I8      m4   23.03 tok/s  foreign  6.88%
+   rep 2  I8      m1   21.16 tok/s  foreign  5.19%
+   rep 2  I8      m4   22.56 tok/s  foreign  7.07%
+   rep 3  I8      m1   19.67 tok/s  foreign 15.86%
+   rep 3  I8      m4   23.18 tok/s  foreign  4.80%
+   rep 4  I8      m1   21.38 tok/s  foreign  4.18%
+   rep 4  I8      m4   20.73 tok/s  foreign 19.71%
+   rep 5  I8      m1   20.61 tok/s  foreign 11.00%
+   rep 5  I8      m4   22.88 tok/s  foreign  6.92%
+   rep 6  I8      m1   20.45 tok/s  foreign  9.27%
+   rep 6  I8      m4   20.32 tok/s  foreign 23.82%
+   rep 7  I8      m1   21.01 tok/s  foreign  5.47%
+   rep 7  I8      m4   22.88 tok/s  foreign  6.62%
+   rep 8  I8      m1   19.75 tok/s  foreign 14.82%
+   rep 8  I8      m4   20.61 tok/s  foreign 21.96%
+   rep 9  I8      m1   21.26 tok/s  foreign  4.42%
+   rep 9  I8      m4   22.18 tok/s  foreign  8.27%
+
+   arm      mv    median      min..max             95% CI   foreign    >bar
+   I8        1     20.61  19.6..21.4     19.67..21.26        9.82%     8/9
+           E60 read 21.39 on this arm (different binary, +-5% between sweeps -- context, not a gate)
+   I8        4     22.56  20.3..23.2     20.61..23.03       11.78%     9/9
+
+   arm      paired median   median ratio        paired 95% CI
+   I8              1.0662         1.0946    0.9936..1.1768   
+   G-E61f : UNDECIDED
+            I8 20.61 -> 22.56 tok/s, paired median 1.0662
+
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e61_one_chain.json  (65.1 min)
