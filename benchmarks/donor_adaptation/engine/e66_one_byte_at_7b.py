@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """E66 -- one byte at seven billion.
 
-Brief: docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md (+ addendum A)
+Brief: docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md (+ addenda A-C)
 
 The largest real donor this programme owns has been converted exactly twice: to fp32, where it
 works (E15 B0 = 0.674027, 160/160 greedy), and to ternary, where it is rank-dead (E16:
@@ -58,6 +58,15 @@ CTL_7B_TERN = r"D:\_ktmp\e7\qwen25-coder7b_p_r3.bin"
 FP32_7B = r"D:\_ktmp\e7\qwen25-coder7b_f32.bin"
 A1 = os.path.join(TMP, "coder7b_i8_foldlayers.bin")
 A2 = os.path.join(TMP, "coder7b_i8_nofold.bin")
+CONTROLS_RESULT = os.path.join(RES, "e66_controls.json")
+
+# Addendum C: identities of the committed controls-only checkpoint.  A continuation refuses
+# rather than silently repeating or accepting a different control measurement.
+PINNED_CONTROLS_SHA256 = "da0dbe3ad667ad017290805647745584f0c709787832650f5177a92fa04cac9d"
+PINNED_CONTROL_HEAD = "04216cc391daf481e2a9898a7918082d797f2319"
+PINNED_CONTROL_RUNNER_BLOB = "34ded51fa5b54f8a2a1641a6a6746590038ff15e"
+PINNED_CONTROL_RUNNER_SHA256 = "8fe0460265a11afc42b30e09d9880f65ae9a0e94fc03fde012e76ca0e90b56a8"
+PINNED_ENGINE_SHA256 = "56272fdbe615d61739094605cb026aa308fd74604ba5598fab501c09188ae687"
 
 HF = "Qwen/Qwen2.5-Coder-7B"
 REV = "0396a76181e127dfc13e5c5ec48a8cee09938b02"     # pinned from the local snapshot
@@ -123,6 +132,45 @@ def committed_provenance():
         "runner_sha256": sha256_file(os.path.abspath(__file__)),
         "engine_sha256": sha256_file(ENGINE),
     }
+
+
+def load_pinned_controls(current_provenance):
+    """Addendum C: reuse only the exact, controls-only committed checkpoint.
+
+    Return the small prior needed by stage_bpb plus an audit record for the treatment result.
+    The checkpoint file is opened read-only and is never rewritten by the continuation stage.
+    """
+    if not os.path.exists(CONTROLS_RESULT):
+        raise SystemExit("missing pinned controls checkpoint: " + CONTROLS_RESULT)
+    actual_sha = sha256_file(CONTROLS_RESULT)
+    if actual_sha != PINNED_CONTROLS_SHA256:
+        raise SystemExit("CONTROLS CHECKPOINT SHA256 MISMATCH: %s != %s; refusing continuation"
+                         % (actual_sha, PINNED_CONTROLS_SHA256))
+    with open(CONTROLS_RESULT, encoding="utf-8") as f:
+        d = json.load(f)
+    p = d.get("provenance", {})
+    expected = {
+        "head_commit": PINNED_CONTROL_HEAD,
+        "runner_git_blob": PINNED_CONTROL_RUNNER_BLOB,
+        "runner_sha256": PINNED_CONTROL_RUNNER_SHA256,
+        "engine_sha256": PINNED_ENGINE_SHA256,
+    }
+    bad = [(k, p.get(k), v) for k, v in expected.items() if p.get(k) != v]
+    verdicts = [d.get("controls", {}).get(k, {}).get("verdict")
+                for k in ("G_E66a", "G_E66b")]
+    if bad or d.get("experiment") != "E66" or d.get("controls_fire") is not True \
+            or verdicts != ["FIRES", "FIRES"]:
+        raise SystemExit("PINNED CONTROLS ARE NOT ADMISSIBLE: identity=%r experiment=%r "
+                         "controls_fire=%r verdicts=%r"
+                         % (bad, d.get("experiment"), d.get("controls_fire"), verdicts))
+    if current_provenance.get("engine_sha256") != PINNED_ENGINE_SHA256:
+        raise SystemExit("ENGINE CHANGED SINCE CONTROLS: %s != %s; refusing continuation"
+                         % (current_provenance.get("engine_sha256"), PINNED_ENGINE_SHA256))
+    prior = {"controls": d["controls"], "controls_fire": True}
+    audit = {"path": os.path.relpath(CONTROLS_RESULT, HERE).replace("\\", "/"),
+             "sha256": actual_sha, "producing_provenance": p,
+             "seconds_total": d.get("seconds_total")}
+    return prior, audit
 
 
 # ============================================================ engine, with the arm asserted
@@ -269,7 +317,10 @@ def stage_export(fh):
     os.makedirs(TMP, exist_ok=True)
     for path, fold in ((A1, "layers"), (A2, "none")):
         if os.path.exists(path):
-            log("  export SKIP %s (already on disk)" % os.path.basename(path), fh)
+            confirm_sidecar(path, {"quant": "int8", "rule": "R8", "fold": fold,
+                                   "head_ternary": True, "calib_seqs": None})
+            log("  export SKIP %s (complete sidecar matches registered arm)"
+                % os.path.basename(path), fh)
             continue
         cmd = [sys.executable, EXPORTER, "--model", HF, "--revision", REV,
                "--quant", "int8", "--rule", "R8", "--head-ternary", "--fold", fold,
@@ -398,7 +449,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--stage", default="all",
-                    choices=("all", "controls", "export", "bpb", "greedy"))
+                    choices=("all", "controls", "continue", "export", "bpb", "greedy"))
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -421,7 +472,7 @@ def main():
 
     t0 = time.time()
     res = {"experiment": "E66", "brief": "BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
-           "addenda": ["A", "B"], "engine": os.path.basename(ENGINE), "attn_arm": ATTN,
+           "addenda": ["A", "B", "C"], "engine": os.path.basename(ENGINE), "attn_arm": ATTN,
            "provenance": provenance,
            "donor": HF, "revision": REV, "threads": int(THREADS),
            "protocol": {"n_predicted": N_PRED, "scored_bytes": SCORED_BYTES,
@@ -446,15 +497,21 @@ def main():
             return 2
         if a.stage == "controls":
             return 0
+    elif a.stage == "continue":
+        controls, checkpoint = load_pinned_controls(provenance)
+        res["continued_from_controls"] = checkpoint
+        log("\n-- pinned controls checkpoint %s (sha256 and producing apparatus ASSERTED)"
+            % checkpoint["sha256"], fh)
+        log("  G-E66a FIRES; G-E66b FIRES; controls are not rerun or rewritten.", fh)
 
-    if a.stage in ("all", "export"):
+    if a.stage in ("all", "continue", "export"):
         log("\n-- export (addendum A: NO --calib-seqs on int8)", fh)
         stage_export(fh)
         if a.stage == "export":
             log("\nexport-only stage complete; canonical result was not written.", fh)
             return 0
 
-    if a.stage in ("all", "bpb"):
+    if a.stage in ("all", "continue", "bpb"):
         measured = stage_bpb(fh, prior=controls) if controls is not None else stage_bpb(fh)
         res.update(measured)
         json.dump(res, open(os.path.join(RES, "e66_bpb.json"), "w"), indent=1)
@@ -476,7 +533,7 @@ def main():
         res["seconds_before_greedy"] = float(previous.get("seconds_total", 0.0))
         res["greedy_continued_at"] = time.strftime("%Y-%m-%dT%H:%M:%S")
 
-    if a.stage in ("all", "greedy"):
+    if a.stage in ("all", "continue", "greedy"):
         log("\n-- greedy (RANK partner, E14 section 3 -- the gate E16 failed at 0/160)", fh)
         res["greedy"] = stage_greedy(fh)
         json.dump(res, open(os.path.join(RES, "e66_full.json"), "w"), indent=1)
