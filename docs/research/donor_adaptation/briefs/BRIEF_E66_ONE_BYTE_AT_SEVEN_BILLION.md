@@ -1,0 +1,146 @@
+# BRIEF E66 — one byte at seven billion: the rung between "works but is fp32" and "is destroyed"
+
+**Status: PRE-REGISTERED. Pushed before the runner exists and before one BPB is read.**
+**QUALITY AND RANK ONLY. No rate is measured. `G-E63d` is `VOID` and OWED and E66 does not touch it.**
+
+---
+
+## 1. The question, in one sentence
+
+**The largest real donor this programme owns has been converted exactly twice — to fp32, where
+it works, and to ternary, where it is destroyed — and the one-byte rung between them has never
+been run at 7 B, although it is free at every smaller scale that has been tried.**
+
+## 2. Why this is the next thing, read out of the record
+
+Every number below is transcribed from a published probe or result file, not recomputed here.
+
+**The 7 B, as it stands** (`probes/E15_DOES_THE_7B_PREDICT.md`, `probes/E16_R3_AT_7B.md`),
+donor Qwen2.5-Coder-7B, frozen slice 24×512, chance line **4.070106** at `V = 152064`:
+
+| arm | format | B/weight | BPB | vs chance | greedy vs fp32 |
+|---|---|---|---|---|---|
+| **B0** fp32 | fp32 | 4.0 | **0.674027** | −3.396080 | 160/160 |
+| **B2** packed `R3`, `fold=layers` | ternary | 0.5 | 4.017233 | −0.052874 | **0/160** |
+| **B3** packed `R3`, `fold=none` | ternary | 0.5 | 4.168325 | +0.098219 | **0/160** |
+| **B1** packed `R0`, `fold=layers` | ternary | 0.5 | 5.299200 | +1.229094 | **0/160** |
+| **int8** | int8 | **1.0** | **NEVER MEASURED** | | |
+
+E16's verdict is `SCORE-CROSSES-RANK-DOES-NOT`: fixing the rule is worth 1.282 BPB and carries
+B2 below the chance line, **and the ranking does not move at all** — 0 of 160 greedy tokens,
+diverging at token 0. **BPB alone would have called B2 a success.** That is why §5 registers a
+RANK gate that can fail on its own (E14 §3).
+
+**The one-byte rung, everywhere it HAS been run** (`engine/results/e62_third_scale.json`,
+arm `I8` = `quant=int8, rule=R8, head_ternary=True, fold=none, calib_seqs=32`):
+
+| donor | fp32 | int8 | damage | share of that donor's dense→chance gap |
+|---|---|---|---|---|
+| Qwen2.5-0.5B | 0.871795 | 0.8718769 | +0.000082 | 0.0026% |
+| Qwen2.5-1.5B | 0.767595 | 0.7688588 | +0.001264 | 0.038% |
+| Qwen2.5-3B | 0.724450 | 0.7250401 | +0.000590 | 0.018% |
+
+This is §62.12's damage ladder: **half a byte costs 82% of the gap, one byte costs 0.038%.**
+The 7 B has only ever been given the half byte.
+
+## 3. What E66 may NOT assume, and it is the same trap E62 itself found
+
+**Three scales agreeing does NOT license the fourth.** E62's own published finding is that
+`dBPB` is **not monotone in `N`** — the damage does not rank across donor size, which is why
+`feedback_rank_partner_survives_refusal` records *"a fit on two adjacent points has no exponent,
+it has an artefact"*. The 0.5/1.5/3 B column above is a **reference class, not a trend line**,
+and E66 fits nothing to it.
+
+**And there is direct evidence of a format collapsing exactly at this scale**: ternary is
+survivable at 1.5 B (E37's uncarved ternary reads 3.475707, below chance, and ranks) and is
+**rank-dead at 7 B**. Whatever breaks there might break here. **That is the experiment.**
+
+## 4. Apparatus, and the provenance discipline this brief exists to apply
+
+`qwen_export.py` already supports `--quant int8 --rule R8`; the engine already runs `quant=5`;
+the donor is on disk (`Qwen/Qwen2.5-Coder-7B`, 4 shards, complete); the slice is E1's frozen
+24×512, `ids_sha256 a1a48dc9fc5a6dc1`, 51,870 scored bytes, 12,264 predicted. **Nothing new is
+built except one export.**
+
+**Every cell asserts its kernel arm from the engine's own `CONFIG` line and is REFUSED
+otherwise.** This is §63.3, published today: E64 run 1 compared `attn=serial` numbers against
+`attn=avx4` numbers and called the difference a replication failure. E66 is the first experiment
+designed after that correction, so it states the arm of every reference it quotes:
+
+| reference | engine it was taken on | arm |
+|---|---|---|
+| E62's `I8` ladder (0.5/1.5/3 B) | E60-era build | **`avx4`** |
+| E15's `B0`, E16's `B1/B2/B3` (7 B) | the E13 build | **`serial`** (pre-E50 default) |
+
+**E66 runs `avx4` and asserts it.** The comparison against E15/E16's 7 B numbers is therefore
+**cross-kernel and is labelled as such** — §63.3 bounds that at **~1e-06 on a path with no
+selection**, which is three orders below the smallest quantity this brief reads, and the arms
+here are dense (no top-`k` anywhere). The comparison against E62's ladder is same-arm and exact.
+
+### 4.1 Arms
+
+| arm | export | why |
+|---|---|---|
+| **A1** `coder7b_i8_foldlayers` | `--quant int8 --rule R8 --head-ternary --fold layers --calib-seqs 32` | E16 measured the fold worth **0.151 BPB at 7 B** on ternary, and it is the whole reason B2 sits below chance |
+| **A2** `coder7b_i8_nofold` | same, `--fold none` | E1's pinned protocol and **the fold E62's int8 ladder used** — the only arm directly comparable to the 0.5/1.5/3 B column |
+
+Both are read. Neither is chosen after the fact: A2 is the one quoted against E62's ladder, A1
+is the one quoted against E16's 7 B arms, and §5 says so before either exists.
+
+### 4.2 Controls — planted, and each fires on a KNOWN POSITIVE before any 7 B int8 cell is read
+
+| control | requires | tolerance | what it validates |
+|---|---|---|---|
+| **`G-E66a`** | re-measure **1.5 B `I8`** and reproduce E62's `0.7688588381536873` | \|d\| ≤ **1e-08** (E62's own `G62A_TOL`) | the **int8 code path**, on today's binary, same arm |
+| **`G-E66b`** | re-measure **7 B ternary `R3 fold=layers`** and reproduce E16's `4.017232598` | \|d\| ≤ **1e-04** | the **7 B path end-to-end on today's binary** |
+| **`G-E66c`** | every cell's `CONFIG` reports the expected `quant=` **and** `attn=avx4`; otherwise the cell is REFUSED | exact | §63.3 / `feedback_config_must_appear_in_output` **as a gate, not a log line** |
+
+**Why `G-E66b`'s tolerance is 1e-04 and not 1e-09.** E16 ran the **E13 build**; between it and
+`e63` sit five commits to `donor_engine.c`, of which §63.3 has measured only one (E50's kernel
+default, worth ~5.9e-07 on a dense path). `1e-04` is E37's own standing `G-E37A` tolerance and
+is registered here **before** the number is seen. **A miss larger than 1e-03 on a dense path
+would not be noise and would be a new finding about a different commit** — in that case E66
+stops and the cause is measured, exactly as E64 was made to.
+
+**If `G-E66a` or `G-E66b` does not fire, no 7 B int8 cell may be read.** E64's discipline,
+adopted verbatim.
+
+## 5. Gates and predictions — registered, falsifiable, and the RANK gate can fail alone
+
+| gate | question | kind |
+|---|---|---|
+| **`G-E66d`** SCORE | does `A2` land below the chance line 4.070106? | the weak one |
+| **`G-E66e`** SCORE | is `A2` within **0.05 BPB** of fp32 `0.674027`? | the real score question |
+| **`G-E66f`** **RANK** | greedy agreement with the fp32 donor over 160 tokens, E16's protocol | **E14 §3 — and the one E16 failed at 0/160** |
+| **`G-E66g`** | `\|A1 − A2\|`, the fold's worth on int8 | descriptive |
+
+**Predictions:**
+
+1. **`G-E66a` and `G-E66b` both fire.** If not, E66 stops and nothing is read.
+2. **`A2` lands below chance.** Weak; ternary already manages it.
+3. **`A2` lands within 0.05 of fp32 (i.e. ≤ 0.724027).** The band is **40× wider** than the
+   worst damage in the 0.5/1.5/3 B column (0.001264) *on purpose*: §3 forbids extrapolating that
+   column, and E16 is direct evidence that a format can collapse at exactly this scale.
+4. **`G-E66f` ≥ 150/160.** **This is the prediction that carries E66.** E16's ternary arms read
+   **0/160** while one of them passed on score, so a score without a rank partner cannot
+   distinguish "works" from "confidently wrong in a new way".
+5. **The fold is worth < 0.01 BPB on int8**, against **0.151** on ternary, because the fold
+   compensates a quantisation error that one byte largely does not make. **Mechanism named, and
+   falsifiable: if the fold still buys ~0.15 at one byte, my account of what the fold does is
+   wrong.**
+
+## 6. What E66 may NOT conclude
+
+1. **NO RATE. Not one tok/s.** E66 is quality and rank only, and **`G-E63d` stays `VOID` and
+   OWED** — it is blocked on an idle machine here, not on this run.
+2. **Nothing about 50 tok/s.** A dense 7.62 B at one byte moves ~7.6 GB per token; against the
+   **int8** band measured in `feedback_charged_vs_moved_bytes` (34.0–34.9 GB/s) that **projects**
+   to ~4.4–4.6 tok/s. That is a projection from bytes, in the format's own band (§59.2 respected),
+   **not a measurement**, and E66 does not make it one. **Even a perfect result here is a working
+   model at roughly a tenth of the target**, and the remaining 10× is traffic, not precision.
+3. **Nothing about 10 B.** 7.62 B, `D = 3584`, `L = 28` — not the `A10B-*` shapes, whose rates
+   were measured on synthetic weights.
+4. **Nothing about a TRAINED conversion.** Post-hoc is a floor (H0, H1, E65).
+5. **Nothing about the carve or rank at 7 B.** Those compose on top and are separate cells;
+   E64 run 2 is measuring the carve×int8 composition at 1.5 B, and E66 does not anticipate it.
+6. **No retraction of E15 or E16.** Their numbers stand for the formats they measured.
