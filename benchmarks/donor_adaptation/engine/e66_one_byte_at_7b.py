@@ -18,7 +18,7 @@ Two things this runner does that E64 run 1 did not:
 
 QUALITY AND RANK ONLY.  No rate.  G-E63d is VOID and OWED and E66 does not touch it.
 """
-import argparse, json, math, os, re, struct, subprocess, sys, time
+import argparse, hashlib, json, math, os, re, struct, subprocess, sys, time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 RES = os.path.join(HERE, "results", "e66")
@@ -78,6 +78,53 @@ def log(m, fh=None):
         fh.flush()
 
 
+def sha256_file(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        while True:
+            block = f.read(1024 * 1024)
+            if not block:
+                break
+            h.update(block)
+    return h.hexdigest()
+
+
+def committed_provenance():
+    """Addendum B.2: REFUSE a measurement from an uncommitted runner.
+
+    E64 run 2 was pre-registered but its exact apparatus blob reached Git after launch.  E66
+    makes the ordering executable: the worktree runner must equal HEAD before any model loads.
+    """
+    try:
+        root = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"], cwd=HERE, text=True
+        ).strip()
+        head = subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=root, text=True
+        ).strip()
+        rel = os.path.relpath(os.path.abspath(__file__), root).replace("\\", "/")
+        worktree_blob = subprocess.check_output(
+            ["git", "hash-object", os.path.abspath(__file__)], cwd=root, text=True
+        ).strip()
+        head_blob = subprocess.check_output(
+            ["git", "rev-parse", "HEAD:" + rel], cwd=root, text=True
+        ).strip()
+    except (OSError, subprocess.CalledProcessError) as e:
+        raise SystemExit("cannot establish committed runner provenance: %s" % e)
+    if worktree_blob != head_blob:
+        raise SystemExit(
+            "RUNNER IS NOT THE COMMITTED HEAD BLOB: worktree %s, HEAD %s. "
+            "E66 refuses to start (addendum B.2)." % (worktree_blob, head_blob)
+        )
+    return {
+        "head_commit": head,
+        "runner_path": rel,
+        "runner_git_blob": worktree_blob,
+        "runner_sha256": sha256_file(os.path.abspath(__file__)),
+        "engine_sha256": sha256_file(ENGINE),
+    }
+
+
 # ============================================================ engine, with the arm asserted
 def run_bpb(weights, ids, want_quant, extra=()):
     """One BPB cell.  REFUSES the cell unless N_PREDICTED is E1's and the engine's own CONFIG
@@ -124,7 +171,8 @@ def confirm_sidecar(weights, want):
         raise SystemExit("SIDECAR MISMATCH for %s: %s -- the cell is REFUSED"
                          % (os.path.basename(weights), bad))
     return {k: d.get(k) for k in ("model", "revision", "quant", "rule", "fold", "head_ternary",
-                                  "calib_seqs", "load_dtype", "vocab", "n_layers")}
+                                  "calib_seqs", "load_dtype", "vocab", "n_layers", "bytes",
+                                  "sha256")}
 
 
 # ============================================================ gates
@@ -235,39 +283,49 @@ def stage_export(fh):
                                              os.path.getsize(path) / 1073741824.0), fh)
 
 
-def stage_bpb(fh):
-    out = {}
-    log("\n-- controls (each must FIRE before any 7 B int8 cell is read)", fh)
-    confirm_sidecar(CTL_15B_I8, {"quant": "int8", "rule": "R8", "fold": "none",
-                                 "head_ternary": True, "calib_seqs": None})
-    c1 = run_bpb(CTL_15B_I8, IDS_15B, "int8")
-    v1, d1 = g_e66a(c1["bpb"])
-    log("  G-E66a  1.5B I8   %.13f  vs E62 %.13f  |d| %.3e  -> %s"
-        % (c1["bpb"], E62_15B_I8, d1, v1), fh)
+def stage_bpb(fh, controls_only=False, prior=None):
+    out = dict(prior or {})
+    if prior is None:
+        log("\n-- controls (each must FIRE before any 7 B int8 cell is read)", fh)
+        meta_c1 = confirm_sidecar(
+            CTL_15B_I8, {"quant": "int8", "rule": "R8", "fold": "none",
+                          "head_ternary": True, "calib_seqs": None})
+        c1 = run_bpb(CTL_15B_I8, IDS_15B, "int8")
+        v1, d1 = g_e66a(c1["bpb"])
+        log("  G-E66a  1.5B I8   %.13f  vs E62 %.13f  |d| %.3e  -> %s"
+            % (c1["bpb"], E62_15B_I8, d1, v1), fh)
 
-    confirm_sidecar(CTL_7B_TERN, {"quant": "packed", "rule": "R3", "fold": "layers",
-                                  "head_ternary": True})
-    c2 = run_bpb(CTL_7B_TERN, IDS_7B, "packed")
-    v2, d2 = g_e66b(c2["bpb"])
-    log("  G-E66b  7B tern   %.13f  vs E16 %.9f   |d| %.3e  -> %s"
-        % (c2["bpb"], E16_B2, d2, v2), fh)
+        meta_c2 = confirm_sidecar(
+            CTL_7B_TERN, {"quant": "packed", "rule": "R3", "fold": "layers",
+                          "head_ternary": True})
+        c2 = run_bpb(CTL_7B_TERN, IDS_7B, "packed")
+        v2, d2 = g_e66b(c2["bpb"])
+        log("  G-E66b  7B tern   %.13f  vs E16 %.9f   |d| %.3e  -> %s"
+            % (c2["bpb"], E16_B2, d2, v2), fh)
 
-    out["controls"] = {"G_E66a": {"cell": c1, "verdict": v1, "abs_d": d1,
-                                  "reference": E62_15B_I8},
-                       "G_E66b": {"cell": c2, "verdict": v2, "abs_d": d2,
-                                  "reference": E16_B2}}
-    out["controls_fire"] = (v1 == "FIRES" and v2 == "FIRES")
-    if not out["controls_fire"]:
+        out["controls"] = {
+            "G_E66a": {"cell": c1, "sidecar": meta_c1, "verdict": v1,
+                        "abs_d": d1, "reference": E62_15B_I8},
+            "G_E66b": {"cell": c2, "sidecar": meta_c2, "verdict": v2,
+                        "abs_d": d2, "reference": E16_B2},
+        }
+        out["controls_fire"] = (v1 == "FIRES" and v2 == "FIRES")
+
+    if not out.get("controls_fire", False):
         log("\n  CONTROLS DID NOT BOTH FIRE -- no 7 B int8 cell may be read (brief 4.2).", fh)
         log("  Numbers above are printed; no conclusion is drawn.", fh)
+        return out
+    if controls_only:
+        log("\n  controls-only preflight complete -- no E66 treatment cell was read.", fh)
         return out
 
     log("\n-- the cells", fh)
     cells = {}
     for tag, path, fold in (("A1", A1, "layers"), ("A2", A2, "none")):
-        confirm_sidecar(path, {"quant": "int8", "rule": "R8", "fold": fold,
-                               "head_ternary": True, "calib_seqs": None})
+        meta = confirm_sidecar(path, {"quant": "int8", "rule": "R8", "fold": fold,
+                                      "head_ternary": True, "calib_seqs": None})
         c = run_bpb(path, IDS_7B, "int8")
+        c["sidecar"] = meta
         cells[tag] = c
         log("  %s (fold=%-6s) BPB %.12f   vs chance %+.6f   vs fp32 %+.6f   (%.0f s)"
             % (tag, fold, c["bpb"], c["bpb"] - CHANCE_CODER,
@@ -340,7 +398,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--stage", default="all",
-                    choices=("all", "export", "bpb", "greedy"))
+                    choices=("all", "controls", "export", "bpb", "greedy"))
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -356,29 +414,79 @@ def main():
         if not os.path.exists(f):
             raise SystemExit("missing: " + f)
 
+    provenance = committed_provenance()
+    log("runner HEAD %s  blob %s (worktree match ASSERTED)"
+        % (provenance["head_commit"][:12], provenance["runner_git_blob"]), fh)
+    log("engine sha256 %s" % provenance["engine_sha256"], fh)
+
     t0 = time.time()
     res = {"experiment": "E66", "brief": "BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
-           "addendum": "A", "engine": os.path.basename(ENGINE), "attn_arm": ATTN,
+           "addenda": ["A", "B"], "engine": os.path.basename(ENGINE), "attn_arm": ATTN,
+           "provenance": provenance,
            "donor": HF, "revision": REV, "threads": int(THREADS),
            "protocol": {"n_predicted": N_PRED, "scored_bytes": SCORED_BYTES,
                         "bytes_per_token": BYTES_PER_TOK,
                         "chance_coder": CHANCE_CODER, "chance_qwen": CHANCE_QWEN},
            "references": {"E62_15B_I8": E62_15B_I8, "E16_B2": E16_B2,
-                          "E15_B0_fp32_7B": E15_B0_FP32_7B, "E62_ladder": E62_LADDER},
+                           "E15_B0_fp32_7B": E15_B0_FP32_7B, "E62_ladder": E62_LADDER},
            "started_at": time.strftime("%Y-%m-%dT%H:%M:%S")}
+
+    controls = None
+    if a.stage in ("all", "controls"):
+        controls = stage_bpb(fh, controls_only=True)
+        control_res = dict(res)
+        control_res.update(controls)
+        control_res["seconds_total"] = time.time() - t0
+        control_path = os.path.join(RES, "e66_controls.json")
+        json.dump(control_res, open(control_path, "w"), indent=1)
+        log("\nwrote controls-only result %s in %.0f s"
+            % (control_path, control_res["seconds_total"]), fh)
+        if not controls.get("controls_fire", False):
+            log("E66 STOPS BEFORE EXPORT -- the planted controls did not both fire.", fh)
+            return 2
+        if a.stage == "controls":
+            return 0
 
     if a.stage in ("all", "export"):
         log("\n-- export (addendum A: NO --calib-seqs on int8)", fh)
         stage_export(fh)
+        if a.stage == "export":
+            log("\nexport-only stage complete; canonical result was not written.", fh)
+            return 0
+
     if a.stage in ("all", "bpb"):
-        res.update(stage_bpb(fh))
+        measured = stage_bpb(fh, prior=controls) if controls is not None else stage_bpb(fh)
+        res.update(measured)
         json.dump(res, open(os.path.join(RES, "e66_bpb.json"), "w"), indent=1)
-    if a.stage in ("all", "greedy") and res.get("controls_fire", True):
+        if not res.get("controls_fire", False):
+            log("E66 STOPS -- controls failed; canonical result was not written.", fh)
+            return 2
+
+    if a.stage == "greedy":
+        bpb_path = os.path.join(RES, "e66_bpb.json")
+        if not os.path.exists(bpb_path):
+            raise SystemExit("greedy stage requires an existing e66_bpb.json")
+        previous = json.load(open(bpb_path, encoding="utf-8"))
+        if not previous.get("controls_fire") or not previous.get("cells"):
+            raise SystemExit("e66_bpb.json is not an admissible scored run")
+        old_blob = previous.get("provenance", {}).get("runner_git_blob")
+        if old_blob != provenance["runner_git_blob"]:
+            raise SystemExit("runner blob differs from e66_bpb.json; refusing a mixed apparatus")
+        res = previous
+        res["seconds_before_greedy"] = float(previous.get("seconds_total", 0.0))
+        res["greedy_continued_at"] = time.strftime("%Y-%m-%dT%H:%M:%S")
+
+    if a.stage in ("all", "greedy"):
         log("\n-- greedy (RANK partner, E14 section 3 -- the gate E16 failed at 0/160)", fh)
         res["greedy"] = stage_greedy(fh)
         json.dump(res, open(os.path.join(RES, "e66_full.json"), "w"), indent=1)
 
-    res["seconds_total"] = time.time() - t0
+    elapsed = time.time() - t0
+    if a.stage == "greedy":
+        res["seconds_greedy_stage"] = elapsed
+        res["seconds_total"] = res["seconds_before_greedy"] + elapsed
+    else:
+        res["seconds_total"] = elapsed
     json.dump(res, open(os.path.join(RES, "e66_one_byte_at_7b.json"), "w"), indent=1)
     log("\nwrote %s in %.0f s" % (os.path.join(RES, "e66_one_byte_at_7b.json"),
                                   res["seconds_total"]), fh)
