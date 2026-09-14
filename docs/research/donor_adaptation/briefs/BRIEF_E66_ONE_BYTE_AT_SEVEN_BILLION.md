@@ -234,3 +234,33 @@ The controls-only preflight is therefore expected to take roughly 40–45 CPU mi
 quality-only: contention changes elapsed time, not BPB. If both controls fire, the expensive
 exports are licensed. If either dies, E66 stops and the failure is investigated before any new
 7 B artifact is built.
+
+---
+
+# ADDENDUM C — hash-pinned continuation after the controls checkpoint
+
+**Pre-registered after the controls-only checkpoint and before any E66 treatment export or
+measurement. No threshold, prediction, arm or estimand changes.**
+
+The controls-only run completed under the committed runner at `04216cc391daf481e2a9898a7918082d797f2319`.
+Both planted controls fired and the immutable checkpoint was committed at `023472c`. Repeating
+those 2,625 seconds would add no information. A new `--stage continue` may therefore reuse that
+checkpoint only when all of these exact identities hold:
+
+| object | pinned identity |
+|---|---|
+| controls JSON | sha256 `da0dbe3ad667ad017290805647745584f0c709787832650f5177a92fa04cac9d` |
+| controls runner Git blob | `34ded51fa5b54f8a2a1641a6a6746590038ff15e` |
+| controls runner sha256 | `8fe0460265a11afc42b30e09d9880f65ae9a0e94fc03fde012e76ca0e90b56a8` |
+| engine executable | sha256 `56272fdbe615d61739094605cb026aa308fd74604ba5598fab501c09188ae687` |
+| gate state | `controls_fire: true`; `G_E66a.verdict = G_E66b.verdict = FIRES` |
+
+The continuation apparatus may change only to load and validate this checkpoint, export A1/A2,
+then execute the already-registered treatment score and rank gates. It must itself pass the
+committed-runner gate in Addendum B, record both its current provenance and the pinned checkpoint
+hash, and **must not rewrite `e66_controls.json`**. Any identity mismatch refuses the continuation.
+
+This is not the result-file resume defect logged in Addendum A: no treatment value exists in the
+checkpoint, no cell is skipped on the basis of a partially populated canonical result, and every
+reused value is a planted positive control whose bytes and producing apparatus are fixed above.
+`--stage all` remains the from-scratch route and continues to measure fresh controls.
