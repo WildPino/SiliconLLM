@@ -412,7 +412,7 @@ def main():
         planted["05b_" + arm] = c
         obs["05b " + arm] = (c["bpb"], ref)
         log("   05b %-7s BPB %.15f   ref %.15f   d = %+.2e   (%.0f s, foreign %.2f%%)"
-            % (arm, c["bpb"], ref, d, c["seconds"], c["foreign"] * 100.0))
+            % (arm, c["bpb"], ref, d, c["seconds"], c["foreign"]))
     va = g_e62a(obs)
     log("   G-E62a : %s" % va)
     out["cells"]["planted"] = planted
@@ -444,7 +444,7 @@ def main():
         c = bpb_cell(files[arm]["path"], arm)
         cells3[arm] = c
         log("   3b  %-7s BPB %.15f   (%.0f s, foreign %.2f%%)"
-            % (arm, c["bpb"], c["seconds"], c["foreign"] * 100.0))
+            % (arm, c["bpb"], c["seconds"], c["foreign"]))
         out["cells"]["3b"] = cells3
         save(out)
 
@@ -549,7 +549,7 @@ def main():
     log("   G-E62a %s | G-E62b %s | G-E62c %s | G-E62d %s | G-E62e %s"
         % (va, vb, vc, vd, ve))
     log("   foreign occupancy over the run: %.2f%% .. %.2f%%   (conduct only)"
-        % (min(focs) * 100.0, max(focs) * 100.0))
+        % (min(focs), max(focs)))
     log("   %.1f min total.  %s" % (out["seconds_total"] / 60.0, OUTFILE))
 
 

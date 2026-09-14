@@ -1,0 +1,237 @@
+{
+ "brief": "BRIEF_E62_DOES_THE_ONE_BYTE_RUNG_SURVIVE_SCALE.md",
+ "engine": "donor_engine_e61.exe",
+ "threads": 6,
+ "started_at": "2026-09-14 02:50:51",
+ "donor_3b": {
+  "model": "Qwen/Qwen2.5-3B",
+  "revision": "3aab1f1954e9cc14eb9509a215f9e5ca08227a9b",
+  "n_params": 3085900000.0
+ },
+ "protocol": {
+  "fold": "none",
+  "calib_seqs": 32,
+  "head_ternary_on": [
+   "I8",
+   "PACKED"
+  ],
+  "note": "E1's protocol; --head-ternary is NOT applied to the fp32 arm, which is the arm G-E62b compares to a PyTorch fp32 reference"
+ },
+ "slice": {
+  "n_seq": 24,
+  "seq_len": 512,
+  "bytes": 51870,
+  "n_predicted": 12264,
+  "chance_bpb": 4.069819,
+  "ids": "D:\\_ktmp\\e1\\ids_qwen25-05b_tqh.bin"
+ },
+ "references": {
+  "E60_engine": {
+   "05b/F32": 0.871810465558026,
+   "05b/I8": 0.8718768840274047,
+   "15b/F32": 0.767606372511151,
+   "15b/I8": 0.7688588381536873
+  },
+  "E12_pytorch_fp32": {
+   "05b": 0.8717951206093644,
+   "15b": 0.7675949584171732,
+   "3b": 0.7244497971214012
+  },
+  "E1_packed_R3": {
+   "05b": 4.531233733626962,
+   "15b": 3.47570669163278
+  }
+ },
+ "cells": {
+  "planted": {
+   "05b_F32": {
+    "bpb": 0.871810465558026,
+    "nats": 31344.6761559744,
+    "n_predicted": 12264,
+    "seconds": 713.9603750705719,
+    "occ": 62.36693469701142,
+    "foreign": 13.504498277468855,
+    "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=fp32",
+    "seq": 0,
+    "since_start_s": 714.121,
+    "wall_s": 713.96,
+    "clock_pct": 106.89376911248037,
+    "reference": 0.871810465558026,
+    "delta_vs_reference": 0.0
+   },
+   "05b_I8": {
+    "bpb": 0.8718768872984035,
+    "nats": 31347.0642529566,
+    "n_predicted": 12264,
+    "seconds": 237.1586709022522,
+    "occ": 59.20356217332103,
+    "foreign": 10.198423156322749,
+    "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=int8",
+    "seq": 1,
+    "since_start_s": 951.281,
+    "wall_s": 237.159,
+    "clock_pct": 105.13923574235903,
+    "reference": 0.8718768840274047,
+    "delta_vs_reference": 3.270998805149361e-09
+   }
+  },
+  "3b": {
+   "F32": {
+    "bpb": 0.724460853881077,
+    "nats": 26046.9353714952,
+    "n_predicted": 12264,
+    "seconds": 4129.417506694794,
+    "occ": 62.96471704074419,
+    "foreign": 14.061125429851241,
+    "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=fp32",
+    "seq": 2,
+    "since_start_s": 6807.388,
+    "wall_s": 4129.418,
+    "clock_pct": NaN
+   },
+   "I8": {
+    "bpb": 0.7250400705611162,
+    "nats": 26067.7602640346,
+    "n_predicted": 12264,
+    "seconds": 1144.8232746124268,
+    "occ": 60.32021710250951,
+    "foreign": 11.247065567505595,
+    "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=int8",
+    "seq": 3,
+    "since_start_s": 7952.252,
+    "wall_s": 1144.823,
+    "clock_pct": NaN
+   },
+   "PACKED": {
+    "bpb": 4.234750812536,
+    "nats": 152254.300750139,
+    "n_predicted": 12264,
+    "seconds": 917.7660236358643,
+    "occ": 57.73222935069136,
+    "foreign": 8.391100416831007,
+    "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=packed",
+    "seq": 4,
+    "since_start_s": 8870.69,
+    "wall_s": 917.766,
+    "clock_pct": NaN
+   }
+  }
+ },
+ "saved_at": "2026-09-14 05:18:41",
+ "G_E62a": {
+  "tol": 1e-08,
+  "verdict": "FIRES",
+  "observed": {
+   "05b F32": {
+    "measured": 0.871810465558026,
+    "reference": 0.871810465558026,
+    "delta": 0.0
+   },
+   "05b I8": {
+    "measured": 0.8718768872984035,
+    "reference": 0.8718768840274047,
+    "delta": 3.270998805149361e-09
+   }
+  }
+ },
+ "exports": {
+  "F32": {
+   "path": "D:\\_ktmp\\e62\\qwen25-3b_f32.bin",
+   "bytes": 12343754804,
+   "sha256": "c479e1a62724c3e2411a666e65ad42b1888636b0c999a4ba6987460a909cc141",
+   "tied": 1,
+   "calib_seqs": null,
+   "mean_ternary_zero_fraction": null,
+   "active_weights_per_token": 3085697024
+  },
+  "I8": {
+   "path": "D:\\_ktmp\\e62\\qwen25-3b_i8.bin",
+   "bytes": 4336059956,
+   "sha256": "9c5b5c11e20f1771be4f62be0b94aa17fea7f9f35daae66470f2612830f6f283",
+   "tied": 0,
+   "calib_seqs": null,
+   "mean_ternary_zero_fraction": 0.018649162831366535,
+   "active_weights_per_token": 3085697024
+  },
+  "PACKED": {
+   "path": "D:\\_ktmp\\e62\\qwen25-3b_packed.bin",
+   "bytes": 2793211444,
+   "sha256": "8a26bda651dc86d3829869c5c3dd81b389ac207b9a03f8baf6fea06f940d1461",
+   "tied": 0,
+   "calib_seqs": 32,
+   "mean_ternary_zero_fraction": 0.4825320003532138,
+   "active_weights_per_token": 3085697024
+  }
+ },
+ "G_E62b": {
+  "engine_fp32": 0.724460853881077,
+  "pytorch_fp32": 0.7244497971214012,
+  "abs_delta": 1.1056759675720507e-05,
+  "tol": 5e-05,
+  "verdict": "ADMISSIBLE"
+ },
+ "G_E62c": {
+  "dbpb": {
+   "05b": 6.64184693787151e-05,
+   "15b": 0.0012524656425362268,
+   "3b": 0.0005792166800392407
+  },
+  "dbpb_relative_3b": 0.0007995141172035243,
+  "sigma_seed": 0.005,
+  "dbpb_3b_in_sigma": 0.11584333600784813,
+  "power_fit_three_points": {
+   "exponent": 1.3205614080111112,
+   "coefficient": 3.252885521805515e-16,
+   "implied_10B": 0.00522255304322574
+  },
+  "power_fit_two_points": {
+   "exponent": 2.5780333191677025,
+   "coefficient": 2.566519090467022e-27
+  },
+  "linear_from_3b_implied_10B": 0.0018769781264436328,
+  "bands": {
+   "AT-MOST-LINEAR": "<= 0.0025",
+   "SUPERLINEAR-BUT-BOUNDED": "0.0025 .. 0.0060",
+   "COST-EXPLODES": ">= 0.0060"
+  },
+  "verdict": "AT-MOST-LINEAR"
+ },
+ "G_E62d": {
+  "clause1_points": [
+   [
+    494100000.0,
+    6.64184693787151e-05
+   ],
+   [
+    1543700000.0,
+    0.0012524656425362268
+   ],
+   [
+    3085900000.0,
+    0.0005792166800392407
+   ]
+  ],
+  "clause2": {
+   "F32": 0.724460853881077,
+   "I8": 0.7250400705611162,
+   "PACKED": 4.234750812536
+  },
+  "verdict": "CLAUSE1-BREAKS"
+ },
+ "G_E62e": {
+  "packed_R3": {
+   "05b": 4.531233733626962,
+   "15b": 3.47570669163278,
+   "3b": 4.234750812536
+  },
+  "chance_bpb": 4.069819,
+  "verdict": "ABOVE-CHANCE"
+ },
+ "conduct": {
+  "foreign_min": 8.391100416831007,
+  "foreign_max": 14.061125429851241,
+  "occ_bar": 4.39,
+  "note": "recorded, gates nothing: E62 carries no speed claim"
+ },
+ "seconds_total": 8870.541426420212
+}

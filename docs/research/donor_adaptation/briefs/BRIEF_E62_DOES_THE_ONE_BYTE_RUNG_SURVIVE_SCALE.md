@@ -172,3 +172,32 @@ under-alarmed. Both are worse for me than the middle, which is why the middle is
 3. `C/T` on the donor engine; channel-granularity mixed precision; the `I8`−`T1` value-dependence
    (E61 §6, reopened); `G-E55a2`'s replacement interval gate; E56's `OCC_BAR` zero point; E42's
    void control.
+
+---
+
+## 8. VERDICT (appended after the run — 2026-09-14)
+
+**`THE-COST-DOES-NOT-RANK`.** Written up in
+`probes/E62_DOES_THE_ONE_BYTE_RUNG_SURVIVE_SCALE.md`; results in
+`benchmarks/donor_adaptation/engine/results/e62_third_scale.json`. 147.8 min, one binary.
+
+| gate | reading | verdict |
+|---|---|---|
+| `G-E62a` PLANTED | `05b F32` +0.00e+00, `05b I8` +3.27e-09 | **FIRES** |
+| `G-E62b` cross-path | 1.11e-05 vs E12's 0.7244497971214012 | **ADMISSIBLE** |
+| `G-E62c` HEADLINE | **dBPB(3 B) = 0.000579217 = 0.116 σ_seed** | **AT-MOST-LINEAR** |
+| `G-E62d` RANK | dBPB 6.64e-05 → 1.25e-03 → 5.79e-04, not monotone | **CLAUSE1-BREAKS** |
+| `G-E62e` owed cell | packed R3 at 3 B = 4.234751 vs chance 4.069819 | **ABOVE-CHANCE** |
+
+**The band was cleared and the question was lost.** `COST-EXPLODES` is dead, so §60.4's 10 B
+headline is not void — but dBPB does not rank with N, so nothing about 10 B can be extrapolated
+from these three points at all. §1's whole framing (two readings of a segment, ~19× apart at the
+target) presupposed a segment. There isn't one.
+
+**Predictions: 2.5 of 6.** 2 and 6 (both about the instrument) hit; 3, 4 and 5 (all about the
+physics) missed, prediction 3 by an order of magnitude and on the side §5 had named in advance as
+the embarrassing one. Prediction 1 half-missed for a cause already measured by E61.
+
+**§3's `~size` column was wrong on two of three arms** (it forgot the fp32 embedding table):
+measured 12.344 / **4.336** / **2.793** GB against 12.3 / 3.1 / 1.6. It moves no rate — an
+embedding is a lookup, not a stream — but it is corrected in the probe, §10.

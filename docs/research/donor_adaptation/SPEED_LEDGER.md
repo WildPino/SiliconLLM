@@ -5193,3 +5193,72 @@ predicted 1.5–1.7, measured 1.349. E61: predicted 1.12–1.22, measured 1.0507
 was right and both times removing the chain handed the kernel to *whatever was next* rather than
 to the number the derivation named. **0 for 2 on magnitude, 2 for 2 on direction** — to be quoted
 in the next brief that reaches for this arithmetic.
+
+## §61 — E62: the fidelity leg of the 10 B headline, tested at a third scale
+
+§60.4 projects **36.6–37.6 tok/s at 10 B, 73–75% of the bar**, on the one-byte rung. That is a
+speed number standing on a quality assumption: *the rung is still faithful at 10 B.* E62 tested
+it. Quality-only; **no rate in this section is new.**
+
+### 61.1 What was measured
+
+| donor | N | BPB fp32 | BPB int8 | dBPB | σ_seed |
+|---|---|---|---|---|---|
+| 0.5 B | 0.4941 B | 0.871810465558026 | 0.8718768872984035 | 6.64185e-05 | 0.013 |
+| 1.5 B | 1.5437 B | 0.767606372511151 | 0.7688588381536873 | 1.2524656e-03 | 0.250 |
+| **3 B** | **3.0859 B** | **0.724460853881077** | **0.725040070561116** | **5.792167e-04** | **0.116** |
+
+`G-E62c` = **`AT-MOST-LINEAR`** (band ≤0.0025, fixed before the run).
+
+### 61.2 What it does to §60.4
+
+**§60.4 is not void and is not confirmed.** Its fidelity assumption was tested at the only scale
+available and was not contradicted — at 3 B the rung costs **0.116 σ_seed**, an eighth of the
+constant this programme judges deltas with.
+
+**But the basis got weaker, not stronger.** dBPB is **not monotone in N** (up, then down; the
+1.5 B donor is the worst of the three at 2.16× the 3 B), so `G-E62d` clause 1 breaks and the
+pre-registered consequence applies: **the score is reported without a trend claim.** Three fits
+and what they say, none of them usable:
+
+| fit | exponent | at 10 B | σ_seed |
+|---|---|---|---|
+| the two points that existed before E62 | `N^2.578` | 0.1548 | 31.0 |
+| all three | `N^1.321` | 0.0052 | 1.0 |
+| linear in N from 3 B | — | 0.0019 | 0.38 |
+
+A power law through non-monotone points is an artefact of least squares. **The row to quote is
+that there is no row to quote: §60.4's fidelity leg can only be closed by measuring the 10 B
+cell**, which is what §60.5 already listed as owed and what E62 promotes to the only route.
+
+### 61.3 The half-byte rung at the third scale
+
+Packed R3, the format §59–§60 price at 0.5 B/weight: **4.531234 → 3.475707 → 4.234751** against the
+**4.069819** chance line — below it at 1.5 B, **above it again at 3 B**. E60's cliff between one
+byte and half a byte is confirmed at a third scale, and **at 3 B post-hoc ternary is worse than
+emitting no model at all.** Non-monotone in the *opposite* direction to int8: 1.5 B is the
+extreme at both formats and the two disagree about the sign. No mechanism offered.
+
+### 61.4 Gates
+
+`G-E62a` **FIRES** (`05b F32` +0.00e+00, `05b I8` +3.27e-09 = E61's `m1`→`m4` delta to the last
+digit) · `G-E62b` **ADMISSIBLE** (1.11e-05 vs E12's PyTorch, in family with 1.53e-05 / 1.14e-05)
+· `G-E62c` **AT-MOST-LINEAR** · `G-E62d` **CLAUSE1-BREAKS** · `G-E62e` **ABOVE-CHANCE**.
+
+Conduct: foreign occupancy **8.39–14.06%** on all five cells, every one over `OCC_BAR = 4.39` —
+and it gates nothing, because the planted cell reproduced E60 to **+0.00e+00** at 13.5% foreign.
+**That is the design working, not luck:** E62 was scoped to the one axis a dirty box cannot
+corrupt. 147.8 min, one binary.
+
+**2.5 of 6 predictions. Every prediction about the physics was wrong**, prediction 3 by an order
+of magnitude, on the side the brief had named in advance as the embarrassing one.
+
+### 61.5 The law this adds
+
+**A bound fitted through two adjacent points does not have an exponent — it has an artefact.**
+E60 refused to call its two int8 points a trend and said so (*"two points, one direction, stated
+as a segment and not a law"*); E62 shows that refusal was not caution but correctness, because
+the third point did not adjust the exponent, it removed the monotonicity the fit presupposed.
+Corollary for this programme's projections: **before extrapolating any quality cost to 10 B,
+show the estimand RANKS over at least three scales.** Where it does not, the target cell is not
+an extrapolation problem, it is a measurement.
