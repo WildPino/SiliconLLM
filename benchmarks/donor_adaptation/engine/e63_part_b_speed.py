@@ -245,8 +245,15 @@ def rep(name, weights, flags):
     return r
 
 
-def sweep(arms, reps=REPS, tag=""):
-    """Interleaved: every arm gets repetition i before any arm gets repetition i+1."""
+def sweep(arms, reps=None, tag=""):
+    """Interleaved: every arm gets repetition i before any arm gets repetition i+1.
+
+    `reps=None` reads the MODULE global at call time.  It used to default to `REPS` in the
+    signature, which binds at def time -- so `--reps 9` silently ran five, and the log said
+    `rep 1/5` while addendum C had registered nine.  A default argument is a value, not a
+    reference: the run deviated from its registration and was stopped before it read anything.
+    """
+    reps = REPS if reps is None else reps
     by = dict((a[0], []) for a in arms)
     cells = []
     for i in range(reps):
