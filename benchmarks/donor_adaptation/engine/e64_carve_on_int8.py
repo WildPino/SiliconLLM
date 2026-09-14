@@ -25,7 +25,18 @@ import argparse, json, math, os, re, subprocess, sys, time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 RES = os.path.join(HERE, "results")
-OUT = os.path.join(RES, "e64_carve_on_int8.json")
+# ADDENDUM B: run 1's file is a PUBLISHED RECORD and is not mutated.  A re-run writes its own
+# file -- E65 run 1's defect was a resume cache living inside the file its control validated
+# against, which made the control tautological AND overwrote a record.
+OUT = os.path.join(RES, "e64_carve_on_int8_run2.json"
+                   if os.environ.get("E64_RUN2") else "e64_carve_on_int8.json")
+
+# ADDENDUM B / G-E64a2 clause 1.  E37 ran donor_engine_e26.exe, whose default attention arm was
+# ATTN_SERIAL (donor_engine.c:207-208: the default became ATTN_AVX4 in E50, 61d1c29, the day
+# AFTER E37's result was committed, and NO runner from E26 onward passed --attn).  Run 1
+# therefore compared two different KERNELS and called it a replication failure.  Measured, not
+# assumed: e26 AND e63 --attn serial both reproduce E37's k=256 and k=32 exactly.
+ATTN_ARM = "serial" if os.environ.get("E64_RUN2") else None
 
 ENGINE = os.path.join(HERE, "donor_engine_e63.exe")
 
@@ -52,7 +63,8 @@ E37_LADDER = {
     3: 4.029398350226611, 2: 4.0148660778430445, 1: 3.989838501154876,
 }
 E37_DENSE = 3.47570637184527
-G64A_TOL = 1.0e-06          # brief section 4
+G64A_TOL = (1.0e-09 if os.environ.get("E64_RUN2") else 1.0e-06)   # addendum B.2: STRICTER,
+#                        not looser -- there is no build noise to widen for, there was a flag.
 G64B_TOL = 1.0e-04          # addendum A.1: E37's own G-E37A tolerance, not one I invented
 SIGMA_SEED_15B = 0.250      # E62's published value for this donor; NOT re-derived here
 
@@ -62,6 +74,8 @@ def run_bpb(weights, flags):
     protocol -- N_PREDICTED must be 12,264 or the slice is not the frozen one."""
     cmd = [ENGINE, "--weights", weights, "--threads", "6", "--seqlen", str(SEQLEN),
            "--bpb", ANCHOR_IDS] + list(flags)
+    if ATTN_ARM:
+        cmd += ["--attn", ATTN_ARM]
     t0 = time.time()
     r = subprocess.run(cmd, capture_output=True, text=True)
     if r.returncode != 0:
@@ -74,10 +88,21 @@ def run_bpb(weights, flags):
     if npred != N_PRED:
         raise SystemExit("N_PREDICTED %r != %d -- not E1's protocol" % (npred, N_PRED))
     nats = float(m.group(1))
+    # G-E64a2 clause 1: the cell is REFUSED unless the engine's own CONFIG line confirms the
+    # arm that was asked for.  Run 1 had this line in its output and nothing read it; that is
+    # feedback_config_must_appear_in_output applied as a GATE instead of as a log line.
+    cfg = (re.search(r"CONFIG[^\n]*", r.stdout) or [None])
+    cfg = cfg[0] if isinstance(cfg, list) else cfg.group(0)
+    if ATTN_ARM:
+        if not cfg:
+            raise SystemExit("no CONFIG line -- this binary cannot confirm its kernel arm, and "
+                             "G-E64a2 clause 1 REFUSES the cell.")
+        if not re.search(r"attn=%s\b" % re.escape(ATTN_ARM), cfg):
+            raise SystemExit("KERNEL ARM MISMATCH: asked --attn %s, engine reports %r. The cell "
+                             "is REFUSED (G-E64a2 clause 1)." % (ATTN_ARM, cfg))
     return {"nats_per_token": nats, "bpb": nats / math.log(2) / BYTES_PER_TOK,
             "n_predicted": npred, "seconds": time.time() - t0,
-            "config": (re.search(r"CONFIG[^\n]*", r.stdout) or [""])[0]
-                      if re.search(r"CONFIG[^\n]*", r.stdout) else ""}
+            "config": cfg or ""}
 
 
 def confirm_format(weights, want_bpw, log):
@@ -247,7 +272,8 @@ def main():
 
     selftest()
     os.makedirs(RES, exist_ok=True)
-    logf = open(os.path.join(HERE, "e64_run.log"), "w", encoding="utf-8")
+    logf = open(os.path.join(HERE, "e64_run2.log" if os.environ.get("E64_RUN2")
+                         else "e64_run.log"), "w", encoding="utf-8")
 
     def log(m):
         print(m, flush=True)
