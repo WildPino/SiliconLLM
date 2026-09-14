@@ -1201,3 +1201,127 @@ seeded (90210); the verdicts do not depend on it.
 and meaningless at 2 steps on 64 sequences, and already re-registered as the expectation for the
 real run in §H.5. The gate that decides H1 is `G-H1`, scored afterwards by `h1_eval.py` on CPU
 fp32 against `applied-8L = 1.096636`.
+
+
+---
+
+# ADDENDUM J — BOTH SESSIONS HIT THE TIME CAP AT STEP 195, AND THE FOUR BANDS ARE NOT SYMMETRIC UNDER A TRUNCATED BUDGET
+
+**2026-09-14. Written after the operator handed over the two session artefacts and BEFORE
+`h1_eval.py` has been run on either of them.** Not one CPU fp32 number exists yet. The reading
+rule below is therefore registered against an unknown outcome, which is the only condition under
+which registering a reading rule means anything.
+
+The operator reported the two sessions raw and explicitly declined to read them against the
+bands: *"Te lo riporto così com'è, senza interpretarlo contro le bande ... quella lettura è
+tua."* That is `feedback_no_anchoring_producer` honoured from the other side, and it is why the
+numbers below can be used at all.
+
+## J.1 What actually came back
+
+| | session 1 | session 2 |
+|---|---|---|
+| seed | 1717 | 2718 |
+| `resumed_ffn_from` | `null` (fresh carve) | `h1_trained_s1.npz` |
+| wall | 10101.43 s | 10088.85 s |
+| `steps_requested` | 4000 | 4000 |
+| **steps completed** | **not recorded** (see J.4) | **195** — `TIME CAP 2.8 h reached at step 195 -- stopping cleanly` |
+| `--every` | 250 | 250 |
+| history entries | step 0 only | step 0 only |
+| step-0 held-out BPB (fp16, GPU) | 1.2052601751146157 | 0.9795840560215258 |
+| `nonfinite_microbatches` | 0 | 0 |
+
+**The history is empty past step 0 because the logger interval is 250 and the cap landed at
+195.** That is the whole explanation, and it is a logging artefact, not a training failure. The
+trainers ran: `G-H1b` reads the first APPLIED optimizer update at step 1 with 0 declines in both
+sessions, `G-H1c` shows the masters moved, and the saved bundles are the trained weights.
+
+So the registered budget bought **≈390 cumulative optimizer steps against 4000 — 9.75%.**
+
+## J.2 Every planted control fired, in both sessions
+
+| control | s1 | s2 |
+|---|---|---|
+| `G-H1a` k=E identical, HARD gate, any router | FIRES, max\|d\| **0.0** | FIRES, max\|d\| **0.0** |
+| `G-H1a` k=E identical, SOFT gate, router=0 | FIRES, max\|d\| **0.0** | FIRES, max\|d\| **0.0** |
+| `carve actually masks at k=16` (discrimination) | FIRES, max\|d\| 23.125 | FIRES, max\|d\| 27.219 |
+| `G-H1b` first APPLIED update | step 1, 0 declined | step 1, 0 declined |
+| `G-H1c` masters moved | FIRES | FIRES |
+| `G-H1e` router vs STATIC, both HARD-gated | 2.882662 < 3.082641 → FIRES | 2.821667 < 3.076994 → FIRES |
+
+`G-H1a` at 0.0 **with** `carve_is_live` at 23.1/27.2 is the pair that matters: the mask is
+provably inert at `k = E` and provably active at `k = 16`, so it is wired correctly and the
+instrument discriminates. Per `feedback_planted_controls` the apparatus has earned the right to
+have its nulls counted.
+
+**The shortfall is budget, not correctness.** Nothing in these artefacts is broken.
+
+## J.3 The fp16 step-0 pair IS paired — and still may not be read against the bands
+
+My first instinct was to refuse the 1.2053 → 0.9796 comparison as confounded by the seed change.
+That is wrong, and the code says so: `heldout_nats` is a deterministic full sweep over the whole
+held-out array at `bs=1` with no sampling, so **the seed does not enter the evaluation.** Session
+2's step 0 is session 1's end state measured on the identical stream at identical precision. It
+is a legitimate paired before/after of session 1's 195 steps: **−0.2257 BPB.**
+
+**It still may not be compared to a band edge, for a different and decisive reason.** The band
+edges — `applied-8L` 1.096636, `ternary-8L` 0.947851, `h0-run3` 0.810022 — are **CPU fp32 on the
+frozen 24×512 slice**. The 1.2053/0.9796 pair is **fp16 on GPU over `h1_heldout.npz`**. Different
+corpus, different precision, different device. Noting that 0.9796 "falls between `ternary-8L` and
+`applied-8L`" would be a scope error of exactly the kind `feedback_charged_vs_moved_bytes` and
+E58's scope rule exist to stop: *a bound is a number with a scope*, and these two numbers do not
+share one. §5.3 registered this metric as PROGRESS precisely so it could not be spent as a gate.
+
+**What the pair does license:** the direction of travel is down, and the trainer moved the model
+a long way in 195 steps. That is a statement about conduct, not about H1's verdict.
+
+## J.4 A defect: the artefact records what was ASKED, not what was DONE
+
+`h1_trained_s*.json` carries `steps_requested: 4000` and no `steps_completed`. The only place
+the real count exists is one stdout line, and **session 1's log is 0 bytes** — lost to the
+cp1252/tqdm encoding crash the operator diagnosed. So session 1's completed step count is
+**unrecoverable from the artefacts**; the ≈195 above is inferred from its wall time matching
+session 2's to within 13 s on the same shape and the same cap, and it is marked as an inference
+wherever it is used.
+
+This is `feedback_measure_the_run_not_just_the_cell` again: *a number that describes the CONDUCT
+and not the result escapes every gate.* A trainer that cannot say how far it got is not fully
+auditable. **Fix, for any future session:** `steps_completed`, `stop_reason` and `seconds_per_step`
+go in the JSON, which survives the log.
+
+## J.5 THE READING RULE, registered here
+
+The four bands were written for a run that completed its registered budget. At 9.75% of it they
+are **not symmetric**, and the asymmetry is not a matter of taste:
+
+* `TRAINING-HELPS`, `CARVE-IS-TRAINABLE` and `CARVE-IS-FREE` are **achievement** bands. They say
+  *training reached this level*. Reaching one of them on 9.75% of the budget is the claim made
+  **a fortiori** — a shorter run that gets there is stronger evidence, not weaker. These are read
+  exactly as registered.
+* `CARVE-NOT-TRAINABLE` is **not** an achievement band. It says *training buys nothing and the T4
+  branch closes.* That is a claim about the **limit** of training, and 390 of 4000 steps cannot
+  support it. Reading it here would be the `feedback_gate_is_not_a_progress_meter` failure in its
+  floor form: treating a counter that never got off the floor as though it had measured a ceiling.
+
+**Registered rule:** if `h1_eval.py` returns trained BPB **≥ `applied-8L` (1.096636)**, the
+outcome is recorded as **`H1-UNDERTRAINED`** — an OWED result requiring the remaining budget —
+and **not** as `CARVE-NOT-TRAINABLE`. The negative band stays unassigned until a run completes a
+materially larger fraction of its registered steps.
+
+**Why this is not a goalpost move.** It is registered before any CPU fp32 number exists; it can
+only ever **weaken** a conclusion I am allowed to draw, never strengthen one; and it cannot
+manufacture a positive, because the three positive bands are untouched and `G-H1`'s gate — trained
+BPB < `applied-8L` — is untouched. The direction of a legitimate mid-flight change is the one
+that costs the author something (addendum C.3 set that precedent by making the good-news band
+twelve times narrower).
+
+## J.6 What runs now, and what does not
+
+1. `h1_eval.py` on **`h1_trained_s2.npz`** — the cumulative artefact, ≈390 steps, both sessions'
+   training. CPU fp32, frozen slice. **This is the gate.**
+2. `h1_trained_s1.npz` is retained as the mid-point but is **not** a second measurement of the
+   same thing and will not be reported as one.
+3. **The weights do not enter git.** 1.33 GB each; they stay in one place on disk per the
+   standing rule that weights live in exactly one location. The JSON sidecars and the surviving
+   log go into `results/h1/`.
+4. `G-E63d` is still `VOID` and OWED. H1 does not touch it, and neither does E64.
