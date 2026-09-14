@@ -5294,3 +5294,28 @@ curve by an amount nobody has measured, in a direction nobody has established. *
 only finding is that §60.4's denominator is not inflated, and that the unapplied cross-check
 points up rather than down** — which makes measuring the carved int8 cell more valuable, not
 less.
+
+> #### CORRECTION to 61.6, same session, found by opening E26 — the RATIO is withdrawn, the DIRECTION survives as a bound
+>
+> 61.6 compared **23.19 GB/s** for `A10B-K3` against §59.2's **20.65** and called it ×1.12–×1.16.
+> **The two numbers are not the same quantity.** §59.2's bands are built from **moved MB/token**,
+> explicitly and carefully (*"`tqh` unties → fp32 embedding GATHERED, not streamed; per-row scales
+> charged"* — `05b PACKED` is 249.1 MB/token → 21.48 GB/s). My 23.19 is **charged weights × 0.5 B**
+> = 464.1 MB/token. Dividing one construction by another is the error §59.2 exists to forbid, and
+> 61.6 committed it while auditing for it.
+>
+> **What survives, as a one-sided bound.** For the carved file, moved bytes are **strictly greater**
+> than charged × 0.5 B — the fp32 per-row scales, the router, the gathered fp32 embedding and the
+> KV reads are all moved and none are charged. So `A10B-K3`'s achieved bandwidth is **≥ 23.19 GB/s**,
+> hence **≥ §59.2's 20.65–22.74 dense packed band**. *The carved cell is not reading below the dense
+> band* — that claim holds. **×1.12–×1.16 is withdrawn**, and with it the "≈41–43 tok/s" figure
+> 61.6 floated: it was that ratio applied to §60.4, so it falls with it. §60.4's **36.6–37.6** stands
+> as written.
+>
+> **And E26 is the reason the bound is only a bound.** E26 measured that *a gathered weight costs
+> more than a streamed one*: carved charged-throughput at T10 is **38.03–43.12 G active weights/s**
+> against E25's **49.59–50.36** for a rank cut. `A10B-K3` escapes most of that penalty only because
+> **822 M of its 928 M charged weights are attention + head + router, streamed densely** — the carve
+> is 11% of its token. At a shape where the carve is most of the token, E26's penalty is what
+> governs. **Neither number transfers to the other's shape**, which is the same lesson in a third
+> place.
