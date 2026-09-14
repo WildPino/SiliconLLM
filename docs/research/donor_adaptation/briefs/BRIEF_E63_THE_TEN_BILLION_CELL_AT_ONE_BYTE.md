@@ -331,3 +331,55 @@ aimed at an eighth of the problem **at this shape** — which is the shape the g
 `G-E63d` lands short of 50 tok/s, the deficit is **not** closable on the FFN axis, and the next
 experiment is attention, not experts. Registered here so that conclusion cannot be assembled
 after seeing the rate.
+
+---
+
+## 11. ADDENDUM C — an INTERIM paired ratio, registered before it is run
+
+**`G-E63d` is not being attempted and is not being weakened.** This addendum registers a
+*different estimand* that a contended box **can** answer, so that the programme is not idle
+while item 1 waits.
+
+### C.1 Why the absolute rate still cannot be taken
+
+Measured, not assumed: 90 samples at 1 Hz with nothing of mine running read **median 3.28%,
+p75 7.95%, max 26.30%, 40 of 90 samples at or over `OCC_BAR = 4.39%`.** The load is the user's
+browser. `G-E63d` needs an absolute rate and E52 prices contention at **0.262% of rate per point
+of foreign occupancy**, so the sweep would be `VOID` — which is exactly what the runner will
+print, and that verdict is the registered one.
+
+### C.2 What a contended box CAN answer
+
+**The paired ratio.** `rate(int8 carve) ÷ rate(packed carve)`, both arms **interleaved in one
+sweep** so every repetition sees the same box state, paired by repetition index. This
+programme's own scope rule already says why: *every absolute tok/s carries ±5%; **ratios do
+not***. E61 measured its whole mechanism this way.
+
+**Nine repetitions instead of five**, because contention widens dispersion and the ratio is the
+only thing being read. Reported with:
+
+| quantity | why it is there |
+|---|---|
+| paired median ratio + bootstrap CI | the estimand |
+| per-arm mean foreign occupancy, and **the asymmetry between them** | E61's null went out of band because contamination was **asymmetric by 8.29 points**; a paired ratio is only paired if the two arms were contended alike |
+| both absolute medians, marked **INADMISSIBLE** | recorded as conduct, never as a rate |
+
+### C.3 The non-promotion clause
+
+**This reading may not adjudicate `G-E63d` in either direction.** Not if it looks good, not if it
+looks bad. `G-E63d` is answered by one clean sweep on an idle box and by nothing else, and
+**predictions 4 and 5 stay scored against that sweep, not against this one.** The interim writes
+to its own file (`e63_interim_ratio.json`) so it cannot be mistaken for Part B's output.
+
+**Why this is not "re-running to a pass":** E40 addendum A protects a gate that *fired*.
+`G-E63d` has not fired, has not been attempted, and is not being attempted here — a `VOID`
+admissibility is the absence of a reading, not a failed one. What is being run is a second,
+weaker, honestly-labelled estimand that leaves the first exactly where it was.
+
+### C.4 What it can be worth
+
+E36 measured the packed `A10B-K3` artefact at **49.96 tok/s** (run 2: 51.50) on a clean box.
+A paired ratio composed with that clean absolute gives a **scoped estimate** of where the int8
+cell will land — better evidence than §60.4's desk model, worse than `G-E63d`. It will be stated
+as an estimate with both of its inputs named, and **`G-E63d` will remain listed as owed** in
+every document it appears in.

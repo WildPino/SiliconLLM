@@ -44,6 +44,10 @@ import e44_interval as E44                                          # noqa: E402
 
 OUTDIR = os.path.join(HERE, "results")
 OUTFILE = os.path.join(OUTDIR, "e63_part_b.json")
+# ADDENDUM C: the interim paired ratio writes to its OWN file, so a contended reading can never
+# be mistaken for Part B's output.  --interim also stops after sweep 1: G-E61c's repeat and the
+# 3 B cells are absolute readings and a contended box cannot answer them at all.
+INTERIM_FILE = os.path.join(OUTDIR, "e63_interim_ratio.json")
 PART_A = os.path.join(OUTDIR, "e63_part_a.json")
 BRIEF = "BRIEF_E63_THE_TEN_BILLION_CELL_AT_ONE_BYTE.md"
 
@@ -171,6 +175,22 @@ def admissible(cells):
     return "ADMISSIBLE"
 
 
+def arm_foreign(cells):
+    """Mean foreign occupancy per arm, and the ASYMMETRY between the two arms.
+
+    E61's planted null went out of band because contamination was asymmetric by 8.29 points
+    between the arms it compared.  A paired ratio is only paired if both arms were contended
+    alike, so the asymmetry is reported beside every ratio -- and at E52's k = 0.262% of rate
+    per point, it converts directly into how much of the ratio the box could have manufactured.
+    """
+    by = {}
+    for c in cells:
+        by.setdefault(c["name"], []).append(c["foreign"])
+    means = dict((k, sum(v) / len(v)) for k, v in by.items())
+    asym = (max(means.values()) - min(means.values())) if len(means) >= 2 else 0.0
+    return means, asym, asym * 0.00262      # E52: fraction of rate the asymmetry can explain
+
+
 def g_e63d(lo, hi, bar=DESK_MODEL):
     """The measurement the programme has been projecting.  Bands fixed in the brief, section 4."""
     if lo != lo or hi != hi:
@@ -290,6 +310,16 @@ def selftest():
     ok(A10B_CHARGED == 671088640 + 134217728 + 16777216 + A10B_FFN_CHARGED,
        "the decomposition sums to E36's charged figure")
 
+    # -- the arm-asymmetry reporter
+    m, a, e = arm_foreign([{"name": "A", "foreign": 2.0}, {"name": "A", "foreign": 4.0},
+                           {"name": "B", "foreign": 3.0}, {"name": "B", "foreign": 3.0}])
+    ok(abs(m["A"] - 3.0) < 1e-9 and abs(m["B"] - 3.0) < 1e-9, "per-arm means")
+    ok(abs(a) < 1e-9, "symmetric arms give zero asymmetry")
+    m, a, e = arm_foreign([{"name": "A", "foreign": 12.0}, {"name": "B", "foreign": 2.0}])
+    ok(abs(a - 10.0) < 1e-9, "asymmetry is the spread between arm means")
+    ok(abs(e - 0.0262) < 1e-9, "E52 converts points into a fraction of rate")
+    ok(arm_foreign([{"name": "A", "foreign": 1.0}])[1] == 0.0, "one arm has no asymmetry")
+
     # -- the precondition really is a precondition
     okc, why = part_a_is_closed()
     ok(isinstance(okc, bool) and isinstance(why, str), "part_a_is_closed returns a reason")
@@ -313,16 +343,29 @@ def save(out):
 # ============================================================ main
 def main():
     t0 = time.time()
+    global REPS, OUTFILE
+    interim = "--interim" in sys.argv
+    for i, a in enumerate(sys.argv):
+        if a == "--reps" and i + 1 < len(sys.argv):
+            REPS = int(sys.argv[i + 1])
+    if interim:
+        OUTFILE = INTERIM_FILE
     okc, why = part_a_is_closed()
-    log("== E63 Part B -- the 10 B cell at one byte per weight, MEASURED")
+    log("== E63 %s" % ("INTERIM paired ratio (addendum C) -- G-E63d is NOT attempted"
+                       if interim else
+                       "Part B -- the 10 B cell at one byte per weight, MEASURED"))
     log("   %s" % why)
     if not okc:
         log("   STOP.  A rate on a path whose arithmetic has not been proved measures nothing.")
         return 1
     selftest()
 
-    out = {"brief": BRIEF, "part": "B", "engine": os.path.basename(ENGINE),
-           "precondition": why,
+    out = {"brief": BRIEF, "part": ("INTERIM (addendum C)" if interim else "B"),
+           "engine": os.path.basename(ENGINE), "precondition": why,
+           "non_promotion": ("This reading may NOT adjudicate G-E63d in either direction. "
+                             "G-E63d is answered by one clean sweep on an idle box and by "
+                             "nothing else; predictions 4 and 5 are scored against that sweep, "
+                             "not this one.  G-E63d remains OWED.") if interim else None,
            "constants": {"OCC_BAR": OCC_BAR, "DESK_MODEL": DESK_MODEL, "REPS": REPS,
                          "NTOK": NTOK, "THREADS": THREADS, "BOOT": BOOT, "CI": list(CI)},
            "scope": "Absolute tok/s carries +-5% (instrument).  RATIOS do not.  No rate here is "
@@ -347,6 +390,9 @@ def main():
     ci_pk = boot_ci(pk)
     ratio = m_i8 / m_pk if m_pk > 0 else float("nan")
     ci_ratio = boot_ratio_ci(i8, pk)
+    fmeans, fasym, fexplains = arm_foreign(cells)
+    out["A10B_foreign"] = {"per_arm_mean": fmeans, "asymmetry_points": fasym,
+                           "fraction_of_ratio_E52_can_explain": fexplains}
     out["A10B"] = {"median_packed": m_pk, "median_int8": m_i8,
                    "ci_packed": list(ci_pk), "ci_int8": list(ci_i8),
                    "ratio_int8_over_packed": ratio, "ci_ratio": list(ci_ratio),
@@ -361,6 +407,22 @@ def main():
     log("   int8    median %8.3f  CI [%.3f, %.3f]  range %.3f..%.3f"
         % (m_i8, ci_i8[0], ci_i8[1], min(i8), max(i8)))
     log("   admissibility: %s" % adm)
+    log("   foreign per arm: %s   asymmetry %.2f points -> E52 says the box could "
+        "manufacture at most %.4f of the ratio"
+        % (", ".join("%s %.2f%%" % (k, v) for k, v in sorted(fmeans.items())),
+           fasym, fexplains))
+    if interim:
+        out["wall_min"] = round((time.time() - t0) / 60.0, 1)
+        save(out)
+        log("")
+        log("== INTERIM reading (addendum C) -- NOT a Part B result")
+        log("   G-E63d  : %s" % vd)
+        log("   ratio   : %s" % ve)
+        log("   E36 measured the packed artefact at 49.96 tok/s (run 2: 51.50) on a CLEAN box;")
+        log("   %.4f x 49.96 = %.2f tok/s is an ESTIMATE with both inputs named, not a "
+            "measurement." % (ratio, ratio * 49.96))
+        log("   G-E63d REMAINS OWED.  %.1f min.  results: %s" % (out["wall_min"], OUTFILE))
+        return 0
 
     # ------------------------------------------------------------ sweep 2: G-E61c's repeat
     log("")
