@@ -299,3 +299,32 @@ one-byte cost **does not transfer** to R512, whose FFN is 20.91% of the charged 
 `A10B-K3`'s 11.44% (charged-byte ratio 1.2091 vs 1.1144). That is a separate question with a
 separate brief. **`G-E63d` remains `VOID` and OWED, and §13 adjudicates nothing.**
 
+---
+
+## 14. SECOND CORRECTION — §13 stopped one experiment short
+
+§13 corrected B.4 by opening E39 and published. **E40 is the next experiment on the same axis,
+its title is `ATTENTION-LEVERS-EXHAUSTED`, and it changes the conclusion.**
+
+- **`R128`** (`NKV` 8→2, rank 128, `F = 49152`, untied; the same 9,999,220,736 parameters) reads
+  **112.73 / 106.44 tok/s** at `k = 3` — quiet-box re-readings 128.54 / 123.33 / 130.30, so per
+  ledger §53.9.4 **the quantity is ~113–130 tok/s**. Floor ~161–165. **Above the EXCELLENT
+  target with the FFN LIVE**, where E39's 99.4/100.0 floor is FFN-off by construction.
+- Every attention lever in this engine's reach is therefore **already pulled**, which is a third
+  way B.4's sentence was wrong and §13 caught only the first.
+- **And the argument was moot.** E38, `SELECTION-IS-DEAD`: a perfect per-token oracle at the
+  1.17% activation this speed requires reads **4.131817 BPB** against dense **0.767595** and
+  chance **4.069819** — **above chance**. The fast shape exists; filling it post-hoc does not.
+
+**What is actually open at ten billion is QUALITY at the activation rate speed requires, not
+rate** — and the route to it, training with the mask on, is **H1**, already launched. E63's one
+byte per weight stays worth having as orthogonal fidelity headroom at −1.7% of rate; it is not
+the blocker.
+
+**The rule:** when a search returns a **series**, read to the **end** of it. §13 was a correction
+for not searching that repeated the error one experiment later. **Opening the first hit on an
+axis is a sample, not a search.**
+
+**`G-E63d` remains `VOID` and OWED. E40's weights are NOISE, its dispersion is poor and reported
+as such, and nothing in §13 or §14 is a rate I measured.**
+

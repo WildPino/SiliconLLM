@@ -477,3 +477,79 @@ Fixed to `a.rank`; verified by exporting a ranked artefact and reading its sidec
 sidecars are **left as written** — they are the record of what was produced — and the correct
 figures are stated here and in `probes/E39` §0.
 
+### B.6 SECOND CORRECTION — B.5 stopped one experiment short, and the thing it missed reverses which problem is open
+
+**B.5 corrected B.4 by opening E39. It should have kept reading.** The very next experiment,
+**E40**, pulled every remaining attention lever and declared them exhausted — and its title says
+so. I published a search-rule correction while committing the search-rule error again, one
+experiment further along.
+
+#### What E40 actually holds
+
+`probes/E40_ATTENTION_LEVERS_EXHAUSTED.md`, registered verdict **`ATTENTION-LEVERS-EXHAUSTED`**:
+
+| arm (all exactly 9,999,220,736 parameters) | `NKV` | rank `q/o` | base charged | floor tok/s | **at `k=3` (1.17%)** |
+|---|---|---|---|---|---|
+| `A10B` (E36) | 8 | — | 0.928 G | 58.1 | ~50 |
+| `R512` (E39, what B.5 cited) | 8 | 512 | 0.419 G | 95.4 / 90.2 | 78.46 |
+| `NKV2` | **2** | 512 | 0.319 G | 129.3 / 124.8 | — |
+| **`R128`** | **2** | **128** | **0.218 G** | **161.3 / 164.7** | **112.73 / 106.44** |
+
+> **First artefact in this programme that is simultaneously a genuine ten billion parameters,
+> above the EXCELLENT target, and still computing something in its FFN.**
+
+**Three ways B.4's sentence was wrong, not one.** B.5 caught the first only:
+
+1. the attention lever had been measured (E39, 1.693×);
+2. **every remaining attention lever had then been pulled and found exhausted** (E40) — there is
+   no further attention shape in this engine's reach;
+3. and **B.5 cited the weaker, partly misleading number.** E39's 99.4/100.0 tok/s floor is
+   **FFN-OFF by construction** — E40 says it plainly: *"E39's `R512` reached 100 tok/s only at
+   `k* ≈ 0` — with the FFN switched off. This one does not."* `R128` clears the EXCELLENT
+   target **with the FFN live**, which is a strictly stronger statement than the one I published.
+
+**Precision, as the ledger already corrected it (§53.9.4):** `112.73` does not carry four
+significant figures — this arm's own session spread is 13.5% (34.9% reversed), and three later
+readings of the same file on a quieter box read **128.54, 123.33, 130.30**. **The quantity is
+roughly 113–130 tok/s.** Every quiet-box reading is above the registered cell and all of them
+clear 100, so the milestone is if anything understated — but the last two digits were asserted,
+not measured, and I repeat no more precision than that here.
+
+#### The correction that matters: SPEED IS NOT THE OPEN PROBLEM
+
+B.4, B.5 and this whole addendum chain were arguing about which axis buys rate. **E38 had
+already closed the question that argument was serving.**
+
+`probes/E38`, registered verdict **`SELECTION-IS-DEAD`**: hand the carve a **perfect,
+per-token, unattainable oracle** at the activation rate E36's speed requires — 1.17%, `k=3` of
+256 — and it reads **4.131817 BPB**. Dense fp32 is **0.767595**. Chance is **4.069819**.
+**The oracle is 0.062 ABOVE the chance line.** No router can beat its own oracle, so cheating
+does not save 1.17% activation and no post-hoc selector will.
+
+Putting E40 and E38 side by side, on the same shape and the same activation budget:
+
+| | status |
+|---|---|
+| a genuine 10 B running **above 100 tok/s** with its FFN live | **MEASURED** (E40 `R128`, noise weights) |
+| **filling that shape by selecting from a trained donor** | **CLOSED, negatively** (E38, above chance even with an oracle) |
+| filling it by **training with the mask ON** | **H1** — pre-registered, granted, launched by the user |
+
+**So the honest state is not "we are 1 tok/s short of the good target".** It is: *the shape that
+hits the excellent target exists and has been measured; the model that is that fast is not yet a
+good model; and the only route left to making it one is already running.* E63's entire subject —
+one byte per weight — remains worth having (it is orthogonal, and it buys fidelity headroom at
+−1.7% of rate), but it is not what stands between this programme and its goal.
+
+#### The rule this adds
+
+`feedback_search_before_claiming_a_gap` told me to search by artefact name and open what comes
+back. I did, found E39, and published. **The new clause is: when the search returns a SERIES,
+read to the END of the series.** E39 and E40 are consecutive experiments on one axis and the
+later one both supersedes the earlier and negates the proposal I was making. **Opening the first
+hit on an axis is not a search — it is a sample, and it is biased towards whatever I already
+half-remembered.**
+
+**Nothing here adjudicates `G-E63d`, which remains `VOID` and OWED.** E40's numbers are on
+**noise weights**, its dispersion is poor and reported as such, and its own cell straddles the
+band edge it was registered against.
+

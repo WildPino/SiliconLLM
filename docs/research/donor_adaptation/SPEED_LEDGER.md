@@ -5486,3 +5486,39 @@ not a trend.
 **§62.9 does not touch `G-E63d`.** It remains `VOID` and OWED on an idle box, and nothing here
 is an absolute rate.
 
+### 62.10 SECOND CORRECTION — §62.9 stopped one experiment short, and §50 was already there
+
+§62.9 corrected §62.6 by opening E39. **It should have kept reading to the end of the axis.**
+E40 — the next experiment, whose title is `ATTENTION-LEVERS-EXHAUSTED` — pulled every remaining
+attention lever, and §50 of this ledger already records it.
+
+**§62.9 cited the weaker number.** E39's 99.4/100.0 tok/s floor is **FFN-OFF by construction**;
+E40 states that `R512` reaches 100 tok/s only at `k* ≈ 0`. **`R128`** (`NKV` 8→2, rank 128,
+`F = 49152`, untied, the same 9,999,220,736 parameters) clears the EXCELLENT target **with the
+FFN live**: registered cell **112.73 / 106.44**, quiet-box re-readings 128.54 / 123.33 / 130.30,
+**the quantity is ~113–130 tok/s** per §53.9.4's precision correction, floor ~161–165. Floor
+ladder: `A10B` 58.1 → `R512` ~93 → `NKV2` ~127 → **`R128` ~163**.
+
+**So B.4/§62.6's "the next experiment is attention" was wrong three ways, and §62.9 caught one:**
+the lever was measured (E39), then **exhausted** (E40), and the floor I quoted was the one with
+the FFN switched off.
+
+**And the correction that outranks both.** This chain was arguing which axis buys rate while
+**E38 had already closed the question the argument served**: a perfect, per-token, unattainable
+oracle at the 1.17% activation E36's speed requires reads **4.131817 BPB** against dense
+**0.767595** and chance **4.069819** — **above the chance line**. `SELECTION-IS-DEAD`, and no
+router beats its own oracle.
+
+**The binding constraint at ten billion is therefore NOT rate.** A 10 B above 100 tok/s with a
+live FFN is measured (on noise weights); filling it post-hoc from a trained donor is closed
+negatively; the remaining route is training with the mask on, which is **H1**, already launched.
+**This ledger should stop pricing shapes as though speed were the blocker.**
+
+**The law this adds, and it is a search law, not a speed law:** §62.9 was itself a correction for
+not searching, and it repeated the error one experiment later. **When a search returns a SERIES,
+read to the END of it.** Consecutive experiments on one axis supersede each other, so *opening
+the first hit is not a search — it is a sample biased towards what I already half-remembered.*
+
+`G-E63d` is untouched: still `VOID`, still OWED, and nothing in §62.9 or §62.10 is a rate I
+measured.
+
