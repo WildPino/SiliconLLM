@@ -20,7 +20,7 @@
 | What does carve cost on int8? | **E64 run 1 void. Audited run 2 says dearer by +1.13–1.43 BPB across the ladder; at k=3 the int8 carve itself costs +1.912 BPB and lands above chance.** | canonical E64 probe §8 / ledger §66 |
 | Is the carve trainable? | **Yes on an 8-layer branch:** H1 `TRAINING-HELPS`; router still moves, no full-stack claim. | canonical H1 |
 | What does the rank fraction used by fast R128 cost post-hoc? | **At D=1536, r/D=1/32 costs +1.705835 BPB = 51.66% dense→chance gap; no width extrapolation.** | canonical E65 |
-| What is the next real 7B quality check? | E66 one-byte-at-7B, preregistered and apparatus-ready; result absent. | E66 brief/runner |
+| What is the next real 7B quality check? | E66 one-byte-at-7B; planted controls now pass, but treatment exports/score/rank are still absent. | E66 probe checkpoint / brief / runner |
 
 ## Rules that prevent wasted work
 
@@ -139,11 +139,11 @@ These entries are represented primarily by briefs, engine runners/results and `S
 | H0 | **format trainability evidence:** rank/carve-related training at 1.5B improves post-hoc quality, but free-running remains weak/partial at the measured checkpoints | training-in-format is distinct from post-hoc application |
 | H1 | **TRAINING-HELPS:** trained 8L 0.962593 vs applied 1.096636; experts supply most early movement, router becomes helpful and still moves | do not declare finished; full stack/free-running and format choice remain open |
 | E65 | **RANK FRACTION COST:** r/D=1/32 on real 1.5B donor = 2.473430 BPB, +1.705835 = 51.66% dense→chance; rank damage non-monotone | no D=4096 extrapolation; this is a post-hoc floor, not a trainability verdict |
-| E66 | **PRE-REGISTERED, NO RESULT:** one-byte-at-7B, quality/rank only, `attn=avx4` asserted, controls against E62/E16 | run only after preserving prereg; no rate and no claim until result/probe exists |
+| E66 | **IN PROGRESS:** one-byte-at-7B, quality/rank only; `G-E66a/b/c` pass under committed runner, treatment still unmeasured | controls JSON is canonical checkpoint; no rate or treatment claim until `G-E66d/e/f/g` exist |
 
 ## Open queue, ordered by information gain
 
-1. **Run/adjudicate E66:** 7B one-byte quality/rank. Controls are `G-E66a` (1.5B int8 E62), `G-E66b` (7B ternary E16), `G-E66c` (`CONFIG`), then score/rank gates. No rate.
+1. **Finish/adjudicate E66:** controls `G-E66a/b/c` pass; export A1/A2, then measure score/fold/rank gates `G-E66d/e/f/g`. No rate.
 2. **Get the clean CPU hour for `G-E63d`:** measure the actual 10B carved-int8 rate; do not replace this with another composed estimate.
 3. **Decide H1 continuation / H2T:** use H1's router-vs-experts decomposition and E64's dearer-int8 result to choose whether the next training branch is one-byte or ternary; preserve the distinction between applied and trained.
 4. **Only then spend T4 budget on the selected healing run:** H1/H0 show trainability, but no 10B training fits a T4; the T4 budget is for healing a smaller representative branch and validating the recipe.
