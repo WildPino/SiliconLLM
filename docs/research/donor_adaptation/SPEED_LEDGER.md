@@ -5262,3 +5262,35 @@ the third point did not adjust the exponent, it removed the monotonicity the fit
 Corollary for this programme's projections: **before extrapolating any quality cost to 10 B,
 show the estimand RANKS over at least three scales.** Where it does not, the target cell is not
 an extrapolation problem, it is a measurement.
+
+### 61.6 An audit of §60.4's denominator, prompted by E31/E33 — and it points the OTHER way
+
+§60.4's 10 B line divides E36's `A10B-K3` charged weights (0.9283 G/token) by §60.3's **dense
+streaming** 1 B/weight band. E31 and E33 measured that a **carved** read need not reach a
+streaming rate — at T10 the `down` run is 3,584 B at locality ratio **r = 0.685** — so the
+division looked like the error this programme has made three times (E31 `2.01×` → `1.25×` → E33
+**measured `1.12×`**; E58's `×1.75` withdrawn). **It was checked against E36's own measurement
+and it does not hold.**
+
+| | |
+|---|---|
+| `A10B-K3` charged | 928,251,904 weights/token (`G-E36C` FIRES, zero tolerance) |
+| `A10B-K3` **measured**, packed | **49.96 tok/s** (run 2: **51.50**) |
+| ⇒ effective band on the carved shape | **23.19 GB/s** (run 2: 23.90) |
+| §60.3's **dense** 0.5 B/weight band | **20.65 GB/s** |
+| carved ÷ dense | **×1.12 – ×1.16** |
+
+The carved cell reads **above** the dense band, because only **106 M of the 928 M** charged
+weights are the carved FFN — 822 M is attention + head + router, read densely — and `GSZ=180`
+puts the `down` runs at 11,520 B, past the steep part of E31's curve. E36's prediction 3 had
+registered this in advance and missed by **−2.4% / −0.8%**: at this shape locality costs ~2%,
+not 30%.
+
+**Consequence, stated as an open question and not as a number.** If the same ×1.12–×1.16
+carved-shape advantage held at one byte per weight, §60.4's **36.6–37.6** would be **≈41–43
+tok/s (82–87% of the bar)**. **That is NOT claimed here.** At 0.5 B/weight a `PT_BLK = 64` block
+of `down` holds 128 weights; at 1 B/weight it holds 64, which moves the carved read along E31's
+curve by an amount nobody has measured, in a direction nobody has established. **The audit's
+only finding is that §60.4's denominator is not inflated, and that the unapplied cross-check
+points up rather than down** — which makes measuring the carved int8 cell more valuable, not
+less.
