@@ -280,3 +280,54 @@ replacements are stronger than what they replace.
 
 **Part B ships separately or not at all.** §6's last bullet is being honoured literally: Part A
 shipped alone, and Part B is stated as owed.
+
+---
+
+## 10. ADDENDUM B — `G-E63e`'s comparator is the wrong ratio (pushed before Part B)
+
+Found after Part A closed, while decomposing the A10B token. It changes no gate — `G-E63e` is
+descriptive by registration — but a descriptive gate that prints a **wrong comparator** beside a
+correct measurement misleads exactly as effectively as a wrong threshold.
+
+### B.1 The A10B-K3 charged token, checked against E36's zero-tolerance figure
+
+| organ | charged weights/token | share | format in BOTH files |
+|---|---|---|---|
+| attention (q,k,v,o) | 671,088,640 | **72.3%** | packed, 0.5 B/weight |
+| `lm_head` | 134,217,728 | 14.5% | packed, 0.5 B/weight |
+| router | 16,777,216 | 1.8% | packed, 0.5 B/weight |
+| **carved FFN** | **106,168,320** | **11.4%** | **packed 0.5 B → int8 1 B** |
+| **total** | **928,251,904** | | matches `G-E36C` exactly |
+
+### B.2 What that does to the comparator
+
+§4 registered `G-E63e` against *"the **byte ratio** (2.0)"*. **2.0 is the FFN's own byte ratio,
+not the token's.** The format change touches 11.4% of the charged token, so:
+
+| | packed | int8 |
+|---|---|---|
+| charged bytes/token | 464.13 MB | 517.21 MB |
+
+**Charged byte ratio = 1.1144**, and a fixed-bandwidth reading would give a rate ratio of
+**0.8974**, not 0.50. The §59.2 band ratio (1.65–1.69) is also the wrong comparator for the same
+reason: the int8 artefact is a **mixture** — 88.6% of its charged weights are still at half a
+byte — so no single band describes it, and §59.2's rule forbids manufacturing one. **Part B
+prints the charged ratio as the comparator and states that moved ≠ charged** (the carved FFN
+gathers; E26's penalty applies to that 11.4% and to nothing else).
+
+### B.3 Prediction 5 is NOT revised
+
+It stays **0.60–0.72**, and B.2 says plainly that I expect it to miss high. The arithmetic above
+is independent of any measurement, but **full disclosure: Part A's conduct rates had already been
+seen when I did it** (§8 of the probe names that hazard). Revising a registered prediction after
+that is worth nothing, so the prediction stands and will be scored as registered. What B.2 buys
+is that the *comparator* printed next to the answer is the true one.
+
+### B.4 The consequence that outlives E63
+
+**At A10B-K3 the FFN is 11.4% of the charged token and attention alone is 72.3%.** A *free* FFN
+would buy at most **×1.129**. Every MoE, carve and FFN-sparsity lever this programme owns is
+aimed at an eighth of the problem **at this shape** — which is the shape the goal is about. If
+`G-E63d` lands short of 50 tok/s, the deficit is **not** closable on the FFN axis, and the next
+experiment is attention, not experts. Registered here so that conclusion cannot be assembled
+after seeing the rate.

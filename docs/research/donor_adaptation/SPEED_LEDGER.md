@@ -5378,3 +5378,35 @@ standing note about it. Harmless where it happened (Part A gates nothing on cond
 **fatal one step later**: `G-E63d`'s admissibility is `foreign < 4.39%`, which with
 `child_ticks = 0` **no box could ever pass.** Fixed before Part B was written. *A meter that is
 merely mislabelled in a deterministic experiment is a broken gate in the next one.*
+
+### 62.6 The decomposition that reframes the endgame (added before Part B)
+
+The A10B-K3 charged token, derived from the shape and checked against `G-E36C`'s zero-tolerance
+928,251,904:
+
+| organ | charged weights/token | share |
+|---|---|---|
+| attention (q,k,v,o) | 671,088,640 | **72.3%** |
+| `lm_head` | 134,217,728 | 14.5% |
+| router | 16,777,216 | 1.8% |
+| **carved FFN** | **106,168,320** | **11.4%** |
+
+**A free FFN would buy at most ×1.129 at this shape.** The carve is already deep enough
+(`k=3` of `E=256`, 1.17% of the FFN) that the FFN has stopped being the bottleneck: **attention
+alone is 72.3% of the charged token.** Every MoE, carve and FFN-sparsity lever in this
+programme — E37, E38, E39, E40, the carve itself, the true MoE that was never tried — aims at
+an eighth of the problem **at the shape the goal is about**.
+
+Two consequences, both registered before `G-E63d` reads:
+
+1. **`G-E63e`'s registered comparator was wrong.** §4 named *"the byte ratio (2.0)"*; 2.0 is the
+   **FFN's** ratio. At the token level the charged ratio is **517.21 / 464.13 = 1.1144**, and a
+   fixed-bandwidth reading would give **0.8974**. §59.2's bands are equally inapplicable: the
+   int8 artefact is a **mixture**, 88.6% of it still at half a byte, and no single band
+   describes a mixture. See brief addendum B.
+2. **If `G-E63d` lands short of 50, the deficit is not closable on the FFN axis.** The next
+   experiment would be attention, not experts. Stated now so it cannot be assembled afterwards.
+
+**This does not revise prediction 5** (0.60–0.72). It stays as registered and will be scored as
+registered; the disclosure that Part A's conduct rates were seen before this arithmetic was done
+is in the probe, §8.

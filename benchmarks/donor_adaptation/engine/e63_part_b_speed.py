@@ -65,9 +65,23 @@ BOOT = 20000
 CI = (2.5, 97.5)
 SEED = 63
 
-# E63's own comparators for G-E63e.  NOT divisors: they are printed beside a measured ratio.
-BYTE_RATIO_FFN = 2.0                  # one byte per weight against half a byte
-BAND_RATIO = (34.0 / 20.65, 34.9 / 20.65)   # SPEED_LEDGER 59.2's measured bands, 1 B vs 0.5 B
+# E63's comparators for G-E63e.  NOT divisors: they are printed BESIDE a measured ratio.
+#
+# ADDENDUM B.  The brief registered G-E63e against "the byte ratio (2.0)".  2.0 is the FFN's OWN
+# ratio, not the token's.  The A10B-K3 charged token is 928,251,904 weights (G-E36C, zero
+# tolerance) of which the carved FFN is 106,168,320 = 11.4%; attention alone is 72.3%, and
+# EVERYTHING outside the FFN stays packed at half a byte in both files.  So the format change
+# moves the token's charged bytes from 464.13 MB to 517.21 MB -- a ratio of 1.1144, not 2.0.
+#
+# SPEED_LEDGER 59.2's bands are inapplicable for the same reason and are NOT printed: the int8
+# artefact is a MIXTURE, 88.6% of it still at half a byte, and no single band describes a
+# mixture.  Manufacturing one is exactly what 59.2 forbids and what 61.6 did before being
+# corrected.
+A10B_CHARGED = 928251904
+A10B_FFN_CHARGED = 106168320
+CHARGED_MB_PACKED = A10B_CHARGED * 0.5 / 1e6
+CHARGED_MB_INT8 = ((A10B_CHARGED - A10B_FFN_CHARGED) * 0.5 + A10B_FFN_CHARGED * 1.0) / 1e6
+CHARGED_RATIO = CHARGED_MB_INT8 / CHARGED_MB_PACKED          # 1.1144
 
 # E61's two reference readings for the owed repeat.  Reported, never adjudicated here.
 E61C_READ = 1.0947
@@ -170,13 +184,20 @@ def g_e63d(lo, hi, bar=DESK_MODEL):
 
 def g_e63e(ratio, lo, hi):
     """DESCRIPTIVE by registration: no prediction of mine about this curve has survived contact
-    (E31 twice, E33 once, E61 once), so it has no pass line and states comparators only."""
+    (E31 twice, E33 once, E61 once), so it has no pass line and states comparators only.
+
+    The comparator is the TOKEN's charged byte ratio (addendum B), not the FFN's.  CHARGED, not
+    moved: the carved FFN gathers, so its 11.4% costs more than it is charged (E26), and that is
+    the whole content of the locality question -- any gap between the measured ratio and
+    1/CHARGED_RATIO is the gathered-weight penalty plus whatever the kernel change is worth.
+    """
     if ratio != ratio:
         return "DEAD -- no ratio"
-    return ("measured %.4f  [%.4f, %.4f] | byte-ratio comparator 1/%.1f = %.4f | "
-            "band-ratio comparator 1/%.2f..1/%.2f = %.4f..%.4f"
-            % (ratio, lo, hi, BYTE_RATIO_FFN, 1.0 / BYTE_RATIO_FFN,
-               BAND_RATIO[0], BAND_RATIO[1], 1.0 / BAND_RATIO[1], 1.0 / BAND_RATIO[0]))
+    return ("measured %.4f  [%.4f, %.4f] | charged-byte comparator 1/%.4f = %.4f "
+            "(token: %.2f -> %.2f MB; the FFN's own ratio 2.0 is NOT the token's) | "
+            "moved != charged: the carved 11.4%% gathers"
+            % (ratio, lo, hi, CHARGED_RATIO, 1.0 / CHARGED_RATIO,
+               CHARGED_MB_PACKED, CHARGED_MB_INT8))
 
 
 def part_a_is_closed():
@@ -261,8 +282,13 @@ def selftest():
     # -- G-E63e states comparators and never a pass
     s = g_e63e(0.65, 0.62, 0.68)
     ok("measured 0.6500" in s, "G-E63e reports the measured ratio")
-    ok("0.5000" in s, "G-E63e prints the byte-ratio comparator")
+    ok("0.8974" in s, "G-E63e prints the TOKEN's charged comparator, not the FFN's")
     ok("PASS" not in s.upper() and "FAIL" not in s.upper(), "G-E63e has no pass line")
+    ok(abs(CHARGED_RATIO - 1.1144) < 1e-4, "the charged ratio is the token's, not 2.0")
+    ok(abs(CHARGED_MB_PACKED - 464.13) < 0.01, "packed charged MB/token")
+    ok(abs(CHARGED_MB_INT8 - 517.21) < 0.01, "int8 charged MB/token")
+    ok(A10B_CHARGED == 671088640 + 134217728 + 16777216 + A10B_FFN_CHARGED,
+       "the decomposition sums to E36's charged figure")
 
     # -- the precondition really is a precondition
     okc, why = part_a_is_closed()
