@@ -251,3 +251,32 @@ stated: it cannot catch an error the exporter makes **identically** in both form
 weights — which, on noise weights, was never on offer anyway (§6, first bullet).
 
 Thresholds, positions and shapes are A.2's, unchanged. **Prediction 3 stands as written.**
+
+---
+
+## 9. VERDICT, PART A (appended after the run — 2026-09-14)
+
+**`THE-PATH-EXISTS-AND-IT-IS-EXACT`.** Written up in
+`probes/E63_THE_TEN_BILLION_CELL_AT_ONE_BYTE.md`; results in
+`benchmarks/donor_adaptation/engine/results/e63_part_a.json`. 7.5 min, one binary.
+
+| gate | reading | verdict |
+|---|---|---|
+| `G-E63a` PLANTED, inert | five artefacts, ids **and** prefill logits bit-identical | **FIRES** |
+| `G-E63b` PLANTED, discriminates | 0.00% agreement `k=3` vs `k=E` at both shapes (max abs 4.097 / 0.853) | **FIRES** |
+| `G-E63c` equivalence | 100.0000% top-1 on all four cells; worst max abs **1.444e-05** | **EQUIVALENT** |
+| `G-E63d` the rate | — | **OWED — idle box** |
+| `G-E63e` locality | — | **OWED — idle box** |
+
+The 10 B carved int8 artefact exists: **10,015,507,256 B**, Gate V3 clean at 195 tensors.
+
+**Predictions: 3 of 4 answerable.** 1, 2 and 3 hit. **6 MISSED** — registered 10.9 ± 0.2 GB,
+measured 10.016, because I doubled the whole packed file when only the FFN changes width
+(17.3% of the file is attention, head and embeddings). 4 and 5 are Part B's and stay as written.
+
+**Two of this brief's own gates could not be answered and were re-specified in addendum A,
+pushed before the run** — see §8 and A.4. Neither was failed; both were malformed, and the
+replacements are stronger than what they replace.
+
+**Part B ships separately or not at all.** §6's last bullet is being honoured literally: Part A
+shipped alone, and Part B is stated as owed.

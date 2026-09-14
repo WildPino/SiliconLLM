@@ -5319,3 +5319,62 @@ less.
 > is 11% of its token. At a shape where the carve is most of the token, E26's penalty is what
 > governs. **Neither number transfers to the other's shape**, which is the same lesson in a third
 > place.
+
+## §62 — E63 Part A: the 10 B carved int8 cell can now be loaded, and it computes the right thing
+
+**No rate in this section is new, and §60.4 is untouched.** §61 established that the 10 B
+fidelity leg can only be measured; §60.5 already listed the 10 B *speed* cell as owed. Both were
+blocked on the same thing: **the engine could not load a carved int8 model at all.**
+
+### 62.1 What changed in the engine
+
+Two additive matrix kinds, `MK_I8 = 4` and `MK_I8_T = 5`, both leaving `m->packed` at 0 — the
+discriminant every consumer already branches on. `matvec_sel`'s row list now works for int8;
+`matvec_colacc` gained an int8 branch that is **simpler** than the packed one (no trit decode,
+no even/odd split, no `pshufb`: `cvtepi8_epi32` → `cvtepi32_ps` → `fmadd`), 64 weights per
+`CA_BLK` block instead of 128. The carved-FFN loader **refuses a mixed FFN**, so a
+half-converted layer cannot read as a plausible rate against the wrong byte count.
+
+### 62.2 The artefact
+
+`D:/_ktmp/e63/e63_a10b_i8.bin`, **10,015,507,256 B**, Gate V3 clean — 195 tensors matching E1's
+independent layout exactly. Same seed, codes, head, router, group size and `k` as
+`e36_a10b.bin`; **the two files hold the same trit values** and differ in layout and kernel only.
+
+**The FFN is the whole delta: +4,529,848,320 B.** The other **0.950 GB — 17.3% of the packed
+file — is attention, head and embeddings and does not change width.** This killed prediction 6
+(registered 10.9 ± 0.2 GB, measured 10.016) and it is the same error shape as charged-vs-moved
+bytes: *the thing being scaled was not the whole thing.* It is also a standing caution for any
+future byte projection on this shape — **a format change on the FFN is not a format change on
+the token.**
+
+### 62.3 Gates
+
+`G-E63a` **FIRES** (five artefacts, ids *and* prefill logits bit-identical) · `G-E63b` **FIRES**
+(0.00% agreement between `k=3` and `k=E`, max |d| 4.097 / 0.853) · `G-E63c` **EQUIVALENT**
+(100.0000% top-1 at S05 and A10B, both k; worst max |d| 1.444e-05, 69× inside the bar).
+7.5 min, one binary. Two gates were re-specified in **addendum A before the run** because they
+could not be answered as written (E4's precedent) — the replacements are stronger, not weaker.
+
+### 62.4 What §60.4 still says
+
+**Exactly what it said before.** 36.6–37.6 tok/s at 10 B, 73–75% of the bar, **as a desk
+model** — E36's charged weights against a bandwidth measured on a different shape. E63 Part A
+removes the reason that number could not be checked; it does not check it. `G-E63d` does, on an
+idle box, with five interleaved repetitions and a paired bootstrap CI, and its runner refuses to
+report any cell over `OCC_BAR = 4.39%` foreign occupancy.
+
+**Registered before the sweep and not revised: I expect `DESK-MODEL-OPTIMISTIC`, 32–36 tok/s.**
+Part A's `--generate` runs printed decode rates on a box at 34–55% busy; they are conduct, they
+are in the JSON, and they do not move the prediction. Revising a registered prediction after a
+glimpse of the estimand is the failure `feedback_no_anchoring_producer` exists to prevent.
+
+### 62.5 The apparatus defect worth carrying forward
+
+`generate()` closed its occupancy split with `child_ticks = 0`, so `foreign` counted the engine
+itself and every Part A row printed `sys == foreign` (33.7–55.2%). That is `G-E44b`'s exact
+failure — **the instrument measuring itself** — committed again by a programme that keeps a
+standing note about it. Harmless where it happened (Part A gates nothing on conduct) and
+**fatal one step later**: `G-E63d`'s admissibility is `foreign < 4.39%`, which with
+`child_ticks = 0` **no box could ever pass.** Fixed before Part B was written. *A meter that is
+merely mislabelled in a deterministic experiment is a broken gate in the next one.*

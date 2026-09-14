@@ -1,0 +1,347 @@
+{
+ "G-E63a": "FIRES",
+ "G-E63b": "FIRES",
+ "G-E63c": "EQUIVALENT",
+ "addendum": "A.1 re-specifies G-E63b, A.2 re-specifies G-E63c's positions, A.4 names G-E63c's comparator; all three pushed before this run",
+ "brief": "BRIEF_E63_THE_TEN_BILLION_CELL_AT_ONE_BYTE.md",
+ "conduct": {
+  "A10B_i8_k256": {
+   "clock_pct": 106.32299569250053,
+   "decode_toks_conduct": 3.915,
+   "foreign_pct": 54.24,
+   "prefill_toks_conduct": 3.006,
+   "seq": 17,
+   "since_start_s": 450.671,
+   "sys_pct": 54.24,
+   "wall_s": 94.587
+  },
+  "A10B_i8_k3": {
+   "clock_pct": 107.56901155924402,
+   "decode_toks_conduct": 43.262,
+   "foreign_pct": 33.68,
+   "prefill_toks_conduct": 4.918,
+   "seq": 16,
+   "since_start_s": 355.833,
+   "sys_pct": 33.68,
+   "wall_s": 57.526
+  },
+  "A10B_pk_k256": {
+   "clock_pct": 104.56177946372222,
+   "decode_toks_conduct": 4.651,
+   "foreign_pct": 54.87,
+   "prefill_toks_conduct": 4.021,
+   "seq": 15,
+   "since_start_s": 298.294,
+   "sys_pct": 54.87,
+   "wall_s": 71.19
+  },
+  "A10B_pk_k3": {
+   "clock_pct": 106.12714322494239,
+   "decode_toks_conduct": 44.132,
+   "foreign_pct": 46.21,
+   "prefill_toks_conduct": 18.668,
+   "seq": 14,
+   "since_start_s": 227.101,
+   "sys_pct": 46.21,
+   "wall_s": 16.077
+  },
+  "S05_i8_k16": {
+   "clock_pct": 106.54109092012469,
+   "decode_toks_conduct": 56.795,
+   "foreign_pct": 55.16,
+   "prefill_toks_conduct": 22.708,
+   "seq": 13,
+   "since_start_s": 208.245,
+   "sys_pct": 55.16,
+   "wall_s": 12.471
+  },
+  "S05_i8_k3": {
+   "clock_pct": 106.35267506911312,
+   "decode_toks_conduct": 131.037,
+   "foreign_pct": 43.4,
+   "prefill_toks_conduct": 57.034,
+   "seq": 12,
+   "since_start_s": 195.771,
+   "sys_pct": 43.4,
+   "wall_s": 5.82
+  },
+  "S05_pk_k16": {
+   "clock_pct": 106.01968360159249,
+   "decode_toks_conduct": 71.718,
+   "foreign_pct": 53.55,
+   "prefill_toks_conduct": 25.369,
+   "seq": 11,
+   "since_start_s": 189.948,
+   "sys_pct": 53.55,
+   "wall_s": 11.651
+  },
+  "S05_pk_k3": {
+   "clock_pct": 106.66027968933926,
+   "decode_toks_conduct": 129.228,
+   "foreign_pct": 39.62,
+   "prefill_toks_conduct": 46.997,
+   "seq": 10,
+   "since_start_s": 178.294,
+   "sys_pct": 39.62,
+   "wall_s": 8.966
+  }
+ },
+ "discrimination": {
+  "A10B": {
+   "carve_E": 256,
+   "int8_k3_vs_kE": {
+    "ids_identical": false,
+    "max_absd": 4.096522331237793,
+    "n_generated": 24,
+    "n_positions": 256,
+    "rel_l2": 1.323488712310791,
+    "top1_agree": 0.0
+   },
+   "packed_k3_vs_kE": {
+    "ids_identical": false,
+    "max_absd": 4.0965189933776855,
+    "n_generated": 24,
+    "n_positions": 256,
+    "rel_l2": 1.323488712310791,
+    "top1_agree": 0.0
+   }
+  },
+  "S05": {
+   "carve_E": 16,
+   "int8_k3_vs_kE": {
+    "ids_identical": false,
+    "max_absd": 0.8525667190551758,
+    "n_generated": 24,
+    "n_positions": 256,
+    "rel_l2": 0.5890953540802002,
+    "top1_agree": 0.0
+   },
+   "packed_k3_vs_kE": {
+    "ids_identical": false,
+    "max_absd": 0.8525667190551758,
+    "n_generated": 24,
+    "n_positions": 256,
+    "rel_l2": 0.5890953540802002,
+    "top1_agree": 0.0
+   }
+  }
+ },
+ "engine_new": "donor_engine_e63.exe",
+ "engine_old": "donor_engine_e61.exe",
+ "equivalence": [
+  {
+   "ids_identical": true,
+   "k": 3,
+   "max_absd": 6.556510925292969e-07,
+   "n_generated": 24,
+   "n_positions": 256,
+   "rel_l2": 3.2602699207018304e-07,
+   "shape": "S05",
+   "top1_agree": 1.0
+  },
+  {
+   "ids_identical": true,
+   "k": 16,
+   "max_absd": 9.285286068916321e-07,
+   "n_generated": 24,
+   "n_positions": 256,
+   "rel_l2": 4.816475893676397e-07,
+   "shape": "S05",
+   "top1_agree": 1.0
+  },
+  {
+   "ids_identical": true,
+   "k": 3,
+   "max_absd": 1.5497207641601562e-06,
+   "n_generated": 24,
+   "n_positions": 256,
+   "rel_l2": 3.8873187691024214e-07,
+   "shape": "A10B",
+   "top1_agree": 1.0
+  },
+  {
+   "ids_identical": true,
+   "k": 256,
+   "max_absd": 1.4439225196838379e-05,
+   "n_generated": 24,
+   "n_positions": 256,
+   "rel_l2": 3.957170974899782e-06,
+   "shape": "A10B",
+   "top1_agree": 1.0
+  }
+ ],
+ "note_no_rate": "Part A carries no rate.  Every GEN_*_TOKS here is conduct on a contended box and is not a measurement; Part B is the only place a rate may be read.",
+ "part": "A",
+ "planted": [
+  {
+   "bytes": 1976131124,
+   "flags": [],
+   "ids_sha_new": "be69babb7e0cb18ba994412f02061d76d81ce695003e276a5bbd509554996ec3",
+   "ids_sha_old": "be69babb7e0cb18ba994412f02061d76d81ce695003e276a5bbd509554996ec3",
+   "name": "05b_f32",
+   "prefill_sha_new": "df4edbb9e5f1e660efc3d173b3948fc7bacb81ab4cfc4166556f4e423bd22856",
+   "prefill_sha_old": "df4edbb9e5f1e660efc3d173b3948fc7bacb81ab4cfc4166556f4e423bd22856",
+   "run_new": {
+    "clock_pct": 106.95360724448975,
+    "decode_toks_conduct": 18.037,
+    "foreign_pct": 68.02,
+    "prefill_toks_conduct": 9.596,
+    "seq": 0,
+    "since_start_s": 29.782,
+    "sys_pct": 68.02,
+    "wall_s": 28.69
+   },
+   "run_old": {
+    "clock_pct": 107.14508447253412,
+    "decode_toks_conduct": 19.028,
+    "foreign_pct": 61.91,
+    "prefill_toks_conduct": 10.064,
+    "seq": 1,
+    "since_start_s": 58.0,
+    "sys_pct": 61.91,
+    "wall_s": 27.453
+   },
+   "vocab": 151936,
+   "weights": "D:\\_ktmp\\e1\\qwen25-05b_f32.bin"
+  },
+  {
+   "bytes": 793629748,
+   "flags": [],
+   "ids_sha_new": "9d3a04ed227554ceb68e218be4b6d763dd729a5628fb2609d404de85b6bdea75",
+   "ids_sha_old": "9d3a04ed227554ceb68e218be4b6d763dd729a5628fb2609d404de85b6bdea75",
+   "name": "05b_tqh",
+   "prefill_sha_new": "9ae9211df63bde4a818b2b45da35b10e18d6f8c5ec586576402ed2f7c762000d",
+   "prefill_sha_old": "9ae9211df63bde4a818b2b45da35b10e18d6f8c5ec586576402ed2f7c762000d",
+   "run_new": {
+    "clock_pct": 105.62557802013319,
+    "decode_toks_conduct": 77.59,
+    "foreign_pct": 53.74,
+    "prefill_toks_conduct": 41.196,
+    "seq": 2,
+    "since_start_s": 65.297,
+    "sys_pct": 53.74,
+    "wall_s": 7.141
+   },
+   "run_old": {
+    "clock_pct": 105.89532100399293,
+    "decode_toks_conduct": 75.581,
+    "foreign_pct": 51.27,
+    "prefill_toks_conduct": 18.119,
+    "seq": 3,
+    "since_start_s": 80.512,
+    "sys_pct": 51.27,
+    "wall_s": 15.052
+   },
+   "vocab": 151936,
+   "weights": "D:\\_ktmp\\e1\\qwen25-05b_tqh.bin"
+  },
+  {
+   "bytes": 1040610356,
+   "flags": [],
+   "ids_sha_new": "be69babb7e0cb18ba994412f02061d76d81ce695003e276a5bbd509554996ec3",
+   "ids_sha_old": "be69babb7e0cb18ba994412f02061d76d81ce695003e276a5bbd509554996ec3",
+   "name": "05b_i8h",
+   "prefill_sha_new": "694c45d5b04766b57a569a78103b8cfdb74ce07f7af602de538ecda6ea266f83",
+   "prefill_sha_old": "694c45d5b04766b57a569a78103b8cfdb74ce07f7af602de538ecda6ea266f83",
+   "run_new": {
+    "clock_pct": 106.78410452128749,
+    "decode_toks_conduct": 61.853,
+    "foreign_pct": 48.79,
+    "prefill_toks_conduct": 18.856,
+    "seq": 4,
+    "since_start_s": 95.51,
+    "sys_pct": 48.79,
+    "wall_s": 14.831
+   },
+   "run_old": {
+    "clock_pct": 106.14100118761405,
+    "decode_toks_conduct": 64.515,
+    "foreign_pct": 60.11,
+    "prefill_toks_conduct": 24.119,
+    "seq": 5,
+    "since_start_s": 107.087,
+    "sys_pct": 60.11,
+    "wall_s": 11.422
+   },
+   "vocab": 151936,
+   "weights": "D:\\_ktmp\\e60\\qwen25-05b_i8h.bin"
+  },
+  {
+   "bytes": 2480832052,
+   "flags": [],
+   "ids_sha_new": "3ad8435a1fb3c456078d7f3842180c6d00a971b2e873a347a64105f088a6f545",
+   "ids_sha_old": "3ad8435a1fb3c456078d7f3842180c6d00a971b2e873a347a64105f088a6f545",
+   "name": "15b_i8h",
+   "prefill_sha_new": "9b387355c9ea5e876a7f5c28e70263403a36d6250365e18a9e62306e3b1e5464",
+   "prefill_sha_old": "9b387355c9ea5e876a7f5c28e70263403a36d6250365e18a9e62306e3b1e5464",
+   "run_new": {
+    "clock_pct": 105.91222899859535,
+    "decode_toks_conduct": 18.987,
+    "foreign_pct": 59.12,
+    "prefill_toks_conduct": 16.619,
+    "seq": 6,
+    "since_start_s": 125.399,
+    "sys_pct": 59.12,
+    "wall_s": 18.166
+   },
+   "run_old": {
+    "clock_pct": 106.0372973488095,
+    "decode_toks_conduct": 22.541,
+    "foreign_pct": 57.7,
+    "prefill_toks_conduct": 15.359,
+    "seq": 7,
+    "since_start_s": 144.242,
+    "sys_pct": 57.7,
+    "wall_s": 18.595
+   },
+   "vocab": 151936,
+   "weights": "D:\\_ktmp\\e60\\qwen25-15b_i8h.bin"
+  },
+  {
+   "bytes": 5485658936,
+   "flags": [
+    "--carve-k",
+    "3"
+   ],
+   "ids_sha_new": "697cb87881651d2f5819b8ef1c307b6d4621f4f2ae52c41265a3870a8bf9f6cf",
+   "ids_sha_old": "697cb87881651d2f5819b8ef1c307b6d4621f4f2ae52c41265a3870a8bf9f6cf",
+   "name": "a10b_packed_k3",
+   "prefill_sha_new": "b05719c5f03d49289a70d8e9023a6d3cfbc4e5fac10029d6a013d9fac82c26cd",
+   "prefill_sha_old": "b05719c5f03d49289a70d8e9023a6d3cfbc4e5fac10029d6a013d9fac82c26cd",
+   "run_new": {
+    "clock_pct": 104.85545999167265,
+    "decode_toks_conduct": 41.519,
+    "foreign_pct": 57.21,
+    "prefill_toks_conduct": 33.233,
+    "seq": 8,
+    "since_start_s": 154.494,
+    "sys_pct": 57.21,
+    "wall_s": 9.947
+   },
+   "run_old": {
+    "clock_pct": 105.67251688076637,
+    "decode_toks_conduct": 44.007,
+    "foreign_pct": 50.41,
+    "prefill_toks_conduct": 23.335,
+    "seq": 9,
+    "since_start_s": 169.272,
+    "sys_pct": 50.41,
+    "wall_s": 14.703
+   },
+   "vocab": 32768,
+   "weights": "D:\\_ktmp\\e36\\e36_a10b.bin"
+  }
+ ],
+ "prompt": {
+  "new": 24,
+  "stride": 7919,
+  "tokens": 256
+ },
+ "thresholds": {
+  "G63B_MAX_AGREE": 0.6,
+  "G63C_MAX_ABSD": 0.001,
+  "G63C_MIN_AGREE": 0.999
+ },
+ "wall_min": 7.5,
+ "written": "2026-09-14T05:49:46"
+}

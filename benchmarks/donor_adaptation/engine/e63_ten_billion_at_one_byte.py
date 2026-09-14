@@ -205,13 +205,20 @@ def generate(engine, weights, idsfile, prefix, flags, k=None):
     t0 = time.time()
     p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = p.communicate()
+    # G-E44b's defect, caught in THIS run's own output: the first Part A pass read
+    # sp.close(0), so `foreign` counted the engine itself and every row printed
+    # sys == foreign (33.7-55.2%).  Harmless here -- Part A gates nothing on conduct and its
+    # axis is deterministic -- but Part B's G-E63d admissibility is foreign < OCC_BAR = 4.39%,
+    # and with child_ticks = 0 NO box could ever pass it.  The handle must be read BEFORE the
+    # Popen object releases it, exactly as e44_interval.one_rep does.
+    child = E44._process_times(int(p._handle))
     wall = time.time() - t0
     if p.returncode != 0:
         raise SystemExit("engine failed (%d) on %s:\n%s"
                          % (p.returncode, weights, err.decode()[-4000:]))
     txt = out.decode("utf-8", "replace")
     etxt = err.decode("utf-8", "replace")
-    sysb, foreign = sp.close(0)          # child ticks unavailable post-exit: conduct only
+    sysb, foreign = sp.close(child)
     # The witness, checked.  A silently ignored --carve-k would make two different k read as
     # one file and turn G-E63b into a tautology that passes.
     if k is not None:
