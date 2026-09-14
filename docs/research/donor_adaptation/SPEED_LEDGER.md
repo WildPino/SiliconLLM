@@ -5571,3 +5571,63 @@ choice in it. This says that choice is nearly free in quality and should be take
 cheapest byte the fidelity cliff allows — E60 put that cliff **between 1 byte and half a byte**,
 so **one byte, not half**. That is a statement about H1's *format*, not about its outcome.
 
+### 62.12 RETRACTION of §62.11 — I measured the activation axis against a reference the byte axis had already destroyed
+
+**§62.11's law is WITHDRAWN.** Its two rows are arithmetically correct and its conclusion is
+wrong, because **the two rows do not share a baseline.**
+
+§62.11 took E37's `3.475706` as the activation row's baseline. **That is not the dense model —
+it is the model with its FFN ALREADY TERNARISED**, i.e. already at half a byte per weight.
+`BRIEF_H1` §1, whose heading is literally *"What is actually broken — and it is NOT mostly the
+carve"*, reads it off `results/e37_sparsity_cost.json` on the same frozen 51,870-byte slice:
+
+| state | BPB | damage added |
+|---|---|---|
+| fp32 dense donor | **0.767595** | — |
+| ternary FFN, all 256 groups on (`K256`) | **3.475707** | **+2.708112** |
+| + carve to `k=16` / 6.25% | 3.986801 | +0.511094 |
+| + carve to `k=3` / 1.17% | 4.029398 | +0.553692 |
+| chance | 4.069819 | — |
+
+**Put every treatment on the one baseline that none of them has moved** — fp32 dense
+`0.767595`, chance `4.069819`, gap **3.302224**:
+
+| treatment | ΔBPB | **share of the dense→chance gap** |
+|---|---|---|
+| **half a byte per weight** (ternary FFN) | **+2.708112** | **82.01%** |
+| **carve to 1.17%** on top of it | +0.553692 | **16.77%** |
+| **one byte per weight** (int8, E62 at 1.5 B) | +0.0012525 | **0.038%** |
+
+**The ranking reverses.** §62.11 said the activation axis spends 93% and the byte axis 0.04%.
+**The byte axis at half a byte is the single most expensive treatment in this programme — 82% —
+and the carve is the small half at 17%**, which is exactly what H1 §1 has said all along.
+§62.11's 93.20% was large only because its denominator (0.594113) was small, and the denominator
+was small **because ternarisation had already spent 82% of it.**
+
+**This is the floor rule**, [[feedback_gate_is_not_a_progress_meter]] / E59 §8: *a fidelity
+number must be measured against a reference the treatment can still move.* I have written that
+rule down, cited it this same day, and then divided by a destroyed baseline.
+
+**And it is the search rule for the THIRD time today.** `BRIEF_H1` came back in my own grep
+output **twice** while I was scoping this, and I did not open it. §62.10 added *"when a search
+returns a series, read to the end of it"*; the harder clause is simpler: **open the file the
+search returned.**
+
+#### What survives, and it is worth more than what was withdrawn
+
+1. **The byte axis is not uniformly cheap — it has a CLIFF, and E60 already located it between
+   1 byte and half a byte.** §62.11 cited that cliff and then wrote a law that ignored it. Above
+   the cliff the byte axis is the cheapest treatment measured (**0.038%**); below it, the most
+   expensive (**82%**). *"Bytes are cheap" is not a property of the axis, it is a property of
+   one side of a cliff.*
+2. **H1 should train at one byte, not half — the conclusion stands and its reason is now
+   quantitative, and much larger.** At half a byte the object H1 must heal is **+3.22 BPB**, of
+   which the carve is 16%. **At one byte, the ternary term — 82% of the damage — does not exist
+   to be healed**, and what is left is the carve alone.
+3. **That composition is NOT measured, and it is the cheap experiment this points to.** The
+   +0.553692 carve cost was measured **on top of a ternary FFN**. Whether the carve costs the
+   same on an **int8** FFN is unmeasured, and E62's rank break is the standing warning against
+   assuming it. It needs **BPB only — no timing, no idle box, no GPU**.
+
+**Nothing here is a rate. `G-E63d` remains `VOID` and OWED.**
+

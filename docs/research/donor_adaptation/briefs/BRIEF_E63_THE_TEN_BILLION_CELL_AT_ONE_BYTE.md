@@ -582,3 +582,39 @@ format choice: take the cheap byte, and E60 puts the cliff between 1 B and half 
 **Recorded as an experiment deliberately NOT run**, with the reason, so it is not proposed a
 third time.
 
+### B.8 RETRACTION of B.7 — the two rows did not share a baseline
+
+**B.7's law is WITHDRAWN.** Both rows are arithmetically right; the comparison is not.
+
+B.7 used E37's `3.475706` as the activation row's baseline. **That is the model with its FFN
+already TERNARISED — already at half a byte per weight.** `BRIEF_H1` §1 (*"What is actually
+broken — and it is NOT mostly the carve"*) reads the ladder off the same instrument and the
+same frozen slice. On the one baseline no treatment has moved — fp32 dense **0.767595**, chance
+**4.069819**, gap **3.302224**:
+
+| treatment | ΔBPB | share of the dense→chance gap |
+|---|---|---|
+| **half a byte/weight** (ternary FFN) | **+2.708112** | **82.01%** |
+| **carve to 1.17%** on top | +0.553692 | **16.77%** |
+| **one byte/weight** (int8, E62 @1.5 B) | +0.0012525 | **0.038%** |
+
+**The ranking reverses**: the byte axis at half a byte is the most expensive treatment in the
+programme, the carve is the small half. B.7's 93.20% was large only because its denominator was
+small, and it was small **because ternarisation had already spent 82% of it** — the floor rule,
+which I cited in the same document I broke it in.
+
+**Third search-rule miss today, and the plainest:** `BRIEF_H1` came back in my own grep output
+**twice** while I scoped B.7 and I did not open it.
+
+**What survives is larger than what was withdrawn:**
+
+- **The byte axis has a CLIFF** (E60: between 1 B and half a byte). Above it, the cheapest
+  treatment measured (0.038%); below it, the most expensive (82%). *"Bytes are cheap" is a
+  property of one side of a cliff, not of the axis.*
+- **H1 at one byte, not half — same conclusion, far bigger reason.** At half a byte H1 must heal
+  **+3.22 BPB**; at one byte the ternary term, **82% of it**, never exists.
+- **The unmeasured step this exposes:** the carve's +0.553692 was measured **on a ternary FFN**.
+  Its cost **on an int8 FFN** is unmeasured — BPB only, no timing, no GPU.
+
+**`G-E63d` remains `VOID` and OWED. B.7 is superseded in full by B.8.**
+
