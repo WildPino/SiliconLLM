@@ -228,3 +228,26 @@ Run at **both** shapes: `S05 --carve 16` (cheap, exercises every new path) and *
 idle box only, `OCC_BAR` as admissibility) and `G-E63e` (the paired locality read) stand exactly
 as registered, as do all six predictions. **Prediction 3's numbers now attach to A.2's three
 tests**, which is where they were always pointed.
+
+### A.4 — `G-E63c`'s comparator, named (same defect as A.1, caught one gate later)
+
+§4 gave `G-E63c` the comparator *"the plain dense `MK_I8` file on the same weights"*. That is the
+same artefact A.1 just established does not exist, so A.1's fix was incomplete: it repaired the
+control and left the certification pointing at the same missing file. Naming the replacement here,
+still before the run.
+
+**Comparator: the packed carve, at the same seed, shape and `k`.** This is not a substitute of
+convenience — the two artefacts hold **the same numbers**. `synth_export.py`'s `w_i8` draws from
+`_codes(...)` in the same chunks off the same `rng` stream as `w_packed`, and the scale vector is
+`rng.random(n_out)*0.01+0.005` at the same point in both streams, so a packed file and an int8
+file written from one seed differ in **layout and kernel only**, never in value. Two entirely
+different kernels — trit decode + `pshufb` against `cvtepi8_epi32` + `fmadd`, 128 weights per
+block against 64 — evaluate one matrix.
+
+That makes it a **stronger** test than the dense int8 file it replaces, which would have shared
+`matvec_sel`'s int8 inner loop with the treatment and tested only the row list. The costs are
+stated: it cannot catch an error the exporter makes **identically** in both formats (the shared
+`_codes` draw), and E63 therefore claims equivalence of the two *kernels*, not correctness of the
+weights — which, on noise weights, was never on offer anyway (§6, first bullet).
+
+Thresholds, positions and shapes are A.2's, unchanged. **Prediction 3 stands as written.**
