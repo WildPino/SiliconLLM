@@ -176,3 +176,55 @@ headline moves down and I will have predicted it.
 3. `G-E61c` on an idle box and the 3 B speed cell — both ride the same window as Part B.
 4. `C/T` on the donor engine; channel-granularity mixed precision; the `I8`−`T1` value-dependence
    (E61 §6); `G-E55a2`'s replacement interval gate; E56's `OCC_BAR` zero point; E42's void control.
+
+---
+
+## 8. ADDENDUM A — two gates as written cannot be answered (pushed before the run)
+
+E4's precedent: **a gate that cannot be answered is MALFORMED, not failed, and may be
+re-specified** — in writing, before the run it governs, with the reason. Both defects were found
+while building the apparatus, not while reading a result.
+
+### A.1 `G-E63b` asked for an artefact the format forbids
+
+§4 specified the discrimination control as **int8-dense vs packed-carved on the same synthetic
+weights**. There is no int8-dense synthetic artefact and there cannot be one: `--i8` requires
+`--carve` because `donor_engine.c` refuses an FFN whose gate/up/down disagree in format (added in
+§3 deliberately, so a half-converted layer cannot read as a plausible rate against the wrong byte
+count). Writing one would mean weakening the load check the experiment depends on.
+
+**Replacement, same purpose, strictly closer to what is being certified:** on the **same carved
+synthetic file**, `--carve-k 3` against `--carve-k E` (every group selected).
+
+| test | pass |
+|---|---|
+| per-position top-1 agreement between `k=3` and `k=E` | **≤ 60%** → **FIRES** |
+
+This is a better control than the one it replaces, because it exercises **the carve itself** —
+the mechanism `G-E63c` certifies — rather than a format change measured elsewhere. A near-100%
+reading means the row list is not selecting anything and **`G-E63c` is void, not passed**.
+
+### A.2 `G-E63c` cited a slice that does not exist at the shape it must run on
+
+§4 specified *"per-position top-1 over 12,264 positions"* — the standard slice. That slice's ids
+run to 151,936 and **`A10B` has `V = 32768`**, so they are not valid tokens there. The count was
+carried over from E61 without checking it against the shape E63 actually measures.
+
+**Replacement:** a deterministic synthetic prompt of **256 ids in range for each shape**, scored
+by `--generate`, giving three numbers per pair:
+
+| test | pass |
+|---|---|
+| generated ids (prompt + 24 new) identical | **100%** |
+| prefill argmax agreement over all 256 positions | **≥ 99.90%** |
+| max abs logit difference | **≤ 1e-3** |
+
+Run at **both** shapes: `S05 --carve 16` (cheap, exercises every new path) and **`A10B --carve
+256`**, the artefact the goal is about.
+
+### A.3 What does not change
+
+`G-E63a` (zero-tolerance inertness on five existing artefacts), `G-E63d` (the measured 10 B rate,
+idle box only, `OCC_BAR` as admissibility) and `G-E63e` (the paired locality read) stand exactly
+as registered, as do all six predictions. **Prediction 3's numbers now attach to A.2's three
+tests**, which is where they were always pointed.
