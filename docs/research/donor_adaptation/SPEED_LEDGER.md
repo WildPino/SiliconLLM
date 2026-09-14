@@ -5761,3 +5761,61 @@ at **82%** of the dense→chance damage and the carve at **17%**. **H1 has just 
 of the two axes to be trainable.** The `k=E` trained arm that would separate ternarisation from
 carving was registered in §9 as not fitting the budget and still does not. Nothing here touches
 10 B, speed, the head, or `STACK`.
+
+---
+
+## §65 — E65: every tok/s above 50 is bought on an axis that costs HALF the distance to chance
+
+**No rate in this section.** **`G-E63d` is still `VOID` and OWED.** Probe:
+`probes/E65_RANK_FRACTION_COST.md`.
+
+The 10 B speed ladder is a **rank** ladder, and until today its quality was unpriced at the
+fraction it actually uses:
+
+| shape | rank | `r/D` | rate | post-hoc analogue at `D=1536` |
+|---|---|---|---|---|
+| `A10B-K3` | **none** | — | ~49 tok/s (composite) | **0%** |
+| `A10B-R512` / `NKV2` | 512 | 1/8 | ~93 / ~127 floor | 32.97% of dense→chance |
+| **`A10B-R128`** | 128 | **1/32** | **~113–130 measured** | **51.66%** |
+
+**The only rank-free shape on the ladder is the one sitting AT the target rather than above
+it.** `QO-48` (`r/D = 1/32`, `D = 1536`) reads **2.473430**, i.e. **+1.705835 = 51.66%** of the
+gap from dense 0.767595 to chance 4.069819. Controls fired on recomputation: `base` `G_F0`
+FIRES, `QO-512` `G_F2` FIRES against E21's anchor at 1e-9, `QO-192` reproduces E27 exactly.
+
+### 65.1 The ladder ranks, but its DERIVATIVE does not
+
+| `r/D` | 1/3 | 1/6 | 1/8 | 1/16 | **1/32** |
+|---|---|---|---|---|---|
+| % of gap | 1.60 | 23.57 | 32.97 | 40.27 | **51.66** |
+| tf | 144 | 93 | 56 | 42 | **33** |
+
+BPB and teacher-forced are both monotone — SCORE and RANK partner agree. But the damage **per
+halving** goes **+21.97 → +7.29 → +11.39**: it decelerates and then **re-accelerates**.
+
+> **§65.1 — the rank-damage curve has no exponent. Its second difference changes sign inside
+> the measured range, so no smooth law fits it and no extrapolation across width is licensed.**
+
+E21 §8 and E16 warned against carrying `r/D` across widths; **§65.1 is the direct evidence.**
+It cuts both ways: `D = 4096` may tolerate `1/32` better than `D = 1536` does, and E65 cannot
+say it will not. What dies is the idea that a curve fitted at one width predicts the other.
+
+### 65.2 This is a FLOOR, and here is the size of the hole
+
+H1 (§64) and H0 both measured that **applying and training are different objects** — the carve
+`1.096636 → 0.962593`, rank at `r/D = 1/3` `0.820284 → 0.810022`. **Nobody has trained at an
+aggressive rank fraction.** So §65 does not close `R128`; it sizes what training would face:
+
+| | damage to recover |
+|---|---|
+| the applied carve H1 worked against | 0.329041 |
+| **`R128`'s rank fraction, post-hoc** | **1.705835** |
+| | **5.18×** |
+
+**No transfer between axes is claimed** — different organ, different mechanism, and §65.1 shows
+this curve does not admit a fit even within its own axis. The 5.18× is a scale statement, and
+it is what any future "train the rank" proposal argues against.
+
+**E40 is not retracted.** Its rates are correct for what they measured and its §6 says
+*"Nothing about quality. Synthetic weights."* What §65 changes is the reading of the ladder,
+not its numbers.

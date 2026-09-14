@@ -646,3 +646,30 @@ one donor, 8 layers.
 half-byte format at **82%** of the dense→chance damage against the carve's **17%**. **H1 has
 shown the smaller of the two axes to be trainable.** No rate, no export, no 10 B claim;
 `G-E63d` remains `VOID` and OWED.
+
+---
+
+## E65 — every tok/s above 50 at ten billion is bought on an axis that costs half the distance to chance
+
+`probes/E65_RANK_FRACTION_COST.md` · `SPEED_LEDGER.md` §65
+
+**The 10 B speed ladder is a RANK ladder, and its quality had never been priced at the fraction
+it uses.** `A10B-K3` is the only rank-free shape and it is the one sitting **at** ~49 tok/s, not
+above it. `R512`/`NKV2` buy ~93–127 with `r/D = 1/8`; **`R128` buys ~113–130 with `r/D = 1/32`.**
+
+Measured on a real donor (`D = 1536`, dense 0.767595, chance 4.069819), controls firing against
+E21 and E27 at 1e-9: **`r/D = 1/32` reads BPB 2.473430 — +1.705835, or 51.66% of the entire
+distance from dense to chance.** At `1/8`, the fraction `R512`/`NKV2` use, it is already 32.97%.
+
+**The ladder ranks on both metrics but its DERIVATIVE does not:** damage per halving goes
++21.97 → +7.29 → **+11.39**, decelerating then re-accelerating. **The rank-damage curve has no
+exponent**, so no extrapolation from `D = 1536` to `D = 4096` is licensed — which cuts both
+ways, since the wider model may tolerate `1/32` better and E65 cannot say it will not.
+
+**This is a FLOOR, not a verdict.** H1 and H0 both measured that applying and training are
+different objects, and **nobody has ever trained at an aggressive rank fraction**. What E65
+supplies is the size of the hole: **1.705835 BPB, which is 5.18× the applied-carve damage H1
+was working against.** No transfer between axes is claimed.
+
+**E40 is not retracted** — its rates are correct for what it measured, and it said of itself
+*"Nothing about quality. Synthetic weights."* E65 prices what E40 declined to price.
