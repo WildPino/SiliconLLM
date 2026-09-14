@@ -1,0 +1,498 @@
+{
+ "brief": "briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md s5 + add. C, E",
+ "tag": "h1_s1_mid195",
+ "trained": "D:/_ktmp/h1_s1_final/h1_trained_s1.npz",
+ "factors": "_h1_bundle/h0_trained3.npz",
+ "labels": "_h1_bundle/labels_E256.npz",
+ "stats": "_h1_bundle/h1_actstats.npz",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "eval_slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312",
+  "tok_fp_ok": [
+   "4efeeb9382a77a06"
+  ]
+ },
+ "scored_bytes": 51870.0,
+ "layers": [
+  3,
+  6,
+  9,
+  12,
+  15,
+  18,
+  21,
+  24
+ ],
+ "k": 16,
+ "E": 256,
+ "bpb": {
+  "intact": 0.7675949641196625,
+  "h0-run3": 0.810022487699936,
+  "trained-8L-soft": 0.9793872650725958,
+  "trained-8L": 0.9833368100917271,
+  "arm-ER": 0.9833368100917271,
+  "arm-E": 0.9814529790161004
+ },
+ "vs_chance": {
+  "intact": -3.302224035880337,
+  "h0-run3": -3.259796512300064,
+  "trained-8L-soft": -3.090431734927404,
+  "trained-8L": -3.086482189908273,
+  "arm-ER": -3.086482189908273,
+  "arm-E": -3.0883660209838997
+ },
+ "anchors": {
+  "intact": 0.767595,
+  "h0_run3": 0.810022,
+  "ternary_8L": 0.947851,
+  "applied_8L": 1.0966361325809948,
+  "chance": 4.069819
+ },
+ "G_H1": {
+  "metric": "heldout BPB, CPU fp32, frozen slice, HARD gate (add. F)",
+  "threshold": 1.0966361325809948,
+  "value": 0.9833368100917271,
+  "delta": -0.11329932248926766,
+  "passes": true,
+  "ordinal": true,
+  "band": "TRAINING-HELPS"
+ },
+ "G_H1a_real_shape": {
+  "bit_identical": true,
+  "hard_gate_any_router": {
+   "bit_identical": true,
+   "max_abs_diff": 0.0
+  },
+  "soft_gate_zero_router": {
+   "bit_identical": true,
+   "max_abs_diff": 0.0
+  }
+ },
+ "carve_is_live": {
+  "differs": true,
+  "max_abs_diff": 19.519914627075195
+ },
+ "G_H1e_fp32": {
+  "router_nats": 2.8827824135548816,
+  "static_nats": 3.082400768609492,
+  "fires": true,
+  "gate": "hard on BOTH arms (addendum F)",
+  "calib_slice": {
+   "part": "calib",
+   "n_seq": 32,
+   "seq_len": 512,
+   "seed": 42424,
+   "n_rejected": 0,
+   "total_scored_bytes": 67648,
+   "bytes_per_token": 4.136986301369863,
+   "ids_sha256": "c5509846cdc3aa44e45e77895b59a4638c49eb03790030d851e7bf1357ca4c0c",
+   "offsets_sha256": "c9bdfc96dd5addb8e02a48d553dfb11784734baa26f44aad53658ff8cd2a8cf0",
+   "corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0",
+   "tok_fp_ok": [
+    "4efeeb9382a77a06"
+   ]
+  },
+  "static_groups": {
+   "3": [
+    189,
+    156,
+    38,
+    239,
+    146,
+    238,
+    134,
+    62,
+    94,
+    172,
+    127,
+    218,
+    105,
+    157,
+    249,
+    61
+   ],
+   "6": [
+    217,
+    190,
+    38,
+    201,
+    126,
+    172,
+    127,
+    185,
+    90,
+    206,
+    245,
+    213,
+    34,
+    96,
+    235,
+    83
+   ],
+   "9": [
+    201,
+    64,
+    19,
+    209,
+    124,
+    237,
+    95,
+    73,
+    78,
+    241,
+    28,
+    215,
+    233,
+    189,
+    98,
+    77
+   ],
+   "12": [
+    249,
+    124,
+    62,
+    186,
+    61,
+    165,
+    201,
+    104,
+    200,
+    157,
+    182,
+    68,
+    53,
+    44,
+    255,
+    95
+   ],
+   "15": [
+    0,
+    172,
+    118,
+    178,
+    228,
+    56,
+    107,
+    254,
+    250,
+    173,
+    29,
+    96,
+    220,
+    229,
+    66,
+    156
+   ],
+   "18": [
+    215,
+    72,
+    226,
+    165,
+    137,
+    186,
+    211,
+    227,
+    237,
+    60,
+    69,
+    90,
+    193,
+    250,
+    9,
+    194
+   ],
+   "21": [
+    85,
+    160,
+    219,
+    254,
+    166,
+    193,
+    118,
+    249,
+    44,
+    132,
+    80,
+    123,
+    75,
+    108,
+    204,
+    74
+   ],
+   "24": [
+    94,
+    198,
+    155,
+    150,
+    135,
+    106,
+    126,
+    140,
+    160,
+    128,
+    215,
+    82,
+    134,
+    49,
+    48,
+    89
+   ]
+  }
+ },
+ "decomposition_DIAGNOSTIC_NOT_A_GATE": {
+  "experts": -0.11518315356489439,
+  "router": 0.0018838310756267296,
+  "gate_form": -0.003949545019131362
+ },
+ "train_eval_gap_soft_minus_hard": -0.003949545019131362,
+ "train_meta": {
+  "brief": "briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md",
+  "complete": true,
+  "layers": [
+   3,
+   6,
+   9,
+   12,
+   15,
+   18,
+   21,
+   24
+  ],
+  "k": 16,
+  "E": 256,
+  "steps_requested": 4000,
+  "bs": 2,
+  "accum": 8,
+  "lr": 0.0002,
+  "router_lr": 0.0003,
+  "aux": 0.01,
+  "seed": 1717,
+  "resumed_qo_from": "h0_trained3.npz",
+  "resumed_ffn_from": null,
+  "adam_state_restarted": true,
+  "bytes_per_token": 4.22945205479452,
+  "seconds": 10101.429049253464,
+  "nonfinite_microbatches": 0,
+  "scaler_declined_before_first_applied": 0,
+  "bpb_fp16_gpu_step0": 1.2052601751146157,
+  "progress_precision": "fp16, GPU",
+  "history": [
+   {
+    "step": 0,
+    "bpb_fp16_gpu": 1.2052601751146157,
+    "loss": null,
+    "seconds": 0.0
+   }
+  ],
+  "gates": {
+   "G_H1a": {
+    "bit_identical": true,
+    "hard_gate_any_router": {
+     "fires": true,
+     "max_abs_diff": 0.0
+    },
+    "soft_gate_zero_router": {
+     "fires": true,
+     "max_abs_diff": 0.0
+    },
+    "max_abs_diff": 0.0
+   },
+   "carve_is_live": {
+    "differs": true,
+    "max_abs_diff": 23.125
+   },
+   "G_H1b": {
+    "first_applied_step": 1,
+    "declined_before": 0
+   },
+   "G_H1c": {
+    "moved": {
+     "L03.gate": 8.001923561096191e-06,
+     "L24.down": 8.001923561096191e-06,
+     "L03.router": 1.1999996786471456e-05
+    },
+    "fires": true
+   },
+   "G_H1e": {
+    "router_nats": 2.8826617571059168,
+    "static_nats": 3.082640564829763,
+    "fires": true,
+    "static_groups": {
+     "3": [
+      189,
+      156,
+      38,
+      239,
+      146,
+      238,
+      134,
+      62,
+      94,
+      172,
+      127,
+      218,
+      105,
+      157,
+      249,
+      61
+     ],
+     "6": [
+      217,
+      190,
+      38,
+      201,
+      126,
+      172,
+      127,
+      185,
+      90,
+      206,
+      245,
+      213,
+      34,
+      96,
+      235,
+      83
+     ],
+     "9": [
+      201,
+      64,
+      19,
+      209,
+      124,
+      237,
+      95,
+      73,
+      78,
+      241,
+      28,
+      215,
+      233,
+      189,
+      98,
+      77
+     ],
+     "12": [
+      249,
+      124,
+      62,
+      186,
+      61,
+      165,
+      201,
+      104,
+      200,
+      157,
+      182,
+      68,
+      53,
+      44,
+      255,
+      95
+     ],
+     "15": [
+      0,
+      172,
+      118,
+      178,
+      228,
+      56,
+      107,
+      254,
+      250,
+      173,
+      29,
+      96,
+      220,
+      229,
+      66,
+      156
+     ],
+     "18": [
+      215,
+      72,
+      226,
+      165,
+      137,
+      186,
+      211,
+      227,
+      237,
+      60,
+      69,
+      90,
+      193,
+      250,
+      9,
+      194
+     ],
+     "21": [
+      85,
+      160,
+      219,
+      254,
+      166,
+      193,
+      118,
+      249,
+      44,
+      132,
+      80,
+      123,
+      75,
+      108,
+      204,
+      74
+     ],
+     "24": [
+      94,
+      198,
+      155,
+      150,
+      135,
+      106,
+      126,
+      140,
+      160,
+      128,
+      215,
+      82,
+      134,
+      49,
+      48,
+      89
+     ]
+    }
+   }
+  },
+  "gate": "NOT decided here -- h1_eval.py on CPU fp32, BPB < applied-8L",
+  "anchors": {
+   "dense_fp32": 0.767595,
+   "chance": 4.069819,
+   "h0_run3": 0.810022,
+   "ternary_8L": 0.947851,
+   "applied_8L": 1.096636,
+   "e37_28L_reference_only": {
+    "ternary_all_groups": 3.475707,
+    "carved_k16": 3.986801
+   }
+  },
+  "bands": {
+   "CARVE-NOT-TRAINABLE": ">= 1.096636",
+   "TRAINING-HELPS": "[0.947851, 1.096636)",
+   "CARVE-IS-TRAINABLE": "(0.810022, 0.947851)",
+   "CARVE-IS-FREE": "<= 0.810022"
+  }
+ },
+ "seconds": 1164.7222805023193
+}

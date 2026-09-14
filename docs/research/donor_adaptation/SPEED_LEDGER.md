@@ -5685,3 +5685,79 @@ diagnosis in 63.1 had to be inferred from the shape of the deltas because the ar
 not answer "was this the same build?". **Owed: the engine filename and sha256 in every runner's
 result JSON.** A replication gate against an artefact of unknown provenance is a gate that can
 only ever tell you that something differs, never what.
+
+---
+
+## §64 — H1: the carve is TRAINABLE, and the term still accelerating is the ROUTER
+
+**No rate in this section.** H1 measured no tok/s, exported nothing, and **`G-E63d` is still
+`VOID` and OWED.** Full probe: `probes/H1_THE_CARVE_TRAINED.md`.
+
+**`G-H1` PASSES**, ordinal, no tolerance, on CPU fp32 over the frozen slice:
+
+```
+trained-8L  0.962593  <  applied-8L  1.096636      delta -0.134043   -> TRAINING-HELPS
+```
+
+**Applying the carve and training with it are not the same thing**, and this is the first time
+the difference has been priced on this branch. The reading rule was registered in addenda J/K
+**before either number existed**; `TRAINING-HELPS` is an achievement band and is read as
+registered.
+
+### 64.1 The curve, and why it is not a curve yet
+
+| | steps | `trained-8L` | bought by that session |
+|---|---|---|---|
+| `applied-8L` | 0 | 1.096636 | — |
+| s1 | ~195 | 0.983337 | −0.113299 |
+| s2 | ~390 | **0.962593** | **−0.020744** |
+
+The second session bought 18.3% of the first — but **both sessions carry
+`adam_state_restarted: true`**, so session 2 begins with the optimizer state discarded and
+session 1 does not. Restart transient and genuine flattening are **not separable from two
+points**, and none is attempted: *a fit on two adjacent points has no exponent, it has an
+artefact.* **−0.020744 is the only post-restart increment that exists**, and it is the shape
+every further session will have.
+
+### 64.2 The experts are flattening; the router is not
+
+Priced by holding the trained experts fixed and swapping only the router (`arm-E` = E37's
+fitted router, `arm-ER` = the trained one; additive by construction, residual 0.0):
+
+| term | s1 (~195) | s2 (~390) | session 2 added |
+|---|---|---|---|
+| experts trained | −0.115183 | −0.128172 | −0.012989 |
+| **router trained** | **+0.001884** | **−0.005871** | **−0.007755** |
+
+**The trained router starts HARMFUL and becomes helpful** — at 195 steps E37's fitted router
+still beat it. The router is **37% of session 2's movement against −1.7% of session 1's**.
+
+> **§64.2 — On this branch the expert weights saturate before the router does. A joint-training
+> budget read on the experts alone will be called finished while the routing term is still
+> moving.**
+
+This also falsifies §6 of the brief in practice: the router's contribution **is** separable,
+and `arm-E` separates it.
+
+### 64.3 `G-H1e` fires at both checkpoints, against a registered prediction of failure
+
+| | router | STATIC | margin |
+|---|---|---|---|
+| s1 | 2.882782 | 3.082401 | 0.199619 |
+| s2 | 2.821969 | 3.077081 | **0.255112** |
+
+A per-token learned router beats a **fixed** selection end-to-end, and the margin grows with
+training. Addendum E.5 registered the expectation that this would **FAIL**, precisely so a pass
+would count — it is **falsified in the favourable direction**. First evidence on the donor
+branch for a jointly-trained router.
+
+**Two comparators, not to be conflated:** beating STATIC is cleared by 195 steps; beating
+E37's **fitted** router is not cleared until somewhere between 195 and 390.
+
+### 64.4 The scope this does not have, and it is the important half
+
+`applied-8L` and both trained arms sit on a **ternary** FFN. §62.12 prices the half-byte format
+at **82%** of the dense→chance damage and the carve at **17%**. **H1 has just shown the smaller
+of the two axes to be trainable.** The `k=E` trained arm that would separate ternarisation from
+carving was registered in §9 as not fitting the budget and still does not. Nothing here touches
+10 B, speed, the head, or `STACK`.

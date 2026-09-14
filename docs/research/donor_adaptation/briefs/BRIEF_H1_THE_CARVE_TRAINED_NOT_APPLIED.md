@@ -1430,3 +1430,75 @@ cost nothing:
 
 They belong in the JSON, which survives when the log does not. Registered as owed before the
 next session is asked for.
+
+---
+
+# ADDENDUM L — THE RESULT: `G-H1` PASSES, AND K.4's FOUR-SESSION ASK IS CUT TO ONE
+
+**2026-09-14, after both bundles were scored on CPU fp32.** Full reading:
+`probes/H1_THE_CARVE_TRAINED.md`; ledger §64. This addendum records only the verdict, the
+prediction scoring that belongs to the brief, and the correction to K.4.
+
+## L.1 The verdict
+
+```
+trained-8L  0.962593  <  applied-8L  1.096636      delta -0.134043   -> TRAINING-HELPS
+```
+
+`G-H1` **PASSES** at both checkpoints (s1 ~195 steps: 0.983337; s2 ~390: 0.962593). Band
+`TRAINING-HELPS`, which J.5/K.3 registered as an achievement band readable *a fortiori*. Every
+planted control fired on the gate instrument as well as on the T4 side.
+
+## L.2 Predictions, scored
+
+| # | outcome |
+|---|---|
+| 1 `applied-8L` 3.10–3.55 | **MISSED** (1.096636) — already scored in addendum C |
+| 2 `G-H1` fires | **TAKEN**, both checkpoints |
+| 3 lands in `TRAINING-HELPS` | **TAKEN post-repair, UNSCOREABLE pre-repair** — §5.2's original table made this band EMPTY (C.3); a prediction naming an empty band is not a clean hit |
+| 4 free-running ≤ 40/160 | **NOT MEASURED** — `h1_eval.py` has no generation arm. **OWED.** |
+| 5 router contribution **not separable** | **second clause FALSIFIED** — `arm-E` prices it directly, additively, residual 0.0 |
+| 6 8 of 28 layers move whole-model BPB at all | **TAKEN** (−0.134043) |
+| **E.5** `G-H1e` **FAILS** | **FALSIFIED**, favourable direction, at BOTH checkpoints (margin 0.1996 → 0.2551) |
+
+**Two of seven were falsified in the FAVOURABLE direction.** This brief's errors ran
+pessimistic — the comfortable direction to be wrong in, and therefore the one to watch.
+
+## L.3 K.4's ask is CUT from four sessions to ONE, and the curve is why
+
+K.4 sized **four** sessions against H0's 1000-step mark. That was computed **before any CPU
+fp32 number existed**, i.e. against an unread curve. With the curve in hand it is the wrong ask.
+
+| | steps | `trained-8L` | bought |
+|---|---|---|---|
+| `applied-8L` | 0 | 1.096636 | — |
+| s1 | ~195 | 0.983337 | −0.113299 |
+| s2 | ~390 | 0.962593 | **−0.020744** |
+
+**No curve is fitted to two points**, and the two increments are **not comparable**: both
+sessions carry `adam_state_restarted: true`, so session 2 begins with the optimizer state
+discarded and session 1 does not. Restart transient and genuine flattening cannot be separated
+from what exists.
+
+**One session is decisive either way**, which four were not:
+
+1. it yields the **second post-restart increment**, directly comparable to −0.020744 — two
+   comparable increments are the minimum that can say whether the curve is decaying;
+2. the gap to `CARVE-IS-TRAINABLE` is **0.014742**, *smaller than one session-2 increment*, so a
+   non-decaying curve **crosses the band**;
+3. the **router** — `+0.001884 → −0.005871`, the only term that accelerated between the two
+   checkpoints, and the one carrying the MoE question — gets a third point.
+
+**Registered: ONE session of 2.8 h.** Asking for four now would be buying hours against a trend
+nobody has read. If the third point shows the curve still descending, the case for more is made
+*on evidence* and asked for then.
+
+## L.4 Still owed, unchanged by this result
+
+* **Free-running** (prediction 4) — no generation arm exists in `h1_eval.py`.
+* **`steps_completed` / `stop_reason` / `seconds_per_step`** in the trainer JSON (K.5).
+* **The `k=E` trained arm** that would separate ternarisation from carving — §9 registered it as
+  not fitting the budget, and it still does not. Until it exists, H1's result prices the
+  **smaller** of the two damage axes: §62.12 puts the half-byte format at **82%** of the
+  dense→chance damage and the carve at **17%**.
+* **`G-E63d` is `VOID` and OWED.** H1 does not touch it.

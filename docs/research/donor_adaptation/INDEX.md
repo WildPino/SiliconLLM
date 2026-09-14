@@ -606,3 +606,43 @@ level down: *continuous-path-bit-exact does not compose to selection-path-bit-ex
 A second defect, cheaper to state and cheap to fix: **no result JSON records which engine binary
 produced it**, so the diagnosis had to be inferred from the shape of the deltas rather than read
 off the artefacts.
+
+---
+
+## H1 — the carve IS trainable, and the term still accelerating is the ROUTER
+
+`probes/H1_THE_CARVE_TRAINED.md` · `SPEED_LEDGER.md` §64 · **`G-H1` PASSES, band `TRAINING-HELPS`**
+
+```
+trained-8L  0.962593  <  applied-8L 1.096636      delta -0.134043
+```
+
+**Applying the carve and training with it are not the same thing**, and the difference is now
+priced on this branch. Ordinal, no tolerance, CPU fp32 on the frozen slice; every planted
+control fires on both the T4 side and the gate instrument (`G-H1a` max\|d\| **0.0** paired with
+`carve_is_live` 14–20, `intact` and `h0-run3` reproduced exactly). The reading rule was
+registered in addenda J/K **before either number existed**.
+
+**The finding that decides what to do next is not the gate — it is the decomposition.** Holding
+the trained experts fixed and swapping only the router:
+
+| term | ~195 steps | ~390 steps | session 2 added |
+|---|---|---|---|
+| experts trained | −0.115183 | −0.128172 | −0.012989 |
+| **router trained** | **+0.001884** | **−0.005871** | **−0.007755** |
+
+**The trained router starts HARMFUL and becomes helpful**, and is 37% of the second session's
+movement against −1.7% of the first's. **The experts are flattening; the router is not.** A
+joint-training budget read on the experts alone would be called finished while the routing term
+is still moving.
+
+**`G-H1e` fires at both checkpoints** (router 2.822 vs STATIC 3.077 nats/token at ~390, margin
+growing from 0.1996) — **against addendum E.5's registered prediction that it would FAIL**,
+written precisely so that a pass would count. First evidence on the donor branch that a
+jointly-trained router beats a fixed selection end-to-end. Modest: 4.4% of the gate's movement,
+one donor, 8 layers.
+
+**The limit that matters.** Both trained arms sit on a **ternary** FFN, and §62.12 prices the
+half-byte format at **82%** of the dense→chance damage against the carve's **17%**. **H1 has
+shown the smaller of the two axes to be trainable.** No rate, no export, no 10 B claim;
+`G-E63d` remains `VOID` and OWED.

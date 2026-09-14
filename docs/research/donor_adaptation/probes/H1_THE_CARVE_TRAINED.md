@@ -1,0 +1,170 @@
+# H1 — the carve TRAINED rather than applied: `G-H1` PASSES at both checkpoints, band `TRAINING-HELPS`
+
+**Brief:** `briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md` + addenda A–K
+**Trainer:** `s1/h1_qat.py` (T4, fp16) · **Gate:** `s1/h1_eval.py` (CPU fp32, frozen slice)
+**Results:** `s1/results/h1/h1_eval_h1_s2_cum390.json`, `h1_eval_h1_s1_mid195.json`,
+`h1_trained_s{1,2}.json`, `h1-qat-run-session-2.log`
+**Donor:** Qwen2.5-1.5B rev `8faed761` · 8 of 28 layers (3,6,9,12,15,18,21,24) · `k=16` of `E=256`
+**Slice:** 24×512, 51,870 scored bytes, `ids_sha256 a1a48dc9…`, `B/token 4.22945205479452`
+**Cost:** 2 × 2.8 GPU-h on T4 (the registered budget, spent in full) + 2 × ~1,200 s CPU fp32
+
+## 0. The verdict
+
+> **`G-H1` PASSES at both checkpoints.** Trained BPB **0.962593** < `applied-8L` **1.096636**,
+> delta **−0.134043**. Ordinal, no tolerance. **Band: `TRAINING-HELPS`.**
+>
+> **Applying the carve and training with it are not the same thing, and the difference is
+> measured.** At ~390 optimizer steps the trained carve is **0.014742** short of
+> `CARVE-IS-TRAINABLE`.
+
+Per the reading rule registered in **addendum J.5 / K.3 before either number existed**:
+`TRAINING-HELPS` is an **achievement** band and is read exactly as registered, *a fortiori*.
+The rule's restriction bites only on `CARVE-NOT-TRAINABLE`, which is not the outcome.
+
+## 1. Every control fired, on the gate instrument too, at both checkpoints
+
+| control | s1 (~195) | s2 (~390) | |
+|---|---|---|---|
+| `intact` vs anchor 0.767595 | **0.767595** | **0.767595** | FIRES — the fp32 instrument reproduces the dense donor |
+| `h0-run3` vs anchor 0.810022 | **0.810022** | **0.810022** | reproduced, 56 organs over 28 layers |
+| `G-H1a` k=E, HARD gate, any router | max\|d\| **0.0** | max\|d\| **0.0** | FIRES |
+| `G-H1a` k=E, SOFT gate, router=0 | max\|d\| **0.0** | max\|d\| **0.0** | FIRES |
+| `carve actually masks at k=16` | max\|d\| **20.0** | max\|d\| **13.96** | FIRES — discrimination |
+| slice hash `a1a48dc9…` | matched | matched | the frozen instrument |
+
+`G-H1a` at exactly 0.0 paired with `carve_is_live` at 14–20 is the pair that earns the nulls:
+the mask is provably inert where it should be and provably active where it should be. On the
+T4 side all five planted controls fired in both sessions as well (`h1_trained_s*.json`).
+
+## 2. The two-point curve, and the honest limits on reading it
+
+| | steps | `trained-8L` | Δ from `applied-8L` | bought by that session |
+|---|---|---|---|---|
+| `applied-8L` | 0 | 1.096636 | — | — |
+| **s1** | ~195 | **0.983337** | −0.113299 | −0.113299 |
+| **s2** | ~390 | **0.962593** | −0.134043 | **−0.020744** |
+
+The second session bought **18.3%** of the first. **No curve is fitted to this, and the
+increments are not comparable**, for a reason recorded in the artefacts: both sessions carry
+`adam_state_restarted: true`. Session 1 starts from the applied carve with a fresh optimizer;
+session 2 starts from session 1's weights **with the optimizer state thrown away**. Part of the
+shortfall is restart transient and part may be genuine flattening, and **two points cannot
+separate them.** `feedback_rank_partner_survives_refusal` applies directly: *a fit on two
+adjacent points has no exponent, it has an artefact.*
+
+**Session 2's −0.020744 is the only "steady-state" increment that exists** — the only one
+measured after a restart, which is the shape every further session will have.
+
+## 3. The decomposition — and the router is the term still accelerating
+
+`h1_eval.py` separates the two things §6 of the brief said it could not, by holding the trained
+experts fixed and swapping only the router (`arm-E` uses E37's fitted router, `arm-ER` the
+trained one):
+
+| term | s1 (~195) | s2 (~390) | change |
+|---|---|---|---|
+| experts trained | −0.115183 | −0.128172 | **−0.012989** |
+| **router trained** (vs E37's router) | **+0.001884** | **−0.005871** | **−0.007755** |
+| soft vs hard gate (engine discards) | −0.003950 | −0.005298 | — |
+| `arm-E` (trained experts, E37 router) | 0.981453 | 0.968464 | |
+
+**The trained router starts HARMFUL and becomes helpful.** At ~195 steps E37's fitted router
+beat the jointly trained one; by ~390 the sign has flipped. In session 2 the experts added
+−0.012989 and the router −0.007755 — so the router is **37% of the second session's movement
+against −1.7% of the first's.**
+
+**The experts are flattening. The router is not.** That is the single most decision-relevant
+thing in this probe, and it is the term that carries the MoE question.
+
+**§6's "the router's contribution is not separable from the experts'" is falsified in
+practice** — `arm-E` prices it directly, additively, residual 0.0.
+
+## 4. `G-H1e` FIRES at both checkpoints — and the brief predicted it would FAIL
+
+Addendum E.5, written before the hours were spent:
+
+> *"Registered prediction, before the T4 hours are spent: on this evidence I expect `G-H1e` to
+> FAIL… so that a pass counts for something: it would mean the joint regime does what the
+> frozen-expert proxy says it cannot, which is a result about MoE on this branch and not a
+> hyper-parameter."*
+
+Measured on CPU fp32, **both arms HARD-gated** (addendum F's repair), against STATIC = top-k
+chosen once by global activation mass over the calibration stream:
+
+| | router nats/token | STATIC nats/token | margin |
+|---|---|---|---|
+| s1 (~195) | 2.882782 | 3.082401 | **0.199619** |
+| s2 (~390) | 2.821969 | 3.077081 | **0.255112** |
+
+**FIRES at both, and the margin GROWS with training.** The registered prediction is
+**FALSIFIED, in the favourable direction**, and by the brief's own words that makes it a result
+about joint training: **a per-token learned router beats a fixed selection end-to-end on the
+donor branch.**
+
+**Two comparators, and they must not be conflated.** `G-H1e` asks *per-token routing vs a FIXED
+selection* — an easy bar, cleared already at 195 steps. §3's router term asks *trained router vs
+E37's FITTED router* — a hard bar, not cleared until somewhere between 195 and 390 steps. Both
+are true and they say different things: beating static is early, beating a good fitted router
+takes training.
+
+The frozen-expert smoke (addendum E, 2 of 8 layers, +2.27% against STATIC) was a **structurally
+blind proxy** — it could not see the mechanism that matters, which is that the router changes
+*which experts receive gradient*. E.5 said exactly that and still predicted failure; the
+prediction was wrong and the reasoning attached to it was right.
+
+**This is the first evidence on the donor branch for a jointly-trained router** — what
+`project_moe_status` records as never having been tried here. It is modest (−0.005871 BPB, 4.4%
+of the gate's movement), one donor, 8 layers, one setting. **It is not a MoE result at 10 B.**
+
+## 5. Predictions scored
+
+| # | registered | outcome |
+|---|---|---|
+| 1 | `applied-8L` lands 3.10–3.55 | **MISSED** — 1.096636. Scored in addendum C, where the band table had to be repaired because of it. |
+| 2 | `G-H1` fires: trained beats applied | **TAKEN** at both checkpoints |
+| 3 | lands in `TRAINING-HELPS`, not `CARVE-IS-TRAINABLE` | **TAKEN post-repair, unscoreable pre-repair** — see below |
+| 4 | free-running stays `AT-FLOOR`/`PARTIAL` (≤40/160) | **NOT MEASURED** — `h1_eval.py` has no generation arm. **OWED.** |
+| 5 | router beats `k/E` recall; contribution **not separable** | second clause **FALSIFIED** — §3 separates it |
+| 6 | weakest: that 8 of 28 trained layers move whole-model BPB at all | **TAKEN** — −0.134043 |
+| E.5 | `G-H1e` FAILS | **FALSIFIED**, favourable direction, at both checkpoints |
+
+**Caveat on prediction 3, stated rather than banked.** It was written against §5.2's *original*
+band table, in which `TRAINING-HELPS` was **empty** (addendum C.3: `3.475707 ≤ BPB < 1.096636`).
+A prediction naming an empty band cannot be scored as written. It is scored against the
+**repaired** table — registered before the run — but the honest reading is **taken post-repair,
+unscoreable pre-repair**, not a clean hit.
+
+**Two of seven registered predictions were falsified in the FAVOURABLE direction** (5's second
+clause, E.5). That is worth naming: this brief's errors ran pessimistic, which is the
+comfortable direction to be wrong in and therefore the one to watch.
+
+## 6. What this does NOT say
+
+* **Nothing about 10 B.** 1.5 B, 8 of 28 layers, exactly as §9 registered.
+* **Nothing about speed.** No timing taken, nothing exported. **`G-E63d` is still `VOID` and
+  OWED.**
+* **Nothing about the head or `STACK`** — untouched; E43 measured the head as the largest single
+  term of the floor.
+* **It does not separate ternarisation from carving**, and this is the sharpest limit.
+  `applied-8L` and both trained arms sit on a **ternary** FFN. §62.12 prices the ternary format
+  at **82%** of the dense→chance damage and the carve at **17%** — so **the axis H1 just proved
+  trainable is the smaller of the two.** The `k=E` trained arm that would separate them was
+  registered in §9 as not fitting the budget, and still does not.
+* **It is not a completed training curve** — two points, one restart, no exponent.
+
+## 7. What is owed, and the T4 ask that follows from the curve
+
+1. **ONE further T4 session (2.8 h), not four.** Addendum K sized four sessions against H0's
+   1000-step mark *before* the curve existed. With the curve in hand that is buying hours
+   against an unread trend. One session is decisive either way:
+   * it is the **second post-restart increment**, directly comparable to session 2's
+     −0.020744, so two comparable increments finally say whether the curve is decaying;
+   * the gap to `CARVE-IS-TRAINABLE` is **0.014742**, *less than one session-2 increment*, so a
+     non-decaying curve **crosses the band**;
+   * and the router — the term still accelerating, and the MoE question — gets a third point.
+2. **Free-running (prediction 4) is unmeasured.** `h1_eval.py` has no generation arm; it is the
+   axis that has never recovered in any arm at any scale, and it is owed.
+3. **`steps_completed`, `stop_reason`, `seconds_per_step` in the trainer's JSON** (addendum
+   K.5). Session 1's step count is unrecoverable because its log is 0 bytes.
+4. **The ternary/carve separation** — the `k=E` trained arm — remains unaffordable and remains
+   the reason H1's result, while real, prices the smaller of the two damage axes.
