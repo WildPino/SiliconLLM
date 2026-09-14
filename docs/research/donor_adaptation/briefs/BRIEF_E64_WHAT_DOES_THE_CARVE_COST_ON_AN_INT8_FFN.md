@@ -190,3 +190,78 @@ Plan, in order, each pushed before the thing after it runs:
 **If step 3 cannot be done without weakening the guard that E60 put there, E64 is ABANDONED and
 the brief says so.** A measurement is not worth removing a check that has already caught a
 silent corruption.
+
+---
+
+## 9. Addendum A — 2026-09-14, written BEFORE the run, after opening `results/e37_sparsity_cost.json`
+
+Three things in §3–§5 are wrong on contact with E37's actual result file. Per the **E4
+precedent** — *a gate that cannot be answered as written is MALFORMED, not failed, and may be
+re-specified* — they are re-specified here, **before the export finishes and before one BPB is
+read**. Nothing below was informed by an E64 number, because none exists yet.
+
+### A.1 `G-E64b`'s "BIT-IDENTICAL" is impossible, and E37 already knew it
+
+The carved writer applies a **permutation of the `F` axis** (rows of gate/up, columns of down).
+The arithmetic is exact but the **summation order is not the same**, so the carved forward at
+`k = E` cannot be bit-identical to the uncarved one. E37's own version of this control,
+`G-E37A`, is registered at a **tolerance**, and its reading is:
+
+| | value |
+|---|---|
+| `bpb_dense` | 3.47570637184527 |
+| `bpb_carved_kE` | 3.4757066520304316 |
+| `bpb_diff` | **2.801851617384443e-07** |
+| `bpb_tol` | 1.0e-04 |
+
+**`G-E64b` is re-specified to E37's form**: at `k = E = 256` the carved file must reproduce the
+**same-format uncarved** BPB to **\|d\| ≤ 1e-04**. Registering the tolerance E37 used, on the
+instrument E37 used, rather than inventing one.
+
+### A.2 The int8 arm has no uncarved counterpart, and the gate says so instead of pretending
+
+For ternary the uncarved reference exists on disk (`e37_dense_nf.bin`). For int8 it does not:
+`--ffn-rule` requires `--quant carved`, and a whole-file `--quant int8` artefact would also
+change attention, the head and the router — it is **not** "the same file with the carve off".
+
+**So `G-E64b` fires on the TERNARY arm only, and that is stated as a limitation rather than
+papered over.** Writing a version that "passes" on the int8 arm would make it a tautology
+(comparing the file to itself), and this programme has a standing memory that *a metric that
+always passes discriminates nothing*. The control still does its job: it proves the carve
+machinery and the engine's runtime `--carve-k` override are correctly wired **on today's
+binary**, and both formats go through **the same carve code path** — only the matrix kind
+differs.
+
+### A.3 A single `k` is the wrong comparator: the carve ladder is NON-MONOTONE
+
+§3 named `k = 3` as the cell. E37's ladder, on the same instrument and donor, is:
+
+| `k` | 256 | 64 | 32 | 16 | 8 | 4 | **3** | 2 | 1 |
+|---|---|---|---|---|---|---|---|---|---|
+| BPB | 3.4757 | 3.9274 | **4.0744** | 3.9868 | 3.9967 | 4.0234 | **4.0294** | 4.0149 | 3.9898 |
+
+**It does not rank** — `k=32` is worse than `k=16`, and `k=1` is better than `k=3`. That is
+E19's `CARVE-DOES-NOT-RANK` visible in the numbers, and it means **a two-cell comparison at one
+`k` could show either sign by picking the `k`.**
+
+**`G-E64d` is therefore re-specified to compare LADDERS, not cells**: the full E37 ladder
+`k ∈ {256, 64, 32, 16, 8, 4, 3, 2, 1}` is run at **both** formats from **one file each**, and
+the verdict is read off the ladder as a whole:
+
+| band | condition |
+|---|---|
+| `CARVE-IS-PRECISION-BLIND` | the two ladders agree at **every** `k` within E62's σ_seed for this donor (0.250 at 1.5 B) |
+| `CARVE-IS-CHEAPER-ON-INT8` | int8's carve cost is strictly smaller at **every** `k` |
+| `CARVE-IS-DEARER-ON-INT8` | strictly larger at **every** `k` |
+| `THE-LADDERS-DISAGREE` | the sign changes with `k` — **a real result**, and the one E19 + E37's non-monotonicity make most likely |
+
+This is cheap: one exported file per format, nine engine invocations each, and it supplies the
+**RANK partner** E14 §3 requires for the SCORE, which §4 as written did not have.
+
+### A.4 What this addendum does NOT do
+
+It does not touch the **predictions** in §5 — they stand as registered and will be scored as
+written, including prediction 1's `|Δ| < 0.05 BPB`, now read across the ladder rather than at
+one `k`. It does not touch §6's prohibitions. **`G-E63d` is still `VOID` and OWED**, and E64
+still measures no rate.
+
