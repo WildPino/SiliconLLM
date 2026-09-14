@@ -1,0 +1,239 @@
+{
+ "brief": "briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md",
+ "complete": true,
+ "layers": [
+  3,
+  6,
+  9,
+  12,
+  15,
+  18,
+  21,
+  24
+ ],
+ "k": 16,
+ "E": 256,
+ "steps_requested": 4000,
+ "bs": 2,
+ "accum": 8,
+ "lr": 0.0002,
+ "router_lr": 0.0003,
+ "aux": 0.01,
+ "seed": 1717,
+ "resumed_qo_from": "h0_trained3.npz",
+ "resumed_ffn_from": null,
+ "adam_state_restarted": true,
+ "bytes_per_token": 4.22945205479452,
+ "seconds": 10101.429049253464,
+ "nonfinite_microbatches": 0,
+ "scaler_declined_before_first_applied": 0,
+ "bpb_fp16_gpu_step0": 1.2052601751146157,
+ "progress_precision": "fp16, GPU",
+ "history": [
+  {
+   "step": 0,
+   "bpb_fp16_gpu": 1.2052601751146157,
+   "loss": null,
+   "seconds": 0.0
+  }
+ ],
+ "gates": {
+  "G_H1a": {
+   "bit_identical": true,
+   "hard_gate_any_router": {
+    "fires": true,
+    "max_abs_diff": 0.0
+   },
+   "soft_gate_zero_router": {
+    "fires": true,
+    "max_abs_diff": 0.0
+   },
+   "max_abs_diff": 0.0
+  },
+  "carve_is_live": {
+   "differs": true,
+   "max_abs_diff": 23.125
+  },
+  "G_H1b": {
+   "first_applied_step": 1,
+   "declined_before": 0
+  },
+  "G_H1c": {
+   "moved": {
+    "L03.gate": 8.001923561096191e-06,
+    "L24.down": 8.001923561096191e-06,
+    "L03.router": 1.1999996786471456e-05
+   },
+   "fires": true
+  },
+  "G_H1e": {
+   "router_nats": 2.8826617571059168,
+   "static_nats": 3.082640564829763,
+   "fires": true,
+   "static_groups": {
+    "3": [
+     189,
+     156,
+     38,
+     239,
+     146,
+     238,
+     134,
+     62,
+     94,
+     172,
+     127,
+     218,
+     105,
+     157,
+     249,
+     61
+    ],
+    "6": [
+     217,
+     190,
+     38,
+     201,
+     126,
+     172,
+     127,
+     185,
+     90,
+     206,
+     245,
+     213,
+     34,
+     96,
+     235,
+     83
+    ],
+    "9": [
+     201,
+     64,
+     19,
+     209,
+     124,
+     237,
+     95,
+     73,
+     78,
+     241,
+     28,
+     215,
+     233,
+     189,
+     98,
+     77
+    ],
+    "12": [
+     249,
+     124,
+     62,
+     186,
+     61,
+     165,
+     201,
+     104,
+     200,
+     157,
+     182,
+     68,
+     53,
+     44,
+     255,
+     95
+    ],
+    "15": [
+     0,
+     172,
+     118,
+     178,
+     228,
+     56,
+     107,
+     254,
+     250,
+     173,
+     29,
+     96,
+     220,
+     229,
+     66,
+     156
+    ],
+    "18": [
+     215,
+     72,
+     226,
+     165,
+     137,
+     186,
+     211,
+     227,
+     237,
+     60,
+     69,
+     90,
+     193,
+     250,
+     9,
+     194
+    ],
+    "21": [
+     85,
+     160,
+     219,
+     254,
+     166,
+     193,
+     118,
+     249,
+     44,
+     132,
+     80,
+     123,
+     75,
+     108,
+     204,
+     74
+    ],
+    "24": [
+     94,
+     198,
+     155,
+     150,
+     135,
+     106,
+     126,
+     140,
+     160,
+     128,
+     215,
+     82,
+     134,
+     49,
+     48,
+     89
+    ]
+   }
+  }
+ },
+ "gate": "NOT decided here -- h1_eval.py on CPU fp32, BPB < applied-8L",
+ "anchors": {
+  "dense_fp32": 0.767595,
+  "chance": 4.069819,
+  "h0_run3": 0.810022,
+  "ternary_8L": 0.947851,
+  "applied_8L": 1.096636,
+  "e37_28L_reference_only": {
+   "ternary_all_groups": 3.475707,
+   "carved_k16": 3.986801
+  }
+ },
+ "bands": {
+  "CARVE-NOT-TRAINABLE": ">= 1.096636",
+  "TRAINING-HELPS": "[0.947851, 1.096636)",
+  "CARVE-IS-TRAINABLE": "(0.810022, 0.947851)",
+  "CARVE-IS-FREE": "<= 0.810022"
+ }
+}

@@ -1325,3 +1325,108 @@ twelve times narrower).
    standing rule that weights live in exactly one location. The JSON sidecars and the surviving
    log go into `results/h1/`.
 4. `G-E63d` is still `VOID` and OWED. H1 does not touch it, and neither does E64.
+
+
+---
+
+# ADDENDUM K — ADDENDUM J PICKED THE WRONG DENOMINATOR. THE RULE SURVIVES; ITS GROUNDING DOES NOT
+
+**Still before `h1_eval.py` returns.** Written minutes after J, after opening §2 and §7 — which
+J should have opened before it chose a denominator. No CPU fp32 number exists yet.
+
+## K.1 The error
+
+J.1 and J.5 said the run bought **"9.75% of budget"**: ≈390 cumulative steps against
+`steps_requested: 4000`. **`4000` was never the registered budget.** §2 costs H1 in *memory* and
+§7 costs it in *sessions*:
+
+> *"Cost: two T4 sessions of 2.8 h (~5.6 GPU-h). Both are needed and §7 says why."*
+> *"Registered: session 1 produces no verdict... The gate in §5.2 is evaluated **after session 2**."*
+
+`--steps 4000` was an upper bound the `--max-hours 2.8` cap was always going to truncate.
+**Both registered sessions ran, both to the cap. The registered budget was spent IN FULL.** By
+the registered design this is the moment the gate is read, not a short delivery.
+
+This is `feedback_gate_is_not_a_progress_meter` in its denominator form for the **fourth** time,
+and the second time in two days: I divided by a quantity that was never the budget, and it made
+the run look like a 90% shortfall when it was a completed one. The tell was available for free
+in the brief's own header line.
+
+## K.2 The grounding that actually holds, and it is stronger
+
+§7 does not justify two sessions by hours. It justifies them by a **step count**, taken from H0:
+
+> *"After 500 steps H0 looked flat on the metric being watched. It was not: the second 500 steps
+> removed a quarter of the damage that survived the first 500... A one-session H1 would be read
+> the way a one-session H0 was read, and that reading was wrong."*
+
+Measured, from the artefacts rather than assumed:
+
+| | steps in one 2.8 h session | s/step | cumulative over two sessions |
+|---|---|---|---|
+| **H0 run 3** (`h0_trained3.json`, 10094 s) | **≥ 500** (history logs step 500; `--every` 250 so the true figure is 500–749) | **≤ 20.2** | ~1000, and §7 says only the second half was informative |
+| **H1** (`h1_trained_s2`, 10089 s) | **195** (`TIME CAP 2.8 h reached at step 195`) | **51.7** | **≈390** |
+
+**H1's two full sessions delivered fewer steps than H0's ONE** — 390 against ≥500. The run sits
+*below* the mark §7 explicitly names as the one that was read wrongly. The two-session design was
+calibrated in sessions while its rationale lived in steps, and H1 costs **≥2.6× per step** than
+the run the rationale was borrowed from, because it trains 330,301,440 FFN masters plus a router
+where H0 trained q/o factors.
+
+**Nobody mis-ran anything.** The sessions did what was asked; the asking was mis-costed, by me,
+in the brief.
+
+## K.3 What changes, and what does not
+
+**J.5's reading rule STANDS, unchanged**, and is now grounded in §7 instead of in a denominator
+I invented:
+
+* the three achievement bands — `TRAINING-HELPS`, `CARVE-IS-TRAINABLE`, `CARVE-IS-FREE` — are
+  read exactly as registered, a fortiori;
+* **`CARVE-NOT-TRAINABLE` may not be assigned**, because it is a claim about the *limit* of
+  training and this run is below the step count §7 registered as insufficient to read. That
+  outcome is recorded as **`H1-UNDERTRAINED`** and stays OWED.
+
+`G-H1`'s gate — trained BPB < `applied-8L` — is untouched, as are §5.2, the band edges, and §8's
+predictions.
+
+**What does change is the character of the T4 ask.** Under J it read as *"finish the budget you
+already granted"*. It is not that. The granted budget is spent. **§6 of this addendum is a NEW
+request**, and it must be put to the user as one.
+
+## K.4 The ask, sized on measured throughput
+
+To reach parity with the H0 run whose step count §7 borrows — 1000 cumulative steps:
+
+```
+  needed        1000 - 390  =  610 steps
+  measured      51.7 s/step  (10089 s / 195 steps, session 2)
+  time          610 x 51.7   =  31,540 s  =  8.8 GPU-h
+  sessions      8.8 / 2.8    =  3.1       ->  FOUR sessions of 2.8 h (11.2 GPU-h),
+                                               which lands at ~1170 cumulative steps
+```
+
+Against the standing 30 GPU-h/week/account across three accounts (90 GPU-h/week), **11.2 GPU-h is
+one week's work on a single account** and the relay is already verified unattended. This is the
+clause in the standing goal that covers it — *"se ti serve possiamo fare sessioni brevi
+(settimane) su T4 per rifiniture, in quel caso però melo devi comunicare"* — and it is being
+communicated rather than assumed. It goes in `COMMUNICATION.md`.
+
+**It is not requested yet, and nothing is launched.** `h1_eval.py` is running on the ≈390-step
+bundle first, because if it already lands in one of the three achievement bands the extra hours
+buy a sharper number rather than the verdict, and that is a different and much weaker case for
+spending them.
+
+## K.5 The defect this leaves in the trainer
+
+Three fields would have prevented both J's error and the unrecoverable session-1 count, and they
+cost nothing:
+
+```
+  steps_completed     the number the gate's readability depends on
+  stop_reason         "time-cap" | "steps" | "nonfinite"
+  seconds_per_step    what any future budget must be costed on
+```
+
+They belong in the JSON, which survives when the log does not. Registered as owed before the
+next session is asked for.
