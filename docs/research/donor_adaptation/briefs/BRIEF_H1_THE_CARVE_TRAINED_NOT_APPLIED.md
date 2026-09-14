@@ -1502,3 +1502,112 @@ nobody has read. If the third point shows the curve still descending, the case f
   **smaller** of the two damage axes: §62.12 puts the half-byte format at **82%** of the
   dense→chance damage and the carve at **17%**.
 * **`G-E63d` is `VOID` and OWED.** H1 does not touch it.
+
+---
+
+# ADDENDUM M — session 3, and the 2.8 h cap was MINE, not the platform's
+
+**Pre-registered 2026-09-14, pushed before the bundle is rebuilt and before session 3 runs.**
+**The T4 budget was granted this day: 90 GPU-h/week across three accounts, T4x2.**
+
+## M.1 The thing I got wrong, and it is not the one addendum K found
+
+K re-grounded the undertraining argument on §7's step count after J divided by a budget that
+was never registered. Both addenda took **2.8 h** as the unit of a session and argued about
+**how many** of them to ask for — K said four, L said one.
+
+**Neither asked why a session is 2.8 hours.** It is not a platform limit:
+
+```
+scripts/kaggle_run.py:21   "The batch kernel runs to the 12 h session limit and stops."
+scripts/kaggle_ops.py:14   "...before a 12 h job is staked on it."
+h1_qat.py:611              ap.add_argument("--max-hours", type=float, default=2.8)
+```
+
+**`2.8` is a default I chose.** The platform allows **12 h**. So the entire "how many sessions"
+argument was conducted in a unit that was four times smaller than it needed to be, and H1's
+undertraining — the finding of addenda J, K and L — is substantially **an artefact of my own
+flag**, not of the budget.
+
+This is [[feedback-dont-size-against-an-unread-number]] in a third form, and the worst of the
+three: J divided by an unregistered budget, K sized against a measurement still running, and
+**M finds that the UNIT both of them were counting in had never been checked against the
+platform that defines it.** The error again has no sign — here it made me ask for too little,
+twice.
+
+## M.2 What one long session buys, arithmetically
+
+From the artefact: `10088.85 s / 195 steps` = **51.7 s/step** (`h1_trained_s2.json`, and
+addendum K.3's table).
+
+| plan | steps | Adam restarts | vs H0's ≥500 per session |
+|---|---|---|---|
+| what H1 actually got (2 x 2.8 h) | **~390 total** | **2** | below, in EVERY session |
+| L's ask (1 more x 2.8 h) | ~585 cumulative | 3 | still below, per session |
+| K's ask (4 more x 2.8 h) | ~1,170 cumulative | 6 | still below, per session |
+| **M: 1 x 11 h** | **~766 in ONE session** | **1** | **above, in a single session** |
+
+**One 11 h session beats K's four-session ask on the axis that matters** (steps under a
+continuous optimizer) while costing **11 GPU-h instead of 11.2**, and it removes the defect
+that made L's reading provisional: both existing increments carry `adam_state_restarted: true`,
+so they are **not comparable to each other** and nothing may be extrapolated from the two.
+A single uninterrupted session has no such seam.
+
+## M.3 Why 11 h and not 12
+
+**The trainer's own cap must fire BEFORE the platform's, or the run is lost.** `h1_qat.py:861`
+breaks on `--max-hours` and only then reaches the final `np.savez` of a 1.33 GB artefact
+(line 892). If the Kaggle session is killed at 12 h first, that save never happens.
+**`--max-hours 11.0` leaves an hour of margin for the final eval, the save and the upload.**
+
+Partial loss is bounded independently: `save()` is already called at every `--every` (250)
+steps with `done=False`, so a hard kill costs at most ~250 steps. **That path has never
+executed** — sessions 1 and 2 both stopped at step 195, before the first periodic save — so
+session 3 is also the first exercise of the checkpoint path.
+
+## M.4 Apparatus changes, and they are the OWED ones
+
+`h1_qat.py` records three fields it never recorded, and the reason is J's error:
+
+```
+"steps_completed":  step        # what the run DID
+"stop_reason":      "time-cap" | "steps-exhausted" | "in-progress"
+"seconds_per_step": el/step
+```
+
+**And a correction of meaning, not just an addition.** `complete: true` is written by the final
+save **whether or not the time cap truncated the run**. Addendum J read `complete: true`
+alongside `steps_requested: 4000` and concluded a 90% shortfall from a fully-spent session.
+The flag means *the script finished cleanly*; `stop_reason` is now the field that says whether
+the **training** did. Self-tests re-run and all fire.
+
+Nothing else changes: same layers `[3,6,9,12,15,18,21,24]`, `k=16` of `E=256`, `bs 2`,
+`accum 8`, `lr 2e-4`, `router-lr 3e-4`, `aux 0.01`, `--every 250`, resume from
+`h1_trained_s2.npz`, seed **3141** (new, and the seed does not enter the eval — `heldout_nats`
+is a deterministic full sweep, addendum J.6).
+
+## M.5 Predictions — registered, falsifiable
+
+1. **`steps_completed` ≥ 700** and `stop_reason == "time-cap"`. *If s/step degrades badly on a
+   long run — thermal, or the periodic save — this is where it shows.*
+2. **The gate crosses into `CARVE-IS-TRAINABLE`: trained BPB < 0.947851.** The distance from
+   s2 is **0.014742**, which is **less than one 195-step increment** (session 2 moved
+   −0.020744), and session 3 is ~3.9x longer with no Adam seam. **This is the prediction that
+   can fail**, and the reason it might: the experts are flattening (−0.115183 → −0.128172,
+   i.e. the second session added only −0.012989 on that term).
+3. **The router term keeps accelerating relative to the experts** (§64.2's law): the router's
+   share of the session's movement exceeds session 2's **37%**. *Falsifies §64.2 if it does not.*
+4. **`G-H1e` fires again and its margin grows** beyond session 2's 0.255112.
+5. **The first periodic checkpoint (step 250) is written and is loadable.** Never exercised
+   before; a silent failure here would cost the session.
+
+## M.6 What session 3 may NOT conclude
+
+1. **Nothing about rate.** No tok/s. **`G-E63d` stays `VOID` and OWED.**
+2. **Nothing about the 10 B, and nothing about the RANK axis.** H1 trains a **carve** on a
+   **ternary** FFN — §62.12 prices that as the **smaller** of the two damage axes, and E65
+   sized the rank hole at **5.18x** the one H1 works against. A win here does not transfer.
+3. **No promotion of the two-point curve.** With one continuous session the three points still
+   differ in optimizer continuity, so the curve is read ordinally, not fitted.
+4. **Nothing that re-reads sessions 1 and 2.** Their numbers stand as published in addendum L.
+

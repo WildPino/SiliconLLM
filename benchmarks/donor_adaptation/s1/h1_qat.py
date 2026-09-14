@@ -780,6 +780,8 @@ def main():
     rng = np.random.default_rng(a.seed)
     nonfinite, declined, gh1bc = 0, 0, None
     run_loss, run_aux, nb = 0.0, 0.0, 0
+    stop_reason = "steps-exhausted"     # addendum M: overwritten if the cap fires first
+    step = 0
     for step in range(1, a.steps + 1):
         opt.zero_grad(set_to_none=True)
         for _ in range(a.accum):
@@ -857,9 +859,11 @@ def main():
                          "aux": run_aux / max(1, nb), "occ_max": max(occ) if occ else None,
                          "seconds": el})
             run_loss, run_aux, nb = 0.0, 0.0, 0
-            save(model, mods, a, layers, hist, bpb0, nonfinite, el, False, gates, declined, prec)
+            save(model, mods, a, layers, hist, bpb0, nonfinite, el, False, gates, declined,
+                 prec, step=step, stop_reason="in-progress")
         if el > a.max_hours * 3600:
             log("  TIME CAP %.1f h reached at step %d -- stopping cleanly" % (a.max_hours, step))
+            stop_reason = "time-cap"
             break
 
     el = time.time() - t0
@@ -870,7 +874,10 @@ def main():
         % (r, s, "FIRES" if fires else "FAILS"))
     gates["G_H1e"] = {"router_nats": r, "static_nats": s, "fires": fires,
                       "static_groups": picks}
-    save(model, mods, a, layers, hist, bpb0, nonfinite, el, True, gates, declined, prec)
+    save(model, mods, a, layers, hist, bpb0, nonfinite, el, True, gates, declined, prec,
+         step=step, stop_reason=stop_reason)
+    log("  stopped after %d steps (%s), %.1f s/step" % (step, stop_reason,
+                                                        el / max(1, step)))
     log("  wrote %s" % a.out)
     log("  THE GATE IS NOT DECIDED HERE.  Bring %s back and run h1_eval.py on CPU fp32: "
         "G-H1 is trained BPB < applied-8L, both on the frozen slice."
@@ -878,7 +885,8 @@ def main():
     return 0
 
 
-def save(model, mods, a, layers, hist, bpb0, nonfinite, el, done, gates, declined, prec):
+def save(model, mods, a, layers, hist, bpb0, nonfinite, el, done, gates, declined, prec,
+         step=None, stop_reason=None):
     store = {}
     for li, m in mods:
         p = "L%02d" % li
@@ -893,6 +901,12 @@ def save(model, mods, a, layers, hist, bpb0, nonfinite, el, done, gates, decline
     json.dump({"brief": "briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md",
                "complete": done, "layers": layers, "k": a.k, "E": a.groups,
                "steps_requested": a.steps, "bs": a.bs, "accum": a.accum,
+               # ADDENDUM M.  `complete` means THE SCRIPT FINISHED, not THE TRAINING DID:
+               # the final save writes it whether or not the time cap truncated the run, and
+               # addendum J was misled by exactly that.  These three say what actually ran.
+               "steps_completed": step,
+               "stop_reason": stop_reason,
+               "seconds_per_step": (el / float(step)) if step else None,
                "lr": a.lr, "router_lr": a.router_lr, "aux": a.aux, "seed": a.seed,
                "resumed_qo_from": a.factors, "resumed_ffn_from": a.resume,
                "adam_state_restarted": True,
