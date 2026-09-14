@@ -147,6 +147,7 @@ def w_packed(fh, w, rule="R0", act_rms=None):
 
 # ---------------------------------------------------------------------- the tagged writers
 MK_PACKED, MK_FACTORED, MK_F32, MK_PACKED_T = 0, 1, 2, 3
+MK_I8, MK_I8_T = 4, 5             # E63 added these to donor_engine.c; E64 writes them here
 FK_DENSE, FK_CARVED = 0, 1
 PT_BLK = 64                       # E26: the transposed kind's block size, one cache line
 
@@ -175,6 +176,44 @@ def w_tag_packed_t(fh, w, rule="R0", act_rms=None):
     nb = (out_f // 2) // PT_BLK
     bm = packed.reshape(in_f, nb, PT_BLK).transpose(1, 0, 2)             # [nb, in, blk]
     fh.write(np.ascontiguousarray(bm).tobytes())
+    fh.write(np.ascontiguousarray(scale.numpy(), dtype="<f4").tobytes())
+    return float((q == 0).float().mean())
+
+
+def w_tag_i8(fh, w, rule="R8", act_rms=None):
+    """kind 4 (E63/E64): [out, in] int8 codes + [out] fp32 scales -- ONE byte per weight.
+
+    Byte-for-byte the payload `w_tern` writes, with a kind tag in front.  The RULE must be R8:
+    every other rule returns codes in {-1,0,+1}, which would store three levels in a byte that
+    calls itself int8 -- the exact confusion the --quant/--rule guard exists to prevent, which
+    is why this writer hard-asserts rather than trusting its caller.
+    """
+    assert rule == "R8", "MK_I8 must be written with R8 (int8 RTN); got %r" % (rule,)
+    q, scale = quantize(w, rule, act_rms)
+    fh.write(struct.pack("<i", MK_I8))
+    fh.write(np.ascontiguousarray(q.numpy(), dtype="i1").tobytes())
+    fh.write(np.ascontiguousarray(scale.numpy(), dtype="<f4").tobytes())
+    return float((q == 0).float().mean())
+
+
+def w_tag_i8_t(fh, w, rule="R8", act_rms=None):
+    """kind 5 (E63/E64): the same int8 codes stored TRANSPOSED, block-major
+    [out/PT_BLK][in][PT_BLK].
+
+    PT_BLK is a count of BYTES in both formats, so an int8 block spans 64 outputs where
+    MK_PACKED_T's spans 128.  A carved `down` therefore moves twice the bytes per selected
+    neuron at one byte per weight than at half -- E31's locality question, and the reason E64
+    reports the carve cost against its OWN format's baseline and never across formats.
+    """
+    assert rule == "R8", "MK_I8_T must be written with R8 (int8 RTN); got %r" % (rule,)
+    q, scale = quantize(w, rule, act_rms)
+    out_f, in_f = q.shape
+    assert out_f % PT_BLK == 0, "PT_BLK must divide out_features (%d)" % out_f
+    fh.write(struct.pack("<ii", MK_I8_T, PT_BLK))
+    nb = out_f // PT_BLK
+    qt = np.ascontiguousarray(q.numpy().T)                               # [in, out]
+    bm = qt.reshape(in_f, nb, PT_BLK).transpose(1, 0, 2)                 # [nb, in, blk]
+    fh.write(np.ascontiguousarray(bm, dtype="i1").tobytes())
     fh.write(np.ascontiguousarray(scale.numpy(), dtype="<f4").tobytes())
     return float((q == 0).float().mean())
 
@@ -311,6 +350,16 @@ def main():
                          "write time, so the artifact is unchanged. Refuses --fold and --rule "
                          "R3, whose arithmetic would then run in bf16.")
     ap.add_argument("--out", required=True)
+    ap.add_argument("--ffn-rule", choices=("R8",), default=None,
+                    help="E64: write the CARVED FFN's gate/up/down at ONE byte per weight "
+                         "(MK_I8/MK_I8_T, rule R8 int8 RTN) while every other organ keeps "
+                         "--rule.  This is the only per-matrix rule this exporter has, and it "
+                         "is deliberately narrow: R8 is the only rule whose codes do not fit "
+                         "the ternary format, so it is the only one that needs its own kind "
+                         "tag.  Requires --quant carved.  The ROUTER is NOT included -- it "
+                         "stays on --rule, matching the engine's carved-FFN check, which "
+                         "requires gate/up/down to agree with each other and says nothing "
+                         "about the router.")
     ap.add_argument("--rule", choices=("R0", "R1", "R2", "R3", "R8"), default="R0",
                     help="ternarization rule. R0 = BitLinear158, the engine's original and T1's. "
                          "R1/R2/R3 are T2's alternatives; ALL of them land in the same format "
@@ -393,6 +442,16 @@ def main():
     if (a.quant == "int8") != (a.rule == "R8"):
         sys.exit("--quant int8 and --rule R8 must be used together (E60): "
                  "quant=%s rule=%s" % (a.quant, a.rule))
+    # E64 widens that invariant to PER MATRIX instead of relaxing it.  The rule E60 protects is
+    # "a matrix written with R8 is tagged int8, and a matrix written with a ternary rule is
+    # tagged ternary".  --ffn-rule keeps it: the carved gate/up/down get R8 AND the MK_I8 tags,
+    # everything else keeps --rule AND the packed tags.  What is forbidden is the combination
+    # that would make the file-level pairing above ambiguous.
+    if a.ffn_rule is not None:
+        if a.quant != "carved":
+            sys.exit("--ffn-rule needs --quant carved (E64): quant=%s" % a.quant)
+        if a.rule == "R8":
+            sys.exit("--ffn-rule with --rule R8 is the whole-file int8 case: use --quant int8")
     carve_E, carve_k, carve_perm, carve_router = 0, 0, None, None
     if a.quant == "carved":
         import carve_common as CV
@@ -537,10 +596,15 @@ def main():
                 zeros.append(w_tag_packed(fh, rw, a.rule, act.get((li, "gate_proj"))))
                 pm = torch.from_numpy(carve_perm[li])
                 # A permutation of the F axis: rows of gate/up, columns of down.  Exact.
-                zeros.append(w_tag_packed(fh, lay.mlp.gate_proj.weight.data[pm], a.rule,
-                                          act.get((li, "gate_proj"))))
-                zeros.append(w_tag_packed(fh, lay.mlp.up_proj.weight.data[pm], a.rule,
-                                          act.get((li, "up_proj"))))
+                # E64: --ffn-rule swaps gate/up/down -- and ONLY those three -- to one byte
+                # per weight.  The router above is deliberately left on --rule.
+                w_gu = w_tag_i8 if a.ffn_rule else w_tag_packed
+                w_dn = w_tag_i8_t if a.ffn_rule else w_tag_packed_t
+                r_ffn = a.ffn_rule or a.rule
+                zeros.append(w_gu(fh, lay.mlp.gate_proj.weight.data[pm], r_ffn,
+                                  act.get((li, "gate_proj"))))
+                zeros.append(w_gu(fh, lay.mlp.up_proj.weight.data[pm], r_ffn,
+                                  act.get((li, "up_proj"))))
                 # down is quantized per OUTPUT row, and permuting its columns does not move a
                 # scale -- so the trits here are the same trits the dense export writes, only
                 # reordered and repacked along the other axis.
@@ -548,7 +612,7 @@ def main():
                 dact = act.get((li, "down_proj"))
                 if dact is not None:
                     dact = dact[pm]
-                zeros.append(w_tag_packed_t(fh, dw, a.rule, dact))
+                zeros.append(w_dn(fh, dw, r_ffn, dact))
             else:
               for name in ("gate_proj", "up_proj", "down_proj"):
                 mod = getattr(lay.mlp, name)
@@ -577,7 +641,8 @@ def main():
     # engine's own "consumed exactly N bytes" found it, but only after a 3-minute write.
     if quant == 4:
         import e1_bpb_through_engine as E1
-        want = E1.layout_bytes_v4(D, F, L, NH, NKV, HD, V, tied, carve_E)
+        want = E1.layout_bytes_v4(D, F, L, NH, NKV, HD, V, tied, carve_E,
+                                  ffn_i8=bool(a.ffn_rule))
         assert want == size, ("GATE E26-L FAILED: the format says %d bytes, the file is %d "
                               "(%+d)." % (want, size, size - want))
         print("  GATE E26-L: %d bytes, matches E1's independent quant==4 layout exactly" % size)
