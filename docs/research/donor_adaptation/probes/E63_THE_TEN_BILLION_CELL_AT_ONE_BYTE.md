@@ -1,7 +1,9 @@
 # E63 — the 10 B cell at one byte per weight
 
 **Verdict (Part A): `THE-PATH-EXISTS-AND-IT-IS-EXACT`.**
-**Part B is OWED, and is stated as owed.** No rate in this document is a result.
+**`G-E63d` is `VOID` and Part B is OWED, and is stated as owed.** §12 adds an INTERIM
+paired ratio, registered in addendum C before it ran and carrying an explicit
+non-promotion clause: **no rate in this document is a measurement of the 10 B cell.**
 
 Brief: `briefs/BRIEF_E63_THE_TEN_BILLION_CELL_AT_ONE_BYTE.md`, pre-registered and pushed before
 a line of engine code existed. **Addendum A (A.1, A.2, A.4) pushed before the run**, re-specifying
@@ -188,3 +190,79 @@ pretend I did not see them:
 2. `G-E61c`'s owed repeat and the 3 B speed cells ride in the same sweep — both already wired
    into Part B, the first *reported and not adjudicated* per E40 addendum A.
 3. Everything E62 §11 left owed is untouched by this probe.
+
+---
+
+## 12. INTERIM (addendum C) — the paired ratio, on a box that cannot answer `G-E63d`
+
+**`G-E63d` is `VOID` and remains OWED.** Registered in addendum C **before the run**, including
+the non-promotion clause: *this reading may not adjudicate `G-E63d` in either direction.* It
+does not, and nothing below is a Part B result.
+
+### 12.1 Why the box could not answer the real question
+
+Measured, not assumed: 90 samples at 1 Hz with nothing of mine running read **median 3.28%,
+p75 7.95%, max 26.30%**, 40 of 90 at or over `OCC_BAR = 4.39%`. The load is the user's browser.
+In the sweep itself **every one of the 18 cells was over the bar** (4.95%–22.75%), so the
+runner printed `VOID`, which is the registered verdict.
+
+### 12.2 What the paired ratio reads
+
+9 interleaved repetitions per arm × 120 decode tokens, `--carve-k 3`, `--threads 6`, 1.5 min.
+
+| arm | median tok/s | bootstrap CI | range | mean foreign |
+|---|---|---|---|---|
+| `A10B_PACKED` (0.5 B/weight) | 47.220 | [46.250, 51.000] | 44.97–51.16 | 13.51% |
+| `A10B_INT8` (FFN at 1 B/weight) | 46.750 | [45.160, 48.220] | 43.91–48.28 | 10.68% |
+
+**Paired ratio int8 ÷ packed = 0.9900, CI [0.9106, 1.0228].**
+
+The arms were **not** contended alike — int8 was the *less* contended by **2.82 points**, which
+at E52's `k = 0.262%` per point flatters int8 by at most **0.0074** of the ratio. Correcting in
+the direction that hurts the result: **0.9826**.
+
+### 12.3 The control that makes the reading interpretable
+
+E36 measured this exact packed artefact at **49.96 tok/s on a clean box**. At this sweep's
+13.51% foreign, E52's `k` predicts **48.19**; the packed arm read **47.22** — **2.0% apart.**
+The contention model, the pairing and E36's independent measurement agree, which is the reason
+the ratio is worth quoting at all.
+
+### 12.4 What it says, stated at the strength it has
+
+**One byte per weight costs the carved 10 B model about 1.7% of its rate** — not the 30–40% I
+registered, and not even the 10% its own byte count implies.
+
+| comparator | value | measured 0.9826 is |
+|---|---|---|
+| my registered **prediction 5** | 0.60–0.72 | **36% above the top of the band** |
+| charged-byte ratio (addendum B) | 0.8974 | **+9.5%** — *faster than its bytes* |
+| what `SPEED_LEDGER` §60.4 implies against E36's packed | 0.733–0.753 | **far above** |
+
+Composed with E36's clean 49.96 tok/s — **an estimate with both inputs named, not a
+measurement** — the carved 10 B cell at one byte per weight sits at **≈49 tok/s**
+(point 49.1–49.5, CI [45.5, 51.1]).
+
+### 12.5 Why §60.4 was pessimistic, now measured rather than argued
+
+Addendum B predicted the mechanism and the interim confirms it. §60.4 priced the one-byte rung
+as though the format change applied to the **token**; it applies to **11.4% of it**. Attention
+(72.3%), `lm_head` (14.5%) and the router (1.8%) are packed at half a byte in *both* artefacts
+and are untouched by the change. A desk model built on a whole-token byte ratio was always going
+to read ~0.73 where the truth is ~0.98.
+
+That the measured ratio is *above* even the charged-byte comparator (0.8974) means the engine at
+this shape is **not purely bandwidth-bound on the carved FFN** — the int8 kernel is cheaper per
+weight (no trit decode, no `pshufb`, no even/odd split) and the gathered-weight penalty E26
+priced applies to only 11.4% of the token. E31's locality question gets its first paired reading
+here, and it says the 64-weight block does **not** cost what the byte count says.
+
+### 12.6 What this does NOT license
+
+- **It is not 50 tok/s, and it is not a measurement of the rate.** `G-E63d` is `VOID`.
+- **Predictions 4 and 5 are still unscored.** They are scored against the clean sweep, by
+  addendum C.3, and both are heading for a miss in the direction that is good for the project
+  and bad for my forecasting. That is the registration working.
+- **The goal is not met.** A ≈49 tok/s estimate with a CI that spans 45.5–51.1, composed from a
+  contended ratio and a clean absolute taken on another day, is not "a 10 B model at 50 tok/s".
+  One clean hour turns it into one.

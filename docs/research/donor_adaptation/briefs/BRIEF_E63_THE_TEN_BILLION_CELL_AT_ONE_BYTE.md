@@ -383,3 +383,30 @@ A paired ratio composed with that clean absolute gives a **scoped estimate** of 
 cell will land — better evidence than §60.4's desk model, worse than `G-E63d`. It will be stated
 as an estimate with both of its inputs named, and **`G-E63d` will remain listed as owed** in
 every document it appears in.
+
+### C.5 READING (appended after the interim ran — 2026-09-14)
+
+| quantity | reading |
+|---|---|
+| `G-E63d` | **`VOID`** — all 18 cells over `OCC_BAR` (4.95%–22.75%). **OWED.** |
+| paired ratio int8 ÷ packed | **0.9900**, CI [0.9106, 1.0228] |
+| arm asymmetry | 2.82 points in int8's favour → corrected **0.9826** |
+| packed arm sanity vs E36's clean 49.96 through E52's `k` | predicted 48.19, read 47.22, **2.0% apart** |
+| composed estimate (**not** a measurement) | **≈49 tok/s**, CI [45.5, 51.1] |
+
+**The one-byte rung costs the carved 10 B about 1.7% of its rate.** Prediction 5 registered
+0.60–0.72 and the reading is 36% above the top of that band; §60.4's desk model implies
+0.733–0.753 and is **pessimistic**, for the reason addendum B gave in advance: it priced a
+format change on 11.4% of the token as though it applied to all of it.
+
+**C.3 is honoured: predictions 4 and 5 remain UNSCORED.** They are scored against the clean
+sweep and nothing else. `G-E63d` remains owed in every document it appears in.
+
+**Results:** `benchmarks/donor_adaptation/engine/results/e63_interim_ratio.json`. 1.5 min.
+
+**Apparatus defect, caught from the output's third line and fixed before this reading:**
+`sweep(arms, reps=REPS)` bound `REPS` at def time, so `--reps 9` silently ran five and the log
+printed `rep 1/5`. The deviating run was **stopped before it produced any number** — the
+interim JSON held only its header — and re-launched at the registered nine. Same family as the
+`CONFIG` defect: *the parameter was printed as requested at the top and silently not applied at
+the bottom.*

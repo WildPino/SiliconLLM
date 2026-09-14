@@ -5410,3 +5410,45 @@ Two consequences, both registered before `G-E63d` reads:
 **This does not revise prediction 5** (0.60–0.72). It stays as registered and will be scored as
 registered; the disclosure that Part A's conduct rates were seen before this arithmetic was done
 is in the probe, §8.
+
+### 62.7 INTERIM: the one-byte rung costs the carved 10 B about 1.7% of its rate, not 27%
+
+**`G-E63d` is `VOID` and OWED.** Registered as a separate, weaker estimand in brief addendum C
+**before it was run**, with an explicit non-promotion clause. Nothing here adjudicates §60.4;
+everything here says §60.4 will need correcting **upward** when it is adjudicated.
+
+9 interleaved repetitions per arm, 120 tokens, `--carve-k 3`, every cell over `OCC_BAR`:
+
+| arm | median tok/s | CI | mean foreign |
+|---|---|---|---|
+| `A10B` packed (0.5 B/weight) | 47.220 | [46.250, 51.000] | 13.51% |
+| `A10B` int8 (FFN at 1 B/weight) | 46.750 | [45.160, 48.220] | 10.68% |
+
+**Paired ratio 0.9900, CI [0.9106, 1.0228]**; arms asymmetric by 2.82 points in int8's favour,
+so corrected against the result: **0.9826**.
+
+**The control:** E36 measured this packed artefact at **49.96 tok/s clean**. At 13.51% foreign,
+E52's `k` predicts 48.19 and the arm read 47.22 — **2.0% apart.** Three independent things
+agree, which is why the ratio is quotable.
+
+**Composed with E36's clean absolute — an ESTIMATE with both inputs named, never a measurement —
+the carved 10 B cell at one byte per weight sits at ≈49 tok/s (CI [45.5, 51.1]).**
+
+### 62.8 Why §60.4's 36.6–37.6 was pessimistic, and the law it restates
+
+§60.4 implies a ratio of **0.733–0.753** against E36's packed; the measurement reads **0.983**.
+The mechanism is §62.6's: **§60.4 priced the format change as though it applied to the token,
+and it applies to 11.4% of it.** Attention, head and router are packed at half a byte in *both*
+artefacts and never change width.
+
+The measured ratio is **above even the charged-byte comparator (0.8974)**, so at this shape the
+engine is **not purely bandwidth-bound on the carved FFN**: the int8 kernel is cheaper per weight
+(no trit decode, no `pshufb`, no even/odd split) and E26's gathered-weight penalty is charged on
+11.4% of the token, not on all of it. **E31's locality question gets its first paired reading:
+the 64-weight block does not cost what its byte count says.**
+
+**The law, third statement.** §58 retired a ratio because its denominator had the wrong scope;
+§59.2 forbade dividing one format's bytes by another's bandwidth; §61.6 broke that rule while
+auditing for it. **§62 adds the case where the scope error made the programme too PESSIMISTIC
+about itself for two sections running.** A denominator with the wrong scope does not fail
+safely in one direction — *it is simply not an answer*, and it had been the headline.

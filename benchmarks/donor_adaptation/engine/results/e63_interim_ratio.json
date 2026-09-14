@@ -1,0 +1,284 @@
+{
+ "A10B": {
+  "ci_int8": [
+   45.16,
+   48.22
+  ],
+  "ci_packed": [
+   46.25,
+   51.0
+  ],
+  "ci_ratio": [
+   0.9105882352941176,
+   1.022838847385272
+  ],
+  "median_int8": 46.75,
+  "median_packed": 47.22,
+  "min_max_int8": [
+   43.91,
+   48.28
+  ],
+  "min_max_packed": [
+   44.97,
+   51.16
+  ],
+  "ratio_int8_over_packed": 0.9900465904277849
+ },
+ "A10B_foreign": {
+  "asymmetry_points": 2.821401360067277,
+  "fraction_of_ratio_E52_can_explain": 0.007392071563376266,
+  "per_arm_mean": {
+   "A10B_INT8": 10.683807590972505,
+   "A10B_PACKED": 13.505208951039782
+  }
+ },
+ "G-E63d": "VOID -- VOID -- over OCC_BAR=4.39%: A10B_PACKED=10.03%, A10B_INT8=18.80%, A10B_PACKED=21.25%, A10B_INT8=16.96%, A10B_PACKED=22.75%, A10B_INT8=7.94%, A10B_PACKED=13.87%, A10B_INT8=7.61%, A10B_PACKED=6.19%, A10B_INT8=11.01%, A10B_PACKED=19.00%, A10B_PACKED=4.95%, A10B_INT8=5.05%, A10B_INT8=19.06%, A10B_PACKED=19.12%, A10B_INT8=5.42%",
+ "G-E63e": "measured 0.9900  [0.9106, 1.0228] | charged-byte comparator 1/1.1144 = 0.8974 (token: 464.13 -> 517.21 MB; the FFN's own ratio 2.0 is NOT the token's) | moved != charged: the carved 11.4% gathers",
+ "admissibility_A10B": "VOID -- over OCC_BAR=4.39%: A10B_PACKED=10.03%, A10B_INT8=18.80%, A10B_PACKED=21.25%, A10B_INT8=16.96%, A10B_PACKED=22.75%, A10B_INT8=7.94%, A10B_PACKED=13.87%, A10B_INT8=7.61%, A10B_PACKED=6.19%, A10B_INT8=11.01%, A10B_PACKED=19.00%, A10B_PACKED=4.95%, A10B_INT8=5.05%, A10B_INT8=19.06%, A10B_PACKED=19.12%, A10B_INT8=5.42%",
+ "brief": "BRIEF_E63_THE_TEN_BILLION_CELL_AT_ONE_BYTE.md",
+ "cells": [
+  {
+   "clock_pct": 106.51332468646233,
+   "engine_dt_s": 2.572,
+   "foreign": 10.031347962382446,
+   "name": "A10B_PACKED",
+   "seq": 0,
+   "since_start_s": 4.324,
+   "sys": 42.82131661442006,
+   "tok_s": 46.65,
+   "wall_s": 4.153
+  },
+  {
+   "clock_pct": 106.17436263241188,
+   "engine_dt_s": 2.733,
+   "foreign": 18.798955613577025,
+   "name": "A10B_INT8",
+   "seq": 1,
+   "since_start_s": 10.304,
+   "sys": 45.147954743255006,
+   "tok_s": 43.91,
+   "wall_s": 5.98
+  },
+  {
+   "clock_pct": 105.61777851501664,
+   "engine_dt_s": 2.595,
+   "foreign": 21.246707638279194,
+   "name": "A10B_PACKED",
+   "seq": 2,
+   "since_start_s": 14.76,
+   "sys": 53.0582382206614,
+   "tok_s": 46.25,
+   "wall_s": 4.456
+  },
+  {
+   "clock_pct": 106.10145135897817,
+   "engine_dt_s": 2.642,
+   "foreign": 16.957928802588995,
+   "name": "A10B_INT8",
+   "seq": 3,
+   "since_start_s": 20.792,
+   "sys": 43.27939590075513,
+   "tok_s": 45.42,
+   "wall_s": 6.032
+  },
+  {
+   "clock_pct": 105.33335366295015,
+   "engine_dt_s": 2.541,
+   "foreign": 22.75179856115108,
+   "name": "A10B_PACKED",
+   "seq": 4,
+   "since_start_s": 25.129,
+   "sys": 54.94604316546763,
+   "tok_s": 47.22,
+   "wall_s": 4.337
+  },
+  {
+   "clock_pct": 106.27116303210686,
+   "engine_dt_s": 2.567,
+   "foreign": 7.938718662952646,
+   "name": "A10B_INT8",
+   "seq": 5,
+   "since_start_s": 30.737,
+   "sys": 35.468895078922934,
+   "tok_s": 46.75,
+   "wall_s": 5.608
+  },
+  {
+   "clock_pct": 105.50652736756709,
+   "engine_dt_s": 2.668,
+   "foreign": 13.873873873873874,
+   "name": "A10B_PACKED",
+   "seq": 6,
+   "since_start_s": 35.085,
+   "sys": 45.885885885885884,
+   "tok_s": 44.97,
+   "wall_s": 4.348
+  },
+  {
+   "clock_pct": 106.47256856199505,
+   "engine_dt_s": 2.519,
+   "foreign": 7.609195402298851,
+   "name": "A10B_INT8",
+   "seq": 7,
+   "since_start_s": 40.734,
+   "sys": 34.52873563218391,
+   "tok_s": 47.63,
+   "wall_s": 5.649
+  },
+  {
+   "clock_pct": 105.89323598562588,
+   "engine_dt_s": 2.391,
+   "foreign": 6.1944091486658195,
+   "name": "A10B_PACKED",
+   "seq": 8,
+   "since_start_s": 44.842,
+   "sys": 38.69123252858958,
+   "tok_s": 50.2,
+   "wall_s": 4.107
+  },
+  {
+   "clock_pct": 106.02545544533054,
+   "engine_dt_s": 2.584,
+   "foreign": 11.013824884792626,
+   "name": "A10B_INT8",
+   "seq": 9,
+   "since_start_s": 50.489,
+   "sys": 37.94930875576037,
+   "tok_s": 46.44,
+   "wall_s": 5.647
+  },
+  {
+   "clock_pct": 105.26052336642543,
+   "engine_dt_s": 2.561,
+   "foreign": 19.004250151791137,
+   "name": "A10B_PACKED",
+   "seq": 10,
+   "since_start_s": 54.781,
+   "sys": 51.578627808136005,
+   "tok_s": 46.85,
+   "wall_s": 4.291
+  },
+  {
+   "clock_pct": 106.34702171572147,
+   "engine_dt_s": 2.485,
+   "foreign": 4.305882352941176,
+   "name": "A10B_INT8",
+   "seq": 11,
+   "since_start_s": 60.319,
+   "sys": 31.341176470588234,
+   "tok_s": 48.28,
+   "wall_s": 5.537
+  },
+  {
+   "clock_pct": 105.83610822674915,
+   "engine_dt_s": 2.353,
+   "foreign": 4.954367666232073,
+   "name": "A10B_PACKED",
+   "seq": 12,
+   "since_start_s": 64.311,
+   "sys": 37.8748370273794,
+   "tok_s": 51.0,
+   "wall_s": 3.992
+  },
+  {
+   "clock_pct": 106.32504517553606,
+   "engine_dt_s": 2.504,
+   "foreign": 5.051449953227316,
+   "name": "A10B_INT8",
+   "seq": 13,
+   "since_start_s": 69.874,
+   "sys": 31.945743685687557,
+   "tok_s": 47.92,
+   "wall_s": 5.564
+  },
+  {
+   "clock_pct": 105.83689279379996,
+   "engine_dt_s": 2.345,
+   "foreign": 4.3733681462141,
+   "name": "A10B_PACKED",
+   "seq": 14,
+   "since_start_s": 73.872,
+   "sys": 37.33681462140992,
+   "tok_s": 51.16,
+   "wall_s": 3.997
+  },
+  {
+   "clock_pct": 105.95502375458457,
+   "engine_dt_s": 2.657,
+   "foreign": 19.06028368794326,
+   "name": "A10B_INT8",
+   "seq": 15,
+   "since_start_s": 79.742,
+   "sys": 45.34574468085106,
+   "tok_s": 45.16,
+   "wall_s": 5.87
+  },
+  {
+   "clock_pct": 105.305927038037,
+   "engine_dt_s": 2.523,
+   "foreign": 19.1167574107683,
+   "name": "A10B_PACKED",
+   "seq": 16,
+   "since_start_s": 84.046,
+   "sys": 51.84513006654567,
+   "tok_s": 47.56,
+   "wall_s": 4.304
+  },
+  {
+   "clock_pct": 106.23990616370736,
+   "engine_dt_s": 2.489,
+   "foreign": 5.41802895843064,
+   "name": "A10B_INT8",
+   "seq": 17,
+   "since_start_s": 89.626,
+   "sys": 32.297991592713686,
+   "tok_s": 48.22,
+   "wall_s": 5.58
+  }
+ ],
+ "constants": {
+  "BOOT": 20000,
+  "CI": [
+   2.5,
+   97.5
+  ],
+  "DESK_MODEL": 36.6,
+  "NTOK": 120,
+  "OCC_BAR": 4.39,
+  "REPS": 9,
+  "THREADS": 6
+ },
+ "engine": "donor_engine_e63.exe",
+ "non_promotion": "This reading may NOT adjudicate G-E63d in either direction. G-E63d is answered by one clean sweep on an idle box and by nothing else; predictions 4 and 5 are scored against that sweep, not this one.  G-E63d remains OWED.",
+ "part": "INTERIM (addendum C)",
+ "precondition": "Part A closed: G-E63a FIRES, G-E63b FIRES, G-E63c EQUIVALENT",
+ "scope": "Absolute tok/s carries +-5% (instrument).  RATIOS do not.  No rate here is bytes divided by a bandwidth (SPEED_LEDGER 59.2).",
+ "sweeps": {
+  "A10B": {
+   "A10B_INT8": [
+    43.91,
+    45.42,
+    46.75,
+    47.63,
+    46.44,
+    48.28,
+    47.92,
+    45.16,
+    48.22
+   ],
+   "A10B_PACKED": [
+    46.65,
+    46.25,
+    47.22,
+    44.97,
+    50.2,
+    46.85,
+    51.0,
+    51.16,
+    47.56
+   ]
+  }
+ },
+ "wall_min": 1.5,
+ "written": "2026-09-14T06:04:52"
+}
