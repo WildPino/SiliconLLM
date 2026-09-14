@@ -184,3 +184,53 @@ differs from that ladder in the fold **only**, which is exactly what `G-E66g` me
 (`if os.path.exists(OUT): prev = json.load(...)`), the same hazard that made E65 run 1's control
 tautological. E66 does not resume from its result file. The E16 defect is logged, not fixed here.
 
+---
+
+# ADDENDUM B — controls before export, and committed-apparatus provenance
+
+**Pre-registered 2026-09-14 before this apparatus change and before E66 runs. No threshold,
+prediction, arm or estimand changes.**
+
+## B.1 Do not spend two 7 B exports before asking whether the instrument is alive
+
+The first runner orders `all` as **export → controls → cells → greedy**. The controls cost one
+existing 1.5 B score and one existing 7 B score; the exports construct two new ~7–8 GB artifacts
+and can take hours. If either planted control is dead, the brief already forbids reading the new
+cells, so exporting first would spend the largest cost on an experiment known to be void.
+
+The registered `all` order is changed to:
+
+1. run `G-E66a`, `G-E66b` and `G-E66c` on the existing control artifacts;
+2. write `results/e66/e66_controls.json` immediately;
+3. if either control is dead, stop before export and publish only the control failure;
+4. if both fire, export A1/A2, score them, then run the rank partner.
+
+A new `--stage controls` performs steps 1–2 only. It reads **no E66 treatment cell** and changes
+no result. `--stage bpb` still runs the controls before the cells when invoked independently.
+Partial `controls` and `export` stages may not write the canonical
+`e66_one_byte_at_7b.json`; that filename is reserved for an adjudicable score/full run.
+
+## B.2 The runner must prove it was committed before it starts
+
+E64 run 2 exposed a provenance defect during audit: its preregistration preceded the run, but
+the exact runner blob was committed 23 minutes after launch although the commit subject claimed
+otherwise. E66 turns that lesson into an executable gate.
+
+Before loading any model, the runner must:
+
+* compute the Git blob of its own working-tree file;
+* read the blob at `HEAD` for the same path and **REFUSE** unless the two match;
+* record the full `HEAD` commit, runner blob and runner sha256 in every stage result;
+* record the engine executable sha256 alongside the engine filename.
+
+This does not make Git part of the model measurement. It makes *"pushed before the run"* a
+checked property rather than a commit-message claim. The gate may be bypassed only by changing
+this brief in a new pre-run addendum; there is no implicit dirty-tree mode.
+
+## B.3 Expected cost and stopping rule
+
+E16's recorded 7 B BPB cells took about 1,964–1,973 seconds each; the 1.5 B control is smaller.
+The controls-only preflight is therefore expected to take roughly 40–45 CPU minutes. It is
+quality-only: contention changes elapsed time, not BPB. If both controls fire, the expensive
+exports are licensed. If either dies, E66 stops and the failure is investigated before any new
+7 B artifact is built.
