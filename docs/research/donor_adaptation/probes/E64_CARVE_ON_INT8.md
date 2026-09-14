@@ -1,13 +1,18 @@
-# E64 — the carve on an int8 FFN: THE PLANTED CONTROL DID NOT FIRE, AND NO CELL MAY BE READ
+# E64 — the carve on an int8 FFN: run 1 VOID; run 2 says CARVE-IS-DEARER-ON-INT8
 
-**Brief:** `briefs/BRIEF_E64_WHAT_DOES_THE_CARVE_COST_ON_AN_INT8_FFN.md` (+ addendum A)
+**Brief:** `briefs/BRIEF_E64_WHAT_DOES_THE_CARVE_COST_ON_AN_INT8_FFN.md` (+ addenda A/B)
 **Runner:** `benchmarks/donor_adaptation/engine/e64_carve_on_int8.py`, 20 self-tests
-**Result:** `benchmarks/donor_adaptation/engine/results/e64_carve_on_int8.json`
+**Run-1 result:** `benchmarks/donor_adaptation/engine/results/e64_carve_on_int8.json`
+**Run-2 result:** `benchmarks/donor_adaptation/engine/results/e64_carve_on_int8_run2.json`
+**Run-2 audit:** `benchmarks/donor_adaptation/engine/results/e64_carve_on_int8_run2_audit.json`
+**Run-2 log / contention note:** `benchmarks/donor_adaptation/engine/e64_run2.log` ·
+`benchmarks/donor_adaptation/engine/results/e64_run2_CONTENTION.txt`
 **Engine:** `donor_engine_e63.exe` · donor Qwen2.5-1.5B · frozen slice 24×512, 51,870 scored
 bytes, 12,264 predicted positions · chance BPB 4.069819
-**Wall:** 4,956 s · **QUALITY ONLY, no rate measured. `G-E63d` is untouched and still `VOID`.**
+**Run-1 wall:** 4,956 s · **Run-2 wall:** 4,875 s, timing inadmissible due to contention ·
+**QUALITY ONLY, no rate measured. `G-E63d` is untouched and still `VOID`.**
 
-**Verdict: `E64-VOID-BY-ITS-OWN-CONTROL`.** `G-E64a` did not fire. §4 of the brief and
+**Run-1 verdict: `E64-VOID-BY-ITS-OWN-CONTROL`.** `G-E64a` did not fire. §4 of the brief and
 prediction 4 both registered that in this case **no cell in E64 may be read**, and no cell is
 read here. The band the runner computed is not published as a result.
 
@@ -89,7 +94,7 @@ the same family as `feedback_instrument_must_not_measure_itself` and
 Writing a control that voids too much is the safe direction to err, and it cost 4,956 s rather
 than a retraction. It is recorded so the re-run's control is scoped correctly.
 
-## 4. What E64 does NOT say
+## 4. What run 1 does NOT say
 
 * **No band.** `CARVE-IS-DEARER-ON-INT8` is what the runner printed; it is **not published as a
   result** and does not enter the ledger, the INDEX or any decision. The runner printing it while
@@ -228,3 +233,101 @@ experiments can no longer hide, because it appears in every log"*. It added the 
 for precisely this. **E64 walked into a cross-kernel comparison anyway, because E37's artefact
 predates that line and I compared artefacts instead of configurations.**
 
+---
+
+## 8. RUN 2 — the repaired control fires, and the carve is dearer on int8
+
+**Run 2 is a new measurement; it does not rehabilitate run 1.** Addendum B was committed at
+`ccb80e2` before the runner was touched and before the run began. It fixed the attention arm to
+`serial`, required every engine `CONFIG` line to confirm that arm, tightened `G-E64a2` from
+`1e-06` to `1e-09`, and wrote to a new result path.
+
+The re-run completed on the frozen 24×512 slice: 51,870 scored bytes and 12,264 predicted
+positions. The runner's 20 self-tests pass, and a post-run independent audit recomputed every
+BPB from `NATS_PER_TOKEN`, every carve cost from its own `k=E` baseline, and every inter-format
+difference with zero discrepancies.
+
+### 8.1 Provenance audit
+
+| object | evidence |
+|---|---|
+| runner | current file is byte-for-byte Git blob `cf99c351c963cba2fe8314b4408ef34f417703e1`, committed in `f72e87e` |
+| engine | `donor_engine_e63.exe`, sha256 `56272fdbe615d61739094605cb026aa308fd74604ba5598fab501c09188ae687`, mtime 2026-09-14 03:28:51 UTC — before the 08:01:36 UTC run start |
+| ternary carved | 1,714,582,392 bytes, sha256 `fae666d2a4d4de7e69903f0c713181ed5214b416f77bbdafa7480490231b7150`, matches its sidecar |
+| ternary dense | 1,709,047,348 bytes, sha256 `5d50e3778917a46f329c89334274be47941897f05b969b92bb4409fa3b0337eb`, matches its sidecar |
+| int8 carved | 2,292,609,912 bytes, sha256 `e3233042eb733ca04dc2b3b51009ec67dd039712d2858ed38a6a4538b1f9fc9d`, sidecar confirms `ffn_rule=R8`, 1 B/weight and `MK_I8`/`MK_I8_T` |
+| result | sha256 `7df759a547bdc3040d1bd9c3f6dbc886276d950c0fa86e5cde823c171a591821` |
+| readable log | sha256 `cf73ab4b4a68dc62fbce34aa1febcae05e07d211917f7c668edd34523a1efe3b` before this promotion |
+
+One sequence defect is recorded rather than hidden: the run-2 source was saved at 08:01:33 UTC
+and the log opened at 08:01:36 UTC, but the exact source blob was committed only at 08:24:57 UTC,
+about 23 minutes after launch. Thus `f72e87e`'s subject saying the apparatus was pushed before the
+run is inaccurate. This does **not** alter the pre-registration — addendum B was committed at
+08:00:54 UTC, before the source edit and run — and the committed blob exactly matches the current
+runner. It is nevertheless a provenance limitation: Git proves the apparatus after launch, while
+the result and log prove that the registered assertions actually executed.
+
+The raw result's `brief` string says `+ addendum A` and omits the governing addendum B. That is
+a metadata defect, not permission to rewrite the raw result after the fact; the separate audit
+JSON records the correct commit and timeline while preserving the measured file byte-for-byte.
+
+The contention sidecar also contains a malformed attempted shell timestamp rather than a clean
+open/close interval. Therefore **none of the per-cell seconds is admissible as timing**. This is
+already outside E64's estimand: the run is quality-only, and every accepted quantity below is a
+deterministic BPB or a difference of BPBs.
+
+### 8.2 Gates
+
+| gate | run-2 reading | status |
+|---|---|---|
+| `G-E64a2.1` | all 19 scored invocations report `CONFIG attn=serial` | **FIRES** |
+| `G-E64a2.2` | all nine E37 ladder cells reproduce exactly; max \|d\| = **0.0** vs `1e-09` | **FIRES** |
+| `G-E64b` | ternary carved `k=E` vs same-format dense \|d\| = **2.801852e-07** vs `1e-04` | **FIRES**, ternary scope only as registered |
+| `G-E64c` | each ladder is differenced against its own `k=256` baseline | **FIRES** |
+| `G-E64d` | all eight non-baseline differences exceed `sigma_seed=0.250` with positive sign | **`CARVE-IS-DEARER-ON-INT8`** |
+
+### 8.3 The measurement
+
+The two baselines are **3.475706652030** for ternary and **2.216492625964** for int8. These are
+not dense-fp32 baselines: all non-FFN organs remain in the artifact's registered ternary format.
+
+| `k` | ternary carve cost | int8 carve cost | int8 − ternary |
+|---:|---:|---:|---:|
+| 64 | +0.451677 | +1.585027 | **+1.133350** |
+| 32 | +0.598724 | +1.945073 | **+1.346348** |
+| 16 | +0.511094 | +1.940853 | **+1.429759** |
+| 8 | +0.520987 | +1.910935 | **+1.389949** |
+| 4 | +0.547732 | +1.895515 | **+1.347783** |
+| 3 | +0.553692 | +1.912017 | **+1.358325** |
+| 2 | +0.539159 | +1.890057 | **+1.350897** |
+| 1 | +0.514132 | +1.827039 | **+1.312907** |
+
+At the target `k=3`, the int8-carved arm reads **4.128509790 BPB**, which is **0.058691 above
+chance** (`4.069818973`). The one-byte FFN removes the half-byte format damage before selection,
+but it exposes substantially more damage when the same post-hoc mask is applied. This is a
+post-hoc floor on one donor, not a trained-format verdict.
+
+### 8.4 Predictions scored
+
+Addendum B prediction 1 **passes** (control and `CONFIG` assertions). Prediction 2 **passes** at
+both named rungs and, more strongly, all eight rungs. Prediction 3 **misses**: `k=32` costs
+`+1.945073`, above the registered `+1.20` ceiling. Prediction 4 **misses**: the int8 baseline
+beats ternary by `1.259214`, not more than `2.0` BPB; the prediction incorrectly treated the
+FFN-only format change like a whole-model format change. Prediction 5 is **not measured**: this
+runner has no free-running arm, so silence in the BPB log is not generation evidence.
+
+The original §5 predictions also stay visible. Precision-blindness and the predicted
+`1.30–1.35` BPB `i8-k3` cell are **falsified** (`4.128510`). The no-10B prohibition is honoured,
+the repaired planted control fires, and the prediction that the format gap is smaller at `k=16`
+than at `k=3` **misses** (`1.429759 > 1.358325`).
+
+### 8.5 What changes, and what does not
+
+* The missing composition is now measured at 1.5 B: the post-hoc carve costs about **1.83–1.95
+  BPB on int8**, versus **0.45–0.60 on ternary**, across the registered ladder.
+* The result argues **against** assuming that a one-byte FFN makes the post-hoc carve easy. It
+  does not argue against training in that format: H1 already showed applied and trained are
+  different objects.
+* No 7 B or 10 B quality extrapolation is licensed; E62's non-monotonic scale result still
+  requires E66's direct 7 B measurement.
+* No rate was measured. `G-E63d` remains `VOID` and OWED.

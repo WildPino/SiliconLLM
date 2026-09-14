@@ -2,7 +2,9 @@
 
 **The goal:** run somebody else's pretrained LLM on our architecture (`engine.c`), target **~10B at
 50 tok/s** (good) / **100 tok/s** (excellent).
-**Last updated: 2026-09-14 (E63 addendum B.8 — RETRACTION of B.7/§62.11) — THE BYTE AXIS IS NOT CHEAP: AT HALF A BYTE IT IS THE MOST EXPENSIVE TREATMENT IN THE PROGRAMME (82% OF THE DISTANCE TO CHANCE), AND THE CARVE IS THE SMALL HALF (17%).** B.7 priced activation against E37's `3.475706` — **which is not the dense model but the model with its FFN ALREADY TERNARISED**, i.e. already at half a byte. On the one baseline no treatment has moved (fp32 dense **0.767595**, chance **4.069819**, gap **3.302224**): **half a byte = +2.708112 = 82.01%**, **carve to 1.17% = +0.553692 = 16.77%**, **one byte (int8) = +0.0012525 = 0.038%**. **The ranking reverses** — B.7's “93.20%” was large only because its denominator was small, and it was small because ternarisation had already spent 82% of it. **That is the floor rule (E59 §8), cited in the same document that broke it**, and the **third** search-rule miss of the day: `BRIEF_H1` — whose §1 heading is *“What is actually broken — and it is NOT mostly the carve”* — came back in my own grep output **twice** and I did not open it. **What survives is larger than what was withdrawn:** the byte axis has a **CLIFF** (E60, between 1 B and half a byte) — cheapest treatment measured above it, most expensive below it, so *“bytes are cheap” is a property of one side of a cliff, not of the axis* — and **H1 should train at ONE byte, not half**, because at one byte the ternary term, **82% of the +3.22 BPB H1 must heal**, never exists. **The cheap unmeasured step this exposes:** the carve's +0.553692 was measured **on a ternary FFN**; its cost **on an int8 FFN** is unmeasured — BPB only, no timing, no GPU. **`G-E63d` remains `VOID` and OWED; nothing here is a rate.** (brief addendum B.8, ledger §62.12)
+**Last updated: 2026-09-14 (E64 run 2) — THE REPAIRED CONTROL FIRES, AND THE POST-HOC CARVE IS DEARER ON INT8 AT EVERY REGISTERED RUNG.** With `attn=serial` asserted from all 19 engine `CONFIG` lines, E37's full nine-cell ternary ladder reproduces exactly (`max|d|=0` vs `1e-09`) and the same-format discrimination control fires (`2.802e-07` vs `1e-04`). Against each format's own `k=256` baseline, the int8 carve costs **+1.827–1.945 BPB** versus ternary's **+0.452–0.599**; int8-minus-ternary is **+1.133–1.430** at all eight rungs, so `G-E64d = CARVE-IS-DEARER-ON-INT8`. At `k=3`, int8-carved is **4.128510 BPB, 0.058691 above chance**. This is one donor, post-hoc, quality-only: no trained-format, 7 B, 10 B or rate claim; `G-E63d` remains `VOID` and OWED. Run 1 stays void. (`probes/E64_CARVE_ON_INT8.md` §8, ledger §66)
+
+**Previous update: 2026-09-14 (E63 addendum B.8 — RETRACTION of B.7/§62.11) — THE BYTE AXIS IS NOT CHEAP: AT HALF A BYTE IT IS THE MOST EXPENSIVE TREATMENT IN THE PROGRAMME (82% OF THE DISTANCE TO CHANCE), AND THE CARVE IS THE SMALL HALF (17%).** B.7 priced activation against E37's `3.475706` — **which is not the dense model but the model with its FFN ALREADY TERNARISED**, i.e. already at half a byte. On the one baseline no treatment has moved (fp32 dense **0.767595**, chance **4.069819**, gap **3.302224**): **half a byte = +2.708112 = 82.01%**, **carve to 1.17% = +0.553692 = 16.77%**, **one byte (int8) = +0.0012525 = 0.038%**. **The ranking reverses** — B.7's “93.20%” was large only because its denominator was small, and it was small because ternarisation had already spent 82% of it. **That is the floor rule (E59 §8), cited in the same document that broke it**, and the **third** search-rule miss of the day: `BRIEF_H1` — whose §1 heading is *“What is actually broken — and it is NOT mostly the carve”* — came back in my own grep output **twice** and I did not open it. **What survives is larger than what was withdrawn:** the byte axis has a **CLIFF** (E60, between 1 B and half a byte) — cheapest treatment measured above it, most expensive below it, so *“bytes are cheap” is a property of one side of a cliff, not of the axis* — and **H1 should train at ONE byte, not half**, because at one byte the ternary term, **82% of the +3.22 BPB H1 must heal**, never exists. **The cheap unmeasured step this exposes:** the carve's +0.553692 was measured **on a ternary FFN**; its cost **on an int8 FFN** was unmeasured at this point — BPB only, no timing, no GPU. **`G-E63d` remains `VOID` and OWED; nothing here is a rate.** (brief addendum B.8, ledger §62.12)
 
 **2026-09-14 (E63 addendum B.6 — a SECOND correction, and it reverses which problem is open) — SPEED AT TEN BILLION IS NOT THE BLOCKER: A GENUINE 10 B ABOVE 100 tok/s WITH A LIVE FFN WAS MEASURED IN E40, AND E38 HAD ALREADY CLOSED THE ROUTE TO FILLING IT.** B.5 corrected B.4 by opening E39 and **stopped one experiment short**. E40 — titled `ATTENTION-LEVERS-EXHAUSTED` — pulled every remaining attention lever: **`R128`** (`NKV` 8→2, rank 128, `F=49152`, untied, the same 9,999,220,736 parameters) reads **112.73 / 106.44 tok/s** at `k=3`, quiet-box re-readings **128.54 / 123.33 / 130.30**, so per §53.9.4 **the quantity is ~113–130 tok/s**, floor **~161–165**. Floor ladder `A10B` 58.1 → `R512` ~93 → `NKV2` ~127 → **`R128` ~163**. **B.5 had cited the weaker number** — E39's 99.4/100.0 floor is **FFN-OFF by construction** (E40: `R512` reaches 100 only at `k*≈0`), whereas `R128` clears EXCELLENT **with the FFN computing**. **So B.4's “next experiment is attention” was wrong THREE ways** — measured (E39), then exhausted (E40), and quoted off the FFN-off floor — **and the argument was moot anyway:** E38 `SELECTION-IS-DEAD` handed the carve a **perfect, per-token, unattainable oracle** at the 1.17% activation this speed requires and it read **4.131817 BPB** against dense **0.767595** and chance **4.069819** — **above the chance line**, and no router beats its own oracle. **The open problem at ten billion is QUALITY at the activation rate speed requires, and the only route left — training with the mask ON — is H1, already launched.** E63's one byte per weight stays worth having as orthogonal fidelity headroom at −1.7% of rate; it is not the blocker. **New search law:** when a search returns a **series**, read to the **END** of it — B.5 was a correction for not searching that repeated the error one experiment later; *opening the first hit on an axis is a sample, not a search.* **E40's weights are NOISE, its dispersion is poor, and `G-E63d` remains `VOID` and OWED — the goal is NOT claimed.** (brief addendum B.6, `probes/E63…` §14, ledger §62.10)
 
@@ -582,9 +584,9 @@ RMSNorm output (`donor_engine.c --lut-no-head`, commit `95b7fd3`).
 
 ---
 
-## E64 — a selection path amplifies a perturbation ~1500x, the cause was a FLAG and not noise, and the int8 carve cell is still unmeasured
+## E64 run 1 — a selection path amplifies a perturbation ~1500x, the cause was a FLAG and not noise, and this run's int8 cells are VOID
 
-`probes/E64_CARVE_ON_INT8.md` · `SPEED_LEDGER.md` §63 · **VOID by its own planted control**
+`probes/E64_CARVE_ON_INT8.md` · `SPEED_LEDGER.md` §63 · **RUN 1 VOID by its own planted control; repaired run 2 is catalogued below**
 
 E64 was pre-registered, exported and run to ask what the carve costs on an **int8** FFN — the
 composition §62.12's damage ladder cannot price, because it has only ever seen the carve stacked
@@ -690,3 +692,40 @@ was working against.** No transfer between axes is claimed.
 
 **E40 is not retracted** — its rates are correct for what it measured, and it said of itself
 *"Nothing about quality. Synthetic weights."* E65 prices what E40 declined to price.
+
+---
+
+## E64 run 2 — the repaired control fires; the post-hoc carve is DEARER on int8
+
+`probes/E64_CARVE_ON_INT8.md` §8 · `SPEED_LEDGER.md` §66 ·
+`benchmarks/donor_adaptation/engine/results/e64_carve_on_int8_run2.json` · companion
+`e64_carve_on_int8_run2_audit.json`
+
+Run 1 remains **VOID** and none of its int8 cells is promoted. Addendum B registered a new run
+with `--attn serial` asserted from the engine's own `CONFIG`, a stricter `1e-09` full-ladder
+replication gate, and a new result path. The repair fires: all nine E37 cells reproduce exactly,
+all 19 scored invocations report `attn=serial`, and `G-E64b` fires at `2.802e-07` against its
+registered `1e-04` same-format tolerance.
+
+Against each format's own `k=256` baseline, the result is unambiguous across the full ladder:
+
+| measured range over `k={64,32,16,8,4,3,2,1}` | ternary | int8 | int8 − ternary |
+|---|---:|---:|---:|
+| carve cost | +0.451677 to +0.598724 | **+1.585027 to +1.945073** | **+1.133350 to +1.429759** |
+
+Every inter-format difference is larger than `sigma_seed=0.250` and has the same positive sign,
+so **`G-E64d = CARVE-IS-DEARER-ON-INT8`**. At the target `k=3`, int8-carved reads **4.128510
+BPB**, **0.058691 above chance**. The initial expectation that one byte would leave only a
+~0.55-BPB selection problem is falsified for this donor: removing ternary format damage exposes
+more, not less, post-hoc selection damage.
+
+This does **not** reverse H1's training result. E64 is applied/post-hoc; H1 already established
+that applied and trained are different objects. It does make the proposed one-byte healing job
+larger than §62.12 assumed. No scale transfer is licensed, no free-running arm was measured, and
+no seconds in the contended quality run are timings. E66 remains the direct 7 B quality check;
+`G-E63d` remains the separate clean 10 B rate debt.
+
+**Audit limitation kept in the record:** addendum B was committed before the run, but the exact
+runner blob was committed 23 minutes after launch despite `f72e87e`'s commit subject claiming it
+was pushed first. The committed blob matches the current runner exactly and the result proves the
+registered assertions executed; Git does not independently timestamp the apparatus before launch.

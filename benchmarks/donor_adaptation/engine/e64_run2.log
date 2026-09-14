@@ -1,0 +1,51 @@
+E64 -- the carve on an int8 FFN.  QUALITY ONLY, no rate.
+engine donor_engine_e63.exe
+ternary arm  e37_carved_nf.bin  (E37's own artefact -- REPLICATION)
+int8 arm     e64_carved_i8.bin  (--ffn-rule R8)
+
+-- ternary ladder (replication + binary-inertness control)
+  e37_carved_nf.bin: sidecar predates ffn_bytes_per_weight; accepted as 0.5 (quant=carved, no ffn_rule)
+  e64_carved_i8.bin: sidecar confirms ffn_bytes_per_weight=1.0, kinds=['MK_I8', 'MK_I8_T']
+  tern   k=256  BPB 3.475706652030   (492 s)
+  tern   k=64   BPB 3.927383733540   (277 s)
+  tern   k=32   BPB 4.074431016419   (228 s)
+  tern   k=16   BPB 3.986800953001   (207 s)
+  tern   k=8    BPB 3.996693360510   (194 s)
+  tern   k=4    BPB 4.023439039328   (186 s)
+  tern   k=3    BPB 4.029398350227   (185 s)
+  tern   k=2    BPB 4.014866077843   (193 s)
+  tern   k=1    BPB 3.989838501155   (189 s)
+
+-- uncarved ternary reference
+  dense      BPB 3.475706371845
+
+-- int8 ladder (THE CELL)
+  i8     k=256  BPB 2.216492625964   (564 s)
+  i8     k=64   BPB 3.801520058376   (301 s)
+  i8     k=32   BPB 4.161565183382   (240 s)
+  i8     k=16   BPB 4.157345532224   (208 s)
+  i8     k=8    BPB 4.127427879070   (192 s)
+  i8     k=4    BPB 4.112008113297   (184 s)
+  i8     k=3    BPB 4.128509789750   (182 s)
+  i8     k=2    BPB 4.106549434714   (180 s)
+  i8     k=1    BPB 4.043531241892   (178 s)
+
+G-E64a  replication of E37's ladder on the e63 binary: max|d| 0.000e+00 vs 1e-09 -> FIRES
+G-E64b  carved k=E vs uncarved (ternary only): |d| 2.802e-07 vs 1e-04 -> FIRES
+
+G-E64c  each format against ITS OWN k=E baseline (the floor rule):
+  ternary baseline 3.475706652030   int8 baseline 2.216492625964
+  k     carve cost tern  carve cost i8    i8 - tern
+  64    0.451677         1.585027         +1.133350
+  32    0.598724         1.945073         +1.346348
+  16    0.511094         1.940853         +1.429759
+  8     0.520987         1.910935         +1.389949
+  4     0.547732         1.895515         +1.347783
+  3     0.553692         1.912017         +1.358325
+  2     0.539159         1.890057         +1.350897
+  1     0.514132         1.827039         +1.312907
+
+G-E64d  CARVE-IS-DEARER-ON-INT8   (sigma_seed 0.250, max|diff| 1.429759)
+
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e64_carve_on_int8_run2.json  (4875 s)
+NOTE: the ternary ladder is a REPLICATION of E37, not a finding.

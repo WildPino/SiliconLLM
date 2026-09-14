@@ -17,7 +17,7 @@
 | Can a pretrained donor be post-hoc carved to the required 1.17% FFN and retain quality? | **No for this donor:** E38's perfect per-token oracle is 4.131817 BPB, above 4.069819 chance. | canonical E38 |
 | Is the 1B/weight rung faithful? | **Yes at measured 0.5/1.5/3B points, but no scale law:** E62 says damage is non-monotone. 7B remains unmeasured. | E60/E62; E66 prereg only |
 | Does a 10B carved-int8 artifact exist and compute correctly? | **Yes:** E63 Part A, exact arithmetic/parity; its clean rate is still owed. | canonical E63 |
-| What does carve cost on int8? | **E64 run 1 void. E64 run 2 current uncommitted evidence says dearer by ~1.31–1.43 BPB across ladder; needs promotion.** | working-tree JSON/log, not yet ledger |
+| What does carve cost on int8? | **E64 run 1 void. Audited run 2 says dearer by +1.13–1.43 BPB across the ladder; at k=3 the int8 carve itself costs +1.912 BPB and lands above chance.** | canonical E64 probe §8 / ledger §66 |
 | Is the carve trainable? | **Yes on an 8-layer branch:** H1 `TRAINING-HELPS`; router still moves, no full-stack claim. | canonical H1 |
 | What does the rank fraction used by fast R128 cost post-hoc? | **At D=1536, r/D=1/32 costs +1.705835 BPB = 51.66% dense→chance gap; no width extrapolation.** | canonical E65 |
 | What is the next real 7B quality check? | E66 one-byte-at-7B, preregistered and apparatus-ready; result absent. | E66 brief/runner |
@@ -28,7 +28,7 @@
 - Do not reopen E38's post-hoc selector route with another router/carve search; an unattainable oracle already beat no usable signal.
 - Do not infer 10B quality from E62's 0.5/1.5/3B int8 points; the measured damage is non-monotone. Measure the target or state it unknown.
 - Do not infer rate from E63 Part A or E64/E65 quality. `G-E63d` is the separate clean-rate gate.
-- Do not treat E64 run-1 numbers as evidence. Run 2 is the only current candidate, and its JSON is uncommitted.
+- Do not treat E64 run-1 numbers as evidence. Run 2 is canonical; its quality result must not be turned into a timing, trained-format claim or scale extrapolation.
 - Do not spend GPU hours on another donor conversion before E66 and the H1 decision are adjudicated; H1 specifically distinguishes post-hoc damage from training-in-format recovery.
 - Always assert engine `CONFIG`; always use a same-binary/same-arm control for a same-binary claim; never resume from a result file being validated.
 
@@ -135,7 +135,7 @@ These entries are represented primarily by briefs, engine runners/results and `S
 | E63 Part A | **PATH-EXISTS-AND-IS-EXACT:** 10B carved-int8 artifact 10,015,507,256 B; ids/logits inert controls pass; packed-vs-int8 carve top-1 100% | rate gate `G-E63d` remains void/owed; Part A is not a tok/s result |
 | E63 interim/addenda | paired int8/packed ratio in contended run ≈0.9826 corrected; composed estimate ≈49 tok/s, CI ~45.5–51.1; no absolute claim | clean idle hour still required; attention is 72.3% of A10B-K3 token, FFN 11.4% |
 | E64 run 1 | **VOID / MALFORMED control:** cross-kernel `serial` vs `avx4` mismatch amplified through top-k selection (~1500×) | no cells may be quoted from run 1 |
-| E64 run 2 | **CURRENT UNCOMMITTED EVIDENCE:** `G-E64a` full ladder exact under asserted `attn=serial`; `G-E64b` passes; `G-E64d=CARVE-IS-DEARER-ON-INT8`, int8-minus-ternary +1.31–1.43 BPB | promote only after probe/ledger audit and commit; still quality-only, no rate |
+| E64 run 2 | **CANONICAL:** `G-E64a2` full ladder exact under asserted `attn=serial`; `G-E64b` passes; `G-E64d=CARVE-IS-DEARER-ON-INT8`, int8-minus-ternary +1.13–1.43 BPB; `k=3` int8-carved 4.128510 BPB > chance | quality-only, one donor, post-hoc; no trained-format, scale or rate claim; apparatus commit lag is recorded in probe §8.1 |
 | H0 | **format trainability evidence:** rank/carve-related training at 1.5B improves post-hoc quality, but free-running remains weak/partial at the measured checkpoints | training-in-format is distinct from post-hoc application |
 | H1 | **TRAINING-HELPS:** trained 8L 0.962593 vs applied 1.096636; experts supply most early movement, router becomes helpful and still moves | do not declare finished; full stack/free-running and format choice remain open |
 | E65 | **RANK FRACTION COST:** r/D=1/32 on real 1.5B donor = 2.473430 BPB, +1.705835 = 51.66% dense→chance; rank damage non-monotone | no D=4096 extrapolation; this is a post-hoc floor, not a trainability verdict |
@@ -143,11 +143,10 @@ These entries are represented primarily by briefs, engine runners/results and `S
 
 ## Open queue, ordered by information gain
 
-1. **Promote/audit E64 run 2:** update `probes/E64_CARVE_ON_INT8.md`, `INDEX.md` and `SPEED_LEDGER.md` with the repaired-control result, preserving run 1 as void and labeling run 2 quality-only.
-2. **Run/adjudicate E66:** 7B one-byte quality/rank. Controls are `G-E66a` (1.5B int8 E62), `G-E66b` (7B ternary E16), `G-E66c` (`CONFIG`), then score/rank gates. No rate.
-3. **Get the clean CPU hour for `G-E63d`:** measure the actual 10B carved-int8 rate; do not replace this with another composed estimate.
-4. **Decide H1 continuation / H2T:** use H1's router-vs-experts decomposition and E64's dearer-int8 result to choose whether the next training branch is one-byte or ternary; preserve the distinction between applied and trained.
-5. **Only then spend T4 budget on the selected healing run:** H1/H0 show trainability, but no 10B training fits a T4; the T4 budget is for healing a smaller representative branch and validating the recipe.
+1. **Run/adjudicate E66:** 7B one-byte quality/rank. Controls are `G-E66a` (1.5B int8 E62), `G-E66b` (7B ternary E16), `G-E66c` (`CONFIG`), then score/rank gates. No rate.
+2. **Get the clean CPU hour for `G-E63d`:** measure the actual 10B carved-int8 rate; do not replace this with another composed estimate.
+3. **Decide H1 continuation / H2T:** use H1's router-vs-experts decomposition and E64's dearer-int8 result to choose whether the next training branch is one-byte or ternary; preserve the distinction between applied and trained.
+4. **Only then spend T4 budget on the selected healing run:** H1/H0 show trainability, but no 10B training fits a T4; the T4 budget is for healing a smaller representative branch and validating the recipe.
 
 ## Corpus inventory
 
@@ -155,4 +154,3 @@ These entries are represented primarily by briefs, engine runners/results and `S
 - Donor-adaptation benchmark tree: hundreds of scripts/logs/results across density, ternary, engine, P1/R2/F1/S1; treat `archive/` as historical unless a canonical document points into it.
 - Phase 64: 49 source/spec files under `benchmarks/phase64/`, including MVE data/logit/train stages and WS3–WS6 audits.
 - Broader research includes CPU architecture, memory bandwidth, long-context/SSM retrieval and scale-up docs under `docs/research/`.
-

@@ -5634,7 +5634,7 @@ search returned.**
 
 ---
 
-## §63 — E64: the planted control did not fire, and the cell stays unmeasured
+## §63 — E64 run 1: the planted control did not fire, and this run's cell stays unmeasured
 
 **No rate in this section.** E64 measured no tok/s, and **`G-E63d` is still `VOID` and OWED.**
 
@@ -5870,3 +5870,63 @@ it is what any future "train the rank" proposal argues against.
 **E40 is not retracted.** Its rates are correct for what they measured and its §6 says
 *"Nothing about quality. Synthetic weights."* What §65 changes is the reading of the ladder,
 not its numbers.
+
+---
+
+## §66 — E64 run 2: the post-hoc carve costs MORE on int8, at every registered rung
+
+**No rate in this section.** The wall and per-cell seconds were collected during a quality run
+with a recorded same-volume disk-contention interval; they are not timings. **`G-E63d` remains
+`VOID` and OWED.** Probe: `probes/E64_CARVE_ON_INT8.md` §8. Raw:
+`engine/results/e64_carve_on_int8_run2.json`; machine-readable post-run audit:
+`engine/results/e64_carve_on_int8_run2_audit.json`.
+
+Run 1 remains void. Run 2 uses addendum B's repaired planted control: `--attn serial` is asserted
+from every engine `CONFIG` line and E37's complete nine-cell ladder must reproduce at `1e-09`.
+It does so exactly (`max|d|=0.0`); the ternary same-format discrimination control also fires at
+`2.801852e-07` against `1e-04`. The int8 artifact's sidecar confirms `ffn_rule=R8`, one byte per
+FFN weight and matrix kinds `MK_I8`/`MK_I8_T`.
+
+### 66.1 The floor-correct comparison
+
+Each format is differenced against its own `k=256` baseline — ternary **3.475706652030**, int8
+**2.216492625964**. No cross-format baseline is used.
+
+| `k` | ternary carve cost | int8 carve cost | int8 − ternary |
+|---:|---:|---:|---:|
+| 64 | 0.451677 | 1.585027 | **+1.133350** |
+| 32 | 0.598724 | 1.945073 | **+1.346348** |
+| 16 | 0.511094 | 1.940853 | **+1.429759** |
+| 8 | 0.520987 | 1.910935 | **+1.389949** |
+| 4 | 0.547732 | 1.895515 | **+1.347783** |
+| 3 | 0.553692 | 1.912017 | **+1.358325** |
+| 2 | 0.539159 | 1.890057 | **+1.350897** |
+| 1 | 0.514132 | 1.827039 | **+1.312907** |
+
+All eight signs are positive outside the registered `sigma_seed=0.250`, therefore
+**`G-E64d = CARVE-IS-DEARER-ON-INT8`**. The target `k=3` arm is **4.128509790 BPB**, above the
+`4.069818973` chance line by **0.058691**.
+
+### 66.2 What it changes
+
+§62.12 correctly removed the half-byte format term from a prospective one-byte training job,
+but it assumed the remaining selection term would resemble E37's +0.553692. E64 falsifies that
+assumption post-hoc: at one byte the `k=3` selection term is **+1.912017**, 3.45× E37's. More
+faithful surviving weights leave more useful signal for the mask to destroy.
+
+This is a **post-hoc floor**, not a verdict on training in format. H1 proves those objects differ.
+No transfer to 7 B or 10 B is licensed, and E66 remains the direct 7 B byte-axis measurement.
+The result closes only the 1.5 B composition question: it must not be re-run unless the donor,
+slice, mask, engine configuration or estimand changes and is pre-registered.
+
+### 66.3 Audit notes
+
+The result's arithmetic was independently recomputed with zero discrepancies and all three
+weight hashes match their exporter sidecars. The engine executable predates the run and hashes
+to `56272fdbe615d61739094605cb026aa308fd74604ba5598fab501c09188ae687`.
+
+The preregistration (`ccb80e2`) predates the run. The exact runner blob was committed in
+`f72e87e` 23 minutes after launch, despite that commit's subject claiming otherwise; the blob
+matches the current runner exactly. This provenance defect is recorded but does not change the
+gate readings. The contention sidecar's attempted timestamp is malformed, so its filesystem
+mtime and the quality-only scope are the only admissible timing statements.

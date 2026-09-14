@@ -1,0 +1,64 @@
+{
+  "experiment": "E64",
+  "run": 2,
+  "audit_date": "2026-09-14",
+  "status": "PROMOTABLE_WITH_RECORDED_PROVENANCE_LIMITATIONS",
+  "verdict": "CARVE-IS-DEARER-ON-INT8",
+  "scope": {
+    "quality_only": true,
+    "donor": "Qwen/Qwen2.5-1.5B",
+    "post_hoc": true,
+    "rate_measured": false,
+    "free_running_measured": false,
+    "scale_extrapolation_licensed": false,
+    "g_e63d": "VOID_AND_OWED"
+  },
+  "timeline_utc": {
+    "addendum_b_commit": "2026-09-14T08:00:54Z",
+    "runner_last_write": "2026-09-14T08:01:33Z",
+    "run_log_created": "2026-09-14T08:01:36Z",
+    "runner_commit": "2026-09-14T08:24:57Z",
+    "result_written": "2026-09-14T09:22:51Z"
+  },
+  "git": {
+    "preregistration_commit": "ccb80e2cbee786acaf3080dcf2f49bb3a6baec34",
+    "runner_commit": "f72e87e21736444d60909d7a2ad8ea8b5c7562b2",
+    "runner_git_blob": "cf99c351c963cba2fe8314b4408ef34f417703e1",
+    "runner_worktree_matches_git_blob": true
+  },
+  "sha256": {
+    "result_json": "7df759a547bdc3040d1bd9c3f6dbc886276d950c0fa86e5cde823c171a591821",
+    "run_log": "cf73ab4b4a68dc62fbce34aa1febcae05e07d211917f7c668edd34523a1efe3b",
+    "contention_note": "bad64981a410d2eb431d4a21909629d82af84dee57d397dd6746a59fd45ff10b",
+    "runner": "a90fd375dbb7182f13a3b4fe22779a718a4c0a87ffdbc91d71f02067be90cd4d",
+    "brief_with_addendum_b": "c430e9156494d266deea51f1d8ed814f3316d6cd75b06b11903cda9234c82594",
+    "engine_executable": "56272fdbe615d61739094605cb026aa308fd74604ba5598fab501c09188ae687",
+    "ternary_carved": "fae666d2a4d4de7e69903f0c713181ed5214b416f77bbdafa7480490231b7150",
+    "ternary_dense": "5d50e3778917a46f329c89334274be47941897f05b969b92bb4409fa3b0337eb",
+    "int8_carved": "e3233042eb733ca04dc2b3b51009ec67dd039712d2858ed38a6a4538b1f9fc9d"
+  },
+  "checks": {
+    "runner_selftests_passed": 20,
+    "result_json_parses": true,
+    "bpb_recomputations_checked": 19,
+    "bpb_recomputation_errors": 0,
+    "n_predicted_is_12264_for_all_cells": true,
+    "config_attn_serial_cells": 19,
+    "g_e64a2_max_abs_d": 0.0,
+    "g_e64a2_tolerance": 1e-09,
+    "g_e64a2_fires": true,
+    "g_e64b_abs_d": 2.801851617384443e-07,
+    "g_e64b_tolerance": 0.0001,
+    "g_e64b_fires": true,
+    "floor_rule_recomputed": true,
+    "g_e64d_signs": [1],
+    "g_e64d_sigma_seed": 0.25,
+    "artifact_hashes_match_sidecars": true
+  },
+  "recorded_defects": [
+    "The raw result brief field says '+ addendum A' and omits the governing addendum B.",
+    "The exact runner blob was committed about 23 minutes after launch although commit f72e87e says it was pushed before the run.",
+    "The contention note contains a malformed attempted shell timestamp and no clean close time; no seconds are admissible as timing."
+  ],
+  "promotion_rule": "Run 1 remains VOID. Only run 2 quality cells are promoted."
+}

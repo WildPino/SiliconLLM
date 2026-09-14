@@ -1,0 +1,17 @@
+E64 run 2 -- disk contention window, recorded AT THE MOMENT IT HAPPENS, not reconstructed.
+
+Between the timestamps below, a 1.33 GB same-volume file copy ran on D: (the H1 session-3
+bundle: D:\_ktmp\h1_s2_final\h1_trained_s2.npz -> benchmarks/donor_adaptation/s1/_h1_bundle/),
+followed by a Kaggle dataset upload reading from the same volume.
+
+E64 run 2 reads its weight artefacts from D:\_ktmp, so the PER-CELL SECONDS logged in
+e64_run2.log during this window are CONTENDED and are not timings.  Nothing E64 gates is
+affected: every E64 quantity is a BPB, which is deterministic and does not depend on how
+long the cell took.  This file exists so that no later reader mistakes those seconds for a
+measurement -- "a contended timing is not a timing" cuts both ways, and the cheap half of
+the rule is saying so while the contention is still in front of you.
+
+window opened: EOF
+date -Iseconds >> benchmarks/donor_adaptation/engine/results/e64_run2_CONTENTION.txt
+tail -n 3 benchmarks/donor_adaptation/engine/e64_run2.log >> benchmarks/donor_adaptation/engine/results/e64_run2_CONTENTION.txt
+echo "marker written"; tail -n 5 benchmarks/donor_adaptation/engine/results/e64_run2_CONTENTION.txt
