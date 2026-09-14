@@ -5631,3 +5631,57 @@ search returned.**
 
 **Nothing here is a rate. `G-E63d` remains `VOID` and OWED.**
 
+
+---
+
+## §63 — E64: the planted control did not fire, and the cell stays unmeasured
+
+**No rate in this section.** E64 measured no tok/s, and **`G-E63d` is still `VOID` and OWED.**
+
+E64 asked what the carve costs on an **int8** FFN — the one composition the byte cliff makes
+interesting, and the one §62.12's damage ladder cannot price because it has only ever seen the
+carve on top of ternary. It was pre-registered, built, exported and run. **It returns nothing**,
+because its replication control failed:
+
+```
+G-E64a  replication of E37's ternary ladder on the e63 binary
+        max|d| 8.838e-04  vs  tol 1e-06   ->  DOES NOT FIRE
+```
+
+Brief §4 and prediction 4 both registered that in this case no cell in E64 may be read. The band
+the runner computed is **not recorded here**, and no number from E64's int8 arm enters this
+ledger. Full table and diagnosis: `probes/E64_CARVE_ON_INT8.md`.
+
+### 63.1 The one thing E64 did establish, and it is about instruments
+
+The failure is not a uniform offset, and two cells of the same run bound it:
+
+| cell | reads | tol | fires |
+|---|---|---|---|
+| `G-E64a` at `k = 256` (selection OFF) | \|d\| **5.889e-07** | 1e-06 | **yes** |
+| `G-E64b` carved-`k=E` vs uncarved file | \|d\| **2.609e-07** | 1e-04 | **yes** |
+| `G-E64a` at `k = 32` (selection ON) | \|d\| **8.838e-04** | 1e-06 | no |
+
+The arithmetic reproduces E37 to ~1e-07 wherever nothing is selected, and diverges by three
+orders of magnitude wherever something is — largest at intermediate `k`, decaying towards both
+ends. That is the signature of **top-`k` boundary flips**: selection is a step function of the
+scores, so a ~1e-07 build-level difference that is invisible in a continuous path flips a group
+in or out when two are nearly tied at the `k`-th place, and a group is worth ~1e-03 BPB.
+
+> **§63.1 — A selection path amplifies build-level floating-point noise from ~1e-07 to ~1e-03,
+> because top-`k` is discontinuous in the scores. A replication tolerance derived from a DENSE
+> path is MALFORMED on a CARVED one.**
+
+This has teeth beyond E64. Every carve/router/MoE arm in this programme is a selection path, and
+**no bit-exactness claim across builds may be made about one at a dense path's tolerance.** It
+is the same shape as Phase 60's standing law — *kernel-bit-exact does not compose to
+system-correctness* — one level down: **continuous-path-bit-exact does not compose to
+selection-path-bit-exact.**
+
+### 63.2 An owed fix that this cost 4,956 s to notice
+
+`results/e37_sparsity_cost.json` **does not record which engine binary produced it.** The
+diagnosis in 63.1 had to be inferred from the shape of the deltas because the artefacts could
+not answer "was this the same build?". **Owed: the engine filename and sha256 in every runner's
+result JSON.** A replication gate against an artefact of unknown provenance is a gate that can
+only ever tell you that something differs, never what.

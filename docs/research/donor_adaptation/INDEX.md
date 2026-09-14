@@ -579,3 +579,30 @@ Two measured facts sharpen it: the head was 40.4% of every token in fp32 before 
 (`probes/R1_DONOR_RUNTIME.md` §3), and it is the one organ that pays **nothing** for int8
 activations on the LUT path — 0.13997 → 0.14084 when excluded — because its input is the final
 RMSNorm output (`donor_engine.c --lut-no-head`, commit `95b7fd3`).
+
+---
+
+## E64 — a selection path amplifies build noise a thousandfold, and the int8 carve cell is still unmeasured
+
+`probes/E64_CARVE_ON_INT8.md` · `SPEED_LEDGER.md` §63 · **VOID by its own planted control**
+
+E64 was pre-registered, exported and run to ask what the carve costs on an **int8** FFN — the
+composition §62.12's damage ladder cannot price, because it has only ever seen the carve stacked
+on ternary. **It returns no answer.** `G-E64a`, the replication of E37's ternary ladder on
+today's binary, read `max|d| 8.838e-04` against a registered `1e-06` and did not fire; the brief
+registered in advance that no cell may then be read, and none is.
+
+**What the failed control bought is worth more than the cell would have been.** The uncarved
+`k=256` cell agrees with E37 to **5.889e-07**, and `G-E64b` fires at **2.609e-07** — so the
+arithmetic is intact and the disagreement lives **only where selection is live**, peaking at
+intermediate `k` and decaying towards both ends. That is the signature of **top-`k` boundary
+flips**: selection is a step function, so a ~1e-07 build difference that never shows in a
+continuous path flips a nearly-tied group in or out, and a group is worth ~1e-03 BPB.
+
+**A replication tolerance taken from a dense path is MALFORMED on a carved one** — and every
+carve, router and MoE arm this programme owns is a selection path. It is Phase 60's law one
+level down: *continuous-path-bit-exact does not compose to selection-path-bit-exact.*
+
+A second defect, cheaper to state and cheap to fix: **no result JSON records which engine binary
+produced it**, so the diagnosis had to be inferred from the shape of the deltas rather than read
+off the artefacts.
