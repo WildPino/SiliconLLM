@@ -104,3 +104,71 @@ over-applying my own new law.
 4. **No retraction of E40.** E40's rates are correct for what they measured; E65 prices a
    quantity E40 explicitly declined to measure.
 5. **No claim that `R128` is dead.** See §2 — post-hoc is a floor, not a verdict.
+
+---
+
+## 7. Addendum A — run 1's planted control was TAUTOLOGICAL, and the runner mutated a published record
+
+**Written after run 1 completed and BEFORE its cell was read into anything.** Run 1's number is
+not quoted here and does not enter the probe; it is superseded by run 2, whose controls actually
+execute.
+
+### A.1 What happened
+
+`e27_floor.py` resumes: any arm already present in the output file is **skipped and echoed**.
+Run 1 was launched with the output file being E27's own published
+`engine/results/e27_floor.json`, so the three registered known-positives printed
+
+```
+  base      CACHED  bpb 0.767595
+  QO-512    CACHED  bpb 0.820284
+  QO-192    CACHED  bpb 1.856378
+```
+
+**They were read from the very file they were supposed to be validating against.** `G-E65a` as
+executed compared a file to itself. Its `G_F2` clause — the real replication test, which
+compares a **recomputed** BPB to E21's anchor at `REPL_TOL = 1e-9` — is inside the compute
+branch and therefore **never ran**.
+
+**This is not a FAILED gate, it is an UNEVALUATED one**, which is the E4 precedent: a gate that
+cannot be answered as written is MALFORMED, not failed, and is re-specified — here simply
+*executed properly* — rather than reinterpreted. §5's prediction 5 stands unchanged: if
+`G-E65a` does not fire, no cell may be read.
+
+### A.2 The second half, which is worse
+
+Run 1 **wrote its output back over `engine/results/e27_floor.json`**, inserting a `QO-48` arm
+into E27's published record. **A new experiment silently mutated an old experiment's result
+file.** The file is tracked, so it was restored with `git checkout --`, and no committed record
+was ever wrong.
+
+> **The defect, stated generally: a runner whose resume cache lives INSIDE its published result
+> file will (a) make every replication control tautological and (b) overwrite the record it is
+> replicating.** Those are the same line of code doing both.
+
+It is the family of `feedback_instrument_must_not_measure_itself` — *the control must
+DISCRIMINATE, not merely refuse* — in its sharpest form yet: here the control could not even
+refuse, because it was handed its own answer.
+
+### A.3 The fix, and it is in the apparatus not the brief
+
+`e27_floor.py` gains one override:
+
+```python
+OUT = os.environ.get("E27_OUT") or os.path.join(
+    ENGDIR, "results", "e27_floor%s.json" % ("_smoke" if SMOKE else ""))
+```
+
+Run 2 writes `engine/results/e65_rank_fraction.json`, which does not exist, so **all four arms —
+`base`, `QO-512`, `QO-192`, `QO-48` — are computed from scratch** and `G_F2` executes against
+E21's anchor. E27's file is untouched.
+
+**Owed, beyond E65:** every runner in this programme that resumes from its own output has this
+hazard. The general repair is that a resume cache belongs in a **scratch** file keyed to the
+run, never in the published record.
+
+### A.4 What does not change
+
+§5's predictions are **unchanged and unread** — prediction 1's band `2.10–2.60` was registered
+before run 1 produced anything and is scored against run 2. §6's prohibitions stand.
+**`G-E63d` is still `VOID` and OWED.**

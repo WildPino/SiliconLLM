@@ -41,7 +41,11 @@ ONLY = [x.strip() for x in os.environ.get("E27_ONLY", "").split(",") if x.strip(
 
 HF = "Qwen/Qwen2.5-1.5B"
 E6REF = os.path.join(ENGDIR, "results", "e6", "ref.json")
-OUT = os.path.join(ENGDIR, "results", "e27_floor%s.json" % ("_smoke" if SMOKE else ""))
+# E65: the resume cache lives IN the result file, so a re-run both makes any replication
+# control tautological (it reads the file it is validating against) and MUTATES a published
+# record.  E27_OUT lets a new experiment write its own file and recompute every arm.
+OUT = os.environ.get("E27_OUT") or os.path.join(
+    ENGDIR, "results", "e27_floor%s.json" % ("_smoke" if SMOKE else ""))
 E21OUT = os.path.join(ENGDIR, "results", "e21_rank.json")
 EXPECT_IDS_SHA = "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65"
 LN2 = 0.6931471805599453
@@ -71,6 +75,7 @@ ARMS = [("base",            None, None, 0,    None),
         ("QO-512",          512,  None, 0,    None),      # planted positive, replicates E21
         ("QO-192",          192,  None, 0,    None),
         ("QO-96",           96,   None, 0,    None),
+        ("QO-48",           48,   None, 0,    None),      # E65: r/D = 1/32, R128's fraction
         ("KV-96",           None, 96,   0,    None),
         ("QO192+KV96",      192,  96,   0,    None),
         ("L24-LAST",        None, None, 4,    "LAST"),
