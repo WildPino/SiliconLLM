@@ -473,8 +473,11 @@ static void matvec_sel(const mat_t* m, const float* x, const float* bias, float*
     const int n_out=m->out, n_in=m->in;   // NOT "OUT"/"IN": windows.h defines those as SAL macros
     const int NSEL = rows ? nr : n_out;
     if(m->tposed) die("a transposed packed matrix must go through matvec_colacc, not matvec");
-    if(rows && (m->rank||m->tm||!m->packed))
-        die("row-selected matvec is implemented for the plain packed kind only");
+    // E63: the plain int8 kind joins the plain packed kind here.  Everything else -- factored,
+    // tile-major (--lut), transposed -- still refuses, because a row list means something
+    // different or nothing at all in those layouts.
+    if(rows && (m->rank||m->tm||m->tposed||(!m->packed&&!m->code)))
+        die("row-selected matvec is implemented for the plain packed and plain int8 kinds only");
     if(m->rank){
         float* h=g_lr(m->rank);
         matvec(m->fb,x,NULL,h);
@@ -635,7 +638,13 @@ static void matvec_sel(const mat_t* m, const float* x, const float* bias, float*
 #ifdef _OPENMP
 #pragma omp parallel for schedule(static)
 #endif
-    for(int o=0;o<n_out;o++){
+    // E63: NSEL/rows threaded through.  With rows==NULL this is arithmetically the loop it was
+    // -- same values, same order, same partition -- so every E60/E61 number reproduces bit for
+    // bit and G-E63a can demand zero differing bytes.  With a row list the output is COMPACTED
+    // (y[t] holds row rows[t]) and the bias is still read at rows[t], exactly as the packed
+    // row-selected branch above does.
+    for(int t=0;t<NSEL;t++){
+        const int o = rows ? rows[t] : t;
         const int8_t* c=m->code+(size_t)o*n_in;
         __m256 acc=_mm256_setzero_ps(); int i=0;
         if(MA>1){
@@ -669,10 +678,10 @@ static void matvec_sel(const mat_t* m, const float* x, const float* bias, float*
             acc=_mm256_fmadd_ps(_mm256_cvtepi32_ps(ci),_mm256_loadu_ps(x+i),acc);
         }
         float s[8]; _mm256_storeu_ps(s,acc);
-        float t=s[0]+s[1]+s[2]+s[3]+s[4]+s[5]+s[6]+s[7];
-        for(;i<n_in;i++) t+=(float)c[i]*x[i];
-        t*=m->scale[o];
-        y[o]=bias?t+bias[o]:t;
+        float r=s[0]+s[1]+s[2]+s[3]+s[4]+s[5]+s[6]+s[7];
+        for(;i<n_in;i++) r+=(float)c[i]*x[i];
+        r*=m->scale[o];
+        y[t]=bias?r+bias[o]:r;
     }
 }
 
@@ -705,8 +714,46 @@ static void matvec(const mat_t* m, const float* x, const float* bias, float* y){
 #define PT_BLK 64
 #define CA_BLK PT_BLK
 #define CA_NV (CA_BLK/8)
+// E63: the int8 transposed kernel.  SIMPLER than the packed one, not harder -- one byte per
+// weight means no trit decode, no pshufb table and no even/odd split, just
+// cvtepi8_epi32 -> cvtepi32_ps -> fmadd.  Same accumulator-in-registers shape as the packed
+// kernel for the same reason (E26's note above), and the same non-bit-exactness: it is an
+// ACCUMULATE over kept rows, so it is gated on end-to-end agreement, never on sha256.
+static void matvec_colacc_i8(const mat_t* m,const float* h,const int* rows,int nr,float* y){
+    const int n_out=m->out;            // D
+    const int nb=n_out/CA_BLK;         // CA_BLK BYTES == CA_BLK outputs at one byte per weight
+#ifdef _OPENMP
+#pragma omp parallel for schedule(static)
+#endif
+    for(int bb=0;bb<nb;bb++){
+        const int j0=bb*CA_BLK;
+        __m256 a[CA_NV];
+        for(int u=0;u<CA_NV;u++) a[u]=_mm256_setzero_ps();
+        for(int t=0;t<nr;t++){
+            const int f = rows ? rows[t] : t;
+            const __m256 hv=_mm256_set1_ps(h[t]);
+            const int8_t* c=m->code+((size_t)bb*(size_t)m->in+(size_t)f)*CA_BLK;
+            for(int u=0;u<CA_NV;u++)
+                a[u]=_mm256_fmadd_ps(_mm256_cvtepi32_ps(_mm256_cvtepi8_epi32(
+                        _mm_loadl_epi64((const __m128i*)(c+8*u)))),hv,a[u]);
+        }
+        float sa[CA_BLK];
+        for(int u=0;u<CA_NV;u++) _mm256_storeu_ps(sa+8*u,a[u]);
+        for(int u=0;u<CA_BLK;u++){ const int j=j0+u; y[j]=sa[u]*m->scale[j]; }
+    }
+    // The remainder, kept for the same reason the packed kernel keeps its own: "empty at every
+    // shape I tried" is not a format guarantee.
+    for(int j=nb*CA_BLK;j<n_out;j++){
+        float acc=0.0f;
+        for(int t=0;t<nr;t++){ const int f=rows?rows[t]:t;
+            acc+=(float)m->code[((size_t)(j/CA_BLK)*(size_t)m->in+(size_t)f)*CA_BLK+(j%CA_BLK)]*h[t]; }
+        y[j]=acc*m->scale[j];
+    }
+}
+
 static void matvec_colacc(const mat_t* m,const float* h,const int* rows,int nr,float* y){
-    if(!m->tposed||!m->packed) die("matvec_colacc needs a transposed packed matrix");
+    if(!m->tposed) die("matvec_colacc needs a transposed matrix");
+    if(!m->packed){ matvec_colacc_i8(m,h,rows,nr,y); return; }
     const int n_out=m->out;            // D
     const int Hd=n_out/2;              // bytes per stored row: two trits per byte along OUT
     const int nb=Hd/CA_BLK;            // whole blocks; the remainder is done serially below
@@ -893,7 +940,16 @@ static const char* rd(const char** p, size_t n){ const char* q=*p; *p+=n; return
 // E26 adds MK_PACKED_T and quant==4 ("tagged-v2"): quant==3 with an int32 ffn_kind in front of
 // every layer's FFN.  quant==3 files are FROZEN -- they load through the same code, byte for
 // byte, and G-E26a holds the pre- and post-patch engines bit-identical on one of them.
-enum { MK_PACKED=0, MK_FACTORED=1, MK_F32=2, MK_PACKED_T=3 };
+// E63: two ADDITIVE kinds so a carved model can be stored at ONE byte per weight.  The tagged
+// format is self-describing, so every existing quant=3/quant=4 file loads byte for byte and no
+// existing branch is edited -- which is what lets G-E63a be an sha256 gate on five artefacts.
+//   MK_I8   : [out,in] int8 codes + out fp32 scales.  matvec_sel's fallback already computes
+//             scale[o]*dot(code+o*n_in, x); E63 only threads the ROW LIST through it.
+//   MK_I8_T : transposed int8, block-major [ out/blk ][ in ][ blk ], ONE byte per weight along
+//             OUT (MK_PACKED_T stores two trits per byte, so its blocks are over out/2).  blk
+//             stays PT_BLK=64 BYTES, so an int8 down block covers 64 outputs where a packed one
+//             covers 128 -- the locality question E31 raised and nobody has measured.
+enum { MK_PACKED=0, MK_FACTORED=1, MK_F32=2, MK_PACKED_T=3, MK_I8=4, MK_I8_T=5 };
 enum { FK_DENSE=0, FK_CARVED=1 };
 
 static void read_mat(const char** p, mat_t* m, int out, int in, int quant){
@@ -922,6 +978,17 @@ static void read_mat(const char** p, mat_t* m, int out, int in, int quant){
             if(blk!=PT_BLK) die("transposed packed matrix: block size is not PT_BLK");
             if((out/2)%blk) die("transposed packed matrix: blk must divide out/2");
             m->code=(const int8_t*)rd(p,(size_t)in*(out/2));
+            m->scale=(const float*)rd(p,(size_t)out*4);
+        } else if(kind==MK_I8){
+            // packed stays 0, so matvec_sel falls through to the int8 branch it already has.
+            m->code=(const int8_t*)rd(p,(size_t)out*in);
+            m->scale=(const float*)rd(p,(size_t)out*4);
+        } else if(kind==MK_I8_T){
+            int blk; memcpy(&blk,rd(p,4),4);
+            m->tposed=1; m->blk=blk;                 // packed stays 0: that is the discriminant
+            if(blk!=PT_BLK) die("transposed int8 matrix: block size is not PT_BLK");
+            if(out%blk) die("transposed int8 matrix: blk must divide out");
+            m->code=(const int8_t*)rd(p,(size_t)in*out);
             m->scale=(const float*)rd(p,(size_t)out*4);
         } else if(kind==MK_FACTORED){
             int r; memcpy(&r,rd(p,4),4);
@@ -1030,9 +1097,14 @@ static void load(model_t* M,const char* path){
             read_mat(&p,&L->up,  M->F,M->D,tagq);
             read_mat(&p,&L->down,M->D,M->F,tagq);
             if(!L->down.tposed)
-                die("carved FFN: down_proj must be stored transposed (MK_PACKED_T)");
-            if(!L->gate.packed||L->gate.tposed||!L->up.packed||L->up.tposed)
-                die("carved FFN: gate/up must be plain packed matrices");
+                die("carved FFN: down_proj must be stored transposed (MK_PACKED_T or MK_I8_T)");
+            if(L->gate.tposed||L->up.tposed||L->gate.rank||L->up.rank
+               ||(!L->gate.packed&&!L->gate.code)||(!L->up.packed&&!L->up.code))
+                die("carved FFN: gate/up must be plain packed or plain int8 matrices");
+            // E63: mixing formats inside one FFN is refused at LOAD.  Nothing needs it, and a
+            // half-converted layer would read as a plausible rate against the wrong byte count.
+            if((L->gate.packed!=L->up.packed)||(L->gate.packed!=L->down.packed))
+                die("carved FFN: gate/up/down must all be packed or all be int8");
         } else if(fk==FK_DENSE){
             read_mat(&p,&L->gate,M->F,M->D,tagq);
             read_mat(&p,&L->up,  M->F,M->D,tagq);

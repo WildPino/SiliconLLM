@@ -164,6 +164,15 @@ def nbytes_tagged(spec, out, in_):
         # [(out/2)/blk][in_][blk] behind an int32 kind and an int32 blk.  Four bytes more than
         # "packed"; only the axis that has to be even moves from `in_` to `out`.
         return 8 + in_ * (out // 2) + 4 * out
+    if spec == "i8":
+        # E63: MK_I8 -- [out, in_] int8 codes, ONE byte per weight, same per-output-row fp32
+        # scale.  Exactly twice "packed"'s code bytes; the tag and the scales are unchanged.
+        return 4 + out * in_ + 4 * out
+    if spec == "i8T":
+        # E63: MK_I8_T -- [out/blk][in_][blk] int8 behind an int32 kind and an int32 blk.
+        # blk counts BYTES in both transposed kinds, so an int8 block spans `blk` outputs
+        # where a packed one spans 2*blk.  Total bytes do not depend on blk.
+        return 8 + in_ * out + 4 * out
     kind, r = spec
     assert kind == "factored" and r > 0 and r % 2 == 0
     a = 4 + out * (r // 2) + 4 * out               # A, tagged packed
@@ -171,7 +180,7 @@ def nbytes_tagged(spec, out, in_):
     return 4 + 4 + a + 4 * r + b                   # kind, rank, A, s, B
 
 
-def layout_bytes_v4(D, F, L, NH, NKV, HD, V, tied, E=0, rank=0):
+def layout_bytes_v4(D, F, L, NH, NKV, HD, V, tied, E=0, rank=0, ffn_i8=False):
     """Total file bytes for a quant==4 ("tagged-v2") file in which every matrix is PACKED.
 
     quant==4 is quant==3 plus an int32 ffn_kind in front of each layer's FFN; with E > 0 that
@@ -199,8 +208,13 @@ def layout_bytes_v4(D, F, L, NH, NKV, HD, V, tied, E=0, rank=0):
         if E:
             n += 8                                            # int32 E, int32 k
             n += nbytes_tagged("packed", E, D)                # router
-        n += 2 * nbytes_tagged("packed", F, D)                # gate, up
-        n += nbytes_tagged("packedT" if E else "packed", D, F)
+        # E63: with ffn_i8 the CARVED FFN is stored at one byte per weight (MK_I8 + MK_I8_T).
+        # The router is not part of gate/up/down and stays packed, which is also what the
+        # engine's load check enforces.
+        gu = "i8" if (E and ffn_i8) else "packed"
+        dn = ("i8T" if ffn_i8 else "packedT") if E else "packed"
+        n += 2 * nbytes_tagged(gu, F, D)                      # gate, up
+        n += nbytes_tagged(dn, D, F)
     n += 4 * D                                                # model.norm
     if not tied:
         n += nbytes_tagged("packed", V, D)

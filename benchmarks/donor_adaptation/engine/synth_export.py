@@ -41,6 +41,7 @@ QUANT_TAGGED = 3
 QUANT_V4 = 4                      # E26: tagged + a per-layer int32 ffn_kind
 PT_BLK = 64                       # E26: the transposed kind's block size, one cache line
 MK_PACKED, MK_FACTORED, MK_F32, MK_PACKED_T = 0, 1, 2, 3
+MK_I8, MK_I8_T = 4, 5        # E63
 FK_DENSE, FK_CARVED = 0, 1
 
 # Real donor shapes, read off benchmarks/donor_adaptation/configs/*.json.  T10 is synthetic and
@@ -185,6 +186,47 @@ def w_tag_packed_t(fh, rng, n_out, n_in, mode):
     fh.write(np.ascontiguousarray(scale, dtype="<f4").tobytes())
 
 
+def w_i8(fh, rng, n_out, n_in, mode):
+    """[n_out, n_in] int8 + [n_out] fp32 scales, ONE byte per weight.
+
+    E63: the VALUES are `_codes` minus one -- the very same trits `w_packed` writes -- drawn in
+    the very same chunks off the very same stream.  So an int8 artefact and a packed artefact
+    built from one seed hold IDENTICAL weights and differ only in how many bytes each takes.
+    That is deliberate: it makes the int8-vs-packed rate comparison a pure BYTE-AND-LAYOUT
+    experiment rather than a value one, which is E60's `T1` control applied at 10 B.
+    """
+    CH = max(1, (1 << 24) // max(1, n_in))
+    for r0 in range(0, n_out, CH):
+        r1 = min(n_out, r0 + CH)
+        qn = _codes(rng, r1 - r0, n_in, mode)
+        fh.write(np.ascontiguousarray(qn - 1, dtype=np.int8).tobytes())
+    scale = (rng.random(n_out, dtype=np.float32) * 0.01 + 0.005)
+    fh.write(np.ascontiguousarray(scale, dtype="<f4").tobytes())
+
+
+def w_tag_i8(fh, rng, n_out, n_in, mode):
+    fh.write(struct.pack("<i", MK_I8))
+    w_i8(fh, rng, n_out, n_in, mode)
+
+
+def w_tag_i8_t(fh, rng, n_out, n_in, mode):
+    """kind 5: [n_out, n_in] stored TRANSPOSED at one byte per weight, block-major
+    [n_out/PT_BLK][n_in][PT_BLK].
+
+    PT_BLK is a count of BYTES in both formats, so a block covers 64 outputs here where
+    MK_PACKED_T's covers 128.  A selected neuron therefore contributes twice the bytes to
+    `down` -- the locality question E31 identified and E33 measured only at half a byte.
+    """
+    assert n_out % PT_BLK == 0, "PT_BLK must divide n_out"
+    fh.write(struct.pack("<ii", MK_I8_T, PT_BLK))
+    nb = n_out // PT_BLK
+    qn = _codes(rng, n_in, n_out, mode)                                  # same draw as kind 3
+    bm = (qn - 1).astype(np.int8).reshape(n_in, nb, PT_BLK).transpose(1, 0, 2)
+    fh.write(np.ascontiguousarray(bm).tobytes())
+    scale = (rng.random(n_out, dtype=np.float32) * 0.01 + 0.005)
+    fh.write(np.ascontiguousarray(scale, dtype="<f4").tobytes())
+
+
 def w_tag_factored(fh, rng, n_out, n_in, mode, r):
     """kind 1: A [n_out, r] packed, s [r] fp32, B [r, n_in] packed.
 
@@ -248,6 +290,11 @@ def main():
                     help="write the quant==4 container with FK_DENSE on every layer -- the "
                          "matched control for a --carve arm: same container, same tags, same "
                          "bytes, one thing different.")
+    ap.add_argument("--i8", action="store_true",
+                    help="E63: store the CARVED FFN (gate/up/down) at ONE byte per weight, "
+                         "MK_I8 + MK_I8_T, instead of packed.  Same seed, same draws, same "
+                         "trit values -- only the width and the down layout change, so the "
+                         "packed and int8 artefacts are a matched pair.  Requires --carve.")
     ap.add_argument("--seed", type=int, default=1234)
     ap.add_argument("--rms-eps", type=float, default=1e-6)
     ap.add_argument("--rope-theta", type=float, default=1000000.0)
@@ -260,6 +307,11 @@ def main():
     v4 = bool(a.v4 or a.carve)
     tagged = bool(a.tagged or a.rank or v4)
     quant = QUANT_V4 if v4 else (QUANT_TAGGED if tagged else QUANT_PACKED)
+    if a.i8 and not a.carve:
+        sys.exit("--i8 stores the CARVED FFN at one byte per weight; it needs --carve")
+    if a.i8 and (D % PT_BLK):
+        sys.exit("--i8: MK_I8_T blocks are PT_BLK=%d BYTES, so PT_BLK must divide D=%d"
+                 % (PT_BLK, D))
     if a.carve:
         if F % a.carve:
             sys.exit("--carve %d does not divide F=%d" % (a.carve, F))
@@ -325,10 +377,17 @@ def main():
                 fh.write(struct.pack("<i", FK_CARVED if a.carve else FK_DENSE))
             if a.carve:
                 fh.write(struct.pack("<2i", a.carve, carve_k))
-                wp(a.carve, D)                                 # router [E, D]
-                wp(F, D)                                       # gate, group-major rows
-                wp(F, D)                                       # up,   group-major rows
-                w_tag_packed_t(fh, rng, D, F, a.codes)         # down, TRANSPOSED
+                wp(a.carve, D)                                 # router [E, D], packed either
+                                                               # way: it is not gate/up/down and
+                                                               # the engine checks those three
+                if a.i8:
+                    w_tag_i8(fh, rng, F, D, a.codes)           # gate, group-major rows
+                    w_tag_i8(fh, rng, F, D, a.codes)           # up,   group-major rows
+                    w_tag_i8_t(fh, rng, D, F, a.codes)         # down, TRANSPOSED, 1 B/weight
+                else:
+                    wp(F, D)                                   # gate, group-major rows
+                    wp(F, D)                                   # up,   group-major rows
+                    w_tag_packed_t(fh, rng, D, F, a.codes)     # down, TRANSPOSED
             else:
                 wp(F, D)                                       # gate
                 wp(F, D)                                       # up
@@ -352,7 +411,8 @@ def main():
         assert hdr[k] == want, "header %s: wrote %r, read back %r" % (k, want, hdr[k])
     lay = E1.layout(D, F, L, NH, NKV, HD, V, tied, quant)
     if v4:
-        want = E1.layout_bytes_v4(D, F, L, NH, NKV, HD, V, tied, a.carve, a.rank)
+        want = E1.layout_bytes_v4(D, F, L, NH, NKV, HD, V, tied, a.carve, a.rank,
+                                  ffn_i8=bool(a.i8))
     elif tagged:
         def spec_of(name, o, i):
             return ("factored", a.rank) if (a.rank and (name.endswith(".q_proj")
@@ -372,6 +432,9 @@ def main():
             "head_dim": HD, "vocab": V, "tied": tied, "head": a.head,
             "quant": ("tagged-v2" if v4 else "tagged") if tagged else "packed",
             "rank": a.rank, "carve_E": a.carve, "carve_k_in_file": carve_k,
+            "ffn_bytes_per_weight": (1.0 if a.i8 else 0.5) if a.carve else None,
+            "ffn_kinds": (["MK_I8", "MK_I8_T"] if a.i8 else ["MK_PACKED", "MK_PACKED_T"])
+                         if a.carve else None,
             "carve_group_size": (F // a.carve) if a.carve else 0,
             "total_weights": int(total_weights(D, F, L, NH, NKV, HD, V, tied)),
             "active_weights_per_token": int(act_r),
