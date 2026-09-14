@@ -436,7 +436,7 @@ def main():
             "ffn_kinds": (["MK_I8", "MK_I8_T"] if a.i8 else ["MK_PACKED", "MK_PACKED_T"])
                          if a.carve else None,
             "carve_group_size": (F // a.carve) if a.carve else 0,
-            "total_weights": int(total_weights(D, F, L, NH, NKV, HD, V, tied)),
+            "total_weights": int(total_weights(D, F, L, NH, NKV, HD, V, tied, a.rank)),
             "active_weights_per_token": int(act_r),
             "active_weights_per_token_dense_qo": int(act), "bytes": size,
             "WARNING": "weights are NOISE -- this file has no meaningful BPB and none is computed"}

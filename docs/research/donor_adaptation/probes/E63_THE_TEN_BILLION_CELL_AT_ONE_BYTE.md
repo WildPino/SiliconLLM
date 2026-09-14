@@ -171,6 +171,17 @@ pretend I did not see them:
 3. `--i8` requires `--carve` by exporter guard, because the engine refuses a mixed FFN. This is
    what made `G-E63b`/`G-E63c` unanswerable as written (§6). It is a deliberate constraint and
    is kept; the gates moved, not the check.
+4. **`sweep(arms, reps=REPS)` bound `REPS` at def time**, so `--reps 9` silently ran five while
+   the header printed the nine that had been asked for. Caught from the runner's own third
+   output line; **the deviating run was stopped before it produced any number** and relaunched
+   at the registered nine. Same family as the `CONFIG` defect: *printed as requested at the top,
+   silently not applied at the bottom.*
+5. **Found while scoping the follow-up, and belonging to E39, not here:** the sidecar's
+   `total_weights` was written without forwarding `rank`, so every ranked artefact reports the
+   dense-q/o count — `e39_r512.bin` +4.03%, `e39_r4096.bin` −4.91%, **wrong in both directions
+   because the field is constant in `rank`**. E39's `G-E39A` passes the rank itself and is
+   unaffected. Fixed and smoke-verified against a freshly exported ranked artefact. Full note in
+   brief addendum B.5 and `probes/E39` §0.
 
 ## 10. What Part A does NOT claim
 
@@ -266,3 +277,25 @@ here, and it says the 64-weight block does **not** cost what the byte count says
 - **The goal is not met.** A ≈49 tok/s estimate with a CI that spans 45.5–51.1, composed from a
   contended ratio and a clean absolute taken on another day, is not "a 10 B model at 50 tok/s".
   One clean hour turns it into one.
+
+---
+
+## 13. CORRECTION to addendum B.4 — the attention lever was already measured
+
+B.4 closed by naming attention as *"the next experiment"* if `G-E63d` lands short. **It is not a
+next experiment: E39 ran it at this scale and it won.** `A10B-R512` — the same 9,999,220,736
+parameters with `q_proj`/`o_proj` as rank-512 factors — reads **78.456 tok/s** (registered run 1;
+run 2's 80.548 may not promote it) against matched-parameter `A10B`, **1.693× within session**,
+with a fitted **attention+head+router floor of 99.4 / 100.0 tok/s** — the EXCELLENT target.
+
+I wrote B.4's forward-looking sentence **without opening E39**, which is
+`feedback_search_before_claiming_a_gap` in its milder form: not *"nobody measured this"* but
+*"this is what to measure next"*, about something already measured. **A statement about the
+programme's conduct passes through no gate**, which is precisely why the rule exists.
+
+**Nothing in B.4's arithmetic is withdrawn, and the correction makes it stronger** — the 72.3%
+attention share is the *mechanism* for E39's 1.69×. What it also shows is that E63's 1.7%
+one-byte cost **does not transfer** to R512, whose FFN is 20.91% of the charged token against
+`A10B-K3`'s 11.44% (charged-byte ratio 1.2091 vs 1.1144). That is a separate question with a
+separate brief. **`G-E63d` remains `VOID` and OWED, and §13 adjudicates nothing.**
+

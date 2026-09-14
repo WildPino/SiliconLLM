@@ -13,6 +13,17 @@ whether a model of this shape is any good, and §7 is explicit about that.
 **My predictions scored 1 HIT / 4 MISS.** I priced factored attention as if moving fewer weights
 cost proportionally less time. It does not, and §4 measures by how much.
 
+**METADATA CORRECTION, added 2026-09-14 while scoping E64 — the FINDINGS BELOW ARE UNAFFECTED.**
+This probe's parameter counts are right; the **sidecars beside the files are not**.
+`synth_export.py:439` built the sidecar's `total_weights` without forwarding `rank`, so for any
+ranked artefact it reports the **dense-q/o** count: `e39_r512.bin.json` says 10,401,873,920 where
+the file holds **9,999,220,736** (+4.03%), and `e39_r4096.bin.json` says the same 10,401,873,920
+where the correct figure is **10,938,744,832** (−4.91%). The field errs in *both* directions
+because it is constant in `rank` — it is not a function of the file. **`G-E39A` is untouched and
+still fires:** it calls `total_weights` itself and passes the rank explicitly, which is why the
+gate read the true count while the metadata next to it did not. The exporter is fixed (`a.rank`);
+these frozen sidecars are deliberately **left as written**, since they record what was produced.
+
 ---
 
 **Verdict: `RANK-BUYS-SPEED`.** A file holding **exactly 9,999,220,736 parameters** — E36's

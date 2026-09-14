@@ -410,3 +410,70 @@ printed `rep 1/5`. The deviating run was **stopped before it produced any number
 interim JSON held only its header — and re-launched at the registered nine. Same family as the
 `CONFIG` defect: *the parameter was printed as requested at the top and silently not applied at
 the bottom.*
+
+### B.5 CORRECTION — B.4 named as "the next experiment" one that had already been run, and won
+
+**What B.4 said:** *"If `G-E63d` lands short of 50 tok/s, the deficit is not closable on the FFN
+axis, and the next experiment is attention, not experts."*
+
+**Every number in B.4 stands and none of it is withdrawn.** The defect is the last clause. I
+wrote *"the next experiment"* without opening **E39**, which had already run exactly that
+experiment at exactly this scale.
+
+`probes/E39_THE_SAME_TEN_BILLION_PUT_SOMEWHERE_ELSE.md`, registered verdict **`RANK-BUYS-SPEED`**:
+
+| E39 reading | value |
+|---|---|
+| `A10B-R512` — `q_proj`/`o_proj` written as rank-512 factors, the freed weight moved into the FFN, parameter count held to E36's integer (`G-E39A`: recomputed from each file's own header, 9,999,220,736 both arms) | **78.456 tok/s** at `k=3` |
+| run 2, the order control | 80.548 — **`TEN-B-NEAR-HUNDRED`, which may NOT promote run 1** (E36 run-2 rule) |
+| within-session ratio vs matched-parameter `A10B` | **1.693×** (run 2: 1.648×) |
+| fitted **attention+head+router floor**, the number both runs agree on to **0.62%** | **10.059 / 9.996 ms = 99.4 / 100.0 tok/s** |
+| planted control `G-E39C` | rank 4096 moves 58% more weight and **was slower in both runs** (30.80 < 46.47; 31.66 < 48.74) |
+
+E34 had measured T10's floor at 20.03 tok/s with the FFN deleted and called 50 tok/s unreachable
+at that shape. **Moving the same ten billion parameters put the floor on the EXCELLENT target.**
+
+**The corrected statement is therefore STRONGER than B.4's, not weaker:** the attention axis is
+not an untried next step, it is a *measured* 1.69× at ten billion parameters with a floor at 100
+tok/s. What B.4's decomposition adds is the **reason** it works — attention is 72.3% of the
+`A10B-K3` charged token, so a lever that halves it moves the whole token, whereas no FFN lever
+can exceed ×1.129. B.4 supplies the mechanism for a result that already existed.
+
+**This is `feedback_search_before_claiming_a_gap` again**, in its milder form: I did not claim
+the work was missing, I claimed it was *next*. The remedy is identical — **search by artefact
+name and OPEN what comes back before making any statement about the programme's conduct.** A
+claim about what should be done next is such a statement, and it passes through no gate.
+
+**What this opens (registered separately, NOT folded into E63).** `A10B-R512`'s charged token
+decomposes very differently from `A10B-K3`'s — both recomputed here from the apparatus' own
+`synth_export.active_weights()`, which reproduces each shape's sidecar `active_weights_per_token`
+exactly:
+
+| share of the charged token | `A10B-K3` (928,251,904) | `A10B-R512` (530,317,312) |
+|---|---|---|
+| attention | 671,088,640 — **72.30%** | 268,435,456 — **50.62%** |
+| `lm_head` | 134,217,728 — 14.46% | 134,217,728 — **25.31%** |
+| router | 16,777,216 — 1.81% | 16,777,216 — 3.16% |
+| carved FFN | 106,168,320 — **11.44%** | 110,886,912 — **20.91%** |
+| charged-byte ratio int8÷packed | **1.1144** | **1.2091** |
+| fixed-bandwidth rate ratio | 0.8974 | **0.8271** |
+
+**So E63's measured 1.7% one-byte cost does NOT transfer to R512** — its FFN share is nearly
+double, and on the charged-byte comparator alone the rung is 1.7× more expensive there. Whether
+it stays cheap in *measurement* at that shape is an open question with its own brief, not a
+corollary of this one. `e39_r512.bin` (5,486,052,536 B) is on disk.
+
+**Apparatus defect found while checking the above, fixed, unrelated to any E63 number.**
+`synth_export.py:439` wrote the sidecar's `total_weights` by calling
+`total_weights(D, F, L, NH, NKV, HD, V, tied)` — **without forwarding `rank`**, which therefore
+defaulted to 0. Every ranked artefact's sidecar reports the **dense-q/o** count: `e39_r512.bin`
+says 10,401,873,920 where the file holds 9,999,220,736 (**+4.03%**), and `e39_r4096.bin` says the
+same 10,401,873,920 where the correct figure is 10,938,744,832 (**−4.91%**). **The field errs in
+both directions because it is not a function of the file at all** — it is constant in `rank`.
+**E39's headline is NOT affected:** `G-E39A` calls `total_weights` itself and passes
+`ARMS[arm][1]`, the rank, explicitly — the gate was right and the metadata beside it was wrong.
+Fixed to `a.rank`; verified by exporting a ranked artefact and reading its sidecar back
+(597,065,728 correct vs 630,095,872 under the old code, so the check discriminates). The frozen
+sidecars are **left as written** — they are the record of what was produced — and the correct
+figures are stated here and in `probes/E39` §0.
+

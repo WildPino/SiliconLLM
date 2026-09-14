@@ -5452,3 +5452,37 @@ the 64-weight block does not cost what its byte count says.**
 auditing for it. **§62 adds the case where the scope error made the programme too PESSIMISTIC
 about itself for two sections running.** A denominator with the wrong scope does not fail
 safely in one direction — *it is simply not an answer*, and it had been the headline.
+
+### 62.9 CORRECTION to §62.6 — the attention lever is not a next step, it is a measured 1.69×
+
+§62.6 closed with *"if `G-E63d` lands short of 50, the deficit is not closable on the FFN axis
+and the next experiment is attention, not experts."* The arithmetic stands; **the last clause was
+written without opening E39**, which ran that experiment at this scale and won it.
+
+**E39, registered verdict `RANK-BUYS-SPEED`:** `A10B-R512` — `q_proj`/`o_proj` as rank-512
+factors with the freed weight moved into the FFN, parameter count held to E36's integer
+(9,999,220,736, recomputed from each file's own header) — reads **78.456 tok/s** at `k=3`, a
+within-session **1.693×** over matched-parameter `A10B`. Run 2's 80.548 is in-band and **may not
+promote it**. Its fitted **attention+head+router floor is 10.059 / 9.996 ms = 99.4 / 100.0
+tok/s**, the two runs agreeing to 0.62% where the slope disagrees by 10.4%, against E34's 20.03
+tok/s floor at T10. The planted control fired: rank 4096 moves 58% more weight and was slower in
+both runs.
+
+**The corrected reading of §62.6 is stronger, not weaker.** The decomposition explains *why* E39
+worked — attention is 72.3% of the `A10B-K3` charged token, so halving it moves the token,
+whereas no FFN lever can exceed ×1.129. §62.6 supplies the mechanism for a result that already
+existed, and §62's own law about scope now cuts a second way: **a share of the token is also a
+scope, and "the next experiment" is a claim with one.**
+
+**And it sets the next measurement precisely, without pre-judging it.** Recomputed from
+`synth_export.active_weights()` (which reproduces both sidecars' `active_weights_per_token`
+exactly): `A10B-R512` is attention **50.62%**, head **25.31%**, router 3.16%, **carved FFN
+20.91%** — nearly double `A10B-K3`'s 11.44% FFN share. Its charged-byte ratio for the one-byte
+rung is **1.2091** (fixed-bandwidth rate ratio 0.8271) against `A10B-K3`'s 1.1144 / 0.8974.
+**E63's measured 1.7% therefore does NOT transfer to R512**; that shape must be measured, not
+extrapolated — which is [[feedback_rank_partner_survives_refusal]]'s standing rule, one shape is
+not a trend.
+
+**§62.9 does not touch `G-E63d`.** It remains `VOID` and OWED on an idle box, and nothing here
+is an absolute rate.
+
