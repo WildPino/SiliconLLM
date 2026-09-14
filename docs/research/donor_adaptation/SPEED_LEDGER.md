@@ -5522,3 +5522,52 @@ the first hit is not a search — it is a sample biased towards what I already h
 `G-E63d` is untouched: still `VOID`, still OWED, and nothing in §62.9 or §62.10 is a rate I
 measured.
 
+### 62.11 The two axes, priced against each other — and why E64 was NOT run
+
+Reading both series to the end (§62.10's new rule) makes a comparison available that neither
+probe made, because it sits between them. I had begun scoping an E64 to measure it. **It does
+not need measuring: E37 and E62 already contain it, on the same donor scale, the same engine and
+the same chance line.** Running the grid would be a REPLICA, not a discovery.
+
+**The question.** A rate budget can be bought on two axes: activate fewer weights (carve `k`), or
+store each weight in fewer bytes. **Which costs more quality per unit of rate?**
+
+| axis | treatment | baseline | treated | **ΔBPB** | baseline→chance gap | **fraction of the gap spent** |
+|---|---|---|---|---|---|---|
+| **activation** (E37, trained 1.5 B donor, `k=3` = **1.17%**) | which weights are read | 3.475706 | 4.029398 | **+0.553692** | 0.594113 | **93.20%** |
+| **bytes per weight** (E62, trained 1.5 B donor, fp32 → int8) | how precisely each is stored | 0.767606372511151 | 0.7688588381536873 | **+0.0012525** | 3.302213 | **0.0379%** |
+
+Both at 1.5 B, both on this engine, both against the same chance line **4.069819**.
+**The deltas differ by 442× and the fractions-of-gap by ~2,460×.**
+
+**Stated as a law of this box:** *the activation axis spends 93% of the model's entire
+distance-to-chance to buy its rate; the byte axis spends four hundredths of one percent of it.*
+E62 adds that the byte axis's damage **does not even rank with scale** (6.64e-05 → 1.25e-03 →
+5.79e-04, non-monotone, the 1.5 B cell being the worst of three) — so the row above is the
+**worst** of the three scales measured, not a favourable pick.
+
+**Operational consequence, and it indicts this ledger's own history:** *never buy rate on the
+activation axis while any byte-axis budget is unspent.* Sections §34–§50 priced shape after
+shape by how much FFN activation 50 tok/s affords — that is the 93%-per-unit axis — while the
+0.04% axis went unbuilt until §59 (E60), sixty sections in. **E60's "the rung that was never
+built" is worse than it reads: the unbuilt rung was the cheap one, and the programme spent
+twenty-six sections shopping on the expensive one.**
+
+**Three things this does NOT say.**
+
+1. **It is not an exchange rate and may not be inverted.** The two treatments are not two
+   settings of one knob: one changes *which* weights are read, the other *how precisely* each is
+   stored, and their baselines differ (E37's is the ternary+carved format, E62's is fp32). The
+   claim is an **order of magnitude**, not a coefficient, and nothing may be extrapolated from
+   it — least of all to 10 B, where E62's own rank break is the standing warning.
+2. **It does not reopen the activation axis as survivable.** 93% of the gap is consumed at the
+   1.17% this speed needs, and E38 showed a *perfect oracle* at that rate lands **above** chance.
+   Cheap bytes do not rescue an activation budget this thin — they are the axis to spend
+   **first**, not a way to afford the other one.
+3. **It does not touch `G-E63d`**, still `VOID` and OWED, and it contains no rate at all.
+
+**Why it matters for H1.** H1 trains with the mask ON, and its design has a bytes-per-weight
+choice in it. This says that choice is nearly free in quality and should be taken at the
+cheapest byte the fidelity cliff allows — E60 put that cliff **between 1 byte and half a byte**,
+so **one byte, not half**. That is a statement about H1's *format*, not about its outcome.
+

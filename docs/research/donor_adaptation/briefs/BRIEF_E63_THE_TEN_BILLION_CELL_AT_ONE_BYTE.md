@@ -553,3 +553,32 @@ half-remembered.**
 **noise weights**, its dispersion is poor and reported as such, and its own cell straddles the
 band edge it was registered against.
 
+### B.7 The E64 I did not run — the two axes were already priced, between two probes
+
+B.6's rule (*read to the END of the series*) was applied to the axis B.6 itself opened. I began
+scoping **E64: for a fixed rate budget, is quality better spent on ACTIVATION or on BYTES PER
+WEIGHT?** Reading E37 to E42 and E60 to E62 to their ends shows **the answer already exists,
+split across two probes that never cited each other.** Running the grid would be a replica.
+
+| axis | baseline | treated | **ΔBPB** | **fraction of its baseline→chance gap** |
+|---|---|---|---|---|
+| **activation** — E37, trained 1.5 B, `k=3` (1.17%) | 3.475706 | 4.029398 | **+0.553692** | **93.20%** |
+| **bytes/weight** — E62, trained 1.5 B, fp32→int8 | 0.767606 | 0.768859 | **+0.0012525** | **0.0379%** |
+
+Same scale, same engine, same chance line (4.069819). **442× on the deltas, ~2,460× on the
+fraction of the gap.** And E62 shows the byte axis's damage does not rank with scale, with the
+1.5 B cell the **worst** of three — so this row is the unfavourable one.
+
+**The law:** *the activation axis spends 93% of the model's whole distance-to-chance to buy its
+rate; the byte axis spends four hundredths of one percent.* **Never buy rate on the activation
+axis while byte-axis budget is unspent.**
+
+**Not an exchange rate and not invertible** — different treatments, different baselines, so an
+order of magnitude and nothing finer. **It does not make thin activation survivable** (E38's
+oracle is above chance at 1.17%). **It does not touch `G-E63d`.** Its one forward use is H1's
+format choice: take the cheap byte, and E60 puts the cliff between 1 B and half a byte, so
+**one byte, not half**.
+
+**Recorded as an experiment deliberately NOT run**, with the reason, so it is not proposed a
+third time.
+
