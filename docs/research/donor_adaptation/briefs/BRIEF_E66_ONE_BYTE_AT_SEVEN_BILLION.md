@@ -144,3 +144,43 @@ adopted verbatim.
 5. **Nothing about the carve or rank at 7 B.** Those compose on top and are separate cells;
    E64 run 2 is measuring the carve×int8 composition at 1.5 B, and E66 does not anticipate it.
 6. **No retraction of E15 or E16.** Their numbers stand for the formats they measured.
+
+---
+
+# ADDENDUM A — apparatus correction, pushed BEFORE the runner runs
+
+**§4.1 specified `--calib-seqs 32` on both int8 arms. That is wrong, and it would have broken
+the control it is meant to be compared against.**
+
+Read off the artefacts, not assumed:
+
+| artefact | `quant` | `rule` | `fold` | `head_ternary` | **`calib_seqs`** |
+|---|---|---|---|---|---|
+| `e60/qwen25-15b_i8h.bin` (the `G-E66a` control) | int8 | R8 | none | True | **None** |
+| `e62/qwen25-3b_i8.bin` (the 3 B rung) | int8 | R8 | none | True | **None** |
+| `e7/qwen25-coder7b_p_r3.bin` (the `G-E66b` control) | packed | R3 | layers | True | 32 |
+
+**Calibration sequences belong to the PACKED/ternary path, not the int8 one.** E62's `CALIB_SEQS
+= 32` applied to its `PACKED` arm; every int8 artefact on disk records `calib_seqs: None`. Had
+E66 passed `--calib-seqs 32` on A1/A2, the 7 B int8 cells would have been built by a different
+construction from the 0.5/1.5/3 B rungs they are quoted against — a `feedback_control_arm_different_code_path`
+defect, found by reading the sidecar instead of trusting my own brief.
+
+**Corrected apparatus:**
+
+```
+A1: --model Qwen/Qwen2.5-Coder-7B --revision 0396a76181e127dfc13e5c5ec48a8cee09938b02     --quant int8 --rule R8 --head-ternary --fold layers --load-dtype float32 --threads 6
+A2: ... identical, --fold none
+```
+
+The revision is **pinned from the local snapshot**, read on disk. `G-E66a` re-measures
+`e60/qwen25-15b_i8h.bin` as it stands and exports nothing.
+
+**One consequence for §5, registered now:** A2 (`fold=none`, no calibration) is the arm quoted
+against the 0.5/1.5/3 B ladder and it is now construction-identical to it. A1 (`fold=layers`)
+differs from that ladder in the fold **only**, which is exactly what `G-E66g` measures.
+
+**And one owed item this turns up:** `e16_r3_at_7b.py` resumes from its own output file
+(`if os.path.exists(OUT): prev = json.load(...)`), the same hazard that made E65 run 1's control
+tautological. E66 does not resume from its result file. The E16 defect is logged, not fixed here.
+
