@@ -542,8 +542,17 @@ def main():
             return w_tag_f32(fh, w)
         return W(fh, w, rule, act)
 
+    # E64: --ffn-rule is part of what this file IS, so it is printed here and written to the
+    # sidecar below.  feedback_config_must_appear_in_output, whose worst form is a line that
+    # prints a value the branch does not implement -- the converse, a branch the line does not
+    # print, is how an artefact loses its provenance.
     print("exporting %s  D=%d F=%d L=%d heads=%d/%d hd=%d V=%d tied=%d quant=%s rule=%s"
-          % (a.model, D, F, L, NH, NKV, HD, V, tied, a.quant, a.rule))
+          " ffn_rule=%s"
+          % (a.model, D, F, L, NH, NKV, HD, V, tied, a.quant, a.rule,
+             a.ffn_rule or "(same as rule)"))
+    if a.ffn_rule:
+        print("  --ffn-rule %s: the carved gate/up/down are MK_I8/MK_I8_T at ONE byte per "
+              "weight; router, attention and head stay on --rule %s" % (a.ffn_rule, a.rule))
 
     # R3 needs the per-input activation RMS, so it needs a calibration pass. The calibration
     # corpus half is DISJOINT from the eval half by construction (build_calib.py) and the
@@ -670,6 +679,12 @@ def main():
             "head_dim": HD, "vocab": V, "tied": tied,
             "rms_eps": float(c.rms_norm_eps), "rope_theta": float(c.rope_theta),
             "head_ternary": bool(a.head_ternary), "rule": a.rule,
+            # E64: None means "the FFN follows --rule".  A reader must be able to tell a
+            # half-byte carved FFN from a one-byte one WITHOUT reparsing the weights.
+            "ffn_rule": a.ffn_rule,
+            "ffn_bytes_per_weight": (1.0 if a.ffn_rule else 0.5) if a.quant == "carved" else None,
+            "ffn_kinds": (["MK_I8", "MK_I8_T"] if a.ffn_rule else ["MK_PACKED", "MK_PACKED_T"])
+                         if a.quant == "carved" else None,
             # part of the artifact's identity: a folded export is a DIFFERENT quantization,
             # because the fold changes what q/k/v/gate/up see and therefore R3's thresholds.
             "fold": a.fold, "n_gains_folded": n_folded, "untied_by_fold": bool(untied_by_fold),
