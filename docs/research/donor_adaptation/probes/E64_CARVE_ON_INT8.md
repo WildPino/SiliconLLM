@@ -47,17 +47,19 @@ disagrees by up to 8.8e-04 wherever something is. The discrepancy is **confined 
 path** and is largest at intermediate `k` (peak at 32, decaying towards both 256 and 1).
 
 **The mechanism that fits that shape is top-`k` boundary flips.** Selection is a *step function*
-of the router scores. A build-level difference of ~1e-07 in a score — a different reduction
-order, a different instruction selection between the E37-era binary and `e63` — is invisible
+of the router scores. A difference of ~1e-07 in a score — a different reduction order
+between the kernel E37 ran and the one `e63` defaults to (**section 7 names it**) — is invisible
 while it stays inside a continuous path, but when it lands on two groups that are nearly tied at
 the `k`-th position it **flips which group is kept**, and a whole group entering or leaving the
 computation is worth ~1e-03 BPB. The number of flippable boundaries is zero at `k = E` (nothing
 is excluded), small at `k = 1` (only the argmax, rarely contested), and largest in between —
 which is the column above.
 
-**The law, and it generalises past E64:**
+**The law, and it generalises past E64** -- **the AMPLIFICATION below is confirmed and the
+ATTRIBUTION is CORRECTED in section 7: the perturbation is not build noise, it is a named
+kernel change, and it was measurable rather than inferable:**
 
-> **A selection path amplifies build-level floating-point noise from ~1e-07 to ~1e-03, because
+> **A selection path amplifies a perturbation of the scores from ~1e-07 to ~1e-03, because
 > top-`k` is discontinuous in the scores. A replication tolerance derived from a DENSE path is
 > MALFORMED on a CARVED one.**
 
@@ -100,16 +102,20 @@ than a retraction. It is recorded so the re-run's control is scoped correctly.
 
 ## 5. What the re-run needs, pre-registered here
 
-1. **A replication control scoped to the axis it watches.** Either compare against E37 **on
-   E37's own binary**, or register the tolerance from *measured* cross-build dispersion on a
-   carved ladder — measure it first, then register it. It may not be chosen after seeing today's
-   deltas.
+1. **SUPERSEDED BY SECTION 7 — the repair is not a tolerance, it is an assertion.** This item
+   registered two options: run on E37's binary, or widen the tolerance from measured cross-build
+   dispersion. Section 7 measured the cause and **neither is needed**: the re-run asserts
+   `attn=serial`, the arm E37 ran, and the control then reproduces E37's ladder **exactly**.
+   There is no dispersion to widen for, because there was no noise — there was a flag.
 2. **The verdict's control must be same-binary**, matching the comparison it gates: both arms
    exported and read on one build, with a discrimination control (`G-E64b`-style) per arm.
-3. **Record the binary in every result JSON.** `results/e37_sparsity_cost.json` does not say
-   which engine produced it — that is why §2's diagnosis had to be inferred from the shape of
-   the deltas instead of read off the artefacts. **Owed fix:** the engine filename and its
-   sha256 go in every runner's output.
+3. **CORRECTED BY SECTION 7 — the binary was never the unit, and it was never missing.**
+   `results/e37_sparsity_cost.json` does not record the engine, which is a real defect; but
+   `e37_sparsity_cost.py:44` hard-codes `donor_engine_e26.exe`, so the provenance **was** in the
+   repo. And the binary is the wrong unit anyway: `e63` reproduces E37 exactly once
+   `--attn serial` is passed. **Owed fix, restated:** every runner's output records the engine
+   filename, its sha256, **and the engine's own `CONFIG` line** — which has named the kernel arm
+   since E50.
 4. **E36's run-2 rule applies in spirit**: today's run is void, so a corrected run is a *new*
    registered measurement, not a promotion of this one, and today's numbers may not be quoted as
    corroboration of whatever it returns.
@@ -120,3 +126,105 @@ than a retraction. It is recorded so the re-run's control is scoped correctly.
 E26-L matched at zero tolerance), and two laws. The export is **kept** — it is correct, its
 sidecar confirms `ffn_bytes_per_weight=1.0` and `kinds=['MK_I8','MK_I8_T']`, and the re-run does
 not need to rebuild it.
+
+---
+
+## 7. CORRECTION, same day — the perturbation has a NAME, and I could have read it instead of inferring it
+
+**What section 2 published:** *"a selection path amplifies **build-level floating-point noise**
+from ~1e-07 to ~1e-03"*, with the perturbation attributed to *"a different reduction order, a
+different instruction selection between the E37-era binary and `e63`"* — i.e. to incidental
+variation between builds. **That attribution is wrong, and it was inferred from the shape of a
+residual when it could have been read off three files and then measured.**
+
+### 7.1 What was already written down, before E64 was published
+
+| where | what it says |
+|---|---|
+| `engine/e37_sparsity_cost.py:44` | `ENGINE = os.path.join(HERE, "donor_engine_e26.exe")` — E37's runner **hard-codes its binary** |
+| `engine/donor_engine.c:207-208` | *"DEFAULT avx4, adopted by E50. It was `ATTN_SERIAL` until 2026-09-13 and **NO runner from E26 onward passed `--attn`**"* |
+| `engine/e64_carve_on_int8.py:121` | my own control's docstring: *"E37's published ladder, **which was taken on `donor_engine_e26.exe`**"* |
+
+E50 is commit `61d1c29`, **2026-09-13**, *"the fast kernel is the default"*; its diff is
+`-static int g_attn=ATTN_SERIAL;` / `+static int g_attn=ATTN_AVX4;`. E37's result was committed
+`14455ec`, **2026-09-12** — the day before. **`G-E64a` was comparing two different attention
+kernels and calling the difference a replication failure.**
+
+### 7.2 Two measurements, both registered before they were run
+
+**Prediction 1** (registered before the run): *`donor_engine_e26.exe`, the pre-E50 build,
+reproduces E37's `k=256` and `k=32` to ~1e-9.*
+
+**Prediction 2** (registered before the run, after prediction 1 returned): *`donor_engine_e63.exe
+--attn serial` — today's binary forced onto E37's arm — reproduces the same two values; if it
+does, the cause is **one flag** and the four other commits between `e26` and `e63` are exonerated
+for these cells.*
+
+Same frozen slice (`N_PREDICTED 12264`), same artefact `D:\_ktmp\e37\e37_carved_nf.bin`,
+`--threads 6 --seqlen 512`:
+
+| `k` | E37 published | `e26` (pre-E50) | `e63 --attn serial` | `e63` **default** (`avx4`, what E64 ran) |
+|---|---|---|---|---|
+| **256** (selection OFF) | 3.4757066520304316 | **same, \|d\| = 0** | **same, \|d\| = 0** | 3.4757060631435763 — \|d\| **5.889e-07** |
+| **32** (selection ON) | 4.074431016419263 | **same, \|d\| = 0** | **same, \|d\| = 0** | 4.073547190542747 — \|d\| **8.838e-04** |
+
+Both predictions **TAKEN**. The agreement is exact to the resolution of the engine's own log
+(`NATS_PER_TOKEN` prints 10 decimals = **3.4e-11 BPB**); it is not claimed tighter than that.
+`e63 --attn serial` printed `CONFIG  attn=serial  attnr=none  fexp=libm  mvacc=4  threads=6
+quant=ternary` on both cells, so the arm is asserted from the engine's own output, not assumed.
+
+### 7.3 What survives, and what changes
+
+**The amplification SURVIVES and is now better founded than when it was published.** Section 2
+inferred it from the shape of nine deltas across two binaries. It is now a **paired,
+single-variable measurement**: one binary, one process, one artefact, one slice, **`--attn` the
+only difference** — 5.889e-07 with selection off, 8.838e-04 with selection on, a factor of
+**~1500x**. That is a cleaner demonstration than the one that produced the claim.
+
+**The attribution CHANGES**, and with it the prescription:
+
+> **§63.1 (corrected) — a selection path amplifies a perturbation of the scores by ~1500x: the
+> same difference reads 5.889e-07 with selection off and 8.838e-04 with selection on. The source
+> of the perturbation is irrelevant; its size in the CONTINUOUS path is what gets multiplied.
+> Therefore (a) a replication tolerance taken from a dense path is MALFORMED on a carved one, and
+> (b) a carve replication must assert the KERNEL ARM, not the binary — the engine has printed it
+> in its `CONFIG` line since E50, and asserting it costs nothing and needs no tolerance at all.**
+
+**Scope of the 1500x:** one perturbation source, one donor, one slice, two cells. It is an
+order-of-magnitude statement about what selection does to a small difference, **not a constant**,
+and nothing should be divided by it.
+
+### 7.4 `G-E64a` is MALFORMED, not failed — and what that does and does not permit
+
+`G-E64a` asked *"does today's binary reproduce E37?"* when the quantity that decides replication
+is the **kernel arm**, which the gate never asserted and the engine was already printing. Under
+the **E4 precedent** — *a gate that cannot answer the question it was written for is MALFORMED,
+not failed, and may be re-specified* — `G-E64a` is re-specifiable. It is **not** the
+`E40 addendum A` case of a gate that fired correctly and is being re-run to a pass: the repair
+makes the control **stricter** (it asserts something the original omitted), and it was forced by
+a measurement rather than chosen after browsing the deltas for a way through.
+
+**What this does NOT do:** it does not un-void E64's int8 cells. Those were computed under
+`attn=avx4`, and **E36's run-2 rule** stands — a corrected run is a *new* registered
+measurement, and today's int8 numbers may not be quoted as corroborating whatever it returns.
+The re-run is cheap: the export `D:/_ktmp/e64/e64_carved_i8.bin` is kept and correct, so only
+the BPB sweeps repeat, with `--attn serial` asserted from `CONFIG`.
+
+### 7.5 The lesson, and it is not the one section 2 recorded
+
+Section 2 recorded *"a replication tolerance must match its axis"*, which is true and was already
+`feedback_gate_vs_measured_dispersion`. The lesson that actually cost something is different:
+
+> **I inferred a mechanism from the shape of a residual while the answer was sitting in three
+> files I had already written or read — including the docstring of the control that failed.**
+> `feedback_verify_public_claims` says a mechanism claim must be derived or measured, never
+> asserted because it fits. *"It fits the shape of the deltas"* is exactly the kind of fit that
+> feels like a derivation and is not one. **Before explaining a discrepancy, read the provenance
+> of both sides** — and when the instrument prints its own configuration, the provenance is one
+> line of output away.
+
+The irony is worth keeping: E50's stated purpose was *"the thing that hid for twenty-two
+experiments can no longer hide, because it appears in every log"*. It added the `CONFIG` line
+for precisely this. **E64 walked into a cross-kernel comparison anyway, because E37's artefact
+predates that line and I compared artefacts instead of configurations.**
+

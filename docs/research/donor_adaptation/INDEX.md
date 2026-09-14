@@ -582,7 +582,7 @@ RMSNorm output (`donor_engine.c --lut-no-head`, commit `95b7fd3`).
 
 ---
 
-## E64 — a selection path amplifies build noise a thousandfold, and the int8 carve cell is still unmeasured
+## E64 — a selection path amplifies a perturbation ~1500x, the cause was a FLAG and not noise, and the int8 carve cell is still unmeasured
 
 `probes/E64_CARVE_ON_INT8.md` · `SPEED_LEDGER.md` §63 · **VOID by its own planted control**
 
@@ -593,19 +593,36 @@ today's binary, read `max|d| 8.838e-04` against a registered `1e-06` and did not
 registered in advance that no cell may then be read, and none is.
 
 **What the failed control bought is worth more than the cell would have been.** The uncarved
-`k=256` cell agrees with E37 to **5.889e-07**, and `G-E64b` fires at **2.609e-07** — so the
-arithmetic is intact and the disagreement lives **only where selection is live**, peaking at
-intermediate `k` and decaying towards both ends. That is the signature of **top-`k` boundary
-flips**: selection is a step function, so a ~1e-07 build difference that never shows in a
-continuous path flips a nearly-tied group in or out, and a group is worth ~1e-03 BPB.
+`k=256` cell agrees with E37 to **5.889e-07** while `k=32` misses by **8.838e-04**, so the
+disagreement lives **only where selection is live**. That is **top-`k` boundary flips**:
+selection is a step function, so a perturbation that never shows in a continuous path flips a
+nearly-tied group in or out, and a group is worth ~1e-03 BPB.
 
-**A replication tolerance taken from a dense path is MALFORMED on a carved one** — and every
-carve, router and MoE arm this programme owns is a selection path. It is Phase 60's law one
-level down: *continuous-path-bit-exact does not compose to selection-path-bit-exact.*
+**CORRECTION, same day (probe §7, ledger §63.3) — I first published that perturbation as
+"build-level floating-point noise". It is not noise: it is `--attn`.** E50 (`61d1c29`,
+2026-09-13, *"the fast kernel is the default"*) switched `g_attn` from `ATTN_SERIAL` to
+`ATTN_AVX4`; E37's result was committed the day before, on `e26`. **Both registered predictions
+were taken: `donor_engine_e26.exe` AND `donor_engine_e63.exe --attn serial` each reproduce E37's
+`k=256` and `k=32` EXACTLY** (to the log's 3.4e-11 resolution), so the cause is **one flag** and
+the four other commits between the builds are exonerated for these cells.
 
-A second defect, cheaper to state and cheap to fix: **no result JSON records which engine binary
-produced it**, so the diagnosis had to be inferred from the shape of the deltas rather than read
-off the artefacts.
+**The amplification came out STRONGER than when it was claimed**, because it stopped being an
+inference from delta shapes and became a paired single-variable measurement — one binary, one
+artefact, `--attn` the only difference: **5.889e-07 with selection off, 8.838e-04 with selection
+on, ~1500x.** It remains Phase 60's law one level down: *continuous-path-bit-exact does not
+compose to selection-path-bit-exact.* **But the repair changes: not a wider tolerance — an
+ASSERTED KERNEL ARM, which the engine has printed in its `CONFIG` line since E50 and which costs
+nothing.** `G-E64a` is therefore **MALFORMED, not failed** (E4 precedent), and re-specifiable;
+E64's int8 cells stay void all the same, because they ran under `avx4` and E36's run-2 rule
+stands.
+
+**The lesson that cost something is not the one the probe first recorded.** I inferred a
+mechanism from the shape of a residual while the answer sat in three files I had already written
+or read — `e37_sparsity_cost.py:44` (which hard-codes `donor_engine_e26.exe`),
+`donor_engine.c:207-208` (which says in so many words that the default changed on 2026-09-13 and
+no runner passes `--attn`), and **the docstring of the failing control itself**. The owed fix is
+therefore not "record the binary" — the binary was recorded, and is the wrong unit — but
+**record the engine's `CONFIG` line in every result JSON**.
 
 ---
 

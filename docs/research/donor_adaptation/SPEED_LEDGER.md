@@ -5668,9 +5668,11 @@ ends. That is the signature of **top-`k` boundary flips**: selection is a step f
 scores, so a ~1e-07 build-level difference that is invisible in a continuous path flips a group
 in or out when two are nearly tied at the `k`-th place, and a group is worth ~1e-03 BPB.
 
-> **§63.1 — A selection path amplifies build-level floating-point noise from ~1e-07 to ~1e-03,
-> because top-`k` is discontinuous in the scores. A replication tolerance derived from a DENSE
-> path is MALFORMED on a CARVED one.**
+> **§63.1 — CORRECTED the same day by §63.3. The amplification stands and is now a paired
+> single-variable measurement; the ATTRIBUTION to "build noise" is WRONG. A selection path
+> amplifies a perturbation of the scores by ~1500x. A replication tolerance derived from a DENSE
+> path is MALFORMED on a CARVED one — and the repair is not a tolerance, it is asserting the
+> KERNEL ARM.**
 
 This has teeth beyond E64. Every carve/router/MoE arm in this programme is a selection path, and
 **no bit-exactness claim across builds may be made about one at a dense path's tolerance.** It
@@ -5678,13 +5680,62 @@ is the same shape as Phase 60's standing law — *kernel-bit-exact does not comp
 system-correctness* — one level down: **continuous-path-bit-exact does not compose to
 selection-path-bit-exact.**
 
-### 63.2 An owed fix that this cost 4,956 s to notice
+### 63.2 An owed fix — RESTATED by 63.3, because the binary was never the unit
 
-`results/e37_sparsity_cost.json` **does not record which engine binary produced it.** The
-diagnosis in 63.1 had to be inferred from the shape of the deltas because the artefacts could
-not answer "was this the same build?". **Owed: the engine filename and sha256 in every runner's
-result JSON.** A replication gate against an artefact of unknown provenance is a gate that can
-only ever tell you that something differs, never what.
+`results/e37_sparsity_cost.json` **does not record which engine binary produced it**, and that
+is a real defect. But 63.3 found the provenance **was** in the repo — `e37_sparsity_cost.py:44`
+hard-codes `donor_engine_e26.exe` — and, more importantly, that **the binary is the wrong unit**:
+the same binary reproduces or misses E37 depending on one flag. **Owed, restated: every runner's
+result JSON records the engine filename, its sha256, AND the engine's own `CONFIG` line.** E50
+already made the engine print that line; nothing consumes it yet. A replication gate that
+compares artefacts instead of configurations can only ever tell you that something differs.
+
+### 63.3 CORRECTION to 63.1 — it was not noise, it was `--attn`, and I could have read that
+
+**What 63.1 published:** the ~1e-07 perturbation was attributed to *"build-level floating-point
+noise"* — incidental variation between the E37-era binary and `e63`. **Wrong.** The cause is a
+deliberate, committed, named change: **E50 (`61d1c29`, 2026-09-13, "the fast kernel is the
+default") changed `g_attn` from `ATTN_SERIAL` to `ATTN_AVX4`.** E37's result was committed
+`14455ec` on **2026-09-12**, the day before. `G-E64a` compared two different attention kernels.
+
+**Two measurements, each registered before it ran.** Same frozen slice (`N_PREDICTED 12264`),
+same artefact `e37_carved_nf.bin`, `--threads 6 --seqlen 512`:
+
+| `k` | E37 published | `e26` (pre-E50 build) | `e63 --attn serial` | `e63` default (`avx4`) |
+|---|---|---|---|---|
+| 256 (selection OFF) | 3.4757066520304316 | **\|d\| = 0** | **\|d\| = 0** | \|d\| **5.889e-07** |
+| 32 (selection ON) | 4.074431016419263 | **\|d\| = 0** | **\|d\| = 0** | \|d\| **8.838e-04** |
+
+Exact to the engine log's own resolution (10 decimals of `NATS_PER_TOKEN` = **3.4e-11 BPB**);
+not claimed tighter. Both runs printed `CONFIG attn=serial`, so the arm is asserted from output.
+
+**The amplification is STRONGER than when it was published**, because it is no longer inferred
+from the shape of nine cross-binary deltas. It is now one binary, one process, one artefact,
+one slice, with **`--attn` as the only difference**: the same perturbation reads **5.889e-07**
+with selection off and **8.838e-04** with selection on, **~1500x**.
+
+> **§63.3 — a selection path multiplies a perturbation of the scores by ~1500x, and the SOURCE
+> of the perturbation does not matter: only its size in the CONTINUOUS path does. So (a) a dense
+> path's tolerance is MALFORMED on a carved one, and (b) the repair is not a wider tolerance but
+> an ASSERTED KERNEL ARM — free, exact, and printed by the engine since E50.**
+
+**Scope:** one perturbation source, two cells, one donor, one slice. The 1500x is an
+order-of-magnitude statement about selection, **not a constant**, and nothing is divided by it.
+
+**`G-E64a` is MALFORMED, not failed** (E4 precedent): it asked "same binary?" when the quantity
+that decides replication is "same kernel arm", which it never asserted and the engine was
+already printing. This is **not** `E40 addendum A` (a gate that fired correctly being re-run to
+a pass) — the repair makes the control stricter and was forced by measurement. **It does not
+un-void E64's int8 cells**: those ran under `avx4`, and E36's run-2 rule stands. The re-run is
+cheap — the int8 export is kept and correct, only the sweeps repeat.
+
+**The lesson is not 63.1's.** 63.1 recorded "match the tolerance to the axis", which was already
+`feedback_gate_vs_measured_dispersion`. The costly error was different: **a mechanism inferred
+from the shape of a residual, while the answer sat in three files — `e37_sparsity_cost.py:44`,
+`donor_engine.c:207-208`, and the docstring of the failing control itself.** E50's stated
+purpose was *"the thing that hid for twenty-two experiments can no longer hide, because it
+appears in every log"*; E64 walked into a cross-kernel comparison anyway, because it compared
+artefacts instead of configurations.
 
 ---
 
