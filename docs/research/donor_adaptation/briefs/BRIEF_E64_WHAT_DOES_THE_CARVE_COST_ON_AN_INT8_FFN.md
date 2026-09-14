@@ -265,3 +265,92 @@ written, including prediction 1's `|Δ| < 0.05 BPB`, now read across the ladder 
 one `k`. It does not touch §6's prohibitions. **`G-E63d` is still `VOID` and OWED**, and E64
 still measures no rate.
 
+---
+
+# ADDENDUM B — the re-run, pre-registered 2026-09-14, pushed BEFORE the runner is touched
+
+**Run 1 is VOID and stays void.** This addendum registers a *new* measurement. Run 1's int8
+numbers may not be quoted as corroborating anything this run returns (**E36 run-2 rule**).
+
+## B.1 Why run 1 is re-specifiable at all, and why that is not a licence
+
+`G-E64a` failed at `max|d| = 8.838e-04` against `1e-06`. The probe's section 7 and ledger
+§63.3 then **measured** the cause: not build noise, but **E50's change of the default attention
+kernel** (`61d1c29`, 2026-09-13, `g_attn` from `ATTN_SERIAL` to `ATTN_AVX4`). E37's result was
+committed the day before, on `donor_engine_e26.exe`. Two runs, each registered before it ran,
+both taken:
+
+| `k` | E37 published | `e26` | `e63 --attn serial` | `e63` default (`avx4`) |
+|---|---|---|---|---|
+| 256 | 3.4757066520304316 | \|d\| = 0 | \|d\| = 0 | **5.889e-07** |
+| 32 | 4.074431016419263 | \|d\| = 0 | \|d\| = 0 | **8.838e-04** |
+
+So `G-E64a` asked *"same binary?"* when the quantity that decides replication is *"same kernel
+arm"* — which it never asserted and the engine has printed in its `CONFIG` line since E50.
+**That is the E4 precedent: a gate that cannot answer the question it was written for is
+MALFORMED, not failed, and may be re-specified.**
+
+**This is explicitly NOT the `E40 addendum A` case** (a gate that fired correctly being re-run
+until it passes). Two things separate them, and both must hold or this addendum is illegitimate:
+
+1. **The repair makes the control STRICTER, not looser.** The tolerance goes *down*, from
+   `1e-06` to `1e-09`, and a new assertion is added that run 1 did not have.
+2. **The repair was forced by a measurement taken before it was written**, not chosen after
+   browsing run 1's deltas for a way through. The deltas suggested "widen the tolerance"; the
+   measurement said the opposite — there is nothing to widen for.
+
+## B.2 `G-E64a2` — the repaired planted control, in two clauses that must BOTH hold
+
+| clause | requires |
+|---|---|
+| **a2.1 — the arm is ASSERTED, not assumed** | every engine invocation passes `--attn serial`, and the runner **parses the engine's own `CONFIG` line and REFUSES the cell** unless it reports `attn=serial`. A cell whose `CONFIG` does not confirm what was asked is not read. |
+| **a2.2 — E37's ladder reproduces at `1e-09`** | all **nine** of E37's published `k` values, to \|d\| ≤ **1e-09** — three orders of magnitude tighter than run 1's `1e-06`. |
+
+Clause a2.1 is `feedback_config_must_appear_in_output`'s own remedy, applied for the first time
+as a **gate** rather than as a log line: *the runner refuses the cell whose `CONFIG` does not
+confirm what it asked for.* Run 1 had the `CONFIG` line in its output and nothing read it.
+
+**`1e-09` is a real risk and is registered as one.** I have measured exactly **two** of the nine
+cells (`k = 256` and `k = 32`) and both are exact. **The other seven are untested.** If any of
+them misses `1e-09`, the kernel arm is **not** the whole story, `G-E64a2` does not fire, and
+**E64 stops again** — this addendum does not get a third attempt without a new measured cause.
+
+## B.3 Everything else about the design is unchanged
+
+Same artefacts (the int8 export `D:/_ktmp/e64/e64_carved_i8.bin` is **kept**, verified, and not
+rebuilt — its sidecar confirms `ffn_bytes_per_weight=1.0`, `kinds=['MK_I8','MK_I8_T']`), same
+ladder `k ∈ {256,64,32,16,8,4,3,2,1}`, same `G-E64b` discrimination control at `1e-04`, same
+verdict gate `G-E64d`, same frozen slice.
+
+**One apparatus change, from E65's run 1:** the result is written to a **new** path,
+`results/e64_carve_on_int8_run2.json`. Run 1's file is a published record and is not mutated,
+and no arm may be resumed from a cache that lives inside the file a control validates against.
+
+## B.4 Predictions — registered, falsifiable, and the mechanism is named
+
+1. **`G-E64a2` fires**: all nine cells at \|d\| ≤ 1e-09, and all `CONFIG` lines report
+   `attn=serial`. *If not, E64 stops.*
+2. **The carve costs MORE on int8 than the same ladder costs on ternary.** This is the
+   programme's own `§62.12` lesson turned into a prediction: half a byte spends **82%** of the
+   dense→chance gap before the carve is applied at all, so E37's ternary ladder measures the
+   carve **on a base that was already destroyed**, and a base with more left to lose should lose
+   more. Concretely: `carve_cost_i8(k) > carve_cost_tern(k)` at **`k = 32` and `k = 16`**, the
+   two rungs that bracket E18's 10%-activation budget.
+3. **At `k = 32` the int8 carve cost lands between `+0.10` and `+1.20` BPB** over its own
+   `k = E` baseline. The band is deliberately wide because prediction 2 asserts only an
+   ordering, and I have no measurement of this composition at any `k`.
+4. **The int8 `k = E` baseline beats the ternary `k = E` baseline by more than `2.0` BPB**,
+   because `§62.12` prices the byte axis at 82% of a 3.302224 gap. *This is close to a planted
+   positive — it should be easy — and if it fails, `§62.12` is in trouble, not E64.*
+5. **Free-running stays at the floor on every carved int8 arm.** No arm generates.
+
+## B.5 What the re-run may NOT conclude
+
+1. **Nothing about 10 B, and nothing about rate.** No tok/s is measured. **`G-E63d` stays
+   `VOID` and OWED**, and it is blocked on an idle machine here, not on this run.
+2. **Nothing about a TRAINED carve on int8.** H1 trained a carve on a **ternary** FFN; this is
+   post-hoc on int8, and — exactly as in E65 — post-hoc is a **floor**, not a verdict.
+3. **Nothing that promotes run 1.** Its numbers stay unpublished whatever this returns.
+4. **Nothing about the 7 B.** E15's `DOES-NOT-PREDICT` is a separate object on a different
+   donor, and this run does not touch it.
+
