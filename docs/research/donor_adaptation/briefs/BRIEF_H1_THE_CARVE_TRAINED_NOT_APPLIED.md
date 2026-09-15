@@ -1727,3 +1727,48 @@ Version 1 remains operationally void and never read the resume. Version 2 is the
 session-3 run and retains the addendum-M seed, resume and command. RUNNING is operational state,
 not evidence that `G-H1a` or the first optimizer update fired; those claims wait for the terminal
 log and artifacts.
+
+---
+
+# ADDENDUM R — terminal adjudication guard, before session-3 output is visible
+
+**Recorded 2026-09-15 while version 2 still reported `KernelWorkerStatus.RUNNING`, before the
+terminal log, final bundle or final progress metric was available.** H1's scientific judge remains
+the existing `h1_eval.py`, with the same hard-gated BPB threshold and decomposition. This addendum
+does not change or add a gate. It makes the terminal transition executable and write-once.
+
+An audit found that `h1_eval.py`, unlike H2I's later evaluator, does not establish committed
+provenance, opens its result with overwrite semantics, accepts a missing `h1_applied_8L.json` by
+falling back to a typed constant, and accepts any training sidecar without checking session-3's
+seed/resume/step/control identity. These were harmless in the two manually supervised historical
+evaluations but are not an adequate unattended handoff for the first 11-hour continuation.
+
+`s1/h1_s3_adjudicate.py` is therefore an **external guard around the unchanged evaluator**. Before
+calling it, the guard requires:
+
+1. a final `h1_trained_s3.npz` and same-basename JSON, never a periodic checkpoint selected from
+   progress;
+2. exact session-3 metadata: layers `[3,6,9,12,15,18,21,24]`, `k=16`, `E=256`, seed 3141,
+   requested steps 4000, at least 250 completed, final `time-cap|steps-exhausted`, the registered
+   optimizer settings, zero non-finite microbatches and the exact S2/H0 resume basenames;
+3. both real-shape identity controls, live carve, an applied update within 40 attempts and moved
+   masters/router;
+4. frozen SHA-256 identities for the matched control, H0 factors, labels, stats and E37 routers;
+5. frozen Git blobs and SHA-256 for the unchanged `h1_eval.py`, `common.py` and `h1_qat.py`;
+6. absence of both the scientific output and companion audit before invocation.
+
+After `h1_eval.py` returns, the guard accepts evaluator exit 0 or 1 as the registered PASS/FAIL
+outcome, asserts agreement with `G_H1.passes`, and writes a separate write-once audit containing
+all hashes and the result identity. Any other exit is operational and produces no scientific
+verdict. H1 still has no rank arm; session 3 cannot answer rank, one-byte, rate, 10 B or scale.
+
+The terminal command is frozen as:
+
+```
+python benchmarks/donor_adaptation/s1/h1_s3_adjudicate.py \
+  --trained D:\_ktmp\h1_kaggle_s3_v2_output\h1_trained_s3.npz
+```
+
+On Kaggle `ERROR`, preserve/download the log and classify the last passed gate; do not invoke this
+guard on a periodic or partial pair. On `COMPLETE`, download once to that fresh directory and run
+the command once.
