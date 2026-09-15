@@ -165,3 +165,70 @@ or step-count prediction is registered until the actual trainer smoke measures i
 - No activation-int8/LUT claim. That is a separate forward quantizer and must remain a separate
   partner so weight healing cannot hide activation damage.
 - No result from the T4 until CPU fp32 BPB **and** rank partners adjudicate it.
+
+---
+
+# ADDENDUM A — Phase A result, 2026-09-15
+
+**Written after the write-once Phase A run.** It records the registered gates without changing
+them. Runner commit: `c4a156f`; result:
+`s1/results/h2i/h2i_applied_8L.json`, 12,239 bytes, sha256
+`c367acb45113e9ce68fb898de0b0833db61b6a1b84990b7ccc6467f82d2ef8cc`.
+
+## A.1 Controls
+
+All preconditions fire. The runner and all imported helpers were exact committed HEAD blobs;
+all six frozen inputs matched their registered byte counts and hashes. R8 was bit-identical to
+`t2_rules.r8_int8_rtn`, used 13 distinct planted codes, and passed finite non-zero STE gradients
+through `gate/up/down`. On the real layer-3 shape, hard `k=E` was bit-identical (`max|d|=0`),
+hard `k=16` activated exactly 560 neurons at every tested token, and the carve was live
+(`max|d|=11.7700`). The frozen instrument reproduced intact `0.767594964119663` exactly and H0
+run 3 `0.810022487699936` to floating-point round-off.
+
+## A.2 The matched baseline
+
+| row | BPB | delta |
+|---|---:|---:|
+| H0 run 3, fp32 FFN | 0.810022488 | — |
+| R8 on the eight H1 FFNs, `k=E` | **0.810005595** | **−0.000016893** vs H0 |
+| R8 + E37 router, hard `k=16` | **1.019076465** | **+0.209070870** carve cost |
+
+`G-H2Ie` fires by a factor of about 592 against its `0.01` maximum; `G-H2If` fires by a factor
+of about 4.18 against its `>0.05` launch threshold. **Phase B is eligible.** The one-byte
+conversion is not the object to heal on this matched scope; the selection hole is.
+
+The registered prediction that applied R8 would be worse than H1's applied ternary
+`1.096636133` is **falsified in the favourable direction**: R8 is better by `0.077559667`.
+E64's all-28-layer ordering does not transfer to this eight-layer restriction. This is not a
+contradiction: the scope and total accumulated perturbation differ, and neither result may be
+multiplied by layer count.
+
+## A.3 Rank partner
+
+Against H0 run 3's own trajectories, captured before installing R8:
+
+| metric | result |
+|---|---:|
+| free-running positional agreement | **9/160** |
+| per prompt | **[6, 0, 0, 0, 3]** |
+| first divergence, zero-based | **[1, 0, 0, 0, 3]** |
+| teacher-forced top-1 | **99/160** |
+| teacher-forced per prompt | **[19, 26, 18, 19, 17]** |
+| mean target rank | **3.675** |
+| target rank <=5 | **143/160** |
+
+Prediction 5 (`free <150`) is taken, but that loose prediction is not the result. The result is
+the same autoregressive cliff seen earlier: H0's target remains close under fixed context while
+free-running fails immediately on four prompts. Phase B must beat the exact score and rank
+baseline; a BPB-only win is insufficient.
+
+## A.4 Predictions scored
+
+1. controls fire — **TAKEN**;
+2. R8 within 0.002 BPB — **TAKEN**, absolute error `0.000016893`;
+3. carve cost above 0.05 — **TAKEN**, `0.209070870`;
+4. applied R8 worse than applied ternary, predicted 1.15–1.50 — **FALSIFIED**, favourable,
+   actual `1.019076465`;
+5. free-running below 150/160 — **TAKEN**, actual `9/160`.
+
+No rate, 10 B, scale, rank-compression or activation-int8 claim is added by this result.

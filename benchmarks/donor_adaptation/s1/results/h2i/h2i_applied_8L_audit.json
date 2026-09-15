@@ -1,0 +1,38 @@
+{
+ "audited_at": "2026-09-15",
+ "method": "independent post-run parse, sha256, arithmetic and nested-count audit",
+ "result": {
+  "path": "benchmarks/donor_adaptation/s1/results/h2i/h2i_applied_8L.json",
+  "bytes": 12239,
+  "sha256": "c367acb45113e9ce68fb898de0b0833db61b6a1b84990b7ccc6467f82d2ef8cc",
+  "producing_head": "c4a156f2baa2a30c37a648ce4d862dbc9ba7560a",
+  "runner_git_blob": "40c188cc769575b8a9704359c68899ad4d8b368e",
+  "runner_sha256": "fcb717c10fe5fbcf26762f5ae6e2324484e2b4a02195caee6088a9c3c3339900"
+ },
+ "arithmetic": {
+  "int8_minus_h0": -0.00001689268264704058,
+  "abs_int8_minus_h0": 0.00001689268264704058,
+  "applied_int8_minus_int8": 0.2090708702449584,
+  "applied_int8_minus_h1_applied_ternary": -0.0775596673187475
+ },
+ "rank_recount": {
+  "per_prompt_free_sum": 9,
+  "stored_free": 9,
+  "per_prompt_teacher_forced_sum": 99,
+  "stored_teacher_forced": 99,
+  "rank_entries": 160,
+  "target_shape": [5, 32],
+  "all_counts_match": true
+ },
+ "controls_re_read": {
+  "status": "PHASE_B_ELIGIBLE",
+  "phase_b_eligible": true,
+  "G_H2Ib": true,
+  "G_H2Ic_toy": true,
+  "G_H2Ic_real": true,
+  "G_H2Id": true,
+  "G_H2Ie": true,
+  "G_H2If": true
+ },
+ "verdict": "AUDIT_PASS"
+}

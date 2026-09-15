@@ -1,6 +1,6 @@
 # SiliconLLM — research catalog and no-duplication handoff
 
-**Snapshot:** 2026-09-15. **Latest material:** H1 through addendum N/session-3 bundle, E64 run 2, E65, completed E66, and the hardened E63 Part B preflight. The user's remembered endpoint was E64; the tree contained later work. E66 is complete; H1 session 3 is ready but unrun; E63d's first admissible rate measurement has not yet started.
+**Snapshot:** 2026-09-15. **Latest material:** H1 through addendum N/session-3 bundle, E64 run 2, E65, completed E66, hardened E63 Part B preflight, and H2I Phase A. The user's remembered endpoint was E64; the tree contained later work. E66 and H2I Phase A are complete; H1 session 3 is ready but unrun; E63d's first admissible rate measurement has not yet started.
 
 ## Read this first
 
@@ -19,6 +19,7 @@
 | Does a 10B carved-int8 artifact exist and compute correctly? | **Yes:** E63 Part A, exact arithmetic/parity. Part B is hash-pinned and CONFIG-gated; its 2026-09-15 preflight refused before timing because 16/45 occupancy samples breached the bar. Clean rate is still owed. | canonical E63 §15 / preflight JSON |
 | What does carve cost on int8? | **E64 run 1 void. Audited run 2 says dearer by +1.13–1.43 BPB across the ladder; at k=3 the int8 carve itself costs +1.912 BPB and lands above chance.** | canonical E64 probe §8 / ledger §66 |
 | Is the carve trainable? | **Yes on an 8-layer branch:** H1 `TRAINING-HELPS`; router still moves, no full-stack claim. | canonical H1 |
+| Is one-byte + carve the right next trainable object? | **Yes on the matched 8L proxy:** R8 changes H0 by only −0.0000169 BPB, while hard k16 costs +0.209071; Phase B eligible. Rank is still broken at 9/160 free, 99/160 teacher-forced. | H2I Phase A |
 | What does the rank fraction used by fast R128 cost post-hoc? | **At D=1536, r/D=1/32 costs +1.705835 BPB = 51.66% dense→chance gap; no width extrapolation.** | canonical E65 |
 | Does a compressed pretrained 7B actually function on `engine.c`? | **Yes at one byte:** A2 0.674405 BPB vs fp32 0.674027; 4/5 greedy trajectories exact, 137/160 overall. It misses the strict 150/160 rank bar and has no rate claim. | canonical E66 run 2 / audit |
 
@@ -33,6 +34,7 @@
 - Do not re-run E66's controls, score or rank: run 2 is canonical and closes the registered 7 B one-byte fidelity question. Change donor, quantizer, head format, slice or estimand first.
 - For the next healing branch, preserve E66's result that one-byte format damage is negligible and E64's result that the post-hoc carve on that format is not; the trainable object is selection/routing, not the byte conversion itself.
 - Do not launch the old `H2T` ternary-body proposal as written. E66 removes the ternary-format damage by keeping the faithful one-byte rung, while E64 shows the carve/routing hole remains and is larger there. A successor must be one-byte + trained selection/routing, with weight-only and activation-quantized partners kept separate.
+- Do not repeat H2I Phase A: its matched write-once result is `0.810005595` uncarved R8 and `1.019076465` hard-k16, with rank 9/160 free and 99/160 teacher-forced. The Phase B threshold is the H2I value, not H1's ternary applied row. E64's all-28L format ordering and H2I's 8L ordering differ; neither may be scaled by layer count.
 - Always assert engine `CONFIG`; always use a same-binary/same-arm control for a same-binary claim; never resume from a result file being validated.
 
 ## Experiment registry — foundations before the E-series
@@ -143,13 +145,14 @@ These entries are represented primarily by briefs, engine runners/results and `S
 | H1 | **TRAINING-HELPS:** trained 8L 0.962593 vs applied 1.096636; experts supply most early movement, router becomes helpful and still moves. Addenda M–N: one 11 h continuous S3 is preregistered; committed packer and 1.63 GB bundle independently hash-audited. | `READY_NOT_RUN`; useful for continuity/router mechanism, not a one-byte, rate, rank or 10 B result |
 | E65 | **RANK FRACTION COST:** r/D=1/32 on real 1.5B donor = 2.473430 BPB, +1.705835 = 51.66% dense→chance; rank damage non-monotone | no D=4096 extrapolation; this is a post-hoc floor, not a trainability verdict |
 | E66 | **COMPLETE — SCORE SURVIVES, RANK BAR DOES NOT:** A2 0.674405 BPB, +0.000378 vs fp32; fold worth 0.0000376; repaired rank run 2 is 137/160 with 4/5 full trajectories exact | rank run 1 void; promote rank only from run 2; no rate, 10 B or scale-law claim |
+| H2I Phase A | **PHASE-B-ELIGIBLE:** exact R8 8L baseline 0.810006 vs H0 0.810022; hard k16 1.019076, carve +0.209071. Rank 9/160 free, 99/160 teacher-forced, mean 3.675. | write-once matched baseline; do not remeasure. Train R8 selection/router and require score + rank improvement; no rate/10 B claim |
 
 ## Open queue, ordered by information gain
 
 1. **Get a genuinely quiet 10–15 minute CPU window for `G-E63d`:** close browser/background load and run the committed hardened Part B. Its 45 s all-samples guard must pass before timing; do not replace the result with another composed estimate. The 2026-09-15 refusal was operational only and ran zero cells.
 2. **Run H1 session 3 on one T4 for 11 hours:** bundle is `READY_NOT_RUN`, exact command in `_h1_bundle/RUN.md`, audit in `h1_s3_bundle_audit.json`. This closes optimizer-continuity/router-trajectory debt; it does not answer one-byte healing.
-3. **Specify the successor healing run on the one-byte branch:** E66 removes base-format fidelity as the problem; E64 leaves a +1.912 BPB post-hoc `k=3` selection hole, while H1 says selection/routing is trainable. Preserve applied-vs-trained, score-vs-rank and weight-only-vs-activation-quantized partners. Do not reuse `H2T` unchanged.
-4. **Use further T4 sessions only after that one-byte apparatus passes locally:** no 10B training fits a T4; use the GPU budget on a representative branch that can falsify the recipe before scaling.
+3. **Build and locally smoke H2I Phase B:** Phase A is complete and eligible. Freeze its `1.019076465` BPB, 9/160 free, 99/160 teacher-forced and 3.675 mean-rank baseline before any T4; adapt H1's trainer to R8 without changing the q/o base, layers, E or k.
+4. **Then run one continuous H2I T4 session only if the smoke fires:** no 10B training fits a T4; this representative branch must falsify the one-byte training recipe before scaling. Keep activation-int8/LUT as a later separate partner.
 
 ## Corpus inventory
 

@@ -773,3 +773,28 @@ was measured, and nothing transfers to 10 B. Combined with E64 and H1, the next 
 now sharper: keep the one-byte representation and train the aggressive selection/routing that
 post-hoc conversion destroys. `G-E63d`, the clean rate of the existing 10 B carved-int8 artifact,
 remains the immediate CPU measurement debt.
+
+---
+
+## H2I Phase A — one byte is inert on the matched branch; the carve costs 0.209 BPB and breaks rank
+
+`probes/H2I_ONE_BYTE_CARVE_BASELINE.md` ·
+`briefs/BRIEF_H2I_TRAIN_THE_CARVE_AT_ONE_BYTE.md` addendum A ·
+`s1/results/h2i/h2i_applied_8L.json` · **`PHASE_B_ELIGIBLE`**
+
+H2I changes exactly one axis in H1's applied eight-layer object: the FFN forward quantizer is
+R8 one-byte instead of R3 ternary. All provenance, quantizer, gradient, mask-cardinality and
+frozen-instrument controls fire. H0 run 3 reads `0.810022488`; uncarved R8 reads
+**`0.810005595`**, only **−0.000016893 BPB** away. The hard E37 `k=16` carve reads
+**`1.019076465`**, a live **+0.209070870 BPB** selection hole. Both preregistered launch gates
+fire, so the one-byte Phase B is warranted.
+
+The rank partner prevents a BPB-only promotion: against H0's own trajectories the applied arm
+has only **9/160** free-running agreement, despite **99/160** teacher-forced top-1, mean target
+rank **3.675**, and rank <=5 at 143/160 positions. Four prompts diverge at the first generated
+token. Phase B must therefore beat the exact score and rank baseline, not merely lower loss.
+
+One prediction is usefully falsified. E64's all-28-layer int8 carve was dearer than ternary; on
+the matched eight layers R8 is instead **0.077559667 BPB better** than H1's applied ternary.
+Damage does not compose linearly with layer count, so neither ordering transfers between scopes.
+No rate, activation-int8, rank-compression, 10 B or scale-law claim follows.
