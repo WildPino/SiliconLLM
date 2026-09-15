@@ -564,3 +564,19 @@ bit-identical and exactly one changed payload, `h2i_qat.py` (30,716 bytes, sha25
 `f8df56204e564ca0ced074059d0418fcb16682b5d200cc18a1785d46290d6c02`). The old bundle remains
 untouched as v1–v3 provenance. Status is **`READY_NOT_RUN`**; v4 still requires the standard remote
 identity, quota, inactive-kernel, uploaded-inventory and mounted-hash gates.
+
+---
+
+# ADDENDUM J — Phase B version 4 launched
+
+**Recorded 2026-09-15 after the repaired bundle passed every remote dispatch gate.** Account
+`acct2` authenticated server-side as `giggio253` and reported 0.04 GPU-h used / 29.96 remaining
+before launch. Dataset `giggio253/h2i-one-byte-phase-b-bundle` was versioned, then withheld until
+its remote filename/size inventory exactly matched all 15 manifest payloads plus the manifest.
+The kernel was inactive before push.
+
+Private kernel `giggio253/h2i-one-byte-phase-b`, version 4, was pushed from dispatcher/bundle
+commit `dd8ca8e` and reported `KernelWorkerStatus.RUNNING` at 17:59:22 Europe/Rome. This is the
+first H2I session capable of entering the training loop; versions 1–3 remain operationally void
+and are never resumed. RUNNING is not evidence that the startup control or first update fired.
+Monitoring remains sparse/event-driven, and only terminal output may advance the protocol.
