@@ -1665,3 +1665,24 @@ rather than laundered into an identity claim.
 Session 3 itself still requires the already-authorized **one 11-hour T4 session** from
 addendum M. This addendum spends no GPU time; it exists to keep that session from starting on
 an unauditable checkpoint or a self-contradictory manifest.
+
+---
+
+# ADDENDUM O — session-3 Kaggle dispatch, before upload or launch
+
+**Recorded 2026-09-15 before session 3 is uploaded or launched.** No H1 scientific setting,
+prediction, gate or interpretation changes. H2I is the higher-information branch; this H1 run is
+independent continuity/router debt and may use the second account in parallel.
+
+The shared committed dispatcher is `s1/h_training_kaggle.py`. It must pass `check h1` and
+`preflight h1 acct1`. The observed preflight is server identity `wildpino`, 21.48 GPU-h remaining,
+and no active `wildpino/h1-qat-run-session-3` kernel. The existing private dataset
+`wildpino/h1-qat-bundle` is versioned from the exact addendum-N bundle; the new private kernel is
+`wildpino/h1-qat-run-session-3`.
+
+The dispatcher validates manifest sha256 `bae2701a…` and all nine payloads before upload, waits for
+the new dataset version to become READY, and injects a mount gate that repeats every size/hash
+check inside Kaggle before `h1_qat.py` starts. It then runs only addendum M's 11-hour command and
+requires `h1_trained_s3.npz` plus `.json` before reporting success. It refuses identity/quota
+mismatches and duplicate active kernels. GPU progress remains non-adjudicating; the returned final
+artifact is still scored once by `h1_eval.py` on CPU fp32.

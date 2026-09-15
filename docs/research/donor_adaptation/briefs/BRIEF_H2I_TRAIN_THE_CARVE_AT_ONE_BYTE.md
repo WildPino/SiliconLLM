@@ -403,3 +403,30 @@ steps will be reported, not back-filled as a prediction.
 
 The apparatus has now exhausted the useful local checks. Phase B requires one continuous
 11-hour T4 session; CPU reruns would duplicate controls without adjudicating H2I.
+
+---
+
+# ADDENDUM D — external dispatch contract, before upload or launch
+
+**Recorded 2026-09-15 before creating the H2I Kaggle dataset or kernel.** This is an operational
+contract only: all scientific choices remain exactly those in addenda B–C.
+
+The shared dispatcher is `s1/h_training_kaggle.py`. It must be committed before launch and must
+pass `check h2i` plus `preflight h2i acct2`. The preflight observed the server identity
+`giggio253`, 30.00 GPU-h remaining, and no active kernel at the reserved ref. H2I is assigned:
+
+- account alias `acct2`, server identity `giggio253`;
+- private dataset `giggio253/h2i-one-byte-phase-b-bundle`;
+- private kernel `giggio253/h2i-one-byte-phase-b`;
+- Kaggle machine enum `NvidiaTeslaT4`, platform cap 12 h, trainer cap 11.0 h.
+
+Before upload, the dispatcher rehashes the frozen manifest and all 15 payloads. It stages through
+hardlinks or copies in a temporary directory, never mutating `_h2i_bundle`. It waits until the
+dataset is server-side READY before pushing. The generated kernel locates the mounted manifest by
+its exact sha256 rather than by a guessed mount path, rehashes every mounted payload before model
+load, runs only addendum B's command, and refuses success unless both final outputs exist.
+
+The dispatcher also refuses a credential/server identity mismatch, less than 11 GPU-h remaining,
+or an already queued/running kernel at the same ref. Kaggle progress BPB remains diagnostic and no
+checkpoint selection is introduced. Status monitoring must be sparse/event-driven; do not poll at
+two-second cadence.
