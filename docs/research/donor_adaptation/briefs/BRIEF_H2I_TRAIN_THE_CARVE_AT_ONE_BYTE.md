@@ -611,3 +611,30 @@ Terminal handling is fixed before the outcome:
    operational error to be repaired or rerun.
 5. Only exit `0`, with the recorded combined gate true, licenses the conditional engine-export
    seam. No checkpoint may be selected from progress diagnostics.
+
+---
+
+# ADDENDUM L — the v4 adjudication freeze is executable, before terminal output
+
+**Recorded 2026-09-15 while version 4 still reported `KernelWorkerStatus.RUNNING`, before any
+terminal artifact or final training metric was visible.** Addendum K froze the seven allowed
+evaluator blobs, but its prose/JSON protocol still depended on a person correctly retyping and
+checking every condition. `s1/h2i_v4_adjudicate.py` now makes that freeze executable without
+changing `h2i_eval.py`, any threshold, input, prompt, target or exit-code meaning.
+
+The guard refuses an uncommitted guard, any of the seven evaluator dependencies whose byte size,
+SHA-256 or Git blob differs from addendum K, and any frozen scientific input whose identity
+differs. It accepts only the final `h2i_trained_s1.npz` plus same-basename JSON and the preserved
+raw `h2i-one-byte-phase-b.log`; periodic checkpoints are not candidates. The sidecar must identify
+the exact v4 manifest `330fa237…`, all eight training inputs and all six Kaggle apparatus hashes,
+the registered model/revision/object/hyperparameters, at least 250 completed and applied updates,
+zero non-finite microbatches, a final stop reason, movement of every watched tensor, and every
+pre-training real/toy/RNG control firing.
+
+Only after that preflight does the guard invoke the unchanged write-once CPU evaluator with every
+path explicit. It accepts evaluator return `0`, `2` or `3` only when status, score, rank execution
+and combined-gate fields agree exactly, then writes a separate write-once audit containing hashes
+of the raw log, trained pair, dependencies, inputs and result. Return `2` remains the scientific
+`FAIL-SCORE` verdict and return `3` remains `SCORE-ONLY`; neither is repaired or rerun. A planted
+self-test must pass before this guard is committed, and the committed guard identity is recorded
+separately while v4 remains non-terminal.

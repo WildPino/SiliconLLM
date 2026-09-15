@@ -104,7 +104,7 @@ These are not invitations to average the two sides; they are boundaries that fut
 
 | priority | cell | why still open | action rule |
 |---:|---|---|---|
-| 1 | H2I Phase B combined score+rank | only trained one-byte selection/router continuation; v4 running | wait event-driven; validate terminal artifacts; score first, then one rank adjudication only if score passes |
+| 1 | H2I Phase B combined score+rank | only trained one-byte selection/router continuation; v4 running | wait event-driven; download once and invoke `h2i_v4_adjudicate.py` once; its frozen preflight admits only the final v4 object, then score runs before rank |
 | 2 | H1 S3 continuation | registered longer trained-carve trajectory; v2 running | wait event-driven; one CPU fp32 evaluation after artifact validation |
 | 3 | `G-E63d` clean absolute 10B carved-int8 rate | exact path exists, but preflight refused before any cell | use the pinned runner in a genuinely quiet 10–15 minute local window; do not substitute interim ratios |
 | 4, conditional | exact H2I engine export | exporter cannot yet compose the adjudicated mixed object | build only after H2I passes both score and rank; follow `H2I_ENGINE_EXPORT_GAP_AUDIT.md` |
