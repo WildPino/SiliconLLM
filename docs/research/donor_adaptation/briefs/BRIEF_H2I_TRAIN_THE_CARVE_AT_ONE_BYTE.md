@@ -638,3 +638,24 @@ of the raw log, trained pair, dependencies, inputs and result. Return `2` remain
 `FAIL-SCORE` verdict and return `3` remains `SCORE-ONLY`; neither is repaired or rerun. A planted
 self-test must pass before this guard is committed, and the committed guard identity is recorded
 separately while v4 remains non-terminal.
+
+---
+
+# ADDENDUM M — committed H2I v4 terminal guard is ready
+
+**Recorded 2026-09-15 after addendum L's implementation commit and while the last authoritative
+status read still reported v4 `RUNNING`; no terminal output had been downloaded or inspected.**
+Commit `365f811` adds only the external guard and documentation. `h2i_eval.py` and all seven
+dependencies frozen by addendum K remain byte-identical.
+
+The committed guard is 21,172 bytes, SHA-256
+`cac0c8188d3f3df0f458e74317ad2b5fabbbf12c2d78250ec015f03df0bfe124`, Git blob
+`25c948b6f5accce3d3cd8ce73f404201b2558cdd`. Its planted metadata/exit-semantic self-test passes;
+its worktree blob equals the committed blob; and a post-commit pass rehashes all seven frozen
+evaluator dependencies and seven local evaluator inputs successfully. The machine-readable
+readiness record is `s1/results/h2i/h2i_phase_b_v4_adjudication_readiness.json`.
+
+The terminal commands are now fixed: download once to the fresh
+`D:\_ktmp\h2i_kaggle_v4_output`, then invoke the guard once with the final NPZ and preserved raw
+log. Direct invocation of `h2i_eval.py` is superseded operationally for v4, but the evaluator
+itself remains the unchanged scientific authority inside the guard.

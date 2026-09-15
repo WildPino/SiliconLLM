@@ -1,0 +1,36 @@
+{
+ "stage": "H2I_PHASE_B_V4_ADJUDICATION_READINESS",
+ "status": "READY_WAITING_FOR_TERMINAL_OUTPUT",
+ "recorded_local": "2026-09-15T18:57:45+02:00",
+ "remote": {
+  "account": "acct2",
+  "kernel": "giggio253/h2i-one-byte-phase-b",
+  "kernel_version": 4,
+  "last_authoritative_status_this_turn": "KernelWorkerStatus.RUNNING",
+  "terminal_output_visible_when_frozen": false
+ },
+ "guard": {
+  "path": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+  "commit": "365f8110955062944f65e2915692bfa993e92a85",
+  "bytes": 21172,
+  "sha256": "cac0c8188d3f3df0f458e74317ad2b5fabbbf12c2d78250ec015f03df0bfe124",
+  "git_blob": "25c948b6f5accce3d3cd8ce73f404201b2558cdd"
+ },
+ "checks": {
+  "python_compile": "PASS",
+  "planted_self_test": "PASS",
+  "guard_worktree_equals_committed_blob": "PASS",
+  "seven_frozen_evaluator_dependencies": "PASS",
+  "seven_local_evaluator_inputs": "PASS",
+  "scientific_evaluator_modified": false
+ },
+ "terminal_protocol": {
+  "download_once": "python benchmarks/donor_adaptation/s1/h_training_kaggle.py output h2i acct2 --path D:\\_ktmp\\h2i_kaggle_v4_output",
+  "adjudicate_once": "python benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py --trained D:\\_ktmp\\h2i_kaggle_v4_output\\h2i_trained_s1.npz --raw-log D:\\_ktmp\\h2i_kaggle_v4_output\\h2i-one-byte-phase-b.log",
+  "on_complete": "download into the named fresh directory, invoke the guard once, preserve evaluator exit 0/2/3 as the registered scientific verdict",
+  "on_error": "download the raw log once; do not invoke the scientific evaluator unless the exact final NPZ+JSON pair exists and the guard preflight passes",
+  "no_checkpoint_selection": true,
+  "write_once": true
+ },
+ "scope": "Operational reproducibility only; no H2I score, rank, rate, engine, 10B or scale result."
+}
