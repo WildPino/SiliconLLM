@@ -58,3 +58,21 @@ during training, starting from H0 run 3.
 - Do not infer rate: this PyTorch path computes the dense FFN before masking.
 - Do not promote the 8-layer ordering against E64 into an all-layer law.
 - Do not infer 10 B quality, or activation-int8/LUT behavior, from weight-only R8.
+
+## Phase B handoff — READY_NOT_RUN
+
+Phase B was preregistered in brief addendum B before its trainer/evaluator existed. The committed
+apparatus is `s1/h2i_qat.py` plus `s1/h2i_eval.py`; the exact bundle is
+`s1/_h2i_bundle`, with its sole launch command in `RUN.md`.
+
+The real-donor CPU smoke passes every preregistered pre-GPU control: exact R8 rule, gradients,
+hard/soft `k=E`, real `k=16` cardinality, live carve, exact E37 router initialization, one applied
+update moving both depth extremes and the router, no non-finite microbatch, and exact
+save/reload. Its artifact is `s1/results/h2i/h2i_qat_cpu_smoke.json`, sha256
+`33ae14478a457e140b5de034fa2b9c31af448ac400308058d573fce675c9456e`.
+
+The independently rehashed bundle contains 15 payloads / 463,452,303 bytes; manifest sha256 is
+`a37d65fdc3e7833bb2b539abd43a07d958a98bc9dd65d091240716a5606abf20`. It needs one continuous
+11-hour T4 session. No expected step count is inferred from the two-layer CPU smoke; the frozen
+progress prediction is only `>=250` applied updates with a loadable checkpoint. After the T4,
+the final artifact is adjudicated once on CPU fp32 against the exact Phase A score and rank gates.

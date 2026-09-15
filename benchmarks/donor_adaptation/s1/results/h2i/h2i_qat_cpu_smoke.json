@@ -1,0 +1,164 @@
+{
+ "brief": "BRIEF_H2I_TRAIN_THE_CARVE_AT_ONE_BYTE.md addendum B",
+ "status": "CPU_SMOKE_PASS",
+ "provenance": {
+  "mode": "git-head-plus-manifest",
+  "head_commit": "a96fd4895bf35c1c192bd9b57359b9b261d1620c",
+  "files": {
+   "benchmarks/donor_adaptation/s1/h2i_qat.py": {
+    "git_blob": "8b6f7c498e4b40bf445bf6776e6a3a9c16fe5448",
+    "sha256": "259cb25a53c305a21e75e3511a51cc63d0768beb0561b754dfebeed8fdfc811c"
+   },
+   "benchmarks/donor_adaptation/s1/h1_qat.py": {
+    "git_blob": "4caeae0b77f72a0b389b0cb583aebff841063857",
+    "sha256": "7876d6032c3fd46f4d836d88aaf7ebae087f0437dc743f310f0a3a4652bd30ad"
+   },
+   "benchmarks/donor_adaptation/s1/h2i_applied.py": {
+    "git_blob": "40c188cc769575b8a9704359c68899ad4d8b368e",
+    "sha256": "fcb717c10fe5fbcf26762f5ae6e2324484e2b4a02195caee6088a9c3c3339900"
+   },
+   "benchmarks/donor_adaptation/density/common.py": {
+    "git_blob": "608a563bc7f30e21c8941e3703b40ce25fb0960e",
+    "sha256": "7ac00b31e91d0018c775e2e9b26120c0ec025075d7913218ea3cdcfe3196e461"
+   },
+   "benchmarks/donor_adaptation/ternary/t2_rules.py": {
+    "git_blob": "8be4464e7d81cd89686a4fe2179c42f0f4f9a9e4",
+    "sha256": "10037c87fb4403d5f0f97bde9736c7f198485cc20722e5e937037bb8a2c2e8c4"
+   },
+   "benchmarks/donor_adaptation/engine/e6_generate.py": {
+    "git_blob": "5a4a5484832de5ed2d241fcaf4d813f692f0a8ac",
+    "sha256": "410353b083c9a98e6a3044551212b5c8aae8995ed1cbaac0f03b99016726824e"
+   }
+  }
+ },
+ "inputs": {
+  "factors": {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\_h2i_bundle\\h0_trained3.npz",
+   "bytes": 352967686,
+   "sha256": "dd62482d65accb34129a7b7a3f8baf75b0ccf3c4fdf2481233f1b9ce823927d8"
+  },
+  "labels": {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\_h2i_bundle\\labels_E256.npz",
+   "bytes": 859537,
+   "sha256": "c39d0740b7f754daf168d811c77120c5394ae677e3882fef208d331d8c333c9c"
+  },
+  "stats": {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\_h2i_bundle\\h1_actstats.npz",
+   "bytes": 1189630,
+   "sha256": "49fd2f659a37237ead850ea86057664b74db4f2286dc7146abf87e197e6887fe"
+  },
+  "routers": {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\_h2i_bundle\\e37_routers_E256.npz",
+   "bytes": 44046858,
+   "sha256": "42b12cb9d4bda2da7833cd0e179a9dab8e3f43264ce640e2b5db31d5fd043d8a"
+  },
+  "phase_a": {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\_h2i_bundle\\h2i_applied_8L.json",
+   "bytes": 12239,
+   "sha256": "c367acb45113e9ce68fb898de0b0833db61b6a1b84990b7ccc6467f82d2ef8cc"
+  },
+  "train": {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\_h2i_bundle\\h1_train.npz",
+   "bytes": 64000260,
+   "sha256": "0cdaa28f405c3a8c6a8589af8e88788b33131bc7d4f1096da6c1fedf78caa9d9"
+  },
+  "heldout": {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\_h2i_bundle\\h1_heldout.npz",
+   "bytes": 98564,
+   "sha256": "110a90ab358efcacdc090fdf0fce62bb74d6d06df02d1083cf4cf7e752529d35"
+  },
+  "calib": {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\_h2i_bundle\\h1_calib.npz",
+   "bytes": 131332,
+   "sha256": "b8d4184db0988f4d86ae3089e99ba167b8e05e6dcdbbc504f7679729fe7aa019"
+  }
+ },
+ "manifest": {
+  "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\_h2i_bundle\\MANIFEST.json",
+  "sha256": "a37d65fdc3e7833bb2b539abd43a07d958a98bc9dd65d091240716a5606abf20",
+  "files": 15,
+  "validated": true
+ },
+ "controls": {
+  "G_H2Ib": {
+   "r8_exact_t2_rules": true,
+   "distinct_planted_codes": 13
+  },
+  "G_H2Ic_toy": {
+   "ste_gradients_finite_nonzero": {
+    "gate": true,
+    "up": true,
+    "down": true
+   },
+   "hard_k_equals_E_any_router": true,
+   "hard_max_abs_diff": 0.0,
+   "soft_k_equals_E_zero_router": true,
+   "soft_max_abs_diff": 0.0,
+   "hard_active_neurons_each": [
+    [
+     70.0,
+     70.0,
+     70.0
+    ],
+    [
+     70.0,
+     70.0,
+     70.0
+    ]
+   ],
+   "expected_each": 70,
+   "carve_live": true,
+   "carve_max_abs_diff": 1.1202938556671143
+  },
+  "gate_boundary_test": {
+   "equal_threshold_fails": true,
+   "below_threshold_fires": true,
+   "fires": true
+  },
+  "G_H2Ic_real": {
+   "layer": 3,
+   "hard_kE_any_router": true,
+   "hard_max_abs_diff": 0.0,
+   "soft_kE_zero_router": true,
+   "soft_max_abs_diff": 0.0,
+   "hard_k16_active": [
+    [
+     560.0,
+     560.0,
+     560.0,
+     560.0,
+     560.0,
+     560.0
+    ]
+   ],
+   "expected_active": 560,
+   "cardinality_fires": true,
+   "carve_live": true,
+   "carve_max_abs_diff": 11.517437934875488,
+   "router_init_exact": true,
+   "fires": true
+  },
+  "G_H2I_smoke": {
+   "applied": true,
+   "applied_steps": 1,
+   "moved": {
+    "L03.gate": 0.00020000338554382324,
+    "L24.down": 0.00020000338554382324,
+    "L03.router": 0.0003000497817993164
+   },
+   "grad_norm": 12.280808448791504,
+   "nonfinite_microbatches": 0,
+   "layers": [
+    3,
+    24
+   ]
+  },
+  "save_reload_exact": true
+ },
+ "layers": [
+  3,
+  24
+ ],
+ "device": "cpu",
+ "seconds": 39.38578987121582
+}

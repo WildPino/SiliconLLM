@@ -354,3 +354,52 @@ not to the router.
 - Do not tune gates, bands, prompts, target IDs, layers, `k`, learning rates or aux after T4.
 - Do not mix activation-int8/LUT into this session. That partner starts only after weight-only R8
   is adjudicated.
+
+---
+
+# ADDENDUM C — pre-GPU readiness and correction to the deferred step-count estimate
+
+**Recorded 2026-09-15 after the committed apparatus and real-donor CPU smoke, and before any
+H2I T4 run.** This addendum does not change the Phase B object, command, gates, bands or
+predictions.
+
+## C.1 The pre-GPU gate fires
+
+The committed `h2i_qat.py` self-test and a real-donor CPU smoke both pass. The write-once smoke
+artifact is `s1/results/h2i/h2i_qat_cpu_smoke.json`, 5,259 bytes, sha256
+`33ae14478a457e140b5de034fa2b9c31af448ac400308058d573fce675c9456e`. It validates the
+bundle manifest and all inputs before model load, then establishes:
+
+- exact R8 parity to `t2_rules` with 13 distinct planted codes;
+- finite non-zero gate/up/down STE gradients;
+- exact hard `k=E` identity for arbitrary routing and exact soft `k=E` identity at zero router;
+- on real layer 3, exactly 560 active neurons at hard `k=16`, a live carve, and exact E37 router
+  initialization;
+- one applied optimizer update, no non-finite microbatch, and movement of `L03.gate`
+  (`2.0000339e-4`), `L24.down` (`2.0000339e-4`) and `L03.router` (`3.0004978e-4`);
+- exact save/reload of masters, routers and labels.
+
+This is apparatus evidence only. The two-layer, one-update CPU smoke took 39.386 s and is not a
+quality, throughput or expected-T4-step measurement.
+
+## C.2 Frozen execution bundle
+
+`h2i_pack.py` built `s1/_h2i_bundle` once from committed apparatus and hash-pinned inputs. Its
+manifest is 3,387 bytes, sha256
+`a37d65fdc3e7833bb2b539abd43a07d958a98bc9dd65d091240716a5606abf20`; it lists 15 payloads
+totalling 463,452,303 bytes. A second independent pass re-opened and rehashed every payload with
+zero mismatches. Status is **`READY_NOT_RUN`**. The only permitted first-session command is the
+one in `_h2i_bundle/RUN.md`; it remains seed 4242, 4,000 requested updates, checkpoint every 250
+and a hard 11.0-hour limit, with no resume.
+
+## C.3 Correction to B.4
+
+B.4 said the exact expected step count would be filled after the CPU smoke. That promise was too
+strong: a two-layer CPU apparatus smoke cannot honestly predict the throughput of an eight-layer
+T4 training session. No step-rate or expected final count is therefore invented here. The
+already-preregistered directional prediction remains the only progress threshold: at least 250
+applied updates and one loadable periodic checkpoint. Actual T4 seconds/update and completed
+steps will be reported, not back-filled as a prediction.
+
+The apparatus has now exhausted the useful local checks. Phase B requires one continuous
+11-hour T4 session; CPU reruns would duplicate controls without adjudicating H2I.

@@ -1,0 +1,56 @@
+{
+ "status": "READY_NOT_RUN",
+ "recorded_at": "2026-09-15",
+ "brief": "BRIEF_H2I_TRAIN_THE_CARVE_AT_ONE_BYTE.md addenda B-C",
+ "apparatus": {
+  "head_commit": "a96fd4895bf35c1c192bd9b57359b9b261d1620c",
+  "trainer_git_blob": "8b6f7c498e4b40bf445bf6776e6a3a9c16fe5448",
+  "evaluator_git_blob": "0813f32f8c165ae92d347f26e30e85ae88eb7a7f",
+  "packer_git_blob": "e90683d5a9dfffc23ae4ecacd4a8c5ec7c572873",
+  "selftest_passed": true
+ },
+ "bundle": {
+  "path": "benchmarks/donor_adaptation/s1/_h2i_bundle",
+  "manifest_bytes": 3387,
+  "manifest_sha256": "a37d65fdc3e7833bb2b539abd43a07d958a98bc9dd65d091240716a5606abf20",
+  "files": 15,
+  "hashed_payload_bytes": 463452303,
+  "independent_all_hashes_match": true
+ },
+ "cpu_smoke": {
+  "path": "benchmarks/donor_adaptation/s1/results/h2i/h2i_qat_cpu_smoke.json",
+  "bytes": 5259,
+  "sha256": "33ae14478a457e140b5de034fa2b9c31af448ac400308058d573fce675c9456e",
+  "seconds": 39.38578987121582,
+  "device": "cpu",
+  "layers": [3, 24],
+  "applied_steps": 1,
+  "nonfinite_microbatches": 0,
+  "r8_exact_t2_rules": true,
+  "hard_kE_exact": true,
+  "soft_zero_router_kE_exact": true,
+  "hard_k16_active_each": 560,
+  "carve_live": true,
+  "router_init_exact": true,
+  "moved": {
+   "L03.gate": 0.00020000338554382324,
+   "L24.down": 0.00020000338554382324,
+   "L03.router": 0.0003000497817993164
+  },
+  "save_reload_exact": true
+ },
+ "command": {
+  "steps": 4000,
+  "bs": 2,
+  "accum": 8,
+  "lr": 0.0002,
+  "router_lr": 0.0003,
+  "aux": 0.01,
+  "every": 250,
+  "seed": 4242,
+  "max_hours": 11.0,
+  "resume": null
+ },
+ "step_count_correction": "The two-layer CPU apparatus smoke cannot predict eight-layer T4 throughput. No expected T4 step count is claimed; the preregistered progress prediction remains at least 250 applied updates and one loadable periodic checkpoint.",
+ "scope": "One 11-hour T4 H2I weight-only R8 session followed by one CPU fp32 adjudication. No rate, activation-int8, 10B, or scale-transfer claim."
+}

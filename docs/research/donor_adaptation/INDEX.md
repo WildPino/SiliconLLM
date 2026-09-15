@@ -2,7 +2,9 @@
 
 **The goal:** run somebody else's pretrained LLM on our architecture (`engine.c`), target **~10B at
 50 tok/s** (good) / **100 tok/s** (excellent).
-**Latest research handoff: 2026-09-15 (H1 addenda M–N) — SESSION 3 IS READY, NOT RUN.** The old tree already contained a forgotten untracked packer for a long H1 continuation. Audit caught it hashing `RUN.md` before modifying it, accepting a same-size wrong resume file, and claiming five avoided Adam restarts where the comparator gives three. The repaired committed packer passed a read-only full-bundle check, then built a 1.63 GB session-3 bundle from the published S2 path; all nine final hashes were independently recomputed. One **11-hour T4** run is now ready (seed 3141, ~765 expected steps, first-ever periodic checkpoint at step 250). This tests continuous-optimizer/router trajectory on H1's ternary 8-layer carve; it is not a one-byte, rate, 10 B or rank result. E64/E66 also retire the old `H2T` proposal as written: the next new branch should train selection/routing on the faithful one-byte format, not spend GPU healing ternary-format damage that can be avoided. (`probes/H1_THE_CARVE_TRAINED.md` §8; audit `s1/results/h1/h1_s3_bundle_audit.json`)
+**Latest research handoff: 2026-09-15 (H2I addenda B–C) — ONE-BYTE PHASE B IS READY, NOT RUN.** Phase A fixed the matched eight-layer baseline at **0.810006 BPB** uncarved and **1.019076 BPB** hard-k16, with rank **9/160 free**, **99/160 teacher-forced** and mean **3.675**. The committed R8 trainer/evaluator now pass a real-donor one-update CPU smoke, including exact rule/wiring, gradients, both depth extremes, router initialization and save/reload. The 15-payload, **463,452,303-byte** bundle was independently rehashed; manifest sha256 `a37d65f…`. One continuous **11-hour T4** is now required. The CPU smoke cannot predict eight-layer T4 throughput, so no step estimate is fabricated; the registered progress prediction remains >=250 applied updates. (`probes/H2I_ONE_BYTE_CARVE_BASELINE.md`; readiness audit `s1/results/h2i/h2i_phase_b_readiness_audit.json`)
+
+**Previous research handoff: 2026-09-15 (H1 addenda M–N) — SESSION 3 IS READY, NOT RUN.** The old tree already contained a forgotten untracked packer for a long H1 continuation. Audit caught it hashing `RUN.md` before modifying it, accepting a same-size wrong resume file, and claiming five avoided Adam restarts where the comparator gives three. The repaired committed packer passed a read-only full-bundle check, then built a 1.63 GB session-3 bundle from the published S2 path; all nine final hashes were independently recomputed. One **11-hour T4** run is now ready (seed 3141, ~765 expected steps, first-ever periodic checkpoint at step 250). This tests continuous-optimizer/router trajectory on H1's ternary 8-layer carve; it is not a one-byte, rate, 10 B or rank result. E64/E66 also retire the old `H2T` proposal as written: the next new branch should train selection/routing on the faithful one-byte format, not spend GPU healing ternary-format damage that can be avoided. (`probes/H1_THE_CARVE_TRAINED.md` §8; audit `s1/results/h1/h1_s3_bundle_audit.json`)
 
 **Last operational update: 2026-09-15 (E63 Part B hardening) — THE CLEAN 10 B RATE WAS NOT ATTEMPTED.** Addendum D and committed runner `d4204c3` now hash-pin Part A, engine, both 10 B artefacts and both sidecars, preserve/assert each engine `CONFIG`, and require a 45-second all-samples occupancy guard before touching the canonical result. Provenance and all 43 self-tests passed; occupancy did not: median **3.646%**, p75 **4.528%**, range **2.214–10.938%**, with **16/45** samples at or above the strict **4.39%** bar. The runner refused before any timing cell and `e63_part_b.json` remains absent. This is an apparatus checkpoint, not a `G-E63d` result or attempt; use the same committed runner in the next quiet window. (`probes/E63_THE_TEN_BILLION_CELL_AT_ONE_BYTE.md` §15)
 
@@ -798,3 +800,16 @@ One prediction is usefully falsified. E64's all-28-layer int8 carve was dearer t
 the matched eight layers R8 is instead **0.077559667 BPB better** than H1's applied ternary.
 Damage does not compose linearly with layer count, so neither ordering transfers between scopes.
 No rate, activation-int8, rank-compression, 10 B or scale-law claim follows.
+
+### Phase B readiness
+
+Brief addenda B–C freeze the R8 master/router training protocol and the exact CPU score/rank
+adjudication before GPU. The committed apparatus passes its self-test and a real-donor one-update
+CPU smoke: all rule, gradient, mask, router initialization, moved-parameter and save/reload gates
+fire with zero non-finite microbatches. The smoke artifact is
+`s1/results/h2i/h2i_qat_cpu_smoke.json` (sha256 `33ae1447…`).
+
+The launch bundle is **`READY_NOT_RUN`**: 15 payloads, 463,452,303 bytes, independently rehashed,
+manifest sha256 `a37d65fd…`. It needs one continuous 11-hour T4 using exactly
+`s1/_h2i_bundle/RUN.md`; after return, `s1/h2i_eval.py` performs the one CPU fp32 adjudication.
+The two-layer CPU smoke is not a T4 throughput measurement, so no exact step count is claimed.
