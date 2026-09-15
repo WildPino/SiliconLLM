@@ -29,10 +29,12 @@ WHAT THIS RUNNER REFUSES TO DO.
     unadjudicated and the probe recorded the repeat as owed.  This runner prints the repeat and
     the two reference readings and stops there.  The verdict stays E61's.
 """
+import hashlib
 import json
 import math
 import os
 import random
+import re
 import subprocess
 import sys
 import time
@@ -44,6 +46,7 @@ import e44_interval as E44                                          # noqa: E402
 
 OUTDIR = os.path.join(HERE, "results")
 OUTFILE = os.path.join(OUTDIR, "e63_part_b.json")
+PREFLIGHT_FILE = os.path.join(OUTDIR, "e63_part_b_preflight.json")
 # ADDENDUM C: the interim paired ratio writes to its OWN file, so a contended reading can never
 # be mistaken for Part B's output.  --interim also stops after sweep 1: G-E61c's repeat and the
 # 3 B cells are absolute readings and a contended box cannot answer them at all.
@@ -68,6 +71,17 @@ NTOK = 120                    # decode tokens per repetition
 BOOT = 20000
 CI = (2.5, 97.5)
 SEED = 63
+PREFLIGHT_SECONDS = 45
+
+# Addendum D: exact inputs to the first admissible Part B measurement.
+PINNED_SHA256 = {
+    "part_a": "b0c614f799060d6bc4a7efe781e2436085e36b0ab4fedff00e464014a028657a",
+    "engine": "56272fdbe615d61739094605cb026aa308fd74604ba5598fab501c09188ae687",
+    "a10b_packed": "c1e42d462d719110e1cf69b7d348fed24ea5d87dcff0d3b18b5dc073b30ad3b3",
+    "a10b_int8": "e85eb874947f8d3fb1223ddf2062e50018f70739765ab229d4832af170dc1550",
+    "a10b_packed_sidecar": "52947ff93f4d604aa59a463261b90473ab0fc0fe69032dfdedeb5d7701f73bb5",
+    "a10b_int8_sidecar": "74378f322854b7ae0907e0757996d51b01c850da2dcafe25de9e4e72a6d891d2",
+}
 
 # E63's comparators for G-E63e.  NOT divisors: they are printed BESIDE a measured ratio.
 #
@@ -111,6 +125,109 @@ CELLS_3B = [
     ("3B_INT8",   os.path.join(E62, "qwen25-3b_i8.bin"),     []),
     ("3B_PACKED", os.path.join(E62, "qwen25-3b_packed.bin"), []),
 ]
+
+
+def sha256_file(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as fh:
+        while True:
+            block = fh.read(1024 * 1024)
+            if not block:
+                break
+            h.update(block)
+    return h.hexdigest()
+
+
+def committed_provenance():
+    """Addendum D: a timing runner must be the exact blob committed at launch."""
+    try:
+        root = subprocess.check_output(
+            ["git", "rev-parse", "--show-toplevel"], cwd=HERE, text=True
+        ).strip()
+        head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root,
+                                       text=True).strip()
+        rel = os.path.relpath(os.path.abspath(__file__), root).replace("\\", "/")
+        worktree_blob = subprocess.check_output(
+            ["git", "hash-object", os.path.abspath(__file__)], cwd=root, text=True
+        ).strip()
+        head_blob = subprocess.check_output(
+            ["git", "rev-parse", "HEAD:" + rel], cwd=root, text=True
+        ).strip()
+    except (OSError, subprocess.CalledProcessError) as exc:
+        raise SystemExit("cannot establish committed runner provenance: %s" % exc)
+    if worktree_blob != head_blob:
+        raise SystemExit("RUNNER IS NOT THE COMMITTED HEAD BLOB: worktree %s, HEAD %s. "
+                         "Part B refuses to start (addendum D)."
+                         % (worktree_blob, head_blob))
+    return {"head_commit": head, "runner_path": rel, "runner_git_blob": worktree_blob,
+            "runner_sha256": sha256_file(os.path.abspath(__file__))}
+
+
+def assert_engine_config(text, want_quant="ternary"):
+    """Read back the arm/global container mode from the engine, never from the command."""
+    m = re.search(r"CONFIG[^\n]*", text)
+    cfg = m.group(0).rstrip("\r") if m else None
+    if not cfg:
+        raise SystemExit("no CONFIG line; timing cell REFUSED (addendum D)")
+    for field, value in (("attn", "avx4"), ("threads", str(THREADS)),
+                         ("quant", want_quant)):
+        if not re.search(r"\b%s=%s\b" % (field, re.escape(value)), cfg):
+            raise SystemExit("CONFIG mismatch: expected %s=%s, engine reports %r; cell REFUSED"
+                             % (field, value, cfg))
+    return cfg
+
+
+def validate_pinned_inputs(provenance):
+    """Hash the measured pair and validate the format distinction in their sidecars."""
+    packed = PAIR_10B[0][1]
+    int8 = PAIR_10B[1][1]
+    paths = {"part_a": PART_A, "engine": ENGINE, "a10b_packed": packed,
+             "a10b_int8": int8, "a10b_packed_sidecar": packed + ".json",
+             "a10b_int8_sidecar": int8 + ".json"}
+    missing = [p for p in paths.values() if not os.path.exists(p)]
+    if missing:
+        raise SystemExit("missing pinned Part B input(s): " + ", ".join(missing))
+    actual = {}
+    for name, path in paths.items():
+        actual[name] = sha256_file(path)
+        if actual[name] != PINNED_SHA256[name]:
+            raise SystemExit("PINNED INPUT SHA256 MISMATCH %s: %s != %s"
+                             % (name, actual[name], PINNED_SHA256[name]))
+    common = {"synthetic": True, "shape": "A10B", "seed": 1234, "d_model": 4096,
+              "d_ffn": 46080, "n_layers": 16, "n_heads": 32, "n_kv_heads": 8,
+              "head_dim": 128, "vocab": 32768, "carve_E": 256,
+              "carve_k_in_file": 3, "active_weights_per_token": A10B_CHARGED}
+    sidecars = {}
+    for name, path in (("packed", packed + ".json"), ("int8", int8 + ".json")):
+        with open(path, encoding="utf-8") as fh:
+            sidecars[name] = json.load(fh)
+        bad = [(k, sidecars[name].get(k), v) for k, v in common.items()
+               if sidecars[name].get(k) != v]
+        if bad:
+            raise SystemExit("%s sidecar does not describe the registered arm: %r" % (name, bad))
+    if sidecars["int8"].get("ffn_bytes_per_weight") != 1.0 \
+            or sidecars["int8"].get("ffn_kinds") != ["MK_I8", "MK_I8_T"]:
+        raise SystemExit("int8 sidecar does not identify the registered one-byte FFN")
+    return {"sha256": actual, "sidecars": sidecars,
+            "runner": provenance, "validated_at": time.strftime("%Y-%m-%dT%H:%M:%S")}
+
+
+def summarise_preflight(samples, seconds=PREFLIGHT_SECONDS):
+    """Pure addendum-D decision: the bar is exclusive and applies to every sample."""
+    ordered = sorted(samples)
+    p75 = ordered[int(0.75 * (len(ordered) - 1))] if ordered else float("nan")
+    over = [x for x in samples if x >= OCC_BAR]
+    return {"seconds": seconds, "samples": samples, "n": len(samples),
+            "median": median(samples) if samples else float("nan"),
+            "p75": p75, "min": min(samples) if samples else float("nan"),
+            "max": max(samples) if samples else float("nan"),
+            "over_or_at_bar": len(over), "bar": OCC_BAR,
+            "admissible": bool(samples) and not over}
+
+
+def preflight_guard(seconds=PREFLIGHT_SECONDS):
+    """Refuse early unless every baseline sample is below Part B's cell bar."""
+    return summarise_preflight(E44.watch(seconds), seconds)
 
 
 def log(m):
@@ -237,10 +354,26 @@ def part_a_is_closed():
 def rep(name, weights, flags):
     """One --bench repetition, with the occupancy split measured AROUND it."""
     sp = E44.Split()
-    tok_s, dt, wall, child = E44.one_rep(ENGINE, weights, NTOK, THREADS, flags)
+    cmd = [ENGINE, "--weights", weights, "--threads", str(THREADS)] + list(flags) + \
+          ["--bench", str(NTOK)]
+    t0 = time.time()
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    outb, errb = p.communicate()
+    child = E44._process_times(int(p._handle))
+    wall = time.time() - t0
+    text = outb.decode(errors="replace")
+    if p.returncode != 0:
+        log(errb.decode(errors="replace")[-1200:])
+        raise SystemExit("engine failed: " + " ".join(cmd))
+    m = E44.RE_BENCH.search(text)
+    if not m:
+        log(text[-1200:])
+        raise SystemExit("could not parse the BENCH line")
+    cfg = assert_engine_config(text, "ternary")
+    tok_s, dt = float(m.group(3)), float(m.group(2))
     sysb, foreign = sp.close(child)
     r = {"name": name, "tok_s": tok_s, "engine_dt_s": dt, "wall_s": wall,
-         "sys": sysb, "foreign": foreign}
+         "sys": sysb, "foreign": foreign, "config": cfg}
     r.update(sp.record())
     return r
 
@@ -336,6 +469,23 @@ def selftest():
         ok(os.path.exists(path), "%s exists (%s)" % (nm, path))
     ok(os.path.exists(ENGINE), "engine exists")
 
+    good = "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=ternary"
+    ok(assert_engine_config(good) == good, "CONFIG accepts the registered timing arm")
+    for bad in ("CONFIG attn=serial threads=6 quant=ternary",
+                "CONFIG attn=avx4 threads=4 quant=ternary",
+                "CONFIG attn=avx4 threads=6 quant=int8"):
+        try:
+            assert_engine_config(bad)
+            rejected = False
+        except SystemExit:
+            rejected = True
+        ok(rejected, "CONFIG rejects %r" % bad)
+
+    ok(summarise_preflight([1.0, OCC_BAR - 1e-6], 2)["admissible"],
+       "preflight admits samples strictly below the bar")
+    ok(not summarise_preflight([1.0, OCC_BAR], 2)["admissible"],
+       "preflight refuses a sample exactly at the exclusive bar")
+
     log("   selftest: %d checks passed" % n[0])
     return n[0]
 
@@ -352,6 +502,7 @@ def main():
     t0 = time.time()
     global REPS, OUTFILE
     interim = "--interim" in sys.argv
+    preflight_only = "--preflight" in sys.argv
     for i, a in enumerate(sys.argv):
         if a == "--reps" and i + 1 < len(sys.argv):
             REPS = int(sys.argv[i + 1])
@@ -367,8 +518,35 @@ def main():
         return 1
     selftest()
 
+    provenance = committed_provenance()
+    log("   runner HEAD %s  blob %s (worktree match ASSERTED)"
+        % (provenance["head_commit"][:12], provenance["runner_git_blob"]))
+    log("   hashing and validating the pinned Part B inputs...")
+    inputs = validate_pinned_inputs(provenance)
+    log("   engine/artifact/sidecar hashes match addendum D")
+    log("   %d-second clean-box preflight; EVERY sample must be below %.2f%%"
+        % (PREFLIGHT_SECONDS, OCC_BAR))
+    guard = preflight_guard()
+    preflight = {"brief": BRIEF, "part": "B preflight (addendum D)",
+                 "provenance": provenance, "inputs": inputs, "guard": guard,
+                 "written": time.strftime("%Y-%m-%dT%H:%M:%S")}
+    os.makedirs(OUTDIR, exist_ok=True)
+    with open(PREFLIGHT_FILE, "w") as fh:
+        json.dump(preflight, fh, indent=1, sort_keys=True)
+    log("   occupancy median %.2f%% p75 %.2f%% range %.2f..%.2f; %d/%d at-or-over bar"
+        % (guard["median"], guard["p75"], guard["min"], guard["max"],
+           guard["over_or_at_bar"], guard["n"]))
+    if not guard["admissible"]:
+        log("   PREFLIGHT REFUSED. e63_part_b.json was not touched; G-E63d remains unattempted.")
+        return 3
+    log("   PREFLIGHT ADMISSIBLE.")
+    if preflight_only:
+        log("   --preflight requested: stopping before every timing cell.")
+        return 0
+
     out = {"brief": BRIEF, "part": ("INTERIM (addendum C)" if interim else "B"),
            "engine": os.path.basename(ENGINE), "precondition": why,
+           "provenance": provenance, "pinned_inputs": inputs, "preflight": guard,
            "non_promotion": ("This reading may NOT adjudicate G-E63d in either direction. "
                              "G-E63d is answered by one clean sweep on an idle box and by "
                              "nothing else; predictions 4 and 5 are scored against that sweep, "
