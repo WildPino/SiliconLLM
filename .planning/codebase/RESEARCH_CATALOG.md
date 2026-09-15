@@ -1,6 +1,6 @@
 # SiliconLLM — research catalog and no-duplication handoff
 
-**Snapshot:** 2026-09-15. **Latest material:** H1, E64 run 2, E65, completed E66, and the hardened E63 Part B preflight. The user's remembered endpoint was E64; the tree contained later work, and E66 has now been run, repaired and audited. E63d's first admissible rate measurement has not yet started.
+**Snapshot:** 2026-09-15. **Latest material:** H1 through addendum N/session-3 bundle, E64 run 2, E65, completed E66, and the hardened E63 Part B preflight. The user's remembered endpoint was E64; the tree contained later work. E66 is complete; H1 session 3 is ready but unrun; E63d's first admissible rate measurement has not yet started.
 
 ## Read this first
 
@@ -32,6 +32,7 @@
 - Do not treat E64 run-1 numbers as evidence. Run 2 is canonical; its quality result must not be turned into a timing, trained-format claim or scale extrapolation.
 - Do not re-run E66's controls, score or rank: run 2 is canonical and closes the registered 7 B one-byte fidelity question. Change donor, quantizer, head format, slice or estimand first.
 - For the next healing branch, preserve E66's result that one-byte format damage is negligible and E64's result that the post-hoc carve on that format is not; the trainable object is selection/routing, not the byte conversion itself.
+- Do not launch the old `H2T` ternary-body proposal as written. E66 removes the ternary-format damage by keeping the faithful one-byte rung, while E64 shows the carve/routing hole remains and is larger there. A successor must be one-byte + trained selection/routing, with weight-only and activation-quantized partners kept separate.
 - Always assert engine `CONFIG`; always use a same-binary/same-arm control for a same-binary claim; never resume from a result file being validated.
 
 ## Experiment registry — foundations before the E-series
@@ -139,15 +140,16 @@ These entries are represented primarily by briefs, engine runners/results and `S
 | E64 run 1 | **VOID / MALFORMED control:** cross-kernel `serial` vs `avx4` mismatch amplified through top-k selection (~1500×) | no cells may be quoted from run 1 |
 | E64 run 2 | **CANONICAL:** `G-E64a2` full ladder exact under asserted `attn=serial`; `G-E64b` passes; `G-E64d=CARVE-IS-DEARER-ON-INT8`, int8-minus-ternary +1.13–1.43 BPB; `k=3` int8-carved 4.128510 BPB > chance | quality-only, one donor, post-hoc; no trained-format, scale or rate claim; apparatus commit lag is recorded in probe §8.1 |
 | H0 | **format trainability evidence:** rank/carve-related training at 1.5B improves post-hoc quality, but free-running remains weak/partial at the measured checkpoints | training-in-format is distinct from post-hoc application |
-| H1 | **TRAINING-HELPS:** trained 8L 0.962593 vs applied 1.096636; experts supply most early movement, router becomes helpful and still moves | do not declare finished; full stack/free-running and format choice remain open |
+| H1 | **TRAINING-HELPS:** trained 8L 0.962593 vs applied 1.096636; experts supply most early movement, router becomes helpful and still moves. Addenda M–N: one 11 h continuous S3 is preregistered; committed packer and 1.63 GB bundle independently hash-audited. | `READY_NOT_RUN`; useful for continuity/router mechanism, not a one-byte, rate, rank or 10 B result |
 | E65 | **RANK FRACTION COST:** r/D=1/32 on real 1.5B donor = 2.473430 BPB, +1.705835 = 51.66% dense→chance; rank damage non-monotone | no D=4096 extrapolation; this is a post-hoc floor, not a trainability verdict |
 | E66 | **COMPLETE — SCORE SURVIVES, RANK BAR DOES NOT:** A2 0.674405 BPB, +0.000378 vs fp32; fold worth 0.0000376; repaired rank run 2 is 137/160 with 4/5 full trajectories exact | rank run 1 void; promote rank only from run 2; no rate, 10 B or scale-law claim |
 
 ## Open queue, ordered by information gain
 
 1. **Get a genuinely quiet 10–15 minute CPU window for `G-E63d`:** close browser/background load and run the committed hardened Part B. Its 45 s all-samples guard must pass before timing; do not replace the result with another composed estimate. The 2026-09-15 refusal was operational only and ran zero cells.
-2. **Specify the next healing run on the one-byte branch:** E66 removes base-format fidelity as the problem; E64 leaves a +1.912 BPB post-hoc `k=3` selection hole, while H1 says selection/routing is trainable. Preserve applied-vs-trained and score-vs-rank partners.
-3. **Then request the two T4 sessions if the preregistered one-byte healing apparatus passes locally:** no 10B training fits a T4; use the GPU budget on a representative branch that can falsify the recipe before scaling.
+2. **Run H1 session 3 on one T4 for 11 hours:** bundle is `READY_NOT_RUN`, exact command in `_h1_bundle/RUN.md`, audit in `h1_s3_bundle_audit.json`. This closes optimizer-continuity/router-trajectory debt; it does not answer one-byte healing.
+3. **Specify the successor healing run on the one-byte branch:** E66 removes base-format fidelity as the problem; E64 leaves a +1.912 BPB post-hoc `k=3` selection hole, while H1 says selection/routing is trainable. Preserve applied-vs-trained, score-vs-rank and weight-only-vs-activation-quantized partners. Do not reuse `H2T` unchanged.
+4. **Use further T4 sessions only after that one-byte apparatus passes locally:** no 10B training fits a T4; use the GPU budget on a representative branch that can falsify the recipe before scaling.
 
 ## Corpus inventory
 

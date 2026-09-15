@@ -1,0 +1,51 @@
+{
+ "status": "READY_NOT_RUN",
+ "built_at": "2026-09-15T08:49:36",
+ "brief": "BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md addenda M-N",
+ "packer": {
+  "head_commit": "1a914ba3f1b5775cfb2e75934df04a894bf0ad50",
+  "git_blob": "999d68fe8249715e09fefa06e94c3731924574a3",
+  "sha256": "eb71e51f7c65a8f88910b5b90548e21da1cb2660e69ea9476f4881ad754edbc6",
+  "read_only_check_passed": true
+ },
+ "bundle": {
+  "path": "benchmarks/donor_adaptation/s1/_h1_bundle",
+  "manifest_sha256": "bae2701ac8091b79a0f690298d0aa3ddfd3bad255f714dbe5aa05b678bbea0ee",
+  "manifest_bytes": 3792,
+  "hashed_payload_bytes": 1754017236,
+  "independent_all_hashes_match": true,
+  "session1_checkpoint_present": false,
+  "session2_checkpoint_present": true
+ },
+ "resume": {
+  "file": "h1_trained_s2.npz",
+  "bytes": 1334711974,
+  "sha256": "4030d2af63aed924d7e17559bc3dc84ba8db519056c389cdb068b38b58a7e3b3",
+  "published_bpb": 0.962592908257438,
+  "historical_identity_limit": "The published eval recorded this path but no hash; this proves the bytes shipped for session 3, not that they were unchanged since evaluation."
+ },
+ "command": {
+  "steps": 4000,
+  "bs": 2,
+  "accum": 8,
+  "lr": "2e-4",
+  "router_lr": "0.0003",
+  "aux": "0.01",
+  "every": 250,
+  "seed": 3141,
+  "max_hours": 11.0,
+  "expected_steps_at_51_7_seconds": 765
+ },
+ "files": {
+  "RUN.md": {"bytes": 9568, "sha256": "620fd1af2d4a2a93822e6d124fcaad4f4a0de6f7960edfad1a09ae6ddf383282"},
+  "h0_trained3.npz": {"bytes": 352967686, "sha256": "dd62482d65accb34129a7b7a3f8baf75b0ccf3c4fdf2481233f1b9ce823927d8"},
+  "h1_actstats.npz": {"bytes": 1189630, "sha256": "49fd2f659a37237ead850ea86057664b74db4f2286dc7146abf87e197e6887fe"},
+  "h1_calib.npz": {"bytes": 131332, "sha256": "b8d4184db0988f4d86ae3089e99ba167b8e05e6dcdbbc504f7679729fe7aa019"},
+  "h1_heldout.npz": {"bytes": 98564, "sha256": "110a90ab358efcacdc090fdf0fce62bb74d6d06df02d1083cf4cf7e752529d35"},
+  "h1_qat.py": {"bytes": 48685, "sha256": "7876d6032c3fd46f4d836d88aaf7ebae087f0437dc743f310f0a3a4652bd30ad"},
+  "h1_train.npz": {"bytes": 64000260, "sha256": "0cdaa28f405c3a8c6a8589af8e88788b33131bc7d4f1096da6c1fedf78caa9d9"},
+  "h1_trained_s2.npz": {"bytes": 1334711974, "sha256": "4030d2af63aed924d7e17559bc3dc84ba8db519056c389cdb068b38b58a7e3b3"},
+  "labels_E256.npz": {"bytes": 859537, "sha256": "c39d0740b7f754daf168d811c77120c5394ae677e3882fef208d331d8c333c9c"}
+ },
+ "scope": "One 11-hour T4 continuation of H1. No rate, 10B, rank-axis, or one-byte-format claim. Scientific gates remain those preregistered in addendum M."
+}

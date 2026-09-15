@@ -1,6 +1,6 @@
 # H1 — the carve TRAINED rather than applied: `G-H1` PASSES at both checkpoints, band `TRAINING-HELPS`
 
-**Brief:** `briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md` + addenda A–K
+**Brief:** `briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md` + addenda A–N
 **Trainer:** `s1/h1_qat.py` (T4, fp16) · **Gate:** `s1/h1_eval.py` (CPU fp32, frozen slice)
 **Results:** `s1/results/h1/h1_eval_h1_s2_cum390.json`, `h1_eval_h1_s1_mid195.json`,
 `h1_trained_s{1,2}.json`, `h1-qat-run-session-2.log`
@@ -168,3 +168,28 @@ comfortable direction to be wrong in and therefore the one to watch.
    K.5). Session 1's step count is unrecoverable because its log is 0 bytes.
 4. **The ternary/carve separation** — the `k=E` trained arm — remains unaffordable and remains
    the reason H1's result, while real, prices the smaller of the two damage axes.
+
+## 8. Session 3 is provenance-complete and READY, but has not run
+
+Addendum M found that the two 2.8-hour sessions were capped by our own default, not Kaggle's
+12-hour limit, and registered one **11-hour** continuation from S2. Addendum N then audited the
+forgotten untracked packer before use: its first draft would have hashed `RUN.md` before changing
+it, could reuse a same-size wrong checkpoint, and misstated the avoided Adam restarts.
+
+The repaired packer was committed at `1a914ba`, its read-only full-input check passed, and the
+bundle was rebuilt once. Independent re-hashing confirms all nine manifest entries. The resume
+checkpoint is 1,334,711,974 bytes, sha256
+`4030d2af63aed924d7e17559bc3dc84ba8db519056c389cdb068b38b58a7e3b3`; the final manifest is
+sha256 `bae2701ac8091b79a0f690298d0aa3ddfd3bad255f714dbe5aa05b678bbea0ee`.
+Machine-readable audit: `s1/results/h1/h1_s3_bundle_audit.json`.
+
+**Status: `READY_NOT_RUN`.** The command is frozen in `_h1_bundle/RUN.md`: seed 3141,
+`--max-hours 11.0`, resume S2, expected ~765 steps at the measured 51.7 s/step. The first
+periodic save at step 250 is itself a registered planted check because neither earlier session
+reached it. The scientific predictions and limits remain addendum M's; bundle construction is
+not a result.
+
+This session remains useful for optimizer continuity and the trained-router trajectory, but it
+is **not the one-byte deliverable**. E64/E66 make the subsequent branch explicit: do not launch
+the old `H2T` proposal as written to heal ternary-format damage that the one-byte rung avoids.
+The next new healing apparatus must keep one-byte weights and train the carve/routing damage.

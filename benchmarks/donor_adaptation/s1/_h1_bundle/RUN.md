@@ -150,3 +150,38 @@ joint training changes: which experts receive gradient.
   +0.138 over these 8. Nothing measured here may be multiplied up.
 - **Not a speed measurement.** Training computes the full FFN and masks it, so it buys quality
   information and not speed. No timing is taken and none may be quoted from it.
+
+
+---
+
+## Session 3 (addendum M) -- ONE long session, not four short ones
+
+`--max-hours 2.8` was a default in `h1_qat.py`, not a platform limit: Kaggle allows **12 h**.
+Session 3 runs **11 h** -- the trainer's own cap must fire BEFORE the platform's, because the
+1.33 GB `np.savez` happens only after the clean stop.
+
+At the measured **51.7 s/step** that is **~766 steps in ONE session**, against ~390 across
+both previous sessions, with **one new** Adam restart rather than four prospective short-run
+restarts.
+
+```
+python3 h1_qat.py \
+    --factors  h0_trained3.npz \
+    --resume   h1_trained_s2.npz \
+    --labels   labels_E256.npz \
+    --stats    h1_actstats.npz \
+    --train    h1_train.npz \
+    --heldout  h1_heldout.npz \
+    --calib    h1_calib.npz \
+    --out      /kaggle/working/h1_trained_s3.npz \
+    --router-lr 0.0003 --aux 0.01 --steps 4000 --bs 2 --accum 8 --lr 2e-4 \
+    --every 250 --seed 3141 --max-hours 11.0
+```
+
+**What to watch, and it is new this session.** The periodic checkpoint at `--every 250` has
+**never executed**: sessions 1 and 2 both stopped at step 195. The first `save()` at step 250
+is therefore the first exercise of that path -- if it fails, the session is lost, so the step
+250 log line is the one that matters most.
+
+**Coming back:** `h1_trained_s3.npz` plus its `.json`. The gate is **not** decided on the T4 --
+run `h1_eval.py` on CPU fp32, as for sessions 1 and 2.
