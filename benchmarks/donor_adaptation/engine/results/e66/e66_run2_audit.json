@@ -1,0 +1,89 @@
+{
+  "experiment": "E66",
+  "audit_date": "2026-09-15",
+  "status": "PROMOTABLE_WITH_RANK_RUN1_VOID_AND_RUN2_REPAIR",
+  "verdict": "ONE-BYTE-IS-NEARLY-FREE_BUT_RANK-BAR-DOES-NOT-SURVIVE",
+  "scope": {
+    "quality_and_rank_only": true,
+    "donor": "Qwen/Qwen2.5-Coder-7B",
+    "revision": "0396a76181e127dfc13e5c5ec48a8cee09938b02",
+    "post_hoc": true,
+    "rate_measured": false,
+    "ten_billion_claim": false,
+    "g_e63d": "VOID_AND_OWED"
+  },
+  "git": {
+    "controls_checkpoint_commit": "023472c58b7f1ee8829e957daefcf6d91ba61007",
+    "continuation_preregistration_commit": "2636647405fe301f7beac98a8723fa453f59c9cf",
+    "score_runner_commit": "bde7b75ab98b8f46da6bd96d2c9746647f562a94",
+    "rank_repair_preregistration_commit": "d6e23673ed50e20dac2c3b08c231e8d2fc72aaa5",
+    "rank_repair_runner_commit": "3a0b6ee427d2d35a6c51c60245b56e1821cb962e",
+    "rank_repair_runner_git_blob": "bafcef2fa934e97b76db792fc155ad13788ad06a",
+    "rank_repair_runner_worktree_matches_git_blob": true
+  },
+  "timeline": {
+    "rank_repair_preregistered": "2026-09-15T07:52:07+02:00",
+    "rank_repair_runner_committed": "2026-09-15T07:53:53+02:00",
+    "rank_run2_result_written_utc": "2026-09-15T06:14:03Z"
+  },
+  "sha256": {
+    "controls_checkpoint": "da0dbe3ad667ad017290805647745584f0c709787832650f5177a92fa04cac9d",
+    "score_and_void_rank_run1": "330fa52959f39a28ce1d12ce5d72e1772e1dc249a4f88ba4c622df9a131a555d",
+    "rank_run2": "91236d4ec217a209978ddff3bfc9af026ab652025ef6ccce233099c455bfd75f",
+    "combined_run2": "fefb604c5420358b1e837dc111b71a59bd843e05587fb16d5929a8651beeb110",
+    "run_log": "ac8bdea0f5e69fedd434f4bbcd091947540e0c2aabec2869bc8fe4f600ad884d",
+    "rank_repair_runner": "45c837e6b5cccbac677013455765dfcddb7d178d5d37b525effe6a6600d1a3ec",
+    "engine_executable": "56272fdbe615d61739094605cb026aa308fd74604ba5598fab501c09188ae687",
+    "a1_foldlayers": "39706bdc1e69d57e97c98bc1ee7dd64bc2211a3841cbad29aa1ed6d15b2fbf24",
+    "a2_nofold": "0b7cafcae0cc10e779568768731f3da03e2c2129f83cdd50713e8aab92f7a311",
+    "a1_sidecar": "f724977035f916886c31dab430caea9c7ee7259491342bf0f41a2cf27b2b2442",
+    "a2_sidecar": "7c83bf724ba1a415c8c7eb04c997a4bf21308f01cf350e4b99ff192f7f7e3dd6"
+  },
+  "checks": {
+    "runner_selftests_passed": 24,
+    "controls_checkpoint_hash_pinned_and_unchanged": true,
+    "score_run_hash_pinned_and_unchanged": true,
+    "bpb_recomputations_checked": 2,
+    "bpb_recomputation_errors": 0,
+    "n_predicted_is_12264_for_all_bpb_cells": true,
+    "control_configs_asserted": 2,
+    "treatment_bpb_configs_asserted": 2,
+    "rank_run2_generation_configs_asserted": 10,
+    "all_configs_attn_avx4_and_expected_quant": true,
+    "artifact_hashes_match_sidecars": true,
+    "rank_run1_status": "VOID_UNASSERTED_GENERATION_CONFIG",
+    "rank_run2_ids_identical_to_observed_run1": true
+  },
+  "measurements": {
+    "a1_foldlayers_bpb": 0.6744421689827591,
+    "a2_nofold_bpb": 0.6744045864106045,
+    "fp32_reference_bpb": 0.674026555,
+    "chance_bpb": 4.070106221274352,
+    "a2_minus_fp32_bpb": 0.000378031410604551,
+    "a2_minus_chance_bpb": -3.3957016348637476,
+    "a1_minus_a2_fold_effect_bpb": 0.0000375825721545819,
+    "rank_run2": {
+      "a1": {"matched": 131, "counted": 160, "per_prompt": [3, 32, 32, 32, 32]},
+      "a2": {"matched": 137, "counted": 160, "per_prompt": [9, 32, 32, 32, 32]}
+    },
+    "controls_seconds": 2625.1521162986755,
+    "score_continuation_run1_seconds_including_void_rank": 5770.723383665085,
+    "rank_repair_seconds": 786.087876558304
+  },
+  "gates": {
+    "G_E66a": "FIRES",
+    "G_E66b": "FIRES",
+    "G_E66c": "FIRES_ON_CONTROLS_BPB_AND_RANK_RUN2",
+    "G_E66d": "BELOW-CHANCE",
+    "G_E66e": "ONE-BYTE-IS-NEARLY-FREE",
+    "G_E66f_A1": "RANK-DOES-NOT-SURVIVE_131_OF_160",
+    "G_E66f_A2": "RANK-DOES-NOT-SURVIVE_137_OF_160",
+    "G_E66g_abs_fold_effect_bpb": 0.0000375825721545819
+  },
+  "predictions": {
+    "taken": 4,
+    "missed": 1,
+    "miss": "A2 greedy agreement was predicted at least 150/160 and measured 137/160."
+  },
+  "promotion_rule": "Promote controls and BPB from the pinned score run, and rank only from run 2. Keep rank run 1 void."
+}

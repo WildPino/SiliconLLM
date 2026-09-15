@@ -1,14 +1,26 @@
 # E66 — one byte at seven billion
 
-**Status:** IN PROGRESS — controls and treatment BPB are valid; rank run 1 is void under addendum D
-and the rank-only repair is pending.
+**Status:** COMPLETE — score survives; the registered rank bar does not.
 
-**Brief:** `briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md` (+ addenda A/B)
+**Brief:** `briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md` (+ addenda A–D)
 **Runner:** `benchmarks/donor_adaptation/engine/e66_one_byte_at_7b.py`
 **Control result:** `benchmarks/donor_adaptation/engine/results/e66/e66_controls.json`
+**Canonical combined result:** `benchmarks/donor_adaptation/engine/results/e66/e66_one_byte_at_7b_run2.json`
+**Audit:** `benchmarks/donor_adaptation/engine/results/e66/e66_run2_audit.json`
 **Log:** `benchmarks/donor_adaptation/engine/e66_run.log`
 
 **Scope:** Qwen2.5-Coder-7B, quality and rank only. No rate; `G-E63d` remains `VOID` and OWED.
+
+## 0. Verdict
+
+> **At 7 B, the one-byte layers plus ternary head are effectively score-neutral: A2 is only
+> +0.000378 BPB from fp32. Four of five 32-token trajectories are exactly identical to the fp32
+> donor. The fifth diverges, leaving 137/160 exact-position agreement: substantially alive, but
+> below the preregistered 150/160 rank bar.**
+
+This is the first post-hoc compressed 7 B artifact in the programme that is plainly functional
+on `engine.c`; it is not a 50 tok/s result. Its 9.258 GB file is a fidelity rung, not the final
+traffic budget.
 
 ## 1. Controls-first checkpoint
 
@@ -57,8 +69,42 @@ discarded rather than asserted the engine's `CONFIG` line. The commands passed `
 `G-E66c` explicitly requires reading that state back. Addendum D therefore voids only rank run 1.
 These counters are retained as raw observations and are not the E66 rank answer.
 
-## 5. What is and is not licensed now
+## 5. Repaired rank run 2
 
-The two score gates and fold comparison are licensed. There is still **no final E66 answer**:
-`G-E66f` awaits the rank-only repaired run with asserted generation `CONFIG`. No rate was measured,
-and `G-E63d` remains separate, `VOID` and owed.
+Addendum D pinned the score result by sha256, discarded its rank member, and re-ran only the ten
+engine generations plus fp32 reference. The repaired runner was committed before launch. Every
+generation now stores an engine-reported `CONFIG attn=avx4 ... quant=int8`; all ten assertions
+passed. Run-2 token IDs are identical to the void run-1 observations.
+
+| arm | prompt 0 | prompt 1 | prompt 2 | prompt 3 | prompt 4 | total | `G-E66f` |
+|---|---:|---:|---:|---:|---:|---:|---|
+| A1 fold=layers | 3/32 | 32/32 | 32/32 | 32/32 | 32/32 | **131/160** | **RANK-DOES-NOT-SURVIVE** |
+| A2 fold=none | 9/32 | 32/32 | 32/32 | 32/32 | 32/32 | **137/160** | **RANK-DOES-NOT-SURVIVE** |
+
+The miss is not diffuse token noise: both arms reproduce four complete trajectories and diverge
+autoregressively on one. The formal unit remains 160 positions because that is what §5 registered,
+but the per-prompt split is mandatory context: effective trajectory count is five, not 160
+independent trials.
+
+## 6. Predictions scored
+
+| registered prediction | outcome |
+|---|---|
+| both planted controls fire | **TAKEN** |
+| A2 below chance | **TAKEN**, by 3.395702 BPB |
+| A2 within 0.05 BPB of fp32 | **TAKEN**, +0.000378 |
+| A2 rank at least 150/160 | **MISSED**, 137/160 |
+| fold worth less than 0.01 BPB | **TAKEN**, 0.0000376; direction slightly harmful |
+
+Four of five predictions are taken. The only miss is the gate the brief explicitly said carried
+the experiment, so the overall verdict remains mixed rather than being promoted from score alone.
+
+## 7. What is and is not licensed now
+
+1. The 7 B one-byte fidelity question is closed for this donor and construction. Do not repeat it
+   unless donor, quantizer, head format, slice or estimand changes.
+2. This does not license a scale law: E62's non-monotonicity remains, now with a fourth point.
+3. The result is post-hoc. It neither proves nor requires a healing run at this fidelity rung.
+4. No rate was measured. The dense one-byte traffic remains far outside the 50 tok/s budget;
+   `G-E63d` is still the separate clean 10 B carved-int8 rate debt.
+5. Rank run 1 remains void. Controls/BPB come from the pinned score run; rank comes only from run 2.

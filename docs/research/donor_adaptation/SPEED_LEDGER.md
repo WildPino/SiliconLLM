@@ -5930,3 +5930,50 @@ The preregistration (`ccb80e2`) predates the run. The exact runner blob was comm
 matches the current runner exactly. This provenance defect is recorded but does not change the
 gate readings. The contention sidecar's attempted timestamp is malformed, so its filesystem
 mtime and the quality-only scope are the only admissible timing statements.
+
+---
+
+## §67 — E66: the one-byte 7 B model works; the remaining wall is structure and traffic
+
+**No rate in this section. `G-E63d` remains `VOID` and OWED.** Probe:
+`probes/E66_ONE_BYTE_AT_SEVEN_BILLION.md`. Canonical combined result:
+`engine/results/e66/e66_one_byte_at_7b_run2.json`; audit: `e66_run2_audit.json`.
+
+E62's 0.5/1.5/3 B ladder could not license a 7 B extrapolation because its int8 damage was
+non-monotone. E66 pays that debt directly:
+
+| arm | file bytes | BPB | Δ vs fp32 | free-running agreement |
+|---|---:|---:|---:|---:|
+| A1, fold=layers | 9,257,779,252 | 0.674442169 | +0.000415614 | 131/160 |
+| **A2, fold=none** | **9,257,779,252** | **0.674404586** | **+0.000378031** | **137/160** |
+
+The score is effectively neutral and the model is operational: A2 reproduces four of five full
+32-token fp32 trajectories exactly. The fifth diverges at position 6, so the registered
+`>=150/160` gate fails. This is neither E16's rank death (0/160) nor a perfect conversion; the
+correct verdict is **score survives, strict rank bar does not**.
+
+### 67.1 The fold is a ternary correction, not a generic conversion step
+
+E16's layer fold bought about **0.151 BPB** on ternary. At one byte the signed A1−A2 effect is
+**+0.000037583 BPB**: 4,018× smaller in magnitude and slightly harmful. This is the registered
+mechanism prediction, now measured. Future one-byte exports should default to `fold=none` unless
+a changed quantizer supplies contrary evidence; re-running this fold pair is not useful.
+
+### 67.2 What this closes and what it leaves
+
+The base precision axis is closed through 7 B for this construction: 1 B/weight plus the existing
+ternary head does not destroy the pretrained donor. The remaining 50 tok/s gap is still structural
+and traffic-bound. A dense 7 B one-byte artifact is **9.258 GB**, while E63's 10 B speed candidate
+depends on carving the FFN to `k=3`; E64 measured that same post-hoc selection at **+1.912 BPB**
+on the 1.5 B donor. Therefore E66 does not license "use int8 and stop". It licenses a narrower
+training programme: preserve the one-byte representation and heal the selection/router in-format.
+
+### 67.3 Audit and no-duplication rule
+
+Controls were separated and hash-pinned, then reused without remeasurement. Rank run 1 is void:
+the helper passed `--attn avx4` but discarded the engine-reported `CONFIG`. Addendum D repaired
+only rank under a new committed runner; all ten generation cells report and store
+`attn=avx4`, `quant=int8`, and the token IDs reproduce run 1 exactly. Promote rank only from run 2.
+
+> **§67.3 — E66 is closed for this donor, quantizer, head format, slice and estimand. Do not
+> measure its controls, BPB, fold pair or rank again without changing one of those dimensions.**

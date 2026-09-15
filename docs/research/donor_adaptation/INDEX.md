@@ -2,7 +2,9 @@
 
 **The goal:** run somebody else's pretrained LLM on our architecture (`engine.c`), target **~10B at
 50 tok/s** (good) / **100 tok/s** (excellent).
-**Last updated: 2026-09-14 (E64 run 2) — THE REPAIRED CONTROL FIRES, AND THE POST-HOC CARVE IS DEARER ON INT8 AT EVERY REGISTERED RUNG.** With `attn=serial` asserted from all 19 engine `CONFIG` lines, E37's full nine-cell ternary ladder reproduces exactly (`max|d|=0` vs `1e-09`) and the same-format discrimination control fires (`2.802e-07` vs `1e-04`). Against each format's own `k=256` baseline, the int8 carve costs **+1.827–1.945 BPB** versus ternary's **+0.452–0.599**; int8-minus-ternary is **+1.133–1.430** at all eight rungs, so `G-E64d = CARVE-IS-DEARER-ON-INT8`. At `k=3`, int8-carved is **4.128510 BPB, 0.058691 above chance**. This is one donor, post-hoc, quality-only: no trained-format, 7 B, 10 B or rate claim; `G-E63d` remains `VOID` and OWED. Run 1 stays void. (`probes/E64_CARVE_ON_INT8.md` §8, ledger §66)
+**Last updated: 2026-09-15 (E66) — A PRETRAINED COMPRESSED 7 B NOW WORKS ON `engine.c`, BUT IT MISSES THE STRICT RANK BAR AND NOTHING HERE IS 50 tok/s.** With planted controls firing and `attn=avx4`/`quant=int8` asserted from the engine, the 7 B A2 arm (one-byte layers, ternary head, no fold) reads **0.674405 BPB**, only **+0.000378** from fp32 and **3.395702 below chance**. Folding is unnecessary and slightly harmful (**+0.0000376 BPB**). The repaired rank run stores ten asserted generation `CONFIG` lines: A2 is **137/160**, with **four of five complete 32-token trajectories exact** and the remaining prompt diverging at token 6; this is functional but misses the preregistered **150/160**, so `G-E66f = RANK-DOES-NOT-SURVIVE`. Rank run 1 is void because its helper discarded `CONFIG`; run 2 reproduces its IDs exactly and is canonical. Quality/rank only, 7 B, post-hoc: no rate or 10 B claim, and `G-E63d` remains `VOID` and owed. (`probes/E66_ONE_BYTE_AT_SEVEN_BILLION.md`, ledger §67)
+
+**Previous update: 2026-09-14 (E64 run 2) — THE REPAIRED CONTROL FIRES, AND THE POST-HOC CARVE IS DEARER ON INT8 AT EVERY REGISTERED RUNG.** With `attn=serial` asserted from all 19 engine `CONFIG` lines, E37's full nine-cell ternary ladder reproduces exactly (`max|d|=0` vs `1e-09`) and the same-format discrimination control fires (`2.802e-07` vs `1e-04`). Against each format's own `k=256` baseline, the int8 carve costs **+1.827–1.945 BPB** versus ternary's **+0.452–0.599**; int8-minus-ternary is **+1.133–1.430** at all eight rungs, so `G-E64d = CARVE-IS-DEARER-ON-INT8`. At `k=3`, int8-carved is **4.128510 BPB, 0.058691 above chance**. This is one donor, post-hoc, quality-only: no trained-format, 7 B, 10 B or rate claim; `G-E63d` remains `VOID` and OWED. Run 1 stays void. (`probes/E64_CARVE_ON_INT8.md` §8, ledger §66)
 
 **Previous update: 2026-09-14 (E63 addendum B.8 — RETRACTION of B.7/§62.11) — THE BYTE AXIS IS NOT CHEAP: AT HALF A BYTE IT IS THE MOST EXPENSIVE TREATMENT IN THE PROGRAMME (82% OF THE DISTANCE TO CHANCE), AND THE CARVE IS THE SMALL HALF (17%).** B.7 priced activation against E37's `3.475706` — **which is not the dense model but the model with its FFN ALREADY TERNARISED**, i.e. already at half a byte. On the one baseline no treatment has moved (fp32 dense **0.767595**, chance **4.069819**, gap **3.302224**): **half a byte = +2.708112 = 82.01%**, **carve to 1.17% = +0.553692 = 16.77%**, **one byte (int8) = +0.0012525 = 0.038%**. **The ranking reverses** — B.7's “93.20%” was large only because its denominator was small, and it was small because ternarisation had already spent 82% of it. **That is the floor rule (E59 §8), cited in the same document that broke it**, and the **third** search-rule miss of the day: `BRIEF_H1` — whose §1 heading is *“What is actually broken — and it is NOT mostly the carve”* — came back in my own grep output **twice** and I did not open it. **What survives is larger than what was withdrawn:** the byte axis has a **CLIFF** (E60, between 1 B and half a byte) — cheapest treatment measured above it, most expensive below it, so *“bytes are cheap” is a property of one side of a cliff, not of the axis* — and **H1 should train at ONE byte, not half**, because at one byte the ternary term, **82% of the +3.22 BPB H1 must heal**, never exists. **The cheap unmeasured step this exposes:** the carve's +0.553692 was measured **on a ternary FFN**; its cost **on an int8 FFN** was unmeasured at this point — BPB only, no timing, no GPU. **`G-E63d` remains `VOID` and OWED; nothing here is a rate.** (brief addendum B.8, ledger §62.12)
 
@@ -729,3 +731,41 @@ no seconds in the contended quality run are timings. E66 remains the direct 7 B 
 runner blob was committed 23 minutes after launch despite `f72e87e`'s commit subject claiming it
 was pushed first. The committed blob matches the current runner exactly and the result proves the
 registered assertions executed; Git does not independently timestamp the apparatus before launch.
+
+---
+
+## E66 — one byte at 7 B is score-neutral and functional, but misses the strict rank bar
+
+`probes/E66_ONE_BYTE_AT_SEVEN_BILLION.md` · `SPEED_LEDGER.md` §67 · canonical
+`engine/results/e66/e66_one_byte_at_7b_run2.json` · audit `e66_run2_audit.json`
+
+E62 refused to extrapolate the one-byte rung beyond 3 B. E66 measured it directly on
+Qwen2.5-Coder-7B. Both planted controls fired under the committed runner: the 1.5 B int8 path
+reproduced E62 within **5.765e-09**, and the 7 B ternary path reproduced E16 within
+**1.242e-07**. Every promoted engine cell asserts its own `CONFIG`.
+
+The no-fold arm reads **0.674404586**, against fp32 **0.674026555**: **+0.000378031 BPB**.
+It is **3.395702 BPB below chance**, so `G-E66d = BELOW-CHANCE` and
+`G-E66e = ONE-BYTE-IS-NEARLY-FREE`. The layer fold changes BPB by only **+0.000037583** in the
+harmful direction, confirming the registered `<0.01` mechanism prediction and showing E16's
+0.151-BPB ternary fold benefit does not carry to one byte.
+
+The rank partner is mixed and must stay visible. A2 agrees with the fp32 donor on **137/160**
+free-running positions, below the preregistered 150 bar; A1 reads 131/160. Both are exact on
+prompts 1–4 (**four complete 32-token trajectories**) and diverge only on prompt 0, at generated
+positions 6 and 3 respectively. The formal gate therefore reads
+**`G-E66f = RANK-DOES-NOT-SURVIVE`**, while the per-prompt evidence says the artifact is plainly
+functional rather than rank-dead like E16's 0/160 ternary arm.
+
+Rank run 1 is **VOID** because its helper discarded the engine's `CONFIG` line. Addendum D pinned
+the already-valid score by sha256 and re-ran only rank; run 2 asserts and stores all ten
+generation configurations and reproduces run 1's token IDs exactly. Promote controls/BPB from
+the pinned score run and rank only from run 2. Do not repeat any of them without changing the
+donor, quantizer, head format, slice or estimand.
+
+For the goal, E66 removes base-format fidelity as the reason a pretrained 7 B cannot run on the
+engine. It does **not** remove the traffic problem: each artifact is 9,257,779,252 bytes, no rate
+was measured, and nothing transfers to 10 B. Combined with E64 and H1, the next training target is
+now sharper: keep the one-byte representation and train the aggressive selection/routing that
+post-hoc conversion destroys. `G-E63d`, the clean rate of the existing 10 B carved-int8 artifact,
+remains the immediate CPU measurement debt.
