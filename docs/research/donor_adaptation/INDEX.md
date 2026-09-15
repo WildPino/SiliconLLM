@@ -809,7 +809,18 @@ CPU smoke: all rule, gradient, mask, router initialization, moved-parameter and 
 fire with zero non-finite microbatches. The smoke artifact is
 `s1/results/h2i/h2i_qat_cpu_smoke.json` (sha256 `33ae1447…`).
 
-The launch bundle contains 15 payloads, 463,452,303 bytes, independently rehashed, manifest
-sha256 `a37d65fd…`. The corrected scientific kernel is now **`RUNNING`** in its one continuous
-11-hour T4 session; after return, `s1/h2i_eval.py` performs the one CPU fp32 adjudication.
-The two-layer CPU smoke is not a T4 throughput measurement, so no exact step count is claimed.
+The original launch bundle contained 15 payloads, 463,452,303 bytes, manifest `a37d65fd…`.
+Versions 1–3 are operationally void before any optimizer update (read-only mount, flat-bundle
+path, then CPU-generator/direct-CUDA mismatch). Addendum H preregistered the sole runner repair;
+the immutable v4 bundle contains 15 payloads / 463,453,554 bytes, manifest `330fa237…`, with all
+eight scientific payloads unchanged and only `h2i_qat.py` modified. Its second real-donor smoke
+also fires and applies one update. Kernel v4 is now **`RUNNING`** in its one continuous 11-hour T4
+session; after return, `s1/h2i_eval.py` performs the one CPU fp32 adjudication. The two-layer CPU
+smoke is not a T4 throughput measurement, so no exact step count is claimed.
+
+The post-pass conversion seam has been mapped, not implemented. `quant==4` can represent H0
+factored q/o, donor-fp32 matrices, eight carved R8 layers and fp32 routers in one file, but today's
+`qwen_export.py` cannot compose them: it carves every layer, reads donor rather than trained FFN
+masters, forbids factors with tagged-v2 and ternarizes every fitted router. The exact continuation
+and no-go rules are in `audits/H2I_ENGINE_EXPORT_GAP_AUDIT.md`; implementation remains conditional
+on the combined H2I score+rank gate.

@@ -36,6 +36,7 @@
 - For the next healing branch, preserve E66's result that one-byte format damage is negligible and E64's result that the post-hoc carve on that format is not; the trainable object is selection/routing, not the byte conversion itself.
 - Do not launch the old `H2T` ternary-body proposal as written. E66 removes the ternary-format damage by keeping the faithful one-byte rung, while E64 shows the carve/routing hole remains and is larger there. A successor must be one-byte + trained selection/routing, with weight-only and activation-quantized partners kept separate.
 - Do not repeat H2I Phase A: its matched write-once result is `0.810005595` uncarved R8 and `1.019076465` hard-k16, with rank 9/160 free and 99/160 teacher-forced. The Phase B threshold is the H2I value, not H1's ternary applied row. E64's all-28L format ordering and H2I's 8L ordering differ; neither may be scaled by layer count.
+- Do not assume a passing H2I bundle can already be exported. The tagged-v2 container can represent the mixed object, but `qwen_export.py` cannot yet compose H0 factors, only eight carved layers, trained R8 masters, untouched fp32 matrices and exact fp32 trained routers. The router is especially not equivalent: today's exporter ternarizes it. See `audits/H2I_ENGINE_EXPORT_GAP_AUDIT.md`; implementation is conditional on the combined H2I score+rank gate.
 - Always assert engine `CONFIG`; always use a same-binary/same-arm control for a same-binary claim; never resume from a result file being validated.
 
 ## Experiment registry — foundations before the E-series
@@ -155,6 +156,7 @@ These entries are represented primarily by briefs, engine runners/results and `S
 2. **When H2I returns, validate v4 and run its single CPU fp32 adjudication:** require deployable BPB `<1.019076465`, free rank `>9/160`, teacher-forced `>99/160`, and mean rank `<3.675`. If score fails, do not run rank as rescue.
 3. **When H1 returns, validate the first periodic checkpoint and run one CPU fp32 evaluation:** compare only against addendum M's frozen gates.
 4. **Get a genuinely quiet 10–15 minute CPU window for `G-E63d`:** its 45 s all-samples guard must pass before timing. The 2026-09-15 refusal ran zero cells and is not a result.
+5. **Only if H2I's combined score+rank gate passes, build its engine export seam:** follow `audits/H2I_ENGINE_EXPORT_GAP_AUDIT.md`; first preserve the fp32 trained router exactly, then test router compression as a separate treatment. Do not patch E63d's pinned binary in place.
 
 ## Corpus inventory
 
