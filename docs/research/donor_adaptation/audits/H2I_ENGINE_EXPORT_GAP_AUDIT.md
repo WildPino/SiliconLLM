@@ -1,7 +1,9 @@
 # H2I → `engine.c` export-gap audit
 
-**Date:** 2026-09-15  
-**Scope:** read-only compatibility audit while H2I Phase B v4 and H1 S3 v2 run.  
+**Date:** 2026-09-15
+
+**Scope:** read-only compatibility audit while H2I Phase B v4 and H1 S3 v2 run.
+
 **Status:** `CONTAINER_CAN_REPRESENT_IT; EXPORTER_CANNOT_YET_EMIT_IT`.
 
 This is not a new experiment, an export, a quality result or a rate result. It records the exact
