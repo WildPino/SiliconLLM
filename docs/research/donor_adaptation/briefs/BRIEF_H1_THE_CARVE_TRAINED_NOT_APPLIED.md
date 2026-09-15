@@ -1611,3 +1611,57 @@ is a deterministic full sweep, addendum J.6).
    differ in optimizer continuity, so the curve is read ordinally, not fitted.
 4. **Nothing that re-reads sessions 1 and 2.** Their numbers stand as published in addendum L.
 
+---
+
+# ADDENDUM N — harden the session-3 bundle before it is rebuilt
+
+**Pre-registered 2026-09-15, before `h1_pack_s3.py` is committed and before the session-3
+bundle is changed. No arm, hyperparameter, budget, prediction, gate or estimand in addendum M
+changes here.**
+
+## N.1 The forgotten apparatus exists, and its first draft cannot ship
+
+The tree already contained an untracked `h1_pack_s3.py` written with addendum M. It correctly
+repoints the old bundle from session 1 to session 2, but an audit found three defects before it
+was run:
+
+1. it hashed every bundle file, wrote those hashes to `MANIFEST.json`, and **then appended the
+   session-3 command to `RUN.md`** — making the new manifest false at creation;
+2. if `h1_trained_s2.npz` already existed with the right byte count, it reused it without a
+   content check;
+3. the manifest prose said one long session removes **five** Adam restarts. Against addendum
+   M's comparator — four prospective short sessions replaced by one long session — it avoids
+   **three** prospective restarts.
+
+The packer is repaired before use. It now refuses unless its worktree file is the exact HEAD
+Git blob; offers a read-only `--check`; validates the complete starting session-2 manifest and
+all files it names; writes `RUN.md` before hashing; copies and byte-verifies S2 even if an
+existing destination has the same size; writes packer provenance and resume identity into the
+new manifest; and re-verifies every final file against that manifest.
+
+## N.2 Identities frozen before mutation
+
+| object | bytes | sha256 |
+|---|---:|---|
+| session-2 resume at the path named by the published eval | 1,334,711,974 | `4030d2af63aed924d7e17559bc3dc84ba8db519056c389cdb068b38b58a7e3b3` |
+| addendum-M trainer `h1_qat.py` | 48,685 | `7876d6032c3fd46f4d836d88aaf7ebae087f0437dc743f310f0a3a4652bd30ad` |
+| starting two-session `MANIFEST.json` | 3,118 | `a4843e04af47e9840f851045e2dd30b93033a00bb9c0aba788e99a77fa10dfb8` |
+| starting `RUN.md` | 8,118 | `e8e3cb1df78c1df63efc20834a83c2b52dd3562f83b0c89b4096c163f6195e92` |
+
+The published CPU result names that exact S2 **path** and reads
+`trained-8L = 0.962592908257438`. There was no S2 hash recorded at evaluation time, so this
+new hash proves what session 3 will resume from, **not** that the bytes could not have changed
+between evaluation and today. That historical limitation is irrecoverable and is retained
+rather than laundered into an identity claim.
+
+## N.3 Execution order
+
+1. Commit addendum N and the repaired packer.
+2. Run `h1_pack_s3.py --check`; it must pass without changing the bundle.
+3. Run the same committed packer without `--check`; only then may the generated bundle change.
+4. Independently recompute every new manifest hash, including `RUN.md` and
+   `h1_trained_s2.npz`, before upload.
+
+Session 3 itself still requires the already-authorized **one 11-hour T4 session** from
+addendum M. This addendum spends no GPU time; it exists to keep that session from starting on
+an unauditable checkpoint or a self-contradictory manifest.
