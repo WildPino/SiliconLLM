@@ -12,3 +12,46 @@ engine sha256 56272fdbe615d61739094605cb026aa308fd74604ba5598fab501c09188ae687
   controls-only preflight complete -- no E66 treatment cell was read.
 
 wrote controls-only result D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e66\e66_controls.json in 2625 s
+
+=== E66 -- one byte at seven billion.  QUALITY AND RANK ONLY, no rate. ===
+engine donor_engine_e63.exe   arm --attn avx4 (ASSERTED from CONFIG)
+donor Qwen/Qwen2.5-Coder-7B @ 0396a76181e1
+runner HEAD bde7b75ab98b  blob da50283ff15d6b40d90b6e97d3699e17f1ab651a (worktree match ASSERTED)
+engine sha256 56272fdbe615d61739094605cb026aa308fd74604ba5598fab501c09188ae687
+
+-- pinned controls checkpoint da0dbe3ad667ad017290805647745584f0c709787832650f5177a92fa04cac9d (sha256 and producing apparatus ASSERTED)
+  G-E66a FIRES; G-E66b FIRES; controls are not rerun or rewritten.
+
+-- export (addendum A: NO --calib-seqs on int8)
+  export coder7b_i8_foldlayers.bin  (--fold layers)
+    done in 632 s, 8.62 GB
+  export coder7b_i8_nofold.bin  (--fold none)
+    done in 158 s, 8.62 GB
+
+-- the cells
+  A1 (fold=layers) BPB 0.674442168983   vs chance -3.395664   vs fp32 +0.000416   (2314 s)
+  A2 (fold=none  ) BPB 0.674404586411   vs chance -3.395702   vs fp32 +0.000378   (2355 s)
+
+-- greedy (RANK partner, E14 section 3 -- the gate E16 failed at 0/160)
+  A1 p0 generated
+  A1 p1 generated
+  A1 p2 generated
+  A1 p3 generated
+  A1 p4 generated
+  A2 p0 generated
+  A2 p1 generated
+  A2 p2 generated
+  A2 p3 generated
+  A2 p4 generated
+  reference: fp32 PyTorch donor, KV cache on (E7's protocol)
+  REF p0 done
+  REF p1 done
+  REF p2 done
+  REF p3 done
+  REF p4 done
+  G-E66f  A1  greedy 131/160  first divergence (0, 3)  -> RANK-DOES-NOT-SURVIVE
+     text: " Paris. The capital of Germany is Berlin. The capital of Italy is Rome. The capital of Spain is Madrid. The capital of the United Kingdom is London."
+  G-E66f  A2  greedy 137/160  first divergence (0, 6)  -> RANK-DOES-NOT-SURVIVE
+     text: " Paris. The city is located in the north of France, on the river Seine. Paris is the largest city in France. It is also the largest city"
+
+wrote D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\engine\results\e66\e66_one_byte_at_7b.json in 5771 s

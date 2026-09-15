@@ -1,0 +1,163 @@
+{
+ "experiment": "E66",
+ "brief": "BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+ "addenda": [
+  "A",
+  "B",
+  "C"
+ ],
+ "engine": "donor_engine_e63.exe",
+ "attn_arm": "avx4",
+ "provenance": {
+  "head_commit": "bde7b75ab98b8f46da6bd96d2c9746647f562a94",
+  "runner_path": "benchmarks/donor_adaptation/engine/e66_one_byte_at_7b.py",
+  "runner_git_blob": "da50283ff15d6b40d90b6e97d3699e17f1ab651a",
+  "runner_sha256": "1b04073caa4cbc0b8dd7f33f1bfb6ace08de9a0d1dc041484ca171df7799d2cc",
+  "engine_sha256": "56272fdbe615d61739094605cb026aa308fd74604ba5598fab501c09188ae687"
+ },
+ "donor": "Qwen/Qwen2.5-Coder-7B",
+ "revision": "0396a76181e127dfc13e5c5ec48a8cee09938b02",
+ "threads": 6,
+ "protocol": {
+  "n_predicted": 12264,
+  "scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "chance_coder": 4.070106221274352,
+  "chance_qwen": 4.069818973389018
+ },
+ "references": {
+  "E62_15B_I8": 0.7688588381536873,
+  "E16_B2": 4.017232598,
+  "E15_B0_fp32_7B": 0.674026555,
+  "E62_ladder": {
+   "0.5B": [
+    0.871795,
+    0.8718768840274047
+   ],
+   "1.5B": [
+    0.767595,
+    0.7688588381536873
+   ],
+   "3B": [
+    0.72445,
+    0.7250400705611162
+   ]
+  }
+ },
+ "started_at": "2026-09-14T23:22:11",
+ "continued_from_controls": {
+  "path": "results/e66/e66_controls.json",
+  "sha256": "da0dbe3ad667ad017290805647745584f0c709787832650f5177a92fa04cac9d",
+  "producing_provenance": {
+   "head_commit": "04216cc391daf481e2a9898a7918082d797f2319",
+   "runner_path": "benchmarks/donor_adaptation/engine/e66_one_byte_at_7b.py",
+   "runner_git_blob": "34ded51fa5b54f8a2a1641a6a6746590038ff15e",
+   "runner_sha256": "8fe0460265a11afc42b30e09d9880f65ae9a0e94fc03fde012e76ca0e90b56a8",
+   "engine_sha256": "56272fdbe615d61739094605cb026aa308fd74604ba5598fab501c09188ae687"
+  },
+  "seconds_total": 2625.1521162986755
+ },
+ "controls": {
+  "G_E66a": {
+   "cell": {
+    "nats_per_token": 2.2540117463,
+    "bpb": 0.7688588323885059,
+    "n_predicted": 12264,
+    "seconds": 666.2704539299011,
+    "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=int8",
+    "weights": "qwen25-15b_i8h.bin"
+   },
+   "sidecar": {
+    "model": "Qwen/Qwen2.5-1.5B",
+    "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+    "quant": "int8",
+    "rule": "R8",
+    "fold": "none",
+    "head_ternary": true,
+    "calib_seqs": null,
+    "load_dtype": "float32",
+    "vocab": 151936,
+    "n_layers": 28,
+    "bytes": 2480832052,
+    "sha256": "b8b2bc03a1e48ac09751e83fa591859a18ffefc4274c6ac5fc0ee9886e36b8b4"
+   },
+   "verdict": "FIRES",
+   "abs_d": 5.76518133232895e-09,
+   "reference": 0.7688588381536873
+  },
+  "G_E66b": {
+   "cell": {
+    "nats_per_token": 11.7770503533,
+    "bpb": 4.017232473824788,
+    "n_predicted": 12264,
+    "seconds": 1958.4569783210754,
+    "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=packed",
+    "weights": "qwen25-coder7b_p_r3.bin"
+   },
+   "sidecar": {
+    "model": "Qwen/Qwen2.5-Coder-7B",
+    "revision": null,
+    "quant": "packed",
+    "rule": "R3",
+    "fold": "layers",
+    "head_ternary": true,
+    "calib_seqs": 32,
+    "load_dtype": "float32",
+    "vocab": 152064,
+    "n_layers": 28,
+    "bytes": 5722636340,
+    "sha256": "5840b321cb62cf3dd3e21e16cd199cb03f285cac876051fa075962b55cb5ec3a"
+   },
+   "verdict": "FIRES",
+   "abs_d": 1.2417521144669763e-07,
+   "reference": 4.017232598
+  }
+ },
+ "controls_fire": true,
+ "cells": {
+  "A1": {
+   "nats_per_token": 1.9772167621,
+   "bpb": 0.6744421689827591,
+   "n_predicted": 12264,
+   "seconds": 2313.63347530365,
+   "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=int8",
+   "weights": "coder7b_i8_foldlayers.bin",
+   "sidecar": {
+    "model": "Qwen/Qwen2.5-Coder-7B",
+    "revision": "0396a76181e127dfc13e5c5ec48a8cee09938b02",
+    "quant": "int8",
+    "rule": "R8",
+    "fold": "layers",
+    "head_ternary": true,
+    "calib_seqs": null,
+    "load_dtype": "float32",
+    "vocab": 152064,
+    "n_layers": 28,
+    "bytes": 9257779252,
+    "sha256": "39706bdc1e69d57e97c98bc1ee7dd64bc2211a3841cbad29aa1ed6d15b2fbf24"
+   }
+  },
+  "A2": {
+   "nats_per_token": 1.9771065838,
+   "bpb": 0.6744045864106045,
+   "n_predicted": 12264,
+   "seconds": 2355.3498060703278,
+   "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=int8",
+   "weights": "coder7b_i8_nofold.bin",
+   "sidecar": {
+    "model": "Qwen/Qwen2.5-Coder-7B",
+    "revision": "0396a76181e127dfc13e5c5ec48a8cee09938b02",
+    "quant": "int8",
+    "rule": "R8",
+    "fold": "none",
+    "head_ternary": true,
+    "calib_seqs": null,
+    "load_dtype": "float32",
+    "vocab": 152064,
+    "n_layers": 28,
+    "bytes": 9257779252,
+    "sha256": "0b7cafcae0cc10e779568768731f3da03e2c2129f83cdd50713e8aab92f7a311"
+   }
+  }
+ }
+}

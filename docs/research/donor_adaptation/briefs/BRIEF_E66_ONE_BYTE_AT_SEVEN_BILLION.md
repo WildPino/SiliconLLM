@@ -264,3 +264,34 @@ This is not the result-file resume defect logged in Addendum A: no treatment val
 checkpoint, no cell is skipped on the basis of a partially populated canonical result, and every
 reused value is a planted positive control whose bytes and producing apparatus are fixed above.
 `--stage all` remains the from-scratch route and continues to measure fresh controls.
+
+---
+
+# ADDENDUM D — rank run 1 is void; repair only the unasserted generation cells
+
+**Pre-registered after the first complete continuation and before the repaired rank run. No
+threshold, prediction, arm, prompt, token count or estimand changes.**
+
+The post-run audit found that `run_bpb()` asserts and stores the engine's own `CONFIG` line, but
+`stage_greedy()` called `e6_generate.parse_gen()`, which discards `CONFIG`. All ten treatment
+generation commands explicitly passed `--attn avx4`, but §4 requires the reported arm and quant
+to be read back from the engine, not inferred from the command. Therefore:
+
+* `G-E66a/b` remain valid and fired;
+* the A1/A2 BPB cells satisfy `G-E66c`, so `G-E66d/e/g` are admissible;
+* **rank run 1 is VOID** and its observed 131/160 and 137/160 are not promoted.
+
+The immutable first complete result is pinned at sha256
+`330fa52959f39a28ce1d12ce5d72e1772e1dc249a4f88ba4c622df9a131a555d`, produced by runner Git
+blob `da50283ff15d6b40d90b6e97d3699e17f1ab651a` under engine sha256
+`56272fdbe615d61739094605cb026aa308fd74604ba5598fab501c09188ae687`. A `--stage rank-repair`
+may load only the controls and BPB cells from that exact file, after validating those identities,
+both treatment `CONFIG` lines, `N_PREDICTED = 12264`, and the two registered sidecars. It must
+discard the file's `greedy` member.
+
+The repaired stage re-executes all ten generation cells and the five-prompt fp32 reference under
+the unchanged E16 protocol. Every treatment invocation must parse, assert and store
+`attn=avx4` and `quant=int8` from `CONFIG`; absence or mismatch refuses the cell. It writes new,
+separate run-2 rank and combined-result files and never rewrites the pinned run-1 result, controls
+checkpoint or BPB result. The repaired runner must itself pass Addendum B's committed-source gate.
+Only rank run 2 may adjudicate `G-E66f`; controls and BPB are not remeasured.
