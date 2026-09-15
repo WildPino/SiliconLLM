@@ -121,9 +121,9 @@ def preflight(args):
         wrong.append(("complete", train_meta.get("complete"), True))
     if int(train_meta.get("steps_completed") or 0) < 250:
         wrong.append(("steps_completed", train_meta.get("steps_completed"), ">=250"))
-    if train_meta.get("ffn_rule") != "R8 per-output-row amax/127 RTN STE":
+    if train_meta.get("ffn_rule") != "R8 per-output-row amax/127 RTN, codes [-127,127], STE":
         wrong.append(("ffn_rule", train_meta.get("ffn_rule"),
-                      "R8 per-output-row amax/127 RTN STE"))
+                      "R8 per-output-row amax/127 RTN, codes [-127,127], STE"))
     if train_meta.get("router_init_sha256") != H2.PINNED["routers"][1]:
         wrong.append(("router_init_sha256", train_meta.get("router_init_sha256"),
                       H2.PINNED["routers"][1]))
