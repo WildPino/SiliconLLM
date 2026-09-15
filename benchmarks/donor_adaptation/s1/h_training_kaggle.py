@@ -533,6 +533,13 @@ def parser() -> argparse.ArgumentParser:
 
 
 def main() -> int:
+    # kaggle_ops decodes CLI progress as UTF-8.  A Windows cp1252 parent must replace glyphs it
+    # cannot represent instead of aborting after the remote output has already been downloaded.
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(errors="replace")
+        except (AttributeError, ValueError):
+            pass
     args = parser().parse_args()
     return args.func(args)
 

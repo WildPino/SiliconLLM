@@ -222,8 +222,34 @@ def score_fires(value):
     return value < EXPECTED_PHASE_A
 
 
+def _seeded_probe(shape, device, dtype, seed=90210):
+    """Draw reproducibly on CPU, then transfer; CPU generators cannot drive CUDA randn."""
+    generator = torch.Generator(device="cpu").manual_seed(seed)
+    probe = torch.randn(*shape, generator=generator, dtype=torch.float32, device="cpu")
+    return probe.to(device=device, dtype=dtype)
+
+
+def _seeded_probe_selftest():
+    """Plant determinism and global-RNG isolation checks for the cross-device-safe helper."""
+    before = torch.random.get_rng_state().clone()
+    first = _seeded_probe((2, 3, 5), "cpu", torch.float32)
+    middle = torch.random.get_rng_state().clone()
+    second = _seeded_probe((2, 3, 5), torch.device("cpu"), torch.float32)
+    after = torch.random.get_rng_state()
+    exact = bool(torch.equal(first, second))
+    isolated = bool(torch.equal(before, middle) and torch.equal(before, after))
+    shape_ok = tuple(first.shape) == (2, 3, 5)
+    finite = bool(torch.isfinite(first).all())
+    if not (exact and isolated and shape_ok and finite):
+        raise SystemExit("seeded device-transfer probe self-test failed")
+    return {"source_device": "cpu", "transfer_target": "caller",
+            "repeat_exact": exact, "global_rng_unchanged": isolated,
+            "shape_ok": shape_ok, "finite": finite}
+
+
 def selftest():
     return {"G_H2Ib": _assert_r8(), "G_H2Ic_toy": _toy_controls(),
+            "device_safe_seeded_probe": _seeded_probe_selftest(),
             "gate_boundary_test": {
                 "equal_threshold_fails": not score_fires(EXPECTED_PHASE_A),
                 "below_threshold_fires": score_fires(EXPECTED_PHASE_A - 1e-12),
@@ -260,9 +286,7 @@ def _install(model, factors, labels, stats, routers, layers, device):
 def _real_controls(model, mods):
     """B.3.2/3 on a real layer: both identities, exact k16 cardinality and live mask."""
     mod = mods[0][1]
-    x = torch.randn(1, 6, model.config.hidden_size,
-                    generator=torch.Generator().manual_seed(90210),
-                    dtype=mod.gate.dtype, device=mod.gate.device)
+    x = _seeded_probe((1, 6, model.config.hidden_size), mod.gate.device, mod.gate.dtype)
     mod.hard_gate = True
     same_h, dmax_h = H1.g_h1a(mod, x)
     active = mod.group_mask(x).sum(-1)
