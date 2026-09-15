@@ -618,3 +618,53 @@ which I cited in the same document I broke it in.
 
 **`G-E63d` remains `VOID` and OWED. B.7 is superseded in full by B.8.**
 
+---
+
+## 12. ADDENDUM D — harden Part B before its first admissible run
+
+**Pre-registered 2026-09-15 before any admissible Part B measurement. No arm, repetition count,
+token window, threshold, prediction or estimand changes.**
+
+E66's audit exposed a reusable apparatus defect: passing `--attn avx4` is not the same as
+asserting what the engine reports. `e63_part_b_speed.py` delegates to `e44_interval.one_rep()`,
+which parses `BENCH` and discards the engine's `CONFIG` line. The runner also checks only that its
+artifacts exist and does not prove that its own source is the committed blob. Those omissions are
+repaired before the first run allowed to adjudicate `G-E63d`.
+
+### D.1 Exact identities
+
+Part B must refuse unless all of these match:
+
+| object | sha256 |
+|---|---|
+| `results/e63_part_a.json` | `b0c614f799060d6bc4a7efe781e2436085e36b0ab4fedff00e464014a028657a` |
+| `donor_engine_e63.exe` | `56272fdbe615d61739094605cb026aa308fd74604ba5598fab501c09188ae687` |
+| packed A10B artifact | `c1e42d462d719110e1cf69b7d348fed24ea5d87dcff0d3b18b5dc073b30ad3b3` |
+| int8-FFN A10B artifact | `e85eb874947f8d3fb1223ddf2062e50018f70739765ab229d4832af170dc1550` |
+| packed sidecar | `52947ff93f4d604aa59a463261b90473ab0fc0fe69032dfdedeb5d7701f73bb5` |
+| int8-FFN sidecar | `74378f322854b7ae0907e0757996d51b01c850da2dcafe25de9e4e72a6d891d2` |
+
+The sidecars must also agree on shape, seed, `carve_E=256`, `carve_k_in_file=3` and
+`active_weights_per_token=928251904`; their only registered format difference is the FFN, whose
+int8 arm states `ffn_bytes_per_weight=1.0` and `ffn_kinds=[MK_I8,MK_I8_T]`. The runner must prove
+its worktree Git blob equals `HEAD` and record HEAD, runner blob/sha256, engine and artifact hashes.
+
+### D.2 Configuration is read back, not inferred
+
+Every `--bench` invocation must parse and store the engine's own `CONFIG`, asserting
+`attn=avx4`, `threads=6` and the expected global `quant`. Both files are tagged-v2 containers and
+the current engine reports their global mode as `quant=ternary`; that field cannot distinguish
+their per-layer FFN kinds, which is why D.1 pins and validates both sidecars and complete artifact
+hashes. No engine change is made, so E36/E52 timing comparability is preserved.
+
+### D.3 Refuse before spending the sweep
+
+The existing runner discovers contention only after ten 10 B cells have run. Add a 45-second
+preflight before creating or touching `e63_part_b.json`. It samples the same Windows system-time
+instrument and proceeds only if **every sample is below `OCC_BAR=4.39%`**. This is deliberately
+stricter than a median guard: Part B itself is admissible only if every measured cell is below the
+bar. A refusal is not a gate result and writes only `e63_part_b_preflight.json`; `G-E63d` remains
+unattempted and owed. `--preflight` performs identities plus this guard and then stops.
+
+A 45-s observation made while preparing this addendum read median 3.13%, p75 3.73%, range
+1.69–6.38%, with 8/45 samples at or above the bar. It licenses this apparatus repair and no rate.
