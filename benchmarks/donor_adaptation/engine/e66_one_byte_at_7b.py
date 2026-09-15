@@ -59,6 +59,7 @@ FP32_7B = r"D:\_ktmp\e7\qwen25-coder7b_f32.bin"
 A1 = os.path.join(TMP, "coder7b_i8_foldlayers.bin")
 A2 = os.path.join(TMP, "coder7b_i8_nofold.bin")
 CONTROLS_RESULT = os.path.join(RES, "e66_controls.json")
+SCORED_RUN1 = os.path.join(RES, "e66_one_byte_at_7b.json")
 
 # Addendum C: identities of the committed controls-only checkpoint.  A continuation refuses
 # rather than silently repeating or accepting a different control measurement.
@@ -67,6 +68,10 @@ PINNED_CONTROL_HEAD = "04216cc391daf481e2a9898a7918082d797f2319"
 PINNED_CONTROL_RUNNER_BLOB = "34ded51fa5b54f8a2a1641a6a6746590038ff15e"
 PINNED_CONTROL_RUNNER_SHA256 = "8fe0460265a11afc42b30e09d9880f65ae9a0e94fc03fde012e76ca0e90b56a8"
 PINNED_ENGINE_SHA256 = "56272fdbe615d61739094605cb026aa308fd74604ba5598fab501c09188ae687"
+PINNED_SCORED_RUN1_SHA256 = "330fa52959f39a28ce1d12ce5d72e1772e1dc249a4f88ba4c622df9a131a555d"
+PINNED_SCORE_HEAD = "bde7b75ab98b8f46da6bd96d2c9746647f562a94"
+PINNED_SCORE_RUNNER_BLOB = "da50283ff15d6b40d90b6e97d3699e17f1ab651a"
+PINNED_SCORE_RUNNER_SHA256 = "1b04073caa4cbc0b8dd7f33f1bfb6ace08de9a0d1dc041484ca171df7799d2cc"
 
 HF = "Qwen/Qwen2.5-Coder-7B"
 REV = "0396a76181e127dfc13e5c5ec48a8cee09938b02"     # pinned from the local snapshot
@@ -173,6 +178,66 @@ def load_pinned_controls(current_provenance):
     return prior, audit
 
 
+def assert_engine_config(text, want_quant):
+    """Return the engine-reported CONFIG only when both registered axes match exactly."""
+    cm = re.search(r"CONFIG[^\n]*", text)
+    cfg = cm.group(0).rstrip("\r") if cm else None
+    if not cfg:
+        raise SystemExit("no CONFIG line -- the cell cannot confirm its configuration and is "
+                         "REFUSED (G-E66c).")
+    if not re.search(r"attn=%s\b" % re.escape(ATTN), cfg):
+        raise SystemExit("KERNEL ARM MISMATCH: asked --attn %s, engine reports %r. REFUSED "
+                         "(G-E66c)." % (ATTN, cfg))
+    if not re.search(r"quant=%s\b" % re.escape(want_quant), cfg):
+        raise SystemExit("QUANT MISMATCH: this arm requires quant=%s, engine reports %r. "
+                         "REFUSED (G-E66c)." % (want_quant, cfg))
+    return cfg
+
+
+def load_pinned_scored_run(current_provenance):
+    """Addendum D: load controls and BPB only; explicitly discard void rank run 1."""
+    if not os.path.exists(SCORED_RUN1):
+        raise SystemExit("missing pinned scored run: " + SCORED_RUN1)
+    actual_sha = sha256_file(SCORED_RUN1)
+    if actual_sha != PINNED_SCORED_RUN1_SHA256:
+        raise SystemExit("SCORED RUN-1 SHA256 MISMATCH: %s != %s; refusing rank repair"
+                         % (actual_sha, PINNED_SCORED_RUN1_SHA256))
+    with open(SCORED_RUN1, encoding="utf-8") as f:
+        d = json.load(f)
+    p = d.get("provenance", {})
+    expected = {"head_commit": PINNED_SCORE_HEAD,
+                "runner_git_blob": PINNED_SCORE_RUNNER_BLOB,
+                "runner_sha256": PINNED_SCORE_RUNNER_SHA256,
+                "engine_sha256": PINNED_ENGINE_SHA256}
+    bad = [(k, p.get(k), v) for k, v in expected.items() if p.get(k) != v]
+    if bad or not d.get("controls_fire"):
+        raise SystemExit("PINNED SCORE RUN IS NOT ADMISSIBLE: identity=%r controls_fire=%r"
+                         % (bad, d.get("controls_fire")))
+    if current_provenance.get("engine_sha256") != PINNED_ENGINE_SHA256:
+        raise SystemExit("ENGINE CHANGED SINCE SCORE RUN; refusing rank repair")
+    for tag, path, fold in (("A1", A1, "layers"), ("A2", A2, "none")):
+        cell = d.get("cells", {}).get(tag, {})
+        if cell.get("n_predicted") != N_PRED:
+            raise SystemExit("%s score is not on E1's protocol" % tag)
+        assert_engine_config(cell.get("config", ""), "int8")
+        side = confirm_sidecar(path, {"quant": "int8", "rule": "R8", "fold": fold,
+                                      "head_ternary": True, "calib_seqs": None})
+        if side.get("sha256") != cell.get("sidecar", {}).get("sha256"):
+            raise SystemExit("%s sidecar identity differs from the pinned score run" % tag)
+    base = dict(d)
+    void_rank = base.pop("greedy", None)
+    source_seconds = base.pop("seconds_total", None)
+    base["addenda"] = ["A", "B", "C", "D"]
+    base["provenance"] = current_provenance
+    audit = {"path": os.path.relpath(SCORED_RUN1, HERE).replace("\\", "/"),
+             "sha256": actual_sha, "producing_provenance": p,
+             "source_seconds_total": source_seconds,
+             "discarded_rank_run1": {
+                 "status": "VOID_UNASSERTED_GENERATION_CONFIG",
+                 "observed_summary": (void_rank or {}).get("summary")}}
+    return base, audit
+
+
 # ============================================================ engine, with the arm asserted
 def run_bpb(weights, ids, want_quant, extra=()):
     """One BPB cell.  REFUSES the cell unless N_PREDICTED is E1's and the engine's own CONFIG
@@ -190,17 +255,7 @@ def run_bpb(weights, ids, want_quant, extra=()):
     npred = int(p.group(1)) if p else None
     if npred != N_PRED:
         raise SystemExit("N_PREDICTED %r != %d -- not E1's protocol" % (npred, N_PRED))
-    cm = re.search(r"CONFIG[^\n]*", r.stdout)
-    cfg = cm.group(0) if cm else None
-    if not cfg:
-        raise SystemExit("no CONFIG line -- the cell cannot confirm its configuration and is "
-                         "REFUSED (G-E66c).")
-    if not re.search(r"attn=%s\b" % re.escape(ATTN), cfg):
-        raise SystemExit("KERNEL ARM MISMATCH: asked --attn %s, engine reports %r. REFUSED "
-                         "(G-E66c)." % (ATTN, cfg))
-    if not re.search(r"quant=%s\b" % re.escape(want_quant), cfg):
-        raise SystemExit("QUANT MISMATCH: this arm requires quant=%s, engine reports %r. "
-                         "REFUSED (G-E66c)." % (want_quant, cfg))
+    cfg = assert_engine_config(r.stdout, want_quant)
     nats = float(m.group(1))
     return {"nats_per_token": nats, "bpb": nats / math.log(2) / BYTES_PER_TOK,
             "n_predicted": npred, "seconds": time.time() - t0, "config": cfg,
@@ -291,6 +346,14 @@ def selftest():
                 "CONFIG  attn=avx41  quant=int8"):
         ok(not (re.search(r"attn=%s\b" % ATTN, bad) and re.search(r"quant=int8\b", bad)),
            "the CONFIG assertion accepts a wrong line: %r" % bad)
+        try:
+            assert_engine_config(bad, "int8")
+            rejected = False
+        except SystemExit:
+            rejected = True
+        ok(rejected, "the executable CONFIG gate accepts a wrong line: %r" % bad)
+    ok(assert_engine_config(good, "int8") == good,
+       "the executable CONFIG gate rejects a correct line")
 
     print("selftest: %d checks passed" % n[0])
     return 0
@@ -398,11 +461,13 @@ def stage_greedy(fh):
         runs = []
         for i in range(len(PROMPTS)):
             pfx = os.path.join(TMP, "%s_p%d" % (tag, i))
-            r = parse_gen(erun([ENGINE, "--weights", path, "--threads", THREADS,
-                                "--attn", ATTN, "--generate",
-                                os.path.join(TMP, "p%d.bin" % i), str(N_NEW), pfx]))
-            runs.append({"prompt": i, "ids": r["ids"]})
-            log("  %s p%d generated" % (tag, i), fh)
+            raw = erun([ENGINE, "--weights", path, "--threads", THREADS,
+                        "--attn", ATTN, "--generate",
+                        os.path.join(TMP, "p%d.bin" % i), str(N_NEW), pfx])
+            cfg = assert_engine_config(raw, "int8")
+            r = parse_gen(raw)
+            runs.append({"prompt": i, "ids": r["ids"], "config": cfg})
+            log("  %s p%d generated; CONFIG asserted" % (tag, i), fh)
         arms[tag] = runs
 
     log("  reference: fp32 PyTorch donor, KV cache on (E7's protocol)", fh)
@@ -449,7 +514,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--stage", default="all",
-                    choices=("all", "controls", "continue", "export", "bpb", "greedy"))
+                    choices=("all", "controls", "continue", "rank-repair", "export", "bpb",
+                             "greedy"))
     a = ap.parse_args()
     if a.selftest:
         return selftest()
@@ -472,7 +538,8 @@ def main():
 
     t0 = time.time()
     res = {"experiment": "E66", "brief": "BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
-           "addenda": ["A", "B", "C"], "engine": os.path.basename(ENGINE), "attn_arm": ATTN,
+           "addenda": ["A", "B", "C", "D"], "engine": os.path.basename(ENGINE),
+           "attn_arm": ATTN,
            "provenance": provenance,
            "donor": HF, "revision": REV, "threads": int(THREADS),
            "protocol": {"n_predicted": N_PRED, "scored_bytes": SCORED_BYTES,
@@ -481,6 +548,28 @@ def main():
            "references": {"E62_15B_I8": E62_15B_I8, "E16_B2": E16_B2,
                            "E15_B0_fp32_7B": E15_B0_FP32_7B, "E62_ladder": E62_LADDER},
            "started_at": time.strftime("%Y-%m-%dT%H:%M:%S")}
+
+    if a.stage == "rank-repair":
+        res, scored_checkpoint = load_pinned_scored_run(provenance)
+        res["rank_repair_from"] = scored_checkpoint
+        res["rank_repair_started_at"] = time.strftime("%Y-%m-%dT%H:%M:%S")
+        log("\n-- rank repair from pinned score %s; run-1 rank discarded"
+            % scored_checkpoint["sha256"], fh)
+        log("-- greedy run 2 (every treatment CONFIG is now asserted and stored)", fh)
+        greedy = stage_greedy(fh)
+        elapsed = time.time() - t0
+        rank_result = {"experiment": "E66", "run": 2, "scope": "rank-only repair",
+                       "provenance": provenance, "source_score": scored_checkpoint,
+                       "greedy": greedy, "seconds_rank_repair_stage": elapsed}
+        rank_path = os.path.join(RES, "e66_rank_run2.json")
+        json.dump(rank_result, open(rank_path, "w"), indent=1)
+        res["greedy"] = greedy
+        res["seconds_rank_repair_stage"] = elapsed
+        out_path = os.path.join(RES, "e66_one_byte_at_7b_run2.json")
+        json.dump(res, open(out_path, "w"), indent=1)
+        log("\nwrote repaired rank %s and combined %s in %.0f s"
+            % (rank_path, out_path, elapsed), fh)
+        return 0
 
     controls = None
     if a.stage in ("all", "controls"):
