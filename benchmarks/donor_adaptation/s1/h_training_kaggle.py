@@ -42,8 +42,8 @@ READY_TIMEOUT_S = 20 * 60
 
 TARGETS = {
     "h2i": {
-        "bundle": HERE / "_h2i_bundle",
-        "manifest_sha256": "a37d65fdc3e7833bb2b539abd43a07d958a98bc9dd65d091240716a5606abf20",
+        "bundle": HERE / "_h2i_bundle_v4",
+        "manifest_sha256": "330fa237ebe3ea85c48447f52628a3f77f1f4cf0e7275ef7e122e9eb8b93ba56",
         "dataset_slug": "h2i-one-byte-phase-b-bundle",
         "dataset_title": "H2I one-byte Phase B bundle",
         "kernel_slug": "h2i-one-byte-phase-b",

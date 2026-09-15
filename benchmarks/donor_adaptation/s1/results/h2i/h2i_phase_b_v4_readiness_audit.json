@@ -1,0 +1,42 @@
+{
+ "status": "READY_NOT_RUN",
+ "protocol": "BRIEF_H2I_TRAIN_THE_CARVE_AT_ONE_BYTE.md addenda B-I",
+ "repair_commit": "0de313ce122df82caf8b40aa2c46d362314eb89f",
+ "bundle": {
+  "path": "benchmarks/donor_adaptation/s1/_h2i_bundle_v4",
+  "payload_count": 15,
+  "payload_bytes": 463453554,
+  "manifest_bytes": 3387,
+  "manifest_sha256": "330fa237ebe3ea85c48447f52628a3f77f1f4cf0e7275ef7e122e9eb8b93ba56",
+  "second_full_verification_passed": true
+ },
+ "manifest_comparison": {
+  "previous_manifest_sha256": "a37d65fdc3e7833bb2b539abd43a07d958a98bc9dd65d091240716a5606abf20",
+  "scientific_payloads_compared": 8,
+  "scientific_payloads_unchanged": true,
+  "changed_payloads": [
+   "h2i_qat.py"
+  ],
+  "h2i_qat": {
+   "bytes": 30716,
+   "sha256": "f8df56204e564ca0ced074059d0418fcb16682b5d200cc18a1785d46290d6c02"
+  }
+ },
+ "tests": {
+  "python_compile": true,
+  "selftest": true,
+  "device_safe_seeded_probe_repeat_exact": true,
+  "device_safe_seeded_probe_global_rng_unchanged": true,
+  "real_donor_cpu_smoke": true,
+  "smoke_applied_updates": 1,
+  "smoke_nonfinite_microbatches": 0,
+  "smoke_save_reload_exact": true,
+  "smoke_record": {
+   "path": "D:/_ktmp/h2i_v4_cpu_smoke_0de313c/h2i_v4_smoke_cpu_smoke.json",
+   "bytes": 5486,
+   "sha256": "315d033f3b9b1e1833162c09cfe57b5126bddcf8d8ba98b08df4380c277ca8ca"
+  }
+ },
+ "scientific_changes": [],
+ "remaining_gate": "remote preflight, exact uploaded inventory, exact mounted payload hashes"
+}

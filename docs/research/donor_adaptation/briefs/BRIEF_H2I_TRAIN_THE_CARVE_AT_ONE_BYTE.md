@@ -542,3 +542,25 @@ made zero optimizer updates, version 4 remains the first H2I training session an
 The run-3 log is 104,042 bytes, sha256
 `160b50b586e65e482efdb888c0b4f81cecfcd1b2f71423cdd283cc555802ad72`; normalized record:
 `s1/results/h2i/h2i_kaggle_run3_VOID_OPERATIONAL.json`.
+
+---
+
+# ADDENDUM I — version-4 apparatus is ready, before upload or launch
+
+**Recorded 2026-09-15 after implementing and testing addendum H, and before uploading the new
+dataset version or pushing kernel version 4.** Commit `0de313c` implements only the registered
+probe construction and output-console repairs. `h2i_qat.py --self-test` fires the inherited gates
+and the new helper's repeat-exact/global-RNG-isolation checks. A new real-donor CPU smoke against
+the rebuilt manifest fires the real k=16/cardinality/live-carve/router-init controls, applies one
+update with zero non-finite microbatches, moves `L03.gate`, `L24.down` and `L03.router`, and reloads
+every saved master/router/label exactly. The smoke record is 5,486 bytes, sha256
+`315d033f3b9b1e1833162c09cfe57b5126bddcf8d8ba98b08df4380c277ca8ca`.
+
+The immutable replacement bundle is `s1/_h2i_bundle_v4`: 15 payloads, 463,453,554 bytes;
+manifest 3,387 bytes, sha256
+`330fa237ebe3ea85c48447f52628a3f77f1f4cf0e7275ef7e122e9eb8b93ba56`. A second verification
+pass rehashed every payload. Comparing manifests finds all eight scientific payload records
+bit-identical and exactly one changed payload, `h2i_qat.py` (30,716 bytes, sha256
+`f8df56204e564ca0ced074059d0418fcb16682b5d200cc18a1785d46290d6c02`). The old bundle remains
+untouched as v1–v3 provenance. Status is **`READY_NOT_RUN`**; v4 still requires the standard remote
+identity, quota, inactive-kernel, uploaded-inventory and mounted-hash gates.
