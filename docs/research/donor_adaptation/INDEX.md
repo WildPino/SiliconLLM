@@ -829,3 +829,18 @@ factored q/o, donor-fp32 matrices, eight carved R8 layers and fp32 routers in on
 masters, forbids factors with tagged-v2 and ternarizes every fitted router. The exact continuation
 and no-go rules are in `audits/H2I_ENGINE_EXPORT_GAP_AUDIT.md`; implementation remains conditional
 on the combined H2I score+rank gate.
+
+---
+
+## Target-donor compatibility disposition
+
+`audits/TARGET_DONOR_DECISION.md` records two frozen, derived upper-bound audits.  Dense
+Qwen2.5-Coder-14B is the closest exporter-family control but not a direct one-byte target:
+its charged linear stream caps at 2.958 tok/s under the deliberately generous 41.389179 G
+weights/s ceiling, and its untied head alone is 18.811 ms.  Qwen3-30B-A3B-Base is
+architecture-interesting but not a direct speed candidate: its all-expert one-byte upper bound is
+13.607 tok/s; its fixed attention/head/router floor is 33.657 tok/s even with no expert work.
+Current carved FFN/exporter semantics are not Qwen3 MoE semantics.  Therefore neither weights
+download nor candidate benchmark is authorized; await H2I v4 and H1 S3 adjudication first.  The
+audit distinguishes derived arithmetic, synthetic timing, converted-real-donor evidence and
+official metadata, and names the E40/E43/E60/E63/E66/H2I no-rerun boundaries.

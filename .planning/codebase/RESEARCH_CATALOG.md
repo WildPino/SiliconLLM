@@ -6,9 +6,10 @@
 
 1. Search by mechanism/shape/format first: `docs/research/donor_adaptation/audits/AXIS_COVERAGE_AND_NO_DUPLICATION_MAP.md`.
 2. Canonical donor chronology: `docs/research/donor_adaptation/INDEX.md`.
-3. Speed chronology/arithmetic: `docs/research/donor_adaptation/SPEED_LEDGER.md`.
-4. Current owner actions: `docs/COMMUNICATION.md`.
-5. Then open the cited probe, brief/addendum, runner and result JSON.
+3. Frozen target-donor compatibility/upper-bound disposition: `docs/research/donor_adaptation/audits/TARGET_DONOR_DECISION.md` (not a benchmark or launch authorization).
+4. Speed chronology/arithmetic: `docs/research/donor_adaptation/SPEED_LEDGER.md`.
+5. Current owner actions: `docs/COMMUNICATION.md`.
+6. Then open the cited probe, brief/addendum, runner and result JSON.
 
 The axis map also separates four lineages that must not be merged: the closed frozen-substrate work,
 the parked trained CPU-native/Phase-64 ladder, active pretrained-donor adaptation, and prior-art/design
@@ -165,7 +166,7 @@ These entries are represented primarily by briefs, engine runners/results and `S
 
 ## Corpus inventory
 
-- Donor-adaptation documentation: 69 probes, 87 briefs, 18 audits (including the cross-axis map), 7 decisions and 9 prior-art notes, plus `INDEX.md` and `SPEED_LEDGER.md`.
+- Donor-adaptation documentation: 69 probes, 87 briefs, 20 audits (including `TARGET_DONOR_LOCAL_INVENTORY.md`, `TARGET_DONOR_DECISION.md`, and the cross-axis map), 6 decisions and 9 prior-art notes, plus `INDEX.md` and `SPEED_LEDGER.md`.
 - Donor-adaptation benchmark tree: hundreds of scripts/logs/results across density, ternary, engine, P1/R2/F1/S1; treat `archive/` as historical unless a canonical document points into it.
 - Phase 64: 49 source/spec files under `benchmarks/phase64/`, including MVE data/logit/train stages and WS3–WS6 audits.
 - Broader research includes CPU architecture, memory bandwidth, long-context/SSM retrieval and scale-up docs under `docs/research/`.

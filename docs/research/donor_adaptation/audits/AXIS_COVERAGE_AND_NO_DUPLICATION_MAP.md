@@ -4,6 +4,8 @@
 brief, writing a runner, or spending CPU/GPU time. This is an index of project evidence, not a new
 scientific result. The chronological source of truth for donor adaptation remains `../INDEX.md`; rate
 arithmetic remains `../SPEED_LEDGER.md`; exact experiment status remains in the cited probe/result.
+For donor selection, use `TARGET_DONOR_LOCAL_INVENTORY.md` for repository evidence and
+`TARGET_DONOR_DECISION.md` for the frozen Qwen2.5-Coder-14B/Qwen3-30B-A3B-Base disposition.
 
 ## 1. How to read this map
 
@@ -79,6 +81,8 @@ Transformer destroys ranking. Those are different objects and both measurements 
 | Phase-64 MVE/S0 ~30M | yes, trained from scratch | MVE gates yes; S0 BPB yes but property gates absent | not exact S0 export | GPU training throughput, not target CPU decode | machinery works; S0's 0.9277 is a measurement without its registered verdict |
 | Qwen 0.5/1.5/3B donor | yes, pretrained | yes across multiple formats | yes | selected format rates, scoped | anchors format/rule trends; E62 forbids a smooth scale law |
 | Qwen2.5-Coder-7B donor | yes, pretrained | fp32, ternary and one-byte score/rank | yes | no valid one-byte target-rate result | one-byte fidelity survives; strict rank bar does not |
+| Qwen2.5-Coder-14B candidate | no local weights; official metadata plus derived arithmetic only | no | family-level format compatibility only; no artifact parity | no | dense one-byte upper bound 2.958 tok/s; do not download before a separately gated head+body transformation |
+| Qwen3-30B-A3B-Base candidate | no local weights; official metadata plus derived arithmetic only | no | current carved path is not exact Qwen3 MoE | no | one-byte upper bound 13.607 tok/s; even zero-expert fixed floor caps at 33.657, so defer exact support until head+attention also change |
 | E36/E39/E40 ~10B shapes | no: synthetic/noise weights | no donor-quality result | yes for their engine paths | yes, bands/controls as documented | the CPU can execute a suitable 10B **shape** at/above the target rate |
 | E63 carved-int8 ~10B artifact | constructed exact-format artifact, not a pretrained 10B quality object | no | yes | `G-E63d` not yet measured | path exists and computes correctly; clean absolute rate remains owed |
 | H2I 8-layer mixed donor object | donor weights plus trained factors/router/carved layers | Phase A yes; Phase B running | container capable, exporter gap audited | no | tests whether training can repair the structural hole before export/scale |
