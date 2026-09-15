@@ -1,0 +1,96 @@
+{
+ "stage": "H2I_PHASE_B_V4_ADJUDICATION_FREEZE",
+ "status": "READY_WAITING_FOR_TERMINAL_OUTPUT",
+ "recorded_local": "2026-09-15",
+ "basis_head": "9f2f7dcf0bef5b7c3e89bf047c25064c79cbfc16",
+ "remote": {
+  "account": "acct2",
+  "identity": "giggio253",
+  "kernel": "giggio253/h2i-one-byte-phase-b",
+  "kernel_version": 4,
+  "status_at_freeze": "KernelWorkerStatus.RUNNING"
+ },
+ "evaluator_dependencies": [
+  {
+   "path": "benchmarks/donor_adaptation/s1/h2i_eval.py",
+   "bytes": 16328,
+   "sha256": "977d89abbf4567566814eccde9690c058e13da643a959e0672ba1badbec991bb",
+   "git_blob": "0813f32f8c165ae92d347f26e30e85ae88eb7a7f"
+  },
+  {
+   "path": "benchmarks/donor_adaptation/density/common.py",
+   "bytes": 12666,
+   "sha256": "7ac00b31e91d0018c775e2e9b26120c0ec025075d7913218ea3cdcfe3196e461",
+   "git_blob": "608a563bc7f30e21c8941e3703b40ce25fb0960e"
+  },
+  {
+   "path": "benchmarks/donor_adaptation/s1/h1_qat.py",
+   "bytes": 48685,
+   "sha256": "7876d6032c3fd46f4d836d88aaf7ebae087f0437dc743f310f0a3a4652bd30ad",
+   "git_blob": "4caeae0b77f72a0b389b0cb583aebff841063857"
+  },
+  {
+   "path": "benchmarks/donor_adaptation/s1/h2i_applied.py",
+   "bytes": 23767,
+   "sha256": "fcb717c10fe5fbcf26762f5ae6e2324484e2b4a02195caee6088a9c3c3339900",
+   "git_blob": "40c188cc769575b8a9704359c68899ad4d8b368e"
+  },
+  {
+   "path": "benchmarks/donor_adaptation/ternary/t2_rules.py",
+   "bytes": 18895,
+   "sha256": "10037c87fb4403d5f0f97bde9736c7f198485cc20722e5e937037bb8a2c2e8c4",
+   "git_blob": "8be4464e7d81cd89686a4fe2179c42f0f4f9a9e4"
+  },
+  {
+   "path": "benchmarks/donor_adaptation/engine/e6_generate.py",
+   "bytes": 11004,
+   "sha256": "410353b083c9a98e6a3044551212b5c8aae8995ed1cbaac0f03b99016726824e",
+   "git_blob": "5a4a5484832de5ed2d241fcaf4d813f692f0a8ac"
+  },
+  {
+   "path": "benchmarks/donor_adaptation/engine/results/e6/engine.json",
+   "bytes": 10827,
+   "sha256": "6e865cf72675335c1844d14985502798c2437aa106562b92c34adcfeb3535965",
+   "git_blob": "7f4a82b08904a420e2dff870f73aff58569f708e"
+  }
+ ],
+ "terminal_protocol": {
+  "complete": [
+   "download once to a fresh directory",
+   "preserve the raw Kaggle log",
+   "require h2i_trained_s1.npz and h2i_trained_s1.json",
+   "rehash the frozen evaluator dependencies",
+   "run the write-once CPU fp32 evaluator exactly once"
+  ],
+  "error": [
+   "download the raw log once",
+   "do not run the scientific evaluator",
+   "classify operational versus numerical/scientific failure from the last passed gate"
+  ],
+  "download_command": "python benchmarks/donor_adaptation/s1/h_training_kaggle.py output h2i acct2 --path D:\\_ktmp\\h2i_kaggle_v4_output",
+  "evaluation_command": "python benchmarks/donor_adaptation/s1/h2i_eval.py --trained D:\\_ktmp\\h2i_kaggle_v4_output\\h2i_trained_s1.npz --out benchmarks/donor_adaptation/s1/results/h2i/h2i_eval_h2i_trained_s1.json",
+  "evaluation_output": "benchmarks/donor_adaptation/s1/results/h2i/h2i_eval_h2i_trained_s1.json",
+  "write_once": true
+ },
+ "gates": {
+  "score": "trained-hard BPB < 1.0190764652622473",
+  "rank_runs_only_if_score_passes": true,
+  "rank": [
+   "free > 9/160",
+   "teacher_forced_top1 > 99/160",
+   "mean_target_rank < 3.675"
+  ],
+  "combined": "score and all three rank clauses",
+  "exit_codes": {
+   "0": "combined PASS",
+   "2": "FAIL-SCORE; rank intentionally not run",
+   "3": "SCORE-ONLY; rank ran and one or more clauses failed"
+  }
+ },
+ "non_promotion": [
+  "RUNNING is not startup or training evidence",
+  "GPU progress BPB never selects a checkpoint",
+  "a nonzero evaluator exit code 2 or 3 is a scientific verdict, not an operational failure",
+  "no export or scale step is permitted unless the combined gate passes"
+ ]
+}

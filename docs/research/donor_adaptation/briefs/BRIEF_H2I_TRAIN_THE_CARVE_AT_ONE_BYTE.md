@@ -580,3 +580,34 @@ commit `dd8ca8e` and reported `KernelWorkerStatus.RUNNING` at 17:59:22 Europe/Ro
 first H2I session capable of entering the training loop; versions 1–3 remain operationally void
 and are never resumed. RUNNING is not evidence that the startup control or first update fired.
 Monitoring remains sparse/event-driven, and only terminal output may advance the protocol.
+
+---
+
+# ADDENDUM K — CPU adjudication frozen before terminal output is visible
+
+**Recorded 2026-09-15 while version 4 still reported `KernelWorkerStatus.RUNNING`, before any
+terminal artifact or final training metric was available.** This addendum changes no evaluator,
+gate, band, model, prompt, target, training choice or checkpoint rule. It closes an operational
+reproducibility gap: `h2i_eval.py` checks its dependencies against the then-current Git `HEAD`, so
+the exact already-committed blobs that are allowed to adjudicate v4 are now frozen externally.
+
+The machine-readable record is
+`s1/results/h2i/h2i_phase_b_v4_adjudication_freeze.json`. It pins byte sizes, SHA-256 and Git blob
+IDs for `h2i_eval.py` and all six dependencies it validates: `common.py`, `h1_qat.py`,
+`h2i_applied.py`, `t2_rules.py`, `e6_generate.py` and the E6 engine descriptor. All seven matched
+commit `9f2f7dc` at freeze time. The evaluator itself remains byte-for-byte the preregistered code;
+no post-launch repair is introduced.
+
+Terminal handling is fixed before the outcome:
+
+1. While the kernel is non-terminal, do nothing except sparse status monitoring.
+2. On `COMPLETE`, download once into a fresh directory, preserve the raw log, require the final
+   NPZ+JSON pair, rehash the seven frozen evaluator dependencies, then run the write-once CPU fp32
+   evaluator exactly once.
+3. On `ERROR`, download the log once and classify the last passed gate; do not run the scientific
+   evaluator against a missing or partial final pair.
+4. Evaluator exit `2` is the registered `FAIL-SCORE` outcome and intentionally runs no rank. Exit
+   `3` is `SCORE-ONLY`, meaning score passed and at least one rank clause failed. Neither is an
+   operational error to be repaired or rerun.
+5. Only exit `0`, with the recorded combined gate true, licenses the conditional engine-export
+   seam. No checkpoint may be selected from progress diagnostics.
