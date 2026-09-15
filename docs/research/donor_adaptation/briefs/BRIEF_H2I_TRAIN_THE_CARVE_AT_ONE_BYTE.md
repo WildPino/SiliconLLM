@@ -232,3 +232,125 @@ baseline; a BPB-only win is insufficient.
 5. free-running below 150/160 — **TAKEN**, actual `9/160`.
 
 No rate, 10 B, scale, rank-compression or activation-int8 claim is added by this result.
+
+---
+
+# ADDENDUM B — Phase B training protocol, before its trainer exists
+
+**Pre-registered 2026-09-15 after Phase A and before `h2i_qat.py`, `h2i_eval.py`, any training
+bundle, CPU real-donor update or T4 result exists.** Phase A's raw result is now an input, fixed
+at 12,239 bytes and sha256
+`c367acb45113e9ce68fb898de0b0833db61b6a1b84990b7ccc6467f82d2ef8cc`.
+
+## B.1 The object and the one deliberate initialization change
+
+Phase B trains the fp32 masters behind R8 and the router jointly, while every forward keeps the
+three selected FFNs in exact R8. It inherits H1's model revision, H0 run-3 frozen q/o, layers
+`[3,6,9,12,15,18,21,24]`, D0c labels, `E=256`, `k=16`, renormalized soft training gate,
+hard engine-equivalent evaluation gate, AdamW betas `(0.9,0.95)`, no weight decay, gradient
+clip 1.0, batch 2, accumulation 8, expert LR `2e-4`, router LR `3e-4`, aux `0.01`, and SDPA.
+
+The router starts from **E37's fitted router**, not zero. This is registered now because Phase A's
+matched baseline is that exact router and because H1 already paid to show that a useful fitted
+router exists. Relearning it from zero would spend the new run on an axis already measured. The
+soft-gate step-0 value will differ from the hard applied baseline by construction; it is recorded,
+not used as a threshold. CPU adjudication is hard-gated.
+
+No H1 ternary FFN checkpoint is loaded. This is a fresh optimizer and a fresh R8 master state
+starting from H0, so `--resume` is forbidden in the first Phase B session.
+
+## B.2 Frozen training inputs
+
+In addition to Phase A's six inputs:
+
+| input | bytes | sha256 |
+|---|---:|---|
+| H1 train stream | 64,000,260 | `0cdaa28f405c3a8c6a8589af8e88788b33131bc7d4f1096da6c1fedf78caa9d9` |
+| H1 calibration stream | 131,332 | `b8d4184db0988f4d86ae3089e99ba167b8e05e6dcdbbc504f7679729fe7aa019` |
+
+The held-out stream is already pinned in §3. A bundle packer must hash all payloads after writing
+its run instructions, re-open the manifest and independently verify every entry. The training
+runner must validate the manifest and refuse unlisted or changed scientific inputs before loading
+the model.
+
+## B.3 Pre-GPU controls
+
+The T4 may not start until one committed runner passes:
+
+1. exact R8 forward parity to `t2_rules.r8_int8_rtn`, at least five planted codes and finite
+   non-zero STE gradients through all three FFN masters;
+2. hard `k=E` identity for any router, soft `k=E` identity at router zero, exact real-shape
+   `k=16` cardinality of 560 neurons and a live carve;
+3. E37 router shapes and values installed exactly before step 0;
+4. on a real-donor CPU one-update smoke, an optimizer update is actually applied and moves the
+   layer-3 gate master, layer-24 down master and layer-3 router; no non-finite microbatch;
+5. save/reload reproduces every master, router and label exactly and invalidates quantization
+   caches.
+
+The CPU smoke is an apparatus test, not a quality result; it may use a short stream and one or
+two layers to control cost, but must include both depth extremes for the moved-master check.
+
+## B.4 T4 session
+
+One continuous session, maximum **11.0 hours**, `steps=4000`, checkpoint every 250 updates, new
+seed `4242`. The trainer stops itself before the platform limit, saves both periodic and final
+bundles, and records `steps_completed`, `stop_reason`, seconds/step, non-finite microbatches,
+declined scaler updates, soft and hard progress BPB, occupancy and router-vs-STATIC. The exact
+expected step count and bundle command are filled only after the CPU smoke measures this R8
+runner; no H1 ternary seconds/step is transferred as a prediction.
+
+GPU progress numbers are diagnostics. They never decide Phase B.
+
+## B.5 CPU fp32 adjudication and frozen gates
+
+The evaluator validates the Phase A result hash and the trained bundle/labels before model load,
+reproduces intact and H0 within `1e-5`, then reports these hard-gated arms:
+
+- trained R8 experts at `k=E`;
+- trained experts + original E37 router at hard `k=16`;
+- trained experts + trained router at hard `k=16` — the deployable arm;
+- trained router against STATIC, both hard, on held-out tokens.
+
+`G-H2I-score` fires iff deployable trained BPB is strictly below Phase A's
+`1.0190764652622473`. The bands are:
+
+| trained hard BPB | reading |
+|---|---|
+| `>= 1.0190764652622473` | `TRAINING-DOES-NOT-HELP` |
+| `(0.8200055950172889, 1.0190764652622473)` | `TRAINING-HELPS` |
+| `[0.8000055950172889, 0.8200055950172889]` | `CARVE-IS-NEAR-FREE` (within 0.01 of uncarved R8) |
+| `< 0.8000055950172889` | `TRAINING-OVERSHOOTS-BASE` |
+
+Boundary ownership is explicit. These labels describe the measured proxy; none means 10 B.
+
+The rank reference is Phase A's stored H0 target IDs. `G-H2I-rank` fires only if **all three**
+strict improvements hold: free-running `>9/160`, teacher-forced top-1 `>99/160`, and mean target
+rank `<3.675`. Per-prompt counts and first divergence remain mandatory. The conjunction is
+deliberately conservative: a loss win that leaves the autoregressive model at Phase A's floor is
+not a functioning selection win.
+
+`G-H2I` fires only if both score and rank gates fire. Router-vs-STATIC is separately required to
+claim learned per-token routing; if it fails, an overall H2I pass is credited to trained experts,
+not to the router.
+
+## B.6 Predictions
+
+1. Every pre-GPU and inherited instrument control fires.
+2. `G-H2I-score` fires; descriptive expected hard BPB **0.86–0.96**. The range is not the gate.
+3. `G-H2I-rank` fires on all three clauses. This is the highest-risk prediction.
+4. The trained router beats STATIC under the same hard gate, continuing H1's mechanism result.
+5. The trained router improves over the original E37 router with experts fixed. If not, the
+   expert update may still win H2I but no new router claim is made.
+6. The run reaches at least 250 applied updates and writes a loadable periodic checkpoint. The
+   actual step-count prediction is deferred to the post-smoke execution addendum.
+
+## B.7 Stop rules and exclusions
+
+- Failed pre-GPU control: repair apparatus; spend zero T4 hours.
+- Non-finite run or no applied update within 40 attempts: numerical failure, not H2I's null.
+- Score fails: do not run rank as a rescue claim; retain any already-produced diagnostic only.
+- Score passes but rank fails: `SCORE-ONLY`, do not export or scale.
+- Both pass: next object is an engine-export parity check, still not a rate result.
+- Do not tune gates, bands, prompts, target IDs, layers, `k`, learning rates or aux after T4.
+- Do not mix activation-int8/LUT into this session. That partner starts only after weight-only R8
+  is adjudicated.
