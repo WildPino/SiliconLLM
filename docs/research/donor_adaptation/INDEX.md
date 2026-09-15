@@ -1,5 +1,10 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+> **Search by axis before reading chronologically.** The cross-lineage matrix in
+> `audits/AXIS_COVERAGE_AND_NO_DUPLICATION_MAP.md` maps model nature, shape, precision, conversion,
+> transformations, training, kernels, metrics, negative results and legitimate reopening conditions.
+> Use it before assigning a new experiment ID; this file remains the canonical donor chronology.
+
 **The goal:** run somebody else's pretrained LLM on our architecture (`engine.c`), target **~10B at
 50 tok/s** (good) / **100 tok/s** (excellent).
 **Latest research handoff: 2026-09-15 — H1 S3 V2 AND H2I PHASE B V4 ARE RUNNING.** H2I v3 passed exact transport hashes, preflight and donor load but failed before training because its CPU generator was paired with direct CUDA allocation. Addendum H preregistered the sole repair; commit `0de313c` implements it, and a second real-donor smoke fires all controls plus one applied update. Replacement manifest `330fa237…` changes only `h2i_qat.py`; all eight scientific payloads are bit-identical. Exact remote inventory passed and private v4 reported RUNNING at 17:59 Europe/Rome. H2I v1–v3 remain operationally void with zero optimizer updates. H1 S3 v2 continues independently. Monitoring is sparse/event-driven. (`briefs/BRIEF_H2I…` addenda H–J; `s1/results/h2i/h2i_phase_b_v4_readiness_audit.json`; `s1/results/h2i/h2i_phase_b_launch_v4.json`)
