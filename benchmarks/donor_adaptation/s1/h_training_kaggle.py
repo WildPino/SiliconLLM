@@ -18,7 +18,9 @@ Commands:
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
+import io
 import json
 import os
 import shutil
@@ -281,14 +283,45 @@ def dataset_ready(name: str, account: str) -> bool:
     return result.returncode == 0 and "ready" in (result.stdout or "").lower()
 
 
+def expected_remote_inventory(name: str) -> dict[str, int]:
+    bundle = target(name)["bundle"]
+    manifest_path = bundle / "MANIFEST.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    expected = {filename: int(metadata["bytes"])
+                for filename, metadata in manifest["files"].items()}
+    expected["MANIFEST.json"] = manifest_path.stat().st_size
+    return expected
+
+
+def remote_inventory(name: str, account: str) -> dict[str, int] | None:
+    result = kaggle_ops.kaggle(
+        account, "datasets", "files", remote_ref(name, account, "dataset"), "--csv",
+        check=False,
+    )
+    if result.returncode != 0:
+        return None
+    rows = csv.DictReader(io.StringIO(result.stdout or ""))
+    try:
+        return {row["name"]: int(row["size"]) for row in rows if row.get("name")}
+    except (KeyError, TypeError, ValueError):
+        return None
+
+
+def remote_inventory_matches(name: str, account: str) -> bool:
+    return remote_inventory(name, account) == expected_remote_inventory(name)
+
+
 def wait_dataset(name: str, account: str) -> None:
     deadline = time.monotonic() + READY_TIMEOUT_S
     ref = remote_ref(name, account, "dataset")
     while time.monotonic() < deadline:
-        if dataset_ready(name, account):
-            log(f"{name}: DATASET READY -- {ref}")
+        ready = dataset_ready(name, account)
+        inventory_ok = ready and remote_inventory_matches(name, account)
+        if inventory_ok:
+            log(f"{name}: DATASET READY + INVENTORY PASS -- {ref}")
             return
-        log(f"{name}: dataset processing; next check in 30 s -- {ref}")
+        detail = "old/wrong remote inventory" if ready else "server processing"
+        log(f"{name}: {detail}; next check in 30 s -- {ref}")
         time.sleep(30)
     raise SystemExit(f"{name}: dataset did not become READY within {READY_TIMEOUT_S}s: {ref}")
 
@@ -381,7 +414,9 @@ def cmd_upload(args: argparse.Namespace) -> int:
 
 def cmd_push(args: argparse.Namespace) -> int:
     cmd_preflight(args)
-    if not dataset_ready(args.target, args.account):
+    if not dataset_ready(args.target, args.account) or not remote_inventory_matches(
+        args.target, args.account
+    ):
         wait_dataset(args.target, args.account)
     spec = target(args.target)
     user = kaggle_ops.username(args.account)

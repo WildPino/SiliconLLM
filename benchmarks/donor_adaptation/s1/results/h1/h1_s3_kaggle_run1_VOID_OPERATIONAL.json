@@ -1,0 +1,31 @@
+{
+ "status": "VOID_OPERATIONAL",
+ "observed_at": "2026-09-15T13:36:45.3962594+02:00",
+ "account_alias": "acct1",
+ "server_identity": "wildpino",
+ "dataset": "wildpino/h1-qat-bundle",
+ "kernel": "wildpino/h1-qat-run-session-3",
+ "kernel_version": 1,
+ "terminal_status": "KernelWorkerStatus.ERROR",
+ "expected_bundle_manifest_sha256": "bae2701ac8091b79a0f690298d0aa3ddfd3bad255f714dbe5aa05b678bbea0ee",
+ "matching_manifest_mounts": 0,
+ "mount_gate_passed": false,
+ "resume_read": false,
+ "model_load_started": false,
+ "training_started": false,
+ "optimizer_updates_attempted": 0,
+ "failure_time_seconds": 1.017,
+ "failure": {
+  "exception": "AssertionError",
+  "message": "expected exactly one frozen manifest",
+  "matching_manifests": []
+ },
+ "cause": "Kaggle datasets status reported READY for the previous dataset version while the newly uploaded session-3 version was still being processed, so kernel version 1 mounted the old bundle.",
+ "repair_before_version_2": "Require the server-side dataset file inventory and byte sizes to match the frozen local manifest before pushing; READY alone is not sufficient for a version update.",
+ "raw_log": {
+  "downloaded_path": "D:/_ktmp/h1_kaggle_s3_run1_error/h1-qat-run-session-3.log",
+  "bytes": 1351,
+  "sha256": "ff06270498e372ae657c471dd5c608fa802a719a5ce440a906c17ca700fbf262"
+ },
+ "scientific_use": "none"
+}

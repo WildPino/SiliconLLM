@@ -1686,3 +1686,29 @@ check inside Kaggle before `h1_qat.py` starts. It then runs only addendum M's 11
 requires `h1_trained_s3.npz` plus `.json` before reporting success. It refuses identity/quota
 mismatches and duplicate active kernels. GPU progress remains non-adjudicating; the returned final
 artifact is still scored once by `h1_eval.py` on CPU fp32.
+
+---
+
+# ADDENDUM P — session-3 run 1 is operationally void; version-readiness race fixed
+
+**Recorded 2026-09-15 after kernel version 1 terminated and before version 2 is pushed.** The
+first session-3 kernel is **`VOID_OPERATIONAL`**. At 1.017 s its injected gate found zero copies
+of manifest sha256 `bae2701a…` and stopped. It did not load `h1_trained_s2.npz`, load the donor,
+or attempt training. The raw log is 1,351 bytes, sha256
+`ff06270498e372ae657c471dd5c608fa802a719a5ce440a906c17ca700fbf262`.
+
+The upload had returned “Dataset version is being created”. The dispatcher then queried
+`datasets status`; Kaggle answered READY for the still-public old version, so it pushed while the
+new 1.75 GB version was not yet attachable. This is the historical dataset-readiness race from
+`scripts/kaggle_run.py`, sharpened: READY alone is insufficient when **versioning** because it can
+refer to the previous version. The mount gate did its job and prevented a silent resume from S1.
+
+The repair adds a server-side file-inventory gate. Before push, `datasets files --csv` must match
+the frozen local set and byte sizes exactly, including `MANIFEST.json` at 3,792 bytes,
+`RUN.md` at 9,568 bytes and `h1_trained_s2.npz` at 1,334,711,974 bytes. Only then is READY
+accepted. The server now exposes all ten expected files, so no re-upload is needed.
+
+Version 2 uses the same dataset version, manifest, trainer, resume, command, seed and gates.
+Because version 1 stopped before reading any scientific state, version 2 remains the first H1 S3
+training session and seed 3141 is unchanged. The normalized void record is
+`s1/results/h1/h1_s3_kaggle_run1_VOID_OPERATIONAL.json`.
