@@ -5977,3 +5977,23 @@ only rank under a new committed runner; all ten generation cells report and stor
 
 > **§67.3 — E66 is closed for this donor, quantizer, head format, slice and estimand. Do not
 > measure its controls, BPB, fold pair or rank again without changing one of those dimensions.**
+
+---
+
+## §68 — E63 Part B is provenance-complete; the clean-rate cell has not started
+
+**No rate in this section. `G-E63d` remains `VOID` and OWED.** Addendum D froze an apparatus-only
+repair before the first admissible Part B: committed-runner identity, sha256 pins for Part A,
+engine, both 10 B artefacts and both sidecars, exact sidecar semantics, retained/asserted engine
+`CONFIG`, and a 45-second strict occupancy guard before the canonical result can be touched.
+
+The committed runner at `d4204c3` passed 43 self-tests and every provenance/input check. Its
+2026-09-15 preflight then read median **3.646%**, p75 **4.528%**, range **2.214–10.938%**, with
+**16/45** samples at or above `OCC_BAR=4.39%`. Because admissibility requires **every** sample
+below the bar, it refused before running a timing cell. `e63_part_b.json` was absent before and
+after; only `e63_part_b_preflight.json` was written.
+
+This checkpoint must not be promoted as a failed rate, a third estimate, or a repeated
+experiment. At the next quiet CPU window the same committed runner repeats the guard and, only
+if it passes, executes the already-frozen Part B. Part A, parity and the contended interim ratio
+must not be remeasured as substitutes.

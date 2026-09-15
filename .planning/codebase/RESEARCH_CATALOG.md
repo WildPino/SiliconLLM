@@ -1,6 +1,6 @@
 # SiliconLLM — research catalog and no-duplication handoff
 
-**Snapshot:** 2026-09-15. **Latest material:** H1, E64 run 2, E65 and completed E66. The user's remembered endpoint was E64; the tree contained later work, and E66 has now been run, repaired and audited.
+**Snapshot:** 2026-09-15. **Latest material:** H1, E64 run 2, E65, completed E66, and the hardened E63 Part B preflight. The user's remembered endpoint was E64; the tree contained later work, and E66 has now been run, repaired and audited. E63d's first admissible rate measurement has not yet started.
 
 ## Read this first
 
@@ -16,7 +16,7 @@
 | Can the CPU engine run a 10B shape above 50/100 tok/s? | **Yes as a shape:** E40 `R128` measured ~113–130 tok/s with live FFN, but weights were synthetic/noise. | canonical E40 probe/ledger |
 | Can a pretrained donor be post-hoc carved to the required 1.17% FFN and retain quality? | **No for this donor:** E38's perfect per-token oracle is 4.131817 BPB, above 4.069819 chance. | canonical E38 |
 | Is the 1B/weight rung faithful? | **Yes at 0.5/1.5/3/7B, without a scale law:** at 7B A2 is only +0.000378 BPB from fp32; E62's non-monotonicity still forbids extrapolation. | E60/E62/E66 |
-| Does a 10B carved-int8 artifact exist and compute correctly? | **Yes:** E63 Part A, exact arithmetic/parity; its clean rate is still owed. | canonical E63 |
+| Does a 10B carved-int8 artifact exist and compute correctly? | **Yes:** E63 Part A, exact arithmetic/parity. Part B is hash-pinned and CONFIG-gated; its 2026-09-15 preflight refused before timing because 16/45 occupancy samples breached the bar. Clean rate is still owed. | canonical E63 §15 / preflight JSON |
 | What does carve cost on int8? | **E64 run 1 void. Audited run 2 says dearer by +1.13–1.43 BPB across the ladder; at k=3 the int8 carve itself costs +1.912 BPB and lands above chance.** | canonical E64 probe §8 / ledger §66 |
 | Is the carve trainable? | **Yes on an 8-layer branch:** H1 `TRAINING-HELPS`; router still moves, no full-stack claim. | canonical H1 |
 | What does the rank fraction used by fast R128 cost post-hoc? | **At D=1536, r/D=1/32 costs +1.705835 BPB = 51.66% dense→chance gap; no width extrapolation.** | canonical E65 |
@@ -28,6 +28,7 @@
 - Do not reopen E38's post-hoc selector route with another router/carve search; an unattainable oracle already beat no usable signal.
 - Do not infer 10B quality from E62's 0.5/1.5/3B int8 points; the measured damage is non-monotone. Measure the target or state it unknown.
 - Do not infer rate from E63 Part A or E64/E65 quality. `G-E63d` is the separate clean-rate gate.
+- Do not count E63's 2026-09-15 preflight refusal as a timing attempt: no cell ran and canonical `e63_part_b.json` was absent. Reuse the committed hardened runner at the next quiet window; do not repeat Part A/parity/interim as substitutes.
 - Do not treat E64 run-1 numbers as evidence. Run 2 is canonical; its quality result must not be turned into a timing, trained-format claim or scale extrapolation.
 - Do not re-run E66's controls, score or rank: run 2 is canonical and closes the registered 7 B one-byte fidelity question. Change donor, quantizer, head format, slice or estimand first.
 - For the next healing branch, preserve E66's result that one-byte format damage is negligible and E64's result that the post-hoc carve on that format is not; the trainable object is selection/routing, not the byte conversion itself.
@@ -134,7 +135,7 @@ These entries are represented primarily by briefs, engine runners/results and `S
 | E61 | **CHAIN NOT BINDER:** breaking int8 FMA chain gives +5.07% (not predicted 12–22%); packed gains ×1.2745; four-chain bandwidth curve survives | value/chain ceiling is not enough; 1 B stream near 34–35 GB/s is the useful rung |
 | E62 | **THE-COST-DOES-NOT-RANK:** 1B damage 0.000066/0.001252/0.000579 at 0.5/1.5/3B; non-monotone | no exponent or 10B extrapolation; 7B must be measured |
 | E63 Part A | **PATH-EXISTS-AND-IS-EXACT:** 10B carved-int8 artifact 10,015,507,256 B; ids/logits inert controls pass; packed-vs-int8 carve top-1 100% | rate gate `G-E63d` remains void/owed; Part A is not a tok/s result |
-| E63 interim/addenda | paired int8/packed ratio in contended run ≈0.9826 corrected; composed estimate ≈49 tok/s, CI ~45.5–51.1; no absolute claim | clean idle hour still required; attention is 72.3% of A10B-K3 token, FFN 11.4% |
+| E63 interim/addenda | paired int8/packed ratio in contended run ≈0.9826 corrected; composed estimate ≈49 tok/s, CI ~45.5–51.1; no absolute claim. Addendum D pins runner/engine/artefacts/sidecars and gates every future `CONFIG`. The 2026-09-15 45 s preflight refused at 16/45 breaches, before any cell. | a genuinely quiet window is still required; reuse the committed runner, not earlier controls |
 | E64 run 1 | **VOID / MALFORMED control:** cross-kernel `serial` vs `avx4` mismatch amplified through top-k selection (~1500×) | no cells may be quoted from run 1 |
 | E64 run 2 | **CANONICAL:** `G-E64a2` full ladder exact under asserted `attn=serial`; `G-E64b` passes; `G-E64d=CARVE-IS-DEARER-ON-INT8`, int8-minus-ternary +1.13–1.43 BPB; `k=3` int8-carved 4.128510 BPB > chance | quality-only, one donor, post-hoc; no trained-format, scale or rate claim; apparatus commit lag is recorded in probe §8.1 |
 | H0 | **format trainability evidence:** rank/carve-related training at 1.5B improves post-hoc quality, but free-running remains weak/partial at the measured checkpoints | training-in-format is distinct from post-hoc application |
@@ -144,7 +145,7 @@ These entries are represented primarily by briefs, engine runners/results and `S
 
 ## Open queue, ordered by information gain
 
-1. **Get the clean CPU hour for `G-E63d`:** measure the actual 10B carved-int8 rate; do not replace this with another composed estimate.
+1. **Get a genuinely quiet 10–15 minute CPU window for `G-E63d`:** close browser/background load and run the committed hardened Part B. Its 45 s all-samples guard must pass before timing; do not replace the result with another composed estimate. The 2026-09-15 refusal was operational only and ran zero cells.
 2. **Specify the next healing run on the one-byte branch:** E66 removes base-format fidelity as the problem; E64 leaves a +1.912 BPB post-hoc `k=3` selection hole, while H1 says selection/routing is trainable. Preserve applied-vs-trained and score-vs-rank partners.
 3. **Then request the two T4 sessions if the preregistered one-byte healing apparatus passes locally:** no 10B training fits a T4; use the GPU budget on a representative branch that can falsify the recipe before scaling.
 

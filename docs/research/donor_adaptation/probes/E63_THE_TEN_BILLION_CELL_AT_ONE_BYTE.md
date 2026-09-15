@@ -328,3 +328,44 @@ axis is a sample, not a search.**
 **`G-E63d` remains `VOID` and OWED. E40's weights are NOISE, its dispersion is poor and reported
 as such, and nothing in §13 or §14 is a rate I measured.**
 
+---
+
+## 15. OPERATIONAL CHECKPOINT — hardened Part B refused before measurement
+
+Addendum D was committed before this attempt and changed no arm, repetition count, timing
+window, threshold, prediction or estimand. It hardened the first admissible Part B against four
+apparatus failures: an uncommitted runner, substituted artefacts, discarded engine `CONFIG`, and
+discovering a busy machine only after running the expensive cells.
+
+The committed runner is `e63_part_b_speed.py` at commit
+`d4204c35a2daea09cd9d67c094366bd8fd6460f2`, Git blob
+`999423584ba9025f944c491ab064356cd9006ded`, sha256
+`d79c697b629f3f35dcca2bbb76a54a082eee88067617b0df9dab385d8bbffd91`. Before timing, it now
+hash-pins Part A, the engine, both 10 B artefacts and both exporter sidecars; validates the common
+shape/seed/carve fields and the int8 FFN kinds; and requires every future measured cell to report
+`attn=avx4`, `threads=6`, `quant=ternary` in the engine's own `CONFIG`. Both tagged-v2 containers
+report the same global `quant`; the int8 FFN identity is therefore established by the pinned full
+artefact and sidecar, not inferred from that global field.
+
+On 2026-09-15 the hardened `--preflight` passed all provenance and input checks and all **43**
+self-tests, then observed foreign CPU occupancy for 45 seconds:
+
+| statistic | observed | admissibility |
+|---|---:|---:|
+| median | 3.646% | descriptive only |
+| p75 | 4.528% | descriptive only |
+| range | 2.214%–10.938% | every sample must be `< 4.39%` |
+| samples at or above 4.39% | **16/45** | **must be 0/45** |
+
+The guard therefore **REFUSED**. It wrote only
+`engine/results/e63_part_b_preflight.json` (sha256
+`aa3dbfad1bc8819331d178549d19799d53795198bb45994f0c5868bbfebc8114`) and did **not** create or
+touch `e63_part_b.json`. No timing cell ran, so this is **not another `G-E63d` attempt**, not a
+rate result, and not evidence for either side of the gate. It is a reproducible operational
+checkpoint showing that the current machine state is inadmissible before measurement begins.
+
+**No-duplication rule:** do not rerun Part A, exporter checks, parity, the interim ratio or this
+failed occupancy window as scientific work. At the next genuinely quiet window, run the same
+committed Part B runner; it will repeat the cheap guard automatically and proceed to the frozen
+cells only if all 45 samples are below the bar. `G-E63d` remains unattempted under admissible
+conditions and OWED.
