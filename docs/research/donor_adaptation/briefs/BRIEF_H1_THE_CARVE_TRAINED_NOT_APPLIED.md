@@ -1772,3 +1772,18 @@ python benchmarks/donor_adaptation/s1/h1_s3_adjudicate.py \
 On Kaggle `ERROR`, preserve/download the log and classify the last passed gate; do not invoke this
 guard on a periodic or partial pair. On `COMPLETE`, download once to that fresh directory and run
 the command once.
+
+---
+
+# ADDENDUM S — the session-3 adjudication guard is committed and ready
+
+**Recorded after addendum R's guard was committed and validated, still without reading terminal
+output.** Commit `d190cf6` contains `h1_s3_adjudicate.py`; its 11,599-byte file has SHA-256
+`1b7b850d8cf9b769e1f7dccf4d7b7bb9c4d04112ee9db8d1bafb086bad8d5d07` and Git blob
+`24b7644059f17dce2fdffd3c7c6385a42e5e9b6a`. Its pure metadata controls pass, its own
+worktree-versus-HEAD provenance check passes, and all three frozen evaluator/dependency identities
+plus all five frozen inputs rehash exactly.
+
+Machine-readable readiness and the terminal commands are in
+`s1/results/h1/h1_s3_v2_adjudication_readiness.json`. Status is
+`READY_WAITING_FOR_TERMINAL_OUTPUT`; this is apparatus evidence only, not an H1 result.
