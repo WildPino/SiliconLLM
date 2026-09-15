@@ -502,3 +502,43 @@ ended before model load. No tuning or seed change occurred between them. The liv
 kernel `giggio253/h2i-one-byte-phase-b`, version 3. Do not infer startup-control success from
 RUNNING alone; the final log must contain both mount/copy gates, trainer controls and an applied
 update before the training artifact can be adjudicated.
+
+---
+
+# ADDENDUM H — Kaggle run 3 is operationally void; device-local RNG repair before run 4
+
+**Recorded 2026-09-15 after kernel version 3 terminated and before editing the runner or pushing
+version 4.** Run 3 is **`VOID_OPERATIONAL`** and contributes no H2I treatment evidence. It passed
+the mounted-manifest gate at 6.727 s, the independently rehashed writable-copy gate at 8.299 s,
+all pre-GPU controls and pinned-input checks, and completed loading the exact donor. At 59.765 s,
+before the training loop or any optimizer update, the real-shape wiring control raised:
+
+```
+RuntimeError: Expected a 'cuda' device type for generator but found 'cpu'
+```
+
+`_real_controls()` asked `torch.randn` to allocate directly on `mod.gate.device` while supplying
+the default CPU `torch.Generator`. The earlier real-donor smoke ran on CPU by contract, so it could
+not expose this cross-device API incompatibility. This is a deterministic probe-construction
+defect, not a failed wiring, loss, optimization or quality gate. Aggregate account usage after all
+three short operational attempts is 0.04 GPU-h.
+
+The only scientific-runner repair permitted before version 4 is to generate the seeded probe on
+CPU with an explicit CPU generator and then transfer/cast it to the module device, matching the
+already-safe construction in `h1_qat.py`. The probe remains seed 90210, shape `(1, 6, hidden)`,
+and the same destination dtype/device; it consumes no global RNG state and is used only by the
+pre-update control. Add a deterministic helper self-test, but do not alter data, labels, routers,
+layers, `k`, loss, optimizer, learning rates, schedule, training seed, step count, gates or bands.
+
+Because `h2i_qat.py` is hash-pinned apparatus, rebuild the bundle and publish a new dataset
+version; every unchanged scientific payload must retain its exact hash. The dispatcher must be
+made code-page-safe as well: output download succeeded only after forcing UTF-8 because the
+Kaggle progress glyph could not be written to a cp1252 console. That transport fix has no bearing
+on the kernel. Version 4 may launch only after committed self-tests, a full local bundle audit,
+exact remote inventory and the standard account/quota/no-active-kernel preflight. Since version 3
+made zero optimizer updates, version 4 remains the first H2I training session and retains seed
+4242 without resumption.
+
+The run-3 log is 104,042 bytes, sha256
+`160b50b586e65e482efdb888c0b4f81cecfcd1b2f71423cdd283cc555802ad72`; normalized record:
+`s1/results/h2i/h2i_kaggle_run3_VOID_OPERATIONAL.json`.

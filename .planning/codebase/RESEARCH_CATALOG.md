@@ -1,6 +1,6 @@
 # SiliconLLM — research catalog and no-duplication handoff
 
-**Snapshot:** 2026-09-15. **Latest material:** H1 session 3 and H2I Phase B are now running on separate Kaggle accounts, after three early operational failures were caught before scientific state was read. The user's remembered endpoint was E64; the tree contained E65, completed E66 and H2I. E63d's first admissible rate measurement has not yet started.
+**Snapshot:** 2026-09-15. **Latest material:** H1 session 3 is running on Kaggle. H2I Phase B versions 1–3 are operationally void: v3 passed transport/preflight and loaded the donor but hit a CPU-generator/CUDA-allocation incompatibility in the real-shape control before the training loop or any optimizer update. A narrowly preregistered runner repair and rebuilt bundle are required before v4. The user's remembered endpoint was E64; the tree contained E65, completed E66 and H2I. E63d's first admissible rate measurement has not yet started.
 
 ## Read this first
 
@@ -20,7 +20,7 @@
 | What does carve cost on int8? | **E64 run 1 void. Audited run 2 says dearer by +1.13–1.43 BPB across the ladder; at k=3 the int8 carve itself costs +1.912 BPB and lands above chance.** | canonical E64 probe §8 / ledger §66 |
 | Is the carve trainable? | **Yes on an 8-layer branch:** H1 `TRAINING-HELPS`; router still moves, no full-stack claim. | canonical H1 |
 | Is one-byte + carve the right next trainable object? | **Yes on the matched 8L proxy:** R8 changes H0 by only −0.0000169 BPB, while hard k16 costs +0.209071; Phase B eligible. Rank is still broken at 9/160 free, 99/160 teacher-forced. | H2I Phase A |
-| Is H2I Phase B running? | **Yes:** Kaggle version 3 is the first scientific session and is `RUNNING`. Versions 1–2 are `VOID_OPERATIONAL` before model load (read-only mount, then flat-bundle path); both are catalogued. | H2I brief addenda B–G / launch + void records |
+| Is H2I Phase B running? | **Not currently:** Kaggle versions 1–3 are `VOID_OPERATIONAL`. V3 passed both transport gates, preflight and donor load, then failed in a deterministic real-control probe before training because a CPU generator was paired with direct CUDA allocation. Zero optimizer updates; v4 requires only the preregistered device-safe probe repair and rebuilt apparatus bundle. | H2I brief addenda B–H / launch + void records |
 | What does the rank fraction used by fast R128 cost post-hoc? | **At D=1536, r/D=1/32 costs +1.705835 BPB = 51.66% dense→chance gap; no width extrapolation.** | canonical E65 |
 | Does a compressed pretrained 7B actually function on `engine.c`? | **Yes at one byte:** A2 0.674405 BPB vs fp32 0.674027; 4/5 greedy trajectories exact, 137/160 overall. It misses the strict 150/160 rank bar and has no rate claim. | canonical E66 run 2 / audit |
 
@@ -147,12 +147,12 @@ These entries are represented primarily by briefs, engine runners/results and `S
 | E65 | **RANK FRACTION COST:** r/D=1/32 on real 1.5B donor = 2.473430 BPB, +1.705835 = 51.66% dense→chance; rank damage non-monotone | no D=4096 extrapolation; this is a post-hoc floor, not a trainability verdict |
 | E66 | **COMPLETE — SCORE SURVIVES, RANK BAR DOES NOT:** A2 0.674405 BPB, +0.000378 vs fp32; fold worth 0.0000376; repaired rank run 2 is 137/160 with 4/5 full trajectories exact | rank run 1 void; promote rank only from run 2; no rate, 10 B or scale-law claim |
 | H2I Phase A | **PHASE-B-ELIGIBLE:** exact R8 8L baseline 0.810006 vs H0 0.810022; hard k16 1.019076, carve +0.209071. Rank 9/160 free, 99/160 teacher-forced, mean 3.675. | write-once matched baseline; do not remeasure. Train R8 selection/router and require score + rank improvement; no rate/10 B claim |
-| H2I Phase B | **RUNNING:** trainer/evaluator and 463 MB bundle passed local gates. Kaggle v1/v2 are `VOID_OPERATIONAL` before model load; v3 is the unchanged first scientific run on `acct2`. | wait for terminal v3; validate full log/artifact and run one CPU fp32 adjudication. Do not infer GPU steps from the 2-layer CPU smoke |
+| H2I Phase B | **V1–V3 VOID_OPERATIONAL:** v1 read-only mount, v2 flat-bundle source path, v3 CPU-generator/direct-CUDA mismatch in `_real_controls`. V3 loaded the donor but entered neither training loop nor optimizer; aggregate usage 0.04 GPU-h. | apply only addendum H's device-safe seeded-probe repair, rebuild/rehash/upload, then launch v4 as the first training session; adjudicate once only after final artifacts |
 
 ## Open queue, ordered by information gain
 
-1. **Wait event-driven for H2I v3 and H1 S3 v2:** both scientific kernels are RUNNING on separate accounts. Do not repush, poll rapidly or select a checkpoint from progress diagnostics.
-2. **When H2I returns, run its single CPU fp32 adjudication:** require deployable BPB `<1.019076465`, free rank `>9/160`, teacher-forced `>99/160`, and mean rank `<3.675`. If score fails, do not run rank as rescue.
+1. **Repair and relaunch H2I exactly once:** implement addendum H's CPU-seeded/device-transferred real-control probe, rebuild the hash-closed bundle, require exact remote inventory, then launch v4 on `acct2`. Do not change any scientific input/control or resume v3; it made zero updates.
+2. **Wait event-driven for H1 S3 v2 and, once launched, H2I v4:** do not repush, poll rapidly or select a checkpoint from progress diagnostics. When H2I returns, run its single CPU fp32 adjudication: require deployable BPB `<1.019076465`, free rank `>9/160`, teacher-forced `>99/160`, and mean rank `<3.675`. If score fails, do not run rank as rescue.
 3. **When H1 returns, validate the first periodic checkpoint and run one CPU fp32 evaluation:** compare only against addendum M's frozen gates.
 4. **Get a genuinely quiet 10–15 minute CPU window for `G-E63d`:** its 45 s all-samples guard must pass before timing. The 2026-09-15 refusal ran zero cells and is not a result.
 

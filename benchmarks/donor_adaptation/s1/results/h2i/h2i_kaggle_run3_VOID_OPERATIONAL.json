@@ -1,0 +1,38 @@
+{
+ "status": "VOID_OPERATIONAL",
+ "observed_at": "2026-09-15T13:58:07.0085786+02:00",
+ "account_alias": "acct2",
+ "server_identity": "giggio253",
+ "dataset": "giggio253/h2i-one-byte-phase-b-bundle",
+ "kernel": "giggio253/h2i-one-byte-phase-b",
+ "kernel_version": 3,
+ "terminal_status": "KernelWorkerStatus.ERROR",
+ "bundle_manifest_sha256": "a37d65fdc3e7833bb2b539abd43a07d958a98bc9dd65d091240716a5606abf20",
+ "mount_gate_passed": true,
+ "working_copy_gate_passed": true,
+ "mount_payloads_verified": 15,
+ "working_copy_payloads_verified": 15,
+ "trainer_preflight_passed": true,
+ "model_load_started": true,
+ "model_load_completed": true,
+ "real_shape_control_started": true,
+ "training_loop_started": false,
+ "optimizer_updates_attempted": 0,
+ "gpu_quota_after_terminal_status": "GPU,0.04h,29.96h,30.00h,2026-09-19T00:00:00",
+ "failure_time_seconds": 59.765,
+ "failure": {
+  "exception": "RuntimeError",
+  "message": "Expected a 'cuda' device type for generator but found 'cpu'",
+  "location": "h2i_qat.py:_real_controls torch.randn",
+  "trigger": "default CPU torch.Generator supplied to a direct CUDA allocation"
+ },
+ "cause": "The deterministic real-shape probe was allocated directly on the CUDA module device with a CPU generator. The required CPU smoke could not expose a cross-device API mismatch.",
+ "repair_before_version_4": "Generate the seed-90210 control probe with an explicit CPU generator on CPU, then transfer and cast it to the module device; add a deterministic helper self-test. Rebuild and rehash the apparatus bundle without changing scientific inputs or training controls.",
+ "raw_log": {
+  "downloaded_path": "D:/_ktmp/h2i_kaggle_run3_error_utf8/h2i-one-byte-phase-b.log",
+  "bytes": 104042,
+  "sha256": "160b50b586e65e482efdb888c0b4f81cecfcd1b2f71423cdd283cc555802ad72"
+ },
+ "download_note": "The first local output attempt created only a zero-byte log because the outer dispatcher wrote a Kaggle progress glyph to a cp1252 console. Re-running to a fresh destination with PYTHONUTF8=1 downloaded the one authoritative nonempty log.",
+ "scientific_use": "none"
+}
