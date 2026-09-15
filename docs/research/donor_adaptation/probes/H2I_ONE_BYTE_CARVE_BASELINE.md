@@ -1,11 +1,15 @@
 # H2I Phase A — one byte is inert; the matched carve hole is trainable-sized and rank-visible
 
-**Brief:** `briefs/BRIEF_H2I_TRAIN_THE_CARVE_AT_ONE_BYTE.md` + addendum A  
-**Runner:** `s1/h2i_applied.py`, commit `c4a156f`  
+**Brief:** `briefs/BRIEF_H2I_TRAIN_THE_CARVE_AT_ONE_BYTE.md` + addendum A
+
+**Runner:** `s1/h2i_applied.py`, commit `c4a156f`
+
 **Result:** `s1/results/h2i/h2i_applied_8L.json`, sha256
-`c367acb45113e9ce68fb898de0b0833db61b6a1b84990b7ccc6467f82d2ef8cc`  
+`c367acb45113e9ce68fb898de0b0833db61b6a1b84990b7ccc6467f82d2ef8cc`
+
 **Donor:** Qwen2.5-1.5B rev `8faed761`; H0 run-3 q/o; layers 3,6,9,12,15,18,21,24;
-E=256, hard k=16, E37 router; CPU fp32  
+E=256, hard k=16, E37 router; CPU fp32
+
 **Cost:** 971 s CPU; no GPU and no timing claim
 
 ## Verdict
