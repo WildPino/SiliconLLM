@@ -46,6 +46,7 @@ TARGETS = {
         "dataset_title": "H2I one-byte Phase B bundle",
         "kernel_slug": "h2i-one-byte-phase-b",
         "kernel_title": "H2I one-byte Phase B",
+        "copy_to_working": True,
         "manifest_test": {"stage": "H2I_PHASE_B", "status": "READY_NOT_RUN"},
         "command_test": {
             "steps": 4000, "bs": 2, "accum": 8, "lr": 0.0002,
@@ -78,6 +79,7 @@ TARGETS = {
         "dataset_title": "H1 carve-trained bundle",
         "kernel_slug": "h1-qat-run-session-3",
         "kernel_title": "H1 QAT run session 3",
+        "copy_to_working": False,
         "manifest_test": {"sessions": 3},
         "command_test": {
             "resume": "h1_trained_s2.npz", "factors": "h0_trained3.npz",
@@ -171,11 +173,12 @@ def runtime_shim(name: str) -> str:
     spec = target(name)
     # The mounted dataset name/version is deliberately not assumed.  The sha identifies the
     # sole valid manifest even if Kaggle changes the mount directory between versions.
-    script = f'''import glob, hashlib, json, os, subprocess, sys
+    script = f'''import glob, hashlib, json, os, shutil, subprocess, sys
 TARGET = {name!r}
 MANIFEST_SHA256 = {spec["manifest_sha256"]!r}
 COMMAND = {spec["command"]!r}
 EXPECTED_OUTPUTS = {spec["outputs"]!r}
+COPY_TO_WORKING = {spec["copy_to_working"]!r}
 
 def sha256(path):
     h = hashlib.sha256()
@@ -191,12 +194,24 @@ manifest_path = hits[0]
 root = os.path.dirname(manifest_path)
 with open(manifest_path, encoding="utf-8") as fh:
     manifest = json.load(fh)
-for filename, metadata in manifest["files"].items():
-    path = os.path.join(root, filename)
-    assert os.path.isfile(path), ("missing payload", filename)
-    assert os.path.getsize(path) == int(metadata["bytes"]), ("size mismatch", filename)
-    assert sha256(path) == metadata["sha256"], ("sha mismatch", filename)
+
+def verify_root(folder):
+    assert sha256(os.path.join(folder, "MANIFEST.json")) == MANIFEST_SHA256
+    for filename, metadata in manifest["files"].items():
+        path = os.path.join(folder, filename)
+        assert os.path.isfile(path), ("missing payload", filename)
+        assert os.path.getsize(path) == int(metadata["bytes"]), ("size mismatch", filename)
+        assert sha256(path) == metadata["sha256"], ("sha mismatch", filename)
+
+verify_root(root)
 print("KAGGLE_MOUNT_GATE PASS", TARGET, len(manifest["files"]), MANIFEST_SHA256, flush=True)
+if COPY_TO_WORKING:
+    writable_root = os.path.join("/kaggle/working", TARGET + "_bundle")
+    assert not os.path.exists(writable_root), ("working copy already exists", writable_root)
+    shutil.copytree(root, writable_root)
+    verify_root(writable_root)
+    root = writable_root
+    print("KAGGLE_WORKING_COPY_GATE PASS", TARGET, root, flush=True)
 cmd = list(COMMAND)
 cmd[0] = sys.executable
 print("EXEC", " ".join(cmd), flush=True)

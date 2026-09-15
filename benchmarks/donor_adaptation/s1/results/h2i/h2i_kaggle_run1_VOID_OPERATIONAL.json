@@ -1,0 +1,33 @@
+{
+ "status": "VOID_OPERATIONAL",
+ "observed_at": "2026-09-15T13:34:01.6542004+02:00",
+ "account_alias": "acct2",
+ "server_identity": "giggio253",
+ "dataset": "giggio253/h2i-one-byte-phase-b-bundle",
+ "kernel": "giggio253/h2i-one-byte-phase-b",
+ "kernel_version": 1,
+ "terminal_status": "KernelWorkerStatus.ERROR",
+ "bundle_manifest_sha256": "a37d65fdc3e7833bb2b539abd43a07d958a98bc9dd65d091240716a5606abf20",
+ "mount_gate_passed": true,
+ "mount_payloads_verified": 15,
+ "model_load_started": false,
+ "training_started": false,
+ "optimizer_updates_attempted": 0,
+ "gpu_quota_after_terminal_status": "GPU,0.00h,30.00h,30.00h,2026-09-19T00:00:00",
+ "failure_time_seconds": 10.387,
+ "failure": {
+  "exception": "OSError",
+  "errno": 30,
+  "message": "Read-only file system",
+  "path": "/kaggle/input/datasets/giggio253/h2i-one-byte-phase-b-bundle/results",
+  "trigger": "t2_rules.py import-time os.makedirs(ARMDIR, exist_ok=True)"
+ },
+ "cause": "Dispatcher version 1 ran from the read-only Kaggle dataset mount despite RUN.md requiring a writable copy.",
+ "repair_before_version_2": "Copy the already-verified mount to /kaggle/working/h2i_bundle, reverify the manifest and every payload there, then run the unchanged frozen command.",
+ "raw_log": {
+  "downloaded_path": "D:/_ktmp/h2i_kaggle_run1_error/h2i-one-byte-phase-b.log",
+  "bytes": 4169,
+  "sha256": "60e8d2fe4cbefa8e585fcab86ffeda582032073dc9a34189ba2425fab5fc4704"
+ },
+ "scientific_use": "none"
+}

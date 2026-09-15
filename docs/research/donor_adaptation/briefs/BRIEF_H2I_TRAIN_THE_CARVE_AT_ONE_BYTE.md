@@ -430,3 +430,32 @@ The dispatcher also refuses a credential/server identity mismatch, less than 11 
 or an already queued/running kernel at the same ref. Kaggle progress BPB remains diagnostic and no
 checkpoint selection is introduced. Status monitoring must be sparse/event-driven; do not poll at
 two-second cadence.
+
+---
+
+# ADDENDUM E — Kaggle run 1 is operationally void; writable-copy repair before run 2
+
+**Recorded 2026-09-15 after kernel version 1 terminated and before version 2 is pushed.** Run 1
+is **`VOID_OPERATIONAL`** and contributes no H2I evidence. The mounted-manifest gate passed all
+15 payloads at 5.633 s, proving the uploaded scientific bundle was exact. At 10.387 s, before
+model load or training, importing `t2_rules.py` raised:
+
+```
+OSError: [Errno 30] Read-only file system:
+'/kaggle/input/datasets/giggio253/h2i-one-byte-phase-b-bundle/results'
+```
+
+The module creates its historical `results/t2_arms` directory at import time. `_h2i_bundle/RUN.md`
+explicitly said to copy a read-only mount into the working directory, but dispatcher version 1
+ran directly from the mount. This is a launcher defect, not a failed pre-GPU control or numerical
+failure. Kaggle still reported 0.00 GPU-h used after termination.
+
+The only repair is in the generated kernel shim: after validating the mounted bundle, copy it to
+`/kaggle/working/h2i_bundle`, repeat the manifest and every payload size/hash check on that copy,
+and run the unchanged addendum-B command there. The dataset, manifest, trainer, inputs, seed,
+hyperparameters, gates and output names do not change. Because run 1 never loaded the model or
+attempted an update, version 2 is the first scientific H2I session and may reuse seed 4242.
+
+The downloaded run-1 log is 4,169 bytes, sha256
+`60e8d2fe4cbefa8e585fcab86ffeda582032073dc9a34189ba2425fab5fc4704`; its normalized record is
+`s1/results/h2i/h2i_kaggle_run1_VOID_OPERATIONAL.json`.
