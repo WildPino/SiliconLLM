@@ -1,0 +1,110 @@
+{
+ "stage": "H1_S3_CPU_ADJUDICATION",
+ "status": "PASS",
+ "guard_provenance": {
+  "head": "3b9470d5a1b5e6e96e782b1d88e092206b075280",
+  "path": "benchmarks/donor_adaptation/s1/h1_s3_adjudicate.py",
+  "git_blob": "24b7644059f17dce2fdffd3c7c6385a42e5e9b6a",
+  "sha256": "1b7b850d8cf9b769e1f7dccf4d7b7bb9c4d04112ee9db8d1bafb086bad8d5d07"
+ },
+ "frozen_dependencies": [
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\h1_eval.py",
+   "bytes": 20771,
+   "sha256": "aa2cad66f18a0471e7e1b863c58c4e8bbfb0f380f6687e6a27d8af84a8aa8396",
+   "git_blob": "78dce2ff0d75bbf0dba7698705b3cda8f7d34790"
+  },
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\common.py",
+   "bytes": 12666,
+   "sha256": "7ac00b31e91d0018c775e2e9b26120c0ec025075d7913218ea3cdcfe3196e461",
+   "git_blob": "608a563bc7f30e21c8941e3703b40ce25fb0960e"
+  },
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\h1_qat.py",
+   "bytes": 48685,
+   "sha256": "7876d6032c3fd46f4d836d88aaf7ebae087f0437dc743f310f0a3a4652bd30ad",
+   "git_blob": "4caeae0b77f72a0b389b0cb583aebff841063857"
+  }
+ ],
+ "frozen_inputs": [
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_applied_8L.json",
+   "bytes": 1605,
+   "sha256": "6ebc333f74f0f337567a99e527cdfa7750d092161cc5ca2d1836a510557f1b17"
+  },
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\_h1_bundle\\h0_trained3.npz",
+   "bytes": 352967686,
+   "sha256": "dd62482d65accb34129a7b7a3f8baf75b0ccf3c4fdf2481233f1b9ce823927d8"
+  },
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\_h1_bundle\\labels_E256.npz",
+   "bytes": 859537,
+   "sha256": "c39d0740b7f754daf168d811c77120c5394ae677e3882fef208d331d8c333c9c"
+  },
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\_h1_bundle\\h1_actstats.npz",
+   "bytes": 1189630,
+   "sha256": "49fd2f659a37237ead850ea86057664b74db4f2286dc7146abf87e197e6887fe"
+  },
+  {
+   "path": "D:\\_ktmp\\e37\\e37_routers_E256.npz",
+   "bytes": 44046858,
+   "sha256": "42b12cb9d4bda2da7833cd0e179a9dab8e3f43264ce640e2b5db31d5fd043d8a"
+  }
+ ],
+ "trained_outputs": [
+  {
+   "path": "D:\\_ktmp\\h1_kaggle_s3_v2_output\\h1_trained_s3.npz",
+   "bytes": 1334711974,
+   "sha256": "4d6d761c5f1fd3f8adcb4cfc8a6aae44c4b6ca3bc681d8a3e98397caf7c5ce4a"
+  },
+  {
+   "path": "D:\\_ktmp\\h1_kaggle_s3_v2_output\\h1_trained_s3.json",
+   "bytes": 4054,
+   "sha256": "c20982325db118eff910a7e495232c1415967feb06fb2a607a6908eebe5cbf08"
+  }
+ ],
+ "training_summary": {
+  "steps_completed": 765,
+  "stop_reason": "time-cap",
+  "seconds": 39619.55635762215,
+  "seconds_per_step": 51.79026974852568
+ },
+ "command": [
+  "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\h1_eval.py",
+  "--trained",
+  "D:\\_ktmp\\h1_kaggle_s3_v2_output\\h1_trained_s3.npz",
+  "--factors",
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\_h1_bundle\\h0_trained3.npz",
+  "--labels",
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\_h1_bundle\\labels_E256.npz",
+  "--stats",
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\_h1_bundle\\h1_actstats.npz",
+  "--routers",
+  "D:\\_ktmp\\e37\\e37_routers_E256.npz",
+  "--tag",
+  "h1_s3",
+  "--out",
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_eval_h1_s3.json"
+ ],
+ "evaluator_returncode": 0,
+ "result": {
+  "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_eval_h1_s3.json",
+  "bytes": 9324,
+  "sha256": "2799b04f35ef7f44d80b572e67d1149de1eb9608d7f77240078d1a102018deb4",
+  "G_H1": {
+   "metric": "heldout BPB, CPU fp32, frozen slice, HARD gate (add. F)",
+   "threshold": 1.0966361325809948,
+   "value": 0.9234896239116439,
+   "delta": -0.17314650866935088,
+   "passes": true,
+   "ordinal": true,
+   "band": "CARVE-IS-TRAINABLE"
+  }
+ },
+ "seconds": 1462.4950630664825,
+ "scope": "H1 ternary 8-layer carve only; no rank, rate, one-byte, 10B or scale claim"
+}

@@ -1787,3 +1787,44 @@ plus all five frozen inputs rehash exactly.
 Machine-readable readiness and the terminal commands are in
 `s1/results/h1/h1_s3_v2_adjudication_readiness.json`. Status is
 `READY_WAITING_FOR_TERMINAL_OUTPUT`; this is apparatus evidence only, not an H1 result.
+
+---
+
+# ADDENDUM T — session 3 COMPLETE; frozen terminal adjudication PASSES
+
+**Recorded after the terminal pair was downloaded once and adjudicated once by the frozen
+guard.** Kaggle's CLI subsequently emitted a character-map error, but only **after both required
+final files had downloaded**. It is not a scientific failure and authorizes neither a re-download
+nor another evaluation.
+
+The canonical terminal records are `s1/results/h1/h1_eval_h1_s3.json` (sha256
+`2799b04f35ef7f44d80b572e67d1149de1eb9608d7f77240078d1a102018deb4`) and
+`s1/results/h1/h1_eval_h1_s3_adjudication.json`. The guard status is **PASS** and the unchanged
+evaluator returned **0**. Final artifacts: `h1_trained_s3.npz` sha256
+`4d6d761c5f1fd3f8adcb4cfc8a6aae44c4b6ca3bc681d8a3e98397caf7c5ce4a`; sidecar JSON sha256
+`c20982325db118eff910a7e495232c1415967feb06fb2a607a6908eebe5cbf08`.
+
+| terminal quantity | frozen value |
+|---|---:|
+| HARD-gate BPB | **0.9234896239116439** |
+| `applied-8L` comparator | 1.0966361325809948 |
+| `G-H1` delta | −0.17314650866935088 |
+| band | **`CARVE-IS-TRAINABLE`** |
+| SOFT diagnostic BPB | 0.92214399279791 |
+| SOFT minus HARD | −0.0013456311137338695 |
+| arm-E (trained experts + E37 router, HARD) | 0.9486930597468018 |
+| `G-H1e`: router / STATIC | 2.707332441530957 / 3.053102243577019 nats/token — **FIRES** |
+
+The run completed **765** updates under the time cap in **39,619.556 s**
+(`51.79027 s/step`), with zero non-finite microbatches. All preflight, real-shape, live-carve,
+update and tensor-movement controls passed. Registered prediction M.5.1 is **met** (`steps >=700`
+and `time-cap`); M.5.2 is **met** (`BPB < 0.947851`). M.5.3 is **met**: relative to canonical S2,
+the S3 HARD movement is −0.0391032843457946, composed of experts −0.0197707273807749 and router
+−0.0193325569650197; the router share is **49.4397%**, above the registered 37%. M.5.4 is **met**:
+the `G-H1e` margin is **0.345769802046062**, above S2's 0.2551122115529377. M.5.5 is **not
+independently adjudicated / unavailable**: the final pair contains a step-250 diagnostic in its
+history, but no canonical preserved, loadable periodic-checkpoint artifact. No checkpoint is
+selected, inspected, downloaded or inferred from that diagnostic.
+
+This terminal result is strictly **H1's ternary, eight-layer carve** result. It licenses no rank,
+rate, one-byte, 10B, scale, export, or post-hoc-carve revival claim.

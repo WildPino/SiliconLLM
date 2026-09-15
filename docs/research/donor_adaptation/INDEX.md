@@ -7,7 +7,7 @@
 
 **The goal:** run somebody else's pretrained LLM on our architecture (`engine.c`), target **~10B at
 50 tok/s** (good) / **100 tok/s** (excellent).
-**Latest research handoff: 2026-09-15 — H1 S3 V2 AND H2I PHASE B V4 ARE RUNNING.** H2I v3 passed exact transport hashes, preflight and donor load but failed before training because its CPU generator was paired with direct CUDA allocation. Addendum H preregistered the sole repair; commit `0de313c` implements it, and a second real-donor smoke fires all controls plus one applied update. Replacement manifest `330fa237…` changes only `h2i_qat.py`; all eight scientific payloads are bit-identical. Exact remote inventory passed and private v4 reported RUNNING at 17:59 Europe/Rome; sparse authoritative reads still find both H2I v4 and H1 S3 v2 RUNNING. H2I v1–v3 remain operationally void with zero optimizer updates. Before terminal output became visible, H2I addendum K froze all seven CPU-adjudicator dependency blobs; addenda L–M made that freeze executable and pinned the committed write-once guard `365f811`, including final-v4 metadata and raw-log validation without changing the evaluator. H1 addendum R likewise guards its unchanged evaluator and forbids periodic-checkpoint selection. Monitoring is sparse/event-driven. (`briefs/BRIEF_H2I…` addenda H–M; `briefs/BRIEF_H1…` addendum R; `s1/h2i_v4_adjudicate.py`; `s1/results/h2i/h2i_phase_b_v4_adjudication_{freeze,readiness}.json`)
+**Latest research handoff: 2026-09-16 — H1 S3 V2 IS COMPLETE/PASS; H2I PHASE B V4 REMAINS RUNNING.** H1's frozen guard passed and its unchanged CPU-fp32 evaluator returned rc 0: HARD BPB 0.9234896239116439, `CARVE-IS-TRAINABLE`, with no one-byte/rank/rate/10B claim. The canonical H1 records are `s1/results/h1/h1_eval_h1_s3.json` and `h1_eval_h1_s3_adjudication.json`; the post-download Kaggle CLI character-map error is operational only. H2I v3 passed exact transport hashes, preflight and donor load but failed before training because its CPU generator was paired with direct CUDA allocation. Addendum H preregistered the sole repair; commit `0de313c` implements it, and a second real-donor smoke fires all controls plus one applied update. Replacement manifest `330fa237…` changes only `h2i_qat.py`; all eight scientific payloads are bit-identical. H2I v1–v3 remain operationally void with zero optimizer updates; v4 is the sole active kernel. Its frozen guard `365f811` validates final-v4 metadata, raw log and all seven CPU-adjudicator dependency blobs without changing the evaluator. Monitoring is sparse/event-driven. (`briefs/BRIEF_H2I…` addenda H–M; `briefs/BRIEF_H1…` addenda R–T; `s1/h2i_v4_adjudicate.py`; `s1/results/h2i/h2i_phase_b_v4_adjudication_{freeze,readiness}.json`)
 
 **Previous research handoff: 2026-09-15 (H1 addenda M–N) — SESSION 3 IS READY, NOT RUN.** The old tree already contained a forgotten untracked packer for a long H1 continuation. Audit caught it hashing `RUN.md` before modifying it, accepting a same-size wrong resume file, and claiming five avoided Adam restarts where the comparator gives three. The repaired committed packer passed a read-only full-bundle check, then built a 1.63 GB session-3 bundle from the published S2 path; all nine final hashes were independently recomputed. One **11-hour T4** run is now ready (seed 3141, ~765 expected steps, first-ever periodic checkpoint at step 250). This tests continuous-optimizer/router trajectory on H1's ternary 8-layer carve; it is not a one-byte, rate, 10 B or rank result. E64/E66 also retire the old `H2T` proposal as written: the next new branch should train selection/routing on the faithful one-byte format, not spend GPU healing ternary-format damage that can be avoided. (`probes/H1_THE_CARVE_TRAINED.md` §8; audit `s1/results/h1/h1_s3_bundle_audit.json`)
 
@@ -678,6 +678,32 @@ one donor, 8 layers.
 half-byte format at **82%** of the dense→chance damage against the carve's **17%**. **H1 has
 shown the smaller of the two axes to be trainable.** No rate, no export, no 10 B claim;
 `G-E63d` remains `VOID` and OWED.
+
+### S3 terminal update — `CARVE-IS-TRAINABLE`
+
+`s1/results/h1/h1_eval_h1_s3.json` ·
+`s1/results/h1/h1_eval_h1_s3_adjudication.json` · **COMPLETE / guard PASS**
+
+```
+S3 HARD trained-8L  0.9234896239116439  <  applied-8L 1.0966361325809948
+delta -0.17314650866935088
+```
+
+The frozen guard returned PASS and the unchanged CPU-fp32 evaluator returned rc 0. S3 improves
+the prior S2 reading `0.9625929082574385` and crosses the registered `0.947851` boundary. All
+preflight, real-shape, live-carve, update and tensor-movement controls passed; 765 time-capped
+updates completed in 39,619.556 s at 51.79027 s/step with zero non-finite microbatches.
+
+Recovery is dominated by trained experts (−0.14794307283419295), but the trained router adds a
+material −0.02520343583515794; `G-H1e` fires, router 2.707332441530957 versus STATIC
+3.053102243577019 nats/token. Relative to S2, the router supplies 49.44% of the incremental
+hard-BPB movement and its `G-H1e` margin grows from 0.255112 to 0.345770, satisfying registered
+predictions M.5.1–M.5.4. M.5.5 remains unadjudicated because the terminal pair does not preserve
+a canonical periodic checkpoint.
+
+The hard-gated finding closes the **ternary 8-layer trainability** cell. It does not revive
+post-hoc carve, and makes no one-byte, rank, rate, 10B, scale or export claim. `G-E63d` remains
+owed and H2I v4 remains the active one-byte score+rank cell.
 
 ---
 

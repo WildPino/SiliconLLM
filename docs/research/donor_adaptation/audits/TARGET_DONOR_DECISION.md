@@ -141,7 +141,12 @@ converted-real-donor evidence must never be promoted across those classes.
 
 ## Current dependency gate
 
-Await the terminal adjudications for H2I Phase B v4 and H1 S3.  If H2I survives its frozen score
-and rank adjudication, that result decides whether the structural-adaptation mechanism is credible
-before scaling or downloading.  If it fails, do not scale the same mechanism.  This is a
-dependency statement only: it recommends no launch now.
+H1 S3 has now passed its frozen terminal adjudication: ternary eight-layer joint training reaches
+`CARVE-IS-TRAINABLE` at HARD BPB 0.9234896239116439, versus applied-8L 1.0966361325809948. This
+strengthens the plausibility of trained structure, but it does **not** authorize a 14B or 30B
+download: H1 is ternary, eight-layer, and has no rank or rate measurement.
+
+Await H2I Phase B v4's frozen **one-byte score+rank** adjudication. If it survives both gates,
+that result decides whether the structural-adaptation mechanism is credible before scaling or
+downloading. If it fails, do not scale the same mechanism. This is a dependency statement only:
+it recommends no launch now.

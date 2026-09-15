@@ -193,3 +193,37 @@ This session remains useful for optimizer continuity and the trained-router traj
 is **not the one-byte deliverable**. E64/E66 make the subsequent branch explicit: do not launch
 the old `H2T` proposal as written to heal ternary-format damage that the one-byte rung avoids.
 The next new healing apparatus must keep one-byte weights and train the carve/routing damage.
+
+---
+
+## 9. Canonical S3 terminal result — COMPLETE / PASS / `CARVE-IS-TRAINABLE`
+
+The canonical records are `s1/results/h1/h1_eval_h1_s3.json` and
+`s1/results/h1/h1_eval_h1_s3_adjudication.json`. The write-once guard returned **PASS**; the
+unchanged CPU-fp32 evaluator returned **0**. Its final HARD-gate reading is
+**0.9234896239116439**, below `applied-8L` **1.0966361325809948** by
+**−0.17314650866935088**, crossing the preregistered `CARVE-IS-TRAINABLE` band
+`0.810022 < BPB < 0.947851`.
+
+This is a longer joint-training result, not a replacement of S2: S2's canonical
+**0.962592908257438** stands, while S3 improves it to **0.9234896239116439**. The final
+decomposition is experts **−0.14794307283419295**, trained-router **−0.02520343583515794** and
+gate-form diagnostic **−0.0013456311137338695**. Experts account for most recovery; the trained
+router remains material, and `G-H1e` fires (**2.707332441530957** versus STATIC
+**3.053102243577019** nats/token).
+
+Operationally, S3 completed 765 time-capped updates in 39,619.556 s at 51.79027 s/step, with
+zero non-finite microbatches and all frozen controls passing. Both registered terminal predictions
+that name hard observables are met: at least 700 steps with `time-cap`, and HARD BPB below
+0.947851. Relative to canonical S2 (HARD 0.9625929082574385; experts
+−0.12817234545341805; router −0.005870878870138263), S3 adds −0.0391032843457946: experts add
+−0.0197707273807749 and router −0.0193325569650197. Thus the router supplies **49.4397%** of the
+S2→S3 recovery, exceeding the registered 37%: prediction M.5.3 **PASS**. Its `G-H1e` margin is
+0.345769802046062, above S2's 0.2551122115529377: M.5.4 **PASS**. M.5.5 is **not independently
+adjudicated / unavailable**: the final-pair history records a step-250 diagnostic, not a
+canonical preserved/loadable checkpoint; no checkpoint is selected or inferred. The SOFT
+diagnostic is 0.92214399279791 (SOFT minus HARD −0.0013456311137338695); it is not the gate.
+
+The Kaggle CLI character-map error occurred only after the final NPZ and JSON had both downloaded.
+It neither changes this result nor authorizes a re-download. Scope remains ternary, eight layers,
+and H1 only: there is no rank, rate, one-byte, 10B, scale, export, or post-hoc-carve claim.
