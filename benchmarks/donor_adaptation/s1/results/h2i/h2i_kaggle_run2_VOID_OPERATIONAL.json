@@ -1,0 +1,35 @@
+{
+ "status": "VOID_OPERATIONAL",
+ "observed_at": "2026-09-15T13:40:10.7450646+02:00",
+ "account_alias": "acct2",
+ "server_identity": "giggio253",
+ "dataset": "giggio253/h2i-one-byte-phase-b-bundle",
+ "kernel": "giggio253/h2i-one-byte-phase-b",
+ "kernel_version": 2,
+ "terminal_status": "KernelWorkerStatus.ERROR",
+ "bundle_manifest_sha256": "a37d65fdc3e7833bb2b539abd43a07d958a98bc9dd65d091240716a5606abf20",
+ "mount_gate_passed": true,
+ "working_copy_gate_passed": true,
+ "mount_payloads_verified": 15,
+ "working_copy_payloads_verified": 15,
+ "trainer_preflight_started": true,
+ "model_load_started": false,
+ "training_started": false,
+ "optimizer_updates_attempted": 0,
+ "gpu_quota_after_terminal_status": "GPU,0.02h,29.98h,30.00h,2026-09-19T00:00:00",
+ "failure_time_seconds": 26.449,
+ "failure": {
+  "exception": "FileNotFoundError",
+  "errno": 2,
+  "path": "/kaggle/working/engine/e6_generate.py",
+  "trigger": "h2i_qat.apparatus_files explicit source-tree engine sibling"
+ },
+ "cause": "The flat transport bundle contained the exact e6_generate.py payload at its root, while h2i_qat provenance validation expected the original repository sibling path HERE/../engine/e6_generate.py.",
+ "repair_before_version_3": "Create the expected writable engine sibling from the already hash-verified flat payload, assert the copied sha256 against the unchanged manifest, and clean temporary compatibility files after the trainer exits.",
+ "raw_log": {
+  "downloaded_path": "D:/_ktmp/h2i_kaggle_run2_error/h2i-one-byte-phase-b.log",
+  "bytes": 4257,
+  "sha256": "d171e348e41291e62e28fb972aa4bf5b6b07c72299678a33f161ef74e6738efd"
+ },
+ "scientific_use": "none"
+}

@@ -213,11 +213,24 @@ if COPY_TO_WORKING:
     shutil.copytree(root, writable_root)
     verify_root(writable_root)
     root = writable_root
+    # h2i_qat.apparatus_files() names the repository-layout engine sibling explicitly even
+    # though the transport bundle is flat. Recreate only that path with the same verified bytes.
+    engine_root = os.path.abspath(os.path.join(root, "..", "engine"))
+    os.makedirs(engine_root, exist_ok=False)
+    engine_source = os.path.join(root, "e6_generate.py")
+    engine_alias = os.path.join(engine_root, "e6_generate.py")
+    shutil.copy2(engine_source, engine_alias)
+    assert sha256(engine_alias) == manifest["files"]["e6_generate.py"]["sha256"]
     print("KAGGLE_WORKING_COPY_GATE PASS", TARGET, root, flush=True)
 cmd = list(COMMAND)
 cmd[0] = sys.executable
 print("EXEC", " ".join(cmd), flush=True)
-subprocess.run(cmd, cwd=root, check=True)
+try:
+    subprocess.run(cmd, cwd=root, check=True)
+finally:
+    if COPY_TO_WORKING:
+        shutil.rmtree(root, ignore_errors=True)
+        shutil.rmtree(engine_root, ignore_errors=True)
 missing = [name for name in EXPECTED_OUTPUTS
            if not os.path.isfile(os.path.join("/kaggle/working", name))]
 assert not missing, ("trainer returned without final outputs", missing)

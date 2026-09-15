@@ -459,3 +459,31 @@ attempted an update, version 2 is the first scientific H2I session and may reuse
 The downloaded run-1 log is 4,169 bytes, sha256
 `60e8d2fe4cbefa8e585fcab86ffeda582032073dc9a34189ba2425fab5fc4704`; its normalized record is
 `s1/results/h2i/h2i_kaggle_run1_VOID_OPERATIONAL.json`.
+
+---
+
+# ADDENDUM F — Kaggle run 2 is operationally void; flat-bundle path repair before run 3
+
+**Recorded 2026-09-15 after kernel version 2 terminated and before version 3 is pushed.** Run 2
+is **`VOID_OPERATIONAL`** and carries no H2I evidence. It advances the apparatus audit beyond run
+1: the mounted-manifest gate passed at 9.680 s, the copied-working-bundle gate passed at 11.467 s,
+and `h2i_qat.py` entered its preflight at 23.565 s. At 26.449 s manifest validation attempted to
+stat `/kaggle/working/engine/e6_generate.py` and raised `FileNotFoundError`, before model load or
+any optimizer attempt.
+
+The transport bundle is flat, but `h2i_qat.apparatus_files()` preserves the source-tree path
+`HERE/../engine/e6_generate.py`. The identical file is already present and hash-pinned at the
+bundle root; only its expected sibling path is absent. Version 3 therefore creates
+`/kaggle/working/engine/e6_generate.py` as a copy of that payload and asserts its sha256 against
+the unchanged manifest before starting the trainer. No scientific file, input, command, seed,
+hyperparameter or gate changes, and no dataset upload is needed.
+
+The shim also removes the temporary 463 MB working copy and compatibility directory in a
+`finally` block. This prevents a normal startup error from being published and downloaded as
+kernel output; final trainer artifacts remain outside that directory. Run 2 used 0.01–0.02
+rounded GPU-h in total with run 1, and neither loaded the donor. Version 3 remains the first
+scientific session and retains seed 4242.
+
+The run-2 log is 4,257 bytes, sha256
+`d171e348e41291e62e28fb972aa4bf5b6b07c72299678a33f161ef74e6738efd`; normalized record:
+`s1/results/h2i/h2i_kaggle_run2_VOID_OPERATIONAL.json`.
