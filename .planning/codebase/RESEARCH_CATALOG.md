@@ -1,6 +1,6 @@
 # SiliconLLM — research catalog and no-duplication handoff
 
-**Snapshot:** 2026-09-15. **Latest material:** H1 through addendum N/session-3 bundle, E64 run 2, E65, completed E66, hardened E63 Part B preflight, and H2I through Phase B readiness. The user's remembered endpoint was E64; the tree contained later work. E66 and H2I Phase A are complete; H2I Phase B and H1 session 3 are independently `READY_NOT_RUN`; E63d's first admissible rate measurement has not yet started.
+**Snapshot:** 2026-09-15. **Latest material:** H1 session 3 and H2I Phase B are now running on separate Kaggle accounts, after three early operational failures were caught before scientific state was read. The user's remembered endpoint was E64; the tree contained E65, completed E66 and H2I. E63d's first admissible rate measurement has not yet started.
 
 ## Read this first
 
@@ -20,7 +20,7 @@
 | What does carve cost on int8? | **E64 run 1 void. Audited run 2 says dearer by +1.13–1.43 BPB across the ladder; at k=3 the int8 carve itself costs +1.912 BPB and lands above chance.** | canonical E64 probe §8 / ledger §66 |
 | Is the carve trainable? | **Yes on an 8-layer branch:** H1 `TRAINING-HELPS`; router still moves, no full-stack claim. | canonical H1 |
 | Is one-byte + carve the right next trainable object? | **Yes on the matched 8L proxy:** R8 changes H0 by only −0.0000169 BPB, while hard k16 costs +0.209071; Phase B eligible. Rank is still broken at 9/160 free, 99/160 teacher-forced. | H2I Phase A |
-| Is H2I Phase B ready to spend GPU? | **Yes:** committed trainer/evaluator, real-donor one-update CPU smoke, save/reload and all pre-GPU gates pass; the 463.45 MB bundle is independently hash-audited. | H2I brief addenda B–C / readiness audit |
+| Is H2I Phase B running? | **Yes:** Kaggle version 3 is the first scientific session and is `RUNNING`. Versions 1–2 are `VOID_OPERATIONAL` before model load (read-only mount, then flat-bundle path); both are catalogued. | H2I brief addenda B–G / launch + void records |
 | What does the rank fraction used by fast R128 cost post-hoc? | **At D=1536, r/D=1/32 costs +1.705835 BPB = 51.66% dense→chance gap; no width extrapolation.** | canonical E65 |
 | Does a compressed pretrained 7B actually function on `engine.c`? | **Yes at one byte:** A2 0.674405 BPB vs fp32 0.674027; 4/5 greedy trajectories exact, 137/160 overall. It misses the strict 150/160 rank bar and has no rate claim. | canonical E66 run 2 / audit |
 
@@ -143,18 +143,18 @@ These entries are represented primarily by briefs, engine runners/results and `S
 | E64 run 1 | **VOID / MALFORMED control:** cross-kernel `serial` vs `avx4` mismatch amplified through top-k selection (~1500×) | no cells may be quoted from run 1 |
 | E64 run 2 | **CANONICAL:** `G-E64a2` full ladder exact under asserted `attn=serial`; `G-E64b` passes; `G-E64d=CARVE-IS-DEARER-ON-INT8`, int8-minus-ternary +1.13–1.43 BPB; `k=3` int8-carved 4.128510 BPB > chance | quality-only, one donor, post-hoc; no trained-format, scale or rate claim; apparatus commit lag is recorded in probe §8.1 |
 | H0 | **format trainability evidence:** rank/carve-related training at 1.5B improves post-hoc quality, but free-running remains weak/partial at the measured checkpoints | training-in-format is distinct from post-hoc application |
-| H1 | **TRAINING-HELPS:** trained 8L 0.962593 vs applied 1.096636; experts supply most early movement, router becomes helpful and still moves. Addenda M–N: one 11 h continuous S3 is preregistered; committed packer and 1.63 GB bundle independently hash-audited. | `READY_NOT_RUN`; useful for continuity/router mechanism, not a one-byte, rate, rank or 10 B result |
+| H1 | **TRAINING-HELPS; S3 RUNNING:** trained 8L 0.962593 vs applied 1.096636. S3 kernel v2 is the first scientific continuation; v1 is operationally void before resume because Kaggle exposed the old dataset version under READY. | wait for terminal v2; then download and run one CPU fp32 evaluation. No one-byte, rate, rank or 10 B claim |
 | E65 | **RANK FRACTION COST:** r/D=1/32 on real 1.5B donor = 2.473430 BPB, +1.705835 = 51.66% dense→chance; rank damage non-monotone | no D=4096 extrapolation; this is a post-hoc floor, not a trainability verdict |
 | E66 | **COMPLETE — SCORE SURVIVES, RANK BAR DOES NOT:** A2 0.674405 BPB, +0.000378 vs fp32; fold worth 0.0000376; repaired rank run 2 is 137/160 with 4/5 full trajectories exact | rank run 1 void; promote rank only from run 2; no rate, 10 B or scale-law claim |
 | H2I Phase A | **PHASE-B-ELIGIBLE:** exact R8 8L baseline 0.810006 vs H0 0.810022; hard k16 1.019076, carve +0.209071. Rank 9/160 free, 99/160 teacher-forced, mean 3.675. | write-once matched baseline; do not remeasure. Train R8 selection/router and require score + rank improvement; no rate/10 B claim |
-| H2I Phase B | **READY_NOT_RUN:** trainer/evaluator committed; CPU real-donor smoke applies one update and passes exact rule, wiring, gradient, router-init and save/reload controls. Bundle: 15 payloads, 463,452,303 B, manifest `a37d65f…`, independently rehashed. | run exactly one continuous 11 h T4 session from `_h2i_bundle/RUN.md`; then one CPU fp32 adjudication. Do not infer GPU steps from the 2-layer CPU smoke |
+| H2I Phase B | **RUNNING:** trainer/evaluator and 463 MB bundle passed local gates. Kaggle v1/v2 are `VOID_OPERATIONAL` before model load; v3 is the unchanged first scientific run on `acct2`. | wait for terminal v3; validate full log/artifact and run one CPU fp32 adjudication. Do not infer GPU steps from the 2-layer CPU smoke |
 
 ## Open queue, ordered by information gain
 
-1. **Run H2I Phase B on one T4 for 11 hours:** this is now the highest-information GPU cell and directly tests the faithful one-byte healing route. Bundle and smoke are `READY_NOT_RUN`; use only `_h2i_bundle/RUN.md`. Do not select checkpoints by GPU progress BPB.
-2. **Run H1 session 3 on the second T4 for 11 hours:** it may run in parallel with H2I because the bundles and questions are independent. This closes optimizer-continuity/router-trajectory debt on the ternary branch; it does not answer one-byte healing.
-3. **After H2I returns, run its single CPU fp32 adjudication:** require deployable BPB `<1.019076465`, free rank `>9/160`, teacher-forced `>99/160`, and mean rank `<3.675`. If score fails, do not run rank as rescue.
-4. **Get a genuinely quiet 10–15 minute CPU window for `G-E63d`:** close browser/background load and run the committed hardened Part B. Its 45 s all-samples guard must pass before timing; do not replace the result with another composed estimate. The 2026-09-15 refusal was operational only and ran zero cells.
+1. **Wait event-driven for H2I v3 and H1 S3 v2:** both scientific kernels are RUNNING on separate accounts. Do not repush, poll rapidly or select a checkpoint from progress diagnostics.
+2. **When H2I returns, run its single CPU fp32 adjudication:** require deployable BPB `<1.019076465`, free rank `>9/160`, teacher-forced `>99/160`, and mean rank `<3.675`. If score fails, do not run rank as rescue.
+3. **When H1 returns, validate the first periodic checkpoint and run one CPU fp32 evaluation:** compare only against addendum M's frozen gates.
+4. **Get a genuinely quiet 10–15 minute CPU window for `G-E63d`:** its 45 s all-samples guard must pass before timing. The 2026-09-15 refusal ran zero cells and is not a result.
 
 ## Corpus inventory
 

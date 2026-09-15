@@ -2,7 +2,7 @@
 
 **The goal:** run somebody else's pretrained LLM on our architecture (`engine.c`), target **~10B at
 50 tok/s** (good) / **100 tok/s** (excellent).
-**Latest research handoff: 2026-09-15 (H2I addenda B–C) — ONE-BYTE PHASE B IS READY, NOT RUN.** Phase A fixed the matched eight-layer baseline at **0.810006 BPB** uncarved and **1.019076 BPB** hard-k16, with rank **9/160 free**, **99/160 teacher-forced** and mean **3.675**. The committed R8 trainer/evaluator now pass a real-donor one-update CPU smoke, including exact rule/wiring, gradients, both depth extremes, router initialization and save/reload. The 15-payload, **463,452,303-byte** bundle was independently rehashed; manifest sha256 `a37d65f…`. One continuous **11-hour T4** is now required. The CPU smoke cannot predict eight-layer T4 throughput, so no step estimate is fabricated; the registered progress prediction remains >=250 applied updates. (`probes/H2I_ONE_BYTE_CARVE_BASELINE.md`; readiness audit `s1/results/h2i/h2i_phase_b_readiness_audit.json`)
+**Latest research handoff: 2026-09-15 — H2I PHASE B AND H1 SESSION 3 ARE RUNNING.** H2I private kernel v3 on `giggio253` is the first scientific one-byte session; v1 and v2 are retained as operational voids before model load (read-only mount, then source-tree/flat-bundle path mismatch). H1 S3 private kernel v2 on `wildpino` is the first scientific continuation; v1 stopped before reading the resume because Kaggle reported READY for the previous dataset version. The dispatcher now requires exact remote file inventory, exact mounted hashes and, for H2I, an independently rehashed writable copy. At 13:45 Europe/Rome both corrected kernels were `RUNNING`. These are operational states, not gate results; adjudication waits for terminal artifacts. (`briefs/BRIEF_H2I…` addenda D–G; `briefs/BRIEF_H1…` addenda O–Q)
 
 **Previous research handoff: 2026-09-15 (H1 addenda M–N) — SESSION 3 IS READY, NOT RUN.** The old tree already contained a forgotten untracked packer for a long H1 continuation. Audit caught it hashing `RUN.md` before modifying it, accepting a same-size wrong resume file, and claiming five avoided Adam restarts where the comparator gives three. The repaired committed packer passed a read-only full-bundle check, then built a 1.63 GB session-3 bundle from the published S2 path; all nine final hashes were independently recomputed. One **11-hour T4** run is now ready (seed 3141, ~765 expected steps, first-ever periodic checkpoint at step 250). This tests continuous-optimizer/router trajectory on H1's ternary 8-layer carve; it is not a one-byte, rate, 10 B or rank result. E64/E66 also retire the old `H2T` proposal as written: the next new branch should train selection/routing on the faithful one-byte format, not spend GPU healing ternary-format damage that can be avoided. (`probes/H1_THE_CARVE_TRAINED.md` §8; audit `s1/results/h1/h1_s3_bundle_audit.json`)
 
@@ -809,7 +809,7 @@ CPU smoke: all rule, gradient, mask, router initialization, moved-parameter and 
 fire with zero non-finite microbatches. The smoke artifact is
 `s1/results/h2i/h2i_qat_cpu_smoke.json` (sha256 `33ae1447…`).
 
-The launch bundle is **`READY_NOT_RUN`**: 15 payloads, 463,452,303 bytes, independently rehashed,
-manifest sha256 `a37d65fd…`. It needs one continuous 11-hour T4 using exactly
-`s1/_h2i_bundle/RUN.md`; after return, `s1/h2i_eval.py` performs the one CPU fp32 adjudication.
+The launch bundle contains 15 payloads, 463,452,303 bytes, independently rehashed, manifest
+sha256 `a37d65fd…`. The corrected scientific kernel is now **`RUNNING`** in its one continuous
+11-hour T4 session; after return, `s1/h2i_eval.py` performs the one CPU fp32 adjudication.
 The two-layer CPU smoke is not a T4 throughput measurement, so no exact step count is claimed.

@@ -1712,3 +1712,18 @@ Version 2 uses the same dataset version, manifest, trainer, resume, command, see
 Because version 1 stopped before reading any scientific state, version 2 remains the first H1 S3
 training session and seed 3141 is unchanged. The normalized void record is
 `s1/results/h1/h1_s3_kaggle_run1_VOID_OPERATIONAL.json`.
+
+---
+
+# ADDENDUM Q — session 3 scientific kernel launched
+
+**Recorded 2026-09-15 after kernel version 2 remained RUNNING beyond version 1's manifest-race
+window.** The corrected remote-inventory gate passed and kernel
+`wildpino/h1-qat-run-session-3`, version 2, was pushed from dispatcher commit `ff9df5a`. At
+13:45:08 Europe/Rome the authoritative state was `KernelWorkerStatus.RUNNING`; `acct1` reported
+8.63 GPU-h used / 21.37 remaining.
+
+Version 1 remains operationally void and never read the resume. Version 2 is the first scientific
+session-3 run and retains the addendum-M seed, resume and command. RUNNING is operational state,
+not evidence that `G-H1a` or the first optimizer update fired; those claims wait for the terminal
+log and artifacts.

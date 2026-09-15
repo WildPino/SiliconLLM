@@ -487,3 +487,18 @@ scientific session and retains seed 4242.
 The run-2 log is 4,257 bytes, sha256
 `d171e348e41291e62e28fb972aa4bf5b6b07c72299678a33f161ef74e6738efd`; normalized record:
 `s1/results/h2i/h2i_kaggle_run2_VOID_OPERATIONAL.json`.
+
+---
+
+# ADDENDUM G — Phase B scientific session launched
+
+**Recorded 2026-09-15 after kernel version 3 remained RUNNING beyond both prior failure
+windows.** Version 3 was pushed from dispatcher commit `7e1c5ce` against the unchanged dataset
+and manifest. At 13:45:08 Europe/Rome, the authoritative Kaggle state was
+`KernelWorkerStatus.RUNNING`; account `acct2` reported 0.03 GPU-h used / 29.97 remaining.
+
+This is the first scientific Phase B session: versions 1 and 2 are operationally void and both
+ended before model load. No tuning or seed change occurred between them. The live run is private
+kernel `giggio253/h2i-one-byte-phase-b`, version 3. Do not infer startup-control success from
+RUNNING alone; the final log must contain both mount/copy gates, trainer controls and an applied
+update before the training artifact can be adjudicated.
