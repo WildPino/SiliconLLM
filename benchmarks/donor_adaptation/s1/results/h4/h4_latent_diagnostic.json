@@ -1,0 +1,131 @@
+{
+ "stage": "H4",
+ "tag": "h4d_fp32_latent",
+ "mode": "latent_fp32_posthoc_diagnostic",
+ "factors": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h4\\stage_a_v2_kaggle\\h4_trained.npz",
+ "factors_sha256": "11a483419e6b8795164e4651547f6b3765fc325adaa3283153d9cd5276d4cefb",
+ "rank": 48,
+ "model": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "eval_slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312",
+  "tok_fp_ok": [
+   "4efeeb9382a77a06"
+  ]
+ },
+ "anchors_external_not_step0_equivalence": {
+  "dense_E65": {
+   "bpb": 0.7675949641196624,
+   "free": 160,
+   "tf": 160,
+   "mean_rank": 1
+  },
+  "QO192_posthoc_fp32": {
+   "bpb": 1.8563784310382423,
+   "free": 4,
+   "tf": 56
+  },
+  "QO96_posthoc_fp32": {
+   "bpb": 2.0972750188750418,
+   "free": 1,
+   "tf": 42
+  },
+  "QO48_posthoc_fp32_E65": {
+   "bpb": 2.473430292224694,
+   "free": 4,
+   "tf": 33,
+   "mean_rank": 3476.46875,
+   "median_rank": 30.5,
+   "rank_le5": 55
+  }
+ },
+ "bpb": 1.610402305593793,
+ "free": 1,
+ "counted": 160,
+ "teacher_forced": 54,
+ "mean_rank": 322.08125,
+ "median_rank": 4.0,
+ "rank_le5": 89,
+ "per_prompt": [
+  {
+   "prompt": 0,
+   "free": 0,
+   "teacher_forced": 24
+  },
+  {
+   "prompt": 1,
+   "free": 0,
+   "teacher_forced": 12
+  },
+  {
+   "prompt": 2,
+   "free": 0,
+   "teacher_forced": 6
+  },
+  {
+   "prompt": 3,
+   "free": 0,
+   "teacher_forced": 8
+  },
+  {
+   "prompt": 4,
+   "free": 1,
+   "teacher_forced": 4
+  }
+ ],
+ "text": [
+  " the same of the\n[ ] , and the 100000000000000000000",
+  "\r\n\r\n    @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @",
+  " the same, but not so much, as the same, but not so much, as the same, but not so much.\n\nThe next, but not so",
+  " the following of the\n[ ] , and the following of the\n  , and the\n  , and the\n  , and the\n  , and",
+  " as np as np as np as np as np as np as np as np as np as np as np as np as np as np as np as np"
+ ],
+ "seconds": 287.26307249069214,
+ "init_eval_sha256": "140a8968ccc49ebe4bdf8518bd6f901b0b5c16e76ed5df87a069bc2f7c1e461c",
+ "init_factors_sha256": "7ae0d2ceeff628ff9b076b5df5806def54340f193e6cae5eb8e8013817959371",
+ "eligible_for_H4_gates": false,
+ "question": "same trained masters, remove only inference-time ternarization of A/B",
+ "reference_ternary": {
+  "bpb": 1.1537375235935308,
+  "free": 6,
+  "teacher_forced": 66,
+  "mean_rank": 108.725,
+  "median_rank": 2.0,
+  "rank_le5": 112
+ },
+ "delta_latent_minus_ternary": {
+  "bpb": 0.4566647820002623,
+  "free": -5,
+  "teacher_forced": -12,
+  "mean_rank": 213.35625000000002,
+  "median_rank": 2.0,
+  "rank_le5": -23
+ },
+ "predictions": {
+  "bpb_lower_by_at_least_0p05": false,
+  "teacher_forced_up_by_at_least_10": false,
+  "free_remains_at_floor": true
+ },
+ "provenance": {
+  "head_commit": "9f91fef1203e89e8586364cd0c6cebdc2bd2db17",
+  "runner_git_blob": "e6cdac9be113d7b43237885cd910c2801272bc22",
+  "runner_sha256": "a20152f477d46bc5839a324de23aecd9ad67572e308f5b1cfffabd8f783903b3"
+ },
+ "pinned_sha256": {
+  "results\\h4\\stage_a_v2_kaggle\\h4_trained.npz": "11a483419e6b8795164e4651547f6b3765fc325adaa3283153d9cd5276d4cefb",
+  "results\\h4\\h4_eval_stage_a_v2_terminal.json": "23c3792f4a04efedf90ec0617654a529f0e2a115419f55cd71ad0d55d48e48f2",
+  "results\\h4\\h4_eval_init.json": "140a8968ccc49ebe4bdf8518bd6f901b0b5c16e76ed5df87a069bc2f7c1e461c",
+  "h4_eval.py": "0b536b46a23e2290172824d139c8564378331e98eb2cb93a1eccbf9a3d9e59b3",
+  "h4_qat.py": "8a3b5c7be26e3b21f9c223d69706fb36c5ed7d41b2d260dfed70b8e1778b7bb7"
+ },
+ "non_promotion": "Descriptive fp32 arm; no H4 re-adjudication, Stage B license, 10B or rate claim"
+}

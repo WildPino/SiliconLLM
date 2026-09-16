@@ -1,5 +1,15 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**Latest H4D diagnostic (2026-09-16):** the *same trained H4 terminal
+checkpoint*, evaluated with saved fp32 A/B masters instead of their ternary
+forward, gets **1.6104023 BPB, 54/160 teacher-forced, 1/160 free**, worse than
+its canonical ternary **1.1537375, 66/160, 6/160**. The ablation was
+preregistered and source/input-pinned, and creates no H4 gate. Predictions
+that fp32 would improve BPB by ≥0.05 and teacher-forced by ≥10 both missed;
+the free-at-floor prediction hit. Removing ternarization from this STE-trained
+checkpoint is **not** a hidden rescue. This does not compare separately
+trained fp32 vs ternary or establish the rank-48 capacity ceiling. H4 probe §11.
+
 **Latest H4 result (2026-09-16):** Kaggle Stage A is `COMPLETE`; its *terminal*
 rank48 ternary q/o checkpoint stopped at the preregistered 2.8 h `TIME_CAP`
 (step 1148, 1145 applied). CPU fp32 on the frozen slice reads **1.1537375 BPB,

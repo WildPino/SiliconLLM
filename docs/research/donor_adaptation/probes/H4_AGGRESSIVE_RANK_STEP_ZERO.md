@@ -173,3 +173,39 @@ consente di *proporre* uno Stage B perché `BEATS_QO96=true`, ma non lo
 autorizza automaticamente: serve un nuovo brief e una decisione separata
 sull'uso GPU. Qui non è stato lanciato altro training. Nessun claim su 10B,
 tok/s, trasferimento di scala, FFN carve, one-byte o export `engine.c`.
+
+## 11. H4D — latent fp32 masters on the same terminal checkpoint (post-hoc diagnostic)
+
+Brief `briefs/BRIEF_H4D_LATENT_MASTERS.md` and separate runner
+`benchmarks/donor_adaptation/s1/h4_latent_diag.py` were committed at
+`9f91fef` **before** the arm was evaluated. This is a *descriptive* ablation,
+not a re-adjudication of H4. It reuses the exact terminal checkpoint, donor,
+held-out slice, 56 rank-48 q/o organs and frozen `h4_eval.py`; only inference
+of `A`/`B` changes from the trained `ternarize(A/B)` to their saved fp32
+masters. `s`, all biases and all other donor weights remain unchanged.
+Input/source SHA-256 pins and the committed runner blob were asserted before
+loading the donor. The frozen evaluator rechecked terminal provenance. Its
+H4 boolean bands were removed from the H4D output because this fp32 arm is
+not the H4 ternary deliverable.
+
+| Same H4 terminal checkpoint | Trained ternary | Saved fp32 masters | fp32 − ternary |
+|---|---:|---:|---:|
+| BPB | 1.15373752359353 | **1.61040230559379** | **+0.456664782000262** |
+| Free exact /160 | 6 | **1** | **−5** |
+| Teacher-forced exact /160 | 66 | **54** | **−12** |
+| Mean rank | 108.725 | **322.08125** | **+213.35625** |
+| Median rank | 2 | **4** | **+2** |
+| Rank ≤5 /160 | 112 | **89** | **−23** |
+
+The independently audited output is
+`benchmarks/donor_adaptation/s1/results/h4/h4_latent_diagnostic.json`, SHA-256
+`5c8a28c827b6b8bdf1a60e4a39a3a50cdc3212b8f56a3bc8be7bff1f1cc07e09`.
+Free per prompt is **0/0/0/0/1**; teacher-forced **24/12/6/8/4**. The two
+registered H4D predictions that fp32 would lower BPB by ≥0.05 and raise
+teacher-forced by ≥10 both **MISSED**; the prediction that free would stay
+≤14 **HIT**. This reverses the tempting interpretation that the checkpoint
+contains a better fp32 model obscured by quantization. The trained STE
+masters and their ternary forward are a coupled object: merely removing
+ternarization makes this checkpoint worse. It does **not** prove ternary is
+universally superior to fp32 after retraining, nor that rank 48 alone is the
+remaining bottleneck. No new H4 gate, Stage B license, 10B or rate claim.
