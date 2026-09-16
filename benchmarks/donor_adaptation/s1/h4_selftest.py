@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""CPU H4 bundle controls G-H4b/c/d/f/g; records results/h4/h4_selftest.json."""
-import hashlib,json,os,sys,traceback
+"""CPU H4 bundle controls G-H4b/c/d/f/g plus the H4 interim-checkpoint contract."""
+import hashlib,json,os,sys,tempfile,traceback
+from types import SimpleNamespace
 import numpy as np
 import torch
 HERE=os.path.dirname(os.path.abspath(__file__));sys.path[:0]=[os.path.abspath(os.path.join(HERE,"..","ternary"))]
@@ -48,12 +49,26 @@ def run_checks(rec):
         A,s,B,ri,ra=(torch.from_numpy(z[p+"."+x]) for x in ("A","s","B","rms_in","rms_A"));m=H4.TernaryLowRank(A,s,B,ri,ra,None)
         with torch.no_grad():got=m(torch.eye(B.shape[1])).T
         qa,aa=T2.r3_actsearch(A,ra);qb,ab=T2.r3_actsearch(B,ri);worst=max(worst,float((got-(qa*aa).mm(qb*ab)).abs().max()/((qa*aa).mm(qb*ab)).abs().max().clamp_min(1e-30)))
+    contract=checkpoint_contract_selftest()
     w=torch.randn(8,32,requires_grad=True);H4.ste(w,torch.rand(32)+.5).sum().backward();gmax=float((w.grad-1).abs().max())
     lin=torch.nn.Linear(8,8);opt=torch.optim.AdamW(lin.parameters(),lr=1e-3);sc=torch.amp.GradScaler("cpu",enabled=True);x=torch.randn(4,8);snap=lin.weight.detach().clone();opt.zero_grad();sc.scale(lin(x).sum()).backward()
     for p in lin.parameters():p.grad.fill_(float("inf"))
     before=sc.get_scale();sc.unscale_(opt);sc.step(opt);sc.update();declined=(H4.applied_steps(opt)==0 and float((lin.weight.detach()-snap).abs().max())==0. and sc.get_scale()<before);opt.zero_grad();sc.scale(lin(x).sum()).backward();sc.unscale_(opt);sc.step(opt);sc.update();applied=(H4.applied_steps(opt)==1 and float((lin.weight.detach()-snap).abs().max())>0.)
     p=organs[0];m=H4.TernaryLowRank(*(torch.from_numpy(z[p+"."+x]) for x in ("A","s","B","rms_in","rms_A")),None);x=torch.randn(2,m.B.shape[1])
     with torch.no_grad():m(x)
-    m(x).sum().backward();cache=(m.A.grad is not None and float(m.A.grad.abs().sum())>0 and m.B.grad is not None and float(m.B.grad.abs().sum())>0 and m.s.grad is not None);ok=shape_ok and not bad and worst<=1e-6 and gmax==0. and declined and applied and cache
-    return {"G_H4b":{"passes":not bad,"bad":bad},"G_H4c":{"passes":worst<=1e-6,"worst_relative":worst},"G_H4d":{"passes":gmax==0.,"max_gradient_deviation":gmax},"G_H4f":{"passes":declined and applied,"declined_control":declined,"applied_control":applied},"G_H4g":{"passes":cache},"passes":ok}
+    m(x).sum().backward();cache=(m.A.grad is not None and float(m.A.grad.abs().sum())>0 and m.B.grad is not None and float(m.B.grad.abs().sum())>0 and m.s.grad is not None);ok=shape_ok and not bad and worst<=1e-6 and gmax==0. and declined and applied and cache and contract["passes"]
+    return {"G_H4b":{"passes":not bad,"bad":bad},"G_H4c":{"passes":worst<=1e-6,"worst_relative":worst},"G_H4d":{"passes":gmax==0.,"max_gradient_deviation":gmax},"G_H4f":{"passes":declined and applied,"declined_control":declined,"applied_control":applied},"G_H4g":{"passes":cache},"G_H4h":contract,"passes":ok}
+def checkpoint_contract_selftest():
+    """Synthetic only: verifies durable interim names, metadata, hashes, and refusal."""
+    with tempfile.TemporaryDirectory() as td:
+        a=SimpleNamespace(out=os.path.join(td,"h4_trained.npz"),steps=4000,bs=2,accum=8,lr=2e-4,seed=1717,factors="h4_factors.npz")
+        state={"synthetic":np.arange(6,dtype=np.float32).reshape(2,3)};hashes={"factors_sha256":"factor","origin_factors_sha256":"origin","train_sha256":"train","probe_sha256":"probe"}
+        npz_path,json_path=H4.save_interim(state,a,[{"step":250,"tf_fp16_gpu":7,"loss":1.,"seconds":2.}],3,0,2.,{"first_applied_step":1},0,250,250,hashes)
+        rec=json.load(open(json_path,encoding="utf-8"));stored=np.load(npz_path)["synthetic"]
+        try:H4.save_interim(state,a,[],3,0,2.,None,0,250,250,hashes)
+        except SystemExit:collision_refused=True
+        else:collision_refused=False
+        names=(os.path.basename(npz_path)=="h4_trained.step0250.npz" and os.path.basename(json_path)=="h4_trained.step0250.json")
+        metadata=(rec.get("status")=="INTERIM_NONTERMINAL" and rec.get("terminal_checkpoint") is False and rec.get("nonterminal_checkpoint") is True and rec.get("checkpoint_step")==250 and rec.get("checkpoint_interval_steps")==H4.CHECKPOINT_EVERY and rec.get("checkpoint_sha256")==H4.sha256_file(npz_path) and rec.get("input_hashes")==hashes and rec.get("no_best_checkpoint_selection") is True and "terminal output alone adjudicates" in rec.get("adjudication","") and np.array_equal(stored,state["synthetic"]))
+        return {"passes":names and metadata and collision_refused,"synthetic_only":True,"names":names,"metadata":metadata,"collision_refused":collision_refused}
 if __name__=="__main__":sys.exit(main())

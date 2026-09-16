@@ -388,3 +388,50 @@ No timing cell ran. `e63_part_b.json` is absent; the updated operational record 
 `engine/results/e63_part_b_preflight.json`. This remains an operational refusal only:
 `G-E63d` is **unattempted / VOID / OWED**. The next admissible window must reuse the same
 committed runner and must not repeat Part A, parity or the interim ratio as substitutes.
+
+### 15.2 Quiet-machine audit after other user processes were stopped — 2026-09-16
+
+Three further **45-second preflights**, with no timing cells, passed the same 43
+self-tests and pinned-input checks but all failed the preregistered rule that
+**every** foreign-occupancy sample be strictly below 4.39%:
+
+| window | median foreign | p75 foreign | range | at/above bar |
+|---|---:|---:|---:|---:|
+| first, during process shutdown | 9.64% | 14.51% | 2.89%–84.64% | 42/45 |
+| second, after shutdown | 3.52% | 4.17% | 2.08%–8.05% | 11/45 |
+| third, after an additional stabilization interval | 4.17% | 4.95% | 2.34%–20.83% | 22/45 |
+
+Only the **last** preflight JSON is retained at
+`engine/results/e63_part_b_preflight.json` (SHA-256
+`3b89f8fe9d0eeda0a4525570ccc0b4411bc0d362b5cfc60e10aed941197b4e99`,
+written 08:28:39 UTC); the earlier two rows are from terminal output, not
+independently retained raw sample files. A 12-second before/after process-CPU
+snapshot after the third window found no high-CPU user process *among processes
+with readable CPU counters*: FanControl accumulated 0.12 s and NVIDIA Overlay
+0.06 s, the two highest readable entries. Some processes, including `System`
+and several `ChatGPT` processes, had no readable CPU counter in this context;
+the snapshot therefore cannot attribute the earlier occupancy spikes or
+exclude kernel/interrupt work. **Nothing was terminated on its basis**.
+
+`e63_part_b.json` remains absent. All three are operational refusals, not
+measurements or retries of `G-E63d`; the gate remains **unattempted / VOID /
+OWED**. Do not relax the occupancy bar or reuse a failed window as a rate.
+
+### 15.3 No further user cleanup required
+
+The user confirmed that no other voluntary workloads remain to close and that
+`ChatGPT` is this task's host process. **Do not ask the user to close ChatGPT or
+keep clearing processes for E63d.** The three refusals show the current host is
+not reliably below the original global-occupancy bar; they do not prove that
+the int8 arm is slow. The existing hourly quiet-window monitor may try the
+frozen E63d protocol once when its *lightweight* guard passes; no rapid polling
+or repeated full artefact hashing is warranted.
+
+If the host does not provide an admissible window, the scientific path is a
+**separately preregistered loaded-box experiment** on the same pinned arms:
+balanced interleaved paired measurements, contemporaneous foreign occupancy,
+raw rate and uncertainty reported without an E52-derived rate correction or
+post-hoc cell dropping. Such a result can describe performance *under its
+observed load* but cannot be back-labelled `G-E63d` or substituted for the
+original idle-box absolute-rate gate. This alternative is a design boundary,
+not yet a registered or executed measurement.

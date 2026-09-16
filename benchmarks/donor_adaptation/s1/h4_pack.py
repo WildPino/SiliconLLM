@@ -8,7 +8,7 @@ import sys
 
 HERE=os.path.dirname(os.path.abspath(__file__))
 RES=os.path.join(HERE,"results","h4")
-OUT=os.path.join(HERE,"_h4_bundle")
+OUT=os.path.join(HERE,"_h4_bundle_v2")
 MODEL_ID="Qwen/Qwen2.5-1.5B"
 REVISION="8faed761d45a263340a0528343f099c05c9a4323"
 CALIB_SHA="c5509846cdc3aa44e45e77895b59a4638c49eb03790030d851e7bf1357ca4c0c"
@@ -35,8 +35,10 @@ controls have passed. Run one signal session of at most 2.8 hours:
 python h4_qat.py --factors h4_factors.npz --train h4_train.npz --probe h4_probe.json --out h4_trained.npz --steps 4000 --bs 2 --accum 8 --lr 2e-4 --every 250 --max-hours 2.8 --seed 1717
 ```
 
-The script writes only a terminal checkpoint. Report `h4_trained.npz`,
-`h4_trained.json`, and the complete log. GPU progress is not a result. CPU fp32
+The script writes nonterminal recovery checkpoints every 250 steps and one
+terminal checkpoint. Report `h4_trained.npz`, `h4_trained.json`, and the complete
+log. Recovery checkpoints are not candidates for adjudication. GPU progress is
+not a result. CPU fp32
 `h4_eval.py` adjudicates the preregistered bands. This run makes no claim about
 10B, token rate, width transfer, or export. Do not select a checkpoint by its
 GPU score.
@@ -52,7 +54,7 @@ def main():
         "h4_pack.py":__file__,
         "h4_factors.npz":os.path.join(RES,"h4_factors.npz"),
         "h4_factors.json":os.path.join(RES,"h4_factors.json"),
-        "h4_selftest.json":os.path.join(RES,"h4_selftest.json"),
+        "h4_selftest.json":os.path.join(RES,"h4_selftest_v2.json"),
         "h4_eval_intact.json":os.path.join(RES,"h4_eval_intact.json"),
         "h4_eval_init.json":os.path.join(RES,"h4_eval_init.json"),
         "h4_train.npz":os.path.join(h0,"h0_train.npz"),

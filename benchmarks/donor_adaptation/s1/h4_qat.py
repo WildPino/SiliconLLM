@@ -9,7 +9,7 @@ D_GRID=[.3,.4,.5,.6,.7,.8,.9,1.,1.1,1.2]; ORGANS=("q_proj","o_proj"); G_H4E_WIND
 MODEL_ID="Qwen/Qwen2.5-1.5B";REVISION="8faed761d45a263340a0528343f099c05c9a4323"
 CALIB_SHA="c5509846cdc3aa44e45e77895b59a4638c49eb03790030d851e7bf1357ca4c0c"
 TRAIN_IDS_SHA="9bb5229fad6542aa8b3fd7edfc3b8d1dff965a573d7aa8379385caacc9d614da"
-EVAL_IDS_SHA="a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65"
+EVAL_IDS_SHA="a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65";CHECKPOINT_EVERY=250
 def log(x): print(x,flush=True)
 def sha256_file(path):
     h=hashlib.sha256()
@@ -99,19 +99,34 @@ def tf_count(model,pids,tgts,device):
         lg=model(torch.tensor([p+t],device=device)).logits[0].float()
         n+=sum(int(int(torch.argmax(lg[len(p)-1+k]))==x) for k,x in enumerate(t))
     model.train();return n
-def save(model,layers,a,hist,tf0,nonfinite,elapsed,status,gate,declined,actual_steps,applied_count,input_hashes):
+def snapshot_state(model,layers):
     st={}
     for li in layers:
         for nm in ORGANS:
             m=getattr(model.model.layers[li].self_attn,nm);p="L%02d.%s"%(li,nm)
             for x in ("A","s","B","rms_in","rms_A"):st[p+"."+x]=getattr(m,x).detach().float().cpu().numpy()
+    return st
+def checkpoint_paths(out,step):
+    stem=os.path.splitext(out)[0]+".step%04d"%step
+    return stem+".npz",stem+".json"
+def save_interim(state,a,hist,tf0,nonfinite,elapsed,gate,declined,actual_steps,applied_count,input_hashes):
+    """Persist one progress checkpoint; it is never an adjudication candidate."""
+    npz_path,json_path=checkpoint_paths(a.out,actual_steps)
+    exists=[p for p in (npz_path,json_path) if os.path.exists(p)]
+    if exists:raise SystemExit("interim checkpoint exists; refusing overwrite: "+", ".join(exists))
+    with open(npz_path,"xb") as f:np.savez(f,**state)
+    rec={"stage":"H4","model":MODEL_ID,"revision":REVISION,"rank":48,"status":"INTERIM_NONTERMINAL","terminal_checkpoint":False,"nonterminal_checkpoint":True,"checkpoint_step":actual_steps,"checkpoint_interval_steps":CHECKPOINT_EVERY,"checkpoint_sha256":sha256_file(npz_path),"complete":False,"actual_steps":actual_steps,"applied_steps":applied_count,"steps_requested":a.steps,"bs":a.bs,"accum":a.accum,"lr":a.lr,"seed":a.seed,"resumed_from":a.factors,"origin_factors_sha256":input_hashes["origin_factors_sha256"],"adam_state_restarted":True,"seconds":elapsed,"nonfinite_microbatches":nonfinite,"tf_fp16_gpu_step0":tf0,"history":hist,"G_H4e":gate,"scaler_declined_before_first_applied":declined,"input_hashes":input_hashes,"adjudication":"progress artifact only; h4_eval.py CPU fp32 terminal output alone adjudicates H4; no best-checkpoint selection","no_best_checkpoint_selection":True}
+    with open(json_path,"x",encoding="utf-8") as f:json.dump(rec,f,indent=1)
+    return npz_path,json_path
+def save(model,layers,a,hist,tf0,nonfinite,elapsed,status,gate,declined,actual_steps,applied_count,input_hashes):
+    st=snapshot_state(model,layers)
     if os.path.exists(a.out) or os.path.exists(os.path.splitext(a.out)[0]+".json"):raise SystemExit("terminal output exists; refusing overwrite")
     np.savez(a.out,**st)
     rec={"stage":"H4","model":MODEL_ID,"revision":REVISION,"rank":48,"status":status,"terminal_checkpoint":True,"checkpoint_sha256":sha256_file(a.out),"complete":status=="STEPS_COMPLETE","actual_steps":actual_steps,"applied_steps":applied_count,"steps_requested":a.steps,"bs":a.bs,"accum":a.accum,"lr":a.lr,"seed":a.seed,"resumed_from":a.factors,"origin_factors_sha256":input_hashes["origin_factors_sha256"],"adam_state_restarted":True,"seconds":elapsed,"nonfinite_microbatches":nonfinite,"tf_fp16_gpu_step0":tf0,"history":hist,"G_H4e":gate,"scaler_declined_before_first_applied":declined,"input_hashes":input_hashes,"adjudication":"h4_eval.py CPU fp32 only; no best-checkpoint selection"}
     with open(os.path.splitext(a.out)[0]+".json","x",encoding="utf-8") as f:json.dump(rec,f,indent=1)
 def main():
     ap=argparse.ArgumentParser();ap.add_argument("--factors",required=True);ap.add_argument("--train",required=True);ap.add_argument("--probe",required=True);ap.add_argument("--out",default="h4_trained.npz");ap.add_argument("--steps",type=int,default=int(os.environ.get("H4_STEPS","4000")));ap.add_argument("--bs",type=int,default=int(os.environ.get("H4_BS","2")));ap.add_argument("--accum",type=int,default=int(os.environ.get("H4_ACCUM","8")));ap.add_argument("--lr",type=float,default=float(os.environ.get("H4_LR","2e-4")));ap.add_argument("--every",type=int,default=int(os.environ.get("H4_EVERY","250")));ap.add_argument("--max-hours",type=float,default=2.8);ap.add_argument("--seed",type=int,default=1717);ap.add_argument("--smoke",action="store_true",default=os.environ.get("H4_SMOKE")=="1");a=ap.parse_args()
-    if a.steps<=0 or a.every<=0 or a.accum<=0 or a.bs<=0 or not (0<a.max_hours<=2.8):raise SystemExit("invalid H4 training CLI or wall cap above 2.8 h")
+    if a.steps<=0 or a.every!=CHECKPOINT_EVERY or a.accum<=0 or a.bs<=0 or not (0<a.max_hours<=2.8):raise SystemExit("invalid H4 training CLI or checkpoint interval / wall cap")
     if os.path.abspath(a.out)==os.path.abspath(a.factors):raise SystemExit("output cannot overwrite resume factors")
     if os.path.exists(a.out) or os.path.exists(os.path.splitext(a.out)[0]+".json"):raise SystemExit("terminal output exists; refusing overwrite")
     layers,ids_np,probe,input_hashes=checked_inputs(a)
@@ -144,6 +159,9 @@ def main():
         elapsed=time.time()-started
         if step%a.every==0 or step==a.steps:
             tf=tf_count(model,pids,tgts,dev);hist.append({"step":step,"tf_fp16_gpu":tf,"loss":runloss/max(1,nb),"seconds":elapsed});runloss=nb=0
+        if step%CHECKPOINT_EVERY==0 and step<a.steps:
+            npz_path,_=save_interim(snapshot_state(model,layers),a,hist,tf0,nonfinite,elapsed,gate,declined,step,applied_steps(opt),input_hashes)
+            log("interim checkpoint step %d: %s (nonterminal; not eligible for adjudication)"%(step,npz_path))
         if elapsed>a.max_hours*3600:break
     status="STEPS_COMPLETE" if last_step==a.steps else "TIME_CAP"
     save(model,layers,a,hist,tf0,nonfinite,time.time()-started,status,gate,declined,last_step,applied_steps(opt),input_hashes)
