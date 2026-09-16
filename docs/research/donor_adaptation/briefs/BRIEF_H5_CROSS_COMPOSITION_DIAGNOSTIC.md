@@ -1,6 +1,9 @@
 # H5 — Frozen-checkpoint cross-composition diagnostic
 
-**Status:** preregistered before the H5 runner is executed; CPU-only, no training or T4.
+**Status:** preregistered before the H5 runner was executed; CPU-only, no training or T4.
+**Terminal disposition:** `POSTHOC_TRANSFER_SIGNAL=false`, recorded in
+[the H5 result](../probes/H5_CROSS_COMPOSITION_RESULT.md). The rules below remain the
+pre-measurement specification, not retrofitted thresholds.
 **Question:** do the *independently trained* H4 rank-48 q/o and H2I v4 one-byte eight-layer
 FFN carve transfer positively when installed in the same pretrained Qwen2.5-1.5B model?
 This is deliberately **not** a joint-training test, engine export, or H2I rerun. A negative

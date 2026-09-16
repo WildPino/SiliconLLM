@@ -1,5 +1,17 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**Latest H5 cross-composition diagnostic (2026-09-16):** the frozen H4
+rank-48 q/o and H2I trained one-byte eight-layer FFN **do not transfer
+positively post-hoc** on the same real 1.5B donor. The H4-only planted
+control reproduced exactly; adding H2I changes BPB **1.1537375 → 1.3991680**,
+teacher-forced **66 → 55/160**, free **6 → 1/160**, mean rank **108.725 →
+203.06875**. All three preregistered `POSTHOC_TRANSFER_SIGNAL` clauses fail.
+This closes only the frozen-checkpoint composition shortcut, not fresh joint
+training; there is no engine or 10B rate claim. Canonical:
+[H5 result](probes/H5_CROSS_COMPOSITION_RESULT.md),
+[brief](briefs/BRIEF_H5_CROSS_COMPOSITION_DIAGNOSTIC.md), and
+`s1/results/h5/h5_cross_composition.json`.
+
 **Latest H4D diagnostic (2026-09-16):** the *same trained H4 terminal
 checkpoint*, evaluated with saved fp32 A/B masters instead of their ternary
 forward, gets **1.6104023 BPB, 54/160 teacher-forced, 1/160 free**, worse than
