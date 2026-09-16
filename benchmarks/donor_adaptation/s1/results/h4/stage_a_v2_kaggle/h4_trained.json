@@ -1,0 +1,74 @@
+{
+ "stage": "H4",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "rank": 48,
+ "status": "TIME_CAP",
+ "terminal_checkpoint": true,
+ "checkpoint_sha256": "11a483419e6b8795164e4651547f6b3765fc325adaa3283153d9cd5276d4cefb",
+ "complete": false,
+ "actual_steps": 1148,
+ "applied_steps": 1145,
+ "steps_requested": 4000,
+ "bs": 2,
+ "accum": 8,
+ "lr": 0.0002,
+ "seed": 1717,
+ "resumed_from": "/kaggle/working/h4_bundle/h4_factors.npz",
+ "origin_factors_sha256": "7ae0d2ceeff628ff9b076b5df5806def54340f193e6cae5eb8e8013817959371",
+ "adam_state_restarted": true,
+ "seconds": 10080.954966306686,
+ "nonfinite_microbatches": 0,
+ "tf_fp16_gpu_step0": 21,
+ "history": [
+  {
+   "step": 0,
+   "tf_fp16_gpu": 21,
+   "loss": null,
+   "seconds": 0.0
+  },
+  {
+   "step": 250,
+   "tf_fp16_gpu": 55,
+   "loss": 5.451277651250362,
+   "seconds": 2204.070513486862
+  },
+  {
+   "step": 500,
+   "tf_fp16_gpu": 62,
+   "loss": 3.9434212563037874,
+   "seconds": 4399.932541131973
+  },
+  {
+   "step": 750,
+   "tf_fp16_gpu": 69,
+   "loss": 3.6256913595795632,
+   "seconds": 6593.21697473526
+  },
+  {
+   "step": 1000,
+   "tf_fp16_gpu": 70,
+   "loss": 3.4473280800879,
+   "seconds": 8783.090510129929
+  }
+ ],
+ "G_H4e": {
+  "moved": {
+   "A": 8.016824722290039e-06,
+   "B": 8.016824722290039e-06,
+   "s": 7.987022399902344e-06
+  },
+  "first_applied_step": 2,
+  "declined_before": 1,
+  "scale_at_first_applied": 32768.0,
+  "grad_norm_at_first_applied": 38.14394760131836
+ },
+ "scaler_declined_before_first_applied": 1,
+ "input_hashes": {
+  "factors_sha256": "7ae0d2ceeff628ff9b076b5df5806def54340f193e6cae5eb8e8013817959371",
+  "origin_factors_sha256": "7ae0d2ceeff628ff9b076b5df5806def54340f193e6cae5eb8e8013817959371",
+  "train_sha256": "0cdaa28f405c3a8c6a8589af8e88788b33131bc7d4f1096da6c1fedf78caa9d9",
+  "probe_sha256": "5c24f463d796d1338c671063ad4628130316a3ee9f976583dc7ecb3e1d875e2f"
+ },
+ "adjudication": "h4_eval.py CPU fp32 only; no best-checkpoint selection"
+}

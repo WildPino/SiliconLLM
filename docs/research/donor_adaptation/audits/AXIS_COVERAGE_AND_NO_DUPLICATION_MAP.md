@@ -86,6 +86,7 @@ Transformer destroys ranking. Those are different objects and both measurements 
 | E36/E39/E40 ~10B shapes | no: synthetic/noise weights | no donor-quality result | yes for their engine paths | yes, bands/controls as documented | the CPU can execute a suitable 10B **shape** at/above the target rate |
 | E63 carved-int8 ~10B artifact | constructed exact-format artifact, not a pretrained 10B quality object | no | yes | clean A10B `G-E63d` 49.37 tok/s, CI [49.18, 50.49]; `G-E63e` ratio 0.9952 | synthetic-shape rate gate closed; no trained 10B quality or strict 50-tok/s pass; E61c/3B ancillary sweeps incomplete |
 | H2I 8-layer mixed donor object | donor weights plus trained factors/router/carved layers | Phase A and Phase B score measured; strict combined rank failed | container capable, exporter gap audited but closed by verdict | no | trained one-byte carve improves held-out BPB and routing, but is terminal `SCORE-ONLY`; no export/scale claim |
+| H4 rank48 ternary q/o, 1.5B donor | yes, pretrained body plus trained low-rank attention factors | CPU fp32 terminal 1.1537375 BPB; 66/160 teacher-forced, 6/160 free; `TRAINING_HELPS`/`BEATS_QO96`/`BEATS_QO192` true, `GENERATOR_PARTIAL` false | no engine export | no | training recovers score/rank beyond QO192 post-hoc but generation stays AT-FLOOR; any Stage B requires a new brief, with no 10B/format/rate transfer |
 
 ## 5. Apparent contradictions and measured inversions
 

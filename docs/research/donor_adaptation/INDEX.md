@@ -1,5 +1,17 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**Latest H4 result (2026-09-16):** Kaggle Stage A is `COMPLETE`; its *terminal*
+rank48 ternary q/o checkpoint stopped at the preregistered 2.8 h `TIME_CAP`
+(step 1148, 1145 applied). CPU fp32 on the frozen slice reads **1.1537375 BPB,
+6/160 free, 66/160 teacher-forced, mean rank 108.725, rank≤5 112/160**,
+against init **2.8035765 BPB, 5/160 free, 21/160 teacher-forced, mean rank
+3094.775, rank≤5 39/160**. Independent bands: `TRAINING_HELPS=true`,
+`BEATS_QO96=true`, `BEATS_QO192=true`, `GENERATOR_PARTIAL=false`.
+Strong score/rank recovery is **not** generative recovery: free 6/160 remains
+AT-FLOOR. P2 and P4 hit; P3 missed; P1's numeric band already missed.
+No combined PASS or automatic Stage B; any further GPU work requires a new
+brief. No 10B, tok/s, export or scale-transfer claim. Canonical: H4 probe §10.
+
 **Latest E63 result (2026-09-16):** the first admissible A10B Part B sweep closes
 `G-E63d` as `DESK-MODEL-HELD`: one-byte carved 10B **49.37 tok/s**, bootstrap CI
 **[49.18, 50.49]**, 45/45 clean preflight samples and 10/10 admissible timing
@@ -18,7 +30,7 @@ are dated historical checkpoints, superseded for A10B by `probes/E63_...md` §16
 
 **The goal:** run somebody else's pretrained LLM on our architecture (`engine.c`), target **~10B at
 50 tok/s** (good) / **100 tok/s** (excellent).
-**Latest H4 operational/step zero (2026-09-16):** H4 rank48 (`r/D=1/32`) factorization and
+**Historical H4 operational/step zero, before terminal evaluation (2026-09-16):** H4 rank48 (`r/D=1/32`) factorization and
 CPU controls are complete: G-H4a fires on 56 organs, the full self-test passes, dense intact is
 `0.7675949641196625` BPB with `160/160` free and teacher-forced, and ternary INIT is
 `2.8035765393907672` BPB with `5/160` free and `21/160` teacher-forced. P1 is qualitatively

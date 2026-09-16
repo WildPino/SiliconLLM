@@ -1,6 +1,9 @@
 # H4 — Aggressive-rank step zero
 
-**Stato al 2026-09-16:** `CPU STEP-ZERO COMPLETE / STAGE A RUNNING`
+**Aggiornamento 2026-09-16:** Stage A `COMPLETE` su Kaggle, checkpoint terminale
+`TIME_CAP` valutato su CPU fp32. `TRAINING_HELPS`, `BEATS_QO96` e `BEATS_QO192`
+sono veri; `GENERATOR_PARTIAL` è falso. Vedi §10. Le frasi `RUNNING` sotto
+sono cronologia del lancio, non lo stato attuale.
 **Provenienza della preregistrazione:** commit `6c5665b`.
 
 ## 1. Oggetto e scope
@@ -118,4 +121,55 @@ alla verifica indipendente, `MANIFEST.json` SHA-256
 Gli hash dei fattori (`7ae0d2ceeff628ff9b076b5df5806def54340f193e6cae5eb8e8013817959371`)
 e dell'anchor init (`140a8968ccc49ebe4bdf8518bd6f901b0b5c16e76ed5df87a069bc2f7c1e461c`) nel
 manifest sono invariati. Questa è una correzione di persistenza dell'apparato,
-non una nuova misura scientifica; Stage A resta **in esecuzione**.
+non una nuova misura scientifica; Stage A resta **in esecuzione** a questo
+checkpoint storico. La conclusione è §10.
+
+## 10. Stage A terminale — adjudication CPU fp32, 2026-09-16
+
+Il kernel Kaggle `sirwildpino/h4-rank48-stagea-v2` ha chiuso con stato
+`KernelWorkerStatus.COMPLETE`. Il trainer ha rispettato il limite preregistrato
+di **2,8 ore**: checkpoint terminale `TIME_CAP` allo step **1148**, con
+**1145** aggiornamenti applicati, nessun microbatch non-finito. `complete:false`
+nei metadati significa che non ha raggiunto i 4000 step richiesti, non che il
+checkpoint `TIME_CAP` sia ineleggibile: il valutatore preregistrato ammette
+esplicitamente `TIME_CAP` o `STEPS_COMPLETE` se `terminal_checkpoint:true`.
+Gli step 250/500/750/1000 sono `INTERIM_NONTERMINAL` e non sono stati selezionati.
+
+Il download conserva `h4_trained.npz` (SHA-256
+`11a483419e6b8795164e4651547f6b3765fc325adaa3283153d9cd5276d4cefb`),
+`h4_trained.json`, log e preflight in
+`benchmarks/donor_adaptation/s1/results/h4/stage_a_v2_kaggle/`. Hash del
+checkpoint, hash dell'init (`7ae0d2ceeff628ff9b076b5df5806def54340f193e6cae5eb8e8013817959371`)
+e hash dell'anchor CPU sono stati ricontrollati indipendentemente. Il preflight
+conferma 15 file del bundle, una sola T4 visibile al trainer, manifest pinned
+`a97e444359684b2bd769932248493873fe7a7f4b4e63f3caf17f2c331`.
+L'unica adjudication è il frozen `h4_eval.py` su CPU fp32, output
+`benchmarks/donor_adaptation/s1/results/h4/h4_eval_stage_a_v2_terminal.json`
+(SHA-256 `23c3792f4a04efedf90ec0617654a529f0e2a115419f55cd71ad0d55d48e48f2`).
+
+| Metrica, slice congelata | Init step 0 | Terminale |
+|---|---:|---:|
+| BPB | 2.80357653939077 | **1.15373752359353** |
+| Free exact /160 | 5 | **6** |
+| Teacher-forced exact /160 | 21 | **66** |
+| Mean rank | 3094.775 | **108.725** |
+| Median rank | 52.5 | **2** |
+| Rank ≤5 /160 | 39 | **112** |
+
+I quattro booleani preregistrati, ricomputati dai numeri senza usare il
+progresso GPU come gate, sono **`TRAINING_HELPS=true`** (tutte e quattro le
+disuguaglianze vs init), **`BEATS_QO96=true`** (1.1537 < 2.0973 BPB,
+66 > 42 teacher-forced, 6 > 1 free), **`BEATS_QO192=true`** (1.1537 <
+1.8564 BPB, 66 > 56 teacher-forced, 6 > 4 free), e
+**`GENERATOR_PARTIAL=false`** (6 non supera 14 free). Non esiste un
+`combined PASS` H4. La generazione rimane **AT-FLOOR** nonostante il forte
+recupero teacher-forced e BPB. I cinque prompt free leggono 2/0/1/0/3;
+non è una traiettoria generativa robusta.
+
+Predizioni: P1 qualitativa corretta ma banda BPB 3.2–5.5 **MISSED** allo step
+zero (già registrato); P2 **HIT**; P3 (`BEATS_QO96` probabilmente falso)
+**MISSED**; P4 (`GENERATOR_PARTIAL` probabilmente falso) **HIT**. La policy §9
+consente di *proporre* uno Stage B perché `BEATS_QO96=true`, ma non lo
+autorizza automaticamente: serve un nuovo brief e una decisione separata
+sull'uso GPU. Qui non è stato lanciato altro training. Nessun claim su 10B,
+tok/s, trasferimento di scala, FFN carve, one-byte o export `engine.c`.
