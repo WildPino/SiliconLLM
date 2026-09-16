@@ -180,8 +180,14 @@ scaricato. Il [corpus document-level](../probes/STRAT_02_STAGE0_DATA_PREP.md)
 EOS come prefisso e bootstrap stratificato per documento, dopo aver verificato
 che tutti gli span entrano nel contesto nativo senza truncation. Questi sono
 solo controlli Stage 0: non soddisfano ancora parità del forward, loader
-bounded-memory, provenienza dei testi, suite task/generazione, specifica
-quantizer o gli altri punti Stage 0. La `.venv` locale 5.13.1 rimane non
+bounded-memory, provenienza dei testi, suite task/generazione o gli altri
+punti Stage 0. La [specifica W4/W2](../probes/STRAT_02_STAGE0_WEIGHT_FORMAT.md)
+ora fissa anche il codec e conta le scale: mixed 473038848 B/token,
+W4-all 661782528 B/token, entrambi numeri derivati e non rate misurati.
+Il [piano bounded-memory](../probes/STRAT_02_STAGE0_BOUNDED_LOAD_PLAN.md)
+registra indice e hash degli 11 shard e vieta una seconda copia F32;
+il loader full-size e il suo picco RAM restano da verificare.
+La `.venv` locale 5.13.1 rimane non
 compatibile as-is per il codice del modello.
 
 Se licenza, revision/code hash, capacità, manifest document-level, formato o

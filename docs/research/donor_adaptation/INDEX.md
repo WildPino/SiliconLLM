@@ -15,7 +15,14 @@ is now built and verified (48 calib, 96 heldout, no exact cross-split overlap);
 the [tokenizer/BPB protocol](probes/STRAT_02_STAGE0_TOKEN_SCORING.md) now
 pins EOS-prefix scoring of every byte and a stratified document bootstrap;
 all 144 spans fit the 4096-token window. Quality and weight download remain
-unstarted. The exact donor metadata and
+unstarted. The [preregistered W4/W2 codec](probes/STRAT_02_STAGE0_WEIGHT_FORMAT.md)
+prices group-scale metadata as well as payload: mixed 473.04 MB/token,
+W4-all 661.78 MB/token, with neither quality nor decoder rate measured.
+The [bounded-load plan](probes/STRAT_02_STAGE0_BOUNDED_LOAD_PLAN.md) and
+[pinned shard-source manifest](../../../benchmarks/donor_adaptation/density/strat02_weight_sources.json)
+make the 54.28 GB F32 acquisition and no-duplicate-RAM condition explicit;
+the full-size loader and peak memory are not yet verified.
+The exact donor metadata and
 memory gate are in the [target-donor addendum](audits/TARGET_DONOR_FOLLOWUP_2026-09-16.md).
 
 **STRAT-03 CPU diagnostic (2026-09-16):** the byte-count-matched nonlinear
