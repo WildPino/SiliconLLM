@@ -1,5 +1,17 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**R1/STRAT-02 preflight (2026-09-16):** the pinned Ai2 StdMoE pretrained
+checkpoint has 13,568,641,024 stored F32 parameters (54.28 GB across 11
+shards); its top-8 is seven routed experts plus one shared expert with a
+separate shared softmax. W4 always-active plus W2 experts would charge
+440.40 MB of payload/token, requiring 31.46 GB/s for the roadmap's 14 ms
+streaming allowance *before* overhead. This is arithmetic and source-code
+inspection, not a quality/rate result or a download authorization. A new
+[STRAT-02 staged precision brief](briefs/BRIEF_STRAT_02_STDMOE_PRECISION_GATE.md)
+is `PROPOSED`; its first blocker is a [document-level corpus limitation](audits/CORPUS_DOCUMENT_SPLIT_LIMITATION_2026-09-16.md)
+in the old chunk-split calibration/heldout data. The exact donor metadata and
+memory gate are in the [target-donor addendum](audits/TARGET_DONOR_FOLLOWUP_2026-09-16.md).
+
 **STRAT-03 CPU diagnostic (2026-09-16):** the byte-count-matched nonlinear
 shared SwiGLU plus `x`-only router was tested against a rank-96 linear shared
 path and E68's mass oracle on five real 1.5B donor FFN layers. All frozen

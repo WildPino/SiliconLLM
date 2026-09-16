@@ -84,6 +84,117 @@ independent evaluation.
 
 ## Disposition / non-duplication
 
+### Addendum 2026-09-16 — exact StdMoE revision and a mixed-precision gate
+
+The read-only [publisher API record](https://huggingface.co/api/models/allenai/StdMoE_1b14b_1T_Preanneal?blobs=true) currently resolves to revision
+`d2a4949c9d4ad6cf47fbac131f7e020077332b21`: `safetensors.total =
+13,568,641,024` distinct stored parameters, all `F32`, in **11 shards totaling
+54,275,336,216 bytes**. The card declares Apache-2.0 and a 1T-token pretrained
+standard-MoE checkpoint. This exact total replaces the card's rounded “14B” for
+memory planning; it is not an active-parameter count. The pinned
+[config](https://huggingface.co/allenai/StdMoE_1b14b_1T_Preanneal/blob/d2a4949c9d4ad6cf47fbac131f7e020077332b21/config.json)
+has `D=2048`, `L=16`, `E=128`, `k=8`, `num_shared_experts=1`, `F=1024`,
+`V=100352`, untied embeddings, full MHA and 4096 maximum positions. The
+roadmap's proposed 8K/32K context checks would therefore require a separately
+validated context-extension change; the native checkpoint alone does not meet
+them. The pinned
+[model implementation](https://huggingface.co/allenai/StdMoE_1b14b_1T_Preanneal/blob/d2a4949c9d4ad6cf47fbac131f7e020077332b21/modeling_emo.py)
+selects `top_k - num_shared_experts` routed experts and then the shared expert:
+**seven routed plus one shared, eight FFN evaluations total**. This resolves the
+asterisked ambiguity in the earlier table. Because `always_active_experts=null`,
+the pinned implementation uses its legacy shared path: it applies **separate
+softmaxes** to 127 routed logits and the single shared logit. The shared
+coefficient is therefore exactly `1`, while the seven routed coefficients
+are their probabilities in the full routed-127 softmax, **without top-7
+renormalization** (`norm_topk_prob=false`). A port that softmaxes all 128
+logits together or renormalizes the selected seven changes the model. Its
+`1,283,457,024` charged large
+weights/token still excludes scales, metadata, KV/cache and nonweight work.
+
+The arithmetic for a *hypothetical* W4 always-active stream and W2 expert stream
+is: attention + router + head = `478,150,656` weights/token at 0.5 B each;
+selected experts = `805,306,368` weights/token at 0.25 B each; total payload
+`440,401,920 B/token`. All-W4 would be `641,728,512 B/token`; all-W2
+`320,864,256 B/token`. The mixed payload alone needs **31.46 GB/s to fit the
+roadmap's 14 ms streaming allowance**, or **22.02 GB/s to fit the entire 20 ms
+50-tok/s period** with *zero* time left for everything else. At assumed
+40/28 GB/s it consumes 11.01/15.73 ms. These are conditional divisions, not
+measured bandwidth on this donor, a W2 quality result or an engine forecast.
+E63's synthetic mixed stream has a different format/layout/shape and cannot
+supply that missing rate.
+The config-derived *stored* large-organ cross-check is 12,884,901,888 expert
+weights + 268,435,456 attention + 4,194,304 router + 205,520,896 head +
+205,520,896 distinct input embedding = 13,568,573,440, just 67,584 below
+the publisher safetensors total (small norms/biases). If the input embedding
+stays F32, the theoretical mixed packed storage payload is 4,282,384,384 B
+plus scales/metadata/padding. The embedding is **stored** but only one row is
+looked up per token; the distinct untied head is charged each token. Packed
+storage is not training-memory usage or an implemented loader.
+The pinned [safetensors index](https://huggingface.co/allenai/StdMoE_1b14b_1T_Preanneal/blob/d2a4949c9d4ad6cf47fbac131f7e020077332b21/model.safetensors.index.json)
+independently lists 6,259 tensors over 11 shards: 6,144 expert matrices
+(`16×128×3`), 64 attention matrices, 16 routers, separate head/embedding
+and 33 norm tensors. Its `metadata.total_size=54,274,564,096 B` is exactly
+`4×13,568,641,024`; the shard files total 772,120 B more from container
+overhead. This confirms the stored-parameter arithmetic without touching
+weight payloads.
+
+On the local host the read-only check showed 65,483,676 KiB (~67.06 GB)
+free physical RAM and
+~921.03 GB free on `D:` at screening time. The F32 checkpoint therefore fits
+on disk, but a naive full-F32 Python load would leave only ~12.78 GB of then-free
+RAM before runtime, temporary copies and activations. The next R1 quality probe
+needs a bounded-memory streaming/quantized loading plan and an exact teacher
+baseline; it must not be launched with an unchecked `from_pretrained` allocation.
+No weights were downloaded; the pinned remote model code was inspected as
+text, not saved to the worktree or executed.
+The exact HTTP bytes at this revision have SHA-256
+`f1bd419d8dd926cf7d15131b8192938a0feda1b003586320fa56de20360e4bf2`
+for `configuration_emo.py` (11,686 B) and
+`26f57354940655db673b35d47e9c6b1a85900068f41d91cb08afed4ec53219d6`
+for `modeling_emo.py` (55,477 B); these are pre-execution identity checks,
+not a security audit. The modeling file decorates RMSNorm with
+`use_kernel_forward_from_hub`; the local Transformers integration honors
+`USE_HUB_KERNELS=NO`, which must be set before the first isolated import so
+the teacher path does not silently fetch an unpinned kernel.
+The current local `.venv` reports `torch 2.6.0+cu124`, `transformers 5.13.1`,
+`safetensors 0.8.0` and `huggingface_hub 1.16.4`, while the pinned config
+records `transformers_version=4.57.1`. A **local-import-only** compatibility
+check (no remote code executed) tried the symbols imported by the pinned
+`modeling_emo.py` and failed: `ImportError: cannot import name
+'OutputRecorder' from 'transformers.utils.generic'` in the local 5.13.1
+environment. Thus this environment cannot run the publisher's pinned model
+code as written; this is an operational preflight failure, not a model-quality
+result. Use an isolated, pinned compatible Transformers environment or an
+explicitly reviewed/validated compatibility adaptation, then audit/import
+the exact remote code **before** any 54 GB weight download or teacher score.
+
+**Isolated import preflight completed, still without weights.** A temporary
+package target outside the repository installed `transformers==4.57.1` and
+its compatible dependencies while reusing the existing Python 3.12.10 and
+Torch 2.6.0. With `USE_HUB_KERNELS=NO` set before import,
+`AutoConfig.from_pretrained(..., revision=d2a4949..., trust_remote_code=True)`
+reported `model_type=emo`, `E=128`, `k=8`, one shared expert; importing
+`modeling_emo.EmoForCausalLM` succeeded. The files **actually imported**
+matched the SHA-256 values above byte-for-byte. The default HF snapshot
+contained only `config.json`, `configuration_emo.py`, and `modeling_emo.py`,
+no safetensors shards. A second offline, no-weights check instantiated
+`EmoForCausalLM(config)` entirely on PyTorch's `meta` device: it exposed
+exactly **13,568,641,024 parameters across 6,259 meta tensors**, matching
+both the publisher API and the pinned safetensors index, without allocating
+weight storage. This closes Python import and model-shape consistency only;
+forward/oracle parity, dependency security review, bounded-memory
+teacher loading, quality and rate remain unmeasured.
+
+**Decision update:** this candidate's *stored* scale exceeds the
+illustrative 10B target, and its **mixed**
+payload has nonzero idealized headroom at 40 GB/s under the 14 ms allowance.
+It is promoted only to a **single-donor precision/teacher-baseline brief**, not
+to download, T4 training, C port, quality or speed PASS. That brief must pin the
+revision and remote-code hash, establish same-tokenizer teacher BPB/rollout,
+test the actual W4/W2 operator by organ on held-out data, and specify a
+bounded-memory loader plus a 20 ms full-token budget. If W2 experts or the
+necessary bandwidth fail, this R1 branch stops or changes geometry explicitly.
+
 No newly screened pretrained donor simultaneously clears the exact-geometry, full-stream
 one-byte traffic, current-engine semantics, and practical-quality gates on available
 evidence. **Do not spend T4 time porting or downloading these weights on this screen alone.**
