@@ -9,7 +9,10 @@ streaming allowance *before* overhead. This is arithmetic and source-code
 inspection, not a quality/rate result or a download authorization. A new
 [STRAT-02 staged precision brief](briefs/BRIEF_STRAT_02_STDMOE_PRECISION_GATE.md)
 is `PROPOSED`; its first blocker is a [document-level corpus limitation](audits/CORPUS_DOCUMENT_SPLIT_LIMITATION_2026-09-16.md)
-in the old chunk-split calibration/heldout data. The exact donor metadata and
+in the old chunk-split calibration/heldout data. A new
+[Stage-0 document-preserving corpus](probes/STRAT_02_STAGE0_DATA_PREP.md)
+is now built and verified (48 calib, 96 heldout, no exact cross-split overlap);
+quality and weight download remain unstarted. The exact donor metadata and
 memory gate are in the [target-donor addendum](audits/TARGET_DONOR_FOLLOWUP_2026-09-16.md).
 
 **STRAT-03 CPU diagnostic (2026-09-16):** the byte-count-matched nonlinear
