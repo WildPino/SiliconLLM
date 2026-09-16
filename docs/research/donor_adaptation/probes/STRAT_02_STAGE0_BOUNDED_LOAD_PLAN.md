@@ -96,6 +96,15 @@ monitor deve avere exit non distruttiva; non terminare altri processi per
 far passare un run. Se il cap è violato, non ritentare con un loader diverso
 senza nuovo piano preregistrato.
 
+Il primo smoke usa esattamente la riga 0 di `calib.jsonl` (ID
+`file:data/external/the_stack_python/cpython/Lib/test/test_sqlite3/test_userfunctions.py`,
+`item_sha256=17020c6b2147d0d33555bb96dbde6302b9e4859523e8d0bd1a9d73bb0177d11e`).
+Il [supervisore](../../../../benchmarks/donor_adaptation/density/strat02_bounded_smoke.py)
+avvia un solo worker, campiona ogni 5 s e può terminare **solo quel worker**.
+Il risultato della riga di calibrazione serve esclusivamente a verificare
+l'apparato; non entra nel gate di qualità. L'acquisizione degli shard è
+registrata [separatamente](STRAT_02_STAGE0_ACQUISITION.md).
+
 Runtime osservato nel controllo senza pesi: Python 3.12.10,
 Torch 2.6.0+cu124, Transformers 4.57.1, tokenizers 0.22.2,
 NumPy 2.5.3, safetensors 0.8.0, huggingface_hub 0.36.2;
