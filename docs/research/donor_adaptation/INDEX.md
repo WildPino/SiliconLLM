@@ -22,6 +22,12 @@ The [bounded-load plan](probes/STRAT_02_STAGE0_BOUNDED_LOAD_PLAN.md) and
 [pinned shard-source manifest](../../../benchmarks/donor_adaptation/density/strat02_weight_sources.json)
 make the 54.28 GB F32 acquisition and no-duplicate-RAM condition explicit;
 the full-size loader and peak memory are not yet verified.
+The [task/rollout protocol](probes/STRAT_02_STAGE0_TASK_ROLLOUT_PROTOCOL.md)
+pins HumanEval, PIQA validation, and all 96 document rollouts before weights;
+none has been run, and HumanEval execution requires a verified sandbox.
+The [selected-source provenance inventory](probes/STRAT_02_STAGE0_SOURCE_PROVENANCE.md)
+accounts for all 144 local spans and flags PG-19 book-level rights outside
+the US rather than treating the dataset label as universal clearance.
 The exact donor metadata and
 memory gate are in the [target-donor addendum](audits/TARGET_DONOR_FOLLOWUP_2026-09-16.md).
 

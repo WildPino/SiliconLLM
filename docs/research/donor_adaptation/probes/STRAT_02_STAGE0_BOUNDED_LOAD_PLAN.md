@@ -61,16 +61,39 @@ passata I/O obbligatoria, non una copia persistente F32. Il modello teacher
 viene valutato da solo: mai due `EmoForCausalLM` F32 contemporaneamente.
 Prima del primo documento si registra RAM disponibile, committed/working-set
 del processo e page faults; si prova **un documento calibrazione** come
-smoke di apparato e si ferma in caso di swapping sostenuto, OOM o identità
+smoke di apparato e si ferma ai cap di memoria/tempo fissati sotto, OOM o identità
 storage falsa. Nessuna osservazione su quel documento diventa gate di
 qualità. Il forward usa `torch.inference_mode()`, batch 1, `use_cache=False`,
 `output_hidden_states=False`, `output_router_logits=False`, e input EOS più
 payload meno l'ultimo token. I logits completi del massimo span heldout
-richiedono circa 1,13 GiB F32 (`3025×100352×4`), prima di temporanei per
-logsumexp e attention: la testa non è gratis. Accumulare NLL per documento
-in double, senza salvare tutti i logits; il runner deve misurare il picco
-effettivo e fermarsi se supera il budget preregistrato. Le soglie numeriche
-di memoria/page-fault e il runner non sono ancora congelati.
+richiederebbero circa 1,13 GiB F32 (`3025×100352×4`), prima di temporanei
+per logsumexp e attention. Il [core di scoring](../../../../benchmarks/donor_adaptation/density/strat02_score.py)
+ora proietta l'hidden state in chunk da 128 posizioni (al massimo circa
+51,4 MB F32 di logits/chunk) e accumula NLL in double; non conserva i logits
+di tutto il documento. Non elimina il costo della head né degli hidden
+state, e il picco RAM reale resta da misurare.
+
+**Cap operativi fissati prima degli shard:** all'avvio richiedere almeno
+55 GiB di memoria fisica *disponibile* e almeno 65 GiB di spazio libero
+sulla cache target; durante il primo documento calibrazione leggere memoria
+di sistema e processo almeno ogni 5 s. Interrompere con `VOID_RESOURCE` se
+la memoria disponibile scende sotto 8 GiB, se working set o private commit
+del processo supera 70 GiB, se appare OOM, o se il singolo smoke supera
+60 minuti. Sono limiti di sicurezza/tempo, non soglie di qualità né stime di
+tok/s. Registrare page faults e loro trend, ma non usare un contatore di
+fault generici come soglia (include fault soft e dipende dall'OS). Il
+monitor deve avere exit non distruttiva; non terminare altri processi per
+far passare un run. Se il cap è violato, non ritentare con un loader diverso
+senza nuovo piano preregistrato.
+
+Runtime osservato nel controllo senza pesi: Python 3.12.10,
+Torch 2.6.0+cu124, Transformers 4.57.1, tokenizers 0.22.2,
+NumPy 2.5.3, safetensors 0.8.0, huggingface_hub 0.36.2;
+`USE_HUB_KERNELS=NO` prima degli import e nessun autocast. Il target
+Transformers isolato vive in una directory temporanea locale: va
+ricostruito e controllato per versioni/hash all'atto del run, non trattato
+come ambiente persistente. La `.venv` ordinaria con Transformers 5.13.1
+rimane esclusa.
 
 ## Candidato e comparabilità
 

@@ -92,7 +92,33 @@ numero di documenti/byte/token; non si fa bootstrap di token correlati.
 L'eventuale impossibilità di calcolare 20000 draw o una CI troppo ampia è
 inconclusiva, mai un PASS ottenuto scegliendo un subset.
 
-Questo documento fissa solo scoring e resampling. **Ancora da congelare prima
-dei pesi:** suite generativa/task e relative soglie, quantizer W4/W2 e layout,
-versione/runtime finale, piano di loading bounded-memory e provenienza dei
-testi. Nessun risultato di E63, E66 o del corpus legacy entra in questo gate.
+Questo documento fissa solo scoring e resampling. Al momento della sua prima
+stesura, suite generativa/task, quantizer/layout, runtime, loading e
+provenienza erano ancora da congelare: gli addendum successivi vanno letti
+separatamente e non sono un PASS di Stage 0. Nessun risultato di E63, E66 o
+del corpus legacy entra in questo gate.
+
+### Controllo di implementazione successivo, non misura del donor
+
+Il [core di scoring](../../../../benchmarks/donor_adaptation/density/strat02_score.py)
+ora proietta l'hidden state con `lm_head` a blocchi di 128 posizioni, evitando
+di materializzare i logits di tutto il documento. Il self-test piantato con
+modello fittizio ha passato il confronto full-forward/chunked, i confini
+causali, UTF-8 non ASCII, pesatura per byte e mutazioni del binding heldout.
+Il preflight su questo host ha correttamente rifiutato Transformers 5.13.1 e
+passato con l'ambiente isolato 4.57.1/tokenizers 0.22.2: 48/96 documenti,
+88.756/181.385 payload token e gli hash degli ID sopra.
+
+Un ulteriore controllo senza shard ha istanziato casualmente la **vera classe**
+`EmoForCausalLM` dal codice remoto pin-nato (`USE_HUB_KERNELS=NO`), con seed
+20260916, D=64, intermediate=32, dtype fp32, 1 layer, 4 heads, 4 esperti,
+top2 di cui 1 shared,
+vocab 100352. Su input piantato `[100257,3,1,5]` e target `[3,1,5,2]`,
+CE full-forward = 66.61666805359685 bit contro 66.61666392601323 bit del
+core chunked (differenza 0.00000413 bit). Con il tokenizer reale lo span
+Unicode `Aé😀` ha 4 token, 7 byte e 66.92379054392404 bit sullo stesso
+modello casuale. Questi numeri verificano l'interfaccia e l'allineamento del
+runner, **non** la qualità di StdMoE pretrained, la fedeltà W4/W2 o la RAM
+full-size. La suite task/rollout è ora congelata nel
+[protocollo dedicato](STRAT_02_STAGE0_TASK_ROLLOUT_PROTOCOL.md); gli altri
+gate Stage 0 restano indipendenti.

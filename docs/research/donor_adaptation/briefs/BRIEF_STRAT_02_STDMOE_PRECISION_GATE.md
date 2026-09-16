@@ -187,6 +187,19 @@ W4-all 661782528 B/token, entrambi numeri derivati e non rate misurati.
 Il [piano bounded-memory](../probes/STRAT_02_STAGE0_BOUNDED_LOAD_PLAN.md)
 registra indice e hash degli 11 shard e vieta una seconda copia F32;
 il loader full-size e il suo picco RAM restano da verificare.
+Il [protocollo task/rollout](../probes/STRAT_02_STAGE0_TASK_ROLLOUT_PROTOCOL.md)
+ha congelato fonti, prompt, decoding, metriche e soglie prima dei pesi:
+HumanEval 164, PIQA validation 1838 e 96 rollout documentali. Nessuno è
+stato ancora eseguito; l'esecuzione HumanEval richiede una sandbox verificata.
+L'[inventario di provenienza](../probes/STRAT_02_STAGE0_SOURCE_PROVENANCE.md)
+conta i 144 span effettivamente selezionati e conserva le cautele sui libri
+PG-19 fuori dagli USA; non autorizza la distribuzione dei testi raw.
+I runner Stage 0 sono ora versionati: [scorer BPB](../../../../benchmarks/donor_adaptation/density/strat02_score.py)
+SHA-256 `b4259f1a5c1d99121dd9e705af45675209acdb9368c3f35111522ba3bace1056`;
+[task/rollout](../../../../benchmarks/donor_adaptation/density/strat02_task_rollout.py)
+SHA-256 `312643b4f83198d02e8ca5fb34ad31d8d8c531349b71cff65311f3c425985c68`.
+Self-test e mini-forward casuale hanno passato; non è stata letta qualità
+pretrained e l'esecuzione HumanEval rimane `PENDING_SANDBOX`.
 La `.venv` locale 5.13.1 rimane non
 compatibile as-is per il codice del modello.
 
@@ -200,7 +213,10 @@ richiede una nuova preregistrazione, non la sostituzione silenziosa del file.
 Dopo Stage 0, caricare soltanto secondo il piano bounded-memory e stabilire
 prima il `TEACHER` oracle: due run deterministiche dello stesso testo devono
 concordare secondo la tolleranza numerica preregistrata; devono inoltre
-produrre NLL/BPB, rollout e task artifacts completi. Fallimento di
+produrre NLL/BPB. Il teacher task/rollout può essere differito finché un arm
+non supera BPB; a quel punto va completato prima di adjudicare quel task,
+secondo la [stop rule preregistrata](../probes/STRAT_02_STAGE0_TASK_ROLLOUT_PROTOCOL.md).
+Fallimento di
 determinismo, hash/provenienza, tokenizer, loader, router parity o controlli
 piantati è `VOID_APPARATUS`, non un esito quantization.
 
@@ -222,7 +238,9 @@ numero documenti/byte, bootstrap seed e distribuzione per dominio; non fare
 bootstrap di token correlati.
 
 In aggiunta, eseguire la regression suite e il rollout/generazione congelati,
-con risultati per dominio. Un failure `catastrophic` nella definizione
+con risultati per dominio **solo se** l'arm ha prima superato il BPB; un
+fallimento BPB conclusivo registra `NOT_RUN_BPB_FAIL` e ferma gli altri task.
+Un failure `catastrophic` nella definizione
 congelata fa fallire l'arm anche se BPB passa. Se il teacher è esso stesso
 scarso in un dominio rispetto al criterio preregistrato, registrare il fatto
 e non chiamare un eventuale pareggio del quantizzato un successo dell'obiettivo
