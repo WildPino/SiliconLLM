@@ -1,17 +1,19 @@
 # Target-donor disposition: Qwen2.5-Coder-14B and Qwen3-30B-A3B-Base
 
-**Status:** frozen technical disposition, 2026-09-15.  This is a compatibility and
-upper-bound audit, not a measured donor benchmark and not an authorization to download,
+**Status:** frozen technical disposition, 2026-09-15, with the 2026-09-16 erratum below.
+This is a compatibility and conditional traffic audit, not a measured donor benchmark or authorization to download,
 convert, train, or launch anything.
 
-**2026-09-16 methodological erratum:** The E40 value `41.389179 G weights/s` below is an
-*observed synthetic comparator*, not a physical or cross-format upper bound. The clean E63
-Part B one-byte A10B cell delivered `49.37 tok/s` at `0.9283 G` charged weights/token, or
-about `45.83 G weights/s`, exceeding that E40 value. Therefore every quotient called an
-"upper bound" below must instead be read as a **conditional screening extrapolation at E40's
-observed effective rate**; statements that this alone *precludes* a candidate are too strong.
-The incompatibility and large traffic gap still warrant deferral, but not a mathematical
-impossibility claim. See [the follow-up screen](TARGET_DONOR_FOLLOWUP_2026-09-16.md).
+**2026-09-16 methodological and format erratum:** E40's `41.389179 Gweights/s` below is an
+*observed packed-path comparator*, not a physical or cross-format upper bound. E63 Part B
+delivered `49.37 tok/s` on synthetic **mixed-format** A10B: only its `106,168,320` carved
+FFN weights/token are int8; the other `822,083,584` weights/token remain packed. Its
+`45.828 Gweights/s` count-rate therefore **does not measure a full-one-byte stream** and
+cannot be transferred to either donor. Every quotient called an "upper bound" below is
+only a **conditional screening extrapolation at E40's observed packed effective rate**;
+statements that it *precludes* a candidate are withdrawn. Exact charged-weight counts and
+semantic gaps still inform prioritization, but neither E40 nor E63 supplies a full-int8
+rate bound. See [the corrected follow-up screen](TARGET_DONOR_FOLLOWUP_2026-09-16.md).
 
 ## Scope and evidence discipline
 
@@ -22,15 +24,15 @@ This note keeps five evidence classes separate:
 | real donor | pretrained weights evaluated locally under a declared estimand |
 | converted real donor | a converted pretrained artifact with parity/quality evidence |
 | synthetic integrated timing | an engine timing with synthetic weights; useful for mechanics, never donor quality |
-| derived arithmetic | exact weight-count/traffic calculation; an upper bound, never a rate prediction |
+| derived arithmetic | exact weight-count/traffic calculation; not a measured speed bound or rate prediction |
 | external official metadata | model-card/config/implementation facts cited only as metadata sources |
 
-The deliberately generous ceiling used below, `B = 41.389179011072 G weights/s`, is the
+The historical comparator used below, `B = 41.389179011072 G weights/s`, is the
 largest `charged_G_w_per_s` value in the canonical synthetic E40 result
 (`benchmarks/donor_adaptation/engine/results/e40_levers_exhausted.json`, lines 261–272).
-E40 used the packed path, not either donor below; carrying its best effective rate over to a
-one-byte stream is intentionally favourable to the candidates.  Therefore the quotients below
-are rejection upper bounds, not expected one-byte performance.
+E40 used the packed path, not either donor below. Carrying its effective rate over to a
+one-byte stream is an **unsupported cross-format hypothetical**. The quotients below are
+arithmetic at that assumed rate, neither rejection bounds nor expected performance.
 
 The local candidate inventory is [TARGET_DONOR_LOCAL_INVENTORY.md](TARGET_DONOR_LOCAL_INVENTORY.md).
 Use the [cross-axis no-duplication map](AXIS_COVERAGE_AND_NO_DUPLICATION_MAP.md) before assigning
@@ -66,10 +68,11 @@ logical total = L*(275,251,200 + 17,408) + embedding + head + final_norm
               = 14,770,033,664
 ```
 
-At the deliberately generous ceiling `B = 41.389179 G weights/s`, a one-byte dense stream has
-the weight-only ceiling `B / 13.990625280G = 2.958 tok/s`.  The untied head alone takes
-`778,567,680 / B = 18.811 ms`.  Both are **upper bounds**, before nonweight work, not rate
-predictions.  The head therefore consumes nearly the entire 20 ms budget for 50 tok/s by itself.
+At the historical E40 packed comparator `B = 41.389179 Gweights/s`, a hypothetical one-byte
+dense stream would yield `B / 13.990625280G = 2.958 tok/s`; the untied head would take
+`778,567,680 / B = 18.811 ms`. These are **conditional arithmetic**, not measured int8
+performance or upper bounds. At that assumed rate the head alone nearly consumes the 20 ms
+budget for 50 tok/s.
 
 `qwen_export.py` is structurally closest for this dense Qwen family, but it currently assumes
 Q/K/V biases and loads the complete model; see [qwen_export.py](../../../../benchmarks/donor_adaptation/engine/qwen_export.py)
@@ -102,11 +105,11 @@ total charged linear weights/token = 1,229,717,504 + 1,811,939,328
                                    = 3,041,656,832
 ```
 
-With the same generous `B = 41.389179 G weights/s`, the one-byte weight-only ceiling is
-`B / 3.041656832G = 13.607 tok/s`.  Deleting **all** expert work still leaves only
-`B / 1.229717504G = 33.657 tok/s`.  These are upper bounds, not predictions.  Consequently,
-the fixed attention-plus-head traffic itself precludes 50 tok/s in a one-byte implementation;
-attention and head must change too.
+At the same assumed E40 packed comparator `B = 41.389179 Gweights/s`, the arithmetic gives
+`B / 3.041656832G = 13.607 tok/s`; deleting **all** expert work gives
+`B / 1.229717504G = 33.657 tok/s`. These are **conditional cross-format hypotheticals**,
+not measured full-int8 rates or upper bounds. They suggest attention/head traffic is an
+important risk, but do not establish that it precludes 50 tok/s.
 
 ### Present semantic and format gaps
 
@@ -134,8 +137,8 @@ The remaining exact gaps are mechanical but material:
 
 | item | frozen status | reason / reopening condition |
 |---|---|---|
-| Qwen2.5-Coder-14B download or real benchmark | **DO NOT RUN** | Dense one-byte head/body upper bound fails far below 50; first require an independently gated structural transformation. |
-| Qwen3-30B-A3B-Base weight download | **DEFERRED** | Its fixed one-byte attention/head floor is below 50 even with every expert removed. |
+| Qwen2.5-Coder-14B download or real benchmark | **DO NOT RUN** | Dense 13.99G charged-weight stream is a poor direct fit, and no same-format rate or independently gated structural transformation exists. |
+| Qwen3-30B-A3B-Base weight download | **DEFERRED** | Its 1.23G fixed charged-weight floor is a traffic risk, not a proven 50 tok/s impossibility; engine semantics and donor quality/rate remain unproved. |
 | Qwen3 shape-only timing | **DO NOT RUN** | It would duplicate earlier synthetic pricing and cannot prove executable semantic compatibility. |
 | Qwen3 exact parity/speed benchmark | **DEFERRED** | Only after exact router probabilities/weighted combine, q/k norms, bias-optional reader/exporter, and expert layout exist, then fp32 parity against a pinned pretrained revision; even then it needs a separately quality-gated head+attention cut before being rate-relevant. |
 | H2I Phase A | **DO NOT RERUN** | Canonical matched Phase-A evidence already exists. |

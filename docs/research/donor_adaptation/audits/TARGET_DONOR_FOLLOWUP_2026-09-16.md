@@ -12,14 +12,16 @@ current `engine.c`? This is a candidate *screen*, not a donor result. "Active pa
 a model card is not the same as charged linear weights/token: the head is charged every token,
 an embedding lookup is not, and routing/shared experts need explicit accounting.
 
-The clean [E63 Part B result](../../../../benchmarks/donor_adaptation/engine/results/e63_part_b.json)
-measured an **A10B synthetic** one-byte median of `49.37 tok/s`, not a pretrained model.
-Using E36's `0.9283 G` charged weights/token, the descriptive effective throughput is
-`49.37 × 0.9283 = 45.830171 G charged weights/s`. At that *observed* rate, a 50 tok/s model
-would need at most `0.916603 G` charged linear weights/token. This is a screening reference,
-**not** a universal speed ceiling or an admissible rate prediction for a new architecture.
-It also corrects the older audit's E40 `41.389179 G weights/s` "upper-bound" label: E63
-already exceeds it, because the path and format differ.
+**2026-09-16 format correction:** The clean [E63 Part B result](../../../../benchmarks/donor_adaptation/engine/results/e63_part_b.json)
+measured `49.37 tok/s` on **synthetic mixed-format A10B**, not a full one-byte stream or a
+pretrained model. Its `928,251,904` charged weights/token include only `106,168,320` carved
+FFN weights in int8; the other `822,083,584` stay packed at half a byte. Thus the mixed
+stream reads `517,210,112` charged weight bytes/token, versus `464,125,952` in the
+packed arm. The median implies `25.535 GB/s` for this particular mixed stream. Dividing
+its total *weight count* by time gives `45.828 Gweights/s`, but that mixes formats and is
+**not a transferable full-int8 rate**. The former `0.916603 Gweights/token` donor budget
+and the full-byte rate predictions below were invalid and are withdrawn. E40's
+`41.389179 Gweights/s` is likewise a packed-path observation, not a cross-format ceiling.
 
 ## Comparable full one-byte streams
 
@@ -29,7 +31,7 @@ output-head multiply at every token. They exclude small norms/biases and nonweig
 embeddings remove a second *stored* matrix, not the output-head read. Any calculation that
 omits routed weighting or other semantics is only traffic arithmetic, not an implementation.
 
-| Publisher checkpoint | Charged attention | selected + shared experts | router | head | total charged/token | effective Gweights/s needed at 50 |
+| Publisher checkpoint | Charged attention | selected + shared experts | router | head | total charged/token | full-int8 payload GB/s needed at 50 |
 |---|---:|---:|---:|---:|---:|---:|
 | [Ai2 OLMoE-1B-7B-0125](https://huggingface.co/allenai/OLMoE-1B-7B-0125), [config](https://huggingface.co/allenai/OLMoE-1B-7B-0125/blob/main/config.json) | 268,435,456 | 805,306,368 | 2,097,152 | 103,022,592 | **1,178,861,568** | **58.943** |
 | [Ai2 StdMoE_1b14b_1T_Preanneal](https://huggingface.co/allenai/StdMoE_1b14b_1T_Preanneal), [config](https://huggingface.co/allenai/StdMoE_1b14b_1T_Preanneal/blob/main/config.json) | 268,435,456 | 805,306,368* | 4,194,304 | 205,520,896 | **1,283,457,024*** | **64.173*** |
@@ -57,9 +59,9 @@ IBM: `D=1536, L=40, QO=1536, KVO=512, F=512, k=6, E=62, V=50257`, tied head, plu
 `shared_intermediate_size=1024`. Its card says only "test model"; no practical-quality claim
 is licensed by that metadata. The IBM shared expert is charged on every layer.
 
-At the E63 descriptive `45.830171 G weights/s`, those totals correspond to **38.88, 35.71,
-and 42.14 tok/s respectively** *if* the entire different model reproduced that effective
-rate and incurred no additional costs. They are **not measured or bounded donor rates**.
+The final column is simply charged weights/token × 50 bytes/s under a full-int8 assumption;
+it is **not measured achievable bandwidth**. E63 cannot predict these donors' full-int8
+rates because 88.6% of its charged weights stayed packed.
 OLMoE and IBM also fall below the approximate 10B total scale; the Ai2 14B checkpoint is
 nearer in total size but has a larger one-byte traffic burden. Both Ai2 models are genuine
 pretrained weights; IBM's public card is insufficient to promote quality.
@@ -68,8 +70,7 @@ pretrained weights; IBM's public card is insufficient to promote quality.
 
 [Meta MobileMoE-L](https://huggingface.co/facebook/MobileMoE-L-Base) is listed by its official
 card as 5.3B total / 922M active, top-4 with 60 routed experts, 32 layers, `D=1280`, tied
-embeddings, and QK norm. This is the only screened official card with an active count near
-the descriptive one-byte budget, but the count does not establish charged bytes/token or
+embeddings, and QK norm. The active count does not establish charged bytes/token or
 50 tok/s. Its weights are gated, licensed for noncommercial research, and its 5.3B total
 size is substantially short of the approximate 10B target. It is at most a **smaller proof
 of mechanism** candidate after exact config/access and engine-semantic review, not the final
@@ -86,9 +87,10 @@ independent evaluation.
 No newly screened pretrained donor simultaneously clears the exact-geometry, full-stream
 one-byte traffic, current-engine semantics, and practical-quality gates on available
 evidence. **Do not spend T4 time porting or downloading these weights on this screen alone.**
-This is a *prioritization*, not proof that 50 tok/s is impossible. In particular, OLMoE
-would need `58.943/45.830 = 1.286×` E63's descriptive effective weight throughput for its
-full one-byte stream; an actual port could behave differently in either direction.
+This is a *prioritization*, not proof that 50 tok/s is impossible. Crucially, **none of
+these full-int8 candidates has a comparable measured bandwidth or speed limit** here;
+the earlier E63-based rate rejection was invalid. An actual port could behave differently
+in either direction.
 
 The shortest nonduplicative path remains to define a joint *deployable* geometry, evaluate
 its quality with an exact teacher/reference and fixed gates, then measure that same geometry
