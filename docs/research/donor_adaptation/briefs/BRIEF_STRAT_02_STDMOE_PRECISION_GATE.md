@@ -65,6 +65,23 @@ download. Il manifest, lo script che lo genera e i loro hash sono artefatti di
 protocollo. Il completamento di questi due manifest è un prerequisito bloccante
 di Stage 0 per il primary gate document-bootstrap.
 
+**Addendum di protocollo dati, prima di creare il manifest e prima di leggere
+qualunque qualità:** il generatore dedicato
+[`build_document_holdout.py`](../../../../benchmarks/donor_adaptation/density/build_document_holdout.py)
+è congelato al commit `44cda68`, SHA-256
+`63cd0726a021306240729e94a91f322277eb7a31d32369877e9dd274309eb910`.
+Per la prima cella usare esattamente il preset `r1_preflight_v1`:
+`seed=20260916`, `min_source_bytes=4096`, `span_bytes=8192`, calibrazione
+`16` documenti ciascuno di code/technical-general/prose, heldout `32`
+ciascuno. Code e Markdown sono divisi per hash del contenuto completo
+prima dell'estrazione dello span; PG19 `train` fornisce solo calibrazione,
+PG19 `test` solo heldout; deduplica esatta globale e controlli di ID/hash
+fra split. Il preflight leggero conta file e byte senza leggere contenuti,
+**non** prova disponibilità del campione; il primo build esegue una sola
+scansione completa e rifiuta se non raggiunge le quote. Se il gate BPB
+rimane impreciso con 96 documenti heldout, l'esito è inconclusivo, non un
+PASS per selezione di subset o un'estensione retroattiva dei dati.
+
 La slice BPB primaria, il regression suite e la generazione usano questi nuovi
 manifest document-level. Se un confronto storico è utile, il legacy
 `density/corpus/heldout.txt` può essere valutato soltanto come diagnostico di

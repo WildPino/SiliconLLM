@@ -202,3 +202,8 @@ docs/research/LLM_Reimagined_CPU_Native_Exploration_20260626/
 # over GitHub's 100 MB limit; regenerable from the frozen corpus with the recorded seed.
 # Anchored to the place, not to a type (feedback_gitignore_audit).
 benchmarks/donor_adaptation/engine/results/e43_vocab/*.txt
+
+# STRAT-02 document-preserving evaluation spans may contain third-party source
+# text. Keep the exact local JSONL for reproducibility without publishing it;
+# the small manifest with hashes, source IDs and split counts remains tracked.
+/benchmarks/donor_adaptation/density/corpus/strat02_document_holdout_v1/*.jsonl
