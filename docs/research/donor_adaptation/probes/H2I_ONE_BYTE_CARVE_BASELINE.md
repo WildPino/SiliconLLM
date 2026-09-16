@@ -76,3 +76,45 @@ The independently rehashed bundle contains 15 payloads / 463,452,303 bytes; mani
 11-hour T4 session. No expected step count is inferred from the two-layer CPU smoke; the frozen
 progress prediction is only `>=250` applied updates with a loadable checkpoint. After the T4,
 the final artifact is adjudicated once on CPU fp32 against the exact Phase A score and rank gates.
+
+---
+
+## H2I Phase B v4 — terminal `SCORE-ONLY`: score learns, rank replication does not clear
+
+**Canonical result:** `s1/results/h2i/h2i_eval_h2i_trained_s1.json`, SHA-256
+`2180e1c5d01d903368b1b9119b99049ac5e0d48abbac8bbdbc460dca2151e805`.
+**Canonical adjudication:** `s1/results/h2i/h2i_eval_h2i_trained_s1_adjudication.json`.
+
+The frozen v4 guard returned `SCORE-ONLY` and the evaluator returned rc `3`: this is the
+registered terminal scientific verdict, not an operational error. Training reached its time cap
+at 2,286 steps / 2,282 applied updates in 39,615.08494114876 s (17.32943348256726 s/step), with
+zero non-finite microbatches and manifest
+`330fa237ebe3ea85c48447f52628a3f77f1f4cf0e7275ef7e122e9eb8b93ba56`.
+
+| terminal comparison | BPB / result |
+|---|---:|
+| applied R8 hard k=16 | 1.0190764652622473 |
+| trained hard k=16 | **0.905344219843237** |
+| score delta | **−0.11373224541901028** (`TRAINING-HELPS`) |
+| trained soft | 0.9117608687599223 |
+| trained `k=E` | 1.6628228062405777 |
+| trained experts + E37 router, hard | 0.9286241241806835 |
+
+The experts account for `−0.09045234108156375` BPB against applied; the trained router adds
+`−0.023279904337446533` over E37, and it beats STATIC at 2.654136780391849 versus
+3.0665777063103286 nats/token. This establishes score learning and useful routing on the held-out
+slice. It does not establish the combined branch claim: free 11/160 passes `>9` and mean rank
+2.55625 passes `<3.675`, but teacher-forced top-1 95/160 fails strict `>99` (five hits short of
+the minimum 100). Thus rank and combined `G-H2I` are false.
+
+The B.6 predictions score: 1 **PASS**; 2 **PASS** (0.905344 within 0.86–0.96); 3 **FAIL only on
+the teacher-forced clause**; 4 **PASS** (router beats STATIC); 5 **PASS** (0.905344 < 0.928624
+with experts fixed); 6 **PASS**. For prediction 6, the downloaded periodic checkpoint is step
+2250 with 2,246 applied updates; ZIP CRC reports no bad member, and
+`numpy.load(..., allow_pickle=False)` opens 56 expected layer arrays.
+
+No H2I export, engine, rate, 10B, scale, or target-donor promotion is licensed. Versions 1–3
+remain `VOID_OPERATIONAL`; v4 closes the score+rank cell and authorizes no H2I rerun. The Kaggle
+CLI's post-download Windows character-map error left a zero-byte raw-log placeholder; its empty
+hash is recorded by the guard, which otherwise passed all final-pair, dependency, input and
+metadata checks. It is an archival limitation, not a scientific gate outcome.

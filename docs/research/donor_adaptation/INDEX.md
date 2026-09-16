@@ -7,7 +7,7 @@
 
 **The goal:** run somebody else's pretrained LLM on our architecture (`engine.c`), target **~10B at
 50 tok/s** (good) / **100 tok/s** (excellent).
-**Latest research handoff: 2026-09-16 — H1 S3 V2 IS COMPLETE/PASS; H2I PHASE B V4 REMAINS RUNNING.** H1's frozen guard passed and its unchanged CPU-fp32 evaluator returned rc 0: HARD BPB 0.9234896239116439, `CARVE-IS-TRAINABLE`, with no one-byte/rank/rate/10B claim. The canonical H1 records are `s1/results/h1/h1_eval_h1_s3.json` and `h1_eval_h1_s3_adjudication.json`; the post-download Kaggle CLI character-map error is operational only. H2I v3 passed exact transport hashes, preflight and donor load but failed before training because its CPU generator was paired with direct CUDA allocation. Addendum H preregistered the sole repair; commit `0de313c` implements it, and a second real-donor smoke fires all controls plus one applied update. Replacement manifest `330fa237…` changes only `h2i_qat.py`; all eight scientific payloads are bit-identical. H2I v1–v3 remain operationally void with zero optimizer updates; v4 is the sole active kernel. Its frozen guard `365f811` validates final-v4 metadata, raw log and all seven CPU-adjudicator dependency blobs without changing the evaluator. Monitoring is sparse/event-driven. (`briefs/BRIEF_H2I…` addenda H–M; `briefs/BRIEF_H1…` addenda R–T; `s1/h2i_v4_adjudicate.py`; `s1/results/h2i/h2i_phase_b_v4_adjudication_{freeze,readiness}.json`)
+**Latest research handoff: 2026-09-16 — H1 S3 V2 IS COMPLETE/PASS; H2I PHASE B V4 IS TERMINAL `SCORE-ONLY`.** H1 remains `CARVE-IS-TRAINABLE` at HARD BPB 0.9234896239116439, with no one-byte/rank/rate/10B claim. H2I's frozen v4 guard adjudicated the exact final pair as `SCORE-ONLY` (evaluator rc 3): trained hard 0.905344219843237 BPB versus applied one-byte 1.0190764652622473, delta −0.11373224541901028 and band `TRAINING-HELPS`. Its router beats STATIC (2.654136780391849 vs 3.0665777063103286 nats/token), but the combined gate is false because teacher-forced top-1 is 95/160, not strict >99 (free 11/160 and mean rank 2.55625 pass). H2I v1–v3 remain operationally void; v4 closes the one-byte score+rank cell and authorizes no rerun, export, engine, rate, 10B, scale or target-donor promotion. The canonical H2I result/adjudication are `s1/results/h2i/h2i_eval_h2i_trained_s1.json` (SHA-256 `2180e1c5d01d903368b1b9119b99049ac5e0d48abbac8bbdbc460dca2151e805`) and `h2i_eval_h2i_trained_s1_adjudication.json`. The step-2250 periodic checkpoint (2,246 applied updates) passes ZIP CRC and safe NumPy loading of all 56 expected arrays. A post-download Windows character-map error left a zero-byte raw-log placeholder; the guard recorded its hash and passed all scientific identity checks, so this is archival only. (`briefs/BRIEF_H2I…` addendum N; `briefs/BRIEF_H1…` addendum T)
 
 **Previous research handoff: 2026-09-15 (H1 addenda M–N) — SESSION 3 IS READY, NOT RUN.** The old tree already contained a forgotten untracked packer for a long H1 continuation. Audit caught it hashing `RUN.md` before modifying it, accepting a same-size wrong resume file, and claiming five avoided Adam restarts where the comparator gives three. The repaired committed packer passed a read-only full-bundle check, then built a 1.63 GB session-3 bundle from the published S2 path; all nine final hashes were independently recomputed. One **11-hour T4** run is now ready (seed 3141, ~765 expected steps, first-ever periodic checkpoint at step 250). This tests continuous-optimizer/router trajectory on H1's ternary 8-layer carve; it is not a one-byte, rate, 10 B or rank result. E64/E66 also retire the old `H2T` proposal as written: the next new branch should train selection/routing on the faithful one-byte format, not spend GPU healing ternary-format damage that can be avoided. (`probes/H1_THE_CARVE_TRAINED.md` §8; audit `s1/results/h1/h1_s3_bundle_audit.json`)
 
@@ -703,7 +703,7 @@ a canonical periodic checkpoint.
 
 The hard-gated finding closes the **ternary 8-layer trainability** cell. It does not revive
 post-hoc carve, and makes no one-byte, rank, rate, 10B, scale or export claim. `G-E63d` remains
-owed and H2I v4 remains the active one-byte score+rank cell.
+owed; H2I v4 has since closed the one-byte score+rank cell as `SCORE-ONLY`.
 
 ---
 
@@ -845,16 +845,23 @@ Versions 1–3 are operationally void before any optimizer update (read-only mou
 path, then CPU-generator/direct-CUDA mismatch). Addendum H preregistered the sole runner repair;
 the immutable v4 bundle contains 15 payloads / 463,453,554 bytes, manifest `330fa237…`, with all
 eight scientific payloads unchanged and only `h2i_qat.py` modified. Its second real-donor smoke
-also fires and applies one update. Kernel v4 is now **`RUNNING`** in its one continuous 11-hour T4
-session; after return, `s1/h2i_eval.py` performs the one CPU fp32 adjudication. The two-layer CPU
-smoke is not a T4 throughput measurement, so no exact step count is claimed.
+also fires and applies one update. Kernel v4 is terminal **`SCORE-ONLY`**: its frozen guard
+accepted the final pair and the evaluator returned rc `3`. HARD BPB 0.905344219843237 is below
+the applied-one-byte 1.0190764652622473 by −0.11373224541901028 (`TRAINING-HELPS`), and the
+trained router beats STATIC (2.654136780391849 vs 3.0665777063103286 nats/token). The combined
+gate is nonetheless false: free 11/160 and mean rank 2.55625 pass, while teacher-forced top-1
+95/160 fails strict >99. B.6 predictions are PASS, PASS, FAIL only on that teacher-forced clause,
+PASS, PASS and PASS; the periodic checkpoint at step 2250 has 2,246 applied updates, clean ZIP
+CRC and 56 expected arrays under safe NumPy loading. No export, engine, rate, 10B, scale or
+target-donor promotion is authorized, and no H2I rerun is authorized.
 
-The post-pass conversion seam has been mapped, not implemented. `quant==4` can represent H0
+The counterfactual post-pass conversion seam has been mapped, not implemented. `quant==4` can represent H0
 factored q/o, donor-fp32 matrices, eight carved R8 layers and fp32 routers in one file, but today's
 `qwen_export.py` cannot compose them: it carves every layer, reads donor rather than trained FFN
 masters, forbids factors with tagged-v2 and ternarizes every fitted router. The exact continuation
-and no-go rules are in `audits/H2I_ENGINE_EXPORT_GAP_AUDIT.md`; implementation remains conditional
-on the combined H2I score+rank gate.
+and no-go rules are in `audits/H2I_ENGINE_EXPORT_GAP_AUDIT.md`. V4 did not pass the combined
+score+rank gate, so this seam is retained as a no-duplication map and is not eligible for
+implementation.
 
 ---
 
@@ -867,6 +874,7 @@ weights/s ceiling, and its untied head alone is 18.811 ms.  Qwen3-30B-A3B-Base i
 architecture-interesting but not a direct speed candidate: its all-expert one-byte upper bound is
 13.607 tok/s; its fixed attention/head/router floor is 33.657 tok/s even with no expert work.
 Current carved FFN/exporter semantics are not Qwen3 MoE semantics.  Therefore neither weights
-download nor candidate benchmark is authorized; await H2I v4 and H1 S3 adjudication first.  The
-audit distinguishes derived arithmetic, synthetic timing, converted-real-donor evidence and
-official metadata, and names the E40/E43/E60/E63/E66/H2I no-rerun boundaries.
+download nor candidate benchmark is authorized. H1 S3 passes, but H2I v4 is terminal
+`SCORE-ONLY`, so target-donor selection remains unresolved and no promotion follows. The audit
+distinguishes derived arithmetic, synthetic timing, converted-real-donor evidence and official
+metadata, and names the E40/E43/E60/E63/E66/H2I no-rerun boundaries.

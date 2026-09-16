@@ -141,12 +141,14 @@ converted-real-donor evidence must never be promoted across those classes.
 
 ## Current dependency gate
 
-H1 S3 has now passed its frozen terminal adjudication: ternary eight-layer joint training reaches
-`CARVE-IS-TRAINABLE` at HARD BPB 0.9234896239116439, versus applied-8L 1.0966361325809948. This
-strengthens the plausibility of trained structure, but it does **not** authorize a 14B or 30B
-download: H1 is ternary, eight-layer, and has no rank or rate measurement.
+H1 S3 passed its frozen terminal adjudication: ternary eight-layer joint training reaches
+`CARVE-IS-TRAINABLE` at HARD BPB 0.9234896239116439, versus applied-8L 1.0966361325809948. H2I
+v4 is now also terminal, but as **`SCORE-ONLY`**: hard BPB 0.905344219843237 beats applied
+one-byte 1.0190764652622473 by −0.11373224541901028 and its router beats STATIC, while its strict
+teacher-forced top-1 is 95/160 rather than >99. The score+rank combined gate is false.
 
-Await H2I Phase B v4's frozen **one-byte score+rank** adjudication. If it survives both gates,
-that result decides whether the structural-adaptation mechanism is credible before scaling or
-downloading. If it fails, do not scale the same mechanism. This is a dependency statement only:
-it recommends no launch now.
+This establishes that the one-byte eight-layer carve can learn held-out score and useful routing,
+but it does **not** establish registered rank replication. No H2I export, engine, rate, 10B,
+scale, 14B/30B download, or target-donor promotion follows. H2I v1–v3 remain `VOID_OPERATIONAL`;
+v4 closes the score+rank cell and authorizes no rerun. Target-donor selection remains unresolved;
+this dependency statement recommends no launch now.

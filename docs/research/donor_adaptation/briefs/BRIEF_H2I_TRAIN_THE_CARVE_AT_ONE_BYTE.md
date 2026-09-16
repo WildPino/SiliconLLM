@@ -659,3 +659,74 @@ The terminal commands are now fixed: download once to the fresh
 `D:\_ktmp\h2i_kaggle_v4_output`, then invoke the guard once with the final NPZ and preserved raw
 log. Direct invocation of `h2i_eval.py` is superseded operationally for v4, but the evaluator
 itself remains the unchanged scientific authority inside the guard.
+
+---
+
+# ADDENDUM N — Phase B v4 terminal adjudication: `SCORE-ONLY`
+
+**Recorded after the single frozen v4 adjudication.** This is a registered scientific terminal
+verdict, not an operational failure and not a rerun trigger. H2I v1–v3 remain
+`VOID_OPERATIONAL`; v4 is terminal and no H2I rerun is authorized.
+
+The guard accepted the exact final pair and returned **`SCORE-ONLY`**; the unchanged evaluator
+returned rc `3`. The canonical records are
+`s1/results/h2i/h2i_eval_h2i_trained_s1.json` (SHA-256
+`2180e1c5d01d903368b1b9119b99049ac5e0d48abbac8bbdbc460dca2151e805`) and
+`s1/results/h2i/h2i_eval_h2i_trained_s1_adjudication.json`. The trained NPZ SHA-256 is
+`ae7e1a7c01e0ce1982dc6c8457a9508fc0e3b57d5c7c4b9d7ef0b887b7dcd67a`; its sidecar SHA-256 is
+`24585587565d613ff6d8d2ee305055d3c51a5ad291ad6fce0d53bc8ed129d865`.
+
+## N.1 Training and score
+
+V4 ran to the registered time cap: 2,286 steps, 2,282 optimizer-applied updates,
+39,615.08494114876 s total and 17.32943348256726 s/step, with zero non-finite microbatches.
+The immutable manifest was
+`330fa237ebe3ea85c48447f52628a3f77f1f4cf0e7275ef7e122e9eb8b93ba56`.
+
+| reading | value |
+|---|---:|
+| applied one-byte hard baseline | 1.0190764652622473 BPB |
+| trained hard | **0.905344219843237 BPB** |
+| hard delta vs applied | **−0.11373224541901028 BPB** |
+| trained soft | 0.9117608687599223 BPB |
+| trained `k=E` | 1.6628228062405777 BPB |
+| trained experts + E37 router, hard | 0.9286241241806835 BPB |
+
+`G-H2I-score` passes and the registered band is **`TRAINING-HELPS`**. Relative to applied,
+trained experts contribute `−0.09045234108156375` BPB, the trained router over E37 contributes
+`−0.023279904337446533`, and soft minus hard is `+0.0064166489166853635`. The trained router
+also beats STATIC: 2.654136780391849 versus 3.0665777063103286 nats/token, so that router
+diagnostic fires. Thus the one-byte eight-layer carve learned on held-out BPB and learned useful
+routing; it is not a branch that failed to learn.
+
+## N.2 Rank closes the combined cell
+
+The rank partner is nevertheless insufficient under the pre-registered strict gate: free-running
+is 11/160 and passes `>9`; mean target rank is 2.55625 and passes `<3.675`; teacher-forced top-1
+is 95/160 and fails strict `>99`. It is five teacher-forced hits short of the required minimum
+passing count of 100. Therefore `G-H2I-rank=false` and combined `G-H2I=false`: the terminal
+status is **`SCORE-ONLY`**, not PASS.
+
+## N.3 B.6 prediction scorecard
+
+1. **PASS** — the pre-training controls and terminal guard pass.
+2. **PASS** — HARD BPB 0.905344219843237 is within the registered 0.86–0.96 interval.
+3. **FAIL only on the teacher-forced clause** — free 11/160 and mean rank 2.55625 pass, but
+   teacher-forced top-1 is 95/160 rather than strict >99.
+4. **PASS** — the trained router beats STATIC, 2.654136780391849 versus 3.0665777063103286
+   nats/token.
+5. **PASS** — trained hard 0.905344219843237 is below trained experts plus fixed E37 router
+   0.9286241241806835.
+6. **PASS** — the downloaded periodic checkpoint is step 2250 with 2,246 applied updates; an
+   independent ZIP CRC found no bad member and `numpy.load(..., allow_pickle=False)` opened it
+   with the 56 expected layer arrays.
+
+No export, engine, rate, 10B, scale, or target-donor promotion is authorized. The score+rank
+cell is closed; do not convert a BPB win into a functioning-model or scale claim.
+
+## N.4 Archival limitation
+
+After all four outputs downloaded, the Kaggle CLI encountered a local Windows character-map
+error and created a zero-byte raw-log placeholder. The frozen guard records that empty file's
+hash and otherwise passed every final-pair, dependency, input and metadata check. This is an
+operational archival limitation, not a scientific gate result.

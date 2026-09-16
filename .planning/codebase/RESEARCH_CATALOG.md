@@ -1,6 +1,6 @@
 # SiliconLLM — research catalog and no-duplication handoff
 
-**Snapshot:** 2026-09-16. **Latest material:** H1 session 3 v2 is COMPLETE and its frozen guard PASSes; H2I Phase B v4 remains running. H2I versions 1–3 are operationally void; v3 exposed a CPU-generator/CUDA-allocation mismatch before training, and v4 uses the narrowly preregistered repair with all scientific payloads unchanged. The user's remembered endpoint was E64; the tree contained E65, completed E66 and H2I. E63d's first admissible rate measurement has not yet started.
+**Snapshot:** 2026-09-16. **Latest material:** H1 session 3 v2 is COMPLETE/PASS; H2I Phase B v4 is terminal `SCORE-ONLY` (score passes, strict rank does not). H2I versions 1–3 are `VOID_OPERATIONAL`; v4 used the narrowly preregistered CPU-generator/CUDA-allocation repair with all scientific payloads unchanged, then closed the one-byte score+rank cell without a rerun license. The user's remembered endpoint was E64; the tree contained E65, completed E66 and H2I. E63d's first admissible rate measurement has not yet started.
 
 ## Read this first
 
@@ -26,7 +26,7 @@ documents that contain no local measurement.
 | What does carve cost on int8? | **E64 run 1 void. Audited run 2 says dearer by +1.13–1.43 BPB across the ladder; at k=3 the int8 carve itself costs +1.912 BPB and lands above chance.** | canonical E64 probe §8 / ledger §66 |
 | Is the carve trainable? | **Yes on the ternary 8-layer branch:** H1 S3 `COMPLETE/PASS/CARVE-IS-TRAINABLE`; trained experts dominate recovery and the trained-router gate fires. No one-byte, rank, rate, 10B or scale claim. | canonical H1 S3 result + adjudication |
 | Is one-byte + carve the right next trainable object? | **Yes on the matched 8L proxy:** R8 changes H0 by only −0.0000169 BPB, while hard k16 costs +0.209071; Phase B eligible. Rank is still broken at 9/160 free, 99/160 teacher-forced. | H2I Phase A |
-| Is H2I Phase B running? | **Yes:** Kaggle v4 is `RUNNING` with the device-safe real-control repair and rebuilt manifest `330fa237…`. Versions 1–3 are `VOID_OPERATIONAL`; none entered training or attempted an optimizer update. The pre-output freeze is now enforced by an external write-once guard without changing the evaluator. | H2I brief addenda B–L / readiness, launch, freeze and void records |
+| What was H2I Phase B's terminal verdict? | **`SCORE-ONLY`:** v4 hard BPB 0.905344219843237 beats applied one-byte 1.0190764652622473 by −0.11373224541901028 (`TRAINING-HELPS`) and router beats STATIC, but teacher-forced top-1 95/160 fails strict >99; combined gate false. V1–v3 remain `VOID_OPERATIONAL`; no H2I rerun, export, engine, rate, 10B, scale or target-donor promotion. | canonical H2I result + adjudication; brief addendum N |
 | What does the rank fraction used by fast R128 cost post-hoc? | **At D=1536, r/D=1/32 costs +1.705835 BPB = 51.66% dense→chance gap; no width extrapolation.** | canonical E65 |
 | Does a compressed pretrained 7B actually function on `engine.c`? | **Yes at one byte:** A2 0.674405 BPB vs fp32 0.674027; 4/5 greedy trajectories exact, 137/160 overall. It misses the strict 150/160 rank bar and has no rate claim. | canonical E66 run 2 / audit |
 
@@ -42,7 +42,7 @@ documents that contain no local measurement.
 - For the next healing branch, preserve E66's result that one-byte format damage is negligible and E64's result that the post-hoc carve on that format is not; the trainable object is selection/routing, not the byte conversion itself.
 - Do not launch the old `H2T` ternary-body proposal as written. E66 removes the ternary-format damage by keeping the faithful one-byte rung, while E64 shows the carve/routing hole remains and is larger there. A successor must be one-byte + trained selection/routing, with weight-only and activation-quantized partners kept separate.
 - Do not repeat H2I Phase A: its matched write-once result is `0.810005595` uncarved R8 and `1.019076465` hard-k16, with rank 9/160 free and 99/160 teacher-forced. The Phase B threshold is the H2I value, not H1's ternary applied row. E64's all-28L format ordering and H2I's 8L ordering differ; neither may be scaled by layer count.
-- Do not assume a passing H2I bundle can already be exported. The tagged-v2 container can represent the mixed object, but `qwen_export.py` cannot yet compose H0 factors, only eight carved layers, trained R8 masters, untouched fp32 matrices and exact fp32 trained routers. The router is especially not equivalent: today's exporter ternarizes it. See `audits/H2I_ENGINE_EXPORT_GAP_AUDIT.md`; implementation is conditional on the combined H2I score+rank gate.
+- Do not export H2I. The tagged-v2 container can represent the mixed object, but `qwen_export.py` cannot yet compose H0 factors, only eight carved layers, trained R8 masters, untouched fp32 matrices and exact fp32 trained routers. More importantly, v4 failed the combined score+rank gate, so the mapped seam in `audits/H2I_ENGINE_EXPORT_GAP_AUDIT.md` is closed and retained only to prevent duplicate analysis.
 - Always assert engine `CONFIG`; always use a same-binary/same-arm control for a same-binary claim; never resume from a result file being validated.
 
 ## Experiment registry — foundations before the E-series
@@ -154,14 +154,14 @@ These entries are represented primarily by briefs, engine runners/results and `S
 | E65 | **RANK FRACTION COST:** r/D=1/32 on real 1.5B donor = 2.473430 BPB, +1.705835 = 51.66% dense→chance; rank damage non-monotone | no D=4096 extrapolation; this is a post-hoc floor, not a trainability verdict |
 | E66 | **COMPLETE — SCORE SURVIVES, RANK BAR DOES NOT:** A2 0.674405 BPB, +0.000378 vs fp32; fold worth 0.0000376; repaired rank run 2 is 137/160 with 4/5 full trajectories exact | rank run 1 void; promote rank only from run 2; no rate, 10 B or scale-law claim |
 | H2I Phase A | **PHASE-B-ELIGIBLE:** exact R8 8L baseline 0.810006 vs H0 0.810022; hard k16 1.019076, carve +0.209071. Rank 9/160 free, 99/160 teacher-forced, mean 3.675. | write-once matched baseline; do not remeasure. Train R8 selection/router and require score + rank improvement; no rate/10 B claim |
-| H2I Phase B | **V4 RUNNING; V1–V3 VOID_OPERATIONAL:** v4 passed local bundle, identity, quota, inactive-kernel and exact remote-inventory gates. Its bundle changes only `h2i_qat.py`; all eight scientific payloads are unchanged. The seven CPU adjudicator blobs and terminal protocol are frozen in `h2i_phase_b_v4_adjudication_freeze.json`; committed guard `h2i_v4_adjudicate.py` (`365f811`, readiness record alongside the freeze) enforces that identity and final-v4 metadata before invoking the unchanged evaluator. | wait for terminal v4 event; download once, then invoke the guard once. Score runs before rank; evaluator exits 2/3 are scientific outcomes, not rerun triggers. No checkpoint selection |
+| H2I Phase B | **V4 TERMINAL `SCORE-ONLY`; V1–V3 `VOID_OPERATIONAL`:** frozen guard/evaluator rc 3 records hard BPB 0.905344219843237 vs applied 1.0190764652622473 (−0.11373224541901028, `TRAINING-HELPS`) and a useful trained router, but strict teacher-forced rank is 95/160 rather than >99. The combined gate is false. | closed score+rank cell; do not rerun or select a checkpoint. Do not export, claim rate/10B/scale, or promote a target donor from this branch |
 
 ## Open queue, ordered by information gain
 
-1. **Wait event-driven for H2I v4:** it remains `RUNNING`. Do not repush, poll rapidly or select a checkpoint from progress diagnostics.
-2. **When H2I returns, download v4 once and invoke `h2i_v4_adjudicate.py` once:** it validates the final pair, raw log, manifest, training controls, frozen dependencies and inputs before the single CPU fp32 adjudication. Require deployable BPB `<1.019076465`, free rank `>9/160`, teacher-forced `>99/160`, and mean rank `<3.675`. If score fails, rank is not run as rescue.
+1. **Do not reopen H2I:** v4 closes its one-byte score+rank cell as `SCORE-ONLY`; v1–v3 remain `VOID_OPERATIONAL`. Do not rerun, repush or choose a progress checkpoint.
+2. **Keep the H2I terminal evidence scoped:** score and routing learned, but the strict teacher-forced rank clause failed. Its periodic step-2250 checkpoint is loadable (2,246 applied updates; ZIP CRC clean; 56 expected arrays), yet it cannot be selected to reopen the terminal verdict.
 3. **Get a genuinely quiet 10–15 minute CPU window for `G-E63d`:** its 45 s all-samples guard must pass before timing. The 2026-09-15 refusal ran zero cells and is not a result.
-4. **Only if H2I's combined score+rank gate passes, build its engine export seam:** follow `audits/H2I_ENGINE_EXPORT_GAP_AUDIT.md`; first preserve the fp32 trained router exactly, then test router compression as a separate treatment. Do not patch E63d's pinned binary in place.
+4. **Keep the H2I engine-export seam closed:** it requires a combined score+rank pass which v4 did not achieve. Do not patch E63d's pinned binary in place.
 
 ## Corpus inventory
 

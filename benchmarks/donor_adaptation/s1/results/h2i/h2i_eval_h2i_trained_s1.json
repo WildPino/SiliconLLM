@@ -1,0 +1,1172 @@
+{
+ "brief": "briefs/BRIEF_H2I_TRAIN_THE_CARVE_AT_ONE_BYTE.md addendum B",
+ "status": "SCORE-ONLY",
+ "model": "Qwen/Qwen2.5-1.5B",
+ "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+ "provenance": {
+  "head_commit": "5ca96d185e3c03e8789b9678946d5d43b935d22f",
+  "files": {
+   "benchmarks/donor_adaptation/s1/h2i_eval.py": {
+    "git_blob": "0813f32f8c165ae92d347f26e30e85ae88eb7a7f",
+    "sha256": "977d89abbf4567566814eccde9690c058e13da643a959e0672ba1badbec991bb"
+   },
+   "benchmarks/donor_adaptation/density/common.py": {
+    "git_blob": "608a563bc7f30e21c8941e3703b40ce25fb0960e",
+    "sha256": "7ac00b31e91d0018c775e2e9b26120c0ec025075d7913218ea3cdcfe3196e461"
+   },
+   "benchmarks/donor_adaptation/s1/h1_qat.py": {
+    "git_blob": "4caeae0b77f72a0b389b0cb583aebff841063857",
+    "sha256": "7876d6032c3fd46f4d836d88aaf7ebae087f0437dc743f310f0a3a4652bd30ad"
+   },
+   "benchmarks/donor_adaptation/s1/h2i_applied.py": {
+    "git_blob": "40c188cc769575b8a9704359c68899ad4d8b368e",
+    "sha256": "fcb717c10fe5fbcf26762f5ae6e2324484e2b4a02195caee6088a9c3c3339900"
+   },
+   "benchmarks/donor_adaptation/ternary/t2_rules.py": {
+    "git_blob": "8be4464e7d81cd89686a4fe2179c42f0f4f9a9e4",
+    "sha256": "10037c87fb4403d5f0f97bde9736c7f198485cc20722e5e937037bb8a2c2e8c4"
+   },
+   "benchmarks/donor_adaptation/engine/e6_generate.py": {
+    "git_blob": "5a4a5484832de5ed2d241fcaf4d813f692f0a8ac",
+    "sha256": "410353b083c9a98e6a3044551212b5c8aae8995ed1cbaac0f03b99016726824e"
+   },
+   "benchmarks/donor_adaptation/engine/results/e6/engine.json": {
+    "git_blob": "7f4a82b08904a420e2dff870f73aff58569f708e",
+    "sha256": "6e865cf72675335c1844d14985502798c2437aa106562b92c34adcfeb3535965"
+   }
+  }
+ },
+ "inputs": {
+  "factors": {
+   "path": "D:\\_ktmp\\h0_run3_final\\h0_trained3.npz",
+   "bytes": 352967686,
+   "sha256": "dd62482d65accb34129a7b7a3f8baf75b0ccf3c4fdf2481233f1b9ce823927d8"
+  },
+  "labels": {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\d0c_labels\\labels_E256.npz",
+   "bytes": 859537,
+   "sha256": "c39d0740b7f754daf168d811c77120c5394ae677e3882fef208d331d8c333c9c"
+  },
+  "stats": {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_actstats.npz",
+   "bytes": 1189630,
+   "sha256": "49fd2f659a37237ead850ea86057664b74db4f2286dc7146abf87e197e6887fe"
+  },
+  "routers": {
+   "path": "D:\\_ktmp\\e37\\e37_routers_E256.npz",
+   "bytes": 44046858,
+   "sha256": "42b12cb9d4bda2da7833cd0e179a9dab8e3f43264ce640e2b5db31d5fd043d8a"
+  },
+  "h1_result": {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_applied_8L.json",
+   "bytes": 1605,
+   "sha256": "6ebc333f74f0f337567a99e527cdfa7750d092161cc5ca2d1836a510557f1b17"
+  },
+  "heldout": {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_heldout.npz",
+   "bytes": 98564,
+   "sha256": "110a90ab358efcacdc090fdf0fce62bb74d6d06df02d1083cf4cf7e752529d35"
+  },
+  "phase_a": {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h2i\\h2i_applied_8L.json",
+   "bytes": 12239,
+   "sha256": "c367acb45113e9ce68fb898de0b0833db61b6a1b84990b7ccc6467f82d2ef8cc"
+  },
+  "trained": {
+   "path": "D:\\_ktmp\\h2i_kaggle_v4_output\\h2i_trained_s1.npz",
+   "bytes": 1334711974,
+   "sha256": "ae7e1a7c01e0ce1982dc6c8457a9508fc0e3b57d5c7c4b9d7ef0b887b7dcd67a"
+  },
+  "trained_json": {
+   "path": "D:\\_ktmp\\h2i_kaggle_v4_output\\h2i_trained_s1.json",
+   "bytes": 9116,
+   "sha256": "24585587565d613ff6d8d2ee305055d3c51a5ad291ad6fce0d53bc8ed129d865"
+  }
+ },
+ "train_meta": {
+  "brief": "BRIEF_H2I_TRAIN_THE_CARVE_AT_ONE_BYTE.md addendum B",
+  "phase": "B",
+  "complete": true,
+  "model": "Qwen/Qwen2.5-1.5B",
+  "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+  "layers": [
+   3,
+   6,
+   9,
+   12,
+   15,
+   18,
+   21,
+   24
+  ],
+  "E": 256,
+  "k": 16,
+  "ffn_rule": "R8 per-output-row amax/127 RTN, codes [-127,127], STE",
+  "sdpa": "sdpa",
+  "provenance": {
+   "mode": "manifest-only-no-git",
+   "head_commit": null,
+   "files": {
+    "h2i_qat.py": {
+     "sha256": "f8df56204e564ca0ced074059d0418fcb16682b5d200cc18a1785d46290d6c02"
+    },
+    "h1_qat.py": {
+     "sha256": "7876d6032c3fd46f4d836d88aaf7ebae087f0437dc743f310f0a3a4652bd30ad"
+    },
+    "h2i_applied.py": {
+     "sha256": "fcb717c10fe5fbcf26762f5ae6e2324484e2b4a02195caee6088a9c3c3339900"
+    },
+    "common.py": {
+     "sha256": "7ac00b31e91d0018c775e2e9b26120c0ec025075d7913218ea3cdcfe3196e461"
+    },
+    "t2_rules.py": {
+     "sha256": "10037c87fb4403d5f0f97bde9736c7f198485cc20722e5e937037bb8a2c2e8c4"
+    },
+    "e6_generate.py": {
+     "sha256": "410353b083c9a98e6a3044551212b5c8aae8995ed1cbaac0f03b99016726824e"
+    }
+   }
+  },
+  "inputs": {
+   "factors": {
+    "path": "/kaggle/working/h2i_bundle/h0_trained3.npz",
+    "bytes": 352967686,
+    "sha256": "dd62482d65accb34129a7b7a3f8baf75b0ccf3c4fdf2481233f1b9ce823927d8"
+   },
+   "labels": {
+    "path": "/kaggle/working/h2i_bundle/labels_E256.npz",
+    "bytes": 859537,
+    "sha256": "c39d0740b7f754daf168d811c77120c5394ae677e3882fef208d331d8c333c9c"
+   },
+   "stats": {
+    "path": "/kaggle/working/h2i_bundle/h1_actstats.npz",
+    "bytes": 1189630,
+    "sha256": "49fd2f659a37237ead850ea86057664b74db4f2286dc7146abf87e197e6887fe"
+   },
+   "routers": {
+    "path": "/kaggle/working/h2i_bundle/e37_routers_E256.npz",
+    "bytes": 44046858,
+    "sha256": "42b12cb9d4bda2da7833cd0e179a9dab8e3f43264ce640e2b5db31d5fd043d8a"
+   },
+   "phase_a": {
+    "path": "/kaggle/working/h2i_bundle/h2i_applied_8L.json",
+    "bytes": 12239,
+    "sha256": "c367acb45113e9ce68fb898de0b0833db61b6a1b84990b7ccc6467f82d2ef8cc"
+   },
+   "train": {
+    "path": "/kaggle/working/h2i_bundle/h1_train.npz",
+    "bytes": 64000260,
+    "sha256": "0cdaa28f405c3a8c6a8589af8e88788b33131bc7d4f1096da6c1fedf78caa9d9"
+   },
+   "heldout": {
+    "path": "/kaggle/working/h2i_bundle/h1_heldout.npz",
+    "bytes": 98564,
+    "sha256": "110a90ab358efcacdc090fdf0fce62bb74d6d06df02d1083cf4cf7e752529d35"
+   },
+   "calib": {
+    "path": "/kaggle/working/h2i_bundle/h1_calib.npz",
+    "bytes": 131332,
+    "sha256": "b8d4184db0988f4d86ae3089e99ba167b8e05e6dcdbbc504f7679729fe7aa019"
+   }
+  },
+  "manifest": {
+   "path": "/kaggle/working/h2i_bundle/MANIFEST.json",
+   "sha256": "330fa237ebe3ea85c48447f52628a3f77f1f4cf0e7275ef7e122e9eb8b93ba56",
+   "files": 15,
+   "validated": true
+  },
+  "steps_requested": 4000,
+  "steps_completed": 2286,
+  "stop_reason": "time-cap",
+  "seconds": 39615.08494114876,
+  "seconds_per_step": 17.32943348256726,
+  "seed": 4242,
+  "lr": 0.0002,
+  "router_lr": 0.0003,
+  "aux": 0.01,
+  "bs": 2,
+  "accum": 8,
+  "nonfinite_microbatches": 0,
+  "optimizer_applied_updates": 2282,
+  "scaler_declined_before_first_applied": 2,
+  "optimizer_moved_at_first_applied": {
+   "L03.gate": 8.048489689826965e-06,
+   "L24.down": 8.048489689826965e-06,
+   "L03.router": 1.2159347534179688e-05
+  },
+  "router_init_sha256": "42b12cb9d4bda2da7833cd0e179a9dab8e3f43264ce640e2b5db31d5fd043d8a",
+  "resumed_ffn_from": null,
+  "progress": [
+   {
+    "step": 0,
+    "bpb_soft": 2.4457960611666083,
+    "bpb_hard": 1.019418934935856,
+    "seconds": 0.0
+   },
+   {
+    "step": 250,
+    "bpb_soft": 0.967176050870089,
+    "bpb_hard": 0.9589224176882428,
+    "loss": 3.083574026823044,
+    "aux": 10.945285320281982,
+    "occupancy_max": 0.73046875,
+    "optimizer_applied_updates": 246,
+    "optimizer_declined_updates": 2,
+    "grad_norm": 0.830098569393158,
+    "seconds": 4319.981642961502
+   },
+   {
+    "step": 500,
+    "bpb_soft": 0.9316774741916535,
+    "bpb_hard": 0.9337186379255218,
+    "loss": 2.745618090033531,
+    "aux": 9.660993099212646,
+    "occupancy_max": 0.443359375,
+    "optimizer_applied_updates": 496,
+    "optimizer_declined_updates": 2,
+    "grad_norm": 0.7104859352111816,
+    "seconds": 8653.152790307999
+   },
+   {
+    "step": 750,
+    "bpb_soft": 0.9237655190336072,
+    "bpb_hard": 0.9254590082482171,
+    "loss": 2.41301266849041,
+    "aux": 9.290520310401917,
+    "occupancy_max": 0.462890625,
+    "optimizer_applied_updates": 746,
+    "optimizer_declined_updates": 2,
+    "grad_norm": 0.7375777363777161,
+    "seconds": 12988.573779582977
+   },
+   {
+    "step": 1000,
+    "bpb_soft": 0.9144768557942878,
+    "bpb_hard": 0.9152723097387561,
+    "loss": 2.101190969347954,
+    "aux": 9.025288224220276,
+    "occupancy_max": 0.41796875,
+    "optimizer_applied_updates": 996,
+    "optimizer_declined_updates": 2,
+    "grad_norm": 0.6299297213554382,
+    "seconds": 17323.78365254402
+   },
+   {
+    "step": 1250,
+    "bpb_soft": 0.9139014486741869,
+    "bpb_hard": 0.9138184722172394,
+    "loss": 2.471026763319969,
+    "aux": 9.150432467460632,
+    "occupancy_max": 0.435546875,
+    "optimizer_applied_updates": 1246,
+    "optimizer_declined_updates": 2,
+    "grad_norm": 0.709986686706543,
+    "seconds": 21656.497672080994
+   },
+   {
+    "step": 1500,
+    "bpb_soft": 0.9098402910234566,
+    "bpb_hard": 0.9090898323542845,
+    "loss": 2.2234319746494293,
+    "aux": 8.853999853134155,
+    "occupancy_max": 0.4609375,
+    "optimizer_applied_updates": 1496,
+    "optimizer_declined_updates": 2,
+    "grad_norm": 0.703465461730957,
+    "seconds": 25986.48617386818
+   },
+   {
+    "step": 1750,
+    "bpb_soft": 0.9079677249654835,
+    "bpb_hard": 0.9066035681503029,
+    "loss": 2.383812114596367,
+    "aux": 8.836222410202026,
+    "occupancy_max": 0.4140625,
+    "optimizer_applied_updates": 1746,
+    "optimizer_declined_updates": 2,
+    "grad_norm": 0.7947053909301758,
+    "seconds": 30317.895889282227
+   },
+   {
+    "step": 2000,
+    "bpb_soft": 0.9031222005077078,
+    "bpb_hard": 0.9020358478470601,
+    "loss": 2.1687178164720535,
+    "aux": 8.856373906135559,
+    "occupancy_max": 0.4609375,
+    "optimizer_applied_updates": 1996,
+    "optimizer_declined_updates": 2,
+    "grad_norm": 0.9689520597457886,
+    "seconds": 34649.28196597099
+   },
+   {
+    "step": 2250,
+    "bpb_soft": 0.9101170092272982,
+    "bpb_hard": 0.9066944892054277,
+    "loss": 2.010473370552063,
+    "aux": 8.850159764289856,
+    "occupancy_max": 0.447265625,
+    "optimizer_applied_updates": 2246,
+    "optimizer_declined_updates": 2,
+    "grad_norm": 0.7447345852851868,
+    "seconds": 38981.61453986168
+   }
+  ],
+  "router_vs_STATIC": {
+   "router_nats": 2.654768966458393,
+   "static_nats": 3.0669706292804837,
+   "fires": true,
+   "static_groups": {
+    "3": [
+     239,
+     189,
+     38,
+     132,
+     100,
+     238,
+     156,
+     182,
+     255,
+     134,
+     153,
+     7,
+     117,
+     248,
+     64,
+     192
+    ],
+    "6": [
+     217,
+     83,
+     90,
+     96,
+     206,
+     127,
+     210,
+     38,
+     60,
+     219,
+     148,
+     190,
+     201,
+     34,
+     172,
+     183
+    ],
+    "9": [
+     64,
+     19,
+     78,
+     95,
+     237,
+     249,
+     24,
+     73,
+     209,
+     124,
+     201,
+     215,
+     77,
+     49,
+     98,
+     133
+    ],
+    "12": [
+     249,
+     62,
+     201,
+     182,
+     104,
+     215,
+     61,
+     124,
+     8,
+     157,
+     134,
+     53,
+     186,
+     165,
+     68,
+     95
+    ],
+    "15": [
+     0,
+     96,
+     228,
+     84,
+     107,
+     108,
+     172,
+     56,
+     29,
+     66,
+     207,
+     221,
+     147,
+     162,
+     125,
+     31
+    ],
+    "18": [
+     72,
+     215,
+     137,
+     186,
+     194,
+     226,
+     237,
+     115,
+     165,
+     0,
+     227,
+     187,
+     69,
+     9,
+     24,
+     106
+    ],
+    "21": [
+     85,
+     254,
+     193,
+     166,
+     219,
+     132,
+     204,
+     67,
+     248,
+     245,
+     171,
+     115,
+     249,
+     125,
+     202,
+     151
+    ],
+    "24": [
+     94,
+     215,
+     46,
+     99,
+     116,
+     78,
+     203,
+     82,
+     140,
+     85,
+     221,
+     93,
+     155,
+     255,
+     199,
+     41
+    ]
+   }
+  },
+  "controls": {
+   "G_H2Ib": {
+    "r8_exact_t2_rules": true,
+    "distinct_planted_codes": 13
+   },
+   "G_H2Ic_toy": {
+    "ste_gradients_finite_nonzero": {
+     "gate": true,
+     "up": true,
+     "down": true
+    },
+    "hard_k_equals_E_any_router": true,
+    "hard_max_abs_diff": 0.0,
+    "soft_k_equals_E_zero_router": true,
+    "soft_max_abs_diff": 0.0,
+    "hard_active_neurons_each": [
+     [
+      70.0,
+      70.0,
+      70.0
+     ],
+     [
+      70.0,
+      70.0,
+      70.0
+     ]
+    ],
+    "expected_each": 70,
+    "carve_live": true,
+    "carve_max_abs_diff": 1.1202938556671143
+   },
+   "device_safe_seeded_probe": {
+    "source_device": "cpu",
+    "transfer_target": "caller",
+    "repeat_exact": true,
+    "global_rng_unchanged": true,
+    "shape_ok": true,
+    "finite": true
+   },
+   "gate_boundary_test": {
+    "equal_threshold_fails": true,
+    "below_threshold_fires": true,
+    "fires": true
+   },
+   "G_H2Ic_real": {
+    "layer": 3,
+    "hard_kE_any_router": true,
+    "hard_max_abs_diff": 0.0,
+    "soft_kE_zero_router": true,
+    "soft_max_abs_diff": 0.0,
+    "hard_k16_active": [
+     [
+      560.0,
+      560.0,
+      560.0,
+      560.0,
+      560.0,
+      560.0
+     ]
+    ],
+    "expected_active": 560,
+    "cardinality_fires": true,
+    "carve_live": true,
+    "carve_max_abs_diff": 11.51827621459961,
+    "router_init_exact": true,
+    "fires": true
+   }
+  }
+ },
+ "eval_slice": {
+  "part": "heldout",
+  "n_seq": 24,
+  "seq_len": 512,
+  "seed": 1234,
+  "n_rejected": 0,
+  "total_scored_bytes": 51870,
+  "bytes_per_token": 4.22945205479452,
+  "ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+  "offsets_sha256": "fa58e6d71a28d99ecb6427656a75b392f2c406812bf326d1e54cdd5d26036afd",
+  "corpus_sha256": "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312",
+  "tok_fp_ok": [
+   "4efeeb9382a77a06"
+  ]
+ },
+ "layers": [
+  3,
+  6,
+  9,
+  12,
+  15,
+  18,
+  21,
+  24
+ ],
+ "k": 16,
+ "E": 256,
+ "bpb": {
+  "intact": 0.7675949641196625,
+  "h0-run3": 0.8100224876999359,
+  "trained-soft": 0.9117608687599223,
+  "trained-hard": 0.905344219843237,
+  "trained-kE": 1.6628228062405777,
+  "trained-experts-e37-router-hard": 0.9286241241806835
+ },
+ "G_H2I_score": {
+  "threshold_exclusive": 1.0190764652622473,
+  "value": 0.905344219843237,
+  "delta": -0.11373224541901028,
+  "fires": true,
+  "band": "TRAINING-HELPS"
+ },
+ "G_H2I_rank": {
+  "thresholds": {
+   "free_min_exclusive": 9,
+   "teacher_forced_min_exclusive": 99,
+   "mean_rank_max_exclusive": 3.675
+  },
+  "values": {
+   "free": 11,
+   "teacher_forced": 95,
+   "mean_rank": 2.55625
+  },
+  "clauses": {
+   "free_gt_9": true,
+   "teacher_forced_gt_99": false,
+   "mean_rank_lt_3.675": true
+  },
+  "fires": false,
+  "not_run": false,
+  "reason": null
+ },
+ "G_H2I": {
+  "fires": false
+ },
+ "rank_trained_vs_h0": {
+  "free": 11,
+  "counted": 160,
+  "teacher_forced_top1": 95,
+  "mean_target_rank": 2.55625,
+  "rank_le5": 145,
+  "per_prompt": [
+   {
+    "prompt": 0,
+    "free": 4,
+    "first_divergence_zero_based": 0,
+    "teacher_forced_top1": 19,
+    "mean_target_rank": 2.46875,
+    "target_ranks": [
+     3,
+     11,
+     1,
+     7,
+     1,
+     3,
+     1,
+     3,
+     1,
+     1,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     14,
+     2,
+     1,
+     1,
+     1,
+     4,
+     1,
+     1,
+     2,
+     2,
+     2,
+     1,
+     5,
+     1,
+     1,
+     1
+    ]
+   },
+   {
+    "prompt": 1,
+    "free": 3,
+    "first_divergence_zero_based": 0,
+    "teacher_forced_top1": 26,
+    "mean_target_rank": 1.53125,
+    "target_ranks": [
+     4,
+     1,
+     8,
+     4,
+     1,
+     1,
+     2,
+     1,
+     1,
+     1,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     3,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   },
+   {
+    "prompt": 2,
+    "free": 1,
+    "first_divergence_zero_based": 1,
+    "teacher_forced_top1": 18,
+    "mean_target_rank": 3.0,
+    "target_ranks": [
+     1,
+     2,
+     4,
+     3,
+     23,
+     2,
+     1,
+     5,
+     6,
+     11,
+     1,
+     1,
+     1,
+     4,
+     1,
+     1,
+     9,
+     1,
+     2,
+     3,
+     1,
+     1,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   },
+   {
+    "prompt": 3,
+    "free": 0,
+    "first_divergence_zero_based": 0,
+    "teacher_forced_top1": 17,
+    "mean_target_rank": 2.0625,
+    "target_ranks": [
+     4,
+     3,
+     3,
+     1,
+     2,
+     5,
+     4,
+     1,
+     1,
+     1,
+     1,
+     2,
+     1,
+     6,
+     1,
+     6,
+     3,
+     2,
+     2,
+     2,
+     1,
+     2,
+     1,
+     1,
+     1,
+     3,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ]
+   },
+   {
+    "prompt": 4,
+    "free": 3,
+    "first_divergence_zero_based": 1,
+    "teacher_forced_top1": 15,
+    "mean_target_rank": 3.71875,
+    "target_ranks": [
+     1,
+     2,
+     1,
+     23,
+     1,
+     1,
+     20,
+     1,
+     1,
+     1,
+     2,
+     6,
+     2,
+     1,
+     1,
+     2,
+     2,
+     5,
+     13,
+     1,
+     2,
+     1,
+     3,
+     1,
+     2,
+     13,
+     2,
+     1,
+     3,
+     1,
+     2,
+     1
+    ]
+   }
+  ],
+  "generated_ids": [
+   [
+    198,
+    262,
+    279,
+    6722,
+    315,
+    9625,
+    11,
+    323,
+    279,
+    6722,
+    315,
+    9625,
+    374,
+    279,
+    6722,
+    315,
+    198,
+    262,
+    9625,
+    382,
+    262,
+    576,
+    6722,
+    315,
+    9625,
+    374,
+    279,
+    6722,
+    315,
+    9625,
+    11,
+    323
+   ],
+   [
+    470,
+    508,
+    16,
+    11,
+    220,
+    17,
+    11,
+    220,
+    18,
+    11,
+    220,
+    19,
+    11,
+    220,
+    20,
+    11,
+    220,
+    21,
+    11,
+    220,
+    22,
+    11,
+    220,
+    23,
+    11,
+    220,
+    24,
+    11,
+    220,
+    16,
+    15,
+    11
+   ],
+   [
+    220,
+    16,
+    15,
+    15,
+    12348,
+    11,
+    323,
+    279,
+    198,
+    12987,
+    88955,
+    518,
+    220,
+    16,
+    15,
+    15,
+    12348,
+    11,
+    323,
+    279,
+    3015,
+    88955,
+    518,
+    220,
+    16,
+    15,
+    15,
+    12348,
+    11,
+    323,
+    198,
+    1782
+   ],
+   [
+    198,
+    1782,
+    13833,
+    60687,
+    11,
+    323,
+    279,
+    1156,
+    315,
+    1105,
+    11,
+    279,
+    198,
+    1,
+    3896,
+    2329,
+    315,
+    6993,
+    1335,
+    374,
+    279,
+    32135,
+    315,
+    9688,
+    13,
+    576,
+    2086,
+    2329,
+    345,
+    1782,
+    330,
+    5569
+   ],
+   [
+    198,
+    1499,
+    8591,
+    14947,
+    1436,
+    6031,
+    1159,
+    438,
+    24519,
+    198,
+    1499,
+    8591,
+    14947,
+    1436,
+    6031,
+    1159,
+    716,
+    24519,
+    68535,
+    198,
+    1499,
+    8591,
+    14947,
+    1436,
+    6031,
+    1159,
+    716,
+    24519,
+    68535,
+    438,
+    26077,
+    68535
+   ]
+  ]
+ },
+ "router_vs_static": {
+  "router_nats_per_token": 2.654136780391849,
+  "static_nats_per_token": 3.0665777063103286,
+  "fires": true,
+  "static_groups": {
+   "3": [
+    239,
+    189,
+    38,
+    132,
+    100,
+    238,
+    156,
+    182,
+    255,
+    134,
+    153,
+    7,
+    117,
+    248,
+    64,
+    192
+   ],
+   "6": [
+    217,
+    83,
+    90,
+    96,
+    206,
+    127,
+    210,
+    38,
+    60,
+    219,
+    148,
+    190,
+    201,
+    34,
+    172,
+    183
+   ],
+   "9": [
+    64,
+    19,
+    78,
+    95,
+    237,
+    249,
+    24,
+    73,
+    209,
+    124,
+    201,
+    215,
+    77,
+    49,
+    98,
+    133
+   ],
+   "12": [
+    249,
+    62,
+    201,
+    182,
+    104,
+    215,
+    61,
+    124,
+    8,
+    157,
+    134,
+    53,
+    186,
+    165,
+    68,
+    95
+   ],
+   "15": [
+    0,
+    96,
+    228,
+    84,
+    107,
+    108,
+    172,
+    56,
+    29,
+    66,
+    207,
+    221,
+    147,
+    162,
+    125,
+    31
+   ],
+   "18": [
+    72,
+    215,
+    137,
+    186,
+    194,
+    226,
+    237,
+    115,
+    165,
+    0,
+    227,
+    187,
+    69,
+    9,
+    24,
+    106
+   ],
+   "21": [
+    85,
+    254,
+    193,
+    166,
+    219,
+    132,
+    204,
+    67,
+    248,
+    245,
+    171,
+    115,
+    249,
+    125,
+    202,
+    151
+   ],
+   "24": [
+    94,
+    215,
+    46,
+    99,
+    116,
+    78,
+    203,
+    82,
+    140,
+    85,
+    221,
+    93,
+    155,
+    255,
+    199,
+    41
+   ]
+  },
+  "calib_slice": {
+   "part": "calib",
+   "n_seq": 32,
+   "seq_len": 512,
+   "seed": 42424,
+   "n_rejected": 0,
+   "total_scored_bytes": 67648,
+   "bytes_per_token": 4.136986301369863,
+   "ids_sha256": "c5509846cdc3aa44e45e77895b59a4638c49eb03790030d851e7bf1357ca4c0c",
+   "offsets_sha256": "c9bdfc96dd5addb8e02a48d553dfb11784734baa26f44aad53658ff8cd2a8cf0",
+   "corpus_sha256": "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0",
+   "tok_fp_ok": [
+    "4efeeb9382a77a06"
+   ]
+  },
+  "gate": "hard on both arms"
+ },
+ "router_improves_over_e37": true,
+ "decomposition": {
+  "experts_vs_applied": -0.09045234108156375,
+  "router_vs_e37": -0.023279904337446533,
+  "soft_vs_hard": 0.0064166489166853635
+ },
+ "controls": {
+  "intact": true,
+  "h0": true,
+  "wiring": {
+   "fires": true,
+   "hard_kE_diff": 0.0,
+   "soft_zero_kE_diff": 0.0,
+   "hard_k16_active_560": true,
+   "carve_live": true,
+   "carve_live_diff": 13.421567916870117
+  }
+ },
+ "seconds": 1553.5696594715118
+}

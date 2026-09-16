@@ -1,0 +1,154 @@
+{
+ "stage": "H2I_PHASE_B_V4_CPU_ADJUDICATION",
+ "status": "SCORE-ONLY",
+ "guard_provenance": {
+  "head": "5ca96d185e3c03e8789b9678946d5d43b935d22f",
+  "path": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+  "git_blob": "25c948b6f5accce3d3cd8ce73f404201b2558cdd",
+  "sha256": "cac0c8188d3f3df0f458e74317ad2b5fabbbf12c2d78250ec015f03df0bfe124"
+ },
+ "frozen_dependencies": [
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\h2i_eval.py",
+   "bytes": 16328,
+   "sha256": "977d89abbf4567566814eccde9690c058e13da643a959e0672ba1badbec991bb",
+   "git_blob": "0813f32f8c165ae92d347f26e30e85ae88eb7a7f"
+  },
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\common.py",
+   "bytes": 12666,
+   "sha256": "7ac00b31e91d0018c775e2e9b26120c0ec025075d7913218ea3cdcfe3196e461",
+   "git_blob": "608a563bc7f30e21c8941e3703b40ce25fb0960e"
+  },
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\h1_qat.py",
+   "bytes": 48685,
+   "sha256": "7876d6032c3fd46f4d836d88aaf7ebae087f0437dc743f310f0a3a4652bd30ad",
+   "git_blob": "4caeae0b77f72a0b389b0cb583aebff841063857"
+  },
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\h2i_applied.py",
+   "bytes": 23767,
+   "sha256": "fcb717c10fe5fbcf26762f5ae6e2324484e2b4a02195caee6088a9c3c3339900",
+   "git_blob": "40c188cc769575b8a9704359c68899ad4d8b368e"
+  },
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\ternary\\t2_rules.py",
+   "bytes": 18895,
+   "sha256": "10037c87fb4403d5f0f97bde9736c7f198485cc20722e5e937037bb8a2c2e8c4",
+   "git_blob": "8be4464e7d81cd89686a4fe2179c42f0f4f9a9e4"
+  },
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\e6_generate.py",
+   "bytes": 11004,
+   "sha256": "410353b083c9a98e6a3044551212b5c8aae8995ed1cbaac0f03b99016726824e",
+   "git_blob": "5a4a5484832de5ed2d241fcaf4d813f692f0a8ac"
+  },
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\e6\\engine.json",
+   "bytes": 10827,
+   "sha256": "6e865cf72675335c1844d14985502798c2437aa106562b92c34adcfeb3535965",
+   "git_blob": "7f4a82b08904a420e2dff870f73aff58569f708e"
+  }
+ ],
+ "frozen_inputs": [
+  {
+   "path": "D:\\_ktmp\\h0_run3_final\\h0_trained3.npz",
+   "bytes": 352967686,
+   "sha256": "dd62482d65accb34129a7b7a3f8baf75b0ccf3c4fdf2481233f1b9ce823927d8"
+  },
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\d0c_labels\\labels_E256.npz",
+   "bytes": 859537,
+   "sha256": "c39d0740b7f754daf168d811c77120c5394ae677e3882fef208d331d8c333c9c"
+  },
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_actstats.npz",
+   "bytes": 1189630,
+   "sha256": "49fd2f659a37237ead850ea86057664b74db4f2286dc7146abf87e197e6887fe"
+  },
+  {
+   "path": "D:\\_ktmp\\e37\\e37_routers_E256.npz",
+   "bytes": 44046858,
+   "sha256": "42b12cb9d4bda2da7833cd0e179a9dab8e3f43264ce640e2b5db31d5fd043d8a"
+  },
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_applied_8L.json",
+   "bytes": 1605,
+   "sha256": "6ebc333f74f0f337567a99e527cdfa7750d092161cc5ca2d1836a510557f1b17"
+  },
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_heldout.npz",
+   "bytes": 98564,
+   "sha256": "110a90ab358efcacdc090fdf0fce62bb74d6d06df02d1083cf4cf7e752529d35"
+  },
+  {
+   "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h2i\\h2i_applied_8L.json",
+   "bytes": 12239,
+   "sha256": "c367acb45113e9ce68fb898de0b0833db61b6a1b84990b7ccc6467f82d2ef8cc"
+  }
+ ],
+ "downloaded_outputs": [
+  {
+   "path": "D:\\_ktmp\\h2i_kaggle_v4_output\\h2i_trained_s1.npz",
+   "bytes": 1334711974,
+   "sha256": "ae7e1a7c01e0ce1982dc6c8457a9508fc0e3b57d5c7c4b9d7ef0b887b7dcd67a"
+  },
+  {
+   "path": "D:\\_ktmp\\h2i_kaggle_v4_output\\h2i_trained_s1.json",
+   "bytes": 9116,
+   "sha256": "24585587565d613ff6d8d2ee305055d3c51a5ad291ad6fce0d53bc8ed129d865"
+  },
+  {
+   "path": "D:\\_ktmp\\h2i_kaggle_v4_output\\h2i-one-byte-phase-b.log",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+ ],
+ "training_summary": {
+  "steps_completed": 2286,
+  "optimizer_applied_updates": 2282,
+  "stop_reason": "time-cap",
+  "seconds": 39615.08494114876,
+  "seconds_per_step": 17.32943348256726,
+  "manifest_sha256": "330fa237ebe3ea85c48447f52628a3f77f1f4cf0e7275ef7e122e9eb8b93ba56"
+ },
+ "command": [
+  "C:\\Users\\giosa\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\h2i_eval.py",
+  "--trained",
+  "D:\\_ktmp\\h2i_kaggle_v4_output\\h2i_trained_s1.npz",
+  "--factors",
+  "D:\\_ktmp\\h0_run3_final\\h0_trained3.npz",
+  "--labels",
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\d0c_labels\\labels_E256.npz",
+  "--stats",
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_actstats.npz",
+  "--routers",
+  "D:\\_ktmp\\e37\\e37_routers_E256.npz",
+  "--h1-result",
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_applied_8L.json",
+  "--heldout",
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h1\\h1_heldout.npz",
+  "--out",
+  "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h2i\\h2i_eval_h2i_trained_s1.json"
+ ],
+ "evaluator_returncode": 3,
+ "verdict": {
+  "status": "SCORE-ONLY",
+  "score_bpb": 0.905344219843237,
+  "score_fires": true,
+  "rank_fires": false,
+  "combined_fires": false
+ },
+ "result": {
+  "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\h2i\\h2i_eval_h2i_trained_s1.json",
+  "bytes": 22013,
+  "sha256": "2180e1c5d01d903368b1b9119b99049ac5e0d48abbac8bbdbc460dca2151e805",
+  "G_H2I": {
+   "fires": false
+  }
+ },
+ "seconds": 1558.3628249168396,
+ "scope": "H2I one-byte 8-layer carve score+rank; no rate, engine, 10B or scale claim"
+}

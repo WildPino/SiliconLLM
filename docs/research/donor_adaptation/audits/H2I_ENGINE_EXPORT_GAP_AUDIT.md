@@ -2,9 +2,11 @@
 
 **Date:** 2026-09-15
 
-**Scope:** read-only compatibility audit while H2I Phase B v4 and H1 S3 v2 run.
+**Scope:** read-only compatibility audit written while H2I Phase B v4 and H1 S3 v2 ran; terminal
+disposition appended after adjudication.
 
-**Status:** `CONTAINER_CAN_REPRESENT_IT; EXPORTER_CANNOT_YET_EMIT_IT`.
+**Status:** `CLOSED_BY_H2I_SCORE_ONLY`; mechanically,
+`CONTAINER_CAN_REPRESENT_IT; EXPORTER_CANNOT_YET_EMIT_IT`.
 
 This is not a new experiment, an export, a quality result or a rate result. It records the exact
 conversion seam that becomes eligible only if H2I's already-preregistered **combined score + rank
@@ -110,3 +112,12 @@ Only after canonical H2I adjudication returns `G-H2I-score = true` **and**
 
 This audit deliberately does **not** implement those changes while H2I is unresolved. It closes
 the mapping question and makes the post-gate work finite; it does not move or weaken the gate.
+
+## 5. Terminal disposition — do not implement
+
+H2I v4's frozen adjudication returned `SCORE-ONLY`: the score gate passed, but the combined gate
+did not because teacher-forced top-1 was 95/160 against strict `>99`. Therefore the condition at
+the head of §4 is false. The export seam is not eligible for implementation, parity work, router
+compression, rate measurement or scale-up. This file remains useful only as a completed map of
+the mechanical gap; it is not an open engineering queue item and does not authorize an H2I rerun
+or checkpoint selection.
