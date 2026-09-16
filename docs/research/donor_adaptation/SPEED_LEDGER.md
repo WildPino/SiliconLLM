@@ -5998,4 +5998,34 @@ absent; the updated operational record is `e63_part_b_preflight.json`.
 This checkpoint must not be promoted as a failed rate, a third estimate, or a repeated
 experiment. At the next quiet CPU window the same committed runner repeats the guard and, only
 if it passes, executes the already-frozen Part B. Part A, parity and the contended interim ratio
-must not be remeasured as substitutes. `G-E63d` remains **unattempted / VOID / OWED**.
+must not be remeasured as substitutes. `G-E63d` remains **unattempted / VOID / OWED**
+*at this historical checkpoint*; the subsequent result is §69.
+
+---
+
+## §69 — E63 A10B clean absolute rate: 49.37 tok/s; ancillary Part B abort
+
+The frozen `e63_part_b_speed.py` at HEAD `702726bc1fb1f95fdec0e341779b84ca524189aa`
+passed 43 self-tests and all pinned hashes. A later 45-second preflight admitted
+all **45/45** foreign-occupancy samples below the preregistered 4.39% bar
+(median 0.521%, maximum 2.344%). The five interleaved packed/int8 pairs also
+had **10/10** cells below the bar (maximum 2.633%).
+
+Packed A10B-K3 median **49.61 tok/s**, CI **[48.84, 51.65]**; one-byte carved
+int8 median **49.37 tok/s**, CI **[49.18, 50.49]**. The paired-median ratio was
+**0.9952**, paired-bootstrap CI **[0.9557, 1.0177]**; the registered
+charged-byte comparator was 0.8974. Thus `G-E63d` is **`DESK-MODEL-HELD`**:
+49.18 exceeds its preregistered 36.6-tok/s lower-bound gate. `G-E63e` is
+measured descriptively; neither format is shown faster because its CI spans
+parity. Registered E63 predictions 4 and 5 both **MISSED**. The earlier
+composed ~49 was only an estimate and is superseded on this exact shape.
+
+This is the rate of a **synthetic-noise ~10B shape**, not a pretrained LLM.
+Nominal rate is below the 50-tok/s target; the CI crosses 50, and absolute
+readings retain the instrument's ±5% scope. No full-goal pass is claimed.
+The runner saved its A10B result and then aborted before recording E61c:
+the 0.5B fp32 arm reported `quant=fp32`, while `rep()` asserted `ternary`
+unconditionally. The planned 3B speed sweep was never reached. Do not rerun
+the A10B gate, raise `OCC_BAR`, or call full Part B complete. Canonical raw
+evidence: `benchmarks/donor_adaptation/engine/results/e63_part_b.json` and
+`e63_part_b_preflight.json`; canonical adjudication: E63 probe §16.

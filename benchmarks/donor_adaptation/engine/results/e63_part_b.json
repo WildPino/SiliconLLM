@@ -1,0 +1,339 @@
+{
+ "A10B": {
+  "ci_int8": [
+   49.18,
+   50.49
+  ],
+  "ci_packed": [
+   48.84,
+   51.65
+  ],
+  "ci_ratio": [
+   0.9556631171345595,
+   1.017738359201774
+  ],
+  "median_int8": 49.37,
+  "median_packed": 49.61,
+  "min_max_int8": [
+   49.18,
+   50.49
+  ],
+  "min_max_packed": [
+   48.84,
+   51.65
+  ],
+  "ratio_int8_over_packed": 0.9951622656722434
+ },
+ "A10B_foreign": {
+  "asymmetry_points": 0.7905854951601488,
+  "fraction_of_ratio_E52_can_explain": 0.0020713339973195896,
+  "per_arm_mean": {
+   "A10B_INT8": 2.249322132396108,
+   "A10B_PACKED": 1.4587366372359594
+  }
+ },
+ "G-E63d": "DESK-MODEL-HELD",
+ "G-E63e": "measured 0.9952  [0.9557, 1.0177] | charged-byte comparator 1/1.1144 = 0.8974 (token: 464.13 -> 517.21 MB; the FFN's own ratio 2.0 is NOT the token's) | moved != charged: the carved 11.4% gathers",
+ "admissibility_A10B": "ADMISSIBLE",
+ "brief": "BRIEF_E63_THE_TEN_BILLION_CELL_AT_ONE_BYTE.md",
+ "cells": [
+  {
+   "clock_pct": 107.3340279898249,
+   "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=ternary",
+   "engine_dt_s": 2.323,
+   "foreign": 1.0114192495921697,
+   "name": "A10B_PACKED",
+   "seq": 0,
+   "since_start_s": 62.876,
+   "sys": 33.539967373572594,
+   "tok_s": 51.65,
+   "wall_s": 3.992
+  },
+  {
+   "clock_pct": 107.19007862253635,
+   "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=ternary",
+   "engine_dt_s": 2.431,
+   "foreign": 2.0785219399538106,
+   "name": "A10B_INT8",
+   "seq": 1,
+   "since_start_s": 68.511,
+   "sys": 28.452655889145497,
+   "tok_s": 49.36,
+   "wall_s": 5.635
+  },
+  {
+   "clock_pct": 105.96934444010108,
+   "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=ternary",
+   "engine_dt_s": 2.457,
+   "foreign": 1.6801493466085875,
+   "name": "A10B_PACKED",
+   "seq": 2,
+   "since_start_s": 72.707,
+   "sys": 34.50528935905414,
+   "tok_s": 48.84,
+   "wall_s": 4.196
+  },
+  {
+   "clock_pct": 106.79627155967682,
+   "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=ternary",
+   "engine_dt_s": 2.423,
+   "foreign": 2.6334026334026333,
+   "name": "A10B_INT8",
+   "seq": 3,
+   "since_start_s": 78.342,
+   "sys": 28.875028875028875,
+   "tok_s": 49.52,
+   "wall_s": 5.635
+  },
+  {
+   "clock_pct": 106.07229968381016,
+   "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=ternary",
+   "engine_dt_s": 2.419,
+   "foreign": 1.3471177944862156,
+   "name": "A10B_PACKED",
+   "seq": 4,
+   "since_start_s": 82.498,
+   "sys": 33.99122807017544,
+   "tok_s": 49.61,
+   "wall_s": 4.157
+  },
+  {
+   "clock_pct": 106.59125805218108,
+   "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=ternary",
+   "engine_dt_s": 2.377,
+   "foreign": 2.1341463414634148,
+   "name": "A10B_INT8",
+   "seq": 5,
+   "since_start_s": 88.052,
+   "sys": 28.25984990619137,
+   "tok_s": 50.49,
+   "wall_s": 5.554
+  },
+  {
+   "clock_pct": 106.12231933923641,
+   "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=ternary",
+   "engine_dt_s": 2.436,
+   "foreign": 1.7751479289940828,
+   "name": "A10B_PACKED",
+   "seq": 6,
+   "since_start_s": 92.238,
+   "sys": 34.25724073497353,
+   "tok_s": 49.26,
+   "wall_s": 4.186
+  },
+  {
+   "clock_pct": 106.55788491458722,
+   "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=ternary",
+   "engine_dt_s": 2.44,
+   "foreign": 2.334812047630166,
+   "name": "A10B_INT8",
+   "seq": 7,
+   "since_start_s": 97.815,
+   "sys": 28.951669390614054,
+   "tok_s": 49.18,
+   "wall_s": 5.577
+  },
+  {
+   "clock_pct": 105.92653800170794,
+   "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=ternary",
+   "engine_dt_s": 2.402,
+   "foreign": 1.4798488664987406,
+   "name": "A10B_PACKED",
+   "seq": 8,
+   "since_start_s": 101.947,
+   "sys": 34.005037783375315,
+   "tok_s": 49.96,
+   "wall_s": 4.132
+  },
+  {
+   "clock_pct": 106.46424209811431,
+   "config": "CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=ternary",
+   "engine_dt_s": 2.431,
+   "foreign": 2.0657276995305165,
+   "name": "A10B_INT8",
+   "seq": 9,
+   "since_start_s": 107.504,
+   "sys": 28.685446009389672,
+   "tok_s": 49.37,
+   "wall_s": 5.557
+  }
+ ],
+ "constants": {
+  "BOOT": 20000,
+  "CI": [
+   2.5,
+   97.5
+  ],
+  "DESK_MODEL": 36.6,
+  "NTOK": 120,
+  "OCC_BAR": 4.39,
+  "REPS": 5,
+  "THREADS": 6
+ },
+ "engine": "donor_engine_e63.exe",
+ "non_promotion": null,
+ "part": "B",
+ "pinned_inputs": {
+  "runner": {
+   "head_commit": "702726bc1fb1f95fdec0e341779b84ca524189aa",
+   "runner_git_blob": "999423584ba9025f944c491ab064356cd9006ded",
+   "runner_path": "benchmarks/donor_adaptation/engine/e63_part_b_speed.py",
+   "runner_sha256": "d79c697b629f3f35dcca2bbb76a54a082eee88067617b0df9dab385d8bbffd91"
+  },
+  "sha256": {
+   "a10b_int8": "e85eb874947f8d3fb1223ddf2062e50018f70739765ab229d4832af170dc1550",
+   "a10b_int8_sidecar": "74378f322854b7ae0907e0757996d51b01c850da2dcafe25de9e4e72a6d891d2",
+   "a10b_packed": "c1e42d462d719110e1cf69b7d348fed24ea5d87dcff0d3b18b5dc073b30ad3b3",
+   "a10b_packed_sidecar": "52947ff93f4d604aa59a463261b90473ab0fc0fe69032dfdedeb5d7701f73bb5",
+   "engine": "56272fdbe615d61739094605cb026aa308fd74604ba5598fab501c09188ae687",
+   "part_a": "b0c614f799060d6bc4a7efe781e2436085e36b0ab4fedff00e464014a028657a"
+  },
+  "sidecars": {
+   "int8": {
+    "WARNING": "weights are NOISE -- this file has no meaningful BPB and none is computed",
+    "active_weights_per_token": 928251904,
+    "active_weights_per_token_dense_qo": 9865003008,
+    "brief": "BRIEF_E3_ENGINE_AT_TARGET_SCALE.md @ d4937a2",
+    "bytes": 10015507256,
+    "carve_E": 256,
+    "carve_group_size": 180,
+    "carve_k_in_file": 3,
+    "codes": "mixed",
+    "d_ffn": 46080,
+    "d_model": 4096,
+    "ffn_bytes_per_weight": 1.0,
+    "ffn_kinds": [
+     "MK_I8",
+     "MK_I8_T"
+    ],
+    "head": "ternary",
+    "head_dim": 128,
+    "n_heads": 32,
+    "n_kv_heads": 8,
+    "n_layers": 16,
+    "quant": "tagged-v2",
+    "rank": 0,
+    "seed": 1234,
+    "shape": "A10B",
+    "shape_source": "E36 -- SYNTHETIC, ~10 B at the E35 envelope",
+    "synthetic": true,
+    "tied": 0,
+    "total_weights": 9999220736,
+    "vocab": 32768
+   },
+   "packed": {
+    "WARNING": "weights are NOISE -- this file has no meaningful BPB and none is computed",
+    "active_weights_per_token": 928251904,
+    "active_weights_per_token_dense_qo": 9865003008,
+    "brief": "BRIEF_E3_ENGINE_AT_TARGET_SCALE.md @ d4937a2",
+    "bytes": 5485658936,
+    "carve_E": 256,
+    "carve_group_size": 180,
+    "carve_k_in_file": 3,
+    "codes": "mixed",
+    "d_ffn": 46080,
+    "d_model": 4096,
+    "head": "ternary",
+    "head_dim": 128,
+    "n_heads": 32,
+    "n_kv_heads": 8,
+    "n_layers": 16,
+    "quant": "tagged-v2",
+    "rank": 0,
+    "seed": 1234,
+    "shape": "A10B",
+    "shape_source": "E36 -- SYNTHETIC, ~10 B at the E35 envelope",
+    "synthetic": true,
+    "tied": 0,
+    "total_weights": 9999220736,
+    "vocab": 32768
+   }
+  },
+  "validated_at": "2026-09-16T12:04:53"
+ },
+ "precondition": "Part A closed: G-E63a FIRES, G-E63b FIRES, G-E63c EQUIVALENT",
+ "preflight": {
+  "admissible": true,
+  "bar": 4.39,
+  "max": 2.34375,
+  "median": 0.520833333333337,
+  "min": 0.0,
+  "n": 45,
+  "over_or_at_bar": 0,
+  "p75": 1.0282776349614386,
+  "samples": [
+   0.46511627906976605,
+   0.78125,
+   1.8181818181818188,
+   0.520833333333337,
+   0.3891050583657574,
+   1.806451612903226,
+   0.527704485488123,
+   2.185089974293064,
+   0.395778364116095,
+   0.3856041131105381,
+   0.3942181340341633,
+   0.1290322580645209,
+   0.520833333333337,
+   0.78125,
+   1.822916666666663,
+   0.390625,
+   0.26041666666666297,
+   0.13020833333333703,
+   2.34375,
+   0.527704485488123,
+   0.25706940874036244,
+   0.520833333333337,
+   0.13020833333333703,
+   0.6501950585175553,
+   0.2600780234070177,
+   0.390625,
+   0.6426735218509005,
+   0.0,
+   0.521512385919165,
+   0.5201560468140465,
+   0.651041666666663,
+   1.0282776349614386,
+   1.715039577836408,
+   1.6709511568123392,
+   0.26385224274406704,
+   0.3856041131105381,
+   1.846965699208447,
+   2.185089974293064,
+   0.651041666666663,
+   0.390625,
+   0.0,
+   0.651041666666663,
+   0.520833333333337,
+   1.7173051519154603,
+   1.4193548387096744
+  ],
+  "seconds": 45
+ },
+ "provenance": {
+  "head_commit": "702726bc1fb1f95fdec0e341779b84ca524189aa",
+  "runner_git_blob": "999423584ba9025f944c491ab064356cd9006ded",
+  "runner_path": "benchmarks/donor_adaptation/engine/e63_part_b_speed.py",
+  "runner_sha256": "d79c697b629f3f35dcca2bbb76a54a082eee88067617b0df9dab385d8bbffd91"
+ },
+ "scope": "Absolute tok/s carries +-5% (instrument).  RATIOS do not.  No rate here is bytes divided by a bandwidth (SPEED_LEDGER 59.2).",
+ "sweeps": {
+  "A10B": {
+   "A10B_INT8": [
+    49.36,
+    49.52,
+    50.49,
+    49.18,
+    49.37
+   ],
+   "A10B_PACKED": [
+    51.65,
+    48.84,
+    49.61,
+    49.26,
+    49.96
+   ]
+  }
+ },
+ "written": "2026-09-16T12:06:28"
+}

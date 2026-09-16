@@ -1,9 +1,10 @@
 # E63 — the 10 B cell at one byte per weight
 
 **Verdict (Part A): `THE-PATH-EXISTS-AND-IT-IS-EXACT`.**
-**`G-E63d` is `VOID` and Part B is OWED, and is stated as owed.** §12 adds an INTERIM
-paired ratio, registered in addendum C before it ran and carrying an explicit
-non-promotion clause: **no rate in this document is a measurement of the 10 B cell.**
+**Update 2026-09-16: `G-E63d` is `DESK-MODEL-HELD`; `G-E63e` is measured.**
+The earlier `VOID`/`OWED` statements below describe the state *before* the clean
+sweep and are superseded only for these two A10B gates by §16. The runner then
+stopped at an unrelated E61c CONFIG assertion: full Part B remains partial.
 
 Brief: `briefs/BRIEF_E63_THE_TEN_BILLION_CELL_AT_ONE_BYTE.md`, pre-registered and pushed before
 a line of engine code existed. **Addendum A (A.1, A.2, A.4) pushed before the run**, re-specifying
@@ -435,3 +436,48 @@ post-hoc cell dropping. Such a result can describe performance *under its
 observed load* but cannot be back-labelled `G-E63d` or substituted for the
 original idle-box absolute-rate gate. This alternative is a design boundary,
 not yet a registered or executed measurement.
+
+## 16. First admissible Part B A10B sweep — gates closed, ancillary sweeps incomplete
+
+On 2026-09-16 the frozen runner at HEAD `702726bc1fb1f95fdec0e341779b84ca524189aa`
+(Git blob `999423584ba9025f944c491ab064356cd9006ded`) passed 43 self-tests and
+validated all pinned input hashes/sidecars before timing. The 45-second preflight
+accepted **45/45** samples below the preregistered **4.39%** foreign-occupancy bar
+(median **0.521%**, p75 **1.028%**, maximum **2.344%**). The A10B pair then completed
+five interleaved repetitions per arm; **all ten** cells were below the same bar
+(foreign range **1.011–2.633%**) and reported the expected ternary `CONFIG`.
+
+| A10B-K3 synthetic-noise arm | Five tok/s readings | Median | Bootstrap 95% CI |
+|---|---|---:|---:|
+| Packed carve | 51.65, 48.84, 49.61, 49.26, 49.96 | **49.61** | [48.84, 51.65] |
+| Int8 carve, one-byte FFN | 49.36, 49.52, 50.49, 49.18, 49.37 | **49.37** | **[49.18, 50.49]** |
+
+The registered `G-E63d` threshold was **36.6 tok/s on the int8 CI lower bound**:
+49.18 clears it, hence **`DESK-MODEL-HELD`**. `G-E63e` int8/packed paired-median
+ratio is **0.9952**, paired-bootstrap CI **[0.9557, 1.0177]**, versus the
+charged-token byte comparator **0.8974** (not the FFN-only 0.5). The CI spans
+parity; do not claim that either format is faster. Mean foreign occupancy differed
+by 0.791 percentage points between arms; E52 prices at most 0.0021 of the ratio.
+Registered predictions **4** (32–36 tok/s and `DESK-MODEL-OPTIMISTIC`) and **5**
+(ratio 0.60–0.72) are both **MISSED**. The earlier ~49 tok/s composition was an
+estimate; this is the first admissible absolute A10B measurement, not an
+additional estimate. The nominal 49.37 is below the project's strict 50 tok/s
+target and its CI crosses 50; with the stated ±5% absolute instrument scope,
+neither a 50-tok/s pass nor a decisive shortfall follows. The weights are noise,
+so no pretrained-LLM quality or end-to-end goal is established.
+
+**The process exited `ERROR`, but only after the A10B gate and result were
+incrementally saved.** The next arm, E61c's fp32 0.5B control, truthfully printed
+`quant=fp32`; `rep()` in the frozen runner unconditionally called
+`assert_engine_config(text, "ternary")`, refusing that cell before it could be
+recorded. Thus `e63_part_b.json` contains exactly A10B's ten cells, no E61c or
+3B sweep, and no final runner completion. E61c and 3B remain **unmeasured here**.
+The all-ternary assertion was overbroad for the ancillary fp32 arm; it was not
+a failure of A10B's hash, mode, occupancy or timing. Do not relax the occupancy
+bar, rerun the fired A10B gate, or silently patch the committed runner's identity.
+Any ancillary repair needs its own recorded scope and correctly typed CONFIG
+expectation, without altering this adjudication.
+
+Evidence: `benchmarks/donor_adaptation/engine/results/e63_part_b.json` (SHA-256
+`921a709e37611c381fd3c135ca6a79ca45bc7c9a0b4edb9d5ad09377c6516823`)
+and `e63_part_b_preflight.json`; raw cells and provenance are retained there.
