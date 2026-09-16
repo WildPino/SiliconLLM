@@ -7,6 +7,10 @@ arithmetic remains `../SPEED_LEDGER.md`; exact experiment status remains in the 
 For donor selection, use `TARGET_DONOR_LOCAL_INVENTORY.md` for repository evidence and
 `TARGET_DONOR_DECISION.md` plus its 2026-09-16 methodological erratum and
 `TARGET_DONOR_FOLLOWUP_2026-09-16.md` for the frozen screening disposition.
+The later [STRAT-01 screen](STRAT_01_SPARSE_HYBRID_METADATA_SCREEN.md) adds
+Granite-4.0-H-Tiny-Base and LFM2.5-8B-A1B-Base at exact revisions with
+per-organ active-weight arithmetic and engine-semantic gaps; it is metadata
+only, not a quality or speed result.
 
 ## 1. How to read this map
 

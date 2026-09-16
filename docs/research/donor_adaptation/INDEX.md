@@ -1,5 +1,15 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**STRAT-01 metadata screen (2026-09-16):** the two hybrid/sparse base donors
+named in the strategic roadmap have now been priced by organ and checked
+against the native engine semantics, without downloading weights or running
+CPU/GPU tests. Granite-4.0-H-Tiny-Base has 6.939B distinct stored parameters
+and 1.465B large-organ weights charged/token; LFM2.5-8B-A1B-Base has 8.468B
+and 1.686B respectively. Both are sub-10B pilots, and neither has a
+demonstrated quality/50-tok/s path. W4/W2 traffic is conditional arithmetic,
+not a donor-rate inference from E63. No T4/port is authorized by this screen
+alone. [Full STRAT-01 audit](audits/STRAT_01_SPARSE_HYBRID_METADATA_SCREEN.md).
+
 **Latest E68 result (2026-09-16):** the frozen rank-64 linear shared residual
 over E67's mass-selected sparse FFN groups is `PARTIAL_LOCAL_SIGNAL` on the
 real 1.5B donor: aggregate local SSE is **7,988,513.932479 →
