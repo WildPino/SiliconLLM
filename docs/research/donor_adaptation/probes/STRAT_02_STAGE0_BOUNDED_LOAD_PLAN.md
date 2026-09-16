@@ -18,21 +18,31 @@ registra per ciascuno degli 11 shard dimensione e SHA-256 LFS dichiarati
 dall'API del publisher alla stessa revisione. Somma file 54.275.336.216
 byte (50,548 GiB); il contenitore aggiunge 772.120 byte ai tensori.
 L'indice e gli asset tokenizer **non** sono shard peso.
+Una query `HfApi.model_info` sulla **stessa revisione** ha restituito SHA
+identico, `license=apache-2.0`, `private=false`, `gated=false`; la
+[model card del publisher](https://huggingface.co/allenai/StdMoE_1b14b_1T_Preanneal)
+conferma la licenza dichiarata e lo scopo di ricerca. È il checkpoint
+distribuito, non una verifica dei diritti dei testi di valutazione PG-19.
 
-Prima di una futura acquisizione, un comando dedicato dovrà riverificare
+Prima dell'acquisizione, `strat02_acquire_weights.py --preflight` riverifica offline
 RAM/disco/libero e tutti gli hash di config, codice e indice. Consentire
 solo questi 11 nomi, revision esatta, un download alla volta, nessun
 `from_pretrained` implicito, file temporanei nella stessa cache e ripresa
-idempotente. Il cap aggiuntivo di trasferimento è esattamente la somma degli
-11 file; il cap di spazio libero richiesto è **almeno 65 GiB** prima del
+idempotente. Il cap dei **payload shard validi nuovi** è esattamente la
+somma degli 11 file (54.275.336.216 byte); non è un limite garantito sui
+byte di rete, che possono includere header, retry o segmenti parziali. Il
+downloader non aggiunge retry applicativi silenziosi e registra ciò che
+riesce a osservare. Il cap di spazio libero richiesto è **almeno 65 GiB** prima del
 download (file finali più lo shard parziale più margine) e il download si
-ferma a errore di hash/size. Il valore effettivo scaricato e gli hash letti
-localmente andranno nel run manifest. Non si cancella automaticamente nulla.
+ferma a errore di hash/size. Dimensioni finali, stato `cached`/`downloaded`
+e hash letti localmente andranno nel run manifest; se i byte on-wire non sono
+strumentati, vanno marcati `unknown`, non sostituiti con la dimensione dei
+file. Non si cancella automaticamente nulla.
 Il 16 settembre la lettura locale era 59,28 GiB RAM fisica disponibile su
 79,95 GiB e 856,89 GiB liberi su D:. Il preflight del loader ha poi
-misurato **7.283.021.737.984 byte liberi sulla cache HF in C:** e
+misurato **7.283.021.737.984 byte liberi sulla cache HF in E:** e
 63.191.719.936 byte di RAM disponibile: sono snapshot diversi e da
-rifare al run. Il cap di download riguarda la cache C:, mentre gli
+rifare al run. Il cap di download riguarda la cache E:, mentre gli
 artefatti di output futuri potranno stare su D: con cap separato.
 
 ## Perché `from_pretrained` non è il loader di riferimento
