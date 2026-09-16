@@ -44,3 +44,30 @@ Mancano ancora protocollo BPB/generazione/tasks interamente fissato,
 baseline F32, quantizer W4/W2, parità dell'operatore, loader a memoria
 limitata, qualità e rate sullo stesso artefatto. Il build dati non autorizza
 automaticamente il download dei 54 GB di pesi.
+
+### Inventario preliminare di provenienza (non clearance)
+
+I 109 file sorgente registrati nel manifest provengono da: 25 file del
+repository locale `kubernetes_website`, 23 `mdn`, 23 `cpython`, 13 `django`,
+3 `numpy`, 8 `pip`, 1 `requests` e 13 shard Parquet `pg19` (questi ultimi
+contengono molti documenti). I file di licenza locali esistono per i primi
+sette gruppi; i loro SHA-256 sono rispettivamente
+`d07988f4be47912f75a73b44da8a9c0b602bf6c8ced69de858b848f379ecd973`,
+`97a45d9a5c27c90ad7f058b20a870f11a24717f0eb4585f141948d25b74c4d89`,
+`db693914a7f6d42f1d3e09c10eda1482e5d94ed4c70a769476ae8d722a9be1ce`,
+`7e493fa7ce2cfdb8dc8a97d5e912f81fc5e0ddc58c5a236e98de2ee55ca978a8`,
+`1be1df33863f97a7bc1c4d67980bd6c69c9a6fef0a5ee76e6ad6cb91e56e8491`,
+`afbb3c587ad82d668258516cfb0364d964670097a226fcc980e3217a76e16e8d`,
+`88046bf22d5b4f4b8cc85079ae6aae5424a3a1999db952ed152828ff325b2c6d`.
+Questo localizza le dichiarazioni di licenza; non prova che ogni singolo file
+o traduzione sia coperto senza eccezioni né autorizza ridistribuzione di
+testo raw. [Kubernetes](https://github.com/kubernetes/website/blob/main/LICENSE)
+dichiara CC BY 4.0; [MDN](https://github.com/mdn/content/blob/main/files/en-us/mdn/writing_guidelines/attrib_copyright_license/index.md)
+distingue prose CC BY-SA e campioni di codice. Il progetto
+[The Stack v2](https://huggingface.co/datasets/bigcode/the-stack-v2) avverte
+che il codice conserva le licenze originali e gli obblighi di attribuzione.
+PG19 deriva da libri di Project Gutenberg, secondo
+[DeepMind](https://github.com/google-deepmind/pg19/blob/master/README.md),
+ma non è presente un file LICENSE nella copia locale `data/external/pg19`:
+la provenienza/redistribuibilità a livello di libro resta da chiarire.
+Gli span JSONL rimangono per questo solo locali e ignorati da Git.

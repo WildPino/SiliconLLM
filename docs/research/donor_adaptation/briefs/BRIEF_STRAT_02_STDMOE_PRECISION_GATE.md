@@ -174,9 +174,15 @@ Prima di scaricare anche uno shard, registrare write-once:
 iniziale del brief, un target temporaneo isolato con Transformers `4.57.1`
 ha importato `AutoConfig` e `EmoForCausalLM` con `USE_HUB_KERNELS=NO`; i file
 di codice importati corrispondono agli hash sopra. Nessuno shard peso è stato
-scaricato. Questo soddisfa il solo controllo d'import; non soddisfa ancora
-parità del forward, loader bounded-memory, dati document-level o gli altri
-punti Stage 0. La `.venv` locale 5.13.1 rimane non compatibile as-is.
+scaricato. Il [corpus document-level](../probes/STRAT_02_STAGE0_DATA_PREP.md)
+è stato poi costruito e verificato; il
+[protocollo tokenizer/BPB](../probes/STRAT_02_STAGE0_TOKEN_SCORING.md) fissa
+EOS come prefisso e bootstrap stratificato per documento, dopo aver verificato
+che tutti gli span entrano nel contesto nativo senza truncation. Questi sono
+solo controlli Stage 0: non soddisfano ancora parità del forward, loader
+bounded-memory, provenienza dei testi, suite task/generazione, specifica
+quantizer o gli altri punti Stage 0. La `.venv` locale 5.13.1 rimane non
+compatibile as-is per il codice del modello.
 
 Se licenza, revision/code hash, capacità, manifest document-level, formato o
 piano di loading non sono verificabili, lo stage è `VOID_PRE_DOWNLOAD`: nessun

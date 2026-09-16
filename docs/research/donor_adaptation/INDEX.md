@@ -12,7 +12,10 @@ is `PROPOSED`; its first blocker is a [document-level corpus limitation](audits/
 in the old chunk-split calibration/heldout data. A new
 [Stage-0 document-preserving corpus](probes/STRAT_02_STAGE0_DATA_PREP.md)
 is now built and verified (48 calib, 96 heldout, no exact cross-split overlap);
-quality and weight download remain unstarted. The exact donor metadata and
+the [tokenizer/BPB protocol](probes/STRAT_02_STAGE0_TOKEN_SCORING.md) now
+pins EOS-prefix scoring of every byte and a stratified document bootstrap;
+all 144 spans fit the 4096-token window. Quality and weight download remain
+unstarted. The exact donor metadata and
 memory gate are in the [target-donor addendum](audits/TARGET_DONOR_FOLLOWUP_2026-09-16.md).
 
 **STRAT-03 CPU diagnostic (2026-09-16):** the byte-count-matched nonlinear
