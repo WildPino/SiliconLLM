@@ -5,6 +5,15 @@ This is a CPU-only diagnostic on existing Qwen2.5-1.5B weights. It authorizes no
 T4, engine change, donor promotion, or 10B/50-tok/s claim. Freeze this brief in
 git before writing or running an instrument; report every deviation.
 
+**Addendum A (2026-09-16, before any donor run):** E41 §6 was read after the
+initial brief freeze. It found two exact float32 group-mass ties among 344,064
+rows; the verified fix for the *next* oracle was float64 accumulation. E67 must
+therefore compute `sum(z_i²)` in float64 and break any remaining tie by lower
+group label, recording tie counts. This preserves E38's **mass criterion**, not
+bitwise replication of its float32 `topk` IDs. Recompute the E67 mass baseline
+within E67; do not compare its local errors to E38's BPB or require exact
+float32 selector IDs. This amendment changes no donor result or E38 verdict.
+
 ## Why this is a genuinely different cell
 
 E38's `oracle` sorts each group by the intermediate SwiGLU energy
@@ -47,8 +56,9 @@ case and a cancellation case as code-level self-tests.
 
 ## Equal-activation arms at `k=3`
 
-1. **Mass:** E38's exact `sum(z_i²)` top three; recompute, do not quote a
-   stored selector output. This is the matched baseline.
+1. **Mass:** E38's `sum(z_i²)` criterion, accumulated in float64 per addendum
+   A, top three; recompute, do not quote a stored selector output. This is
+   the matched criterion baseline, not a bit-identical E38 replay.
 2. **Output-norm:** top three by `||v_g||²`, isolating the effect of the
    `W_down` column norms without accounting for cancellation.
 3. **Output-greedy:** start residual `r=y`; at each of three steps select an
@@ -80,7 +90,7 @@ declared an upper bound, and no code assertion may force the ordering.
 3. Every sparse arm selects exactly three **distinct** labels, whose groups
    contain exactly 35 neurons; identical logical FFN-weight count for each
    arm. The actual row-layout cost remains unmeasured.
-4. Recomputed mass labels must match the E38 definition. Tie handling is
+4. Recomputed mass scores must match the E38 criterion. Tie handling is
    deterministic (lower label wins); count/report ties rather than hiding
    them. No training, checkpoint search or changing the slice after results.
 
