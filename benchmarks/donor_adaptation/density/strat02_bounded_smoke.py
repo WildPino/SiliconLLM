@@ -256,6 +256,7 @@ def _monitor_child(
     *,
     psutil: Any,
     on_sample: Callable[[Mapping[str, Any]], None],
+    resource_process: Any | None = None,
     now: Callable[[], float] = time.monotonic,
     wall_limit_seconds: float = MAX_WALL_SECONDS,
     interval_seconds: float = MONITOR_INTERVAL_SECONDS,
@@ -273,7 +274,9 @@ def _monitor_child(
         if elapsed >= wall_limit_seconds:
             return MonitorOutcome("VOID_RESOURCE", _terminate_only_child(process), "wall_clock_exceeded", elapsed, samples)
         try:
-            sample = _process_sample(process, psutil)
+            if resource_process is None:
+                resource_process = psutil.Process(process.pid)
+            sample = _process_sample(resource_process, psutil)
             available = int(psutil.virtual_memory().available)
         except Exception as exc:
             return MonitorOutcome("VOID_RESOURCE", _terminate_only_child(process), str(exc), elapsed, samples)
@@ -573,18 +576,18 @@ def _selftest() -> None:
     clock = Clock()
     psutil = FakePsutil(MIN_RUNTIME_RAM_BYTES)
     exited = FakeProcess(clock, exit_code=7)
-    outcome = _monitor_child(exited, psutil=psutil, on_sample=lambda _: None, now=clock.now)
+    outcome = _monitor_child(exited, psutil=psutil, on_sample=lambda _: None, resource_process=exited, now=clock.now)
     assert outcome.status == "CHILD_EXITED" and outcome.exit_code == 7 and not exited.terminated
 
     clock = Clock()
     low_ram = FakePsutil(MIN_RUNTIME_RAM_BYTES - 1)
     breach = FakeProcess(clock)
-    outcome = _monitor_child(breach, psutil=low_ram, on_sample=lambda _: None, now=clock.now)
+    outcome = _monitor_child(breach, psutil=low_ram, on_sample=lambda _: None, resource_process=breach, now=clock.now)
     assert outcome.status == "VOID_RESOURCE" and outcome.reason == "available_physical_ram_below_8_gib" and breach.terminated
 
     clock = Clock()
     timeout = FakeProcess(clock)
-    outcome = _monitor_child(timeout, psutil=psutil, on_sample=lambda _: None, now=clock.now, wall_limit_seconds=10, interval_seconds=5)
+    outcome = _monitor_child(timeout, psutil=psutil, on_sample=lambda _: None, resource_process=timeout, now=clock.now, wall_limit_seconds=10, interval_seconds=5)
     assert outcome.status == "VOID_RESOURCE" and outcome.reason == "wall_clock_exceeded" and timeout.terminated
     assert timeout.waits == [5, 5]
     orphan_guard = FakeProcess(Clock())
@@ -593,6 +596,7 @@ def _selftest() -> None:
             orphan_guard,
             psutil=psutil,
             on_sample=lambda _: (_ for _ in ()).throw(OSError("planted log failure")),
+            resource_process=orphan_guard,
             now=orphan_guard.clock.now,
         )
     except OSError:
@@ -601,6 +605,25 @@ def _selftest() -> None:
         raise AssertionError("planted log failure did not reach orphan guard")
     assert _worker_looks_oom({"error_type": "OutOfMemoryError", "error": "allocator failed"})
     assert not _worker_looks_oom({"error_type": "ValueError", "error": "bad metadata"})
+
+    # Real Popen has no memory_info; exercise the psutil.Process(pid) adapter.
+    import psutil as real_psutil
+    tiny = subprocess.Popen(
+        [sys.executable, "-c", "import time; time.sleep(0.4)"],
+        stdin=subprocess.DEVNULL,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+    try:
+        real_samples: list[Mapping[str, Any]] = []
+        real_outcome = _monitor_or_terminate(
+            tiny, psutil=real_psutil, on_sample=real_samples.append,
+            interval_seconds=1.0, wall_limit_seconds=10.0,
+        )
+        assert real_outcome.status == "CHILD_EXITED" and real_outcome.exit_code == 0
+        assert real_samples and real_samples[0]["child_private_commit_bytes"] > 0
+    finally:
+        _terminate_only_child(tiny)
 
     with tempfile.TemporaryDirectory(prefix="strat02-bounded-smoke-selftest-") as temporary:
         target = Path(temporary) / "once.json"
