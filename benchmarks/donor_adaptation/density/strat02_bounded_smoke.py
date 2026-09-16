@@ -303,6 +303,15 @@ def _monitor_child(
             pass
 
 
+def _monitor_or_terminate(process: Any, **kwargs: Any) -> MonitorOutcome:
+    """Never leave the direct child running if supervision itself raises."""
+    try:
+        return _monitor_child(process, **kwargs)
+    except BaseException:
+        _terminate_only_child(process)
+        raise
+
+
 def _read_row_zero(calib_path: Path, manifest_path: Path, audit: Any) -> dict[str, Any]:
     """Hash both pinned corpus files before reading and validate the fixed row."""
     if _sha256_file(manifest_path) != EXPECTED_MANIFEST_SHA256:
@@ -467,6 +476,7 @@ def _run_parent(args: argparse.Namespace) -> int:
     child_env["STRAT02_BOUNDED_SMOKE_PARENT_TOKEN"] = worker_token
     command.extend(("--worker-token", worker_token))
     _append_log(paths["log"], {"event": "child_launch", "python": sys.executable, "termination_scope": "child_pid_only"})
+    psutil = _psutil()
     process = subprocess.Popen(
         command,
         cwd=str(HERE),
@@ -475,8 +485,7 @@ def _run_parent(args: argparse.Namespace) -> int:
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
     )
-    psutil = _psutil()
-    outcome = _monitor_child(
+    outcome = _monitor_or_terminate(
         process,
         psutil=psutil,
         on_sample=lambda sample: _append_log(paths["log"], {"event": "resource_sample", **sample}),
@@ -578,6 +587,18 @@ def _selftest() -> None:
     outcome = _monitor_child(timeout, psutil=psutil, on_sample=lambda _: None, now=clock.now, wall_limit_seconds=10, interval_seconds=5)
     assert outcome.status == "VOID_RESOURCE" and outcome.reason == "wall_clock_exceeded" and timeout.terminated
     assert timeout.waits == [5, 5]
+    orphan_guard = FakeProcess(Clock())
+    try:
+        _monitor_or_terminate(
+            orphan_guard,
+            psutil=psutil,
+            on_sample=lambda _: (_ for _ in ()).throw(OSError("planted log failure")),
+            now=orphan_guard.clock.now,
+        )
+    except OSError:
+        assert orphan_guard.terminated
+    else:
+        raise AssertionError("planted log failure did not reach orphan guard")
     assert _worker_looks_oom({"error_type": "OutOfMemoryError", "error": "allocator failed"})
     assert not _worker_looks_oom({"error_type": "ValueError", "error": "bad metadata"})
 
