@@ -1,5 +1,15 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**Latest E67 result (2026-09-16):** an output-aware greedy selector on the
+same frozen 1.5B donor, D0c grouping and `k=3/256` reduces summed local FFN
+output squared error by only **4.23%** versus E38's mass criterion, across
+five layers and 512 held-out positions/layer. All reconstruction, selection,
+identity and hash controls passed; the preregistered band is
+`NO_LOCAL_SIGNAL` (partial requires ≥20%). This does **not** measure BPB,
+generation, speed, an exact subset optimum, joint training or a shared
+low-rank-plus-sparse operator. No GPU was used; do not rerun this selector
+alone. [E67 result](probes/E67_OUTPUT_AWARE_SELECTION.md).
+
 **E38 interpretation correction (2026-09-16):** Its `4.131817` BPB at
 `k=3/256` is a valid negative for sorting FFN groups by intermediate
 activation mass. The selector is **not** an oracle for `W_down` output error

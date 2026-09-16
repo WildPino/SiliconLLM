@@ -1,0 +1,194 @@
+{
+  "brief": "BRIEF_E67_OUTPUT_AWARE_SELECTION.md",
+  "scope": "local FFN-output squared-error diagnostic only; no BPB, generation, or speed claim",
+  "planted_selftest": "PASS",
+  "selector_charge": "Every sparse selector computes all dense group contributions first; these are capacity diagnostics, not executable routers and are not priced at E63 mixed-byte rate.",
+  "donor": {
+    "model": "Qwen/Qwen2.5-1.5B",
+    "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+    "precision": "fp32",
+    "attention": "eager"
+  },
+  "threads": 6,
+  "smoke": true,
+  "architecture": {
+    "n_layers": 28,
+    "d_model": 1536,
+    "d_ffn": 8960,
+    "n_heads": 12,
+    "n_kv_heads": 2,
+    "vocab": 151936,
+    "tie_word_embeddings": true,
+    "hidden_act": "silu",
+    "revision": "8faed761d45a263340a0528343f099c05c9a4323"
+  },
+  "slice": {
+    "part": "heldout",
+    "full_n_sequences": 24,
+    "sequence_length": 512,
+    "seed": 1234,
+    "full_ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+    "expected_full_ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+    "selected_sequences": [
+      0
+    ],
+    "selected_positions": [
+      384,
+      511
+    ],
+    "selected_ids_sha256": "271647d218110b267fd4d01a41f87fca42da239757c94fd5d80ccc9ad6302ba9",
+    "selected_token_count": 128
+  },
+  "labels": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\d0c_labels\\labels_E256.npz",
+    "E": 256,
+    "neurons_per_group": 35,
+    "hashes": {
+      "labels_E256_npz_sha256": "c39d0740b7f754daf168d811c77120c5394ae677e3882fef208d331d8c333c9c",
+      "learned_per_layer": {
+        "27": "a61eb3a72b95172d3344ff155717d5172129afd350cb39a4e114bc3f419d188e"
+      },
+      "random_equal_partition_per_layer": {
+        "27": "cd18f5681d87fc42d63fd61346ec221732343f3466c904c33684ad4899aedd3e"
+      }
+    }
+  },
+  "source_hashes": {
+    "runner_sha256": "4c5914646876b91c992fd056793314d9d8b05cebdfeb25a00fbfee2e17f9d88f",
+    "density_common_sha256": "7ac00b31e91d0018c775e2e9b26120c0ec025075d7913218ea3cdcfe3196e461",
+    "e19_carve_rank_sha256": "31c595efd5ccc12bf37922e54a38939a69ece96566adcde257340656d75e9525"
+  },
+  "protocol": {
+    "layers": [
+      27
+    ],
+    "k": 3,
+    "token_chunk": 32,
+    "mass": "float64 sum(z_i^2), stable descending order, lower label wins exact ties",
+    "output_greedy": "per step score = 2*r.dot(v_g)-||v_g||^2; r -= selected v_g; lower label wins exact ties",
+    "aggregate_metric": "sum ||y-yhat||^2 / sum ||y||^2",
+    "median_metric": "median per-token ||y-yhat||^2 / ||y||^2"
+  },
+  "layers": {
+    "27": {
+      "selectors": {
+        "mass": {
+          "sum_sse_over_sum_energy": 0.23041365051752954,
+          "median_token_sse_over_energy": 0.1962206512284957,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.23041365051752954
+          ],
+          "sum_sse": 1851674.5304216286
+        },
+        "output_norm": {
+          "sum_sse_over_sum_energy": 0.23360575492135674,
+          "median_token_sse_over_energy": 0.20414395227099563,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.23360575492135674
+          ],
+          "sum_sse": 1877327.2572012162
+        },
+        "output_greedy": {
+          "sum_sse_over_sum_energy": 0.2243298605820289,
+          "median_token_sse_over_energy": 0.195419494491043,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.2243298605820289
+          ],
+          "sum_sse": 1802783.3347537532
+        },
+        "random_label_greedy": {
+          "sum_sse_over_sum_energy": 0.6634917084581563,
+          "median_token_sse_over_energy": 0.6617237274695283,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.6634917084581563
+          ],
+          "sum_sse": 5332022.191126358
+        },
+        "dense_identity": {
+          "sum_sse_over_sum_energy": 3.408529476859945e-14,
+          "median_token_sse_over_energy": 3.293805562190479e-14,
+          "per_sequence_sum_sse_over_sum_energy": [
+            3.408529476859945e-14
+          ],
+          "sum_sse": 2.739198482519051e-07
+        }
+      },
+      "mass_ties_float64": {
+        "tokens_with_any_exact_tie": 0,
+        "adjacent_equal_pairs": 0,
+        "tokens_with_boundary_tie": 0
+      },
+      "output_greedy_ties": {
+        "selection_tie_token_steps": 0,
+        "selection_tie_extra_competitors": 0
+      },
+      "random_label_output_greedy_ties": {
+        "selection_tie_token_steps": 0,
+        "selection_tie_extra_competitors": 0
+      },
+      "reconstruction": {
+        "tokens": 128,
+        "max_relative_rms": 2.655286460117546e-07,
+        "dense_identity_max_relative_rms": 2.655286460117546e-07,
+        "tolerance": 1e-05,
+        "fires": true
+      },
+      "selection_controls": {
+        "mass": {
+          "tokens": 128,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "output_norm": {
+          "tokens": 128,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "output_greedy": {
+          "tokens": 128,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "random_label_greedy": {
+          "tokens": 128,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        }
+      },
+      "dense_identity": {
+        "labels_per_token": 256,
+        "fires": true
+      },
+      "output_greedy_vs_mass_per_token": {
+        "wins": 44,
+        "losses": 1,
+        "ties": 83
+      }
+    }
+  },
+  "mass_to_output_greedy": {
+    "summed_sse_ratio": 0.973596226083672,
+    "summed_sse_reduction": 0.026403773916327977
+  },
+  "stopping_band": {
+    "name": "NOT_APPLICABLE_SMOKE",
+    "reason": "the frozen bands require all five registered layers"
+  },
+  "operational_observations_only": {
+    "elapsed_seconds": 21.39146399497986,
+    "peak_rss_bytes": 9888907264,
+    "peak_rss_method": "psutil.memory_info.peak_wset (or rss fallback)"
+  }
+}

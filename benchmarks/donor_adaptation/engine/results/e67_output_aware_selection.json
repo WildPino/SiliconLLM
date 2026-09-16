@@ -1,0 +1,740 @@
+{
+  "brief": "BRIEF_E67_OUTPUT_AWARE_SELECTION.md",
+  "scope": "local FFN-output squared-error diagnostic only; no BPB, generation, or speed claim",
+  "planted_selftest": "PASS",
+  "selector_charge": "Every sparse selector computes all dense group contributions first; these are capacity diagnostics, not executable routers and are not priced at E63 mixed-byte rate.",
+  "donor": {
+    "model": "Qwen/Qwen2.5-1.5B",
+    "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+    "precision": "fp32",
+    "attention": "eager"
+  },
+  "threads": 6,
+  "smoke": false,
+  "architecture": {
+    "n_layers": 28,
+    "d_model": 1536,
+    "d_ffn": 8960,
+    "n_heads": 12,
+    "n_kv_heads": 2,
+    "vocab": 151936,
+    "tie_word_embeddings": true,
+    "hidden_act": "silu",
+    "revision": "8faed761d45a263340a0528343f099c05c9a4323"
+  },
+  "slice": {
+    "part": "heldout",
+    "full_n_sequences": 24,
+    "sequence_length": 512,
+    "seed": 1234,
+    "full_ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+    "expected_full_ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+    "selected_sequences": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "selected_positions": [
+      384,
+      511
+    ],
+    "selected_ids_sha256": "6e4160a27d10288f24d6a60fded1b0537c97fd28df8798d2a65dac235124a4b6",
+    "selected_token_count": 512
+  },
+  "labels": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\d0c_labels\\labels_E256.npz",
+    "E": 256,
+    "neurons_per_group": 35,
+    "hashes": {
+      "labels_E256_npz_sha256": "c39d0740b7f754daf168d811c77120c5394ae677e3882fef208d331d8c333c9c",
+      "learned_per_layer": {
+        "1": "20846b99936ee7c2ab90416af0d325ff7b27dfabdd086bfc1fada206bf46c5c5",
+        "7": "40902a27f43d449475f1f011255c598fb667153302bc893c1aa8088575518886",
+        "14": "878e8c2e62391401f5da3786d64838cba9852b4bb940b8c24e73a211c54ba1a3",
+        "21": "67427f39250809542a810a224e7b5d0be245d9e30839ce0fd2d3caf8988c9d72",
+        "27": "a61eb3a72b95172d3344ff155717d5172129afd350cb39a4e114bc3f419d188e"
+      },
+      "random_equal_partition_per_layer": {
+        "1": "c9a41cb65898479a628281349a89fe6dd228c02d3b176c64ef42683fdf5de001",
+        "7": "9c2dbbbbaca634dbdd01f78380e33e77c5651827225fa425ef94476fbd26289a",
+        "14": "db6cb9282e8ad36c059a8c39fcf2f33b05c25018a6d776d1da95ac191484c14b",
+        "21": "9d98d0ebdf5f5398a40a77fff1777431753c74d6421efa2cb83d725e816e7087",
+        "27": "cd18f5681d87fc42d63fd61346ec221732343f3466c904c33684ad4899aedd3e"
+      }
+    }
+  },
+  "source_hashes": {
+    "runner_sha256": "4c5914646876b91c992fd056793314d9d8b05cebdfeb25a00fbfee2e17f9d88f",
+    "density_common_sha256": "7ac00b31e91d0018c775e2e9b26120c0ec025075d7913218ea3cdcfe3196e461",
+    "e19_carve_rank_sha256": "31c595efd5ccc12bf37922e54a38939a69ece96566adcde257340656d75e9525"
+  },
+  "protocol": {
+    "layers": [
+      1,
+      7,
+      14,
+      21,
+      27
+    ],
+    "k": 3,
+    "token_chunk": 32,
+    "mass": "float64 sum(z_i^2), stable descending order, lower label wins exact ties",
+    "output_greedy": "per step score = 2*r.dot(v_g)-||v_g||^2; r -= selected v_g; lower label wins exact ties",
+    "aggregate_metric": "sum ||y-yhat||^2 / sum ||y||^2",
+    "median_metric": "median per-token ||y-yhat||^2 / ||y||^2"
+  },
+  "layers": {
+    "1": {
+      "selectors": {
+        "mass": {
+          "sum_sse_over_sum_energy": 0.5552431453663451,
+          "median_token_sse_over_energy": 0.759445159394155,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.5333228356349945,
+            0.5378606163397263,
+            0.558699620047285,
+            0.5953190646166414
+          ],
+          "sum_sse": 26876.563419583636
+        },
+        "output_norm": {
+          "sum_sse_over_sum_energy": 0.546101555287574,
+          "median_token_sse_over_energy": 0.7418922593891184,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.5266035027231488,
+            0.530298618569063,
+            0.5491703525549877,
+            0.582181295261485
+          ],
+          "sum_sse": 26434.06443952721
+        },
+        "output_greedy": {
+          "sum_sse_over_sum_energy": 0.5391101590404369,
+          "median_token_sse_over_energy": 0.732866603923664,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.519608950546418,
+            0.5239434219863816,
+            0.5426555720682948,
+            0.5737276316763911
+          ],
+          "sum_sse": 26095.645665345608
+        },
+        "random_label_greedy": {
+          "sum_sse_over_sum_energy": 0.5751999368153764,
+          "median_token_sse_over_energy": 0.81094236464985,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.5565230984178607,
+            0.556797365017137,
+            0.5720450707071774,
+            0.6224467142240713
+          ],
+          "sum_sse": 27842.57259143465
+        },
+        "dense_identity": {
+          "sum_sse_over_sum_energy": 9.109723588666958e-14,
+          "median_token_sse_over_energy": 8.828607470566025e-14,
+          "per_sequence_sum_sse_over_sum_energy": [
+            9.892780753911856e-14,
+            9.16943114544409e-14,
+            8.534325757715666e-14,
+            9.01558759070898e-14
+          ],
+          "sum_sse": 4.409564815143144e-09
+        }
+      },
+      "mass_ties_float64": {
+        "tokens_with_any_exact_tie": 0,
+        "adjacent_equal_pairs": 0,
+        "tokens_with_boundary_tie": 0
+      },
+      "output_greedy_ties": {
+        "selection_tie_token_steps": 0,
+        "selection_tie_extra_competitors": 0
+      },
+      "random_label_output_greedy_ties": {
+        "selection_tie_token_steps": 0,
+        "selection_tie_extra_competitors": 0
+      },
+      "reconstruction": {
+        "tokens": 512,
+        "max_relative_rms": 4.021051433247847e-07,
+        "dense_identity_max_relative_rms": 4.021051433247847e-07,
+        "tolerance": 1e-05,
+        "fires": true
+      },
+      "selection_controls": {
+        "mass": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "output_norm": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "output_greedy": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "random_label_greedy": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        }
+      },
+      "dense_identity": {
+        "labels_per_token": 256,
+        "fires": true
+      },
+      "output_greedy_vs_mass_per_token": {
+        "wins": 405,
+        "losses": 33,
+        "ties": 74
+      }
+    },
+    "7": {
+      "selectors": {
+        "mass": {
+          "sum_sse_over_sum_energy": 0.8243073225805571,
+          "median_token_sse_over_energy": 0.8541627986519391,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8481390153930839,
+            0.7953222534264692,
+            0.8424621690409105,
+            0.8115584321971422
+          ],
+          "sum_sse": 154032.8407392612
+        },
+        "output_norm": {
+          "sum_sse_over_sum_energy": 0.8234986434903583,
+          "median_token_sse_over_energy": 0.8527688318115351,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.846379497673487,
+            0.7933395095396633,
+            0.8418973853045496,
+            0.8132822488293615
+          ],
+          "sum_sse": 153881.7282426261
+        },
+        "output_greedy": {
+          "sum_sse_over_sum_energy": 0.8128911126789756,
+          "median_token_sse_over_energy": 0.8429703666999278,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8347120445133732,
+            0.7844582893265918,
+            0.8323117239654995,
+            0.7999248492543368
+          ],
+          "sum_sse": 151899.56933253485
+        },
+        "random_label_greedy": {
+          "sum_sse_over_sum_energy": 0.8416951471296542,
+          "median_token_sse_over_energy": 0.8765296049850333,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8596716116018763,
+            0.8127456854674687,
+            0.8512491822196507,
+            0.8485791557677257
+          ],
+          "sum_sse": 157281.988158198
+        },
+        "dense_identity": {
+          "sum_sse_over_sum_energy": 8.451376901703035e-14,
+          "median_token_sse_over_energy": 8.387822876663454e-14,
+          "per_sequence_sum_sse_over_sum_energy": [
+            8.475559703805171e-14,
+            8.429876471362657e-14,
+            8.824845923838231e-14,
+            7.90818220003787e-14
+          ],
+          "sum_sse": 1.579252733376361e-08
+        }
+      },
+      "mass_ties_float64": {
+        "tokens_with_any_exact_tie": 0,
+        "adjacent_equal_pairs": 0,
+        "tokens_with_boundary_tie": 0
+      },
+      "output_greedy_ties": {
+        "selection_tie_token_steps": 0,
+        "selection_tie_extra_competitors": 0
+      },
+      "random_label_output_greedy_ties": {
+        "selection_tie_token_steps": 0,
+        "selection_tie_extra_competitors": 0
+      },
+      "reconstruction": {
+        "tokens": 512,
+        "max_relative_rms": 3.452808198492435e-07,
+        "dense_identity_max_relative_rms": 3.452808198492435e-07,
+        "tolerance": 1e-05,
+        "fires": true
+      },
+      "selection_controls": {
+        "mass": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "output_norm": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "output_greedy": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "random_label_greedy": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        }
+      },
+      "dense_identity": {
+        "labels_per_token": 256,
+        "fires": true
+      },
+      "output_greedy_vs_mass_per_token": {
+        "wins": 380,
+        "losses": 20,
+        "ties": 112
+      }
+    },
+    "14": {
+      "selectors": {
+        "mass": {
+          "sum_sse_over_sum_energy": 0.892012658770696,
+          "median_token_sse_over_energy": 0.9105507767789679,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8855679306729564,
+            0.9151903102196309,
+            0.8872292288549577,
+            0.8822618289044992
+          ],
+          "sum_sse": 113665.94727555677
+        },
+        "output_norm": {
+          "sum_sse_over_sum_energy": 0.8843437794013606,
+          "median_token_sse_over_energy": 0.9021513337908234,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8754932249261754,
+            0.9069684322257319,
+            0.8802402953507813,
+            0.876281620375771
+          ],
+          "sum_sse": 112688.72971088813
+        },
+        "output_greedy": {
+          "sum_sse_over_sum_energy": 0.8544832664176948,
+          "median_token_sse_over_energy": 0.874740618927702,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8599319003849425,
+            0.8688770391009197,
+            0.8545163362041609,
+            0.8380902494461734
+          ],
+          "sum_sse": 108883.71252749978
+        },
+        "random_label_greedy": {
+          "sum_sse_over_sum_energy": 0.8815936895253859,
+          "median_token_sse_over_energy": 0.9000235454897525,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8846675941933952,
+            0.8917689143416282,
+            0.8745103866970008,
+            0.8775383531258186
+          ],
+          "sum_sse": 112338.29570328518
+        },
+        "dense_identity": {
+          "sum_sse_over_sum_energy": 8.184646405492445e-14,
+          "median_token_sse_over_energy": 8.3747094474679e-14,
+          "per_sequence_sum_sse_over_sum_energy": [
+            8.644448070654407e-14,
+            8.0986769756724e-14,
+            8.435590472423919e-14,
+            7.651801533161758e-14
+          ],
+          "sum_sse": 1.0429398928910601e-08
+        }
+      },
+      "mass_ties_float64": {
+        "tokens_with_any_exact_tie": 0,
+        "adjacent_equal_pairs": 0,
+        "tokens_with_boundary_tie": 0
+      },
+      "output_greedy_ties": {
+        "selection_tie_token_steps": 0,
+        "selection_tie_extra_competitors": 0
+      },
+      "random_label_output_greedy_ties": {
+        "selection_tie_token_steps": 0,
+        "selection_tie_extra_competitors": 0
+      },
+      "reconstruction": {
+        "tokens": 512,
+        "max_relative_rms": 3.433494683224888e-07,
+        "dense_identity_max_relative_rms": 3.433494683224888e-07,
+        "tolerance": 1e-05,
+        "fires": true
+      },
+      "selection_controls": {
+        "mass": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "output_norm": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "output_greedy": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "random_label_greedy": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        }
+      },
+      "dense_identity": {
+        "labels_per_token": 256,
+        "fires": true
+      },
+      "output_greedy_vs_mass_per_token": {
+        "wins": 482,
+        "losses": 10,
+        "ties": 20
+      }
+    },
+    "21": {
+      "selectors": {
+        "mass": {
+          "sum_sse_over_sum_energy": 0.7398301343203045,
+          "median_token_sse_over_energy": 0.8038137615147671,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.7566946988933647,
+            0.7394108819529,
+            0.7143522847002272,
+            0.7532938312214011
+          ],
+          "sum_sse": 446756.6911669305
+        },
+        "output_norm": {
+          "sum_sse_over_sum_energy": 0.7376368579182382,
+          "median_token_sse_over_energy": 0.8032375775949542,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.7558246043573832,
+            0.7365140703554872,
+            0.7122133437821085,
+            0.7503743724835089
+          ],
+          "sum_sse": 445432.25078156835
+        },
+        "output_greedy": {
+          "sum_sse_over_sum_energy": 0.7305273438082734,
+          "median_token_sse_over_energy": 0.7939797116790941,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.746953311026811,
+            0.7290322764557746,
+            0.7068171218287693,
+            0.7435036645437577
+          ],
+          "sum_sse": 441139.07204738434
+        },
+        "random_label_greedy": {
+          "sum_sse_over_sum_energy": 0.7760315428907951,
+          "median_token_sse_over_energy": 0.840527094022264,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.7917065692075378,
+            0.7646108125264266,
+            0.7428072057257803,
+            0.8128554280467869
+          ],
+          "sum_sse": 468617.41399811546
+        },
+        "dense_identity": {
+          "sum_sse_over_sum_energy": 9.15946702242373e-14,
+          "median_token_sse_over_energy": 9.08176010011296e-14,
+          "per_sequence_sum_sse_over_sum_energy": [
+            8.970779927251556e-14,
+            9.372598529889592e-14,
+            9.313887943799848e-14,
+            8.934474994370309e-14
+          ],
+          "sum_sse": 5.5310712418467336e-08
+        }
+      },
+      "mass_ties_float64": {
+        "tokens_with_any_exact_tie": 0,
+        "adjacent_equal_pairs": 0,
+        "tokens_with_boundary_tie": 0
+      },
+      "output_greedy_ties": {
+        "selection_tie_token_steps": 0,
+        "selection_tie_extra_competitors": 0
+      },
+      "random_label_output_greedy_ties": {
+        "selection_tie_token_steps": 0,
+        "selection_tie_extra_competitors": 0
+      },
+      "reconstruction": {
+        "tokens": 512,
+        "max_relative_rms": 3.654886990714364e-07,
+        "dense_identity_max_relative_rms": 3.654886990714364e-07,
+        "tolerance": 1e-05,
+        "fires": true
+      },
+      "selection_controls": {
+        "mass": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "output_norm": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "output_greedy": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "random_label_greedy": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        }
+      },
+      "dense_identity": {
+        "labels_per_token": 256,
+        "fires": true
+      },
+      "output_greedy_vs_mass_per_token": {
+        "wins": 352,
+        "losses": 29,
+        "ties": 131
+      }
+    },
+    "27": {
+      "selectors": {
+        "mass": {
+          "sum_sse_over_sum_energy": 0.294530451939634,
+          "median_token_sse_over_energy": 0.2794033255166501,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.23041365051752954,
+            0.29984294564446085,
+            0.38588859725268676,
+            0.3069944423232219
+          ],
+          "sum_sse": 7247181.8892250545
+        },
+        "output_norm": {
+          "sum_sse_over_sum_energy": 0.29360869427433567,
+          "median_token_sse_over_energy": 0.28015642248155165,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.23360575492135674,
+            0.30411459899839666,
+            0.37403403875738206,
+            0.3027419170570532
+          ],
+          "sum_sse": 7224501.227805455
+        },
+        "output_greedy": {
+          "sum_sse_over_sum_energy": 0.2813432418318553,
+          "median_token_sse_over_energy": 0.27008257700629146,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.2243298605820289,
+            0.29372953308974686,
+            0.35445377230105646,
+            0.289839827062329
+          ],
+          "sum_sse": 6922698.938028934
+        },
+        "random_label_greedy": {
+          "sum_sse_over_sum_energy": 0.6506728505017275,
+          "median_token_sse_over_energy": 0.6539845918234605,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.6634917084581563,
+            0.6410382936181515,
+            0.6484953252549968,
+            0.6452642031710647
+          ],
+          "sum_sse": 16010380.138665741
+        },
+        "dense_identity": {
+          "sum_sse_over_sum_energy": 3.639909779608186e-14,
+          "median_token_sse_over_energy": 3.520120729960497e-14,
+          "per_sequence_sum_sse_over_sum_energy": [
+            3.408529476859945e-14,
+            4.119033574375279e-14,
+            3.783989142714915e-14,
+            3.278661658565795e-14
+          ],
+          "sum_sse": 8.956319477143972e-07
+        }
+      },
+      "mass_ties_float64": {
+        "tokens_with_any_exact_tie": 0,
+        "adjacent_equal_pairs": 0,
+        "tokens_with_boundary_tie": 0
+      },
+      "output_greedy_ties": {
+        "selection_tie_token_steps": 0,
+        "selection_tie_extra_competitors": 0
+      },
+      "random_label_output_greedy_ties": {
+        "selection_tie_token_steps": 0,
+        "selection_tie_extra_competitors": 0
+      },
+      "reconstruction": {
+        "tokens": 512,
+        "max_relative_rms": 3.241326379224303e-07,
+        "dense_identity_max_relative_rms": 3.241326379224303e-07,
+        "tolerance": 1e-05,
+        "fires": true
+      },
+      "selection_controls": {
+        "mass": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "output_norm": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "output_greedy": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        },
+        "random_label_greedy": {
+          "tokens": 512,
+          "all_distinct": true,
+          "all_groups_size_35": true,
+          "ffn_weights": [
+            105
+          ]
+        }
+      },
+      "dense_identity": {
+        "labels_per_token": 256,
+        "fires": true
+      },
+      "output_greedy_vs_mass_per_token": {
+        "wins": 264,
+        "losses": 34,
+        "ties": 214
+      }
+    }
+  },
+  "mass_to_output_greedy": {
+    "summed_sse_ratio": 0.9577146641906827,
+    "summed_sse_reduction": 0.04228533580931726
+  },
+  "stopping_band": {
+    "name": "NO_LOCAL_SIGNAL",
+    "aggregate_sse_reduction": 0.04228533580931726,
+    "per_layer": {
+      "1": {
+        "mass_to_output_greedy_sse_ratio": 0.9709442854710729,
+        "sse_reduction": 0.02905571452892708
+      },
+      "7": {
+        "mass_to_output_greedy_sse_ratio": 0.9861505416865132,
+        "sse_reduction": 0.013849458313486829
+      },
+      "14": {
+        "mass_to_output_greedy_sse_ratio": 0.95792728725989,
+        "sse_reduction": 0.04207271274011004
+      },
+      "21": {
+        "mass_to_output_greedy_sse_ratio": 0.9874257750793326,
+        "sse_reduction": 0.012574224920667398
+      },
+      "27": {
+        "mass_to_output_greedy_sse_ratio": 0.9552263271219184,
+        "sse_reduction": 0.04477367287808165
+      }
+    },
+    "strong_gate": {
+      "aggregate_reduction_at_least_50pct": false,
+      "layers_at_least_50pct": 0,
+      "no_layer_worse_by_more_than_20pct": true
+    },
+    "scope": "local FFN reconstruction only; this band does not promote a donor or assert BPB/rate."
+  },
+  "operational_observations_only": {
+    "elapsed_seconds": 38.32857918739319,
+    "peak_rss_bytes": 9889538048,
+    "peak_rss_method": "psutil.memory_info.peak_wset (or rss fallback)"
+  }
+}
