@@ -28,11 +28,13 @@ documents that contain no local measurement.
 | Is one-byte + carve the right next trainable object? | **Yes on the matched 8L proxy:** R8 changes H0 by only −0.0000169 BPB, while hard k16 costs +0.209071; Phase B eligible. Rank is still broken at 9/160 free, 99/160 teacher-forced. | H2I Phase A |
 | What was H2I Phase B's terminal verdict? | **`SCORE-ONLY`:** v4 hard BPB 0.905344219843237 beats applied one-byte 1.0190764652622473 by −0.11373224541901028 (`TRAINING-HELPS`) and router beats STATIC, but teacher-forced top-1 95/160 fails strict >99; combined gate false. V1–v3 remain `VOID_OPERATIONAL`; no H2I rerun, export, engine, rate, 10B, scale or target-donor promotion. | canonical H2I result + adjudication; brief addendum N |
 | What does the rank fraction used by fast R128 cost post-hoc? | **At D=1536, r/D=1/32 costs +1.705835 BPB = 51.66% dense→chance gap; no width extrapolation.** | canonical E65 |
+| What is the H4 aggressive-rank ternary step zero? | **CPU controls pass:** rank48 q/o factorization fires on 56 organs, full self-test passes, dense intact is `0.7675949641196625` BPB (`160/160` free and teacher-forced), and H4 INIT is `2.8035765393907672` BPB (`5/160` free, `21/160` teacher-forced). P1 is qualitatively right, but its registered BPB band `3.2–5.5` is falsified. No T4 training has run. | `probes/H4_AGGRESSIVE_RANK_STEP_ZERO.md` |
 | Does a compressed pretrained 7B actually function on `engine.c`? | **Yes at one byte:** A2 0.674405 BPB vs fp32 0.674027; 4/5 greedy trajectories exact, 137/160 overall. It misses the strict 150/160 rank bar and has no rate claim. | canonical E66 run 2 / audit |
 
 ## Rules that prevent wasted work
 
 - Do not re-measure a closed question unless the engine, donor, slice, or estimand changed and the new scope is preregistered.
+- Do not repeat H4 step zero: its rank48 factorization, self-test, dense intact control and ternary INIT anchor are frozen in `probes/H4_AGGRESSIVE_RANK_STEP_ZERO.md`. A future H4 run must begin at the preregistered Stage A gate and must not substitute E65 QO-48 for `h4_eval_init.json`.
 - Do not reopen E38's post-hoc selector route with another router/carve search; an unattainable oracle already beat no usable signal.
 - Do not infer 10B quality from E62's 0.5/1.5/3B int8 points; the measured damage is non-monotone. Measure the target or state it unknown.
 - Do not infer rate from E63 Part A or E64/E65 quality. `G-E63d` is the separate clean-rate gate.
@@ -155,6 +157,7 @@ These entries are represented primarily by briefs, engine runners/results and `S
 | E66 | **COMPLETE — SCORE SURVIVES, RANK BAR DOES NOT:** A2 0.674405 BPB, +0.000378 vs fp32; fold worth 0.0000376; repaired rank run 2 is 137/160 with 4/5 full trajectories exact | rank run 1 void; promote rank only from run 2; no rate, 10 B or scale-law claim |
 | H2I Phase A | **PHASE-B-ELIGIBLE:** exact R8 8L baseline 0.810006 vs H0 0.810022; hard k16 1.019076, carve +0.209071. Rank 9/160 free, 99/160 teacher-forced, mean 3.675. | write-once matched baseline; do not remeasure. Train R8 selection/router and require score + rank improvement; no rate/10 B claim |
 | H2I Phase B | **V4 TERMINAL `SCORE-ONLY`; V1–V3 `VOID_OPERATIONAL`:** frozen guard/evaluator rc 3 records hard BPB 0.905344219843237 vs applied 1.0190764652622473 (−0.11373224541901028, `TRAINING-HELPS`) and a useful trained router, but strict teacher-forced rank is 95/160 rather than >99. The combined gate is false. | closed score+rank cell; do not rerun or select a checkpoint. Do not export, claim rate/10B/scale, or promote a target donor from this branch |
+| H4 step zero | **CPU STEP-ZERO COMPLETE / STAGE A NOT RUN:** rank48 ternary q/o on the pinned 1.5B donor passes G-H4a and G-H4b/c/d/f/g; INIT is 2.8035765393907672 BPB, 5/160 free, 21/160 teacher-forced. P1's qualitative ordering holds, numeric BPB band is falsified. | do not repeat step zero; freeze `h4_eval_init.json`/manifest, then explicitly communicate before any single-T4 Stage A; no 10B/rate/transfer/export claim |
 
 ## Open queue, ordered by information gain
 
