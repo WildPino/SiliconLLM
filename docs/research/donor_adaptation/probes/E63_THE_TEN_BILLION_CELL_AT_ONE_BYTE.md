@@ -369,3 +369,22 @@ failed occupancy window as scientific work. At the next genuinely quiet window, 
 committed Part B runner; it will repeat the cheap guard automatically and proceed to the frozen
 cells only if all 45 samples are below the bar. `G-E63d` remains unattempted under admissible
 conditions and OWED.
+
+### 15.1 Latest operational refusal — 2026-09-16
+
+The runner’s committed blob was unchanged. At observed HEAD
+`e865abc60e002dd2aced12faa13081a83ab885b3`, the same runner again passed all **43** self-tests
+and input/provenance checks, then refused its 45-second guard because strict foreign occupancy
+`<4.39%` was not satisfied:
+
+| statistic | observed | admissibility |
+|---|---:|---:|
+| median | 4.107830551989733% | descriptive only |
+| p75 | 10.718789407314% | descriptive only |
+| range | 0.3916449086161844%–25.130208333333336% | every sample must be `<4.39%` |
+| samples at or above 4.39% | **21/45** | **must be 0/45** |
+
+No timing cell ran. `e63_part_b.json` is absent; the updated operational record is
+`engine/results/e63_part_b_preflight.json`. This remains an operational refusal only:
+`G-E63d` is **unattempted / VOID / OWED**. The next admissible window must reuse the same
+committed runner and must not repeat Part A, parity or the interim ratio as substitutes.

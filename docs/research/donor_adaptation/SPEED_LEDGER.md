@@ -5980,20 +5980,22 @@ only rank under a new committed runner; all ten generation cells report and stor
 
 ---
 
-## §68 — E63 Part B is provenance-complete; the clean-rate cell has not started
+## §68 — E63 Part B is provenance-complete; the 2026-09-16 clean-rate preflight refused
 
 **No rate in this section. `G-E63d` remains `VOID` and OWED.** Addendum D froze an apparatus-only
 repair before the first admissible Part B: committed-runner identity, sha256 pins for Part A,
 engine, both 10 B artefacts and both sidecars, exact sidecar semantics, retained/asserted engine
 `CONFIG`, and a 45-second strict occupancy guard before the canonical result can be touched.
 
-The committed runner at `d4204c3` passed 43 self-tests and every provenance/input check. Its
-2026-09-15 preflight then read median **3.646%**, p75 **4.528%**, range **2.214–10.938%**, with
-**16/45** samples at or above `OCC_BAR=4.39%`. Because admissibility requires **every** sample
-below the bar, it refused before running a timing cell. `e63_part_b.json` was absent before and
-after; only `e63_part_b_preflight.json` was written.
+The committed runner blob was unchanged. At observed HEAD
+`e865abc60e002dd2aced12faa13081a83ab885b3`, it passed **43** self-tests and every
+provenance/input check. Its 2026-09-16 preflight then read median **4.107830551989733%**, p75
+**10.718789407314%**, range **0.3916449086161844–25.130208333333336%**, with **21/45** samples
+at or above the strict foreign-occupancy bar `OCC_BAR=4.39%`. Because admissibility requires
+every sample below the bar, it refused before running a timing cell. `e63_part_b.json` is
+absent; the updated operational record is `e63_part_b_preflight.json`.
 
 This checkpoint must not be promoted as a failed rate, a third estimate, or a repeated
 experiment. At the next quiet CPU window the same committed runner repeats the guard and, only
 if it passes, executes the already-frozen Part B. Part A, parity and the contended interim ratio
-must not be remeasured as substitutes.
+must not be remeasured as substitutes. `G-E63d` remains **unattempted / VOID / OWED**.
