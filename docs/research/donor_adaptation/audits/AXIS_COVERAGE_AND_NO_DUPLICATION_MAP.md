@@ -11,6 +11,11 @@ The later [STRAT-01 screen](STRAT_01_SPARSE_HYBRID_METADATA_SCREEN.md) adds
 Granite-4.0-H-Tiny-Base and LFM2.5-8B-A1B-Base at exact revisions with
 per-organ active-weight arithmetic and engine-semantic gaps; it is metadata
 only, not a quality or speed result.
+The still later [STRAT-03 result](../probes/STRAT_03_EXECUTABLE_SHARED_RESIDUAL_RESULT.md)
+closes the frozen five-layer `k=3/256` local diagnostic with a byte-count-
+matched SwiGLU shared path and `x`-only router: all three gates fail despite
+valid controls. Do not repeat that geometry or infer a general impossibility
+for other routers, jointly trained models or end-to-end quality.
 
 ## 1. How to read this map
 

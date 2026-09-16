@@ -1,5 +1,15 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**STRAT-03 CPU diagnostic (2026-09-16):** the byte-count-matched nonlinear
+shared SwiGLU plus `x`-only router was tested against a rank-96 linear shared
+path and E68's mass oracle on five real 1.5B donor FFN layers. All frozen
+apparatus controls passed; `NONLINEAR_BENEFIT=false`, `ROUTER_TRANSFER=false`,
+`EXECUTABLE_LOCAL_SIGNAL=false`. The executable arm cuts aggregate local SSE
+to `0.5783×` MASS but improves by ≥20% in only **1/5 layers**, worsens layer 1
+to `1.4602×`, and router recall is `0.4391`. No BPB, generation, T4, engine,
+speed or 10B claim. Do not rerun this exact cell or promote it to T4;
+[canonical result](probes/STRAT_03_EXECUTABLE_SHARED_RESIDUAL_RESULT.md).
+
 **STRAT-01 metadata screen (2026-09-16):** the two hybrid/sparse base donors
 named in the strategic roadmap have now been priced by organ and checked
 against the native engine semantics, without downloading weights or running
