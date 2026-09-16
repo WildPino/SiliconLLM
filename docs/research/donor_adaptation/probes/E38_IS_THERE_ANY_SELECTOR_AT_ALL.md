@@ -1,5 +1,17 @@
 # E38 — is there any selector at all, or is 1.17% simply not enough capacity?
 
+**2026-09-16 scope erratum (result unchanged):** Here "oracle" means top-`k` groups by
+`sum(z_i²)` for the SwiGLU intermediate `z`, exactly as implemented in
+`engine/e38_oracle_ceiling.py`. It is optimal for **that ranking target only**. It is
+not an upper bound on reconstruction of `W_down z` or on BPB: columns of `W_down`
+can have different norms and group outputs can cancel. Even the registered `G-E38C`
+observation that this selector beat the fitted/random arms does not make the
+inequality a theorem about BPB. The measured `4.131817` BPB and registered
+`SELECTION-IS-DEAD` band remain valid for the mass-based comparison; the broad
+"no router can change this" interpretation is withdrawn. An output-aware
+selector and a shared-path-plus-sparse-residual operator are **unmeasured**. See
+`../briefs/BRIEF_E67_OUTPUT_AWARE_SELECTION.md` for a separately scoped test.
+
 **Read this first: the verdict landed on my registered prediction by 0.0416 BPB.** The band
 `SELECTION-IS-DEAD` required the oracle to come within **0.50** of a random selector and it came
 within **0.4584**. The band is assigned as registered and I am not dressing that up — **a bar

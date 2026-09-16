@@ -1,5 +1,12 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**E38 interpretation correction (2026-09-16):** Its `4.131817` BPB at
+`k=3/256` is a valid negative for sorting FFN groups by intermediate
+activation mass. The selector is **not** an oracle for `W_down` output error
+or end-to-end loss; the older statements below saying it closes *every*
+router/selector overreach. The distinct output-aware cell is preregistered
+in [E67](briefs/BRIEF_E67_OUTPUT_AWARE_SELECTION.md), still unmeasured.
+
 **Latest H5 cross-composition diagnostic (2026-09-16):** the frozen H4
 rank-48 q/o and H2I trained one-byte eight-layer FFN **do not transfer
 positively post-hoc** on the same real 1.5B donor. The H4-only planted
