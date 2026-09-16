@@ -1,5 +1,18 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**Latest E68 result (2026-09-16):** the frozen rank-64 linear shared residual
+over E67's mass-selected sparse FFN groups is `PARTIAL_LOCAL_SIGNAL` on the
+real 1.5B donor: aggregate local SSE is **7,988,513.932479 →
+3,728,564.506207** (ratio **0.46674069016**). Layer 27 supplies 90.72% of
+mass-only aggregate SSE and improves strongly, but layer 1 worsens
+(combined/mass **1.7711406384**), so the preregistered complementary gate
+fails. The rank-64 shared-only comparator is worse than mass-only
+(**26,958,119.734236** SSE); the combined/shared-only ratio is
+**0.1383095165**. All slice, label, factor, reconstruction and E67 rank-zero
+controls passed. This is a dense-`z`-oracle, post-hoc *local linear*
+diagnostic, not BPB, rank, generation, engine, cache, tok/s or 10B evidence.
+[E68 result](probes/E68_SHARED_RESIDUAL.md).
+
 **Latest E67 result (2026-09-16):** an output-aware greedy selector on the
 same frozen 1.5B donor, D0c grouping and `k=3/256` reduces summed local FFN
 output squared error by only **4.23%** versus E38's mass criterion, across
@@ -14,8 +27,9 @@ alone. [E67 result](probes/E67_OUTPUT_AWARE_SELECTION.md).
 `k=3/256` is a valid negative for sorting FFN groups by intermediate
 activation mass. The selector is **not** an oracle for `W_down` output error
 or end-to-end loss; the older statements below saying it closes *every*
-router/selector overreach. The distinct output-aware cell is preregistered
-in [E67](briefs/BRIEF_E67_OUTPUT_AWARE_SELECTION.md), still unmeasured.
+router/selector overreach. The distinct output-aware cell completed as E67
+with `NO_LOCAL_SIGNAL`; E68 then measured a different shared linear residual
+operator under its own frozen protocol. Neither is a BPB or rate result.
 
 **Latest H5 cross-composition diagnostic (2026-09-16):** the frozen H4
 rank-48 q/o and H2I trained one-byte eight-layer FFN **do not transfer

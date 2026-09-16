@@ -1,0 +1,1916 @@
+{
+  "brief": "BRIEF_E68_SHARED_RESIDUAL.md",
+  "scope": "CPU-only local linear shared-plus-block-sparse FFN-output diagnostic; no BPB, generation, engine, cache-residency, throughput, or rate claim",
+  "smoke": false,
+  "planted_selftests": "PASS",
+  "donor": {
+    "model": "Qwen/Qwen2.5-1.5B",
+    "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+    "precision": "fp32",
+    "attention": "eager"
+  },
+  "threads": 6,
+  "architecture": {
+    "n_layers": 28,
+    "d_model": 1536,
+    "d_ffn": 8960,
+    "n_heads": 12,
+    "n_kv_heads": 2,
+    "vocab": 151936,
+    "tie_word_embeddings": true,
+    "hidden_act": "silu",
+    "revision": "8faed761d45a263340a0528343f099c05c9a4323"
+  },
+  "slices": {
+    "calibration": {
+      "part": "calib",
+      "n_sequences": 8,
+      "sequence_length": 512,
+      "seed": 424242,
+      "ids_sha256": "92fc41840c8feb0595758e540a048c1661bf3f618b3355d637ecf418b6c00157",
+      "expected_ids_sha256": "92fc41840c8feb0595758e540a048c1661bf3f618b3355d637ecf418b6c00157",
+      "positions": [
+        0,
+        511
+      ],
+      "token_count_per_layer": 4096
+    },
+    "heldout": {
+      "part": "heldout",
+      "full_n_sequences": 24,
+      "sequence_length": 512,
+      "seed": 1234,
+      "full_ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+      "expected_full_ids_sha256": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65",
+      "selected_sequences": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "selected_positions": [
+        384,
+        511
+      ],
+      "selected_ids_sha256": "6e4160a27d10288f24d6a60fded1b0537c97fd28df8798d2a65dac235124a4b6",
+      "expected_selected_ids_sha256": "6e4160a27d10288f24d6a60fded1b0537c97fd28df8798d2a65dac235124a4b6",
+      "selected_token_count_per_layer": 512
+    },
+    "disjoint_fit_and_heldout": true,
+    "heldout_used_for_fit": false
+  },
+  "labels": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\d0c_labels\\labels_E256.npz",
+    "labels_E256_npz_sha256": "c39d0740b7f754daf168d811c77120c5394ae677e3882fef208d331d8c333c9c",
+    "learned_per_layer": {
+      "1": "20846b99936ee7c2ab90416af0d325ff7b27dfabdd086bfc1fada206bf46c5c5",
+      "7": "40902a27f43d449475f1f011255c598fb667153302bc893c1aa8088575518886",
+      "14": "878e8c2e62391401f5da3786d64838cba9852b4bb940b8c24e73a211c54ba1a3",
+      "21": "67427f39250809542a810a224e7b5d0be245d9e30839ce0fd2d3caf8988c9d72",
+      "27": "a61eb3a72b95172d3344ff155717d5172129afd350cb39a4e114bc3f419d188e"
+    },
+    "E": 256,
+    "neurons_per_group": 35
+  },
+  "source_hashes": {
+    "runner_sha256": "0fd10804742ce856f626314a2a251a8982f4a9ff6d63da2d48f79ca815df867e",
+    "brief_sha256": "eb72a48086521f809c08149d84ed9cae521a8e571268dede5ac7186f2a98c5b5",
+    "density_common_sha256": "7ac00b31e91d0018c775e2e9b26120c0ec025075d7913218ea3cdcfe3196e461",
+    "e19_carve_rank_sha256": "31c595efd5ccc12bf37922e54a38939a69ece96566adcde257340656d75e9525",
+    "e67_runner_sha256": "4c5914646876b91c992fd056793314d9d8b05cebdfeb25a00fbfee2e17f9d88f",
+    "e67_result_sha256": "98d1b63ec6b259dbf1902d01e696fc78199e4709e244cbbae4e4ca2c4b4a33aa"
+  },
+  "protocol": {
+    "layers": [
+      1,
+      7,
+      14,
+      21,
+      27
+    ],
+    "k": 3,
+    "groups": 256,
+    "neurons_per_selected_group": 35,
+    "selected_neurons_per_token": 105,
+    "mass_selector": "float64 sum(z_i^2), stable descending sort, lower label wins exact ties",
+    "capture": "x from MLP forward-pre-hook; z from down_proj forward-pre-hook",
+    "ranks": [
+      32,
+      64,
+      128
+    ],
+    "primary_rank": 64,
+    "fit_order": "calibration only; held-out scores are never supplied to the fit",
+    "rank_zero": "combined r=0 is exactly sparse-only, not a fitted zero-output arm",
+    "shared_only": "rank 32/64/128 fit y directly and omit selected groups at score time; only rank 64 participates in the preregistered verdict"
+  },
+  "layers": {
+    "1": {
+      "fit": {
+        "capture": {
+          "capture": "MLP forward-pre-hook for x; down_proj forward-pre-hook for z",
+          "fit_positions": [
+            0,
+            511
+          ],
+          "fit_tokens": 4096,
+          "reconstruction_max_relative_rms": 4.092115600319851e-07,
+          "reconstruction_tolerance": 1e-05,
+          "reconstruction_fires": true
+        },
+        "ridge": {
+          "formula": "C=X^T X+lambda I=L L^T; M=L^-1 X^T R=U Sigma V^T; A=L^-T U_r Sigma_r; prediction=(x A) V^T",
+          "lambda": 16.714550024662778,
+          "lambda_rule": "0.001 * trace(X^T X) / D",
+          "fit_shape_X": [
+            4096,
+            1536
+          ],
+          "fit_target_shape": [
+            4096,
+            1536
+          ],
+          "float64_accumulations_and_linear_algebra": true,
+          "residual_fit": {
+            "lambda": 16.714550024662778,
+            "cholesky_success": true,
+            "svd_success": true,
+            "M_shape": [
+              1536,
+              1536
+            ],
+            "singular_values_finite": true,
+            "objective_by_rank": {
+              "32": 195097.30844053582,
+              "64": 175311.54003745067,
+              "128": 151181.73482089431
+            },
+            "objective_nonincreasing_by_rank": true
+          },
+          "shared_only_fit": {
+            "lambda": 16.714550024662778,
+            "cholesky_success": true,
+            "svd_success": true,
+            "M_shape": [
+              1536,
+              1536
+            ],
+            "singular_values_finite": true,
+            "objective_by_rank": {
+              "32": 21801415.819163583,
+              "64": 21763390.318535425,
+              "128": 21717662.475182854
+            },
+            "objective_nonincreasing_by_rank": true
+          }
+        },
+        "factors": {
+          "residual_target_y_minus_y_sparse": {
+            "32": {
+              "rank": 32,
+              "A_shape": [
+                1536,
+                32
+              ],
+              "Vt_shape": [
+                32,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "64": {
+              "rank": 64,
+              "A_shape": [
+                1536,
+                64
+              ],
+              "Vt_shape": [
+                64,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "128": {
+              "rank": 128,
+              "A_shape": [
+                1536,
+                128
+              ],
+              "Vt_shape": [
+                128,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            }
+          },
+          "shared_only_target_y": {
+            "32": {
+              "rank": 32,
+              "A_shape": [
+                1536,
+                32
+              ],
+              "Vt_shape": [
+                32,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "64": {
+              "rank": 64,
+              "A_shape": [
+                1536,
+                64
+              ],
+              "Vt_shape": [
+                64,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "128": {
+              "rank": 128,
+              "A_shape": [
+                1536,
+                128
+              ],
+              "Vt_shape": [
+                128,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            }
+          }
+        },
+        "calibration": {
+          "combined_r0_sparse_only": {
+            "sum_sse_over_sum_energy": 0.0021752327068291586,
+            "median_token_sse_over_energy": 0.7426414640714274,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.001759173873593775,
+              0.002250069362333943,
+              0.0023749255940036574,
+              0.0023207972942298244,
+              0.0024576105245469482,
+              0.0018985275582640905,
+              0.0020679236742335793,
+              0.002429414378774717
+            ],
+            "sum_sse": 461112.9925072689
+          },
+          "residual_rank_32": {
+            "sum_sse_over_sum_energy": 0.0009106518961421757,
+            "median_token_sse_over_energy": 0.596594539668018,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.0007321048237186102,
+              0.0010331061950860933,
+              0.001025403805405708,
+              0.0008550091149394335,
+              0.0009138360655058874,
+              0.0008823832328988782,
+              0.0009818119732030732,
+              0.0009354966903993515
+            ],
+            "sum_sse": 193042.98783491814
+          },
+          "residual_rank_64": {
+            "sum_sse_over_sum_energy": 0.0008168424326705171,
+            "median_token_sse_over_energy": 0.5340797632855716,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.0006745414151583628,
+              0.0009564372159789747,
+              0.0008840370360618822,
+              0.0007652308846333771,
+              0.0008114324768610852,
+              0.0007669396573621376,
+              0.0008873412668293642,
+              0.0008448803049933064
+            ],
+            "sum_sse": 173156.94884188857
+          },
+          "residual_rank_128": {
+            "sum_sse_over_sum_energy": 0.0007021954555867341,
+            "median_token_sse_over_energy": 0.4545159528405639,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.0005950087876314698,
+              0.0008502029283270462,
+              0.0007413178589479798,
+              0.000657721193679831,
+              0.0006865432173865109,
+              0.0006433235977767754,
+              0.0007641956216254471,
+              0.0007216622216151959
+            ],
+            "sum_sse": 148853.70509281993
+          },
+          "shared_only_rank_32": {
+            "sum_sse_over_sum_energy": 0.09658039302426749,
+            "median_token_sse_over_energy": 23.595048792515826,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.09776650341629708,
+              0.13104833329358861,
+              0.09150803095207503,
+              0.08480782068499218,
+              0.08976873537778818,
+              0.0926626763905959,
+              0.09565227652348483,
+              0.09004585262513647
+            ],
+            "sum_sse": 20473429.76460948
+          },
+          "shared_only_rank_64": {
+            "sum_sse_over_sum_energy": 0.09639962941274591,
+            "median_token_sse_over_energy": 23.531986844315647,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.09766324372982543,
+              0.1309347382359813,
+              0.09126654261476431,
+              0.08461172404756927,
+              0.08958693351029919,
+              0.09240756648295194,
+              0.09541285318426855,
+              0.08990583592175466
+            ],
+            "sum_sse": 20435110.89896193
+          },
+          "shared_only_rank_128": {
+            "sum_sse_over_sum_energy": 0.09618170495138263,
+            "median_token_sse_over_energy": 23.44683176886803,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.09748238069974725,
+              0.13074027387211395,
+              0.09101086278286544,
+              0.08436088599817414,
+              0.08938669046132565,
+              0.09219071479183115,
+              0.0951341635319842,
+              0.08972533776692315
+            ],
+            "sum_sse": 20388914.55398961
+          }
+        },
+        "memory_discipline": "all registered layers are captured in eight forwards; this layer's X/residual/y matrices are materialized, fitted, and released sequentially"
+      },
+      "heldout": {
+        "combined_r0_sparse_only": {
+          "sum_sse_over_sum_energy": 0.5552431455279595,
+          "median_token_sse_over_energy": 0.7594451582188209,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.5333228357324957,
+            0.5378606163904216,
+            0.5586996202147654,
+            0.5953190649761689
+          ],
+          "sum_sse": 26876.563427406585
+        },
+        "residual_rank_32": {
+          "sum_sse_over_sum_energy": 0.9918568733794098,
+          "median_token_sse_over_energy": 1.0006565854307272,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8372140281695017,
+            0.8028075646484486,
+            0.7047504502657574,
+            1.7981049613804614
+          ],
+          "sum_sse": 48010.86583958294
+        },
+        "residual_rank_64": {
+          "sum_sse_over_sum_energy": 0.9834136992342799,
+          "median_token_sse_over_energy": 0.9936116882206516,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8322088657224308,
+            0.7940584810724888,
+            0.6854526527099373,
+            1.8017443274072795
+          ],
+          "sum_sse": 47602.17370665359
+        },
+        "residual_rank_128": {
+          "sum_sse_over_sum_energy": 0.9821774775984533,
+          "median_token_sse_over_energy": 0.9987324442446418,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8352951151829188,
+            0.7944393417307004,
+            0.6630488111429087,
+            1.8238565790892654
+          ],
+          "sum_sse": 47542.33435613981
+        },
+        "shared_only_rank_32": {
+          "sum_sse_over_sum_energy": 472.29983928128314,
+          "median_token_sse_over_energy": 153.97226111341018,
+          "per_sequence_sum_sse_over_sum_energy": [
+            257.06749158666105,
+            248.7211295575284,
+            127.48994434751981,
+            1467.72601921467
+          ],
+          "sum_sse": 22861689.855040528
+        },
+        "shared_only_rank_64": {
+          "sum_sse_over_sum_energy": 472.334442193242,
+          "median_token_sse_over_energy": 153.98336833928354,
+          "per_sequence_sum_sse_over_sum_energy": [
+            257.1109982127407,
+            248.75790739782002,
+            127.4882999469556,
+            1467.7997420818992
+          ],
+          "sum_sse": 22863364.810175996
+        },
+        "shared_only_rank_128": {
+          "sum_sse_over_sum_energy": 472.3993314746002,
+          "median_token_sse_over_energy": 154.01982792364757,
+          "per_sequence_sum_sse_over_sum_energy": [
+            257.17868682147355,
+            248.8235164567808,
+            127.50549140919698,
+            1467.9282747257328
+          ],
+          "sum_sse": 22866505.77805688
+        }
+      },
+      "score_capture": {
+        "capture": "MLP forward-pre-hook for x; down_proj forward-pre-hook for z",
+        "score_positions": [
+          384,
+          511
+        ],
+        "score_tokens": 512,
+        "reconstruction_max_relative_rms": 4.021051433247847e-07,
+        "reconstruction_tolerance": 1e-05,
+        "reconstruction_fires": true
+      },
+      "r0_e67_mass_anchor": {
+        "expected_e67_mass_sum_sse": 26876.563419583636,
+        "observed_r0_sum_sse": 26876.563427406585,
+        "relative_difference": 2.9106956248737916e-10,
+        "relative_tolerance": 1e-05,
+        "fires": true
+      }
+    },
+    "7": {
+      "fit": {
+        "capture": {
+          "capture": "MLP forward-pre-hook for x; down_proj forward-pre-hook for z",
+          "fit_positions": [
+            0,
+            511
+          ],
+          "fit_tokens": 4096,
+          "reconstruction_max_relative_rms": 3.6340643597988766e-07,
+          "reconstruction_tolerance": 1e-05,
+          "reconstruction_fires": true
+        },
+        "ridge": {
+          "formula": "C=X^T X+lambda I=L L^T; M=L^-1 X^T R=U Sigma V^T; A=L^-T U_r Sigma_r; prediction=(x A) V^T",
+          "lambda": 1.3031950753512576,
+          "lambda_rule": "0.001 * trace(X^T X) / D",
+          "fit_shape_X": [
+            4096,
+            1536
+          ],
+          "fit_target_shape": [
+            4096,
+            1536
+          ],
+          "float64_accumulations_and_linear_algebra": true,
+          "residual_fit": {
+            "lambda": 1.3031950753512576,
+            "cholesky_success": true,
+            "svd_success": true,
+            "M_shape": [
+              1536,
+              1536
+            ],
+            "singular_values_finite": true,
+            "objective_by_rank": {
+              "32": 942414.0768444273,
+              "64": 846849.1261007284,
+              "128": 715158.0540466681
+            },
+            "objective_nonincreasing_by_rank": true
+          },
+          "shared_only_fit": {
+            "lambda": 1.3031950753512576,
+            "cholesky_success": true,
+            "svd_success": true,
+            "M_shape": [
+              1536,
+              1536
+            ],
+            "singular_values_finite": true,
+            "objective_by_rank": {
+              "32": 1137567.4867797317,
+              "64": 1018502.7836880104,
+              "128": 857580.1569047483
+            },
+            "objective_nonincreasing_by_rank": true
+          }
+        },
+        "factors": {
+          "residual_target_y_minus_y_sparse": {
+            "32": {
+              "rank": 32,
+              "A_shape": [
+                1536,
+                32
+              ],
+              "Vt_shape": [
+                32,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "64": {
+              "rank": 64,
+              "A_shape": [
+                1536,
+                64
+              ],
+              "Vt_shape": [
+                64,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "128": {
+              "rank": 128,
+              "A_shape": [
+                1536,
+                128
+              ],
+              "Vt_shape": [
+                128,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            }
+          },
+          "shared_only_target_y": {
+            "32": {
+              "rank": 32,
+              "A_shape": [
+                1536,
+                32
+              ],
+              "Vt_shape": [
+                32,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "64": {
+              "rank": 64,
+              "A_shape": [
+                1536,
+                64
+              ],
+              "Vt_shape": [
+                64,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "128": {
+              "rank": 128,
+              "A_shape": [
+                1536,
+                128
+              ],
+              "Vt_shape": [
+                128,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            }
+          }
+        },
+        "calibration": {
+          "combined_r0_sparse_only": {
+            "sum_sse_over_sum_energy": 0.8248653531664975,
+            "median_token_sse_over_energy": 0.855610214858443,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.8186971143275876,
+              0.8066653849773607,
+              0.8349305428699008,
+              0.8403070495672142,
+              0.8155040402495771,
+              0.8306548656091395,
+              0.8242058149474992,
+              0.82931268306573
+            ],
+            "sum_sse": 1240735.5418936852
+          },
+          "residual_rank_32": {
+            "sum_sse_over_sum_energy": 0.6264318064104736,
+            "median_token_sse_over_energy": 0.6607862813124217,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.6599789709825388,
+              0.6328832504643128,
+              0.5419818455983347,
+              0.6511069665132632,
+              0.5854150318707972,
+              0.6527552194180164,
+              0.6491282696826098,
+              0.635727037791924
+            ],
+            "sum_sse": 942258.2774297412
+          },
+          "residual_rank_64": {
+            "sum_sse_over_sum_energy": 0.5628137856525085,
+            "median_token_sse_over_energy": 0.5976660470827175,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.6106192210661607,
+              0.5732667209676516,
+              0.47300412350802,
+              0.5875164097828834,
+              0.5220276877564081,
+              0.5773045982526914,
+              0.5833180353352588,
+              0.5721962819292292
+            ],
+            "sum_sse": 846566.127000185
+          },
+          "residual_rank_128": {
+            "sum_sse_over_sum_energy": 0.4750983005140081,
+            "median_token_sse_over_energy": 0.5097795172930195,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.5268045101240009,
+              0.48327104980980723,
+              0.39590656086702913,
+              0.49416353149361003,
+              0.4433308350468247,
+              0.4797285045874261,
+              0.49200225761043553,
+              0.4832373867802257
+            ],
+            "sum_sse": 714627.3571536869
+          },
+          "shared_only_rank_32": {
+            "sum_sse_over_sum_energy": 0.756134858006698,
+            "median_token_sse_over_energy": 0.8025893658706887,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.8122156001724903,
+              0.7683951389080061,
+              0.6464553862999768,
+              0.7784996089922492,
+              0.7162497651090886,
+              0.7872861082412481,
+              0.7831648983698851,
+              0.755308758878052
+            ],
+            "sum_sse": 1137353.374332209
+          },
+          "shared_only_rank_64": {
+            "sum_sse_over_sum_energy": 0.6768631057448558,
+            "median_token_sse_over_energy": 0.7256535227461366,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.7497096164689165,
+              0.6936573791913053,
+              0.5619470642790619,
+              0.7063098903955731,
+              0.6331548436865081,
+              0.6873089522286963,
+              0.6977043374749181,
+              0.6815575530659909
+            ],
+            "sum_sse": 1018115.3918882961
+          },
+          "shared_only_rank_128": {
+            "sum_sse_over_sum_energy": 0.5696618457897467,
+            "median_token_sse_over_energy": 0.6151436176956739,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.6461230838769482,
+              0.5845444315419366,
+              0.4655108223903602,
+              0.594207035204797,
+              0.5352256101278633,
+              0.5684451828967854,
+              0.5842564701823668,
+              0.5762962310584223
+            ],
+            "sum_sse": 856866.7555484441
+          }
+        },
+        "memory_discipline": "all registered layers are captured in eight forwards; this layer's X/residual/y matrices are materialized, fitted, and released sequentially"
+      },
+      "heldout": {
+        "combined_r0_sparse_only": {
+          "sum_sse_over_sum_energy": 0.8243073223909523,
+          "median_token_sse_over_energy": 0.8541627994534727,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8481390152714464,
+            0.7953222529773643,
+            0.8424621689346122,
+            0.8115584321860002
+          ],
+          "sum_sse": 154032.84070383103
+        },
+        "residual_rank_32": {
+          "sum_sse_over_sum_energy": 0.7236147645655169,
+          "median_token_sse_over_energy": 0.7393791003957801,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.7415777997001811,
+            0.6919839232487265,
+            0.755059755352714,
+            0.7024965367025502
+          ],
+          "sum_sse": 135217.09043899167
+        },
+        "residual_rank_64": {
+          "sum_sse_over_sum_energy": 0.7188701423926472,
+          "median_token_sse_over_energy": 0.735511324749742,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.7384470134773391,
+            0.6848213714433425,
+            0.7430174396200423,
+            0.7100148035736996
+          ],
+          "sum_sse": 134330.49437038743
+        },
+        "residual_rank_128": {
+          "sum_sse_over_sum_energy": 0.7214783385668876,
+          "median_token_sse_over_energy": 0.7284781002012634,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.7400173486355921,
+            0.680616885875857,
+            0.7290092050549198,
+            0.7482061025009301
+          ],
+          "sum_sse": 134817.87068613557
+        },
+        "shared_only_rank_32": {
+          "sum_sse_over_sum_energy": 0.8865364530828063,
+          "median_token_sse_over_energy": 0.9055256939772628,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8864613043299653,
+            0.8756536115402932,
+            0.9067369269056617,
+            0.8731775549882208
+          ],
+          "sum_sse": 165661.18551483357
+        },
+        "shared_only_rank_64": {
+          "sum_sse_over_sum_energy": 0.8882775385534626,
+          "median_token_sse_over_energy": 0.9029210299147656,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8911141497019528,
+            0.8705587038063102,
+            0.9003301912222704,
+            0.8933619956791966
+          ],
+          "sum_sse": 165986.53060600112
+        },
+        "shared_only_rank_128": {
+          "sum_sse_over_sum_energy": 0.906010601890199,
+          "median_token_sse_over_energy": 0.9170565647126314,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.9112222757193408,
+            0.8743216021497999,
+            0.9038768784172226,
+            0.9495359203121705
+          ],
+          "sum_sse": 169300.19050679595
+        }
+      },
+      "score_capture": {
+        "capture": "MLP forward-pre-hook for x; down_proj forward-pre-hook for z",
+        "score_positions": [
+          384,
+          511
+        ],
+        "score_tokens": 512,
+        "reconstruction_max_relative_rms": 3.452808198492435e-07,
+        "reconstruction_tolerance": 1e-05,
+        "reconstruction_fires": true
+      },
+      "r0_e67_mass_anchor": {
+        "expected_e67_mass_sum_sse": 154032.8407392612,
+        "observed_r0_sum_sse": 154032.84070383103,
+        "relative_difference": 2.3001710622703636e-10,
+        "relative_tolerance": 1e-05,
+        "fires": true
+      }
+    },
+    "14": {
+      "fit": {
+        "capture": {
+          "capture": "MLP forward-pre-hook for x; down_proj forward-pre-hook for z",
+          "fit_positions": [
+            0,
+            511
+          ],
+          "fit_tokens": 4096,
+          "reconstruction_max_relative_rms": 3.4926627631616817e-07,
+          "reconstruction_tolerance": 1e-05,
+          "reconstruction_fires": true
+        },
+        "ridge": {
+          "formula": "C=X^T X+lambda I=L L^T; M=L^-1 X^T R=U Sigma V^T; A=L^-T U_r Sigma_r; prediction=(x A) V^T",
+          "lambda": 1.123122812685428,
+          "lambda_rule": "0.001 * trace(X^T X) / D",
+          "fit_shape_X": [
+            4096,
+            1536
+          ],
+          "fit_target_shape": [
+            4096,
+            1536
+          ],
+          "float64_accumulations_and_linear_algebra": true,
+          "residual_fit": {
+            "lambda": 1.123122812685428,
+            "cholesky_success": true,
+            "svd_success": true,
+            "M_shape": [
+              1536,
+              1536
+            ],
+            "singular_values_finite": true,
+            "objective_by_rank": {
+              "32": 617491.8893346185,
+              "64": 547740.2870790442,
+              "128": 457359.75508448126
+            },
+            "objective_nonincreasing_by_rank": true
+          },
+          "shared_only_fit": {
+            "lambda": 1.123122812685428,
+            "cholesky_success": true,
+            "svd_success": true,
+            "M_shape": [
+              1536,
+              1536
+            ],
+            "singular_values_finite": true,
+            "objective_by_rank": {
+              "32": 698318.3090534759,
+              "64": 619691.9094798322,
+              "128": 518090.37747183314
+            },
+            "objective_nonincreasing_by_rank": true
+          }
+        },
+        "factors": {
+          "residual_target_y_minus_y_sparse": {
+            "32": {
+              "rank": 32,
+              "A_shape": [
+                1536,
+                32
+              ],
+              "Vt_shape": [
+                32,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "64": {
+              "rank": 64,
+              "A_shape": [
+                1536,
+                64
+              ],
+              "Vt_shape": [
+                64,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "128": {
+              "rank": 128,
+              "A_shape": [
+                1536,
+                128
+              ],
+              "Vt_shape": [
+                128,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            }
+          },
+          "shared_only_target_y": {
+            "32": {
+              "rank": 32,
+              "A_shape": [
+                1536,
+                32
+              ],
+              "Vt_shape": [
+                32,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "64": {
+              "rank": 64,
+              "A_shape": [
+                1536,
+                64
+              ],
+              "Vt_shape": [
+                64,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "128": {
+              "rank": 128,
+              "A_shape": [
+                1536,
+                128
+              ],
+              "Vt_shape": [
+                128,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            }
+          }
+        },
+        "calibration": {
+          "combined_r0_sparse_only": {
+            "sum_sse_over_sum_energy": 0.8892385469198613,
+            "median_token_sse_over_energy": 0.9159401046856535,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.8972300194372845,
+              0.8904173316068545,
+              0.8880206333986204,
+              0.8882137604817131,
+              0.8669050873809314,
+              0.8963630209143895,
+              0.8946457179692959,
+              0.8943387898559203
+            ],
+            "sum_sse": 841304.845205442
+          },
+          "residual_rank_32": {
+            "sum_sse_over_sum_energy": 0.6525382853675565,
+            "median_token_sse_over_energy": 0.6972168489498854,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.6927906306001013,
+              0.6742090201856077,
+              0.5812399468059839,
+              0.672911718227933,
+              0.6024519453101901,
+              0.6793549734232058,
+              0.6814826541801282,
+              0.6562461694289402
+            ],
+            "sum_sse": 617363.7243497176
+          },
+          "residual_rank_64": {
+            "sum_sse_over_sum_energy": 0.5787279352024568,
+            "median_token_sse_over_energy": 0.6222682910000916,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.6267462653124595,
+              0.6017806841188957,
+              0.5014860983388246,
+              0.6028314369248672,
+              0.5348527879365016,
+              0.5997702045849833,
+              0.6046072474961279,
+              0.5805963446805589
+            ],
+            "sum_sse": 547532.0628284083
+          },
+          "residual_rank_128": {
+            "sum_sse_over_sum_energy": 0.4830381565359052,
+            "median_token_sse_over_energy": 0.5237328812474247,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.5321682606117862,
+              0.5084087181261158,
+              0.4063173936602325,
+              0.5113139618356215,
+              0.444732753779459,
+              0.49567696843678516,
+              0.49985603952725266,
+              0.48962989767480886
+            ],
+            "sum_sse": 457000.3661226634
+          },
+          "shared_only_rank_32": {
+            "sum_sse_over_sum_energy": 0.7379431570332103,
+            "median_token_sse_over_energy": 0.7874944867533816,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.7819743587350705,
+              0.7627211883864181,
+              0.6494925639793898,
+              0.7684441437157079,
+              0.6880075788108659,
+              0.7646440909820961,
+              0.775601111365019,
+              0.7368946371631044
+            ],
+            "sum_sse": 698164.9138453174
+          },
+          "shared_only_rank_64": {
+            "sum_sse_over_sum_energy": 0.6547357369345043,
+            "median_token_sse_over_energy": 0.7044661579270259,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.7098043147915132,
+              0.6829644820765396,
+              0.5575556942057309,
+              0.6926137540382298,
+              0.6092921626447858,
+              0.6758378235007579,
+              0.6842262040007117,
+              0.6537256429651515
+            ],
+            "sum_sse": 619442.7240250928
+          },
+          "shared_only_rank_128": {
+            "sum_sse_over_sum_energy": 0.5471569063921188,
+            "median_token_sse_over_energy": 0.5917722749910562,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.6070821061099972,
+              0.5772983878834564,
+              0.45229022078836273,
+              0.585526242952074,
+              0.5082102646158906,
+              0.5555743936057588,
+              0.5692890619322432,
+              0.5513868491946167
+            ],
+            "sum_sse": 517662.845397091
+          }
+        },
+        "memory_discipline": "all registered layers are captured in eight forwards; this layer's X/residual/y matrices are materialized, fitted, and released sequentially"
+      },
+      "heldout": {
+        "combined_r0_sparse_only": {
+          "sum_sse_over_sum_energy": 0.8920126590311501,
+          "median_token_sse_over_energy": 0.910550775726247,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8855679297268776,
+            0.9151903111626308,
+            0.8872292278375749,
+            0.8822618307827584
+          ],
+          "sum_sse": 113665.94730874548
+        },
+        "residual_rank_32": {
+          "sum_sse_over_sum_energy": 0.6979818533121166,
+          "median_token_sse_over_energy": 0.7307657723832597,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.7365503054872033,
+            0.7041532377871191,
+            0.7223666678631632,
+            0.638798382569496
+          ],
+          "sum_sse": 88941.30341962448
+        },
+        "residual_rank_64": {
+          "sum_sse_over_sum_energy": 0.6799293186954573,
+          "median_token_sse_over_energy": 0.7106237535911393,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.7197420297848651,
+            0.6817125057365893,
+            0.6961985212579581,
+            0.6313614297891775
+          ],
+          "sum_sse": 86640.93421773982
+        },
+        "residual_rank_128": {
+          "sum_sse_over_sum_energy": 0.669063395863271,
+          "median_token_sse_over_energy": 0.6993442044234011,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.7127043816322449,
+            0.6714980232706097,
+            0.674424343116995,
+            0.6275729303707345
+          ],
+          "sum_sse": 85256.32896623404
+        },
+        "shared_only_rank_32": {
+          "sum_sse_over_sum_energy": 0.7969030336429647,
+          "median_token_sse_over_energy": 0.8261547236732136,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8465548713008536,
+            0.784734811006451,
+            0.8176670846903664,
+            0.7479569619949773
+          ],
+          "sum_sse": 101546.47169539492
+        },
+        "shared_only_rank_64": {
+          "sum_sse_over_sum_energy": 0.7807618368396317,
+          "median_token_sse_over_energy": 0.812444961740598,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8340498147345995,
+            0.764143528159675,
+            0.7914301816637191,
+            0.7425365811607313
+          ],
+          "sum_sse": 99489.6573589925
+        },
+        "shared_only_rank_128": {
+          "sum_sse_over_sum_energy": 0.7744419386704862,
+          "median_token_sse_over_energy": 0.8062751008213005,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8344140583191946,
+            0.7606443392603028,
+            0.7681799545241212,
+            0.7450993731338953
+          ],
+          "sum_sse": 98684.33559027345
+        }
+      },
+      "score_capture": {
+        "capture": "MLP forward-pre-hook for x; down_proj forward-pre-hook for z",
+        "score_positions": [
+          384,
+          511
+        ],
+        "score_tokens": 512,
+        "reconstruction_max_relative_rms": 3.433494683224888e-07,
+        "reconstruction_tolerance": 1e-05,
+        "reconstruction_fires": true
+      },
+      "r0_e67_mass_anchor": {
+        "expected_e67_mass_sum_sse": 113665.94727555677,
+        "observed_r0_sum_sse": 113665.94730874548,
+        "relative_difference": 2.919846614390627e-10,
+        "relative_tolerance": 1e-05,
+        "fires": true
+      }
+    },
+    "21": {
+      "fit": {
+        "capture": {
+          "capture": "MLP forward-pre-hook for x; down_proj forward-pre-hook for z",
+          "fit_positions": [
+            0,
+            511
+          ],
+          "fit_tokens": 4096,
+          "reconstruction_max_relative_rms": 4.425435564949901e-07,
+          "reconstruction_tolerance": 1e-05,
+          "reconstruction_fires": true
+        },
+        "ridge": {
+          "formula": "C=X^T X+lambda I=L L^T; M=L^-1 X^T R=U Sigma V^T; A=L^-T U_r Sigma_r; prediction=(x A) V^T",
+          "lambda": 2.3741076736440863,
+          "lambda_rule": "0.001 * trace(X^T X) / D",
+          "fit_shape_X": [
+            4096,
+            1536
+          ],
+          "fit_target_shape": [
+            4096,
+            1536
+          ],
+          "float64_accumulations_and_linear_algebra": true,
+          "residual_fit": {
+            "lambda": 2.3741076736440863,
+            "cholesky_success": true,
+            "svd_success": true,
+            "M_shape": [
+              1536,
+              1536
+            ],
+            "singular_values_finite": true,
+            "objective_by_rank": {
+              "32": 2506551.6390584223,
+              "64": 2217163.079364094,
+              "128": 1843257.437788493
+            },
+            "objective_nonincreasing_by_rank": true
+          },
+          "shared_only_fit": {
+            "lambda": 2.3741076736440863,
+            "cholesky_success": true,
+            "svd_success": true,
+            "M_shape": [
+              1536,
+              1536
+            ],
+            "singular_values_finite": true,
+            "objective_by_rank": {
+              "32": 3424179.714340876,
+              "64": 2996479.7547715334,
+              "128": 2460522.762251791
+            },
+            "objective_nonincreasing_by_rank": true
+          }
+        },
+        "factors": {
+          "residual_target_y_minus_y_sparse": {
+            "32": {
+              "rank": 32,
+              "A_shape": [
+                1536,
+                32
+              ],
+              "Vt_shape": [
+                32,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "64": {
+              "rank": 64,
+              "A_shape": [
+                1536,
+                64
+              ],
+              "Vt_shape": [
+                64,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "128": {
+              "rank": 128,
+              "A_shape": [
+                1536,
+                128
+              ],
+              "Vt_shape": [
+                128,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            }
+          },
+          "shared_only_target_y": {
+            "32": {
+              "rank": 32,
+              "A_shape": [
+                1536,
+                32
+              ],
+              "Vt_shape": [
+                32,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "64": {
+              "rank": 64,
+              "A_shape": [
+                1536,
+                64
+              ],
+              "Vt_shape": [
+                64,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "128": {
+              "rank": 128,
+              "A_shape": [
+                1536,
+                128
+              ],
+              "Vt_shape": [
+                128,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            }
+          }
+        },
+        "calibration": {
+          "combined_r0_sparse_only": {
+            "sum_sse_over_sum_energy": 0.7190255565424586,
+            "median_token_sse_over_energy": 0.7734213326015342,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.7763890924507519,
+              0.7029815751685693,
+              0.7341885693015141,
+              0.7036215172422757,
+              0.6881806453996767,
+              0.6863857678676243,
+              0.7362537399724953,
+              0.7347732820100875
+            ],
+            "sum_sse": 3656618.924918597
+          },
+          "residual_rank_32": {
+            "sum_sse_over_sum_energy": 0.492761002246055,
+            "median_token_sse_over_energy": 0.5208624551443533,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.5526685445830808,
+              0.4681482938233538,
+              0.4620332162291122,
+              0.4720053899153698,
+              0.48682250773577973,
+              0.484166915243799,
+              0.5170779968544897,
+              0.5110116283992736
+            ],
+            "sum_sse": 2505945.984645097
+          },
+          "residual_rank_64": {
+            "sum_sse_over_sum_energy": 0.4357562690419388,
+            "median_token_sse_over_energy": 0.4635530830014003,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.5005218430508587,
+              0.41818398847644545,
+              0.3941196739484894,
+              0.42204598867275034,
+              0.43121449222967423,
+              0.4131361654670724,
+              0.46340391182178836,
+              0.45763343642236043
+            ],
+            "sum_sse": 2216047.267767155
+          },
+          "residual_rank_128": {
+            "sum_sse_over_sum_energy": 0.3620402205910779,
+            "median_token_sse_over_energy": 0.3859571189952764,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.422757664485828,
+              0.352069452337474,
+              0.31874130308457554,
+              0.3504132744277754,
+              0.3595521596632825,
+              0.33629216528954003,
+              0.38707254894639903,
+              0.3832642168031252
+            ],
+            "sum_sse": 1841162.8211950292
+          },
+          "shared_only_rank_32": {
+            "sum_sse_over_sum_energy": 0.6731374942742593,
+            "median_token_sse_over_energy": 0.6880379412491735,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.7424202574580231,
+              0.6182093822873638,
+              0.6266839378702468,
+              0.6246705227631467,
+              0.6892640101275147,
+              0.6567586633500343,
+              0.7463601891957711,
+              0.7018612890405339
+            ],
+            "sum_sse": 3423254.2616031393
+          },
+          "shared_only_rank_64": {
+            "sum_sse_over_sum_energy": 0.5888819598128024,
+            "median_token_sse_over_energy": 0.6060961196354859,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.6743894674158818,
+              0.5568368302698532,
+              0.5214307920592721,
+              0.5607375185590684,
+              0.6040935990123826,
+              0.5391659495016313,
+              0.65848479006554,
+              0.6214309870288749
+            ],
+            "sum_sse": 2994771.047011446
+          },
+          "shared_only_rank_128": {
+            "sum_sse_over_sum_energy": 0.483206670503384,
+            "median_token_sse_over_energy": 0.5037201741857953,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.568630564057295,
+              0.46211345051021696,
+              0.42134948410258677,
+              0.46105994015314167,
+              0.49377590627889534,
+              0.4280802615075833,
+              0.5402560057934257,
+              0.5147688462666953
+            ],
+            "sum_sse": 2457357.238463113
+          }
+        },
+        "memory_discipline": "all registered layers are captured in eight forwards; this layer's X/residual/y matrices are materialized, fitted, and released sequentially"
+      },
+      "heldout": {
+        "combined_r0_sparse_only": {
+          "sum_sse_over_sum_energy": 0.7398301342584419,
+          "median_token_sse_over_energy": 0.8038137618648538,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.7566946988360412,
+            0.7394108817793789,
+            0.7143522846903005,
+            0.7532938312167148
+          ],
+          "sum_sse": 446756.69112957385
+        },
+        "residual_rank_32": {
+          "sum_sse_over_sum_energy": 0.6281070352186825,
+          "median_token_sse_over_energy": 0.6809274317951297,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.6014870790109925,
+            0.6138714690115568,
+            0.6103322054240277,
+            0.6955246718693665
+          ],
+          "sum_sse": 379291.14770483325
+        },
+        "residual_rank_64": {
+          "sum_sse_over_sum_energy": 0.6202770392681246,
+          "median_token_sse_over_energy": 0.6672903808800976,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.5933565757617054,
+            0.5997002177600274,
+            0.5964964327843726,
+            0.7026432479772852
+          ],
+          "sum_sse": 374562.8960150917
+        },
+        "residual_rank_128": {
+          "sum_sse_over_sum_energy": 0.6313266580833254,
+          "median_token_sse_over_energy": 0.6792143244263635,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.5981167308417599,
+            0.603686316457762,
+            0.5972552477185598,
+            0.7413537243188517
+          ],
+          "sum_sse": 381235.36164136714
+        },
+        "shared_only_rank_32": {
+          "sum_sse_over_sum_energy": 0.8727585707783844,
+          "median_token_sse_over_energy": 0.8729606262096845,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8233857523515211,
+            0.8602545785967528,
+            0.8582249363422896,
+            0.9592348908123146
+          ],
+          "sum_sse": 527027.3717989987
+        },
+        "shared_only_rank_64": {
+          "sum_sse_over_sum_energy": 0.8720445555079633,
+          "median_token_sse_over_energy": 0.8752912324747069,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8234290388191323,
+            0.8490794126625629,
+            0.8454079786132412,
+            0.9845207259599646
+          ],
+          "sum_sse": 526596.2037715581
+        },
+        "shared_only_rank_128": {
+          "sum_sse_over_sum_energy": 0.8923855215490394,
+          "median_token_sse_over_energy": 0.893421389715588,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.8363792242002375,
+            0.8503398014807871,
+            0.8442569324064584,
+            1.061213142868938
+          ],
+          "sum_sse": 538879.378330268
+        }
+      },
+      "score_capture": {
+        "capture": "MLP forward-pre-hook for x; down_proj forward-pre-hook for z",
+        "score_positions": [
+          384,
+          511
+        ],
+        "score_tokens": 512,
+        "reconstruction_max_relative_rms": 3.654886990714364e-07,
+        "reconstruction_tolerance": 1e-05,
+        "reconstruction_fires": true
+      },
+      "r0_e67_mass_anchor": {
+        "expected_e67_mass_sum_sse": 446756.6911669305,
+        "observed_r0_sum_sse": 446756.69112957385,
+        "relative_difference": 8.36173912444182e-11,
+        "relative_tolerance": 1e-05,
+        "fires": true
+      }
+    },
+    "27": {
+      "fit": {
+        "capture": {
+          "capture": "MLP forward-pre-hook for x; down_proj forward-pre-hook for z",
+          "fit_positions": [
+            0,
+            511
+          ],
+          "fit_tokens": 4096,
+          "reconstruction_max_relative_rms": 3.333359830100315e-07,
+          "reconstruction_tolerance": 1e-05,
+          "reconstruction_fires": true
+        },
+        "ridge": {
+          "formula": "C=X^T X+lambda I=L L^T; M=L^-1 X^T R=U Sigma V^T; A=L^-T U_r Sigma_r; prediction=(x A) V^T",
+          "lambda": 6.787473684478478,
+          "lambda_rule": "0.001 * trace(X^T X) / D",
+          "fit_shape_X": [
+            4096,
+            1536
+          ],
+          "fit_target_shape": [
+            4096,
+            1536
+          ],
+          "float64_accumulations_and_linear_algebra": true,
+          "residual_fit": {
+            "lambda": 6.787473684478478,
+            "cholesky_success": true,
+            "svd_success": true,
+            "M_shape": [
+              1536,
+              1536
+            ],
+            "singular_values_finite": true,
+            "objective_by_rank": {
+              "32": 15682469.434886433,
+              "64": 13003432.15699264,
+              "128": 10068884.082467696
+            },
+            "objective_nonincreasing_by_rank": true
+          },
+          "shared_only_fit": {
+            "lambda": 6.787473684478478,
+            "cholesky_success": true,
+            "svd_success": true,
+            "M_shape": [
+              1536,
+              1536
+            ],
+            "singular_values_finite": true,
+            "objective_by_rank": {
+              "32": 18036098.37799847,
+              "64": 14427960.544227123,
+              "128": 10808749.463322999
+            },
+            "objective_nonincreasing_by_rank": true
+          }
+        },
+        "factors": {
+          "residual_target_y_minus_y_sparse": {
+            "32": {
+              "rank": 32,
+              "A_shape": [
+                1536,
+                32
+              ],
+              "Vt_shape": [
+                32,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "64": {
+              "rank": 64,
+              "A_shape": [
+                1536,
+                64
+              ],
+              "Vt_shape": [
+                64,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "128": {
+              "rank": 128,
+              "A_shape": [
+                1536,
+                128
+              ],
+              "Vt_shape": [
+                128,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            }
+          },
+          "shared_only_target_y": {
+            "32": {
+              "rank": 32,
+              "A_shape": [
+                1536,
+                32
+              ],
+              "Vt_shape": [
+                32,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "64": {
+              "rank": 64,
+              "A_shape": [
+                1536,
+                64
+              ],
+              "Vt_shape": [
+                64,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            },
+            "128": {
+              "rank": 128,
+              "A_shape": [
+                1536,
+                128
+              ],
+              "Vt_shape": [
+                128,
+                1536
+              ],
+              "fit_dtype": "float64",
+              "score_factor_conversion": "A and Vt cast float64 -> float32 before fp32 donor scoring",
+              "finite": true
+            }
+          }
+        },
+        "calibration": {
+          "combined_r0_sparse_only": {
+            "sum_sse_over_sum_energy": 0.2895950768934439,
+            "median_token_sse_over_energy": 0.2534543676666088,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.24809717383877303,
+              0.27898840946597736,
+              0.29588405121736777,
+              0.2857221127196526,
+              0.31316834016824585,
+              0.3662330562306918,
+              0.26886183115056445,
+              0.30176891864139405
+            ],
+            "sum_sse": 61131552.2519784
+          },
+          "residual_rank_32": {
+            "sum_sse_over_sum_energy": 0.07417773800173624,
+            "median_token_sse_over_energy": 0.051035694638922546,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.05828560055296742,
+              0.07262105471970524,
+              0.07176297609728906,
+              0.07747922548196351,
+              0.06958508518377009,
+              0.07734226409531561,
+              0.08651266967705408,
+              0.08255667796424462
+            ],
+            "sum_sse": 15658416.279829241
+          },
+          "residual_rank_64": {
+            "sum_sse_over_sum_energy": 0.06144326562688004,
+            "median_token_sse_over_energy": 0.04341851537532976,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.050059112707823546,
+              0.05839751282156605,
+              0.059372745422277155,
+              0.06452240978641324,
+              0.0586512084988669,
+              0.06630401017015453,
+              0.06989428208491502,
+              0.06754164049506432
+            ],
+            "sum_sse": 12970255.722212657
+          },
+          "residual_rank_128": {
+            "sum_sse_over_sum_energy": 0.04747722330917985,
+            "median_token_sse_over_energy": 0.03669403454105522,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.04001114296400374,
+              0.044419857563934136,
+              0.04551651511605787,
+              0.04802629597685912,
+              0.04792061717955945,
+              0.055142424310159276,
+              0.05168884043538237,
+              0.05143254974632844
+            ],
+            "sum_sse": 10022119.121078473
+          },
+          "shared_only_rank_32": {
+            "sum_sse_over_sum_energy": 0.08527771636637639,
+            "median_token_sse_over_energy": 0.05731660444687731,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.06627799363462368,
+              0.08434689518514232,
+              0.08005206702081512,
+              0.08925588729384579,
+              0.0796698080288794,
+              0.09190851734358148,
+              0.09945576109224116,
+              0.0948675313844244
+            ],
+            "sum_sse": 18001546.26212346
+          },
+          "shared_only_rank_64": {
+            "sum_sse_over_sum_energy": 0.06813029776606032,
+            "median_token_sse_over_energy": 0.04625907849384153,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.05500441856109378,
+              0.06418379762989314,
+              0.0641072963814316,
+              0.07136667687075801,
+              0.0653128521102769,
+              0.07475967272440553,
+              0.07856689415620087,
+              0.0757169026498226
+            ],
+            "sum_sse": 14381842.752669571
+          },
+          "shared_only_rank_128": {
+            "sum_sse_over_sum_energy": 0.05090844480022991,
+            "median_token_sse_over_energy": 0.038109395679947575,
+            "per_sequence_sum_sse_over_sum_energy": [
+              0.04229789870028053,
+              0.04760204273907808,
+              0.04802430718135793,
+              0.0510897674024424,
+              0.052092766196318974,
+              0.059297597025669196,
+              0.056337234926571514,
+              0.05537608572694994
+            ],
+            "sum_sse": 10746426.654612329
+          }
+        },
+        "memory_discipline": "all registered layers are captured in eight forwards; this layer's X/residual/y matrices are materialized, fitted, and released sequentially"
+      },
+      "heldout": {
+        "combined_r0_sparse_only": {
+          "sum_sse_over_sum_energy": 0.2945304519674681,
+          "median_token_sse_over_energy": 0.2794033258865053,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.23041365014705115,
+            0.29984294534300016,
+            0.3858885976622721,
+            0.30699444302418427
+          ],
+          "sum_sse": 7247181.889909937
+        },
+        "residual_rank_32": {
+          "sum_sse_over_sum_energy": 0.12168911959925305,
+          "median_token_sse_over_energy": 0.08911784084193211,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.0814771613035761,
+            0.15410380021166667,
+            0.16267046364052948,
+            0.10762357195274369
+          ],
+          "sum_sse": 2994268.2594199134
+        },
+        "residual_rank_64": {
+          "sum_sse_over_sum_energy": 0.12539391441855208,
+          "median_token_sse_over_energy": 0.09018578945815475,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.08311732589464331,
+            0.15780676540938404,
+            0.17080321081346464,
+            0.11070614792979691
+          ],
+          "sum_sse": 3085428.0078972005
+        },
+        "residual_rank_128": {
+          "sum_sse_over_sum_energy": 0.1333538327342412,
+          "median_token_sse_over_energy": 0.09642925135957173,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.0874461188958559,
+            0.16469263126969053,
+            0.18825464537359463,
+            0.11746125882695921
+          ],
+          "sum_sse": 3281288.827983119
+        },
+        "shared_only_rank_32": {
+          "sum_sse_over_sum_energy": 0.13500219025326848,
+          "median_token_sse_over_energy": 0.10010197776479134,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.08863699058301971,
+            0.17910215472593863,
+            0.16669704070722388,
+            0.12351126409661585
+          ],
+          "sum_sse": 3321848.12051193
+        },
+        "shared_only_rank_64": {
+          "sum_sse_over_sum_energy": 0.13422328757950794,
+          "median_token_sse_over_energy": 0.09873250824377598,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.08730562319329503,
+            0.1755695011855952,
+            0.17249345581360107,
+            0.12144348329675769
+          ],
+          "sum_sse": 3302682.5323237744
+        },
+        "shared_only_rank_128": {
+          "sum_sse_over_sum_energy": 0.14118164556941387,
+          "median_token_sse_over_energy": 0.09992695160727125,
+          "per_sequence_sum_sse_over_sum_energy": [
+            0.09124971023142209,
+            0.18109918484812465,
+            0.19159145954538256,
+            0.12451767937272921
+          ],
+          "sum_sse": 3473899.0760498755
+        }
+      },
+      "score_capture": {
+        "capture": "MLP forward-pre-hook for x; down_proj forward-pre-hook for z",
+        "score_positions": [
+          384,
+          511
+        ],
+        "score_tokens": 512,
+        "reconstruction_max_relative_rms": 3.241326379224303e-07,
+        "reconstruction_tolerance": 1e-05,
+        "reconstruction_fires": true
+      },
+      "r0_e67_mass_anchor": {
+        "expected_e67_mass_sum_sse": 7247181.8892250545,
+        "observed_r0_sum_sse": 7247181.889909937,
+        "relative_difference": 9.450328757403215e-11,
+        "relative_tolerance": 1e-05,
+        "fires": true
+      }
+    }
+  },
+  "verdict": {
+    "name": "PARTIAL_LOCAL_SIGNAL",
+    "primary_rank": 64,
+    "aggregate_sse": {
+      "combined_r0_sparse_only": 7988513.932479494,
+      "residual_rank_64": 3728564.506207073,
+      "shared_only_rank_64": 26958119.734236322
+    },
+    "aggregate_ratios": {
+      "combined_over_mass": 0.46674069016110387,
+      "combined_over_shared_only": 0.13830951650058382,
+      "shared_only_over_mass": 3.374610091700622
+    },
+    "per_layer_combined_over_mass": {
+      "1": 1.771140638393995,
+      "7": 0.8720899631311314,
+      "14": 0.7622417818979779,
+      "21": 0.838404669593312,
+      "27": 0.4257417648359236
+    },
+    "scope": "local linear FFN-output reconstruction only; no rate, BPB, engine, cache, or deployment claim"
+  },
+  "operational_observations_only": {
+    "elapsed_seconds": 96.65799641609192,
+    "peak_rss_bytes": 9894887424,
+    "peak_rss_method": "psutil.memory_info.peak_wset (or rss fallback)"
+  }
+}
