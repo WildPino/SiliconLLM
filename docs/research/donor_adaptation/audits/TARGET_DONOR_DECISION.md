@@ -4,6 +4,15 @@
 upper-bound audit, not a measured donor benchmark and not an authorization to download,
 convert, train, or launch anything.
 
+**2026-09-16 methodological erratum:** The E40 value `41.389179 G weights/s` below is an
+*observed synthetic comparator*, not a physical or cross-format upper bound. The clean E63
+Part B one-byte A10B cell delivered `49.37 tok/s` at `0.9283 G` charged weights/token, or
+about `45.83 G weights/s`, exceeding that E40 value. Therefore every quotient called an
+"upper bound" below must instead be read as a **conditional screening extrapolation at E40's
+observed effective rate**; statements that this alone *precludes* a candidate are too strong.
+The incompatibility and large traffic gap still warrant deferral, but not a mathematical
+impossibility claim. See [the follow-up screen](TARGET_DONOR_FOLLOWUP_2026-09-16.md).
+
 ## Scope and evidence discipline
 
 This note keeps five evidence classes separate:

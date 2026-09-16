@@ -918,12 +918,17 @@ implementation.
 
 ## Target-donor compatibility disposition
 
-`audits/TARGET_DONOR_DECISION.md` records two frozen, derived upper-bound audits.  Dense
+`audits/TARGET_DONOR_DECISION.md` records two frozen, derived traffic audits. **Its E40-based
+"upper bound" wording is superseded by the 2026-09-16 methodological erratum at the top of
+that file and [the follow-up donor screen](audits/TARGET_DONOR_FOLLOWUP_2026-09-16.md): E40's
+41.389179 G weights/s was an observed rate, not a physical cap; E63 one-byte A10B exceeded
+it. The quoted tok/s figures below are conditional extrapolations, not impossibility proofs.** Dense
 Qwen2.5-Coder-14B is the closest exporter-family control but not a direct one-byte target:
-its charged linear stream caps at 2.958 tok/s under the deliberately generous 41.389179 G
-weights/s ceiling, and its untied head alone is 18.811 ms.  Qwen3-30B-A3B-Base is
-architecture-interesting but not a direct speed candidate: its all-expert one-byte upper bound is
-13.607 tok/s; its fixed attention/head/router floor is 33.657 tok/s even with no expert work.
+its charged linear stream would give 2.958 tok/s at the E40 observed effective rate,
+and its untied head alone would take 18.811 ms at that rate. Qwen3-30B-A3B-Base is
+architecture-interesting but not a direct speed candidate: its all-expert one-byte stream
+would give 13.607 tok/s at that E40 rate; its fixed attention/head/router floor would give
+33.657 tok/s even with no expert work.
 Current carved FFN/exporter semantics are not Qwen3 MoE semantics.  Therefore neither weights
 download nor candidate benchmark is authorized. H1 S3 passes, but H2I v4 is terminal
 `SCORE-ONLY`, so target-donor selection remains unresolved and no promotion follows. The audit
