@@ -1,5 +1,12 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**Next preregistered STRAT-02 gates (2026-09-17; not run):**
+[full W4-BF16-v2 export](briefs/BRIEF_STRAT_02_W4_BF16_FULL_EXPORT.md)
+of all 6,259 pinned tensors into a checked 7,712,677,888-byte payload,
+and [F32 teacher repeatability](briefs/BRIEF_STRAT_02_TEACHER_REPEATABILITY.md)
+on one frozen calibration document. Both are apparatus prerequisites;
+neither is a W4 quality, native `engine.c`, or tok/s result.
+
 **STRAT-02 BF16-scale W4-v2 full-format census (2026-09-17):**
 `FORMAT_VALID_FULL` on the pinned StdMoE checkpoint: all 11 shard hashes,
 6,225 linear tensors and 104,398,848 g128 groups accounted; zero
