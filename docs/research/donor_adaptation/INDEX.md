@@ -1,5 +1,14 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**STRAT-02 W4-v1 full-format census (2026-09-17):** the read-only scan
+stopped at its preregistered 512 MiB invalid-coordinate cap after 731/6225
+linear tensors. In that lexicographic prefix, 4,455,268 of 13,617,152
+g128 groups underflow the frozen F16 scale. A scalar-verified invalid
+group in the first expert down-proj disproves the proposed router-only
+zeroing fix. This is a decisive counterexample to that fix, **not** a
+complete model-wide percentage or a W4 quality measurement.
+[Partial result and hashes](probes/STRAT_02_W4_FORMAT_CENSUS_PARTIAL_RESULT.md).
+
 **STRAT-02 W4 v1 real-weight pilot (2026-09-17):** the first pinned
 attention slice passes byte-for-byte W4 parity; the first router slice
 cannot be encoded by the frozen F16-scale codec because 16 nonzero
