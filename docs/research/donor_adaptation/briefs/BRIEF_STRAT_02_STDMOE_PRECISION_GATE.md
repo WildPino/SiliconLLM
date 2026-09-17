@@ -6,6 +6,14 @@ weight-only di un MoE pretrained reale, prima di download, training, export,
 port C o timing. Non esistono risultati STRAT-02 e nessun numero in questo
 documento è una qualità o una velocità misurata.
 
+**Addendum di stato (17 settembre 2026, senza cambiare il protocollo):**
+le affermazioni sopra descrivono la data di preregistrazione. Acquisizione,
+primo forward e baseline F32 heldout sono ora completati; il
+[risultato teacher](../probes/STRAT_02_STAGE0_TEACHER_BASELINE_RESULT.md)
+è 0,604406515337738 BPB su 96 documenti verificati. Gli arm W4/W2, i
+task e la conversione SSM/C restano non misurati; nessun gate di qualità o
+tok/s è passato.
+
 ## Domanda, identità e non-duplicazione
 
 La domanda è se il checkpoint esatto `allenai/StdMoE_1b14b_1T_Preanneal`,

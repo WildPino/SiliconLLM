@@ -1,5 +1,16 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**R1/STRAT-02 teacher baseline (2026-09-17):** all 11 pinned F32 shards
+were acquired and the pretrained StdMoE donor was scored on all 96 frozen
+heldout documents. The independently reconciled teacher reference is
+**0.604406515337738 BPB** over 181,385 payload tokens and 746,161 UTF-8
+bytes; the worker completed with exit code 0 under bounded supervision.
+This is a teacher-only result, **not** a W4/W2 quality gate, CPU tok/s
+measurement, or native-SSM conversion. See the
+[result and artifact hashes](probes/STRAT_02_STAGE0_TEACHER_BASELINE_RESULT.md).
+Next: exact W4 encoder parity and bounded conversion before one paired W4
+heldout evaluation. No T4 was used.
+
 **R1/STRAT-02 preflight (2026-09-16):** the pinned Ai2 StdMoE pretrained
 checkpoint has 13,568,641,024 stored F32 parameters (54.28 GB across 11
 shards); its top-8 is seven routed experts plus one shared expert with a
@@ -15,13 +26,14 @@ is now built and verified (48 calib, 96 heldout, no exact cross-split overlap);
 the [tokenizer/BPB protocol](probes/STRAT_02_STAGE0_TOKEN_SCORING.md) now
 pins EOS-prefix scoring of every byte and a stratified document bootstrap;
 all 144 spans fit the 4096-token window. Quality and weight download remain
-unstarted. The [preregistered W4/W2 codec](probes/STRAT_02_STAGE0_WEIGHT_FORMAT.md)
+unstarted at the time of this preflight. The later teacher result is linked
+above. The [preregistered W4/W2 codec](probes/STRAT_02_STAGE0_WEIGHT_FORMAT.md)
 prices group-scale metadata as well as payload: mixed 473.04 MB/token,
 W4-all 661.78 MB/token, with neither quality nor decoder rate measured.
 The [bounded-load plan](probes/STRAT_02_STAGE0_BOUNDED_LOAD_PLAN.md) and
 [pinned shard-source manifest](../../../benchmarks/donor_adaptation/density/strat02_weight_sources.json)
 make the 54.28 GB F32 acquisition and no-duplicate-RAM condition explicit;
-the full-size loader and peak memory are not yet verified.
+the later full-size teacher baseline and sampled memory are recorded above.
 The [task/rollout protocol](probes/STRAT_02_STAGE0_TASK_ROLLOUT_PROTOCOL.md)
 pins HumanEval, PIQA validation, and all 96 document rollouts before weights;
 none has been run, and HumanEval execution requires a verified sandbox.
