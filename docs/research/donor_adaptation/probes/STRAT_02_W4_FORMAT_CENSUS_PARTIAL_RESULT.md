@@ -50,6 +50,15 @@ pochi gruppi grandi, l'input e il routing potrebbero dominare. Questa
 asimmetria motiva un futuro controllo di capacità/attivazione, non
 autorizza a potare o azzerare expert.
 
+**Implicazione separata per W2-v1, non misurata sul donor:** il codice
+congelato `strat02_weight_codec._encode_w2_group` accetta centri F16
+`a=b=0` anche da un gruppo non nullo. Un diagnostico sintetico con 128
+valori F32 tutti `1e-15` ha prodotto `a=b=0` e 128 valori decodificati
+zero. Non è un risultato BPB né dimostra che l'W2 reale fallirebbe:
+se quel braccio verrà considerato, quantificare esplicitamente i gruppi
+azzerati e la loro importanza, senza trattare W2 come fallback automatico
+del problema W4.
+
 La macchina non ha toccato i cap RAM: massimo private commit worker
 7.469.867.008 B contro 8 GiB consentiti; RAM disponibile minima
 66.726.543.360 B contro 4 GiB. Il private commit è cresciuto molto
