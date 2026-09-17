@@ -1,5 +1,14 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**STRAT-02 BF16-scale W4-v2 full-format census (2026-09-17):**
+`FORMAT_VALID_FULL` on the pinned StdMoE checkpoint: all 11 shard hashes,
+6,225 linear tensors and 104,398,848 g128 groups accounted; zero
+nonfinite sources, underflow or overflow scales. A path-alias
+`VOID_APPARATUS` first run is preserved separately. This licenses an
+export *proposal*, **not** a quantized-model BPB/task pass, a native
+`engine.c` bridge or tok/s. [Full result and audit](probes/STRAT_02_W4_BF16_FULL_FORMAT_CENSUS_RESULT.md);
+[frozen brief](briefs/BRIEF_STRAT_02_W4_BF16_FULL_FORMAT_CENSUS.md).
+
 **STRAT-02 BF16-scale W4-v2 pilot (2026-09-17):** the preregistered
 five-slice real-weight apparatus passed: 16,384/16,384 sampled groups
 encoded with valid BF16 scales; scalar/tile bytes and packed-decode
