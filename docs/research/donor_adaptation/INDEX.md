@@ -5,7 +5,10 @@
 of all 6,259 pinned tensors into a checked 7,712,677,888-byte payload,
 and [F32 teacher repeatability](briefs/BRIEF_STRAT_02_TEACHER_REPEATABILITY.md)
 on one frozen calibration document. Both are apparatus prerequisites;
-neither is a W4 quality, native `engine.c`, or tok/s result.
+neither is a W4 quality, native `engine.c`, or tok/s result. The
+[conditional paired W4-v2 score](briefs/BRIEF_STRAT_02_W4_BF16_QUALITY_SCORE.md)
+is also frozen before reading its quality: it requires those prerequisites
+and leaves task/rollout conditional on the BPB gate.
 
 **STRAT-02 BF16-scale W4-v2 full-format census (2026-09-17):**
 `FORMAT_VALID_FULL` on the pinned StdMoE checkpoint: all 11 shard hashes,
