@@ -29,6 +29,9 @@ non misura BPB/tok/s, non usa heldout o T4 e non modifica pesi.
   peso e nessun testo del corpus negli output. I primi 256 gruppi noti
   della riga router 127 sono un controllo positivo, **non** una ragione per
   saltare quei layer.
+- Cap dichiarato del file di coordinate invalide: 512 MiB. Se superato,
+  fermarsi con `INCOMPLETE` e conservare il parziale; non troncare la lista
+  e non chiamare il censimento completo.
 - Directory risultato nuova/write-once; fallimento o interruzione produce
   `INCOMPLETE` e conserva il parziale. Preflight: almeno 8 GiB di RAM
   disponibile e 1 GiB di spazio output. Supervisione ogni 5 s, solo PID
