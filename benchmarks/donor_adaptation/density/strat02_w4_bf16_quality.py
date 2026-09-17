@@ -463,12 +463,17 @@ def _worker(args: argparse.Namespace) -> int:
         tokenizer, _, _, _ = audit.load_tokenizer(report.snapshot)
         score.validate_strat02_tokenizer(tokenizer)
         prepared = candidate.prepare_candidate(args.artifact, snapshot=report.snapshot, output_dir=args.output_dir)
-        with candidate.load_candidate_model(prepared) as model:
+        with candidate.load_candidate_model(
+            prepared,
+            progress_callback=lambda event: print(json.dumps({"event": "candidate_load_progress", **event},
+                                                              sort_keys=True), flush=True),
+        ) as model:
             model.eval()
             calibration_summary, heldout_summary = _score_candidate_splits(
                 model=model, tokenizer=tokenizer, calib_rows=calib_rows, heldout_rows=heldout_rows,
                 score=score, calibration_path=calibration_path, candidate_path=candidate_path,
             )
+        del model
         teacher_score = Path(args.teacher_scores).resolve()
         candidate.check_quality_prerequisites()
         _require_bound_teacher_scores(teacher_score)

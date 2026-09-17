@@ -12,7 +12,7 @@ import json
 import os
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Iterator, Mapping
+from typing import Any, Callable, Iterator, Mapping
 
 import numpy as np
 
@@ -48,7 +48,7 @@ class CandidateIntegrityError(RuntimeError):
     """Pinned identity, artifact, or decoded tensor validation failed."""
 
 
-class CandidateResourceError(RuntimeError):
+class CandidateResourceError(MemoryError):
     """The candidate cannot safely enter or continue a bounded scoring run."""
 
 
@@ -242,8 +242,8 @@ def _read_exact(handle: Any, offset: int, size: int, limit: int) -> bytes:
     return value
 
 
-def decode_record(handle: Any, record: Mapping[str, Any]) -> Any:
-    """Allocate one CPU F32 tensor and fill it from one bounded raw record."""
+def decode_record(handle: Any, record: Mapping[str, Any], destination: Any | None = None) -> Any:
+    """Fill a CPU F32 tensor from one bounded record; allocate only if omitted."""
     import torch
 
     shape = record["shape"]
@@ -253,7 +253,14 @@ def decode_record(handle: Any, record: Mapping[str, Any]) -> Any:
     if type(base) is not int or base < 0 or record["length"] != length:
         raise CandidateIntegrityError("record offset/length invalid")
     end = base + length
-    tensor = torch.empty(tuple(shape), dtype=torch.float32, device="cpu")
+    if destination is None:
+        tensor = torch.empty(tuple(shape), dtype=torch.float32, device="cpu")
+    else:
+        if (not isinstance(destination, torch.Tensor) or destination.device.type != "cpu" or
+            destination.dtype != torch.float32 or tuple(destination.shape) != tuple(shape) or
+            not destination.is_contiguous() or destination.is_meta or destination.requires_grad):
+            raise CandidateIntegrityError("decode destination must be contiguous CPU F32 with exact shape")
+        tensor = destination
     output = tensor.numpy()
     if encoding == verifier.F32_ENCODING:
         words = output.view(np.uint32).reshape(-1)
@@ -291,7 +298,61 @@ def decode_record(handle: Any, record: Mapping[str, Any]) -> Any:
     return tensor
 
 
-def _assert_no_meta_and_shared(model: Any, assigned: Mapping[str, Any]) -> None:
+def make_arena_views(plan: Mapping[str, list[dict[str, Any]]], shard_order: list[str],
+                     ledger: Mapping[str, int]) -> tuple[Any, dict[str, Any]]:
+    """Allocate exactly one F32 storage and partition it into nonoverlapping views.
+
+    The verified plan fixes tensor order and sizes.  No tensor values are read
+    here, and no per-record F32 storage is allocated.
+    """
+    import torch
+
+    if len(shard_order) != len(set(shard_order)) or set(plan) != set(shard_order):
+        raise CandidateIntegrityError("arena shard order/keyset mismatch")
+    linears = others = 0
+    names: set[str] = set()
+    layout: list[tuple[str, tuple[int, ...], int]] = []
+    for shard in shard_order:
+        for record in plan[shard]:
+            name, shape, encoding = record["name"], record["shape"], record["encoding"]
+            if name in names or record.get("source_shard") != shard:
+                raise CandidateIntegrityError("arena duplicate key or source shard mismatch")
+            names.add(name)
+            if record.get("length") != verifier._record_length(shape, encoding):
+                raise CandidateIntegrityError(f"arena record byte length mismatch: {name}")
+            numel = 1
+            for dimension in shape:
+                numel *= dimension
+            if encoding == verifier.LINEAR_ENCODING:
+                linears += numel
+            elif encoding == verifier.F32_ENCODING:
+                others += numel
+            else:
+                raise CandidateIntegrityError(f"arena unknown encoding: {name}")
+            layout.append((name, tuple(shape), numel))
+    if (type(ledger.get("linear_params")) is not int or type(ledger.get("other_params")) is not int or
+        linears != ledger["linear_params"] or others != ledger["other_params"]):
+        raise CandidateIntegrityError("arena parameter count differs from verified ledger")
+    total = linears + others
+    if total <= 0:
+        raise CandidateIntegrityError("arena must contain at least one F32 parameter")
+    try:
+        arena = torch.empty(total, dtype=torch.float32, device="cpu")
+    except (RuntimeError, MemoryError, OSError) as exc:
+        raise CandidateResourceError(f"unable to allocate contiguous {total * 4}-byte F32 arena") from exc
+    views: dict[str, Any] = {}
+    cursor = 0
+    for name, shape, numel in layout:
+        views[name] = arena.narrow(0, cursor, numel).view(shape)
+        cursor += numel
+    if cursor != total or len(views) != len(layout):
+        raise CandidateIntegrityError("arena partition did not cover exactly the planned parameters")
+    return arena, views
+
+
+def _assert_no_meta_and_shared(model: Any, assigned: Mapping[str, Any], arena: Any | None = None,
+                               plan: Mapping[str, list[dict[str, Any]]] | None = None,
+                               shard_order: list[str] | None = None) -> None:
     actual = model.state_dict()
     if set(actual) != set(assigned):
         raise CandidateIntegrityError("assigned model keyset changed")
@@ -301,10 +362,27 @@ def _assert_no_meta_and_shared(model: Any, assigned: Mapping[str, Any]) -> None:
             raise CandidateIntegrityError(f"meta/pointer mismatch after assign=True: {key}")
     if any(buffer.is_meta for buffer in model.buffers()):
         raise CandidateIntegrityError("meta buffer remains after RoPE restoration")
+    if arena is not None:
+        if plan is None or shard_order is None:
+            raise CandidateIntegrityError("arena pointer audit requires plan and shard order")
+        cursor = 0
+        base = arena.data_ptr()
+        storage = arena.untyped_storage().data_ptr()
+        for shard in shard_order:
+            for record in plan[shard]:
+                key = record["name"]
+                tensor = assigned[key]
+                if (tensor.untyped_storage().data_ptr() != storage or
+                    tensor.data_ptr() != base + cursor * 4 or not tensor.is_contiguous()):
+                    raise CandidateIntegrityError(f"candidate tensor is not at planned arena offset: {key}")
+                cursor += tensor.numel()
+        if cursor != arena.numel():
+            raise CandidateIntegrityError("assigned views do not cover entire F32 arena")
 
 
 @contextlib.contextmanager
-def load_candidate_model(prepared: PreparedCandidate) -> Iterator[Any]:
+def load_candidate_model(prepared: PreparedCandidate, *,
+                         progress_callback: Callable[[Mapping[str, Any]], None] | None = None) -> Iterator[Any]:
     """Yield one F32 CPU model built exclusively from raw payloads, once.
 
     The context clears its own state references on exit.  Callers must not
@@ -326,27 +404,41 @@ def load_candidate_model(prepared: PreparedCandidate) -> Iterator[Any]:
     # Recheck all hashes immediately before allocation.  This makes the
     # verification-to-use boundary explicit, without touching source shards.
     verifier.verify_artifact(prepared.root, manifest_path, expected_plan=prepared.plan, require_full=True)
-    state: dict[str, Any] = {}
+    if (prepared.summary.get("linear_params") != verifier.EXPECTED_LINEAR_PARAMS or
+        prepared.summary.get("other_params") != verifier.EXPECTED_OTHER_PARAMS):
+        raise CandidateIntegrityError("full candidate F32 arena ledger is not frozen donor total")
+    shard_order = [descriptor["source_shard"] for descriptor in prepared.descriptors]
+    arena, state = make_arena_views(prepared.plan, shard_order, prepared.summary)
+    if arena.numel() != 13_568_641_024:
+        raise CandidateIntegrityError("F32 arena is not exactly 13,568,641,024 parameters")
     model = prepared.model
     try:
-        for descriptor in prepared.descriptors:
+        for index, descriptor in enumerate(prepared.descriptors, 1):
             check_runtime_resources(prepared.resource_plan, os.getpid())
             shard = descriptor["source_shard"]
             payload = verifier._safe_child(prepared.root, descriptor["payload_file"])
             with payload.open("rb") as handle:
                 for record in prepared.plan[shard]:
                     key = record["name"]
-                    if key in state:
-                        raise CandidateIntegrityError("duplicate candidate tensor key")
-                    state[key] = decode_record(handle, record)
+                    if key not in state:
+                        raise CandidateIntegrityError("candidate tensor absent from F32 arena")
+                    if decode_record(handle, record, destination=state[key]) is not state[key]:
+                        raise CandidateIntegrityError("decoder replaced the planned arena view")
             if _sha_file(payload) != descriptor["payload_sha256"]:
                 raise CandidateIntegrityError(f"payload changed during candidate decode: {payload.name}")
+            if progress_callback is not None:
+                progress_callback({"phase": "decoded_shard", "index": index,
+                                   "total": len(prepared.descriptors), "source_shard": shard})
+        if progress_callback is not None:
+            progress_callback({"phase": "assign_begin"})
         result = model.load_state_dict(state, strict=True, assign=True)
         if result.missing_keys or result.unexpected_keys:
             raise CandidateIntegrityError("strict candidate state assignment failed")
         teacher._restore_nonpersistent_rope_buffer(model)
-        _assert_no_meta_and_shared(model, state)
+        _assert_no_meta_and_shared(model, state, arena, prepared.plan, shard_order)
         check_bound_controls(prepared.root)
+        if progress_callback is not None:
+            progress_callback({"phase": "assign_complete"})
         model.eval()
         yield model
     finally:

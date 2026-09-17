@@ -106,6 +106,70 @@ class CandidateBindingSyntheticTest(unittest.TestCase):
         torch.testing.assert_close(model(x), torch.nn.functional.linear(x, weight, bias), atol=0, rtol=0)
         self.assertEqual(bias.numpy().view("<u4")[0], 0x80000000)
 
+    def test_one_arena_multi_record_exact_storage_and_values(self) -> None:
+        class Small(torch.nn.Module):
+            def __init__(self):
+                super().__init__()
+                self.linear = torch.nn.Linear(128, 2)
+                self.register_buffer("marker", torch.empty(()))
+
+        with torch.device("meta"):
+            model = Small()
+        weights = np.linspace(-2.0, 2.0, 256, dtype=np.float32).reshape(2, 128)
+        encoded = codec.encode_w4_bf16(weights)
+        blob = codec.w4_bf16_to_blob(encoded)
+        bias_bits = np.array([0x80000000, 0x3F800000], dtype="<u4")
+        marker_bits = np.array([0x7FC01234], dtype="<u4")
+        records = [
+            {"name": "linear.weight", "source_shard": "synthetic", "shape": [2, 128],
+             "encoding": verifier.LINEAR_ENCODING, "offset": 0, "length": len(blob)},
+            {"name": "linear.bias", "source_shard": "synthetic", "shape": [2],
+             "encoding": verifier.F32_ENCODING, "offset": len(blob), "length": 8},
+            {"name": "marker", "source_shard": "synthetic", "shape": [],
+             "encoding": verifier.F32_ENCODING, "offset": len(blob) + 8, "length": 4},
+        ]
+        raw = blob + bias_bits.tobytes() + marker_bits.tobytes()
+        with mock.patch.object(torch, "empty", wraps=torch.empty) as allocation:
+            arena, state = loader.make_arena_views({"synthetic": records}, ["synthetic"],
+                                                   {"linear_params": 256, "other_params": 3})
+            handle = io.BytesIO(raw)
+            for record in records:
+                self.assertIs(loader.decode_record(handle, record, destination=state[record["name"]]), state[record["name"]])
+            self.assertEqual(allocation.call_count, 1)
+        self.assertEqual(arena.numel(), 259)
+        self.assertEqual({value.untyped_storage().data_ptr() for value in state.values()}, {arena.untyped_storage().data_ptr()})
+        np.testing.assert_array_equal(state["linear.weight"].numpy().view("<u4"),
+                                      codec.dequantize_w4_bf16(encoded).view("<u4"))
+        np.testing.assert_array_equal(state["linear.bias"].numpy().view("<u4"), bias_bits)
+        np.testing.assert_array_equal(state["marker"].numpy().view("<u4"), marker_bits[0])
+        model.load_state_dict(state, strict=True, assign=True)
+        loader._assert_no_meta_and_shared(model, state, arena, {"synthetic": records}, ["synthetic"])
+
+    def test_destination_and_arena_ledger_guards(self) -> None:
+        values = np.ones((2, 128), dtype=np.float32)
+        blob = codec.w4_bf16_to_blob(codec.encode_w4_bf16(values))
+        record = {"name": "weight", "source_shard": "synthetic", "shape": [2, 128],
+                  "encoding": verifier.LINEAR_ENCODING, "offset": 0, "length": len(blob)}
+        for destination in (torch.empty((1, 256), dtype=torch.float32),
+                            torch.empty((2, 128), dtype=torch.float64),
+                            torch.empty((2, 128), device="meta")):
+            with self.subTest(destination=destination), self.assertRaises(loader.CandidateIntegrityError):
+                loader.decode_record(io.BytesIO(blob), record, destination=destination)
+        with mock.patch.object(torch, "empty", wraps=torch.empty) as allocation:
+            with self.assertRaises(loader.CandidateIntegrityError):
+                loader.make_arena_views({"synthetic": [record]}, ["synthetic"],
+                                        {"linear_params": 255, "other_params": 0})
+            self.assertEqual(allocation.call_count, 0)
+
+    def test_loader_resource_cap_uses_runner_resource_class(self) -> None:
+        self.assertTrue(issubclass(loader.CandidateResourceError, MemoryError))
+        record = {"name": "bias", "source_shard": "synthetic", "shape": [2],
+                  "encoding": verifier.F32_ENCODING, "offset": 0, "length": 8}
+        with mock.patch.object(torch, "empty", side_effect=RuntimeError("synthetic allocator failure")):
+            with self.assertRaises(loader.CandidateResourceError):
+                loader.make_arena_views({"synthetic": [record]}, ["synthetic"],
+                                        {"linear_params": 0, "other_params": 2})
+
     def test_bound_control_hashes_and_directory_reject_substitution(self) -> None:
         with tempfile.TemporaryDirectory(prefix="strat02-candidate-binding-") as temporary:
             root = Path(temporary)
