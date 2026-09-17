@@ -57,6 +57,12 @@ ricostruito somme e BPB globali e per categoria, e confrontato l'hash
 dello score con il supervisor. Esito `PASS`, token-ID digest uguale al pin,
 96/96 righe. Questo controlla integrità e aggregazione degli output; non
 costituisce una seconda misura indipendente dei logits del teacher.
+Il controllo è riproducibile con il
+[validatore read-only](../../../../benchmarks/donor_adaptation/density/strat02_teacher_baseline_audit.py)
+e `--run-dir benchmarks/donor_adaptation/density/results/strat02_teacher_baseline_20260917_105941`
+nell'ambiente pin-nato Transformers 4.57.1/tokenizers 0.22.2; `--selftest`
+verifica anche rifiuti piantati di output mancanti/malformati. Il validatore
+non apre né hasha gli shard peso da 54 GB.
 
 SHA-256 dei file grezzi:
 

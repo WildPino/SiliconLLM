@@ -148,3 +148,18 @@ timing dell'inferenza C. Segnalano soltanto che il riferimento scalare
 potrebbe richiedere ore sul checkpoint intero: prima di convertire 13,6B
 pesi serviranno un cap esplicito, salvataggio incrementale e, se necessario,
 un encoder vettoriale verificato byte-per-byte contro questo riferimento.
+
+### Diagnostico successivo dell'encoder W4 a tile (17 settembre 2026)
+
+`strat02_weight_codec.py:iter_encode_w4_tiles` aggiunge un percorso a tile
+limitati senza modificare il formato W4 congelato. I test sintetici
+confrontano **byte identici** con `encode_w4`/`w4_to_blob` su gruppi random,
+zeri, valori halfway, outlier, scale da `1e-4` a `1e3`, viste NumPy non
+contigue e diversi confini tile/batch; i casi non finiti e scale F16
+invalide sono rifiutati. Sul runtime locale pin-nato, NumPy 2.5.3, un
+diagnostico di sola conversione sintetica di 4.194.304 pesi F32 ha
+richiesto 0,3238442 s, pari a **12,95 Mpesi/s**. Non ci sono repliche o
+controllo occupancy: non è un throughput scientifico, né un tempo di
+conversione dell'intero donor, né un rate di inferenza. Il prossimo apparato
+deve ancora dimostrare scrittura write-once dei tensori, hash, decodifica
+indipendente e confronto dell'operatore prima di qualsiasi heldout W4.

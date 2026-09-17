@@ -8,6 +8,9 @@ a claim about model quality or rate.
 The full-array encoders allocate their encoded result but visit source weights a
 row at a time.  For very large tensors use ``iter_encode_w4_rows`` or
 ``iter_encode_w2_rows`` and write each yielded row to a caller-owned sink.
+``iter_encode_w4_tiles`` is the bounded W4-only path for a stream of F32 row
+batches: it yields independently writable row/group tiles and never constructs
+a full encoded tensor.
 """
 
 from __future__ import annotations
@@ -139,6 +142,22 @@ class W2Encoded:
     @property
     def byte_count(self) -> int:
         return w2_byte_count(*self.shape)
+
+
+@dataclass(frozen=True)
+class W4EncodedTile:
+    """One independently writable W4 tile from ``iter_encode_w4_tiles``.
+
+    ``row_offset`` is relative to the complete input stream and ``group_offset``
+    is measured in frozen 128-value W4 groups.  The tile arrays own their
+    storage, so a caller may consume or write them before asking the iterator
+    for the next tile.
+    """
+
+    row_offset: int
+    group_offset: int
+    scales: np.ndarray  # float16 [tile_rows, tile_groups]
+    packed_codes: np.ndarray  # uint8 [tile_rows, tile_groups * 64]
 
 
 def w4_to_blob(encoded: W4Encoded) -> bytes:
@@ -358,6 +377,111 @@ def _encode_w4_group(values: np.ndarray) -> Tuple[np.float16, np.ndarray]:
         if best_mse is None or mse <= best_mse:
             best_mse, best_scale, best_codes = mse, scale, codes
     return best_scale, best_codes
+
+
+def _as_float32_row_batch(batch: object, in_features: int) -> np.ndarray:
+    """Validate a caller-owned F32 batch without copying or flattening it."""
+    if not isinstance(batch, np.ndarray):
+        raise TypeError("W4 tile batches must be numpy float32 arrays")
+    if batch.dtype != np.float32:
+        raise TypeError("W4 tile batches must have dtype float32")
+    if batch.ndim != 2 or batch.shape[1] != in_features:
+        raise ValueError("W4 tile batch must have shape [rows, in_features]")
+    return batch
+
+
+def _encode_w4_group_tile(values: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
+    """Vectorized W4 fitting for a bounded ``[rows, groups, 128]`` tile.
+
+    The candidate loop, F16 scale rounding, ``np.rint`` tie primitive, and
+    ``<=`` final-candidate tie update deliberately match ``_encode_w4_group``.
+    """
+    if values.ndim != 3 or values.shape[2] != GROUP_SIZE:
+        raise ValueError("W4 tiles must have shape [rows, groups, 128]")
+    if values.dtype != np.float32:
+        raise TypeError("W4 tiles must have dtype float32")
+
+    tile_rows, tile_groups, _ = values.shape
+    absolute_maxima = np.max(np.abs(values), axis=2)
+    nonzero = absolute_maxima != 0
+    scales = np.zeros((tile_rows, tile_groups), dtype=np.float16)
+    best_mse = np.full((tile_rows, tile_groups), np.inf, dtype=np.float32)
+    best_codes = np.zeros((tile_rows, tile_groups, GROUP_SIZE), dtype=np.int8)
+
+    for c in W4_CANDIDATE_C:
+        candidate_scales = np.asarray(
+            np.float32(absolute_maxima) * c / np.float32(7), dtype=np.float16
+        )
+        invalid_scale = nonzero & ((~np.isfinite(candidate_scales)) | (candidate_scales == 0))
+        if np.any(invalid_scale):
+            raise ValueError("nonzero W4 group has an invalid fp16 candidate scale")
+
+        # Zero groups are an explicit special case in the reference.  Use one
+        # only for their temporary division, then exclude them from selection.
+        safe_scales = np.where(nonzero, candidate_scales.astype(np.float32), np.float32(1))
+        candidate_codes = np.clip(
+            np.rint(values / safe_scales[:, :, None]), -7, 7
+        ).astype(np.int8)
+        dequantized = safe_scales[:, :, None] * candidate_codes.astype(np.float32)
+        error = values - dequantized
+        mse = np.mean(error * error, axis=2, dtype=np.float32)
+
+        # Candidate C is ascending.  Like the reference's ``mse <= best_mse``,
+        # equality overwrites the earlier choice with the later candidate.
+        choose = nonzero & (mse <= best_mse)
+        scales[choose] = candidate_scales[choose]
+        best_mse[choose] = mse[choose]
+        best_codes[choose] = candidate_codes[choose]
+
+    low = best_codes[:, :, 0::2].astype(np.uint8) & np.uint8(0x0F)
+    high = (best_codes[:, :, 1::2].astype(np.uint8) & np.uint8(0x0F)) << np.uint8(4)
+    packed = (low | high).reshape(tile_rows, tile_groups * (GROUP_SIZE // W4_VALUES_PER_BYTE))
+    return scales, packed
+
+
+def iter_encode_w4_tiles(
+    row_batches: Iterable[np.ndarray],
+    in_features: int,
+    *,
+    max_rows_per_tile: int = 32,
+    max_groups_per_tile: int = 32,
+) -> Iterator[W4EncodedTile]:
+    """Encode caller-owned F32 batches as bounded, independently writable W4 tiles.
+
+    Source batches must be two-dimensional ``numpy.float32`` arrays with exactly
+    ``in_features`` columns.  They may be arbitrarily large because this iterator
+    slices them into at most ``max_rows_per_tile * max_groups_per_tile * 128``
+    source values per fit.  It yields no whole-model output: each result carries
+    its global row and group offsets for a caller-owned streaming sink.
+
+    This is intentionally W4-only.  Its fitting and packing are bit-exact with
+    ``iter_encode_w4_rows`` for finite F32 inputs on the active NumPy runtime.
+    """
+    _, in_features = _require_shape((0, in_features))
+    if (not isinstance(max_rows_per_tile, (int, np.integer))
+            or isinstance(max_rows_per_tile, bool) or max_rows_per_tile <= 0):
+        raise ValueError("max_rows_per_tile must be a positive integer")
+    if (not isinstance(max_groups_per_tile, (int, np.integer))
+            or isinstance(max_groups_per_tile, bool) or max_groups_per_tile <= 0):
+        raise ValueError("max_groups_per_tile must be a positive integer")
+
+    groups = in_features // GROUP_SIZE
+    row_offset = 0
+    for batch in row_batches:
+        source = _as_float32_row_batch(batch, in_features)
+        batch_rows = source.shape[0]
+        for row_start in range(0, batch_rows, int(max_rows_per_tile)):
+            row_end = min(row_start + int(max_rows_per_tile), batch_rows)
+            row_tile = source[row_start:row_end]
+            for group_start in range(0, groups, int(max_groups_per_tile)):
+                group_end = min(group_start + int(max_groups_per_tile), groups)
+                values = row_tile[:, group_start * GROUP_SIZE : group_end * GROUP_SIZE]
+                if not np.all(np.isfinite(values)):
+                    raise ValueError("weights must be finite")
+                values = values.reshape(row_end - row_start, group_end - group_start, GROUP_SIZE)
+                scales, packed = _encode_w4_group_tile(values)
+                yield W4EncodedTile(row_offset + row_start, group_start, scales, packed)
+        row_offset += batch_rows
 
 
 def _assign_abs(abs_values: np.ndarray, a: np.float32, b: np.float32) -> np.ndarray:
