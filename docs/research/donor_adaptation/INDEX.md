@@ -9,12 +9,20 @@ over all 11 F32 shards. This authorizes only the pinned F32 teacher as an
 oracle for this control, not a heldout BPB, W4 quality, native `engine.c`,
 or tok/s result. [Result and verified artifact hashes](probes/STRAT_02_TEACHER_REPEATABILITY_RESULT.md).
 
-**Next preregistered STRAT-02 gate:**
-[full W4-BF16-v2 export](briefs/BRIEF_STRAT_02_W4_BF16_FULL_EXPORT.md)
-of all 6,259 pinned tensors into a checked 7,712,677,888-byte payload. The
+**STRAT-02 W4-BF16-v2 full export (2026-09-17):**
+`COMPLETE/EXPORT_VERIFIED`: all 11 shards, 6,259 tensors and
+7,712,677,888 payload bytes were accounted for and independently verified at
+the format/export level. This is not a model-load, quality, heldout,
+`engine.c`, or tok/s result. [Result and audit](probes/STRAT_02_W4_BF16_FULL_EXPORT_RESULT.md);
+[frozen brief](briefs/BRIEF_STRAT_02_W4_BF16_FULL_EXPORT.md).
+
+**Next STRAT-02 gate:**
+reconstructed-model load/parity and calibration operational checks. The
 [conditional paired W4-v2 score](briefs/BRIEF_STRAT_02_W4_BF16_QUALITY_SCORE.md)
 is also frozen before reading its quality: it requires those prerequisites
-and leaves task/rollout conditional on the BPB gate.
+and leaves task/rollout conditional on the BPB gate. Its
+[artifact binding](briefs/BRIEF_STRAT_02_W4_BF16_QUALITY_ARTIFACT_BINDING.md)
+pins this one complete export and the original teacher score by SHA-256.
 
 **STRAT-02 BF16-scale W4-v2 full-format census (2026-09-17):**
 `FORMAT_VALID_FULL` on the pinned StdMoE checkpoint: all 11 shard hashes,
