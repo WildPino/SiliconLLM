@@ -61,6 +61,12 @@ totale, assenza di parametri `meta` e identità `data_ptr` fra tensori mappati
 e parametri assegnati. Un mini-fixture locale `nn.Linear`+safetensors ha già
 mostrato `same_storage=True`, `meta_remaining=False` e forward esatto; **non
 dimostra** che l'intero checkpoint da 50,5 GiB entri nel peak RAM previsto.
+Il codice Emo ha inoltre un buffer RoPE `inv_freq` **non persistente** che
+resta `meta` dopo `assign=True`: il loader ricostruisce solo il modulo rotary
+senza pesi tramite la stessa classe/config pin-nata su CPU, asserendo che
+nessun altro buffer `meta` esista. Il test con Emo casuale minuscolo
+riproduce il fallimento originale e ottiene parità esatta dell'hidden dopo
+il ripristino; non è ancora una prova full-size.
 Un secondo controllo senza pesi ha caricato il codice del donor con
 Transformers 4.57.1, costruito il modello `meta` tramite il loader offline e
 confrontato il suo `state_dict` con l'indice: **6259/6259 chiavi identiche**,
@@ -101,6 +107,10 @@ Il primo smoke usa esattamente la riga 0 di `calib.jsonl` (ID
 `item_sha256=17020c6b2147d0d33555bb96dbde6302b9e4859523e8d0bd1a9d73bb0177d11e`).
 Il [supervisore](../../../../benchmarks/donor_adaptation/density/strat02_bounded_smoke.py)
 avvia un solo worker, campiona ogni 5 s e può terminare **solo quel worker**.
+Su Windows deve lanciare direttamente l'interprete base, con i package
+pin-nati nel `PYTHONPATH`: la `.venv` è un redirector il cui PID non misura
+il worker vero. La parità degli import/versioni e dell'eseguibile campionato
+è parte dei gate di preflight/monitoraggio, non una scelta di prestazione.
 Il risultato della riga di calibrazione serve esclusivamente a verificare
 l'apparato; non entra nel gate di qualità. L'acquisizione degli shard è
 registrata [separatamente](STRAT_02_STAGE0_ACQUISITION.md).

@@ -372,6 +372,31 @@ def _assert_pointer_sharing(model: Any, source: Mapping[str, Any], mode: Literal
             raise IntegrityError(f"assign=True pointer/copy mismatch for {key}: {actual} != {expected}")
 
 
+def _restore_nonpersistent_rope_buffer(model: Any) -> None:
+    """Construct the sole non-state RoPE buffer on CPU after meta instantiation.
+
+    ``inv_freq`` is registered with ``persistent=False`` in the pinned Emo
+    source, so ``load_state_dict(assign=True)`` cannot replace its meta tensor.
+    Recreating only the weightless rotary module with the same pinned class
+    and config preserves all mmap-backed parameter storage.
+    """
+    import torch
+
+    meta_buffers = [name for name, buffer in model.named_buffers() if buffer.is_meta]
+    if meta_buffers != ["model.rotary_emb.inv_freq"]:
+        raise IntegrityError(f"unexpected meta buffers after weight assignment: {meta_buffers}")
+    rotary = model.model.rotary_emb
+    if rotary.state_dict():
+        raise IntegrityError("rotary module unexpectedly has persistent state")
+    replacement = type(rotary)(config=model.config, device=torch.device("cpu"))
+    if replacement.state_dict() or replacement.inv_freq.is_meta:
+        raise IntegrityError("CPU rotary reconstruction did not produce only a real nonpersistent buffer")
+    model.model.rotary_emb = replacement
+    remaining = [name for name, buffer in model.named_buffers() if buffer.is_meta]
+    if remaining:
+        raise IntegrityError(f"meta buffers remain after RoPE restoration: {remaining}")
+
+
 @contextlib.contextmanager
 def load_reference_model(verified: VerifiedSnapshot,
                          pointer_check: Literal["sample", "all"] = "sample") -> Iterator[Any]:
@@ -406,6 +431,7 @@ def load_reference_model(verified: VerifiedSnapshot,
         meta = [name for name, tensor in model.state_dict().items() if tensor.is_meta]
         if meta:
             raise IntegrityError(f"meta tensors remain after assign=True load: {meta[:5]}")
+        _restore_nonpersistent_rope_buffer(model)
         _assert_pointer_sharing(model, source, pointer_check)
         yield model
 

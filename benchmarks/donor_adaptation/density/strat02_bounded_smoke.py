@@ -16,9 +16,10 @@ The output directory contains write-once ``supervisor_manifest.json``,
 ``--selftest`` for tiny mock-supervisor controls; it never opens donor weights,
 downloads, or runs a model.  ``--worker`` is an internal child mode.
 
-The parent starts this file with ``sys.executable`` and samples only that child
-at five-second intervals.  On a safety breach it terminates only the child
-process it created; it never enumerates or kills a process tree.
+The parent starts a direct Python interpreter (bypassing the Windows venv
+redirector) and samples only that worker at five-second intervals.  On a
+safety breach it terminates only the worker it created; it never enumerates
+or kills a process tree.
 """
 from __future__ import annotations
 
@@ -133,6 +134,25 @@ def _psutil() -> Any:
     except ImportError as exc:
         raise GateError("psutil is required in the target .venv for Windows resource monitoring") from exc
     return psutil
+
+
+def _direct_worker_python(child_env: dict[str, str]) -> str:
+    """Bypass the Windows venv redirector so Popen.pid is the real worker.
+
+    Windows ``.venv/Scripts/python.exe`` can spawn the base interpreter as a
+    child while retaining a tiny launcher PID.  Monitoring that PID would not
+    measure or stop the model.  The base interpreter gets the same venv site
+    packages via PYTHONPATH, after any pinned isolated package target.
+    """
+    if os.name != "nt" or sys.prefix == sys.base_prefix:
+        return sys.executable
+    base = Path(sys._base_executable).resolve()
+    site = Path(sys.prefix) / "Lib" / "site-packages"
+    if not base.is_file() or not site.is_dir():
+        raise GateError("cannot resolve direct base Python and venv site-packages for monitored worker")
+    existing = child_env.get("PYTHONPATH", "")
+    child_env["PYTHONPATH"] = os.pathsep.join(part for part in (existing, str(site)) if part)
+    return str(base)
 
 
 def _launch_preflight(snapshot: Path | None) -> tuple[Any, dict[str, Any]]:
@@ -257,6 +277,7 @@ def _monitor_child(
     psutil: Any,
     on_sample: Callable[[Mapping[str, Any]], None],
     resource_process: Any | None = None,
+    expected_executable: Path | None = None,
     now: Callable[[], float] = time.monotonic,
     wall_limit_seconds: float = MAX_WALL_SECONDS,
     interval_seconds: float = MONITOR_INTERVAL_SECONDS,
@@ -266,6 +287,7 @@ def _monitor_child(
     samples = 0
     previous_faults: int | None = None
     previous_elapsed: float | None = None
+    executable_checked = False
     while True:
         elapsed = now() - started
         exit_code = process.poll()
@@ -276,6 +298,14 @@ def _monitor_child(
         try:
             if resource_process is None:
                 resource_process = psutil.Process(process.pid)
+            if expected_executable is not None and not executable_checked:
+                observed_executable = Path(resource_process.exe()).resolve()
+                if observed_executable != expected_executable.resolve():
+                    return MonitorOutcome(
+                        "VOID_APPARATUS", _terminate_only_child(process),
+                        f"monitored_executable_mismatch:{observed_executable}", elapsed, samples,
+                    )
+                executable_checked = True
             sample = _process_sample(resource_process, psutil)
             available = int(psutil.virtual_memory().available)
         except Exception as exc:
@@ -465,20 +495,21 @@ def _run_parent(args: argparse.Namespace) -> int:
     }
     _write_json_once(paths["manifest"], manifest)
     _append_log(paths["log"], {"event": "parent_preflight_passed"})
-    command = [
-        sys.executable, str(Path(__file__).resolve()), "--worker",
-        "--snapshot", str(report.snapshot), "--manifest", str(args.manifest.resolve()),
-        "--calib", str(args.calib.resolve()), "--result", str(paths["worker"]),
-    ]
     # Start from the user's environment, adding only standard offline guards.
     # The parent has already rejected an unsafe USE_HUB_KERNELS value.
     child_env = os.environ.copy()
     child_env["HF_HUB_OFFLINE"] = "1"
     child_env["TRANSFORMERS_OFFLINE"] = "1"
+    worker_python = _direct_worker_python(child_env)
+    command = [
+        worker_python, str(Path(__file__).resolve()), "--worker",
+        "--snapshot", str(report.snapshot), "--manifest", str(args.manifest.resolve()),
+        "--calib", str(args.calib.resolve()), "--result", str(paths["worker"]),
+    ]
     worker_token = secrets.token_urlsafe(32)
     child_env["STRAT02_BOUNDED_SMOKE_PARENT_TOKEN"] = worker_token
     command.extend(("--worker-token", worker_token))
-    _append_log(paths["log"], {"event": "child_launch", "python": sys.executable, "termination_scope": "child_pid_only"})
+    _append_log(paths["log"], {"event": "child_launch", "python": worker_python, "termination_scope": "direct_worker_pid_only"})
     psutil = _psutil()
     process = subprocess.Popen(
         command,
@@ -492,11 +523,12 @@ def _run_parent(args: argparse.Namespace) -> int:
         process,
         psutil=psutil,
         on_sample=lambda sample: _append_log(paths["log"], {"event": "resource_sample", **sample}),
+        expected_executable=Path(worker_python),
     )
     _append_log(paths["log"], {"event": "monitor_finished", **asdict(outcome)})
     worker_result = _load_json_object(paths["worker"])
-    if outcome.status == "VOID_RESOURCE":
-        status = "VOID_RESOURCE"
+    if outcome.status in {"VOID_RESOURCE", "VOID_APPARATUS"}:
+        status = outcome.status
     elif outcome.exit_code != 0 and _worker_looks_oom(worker_result):
         status = "VOID_RESOURCE"
     elif outcome.exit_code != 0:
@@ -603,21 +635,34 @@ def _selftest() -> None:
         assert orphan_guard.terminated
     else:
         raise AssertionError("planted log failure did not reach orphan guard")
+    wrong_exe = FakeProcess(Clock())
+    wrong_exe.exe = lambda: str(Path(sys.executable).with_name("not-the-worker.exe"))
+    mismatched = _monitor_child(
+        wrong_exe, psutil=psutil, on_sample=lambda _: None,
+        resource_process=wrong_exe, expected_executable=Path(sys.executable),
+        now=wrong_exe.clock.now,
+    )
+    assert mismatched.status == "VOID_APPARATUS" and wrong_exe.terminated
     assert _worker_looks_oom({"error_type": "OutOfMemoryError", "error": "allocator failed"})
     assert not _worker_looks_oom({"error_type": "ValueError", "error": "bad metadata"})
 
     # Real Popen has no memory_info; exercise the psutil.Process(pid) adapter.
     import psutil as real_psutil
+    tiny_env = os.environ.copy()
+    tiny_python = _direct_worker_python(tiny_env)
     tiny = subprocess.Popen(
-        [sys.executable, "-c", "import time; time.sleep(0.4)"],
+        [tiny_python, "-c", "import time; time.sleep(0.4)"],
+        env=tiny_env,
         stdin=subprocess.DEVNULL,
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
     )
     try:
+        assert Path(real_psutil.Process(tiny.pid).exe()).resolve() == Path(tiny_python).resolve()
         real_samples: list[Mapping[str, Any]] = []
         real_outcome = _monitor_or_terminate(
             tiny, psutil=real_psutil, on_sample=real_samples.append,
+            expected_executable=Path(tiny_python),
             interval_seconds=1.0, wall_limit_seconds=10.0,
         )
         assert real_outcome.status == "CHILD_EXITED" and real_outcome.exit_code == 0
