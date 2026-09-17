@@ -33,6 +33,23 @@ prefisso hanno migliaia di gruppi invalidi; ciò non prova ancora quanti
 expert/layer del modello totale siano coinvolti né la loro importanza
 funzionale.
 
+### Diagnostico descrittivo post-hoc del prefisso (non un gate)
+
+Una somma del file `tensor_counts.jsonl` già hashato, senza riaprire i
+pesi, separa i gruppi per proiezione. Sono completi 242 `down_proj`
+(102.381/3.964.928 gruppi underflow, **2,58%**), 242 `gate_proj`
+(2.178.200/3.964.928, **54,94%**) e 241 `up_proj`
+(2.174.671/3.948.544, **55,08%**). Nei 241 expert per cui le tre
+proiezioni sono tutte complete, 59 hanno almeno il 95% dei gruppi sia
+`gate_proj` sia `up_proj` sotto la soglia di rappresentabilità F16;
+24 non hanno underflow in nessuna delle due. Il prefisso è lessicografico
+e attraversa solo una piccola porzione dei layer: non estrapolare queste
+frazioni al donor. L'underflow della *scala F16 v1* non è uno zero del
+peso F32 e la quota di gruppi non misura il contributo dell'expert:
+pochi gruppi grandi, l'input e il routing potrebbero dominare. Questa
+asimmetria motiva un futuro controllo di capacità/attivazione, non
+autorizza a potare o azzerare expert.
+
 La macchina non ha toccato i cap RAM: massimo private commit worker
 7.469.867.008 B contro 8 GiB consentiti; RAM disponibile minima
 66.726.543.360 B contro 4 GiB. Il private commit è cresciuto molto
