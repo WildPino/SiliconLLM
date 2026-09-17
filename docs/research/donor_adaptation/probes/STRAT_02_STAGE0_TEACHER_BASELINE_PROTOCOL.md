@@ -51,3 +51,6 @@ di decode o esecuzione su `engine.c`. Il gate finale di qualità resta il
 limite superiore CI95% sul **delta candidato-teacher** ≤+0,02 BPB, con
 bootstrap per documento fissato nel protocollo; la baseline da sola non
 può passarlo.
+
+**Esito successivo:** la baseline completa e validata è registrata in
+[STRAT_02_STAGE0_TEACHER_BASELINE_RESULT.md](STRAT_02_STAGE0_TEACHER_BASELINE_RESULT.md).
