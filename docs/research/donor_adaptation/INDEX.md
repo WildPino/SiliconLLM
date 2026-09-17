@@ -8,6 +8,9 @@ read finds the same 16 groups in each of 16 layers. Raw run is
 `INCOMPLETE/WORKER_ERROR`; adjudication is `VOID_FORMAT`, **not** a W4
 quality failure or a reason to run W2. No heldout or T4 was used.
 [Result, raw hashes and next gate](probes/STRAT_02_W4_PILOT_V1_RESULT.md).
+The next read-only step is the
+[preregistered full W4-format census](briefs/BRIEF_STRAT_02_W4_FORMAT_CENSUS.md),
+not a heldout rerun.
 
 **R1/STRAT-02 teacher baseline (2026-09-17):** all 11 pinned F32 shards
 were acquired and the pretrained StdMoE donor was scored on all 96 frozen

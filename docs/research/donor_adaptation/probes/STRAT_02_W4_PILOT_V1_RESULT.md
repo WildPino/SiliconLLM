@@ -71,6 +71,17 @@ eventuale formato successore. Anche la funzione di auxiliary load-balance
 nel sorgente rimuove i logits degli expert shared, ma qui non si è
 eseguito training.
 
+**Controllo funzionale successivo, senza donor:** il
+[self-test tiny sul codice pin-nato](../../../../benchmarks/donor_adaptation/density/strat02_shared_gate_zero_selftest.py),
+seed `20260917`, passa dopo aver azzerato la sola riga shared del gate:
+hidden state e logits finali sono bit-identici, routed top-k e pesi sono
+identici, coefficiente shared è esattamente 1. I raw router logits
+diagnostici **differiscono**, come atteso. Il controllo negativo azzera
+invece la routed row 2 e cambia il top-k. Questa è evidenza dell'invarianza
+della funzione di inferenza nel caso tiny e della struttura matematica
+del ramo con un solo shared; non prova ancora che tutti i 6.225 lineari
+del donor siano codificabili dopo la canonicalizzazione.
+
 **Decisione:** fermare l'arm `W4_ALL_LINEAR` v1. Nessun heldout W4,
 nessun W2 automatico, nessun rate C. Un possibile successore deve avere
 nuovo ID e nuova preregistrazione: o canonicalizzazione esplicita e
@@ -78,3 +89,5 @@ dimostrata delle sole 16 righe shared non operative, oppure una precisione
 diversa per il router. Prima di scegliere, verificare l'esattezza
 funzionale e scandire l'underflow sugli altri lineari; non cambiare il
 quantizer v1 in place.
+Il [censimento completo preregistrato](../briefs/BRIEF_STRAT_02_W4_FORMAT_CENSUS.md)
+è il gate successivo prima di scegliere quel nuovo ID.
