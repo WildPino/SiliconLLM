@@ -71,7 +71,10 @@ SHA-256 dei file grezzi:
 ## Decisione e prossimo gate
 
 Questo è il **denominatore teacher** del confronto paired STRAT-02. Il
-prossimo dato utile è il BPB dello *stesso* checkpoint con il quantizer W4
+controllo preregistrato di ripetibilità di due forward sul medesimo testo
+rimane ancora da eseguire prima di adjudicare Stage 1: i 96 documenti
+distinti di questo run non lo sostituiscono. Il prossimo dato utile è il
+BPB dello *stesso* checkpoint con il quantizer W4
 congelato nel [formato weight-only](STRAT_02_STAGE0_WEIGHT_FORMAT.md), sulla
 stessa heldout. Solo il limite superiore CI95% del delta candidato-teacher
 `<= +0,02 BPB` può passare il gate qualità. Prima servono conversione
