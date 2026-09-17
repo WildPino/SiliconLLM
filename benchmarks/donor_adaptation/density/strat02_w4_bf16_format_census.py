@@ -412,6 +412,14 @@ def _metadata_fingerprint(report: Any) -> dict[str, str]:
             **{name: _sha256_file(report.snapshot / name) for name in ("config.json", "configuration_emo.py", "modeling_emo.py")}}
 
 
+def _same_snapshot_directory(left: Path | str, right: Path | str) -> bool:
+    """Compare the filesystem object, not C: cache-junction versus E: target text."""
+    try:
+        return Path(left).samefile(Path(right))
+    except OSError as exc:
+        raise GateError("cannot resolve pinned snapshot directory identity") from exc
+
+
 def _verify_assigned_shard(report: Any, entry: Mapping[str, Any]) -> tuple[dict[str, int], str]:
     path = report.snapshot / entry["name"]
     before = path.stat()
@@ -445,7 +453,7 @@ def _worker(args: argparse.Namespace) -> int:
         codec.selftest()
         _validate_endpoint_shortcut(codec)
         report = teacher.preflight(snapshot=args.snapshot)
-        if str(report.snapshot) != manifest["parent_preflight"]["snapshot"]:
+        if not _same_snapshot_directory(report.snapshot, manifest["parent_preflight"]["snapshot"]):
             raise GateError("worker snapshot differs from parent preflight")
         shard_entries = report.manifest["shards"]
         if not 0 <= args.shard_index < len(shard_entries):

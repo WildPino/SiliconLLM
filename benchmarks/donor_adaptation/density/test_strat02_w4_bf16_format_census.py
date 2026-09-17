@@ -17,6 +17,15 @@ from benchmarks.donor_adaptation.density import strat02_w4_bf16_format_census as
 
 
 class BF16FullFormatCensusSyntheticTest(unittest.TestCase):
+    def test_snapshot_identity_uses_filesystem_not_path_spelling(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="strat02-bf16-snapshot-test-") as temporary:
+            root = Path(temporary)
+            child = root / "child"
+            child.mkdir()
+            self.assertNotEqual(str(root), str(child / ".."))
+            self.assertTrue(census._same_snapshot_directory(root, child / ".."))
+            self.assertFalse(census._same_snapshot_directory(root, child))
+
     def test_endpoint_shortcut_matches_all_eleven_on_planted_and_log_uniform_cases(self) -> None:
         census._validate_endpoint_shortcut(codec)
         self.assertEqual(len(codec.W4_CANDIDATE_C), 11)
