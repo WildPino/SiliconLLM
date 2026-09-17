@@ -1,5 +1,15 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**STRAT-02 W4-BF16-v2 quality gate (2026-09-17):** `FAIL_BPB`. The
+write-once paired run completed 48/48 calibration and 96/96 heldout
+documents. Candidate BPB is **0.630431372965746** versus the frozen teacher
+**0.604406515337738**, point Δ **+0.026024857628008**, upper one-sided
+95% CI **+0.027177891834178**, above the preregistered **+0.02** gate; all
+three categories also exceed the limit. Task/rollout was
+`NOT_RUN_BPB_FAIL`. This is only a donor BPB result: no task, native-C or
+speed claim. The earlier `VOID_RESOURCE` attempt remains distinct.
+[Result and audit](probes/STRAT_02_W4_BF16_QUALITY_RESULT.md).
+
 **STRAT-02 W4-BF16-v2 quality attempt 1 (2026-09-17):**
 `VOID_RESOURCE` before any candidate forward: the direct worker exceeded the
 preregistered 70 GiB private-commit cap after 696.625 s; 0 calibration and
@@ -29,13 +39,15 @@ the format/export level. This is not a model-load, quality, heldout,
 `engine.c`, or tok/s result. [Result and audit](probes/STRAT_02_W4_BF16_FULL_EXPORT_RESULT.md);
 [frozen brief](briefs/BRIEF_STRAT_02_W4_BF16_FULL_EXPORT.md).
 
-**Next STRAT-02 gate:**
-reconstructed-model load/parity and calibration operational checks. The
+**STRAT-02 quality gate disposition:**
+the reconstructed-model load/parity and calibration prerequisites were
+completed in the paired run, but the frozen W4-v2 BPB gate failed. The
 [conditional paired W4-v2 score](briefs/BRIEF_STRAT_02_W4_BF16_QUALITY_SCORE.md)
-is also frozen before reading its quality: it requires those prerequisites
-and leaves task/rollout conditional on the BPB gate. Its
+and its
 [artifact binding](briefs/BRIEF_STRAT_02_W4_BF16_QUALITY_ARTIFACT_BINDING.md)
-pins this one complete export and the original teacher score by SHA-256.
+remain the governing protocol and pin this complete export and the original
+teacher score by SHA-256. Continuation is undecided; no automatic format,
+donor, task, native-C or rate step follows.
 
 **STRAT-02 BF16-scale W4-v2 full-format census (2026-09-17):**
 `FORMAT_VALID_FULL` on the pinned StdMoE checkpoint: all 11 shard hashes,
