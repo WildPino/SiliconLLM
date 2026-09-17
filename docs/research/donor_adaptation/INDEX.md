@@ -1,11 +1,17 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
-**Next preregistered STRAT-02 gates (2026-09-17; not run):**
+**STRAT-02 F32 teacher repeatability (2026-09-17):**
+`PASS_REPEATABILITY` on the one frozen calibration document: both full
+scores matched at zero BPB delta, and the two first-64 logits blocks matched
+at zero maximum absolute error with zero elements outside tolerance. The
+bounded worker exited 0 after 25 monitor samples and one hash-matched pass
+over all 11 F32 shards. This authorizes only the pinned F32 teacher as an
+oracle for this control, not a heldout BPB, W4 quality, native `engine.c`,
+or tok/s result. [Result and verified artifact hashes](probes/STRAT_02_TEACHER_REPEATABILITY_RESULT.md).
+
+**Next preregistered STRAT-02 gate:**
 [full W4-BF16-v2 export](briefs/BRIEF_STRAT_02_W4_BF16_FULL_EXPORT.md)
-of all 6,259 pinned tensors into a checked 7,712,677,888-byte payload,
-and [F32 teacher repeatability](briefs/BRIEF_STRAT_02_TEACHER_REPEATABILITY.md)
-on one frozen calibration document. Both are apparatus prerequisites;
-neither is a W4 quality, native `engine.c`, or tok/s result. The
+of all 6,259 pinned tensors into a checked 7,712,677,888-byte payload. The
 [conditional paired W4-v2 score](briefs/BRIEF_STRAT_02_W4_BF16_QUALITY_SCORE.md)
 is also frozen before reading its quality: it requires those prerequisites
 and leaves task/rollout conditional on the BPB gate.
