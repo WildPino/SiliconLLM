@@ -1,5 +1,12 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**STRAT-02 BF16-scale W4-v2 pilot (2026-09-17):** the preregistered
+five-slice real-weight apparatus passed: 16,384/16,384 sampled groups
+encoded with valid BF16 scales; scalar/tile bytes and packed-decode
+parity held. This is **not** a full-format census, BPB gate, native-C
+export or rate. [Result, hashes, limits](probes/STRAT_02_W4_BF16_SCALE_V2_PILOT_RESULT.md);
+[frozen brief](briefs/BRIEF_STRAT_02_W4_BF16_SCALE_V2_PILOT.md).
+
 **STRAT-02 W4-v1 full-format census (2026-09-17):** the read-only scan
 stopped at its preregistered 512 MiB invalid-coordinate cap after 731/6225
 linear tensors. In that lexicographic prefix, 4,455,268 of 13,617,152
