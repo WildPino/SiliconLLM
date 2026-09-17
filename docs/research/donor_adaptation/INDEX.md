@@ -1,5 +1,14 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**STRAT-02 W4 v1 real-weight pilot (2026-09-17):** the first pinned
+attention slice passes byte-for-byte W4 parity; the first router slice
+cannot be encoded by the frozen F16-scale codec because 16 nonzero
+groups in shared gate row 127 underflow to a zero scale. A diagnostic
+read finds the same 16 groups in each of 16 layers. Raw run is
+`INCOMPLETE/WORKER_ERROR`; adjudication is `VOID_FORMAT`, **not** a W4
+quality failure or a reason to run W2. No heldout or T4 was used.
+[Result, raw hashes and next gate](probes/STRAT_02_W4_PILOT_V1_RESULT.md).
+
 **R1/STRAT-02 teacher baseline (2026-09-17):** all 11 pinned F32 shards
 were acquired and the pretrained StdMoE donor was scored on all 96 frozen
 heldout documents. The independently reconciled teacher reference is
