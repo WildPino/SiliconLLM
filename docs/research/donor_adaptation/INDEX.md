@@ -1,5 +1,11 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**STRAT-02 W4-BF16-v2 candidate prepare (2026-09-17):**
+the pinned export passed full metadata/topology/format preparation against
+the model on `meta` (11 shards, 6,259 records, 7,712,677,888 bytes).
+Nine synthetic loader tests passed. No complete F32 candidate load, forward,
+heldout or rate was run. [Result and scope](probes/STRAT_02_W4_BF16_CANDIDATE_PREPARE_RESULT.md).
+
 **STRAT-02 F32 teacher repeatability (2026-09-17):**
 `PASS_REPEATABILITY` on the one frozen calibration document: both full
 scores matched at zero BPB delta, and the two first-64 logits blocks matched
