@@ -1,5 +1,15 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**STRAT-02D W4 organ attribution (2026-09-17):** `COMPLETE` on calibration
+only: all four arms scored 48/48 documents with sentinel and rollback true.
+Against W4 control `0.6526310642410273` BPB, gains were router
+`0.00691488289323727`, head `0.003552017620359213`, attention
+`0.00876496219380739`, and nonexpert `0.019693910396024004` BPB, with extra
+active bytes/token respectively 14,614,528; 716,111,872; 935,329,792; and
+1,666,056,192. No heldout, task, rollout, native-C or token/s claim; the
+previous W4 heldout `FAIL_BPB` and `VOID_RESOURCE` attempt remain distinct.
+[Result and audit](probes/STRAT_02D_W4_ORGAN_ATTRIBUTION_RESULT.md).
+
 **STRAT-02 W4-BF16-v2 quality gate (2026-09-17):** `FAIL_BPB`. The
 write-once paired run completed 48/48 calibration and 96/96 heldout
 documents. Candidate BPB is **0.630431372965746** versus the frozen teacher
