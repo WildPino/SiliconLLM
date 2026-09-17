@@ -8,8 +8,9 @@ bytes; the worker completed with exit code 0 under bounded supervision.
 This is a teacher-only result, **not** a W4/W2 quality gate, CPU tok/s
 measurement, or native-SSM conversion. See the
 [result and artifact hashes](probes/STRAT_02_STAGE0_TEACHER_BASELINE_RESULT.md).
-Next: exact W4 encoder parity and bounded conversion before one paired W4
-heldout evaluation. No T4 was used.
+Next: exact W4 encoder parity and the
+[bounded conversion pilot](briefs/BRIEF_STRAT_02_W4_CONVERSION_APPARATUS.md)
+before one paired W4 heldout evaluation. No T4 was used.
 
 **R1/STRAT-02 preflight (2026-09-16):** the pinned Ai2 StdMoE pretrained
 checkpoint has 13,568,641,024 stored F32 parameters (54.28 GB across 11
