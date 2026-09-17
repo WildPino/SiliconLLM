@@ -1,5 +1,12 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**STRAT-02 W4-BF16-v2 quality attempt 1 (2026-09-17):**
+`VOID_RESOURCE` before any candidate forward: the direct worker exceeded the
+preregistered 70 GiB private-commit cap after 696.625 s; 0 calibration and
+0 heldout rows were scored. This is not `FAIL_BPB` and cannot establish W4
+fidelity. [Write-once run and control hashes](probes/STRAT_02_W4_BF16_QUALITY_ATTEMPT1_VOID_RESOURCE.md);
+[memory-only retry addendum](briefs/BRIEF_STRAT_02_W4_BF16_QUALITY_MEMORY_ADDENDUM.md).
+
 **STRAT-02 W4-BF16-v2 candidate prepare (2026-09-17):**
 the pinned export passed full metadata/topology/format preparation against
 the model on `meta` (11 shards, 6,259 records, 7,712,677,888 bytes).
