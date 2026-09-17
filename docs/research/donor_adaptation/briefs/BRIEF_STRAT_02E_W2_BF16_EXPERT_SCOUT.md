@@ -76,8 +76,13 @@ Prima dei pesi reali: reference scalare indipendente, encoder tiled bounded
 e decoder dal **bitstream realmente impacchettato** devono concordare su
 gruppi random, zeri, tie, tiny/large, confini tile, endian, bit order e
 input invalidi. La velocità dell'encoder tiled va misurata su sintetico:
-se la proiezione conservativa del lavoro completo supera il cap di 6 ore,
-non lanciare il donor, registrare `NOT_RUN_RESOURCE_PROJECTION`. Niente
+un warmup e tre repliche su 4.194.304 valori F32 gaussiani, seed
+`20260917`, includendo fit, pack e decode ma escludendo I/O. Il minimo
+throughput delle tre repliche proietta il tempo per i
+12.884.901.888 pesi expert memorizzati; se supera **3 ore**, non lanciare
+il donor e registrare `NOT_RUN_RESOURCE_PROJECTION`. Il margine delle altre
+3 ore del cap complessivo è riservato a hash, load, scoring e rollback.
+Questa è solo una guardia di costo, non una previsione di inferenza. Niente
 secondo modello F32 né output W2 completo persistito: il payload W2
 transita in tile limitati, poi si decodifica nella vista F32 già allocata.
 I byte del tile e hash del tensore decodificato restano auditabili; questa
