@@ -5,8 +5,10 @@ import hashlib
 import io
 import json
 import os
+import gc
 import tempfile
 import unittest
+import weakref
 from pathlib import Path
 from types import SimpleNamespace
 from unittest import mock
@@ -89,6 +91,68 @@ class MutationAndSentinelTests(unittest.TestCase):
             organ._check_sentinel(SimpleNamespace(**{**vars(observation), "bits": 13.0 + 2e-5}), expected)
         with self.assertRaises(organ.ApparatusError):
             organ._check_sentinel(SimpleNamespace(**{**vars(observation), "tokens": 9}), expected)
+
+
+class SequentialSourceHandleTests(unittest.TestCase):
+    def test_keyset_audit_and_arm_copy_never_overlap_source_handles(self) -> None:
+        values = {"s1": {"a": np.arange(128, dtype=np.float32).reshape(1, 128),
+                         "c": np.full((1, 128), np.float32(-3), dtype=np.float32)},
+                  "s2": {"b": np.full((1, 128), np.float32(7), dtype=np.float32)},
+                  "s3": {"unused": np.full((1, 128), np.float32(1), dtype=np.float32)}}
+        report = SimpleNamespace(snapshot=Path("synthetic"),
+                                 manifest={"shards": [{"name": name} for name in values]},
+                                 index={"weight_map": {key: shard for shard, tensors in values.items()
+                                                       for key in tensors}})
+        class Tracker:
+            def __init__(self):
+                self.active = self.maximum = 0
+                self.opened = []
+                self.slice_refs = []
+            def open(self, path):
+                shard = path.name
+                tracker = self
+                class Handle:
+                    def __enter__(self):
+                        tracker.active += 1
+                        tracker.maximum = max(tracker.maximum, tracker.active)
+                        tracker.opened.append(shard)
+                        return self
+                    def __exit__(self, *_args):
+                        tracker.active -= 1
+                    def keys(self): return list(values[shard])
+                    def get_slice(self, key):
+                        class Slice:
+                            def get_shape(self): return values[shard][key].shape
+                            def __getitem__(self, index):
+                                tensor = torch.from_numpy(values[shard][key][index])
+                                tracker.slice_refs.append(weakref.ref(tensor))
+                                return tensor
+                        return Slice()
+                return Handle()
+        tracker = Tracker()
+        records = [{"name": key, "source_shard": shard, "shape": [1, 128],
+                    "encoding": verifier.LINEAR_ENCODING} for shard, key in (("s2", "b"), ("s1", "a"), ("s1", "c"))]
+        state = {record["name"]: torch.empty((1, 128), dtype=torch.float32) for record in records}
+        with mock.patch.object(organ, "_source_open", side_effect=tracker.open):
+            organ._audit_source_keysets(report)
+            self.assertEqual(tracker.active, 0)
+            organ._copy_arm_sources(records, state, report)
+            self.assertEqual(tracker.active, 0)
+            self.assertEqual(tracker.maximum, 1)
+            self.assertEqual(tracker.opened, ["s1", "s2", "s3", "s1", "s2"])
+            for record in records:
+                np.testing.assert_array_equal(state[record["name"]].numpy().view("<u4"),
+                                              values[record["source_shard"]][record["name"]].view("<u4"))
+            gc.collect()
+            self.assertTrue(all(reference() is None for reference in tracker.slice_refs))
+            values["s2"].pop("b")
+            with self.assertRaisesRegex(organ.ApparatusError, "keyset mismatch"):
+                organ._audit_source_keysets(report)
+            self.assertEqual(tracker.active, 0)
+            with self.assertRaisesRegex(organ.ApparatusError, "keyset changed"):
+                organ._copy_arm_sources(records, state, report)
+            self.assertEqual(tracker.active, 0)
+            self.assertEqual(tracker.maximum, 1)
 
 
 class CalibrationOnlyTests(unittest.TestCase):

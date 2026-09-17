@@ -296,10 +296,61 @@ def _copy_f32_record(handle: Any, record: Mapping[str, Any], destination: Any) -
         values = chunk.numpy()
         np.copyto(target[first:stop], values, casting="no")
         source_hash.update(memoryview(values).cast("B"))
+        del values, chunk  # release each mapped slice before requesting the next one
     digest = source_hash.hexdigest()
     if _tensor_sha(destination) != digest:
         raise ApparatusError("F32 source/destination bitwise SHA mismatch")
     return digest
+
+
+def _source_open(path: Path) -> Any:
+    from safetensors import safe_open
+
+    return safe_open(str(path), framework="pt", device="cpu")
+
+
+def _audit_source_keysets(report: Any) -> None:
+    """Audit every pinned header with at most one F32 shard mapping live."""
+    index = report.index["weight_map"]
+    observed: set[str] = set()
+    for entry in report.manifest["shards"]:
+        shard = entry["name"]
+        expected = {key for key, mapped in index.items() if mapped == shard}
+        with _source_open(report.snapshot / shard) as handle:
+            keys = set(handle.keys())
+            if keys != expected:
+                raise ApparatusError(f"source shard/index keyset mismatch: {shard}")
+            observed.update(keys)
+    if observed != set(index):
+        raise ApparatusError("source shard key union differs from pinned index")
+
+
+def _copy_arm_sources(records: Sequence[Mapping[str, Any]], state: Mapping[str, Any], report: Any) -> None:
+    """Group selected records by source shard; close each mapping before next."""
+    order = [entry["name"] for entry in report.manifest["shards"]]
+    grouped: dict[str, list[Mapping[str, Any]]] = {shard: [] for shard in order}
+    seen: set[str] = set()
+    index = report.index["weight_map"]
+    for record in records:
+        key, shard = record["name"], record["source_shard"]
+        if key in seen or shard not in grouped or index.get(key) != shard or key not in state:
+            raise ApparatusError("arm source record/index/state binding mismatch")
+        seen.add(key)
+        grouped[shard].append(record)
+    copied = 0
+    for shard in order:
+        selected = grouped[shard]
+        if not selected:
+            continue
+        with _source_open(report.snapshot / shard) as handle:
+            expected = {key for key, mapped in index.items() if mapped == shard}
+            if set(handle.keys()) != expected:
+                raise ApparatusError(f"source shard keyset changed before copy: {shard}")
+            for record in selected:
+                _copy_f32_record(handle, record, state[record["name"]])
+                copied += 1
+    if copied != len(records):
+        raise ApparatusError("arm source copy did not cover every selected record")
 
 
 def _restore_w4_record(handle: Any, record: Mapping[str, Any], destination: Any,
@@ -461,11 +512,8 @@ def _worker(args: argparse.Namespace) -> int:
             for record in arms[arm]["records"]:
                 if index.get(record["name"]) != record["source_shard"]:
                     raise ApparatusError("organ record/index shard mismatch")
-        from safetensors import safe_open
+        _audit_source_keysets(report)  # every F32 source handle is now closed before arena allocation
         with contextlib.ExitStack() as stack:
-            source_handles = {entry["name"]: stack.enter_context(safe_open(str(report.snapshot / entry["name"]),
-                              framework="pt", device="cpu")) for entry in report.manifest["shards"]}
-            teacher._assert_index_key_mapping(index, source_handles)
             artifact_handles = {descriptor["source_shard"]: stack.enter_context(
                 verifier._safe_child(prepared.root, descriptor["payload_file"]).open("rb"))
                 for descriptor in prepared.descriptors}
@@ -481,8 +529,7 @@ def _worker(args: argparse.Namespace) -> int:
                     current_arm = arm
                     selected = arms[arm]["records"]
                     teacher._assert_unchanged(verified)
-                    for record in selected:
-                        _copy_f32_record(source_handles[record["source_shard"]], record, state[record["name"]])
+                    _copy_arm_sources(selected, state, report)
                     path = root / f"{arm.lower()}.jsonl"
                     summary = _score_arm(model, tokenizer, rows, path, score_core.score_document)
                     for record in selected:
