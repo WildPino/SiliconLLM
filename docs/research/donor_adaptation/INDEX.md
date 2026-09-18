@@ -6,6 +6,14 @@ object, but the existing corpus audit returns a path string, so `.get("schema")`
 failed at runner line 293. Zero heldout rows were persisted; no quality
 conclusion. [Sidecar and scope](probes/STRAT_02F_ATTEMPT1_VOID_APPARATUS.md).
 
+**STRAT-02F W4 router-F32 heldout (2026-09-18):** `FAIL_BPB` on the one
+selected follow-on arm. All 96/96 heldout rows paired exactly; candidate BPB
+**0.623938577445144**, Δ vs teacher **+0.0195320621074062**, upper one-sided
+CI95 **+0.0203953142210874** above the **+0.02** gate, while improving W4
+control by **0.00649279552060154** BPB. This is specific to this arm, not a
+generic router/W4 impossibility result; no task, C, rate, T4 or automatic
+next arm. [Result and audit](probes/STRAT_02F_W4_ROUTER_F32_HELDOUT_RESULT.md).
+
 **STRAT-02E W2-BF16 expert scout (2026-09-18):** `COMPLETE_DIAGNOSTIC`,
 calibration-only, con due bracci 48/48 e tutti i sentinel/rollback verificati.
 Contro il W4 control a **0.6526310642410273 BPB**, `W2_EXPERTS_ROUTER_W4`
