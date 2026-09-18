@@ -7,8 +7,14 @@ Q4_K_M e il suo layer MTP BF16 della revisione pin-nata hanno effettuato
 speculative decoding nello stesso processo `llama.cpp` CPU. Il draft è stato
 caricato da un GGUF *separato*, invocato e ha prodotto token accettati. Non
 esiste ancora una prova di qualità del target Q4 rispetto al BF16, di logits
-parity MTP rispetto a vLLM, di rate con build CPU ottimizzato, né un port nel
+parity MTP rispetto a vLLM, di rate clean-box con build CPU ottimizzata, né un port nel
 nostro `benchmarks/phase60/engine.c`. Il requisito ≥50 tok/s **non è passato**.
+
+Una successiva build nativa x86 ha permesso un primo confronto paired,
+descritto sotto: il draft BF16 è risultato più lento del controllo e la
+sequenza greedy non è identica. Rimane un **pilot n=1**, non una sentenza
+statistica o un gate di qualità; la divergenza va spiegata prima di
+ottimizzare l'acceptance.
 
 Questo addendum supera soltanto le precedenti frasi storiche «nessun GGUF
 draft scritto» e «grafo MTP Q diretto ancora da implementare» dello
@@ -51,6 +57,10 @@ quattro suite extractor, contratto GGUF, builder HF e patch sono verdi.
 | smoke verbose, contesto 2048, 4 token | draft separato caricato, `draft-mtp` inizializzato e invocato, 1 proposta accettata su 1 | **FIRES**, campione troppo piccolo per stimare acceptance |
 | prima richiesta da 64 token | CLI rifiuta argomento `una` per quoting PowerShell; nessun modello caricato | VOID di setup, non dato negativo |
 | richiesta corretta da 64 token | 23 proposte accettate su 39 (58,974%), 64 output token, nessun errore runtime | osservazione valida su **un prompt**, non generalizzabile |
+| paired x86 nativo, greedy 64 token | baseline 12,78 tok/s; MTP BF16 11,01 tok/s; 25/38 proposte accettate (65,789%) | un solo run per braccio, **-13,85%** di rate decode; gli output divergono, quindi non è parità di qualità |
+| ripetizione baseline greedy 64 token | stessi 64 token generati del primo baseline; tempi leggermente diversi | esclude la non-ripetibilità grossolana del solo controllo, non dimostra la causa della divergenza MTP |
+| diagnostica paired da 48 token, verbosità default | testi divergenti, ma le righe aggiunte al sampler sono soppresse | VOID diagnostico: `llama-cli` usa verbosity error per default; non ripetere senza `-lv 3` |
+| diagnostica paired da 48 token, `-lv 3` | prima differenza all'output token indice zero-based 25, ID 4734 contro 4164 | tracciamento del punto di biforcazione; logging strumentato, tempi non confrontabili |
 
 Ultimo run: log locale `strat01_mtp_accept64_seed42_20260918_v2.{out,err}.log`
 nella directory `benchmarks/donor_adaptation/density/results/`; prompt in
@@ -63,6 +73,66 @@ generated)`, prefill 321.736,52 ms e decode 40.541,17 ms / 64 token, cioè
 è paired a un controllo no-draft, non è clean-box con il protocollo E63 e non
 è una misura di `engine.c`. Una sola sequenza produce 39 proposte correlate:
 non dedurre da 23/39 un intervallo binomiale o un rate su workload.
+
+### Addendum: controllo paired nativo e divergenza greedy
+
+Nel checkout temporaneo del medesimo commit `llama.cpp`, CMake sotto
+LLVM-MinGW aveva inizialmente inferito `GGML_SYSTEM_ARCH: UNKNOWN` e compilato
+`GGML_CPU_GENERIC`. Un adattamento **locale al checkout**, non parte della
+patch scientifica, imposta `CMAKE_SYSTEM_PROCESSOR=AMD64` solo se mancante su
+Windows; la nuova directory `build-cpu-native` conferma x86 e
+`-march=native`. È una build ottimizzata di riferimento, **non** `engine.c`.
+
+Entrambi i bracci hanno usato lo stesso target Q4_K_M, prompt italiano,
+chat template da 1.149 token di prefill, seed 42, `--temp 0`, 64 output
+token, 4 thread, `--poll 0`, contesto 2048 e CPU-only. MTP aggiunge il GGUF
+BF16 separato con `draft-mtp`, `n_max=n_min=1`. Log locali:
+`strat01_native_pair_base64_t0_seed42_20260918.{out,err}.log` e
+`strat01_native_pair_mtp64_t0_seed42_20260918.{out,err}.log` in
+`benchmarks/donor_adaptation/density/results/`.
+
+| Braccio | Prefill | Decode (64 output) | Draft |
+|---|---:|---:|---:|
+| baseline | 18.739,00 ms / 1.149 | 4.931,37 ms; **12,78 tok/s** | — |
+| MTP BF16 | 20.782,21 ms / 1.149 | 5.724,12 ms; **11,01 tok/s** | 25/38 accettate |
+
+Il delta di rate decode è `11,01/12,78 - 1 = -13,85%` circa, senza
+interleaving, controllo clean-box o intervallo di confidenza. Il baseline
+rieseguito con la medesima invocazione (`...base64_t0_seed42_repeat_20260918`)
+ha prodotto la **stessa sequenza di 64 token**; il run MTP diverge già nel
+primo paragrafo, a partire da «Per comprendere come la CPU ...» contro
+«Per comprendere il processo di generazione ...». Un confronto visivo del
+testo, non una diff dei token-ID; le due uscite condividono l'intestazione.
+
+Audit statico del runtime pin-nato: a `temp<=0` il sampler lascia il solo
+logit massimo; `common_sampler_sample_and_accept_n` ricampiona ogni proposta
+sui logits del target e accetta soltanto l'ID coincidente. Il server valuta
+in un batch il token corrente **più** la proposta MTP, contro un solo token
+nel baseline. Una variazione numerica del top-1 dovuta alla diversa forma
+del batch è una *ipotesi* compatibile; non è ancora dimostrata né esclude un
+bug di allineamento posizione/KV/verifica. La prova di ripetibilità del
+baseline non discrimina queste cause. La precedenza sperimentale è una
+traccia controllata dei logits attorno alla **prima** divergenza, confrontando
+contesto, forma batch, KV e indice dei logits; non attribuire all'MTP qualità invariata né
+usare il rate come previsione di un modello carved nel motore C.
+
+Una prima diagnostica sul checkout temporaneo ha quindi aggiunto logging
+del target top-2 grezzo **prima** della catena di sampling e dell'ID scelto.
+I log `strat01_diag_{base,mtp}48_lv3_20260918.{out,err}.log` sono locali;
+`-lv 3` è essenziale, perché la CLI altrimenti sopprime INFO. I primi
+**25 ID di output** coincidono; all'indice zero-based **25** il baseline
+produce **4734**, MTP **4164**. Al medesimo passo, 4734 è il top-1 grezzo
+del baseline e 4164 il suo top-2 (margine 0,357017517); nel ramo MTP
+4164 è top-1 e 4734 top-2 (margine 0,0479545593). La proposta draft a
+quel passo era 4734 e il verificatore ha correttamente rifiutato il draft
+perché il target del proprio batch sceglieva 4164. I log mostrano anche
+una differenza nei margini del target già alla prima verifica dopo il primo
+token: entrambi scelgono ID 50503, ma il margine è 3,49245834 nel
+baseline contro 3,35231781 nel batch MTP. Questo è compatibile con
+aritmetica dipendente dalla forma batch **prima di qualunque proposta
+accettata**, ma non prova che il solo batching spieghi la biforcazione al
+passo 25: restano da discriminare differenze numeriche, posizione e stato
+KV. I tempi dei run strumentati non sono benchmark di performance.
 
 **Stima di traffico, non misura:** se `p=23/39` persistesse, un ciclo
 speculativo `k=1` produrrebbe asintoticamente `1+p=1,58974` output token.
@@ -79,10 +149,13 @@ di impossibilità; indica quale trade-off misurare dopo.
 
 ## Gate successivi, in ordine
 
-1. Verificare che una build x86 nativa e un controllo *paired* senza draft,
-   stesso target/prompt/seed/campionamento, isolino il costo reale del draft;
-   non trasferire l'1,55 tok/s generico al target di 50. La quantizzazione
-   W4 del draft è il ramo successivo da testare, non un guadagno assunto.
+1. Discriminare la divergenza greedy ora localizzata al token 26: confrontare
+   i logits dei due ID nello stesso contesto con batch forzato a uno/due
+   token, includendo indici batch, posizioni e stato KV; confermare o
+   smentire l'ipotesi numerica. Non trasferire né l'1,55 tok/s generic né
+   il 11,01 tok/s native al gate di 50. Solo dopo, ripetere il paired con
+   ordine interleaved e macchina ammissibile. La quantizzazione W4 del draft
+   è il ramo successivo da testare, non un guadagno assunto.
 2. Ripetere acceptance su prompt preregistrati e corpus non scelto dopo il
    risultato, contabilizzando proposte, accettazioni e token output. Misurare
    logits/hidden-state parity contro reference BF16 prima di attribuire
