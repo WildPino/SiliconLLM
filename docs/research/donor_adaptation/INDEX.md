@@ -7,7 +7,9 @@ producer-reported benchmarks. The config-derived base large-organ ledger is
 or 40.70 GB/s at 50 tok/s before overhead. The card's nominal ~1.8B active
 implies ~45 GB/s instead; these are separate accounting scenarios. The card's
 MTP speedup was measured on H100 at concurrency 32, not this CPU batch-1;
-no quality-preserving CPU format or accepted-token rate is established. No
+the MTP layer adds 256.31M active weights/draft (128.16 MB W4). Published BF16
+and Q4_K_M GGUF headers have only 26 blocks and **omit MTP**. No
+quality-preserving CPU format with MTP or accepted-token rate is established. No
 weights, port or T4. [Audit and decision](audits/STRAT_01_GIGACHAT31_10B_METADATA_SCREEN_20260918.md).
 
 **STRAT-01 NousResearch 10B-A1B metadata screen (2026-09-18):** pinned
