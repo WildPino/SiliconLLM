@@ -61,6 +61,7 @@ quattro suite extractor, contratto GGUF, builder HF e patch sono verdi.
 | ripetizione baseline greedy 64 token | stessi 64 token generati del primo baseline; tempi leggermente diversi | esclude la non-ripetibilità grossolana del solo controllo, non dimostra la causa della divergenza MTP |
 | diagnostica paired da 48 token, verbosità default | testi divergenti, ma le righe aggiunte al sampler sono soppresse | VOID diagnostico: `llama-cli` usa verbosity error per default; non ripetere senza `-lv 3` |
 | diagnostica paired da 48 token, `-lv 3` | prima differenza all'output token indice zero-based 25, ID 4734 contro 4164 | tracciamento del punto di biforcazione; logging strumentato, tempi non confrontabili |
+| MTP diagnostico da 32 token con proposta soppressa a `n_gen=25` | stesso prefisso di 25 ID, poi target sceglie ancora 4164 con batch singolo | il solo batch da due token al passo divergente non è la causa sufficiente; rimane uno stato accumulato diverso |
 
 Ultimo run: log locale `strat01_mtp_accept64_seed42_20260918_v2.{out,err}.log`
 nella directory `benchmarks/donor_adaptation/density/results/`; prompt in
@@ -134,6 +135,22 @@ accettata**, ma non prova che il solo batching spieghi la biforcazione al
 passo 25: restano da discriminare differenze numeriche, posizione e stato
 KV. I tempi dei run strumentati non sono benchmark di performance.
 
+Controllo di causalità successivo: una modifica **solo nel checkout
+temporaneo** fa ritornare `get_n_draft_max()=0` quando `stats.n_gen==25`,
+lasciando la speculazione precedente invariata. Il log
+`strat01_diag_mtp32_single_at25_20260918.err.log` conferma
+`STRAT01_SINGLE_ONLY n_gen=25`; in quel passo il target campiona da
+`idx=0` e sceglie **ancora 4164**, con top-2 4734 e margine 0,09333992.
+Il baseline a batch singolo aveva scelto 4734. Dunque la forma batch **al
+solo passo 25** non basta a spiegare la biforcazione. Lo stato target dopo
+le precedenti verifiche differisce già abbastanza da invertire il top-1:
+può essere drift numerico accumulato dalle decodifiche multi-token o errore
+di gestione posizione/KV/rollback; questo test non li distingue. La
+ricostruzione automatica degli ID dal log `STRAT01_VERIFY` del run forzato
+non include il passo singolo, quindi per quel passo fa fede la riga
+`STRAT01_SAMPLE` e il testo emesso, non un conteggio derivato dalla sequenza
+dei soli VERIFY. Anche questo run non è una misura di rate.
+
 **Stima di traffico, non misura:** se `p=23/39` persistesse, un ciclo
 speculativo `k=1` produrrebbe asintoticamente `1+p=1,58974` output token.
 Il ledger teorico precedente dà **814.039.040 B** di pesi base W4 e
@@ -149,10 +166,11 @@ di impossibilità; indica quale trade-off misurare dopo.
 
 ## Gate successivi, in ordine
 
-1. Discriminare la divergenza greedy ora localizzata al token 26: confrontare
-   i logits dei due ID nello stesso contesto con batch forzato a uno/due
-   token, includendo indici batch, posizioni e stato KV; confermare o
-   smentire l'ipotesi numerica. Non trasferire né l'1,55 tok/s generic né
+1. Discriminare la divergenza greedy ora localizzata al token 26: il batch
+   singolo forzato **solo al passo divergente non la risolve**. Confrontare
+   pertanto logits/hidden state e stato KV lungo i 25 passi precedenti,
+   insieme a posizioni e rollback, contro un target che usa lo stesso
+   prefisso in batch singoli. Non trasferire né l'1,55 tok/s generic né
    il 11,01 tok/s native al gate di 50. Solo dopo, ripetere il paired con
    ordine interleaved e macchina ammissibile. La quantizzazione W4 del draft
    è il ramo successivo da testare, non un guadagno assunto.
