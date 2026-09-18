@@ -25,6 +25,12 @@ has now produced a local, unversioned **210-tensor BF16 MTP sidecar**
 Nine synthetic tests pass; independent safetensors parsing and three complete
 small-tensor Range comparisons pass. No base-model logits, acceptance, BPB,
 engine C port or speed measurement yet.
+Current llama.cpp does expose a DeepSeek2 MTP graph, but it asserts Q-LoRA;
+GigaChat's extracted MTP layer has direct `q_proj`, so the graph cannot run
+unmodified. The DeepSeekV3 converter still skips MTP. A fresh pinned Range
+comparison also proves the base output norm differs from the MTP shared-head
+norm, so a standalone draft must fetch the 3,072-byte root norm rather than
+alias it. The ordered compatibility gate is in the audit below.
 [Audit, exact byte offsets and decision](audits/STRAT_01_GIGACHAT31_10B_METADATA_SCREEN_20260918.md).
 
 **STRAT-01 NousResearch 10B-A1B metadata screen (2026-09-18):** pinned
