@@ -10,7 +10,11 @@ MTP speedup was measured on H100 at concurrency 32, not this CPU batch-1;
 the MTP layer adds 256.31M active weights/draft (128.16 MB W4). Published BF16
 and Q4_K_M GGUF headers have only 26 blocks and **omit MTP**. No
 quality-preserving CPU format with MTP or accepted-token rate is established. No
-weights, port or T4. [Audit and decision](audits/STRAT_01_GIGACHAT31_10B_METADATA_SCREEN_20260918.md).
+weights, port or T4. The pinned `llama.cpp` DeepSeek-V3 converter explicitly
+skips MTP and rejects `--mtp` for this architecture. Header/index inspection
+found all 210 MTP tensors in **one contiguous 1.614 GB Range** of the first
+BF16 shard; this reduces the extraction scope, not the inference/quality gate.
+[Audit, exact byte offsets and decision](audits/STRAT_01_GIGACHAT31_10B_METADATA_SCREEN_20260918.md).
 
 **STRAT-01 NousResearch 10B-A1B metadata screen (2026-09-18):** pinned
 `e848be60cde857798081087287be1fffaab0c81f` contains 10.489B BF16
