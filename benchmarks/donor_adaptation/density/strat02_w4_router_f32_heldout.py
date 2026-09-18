@@ -287,10 +287,10 @@ def _read_router_calibration_sentinel(rows: Sequence[Mapping[str, Any]]) -> Mapp
 
 def _read_heldout_rows(snapshot: Path) -> tuple[list[dict[str, Any]], Any, dict[str, Any]]:
     """The worker-only corpus/token audit; no score control is parsed here."""
-    manifest, _calib, heldout, summary = w4_quality._audit_full_corpus(
+    _manifest_audit, _calib, heldout, summary = w4_quality._audit_full_corpus(
         audit, manifest=MANIFEST, calib=CALIB, heldout=HELDOUT, snapshot=snapshot
     )
-    if (manifest.get("schema") is None or len(heldout) != EXPECTED_HELDOUT_DOCUMENTS or
+    if (len(heldout) != EXPECTED_HELDOUT_DOCUMENTS or
             summary.get("heldout_tokens") != EXPECTED_HELDOUT_TOKENS or
             summary.get("heldout_bytes") != EXPECTED_HELDOUT_BYTES):
         raise ApparatusError("heldout corpus inventory differs from frozen pin")

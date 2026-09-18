@@ -71,6 +71,21 @@ class RouterSelectionTests(unittest.TestCase):
 
 
 class HeldoutWriteTests(unittest.TestCase):
+    def test_corpus_audit_manifest_is_not_assumed_to_be_an_object(self) -> None:
+        rows = heldout_rows()
+        summary = {"heldout_tokens": runner.EXPECTED_HELDOUT_TOKENS,
+                   "heldout_bytes": runner.EXPECTED_HELDOUT_BYTES}
+        tokenizer = FakeTokenizer()
+        with (mock.patch.object(runner.w4_quality, "_audit_full_corpus",
+                                return_value=("verified-manifest-path", [], rows, summary)),
+              mock.patch.object(runner.audit, "load_tokenizer",
+                                return_value=(tokenizer, None, None, None)),
+              mock.patch.object(runner.score_core, "validate_strat02_tokenizer")):
+            observed_rows, observed_tokenizer, observed_summary = runner._read_heldout_rows(Path("synthetic"))
+        self.assertIs(observed_rows, rows)
+        self.assertIs(observed_tokenizer, tokenizer)
+        self.assertIs(observed_summary, summary)
+
     def test_write_once_and_document_binding_include_document_ids(self) -> None:
         tokenizer, rows = FakeTokenizer(), heldout_rows()
         calls: list[str] = []
