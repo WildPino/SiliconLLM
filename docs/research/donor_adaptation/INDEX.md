@@ -19,6 +19,12 @@ could reduce stored draft payload to 826.43 MB; weight-once head execution
 would reduce the ideal W4 base+MTP traffic to 843.69 MB/cycle, but is **not
 implemented or measured**. This reduces extraction/traffic possibilities, not
 the inference/quality gate.
+[Pinned Range extractor](../../../benchmarks/donor_adaptation/density/strat01_gigachat_mtp_extract.py)
+has now produced a local, unversioned **210-tensor BF16 MTP sidecar**
+(1,614,456,643 B, SHA-256 `c340ed41c1355441207357723b984fc336082e7c0e8a00deeb6f4fce15c46119`).
+Nine synthetic tests pass; independent safetensors parsing and three complete
+small-tensor Range comparisons pass. No base-model logits, acceptance, BPB,
+engine C port or speed measurement yet.
 [Audit, exact byte offsets and decision](audits/STRAT_01_GIGACHAT31_10B_METADATA_SCREEN_20260918.md).
 
 **STRAT-01 NousResearch 10B-A1B metadata screen (2026-09-18):** pinned
