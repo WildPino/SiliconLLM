@@ -171,6 +171,16 @@ demonstrated quality/50-tok/s path. W4/W2 traffic is conditional arithmetic,
 not a donor-rate inference from E63. No T4/port is authorized by this screen
 alone. [Full STRAT-01 audit](audits/STRAT_01_SPARSE_HYBRID_METADATA_SCREEN.md).
 
+**STRAT-01 Susono metadata screen (2026-09-18):** the immutable revision
+`01031e1a808224a29c616e4f85bb94f2604a7a8d` reports **10,610,338,372** stored
+elements versus the card's rounded 10B; source-derived named active organs
+sum to **1,203,292,360** weights/token, implying W2/W4/W8 payload floors of
+15.04/30.08/60.16 GB/s at 50 tok/s. Engram locality and complete head reread
+are explicit ledger assumptions; small terms and measured traffic are not
+included. Training completion, quality, and rate are unverified, and the
+dedicated custom-code stack is a major blocker. **Metadata-only candidate;
+not promoted to acquisition or port.** [Full Susono audit](audits/STRAT_01_SUSONO_METADATA_SCREEN_20260918.md).
+
 **Latest E68 result (2026-09-16):** the frozen rank-64 linear shared residual
 over E67's mass-selected sparse FFN groups is `PARTIAL_LOCAL_SIGNAL` on the
 real 1.5B donor: aggregate local SSE is **7,988,513.932479 →
