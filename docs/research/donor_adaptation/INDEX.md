@@ -1,5 +1,14 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**STRAT-01 NousResearch 10B-A1B metadata screen (2026-09-18):** pinned
+`e848be60cde857798081087287be1fffaab0c81f` contains 10.489B BF16
+stored elements in a standard Qwen3-MoE geometry. The config-derived named
+active ledger is 1.196B weights/token, or 597.98 MB/token W4 payload and
+29.90 GB/s at 50 tok/s before overhead. The repo has no model card/license
+field; the published Nous 10B-A1B paper is **not bound** to this checkpoint
+SHA. Metadata-only lead, not qualified for acquisition/port, quality or rate.
+[Audit and next gate](audits/STRAT_01_NOUS_10B_A1B_METADATA_SCREEN_20260918.md).
+
 **STRAT-02F attempt 1 (2026-09-18):** `VOID_APPARATUS` before any candidate
 value load or heldout score: the runner assumed `report["manifest"]` was an
 object, but the existing corpus audit returns a path string, so `.get("schema")`
