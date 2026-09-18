@@ -1,5 +1,11 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**STRAT-02F attempt 1 (2026-09-18):** `VOID_APPARATUS` before any candidate
+value load or heldout score: the runner assumed `report["manifest"]` was an
+object, but the existing corpus audit returns a path string, so `.get("schema")`
+failed at runner line 293. Zero heldout rows were persisted; no quality
+conclusion. [Sidecar and scope](probes/STRAT_02F_ATTEMPT1_VOID_APPARATUS.md).
+
 **STRAT-02E W2-BF16 expert scout (2026-09-18):** `COMPLETE_DIAGNOSTIC`,
 calibration-only, con due bracci 48/48 e tutti i sentinel/rollback verificati.
 Contro il W4 control a **0.6526310642410273 BPB**, `W2_EXPERTS_ROUTER_W4`
