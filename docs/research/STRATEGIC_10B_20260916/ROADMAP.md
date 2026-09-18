@@ -1,6 +1,6 @@
 # Roadmap strategica: pretrained ~10B, 50–100 tok/s, CPU AVX2
 
-**Aggiornamento di stato e decisione sul perimetro di `engine.c`:** [17 settembre 2026](STATUS_20260917.md). Il testo seguente resta lo snapshot progettuale del 16 settembre.
+**Stato aggiornato:** [18 settembre 2026](STATUS_20260918.md). La [decisione sul perimetro di `engine.c` del 17 settembre](STATUS_20260917.md) resta valida. Il testo seguente resta lo snapshot progettuale del 16 settembre.
 
 **Data: 16 settembre 2026. Solo analisi e progettazione. Nessun codice, test, benchmark, download di pesi o training eseguito.** Base della lettura: HEAD `f1f9cfd59d34071a004248bc04c9d56e6038c596`. Registro delle fonti, scope e risultati: [EVIDENCE.md](EVIDENCE.md). Le sigle L/W rimandano a quel registro; ulteriori fonti primarie sono linkate nel testo.
 
