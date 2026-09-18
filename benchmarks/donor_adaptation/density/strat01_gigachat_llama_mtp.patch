@@ -1,0 +1,191 @@
+diff --git a/common/speculative.cpp b/common/speculative.cpp
+index 77dfe9535..ddb960a63 100644
+--- a/common/speculative.cpp
++++ b/common/speculative.cpp
+@@ -2539,7 +2539,6 @@ common_speculative_init_result::common_speculative_init_result(
+                                     params.speculative.types.end(),
+                                     COMMON_SPECULATIVE_TYPE_DRAFT_MTP) != params.speculative.types.end();
+ 
+-    auto mparams = common_model_params_to_llama(params);
+     auto cparams = common_context_params_to_llama(params);
+ 
+     if (spec_mtp) {
+@@ -2556,10 +2555,20 @@ common_speculative_init_result::common_speculative_init_result(
+ 
+     std::string model_path;
+     if (has_draft) {
+-        model_path = params.speculative.draft.mparams.path;
++        common_params params_dft = common_base_params_to_speculative(params);
++        auto mparams_dft = common_model_params_to_llama(params_dft);
++        auto cparams_dft = common_context_params_to_llama(params_dft);
++        if (spec_mtp) {
++            cparams_dft.ctx_type = LLAMA_CONTEXT_TYPE_MTP;
++        }
++        cparams_dft.n_ctx = llama_n_ctx(ctx_tgt);
++        cparams_dft.n_rs_seq = 0;
++        cparams_dft.ctx_other = ctx_tgt;
++
++        model_path = params_dft.model.path;
+         LOG_INF("%s: loading draft model '%s'\n", __func__, model_path.c_str());
+ 
+-        llama_model * model_dft = llama_model_load_from_file(params.model.path.c_str(), mparams);
++        llama_model * model_dft = llama_model_load_from_file(model_path.c_str(), mparams_dft);
+         if (model_dft == NULL) {
+             LOG_ERR("%s: failed to load draft model, '%s'\n", __func__, model_path.c_str());
+             return;
+@@ -2567,7 +2576,7 @@ common_speculative_init_result::common_speculative_init_result(
+ 
+         pimpl->model.reset(model_dft);
+ 
+-        llama_context * ctx_dft = llama_init_from_model(model_dft, cparams);
++        llama_context * ctx_dft = llama_init_from_model(model_dft, cparams_dft);
+         if (ctx_dft == nullptr) {
+             LOG_ERR("%s: failed to create MTP context\n", __func__);
+             return;
+diff --git a/conversion/deepseek.py b/conversion/deepseek.py
+index 817eb7612..35c63925c 100644
+--- a/conversion/deepseek.py
++++ b/conversion/deepseek.py
+@@ -224,7 +224,6 @@ class DeepseekModel(TextModel):
+ 
+ @ModelBase.register(
+     "DeepseekV2ForCausalLM",
+-    "DeepseekV3ForCausalLM",
+     "DeepseekOCRForCausalLM",
+     "UnlimitedOCRForCausalLM",
+     "KimiVLForConditionalGeneration",
+@@ -461,6 +460,84 @@ class DeepseekV2Model(TextModel):
+                 raise ValueError(f"Unprocessed experts: {experts}")
+ 
+ 
++@ModelBase.register("DeepseekV3ForCausalLM")
++@ModelBase.example("deepseek-ai/DeepSeek-V3")
++class DeepseekV3Model(DeepseekV2Model):
++    """DeepSeek-V3 with opt-in support for its single appended MTP block.
++
++    The default keeps the historic base-only export.  ``--mtp`` writes a
++    standalone draft file: the appended block is remapped to ``blk.26`` and
++    root embedding/head tensors are retained so the runtime can use its
++    existing fallback instead of duplicating the two MTP aliases.
++    """
++
++    model_arch = gguf.MODEL_ARCH.DEEPSEEK2
++    supports_mtp_export = True
++    skip_mtp = True
++    _n_main_layers: int | None = None
++
++    def index_tensors(self, remote_hf_model_id: str | None = None):
++        n_nextn = self.hparams.get("num_nextn_predict_layers", 0)
++        if n_nextn not in (0, 1):
++            raise ValueError(
++                "DeepSeek-V3 MTP export supports exactly one appended NextN "
++                f"layer, got num_nextn_predict_layers={n_nextn!r}"
++            )
++        if self.mtp_only and n_nextn != 1:
++            raise ValueError(
++                "--mtp requires DeepSeek-V3 config num_nextn_predict_layers=1"
++            )
++        type(self)._n_main_layers = self.hparams["num_hidden_layers"]
++        return super().index_tensors(remote_hf_model_id=remote_hf_model_id)
++
++    def __init__(self, *args, **kwargs):
++        super().__init__(*args, **kwargs)
++        n_main_layers = self.hparams["num_hidden_layers"]
++        self.skip_mtp = not self.mtp_only
++        self.block_count = n_main_layers + (1 if self.mtp_only else 0)
++        self.tensor_map = gguf.get_tensor_name_map(self.model_arch, self.block_count)
++
++    @classmethod
++    def filter_tensors(cls, item: tuple[str, Callable[[], Tensor]]) -> tuple[str, Callable[[], Tensor]] | None:
++        if (titem := super().filter_tensors(item)) is None:
++            return None
++        name, gen = titem
++
++        assert cls._n_main_layers is not None
++        match = re.match(r"model\.layers\.(\d+)\.", name)
++        is_mtp = match is not None and int(match.group(1)) >= cls._n_main_layers
++
++        # Preserve the historical V3 base-only default, including --no-mtp.
++        if not cls.mtp_only:
++            return None if is_mtp else (name, gen)
++
++        # ``index_tensors`` accepted a single NextN layer only.
++        if is_mtp:
++            if int(match.group(1)) != cls._n_main_layers:
++                raise ValueError(f"Unexpected DeepSeek-V3 MTP tensor {name!r}")
++            # GigaChat's MTP embedding and shared head are byte-identical to
++            # the root tensors.  Omit the aliases: deepseek2.cpp falls back to
++            # token_embd/output and the standalone draft stores each once.
++            if name in (
++                f"model.layers.{cls._n_main_layers}.embed_tokens.weight",
++                f"model.layers.{cls._n_main_layers}.shared_head.head.weight",
++            ):
++                return None
++            return name, gen
++
++        if name not in (
++            "model.embed_tokens.weight", "model.norm.weight", "lm_head.weight",
++        ):
++            return None
++        return name, gen
++
++    def set_gguf_parameters(self):
++        super().set_gguf_parameters()
++        if self.mtp_only:
++            # index_tensors() has already rejected zero or multi-block NextN.
++            self.gguf_writer.add_nextn_predict_layers(1)
++
++
+ @ModelBase.register("DeepseekV32ForCausalLM")
+ @ModelBase.example("deepseek-ai/DeepSeek-V3.2-Exp")
+ class DeepseekV32Model(DeepseekV2Model):
+diff --git a/src/models/deepseek2.cpp b/src/models/deepseek2.cpp
+index deca86527..7343a5d19 100644
+--- a/src/models/deepseek2.cpp
++++ b/src/models/deepseek2.cpp
+@@ -190,10 +190,14 @@ llama_model_deepseek2::graph_mtp::graph_mtp(const llama_model & model, const llm
+     const int64_t kv_lora_rank        = hparams.n_lora_kv;
+ 
+     GGML_ASSERT(n_embd_head_qk_nope >= 1);
+-    GGML_ASSERT(hparams.n_lora_q > 0);
+-    GGML_ASSERT(layer.wq_a);
+-    GGML_ASSERT(layer.attn_q_a_norm);
+-    GGML_ASSERT(layer.wq_b);
++    const bool has_q_lora = hparams.n_lora_q > 0;
++    if (has_q_lora) {
++        GGML_ASSERT(layer.wq_a);
++        GGML_ASSERT(layer.attn_q_a_norm);
++        GGML_ASSERT(layer.wq_b);
++    } else {
++        GGML_ASSERT(layer.wq);
++    }
+     GGML_ASSERT(layer.wkv_a_mqa);
+     GGML_ASSERT(layer.attn_kv_a_norm);
+     GGML_ASSERT(layer.wk_b);
+@@ -262,14 +266,20 @@ llama_model_deepseek2::graph_mtp::graph_mtp(const llama_model & model, const llm
+     cur = build_norm(cur, layer.attn_norm, nullptr, LLM_NORM_RMS, il);
+     cb(cur, "mtp_attn_norm", il);
+ 
+-    ggml_tensor * q = ggml_mul_mat(ctx0, layer.wq_a, cur);
+-    cb(q, "mtp_q_a", il);
++    ggml_tensor * q = nullptr;
++    if (has_q_lora) {
++        q = ggml_mul_mat(ctx0, layer.wq_a, cur);
++        cb(q, "mtp_q_a", il);
+ 
+-    q = build_norm(q, layer.attn_q_a_norm, nullptr, LLM_NORM_RMS, il);
+-    cb(q, "mtp_q_a_norm", il);
++        q = build_norm(q, layer.attn_q_a_norm, nullptr, LLM_NORM_RMS, il);
++        cb(q, "mtp_q_a_norm", il);
+ 
+-    q = ggml_mul_mat(ctx0, layer.wq_b, q);
+-    cb(q, "mtp_q_b", il);
++        q = ggml_mul_mat(ctx0, layer.wq_b, q);
++        cb(q, "mtp_q_b", il);
++    } else {
++        q = ggml_mul_mat(ctx0, layer.wq, cur);
++        cb(q, "mtp_q", il);
++    }
+ 
+     ggml_tensor * q_nope =
+         ggml_view_3d(ctx0, q, n_embd_head_qk_nope, n_head, n_tokens,
