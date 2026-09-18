@@ -62,6 +62,7 @@ quattro suite extractor, contratto GGUF, builder HF e patch sono verdi.
 | diagnostica paired da 48 token, verbosità default | testi divergenti, ma le righe aggiunte al sampler sono soppresse | VOID diagnostico: `llama-cli` usa verbosity error per default; non ripetere senza `-lv 3` |
 | diagnostica paired da 48 token, `-lv 3` | prima differenza all'output token indice zero-based 25, ID 4734 contro 4164 | tracciamento del punto di biforcazione; logging strumentato, tempi non confrontabili |
 | MTP diagnostico da 32 token con proposta soppressa a `n_gen=25` | stesso prefisso di 25 ID, poi target sceglie ancora 4164 con batch singolo | il solo batch da due token al passo divergente non è la causa sufficiente; rimane uno stato accumulato diverso |
+| MTP diagnostico da 32 token con proposta consentita solo da `n_gen=25` | primi 25 ID e riepiloghi top-2/margine identici al baseline; al passo 25 target sceglie 4164 in batch da due | la diversa forma batch nel passo divergente **è sufficiente** a invertire top-1 in questo controllo; non esclude un effetto accumulato nell'altro controllo |
 
 Ultimo run: log locale `strat01_mtp_accept64_seed42_20260918_v2.{out,err}.log`
 nella directory `benchmarks/donor_adaptation/density/results/`; prompt in
@@ -151,6 +152,23 @@ non include il passo singolo, quindi per quel passo fa fede la riga
 `STRAT01_SAMPLE` e il testo emesso, non un conteggio derivato dalla sequenza
 dei soli VERIFY. Anche questo run non è una misura di rate.
 
+Controllo speculare: `get_n_draft_max()` ritorna zero finché
+`stats.n_gen<25`, poi consente la proposta dal passo 25. Log locale
+`strat01_diag_mtp32_only_at25_20260918.{out,err}.log`. Nei primi 25
+output, gli ID **e tutti i riepiloghi raw top-1/top-2/margine** coincidono
+esattamente con il baseline strumentato. Il log registra
+`STRAT01_ONLY_AT25 n_gen=25`; il draft propone ID 4734, ma il target in
+batch da due sceglie **4164** e lo rifiuta. Al passo stesso il margine
+raw target fra top-1 4164 e top-2 4734 è **0,254646301**; nel baseline
+a batch singolo il top-1 è 4734, top-2 4164, margine **0,357017517**.
+Questo isola un effetto **sufficiente della forma batch al passo della
+biforcazione** dopo un prefisso che coincide nei riepiloghi osservati.
+Insieme al test precedente, dove dopo storia speculativa il batch singolo
+sceglieva 4164, indica *anche* un effetto persistente della storia di
+decodifica. Non abbiamo confrontato l'intero vettore dei logits, il KV o
+gli hidden state: la causa a livello di kernel/stato resta non identificata.
+Nessuno di questi run strumentati è un benchmark di rate.
+
 **Stima di traffico, non misura:** se `p=23/39` persistesse, un ciclo
 speculativo `k=1` produrrebbe asintoticamente `1+p=1,58974` output token.
 Il ledger teorico precedente dà **814.039.040 B** di pesi base W4 e
@@ -164,20 +182,45 @@ il riuso effettivo sono misurati. Il confronto non include scale Q4,
 compute, cache/KV, verifica o output head separata e non è un verdetto
 di impossibilità; indica quale trade-off misurare dopo.
 
+**Priorità rispetto al gate finale:** con `k=1`, acceptance osservata
+`25/38` e l'ipotesi volutamente favorevole che una verifica target costi
+quanto un decode baseline e che il draft non costi nulla, il rate
+proiettabile dal singolo baseline nativo sarebbe
+`12,78 × (1+25/38) = 21,19 tok/s`; persino `p=1` darebbe
+`12,78 × 2 = 25,56 tok/s`. Per arrivare a 50 con `p=25/38` sotto
+*quelle stesse ipotesi* occorrerebbe un ciclo target equivalente ad almeno
+`50/(1+25/38) = 30,16` iterazioni/s, cioè circa **2,36×** il riferimento
+12,78. Sono scenari da **un prompt** e non un bound universale: costo di
+verifica batch2, riuso dei pesi, quantizzazione del draft e un nuovo
+engine possono cambiare il rapporto. Ma spiegano perché non è razionale
+presentare MTP BF16 da solo come via già vicina a 50. Il prossimo
+investimento sul ramo richiede una coppia *qualità + kernel target/draft*
+plausibilmente entro l'envelope, non un altro sweep della stessa CLI.
+
+La **parità greedy esatta non è il gate di qualità** della roadmap: il
+verificatore seleziona il top-1 del target *nel batch effettivamente usato*,
+che qui non è numericamente identico al target batch-1. Pertanto non
+chiamare la speculazione lossless rispetto al baseline batch-1; d'altra
+parte, la divergenza di una sequenza non prova un deficit di capacità.
+L'eventuale candidatura va giudicata con BPB, task/rollout e rate sullo
+**stesso artefatto e percorso di esecuzione**, rispetto al teacher fissato.
+
 ## Gate successivi, in ordine
 
-1. Discriminare la divergenza greedy ora localizzata al token 26: il batch
-   singolo forzato **solo al passo divergente non la risolve**. Confrontare
-   pertanto logits/hidden state e stato KV lungo i 25 passi precedenti,
-   insieme a posizioni e rollback, contro un target che usa lo stesso
-   prefisso in batch singoli. Non trasferire né l'1,55 tok/s generic né
-   il 11,01 tok/s native al gate di 50. Solo dopo, ripetere il paired con
-   ordine interleaved e macchina ammissibile. La quantizzazione W4 del draft
-   è il ramo successivo da testare, non un guadagno assunto.
-2. Ripetere acceptance su prompt preregistrati e corpus non scelto dopo il
-   risultato, contabilizzando proposte, accettazioni e token output. Misurare
-   logits/hidden-state parity contro reference BF16 prima di attribuire
-   eventuali mismatch ai pesi.
+1. Per attribuire il meccanismo della divergenza greedy al token 26, sia il
+   batch a due token isolato sia la storia speculativa precedente con batch
+   singolo al passo 25 possono invertire il top-1. Confrontare logits
+   completi/hidden state e KV lungo il prefisso, posizioni e rollback,
+   contro un target che usa lo stesso prefisso in batch singoli. Questa
+   attribuzione è diagnostica, non sostituisce il gate BPB/task. Non
+   trasferire né l'1,55 tok/s generic né il 11,01 tok/s native al gate 50.
+2. Se il ramo supera prima un budget CPU plausibile, ripetere acceptance
+   su prompt preregistrati e corpus non scelto dopo il risultato,
+   contabilizzando proposte, accettazioni e token output. Misurare
+   logits/hidden-state parity contro reference BF16 per attribuire i
+   mismatch e BPB/task sul percorso effettivo per giudicare la qualità.
+   La quantizzazione W4 del draft richiede un proprio gate, non è un
+   guadagno assunto; il paired di rate va interleaved e clean-box.
 3. Solo se qualità e bilancio byte/tempo restano plausibili, progettare il
    port MLA+MoE+MTP in `engine.c`; l'operatore Q diretto e lo speculator di
    `llama.cpp` sono una reference, non il nostro motore.
