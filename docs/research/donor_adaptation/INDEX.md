@@ -31,6 +31,13 @@ unmodified. The DeepSeekV3 converter still skips MTP. A fresh pinned Range
 comparison also proves the base output norm differs from the MTP shared-head
 norm, so a standalone draft must fetch the 3,072-byte root norm rather than
 alias it. The ordered compatibility gate is in the audit below.
+The [read-only GGUF contract preflight](../../../benchmarks/donor_adaptation/density/strat01_gigachat_mtp_gguf_contract.py)
+passes 210/210 manifest tensors and seven offline tests; it plans direct Q,
+the MLA K/V split, expert stacking and mandatory standalone root tensors.
+This is metadata only, not a produced or runnable GGUF. Three full sampled
+weight comparisons bind the source BF16 to the producer BF16/Q4 GGUFs, and
+their tokenizer metadata is identical across the two GGUFs; neither proves
+full checkpoint parity or Q4 quality.
 [Audit, exact byte offsets and decision](audits/STRAT_01_GIGACHAT31_10B_METADATA_SCREEN_20260918.md).
 
 **STRAT-01 NousResearch 10B-A1B metadata screen (2026-09-18):** pinned
