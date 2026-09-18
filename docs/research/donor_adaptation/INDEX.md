@@ -1,5 +1,15 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**STRAT-01 GigaChat 3.1 Lightning metadata screen (2026-09-18):** the pinned
+BF16 checkpoint has 11.480B stored elements and an MIT model card with
+producer-reported benchmarks. The config-derived base large-organ ledger is
+1.628B weights/token before the separate MTP layer: W4 payload 814.04 MB/token,
+or 40.70 GB/s at 50 tok/s before overhead. The card's nominal ~1.8B active
+implies ~45 GB/s instead; these are separate accounting scenarios. The card's
+MTP speedup was measured on H100 at concurrency 32, not this CPU batch-1;
+no quality-preserving CPU format or accepted-token rate is established. No
+weights, port or T4. [Audit and decision](audits/STRAT_01_GIGACHAT31_10B_METADATA_SCREEN_20260918.md).
+
 **STRAT-01 NousResearch 10B-A1B metadata screen (2026-09-18):** pinned
 `e848be60cde857798081087287be1fffaab0c81f` contains 10.489B BF16
 stored elements in a standard Qwen3-MoE geometry. The config-derived named
