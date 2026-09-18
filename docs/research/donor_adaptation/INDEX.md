@@ -13,7 +13,12 @@ quality-preserving CPU format with MTP or accepted-token rate is established. No
 weights, port or T4. The pinned `llama.cpp` DeepSeek-V3 converter explicitly
 skips MTP and rejects `--mtp` for this architecture. Header/index inspection
 found all 210 MTP tensors in **one contiguous 1.614 GB Range** of the first
-BF16 shard; this reduces the extraction scope, not the inference/quality gate.
+BF16 shard. Full SHA-256 comparison proves the MTP head and embedding are
+byte-identical to their base counterparts. A format with explicit aliases
+could reduce stored draft payload to 826.43 MB; weight-once head execution
+would reduce the ideal W4 base+MTP traffic to 843.69 MB/cycle, but is **not
+implemented or measured**. This reduces extraction/traffic possibilities, not
+the inference/quality gate.
 [Audit, exact byte offsets and decision](audits/STRAT_01_GIGACHAT31_10B_METADATA_SCREEN_20260918.md).
 
 **STRAT-01 NousResearch 10B-A1B metadata screen (2026-09-18):** pinned
