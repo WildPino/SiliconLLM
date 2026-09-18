@@ -1,5 +1,16 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**STRAT-02E W2-BF16 expert scout (2026-09-18):** `COMPLETE_DIAGNOSTIC`,
+calibration-only, con due bracci 48/48 e tutti i sentinel/rollback verificati.
+Contro il W4 control a **0.6526310642410273 BPB**, `W2_EXPERTS_ROUTER_W4`
+legge **0.8983155207143131** (Δ +0.24568445647328604), mentre il router F32
+legge **0.856283509419243** (Δ +0.20365244517821593); il gain router F32
+interno a W2 è **0.0420320112950701 BPB** e non è additivo. Ledger attivi:
+473038848 e 487653376 byte/token. Nessun heldout, task, T4, port C o rate;
+questa precisa PTQ W2 non è competitiva e non riapre il vecchio Stage 2
+condizionale. [Risultato e hash](probes/STRAT_02E_W2_BF16_EXPERT_SCOUT_RESULT.md);
+[brief congelato](briefs/BRIEF_STRAT_02E_W2_BF16_EXPERT_SCOUT.md).
+
 **STRAT-02D W4 organ attribution (2026-09-17):** `COMPLETE` on calibration
 only: all four arms scored 48/48 documents with sentinel and rollback true.
 Against W4 control `0.6526310642410273` BPB, gains were router
