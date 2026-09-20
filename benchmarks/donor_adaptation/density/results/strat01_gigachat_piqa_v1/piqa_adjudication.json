@@ -1,0 +1,52 @@
+{
+  "bindings": {
+    "candidate_manifest_sha256": "9dbd7af741b6273b6e6a0d1f207ddcfea208572855eaf8f53592893eb3da8264",
+    "teacher_manifest_sha256": "94de4d9ee7aedb40e8054cd9d03e0eba4d6747b22523efd5424230ffea0d010f",
+    "token_ids": "75f3c95875602903a8a8e936209ba5c5ed425dfabaf9b7f89efa649e92d23285",
+    "tokenizer_sha256": "b4b3d90c67830a4e566296ad8d0f6b5ac5a5cdbfd331b200d0ee8263aaaea1fe"
+  },
+  "candidate": {
+    "accuracy": 0.7921653971708379,
+    "correct": 1456,
+    "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_piqa_v1\\q4_scores.jsonl",
+    "sha256": "c9901c03d1eee644449f818beb834dd33c0406cb6e6633a132752f2d975d21eb"
+  },
+  "gate": {
+    "candidate_fraction_of_teacher": 0.98,
+    "candidate_required_correct": 1437,
+    "passed": true,
+    "teacher_must_exceed_accuracy": 0.5
+  },
+  "items": 1838,
+  "paired_bootstrap_descriptive": {
+    "candidate_accuracy": 0.7921653971708379,
+    "candidate_correct": 1456,
+    "items": 1838,
+    "paired_bootstrap_ci95_delta_accuracy": [
+      -0.016866158868335146,
+      0.005984766050054407
+    ],
+    "point_delta_accuracy": -0.00544069640914037,
+    "protocol": {
+      "draws": 20000,
+      "quantile_method": "linear",
+      "resampling": "paired_items_with_replacement",
+      "seed": 20260916
+    },
+    "teacher_accuracy": 0.7976060935799782,
+    "teacher_correct": 1466
+  },
+  "protocol": {
+    "bootstrap_is_descriptive_not_gate": true,
+    "draws": 20000,
+    "seed": 20260916
+  },
+  "schema": "strat01_gigachat_piqa_adjudication_v1",
+  "status": "PASS_PIQA",
+  "teacher": {
+    "accuracy": 0.7976060935799782,
+    "correct": 1466,
+    "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_piqa_v1\\bf16_scores.jsonl",
+    "sha256": "6e61a17e676b1d56ca2f812c5ad682401bf3a44d1be10962b2897d595ca3c863"
+  }
+}

@@ -2,6 +2,15 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**STRAT-01 GigaChat paired PIQA (20 September):** `PASS_PIQA` on the
+preregistered 1,838-item validation set. The BF16 teacher scores 1,466 correct
+(0.7976061), while Q4 scores 1,456 (0.7921654), above the required
+`ceil(0.98 * 1466) = 1437` by 19. The paired point delta is -0.0054407 and
+the descriptive two-sided bootstrap CI95 is [-0.0168662, +0.0059848]. This
+closes the first task stop gate and authorizes the frozen 96-document rollout;
+it does not prove rollout, HumanEval, MTP quality, C-engine parity, or rate.
+[Canonical result and hashes](probes/STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md).
+
 **STRAT-01 GigaChat base quality/binding update (19 September):** Q4 versus producer BF16 passes the internal 96-document comparison (Δ +0.0121276008 BPB, upper CI95 +0.0130809692 below +0.02), but that corpus is not fresh. Separately, the [source-binding protocol](probes/STRAT_01_GIGACHAT31_SOURCE_BINDING_PROTOCOL_20260919.md) now reports `PASS_SOURCE_BINDING`: all six pinned source shards were verified, cleanly converted, and all 414 base tensors / 21.350.179.072 payload bytes are identical to producer BF16. This closes the base checkpoint identity gap. It does **not** cover MTP, the known `llama.cpp` text-tokenizer mismatch, a fresh heldout/task gate, `phase60/engine.c`, or ≥50 tok/s.
 
 **STRAT-01 GigaChat 3.1 Lightning metadata screen (2026-09-18):** the pinned

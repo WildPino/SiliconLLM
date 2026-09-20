@@ -1,0 +1,99 @@
+{
+  "model": {
+    "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_q4_97045b2\\GigaChat3.1-10B-A1.8B-q4_K_M.gguf",
+    "sha256": "68a8732fb5cee04f83ebffd7924e15c534d4442c5a43d2ba9e2041fe310b8deb"
+  },
+  "output": {
+    "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_piqa_apparatus_v1\\q4_item0_batch64_shared.jsonl",
+    "records": 1,
+    "sha256": "3a6884d3e6745a7dc7ddd4678905e4d1af3774e461408a8bd544a13d2c4163fb"
+  },
+  "protocol": {
+    "bos_id": 1,
+    "choice": "minimum_mean_suffix_nll",
+    "eos_appended": false,
+    "exact_tie": "option_0",
+    "format": "Question: {goal}\\nAnswer:",
+    "prefix_cache_shared": true,
+    "separate_prefix_suffix_tokenization": true,
+    "suffix_leading_space": true
+  },
+  "repository_head": "47c84a814476676d015d6957ad4d2c48effdd3b7",
+  "runtime_metadata": {
+    "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_piqa_apparatus_v1\\q4_item0_batch64_shared.jsonl.runtime.json",
+    "record": {
+      "choice_metric": "mean_suffix_nll",
+      "correct_mean_nll": 1,
+      "correct_total_nll": 1,
+      "items": 1,
+      "kv_reset_per_item": true,
+      "logical_n_ctx": 4096,
+      "model_bos_id": 1,
+      "model_eos_id": 2,
+      "model_vocab_size": 128256,
+      "n_batch": 64,
+      "n_threads": 6,
+      "physical_n_ctx": 8192,
+      "prefix_cache_shared": true,
+      "prefix_tokens": 19,
+      "replay_prefix_reference": false,
+      "schema": "strat01_gguf_piqa_runtime_v1",
+      "source_token_ids_mode": true,
+      "suffix_tokens": 76,
+      "tie_policy": "option_0"
+    },
+    "sha256": "0b6d4ca2309a1b72d83c9086f2f960d2640039768ac1b90d9c70609b47477a4a"
+  },
+  "schema": "strat01_gguf_piqa_manifest_v1",
+  "scorer": {
+    "binary": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-strat01-gguf-piqa-build\\cmake-build\\strat01_gguf_piqa.exe",
+    "binary_sha256": "98037c5db19db24ae2455000c589a1091facc9282a24fa166a0d18783f35942b",
+    "llama_cpp": {
+      "clean": true,
+      "commit": "5b335f413e4f73b0809c4fe39af894efbcc6a0d2",
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-bind-5b335f4"
+    },
+    "source": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\strat01_gguf_piqa.cpp",
+    "source_sha256": "74201a252fb964b02de19d8098a87da7c8b517a534dadcc9eb92cc7f5c356bfe"
+  },
+  "selection": {
+    "full_gate": false,
+    "items": 1,
+    "original_order_prefix": true
+  },
+  "source_audit": {
+    "humaneval_gz": {
+      "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_task_sources_20260919\\HumanEval.jsonl.gz",
+      "records": 164,
+      "sha256": "b796127e635a67f93fb35c04f4cb03cf06f38c8072ee7cee8833d7bee06979ef"
+    },
+    "piqa_labels": {
+      "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_task_sources_20260919\\piqa_valid-labels.lst",
+      "records": 1838,
+      "sha256": "b4192dc3a2a0363d9d60ccf79800cbbe2f32ebb17726efdde6970e0b8131bceb"
+    },
+    "piqa_valid": {
+      "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_task_sources_20260919\\piqa_valid.jsonl",
+      "records": 1838,
+      "sha256": "93503cc97c679e459b065c3d13e848282e44b2a25213985bed3e5d458abef72d"
+    }
+  },
+  "token_binding": {
+    "all_item_hashes_sha256": "eaba28e3497f4f0df2b6a23db168c36ec4226df689748e3bbda6eaa44d072b2c",
+    "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_piqa_apparatus_v1\\q4_item0_batch64_shared.jsonl.tokens.jsonl",
+    "records": 1,
+    "sha256": "0e1b568d7f565e21f650a143568bffbd0ad276adf08d5bb97c8dc024fa0282d6"
+  },
+  "tokenizer": {
+    "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\tokenizer.json",
+    "sha256": "b4b3d90c67830a4e566296ad8d0f6b5ac5a5cdbfd331b200d0ee8263aaaea1fe",
+    "source_gguf_vocab_mapping": {
+      "added_entries": 15,
+      "all_defined_ids_match": true,
+      "base_entries": 128000,
+      "gguf_slots": 128256,
+      "id_to_token_sha256": "a243547ce69b1104727ab6f0b20ec88c3bdb088c7a8de0483d81370c87429359",
+      "verified_distinct_ids": 128013
+    }
+  }
+}
