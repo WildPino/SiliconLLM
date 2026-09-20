@@ -1,0 +1,69 @@
+{
+  "artifacts": {
+    "bf16_batch128": {
+      "elapsed_seconds": 189.1049004,
+      "manifest_path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_rollout_apparatus_v1\\bf16_item0_batch128.jsonl.manifest.json",
+      "manifest_sha256": "7d843906c3888d9080a4aaace97fe3fab06185f899826baf4b57ff3aa4e1bf7c",
+      "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_rollout_apparatus_v1\\bf16_item0_batch128.jsonl",
+      "sha256": "e9b70e43351545dc64df4c427d88381156af9c2392b8bda417b64755bca23906"
+    },
+    "bf16_batch64": {
+      "elapsed_seconds": 191.6996385,
+      "manifest_path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_rollout_apparatus_v1\\bf16_item0_batch64.jsonl.manifest.json",
+      "manifest_sha256": "68ddf72b450285e12d9348b4b85bf47878d0d3aeb5aad560ed1ff8dc2e7ad617",
+      "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_rollout_apparatus_v1\\bf16_item0_batch64.jsonl",
+      "sha256": "1f56992c725b11e0ff0f15bc4f349324ae7abfcacab61dd4511dba0d1a9c2ff0"
+    },
+    "q4_batch128": {
+      "elapsed_seconds": 89.4434622,
+      "manifest_path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_rollout_apparatus_v1\\q4_item0_batch128.jsonl.manifest.json",
+      "manifest_sha256": "470d6a7d70272bf1e5628735067bb91291d2935fc54e0812d2f7f82316898209",
+      "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_rollout_apparatus_v1\\q4_item0_batch128.jsonl",
+      "sha256": "cb80440e8f24dc30b4bd07b20a94000942fb95b10746508e1c9449f87e9be544"
+    },
+    "q4_batch64": {
+      "elapsed_seconds": 92.3295401,
+      "manifest_path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_rollout_apparatus_v1\\q4_item0_batch64.jsonl.manifest.json",
+      "manifest_sha256": "00915b1ceb6d7c319ac2bc6212c6d7e9788c433255754b4b217d39c023892b42",
+      "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_rollout_apparatus_v1\\q4_item0_batch64.jsonl",
+      "sha256": "241b4e4fc0f62ae92d0bc7c5c5c20c1d0b161791b511d4ed45ae340356fa9643"
+    }
+  },
+  "batch_parity": {
+    "bf16_exact": true,
+    "fields": [
+      "index",
+      "source_document_id",
+      "category",
+      "prompt_ids_sha256",
+      "generated_ids",
+      "decoded_text",
+      "emitted_utf8_bytes",
+      "stop_reason",
+      "generated_count",
+      "run32",
+      "loop8x3",
+      "empty",
+      "degenerate"
+    ],
+    "q4_exact": true
+  },
+  "bindings": {
+    "corpus_sha256": "04687034c1054e0985e24efa87ba37a3fb11031de5b2880e5b8ac1742f80ec6e",
+    "token_ids": "e3bd6b11fd6444cc94b3465a9d7218bccd1c9fe216914ab429824417fbca45c3",
+    "tokenizer_sha256": "b4b3d90c67830a4e566296ad8d0f6b5ac5a5cdbfd331b200d0ee8263aaaea1fe"
+  },
+  "item": {
+    "category": "code",
+    "prompt_ids_sha256": "1602bebf4ebe81bd1a46ab6425a7ce4677a93038a1ae249dd097fbc01b5d45aa",
+    "source_document_id": "file:data/external/the_stack_python/django/django/db/backends/mysql/introspection.py"
+  },
+  "paired_smoke": {
+    "bf16_degenerate": false,
+    "common_prefix_tokens": 5,
+    "q4_degenerate": false,
+    "q4_only_degenerate": false
+  },
+  "schema": "strat01_gigachat_rollout_apparatus_v1",
+  "status": "PASS_APPARATUS"
+}
