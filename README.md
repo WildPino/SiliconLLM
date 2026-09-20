@@ -145,6 +145,8 @@ This is what the pre-registration was for. The full adjudication, including a se
 
 ## Status
 
+The current cross-program research status and no-duplication entry point is the [research control index](docs/research/RESEARCH_INDEX.md). The results below describe the native-engine lineage; pretrained-donor work has separate quality and rate gates.
+
 | Component | State | Evidence |
 |---|---|---|
 | Ternary 1.58-bit LUT kernel | ✅ validated on Zen 2 | 4.2–5.0× matvec, bit-exact, +0.028 BPB |
