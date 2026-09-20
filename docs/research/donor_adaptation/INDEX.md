@@ -1,5 +1,9 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
+
+**STRAT-01 GigaChat base quality/binding update (19 September):** Q4 versus producer BF16 passes the internal 96-document comparison (Δ +0.0121276008 BPB, upper CI95 +0.0130809692 below +0.02), but that corpus is not fresh. Separately, the [source-binding protocol](probes/STRAT_01_GIGACHAT31_SOURCE_BINDING_PROTOCOL_20260919.md) now reports `PASS_SOURCE_BINDING`: all six pinned source shards were verified, cleanly converted, and all 414 base tensors / 21.350.179.072 payload bytes are identical to producer BF16. This closes the base checkpoint identity gap. It does **not** cover MTP, the known `llama.cpp` text-tokenizer mismatch, a fresh heldout/task gate, `phase60/engine.c`, or ≥50 tok/s.
+
 **STRAT-01 GigaChat 3.1 Lightning metadata screen (2026-09-18):** the pinned
 BF16 checkpoint has 11.480B stored elements and an MIT model card with
 producer-reported benchmarks. The config-derived base large-organ ledger is
@@ -64,15 +68,15 @@ generic router/W4 impossibility result; no task, C, rate, T4 or automatic
 next arm. [Result and audit](probes/STRAT_02F_W4_ROUTER_F32_HELDOUT_RESULT.md).
 
 **STRAT-02E W2-BF16 expert scout (2026-09-18):** `COMPLETE_DIAGNOSTIC`,
-calibration-only, con due bracci 48/48 e tutti i sentinel/rollback verificati.
-Contro il W4 control a **0.6526310642410273 BPB**, `W2_EXPERTS_ROUTER_W4`
-legge **0.8983155207143131** (Δ +0.24568445647328604), mentre il router F32
-legge **0.856283509419243** (Δ +0.20365244517821593); il gain router F32
-interno a W2 è **0.0420320112950701 BPB** e non è additivo. Ledger attivi:
-473038848 e 487653376 byte/token. Nessun heldout, task, T4, port C o rate;
-questa precisa PTQ W2 non è competitiva e non riapre il vecchio Stage 2
-condizionale. [Risultato e hash](probes/STRAT_02E_W2_BF16_EXPERT_SCOUT_RESULT.md);
-[brief congelato](briefs/BRIEF_STRAT_02E_W2_BF16_EXPERT_SCOUT.md).
+calibration-only, with two 48/48 arms and all sentinels/rollbacks verified.
+Against the W4 control at **0.6526310642410273 BPB**, `W2_EXPERTS_ROUTER_W4`
+reads **0.8983155207143131** (Δ +0.24568445647328604), while the F32 router
+reads **0.856283509419243** (Δ +0.20365244517821593); the F32-router gain
+within W2 is **0.0420320112950701 BPB** and is not additive. Active ledgers:
+473038848 and 487653376 byte/token. No heldout, task, T4, C port, or rate;
+this specific W2 PTQ is noncompetitive and does not reopen the old conditional
+Stage 2. [Result and hash](probes/STRAT_02E_W2_BF16_EXPERT_SCOUT_RESULT.md);
+[frozen brief](briefs/BRIEF_STRAT_02E_W2_BF16_EXPERT_SCOUT.md).
 
 **STRAT-02D W4 organ attribution (2026-09-17):** `COMPLETE` on calibration
 only: all four arms scored 48/48 documents with sentinel and rollback true.

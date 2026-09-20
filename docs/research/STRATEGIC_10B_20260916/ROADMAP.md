@@ -1,370 +1,370 @@
-# Roadmap strategica: pretrained ~10B, 50–100 tok/s, CPU AVX2
+# Strategic roadmap: pretrained ~10B, 50–100 tok/s, AVX2 CPU
 
-**Stato aggiornato:** [18 settembre 2026](STATUS_20260918.md). La [decisione sul perimetro di `engine.c` del 17 settembre](STATUS_20260917.md) resta valida. Il testo seguente resta lo snapshot progettuale del 16 settembre.
+**Updated status:** [18 September 2026](STATUS_20260918.md). The [17 September `engine.c` scope decision](STATUS_20260917.md) remains valid. The text below remains the 16 September design snapshot.
 
-**Data: 16 settembre 2026. Solo analisi e progettazione. Nessun codice, test, benchmark, download di pesi o training eseguito.** Base della lettura: HEAD `f1f9cfd59d34071a004248bc04c9d56e6038c596`. Registro delle fonti, scope e risultati: [EVIDENCE.md](EVIDENCE.md). Le sigle L/W rimandano a quel registro; ulteriori fonti primarie sono linkate nel testo.
+**Date: 16 September 2026. Analysis and design only. No code, tests, benchmarks, weight downloads, or training performed.** Reading baseline: HEAD `f1f9cfd59d34071a004248bc04c9d56e6038c596`. Register of sources, scope, and results: [EVIDENCE.md](EVIDENCE.md). The L/W codes refer to that register; further primary sources are linked in the text.
 
-## Sintesi decisionale
+## Decision summary
 
-**Il percorso più plausibile è conservare il pretraining e cambiare il minimo indispensabile, partendo preferibilmente da un donor già sparso/ricorrente.** La conversione deve essere addestrata sulla geometria realmente eseguibile: precisione per organo, mixer, rank, shared path e routing. Se si mantiene il donor denso già studiato, il prossimo passo informativo è un pilot di adattamento congiunto, non un'altra composizione di componenti allenati separatamente. La distillazione verso l'SSM nativo rimane una terza strategia, coerente con l'engine ma economicamente più incerta.
+**The most plausible path is to retain pretraining and change the minimum necessary, preferably starting from an already sparse/recurrent donor.** The conversion must be trained on the geometry that is actually executable: per-organ precision, mixer, rank, shared path, and routing. If retaining the already studied dense donor, the next informative step is a joint-adaptation pilot, not another composition of separately trained components. Distillation toward the native SSM remains a third strategy, consistent with the engine but more economically uncertain.
 
-Non esiste oggi nella repository una dimostrazione congiunta di pretrained ~10B, qualità entro +0.02 BPB e 50 tok/s. E63 misura 49.37 tok/s su pesi sintetici mixed-format; E66 dimostra un donor reale 7B con BPB quasi invariato ma fallisce il suo gate di accordo generativo. H4/H2I mostrano che il training recupera punteggio; H5 mostra che assemblarne i checkpoint non preserva quel recupero. Il vincolo dominante è quindi **la qualità alla geometria che entra nei 10–20 ms/token**, non la sola capacità di muovere un file da 10B. [L10–L18]
+The repository currently contains no joint demonstration of pretrained ~10B, quality within +0.02 BPB, and 50 tok/s. E63 measures 49.37 tok/s on synthetic mixed-format weights; E66 demonstrates a real 7B donor with nearly unchanged BPB but fails its generative-agreement gate. H4/H2I show that training recovers score; H5 shows that assembling their checkpoints does not preserve that recovery. The dominant constraint is therefore **quality at the geometry that fits within 10–20 ms/token**, not merely the ability to move a 10B file. [L10–L18]
 
-Propongo tre roadmap, con budget separati: R1 preservare un donor sparse/hybrid; R2 trasformare congiuntamente un donor denso; R3 distillare in un SSM nativo con capacità condizionale. Prima di settimane di T4, un gate comune deve fissare identità del modello, byte effettivi, semantica engine, qualità e unità di throughput. Una prima tranche di **24–72 ore effettive di T4×2**, dopo lo screening documentale, può decidere fra le direzioni; non è una promessa di conversione completa. Le tranche successive sono condizionali a risultati nuovi, senza riaprire automaticamente esperimenti chiusi.
+I propose three roadmaps with separate budgets: R1 retain a sparse/hybrid donor; R2 jointly transform a dense donor; R3 distill into a native SSM with conditional capacity. Before committing weeks of T4 time, a common gate must establish model identity, effective bytes, engine semantics, quality, and throughput units. An initial **24–72 effective hours of T4×2**, after documentary screening, can decide between directions; it is not a promise of complete conversion. Later tranches are conditional on new results, without automatically reopening closed experiments.
 
-Il successo richiede **lo stesso artefatto** per qualità e velocità, parametri distinti realmente appresi, contesto dichiarato e nessuna sostituzione tacita del target con uno student piccolo o con pesi duplicati. 50 tok/s è il primo obiettivo; 100 resta una seconda frontiera, da affrontare solo preservando il gate qualitativo.
+Success requires **the same artifact** for quality and speed, genuinely learned distinct parameters, declared context, and no silent substitution of the target with a small student or duplicated weights. 50 tok/s is the first objective; 100 remains a second frontier, to be pursued only while preserving the quality gate.
 
-## 1. Cosa cambia dopo la lettura della repository
+## 1. What changes after reading the repository
 
-| Punto | Evidenza attuale | Conseguenza |
+| Item | Current evidence | Consequence |
 |---|---|---|
-| Architettura | `phase60/engine.c` è SSM con dimensioni compile-time; `donor_adaptation/engine/donor_engine.c` è un runtime Transformer distinto | “Gira sul nostro C” e “è convertito nell'SSM nativo” sono due milestone diverse [L01,L02] |
-| Packing | Il default storico usa 4 bit/peso; P1 ha già aggiunto `--pack nibble` a **2 bit/peso** | Il prossimo passo lossless 2→1.6 bit offre al massimo 1.25× sul traffico codici, non 2.5× [L07] |
-| Qualità | +0.00004 BPB riguarda ottimizzazioni di inferenza del sandbox | Non è il costo di ternarizzare un pretrained; neppure il costo della ricetta nativa [L06] |
-| Cache | t6 sfrutta LLC aggregata; spill graduale e pollution | 16 MB non è un divieto fisico di esecuzione a 10B; è un obiettivo del pool caldo [L03] |
-| Prestazioni 10B | E36 ~50; E40 R128 oltre100; E63 mixed 49.37, CI[49.18,50.49] | Tutti artefatti sintetici: nessuna qualità da ereditare [L08–L10] |
-| Donor7B | E66 A2 +0.000378 BPB; 137/160 accordi, gate150 fallito | Una precisione fedele esiste; non è ancora il target qualità+rate [L12] |
-| Compressioni strutturali | Rank aggressivo, carve e composizione post-hoc degradano | Serve apprendimento congiunto oppure cambiare natura del donor [L13–L18] |
+| Architecture | `phase60/engine.c` is an SSM with compile-time dimensions; `donor_adaptation/engine/donor_engine.c` is a separate Transformer runtime | “Runs on our C” and “is converted to the native SSM” are two different milestones [L01,L02] |
+| Packing | The historical default uses 4 bit/weight; P1 has already added `--pack nibble` at **2 bit/weight** | The next lossless 2→1.6 bit step offers at most 1.25× on code traffic, not 2.5× [L07] |
+| Quality | +0.00004 BPB concerns sandbox inference optimizations | It is not the cost of ternarizing a pretrained model; nor the cost of the native recipe [L06] |
+| Cache | t6 exploits aggregate LLC; gradual spill and pollution | 16 MB is not a physical prohibition on running at 10B; it is a hot-pool objective [L03] |
+| 10B performance | E36 ~50; E40 R128 above100; E63 mixed 49.37, CI[49.18,50.49] | All synthetic artifacts: no quality to inherit [L08–L10] |
+| Donor7B | E66 A2 +0.000378 BPB; 137/160 agreements, gate150 failed | A faithful precision exists; it is not yet the quality+rate target [L12] |
+| Structural compression | Aggressive rank, carve, and post-hoc composition degrade | Joint learning or a different donor nature is required [L13–L18] |
 
-Il loader nativo legge anche copie fp32 complete delle MLP e rappresentazioni di controllo int8 prima dei packed kernels. A 10B, la sola copia fp32 sarebbe circa 40 GB: **il file ternario compatto non implica RAM compatta**. Un export per deployment dovrà separare il riferimento di debug dalla rappresentazione eseguibile, senza eliminare il riferimento come strumento di verifica. È una necessità ingegneristica futura, non codice scritto qui. [L01]
+The native loader also reads complete fp32 copies of the MLPs and int8 control representations before the packed kernels. At 10B, the fp32 copy alone would be about 40 GB: **a compact ternary file does not imply compact RAM use**. A deployment export must separate the debug reference from the executable representation, without eliminating the reference as a verification tool. This is a future engineering requirement, not code written here. [L01]
 
-Non uso il vecchio indice come prova superiore ai probe più recenti. Un esempio: T3 mantiene formalmente `VOID`; non lo trasformo in una prova universale contro Hadamard. Analogamente E38/E67 non sono oracoli del miglior selector possibile. [L19,L20,L16]
+I do not treat the old index as evidence superior to more recent probes. For example, T3 formally remains `VOID`; I do not turn it into universal evidence against Hadamard. Likewise, E38/E67 are not oracles of the best possible selector. [L19,L20,L16]
 
-## 2. Contratto quantitativo e fronte di Pareto
+## 2. Quantitative contract and Pareto frontier
 
-### 2.1 Definizione di successo
+### 2.1 Definition of success
 
-Fissare prima di qualunque nuova prova: checkpoint e revisione; numero di parametri **distinti**, totali/attivi/stored separati; tokenizer; corpus UTF-8 identico e split immutabile; dominio primario code più suite di regressione generalista; contesti 2K/8K/32K e, separatamente, eventuale128K; batch1; decode greedy/hygiene coerente con il ramo, output lungo almeno256 token per prompt. Questi sono protocolli proposti, non risultati esistenti.
+Establish before any new test: checkpoint and revision; separate **distinct**, total/active/stored parameter counts; tokenizer; identical UTF-8 corpus and immutable split; primary code domain plus general-regression suite; 2K/8K/32K contexts and, separately, any128K; batch1; greedy decode/hygiene consistent with the branch, with output at least256 tokens per prompt. These are proposed protocols, not existing results.
 
-Gate finale proposto: ΔBPB rispetto al teacher sul medesimo corpus ≤+0.01 preferito, **limite superiore CI95%≤+0.02** obbligatorio; bootstrap per documento, non token correlati. Non trasferire σ≈0.005 del sandbox a donor o domini diversi. Aggiungere task di codice eseguibile e completamento, regressione relativa proposta≤2% sui task primari con intervalli dichiarati, errori sintattici e degenerazione su rollout. I task e le soglie vanno fissati prima dei numeri. Agreement greedy/rank sono diagnostici e, se preregistrati, gate propri; non equivalgono alla capacità generale. Il loro fallimento storico resta un fallimento. [L06,L12,L18]
+Proposed final gate: ΔBPB relative to the teacher on the same corpus ≤+0.01 preferred, **upper CI95% limit≤+0.02** mandatory; bootstrap by document, not correlated tokens. Do not transfer σ≈0.005 from the sandbox to a donor or different domains. Add executable-code and completion tasks, proposed relative regression≤2% on primary tasks with stated intervals, syntax errors, and rollout degeneration. Tasks and thresholds must be fixed before the numbers. Greedy/rank agreement is diagnostic and, if preregistered, has its own gates; it does not equal general capability. Its historical failure remains a failure. [L06,L12,L18]
 
-Per velocità: tok/s end-to-end dei **token emessi e accettati**, bytes UTF-8/s e tempo sulla stessa quantità di testo; TTFT/prefill separati; p50/p95 latenza, RAM picco, working set, contesto, thread, frequenze, occupancy, compilatore e flag. Proporre lower-CI95%≥50, poi≥100: un valore centrale49.37 con CI che attraversa50 non passa. Nessun bonus per ridurre il vocabolario producendo più token per lo stesso testo.
+For speed: end-to-end tok/s of **emitted and accepted tokens**, UTF-8 bytes/s and time on the same quantity of text; separate TTFT/prefill; p50/p95 latency, peak RAM, working set, context, threads, frequencies, occupancy, compiler, and flags. Propose lower-CI95%≥50, then≥100: a central value49.37 with a CI crossing50 does not pass. No credit for reducing the vocabulary while producing more tokens for the same text.
 
-### 2.2 Equazione da usare
+### 2.2 Equation to use
 
-Per ogni organo i e formato f, registrare peso letto B_i, riusi, FLOP/operazioni effettive e rate **dello stesso kernel/formato/layout**. Un modello iniziale conservativo è:
+For each organ i and format f, record weight bytes read B_i, reuse, effective FLOPs/operations, and the rate of **the same kernel/format/layout**. A conservative initial model is:
 
 \[
 t_{AR}\approx\sum_i\max\{B_i/\beta_i,\ O_i/\pi_i\}+t_{routing}+t_{sync}+t_{state}+t_{sampling}.
 \]
 
-I termini state/glue vanno esclusi dalla somma se già incorporati in un kernel. L'overlap fra organi può rendere la somma conservativa; non addizionare una misura integrata e il suo costo DRAM una seconda volta. `β_i` non è il picco della memoria: include granularità, cache, decode dei codici e contention. Usare il roofline per scartare proposte implausibili, non per promuoverle.
+State/glue terms must be excluded from the sum if already incorporated in a kernel. Overlap among organs can make the sum conservative; do not add an integrated measurement and its DRAM cost a second time. `β_i` is not peak memory bandwidth: it includes granularity, cache, code decoding, and contention. Use the roofline to reject implausible proposals, not to promote them.
 
-**Caso denso 10B:** se ogni peso viene letto una volta per token, solo i pesi richiedono 10 GB a int8, 5 GB a 4 bit, 2.5 GB a 2 bit, 2 GB a 1.6 bit. Anche a 40 GB/s ideali, il caso 1.6 bit si ferma a 20 tok/s prima di ogni altro costo; a 28 GB/s a 14. Nessun packing da solo produce 50–100 con 10B densi attivi. Le uscite sono: meno peso effettivamente toccato, riuso esatto su più token, o architettura/capacità diversa. Questa è aritmetica condizionale sul traffico, non un benchmark.
+**Dense 10B case:** if every weight is read once per token, weights alone require 10 GB at int8, 5 GB at 4 bit, 2.5 GB at 2 bit, and 2 GB at 1.6 bit. Even at an ideal 40 GB/s, the 1.6-bit case stops at 20 tok/s before any other cost; at 28 GB/s, at 14. Packing alone does not produce 50–100 with 10B dense active weights. The exits are: less weight actually touched, exact reuse across multiple tokens, or a different architecture/capacity. This is traffic-conditional arithmetic, not a benchmark.
 
-**Budget di progetto, non misura:** riservare il 30% del tempo a compute/glue/margine lascia 14 ms a 50 tok/s e 7 ms a 100 per streaming. Il budget è condiviso da esperti, shared projections e head.
+**Design budget, not a measurement:** reserving 30% of time for compute/glue/margin leaves 14 ms at 50 tok/s and 7 ms at 100 for streaming. The budget is shared by experts, shared projections, and head.
 
-| Rate ipotizzato | Byte/token a50 | Byte/token a100 |
+| Assumed rate | Byte/token at50 | Byte/token at100 |
 |---|---:|---:|
 | 28 GB/s |392 MB|196 MB|
 | 40 GB/s |560 MB|280 MB|
 
-A 28 GB/s questo corrisponde, se tutti i byte fossero pesi, a 392M/196M pesi int8 oppure 1.96B/0.98B a 0.2 B/peso. Metadata, padding, scale, read amplification e stato consumano parte del budget. Con il kernel esperti storico a 4.2 GB/s, gli stessi 14 ms comprano solo 58.8 MB; con 17 GB/s kernel-pure, 238 MB. Non scegliere simultaneamente tutte le ipotesi migliori. [L03]
+At 28 GB/s this corresponds, if all bytes were weights, to 392M/196M int8 weights or 1.96B/0.98B at 0.2 B/weight. Metadata, padding, scales, read amplification, and state consume part of the budget. With the historical expert kernel at 4.2 GB/s, the same 14 ms buys only 58.8 MB; with 17 GB/s kernel-pure, 238 MB. Do not choose all best assumptions simultaneously. [L03]
 
-### 2.3 Due pool, tre footprint e un costo nascosto
+### 2.3 Two pools, three footprints, and a hidden cost
 
-Separare **file/RAM totale**, **set caldo riutilizzato fra token**, **traffico/token**. Non occorre che tutti gli esperti visitati lungo l'intero forward risiedano contemporaneamente inL3. Occorre che il working set locale e il pool dichiarato residente rispettino il budget, oppure che gli spill siano pagati. Il modello deve includere stato SSM, buffer, lookup tables, scale e cache pollution.
+Separate **total file/RAM**, **hot set reused between tokens**, and **traffic/token**. Not all experts visited throughout the forward need reside inL3 at the same time. The local working set and declared resident pool must meet the budget, or spills must be paid for. The model must include SSM state, buffers, lookup tables, scales, and cache pollution.
 
-Per un MoE gated omogeneo:
+For a homogeneous gated MoE:
 
 \[
 P_{experts}=3LDhE,\quad P_{selected}=3LDhk,\quad B_{selected}=b_eP_{selected}+B_{scales}+B_{padding}.
 \]
 
-La gate e parte del lavoro up vanno calcolate prima di sapere cosa saltare: 92% hidden sparsity **non significa** 92% di tutte le letture evitate. Il 2.12× del sandbox è già il risultato di tale asimmetria; non moltiplicarlo automaticamente per routing e altre sparsità. [L06]
+The gate and part of the up work must be computed before knowing what to skip: 92% hidden sparsity **does not mean** 92% of all reads avoided. The sandbox 2.12× already results from this asymmetry; do not automatically multiply it by routing and other sparsities. [L06]
 
-**Router:** un router flat fp32 costa `4LDE = 4P_experts/(3h)` byte. Per 10B di esperti e h=128: 104.2 MB di router; h=1024: 13.0 MB, prima del backbone/head. Quindi aumentare E a costo attivo costante non è gratuito all'infinito. Un router gerarchico/product-key/fattorizzato è una nuova architettura da allenare e verificare; le lookup devono restare in cache e gli esperti scelti essere streammati in blocchi.
+**Router:** a flat fp32 router costs `4LDE = 4P_experts/(3h)` bytes. For 10B experts and h=128: 104.2 MB of router; h=1024: 13.0 MB, before backbone/head. Thus, increasing E at constant active cost is not free indefinitely. A hierarchical/product-key/factorized router is a new architecture to train and verify; lookups must remain cached and selected experts must be streamed in blocks.
 
-**Head:** `4DV` byte; D=4096, V=32768 ⇒ 536.9 MB fp32. Weight tying toglie la seconda matrice **memorizzata**, non il prodotto head letto ad ogni token. Una head low-rank con D=4096, V=32768, r=256 ha `4r(D+V)=37.75MB`, ancora oltre 16 MB. Il rank necessario a stare a 16 MiB sarebbe circa ≤113 senza includere nient'altro: è una restrizione qualitativa severa, non un consiglio automatico.
+**Head:** `4DV` bytes; D=4096, V=32768 ⇒ 536.9 MB fp32. Weight tying removes the second **stored** matrix, not the head product read for every token. A low-rank head with D=4096, V=32768, r=256 has `4r(D+V)=37.75MB`, still above 16 MB. The rank needed to fit in 16 MiB would be approximately ≤113 without including anything else: this is a severe quality restriction, not an automatic recommendation.
 
-**Esempio SSM puramente progettuale:** D=512, L=16, E=400, h=1024 ⇒ 10.066B parametri solo esperti. Con top-2, 50.33M pesi expert/token: 25.17 MB a 0.5 B/peso o 10.07 MB a 0.2 B/peso. Ma le proiezioni, usando l'estrapolazione storica, valgono circa 117 MB, head V=32768 circa 67 MB, router 13 MB: il pool caldo già non entra. Il basso costo attivo è credibile come contabilità, **la qualità top-2/400 è totalmente non misurata** e il tempo non si ricava dalle sole MLP. [L03; derivazione]
+**Purely design-level SSM example:** D=512, L=16, E=400, h=1024 ⇒ 10.066B expert-only parameters. With top-2, 50.33M expert weights/token: 25.17 MB at 0.5 B/weight or 10.07 MB at 0.2 B/weight. But projections, using the historical extrapolation, are about 117 MB, V=32768 head about 67 MB, router 13 MB: the hot pool already does not fit. The low active cost is credible as accounting, **top-2/400 quality is entirely unmeasured** and time cannot be derived from the MLPs alone. [L03; derivation]
 
-**Copertura training:** routing uniforme dà circa `T·k/E` assegnazioni per esperto/layer su T token. Ridurre k/E riduce il segnale per esperto; con skew alcuni non imparano. La capacità da10B deve essere utile e appresa, non solo allocata.
+**Training coverage:** uniform routing provides about `T·k/E` assignments per expert/layer over T tokens. Reducing k/E reduces signal per expert; with skew, some do not learn. The 10B capacity must be useful and learned, not merely allocated.
 
-### 2.4 Obiettivo multi-vincolo
+### 2.4 Multi-constraint objective
 
-Ottimizzare la tupla `(ΔBPB, task quality, t_token, RAM, GPU-hours, rischio)` con vincoli sul formato eseguibile. Ogni punto Pareto deve avere un checkpoint identificabile. Non sommare miglioramenti da checkpoint incompatibili; H5 dimostra concretamente perché. Per50 cercare margine (progettare16ms, verificare≤20); per100 progettare8ms e verificare≤10. Sono margini proposti, non cambi dei gate storici. [L15]
+Optimize the tuple `(ΔBPB, task quality, t_token, RAM, GPU-hours, risk)` subject to executable-format constraints. Every Pareto point must have an identifiable checkpoint. Do not add improvements from incompatible checkpoints; H5 concretely demonstrates why. For50, seek margin (design16ms, verify≤20); for100, design8ms and verify≤10. These are proposed margins, not changes to historical gates. [L15]
 
-## A. Tre roadmap distinte
+## A. Three distinct roadmaps
 
-### R1 — Conservare un pretrained già sparse/hybrid
+### R1 — Retain an already sparse/hybrid pretrained model
 
-**Filo conduttore:** evitare di dover insegnare ex novo a un FFN denso a funzionare con1–5% di attività. Conservare tokenizer, esperti, routing e mixer del donor inizialmente; comprimere in maniera selettiva, poi convertire verso le primitive target solo dove il gate lo consente.
+**Guiding idea:** avoid having to teach a dense FFN from scratch to function with1–5% activity. Initially retain the donor tokenizer, experts, routing, and mixer; compress selectively, then convert toward target primitives only where the gate permits.
 
-Due candidati nuovi rispetto allo screen locale meritano una valutazione di metadati. **Granite-4.0-H-Tiny-Base**, Apache 2.0, ha 7B totali/~1B attivi e mixer Mamba2+attention con shared experts: è un pilot sotto target, non un 10B. **LFM2.5-8B-A1B-Base** dichiara 8.3B totali/**1.5B attivi**, conv gated+GQA e licenza LFM Open License 1.0: vicino alla scala richiesta, ma non SSM Mamba1. Sono metadati dei produttori, non evidenza locale di qualità/rate. Il suffisso A1B non sostituisce la contabilità. [IBM model card](https://huggingface.co/ibm-granite/granite-4.0-h-tiny-base), [Liquid model card](https://huggingface.co/LiquidAI/LFM2.5-8B-A1B-Base).
+Two candidates new relative to the local screen merit metadata evaluation. **Granite-4.0-H-Tiny-Base**, Apache 2.0, has 7B total/~1B active and a Mamba2+attention mixer with shared experts: it is a below-target pilot, not a 10B. **LFM2.5-8B-A1B-Base** declares 8.3B total/**1.5B active**, gated conv+GQA, and LFM Open License 1.0: near the requested scale, but not Mamba1 SSM. These are producer metadata, not local evidence of quality/rate. The A1B suffix does not replace accounting. [IBM model card](https://huggingface.co/ibm-granite/granite-4.0-h-tiny-base), [Liquid model card](https://huggingface.co/LiquidAI/LFM2.5-8B-A1B-Base).
 
-Non scaricare tutti i donor per curiosità. Lo screen già esistente di OLMoE, StdMoE14B e Qwen3-30B-A3B resta utile; corregge proprio il trasferimento illegittimo del rate mixed E63 a full-int8. I nuovi candidati devono attraversare lo stesso conteggio, includendo shared experts, head, routing e mixer. [L11]
+Do not download every donor out of curiosity. The existing OLMoE, StdMoE14B, and Qwen3-30B-A3B screen remains useful; it corrects precisely the illegitimate transfer of E63 mixed rate to full-int8. New candidates must undergo the same accounting, including shared experts, head, routing, and mixer. [L11]
 
-| Fase e dipendenza | Output | Gate / pivot | Risorsa proposta |
+| Phase and dependency | Output | Gate / pivot | Proposed resource |
 |---|---|---|---|
-| R1.0 screen metadati | Config esatta, licenza/revisione, inventario operatori, byte per organo | Scartare incompatibilità o traffico non riducibile plausibilmente entro20ms; nessun verdetto da active params nominali |1–2 giorni di analisi,0T4 |
-| R1.1 dopo0: baseline e calibrazione | Teacher nativo, attivazioni e sensitivity; precision map int8/4bit/fp32 | Fedeltà baseline; se il formato perde>0.02 prima di surgery, fermare quella combinazione |12–24 pair-hours |
-| R1.2 dopo1: compressione minima | Checkpoint con gruppi/outlier o adapter, stessa struttura del donor | ΔBPB e task pass; affinità al kernel e bytes pass; preferire4bit espressivi a ternario se qualità lo richiede |24–96 pair-hours |
-| R1.3 dopo2: bridge verso SSM target | Sostituzioni progressive mixer/attention; dReLU/QAT separati | Gate per blocco e cumulativo; mantenere mixer originale se sostituzione fallisce, marcando bridge incompleto |12–72 pair-hours di pilot; conversione completa da riprezzare |
-| R1.4 dopo3: export e misura futura | Stesso checkpoint inC, formati corretti, rate ai contesti dichiarati | Parity + qualità +50; solo dopo tentare100 |3–10 giorni engineering CPU;2–8 pair-hours calibrazione finale |
+| R1.0 metadata screen | Exact config, license/revision, operator inventory, bytes per organ | Reject incompatibility or traffic not plausibly reducible within20ms; no verdict from nominal active params |1–2 analysis days,0T4 |
+| R1.1 after0: baseline and calibration | Native teacher, activations and sensitivity; int8/4bit/fp32 precision map | Baseline fidelity; if format loses>0.02 before surgery, stop that combination |12–24 pair-hours |
+| R1.2 after1: minimum compression | Checkpoint with groups/outliers or adapters, same donor structure | ΔBPB and task pass; kernel affinity and bytes pass; prefer expressive4bit to ternary if quality requires it |24–96 pair-hours |
+| R1.3 after2: bridge toward target SSM | Progressive mixer/attention replacements; separate dReLU/QAT | Per-block and cumulative gates; retain original mixer if replacement fails, marking bridge incomplete |12–72 pilot pair-hours; complete conversion to be repriced |
+| R1.4 after3: export and future measurement | Same checkpoint inC, correct formats, rate at declared contexts | Parity + quality +50; attempt100 only afterward |3–10 CPU engineering days;2–8 final-calibration pair-hours |
 
-**Confine di scope:** preservare Mamba2/conv/GQA richiede estendere l'engine C; non è una conversione già supportata da `phase60/engine.c`. Se il vincolo è l'esatta architettura SSM v1, R1.3 è obbligatoria e un bridge ibrido non conta come completamento. Se nessuna sostituzione supera i gate, R1 consegna solo una baseline utile per R3. Aumentare artificialmente7B a10B clonando esperti non soddisfa la capacità richiesta.
+**Scope boundary:** retaining Mamba2/conv/GQA requires extending the C engine; it is not a conversion already supported by `phase60/engine.c`. If the constraint is the exact SSM v1 architecture, R1.3 is mandatory and a hybrid bridge does not count as completion. If no replacement passes the gates, R1 delivers only a useful baseline for R3. Artificially enlarging7B to10B by cloning experts does not satisfy the required capacity.
 
-**Risorse/rischi:** circa 48–192 pair-hours per fattibilità, più export/calibrazione; con 12 h/giorno, 4–16 giorni attivi; con quota 90 pair-hours/settimana, 0.5–2.2 settimane di sola GPU. Non è la stima del completamento 10B. Rischi principali: conversione mixer, qualità del dominio, vocab/head, licenza e codice custom. Mitigazione: una coordinata alla volta, checkpoint base, router pesato esatto prima della sua compressione. **R1 è la prima scelta per ridurre la quantità di conoscenza da riapprendere; non è oggi una promessa del target.**
+**Resources/risks:** about 48–192 pair-hours for feasibility, plus export/calibration; at 12 h/day, 4–16 active days; at a 90 pair-hours/week quota, 0.5–2.2 GPU-only weeks. This is not an estimate for completing 10B. Main risks: mixer conversion, domain quality, vocabulary/head, license, and custom code. Mitigation: one coordinate at a time, baseline checkpoint, exact weighted router before its compression. **R1 is the first choice for reducing the knowledge that must be relearned; it is not currently a promise of the target.**
 
-### R2 — Chirurgia congiunta del donor denso: shared path + esperti residui
+### R2 — Joint surgery on the dense donor: shared path + residual experts
 
-**Filo conduttore:** il dense FFN è distribuito; selezionarne pochissimi gruppi elimina funzioni non recuperabili con un semplice selector. Costruire un percorso condiviso che copra la funzione comune e pochi esperti che modellino il residuo, allenando insieme anche le proiezioni compresse. L'operatore proposto è:
+**Guiding idea:** the dense FFN is distributed; selecting very few groups removes functions that cannot be recovered with a simple selector. Construct a shared path covering the common function and a few experts that model the residual, jointly training the compressed projections as well. The proposed operator is:
 
 \[
 f_l(x)\approx g_{shared,l}(x)+\sum_{e\in S_l(x)}a_{l,e}(x)f_{l,e}(x).
 \]
 
-`g_shared` può iniziare con low-rank, ma va confrontato con un piccolo MLP nonlineare. La somma e il peso del router devono coincidere con il deployment; il selector non può richiedere il FFN denso nascosto per scegliere i gruppi. E68 motiva questo cambio di operatore, ma il suo segnale è locale, concentrato in un layer e ancora dipendente da dense-z; non è prova che questa soluzione funzionerà. [L17]
+`g_shared` can begin low-rank, but must be compared with a small nonlinear MLP. The router sum and weight must match deployment; the selector cannot require the hidden dense FFN to select groups. E68 motivates this operator change, but its signal is local, concentrated in one layer, and still dependent on dense-z; it is not evidence that this solution will work. [L17]
 
-| Fase e dipendenza | Output | Gate / pivot | Risorsa proposta |
+| Phase and dependency | Output | Gate / pivot | Proposed resource |
 |---|---|---|---|
-| R2.0 baseline nuova geometria | Donorfp32/int8, forma esatta, costo shared+router+experts+rank | Riutilizzare prove valide, nessun rerunH2I/H4/H5; step-zero della nuova geometria |8–16 pair-hours |
-| R2.1 dopo0: shared/residual distillation | Fit layer/block, confronto linear/nonlinear e router realmente economico | Local error per layer/p95 migliora; nessun layer nascosto dalla media; costo entro envelope |16–48 pair-hours |
-| R2.2 dopo1: curriculum congiunto | Rank e sparsità decrescono gradualmente; precisione inizialmente fedele; CE+KD+feature loss | Almeno pilot1.5B passa ΔBPB≤0.02 e suite generativa; se curva si appiattisce fuori budget, stop |48–176 pair-hours |
-| R2.3 dopo2: conferma target-scale | Identica ricetta sul donor~10B, tuning per sensitivity; esperti distinti realmente appresi | Nessun trasferimento di esponente1.5→10B; quality gate sul target, contabilità aggiornata |240–960 pair-hours riservabili, non garanzia di convergenza |
-| R2.4 dopo3: export/rate | ArtefattoC effettivo | Gate congiunto;50 prima di100 |5–15 giorni engineering,4–12 pair-hours calibrazione |
+| R2.0 new-geometry baseline | Donorfp32/int8, exact shape, shared+router+experts+rank cost | Reuse valid evidence, no rerunH2I/H4/H5; step zero of the new geometry |8–16 pair-hours |
+| R2.1 after0: shared/residual distillation | Layer/block fit, linear/nonlinear comparison, and genuinely economical router | Local error per layer/p95 improves; no layer hidden by the mean; cost within envelope |16–48 pair-hours |
+| R2.2 after1: joint curriculum | Rank and sparsity decrease gradually; initially faithful precision; CE+KD+feature loss | At least a pilot1.5B passes ΔBPB≤0.02 and generative suite; if the curve flattens outside budget, stop |48–176 pair-hours |
+| R2.3 after2: target-scale confirmation | Identical recipe on the donor~10B, sensitivity tuning; genuinely learned distinct experts | No exponent transfer1.5→10B; quality gate on the target, updated accounting |240–960 reservable pair-hours, no convergence guarantee |
+| R2.4 after3: export/rate | Actual artifactC | Joint gate;50 before100 |5–15 engineering days,4–12 calibration pair-hours |
 
-Per isolare cause rispettando “una variabile per stage”, confrontare il **fattore protocollo di training**: geometria finale uguale, dati/token uguali, train separato versus train congiunto. Non lanciare una griglia combinatoria. Dentro il curriculum fissare una sola transizione per volta: precisione, rank, sparsità, mixer. Il modello finale va comunque riaddestrato con tutti gli operatori presenti, perché gli errori interagiscono.
+To isolate causes while respecting “one variable per stage,” compare the **training-protocol factor**: same final geometry, same data/tokens, separate training versus joint training. Do not launch a combinatorial grid. Within the curriculum, fix only one transition at a time: precision, rank, sparsity, mixer. The final model must nevertheless be retrained with all operators present, because errors interact.
 
-L'ordine proposto è: baseline fedele → shared/residual → rank moderato → routing/sparsità progressiva → QAT selettiva → recupero congiunto. L'inversione “QAT prima di sparsità” è un A/B successivo soltanto se il primo pilot dimostra apprendibilità. Reverse-KL può affinare traiettorie, ma è mode-seeking e non sostituisce copertura CE/forward-KL. Nessuna inversione matematica restituisce l'informazione eliminata da rank/quantizzazione.
+The proposed order is: faithful baseline → shared/residual → moderate rank → progressive routing/sparsity → selective QAT → joint recovery. The reversal “QAT before sparsity” is a subsequent A/B only if the first pilot demonstrates learnability. Reverse-KL can refine trajectories, but it is mode-seeking and does not replace CE/forward-KL coverage. No mathematical inversion restores information eliminated by rank/quantization.
 
-**Rischio decisivo:** per raggiungere il budget potrebbe servire una sparsità che il donor non supporta a quella qualità. H4 mostra recupero score senza generazione; H5 chiude il semplice assemblaggio. R2 è il seguito più informativo della linea locale, ma ha rischio maggiore diR1. La fase mixer SSM, se richiesta strettamente, resta un'ulteriore conversione: il primo successo diR2 nel runtime donor non soddisfa automaticamente l'architettura nativa. [L14,L15,L02]
+**Decisive risk:** meeting the budget may require sparsity that the donor does not support at that quality. H4 shows score recovery without generation; H5 closes the simple assembly path. R2 is the most informative continuation of the local line, but has greater risk thanR1. The SSM mixer phase, if strictly required, remains an additional conversion: the first R2 success in the donor runtime does not automatically satisfy the native architecture. [L14,L15,L02]
 
-### R3 — Distillazione nativa SSM con capacità condizionale
+### R3 — Native SSM distillation with conditional capacity
 
-**Filo conduttore:** ottimizzare direttamente l'architettura CPU: SSM selettivo, piccoli shared blocks, esperti ternari/QAT, dReLU e head controllata. Acquisire la conoscenza del pretrained tramite distillazione progressive/sequence-level, invece di pretendere una conversione quasi algebrica.
+**Guiding idea:** optimize the CPU architecture directly: selective SSM, small shared blocks, ternary/QAT experts, dReLU, and controlled head. Acquire pretrained knowledge through progressive/sequence-level distillation instead of demanding a near-algebraic conversion.
 
-La progressione mixer→blocchi→logits segue una linea documentata da [MOHAWK](https://arxiv.org/abs/2408.10189); [Mamba in the Llama](https://arxiv.org/abs/2408.15237) dimostra distillazione di ibridi e riuso di pesi, ma non l'equivalenza specifica richiesta su Zen2. La letteratura comporta miliardi di token di adattamento, non una semplice calibrazione. Il caso BitNet nativamente ternario è stato preaddestrato da zero: non è evidenza di conversione economica di un 10B. [BitNet2B4T](https://arxiv.org/html/2504.12285v2).
+The mixer→blocks→logits progression follows a line documented by [MOHAWK](https://arxiv.org/abs/2408.10189); [Mamba in the Llama](https://arxiv.org/abs/2408.15237) demonstrates hybrid distillation and weight reuse, but not the specific equivalence required on Zen2. The literature entails billions of adaptation tokens, not simple calibration. The natively ternary BitNet case was pretrained from scratch: it is not evidence of economical conversion of a 10B. [BitNet2B4T](https://arxiv.org/html/2504.12285v2).
 
-| Fase e dipendenza | Output | Gate / pivot | Risorsa proposta |
+| Phase and dependency | Output | Gate / pivot | Proposed resource |
 |---|---|---|---|
-| R3.0 scelta teacher/tokenizer | Baseline on-domain; byte likelihood e dati deduplicati | Conservare tokenizer se possibile; cambioV solo con tradeoff misurabile |8–24 pair-hours |
-| R3.1 dopo0: pilot nativo | Student100–500M o blocchi distillati, CE-primary con KD challenger | Segnale rispetto CE a uguali token; transitare senza shock non recuperato; non chiamare pilot10B |120–360 pair-hours |
-| R3.2 dopo1: crescita capacità | Esperti da pesi riusati/upcycling, curriculum routing, coverage | Unique capacity utile, nessun dead expert sistematico, curva qualità/active-budget |Costo da misurare: E/k e optimizer dominano fattibilità |
-| R3.3 dopo2: target~10B | Distillazione+QAT con geometria finale e poche parti dense | ΔBPB≤0.02 **contro teacher**, non solo contro student iniziale; generazione/task |Ordine di grandezza1000–10000+ pair-hours possibile; stop/riprezzo dopo pilot |
-| R3.4 dopo3: export nativo | Nuovo formato deployment, golden, decode end-to-end | Tutti i gate sul target |5–15 giorni engineering,4–12 pair-hours finali |
+| R3.0 teacher/tokenizer selection | On-domain baseline; byte likelihood and deduplicated data | Retain tokenizer if possible; changeV only with measurable tradeoff |8–24 pair-hours |
+| R3.1 after0: native pilot | Student100–500M or distilled blocks, CE-primary with KD challenger | Signal relative to CE at equal tokens; transition without unrecovered shock; do not call it a pilot10B |120–360 pair-hours |
+| R3.2 after1: capacity growth | Experts from reused weights/upcycling, routing curriculum, coverage | Useful unique capacity, no systematic dead expert, quality/active-budget curve |Cost to measure: E/k and optimizer dominate feasibility |
+| R3.3 after2: target~10B | Distillation+QAT with final geometry and few dense parts | ΔBPB≤0.02 **against teacher**, not only against initial student; generation/task |Order of magnitude1000–10000+ pair-hours possible; stop/reprice after pilot |
+| R3.4 after3: native export | New deployment format, golden, end-to-end decode | All gates on the target |5–15 engineering days,4–12 final pair-hours |
 
-**Rischio:** un core piccolo potrebbe non rappresentare le competenze del teacher, anche con molti esperti. Distillare 10B→200M produce un altro obiettivo; può essere un prodotto utile e un pilot, ma non soddisfa 10B totali appresi. Weight tying e depth-reuse riducono parametri distinti: non conteggiare la stessa matrice N volte come capacità 10B. Upcycling copia una funzione iniziale; la diversità va appresa, e i costi riportati in [Sparse Upcycling](https://arxiv.org/abs/2212.05055) non dimostrano completamento con poche settimane T4.
+**Risk:** a small core might not represent the teacher’s capabilities, even with many experts. Distilling 10B→200M produces a different objective; it can be a useful product and pilot, but does not satisfy learned 10B total capacity. Weight tying and depth reuse reduce distinct parameters: do not count the same matrix N times as 10B capacity. Upcycling copies an initial function; diversity must be learned, and the costs reported in [Sparse Upcycling](https://arxiv.org/abs/2212.05055) do not demonstrate completion in a few T4 weeks.
 
-**Decisione:** R3 è la strada più fedele all'SSM v1 e la meno compatibile con una promessa di conversione in sessioni brevi. Avviarla a piena scala soltanto con gate del pilot e un preventivo misurato. Un risultato piccolo molto veloce non deve mascherare il fallimento del vincolo10B/qualità.
+**Decision:** R3 is the path most faithful to SSM v1 and least compatible with a promise of conversion in short sessions. Start it at full scale only with pilot gates and a measured cost estimate. A very fast small result must not mask failure of the10B/quality constraint.
 
-## B. Matrice delle opzioni
+## B. Option matrix
 
-“Impatto” indica il meccanismo e un limite teorico quando disponibile, **non speedup previsto**. B/M/A = basso/medio/alto. Le priorità non riaprono i gate storici.
+“Impact” indicates the mechanism and a theoretical limit where available, **not expected speedup**. B/M/A = low/medium/high. Priorities do not reopen historical gates.
 
-| Leva | Impatto tok/s | Impatto qualità | Complessità | Rischio | Nota decisionale |
+| Lever | tok/s impact | Quality impact | Complexity | Risk | Decision note |
 |---|---|---|---|---|---|
-| Donor già MoE/ricorrente | Alto potenziale: evita dense-active | Preserva più pretraining |A|M/A|R1, nuova semantica da supportare |
-| W8 con attivazioni fp32 | Più byte del ternario, ma recupero costoso evitato | Miglior baseline locale donor |M|B/M|E66 non è full-int8 né 50 tok/s |
-| INT4 multi-livello, mixed 3/4/8 bit | Fino 2× riduzione byte su W8, prima di overhead | Da calibrare organo per organo |A|M|4 bit di storage ternario ≠ quantizer a 16 livelli |
-| Ternario QAT | Byte e LUT favorevoli | Rischio alto su pretrained |A|A|Selettivo; vietato ereditare costo sandbox |
-| Packing 4→2 bit |2× codici; P1 già misurato | Lossless |M|B|Riutilizzare, non nuovo esperimento |
-| Packing 2→1.6 bit |≤1.25× parte bandwidth | Lossless sul ternario |A|M|Decoder può annullare il 20% di byte risparmiati |
-| Scale attivazioni per gruppo/outlier | Velocità ambigua | Può migliorare fedeltà |M|M|Scale/LUT aggiuntive e overflow da contare |
-| Low-rank whitened per organo | Riduce bytes/FLOP se r<mn/(m+n) | Rischio crescente al rank basso |M/A|A|E65/H4 impediscono promesse a r/D=1/32 |
-| Adapter low-rank residuali | Costo aggiuntivo | Recupero selettivo possibile |M|M|Fusione densa può perdere il vantaggio |
-| Pruning di blocchi/layer | Riduce costo eseguibile | Lesioni possibili alle funzioni |M|A|Hessian/output-aware; niente sparsità non supportata |
-| Shared nonlinear + sparse residual | Può ridurre attività richiesta | Ipotesi nuova di R2 |A|A|E68 solo locale lineare; serve router senza dense oracle |
-| Router gerarchico/fattorizzato | Riduce il termine flat E·D e dispatch | Nuova partizione/routing |A|A|Contare misrouting e expert coverage |
-| Hadamard/Fourier | Può aiutare il quantizer, non riduce il rank | Possibile beneficio/danno |M/A|A|Non diagonali gratis; T3 VOID; non ripetere generic sweep |
-| Weight tying/cross-block reuse | Risparmia bytes residenti; compute persiste | Va allenato |M/A|A|Niente conteggio parametri duplicati |
-| Early exit/adaptive halting | Riduce posizioni/layer eseguiti | Perdita e stato incoerente possibili |A|A|Più sicuro come drafter verificato |
-| SKIP esatto dReLU | Evita up/down inattivi | Nessun cambio se zeros esatti |M|B|Sparsità da misurare sul target |
-| SKIP predetto | Potenzialmente alto | Falsi negativi alterano output |A|A|Non chiamarlo lossless |
-| Prefetch predittivo | Nasconde latenza, non crea bandwidth | Neutro se nessuno skip |M|M|Miss/cache pollution; temporal locality non assunta |
-| Co-training predictability | Può dare blocchi stabili | Può sacrificare specializzazione |A|A|Regolarizzare con budget qualità e router load |
-| Head low-rank/PQ/RVQ | Abbassa DV | Head sensibile, ricerca approssimata rischiosa |A|A|Codebook cache-residente; E17 già limita low-rank head |
-| Vocab ridotto/adaptive softmax | Riduce costo head | Tokenizer/normalizzazione cambiano |A|A|Report bytes/s; softmax gerarchica richiede training |
-| Entropy coding per blocco | Riduce traffico se decoder economico | Lossless |A|M/A|Metadata e accesso indipendente; niente decode intero file/token |
-| SSM state compression | Stato più piccolo | Errori nel lungo periodo |A|A|Lo stato non cresce col contesto; il costo dipende da D·N·L |
-| Scan poly/LUT | Riduce costo exp residuo | Errore ricorrente |M|M|E3.5 già implementato; nuova prova solo su range target |
-| SWA adattiva | Riduce KV/local attention | Può peggiorare retrieval/dipendenze |M/A|A|Misurare target-length, non solo corto |
-| Threading/dispatch/layout | Recupera overhead | Lossless se ordine preservato |M|B/M|Già molti assi chiusi; no moltiplicatori storici riusati |
-| Block-verify esatto | Amortizza pesi shared | Distribuzione preservabile |A|M|Unioni MoE, draft, replay, KV inclusi; C/T condizionale |
+| Already MoE/recurrent donor | High potential: avoids dense-active | Retains more pretraining |A|M/A|R1, new semantics to support |
+| W8 with fp32 activations | More bytes than ternary, but costly recovery avoided | Best local donor baseline |M|B/M|E66 is neither full-int8 nor 50 tok/s |
+| Multi-level INT4, mixed 3/4/8 bit | Up to 2× byte reduction over W8, before overhead | Calibrate organ by organ |A|M|4 bits of ternary storage ≠ a 16-level quantizer |
+| Ternary QAT | Favorable bytes and LUT | High risk on pretrained |A|A|Selective; prohibited from inheriting sandbox cost |
+| 4→2-bit packing |2× codes; P1 already measured | Lossless |M|B|Reuse, not a new experiment |
+| 2→1.6-bit packing |≤1.25× bandwidth portion | Lossless on ternary |A|M|Decoder can cancel the 20% bytes saved |
+| Per-group/outlier activation scales | Ambiguous speed | Can improve fidelity |M|M|Additional scales/LUT and overflow to account for |
+| Per-organ whitened low rank | Reduces bytes/FLOP if r<mn/(m+n) | Growing risk at low rank |M/A|A|E65/H4 preclude promises at r/D=1/32 |
+| Residual low-rank adapters | Additional cost | Selective recovery possible |M|M|Dense fusion can lose the advantage |
+| Block/layer pruning | Reduces executable cost | Possible injury to functions |M|A|Hessian/output-aware; no unsupported sparsity |
+| Nonlinear shared + sparse residual | Can reduce required activity | New R2 hypothesis |A|A|E68 only local-linear; requires router without dense oracle |
+| Hierarchical/factorized router | Reduces the flat E·D term and dispatch | New partition/routing |A|A|Account for misrouting and expert coverage |
+| Hadamard/Fourier | Can help the quantizer, does not reduce rank | Possible benefit/harm |M/A|A|No free diagonals; T3 VOID; do not repeat generic sweep |
+| Weight tying/cross-block reuse | Saves resident bytes; compute remains | Must be trained |M/A|A|No counting duplicated parameters |
+| Early exit/adaptive halting | Reduces executed positions/layers | Loss and inconsistent state possible |A|A|Safer as a verified drafter |
+| Exact dReLU SKIP | Avoids inactive up/down | No change if zeros are exact |M|B|Sparsity to measure on the target |
+| Predicted SKIP | Potentially high | False negatives alter output |A|A|Do not call it lossless |
+| Predictive prefetch | Hides latency, does not create bandwidth | Neutral if nothing skips |M|M|Miss/cache pollution; temporal locality not assumed |
+| Co-training predictability | Can yield stable blocks | Can sacrifice specialization |A|A|Regularize with quality budget and router load |
+| Low-rank/PQ/RVQ head | Lowers DV | Sensitive head, risky approximate search |A|A|Cache-resident codebook; E17 already limits low-rank head |
+| Reduced vocab/adaptive softmax | Reduces head cost | Tokenizer/normalization change |A|A|Report bytes/s; hierarchical softmax requires training |
+| Per-block entropy coding | Reduces traffic if decoder is economical | Lossless |A|M/A|Metadata and independent access; no whole-file/token decoding |
+| SSM state compression | Smaller state | Long-term errors |A|A|State does not grow with context; cost depends on D·N·L |
+| Scan poly/LUT | Reduces residual exp cost | Recurrent error |M|M|E3.5 already implemented; new test only on target range |
+| Adaptive SWA | Reduces KV/local attention | Can worsen retrieval/dependencies |M/A|A|Measure target length, not only short |
+| Threading/dispatch/layout | Recovers overhead | Lossless if order is preserved |M|B/M|Many axes already closed; no reused historical multipliers |
+| Exact block-verify | Amortizes shared weights | Distribution can be preserved |A|M|MoE unions, draft, replay, KV included; conditional C/T |
 
-Riferimenti della matrice: evidenze locali L03–L23; metodi esterni W01–W08. AQLM/QuIP# sono candidati per bitrate e qualità, non percorsi già ρ-safe nell'engine: codebook residenti e traversal contiguo devono essere dimostrati. [W02,W03,W05]
+Matrix references: local evidence L03–L23; external methods W01–W08. AQLM/QuIP# are bitrate and quality candidates, not paths already ρ-safe in the engine: resident codebooks and contiguous traversal must be demonstrated. [W02,W03,W05]
 
-## C. Sottoproblemi prioritari
+## C. Priority subproblems
 
-Scala 1–5: 5 significa massimo leverage o maggiore trattabilità. Sono giudizi progettuali, non misure.
+Scale 1–5: 5 means maximum leverage or greatest tractability. These are design judgments, not measurements.
 
-| Priorità | Sottoproblema | Urgenza | Leverage | Trattabilità | Decisione concreta |
+| Priority | Subproblem | Urgency | Leverage | Tractability | Concrete decision |
 |---|---|---|---:|---:|---|
-|0|SP0 — identità, semantica, metriche|Bloccante|5|5|Quale donor, quale runtime, cosa conta come10B e tok/s; reference esatto |
-|1|SP4 — preservazione qualità congiunta|Bloccante|5|2|Pilot della geometria eseguibile; BPB+task+rollout |
-|2|SP6 — training memory e costo|Bloccante|5|3|Master/optimizer/attivazioni/offload; throughput reale e token budget |
-|3|SP2 — streamed budget|Bloccante|5|4|Bytes per organo, precisione, k/h/E; shared+expert insieme |
-|4|SP3 — compute floor|Bloccante per100|5|3|Profilo per organo; rank/mixer/head prima di un'altra exp-LUT |
-|5|SP1 — resident budget|Bloccante per percorso hot|4|3|Head/router/stato oltre alle proiezioni; spill esplicito se ammesso |
-|6|SP7 — export/ABI/parity|Bloccante al deployment|4|4|Formato per-matrice, scale/layout e dati del checkpoint identici |
-|7|SP8 — contesto/tokenizzazione|Bloccante alla claim finale|4|3|Qualità e throughput su medesimo testo e contesto |
-|8|SP5 — throughput engine|Ottimizzare dopo plausibilità qualità|3|4|Nuovi colli misurati; testare solo layout/operatori nuovi |
+|0|SP0 — identity, semantics, metrics|Blocking|5|5|Which donor, which runtime, what counts as10B and tok/s; exact reference |
+|1|SP4 — joint quality preservation|Blocking|5|2|Pilot of executable geometry; BPB+task+rollout |
+|2|SP6 — training memory and cost|Blocking|5|3|Master/optimizer/activations/offload; real throughput and token budget |
+|3|SP2 — streamed budget|Blocking|5|4|Bytes per organ, precision, k/h/E; shared+expert together |
+|4|SP3 — compute floor|Blocking for100|5|3|Per-organ profile; rank/mixer/head before another exp-LUT |
+|5|SP1 — resident budget|Blocking for hot path|4|3|Head/router/state beyond projections; explicit spill if allowed |
+|6|SP7 — export/ABI/parity|Blocking at deployment|4|4|Per-matrix format, scales/layout, and identical checkpoint data |
+|7|SP8 — context/tokenization|Blocking for the final claim|4|3|Quality and throughput on the same text and context |
+|8|SP5 — engine throughput|Optimize after quality plausibility|3|4|New measured bottlenecks; test only new layouts/operators |
 
-SP1 non si risolve imponendo una L3 “virtuale” da 32 MB condivisa perfettamente: t6 e matrici row-partition sono una condizione specifica, con stato e streaming concorrenti. SP2 include la granularità down e non solo il numero di esperti; SP3 include proiezioni lineari O(D²), stato O(DN), attention locale e output head O(DV), che scalano in modi diversi. [L03,L04]
+SP1 is not solved by imposing a perfectly shared 32 MB “virtual” L3: t6 and row-partition matrices are a specific condition, with concurrent state and streaming. SP2 includes down granularity, not only the number of experts; SP3 includes O(D²) linear projections, O(DN) state, local attention, and O(DV) output head, which scale differently. [L03,L04]
 
-## Analisi matematica operativa delle leve
+## Operational mathematical analysis of the levers
 
-### Algebra e geometria: comprimere funzioni importanti, non soltanto matrici
+### Algebra and geometry: compress important functions, not only matrices
 
-Per `W∈R^(m×n)`, SVD rank-r riduce i parametri da `mn` a `r(m+n)` solo se `r<mn/(m+n)`. Il minimo errore Frobenius **al quadrato** è `Σ_{j>r}σ_j²`, non il delta di loss. La metrica operativa è:
+For `W∈R^(m×n)`, rank-r SVD reduces parameters from `mn` to `r(m+n)` only if `r<mn/(m+n)`. The minimum **squared** Frobenius error is `Σ_{j>r}σ_j²`, not the loss delta. The operational metric is:
 
 \[
 E\| (W-\widehat W)x\|^2=\mathrm{tr}[(W-\widehat W)C_x(W-\widehat W)^T].
 \]
 
-Whitening/regularizzazione di `C_x` e sensitivity del downstream danno la priorità delle direzioni; un'approssimazione locale Hessian/Fisher, trascurando il termine di primo ordine solo quando giustificato, porta a `ΔL≈½δwᵀHδw`. Per matrici rettangolari o non normali gli autovalori di W non identificano “direzioni morte”: usare valori singolari di `W C_x^(1/2)` e Jacobiani osservati. Validare su held-out e su rollout, perché covarianza calibrata e generata possono differire. [W01; derivazione]
+Whitening/regularization of `C_x` and downstream sensitivity prioritize directions; a local Hessian/Fisher approximation, neglecting the first-order term only when justified, yields `ΔL≈½δwᵀHδw`. For rectangular or non-normal matrices, W’s eigenvalues do not identify “dead directions”: use singular values of `W C_x^(1/2)` and observed Jacobians. Validate on heldout and rollout, because calibrated and generated covariance can differ. [W01; derivation]
 
-La manifold hypothesis è un'ipotesi, non un certificato di compressione. Misurare rank efficace, energy tail pesata, stabilità dei sottospazi fra domini e principal angles `cosθ_i=σ_i(U_aᵀU_b)`. Gradienti allineati fra layer suggeriscono esperimenti di tying solo dopo normalizzazione e allineamento della base; non provano che i layer siano sostituibili. Clustering di neuroni/pesi va confrontato con partizioni casuali a costo/layout identico e con errore di output, non con silhouette soltanto. [L19]
+The manifold hypothesis is a hypothesis, not a compression certificate. Measure effective rank, weighted energy tail, subspace stability across domains, and principal angles `cosθ_i=σ_i(U_aᵀU_b)`. Aligned gradients across layers suggest tying experiments only after normalization and basis alignment; they do not prove layers are substitutable. Compare neuron/weight clustering with random partitions of identical cost/layout and with output error, not silhouette alone. [L19]
 
-Un cambio di base ortogonale `Q` conserva i valori singolari: non crea low-rank. `Wx=(WQᵀ)(Qx)` può migliorare quantizzazione degli outlier, ma `φ(Qx)≠Qφ(x)` per nonlinearità generiche, e una rotazione densa può distruggere sparsità o diagonalità della ricorrenza. Fourier diagonalizza operatori con struttura appropriata, come convoluzioni circolari, non matrici apprese arbitrarie. Per MLP con dReLU/SwiGLU, permutation e riscalamenti positivi compatibili possono essere riassorbiti in modo esatto con algebra verificata; rotazioni dense vanno limitate ai confini lineari. [W02; derivazione]
+An orthogonal basis change `Q` preserves singular values: it does not create low rank. `Wx=(WQᵀ)(Qx)` can improve outlier quantization, but `φ(Qx)≠Qφ(x)` for generic nonlinearities, and a dense rotation can destroy sparsity or recurrence diagonality. Fourier diagonalizes operators with appropriate structure, such as circular convolutions, not arbitrary learned matrices. For MLPs with dReLU/SwiGLU, compatible permutations and positive rescalings can be absorbed exactly with verified algebra; dense rotations must be limited to linear boundaries. [W02; derivation]
 
-**Inversioni utili:** cambiare ordine delle trasformazioni, non invertire una mappa che ha perso informazione. Quantizzazione Q e pruning P in generale non commutano: `Q(P(W))≠P(Q(W))`. Un curriculum continuativo verso l'operatore finale è più controllabile di due salti simultanei. Pseudoinversa e residui recuperano componenti osservabili dai dati, non conoscenza arbitrariamente eliminata.
+**Useful inversions:** change the order of transformations, not invert a map that has lost information. Quantization Q and pruning P generally do not commute: `Q(P(W))≠P(Q(W))`. A continuous curriculum toward the final operator is more controllable than two simultaneous jumps. Pseudoinverse and residuals recover components observable from data, not arbitrarily eliminated knowledge.
 
-### Analisi e informazione: il bitrate ottimo è per organo
+### Analysis and information: optimal bitrate is per organ
 
-Per piccole perturbazioni, `δh_(l+1)≈J_lδh_l+ε_l`; quindi l'errore finale contiene `Σ_l(Π_{j>l}J_j)ε_l`. Errori correlati non si sommano come rumore indipendente. Misurare amplification su sequenze, margini logit e routing, oltre al MSE locale. È la ragione per cui una somma di ΔBPB di singoli interventi non predice la loro composizione. [L15; derivazione]
+For small perturbations, `δh_(l+1)≈J_lδh_l+ε_l`; therefore final error contains `Σ_l(Π_{j>l}J_j)ε_l`. Correlated errors do not sum like independent noise. Measure amplification on sequences, logit margins, and routing in addition to local MSE. This is why a sum of ΔBPB from individual interventions does not predict their composition. [L15; derivation]
 
-Per logits con margine top1-top2 `m`, una perturbazione con norma∞ inferiore a`m/2` preserva l'argmax in quel punto; ciò non garantisce intere traiettorie. Per un router top-k il margine fra k-esimo e(k+1)-esimo dà un analogo criterio. Una piccola perturbazione continua può cambiare discretamente il percorso; tie-break stabile e formato esplicito sono parte del contratto.
+For logits with top1-top2 margin `m`, a perturbation with ∞-norm below`m/2` preserves the argmax at that point; this does not guarantee whole trajectories. For a top-k router, the margin between the k-th and (k+1)-th gives an analogous criterion. A small continuous perturbation can discretely change the path; stable tie-breaking and explicit format are part of the contract.
 
-Il rate-distortion da ottimizzare è pratico: minimizzare `Σ_i t_i(b_i,r_i,k_i)` sotto `ΔBPB≤ε` e memoria, stimando distorsioni empiriche e interazioni. Il Lagrangiano `L_quality+λ_t t+λ_R RAM` guida la selezione, ma non sostituisce i gate finali. Assegnare inizialmente, a scopo di gestione,0.005 BPB a precisione,0.005 a struttura,0.005 a mixer e0.005 a margine; **sono riserve, non additività garantita**. Se l'interazione consuma tutto il margine, tornare a un punto Pareto precedente.
+The rate-distortion to optimize is practical: minimize `Σ_i t_i(b_i,r_i,k_i)` subject to `ΔBPB≤ε` and memory, estimating empirical distortions and interactions. The Lagrangian `L_quality+λ_t t+λ_R RAM` guides selection, but does not replace final gates. Initially assign, for management purposes,0.005 BPB to precision,0.005 to structure,0.005 to mixer, and0.005 to margin; **these are reserves, not guaranteed additivity**. If interaction consumes all margin, return to a prior Pareto point.
 
-Un ternario ha al massimo `log2(3)=1.585` bit di entropia per peso indipendente uniforme. Se `p0` è elevato, `H=-Σp_i log2p_i` può essere minore, ma scale, correlazioni, padding e decode restano. Cinque trit in un byte danno1.6bit/peso: non implicano un kernel diretto conveniente. Compressione entropica utile soltanto se:
+A ternary has at most `log2(3)=1.585` bits of entropy per uniform independent weight. If `p0` is high, `H=-Σp_i log2p_i` can be lower, but scales, correlations, padding, and decoding remain. Five trits in one byte yield1.6bit/weight: this does not imply an economical direct kernel. Entropy compression is useful only if:
 
 \[
 B_c/\beta+t_{decode}+t_{metadata}<B_{raw}/\beta.
 \]
 
-Blocchi indipendenti, offset piccoli residenti, codebook in L1/L2/L3 e letture contigue mantengono la ρ-law. Espandere tutto in DRAM prima dell'inferenza risparmia disco, non traffico/token. PQ/RVQ possono comprimere head/embedding, ma lookup per ogni peso da DRAM sarebbe la direzione sbagliata; preferire decodifica per tile o codebook residenti. [W03]
+Independent blocks, small resident offsets, codebooks in L1/L2/L3, and contiguous reads preserve the ρ-law. Expanding everything into DRAM before inference saves disk, not traffic/token. PQ/RVQ can compress head/embedding, but lookup for every weight from DRAM would be the wrong direction; prefer tile decoding or resident codebooks. [W03]
 
-Il bitrate minimo necessario non è deducibile dal numero di parametri o da un istogramma di entropia. La quantità importante è informazione utile alla distribuzione target, stimata tramite curve rate-quality held-out e ablation. La conversione da ΔBPB a perplexity dipende da byte/token: a 4 byte/token, +0.02 BPB significa moltiplicare PPL per `2^(0.08)≈1.057`; il tetto richiesto è molto severo. Non tradurre un miglioramento PPL di un paper con tokenizer diverso direttamente in BPB.
+The minimum required bitrate cannot be deduced from parameter count or an entropy histogram. The important quantity is information useful to the target distribution, estimated through heldout rate-quality curves and ablation. Conversion from ΔBPB to perplexity depends on bytes/token: at 4 bytes/token, +0.02 BPB means multiplying PPL by `2^(0.08)≈1.057`; the required ceiling is very severe. Do not translate a paper’s PPL improvement with a different tokenizer directly into BPB.
 
-### Sistemi e controllo: stabilità della ricorrenza e del routing
+### Systems and control: recurrence and routing stability
 
-Una ricorrenza locale `h_t=A_t h_(t-1)+B_t x_t` con `||A_t||≤a<1` ha perturbazione uniformemente limitata da `ε/(1-a)` sotto ipotesi di errore per passo limitato. Nell'SSM selettivo reale A/B e le proiezioni dipendono dagli input: la stabilità della diagonale `exp(ΔA)` da sola non certifica il sistema chiuso. Misurare Jacobiani empirici, norme, saturazioni e drift lungo rollout, soprattutto quando si approssimaexp o si quantizza lo stato. La parameterizzazione`A<0,Δ>0` evita una classe di instabilità, non garantisce qualità. [L01,W08; derivazione]
+A local recurrence `h_t=A_t h_(t-1)+B_t x_t` with `||A_t||≤a<1` has perturbation uniformly bounded by `ε/(1-a)` under a bounded-per-step-error assumption. In the real selective SSM, A/B and projections depend on inputs: stability of the `exp(ΔA)` diagonal alone does not certify the closed system. Measure empirical Jacobians, norms, saturation, and drift along rollout, especially when approximatingexp or quantizing the state. The parameterization`A<0,Δ>0` prevents one class of instability; it does not guarantee quality. [L01,W08; derivation]
 
-State compression: stimare osservabilità delle componenti su loss/recall futuro, non soltanto varianza dello stato. Balanced truncation offre intuizioni per sistemi lineari stabili; l'SSM selettivo richiede linearizzazioni locali e verifica del prodotto di transizioni. O(1) indica indipendenza dalla lunghezza della storia, non costo zero né memoria illimitata. Con b_s byte, il solo stato costa circa `b_s L_SSM·2D·N`.
+State compression: estimate component observability on future loss/recall, not only state variance. Balanced truncation provides intuition for stable linear systems; the selective SSM requires local linearizations and verification of the transition product. O(1) denotes independence from history length, not zero cost or unlimited memory. With b_s bytes, state alone costs about `b_s L_SSM·2D·N`.
 
-Depth reuse conserva i pesi ma ripete compute. Adaptive halting ed early-exit devono mantenere aggiornato lo stato che servirà al token seguente; saltare layer ricorrenti può lasciare stati stantii. Allenare uno state-update economico o usare l'uscita anticipata come draft poi verificato. Non basta una confidenza softmax elevata, che può essere malcalibrata.
+Depth reuse retains weights but repeats compute. Adaptive halting and early exit must keep the state required by the next token up to date; skipping recurrent layers can leave stale states. Train an economical state update or use early exit as a draft then verify it. High softmax confidence is insufficient, as it can be miscalibrated.
 
-Prefetch come controllo predittivo: lo stato osservato genera una distribuzione sugli esperti futuri; scegliere prefetch con utilità `p_use·latency_saved-(1-p_use)·pollution_cost`, sotto un budget di bytes in flight. Non risparmiare le letture corrette in caso di miss. Per skip predetto, i falsi negativi entrano nella loss e il fallback deve essere esplicito. Regolarizzare temporalità e load balance può ridurre diversity e creare expert starvation: monitorare occupazione, entropia routing, worst-expert load e isteresi. L'i.i.d.-like routing locale impedisce di assumere un hot pool. [L04]
+Prefetch as predictive control: observed state generates a distribution over future experts; choose prefetch with utility `p_use·latency_saved-(1-p_use)·pollution_cost`, subject to a bytes-in-flight budget. Do not save the correct reads on a miss. For predicted skip, false negatives enter the loss and fallback must be explicit. Regularizing temporality and load balance can reduce diversity and create expert starvation: monitor occupancy, routing entropy, worst-expert load, and hysteresis. Local i.i.d.-like routing precludes assuming a hot pool. [L04]
 
-Granularità: primo modello `t_expert≈B/β_chunk+Lk·τ_dispatch`, **solo se β è kernel-pure**. Con 64.1b, `τ≈8.4 µs` è un'ancora storica, non una costante universale. A L=32, k=8 sono 2.15 ms solo di overhead ipotizzato. A capacità e frazione attiva costanti, diminuire h aumenta E e k, quindi dispatch; aumentare h riduce la flessibilità della selezione. La granularità ottima minimizza tempo a parità di qualità, non il numero di byte astratti. [L03]
+Granularity: first model `t_expert≈B/β_chunk+Lk·τ_dispatch`, **only if β is kernel-pure**. With 64.1b, `τ≈8.4 µs` is a historical anchor, not a universal constant. At L=32, k=8, this is 2.15 ms of assumed overhead alone. At constant capacity and active fraction, reducing h increases E and k, hence dispatch; increasing h reduces selection flexibility. Optimal granularity minimizes time at equal quality, not abstract byte count. [L03]
 
-### Verifica a blocchi e allocazione risorse
+### Block verification and resource allocation
 
-Per K posizioni verificate e a token medi emessi per ciclo, con l'eventuale bonus token contabilizzato nel lavoro:
+For K verified positions and a mean tokens emitted per cycle, with any bonus token accounted for in the work:
 
 \[
 t_{emit}=\frac{t_{draft}+t_{shared,once}+K C_{position}+t_{expert,union}+t_{commit}}{a}.
 \]
 
-Con routing indipendente, l'unione attesa per layer è `U=E[1-(1-k/E)^K]`. Se E è grande e k/E piccolo, `U≈Kk`; gli esperti quindi non si ammortizzano e le proposte rifiutate costano. I pesi shared possono ammortizzarsi. La formula semplificata storica e C/T≈0.15–0.20 sono filtri di fattibilità, non gate universali. Draft gratuito non significa verify gratuito. [L04,W04]
+With independent routing, expected union per layer is `U=E[1-(1-k/E)^K]`. If E is large and k/E small, `U≈Kk`; experts therefore do not amortize and rejected proposals cost time. Shared weights can amortize. The historical simplified formula and C/T≈0.15–0.20 are feasibility filters, not universal gates. Free draft does not mean free verify. [L04,W04]
 
-Per sampling occorre accettazione/rejection corretta rispetto a teacher e draft; matching greedy basta solo al caso greedy fissato. Lo stato SSM/KV deve essere committato soltanto per la sequenza accettata, con semantica corretta delle penalità. La parità distributional non implica output bit-identico usando stream RNG diversi.
+For sampling, acceptance/rejection must be correct relative to teacher and draft; greedy matching suffices only for the fixed greedy case. SSM/KV state must be committed only for the accepted sequence, with correct penalty semantics. Distributional parity does not imply bit-identical output with different RNG streams.
 
-**Applicazione dei sei framework a ogni famiglia di leve:**
+**Application of the six frameworks to each lever family:**
 
-| Famiglia | Algebra/geometria da misurare | Analisi/controllo/sistemi | Informazione / criterio finale |
+| Family | Algebra/geometry to measure | Analysis/control/systems | Information / final criterion |
 |---|---|---|---|
-| Rank, tying, pruning | Spectra whitened, principal angles, null matched | Amplification layer-wise, ricostruzione e rollout | Distorsione per byte/compute risparmiato |
-| Quantizzazione, basis, head/PQ | Outlier, covariance, simmetrie lecite, codebook geometry | Margini logit/router; decoder nel loop | Rate-distortion con metadata e costo decode |
-| Shared+MoE, predictability | Errori dei contributi in output, residual geometry | Collapse, starvation, controller budget e routing stability | Entropia/coverage e qualità per active-byte |
-| SSM/mixer/SWA | Osservabilità, rank temporale, struttura transizioni | Stabilità sequenziale e long-context recovery | Informazione utile ricordata, non varianza sola |
-| Reuse, exit, distillazione | Ridondanza funzione, feature alignment | Stato coerente, calibrazione confidence, recovery curve | Informazione del teacher preservata a costo fissato |
-| Packing, threading, verify | Equivalenza dell'operatore, ordine riduzioni | Pipeline, contention, exact commit | Bitrate effettivo e token accettati/s |
+| Rank, tying, pruning | Whitened spectra, principal angles, matched null | Layer-wise amplification, reconstruction, and rollout | Distortion per byte/compute saved |
+| Quantization, basis, head/PQ | Outliers, covariance, lawful symmetries, codebook geometry | Logit/router margins; decoder in the loop | Rate-distortion with metadata and decode cost |
+| Shared+MoE, predictability | Output-contribution errors, residual geometry | Collapse, starvation, controller budget, and routing stability | Entropy/coverage and quality per active byte |
+| SSM/mixer/SWA | Observability, temporal rank, transition structure | Sequential stability and long-context recovery | Useful information remembered, not variance alone |
+| Reuse, exit, distillation | Function redundancy, feature alignment | Consistent state, confidence calibration, recovery curve | Teacher information preserved at fixed cost |
+| Packing, threading, verify | Operator equivalence, reduction order | Pipeline, contention, exact commit | Effective bitrate and accepted tokens/s |
 
-Non è nota a priori la convergenza di QAT o FT. Registrare ΔBPB e task rispetto a token/ore, learning rate, aggiornamenti applicati, clipping e nonfinite. Un fit esponenziale di una curva breve può aiutare il time-cap, ma non prova il floor raggiungibile: niente extrapolazione da poche ore a recupero totale.
+Convergence of QAT or FT is not known a priori. Record ΔBPB and tasks relative to tokens/hours, learning rate, applied updates, clipping, and nonfinite. An exponential fit to a short curve can help set the time cap, but does not prove the reachable floor: no extrapolation from a few hours to total recovery.
 
-## D. Dieci esperimenti ad alto valore informativo — tutti proposti, nessuno eseguito
+## D. Ten high-information experiments — all proposed, none performed
 
-Gli ID `STRAT-01…10` sono nomi di proposta, non nuovi E/H del programma. Prima dell'implementazione il successore deve confrontarli con la mappa assi aggiornata e assegnare un brief soltanto alla cella effettivamente nuova. “No-regret” significa informazione utile entro un budget limitato; non esito positivo garantito.
+The IDs `STRAT-01…10` are proposal names, not new E/H of the program. Before implementation, the successor must compare them with the updated axis map and assign a brief only to the actually new cell. “No-regret” means useful information within a limited budget; it does not guarantee a positive outcome.
 
-| ID | Cosa e come misurare | Significato degli outcome | Tempo/cap proposto |
+| ID | What and how to measure | Meaning of outcomes | Proposed time/cap |
 |---|---|---|---|
-|01|Screen esatto dei nuovi donor sparse/hybrid: byte e operatori per organo, head, shared path, stato, router, RAM loader|Se il budget è plausibile selezionare un donor; altrimenti evitare port e training. Nessun rifiuto sulla base di rate di un altro formato|1–2 giorni analisi, zero GPU|
-|02|Quantizzazione espressiva 4/8 bit sul donor scelto, stessa attivazione e struttura; ΔBPB paired, margini, task e costo delle scale|Se 4 bit passa, apre una via meno distruttiva del ternario; se passa solo 8 bit, la riduzione deve venire dalla struttura. Non ripete il ternary-rule sweep|12–24 pair-hours|
-|03|Successore di E68: shared path nonlineare più residui e router basato su x realmente eseguibile; errore held-out per layer/p95, confronto diagnostico con oracle|Oracle buono/router cattivo: problema di selezione; entrambi cattivi: capacità/operatore; entrambi buoni: autorizza valutazione end-to-end, non promozione diretta|16–48 pair-hours|
-|04|Training congiunto versus separato, **stessa nuova geometria finale**, stessi token/seed; partire dal donor, non dalla composizione H5 congelata|Se passa BPB+task si supera la nuova cella; solo score indica un altro SCORE-ONLY, senza export; nessuno passa: pivot R1/R3|48–120 pair-hours|
-|05|Allocazione del rank per sensitivity a budget byte fisso; shared basis/adapters; confronto con rank uniforme, senza ripetere E65|Se batte uniforme ma resta fuori +0.02, è progresso locale; se entra, recupera budget per attività FFN|12–36 pair-hours|
-|06|Sostituire un blocco mixer verso SSM, poi un piccolo gruppo, preservando FFN e tokenizer; distillazione di feature/logits e contesti crescenti|Se fallisce già un blocco, niente conversione totale; se passa corto ma fallisce lungo, mantenere attention o memory tier. Non dedurre composizione da un blocco|24–72 pair-hours|
-|07|Curva qualità contro **byte eseguibili** e sparsità sul primo pilot allenato valido, con tre punti preregistrati; margini router e coverage|Se il punto di qualità richiede >20 ms, cambiare forma; se esiste intersezione, confermare sul target, senza dichiarare 10B dal pilot|16–48 pair-hours|
-|08|Solo dopo quality pass: profilo ed end-to-end della **nuova** geometria/formato; RAM senza copie debug, traffic amplification, thread/dispatch e 2→1.6 bit se pertinente|Se il decode costa più del traffico evitato, tenere 2 bit; se overhead domina, ottimizzare quello. Non rifare P1/E40/E63|2–5 giorni CPU, zero GPU|
-|09|Solo se C/T e quota shared sono favorevoli: verify K2/K4 su target valido; token accettati, unione esperti, draft/replay, parity e bytes/s|Acceptance alta senza speedup: limite compute/unions; speedup netto e parity pass: adottare. Nessun moltiplicatore assunto|1–3 giorni CPU; zero GPU con n-gram|
-|10|Conferma dello stesso checkpoint su nuovo holdout, più seed se sostenibili, contesti 2K/8K/32K e seconda CPU AVX2|Degrado solo OOD/long-context: limitare esplicitamente il prodotto; qualità+rate sul target: unica prova valida dell'obiettivo|2–5 giorni CPU, 8–24 pair-hours valutazione|
+|01|Exact screen of new sparse/hybrid donors: bytes and operators per organ, head, shared path, state, router, loader RAM|If budget is plausible, select a donor; otherwise avoid port and training. No rejection based on another format’s rate|1–2 analysis days, zero GPU|
+|02|Expressive 4/8-bit quantization on the selected donor, same activation and structure; paired ΔBPB, margins, tasks, and scale cost|If 4 bit passes, it opens a less destructive path than ternary; if only 8 bit passes, reduction must come from structure. Does not repeat the ternary-rule sweep|12–24 pair-hours|
+|03|E68 successor: nonlinear shared path plus residuals and an x-based genuinely executable router; heldout error per layer/p95, diagnostic comparison with oracle|Good oracle/bad router: selection problem; both bad: capacity/operator; both good: authorizes end-to-end evaluation, not direct promotion|16–48 pair-hours|
+|04|Joint versus separate training, **same new final geometry**, same tokens/seed; begin from the donor, not frozen H5 composition|If BPB+task passes, the new cell is crossed; score alone indicates another SCORE-ONLY, without export; none pass: R1/R3 pivot|48–120 pair-hours|
+|05|Sensitivity rank allocation at fixed byte budget; shared basis/adapters; comparison with uniform rank, without repeating E65|If it beats uniform but remains outside +0.02, it is local progress; if it enters, it recovers budget for FFN activity|12–36 pair-hours|
+|06|Replace one mixer block toward SSM, then a small group, retaining FFN and tokenizer; feature/logit distillation and increasing contexts|If one block already fails, no total conversion; if short passes but long fails, retain attention or memory tier. Do not infer composition from one block|24–72 pair-hours|
+|07|Quality curve against **executable bytes** and sparsity on the first valid trained pilot, with three preregistered points; router margins and coverage|If the quality point requires >20 ms, change shape; if an intersection exists, confirm on the target, without declaring 10B from the pilot|16–48 pair-hours|
+|08|Only after quality pass: profile and end-to-end of the **new** geometry/format; RAM without debug copies, traffic amplification, thread/dispatch, and 2→1.6 bit where relevant|If decoding costs more than avoided traffic, retain 2 bit; if overhead dominates, optimize it. Do not repeat P1/E40/E63|2–5 CPU days, zero GPU|
+|09|Only if C/T and shared share are favorable: K2/K4 verify on a valid target; accepted tokens, expert union, draft/replay, parity, and bytes/s|High acceptance without speedup: compute/unions limit; net speedup and parity pass: adopt. No assumed multiplier|1–3 CPU days; zero GPU with n-gram|
+|10|Confirm the same checkpoint on new holdout, more seeds where sustainable, 2K/8K/32K contexts, and second AVX2 CPU|Only OOD/long-context degradation: explicitly limit the product; target quality+rate: sole valid evidence of the objective|2–5 CPU days, 8–24 evaluation pair-hours|
 
-Gli esperimenti 02–07 sono un menu condizionale, non una coda da eseguire tutta. La prima tranche può fermarsi a 02 e un ramo fra 03/06. La verifica a blocchi non è prioritaria se la sparsità utile non esiste ancora.
+Experiments 02–07 are a conditional menu, not a queue to run in full. The first tranche can stop at 02 and one branch among 03/06. Block verification is not a priority if useful sparsity does not yet exist.
 
-## E. Sessioni T4×2, pipeline A–F e costi
+## E. T4×2 sessions, A–F pipeline, and costs
 
-### Limiti fisici e unità del preventivo
+### Physical limits and cost-estimate units
 
-**Una pair-hour = entrambe le T4 occupate per un'ora = 2 GPU-hours.** Non assumo quote cloud oggi disponibili: per convertire ore in calendario uso due scenari ipotetici, 12 pair-hours/giorno oppure 90 pair-hours/settimana. Una sessione su una T4 vale 0.5 pair-hours economicamente, ma non dimostra scaling DDP. I 3860 tok/s misurati sul pilot piccolo non sono una stima del 10B. [L21]
+**One pair-hour = both T4s occupied for one hour = 2 GPU-hours.** I assume no cloud quota currently available: to convert hours to calendar time, I use two hypothetical scenarios, 12 pair-hours/day or 90 pair-hours/week. A session on one T4 economically equals 0.5 pair-hours, but does not demonstrate DDP scaling. The 3860 tok/s measured on the small pilot are not an estimate for 10B. [L21]
 
-La T4 ha 16 GB e picco 65 TFLOPS FP16; due T4 non costituiscono una memoria unificata da 32 GB. [Specifiche NVIDIA](https://www.nvidia.com/en-us/data-center/tesla-t4/). Usare FP16 loss-scaled con parti sensibili FP32; nessun assunto di BF16 hardware su Turing. Master weights e Adam non diventano ternari perché il forward usa 1.58 bit.
+The T4 has 16 GB and 65 TFLOPS FP16 peak; two T4s do not constitute 32 GB of unified memory. [NVIDIA specifications](https://www.nvidia.com/en-us/data-center/tesla-t4/). Use loss-scaled FP16 with FP32-sensitive parts; make no native-hardware BF16 assumption on Turing. Master weights and Adam do not become ternary because the forward uses 1.58 bits.
 
-Contabilità indicativa per full-finetune 10B: 20 GB pesi FP16, 20 GB gradienti FP16, 40 GB master FP32, 80 GB per i due momenti Adam = 160 GB **prima** delle attivazioni, dipendente dall'implementazione. Gradienti FP32 aumentano ancora. Due T4 richiedono base congelata/quantizzata con adapters, blockwise training, optimizer offload o sharding aggressivo; traffico PCIe/CPU e memoria host devono entrare nel preventivo. DDP replica il modello e non risolve l'OOM. Una base quantizzata del teacher introduce a sua volta errore: il riferimento finale resta il teacher originale o un riferimento validato entro un budget separato.
+Indicative accounting for 10B full finetuning: 20 GB FP16 weights, 20 GB FP16 gradients, 40 GB FP32 masters, 80 GB for the two Adam moments = 160 GB **before** activations, implementation-dependent. FP32 gradients increase this further. Two T4s require a frozen/quantized base with adapters, blockwise training, optimizer offload, or aggressive sharding; PCIe/CPU traffic and host memory must enter the estimate. DDP replicates the model and does not solve OOM. A quantized teacher base itself introduces error: the final reference remains the original teacher or a reference validated within a separate budget.
 
-Ordine di grandezza analitico per training denso: `F≈6PT`. Per 10B parametri e 1B token sono 6×10^19 FLOP; con 130 TFLOPS di picco aggregato, **circa 128 pair-hours al 100% teorico**, circa 427–1282 al 30–10% di utilizzo ipotizzato, prima del teacher/offload. Per MoE usare operazioni attive effettive, ma i parametri/optimizer totali restano da ospitare. Questa stima non è un benchmark né un limite stretto per LoRA, dove il costo dipende da cosa è congelato.
+Analytic order of magnitude for dense training: `F≈6PT`. For 10B parameters and 1B tokens, this is 6×10^19 FLOP; with 130 TFLOPS aggregate peak, **about 128 pair-hours at theoretical 100%**, about 427–1282 at assumed 30–10% utilization, before teacher/offload. For MoE use effective active operations, but total parameters/optimizer remain to be hosted. This estimate is neither a benchmark nor a tight LoRA limit, where cost depends on what is frozen.
 
-Il preventivo principale viene da `H=T/(3600·q_train) + H_teacher + H_eval + H_IO`. Con q_train di 100/300/1000 tok/s, 1B token richiede 2778/926/278 pair-hours. A 90 pair-hours/settimana: 30.9/10.3/3.1 settimane, prima degli altri costi. Sono scenari, non rate attesi. Distillazioni da 3–20B token della letteratura possono quindi significare mesi o anni di quota, pur essendo piccole rispetto al pretraining originario. [MOHAWK](https://arxiv.org/abs/2408.10189), [Mamba in the Llama](https://arxiv.org/abs/2408.15237).
+The main estimate comes from `H=T/(3600·q_train) + H_teacher + H_eval + H_IO`. With q_train of 100/300/1000 tok/s, 1B tokens require 2778/926/278 pair-hours. At 90 pair-hours/week: 30.9/10.3/3.1 weeks, before other costs. These are scenarios, not expected rates. Literature distillations of 3–20B tokens can therefore mean months or years of quota, while remaining small relative to original pretraining. [MOHAWK](https://arxiv.org/abs/2408.10189), [Mamba in the Llama](https://arxiv.org/abs/2408.15237).
 
-### Fasi di preparazione offline
+### Offline preparation phases
 
-Questa tabella è un contratto di input/output. B–D si ordinano diversamente nelle tre roadmap; non vanno concatenati automaticamente. I cap GPU sono per pilot, non promesse di convergenza sul 10B.
+This table is an input/output contract. B–D are ordered differently in the three roadmaps; they must not be concatenated automatically. GPU caps are for pilots, not promises of 10B convergence.
 
-| Fase | Input → output | Metrica/gate | T4×2 stimata | Rischio e fallback |
+| Phase | Input → output | Metric/gate | Estimated T4×2 | Risk and fallback |
 |---|---|---|---|---|
-|A — analisi sorgente|Config, revisione/licenza, tokenizer, dati → baseline, sensitivity, forme e contabilità byte|Parità del reference; corpus/scoring riproducibili; compatibilità degli operatori|8–24 pair-hours oltre 1–2 giorni desk|Donor fuori dominio/incompatibile → prossimo candidato, nessuna surgery|
-|B — pruning/factorization progressivo|Baseline + sensitivity → blocchi/rank/shared path con maschera eseguibile|Continuità della loss a ogni transizione; qualità e prestazioni proiettate con margine|16–72 pair-hours|Magnitude pruning fallisce → Hessian/output-aware o shared path; se ancora fuori, stop|
-|C — distillazione/adattamento|Teacher pinned + nuova geometria → checkpoint recuperato|Controllo CE a uguali token; BPB/rollout/task; feature matching non basta|48–240 pair-hours R1/R2 pilot; 120–360 R3 pilot|Logits costosi o KD non utile → CE-primary; KD come challenger on-domain|
-|D — QAT e sparsità|Checkpoint C, precision map, optimizer resume → checkpoint con forward finale|Nonfinite = fallimento; qualità cumulativa ≤0.02; margini/logit/router/task|24–168 pair-hours su pilot, se necessario|Ternario fallisce → 4/8 bit per organo critico; accettare più byte o abbandonare geometria|
-|E — calibrazione|Checkpoint D + calibrazione disgiunta → scale/bias/outlier map finali|Nessun fit su val/test; miglioramento held-out; rollout lungo stabile|4–12 pair-hours|Recupero locale peggiora globalmente → tornare a D, non ritoccare gate|
-|F — export|Checkpoint finale, tokenizer, operatore esatto → artefatto C + manifest + golden|Reference fp32, medesimo operatore quantizzato, output/token/BPB e RAM attesi; poi rate|1–3 giorni CPU se conversione supportata; 5–15 con nuovi operatori; 0–4 pair-hours controllo|ABI manca → prerequisito Sol; nessuna claim prima della conversione reale|
+|A — source analysis|Config, revision/license, tokenizer, data → baseline, sensitivity, shapes, and byte accounting|Reference parity; reproducible corpus/scoring; operator compatibility|8–24 pair-hours plus 1–2 desk days|Out-of-domain/incompatible donor → next candidate, no surgery|
+|B — progressive pruning/factorization|Baseline + sensitivity → blocks/rank/shared path with executable mask|Loss continuity at every transition; projected quality and performance with margin|16–72 pair-hours|Magnitude pruning fails → Hessian/output-aware or shared path; if still outside, stop|
+|C — distillation/adaptation|Pinned teacher + new geometry → recovered checkpoint|CE control at equal tokens; BPB/rollout/task; feature matching is insufficient|48–240 R1/R2 pilot pair-hours; 120–360 R3 pilot|Costly logits or unhelpful KD → CE-primary; KD as on-domain challenger|
+|D — QAT and sparsity|Checkpoint C, precision map, optimizer resume → checkpoint with final forward|Nonfinite = failure; cumulative quality ≤0.02; logit/router/task margins|24–168 pair-hours on pilot, if needed|Ternary fails → 4/8 bit per critical organ; accept more bytes or abandon geometry|
+|E — calibration|Checkpoint D + disjoint calibration → final scale/bias/outlier map|No fit on val/test; heldout improvement; stable long rollout|4–12 pair-hours|Local recovery worsens globally → return to D, do not retouch gate|
+|F — export|Final checkpoint, tokenizer, exact operator → artifact C + manifest + golden|fp32 reference, same quantized operator, expected output/token/BPB and RAM; then rate|1–3 CPU days if conversion supported; 5–15 with new operators; 0–4 control pair-hours|Missing ABI → Sol prerequisite; no claim before real conversion|
 
-Per C, conservare il tokenizer quando possibile. Se cambia, likelihood sulle stesse bytes e contesto allineato; PPL/token non comparabile. Cross-tokenizer KD resta challenger: il MVE off-domain ha perso contro CE, non dimostrato impossibilità generale. Teacher logits devono includere normalizzazione e residuo tail se troncati; storage e tempo di scoring del teacher sono espliciti. Randomizzare membership dei chunk prima dello streaming per evitare l'ordine bloccato già misurato come dannoso. [L04,L06,L21]
+For C, retain the tokenizer where possible. If it changes, use likelihood on the same bytes and aligned context; PPL/token is not comparable. Cross-tokenizer KD remains challenger: off-domain MVE lost to CE, not demonstrating general impossibility. Teacher logits must include normalization and tail residual if truncated; teacher storage and scoring time are explicit. Randomize chunk membership before streaming to avoid the already measured harmful blocked order. [L04,L06,L21]
 
-Per F, specificare header/versione, endianness, dimensioni, identità tokenizer, operatore, bias/norm, tied weights, rank effettivo, orientamento dei fattori, precisione per matrice, packing, scale/zero-points, rounding/clipping, ordine degli esperti, pesi routing/top-k e checksum. E1M1/E4M1 non sono contenitori generici di queste scelte. Tagged-v2 del ramo donor non rende l'exporter automaticamente compatibile. Tenere solo rappresentazioni necessarie nel deployment, con reference offline separato. [L01,L02,L18]
+For F, specify header/version, endianness, dimensions, tokenizer identity, operator, bias/norm, tied weights, effective rank, factor orientation, per-matrix precision, packing, scales/zero-points, rounding/clipping, expert order, routing/top-k weights, and checksum. E1M1/E4M1 are not generic containers for these choices. Tagged-v2 from the donor branch does not make the exporter automatically compatible. Retain only representations needed in deployment, with a separate offline reference. [L01,L02,L18]
 
-### Sessioni proposte, in ordine decisionale
+### Proposed sessions, in decision order
 
-1. **Sessione S1: 24–72 pair-hours, 2–6 giorni a 12 h/giorno.** Input: un donor selezionato, dati/licenze, baseline e precision map proposte. Output: precision ladder e un pilot strutturale; decisione R1/R2/stop. Non un export 10B.
-2. **Sessione S2: 120–360 pair-hours, 10–30 giorni attivi oppure 1.3–4 settimane di quota 90 h.** Soltanto se S1 dà un segnale nuovo. Input: geometria esatta, optimizer resume, costo per step misurato. Output: checkpoint pilot congiunto, confronto con CE/training separato, learning curves e proposta di budget target. Se migliora solo BPB senza task, interrompere la promozione.
-3. **Sessione S3: 240–960 pair-hours, 20–80 giorni attivi o 2.7–10.7 settimane di quota 90 h.** Solo per adattamento target compatibile con memoria e costo. Output: target ~10B qualificato oppure fallimento documentato. La distillazione SSM completa può eccedere enormemente questa tranche: serve il riprezzo di R3, non una somma ottimistica delle ore precedenti.
+1. **Session S1: 24–72 pair-hours, 2–6 days at 12 h/day.** Input: a selected donor, data/licenses, proposed baseline and precision map. Output: precision ladder and a structural pilot; R1/R2/stop decision. Not a 10B export.
+2. **Session S2: 120–360 pair-hours, 10–30 active days or 1.3–4 weeks of 90 h quota.** Only if S1 provides a new signal. Input: exact geometry, optimizer resume, measured cost per step. Output: joint pilot checkpoint, comparison with CE/separate training, learning curves, and target-budget proposal. If only BPB improves without tasks, stop promotion.
+3. **Session S3: 240–960 pair-hours, 20–80 active days or 2.7–10.7 weeks of 90 h quota.** Only for target adaptation compatible with memory and cost. Output: qualified target ~10B or documented failure. Full SSM distillation can greatly exceed this tranche: R3 repricing is required, not an optimistic sum of prior hours.
 
-Aggiungere 10–25% di riserva organizzativa per scoring/checkpoint/riavvii **se non già incluso nei rate effettivi**. Non contabilizzarla due volte. Ogni cap sostituisce una promessa di durata finita: allo scadere si adjudica il checkpoint predefinito, non quello scelto ex post.
+Add 10–25% organizational reserve for scoring/checkpoints/restarts **if not already included in effective rates**. Do not account for it twice. Each cap replaces a promise of finite duration: at expiry, adjudicate the predefined checkpoint, not one selected ex post.
 
-**Costo monetario:** senza un'offerta attuale del provider, usare `c_pair` in €/pair-hour. Per rendere confrontabili le opzioni, una fascia **puramente ipotetica di pianificazione** di 0.50–1.50 €/pair-hour dà: S1 €12–108; S2 €60–540; S3 €120–1440. Non sono tariffe di mercato o preventivi verificati; storage/egress esclusi. Quota gratuita autorizzata riduce l'esborso, non ore/calendario. R3 a 1000–10000 pair-hours varrebbe €500–15000 a quelle ipotesi. **Le sessioni brevi servono a ridurre incertezza; non abbiamo evidenza che bastino a completare 10B.**
+**Monetary cost:** without a current provider offer, use `c_pair` in €/pair-hour. To make options comparable, a **purely hypothetical planning** range of 0.50–1.50 €/pair-hour yields: S1 €12–108; S2 €60–540; S3 €120–1440. These are not market rates or verified quotes; storage/egress excluded. Authorized free quota reduces outlay, not hours/calendar. R3 at 1000–10000 pair-hours would equal €500–15000 under those assumptions. **Short sessions reduce uncertainty; we have no evidence they suffice to complete 10B.**
 
-## Handoff per Sol e disciplina documentale
+## Handoff for Sol and documentation discipline
 
-Per ogni nuovo esperimento: brief prima della misura con domanda, baseline, controipotesi, ambito che cambia, gate, budget, stopping rule, dati/revisioni/hash e protocollo; poi log grezzi immutabili, metriche per documento, configurazione effettiva stampata dal runtime, checkpoint finale e optimizer/RNG resume, manifest dei file e decisione. Collegare brief→run→checkpoint→export→risultato→ledger, indicando anche fallimenti, VOID e controlli piantati. Aggiornare l'indice canonico per assi; non riscrivere il passato.
+For every new experiment: a pre-measurement brief with question, baseline, counterhypothesis, changed scope, gate, budget, stopping rule, data/revisions/hash, and protocol; then immutable raw logs, per-document metrics, effective configuration printed by runtime, final checkpoint and optimizer/RNG resume, file manifests, and decision. Link brief→run→checkpoint→export→result→ledger, also recording failures, VOID, and planted controls. Update the canonical index by axes; do not rewrite the past.
 
-**Tre livelli di parità:** (1) layout/packing/threading lossless: bit-exact contro il medesimo operatore; (2) kernel quantizzato: parità contro reference scalar con gli stessi pesi/scale/rounding; (3) surgery/QAT: confronto statistico con teacher fp32, ma non bit-exact per definizione. Un reference fp32 dei pesi già quantizzati verifica l'implementazione, non la fedeltà al teacher. La tolleranza di un kernel non autorizza a modificare ΔBPB o task gate. [L05]
+**Three parity levels:** (1) lossless layout/packing/threading: bit-exact against the same operator; (2) quantized kernel: parity against scalar reference with identical weights/scales/rounding; (3) surgery/QAT: statistical comparison with fp32 teacher, but not bit-exact by definition. An fp32 reference of already quantized weights verifies implementation, not fidelity to the teacher. Kernel tolerance does not authorize modification of ΔBPB or task gate. [L05]
 
-Non richiedere che PyTorch GPU e C fp32 siano sempre bit-identici attraverso implementazioni diverse di exp/riduzioni: preregistrare tolleranze appropriate e conservare riduzioni deterministiche locali. Niente `fast-math` indiscriminato, niente VNNI nascosto, fallback AVX2 generico. L'eventuale seconda CPU avrà risultati specifici, non erediterà i 185 GB/s di Zen2. [L05]
+Do not require PyTorch GPU and C fp32 to always be bit-identical across different exp/reduction implementations: preregister appropriate tolerances and retain local deterministic reductions. No indiscriminate `fast-math`, no hidden VNNI, generic AVX2 fallback. Any second CPU will have specific results; it will not inherit Zen2’s 185 GB/s. [L05]
 
-Commit futuri: messaggi come `docs(strat-03): preregister deployable shared-residual pilot` o `research(strat-03): record failed quality gate and artifacts`, con ID e link ai risultati. **Nessuna firma dell'assistente, nessun Co-authored-by dell'assistente.** Questo lavoro non crea commit. Un esperimento non eseguito resta `PROPOSED`, non `PASS` né `OWED`.
+Future commits: messages such as `docs(strat-03): preregister deployable shared-residual pilot` or `research(strat-03): record failed quality gate and artifacts`, with IDs and result links. **No assistant signature, no assistant Co-authored-by.** This work creates no commits. An unperformed experiment remains `PROPOSED`, not `PASS` or `OWED`.
 
-Prima attività di Sol: leggere questo dossier e l'ultima mappa degli assi; proporre un singolo brief per STRAT-01/02 o il pilot scelto, partendo dalle evidenze valide. Non implementare l'export H2I fallito e non rieseguire E63 A10B, H4 terminale o H5. La priorità è colmare il gap del checkpoint congiunto, non generare altri speed test sintetici.
+Sol’s first activity: read this dossier and the latest axis map; propose one brief for STRAT-01/02 or the selected pilot, starting from valid evidence. Do not implement the failed H2I export or rerun E63 A10B, terminal H4, or H5. The priority is to close the joint-checkpoint gap, not generate more synthetic speed tests.
 
-## Limiti e metodologia
+## Limits and methodology
 
-Ho consultato il grafo con query circoscritte, letto i cinque riferimenti richiesti, distinto il runtime nativo da quello donor e controllato il programma attuale fino a E68/H5. I riepiloghi superati sono stati risolti dando precedenza al probe aggiornato; il caso T3 VOID resta esplicito. Ricerca esterna su fonti primarie per compressione, distillazione, donor e T4. Le due analisi parallele della skill deep-research hanno coperto evidenze storiche e letteratura, senza interventi sul codice.
+I consulted the graph with scoped queries, read the five requested references, distinguished the native runtime from the donor runtime, and checked the current program through E68/H5. Superseded summaries were resolved by prioritizing the updated probe; the T3 VOID case remains explicit. External research used primary sources for compression, distillation, donors, and T4. The two parallel deep-research skill analyses covered historical evidence and literature, with no code intervention.
 
-I risultati locali sono evidenze di un singolo programma, spesso un host/un seed: non diventano tre prove indipendenti perché citati in README, INDEX e probe. Nessun esperimento nuovo, verificatore automatico o test run è stato eseguito, nel rispetto del vincolo. Il report è un handoff Markdown con registro delle evidenze; non un paper con risultati riprodotti in questa sessione.
+Local results are evidence from a single program, often one host/one seed: they do not become three independent proofs because they are cited in README, INDEX, and probe. No new experiment, automated verifier, or test run was performed, in accordance with the constraint. The report is a Markdown handoff with an evidence register, not a paper with results reproduced in this session.
 
-Le nuove ipotesi — shared path nonlineare, conversione di nuovi donor, precisione alternativa, allocazione del rank e curriculum congiunto — hanno misure proposte, non probabilità numeriche di successo. Non sono verificati campi modello di ogni revisione futura, tariffe cloud, quote account, prestazioni sul 10B o recupero entro +0.02 BPB. La conclusione operativa resta: **minimizzare la distanza dal pretrained, poi dimostrare qualità e budget nella stessa geometria; impegnare settimane soltanto dopo quel segnale.**
+The new hypotheses — nonlinear shared path, new-donor conversion, alternative precision, rank allocation, and joint curriculum — have proposed measurements, not numerical success probabilities. Model fields of every future revision, cloud rates, account quotas, 10B performance, or recovery within +0.02 BPB have not been verified. The operational conclusion remains: **minimize distance from the pretrained model, then demonstrate quality and budget in the same geometry; commit weeks only after that signal.**
 
-## Bibliografia esterna aggiuntiva
+## Additional external bibliography
 
-Consultazione: 16 settembre 2026. W01–W08 e tutte le fonti locali sono nel [registro](EVIDENCE.md). Queste fonti aggiungono evidenze di metodo/metadati; nessuna certifica l'obiettivo composto.
+Consulted: 16 September 2026. W01–W08 and all local sources are in the [register](EVIDENCE.md). These sources add methodological/metadata evidence; none certifies the composite objective.
 
 - W09 — IBM Granite Team (2025). [Granite-4.0-H-Tiny-Base, model card](https://huggingface.co/ibm-granite/granite-4.0-h-tiny-base). Sparse/hybrid pretrained e architettura/licenza dichiarate.
-- W10 — LiquidAI (2026). [LFM2.5-8B-A1B-Base, model card](https://huggingface.co/LiquidAI/LFM2.5-8B-A1B-Base). 8.3B total/1.5B active, conv+attention; non sostituire il conteggio con il suffisso.
+- W10 — LiquidAI (2026). [LFM2.5-8B-A1B-Base, model card](https://huggingface.co/LiquidAI/LFM2.5-8B-A1B-Base). 8.3B total/1.5B active, conv+attention; do not replace accounting with the suffix.
 - W11 — Bick et al. (2024). [Transformers to SSMs: Distilling Quadratic Knowledge to Subquadratic Models](https://arxiv.org/abs/2408.10189). MOHAWK.
-- W12 — Wang et al. (2024/2025). [The Mamba in the Llama: Distilling and Accelerating Hybrid Models](https://arxiv.org/abs/2408.15237). Distillazione progressiva, non tempo T4.
-- W13 — Microsoft/BitNet authors (2025). [BitNet b1.58 2B4T Technical Report](https://arxiv.org/html/2504.12285v2). Modello nativamente ternario addestrato da zero.
-- W14 — Komatsuzaki et al. (2022/2023). [Sparse Upcycling: Training Mixture-of-Experts from Dense Checkpoints](https://arxiv.org/abs/2212.05055). Riutilizzo del pretraining, non taglio automatico del compute attivo.
+- W12 — Wang et al. (2024/2025). [The Mamba in the Llama: Distilling and Accelerating Hybrid Models](https://arxiv.org/abs/2408.15237). Progressive distillation, not T4 time.
+- W13 — Microsoft/BitNet authors (2025). [BitNet b1.58 2B4T Technical Report](https://arxiv.org/html/2504.12285v2). Natively ternary model trained from scratch.
+- W14 — Komatsuzaki et al. (2022/2023). [Sparse Upcycling: Training Mixture-of-Experts from Dense Checkpoints](https://arxiv.org/abs/2212.05055). Pretraining reuse, not automatic active-compute reduction.
 - W15 — NVIDIA. [T4 Tensor Core GPU, specifiche](https://www.nvidia.com/en-us/data-center/tesla-t4/). 16 GB, 65 TFLOPS FP16, PCIe Gen3.
-- W16 — NVIDIA. [CUDA GPU compute capability](https://developer.nvidia.com/cuda/gpus) e [CUDA math/type support](https://docs.nvidia.com/cuda/cuda-programming-guide/05-appendices/mathematical-functions.html). Turing/T4 CC7.5 e vincoli dei tipi hardware.
+- W16 — NVIDIA. [CUDA GPU compute capability](https://developer.nvidia.com/cuda/gpus) and [CUDA math/type support](https://docs.nvidia.com/cuda/cuda-programming-guide/05-appendices/mathematical-functions.html). Turing/T4 CC7.5 and hardware-type constraints.
