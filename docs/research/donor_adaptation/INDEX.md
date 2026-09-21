@@ -2,6 +2,14 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**STRAT-01 GigaChat 3.1 attention-stage diagnostic (21 September):**
+Closed as **`MIXED_ATTENTION_STAGE_RESIDUAL`**.  Project softmax on captured
+QK passes at `7.76e-8` NRMSE; scalar QK and captured-softmax×V fail at
+`2.13e-4` and `1.53e-4`.  One padded-shape attempt is preserved as VOID; its
+trace was adjudicated offline with no second donor run.  Pinned source gives a
+shared F16-vector-dot hypothesis, now frozen as a [zero-donor protocol](probes/STRAT_01_GIGACHAT31_ENGINE_F16_VEC_DOT_DIAGNOSTIC_PROTOCOL_20260921.md).
+Do not repeat the capture or tune softmax. [Result](probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_RESULT_20260921.md).
+
 **STRAT-01 GigaChat 3.1 pre-V-B latent capture (21 September):**
 Closed as **`ATTRIBUTED_RESIDUAL_TO_ATTENTION_RECONSTRUCTION`**.  The prior
 reconstructed latent fails direct `kqv-0` at NRMSE `2.16e-4`, while project

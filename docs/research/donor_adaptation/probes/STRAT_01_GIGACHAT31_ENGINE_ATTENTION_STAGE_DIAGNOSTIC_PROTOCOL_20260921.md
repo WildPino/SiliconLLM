@@ -1,6 +1,6 @@
 # STRAT-01 GigaChat 3.1 attention-stage diagnostic
 
-**State:** FROZEN PROTOCOL; NOT YET EXECUTED
+**State:** EXECUTED; CLOSED AS `MIXED_ATTENTION_STAGE_RESIDUAL`
 **Date frozen:** 21 September 2026
 **Scope:** one pinned-reference block-0 prefill trace plus offline QK/softmax/value-stage attribution; no production-engine change, quality, RAM, or speed claim
 
@@ -106,3 +106,6 @@ gates, and require every captured softmax probability in padded slots 8–255
 to be exactly zero.  Q/K/V and true-`kqv` identities, helper arithmetic,
 metrics, thresholds, labels, and negative controls remain unchanged.  Write a
 distinct offline-adjudication directory; never overwrite the VOID raw set.
+
+The canonical result is
+[STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_RESULT_20260921.md](STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_RESULT_20260921.md).
