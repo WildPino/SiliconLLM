@@ -28,6 +28,7 @@
 #include <malloc.h>
 #include <immintrin.h>
 #include "strat01_gguf_inspect.h"
+#include "strat01_gguf_rung1.h"
 #ifdef _OPENMP
 #include <omp.h>
 #endif
@@ -1044,6 +1045,16 @@ int main(int argc,char**argv){
         }
         return strat01_gguf_inspect_cli(argv[2],argv[4],__FILE__);
     }
+    /* Rung 1 remains before every legacy loader: only the exact rung-0
+       artifact can reach a numerical payload decode. */
+    if(argc>1 && !strcmp(argv[1],"--strat01-gguf-rung1")){
+        if(argc!=5 || strcmp(argv[3],"--out-dir")){
+            fprintf(stderr,"usage: engine --strat01-gguf-rung1 <accepted.gguf> --out-dir <directory>\n");
+            return 1;
+        }
+        return strat01_gguf_rung1_cli(argv[2],argv[4],__FILE__);
+    }
+    if(argc==2 && !strcmp(argv[1],"--strat01-gguf-rung1-selftest")) return strat01_gguf_rung1_selftest();
     int mlp_lut=1,skip=1,exp_fast=1;                 // default = the full optimized config
     int do_bpb=0,do_logits=0,do_tm=0; long seqW=512,eval_tok=200000,ntok=10240,offset=0,timetok=3000;
     int threads=1; const char* wp=NULL; const char* dumpto=NULL;
