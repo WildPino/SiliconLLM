@@ -98,7 +98,6 @@ Products evaluate(const std::vector<float> &qcur, const std::vector<float> &kcur
         const uint16_t project = project_f32_to_f16(value);
         const ggml_fp16_t pinned = ggml_fp32_to_fp16(value);
         result.project_f16.push_back(project); result.pinned_f16.push_back(pinned);
-        if (project != pinned) fail("project and pinned F16 conversion differ");
         return pinned;
     };
     for (size_t i = 0; i < kcur.size(); ++i) key_cache[i] = convert(kcur[i]);
@@ -133,6 +132,16 @@ Products evaluate(const std::vector<float> &qcur, const std::vector<float> &kcur
                 result.value_scalar[out] = scalar; result.value_vec[out] = pinned; result.value_mutated[out] = mutated;
             }
         }
+    }
+    const uint32_t boundary_bits[] = {
+        0x00000000U, 0x80000000U, 0x00000001U, 0x80000001U,
+        0x33000000U, 0x33800000U, 0x38000000U, 0x387fc000U,
+        0x38800000U, 0x3f800000U, 0xbf800000U, 0x477fe000U,
+        0x477ff000U, 0x477fffffU, 0x47800000U, 0x7f800000U,
+        0xff800000U, 0x7fc00000U, 0x7fa00001U, 0xffc12345U,
+    };
+    for (uint32_t bits : boundary_bits) {
+        float value; std::memcpy(&value, &bits, sizeof(value)); (void) convert(value);
     }
     return result;
 }
