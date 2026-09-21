@@ -1,6 +1,6 @@
 # STRAT-01 GigaChat 3.1 F16 converter audit protocol
 
-**State:** FROZEN PROTOCOL; NOT YET EXECUTED
+**State:** EXECUTED; CLOSED AS `FAIL_F16_CONVERTER`
 **Date frozen:** 21 September 2026
 **Scope:** zero-donor byte-level audit of the project binary16 converter against pinned GGML; no dot, engine integration, quality, RAM, or speed claim
 
@@ -62,3 +62,6 @@ adjudicator must reconstruct the same source population and require that
 witness stream to be byte-identical before comparing any F16 output.  No input,
 converter, boundary population, label, or threshold changes.  Use a distinct
 raw directory and zero donor executions.
+
+The canonical result is
+[STRAT_01_GIGACHAT31_ENGINE_F16_CONVERTER_AUDIT_RESULT_20260921.md](STRAT_01_GIGACHAT31_ENGINE_F16_CONVERTER_AUDIT_RESULT_20260921.md).
