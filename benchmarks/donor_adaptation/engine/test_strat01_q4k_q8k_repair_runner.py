@@ -4,10 +4,19 @@ import unittest
 
 import numpy as np
 
-from benchmarks.donor_adaptation.engine.run_strat01_q4k_q8k_repair import metrics
+from benchmarks.donor_adaptation.engine.run_strat01_q4k_q8k_repair import (
+    SOURCE_MANIFEST_SHA,
+    SOURCE_RUN,
+    metrics,
+    sha256_file,
+)
 
 
 class Q4KQ8KRepairRunnerTests(unittest.TestCase):
+    def test_source_run_is_the_frozen_successful_payload_set(self) -> None:
+        self.assertEqual(SOURCE_RUN.name, "strat01_gigachat_engine_rung2a_repair2_20260921")
+        self.assertEqual(sha256_file(SOURCE_RUN / "run_manifest.json"), SOURCE_MANIFEST_SHA)
+
     def test_exact_metrics_pass(self) -> None:
         reference = np.asarray([1.0, -2.0, 3.0], dtype=np.float32)
         result = metrics(reference.copy(), reference)

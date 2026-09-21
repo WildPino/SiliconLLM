@@ -95,3 +95,16 @@ Preserve every void in a distinct directory.  A narrow apparatus repair may not 
 A pass authorizes a separately frozen changed-coordinate block-0 attention confirmation using the repaired operator.  It does not convert the old Rung-2A result, authorize 2B, or establish full-engine quality/rate.  A fail keeps the implementation boundary open and requires a new source-derived diagnostic rather than threshold changes.
 
 No `SPEED_LEDGER.md` entry is due.
+
+## Apparatus repair A — pre-execution source-directory correction
+
+The first launch at commit `3d1861a` produced `VOID_ENGINE_Q4K_Q8K_REPAIR`
+before any command record, model read, or projection.  The runner compared the
+frozen successful-manifest hash against the older raw directory
+`strat01_gigachat_engine_rung2a_20260921/`, while that hash and every frozen
+captured tensor above belong to
+`strat01_gigachat_engine_rung2a_repair2_20260921/`, as already recorded by the
+closed projection diagnostic.  Repair A changes only that directory constant
+and sends the next immutable record to
+`strat01_gigachat_engine_q4k_q8k_repair1_20260921/`.  Inputs, algorithms,
+metrics, thresholds, labels, and the one-non-VOID stopping rule are unchanged.

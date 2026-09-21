@@ -26,7 +26,7 @@ RUNG1 = ROOT / "benchmarks/phase60/strat01_gguf_rung1.h"
 RUNG2A = ROOT / "benchmarks/phase60/strat01_gguf_rung2a.h"
 PROTOCOL = ROOT / "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REPAIR_PROTOCOL_20260921.md"
 MODEL = ROOT / "benchmarks/donor_adaptation/density/results/strat01_gigachat_q4_97045b2/GigaChat3.1-10B-A1.8B-q4_K_M.gguf"
-SOURCE_RUN = HERE / "results/strat01_gigachat_engine_rung2a_20260921"
+SOURCE_RUN = HERE / "results/strat01_gigachat_engine_rung2a_repair2_20260921"
 SOURCE_MANIFEST = SOURCE_RUN / "run_manifest.json"
 SOURCE_MANIFEST_SHA = "0f91db875cada58b054dfcfd57161668a92d17bfc2d27c43af206c0652ef372f"
 INPUT = SOURCE_RUN / "pinned_reference/prefill8/attn_norm-0.full.f32le"
@@ -39,7 +39,7 @@ Q_REFERENCE_SHA = "4dc1424d3f93651acaa152bd57222754c132ab3e43330d286c61e9739caff
 KV_REFERENCE_SHA = "6a364dd45c12142fb45ab90287caa14874ed40160089e716e23bd58d3785653c"
 TIGHT_NRMSE = 2e-6
 TIGHT_MAX = 1e-5
-DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_q4k_q8k_repair_20260921"
+DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_q4k_q8k_repair1_20260921"
 
 CRITICAL_PATHS = (
     ENGINE, OPERATOR, RUNG2A,
