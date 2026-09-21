@@ -35,6 +35,7 @@
 #include "strat01_gguf_rung2b_rmsnorm_diag.h"
 #include "strat01_gguf_upstream_rmsnorm_diag.h"
 #include "strat01_gguf_kb_q5q8_diag.h"
+#include "strat01_gguf_combined_rms_q5q8.h"
 #ifdef _OPENMP
 #include <omp.h>
 #endif
@@ -1093,6 +1094,14 @@ int main(int argc,char**argv){
         return strat01_kb_q5q8_diag_cli(argv[2],argv[4],argv[6],argv[8],argv[10],__FILE__);
     }
     if(argc==2 && !strcmp(argv[1],"--strat01-kb-q5q8-diagnostic-selftest")) return strat01_kb_q5q8_diag_selftest();
+    if(argc>1 && !strcmp(argv[1],"--strat01-combined-rms-q5q8")){
+        if(argc!=9 || strcmp(argv[3],"--baseline-attn-norm") || strcmp(argv[5],"--baseline-ffn-norm") || strcmp(argv[7],"--out-dir")){
+            fprintf(stderr,"usage: engine --strat01-combined-rms-q5q8 <accepted.gguf> --baseline-attn-norm <f32le> --baseline-ffn-norm <f32le> --out-dir <directory>\n");
+            return 2;
+        }
+        return strat01_combined_rms_q5q8_cli(argv[2],argv[4],argv[6],argv[8],__FILE__);
+    }
+    if(argc==2 && !strcmp(argv[1],"--strat01-combined-rms-q5q8-selftest")) return strat01_combined_rms_q5q8_selftest();
     if(argc==2 && !strcmp(argv[1],"--strat01-q4k-q8k-selftest")) return strat01_q4k_q8k_selftest();
     if(argc>1 && !strcmp(argv[1],"--strat01-q4k-q8k-projection")){
         if(argc!=7 || strcmp(argv[3],"--input") || strcmp(argv[5],"--out-dir")){
