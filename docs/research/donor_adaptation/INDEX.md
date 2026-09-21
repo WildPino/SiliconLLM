@@ -2,6 +2,15 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**STRAT-01 GigaChat 3.1 pre-V-B latent capture (21 September):**
+Closed as **`ATTRIBUTED_RESIDUAL_TO_ATTENTION_RECONSTRUCTION`**.  The prior
+reconstructed latent fails direct `kqv-0` at NRMSE `2.16e-4`, while project
+Q4_K×Q8_K V-B passes captured `kqv_mla` at `1.25e-7`; pinned V-B and final
+layout are bit-exact.  One pinned prefill ran.  V-B Q8_K is validated on its
+true input, but block-0 integration remains open inside attention.  Next use
+the [frozen QK/softmax/value diagnostic](probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md);
+do not repeat any prior `kqv_out` cell. [Result](probes/STRAT_01_GIGACHAT31_ENGINE_PRE_VB_LATENT_CAPTURE_RESULT_20260921.md).
+
 **STRAT-01 GigaChat 3.1 `kqv_out-0` attribution (21 September):**
 The zero-donor diagnostic is closed as **`PARTIAL_VB_Q8K_ATTRIBUTION`**.
 Project and pinned Q4_K×Q8_K agree tightly and exact Q8_K lowers target NRMSE

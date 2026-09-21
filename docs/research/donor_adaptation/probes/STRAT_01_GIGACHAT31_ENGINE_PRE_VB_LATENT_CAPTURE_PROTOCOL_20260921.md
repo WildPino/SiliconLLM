@@ -1,6 +1,6 @@
 # STRAT-01 GigaChat 3.1 pre-V-B latent capture protocol
 
-**State:** FROZEN PROTOCOL; NOT YET EXECUTED
+**State:** EXECUTED; CLOSED AS `ATTRIBUTED_RESIDUAL_TO_ATTENTION_RECONSTRUCTION`
 **Date frozen:** 21 September 2026
 **Scope:** one pinned-reference trace extension at block 0, followed by offline attribution; no production-engine change, quality, RAM, or speed claim
 
@@ -102,3 +102,6 @@ Do not rerun Rung 2A, the Q/KV projection diagnostic, Q8_K repair,
 changed-coordinate confirmation, or the reconstructed-latent V-B diagnostic.
 This cell cannot advance Rung 2B, quality, RAM or accepted-token rate.  It
 exists only to choose the next justified engine coordinate.
+
+The canonical result is
+[STRAT_01_GIGACHAT31_ENGINE_PRE_VB_LATENT_CAPTURE_RESULT_20260921.md](STRAT_01_GIGACHAT31_ENGINE_PRE_VB_LATENT_CAPTURE_RESULT_20260921.md).
