@@ -32,7 +32,11 @@ is approximately `1.5e-7`, while byte-exact C-input replay reproduces the
 Rung-2B FAIL and changes 46/48 Q8 blocks. Do not repeat it or rewrite the Q4_K
 matrix path. The changed coordinate is upstream RMSNorm accumulation semantics.
 The [frozen accumulator protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_RMSNORM_ACCUMULATOR_DIAGNOSTIC_PROTOCOL_20260921.md)
-is the only current implementation cell; it must precede any production edit.
+now closes as `DOUBLE_RMSNORM_INSUFFICIENT_FOR_PROJECTION_GATES`: double sum is
+exact on the reference payload but leaves C up/gate NRMSE at
+`0.00306126`/`0.00269141`. Do not repeat it or patch only FFN RMSNorm. The next
+distinct coordinate is the same pinned accumulation semantic at the upstream
+attention-input and compressed-KV RMSNorm sites, reusing frozen references.
 
 ## 1. How to read this map
 

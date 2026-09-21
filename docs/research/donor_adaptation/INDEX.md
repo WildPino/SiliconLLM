@@ -3,11 +3,14 @@
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
 **STRAT-01 Rung-2B RMSNorm accumulator diagnostic (21 September):**
-The [protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_RMSNORM_ACCUMULATOR_DIAGNOSTIC_PROTOCOL_20260921.md)
-is frozen before implementation. It compares current float accumulation with
-pinned llama.cpp's double RMSNorm sum on captured inputs, then sends only the
-double-C candidate through unchanged up/gate kernels. Exact float replay is an
-apparatus gate; no donor graph runs.
+Closed as **`DOUBLE_RMSNORM_INSUFFICIENT_FOR_PROJECTION_GATES`** with zero
+donor-graph executions. Double accumulation exactly reproduces reference
+normalization, but changes C-input NRMSE only from `7.914143404e-4` to
+`7.914140993e-4`; up/gate remain at `0.00306126`/`0.00269141` and fail. Do not
+repeat or patch only FFN RMSNorm. The remaining boundary is upstream attention
+RMSNorm semantics before `ffn_inp-0`.
+[Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_RMSNORM_ACCUMULATOR_DIAGNOSTIC_PROTOCOL_20260921.md) ·
+[Result](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_RMSNORM_ACCUMULATOR_DIAGNOSTIC_RESULT_20260921.md).
 
 **STRAT-01 Rung-2B cross-input Q4_K diagnostic (21 September):**
 Closed as **`REFERENCE_INPUT_PASSES_Q4K_PATH`** with zero donor-graph
