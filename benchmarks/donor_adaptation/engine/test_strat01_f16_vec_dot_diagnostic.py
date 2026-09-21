@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import unittest
 
-from benchmarks.donor_adaptation.engine.run_strat01_f16_vec_dot_diagnostic import classify
+import numpy as np
+
+from benchmarks.donor_adaptation.engine.run_strat01_f16_vec_dot_diagnostic import classify, mutation_fires
 
 
 def judged(passed: bool, nrmse: float = 0.0) -> dict[str, bool | float]: return {"pass": passed, "nrmse": nrmse}
@@ -23,6 +25,12 @@ class F16VecDotDiagnosticTests(unittest.TestCase):
         self.assertEqual(classify(one, controls, old), "ATTRIBUTED_QK_TO_F16_VEC_DOT_ONLY")
         neither = {**one, "qk_f16_vec_dot": judged(False, 3e-4), "value_f16_vec_dot": judged(False, 3e-4)}
         self.assertEqual(classify(neither, controls, old), "F16_VEC_DOT_HYPOTHESIS_REJECTED")
+
+    def test_mutation_must_change_baseline_and_fail_target(self) -> None:
+        baseline = np.array([1.0, 2.0], dtype=np.float32)
+        self.assertFalse(mutation_fires(baseline, baseline.copy(), judged(False)))
+        self.assertFalse(mutation_fires(baseline, np.array([1.0, 3.0], dtype=np.float32), judged(True)))
+        self.assertTrue(mutation_fires(baseline, np.array([1.0, 3.0], dtype=np.float32), judged(False)))
 
 
 if __name__ == "__main__": unittest.main()

@@ -84,6 +84,10 @@ def classify(results: dict[str, dict[str, Any]], controls: dict[str, bool], old:
     return "PARTIAL_F16_VEC_DOT_ATTRIBUTION" if improved else "F16_VEC_DOT_HYPOTHESIS_REJECTED"
 
 
+def mutation_fires(baseline: np.ndarray, mutated: np.ndarray, mutated_gate: dict[str, Any]) -> bool:
+    return not np.array_equal(baseline, mutated) and not bool(mutated_gate["pass"])
+
+
 def manifest_payload(logical: str) -> Path:
     manifest = json.loads((SOURCE_TRACE / "manifest.json").read_text(encoding="utf-8"))
     matches = [item for item in manifest["payloads"] if item.get("logical") == logical and item.get("kind") == "full"]
@@ -146,7 +150,9 @@ def main() -> int:
             "qk_mutated": gate(q_outputs["mutated"], captured_kq), "value_mutated": gate(v_outputs["mutated"], true_kqv),
         }
         controls = {"source_identity_and_zero_donor": True, "model_free_tests_and_selftest": True, "f16_conversion_bytes_exact": f16_exact,
-            "q_mutation_fires": not bool(results["qk_mutated"]["pass"]), "probability_mutation_fires": not bool(results["value_mutated"]["pass"])}
+            "q_vec_dot_nonzero": bool(np.count_nonzero(q_outputs["vec"])), "value_vec_dot_nonzero": bool(np.count_nonzero(v_outputs["vec"])),
+            "q_mutation_fires": mutation_fires(q_outputs["scalar"], q_outputs["mutated"], results["qk_mutated"]),
+            "probability_mutation_fires": mutation_fires(v_outputs["scalar"], v_outputs["mutated"], results["value_mutated"])}
         record.update({"status": classify(results, controls, old), "finished_utc": utc_now(), "seconds": time.perf_counter() - started,
             "identity": {"git_head": head, "source_adjudication": {"path": str(PRIOR), "sha256": PRIOR_SHA}, "llama_cpp": {"head": llama_head, "graph_sha256": PINNED_GRAPH_SHA},
                 "helper": {"path": str(helper), "sha256": sha256_file(helper)}, "critical_source_hashes": {str(path.relative_to(ROOT)): sha256_file(path) for path in CRITICAL_PATHS}},

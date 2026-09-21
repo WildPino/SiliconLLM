@@ -1,4 +1,5 @@
 #include "ggml.h"
+#include "ggml-cpu.h"
 #include "ggml-cpu/vec.h"
 
 #include <cmath>
@@ -7,6 +8,7 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
+#include <limits>
 #include <stdexcept>
 #include <string>
 #include <vector>
@@ -67,6 +69,15 @@ uint16_t project_f32_to_f16(float value) {
     return static_cast<uint16_t>(sign | half_exponent | half);
 }
 
+float pinned_f16_dot(int n, ggml_fp16_t *x, ggml_fp16_t *y) {
+    const ggml_type_traits_cpu *traits = ggml_get_type_traits_cpu(GGML_TYPE_F16);
+    if (traits == nullptr || traits->vec_dot == nullptr || traits->vec_dot_type != GGML_TYPE_F16) fail("pinned F16 CPU type trait unavailable");
+    float result = std::numeric_limits<float>::quiet_NaN();
+    traits->vec_dot(n, &result, 0, x, 0, y, 0, 1);
+    if (!std::isfinite(result)) fail("pinned F16 vector dot returned non-finite output");
+    return result;
+}
+
 std::vector<float> read_f32(const std::filesystem::path &path, size_t count) {
     if (!std::filesystem::is_regular_file(path) || std::filesystem::file_size(path) != count * sizeof(float)) fail("float payload size mismatch");
     std::vector<float> values(count);
@@ -114,10 +125,10 @@ Products evaluate(const std::vector<float> &qcur, const std::vector<float> &kcur
                 float scalar = 0.0f, pinned = 0.0f, mutated = 0.0f;
                 const auto *key = key_cache.data() + slot * kQk;
                 for (size_t i = 0; i < kQk; ++i) scalar += ggml_fp16_to_fp32(key[i]) * ggml_fp16_to_fp32(query[i]);
-                ggml_vec_dot_f16(static_cast<int>(kQk), &pinned, 0, const_cast<ggml_fp16_t *>(key), 0, query.data(), 0, 1);
+                pinned = pinned_f16_dot(static_cast<int>(kQk), const_cast<ggml_fp16_t *>(key), query.data());
                 const ggml_fp16_t saved = query[0];
                 if (token == 7 && head == 31) query[0] = static_cast<ggml_fp16_t>(query[0] ^ 0x0100U);
-                ggml_vec_dot_f16(static_cast<int>(kQk), &mutated, 0, const_cast<ggml_fp16_t *>(key), 0, query.data(), 0, 1);
+                for (size_t i = 0; i < kQk; ++i) mutated += ggml_fp16_to_fp32(key[i]) * ggml_fp16_to_fp32(query[i]);
                 query[0] = saved;
                 const size_t out = (token * kHeads + head) * kTokens + slot;
                 result.qk_scalar[out] = scalar; result.qk_vec[out] = pinned; result.qk_mutated[out] = mutated;
@@ -127,10 +138,10 @@ Products evaluate(const std::vector<float> &qcur, const std::vector<float> &kcur
                 for (size_t slot = 0; slot < kSlots; ++slot) values[slot] = slot < kTokens ? key_cache[slot * kQk + feature] : 0;
                 float scalar = 0.0f, pinned = 0.0f, mutated = 0.0f;
                 for (size_t slot = 0; slot < kSlots; ++slot) scalar += ggml_fp16_to_fp32(values[slot]) * ggml_fp16_to_fp32(probabilities[slot]);
-                ggml_vec_dot_f16(static_cast<int>(kSlots), &pinned, 0, values.data(), 0, probabilities.data(), 0, 1);
+                pinned = pinned_f16_dot(static_cast<int>(kSlots), values.data(), probabilities.data());
                 const ggml_fp16_t saved = probabilities[0];
                 if (token == 7 && head == 31) probabilities[0] = static_cast<ggml_fp16_t>(probabilities[0] ^ 0x0100U);
-                ggml_vec_dot_f16(static_cast<int>(kSlots), &mutated, 0, values.data(), 0, probabilities.data(), 0, 1);
+                for (size_t slot = 0; slot < kSlots; ++slot) mutated += ggml_fp16_to_fp32(values[slot]) * ggml_fp16_to_fp32(probabilities[slot]);
                 probabilities[0] = saved;
                 const size_t out = (token * kHeads + head) * kLatent + feature;
                 result.value_scalar[out] = scalar; result.value_vec[out] = pinned; result.value_mutated[out] = mutated;
@@ -151,6 +162,7 @@ Products evaluate(const std::vector<float> &qcur, const std::vector<float> &kcur
 }
 
 int selftest() {
+    ggml_cpu_init();
     const float cases[] = {0.0f, -0.0f, 1.0f, -2.0f, 65504.0f, 0x1p-24f, 1.00048828125f};
     for (float value : cases) if (project_f32_to_f16(value) != ggml_fp32_to_fp16(value)) fail("selftest F16 conversion mismatch");
     const uint32_t edge_bits[] = {0x33000000U, 0xb3000000U, 0x33000001U, 0xb3000001U, 0x33800000U, 0xb3800000U};
@@ -171,6 +183,9 @@ int selftest() {
             ++exhaustive_checked;
         }
     }
+    ggml_fp16_t dot_x[] = {ggml_fp32_to_fp16(1.0f), ggml_fp32_to_fp16(2.0f)};
+    ggml_fp16_t dot_y[] = {ggml_fp32_to_fp16(3.0f), ggml_fp32_to_fp16(4.0f)};
+    if (pinned_f16_dot(2, dot_x, dot_y) != 11.0f) fail("pinned F16 vector-dot selftest mismatch");
     std::cout << "F16 vec-dot diagnostic selftest passed; exhaustive_exp_minus_25_checked=" << exhaustive_checked << '\n';
     return 0;
 }
@@ -179,6 +194,7 @@ int selftest() {
 
 int main(int argc, char **argv) {
     try {
+        ggml_cpu_init();
         const Options options = parse(argc, argv);
         if (options.selftest) return selftest();
         if (options.qcur.empty() || options.kcur.empty() || options.padded_softmax.empty() || options.output.empty()) fail("qcur, kcur, padded-softmax and output-dir are required");
