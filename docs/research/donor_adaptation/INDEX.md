@@ -2,6 +2,18 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**STRAT-01 GigaChat 3.1 paired document rollout (21 September):**
+`PASS_DOCUMENT_ROLLOUT` on the frozen 96-document greedy rollout. Q4 has two
+new `loop8x3` degeneracies, both code documents; the registered failure
+threshold is ≥3, so it passes by one. BF16 has one degeneracy in
+`technical_general`. Both arms average 256 generated tokens/document with no
+EOS, `run32`, or `empty`. The runtime totals are reference-quality-run
+durations, not speed measurements. This does not close HumanEval
+(`PENDING_SANDBOX`), MTP quality, `phase60/engine.c` parity, same-artifact C
+execution or the ≥50 accepted tok/s lower-CI gate. Next: plan engine
+compatibility/parity for the accepted Q4 base artifact; do not repeat the
+llama.cpp rollout. [Canonical result, bindings and raw-artifact paths](probes/STRAT_01_GIGACHAT31_DOCUMENT_ROLLOUT_RESULT_20260921.md).
+
 **STRAT-01 GigaChat paired PIQA (20 September):** `PASS_PIQA` on the
 preregistered 1,838-item validation set. The BF16 teacher scores 1,466 correct
 (0.7976061), while Q4 scores 1,456 (0.7921654), above the required

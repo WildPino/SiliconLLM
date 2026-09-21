@@ -1,0 +1,54 @@
+{
+  "bindings": {
+    "corpus_sha256": "04687034c1054e0985e24efa87ba37a3fb11031de5b2880e5b8ac1742f80ec6e",
+    "token_ids": "1fd25287cda1158becb6685cfe46651828fd13ca2076f04a251b8fa9d6856919",
+    "tokenizer_sha256": "b4b3d90c67830a4e566296ad8d0f6b5ac5a5cdbfd331b200d0ee8263aaaea1fe"
+  },
+  "candidate": {
+    "manifest_sha256": "9ebf59269b9835fc04942cc1e5db22d9faf047d55c0579c7bc7e4baccd477e47",
+    "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_rollout_v1\\q4_rollout.jsonl",
+    "sha256": "becc5576164b9b56202ce1e6673419b035bd0eb11a6217ed93ae1f3568251c37"
+  },
+  "categories": {
+    "code": {
+      "candidate_degenerate": 2,
+      "new_candidate_degenerate": 2,
+      "teacher_degenerate": 0
+    },
+    "prose": {
+      "candidate_degenerate": 0,
+      "new_candidate_degenerate": 0,
+      "teacher_degenerate": 0
+    },
+    "technical_general": {
+      "candidate_degenerate": 0,
+      "new_candidate_degenerate": 0,
+      "teacher_degenerate": 1
+    }
+  },
+  "diagnostics": {
+    "candidate_eos_documents": 0,
+    "candidate_mean_generated_tokens": 256.0,
+    "exact_generated_id_sequences": 1,
+    "mean_common_prefix_tokens": 15.104166666666666,
+    "teacher_eos_documents": 0,
+    "teacher_mean_generated_tokens": 256.0
+  },
+  "documents": 96,
+  "gate": {
+    "fail_if_new_candidate_degenerate_at_least": 3,
+    "new_candidate_degenerate_count": 2,
+    "passed": true
+  },
+  "new_candidate_degenerate_document_ids": [
+    "file:data/external/the_stack_python/cpython/Lib/test/test_generators.py",
+    "file:data/external/the_stack_python/cpython/Lib/test/test_tools/test_msgfmt.py"
+  ],
+  "schema": "strat01_gigachat_rollout_adjudication_v1",
+  "status": "PASS_DOCUMENT_ROLLOUT",
+  "teacher": {
+    "manifest_sha256": "a5bbe0898479d1fb20e705397a38c2c5410c7258db3d773c90932bf2dfcd8818",
+    "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_rollout_v1\\bf16_rollout.jsonl",
+    "sha256": "9e285804bd5df0302836610c00a1576431e04590336056e3dbf1ecf0e1308768"
+  }
+}

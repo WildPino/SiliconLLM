@@ -1,0 +1,97 @@
+{
+  "core_output": {
+    "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_rollout_v1\\bf16_rollout.jsonl.core.jsonl",
+    "sha256": "3e3581deaa853c8a738bba5b8db5c9a66dcdce05663ff068f9f726a6b751c533"
+  },
+  "corpus": {
+    "path": "benchmarks\\donor_adaptation\\density\\corpus\\strat01_gigachat_fresh_v2\\heldout.jsonl",
+    "records": 96,
+    "sha256": "04687034c1054e0985e24efa87ba37a3fb11031de5b2880e5b8ac1742f80ec6e"
+  },
+  "model": {
+    "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_bf16_97045b2\\GigaChat3.1-10B-A1.8B-bf16.gguf",
+    "sha256": "e7a6409be0ac197babf21c48cfc8a96486d035c1e7a784feadd817b7b883c08e"
+  },
+  "output": {
+    "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_rollout_v1\\bf16_rollout.jsonl",
+    "records": 96,
+    "sha256": "9e285804bd5df0302836610c00a1576431e04590336056e3dbf1ecf0e1308768"
+  },
+  "protocol": {
+    "degeneration_flags": [
+      "run32",
+      "loop8x3",
+      "empty"
+    ],
+    "eos_id": 2,
+    "eos_retained": false,
+    "greedy": true,
+    "max_new_tokens": 256,
+    "prompt": "[BOS=1] + first 256 source payload IDs",
+    "source_token_decode": true,
+    "tie_policy": "lowest_id"
+  },
+  "repository_head": "644352c454427858d4d6db295dc8877e616b4312",
+  "runtime_metadata": {
+    "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_rollout_v1\\bf16_rollout.jsonl.runtime.json",
+    "record": {
+      "flag_definitions": {
+        "empty": "zero non-EOS generated IDs",
+        "loop8x3": "an 8-ID non-EOS sequence repeated three consecutive times",
+        "run32": "at least 32 consecutive identical non-EOS generated IDs"
+      },
+      "generated_tokens": 24576,
+      "generation_max_new_tokens": 256,
+      "greedy": true,
+      "items": 96,
+      "kv_reset_per_document": true,
+      "logical_n_ctx": 4096,
+      "model_bos_id": 1,
+      "model_eos_id": 2,
+      "model_vocab_size": 128256,
+      "n_batch": 128,
+      "n_threads": 6,
+      "physical_n_ctx": 4096,
+      "prompt_tokens": 24672,
+      "schema": "strat01_gguf_rollout_runtime_v1",
+      "source_token_ids_mode": true,
+      "tie_policy": "lowest_id",
+      "total_elapsed_seconds": 18218.2622363,
+      "total_tokens": 49248
+    },
+    "sha256": "33e424d6cc1c21a5c93bdd217825dbec16c8061a60155571aa103e696d66f355"
+  },
+  "schema": "strat01_gigachat_rollout_manifest_v1",
+  "scorer": {
+    "binary": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-strat01-gguf-rollout-build\\cmake-build\\strat01_gguf_rollout.exe",
+    "binary_sha256": "9bee062275433b8c09b9837c0da03263dba13267ff689d892bb65371920e97b0",
+    "llama_cpp": {
+      "clean": true,
+      "commit": "5b335f413e4f73b0809c4fe39af894efbcc6a0d2",
+      "path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-bind-5b335f4"
+    },
+    "source": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\strat01_gguf_rollout.cpp",
+    "source_sha256": "2bcb3eba3da9ea4cd9c8def04e4b5cf28e2a637305425be72e3f53c7a0559b04"
+  },
+  "selection": {
+    "categories": {
+      "code": 32,
+      "prose": 32,
+      "technical_general": 32
+    },
+    "full_gate": true,
+    "items": 96,
+    "original_order_prefix": true
+  },
+  "token_binding": {
+    "all_item_hashes_sha256": "1fd25287cda1158becb6685cfe46651828fd13ca2076f04a251b8fa9d6856919",
+    "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_rollout_v1\\bf16_rollout.jsonl.tokens.jsonl",
+    "records": 96,
+    "sha256": "11e7690f933b7c537f15af204bd29b082f1cd684e336e4b3a328fd1daefba675"
+  },
+  "tokenizer": {
+    "defined_source_ids": 128013,
+    "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\tokenizer.json",
+    "sha256": "b4b3d90c67830a4e566296ad8d0f6b5ac5a5cdbfd331b200d0ee8263aaaea1fe"
+  }
+}

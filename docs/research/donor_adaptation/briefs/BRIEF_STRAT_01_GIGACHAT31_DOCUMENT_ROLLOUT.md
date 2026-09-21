@@ -6,6 +6,11 @@ Implementation was authorized by `PASS_PIQA`. This brief narrows the already-pre
 to its next executable cell. It does not change the corpus, thresholds, or
 artifact pair.
 
+Execution addendum, 21 September 2026: the full paired arms are complete and
+the [canonical result](../probes/STRAT_01_GIGACHAT31_DOCUMENT_ROLLOUT_RESULT_20260921.md)
+is `PASS_DOCUMENT_ROLLOUT`. The frozen brief remains the pre-measurement
+contract; the result, not this addendum, adjudicates the cell.
+
 ## Mandatory anti-duplication card
 
 1. **Nearest prior cell.** The paired GigaChat PIQA result is

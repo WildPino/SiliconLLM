@@ -1,6 +1,6 @@
 # STRAT-01 GigaChat 3.1: paired task and rollout
 
-Status, September 20, 2026: **PIQA MEASURED — `PASS_PIQA`; document rollout pending**. Prerequisites closed: `PASS_SOURCE_BINDING`, `PASS_FRESH_BPB`, and the first task stop gate. The [paired PIQA result](STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md) records 1,466/1,838 correct for BF16 and 1,456/1,838 for Q4 against a required 1,437. Teacher and candidate are the producer BF16 and Q4_K_M, respectively, pinned in the other protocols. The protocol below remains the frozen contract for the unexecuted rollout and HumanEval stages.
+Status, September 21, 2026: **PIQA MEASURED — `PASS_PIQA`; document rollout MEASURED — `PASS_DOCUMENT_ROLLOUT`; HumanEval pending**. Prerequisites closed: `PASS_SOURCE_BINDING`, `PASS_FRESH_BPB`, and the first task stop gate. The [paired PIQA result](STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md) records 1,466/1,838 correct for BF16 and 1,456/1,838 for Q4 against a required 1,437. The [paired rollout result](STRAT_01_GIGACHAT31_DOCUMENT_ROLLOUT_RESULT_20260921.md) records two Q4-only degenerations against the frozen failure threshold of at least three. Teacher and candidate are the producer BF16 and Q4_K_M, respectively, pinned in the other protocols. The protocol below remains the frozen contract and is not rewritten by either result.
 
 ## Tokenizer and format
 
