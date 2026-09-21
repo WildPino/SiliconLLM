@@ -31,6 +31,8 @@ That cell now closes positively for the exact reference input: up/gate NRMSE
 is approximately `1.5e-7`, while byte-exact C-input replay reproduces the
 Rung-2B FAIL and changes 46/48 Q8 blocks. Do not repeat it or rewrite the Q4_K
 matrix path. The changed coordinate is upstream RMSNorm accumulation semantics.
+The [frozen accumulator protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_RMSNORM_ACCUMULATOR_DIAGNOSTIC_PROTOCOL_20260921.md)
+is the only current implementation cell; it must precede any production edit.
 
 ## 1. How to read this map
 

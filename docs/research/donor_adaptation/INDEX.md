@@ -2,6 +2,13 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**STRAT-01 Rung-2B RMSNorm accumulator diagnostic (21 September):**
+The [protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_RMSNORM_ACCUMULATOR_DIAGNOSTIC_PROTOCOL_20260921.md)
+is frozen before implementation. It compares current float accumulation with
+pinned llama.cpp's double RMSNorm sum on captured inputs, then sends only the
+double-C candidate through unchanged up/gate kernels. Exact float replay is an
+apparatus gate; no donor graph runs.
+
 **STRAT-01 Rung-2B cross-input Q4_K diagnostic (21 September):**
 Closed as **`REFERENCE_INPUT_PASSES_Q4K_PATH`** with zero donor-graph
 executions. Exact reference input gives up/gate NRMSE `1.62e-7`/`1.48e-7`;
