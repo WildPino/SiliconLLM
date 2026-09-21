@@ -41,6 +41,10 @@ That coordinate is frozen in the [upstream propagation protocol](../probes/STRAT
 It is not another FFN-only trial: it changes the two RMSNorm sites before the
 accepted attention/Q8 path and adjudicates their propagated effect at both
 Rung-2A boundaries and the unchanged FFN projection gates.
+It now closes validly but insufficiently: terminal input improves by about
+16.6%, while both FFN projections remain outside gate. Do not repeat any
+RMSNorm cell. The next distinct coordinate is full-matrix Q5_0×Q8_0 K-B
+runtime semantics; Rung 1 covered stored-row decode/dequantized matvec only.
 
 ## 1. How to read this map
 

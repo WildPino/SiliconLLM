@@ -3,12 +3,14 @@
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
 **STRAT-01 upstream RMSNorm propagation diagnostic (21 September):**
-The [protocol](probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_PROTOCOL_20260921.md)
-is frozen before implementation. It changes only the attention-input and
-compressed-KV RMSNorm accumulators to pinned double semantics, reuses all
-reference traces, and carries the candidate through double FFN normalization
-and unchanged up/gate projections. One C execution is allowed only after an
-apparatus-only pass; this does not reopen Rung 2A or Rung 2B.
+Closed as **`UPSTREAM_DOUBLE_RMSNORM_INSUFFICIENT_FOR_PROJECTION_GATES`**.
+Double semantics make `attn_norm-0` exact and improve `ffn_inp-0` NRMSE from
+`5.9548e-4` to `4.9689e-4`, but up/gate remain at `0.0026265`/`0.0023148`.
+The first material residual is now the Q5_0 K-B absorption output after a
+near-exact `q-0`. Do not repeat or patch only RMSNorm; diagnose pinned
+Q5_0×Q8_0 runtime semantics next.
+[Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_PROTOCOL_20260921.md) ·
+[Result](probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_RESULT_20260921.md).
 
 **STRAT-01 Rung-2B RMSNorm accumulator diagnostic (21 September):**
 Closed as **`DOUBLE_RMSNORM_INSUFFICIENT_FOR_PROJECTION_GATES`** with zero
