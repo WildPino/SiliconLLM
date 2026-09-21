@@ -27,6 +27,10 @@ failures in both schedules. This is not a repeat of STRAT-03 and does not test
 carving, a learned router, shared-residual utility, or quality. Do not rerun
 Rung 2B or advance to 2C; the only current engine-fidelity continuation is the
 separately scoped, no-full-donor [frozen-input Q4_K diagnostic](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260921.md).
+That cell now closes positively for the exact reference input: up/gate NRMSE
+is approximately `1.5e-7`, while byte-exact C-input replay reproduces the
+Rung-2B FAIL and changes 46/48 Q8 blocks. Do not repeat it or rewrite the Q4_K
+matrix path. The changed coordinate is upstream RMSNorm accumulation semantics.
 
 ## 1. How to read this map
 
