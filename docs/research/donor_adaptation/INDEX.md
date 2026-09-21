@@ -2,6 +2,13 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**STRAT-01 K-B Q5_0×Q8_0 diagnostic (21 September):**
+The [protocol](probes/STRAT_01_GIGACHAT31_ENGINE_KB_Q5_0_Q8_0_DIAGNOSTIC_PROTOCOL_20260921.md)
+is frozen before implementation. It cross-feeds exact-reference and
+upstream-double `q-0` into current dequant-F32 and pinned Q5_0×Q8_0 K-B paths,
+with an independent pinned helper and byte-exact replay controls. It executes
+no donor graph and is distinct from Rung 1's stored-row codec/matvec cell.
+
 **STRAT-01 upstream RMSNorm propagation diagnostic (21 September):**
 Closed as **`UPSTREAM_DOUBLE_RMSNORM_INSUFFICIENT_FOR_PROJECTION_GATES`**.
 Double semantics make `attn_norm-0` exact and improve `ffn_inp-0` NRMSE from

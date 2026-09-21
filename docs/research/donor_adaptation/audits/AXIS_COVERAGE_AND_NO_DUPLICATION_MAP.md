@@ -45,6 +45,10 @@ It now closes validly but insufficiently: terminal input improves by about
 16.6%, while both FFN projections remain outside gate. Do not repeat any
 RMSNorm cell. The next distinct coordinate is full-matrix Q5_0×Q8_0 K-B
 runtime semantics; Rung 1 covered stored-row decode/dequantized matvec only.
+The [frozen K-B protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_KB_Q5_0_Q8_0_DIAGNOSTIC_PROTOCOL_20260921.md)
+therefore changes activation format and full-matrix operator semantics while
+holding artifact, tensor, inputs, output target, layout, and model layer fixed.
+It is the only current engine-fidelity implementation cell.
 
 ## 1. How to read this map
 
