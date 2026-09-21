@@ -1,6 +1,6 @@
 # Strategic roadmap: pretrained ~10B, 50–100 tok/s, AVX2 CPU
 
-**Updated status:** [20 September 2026](STATUS_20260920.md). The [17 September `engine.c` scope decision](STATUS_20260917.md) remains valid. The text below remains the 16 September design snapshot.
+**Updated status:** [21 September 2026](STATUS_20260921.md). The [17 September `engine.c` scope decision](STATUS_20260917.md) remains valid. The text below remains the 16 September design snapshot.
 
 **Date: 16 September 2026. Analysis and design only. No code, tests, benchmarks, weight downloads, or training performed.** Reading baseline: HEAD `f1f9cfd59d34071a004248bc04c9d56e6038c596`. Register of sources, scope, and results: [EVIDENCE.md](EVIDENCE.md). The L/W codes refer to that register; further primary sources are linked in the text.
 
