@@ -14,6 +14,10 @@ from typing import Any
 
 import numpy as np
 
+ROOT = Path(__file__).resolve().parents[3]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 from benchmarks.donor_adaptation.engine.build_strat01_rung2a_projection_diagnostic import (
     PINNED_HEAD,
     PINNED_LLAMA,
@@ -21,7 +25,6 @@ from benchmarks.donor_adaptation.engine.build_strat01_rung2a_projection_diagnost
     verify_pinned_llama,
 )
 
-ROOT = Path(__file__).resolve().parents[3]
 SOURCE_RUN = ROOT / "benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_rung2a_repair2_20260921"
 SOURCE_MANIFEST = SOURCE_RUN / "run_manifest.json"
 SOURCE_MANIFEST_SHA = "0f91db875cada58b054dfcfd57161668a92d17bfc2d27c43af206c0652ef372f"
