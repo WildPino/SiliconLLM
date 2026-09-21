@@ -88,3 +88,21 @@ mask constants, thresholds, or mappings after observing results.
 Only a uniquely attributed stage authorizes a separately tested arithmetic
 repair.  Do not repeat prior Rung-2A/Q8_K/V-B cells, integrate multiple new
 coordinates at once, advance to Rung 2B, or move any speed claim.
+
+## Apparatus repair A — padded KQ extent
+
+The first execution at commit `6f9b747` is preserved as
+`VOID_ATTENTION_STAGE_DIAGNOSTIC`, adjudication SHA-256
+`c54c7d47e1c60f76f70e08e21d2443caf93e49eb1b2cab4dcb1f931b276c089d`.
+The producer completed one donor prefill and emitted valid callbacks, but the
+validator stopped before reading numerical values because `kq-0` has shape
+`[256,8,32]`, not preregistered `[8,8,32]`.  The first dimension follows the
+resolved padded context (`n_ctx=256`); only positions 0–7 are occupied.
+
+Repair A reuses that immutable trace with zero additional donor executions.
+It changes only the metadata contract: map canonical callback bytes as
+`[head,query,slot]`, retain occupied slots 0–7 for the three numerical stage
+gates, and require every captured softmax probability in padded slots 8–255
+to be exactly zero.  Q/K/V and true-`kqv` identities, helper arithmetic,
+metrics, thresholds, labels, and negative controls remain unchanged.  Write a
+distinct offline-adjudication directory; never overwrite the VOID raw set.

@@ -41,15 +41,17 @@ HELPER_SOURCE = HERE / "strat01_attention_stage_diagnostic.cpp"
 HELPER_BUILDER = HERE / "build_strat01_attention_stage_diagnostic.py"
 TEST_SOURCE = HERE / "test_strat01_attention_stage_diagnostic.py"
 DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_attention_stage_diagnostic_20260921"
+VOID_TRACE = DEFAULT_OUTPUT / "pinned_reference"
 TIGHT_NRMSE, TIGHT_MAX = 2e-6, 1e-5
 COUNT_SCORES = 8 * 32 * 8
+COUNT_PADDED_SCORES = 8 * 32 * 256
 COUNT_LATENT = 8 * 32 * 512
 EXPECTED = {
     "Qcur-0": ([576, 32, 8], 8 * 32 * 576, "4aca21f044acf71404ef0a7a000ed7b1bfe894efa82c5c1e49f7a5764cc6314b", "CONCAT"),
     "Kcur-0": ([576, 1, 8], 8 * 576, "2860d9791b620d19788b8112e5366424be21669153eb1ec3255fd5a6c1b167f3", "CONCAT"),
     "Vcur-0": ([512, 1, 8], 8 * 512, "8b775afa6fedd04f3c99bca0700f365cd13bbf235cef82e8f21809fbf252d2e9", "RESHAPE"),
-    "kq-0": ([8, 8, 32], COUNT_SCORES, None, "MUL_MAT"),
-    "kq_soft_max-0": ([8, 8, 32], COUNT_SCORES, None, "SOFT_MAX"),
+    "kq-0": ([256, 8, 32], COUNT_PADDED_SCORES, None, "MUL_MAT"),
+    "kq_soft_max-0": ([256, 8, 32], COUNT_PADDED_SCORES, None, "SOFT_MAX"),
     "kqv-0": ([512, 8, 32], COUNT_LATENT, "3922f34159f499dd26788acb7d9600d72fded004425392946bc09b8098fd88df", "MUL_MAT"),
 }
 CRITICAL_PATHS = (
@@ -129,6 +131,7 @@ def capture_payloads(root: Path) -> tuple[dict[str, Path], dict[str, Any]]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--reuse-void-trace", action="store_true")
     args = parser.parse_args()
     output = args.output_dir.resolve()
     if output.exists():
@@ -163,17 +166,19 @@ def main() -> int:
         record["commands"].append(tests)
         require_ok(tests, "model-free tests")
 
-        reference_build = output / "reference_build"
-        command = run_command([sys.executable, str(REFERENCE_BUILDER), "--build-dir", str(reference_build)], output, "build_reference", timeout=3600)
-        record["commands"].append(command)
-        require_ok(command, "reference build")
-        references = list((reference_build / "cmake-build").rglob("strat01_engine_rung2a_reference.exe"))
-        if len(references) != 1:
-            raise DiagnosticError("cannot resolve reference executable")
-        reference = references[0]
-        command = run_command([str(reference), "--self-test"], output, "reference_selftest")
-        record["commands"].append(command)
-        require_ok(command, "reference self-test")
+        reference: Path | None = None
+        if not args.reuse_void_trace:
+            reference_build = output / "reference_build"
+            command = run_command([sys.executable, str(REFERENCE_BUILDER), "--build-dir", str(reference_build)], output, "build_reference", timeout=3600)
+            record["commands"].append(command)
+            require_ok(command, "reference build")
+            references = list((reference_build / "cmake-build").rglob("strat01_engine_rung2a_reference.exe"))
+            if len(references) != 1:
+                raise DiagnosticError("cannot resolve reference executable")
+            reference = references[0]
+            command = run_command([str(reference), "--self-test"], output, "reference_selftest")
+            record["commands"].append(command)
+            require_ok(command, "reference self-test")
 
         helper_build = output / "helper_build"
         command = run_command([sys.executable, str(HELPER_BUILDER), "--build-dir", str(helper_build)], output, "build_helper", timeout=3600)
@@ -187,17 +192,27 @@ def main() -> int:
         record["commands"].append(command)
         require_ok(command, "helper self-test")
 
-        trace = output / "pinned_reference"
-        record["donor_executions"] = 1
-        command = run_command([str(reference), "--model", str(MODEL), "--out-dir", str(trace), "--arm", "prefill8"], output, "capture_reference", timeout=3600)
-        record["commands"].append(command)
-        require_ok(command, "pinned attention-stage capture")
+        trace = VOID_TRACE if args.reuse_void_trace else output / "pinned_reference"
+        if args.reuse_void_trace:
+            source_adjudication = DEFAULT_OUTPUT / "adjudication.json"
+            if sha256_file(source_adjudication) != "c54c7d47e1c60f76f70e08e21d2443caf93e49eb1b2cab4dcb1f931b276c089d":
+                raise DiagnosticError("source VOID adjudication identity mismatch")
+            record["source_void"] = {"path": str(DEFAULT_OUTPUT), "adjudication_sha256": sha256_file(source_adjudication), "source_donor_executions": 1}
+        else:
+            record["donor_executions"] = 1
+            assert reference is not None
+            command = run_command([str(reference), "--model", str(MODEL), "--out-dir", str(trace), "--arm", "prefill8"], output, "capture_reference", timeout=3600)
+            record["commands"].append(command)
+            require_ok(command, "pinned attention-stage capture")
         paths, callback_metadata = capture_payloads(trace)
 
         mapped = output / "mapped"
         mapped.mkdir()
-        captured_kq = callback_to_token_head(load_f32(paths["kq-0"], COUNT_SCORES), 8)
-        captured_softmax = callback_to_token_head(load_f32(paths["kq_soft_max-0"], COUNT_SCORES), 8)
+        padded_kq = callback_to_token_head(load_f32(paths["kq-0"], COUNT_PADDED_SCORES), 256).reshape(8, 32, 256)
+        padded_softmax = callback_to_token_head(load_f32(paths["kq_soft_max-0"], COUNT_PADDED_SCORES), 256).reshape(8, 32, 256)
+        captured_kq = padded_kq[:, :, :8].copy().reshape(COUNT_SCORES)
+        captured_softmax = padded_softmax[:, :, :8].copy().reshape(COUNT_SCORES)
+        padded_softmax_zero = bool(np.count_nonzero(padded_softmax[:, :, 8:]) == 0)
         true_kqv = callback_to_token_head(load_f32(paths["kqv-0"], COUNT_LATENT), 512)
         mapped_kq = mapped / "kq-0.token_head_slot.f32le"
         mapped_softmax = mapped / "kq_soft_max-0.token_head_slot.f32le"
@@ -239,6 +254,7 @@ def main() -> int:
             "identity_clean_source_and_prior_payloads": True,
             "model_free_tests_and_selftests": True,
             "callback_completeness_shapes_ops_and_finiteness": True,
+            "padded_softmax_slots_exact_zero": padded_softmax_zero,
             "q_mutation_fires": not bool(results["mutated_q_vs_kq"]["pass"]),
             "probability_swap_fires": not bool(results["swapped_probability_vs_kqv"]["pass"]),
             "unrounded_f32_cache_fires": not bool(results["f32_cache_qk"]["pass"] and results["f32_cache_value_reduction"]["pass"]),
@@ -251,15 +267,15 @@ def main() -> int:
                 "git_head": head,
                 "model": {"path": str(MODEL), "bytes": MODEL_BYTES, "sha256": MODEL_SHA},
                 "llama_cpp": {"path": str(PINNED_LLAMA), "head": llama_head, "graph_sha256": PINNED_GRAPH_SHA},
-                "reference_binary": {"path": str(reference), "sha256": sha256_file(reference)},
+                "reference_binary": None if reference is None else {"path": str(reference), "sha256": sha256_file(reference)},
                 "helper_binary": {"path": str(helper), "sha256": sha256_file(helper)},
                 "critical_source_hashes": {str(path.relative_to(ROOT)): sha256_file(path) for path in CRITICAL_PATHS},
             },
             "callback_metadata": callback_metadata,
-            "axis_mapping": "raw [head,query,slot-or-width] transposed to [query,head,slot-or-width]",
+            "axis_mapping": "raw [head,query,padded-slot-or-width] transposed to [query,head,padded-slot-or-width]; KQ gates slice occupied slots 0:8",
             "controls": controls,
             "results": results,
-            "outputs": {str(path.relative_to(output)): {"bytes": path.stat().st_size, "sha256": sha256_file(path)}
+            "outputs": {(str(path.relative_to(output)) if path.is_relative_to(output) else str(path)): {"bytes": path.stat().st_size, "sha256": sha256_file(path)}
                 for path in list(paths.values()) + [mapped_kq, mapped_softmax, mapped_kqv] + [item for item in products.iterdir() if item.is_file()]},
             "non_claims": ["production attention repair", "Rung 2B", "quality", "RAM", "speed"],
         })
