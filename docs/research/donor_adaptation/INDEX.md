@@ -12,6 +12,13 @@ zero donor graphs. Do not repeat; freeze combined RMSNorm+K-B propagation.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_KB_Q5_0_Q8_0_DIAGNOSTIC_PROTOCOL_20260921.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_KB_Q5_0_Q8_0_DIAGNOSTIC_RESULT_20260921.md).
 
+**STRAT-01 combined RMSNorm + K-B propagation (21 September):**
+The [protocol](probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_PROTOCOL_20260921.md)
+is frozen before implementation. It composes only the independently measured
+double-RMSNorm and Q5_0×Q8_0 semantics, requires exact standalone K-B
+checkpoint hashes, and propagates through both block-0 schedules and the
+unchanged dense FFN gates. This is the current engine-fidelity cell.
+
 **STRAT-01 upstream RMSNorm propagation diagnostic (21 September):**
 Closed as **`UPSTREAM_DOUBLE_RMSNORM_INSUFFICIENT_FOR_PROJECTION_GATES`**.
 Double semantics make `attn_norm-0` exact and improve `ffn_inp-0` NRMSE from
