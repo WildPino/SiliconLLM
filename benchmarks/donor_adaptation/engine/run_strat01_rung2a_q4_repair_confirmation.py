@@ -46,11 +46,15 @@ from benchmarks.donor_adaptation.engine.run_strat01_q4k_q8k_repair import (
 
 HERE = Path(__file__).resolve().parent
 PROTOCOL = ROOT / "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md"
+ATTENTION_VB_PROTOCOL = ROOT / "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_VB_REPAIR_PROTOCOL_20260921.md"
 SOURCE_RUN = HERE / "results/strat01_gigachat_engine_rung2a_repair2_20260921"
 SOURCE_MANIFEST_SHA = "0f91db875cada58b054dfcfd57161668a92d17bfc2d27c43af206c0652ef372f"
 REPAIR_ADJUDICATION = HERE / "results/strat01_gigachat_engine_q4k_q8k_repair1_20260921/adjudication.json"
 REPAIR_ADJUDICATION_SHA = "53931d8e141c9e6faff2fce04d1665ff71fd8976e6a3c763721ddcd5435fdc39"
+F16_DOT_ADJUDICATION = HERE / "results/strat01_gigachat_engine_f16_vec_dot_repair2_20260921/adjudication.json"
+F16_DOT_ADJUDICATION_SHA = "d9691cbcd569681f970e5e4af553cec75a7f86ec47f66acbec2a111288239e0a"
 DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_rung2a_q4_repair_confirmation_20260921"
+ATTENTION_VB_OUTPUT = HERE / "results/strat01_gigachat_engine_attention_vb_repair_20260921"
 TIGHT_LIMITS = (2e-6, 1e-5)
 REQUIRED_TENSORS = ("attn_norm-0", "q-0", "kv_cmpr_pe-0")
 
@@ -146,18 +150,29 @@ def classify(primary: list[dict[str, Any]], continuity: dict[str, Any], negative
     return "FAIL_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION"
 
 
+def classify_attention_vb(full: dict[str, Any], continuity: dict[str, Any]) -> str:
+    complete = bool(full.get("tensor_results")) and bool(full.get("cache_results"))
+    passed = complete and all(bool(item["pass"]) for item in full["tensor_results"] + full["cache_results"])
+    return "PASS_ENGINE_ATTENTION_VB_REPAIR" if passed and bool(continuity["pass"]) else "FAIL_ENGINE_ATTENTION_VB_REPAIR"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--output-dir", type=Path)
+    parser.add_argument("--attention-vb-repair", action="store_true")
     args = parser.parse_args()
-    output = args.output_dir.resolve()
+    attention_vb = args.attention_vb_repair
+    output = (args.output_dir or (ATTENTION_VB_OUTPUT if attention_vb else DEFAULT_OUTPUT)).resolve()
     if output.exists():
         raise ConfirmationError("output directory already exists; raw evidence is immutable")
     output.mkdir(parents=True)
     started = time.perf_counter()
+    void_status = "VOID_ENGINE_ATTENTION_VB_REPAIR" if attention_vb else "VOID_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION"
+    protocol = ATTENTION_VB_PROTOCOL if attention_vb else PROTOCOL
+    critical_paths = tuple(path for path in CRITICAL_PATHS if path != PROTOCOL) + (protocol,)
     record: dict[str, Any] = {
-        "schema": "strat01_rung2a_q4_repair_confirmation_v1",
-        "status": "VOID_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION",
+        "schema": "strat01_attention_vb_repair_v1" if attention_vb else "strat01_rung2a_q4_repair_confirmation_v1",
+        "status": void_status,
         "started_utc": utc_now(),
         "c_donor_executions": 0,
         "reference_donor_executions": 0,
@@ -166,7 +181,7 @@ def main() -> int:
     }
     try:
         dirty = subprocess.run(
-            ["git", "diff", "--quiet", "HEAD", "--", *map(str, CRITICAL_PATHS)],
+            ["git", "diff", "--quiet", "HEAD", "--", *map(str, critical_paths)],
             cwd=ROOT, check=False,
         )
         if dirty.returncode:
@@ -182,6 +197,12 @@ def main() -> int:
         repair = read_json(REPAIR_ADJUDICATION, "accepted repair adjudication")
         if repair.get("status") != "PASS_ENGINE_Q4K_Q8K_REPAIR":
             raise ConfirmationError("accepted repair did not pass")
+        if attention_vb:
+            if sha256_file(F16_DOT_ADJUDICATION) != F16_DOT_ADJUDICATION_SHA:
+                raise ConfirmationError("accepted F16-dot adjudication identity mismatch")
+            f16_dot = read_json(F16_DOT_ADJUDICATION, "accepted F16-dot adjudication")
+            if f16_dot.get("status") != "F16_CONVERSION_ONLY_SUFFICIENT":
+                raise ConfirmationError("accepted F16-dot diagnostic did not pass both stages")
         if not MODEL.is_file() or MODEL.stat().st_size != MODEL_BYTES:
             raise ConfirmationError("accepted GGUF is absent or has wrong size")
 
@@ -196,7 +217,7 @@ def main() -> int:
         clang = shutil.which("clang")
         if not clang:
             raise ConfirmationError("clang is unavailable")
-        binary = output / "engine_rung2a_q4_repair.exe"
+        binary = output / ("engine_attention_vb_repair.exe" if attention_vb else "engine_rung2a_q4_repair.exe")
         compile_record = run_command(
             [clang, "-std=c11", "-O3", "-mavx2", "-mfma", str(ENGINE), "-o", str(binary), "-lm"],
             output, "compile",
@@ -232,7 +253,7 @@ def main() -> int:
         continuity = continuity_result(c_tensors)
         full = adjudicate(c_tensors, reference_tensors, c_cache, reference_cache)
         first_failures = first_downstream_failures(full)
-        status = classify(primary, continuity, negatives)
+        status = classify_attention_vb(full, continuity) if attention_vb else classify(primary, continuity, negatives)
         record.update({
             "status": status,
             "finished_utc": utc_now(),
@@ -242,8 +263,9 @@ def main() -> int:
                 "model": {"path": str(MODEL), "bytes": MODEL_BYTES, "sha256": MODEL_SHA},
                 "source_run_manifest_sha256": SOURCE_MANIFEST_SHA,
                 "repair_adjudication_sha256": REPAIR_ADJUDICATION_SHA,
+                "f16_dot_adjudication_sha256": F16_DOT_ADJUDICATION_SHA if attention_vb else None,
                 "binary": {"path": str(binary), "sha256": sha256_file(binary)},
-                "critical_source_hashes": {str(path.relative_to(ROOT)): sha256_file(path) for path in CRITICAL_PATHS},
+                "critical_source_hashes": {str(path.relative_to(ROOT)): sha256_file(path) for path in critical_paths},
             },
             "controls": {
                 "critical_sources_committed": True,
@@ -275,6 +297,8 @@ def main() -> int:
     return 0 if record["status"] in {
         "PASS_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION",
         "FAIL_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION",
+        "PASS_ENGINE_ATTENTION_VB_REPAIR",
+        "FAIL_ENGINE_ATTENTION_VB_REPAIR",
     } else 2
 
 

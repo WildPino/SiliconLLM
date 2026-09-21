@@ -233,10 +233,17 @@ static int strat01_r2a_kb_batch(const char *path,const strat01_tensor *t,const f
 }
 
 static int strat01_r2a_vb_batch(const char *path,const strat01_tensor *t,const float *latent,float *out,char error[256]) {
-    FILE *f=NULL;uint64_t bv,bb,blocks,row;unsigned which,n,j,tok,head,vo;float w[256];
+    FILE *f=NULL;uint64_t bv,bb,blocks,row_bytes;unsigned which,tok,head,vo;strat01_q8_k_block q8[8U*2U];uint8_t raw[2U*STRAT01_Q4_K_BLOCK_BYTES];
     if(!strat01_tensor_type(t->type,&bv,&bb,&which)||t->type!=STRAT01_GGML_Q4_K||t->dims[0]!=512||t->dims[1]!=192||t->dims[2]!=32){snprintf(error,256,"rung-2A V-B descriptor mismatch");return 0;}
-    blocks=512/bv;memset(out,0,(size_t)8*6144*sizeof(float));f=fopen(path,"rb");if(!f||!strat01_r2a_seek(f,t->file_offset,error)){if(f)fclose(f);return 0;}
-    for(row=0;row<32U*192U;++row){head=(unsigned)(row/192U);vo=(unsigned)(row%192U);for(uint64_t blk=0;blk<blocks;++blk){if(!strat01_r2a_read_qblock(f,t->type,w,&n,error)){fclose(f);return 0;}for(tok=0;tok<8;++tok){float acc=out[(size_t)tok*6144+(size_t)head*192+vo];const float *x=latent+((size_t)tok*32+head)*512+(size_t)blk*bv;for(j=0;j<n;++j)acc+=w[j]*x[j];out[(size_t)tok*6144+(size_t)head*192+vo]=acc;}}}
+    if(bv!=STRAT01_QK_K||bb!=STRAT01_Q4_K_BLOCK_BYTES){snprintf(error,256,"rung-2A V-B Q4_K/Q8_K contract failure");return 0;}
+    blocks=512U/STRAT01_QK_K;row_bytes=blocks*STRAT01_Q4_K_BLOCK_BYTES;memset(out,0,(size_t)8*6144*sizeof(float));f=fopen(path,"rb");if(!f||!strat01_r2a_seek(f,t->file_offset,error)){if(f)fclose(f);return 0;}
+    for(head=0;head<32U;++head){
+        for(tok=0;tok<8U;++tok)if(!strat01_quantize_q8_k_row(latent+((size_t)tok*32U+head)*512U,512U,q8+(size_t)tok*blocks)){snprintf(error,256,"rung-2A V-B Q8_K activation quantization failed");fclose(f);return 0;}
+        for(vo=0;vo<192U;++vo){
+            if(fread(raw,1,(size_t)row_bytes,f)!=(size_t)row_bytes){snprintf(error,256,"rung-2A V-B Q4_K row short read");fclose(f);return 0;}
+            for(tok=0;tok<8U;++tok){float value=strat01_q4k_q8k_dot(raw,q8+(size_t)tok*blocks,512U);if(!isfinite(value)){snprintf(error,256,"rung-2A V-B Q4_K/Q8_K non-finite output");fclose(f);return 0;}out[(size_t)tok*6144U+(size_t)head*192U+vo]=value;}
+        }
+    }
     if(ferror(f)||fclose(f)!=0){snprintf(error,256,"rung-2A V-B I/O failure");return 0;}return 1;
 }
 
@@ -249,7 +256,7 @@ static void strat01_r2a_attend_one(const strat01_r2a_arm *a,unsigned tok,float *
     /* llama-graph.cpp:2958-2978 views the first 512 components of the stored
      * K row as V, performs causal attention, then applies attn_v_b. */
     float scale=strat01_r2a_kq_scale();
-    for(unsigned h=0;h<32;++h){float scores[8],mx=-INFINITY,sum=0.0f;const float *q=a->qcur+((size_t)tok*32+h)*576;for(unsigned s=0;s<=tok;++s){float dot=0.0f;for(unsigned i=0;i<576;++i)dot+=q[i]*strat01_r2a_f16_to_f32(a->cache[s][i]);scores[s]=dot*scale;if(scores[s]>mx)mx=scores[s];}for(unsigned s=0;s<=tok;++s){scores[s]=expf(scores[s]-mx);sum+=scores[s];}for(unsigned i=0;i<512;++i){float v=0.0f;for(unsigned s=0;s<=tok;++s)v+=(scores[s]/sum)*strat01_r2a_f16_to_f32(a->cache[s][i]);latent[((size_t)tok*32+h)*512+i]=v;}}
+    for(unsigned h=0;h<32;++h){float scores[8],mx=-INFINITY,sum=0.0f;uint16_t q16[576],prob16[8];const float *q=a->qcur+((size_t)tok*32+h)*576;for(unsigned i=0;i<576;++i)q16[i]=strat01_r2a_f32_to_f16(q[i]);for(unsigned s=0;s<=tok;++s){float dot=0.0f;for(unsigned i=0;i<576;++i)dot+=strat01_r2a_f16_to_f32(q16[i])*strat01_r2a_f16_to_f32(a->cache[s][i]);scores[s]=dot*scale;if(scores[s]>mx)mx=scores[s];}for(unsigned s=0;s<=tok;++s){scores[s]=expf(scores[s]-mx);sum+=scores[s];}for(unsigned s=0;s<=tok;++s)prob16[s]=strat01_r2a_f32_to_f16(scores[s]/sum);for(unsigned i=0;i<512;++i){float v=0.0f;for(unsigned s=0;s<=tok;++s)v+=strat01_r2a_f16_to_f32(prob16[s])*strat01_r2a_f16_to_f32(a->cache[s][i]);latent[((size_t)tok*32+h)*512+i]=v;}}
 }
 
 static int strat01_r2a_arm_alloc(strat01_r2a_arm *a,char error[256]) {
@@ -438,7 +445,7 @@ static int strat01_gguf_rung2a_selftest(void) {
     CHECK(strat01_r2a_f16_to_f32(strat01_r2a_f32_to_f16(0x1p-24f))==0x1p-24f);  /* smallest subnormal */
     CHECK(strat01_r2a_f32_to_f16(-0x1p-24f)==0x8001U);
     {float x[4]={1,2,3,4},w[4]={1,1,1,1},y[4];strat01_r2a_rmsnorm(x,w,y,1,4,0);CHECK(fabsf(y[0]-1.0f/sqrtf(7.5f))<1e-6f);}
-    {float *q=(float *)calloc(2U*32U*576U,sizeof(float));float *lat0=(float *)calloc(2U*32U*512U,sizeof(float));float *lat1=(float *)calloc(2U*32U*512U,sizeof(float));strat01_r2a_arm pre,cached;memset(&pre,0,sizeof(pre));memset(&cached,0,sizeof(cached));CHECK(q&&lat0&&lat1);if(q&&lat0&&lat1){pre.qcur=cached.qcur=q;q[((size_t)1*32)*576]=1.0f;float k0[576]={0},k1[576]={0};k0[0]=1.0f;k1[0]=3.0f;strat01_r2a_cache_write(&pre,0,k0);strat01_r2a_cache_write(&pre,1,k1);strat01_r2a_attend_one(&pre,0,lat0);CHECK(lat0[0]==1.0f);strat01_r2a_attend_one(&pre,1,lat0);float sc=strat01_r2a_kq_scale(),expected=(expf(sc)*1.0f+expf(3.0f*sc)*3.0f)/(expf(sc)+expf(3.0f*sc));CHECK(fabsf(lat0[(size_t)32*512]-expected)<1e-6f);strat01_r2a_cache_write(&cached,0,k0);strat01_r2a_cache_write(&cached,1,k1);strat01_r2a_attend_one(&cached,1,lat1);CHECK(!memcmp(lat0+(size_t)32*512,lat1+(size_t)32*512,32U*512U*sizeof(float)));}free(q);free(lat0);free(lat1);}
+    {float *q=(float *)calloc(2U*32U*576U,sizeof(float));float *lat0=(float *)calloc(2U*32U*512U,sizeof(float));float *lat1=(float *)calloc(2U*32U*512U,sizeof(float));strat01_r2a_arm pre,cached;memset(&pre,0,sizeof(pre));memset(&cached,0,sizeof(cached));CHECK(q&&lat0&&lat1);if(q&&lat0&&lat1){pre.qcur=cached.qcur=q;q[((size_t)1*32)*576]=1.0f;float k0[576]={0},k1[576]={0};k0[0]=1.0f;k1[0]=3.0f;strat01_r2a_cache_write(&pre,0,k0);strat01_r2a_cache_write(&pre,1,k1);strat01_r2a_attend_one(&pre,0,lat0);CHECK(lat0[0]==1.0f);strat01_r2a_attend_one(&pre,1,lat0);float sc=strat01_r2a_kq_scale(),den=expf(sc)+expf(3.0f*sc),p0=strat01_r2a_f16_to_f32(strat01_r2a_f32_to_f16(expf(sc)/den)),p1=strat01_r2a_f16_to_f32(strat01_r2a_f32_to_f16(expf(3.0f*sc)/den)),expected=p0*1.0f+p1*3.0f;CHECK(fabsf(lat0[(size_t)32*512]-expected)<1e-6f);strat01_r2a_cache_write(&cached,0,k0);strat01_r2a_cache_write(&cached,1,k1);strat01_r2a_attend_one(&cached,1,lat1);CHECK(!memcmp(lat0+(size_t)32*512,lat1+(size_t)32*512,32U*512U*sizeof(float)));}free(q);free(lat0);free(lat1);}
     {float p0[64]={0},p1[64]={0};p0[0]=p1[0]=1.0f;strat01_r2a_rope64(p0,0);strat01_r2a_rope64(p1,1);CHECK(p0[0]!=p1[0]||p0[1]!=p1[1]);}
     {float k[8][576];uint16_t a[8][576]={0},b[8][576]={0};for(unsigned t=0;t<8;++t)for(unsigned i=0;i<576;++i)k[t][i]=(float)((int)(t*7+i%11)-5)*0.01f;for(unsigned t=0;t<8;++t)for(unsigned i=0;i<576;++i)a[t][i]=strat01_r2a_f32_to_f16(k[t][i]);for(unsigned t=0;t<7;++t)for(unsigned i=0;i<576;++i)b[t][i]=strat01_r2a_f32_to_f16(k[t][i]);for(unsigned i=0;i<576;++i)b[7][i]=strat01_r2a_f32_to_f16(k[7][i]);CHECK(!memcmp(a,b,sizeof(a)));}
     {float residual[3]={1,2,3},proj[3]={.25f,-.5f,1},good[3],omitted[3];for(unsigned i=0;i<3;++i){good[i]=residual[i]+proj[i];omitted[i]=proj[i];}CHECK(memcmp(good,omitted,sizeof(good))!=0);}

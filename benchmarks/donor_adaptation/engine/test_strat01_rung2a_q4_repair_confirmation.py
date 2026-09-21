@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from benchmarks.donor_adaptation.engine.run_strat01_rung2a_q4_repair_confirmation import classify
+from benchmarks.donor_adaptation.engine.run_strat01_rung2a_q4_repair_confirmation import classify, classify_attention_vb
 
 
 def result(passed: bool) -> dict[str, bool]:
@@ -31,6 +31,14 @@ class Rung2AQ4RepairConfirmationTests(unittest.TestCase):
             classify([result(True)] * 6, result(True), negatives),
             "VOID_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION",
         )
+
+    def test_attention_vb_requires_every_full_gate_and_continuity(self) -> None:
+        full = {"tensor_results": [result(True)] * 24, "cache_results": [result(True)] * 3}
+        self.assertEqual(classify_attention_vb(full, result(True)), "PASS_ENGINE_ATTENTION_VB_REPAIR")
+        full["tensor_results"][-1] = result(False)
+        self.assertEqual(classify_attention_vb(full, result(True)), "FAIL_ENGINE_ATTENTION_VB_REPAIR")
+        full["tensor_results"][-1] = result(True)
+        self.assertEqual(classify_attention_vb(full, result(False)), "FAIL_ENGINE_ATTENTION_VB_REPAIR")
 
 
 if __name__ == "__main__":
