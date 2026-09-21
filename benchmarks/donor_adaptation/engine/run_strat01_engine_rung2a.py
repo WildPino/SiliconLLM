@@ -323,7 +323,8 @@ def reference_source_identity(selection: dict[str, Any], arm: str, name: str) ->
         sources = [selection["prefix_source"], selection["final_source"]]
     token_lengths: list[int] = []
     for source in sources:
-        if source.get("name") != name or source.get("op") != EXPECTED_OPS[name] or source.get("ordinal") != EXPECTED_ORDINALS[name] or source.get("type") not in {"F32", "F16"}:
+        source_type = source.get("type")
+        if source.get("name") != name or source.get("op") != EXPECTED_OPS[name] or source.get("ordinal") != EXPECTED_ORDINALS[name] or not isinstance(source_type, str) or source_type.upper() not in {"F32", "F16"}:
             raise RunnerError(f"reference {arm}/{name} callback identity mismatch")
         shape = source.get("shape")
         if not isinstance(shape, list) or len(shape) != len(SHAPES[name]) or shape[:-1] != SHAPES[name][:-1]:
@@ -447,14 +448,110 @@ def adjudicate(c_tensors: dict[str, np.ndarray], ref_tensors: dict[str, np.ndarr
     }
 
 
+def adjudicate_existing_run(source_run: Path, output: Path, model: Path) -> int:
+    source_run = source_run.resolve(strict=True)
+    if not source_run.is_dir():
+        raise SystemExit(f"existing run is not a directory: {source_run}")
+    if output.exists() and (not output.is_dir() or any(output.iterdir())):
+        raise SystemExit(f"refusing non-empty or non-directory output path: {output}")
+    output.mkdir(parents=True, exist_ok=True)
+
+    started_utc = utc_now()
+    started = time.perf_counter()
+    status = "VOID_ENGINE_RUNG2A"
+    errors: list[str] = []
+    adjudication: dict[str, Any] = {"status": "NOT_RUN", "tensor_results": [], "continuity_results": [], "cache_results": [], "failures": []}
+    c_metadata: dict[str, Any] = {}
+    reference_metadata: dict[str, Any] = {}
+    source_manifest_path = source_run / "run_manifest.json"
+    source_adjudication_path = source_run / "adjudication.json"
+    source_manifest: dict[str, Any] = {}
+    artifact = {"path": str(model), "expected_bytes": EXPECTED_BYTES, "expected_sha256": EXPECTED_SHA256, "bytes": None, "sha256": None}
+    source_hashes: dict[str, Any] = {}
+
+    try:
+        source_hashes = source_inventory()
+        if not model.is_file() or model.stat().st_size != EXPECTED_BYTES:
+            raise RunnerError("frozen accepted artifact is absent or has the wrong byte size")
+        artifact_sha = sha256_file(model)
+        artifact.update({"bytes": model.stat().st_size, "sha256": artifact_sha})
+        if artifact_sha != EXPECTED_SHA256:
+            raise RunnerError("frozen accepted artifact SHA-256 mismatch")
+
+        source_manifest = read_json(source_manifest_path, "source run manifest")
+        if source_manifest.get("schema") != "strat01_gigachat_engine_rung2a_run_manifest_v1" or source_manifest.get("status") != "VOID_ENGINE_RUNG2A":
+            raise RunnerError("source run is not the preserved Rung-2A VOID expected for offline adjudication")
+        commands = source_manifest.get("provenance", {}).get("commands", {})
+        for label in ("accepted_artifact_c_engine", "accepted_artifact_pinned_reference"):
+            if commands.get(label, {}).get("returncode") != 0:
+                raise RunnerError(f"source run {label} did not complete successfully")
+
+        c_tensors, c_metadata, c_cache = validate_c_outputs(source_run / "c_engine", source_hashes, model)
+        ref_tensors, reference_metadata, ref_cache = validate_reference_outputs(source_run / "pinned_reference", model)
+        adjudication = adjudicate(c_tensors, ref_tensors, c_cache, ref_cache)
+        status = adjudication["status"]
+    except RunnerError as exc:
+        errors.append(str(exc))
+    except Exception as exc:
+        errors.append(f"unexpected {type(exc).__name__}: {exc}")
+
+    provenance = {
+        "started_utc": started_utc,
+        "finished_utc": utc_now(),
+        "seconds": time.perf_counter() - started,
+        "mode": "offline_revalidation_and_adjudication_only",
+        "donor_executions": 0,
+        "source_run": str(source_run),
+        "source_run_manifest_sha256": sha256_file(source_manifest_path) if source_manifest_path.is_file() else None,
+        "source_adjudication_sha256": sha256_file(source_adjudication_path) if source_adjudication_path.is_file() else None,
+        "source_run_git_head": source_manifest.get("provenance", {}).get("git_head") if source_manifest else None,
+        "adjudicator_git_head": git_value(["git", "rev-parse", "HEAD"]),
+        "adjudicator_git_status_porcelain": git_value(["git", "status", "--porcelain"]),
+        "source_hashes": source_hashes,
+        "artifact": artifact,
+    }
+    record = {
+        "schema": "strat01_gigachat_engine_rung2a_offline_adjudication_v1",
+        "status": status,
+        "scope": "offline validation and frozen-gate adjudication of already captured paired block-0 MLA payloads",
+        "errors": errors,
+        "adjudication": adjudication,
+        "c_metadata": c_metadata,
+        "reference_metadata": reference_metadata,
+        "non_claims": NON_CLAIMS,
+        "provenance": provenance,
+    }
+    manifest = {
+        "schema": "strat01_gigachat_engine_rung2a_offline_run_manifest_v1",
+        "status": status,
+        "gate_summary": {
+            "source_processes_succeeded": all(source_manifest.get("provenance", {}).get("commands", {}).get(key, {}).get("returncode") == 0 for key in ("accepted_artifact_c_engine", "accepted_artifact_pinned_reference")) if source_manifest else False,
+            "c_output_validated": bool(c_metadata),
+            "reference_output_validated": bool(reference_metadata),
+            "all_numerical_gates_pass": adjudication.get("status") == "PASS_ENGINE_RUNG2A",
+        },
+        "errors": errors,
+        "provenance": provenance,
+    }
+    write_json(output / "adjudication.json", record)
+    write_json(output / "run_manifest.json", manifest)
+    print(json.dumps({"status": status, "output": str(output), "source_run": str(source_run), "errors": errors}, indent=2))
+    return 0 if status == "PASS_ENGINE_RUNG2A" else 2
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model", type=Path, default=DEFAULT_MODEL)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--apparatus-only", action="store_true", help="build and run model-free gates, but do not read or execute the donor")
+    parser.add_argument("--adjudicate-existing", type=Path, help="validate and adjudicate an already captured run without executing either donor arm")
     args = parser.parse_args()
     model = args.model.resolve()
     output = args.output_dir.resolve()
+    if args.apparatus_only and args.adjudicate_existing is not None:
+        raise SystemExit("--apparatus-only and --adjudicate-existing are mutually exclusive")
+    if args.adjudicate_existing is not None:
+        return adjudicate_existing_run(args.adjudicate_existing, output, model)
     if output.exists() and (not output.is_dir() or any(output.iterdir())):
         raise SystemExit(f"refusing non-empty or non-directory output path: {output}")
     output.mkdir(parents=True, exist_ok=True)

@@ -13,6 +13,24 @@ from benchmarks.donor_adaptation.engine import run_strat01_engine_rung2a as runn
 
 
 class Rung2ARunnerTests(unittest.TestCase):
+    def test_reference_callback_type_uses_ggml_case_insensitively(self) -> None:
+        selection = {
+            "logical_shape": runner.SHAPES["attn_norm-0"],
+            "composition": "single_prefill8_callback",
+            "source": {
+                "name": "attn_norm-0",
+                "op": runner.EXPECTED_OPS["attn_norm-0"],
+                "ordinal": runner.EXPECTED_ORDINALS["attn_norm-0"],
+                "type": "f32",
+                "shape": runner.SHAPES["attn_norm-0"],
+            },
+        }
+        _, token_lengths = runner.reference_source_identity(selection, "prefill8", "attn_norm-0")
+        self.assertEqual(token_lengths, [8])
+        selection["source"]["type"] = "q4_K"
+        with self.assertRaises(runner.RunnerError):
+            runner.reference_source_identity(selection, "prefill8", "attn_norm-0")
+
     def test_frozen_metric_definition_and_gate(self) -> None:
         reference = np.array([3.0, 4.0], dtype=np.float32)
         candidate = np.array([3.0, 3.0], dtype=np.float32)
