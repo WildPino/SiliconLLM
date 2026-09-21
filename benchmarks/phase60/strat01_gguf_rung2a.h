@@ -10,6 +10,7 @@
 
 #include <float.h>
 #include <limits.h>
+#include "strat01_q4k_q8k.h"
 
 /* C11-standard contraction control for every rung-2A numerical primitive.
  * Restored at the end of this header so the historical engine is unaffected. */
@@ -177,6 +178,22 @@ static int strat01_r2a_matmul_batch(const char *path,const strat01_tensor *t,con
     FILE *f=NULL;uint64_t bv,bb,blocks,row;unsigned which,n,b,j;float w[256];
     if(!strat01_tensor_type(t->type,&bv,&bb,&which)||t->type==STRAT01_GGML_F32||t->dims[0]!=in||in%bv){snprintf(error,256,"rung-2A matmul descriptor/divisibility failure");return 0;}
     {uint64_t r=1;for(j=1;j<t->rank;++j)if(!strat01_mul_u64(r,t->dims[j],&r)){snprintf(error,256,"rung-2A row count overflow");return 0;}if(r!=rows){snprintf(error,256,"rung-2A row count mismatch");return 0;}}
+    if(t->type==STRAT01_GGML_Q4_K){
+        strat01_q8_k_block *q8=NULL;uint8_t *raw=NULL;size_t q8_count,row_bytes;
+        if(bv!=STRAT01_QK_K||bb!=STRAT01_Q4_K_BLOCK_BYTES||!batch){snprintf(error,256,"rung-2A Q4_K/Q8_K contract failure");return 0;}
+        blocks=in/STRAT01_QK_K;
+        if(!strat01_r2a_safe_count((size_t)batch,(size_t)blocks,&q8_count)||!strat01_r2a_safe_count((size_t)blocks,STRAT01_Q4_K_BLOCK_BYTES,&row_bytes)){snprintf(error,256,"rung-2A Q4_K/Q8_K allocation overflow");return 0;}
+        q8=(strat01_q8_k_block *)malloc(q8_count*sizeof(*q8));raw=(uint8_t *)malloc(row_bytes);
+        if(!q8||!raw){free(q8);free(raw);snprintf(error,256,"rung-2A Q4_K/Q8_K allocation failed");return 0;}
+        for(b=0;b<batch;++b)if(!strat01_quantize_q8_k_row(x+(size_t)b*in,in,q8+(size_t)b*blocks)){free(q8);free(raw);snprintf(error,256,"rung-2A Q8_K activation quantization failed");return 0;}
+        f=fopen(path,"rb");if(!f||!strat01_r2a_seek(f,t->file_offset,error)){if(f)fclose(f);free(q8);free(raw);return 0;}
+        for(row=0;row<rows;++row){
+            if(fread(raw,1,row_bytes,f)!=row_bytes){snprintf(error,256,"rung-2A Q4_K row short read");fclose(f);free(q8);free(raw);return 0;}
+            for(b=0;b<batch;++b){float value=strat01_q4k_q8k_dot(raw,q8+(size_t)b*blocks,in);if(!isfinite(value)){snprintf(error,256,"rung-2A Q4_K/Q8_K non-finite output");fclose(f);free(q8);free(raw);return 0;}y[(size_t)b*rows+(size_t)row]=value;}
+        }
+        if(ferror(f)||fclose(f)!=0){snprintf(error,256,"rung-2A Q4_K/Q8_K I/O failure");free(q8);free(raw);return 0;}
+        free(q8);free(raw);return 1;
+    }
     memset(y,0,(size_t)batch*rows*sizeof(float));blocks=in/bv;f=fopen(path,"rb");if(!f||!strat01_r2a_seek(f,t->file_offset,error)){if(f)fclose(f);return 0;}
     for(row=0;row<rows;++row)for(uint64_t blk=0;blk<blocks;++blk){if(!strat01_r2a_read_qblock(f,t->type,w,&n,error)){fclose(f);return 0;}for(b=0;b<batch;++b){float acc=y[(size_t)b*rows+(size_t)row];const float *xb=x+(size_t)b*in+(size_t)blk*bv;for(j=0;j<n;++j)acc+=w[j]*xb[j];y[(size_t)b*rows+(size_t)row]=acc;}}
     if(ferror(f)||fclose(f)!=0){snprintf(error,256,"rung-2A matmul I/O failure");return 0;}return 1;
@@ -315,6 +332,61 @@ static int strat01_r2a_write_report(const char *out_dir,const char *path,uint64_
     char p[1024];FILE *o;if(!strat01_r2a_path(p,out_dir,"strat01_rung2a.json")||(o=fopen(p,"wb"))==NULL){snprintf(error,256,"cannot write rung-2A report");return 0;}fputs("{\n  \"command\": \"--strat01-gguf-rung2a\",\n  \"c_state\": \"ENGINE_OUTPUT_READY_PENDING_REFERENCE\",\n  \"self_certifies_pass\": false,\n  \"input_path\": ",o);strat01_json_string(o,path);fprintf(o,",\n  \"byte_size\": %" PRIu64 ",\n  \"sha256\": ",bytes);strat01_json_string(o,artifact_sha);fputs(",\n  \"reference_revision\": ",o);strat01_json_string(o,STRAT01_R2A_REFERENCE);fputs(",\n  \"CONFIG\": ",o);strat01_json_string(o,strat01_r2a_config);fputs(",\n  \"compiler_family\": \"clang\",\n  \"compiler_embedded_version\": ",o);strat01_json_string(o,STRAT01_R2A_COMPILER);fputs(",\n  \"compiler_resolved_path_and_full_version\": \"EXTERNAL_RUNNER_REQUIRED\",\n  \"engine_source_sha256\": ",o);strat01_json_string(o,engine_sha);fputs(",\n  \"rung2a_source_sha256\": ",o);strat01_json_string(o,header_sha);fputs(",\n  \"token_ids\": [1,72,14,14129,14,2135,1512,2015],\n  \"positions\": [0,1,2,3,4,5,6,7],\n  \"arms\": [{\"name\":\"prefill8\",\"manifest\":\"prefill8_manifest.json\"},{\"name\":\"cached7p1\",\"manifest\":\"cached7p1_manifest.json\"}],\n  \"timing_or_rate_claim\": null\n}\n",o);if(fclose(o)!=0){snprintf(error,256,"rung-2A report close failure");return 0;}return 1;
 }
 
+#define STRAT01_Q4Q8_INPUT_SHA "c8c7bd47772b1f153f28183892795b9bc91be978f5473bb322f869b2c10c1efd"
+
+static int strat01_q4q8_projection_descriptor_ok(const strat01_tensor *t,const char *name,uint64_t rows,uint64_t offset,uint64_t span,uint64_t file_offset) {
+    return t&&!strcmp(t->name,name)&&t->type==STRAT01_GGML_Q4_K&&t->rank==2&&
+           t->dims[0]==STRAT01_R2A_EMBD&&t->dims[1]==rows&&t->offset==offset&&
+           t->span==span&&t->file_offset==file_offset;
+}
+
+static int strat01_q4q8_read_input(const char *path,float *values,size_t count,char sha[65],char error[256]) {
+    FILE *stream=NULL;uint64_t bytes=0;size_t i;uint8_t raw[4];
+    if(!strat01_sha256_file(path,sha,&bytes,error)||bytes!=count*4U||strcmp(sha,STRAT01_Q4Q8_INPUT_SHA)){if(!error[0])snprintf(error,256,"Q4_K/Q8_K frozen input identity mismatch");return 0;}
+    stream=fopen(path,"rb");if(!stream){snprintf(error,256,"cannot open Q4_K/Q8_K input");return 0;}
+    for(i=0;i<count;++i){if(fread(raw,1,4,stream)!=4){snprintf(error,256,"Q4_K/Q8_K input short read");fclose(stream);return 0;}values[i]=strat01_r2a_f32le(raw);if(!isfinite(values[i])){snprintf(error,256,"Q4_K/Q8_K input is non-finite");fclose(stream);return 0;}}
+    if(ferror(stream)||fclose(stream)!=0){snprintf(error,256,"Q4_K/Q8_K input I/O failure");return 0;}return 1;
+}
+
+static int strat01_q4q8_write_output(const char *path,const float *values,size_t count,char sha[65],char error[256]) {
+    FILE *stream=fopen(path,"wb");uint64_t bytes=0;size_t i;uint8_t raw[4];
+    if(!stream){snprintf(error,256,"cannot open Q4_K/Q8_K output");return 0;}
+    for(i=0;i<count;++i){if(!isfinite(values[i])){snprintf(error,256,"Q4_K/Q8_K output is non-finite");fclose(stream);return 0;}strat01_rung1_put_f32le(raw,values[i]);if(fwrite(raw,1,4,stream)!=4){snprintf(error,256,"Q4_K/Q8_K output short write");fclose(stream);return 0;}}
+    if(fclose(stream)!=0||!strat01_sha256_file(path,sha,&bytes,error)||bytes!=count*4U){if(!error[0])snprintf(error,256,"Q4_K/Q8_K output I/O/hash failure");return 0;}return 1;
+}
+
+/* Diagnostic-only projection path.  It accepts only the frozen artifact,
+ * input and descriptors and never executes embeddings or the donor graph. */
+static int strat01_q4k_q8k_projection_cli(const char *model,const char *input,const char *out_dir) {
+    strat01_inventory inv;const strat01_tensor *q=NULL,*kv=NULL;float *x=NULL,*qout=NULL,*kvout=NULL;
+    char error[256]={0},model_sha[65]={0},input_sha[65]={0},q_sha[65]={0},kv_sha[65]={0};
+    char q_path[1024],kv_path[1024],report_path[1024];uint64_t hashed=0,parsed=0;FILE *report=NULL;int ok=0;
+    memset(&inv,0,sizeof(inv));
+#if FLT_RADIX != 2
+    snprintf(error,256,"non-binary floating point host");goto finish;
+#endif
+    if(sizeof(float)!=4||sizeof(strat01_q8_k_block)!=292){snprintf(error,256,"unsupported Q4_K/Q8_K host layout");goto finish;}
+    if(!strat01_sha256_file(model,model_sha,&hashed,error)||hashed!=STRAT01_EXPECTED_SIZE||strcmp(model_sha,STRAT01_EXPECTED_SHA256)){if(!error[0])snprintf(error,256,"frozen Q4_K/Q8_K artifact identity mismatch");goto finish;}
+    if(!strat01_parse_gguf(model,&inv,&parsed,error)||parsed!=hashed){if(!error[0])snprintf(error,256,"Q4_K/Q8_K GGUF parse/size mismatch");goto finish;}
+    q=strat01_rung1_find_tensor(&inv,"blk.0.attn_q.weight");kv=strat01_rung1_find_tensor(&inv,"blk.0.attn_kv_a_mqa.weight");
+    if(!strat01_q4q8_projection_descriptor_ok(q,"blk.0.attn_q.weight",6144,UINT64_C(279677952),UINT64_C(5308416),UINT64_C(285780864))||
+       !strat01_q4q8_projection_descriptor_ok(kv,"blk.0.attn_kv_a_mqa.weight",576,UINT64_C(273863680),UINT64_C(497664),UINT64_C(279966592))){snprintf(error,256,"frozen Q4_K/Q8_K descriptor mismatch");goto finish;}
+    x=strat01_r2a_alloc(8U*1536U,error);qout=strat01_r2a_alloc(8U*6144U,error);kvout=strat01_r2a_alloc(8U*576U,error);if(!x||!qout||!kvout)goto finish;
+    if(!strat01_q4q8_read_input(input,x,8U*1536U,input_sha,error)||
+       !strat01_r2a_matmul_batch(model,q,x,8U,1536U,qout,6144U,error)||
+       !strat01_r2a_matmul_batch(model,kv,x,8U,1536U,kvout,576U,error))goto finish;
+    if(!strat01_r2a_path(q_path,out_dir,"q.f32le")||!strat01_r2a_path(kv_path,out_dir,"kv.f32le")||!strat01_r2a_path(report_path,out_dir,"projection.json")){snprintf(error,256,"Q4_K/Q8_K output path overflow");goto finish;}
+    if(!strat01_q4q8_write_output(q_path,qout,8U*6144U,q_sha,error)||!strat01_q4q8_write_output(kv_path,kvout,8U*576U,kv_sha,error))goto finish;
+    report=fopen(report_path,"wb");if(!report){snprintf(error,256,"cannot write Q4_K/Q8_K report");goto finish;}
+    fputs("{\n  \"state\": \"ENGINE_Q4K_Q8K_OUTPUT_READY\",\n  \"self_certifies_pass\": false,\n  \"model_sha256\": ",report);strat01_json_string(report,model_sha);
+    fputs(",\n  \"input_sha256\": ",report);strat01_json_string(report,input_sha);fputs(",\n  \"q\": {\"path\": ",report);strat01_json_string(report,q_path);fputs(", \"sha256\": ",report);strat01_json_string(report,q_sha);fputs(", \"shape\": [8,6144]},\n  \"kv\": {\"path\": ",report);strat01_json_string(report,kv_path);fputs(", \"sha256\": ",report);strat01_json_string(report,kv_sha);fputs(", \"shape\": [8,576]},\n  \"donor_executions\": 0,\n  \"timing_or_rate_claim\": null\n}\n",report);
+    if(fclose(report)!=0){report=NULL;snprintf(error,256,"Q4_K/Q8_K report close failure");goto finish;}report=NULL;ok=1;
+finish:
+    if(report)fclose(report);free(x);free(qout);free(kvout);strat01_free_inventory(&inv);
+    if(!ok){fprintf(stderr,"STRAT-01 Q4_K/Q8_K projection refused: %s\n",error[0]?error:"unspecified failure");return 1;}
+    fprintf(stderr,"STRAT-01 Q4_K/Q8_K projection: ENGINE_Q4K_Q8K_OUTPUT_READY\n");return 0;
+}
+
 static int strat01_gguf_rung2a_cli(const char *path,const char *out_dir,const char *engine_source_path) {
     strat01_inventory inv;const strat01_tensor *ts[8]={0};strat01_r2a_arm pre,cache;strat01_r2a_dump dumps[12];char error[256]={0},artifact_sha[65]={0},engine_sha[65]={0},header_sha[65]={0};uint64_t hashed=0,parsed=0,tmp=0;char pf_cache_path[1024],pf_cache_sha[65],c7_prefix_path[1024],c7_prefix_sha[65],c7_final_path[1024],c7_final_sha[65];int ok=0;
     memset(&inv,0,sizeof(inv));memset(&pre,0,sizeof(pre));memset(&cache,0,sizeof(cache));
@@ -356,6 +428,7 @@ static int strat01_r2a_identity_ok(const uint32_t tok[8],const int32_t pos[8],co
 static int strat01_gguf_rung2a_selftest(void) {
     int bad=0,checks=0;float vals[]={0.0f,-0.0f,1.0f,-2.0f,65504.0f,0.00006103515625f};
 #define CHECK(x) do{++checks;if(!(x))++bad;}while(0)
+    CHECK(strat01_q4k_q8k_selftest()==0);
     for(unsigned i=0;i<sizeof(vals)/sizeof(vals[0]);++i)CHECK(strat01_r2a_f16_to_f32(strat01_r2a_f32_to_f16(vals[i]))==vals[i]);
     CHECK(strat01_r2a_f16_to_f32(strat01_r2a_f32_to_f16(1.00048828125f))==1.0f); /* exact halfway, ties-to-even */
     CHECK(strat01_r2a_f16_to_f32(strat01_r2a_f32_to_f16(0x1p-24f))==0x1p-24f);  /* smallest subnormal */

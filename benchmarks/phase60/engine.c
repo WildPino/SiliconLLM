@@ -1048,6 +1048,14 @@ int main(int argc,char**argv){
         return strat01_gguf_rung2a_cli(argv[2],argv[4],__FILE__);
     }
     if(argc==2 && !strcmp(argv[1],"--strat01-gguf-rung2a-selftest")) return strat01_gguf_rung2a_selftest();
+    if(argc==2 && !strcmp(argv[1],"--strat01-q4k-q8k-selftest")) return strat01_q4k_q8k_selftest();
+    if(argc>1 && !strcmp(argv[1],"--strat01-q4k-q8k-projection")){
+        if(argc!=7 || strcmp(argv[3],"--input") || strcmp(argv[5],"--out-dir")){
+            fprintf(stderr,"usage: engine --strat01-q4k-q8k-projection <accepted.gguf> --input <attn_norm.f32le> --out-dir <directory>\n");
+            return 1;
+        }
+        return strat01_q4k_q8k_projection_cli(argv[2],argv[4],argv[6]);
+    }
     /* Rung 0 is intentionally dispatched before legacy option parsing and
        before any E1M1/E4M1 synthetic loader can observe the input. */
     if(argc>1 && !strcmp(argv[1],"--strat01-gguf-inspect")){
