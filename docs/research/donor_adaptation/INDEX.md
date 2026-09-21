@@ -2,16 +2,23 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
-**STRAT-01 GigaChat 3.1 C-engine rung 2A protocol (21 September):**
-`PROPOSED`, frozen at commit `beb6a37`; no result yet. The changed coordinate
-from rung 1 is composed block-0 MLA attention semantics through
-`phase60/engine.c`, using one fixed eight-token source-ID prefix in paired
-`prefill8` and `cached7p1` arms. The protocol fixes the Q4 artifact and pinned
-llama.cpp revision, required intermediate tensors, F16 compact K-only cache,
-numerical gates, void handling, and one-run stop rule. It excludes dense
-SwiGLU, MoE, full logits/generation, tokenizer, quality, RAM, and rate. Do not
-widen the implementation to rung 2B/2C before 2A adjudication, and do not add
-its operational timings to the speed ledger. [Frozen protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_PROTOCOL_20260921.md).
+**STRAT-01 GigaChat 3.1 C-engine rung 2A (21 September):**
+Protocol frozen at commit `beb6a37`; first attempt is `VOID_ENGINE_RUNG2A` at
+apparatus commit `dbcbb01e10e2df883fe799589bce7e23e5fdeeee`. Exact accepted
+artifact identity, 21/21 model-free tests, C self-test (22 checks), and legacy
+self-test (73,024 checks) passed. C produced pending output; the pinned
+reference exited `3221225725` / `0xC00000FD` before model loading or trace
+production. Source inspection found a 1 MiB automatic SHA-256 buffer exhausting
+the default Windows stack. A narrow heap-buffer repair plus file-hash test is
+now `APPARATUS_READY_NO_DONOR_EXECUTION` in its own raw directory; the repair
+is committed at `5cdc826`, but the donor has not been run with it. No numerical
+PASS or FAIL has been measured. Preserve the first void; next perform the single allowed repaired
+donor execution in a fresh raw directory. Do not widen to 2B/2C before 2A
+adjudication. The operational durations are not speed evidence and do not enter
+the speed ledger. [Canonical void/repair record](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_RESULT_20260921.md),
+[frozen protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_PROTOCOL_20260921.md),
+[first-attempt raw](../../../benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_rung2a_20260921/),
+[apparatus-repair raw](../../../benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_rung2a_apparatus_repair1_20260921/).
 
 **STRAT-01 GigaChat 3.1 C-engine rung 1 (21 September):**
 `PASS_ENGINE_RUNG1` at implementation/run commit `d2f6351` after the frozen
