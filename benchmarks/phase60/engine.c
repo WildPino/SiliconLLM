@@ -29,6 +29,7 @@
 #include <immintrin.h>
 #include "strat01_gguf_inspect.h"
 #include "strat01_gguf_rung1.h"
+#include "strat01_gguf_rung2a.h"
 #ifdef _OPENMP
 #include <omp.h>
 #endif
@@ -1036,6 +1037,17 @@ static int kernel_selftest(void){
 }
 
 int main(int argc,char**argv){
+    /* Rung 2A is a separate, identity-gated block-0 MLA path.  Keep it ahead
+       of all historical option parsing so a GGUF path can never reach the
+       legacy E1M1/E4M1 loader. */
+    if(argc>1 && !strcmp(argv[1],"--strat01-gguf-rung2a")){
+        if(argc!=5 || strcmp(argv[3],"--out-dir")){
+            fprintf(stderr,"usage: engine --strat01-gguf-rung2a <accepted.gguf> --out-dir <directory>\n");
+            return 1;
+        }
+        return strat01_gguf_rung2a_cli(argv[2],argv[4],__FILE__);
+    }
+    if(argc==2 && !strcmp(argv[1],"--strat01-gguf-rung2a-selftest")) return strat01_gguf_rung2a_selftest();
     /* Rung 0 is intentionally dispatched before legacy option parsing and
        before any E1M1/E4M1 synthetic loader can observe the input. */
     if(argc>1 && !strcmp(argv[1],"--strat01-gguf-inspect")){
