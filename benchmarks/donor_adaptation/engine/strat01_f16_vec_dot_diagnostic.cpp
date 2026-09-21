@@ -85,6 +85,7 @@ void write_values(const std::filesystem::path &path, const std::vector<T> &value
 struct Products {
     std::vector<float> qk_scalar, qk_vec, qk_mutated, value_scalar, value_vec, value_mutated;
     std::vector<uint16_t> project_f16, pinned_f16;
+    std::vector<uint32_t> source_f32_bits;
 };
 
 Products evaluate(const std::vector<float> &qcur, const std::vector<float> &kcur, const std::vector<float> &softmax) {
@@ -94,17 +95,21 @@ Products evaluate(const std::vector<float> &qcur, const std::vector<float> &kcur
     std::vector<ggml_fp16_t> key_cache(kTokens * kQk), query(kQk), probabilities(kSlots), values(kSlots);
     const size_t audit_count = kcur.size() + qcur.size() + softmax.size();
     result.project_f16.reserve(audit_count); result.pinned_f16.reserve(audit_count);
+    result.source_f32_bits.reserve(audit_count);
     auto convert = [&](float value) -> ggml_fp16_t {
         const uint16_t project = project_f32_to_f16(value);
         const ggml_fp16_t pinned = ggml_fp32_to_fp16(value);
         result.project_f16.push_back(project); result.pinned_f16.push_back(pinned);
+        result.source_f32_bits.push_back(f32_bits(value));
         return pinned;
     };
     for (size_t i = 0; i < kcur.size(); ++i) key_cache[i] = convert(kcur[i]);
+    std::vector<ggml_fp16_t> all_queries(qcur.size()), all_probabilities(softmax.size());
+    for (size_t i = 0; i < qcur.size(); ++i) all_queries[i] = convert(qcur[i]);
+    for (size_t i = 0; i < softmax.size(); ++i) all_probabilities[i] = convert(softmax[i]);
     for (size_t token = 0; token < kTokens; ++token) {
         for (size_t head = 0; head < kHeads; ++head) {
-            const float *q = qcur.data() + (token * kHeads + head) * kQk;
-            for (size_t i = 0; i < kQk; ++i) query[i] = convert(q[i]);
+            std::memcpy(query.data(), all_queries.data() + (token * kHeads + head) * kQk, kQk * sizeof(ggml_fp16_t));
             for (size_t slot = 0; slot < kTokens; ++slot) {
                 float scalar = 0.0f, pinned = 0.0f, mutated = 0.0f;
                 const auto *key = key_cache.data() + slot * kQk;
@@ -117,8 +122,7 @@ Products evaluate(const std::vector<float> &qcur, const std::vector<float> &kcur
                 const size_t out = (token * kHeads + head) * kTokens + slot;
                 result.qk_scalar[out] = scalar; result.qk_vec[out] = pinned; result.qk_mutated[out] = mutated;
             }
-            const float *p = softmax.data() + (token * kHeads + head) * kSlots;
-            for (size_t slot = 0; slot < kSlots; ++slot) probabilities[slot] = convert(p[slot]);
+            std::memcpy(probabilities.data(), all_probabilities.data() + (token * kHeads + head) * kSlots, kSlots * sizeof(ggml_fp16_t));
             for (size_t feature = 0; feature < kLatent; ++feature) {
                 for (size_t slot = 0; slot < kSlots; ++slot) values[slot] = slot < kTokens ? key_cache[slot * kQk + feature] : 0;
                 float scalar = 0.0f, pinned = 0.0f, mutated = 0.0f;
@@ -173,6 +177,7 @@ int main(int argc, char **argv) {
         write_values(options.output / "value_mutated.f32le", products.value_mutated);
         write_values(options.output / "project_f16.bin", products.project_f16);
         write_values(options.output / "pinned_f16.bin", products.pinned_f16);
+        write_values(options.output / "source_f32_bits.bin", products.source_f32_bits);
         std::cout << "wrote F16 vec-dot diagnostic payloads\n";
         return 0;
     } catch (const std::exception &error) {

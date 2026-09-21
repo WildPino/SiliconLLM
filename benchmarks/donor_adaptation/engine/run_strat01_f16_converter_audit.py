@@ -34,7 +34,7 @@ HERE = Path(__file__).resolve().parent
 PROTOCOL = ROOT / "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_F16_CONVERTER_AUDIT_PROTOCOL_20260921.md"
 HELPER_SOURCE = HERE / "strat01_f16_vec_dot_diagnostic.cpp"
 TEST_SOURCE = HERE / "test_strat01_f16_converter_audit.py"
-DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_f16_converter_audit_20260921"
+DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_f16_converter_audit_repair1_20260921"
 SEGMENTS = (("kcur", 8 * 576), ("qcur", 8 * 32 * 576), ("softmax", COUNT_PADDED), ("boundary", 20))
 BOUNDARY_BITS = np.array([
     0x00000000, 0x80000000, 0x00000001, 0x80000001, 0x33000000,
@@ -101,12 +101,15 @@ def main() -> int:
         command = run_command([str(helper), "--qcur", str(qcur_path), "--kcur", str(kcur_path), "--padded-softmax", str(mapped_softmax), "--output-dir", str(products)], output, "conversion_audit", timeout=3600)
         record["commands"].append(command); require_ok(command, "conversion audit helper")
         project_path, pinned_path = products / "project_f16.bin", products / "pinned_f16.bin"
+        source_witness_path = products / "source_f32_bits.bin"
         expected_count = sum(count for _, count in SEGMENTS)
-        if project_path.stat().st_size != expected_count * 2 or pinned_path.stat().st_size != expected_count * 2: raise AuditError("conversion stream completeness failure")
+        if project_path.stat().st_size != expected_count * 2 or pinned_path.stat().st_size != expected_count * 2 or source_witness_path.stat().st_size != expected_count * 4: raise AuditError("conversion stream completeness failure")
         project = np.fromfile(project_path, dtype=np.dtype("<u2")); pinned = np.fromfile(pinned_path, dtype=np.dtype("<u2"))
         source = np.concatenate((kcur, qcur, softmax, BOUNDARY_BITS.view(np.dtype("<f4"))))
         if source.size != expected_count: raise AuditError("source population completeness failure")
         source_bits = source.view(np.dtype("<u4")); mismatch_indices = np.flatnonzero(project != pinned)
+        source_witness = np.fromfile(source_witness_path, dtype=np.dtype("<u4"))
+        if not np.array_equal(source_witness, source_bits): raise AuditError("helper conversion source-order witness mismatch")
         finite = np.isfinite(source); finite_mismatches = mismatch_indices[finite[mismatch_indices]]
         nan_indices = np.flatnonzero(np.isnan(source)); canonical_nan = bool(np.all((project[nan_indices] & 0x7E00) == 0x7E00) and np.array_equal(project[nan_indices], pinned[nan_indices]))
         by_segment = {name: 0 for name, _ in SEGMENTS}; by_class: dict[str, int] = {}
@@ -121,7 +124,7 @@ def main() -> int:
             "identity": {"git_head": head, "llama_cpp_head": llama_head, "helper": {"path": str(helper), "sha256": sha256_file(helper)}, "critical_source_hashes": {str(path.relative_to(ROOT)): sha256_file(path) for path in CRITICAL_PATHS}},
             "population": {"total": int(expected_count), "segments": {name: count for name, count in SEGMENTS}, "source_hashes": {"qcur": sha256_file(qcur_path), "kcur": sha256_file(kcur_path), "softmax": sha256_file(softmax_path)}},
             "results": {"total_mismatches": int(mismatch_indices.size), "finite_mismatches": int(finite_mismatches.size), "nan_count": int(nan_indices.size), "nan_policy_matches": canonical_nan, "mismatches_by_segment": by_segment, "mismatches_by_class": by_class, "first_mismatches": examples},
-            "outputs": {path.name: {"bytes": path.stat().st_size, "sha256": sha256_file(path)} for path in (project_path, pinned_path)},
+            "outputs": {path.name: {"bytes": path.stat().st_size, "sha256": sha256_file(path)} for path in (project_path, pinned_path, source_witness_path)},
             "non_claims": ["F16 vec-dot result", "production repair", "Rung 2B", "quality", "RAM", "speed"]})
     except Exception as error:
         record["errors"].append(str(error)); record["finished_utc"] = utc_now(); record["seconds"] = time.perf_counter() - started
