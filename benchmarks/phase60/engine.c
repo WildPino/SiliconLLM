@@ -27,6 +27,7 @@
 #include <math.h>
 #include <malloc.h>
 #include <immintrin.h>
+#include "strat01_gguf_inspect.h"
 #ifdef _OPENMP
 #include <omp.h>
 #endif
@@ -1034,6 +1035,15 @@ static int kernel_selftest(void){
 }
 
 int main(int argc,char**argv){
+    /* Rung 0 is intentionally dispatched before legacy option parsing and
+       before any E1M1/E4M1 synthetic loader can observe the input. */
+    if(argc>1 && !strcmp(argv[1],"--strat01-gguf-inspect")){
+        if(argc!=5 || strcmp(argv[3],"--json")){
+            fprintf(stderr,"usage: engine --strat01-gguf-inspect <accepted.gguf> --json <inventory.json>\n");
+            return 1;
+        }
+        return strat01_gguf_inspect_cli(argv[2],argv[4],__FILE__);
+    }
     int mlp_lut=1,skip=1,exp_fast=1;                 // default = the full optimized config
     int do_bpb=0,do_logits=0,do_tm=0; long seqW=512,eval_tok=200000,ntok=10240,offset=0,timetok=3000;
     int threads=1; const char* wp=NULL; const char* dumpto=NULL;
