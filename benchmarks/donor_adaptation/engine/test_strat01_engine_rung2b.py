@@ -29,6 +29,7 @@ class Rung2BTests(unittest.TestCase):
             self.assertIn(f'"{name}"',source)
         self.assertIn("strat01_engine_rung2b_reference_manifest_v1",source)
         self.assertIn('std::array<const char *, 7> kNames = {"ffn_inp-0"',source)
+        self.assertIn("inherited_rung2a_not_remeasured",source)
 
     def test_metric_and_token_slice_controls(self) -> None:
         values=np.arange(24,dtype=np.float32)

@@ -363,15 +363,21 @@ void write_trace_json(const fs::path & root, const Trace & trace) {
     const auto selected=payload_events(trace);
     std::vector<Payload> payloads;
     for (const auto & [logical,event] : selected) { payloads.push_back(write_payload(root,trace.arm,logical,"full",event.values)); payloads.push_back(write_payload(root,trace.arm,logical,"token7",token7_slice(event))); }
+#if !defined(STRAT01_RUNG2B)
     // In cached7p1, prefix Kcur is the logical cache witness.  This does not
     // claim access to llama.cpp's private physical cache bytes.
     if (trace.arm=="cached7p1") { const Event & k=one(trace.prefix_events,"Kcur-0"); payloads.push_back(write_payload(root,trace.arm,"Kcur-0","prefix_logical_rows",k.values)); }
+#endif
     const fs::path manifest=arm_dir/"manifest.json"; std::ofstream out(manifest,std::ios::binary|std::ios::trunc); if(!out) throw Error("VOID: cannot create arm manifest");
+#if defined(STRAT01_RUNG2B)
+    out << "{\n\"schema\":" << json_quote(kSchema) << ",\n\"arm\":" << json_quote(trace.arm) << ",\n\"logical_cache_contract\":{\"inherited_rung2a_not_remeasured\":true},\n\"callback_records\":[";
+#else
     out << "{\n\"schema\":" << json_quote(kSchema) << ",\n\"arm\":" << json_quote(trace.arm) << ",\n\"logical_cache_contract\":{\"extraction\":\"logical_Kcur_callback_values_only\",\"physical_bytes_claimed\":false,\"storage_type\":\"F16\",\"row_length\":576,\"separate_v_cache\":false,\"checkpoints\":[";
     if (trace.arm == "cached7p1") {
         out << "{\"phase\":\"cached7p1_prefix\",\"occupied_positions\":[0,1,2,3,4,5,6],\"logical_rows_payload\":\"Kcur-0.prefix_logical_rows.f32le\"},";
     }
     out << "{\"phase\":" << json_quote(trace.arm == "cached7p1" ? "cached7p1_final" : "prefill8") << ",\"occupied_positions\":[0,1,2,3,4,5,6,7],\"token7_position\":7}],\"note\":\"logical values only; no physical cache-byte extraction is claimed\"},\n\"callback_records\":[";
+#endif
     bool first=true; for(const Event & e:trace.prefix_events){if(!first)out<<',';first=false;write_event(out,e);} for(const Event & e:trace.final_events){if(!first)out<<',';first=false;write_event(out,e);} out << "],\n\"logical_selection\":{\n";
     const auto final_selected=select_logical(trace.final_events);
     const auto prefix_selected=trace.arm=="cached7p1"?select_logical(trace.prefix_events):std::map<std::string,const Event *>{};
