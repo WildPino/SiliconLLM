@@ -2,19 +2,18 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
-**STRAT-01 F16 converter audit (21 September):**
-Closed as **`FAIL_F16_CONVERTER`**: 843/217,620 finite mismatches, all values
-strictly above half the minimum F16 subnormal but prematurely zeroed.  The
-exact defect is `exp < -24`; the [frozen repair](probes/STRAT_01_GIGACHAT31_ENGINE_F16_CONVERTER_REPAIR_PROTOCOL_20260921.md)
-changes it to `< -25` and requires zero immutable/exhaustive mismatches before
-the F16 vec-dot test resumes. [Result](probes/STRAT_01_GIGACHAT31_ENGINE_F16_CONVERTER_AUDIT_RESULT_20260921.md).
+**STRAT-01 F16 converter repair (21 September):**
+Closed as **`PASS_F16_CONVERTER_REPAIR`**: zero mismatches on the 217,620-value
+frozen population and all 16,777,216 F32 values with unbiased exponent `-25`,
+both signs.  The one-line threshold repair is now proven; do not repeat the
+converter measurement. [Repair result](probes/STRAT_01_GIGACHAT31_ENGINE_F16_CONVERTER_REPAIR_RESULT_20260921.md),
+[preceding audit](probes/STRAT_01_GIGACHAT31_ENGINE_F16_CONVERTER_AUDIT_RESULT_20260921.md).
 
 **STRAT-01 F16 converter precondition (21 September):**
 The first zero-donor F16 vec-dot launch is preserved as
 `VOID_F16_VEC_DOT_DIAGNOSTIC`: project and pinned binary16 conversion differ
 on the immutable activation population, so no dot result is admissible.
-Execute the [frozen byte-level converter audit](probes/STRAT_01_GIGACHAT31_ENGINE_F16_CONVERTER_AUDIT_PROTOCOL_20260921.md),
-repair only if it returns `FAIL_F16_CONVERTER`, then resume the unchanged
+The exact converter precondition subsequently passed; resume the unchanged
 [vec-dot protocol](probes/STRAT_01_GIGACHAT31_ENGINE_F16_VEC_DOT_DIAGNOSTIC_PROTOCOL_20260921.md).
 
 **STRAT-01 GigaChat 3.1 attention-stage diagnostic (21 September):**

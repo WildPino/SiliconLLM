@@ -58,5 +58,7 @@ witness and produced the canonical result above.
 Do not repeat the audit or generalize beyond project/pinned binary16 semantics.
 Apply the one-line threshold repair to the production converter and diagnostic
 copy, require zero mismatches on the same population plus targeted subnormal
-edge regressions, then resume the still-unmeasured F16 vec-dot protocol.  No
+edge regressions, then resume the still-unmeasured F16 vec-dot protocol.  That
+repair subsequently [passed](STRAT_01_GIGACHAT31_ENGINE_F16_CONVERTER_REPAIR_RESULT_20260921.md).
+No
 attention integration or speed claim is authorized by this audit alone.

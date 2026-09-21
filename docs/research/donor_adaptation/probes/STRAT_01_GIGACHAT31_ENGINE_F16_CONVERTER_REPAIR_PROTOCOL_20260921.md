@@ -1,6 +1,6 @@
 # STRAT-01 GigaChat 3.1 F16 converter repair protocol
 
-**State:** FROZEN PROTOCOL; NOT YET EXECUTED
+**State:** EXECUTED; CLOSED AS `PASS_F16_CONVERTER_REPAIR`
 **Date frozen:** 21 September 2026
 **Scope:** exact binary16 converter repair and offline confirmation; no donor, attention-dot, quality, RAM, or speed claim
 
@@ -32,3 +32,6 @@ failure.  Run one non-VOID offline confirmation and stop.
 Only PASS clears the exact-conversion precondition and permits resuming the
 unchanged F16 vec-dot diagnostic.  It does not itself prove either attention
 dot, full block integration, quality, RAM, or speed.
+
+The canonical result is
+[STRAT_01_GIGACHAT31_ENGINE_F16_CONVERTER_REPAIR_RESULT_20260921.md](STRAT_01_GIGACHAT31_ENGINE_F16_CONVERTER_REPAIR_RESULT_20260921.md).
