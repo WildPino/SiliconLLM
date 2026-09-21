@@ -46,3 +46,19 @@ metric may be used.
 One non-VOID audit and stop.  A FAIL authorizes a source-derived converter
 repair plus exhaustive/model-free regression before resuming the vec-dot
 diagnostic; it does not itself authorize attention integration.
+
+## Apparatus repair A — conversion-stream order witness
+
+The first audit at commit `c3d3d2b` is preserved but voided, adjudication
+SHA-256 `b6caf4b26c19f6805f9eabb00a0ae6f878d1cf92df18b40f0998c9f99afc46a0`.
+The helper emitted `K, (Q row, softmax row)*, boundary`, while the adjudicator
+interpreted `K, all Q, all softmax, boundary`.  Its reported mismatch examples
+therefore pair unrelated values (including normal F32 values with padded-zero
+conversions) and are not converter evidence.
+
+Repair A emits the frozen contiguous order `K, all Q, all softmax, boundary`
+and a parallel uint32 stream containing the exact source F32 bits.  The
+adjudicator must reconstruct the same source population and require that
+witness stream to be byte-identical before comparing any F16 output.  No input,
+converter, boundary population, label, or threshold changes.  Use a distinct
+raw directory and zero donor executions.
