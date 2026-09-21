@@ -28,7 +28,7 @@ constexpr size_t kRowBytes = kBlocks * sizeof(block_q4_K);
 constexpr size_t kRows = kHeads * kValueHead;
 
 struct options {
-    std::filesystem::path model, qcur, kcur, vcur, output;
+    std::filesystem::path model, qcur, kcur, vcur, latent, output;
     bool selftest = false;
 };
 
@@ -46,6 +46,7 @@ options parse(int argc, char **argv) {
         else if (argument == "--qcur") result.qcur = value("--qcur");
         else if (argument == "--kcur") result.kcur = value("--kcur");
         else if (argument == "--vcur") result.vcur = value("--vcur");
+        else if (argument == "--latent") result.latent = value("--latent");
         else if (argument == "--output-dir") result.output = value("--output-dir");
         else if (argument == "--selftest") result.selftest = true;
         else fail("unknown argument: " + argument);
@@ -222,15 +223,25 @@ int main(int argc, char **argv) {
         ggml_cpu_init();
         const options opts = parse(argc, argv);
         if (opts.selftest) return selftest();
-        if (opts.model.empty() || opts.qcur.empty() || opts.kcur.empty() || opts.vcur.empty() || opts.output.empty()) {
-            fail("model, qcur, kcur, vcur and output-dir are required");
+        if (opts.model.empty() || opts.output.empty()) {
+            fail("model and output-dir are required");
+        }
+        const bool captured_latent = !opts.latent.empty();
+        const bool reconstructed_latent = !opts.qcur.empty() && !opts.kcur.empty() && !opts.vcur.empty();
+        if (captured_latent == reconstructed_latent) {
+            fail("provide exactly one of latent or qcur/kcur/vcur");
         }
         std::filesystem::create_directories(opts.output);
-        const auto qcur = read_f32(opts.qcur, kTokens * kHeads * kQk);
-        const auto kcur = read_f32(opts.kcur, kTokens * kQk);
-        const auto vcur = read_f32(opts.vcur, kTokens * kLatent);
         const auto weights = read_vb(opts.model);
-        const auto latent = reconstruct_attention(qcur, kcur, vcur);
+        std::vector<float> latent;
+        if (captured_latent) {
+            latent = read_f32(opts.latent, kTokens * kHeads * kLatent);
+        } else {
+            const auto qcur = read_f32(opts.qcur, kTokens * kHeads * kQk);
+            const auto kcur = read_f32(opts.kcur, kTokens * kQk);
+            const auto vcur = read_f32(opts.vcur, kTokens * kLatent);
+            latent = reconstruct_attention(qcur, kcur, vcur);
+        }
         const auto outputs = evaluate(weights, latent);
         write_vector(opts.output / "latent.f32le", latent);
         write_vector(opts.output / "d32.f32le", outputs.d32);

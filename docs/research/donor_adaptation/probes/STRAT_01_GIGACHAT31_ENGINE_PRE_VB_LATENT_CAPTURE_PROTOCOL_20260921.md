@@ -1,7 +1,7 @@
 # STRAT-01 GigaChat 3.1 pre-V-B latent capture protocol
 
-**State:** FROZEN PROTOCOL; NOT YET EXECUTED  
-**Date frozen:** 21 September 2026  
+**State:** FROZEN PROTOCOL; NOT YET EXECUTED
+**Date frozen:** 21 September 2026
 **Scope:** one pinned-reference trace extension at block 0, followed by offline attribution; no production-engine change, quality, RAM, or speed claim
 
 ## Question and source basis
@@ -59,6 +59,16 @@ Offline, on the same captured tensors:
 Any axis/layout mapping must be derived before examining numerical residuals
 from callback metadata and the pinned source operations.  No post-result
 permutation search is allowed.
+
+### Pre-execution axis mapping
+
+Source shape propagation through `ggml_mul_mat`, followed by the explicit
+`PERMUTE(0,2,1,3)` and `CONT_2D`, freezes the expected callback shapes as
+`kqv=[512,8,32]`, `kqv_mla=[192,8,32]`, and `kqv_out=[6144,8]`.  Canonical
+callback bytes for the first two therefore reshape as `[head,token,width]`
+and are transposed once to `[token,head,width]` before comparison or V-B
+evaluation.  This mapping was fixed without executing the donor and is not a
+search coordinate.
 
 ## Adjudication
 

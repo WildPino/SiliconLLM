@@ -1,7 +1,7 @@
 # STRAT-01 GigaChat 3.1 `kqv_out-0` attribution result
 
-**Verdict:** `PARTIAL_VB_Q8K_ATTRIBUTION`  
-**Date:** 21 September 2026  
+**Verdict:** `PARTIAL_VB_Q8K_ATTRIBUTION`
+**Date:** 21 September 2026
 **Scope:** offline attribution of the first remaining block-0 mismatch; zero donor executions and no production-engine, quality, RAM, or speed claim
 
 ## Result

@@ -178,10 +178,10 @@ Cli parse_cli(int argc, char ** argv) {
 struct Event {
     std::string phase, name, op, type; int ordinal=0; std::array<int64_t,4> shape{}; int rank=0; std::vector<float> values;
 };
-constexpr std::array<const char *, 12> kNames = {"attn_norm-0", "q-0", "kv_cmpr_pe-0", "k_pe-0", "kv_cmpr-0", "q_pe-0", "q_nope_absorbed_perm-0", "Qcur-0", "Kcur-0", "Vcur-0", "kqv_out-0", "ffn_inp-0"};
+constexpr std::array<const char *, 14> kNames = {"attn_norm-0", "q-0", "kv_cmpr_pe-0", "k_pe-0", "kv_cmpr-0", "q_pe-0", "q_nope_absorbed_perm-0", "Qcur-0", "Kcur-0", "Vcur-0", "kqv-0", "kqv_mla-0", "kqv_out-0", "ffn_inp-0"};
 bool wanted_name(std::string_view name) { return std::find_if(kNames.begin(), kNames.end(), [&](const char * p){ return name == p; }) != kNames.end(); }
 int protocol_rank(std::string_view name) {
-    if (name == "q-0" || name == "k_pe-0" || name == "q_pe-0" || name == "q_nope_absorbed_perm-0" || name == "Qcur-0" || name == "Kcur-0" || name == "Vcur-0") return 3;
+    if (name == "q-0" || name == "k_pe-0" || name == "q_pe-0" || name == "q_nope_absorbed_perm-0" || name == "Qcur-0" || name == "Kcur-0" || name == "Vcur-0" || name == "kqv-0" || name == "kqv_mla-0") return 3;
     if (wanted_name(name)) return 2;
     throw Error("VOID: callback name lacks a frozen logical rank");
 }
@@ -238,6 +238,7 @@ std::map<std::string,const Event *> select_logical(const std::vector<Event> & e)
             {"kv_cmpr-0", &last(e,"kv_cmpr-0","MUL")}, {"q_pe-0", &last(e,"q_pe-0","ROPE")},
             {"q_nope_absorbed_perm-0", &one(e,"q_nope_absorbed_perm-0")}, {"Qcur-0", &one(e,"Qcur-0")},
             {"Kcur-0", &one(e,"Kcur-0")}, {"Vcur-0", &one(e,"Vcur-0")},
+            {"kqv-0", &one(e,"kqv-0")}, {"kqv_mla-0", &one(e,"kqv_mla-0")},
             {"kqv_out-0", &one(e,"kqv_out-0")}, {"ffn_inp-0", &one(e,"ffn_inp-0")}};
 }
 
