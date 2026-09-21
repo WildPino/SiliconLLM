@@ -37,6 +37,10 @@ exact on the reference payload but leaves C up/gate NRMSE at
 `0.00306126`/`0.00269141`. Do not repeat it or patch only FFN RMSNorm. The next
 distinct coordinate is the same pinned accumulation semantic at the upstream
 attention-input and compressed-KV RMSNorm sites, reusing frozen references.
+That coordinate is frozen in the [upstream propagation protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_PROTOCOL_20260921.md).
+It is not another FFN-only trial: it changes the two RMSNorm sites before the
+accepted attention/Q8 path and adjudicates their propagated effect at both
+Rung-2A boundaries and the unchanged FFN projection gates.
 
 ## 1. How to read this map
 
