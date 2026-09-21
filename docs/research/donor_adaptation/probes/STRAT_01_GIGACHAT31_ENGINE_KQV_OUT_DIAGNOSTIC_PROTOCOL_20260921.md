@@ -96,3 +96,15 @@ voids under distinct directories.
 Only `ATTRIBUTED_KQV_OUT_TO_VB_Q8K` authorizes a separately frozen production
 V-B repair.  Any other non-VOID label requires a new source-derived diagnostic
 of attention equations or V-B layout.  No `SPEED_LEDGER.md` entry is due.
+
+## Apparatus repair A — frozen partial-label branch
+
+The first computational run at commit `66db659` completed with valid controls
+and immutable products, but its runner encoded `PARTIAL_VB_Q8K_ATTRIBUTION`
+only when pinned Q8_K already passed the tight target gate.  That contradicts
+the frozen table above, where partial is specifically the materially improved
+but still out-of-gate case.  Preserve that raw record and its reported label.
+Repair A defines material improvement as project/pinned agreement plus both
+target NRMSE and normalized maximum strictly below D32, then re-adjudicates
+the hash-bound products offline.  It does not rerun the helper/model or change
+inputs, arithmetic, metrics, thresholds, controls, or scientific labels.

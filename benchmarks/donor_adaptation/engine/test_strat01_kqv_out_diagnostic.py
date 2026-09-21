@@ -5,8 +5,8 @@ import unittest
 from benchmarks.donor_adaptation.engine.run_strat01_kqv_out_diagnostic import classify
 
 
-def judged(passed: bool) -> dict[str, bool]:
-    return {"pass": passed}
+def judged(passed: bool, nrmse: float = 0.0, normalized_max: float = 0.0) -> dict[str, bool | float]:
+    return {"pass": passed, "nrmse": nrmse, "normalized_max": normalized_max}
 
 
 class KqvOutDiagnosticTests(unittest.TestCase):
@@ -16,10 +16,10 @@ class KqvOutDiagnosticTests(unittest.TestCase):
             "project_vs_pinned": judged(True),
             "project_vs_target": judged(True),
             "pinned_vs_target": judged(True),
-            "d32_vs_target": judged(False),
+            "d32_vs_target": judged(False, 0.01, 0.02),
         }
         self.assertEqual(classify(results, controls), "ATTRIBUTED_KQV_OUT_TO_VB_Q8K")
-        results["d32_vs_target"] = judged(True)
+        results["d32_vs_target"] = judged(True, 0.01, 0.02)
         self.assertEqual(classify(results, controls), "PARTIAL_VB_Q8K_ATTRIBUTION")
 
     def test_invalid_control_is_void(self) -> None:
@@ -27,16 +27,16 @@ class KqvOutDiagnosticTests(unittest.TestCase):
             "project_vs_pinned": judged(True),
             "project_vs_target": judged(True),
             "pinned_vs_target": judged(True),
-            "d32_vs_target": judged(False),
+            "d32_vs_target": judged(False, 0.01, 0.02),
         }
         self.assertEqual(classify(results, {"control": False}), "VOID_KQV_OUT_DIAGNOSTIC")
 
     def test_pinned_target_failure_keeps_attention_open(self) -> None:
         results = {
             "project_vs_pinned": judged(True),
-            "project_vs_target": judged(False),
-            "pinned_vs_target": judged(False),
-            "d32_vs_target": judged(False),
+            "project_vs_target": judged(False, 0.02, 0.02),
+            "pinned_vs_target": judged(False, 0.02, 0.02),
+            "d32_vs_target": judged(False, 0.01, 0.01),
         }
         self.assertEqual(
             classify(results, {"control": True}),

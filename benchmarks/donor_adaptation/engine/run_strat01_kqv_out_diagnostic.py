@@ -100,7 +100,12 @@ def classify(results: dict[str, dict[str, Any]], controls: dict[str, bool]) -> s
     d32_fails = not bool(results["d32_vs_target"]["pass"])
     if q8_agree and target_q8 and d32_fails:
         return "ATTRIBUTED_KQV_OUT_TO_VB_Q8K"
-    if bool(results["pinned_vs_target"]["pass"]):
+    materially_better = (
+        q8_agree
+        and results["pinned_vs_target"]["nrmse"] < results["d32_vs_target"]["nrmse"]
+        and results["pinned_vs_target"]["normalized_max"] < results["d32_vs_target"]["normalized_max"]
+    )
+    if materially_better:
         return "PARTIAL_VB_Q8K_ATTRIBUTION"
     return "ATTENTION_RECONSTRUCTION_OR_OTHER_VB_SEMANTICS_REMAIN"
 
