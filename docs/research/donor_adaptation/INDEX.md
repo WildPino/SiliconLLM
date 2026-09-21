@@ -3,23 +3,28 @@
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
 **STRAT-01 GigaChat 3.1 C-engine rung 2A (21 September):**
-Protocol frozen at `beb6a37`; two donor attempts are preserved as
-`VOID_ENGINE_RUNG2A`, with no numerical PASS/FAIL. The first reference died
+Protocol frozen at `beb6a37`; the first two donor attempts are preserved as
+apparatus `VOID_ENGINE_RUNG2A`. The first reference died
 before model loading because a 1 MiB automatic SHA-256 buffer exhausted the
 Windows stack; commit `5cdc826` moved it to the heap. The second reference
 loaded the exact model but refused `n_ctx=256`, although the pinned source
 itself pads the frozen request `n_ctx=8` to 256. Commit `31bc68a` makes the
 requested and resolved dimensions explicit without changing logical inputs,
-comparisons, or thresholds. Its fresh apparatus-only run is
-`APPARATUS_READY_NO_DONOR_EXECUTION`: 22/22 model-free tests, 22 C Rung-2A
-checks, and 73,024 legacy checks pass. Preserve both voids; next perform one
-donor execution at `31bc68a` in a new directory. Do not widen to 2B/2C before
-2A adjudication. Operational durations are not speed evidence. [Canonical
+comparisons, or thresholds. A third run produced complete C/reference traces
+but was raw-voided by a validator case mismatch (`f32` versus `F32`). Commit
+`89b15d5` fixes only that metadata check and adjudicates the immutable captured
+payloads offline with zero donor executions. The result is
+**`FAIL_ENGINE_RUNG2A`**: 18/24 tensor cells and all three cache checkpoints
+fail, while within-implementation prefill/7+1 continuity is exact. Rung 2A is
+closed; do not rerun or tune its gates, and do not widen to 2B/2C. The next
+cell must diagnose Q/KV full-matrix projection semantics after the passing
+`attn_norm-0`. Operational durations are not speed evidence. [Canonical
 record](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_RESULT_20260921.md), [amended
 protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_PROTOCOL_20260921.md), [first
 void](../../../benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_rung2a_20260921/), [second
-void](../../../benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_rung2a_repair1_20260921/), [current apparatus
-validation](../../../benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_rung2a_apparatus_repair2_20260921/).
+void](../../../benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_rung2a_repair1_20260921/), [third captured
+run](../../../benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_rung2a_repair2_20260921/), [offline
+FAIL](../../../benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_rung2a_offline_adjudication_20260921/).
 
 **STRAT-01 GigaChat 3.1 C-engine rung 1 (21 September):**
 `PASS_ENGINE_RUNG1` at implementation/run commit `d2f6351` after the frozen
@@ -30,9 +35,10 @@ the C path's complete canonical float32 decode digests match pinned
 matvecs pass the `2e-6` maximum normalized-residual gate. These are scalar
 codec/row-parity cells, not operator or rate evidence. Never repeat these
 three cells on the same artifact and estimand. The next coordinate is now the
-separately frozen rung 2A block-0 MLA attention protocol above; it is not yet a
-result. Dense SwiGLU and routed/shared MoE remain later, separately briefed
-subcells. HumanEval remains
+separately frozen rung 2A block-0 MLA attention protocol above; that cell has
+since closed as FAIL and now requires the projection-semantics diagnostic
+described above. Dense SwiGLU and routed/shared MoE remain later, separately
+briefed subcells. HumanEval remains
 `PENDING_SANDBOX`; tokenizer, full logits/generation/C quality, RAM, and rate
 remain open. [Canonical result, raw hashes, and detailed adjudication](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG1_RESULT_20260921.md).
 
