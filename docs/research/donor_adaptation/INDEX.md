@@ -2,6 +2,17 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**STRAT-01 GigaChat 3.1 block-0 repair confirmation (21 September):**
+The integrated changed-coordinate cell is closed
+**`PASS_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION`**. Both prefill8 and cached7p1
+pass tight `attn_norm`/Q/KV gates; C continuity is exactly zero-error. Every
+old tensor gate through `Vcur-0` and all three compact-cache checkpoints now
+pass. The first remaining failure is `kqv_out-0` in both arms (NRMSE
+`0.01199015`), followed by `ffn_inp-0`; this boundary combines causal attention
+and special-layout V-B, so attribution still needs a zero-donor diagnostic.
+One C execution, zero reference reruns, no speed. [Result](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_RESULT_20260921.md),
+[protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md).
+
 **STRAT-01 GigaChat 3.1 C-engine Q4_K×Q8_K repair (21 September):**
 The standalone C operator is now closed as **`PASS_ENGINE_Q4K_Q8K_REPAIR`**.
 Q8_K activation bytes are exact against pinned GGML on 21 model-free oracle

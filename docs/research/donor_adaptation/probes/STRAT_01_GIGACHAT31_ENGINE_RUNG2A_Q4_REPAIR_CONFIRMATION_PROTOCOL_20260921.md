@@ -1,6 +1,6 @@
 # STRAT-01 GigaChat 3.1 changed-coordinate block-0 attention confirmation
 
-**State:** FROZEN PROTOCOL; NOT YET EXECUTED
+**State:** EXECUTED; CLOSED `PASS_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION` — see [result](STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_RESULT_20260921.md)
 **Date frozen:** 21 September 2026
 **Scope:** confirm the integrated Q4_K×Q8_K repair at the first Rung-2A failure and localize the next downstream mismatch; no rewrite of old Rung 2A, no 2B, quality, RAM, or speed
 
