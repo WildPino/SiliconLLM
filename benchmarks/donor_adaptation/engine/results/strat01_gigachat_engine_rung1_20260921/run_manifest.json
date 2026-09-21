@@ -1,0 +1,220 @@
+{
+  "schema": "strat01_gigachat_engine_rung1_run_manifest_v1",
+  "status": "PASS_ENGINE_RUNG1",
+  "gate_summary": {
+    "registered_build_and_regressions": true,
+    "c_output_ready": true,
+    "all_three_reference_cells_pass": true
+  },
+  "errors": [],
+  "scope": "whole-stream quant decode and scalar stored-row matvec parity for three frozen tensors",
+  "provenance": {
+    "started_utc": "2026-09-21T09:00:26.235787+00:00",
+    "finished_utc": "2026-09-21T09:01:17.394430+00:00",
+    "git_head": "d2f635168ff76df87def5eec1fe15b6be6a2d631",
+    "source_hashes": {
+      "runner": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\run_strat01_engine_rung1.py",
+        "sha256": "931e71db74503d2311f204d6241552d3ef14b267bf9bd0c9bd625f4b00087af6",
+        "exists": true
+      },
+      "engine": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+        "sha256": "a2543a9f39b527b7372ff898d4573945cd5af750f14fb4a19c60334595e3d5fb",
+        "exists": true
+      },
+      "rung0_inspector": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\strat01_gguf_inspect.h",
+        "sha256": "3d577150ea442f5fd5ae993621024b421e000a9f66727e67b109184aa74fd711",
+        "exists": true
+      },
+      "rung1_codec": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\strat01_gguf_rung1.h",
+        "sha256": "59b6b93834d56a657a8246d7ff60381de7a2458f53d6cb83f0adcfd3c197c3bf",
+        "exists": true
+      },
+      "rung0_runner": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\run_strat01_engine_rung0.py",
+        "sha256": "d7a1ca7cfba53377c0b83ad53d65b3db8c355d21cad32e043f1b069682e92f90",
+        "exists": true
+      },
+      "rung0_verifier": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\verify_strat01_engine_rung0_reference.py",
+        "sha256": "8f49a10c1257dced6e33a9b989990f1c7400c2607528b7eba1fb2fc1f56acc40",
+        "exists": true
+      },
+      "rung0_tests": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\test_strat01_engine_rung0.py",
+        "sha256": "9f4644badd47fdf4c1a1c1b1f29419e2a04de1a86ad69dc3f066a57f2a81a51c",
+        "exists": true
+      },
+      "rung1_tests": {
+        "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\test_strat01_engine_rung1.py",
+        "sha256": "9c527a075abf0380fa617c5147d9c68838918ce31dfc02f3d505af8557bbee2e",
+        "exists": true
+      }
+    },
+    "binary": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\engine_rung1.exe",
+      "sha256": "efd40a84691f27c485b25363303124c05e94dafe8530bc35101a288ea0a2a8c7",
+      "bytes": 416768
+    },
+    "artifact": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_q4_97045b2\\GigaChat3.1-10B-A1.8B-q4_K_M.gguf",
+      "expected_bytes": 6474702976,
+      "expected_sha256": "68a8732fb5cee04f83ebffd7924e15c534d4442c5a43d2ba9e2041fe310b8deb",
+      "bytes": 6474702976,
+      "sha256": "68a8732fb5cee04f83ebffd7924e15c534d4442c5a43d2ba9e2041fe310b8deb"
+    },
+    "environment": {
+      "platform": "Windows-11-10.0.26200-SP0",
+      "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+      "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+      "clang_path": "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.EXE",
+      "llama_cpp_commit_expected": "5b335f413e4f73b0809c4fe39af894efbcc6a0d2",
+      "clang_version": "clang version 21.1.8 (https://github.com/llvm/llvm-project.git 2078da43e25a4623cab2d0d60decddf709aaea28)",
+      "numpy_version": "2.4.6",
+      "llama_cpp_commit": "5b335f413e4f73b0809c4fe39af894efbcc6a0d2",
+      "gguf_py_path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-bind-5b335f4\\gguf-py",
+      "gguf_module_path": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-llama-bind-5b335f4\\gguf-py\\gguf\\__init__.py",
+      "python_version": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]"
+    },
+    "timings_seconds": {
+      "compile_seconds": 2.4949708999774884,
+      "accepted_artifact_c_seconds": 25.82212840000284,
+      "reference_adjudication_seconds": 7.674240400025155,
+      "total_seconds": 51.155370599997696
+    },
+    "commands": {
+      "clang_version": {
+        "command": [
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.EXE",
+          "--version"
+        ],
+        "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+        "started_utc": "2026-09-21T09:00:26.385925+00:00",
+        "seconds": 0.041509600006975234,
+        "returncode": 0,
+        "stdout_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\clang_version.stdout.log",
+        "stderr_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\clang_version.stderr.log",
+        "stdout": "clang version 21.1.8 (https://github.com/llvm/llvm-project.git 2078da43e25a4623cab2d0d60decddf709aaea28)\nTarget: x86_64-w64-windows-gnu\nThread model: posix\nInstalledDir: C:/Users/giosa/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20251216-msvcrt-x86_64/bin\nConfiguration file: C:/Users/giosa/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20251216-msvcrt-x86_64/bin/x86_64-w64-windows-gnu.cfg\n",
+        "stderr": ""
+      },
+      "compile": {
+        "command": [
+          "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.EXE",
+          "-std=c11",
+          "-O3",
+          "-mavx2",
+          "-mfma",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+          "-o",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\engine_rung1.exe",
+          "-lm"
+        ],
+        "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+        "started_utc": "2026-09-21T09:00:27.085616+00:00",
+        "seconds": 2.4949708999774884,
+        "returncode": 0,
+        "stdout_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\compile.stdout.log",
+        "stderr_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\compile.stderr.log",
+        "stdout": "",
+        "stderr": ""
+      },
+      "rung0_unittest": {
+        "command": [
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Scripts\\python.exe",
+          "-B",
+          "-m",
+          "unittest",
+          "-v",
+          "benchmarks.donor_adaptation.engine.test_strat01_engine_rung0"
+        ],
+        "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+        "started_utc": "2026-09-21T09:00:29.581682+00:00",
+        "seconds": 10.533147499983897,
+        "returncode": 0,
+        "stdout_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\rung0_unittest.stdout.log",
+        "stderr_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\rung0_unittest.stderr.log",
+        "stdout": "STRAT-01 test identity override: compile-time fixture size/SHA only; production CLI has no override.\n",
+        "stderr": "test_exact_copy_passes_and_one_byte_change_fails_hash (benchmarks.donor_adaptation.engine.test_strat01_engine_rung0.Rung0Tests.test_exact_copy_passes_and_one_byte_change_fails_hash) ... ok\ntest_legacy_kernel_selftest_survives (benchmarks.donor_adaptation.engine.test_strat01_engine_rung0.Rung0Tests.test_legacy_kernel_selftest_survives) ... ok\ntest_malformed_controls_are_refused (benchmarks.donor_adaptation.engine.test_strat01_engine_rung0.Rung0Tests.test_malformed_controls_are_refused) ... ok\ntest_valid_fixture_is_complete_and_cwd_independent (benchmarks.donor_adaptation.engine.test_strat01_engine_rung0.Rung0Tests.test_valid_fixture_is_complete_and_cwd_independent) ... ok\ntest_wrong_compile_time_identity_is_refused (benchmarks.donor_adaptation.engine.test_strat01_engine_rung0.Rung0Tests.test_wrong_compile_time_identity_is_refused) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 10.364s\n\nOK\n"
+      },
+      "rung1_unittest": {
+        "command": [
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\.venv\\Scripts\\python.exe",
+          "-B",
+          "-m",
+          "unittest",
+          "-v",
+          "benchmarks.donor_adaptation.engine.test_strat01_engine_rung1"
+        ],
+        "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+        "started_utc": "2026-09-21T09:00:40.213337+00:00",
+        "seconds": 3.174675099988235,
+        "returncode": 0,
+        "stdout_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\rung1_unittest.stdout.log",
+        "stderr_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\rung1_unittest.stderr.log",
+        "stdout": "",
+        "stderr": "test_legacy_kernel_selftest_survives (benchmarks.donor_adaptation.engine.test_strat01_engine_rung1.Rung1Tests.test_legacy_kernel_selftest_survives) ... ok\ntest_rung1_cli_requires_exact_early_shape (benchmarks.donor_adaptation.engine.test_strat01_engine_rung1.Rung1Tests.test_rung1_cli_requires_exact_early_shape) ... ok\ntest_synthetic_layout_traps_pass (benchmarks.donor_adaptation.engine.test_strat01_engine_rung1.Rung1Tests.test_synthetic_layout_traps_pass) ... ok\ntest_unrecognized_artifact_fails_before_legacy_loader (benchmarks.donor_adaptation.engine.test_strat01_engine_rung1.Rung1Tests.test_unrecognized_artifact_fails_before_legacy_loader) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 3.016s\n\nOK\n"
+      },
+      "legacy_kselftest": {
+        "command": [
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\engine_rung1.exe",
+          "--kselftest"
+        ],
+        "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+        "started_utc": "2026-09-21T09:00:43.392265+00:00",
+        "seconds": 0.35899189999327064,
+        "returncode": 0,
+        "stdout_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\kselftest.stdout.log",
+        "stderr_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\kselftest.stderr.log",
+        "stdout": "==== engine kernel self-test (synthetic, no weights): all LUT paths vs scalar-int ====\n  73024 checks | worst |S - S_ref| = 0  PASS\n  exp256_ps vs libm on [-30,0]: max rel err = 1.191e-07  PASS (<=2e-6)\n",
+        "stderr": ""
+      },
+      "rung1_codec_selftest": {
+        "command": [
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\engine_rung1.exe",
+          "--strat01-gguf-rung1-selftest"
+        ],
+        "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+        "started_utc": "2026-09-21T09:00:43.786262+00:00",
+        "seconds": 0.009802200016565621,
+        "returncode": 0,
+        "stdout_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\rung1_codec_selftest.stdout.log",
+        "stderr_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\rung1_codec_selftest.stderr.log",
+        "stdout": "",
+        "stderr": "STRAT-01 rung-1 codec selftest: PASS\n"
+      },
+      "accepted_artifact_c_run": {
+        "command": [
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\engine_rung1.exe",
+          "--strat01-gguf-rung1",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_q4_97045b2\\GigaChat3.1-10B-A1.8B-q4_K_M.gguf",
+          "--out-dir",
+          "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921"
+        ],
+        "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM",
+        "started_utc": "2026-09-21T09:00:43.835775+00:00",
+        "seconds": 25.82212840000284,
+        "returncode": 0,
+        "stdout_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\rung1_c.stdout.log",
+        "stderr_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921\\rung1_c.stderr.log",
+        "stdout": "",
+        "stderr": "STRAT-01 rung-1: ENGINE_OUTPUT_READY_PENDING_REFERENCE\n"
+      },
+      "reference_adjudication": {
+        "execution": "in-process pinned gguf-py and NumPy adjudication",
+        "seconds": 7.674240400025155,
+        "returncode": 0
+      }
+    },
+    "non_claims": [
+      "optimized AVX2 kernels",
+      "full attention, MLA, MoE, or transformer operator semantics",
+      "tokenizer or generation parity",
+      "language-model quality through the C engine",
+      "RAM fit or accepted-token throughput",
+      "any speed or SPEED_LEDGER claim"
+    ]
+  }
+}

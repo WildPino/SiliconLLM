@@ -1,0 +1,15 @@
+{
+  "command": "--strat01-gguf-rung1",
+  "c_state": "ENGINE_OUTPUT_READY_PENDING_REFERENCE",
+  "input_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_q4_97045b2\\GigaChat3.1-10B-A1.8B-q4_K_M.gguf",
+  "byte_size": 6474702976,
+  "sha256": "68a8732fb5cee04f83ebffd7924e15c534d4442c5a43d2ba9e2041fe310b8deb",
+  "engine_source_sha256": "a2543a9f39b527b7372ff898d4573945cd5af750f14fb4a19c60334595e3d5fb",
+  "rung1_source_sha256": "59b6b93834d56a657a8246d7ff60381de7a2458f53d6cb83f0adcfd3c197c3bf",
+  "reference_revision": "llama.cpp 5b335f413e4f73b0809c4fe39af894efbcc6a0d2 (gguf-py/gguf/quants.py)",
+  "cells": [
+    {"cell": "G-R1-Q4", "tensor": "blk.0.attn_q.weight", "type": "Q4_K", "rank": 2, "dims": [1536, 6144], "offset": 279677952, "byte_span": 5308416, "file_offset": 285780864, "block_count": 36864, "decoded_value_count": 9437184, "decoded_finite_count": 9437184, "decoded_min": -0.592163086, "decoded_max": 0.549809933, "dequant_f32le_sha256": "7d70c299e806d539c452c51e7c3e366da9e917a5233085a888038bac3aa71304", "output_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921/strat01_rung1_Q4.f32", "output_f32le_sha256": "8818ea874627cb505fd8b59833309fb99a4fe829a9b3de94e8d5d7a9d4e688c9", "output_finite_count": 6144, "output_min": -4.58652115, "output_max": 3.82917237},
+    {"cell": "G-R1-Q5", "tensor": "blk.0.attn_k_b.weight", "type": "Q5_0", "rank": 3, "dims": [128, 512, 32], "offset": 272421888, "byte_span": 1441792, "file_offset": 278524800, "block_count": 65536, "decoded_value_count": 2097152, "decoded_finite_count": 2097152, "decoded_min": -0.209960938, "decoded_max": 0.213867188, "dequant_f32le_sha256": "a608e134a3bb3801457dbd721da9c51c31f55fd69e4afbb208e5dd4bc0781022", "output_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921/strat01_rung1_Q5.f32", "output_f32le_sha256": "ab85d4e93c5770358d024935a76230f6b2166f71a5a37ede3df0ef6ffb7d0e5c", "output_finite_count": 16384, "output_min": -1.22516727, "output_max": 1.61985612},
+    {"cell": "G-R1-Q6", "tensor": "blk.0.ffn_down.weight", "type": "Q6_K", "rank": 2, "dims": [8960, 1536], "offset": 286755840, "byte_span": 11289600, "file_offset": 292858752, "block_count": 53760, "decoded_value_count": 13762560, "decoded_finite_count": 13762560, "decoded_min": -0.58984375, "decoded_max": 0.5546875, "dequant_f32le_sha256": "83d5bf44945674c3ddc7e711fb90222bce91d78c2d1b0302477acb7634af50d1", "output_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung1_20260921/strat01_rung1_Q6.f32", "output_f32le_sha256": "467324a3b928c1720b0ab1b8815f6c5a733e4311c256acfdda52cd56d582cbf3", "output_finite_count": 1536, "output_min": -5.67569399, "output_max": 7.4638648}
+  ]
+}

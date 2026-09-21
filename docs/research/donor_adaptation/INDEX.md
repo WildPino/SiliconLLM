@@ -2,15 +2,30 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**STRAT-01 GigaChat 3.1 C-engine rung 1 (21 September):**
+`PASS_ENGINE_RUNG1` at implementation/run commit `d2f6351` after the frozen
+brief at `c802954`. On the hash-pinned 6,474,702,976-byte GigaChat Q4 GGUF,
+the C path's complete canonical float32 decode digests match pinned
+`gguf-py` exactly for Q4_K `blk.0.attn_q.weight`, Q5_0
+`blk.0.attn_k_b.weight`, and Q6_K `blk.0.ffn_down.weight`. All stored-row
+matvecs pass the `2e-6` maximum normalized-residual gate. These are scalar
+codec/row-parity cells, not operator or rate evidence. Never repeat these
+three cells on the same artifact and estimand. Next: separately freeze rung 2
+organ/layer semantics, likely staged as attention, dense SwiGLU, and routed /
+shared MoE subcells; no rung-2 implementation exists. HumanEval remains
+`PENDING_SANDBOX`; tokenizer, full logits/generation/C quality, RAM, and rate
+remain open. [Canonical result, raw hashes, and detailed adjudication](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG1_RESULT_20260921.md).
+
 **STRAT-01 GigaChat 3.1 C-engine rung 0 (21 September):**
 `PASS_ENGINE_RUNG0`. At committed revision `10a44b5`, `phase60/engine.c`
 accepts the exact pinned Q4 GGUF identity, parses its v3 metadata and 414
 descriptors in bounded memory, and rejects malformed/substituted fixtures.
 The complete descriptor digest exactly matches the pinned llama.cpp reader;
-all names/shapes also match the BF16 source binding. This closes only loader
-identity/layout. Quantized matvecs, operators, tokenizer, logits, C-path
-quality, RAM and accepted-token rate remain open; next is one-tensor numerical
-parity, not another census. [Canonical result and raw hashes](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG0_RESULT_20260921.md).
+all names/shapes also match the BF16 source binding. This closes loader
+identity/layout. Rung 1 below subsequently closes only its three registered
+quantized codec/scalar-row cells; other tensor coverage, operators, tokenizer,
+logits, C-path quality, RAM and accepted-token rate remain open. Do not repeat
+the census or rung-1 cells. [Canonical result and raw hashes](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG0_RESULT_20260921.md).
 
 **STRAT-01 GigaChat 3.1 paired document rollout (21 September):**
 `PASS_DOCUMENT_ROLLOUT` on the frozen 96-document greedy rollout. Q4 has two
