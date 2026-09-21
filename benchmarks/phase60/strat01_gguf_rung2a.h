@@ -111,7 +111,7 @@ static uint16_t strat01_r2a_f32_to_f16(float x) {
     if(exp==255) return (uint16_t)(sign | (mant ? 0x7e00U : 0x7c00U));
     exp -= 127;
     if(exp > 15) return (uint16_t)(sign|0x7c00U);
-    if(exp < -24) return (uint16_t)sign;
+    if(exp < -25) return (uint16_t)sign;
     if(exp < -14) {
         unsigned shift=(unsigned)(-exp-14); uint32_t m=mant|0x800000U;
         unsigned rshift=shift+13U; uint32_t half=m>>rshift, rem=m&((UINT32_C(1)<<rshift)-1U), tie=UINT32_C(1)<<(rshift-1U);
@@ -431,7 +431,12 @@ static int strat01_gguf_rung2a_selftest(void) {
     CHECK(strat01_q4k_q8k_selftest()==0);
     for(unsigned i=0;i<sizeof(vals)/sizeof(vals[0]);++i)CHECK(strat01_r2a_f16_to_f32(strat01_r2a_f32_to_f16(vals[i]))==vals[i]);
     CHECK(strat01_r2a_f16_to_f32(strat01_r2a_f32_to_f16(1.00048828125f))==1.0f); /* exact halfway, ties-to-even */
+    CHECK(strat01_r2a_f32_to_f16(strat01_r2a_bits_f32(0x33000000U))==0x0000U); /* 2^-25: halfway, ties-to-even zero */
+    CHECK(strat01_r2a_f32_to_f16(strat01_r2a_bits_f32(0xb3000000U))==0x8000U);
+    CHECK(strat01_r2a_f32_to_f16(strat01_r2a_bits_f32(0x33000001U))==0x0001U); /* next F32 above halfway */
+    CHECK(strat01_r2a_f32_to_f16(strat01_r2a_bits_f32(0xb3000001U))==0x8001U);
     CHECK(strat01_r2a_f16_to_f32(strat01_r2a_f32_to_f16(0x1p-24f))==0x1p-24f);  /* smallest subnormal */
+    CHECK(strat01_r2a_f32_to_f16(-0x1p-24f)==0x8001U);
     {float x[4]={1,2,3,4},w[4]={1,1,1,1},y[4];strat01_r2a_rmsnorm(x,w,y,1,4,0);CHECK(fabsf(y[0]-1.0f/sqrtf(7.5f))<1e-6f);}
     {float *q=(float *)calloc(2U*32U*576U,sizeof(float));float *lat0=(float *)calloc(2U*32U*512U,sizeof(float));float *lat1=(float *)calloc(2U*32U*512U,sizeof(float));strat01_r2a_arm pre,cached;memset(&pre,0,sizeof(pre));memset(&cached,0,sizeof(cached));CHECK(q&&lat0&&lat1);if(q&&lat0&&lat1){pre.qcur=cached.qcur=q;q[((size_t)1*32)*576]=1.0f;float k0[576]={0},k1[576]={0};k0[0]=1.0f;k1[0]=3.0f;strat01_r2a_cache_write(&pre,0,k0);strat01_r2a_cache_write(&pre,1,k1);strat01_r2a_attend_one(&pre,0,lat0);CHECK(lat0[0]==1.0f);strat01_r2a_attend_one(&pre,1,lat0);float sc=strat01_r2a_kq_scale(),expected=(expf(sc)*1.0f+expf(3.0f*sc)*3.0f)/(expf(sc)+expf(3.0f*sc));CHECK(fabsf(lat0[(size_t)32*512]-expected)<1e-6f);strat01_r2a_cache_write(&cached,0,k0);strat01_r2a_cache_write(&cached,1,k1);strat01_r2a_attend_one(&cached,1,lat1);CHECK(!memcmp(lat0+(size_t)32*512,lat1+(size_t)32*512,32U*512U*sizeof(float)));}free(q);free(lat0);free(lat1);}
     {float p0[64]={0},p1[64]={0};p0[0]=p1[0]=1.0f;strat01_r2a_rope64(p0,0);strat01_r2a_rope64(p1,1);CHECK(p0[0]!=p1[0]||p0[1]!=p1[1]);}

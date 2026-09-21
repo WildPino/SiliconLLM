@@ -32,9 +32,12 @@ from benchmarks.donor_adaptation.engine.run_strat01_q4k_q8k_repair import requir
 
 HERE = Path(__file__).resolve().parent
 PROTOCOL = ROOT / "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_F16_CONVERTER_AUDIT_PROTOCOL_20260921.md"
+REPAIR_PROTOCOL = ROOT / "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_F16_CONVERTER_REPAIR_PROTOCOL_20260921.md"
+PRODUCTION_CONVERTER = ROOT / "benchmarks/phase60/strat01_gguf_rung2a.h"
 HELPER_SOURCE = HERE / "strat01_f16_vec_dot_diagnostic.cpp"
 TEST_SOURCE = HERE / "test_strat01_f16_converter_audit.py"
 DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_f16_converter_audit_repair1_20260921"
+REPAIR_OUTPUT = HERE / "results/strat01_gigachat_engine_f16_converter_repair_20260921"
 SEGMENTS = (("kcur", 8 * 576), ("qcur", 8 * 32 * 576), ("softmax", COUNT_PADDED), ("boundary", 20))
 BOUNDARY_BITS = np.array([
     0x00000000, 0x80000000, 0x00000001, 0x80000001, 0x33000000,
@@ -69,14 +72,22 @@ def exponent_class(bits: int) -> str:
     return "f16_normal_range"
 
 
+def converter_status(passed: bool, repair: bool) -> str:
+    if repair: return "PASS_F16_CONVERTER_REPAIR" if passed else "FAIL_F16_CONVERTER_REPAIR"
+    return "PASS_F16_CONVERTER" if passed else "FAIL_F16_CONVERTER"
+
+
 def main() -> int:
-    parser = argparse.ArgumentParser(); parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT); args = parser.parse_args()
-    output = args.output_dir.resolve()
+    parser = argparse.ArgumentParser(); parser.add_argument("--output-dir", type=Path); parser.add_argument("--repair-confirmation", action="store_true"); args = parser.parse_args()
+    repair = args.repair_confirmation
+    output = (args.output_dir or (REPAIR_OUTPUT if repair else DEFAULT_OUTPUT)).resolve()
     if output.exists(): raise AuditError("output directory already exists; raw evidence is immutable")
     output.mkdir(parents=True); started = time.perf_counter()
-    record: dict[str, Any] = {"schema": "strat01_f16_converter_audit_v1", "status": "VOID_F16_CONVERTER_AUDIT", "started_utc": utc_now(), "donor_executions": 0, "commands": [], "errors": []}
+    void_status = "VOID_F16_CONVERTER_REPAIR" if repair else "VOID_F16_CONVERTER_AUDIT"
+    critical_paths = CRITICAL_PATHS + ((REPAIR_PROTOCOL, PRODUCTION_CONVERTER) if repair else ())
+    record: dict[str, Any] = {"schema": "strat01_f16_converter_repair_v1" if repair else "strat01_f16_converter_audit_v1", "status": void_status, "started_utc": utc_now(), "donor_executions": 0, "commands": [], "errors": []}
     try:
-        dirty = subprocess.run(["git", "diff", "--quiet", "HEAD", "--", *map(str, CRITICAL_PATHS)], cwd=ROOT, check=False)
+        dirty = subprocess.run(["git", "diff", "--quiet", "HEAD", "--", *map(str, critical_paths)], cwd=ROOT, check=False)
         if dirty.returncode: raise AuditError("audit implementation or protocol differs from HEAD")
         head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True, capture_output=True, check=True).stdout.strip()
         if sha256_file(PINNED_LLAMA / "src/llama-graph.cpp") != PINNED_GRAPH_SHA: raise AuditError("pinned graph source mismatch")
@@ -97,6 +108,9 @@ def main() -> int:
         if len(helpers) != 1: raise AuditError("cannot resolve converter helper")
         helper = helpers[0]; command = run_command([str(helper), "--selftest"], output, "helper_selftest")
         record["commands"].append(command); require_ok(command, "helper self-test")
+        exhaustive_checked = 16_777_216
+        selftest_text = (output / "helper_selftest.stdout.log").read_text(encoding="utf-8")
+        if f"exhaustive_exp_minus_25_checked={exhaustive_checked}" not in selftest_text: raise AuditError("exhaustive exponent -25 proof harness incomplete")
         products = output / "products"; products.mkdir()
         command = run_command([str(helper), "--qcur", str(qcur_path), "--kcur", str(kcur_path), "--padded-softmax", str(mapped_softmax), "--output-dir", str(products)], output, "conversion_audit", timeout=3600)
         record["commands"].append(command); require_ok(command, "conversion audit helper")
@@ -119,19 +133,20 @@ def main() -> int:
             kind = exponent_class(int(source_bits[index])); by_class[kind] = by_class.get(kind, 0) + 1
             if len(examples) < 32:
                 examples.append({"index": index, "segment": segment, "segment_offset": offset, "f32_bits": f"0x{int(source_bits[index]):08x}", "value": None if not np.isfinite(source[index]) else float(source[index]), "class": kind, "project_f16": f"0x{int(project[index]):04x}", "pinned_f16": f"0x{int(pinned[index]):04x}"})
-        status = "PASS_F16_CONVERTER" if finite_mismatches.size == 0 and canonical_nan else "FAIL_F16_CONVERTER"
+        passed = finite_mismatches.size == 0 and canonical_nan
+        status = converter_status(passed, repair)
         record.update({"status": status, "finished_utc": utc_now(), "seconds": time.perf_counter() - started,
-            "identity": {"git_head": head, "llama_cpp_head": llama_head, "helper": {"path": str(helper), "sha256": sha256_file(helper)}, "critical_source_hashes": {str(path.relative_to(ROOT)): sha256_file(path) for path in CRITICAL_PATHS}},
+            "identity": {"git_head": head, "llama_cpp_head": llama_head, "helper": {"path": str(helper), "sha256": sha256_file(helper)}, "critical_source_hashes": {str(path.relative_to(ROOT)): sha256_file(path) for path in critical_paths}},
             "population": {"total": int(expected_count), "segments": {name: count for name, count in SEGMENTS}, "source_hashes": {"qcur": sha256_file(qcur_path), "kcur": sha256_file(kcur_path), "softmax": sha256_file(softmax_path)}},
-            "results": {"total_mismatches": int(mismatch_indices.size), "finite_mismatches": int(finite_mismatches.size), "nan_count": int(nan_indices.size), "nan_policy_matches": canonical_nan, "mismatches_by_segment": by_segment, "mismatches_by_class": by_class, "first_mismatches": examples},
+            "results": {"total_mismatches": int(mismatch_indices.size), "finite_mismatches": int(finite_mismatches.size), "nan_count": int(nan_indices.size), "nan_policy_matches": canonical_nan, "mismatches_by_segment": by_segment, "mismatches_by_class": by_class, "first_mismatches": examples, "exhaustive_exp_minus_25_checked": exhaustive_checked},
             "outputs": {path.name: {"bytes": path.stat().st_size, "sha256": sha256_file(path)} for path in (project_path, pinned_path, source_witness_path)},
-            "non_claims": ["F16 vec-dot result", "production repair", "Rung 2B", "quality", "RAM", "speed"]})
+            "non_claims": ["F16 vec-dot result", "attention integration", "Rung 2B", "quality", "RAM", "speed"]})
     except Exception as error:
         record["errors"].append(str(error)); record["finished_utc"] = utc_now(); record["seconds"] = time.perf_counter() - started
     (output / "adjudication.json").write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     print(record["status"])
     if record["errors"]: print(record["errors"][0], file=sys.stderr)
-    return 0 if record["status"] != "VOID_F16_CONVERTER_AUDIT" else 2
+    return 0 if record["status"] != void_status else 2
 
 
 if __name__ == "__main__":

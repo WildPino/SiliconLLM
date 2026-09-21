@@ -50,7 +50,7 @@ uint16_t project_f32_to_f16(float value) {
     if (exponent == 255) return static_cast<uint16_t>(sign | (mantissa ? 0x7e00U : 0x7c00U));
     exponent -= 127;
     if (exponent > 15) return static_cast<uint16_t>(sign | 0x7c00U);
-    if (exponent < -24) return static_cast<uint16_t>(sign);
+    if (exponent < -25) return static_cast<uint16_t>(sign);
     if (exponent < -14) {
         const unsigned shift = static_cast<unsigned>(-exponent - 14), rshift = shift + 13U;
         const uint32_t m = mantissa | 0x800000U, tie = UINT32_C(1) << (rshift - 1U);
@@ -153,7 +153,25 @@ Products evaluate(const std::vector<float> &qcur, const std::vector<float> &kcur
 int selftest() {
     const float cases[] = {0.0f, -0.0f, 1.0f, -2.0f, 65504.0f, 0x1p-24f, 1.00048828125f};
     for (float value : cases) if (project_f32_to_f16(value) != ggml_fp32_to_fp16(value)) fail("selftest F16 conversion mismatch");
-    std::cout << "F16 vec-dot diagnostic selftest passed\n";
+    const uint32_t edge_bits[] = {0x33000000U, 0xb3000000U, 0x33000001U, 0xb3000001U, 0x33800000U, 0xb3800000U};
+    const uint16_t edge_expected[] = {0x0000U, 0x8000U, 0x0001U, 0x8001U, 0x0001U, 0x8001U};
+    for (size_t i = 0; i < sizeof(edge_bits) / sizeof(edge_bits[0]); ++i) {
+        float value;
+        std::memcpy(&value, &edge_bits[i], sizeof(value));
+        if (project_f32_to_f16(value) != edge_expected[i] || project_f32_to_f16(value) != ggml_fp32_to_fp16(value)) fail("selftest F16 subnormal edge mismatch");
+    }
+    uint64_t exhaustive_checked = 0;
+    const uint32_t signs[] = {0U, 0x80000000U};
+    for (uint32_t sign : signs) {
+        for (uint32_t mantissa = 0; mantissa <= 0x7fffffU; ++mantissa) {
+            const uint32_t bits = sign | (UINT32_C(102) << 23) | mantissa; // unbiased exponent -25
+            float value;
+            std::memcpy(&value, &bits, sizeof(value));
+            if (project_f32_to_f16(value) != ggml_fp32_to_fp16(value)) fail("exhaustive exponent -25 mismatch");
+            ++exhaustive_checked;
+        }
+    }
+    std::cout << "F16 vec-dot diagnostic selftest passed; exhaustive_exp_minus_25_checked=" << exhaustive_checked << '\n';
     return 0;
 }
 

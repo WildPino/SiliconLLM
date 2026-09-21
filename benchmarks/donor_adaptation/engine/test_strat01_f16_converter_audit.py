@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import unittest
 
-from benchmarks.donor_adaptation.engine.run_strat01_f16_converter_audit import exponent_class, segment_for
+from benchmarks.donor_adaptation.engine.run_strat01_f16_converter_audit import converter_status, exponent_class, segment_for
 
 
 class F16ConverterAuditTests(unittest.TestCase):
@@ -16,6 +16,12 @@ class F16ConverterAuditTests(unittest.TestCase):
         self.assertEqual(exponent_class(0x00000001), "subnormal_f32")
         self.assertEqual(exponent_class(0x7F800000), "infinity")
         self.assertEqual(exponent_class(0x7FC00000), "nan")
+
+    def test_repair_labels_are_distinct_from_audit_labels(self) -> None:
+        self.assertEqual(converter_status(True, False), "PASS_F16_CONVERTER")
+        self.assertEqual(converter_status(False, False), "FAIL_F16_CONVERTER")
+        self.assertEqual(converter_status(True, True), "PASS_F16_CONVERTER_REPAIR")
+        self.assertEqual(converter_status(False, True), "FAIL_F16_CONVERTER_REPAIR")
 
 
 if __name__ == "__main__": unittest.main()
