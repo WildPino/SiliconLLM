@@ -25,7 +25,7 @@ closes exact pretrained block-0 dense FFN parity in `engine.c` as FAIL: FFN
 normalization passes, while both Q4_K gate/up projections are the first
 failures in both schedules. This is not a repeat of STRAT-03 and does not test
 carving, a learned router, shared-residual utility, or quality. Do not rerun
-Rung 2B or advance to 2C; the only current engine-fidelity continuation is the
+Rung 2B or advance to 2C; at that stage the next engine-fidelity continuation was the
 separately scoped, no-full-donor [frozen-input Q4_K diagnostic](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260921.md).
 That cell now closes positively for the exact reference input: up/gate NRMSE
 is approximately `1.5e-7`, while byte-exact C-input replay reproduces the
@@ -48,7 +48,12 @@ runtime semantics; Rung 1 covered stored-row decode/dequantized matvec only.
 The [frozen K-B protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_KB_Q5_0_Q8_0_DIAGNOSTIC_PROTOCOL_20260921.md)
 therefore changes activation format and full-matrix operator semantics while
 holding artifact, tensor, inputs, output target, layout, and model layer fixed.
-It is the only current engine-fidelity implementation cell.
+Its [result](../probes/STRAT_01_GIGACHAT31_ENGINE_KB_Q5_0_Q8_0_DIAGNOSTIC_RESULT_20260921.md)
+closes that coordinate as `Q5_0_Q8_0_SUFFICIENT_FOR_KB_BOUNDARY`: exact and
+upstream-double inputs both reach NRMSE `4.80e-8`, and all three frozen inputs
+have identical Q8_0 bytes. Do not repeat Q5_0 codec, K-B layout, or this
+operator cell. The only current engine-fidelity implementation coordinate is
+combined double-RMSNorm plus Q5_0×Q8_0 propagation through downstream gates.
 
 ## 1. How to read this map
 

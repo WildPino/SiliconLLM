@@ -3,19 +3,22 @@
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
 **STRAT-01 K-B Q5_0×Q8_0 diagnostic (21 September):**
-The [protocol](probes/STRAT_01_GIGACHAT31_ENGINE_KB_Q5_0_Q8_0_DIAGNOSTIC_PROTOCOL_20260921.md)
-is frozen before implementation. It cross-feeds exact-reference and
-upstream-double `q-0` into current dequant-F32 and pinned Q5_0×Q8_0 K-B paths,
-with an independent pinned helper and byte-exact replay controls. It executes
-no donor graph and is distinct from Rung 1's stored-row codec/matvec cell.
+Closed as **`Q5_0_Q8_0_SUFFICIENT_FOR_KB_BOUNDARY`**. Pinned semantics match
+the immutable absorbed-Q output at NRMSE `4.80e-8`; current dequant-F32 remains
+at `3.1511e-4`. Exact-reference, upstream-double, and accepted-float `q-0`
+serialize to identical Q8_0 payloads (`0/1024` changed blocks pairwise). The
+independent pinned helper, frozen replays, and all planted controls pass with
+zero donor graphs. Do not repeat; freeze combined RMSNorm+K-B propagation.
+[Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_KB_Q5_0_Q8_0_DIAGNOSTIC_PROTOCOL_20260921.md) ·
+[Result](probes/STRAT_01_GIGACHAT31_ENGINE_KB_Q5_0_Q8_0_DIAGNOSTIC_RESULT_20260921.md).
 
 **STRAT-01 upstream RMSNorm propagation diagnostic (21 September):**
 Closed as **`UPSTREAM_DOUBLE_RMSNORM_INSUFFICIENT_FOR_PROJECTION_GATES`**.
 Double semantics make `attn_norm-0` exact and improve `ffn_inp-0` NRMSE from
 `5.9548e-4` to `4.9689e-4`, but up/gate remain at `0.0026265`/`0.0023148`.
-The first material residual is now the Q5_0 K-B absorption output after a
-near-exact `q-0`. Do not repeat or patch only RMSNorm; diagnose pinned
-Q5_0×Q8_0 runtime semantics next.
+The first material residual was localized to Q5_0 K-B runtime semantics and is
+now closed in isolation by the result above. Do not repeat or patch only
+RMSNorm; the next cell is combined RMSNorm+K-B downstream propagation.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_PROTOCOL_20260921.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_RESULT_20260921.md).
 
