@@ -35,8 +35,27 @@ constexpr const char * kArtifactSha256 = "68a8732fb5cee04f83ebffd7924e15c534d444
 constexpr uintmax_t kArtifactBytes = 6474702976ULL;
 constexpr const char * kSchema = "strat01_engine_rung2a_reference_manifest_v1";
 constexpr const char * kLlamaCommit = "5b335f413e4f73b0809c4fe39af894efbcc6a0d2";
+constexpr uint32_t kRequestedCtx = 8;
+constexpr uint32_t kResolvedCtx = 256;
+constexpr uint32_t kBatch = 8;
+constexpr uint32_t kUbatch = 8;
 
 struct Error : std::runtime_error { using std::runtime_error::runtime_error; };
+
+void validate_resolved_context_dimensions(uint32_t n_ctx, uint32_t n_batch, uint32_t n_ubatch) {
+    if (n_ctx != kResolvedCtx || n_batch != kBatch || n_ubatch != kUbatch) {
+        std::ostringstream message;
+        message << "VOID: llama.cpp context dimensions differ from frozen requested/resolved contract"
+                << " (requested_n_ctx=" << kRequestedCtx
+                << ", expected_resolved_n_ctx=" << kResolvedCtx
+                << ", actual_n_ctx=" << n_ctx
+                << ", expected_n_batch=" << kBatch
+                << ", actual_n_batch=" << n_batch
+                << ", expected_n_ubatch=" << kUbatch
+                << ", actual_n_ubatch=" << n_ubatch << ')';
+        throw Error(message.str());
+    }
+}
 
 // Small self-contained SHA-256 so model identity and payload manifests do not
 // depend on an external executable or a platform crypto provider.
@@ -347,7 +366,7 @@ void write_trace_json(const fs::path & root, const Trace & trace) {
 }
 void write_root_manifest(const fs::path & root, const fs::path & model, const std::vector<Trace> & traces) {
     std::ofstream out(root/"manifest.json",std::ios::binary|std::ios::trunc); if(!out) throw Error("VOID: cannot create root manifest");
-    out << "{\n\"schema\":"<<json_quote(kSchema)<<",\n\"state\":\"REFERENCE_TRACE_READY_PENDING_C_ENGINE\",\n\"llama_cpp_commit\":"<<json_quote(kLlamaCommit)<<",\n\"model\":{\"path\":"<<json_quote(model.generic_string())<<",\"bytes\":"<<kArtifactBytes<<",\"sha256\":"<<json_quote(kArtifactSha256)<<"},\n\"config\":{\"n_gpu_layers\":0,\"n_threads\":1,\"n_threads_batch\":1,\"n_ctx\":8,\"n_batch\":8,\"n_ubatch\":8,\"flash_attn\":\"disabled\",\"offload_kqv\":false,\"op_offload\":false,\"type_k\":\"F16\",\"type_v\":\"F16\"},\n\"fixed_tokens\":[";
+    out << "{\n\"schema\":"<<json_quote(kSchema)<<",\n\"state\":\"REFERENCE_TRACE_READY_PENDING_C_ENGINE\",\n\"llama_cpp_commit\":"<<json_quote(kLlamaCommit)<<",\n\"model\":{\"path\":"<<json_quote(model.generic_string())<<",\"bytes\":"<<kArtifactBytes<<",\"sha256\":"<<json_quote(kArtifactSha256)<<"},\n\"config\":{\"n_gpu_layers\":0,\"n_threads\":1,\"n_threads_batch\":1,\"requested_n_ctx\":"<<kRequestedCtx<<",\"resolved_n_ctx\":"<<kResolvedCtx<<",\"n_batch\":"<<kBatch<<",\"n_ubatch\":"<<kUbatch<<",\"flash_attn\":\"disabled\",\"offload_kqv\":false,\"op_offload\":false,\"type_k\":\"F16\",\"type_v\":\"F16\"},\n\"fixed_tokens\":[";
     for(size_t i=0;i<kTokens.size();++i){if(i)out<<',';out<<kTokens[i];}out<<"],\n\"fixed_positions\":[";for(size_t i=0;i<kPositions.size();++i){if(i)out<<',';out<<kPositions[i];}out<<"],\n\"arms\":[";
     for(size_t i=0;i<traces.size();++i){if(i)out<<',';out<<"{\"arm\":"<<json_quote(traces[i].arm)<<",\"manifest\":"<<json_quote((fs::path(traces[i].arm)/"manifest.json").generic_string())<<"}";}out<<"]\n}\n";
 }
@@ -359,9 +378,10 @@ void run_production(const Cli & cli) {
     try {
         llama_model_params mp=llama_model_default_params(); mp.n_gpu_layers=0;
         llama_model * model=llama_model_load_from_file(cli.model.string().c_str(),mp); if(!model) throw Error("VOID: llama.cpp could not load accepted model");
-        Collector collector; llama_context_params cp=llama_context_default_params(); cp.n_ctx=8;cp.n_batch=8;cp.n_ubatch=8;cp.n_threads=1;cp.n_threads_batch=1;cp.flash_attn_type=LLAMA_FLASH_ATTN_TYPE_DISABLED;cp.offload_kqv=false;cp.op_offload=false;cp.type_k=GGML_TYPE_F16;cp.type_v=GGML_TYPE_F16;cp.cb_eval=&Collector::callback;cp.cb_eval_user_data=&collector;
+        Collector collector; llama_context_params cp=llama_context_default_params(); cp.n_ctx=kRequestedCtx;cp.n_batch=kBatch;cp.n_ubatch=kUbatch;cp.n_threads=1;cp.n_threads_batch=1;cp.flash_attn_type=LLAMA_FLASH_ATTN_TYPE_DISABLED;cp.offload_kqv=false;cp.op_offload=false;cp.type_k=GGML_TYPE_F16;cp.type_v=GGML_TYPE_F16;cp.cb_eval=&Collector::callback;cp.cb_eval_user_data=&collector;
         llama_context * ctx=llama_init_from_model(model,cp); if(!ctx) {llama_model_free(model);throw Error("VOID: llama.cpp could not create frozen CPU context");}
-        if(llama_n_ctx(ctx)!=8||llama_n_batch(ctx)!=8||llama_n_ubatch(ctx)!=8) {llama_free(ctx);llama_model_free(model);throw Error("VOID: llama.cpp context resolved a non-frozen dimension");}
+        try { validate_resolved_context_dimensions(llama_n_ctx(ctx),llama_n_batch(ctx),llama_n_ubatch(ctx)); }
+        catch (...) { llama_free(ctx);llama_model_free(model);throw; }
         std::vector<Trace> traces; if(cli.arm==Arm::All||cli.arm==Arm::Prefill8) traces.push_back(run_arm(ctx,collector,Arm::Prefill8)); if(cli.arm==Arm::All||cli.arm==Arm::Cached7p1) traces.push_back(run_arm(ctx,collector,Arm::Cached7p1));
         for(const Trace&t:traces)write_trace_json(cli.out_dir,t); write_root_manifest(cli.out_dir,cli.model,traces); llama_free(ctx);llama_model_free(model);
     } catch (...) { llama_backend_free(); throw; }
@@ -384,6 +404,9 @@ bool self_tests() {
     }
     try { auto bad=kTokens; bad[3]++; validate_fixed_identity(bad.data(),kPositions.data(),bad.size()); check(false,"token identity refusal"); } catch(const Error&) {}
     try { auto bad=kPositions; bad[4]++; validate_fixed_identity(kTokens.data(),bad.data(),bad.size()); check(false,"position identity refusal"); } catch(const Error&) {}
+    try { validate_resolved_context_dimensions(kResolvedCtx,kBatch,kUbatch); } catch(const Error&) { check(false,"resolved context acceptance"); }
+    try { validate_resolved_context_dimensions(kRequestedCtx,kBatch,kUbatch); check(false,"unpadded context refusal"); } catch(const Error&) {}
+    try { validate_resolved_context_dimensions(kResolvedCtx,kBatch-1,kUbatch); check(false,"batch mismatch refusal"); } catch(const Error&) {}
     std::vector<Event> fixture={{"x","q-0","MUL_MAT","F32",0,{1,1,1,1},1,{}},{"x","q-0","RESHAPE","F32",1,{1,1,1,1},1,{}},{"x","k_pe-0","VIEW","F32",0,{1,1,1,1},1,{}},{"x","k_pe-0","ROPE","F32",1,{1,1,1,1},1,{}}};
     check(one(fixture,"q-0","RESHAPE").ordinal==1&&last(fixture,"k_pe-0","ROPE").ordinal==1,"occurrence disambiguation");
     try { (void)one(fixture,"q-0"); check(false,"ambiguous occurrence refusal"); } catch(const Error&) {}

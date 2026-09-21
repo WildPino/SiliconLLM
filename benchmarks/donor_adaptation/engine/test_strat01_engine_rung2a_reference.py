@@ -31,6 +31,14 @@ class Rung2AReferenceTests(unittest.TestCase):
     def test_pinned_source_is_clean_at_exact_head(self) -> None:
         build_mod.verify_pinned_llama()
 
+    def test_requested_and_pinned_resolved_context_are_both_explicit(self) -> None:
+        source = build_mod.SOURCE.read_text(encoding="utf-8")
+        self.assertIn("constexpr uint32_t kRequestedCtx = 8;", source)
+        self.assertIn("constexpr uint32_t kResolvedCtx = 256;", source)
+        self.assertIn('\\"requested_n_ctx\\"', source)
+        self.assertIn('\\"resolved_n_ctx\\"', source)
+        self.assertIn("validate_resolved_context_dimensions(llama_n_ctx(ctx),llama_n_batch(ctx),llama_n_ubatch(ctx))", source)
+
     def test_build_and_model_free_cpp_self_test(self) -> None:
         completed = subprocess.run([str(self.binary), "--self-test"], text=True, capture_output=True, check=False)
         self.assertEqual(completed.returncode, 0, completed.stdout + completed.stderr)

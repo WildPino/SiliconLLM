@@ -21,7 +21,7 @@ This cell establishes only block-0 attention semantics. It does not establish de
 | Artifact size | 6,474,702,976 bytes |
 | Artifact SHA-256 | `68a8732fb5cee04f83ebffd7924e15c534d4442c5a43d2ba9e2041fe310b8deb` |
 | Reference | Clean llama.cpp commit `5b335f413e4f73b0809c4fe39af894efbcc6a0d2`; CPU only; 1 thread |
-| Reference execution | Flash attention disabled; K/Q/V offload disabled; `n_ctx=8`; `n_batch=8`; `n_ubatch=8`; `type_k=F16`; `type_v=F16` |
+| Reference execution | Flash attention disabled; K/Q/V offload disabled; request `n_ctx=8`; require the pinned runtime's source-mandated resolved allocation `resolved_n_ctx=256`; `n_batch=8`; `n_ubatch=8`; `type_k=F16`; `type_v=F16` |
 | C engine entry point | Dedicated `--strat01-gguf-rung2a` mode in `benchmarks/phase60/engine.c` (planned; not asserted to exist) |
 | C build semantics | Clang C11, `-O3 -mavx2 -mfma`, with no `-ffast-math`; record the resolved compiler path and complete `clang --version` output. Floating-point contraction choices used by the implementation must be explicit in `CONFIG`. |
 | Configuration record | Exact resolved `CONFIG` is mandatory in the raw JSON and execution log. It must record all reference settings above and the C engine's matching semantic settings; any unlisted or mismatched setting makes the run void. |
@@ -39,6 +39,19 @@ The reference and C engine each run both arms:
 
 No throughput, elapsed-time, or rate statistic may enter adjudication.
 Any operational wall time is diagnostic only and must not be added to `SPEED_LEDGER.md`.
+
+### Apparatus clarification after the second void
+
+The reference request and the logical experiment remain eight positions. At
+the pinned llama.cpp revision, `src/llama-context.cpp:288` applies
+`GGML_PAD(cparams.n_ctx, 256)` after accepting the requested context, so an
+eight-token request deterministically resolves to a 256-slot runtime
+allocation. The reference manifest must therefore record both
+`requested_n_ctx=8` and `resolved_n_ctx=256`, and must refuse any other resolved
+context, batch, or microbatch dimension. This clarification repairs an
+internally impossible apparatus assertion; it does not alter the eight-token
+inputs, compared tensors, occupied cache positions, metric definitions,
+thresholds, or scientific estimand.
 
 ## Source-derived MLA cache contract
 
