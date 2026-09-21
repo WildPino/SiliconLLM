@@ -2,6 +2,14 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**STRAT-01 F16 converter precondition (21 September):**
+The first zero-donor F16 vec-dot launch is preserved as
+`VOID_F16_VEC_DOT_DIAGNOSTIC`: project and pinned binary16 conversion differ
+on the immutable activation population, so no dot result is admissible.
+Execute the [frozen byte-level converter audit](probes/STRAT_01_GIGACHAT31_ENGINE_F16_CONVERTER_AUDIT_PROTOCOL_20260921.md),
+repair only if it returns `FAIL_F16_CONVERTER`, then resume the unchanged
+[vec-dot protocol](probes/STRAT_01_GIGACHAT31_ENGINE_F16_VEC_DOT_DIAGNOSTIC_PROTOCOL_20260921.md).
+
 **STRAT-01 GigaChat 3.1 attention-stage diagnostic (21 September):**
 Closed as **`MIXED_ATTENTION_STAGE_RESIDUAL`**.  Project softmax on captured
 QK passes at `7.76e-8` NRMSE; scalar QK and captured-softmax×V fail at

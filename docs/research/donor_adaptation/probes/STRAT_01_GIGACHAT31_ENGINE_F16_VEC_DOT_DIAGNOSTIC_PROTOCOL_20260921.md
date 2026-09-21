@@ -78,3 +78,15 @@ order, padding extent, conversions or thresholds after observation.
 Only a two-stage passing result authorizes a shared F16-dot implementation and
 a separately frozen full block-0 confirmation.  A one-stage or partial result
 requires a narrower diagnostic.  No Rung 2B, quality, RAM or speed claim moves.
+
+## Precondition VOID A — project F16 conversion mismatch
+
+The first offline launch at commit `77b24f3` is preserved as
+`VOID_F16_VEC_DOT_DIAGNOSTIC`, adjudication SHA-256
+`8a94fa1230b92184ca4ef1fcee35c3178f554cac15317af4e86d77a66d64c2c9`.
+It executed no donor and stopped before emitting dot products because the
+project binary16 converter disagreed with pinned GGML on at least one finite
+immutable activation.  This is a failed frozen control, not evidence for or
+against the vec-dot hypothesis.  Do not weaken the control or use partial
+products.  Complete the separately frozen converter audit/repair before a
+new F16 vec-dot launch.
