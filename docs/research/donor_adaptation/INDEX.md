@@ -17,8 +17,12 @@ payloads offline with zero donor executions. The result is
 **`FAIL_ENGINE_RUNG2A`**: 18/24 tensor cells and all three cache checkpoints
 fail, while within-implementation prefill/7+1 continuity is exact. Rung 2A is
 closed; do not rerun or tune its gates, and do not widen to 2B/2C. The next
-cell must diagnose Q/KV full-matrix projection semantics after the passing
-`attn_norm-0`. Operational durations are not speed evidence. [Canonical
+cell is now frozen as an offline Q/KV projection diagnostic: it tests whether
+pinned GGML Q4_K×Q8_K activation semantics reproduce both captured reference
+projections while the current dequant-F32 path reproduces the captured C
+outputs. It runs no donor graph and cannot rewrite the closed rung. Operational
+durations are not speed evidence. [Frozen diagnostic
+protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_PROJECTION_DIAGNOSTIC_PROTOCOL_20260921.md), [canonical
 record](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_RESULT_20260921.md), [amended
 protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_PROTOCOL_20260921.md), [first
 void](../../../benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_rung2a_20260921/), [second
