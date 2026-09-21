@@ -1,7 +1,7 @@
 # STRAT-01 GigaChat 3.1 engine Q4_K×Q8_K repair result
 
-**Verdict:** `PASS_ENGINE_Q4K_Q8K_REPAIR`  
-**Date:** 21 September 2026  
+**Verdict:** `PASS_ENGINE_Q4K_Q8K_REPAIR`
+**Date:** 21 September 2026
 **Scope:** standalone C operator fidelity for the immutable block-0 Q and KV projections only; no full-attention, quality, RAM, or speed claim
 
 ## Result

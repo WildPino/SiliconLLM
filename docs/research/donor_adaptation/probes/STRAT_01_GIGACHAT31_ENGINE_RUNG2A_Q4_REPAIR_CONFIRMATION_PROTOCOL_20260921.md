@@ -1,7 +1,7 @@
 # STRAT-01 GigaChat 3.1 changed-coordinate block-0 attention confirmation
 
-**State:** FROZEN PROTOCOL; NOT YET EXECUTED  
-**Date frozen:** 21 September 2026  
+**State:** FROZEN PROTOCOL; NOT YET EXECUTED
+**Date frozen:** 21 September 2026
 **Scope:** confirm the integrated Q4_K×Q8_K repair at the first Rung-2A failure and localize the next downstream mismatch; no rewrite of old Rung 2A, no 2B, quality, RAM, or speed
 
 ## Question and changed coordinate
