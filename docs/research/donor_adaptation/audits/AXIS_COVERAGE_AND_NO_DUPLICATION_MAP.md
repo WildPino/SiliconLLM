@@ -20,6 +20,10 @@ closes the frozen five-layer `k=3/256` local diagnostic with a byte-count-
 matched SwiGLU shared path and `x`-only router: all three gates fail despite
 valid controls. Do not repeat that geometry or infer a general impossibility
 for other routers, jointly trained models or end-to-end quality.
+The current [STRAT-01 Rung-2B protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_PROTOCOL_20260921.md)
+is not a repeat of STRAT-03: it measures exact pretrained block-0 dense FFN
+parity in `engine.c`, beginning at the already accepted `ffn_inp-0`, and does
+not test carving, a learned router, shared-residual utility, or quality.
 
 ## 1. How to read this map
 

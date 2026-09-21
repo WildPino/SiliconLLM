@@ -1,6 +1,6 @@
 # SiliconLLM — research catalog and no-duplication handoff
 
-**Snapshot:** 2026-09-16. **Latest material:** E63's first admissible clean A10B sweep closed `G-E63d` as `DESK-MODEL-HELD` at 49.37 tok/s and measured `G-E63e` at 0.9952; the runner then stopped at E61c's fp32/ternary CONFIG mismatch, so the ancillary Part B sweeps are incomplete. H1 session 3 v2 is COMPLETE/PASS; H2I Phase B v4 is terminal `SCORE-ONLY` (score passes, strict rank does not). The user's remembered endpoint was E64; the tree contained E65, completed E66 and H2I.
+**Snapshot:** 2026-09-16; continuation updated 2026-09-21. **Latest material:** STRAT-01 GigaChat 3.1 now has quality, PIQA, rollout, and exact `engine.c` block-0 attention Rung-2A parity through `ffn_inp-0`; the [dense Rung-2B protocol](../../docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_PROTOCOL_20260921.md) is frozen and is the only current implementation boundary. Rung 2C, tokenizer, full generation/C quality, RAM, rate, and HumanEval remain open. Earlier: E63's first admissible clean A10B sweep closed `G-E63d` as `DESK-MODEL-HELD` at 49.37 tok/s and measured `G-E63e` at 0.9952; its ancillary Part B sweeps remain incomplete. H1 session 3 v2 is COMPLETE/PASS; H2I Phase B v4 is terminal `SCORE-ONLY`.
 
 ## Read this first
 
