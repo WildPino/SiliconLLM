@@ -3,19 +3,22 @@
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
 **STRAT-01 dense block-0 SwiGLU Rung 2B (21 September):**
-The [protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_PROTOCOL_20260921.md)
-is frozen before implementation.  This is a new boundary beginning at the
-already accepted `ffn_inp-0` and ending at block-0 `l_out-0`; it separately
-gates RMSNorm, Q4_K gate/up, SwiGLU, Q6_K down, and residual semantics.  It
-permits one extended pinned-reference trace and one non-VOID C execution.  It
-must not regenerate or readjudicate Rung 2A.
+Closed as **`FAIL_ENGINE_RUNG2B`** after one non-VOID C execution.  In both
+schedules `ffn_norm-0` passes, while Q4_K up and gate are the first failures at
+NRMSE `0.0030613` and `0.0026914`; continuity is exact and all four semantic
+controls reject.  The two earlier donor launches are preserved reference-side
+VOIDs and never executed the C donor.  Do not rerun or tune Rung 2B, and do not
+advance to Rung 2C.  The next cell is a no-donor frozen-input diagnostic of
+Q8_K amplification versus matrix-specific Q4_K semantics.
+[Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_PROTOCOL_20260921.md) ·
+[Result](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_RESULT_20260921.md).
 
 **STRAT-01 attention + V-B production repair (21 September):**
 Closed as **`PASS_ENGINE_ATTENTION_VB_REPAIR`**: both schedules pass all 24
 tensor and three cache gates through `ffn_inp-0`; continuity is exact and no
 remaining failure exists in Rung 2A.  One C artifact execution, zero pinned
-reference reruns.  Do not repeat; execute only the separately frozen dense
-SwiGLU Rung 2B protocol next.
+reference reruns. Do not repeat; the later Rung-2B record above supersedes its
+then-next action.
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_VB_REPAIR_RESULT_20260921.md).
 
 **STRAT-01 F16 dot diagnostic (21 September):**

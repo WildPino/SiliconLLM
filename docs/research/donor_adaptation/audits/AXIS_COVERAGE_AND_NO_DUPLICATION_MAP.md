@@ -20,10 +20,13 @@ closes the frozen five-layer `k=3/256` local diagnostic with a byte-count-
 matched SwiGLU shared path and `x`-only router: all three gates fail despite
 valid controls. Do not repeat that geometry or infer a general impossibility
 for other routers, jointly trained models or end-to-end quality.
-The current [STRAT-01 Rung-2B protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_PROTOCOL_20260921.md)
-is not a repeat of STRAT-03: it measures exact pretrained block-0 dense FFN
-parity in `engine.c`, beginning at the already accepted `ffn_inp-0`, and does
-not test carving, a learned router, shared-residual utility, or quality.
+The [STRAT-01 Rung-2B result](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_RESULT_20260921.md)
+closes exact pretrained block-0 dense FFN parity in `engine.c` as FAIL: FFN
+normalization passes, while both Q4_K gate/up projections are the first
+failures in both schedules. This is not a repeat of STRAT-03 and does not test
+carving, a learned router, shared-residual utility, or quality. Do not rerun
+Rung 2B or advance to 2C; the only current engine-fidelity continuation is the
+separately scoped, no-full-donor frozen-input Q4_K diagnostic.
 
 ## 1. How to read this map
 
