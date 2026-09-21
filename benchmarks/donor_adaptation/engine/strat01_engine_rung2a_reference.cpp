@@ -102,7 +102,10 @@ private:
 std::string sha256_bytes(const std::vector<uint8_t> & bytes) { Sha256 h; h.update(bytes.data(), bytes.size()); return h.finish_hex(); }
 std::string sha256_file(const fs::path & path) {
     std::ifstream in(path, std::ios::binary); if (!in) throw Error("VOID: cannot open model for SHA-256");
-    std::array<uint8_t, 1 << 20> buf{}; Sha256 h;
+    // A 1 MiB automatic array exhausts the default 1 MiB Windows stack before
+    // model loading.  Keep the streaming buffer on the heap; this identity
+    // gate must work under the same executable stack settings as production.
+    std::vector<uint8_t> buf(1 << 20); Sha256 h;
     while (in) { in.read(reinterpret_cast<char *>(buf.data()), static_cast<std::streamsize>(buf.size())); const auto n=in.gcount(); if (n > 0) h.update(buf.data(), static_cast<size_t>(n)); }
     if (!in.eof()) throw Error("VOID: cannot read model for SHA-256");
     return h.finish_hex();
@@ -370,6 +373,15 @@ bool self_tests() {
     check(host_is_little_endian(),"little endian host");
     const std::vector<float> vals={1.0f,-2.5f}; const auto bytes=encode_f32_le(vals); check(bytes.size()==8&&bytes[0]==0&&bytes[1]==0&&bytes[2]==0x80&&bytes[3]==0x3f,"canonical f32le");
     check(sha256_bytes(bytes)=="48943f7a0ea247f8e3c9386d0c5822fe181d323a9289980426638cc4e72a43e1","canonical float SHA-256");
+    {
+        std::ostringstream leaf; leaf << "strat01-rung2a-sha-selftest-" << reinterpret_cast<uintptr_t>(&ok) << ".bin";
+        const fs::path fixture=fs::temp_directory_path()/leaf.str();
+        try {
+            { std::ofstream out(fixture,std::ios::binary|std::ios::trunc); out << "abc"; if(!out) throw Error("self-test fixture write failed"); }
+            check(sha256_file(fixture)=="ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad","streaming file SHA-256");
+            fs::remove(fixture);
+        } catch (...) { std::error_code ignored; fs::remove(fixture,ignored); throw; }
+    }
     try { auto bad=kTokens; bad[3]++; validate_fixed_identity(bad.data(),kPositions.data(),bad.size()); check(false,"token identity refusal"); } catch(const Error&) {}
     try { auto bad=kPositions; bad[4]++; validate_fixed_identity(kTokens.data(),bad.data(),bad.size()); check(false,"position identity refusal"); } catch(const Error&) {}
     std::vector<Event> fixture={{"x","q-0","MUL_MAT","F32",0,{1,1,1,1},1,{}},{"x","q-0","RESHAPE","F32",1,{1,1,1,1},1,{}},{"x","k_pe-0","VIEW","F32",0,{1,1,1,1},1,{}},{"x","k_pe-0","ROPE","F32",1,{1,1,1,1},1,{}}};
