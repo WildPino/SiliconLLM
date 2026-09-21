@@ -1,6 +1,6 @@
 # STRAT-01 GigaChat 3.1 attention and V-B production repair protocol
 
-**State:** FROZEN PROTOCOL; NOT YET EXECUTED
+**State:** EXECUTED; CLOSED AS `PASS_ENGINE_ATTENTION_VB_REPAIR`
 **Date frozen:** 21 September 2026
 **Scope:** integrate two independently closed operator semantics and confirm both rung-2A schedules through block-0 attention output; no Rung 2B, quality, RAM, or speed claim
 
@@ -45,3 +45,6 @@ PASS establishes the current block-0 attention path through its residual
 output for both schedules and permits the separately frozen next operator.
 FAIL localizes the next boundary and forbids broader integration.  Neither
 label establishes full-model generation, task quality, RAM, or token rate.
+
+The canonical result is
+[STRAT_01_GIGACHAT31_ENGINE_ATTENTION_VB_REPAIR_RESULT_20260921.md](STRAT_01_GIGACHAT31_ENGINE_ATTENTION_VB_REPAIR_RESULT_20260921.md).

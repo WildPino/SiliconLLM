@@ -2,6 +2,13 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**STRAT-01 attention + V-B production repair (21 September):**
+Closed as **`PASS_ENGINE_ATTENTION_VB_REPAIR`**: both schedules pass all 24
+tensor and three cache gates through `ffn_inp-0`; continuity is exact and no
+remaining failure exists in Rung 2A.  One C artifact execution, zero pinned
+reference reruns.  Do not repeat; freeze dense SwiGLU Rung 2B next.
+[Result](probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_VB_REPAIR_RESULT_20260921.md).
+
 **STRAT-01 F16 dot diagnostic (21 September):**
 Closed as **`F16_CONVERSION_ONLY_SUFFICIENT`**: scalar F16×F16 passes QK and
 softmax×V at NRMSE `1.76e-7` and `4.08e-8`; pinned vector outputs equal the
