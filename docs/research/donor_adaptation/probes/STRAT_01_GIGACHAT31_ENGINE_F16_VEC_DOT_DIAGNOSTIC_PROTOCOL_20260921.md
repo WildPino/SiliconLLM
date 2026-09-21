@@ -1,6 +1,6 @@
 # STRAT-01 GigaChat 3.1 F16 vector-dot diagnostic
 
-**State:** FROZEN PROTOCOL; NOT YET EXECUTED
+**State:** EXECUTED; CLOSED AS `F16_CONVERSION_ONLY_SUFFICIENT`
 **Date frozen:** 21 September 2026
 **Scope:** zero-donor offline test of the shared QK and value-reduction dot semantics; no production-engine change, quality, RAM, or speed claim
 
@@ -111,3 +111,6 @@ require every mutation stream to differ bytewise from its baseline as well as
 fail its target gate.  No input, conversion, mutation bit, threshold, arm,
 label, or scientific hypothesis changes.  Use a new raw directory, zero donor
 executions, and stop after one non-VOID repair launch.
+
+The canonical repaired-apparatus result is
+[STRAT_01_GIGACHAT31_ENGINE_F16_VEC_DOT_DIAGNOSTIC_RESULT_20260921.md](STRAT_01_GIGACHAT31_ENGINE_F16_VEC_DOT_DIAGNOSTIC_RESULT_20260921.md).

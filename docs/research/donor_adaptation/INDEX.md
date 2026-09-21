@@ -2,6 +2,14 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**STRAT-01 F16 dot diagnostic (21 September):**
+Closed as **`F16_CONVERSION_ONLY_SUFFICIENT`**: scalar F16×F16 passes QK and
+softmax×V at NRMSE `1.76e-7` and `4.08e-8`; pinned vector outputs equal the
+captured targets exactly.  Integrate F16 right-operand conversion together
+with the independently closed V-B Q4_K×Q8_K path under the [frozen production
+protocol](probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_VB_REPAIR_PROTOCOL_20260921.md).
+[Result](probes/STRAT_01_GIGACHAT31_ENGINE_F16_VEC_DOT_DIAGNOSTIC_RESULT_20260921.md).
+
 **STRAT-01 F16 dot apparatus VOID B (21 September):**
 The first post-converter launch emitted two in-gate scalar F16 observations,
 but both direct vector streams and their mutations were identically all zero.
