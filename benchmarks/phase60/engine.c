@@ -30,6 +30,7 @@
 #include "strat01_gguf_inspect.h"
 #include "strat01_gguf_rung1.h"
 #include "strat01_gguf_rung2a.h"
+#include "strat01_gguf_rung2b.h"
 #ifdef _OPENMP
 #include <omp.h>
 #endif
@@ -1048,6 +1049,14 @@ int main(int argc,char**argv){
         return strat01_gguf_rung2a_cli(argv[2],argv[4],__FILE__);
     }
     if(argc==2 && !strcmp(argv[1],"--strat01-gguf-rung2a-selftest")) return strat01_gguf_rung2a_selftest();
+    if(argc>1 && !strcmp(argv[1],"--strat01-gguf-rung2b")){
+        if(argc!=5 || strcmp(argv[3],"--out-dir")){
+            fprintf(stderr,"usage: engine --strat01-gguf-rung2b <accepted.gguf> --out-dir <directory>\n");
+            return 2;
+        }
+        return strat01_gguf_rung2b_cli(argv[2],argv[4],__FILE__);
+    }
+    if(argc==2 && !strcmp(argv[1],"--strat01-gguf-rung2b-selftest")) return strat01_gguf_rung2b_selftest();
     if(argc==2 && !strcmp(argv[1],"--strat01-q4k-q8k-selftest")) return strat01_q4k_q8k_selftest();
     if(argc>1 && !strcmp(argv[1],"--strat01-q4k-q8k-projection")){
         if(argc!=7 || strcmp(argv[3],"--input") || strcmp(argv[5],"--out-dir")){

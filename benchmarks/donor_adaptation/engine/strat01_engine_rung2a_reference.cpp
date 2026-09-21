@@ -2,6 +2,8 @@
 // This program intentionally contains no phase60 engine code and does not
 // adjudicate C-engine parity.  It creates the independently checkable
 // reference side required by the frozen Rung-2A protocol.
+// STRAT01_RUNG2B extends only the requested callback boundary; the default
+// build and every historical Rung-2A artifact remain unchanged.
 
 #include "llama.h"
 #include "ggml.h"
@@ -33,7 +35,11 @@ constexpr std::array<llama_token, 8> kTokens = {1, 72, 14, 14129, 14, 2135, 1512
 constexpr std::array<llama_pos, 8> kPositions = {0, 1, 2, 3, 4, 5, 6, 7};
 constexpr const char * kArtifactSha256 = "68a8732fb5cee04f83ebffd7924e15c534d4442c5a43d2ba9e2041fe310b8deb";
 constexpr uintmax_t kArtifactBytes = 6474702976ULL;
+#if defined(STRAT01_RUNG2B)
+constexpr const char * kSchema = "strat01_engine_rung2b_reference_manifest_v1";
+#else
 constexpr const char * kSchema = "strat01_engine_rung2a_reference_manifest_v1";
+#endif
 constexpr const char * kLlamaCommit = "5b335f413e4f73b0809c4fe39af894efbcc6a0d2";
 constexpr uint32_t kRequestedCtx = 8;
 constexpr uint32_t kResolvedCtx = 256;
@@ -178,7 +184,11 @@ Cli parse_cli(int argc, char ** argv) {
 struct Event {
     std::string phase, name, op, type; int ordinal=0; std::array<int64_t,4> shape{}; int rank=0; std::vector<float> values;
 };
+#if defined(STRAT01_RUNG2B)
+constexpr std::array<const char *, 22> kNames = {"attn_norm-0", "q-0", "kv_cmpr_pe-0", "k_pe-0", "kv_cmpr-0", "q_pe-0", "q_nope_absorbed_perm-0", "Qcur-0", "Kcur-0", "Vcur-0", "kq-0", "kq_soft_max-0", "kqv-0", "kqv_mla-0", "kqv_out-0", "ffn_inp-0", "ffn_norm-0", "ffn_up-0", "ffn_gate-0", "ffn_swiglu-0", "ffn_out-0", "l_out-0"};
+#else
 constexpr std::array<const char *, 16> kNames = {"attn_norm-0", "q-0", "kv_cmpr_pe-0", "k_pe-0", "kv_cmpr-0", "q_pe-0", "q_nope_absorbed_perm-0", "Qcur-0", "Kcur-0", "Vcur-0", "kq-0", "kq_soft_max-0", "kqv-0", "kqv_mla-0", "kqv_out-0", "ffn_inp-0"};
+#endif
 bool wanted_name(std::string_view name) { return std::find_if(kNames.begin(), kNames.end(), [&](const char * p){ return name == p; }) != kNames.end(); }
 int protocol_rank(std::string_view name) {
     if (name == "q-0" || name == "k_pe-0" || name == "q_pe-0" || name == "q_nope_absorbed_perm-0" || name == "Qcur-0" || name == "Kcur-0" || name == "Vcur-0" || name == "kq-0" || name == "kq_soft_max-0" || name == "kqv-0" || name == "kqv_mla-0") return 3;
@@ -233,7 +243,7 @@ const Event & last(const std::vector<Event> & events, std::string_view name, std
 std::map<std::string,const Event *> select_logical(const std::vector<Event> & e) {
     // Selection is tied to the clean pinned source call order, never to an
     // unqualified callback name.  q after RESHAPE is explicitly resolved.
-    return {{"attn_norm-0", &one(e,"attn_norm-0")}, {"q-0", &one(e,"q-0","RESHAPE")},
+    std::map<std::string,const Event *> result = {{"attn_norm-0", &one(e,"attn_norm-0")}, {"q-0", &one(e,"q-0","RESHAPE")},
             {"kv_cmpr_pe-0", &one(e,"kv_cmpr_pe-0")}, {"k_pe-0", &last(e,"k_pe-0","ROPE")},
             {"kv_cmpr-0", &last(e,"kv_cmpr-0","MUL")}, {"q_pe-0", &last(e,"q_pe-0","ROPE")},
             {"q_nope_absorbed_perm-0", &one(e,"q_nope_absorbed_perm-0")}, {"Qcur-0", &one(e,"Qcur-0")},
@@ -241,6 +251,15 @@ std::map<std::string,const Event *> select_logical(const std::vector<Event> & e)
             {"kq-0", &one(e,"kq-0")}, {"kq_soft_max-0", &one(e,"kq_soft_max-0")},
             {"kqv-0", &one(e,"kqv-0")}, {"kqv_mla-0", &one(e,"kqv_mla-0")},
             {"kqv_out-0", &one(e,"kqv_out-0")}, {"ffn_inp-0", &one(e,"ffn_inp-0")}};
+#if defined(STRAT01_RUNG2B)
+    result.emplace("ffn_norm-0", &one(e,"ffn_norm-0"));
+    result.emplace("ffn_up-0", &one(e,"ffn_up-0"));
+    result.emplace("ffn_gate-0", &one(e,"ffn_gate-0"));
+    result.emplace("ffn_swiglu-0", &one(e,"ffn_swiglu-0"));
+    result.emplace("ffn_out-0", &one(e,"ffn_out-0"));
+    result.emplace("l_out-0", &one(e,"l_out-0"));
+#endif
+    return result;
 }
 
 Event stitch_cached_event(const Event & prefix, const Event & final, std::string_view logical) {
@@ -422,5 +441,12 @@ bool self_tests() {
 
 int main(int argc, char ** argv) {
     try { const Cli cli=parse_cli(argc,argv); if(cli.self_test) return self_tests()?0:1; run_production(cli); return 0; }
-    catch(const std::exception & e) { std::cerr << "strat01_engine_rung2a_reference: " << e.what() << '\n'; return 2; }
+    catch(const std::exception & e) {
+#if defined(STRAT01_RUNG2B)
+        std::cerr << "strat01_engine_rung2b_reference: " << e.what() << '\n';
+#else
+        std::cerr << "strat01_engine_rung2a_reference: " << e.what() << '\n';
+#endif
+        return 2;
+    }
 }

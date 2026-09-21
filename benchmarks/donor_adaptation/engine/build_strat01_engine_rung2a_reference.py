@@ -26,33 +26,36 @@ def verify_pinned_llama(source: Path = PINNED_LLAMA) -> None:
         raise BuildError("llama.cpp source is not the clean pinned commit")
 
 
-def cmake_project(source: Path, llama_source: Path) -> str:
+def cmake_project(source: Path, llama_source: Path, *, rung2b: bool = False) -> str:
+    target = "strat01_engine_rung2b_reference" if rung2b else "strat01_engine_rung2a_reference"
+    definition = f"target_compile_definitions({target} PRIVATE STRAT01_RUNG2B=1)\n" if rung2b else ""
     return f'''cmake_minimum_required(VERSION 3.20)
-project(strat01_engine_rung2a_reference LANGUAGES C CXX)
+project({target} LANGUAGES C CXX)
 set(LLAMA_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(LLAMA_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(LLAMA_BUILD_SERVER OFF CACHE BOOL "" FORCE)
 set(LLAMA_CURL OFF CACHE BOOL "" FORCE)
 add_subdirectory("{llama_source.as_posix()}" llama-cpp)
-add_executable(strat01_engine_rung2a_reference "{source.as_posix()}")
-target_compile_features(strat01_engine_rung2a_reference PRIVATE cxx_std_17)
-target_link_libraries(strat01_engine_rung2a_reference PRIVATE llama)
+add_executable({target} "{source.as_posix()}")
+target_compile_features({target} PRIVATE cxx_std_17)
+{definition}target_link_libraries({target} PRIVATE llama)
 '''
 
 
-def build(build_dir: Path, configuration: str = "Release") -> Path:
+def build(build_dir: Path, configuration: str = "Release", *, rung2b: bool = False) -> Path:
     verify_pinned_llama()
     if not SOURCE.is_file():
         raise BuildError("reference trace source is unavailable")
+    target = "strat01_engine_rung2b_reference" if rung2b else "strat01_engine_rung2a_reference"
     build_dir.mkdir(parents=True, exist_ok=True)
-    (build_dir / "CMakeLists.txt").write_text(cmake_project(SOURCE, PINNED_LLAMA), encoding="utf-8", newline="\n")
+    (build_dir / "CMakeLists.txt").write_text(cmake_project(SOURCE, PINNED_LLAMA, rung2b=rung2b), encoding="utf-8", newline="\n")
     configured = subprocess.run(["cmake", "-S", str(build_dir), "-B", str(build_dir / "cmake-build")], text=True, capture_output=True, check=False)
     if configured.returncode:
         raise BuildError("CMake configure failed:\n" + "\n".join((configured.stdout + configured.stderr).splitlines()[-20:]))
-    compiled = subprocess.run(["cmake", "--build", str(build_dir / "cmake-build"), "--target", "strat01_engine_rung2a_reference", "--config", configuration], text=True, capture_output=True, check=False)
+    compiled = subprocess.run(["cmake", "--build", str(build_dir / "cmake-build"), "--target", target, "--config", configuration], text=True, capture_output=True, check=False)
     if compiled.returncode:
         raise BuildError("CMake build failed:\n" + "\n".join((compiled.stdout + compiled.stderr).splitlines()[-30:]))
-    candidates = [candidate for name in ("strat01_engine_rung2a_reference.exe", "strat01_engine_rung2a_reference") for candidate in (build_dir / "cmake-build").rglob(name)]
+    candidates = [candidate for name in (target + ".exe", target) for candidate in (build_dir / "cmake-build").rglob(name)]
     if len(candidates) != 1:
         raise BuildError("build did not produce exactly one reference trace binary")
     return candidates[0]
