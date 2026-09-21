@@ -1,8 +1,10 @@
 # STRAT-01 GigaChat 3.1 engine Rung-2A projection diagnostic protocol
 
-**State:** FROZEN PROTOCOL; NOT YET EXECUTED  
+**State:** EXECUTED; CLOSED as `ATTRIBUTED_Q8K_ACTIVATION_QUANTIZATION`
 **Date frozen:** 21 September 2026  
 **Scope:** offline attribution of the already measured Rung-2A Q/KV projection mismatch; no donor execution, no acceptance-rung repetition, and no speed claim
+
+The frozen gates below are unchanged.  See the [canonical result](STRAT_01_GIGACHAT31_ENGINE_RUNG2A_PROJECTION_DIAGNOSTIC_RESULT_20260921.md).
 
 ## Question and nearest evidence
 
