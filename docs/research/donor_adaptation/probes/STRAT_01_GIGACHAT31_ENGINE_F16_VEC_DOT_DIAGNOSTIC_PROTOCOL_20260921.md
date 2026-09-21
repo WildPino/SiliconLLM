@@ -90,3 +90,24 @@ immutable activation.  This is a failed frozen control, not evidence for or
 against the vec-dot hypothesis.  Do not weaken the control or use partial
 products.  Complete the separately frozen converter audit/repair before a
 new F16 vec-dot launch.
+
+## Apparatus VOID B — non-causal vector negative controls
+
+The first post-converter launch at commit `4f2fa6d` is preserved as
+`VOID_F16_VEC_DOT_DIAGNOSTIC`, despite the runner-emitted label
+`F16_CONVERSION_ONLY_SUFFICIENT`.  Adjudication SHA-256
+`72e6109eba8cedcc10d5b9219213687702a73c81612418dd196c7cb10afa227f`.
+Both direct vector-dot streams and their mutations were identically all zero.
+The runner incorrectly called each mutation control active merely because the
+mutated stream failed the target gate; it did not require mutation to change
+the corresponding baseline.  Therefore the frozen negative-control and
+output-validity requirements were not met.
+
+Repair only the apparatus as follows: call the pinned F16 dot through the
+exported `GGML_TYPE_F16` CPU type trait after CPU initialization; add a fixed
+model-free nonzero dot check; compute the already-frozen `0x0100` mantissa-bit
+mutations through the scalar F16 arm as an independent causal control; and
+require every mutation stream to differ bytewise from its baseline as well as
+fail its target gate.  No input, conversion, mutation bit, threshold, arm,
+label, or scientific hypothesis changes.  Use a new raw directory, zero donor
+executions, and stop after one non-VOID repair launch.

@@ -2,6 +2,13 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**STRAT-01 F16 dot apparatus VOID B (21 September):**
+The first post-converter launch emitted two in-gate scalar F16 observations,
+but both direct vector streams and their mutations were identically all zero.
+The runner's negative-control predicate was non-causal.  Preserve the launch
+as `VOID_F16_VEC_DOT_DIAGNOSTIC` and execute only the frozen apparatus repair
+in the [amended protocol](probes/STRAT_01_GIGACHAT31_ENGINE_F16_VEC_DOT_DIAGNOSTIC_PROTOCOL_20260921.md).
+
 **STRAT-01 F16 converter repair (21 September):**
 Closed as **`PASS_F16_CONVERTER_REPAIR`**: zero mismatches on the 217,620-value
 frozen population and all 16,777,216 F32 values with unbiased exponent `-25`,
