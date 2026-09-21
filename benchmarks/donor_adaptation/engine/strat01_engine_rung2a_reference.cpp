@@ -185,7 +185,7 @@ struct Event {
     std::string phase, name, op, type; int ordinal=0; std::array<int64_t,4> shape{}; int rank=0; std::vector<float> values;
 };
 #if defined(STRAT01_RUNG2B)
-constexpr std::array<const char *, 22> kNames = {"attn_norm-0", "q-0", "kv_cmpr_pe-0", "k_pe-0", "kv_cmpr-0", "q_pe-0", "q_nope_absorbed_perm-0", "Qcur-0", "Kcur-0", "Vcur-0", "kq-0", "kq_soft_max-0", "kqv-0", "kqv_mla-0", "kqv_out-0", "ffn_inp-0", "ffn_norm-0", "ffn_up-0", "ffn_gate-0", "ffn_swiglu-0", "ffn_out-0", "l_out-0"};
+constexpr std::array<const char *, 7> kNames = {"ffn_inp-0", "ffn_norm-0", "ffn_up-0", "ffn_gate-0", "ffn_swiglu-0", "ffn_out-0", "l_out-0"};
 #else
 constexpr std::array<const char *, 16> kNames = {"attn_norm-0", "q-0", "kv_cmpr_pe-0", "k_pe-0", "kv_cmpr-0", "q_pe-0", "q_nope_absorbed_perm-0", "Qcur-0", "Kcur-0", "Vcur-0", "kq-0", "kq_soft_max-0", "kqv-0", "kqv_mla-0", "kqv_out-0", "ffn_inp-0"};
 #endif
@@ -243,6 +243,15 @@ const Event & last(const std::vector<Event> & events, std::string_view name, std
 std::map<std::string,const Event *> select_logical(const std::vector<Event> & e) {
     // Selection is tied to the clean pinned source call order, never to an
     // unqualified callback name.  q after RESHAPE is explicitly resolved.
+#if defined(STRAT01_RUNG2B)
+    return {{"ffn_inp-0", &one(e,"ffn_inp-0")},
+            {"ffn_norm-0", &one(e,"ffn_norm-0")},
+            {"ffn_up-0", &one(e,"ffn_up-0")},
+            {"ffn_gate-0", &one(e,"ffn_gate-0")},
+            {"ffn_swiglu-0", &one(e,"ffn_swiglu-0")},
+            {"ffn_out-0", &one(e,"ffn_out-0")},
+            {"l_out-0", &one(e,"l_out-0")}};
+#else
     std::map<std::string,const Event *> result = {{"attn_norm-0", &one(e,"attn_norm-0")}, {"q-0", &one(e,"q-0","RESHAPE")},
             {"kv_cmpr_pe-0", &one(e,"kv_cmpr_pe-0")}, {"k_pe-0", &last(e,"k_pe-0","ROPE")},
             {"kv_cmpr-0", &last(e,"kv_cmpr-0","MUL")}, {"q_pe-0", &last(e,"q_pe-0","ROPE")},
@@ -251,15 +260,8 @@ std::map<std::string,const Event *> select_logical(const std::vector<Event> & e)
             {"kq-0", &one(e,"kq-0")}, {"kq_soft_max-0", &one(e,"kq_soft_max-0")},
             {"kqv-0", &one(e,"kqv-0")}, {"kqv_mla-0", &one(e,"kqv_mla-0")},
             {"kqv_out-0", &one(e,"kqv_out-0")}, {"ffn_inp-0", &one(e,"ffn_inp-0")}};
-#if defined(STRAT01_RUNG2B)
-    result.emplace("ffn_norm-0", &one(e,"ffn_norm-0"));
-    result.emplace("ffn_up-0", &one(e,"ffn_up-0"));
-    result.emplace("ffn_gate-0", &one(e,"ffn_gate-0"));
-    result.emplace("ffn_swiglu-0", &one(e,"ffn_swiglu-0"));
-    result.emplace("ffn_out-0", &one(e,"ffn_out-0"));
-    result.emplace("l_out-0", &one(e,"l_out-0"));
-#endif
     return result;
+#endif
 }
 
 Event stitch_cached_event(const Event & prefix, const Event & final, std::string_view logical) {
