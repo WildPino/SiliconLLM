@@ -1,6 +1,6 @@
 # STRAT-01 GigaChat 3.1 `kqv_out-0` attribution diagnostic
 
-**State:** FROZEN PROTOCOL; NOT YET EXECUTED
+**State:** EXECUTED; CLOSED AS `PARTIAL_VB_Q8K_ATTRIBUTION`
 **Date frozen:** 21 September 2026
 **Scope:** separate causal-attention reconstruction from special-layout V-B activation/dot semantics at the first remaining block-0 mismatch; offline only, zero donor executions
 
@@ -96,6 +96,9 @@ voids under distinct directories.
 Only `ATTRIBUTED_KQV_OUT_TO_VB_Q8K` authorizes a separately frozen production
 V-B repair.  Any other non-VOID label requires a new source-derived diagnostic
 of attention equations or V-B layout.  No `SPEED_LEDGER.md` entry is due.
+
+The canonical result is
+[STRAT_01_GIGACHAT31_ENGINE_KQV_OUT_DIAGNOSTIC_RESULT_20260921.md](STRAT_01_GIGACHAT31_ENGINE_KQV_OUT_DIAGNOSTIC_RESULT_20260921.md).
 
 ## Apparatus repair A — frozen partial-label branch
 

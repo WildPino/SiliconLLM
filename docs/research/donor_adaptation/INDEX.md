@@ -2,6 +2,17 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**STRAT-01 GigaChat 3.1 `kqv_out-0` attribution (21 September):**
+The zero-donor diagnostic is closed as **`PARTIAL_VB_Q8K_ATTRIBUTION`**.
+Project and pinned Q4_K×Q8_K agree tightly and exact Q8_K lowers target NRMSE
+from `0.01199014` to `0.00125348` (about `9.56x`), but misses the frozen tight
+gate.  This materially implicates V-B activation semantics without authorizing
+a production repair.  The next [frozen protocol](probes/STRAT_01_GIGACHAT31_ENGINE_PRE_VB_LATENT_CAPTURE_PROTOCOL_20260921.md)
+captures pinned `kqv` and `kqv_mla` to separate attention reconstruction, V-B
+graph semantics and final layout.  Do not repeat the reconstructed-latent
+cell. [Result](probes/STRAT_01_GIGACHAT31_ENGINE_KQV_OUT_DIAGNOSTIC_RESULT_20260921.md),
+[closed protocol](probes/STRAT_01_GIGACHAT31_ENGINE_KQV_OUT_DIAGNOSTIC_PROTOCOL_20260921.md).
+
 **STRAT-01 GigaChat 3.1 block-0 repair confirmation (21 September):**
 The integrated changed-coordinate cell is closed
 **`PASS_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION`**. Both prefill8 and cached7p1
