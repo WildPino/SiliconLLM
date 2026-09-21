@@ -26,7 +26,7 @@ normalization passes, while both Q4_K gate/up projections are the first
 failures in both schedules. This is not a repeat of STRAT-03 and does not test
 carving, a learned router, shared-residual utility, or quality. Do not rerun
 Rung 2B or advance to 2C; the only current engine-fidelity continuation is the
-separately scoped, no-full-donor frozen-input Q4_K diagnostic.
+separately scoped, no-full-donor [frozen-input Q4_K diagnostic](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260921.md).
 
 ## 1. How to read this map
 

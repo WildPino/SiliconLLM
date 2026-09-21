@@ -2,6 +2,13 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**STRAT-01 Rung-2B cross-input Q4_K diagnostic (21 September):**
+The [protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260921.md)
+is frozen before implementation. It reads the two captured normalized inputs
+and only the accepted up/gate matrices, executes no full donor graph, and
+decides whether exact reference input passes the existing Q4_K×Q8_K path.
+Exact replay of the accepted C outputs is a fail-closed apparatus gate.
+
 **STRAT-01 dense block-0 SwiGLU Rung 2B (21 September):**
 Closed as **`FAIL_ENGINE_RUNG2B`** after one non-VOID C execution.  In both
 schedules `ffn_norm-0` passes, while Q4_K up and gate are the first failures at
