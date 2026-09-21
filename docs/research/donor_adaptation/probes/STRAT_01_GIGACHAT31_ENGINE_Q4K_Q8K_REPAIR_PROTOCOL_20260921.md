@@ -1,6 +1,6 @@
 # STRAT-01 GigaChat 3.1 engine Q4_K×Q8_K repair protocol
 
-**State:** FROZEN PROTOCOL; NOT YET EXECUTED
+**State:** EXECUTED; CLOSED `PASS_ENGINE_Q4K_Q8K_REPAIR` — see [result](STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REPAIR_RESULT_20260921.md)
 **Date frozen:** 21 September 2026
 **Scope:** implement and confirm the project-engine projection operator authorized by the closed Rung-2A projection diagnostic; no donor graph, downstream attention, quality, or speed
 

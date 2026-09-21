@@ -2,6 +2,19 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**STRAT-01 GigaChat 3.1 C-engine Q4_K×Q8_K repair (21 September):**
+The standalone C operator is now closed as **`PASS_ENGINE_Q4K_Q8K_REPAIR`**.
+Q8_K activation bytes are exact against pinned GGML on 21 model-free oracle
+cells; both captured first-failure projections pass the frozen gate (Q NRMSE
+`6.4479e-8`, KV `7.3225e-8`). Twenty oracle/negative/legacy tests and the
+73,024-check kernel self-test pass; no donor process ran. Preserve the first
+pre-execution directory-binding VOID. Do not repeat this cell. Next execute the
+[frozen changed-coordinate block-0 attention confirmation](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md) against the existing pinned
+reference; the old Rung-2A FAIL remains historical evidence and no speed claim
+moves. [Result](probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REPAIR_RESULT_20260921.md),
+[protocol](probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REPAIR_PROTOCOL_20260921.md),
+[accepted raw](../../../benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_q4k_q8k_repair1_20260921/).
+
 **STRAT-01 GigaChat 3.1 C-engine rung 2A (21 September):**
 Protocol frozen at `beb6a37`; the first two donor attempts are preserved as
 apparatus `VOID_ENGINE_RUNG2A`. The first reference died
@@ -23,8 +36,8 @@ both captured reference projections bit-for-bit; dequant-F32 independently
 reproduces the C outputs and retains the original Q/KV failures on the
 reference input. F64 accumulation does not close them. This zero-donor
 diagnostic identifies the first engine defect but cannot rewrite the closed
-rung. Next implement the exact Q8_K/Q4_K operator and confirm it offline before
-a changed-coordinate attention gate. Operational durations are not speed
+rung. The exact standalone operator has since passed its separate repair cell;
+the next coordinate is a changed-coordinate attention confirmation. Operational durations are not speed
 evidence. [Diagnostic result](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_PROJECTION_DIAGNOSTIC_RESULT_20260921.md), [frozen diagnostic
 protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_PROJECTION_DIAGNOSTIC_PROTOCOL_20260921.md), [canonical
 record](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_RESULT_20260921.md), [amended
