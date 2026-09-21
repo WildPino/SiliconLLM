@@ -2,6 +2,16 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**STRAT-01 GigaChat 3.1 C-engine rung 0 (21 September):**
+`PASS_ENGINE_RUNG0`. At committed revision `10a44b5`, `phase60/engine.c`
+accepts the exact pinned Q4 GGUF identity, parses its v3 metadata and 414
+descriptors in bounded memory, and rejects malformed/substituted fixtures.
+The complete descriptor digest exactly matches the pinned llama.cpp reader;
+all names/shapes also match the BF16 source binding. This closes only loader
+identity/layout. Quantized matvecs, operators, tokenizer, logits, C-path
+quality, RAM and accepted-token rate remain open; next is one-tensor numerical
+parity, not another census. [Canonical result and raw hashes](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG0_RESULT_20260921.md).
+
 **STRAT-01 GigaChat 3.1 paired document rollout (21 September):**
 `PASS_DOCUMENT_ROLLOUT` on the frozen 96-document greedy rollout. Q4 has two
 new `loop8x3` degeneracies, both code documents; the registered failure

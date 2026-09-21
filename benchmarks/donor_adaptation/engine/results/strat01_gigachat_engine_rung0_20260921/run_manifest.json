@@ -1,0 +1,81 @@
+{
+  "schema": "strat01_gigachat_engine_rung0_v1",
+  "started_utc": "2026-09-21T08:11:16.687532+00:00",
+  "finished_utc": "2026-09-21T08:11:45.555985+00:00",
+  "status": "PASS_ENGINE_RUNG0",
+  "scope": "accepted Q4 GGUF identity and complete descriptor inventory through phase60/engine.c",
+  "non_claims": [
+    "quantized matvec parity",
+    "operator or tokenizer parity",
+    "generation quality",
+    "accepted-token throughput"
+  ],
+  "git_head": "10a44b5332afa23b754e6ca43d400bb915632124",
+  "engine_source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+    "sha256": "df199820c56cb76674ade4e127fd7e206eb8fe5f90d88ae5b1d673a8a27a05e1"
+  },
+  "inspector_source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\strat01_gguf_inspect.h",
+    "sha256": "3d577150ea442f5fd5ae993621024b421e000a9f66727e67b109184aa74fd711"
+  },
+  "binary": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung0_20260921\\engine_rung0.exe",
+    "sha256": "f87fe9522c32a2f77edce4c838443404f72c97b734898adf52bc0c0ebeffe5c4"
+  },
+  "model": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_q4_97045b2\\GigaChat3.1-10B-A1.8B-q4_K_M.gguf",
+    "bytes": 6474702976,
+    "expected_sha256": "68a8732fb5cee04f83ebffd7924e15c534d4442c5a43d2ba9e2041fe310b8deb"
+  },
+  "compile": {
+    "command": [
+      "C:\\Users\\giosa\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe\\llvm-mingw-20251216-msvcrt-x86_64\\bin\\clang.EXE",
+      "-std=c11",
+      "-O3",
+      "-mavx2",
+      "-mfma",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+      "-o",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung0_20260921\\engine_rung0.exe",
+      "-lm"
+    ],
+    "returncode": 0,
+    "seconds": 2.7040219999908004
+  },
+  "run": {
+    "command": [
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung0_20260921\\engine_rung0.exe",
+      "--strat01-gguf-inspect",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_q4_97045b2\\GigaChat3.1-10B-A1.8B-q4_K_M.gguf",
+      "--json",
+      "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\engine\\results\\strat01_gigachat_engine_rung0_20260921\\inventory.json"
+    ],
+    "returncode": 0,
+    "seconds": 25.96213960001478
+  },
+  "checks": {
+    "gate_status": true,
+    "byte_size": true,
+    "sha256": true,
+    "metadata_count": true,
+    "tensor_count": true,
+    "type_census": true,
+    "mtp_excluded": true,
+    "descriptor_count": true,
+    "gguf_contract": true
+  },
+  "errors": [],
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "compiler": [
+      "clang version 21.1.8 (https://github.com/llvm/llvm-project.git 2078da43e25a4623cab2d0d60decddf709aaea28)",
+      "Target: x86_64-w64-windows-gnu",
+      "Thread model: posix",
+      "InstalledDir: C:/Users/giosa/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20251216-msvcrt-x86_64/bin",
+      "Configuration file: C:/Users/giosa/AppData/Local/Microsoft/WinGet/Packages/MartinStorsjo.LLVM-MinGW.MSVCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/llvm-mingw-20251216-msvcrt-x86_64/bin/x86_64-w64-windows-gnu.cfg"
+    ],
+    "cwd": "D:\\_THINGS\\Progetti\\SiliconLLM"
+  }
+}
