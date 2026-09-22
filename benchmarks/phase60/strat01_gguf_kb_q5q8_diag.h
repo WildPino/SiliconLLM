@@ -14,60 +14,12 @@
 #define STRAT01_KB_Q5Q8_DOUBLE_Q_SHA "6255f40d5a717af2a742c484b0ab75ff549b37acea70f73556698c794c8b3366"
 #define STRAT01_KB_Q5Q8_FLOAT_Q_SHA "cbc263ed903c9a7d992ebd2f14795ea60f60b999efc3e5365be6b7d84fe1252b"
 
-typedef struct { uint16_t d; int8_t qs[32]; } strat01_kb_q8_0_block;
-
 static int strat01_kb_q5q8_descriptor_ok(const strat01_tensor *t) {
     return t && !strcmp(t->name,"blk.0.attn_k_b.weight") &&
            t->type==STRAT01_GGML_Q5_0 && t->rank==3 &&
            t->dims[0]==128U && t->dims[1]==512U && t->dims[2]==32U &&
            t->offset==UINT64_C(272421888) && t->span==UINT64_C(1441792) &&
            t->file_offset==UINT64_C(278524800);
-}
-
-/* Byte-for-byte transcription of the pinned x86 AVX2 Q8_0 row quantizer.
- * The scale is stored as binary16, while quantization uses the unrounded F32
- * reciprocal, exactly as llama.cpp@5b335f4 does. */
-static void strat01_kb_quantize_q8_0(const float *x,strat01_kb_q8_0_block *y) {
-    for(unsigned i=0;i<4U;++i,x+=32,++y){
-        __m256 v0=_mm256_loadu_ps(x),v1=_mm256_loadu_ps(x+8),v2=_mm256_loadu_ps(x+16),v3=_mm256_loadu_ps(x+24);
-        const __m256 sign_bit=_mm256_set1_ps(-0.0f);
-        __m256 maximum=_mm256_andnot_ps(sign_bit,v0);
-        maximum=_mm256_max_ps(maximum,_mm256_andnot_ps(sign_bit,v1));
-        maximum=_mm256_max_ps(maximum,_mm256_andnot_ps(sign_bit,v2));
-        maximum=_mm256_max_ps(maximum,_mm256_andnot_ps(sign_bit,v3));
-        __m128 max4=_mm_max_ps(_mm256_extractf128_ps(maximum,1),_mm256_castps256_ps128(maximum));
-        max4=_mm_max_ps(max4,_mm_movehl_ps(max4,max4));
-        max4=_mm_max_ss(max4,_mm_movehdup_ps(max4));
-        const float max_scalar=_mm_cvtss_f32(max4),d=max_scalar/127.0f,id=max_scalar!=0.0f?127.0f/max_scalar:0.0f;
-        y->d=strat01_r2a_f32_to_f16(d);
-        const __m256 mul=_mm256_set1_ps(id);
-        v0=_mm256_round_ps(_mm256_mul_ps(v0,mul),_MM_ROUND_NEAREST);
-        v1=_mm256_round_ps(_mm256_mul_ps(v1,mul),_MM_ROUND_NEAREST);
-        v2=_mm256_round_ps(_mm256_mul_ps(v2,mul),_MM_ROUND_NEAREST);
-        v3=_mm256_round_ps(_mm256_mul_ps(v3,mul),_MM_ROUND_NEAREST);
-        __m256i i0=_mm256_cvtps_epi32(v0),i1=_mm256_cvtps_epi32(v1),i2=_mm256_cvtps_epi32(v2),i3=_mm256_cvtps_epi32(v3);
-        i0=_mm256_packs_epi32(i0,i1);i2=_mm256_packs_epi32(i2,i3);i0=_mm256_packs_epi16(i0,i2);
-        const __m256i perm=_mm256_setr_epi32(0,4,1,5,2,6,3,7);
-        i0=_mm256_permutevar8x32_epi32(i0,perm);
-        _mm256_storeu_si256((__m256i *)y->qs,i0);
-    }
-}
-
-static float strat01_kb_q5q8_dot(const uint8_t *q5,const strat01_kb_q8_0_block *q8,int corrupt_high_bits) {
-    float sumf=0.0f;
-    for(unsigned ib=0;ib<4U;++ib,q5+=STRAT01_KB_Q5Q8_Q5_BLOCK_BYTES,++q8){
-        uint32_t qh=(uint32_t)q5[2]|((uint32_t)q5[3]<<8)|((uint32_t)q5[4]<<16)|((uint32_t)q5[5]<<24);
-        if(corrupt_high_bits) qh^=UINT32_C(0xffffffff);
-        int sumi0=0,sumi1=0;const uint8_t *qs=q5+6;
-        for(unsigned j=0;j<16U;++j){
-            uint8_t xh0=(uint8_t)(((qh&(UINT32_C(1)<<j))>>j)<<4);
-            uint8_t xh1=(uint8_t)(((qh&(UINT32_C(1)<<(j+16U)))>>(j+12U)));
-            int32_t x0=(int8_t)(((qs[j]&15U)|xh0)-16U),x1=(int8_t)(((qs[j]>>4)|xh1)-16U);
-            sumi0+=x0*q8->qs[j];sumi1+=x1*q8->qs[j+16U];
-        }
-        sumf+=(strat01_r2a_f16_to_f32((uint16_t)(q5[0]|((uint16_t)q5[1]<<8)))*strat01_r2a_f16_to_f32(q8->d))*(float)(sumi0+sumi1);
-    }
-    return sumf;
 }
 
 static int strat01_kb_read_input(const char *path,const char *expected,float *values,char error[256]) {

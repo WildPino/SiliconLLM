@@ -55,6 +55,7 @@ static const char strat01_r2a_config[] =
     "tokens=1,72,14,14129,14,2135,1512,2015;positions=0,1,2,3,4,5,6,7;"
     "rms_eps=1e-6;rope=deepseek2-normal-yarn;rope_base=100000;rope_factor=64;"
     "rope_orig_ctx=4096;beta_fast=32;beta_slow=1;mscale=1;mscale_all_dim=1;"
+    "rms_accum=double;kb=q5_0xq8_0;"
     "build=clang-c11-O3-mavx2-mfma-no-fast-math;fp_contract=off-c11-pragma;"
     "payload=f32le-token-major;adjudication=external-reference-only";
 
@@ -131,6 +132,56 @@ static float strat01_r2a_f16_to_f32(uint16_t h) {
     } else if(exp==31) u=sign|0x7f800000U|(mant<<13);
     else u=sign|((exp+112U)<<23)|(mant<<13);
     return strat01_r2a_bits_f32(u);
+}
+
+#define STRAT01_R2A_Q5_0_BLOCK_BYTES 22U
+#define STRAT01_R2A_Q8_0_BLOCK_BYTES 34U
+typedef struct { uint16_t d; int8_t qs[32]; } strat01_kb_q8_0_block;
+
+/* Shared production transcription of the pinned x86 AVX2 Q8_0 row
+ * quantizer. The scale is stored as binary16 while the reciprocal used for
+ * quantization remains the unrounded float32 value. */
+static void strat01_kb_quantize_q8_0(const float *x,strat01_kb_q8_0_block *y) {
+    for(unsigned i=0;i<4U;++i,x+=32,++y){
+        __m256 v0=_mm256_loadu_ps(x),v1=_mm256_loadu_ps(x+8),v2=_mm256_loadu_ps(x+16),v3=_mm256_loadu_ps(x+24);
+        const __m256 sign_bit=_mm256_set1_ps(-0.0f);
+        __m256 maximum=_mm256_andnot_ps(sign_bit,v0);
+        maximum=_mm256_max_ps(maximum,_mm256_andnot_ps(sign_bit,v1));
+        maximum=_mm256_max_ps(maximum,_mm256_andnot_ps(sign_bit,v2));
+        maximum=_mm256_max_ps(maximum,_mm256_andnot_ps(sign_bit,v3));
+        __m128 max4=_mm_max_ps(_mm256_extractf128_ps(maximum,1),_mm256_castps256_ps128(maximum));
+        max4=_mm_max_ps(max4,_mm_movehl_ps(max4,max4));
+        max4=_mm_max_ss(max4,_mm_movehdup_ps(max4));
+        const float max_scalar=_mm_cvtss_f32(max4),d=max_scalar/127.0f,id=max_scalar!=0.0f?127.0f/max_scalar:0.0f;
+        y->d=strat01_r2a_f32_to_f16(d);
+        const __m256 mul=_mm256_set1_ps(id);
+        v0=_mm256_round_ps(_mm256_mul_ps(v0,mul),_MM_ROUND_NEAREST);
+        v1=_mm256_round_ps(_mm256_mul_ps(v1,mul),_MM_ROUND_NEAREST);
+        v2=_mm256_round_ps(_mm256_mul_ps(v2,mul),_MM_ROUND_NEAREST);
+        v3=_mm256_round_ps(_mm256_mul_ps(v3,mul),_MM_ROUND_NEAREST);
+        __m256i i0=_mm256_cvtps_epi32(v0),i1=_mm256_cvtps_epi32(v1),i2=_mm256_cvtps_epi32(v2),i3=_mm256_cvtps_epi32(v3);
+        i0=_mm256_packs_epi32(i0,i1);i2=_mm256_packs_epi32(i2,i3);i0=_mm256_packs_epi16(i0,i2);
+        const __m256i perm=_mm256_setr_epi32(0,4,1,5,2,6,3,7);
+        i0=_mm256_permutevar8x32_epi32(i0,perm);
+        _mm256_storeu_si256((__m256i *)y->qs,i0);
+    }
+}
+
+static float strat01_kb_q5q8_dot(const uint8_t *q5,const strat01_kb_q8_0_block *q8,int corrupt_high_bits) {
+    float sumf=0.0f;
+    for(unsigned ib=0;ib<4U;++ib,q5+=STRAT01_R2A_Q5_0_BLOCK_BYTES,++q8){
+        uint32_t qh=(uint32_t)q5[2]|((uint32_t)q5[3]<<8)|((uint32_t)q5[4]<<16)|((uint32_t)q5[5]<<24);
+        if(corrupt_high_bits)qh^=UINT32_C(0xffffffff);
+        int sumi0=0,sumi1=0;const uint8_t *qs=q5+6;
+        for(unsigned j=0;j<16U;++j){
+            uint8_t xh0=(uint8_t)(((qh&(UINT32_C(1)<<j))>>j)<<4);
+            uint8_t xh1=(uint8_t)(((qh&(UINT32_C(1)<<(j+16U)))>>(j+12U)));
+            int32_t x0=(int8_t)(((qs[j]&15U)|xh0)-16U),x1=(int8_t)(((qs[j]>>4)|xh1)-16U);
+            sumi0+=x0*q8->qs[j];sumi1+=x1*q8->qs[j+16U];
+        }
+        sumf+=(strat01_r2a_f16_to_f32((uint16_t)(q5[0]|((uint16_t)q5[1]<<8)))*strat01_r2a_f16_to_f32(q8->d))*(float)(sumi0+sumi1);
+    }
+    return sumf;
 }
 
 static int strat01_r2a_path(char out[1024],const char *dir,const char *leaf) {
@@ -212,6 +263,10 @@ static void strat01_r2a_rmsnorm(const float *x,const float *weight,float *y,unsi
     for(unsigned r=0;r<rows;++r){float ss=0.0f;const float *xr=x+(size_t)r*n;float *yr=y+(size_t)r*n;for(unsigned i=0;i<n;++i)ss+=xr[i]*xr[i];float scale=1.0f/sqrtf(ss/(float)n+eps);for(unsigned i=0;i<n;++i)yr[i]=xr[i]*scale*weight[i];}
 }
 
+static void strat01_r2a_rmsnorm_pinned(const float *x,const float *weight,float *y,unsigned rows,unsigned n,float eps) {
+    for(unsigned r=0;r<rows;++r){double sum=0.0;const float *xr=x+(size_t)r*n;float *yr=y+(size_t)r*n;for(unsigned i=0;i<n;++i)sum+=(double)(xr[i]*xr[i]);{const float mean=(float)(sum/(double)n);const float scale=1.0f/sqrtf(mean+eps);for(unsigned i=0;i<n;++i)yr[i]=xr[i]*scale*weight[i];}}
+}
+
 /* Exact pinned ggml YaRN equations: ggml/src/ggml.c:4469-4480 and
  * ggml/src/ggml-cpu/ops.cpp:5951-5973.  DeepSeek2 is LLAMA_ROPE_TYPE_NORM,
  * so rotation is over adjacent pairs (llama-model.cpp:2944). */
@@ -225,11 +280,14 @@ static void strat01_r2a_rope64(float v[64],int32_t pos) {
 }
 
 static int strat01_r2a_kb_batch(const char *path,const strat01_tensor *t,const float *q,unsigned batch,float *out,char error[256]) {
-    FILE *f=NULL;uint64_t bv,bb,blocks,row;unsigned which,n,j,tok,head;float w[256];
+    FILE *f=NULL;uint64_t bv,bb,row;unsigned which,tok,head;size_t q8_count;strat01_kb_q8_0_block *q8=NULL;uint8_t raw[4U*STRAT01_R2A_Q5_0_BLOCK_BYTES];
     if(!strat01_tensor_type(t->type,&bv,&bb,&which)||t->type!=STRAT01_GGML_Q5_0||t->dims[0]!=128||t->dims[1]!=512||t->dims[2]!=32){snprintf(error,256,"rung-2A K-B descriptor mismatch");return 0;}
-    blocks=128/bv;memset(out,0,(size_t)batch*32*512*sizeof(float));f=fopen(path,"rb");if(!f||!strat01_r2a_seek(f,t->file_offset,error)){if(f)fclose(f);return 0;}
-    for(row=0;row<32U*512U;++row){head=(unsigned)(row/512U);for(uint64_t blk=0;blk<blocks;++blk){if(!strat01_r2a_read_qblock(f,t->type,w,&n,error)){fclose(f);return 0;}for(tok=0;tok<batch;++tok){float acc=out[((size_t)tok*32+head)*512+(row%512U)];const float *x=q+(size_t)tok*6144+(size_t)head*192+(size_t)blk*bv;for(j=0;j<n;++j)acc+=w[j]*x[j];out[((size_t)tok*32+head)*512+(row%512U)]=acc;}}}
-    if(ferror(f)||fclose(f)!=0){snprintf(error,256,"rung-2A K-B I/O failure");return 0;}return 1;
+    if(bv!=32U||bb!=STRAT01_R2A_Q5_0_BLOCK_BYTES||!batch||!strat01_r2a_safe_count((size_t)batch,32U*4U,&q8_count)){snprintf(error,256,"rung-2A K-B Q5_0/Q8_0 contract failure");return 0;}
+    q8=(strat01_kb_q8_0_block *)malloc(q8_count*sizeof(*q8));if(!q8){snprintf(error,256,"rung-2A K-B Q8_0 allocation failed");return 0;}
+    for(tok=0;tok<batch;++tok)for(head=0;head<32U;++head)strat01_kb_quantize_q8_0(q+(size_t)tok*6144U+(size_t)head*192U,q8+((size_t)tok*32U+head)*4U);
+    f=fopen(path,"rb");if(!f||!strat01_r2a_seek(f,t->file_offset,error)){if(f)fclose(f);free(q8);return 0;}
+    for(row=0;row<32U*512U;++row){head=(unsigned)(row/512U);if(fread(raw,1,sizeof(raw),f)!=sizeof(raw)){snprintf(error,256,"rung-2A K-B Q5_0 row short read");fclose(f);free(q8);return 0;}for(tok=0;tok<batch;++tok){float value=strat01_kb_q5q8_dot(raw,q8+((size_t)tok*32U+head)*4U,0);if(!isfinite(value)){snprintf(error,256,"rung-2A K-B Q5_0/Q8_0 non-finite output");fclose(f);free(q8);return 0;}out[((size_t)tok*32U+head)*512U+(row%512U)]=value;}}
+    if(ferror(f)||fclose(f)!=0){snprintf(error,256,"rung-2A K-B Q5_0/Q8_0 I/O failure");free(q8);return 0;}free(q8);return 1;
 }
 
 static int strat01_r2a_vb_batch(const char *path,const strat01_tensor *t,const float *latent,float *out,char error[256]) {
@@ -275,10 +333,10 @@ static int strat01_r2a_build_upstream_range(const char *path,const strat01_tenso
     if(!count||start>=8||count>8-start){snprintf(error,256,"invalid rung-2A upstream schedule range");return 0;}
     attn_w=strat01_r2a_alloc(1536,error);kv_w=strat01_r2a_alloc(512,error);if(!attn_w||!kv_w)goto fail;
     if(!strat01_r2a_embedding(path,tensors[0],strat01_r2a_tokens+start,count,a->embd+(size_t)start*1536,error)||!strat01_r2a_read_f32_vector(path,tensors[1],attn_w,1536,error))goto fail;
-    strat01_r2a_rmsnorm(a->embd+(size_t)start*1536,attn_w,a->attn_norm+(size_t)start*1536,count,1536,STRAT01_R2A_RMS_EPS);
+    strat01_r2a_rmsnorm_pinned(a->embd+(size_t)start*1536,attn_w,a->attn_norm+(size_t)start*1536,count,1536,STRAT01_R2A_RMS_EPS);
     if(!strat01_r2a_matmul_batch(path,tensors[2],a->attn_norm+(size_t)start*1536,count,1536,a->q+(size_t)start*6144,6144,error)||!strat01_r2a_matmul_batch(path,tensors[3],a->attn_norm+(size_t)start*1536,count,1536,a->kv_cmpr_pe+(size_t)start*576,576,error)||!strat01_r2a_read_f32_vector(path,tensors[4],kv_w,512,error))goto fail;
     for(unsigned tok=start;tok<start+count;++tok){memcpy(a->kv_cmpr+(size_t)tok*512,a->kv_cmpr_pe+(size_t)tok*576,512*4);memcpy(a->k_pe+(size_t)tok*64,a->kv_cmpr_pe+(size_t)tok*576+512,64*4);strat01_r2a_rope64(a->k_pe+(size_t)tok*64,strat01_r2a_positions[tok]);}
-    {float *tmp=strat01_r2a_alloc((size_t)count*512U,error);if(!tmp)goto fail;strat01_r2a_rmsnorm(a->kv_cmpr+(size_t)start*512,kv_w,tmp,count,512,STRAT01_R2A_RMS_EPS);memcpy(a->kv_cmpr+(size_t)start*512,tmp,(size_t)count*512U*4U);free(tmp);}
+    {float *tmp=strat01_r2a_alloc((size_t)count*512U,error);if(!tmp)goto fail;strat01_r2a_rmsnorm_pinned(a->kv_cmpr+(size_t)start*512,kv_w,tmp,count,512,STRAT01_R2A_RMS_EPS);memcpy(a->kv_cmpr+(size_t)start*512,tmp,(size_t)count*512U*4U);free(tmp);}
     for(unsigned tok=start;tok<start+count;++tok)for(unsigned h=0;h<32;++h){float *qp=a->q_pe+((size_t)tok*32+h)*64;memcpy(qp,a->q+(size_t)tok*6144+(size_t)h*192+128,64*4);strat01_r2a_rope64(qp,strat01_r2a_positions[tok]);}
     if(!strat01_r2a_kb_batch(path,tensors[5],a->q+(size_t)start*6144,count,a->q_abs+(size_t)start*32*512,error))goto fail;
     for(unsigned tok=start;tok<start+count;++tok){memcpy(a->kcur+(size_t)tok*576,a->kv_cmpr+(size_t)tok*512,512*4);memcpy(a->kcur+(size_t)tok*576+512,a->k_pe+(size_t)tok*64,64*4);memcpy(a->vcur+(size_t)tok*512,a->kv_cmpr+(size_t)tok*512,512*4);for(unsigned h=0;h<32;++h){float *qc=a->qcur+((size_t)tok*32+h)*576;memcpy(qc,a->q_abs+((size_t)tok*32+h)*512,512*4);memcpy(qc+512,a->q_pe+((size_t)tok*32+h)*64,64*4);}}

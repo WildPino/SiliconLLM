@@ -186,7 +186,7 @@ def source_inventory() -> dict[str, Any]:
     return {name:{"path":str(path),"sha256":sha256_file(path)} for name,path in paths.items()}
 
 
-def validate_c(c_root: Path, sources: dict[str, Any], model: Path) -> tuple[dict[str,np.ndarray],dict[str,Any]]:
+def validate_c(c_root: Path, sources: dict[str, Any], model: Path, expected_config: str = EXPECTED_C_CONFIG) -> tuple[dict[str,np.ndarray],dict[str,Any]]:
     report = read_json(c_root/"strat01_rung2b.json","C report")
     required = {"command","c_state","self_certifies_pass","input_path","byte_size","sha256","reference_revision","CONFIG","compiler_family","compiler_embedded_version","compiler_resolved_path_and_full_version","engine_source_sha256","rung2b_source_sha256","token_ids","positions","arms","timing_or_rate_claim"}
     if not isinstance(report,dict) or set(report)!=required:
@@ -195,7 +195,7 @@ def validate_c(c_root: Path, sources: dict[str, Any], model: Path) -> tuple[dict
         raise RunnerError("C report state mismatch")
     if Path(report["input_path"]).resolve(strict=True)!=model.resolve(strict=True) or report["byte_size"]!=EXPECTED_BYTES or report["sha256"]!=EXPECTED_SHA256:
         raise RunnerError("C artifact identity mismatch")
-    if report["reference_revision"]!=f"llama.cpp {LLAMA_COMMIT}" or report["CONFIG"]!=EXPECTED_C_CONFIG:
+    if report["reference_revision"]!=f"llama.cpp {LLAMA_COMMIT}" or report["CONFIG"]!=expected_config:
         raise RunnerError("C reference/config mismatch")
     if report["engine_source_sha256"]!=sources["engine"]["sha256"] or report["rung2b_source_sha256"]!=sources["rung2b_header"]["sha256"]:
         raise RunnerError("C source hash mismatch")

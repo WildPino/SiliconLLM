@@ -26,7 +26,8 @@ estimand. No diagnostic threshold or isolated operator is reopened.
 | accepted GGUF | 6,474,702,976 bytes; SHA-256 `68a8732fb5cee04f83ebffd7924e15c534d4442c5a43d2ba9e2041fe310b8deb` |
 | pinned llama.cpp | `5b335f413e4f73b0809c4fe39af894efbcc6a0d2` |
 | combined adjudication | `0a0aac6a58fe4bbf37d414d80d5681afdf357c7fda846596bea10685092c1b77` |
-| accepted Rung-2B reference manifest | `5fa1ca6317c3afb466df937f4a9f2e622c38f7d3787d84d2874b2e8afb6ca0b7` |
+| accepted Rung-2B source run manifest | `5fa1ca6317c3afb466df937f4a9f2e622c38f7d3787d84d2874b2e8afb6ca0b7` |
+| accepted Rung-2B reference root manifest | `dc856554fef8b538a9a699363f78989c9dbfc9c2e7263ad0509a683aa97254b5` |
 | tokens | `[1,72,14,14129,14,2135,1512,2015]` |
 | positions | `[0,1,2,3,4,5,6,7]` |
 | schedules | `prefill8` and `cached7p1` |

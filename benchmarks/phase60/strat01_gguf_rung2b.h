@@ -16,6 +16,7 @@ static const char strat01_r2b_config[] =
     "tokens=1,72,14,14129,14,2135,1512,2015;positions=0,1,2,3,4,5,6,7;"
     "rms_eps=1e-6;rope=deepseek2-normal-yarn;rope_base=100000;rope_factor=64;"
     "rope_orig_ctx=4096;beta_fast=32;beta_slow=1;mscale=1;mscale_all_dim=1;"
+    "rms_accum=double;kb=q5_0xq8_0;"
     "ffn=block0-rmsnorm-q4kq8k-gate-up-silu-q6kq8k-down-residual;"
     "build=clang-c11-O3-mavx2-mfma-no-fast-math;fp_contract=off-c11-pragma;"
     "payload=f32le-token-major;adjudication=external-reference-only";
@@ -97,7 +98,7 @@ fail:
 static int strat01_r2b_run(const char *path,const strat01_tensor *norm_w,const strat01_tensor *gate_w,const strat01_tensor *up_w,const strat01_tensor *down_w,const strat01_r2a_arm *input,strat01_r2b_arm *out,char error[256]) {
     float *weight=strat01_r2a_alloc(1536U,error);if(!weight)return 0;
     if(!strat01_r2a_read_f32_vector(path,norm_w,weight,1536U,error)){free(weight);return 0;}
-    strat01_r2a_rmsnorm(input->ffn_inp,weight,out->norm,8U,1536U,STRAT01_R2A_RMS_EPS);free(weight);
+    strat01_r2a_rmsnorm_pinned(input->ffn_inp,weight,out->norm,8U,1536U,STRAT01_R2A_RMS_EPS);free(weight);
     if(!strat01_r2a_matmul_batch(path,up_w,out->norm,8U,1536U,out->up,STRAT01_R2B_FFN,error)||
        !strat01_r2a_matmul_batch(path,gate_w,out->norm,8U,1536U,out->gate,STRAT01_R2B_FFN,error))return 0;
     for(size_t i=0;i<8U*STRAT01_R2B_FFN;++i)out->swiglu[i]=(out->gate[i]/(1.0f+expf(-out->gate[i])))*out->up[i];

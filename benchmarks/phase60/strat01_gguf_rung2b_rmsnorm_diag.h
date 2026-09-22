@@ -8,11 +8,7 @@
 #define STRAT01_R2B_RMS_C_INP_SHA "bd00c9c5b01726980ab0865e27860f73b7c4186940362919d16dee7e75ee8d82"
 
 static void strat01_r2b_rmsnorm_double_sum(const float *x,const float *weight,float *y,unsigned rows,unsigned n,float eps) {
-    for(unsigned r=0;r<rows;++r){
-        double sum=0.0;const float *xr=x+(size_t)r*n;float *yr=y+(size_t)r*n;
-        for(unsigned i=0;i<n;++i)sum+=(double)(xr[i]*xr[i]);
-        {const float mean=(float)(sum/(double)n);const float scale=1.0f/sqrtf(mean+eps);for(unsigned i=0;i<n;++i)yr[i]=xr[i]*scale*weight[i];}
-    }
+    strat01_r2a_rmsnorm_pinned(x,weight,y,rows,n,eps);
 }
 
 static int strat01_r2b_rms_descriptor_ok(const strat01_tensor *t) {
