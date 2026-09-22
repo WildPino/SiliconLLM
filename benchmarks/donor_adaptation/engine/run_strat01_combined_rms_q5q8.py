@@ -32,9 +32,12 @@ KB_HEADER = ROOT / "benchmarks/phase60/strat01_gguf_kb_q5q8_diag.h"
 PROTOCOL = ROOT / "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_PROTOCOL_20260921.md"
 MODEL = r2a.DEFAULT_MODEL
 DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_combined_rms_q5q8_20260921"
-DEFAULT_OFFLINE_OUTPUT = HERE / "results/strat01_gigachat_engine_combined_rms_q5q8_offline_adjudication_20260922"
+DEFAULT_OFFLINE_OUTPUT = HERE / "results/strat01_gigachat_engine_combined_rms_q5q8_offline_adjudication_repair1_20260922"
 SOURCE_VOID_ADJUDICATION_SHA = "8eca798bb38706b2d9f0a56ebebf5934f035200c5ae0e983ae4e801f56219e66"
 SOURCE_VOID_MANIFEST_SHA = "4964efe45dbbde5b7fd80d957b25279c8099f267c6b40e2aac573858d232db5e"
+FIRST_OFFLINE_VOID = HERE / "results/strat01_gigachat_engine_combined_rms_q5q8_offline_adjudication_20260922"
+FIRST_OFFLINE_VOID_ADJUDICATION_SHA = "7e6fc537a177334d4588e01545d06d00378a89a3874d7c1e0c82609f93abb03a"
+FIRST_OFFLINE_VOID_MANIFEST_SHA = "c2f638010b7b39763bfd7667271b6926e48741204351c43ae6abe9ff2f9b1dc0"
 KB_RUN = HERE / "results/strat01_gigachat_engine_kb_q5q8_diag_20260921"
 KB_ADJUDICATION = KB_RUN / "adjudication.json"
 KB_ADJUDICATION_SHA = "fd2ba64075f02fa26ff9210ff06a80cd6c2e3729966311d991235edc699416eb"
@@ -110,6 +113,25 @@ def validate_void_capture(source_run: Path) -> tuple[dict[str, Any], dict[str, A
     command = record.get("provenance", {}).get("commands", {}).get("candidate", {})
     if command.get("returncode") != 0:
         raise DiagnosticError("combined source candidate process did not complete successfully")
+    return record, manifest
+
+
+def validate_first_offline_void() -> tuple[dict[str, Any], dict[str, Any]]:
+    adjudication_path = FIRST_OFFLINE_VOID / "adjudication.json"
+    manifest_path = FIRST_OFFLINE_VOID / "run_manifest.json"
+    if not adjudication_path.is_file() or r2a.sha256_file(adjudication_path) != FIRST_OFFLINE_VOID_ADJUDICATION_SHA:
+        raise DiagnosticError("first offline VOID adjudication binding mismatch")
+    if not manifest_path.is_file() or r2a.sha256_file(manifest_path) != FIRST_OFFLINE_VOID_MANIFEST_SHA:
+        raise DiagnosticError("first offline VOID manifest binding mismatch")
+    record = read_json(adjudication_path, "first offline VOID adjudication")
+    manifest = read_json(manifest_path, "first offline VOID manifest")
+    if record.get("status") != "VOID_COMBINED_RMS_Q5Q8_PROPAGATION" or record.get("errors") != ["unexpected KeyError: 'cached7p1/final'"] or record.get("new_donor_graph_executions") != 0:
+        raise DiagnosticError("first offline VOID state mismatch")
+    provenance = record.get("provenance", {})
+    if provenance.get("new_donor_graph_executions") != 0 or provenance.get("new_reference_graph_executions") != 0:
+        raise DiagnosticError("first offline VOID execution-count mismatch")
+    if manifest.get("status") != "VOID_COMBINED_RMS_Q5Q8_PROPAGATION" or manifest.get("new_donor_graph_executions") != 0 or manifest.get("new_reference_graph_executions") != 0:
+        raise DiagnosticError("first offline VOID manifest state mismatch")
     return record, manifest
 
 
@@ -189,6 +211,13 @@ def load_accepted_ffn() -> dict[str, np.ndarray]:
     return loaded
 
 
+def load_accepted_attention(model: Path) -> tuple[dict[str, np.ndarray], dict[str, np.ndarray]]:
+    baseline_report = read_json(upstream.ATTENTION_RUN / "c_engine/strat01_rung2a.json", "accepted attention report")
+    accepted_sources = {"engine": {"sha256": baseline_report.get("engine_source_sha256")}, "rung2a_header": {"sha256": baseline_report.get("rung2a_source_sha256")}}
+    tensors, _, cache = r2a.validate_c_outputs(upstream.ATTENTION_RUN / "c_engine", accepted_sources, model)
+    return tensors, cache
+
+
 def adjudicate(candidate: dict[str, np.ndarray], caches: dict[str, np.ndarray], ffn: dict[str, np.ndarray], reference: dict[str, np.ndarray], reference_cache: dict[str, np.ndarray], reference_ffn: dict[str, np.ndarray], accepted: dict[str, np.ndarray], accepted_cache: dict[str, np.ndarray], accepted_ffn: dict[str, np.ndarray], prior: dict[str, np.ndarray], prior_cache: dict[str, np.ndarray], prior_ffn: dict[str, np.ndarray], census: dict[str, Any], kb_prior: dict[str, Any]) -> dict[str, Any]:
     failures: list[str] = []; tensor_results=[]; cache_results=[]; continuity=[]; ffn_results=[]
     for arm in ARMS:
@@ -231,6 +260,7 @@ def adjudicate_existing_run(source_run: Path, output: Path, model: Path) -> int:
     source_record: dict[str, Any] = {}
     try:
         source_record, _ = validate_void_capture(source_run)
+        validate_first_offline_void()
         sources = source_inventory()
         kb_prior = validate_prior_bindings()
         if not model.is_file() or model.stat().st_size != r2a.EXPECTED_BYTES or r2a.sha256_file(model) != r2a.EXPECTED_SHA256:
@@ -238,9 +268,7 @@ def adjudicate_existing_run(source_run: Path, output: Path, model: Path) -> int:
         candidate, caches, ffn, candidate_record = validate_candidate(source_run / "candidate", model, sources)
         reference, ref_record, reference_cache = r2a.validate_reference_outputs(upstream.RUNG2A_REFERENCE, model)
         reference_ffn, ref_ffn_record = r2b.validate_reference(upstream.RUNG2B_REFERENCE, model)
-        baseline_report = read_json(upstream.ATTENTION_RUN / "c_engine/strat01_rung2a.json", "accepted attention report")
-        accepted_sources = {"engine": {"sha256": baseline_report.get("engine_source_sha256")}, "rung2a_header": {"sha256": baseline_report.get("rung2a_source_sha256")}}
-        accepted, accepted_cache, _ = r2a.validate_c_outputs(upstream.ATTENTION_RUN / "c_engine", accepted_sources, model)
+        accepted, accepted_cache = load_accepted_attention(model)
         accepted_ffn = load_accepted_ffn()
         prior_sources = archived_upstream_sources()
         prior, prior_cache, prior_ffn, _ = upstream.validate_candidate(upstream.DEFAULT_OUTPUT / "candidate", model, prior_sources)
@@ -261,6 +289,8 @@ def adjudicate_existing_run(source_run: Path, output: Path, model: Path) -> int:
         "source_run": str(source_run),
         "source_adjudication_sha256": r2a.sha256_file(source_run / "adjudication.json"),
         "source_run_manifest_sha256": r2a.sha256_file(source_run / "run_manifest.json"),
+        "first_offline_void_adjudication_sha256": r2a.sha256_file(FIRST_OFFLINE_VOID / "adjudication.json"),
+        "first_offline_void_run_manifest_sha256": r2a.sha256_file(FIRST_OFFLINE_VOID / "run_manifest.json"),
         "source_run_git_head": source_record.get("provenance", {}).get("git_head") if source_record else None,
         "adjudicator_git_head": r2a.git_value(["git", "rev-parse", "HEAD"]),
         "adjudicator_git_status_porcelain": r2a.git_value(["git", "status", "--porcelain"]),
@@ -321,7 +351,7 @@ def main() -> int:
         else:
             root=output/"candidate";root.mkdir();donor_graph_executions=1;commands["candidate"]=upstream.run_command([str(binary),"--strat01-combined-rms-q5q8",str(model),"--baseline-attn-norm",str(upstream.BASELINE_ATTN.resolve()),"--baseline-ffn-norm",str(upstream.BASELINE_FFN.resolve()),"--out-dir",str(root)],output,"candidate",21600);r2a.require_ok(commands["candidate"],"combined candidate")
             sources=source_inventory();candidate,caches,ffn,candidate_record=validate_candidate(root,model,sources);reference,ref_record,reference_cache=r2a.validate_reference_outputs(upstream.RUNG2A_REFERENCE,model);reference_ffn,ref_ffn_record=r2b.validate_reference(upstream.RUNG2B_REFERENCE,model)
-            baseline_report=read_json(upstream.ATTENTION_RUN/"c_engine/strat01_rung2a.json","accepted attention report");accepted_sources={"engine":{"sha256":baseline_report.get("engine_source_sha256")},"rung2a_header":{"sha256":baseline_report.get("rung2a_source_sha256")}};accepted,accepted_cache,_=r2a.validate_c_outputs(upstream.ATTENTION_RUN/"c_engine",accepted_sources,model);accepted_ffn=load_accepted_ffn()
+            accepted,accepted_cache=load_accepted_attention(model);accepted_ffn=load_accepted_ffn()
             prior_sources=archived_upstream_sources();prior,prior_cache,prior_ffn,_=upstream.validate_candidate(upstream.DEFAULT_OUTPUT/"candidate",model,prior_sources)
             adjudication=adjudicate(candidate,caches,ffn,reference,reference_cache,reference_ffn,accepted,accepted_cache,accepted_ffn,prior,prior_cache,prior_ffn,candidate_record["q8_census"],kb_prior);adjudication["reference_records"]={"rung2a":ref_record,"rung2b":ref_ffn_record};status=adjudication["status"]
     except (DiagnosticError,r2a.RunnerError,r2b.RunnerError,upstream.DiagnosticError) as exc: errors.append(str(exc))

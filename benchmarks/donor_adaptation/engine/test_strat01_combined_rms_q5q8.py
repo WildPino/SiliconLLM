@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import unittest
+from unittest import mock
 
 from benchmarks.donor_adaptation.engine import run_strat01_combined_rms_q5q8 as runner
 
@@ -13,6 +14,8 @@ class CombinedRMSQ5Q8Tests(unittest.TestCase):
         self.assertIn("COMBINED_RMS_Q5Q8_CLOSES_PROJECTION_GATES", protocol)
         self.assertIn(runner.SOURCE_VOID_ADJUDICATION_SHA, protocol)
         self.assertIn(runner.SOURCE_VOID_MANIFEST_SHA, protocol)
+        self.assertIn(runner.FIRST_OFFLINE_VOID_ADJUDICATION_SHA, protocol)
+        self.assertIn(runner.FIRST_OFFLINE_VOID_MANIFEST_SHA, protocol)
         self.assertIn(runner.KB_Q8_SHA, header)
         self.assertIn(runner.KB_OUT_SHA, header)
         self.assertIn("--strat01-combined-rms-q5q8", engine)
@@ -44,6 +47,20 @@ class CombinedRMSQ5Q8Tests(unittest.TestCase):
         self.assertEqual(record["donor_graph_executions"], 1)
         self.assertEqual(record["provenance"]["commands"]["candidate"]["returncode"], 0)
         self.assertEqual(manifest["status"], "VOID_COMBINED_RMS_Q5Q8_PROPAGATION")
+
+    def test_first_offline_void_binding(self) -> None:
+        record, manifest = runner.validate_first_offline_void()
+        self.assertEqual(record["new_donor_graph_executions"], 0)
+        self.assertEqual(manifest["new_reference_graph_executions"], 0)
+
+    def test_accepted_attention_uses_third_tuple_item_as_cache(self) -> None:
+        report = {"engine_source_sha256": "e" * 64, "rung2a_source_sha256": "r" * 64}
+        with mock.patch.object(runner, "read_json", return_value=report), mock.patch.object(
+            runner.r2a, "validate_c_outputs", return_value=("tensors", "metadata", "cache")
+        ):
+            tensors, cache = runner.load_accepted_attention(runner.MODEL)
+        self.assertEqual(tensors, "tensors")
+        self.assertEqual(cache, "cache")
 
 
 if __name__ == "__main__": unittest.main()
