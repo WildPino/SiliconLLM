@@ -3,7 +3,7 @@
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
 **STRAT-01 combined RMSNorm + K-B propagation (22 September):**
-Closed as **`COMBINED_RMS_Q5Q8_CLOSES_PROJECTION_GATES`**. All 24 attention
+Closed as **`COMBINED_RMS_Q5Q8_CLOSES_PROJECTION_GATES`**. All 24 Rung-2A
 tensors, three cache checkpoints, twelve continuity checks, and six dense-FFN
 comparisons pass. Up/gate NRMSE are `4.0201e-4`/`3.4697e-4`, and terminal
 `ffn_inp-0` is `1.6236e-5`. The canonical offline adjudication binds the one
@@ -12,6 +12,12 @@ zero new donor/reference graphs. Do not repeat RMSNorm, K-B, or the combined
 cell. Freeze production integration confirmation next; do not advance directly
 to Rung 2C. [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_PROTOCOL_20260921.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_RESULT_20260922.md).
+
+The next coordinate is now frozen in the [block-0 production integration
+protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md).
+It installs only those measured semantics in the standard Rung-2B path,
+requires exact combined norm/up/gate hashes, and newly measures SwiGLU, Q6_K
+down, and terminal `l_out-0`. It is not Rung 2C.
 
 **STRAT-01 K-B Q5_0×Q8_0 diagnostic (21 September):**
 Closed as **`Q5_0_Q8_0_SUFFICIENT_FOR_KB_BOUNDARY`**. Pinned semantics match

@@ -58,8 +58,9 @@ as `COMBINED_RMS_Q5Q8_CLOSES_PROJECTION_GATES`: every frozen attention, cache,
 continuity, and dense-FFN gate passes, with up/gate NRMSE
 `4.0201e-4`/`3.4697e-4`. Do not repeat any isolated or combined coordinate.
 The only current engine-fidelity implementation coordinate is production
-integration and full block-0 confirmation of these exact semantics; it must be
-frozen separately and cannot be called Rung 2C.
+integration and full block-0 confirmation of these exact semantics. It is now
+frozen in the [production integration protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md)
+and cannot be called Rung 2C.
 
 ## 1. How to read this map
 
