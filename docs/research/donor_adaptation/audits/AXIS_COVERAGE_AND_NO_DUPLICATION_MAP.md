@@ -52,13 +52,14 @@ Its [result](../probes/STRAT_01_GIGACHAT31_ENGINE_KB_Q5_0_Q8_0_DIAGNOSTIC_RESULT
 closes that coordinate as `Q5_0_Q8_0_SUFFICIENT_FOR_KB_BOUNDARY`: exact and
 upstream-double inputs both reach NRMSE `4.80e-8`, and all three frozen inputs
 have identical Q8_0 bytes. Do not repeat Q5_0 codec, K-B layout, or this
-operator cell. The only current engine-fidelity implementation coordinate is
-combined double-RMSNorm plus Q5_0×Q8_0 propagation through downstream gates.
-That coordinate is frozen in the [combined propagation protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_PROTOCOL_20260921.md).
-It is not a repeat: no third semantic change is introduced, and the new
-estimand is downstream composition across attention, cache, residual, final
-normalization, and dense FFN projections. The standalone Q8_0 and absorbed-Q
-hashes are mandatory intermediate controls.
+operator cell. Their composition is now measured in the
+[combined result](../probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_RESULT_20260922.md)
+as `COMBINED_RMS_Q5Q8_CLOSES_PROJECTION_GATES`: every frozen attention, cache,
+continuity, and dense-FFN gate passes, with up/gate NRMSE
+`4.0201e-4`/`3.4697e-4`. Do not repeat any isolated or combined coordinate.
+The only current engine-fidelity implementation coordinate is production
+integration and full block-0 confirmation of these exact semantics; it must be
+frozen separately and cannot be called Rung 2C.
 
 ## 1. How to read this map
 

@@ -2,22 +2,27 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**STRAT-01 combined RMSNorm + K-B propagation (22 September):**
+Closed as **`COMBINED_RMS_Q5Q8_CLOSES_PROJECTION_GATES`**. All 24 attention
+tensors, three cache checkpoints, twelve continuity checks, and six dense-FFN
+comparisons pass. Up/gate NRMSE are `4.0201e-4`/`3.4697e-4`, and terminal
+`ffn_inp-0` is `1.6236e-5`. The canonical offline adjudication binds the one
+captured donor graph and both preserved adjudicator VOID records while running
+zero new donor/reference graphs. Do not repeat RMSNorm, K-B, or the combined
+cell. Freeze production integration confirmation next; do not advance directly
+to Rung 2C. [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_PROTOCOL_20260921.md) ·
+[Result](probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_RESULT_20260922.md).
+
 **STRAT-01 K-B Q5_0×Q8_0 diagnostic (21 September):**
 Closed as **`Q5_0_Q8_0_SUFFICIENT_FOR_KB_BOUNDARY`**. Pinned semantics match
 the immutable absorbed-Q output at NRMSE `4.80e-8`; current dequant-F32 remains
 at `3.1511e-4`. Exact-reference, upstream-double, and accepted-float `q-0`
 serialize to identical Q8_0 payloads (`0/1024` changed blocks pairwise). The
 independent pinned helper, frozen replays, and all planted controls pass with
-zero donor graphs. Do not repeat; freeze combined RMSNorm+K-B propagation.
+zero donor graphs. Do not repeat; the combined result above closes downstream
+propagation.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_KB_Q5_0_Q8_0_DIAGNOSTIC_PROTOCOL_20260921.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_KB_Q5_0_Q8_0_DIAGNOSTIC_RESULT_20260921.md).
-
-**STRAT-01 combined RMSNorm + K-B propagation (21 September):**
-The [protocol](probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_PROTOCOL_20260921.md)
-is frozen before implementation. It composes only the independently measured
-double-RMSNorm and Q5_0×Q8_0 semantics, requires exact standalone K-B
-checkpoint hashes, and propagates through both block-0 schedules and the
-unchanged dense FFN gates. This is the current engine-fidelity cell.
 
 **STRAT-01 upstream RMSNorm propagation diagnostic (21 September):**
 Closed as **`UPSTREAM_DOUBLE_RMSNORM_INSUFFICIENT_FOR_PROJECTION_GATES`**.
