@@ -112,6 +112,27 @@ This is adjudication of the one already captured candidate, not a second
 candidate execution.  The original void directory remains immutable.  Any
 identity failure in the offline repair remains VOID; no donor rerun is allowed.
 
+### Offline apparatus erratum 2
+
+**Frozen:** 2026-09-22, before the second offline adjudication attempt.
+
+The first offline attempt correctly passed the historical-source check and
+executed zero donor and zero reference graphs, but then ended VOID with the sole
+error `unexpected KeyError: 'cached7p1/final'`.  Its immutable records are:
+
+| object | SHA-256 |
+|---|---|
+| first offline VOID adjudication | `7e6fc537a177334d4588e01545d06d00378a89a3874d7c1e0c82609f93abb03a` |
+| first offline VOID run manifest | `c2f638010b7b39763bfd7667271b6926e48741204351c43ae6abe9ff2f9b1dc0` |
+
+The failure is an adjudicator tuple-unpacking defect:
+`validate_c_outputs()` returns `(tensors, metadata, cache)`, but the combined
+runner assigned the second element to `accepted_cache`.  A second narrow
+offline repair may correct only this mapping, must bind both records above in
+addition to the original capture, and must again execute zero donor/reference
+graphs.  All payload identities, controls, gates, and decision rules remain
+unchanged.
+
 ## Non-claims and stop rule
 
 This cell does not edit production, establish Rung 2C or later-layer parity, or claim tokenizer, logits, generation, end-to-end quality, RAM, or rate. Document and index the result before deciding whether to integrate the two semantics into the production path. No `SPEED_LEDGER.md` entry is permitted.
