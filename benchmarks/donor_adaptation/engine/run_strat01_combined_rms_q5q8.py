@@ -32,6 +32,9 @@ KB_HEADER = ROOT / "benchmarks/phase60/strat01_gguf_kb_q5q8_diag.h"
 PROTOCOL = ROOT / "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_PROTOCOL_20260921.md"
 MODEL = r2a.DEFAULT_MODEL
 DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_combined_rms_q5q8_20260921"
+DEFAULT_OFFLINE_OUTPUT = HERE / "results/strat01_gigachat_engine_combined_rms_q5q8_offline_adjudication_20260922"
+SOURCE_VOID_ADJUDICATION_SHA = "8eca798bb38706b2d9f0a56ebebf5934f035200c5ae0e983ae4e801f56219e66"
+SOURCE_VOID_MANIFEST_SHA = "4964efe45dbbde5b7fd80d957b25279c8099f267c6b40e2aac573858d232db5e"
 KB_RUN = HERE / "results/strat01_gigachat_engine_kb_q5q8_diag_20260921"
 KB_ADJUDICATION = KB_RUN / "adjudication.json"
 KB_ADJUDICATION_SHA = "fd2ba64075f02fa26ff9210ff06a80cd6c2e3729966311d991235edc699416eb"
@@ -75,6 +78,39 @@ def validate_prior_bindings() -> dict[str, Any]:
     if not controls or not all(controls.values()):
         raise DiagnosticError("K-B prior controls are incomplete")
     return kb
+
+
+def archived_upstream_sources() -> dict[str, dict[str, str]]:
+    """Return the source identities recorded by the hash-bound upstream run."""
+    record = read_json(UPSTREAM_ADJUDICATION, "upstream RMSNorm adjudication")
+    report = record.get("candidate_record", {}).get("report", {})
+    engine_sha = report.get("engine_source_sha256")
+    header_sha = report.get("diagnostic_source_sha256")
+    if not isinstance(engine_sha, str) or len(engine_sha) != 64 or not isinstance(header_sha, str) or len(header_sha) != 64:
+        raise DiagnosticError("upstream archived source identities are missing")
+    provenance_sources = record.get("provenance", {}).get("source_hashes", {})
+    if engine_sha != provenance_sources.get("engine", {}).get("sha256") or header_sha != provenance_sources.get("diagnostic_header", {}).get("sha256"):
+        raise DiagnosticError("upstream archived source identities disagree")
+    return {"engine": {"sha256": engine_sha}, "diagnostic_header": {"sha256": header_sha}}
+
+
+def validate_void_capture(source_run: Path) -> tuple[dict[str, Any], dict[str, Any]]:
+    adjudication_path = source_run / "adjudication.json"
+    manifest_path = source_run / "run_manifest.json"
+    if not adjudication_path.is_file() or r2a.sha256_file(adjudication_path) != SOURCE_VOID_ADJUDICATION_SHA:
+        raise DiagnosticError("combined source VOID adjudication binding mismatch")
+    if not manifest_path.is_file() or r2a.sha256_file(manifest_path) != SOURCE_VOID_MANIFEST_SHA:
+        raise DiagnosticError("combined source VOID manifest binding mismatch")
+    record = read_json(adjudication_path, "combined source VOID adjudication")
+    manifest = read_json(manifest_path, "combined source VOID manifest")
+    if record.get("schema") != "strat01_combined_rms_q5q8_adjudication_v1" or record.get("status") != "VOID_COMBINED_RMS_Q5Q8_PROPAGATION" or record.get("errors") != ["candidate source hash mismatch"] or record.get("donor_graph_executions") != 1:
+        raise DiagnosticError("combined source VOID state mismatch")
+    if manifest.get("schema") != "strat01_combined_rms_q5q8_run_manifest_v1" or manifest.get("status") != "VOID_COMBINED_RMS_Q5Q8_PROPAGATION" or manifest.get("errors") != ["candidate source hash mismatch"] or manifest.get("donor_graph_executions") != 1:
+        raise DiagnosticError("combined source VOID manifest state mismatch")
+    command = record.get("provenance", {}).get("commands", {}).get("candidate", {})
+    if command.get("returncode") != 0:
+        raise DiagnosticError("combined source candidate process did not complete successfully")
+    return record, manifest
 
 
 def validate_candidate(root: Path, model: Path, sources: dict[str, dict[str, str]]) -> tuple[dict[str, np.ndarray], dict[str, np.ndarray], dict[str, np.ndarray], dict[str, Any]]:
@@ -179,9 +215,95 @@ def adjudicate(candidate: dict[str, np.ndarray], caches: dict[str, np.ndarray], 
     return {"status": status, "failures": failures, "tensor_results": tensor_results, "cache_results": cache_results, "continuity_results": continuity, "ffn_results": ffn_results, "q8_census": census, "controls": controls, "swapped_targets": swapped}
 
 
+def adjudicate_existing_run(source_run: Path, output: Path, model: Path) -> int:
+    source_run = source_run.resolve(strict=True)
+    if not source_run.is_dir():
+        raise SystemExit(f"existing run is not a directory: {source_run}")
+    if output.exists() and (not output.is_dir() or any(output.iterdir())):
+        raise SystemExit(f"refusing non-empty or non-directory output path: {output}")
+    output.mkdir(parents=True, exist_ok=True)
+    started_utc, started = datetime.now(timezone.utc).isoformat(), time.perf_counter()
+    status = "VOID_COMBINED_RMS_Q5Q8_PROPAGATION"
+    errors: list[str] = []
+    adjudication: dict[str, Any] = {"status": "NOT_RUN"}
+    candidate_record: dict[str, Any] = {}
+    sources: dict[str, dict[str, str]] = {}
+    source_record: dict[str, Any] = {}
+    try:
+        source_record, _ = validate_void_capture(source_run)
+        sources = source_inventory()
+        kb_prior = validate_prior_bindings()
+        if not model.is_file() or model.stat().st_size != r2a.EXPECTED_BYTES or r2a.sha256_file(model) != r2a.EXPECTED_SHA256:
+            raise DiagnosticError("accepted model identity mismatch")
+        candidate, caches, ffn, candidate_record = validate_candidate(source_run / "candidate", model, sources)
+        reference, ref_record, reference_cache = r2a.validate_reference_outputs(upstream.RUNG2A_REFERENCE, model)
+        reference_ffn, ref_ffn_record = r2b.validate_reference(upstream.RUNG2B_REFERENCE, model)
+        baseline_report = read_json(upstream.ATTENTION_RUN / "c_engine/strat01_rung2a.json", "accepted attention report")
+        accepted_sources = {"engine": {"sha256": baseline_report.get("engine_source_sha256")}, "rung2a_header": {"sha256": baseline_report.get("rung2a_source_sha256")}}
+        accepted, accepted_cache, _ = r2a.validate_c_outputs(upstream.ATTENTION_RUN / "c_engine", accepted_sources, model)
+        accepted_ffn = load_accepted_ffn()
+        prior_sources = archived_upstream_sources()
+        prior, prior_cache, prior_ffn, _ = upstream.validate_candidate(upstream.DEFAULT_OUTPUT / "candidate", model, prior_sources)
+        adjudication = adjudicate(candidate, caches, ffn, reference, reference_cache, reference_ffn, accepted, accepted_cache, accepted_ffn, prior, prior_cache, prior_ffn, candidate_record["q8_census"], kb_prior)
+        adjudication["reference_records"] = {"rung2a": ref_record, "rung2b": ref_ffn_record}
+        status = adjudication["status"]
+    except (DiagnosticError, r2a.RunnerError, r2b.RunnerError, upstream.DiagnosticError) as exc:
+        errors.append(str(exc))
+    except Exception as exc:
+        errors.append(f"unexpected {type(exc).__name__}: {exc}")
+    provenance = {
+        "started_utc": started_utc,
+        "finished_utc": datetime.now(timezone.utc).isoformat(),
+        "seconds": time.perf_counter() - started,
+        "mode": "offline_revalidation_and_adjudication_only",
+        "new_donor_graph_executions": 0,
+        "new_reference_graph_executions": 0,
+        "source_run": str(source_run),
+        "source_adjudication_sha256": r2a.sha256_file(source_run / "adjudication.json"),
+        "source_run_manifest_sha256": r2a.sha256_file(source_run / "run_manifest.json"),
+        "source_run_git_head": source_record.get("provenance", {}).get("git_head") if source_record else None,
+        "adjudicator_git_head": r2a.git_value(["git", "rev-parse", "HEAD"]),
+        "adjudicator_git_status_porcelain": r2a.git_value(["git", "status", "--porcelain"]),
+        "source_hashes": sources,
+        "artifact": {"path": str(model), "expected_bytes": r2a.EXPECTED_BYTES, "expected_sha256": r2a.EXPECTED_SHA256},
+        "environment": {"platform": platform.platform(), "python": sys.version, "numpy": np.__version__, "cwd": os.getcwd()},
+    }
+    record = {
+        "schema": "strat01_combined_rms_q5q8_offline_adjudication_v1",
+        "status": status,
+        "scope": "offline validation and frozen-gate adjudication of the preserved combined RMS/Q5Q8 capture",
+        "errors": errors,
+        "donor_graph_executions": 1,
+        "new_donor_graph_executions": 0,
+        "adjudication": adjudication,
+        "candidate_record": candidate_record,
+        "non_claims": ["production repair", "Rung 2C", "later layers", "quality", "generation", "RAM", "rate"],
+        "provenance": provenance,
+    }
+    manifest = {
+        "schema": "strat01_combined_rms_q5q8_offline_run_manifest_v1",
+        "status": status,
+        "errors": errors,
+        "source_donor_graph_executions": 1,
+        "new_donor_graph_executions": 0,
+        "new_reference_graph_executions": 0,
+        "provenance": provenance,
+    }
+    r2a.write_json(output / "adjudication.json", record)
+    r2a.write_json(output / "run_manifest.json", manifest)
+    print(json.dumps({"status": status, "output": str(output), "source_run": str(source_run), "errors": errors}, indent=2))
+    return 0 if status in {"COMBINED_RMS_Q5Q8_CLOSES_PROJECTION_GATES", "COMBINED_RMS_Q5Q8_INSUFFICIENT_FOR_PROJECTION_GATES"} else 2
+
+
 def main() -> int:
-    parser = argparse.ArgumentParser(description=__doc__); parser.add_argument("--model", type=Path, default=MODEL); parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT); parser.add_argument("--apparatus-only", action="store_true"); args = parser.parse_args()
+    parser = argparse.ArgumentParser(description=__doc__); parser.add_argument("--model", type=Path, default=MODEL); parser.add_argument("--output-dir", type=Path); parser.add_argument("--apparatus-only", action="store_true"); parser.add_argument("--adjudicate-existing", type=Path); args = parser.parse_args()
+    if args.apparatus_only and args.adjudicate_existing is not None:
+        raise SystemExit("--apparatus-only and --adjudicate-existing are mutually exclusive")
+    if args.output_dir is None:
+        args.output_dir = DEFAULT_OFFLINE_OUTPUT if args.adjudicate_existing is not None else DEFAULT_OUTPUT
     model, output = args.model.resolve(), args.output_dir.resolve()
+    if args.adjudicate_existing is not None:
+        return adjudicate_existing_run(args.adjudicate_existing, output, model)
     if output.exists() and (not output.is_dir() or any(output.iterdir())): raise SystemExit(f"refusing non-empty or non-directory output path: {output}")
     output.mkdir(parents=True, exist_ok=True); started_utc, started = datetime.now(timezone.utc).isoformat(), time.perf_counter(); status="VOID_COMBINED_RMS_Q5Q8_PROPAGATION"; errors=[]; commands={}; sources={}; adjudication={"status":"NOT_RUN"}; candidate_record={}; binary=None; compiler=shutil.which("clang"); donor_graph_executions=0
     try:
@@ -200,7 +322,7 @@ def main() -> int:
             root=output/"candidate";root.mkdir();donor_graph_executions=1;commands["candidate"]=upstream.run_command([str(binary),"--strat01-combined-rms-q5q8",str(model),"--baseline-attn-norm",str(upstream.BASELINE_ATTN.resolve()),"--baseline-ffn-norm",str(upstream.BASELINE_FFN.resolve()),"--out-dir",str(root)],output,"candidate",21600);r2a.require_ok(commands["candidate"],"combined candidate")
             sources=source_inventory();candidate,caches,ffn,candidate_record=validate_candidate(root,model,sources);reference,ref_record,reference_cache=r2a.validate_reference_outputs(upstream.RUNG2A_REFERENCE,model);reference_ffn,ref_ffn_record=r2b.validate_reference(upstream.RUNG2B_REFERENCE,model)
             baseline_report=read_json(upstream.ATTENTION_RUN/"c_engine/strat01_rung2a.json","accepted attention report");accepted_sources={"engine":{"sha256":baseline_report.get("engine_source_sha256")},"rung2a_header":{"sha256":baseline_report.get("rung2a_source_sha256")}};accepted,accepted_cache,_=r2a.validate_c_outputs(upstream.ATTENTION_RUN/"c_engine",accepted_sources,model);accepted_ffn=load_accepted_ffn()
-            prior_sources=upstream.source_inventory();prior,prior_cache,prior_ffn,_=upstream.validate_candidate(upstream.DEFAULT_OUTPUT/"candidate",model,prior_sources)
+            prior_sources=archived_upstream_sources();prior,prior_cache,prior_ffn,_=upstream.validate_candidate(upstream.DEFAULT_OUTPUT/"candidate",model,prior_sources)
             adjudication=adjudicate(candidate,caches,ffn,reference,reference_cache,reference_ffn,accepted,accepted_cache,accepted_ffn,prior,prior_cache,prior_ffn,candidate_record["q8_census"],kb_prior);adjudication["reference_records"]={"rung2a":ref_record,"rung2b":ref_ffn_record};status=adjudication["status"]
     except (DiagnosticError,r2a.RunnerError,r2b.RunnerError,upstream.DiagnosticError) as exc: errors.append(str(exc))
     except Exception as exc: errors.append(f"unexpected {type(exc).__name__}: {exc}")
