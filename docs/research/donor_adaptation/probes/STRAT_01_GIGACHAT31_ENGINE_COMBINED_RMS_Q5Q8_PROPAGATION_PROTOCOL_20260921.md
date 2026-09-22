@@ -74,6 +74,44 @@ Report candidate versus reference, candidate versus accepted-float baseline, and
 
 Exactly one non-VOID execution is allowed.
 
+## Post-run apparatus erratum: offline adjudication of the preserved capture
+
+**Frozen:** 2026-09-22, before implementing or running the offline adjudicator.
+
+The first candidate process completed successfully and emitted the complete
+combined payload tree, but the external runner returned
+`VOID_COMBINED_RMS_Q5Q8_PROPAGATION` after the donor execution.  The preserved
+records are bound as follows:
+
+| object | SHA-256 |
+|---|---|
+| void adjudication | `8eca798bb38706b2d9f0a56ebebf5934f035200c5ae0e983ae4e801f56219e66` |
+| void run manifest | `4964efe45dbbde5b7fd80d957b25279c8099f267c6b40e2aac573858d232db5e` |
+
+The sole reported error is `candidate source hash mismatch`.  It occurs while
+validating the already accepted upstream-double baseline, not while validating
+the combined candidate: the runner recomputed the upstream baseline's expected
+`engine.c` hash from the current tree, whose engine necessarily changed when
+the combined diagnostic was added.  The upstream baseline report instead
+contains, and must be validated against, the source hashes archived in its
+hash-bound adjudication record.
+
+A narrow offline repair is permitted.  It must:
+
+1. require the two exact void-record hashes above, the exact error, one source
+   donor execution, and a successful candidate process;
+2. revalidate every existing combined payload and checkpoint against the
+   current unchanged combined engine/header hashes;
+3. validate the upstream-double baseline against the hashes archived in its
+   already pinned adjudication, never against the current engine hash;
+4. apply the original gates and controls unchanged;
+5. record zero new donor or reference executions and bind the offline result to
+   both preserved void records.
+
+This is adjudication of the one already captured candidate, not a second
+candidate execution.  The original void directory remains immutable.  Any
+identity failure in the offline repair remains VOID; no donor rerun is allowed.
+
 ## Non-claims and stop rule
 
 This cell does not edit production, establish Rung 2C or later-layer parity, or claim tokenizer, logits, generation, end-to-end quality, RAM, or rate. Document and index the result before deciding whether to integrate the two semantics into the production path. No `SPEED_LEDGER.md` entry is permitted.
