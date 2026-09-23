@@ -200,7 +200,12 @@ The next changed composition is frozen in the
 It compares exact reference versus the new current `l_out-0` through the
 complete current layer 1, requires byte-exact replay of the post-F16 arm, and
 permits zero graph executions. This is not the old pre-F16 layer-1-start
-cell; apparatus qualification is next.
+cell. Its [repair-1 apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_APPARATUS_RESULT_20260923.md)
+is now qualified: one pre-build Python-call VOID is preserved, then 146
+Python tests, 18 C self-tests, all 64 frozen payloads, and all source controls
+pass with zero diagnostic/model/graph execution. Commit the apparatus, then
+run exactly one offline diagnostic; do not repeat qualification or either
+Rung-2C graph.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

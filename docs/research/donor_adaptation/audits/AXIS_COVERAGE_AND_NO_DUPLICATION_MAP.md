@@ -209,7 +209,12 @@ concentrated at token 6. Do not rerun the producer or reopen F16/Q4/SwiGLU/Q6.
 The distinct next axis is the frozen
 [post-F16 layer-1-start cross-input](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_PROTOCOL_20260923.md):
 new current versus exact reference `l_out-0`, complete current layer 1,
-byte-exact current replay, and zero graph executions. Apparatus is unbuilt.
+byte-exact current replay, and zero graph executions. Its
+[repair-1 apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_APPARATUS_RESULT_20260923.md)
+is qualified after one preserved pre-build runner-call VOID: 146 Python
+tests, 18 C self-tests, all 64 frozen payloads, and all source controls pass
+with zero diagnostic/model/graph execution. The sole open action is one
+committed offline diagnostic; no graph rerun or parallel split is admissible.
 
 ## 1. How to read this map
 
