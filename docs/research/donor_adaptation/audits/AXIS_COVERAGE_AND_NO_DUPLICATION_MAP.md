@@ -158,6 +158,10 @@ historical hashes. Operator and full-projection parity are closed. Do not rerun
 this cell, AVX2 parity, model-free Q4 tests, or gate/up cross-input. The next
 non-duplicate coordinate is downstream propagation through immutable block-0
 and Rung-2C checkpoints; it requires a new frozen protocol.
+That [protocol is now frozen](../probes/STRAT_01_GIGACHAT31_ENGINE_REFERENCE_GENERIC_PROPAGATION_PROTOCOL_20260923.md).
+It admits only the accepted helper as the changed coordinate, reuses all
+reference tensors/caches, and allows one C producer for both schedules. Do not
+substitute a new split, reference rerun, relaxed gate, or another Q4 kernel.
 
 ## 1. How to read this map
 

@@ -138,6 +138,12 @@ compiler target/lowering context, not an unmeasured AVX algorithm. Do not
 repeat operator or projection parity. A separately frozen downstream
 block-0/Rung-2C propagation confirmation is next; quality, RAM, and rate do
 not move.
+That changed coordinate is now frozen in the
+[reference-generic propagation protocol](probes/STRAT_01_GIGACHAT31_ENGINE_REFERENCE_GENERIC_PROPAGATION_PROTOCOL_20260923.md).
+It reuses the immutable Rung-2C reference tensors and caches, permits one C
+producer invocation for both schedules, requires the old C `l_out-0` hash to
+change, and preserves all original checkpoint, continuity, cache, exact-I32,
+and causal gates. No reference graph may run.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
