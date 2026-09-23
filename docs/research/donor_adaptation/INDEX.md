@@ -28,7 +28,10 @@ first failure in each arm is `kqv_out-1`. Router top-4 and route weights pass.
 Do not repeat either producer. The next cell is now frozen in the
 [zero-producer cross-input attention-boundary protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md):
 four Q×KV arms reuse only captured prefill payloads and the accepted layer-1
-V-B weight.
+V-B weight. Its [apparatus qualification](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_APPARATUS_RESULT_20260923.md)
+is `APPARATUS_READY_NO_DONOR_EXECUTION`: 11 C checks, five Python tests, and
+73,024 legacy checks pass at implementation commit `2a9fbb9`; exactly one
+zero-donor scientific invocation is authorized.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

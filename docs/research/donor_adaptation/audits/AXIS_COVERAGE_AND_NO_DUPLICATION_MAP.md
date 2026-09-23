@@ -79,6 +79,8 @@ now closed as [`FAIL_ENGINE_RUNG2C`](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C
 both producers completed once, 34/64 checkpoints pass, and the first failure is
 `kqv_out-1` while routing passes. Do not repeat Rung 2C. The next new evidence
 is the frozen [zero-producer Q×KV cross-input attention-boundary diagnostic](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md).
+Its [apparatus qualification](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_APPARATUS_RESULT_20260923.md)
+passes with zero donor executions; exactly one scientific invocation is open.
 
 ## 1. How to read this map
 
