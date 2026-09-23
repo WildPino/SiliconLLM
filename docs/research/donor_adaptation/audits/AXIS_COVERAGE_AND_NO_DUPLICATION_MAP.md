@@ -130,7 +130,12 @@ binds its new C normalized input to both measured outputs. The next genuinely
 changed coordinate is the accepted generic Q4_K×Q8_K reduction versus the
 pinned active x86 AVX2/FMA reduction order. Its
 [frozen protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_AVX2_REDUCTION_PARITY_PROTOCOL_20260923.md)
-requires exact block-0 Q/KV hashes; it is unimplemented and unmeasured.
+requires exact block-0 Q/KV hashes. Its
+[apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_AVX2_REDUCTION_PARITY_APPARATUS_RESULT_20260923.md)
+is qualified with true pinned-x86 oracle identity, bit-exact one/multi-block
+tests, live generic controls, 123 Python tests, all C self-tests, and zero model
+reads. Do not repeat model-free operator work; the sole open action is the
+committed full-projection invocation.
 
 ## 1. How to read this map
 

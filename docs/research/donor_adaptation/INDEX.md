@@ -108,7 +108,12 @@ evidence. The first remaining production residual is instead Q/KV at
 `attn_norm-0`. The changed coordinate is frozen in the
 [AVX2 reduction-parity protocol](probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_AVX2_REDUCTION_PARITY_PROTOCOL_20260923.md):
 transcribe only the pinned active x86 accumulation order and require exact Q/KV
-hashes. It is not implemented or measured.
+hashes. The
+[apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_AVX2_REDUCTION_PARITY_APPARATUS_RESULT_20260923.md)
+is now qualified: active project/oracle dots are bit-exact at 256/512/1536/6144,
+the generic control differs on every multi-block fixture, 123 Python tests and
+all C self-tests pass, and model reads are zero. Full projection measurement
+remains unmeasured until the implementation commit is bound.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

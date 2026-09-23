@@ -10,6 +10,7 @@
 #define STRAT01_Q4K_Q8K_H
 
 #include <assert.h>
+#include <immintrin.h>
 #include <math.h>
 #include <stdint.h>
 #include <string.h>
@@ -109,7 +110,7 @@ static void strat01_q4k_unpack_scales(
     }
 }
 
-static float strat01_q4k_q8k_dot(
+static float strat01_q4k_q8k_dot_generic(
         const uint8_t *q4_blocks, const strat01_q8_k_block *q8_blocks,
         unsigned count) {
     float lane_sums[8] = {0.0f, 0.0f, 0.0f, 0.0f,
@@ -158,6 +159,131 @@ static float strat01_q4k_q8k_dot(
     }
     for (block = 0; block < 8U; ++block) result += lane_sums[block];
     return result;
+}
+
+#if !defined(__AVX2__) || !defined(__FMA__)
+#error "STRAT-01 Q4_K/Q8_K active reduction requires AVX2 and FMA"
+#endif
+
+static __m256i strat01_q4k_scale_shuffle(unsigned index) {
+    static const uint8_t shuffle[256] = {
+         0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1,
+         2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3,
+         4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5, 4, 5,
+         6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7, 6, 7,
+         8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9, 8, 9,
+        10,11,10,11,10,11,10,11,10,11,10,11,10,11,10,11,10,11,10,11,10,11,10,11,10,11,10,11,10,11,10,11,
+        12,13,12,13,12,13,12,13,12,13,12,13,12,13,12,13,12,13,12,13,12,13,12,13,12,13,12,13,12,13,12,13,
+        14,15,14,15,14,15,14,15,14,15,14,15,14,15,14,15,14,15,14,15,14,15,14,15,14,15,14,15,14,15,14,15
+    };
+    return _mm256_loadu_si256((const __m256i *)shuffle + index);
+}
+
+static float strat01_q4k_hsum_float_8(__m256 value) {
+    __m128 sum = _mm256_extractf128_ps(value, 1);
+    sum = _mm_add_ps(sum, _mm256_castps256_ps128(value));
+    sum = _mm_add_ps(sum, _mm_movehl_ps(sum, sum));
+    sum = _mm_add_ss(sum, _mm_movehdup_ps(sum));
+    return _mm_cvtss_f32(sum);
+}
+
+/* Standalone transcription of the pinned x86 __AVX2__ branch of
+ * ggml_vec_dot_q4_K_q8_K.  Unlike the generic control above, this preserves
+ * the active kernel's cross-block FMA accumulators and terminal reductions. */
+static float strat01_q4k_q8k_dot_avx2(
+        const uint8_t *q4_blocks, const strat01_q8_k_block *q8_blocks,
+        unsigned count) {
+    static const uint32_t mask1 = UINT32_C(0x3f3f3f3f);
+    static const uint32_t mask2 = UINT32_C(0x0f0f0f0f);
+    static const uint32_t mask3 = UINT32_C(0x03030303);
+    const __m256i nibble_mask = _mm256_set1_epi8(0x0f);
+    __m256 scale_accumulator = _mm256_setzero_ps();
+    __m128 minimum_accumulator = _mm_setzero_ps();
+    unsigned block;
+
+    if (!q4_blocks || !q8_blocks || !count || count % STRAT01_QK_K) return NAN;
+    for (block = 0; block < count / STRAT01_QK_K; ++block) {
+        const uint8_t *raw = q4_blocks + (size_t)block * STRAT01_Q4_K_BLOCK_BYTES;
+        const uint8_t *q4 = raw + 16U;
+        const int8_t *q8 = q8_blocks[block].qs;
+        uint32_t unpacked_scales[4];
+        __m256i integer_accumulator = _mm256_setzero_si256();
+        __m256i minima_and_scales, q8_sums, scales;
+        __m128i q8_sum_pairs, minimum_products, scale_bytes;
+        float scale = q8_blocks[block].d * strat01_q4k_q8k_fp16le(raw);
+        float minimum = -q8_blocks[block].d * strat01_q4k_q8k_fp16le(raw + 2U);
+        unsigned group;
+
+        memcpy(unpacked_scales, raw + 4U, 12U);
+        unpacked_scales[3] = ((unpacked_scales[2] >> 4) & mask2) |
+                             (((unpacked_scales[1] >> 6) & mask3) << 4);
+        {
+            uint32_t upper = unpacked_scales[1] & mask1;
+            unpacked_scales[1] = (unpacked_scales[2] & mask2) |
+                                 (((unpacked_scales[0] >> 6) & mask3) << 4);
+            unpacked_scales[2] = upper;
+        }
+        unpacked_scales[0] &= mask1;
+
+        minima_and_scales = _mm256_cvtepu8_epi16(
+            _mm_set_epi32((int)unpacked_scales[3], (int)unpacked_scales[2],
+                          (int)unpacked_scales[1], (int)unpacked_scales[0]));
+        q8_sums = _mm256_loadu_si256((const __m256i *)q8_blocks[block].bsums);
+        q8_sum_pairs = _mm_hadd_epi16(_mm256_extracti128_si256(q8_sums, 0),
+                                     _mm256_extracti128_si256(q8_sums, 1));
+        minimum_products = _mm_madd_epi16(
+            _mm256_extracti128_si256(minima_and_scales, 1), q8_sum_pairs);
+        minimum_accumulator = _mm_fmadd_ps(
+            _mm_set1_ps(minimum), _mm_cvtepi32_ps(minimum_products),
+            minimum_accumulator);
+
+        scale_bytes = _mm256_extracti128_si256(minima_and_scales, 0);
+        scales = _mm256_insertf128_si256(_mm256_castsi128_si256(scale_bytes),
+                                         scale_bytes, 1);
+        for (group = 0; group < STRAT01_QK_K / 64U; ++group) {
+            __m256i scale_low = _mm256_shuffle_epi8(
+                scales, strat01_q4k_scale_shuffle(2U * group));
+            __m256i scale_high = _mm256_shuffle_epi8(
+                scales, strat01_q4k_scale_shuffle(2U * group + 1U));
+            __m256i q4_bits = _mm256_loadu_si256((const __m256i *)q4);
+            __m256i q4_low = _mm256_and_si256(q4_bits, nibble_mask);
+            __m256i q4_high = _mm256_and_si256(
+                _mm256_srli_epi16(q4_bits, 4), nibble_mask);
+            __m256i q8_low, q8_high, low_products, high_products;
+            q4 += 32U;
+            q8_low = _mm256_loadu_si256((const __m256i *)q8); q8 += 32U;
+            low_products = _mm256_maddubs_epi16(q4_low, q8_low);
+            low_products = _mm256_madd_epi16(scale_low, low_products);
+            q8_high = _mm256_loadu_si256((const __m256i *)q8); q8 += 32U;
+            high_products = _mm256_maddubs_epi16(q4_high, q8_high);
+            high_products = _mm256_madd_epi16(scale_high, high_products);
+            integer_accumulator = _mm256_add_epi32(
+                integer_accumulator,
+                _mm256_add_epi32(low_products, high_products));
+        }
+        scale_accumulator = _mm256_fmadd_ps(
+            _mm256_set1_ps(scale), _mm256_cvtepi32_ps(integer_accumulator),
+            scale_accumulator);
+    }
+
+    minimum_accumulator = _mm_add_ps(
+        minimum_accumulator,
+        _mm_movehl_ps(minimum_accumulator, minimum_accumulator));
+    minimum_accumulator = _mm_add_ss(
+        minimum_accumulator,
+        _mm_movehdup_ps(minimum_accumulator));
+    return strat01_q4k_hsum_float_8(scale_accumulator) +
+           _mm_cvtss_f32(minimum_accumulator);
+}
+
+static float strat01_q4k_q8k_dot(
+        const uint8_t *q4_blocks, const strat01_q8_k_block *q8_blocks,
+        unsigned count) {
+#if defined(STRAT01_Q4K_Q8K_DIAGNOSTIC_GENERIC_REDUCTION)
+    return strat01_q4k_q8k_dot_generic(q4_blocks, q8_blocks, count);
+#else
+    return strat01_q4k_q8k_dot_avx2(q4_blocks, q8_blocks, count);
+#endif
 }
 
 static int strat01_q4k_q8k_selftest(void) {
