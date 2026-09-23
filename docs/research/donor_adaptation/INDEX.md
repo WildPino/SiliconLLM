@@ -74,7 +74,11 @@ its result is now closed as
 exact reference SwiGLU through current Q6 passes direct output at NRMSE
 `8.35e-8` and all downstream gates, while C SwiGLU byte-replays the prior
 failure. Do not alter or repeat Q6. Split captured gate/up inputs and current
-SiLU/multiply semantics next.
+SiLU/multiply semantics next. That coordinate is now frozen in the
+[FFN SwiGLU cross-input protocol](probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md):
+captured/reference, reference/reference-current, two single-operand hybrids,
+and C/C replay all propagate through closed Q6 and layer 1. It is not yet
+measured.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

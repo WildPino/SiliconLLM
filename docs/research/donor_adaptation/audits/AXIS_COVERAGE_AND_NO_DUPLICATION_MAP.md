@@ -107,7 +107,10 @@ it now closes as
 the current Q6 operator passes on exact captured SwiGLU input at direct NRMSE
 `8.35e-8` and across all downstream gates. Do not repeat or rewrite Q6. The
 next distinct axis is captured gate versus up versus current SiLU/multiply
-semantics, with propagation through the closed Q6 and layer-1 paths.
+semantics, with propagation through the closed Q6 and layer-1 paths. That axis
+is now frozen in the
+[FFN SwiGLU cross-input protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md)
+and remains PROPOSED, not measured.
 
 ## 1. How to read this map
 
