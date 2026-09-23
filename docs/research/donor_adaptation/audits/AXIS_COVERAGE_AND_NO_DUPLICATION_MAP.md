@@ -225,7 +225,12 @@ coordinate and must not be repeated. The distinct open axis is now the frozen
 [post-F16 FFN operator-chain split](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md):
 captured reference SwiGLU versus current-expression reference/reference
 SwiGLU through the same Q6 and complete post-F16 layer 1. Apparatus
-qualification is the sole next action; no block-0 graph is authorized.
+is now [qualified](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_APPARATUS_RESULT_20260923.md)
+after 158 Python tests, 20 C self-tests, all frozen identities, and eight
+source controls at zero diagnostic/model/graph execution. The first invalid
+four-element self-test fixture remains a documented apparatus VOID and has no
+scientific values. Commit exact sources, then run the sole authorized
+diagnostic; no block-0 graph is authorized.
 
 ## 1. How to read this map
 

@@ -42,6 +42,7 @@
 #include "strat01_gguf_block0_terminal_component_cross_input.h"
 #include "strat01_gguf_ffn_down_cross_input.h"
 #include "strat01_gguf_ffn_swiglu_cross_input.h"
+#include "strat01_gguf_post_f16_block0_ffn_operator_cross_input.h"
 #include "strat01_gguf_layer1_q6_cross_input.h"
 #include "strat01_gguf_rung2b_rmsnorm_diag.h"
 #include "strat01_gguf_upstream_rmsnorm_diag.h"
@@ -1129,6 +1130,14 @@ int main(int argc,char**argv){
         return strat01_p16term_cli(argv[2],argv[4],argv[6],argv[8],argv[10],argv[12],__FILE__);
     }
     if(argc==2 && !strcmp(argv[1],"--strat01-post-f16-block0-terminal-component-cross-input-selftest")) return strat01_p16term_selftest();
+    if(argc>1 && !strcmp(argv[1],"--strat01-post-f16-block0-ffn-operator-cross-input")){
+        if(argc!=13 || strcmp(argv[3],"--reference-gate") || strcmp(argv[5],"--reference-up") || strcmp(argv[7],"--reference-swiglu") || strcmp(argv[9],"--reference-ffn-inp") || strcmp(argv[11],"--out-dir")){
+            fprintf(stderr,"usage: engine --strat01-post-f16-block0-ffn-operator-cross-input <accepted.gguf> --reference-gate <f32le> --reference-up <f32le> --reference-swiglu <f32le> --reference-ffn-inp <f32le> --out-dir <directory>\n");
+            return 2;
+        }
+        return strat01_p16ffn_cli(argv[2],argv[4],argv[6],argv[8],argv[10],argv[12],__FILE__);
+    }
+    if(argc==2 && !strcmp(argv[1],"--strat01-post-f16-block0-ffn-operator-cross-input-selftest")) return strat01_p16ffn_selftest();
     if(argc>1 && !strcmp(argv[1],"--strat01-block0-terminal-component-cross-input")){
         if(argc!=17 || strcmp(argv[3],"--c-ffn-inp") || strcmp(argv[5],"--c-ffn-out") || strcmp(argv[7],"--c-l-out") || strcmp(argv[9],"--reference-ffn-inp") || strcmp(argv[11],"--reference-ffn-out") || strcmp(argv[13],"--reference-l-out") || strcmp(argv[15],"--out-dir")){
             fprintf(stderr,"usage: engine --strat01-block0-terminal-component-cross-input <accepted.gguf> --c-ffn-inp <f32le> --c-ffn-out <f32le> --c-l-out <f32le> --reference-ffn-inp <f32le> --reference-ffn-out <f32le> --reference-l-out <f32le> --out-dir <directory>\n");

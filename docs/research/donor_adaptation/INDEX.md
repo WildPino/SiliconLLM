@@ -216,8 +216,12 @@ through current expression+Q6 arm. This closes block-0 attention and makes a
 new gate/up split redundant. The next changed coordinate is frozen in the
 [post-F16 FFN operator-chain protocol](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md):
 separate captured-reference-SwiGLU/current-Q6 from current-expression+Q6,
-then propagate both through complete post-F16 layer 1. Apparatus qualification
-is next; no block-0 graph or predecessor may be rerun.
+then propagate both through complete post-F16 layer 1. Its repaired
+[apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_APPARATUS_RESULT_20260923.md)
+is qualified: 158 Python tests, 20 C self-tests, all identities, and eight
+source controls pass with zero diagnostic/model/graph execution. The first
+fixture-bounds failure remains [VOID 1](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_APPARATUS_VOID1_20260923.md).
+Commit exact sources, then run one diagnostic; no predecessor may be rerun.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
