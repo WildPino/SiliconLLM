@@ -100,7 +100,9 @@ distinct boundary is captured `ffn_swiglu-0` input versus the unchanged Q6_K
 down operator, adjudicated after propagation through layer 1. That new axis is
 now frozen in the
 [FFN down-projection cross-input protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_FFN_DOWN_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md).
-It is PROPOSED and must not be cited as an upstream/operator attribution.
+Its [apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_FFN_DOWN_CROSS_INPUT_DIAGNOSTIC_APPARATUS_RESULT_20260923.md)
+is qualified with zero graph executions. One scientific invocation remains;
+it must not yet be cited as an upstream/operator attribution.
 
 ## 1. How to read this map
 

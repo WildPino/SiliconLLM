@@ -65,7 +65,11 @@ propagation next. That coordinate is now fixed in the
 [FFN down-projection cross-input protocol](probes/STRAT_01_GIGACHAT31_ENGINE_FFN_DOWN_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md):
 captured C/reference SwiGLU inputs run through the unchanged Q6_K×Q8_K helper,
 then exact reference residual addition and layer-1 propagation. It is frozen,
-not measured; no upstream-versus-operator verdict exists yet.
+and its
+[apparatus qualification](probes/STRAT_01_GIGACHAT31_ENGINE_FFN_DOWN_CROSS_INPUT_DIAGNOSTIC_APPARATUS_RESULT_20260923.md)
+is `APPARATUS_READY_NO_DONOR_EXECUTION`: new, inherited, Rung-2A/2B/2C, and
+legacy checks pass with zero model access. Exactly one invocation remains;
+no upstream-versus-operator verdict exists yet.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

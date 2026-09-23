@@ -36,6 +36,7 @@
 #include "strat01_gguf_rung2c_cross_input.h"
 #include "strat01_gguf_rung2c_layer1_start_cross_input.h"
 #include "strat01_gguf_block0_terminal_component_cross_input.h"
+#include "strat01_gguf_ffn_down_cross_input.h"
 #include "strat01_gguf_rung2b_rmsnorm_diag.h"
 #include "strat01_gguf_upstream_rmsnorm_diag.h"
 #include "strat01_gguf_kb_q5q8_diag.h"
@@ -1107,6 +1108,13 @@ int main(int argc,char**argv){
         return strat01_term_cli(argv[2],argv[4],argv[6],argv[8],argv[10],argv[12],argv[14],argv[16],__FILE__);
     }
     if(argc==2 && !strcmp(argv[1],"--strat01-block0-terminal-component-cross-input-selftest")) return strat01_term_selftest();
+    if(argc>1 && !strcmp(argv[1],"--strat01-ffn-down-cross-input")){
+        if(argc!=15 || strcmp(argv[3],"--c-swiglu") || strcmp(argv[5],"--reference-swiglu") || strcmp(argv[7],"--c-ffn-out") || strcmp(argv[9],"--reference-ffn-out") || strcmp(argv[11],"--reference-ffn-inp") || strcmp(argv[13],"--out-dir")){
+            fprintf(stderr,"usage: engine --strat01-ffn-down-cross-input <accepted.gguf> --c-swiglu <f32le> --reference-swiglu <f32le> --c-ffn-out <f32le> --reference-ffn-out <f32le> --reference-ffn-inp <f32le> --out-dir <directory>\n");return 2;
+        }
+        return strat01_down_cli(argv[2],argv[4],argv[6],argv[8],argv[10],argv[12],argv[14],__FILE__);
+    }
+    if(argc==2 && !strcmp(argv[1],"--strat01-ffn-down-cross-input-selftest")) return strat01_down_selftest();
     if(argc>1 && !strcmp(argv[1],"--strat01-rung2b-rmsnorm-diagnostic")){
         if(argc!=9 || strcmp(argv[3],"--reference-input") || strcmp(argv[5],"--c-input") || strcmp(argv[7],"--out-dir")){
             fprintf(stderr,"usage: engine --strat01-rung2b-rmsnorm-diagnostic <accepted.gguf> --reference-input <ffn_inp.f32le> --c-input <ffn_inp.f32le> --out-dir <directory>\n");
