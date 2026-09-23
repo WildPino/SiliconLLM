@@ -189,6 +189,13 @@ NRMSE `7.11e-8`/`6.13e-8`, current inputs replay the canonical failures, and
 all controls pass with zero graphs. Both branches localize the discrepancy to
 tokens 4 and 5. Close the actual layer-1 Q6 operators; any successor must move
 strictly upstream and must not duplicate Q4, SwiGLU, or Q6 attribution.
+The [exact F16 vector-reduction propagation protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_F16_VECTOR_REDUCTION_PROPAGATION_PROTOCOL_20260923.md)
+is the next distinct coordinate. The 21 September F16 diagnostic closed
+conversion and showed pinned vector reduction exact, but scalar reduction was
+accepted only under the old local gate. The layer-1 Q6 result now proves that
+the admitted residual is downstream-unsafe. Freeze exact model-free identity
+before one C propagation; do not rerun a reference graph or reopen softmax,
+Q4, SwiGLU, or Q6.
 
 ## 1. How to read this map
 

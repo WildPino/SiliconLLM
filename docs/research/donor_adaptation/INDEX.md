@@ -173,6 +173,12 @@ SwiGLU passes the actual layer-1 Q6 paths at NRMSE `7.11e-8`/`6.13e-8`, while
 current inputs replay the failures exactly. The discrepancy is confined to
 tokens 4 and 5 in both branches. Close Q6 and move strictly upstream; do not
 repeat this cell or rerun either graph.
+The [exact F16 vector-reduction propagation protocol](probes/STRAT_01_GIGACHAT31_ENGINE_F16_VECTOR_REDUCTION_PROPAGATION_PROTOCOL_20260923.md)
+is now frozen as the next coordinate. The pinned vector reduction was already
+bit-exact, while scalar F16×F16 was retained only because it passed a local
+gate. The newly proved downstream amplification makes reduction order a new
+estimand. Require model-free exact identity first, then one C propagation and
+zero reference graphs.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
