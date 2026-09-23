@@ -112,8 +112,13 @@ hashes. The
 [apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_AVX2_REDUCTION_PARITY_APPARATUS_RESULT_20260923.md)
 is now qualified: active project/oracle dots are bit-exact at 256/512/1536/6144,
 the generic control differs on every multi-block fixture, 123 Python tests and
-all C self-tests pass, and model reads are zero. Full projection measurement
-remains unmeasured until the implementation commit is bound.
+all C self-tests pass, and model reads are zero. The committed
+[full-projection result](probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_AVX2_REDUCTION_PARITY_RESULT_20260923.md)
+is a valid **FAIL**: both active Q/KV hashes differ from the references and are
+slightly farther away than the generic control, while that control exactly
+reproduces its historical hashes. The reference lineage used baseline
+`GGML_CPU_GENERIC`, not the active x86 branch. Do not rerun this cell; any
+successor must target the reference producer's resolved compile arithmetic.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

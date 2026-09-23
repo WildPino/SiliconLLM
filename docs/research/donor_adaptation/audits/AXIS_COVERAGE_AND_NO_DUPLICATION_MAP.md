@@ -134,8 +134,14 @@ requires exact block-0 Q/KV hashes. Its
 [apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_AVX2_REDUCTION_PARITY_APPARATUS_RESULT_20260923.md)
 is qualified with true pinned-x86 oracle identity, bit-exact one/multi-block
 tests, live generic controls, 123 Python tests, all C self-tests, and zero model
-reads. Do not repeat model-free operator work; the sole open action is the
-committed full-projection invocation.
+reads. The committed
+[result](../probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_AVX2_REDUCTION_PARITY_RESULT_20260923.md)
+is `FAIL_ENGINE_Q4K_Q8K_AVX2_REDUCTION_PARITY`: active x86 fails both exact
+projection hashes and is slightly farther from reference than the historical
+generic arm; that arm replays exactly. The reference producer compiled the
+baseline `GGML_CPU_GENERIC` backend. Do not repeat AVX2 or model-free operator
+work. A successor must change the coordinate to exact reference-build compiler
+semantics and preregister it separately.
 
 ## 1. How to read this map
 
