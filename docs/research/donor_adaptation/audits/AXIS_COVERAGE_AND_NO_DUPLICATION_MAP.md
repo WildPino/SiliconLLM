@@ -57,10 +57,14 @@ operator cell. Their composition is now measured in the
 as `COMBINED_RMS_Q5Q8_CLOSES_PROJECTION_GATES`: every frozen attention, cache,
 continuity, and dense-FFN gate passes, with up/gate NRMSE
 `4.0201e-4`/`3.4697e-4`. Do not repeat any isolated or combined coordinate.
-The only current engine-fidelity implementation coordinate is production
-integration and full block-0 confirmation of these exact semantics. It is now
-frozen in the [production integration protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md)
-and cannot be called Rung 2C.
+Their [production integration result](../probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md)
+now closes `PASS_ENGINE_BLOCK0_PRODUCTION_INTEGRATION`: the standard Rung-2B
+path reproduces the three exact combined hashes, all twelve checkpoint gates
+through `l_out-0` pass, all twelve continuity checks are exact, and all four
+causal controls reject. One donor invocation ran and the immutable reference
+was not rerun. Do not repeat production integration or any block-0 predecessor.
+The next distinct engine-fidelity coordinate is a separately frozen Rung 2C:
+one block-1 routed-expert plus shared-expert MoE layer.
 
 ## 1. How to read this map
 
