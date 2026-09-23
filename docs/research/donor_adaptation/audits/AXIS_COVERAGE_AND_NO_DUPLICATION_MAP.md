@@ -178,6 +178,11 @@ is now frozen. It is not the closed block-0 Q6 cell: it binds width 1280,
 token-dependent selected expert slices, and the shared expert's distinct Q6
 tensor. It uses only `prefill8` because schedule continuity and metrics are
 already identical, and it permits zero graph executions.
+The [apparatus qualification](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_Q6_CROSS_INPUT_APPARATUS_RESULT_20260923.md)
+passes with all immutable inputs validated, 135 Python tests, 17 C self-tests,
+and zero graph executions. This closes apparatus construction, not the Q6
+attribution. The sole open coordinate is the one committed direct diagnostic;
+no parallel split, graph rerun, or Q6 edit is admissible first.
 
 ## 1. How to read this map
 

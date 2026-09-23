@@ -38,6 +38,7 @@
 #include "strat01_gguf_block0_terminal_component_cross_input.h"
 #include "strat01_gguf_ffn_down_cross_input.h"
 #include "strat01_gguf_ffn_swiglu_cross_input.h"
+#include "strat01_gguf_layer1_q6_cross_input.h"
 #include "strat01_gguf_rung2b_rmsnorm_diag.h"
 #include "strat01_gguf_upstream_rmsnorm_diag.h"
 #include "strat01_gguf_kb_q5q8_diag.h"
@@ -1116,6 +1117,13 @@ int main(int argc,char**argv){
         return strat01_down_cli(argv[2],argv[4],argv[6],argv[8],argv[10],argv[12],argv[14],__FILE__);
     }
     if(argc==2 && !strcmp(argv[1],"--strat01-ffn-down-cross-input-selftest")) return strat01_down_selftest();
+    if(argc>1 && !strcmp(argv[1],"--strat01-layer1-q6-cross-input")){
+        if(argc!=15 || strcmp(argv[3],"--topk") || strcmp(argv[5],"--c-routed") || strcmp(argv[7],"--reference-routed") || strcmp(argv[9],"--c-shared") || strcmp(argv[11],"--reference-shared") || strcmp(argv[13],"--out-dir")){
+            fprintf(stderr,"usage: engine --strat01-layer1-q6-cross-input <accepted.gguf> --topk <i32le> --c-routed <f32le> --reference-routed <f32le> --c-shared <f32le> --reference-shared <f32le> --out-dir <directory>\n");return 2;
+        }
+        return strat01_l1q6_cli(argv[2],argv[4],argv[6],argv[8],argv[10],argv[12],argv[14],__FILE__);
+    }
+    if(argc==2 && !strcmp(argv[1],"--strat01-layer1-q6-cross-input-selftest")) return strat01_l1q6_selftest();
     if(argc>1 && !strcmp(argv[1],"--strat01-ffn-swiglu-cross-input")){
         if(argc!=19 || strcmp(argv[3],"--c-gate") || strcmp(argv[5],"--reference-gate") || strcmp(argv[7],"--c-up") || strcmp(argv[9],"--reference-up") || strcmp(argv[11],"--c-swiglu") || strcmp(argv[13],"--reference-swiglu") || strcmp(argv[15],"--reference-ffn-inp") || strcmp(argv[17],"--out-dir")){
             fprintf(stderr,"usage: engine --strat01-ffn-swiglu-cross-input <accepted.gguf> --c-gate <f32le> --reference-gate <f32le> --c-up <f32le> --reference-up <f32le> --c-swiglu <f32le> --reference-swiglu <f32le> --reference-ffn-inp <f32le> --out-dir <directory>\n");return 2;

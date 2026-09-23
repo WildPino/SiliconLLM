@@ -163,6 +163,10 @@ It uses only `prefill8` because both schedules have identical metrics and
 complete continuity; it crosses captured reference/current routed and shared
 SwiGLU through exact frozen expert selections and permits zero graph
 executions. Do not edit Q6 before its direct result.
+Its [apparatus is now qualified](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_Q6_CROSS_INPUT_APPARATUS_RESULT_20260923.md):
+all nine immutable inputs validate, 135 Python tests and 17 C self-tests pass,
+and no graph ran. Do not repeat apparatus or launch another split. Commit the
+qualified implementation, then execute the one frozen scientific diagnostic.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
