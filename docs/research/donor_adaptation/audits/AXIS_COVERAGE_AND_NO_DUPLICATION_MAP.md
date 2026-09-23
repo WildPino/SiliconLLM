@@ -68,6 +68,10 @@ The next distinct engine-fidelity coordinate is the separately frozen [Rung
 one block-1 routed-expert plus shared-expert MoE layer. It changes depth,
 rank-3 selected-expert operators, discrete ordered top-4 routing, and
 routed/shared aggregation; it does not repeat STRAT-03 or any block-0 cell.
+Its [apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_APPARATUS_RESULT_20260923.md)
+is accepted with zero producer invocations and zero graph schedules. Do not
+repeat apparatus: the next new evidence is the single pinned-reference
+invocation, followed only after validation by the single C invocation.
 
 ## 1. How to read this map
 

@@ -2,8 +2,8 @@
 // This program intentionally contains no phase60 engine code and does not
 // adjudicate C-engine parity.  It creates the independently checkable
 // reference side required by the frozen Rung-2A protocol.
-// STRAT01_RUNG2B extends only the requested callback boundary; the default
-// build and every historical Rung-2A artifact remain unchanged.
+// STRAT01_RUNG2B and STRAT01_RUNG2C extend only the requested callback
+// boundary; the default build and every historical artifact remain unchanged.
 
 #include "llama.h"
 #include "ggml.h"
@@ -35,7 +35,9 @@ constexpr std::array<llama_token, 8> kTokens = {1, 72, 14, 14129, 14, 2135, 1512
 constexpr std::array<llama_pos, 8> kPositions = {0, 1, 2, 3, 4, 5, 6, 7};
 constexpr const char * kArtifactSha256 = "68a8732fb5cee04f83ebffd7924e15c534d4442c5a43d2ba9e2041fe310b8deb";
 constexpr uintmax_t kArtifactBytes = 6474702976ULL;
-#if defined(STRAT01_RUNG2B)
+#if defined(STRAT01_RUNG2C)
+constexpr const char * kSchema = "strat01_engine_rung2c_reference_manifest_v1";
+#elif defined(STRAT01_RUNG2B)
 constexpr const char * kSchema = "strat01_engine_rung2b_reference_manifest_v1";
 #else
 constexpr const char * kSchema = "strat01_engine_rung2a_reference_manifest_v1";
@@ -182,16 +184,29 @@ Cli parse_cli(int argc, char ** argv) {
 }
 
 struct Event {
-    std::string phase, name, op, type; int ordinal=0; std::array<int64_t,4> shape{}; int rank=0; std::vector<float> values;
+    std::string phase, name, op, type; int ordinal=0; std::array<int64_t,4> shape{}; int rank=0;
+    std::vector<float> values; std::vector<int32_t> integer_values;
 };
-#if defined(STRAT01_RUNG2B)
+#if defined(STRAT01_RUNG2C)
+constexpr std::array<const char *, 33> kNames = {
+    "Kcur-0", "l_out-0",
+    "attn_norm-1", "q-1", "kv_cmpr_pe-1", "k_pe-1", "kv_cmpr-1", "q_pe-1",
+    "q_nope_absorbed_perm-1", "Qcur-1", "Kcur-1", "Vcur-1", "kqv_out-1", "ffn_inp-1",
+    "ffn_norm-1", "ffn_moe_logits-1", "ffn_moe_probs-1", "ffn_moe_probs_biased-1",
+    "ffn_moe_topk-1", "ffn_moe_weights-1", "ffn_moe_weights_norm-1",
+    "ffn_moe_up-1", "ffn_moe_gate-1", "ffn_moe_swiglu-1", "ffn_moe_down-1",
+    "ffn_moe_weighted-1", "ffn_moe_out-1", "ffn_up-1", "ffn_gate-1", "ffn_swiglu-1",
+    "ffn_shexp-1", "ffn_out-1", "l_out-1"};
+#elif defined(STRAT01_RUNG2B)
 constexpr std::array<const char *, 7> kNames = {"ffn_inp-0", "ffn_norm-0", "ffn_up-0", "ffn_gate-0", "ffn_swiglu-0", "ffn_out-0", "l_out-0"};
 #else
 constexpr std::array<const char *, 16> kNames = {"attn_norm-0", "q-0", "kv_cmpr_pe-0", "k_pe-0", "kv_cmpr-0", "q_pe-0", "q_nope_absorbed_perm-0", "Qcur-0", "Kcur-0", "Vcur-0", "kq-0", "kq_soft_max-0", "kqv-0", "kqv_mla-0", "kqv_out-0", "ffn_inp-0"};
 #endif
 bool wanted_name(std::string_view name) { return std::find_if(kNames.begin(), kNames.end(), [&](const char * p){ return name == p; }) != kNames.end(); }
 int protocol_rank(std::string_view name) {
-    if (name == "q-0" || name == "k_pe-0" || name == "q_pe-0" || name == "q_nope_absorbed_perm-0" || name == "Qcur-0" || name == "Kcur-0" || name == "Vcur-0" || name == "kq-0" || name == "kq_soft_max-0" || name == "kqv-0" || name == "kqv_mla-0") return 3;
+    if (name == "q-0" || name == "k_pe-0" || name == "q_pe-0" || name == "q_nope_absorbed_perm-0" || name == "Qcur-0" || name == "Kcur-0" || name == "Vcur-0" || name == "kq-0" || name == "kq_soft_max-0" || name == "kqv-0" || name == "kqv_mla-0" ||
+        name == "q-1" || name == "k_pe-1" || name == "q_pe-1" || name == "q_nope_absorbed_perm-1" || name == "Qcur-1" || name == "Kcur-1" || name == "Vcur-1" ||
+        name == "ffn_moe_up-1" || name == "ffn_moe_gate-1" || name == "ffn_moe_swiglu-1" || name == "ffn_moe_down-1" || name == "ffn_moe_weighted-1") return 3;
     if (wanted_name(name)) return 2;
     throw Error("VOID: callback name lacks a frozen logical rank");
 }
@@ -211,6 +226,15 @@ std::vector<float> tensor_f32(const ggml_tensor * t) {
     return out;
 }
 
+std::vector<int32_t> tensor_i32(const ggml_tensor * t) {
+    if (t->type != GGML_TYPE_I32) throw Error("VOID: required integer callback tensor is not I32");
+    const size_t nbytes=ggml_nbytes(t); std::vector<uint8_t> raw(nbytes); ggml_backend_tensor_get(t,raw.data(),0,raw.size());
+    int rank=0; for(int i=0;i<GGML_MAX_DIMS;++i) if(t->ne[i]>1||i==0) rank=i+1;
+    std::vector<int32_t> out; size_t count=1;for(int i=0;i<rank;++i)count*=static_cast<size_t>(t->ne[i]);out.reserve(count);
+    for(int64_t i3=0;i3<(rank>3?t->ne[3]:1);++i3)for(int64_t i2=0;i2<(rank>2?t->ne[2]:1);++i2)for(int64_t i1=0;i1<(rank>1?t->ne[1]:1);++i1)for(int64_t i0=0;i0<t->ne[0];++i0){const size_t off=static_cast<size_t>(i0*t->nb[0]+i1*t->nb[1]+i2*t->nb[2]+i3*t->nb[3]);if(off+4>raw.size())throw Error("VOID: I32 callback tensor stride exceeds dump");int32_t v;std::memcpy(&v,raw.data()+off,4);out.push_back(v);}
+    return out;
+}
+
 struct Collector {
     std::string phase; std::map<std::string,int> next_ordinal; std::vector<Event> events;
     void begin(std::string next_phase) { phase=std::move(next_phase); next_ordinal.clear(); events.clear(); }
@@ -224,7 +248,9 @@ struct Collector {
         // become singleton.  The frozen protocol rank preserves the token axis
         // for the one-token cached decode instead of silently collapsing it.
         e.rank=protocol_rank(name);
-        e.values=tensor_f32(t); self.events.push_back(std::move(e)); return true;
+        if((name=="ffn_moe_weights-1"||name=="ffn_moe_weights_norm-1")&&t->ne[0]==1){e.shape[0]=t->ne[1];e.shape[1]=t->ne[2];e.shape[2]=1;}
+        if(t->type==GGML_TYPE_I32)e.integer_values=tensor_i32(t);else e.values=tensor_f32(t);
+        self.events.push_back(std::move(e)); return true;
     }
 };
 
@@ -243,7 +269,26 @@ const Event & last(const std::vector<Event> & events, std::string_view name, std
 std::map<std::string,const Event *> select_logical(const std::vector<Event> & e) {
     // Selection is tied to the clean pinned source call order, never to an
     // unqualified callback name.  q after RESHAPE is explicitly resolved.
-#if defined(STRAT01_RUNG2B)
+#if defined(STRAT01_RUNG2C)
+    return {
+        {"Kcur-0", &one(e,"Kcur-0")}, {"l_out-0", &one(e,"l_out-0")},
+        {"attn_norm-1", &one(e,"attn_norm-1")}, {"q-1", &one(e,"q-1","RESHAPE")},
+        {"kv_cmpr_pe-1", &one(e,"kv_cmpr_pe-1")}, {"k_pe-1", &last(e,"k_pe-1","ROPE")},
+        {"kv_cmpr-1", &last(e,"kv_cmpr-1","MUL")}, {"q_pe-1", &last(e,"q_pe-1","ROPE")},
+        {"q_nope_absorbed_perm-1", &one(e,"q_nope_absorbed_perm-1")}, {"Qcur-1", &one(e,"Qcur-1")},
+        {"Kcur-1", &one(e,"Kcur-1")}, {"Vcur-1", &one(e,"Vcur-1")},
+        {"kqv_out-1", &one(e,"kqv_out-1")}, {"ffn_inp-1", &one(e,"ffn_inp-1")},
+        {"ffn_norm-1", &one(e,"ffn_norm-1")}, {"ffn_moe_logits-1", &one(e,"ffn_moe_logits-1")},
+        {"ffn_moe_probs-1", &one(e,"ffn_moe_probs-1")}, {"ffn_moe_probs_biased-1", &one(e,"ffn_moe_probs_biased-1")},
+        {"ffn_moe_topk-1", &one(e,"ffn_moe_topk-1")}, {"ffn_moe_weights-1", &one(e,"ffn_moe_weights-1")},
+        {"ffn_moe_weights_norm-1", &one(e,"ffn_moe_weights_norm-1")}, {"ffn_moe_up-1", &one(e,"ffn_moe_up-1")},
+        {"ffn_moe_gate-1", &one(e,"ffn_moe_gate-1")}, {"ffn_moe_swiglu-1", &one(e,"ffn_moe_swiglu-1")},
+        {"ffn_moe_down-1", &one(e,"ffn_moe_down-1")}, {"ffn_moe_weighted-1", &one(e,"ffn_moe_weighted-1")},
+        {"ffn_moe_out-1", &last(e,"ffn_moe_out-1","ADD")}, {"ffn_up-1", &one(e,"ffn_up-1")},
+        {"ffn_gate-1", &one(e,"ffn_gate-1")}, {"ffn_swiglu-1", &one(e,"ffn_swiglu-1")},
+        {"ffn_shexp-1", &one(e,"ffn_shexp-1")}, {"ffn_out-1", &one(e,"ffn_out-1")},
+        {"l_out-1", &one(e,"l_out-1")}};
+#elif defined(STRAT01_RUNG2B)
     return {{"ffn_inp-0", &one(e,"ffn_inp-0")},
             {"ffn_norm-0", &one(e,"ffn_norm-0")},
             {"ffn_up-0", &one(e,"ffn_up-0")},
@@ -278,14 +323,17 @@ Event stitch_cached_event(const Event & prefix, const Event & final, std::string
     }
     size_t per_token = 1;
     for (int i = 0; i < token_axis; ++i) per_token *= static_cast<size_t>(prefix.shape[i]);
-    if (prefix.values.size() != 7 * per_token || final.values.size() != per_token) {
-        throw Error("VOID: cached7p1 callback payload size cannot be composed for " + std::string(logical));
-    }
     Event combined = prefix;
     combined.phase = "cached7p1_composed";
     combined.ordinal = -1; // no invented callback occurrence: the manifest records both sources below
     combined.shape[token_axis] = 8;
-    combined.values.insert(combined.values.end(), final.values.begin(), final.values.end());
+    if(prefix.type=="I32"){
+        if(prefix.integer_values.size()!=7*per_token||final.integer_values.size()!=per_token)throw Error("VOID: cached7p1 I32 payload size cannot be composed for "+std::string(logical));
+        combined.integer_values.insert(combined.integer_values.end(),final.integer_values.begin(),final.integer_values.end());
+    }else{
+        if(prefix.values.size()!=7*per_token||final.values.size()!=per_token)throw Error("VOID: cached7p1 float payload size cannot be composed for "+std::string(logical));
+        combined.values.insert(combined.values.end(),final.values.begin(),final.values.end());
+    }
     return combined;
 }
 
@@ -337,13 +385,13 @@ Trace run_arm(llama_context * ctx, Collector & collector, Arm arm) {
     return {"cached7p1",prefix,collector.events};
 }
 
-std::vector<float> token7_slice(const Event & e) {
-    if (e.rank < 2) return e.values;
+template<class T> std::vector<T> token7_slice(const Event & e,const std::vector<T> & values) {
+    if (e.rank < 2) return values;
     // Pinned DeepSeek2 callback tensors carry the token dimension last.  A
     // one-token cached final already has index zero; an 8-token prefill uses 7.
     const int64_t n_tok=e.shape[e.rank-1]; if (n_tok < 1) throw Error("VOID: selected tensor lacks token dimension");
-    const size_t per=e.values.size()/static_cast<size_t>(n_tok); if (per*n_tok != e.values.size()) throw Error("VOID: non-integral token slice");
-    const size_t idx=n_tok==8?7:0; return {e.values.begin()+static_cast<std::ptrdiff_t>(idx*per), e.values.begin()+static_cast<std::ptrdiff_t>((idx+1)*per)};
+    const size_t per=values.size()/static_cast<size_t>(n_tok); if (per*n_tok != values.size()) throw Error("VOID: non-integral token slice");
+    const size_t idx=n_tok==8?7:0; return {values.begin()+static_cast<std::ptrdiff_t>(idx*per), values.begin()+static_cast<std::ptrdiff_t>((idx+1)*per)};
 }
 
 struct Payload { std::string logical, kind, path, sha256; size_t byte_count=0; };
@@ -354,6 +402,13 @@ Payload write_payload(const fs::path & root, const std::string & arm, const std:
     std::ofstream out(path,std::ios::binary|std::ios::trunc); if (!out) throw Error("VOID: cannot create payload"); out.write(reinterpret_cast<const char*>(bytes.data()),static_cast<std::streamsize>(bytes.size())); if (!out) throw Error("VOID: cannot write payload");
     return {logical,kind,relative.generic_string(),sha256_bytes(bytes),bytes.size()};
 }
+Payload write_i32_payload(const fs::path & root,const std::string & arm,const std::string & logical,const std::string & kind,const std::vector<int32_t> & values) {
+    if(!simple_file_component(arm)||!simple_file_component(logical)||!simple_file_component(kind))throw Error("VOID: malformed I32 payload component");
+    const fs::path relative=fs::path(arm)/(logical+"."+kind+".i32le");const fs::path path=root/relative;fs::create_directories(path.parent_path());std::vector<uint8_t> bytes;bytes.reserve(values.size()*4);for(int32_t x:values)append_le_u32(bytes,static_cast<uint32_t>(x));std::ofstream out(path,std::ios::binary|std::ios::trunc);if(!out)throw Error("VOID: cannot create I32 payload");out.write(reinterpret_cast<const char*>(bytes.data()),static_cast<std::streamsize>(bytes.size()));if(!out)throw Error("VOID: cannot write I32 payload");return{logical,kind,relative.generic_string(),sha256_bytes(bytes),bytes.size()};
+}
+Payload write_cache_f16_roundtrip_payload(const fs::path & root,const std::string & arm,const std::string & logical,const std::string & kind,const std::vector<float> & values) {
+    std::vector<float> rounded;rounded.reserve(values.size());for(float x:values)rounded.push_back(ggml_fp16_to_fp32(ggml_fp32_to_fp16(x)));return write_payload(root,arm,logical,kind,rounded);
+}
 void write_shape(std::ostream & out, const Event & e) { out << '['; for(int i=0;i<e.rank;++i) { if(i) out << ','; out << e.shape[i]; } out << ']'; }
 void write_event(std::ostream & out, const Event & e) {
     out << "{\"phase\":" << json_quote(e.phase) << ",\"name\":" << json_quote(e.name) << ",\"ordinal\":" << e.ordinal << ",\"op\":" << json_quote(e.op) << ",\"type\":" << json_quote(e.type) << ",\"shape\":"; write_shape(out,e); out << '}';
@@ -362,14 +417,24 @@ void write_trace_json(const fs::path & root, const Trace & trace) {
     const fs::path arm_dir=root/trace.arm; fs::create_directories(arm_dir);
     const auto selected=payload_events(trace);
     std::vector<Payload> payloads;
-    for (const auto & [logical,event] : selected) { payloads.push_back(write_payload(root,trace.arm,logical,"full",event.values)); payloads.push_back(write_payload(root,trace.arm,logical,"token7",token7_slice(event))); }
-#if !defined(STRAT01_RUNG2B)
+    for (const auto & [logical,event] : selected) {
+        if(event.type=="I32") { payloads.push_back(write_i32_payload(root,trace.arm,logical,"full",event.integer_values));payloads.push_back(write_i32_payload(root,trace.arm,logical,"token7",token7_slice(event,event.integer_values))); }
+        else { payloads.push_back(write_payload(root,trace.arm,logical,"full",event.values));payloads.push_back(write_payload(root,trace.arm,logical,"token7",token7_slice(event,event.values))); }
+    }
+#if defined(STRAT01_RUNG2C)
+    for(const char *logical:{"Kcur-0","Kcur-1"}){
+        const Event &full=selected.at(logical);payloads.push_back(write_cache_f16_roundtrip_payload(root,trace.arm,logical,"cache_f16_roundtrip",full.values));
+        if(trace.arm=="cached7p1"){const Event &prefix=one(trace.prefix_events,logical);payloads.push_back(write_cache_f16_roundtrip_payload(root,trace.arm,logical,"prefix_cache_f16_roundtrip",prefix.values));}
+    }
+#elif !defined(STRAT01_RUNG2B)
     // In cached7p1, prefix Kcur is the logical cache witness.  This does not
     // claim access to llama.cpp's private physical cache bytes.
     if (trace.arm=="cached7p1") { const Event & k=one(trace.prefix_events,"Kcur-0"); payloads.push_back(write_payload(root,trace.arm,"Kcur-0","prefix_logical_rows",k.values)); }
 #endif
     const fs::path manifest=arm_dir/"manifest.json"; std::ofstream out(manifest,std::ios::binary|std::ios::trunc); if(!out) throw Error("VOID: cannot create arm manifest");
-#if defined(STRAT01_RUNG2B)
+#if defined(STRAT01_RUNG2C)
+    out << "{\n\"schema\":" << json_quote(kSchema) << ",\n\"arm\":" << json_quote(trace.arm) << ",\n\"logical_cache_contract\":{\"extraction\":\"Kcur callback values rounded through F16 by producer\",\"physical_bytes_claimed\":false,\"storage_type\":\"F16\",\"row_length\":576,\"layers\":[0,1],\"separate_v_cache\":false},\n\"callback_records\":[";
+#elif defined(STRAT01_RUNG2B)
     out << "{\n\"schema\":" << json_quote(kSchema) << ",\n\"arm\":" << json_quote(trace.arm) << ",\n\"logical_cache_contract\":{\"inherited_rung2a_not_remeasured\":true},\n\"callback_records\":[";
 #else
     out << "{\n\"schema\":" << json_quote(kSchema) << ",\n\"arm\":" << json_quote(trace.arm) << ",\n\"logical_cache_contract\":{\"extraction\":\"logical_Kcur_callback_values_only\",\"physical_bytes_claimed\":false,\"storage_type\":\"F16\",\"row_length\":576,\"separate_v_cache\":false,\"checkpoints\":[";
@@ -440,6 +505,8 @@ bool self_tests() {
     check(one(fixture,"q-0","RESHAPE").ordinal==1&&last(fixture,"k_pe-0","ROPE").ordinal==1,"occurrence disambiguation");
     try { (void)one(fixture,"q-0"); check(false,"ambiguous occurrence refusal"); } catch(const Error&) {}
     { Event p{"prefix","q-0","RESHAPE","F32",1,{2,3,7,1},3,std::vector<float>(42,1.0f)}; Event f{"final","q-0","RESHAPE","F32",1,{2,3,1,1},3,std::vector<float>(6,2.0f)}; const Event c=stitch_cached_event(p,f,"q-0"); check(c.shape[2]==8&&c.values.size()==48&&c.values[41]==1.0f&&c.values[42]==2.0f,"cached7p1 payload composition"); }
+    { Event p{"prefix","ffn_moe_topk-1","VIEW","I32",0,{4,7,1,1},2,{},std::vector<int32_t>(28,3)};Event f{"final","ffn_moe_topk-1","VIEW","I32",0,{4,1,1,1},2,{},std::vector<int32_t>(4,9)};const Event c=stitch_cached_event(p,f,"ffn_moe_topk-1");const auto t7=token7_slice(c,c.integer_values);check(c.shape[1]==8&&c.integer_values.size()==32&&t7.size()==4&&t7[0]==9,"cached7p1 I32 composition"); }
+    { const float x=1.0001f;check(ggml_fp16_to_fp32(ggml_fp32_to_fp16(x))!=x,"cache F16 roundtrip witness"); }
     check(!simple_file_component("../bad")&&!simple_file_component("a/b")&&simple_file_component("Kcur-0"),"malformed manifest component refusal");
     try { char a0[]="x",a1[]="--arm",a2[]="wrong"; char *a[]={a0,a1,a2}; (void)parse_cli(3,a); check(false,"malformed CLI refusal"); } catch(const Error&) {}
     return ok;
@@ -450,7 +517,9 @@ bool self_tests() {
 int main(int argc, char ** argv) {
     try { const Cli cli=parse_cli(argc,argv); if(cli.self_test) return self_tests()?0:1; run_production(cli); return 0; }
     catch(const std::exception & e) {
-#if defined(STRAT01_RUNG2B)
+#if defined(STRAT01_RUNG2C)
+        std::cerr << "strat01_engine_rung2c_reference: " << e.what() << '\n';
+#elif defined(STRAT01_RUNG2B)
         std::cerr << "strat01_engine_rung2b_reference: " << e.what() << '\n';
 #else
         std::cerr << "strat01_engine_rung2a_reference: " << e.what() << '\n';

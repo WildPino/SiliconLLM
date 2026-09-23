@@ -26,9 +26,12 @@ def verify_pinned_llama(source: Path = PINNED_LLAMA) -> None:
         raise BuildError("llama.cpp source is not the clean pinned commit")
 
 
-def cmake_project(source: Path, llama_source: Path, *, rung2b: bool = False) -> str:
-    target = "strat01_engine_rung2b_reference" if rung2b else "strat01_engine_rung2a_reference"
-    definition = f"target_compile_definitions({target} PRIVATE STRAT01_RUNG2B=1)\n" if rung2b else ""
+def cmake_project(source: Path, llama_source: Path, *, rung2b: bool = False, rung2c: bool = False) -> str:
+    if rung2b and rung2c:
+        raise BuildError("reference build variants are mutually exclusive")
+    variant = "rung2c" if rung2c else "rung2b" if rung2b else "rung2a"
+    target = f"strat01_engine_{variant}_reference"
+    definition = f"target_compile_definitions({target} PRIVATE STRAT01_{variant.upper()}=1)\n" if variant != "rung2a" else ""
     return f'''cmake_minimum_required(VERSION 3.20)
 project({target} LANGUAGES C CXX)
 set(LLAMA_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
@@ -42,13 +45,16 @@ target_compile_features({target} PRIVATE cxx_std_17)
 '''
 
 
-def build(build_dir: Path, configuration: str = "Release", *, rung2b: bool = False) -> Path:
+def build(build_dir: Path, configuration: str = "Release", *, rung2b: bool = False, rung2c: bool = False) -> Path:
     verify_pinned_llama()
     if not SOURCE.is_file():
         raise BuildError("reference trace source is unavailable")
-    target = "strat01_engine_rung2b_reference" if rung2b else "strat01_engine_rung2a_reference"
+    if rung2b and rung2c:
+        raise BuildError("reference build variants are mutually exclusive")
+    variant = "rung2c" if rung2c else "rung2b" if rung2b else "rung2a"
+    target = f"strat01_engine_{variant}_reference"
     build_dir.mkdir(parents=True, exist_ok=True)
-    (build_dir / "CMakeLists.txt").write_text(cmake_project(SOURCE, PINNED_LLAMA, rung2b=rung2b), encoding="utf-8", newline="\n")
+    (build_dir / "CMakeLists.txt").write_text(cmake_project(SOURCE, PINNED_LLAMA, rung2b=rung2b, rung2c=rung2c), encoding="utf-8", newline="\n")
     configured = subprocess.run(["cmake", "-S", str(build_dir), "-B", str(build_dir / "cmake-build")], text=True, capture_output=True, check=False)
     if configured.returncode:
         raise BuildError("CMake configure failed:\n" + "\n".join((configured.stdout + configured.stderr).splitlines()[-20:]))
