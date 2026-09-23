@@ -102,7 +102,12 @@ now frozen in the
 [FFN down-projection cross-input protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_FFN_DOWN_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md).
 Its [apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_FFN_DOWN_CROSS_INPUT_DIAGNOSTIC_APPARATUS_RESULT_20260923.md)
 is qualified with zero graph executions. One scientific invocation remains;
-it must not yet be cited as an upstream/operator attribution.
+it now closes as
+[`SWIGLU_INPUT_RESIDUAL_SUFFICIENT`](../probes/STRAT_01_GIGACHAT31_ENGINE_FFN_DOWN_CROSS_INPUT_DIAGNOSTIC_RESULT_20260923.md):
+the current Q6 operator passes on exact captured SwiGLU input at direct NRMSE
+`8.35e-8` and across all downstream gates. Do not repeat or rewrite Q6. The
+next distinct axis is captured gate versus up versus current SiLU/multiply
+semantics, with propagation through the closed Q6 and layer-1 paths.
 
 ## 1. How to read this map
 

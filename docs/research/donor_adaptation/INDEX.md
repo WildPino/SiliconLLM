@@ -69,7 +69,12 @@ and its
 [apparatus qualification](probes/STRAT_01_GIGACHAT31_ENGINE_FFN_DOWN_CROSS_INPUT_DIAGNOSTIC_APPARATUS_RESULT_20260923.md)
 is `APPARATUS_READY_NO_DONOR_EXECUTION`: new, inherited, Rung-2A/2B/2C, and
 legacy checks pass with zero model access. Exactly one invocation remains;
-no upstream-versus-operator verdict exists yet.
+its result is now closed as
+[`SWIGLU_INPUT_RESIDUAL_SUFFICIENT`](probes/STRAT_01_GIGACHAT31_ENGINE_FFN_DOWN_CROSS_INPUT_DIAGNOSTIC_RESULT_20260923.md):
+exact reference SwiGLU through current Q6 passes direct output at NRMSE
+`8.35e-8` and all downstream gates, while C SwiGLU byte-replays the prior
+failure. Do not alter or repeat Q6. Split captured gate/up inputs and current
+SiLU/multiply semantics next.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
