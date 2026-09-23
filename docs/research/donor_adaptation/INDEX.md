@@ -55,8 +55,13 @@ through the unchanged layer-1 builder with zero donor/reference graphs. Its
 [apparatus qualification](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_DIAGNOSTIC_APPARATUS_RESULT_20260923.md)
 is `APPARATUS_READY_NO_DONOR_EXECUTION`: the new and inherited C/Python tests
 plus 73,024 legacy checks pass, with empty compiler stderr and no model access.
-Exactly one scientific invocation is authorized; no attention-versus-FFN
-verdict exists yet.
+Its single invocation is now closed as
+[`FFN_RESIDUAL_SUFFICIENT`](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_DIAGNOSTIC_RESULT_20260923.md):
+C-attention/reference-FFN passes `kqv_out-1` at NRMSE `0.0009140`, while
+reference-attention/C-FFN fails at `0.0061366`, essentially reproducing C/C.
+Do not repeat the split or modify layer 1. Freeze a zero-producer
+`ffn_swiglu-0` × Q6_K-down cross-input diagnostic with downstream layer-1
+propagation next.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

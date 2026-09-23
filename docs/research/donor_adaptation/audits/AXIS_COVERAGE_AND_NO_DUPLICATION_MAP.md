@@ -91,8 +91,13 @@ modify layer 1. The distinct next axis is now frozen in the
 captured C/reference `ffn_inp-0` and `ffn_out-0` are crossed in four F32 sums,
 with byte-exact homogeneous replay and the unchanged layer-1 builder. This is
 now apparatus-qualified with zero producer graphs; exactly one scientific
-invocation remains authorized. It must not yet be cited as component
-attribution.
+invocation is now closed by the
+[`FFN_RESIDUAL_SUFFICIENT` result](../probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_DIAGNOSTIC_RESULT_20260923.md):
+the C attention-stream addend paired with reference FFN passes downstream,
+whereas the C FFN addend paired with the reference attention stream fails and
+nearly reproduces C/C. Do not repeat this split or modify layer 1. The next
+distinct boundary is captured `ffn_swiglu-0` input versus the unchanged Q6_K
+down operator, adjudicated after propagation through layer 1.
 
 ## 1. How to read this map
 
