@@ -205,12 +205,19 @@ is valid `POST_F16_BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`: exact reference
 `l_out-0` passes all 32 current layer-1 checkpoints, terminal NRMSE is
 `1.575e-7`, and all current outputs replay exactly. The helper-count VOID was
 recovered offline from immutable hashes with no new model or graph execution.
-Layer 1 is closed. The next changed coordinate is frozen in the
-[post-F16 block-0 terminal-component protocol](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_PROTOCOL_20260923.md);
-its [apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260923.md)
-is qualified after 152 Python tests, 19 C self-tests, 64 frozen checkpoint
-validations, and seven source controls, with zero model/graph execution.
-Commit, then run exactly one current-component/two-hybrid diagnostic.
+Layer 1 is closed. The next changed coordinate was the
+[post-F16 block-0 terminal-component protocol](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_PROTOCOL_20260923.md).
+Its valid [result](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_RESULT_20260923.md)
+is `POST_F16_BLOCK0_FFN_OUT_RESIDUAL_SUFFICIENT`: current `ffn_inp-0` is
+byte-exact reference, reference `ffn_out-0` passes all 32 checkpoints, and
+current `ffn_out-0` first fails at routed `ffn_moe_down-1`. The current output
+and terminal sum are byte-identical to the old reference-gate/reference-up
+through current expression+Q6 arm. This closes block-0 attention and makes a
+new gate/up split redundant. The next changed coordinate is frozen in the
+[post-F16 FFN operator-chain protocol](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md):
+separate captured-reference-SwiGLU/current-Q6 from current-expression+Q6,
+then propagate both through complete post-F16 layer 1. Apparatus qualification
+is next; no block-0 graph or predecessor may be rerun.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

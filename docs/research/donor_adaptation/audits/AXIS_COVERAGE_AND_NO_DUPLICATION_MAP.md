@@ -213,15 +213,19 @@ byte-exact current replay, and zero graph executions. Its valid
 [result](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_RESULT_20260923.md)
 is `POST_F16_BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`: all 32 reference-start
 checkpoints pass, terminal NRMSE is `1.575e-7`, and all current checkpoints
-replay exactly. Close layer 1 and all prior Q4/F16/SwiGLU/Q6 hypotheses. The
-next changed coordinate is the frozen
+replay exactly. Close layer 1 and all prior graph-level Q4/F16 hypotheses. The
+next changed coordinate was the frozen
 [post-F16 block-0 terminal-component split](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_PROTOCOL_20260923.md).
-It must produce the new current components once and cannot reuse or repeat the
-old pre-exact-Q4/pre-exact-F16 component experiment. Its
-[apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260923.md)
-is qualified with 152 Python tests, 19 C self-tests, all frozen identities,
-and seven source controls passing at zero model/graph execution. The sole open
-action is one committed current-component/two-hybrid diagnostic.
+Its valid [result](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_RESULT_20260923.md)
+is `POST_F16_BLOCK0_FFN_OUT_RESIDUAL_SUFFICIENT`: current `ffn_inp-0` is
+byte-identical to reference, and only current `ffn_out-0` reproduces the full
+failure. That output is byte-identical to the earlier reference-gate/reference-
+up through current expression+Q6 arm, so gate/up is already an unnecessary
+coordinate and must not be repeated. The distinct open axis is now the frozen
+[post-F16 FFN operator-chain split](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md):
+captured reference SwiGLU versus current-expression reference/reference
+SwiGLU through the same Q6 and complete post-F16 layer 1. Apparatus
+qualification is the sole next action; no block-0 graph is authorized.
 
 ## 1. How to read this map
 
