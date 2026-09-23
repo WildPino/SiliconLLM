@@ -56,7 +56,9 @@ and zero graph schedules. Its adjudication SHA-256 is
 `280ab3f69960fdb8abc81697b5143c9851c0c8c9fc261e4e0412e587c3d5371e` and
 its run-manifest SHA-256 is
 `97e5ce98efc61a6b40eacd893d29e7f2d03214517e323f28c7aa1345db881ded`.
-One changed-coordinate scientific rerun is therefore authorized.
+The one changed-coordinate scientific rerun subsequently completed and is
+closed as [Rung 2C FAIL](STRAT_01_GIGACHAT31_ENGINE_RUNG2C_RESULT_20260923.md).
+No further Rung 2C producer invocation is authorized.
 
 ## Non-claims
 

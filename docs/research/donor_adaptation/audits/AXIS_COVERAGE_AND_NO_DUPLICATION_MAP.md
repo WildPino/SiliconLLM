@@ -74,9 +74,11 @@ scientific attempt is [VOID 1](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_VOID1
 both reference schedules completed but cached top-k serialization refused on
 an `i32`/`I32` apparatus mismatch; C did not run. Do not repeat that exact
 source coordinate. Canonical apparatus `repair2` now passes the narrow
-type/accounting repair with zero producer executions. The next new evidence is
-one changed-coordinate pinned-reference invocation and, only after validation,
-one C invocation.
+type/accounting repair with zero producer executions. The authorized rerun is
+now closed as [`FAIL_ENGINE_RUNG2C`](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_RESULT_20260923.md):
+both producers completed once, 34/64 checkpoints pass, and the first failure is
+`kqv_out-1` while routing passes. Do not repeat Rung 2C. The next new evidence
+is a zero-producer offline cross-input attention-boundary diagnostic.
 
 ## 1. How to read this map
 

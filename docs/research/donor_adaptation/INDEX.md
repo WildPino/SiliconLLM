@@ -20,9 +20,13 @@ graph schedules were zero. The first scientific invocation is now preserved as
 reference schedules completed, cached top-k serialization refused on an
 `i32`/`I32` spelling mismatch, and C remained at zero invocations. The narrow
 type/accounting repair now passes in canonical apparatus `repair2`, with zero
-producer executions and durable schedule markers. One changed-coordinate
-scientific rerun is authorized; do not overwrite or offline-adjudicate the VOID
-directory.
+producer executions and durable schedule markers. Do not overwrite or
+offline-adjudicate the VOID directory. The single authorized rerun is now closed as
+[Rung 2C `FAIL_ENGINE_RUNG2C`](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_RESULT_20260923.md):
+34/64 checkpoints pass, continuity/cache/causal controls all pass, and the
+first failure in each arm is `kqv_out-1`. Router top-4 and route weights pass.
+Do not repeat either producer; freeze the zero-producer cross-input attention
+boundary diagnostic next.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

@@ -74,6 +74,6 @@ numerical parity, later-layer coverage, quality, RAM, or speed claim. It does
 not update `SPEED_LEDGER.md`.
 
 Launch at most one changed-coordinate scientific rerun from source HEAD
-`4c5d1af6274d1067076485398d58ce67dfc1ab96`. It must emit both `prefill8` and
-`cached7p1`, reproduce the frozen reference `l_out-0` hash in both arms, and
-validate completely before the one C producer invocation is allowed.
+`4c5d1af6274d1067076485398d58ce67dfc1ab96`. That rerun has now completed and
+is closed as [Rung 2C FAIL](STRAT_01_GIGACHAT31_ENGINE_RUNG2C_RESULT_20260923.md).
+Do not repeat either producer.
