@@ -187,6 +187,20 @@ addendum corrects the mechanism: the historical pinned helper used
 `GGML_CPU_GENERIC`, hence F32 products with sequential F64 accumulation, not
 AVX/FMA. Commit this exact apparatus, then run its single C propagation; do
 not repeat Stage A or any closed upstream diagnostic.
+That [propagation](probes/STRAT_01_GIGACHAT31_ENGINE_F16_VECTOR_REDUCTION_PROPAGATION_RESULT_20260923.md)
+closes validly as `FAIL_ENGINE_F16_VECTOR_REDUCTION_PROPAGATION`. The exact
+helper reaches both schedules and improves every tracked NRMSE:
+`kqv_out-1` falls from `3.534e-4` to `5.035e-5`, but routed/shared Q6 down
+remain above gate at `0.003761`/`0.002372`. The residual is now concentrated
+at token 6. All identities, routes, caches, continuity, mutations, counts,
+and causal controls pass; one C producer and zero reference graphs ran.
+Close this F16 coordinate.
+The next changed composition is frozen in the
+[post-F16 layer-1-start cross-input protocol](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_PROTOCOL_20260923.md).
+It compares exact reference versus the new current `l_out-0` through the
+complete current layer 1, requires byte-exact replay of the post-F16 arm, and
+permits zero graph executions. This is not the old pre-F16 layer-1-start
+cell; apparatus qualification is next.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

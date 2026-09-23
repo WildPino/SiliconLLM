@@ -201,8 +201,15 @@ now qualifies that exact cell with zero graphs: five frozen payload hashes are
 byte-exact, both mutations reject, and 141 Python plus 17 C self-tests pass.
 Its pre-donor addendum records that the historical helper used the generic
 F64 accumulator path rather than AVX/FMA. Apparatus construction and Stage A
-are closed. The sole open action is one committed C propagation for both
-schedules, with exact helper counts and zero reference graphs.
+are closed. The subsequent
+[`FAIL_ENGINE_F16_VECTOR_REDUCTION_PROPAGATION` result](../probes/STRAT_01_GIGACHAT31_ENGINE_F16_VECTOR_REDUCTION_PROPAGATION_RESULT_20260923.md)
+is valid: both schedules and all controls pass, every tracked NRMSE improves,
+but routed/shared Q6 down remain above gate at `0.003761`/`0.002372`, now
+concentrated at token 6. Do not rerun the producer or reopen F16/Q4/SwiGLU/Q6.
+The distinct next axis is the frozen
+[post-F16 layer-1-start cross-input](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_PROTOCOL_20260923.md):
+new current versus exact reference `l_out-0`, complete current layer 1,
+byte-exact current replay, and zero graph executions. Apparatus is unbuilt.
 
 ## 1. How to read this map
 
