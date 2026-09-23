@@ -144,6 +144,10 @@ It reuses the immutable Rung-2C reference tensors and caches, permits one C
 producer invocation for both schedules, requires the old C `l_out-0` hash to
 change, and preserves all original checkpoint, continuity, cache, exact-I32,
 and causal gates. No reference graph may run.
+Its [apparatus is now qualified](probes/STRAT_01_GIGACHAT31_ENGINE_REFERENCE_GENERIC_PROPAGATION_APPARATUS_RESULT_20260923.md):
+all immutable reference payloads validate, 131 Python tests and every C
+self-test pass, all source controls are true, and no graph ran. One committed
+C-producer adjudication remains authorized; no downstream result exists yet.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

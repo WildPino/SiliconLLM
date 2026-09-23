@@ -162,6 +162,10 @@ That [protocol is now frozen](../probes/STRAT_01_GIGACHAT31_ENGINE_REFERENCE_GEN
 It admits only the accepted helper as the changed coordinate, reuses all
 reference tensors/caches, and allows one C producer for both schedules. Do not
 substitute a new split, reference rerun, relaxed gate, or another Q4 kernel.
+The [apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_REFERENCE_GENERIC_PROPAGATION_APPARATUS_RESULT_20260923.md)
+is qualified with validated immutable references, 131 Python tests, all C
+self-tests, and zero graph executions. Do not repeat apparatus or start a
+parallel diagnostic; the single committed C-producer adjudication is next.
 
 ## 1. How to read this map
 
