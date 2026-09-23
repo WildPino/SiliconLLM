@@ -183,6 +183,12 @@ passes with all immutable inputs validated, 135 Python tests, 17 C self-tests,
 and zero graph executions. This closes apparatus construction, not the Q6
 attribution. The sole open coordinate is the one committed direct diagnostic;
 no parallel split, graph rerun, or Q6 edit is admissible first.
+The [direct result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_Q6_CROSS_INPUT_RESULT_20260923.md)
+is `LAYER1_SWIGLU_RESIDUAL_SUFFICIENT`: reference routed/shared inputs pass at
+NRMSE `7.11e-8`/`6.13e-8`, current inputs replay the canonical failures, and
+all controls pass with zero graphs. Both branches localize the discrepancy to
+tokens 4 and 5. Close the actual layer-1 Q6 operators; any successor must move
+strictly upstream and must not duplicate Q4, SwiGLU, or Q6 attribution.
 
 ## 1. How to read this map
 

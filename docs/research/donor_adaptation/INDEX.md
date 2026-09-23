@@ -167,6 +167,12 @@ Its [apparatus is now qualified](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_Q6_CRO
 all nine immutable inputs validate, 135 Python tests and 17 C self-tests pass,
 and no graph ran. Do not repeat apparatus or launch another split. Commit the
 qualified implementation, then execute the one frozen scientific diagnostic.
+That [diagnostic](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_Q6_CROSS_INPUT_RESULT_20260923.md)
+closes as `LAYER1_SWIGLU_RESIDUAL_SUFFICIENT`. Exact reference routed/shared
+SwiGLU passes the actual layer-1 Q6 paths at NRMSE `7.11e-8`/`6.13e-8`, while
+current inputs replay the failures exactly. The discrepancy is confined to
+tokens 4 and 5 in both branches. Close Q6 and move strictly upstream; do not
+repeat this cell or rerun either graph.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
