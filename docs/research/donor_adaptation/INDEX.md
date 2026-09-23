@@ -39,7 +39,10 @@ rewrite attention/V-B or repeat this diagnostic. Freeze a layer-1-start
 cross-input propagation diagnostic next. That coordinate is now fixed in the
 [layer-1-start protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_LAYER1_START_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md):
 captured reference/C `l_out-0` through the unchanged layer-1 builder, with
-byte-exact C replay and eleven reference gates.
+byte-exact C replay and eleven reference gates. Its
+[apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_LAYER1_START_CROSS_INPUT_DIAGNOSTIC_APPARATUS_RESULT_20260923.md)
+is qualified at `b0d89f9`: 8 C checks, four Python tests and 73,024 legacy
+checks pass with zero donor executions. One scientific invocation is open.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
