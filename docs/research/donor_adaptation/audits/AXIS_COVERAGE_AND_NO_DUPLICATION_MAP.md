@@ -173,6 +173,11 @@ up/gate, and SwiGLU. Routed/shared Q6 down first fail. Do not repeat global Q4
 propagation or infer a generic Q6 defect; cross immutable layer-1
 reference/current SwiGLU through those exact Q6 matrices next, with zero
 producer graphs.
+The [layer-1 Q6 cross-input protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_Q6_CROSS_INPUT_PROTOCOL_20260923.md)
+is now frozen. It is not the closed block-0 Q6 cell: it binds width 1280,
+token-dependent selected expert slices, and the shared expert's distinct Q6
+tensor. It uses only `prefill8` because schedule continuity and metrics are
+already identical, and it permits zero graph executions.
 
 ## 1. How to read this map
 

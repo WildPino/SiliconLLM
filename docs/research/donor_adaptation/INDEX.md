@@ -157,6 +157,12 @@ pass. Routed and shared Q6 down are the first failures at NRMSE
 and causal controls pass. Close global-Q4 propagation. The next distinct
 boundary is zero-producer reference/current cross-input through the actual
 layer-1 routed/shared Q6 matrices, not another graph or Q4 test.
+That boundary is now frozen in the
+[layer-1 Q6 cross-input protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_Q6_CROSS_INPUT_PROTOCOL_20260923.md).
+It uses only `prefill8` because both schedules have identical metrics and
+complete continuity; it crosses captured reference/current routed and shared
+SwiGLU through exact frozen expert selections and permits zero graph
+executions. Do not edit Q6 before its direct result.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
