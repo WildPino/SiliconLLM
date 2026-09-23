@@ -13,14 +13,21 @@ class PostF16Layer1StartTests(unittest.TestCase):
         text = runner.PROTOCOL.read_text(encoding="utf-8")
         self.assertIn("before implementation or execution", text)
         self.assertIn("--strat01-post-f16-layer1-start-cross-input", runner.ENGINE.read_text(encoding="utf-8"))
-        self.assertEqual(set(runner.source_inventory()), {"runner", "tests", "protocol", "engine", "header", "rung2a", "rung2c", "f16_dot"})
+        self.assertEqual(set(runner.source_inventory()), {"runner", "tests", "protocol", "recovery_protocol", "engine", "header", "rung2a", "rung2c", "f16_dot"})
 
     def test_frozen_contract(self) -> None:
         self.assertEqual(runner.ORDER, list(runner.r2c.SHAPES))
         self.assertEqual(len(runner.REFERENCE_START_SHA), 64)
         self.assertEqual(len(runner.CURRENT_START_SHA), 64)
         self.assertNotEqual(runner.REFERENCE_START_SHA, runner.CURRENT_START_SHA)
-        self.assertEqual(runner.EXPECTED_COUNTS["qk_invocations"], 4 * 2304)
+        self.assertEqual(runner.EXPECTED_COUNTS["qk_invocations"], 4 * 32 * sum(range(1, 9)))
+        self.assertEqual(runner.EXPECTED_COUNTS["value_invocations"], 4 * 8 * 32 * 512)
+
+    def test_recovery_is_exactly_bound(self) -> None:
+        self.assertEqual(runner.DEFAULT_OUTPUT.name, "strat01_gigachat_engine_post_f16_layer1_start_cross_input_20260923")
+        self.assertEqual(runner.RAW_HEAD, "8f03fa3963723fc2083cc2d608437d1a487c9666")
+        for digest in (runner.RAW_VOID_SHA, runner.RAW_REPORT_SHA, runner.RAW_COUNTS_SHA, runner.RAW_BINARY_SHA):
+            self.assertEqual(len(digest), 64)
 
     def test_gate_and_terminal_limits(self) -> None:
         ref = np.ones(1536, dtype=np.float32)

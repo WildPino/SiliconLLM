@@ -29,6 +29,7 @@ HERE = Path(__file__).resolve().parent
 ENGINE = r2c.ENGINE
 HEADER = ROOT / "benchmarks/phase60/strat01_gguf_post_f16_layer1_start_cross_input.h"
 PROTOCOL = ROOT / "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_PROTOCOL_20260923.md"
+RECOVERY_PROTOCOL = ROOT / "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_RECOVERY_PROTOCOL_20260923.md"
 TESTS = HERE / "test_strat01_post_f16_layer1_start_cross_input.py"
 MODEL = r2c.MODEL
 REFERENCE_ROOT = HERE / "results/strat01_gigachat_engine_rung2c_repair1_20260923/pinned_reference"
@@ -36,13 +37,19 @@ CURRENT_RUN = HERE / "results/strat01_gigachat_engine_f16_vector_propagation_202
 CURRENT_ROOT = CURRENT_RUN / "c_engine"
 DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_post_f16_layer1_start_cross_input_20260923"
 DEFAULT_APPARATUS = HERE / "results/strat01_gigachat_engine_post_f16_layer1_start_cross_input_apparatus_repair1_20260923"
+DEFAULT_RECOVERY = HERE / "results/strat01_gigachat_engine_post_f16_layer1_start_cross_input_recovery1_20260923"
 RESULT_SHA = "512e3ea7754c5e8fa067dab5692a8a192879be26895547cbedbb6023a896edcf"
 REFERENCE_MANIFEST_SHA = "d7506adfd7cb20a54da2d406446c5c261452ecf0eecaa3663ef6a4a7acca1451"
 CURRENT_MANIFEST_SHA = "1b79c30281107937845a09499cc13b505e49721fdc00ab40e9518c762a22fb68"
 CURRENT_CACHED_MANIFEST_SHA = "0b98c6ca454b260eb4dde27b9341bb489a93ea5d57d8a9fde8333cbdae475026"
 REFERENCE_START_SHA = "385073c91f472dd9ffc1c86bcb63c6ed50256a6d5645e240d61ccdb613d814aa"
 CURRENT_START_SHA = "7fb5fe52df684e4af82413004f6845133528241e3b030530d41595f74298bdc4"
-EXPECTED_COUNTS = {"mode": "pinned-generic-f64", "qk_invocations": 9216, "value_invocations": 1_048_576}
+EXPECTED_COUNTS = {"mode": "pinned-generic-f64", "qk_invocations": 4_608, "value_invocations": 524_288}
+RAW_VOID_SHA = "6ed2d017ca36c166929f658b4a79a77a242adffb5afb39ee986bdda10494e6bf"
+RAW_REPORT_SHA = "7c49afcf18272575124455d70ed82979e931ee7c29b8b6c02119d41b78538a3f"
+RAW_COUNTS_SHA = "19892ac3af937f601854246657f91b9ff0042c168fa7ed7a8761b4a24a8553da"
+RAW_HEAD = "8f03fa3963723fc2083cc2d608437d1a487c9666"
+RAW_BINARY_SHA = "6dccd8941166f55beed2a4020ed0e87046f07a0857e5b8e8aae3c4fc81561629"
 ORDER = list(r2c.SHAPES)
 TEST_MODULES = tuple("benchmarks.donor_adaptation.engine." + p.stem for p in sorted(HERE.glob("test_strat01_*.py")))
 
@@ -65,6 +72,7 @@ def read_json(path: Path, label: str) -> Any:
 def source_inventory() -> dict[str, dict[str, str]]:
     paths = {
         "runner": Path(__file__).resolve(), "tests": TESTS, "protocol": PROTOCOL,
+        "recovery_protocol": RECOVERY_PROTOCOL,
         "engine": ENGINE, "header": HEADER, "rung2a": r2c.RUNG2A_HEADER,
         "rung2c": r2c.RUNG2C_HEADER,
         "f16_dot": ROOT / "benchmarks/phase60/strat01_f16_vector_dot.h",
@@ -88,6 +96,7 @@ def source_controls() -> dict[str, bool]:
     engine = ENGINE.read_text(encoding="utf-8")
     header = HEADER.read_text(encoding="utf-8")
     protocol = PROTOCOL.read_text(encoding="utf-8")
+    recovery_protocol = RECOVERY_PROTOCOL.read_text(encoding="utf-8")
     return {
         "cli_registered": "--strat01-post-f16-layer1-start-cross-input" in engine,
         "production_attention_reused": "strat01_r2c_build_attention_range" in header and "strat01_r2a_run_schedule" in header,
@@ -96,6 +105,7 @@ def source_controls() -> dict[str, bool]:
         "exact_helper_accounted": "strat01_f16vec_reset_counts" in header and "strat01_f16v_write_counts" in header,
         "zero_graph_contract": "donor_graph_executions\\\":0" in header and "reference_graph_executions\\\":0" in header,
         "protocol_frozen_before_implementation": "before implementation or execution" in protocol,
+        "recovery_frozen_before_execution": "FROZEN BEFORE RECOVERY EXECUTION" in recovery_protocol,
     }
 
 
@@ -196,6 +206,38 @@ def validate_report(root: Path, model: Path, sources: dict[str, Any]) -> tuple[d
     return values, controls, counts, report
 
 
+def validate_recovery_source(root: Path) -> dict[str, Any]:
+    adjudication_path = root / "adjudication.json"
+    report_path = root / "diagnostic/strat01_post_f16_layer1_start_cross_input.json"
+    counts_path = root / "diagnostic/strat01_f16_vector_counts.json"
+    if sha(adjudication_path) != RAW_VOID_SHA or sha(report_path) != RAW_REPORT_SHA or sha(counts_path) != RAW_COUNTS_SHA:
+        raise DiagnosticError("post-F16 recovery source hash mismatch")
+    raw = read_json(adjudication_path, "post-F16 raw VOID")
+    expected_error = "post-F16 helper count mismatch: {'mode': 'pinned-generic-f64', 'qk_invocations': 4608, 'value_invocations': 524288}"
+    diagnostic = raw.get("provenance", {}).get("commands", {}).get("diagnostic", {})
+    binary = raw.get("provenance", {}).get("binary", {})
+    if (
+        raw.get("status") != "VOID_POST_F16_LAYER1_START_CROSS_INPUT"
+        or raw.get("errors") != [expected_error]
+        or raw.get("diagnostic_invocations") != 1
+        or raw.get("donor_graph_executions") != 0
+        or raw.get("reference_graph_executions") != 0
+        or raw.get("provenance", {}).get("git_head") != RAW_HEAD
+        or binary.get("sha256") != RAW_BINARY_SHA
+        or diagnostic.get("returncode") != 0
+    ):
+        raise DiagnosticError("post-F16 recovery source state mismatch")
+    return {
+        "root": str(root),
+        "adjudication_sha256": RAW_VOID_SHA,
+        "c_report_sha256": RAW_REPORT_SHA,
+        "counts_sha256": RAW_COUNTS_SHA,
+        "producer_git_head": RAW_HEAD,
+        "producer_binary_sha256": RAW_BINARY_SHA,
+        "inherited_diagnostic_invocations": 1,
+    }
+
+
 def judged(candidate: np.ndarray, reference: np.ndarray, name: str) -> dict[str, Any]:
     if name in r2c.I32_NAMES:
         exact = bool(np.array_equal(candidate, reference)); return {"exact": exact, "pass": exact}
@@ -231,24 +273,33 @@ def adjudicate(values: dict[str, dict[str, np.ndarray]], controls: dict[str, np.
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--model", type=Path, default=MODEL); parser.add_argument("--output-dir", type=Path); parser.add_argument("--apparatus-only", action="store_true"); args = parser.parse_args()
-    model = args.model.resolve(); output = (args.output_dir or (DEFAULT_APPARATUS if args.apparatus_only else DEFAULT_OUTPUT)).resolve()
+    parser.add_argument("--model", type=Path, default=MODEL); parser.add_argument("--output-dir", type=Path); parser.add_argument("--apparatus-only", action="store_true"); parser.add_argument("--recover-existing", action="store_true"); args = parser.parse_args()
+    if args.apparatus_only and args.recover_existing:
+        raise SystemExit("--apparatus-only and --recover-existing are mutually exclusive")
+    default_output = DEFAULT_RECOVERY if args.recover_existing else (DEFAULT_APPARATUS if args.apparatus_only else DEFAULT_OUTPUT)
+    model = args.model.resolve(); output = (args.output_dir or default_output).resolve()
     if output.exists() and (not output.is_dir() or any(output.iterdir())):
         raise SystemExit(f"refusing non-empty output: {output}")
     output.mkdir(parents=True, exist_ok=True); started_utc, started = datetime.now(timezone.utc).isoformat(), time.perf_counter()
-    status = "VOID_POST_F16_LAYER1_START_CROSS_INPUT"; errors: list[str] = []; commands: dict[str, Any] = {}; sources: dict[str, Any] = {}; frozen_meta: dict[str, Any] = {}; result: dict[str, Any] = {"status": "NOT_RUN"}; report: dict[str, Any] = {}; compiler = shutil.which("clang"); binary: Path | None = None; diagnostic_invocations = 0
+    status = "VOID_POST_F16_LAYER1_START_CROSS_INPUT"; errors: list[str] = []; commands: dict[str, Any] = {}; sources: dict[str, Any] = {}; frozen_meta: dict[str, Any] = {}; recovery_meta: dict[str, Any] = {}; result: dict[str, Any] = {"status": "NOT_RUN"}; report: dict[str, Any] = {}; compiler = shutil.which("clang"); binary: Path | None = None; diagnostic_invocations = 0
     try:
         sources = source_inventory(); reference, current, frozen_meta = validate_frozen(); controls = source_controls()
         if not all(controls.values()): raise DiagnosticError("post-F16 source controls failed")
-        if not compiler: raise DiagnosticError("clang unavailable")
-        binary = output / "engine_post_f16_layer1_start.exe"
-        commands["compile"] = r2c.base.run_command([compiler, *r2c.base.COMPILE_FLAGS, str(ENGINE), "-o", str(binary), "-lm"], output=output, label="compile", timeout=600); r2c.base.require_ok(commands["compile"], "compile")
-        commands["python_tests"] = r2c.base.run_command([sys.executable, "-B", "-m", "unittest", "-v", *TEST_MODULES], output=output, label="all_strat01_unittests", timeout=1800); r2c.base.require_ok(commands["python_tests"], "all STRAT-01 Python tests")
-        for index, option in enumerate((*q4base.SELFTESTS, "--strat01-f16-vector-parity-selftest", "--strat01-post-f16-layer1-start-cross-input-selftest")):
-            label=f"selftest_{index:02d}"; commands[label]=r2c.base.run_command([str(binary), option], output=output, label=label, timeout=300); r2c.base.require_ok(commands[label], option)
+        if args.recover_existing:
+            clean_sources_at_head(sources)
+            recovery_meta = validate_recovery_source(DEFAULT_OUTPUT)
+            values, causal, counts, report = validate_report(DEFAULT_OUTPUT / "diagnostic", model, sources)
+            result = adjudicate(values, causal, reference, current, counts, report); status = result["status"]
+        else:
+            if not compiler: raise DiagnosticError("clang unavailable")
+            binary = output / "engine_post_f16_layer1_start.exe"
+            commands["compile"] = r2c.base.run_command([compiler, *r2c.base.COMPILE_FLAGS, str(ENGINE), "-o", str(binary), "-lm"], output=output, label="compile", timeout=600); r2c.base.require_ok(commands["compile"], "compile")
+            commands["python_tests"] = r2c.base.run_command([sys.executable, "-B", "-m", "unittest", "-v", *TEST_MODULES], output=output, label="all_strat01_unittests", timeout=1800); r2c.base.require_ok(commands["python_tests"], "all STRAT-01 Python tests")
+            for index, option in enumerate((*q4base.SELFTESTS, "--strat01-f16-vector-parity-selftest", "--strat01-post-f16-layer1-start-cross-input-selftest")):
+                label=f"selftest_{index:02d}"; commands[label]=r2c.base.run_command([str(binary), option], output=output, label=label, timeout=300); r2c.base.require_ok(commands[label], option)
         if args.apparatus_only:
             status = "APPARATUS_READY_NO_DONOR_EXECUTION"
-        else:
+        elif not args.recover_existing:
             clean_sources_at_head(sources)
             if not model.is_file() or model.stat().st_size != r2c.base.EXPECTED_BYTES or sha(model) != r2c.base.EXPECTED_SHA256: raise DiagnosticError("accepted artifact identity mismatch")
             root = output / "diagnostic"; root.mkdir(); diagnostic_invocations = 1
@@ -259,8 +310,8 @@ def main() -> int:
         errors.append(str(exc))
     except Exception as exc:
         errors.append(f"unexpected {type(exc).__name__}: {exc}")
-    provenance = {"started_utc": started_utc, "finished_utc": datetime.now(timezone.utc).isoformat(), "seconds": time.perf_counter()-started, "git_head_observed" if args.apparatus_only else "git_head": r2c.base.git_value(["git","rev-parse","HEAD"]), "source_hashes": sources, "frozen_inputs": frozen_meta, "artifact": {"path": str(model), "expected_bytes": r2c.base.EXPECTED_BYTES, "expected_sha256": r2c.base.EXPECTED_SHA256}, "environment": {"platform": platform.platform(), "python": sys.version, "numpy": np.__version__, "cwd": os.getcwd(), "clang_path": compiler}, "binary": {"path": str(binary) if binary else None, "sha256": sha(binary) if binary and binary.is_file() else None}, "commands": commands}
-    record = {"schema": "strat01_post_f16_layer1_start_cross_input_v1", "status": status, "errors": errors, "diagnostic_invocations": diagnostic_invocations, "donor_graph_executions": 0, "reference_graph_executions": 0, "source_controls": source_controls() if sources else {}, "adjudication": result, "c_report": report, "non_claims": ["graph rerun", "later layers", "tokenizer/logits/generation", "quality", "RAM", "rate"], "provenance": provenance}
+    provenance = {"started_utc": started_utc, "finished_utc": datetime.now(timezone.utc).isoformat(), "seconds": time.perf_counter()-started, "git_head_observed" if args.apparatus_only else "git_head": r2c.base.git_value(["git","rev-parse","HEAD"]), "source_hashes": sources, "frozen_inputs": frozen_meta, "recovery_source": recovery_meta, "artifact": {"path": str(model), "expected_bytes": r2c.base.EXPECTED_BYTES, "expected_sha256": r2c.base.EXPECTED_SHA256}, "environment": {"platform": platform.platform(), "python": sys.version, "numpy": np.__version__, "cwd": os.getcwd(), "clang_path": compiler}, "binary": {"path": str(binary) if binary else None, "sha256": sha(binary) if binary and binary.is_file() else None}, "commands": commands}
+    record = {"schema": "strat01_post_f16_layer1_start_cross_input_v1", "status": status, "errors": errors, "mode": "offline-recovery" if args.recover_existing else ("apparatus" if args.apparatus_only else "scientific"), "diagnostic_invocations": diagnostic_invocations, "donor_graph_executions": 0, "reference_graph_executions": 0, "source_controls": source_controls() if sources else {}, "adjudication": result, "c_report": report, "non_claims": ["graph rerun", "later layers", "tokenizer/logits/generation", "quality", "RAM", "rate"], "provenance": provenance}
     r2c.base.write_json(output / "adjudication.json", record); print(json.dumps({"status": status, "output": str(output), "errors": errors}, indent=2)); return 0 if status in {"APPARATUS_READY_NO_DONOR_EXECUTION", "POST_F16_BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT"} or status.startswith("POST_F16_LAYER1_LOCAL_RESIDUAL_AT_") else 2
 
 
