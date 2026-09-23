@@ -82,8 +82,12 @@ measured. Its
 [apparatus qualification](probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_APPARATUS_RESULT_20260923.md)
 is `APPARATUS_READY_NO_DONOR_EXECUTION`: all new and inherited C/Python tests,
 the 73,024-check legacy suite, source/input/schema controls, and compilation
-pass with zero model access. Exactly one non-VOID scientific invocation is
-authorized after the apparatus implementation is committed.
+pass with zero model access. Its first invocation is preserved as
+[VOID 1](probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_VOID1_20260923.md):
+an extra C-side assertion compared the current-Q6 reference arm with captured
+reference `ffn_out-0` instead of the preceding current-Q6 arm. No scientific
+verdict exists. A one-line assertion removal plus regression and fresh
+apparatus qualification is authorized before exactly one repaired invocation.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

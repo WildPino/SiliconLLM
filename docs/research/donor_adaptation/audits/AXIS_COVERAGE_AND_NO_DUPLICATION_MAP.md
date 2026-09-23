@@ -112,9 +112,11 @@ is now frozen in the
 [FFN SwiGLU cross-input protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md)
 and remains unmeasured. Its
 [apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_APPARATUS_RESULT_20260923.md)
-is qualified with zero model or producer executions; exactly one non-VOID
-scientific invocation is authorized. Do not infer a gate/up/operator verdict
-from apparatus readiness.
+was qualified with zero model or producer executions, but the first invocation
+is [VOID 1](../probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_VOID1_20260923.md):
+an extra replay assertion compared against the wrong prior arm. Do not infer a
+gate/up/operator verdict or inspect arm metrics. Only the registered one-line
+repair, regression, fresh apparatus, and one repaired invocation are allowed.
 
 ## 1. How to read this map
 
