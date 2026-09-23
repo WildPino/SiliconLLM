@@ -88,6 +88,10 @@ an extra C-side assertion compared the current-Q6 reference arm with captured
 reference `ffn_out-0` instead of the preceding current-Q6 arm. No scientific
 verdict exists. A one-line assertion removal plus regression and fresh
 apparatus qualification is authorized before exactly one repaired invocation.
+That narrow repair is now
+[apparatus-qualified](probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_APPARATUS_REPAIR1_RESULT_20260923.md):
+all new and inherited checks pass, compiler stderr is empty, and model access
+remains zero. Exactly one repaired invocation remains authorized after commit.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

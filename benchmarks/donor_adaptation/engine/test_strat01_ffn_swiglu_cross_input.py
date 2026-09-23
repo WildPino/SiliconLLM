@@ -12,6 +12,11 @@ class FFNSwiGLUTests(unittest.TestCase):
     def test_protocol_and_sources(self) -> None:
         self.assertIn("Exactly one non-VOID invocation", runner.PROTOCOL.read_text(encoding="utf-8")); self.assertIn("--strat01-ffn-swiglu-cross-input", runner.ENGINE.read_text(encoding="utf-8")); self.assertEqual(set(runner.source_inventory()), {"runner","down_runner","terminal_runner","layer1_runner","engine","rung2a","rung2b","rung2c","down_header","header","protocol","tests"})
 
+    def test_repaired_replay_contract(self) -> None:
+        source = runner.HEADER.read_text(encoding="utf-8")
+        self.assertNotIn("strcmp(arms[0].sum_sha,STRAT01_TERM_R_SUM_SHA)", source)
+        self.assertIn("strcmp(arms[4].sum_sha,STRAT01_DOWN_C_SUM_SHA)", source)
+
     def test_frozen_contract(self) -> None:
         self.assertEqual(len(runner.ARMS),5);self.assertEqual(set(runner.ORIGINS),set(runner.ARMS));self.assertEqual(len(runner.INPUTS),7);self.assertTrue(all(len(d)==64 for _,d,_ in runner.INPUTS.values()))
 

@@ -117,6 +117,8 @@ is [VOID 1](../probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOST
 an extra replay assertion compared against the wrong prior arm. Do not infer a
 gate/up/operator verdict or inspect arm metrics. Only the registered one-line
 repair, regression, fresh apparatus, and one repaired invocation are allowed.
+The [repair-1 apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_APPARATUS_REPAIR1_RESULT_20260923.md)
+now passes with zero model access; exactly one repaired invocation remains.
 
 ## 1. How to read this map
 
