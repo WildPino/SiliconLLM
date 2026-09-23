@@ -47,6 +47,12 @@ checks pass with zero donor executions. Its single invocation is now closed as
 reference `l_out-0` makes all eleven layer-1 checkpoints pass, with exact
 `attn_norm-1` and `kqv_out-1` NRMSE `0.0003856`. Do not modify layer 1; split
 the block-0 terminal addition into attention-stream and FFN contributions.
+That new estimand is now frozen in the
+[block-0 terminal-component cross-input protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md):
+four F32 sums substitute the captured `ffn_inp-0` and `ffn_out-0` addends,
+must byte-reconstruct both homogeneous `l_out-0` controls, and propagate
+through the unchanged layer-1 builder with zero donor/reference graphs. It is
+preregistered, not yet measured; do not infer an attention-versus-FFN verdict.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

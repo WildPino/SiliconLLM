@@ -86,7 +86,12 @@ reference/reference passes, while either C query or C KV alone fails. Do not
 repeat or change attention/V-B; localize propagation from `l_out-0` next.
 That axis is now closed as [`BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_LAYER1_START_CROSS_INPUT_DIAGNOSTIC_RESULT_20260923.md):
 exact reference `l_out-0` makes all eleven layer-1 checkpoints pass. Do not
-modify layer 1; split the captured block-0 terminal addition next.
+modify layer 1. The distinct next axis is now frozen in the
+[block-0 terminal-component cross-input protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md):
+captured C/reference `ffn_inp-0` and `ffn_out-0` are crossed in four F32 sums,
+with byte-exact homogeneous replay and the unchanged layer-1 builder. This is
+PROPOSED, executes no producer graph, and must not yet be cited as component
+attribution.
 
 ## 1. How to read this map
 
