@@ -31,7 +31,12 @@ four Q×KV arms reuse only captured prefill payloads and the accepted layer-1
 V-B weight. Its [apparatus qualification](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_APPARATUS_RESULT_20260923.md)
 is `APPARATUS_READY_NO_DONOR_EXECUTION`: 11 C checks, five Python tests, and
 73,024 legacy checks pass at implementation commit `2a9fbb9`; exactly one
-zero-donor scientific invocation is authorized.
+zero-donor scientific invocation was authorized. It is now closed as
+[`QUERY_AND_KV_RESIDUALS_INDEPENDENTLY_SUFFICIENT`](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_RESULT_20260923.md):
+the exact reference/reference arm passes at NRMSE `0.0003459`, while the
+C-query-only and C-KV-only arms fail at `0.0021687` and `0.0059546`. Do not
+rewrite attention/V-B or repeat this diagnostic. Freeze a layer-1-start
+cross-input propagation diagnostic next.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
