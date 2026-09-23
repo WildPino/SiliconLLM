@@ -29,7 +29,9 @@
 #include <immintrin.h>
 #include "strat01_gguf_inspect.h"
 #include "strat01_gguf_rung1.h"
+#include "strat01_f16_vector_dot.h"
 #include "strat01_gguf_rung2a.h"
+#include "strat01_gguf_f16_vector_parity.h"
 #include "strat01_gguf_rung2b.h"
 #include "strat01_gguf_rung2c.h"
 #include "strat01_gguf_rung2b_cross_input.h"
@@ -1053,6 +1055,13 @@ int main(int argc,char**argv){
     /* Rung 2A is a separate, identity-gated block-0 MLA path.  Keep it ahead
        of all historical option parsing so a GGUF path can never reach the
        legacy E1M1/E4M1 loader. */
+    if(argc>1 && !strcmp(argv[1],"--strat01-f16-vector-parity")){
+        if(argc!=10 || strcmp(argv[2],"--qcur") || strcmp(argv[4],"--kcur") || strcmp(argv[6],"--padded-softmax") || strcmp(argv[8],"--out-dir")){
+            fprintf(stderr,"usage: engine --strat01-f16-vector-parity --qcur <f32le> --kcur <f32le> --padded-softmax <f32le> --out-dir <directory>\n");return 2;
+        }
+        return strat01_f16v_cli(argv[3],argv[5],argv[7],argv[9],__FILE__);
+    }
+    if(argc==2 && !strcmp(argv[1],"--strat01-f16-vector-parity-selftest")) return strat01_f16v_selftest();
     if(argc>1 && !strcmp(argv[1],"--strat01-gguf-rung2a")){
         if(argc!=5 || strcmp(argv[3],"--out-dir")){
             fprintf(stderr,"usage: engine --strat01-gguf-rung2a <accepted.gguf> --out-dir <directory>\n");

@@ -16,7 +16,7 @@
 static const char strat01_r2c_config[] =
     "reference=llama.cpp@5b335f413e4f73b0809c4fe39af894efbcc6a0d2;cpu_threads=1;"
     "n_ctx=8;n_batch=8;n_ubatch=8;flash_attn=false;offload_kqv=false;"
-    "type_k=f16;type_v=f16-no-allocation-mla;cache=layers0-1-slot-576-f16-k-only-latent512-rope64;"
+    "type_k=f16;type_v=f16-no-allocation-mla;f16_dot=pinned-generic-f64;cache=layers0-1-slot-576-f16-k-only-latent512-rope64;"
     "tokens=1,72,14,14129,14,2135,1512,2015;positions=0,1,2,3,4,5,6,7;"
     "rms_eps=1e-6;rope=deepseek2-normal-yarn;rope_base=100000;rope_factor=64;"
     "rope_orig_ctx=4096;beta_fast=32;beta_slow=1;mscale=1;mscale_all_dim=1;"
@@ -229,7 +229,7 @@ static int strat01_r2c_dump_arm(const char *out_dir,const char *arm,const strat0
 
 static int strat01_gguf_rung2c_cli(const char *path,const char *out_dir,const char *engine_source_path) {
     strat01_inventory inv;const strat01_tensor *base[8]={0},*b0ffn[4]={0},*attn[7]={0},*moe[9]={0};strat01_r2a_arm p0a,c0a,p1a,c1a;strat01_r2b_arm p0b,c0b;strat01_r2c_moe_arm pm,cm;char error[256]={0},artifact_sha[65]={0},engine_sha[65]={0},header_sha[65]={0};uint64_t hashed=0,parsed=0,tmp=0;int ok=0;
-    memset(&inv,0,sizeof(inv));memset(&p0a,0,sizeof(p0a));memset(&c0a,0,sizeof(c0a));memset(&p1a,0,sizeof(p1a));memset(&c1a,0,sizeof(c1a));memset(&p0b,0,sizeof(p0b));memset(&c0b,0,sizeof(c0b));memset(&pm,0,sizeof(pm));memset(&cm,0,sizeof(cm));
+    memset(&inv,0,sizeof(inv));memset(&p0a,0,sizeof(p0a));memset(&c0a,0,sizeof(c0a));memset(&p1a,0,sizeof(p1a));memset(&c1a,0,sizeof(c1a));memset(&p0b,0,sizeof(p0b));memset(&c0b,0,sizeof(c0b));memset(&pm,0,sizeof(pm));memset(&cm,0,sizeof(cm));strat01_f16vec_reset_counts();
 #if !defined(__clang__)
     snprintf(error,256,"Rung-2C requires Clang");goto finish;
 #endif
@@ -244,7 +244,7 @@ static int strat01_gguf_rung2c_cli(const char *path,const char *out_dir,const ch
     fprintf(stderr,"STRAT01_RUNG2C_GRAPH_COMPLETE arm=prefill8\n");
     if(!strat01_r2c_build_attention_range(path,attn,&c1a,0,7,error)||!strat01_r2c_build_attention_range(path,attn,&c1a,7,1,error)||!strat01_r2a_run_schedule(path,attn[5],attn[6],&c1a,1,error)||!strat01_r2c_run_moe(path,moe,&c1a,&cm,error))goto finish;
     fprintf(stderr,"STRAT01_RUNG2C_GRAPH_COMPLETE arm=cached7p1\n");
-    if(!strat01_r2c_dump_arm(out_dir,"prefill8",&p0b,&p0a,&p1a,&pm,0,error)||!strat01_r2c_dump_arm(out_dir,"cached7p1",&c0b,&c0a,&c1a,&cm,1,error))goto finish;
+    if(!strat01_r2c_dump_arm(out_dir,"prefill8",&p0b,&p0a,&p1a,&pm,0,error)||!strat01_r2c_dump_arm(out_dir,"cached7p1",&c0b,&c0a,&c1a,&cm,1,error)||!strat01_f16v_write_counts(out_dir,error))goto finish;
     if(!strat01_sha256_file(engine_source_path,engine_sha,&tmp,error))strcpy(engine_sha,"unavailable");error[0]=0;if(!strat01_sha256_file(__FILE__,header_sha,&tmp,error))strcpy(header_sha,"unavailable");error[0]=0;if(!strat01_r2c_write_report(out_dir,path,hashed,artifact_sha,engine_sha,header_sha,error))goto finish;ok=1;
 finish:strat01_free_inventory(&inv);strat01_r2a_arm_free(&p0a);strat01_r2a_arm_free(&c0a);strat01_r2a_arm_free(&p1a);strat01_r2a_arm_free(&c1a);strat01_r2b_arm_free(&p0b);strat01_r2b_arm_free(&c0b);strat01_r2c_moe_free(&pm);strat01_r2c_moe_free(&cm);if(!ok){if(!error[0])snprintf(error,256,"unspecified Rung-2C failure");strat01_r2c_write_failure(out_dir,path,error);fprintf(stderr,"STRAT-01 Rung-2C refused: %s\n",error);return 1;}fprintf(stderr,"CONFIG %s\n",strat01_r2c_config);fprintf(stderr,"STRAT-01 Rung-2C: ENGINE_RUNG2C_OUTPUT_READY_PENDING_REFERENCE\n");return 0;
 }

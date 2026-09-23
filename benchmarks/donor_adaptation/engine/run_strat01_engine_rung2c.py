@@ -85,7 +85,7 @@ PAYLOAD_ORDER = {
 EXPECTED_C_CONFIG = (
     "reference=llama.cpp@5b335f413e4f73b0809c4fe39af894efbcc6a0d2;cpu_threads=1;"
     "n_ctx=8;n_batch=8;n_ubatch=8;flash_attn=false;offload_kqv=false;"
-    "type_k=f16;type_v=f16-no-allocation-mla;cache=layers0-1-slot-576-f16-k-only-latent512-rope64;"
+    "type_k=f16;type_v=f16-no-allocation-mla;f16_dot=pinned-generic-f64;cache=layers0-1-slot-576-f16-k-only-latent512-rope64;"
     "tokens=1,72,14,14129,14,2135,1512,2015;positions=0,1,2,3,4,5,6,7;"
     "rms_eps=1e-6;rope=deepseek2-normal-yarn;rope_base=100000;rope_factor=64;"
     "rope_orig_ctx=4096;beta_fast=32;beta_slow=1;mscale=1;mscale_all_dim=1;"

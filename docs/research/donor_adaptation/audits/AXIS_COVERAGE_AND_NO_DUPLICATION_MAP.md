@@ -196,6 +196,13 @@ accepted only under the old local gate. The layer-1 Q6 result now proves that
 the admitted residual is downstream-unsafe. Freeze exact model-free identity
 before one C propagation; do not rerun a reference graph or reopen softmax,
 Q4, SwiGLU, or Q6.
+The [apparatus result](../probes/STRAT_01_GIGACHAT31_ENGINE_F16_VECTOR_REDUCTION_PROPAGATION_APPARATUS_RESULT_20260923.md)
+now qualifies that exact cell with zero graphs: five frozen payload hashes are
+byte-exact, both mutations reject, and 141 Python plus 17 C self-tests pass.
+Its pre-donor addendum records that the historical helper used the generic
+F64 accumulator path rather than AVX/FMA. Apparatus construction and Stage A
+are closed. The sole open action is one committed C propagation for both
+schedules, with exact helper counts and zero reference graphs.
 
 ## 1. How to read this map
 

@@ -4,10 +4,28 @@
 
 **Cell:** `STRAT-01-ENGINE-F16-VECTOR-REDUCTION-PROPAGATION`
 
-**Purpose:** determine whether the pinned `ggml_vec_dot_f16` AVX/FMA
-reduction order removes the small layer-1 attention residual that is locally
+**Purpose:** determine whether the pinned `ggml_vec_dot_f16` reduction
+semantics remove the small layer-1 attention residual that is locally
 inside its gate but is now proven sufficient to break the routed and shared
 FFN down boundaries.
+
+## Pre-donor implementation addendum (2026-09-23)
+
+The first Stage-A transcription attempt falsified the protocol's original
+mechanistic label, "AVX/FMA reduction order", before any accepted-model graph
+was executed. The historical helper's `compile_commands.json` shows that the
+pinned `ggml-cpu/vec.cpp` was compiled with `-DGGML_CPU_GENERIC` and without
+AVX flags. In that build, `ggml_vec_dot_f16` follows its non-SIMD branch:
+each binary16 product is formed in F32, accumulated sequentially in
+`ggml_float` (F64), and converted to F32 at the output. An independent
+F16-input/F64-accumulation reconstruction reproduced both frozen pinned
+hashes exactly; the attempted AVX/FMA transcription reproduced neither.
+
+This addendum corrects the mechanism while preserving the pre-registered
+estimand, immutable inputs, required hashes, controls, thresholds, graph
+budget, and verdict rules. In the rest of this protocol, "pinned vector
+reduction" means the exact reduction semantics reached through the pinned
+CPU type trait in the historical helper build, namely `pinned-generic-f64`.
 
 ## Why this is new and not a repetition
 
@@ -51,14 +69,12 @@ result.
 
 ## Changed coordinate
 
-Add an isolated C11 AVX/FMA helper that reproduces the pinned x86
+Add an isolated C11 helper that reproduces the pinned historical
 `ggml_vec_dot_f16` operation order:
 
 - binary16 operands converted exactly to F32;
-- 32-element steps split across four eight-lane accumulators;
-- fused multiply-add within each accumulator;
-- the pinned pairwise accumulator reduction and horizontal lane reduction;
-- scalar cleanup only after the complete 32-element prefix.
+- each F32 product accumulated sequentially into F64;
+- one terminal conversion from F64 to F32.
 
 The production attention path must use this helper for both query×key and
 softmax-probability×value reductions. The accepted exact F32→F16 converter,

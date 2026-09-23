@@ -179,6 +179,14 @@ bit-exact, while scalar F16×F16 was retained only because it passed a local
 gate. The newly proved downstream amplification makes reduction order a new
 estimand. Require model-free exact identity first, then one C propagation and
 zero reference graphs.
+Its [apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_F16_VECTOR_REDUCTION_PROPAGATION_APPARATUS_RESULT_20260923.md)
+is now qualified with zero graphs. Stage A reproduces the pinned QK, pinned
+value, both scalar controls, and conversion stream byte-for-byte; both
+mutations reject, 141 Python tests and 17 C self-tests pass. The pre-donor
+addendum corrects the mechanism: the historical pinned helper used
+`GGML_CPU_GENERIC`, hence F32 products with sequential F64 accumulation, not
+AVX/FMA. Commit this exact apparatus, then run its single C propagation; do
+not repeat Stage A or any closed upstream diagnostic.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
