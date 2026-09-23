@@ -61,7 +61,11 @@ C-attention/reference-FFN passes `kqv_out-1` at NRMSE `0.0009140`, while
 reference-attention/C-FFN fails at `0.0061366`, essentially reproducing C/C.
 Do not repeat the split or modify layer 1. Freeze a zero-producer
 `ffn_swiglu-0` × Q6_K-down cross-input diagnostic with downstream layer-1
-propagation next.
+propagation next. That coordinate is now fixed in the
+[FFN down-projection cross-input protocol](probes/STRAT_01_GIGACHAT31_ENGINE_FFN_DOWN_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md):
+captured C/reference SwiGLU inputs run through the unchanged Q6_K×Q8_K helper,
+then exact reference residual addition and layer-1 propagation. It is frozen,
+not measured; no upstream-versus-operator verdict exists yet.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

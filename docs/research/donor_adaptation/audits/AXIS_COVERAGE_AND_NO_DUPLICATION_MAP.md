@@ -97,7 +97,10 @@ the C attention-stream addend paired with reference FFN passes downstream,
 whereas the C FFN addend paired with the reference attention stream fails and
 nearly reproduces C/C. Do not repeat this split or modify layer 1. The next
 distinct boundary is captured `ffn_swiglu-0` input versus the unchanged Q6_K
-down operator, adjudicated after propagation through layer 1.
+down operator, adjudicated after propagation through layer 1. That new axis is
+now frozen in the
+[FFN down-projection cross-input protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_FFN_DOWN_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md).
+It is PROPOSED and must not be cited as an upstream/operator attribution.
 
 ## 1. How to read this map
 
