@@ -15,6 +15,9 @@ from typing import Any
 
 import numpy as np
 
+_IMPORT_ROOT = Path(__file__).resolve().parents[3]
+if str(_IMPORT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_IMPORT_ROOT))
 from benchmarks.donor_adaptation.engine import run_strat01_rung2c_cross_input as base
 
 
