@@ -63,8 +63,11 @@ path reproduces the three exact combined hashes, all twelve checkpoint gates
 through `l_out-0` pass, all twelve continuity checks are exact, and all four
 causal controls reject. One donor invocation ran and the immutable reference
 was not rerun. Do not repeat production integration or any block-0 predecessor.
-The next distinct engine-fidelity coordinate is a separately frozen Rung 2C:
-one block-1 routed-expert plus shared-expert MoE layer.
+The next distinct engine-fidelity coordinate is the separately frozen [Rung
+2C protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_PROTOCOL_20260923.md):
+one block-1 routed-expert plus shared-expert MoE layer. It changes depth,
+rank-3 selected-expert operators, discrete ordered top-4 routing, and
+routed/shared aggregation; it does not repeat STRAT-03 or any block-0 cell.
 
 ## 1. How to read this map
 

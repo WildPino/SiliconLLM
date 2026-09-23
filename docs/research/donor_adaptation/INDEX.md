@@ -10,7 +10,8 @@ terminal `l_out-0`. All twelve production/reference continuity checks are
 exact; all four causal controls reject. One production donor invocation ran
 and the immutable reference was not rerun. Do not repeat this cell or any
 preceding block-0 repair coordinate. Rung 2C is now authorized only as a
-separately frozen one-block-1 routed-expert plus shared-expert MoE cell.
+separately frozen one-block-1 routed-expert plus shared-expert MoE cell. That
+coordinate is now fixed in the [Rung 2C protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_PROTOCOL_20260923.md): exact block-0 start hashes, layer-1 attention, discrete ordered top-4 routing, normalized unbiased weights, routed/shared experts, and cache/continuity gates.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

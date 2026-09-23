@@ -80,9 +80,9 @@ production block-0 boundary is now closed positively. Do not repeat Rung 2A,
 Rung 2B, any RMSNorm/K-B diagnostic, combined propagation, or this production
 integration cell on the same artifact and estimand.
 
-This PASS authorizes only a separately preregistered Rung 2C: one block-1
+This PASS authorizes only the separately preregistered [Rung 2C
+protocol](STRAT_01_GIGACHAT31_ENGINE_RUNG2C_PROTOCOL_20260923.md): one block-1
 routed-expert plus shared-expert MoE layer, starting from the accepted block-0
-terminal state. It does not authorize a full-model or speed claim. Freeze its
-operator semantics, router/expert selection, checkpoints, reference payloads,
-execution count, and gates before implementation or donor execution. No
+terminal state. It does not authorize a full-model or speed claim. No
+implementation or donor execution may widen that frozen coordinate. No
 `SPEED_LEDGER.md` entry is due.
