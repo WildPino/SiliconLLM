@@ -209,13 +209,15 @@ concentrated at token 6. Do not rerun the producer or reopen F16/Q4/SwiGLU/Q6.
 The distinct next axis is the frozen
 [post-F16 layer-1-start cross-input](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_PROTOCOL_20260923.md):
 new current versus exact reference `l_out-0`, complete current layer 1,
-byte-exact current replay, and zero graph executions. Its
-[repair-1 apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_APPARATUS_RESULT_20260923.md)
-qualified and the sole C diagnostic completed, but its external adjudication
-is preserved as VOID because the runner expected twice the correct helper
-count. The [recovery protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_RECOVERY_PROTOCOL_20260923.md)
-permits exactly one hash-bound offline adjudication of those existing files.
-No compile, model execution, graph rerun, or parallel split is admissible.
+byte-exact current replay, and zero graph executions. Its valid
+[result](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_RESULT_20260923.md)
+is `POST_F16_BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`: all 32 reference-start
+checkpoints pass, terminal NRMSE is `1.575e-7`, and all current checkpoints
+replay exactly. Close layer 1 and all prior Q4/F16/SwiGLU/Q6 hypotheses. The
+next changed coordinate is the frozen
+[post-F16 block-0 terminal-component split](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_PROTOCOL_20260923.md).
+It must produce the new current components once and cannot reuse or repeat the
+old pre-exact-Q4/pre-exact-F16 component experiment.
 
 ## 1. How to read this map
 

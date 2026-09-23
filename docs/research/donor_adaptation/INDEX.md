@@ -200,12 +200,14 @@ The next changed composition is frozen in the
 It compares exact reference versus the new current `l_out-0` through the
 complete current layer 1, requires byte-exact replay of the post-F16 arm, and
 permits zero graph executions. This is not the old pre-F16 layer-1-start
-cell. Its [repair-1 apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_APPARATUS_RESULT_20260923.md)
-qualified. The sole scientific C diagnostic then completed all four arms but
-the runner preserved it as VOID after expecting twice the correct helper
-totals. The [offline recovery protocol](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_RECOVERY_PROTOCOL_20260923.md)
-binds the raw VOID, C report, counts, binary, and producer commit by hash. Run
-that adjudication once; do not compile or rerun the model or either graph.
+cell. Its final [result](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_RESULT_20260923.md)
+is valid `POST_F16_BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`: exact reference
+`l_out-0` passes all 32 current layer-1 checkpoints, terminal NRMSE is
+`1.575e-7`, and all current outputs replay exactly. The helper-count VOID was
+recovered offline from immutable hashes with no new model or graph execution.
+Layer 1 is closed. The next changed coordinate is frozen in the
+[post-F16 block-0 terminal-component protocol](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_PROTOCOL_20260923.md);
+apparatus qualification is next.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
