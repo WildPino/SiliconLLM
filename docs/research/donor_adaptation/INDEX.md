@@ -42,7 +42,11 @@ captured reference/C `l_out-0` through the unchanged layer-1 builder, with
 byte-exact C replay and eleven reference gates. Its
 [apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_LAYER1_START_CROSS_INPUT_DIAGNOSTIC_APPARATUS_RESULT_20260923.md)
 is qualified at `b0d89f9`: 8 C checks, four Python tests and 73,024 legacy
-checks pass with zero donor executions. One scientific invocation is open.
+checks pass with zero donor executions. Its single invocation is now closed as
+[`BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_LAYER1_START_CROSS_INPUT_DIAGNOSTIC_RESULT_20260923.md):
+reference `l_out-0` makes all eleven layer-1 checkpoints pass, with exact
+`attn_norm-1` and `kqv_out-1` NRMSE `0.0003856`. Do not modify layer 1; split
+the block-0 terminal addition into attention-stream and FFN contributions.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
