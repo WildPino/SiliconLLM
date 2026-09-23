@@ -123,6 +123,12 @@ That changed coordinate is now frozen in the
 [reference-generic compile-parity protocol](probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_PROTOCOL_20260923.md):
 first require model-free bit identity to a compile-command-verified baseline
 oracle, then permit one exact full-projection invocation.
+That [apparatus is now qualified](probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_APPARATUS_RESULT_20260923.md):
+the isolated candidate is bit-exact to the baseline-generic oracle at all four
+registered lengths, both historical controls fire, 127 Python tests and all C
+self-tests pass, and model reads are zero. Exactly one frozen full Q/KV
+adjudication is next; no downstream, quality, RAM, or rate claim follows from
+the apparatus result.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

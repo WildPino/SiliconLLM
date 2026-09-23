@@ -145,7 +145,12 @@ semantics and preregister it separately. The
 [frozen successor](../probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_PROTOCOL_20260923.md)
 does exactly that and requires model-free bit identity before one full
 projection. Do not substitute another AVX kernel, relax exactness, or rerun the
-closed cell.
+closed cell. Its
+[apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_APPARATUS_RESULT_20260923.md)
+is now qualified: the candidate is baseline-generic bit-exact at four lengths,
+both historical controls fire, 127 Python tests and all C self-tests pass, and
+no model was read. The only non-duplicate next action on this coordinate is the
+single frozen full Q/KV adjudication; it cannot establish quality or rate.
 
 ## 1. How to read this map
 

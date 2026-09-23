@@ -161,6 +161,83 @@ static float strat01_q4k_q8k_dot_generic(
     return result;
 }
 
+#if !defined(__clang__)
+#error "STRAT-01 reference-generic compile parity requires Clang target attributes"
+#endif
+
+/* Exact pinned GGML generic operation structure, isolated from the AVX2/FMA
+ * target of engine.c.  The noinline boundary mirrors the separately compiled
+ * reference backend and prevents caller-target specialization. */
+__attribute__((noinline, target("no-avx,no-avx2,no-fma")))
+static float strat01_q4k_q8k_dot_reference_generic(
+        const uint8_t *q4_blocks, const strat01_q8_k_block *q8_blocks,
+        unsigned count) {
+    static const uint32_t mask1 = UINT32_C(0x3f3f3f3f);
+    static const uint32_t mask2 = UINT32_C(0x0f0f0f0f);
+    static const uint32_t mask3 = UINT32_C(0x03030303);
+    uint32_t temporary[4];
+    const uint8_t *scales = (const uint8_t *)&temporary[0];
+    const uint8_t *minima = (const uint8_t *)&temporary[2];
+    int8_t unpacked[STRAT01_QK_K];
+    int16_t products[8];
+    float lane_sums[8];
+    int32_t lane_accumulators[8];
+    float result = 0.0f;
+    unsigned block;
+
+    if (!q4_blocks || !q8_blocks || !count || count % STRAT01_QK_K) return NAN;
+    memset(lane_sums, 0, 8U * sizeof(float));
+    for (block = 0; block < count / STRAT01_QK_K; ++block) {
+        const uint8_t *raw = q4_blocks + (size_t)block * STRAT01_Q4_K_BLOCK_BYTES;
+        const uint8_t *q4 = raw + 16U;
+        const int8_t *q8 = q8_blocks[block].qs;
+        int8_t *destination = unpacked;
+        int scale_index = 0;
+        int minimum_sum = 0;
+        int group, lane;
+
+        memset(lane_accumulators, 0, 8U * sizeof(int32_t));
+        for (group = 0; group < (int)STRAT01_QK_K / 64; ++group) {
+            for (lane = 0; lane < 32; ++lane) destination[lane] = (int8_t)(q4[lane] & 0x0f);
+            destination += 32;
+            for (lane = 0; lane < 32; ++lane) destination[lane] = (int8_t)(q4[lane] >> 4);
+            destination += 32;
+            q4 += 32;
+        }
+        memcpy(temporary, raw + 4U, 12U);
+        temporary[3] = ((temporary[2] >> 4) & mask2) |
+                       (((temporary[1] >> 6) & mask3) << 4);
+        {
+            const uint32_t upper = temporary[1] & mask1;
+            temporary[1] = (temporary[2] & mask2) |
+                           (((temporary[0] >> 6) & mask3) << 4);
+            temporary[2] = upper;
+        }
+        temporary[0] &= mask1;
+        for (group = 0; group < (int)STRAT01_QK_K / 16; ++group)
+            minimum_sum += q8_blocks[block].bsums[group] * minima[group / 2];
+        destination = unpacked;
+        for (group = 0; group < (int)STRAT01_QK_K / 32; ++group) {
+            const int32_t scale = scales[scale_index++];
+            int quarter;
+            for (quarter = 0; quarter < 4; ++quarter) {
+                for (lane = 0; lane < 8; ++lane) products[lane] = q8[lane] * destination[lane];
+                for (lane = 0; lane < 8; ++lane) lane_accumulators[lane] += scale * products[lane];
+                q8 += 8;
+                destination += 8;
+            }
+        }
+        {
+            const float scale = strat01_q4k_q8k_fp16le(raw) * q8_blocks[block].d;
+            const float minimum = strat01_q4k_q8k_fp16le(raw + 2U) * q8_blocks[block].d;
+            for (lane = 0; lane < 8; ++lane) lane_sums[lane] += scale * lane_accumulators[lane];
+            result -= minimum * minimum_sum;
+        }
+    }
+    for (block = 0; block < 8U; ++block) result += lane_sums[block];
+    return result;
+}
+
 #if !defined(__AVX2__) || !defined(__FMA__)
 #error "STRAT-01 Q4_K/Q8_K active reduction requires AVX2 and FMA"
 #endif
@@ -281,8 +358,10 @@ static float strat01_q4k_q8k_dot(
         unsigned count) {
 #if defined(STRAT01_Q4K_Q8K_DIAGNOSTIC_GENERIC_REDUCTION)
     return strat01_q4k_q8k_dot_generic(q4_blocks, q8_blocks, count);
-#else
+#elif defined(STRAT01_Q4K_Q8K_DIAGNOSTIC_ACTIVE_AVX2)
     return strat01_q4k_q8k_dot_avx2(q4_blocks, q8_blocks, count);
+#else
+    return strat01_q4k_q8k_dot_reference_generic(q4_blocks, q8_blocks, count);
 #endif
 }
 
