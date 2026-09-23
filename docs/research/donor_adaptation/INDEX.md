@@ -18,9 +18,11 @@ checks passed, all ten causal controls were live, and producer invocations plus
 graph schedules were zero. The first scientific invocation is now preserved as
 [VOID 1](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_VOID1_20260923.md): both
 reference schedules completed, cached top-k serialization refused on an
-`i32`/`I32` spelling mismatch, and C remained at zero invocations. A narrow
-type/accounting repair and fresh apparatus-only pass are next; do not overwrite
-or offline-adjudicate the VOID directory.
+`i32`/`I32` spelling mismatch, and C remained at zero invocations. The narrow
+type/accounting repair now passes in canonical apparatus `repair2`, with zero
+producer executions and durable schedule markers. One changed-coordinate
+scientific rerun is authorized; do not overwrite or offline-adjudicate the VOID
+directory.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

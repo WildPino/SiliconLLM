@@ -1,42 +1,41 @@
 # STRAT-01 GigaChat 3.1 engine Rung 2C apparatus result
 
-**Historical state:** `APPARATUS_READY_NO_DONOR_EXECUTION`; superseded for
-continuation by [reference serialization VOID 1](STRAT_01_GIGACHAT31_ENGINE_RUNG2C_VOID1_20260923.md).
+**Current state:** `APPARATUS_READY_NO_DONOR_EXECUTION` after the narrow
+post-VOID repair.
 
 The first scientific invocation exposed a lowercase `i32` versus uppercase
 `I32` serialization defect and non-durable graph accounting. This record
-remains the immutable pre-execution apparatus result, but it no longer
-authorizes another scientific run. The narrow repair must pass in a fresh
-apparatus-only directory first.
+remains preserved as the pre-execution apparatus result. The fresh `repair2`
+apparatus below validates the narrow repair and authorizes one
+changed-coordinate scientific rerun.
 
 The frozen [Rung 2C protocol](STRAT_01_GIGACHAT31_ENGINE_RUNG2C_PROTOCOL_20260923.md)
-had a compiled and model-free-tested implementation. No reference or C
-producer graph was executed in this apparatus run. The subsequently exposed
+has a compiled and model-free-tested implementation. No reference or C
+producer graph was executed in the repair apparatus. The previously exposed
 source defect is recorded in VOID 1 above.
 
 ## Accepted apparatus record
 
 Canonical raw directory:
-`benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_rung2c_apparatus_repair1_20260923/`.
+`benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_rung2c_apparatus_repair2_20260923/`.
 
 | item | accepted value |
 |---|---|
 | status | `APPARATUS_READY_NO_DONOR_EXECUTION` |
 | errors | `[]` |
-| adjudication SHA-256 | `29abb028a08372cd1b4aef30ae65cf47b0ee9a220495512096c860bced26c65e` |
-| run-manifest SHA-256 | `856070698733b83fe618436bd79b1a126e0e57304b9f4d8c42f40582a9d4a245` |
+| source HEAD | `4c5d1af6274d1067076485398d58ce67dfc1ab96` |
+| adjudication SHA-256 | `280ab3f69960fdb8abc81697b5143c9851c0c8c9fc261e4e0412e587c3d5371e` |
+| run-manifest SHA-256 | `97e5ce98efc61a6b40eacd893d29e7f2d03214517e323f28c7aa1345db881ded` |
 | accepted GGUF SHA-256 | `68a8732fb5cee04f83ebffd7924e15c534d4442c5a43d2ba9e2041fe310b8deb` |
 | block-0 adjudication binding | `58f661d9461f3dc17b2a52f830dcc9f36423621528941d475e23ee2aed8e0bf2` |
 | block-0 manifest binding | `7b8de95a3766e4f76bde37f4038ece2986b9067ad9ac7a0e4cc11855a3062497` |
 | reference producer invocations / graph schedules | `0 / 0` |
 | C producer invocations / graph schedules | `0 / 0` |
 
-The preceding apparatus directory without the `repair1` suffix is preserved.
-It passed all then-current tests but used a prospective execution-accounting
-schema that did not distinguish one producer invocation from its two graph
-schedules. It executed neither producer. `repair1` is canonical because the
-corrected schema freezes future accounting as one invocation and two completed
-schedules per producer.
+The directories without a suffix and with `repair1` are preserved historical
+apparatus runs. Neither executed a producer. `repair2` is canonical because it
+adds enum-derived canonical callback types and durable per-arm completion
+markers whose counts survive a producer failure.
 
 ## What is implemented
 
@@ -74,8 +73,7 @@ This apparatus result contains no block-1 donor output and establishes no
 numerical parity, later-layer coverage, quality, RAM, or speed claim. It does
 not update `SPEED_LEDGER.md`.
 
-Do not launch another producer from this source coordinate. First pass a fresh
-apparatus-only run containing the canonical type and durable schedule-accounting
-repair. The changed-coordinate scientific rerun must still emit both `prefill8`
-and `cached7p1`, reproduce the frozen reference `l_out-0` hash in both arms,
-and validate completely before the one C producer invocation is allowed.
+Launch at most one changed-coordinate scientific rerun from source HEAD
+`4c5d1af6274d1067076485398d58ce67dfc1ab96`. It must emit both `prefill8` and
+`cached7p1`, reproduce the frozen reference `l_out-0` hash in both arms, and
+validate completely before the one C producer invocation is allowed.

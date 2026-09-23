@@ -73,9 +73,10 @@ passed with zero producer invocations and zero graph schedules. The first
 scientific attempt is [VOID 1](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_VOID1_20260923.md):
 both reference schedules completed but cached top-k serialization refused on
 an `i32`/`I32` apparatus mismatch; C did not run. Do not repeat that exact
-source coordinate. The next new evidence is a fresh apparatus-only pass for
-the narrow type/accounting repair, followed by one changed-coordinate
-pinned-reference invocation and, only after validation, one C invocation.
+source coordinate. Canonical apparatus `repair2` now passes the narrow
+type/accounting repair with zero producer executions. The next new evidence is
+one changed-coordinate pinned-reference invocation and, only after validation,
+one C invocation.
 
 ## 1. How to read this map
 

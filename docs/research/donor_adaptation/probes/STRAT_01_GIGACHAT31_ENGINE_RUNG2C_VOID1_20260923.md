@@ -49,6 +49,15 @@ tolerances, checkpoints, negative controls, or the frozen protocol. A new
 apparatus-only directory must pass before a changed-coordinate scientific
 rerun. The failed raw directory must not be overwritten or adjudicated offline.
 
+The required apparatus rerun has now passed as
+`strat01_gigachat_engine_rung2c_apparatus_repair2_20260923` at source HEAD
+`4c5d1af6274d1067076485398d58ce67dfc1ab96`, with zero producer invocations
+and zero graph schedules. Its adjudication SHA-256 is
+`280ab3f69960fdb8abc81697b5143c9851c0c8c9fc261e4e0412e587c3d5371e` and
+its run-manifest SHA-256 is
+`97e5ce98efc61a6b40eacd893d29e7f2d03214517e323f28c7aa1345db881ded`.
+One changed-coordinate scientific rerun is therefore authorized.
+
 ## Non-claims
 
 This VOID establishes no C/reference parity, model quality, RAM, rate, or
