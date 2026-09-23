@@ -217,7 +217,11 @@ replay exactly. Close layer 1 and all prior Q4/F16/SwiGLU/Q6 hypotheses. The
 next changed coordinate is the frozen
 [post-F16 block-0 terminal-component split](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_PROTOCOL_20260923.md).
 It must produce the new current components once and cannot reuse or repeat the
-old pre-exact-Q4/pre-exact-F16 component experiment.
+old pre-exact-Q4/pre-exact-F16 component experiment. Its
+[apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260923.md)
+is qualified with 152 Python tests, 19 C self-tests, all frozen identities,
+and seven source controls passing at zero model/graph execution. The sole open
+action is one committed current-component/two-hybrid diagnostic.
 
 ## 1. How to read this map
 

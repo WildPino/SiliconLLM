@@ -207,7 +207,10 @@ is valid `POST_F16_BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`: exact reference
 recovered offline from immutable hashes with no new model or graph execution.
 Layer 1 is closed. The next changed coordinate is frozen in the
 [post-F16 block-0 terminal-component protocol](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_PROTOCOL_20260923.md);
-apparatus qualification is next.
+its [apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260923.md)
+is qualified after 152 Python tests, 19 C self-tests, 64 frozen checkpoint
+validations, and seven source controls, with zero model/graph execution.
+Commit, then run exactly one current-component/two-hybrid diagnostic.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
