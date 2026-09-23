@@ -78,7 +78,12 @@ SiLU/multiply semantics next. That coordinate is now frozen in the
 [FFN SwiGLU cross-input protocol](probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md):
 captured/reference, reference/reference-current, two single-operand hybrids,
 and C/C replay all propagate through closed Q6 and layer 1. It is not yet
-measured.
+measured. Its
+[apparatus qualification](probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_APPARATUS_RESULT_20260923.md)
+is `APPARATUS_READY_NO_DONOR_EXECUTION`: all new and inherited C/Python tests,
+the 73,024-check legacy suite, source/input/schema controls, and compilation
+pass with zero model access. Exactly one non-VOID scientific invocation is
+authorized after the apparatus implementation is committed.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

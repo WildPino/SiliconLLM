@@ -110,7 +110,11 @@ next distinct axis is captured gate versus up versus current SiLU/multiply
 semantics, with propagation through the closed Q6 and layer-1 paths. That axis
 is now frozen in the
 [FFN SwiGLU cross-input protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md)
-and remains PROPOSED, not measured.
+and remains unmeasured. Its
+[apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_APPARATUS_RESULT_20260923.md)
+is qualified with zero model or producer executions; exactly one non-VOID
+scientific invocation is authorized. Do not infer a gate/up/operator verdict
+from apparatus readiness.
 
 ## 1. How to read this map
 
