@@ -34,6 +34,7 @@
 #include "strat01_gguf_rung2c.h"
 #include "strat01_gguf_rung2b_cross_input.h"
 #include "strat01_gguf_rung2c_cross_input.h"
+#include "strat01_gguf_rung2c_layer1_start_cross_input.h"
 #include "strat01_gguf_rung2b_rmsnorm_diag.h"
 #include "strat01_gguf_upstream_rmsnorm_diag.h"
 #include "strat01_gguf_kb_q5q8_diag.h"
@@ -1089,6 +1090,14 @@ int main(int argc,char**argv){
         return strat01_r2c_cross_input_cli(argv[2],argv[4],argv[6],argv[8],argv[10],argv[12],argv[14],argv[16],__FILE__);
     }
     if(argc==2 && !strcmp(argv[1],"--strat01-rung2c-cross-input-selftest")) return strat01_r2c_cross_input_selftest();
+    if(argc>1 && !strcmp(argv[1],"--strat01-rung2c-layer1-start-cross-input")){
+        if(argc!=9 || strcmp(argv[3],"--reference-input") || strcmp(argv[5],"--c-input") || strcmp(argv[7],"--out-dir")){
+            fprintf(stderr,"usage: engine --strat01-rung2c-layer1-start-cross-input <accepted.gguf> --reference-input <l_out-0.f32le> --c-input <l_out-0.f32le> --out-dir <directory>\n");
+            return 2;
+        }
+        return strat01_r2c_l1start_cli(argv[2],argv[4],argv[6],argv[8],__FILE__);
+    }
+    if(argc==2 && !strcmp(argv[1],"--strat01-rung2c-layer1-start-cross-input-selftest")) return strat01_r2c_l1start_selftest();
     if(argc>1 && !strcmp(argv[1],"--strat01-rung2b-rmsnorm-diagnostic")){
         if(argc!=9 || strcmp(argv[3],"--reference-input") || strcmp(argv[5],"--c-input") || strcmp(argv[7],"--out-dir")){
             fprintf(stderr,"usage: engine --strat01-rung2b-rmsnorm-diagnostic <accepted.gguf> --reference-input <ffn_inp.f32le> --c-input <ffn_inp.f32le> --out-dir <directory>\n");
