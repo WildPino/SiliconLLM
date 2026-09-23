@@ -129,6 +129,15 @@ registered lengths, both historical controls fire, 127 Python tests and all C
 self-tests pass, and model reads are zero. Exactly one frozen full Q/KV
 adjudication is next; no downstream, quality, RAM, or rate claim follows from
 the apparatus result.
+That adjudication is now closed as
+[`PASS_ENGINE_Q4K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY`](probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_RESULT_20260923.md).
+The candidate Q/KV files are byte-identical to the immutable references. The
+historical AVX-translation-unit generic and active-x86 arms exactly replay
+their four distinct frozen hashes, and all 18 controls pass. The cause was
+compiler target/lowering context, not an unmeasured AVX algorithm. Do not
+repeat operator or projection parity. A separately frozen downstream
+block-0/Rung-2C propagation confirmation is next; quality, RAM, and rate do
+not move.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

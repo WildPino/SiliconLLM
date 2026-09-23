@@ -151,6 +151,13 @@ is now qualified: the candidate is baseline-generic bit-exact at four lengths,
 both historical controls fire, 127 Python tests and all C self-tests pass, and
 no model was read. The only non-duplicate next action on this coordinate is the
 single frozen full Q/KV adjudication; it cannot establish quality or rate.
+That [adjudication](../probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_RESULT_20260923.md)
+is now `PASS_ENGINE_Q4K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY`: candidate Q/KV
+are byte-identical to reference and both diagnostic arms replay their distinct
+historical hashes. Operator and full-projection parity are closed. Do not rerun
+this cell, AVX2 parity, model-free Q4 tests, or gate/up cross-input. The next
+non-duplicate coordinate is downstream propagation through immutable block-0
+and Rung-2C checkpoints; it requires a new frozen protocol.
 
 ## 1. How to read this map
 
