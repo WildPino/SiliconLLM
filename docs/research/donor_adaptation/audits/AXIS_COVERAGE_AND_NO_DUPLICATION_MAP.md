@@ -118,7 +118,12 @@ an extra replay assertion compared against the wrong prior arm. Do not infer a
 gate/up/operator verdict or inspect arm metrics. Only the registered one-line
 repair, regression, fresh apparatus, and one repaired invocation are allowed.
 The [repair-1 apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_APPARATUS_REPAIR1_RESULT_20260923.md)
-now passes with zero model access; exactly one repaired invocation remains.
+passes with zero model access. Its repaired invocation is now closed as
+[`GATE_AND_UP_RESIDUALS_INDEPENDENTLY_SUFFICIENT`](../probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_RESULT_20260923.md):
+each C operand alone passes the direct SwiGLU/down gates but first fails after
+propagation at `kqv_out-1`; reference/reference current SwiGLU passes. Do not
+rewrite SwiGLU/Q6/layer 1. Compare the production `ffn_norm-0` identity with
+the earlier Rung-2B cross-input lineage before opening a projection successor.
 
 ## 1. How to read this map
 

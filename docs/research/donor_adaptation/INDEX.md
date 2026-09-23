@@ -91,7 +91,14 @@ apparatus qualification is authorized before exactly one repaired invocation.
 That narrow repair is now
 [apparatus-qualified](probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_APPARATUS_REPAIR1_RESULT_20260923.md):
 all new and inherited checks pass, compiler stderr is empty, and model access
-remains zero. Exactly one repaired invocation remains authorized after commit.
+remains zero. Its one repaired invocation is now closed as
+[`GATE_AND_UP_RESIDUALS_INDEPENDENTLY_SUFFICIENT`](probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_RESULT_20260923.md):
+the current expression on reference/reference inputs passes, while the C-gate
+and C-up hybrids independently first fail at layer-1 `kqv_out-1` with NRMSE
+`0.005655` and `0.006351`. Both still pass direct SwiGLU and down-output gates.
+Do not alter SwiGLU, Q6, terminal addition, or layer 1. Audit whether the
+current production `ffn_norm-0` input lineage differs from the earlier
+Rung-2B cross-input cell before freezing a paired gate/up projection split.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
