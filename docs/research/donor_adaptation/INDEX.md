@@ -99,6 +99,16 @@ and C-up hybrids independently first fail at layer-1 `kqv_out-1` with NRMSE
 Do not alter SwiGLU, Q6, terminal addition, or layer 1. Audit whether the
 current production `ffn_norm-0` input lineage differs from the earlier
 Rung-2B cross-input cell before freezing a paired gate/up projection split.
+That identity audit is now complete: the old C normalized input differs, but
+the immutable reference input and Q4 projection helper are unchanged, while
+the current production record already binds the new normalized input to the
+measured gate/up outputs. A new paired gate/up run would duplicate existing
+evidence. The first remaining production residual is instead Q/KV at
+`6–7e-8`, produced by the accepted generic Q4_K×Q8_K reduction on exact
+`attn_norm-0`. The changed coordinate is frozen in the
+[AVX2 reduction-parity protocol](probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_AVX2_REDUCTION_PARITY_PROTOCOL_20260923.md):
+transcribe only the pinned active x86 accumulation order and require exact Q/KV
+hashes. It is not implemented or measured.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

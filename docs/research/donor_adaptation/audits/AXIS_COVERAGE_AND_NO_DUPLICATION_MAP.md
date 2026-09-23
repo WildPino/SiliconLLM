@@ -124,6 +124,13 @@ each C operand alone passes the direct SwiGLU/down gates but first fails after
 propagation at `kqv_out-1`; reference/reference current SwiGLU passes. Do not
 rewrite SwiGLU/Q6/layer 1. Compare the production `ffn_norm-0` identity with
 the earlier Rung-2B cross-input lineage before opening a projection successor.
+The identity audit closes that apparent opening without a run: reference
+`ffn_norm-0` and the gate/up Q4 helper are unchanged, and production already
+binds its new C normalized input to both measured outputs. The next genuinely
+changed coordinate is the accepted generic Q4_K×Q8_K reduction versus the
+pinned active x86 AVX2/FMA reduction order. Its
+[frozen protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_AVX2_REDUCTION_PARITY_PROTOCOL_20260923.md)
+requires exact block-0 Q/KV hashes; it is unimplemented and unmeasured.
 
 ## 1. How to read this map
 
