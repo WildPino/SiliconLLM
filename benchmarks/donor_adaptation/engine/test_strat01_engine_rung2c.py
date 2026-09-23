@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -74,6 +75,12 @@ class Rung2CTests(unittest.TestCase):
         self.assertEqual(runner.completed_graph_count(partial), 1)
         with self.assertRaises(runner.RunnerError):
             runner.completed_graph_count({"stdout": complete["stderr"] * 2, "stderr": ""})
+
+    def test_record_metadata_excludes_only_runtime_cache_arrays(self) -> None:
+        metadata = {"report": {"state": "ready"}, "manifests": {"prefill8": {"payloads": []}}, "caches": {"prefill8": {"layer0/final": np.zeros(4, dtype=np.float32)}}}
+        recorded = runner.metadata_for_record(metadata)
+        self.assertEqual(set(recorded), {"report", "manifests"})
+        json.dumps(recorded)
 
 
 if __name__ == "__main__":

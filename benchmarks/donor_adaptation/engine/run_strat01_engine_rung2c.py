@@ -318,12 +318,99 @@ def completed_graph_count(record: dict[str, Any]) -> int:
     return len(arms)
 
 
+def metadata_for_record(metadata: dict[str, Any]) -> dict[str, Any]:
+    """Keep validated manifests, but not their in-memory ndarray cache copies."""
+    return {key: value for key, value in metadata.items() if key != "caches"}
+
+
+def recover_existing(source: Path, output: Path, model: Path, execution_head: str) -> int:
+    source = source.resolve(strict=True); output = output.resolve(); model = model.resolve(strict=True)
+    if not source.is_dir() or (source / "adjudication.json").exists() or (source / "run_manifest.json").exists():
+        raise SystemExit("recovery requires an unfinalized Rung-2C source directory")
+    if output.exists() and (not output.is_dir() or any(output.iterdir())):
+        raise SystemExit(f"refusing non-empty or non-directory recovery output path: {output}")
+    resolved_head = base.git_value(["git", "rev-parse", f"{execution_head}^{{commit}}"])
+    if resolved_head != execution_head:
+        raise SystemExit("recovery execution HEAD is not an exact commit")
+    if model.stat().st_size != base.EXPECTED_BYTES or base.sha256_file(model) != base.EXPECTED_SHA256:
+        raise SystemExit("recovery model identity mismatch")
+
+    producer_records: dict[str, Any] = {}
+    for producer, label in (("pinned_reference", "accepted_artifact_pinned_reference"), ("c_engine", "accepted_artifact_c_engine")):
+        stdout_path, stderr_path = source / f"{label}.stdout.log", source / f"{label}.stderr.log"
+        if not stdout_path.is_file() or not stderr_path.is_file():
+            raise SystemExit(f"recovery is missing {producer} command logs")
+        record = {"stdout": stdout_path.read_text(encoding="utf-8"), "stderr": stderr_path.read_text(encoding="utf-8")}
+        completed = completed_graph_count(record)
+        if completed != 2:
+            raise SystemExit(f"recovery {producer} graph count is {completed}, expected 2")
+        producer_records[producer] = {
+            "invocations": 1, "graph_executions": completed,
+            "stdout": {"path": str(stdout_path), "bytes": stdout_path.stat().st_size, "sha256": base.sha256_file(stdout_path)},
+            "stderr": {"path": str(stderr_path), "bytes": stderr_path.stat().st_size, "sha256": base.sha256_file(stderr_path)},
+        }
+
+    sources = source_inventory(); controls = source_controls()
+    if not all(controls.values()):
+        raise SystemExit("recovery source controls failed")
+    reference, r_meta = validate_reference(source / "pinned_reference", model)
+    candidate, c_meta = validate_c(source / "c_engine", sources, model)
+    adjudication = adjudicate(candidate, reference, c_meta, r_meta, controls)
+
+    key_paths = [
+        source / "pinned_reference" / "manifest.json",
+        *(source / "pinned_reference" / arm / "manifest.json" for arm in base.ARMS),
+        source / "c_engine" / "strat01_rung2c.json",
+        *(source / "c_engine" / f"{arm}_manifest.json" for arm in base.ARMS),
+    ]
+    key_files: dict[str, Any] = {}
+    for path in key_paths:
+        if not path.is_file():
+            raise SystemExit(f"recovery key file is missing: {path}")
+        relative = path.relative_to(source).as_posix()
+        key_files[relative] = {"bytes": path.stat().st_size, "sha256": base.sha256_file(path)}
+
+    output.mkdir(parents=True, exist_ok=True)
+    recovered_utc = datetime.now(timezone.utc).isoformat()
+    provenance = {
+        "recovery_reason": "both producers completed and validated; original runner failed only while JSON-encoding ndarray cache copies",
+        "source_run_directory": str(source), "execution_git_head": execution_head,
+        "recovery_git_head": base.git_value(["git", "rev-parse", "HEAD"]), "recovered_utc": recovered_utc,
+        "artifact": {"path": str(model), "bytes": model.stat().st_size, "sha256": base.EXPECTED_SHA256},
+        "source_hashes_at_recovery": sources, "producer_records": producer_records, "key_files": key_files,
+    }
+    record = {
+        "schema": "strat01_gigachat_engine_rung2c_recovered_adjudication_v1", "status": adjudication["status"], "errors": [],
+        "reference_producer_invocations": 1, "reference_graph_executions": 2,
+        "donor_producer_invocations": 1, "donor_graph_executions": 2,
+        "adjudication": adjudication, "c_metadata": metadata_for_record(c_meta),
+        "reference_metadata": metadata_for_record(r_meta), "recovery": provenance,
+        "non_claims": ["later MoE layers", "tokenizer/logits/generation", "C-path language-model quality", "RAM", "rate", "SPEED_LEDGER"],
+    }
+    manifest = {
+        "schema": "strat01_gigachat_engine_rung2c_recovered_run_manifest_v1", "status": adjudication["status"], "errors": [],
+        "reference_producer_invocations": 1, "reference_graph_executions": 2,
+        "donor_producer_invocations": 1, "donor_graph_executions": 2, "recovery": provenance,
+    }
+    json.dumps(record); json.dumps(manifest)
+    base.write_json(output / "adjudication.json", record); base.write_json(output / "run_manifest.json", manifest)
+    print(json.dumps({"status": adjudication["status"], "output": str(output), "recovered_without_producer_execution": True}, indent=2))
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model", type=Path, default=MODEL)
     parser.add_argument("--output-dir", type=Path)
     parser.add_argument("--apparatus-only", action="store_true")
-    args = parser.parse_args(); model = args.model.resolve(); output = (args.output_dir or (DEFAULT_APPARATUS if args.apparatus_only else DEFAULT_OUTPUT)).resolve()
+    parser.add_argument("--recover-from", type=Path)
+    parser.add_argument("--execution-head")
+    args = parser.parse_args(); model = args.model.resolve()
+    if args.recover_from:
+        if args.apparatus_only or not args.output_dir or not args.execution_head:
+            raise SystemExit("--recover-from requires --output-dir and --execution-head, and forbids --apparatus-only")
+        return recover_existing(args.recover_from, args.output_dir, model, args.execution_head)
+    output = (args.output_dir or (DEFAULT_APPARATUS if args.apparatus_only else DEFAULT_OUTPUT)).resolve()
     if output.exists() and (not output.is_dir() or any(output.iterdir())):
         raise SystemExit(f"refusing non-empty or non-directory output path: {output}")
     output.mkdir(parents=True, exist_ok=True)
@@ -383,7 +470,7 @@ def main() -> int:
     record = {"schema": "strat01_gigachat_engine_rung2c_adjudication_v1", "status": status, "errors": errors,
               "reference_producer_invocations": reference_producer_invocations, "donor_producer_invocations": donor_producer_invocations,
               "reference_graph_executions": reference_graph_executions, "donor_graph_executions": donor_graph_executions,
-              "adjudication": adjudication, "c_metadata": c_meta, "reference_metadata": r_meta,
+              "adjudication": adjudication, "c_metadata": metadata_for_record(c_meta), "reference_metadata": metadata_for_record(r_meta),
               "non_claims": ["later MoE layers", "tokenizer/logits/generation", "C-path language-model quality", "RAM", "rate", "SPEED_LEDGER"], "provenance": provenance}
     manifest = {"schema": "strat01_gigachat_engine_rung2c_run_manifest_v1", "status": status, "errors": errors,
                 "reference_producer_invocations": reference_producer_invocations, "donor_producer_invocations": donor_producer_invocations,
