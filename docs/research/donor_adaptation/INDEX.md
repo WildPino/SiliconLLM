@@ -36,7 +36,10 @@ zero-donor scientific invocation was authorized. It is now closed as
 the exact reference/reference arm passes at NRMSE `0.0003459`, while the
 C-query-only and C-KV-only arms fail at `0.0021687` and `0.0059546`. Do not
 rewrite attention/V-B or repeat this diagnostic. Freeze a layer-1-start
-cross-input propagation diagnostic next.
+cross-input propagation diagnostic next. That coordinate is now fixed in the
+[layer-1-start protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_LAYER1_START_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md):
+captured reference/C `l_out-0` through the unchanged layer-1 builder, with
+byte-exact C replay and eleven reference gates.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

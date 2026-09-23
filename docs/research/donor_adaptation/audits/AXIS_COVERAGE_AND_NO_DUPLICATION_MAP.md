@@ -84,6 +84,8 @@ passed with zero donor executions. The single invocation is now closed by the
 [`QUERY_AND_KV_RESIDUALS_INDEPENDENTLY_SUFFICIENT` result](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_RESULT_20260923.md):
 reference/reference passes, while either C query or C KV alone fails. Do not
 repeat or change attention/V-B; localize propagation from `l_out-0` next.
+That next axis is frozen in the [layer-1-start cross-input protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_LAYER1_START_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md);
+it reuses the captured `l_out-0` pair and executes zero donor graphs.
 
 ## 1. How to read this map
 
