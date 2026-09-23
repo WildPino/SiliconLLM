@@ -13,10 +13,14 @@ preceding block-0 repair coordinate. Rung 2C is now authorized only as a
 separately frozen one-block-1 routed-expert plus shared-expert MoE cell. That
 coordinate is now fixed in the [Rung 2C protocol](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_PROTOCOL_20260923.md): exact block-0 start hashes, layer-1 attention, discrete ordered top-4 routing, normalized unbiased weights, routed/shared experts, and cache/continuity gates.
 [Rung 2C apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_APPARATUS_RESULT_20260923.md)
-is now `APPARATUS_READY_NO_DONOR_EXECUTION`: all C/reference/Python and legacy
-checks pass, all ten causal controls are live, and producer invocations plus
-graph schedules remain zero. Do not repeat apparatus. Run the pinned reference
-producer once and validate it before permitting the single C producer.
+initially reached `APPARATUS_READY_NO_DONOR_EXECUTION`: all C/reference/Python and legacy
+checks passed, all ten causal controls were live, and producer invocations plus
+graph schedules were zero. The first scientific invocation is now preserved as
+[VOID 1](probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_VOID1_20260923.md): both
+reference schedules completed, cached top-k serialization refused on an
+`i32`/`I32` spelling mismatch, and C remained at zero invocations. A narrow
+type/accounting repair and fresh apparatus-only pass are next; do not overwrite
+or offline-adjudicate the VOID directory.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

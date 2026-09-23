@@ -1,12 +1,18 @@
 # STRAT-01 GigaChat 3.1 engine Rung 2C apparatus result
 
-**State:** `APPARATUS_READY_NO_DONOR_EXECUTION`.
+**Historical state:** `APPARATUS_READY_NO_DONOR_EXECUTION`; superseded for
+continuation by [reference serialization VOID 1](STRAT_01_GIGACHAT31_ENGINE_RUNG2C_VOID1_20260923.md).
+
+The first scientific invocation exposed a lowercase `i32` versus uppercase
+`I32` serialization defect and non-durable graph accounting. This record
+remains the immutable pre-execution apparatus result, but it no longer
+authorizes another scientific run. The narrow repair must pass in a fresh
+apparatus-only directory first.
 
 The frozen [Rung 2C protocol](STRAT_01_GIGACHAT31_ENGINE_RUNG2C_PROTOCOL_20260923.md)
-now has a compiled and model-free-tested implementation. No reference or C
-producer graph was executed. The next action is the protocol's single pinned
-reference invocation; do not repeat apparatus unless a pre-scientific source
-defect is found.
+had a compiled and model-free-tested implementation. No reference or C
+producer graph was executed in this apparatus run. The subsequently exposed
+source defect is recorded in VOID 1 above.
 
 ## Accepted apparatus record
 
@@ -68,7 +74,8 @@ This apparatus result contains no block-1 donor output and establishes no
 numerical parity, later-layer coverage, quality, RAM, or speed claim. It does
 not update `SPEED_LEDGER.md`.
 
-After the implementation commit, run exactly one pinned-reference producer
-invocation. It must emit both `prefill8` and `cached7p1`, reproduce the frozen
-reference `l_out-0` hash in both arms, and validate completely before the one C
-producer invocation is allowed.
+Do not launch another producer from this source coordinate. First pass a fresh
+apparatus-only run containing the canonical type and durable schedule-accounting
+repair. The changed-coordinate scientific rerun must still emit both `prefill8`
+and `cached7p1`, reproduce the frozen reference `l_out-0` hash in both arms,
+and validate completely before the one C producer invocation is allowed.

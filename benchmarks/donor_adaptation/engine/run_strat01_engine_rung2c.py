@@ -7,6 +7,7 @@ import json
 import math
 import os
 import platform
+import re
 import shutil
 import subprocess
 import sys
@@ -41,6 +42,7 @@ BLOCK0_MANIFEST_SHA = "7b8de95a3766e4f76bde37f4038ece2986b9067ad9ac7a0e4cc11855a
 C_START_SHA = "258232509011378e8470ce6c03cffd51e927f28bfc1ea4f937af07bda9bf0f44"
 REFERENCE_START_SHA = "385073c91f472dd9ffc1c86bcb63c6ed50256a6d5645e240d61ccdb613d814aa"
 REFERENCE_SCHEMA = "strat01_engine_rung2c_reference_manifest_v1"
+GRAPH_MARKER = "STRAT01_RUNG2C_GRAPH_COMPLETE arm="
 
 SHAPES: dict[str, list[int]] = {
     "l_out-0": [1536, 8],
@@ -308,6 +310,14 @@ def adjudicate(candidate: dict[str, np.ndarray], reference: dict[str, np.ndarray
             "cache_results": cache_results, "negative_controls": neg, "negative_controls_pass": neg_pass, "source_controls": controls}
 
 
+def completed_graph_count(record: dict[str, Any]) -> int:
+    text = f"{record.get('stdout', '')}\n{record.get('stderr', '')}"
+    arms = re.findall(r"^STRAT01_RUNG2C_GRAPH_COMPLETE arm=(prefill8|cached7p1)$", text, flags=re.MULTILINE)
+    if len(arms) != len(set(arms)):
+        raise RunnerError("duplicate Rung-2C graph-completion marker")
+    return len(arms)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model", type=Path, default=MODEL)
@@ -347,13 +357,19 @@ def main() -> int:
             status = "APPARATUS_READY_NO_DONOR_EXECUTION"
         else:
             ref_root = output / "pinned_reference"; reference_producer_invocations = 1
-            commands["accepted_artifact_pinned_reference"] = base.run_command([str(reference_binary), "--model", str(model), "--out-dir", str(ref_root), "--all"], output=output, label="accepted_artifact_pinned_reference", timeout=21600); base.require_ok(commands["accepted_artifact_pinned_reference"], "pinned reference producer"); reference_graph_executions = 2
+            commands["accepted_artifact_pinned_reference"] = base.run_command([str(reference_binary), "--model", str(model), "--out-dir", str(ref_root), "--all"], output=output, label="accepted_artifact_pinned_reference", timeout=21600)
+            reference_graph_executions = completed_graph_count(commands["accepted_artifact_pinned_reference"])
+            base.require_ok(commands["accepted_artifact_pinned_reference"], "pinned reference producer")
+            if reference_graph_executions != 2: raise RunnerError("pinned reference producer omitted a graph-completion marker")
             reference, r_meta = validate_reference(ref_root, model)
             for arm in base.ARMS:
                 item = next(x for x in r_meta["manifests"][arm]["payloads"] if x.get("logical") == "l_out-0" and x.get("kind") == "full")
                 if item["sha256"] != REFERENCE_START_SHA: raise RunnerError(f"reference block-0 start hash mismatch: {arm}")
             c_root = output / "c_engine"; c_root.mkdir(); donor_producer_invocations = 1
-            commands["accepted_artifact_c_engine"] = base.run_command([str(binary), "--strat01-gguf-rung2c", str(model), "--out-dir", str(c_root)], output=output, label="accepted_artifact_c_engine", timeout=21600); base.require_ok(commands["accepted_artifact_c_engine"], "C producer"); donor_graph_executions = 2
+            commands["accepted_artifact_c_engine"] = base.run_command([str(binary), "--strat01-gguf-rung2c", str(model), "--out-dir", str(c_root)], output=output, label="accepted_artifact_c_engine", timeout=21600)
+            donor_graph_executions = completed_graph_count(commands["accepted_artifact_c_engine"])
+            base.require_ok(commands["accepted_artifact_c_engine"], "C producer")
+            if donor_graph_executions != 2: raise RunnerError("C producer omitted a graph-completion marker")
             sources = source_inventory(); candidate, c_meta = validate_c(c_root, sources, model); adjudication = adjudicate(candidate, reference, c_meta, r_meta, controls); status = adjudication["status"]
     except (RunnerError, base.RunnerError) as exc:
         errors.append(str(exc))

@@ -68,8 +68,12 @@ class Rung2CTests(unittest.TestCase):
         source = Path(runner.__file__).read_text(encoding="utf-8")
         self.assertIn("reference_producer_invocations = 1", source)
         self.assertIn("donor_producer_invocations = 1", source)
-        self.assertIn("reference_graph_executions = 2", source)
-        self.assertIn("donor_graph_executions = 2", source)
+        complete = {"stdout": "", "stderr": "STRAT01_RUNG2C_GRAPH_COMPLETE arm=prefill8\nSTRAT01_RUNG2C_GRAPH_COMPLETE arm=cached7p1\n"}
+        partial = {"stdout": "STRAT01_RUNG2C_GRAPH_COMPLETE arm=prefill8\n", "stderr": "producer failed"}
+        self.assertEqual(runner.completed_graph_count(complete), 2)
+        self.assertEqual(runner.completed_graph_count(partial), 1)
+        with self.assertRaises(runner.RunnerError):
+            runner.completed_graph_count({"stdout": complete["stderr"] * 2, "stderr": ""})
 
 
 if __name__ == "__main__":

@@ -187,6 +187,12 @@ struct Event {
     std::string phase, name, op, type; int ordinal=0; std::array<int64_t,4> shape{}; int rank=0;
     std::vector<float> values; std::vector<int32_t> integer_values;
 };
+std::string canonical_tensor_type(enum ggml_type type) {
+    if (type == GGML_TYPE_I32) return "I32";
+    if (type == GGML_TYPE_F32) return "F32";
+    if (type == GGML_TYPE_F16) return "F16";
+    throw Error("VOID: required callback tensor has unsupported type");
+}
 #if defined(STRAT01_RUNG2C)
 constexpr std::array<const char *, 33> kNames = {
     "Kcur-0", "l_out-0",
@@ -242,7 +248,7 @@ struct Collector {
         auto & self=*static_cast<Collector *>(user); const std::string name(t->name);
         if (ask) return wanted_name(name); // Request only block-0 protocol candidates.
         if (!wanted_name(name)) return true;
-        Event e; e.phase=self.phase; e.name=name; e.ordinal=self.next_ordinal[name]++; e.op=ggml_op_name(t->op); e.type=ggml_type_name(t->type);
+        Event e; e.phase=self.phase; e.name=name; e.ordinal=self.next_ordinal[name]++; e.op=ggml_op_name(t->op); e.type=canonical_tensor_type(t->type);
         for (int i=0;i<4;++i) e.shape[i]=t->ne[i];
         // ggml tensors do not retain a declared rank once trailing dimensions
         // become singleton.  The frozen protocol rank preserves the token axis
@@ -476,7 +482,9 @@ void run_production(const Cli & cli) {
         llama_context * ctx=llama_init_from_model(model,cp); if(!ctx) {llama_model_free(model);throw Error("VOID: llama.cpp could not create frozen CPU context");}
         try { validate_resolved_context_dimensions(llama_n_ctx(ctx),llama_n_batch(ctx),llama_n_ubatch(ctx)); }
         catch (...) { llama_free(ctx);llama_model_free(model);throw; }
-        std::vector<Trace> traces; if(cli.arm==Arm::All||cli.arm==Arm::Prefill8) traces.push_back(run_arm(ctx,collector,Arm::Prefill8)); if(cli.arm==Arm::All||cli.arm==Arm::Cached7p1) traces.push_back(run_arm(ctx,collector,Arm::Cached7p1));
+        std::vector<Trace> traces;
+        if(cli.arm==Arm::All||cli.arm==Arm::Prefill8){traces.push_back(run_arm(ctx,collector,Arm::Prefill8));std::cerr<<"STRAT01_RUNG2C_GRAPH_COMPLETE arm=prefill8\n";}
+        if(cli.arm==Arm::All||cli.arm==Arm::Cached7p1){traces.push_back(run_arm(ctx,collector,Arm::Cached7p1));std::cerr<<"STRAT01_RUNG2C_GRAPH_COMPLETE arm=cached7p1\n";}
         for(const Trace&t:traces)write_trace_json(cli.out_dir,t); write_root_manifest(cli.out_dir,cli.model,traces); llama_free(ctx);llama_model_free(model);
     } catch (...) { llama_backend_free(); throw; }
     llama_backend_free();
@@ -485,6 +493,7 @@ void run_production(const Cli & cli) {
 bool self_tests() {
     bool ok=true; auto check=[&](bool x,const char * name){if(!x){std::cerr<<"self-test failed: "<<name<<'\n';ok=false;}};
     check(host_is_little_endian(),"little endian host");
+    check(canonical_tensor_type(GGML_TYPE_I32)=="I32"&&canonical_tensor_type(GGML_TYPE_F32)=="F32"&&canonical_tensor_type(GGML_TYPE_F16)=="F16","canonical callback type names");
     const std::vector<float> vals={1.0f,-2.5f}; const auto bytes=encode_f32_le(vals); check(bytes.size()==8&&bytes[0]==0&&bytes[1]==0&&bytes[2]==0x80&&bytes[3]==0x3f,"canonical f32le");
     check(sha256_bytes(bytes)=="48943f7a0ea247f8e3c9386d0c5822fe181d323a9289980426638cc4e72a43e1","canonical float SHA-256");
     {
