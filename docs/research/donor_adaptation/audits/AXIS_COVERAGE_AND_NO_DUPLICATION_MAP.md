@@ -166,6 +166,13 @@ The [apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_REFERENCE_GENERIC_PROPAGATI
 is qualified with validated immutable references, 131 Python tests, all C
 self-tests, and zero graph executions. Do not repeat apparatus or start a
 parallel diagnostic; the single committed C-producer adjudication is next.
+The [result](../probes/STRAT_01_GIGACHAT31_ENGINE_REFERENCE_GENERIC_PROPAGATION_RESULT_20260923.md)
+is a valid FAIL and closes this cell. Q4 propagation raises checkpoint passes
+from 34/64 to 52/64 and closes block-0 terminal, layer-1 attention, router,
+up/gate, and SwiGLU. Routed/shared Q6 down first fail. Do not repeat global Q4
+propagation or infer a generic Q6 defect; cross immutable layer-1
+reference/current SwiGLU through those exact Q6 matrices next, with zero
+producer graphs.
 
 ## 1. How to read this map
 

@@ -148,6 +148,15 @@ Its [apparatus is now qualified](probes/STRAT_01_GIGACHAT31_ENGINE_REFERENCE_GEN
 all immutable reference payloads validate, 131 Python tests and every C
 self-test pass, all source controls are true, and no graph ran. One committed
 C-producer adjudication remains authorized; no downstream result exists yet.
+That [adjudication](probes/STRAT_01_GIGACHAT31_ENGINE_REFERENCE_GENERIC_PROPAGATION_RESULT_20260923.md)
+is now a valid `FAIL_ENGINE_REFERENCE_GENERIC_PROPAGATION`, with no apparatus
+errors. The accepted helper improves checkpoint passes from 34/64 to 52/64;
+`l_out-0`, layer-1 attention, router, Q4 up/gate, and both SwiGLU branches now
+pass. Routed and shared Q6 down are the first failures at NRMSE
+`0.00385395` and `0.00288634`. Both schedules agree; all continuity, cache,
+and causal controls pass. Close global-Q4 propagation. The next distinct
+boundary is zero-producer reference/current cross-input through the actual
+layer-1 routed/shared Q6 matrices, not another graph or Q4 test.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
