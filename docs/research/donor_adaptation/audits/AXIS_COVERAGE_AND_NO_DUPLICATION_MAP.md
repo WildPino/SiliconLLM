@@ -141,7 +141,11 @@ projection hashes and is slightly farther from reference than the historical
 generic arm; that arm replays exactly. The reference producer compiled the
 baseline `GGML_CPU_GENERIC` backend. Do not repeat AVX2 or model-free operator
 work. A successor must change the coordinate to exact reference-build compiler
-semantics and preregister it separately.
+semantics and preregister it separately. The
+[frozen successor](../probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_PROTOCOL_20260923.md)
+does exactly that and requires model-free bit identity before one full
+projection. Do not substitute another AVX kernel, relax exactness, or rerun the
+closed cell.
 
 ## 1. How to read this map
 

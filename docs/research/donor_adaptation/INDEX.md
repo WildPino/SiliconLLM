@@ -119,6 +119,10 @@ slightly farther away than the generic control, while that control exactly
 reproduces its historical hashes. The reference lineage used baseline
 `GGML_CPU_GENERIC`, not the active x86 branch. Do not rerun this cell; any
 successor must target the reference producer's resolved compile arithmetic.
+That changed coordinate is now frozen in the
+[reference-generic compile-parity protocol](probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_PROTOCOL_20260923.md):
+first require model-free bit identity to a compile-command-verified baseline
+oracle, then permit one exact full-projection invocation.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
