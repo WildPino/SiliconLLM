@@ -51,8 +51,12 @@ That new estimand is now frozen in the
 [block-0 terminal-component cross-input protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md):
 four F32 sums substitute the captured `ffn_inp-0` and `ffn_out-0` addends,
 must byte-reconstruct both homogeneous `l_out-0` controls, and propagate
-through the unchanged layer-1 builder with zero donor/reference graphs. It is
-preregistered, not yet measured; do not infer an attention-versus-FFN verdict.
+through the unchanged layer-1 builder with zero donor/reference graphs. Its
+[apparatus qualification](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_DIAGNOSTIC_APPARATUS_RESULT_20260923.md)
+is `APPARATUS_READY_NO_DONOR_EXECUTION`: the new and inherited C/Python tests
+plus 73,024 legacy checks pass, with empty compiler stderr and no model access.
+Exactly one scientific invocation is authorized; no attention-versus-FFN
+verdict exists yet.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
