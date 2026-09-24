@@ -3,20 +3,18 @@
 **Rolling status through 23 September 2026:** [continuation status](STATUS_20260923.md). The [17 September `engine.c` scope decision](STATUS_20260917.md) remains valid. The text below remains the 16 September design snapshot; use the rolling status and [research control index](../RESEARCH_INDEX.md) for execution state and no-duplication decisions.
 
 **Latest continuation (24 September):** the canonical
-[layer-1 FFN RMSNorm result](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_RESULT_20260924.md)
-is `LAYER1_FFN_INPUT_RESIDUAL_SUFFICIENT`. Production RMSNorm passes and
-byte-replays reference on exact `ffn_inp-1`; production C input byte-replays
-the downstream failure at NRMSE `0.002642086799405445`, with per-token
-failures at tokens 5 and 6. Close RMSNorm and every later coordinate. The
-reference/current `kqv_out-1` captures are byte-identical, so the sole next
-boundary is the residual add around the current output projection. It is
-frozen in the
-[layer-1 attention-output residual protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_PROTOCOL_20260924.md):
-current Q4_K output projection plus immutable reference/C `l_out-0`, zero
-graphs. Its canonical
-[model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
-is `APPARATUS_READY_NO_DONOR_EXECUTION`: artifact/payload and every scientific
-or graph counter are zero. Commit exact sources before the sole invocation.
+[layer-1 attention-output residual result](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER1_BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`. Current Q4_K projection plus
+reference `l_out-0` is byte-exact through the closed amplifier; changing only
+to production C `l_out-0` exactly replays the downstream failure at NRMSE
+`0.002642086799405445`, with per-token failures at tokens 5 and 6. Existing
+hash-bound addends close the proposed block-0 terminal split without a new
+run: exact `ffn_inp-0` plus current-Q6 `ffn_out-0` equals production
+`l_out-0` byte-for-byte. Thus the first residual is the block-0 Q6 output on
+byte-exact repaired SwiGLU. The sole next boundary is frozen in the
+[block-0 Q6_K×Q8_K AVX2 parity protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_PROTOCOL_20260924.md):
+same Q8_K bytes, current generic reduction versus pinned llama.cpp active
+AVX2/FMA reduction, with no model graph.
 This paragraph supersedes the older active-boundary wording below.
 
 **Current execution head (24 September):** the accepted donor is exact through

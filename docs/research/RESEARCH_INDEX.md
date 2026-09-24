@@ -13,19 +13,19 @@ or preregistered brief.
 - **VOID** — apparatus/control failed before the estimand; it is not evidence.
 
 **Latest execution state (24 September).** The canonical
-[layer-1 FFN RMSNorm result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_RESULT_20260924.md)
-is `LAYER1_FFN_INPUT_RESIDUAL_SUFFICIENT`: production RMSNorm passes exactly
-on reference `ffn_inp-1`, while C input replays the downstream failure. Close
-RMSNorm and every later axis. Reference/current `kqv_out-1` are byte-identical;
-the sole active coordinate is the frozen
-[layer-1 attention-output residual protocol](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_PROTOCOL_20260924.md),
-which changes only immutable reference/C `l_out-0` around the current Q4_K
-output projection and executes zero graphs.
-Its canonical
-[model-free apparatus](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
-is `APPARATUS_READY_NO_DONOR_EXECUTION`: no artifact or scientific payload was
-opened and every diagnostic/operator/graph counter is zero. Commit exact
-sources before the one authorized invocation.
+[layer-1 attention-output residual result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER1_BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`: the current Q4_K output
+projection on byte-identical `kqv_out-1` plus reference `l_out-0` is exact,
+whereas changing only to production C `l_out-0` exactly replays the downstream
+failure. Close output projection/add and every later operator. A hash-bound
+float32 identity bridge avoids a duplicate terminal-component run:
+byte-identical `ffn_inp-0` plus current-Q6 `ffn_out-0` reconstructs the current
+production `l_out-0` byte-for-byte. The first residual is therefore the
+block-0 Q6_K×Q8_K result on byte-exact repaired SwiGLU. The sole active
+coordinate is the frozen
+[block-0 Q6 AVX2 parity protocol](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_PROTOCOL_20260924.md):
+compare current scalar/generic reduction against pinned llama.cpp's active
+x86 AVX2/FMA reduction using the same Q8_K bytes and zero model graphs.
 
 ## 1. Reading order and precedence
 

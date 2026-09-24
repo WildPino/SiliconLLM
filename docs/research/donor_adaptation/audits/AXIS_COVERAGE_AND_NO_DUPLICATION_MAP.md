@@ -17,18 +17,20 @@ not guaranteed disjoint by source document; its sequence-level results must not
 be promoted to a future document-bootstrap quality gate.
 
 **Current no-duplication boundary (24 September):** the
-[layer-1 FFN RMSNorm result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_RESULT_20260924.md)
-closes production RMSNorm and every later routed/downstream operator as
-`LAYER1_FFN_INPUT_RESIDUAL_SUFFICIENT`. Do not repeat those axes. Reference/C
-`kqv_out-1` are byte-identical; the sole open fidelity coordinate is the
-frozen [attention-output residual split](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_PROTOCOL_20260924.md),
-which applies the current Q4_K output projection once and changes only the
-immutable post-production-SwiGLU `l_out-0` operand. The earlier layer-1-start
-cell used a different block-0 state and does not adjudicate this changed hash.
-Its [model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
-is qualified with every scientific counter at zero. Do not widen or execute
-another cell before committing these exact sources and running this sole
-zero-graph invocation.
+[layer-1 attention-output residual result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_RESULT_20260924.md)
+closes the Q4_K output projection/add and all later operators as
+`LAYER1_BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`. Reference/C `kqv_out-1` are
+byte-identical; reference residual passes exactly and current residual exactly
+replays the failure. Do not repeat that cell. Do not run the terminal split
+suggested by its older protocol: existing hash-bound payloads prove
+`ffn_inp-0` exact and `ffn_inp-0 + current-Q6 ffn_out-0 = current l_out-0`
+byte-for-byte. The first residual is therefore the block-0 Q6 result on exact
+repaired SwiGLU. The sole open fidelity coordinate is the frozen
+[block-0 Q6_K×Q8_K AVX2 parity protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_PROTOCOL_20260924.md),
+which compares current generic reduction with pinned llama.cpp's active x86
+AVX2/FMA path on identical Q8_K bytes. It executes no model graph. The older
+Q6 PASS remains valid only for its weaker downstream gate and must not be
+rerun.
 The still later [STRAT-03 result](../probes/STRAT_03_EXECUTABLE_SHARED_RESIDUAL_RESULT.md)
 closes the frozen five-layer `k=3/256` local diagnostic with a byte-count-
 matched SwiGLU shared path and `x`-only router: all three gates fail despite
