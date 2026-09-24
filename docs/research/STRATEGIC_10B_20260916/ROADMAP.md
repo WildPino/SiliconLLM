@@ -86,6 +86,10 @@ Close gate/expression and all later axes. The sole successor is frozen by the
 [routed-up projection protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_UP_PROJECTION_CROSS_INPUT_PROTOCOL_20260924.md):
 reference versus C `ffn_norm-1` through the same selected current up matrices,
 reference gate, SSE2, Q6, and closed downstream. Qualify model-free next.
+Its [model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_UP_PROJECTION_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+qualified on the first attempt without artifact/payload access and with every
+scientific counter at zero. Commit exact sources, then execute one
+three-up-arm/five-Q6-arm, zero-graph invocation.
 
 **Date: 16 September 2026. Analysis and design only. No code, tests, benchmarks, weight downloads, or training performed.** Reading baseline: HEAD `f1f9cfd59d34071a004248bc04c9d56e6038c596`. Register of sources, scope, and results: [EVIDENCE.md](EVIDENCE.md). The L/W codes refer to that register; further primary sources are linked in the text.
 

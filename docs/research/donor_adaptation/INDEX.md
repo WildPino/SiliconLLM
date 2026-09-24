@@ -414,6 +414,9 @@ frozen [routed-up projection cross-input](probes/STRAT_01_GIGACHAT31_ENGINE_LAYE
 reference versus C `ffn_norm-1` through the same selected current up matrices,
 then reference gate, SSE2, Q6, and the closed downstream path. Qualify its
 model-free apparatus next; execute no graph.
+That [apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_UP_PROJECTION_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+qualified on the first attempt without artifact/payload access and with all
+scientific counters at zero. Commit exact sources before the sole invocation.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

@@ -423,6 +423,9 @@ expression, Q6, and all later axes. The sole non-duplicate coordinate is the
 frozen [routed-up projection split](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_UP_PROJECTION_CROSS_INPUT_PROTOCOL_20260924.md)
 between reference and C `ffn_norm-1` through the same selected current up
 matrices, with zero graphs.
+Its [model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_UP_PROJECTION_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+qualified on the first attempt without artifact/payload access or any
+projection/Q6/graph execution. Commit exact sources before one invocation.
 
 ## 1. How to read this map
 
