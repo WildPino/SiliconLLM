@@ -38,6 +38,7 @@
 #include "strat01_gguf_rung2d.h"
 #include "strat01_gguf_rung2b_cross_input.h"
 #include "strat01_gguf_rung2c_cross_input.h"
+#include "strat01_gguf_layer2_attention_cross_input.h"
 #include "strat01_gguf_rung2c_layer1_start_cross_input.h"
 #include "strat01_gguf_post_f16_layer1_start_cross_input.h"
 #include "strat01_gguf_post_f16_block0_terminal_component_cross_input.h"
@@ -1117,6 +1118,15 @@ int main(int argc,char**argv){
         return strat01_r2c_cross_input_cli(argv[2],argv[4],argv[6],argv[8],argv[10],argv[12],argv[14],argv[16],__FILE__);
     }
     if(argc==2 && !strcmp(argv[1],"--strat01-rung2c-cross-input-selftest")) return strat01_r2c_cross_input_selftest();
+    if(argc>1 && !strcmp(argv[1],"--strat01-layer2-attention-cross-input")){
+        if(argc!=17 || strcmp(argv[3],"--ref-q") || strcmp(argv[5],"--ref-k") || strcmp(argv[7],"--ref-v") ||
+           strcmp(argv[9],"--c-q") || strcmp(argv[11],"--c-k") || strcmp(argv[13],"--c-v") || strcmp(argv[15],"--out-dir")){
+            fprintf(stderr,"usage: engine --strat01-layer2-attention-cross-input <accepted.gguf> --ref-q <Qcur.f32le> --ref-k <Kcur.f32le> --ref-v <Vcur.f32le> --c-q <Qcur.f32le> --c-k <Kcur.f32le> --c-v <Vcur.f32le> --out-dir <directory>\n");
+            return 2;
+        }
+        return strat01_l2ax_cli(argv[2],argv[4],argv[6],argv[8],argv[10],argv[12],argv[14],argv[16],__FILE__);
+    }
+    if(argc==2 && !strcmp(argv[1],"--strat01-layer2-attention-cross-input-selftest")) return strat01_l2ax_selftest();
     if(argc>1 && !strcmp(argv[1],"--strat01-rung2c-layer1-start-cross-input")){
         if(argc!=9 || strcmp(argv[3],"--reference-input") || strcmp(argv[5],"--c-input") || strcmp(argv[7],"--out-dir")){
             fprintf(stderr,"usage: engine --strat01-rung2c-layer1-start-cross-input <accepted.gguf> --reference-input <l_out-0.f32le> --c-input <l_out-0.f32le> --out-dir <directory>\n");

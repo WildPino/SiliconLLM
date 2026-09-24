@@ -307,6 +307,10 @@ It reuses the closed layer-1 diagnostic method but changes the actual depth,
 inputs, target, and V-B weights. Prefill and cached payload hashes are exact,
 so only one boundary replay is admissible. Qualify model-free first; the sole
 scientific invocation may read the V-B matrix but executes zero model graphs.
+The [apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTENTION_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is qualified with every new/inherited test passing and zero model access or
+graphs. Commit its exact sources, then execute the one permitted boundary
+replay; do not add a cached duplicate.
 
 ## 1. How to read this map
 

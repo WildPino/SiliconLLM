@@ -299,6 +299,10 @@ is frozen next. It uses the same accepted boundary method as the old layer-1
 cell but binds new layer-2 inputs, target, and V-B weights. Prefill and cached
 payloads are byte-identical, so qualify one model-free apparatus and then one
 boundary-only replay; no donor/reference graph may execute.
+Its [apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTENTION_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is now `APPARATUS_READY_NO_DONOR_EXECUTION`: the new, inherited, legacy, and
+Python tests pass with zero diagnostic invocations, zero graphs, and no GGUF
+access. Commit the exact sources before the one boundary replay.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
