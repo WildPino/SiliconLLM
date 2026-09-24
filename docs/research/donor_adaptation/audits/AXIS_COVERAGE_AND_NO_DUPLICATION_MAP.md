@@ -292,6 +292,15 @@ No model, reference, C producer, predecessor, or closed operator axis may be
 rerun. `kqv_out-2` is only a provisional first-failure boundary until the
 offline recovery is valid.
 
+The canonical [offline-recovered result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_DEPTH_EXTENSION_RESULT_20260924.md)
+is `FAIL_ENGINE_LAYER2_DEPTH_EXTENSION_RECOVERED`. It closes layer-2 depth
+execution with 52/64 checkpoints, 64/64 continuity comparisons, 9/9 caches,
+8/8 predecessor witnesses, and all ten repaired controls valid. The first
+failure is `kqv_out-2` in both schedules while every Q/K/V input passes.
+Only an attention-output diagnostic over immutable payloads is non-duplicate;
+new model/reference graphs require proof that the needed intermediate is
+absent.
+
 ## 1. How to read this map
 
 Evidence classes are intentionally different:

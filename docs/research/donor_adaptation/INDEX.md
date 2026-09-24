@@ -286,6 +286,14 @@ binds the immutable run and replaces only that masked aggregate control with
 the same-threshold branch-local omission check. Implement and commit that
 adjudicator next; do not rerun either producer. The observed first numerical
 failure, `kqv_out-2`, is diagnostic only until recovery closes.
+The canonical [recovered result](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_DEPTH_EXTENSION_RESULT_20260924.md)
+is now `FAIL_ENGINE_LAYER2_DEPTH_EXTENSION_RECOVERED`: 52/64 checkpoints,
+64/64 continuity comparisons, 9/9 caches, 8/8 predecessor witnesses, exact
+helper counts, and all ten repaired causal controls are valid. Both schedules
+first fail at `kqv_out-2` with NRMSE `0.003014631769821054`; all preceding
+Q/K/V surfaces pass. Recovery ran zero producers and zero graphs. Close this
+cell permanently and freeze a separate immutable-payload diagnostic at the
+attention output boundary.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
