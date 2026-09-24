@@ -367,7 +367,13 @@ addition and layer 2. The only new successor is the frozen
 using routed/shared payloads and zero graphs. Its
 [model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_OUTPUT_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
 qualified on the first attempt without opening artifact or payloads. Commit the
-exact sources, then execute the sole zero-graph diagnostic.
+exact sources, then execute the sole zero-graph diagnostic. Its canonical
+[result](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_OUTPUT_COMPONENT_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER1_ROUTED_MOE_OUTPUT_RESIDUAL_SUFFICIENT`: C routed output alone
+replays the failure, while C shared output alone passes. Close shared expert,
+terminal addition, and layer 2. The only new successor is the frozen
+[routed-MoE component split](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md)
+between expert-down output and normalized router weights, with zero graphs.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

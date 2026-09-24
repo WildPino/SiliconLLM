@@ -375,7 +375,14 @@ between routed `ffn_moe_out-1` and shared `ffn_shexp-1`, with exact reference
 residual and zero graphs. Its
 [model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_OUTPUT_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
 qualified without artifact/payload access or diagnostic execution. Commit those
-exact sources, then run the sole zero-graph diagnostic.
+exact sources, then run the sole zero-graph diagnostic. Its canonical
+[result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_OUTPUT_COMPONENT_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER1_ROUTED_MOE_OUTPUT_RESIDUAL_SUFFICIENT`: C routed output replays the
+failure and C shared output passes. Close the shared, terminal, and layer-2
+axes. The only non-duplicate coordinate is the frozen
+[routed-MoE component split](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md)
+between captured expert-down outputs and normalized router weights, with
+byte-identical top-4 IDs and zero graphs. Qualify model-free first.
 
 ## 1. How to read this map
 
