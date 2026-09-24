@@ -356,8 +356,10 @@ is `LAYER1_TERMINAL_RESIDUAL_SUFFICIENT`: reference `l_out-1` is byte-exact
 through the full closed layer-2 chain and C `l_out-1` exactly replays the
 failure. Close layer-2 RMSNorm and downstream. The only new successor is the
 frozen [layer-1 terminal-component split](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_TERMINAL_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md),
-using immutable `ffn_inp-1 + ffn_out-1` and zero graphs. Qualify model-free
-next.
+using immutable `ffn_inp-1 + ffn_out-1` and zero graphs. Its
+[model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_TERMINAL_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is qualified with no artifact or payload access. Commit exact sources, then
+execute the sole scientific diagnostic.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

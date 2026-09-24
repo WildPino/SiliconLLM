@@ -363,8 +363,10 @@ is `LAYER1_TERMINAL_RESIDUAL_SUFFICIENT`: exact reference input passes every
 downstream stage byte-exactly and C input replays the failure. Close attention
 RMSNorm and every downstream axis. The only non-duplicate coordinate is the
 frozen [layer-1 terminal-component split](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_TERMINAL_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md)
-at `ffn_inp-1 + ffn_out-1`, using immutable payloads and zero graphs. Qualify
-model-free first.
+at `ffn_inp-1 + ffn_out-1`, using immutable payloads and zero graphs. Its
+[model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_TERMINAL_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is qualified without artifact/payload access. Commit exact sources before the
+one permitted scientific diagnostic.
 
 ## 1. How to read this map
 

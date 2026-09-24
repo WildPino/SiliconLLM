@@ -43,6 +43,7 @@
 #include "strat01_gguf_layer2_kv_rmsnorm_cross_input.h"
 #include "strat01_gguf_layer2_kv_a_projection_cross_input.h"
 #include "strat01_gguf_layer2_attn_rmsnorm_cross_input.h"
+#include "strat01_gguf_layer1_terminal_component_cross_input.h"
 #include "strat01_gguf_rung2c_layer1_start_cross_input.h"
 #include "strat01_gguf_post_f16_layer1_start_cross_input.h"
 #include "strat01_gguf_post_f16_block0_terminal_component_cross_input.h"
@@ -1156,6 +1157,11 @@ int main(int argc,char**argv){
         return strat01_l2an_cli(argv[2],argv[4],argv[6],argv[8],argv[10],argv[12],argv[14],argv[16],__FILE__);
     }
     if(argc==2 && !strcmp(argv[1],"--strat01-layer2-attn-rmsnorm-cross-input-selftest")) return strat01_l2an_selftest();
+    if(argc>1 && !strcmp(argv[1],"--strat01-layer1-terminal-component-cross-input")){
+        if(argc!=21 || strcmp(argv[3],"--ref-q") || strcmp(argv[5],"--ref-k") || strcmp(argv[7],"--ref-ffn-inp") || strcmp(argv[9],"--ref-ffn-out") || strcmp(argv[11],"--ref-l-out") || strcmp(argv[13],"--c-ffn-inp") || strcmp(argv[15],"--c-ffn-out") || strcmp(argv[17],"--c-l-out") || strcmp(argv[19],"--out-dir")){fprintf(stderr,"usage: engine --strat01-layer1-terminal-component-cross-input <accepted.gguf> --ref-q <Qcur> --ref-k <Kcur> --ref-ffn-inp <ffn_inp-1> --ref-ffn-out <ffn_out-1> --ref-l-out <l_out-1> --c-ffn-inp <ffn_inp-1> --c-ffn-out <ffn_out-1> --c-l-out <l_out-1> --out-dir <dir>\n");return 2;}
+        return strat01_l1tc_cli(argv[2],argv[4],argv[6],argv[8],argv[10],argv[12],argv[14],argv[16],argv[18],argv[20],__FILE__);
+    }
+    if(argc==2 && !strcmp(argv[1],"--strat01-layer1-terminal-component-cross-input-selftest")) return strat01_l1tc_selftest();
     if(argc>1 && !strcmp(argv[1],"--strat01-rung2c-layer1-start-cross-input")){
         if(argc!=9 || strcmp(argv[3],"--reference-input") || strcmp(argv[5],"--c-input") || strcmp(argv[7],"--out-dir")){
             fprintf(stderr,"usage: engine --strat01-rung2c-layer1-start-cross-input <accepted.gguf> --reference-input <l_out-0.f32le> --c-input <l_out-0.f32le> --out-dir <directory>\n");

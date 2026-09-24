@@ -29,8 +29,10 @@ was qualified after preserving the initial compile VOID. The canonical
 is `LAYER1_TERMINAL_RESIDUAL_SUFFICIENT`: reference `l_out-1` is byte-exact
 through the entire layer-2 chain and C `l_out-1` exactly replays the failure.
 Close that chain. The [terminal-component protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_TERMINAL_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md)
-now freezes reference/C `ffn_inp-1 + ffn_out-1`; qualify it model-free next,
-with no producer or graph execution.
+now freezes reference/C `ffn_inp-1 + ffn_out-1`. Its
+[model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_TERMINAL_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is qualified with no artifact, payload, diagnostic, or graph access. Commit
+the exact sources, then execute the sole scientific zero-graph diagnostic.
 
 **Date: 16 September 2026. Analysis and design only. No code, tests, benchmarks, weight downloads, or training performed.** Reading baseline: HEAD `f1f9cfd59d34071a004248bc04c9d56e6038c596`. Register of sources, scope, and results: [EVIDENCE.md](EVIDENCE.md). The L/W codes refer to that register; further primary sources are linked in the text.
 
