@@ -3,20 +3,17 @@
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
 **Latest STRAT-01 continuation (24 September):** the canonical
-[block-0 Q6 AVX2 result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_RESULT_20260924.md)
-is `BLOCK0_Q6_AVX2_REDUCTION_INSUFFICIENT`. Q8_K populations and the C/pinned
-x86 AVX2/FMA outputs are byte-exact to each other, but the active result is
-not the immutable reference `ffn_out-0`. Complete downstream NRMSE falls to
-`1.467939211440746e-7`, with 188/49,152 floats changed, so active AVX2 is a
-large numerical improvement but not the exact repair required by the frozen
-gate. Close Q8 packing and active AVX2; do not repeat or install that cell.
-The sole active coordinate is the frozen
-[Q6 reference-generic compile-parity protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_PROTOCOL_20260924.md):
-reuse the same Q6 rows, Q8 bytes, input and downstream amplifier while changing
-only the pinned generic operation to the reference build's isolated
-`no-avx,no-avx2,no-fma` target. This compiler coordinate was causal for Q4 but
-has not yet been measured for Q6. Qualify it model-free before one zero-graph
-scientific invocation.
+[block-0 Q6 reference-generic result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_RESULT_20260924.md)
+is `BLOCK0_Q6_REFERENCE_GENERIC_EXACT_REPAIR`. Candidate and independently
+compiled pinned generic oracle are byte-exact to immutable `ffn_out-0`, and
+candidate `l_out-0` plus the complete 49,152-float downstream amplifier are
+also byte-exact. The historical AVX-TU generic and active AVX2 hashes remain
+distinct, so isolated no-AVX/FMA lowering is causal. Close Q8 and all three
+compile-parity arms; do not rerun them. The sole active coordinate is the
+frozen [Q6 reference-generic production-integration protocol](probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md):
+make the normal shared Q6 dispatch delegate to the exact helper, qualify the
+1280-wide routed/shared use model-free, then run one standard Rung-2C producer
+with no reference graph. This is fidelity work, not a rate measurement.
 
 **STRAT-01 block-0 production integration (22 September):**
 Closed as **`PASS_ENGINE_BLOCK0_PRODUCTION_INTEGRATION`**. The standard

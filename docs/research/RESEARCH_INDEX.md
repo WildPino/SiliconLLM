@@ -13,16 +13,16 @@ or preregistered brief.
 - **VOID** — apparatus/control failed before the estimand; it is not evidence.
 
 **Latest execution state (24 September).** The canonical
-[block-0 Q6 AVX2 result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_RESULT_20260924.md)
-is `BLOCK0_Q6_AVX2_REDUCTION_INSUFFICIENT`. Q8 populations are byte-exact and
-the literal C AVX2/FMA candidate is byte-exact to its clean pinned x86 oracle,
-but both differ from immutable `ffn_out-0`; complete downstream NRMSE is
-`1.467939211440746e-7` with 188/49,152 floats changed. Close Q8 packing and
-active AVX2; do not rerun or install it as an exact repair. The sole active
-coordinate is the frozen
-[Q6 reference-generic compile-parity protocol](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_PROTOCOL_20260924.md):
-same bytes and amplifier, changing only AVX-TU generic lowering to the
-reference producer's isolated `GGML_CPU_GENERIC` no-AVX/FMA target.
+[block-0 Q6 reference-generic result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_RESULT_20260924.md)
+is `BLOCK0_Q6_REFERENCE_GENERIC_EXACT_REPAIR`. The isolated
+`no-avx,no-avx2,no-fma` candidate is byte-exact to the independent pinned
+`GGML_CPU_GENERIC` oracle, immutable `ffn_out-0`, `l_out-0`, and the complete
+49,152-float downstream amplifier; all error metrics are zero. Close Q8,
+historical generic, active AVX2, and compile parity. The sole active coordinate
+is the frozen
+[Q6 production-integration protocol](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md):
+install only the exact helper in shared normal dispatch, qualify model-free,
+then permit one standard two-schedule Rung-2C invocation.
 
 ## 1. Reading order and precedence
 

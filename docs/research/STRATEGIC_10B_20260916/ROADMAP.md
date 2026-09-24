@@ -3,16 +3,16 @@
 **Rolling status through 23 September 2026:** [continuation status](STATUS_20260923.md). The [17 September `engine.c` scope decision](STATUS_20260917.md) remains valid. The text below remains the 16 September design snapshot; use the rolling status and [research control index](../RESEARCH_INDEX.md) for execution state and no-duplication decisions.
 
 **Latest continuation (24 September):** the canonical
-[block-0 Q6 AVX2 result](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_RESULT_20260924.md)
-is `BLOCK0_Q6_AVX2_REDUCTION_INSUFFICIENT`. Exact C/oracle Q8 populations and
-exact C/oracle active-AVX2 outputs rule out quantizer and transcription errors,
-but the active result differs from immutable `ffn_out-0`. Downstream NRMSE is
-reduced from the prior generic failure to `1.467939211440746e-7`, but 188 of
-49,152 floats remain changed. Close active AVX2 and do not rerun it. The sole
+[block-0 Q6 reference-generic result](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_RESULT_20260924.md)
+is `BLOCK0_Q6_REFERENCE_GENERIC_EXACT_REPAIR`. The isolated baseline-generic
+candidate is byte-exact to its independent oracle and to immutable
+`ffn_out-0`, `l_out-0`, and the complete downstream amplifier: 0/49,152
+floats differ at the final boundary. Compiler target/lowering is therefore
+causal; close Q8, historical generic, active AVX2, and compile parity. The sole
 next boundary is the frozen
-[Q6 reference-generic compile-parity protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_PROTOCOL_20260924.md):
-preserve every byte and test only the reference build's isolated
-`GGML_CPU_GENERIC` no-AVX/FMA lowering.
+[Q6 reference-generic production-integration protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md):
+make normal shared dispatch delegate to the exact helper, qualify model-free,
+then run one standard two-schedule Rung-2C producer.
 This paragraph supersedes the older active-boundary wording below.
 
 **Current execution head (24 September):** the accepted donor is exact through

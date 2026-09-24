@@ -17,16 +17,16 @@ not guaranteed disjoint by source document; its sequence-level results must not
 be promoted to a future document-bootstrap quality gate.
 
 **Current no-duplication boundary (24 September):** the canonical
-[block-0 Q6 AVX2 result](../probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_RESULT_20260924.md)
-is `BLOCK0_Q6_AVX2_REDUCTION_INSUFFICIENT`. Q8 population parity and exact
-C/pinned-oracle output close quantization, packed Q6 interpretation, and active
-x86 transcription. Active AVX2 still differs from the immutable graph output;
-do not repeat or install it as exact repair. The only open fidelity coordinate
-is the frozen
-[Q6 reference-generic compile-parity protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_PROTOCOL_20260924.md):
-same Q8, Q6, input, matrix, and amplifier; only isolate the exact generic
-operation under the preserved reference build's no-AVX/FMA target. Q4 already
-proved this compiler distinction causal, but Q6 has not measured it.
+[block-0 Q6 reference-generic result](../probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_RESULT_20260924.md)
+is `BLOCK0_Q6_REFERENCE_GENERIC_EXACT_REPAIR`. The isolated generic candidate
+equals its independent oracle, immutable `ffn_out-0`, `l_out-0`, and the
+complete downstream output byte-for-byte, while historical generic and active
+AVX2 remain distinct. This closes Q8, packed interpretation, both earlier
+reductions, compiler attribution, and the downstream sufficiency question.
+Do not repeat any of those cells. The only open fidelity coordinate is the
+frozen [Q6 production integration](../probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md):
+one shared-dispatch edit, model-free 1280-width qualification, and at most one
+normal Rung-2C producer invocation with zero reference graphs.
 The still later [STRAT-03 result](../probes/STRAT_03_EXECUTABLE_SHARED_RESIDUAL_RESULT.md)
 closes the frozen five-layer `k=3/256` local diagnostic with a byte-count-
 matched SwiGLU shared path and `x`-only router: all three gates fail despite
