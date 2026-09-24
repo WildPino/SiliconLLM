@@ -401,6 +401,11 @@ Q6(reference-SwiGLU) passes the sensitive downstream gate exactly and captured
 C down fails. Close Q6/down and all later axes. The sole non-duplicate
 coordinate is a captured routed gate/up/production-expression cross-input cell
 through current Q6 and the same downstream amplifier, with zero graphs.
+That coordinate is frozen by the
+[routed-SwiGLU component protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md).
+Its captured/scalar/SSE2 arms distinguish expression semantics, gate, up, and
+composition without changing Q6 or any later component. Only model-free
+apparatus qualification is open before one zero-graph scientific invocation.
 
 ## 1. How to read this map
 

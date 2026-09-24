@@ -391,6 +391,11 @@ Q6(reference-SwiGLU) passes the sensitive downstream gate exactly, while
 captured production C down fails. Q6/down and all later components are closed.
 The only new coordinate is a routed gate/up/production-expression cross-input
 split through current Q6 and the same downstream amplifier, with zero graphs.
+That split is now frozen by the
+[routed-SwiGLU component protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md).
+Captured, scalar, and no-FMA SSE2 arms distinguish expression semantics, gate,
+up, and composition while keeping Q6 and all later inputs fixed. Qualify only
+the model-free apparatus next; no graph is authorized.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
