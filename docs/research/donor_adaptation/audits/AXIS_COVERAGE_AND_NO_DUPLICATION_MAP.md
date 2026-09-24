@@ -382,7 +382,10 @@ failure and C shared output passes. Close the shared, terminal, and layer-2
 axes. The only non-duplicate coordinate is the frozen
 [routed-MoE component split](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md)
 between captured expert-down outputs and normalized router weights, with
-byte-identical top-4 IDs and zero graphs. Qualify model-free first.
+byte-identical top-4 IDs and zero graphs. Its
+[model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+qualified without artifact/payload access or diagnostic execution. Commit
+exact sources, then run the sole zero-graph diagnostic.
 
 ## 1. How to read this map
 
