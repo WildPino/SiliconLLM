@@ -37,12 +37,16 @@ constexpr const char * kArtifactSha256 = "68a8732fb5cee04f83ebffd7924e15c534d444
 constexpr uintmax_t kArtifactBytes = 6474702976ULL;
 #if defined(STRAT01_RUNG2D)
 constexpr const char * kSchema = "strat01_engine_rung2d_reference_manifest_v1";
+constexpr const char * kGraphMarker = "STRAT01_RUNG2D_GRAPH_COMPLETE arm=";
 #elif defined(STRAT01_RUNG2C)
 constexpr const char * kSchema = "strat01_engine_rung2c_reference_manifest_v1";
+constexpr const char * kGraphMarker = "STRAT01_RUNG2C_GRAPH_COMPLETE arm=";
 #elif defined(STRAT01_RUNG2B)
 constexpr const char * kSchema = "strat01_engine_rung2b_reference_manifest_v1";
+constexpr const char * kGraphMarker = "STRAT01_RUNG2C_GRAPH_COMPLETE arm=";
 #else
 constexpr const char * kSchema = "strat01_engine_rung2a_reference_manifest_v1";
+constexpr const char * kGraphMarker = "STRAT01_RUNG2C_GRAPH_COMPLETE arm=";
 #endif
 constexpr const char * kLlamaCommit = "5b335f413e4f73b0809c4fe39af894efbcc6a0d2";
 constexpr uint32_t kRequestedCtx = 8;
@@ -523,8 +527,8 @@ void run_production(const Cli & cli) {
         try { validate_resolved_context_dimensions(llama_n_ctx(ctx),llama_n_batch(ctx),llama_n_ubatch(ctx)); }
         catch (...) { llama_free(ctx);llama_model_free(model);throw; }
         std::vector<Trace> traces;
-        if(cli.arm==Arm::All||cli.arm==Arm::Prefill8){traces.push_back(run_arm(ctx,collector,Arm::Prefill8));std::cerr<<"STRAT01_RUNG2C_GRAPH_COMPLETE arm=prefill8\n";}
-        if(cli.arm==Arm::All||cli.arm==Arm::Cached7p1){traces.push_back(run_arm(ctx,collector,Arm::Cached7p1));std::cerr<<"STRAT01_RUNG2C_GRAPH_COMPLETE arm=cached7p1\n";}
+        if(cli.arm==Arm::All||cli.arm==Arm::Prefill8){traces.push_back(run_arm(ctx,collector,Arm::Prefill8));std::cerr<<kGraphMarker<<"prefill8\n";}
+        if(cli.arm==Arm::All||cli.arm==Arm::Cached7p1){traces.push_back(run_arm(ctx,collector,Arm::Cached7p1));std::cerr<<kGraphMarker<<"cached7p1\n";}
         for(const Trace&t:traces)write_trace_json(cli.out_dir,t); write_root_manifest(cli.out_dir,cli.model,traces); llama_free(ctx);llama_model_free(model);
     } catch (...) { llama_backend_free(); throw; }
     llama_backend_free();

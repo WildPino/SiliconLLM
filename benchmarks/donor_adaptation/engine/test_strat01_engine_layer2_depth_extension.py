@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 import unittest
+from unittest import mock
+
+import numpy as np
 
 from benchmarks.donor_adaptation.engine import run_strat01_engine_layer2_depth_extension as layer2
 
@@ -54,6 +57,52 @@ class Layer2DepthExtensionTests(unittest.TestCase):
         self.assertIn("strat01_engine_rung2d_reference_manifest_v1", source)
         self.assertIn('\\"layers\\":[0,1,2]', source)
         self.assertIn('variant = "rung2d" if rung2d', build)
+
+    def test_scientific_checkpoint_inventory_is_exact(self) -> None:
+        self.assertEqual(len(layer2.SHAPES), 32)
+        self.assertEqual(set(layer2.SHAPES), {"l_out-1", *{
+            name[:-1] + "2" for name in layer2.r2c.SHAPES if name != "l_out-0"
+        }})
+        self.assertEqual(layer2.SHAPES["l_out-1"], [1536, 8])
+        self.assertEqual(layer2.SHAPES["ffn_moe_topk-2"], [4, 8])
+        self.assertEqual(layer2.I32_NAMES, {"ffn_moe_topk-2"})
+
+    def test_reference_and_c_have_distinct_rung2d_graph_markers(self) -> None:
+        source = layer2.REFERENCE_SOURCE.read_text(encoding="utf-8")
+        self.assertEqual(layer2.GRAPH_MARKER, "STRAT01_RUNG2D_GRAPH_COMPLETE arm=")
+        self.assertEqual(layer2.REFERENCE_GRAPH_MARKER, layer2.GRAPH_MARKER)
+        self.assertIn('kGraphMarker = "STRAT01_RUNG2D_GRAPH_COMPLETE arm="', source)
+
+    def test_graph_completion_requires_each_arm_exactly_once(self) -> None:
+        valid = {"stdout": "", "stderr": (
+            layer2.GRAPH_MARKER + "prefill8\n" +
+            layer2.GRAPH_MARKER + "cached7p1\n"
+        )}
+        duplicate = {"stdout": valid["stderr"], "stderr": layer2.GRAPH_MARKER + "prefill8\n"}
+        missing = {"stdout": layer2.GRAPH_MARKER + "prefill8\n", "stderr": ""}
+        self.assertEqual(layer2.completed_graph_count(valid, layer2.GRAPH_MARKER), 2)
+        self.assertEqual(layer2.completed_graph_count(duplicate, layer2.GRAPH_MARKER), -1)
+        self.assertEqual(layer2.completed_graph_count(missing, layer2.GRAPH_MARKER), -1)
+
+    def test_layer2_negative_controls_translate_to_rung2c_contract(self) -> None:
+        sentinel = np.array([1.0], dtype=np.float32)
+        reference = {}
+        for arm in layer2.r2c.base.ARMS:
+            reference[f"{arm}/l_out-1"] = sentinel
+            for name in layer2.r2c.SHAPES:
+                if name != "l_out-0":
+                    reference[f"{arm}/{name[:-1]}2"] = sentinel
+        with mock.patch.object(layer2.r2c, "negative_controls", return_value={"ok": {"pass": False}}) as call:
+            result = layer2.layer2_negative_controls(reference)
+        translated = call.call_args.args[0]
+        self.assertEqual(result, {"ok": {"pass": False}})
+        for arm in layer2.r2c.base.ARMS:
+            self.assertIs(translated[f"{arm}/l_out-0"], sentinel)
+            self.assertEqual(set(k.removeprefix(f"{arm}/") for k in translated if k.startswith(f"{arm}/")), set(layer2.r2c.SHAPES))
+
+    def test_scientific_frontier_hashes_are_frozen(self) -> None:
+        self.assertEqual(layer2.REFERENCE_START_SHA, "40d5a0f07fbb77c1ef73ca24f81cb35ea0df32457faa8d04d6c5cd33cd9f1d5f")
+        self.assertEqual(layer2.C_START_SHA, "9af8cec3f42781e9f4cac6af1ea13f6a63b751a5323201a8a18f91b3f7b7bbcb")
 
 
 if __name__ == "__main__":
