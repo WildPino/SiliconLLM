@@ -358,8 +358,13 @@ failure. Close layer-2 RMSNorm and downstream. The only new successor is the
 frozen [layer-1 terminal-component split](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_TERMINAL_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md),
 using immutable `ffn_inp-1 + ffn_out-1` and zero graphs. Its
 [model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_TERMINAL_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
-is qualified with no artifact or payload access. Commit exact sources, then
-execute the sole scientific diagnostic.
+was qualified with no artifact or payload access. The canonical
+[result](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_TERMINAL_COMPONENT_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER1_FFN_OUTPUT_RESIDUAL_SUFFICIENT`: reference input + C output exactly
+replays the failing downstream hash; the inverse cross passes. Close terminal
+addition and layer 2. The only new successor is the frozen
+[FFN-output component split](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_OUTPUT_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md),
+using routed/shared payloads and zero graphs. Qualify model-free next.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
