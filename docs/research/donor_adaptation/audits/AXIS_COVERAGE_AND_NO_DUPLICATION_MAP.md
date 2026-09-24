@@ -261,8 +261,14 @@ forbidden until exact sources are committed.
 That [apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_SWIGLU_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260924.md)
 is now qualified with one shared primitive, unchanged layer 1, 172 Python
 tests, 21 C self-tests, eleven passing source controls, exact predecessor and
-reference bindings, and zero GGUF/graph execution. Commit exact sources and
-run the sole standard Rung-2C production invocation next. No other axis opens.
+reference bindings, and zero GGUF/graph execution. Its sole
+[production result](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_SWIGLU_PRODUCTION_INTEGRATION_RESULT_20260924.md)
+is now valid `PASS_ENGINE_POST_F16_SWIGLU_PRODUCTION_INTEGRATION`: 64/64
+checkpoints, 64/64 continuity comparisons, six exact caches, exact routes and
+helper counts, and ten live causal controls pass across both schedules. One
+production invocation and zero reference graphs ran. This closes all
+engine-fidelity coordinates through complete layer 1. No prior axis reopens;
+the next eligible coordinate must be a separately frozen depth extension.
 
 ## 1. How to read this map
 

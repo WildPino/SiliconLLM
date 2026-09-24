@@ -254,8 +254,15 @@ sources before the sole accepted-GGUF invocation; never rerun reference.
 Its [model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_SWIGLU_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260924.md)
 is now `APPARATUS_READY_NO_DONOR_EXECUTION`: one shared implementation is
 proved, layer 1 is unchanged, and 172 Python tests, 21 C self-tests, eleven
-source controls, and every immutable binding pass. Commit the exact sources,
-then run the standard Rung-2C command once; reference remains read-only.
+source controls, and every immutable binding pass. Its sole
+[production result](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_SWIGLU_PRODUCTION_INTEGRATION_RESULT_20260924.md)
+is `PASS_ENGINE_POST_F16_SWIGLU_PRODUCTION_INTEGRATION`: the standard path
+passes all 64 checkpoints, all 64 continuity comparisons, and all six caches,
+with maximum NRMSE `7.9512e-5`; all controls and exact helper counts pass.
+One production invocation completed both donor schedules and the immutable
+reference was not rerun. Close all fidelity work through complete layer 1.
+Any successor must change depth beyond layer 1 under a separately frozen
+protocol and must reuse, not remeasure, the closed Q4/F16/SwiGLU/Q6 chain.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
