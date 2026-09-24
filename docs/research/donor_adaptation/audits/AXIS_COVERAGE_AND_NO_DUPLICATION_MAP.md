@@ -385,7 +385,14 @@ between captured expert-down outputs and normalized router weights, with
 byte-identical top-4 IDs and zero graphs. Its
 [model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
 qualified without artifact/payload access or diagnostic execution. Commit
-exact sources, then run the sole zero-graph diagnostic.
+exact sources, then run the sole zero-graph diagnostic. Its canonical
+[result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER1_ROUTED_EXPERT_DOWN_OUTPUT_RESIDUAL_SUFFICIENT`; the normalized
+router-weight arm passes. Close routing, weighting/sum, shared, terminal, and
+layer 2. The only non-duplicate coordinate is the frozen
+[routed-Q6 residual propagation](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_Q6_RESIDUAL_PROPAGATION_PROTOCOL_20260924.md):
+reuse the immutable old Q6(reference-SwiGLU) output under the new downstream
+gate; do not rerun Q6 or a graph. Qualify model-free first.
 
 ## 1. How to read this map
 

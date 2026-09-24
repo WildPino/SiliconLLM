@@ -376,7 +376,13 @@ terminal addition, and layer 2. The only new successor is the frozen
 between expert-down output and normalized router weights, with zero graphs. Its
 [model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
 qualified on the first attempt without opening artifact or payloads. Commit
-the exact sources, then execute the sole zero-graph diagnostic.
+the exact sources, then execute the sole zero-graph diagnostic. Its canonical
+[result](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER1_ROUTED_EXPERT_DOWN_OUTPUT_RESIDUAL_SUFFICIENT`: C expert-down
+values replay the failure and C normalized router weights pass. Close routing
+and reduction. The only new successor is the frozen
+[routed-Q6 residual propagation](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_Q6_RESIDUAL_PROPAGATION_PROTOCOL_20260924.md),
+which reuses the old Q6(reference-SwiGLU) output and executes no Q6 or graph.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
