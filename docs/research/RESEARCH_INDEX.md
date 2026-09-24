@@ -12,6 +12,16 @@ or preregistered brief.
 - **PROPOSED** — protocol or implementation exists, but has no result.
 - **VOID** — apparatus/control failed before the estimand; it is not evidence.
 
+**Latest execution state (24 September).** The canonical
+[layer-1 FFN RMSNorm result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER1_FFN_INPUT_RESIDUAL_SUFFICIENT`: production RMSNorm passes exactly
+on reference `ffn_inp-1`, while C input replays the downstream failure. Close
+RMSNorm and every later axis. Reference/current `kqv_out-1` are byte-identical;
+the sole active coordinate is the frozen
+[layer-1 attention-output residual protocol](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_PROTOCOL_20260924.md),
+which changes only immutable reference/C `l_out-0` around the current Q4_K
+output projection and executes zero graphs.
+
 ## 1. Reading order and precedence
 
 1. The newest canonical probe/result and any newer audit for the *same cell*.

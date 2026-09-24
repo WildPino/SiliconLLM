@@ -2,6 +2,19 @@
 
 **Rolling status through 23 September 2026:** [continuation status](STATUS_20260923.md). The [17 September `engine.c` scope decision](STATUS_20260917.md) remains valid. The text below remains the 16 September design snapshot; use the rolling status and [research control index](../RESEARCH_INDEX.md) for execution state and no-duplication decisions.
 
+**Latest continuation (24 September):** the canonical
+[layer-1 FFN RMSNorm result](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER1_FFN_INPUT_RESIDUAL_SUFFICIENT`. Production RMSNorm passes and
+byte-replays reference on exact `ffn_inp-1`; production C input byte-replays
+the downstream failure at NRMSE `0.002642086799405445`, with per-token
+failures at tokens 5 and 6. Close RMSNorm and every later coordinate. The
+reference/current `kqv_out-1` captures are byte-identical, so the sole next
+boundary is the residual add around the current output projection. It is
+frozen in the
+[layer-1 attention-output residual protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_PROTOCOL_20260924.md):
+current Q4_K output projection plus immutable reference/C `l_out-0`, zero
+graphs. This paragraph supersedes the older active-boundary wording below.
+
 **Current execution head (24 September):** the accepted donor is exact through
 layer 1; layer 2 first fails at attention output, and whole-KV cross-input has
 localized sufficiency to the compact KV row. The separately frozen

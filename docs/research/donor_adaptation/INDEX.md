@@ -2,6 +2,18 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
+**Latest STRAT-01 continuation (24 September):** the canonical
+[layer-1 FFN RMSNorm result](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER1_FFN_INPUT_RESIDUAL_SUFFICIENT`. Exact reference `ffn_inp-1`
+passes production RMSNorm and all downstream stages byte-for-byte; C input
+replays the `0.002642086799405445` downstream failure. Close RMSNorm and every
+later operator. Since reference/C `kqv_out-1` are byte-identical, the only
+active coordinate is the frozen
+[attention-output residual split](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_PROTOCOL_20260924.md):
+current output projection plus reference/C `l_out-0`, zero graphs. It uses the
+post-production-SwiGLU block-0 hash and therefore does not duplicate the older
+layer-1-start cell.
+
 **STRAT-01 block-0 production integration (22 September):**
 Closed as **`PASS_ENGINE_BLOCK0_PRODUCTION_INTEGRATION`**. The standard
 Rung-2B production path reproduces the exact combined norm/up/gate hashes and

@@ -15,6 +15,16 @@ The [corpus document-split audit](CORPUS_DOCUMENT_SPLIT_LIMITATION_2026-09-16.md
 shows that the legacy donor `calib`/`heldout` split is by shuffled 8 KiB chunk,
 not guaranteed disjoint by source document; its sequence-level results must not
 be promoted to a future document-bootstrap quality gate.
+
+**Current no-duplication boundary (24 September):** the
+[layer-1 FFN RMSNorm result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_RESULT_20260924.md)
+closes production RMSNorm and every later routed/downstream operator as
+`LAYER1_FFN_INPUT_RESIDUAL_SUFFICIENT`. Do not repeat those axes. Reference/C
+`kqv_out-1` are byte-identical; the sole open fidelity coordinate is the
+frozen [attention-output residual split](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_PROTOCOL_20260924.md),
+which applies the current Q4_K output projection once and changes only the
+immutable post-production-SwiGLU `l_out-0` operand. The earlier layer-1-start
+cell used a different block-0 state and does not adjudicate this changed hash.
 The still later [STRAT-03 result](../probes/STRAT_03_EXECUTABLE_SHARED_RESIDUAL_RESULT.md)
 closes the frozen five-layer `k=3/256` local diagnostic with a byte-count-
 matched SwiGLU shared path and `x`-only router: all three gates fail despite
