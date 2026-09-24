@@ -40,13 +40,20 @@ static int strat01_q6p_write_f32(
     return strat01_q4q8_write_output(path, data, count, sha, error);
 }
 
-static int strat01_q6p_write_failure(const char *dir, const char *error) {
+static int strat01_q6p_write_failure(
+        const char *dir, const char *error, int reference_generic) {
     char path[1024];
     FILE *stream;
-    if (!strat01_r2a_path(path, dir, "strat01_block0_q6k_q8k_avx2_parity.json") ||
+    const char *leaf = reference_generic
+        ? "strat01_block0_q6k_q8k_reference_generic_parity.json"
+        : "strat01_block0_q6k_q8k_avx2_parity.json";
+    const char *command = reference_generic
+        ? "--strat01-block0-q6k-q8k-reference-generic-parity"
+        : "--strat01-block0-q6k-q8k-avx2-parity";
+    if (!strat01_r2a_path(path, dir, leaf) ||
         (stream = fopen(path, "wb")) == NULL) return 0;
-    fputs("{\"command\":\"--strat01-block0-q6k-q8k-avx2-parity\","
-          "\"state\":\"DIAGNOSTIC_FAILURE\",\"error\":", stream);
+    fputs("{\"command\":", stream); strat01_json_string(stream, command);
+    fputs(",\"state\":\"DIAGNOSTIC_FAILURE\",\"error\":", stream);
     strat01_json_string(stream, error);
     fputs(",\"q8_populations_completed\":0,\"q6_matrix_reads\":0,"
           "\"diagnostic_executions\":1,\"donor_graph_executions\":0,"
@@ -55,12 +62,13 @@ static int strat01_q6p_write_failure(const char *dir, const char *error) {
     return 1;
 }
 
-static int strat01_q6p_cli(
+static int strat01_q6p_cli_mode(
         const char *model, const char *input_path, const char *ffn_input_path,
         const char *topk_path, const char *ref_kqv_path, const char *ref_layer1_ffn_path,
         const char *ref_gate_path, const char *ref_q_path, const char *ref_k_path,
         const char *ref_shared_path, const char *ref_weights_path,
-        const char *out_dir, const char *engine_source_path) {
+        const char *out_dir, const char *engine_source_path,
+        int reference_generic) {
     strat01_inventory inventory;
     const strat01_tensor *matrix = NULL, *wo = NULL, *ffn_norm = NULL;
     const strat01_tensor *up_experts = NULL, *down_experts = NULL;
@@ -70,6 +78,7 @@ static int strat01_q6p_cli(
     const size_t q8_count = (size_t)STRAT01_Q6P_BATCH * blocks;
     const size_t output_count = (size_t)STRAT01_Q6P_BATCH * STRAT01_Q6P_ROWS;
     float *input = NULL, *ffn_input = NULL, *generic = NULL, *candidate = NULL;
+    float *active_control = NULL;
     float *generic_lout = NULL, *candidate_lout = NULL;
     float *ref_kqv = NULL, *ref_layer1_ffn = NULL, *ref_gate = NULL, *ref_q = NULL;
     float *ref_k = NULL, *ref_shared = NULL, *ref_weights = NULL;
@@ -88,11 +97,37 @@ static int strat01_q6p_cli(
     char q8_path[1024], q8_sha[65], generic_path[1024], generic_sha[65];
     char candidate_path[1024], candidate_sha[65], generic_lout_path[1024], generic_lout_sha[65];
     char candidate_lout_path[1024], candidate_lout_sha[65], mutation_path[1024], mutation_sha[65];
-    char downstream_path[1024], downstream_sha[65], topk_sha[65];
+    char active_path[1024], active_sha[65], downstream_path[1024], downstream_sha[65], topk_sha[65];
     char extra_sha[7][65] = {{0}};
     char report_path[1024];
     uint64_t hashed = 0, parsed = 0, temporary = 0;
     int ok = 0;
+    const char *command_name = reference_generic
+        ? "--strat01-block0-q6k-q8k-reference-generic-parity"
+        : "--strat01-block0-q6k-q8k-avx2-parity";
+    const char *report_leaf = reference_generic
+        ? "strat01_block0_q6k_q8k_reference_generic_parity.json"
+        : "strat01_block0_q6k_q8k_avx2_parity.json";
+    const char *generic_name = reference_generic
+        ? "historical_avx_tu_generic" : "current_generic_replay";
+    const char *generic_leaf = reference_generic
+        ? "historical_avx_tu_generic.f32le" : "current_generic_replay.f32le";
+    const char *candidate_name = reference_generic
+        ? "reference_generic_candidate" : "pinned_avx2_candidate";
+    const char *candidate_leaf = reference_generic
+        ? "reference_generic_candidate.f32le" : "pinned_avx2_candidate.f32le";
+    const char *generic_lout_name = reference_generic
+        ? "historical_avx_tu_generic_lout" : "current_generic_lout";
+    const char *generic_lout_leaf = reference_generic
+        ? "historical_avx_tu_generic_lout.f32le" : "current_generic_lout.f32le";
+    const char *candidate_lout_name = reference_generic
+        ? "reference_generic_candidate_lout" : "pinned_avx2_candidate_lout";
+    const char *candidate_lout_leaf = reference_generic
+        ? "reference_generic_candidate_lout.f32le" : "pinned_avx2_candidate_lout.f32le";
+    const char *downstream_name = reference_generic
+        ? "reference_generic_candidate_downstream" : "pinned_avx2_candidate_downstream";
+    const char *downstream_leaf = reference_generic
+        ? "reference_generic_candidate_downstream.f32le" : "pinned_avx2_candidate_downstream.f32le";
     memset(&inventory, 0, sizeof(inventory));
 #if !defined(__clang__) || !defined(__AVX2__) || !defined(__FMA__)
     snprintf(error, 256, "Q6 parity diagnostic requires Clang AVX2/FMA");
@@ -130,6 +165,7 @@ static int strat01_q6p_cli(
     Q6P_ALLOC(ffn_input, output_count);
     Q6P_ALLOC(generic, output_count);
     Q6P_ALLOC(candidate, output_count);
+    if (reference_generic) Q6P_ALLOC(active_control, output_count);
     Q6P_ALLOC(generic_lout, output_count);
     Q6P_ALLOC(candidate_lout, output_count);
     Q6P_ALLOC(ref_kqv, STRAT01_Q6P_BATCH * 6144U);
@@ -205,8 +241,14 @@ static int strat01_q6p_cli(
             const strat01_q8_k_block *activation = q8 + (size_t)item * blocks;
             const size_t index = (size_t)item * STRAT01_Q6P_ROWS + row;
             generic[index] = strat01_q6k_q8k_dot_generic(raw, activation, STRAT01_Q6P_WIDTH);
-            candidate[index] = strat01_q6k_q8k_dot_avx2(raw, activation, STRAT01_Q6P_WIDTH);
-            if (!isfinite(generic[index]) || !isfinite(candidate[index])) {
+            candidate[index] = reference_generic
+                ? strat01_q6k_q8k_dot_reference_generic(raw, activation, STRAT01_Q6P_WIDTH)
+                : strat01_q6k_q8k_dot_avx2(raw, activation, STRAT01_Q6P_WIDTH);
+            if (reference_generic)
+                active_control[index] = strat01_q6k_q8k_dot_avx2(
+                    raw, activation, STRAT01_Q6P_WIDTH);
+            if (!isfinite(generic[index]) || !isfinite(candidate[index]) ||
+                (reference_generic && !isfinite(active_control[index]))) {
                 snprintf(error, 256, "Q6 parity non-finite output");
                 goto finish;
             }
@@ -215,8 +257,11 @@ static int strat01_q6p_cli(
             memcpy(mutated, raw, row_bytes);
             mutated[17] ^= 1U;
             for (unsigned item = 0; item < STRAT01_Q6P_BATCH; ++item)
-                mutation[item] = strat01_q6k_q8k_dot_avx2(
-                    mutated, q8 + (size_t)item * blocks, STRAT01_Q6P_WIDTH);
+                mutation[item] = reference_generic
+                    ? strat01_q6k_q8k_dot_reference_generic(
+                        mutated, q8 + (size_t)item * blocks, STRAT01_Q6P_WIDTH)
+                    : strat01_q6k_q8k_dot_avx2(
+                        mutated, q8 + (size_t)item * blocks, STRAT01_Q6P_WIDTH);
         }
     }
     if (ferror(weights) || fclose(weights) != 0) {
@@ -253,27 +298,30 @@ static int strat01_q6p_cli(
     if (!strat01_r2c_cross_run_arm(model, v_b, ref_q, k, 0, 0, downstream, error)) goto finish;
     if (!strat01_q6p_write_bytes(out_dir, "q8_population.bin", q8,
             q8_count * sizeof(*q8), q8_path, q8_sha, error) ||
-        !strat01_q6p_write_f32(out_dir, "current_generic_replay.f32le", generic,
+        !strat01_q6p_write_f32(out_dir, generic_leaf, generic,
             output_count, generic_path, generic_sha, error) ||
-        !strat01_q6p_write_f32(out_dir, "pinned_avx2_candidate.f32le", candidate,
+        !strat01_q6p_write_f32(out_dir, candidate_leaf, candidate,
             output_count, candidate_path, candidate_sha, error) ||
-        !strat01_q6p_write_f32(out_dir, "current_generic_lout.f32le", generic_lout,
+        !strat01_q6p_write_f32(out_dir, generic_lout_leaf, generic_lout,
             output_count, generic_lout_path, generic_lout_sha, error) ||
-        !strat01_q6p_write_f32(out_dir, "pinned_avx2_candidate_lout.f32le", candidate_lout,
+        !strat01_q6p_write_f32(out_dir, candidate_lout_leaf, candidate_lout,
             output_count, candidate_lout_path, candidate_lout_sha, error) ||
         !strat01_q6p_write_f32(out_dir, "control_mutated_q6_row.f32le", mutation,
             STRAT01_Q6P_BATCH, mutation_path, mutation_sha, error) ||
-        !strat01_q6p_write_f32(out_dir, "pinned_avx2_candidate_downstream.f32le",
+        !strat01_q6p_write_f32(out_dir, downstream_leaf,
             downstream, STRAT01_Q6P_BATCH * 6144U, downstream_path, downstream_sha, error)) goto finish;
+    if (reference_generic &&
+        !strat01_q6p_write_f32(out_dir, "closed_active_avx2_control.f32le", active_control,
+            output_count, active_path, active_sha, error)) goto finish;
     if (!strat01_sha256_file(engine_source_path, engine_sha, &temporary, error) ||
         !strat01_sha256_file(__FILE__, header_sha, &temporary, error)) goto finish;
-    if (!strat01_r2a_path(report_path, out_dir, "strat01_block0_q6k_q8k_avx2_parity.json") ||
+    if (!strat01_r2a_path(report_path, out_dir, report_leaf) ||
         (report = fopen(report_path, "wb")) == NULL) {
         snprintf(error, 256, "cannot write Q6 parity report");
         goto finish;
     }
-    fputs("{\n\"command\":\"--strat01-block0-q6k-q8k-avx2-parity\","
-          "\n\"state\":\"OUTPUT_READY_PENDING_EXTERNAL_ADJUDICATION\","
+    fputs("{\n\"command\":", report); strat01_json_string(report, command_name);
+    fputs(",\n\"state\":\"OUTPUT_READY_PENDING_EXTERNAL_ADJUDICATION\","
           "\n\"self_certifies_pass\":false,\n\"model\":{\"path\":", report);
     strat01_json_string(report, model);
     fprintf(report, ",\"bytes\":%" PRIu64 ",\"sha256\":", hashed);
@@ -304,16 +352,20 @@ static int strat01_q6p_cli(
           "\"shape\":[8960,1536],\"offset\":286755840,\"file_offset\":292858752,"
           "\"span\":11289600},\n\"outputs\":{", report);
 #define Q6P_JSON_OUTPUT(name, path, bytes, sha) do { \
-    fputs("\"" name "\":{\"path\":", report); strat01_json_string(report, path); \
+    fputc('\"', report); fputs((name), report); fputs("\":{\"path\":", report); strat01_json_string(report, path); \
     fprintf(report, ",\"bytes\":%zu,\"sha256\":", (size_t)(bytes)); strat01_json_string(report, sha); fputc('}', report); \
 } while (0)
     Q6P_JSON_OUTPUT("q8_population", q8_path, q8_count * sizeof(*q8), q8_sha); fputc(',', report);
-    Q6P_JSON_OUTPUT("current_generic_replay", generic_path, output_count * 4U, generic_sha); fputc(',', report);
-    Q6P_JSON_OUTPUT("pinned_avx2_candidate", candidate_path, output_count * 4U, candidate_sha); fputc(',', report);
-    Q6P_JSON_OUTPUT("current_generic_lout", generic_lout_path, output_count * 4U, generic_lout_sha); fputc(',', report);
-    Q6P_JSON_OUTPUT("pinned_avx2_candidate_lout", candidate_lout_path, output_count * 4U, candidate_lout_sha); fputc(',', report);
+    Q6P_JSON_OUTPUT(generic_name, generic_path, output_count * 4U, generic_sha); fputc(',', report);
+    Q6P_JSON_OUTPUT(candidate_name, candidate_path, output_count * 4U, candidate_sha); fputc(',', report);
+    Q6P_JSON_OUTPUT(generic_lout_name, generic_lout_path, output_count * 4U, generic_lout_sha); fputc(',', report);
+    Q6P_JSON_OUTPUT(candidate_lout_name, candidate_lout_path, output_count * 4U, candidate_lout_sha); fputc(',', report);
     Q6P_JSON_OUTPUT("control_mutated_q6_row", mutation_path, sizeof(mutation), mutation_sha); fputc(',', report);
-    Q6P_JSON_OUTPUT("pinned_avx2_candidate_downstream", downstream_path,
+    if (reference_generic) {
+        Q6P_JSON_OUTPUT("closed_active_avx2_control", active_path, output_count * 4U, active_sha);
+        fputc(',', report);
+    }
+    Q6P_JSON_OUTPUT(downstream_name, downstream_path,
         STRAT01_Q6P_BATCH * 6144U * 4U, downstream_sha);
 #undef Q6P_JSON_OUTPUT
     fputs("},\n\"engine_source_sha256\":", report); strat01_json_string(report, engine_sha);
@@ -332,7 +384,7 @@ static int strat01_q6p_cli(
 finish:
     if (report) fclose(report);
     if (weights) fclose(weights);
-    free(input); free(ffn_input); free(generic); free(candidate);
+    free(input); free(ffn_input); free(generic); free(candidate); free(active_control);
     free(generic_lout); free(candidate_lout); free(q8); free(raw); free(mutated);
     free(ref_kqv); free(ref_layer1_ffn); free(ref_gate); free(ref_q); free(ref_k);
     free(ref_shared); free(ref_weights); free(projection); free(layer1_ffn); free(norm_weight);
@@ -341,12 +393,37 @@ finish:
     free(kv_norm_weight); free(prefix); free(k); free(downstream);
     strat01_free_inventory(&inventory);
     if (!ok) {
-        strat01_q6p_write_failure(out_dir, error[0] ? error : "Q6 parity diagnostic failure");
+        strat01_q6p_write_failure(
+            out_dir, error[0] ? error : "Q6 parity diagnostic failure", reference_generic);
         fprintf(stderr, "STRAT-01 block-0 Q6 parity: %s\n", error[0] ? error : "failed");
         return 2;
     }
     fprintf(stderr, "STRAT-01 block-0 Q6 parity: OUTPUT_READY_PENDING_EXTERNAL_ADJUDICATION\n");
     return 0;
+}
+
+static int strat01_q6p_cli(
+        const char *model, const char *input_path, const char *ffn_input_path,
+        const char *topk_path, const char *ref_kqv_path, const char *ref_layer1_ffn_path,
+        const char *ref_gate_path, const char *ref_q_path, const char *ref_k_path,
+        const char *ref_shared_path, const char *ref_weights_path,
+        const char *out_dir, const char *engine_source_path) {
+    return strat01_q6p_cli_mode(
+        model, input_path, ffn_input_path, topk_path, ref_kqv_path, ref_layer1_ffn_path,
+        ref_gate_path, ref_q_path, ref_k_path, ref_shared_path, ref_weights_path,
+        out_dir, engine_source_path, 0);
+}
+
+static int strat01_q6rg_cli(
+        const char *model, const char *input_path, const char *ffn_input_path,
+        const char *topk_path, const char *ref_kqv_path, const char *ref_layer1_ffn_path,
+        const char *ref_gate_path, const char *ref_q_path, const char *ref_k_path,
+        const char *ref_shared_path, const char *ref_weights_path,
+        const char *out_dir, const char *engine_source_path) {
+    return strat01_q6p_cli_mode(
+        model, input_path, ffn_input_path, topk_path, ref_kqv_path, ref_layer1_ffn_path,
+        ref_gate_path, ref_q_path, ref_k_path, ref_shared_path, ref_weights_path,
+        out_dir, engine_source_path, 1);
 }
 
 static int strat01_q6p_selftest(void) {

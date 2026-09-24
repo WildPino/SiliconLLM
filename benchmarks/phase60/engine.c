@@ -1220,6 +1220,20 @@ int main(int argc,char**argv){
             argv[14],argv[16],argv[18],argv[20],argv[22],argv[24],__FILE__);
     }
     if(argc==2 && !strcmp(argv[1],"--strat01-block0-q6k-q8k-avx2-parity-selftest")) return strat01_q6p_selftest();
+    if(argc>1 && !strcmp(argv[1],"--strat01-block0-q6k-q8k-reference-generic-parity")){
+        if(argc!=25 || strcmp(argv[3],"--input") || strcmp(argv[5],"--ffn-input") ||
+           strcmp(argv[7],"--topk") || strcmp(argv[9],"--ref-kqv") ||
+           strcmp(argv[11],"--ref-layer1-ffn") || strcmp(argv[13],"--ref-gate") ||
+           strcmp(argv[15],"--ref-q") || strcmp(argv[17],"--ref-k") ||
+           strcmp(argv[19],"--ref-shared") || strcmp(argv[21],"--ref-weights") ||
+           strcmp(argv[23],"--out-dir")){
+            fprintf(stderr,"usage: engine --strat01-block0-q6k-q8k-reference-generic-parity <accepted.gguf> --input <ffn_swiglu-0.f32le> --ffn-input <ffn_inp-0.f32le> --topk <i32le> --ref-kqv <f32le> --ref-layer1-ffn <f32le> --ref-gate <f32le> --ref-q <f32le> --ref-k <f32le> --ref-shared <f32le> --ref-weights <f32le> --out-dir <dir>\n");
+            return 2;
+        }
+        return strat01_q6rg_cli(argv[2],argv[4],argv[6],argv[8],argv[10],argv[12],
+            argv[14],argv[16],argv[18],argv[20],argv[22],argv[24],__FILE__);
+    }
+    if(argc==2 && !strcmp(argv[1],"--strat01-block0-q6k-q8k-reference-generic-parity-selftest")) return strat01_q6p_selftest();
     if(argc>1 && !strcmp(argv[1],"--strat01-rung2c-layer1-start-cross-input")){
         if(argc!=9 || strcmp(argv[3],"--reference-input") || strcmp(argv[5],"--c-input") || strcmp(argv[7],"--out-dir")){
             fprintf(stderr,"usage: engine --strat01-rung2c-layer1-start-cross-input <accepted.gguf> --reference-input <l_out-0.f32le> --c-input <l_out-0.f32le> --out-dir <directory>\n");
