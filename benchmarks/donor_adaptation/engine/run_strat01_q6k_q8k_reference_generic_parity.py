@@ -25,7 +25,7 @@ PINNED_GENERIC_QUANTS = Path(
     r"C:\Users\giosa\AppData\Local\Temp\siliconllm-llama-bind-5b335f4\ggml\src\ggml-cpu\quants.c"
 )
 PINNED_GENERIC_QUANTS_SHA = "459ecbb123f56bd9230b2681430e7591764a5587b6b83f058f002bf6511fdbad"
-DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_q6k_q8k_reference_generic_parity_apparatus_repair1_20260924"
+DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_q6k_q8k_reference_generic_parity_apparatus_repair2_20260924"
 TEST_MODULE = "benchmarks.donor_adaptation.engine.test_strat01_q6k_q8k_reference_generic_parity"
 
 CRITICAL_PATHS = (
@@ -116,6 +116,7 @@ def main() -> int:
             },
             "controls": {
                 "candidate_matches_baseline_generic_oracle_at_all_lengths": True,
+                "synthetic_full_matrix_q8_and_output_exact": True,
                 "candidate_avx_tu_generic_active_avx2_pairwise_distinct": True,
                 "short_read_rejected": True, "invalid_mode_rejected": True,
                 "pinned_generic_source_hash": True,

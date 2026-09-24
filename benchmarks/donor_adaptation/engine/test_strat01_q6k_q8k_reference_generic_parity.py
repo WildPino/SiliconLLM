@@ -146,6 +146,40 @@ class Q6KQ8KReferenceGenericParityTests(unittest.TestCase):
             completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, check=False)
             self.assertNotEqual(completed.returncode, 0)
 
+    def test_full_matrix_schedule_and_q8_population_are_exact(self) -> None:
+        count, rows, batch = 512, 5, 3
+        base_q6, _ = rounding_fixture(count)
+        matrix_bytes = bytearray()
+        for row in range(rows):
+            value = bytearray(base_q6)
+            value[(row * 97 + 13) % len(value)] ^= row + 1
+            matrix_bytes.extend(value)
+        values = [
+            (((item * count + index) * 37 + 19) % 4093 - 2046) / 257.0
+            for item in range(batch) for index in range(count)
+        ]
+        matrix = self.directory / "matrix.q6"
+        inputs = self.directory / "matrix_input.f32le"
+        matrix.write_bytes(matrix_bytes)
+        inputs.write_bytes(struct.pack(f"<{len(values)}f", *values))
+        c_q8, c_output = self.directory / "c.q8", self.directory / "c.f32le"
+        oracle_q8 = self.directory / "oracle.q8"
+        oracle_output = self.directory / "oracle.f32le"
+        c_run = subprocess.run(
+            [str(self.probe), "matrix", str(count), str(rows), str(batch),
+             str(matrix), str(inputs), str(c_q8), str(c_output)],
+            cwd=ROOT, text=True, capture_output=True, check=False,
+        )
+        self.assertEqual(c_run.returncode, 0, c_run.stdout + c_run.stderr)
+        oracle_run = subprocess.run(
+            [str(self.oracle), "matrix", str(count), str(rows), str(batch), "0",
+             str(matrix), str(inputs), str(oracle_q8), str(oracle_output)],
+            cwd=ROOT, text=True, capture_output=True, check=False,
+        )
+        self.assertEqual(oracle_run.returncode, 0, oracle_run.stdout + oracle_run.stderr)
+        self.assertEqual(c_q8.read_bytes(), oracle_q8.read_bytes())
+        self.assertEqual(c_output.read_bytes(), oracle_output.read_bytes())
+
 
 if __name__ == "__main__":
     unittest.main()

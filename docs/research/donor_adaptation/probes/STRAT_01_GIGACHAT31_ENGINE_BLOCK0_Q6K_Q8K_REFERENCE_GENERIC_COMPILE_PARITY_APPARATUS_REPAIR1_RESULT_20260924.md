@@ -1,6 +1,8 @@
 # STRAT-01 block-0 Q6_K×Q8_K reference-generic compile parity apparatus — repair 1
 
-**Status: `APPARATUS_READY_NO_SCIENTIFIC_EXECUTION`.**
+**Status: `APPARATUS_READY_NO_SCIENTIFIC_EXECUTION`, superseded for execution
+authorization by
+[repair 2](STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_APPARATUS_REPAIR2_RESULT_20260924.md).**
 
 Repair 1 repeats the model-free qualification on the exact final source bytes
 after removing one trailing space from the diagnostic header. The initial
@@ -47,11 +49,9 @@ diagnostic, donor-graph, and reference-graph counters are zero.
 
 ## Authorization boundary
 
-Commit the exact hash-bound sources before execution. Then a separate
-scientific runner may perform one accepted-artifact read and one independent
-baseline-generic oracle read, both with zero model graphs. It must require
-byte-exact Q8 populations, candidate/oracle output, immutable `ffn_out-0`,
-reference `l_out-0`, and the complete downstream target. Any identity,
-control, accounting, or source mismatch is VOID.
+Repair 1 does not authorize execution because inspection found that its
+independent oracle exposed only stored-vector dot mode, not the synthetic
+full-matrix schedule required to qualify the scientific oracle path. Repair 2
+adds and validates that missing apparatus surface.
 
 No quality, generation, RAM, throughput, or full-model claim follows.
