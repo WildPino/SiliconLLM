@@ -32,6 +32,7 @@
 #include "strat01_f16_vector_dot.h"
 #include "strat01_gguf_rung2a.h"
 #include "strat01_gguf_f16_vector_parity.h"
+#include "strat01_swiglu_sse2.h"
 #include "strat01_gguf_rung2b.h"
 #include "strat01_gguf_rung2c.h"
 #include "strat01_gguf_rung2b_cross_input.h"

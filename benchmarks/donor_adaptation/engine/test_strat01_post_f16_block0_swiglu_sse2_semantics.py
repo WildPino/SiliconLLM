@@ -33,7 +33,7 @@ class PostF16Block0SwiGLUSSE2SemanticsTests(unittest.TestCase):
         self.assertEqual(runner.classify(False, False), "POST_F16_BLOCK0_SWIGLU_SSE2_INSUFFICIENT")
 
     def test_no_fma_and_no_scalar_tail_contract(self) -> None:
-        text = runner.HEADER.read_text(encoding="utf-8")
+        text = runner.SHARED_HEADER.read_text(encoding="utf-8")
         self.assertNotIn("_mm_fmadd", text)
         self.assertNotIn("_mm_fnmadd", text)
         self.assertIn("count & 3U", text)

@@ -17,7 +17,7 @@ static const char strat01_r2b_config[] =
     "rms_eps=1e-6;rope=deepseek2-normal-yarn;rope_base=100000;rope_factor=64;"
     "rope_orig_ctx=4096;beta_fast=32;beta_slow=1;mscale=1;mscale_all_dim=1;"
     "rms_accum=double;kb=q5_0xq8_0;"
-    "ffn=block0-rmsnorm-q4kq8k-gate-up-silu-q6kq8k-down-residual;"
+    "ffn=block0-rmsnorm-q4kq8k-gate-up-swiglu-sse2-nofma4-q6kq8k-down-residual;"
     "build=clang-c11-O3-mavx2-mfma-no-fast-math;fp_contract=off-c11-pragma;"
     "payload=f32le-token-major;adjudication=external-reference-only";
 
@@ -101,7 +101,7 @@ static int strat01_r2b_run(const char *path,const strat01_tensor *norm_w,const s
     strat01_r2a_rmsnorm_pinned(input->ffn_inp,weight,out->norm,8U,1536U,STRAT01_R2A_RMS_EPS);free(weight);
     if(!strat01_r2a_matmul_batch(path,up_w,out->norm,8U,1536U,out->up,STRAT01_R2B_FFN,error)||
        !strat01_r2a_matmul_batch(path,gate_w,out->norm,8U,1536U,out->gate,STRAT01_R2B_FFN,error))return 0;
-    for(size_t i=0;i<8U*STRAT01_R2B_FFN;++i)out->swiglu[i]=(out->gate[i]/(1.0f+expf(-out->gate[i])))*out->up[i];
+    if(!strat01_sse2_swiglu_compute(out->gate,out->up,out->swiglu,8U*STRAT01_R2B_FFN,error))return 0;
     if(!strat01_r2b_q6_matmul_batch(path,down_w,out->swiglu,8U,out->out,error))return 0;
     for(size_t i=0;i<8U*1536U;++i)out->l_out[i]=out->out[i]+input->ffn_inp[i];return 1;
 }
@@ -166,7 +166,7 @@ static int strat01_gguf_rung2b_selftest(void) {
     int bad=0,checks=0;
 #define R2B_CHECK(x) do{++checks;if(!(x))++bad;}while(0)
     R2B_CHECK(strat01_gguf_rung2a_selftest()==0);
-    {float gate[4]={-2,-.5f,.5f,2},up[4]={1,2,3,4},good[4],swapped[4],linear[4];for(unsigned i=0;i<4;++i){good[i]=(gate[i]/(1+expf(-gate[i])))*up[i];swapped[i]=(up[i]/(1+expf(-up[i])))*gate[i];linear[i]=gate[i]*up[i];}R2B_CHECK(memcmp(good,swapped,sizeof(good))!=0);R2B_CHECK(memcmp(good,linear,sizeof(good))!=0);}
+    {float gate[8]={-80.0f,-12.75f,-2.0f,-0.125f,0.125f,2.0f,12.75f,80.0f},up[8]={1.0f,-2.0f,3.0f,-4.0f,5.0f,-6.0f,7.0f,-8.0f},good[8],scalar[8];char error[256]={0};for(unsigned i=0;i<8;++i)scalar[i]=(gate[i]/(1.0f+expf(-gate[i])))*up[i];R2B_CHECK(strat01_sse2_swiglu_compute(gate,up,good,8U,error));R2B_CHECK(memcmp(good,scalar,sizeof(good))!=0);error[0]=0;R2B_CHECK(!strat01_sse2_swiglu_compute(gate,up,good,7U,error));}
     {uint8_t q6[STRAT01_R2B_Q6_BLOCK_BYTES]={0};float x[256]={0};strat01_q8_k_block q8;q6[0]=1;q6[192]=1;q6[208]=0;q6[209]=60;x[0]=1;R2B_CHECK(strat01_quantize_q8_k_block(x,&q8));float a=strat01_q6k_q8k_dot(q6,&q8,256);q6[0]^=1;float b=strat01_q6k_q8k_dot(q6,&q8,256);R2B_CHECK(isfinite(a)&&isfinite(b)&&a!=b);}
     {float ffn[3]={.25f,-.5f,1},res[3]={1,2,3},with_res[3];for(unsigned i=0;i<3;++i)with_res[i]=ffn[i]+res[i];R2B_CHECK(memcmp(with_res,ffn,sizeof(ffn))!=0);}
 #undef R2B_CHECK

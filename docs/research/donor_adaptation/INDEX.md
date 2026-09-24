@@ -251,6 +251,11 @@ and `strat01_r2b_run` to delegate to it, leaves layer 1 unchanged, and then
 uses the standard Rung-2C command to validate both schedules, 32 checkpoints,
 and six caches. Qualify only the model-free apparatus next and commit exact
 sources before the sole accepted-GGUF invocation; never rerun reference.
+Its [model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_SWIGLU_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260924.md)
+is now `APPARATUS_READY_NO_DONOR_EXECUTION`: one shared implementation is
+proved, layer 1 is unchanged, and 172 Python tests, 21 C self-tests, eleven
+source controls, and every immutable binding pass. Commit the exact sources,
+then run the standard Rung-2C command once; reference remains read-only.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

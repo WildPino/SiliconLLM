@@ -27,6 +27,7 @@ from benchmarks.donor_adaptation.engine import run_strat01_post_f16_block0_ffn_o
 
 HERE, ENGINE, MODEL = prev.HERE, prev.ENGINE, prev.MODEL
 HEADER = ROOT / "benchmarks/phase60/strat01_gguf_post_f16_block0_swiglu_sse2_semantics.h"
+SHARED_HEADER = ROOT / "benchmarks/phase60/strat01_swiglu_sse2.h"
 PROTOCOL = ROOT / "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_SWIGLU_SSE2_SEMANTICS_PROTOCOL_20260924.md"
 TESTS = HERE / "test_strat01_post_f16_block0_swiglu_sse2_semantics.py"
 DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_post_f16_block0_swiglu_sse2_semantics_20260924"
@@ -69,7 +70,7 @@ def read_json(path: Path, label: str) -> Any:
 def source_inventory() -> dict[str, dict[str, str]]:
     paths = {
         "runner": Path(__file__).resolve(), "tests": TESTS, "protocol": PROTOCOL,
-        "engine": ENGINE, "header": HEADER, "predecessor_header": prev.HEADER,
+        "engine": ENGINE, "header": HEADER, "shared_header": SHARED_HEADER, "predecessor_header": prev.HEADER,
         "post_header": prev.post.HEADER, "terminal_header": prev.predecessor.HEADER,
         "swiglu_header": prev.sw.HEADER, "down_header": prev.sw.down.HEADER,
         "rung2a": prev.post.r2c.RUNG2A_HEADER,
@@ -95,13 +96,15 @@ def clean_sources_at_head(sources: dict[str, dict[str, str]]) -> None:
 def source_controls() -> dict[str, bool]:
     engine = ENGINE.read_text(encoding="utf-8")
     header = HEADER.read_text(encoding="utf-8")
+    shared = SHARED_HEADER.read_text(encoding="utf-8")
     protocol = PROTOCOL.read_text(encoding="utf-8")
     return {
         "cli_registered": "--strat01-post-f16-block0-swiglu-sse2-semantics" in engine,
-        "reference_revision_pinned": REFERENCE_REVISION in header,
-        "reference_source_hashes_pinned": all(digest in header for _, digest, _ in REFERENCE_SOURCE_HASHES.values()),
-        "no_fma_sse2_transcribed": "strat01_sse2_expf_no_fma" in header and "_mm_fmadd" not in header and "_mm_fnmadd" not in header,
-        "four_lane_no_tail": "count & 3U" in header and "i += 4U" in header,
+        "reference_revision_pinned": REFERENCE_REVISION in header and REFERENCE_REVISION in shared,
+        "reference_source_hashes_pinned": all(digest in header and digest in shared for _, digest, _ in REFERENCE_SOURCE_HASHES.values()),
+        "no_fma_sse2_transcribed": "strat01_sse2_expf_no_fma" in shared and "_mm_fmadd" not in shared and "_mm_fnmadd" not in shared,
+        "four_lane_no_tail": "count & 3U" in shared and "i += 4U" in shared,
+        "shared_primitive_not_duplicated": "static __m128 strat01_sse2_expf_no_fma" not in header and "strat01_sse2_swiglu_compute" in header,
         "scalar_replay_reused": "strat01_sw_compute" in header,
         "production_q6_reused": "strat01_r2b_q6_matmul_batch" in header,
         "production_layer1_reused": "strat01_postf16_run_full" in header and "strat01_postf16_write_arm" in header,

@@ -258,6 +258,11 @@ layer 1 and all Q4/F16/Q6 coordinates remain fixed. The standard Rung-2C
 command must then cover both schedules, all 32 checkpoints, and six caches.
 Only model-free apparatus qualification is next; accepted GGUF access is
 forbidden until exact sources are committed.
+That [apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_SWIGLU_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260924.md)
+is now qualified with one shared primitive, unchanged layer 1, 172 Python
+tests, 21 C self-tests, eleven passing source controls, exact predecessor and
+reference bindings, and zero GGUF/graph execution. Commit exact sources and
+run the sole standard Rung-2C production invocation next. No other axis opens.
 
 ## 1. How to read this map
 

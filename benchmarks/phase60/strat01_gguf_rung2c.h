@@ -21,7 +21,7 @@ static const char strat01_r2c_config[] =
     "rms_eps=1e-6;rope=deepseek2-normal-yarn;rope_base=100000;rope_factor=64;"
     "rope_orig_ctx=4096;beta_fast=32;beta_slow=1;mscale=1;mscale_all_dim=1;"
     "rms_accum=double;kb=q5_0xq8_0;"
-    "block0=dense-accepted;block1=mla-sigmoid-bias-select-top4-unbiased-normalized-q4k-q6k-shared-residual;"
+    "block0=dense-swiglu-sse2-nofma4;block1=mla-sigmoid-bias-select-top4-unbiased-normalized-q4k-q6k-shared-residual;"
     "build=clang-c11-O3-mavx2-mfma-no-fast-math;fp_contract=off-c11-pragma;"
     "payload=f32le-or-i32le-token-major;adjudication=external-reference-only";
 
