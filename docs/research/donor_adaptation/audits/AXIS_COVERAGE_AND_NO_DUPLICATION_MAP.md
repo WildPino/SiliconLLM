@@ -346,6 +346,10 @@ is `LAYER2_PROJECTED_KV_PREFIX_RESIDUAL_SUFFICIENT_RECOVERED`: both RMSNorm
 replays are byte-exact, so the residual exists upstream in `kv_cmpr_pe-2`.
 Close RMSNorm permanently. Only an immutable-input KV-A projection split is
 new; no graph is justified.
+That successor is frozen by the
+[KV-A projection protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_A_PROJECTION_CROSS_INPUT_PROTOCOL_20260924.md).
+Only the projection input changes; Q4 parity, RMSNorm, attention, and every
+downstream axis remain closed. Qualify model-free first.
 
 ## 1. How to read this map
 
