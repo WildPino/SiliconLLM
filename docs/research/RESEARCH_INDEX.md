@@ -13,19 +13,16 @@ or preregistered brief.
 - **VOID** — apparatus/control failed before the estimand; it is not evidence.
 
 **Latest execution state (24 September).** The canonical
-[layer-1 attention-output residual result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_RESULT_20260924.md)
-is `LAYER1_BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`: the current Q4_K output
-projection on byte-identical `kqv_out-1` plus reference `l_out-0` is exact,
-whereas changing only to production C `l_out-0` exactly replays the downstream
-failure. Close output projection/add and every later operator. A hash-bound
-float32 identity bridge avoids a duplicate terminal-component run:
-byte-identical `ffn_inp-0` plus current-Q6 `ffn_out-0` reconstructs the current
-production `l_out-0` byte-for-byte. The first residual is therefore the
-block-0 Q6_K×Q8_K result on byte-exact repaired SwiGLU. The sole active
+[block-0 Q6 AVX2 result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_RESULT_20260924.md)
+is `BLOCK0_Q6_AVX2_REDUCTION_INSUFFICIENT`. Q8 populations are byte-exact and
+the literal C AVX2/FMA candidate is byte-exact to its clean pinned x86 oracle,
+but both differ from immutable `ffn_out-0`; complete downstream NRMSE is
+`1.467939211440746e-7` with 188/49,152 floats changed. Close Q8 packing and
+active AVX2; do not rerun or install it as an exact repair. The sole active
 coordinate is the frozen
-[block-0 Q6 AVX2 parity protocol](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_PROTOCOL_20260924.md):
-compare current scalar/generic reduction against pinned llama.cpp's active
-x86 AVX2/FMA reduction using the same Q8_K bytes and zero model graphs.
+[Q6 reference-generic compile-parity protocol](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_PROTOCOL_20260924.md):
+same bytes and amplifier, changing only AVX-TU generic lowering to the
+reference producer's isolated `GGML_CPU_GENERIC` no-AVX/FMA target.
 
 ## 1. Reading order and precedence
 
@@ -143,7 +140,10 @@ The complete contract and rationale are in [ROADMAP §2](STRATEGIC_10B_20260916/
 | GigaChat layer-1 routed-Q6 residual propagation | **MEASURED `LAYER1_ROUTED_SWIGLU_RESIDUAL_SUFFICIENT`; CLOSED** | [Result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_Q6_RESIDUAL_PROPAGATION_RESULT_20260924.md): immutable old Q6(reference-SwiGLU) output passes the newly sensitive downstream gate exactly; captured production C down fails at NRMSE `0.00264209`. One diagnostic; zero Q6 and zero graphs. | Close Q6/down and every later component. Split captured routed gate, up, and production-expression inputs through current Q6 and the same downstream amplifier. |
 | GigaChat layer-1 routed-SwiGLU component cross-input | **MEASURED `LAYER1_ROUTED_UP_INPUT_RESIDUAL_SUFFICIENT`; CLOSED** | [Result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_RESULT_20260924.md): under byte-exact SSE2 semantics, C gate alone passes at `1.47e-7`; C up alone exactly reproduces the `0.00264209` failure. SSE2 full-C does not repair. Nine Q6 arms, zero graphs. | Close gate/expression and everything downstream. Split immutable reference versus C `ffn_norm-1` through the same selected current up matrices. |
 | GigaChat layer-1 routed-up projection cross-input | **MEASURED `LAYER1_ROUTED_UPSTREAM_NORM_RESIDUAL_SUFFICIENT`; CLOSED** | [Result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_UP_PROJECTION_CROSS_INPUT_RESULT_20260924.md): current Q4_K up on reference `ffn_norm-1` is byte-exact to reference and downstream passes at 0; on C `ffn_norm-1` it byte-replays captured C and fails at NRMSE `0.00264209`. One diagnostic, three computed up arms, five Q6 arms, zero graphs. | Close up/Q6/downstream. Freeze only the upstream `ffn_inp-1` versus production RMSNorm split; neither cause is yet assigned. |
-| GigaChat layer-1 FFN RMSNorm cross-input | **APPARATUS QUALIFIED, REPAIR4; NO DONOR EXECUTION** | [Protocol](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md) and [apparatus result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_APPARATUS_RESULT_20260924.md): repair4 binds the immutable downstream target, base runner, and aggregate/per-token gates; apparatus-only assertions are static and open neither model nor scientific payload. No artifact/payload access or graphs. Initial and repairs 1–3 are superseded. | Commit exact qualified sources, then perform the sole zero-graph scientific invocation; determine `ffn_inp-1` versus RMSNorm without presuming causality. |
+| GigaChat layer-1 FFN RMSNorm cross-input | **MEASURED `LAYER1_FFN_INPUT_RESIDUAL_SUFFICIENT`; CLOSED** | [Result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_RESULT_20260924.md): production RMSNorm is exact on reference `ffn_inp-1`; current `ffn_inp-1` exactly replays the `0.00264209` downstream failure. One diagnostic, zero graphs; all controls pass. | Close RMSNorm and later operators. Split only current projection plus reference/current `l_out-0` from immutable captures. |
+| GigaChat layer-1 attention-output residual cross-input | **MEASURED `LAYER1_BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`; CLOSED** | [Result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_RESULT_20260924.md): current projection plus reference `l_out-0` is byte-exact; changing only to current `l_out-0` exactly replays the downstream failure. Existing exact addends prove the first residual is current block-0 Q6 output, so the proposed terminal split would duplicate evidence. | Close projection/add and all later operators. Test only Q6 arithmetic semantics on the already exact repaired SwiGLU input. |
+| GigaChat block-0 Q6 active-AVX2 parity | **MEASURED `BLOCK0_Q6_AVX2_REDUCTION_INSUFFICIENT`; CLOSED** | Canonical [result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_RESULT_20260924.md): Q8 populations and C/pinned-AVX2 outputs are byte-exact, but both differ from immutable `ffn_out-0`; downstream NRMSE is `1.467939211440746e-7` with 188/49,152 floats changed. The initial omitted decision branch is retained as [VOID 1](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_VOID1_20260924.md); offline re-adjudication executed nothing new. | Close Q8 and active AVX2. Do not rerun or install it as an exact repair. |
+| GigaChat block-0 Q6 reference-generic compile parity | **FROZEN; MODEL-FREE QUALIFICATION NEXT** | [Protocol](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_PROTOCOL_20260924.md): same bytes, rows, input and amplifier; isolate the exact pinned generic operation in a non-inlined `no-avx,no-avx2,no-fma` helper and compare with an independent `GGML_CPU_GENERIC` oracle. | This is the sole active fidelity coordinate. Qualify without model/payload reads, commit exact sources, then allow one zero-graph scientific invocation. |
 | GigaChat MTP rate continuation | **OPEN, but deprioritized** | Resolve batch-shape/history/KV divergence and demonstrate quality on the effective path. A further MTP BF16 sweep alone cannot close the measured 12.78-to-50 gap. |
 | E61c / planned 3B ancillary cells | **UNMEASURED** | E63 runner aborted after a configuration assertion; these are separate cells, not missing repetitions of E63d. A new scoped repair must be briefed. |
 | Final target artifact | **QUALITY-CANDIDATE SELECTED; BLOCK-0 PASS; BLOCK-1 FAIL; FULL MODEL/RATE OPEN** | The accepted artifact passes dense block 0 but the first complete block-1 cell fails from `kqv_out-1` onward. The router surface itself passes. HumanEval, tokenizer, remaining layers/operators, full logits/generation/C quality, RAM, and accepted-token rate remain open. |

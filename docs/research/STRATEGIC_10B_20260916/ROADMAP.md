@@ -3,18 +3,16 @@
 **Rolling status through 23 September 2026:** [continuation status](STATUS_20260923.md). The [17 September `engine.c` scope decision](STATUS_20260917.md) remains valid. The text below remains the 16 September design snapshot; use the rolling status and [research control index](../RESEARCH_INDEX.md) for execution state and no-duplication decisions.
 
 **Latest continuation (24 September):** the canonical
-[layer-1 attention-output residual result](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_RESULT_20260924.md)
-is `LAYER1_BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`. Current Q4_K projection plus
-reference `l_out-0` is byte-exact through the closed amplifier; changing only
-to production C `l_out-0` exactly replays the downstream failure at NRMSE
-`0.002642086799405445`, with per-token failures at tokens 5 and 6. Existing
-hash-bound addends close the proposed block-0 terminal split without a new
-run: exact `ffn_inp-0` plus current-Q6 `ffn_out-0` equals production
-`l_out-0` byte-for-byte. Thus the first residual is the block-0 Q6 output on
-byte-exact repaired SwiGLU. The sole next boundary is frozen in the
-[block-0 Q6_K×Q8_K AVX2 parity protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_PROTOCOL_20260924.md):
-same Q8_K bytes, current generic reduction versus pinned llama.cpp active
-AVX2/FMA reduction, with no model graph.
+[block-0 Q6 AVX2 result](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_RESULT_20260924.md)
+is `BLOCK0_Q6_AVX2_REDUCTION_INSUFFICIENT`. Exact C/oracle Q8 populations and
+exact C/oracle active-AVX2 outputs rule out quantizer and transcription errors,
+but the active result differs from immutable `ffn_out-0`. Downstream NRMSE is
+reduced from the prior generic failure to `1.467939211440746e-7`, but 188 of
+49,152 floats remain changed. Close active AVX2 and do not rerun it. The sole
+next boundary is the frozen
+[Q6 reference-generic compile-parity protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_PROTOCOL_20260924.md):
+preserve every byte and test only the reference build's isolated
+`GGML_CPU_GENERIC` no-AVX/FMA lowering.
 This paragraph supersedes the older active-boundary wording below.
 
 **Current execution head (24 September):** the accepted donor is exact through

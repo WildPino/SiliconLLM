@@ -3,25 +3,20 @@
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
 **Latest STRAT-01 continuation (24 September):** the canonical
-[layer-1 attention-output residual result](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_RESULT_20260924.md)
-is `LAYER1_BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`. Current projection plus
-reference `l_out-0` is exact; changing only to current `l_out-0` exactly
-replays the `0.002642086799405445` downstream failure. Close projection/add
-and all later operators. Do not repeat the proposed terminal split: exact
-`ffn_inp-0` plus the already measured current-Q6 `ffn_out-0` reconstructs
-production `l_out-0` byte-for-byte. The first residual is the Q6 down result
-on byte-exact repaired SwiGLU. The only active coordinate is the frozen
-[block-0 Q6_K×Q8_K AVX2 parity protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_PROTOCOL_20260924.md):
-same Q8_K bytes, current generic reduction versus pinned llama.cpp active
-AVX2/FMA reduction, zero graphs. Its
-[initial model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_APPARATUS_RESULT_20260924.md)
-qualified the primitive on 1/2/6/35 stored blocks. The canonical
-[repair-1 full apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_APPARATUS_REPAIR1_RESULT_20260924.md)
-supersedes it for execution authorization: synthetic full-matrix Q8
-populations and outputs are bit-exact between C and the pinned oracle, the
-full engine diagnostic compiles/self-tests, generic and mutation controls
-fire, and all scientific/model/graph counters remain zero. Commit the exact
-qualified sources, then perform its sole zero-graph scientific run.
+[block-0 Q6 AVX2 result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_RESULT_20260924.md)
+is `BLOCK0_Q6_AVX2_REDUCTION_INSUFFICIENT`. Q8_K populations and the C/pinned
+x86 AVX2/FMA outputs are byte-exact to each other, but the active result is
+not the immutable reference `ffn_out-0`. Complete downstream NRMSE falls to
+`1.467939211440746e-7`, with 188/49,152 floats changed, so active AVX2 is a
+large numerical improvement but not the exact repair required by the frozen
+gate. Close Q8 packing and active AVX2; do not repeat or install that cell.
+The sole active coordinate is the frozen
+[Q6 reference-generic compile-parity protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_PROTOCOL_20260924.md):
+reuse the same Q6 rows, Q8 bytes, input and downstream amplifier while changing
+only the pinned generic operation to the reference build's isolated
+`no-avx,no-avx2,no-fma` target. This compiler coordinate was causal for Q4 but
+has not yet been measured for Q6. Qualify it model-free before one zero-graph
+scientific invocation.
 
 **STRAT-01 block-0 production integration (22 September):**
 Closed as **`PASS_ENGINE_BLOCK0_PRODUCTION_INTEGRATION`**. The standard

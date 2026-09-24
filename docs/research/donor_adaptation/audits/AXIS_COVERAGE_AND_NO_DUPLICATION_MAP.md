@@ -16,21 +16,17 @@ shows that the legacy donor `calib`/`heldout` split is by shuffled 8 KiB chunk,
 not guaranteed disjoint by source document; its sequence-level results must not
 be promoted to a future document-bootstrap quality gate.
 
-**Current no-duplication boundary (24 September):** the
-[layer-1 attention-output residual result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_RESULT_20260924.md)
-closes the Q4_K output projection/add and all later operators as
-`LAYER1_BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`. Reference/C `kqv_out-1` are
-byte-identical; reference residual passes exactly and current residual exactly
-replays the failure. Do not repeat that cell. Do not run the terminal split
-suggested by its older protocol: existing hash-bound payloads prove
-`ffn_inp-0` exact and `ffn_inp-0 + current-Q6 ffn_out-0 = current l_out-0`
-byte-for-byte. The first residual is therefore the block-0 Q6 result on exact
-repaired SwiGLU. The sole open fidelity coordinate is the frozen
-[block-0 Q6_K×Q8_K AVX2 parity protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_PROTOCOL_20260924.md),
-which compares current generic reduction with pinned llama.cpp's active x86
-AVX2/FMA path on identical Q8_K bytes. It executes no model graph. The older
-Q6 PASS remains valid only for its weaker downstream gate and must not be
-rerun.
+**Current no-duplication boundary (24 September):** the canonical
+[block-0 Q6 AVX2 result](../probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_RESULT_20260924.md)
+is `BLOCK0_Q6_AVX2_REDUCTION_INSUFFICIENT`. Q8 population parity and exact
+C/pinned-oracle output close quantization, packed Q6 interpretation, and active
+x86 transcription. Active AVX2 still differs from the immutable graph output;
+do not repeat or install it as exact repair. The only open fidelity coordinate
+is the frozen
+[Q6 reference-generic compile-parity protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_PROTOCOL_20260924.md):
+same Q8, Q6, input, matrix, and amplifier; only isolate the exact generic
+operation under the preserved reference build's no-AVX/FMA target. Q4 already
+proved this compiler distinction causal, but Q6 has not measured it.
 The still later [STRAT-03 result](../probes/STRAT_03_EXECUTABLE_SHARED_RESIDUAL_RESULT.md)
 closes the frozen five-layer `k=3/256` local diagnostic with a byte-count-
 matched SwiGLU shared path and `x`-only router: all three gates fail despite
