@@ -329,6 +329,9 @@ That split is frozen by the
 It applies the production RMSNorm to immutable reference/C projected prefixes
 and propagates them through the closed downstream path. Qualify model-free;
 no graph or predecessor repeat is authorized.
+Its [apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_RMSNORM_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is qualified with all new/inherited/legacy tests passing, no artifact access,
+and zero graphs. Commit exact sources, then run once.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
