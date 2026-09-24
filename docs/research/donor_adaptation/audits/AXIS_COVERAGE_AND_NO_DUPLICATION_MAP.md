@@ -275,6 +275,11 @@ and [frozen protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_DEPTH_EXTENSIO
 It adds only `blk.2` execution/evidence and leaves accepted layer 0/1
 arithmetic unchanged. Model-free apparatus qualification is next; no donor
 or reference graph is authorized before a committed passing apparatus.
+The [apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_DEPTH_EXTENSION_APPARATUS_RESULT_20260924.md)
+is now qualified: 179 Python tests, 22 C self-tests, the separate reference
+self-test, twelve source controls, and all bindings pass with zero model
+access or graphs. Commit the exact sources, then run each new producer once;
+no closed axis reopens.
 
 ## 1. How to read this map
 

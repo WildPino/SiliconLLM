@@ -35,7 +35,9 @@ constexpr std::array<llama_token, 8> kTokens = {1, 72, 14, 14129, 14, 2135, 1512
 constexpr std::array<llama_pos, 8> kPositions = {0, 1, 2, 3, 4, 5, 6, 7};
 constexpr const char * kArtifactSha256 = "68a8732fb5cee04f83ebffd7924e15c534d4442c5a43d2ba9e2041fe310b8deb";
 constexpr uintmax_t kArtifactBytes = 6474702976ULL;
-#if defined(STRAT01_RUNG2C)
+#if defined(STRAT01_RUNG2D)
+constexpr const char * kSchema = "strat01_engine_rung2d_reference_manifest_v1";
+#elif defined(STRAT01_RUNG2C)
 constexpr const char * kSchema = "strat01_engine_rung2c_reference_manifest_v1";
 #elif defined(STRAT01_RUNG2B)
 constexpr const char * kSchema = "strat01_engine_rung2b_reference_manifest_v1";
@@ -193,7 +195,17 @@ std::string canonical_tensor_type(enum ggml_type type) {
     if (type == GGML_TYPE_F16) return "F16";
     throw Error("VOID: required callback tensor has unsupported type");
 }
-#if defined(STRAT01_RUNG2C)
+#if defined(STRAT01_RUNG2D)
+constexpr std::array<const char *, 34> kNames = {
+    "Kcur-0", "Kcur-1", "l_out-1",
+    "attn_norm-2", "q-2", "kv_cmpr_pe-2", "k_pe-2", "kv_cmpr-2", "q_pe-2",
+    "q_nope_absorbed_perm-2", "Qcur-2", "Kcur-2", "Vcur-2", "kqv_out-2", "ffn_inp-2",
+    "ffn_norm-2", "ffn_moe_logits-2", "ffn_moe_probs-2", "ffn_moe_probs_biased-2",
+    "ffn_moe_topk-2", "ffn_moe_weights-2", "ffn_moe_weights_norm-2",
+    "ffn_moe_up-2", "ffn_moe_gate-2", "ffn_moe_swiglu-2", "ffn_moe_down-2",
+    "ffn_moe_weighted-2", "ffn_moe_out-2", "ffn_up-2", "ffn_gate-2", "ffn_swiglu-2",
+    "ffn_shexp-2", "ffn_out-2", "l_out-2"};
+#elif defined(STRAT01_RUNG2C)
 constexpr std::array<const char *, 33> kNames = {
     "Kcur-0", "l_out-0",
     "attn_norm-1", "q-1", "kv_cmpr_pe-1", "k_pe-1", "kv_cmpr-1", "q_pe-1",
@@ -212,7 +224,9 @@ bool wanted_name(std::string_view name) { return std::find_if(kNames.begin(), kN
 int protocol_rank(std::string_view name) {
     if (name == "q-0" || name == "k_pe-0" || name == "q_pe-0" || name == "q_nope_absorbed_perm-0" || name == "Qcur-0" || name == "Kcur-0" || name == "Vcur-0" || name == "kq-0" || name == "kq_soft_max-0" || name == "kqv-0" || name == "kqv_mla-0" ||
         name == "q-1" || name == "k_pe-1" || name == "q_pe-1" || name == "q_nope_absorbed_perm-1" || name == "Qcur-1" || name == "Kcur-1" || name == "Vcur-1" ||
-        name == "ffn_moe_up-1" || name == "ffn_moe_gate-1" || name == "ffn_moe_swiglu-1" || name == "ffn_moe_down-1" || name == "ffn_moe_weighted-1") return 3;
+        name == "ffn_moe_up-1" || name == "ffn_moe_gate-1" || name == "ffn_moe_swiglu-1" || name == "ffn_moe_down-1" || name == "ffn_moe_weighted-1" ||
+        name == "q-2" || name == "k_pe-2" || name == "q_pe-2" || name == "q_nope_absorbed_perm-2" || name == "Qcur-2" || name == "Kcur-2" || name == "Vcur-2" ||
+        name == "ffn_moe_up-2" || name == "ffn_moe_gate-2" || name == "ffn_moe_swiglu-2" || name == "ffn_moe_down-2" || name == "ffn_moe_weighted-2") return 3;
     if (wanted_name(name)) return 2;
     throw Error("VOID: callback name lacks a frozen logical rank");
 }
@@ -254,7 +268,7 @@ struct Collector {
         // become singleton.  The frozen protocol rank preserves the token axis
         // for the one-token cached decode instead of silently collapsing it.
         e.rank=protocol_rank(name);
-        if((name=="ffn_moe_weights-1"||name=="ffn_moe_weights_norm-1")&&t->ne[0]==1){e.shape[0]=t->ne[1];e.shape[1]=t->ne[2];e.shape[2]=1;}
+    if((name=="ffn_moe_weights-1"||name=="ffn_moe_weights_norm-1"||name=="ffn_moe_weights-2"||name=="ffn_moe_weights_norm-2")&&t->ne[0]==1){e.shape[0]=t->ne[1];e.shape[1]=t->ne[2];e.shape[2]=1;}
         if(t->type==GGML_TYPE_I32)e.integer_values=tensor_i32(t);else e.values=tensor_f32(t);
         self.events.push_back(std::move(e)); return true;
     }
@@ -275,7 +289,26 @@ const Event & last(const std::vector<Event> & events, std::string_view name, std
 std::map<std::string,const Event *> select_logical(const std::vector<Event> & e) {
     // Selection is tied to the clean pinned source call order, never to an
     // unqualified callback name.  q after RESHAPE is explicitly resolved.
-#if defined(STRAT01_RUNG2C)
+#if defined(STRAT01_RUNG2D)
+    return {
+        {"Kcur-0", &one(e,"Kcur-0")}, {"Kcur-1", &one(e,"Kcur-1")}, {"l_out-1", &one(e,"l_out-1")},
+        {"attn_norm-2", &one(e,"attn_norm-2")}, {"q-2", &one(e,"q-2","RESHAPE")},
+        {"kv_cmpr_pe-2", &one(e,"kv_cmpr_pe-2")}, {"k_pe-2", &last(e,"k_pe-2","ROPE")},
+        {"kv_cmpr-2", &last(e,"kv_cmpr-2","MUL")}, {"q_pe-2", &last(e,"q_pe-2","ROPE")},
+        {"q_nope_absorbed_perm-2", &one(e,"q_nope_absorbed_perm-2")}, {"Qcur-2", &one(e,"Qcur-2")},
+        {"Kcur-2", &one(e,"Kcur-2")}, {"Vcur-2", &one(e,"Vcur-2")},
+        {"kqv_out-2", &one(e,"kqv_out-2")}, {"ffn_inp-2", &one(e,"ffn_inp-2")},
+        {"ffn_norm-2", &one(e,"ffn_norm-2")}, {"ffn_moe_logits-2", &one(e,"ffn_moe_logits-2")},
+        {"ffn_moe_probs-2", &one(e,"ffn_moe_probs-2")}, {"ffn_moe_probs_biased-2", &one(e,"ffn_moe_probs_biased-2")},
+        {"ffn_moe_topk-2", &one(e,"ffn_moe_topk-2")}, {"ffn_moe_weights-2", &one(e,"ffn_moe_weights-2")},
+        {"ffn_moe_weights_norm-2", &one(e,"ffn_moe_weights_norm-2")}, {"ffn_moe_up-2", &one(e,"ffn_moe_up-2")},
+        {"ffn_moe_gate-2", &one(e,"ffn_moe_gate-2")}, {"ffn_moe_swiglu-2", &one(e,"ffn_moe_swiglu-2")},
+        {"ffn_moe_down-2", &one(e,"ffn_moe_down-2")}, {"ffn_moe_weighted-2", &one(e,"ffn_moe_weighted-2")},
+        {"ffn_moe_out-2", &last(e,"ffn_moe_out-2","ADD")}, {"ffn_up-2", &one(e,"ffn_up-2")},
+        {"ffn_gate-2", &one(e,"ffn_gate-2")}, {"ffn_swiglu-2", &one(e,"ffn_swiglu-2")},
+        {"ffn_shexp-2", &one(e,"ffn_shexp-2")}, {"ffn_out-2", &one(e,"ffn_out-2")},
+        {"l_out-2", &one(e,"l_out-2")}};
+#elif defined(STRAT01_RUNG2C)
     return {
         {"Kcur-0", &one(e,"Kcur-0")}, {"l_out-0", &one(e,"l_out-0")},
         {"attn_norm-1", &one(e,"attn_norm-1")}, {"q-1", &one(e,"q-1","RESHAPE")},
@@ -427,7 +460,12 @@ void write_trace_json(const fs::path & root, const Trace & trace) {
         if(event.type=="I32") { payloads.push_back(write_i32_payload(root,trace.arm,logical,"full",event.integer_values));payloads.push_back(write_i32_payload(root,trace.arm,logical,"token7",token7_slice(event,event.integer_values))); }
         else { payloads.push_back(write_payload(root,trace.arm,logical,"full",event.values));payloads.push_back(write_payload(root,trace.arm,logical,"token7",token7_slice(event,event.values))); }
     }
-#if defined(STRAT01_RUNG2C)
+#if defined(STRAT01_RUNG2D)
+    for(const char *logical:{"Kcur-0","Kcur-1","Kcur-2"}){
+        const Event &full=selected.at(logical);payloads.push_back(write_cache_f16_roundtrip_payload(root,trace.arm,logical,"cache_f16_roundtrip",full.values));
+        if(trace.arm=="cached7p1"){const Event &prefix=one(trace.prefix_events,logical);payloads.push_back(write_cache_f16_roundtrip_payload(root,trace.arm,logical,"prefix_cache_f16_roundtrip",prefix.values));}
+    }
+#elif defined(STRAT01_RUNG2C)
     for(const char *logical:{"Kcur-0","Kcur-1"}){
         const Event &full=selected.at(logical);payloads.push_back(write_cache_f16_roundtrip_payload(root,trace.arm,logical,"cache_f16_roundtrip",full.values));
         if(trace.arm=="cached7p1"){const Event &prefix=one(trace.prefix_events,logical);payloads.push_back(write_cache_f16_roundtrip_payload(root,trace.arm,logical,"prefix_cache_f16_roundtrip",prefix.values));}
@@ -438,7 +476,9 @@ void write_trace_json(const fs::path & root, const Trace & trace) {
     if (trace.arm=="cached7p1") { const Event & k=one(trace.prefix_events,"Kcur-0"); payloads.push_back(write_payload(root,trace.arm,"Kcur-0","prefix_logical_rows",k.values)); }
 #endif
     const fs::path manifest=arm_dir/"manifest.json"; std::ofstream out(manifest,std::ios::binary|std::ios::trunc); if(!out) throw Error("VOID: cannot create arm manifest");
-#if defined(STRAT01_RUNG2C)
+#if defined(STRAT01_RUNG2D)
+    out << "{\n\"schema\":" << json_quote(kSchema) << ",\n\"arm\":" << json_quote(trace.arm) << ",\n\"logical_cache_contract\":{\"extraction\":\"Kcur callback values rounded through F16 by producer\",\"physical_bytes_claimed\":false,\"storage_type\":\"F16\",\"row_length\":576,\"layers\":[0,1,2],\"separate_v_cache\":false},\n\"callback_records\":[";
+#elif defined(STRAT01_RUNG2C)
     out << "{\n\"schema\":" << json_quote(kSchema) << ",\n\"arm\":" << json_quote(trace.arm) << ",\n\"logical_cache_contract\":{\"extraction\":\"Kcur callback values rounded through F16 by producer\",\"physical_bytes_claimed\":false,\"storage_type\":\"F16\",\"row_length\":576,\"layers\":[0,1],\"separate_v_cache\":false},\n\"callback_records\":[";
 #elif defined(STRAT01_RUNG2B)
     out << "{\n\"schema\":" << json_quote(kSchema) << ",\n\"arm\":" << json_quote(trace.arm) << ",\n\"logical_cache_contract\":{\"inherited_rung2a_not_remeasured\":true},\n\"callback_records\":[";
@@ -526,7 +566,9 @@ bool self_tests() {
 int main(int argc, char ** argv) {
     try { const Cli cli=parse_cli(argc,argv); if(cli.self_test) return self_tests()?0:1; run_production(cli); return 0; }
     catch(const std::exception & e) {
-#if defined(STRAT01_RUNG2C)
+#if defined(STRAT01_RUNG2D)
+        std::cerr << "strat01_engine_rung2d_reference: " << e.what() << '\n';
+#elif defined(STRAT01_RUNG2C)
         std::cerr << "strat01_engine_rung2c_reference: " << e.what() << '\n';
 #elif defined(STRAT01_RUNG2B)
         std::cerr << "strat01_engine_rung2b_reference: " << e.what() << '\n';

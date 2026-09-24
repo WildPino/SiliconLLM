@@ -35,6 +35,7 @@
 #include "strat01_swiglu_sse2.h"
 #include "strat01_gguf_rung2b.h"
 #include "strat01_gguf_rung2c.h"
+#include "strat01_gguf_rung2d.h"
 #include "strat01_gguf_rung2b_cross_input.h"
 #include "strat01_gguf_rung2c_cross_input.h"
 #include "strat01_gguf_rung2c_layer1_start_cross_input.h"
@@ -1091,6 +1092,14 @@ int main(int argc,char**argv){
         return strat01_gguf_rung2c_cli(argv[2],argv[4],__FILE__);
     }
     if(argc==2 && !strcmp(argv[1],"--strat01-gguf-rung2c-selftest")) return strat01_gguf_rung2c_selftest();
+    if(argc>1 && !strcmp(argv[1],"--strat01-gguf-rung2d")){
+        if(argc!=5||strcmp(argv[3],"--out-dir")){
+            fprintf(stderr,"usage: engine --strat01-gguf-rung2d <accepted.gguf> --out-dir <directory>\n");
+            return 2;
+        }
+        return strat01_gguf_rung2d_cli(argv[2],argv[4],__FILE__);
+    }
+    if(argc==2 && !strcmp(argv[1],"--strat01-gguf-rung2d-selftest")) return strat01_gguf_rung2d_selftest();
     if(argc>1 && !strcmp(argv[1],"--strat01-rung2b-cross-input")){
         if(argc!=9 || strcmp(argv[3],"--reference-input") || strcmp(argv[5],"--c-input") || strcmp(argv[7],"--out-dir")){
             fprintf(stderr,"usage: engine --strat01-rung2b-cross-input <accepted.gguf> --reference-input <ffn_norm.f32le> --c-input <ffn_norm.f32le> --out-dir <directory>\n");

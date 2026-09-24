@@ -270,6 +270,11 @@ compute helpers are reusable while orchestration/evidence remain hard-coded.
 The [layer-2 protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_DEPTH_EXTENSION_PROTOCOL_20260924.md)
 is frozen with depth as the only changed coordinate. Qualify only its
 model-free apparatus next; do not access the GGUF or execute either producer.
+Its [apparatus result](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_DEPTH_EXTENSION_APPARATUS_RESULT_20260924.md)
+is now `APPARATUS_READY_NO_DONOR_EXECUTION`: 179 Python tests, 22 C self-tests,
+the separate reference self-test, twelve source controls, and exact bindings
+pass with zero model access and zero graphs. Commit the exact qualified
+sources before the sole reference and C invocations; do not rerun Rung-2C.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
