@@ -372,7 +372,10 @@ failing downstream hash and C FFN input alone passes. Close the terminal sum
 and all layer-2 axes. The only non-duplicate coordinate is the frozen
 [FFN-output component split](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_OUTPUT_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md)
 between routed `ffn_moe_out-1` and shared `ffn_shexp-1`, with exact reference
-residual and zero graphs. Qualify model-free first.
+residual and zero graphs. Its
+[model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_OUTPUT_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+qualified without artifact/payload access or diagnostic execution. Commit those
+exact sources, then run the sole zero-graph diagnostic.
 
 ## 1. How to read this map
 
