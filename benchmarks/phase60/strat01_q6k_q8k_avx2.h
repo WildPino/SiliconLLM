@@ -69,6 +69,69 @@ static float strat01_q6k_q8k_dot_generic(
     return result;
 }
 
+/* Exact pinned GGML generic operation structure, isolated from the AVX2/FMA
+ * target of engine.c.  The noinline boundary mirrors the separately compiled
+ * reference backend and prevents caller-target specialization. */
+__attribute__((noinline, target("no-avx,no-avx2,no-fma")))
+static float strat01_q6k_q8k_dot_reference_generic(
+        const uint8_t *q6_blocks, const strat01_q8_k_block *q8_blocks,
+        unsigned count) {
+    int8_t unpacked[STRAT01_QK_K];
+    int16_t products[8];
+    float lane_sums[8];
+    int32_t lane_accumulators[8];
+    float result = 0.0f;
+    unsigned block;
+
+    if (!q6_blocks || !q8_blocks || !count || count % STRAT01_QK_K) return NAN;
+    memset(lane_sums, 0, 8U * sizeof(float));
+    for (block = 0; block < count / STRAT01_QK_K; ++block) {
+        const uint8_t *raw = q6_blocks + (size_t)block * STRAT01_Q6_K_BLOCK_BYTES;
+        const uint8_t *q4 = raw;
+        const uint8_t *qh = raw + 128U;
+        const int8_t *q8 = q8_blocks[block].qs;
+        int8_t *destination = unpacked;
+        int scale_index = 0;
+        int group, lane;
+
+        memset(lane_accumulators, 0, 8U * sizeof(int32_t));
+        for (group = 0; group < (int)STRAT01_QK_K; group += 128) {
+            for (lane = 0; lane < 32; ++lane) {
+                destination[lane + 0] =
+                    (int8_t)((q4[lane + 0] & 0xF) | (((qh[lane] >> 0) & 3) << 4)) - 32;
+                destination[lane + 32] =
+                    (int8_t)((q4[lane + 32] & 0xF) | (((qh[lane] >> 2) & 3) << 4)) - 32;
+                destination[lane + 64] =
+                    (int8_t)((q4[lane + 0] >> 4) | (((qh[lane] >> 4) & 3) << 4)) - 32;
+                destination[lane + 96] =
+                    (int8_t)((q4[lane + 32] >> 4) | (((qh[lane] >> 6) & 3) << 4)) - 32;
+            }
+            destination += 128;
+            q4 += 64;
+            qh += 32;
+        }
+        destination = unpacked;
+        for (group = 0; group < (int)STRAT01_QK_K / 16; ++group) {
+            const int scale = ((const int8_t *)(raw + 192U))[scale_index++];
+            for (lane = 0; lane < 8; ++lane) products[lane] = q8[lane] * destination[lane];
+            for (lane = 0; lane < 8; ++lane) lane_accumulators[lane] += scale * products[lane];
+            q8 += 8;
+            destination += 8;
+            for (lane = 0; lane < 8; ++lane) products[lane] = q8[lane] * destination[lane];
+            for (lane = 0; lane < 8; ++lane) lane_accumulators[lane] += scale * products[lane];
+            q8 += 8;
+            destination += 8;
+        }
+        {
+            const float scale = strat01_q4k_q8k_fp16le(raw + 208U) * q8_blocks[block].d;
+            for (lane = 0; lane < 8; ++lane)
+                lane_sums[lane] += scale * lane_accumulators[lane];
+        }
+    }
+    for (block = 0; block < 8U; ++block) result += lane_sums[block];
+    return result;
+}
+
 #if !defined(__AVX2__) || !defined(__FMA__)
 #error "STRAT-01 Q6_K/Q8_K active reduction requires AVX2 and FMA"
 #endif
