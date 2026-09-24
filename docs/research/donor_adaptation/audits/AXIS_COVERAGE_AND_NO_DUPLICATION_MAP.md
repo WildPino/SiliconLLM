@@ -336,6 +336,11 @@ pre-RMSNorm projected prefix; all downstream and positional paths remain
 closed. Its [apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_RMSNORM_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
 is model-free qualified; commit exact sources before the sole zero-graph
 invocation.
+The invocation completed all arms but is raw VOID due solely to a wrong
+descriptive-prefix reshape. The frozen
+[offline recovery](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_RMSNORM_OFFLINE_RECOVERY_PROTOCOL_20260924.md)
+must reuse those bytes with zero model access and zero graphs. Producer rerun
+is permanently closed.
 
 ## 1. How to read this map
 

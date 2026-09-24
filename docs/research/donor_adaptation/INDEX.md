@@ -332,6 +332,11 @@ no graph or predecessor repeat is authorized.
 Its [apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_RMSNORM_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
 is qualified with all new/inherited/legacy tests passing, no artifact access,
 and zero graphs. Commit exact sources, then run once.
+The sole scientific run wrote all six arms but is raw VOID: descriptive prefix
+metrics attempted `[8,6144]` on 4,096 values. Do not rerun it. The
+[offline-recovery protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_RMSNORM_OFFLINE_RECOVERY_PROTOCOL_20260924.md)
+binds the raw record and permits one committed, zero-model, zero-graph
+re-adjudication.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
