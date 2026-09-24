@@ -7,6 +7,7 @@ import hashlib
 import json
 import os
 import platform
+import shutil
 import subprocess
 import sys
 import time
@@ -21,11 +22,13 @@ PINNED_X86_QUANTS = Path(
     r"C:\Users\giosa\AppData\Local\Temp\siliconllm-llama-bind-5b335f4\ggml\src\ggml-cpu\arch\x86\quants.c"
 )
 PINNED_X86_QUANTS_SHA = "99a98747c1ac84ec40e2d1a31227b947aeb0a05bf1d8e79ec630a6d783b89f86"
-DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_q6k_q8k_avx2_parity_apparatus_20260924"
+DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_q6k_q8k_avx2_parity_apparatus_repair1_20260924"
 TEST_MODULE = "benchmarks.donor_adaptation.engine.test_strat01_q6k_q8k_avx2_parity"
 
 CRITICAL_PATHS = (
+    ROOT / "benchmarks/phase60/engine.c",
     ROOT / "benchmarks/phase60/strat01_q6k_q8k_avx2.h",
+    ROOT / "benchmarks/phase60/strat01_gguf_block0_q6k_q8k_avx2_parity.h",
     HERE / "strat01_q6k_q8k_avx2_probe.c",
     HERE / "strat01_q6k_q8k_avx2_oracle.cpp",
     HERE / "build_strat01_q6k_q8k_avx2_oracle.py",
@@ -102,6 +105,25 @@ def main() -> int:
                 raise ApparatusError(f"missing critical source: {path}")
         if sha256_file(PINNED_X86_QUANTS) != PINNED_X86_QUANTS_SHA:
             raise ApparatusError("pinned x86 quants.c identity mismatch")
+        clang = shutil.which("clang")
+        if not clang:
+            raise ApparatusError("clang is unavailable")
+        engine = output / "engine_q6_parity.exe"
+        compile_engine = run_command(
+            [clang, "-std=c11", "-O3", "-mavx2", "-mfma",
+             str(ROOT / "benchmarks/phase60/engine.c"), "-o", str(engine), "-lm"],
+            output, "compile_engine",
+        )
+        manifest["commands"].append(compile_engine)
+        if compile_engine["returncode"] != 0:
+            raise ApparatusError("full engine diagnostic compile failed")
+        selftest = run_command(
+            [str(engine), "--strat01-block0-q6k-q8k-avx2-parity-selftest"],
+            output, "engine_q6_parity_selftest",
+        )
+        manifest["commands"].append(selftest)
+        if selftest["returncode"] != 0:
+            raise ApparatusError("full engine diagnostic selftest failed")
         test = run_command(
             [sys.executable, "-B", "-m", "unittest", "-v", TEST_MODULE],
             output, "q6k_q8k_avx2_model_free_tests",
@@ -126,11 +148,14 @@ def main() -> int:
             },
             "controls": {
                 "active_matches_pinned_oracle_bit_exact": True,
+                "full_matrix_schedule_matches_pinned_oracle_bit_exact": True,
+                "q8_population_matches_pinned_oracle_bit_exact": True,
                 "generic_negative_control_fires": True,
                 "one_byte_q6_mutation_fires": True,
                 "short_read_rejected": True,
                 "invalid_length_rejected": True,
                 "pinned_x86_source_hash": True,
+                "full_engine_diagnostic_compiles_and_selftests": True,
                 "zero_scientific_and_graph_counts": True,
             },
             "non_claims": [

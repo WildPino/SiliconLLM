@@ -17,7 +17,9 @@ class Q6KQ8KAVX2ParityRunnerTests(unittest.TestCase):
     def test_critical_inventory_is_complete_and_model_free(self) -> None:
         names = {path.name for path in CRITICAL_PATHS}
         for name in (
+            "engine.c",
             "strat01_q6k_q8k_avx2.h",
+            "strat01_gguf_block0_q6k_q8k_avx2_parity.h",
             "strat01_q6k_q8k_avx2_probe.c",
             "strat01_q6k_q8k_avx2_oracle.cpp",
             "build_strat01_q6k_q8k_avx2_oracle.py",

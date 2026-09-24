@@ -14,12 +14,14 @@ on byte-exact repaired SwiGLU. The only active coordinate is the frozen
 [block-0 Q6_K×Q8_K AVX2 parity protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_PROTOCOL_20260924.md):
 same Q8_K bytes, current generic reduction versus pinned llama.cpp active
 AVX2/FMA reduction, zero graphs. Its
-[model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_APPARATUS_RESULT_20260924.md)
-is `APPARATUS_READY_NO_SCIENTIFIC_EXECUTION`: the literal candidate is
-bit-exact to the clean pinned oracle on 1/2/6/35 stored blocks, while the
-generic and one-byte-mutation controls fire. No model or scientific payload
-was opened. This qualifies only the primitive; the full-matrix diagnostic
-must still be built, qualified, and committed before its sole scientific run.
+[initial model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_APPARATUS_RESULT_20260924.md)
+qualified the primitive on 1/2/6/35 stored blocks. The canonical
+[repair-1 full apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_APPARATUS_REPAIR1_RESULT_20260924.md)
+supersedes it for execution authorization: synthetic full-matrix Q8
+populations and outputs are bit-exact between C and the pinned oracle, the
+full engine diagnostic compiles/self-tests, generic and mutation controls
+fire, and all scientific/model/graph counters remain zero. Commit the exact
+qualified sources, then perform its sole zero-graph scientific run.
 
 **STRAT-01 block-0 production integration (22 September):**
 Closed as **`PASS_ENGINE_BLOCK0_PRODUCTION_INTEGRATION`**. The standard
