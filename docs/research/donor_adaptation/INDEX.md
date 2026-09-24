@@ -350,8 +350,14 @@ predecessor exactly. Close KV-A and all downstream axes. The only new successor
 is frozen in the [layer-2 attention RMSNorm protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md):
 immutable `l_out-1` through production `blk.2.attn_norm.weight`, with no graph.
 The [repair-1 apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
-is qualified model-free; the initial compile failure remains VOID. Commit the
-exact sources, then execute the sole authorized scientific diagnostic.
+was qualified model-free; the initial compile failure remains VOID. The
+canonical [result](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER1_TERMINAL_RESIDUAL_SUFFICIENT`: reference `l_out-1` is byte-exact
+through the full closed layer-2 chain and C `l_out-1` exactly replays the
+failure. Close layer-2 RMSNorm and downstream. The only new successor is the
+frozen [layer-1 terminal-component split](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_TERMINAL_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md),
+using immutable `ffn_inp-1 + ffn_out-1` and zero graphs. Qualify model-free
+next.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

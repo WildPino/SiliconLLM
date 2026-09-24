@@ -357,8 +357,14 @@ through production layer-2 attention RMSNorm, frozen in the
 [attention RMSNorm protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md).
 It reuses all closed downstream operators and authorizes no graph. Its
 [repair-1 apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
-is model-free qualified after preserving the initial compile VOID. Commit the
-exact sources before the one permitted scientific diagnostic.
+was model-free qualified after preserving the initial compile VOID. Its
+[canonical result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER1_TERMINAL_RESIDUAL_SUFFICIENT`: exact reference input passes every
+downstream stage byte-exactly and C input replays the failure. Close attention
+RMSNorm and every downstream axis. The only non-duplicate coordinate is the
+frozen [layer-1 terminal-component split](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_TERMINAL_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md)
+at `ffn_inp-1 + ffn_out-1`, using immutable payloads and zero graphs. Qualify
+model-free first.
 
 ## 1. How to read this map
 
