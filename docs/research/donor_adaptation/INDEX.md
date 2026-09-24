@@ -263,6 +263,13 @@ One production invocation completed both donor schedules and the immutable
 reference was not rerun. Close all fidelity work through complete layer 1.
 Any successor must change depth beyond layer 1 under a separately frozen
 protocol and must reuse, not remeasure, the closed Q4/F16/SwiGLU/Q6 chain.
+The [layer-2 depth audit](audits/STRAT_01_GIGACHAT31_ENGINE_LAYER2_DEPTH_EXTENSION_AUDIT_20260924.md)
+now identifies the narrow successor: the donor has 26 blocks and one leading
+dense block; `blk.2` matches the layer-1 MoE descriptor contract, and the
+compute helpers are reusable while orchestration/evidence remain hard-coded.
+The [layer-2 protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_DEPTH_EXTENSION_PROTOCOL_20260924.md)
+is frozen with depth as the only changed coordinate. Qualify only its
+model-free apparatus next; do not access the GGUF or execute either producer.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

@@ -269,6 +269,12 @@ helper counts, and ten live causal controls pass across both schedules. One
 production invocation and zero reference graphs ran. This closes all
 engine-fidelity coordinates through complete layer 1. No prior axis reopens;
 the next eligible coordinate must be a separately frozen depth extension.
+That coordinate is now defined by the
+[layer-2 static audit](STRAT_01_GIGACHAT31_ENGINE_LAYER2_DEPTH_EXTENSION_AUDIT_20260924.md)
+and [frozen protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_DEPTH_EXTENSION_PROTOCOL_20260924.md).
+It adds only `blk.2` execution/evidence and leaves accepted layer 0/1
+arithmetic unchanged. Model-free apparatus qualification is next; no donor
+or reference graph is authorized before a committed passing apparatus.
 
 ## 1. How to read this map
 
