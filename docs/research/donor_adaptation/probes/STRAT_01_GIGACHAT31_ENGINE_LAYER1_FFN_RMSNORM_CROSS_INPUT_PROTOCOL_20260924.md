@@ -75,12 +75,13 @@ but adjudicate only the complete downstream output.
 Use complete downstream limits NRMSE `<=0.002` and normalized maximum
 `<=0.01`, globally and per token.
 
-Require byte-exact captured reference/C downstream replay; byte-exact
-computed-reference replay of captured reference `ffn_norm-1` and every
-downstream stage; byte-exact computed-C replay of captured production C
-`ffn_norm-1` and every downstream stage; schedule twins; artifact, payload,
-tensor, label, source and mutation controls; both planted controls failing;
-and exact execution accounting.
+Require byte-exact captured reference/C downstream replay and byte-exact
+computed-C replay of captured production C `ffn_norm-1` and every downstream
+stage. The computed-reference arm is the estimand and must not be forced to
+replay its target before adjudication; report its direct and downstream
+metrics instead. Also require schedule twins; artifact, payload, tensor,
+label, source and mutation controls; both planted controls failing; and exact
+execution accounting.
 
 - if `computed_norm_on_reference_input` passes and
   `computed_norm_on_c_input` fails:

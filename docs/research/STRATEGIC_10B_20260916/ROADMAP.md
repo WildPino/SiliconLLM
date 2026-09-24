@@ -94,7 +94,16 @@ coordinate. The sole next split is inside production of `ffn_norm-1`:
 `ffn_inp-1` versus its RMSNorm. The evidence does not yet assign causality to
 either component. That coordinate is now frozen in the
 [layer-1 FFN RMSNorm protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md);
-qualify it model-free before any scientific invocation.
+its canonical [repair4 apparatus result](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is `APPARATUS_READY_NO_DONOR_EXECUTION`. It binds the immediate routed-up
+predecessor and the immutable downstream target, schedule-twin
+validation, mutation controls, and a test of `evidence()`. It binds the base
+runner and enforces both aggregate and per-token gates. Initial and repair1/2/3
+apparatus records are superseded. No artifact or payload was opened, and all
+diagnostic/graph counters are zero. Commit the exact qualified
+sources, then perform the sole zero-graph scientific invocation to distinguish
+immutable `ffn_inp-1` from production RMSNorm. This qualification makes no
+scientific or causal claim.
 
 **Date: 16 September 2026. Analysis and design only. No code, tests, benchmarks, weight downloads, or training performed.** Reading baseline: HEAD `f1f9cfd59d34071a004248bc04c9d56e6038c596`. Register of sources, scope, and results: [EVIDENCE.md](EVIDENCE.md). The L/W codes refer to that register; further primary sources are linked in the text.
 

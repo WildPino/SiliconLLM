@@ -435,7 +435,15 @@ projection and all downstream coordinates. The only non-duplicate boundary
 is production of `ffn_norm-1`. The frozen
 [layer-1 FFN RMSNorm split](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md)
 changes only immutable `ffn_inp-1` versus the accepted RMSNorm and preserves
-the closed downstream amplifier; qualify it before execution.
+the closed downstream amplifier. Its canonical [repair4 apparatus result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is qualified with aggregate and per-token gates enforced. The immutable
+downstream target is hash-bound; apparatus-only unit assertions are static and
+open neither model nor scientific payload. The base runner is also hash-bound,
+and aggregate plus per-token gates remain enforced. Artifact, payload,
+diagnostic, and graph access are zero. Initial and repair1/2/3 records are
+superseded. This is the sole active STRAT-01 fidelity coordinate; commit exact
+qualified sources before one zero-graph scientific invocation. The readiness
+record itself assigns no cause.
 
 ## 1. How to read this map
 

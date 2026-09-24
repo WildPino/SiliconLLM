@@ -423,7 +423,14 @@ arms, zero graphs. Close up and downstream. The only active boundary is
 upstream of `ffn_norm-1`. The frozen
 [layer-1 FFN RMSNorm protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md)
 splits immutable `ffn_inp-1` from production RMSNorm without presuming which
-is causal; qualify its apparatus model-free next.
+is causal. Its canonical [repair4 apparatus result](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is `APPARATUS_READY_NO_DONOR_EXECUTION`; aggregate and per-token gates are
+enforced, the immutable downstream target is bound and
+schedule-twin/mutation validation, `evidence()` is exercised by a unit test,
+and the base runner is hash-bound. No artifact, payload, or graph was accessed.
+Initial and repair1/2/3 mechanical records are superseded.
+Commit exact qualified sources, then run its sole zero-graph scientific
+invocation; qualification does not decide causality.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
