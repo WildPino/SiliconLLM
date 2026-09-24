@@ -330,6 +330,10 @@ positional-tail-only passes. This permanently closes the tail and all broader
 query/KV/operator repeats. The sole new successor may split the already
 captured pre-RMSNorm prefix from the KV RMSNorm operator that produces
 `kv_cmpr-2`; it must not execute a new graph.
+The [KV RMSNorm protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md)
+now freezes exactly that successor. Its only changed coordinate is the
+pre-RMSNorm projected prefix; all downstream and positional paths remain
+closed. Qualify model-free before the sole zero-graph invocation.
 
 ## 1. How to read this map
 

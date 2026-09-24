@@ -324,6 +324,11 @@ tail fails at NRMSE `0.0026420868`, whereas reference latent/C tail passes at
 rejects with zero graphs. Close the positional tail and split only
 `kv_cmpr-2` production between its immutable projected-prefix input and the
 layer-2 KV RMSNorm operator.
+That split is frozen by the
+[KV RMSNorm cross-input protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md).
+It applies the production RMSNorm to immutable reference/C projected prefixes
+and propagates them through the closed downstream path. Qualify model-free;
+no graph or predecessor repeat is authorized.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
