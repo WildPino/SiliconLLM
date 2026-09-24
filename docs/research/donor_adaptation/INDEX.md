@@ -244,6 +244,13 @@ diagnostic ran, zero graphs ran, and every control passes. Do not repeat this
 cell or sweep AVX2/FMA. Freeze a distinct normal-path production-integration
 cell next; qualify its apparatus before one accepted-GGUF block-0 plus
 complete-layer-1 execution.
+That successor is now frozen in the
+[post-F16 SwiGLU production-integration protocol](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_SWIGLU_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md).
+It factors one shared no-FMA four-lane primitive, requires both the diagnostic
+and `strat01_r2b_run` to delegate to it, leaves layer 1 unchanged, and then
+uses the standard Rung-2C command to validate both schedules, 32 checkpoints,
+and six caches. Qualify only the model-free apparatus next and commit exact
+sources before the sole accepted-GGUF invocation; never rerun reference.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

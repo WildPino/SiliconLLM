@@ -251,6 +251,13 @@ all controls pass. Close this semantics split, AVX2/FMA sweeps, and every
 predecessor. The only next distinct axis is separately frozen production
 integration of the proven primitive, model-free qualification first, then
 one accepted-GGUF execution through block 0 and complete layer 1.
+That distinct axis is now frozen in the
+[post-F16 SwiGLU production-integration protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_SWIGLU_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md).
+Only shared primitive ownership and the normal block-0 call may change;
+layer 1 and all Q4/F16/Q6 coordinates remain fixed. The standard Rung-2C
+command must then cover both schedules, all 32 checkpoints, and six caches.
+Only model-free apparatus qualification is next; accepted GGUF access is
+forbidden until exact sources are committed.
 
 ## 1. How to read this map
 
