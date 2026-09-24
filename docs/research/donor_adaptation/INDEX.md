@@ -406,6 +406,14 @@ an impossible scalar-reference replay assertion refused before Q6. Repair 1
 removes only that contradiction and fixes completed-Q6 accounting. Its
 [model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_APPARATUS_REPAIR1_RESULT_20260924.md)
 is qualified; commit exact repaired sources before the sole invocation.
+The repaired [result](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER1_ROUTED_UP_INPUT_RESIDUAL_SUFFICIENT`: C up alone exactly reproduces
+the failure; C gate alone passes at `1.47e-7`, and SSE2 full-C does not repair.
+Close gate/expression and all later components. The only new coordinate is the
+frozen [routed-up projection cross-input](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_UP_PROJECTION_CROSS_INPUT_PROTOCOL_20260924.md):
+reference versus C `ffn_norm-1` through the same selected current up matrices,
+then reference gate, SSE2, Q6, and the closed downstream path. Qualify its
+model-free apparatus next; execute no graph.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

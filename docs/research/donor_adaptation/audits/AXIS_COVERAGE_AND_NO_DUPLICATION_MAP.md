@@ -415,6 +415,14 @@ an impossible scalar-reference replay assertion refused before Q6. Repair 1
 changes only that assertion and completed-arm accounting. Its
 [model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_APPARATUS_REPAIR1_RESULT_20260924.md)
 is qualified; no axis or arm was changed.
+Its canonical
+[result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER1_ROUTED_UP_INPUT_RESIDUAL_SUFFICIENT`: C up alone exactly replays the
+failure; C gate alone passes and SSE2 full-C does not repair. Close gate,
+expression, Q6, and all later axes. The sole non-duplicate coordinate is the
+frozen [routed-up projection split](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_UP_PROJECTION_CROSS_INPUT_PROTOCOL_20260924.md)
+between reference and C `ffn_norm-1` through the same selected current up
+matrices, with zero graphs.
 
 ## 1. How to read this map
 
