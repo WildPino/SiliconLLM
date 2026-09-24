@@ -21,10 +21,11 @@ class Q6KQ8KAVX2ScientificRunnerTests(unittest.TestCase):
         })
 
     def test_decision_table(self) -> None:
-        self.assertEqual(classify(False, False, False), "BLOCK0_Q6_Q8K_QUANTIZER_MISMATCH")
-        self.assertEqual(classify(True, False, False), "BLOCK0_Q6_AVX2_REDUCTION_INSUFFICIENT")
-        self.assertEqual(classify(True, True, True), "BLOCK0_Q6_AVX2_EXACT_REPAIR")
-        self.assertEqual(classify(True, True, False), "VOID_BLOCK0_Q6K_Q8K_AVX2_PARITY")
+        self.assertEqual(classify(False, False, False, False), "BLOCK0_Q6_Q8K_QUANTIZER_MISMATCH")
+        self.assertEqual(classify(True, False, False, False), "BLOCK0_Q6_AVX2_REDUCTION_INSUFFICIENT")
+        self.assertEqual(classify(True, True, False, False), "BLOCK0_Q6_AVX2_REDUCTION_INSUFFICIENT")
+        self.assertEqual(classify(True, True, True, True), "BLOCK0_Q6_AVX2_EXACT_REPAIR")
+        self.assertEqual(classify(True, True, True, False), "VOID_BLOCK0_Q6K_Q8K_AVX2_PARITY")
 
     def test_critical_sources_include_scientific_runner(self) -> None:
         self.assertIn("run_strat01_q6k_q8k_avx2_scientific.py", {path.name for path in CRITICAL_PATHS})

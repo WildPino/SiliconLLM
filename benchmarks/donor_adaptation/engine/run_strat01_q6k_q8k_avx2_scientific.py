@@ -219,10 +219,13 @@ def validate_c_report(root: Path, source_hashes: dict[str, str]) -> dict[str, Pa
     return {name: output_path(root, report["outputs"][name], size) for name, size in expected.items()}
 
 
-def classify(q8_exact: bool, candidate_oracle_exact: bool, exact_controls: bool) -> str:
+def classify(
+    q8_exact: bool, candidate_oracle_exact: bool,
+    candidate_reference_exact: bool, exact_controls: bool,
+) -> str:
     if not q8_exact:
         return "BLOCK0_Q6_Q8K_QUANTIZER_MISMATCH"
-    if not candidate_oracle_exact:
+    if not candidate_oracle_exact or not candidate_reference_exact:
         return "BLOCK0_Q6_AVX2_REDUCTION_INSUFFICIENT"
     if exact_controls:
         return "BLOCK0_Q6_AVX2_EXACT_REPAIR"
@@ -337,7 +340,9 @@ def main() -> int:
             "zero_graph_executions": True,
         }
         exact_controls = all(controls.values())
-        status = classify(q8_exact, candidate_oracle_exact, exact_controls)
+        status = classify(
+            q8_exact, candidate_oracle_exact, candidate_reference_exact, exact_controls
+        )
         manifest.update({
             "status": status, "finished_utc": utc_now(), "controls": controls,
             "identity": {
