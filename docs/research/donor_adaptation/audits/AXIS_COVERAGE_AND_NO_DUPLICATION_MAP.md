@@ -25,6 +25,10 @@ frozen [attention-output residual split](../probes/STRAT_01_GIGACHAT31_ENGINE_LA
 which applies the current Q4_K output projection once and changes only the
 immutable post-production-SwiGLU `l_out-0` operand. The earlier layer-1-start
 cell used a different block-0 state and does not adjudicate this changed hash.
+Its [model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is qualified with every scientific counter at zero. Do not widen or execute
+another cell before committing these exact sources and running this sole
+zero-graph invocation.
 The still later [STRAT-03 result](../probes/STRAT_03_EXECUTABLE_SHARED_RESIDUAL_RESULT.md)
 closes the frozen five-layer `k=3/256` local diagnostic with a byte-count-
 matched SwiGLU shared path and `x`-only router: all three gates fail despite

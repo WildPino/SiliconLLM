@@ -21,6 +21,11 @@ the sole active coordinate is the frozen
 [layer-1 attention-output residual protocol](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_PROTOCOL_20260924.md),
 which changes only immutable reference/C `l_out-0` around the current Q4_K
 output projection and executes zero graphs.
+Its canonical
+[model-free apparatus](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is `APPARATUS_READY_NO_DONOR_EXECUTION`: no artifact or scientific payload was
+opened and every diagnostic/operator/graph counter is zero. Commit exact
+sources before the one authorized invocation.
 
 ## 1. Reading order and precedence
 

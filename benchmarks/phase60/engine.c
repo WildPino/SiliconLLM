@@ -59,6 +59,7 @@
 #include "strat01_gguf_layer1_routed_swiglu_component_cross_input.h"
 #include "strat01_gguf_layer1_routed_up_projection_cross_input.h"
 #include "strat01_gguf_layer1_ffn_rmsnorm_cross_input.h"
+#include "strat01_gguf_layer1_attention_output_residual_cross_input.h"
 #include "strat01_gguf_rung2b_rmsnorm_diag.h"
 #include "strat01_gguf_upstream_rmsnorm_diag.h"
 #include "strat01_gguf_kb_q5q8_diag.h"
@@ -1198,6 +1199,11 @@ int main(int argc,char**argv){
         return strat01_l1fr_cli(argv[2],argv[4],argv[6],argv[8],argv[10],argv[12],argv[14],argv[16],argv[18],argv[20],argv[22],argv[24],argv[26],argv[28],argv[30],__FILE__);
     }
     if(argc==2 && !strcmp(argv[1],"--strat01-layer1-ffn-rmsnorm-cross-input-selftest")) return strat01_l1fr_selftest();
+    if(argc>1 && !strcmp(argv[1],"--strat01-layer1-attention-output-residual-cross-input")){
+        if(argc!=29 || strcmp(argv[3],"--topk") || strcmp(argv[5],"--ref-residual") || strcmp(argv[7],"--c-residual") || strcmp(argv[9],"--ref-kqv") || strcmp(argv[11],"--c-kqv") || strcmp(argv[13],"--ref-ffn") || strcmp(argv[15],"--c-ffn") || strcmp(argv[17],"--ref-gate") || strcmp(argv[19],"--ref-q") || strcmp(argv[21],"--ref-k") || strcmp(argv[23],"--ref-shared") || strcmp(argv[25],"--ref-weights") || strcmp(argv[27],"--out-dir")){fprintf(stderr,"usage: engine --strat01-layer1-attention-output-residual-cross-input <accepted.gguf> --topk <i32le> --ref-residual <l_out-0> --c-residual <l_out-0> --ref-kqv <kqv_out-1> --c-kqv <kqv_out-1> --ref-ffn <ffn_inp-1> --c-ffn <ffn_inp-1> --ref-gate <f32le> --ref-q <f32le> --ref-k <f32le> --ref-shared <f32le> --ref-weights <f32le> --out-dir <dir>\n");return 2;}
+        return strat01_l1ao_cli(argv[2],argv[4],argv[6],argv[8],argv[10],argv[12],argv[14],argv[16],argv[18],argv[20],argv[22],argv[24],argv[26],argv[28],__FILE__);
+    }
+    if(argc==2 && !strcmp(argv[1],"--strat01-layer1-attention-output-residual-cross-input-selftest")) return strat01_l1ao_selftest();
     if(argc>1 && !strcmp(argv[1],"--strat01-rung2c-layer1-start-cross-input")){
         if(argc!=9 || strcmp(argv[3],"--reference-input") || strcmp(argv[5],"--c-input") || strcmp(argv[7],"--out-dir")){
             fprintf(stderr,"usage: engine --strat01-rung2c-layer1-start-cross-input <accepted.gguf> --reference-input <l_out-0.f32le> --c-input <l_out-0.f32le> --out-dir <directory>\n");

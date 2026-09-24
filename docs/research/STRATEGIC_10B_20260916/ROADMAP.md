@@ -13,7 +13,11 @@ boundary is the residual add around the current output projection. It is
 frozen in the
 [layer-1 attention-output residual protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_PROTOCOL_20260924.md):
 current Q4_K output projection plus immutable reference/C `l_out-0`, zero
-graphs. This paragraph supersedes the older active-boundary wording below.
+graphs. Its canonical
+[model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is `APPARATUS_READY_NO_DONOR_EXECUTION`: artifact/payload and every scientific
+or graph counter are zero. Commit exact sources before the sole invocation.
+This paragraph supersedes the older active-boundary wording below.
 
 **Current execution head (24 September):** the accepted donor is exact through
 layer 1; layer 2 first fails at attention output, and whole-KV cross-input has

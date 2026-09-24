@@ -12,7 +12,11 @@ active coordinate is the frozen
 [attention-output residual split](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_PROTOCOL_20260924.md):
 current output projection plus reference/C `l_out-0`, zero graphs. It uses the
 post-production-SwiGLU block-0 hash and therefore does not duplicate the older
-layer-1-start cell.
+layer-1-start cell. Its canonical
+[model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is `APPARATUS_READY_NO_DONOR_EXECUTION`, with no artifact/payload access and
+all scientific/graph counters zero. Commit exact sources before its sole
+scientific invocation.
 
 **STRAT-01 block-0 production integration (22 September):**
 Closed as **`PASS_ENGINE_BLOCK0_PRODUCTION_INTEGRATION`**. The standard

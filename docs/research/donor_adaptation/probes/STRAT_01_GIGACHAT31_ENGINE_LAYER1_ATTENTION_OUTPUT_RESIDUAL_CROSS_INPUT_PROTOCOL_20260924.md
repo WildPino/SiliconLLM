@@ -82,13 +82,13 @@ adjudicate only the complete downstream output.
 Use complete downstream limits NRMSE `<=0.002` and normalized maximum
 `<=0.01`, globally and per token.
 
-Require byte-exact captured reference/C downstream replay. Require the
-computed-reference arm to reproduce reference `ffn_inp-1` and every later
-stage byte-for-byte, and the computed-C arm to reproduce production C
-`ffn_inp-1` and every later stage byte-for-byte. Also require the two captured
-`kqv_out-1` hashes to be identical, schedule twins, artifact/payload/tensor/
-label/source/mutation controls, both planted controls failing, and exact
-execution accounting.
+Require byte-exact captured reference/C downstream replay. The
+computed-reference arm is the estimand and must not be forced to replay the
+reference before adjudication; report exact-replay flags and direct metrics at
+every stage. The computed-C arm must replay production C for a residual-
+sufficiency verdict. Also require the two captured `kqv_out-1` hashes to be
+identical, schedule twins, artifact/payload/tensor/label/source/mutation
+controls, both planted controls failing, and exact execution accounting.
 
 - if the computed-reference arm passes, the computed-C arm fails, and both
   exact replays hold: `LAYER1_BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`;
