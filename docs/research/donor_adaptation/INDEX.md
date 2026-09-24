@@ -383,6 +383,9 @@ values replay the failure and C normalized router weights pass. Close routing
 and reduction. The only new successor is the frozen
 [routed-Q6 residual propagation](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_Q6_RESIDUAL_PROPAGATION_PROTOCOL_20260924.md),
 which reuses the old Q6(reference-SwiGLU) output and executes no Q6 or graph.
+Its [model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_Q6_RESIDUAL_PROPAGATION_APPARATUS_RESULT_20260924.md)
+qualified on the first attempt without artifact/payload access. Commit exact
+sources, then execute the sole zero-Q6/zero-graph propagation.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

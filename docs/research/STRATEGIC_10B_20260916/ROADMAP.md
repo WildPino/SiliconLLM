@@ -53,6 +53,9 @@ is `LAYER1_ROUTED_EXPERT_DOWN_OUTPUT_RESIDUAL_SUFFICIENT`; normalized router
 weights pass. Close routing and reduction. The [routed-Q6 propagation protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_Q6_RESIDUAL_PROPAGATION_PROTOCOL_20260924.md)
 reuses the old Q6(reference-SwiGLU) output and adds only the new downstream
 gate; it must not rerun Q6 or a graph.
+Its [model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_Q6_RESIDUAL_PROPAGATION_APPARATUS_RESULT_20260924.md)
+qualified on the first attempt with zero payload/model access and zero Q6 or
+graphs. Commit exact sources, then run its sole propagation diagnostic.
 
 **Date: 16 September 2026. Analysis and design only. No code, tests, benchmarks, weight downloads, or training performed.** Reading baseline: HEAD `f1f9cfd59d34071a004248bc04c9d56e6038c596`. Register of sources, scope, and results: [EVIDENCE.md](EVIDENCE.md). The L/W codes refer to that register; further primary sources are linked in the text.
 

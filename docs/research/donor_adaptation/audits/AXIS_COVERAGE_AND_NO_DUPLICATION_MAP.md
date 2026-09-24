@@ -392,7 +392,9 @@ router-weight arm passes. Close routing, weighting/sum, shared, terminal, and
 layer 2. The only non-duplicate coordinate is the frozen
 [routed-Q6 residual propagation](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_Q6_RESIDUAL_PROPAGATION_PROTOCOL_20260924.md):
 reuse the immutable old Q6(reference-SwiGLU) output under the new downstream
-gate; do not rerun Q6 or a graph. Qualify model-free first.
+gate; do not rerun Q6 or a graph. Its [model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_Q6_RESIDUAL_PROPAGATION_APPARATUS_RESULT_20260924.md)
+qualified without artifact/payload access or diagnostic/Q6/graph execution.
+Commit exact sources, then run the sole propagation diagnostic.
 
 ## 1. How to read this map
 
