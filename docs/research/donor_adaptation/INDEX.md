@@ -277,6 +277,15 @@ source controls, and exact bindings pass with zero model access and zero
 graphs. It supersedes the pre-adjudicator apparatus. Commit the exact
 qualified sources before the sole reference and C invocations; do not rerun
 Rung-2C.
+The sole scientific run has now completed those exact invocations and graphs,
+but its emitted `FAIL_ENGINE_LAYER2_DEPTH_EXTENSION` label is noncanonical:
+the aggregate `omit_shared_expert` mutation remained inside the frozen gate,
+which makes the cell VOID under its preregistered decision rule. The
+[offline-recovery protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_DEPTH_EXTENSION_OFFLINE_RECOVERY_PROTOCOL_20260924.md)
+binds the immutable run and replaces only that masked aggregate control with
+the same-threshold branch-local omission check. Implement and commit that
+adjudicator next; do not rerun either producer. The observed first numerical
+failure, `kqv_out-2`, is diagnostic only until recovery closes.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

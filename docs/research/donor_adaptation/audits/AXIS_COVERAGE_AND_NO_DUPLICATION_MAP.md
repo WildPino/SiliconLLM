@@ -282,6 +282,16 @@ bindings pass with zero model access or graphs. It supersedes the earlier
 pre-adjudicator apparatus. Commit the exact sources, then run each new
 producer once; no closed axis reopens.
 
+The sole layer-2 scientific execution is complete, so producer execution is
+now permanently closed. Its raw `FAIL` status is not canonical because one
+aggregate causal mutation did not reject; the frozen rule classifies that
+record as VOID. The
+[offline-recovery protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_DEPTH_EXTENSION_OFFLINE_RECOVERY_PROTOCOL_20260924.md)
+permits only a same-threshold branch-local repair over immutable outputs.
+No model, reference, C producer, predecessor, or closed operator axis may be
+rerun. `kqv_out-2` is only a provisional first-failure boundary until the
+offline recovery is valid.
+
 ## 1. How to read this map
 
 Evidence classes are intentionally different:
