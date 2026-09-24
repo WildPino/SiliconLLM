@@ -301,6 +301,13 @@ Only an attention-output diagnostic over immutable payloads is non-duplicate;
 new model/reference graphs require proof that the needed intermediate is
 absent.
 
+The next cell is now frozen in the
+[layer-2 attention cross-input protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTENTION_CROSS_INPUT_PROTOCOL_20260924.md).
+It reuses the closed layer-1 diagnostic method but changes the actual depth,
+inputs, target, and V-B weights. Prefill and cached payload hashes are exact,
+so only one boundary replay is admissible. Qualify model-free first; the sole
+scientific invocation may read the V-B matrix but executes zero model graphs.
+
 ## 1. How to read this map
 
 Evidence classes are intentionally different:

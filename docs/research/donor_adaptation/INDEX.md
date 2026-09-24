@@ -294,6 +294,11 @@ first fail at `kqv_out-2` with NRMSE `0.003014631769821054`; all preceding
 Q/K/V surfaces pass. Recovery ran zero producers and zero graphs. Close this
 cell permanently and freeze a separate immutable-payload diagnostic at the
 attention output boundary.
+The [layer-2 attention cross-input protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTENTION_CROSS_INPUT_PROTOCOL_20260924.md)
+is frozen next. It uses the same accepted boundary method as the old layer-1
+cell but binds new layer-2 inputs, target, and V-B weights. Prefill and cached
+payloads are byte-identical, so qualify one model-free apparatus and then one
+boundary-only replay; no donor/reference graph may execute.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
