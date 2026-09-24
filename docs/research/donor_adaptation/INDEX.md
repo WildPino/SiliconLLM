@@ -313,6 +313,10 @@ The [KV-partition protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_PARTITIO
 is now frozen. It holds reference query fixed, independently substitutes the
 two immutable K-row partitions, and permits only a model-free apparatus
 qualification followed by one zero-graph boundary invocation.
+Its [apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_PARTITION_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is now qualified: all new/inherited/legacy tests pass, with zero diagnostic
+invocations, zero graphs, and no artifact access. Commit the exact sources,
+then execute the single boundary diagnostic.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
