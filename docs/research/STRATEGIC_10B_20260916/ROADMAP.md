@@ -71,6 +71,13 @@ Its [model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE
 qualified on the first attempt with no artifact/payload access and zero
 diagnostic, Q6, or graph executions. Commit the exact qualified sources, then
 run one nine-Q6-arm, zero-graph scientific invocation.
+The first invocation is preserved as
+[VOID 1](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_VOID1_20260924.md):
+an impossible assertion required the scalar reference arm to equal the
+reference-semantics capture and refused before Q6. The protocol addendum fixes
+only that contradiction and Q6 accounting. Its
+[repair-1 apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_APPARATUS_REPAIR1_RESULT_20260924.md)
+is qualified model-free; commit exact repaired sources before one invocation.
 
 **Date: 16 September 2026. Analysis and design only. No code, tests, benchmarks, weight downloads, or training performed.** Reading baseline: HEAD `f1f9cfd59d34071a004248bc04c9d56e6038c596`. Register of sources, scope, and results: [EVIDENCE.md](EVIDENCE.md). The L/W codes refer to that register; further primary sources are linked in the text.
 

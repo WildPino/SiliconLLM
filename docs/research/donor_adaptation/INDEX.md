@@ -400,6 +400,12 @@ the model-free apparatus next; no graph is authorized. That
 qualified on the first attempt without artifact/payload access or any
 diagnostic/Q6/graph execution. Commit exact sources, then run the sole
 nine-Q6-arm, zero-graph diagnostic.
+The first invocation is preserved as
+[VOID 1](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_VOID1_20260924.md):
+an impossible scalar-reference replay assertion refused before Q6. Repair 1
+removes only that contradiction and fixes completed-Q6 accounting. Its
+[model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_APPARATUS_REPAIR1_RESULT_20260924.md)
+is qualified; commit exact repaired sources before the sole invocation.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

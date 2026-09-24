@@ -33,6 +33,11 @@ class TestLayer1RoutedSwiGLUComponentCrossInput(unittest.TestCase):
         self.assertEqual(r.PREDECESSOR_SHA, "2eee409b8f007b9e53136e7a3d14d250af93a4d951b1ce859d4080fcfe6a9bc2")
         self.assertEqual(r.PREDECESSOR_C_SHA, "81635464fe7ec02d659bbc70d4d961e07743a670720bb3c4c1842dfcbc3ac254")
 
+    def test_repair_scope(self):
+        text = r.PROTOCOL.read_text(encoding="utf-8")
+        self.assertIn("Only the scalar C/C arm", text)
+        self.assertIn("VOID 1", text)
+
     def test_manifest_rejects_swap(self):
         sizes = {"swiglu":163840,"down":196608,"moe_out":49152,"downstream":196608}; outputs = {}
         for i, name in enumerate(r.ARM_NAMES): outputs[name] = {"kind":r.ARM_KINDS[i], **{key:{"path":key,"bytes":size,"sha256":"0"*64} for key,size in sizes.items()}}

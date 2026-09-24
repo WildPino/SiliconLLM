@@ -21,8 +21,8 @@ HEADER = ROOT / "benchmarks/phase60/strat01_gguf_layer1_routed_swiglu_component_
 SHARED = ROOT / "benchmarks/phase60/strat01_swiglu_sse2.h"
 PROTOCOL = ROOT / "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md"
 TESTS = HERE / "test_strat01_layer1_routed_swiglu_component_cross_input.py"
-DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_layer1_routed_swiglu_component_cross_input_20260924"
-DEFAULT_APPARATUS = HERE / "results/strat01_gigachat_engine_layer1_routed_swiglu_component_cross_input_apparatus_20260924"
+DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_layer1_routed_swiglu_component_cross_input_repair1_20260924"
+DEFAULT_APPARATUS = HERE / "results/strat01_gigachat_engine_layer1_routed_swiglu_component_cross_input_apparatus_repair1_20260924"
 PREDECESSOR = prior.DEFAULT_OUTPUT / "adjudication.json"
 PREDECESSOR_SHA = "2eee409b8f007b9e53136e7a3d14d250af93a4d951b1ce859d4080fcfe6a9bc2"
 PREDECESSOR_C = prior.DEFAULT_OUTPUT / "diagnostic/captured_c_down.f32le"
@@ -144,8 +144,8 @@ def adjudicate(values, report, frozen):
     target = base.load_f32(frozen["ref_target"], 49152, "reference target"); prior_c = base.load_f32(frozen["prior_c"], 49152, "predecessor C output")
     if values[ARM_NAMES[0]]["downstream"].tobytes() != target.tobytes() or values[ARM_NAMES[1]]["downstream"].tobytes() != prior_c.tobytes():
         raise RunnerError("routed-SwiGLU anchor replay mismatch")
-    if values[ARM_NAMES[2]]["swiglu"].tobytes() != values[ARM_NAMES[0]]["swiglu"].tobytes() or values[ARM_NAMES[3]]["swiglu"].tobytes() != values[ARM_NAMES[1]]["swiglu"].tobytes():
-        raise RunnerError("routed-SwiGLU scalar replay mismatch")
+    if values[ARM_NAMES[3]]["swiglu"].tobytes() != values[ARM_NAMES[1]]["swiglu"].tobytes():
+        raise RunnerError("routed-SwiGLU scalar C replay mismatch")
     judgments = {name: base.judged(values[name]["downstream"], target) for name in ARM_NAMES}
     if not judgments[ARM_NAMES[0]]["pass"] or judgments[ARM_NAMES[1]]["pass"] or judgments[ARM_NAMES[8]]["pass"] or not judgments[ARM_NAMES[4]]["pass"]:
         raise RunnerError("routed-SwiGLU precondition contradiction")
@@ -172,7 +172,7 @@ def adjudicate(values, report, frozen):
             "swiglu_metrics": {name: descriptive(values[name]["swiglu"], ref["swiglu"], (8,4,1280)) for name in ARM_NAMES[:8]},
             "down_metrics": {name: descriptive(values[name]["down"], ref["down"], (8,4,1536)) for name in ARM_NAMES[:8]},
             "routed_output_metrics": {name: descriptive(values[name]["moe_out"], ref["moe_out"], (8,1536)) for name in ARM_NAMES[:8]},
-            "controls": {"reference_anchor_byte_exact": True, "production_c_replay_byte_exact": True, "scalar_replays_byte_exact": True, "schedule_twins_byte_exact": True, "mutated_inputs_refused": mutations, "label_swap_rejected": label_swap}}
+            "controls": {"reference_anchor_byte_exact": True, "production_c_replay_byte_exact": True, "scalar_c_replay_byte_exact": True, "schedule_twins_byte_exact": True, "mutated_inputs_refused": mutations, "label_swap_rejected": label_swap}}
 
 
 def main():
@@ -180,7 +180,7 @@ def main():
     model = args.model.resolve(); out = (args.output_dir or (DEFAULT_APPARATUS if args.apparatus_only else DEFAULT_OUTPUT)).resolve()
     if out.exists(): raise SystemExit(f"output already exists: {out}")
     out.mkdir(parents=True); started = datetime.now(timezone.utc).isoformat(); tick = time.perf_counter(); status = "VOID_LAYER1_ROUTED_SWIGLU_COMPONENT"; errors = []; commands = {}; report = {}; result = {"status": "NOT_RUN"}; source_map = {}; compiler = shutil.which("clang"); binary = None; invocations = 0
-    artifact = {"path": str(model), "expected_bytes": base.EXPECTED_MODEL_BYTES, "expected_sha256": base.EXPECTED_MODEL_SHA, "bytes": None, "sha256": None, "opened": False}
+    artifact = {"path": str(model), "expected_bytes": base.EXPECTED_MODEL_BYTES, "expected_sha256": base.EXPECTED_MODEL_SHA, "bytes": None, "sha256": None, "opened": False}; q6_completed = 0
     try:
         source_map = sources()
         if not compiler: raise RunnerError("clang unavailable")
@@ -197,10 +197,16 @@ def main():
             if not model.is_file() or model.stat().st_size != base.EXPECTED_MODEL_BYTES or base.sha256_file(model) != base.EXPECTED_MODEL_SHA: raise RunnerError("artifact mismatch")
             artifact.update({"bytes": model.stat().st_size, "sha256": base.EXPECTED_MODEL_SHA, "opened": True}); frozen = evidence(); root = out / "diagnostic"; root.mkdir()
             command = [str(binary), "--strat01-layer1-routed-swiglu-component-cross-input", str(model), "--topk", str(frozen["topk"]), "--ref-gate", str(frozen["reference_gate"]), "--ref-up", str(frozen["reference_up"]), "--c-gate", str(frozen["c_gate"]), "--c-up", str(frozen["c_up"]), "--ref-swiglu", str(frozen["reference_swiglu"]), "--c-swiglu", str(frozen["c_swiglu"]), "--ref-q", str(frozen["ref_q"]), "--ref-k", str(frozen["ref_k"]), "--ref-ffn-inp", str(frozen["ref_ffn_inp"]), "--ref-shared-out", str(frozen["ref_shared_out"]), "--ref-weights", str(frozen["ref_weights"]), "--out-dir", str(root)]
-            invocations = 1; commands["diagnostic"] = base.run_command(command, out, "diagnostic", 21600); base.require_ok(commands["diagnostic"], "diagnostic"); source_map = sources(); values, report = validate_report(root, model, source_map); result = adjudicate(values, report, frozen); status = result["status"]
+            invocations = 1; commands["diagnostic"] = base.run_command(command, out, "diagnostic", 21600)
+            if commands["diagnostic"]["returncode"]:
+                failure_path = root / "strat01_layer1_routed_swiglu_component_cross_input.json"
+                if failure_path.is_file():
+                    try: q6_completed = int(json.loads(failure_path.read_text(encoding="utf-8")).get("q6_arms_completed", 0))
+                    except (OSError, ValueError, json.JSONDecodeError): q6_completed = 0
+            base.require_ok(commands["diagnostic"], "diagnostic"); q6_completed = 9; source_map = sources(); values, report = validate_report(root, model, source_map); result = adjudicate(values, report, frozen); status = result["status"]
     except (RunnerError, base.RunnerError) as exc: errors.append(str(exc))
     except Exception as exc: errors.append(f"unexpected {type(exc).__name__}: {exc}")
-    record = {"schema": "strat01_layer1_routed_swiglu_component_cross_input_v1", "status": status, "errors": errors, "diagnostic_invocations": invocations, "q6_arms": 0 if args.apparatus_only else 9, "donor_graph_executions": 0, "reference_graph_executions": 0, "adjudication": result, "c_report": report, "provenance": {"started_utc": started, "finished_utc": datetime.now(timezone.utc).isoformat(), "seconds": time.perf_counter()-tick, "git_head_observed" if args.apparatus_only else "git_head": base.git_value(["git","rev-parse","HEAD"]), "source_hashes": source_map, "predecessor": {"path": str(PREDECESSOR), "sha256": PREDECESSOR_SHA}, "artifact": artifact, "environment": {"platform": platform.platform(), "python": sys.version, "numpy": np.__version__, "cwd": os.getcwd()}, "binary": {"path": str(binary) if binary else None, "sha256": base.sha256_file(binary) if binary and binary.is_file() else None}, "commands": commands}, "non_claims": ["graph execution", "production repair", "later layers", "quality/RAM/rate"]}
+    record = {"schema": "strat01_layer1_routed_swiglu_component_cross_input_v1", "status": status, "errors": errors, "diagnostic_invocations": invocations, "q6_arms_completed": q6_completed, "donor_graph_executions": 0, "reference_graph_executions": 0, "adjudication": result, "c_report": report, "provenance": {"started_utc": started, "finished_utc": datetime.now(timezone.utc).isoformat(), "seconds": time.perf_counter()-tick, "git_head_observed" if args.apparatus_only else "git_head": base.git_value(["git","rev-parse","HEAD"]), "source_hashes": source_map, "predecessor": {"path": str(PREDECESSOR), "sha256": PREDECESSOR_SHA}, "artifact": artifact, "environment": {"platform": platform.platform(), "python": sys.version, "numpy": np.__version__, "cwd": os.getcwd()}, "binary": {"path": str(binary) if binary else None, "sha256": base.sha256_file(binary) if binary and binary.is_file() else None}, "commands": commands}, "non_claims": ["graph execution", "production repair", "later layers", "quality/RAM/rate"]}
     base.write_json(out / "adjudication.json", record); print(json.dumps({"status": status, "output": str(out), "errors": errors}, indent=2)); return 0 if status == "APPARATUS_READY_NO_DONOR_EXECUTION" or status in VALID_STATUSES else 2
 
 

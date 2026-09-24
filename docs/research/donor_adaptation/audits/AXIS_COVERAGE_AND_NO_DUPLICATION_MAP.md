@@ -409,6 +409,12 @@ apparatus qualification was open; its
 [apparatus result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
 passed without artifact/payload access or diagnostic/Q6/graph execution.
 Commit exact sources, then one nine-Q6-arm, zero-graph scientific invocation.
+The first invocation is preserved as
+[VOID 1](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_VOID1_20260924.md):
+an impossible scalar-reference replay assertion refused before Q6. Repair 1
+changes only that assertion and completed-arm accounting. Its
+[model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_APPARATUS_REPAIR1_RESULT_20260924.md)
+is qualified; no axis or arm was changed.
 
 ## 1. How to read this map
 

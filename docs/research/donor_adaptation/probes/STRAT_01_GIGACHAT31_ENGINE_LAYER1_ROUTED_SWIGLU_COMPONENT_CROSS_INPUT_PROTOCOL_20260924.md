@@ -64,9 +64,11 @@ downstream path.
 | `sse2_c_gate_c_up` | no-FMA SSE2 primitive on both C operands |
 | `control_reference_token7_negated` | captured reference SwiGLU with token 7 negated |
 
-The two scalar arms must replay their corresponding captures byte-exactly.
-Failure of either replay is `VOID_APPARATUS_OR_PROVENANCE`, not evidence about
-the model.
+Only the scalar C/C arm must replay the production C capture byte-exactly. The
+scalar reference/reference arm is an estimand: requiring it to replay the
+reference capture would erase the expression-semantics question. Failure of
+the scalar C/C replay is `VOID_APPARATUS_OR_PROVENANCE`, not evidence about the
+model.
 
 ## Gates and adjudication
 
@@ -79,7 +81,7 @@ Preconditions:
 1. `captured_reference_swiglu` passes;
 2. `captured_production_c_swiglu` fails and byte-replays the closed
    predecessor;
-3. both scalar replay identities hold;
+3. the scalar C/C replay identity holds;
 4. the planted control fails;
 5. schedule twins, frozen hashes, mutation refusal, arm labels, source hashes,
    self-tests, and execution counters all pass.
@@ -117,3 +119,14 @@ matrix. Do not rerun prior Q6, routed reduction, shared, terminal, layer-2,
 block-0 semantics, or graph cells. A repair may be integrated only if the
 candidate flag passes and a separately frozen production-integration cell
 preserves all earlier checkpoints.
+
+## Apparatus repair addendum after VOID 1
+
+The first scientific invocation at commit `4f79078d82b44fc522df019df50cdcb1ccfe6f5e`
+was refused before any Q6 arm because the implementation enforced the
+contradictory original sentence requiring both scalar arms to replay captures.
+That [VOID](STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_VOID1_20260924.md)
+changes no scientific gate. Repair 1 removes only the impossible
+reference/reference replay assertion, retains the production C/C replay, and
+adds exact completed-Q6 accounting to failure records. All arms, thresholds,
+decision order, hashes, and zero-graph rule remain frozen.
