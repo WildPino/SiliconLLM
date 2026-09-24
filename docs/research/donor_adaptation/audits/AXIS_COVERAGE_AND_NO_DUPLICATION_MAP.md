@@ -405,7 +405,10 @@ That coordinate is frozen by the
 [routed-SwiGLU component protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md).
 Its captured/scalar/SSE2 arms distinguish expression semantics, gate, up, and
 composition without changing Q6 or any later component. Only model-free
-apparatus qualification is open before one zero-graph scientific invocation.
+apparatus qualification was open; its
+[apparatus result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+passed without artifact/payload access or diagnostic/Q6/graph execution.
+Commit exact sources, then one nine-Q6-arm, zero-graph scientific invocation.
 
 ## 1. How to read this map
 

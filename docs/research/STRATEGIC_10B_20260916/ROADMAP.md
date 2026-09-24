@@ -67,6 +67,10 @@ That sole successor is now frozen by the
 captured, scalar, and no-FMA SSE2 arms distinguish expression semantics, gate,
 up, and composition while keeping Q6 and all later inputs fixed. Qualify its
 model-free apparatus next; do not execute either graph.
+Its [model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+qualified on the first attempt with no artifact/payload access and zero
+diagnostic, Q6, or graph executions. Commit the exact qualified sources, then
+run one nine-Q6-arm, zero-graph scientific invocation.
 
 **Date: 16 September 2026. Analysis and design only. No code, tests, benchmarks, weight downloads, or training performed.** Reading baseline: HEAD `f1f9cfd59d34071a004248bc04c9d56e6038c596`. Register of sources, scope, and results: [EVIDENCE.md](EVIDENCE.md). The L/W codes refer to that register; further primary sources are linked in the text.
 

@@ -395,7 +395,11 @@ That split is now frozen by the
 [routed-SwiGLU component protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md).
 Captured, scalar, and no-FMA SSE2 arms distinguish expression semantics, gate,
 up, and composition while keeping Q6 and all later inputs fixed. Qualify only
-the model-free apparatus next; no graph is authorized.
+the model-free apparatus next; no graph is authorized. That
+[apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_SWIGLU_COMPONENT_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+qualified on the first attempt without artifact/payload access or any
+diagnostic/Q6/graph execution. Commit exact sources, then run the sole
+nine-Q6-arm, zero-graph diagnostic.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
