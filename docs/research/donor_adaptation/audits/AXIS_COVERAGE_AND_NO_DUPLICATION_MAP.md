@@ -341,6 +341,11 @@ descriptive-prefix reshape. The frozen
 [offline recovery](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_RMSNORM_OFFLINE_RECOVERY_PROTOCOL_20260924.md)
 must reuse those bytes with zero model access and zero graphs. Producer rerun
 is permanently closed.
+The [canonical recovery result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_RMSNORM_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER2_PROJECTED_KV_PREFIX_RESIDUAL_SUFFICIENT_RECOVERED`: both RMSNorm
+replays are byte-exact, so the residual exists upstream in `kv_cmpr_pe-2`.
+Close RMSNorm permanently. Only an immutable-input KV-A projection split is
+new; no graph is justified.
 
 ## 1. How to read this map
 

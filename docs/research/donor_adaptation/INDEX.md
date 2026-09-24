@@ -337,6 +337,11 @@ metrics attempted `[8,6144]` on 4,096 values. Do not rerun it. The
 [offline-recovery protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_RMSNORM_OFFLINE_RECOVERY_PROTOCOL_20260924.md)
 binds the raw record and permits one committed, zero-model, zero-graph
 re-adjudication.
+The canonical [recovered result](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_RMSNORM_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER2_PROJECTED_KV_PREFIX_RESIDUAL_SUFFICIENT_RECOVERED`: RMSNorm is
+byte-exact on both inputs and C projected-prefix input exactly replays the
+downstream failure. Recovery ran zero producers/model/graphs. Close RMSNorm;
+split only `attn_norm-2` versus KV-A projection next.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

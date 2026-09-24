@@ -18,7 +18,10 @@ its [model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE
 was qualified. The sole scientific invocation produced every output but is raw
 VOID because descriptive prefix metrics used a `[8,6144]` reshape on `[8,512]`.
 The [offline-recovery protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_RMSNORM_OFFLINE_RECOVERY_PROTOCOL_20260924.md)
-is frozen; do not rerun the model.
+has closed [the result](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_RMSNORM_CROSS_INPUT_RESULT_20260924.md)
+as `LAYER2_PROJECTED_KV_PREFIX_RESIDUAL_SUFFICIENT_RECOVERED` with zero new
+model/graph execution. KV RMSNorm is byte-exact; split only the upstream
+`attn_norm-2` input from the KV-A projection.
 
 **Date: 16 September 2026. Analysis and design only. No code, tests, benchmarks, weight downloads, or training performed.** Reading baseline: HEAD `f1f9cfd59d34071a004248bc04c9d56e6038c596`. Register of sources, scope, and results: [EVIDENCE.md](EVIDENCE.md). The L/W codes refer to that register; further primary sources are linked in the text.
 
