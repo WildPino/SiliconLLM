@@ -303,6 +303,12 @@ Its [apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTENTION_CROSS_INPUT_A
 is now `APPARATUS_READY_NO_DONOR_EXECUTION`: the new, inherited, legacy, and
 Python tests pass with zero diagnostic invocations, zero graphs, and no GGUF
 access. Commit the exact sources before the one boundary replay.
+The canonical [result](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTENTION_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER2_KV_RESIDUAL_SUFFICIENT`: exact-reference replay is byte-exact,
+C-query/reference-KV passes at NRMSE `0.0014917569`, and
+reference-query/C-KV fails at `0.0027922349`. Native replay and every control
+pass with zero graphs. Close the query and operator axes; split only the
+immutable 512-value latent/value prefix versus 64-value positional KV tail.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

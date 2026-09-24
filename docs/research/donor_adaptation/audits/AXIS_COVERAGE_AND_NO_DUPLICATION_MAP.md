@@ -311,6 +311,12 @@ The [apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTENTION_CROSS_INPU
 is qualified with every new/inherited test passing and zero model access or
 graphs. Commit its exact sources, then execute the one permitted boundary
 replay; do not add a cached duplicate.
+The [result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTENTION_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER2_KV_RESIDUAL_SUFFICIENT`: exact-reference replay is byte-exact,
+query-only passes, and KV-only fails. This closes the operator, query, second
+schedule, and whole-KV repeat axes. The only non-duplicate successor splits
+the immutable K row into its shared latent/value prefix 512 and positional
+tail 64, holding reference query fixed.
 
 ## 1. How to read this map
 
