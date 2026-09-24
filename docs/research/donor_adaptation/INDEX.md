@@ -226,6 +226,12 @@ numerical semantics next. The repaired
 [apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_APPARATUS_RESULT_20260923.md)
 and [VOID 1](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_APPARATUS_VOID1_20260923.md)
 remain part of the record.
+The distinct successor is now frozen in the
+[post-F16 SwiGLU SSE2-semantics protocol](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_SWIGLU_SSE2_SEMANTICS_PROTOCOL_20260924.md):
+the pinned reference build's no-FMA four-lane SSE2 polynomial semantics versus
+the exact scalar-libm replay, on the same operands, Q6 helper, and complete
+layer-1 amplifier. Static source and build hashes are bound. Qualify only the
+model-free apparatus next; do not run either graph or broaden to AVX2/FMA.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

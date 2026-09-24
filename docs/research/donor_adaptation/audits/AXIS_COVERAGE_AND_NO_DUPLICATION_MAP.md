@@ -233,6 +233,12 @@ and layer 1. The only next admissible axis is a frozen split of production
 SwiGLU numerical semantics on the same immutable operands and downstream
 amplifier. The qualified apparatus and its earlier fixture-bounds VOID remain
 part of the record.
+That successor is now frozen in the
+[SwiGLU SSE2-semantics protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_SWIGLU_SSE2_SEMANTICS_PROTOCOL_20260924.md).
+The exact new coordinate is the reference build's no-FMA four-lane SSE2
+polynomial `ggml_v_expf` versus current scalar `expf`; 8960 is divisible by
+four, so there is no scalar tail. Only model-free apparatus qualification is
+next. AVX2/FMA sweeps and every predecessor remain closed.
 
 ## 1. How to read this map
 
