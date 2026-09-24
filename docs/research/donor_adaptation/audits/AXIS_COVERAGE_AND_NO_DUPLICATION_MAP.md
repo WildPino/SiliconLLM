@@ -394,7 +394,13 @@ layer 2. The only non-duplicate coordinate is the frozen
 reuse the immutable old Q6(reference-SwiGLU) output under the new downstream
 gate; do not rerun Q6 or a graph. Its [model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_Q6_RESIDUAL_PROPAGATION_APPARATUS_RESULT_20260924.md)
 qualified without artifact/payload access or diagnostic/Q6/graph execution.
-Commit exact sources, then run the sole propagation diagnostic.
+Its canonical
+[result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_Q6_RESIDUAL_PROPAGATION_RESULT_20260924.md)
+is `LAYER1_ROUTED_SWIGLU_RESIDUAL_SUFFICIENT`: immutable old
+Q6(reference-SwiGLU) passes the sensitive downstream gate exactly and captured
+C down fails. Close Q6/down and all later axes. The sole non-duplicate
+coordinate is a captured routed gate/up/production-expression cross-input cell
+through current Q6 and the same downstream amplifier, with zero graphs.
 
 ## 1. How to read this map
 

@@ -384,8 +384,13 @@ and reduction. The only new successor is the frozen
 [routed-Q6 residual propagation](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_Q6_RESIDUAL_PROPAGATION_PROTOCOL_20260924.md),
 which reuses the old Q6(reference-SwiGLU) output and executes no Q6 or graph.
 Its [model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_Q6_RESIDUAL_PROPAGATION_APPARATUS_RESULT_20260924.md)
-qualified on the first attempt without artifact/payload access. Commit exact
-sources, then execute the sole zero-Q6/zero-graph propagation.
+qualified on the first attempt without artifact/payload access. Its canonical
+[result](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_Q6_RESIDUAL_PROPAGATION_RESULT_20260924.md)
+is `LAYER1_ROUTED_SWIGLU_RESIDUAL_SUFFICIENT`: old
+Q6(reference-SwiGLU) passes the sensitive downstream gate exactly, while
+captured production C down fails. Q6/down and all later components are closed.
+The only new coordinate is a routed gate/up/production-expression cross-input
+split through current Q6 and the same downstream amplifier, with zero graphs.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
