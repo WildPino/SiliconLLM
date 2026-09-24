@@ -221,16 +221,18 @@ is `POST_F16_BLOCK0_FFN_OUT_RESIDUAL_SUFFICIENT`: current `ffn_inp-0` is
 byte-identical to reference, and only current `ffn_out-0` reproduces the full
 failure. That output is byte-identical to the earlier reference-gate/reference-
 up through current expression+Q6 arm, so gate/up is already an unnecessary
-coordinate and must not be repeated. The distinct open axis is now the frozen
-[post-F16 FFN operator-chain split](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md):
-captured reference SwiGLU versus current-expression reference/reference
-SwiGLU through the same Q6 and complete post-F16 layer 1. Apparatus
-is now [qualified](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_APPARATUS_RESULT_20260923.md)
-after 158 Python tests, 20 C self-tests, all frozen identities, and eight
-source controls at zero diagnostic/model/graph execution. The first invalid
-four-element self-test fixture remains a documented apparatus VOID and has no
-scientific values. Commit exact sources, then run the sole authorized
-diagnostic; no block-0 graph is authorized.
+coordinate and must not be repeated. The distinct axis was frozen in the
+[post-F16 FFN operator-chain split](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md).
+Its valid [result](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_RESULT_20260923.md)
+is `POST_F16_BLOCK0_SWIGLU_EXPRESSION_RESIDUAL_SUFFICIENT`: captured reference
+SwiGLU through unchanged current Q6 passes every complete layer-1 gate, while
+the production C expression on the same reference gate/up operands first
+fails at routed `ffn_moe_down-1` and exactly replays the predecessor. One
+diagnostic and zero graphs ran; all controls pass. Close Q6, gate/up, block 0,
+and layer 1. The only next admissible axis is a frozen split of production
+SwiGLU numerical semantics on the same immutable operands and downstream
+amplifier. The qualified apparatus and its earlier fixture-bounds VOID remain
+part of the record.
 
 ## 1. How to read this map
 

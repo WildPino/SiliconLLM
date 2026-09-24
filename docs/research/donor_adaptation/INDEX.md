@@ -213,15 +213,19 @@ byte-exact reference, reference `ffn_out-0` passes all 32 checkpoints, and
 current `ffn_out-0` first fails at routed `ffn_moe_down-1`. The current output
 and terminal sum are byte-identical to the old reference-gate/reference-up
 through current expression+Q6 arm. This closes block-0 attention and makes a
-new gate/up split redundant. The next changed coordinate is frozen in the
-[post-F16 FFN operator-chain protocol](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md):
-separate captured-reference-SwiGLU/current-Q6 from current-expression+Q6,
-then propagate both through complete post-F16 layer 1. Its repaired
+new gate/up split redundant. The next changed coordinate was frozen in the
+[post-F16 FFN operator-chain protocol](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md).
+Its valid [result](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_RESULT_20260923.md)
+is `POST_F16_BLOCK0_SWIGLU_EXPRESSION_RESIDUAL_SUFFICIENT`: captured reference
+SwiGLU through current Q6 passes all 32 complete layer-1 gates, while the
+production expression on the same exact reference gate/up inputs first fails
+at routed `ffn_moe_down-1` (`0.00376095`) and byte-replays the predecessor.
+One diagnostic ran, zero graphs ran, and all controls pass. Q6, gate/up,
+block 0, and layer 1 are closed. Split only the production expression's
+numerical semantics next. The repaired
 [apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_APPARATUS_RESULT_20260923.md)
-is qualified: 158 Python tests, 20 C self-tests, all identities, and eight
-source controls pass with zero diagnostic/model/graph execution. The first
-fixture-bounds failure remains [VOID 1](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_APPARATUS_VOID1_20260923.md).
-Commit exact sources, then run one diagnostic; no predecessor may be rerun.
+and [VOID 1](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_APPARATUS_VOID1_20260923.md)
+remain part of the record.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
