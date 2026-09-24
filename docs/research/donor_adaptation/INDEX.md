@@ -344,7 +344,10 @@ downstream failure. Recovery ran zero producers/model/graphs. Close RMSNorm;
 split only `attn_norm-2` versus KV-A projection next.
 The [KV-A projection protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_A_PROJECTION_CROSS_INPUT_PROTOCOL_20260924.md)
 now freezes that sole successor with immutable inputs and the closed downstream
-path. Qualify model-free; no graph or predecessor repeat is authorized.
+path. Its [model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_A_PROJECTION_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is qualified with the accepted artifact unopened and zero graphs. Commit the
+exact passing sources, then run only the single authorized diagnostic; no
+predecessor repeat is authorized.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

@@ -23,7 +23,10 @@ as `LAYER2_PROJECTED_KV_PREFIX_RESIDUAL_SUFFICIENT_RECOVERED` with zero new
 model/graph execution. KV RMSNorm is byte-exact; split only the upstream
 `attn_norm-2` input from the KV-A projection. The
 [KV-A projection protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_A_PROJECTION_CROSS_INPUT_PROTOCOL_20260924.md)
-now freezes that zero-graph successor; qualify model-free next.
+now freezes that zero-graph successor. Its
+[model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_A_PROJECTION_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is qualified; commit the exact passing sources, then run its single authorized
+diagnostic.
 
 **Date: 16 September 2026. Analysis and design only. No code, tests, benchmarks, weight downloads, or training performed.** Reading baseline: HEAD `f1f9cfd59d34071a004248bc04c9d56e6038c596`. Register of sources, scope, and results: [EVIDENCE.md](EVIDENCE.md). The L/W codes refer to that register; further primary sources are linked in the text.
 
