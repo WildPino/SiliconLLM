@@ -343,12 +343,13 @@ byte-exact on both inputs and C projected-prefix input exactly replays the
 downstream failure. Recovery ran zero producers/model/graphs. Close RMSNorm;
 split only `attn_norm-2` versus KV-A projection next.
 The [KV-A projection protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_A_PROJECTION_CROSS_INPUT_PROTOCOL_20260924.md)
-now freezes that sole successor with immutable inputs and the closed downstream
-path. Protocol Addendum A preserves a pre-execution VOID caused only by a
-wrong predecessor-directory base; zero diagnostic invocations and no arm
-outputs occurred. The path-only `repair1` apparatus is qualified; commit it,
-then run the still-unused single diagnostic. No predecessor repeat is
-authorized.
+is now closed by
+[`LAYER2_ATTN_NORM_INPUT_RESIDUAL_SUFFICIENT`](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_A_PROJECTION_CROSS_INPUT_RESULT_20260924.md):
+reference input is byte-exact through every stage and C input replays the
+predecessor exactly. Close KV-A and all downstream axes. The only new successor
+is frozen in the [layer-2 attention RMSNorm protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md):
+immutable `l_out-1` through production `blk.2.attn_norm.weight`, with no graph.
+Qualify model-free next.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

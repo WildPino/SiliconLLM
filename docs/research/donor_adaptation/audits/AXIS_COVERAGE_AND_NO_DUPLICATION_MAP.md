@@ -349,11 +349,14 @@ new; no graph is justified.
 That successor is frozen by the
 [KV-A projection protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_A_PROJECTION_CROSS_INPUT_PROTOCOL_20260924.md).
 Only the projection input changes; Q4 parity, RMSNorm, attention, and every
-downstream axis remain closed. Protocol Addendum A records that the first
-post-qualification attempt stopped at a wrong predecessor path with zero
-diagnostic invocations and no arm output. The path-only `repair1` apparatus is
-qualified; commit it. The sole non-duplicate action then remains the single
-frozen diagnostic.
+downstream axis remain closed. Its
+[`LAYER2_ATTN_NORM_INPUT_RESIDUAL_SUFFICIENT` result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_A_PROJECTION_CROSS_INPUT_RESULT_20260924.md)
+passes byte-exactly on reference input and replays every C stage exactly. Close
+KV-A permanently. The only non-duplicate coordinate is immutable `l_out-1`
+through production layer-2 attention RMSNorm, frozen in the
+[attention RMSNorm protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md).
+It reuses all closed downstream operators and authorizes no graph. Qualify
+model-free first.
 
 ## 1. How to read this map
 
