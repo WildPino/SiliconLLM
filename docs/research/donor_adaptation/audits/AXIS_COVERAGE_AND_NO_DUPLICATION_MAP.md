@@ -238,7 +238,11 @@ That successor is now frozen in the
 The exact new coordinate is the reference build's no-FMA four-lane SSE2
 polynomial `ggml_v_expf` versus current scalar `expf`; 8960 is divisible by
 four, so there is no scalar tail. Only model-free apparatus qualification is
-next. AVX2/FMA sweeps and every predecessor remain closed.
+next. Its [apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_SWIGLU_SSE2_SEMANTICS_APPARATUS_RESULT_20260924.md)
+is now qualified after 165 Python tests, 21 C self-tests, eleven source
+controls, and exact reference-source/build checks at zero diagnostic/model/
+graph execution. Commit exact sources and run the sole diagnostic next.
+AVX2/FMA sweeps and every predecessor remain closed.
 
 ## 1. How to read this map
 

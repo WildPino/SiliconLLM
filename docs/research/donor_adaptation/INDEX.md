@@ -232,6 +232,11 @@ the pinned reference build's no-FMA four-lane SSE2 polynomial semantics versus
 the exact scalar-libm replay, on the same operands, Q6 helper, and complete
 layer-1 amplifier. Static source and build hashes are bound. Qualify only the
 model-free apparatus next; do not run either graph or broaden to AVX2/FMA.
+The [apparatus result](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_SWIGLU_SSE2_SEMANTICS_APPARATUS_RESULT_20260924.md)
+is now `APPARATUS_READY_NO_DONOR_EXECUTION`: 165 Python tests, 21 C
+self-tests, eleven source controls, and all pinned reference-build evidence
+pass. Commit these exact sources, then run one diagnostic; no predecessor may
+be rerun.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
