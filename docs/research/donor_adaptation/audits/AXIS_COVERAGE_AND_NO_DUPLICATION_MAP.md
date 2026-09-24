@@ -241,8 +241,16 @@ four, so there is no scalar tail. Only model-free apparatus qualification is
 next. Its [apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_SWIGLU_SSE2_SEMANTICS_APPARATUS_RESULT_20260924.md)
 is now qualified after 165 Python tests, 21 C self-tests, eleven source
 controls, and exact reference-source/build checks at zero diagnostic/model/
-graph execution. Commit exact sources and run the sole diagnostic next.
-AVX2/FMA sweeps and every predecessor remain closed.
+graph execution. Its sole valid
+[result](../probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_SWIGLU_SSE2_SEMANTICS_RESULT_20260924.md)
+is `POST_F16_BLOCK0_SWIGLU_SSE2_EXACT_REPAIR`: pinned no-FMA four-lane
+semantics are byte-exact to reference SwiGLU and pass all 32 complete layer-1
+checkpoints (`l_out-1` NRMSE `9.31e-6`), while scalar `expf` first fails at
+routed `ffn_moe_down-1` (`0.00376095`). One diagnostic and zero graphs ran;
+all controls pass. Close this semantics split, AVX2/FMA sweeps, and every
+predecessor. The only next distinct axis is separately frozen production
+integration of the proven primitive, model-free qualification first, then
+one accepted-GGUF execution through block 0 and complete layer 1.
 
 ## 1. How to read this map
 

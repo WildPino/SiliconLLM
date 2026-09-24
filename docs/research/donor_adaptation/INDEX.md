@@ -235,8 +235,15 @@ model-free apparatus next; do not run either graph or broaden to AVX2/FMA.
 The [apparatus result](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_SWIGLU_SSE2_SEMANTICS_APPARATUS_RESULT_20260924.md)
 is now `APPARATUS_READY_NO_DONOR_EXECUTION`: 165 Python tests, 21 C
 self-tests, eleven source controls, and all pinned reference-build evidence
-pass. Commit these exact sources, then run one diagnostic; no predecessor may
-be rerun.
+pass. Its sole [scientific result](probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_SWIGLU_SSE2_SEMANTICS_RESULT_20260924.md)
+is `POST_F16_BLOCK0_SWIGLU_SSE2_EXACT_REPAIR`: the pinned no-FMA four-lane
+candidate is byte-identical to reference SwiGLU and passes every one of the
+32 complete layer-1 checkpoints, while scalar `expf` first fails at routed
+`ffn_moe_down-1` (`0.00376095`) and exactly replays the predecessor. One
+diagnostic ran, zero graphs ran, and every control passes. Do not repeat this
+cell or sweep AVX2/FMA. Freeze a distinct normal-path production-integration
+cell next; qualify its apparatus before one accepted-GGUF block-0 plus
+complete-layer-1 execution.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
