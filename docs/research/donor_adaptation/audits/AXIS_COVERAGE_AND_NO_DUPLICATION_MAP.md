@@ -424,8 +424,18 @@ frozen [routed-up projection split](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_
 between reference and C `ffn_norm-1` through the same selected current up
 matrices, with zero graphs.
 Its [model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_UP_PROJECTION_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
-qualified on the first attempt without artifact/payload access or any
-projection/Q6/graph execution. Commit exact sources before one invocation.
+qualified before the sole scientific invocation. The canonical
+[result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_UP_PROJECTION_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER1_ROUTED_UPSTREAM_NORM_RESIDUAL_SUFFICIENT`: selected current Q4_K
+up on reference `ffn_norm-1` is byte-exact to reference and passes; on C
+`ffn_norm-1` it byte-replays production C and fails downstream at NRMSE
+`0.00264209`. One diagnostic, three computed up arms, five Q6 arms, zero
+graphs; all mutation, label, and schedule controls pass. Close the up
+projection and all downstream coordinates. The only non-duplicate boundary
+is production of `ffn_norm-1`. The frozen
+[layer-1 FFN RMSNorm split](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md)
+changes only immutable `ffn_inp-1` versus the accepted RMSNorm and preserves
+the closed downstream amplifier; qualify it before execution.
 
 ## 1. How to read this map
 

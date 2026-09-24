@@ -412,11 +412,18 @@ the failure; C gate alone passes at `1.47e-7`, and SSE2 full-C does not repair.
 Close gate/expression and all later components. The only new coordinate is the
 frozen [routed-up projection cross-input](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_UP_PROJECTION_CROSS_INPUT_PROTOCOL_20260924.md):
 reference versus C `ffn_norm-1` through the same selected current up matrices,
-then reference gate, SSE2, Q6, and the closed downstream path. Qualify its
-model-free apparatus next; execute no graph.
-That [apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_UP_PROJECTION_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
-qualified on the first attempt without artifact/payload access and with all
-scientific counters at zero. Commit exact sources before the sole invocation.
+then reference gate, SSE2, Q6, and the closed downstream path. Its model-free
+[apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_UP_PROJECTION_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+qualified before the sole invocation. The canonical
+[result](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_UP_PROJECTION_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER1_ROUTED_UPSTREAM_NORM_RESIDUAL_SUFFICIENT`: reference-input up is
+byte-exact to reference and passes downstream; C-input up byte-replays C and
+fails at NRMSE `0.00264209`. One diagnostic, three computed up arms, five Q6
+arms, zero graphs. Close up and downstream. The only active boundary is
+upstream of `ffn_norm-1`. The frozen
+[layer-1 FFN RMSNorm protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md)
+splits immutable `ffn_inp-1` from production RMSNorm without presuming which
+is causal; qualify its apparatus model-free next.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
