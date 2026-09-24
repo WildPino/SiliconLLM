@@ -94,6 +94,9 @@ def classify(j):
  if not j["captured_ref_norm"]["pass"] or j["captured_c_norm"]["pass"] or j["computed_c_input"]["pass"]: raise RunnerError("frozen KV RMSNorm anchor contradiction")
  return "LAYER2_KV_RMSNORM_FAILS_EXACT_REFERENCE_INPUT" if not j["computed_ref_input"]["pass"] else "LAYER2_PROJECTED_KV_PREFIX_RESIDUAL_SUFFICIENT"
 
+def prefix_judged(candidate,reference):
+ result=base.metrics(candidate,reference);result.update({"nrmse_limit":base.LIMITS[0],"normalized_max_limit":base.LIMITS[1]});result["pass"]=result["nrmse"]<=base.LIMITS[0] and result["normalized_max"]<=base.LIMITS[1];c=np.asarray(candidate).reshape(8,512);r=np.asarray(reference).reshape(8,512);result["per_token"]=[dict(base.metrics(c[i],r[i]),token=i) for i in range(8)];return result
+
 def adjudicate(prefixes,outputs,report,f):
  ref=base.load_f32(f["ref_target"],49152,"reference target"); prior=base.load_f32(f["predecessor_output"],49152,"partition predecessor")
  if prefixes["captured_ref_norm"].tobytes()!=base.load_f32(f["ref_norm"],4096,"reference norm").tobytes() or prefixes["captured_c_norm"].tobytes()!=base.load_f32(f["c_norm"],4096,"C norm").tobytes(): raise RunnerError("captured normalized-prefix replay mismatch")
@@ -112,7 +115,7 @@ def adjudicate(prefixes,outputs,report,f):
  try: validate_arm_manifest(dict(items)); label=False
  except RunnerError: label=True
  if not label: raise RunnerError("KV RMSNorm label swap not rejected")
- return {"status":classify(judged),"arms_vs_reference":judged,"prefixes_vs_reference_norm":{n:base.judged(prefixes[n],prefixes["captured_ref_norm"]) for n in ARM_NAMES[:4]},"controls_vs_reference":controls,"controls":{"captured_reference_byte_exact":True,"captured_predecessor_byte_exact":True,"computed_c_prefix_and_downstream_byte_exact":True,"frozen_metrics_reproduced_within_1e-12":True,"schedule_twins_byte_exact":True,"mutated_inputs_refused":muts,"scientific_label_swap_rejected":label}}
+ return {"status":classify(judged),"arms_vs_reference":judged,"prefixes_vs_reference_norm":{n:prefix_judged(prefixes[n],prefixes["captured_ref_norm"]) for n in ARM_NAMES[:4]},"controls_vs_reference":controls,"controls":{"captured_reference_byte_exact":True,"captured_predecessor_byte_exact":True,"computed_c_prefix_and_downstream_byte_exact":True,"frozen_metrics_reproduced_within_1e-12":True,"schedule_twins_byte_exact":True,"mutated_inputs_refused":muts,"scientific_label_swap_rejected":label}}
 
 def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument("--model",type=Path,default=DEFAULT_MODEL);p.add_argument("--output-dir",type=Path);p.add_argument("--apparatus-only",action="store_true");a=p.parse_args();model=a.model.resolve();out=(a.output_dir or (DEFAULT_APPARATUS if a.apparatus_only else DEFAULT_OUTPUT)).resolve()
