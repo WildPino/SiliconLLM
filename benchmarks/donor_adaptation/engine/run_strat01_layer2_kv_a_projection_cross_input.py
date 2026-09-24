@@ -14,7 +14,7 @@ from benchmarks.donor_adaptation.engine import run_strat01_rung2c_cross_input as
 HERE=Path(__file__).resolve().parent;ENGINE=rms.ENGINE;RUNG2A=rms.RUNG2A;RUNG2C=rms.RUNG2C
 CROSS_HEADER=ROOT/"benchmarks/phase60/strat01_gguf_layer2_kv_a_projection_cross_input.h";RMS_HEADER=rms.CROSS_HEADER
 PROTOCOL=ROOT/"docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_A_PROJECTION_CROSS_INPUT_PROTOCOL_20260924.md";TESTS=HERE/"test_strat01_layer2_kv_a_projection_cross_input.py";RAW=attention.RAW;DEFAULT_MODEL=rms.DEFAULT_MODEL
-DEFAULT_OUTPUT=HERE/"results/strat01_gigachat_engine_layer2_kv_a_projection_cross_input_20260924";DEFAULT_APPARATUS=HERE/"results/strat01_gigachat_engine_layer2_kv_a_projection_cross_input_apparatus_20260924"
+DEFAULT_OUTPUT=HERE/"results/strat01_gigachat_engine_layer2_kv_a_projection_cross_input_repair1_20260924";DEFAULT_APPARATUS=HERE/"results/strat01_gigachat_engine_layer2_kv_a_projection_cross_input_apparatus_repair1_20260924"
 RECOVERY=HERE/"results/strat01_gigachat_engine_layer2_kv_rmsnorm_cross_input_offline_recovery1_20260924/adjudication.json";RECOVERY_SHA="e4f4fb67e73e7089fee3f7900c768894b9c9bf0399b5c978169c06f7b07ca976";PREDECESSOR_OUTPUT_SHA="81635464fe7ec02d659bbc70d4d961e07743a670720bb3c4c1842dfcbc3ac254";FROZEN={"nrmse":0.002642086799405445,"normalized_max":0.004687597394884091}
 ARM_NAMES=("captured_ref_projection","captured_c_projection","computed_ref_input","computed_c_input","control_ref_input_token7_negated","control_ref_projection_prefix_negated")
 ARM_META={"captured_ref_projection":("captured","reference",False,False),"captured_c_projection":("captured","c",False,False),"computed_ref_input":("computed","reference",False,False),"computed_c_input":("computed","c",False,False),"control_ref_input_token7_negated":("computed","reference",True,False),"control_ref_projection_prefix_negated":("computed","reference",False,True)}
@@ -39,7 +39,7 @@ def frozen_evidence():
   if not t.is_file() or t.stat().st_size!=z or base.sha256_file(t)!=h:raise RunnerError(f"KV-A twin mismatch: {n}")
   r[n]=p.resolve(strict=True)
  if not RECOVERY.is_file() or base.sha256_file(RECOVERY)!=RECOVERY_SHA:raise RunnerError("RMSNorm recovery mismatch")
- prior=rms.RAW/"diagnostic/captured_c_norm.f32le"
+ prior=rms.DEFAULT_OUTPUT/"diagnostic/captured_c_norm.f32le"
  if not prior.is_file() or base.sha256_file(prior)!=PREDECESSOR_OUTPUT_SHA:raise RunnerError("RMSNorm predecessor output mismatch")
  r["prior"]=prior.resolve(strict=True);return r
 def arm_manifest(o):

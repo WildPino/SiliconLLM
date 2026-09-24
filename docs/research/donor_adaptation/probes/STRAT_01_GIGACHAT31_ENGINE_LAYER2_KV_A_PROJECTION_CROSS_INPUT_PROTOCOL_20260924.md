@@ -100,3 +100,21 @@ projection fails exact input, repair only that operator before extending depth.
 This cell does not repair layer 2 or test layer-2 attention RMSNorm input,
 output projection, FFN/MoE, later layers, tokenizer, generation, quality, RAM,
 or rate.
+
+## Addendum A — predecessor-path repair, frozen before repair execution
+
+The first post-qualification runner attempt is preserved at
+`benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_layer2_kv_a_projection_cross_input_20260924/`;
+its `adjudication.json` SHA-256 is
+`4e00a58e324650c22497999986ebf3385c80c76f163454a18740d5e0bff43c2f`.
+It is `VOID_LAYER2_KV_A_PROJECTION_CROSS_INPUT` with
+`diagnostic_invocations=0`, zero donor/reference graphs, and no arm output.
+
+The pre-execution predecessor guard addressed
+`captured_c_norm.f32le` below `rms.RAW`, although the frozen RMSNorm output is
+below `rms.DEFAULT_OUTPUT`. The expected SHA-256 was already correct and the
+file at the latter path matches it exactly. Repair only that directory base,
+add a static regression test distinguishing the two roots, and use `repair1`
+output directories. No payload, arm, operator, threshold, decision rule, or
+scientific execution allowance changes. Requalify model-free and commit the
+exact repaired sources before the still-unused single diagnostic invocation.
