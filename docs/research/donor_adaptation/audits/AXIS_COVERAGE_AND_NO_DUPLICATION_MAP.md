@@ -317,6 +317,10 @@ query-only passes, and KV-only fails. This closes the operator, query, second
 schedule, and whole-KV repeat axes. The only non-duplicate successor splits
 the immutable K row into its shared latent/value prefix 512 and positional
 tail 64, holding reference query fixed.
+The [KV-partition cross-input protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_PARTITION_CROSS_INPUT_PROTOCOL_20260924.md)
+now freezes that successor. It is new only on the partition coordinate; the
+query, attention/V-B operator, schedules, complete-KV replay, and all earlier
+fidelity axes remain closed. Qualify model-free, commit, then execute once.
 
 ## 1. How to read this map
 

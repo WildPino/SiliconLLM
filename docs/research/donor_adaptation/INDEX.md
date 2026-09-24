@@ -309,6 +309,10 @@ C-query/reference-KV passes at NRMSE `0.0014917569`, and
 reference-query/C-KV fails at `0.0027922349`. Native replay and every control
 pass with zero graphs. Close the query and operator axes; split only the
 immutable 512-value latent/value prefix versus 64-value positional KV tail.
+The [KV-partition protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_PARTITION_CROSS_INPUT_PROTOCOL_20260924.md)
+is now frozen. It holds reference query fixed, independently substitutes the
+two immutable K-row partitions, and permits only a model-free apparatus
+qualification followed by one zero-graph boundary invocation.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

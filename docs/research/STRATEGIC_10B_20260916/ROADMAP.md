@@ -2,6 +2,14 @@
 
 **Rolling status through 23 September 2026:** [continuation status](STATUS_20260923.md). The [17 September `engine.c` scope decision](STATUS_20260917.md) remains valid. The text below remains the 16 September design snapshot; use the rolling status and [research control index](../RESEARCH_INDEX.md) for execution state and no-duplication decisions.
 
+**Current execution head (24 September):** the accepted donor is exact through
+layer 1; layer 2 first fails at attention output, and whole-KV cross-input has
+localized sufficiency to the compact KV row. The separately frozen
+[KV-partition protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_PARTITION_CROSS_INPUT_PROTOCOL_20260924.md)
+is the only active fidelity cell: reference query fixed, latent/value prefix
+512 versus positional tail 64, zero graphs. Qualify its apparatus before the
+single scientific invocation.
+
 **Date: 16 September 2026. Analysis and design only. No code, tests, benchmarks, weight downloads, or training performed.** Reading baseline: HEAD `f1f9cfd59d34071a004248bc04c9d56e6038c596`. Register of sources, scope, and results: [EVIDENCE.md](EVIDENCE.md). The L/W codes refer to that register; further primary sources are linked in the text.
 
 ## Decision summary
