@@ -13,6 +13,10 @@ from pathlib import Path
 
 import numpy as np
 
+ROOT = Path(__file__).resolve().parents[3]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 from benchmarks.donor_adaptation.engine.run_strat01_q6k_q8k_avx2_scientific import (
     GENERIC_FFN_OUT_SHA,
     GENERIC_LOUT_SHA,
@@ -26,7 +30,6 @@ from benchmarks.donor_adaptation.engine import (
     run_strat01_layer1_attention_output_residual_cross_input as ao,
 )
 
-ROOT = Path(__file__).resolve().parents[3]
 HERE = Path(__file__).resolve().parent
 SOURCE = HERE / "results/strat01_gigachat_engine_q6k_q8k_avx2_parity_20260924"
 SOURCE_ADJUDICATION = SOURCE / "adjudication.json"
