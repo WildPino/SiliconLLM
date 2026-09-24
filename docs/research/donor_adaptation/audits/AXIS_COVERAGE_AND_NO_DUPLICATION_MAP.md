@@ -324,6 +324,12 @@ fidelity axes remain closed. Its
 [apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_PARTITION_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
 is model-free qualified with all tests passing, zero artifact access, and zero
 graphs. Commit the exact source set, then execute once.
+Its [result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_PARTITION_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER2_LATENT_VALUE_RESIDUAL_SUFFICIENT`: prefix-only fails and
+positional-tail-only passes. This permanently closes the tail and all broader
+query/KV/operator repeats. The sole new successor may split the already
+captured pre-RMSNorm prefix from the KV RMSNorm operator that produces
+`kv_cmpr-2`; it must not execute a new graph.
 
 ## 1. How to read this map
 

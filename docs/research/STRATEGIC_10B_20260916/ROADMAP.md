@@ -6,11 +6,13 @@
 layer 1; layer 2 first fails at attention output, and whole-KV cross-input has
 localized sufficiency to the compact KV row. The separately frozen
 [KV-partition protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_PARTITION_CROSS_INPUT_PROTOCOL_20260924.md)
-is the only active fidelity cell: reference query fixed, latent/value prefix
-512 versus positional tail 64, zero graphs. Its model-free
-[apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_PARTITION_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
-is qualified; commit the exact passing sources before the single scientific
-invocation.
+has now closed `LAYER2_LATENT_VALUE_RESIDUAL_SUFFICIENT`: reference-query with
+C prefix/reference positional tail fails, while reference prefix/C tail
+passes. See the canonical
+[result](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_PARTITION_CROSS_INPUT_RESULT_20260924.md).
+The only next fidelity coordinate is production of the 512-value
+`kv_cmpr-2` prefix: immutable projected input versus KV RMSNorm operator;
+no new donor/reference graph is justified.
 
 **Date: 16 September 2026. Analysis and design only. No code, tests, benchmarks, weight downloads, or training performed.** Reading baseline: HEAD `f1f9cfd59d34071a004248bc04c9d56e6038c596`. Register of sources, scope, and results: [EVIDENCE.md](EVIDENCE.md). The L/W codes refer to that register; further primary sources are linked in the text.
 

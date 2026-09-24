@@ -317,6 +317,13 @@ Its [apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_PARTITION_CROSS_INPU
 is now qualified: all new/inherited/legacy tests pass, with zero diagnostic
 invocations, zero graphs, and no artifact access. Commit the exact sources,
 then execute the single boundary diagnostic.
+The canonical [result](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_PARTITION_CROSS_INPUT_RESULT_20260924.md)
+is `LAYER2_LATENT_VALUE_RESIDUAL_SUFFICIENT`: C latent/reference positional
+tail fails at NRMSE `0.0026420868`, whereas reference latent/C tail passes at
+`0.0015042184`. Both exact-replay arms are byte-exact and every control
+rejects with zero graphs. Close the positional tail and split only
+`kv_cmpr-2` production between its immutable projected-prefix input and the
+layer-2 KV RMSNorm operator.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 
