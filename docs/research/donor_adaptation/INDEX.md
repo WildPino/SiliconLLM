@@ -349,7 +349,9 @@ reference input is byte-exact through every stage and C input replays the
 predecessor exactly. Close KV-A and all downstream axes. The only new successor
 is frozen in the [layer-2 attention RMSNorm protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md):
 immutable `l_out-1` through production `blk.2.attn_norm.weight`, with no graph.
-Qualify model-free next.
+The [repair-1 apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is qualified model-free; the initial compile failure remains VOID. Commit the
+exact sources, then execute the sole authorized scientific diagnostic.
 [Protocol](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md) ·
 [Result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_RESULT_20260922.md).
 

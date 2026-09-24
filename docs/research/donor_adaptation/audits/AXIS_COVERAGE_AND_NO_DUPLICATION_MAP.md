@@ -355,8 +355,10 @@ passes byte-exactly on reference input and replays every C stage exactly. Close
 KV-A permanently. The only non-duplicate coordinate is immutable `l_out-1`
 through production layer-2 attention RMSNorm, frozen in the
 [attention RMSNorm protocol](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md).
-It reuses all closed downstream operators and authorizes no graph. Qualify
-model-free first.
+It reuses all closed downstream operators and authorizes no graph. Its
+[repair-1 apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is model-free qualified after preserving the initial compile VOID. Commit the
+exact sources before the one permitted scientific diagnostic.
 
 ## 1. How to read this map
 

@@ -23,7 +23,10 @@ byte-exactly, while C `attn_norm-2` reproduces all closed downstream stages.
 Close KV-A and all downstream operators. The
 [layer-2 attention RMSNorm protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md)
 freezes the only new boundary, immutable `l_out-1` through production
-`blk.2.attn_norm.weight`; qualify it model-free next with no graph.
+`blk.2.attn_norm.weight`. Its [repair-1 model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_APPARATUS_RESULT_20260924.md)
+is qualified after preserving the initial compile VOID: no artifact or payload
+was opened and no graph ran. Commit exact sources, then execute the sole
+scientific zero-graph diagnostic.
 
 **Date: 16 September 2026. Analysis and design only. No code, tests, benchmarks, weight downloads, or training performed.** Reading baseline: HEAD `f1f9cfd59d34071a004248bc04c9d56e6038c596`. Register of sources, scope, and results: [EVIDENCE.md](EVIDENCE.md). The L/W codes refer to that register; further primary sources are linked in the text.
 

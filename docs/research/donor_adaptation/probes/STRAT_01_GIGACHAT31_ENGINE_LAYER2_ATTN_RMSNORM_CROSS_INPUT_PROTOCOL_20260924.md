@@ -93,3 +93,19 @@ fails, repair only layer-2 attention RMSNorm before extending depth.
 
 This cell does not repair layer 1 or 2, rerun either producer, or test earlier
 layer-1 internals, later layers, tokenizer, generation, quality, RAM, or rate.
+
+## Addendum A — initial apparatus attempt is VOID
+
+The initial model-free apparatus attempt is preserved at
+`benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_layer2_attn_rmsnorm_cross_input_apparatus_20260924`.
+Its adjudication SHA-256 is
+`aabeabefcdb1ef2621e18bc30b6c85ab322fc394e8cb710603990555c74c6256`.
+It is `VOID_LAYER2_ATTN_RMSNORM_CROSS_INPUT`: compilation stopped at an
+undeclared cleanup symbol before any diagnostic invocation; the artifact was
+not opened, and donor/reference graph executions are both zero.
+
+The only permitted repair replaces the misspelled cleanup call
+`strat01_inventory_free` with the existing `strat01_free_inventory` and moves
+the apparatus destination to the immutable `apparatus_repair1_20260924`
+directory. Payloads, arms, production operators, gates, and decision rules are
+unchanged. Scientific execution remains forbidden until repair 1 qualifies.
