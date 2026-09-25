@@ -16,17 +16,20 @@ shows that the legacy donor `calib`/`heldout` split is by shuffled 8 KiB chunk,
 not guaranteed disjoint by source document; its sequence-level results must not
 be promoted to a future document-bootstrap quality gate.
 
-**Current no-duplication boundary (24 September):** the canonical
+**Current no-duplication boundary (25 September):** the canonical
 [block-0 Q6 reference-generic result](../probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_RESULT_20260924.md)
 is `BLOCK0_Q6_REFERENCE_GENERIC_EXACT_REPAIR`. The isolated generic candidate
 equals its independent oracle, immutable `ffn_out-0`, `l_out-0`, and the
 complete downstream output byte-for-byte, while historical generic and active
 AVX2 remain distinct. This closes Q8, packed interpretation, both earlier
 reductions, compiler attribution, and the downstream sufficiency question.
-Do not repeat any of those cells. The only open fidelity coordinate is the
-frozen [Q6 production integration](../probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md):
-one shared-dispatch edit, model-free 1280-width qualification, and at most one
-normal Rung-2C producer invocation with zero reference graphs.
+Do not repeat any of those cells. The frozen
+[Q6 production integration](../probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md)
+has now passed its [model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md):
+300 Python tests and 22 C self-test commands pass, including exact width 1280
+parity, with zero production or graph executions. Do not repeat the apparatus.
+After committing the exact sources, the only open fidelity action is one normal
+two-schedule Rung-2C producer invocation with zero reference graphs.
 The still later [STRAT-03 result](../probes/STRAT_03_EXECUTABLE_SHARED_RESIDUAL_RESULT.md)
 closes the frozen five-layer `k=3/256` local diagnostic with a byte-count-
 matched SwiGLU shared path and `x`-only router: all three gates fail despite

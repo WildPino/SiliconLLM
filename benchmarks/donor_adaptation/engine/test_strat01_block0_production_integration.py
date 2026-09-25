@@ -23,7 +23,7 @@ class Block0ProductionIntegrationTests(unittest.TestCase):
         self.assertIn("rms_accum=double;kb=q5_0xq8_0;", runner.PRODUCTION_CONFIG)
         self.assertNotIn("rms_accum=double;kb=q5_0xq8_0;", runner.base.EXPECTED_C_CONFIG)
         header = runner.RUNG2B_HEADER.read_text(encoding="utf-8")
-        self.assertIn('"rms_accum=double;kb=q5_0xq8_0;"', header)
+        self.assertIn('"rms_accum=double;kb=q5_0xq8_0;', header)
 
     def test_shared_primitive_source_controls(self) -> None:
         controls = runner.source_controls()

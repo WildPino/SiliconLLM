@@ -73,6 +73,17 @@ Only a qualified committed apparatus authorizes the scientific invocation.
 
 ## Scientific execution and gates
 
+### Pre-implementation observability addendum
+
+The standard Rung-2C schema emits `l_out-0`, not the internal
+`ffn_out-0` buffer. Expanding that schema merely to restate the already closed
+direct `ffn_out-0` result would add an unnecessary coordinate. Therefore the
+production gate below observes byte-exact `l_out-0`, binds the unchanged
+`ffn_inp-0` source path and residual order, and requires source-level direct
+delegation to the exact helper. The direct `ffn_out-0` hash remains a binding
+from compile parity, not a second production payload requirement. This
+clarification was frozen before implementation.
+
 Run exactly one normal producer command:
 
 ```text
@@ -86,14 +97,16 @@ cache accounting, finiteness, causal controls, and schedule continuity.
 
 The decisive repair gates are byte-exact equality to immutable reference for:
 
-- block-0 `ffn_out-0` and `l_out-0` in both schedules;
+- block-0 `l_out-0` in both schedules, with unchanged `ffn_inp-0` production
+  and residual-add source controls;
 - every one of the 32 complete layer-1 checkpoints in both schedules;
 - all six cache comparisons and all integer routing payloads;
 - every prefill/cached token-7 continuity comparison.
 
-The old production block-0 Q6 output hash must be displaced, while the new
-block-0 output must equal
-`f5514fe59d64b517a685ec70004a75152a5f4d511417148f34e4d13b3134bef4`.
+The old production block-0 terminal hash
+`a71c814dc43360f73b49cb165e7cdf7128f2501015685ff16e7e524dd1f05f11`
+must be displaced, while new `l_out-0` must equal
+`385073c91f472dd9ffc1c86bcb63c6ed50256a6d5645e240d61ccdb613d814aa`.
 The production report and source controls must prove the shared reference-
 generic helper, not a diagnostic arm, produced the candidate.
 

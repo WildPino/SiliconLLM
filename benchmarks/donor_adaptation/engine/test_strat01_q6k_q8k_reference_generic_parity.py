@@ -12,6 +12,7 @@ from benchmarks.donor_adaptation.engine.test_strat01_q6k_q8k_avx2_parity import 
 
 ROOT = Path(__file__).resolve().parents[3]
 PROBE_SOURCE = Path(__file__).resolve().with_name("strat01_q6k_q8k_reference_generic_probe.c")
+REFERENCE_LENGTHS = tuple(sorted(set((*LENGTHS, 1280))))
 
 
 def rounding_fixture(count: int) -> tuple[bytes, bytes]:
@@ -92,7 +93,7 @@ class Q6KQ8KReferenceGenericParityTests(unittest.TestCase):
         return output.read_bytes()
 
     def test_candidate_is_bit_exact_and_both_controls_fire(self) -> None:
-        for count in LENGTHS:
+        for count in REFERENCE_LENGTHS:
             directory = self.directory / str(count)
             directory.mkdir()
             q6_bytes, q8_bytes = rounding_fixture(count)
@@ -130,7 +131,7 @@ class Q6KQ8KReferenceGenericParityTests(unittest.TestCase):
         self.assertEqual(len({candidate, generic, avx2}), 3,
                          "candidate, AVX-TU generic, and active AVX2 must be pairwise distinct")
         print(
-            f"candidate=baseline-generic bit-exact at {LENGTHS}; "
+            f"candidate=baseline-generic bit-exact at {REFERENCE_LENGTHS}; "
             "six-block candidate/avx-generic/active-avx2 controls are pairwise distinct"
         )
 

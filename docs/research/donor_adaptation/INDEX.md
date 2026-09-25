@@ -2,18 +2,20 @@
 
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
-**Latest STRAT-01 continuation (24 September):** the canonical
+**Latest STRAT-01 continuation (25 September):** the canonical
 [block-0 Q6 reference-generic result](probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_RESULT_20260924.md)
 is `BLOCK0_Q6_REFERENCE_GENERIC_EXACT_REPAIR`. Candidate and independently
 compiled pinned generic oracle are byte-exact to immutable `ffn_out-0`, and
 candidate `l_out-0` plus the complete 49,152-float downstream amplifier are
 also byte-exact. The historical AVX-TU generic and active AVX2 hashes remain
 distinct, so isolated no-AVX/FMA lowering is causal. Close Q8 and all three
-compile-parity arms; do not rerun them. The sole active coordinate is the
-frozen [Q6 reference-generic production-integration protocol](probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md):
-make the normal shared Q6 dispatch delegate to the exact helper, qualify the
-1280-wide routed/shared use model-free, then run one standard Rung-2C producer
-with no reference graph. This is fidelity work, not a rate measurement.
+compile-parity arms; do not rerun them. The frozen
+[Q6 reference-generic production-integration protocol](probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md)
+has passed its [model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md):
+300 Python tests and 22 C self-test commands pass, including width 1280, and
+all execution counters are zero. Commit the exact qualified sources, then run
+one standard Rung-2C producer with no reference graph. This is fidelity work,
+not a rate measurement.
 
 **STRAT-01 block-0 production integration (22 September):**
 Closed as **`PASS_ENGINE_BLOCK0_PRODUCTION_INTEGRATION`**. The standard

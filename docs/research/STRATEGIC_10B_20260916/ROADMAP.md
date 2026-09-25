@@ -2,17 +2,19 @@
 
 **Rolling status through 23 September 2026:** [continuation status](STATUS_20260923.md). The [17 September `engine.c` scope decision](STATUS_20260917.md) remains valid. The text below remains the 16 September design snapshot; use the rolling status and [research control index](../RESEARCH_INDEX.md) for execution state and no-duplication decisions.
 
-**Latest continuation (24 September):** the canonical
+**Latest continuation (25 September):** the canonical
 [block-0 Q6 reference-generic result](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_RESULT_20260924.md)
 is `BLOCK0_Q6_REFERENCE_GENERIC_EXACT_REPAIR`. The isolated baseline-generic
 candidate is byte-exact to its independent oracle and to immutable
 `ffn_out-0`, `l_out-0`, and the complete downstream amplifier: 0/49,152
 floats differ at the final boundary. Compiler target/lowering is therefore
-causal; close Q8, historical generic, active AVX2, and compile parity. The sole
-next boundary is the frozen
+causal; close Q8, historical generic, active AVX2, and compile parity. The frozen
 [Q6 reference-generic production-integration protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md):
-make normal shared dispatch delegate to the exact helper, qualify model-free,
-then run one standard two-schedule Rung-2C producer.
+has now passed its [model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md)
+as `APPARATUS_READY_NO_DONOR_EXECUTION`: 300 Python tests and 22 C self-test
+commands pass, including routed width 1280, with zero production or graph
+executions. Commit the exact qualified sources, then run the sole authorized
+standard two-schedule Rung-2C producer with no reference graph.
 This paragraph supersedes the older active-boundary wording below.
 
 **Current execution head (24 September):** the accepted donor is exact through

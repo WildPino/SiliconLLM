@@ -16,7 +16,7 @@ static const char strat01_r2b_config[] =
     "tokens=1,72,14,14129,14,2135,1512,2015;positions=0,1,2,3,4,5,6,7;"
     "rms_eps=1e-6;rope=deepseek2-normal-yarn;rope_base=100000;rope_factor=64;"
     "rope_orig_ctx=4096;beta_fast=32;beta_slow=1;mscale=1;mscale_all_dim=1;"
-    "rms_accum=double;kb=q5_0xq8_0;"
+    "rms_accum=double;kb=q5_0xq8_0;q6kq8k=reference-generic-noavx-noavx2-nofma-noinline;"
     "ffn=block0-rmsnorm-q4kq8k-gate-up-swiglu-sse2-nofma4-q6kq8k-down-residual;"
     "build=clang-c11-O3-mavx2-mfma-no-fast-math;fp_contract=off-c11-pragma;"
     "payload=f32le-token-major;adjudication=external-reference-only";
@@ -46,34 +46,10 @@ static void strat01_r2b_arm_free(strat01_r2b_arm *a) {
     free(a->norm);free(a->up);free(a->gate);free(a->swiglu);free(a->out);free(a->l_out);memset(a,0,sizeof(*a));
 }
 
-/* Scalar form of pinned ggml_vec_dot_q6_K_q8_K_generic. */
+/* Normal production dispatch: exact pinned baseline-generic semantics live in
+ * one target-isolated helper shared with the qualified diagnostic. */
 static float strat01_q6k_q8k_dot(const uint8_t *q6_blocks,const strat01_q8_k_block *q8_blocks,unsigned count) {
-    float sums[8]={0,0,0,0,0,0,0,0},result=0.0f;
-    if(!q6_blocks||!q8_blocks||!count||count%STRAT01_QK_K)return NAN;
-    for(unsigned block=0;block<count/STRAT01_QK_K;++block){
-        const uint8_t *raw=q6_blocks+(size_t)block*STRAT01_R2B_Q6_BLOCK_BYTES;
-        const uint8_t *q4=raw,*qh=raw+128U;const int8_t *scales=(const int8_t *)(raw+192U);
-        const int8_t *q8=q8_blocks[block].qs;int8_t unpacked[256];int32_t lanes[8]={0,0,0,0,0,0,0,0};int8_t *a=unpacked;
-        for(unsigned j=0;j<256U;j+=128U){
-            for(unsigned l=0;l<32U;++l){
-                a[l+0]=(int8_t)((q4[l+0]&15U)|(((qh[l]>>0)&3U)<<4))-32;
-                a[l+32]=(int8_t)((q4[l+32]&15U)|(((qh[l]>>2)&3U)<<4))-32;
-                a[l+64]=(int8_t)((q4[l+0]>>4)|(((qh[l]>>4)&3U)<<4))-32;
-                a[l+96]=(int8_t)((q4[l+32]>>4)|(((qh[l]>>6)&3U)<<4))-32;
-            }
-            a+=128;q4+=64;qh+=32;
-        }
-        a=unpacked;
-        for(unsigned group=0;group<16U;++group){
-            int scale=scales[group];
-            for(unsigned lane=0;lane<8U;++lane)lanes[lane]+=scale*(int16_t)q8[lane]*(int16_t)a[lane];
-            q8+=8;a+=8;
-            for(unsigned lane=0;lane<8U;++lane)lanes[lane]+=scale*(int16_t)q8[lane]*(int16_t)a[lane];
-            q8+=8;a+=8;
-        }
-        {float d=strat01_q4k_q8k_fp16le(raw+208U)*q8_blocks[block].d;for(unsigned lane=0;lane<8U;++lane)sums[lane]+=d*(float)lanes[lane];}
-    }
-    for(unsigned lane=0;lane<8U;++lane)result+=sums[lane];return result;
+    return strat01_q6k_q8k_dot_reference_generic(q6_blocks,q8_blocks,count);
 }
 
 static int strat01_r2b_q6_matmul_batch(const char *path,const strat01_tensor *t,const float *x,unsigned batch,float *y,char error[256]) {
