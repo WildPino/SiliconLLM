@@ -1,5 +1,10 @@
 # Donor Adaptation — what has been tried, what it cost, where to look
 
+**PAUSED — 25 September 2026.** Read the [pause/restart record](PAUSE_20260925.md)
+before any execution. Historical next-step instructions below are suspended;
+the saved normalization apparatus has no scientific result. Native expert
+scaling is the new priority, not a declaration that donor adaptation failed.
+
 For the current cross-program status, precedence rules, open gates and no-duplication checklist, start at the [research control index](../RESEARCH_INDEX.md). This chronological donor record retains historical statements that later audits may supersede.
 
 **Latest STRAT-01 continuation (25 September):** the canonical
@@ -37,6 +42,9 @@ is a valid FAIL: 54/64 checkpoints pass; router and both SwiGLU hashes are
 exact; the first failure is selected-router-weight normalization. Never rerun
 production or upstream cells. The active cell is the zero-graph
 [normalization compile parity](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTER_WEIGHT_NORMALIZATION_COMPILE_PARITY_PROTOCOL_20260925.md).
+Its [repaired apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTER_WEIGHT_NORMALIZATION_COMPILE_PARITY_APPARATUS_RESULT_20260925.md)
+passes without reading a real payload or model. Commit those exact sources,
+then run the single local diagnostic; do not reopen production.
 This is fidelity work, not a rate measurement.
 
 **STRAT-01 block-0 production integration (22 September):**

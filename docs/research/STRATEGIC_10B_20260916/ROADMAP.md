@@ -1,5 +1,11 @@
 # Strategic roadmap: pretrained ~10B, 50–100 tok/s, AVX2 CPU
 
+**Priority decision — 25 September 2026:** the donor-porting line is **PAUSED**.
+The [pause/restart record](../donor_adaptation/PAUSE_20260925.md) supersedes all
+historical "sole next action" directives below. Work moves to native expert
+scaling at fixed active budget on `research/native-expert-scaling`; the final
+pretrained quality/rate goal remains unfulfilled and unchanged.
+
 **Rolling status through 23 September 2026:** [continuation status](STATUS_20260923.md). The [17 September `engine.c` scope decision](STATUS_20260917.md) remains valid. The text below remains the 16 September design snapshot; use the rolling status and [research control index](../RESEARCH_INDEX.md) for execution state and no-duplication decisions.
 
 **Latest continuation (25 September):** the canonical
@@ -40,6 +46,10 @@ is a valid FAIL: 54/64 checkpoints pass and all three installed primitives
 are exact; the first residual is only the four-value selected-router-weight
 normalization. Close all upstream and expert/shared coordinates. The sole next
 action is the zero-graph [normalization compile-parity protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTER_WEIGHT_NORMALIZATION_COMPILE_PARITY_PROTOCOL_20260925.md).
+Its [repaired apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTER_WEIGHT_NORMALIZATION_COMPILE_PARITY_APPARATUS_RESULT_20260925.md)
+is `APPARATUS_READY_NO_PAYLOAD_EXECUTION`: all synthetic and truncation gates
+pass with every real-execution counter zero. Commit, then run its sole local
+32-value diagnostic.
 This paragraph supersedes the older active-boundary wording below.
 
 **Current execution head (24 September):** the accepted donor is exact through

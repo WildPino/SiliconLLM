@@ -1,5 +1,10 @@
 # SiliconLLM research axes — coverage and no-duplication map
 
+**Priority override — 25 September 2026:** donor execution is **PAUSED** under
+the [pause/restart record](../PAUSE_20260925.md). The historical open cells below
+are retained for resumption, not automatic execution. The active research
+question is native expert-count scaling at fixed active expert budget.
+
 **Snapshot:** 2026-09-16. **Purpose:** answer “has this already been tried?” before opening a
 brief, writing a runner, or spending CPU/GPU time. This is an index of project evidence, not a new
 scientific result. The chronological source of truth for donor adaptation remains `../INDEX.md`; rate
@@ -50,6 +55,9 @@ is valid but fails first at selected-router-weight normalization after 54/64
 exact checkpoints. Close router projection, selection, SwiGLU, experts, Q6 and
 shared output. The only open fidelity action is the zero-graph
 [normalization compile parity](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTER_WEIGHT_NORMALIZATION_COMPILE_PARITY_PROTOCOL_20260925.md).
+Its [repaired apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTER_WEIGHT_NORMALIZATION_COMPILE_PARITY_APPARATUS_RESULT_20260925.md)
+passes at zero real-payload/model/producer/graph execution. Do not repeat its
+VOID fixture; commit and run only the authorized local diagnostic.
 The still later [STRAT-03 result](../probes/STRAT_03_EXECUTABLE_SHARED_RESIDUAL_RESULT.md)
 closes the frozen five-layer `k=3/256` local diagnostic with a byte-count-
 matched SwiGLU shared path and `x`-only router: all three gates fail despite

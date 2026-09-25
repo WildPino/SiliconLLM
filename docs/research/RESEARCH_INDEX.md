@@ -1,5 +1,11 @@
 # Research control index
 
+**Priority decision — 25 September 2026:** donor-adaptation is **PAUSED**;
+see the [pause/restart record](donor_adaptation/PAUSE_20260925.md).
+The active question is native expert-count scaling at fixed active expert
+budget, on `research/native-expert-scaling`. Historical "next action" text
+below is suspended, not an instruction to resume donor execution.
+
 **Purpose.** This is the short control-plane for the repository research record.
 Read it before proposing or running work.  It is a navigation and
 no-duplication index, not a replacement for a canonical result, raw artifact,
@@ -47,6 +53,9 @@ counters at zero. Its sole producer closes as a valid
 54/64 checkpoints pass and the first residual is only selected-router-weight
 normalization. Close every upstream primitive. The active cell is the
 zero-graph [normalization compile-parity protocol](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTER_WEIGHT_NORMALIZATION_COMPILE_PARITY_PROTOCOL_20260925.md).
+Its [repaired apparatus](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTER_WEIGHT_NORMALIZATION_COMPILE_PARITY_APPARATUS_RESULT_20260925.md)
+is qualified at zero payload/model/producer/graph execution. Commit, then run
+the sole local 32-value diagnostic.
 
 ## 1. Reading order and precedence
 
