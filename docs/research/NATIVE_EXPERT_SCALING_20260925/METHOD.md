@@ -76,7 +76,7 @@ rate results.
 | A. Bind | Verify source revision, shard/tensor identity, tokenizer IDs and reference runtime; GigaChat `strat01_gigachat_source_binding.py` and saved reports | Exact identity check | GigaChat base source↔BF16 GGUF tensor bytes bound. Text→ID tokenizer parity in `engine.c` remains open. Qwen revision is pinned, but a new run must bind its exact local weight hash. |
 | B. Establish donor | Score fresh held-out documents, task and greedy rollouts with the intact source and candidate under identical token IDs | Measurement | GigaChat Q4 versus BF16 passes scoped quality gates. Qwen intact anchor and limited-layer arms exist on a small frozen slice; a final fresh split is missing. |
 | C. Decompose | List core/mixer/head/router/shared/routed tensors; calculate active and stored bytes, per-token selected experts and expected training exposure | Exact shape arithmetic plus measured kernel anchors | [METH-00](METH_00_GIGACHAT_COST_PREFLIGHT_20260925.md) gives an ideal W4 preflight; [METH-01](METH_01_GIGACHAT_Q4_ACTIVE_LEDGER_20260925.md) prices local GigaChat mixed-GGUF and [METH-03](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md) the official Granite header. [NES-02](NES_02_CPU_EXPERT_COUNT_STRESS_20260925.md) measures a synthetic 10× native expert-count stress and prices dense routing at 10B/100B; it is no quality result. Cache residency and effective expert throughput are not assumed. |
-| D1. Sparse-source variant | Preserve pretrained routed/shared functions initially, then selectively reduce expensive organs or alter routing/representation while keeping a compact reusable core; retain the original as a paired control | **Proposed approximation / adaptation** | GigaChat Q4 retains quality, but its actual mixed-format active payload is ~1,016 MB/token. Even ideal 2-bit MLA plus routed experts remains above the 14 ms design allotment at 40 GB/s. No transformed target with both quality and C speed exists. Full donor C port alone does not close this stage. |
+| D1. Sparse-source variant | Preserve donor structure initially, then apply an organ-selective low-bit representation from BF16, with source BF16/Q4 paired controls; adapt or change structure only if step-zero quality/cost requires it | **Proposed approximation / adaptation** | GigaChat Q4 retains quality but charges 1,016 MB/token. [METH-04](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md) supplies an executable 414-tensor type map at 534.025 MB/token in descriptor arithmetic; 254 IQ2_XS tensors require an importance matrix. No converted weights, quality or C rate exists. Full donor C port alone does not close this stage. |
 | D2. Dense-source variant | Create a shared path plus residual experts with an economical input-only router; jointly adapt affected projections, router and experts, with continuous transitions and donor supervision | **Proposed training** | H1 shows training helps one carve; H4/H2I frozen composition and STRAT-03's tested local geometry fail. A new jointly specified geometry and step-zero control are required, not frozen assembly. |
 | E. Export | Emit versioned C weights/metadata, tokenizer, precision map and golden intermediate/logit traces; run the exact timed C path | Exact serialization plus approximate kernels | Native E32 export/parity exists. GigaChat C fidelity is partial. No converted pretrained conditional target has completed this stage. |
 | F. Validate | Paired donor→target held-out BPB with uncertainty, generation/task checks, routing utility, RAM/bytes/latency breakdown and ≥50 accepted tok/s on the same exported target | Measurement | **Open for every converted target.** Pilot/synthetic rate, scalar BPB, and partial port parity cannot be combined into a pass. |
@@ -103,6 +103,14 @@ an exhaustive fp32 router for 100B stored parameters would address about
 20 ms/token target. A large-E method therefore needs bounded candidate
 routing with measured route recall and quality, and a compact packed-only
 expert export. Synthetic experts establish no learned capacity.
+The [NES-03 int8 router](NES_03_INT8_ROUTER_SHORTLIST_RESULT_20260925.md)
+now supplies one executable approximation: an int8 full-row sketch with a
+32-candidate fp32 rescore. It kept the exact top-8 on the tested E128 and
+synthetic E1280 C trajectories, preserved E128 BPB/top-1/greedy output, and
+cut the E1280 router median from 536.1 to 116.8 µs/token with six threads.
+It is an optional pilot component, **not** a validated large-E or donor
+conversion method. The prototype still keeps full fp32 router and expert
+reference weights in RAM; the E128 generation failure remains.
 
 ## 3. Verification contract and resource accounting
 
@@ -133,18 +141,25 @@ ideal W4 screen. The [Granite screen](METH_02_GRANITE_H_TINY_METADATA_SCREEN_202
 identifies a recurrence-bearing alternative. The subsequent
 [official Granite header ledger](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md)
 prices 913.314 MB/token, also over the 560 MB streaming design allotment at
-the stated hardware yardstick. A candidate now requires a specified structural
-or precision transformation, with a quantitative byte margin and paired
-donor-relative quality gate; keep other organs fixed in each local sensitivity
-cell, then verify the composed result. Reuse GigaChat's source binding and
-quality results rather than repeating them. The next selection must compare
-such a route against a tractable dense-source joint-training case, with an
-explicit step-zero and resource estimate. These screens cannot establish
-actual C speed or quality and authorize no T4 run.
+the stated hardware yardstick. [METH-04](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md)
+specifies a GigaChat BF16→mixed low-bit map at 534.025 MB/token, leaving
+25.975 MB beneath that allotment. This is a plausible payload target, not a
+quality-valid conversion: IQ2_XS on 254 tensors needs donor-specific
+calibration, and the 13.351 ms/token payload floor leaves only 6.649 ms of
+the 20 ms total budget. Reuse GigaChat's source binding and Q4 quality
+controls; next freeze calibration, step-zero paired quality and a conversion
+resource/stop budget before producing weights. Then compare the route with a
+tractable dense-source Qwen joint-training case. The screens establish
+neither actual C speed nor quality and authorize no T4 run.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
-large-E optimization; independent larger experts remain untrained.
+large-E optimization. NES-03 provides a numerical/cost-passing int8 router
+option at pilot scale, with a fragile E128 latency margin. Independent larger
+experts remain untrained, and no pretrained donor has been converted into a
+quality-valid, ≥50 accepted tok/s native artifact. The next method decision
+is a concrete donor-to-target transformation and paired quality/cost gate,
+not another router-only optimization.
 
 Operational experiment history, running processes and exact resumption point
 live in [INDEX.md](INDEX.md); this file changes when a method step is actually

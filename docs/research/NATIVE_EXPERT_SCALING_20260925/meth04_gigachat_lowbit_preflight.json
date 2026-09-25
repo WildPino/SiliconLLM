@@ -1,0 +1,148 @@
+{
+  "schema": "meth04_gigachat_lowbit_preflight_v1",
+  "scope": "descriptor arithmetic and explicit type map only; no transformed weights, quality or C rate",
+  "source": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_binding_v1\\GigaChat3.1-10B-A1.8B-source-bf16.gguf",
+    "bytes": 21356264448,
+    "sha256": "fabc8056f57e230ae9e6aadceb45f4abf9e5d7031fbfe8eca2671d871ef35d47",
+    "gguf_data_offset": 6085376,
+    "tensor_count": 414,
+    "expert_count": 64,
+    "expert_used_count": 4
+  },
+  "target_types": {
+    "mla": "IQ2_XS",
+    "routed": "IQ2_XS",
+    "shared": "IQ2_XS",
+    "dense0": "Q4_K",
+    "head": "Q3_K",
+    "embedding": "Q4_K",
+    "router": "F32",
+    "control": "F32"
+  },
+  "mla_attn_k_b_exception": {
+    "type": "Q4_0",
+    "tensor_count": 26,
+    "reason": "GGUF innermost dimension 128 is shorter than IQ2_XS 256-element block"
+  },
+  "source_active_payload_bytes_per_token": 3261459712,
+  "target_active_payload_bytes_per_token": 534024800,
+  "target_margin_below_560mb_bytes": 25975200,
+  "target_payload_ms_at_40_gb_s": 13.350620000000001,
+  "source_stored_tensor_payload_bytes": 21350179072,
+  "target_stored_tensor_payload_bytes": 3202277120,
+  "imatrix_required_tensor_count": 254,
+  "imatrix_required_tensors_sha256": "1ad84f38cb008b73029b704349471eb28743fa00c4de99b9c77622c1986b37e8",
+  "source_organs": {
+    "control": {
+      "tensor_count": 104,
+      "stored_bytes": 385280,
+      "active_bytes": 385280
+    },
+    "dense0": {
+      "tensor_count": 3,
+      "stored_bytes": 82575360,
+      "active_bytes": 82575360
+    },
+    "embedding": {
+      "tensor_count": 1,
+      "stored_bytes": 394002432,
+      "active_bytes": 3072
+    },
+    "head": {
+      "tensor_count": 1,
+      "stored_bytes": 394002432,
+      "active_bytes": 394002432
+    },
+    "mla": {
+      "tensor_count": 130,
+      "stored_bytes": 1300103168,
+      "active_bytes": 1300103168
+    },
+    "routed": {
+      "tensor_count": 75,
+      "stored_bytes": 18874368000,
+      "active_bytes": 1179648000
+    },
+    "router": {
+      "tensor_count": 25,
+      "stored_bytes": 9830400,
+      "active_bytes": 9830400
+    },
+    "shared": {
+      "tensor_count": 75,
+      "stored_bytes": 294912000,
+      "active_bytes": 294912000
+    }
+  },
+  "target_organs": {
+    "control": {
+      "tensor_count": 104,
+      "stored_bytes": 385280,
+      "active_bytes": 385280,
+      "type_counts": {
+        "F32": 104
+      }
+    },
+    "dense0": {
+      "tensor_count": 3,
+      "stored_bytes": 23224320,
+      "active_bytes": 23224320,
+      "type_counts": {
+        "Q4_K": 3
+      }
+    },
+    "embedding": {
+      "tensor_count": 1,
+      "stored_bytes": 110813184,
+      "active_bytes": 864,
+      "type_counts": {
+        "Q4_K": 1
+      }
+    },
+    "head": {
+      "tensor_count": 1,
+      "stored_bytes": 84648960,
+      "active_bytes": 84648960,
+      "type_counts": {
+        "Q3_K": 1
+      }
+    },
+    "mla": {
+      "tensor_count": 130,
+      "stored_bytes": 202814976,
+      "active_bytes": 202814976,
+      "type_counts": {
+        "Q4_0": 26,
+        "IQ2_XS": 104
+      }
+    },
+    "routed": {
+      "tensor_count": 75,
+      "stored_bytes": 2727936000,
+      "active_bytes": 170496000,
+      "type_counts": {
+        "IQ2_XS": 75
+      }
+    },
+    "router": {
+      "tensor_count": 25,
+      "stored_bytes": 9830400,
+      "active_bytes": 9830400,
+      "type_counts": {
+        "F32": 25
+      }
+    },
+    "shared": {
+      "tensor_count": 75,
+      "stored_bytes": 42624000,
+      "active_bytes": 42624000,
+      "type_counts": {
+        "IQ2_XS": 75
+      }
+    }
+  },
+  "tensor_type_file": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth04_gigachat_tensor_types.txt",
+  "tensor_type_file_sha256": "a55334bf64f39a506efba1350a3eaae034f6d4453de47d5a2e5e227b7bb44128",
+  "converter_requirements": "pinned llama-quantize with --tensor-type-file; IQ2_XS requires a donor-specific importance matrix; source BF16 avoids requantization"
+}

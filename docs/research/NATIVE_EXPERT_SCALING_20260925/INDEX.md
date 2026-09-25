@@ -1,9 +1,12 @@
 # Native expert scaling: research control index
 
 **Date:** 25 September 2026. **Branch:** `research/native-expert-scaling`.
-**Status:** NES-01 E128 trained and measured; BPB/routing/pilot CPU gates pass,
-but the predeclared greedy-generation gate fails. NES-02 10× expert-count CPU
-stress finds a dense-router scaling limit. Goal remains open.
+**Status:** NES-01 E128 improves BPB but fails greedy generation; NES-02
+finds a dense-router CPU scaling limit; NES-03 int8 shortlist preserves
+tested routes and cuts E1280 router cost. No pretrained-to-native conversion
+has passed joint quality and rate. METH-04 identifies a donor-bound low-bit
+GigaChat target under the traffic preflight, with calibration/quality open.
+Goal remains open.
 Fork point: donor pause checkpoint `90bf966`.
 
 ## Goal and current decision
@@ -19,12 +22,13 @@ at small L6/TinyStories scale. Equal tokens do not equal equal exposure per
 expert; fixed top-k does not fix dense-router cost. A result at this scale
 cannot establish target-scale performance.
 
-The long-term target remains roughly 10B distinct learned parameters using
-pretrained knowledge, quality and ≥50 end-to-end tok/s in the **same** C
-artifact; 100 tok/s is a stretch goal. Scaling toward 100B is an open
-question. [METHOD.md](METHOD.md) tracks a provisional transfer procedure and
-its missing gates. The GigaChat arithmetic preflight below informs traffic
-constraints but does not replace the native scaling decision.
+The end state is a reproducible method that transfers pretrained capability
+to a conditional `engine.c` artifact, retains donor-relative quality and
+runs at ≥50 accepted batch-1 tok/s on the **same** artifact and declared
+hardware/context; 100 tok/s is a stretch goal. It must be tried across
+families/scales, including order-10B and, where resources permit, order-100B.
+Scaling experts is an enabling question, not a substitute for this transfer.
+[METHOD.md](METHOD.md) tracks the provisional procedure and missing gates.
 
 The historical [donor-adaptation line is paused](../donor_adaptation/PAUSE_20260925.md).
 Reuse its evidence and instruments; a direct port alone is a baseline and does
@@ -56,6 +60,26 @@ that router payload alone needs **25.97 ms**, above the complete 20 ms budget
 for 50 tok/s. This is arithmetic, not a 100B model measurement. It motivates
 bounded candidate routing and a packed-only expert export.
 
+[NES-03](NES_03_INT8_ROUTER_SHORTLIST_RESULT_20260925.md) uses an int8 router
+sketch and exact fp32 rescore of 32 candidates. On frozen held-out inputs,
+both E128 and synthetic E1280 C audits miss **zero** exact top-8 IDs across
+8,192 positions × 6 layers; E128 BPB/top-1 and greedy output are unchanged.
+The parallel E1280 router median is **116.8 µs/token** versus **536.1** in
+NES-02; total **1,474.2** versus **1,880.4**. The frozen E128 cost gate passes
+by only 0.12 µs/token and machine variation is comparable, so this is an
+opt-in provisional router candidate. It does not repair E128 generation or
+establish learned large-E quality.
+
+[METH-04](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md) now names
+a concrete GigaChat BF16→mixed low-bit transformation: IQ2_XS for most MLA
+and routed/shared experts, Q4_0 for block-incompatible MLA key tensors,
+Q3_K head and Q4_K dense first FFN. The bound 414-tensor plan addresses
+**534.025 MB/token**, 25.975 MB below the 560 MB design allotment, and
+would require a donor-specific importance matrix for **254** tensors.
+No transformed GGUF, paired quality, C support or accepted-token speed
+exists. At 40 GB/s, payload alone prices to 13.351 ms/token; the margin is
+still narrow.
+
 For pretrained transfer, the local GigaChat base Q4 passes fresh paired BPB,
 PIQA and document rollout against BF16. The actual mixed-format GGUF header
 prices **1,016 MB of active payload/token**; at 50 tok/s that requires
@@ -77,10 +101,12 @@ SSM/SWA target and passes joint quality/rate.
 | NES-00 | APPARATUS PASS; invalid smokes retained | [asset/dispatch record](NES_00_ASSET_AND_DISPATCH_20260925.md), [RTX 3060 JSON](dispatch_probe_e128_fullstep_rtx3060_20260925.json) |
 | NES-01 | JOINT FAIL: generation; other pilot gates pass | [result](NES_01_E128_RESULT_20260925.md), [frozen protocol](E128_EQUAL_TOKEN_PROTOCOL_20260925.md), [decoded fp32 samples](nes01_greedy_fp32_samples_20260925.json), [CPU timing](nes01_cpu_timing_20260925.json) |
 | NES-02 | COST STRESS: dense router 10× cost; parallel speed gates fail | [result and shape ledger](NES_02_CPU_EXPERT_COUNT_STRESS_20260925.md), [serial measurements](nes02_capacity_stress_baseline_20260925.json), [parallel measurements](nes02_parallel_router_result_20260925.json); E1280 is synthetic, no quality inference |
+| NES-03 | PROVISIONAL ROUTER COST PASS: E128 quality nonregression; E1280 synthetic | [result](NES_03_INT8_ROUTER_SHORTLIST_RESULT_20260925.md), [frozen protocol](NES_03_INT8_ROUTER_SHORTLIST_PROTOCOL_20260925.md), [probe](nes03_int8_router_probe_20260925.json), [raw result ledger](nes03_int8_router_result_20260925.json) |
 | METH-00 | ARITHMETIC PREFLIGHT | [GigaChat active-organ traffic](METH_00_GIGACHAT_COST_PREFLIGHT_20260925.md); no decoder or quality measurement |
 | METH-01 | HEADER-DERIVED PAYLOAD | [actual Q4_K_M organ ledger](METH_01_GIGACHAT_Q4_ACTIVE_LEDGER_20260925.md), [raw JSON](meth01_gigachat_q4_active_ledger.json); no decoder or quality measurement |
 | METH-02 | METADATA SCREEN | [Granite H Tiny](METH_02_GRANITE_H_TINY_METADATA_SCREEN_20260925.md): recurrent/sparse candidate; no local weights or quality/rate result |
 | METH-03 | HEADER-DERIVED PAYLOAD | [official Granite Q4 organ ledger](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md), [raw JSON](meth03_granite_q4_active_ledger.json); 8 MB verified Range prefix, no full local weights or quality/rate result |
+| METH-04 | DONOR TRANSFORMATION PREFLIGHT; no weights changed | [result](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md), [frozen map/gate](METH_04_GIGACHAT_LOWBITS_PROTOCOL_20260925.md), [414 tensor overrides](meth04_gigachat_tensor_types.txt), [byte ledger](meth04_gigachat_lowbit_preflight.json) |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -97,19 +123,22 @@ scheduled.
 - **Closed within their scope:** H5's frozen H4+H2I assembly is adverse;
   STRAT-03's tested shared/router geometry fails. Neither rejects fresh joint
   training. The old donor parity queue is not an automatic next step.
-- **Next CPU design:** freeze a hierarchical or candidate router at the
-  measured E128 geometry, verify selected-route recall and quality against
-  exhaustive scoring, then measure total CPU cost before projecting to large
-  E. A packed-only export must remove the reference fp32 expert copies.
-  NES-02 is an input-path stress, not accepted autoregressive target speed.
+- **CPU design state:** NES-03 established a 32-candidate int8 path on this
+  pilot; the full fp32 router and reference expert copies remain resident.
+  A packed-only export, learned large-E routing/quality and accepted-token
+  rate remain open. Do not spend the next cell only tuning this pilot router.
 - **Next quality design:** choose one changed variable to address E128 greedy
   loops (for example exposure or route training), estimate local training cost
   and freeze BPB, repetition and routing gates before a new run. Do not
   automatically extend E256 on the BPB gain alone.
-- **Pretrained transfer:** METH-01 and METH-03 close direct-Q4 cost preflights
-  for GigaChat and Granite. Specify a target transformation with active-byte
-  margin, step-zero control, paired donor quality gate and resource estimate
-  before acquiring another donor or budgeting adaptation. No T4 job is planned.
+- **Next exact action: pretrained transfer.** METH-04 supplies one
+  byte-feasible GigaChat type map but lacks a calibration importance matrix.
+  Bind a representative *non-held-out* donor calibration set, cost matrix
+  collection and BF16→mixed-format conversion, and freeze paired BF16/Q4/
+  proposed-format BPB, generation and task gates plus an early stop rule.
+  Inspect actual quantizer fallbacks before any C port. Compare feasibility
+  with the tractable Qwen2.5-1.5B dense-source path; the old donor port is
+  not an automatic next step. No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
