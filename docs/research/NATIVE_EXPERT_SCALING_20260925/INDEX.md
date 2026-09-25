@@ -1,7 +1,7 @@
 # Native expert scaling: research control index
 
 **Date:** 25 September 2026. **Branch:** `research/native-expert-scaling`.
-**Status:** E128 apparatus qualified and NES-01 protocol frozen; full training not yet started.
+**Status:** NES-01 E128 training running on the local RTX 3060.
 Fork point: donor pause checkpoint `90bf966`.
 
 ## Latest decisive evidence and active cell
@@ -20,6 +20,17 @@ It holds L6/TinyStories, core, h128, top-8 and 32.768M training tokens fixed.
 Its E128 run is estimated at 7–9 local RTX 3060 hours and capped at 10 hours,
 with optimizer/RNG checkpoints. The L8/code ladder remains separate and
 requires its own matched E32 baseline.
+
+NES-01 started 2026-09-25 11:28:15 UTC from commit `44c7bb1` via
+[`run_nes01.ps1`](../../../benchmarks/native_expert_scaling/run_nes01.ps1).
+Hidden PowerShell launcher PID 24620, recorded in
+`results/native_expert_scaling/nes01_launcher.pid`; Python child PID at launch
+10960 (the venv redirector may create another Python process). Expected
+outputs: `nes01_e128_train.stdout.log`, `.stderr.log`, `nes01_status.json`
+in this directory; rotating optimizer/RNG state and final checkpoint under
+`results/native_expert_scaling/`. Check the status JSON or process once after
+the expected 7–9 hours; avoid continuous polling. A 10-hour wall cap writes
+`RUN-INCOMPLETE` and leaves a resumption state if the run is not finished.
 
 ## Decision and objective
 
@@ -104,7 +115,7 @@ single small-scale pass.
 | Consolidate inherited evidence | DOCUMENTED | `PRIOR_EVIDENCE.md`; distinguish unavailable artifacts from failed experiments |
 | Bind reusable native training/export assets | DONE | [NES-00](NES_00_ASSET_AND_DISPATCH_20260925.md): hashes, config, E128 apparatus and voids |
 | Freeze one scaling protocol | DONE | [NES-01](E128_EQUAL_TOKEN_PROTOCOL_20260925.md): L6 E32/E128, gates and 10-hour cap |
-| Train and measure | NEXT | Local RTX 3060 E128 run; then held-out, generation, C parity/cost on both arms. No T4 run planned |
+| Train and measure | RUNNING | Local RTX 3060 E128; then held-out, generation, C parity/cost on both arms. No T4 run planned |
 | Decide whether to scale further or change routing | NOT STARTED | Require the joint quality/routing/cost result; change one coordinate on failure |
 
 ## Experiment register and exact resumption point
@@ -112,10 +123,13 @@ single small-scale pass.
 | ID | State | Record and raw evidence |
 |---|---|---|
 | NES-00 | APPARATUS PASS; two smoke voids retained | [Asset/dispatch record](NES_00_ASSET_AND_DISPATCH_20260925.md), [E128 RTX 3060 JSON](dispatch_probe_e128_fullstep_rtx3060_20260925.json) |
-| NES-01 | FROZEN, not yet run | [Equal-token protocol](E128_EQUAL_TOKEN_PROTOCOL_20260925.md) |
+| NES-01 | RUNNING from `44c7bb1` | [Equal-token protocol](E128_EQUAL_TOKEN_PROTOCOL_20260925.md), raw stdout/stderr/status above |
 
-Resume at NES-01's command after checking that no other GPU job is active.
-Do not treat NES-00 smoke BPB as an E128 result. Preserve the unrelated
+Resume by inspecting `nes01_status.json`, the log tail, and the final or
+optimizer checkpoint. If the process is gone and the final checkpoint is
+absent, use NES-01's same command to resume from the rotating state after
+checking no other GPU job is active. Do not treat NES-00 smoke BPB as an E128
+result. Preserve the unrelated
 working-tree edits in `RESEARCH_INDEX.md` and the donor density script.
 
 ## Record-keeping rule
