@@ -80,6 +80,7 @@ class MoEMLP(nn.Module):
         s.up = BitLinear158(D, s.H)
         s.Wd = nn.Parameter(torch.empty(E, D, hid_e)); nn.init.kaiming_uniform_(s.Wd, a=math.sqrt(5))  # per-expert down
         s._cap = False; s._topi = None; s._xin = None; s._last_load = 0.0; s._last_coh = 0.0
+        s.register_buffer("_train_counts", torch.zeros(E, dtype=torch.int64), persistent=False)
     @staticmethod
     def _tern(W):                                                # per-row (last dim) absmean ternary STE (== BitLinear158)
         scale = W.abs().mean(-1, keepdim=True).clamp_min(1e-5)
@@ -99,6 +100,7 @@ class MoEMLP(nn.Module):
         xf, probs, topi, topw, hE, B, T = s._route_hidden(x)
         out = torch.einsum('neh,edh->nd', hE, s._tern(s.Wd).to(hE.dtype))          # per-expert down, batched (no loop)
         sel = torch.zeros_like(probs).scatter(-1, topi, torch.ones_like(topw))     # Switch aux: E*sum f_e*P_e / k
+        if s.training: s._train_counts.add_(sel.sum(0).to(torch.int64))
         load = s.E * (sel.mean(0) * probs.mean(0)).sum() / s.k
         aux = s.load_w * load
         coh = xf.new_zeros(())
@@ -108,6 +110,9 @@ class MoEMLP(nn.Module):
         if s._cap:                                               # measurement only (no_grad) - safe to store, no graph
             s._topi = topi.reshape(B, T, s.k).detach().cpu().numpy()
             s._xin = x.detach().float().cpu().numpy()
+            s._entropy = float((-(probs * probs.clamp_min(1e-30).log()).sum(-1).mean() / math.log(s.E)).detach())
+            vals = probs.topk(s.k + 1, dim=-1).values
+            s._margin = float((vals[:, s.k - 1] - vals[:, s.k]).mean().detach())
         return out.reshape(B, T, s.D), aux
     @torch.no_grad()
     def _ref(s, x):                                             # per-expert loop over the SAME params (equivalence test)
@@ -119,13 +124,111 @@ class MoEMLP(nn.Module):
         return out.reshape(B, T, s.D)
 
 
-def build_model(V, AC, arm, load_w, lam_coh, dev, dev_type):
+class SparseMoEMLP(MoEMLP):
+    """Active-only MoE training: gather the tokens routed to each expert, run that expert on those tokens alone,
+    and scatter the weighted results back. Same parameters, same maths, k/E of the work.
+
+    The inherited forward is compute-all: it evaluates every expert on every token and then multiplies the
+    non-selected blocks by zero. That costs E/k = 4x the FLOPs and materializes the full (N, E, hid_e) hidden.
+    Here nothing that is routed away is ever computed.
+
+    Do NOT read this as the fix for the MVE's memory pressure -- WS2 measured that attribution and it was wrong.
+    The SSM scan is the eater (stage C alone peaks at 4.86 GB); the MoE is ~3% of peak, and stage E was merely the
+    last drop. This class is a COMPUTE/SCALING investment: 1.5x at E32 but 4.3x at E128, which is what keeps the
+    per-step MoE share ~flat as E grows and so keeps the rung-2/3 cost model standing. End-to-end at the rung-1
+    config it is worth ~1%.
+
+    DETERMINISM BY CONSTRUCTION -- no atomics anywhere. The obvious scatter-back is `index_add_`, which on CUDA
+    accumulates through float atomics: run-to-run non-reproducible, because float addition is not associative and
+    the atomic order is not fixed. We rely on bit-identical reruns as a live diagnostic (arms A and C agreeing to
+    the last bit is how the apparatus is checked), so that trade is not available. Instead the per-(token,expert)
+    rows are produced in expert-sorted order, permuted back with a gather, and summed over a FIXED k axis --
+    a plain reduction over a static layout, identical on every run.
+
+    Ordering note: the weighting is applied to the HIDDEN before the down projection, mirroring the compute-all
+    path exactly, so the two differ only by float summation order and not by the sequence of operations.
+    """
+    def forward(s, x):
+        B, T, D = x.shape
+        xf = x.reshape(-1, D); N = xf.shape[0]
+        with torch.autocast(s.dev_type, enabled=False):
+            probs = torch.softmax(s.router(xf.float()), dim=-1)          # (N,E)
+        topv, topi = probs.topk(s.k, dim=-1)
+        topw = topv / topv.sum(dim=-1, keepdim=True)                     # (N,k)
+
+        # group the (token, expert) pairs by expert. stable=True keeps the layout a deterministic function of the
+        # routing alone, so two runs with identical routing produce identical arithmetic.
+        P = N * s.k
+        flat_e = topi.reshape(-1)
+        # (flat_t is implicit: pair p belongs to token p // k -- see the structured expand below)
+        flat_w = topw.reshape(-1)
+        order = torch.argsort(flat_e, stable=True)
+        sw = flat_w[order]
+        counts = torch.bincount(flat_e, minlength=s.E)
+        offs = torch.cumsum(counts, 0) - counts
+
+        Wg, Wu = s._tern(s.gate.weight), s._tern(s.up.weight)            # (H,D) ternarized once, then split by expert
+        Wd = s._tern(s.Wd)                                               # (E,D,hid_e)
+
+        # PAD-TO-MAX + BATCHED GEMM, not a Python loop over experts. The loop was the first thing measured and it
+        # was 20% SLOWER than the compute-all it was meant to replace: E=32 experts x 8 layers = 256 tiny kernel
+        # launches per forward, and at this size launch overhead dominates the FLOPs saved. Padding every expert to
+        # the largest routed count turns the whole layer into three bmm's. The padded rows are masked to zero and
+        # dropped on the way back, so the maths is unchanged -- this is a scheduling fix, not a modelling one.
+        C = int(counts.max().item())
+        s._last_cap = C; s._last_fill = P / float(s.E * C)                # routing imbalance: 1.0 = perfectly balanced
+        pos = torch.arange(P, device=x.device) - offs[flat_e[order]]     # rank of each pair within its expert
+        pad_idx = flat_e[order] * C + pos                                # sorted position -> slot in the (E,C) grid
+
+        # The gather from xf must NOT be done with a repeated index. Every token is routed to k experts, so an
+        # index_select over token ids has k duplicates per token, and its BACKWARD is an atomic index_add -- which
+        # is where determinism was lost the first time this was measured (grads differed by 2.3e-05 between two
+        # identical-seed runs, while the forward stayed bit-identical). Instead: expand along a structured k axis
+        # first (backward = a fixed-axis sum) and only then apply permutations with UNIQUE indices, whose backward
+        # gathers instead of accumulating. Same tensor, deterministic derivative.
+        xrep = xf.unsqueeze(1).expand(N, s.k, D).reshape(P, D)
+        xs = xrep.index_select(0, order)                                 # order is a permutation -> unique
+        xe = xf.new_zeros(s.E * C, D).index_copy(0, pad_idx, xs).reshape(s.E, C, D)
+        w_pad = flat_w.new_zeros(s.E * C).index_copy(0, pad_idx, sw)
+        Wg3 = Wg.reshape(s.E, s.hid_e, D).transpose(1, 2).to(xe.dtype)   # (E,D,hid_e)
+        Wu3 = Wu.reshape(s.E, s.hid_e, D).transpose(1, 2).to(xe.dtype)
+        h = F.relu(torch.bmm(xe, Wg3)) * F.relu(torch.bmm(xe, Wu3))      # (E,C,hid_e)
+        h = h * w_pad.reshape(s.E, C, 1).to(h.dtype)                     # weight the hidden, as compute-all does
+        op = torch.bmm(h, Wd.transpose(1, 2).to(h.dtype))                # (E,C,D)
+
+        cat = op.reshape(s.E * C, D).index_select(0, pad_idx)            # (P,D) back in expert-sorted order
+        inv = torch.empty_like(order); inv[order] = torch.arange(P, device=x.device)
+        out = cat.index_select(0, inv).reshape(N, s.k, D).sum(1)         # fixed-axis reduction, no atomics
+
+        sel = torch.zeros_like(probs).scatter(-1, topi, torch.ones_like(topw))
+        if s.training: s._train_counts.add_(sel.sum(0).to(torch.int64))
+        load = s.E * (sel.mean(0) * probs.mean(0)).sum() / s.k
+        aux = s.load_w * load
+        coh = xf.new_zeros(())
+        if s.lam_coh > 0 and T > 1:
+            pr = probs.reshape(B, T, s.E); coh = (pr[:, 1:] - pr[:, :-1]).abs().mean(); aux = aux + s.lam_coh * coh
+        s._last_load = float(load.detach()); s._last_coh = float(coh.detach())
+        if s._cap:
+            s._topi = topi.reshape(B, T, s.k).detach().cpu().numpy()
+            s._xin = x.detach().float().cpu().numpy()
+            s._entropy = float((-(probs * probs.clamp_min(1e-30).log()).sum(-1).mean() / math.log(s.E)).detach())
+            vals = probs.topk(s.k + 1, dim=-1).values
+            s._margin = float((vals[:, s.k - 1] - vals[:, s.k]).mean().detach())
+        return out.reshape(B, T, D), aux
+
+
+def build_model(V, AC, arm, load_w, lam_coh, dev, dev_type, experts=0, sparse_moe=False):
     is_moe, E, hid_e, k, dense_hid = ARMS[arm]
+    if experts:
+        if not is_moe or experts <= k:
+            raise ValueError("--experts requires a MoE arm and E > top-k")
+        E = experts
     model = ArchA(V, **AC).to(dev)
     n = 0
     for b in model.blocks:
         if getattr(b, "use_mlp", False):
-            b.mlp = MoEMLP(AC["D"], hid_e, E, k, load_w, lam_coh, dev_type) if is_moe else DenseExpert(AC["D"], dense_hid)
+            moe_cls = SparseMoEMLP if sparse_moe else MoEMLP
+            b.mlp = moe_cls(AC["D"], hid_e, E, k, load_w, lam_coh, dev_type) if is_moe else DenseExpert(AC["D"], dense_hid)
             n += 1
     return model.to(dev), n
 
@@ -148,6 +251,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--arm", choices=list(ARMS.keys()), default="moe-gran")
+    ap.add_argument("--experts", type=int, default=0, help="override E for a MoE arm; 0 uses the historical arm")
+    ap.add_argument("--sparse-moe", action="store_true", help="compute only routed expert slots (same weights/math)")
     ap.add_argument("--load-balance-w", type=float, default=0.01, help="Switch aux weight (apparatus, not the variable)")
     ap.add_argument("--lam-coh", type=float, default=0.0, help="routing-persistence coherence (58.B was unpromoted; off by default)")
     ap.add_argument("--steps", type=int, default=4000)
@@ -164,8 +269,15 @@ def main():
     ap.add_argument("--measure-only", action="store_true", help="load --ckpt and only run the 5 measures (no training)")
     ap.add_argument("--ckpt", type=str, default="")
     ap.add_argument("--save", type=str, default="")
+    ap.add_argument("--resume-state", type=str, default="", help="periodic optimizer/RNG checkpoint, resumed if present")
+    ap.add_argument("--checkpoint-every", type=int, default=0)
+    ap.add_argument("--max-hours", type=float, default=0.0, help="stop cleanly after this wall time; 0 disables")
     ap.add_argument("--device", type=str, default="auto")
     a = ap.parse_args()
+    if a.checkpoint_every and not a.resume_state:
+        ap.error("--checkpoint-every requires --resume-state")
+    if a.max_hours and not a.resume_state:
+        ap.error("--max-hours requires --resume-state")
     if a.smoke:
         a.steps, a.seq, a.batch, a.accum, a.eval_tok, a.measure_batches = 60, 64, 4, 1, 20000, 8
     dev = a.device if a.device != "auto" else ("cuda" if torch.cuda.is_available() else "cpu")
@@ -183,16 +295,20 @@ def main():
     if a.measure_only and a.ckpt:
         sd = torch.load(a.ckpt, map_location=dev); cfg = sd.get("cfg", {})
         a.arm = cfg.get("arm", a.arm); a.load_balance_w = cfg.get("load_balance_w", a.load_balance_w); a.lam_coh = cfg.get("lam_coh", a.lam_coh)
-    model, nsw = build_model(V, AC, a.arm, a.load_balance_w, a.lam_coh, dev, dev_type)
+        a.experts = cfg.get("E", a.experts)
+        a.sparse_moe = cfg.get("sparse_moe", a.sparse_moe)
+    model, nsw = build_model(V, AC, a.arm, a.load_balance_w, a.lam_coh, dev, dev_type,
+                             experts=a.experts, sparse_moe=a.sparse_moe)
     model.use_ckpt = not a.no_ckpt
     use_ckpt = model.use_ckpt
     if a.measure_only and a.ckpt:
         model.load_state_dict(sd["model"] if "model" in sd else sd, strict=False)
     is_moe, E, hid_e, k, dense_hid = ARMS[a.arm]
+    if a.experts: E = a.experts
     act_hid = (k * hid_e) if is_moe else dense_hid
     tot_hid = (E * hid_e) if is_moe else dense_hid
     npar = sum(p.numel() for p in model.parameters())
-    print(f"Phase59 MoE | arm={a.arm} | active_hid={act_hid} total_hid={tot_hid} (E={E} hid_e={hid_e} top-{k}) | dev={dev} amp={amp_dtype}")
+    print(f"Phase59 MoE | arm={a.arm} | active_hid={act_hid} total_hid={tot_hid} (E={E} hid_e={hid_e} top-{k}) | sparse={a.sparse_moe} dev={dev} amp={amp_dtype}")
     print(f"  params={npar/1e6:.3f}M | load_balance_w={a.load_balance_w} lam_coh={a.lam_coh} | sparsified {nsw} MLP blocks | ckpt(mix)={use_ckpt}")
     print(f"  baselines: A dense-1024 (sp58_base) BPB 0.8799 | ternary 0.8382 | probe-2 dReLU 0.8813")
 
@@ -212,7 +328,7 @@ def main():
     def val_bpb(cap):
         model.eval(); bits = 0.0; nb = 0
         with torch.no_grad():
-            W = a.seq; lim = min(cap, len(val) - 1); pos = 0
+            W = a.seq; lim = min(max(cap, W + 1), len(val) - 1); pos = 0
             while pos + W + 1 <= lim:
                 x = torch.from_numpy(val[pos:pos+W][None, :]).to(dev); y = torch.from_numpy(val[pos+1:pos+1+W][None, :]).to(dev)
                 with autocast_ctx(): logits, _ = moe_forward(model, x, use_ckpt=False)
@@ -225,6 +341,7 @@ def main():
             print("  (dense arm: no routing measures - BPB only)"); return
         for m in moe_layers: m._cap = True
         topis = [[] for _ in moe_layers]; xins = [[] for _ in moe_layers]
+        entropies = [[] for _ in moe_layers]; margins = [[] for _ in moe_layers]
         model.eval()
         with torch.no_grad():
             for b in range(nbatch):
@@ -232,10 +349,12 @@ def main():
                 if pos + a.batch * a.seq + 1 > len(val): break
                 blk = val[pos:pos + a.batch * a.seq].reshape(a.batch, a.seq)
                 with autocast_ctx(): moe_forward(model, torch.from_numpy(blk).to(dev), use_ckpt=False)
-                for i, m in enumerate(moe_layers): topis[i].append(m._topi); xins[i].append(m._xin)
+                for i, m in enumerate(moe_layers):
+                    topis[i].append(m._topi); xins[i].append(m._xin)
+                    entropies[i].append(m._entropy); margins[i].append(m._margin)
         for m in moe_layers: m._cap = False
         model.train()
-        hdr = f"  {'layer':>5} {'E':>4} {'k':>3} {'dead':>5} {'max/mean':>9} {'persist%':>9} " + " ".join(f"ws@{N:<2}" for N in Ns) + f" {'rec_in%':>8} {'rec_ahead%':>10}"
+        hdr = f"  {'layer':>5} {'E':>4} {'k':>3} {'dead':>5} {'max/mean':>9} {'persist%':>9} " + " ".join(f"ws@{N:<2}" for N in Ns) + f" {'rec_in%':>8} {'rec_ahead%':>10} {'Hnorm':>7} {'gap@k':>9}"
         print(hdr); print("  " + "-" * (len(hdr) - 2))
         for i, m in enumerate(moe_layers):
             TOPI = np.concatenate(topis[i], 0); XIN = np.concatenate(xins[i], 0)   # (rows,T,k) , (rows,T,D)
@@ -263,7 +382,7 @@ def main():
             if Xe2.shape[0] == 0: Xe2, Ye2 = Xf2, SEL[:nrf, 1:].reshape(-1, Ei)
             Wp2 = ridge_fit(Xf2, Yf2, a.ridge); rec_ah = recall_at_k(ridge_apply(Xe2, Wp2), Ye2)
             wss = " ".join(f"{v*100:4.0f}%" for v in ws)
-            print(f"  {i:>5} {Ei:>4} {kk:>3} {dead:>5} {maxmean:>8.2f}x {persist*100:>8.1f}% {wss} {rec_in*100:>7.1f}% {rec_ah*100:>9.1f}%")
+            print(f"  {i:>5} {Ei:>4} {kk:>3} {dead:>5} {maxmean:>8.2f}x {persist*100:>8.1f}% {wss} {rec_in*100:>7.1f}% {rec_ah*100:>9.1f}% {np.mean(entropies[i]):>7.3f} {np.mean(margins[i]):>9.5f}")
         print("  reading: dead=0 & max/mean<~3x = router OK | ws=|union experts|/E over N pos (sub-linear -> L3-fit) | rec_in = router predictable in-place")
 
     if a.measure_only:
@@ -275,6 +394,36 @@ def main():
     use_scaler = (amp_dtype == torch.float16 and dev_type == "cuda")
     scaler = torch.amp.GradScaler("cuda", enabled=use_scaler)
     opt = torch.optim.AdamW(model.parameters(), lr=a.lr, betas=(0.9, 0.95), weight_decay=0.1)
+    run_config = dict(arm=a.arm, E=E, hid_e=hid_e, topk=k, sparse_moe=a.sparse_moe,
+                      steps=a.steps, seq=a.seq, batch=a.batch, accum=a.accum,
+                      lr=a.lr, bf16=a.bf16, fp16=a.fp16, load_balance_w=a.load_balance_w,
+                      lam_coh=a.lam_coh)
+    start_step = 0
+    if a.resume_state and os.path.isfile(a.resume_state):
+        resume = torch.load(a.resume_state, map_location=dev, weights_only=False)
+        if resume["config"] != run_config:
+            raise ValueError("resume config differs from current run")
+        model.load_state_dict(resume["model"])
+        opt.load_state_dict(resume["optimizer"])
+        scaler.load_state_dict(resume["scaler"])
+        np.random.set_state(resume["numpy_rng"])
+        torch.set_rng_state(resume["torch_rng"].cpu())
+        if dev_type == "cuda": torch.cuda.set_rng_state_all([state.cpu() for state in resume["cuda_rng"]])
+        for m, counts in zip(moe_layers, resume["train_exposure"]):
+            m._train_counts.copy_(counts.to(m._train_counts.device))
+        start_step = resume["step"]
+        print(f"  resumed at step {start_step} from {a.resume_state}")
+
+    def save_resume(step):
+        if not a.resume_state: return
+        os.makedirs(os.path.dirname(a.resume_state) or ".", exist_ok=True)
+        tmp = a.resume_state + ".tmp"
+        torch.save(dict(config=run_config, step=step, model=model.state_dict(),
+                        optimizer=opt.state_dict(), scaler=scaler.state_dict(),
+                        numpy_rng=np.random.get_state(), torch_rng=torch.get_rng_state(),
+                        cuda_rng=torch.cuda.get_rng_state_all() if dev_type == "cuda" else None,
+                        train_exposure=[m._train_counts.cpu() for m in moe_layers]), tmp)
+        os.replace(tmp, a.resume_state)
 
     def get_batch(src):
         ix = np.random.randint(0, len(src) - a.seq - 1, size=a.batch)
@@ -283,7 +432,7 @@ def main():
 
     print("== training (CE + Switch load-balance aux) ==")
     model.train(); t0 = time.time()
-    for step in range(a.steps):
+    for step in range(start_step, a.steps):
         ts = time.time(); opt.zero_grad(); ce_v = aux_v = 0.0
         for _ in range(a.accum):
             x, y = get_batch(train)
@@ -291,10 +440,20 @@ def main():
                 logits, aux = moe_forward(model, x, use_ckpt=use_ckpt)
                 ce = F.cross_entropy(logits.reshape(-1, V), y.reshape(-1))
             loss = (ce + aux) / a.accum
+            if not torch.isfinite(loss.detach()).item():
+                raise FloatingPointError(f"non-finite loss at step {step+1}")
             scaler.scale(loss).backward()
             ce_v += ce.item() / a.accum; aux_v += float(aux.detach()) / a.accum
         scaler.unscale_(opt); gn = torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+        if not torch.isfinite(gn).item():
+            raise FloatingPointError(f"non-finite gradient norm at step {step+1}")
         scaler.step(opt); scaler.update()
+        if a.checkpoint_every and (step + 1) % a.checkpoint_every == 0:
+            save_resume(step + 1)
+        if a.max_hours and time.time() - t0 > a.max_hours * 3600:
+            save_resume(step + 1)
+            print(f"RUN-INCOMPLETE: wall cap reached after step {step+1}/{a.steps}; resume from {a.resume_state}")
+            return
         if step == 0 or (step + 1) % max(1, a.steps // 20) == 0:
             if dev_type == "cuda": torch.cuda.synchronize()
             ms = (time.time() - ts) * 1000
@@ -308,11 +467,16 @@ def main():
     bpb = val_bpb(a.eval_tok)
     print(f"== RESULTS ==\n  arm={a.arm}  val BPB={bpb:.4f}  | vs A dense-1024 (0.8799) -> {bpb-0.8799:+.4f}  (capture/headroom: Architect vs B)")
     measure(a.measure_batches)
+    exposure = [m._train_counts.cpu().tolist() for m in moe_layers]
+    for i, counts in enumerate(exposure):
+        arr = np.asarray(counts)
+        print(f"  train exposure layer={i}: selections={arr.sum()} min/mean/max={arr.min()}/{arr.mean():.1f}/{arr.max()} dead={int((arr==0).sum())}")
     if a.save:
         os.makedirs(os.path.dirname(a.save) or ".", exist_ok=True)
-        torch.save({"model": model.state_dict(),
+        torch.save({"model": model.state_dict(), "train_exposure": exposure,
                     "cfg": dict(V=V, **AC, win=128, arm=a.arm, E=E, hid_e=hid_e, topk=k, active_hid=act_hid, total_hid=tot_hid,
-                                load_balance_w=a.load_balance_w, lam_coh=a.lam_coh, bpb=bpb, mlp_precision="ternary")}, a.save)
+                                load_balance_w=a.load_balance_w, lam_coh=a.lam_coh, bpb=bpb, mlp_precision="ternary",
+                                sparse_moe=a.sparse_moe)}, a.save)
         print(f"  saved -> {a.save}")
     print("STOP. quality + 5 measures above. No kernel, no commit.")
 

@@ -2,6 +2,12 @@
 
 **Purpose.** Evidence inventory for a native `benchmarks/phase60/engine.c` expert-count comparison, keeping top-k, model width, core count, and training recipe fixed. Donor-adaptation work is paused context, not evidence for this native question.
 
+**25 September asset update:** the local E32 checkpoint, phase55 ids/tokenizer,
+and E4 export were found and hash-verified; see [NES-00](NES_00_ASSET_AND_DISPATCH_20260925.md).
+The earlier "availability unknown" statements below describe the pre-audit
+inventory, not current workspace state. No trained native E128 checkpoint was
+found in the reviewed native result directories.
+
 ## Readout
 
 Native evidence establishes that a trained E32, top-8 MoE can retain the small-model quality advantage over its matched dense arms and can be executed by the phase60 C engine with parity and measured cost. It does **not** establish what quality, routing, or end-to-end cost does when expert count alone rises beyond E32. E128 and E256 are proposed/costed scale rungs, not completed trained comparisons.

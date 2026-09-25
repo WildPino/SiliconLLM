@@ -1,0 +1,25 @@
+Phase59 MoE | arm=moe-gran | active_hid=1024 total_hid=16384 (E=128 hid_e=128 top-8) | sparse=True dev=cuda:0 amp=torch.bfloat16
+  params=79.288M | load_balance_w=0.01 lam_coh=0.0 | sparsified 6 MLP blocks | ckpt(mix)=True
+  baselines: A dense-1024 (sp58_base) BPB 0.8799 | ternary 0.8382 | probe-2 dReLU 0.8813
+== training (CE + Switch load-balance aux) ==
+  step     1/2  ce=7.0176 aux=0.0745 load=1.224  gnorm=1.61  (8431 ms)  | val BPB=3.7142
+  step     2/2  ce=5.1900 aux=0.0740 load=1.234  gnorm=3.24  (6550 ms)  | val BPB=3.1399
+== RESULTS ==
+  arm=moe-gran  val BPB=3.1399  | vs A dense-1024 (0.8799) -> +2.2600  (capture/headroom: Architect vs B)
+  layer    E   k  dead  max/mean  persist% ws@8  ws@16 ws@32  rec_in% rec_ahead%   Hnorm     gap@k
+  ------------------------------------------------------------------------------------------------
+      0  128   8     0     6.73x      7.8%   32%   47%   63%    71.2%      40.0%   0.969   0.00046
+      1  128   8     0     6.97x      6.3%   28%   38%   51%    75.0%      50.7%   0.971   0.00045
+      2  128   8     0     8.00x      8.6%   28%   38%   50%    74.8%      51.0%   0.972   0.00043
+      3  128   8    12     9.24x     10.9%   25%   32%   41%    78.6%      56.8%   0.971   0.00042
+      4  128   8    32     9.09x     12.3%   23%   28%   34%    81.1%      57.0%   0.972   0.00044
+      5  128   8    49    15.00x     26.5%   19%   24%   28%    83.9%      66.0%   0.977   0.00035
+  reading: dead=0 & max/mean<~3x = router OK | ws=|union experts|/E over N pos (sub-linear -> L3-fit) | rec_in = router predictable in-place
+  train exposure layer=0: selections=131072 min/mean/max=229/1024.0/4106 dead=0
+  train exposure layer=1: selections=131072 min/mean/max=175/1024.0/4304 dead=0
+  train exposure layer=2: selections=131072 min/mean/max=215/1024.0/4430 dead=0
+  train exposure layer=3: selections=131072 min/mean/max=131/1024.0/4092 dead=0
+  train exposure layer=4: selections=131072 min/mean/max=233/1024.0/6897 dead=0
+  train exposure layer=5: selections=131072 min/mean/max=99/1024.0/4209 dead=0
+  saved -> results\native_expert_scaling\e128_smoke.pt
+STOP. quality + 5 measures above. No kernel, no commit.

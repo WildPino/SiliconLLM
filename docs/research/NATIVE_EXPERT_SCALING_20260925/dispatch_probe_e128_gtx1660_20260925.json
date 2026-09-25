@@ -1,0 +1,30 @@
+{
+  "scope": "apparatus_only",
+  "device": "cuda:1",
+  "gpu": "NVIDIA GeForce GTX 1660",
+  "torch": "2.6.0+cu124",
+  "phase59_sha256": "e340d0aea2beca7ee66f978cf504aecefeafd314d6a947dead20a43f4feb0fe2",
+  "mve_model_sha256": "5525fba49b707b3b9891e787958058850ad43554e9994130a557c26a5e41c9d2",
+  "experts": 128,
+  "topk": 8,
+  "equivalence": {
+    "max_abs_output": 1.5133991837501526e-09,
+    "max_abs_input_gradient": 2.2737367544323206e-13,
+    "max_relative_parameter_gradient": 1.177126270648953e-06,
+    "worst_parameter": "up.weight",
+    "pass_2e_4": true
+  },
+  "training_step": {
+    "parameters": 79287808,
+    "batch": 2,
+    "sequence": 128,
+    "steps": 2,
+    "seconds_per_step": [
+      9.671013200000743,
+      0.45188190000044415
+    ],
+    "peak_allocated_mib": 960.25537109375,
+    "final_loss": 7.178832530975342,
+    "all_gradients_finite": true
+  }
+}

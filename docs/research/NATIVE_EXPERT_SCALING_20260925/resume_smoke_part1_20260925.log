@@ -1,0 +1,5 @@
+Phase59 MoE | arm=moe-gran | active_hid=1024 total_hid=16384 (E=128 hid_e=128 top-8) | sparse=True dev=cuda:0 amp=torch.bfloat16
+  params=79.288M | load_balance_w=0.01 lam_coh=0.0 | sparsified 6 MLP blocks | ckpt(mix)=True
+  baselines: A dense-1024 (sp58_base) BPB 0.8799 | ternary 0.8382 | probe-2 dReLU 0.8813
+== training (CE + Switch load-balance aux) ==
+RUN-INCOMPLETE: wall cap reached after step 1/2; resume from results\native_expert_scaling\resume_smoke.pt

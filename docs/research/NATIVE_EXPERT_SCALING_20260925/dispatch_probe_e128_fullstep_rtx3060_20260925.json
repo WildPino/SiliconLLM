@@ -1,0 +1,31 @@
+{
+  "scope": "apparatus_only",
+  "device": "cuda:0",
+  "gpu": "NVIDIA GeForce RTX 3060",
+  "torch": "2.6.0+cu124",
+  "phase59_sha256": "e608eb99d921312ebbb9a4bde17a5a95a213cdc620aa57bc3d24dae281162193",
+  "mve_model_sha256": "5525fba49b707b3b9891e787958058850ad43554e9994130a557c26a5e41c9d2",
+  "experts": 128,
+  "topk": 8,
+  "equivalence": {
+    "max_abs_output": 1.0477378964424133e-09,
+    "max_abs_input_gradient": 1.1368683772161603e-13,
+    "max_relative_parameter_gradient": 4.6192858510165757e-07,
+    "worst_parameter": "Wd",
+    "pass_2e_4": true
+  },
+  "training_step": {
+    "parameters": 79287808,
+    "batch": 4,
+    "sequence": 512,
+    "steps": 3,
+    "seconds_per_step": [
+      2.74820660000114,
+      1.7670773999998346,
+      1.589898499998526
+    ],
+    "peak_allocated_mib": 3234.3310546875,
+    "final_loss": 7.176816940307617,
+    "all_gradients_finite": true
+  }
+}

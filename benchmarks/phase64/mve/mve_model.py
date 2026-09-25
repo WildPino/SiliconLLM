@@ -20,7 +20,7 @@ sys.path.insert(0, os.path.join(HERE, "..", "..", "phase57"))
 from phase55_ssm import ArchA                       # noqa: E402
 from phase57_sparse import SparseMLP, sparsify_mlp  # noqa: E402
 from phase57_ternary import BitLinear158            # noqa: E402
-from phase59_moe import MoEMLP                      # noqa: E402
+from phase59_moe import MoEMLP, SparseMoEMLP        # noqa: E402
 
 
 class LowRankLinear(nn.Module):
@@ -38,95 +38,6 @@ class LowRankLinear(nn.Module):
 
     def forward(s, x):
         return s.Ul(s.Vl(x))
-
-
-class SparseMoEMLP(MoEMLP):
-    """Active-only MoE training: gather the tokens routed to each expert, run that expert on those tokens alone,
-    and scatter the weighted results back. Same parameters, same maths, k/E of the work.
-
-    The inherited forward is compute-all: it evaluates every expert on every token and then multiplies the
-    non-selected blocks by zero. That costs E/k = 4x the FLOPs and materializes the full (N, E, hid_e) hidden.
-    Here nothing that is routed away is ever computed.
-
-    Do NOT read this as the fix for the MVE's memory pressure -- WS2 measured that attribution and it was wrong.
-    The SSM scan is the eater (stage C alone peaks at 4.86 GB); the MoE is ~3% of peak, and stage E was merely the
-    last drop. This class is a COMPUTE/SCALING investment: 1.5x at E32 but 4.3x at E128, which is what keeps the
-    per-step MoE share ~flat as E grows and so keeps the rung-2/3 cost model standing. End-to-end at the rung-1
-    config it is worth ~1%.
-
-    DETERMINISM BY CONSTRUCTION -- no atomics anywhere. The obvious scatter-back is `index_add_`, which on CUDA
-    accumulates through float atomics: run-to-run non-reproducible, because float addition is not associative and
-    the atomic order is not fixed. We rely on bit-identical reruns as a live diagnostic (arms A and C agreeing to
-    the last bit is how the apparatus is checked), so that trade is not available. Instead the per-(token,expert)
-    rows are produced in expert-sorted order, permuted back with a gather, and summed over a FIXED k axis --
-    a plain reduction over a static layout, identical on every run.
-
-    Ordering note: the weighting is applied to the HIDDEN before the down projection, mirroring the compute-all
-    path exactly, so the two differ only by float summation order and not by the sequence of operations.
-    """
-    def forward(s, x):
-        B, T, D = x.shape
-        xf = x.reshape(-1, D); N = xf.shape[0]
-        with torch.autocast(s.dev_type, enabled=False):
-            probs = torch.softmax(s.router(xf.float()), dim=-1)          # (N,E)
-        topv, topi = probs.topk(s.k, dim=-1)
-        topw = topv / topv.sum(dim=-1, keepdim=True)                     # (N,k)
-
-        # group the (token, expert) pairs by expert. stable=True keeps the layout a deterministic function of the
-        # routing alone, so two runs with identical routing produce identical arithmetic.
-        P = N * s.k
-        flat_e = topi.reshape(-1)
-        # (flat_t is implicit: pair p belongs to token p // k -- see the structured expand below)
-        flat_w = topw.reshape(-1)
-        order = torch.argsort(flat_e, stable=True)
-        sw = flat_w[order]
-        counts = torch.bincount(flat_e, minlength=s.E)
-        offs = torch.cumsum(counts, 0) - counts
-
-        Wg, Wu = s._tern(s.gate.weight), s._tern(s.up.weight)            # (H,D) ternarized once, then split by expert
-        Wd = s._tern(s.Wd)                                               # (E,D,hid_e)
-
-        # PAD-TO-MAX + BATCHED GEMM, not a Python loop over experts. The loop was the first thing measured and it
-        # was 20% SLOWER than the compute-all it was meant to replace: E=32 experts x 8 layers = 256 tiny kernel
-        # launches per forward, and at this size launch overhead dominates the FLOPs saved. Padding every expert to
-        # the largest routed count turns the whole layer into three bmm's. The padded rows are masked to zero and
-        # dropped on the way back, so the maths is unchanged -- this is a scheduling fix, not a modelling one.
-        C = int(counts.max().item())
-        s._last_cap = C; s._last_fill = P / float(s.E * C)                # routing imbalance: 1.0 = perfectly balanced
-        pos = torch.arange(P, device=x.device) - offs[flat_e[order]]     # rank of each pair within its expert
-        pad_idx = flat_e[order] * C + pos                                # sorted position -> slot in the (E,C) grid
-
-        # The gather from xf must NOT be done with a repeated index. Every token is routed to k experts, so an
-        # index_select over token ids has k duplicates per token, and its BACKWARD is an atomic index_add -- which
-        # is where determinism was lost the first time this was measured (grads differed by 2.3e-05 between two
-        # identical-seed runs, while the forward stayed bit-identical). Instead: expand along a structured k axis
-        # first (backward = a fixed-axis sum) and only then apply permutations with UNIQUE indices, whose backward
-        # gathers instead of accumulating. Same tensor, deterministic derivative.
-        xrep = xf.unsqueeze(1).expand(N, s.k, D).reshape(P, D)
-        xs = xrep.index_select(0, order)                                 # order is a permutation -> unique
-        xe = xf.new_zeros(s.E * C, D).index_copy(0, pad_idx, xs).reshape(s.E, C, D)
-        w_pad = flat_w.new_zeros(s.E * C).index_copy(0, pad_idx, sw)
-        Wg3 = Wg.reshape(s.E, s.hid_e, D).transpose(1, 2).to(xe.dtype)   # (E,D,hid_e)
-        Wu3 = Wu.reshape(s.E, s.hid_e, D).transpose(1, 2).to(xe.dtype)
-        h = F.relu(torch.bmm(xe, Wg3)) * F.relu(torch.bmm(xe, Wu3))      # (E,C,hid_e)
-        h = h * w_pad.reshape(s.E, C, 1).to(h.dtype)                     # weight the hidden, as compute-all does
-        op = torch.bmm(h, Wd.transpose(1, 2).to(h.dtype))                # (E,C,D)
-
-        cat = op.reshape(s.E * C, D).index_select(0, pad_idx)            # (P,D) back in expert-sorted order
-        inv = torch.empty_like(order); inv[order] = torch.arange(P, device=x.device)
-        out = cat.index_select(0, inv).reshape(N, s.k, D).sum(1)         # fixed-axis reduction, no atomics
-
-        sel = torch.zeros_like(probs).scatter(-1, topi, torch.ones_like(topw))
-        load = s.E * (sel.mean(0) * probs.mean(0)).sum() / s.k
-        aux = s.load_w * load
-        coh = xf.new_zeros(())
-        if s.lam_coh > 0 and T > 1:
-            pr = probs.reshape(B, T, s.E); coh = (pr[:, 1:] - pr[:, :-1]).abs().mean(); aux = aux + s.lam_coh * coh
-        s._last_load = float(load.detach()); s._last_coh = float(coh.detach())
-        if s._cap:
-            s._topi = topi.reshape(B, T, s.k).detach().cpu().numpy()
-            s._xin = x.detach().float().cpu().numpy()
-        return out.reshape(B, T, D), aux
 
 
 class BitLinear158Alpha(BitLinear158):
