@@ -38,23 +38,36 @@ either arm through Q6 or combine their outputs in this cell.
 
 ## Arm A — F32 router reduction
 
+### Pre-implementation compiler-path correction
+
+Source/build inspection after freezing the question but before implementation
+showed that the pinned reference `vec.cpp` command uses `-DGGML_CPU_GENERIC`
+and no `-mavx`, `-mfma`, or `-msse3`. The compiler's default predefines include
+SSE/SSE2 but not SSE3, AVX, or FMA. Consequently `GGML_SIMD` is not defined for
+this translation unit and `ggml_vec_dot_f32` takes its scalar fallback:
+`x[i]*y[i]` is rounded as F32, accumulated into `ggml_float` (`double`), then
+converted once to F32. This correction supersedes the initially named
+AVX2/FMA reduction; no implementation or diagnostic had run under that
+incorrect assumption.
+
 Read the exact captured `ffn_norm-1` inputs and only the accepted
 `blk.1.ffn_gate_inp.weight` F32 matrix. For all 8 tokens × 64 rows:
 
 - a production-scalar replay must reproduce captured C
   `ffn_moe_logits-1` byte-for-byte;
-- a candidate must reproduce the pinned x86 `ggml_vec_dot_f32` AVX2/FMA
-  operation: four 256-bit accumulators over 32-float steps, the pinned pairwise
-  vector-accumulator reduction, then the pinned horizontal reduction;
+- a candidate must reproduce the pinned `GGML_CPU_GENERIC`
+  `ggml_vec_dot_f32` scalar fallback exactly: F32 product, F64 accumulation,
+  one final F32 conversion, in source order;
 - the candidate must equal immutable reference `ffn_moe_logits-1`
   byte-for-byte;
-- a deliberately wrong reduction-order control and one-value input/weight
-  mutations must reject.
+- a float-accumulator control, a wrongly promoted F64-product control, and
+  one-value input/weight mutations must reject.
 
 The copied candidate implementation and an independently compiled pinned
-operation must agree exactly. Compiler target, FMA state, accumulator count,
-reduction tree, row ordering, tensor offset/type/shape, and all source hashes
-must be explicit.
+operation must agree exactly. The helper must be non-inlined and targeted
+`no-avx,no-avx2,no-fma`; product precision, accumulator precision, source
+order, row ordering, tensor offset/type/shape, compiler predefines, reference
+build command, and all source hashes must be explicit.
 
 ## Arm B — routed and shared SwiGLU semantics
 
