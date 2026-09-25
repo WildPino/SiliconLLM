@@ -20,11 +20,15 @@ is `BLOCK0_Q6_REFERENCE_GENERIC_EXACT_REPAIR`. The isolated
 49,152-float downstream amplifier; all error metrics are zero. Close Q8,
 historical generic, active AVX2, and compile parity. The separately frozen
 [Q6 production-integration protocol](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md):
-is now [qualified model-free](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md)
+was [qualified model-free](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md)
 as `APPARATUS_READY_NO_DONOR_EXECUTION`: 300 Python tests and 22 C self-test
 commands pass, including exact width 1280 parity; all execution counters are
-zero. Commit the exact qualified sources, then permit exactly one standard
-two-schedule Rung-2C invocation with no reference graph.
+zero. The sole production invocation then completed both schedules but is
+[VOID 1](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_VOID1_20260925.md):
+the inherited validator rejected the preregistered appended `CONFIG` marker,
+and its error handler named a nonexistent exception class before writing an
+adjudication. All payloads and two completion markers are preserved. Do not
+rerun production; only the frozen zero-producer offline recovery is next.
 
 ## 1. Reading order and precedence
 
@@ -146,7 +150,7 @@ The complete contract and rationale are in [ROADMAP §2](STRATEGIC_10B_20260916/
 | GigaChat layer-1 attention-output residual cross-input | **MEASURED `LAYER1_BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`; CLOSED** | [Result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_RESULT_20260924.md): current projection plus reference `l_out-0` is byte-exact; changing only to current `l_out-0` exactly replays the downstream failure. Existing exact addends prove the first residual is current block-0 Q6 output, so the proposed terminal split would duplicate evidence. | Close projection/add and all later operators. Test only Q6 arithmetic semantics on the already exact repaired SwiGLU input. |
 | GigaChat block-0 Q6 active-AVX2 parity | **MEASURED `BLOCK0_Q6_AVX2_REDUCTION_INSUFFICIENT`; CLOSED** | Canonical [result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_RESULT_20260924.md): Q8 populations and C/pinned-AVX2 outputs are byte-exact, but both differ from immutable `ffn_out-0`; downstream NRMSE is `1.467939211440746e-7` with 188/49,152 floats changed. The initial omitted decision branch is retained as [VOID 1](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_AVX2_PARITY_VOID1_20260924.md); offline re-adjudication executed nothing new. | Close Q8 and active AVX2. Do not rerun or install it as an exact repair. |
 | GigaChat block-0 Q6 reference-generic compile parity | **MEASURED `BLOCK0_Q6_REFERENCE_GENERIC_EXACT_REPAIR`; CLOSED** | [Result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_RESULT_20260924.md): candidate and independent oracle are byte-exact to immutable `ffn_out-0`, `l_out-0`, and all 49,152 downstream floats. | Close Q8, both historical reductions, compiler attribution, compile parity, and downstream sufficiency. Do not repeat. |
-| GigaChat Q6 reference-generic production integration | **APPARATUS READY; SCIENTIFIC RUN NEXT** | [Apparatus result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md): 300 Python tests and 22 C self-test commands pass; exact parity includes width 1280; production/donor/reference execution counts are all zero. | Commit the exact qualified sources, then run the single authorized standard two-schedule Rung-2C producer. No reference graph, apparatus repeat, or speed claim. |
+| GigaChat Q6 reference-generic production integration | **`VOID 1`; OFFLINE RECOVERY NEXT** | [VOID 1](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_VOID1_20260925.md): the sole producer completed both schedules and preserved every output, but an inherited literal `CONFIG` comparison and then a bad exception name prevented adjudication. | Never rerun production. Commit the qualified zero-producer recovery, then adjudicate the preserved outputs once against immutable reference manifests. No speed claim. |
 | GigaChat MTP rate continuation | **OPEN, but deprioritized** | Resolve batch-shape/history/KV divergence and demonstrate quality on the effective path. A further MTP BF16 sweep alone cannot close the measured 12.78-to-50 gap. |
 | E61c / planned 3B ancillary cells | **UNMEASURED** | E63 runner aborted after a configuration assertion; these are separate cells, not missing repetitions of E63d. A new scoped repair must be briefed. |
 | Final target artifact | **QUALITY-CANDIDATE SELECTED; BLOCK-0 PASS; BLOCK-1 FAIL; FULL MODEL/RATE OPEN** | The accepted artifact passes dense block 0 but the first complete block-1 cell fails from `kqv_out-1` onward. The router surface itself passes. HumanEval, tokenizer, remaining layers/operators, full logits/generation/C quality, RAM, and accepted-token rate remain open. |

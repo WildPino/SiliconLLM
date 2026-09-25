@@ -11,11 +11,15 @@ also byte-exact. The historical AVX-TU generic and active AVX2 hashes remain
 distinct, so isolated no-AVX/FMA lowering is causal. Close Q8 and all three
 compile-parity arms; do not rerun them. The frozen
 [Q6 reference-generic production-integration protocol](probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md)
-has passed its [model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md):
+passed its [model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md):
 300 Python tests and 22 C self-test commands pass, including width 1280, and
-all execution counters are zero. Commit the exact qualified sources, then run
-one standard Rung-2C producer with no reference graph. This is fidelity work,
-not a rate measurement.
+all execution counters are zero. The sole subsequent producer completed both
+schedules but is [VOID 1](probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_VOID1_20260925.md):
+the old validator rejected the explicitly required Q6 `CONFIG` extension and
+the error handler then failed before adjudication. Outputs and two completion
+markers are preserved; no reference graph ran. Never rerun production. The
+only next action is the frozen offline recovery. This is fidelity work, not a
+rate measurement.
 
 **STRAT-01 block-0 production integration (22 September):**
 Closed as **`PASS_ENGINE_BLOCK0_PRODUCTION_INTEGRATION`**. The standard

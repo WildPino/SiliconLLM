@@ -25,11 +25,15 @@ AVX2 remain distinct. This closes Q8, packed interpretation, both earlier
 reductions, compiler attribution, and the downstream sufficiency question.
 Do not repeat any of those cells. The frozen
 [Q6 production integration](../probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md)
-has now passed its [model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md):
+passed its [model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md):
 300 Python tests and 22 C self-test commands pass, including exact width 1280
 parity, with zero production or graph executions. Do not repeat the apparatus.
-After committing the exact sources, the only open fidelity action is one normal
-two-schedule Rung-2C producer invocation with zero reference graphs.
+Its sole producer later completed both schedules but is
+[VOID 1](../probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_VOID1_20260925.md)
+because validation/error-handling defects prevented adjudication after all
+outputs were written. Never repeat production. The only open fidelity action
+is one zero-execution offline recovery over the preserved outputs and immutable
+reference manifests.
 The still later [STRAT-03 result](../probes/STRAT_03_EXECUTABLE_SHARED_RESIDUAL_RESULT.md)
 closes the frozen five-layer `k=3/256` local diagnostic with a byte-count-
 matched SwiGLU shared path and `x`-only router: all three gates fail despite

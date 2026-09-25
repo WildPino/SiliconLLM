@@ -34,6 +34,7 @@ Q4_HEADER = ROOT / "benchmarks/phase60/strat01_q4k_q8k.h"
 F16_HEADER = ROOT / "benchmarks/phase60/strat01_f16_vector_dot.h"
 SWIGLU_HEADER = ROOT / "benchmarks/phase60/strat01_swiglu_sse2.h"
 PROTOCOL = ROOT / "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md"
+VOID_RESULT = ROOT / "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_VOID1_20260925.md"
 TESTS = HERE / "test_strat01_q6k_q8k_reference_generic_production_integration.py"
 Q6_RESULT = ROOT / "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_RESULT_20260924.md"
 Q6_ADJUDICATION = HERE / "results/strat01_gigachat_engine_q6k_q8k_reference_generic_parity_20260924/adjudication.json"
@@ -41,11 +42,16 @@ Q6_ADJUDICATION_SHA = "cb811b19c58d3a31688967c18dc9119451ed01faee0e56098166efd4f
 REFERENCE_ROOT = prior.REFERENCE_ROOT
 DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_q6k_q8k_reference_generic_production_integration_20260924"
 DEFAULT_APPARATUS = HERE / "results/strat01_gigachat_engine_q6k_q8k_reference_generic_production_integration_apparatus_repair1_20260925"
+DEFAULT_RECOVERY = HERE / "results/strat01_gigachat_engine_q6k_q8k_reference_generic_production_integration_offline_recovery1_20260925"
 OLD_L_OUT0_SHA = "a71c814dc43360f73b49cb165e7cdf7128f2501015685ff16e7e524dd1f05f11"
 EXACT_L_OUT0_SHA = "385073c91f472dd9ffc1c86bcb63c6ed50256a6d5645e240d61ccdb613d814aa"
 EXPECTED_COUNTS = prior.EXPECTED_COUNTS
 TEST_MODULES = tuple("benchmarks.donor_adaptation.engine." + path.stem for path in sorted(HERE.glob("test_strat01_*.py")))
 SELFTESTS = (*prior.SELFTESTS, "--strat01-block0-q6k-q8k-reference-generic-parity-selftest")
+Q6_CONFIG_MARKER = "q6kq8k=reference-generic-noavx-noavx2-nofma-noinline;"
+EXPECTED_C_CONFIG = r2c.EXPECTED_C_CONFIG.replace(
+    "kb=q5_0xq8_0;", "kb=q5_0xq8_0;" + Q6_CONFIG_MARKER,
+)
 
 
 class IntegrationError(RuntimeError):
@@ -70,6 +76,7 @@ def source_inventory() -> dict[str, dict[str, str]]:
     sources["prior_protocol"] = sources.pop("protocol")
     paths = {
         "runner": Path(__file__).resolve(), "tests": TESTS, "protocol": PROTOCOL,
+        "void_result": VOID_RESULT,
         "q6_result": Q6_RESULT, "q6_kernel": Q6_HEADER,
     }
     missing = [name for name, path in paths.items() if not path.is_file()]
@@ -123,7 +130,25 @@ def source_controls() -> dict[str, bool]:
         "f16_default_unchanged": "double out=0.0" in F16_HEADER.read_text(encoding="utf-8"),
         "swiglu_default_unchanged": "strat01_sse2_swiglu_compute" in SWIGLU_HEADER.read_text(encoding="utf-8"),
         "protocol_and_observability_addendum_frozen": "FROZEN BEFORE IMPLEMENTATION OR EXECUTION" in protocol and "Pre-implementation observability addendum" in protocol,
+        "offline_recovery_addendum_frozen": "Post-execution offline-recovery addendum" in protocol,
     }
+
+
+def validate_candidate(c_root: Path, sources: dict[str, dict[str, str]], model: Path) -> tuple[dict[str, np.ndarray], dict[str, Any]]:
+    """Use the historical validator with this cell's exact declared CONFIG."""
+    report = read_json(c_root / "strat01_rung2c.json", "C report")
+    if report.get("CONFIG") != EXPECTED_C_CONFIG:
+        raise IntegrationError("Q6 production CONFIG mismatch")
+    historical = r2c.EXPECTED_C_CONFIG
+    r2c.EXPECTED_C_CONFIG = EXPECTED_C_CONFIG
+    try:
+        return r2c.validate_c(c_root, sources, model)
+    finally:
+        r2c.EXPECTED_C_CONFIG = historical
+
+
+def metadata_for_record(metadata: dict[str, Any]) -> dict[str, Any]:
+    return {key: value for key, value in metadata.items() if key != "caches"}
 
 
 def classify(failures: list[str]) -> str:
@@ -194,13 +219,144 @@ def adjudicate(candidate: dict[str, np.ndarray], reference: dict[str, np.ndarray
     }
 
 
+def recover_existing(source: Path, output: Path, model: Path, execution_head: str) -> int:
+    source = source.resolve(strict=True)
+    output = output.resolve()
+    model = model.resolve(strict=True)
+    if not source.is_dir() or (source / "adjudication.json").exists() or (source / "run_manifest.json").exists():
+        raise SystemExit("recovery requires the preserved unfinalized Q6 production-integration directory")
+    if output.exists() and (not output.is_dir() or any(output.iterdir())):
+        raise SystemExit(f"refusing non-empty or non-directory recovery output path: {output}")
+    output.mkdir(parents=True, exist_ok=True)
+    started_utc, started = datetime.now(timezone.utc).isoformat(), time.perf_counter()
+    status = "VOID_ENGINE_Q6_REFERENCE_GENERIC_PRODUCTION_INTEGRATION"
+    errors: list[str] = []
+    result: dict[str, Any] = {"status": "NOT_RUN"}
+    c_meta: dict[str, Any] = {}
+    r_meta: dict[str, Any] = {}
+    sources: dict[str, Any] = {}
+    controls: dict[str, bool] = {}
+    bindings: dict[str, Any] = {}
+    producer_record: dict[str, Any] = {}
+    key_files: dict[str, Any] = {}
+    report: dict[str, Any] = {}
+    try:
+        resolved_head = r2c.base.git_value(["git", "rev-parse", f"{execution_head}^{{commit}}"])
+        if resolved_head != execution_head:
+            raise IntegrationError("recovery execution HEAD is not an exact commit")
+        if not model.is_file() or model.stat().st_size != r2c.base.EXPECTED_BYTES or sha(model) != r2c.base.EXPECTED_SHA256:
+            raise IntegrationError("recovery artifact identity mismatch")
+        stdout_path = source / "production.stdout.log"
+        stderr_path = source / "production.stderr.log"
+        if not stdout_path.is_file() or not stderr_path.is_file():
+            raise IntegrationError("recovery production logs are missing")
+        command_record = {
+            "stdout": stdout_path.read_text(encoding="utf-8"),
+            "stderr": stderr_path.read_text(encoding="utf-8"),
+        }
+        completed = r2c.completed_graph_count(command_record)
+        if completed != 2:
+            raise IntegrationError(f"recovery donor graph count is {completed}, expected 2")
+        producer_record = {
+            "invocations": 1,
+            "graph_executions": completed,
+            "stdout": {"path": str(stdout_path), "bytes": stdout_path.stat().st_size, "sha256": sha(stdout_path)},
+            "stderr": {"path": str(stderr_path), "bytes": stderr_path.stat().st_size, "sha256": sha(stderr_path)},
+        }
+        sources = source_inventory()
+        prior.clean_sources_at_head(sources)
+        bindings = validate_bindings()
+        controls = source_controls()
+        if not all(controls.values()):
+            raise IntegrationError("offline-recovery source controls failed")
+        reference, r_meta = r2c.validate_reference(REFERENCE_ROOT, model)
+        candidate, c_meta = validate_candidate(source / "c_engine", sources, model)
+        report = c_meta["report"]
+        counts = prior.validate_counts(source / "c_engine")
+        result = adjudicate(candidate, reference, c_meta, r_meta, controls, counts)
+        status = result["status"]
+        key_paths = [
+            source / "c_engine" / "strat01_rung2c.json",
+            source / "c_engine" / "strat01_f16_vector_counts.json",
+            *(source / "c_engine" / f"{arm}_manifest.json" for arm in r2c.base.ARMS),
+            REFERENCE_ROOT / "manifest.json",
+            *(REFERENCE_ROOT / arm / "manifest.json" for arm in r2c.base.ARMS),
+        ]
+        for path in key_paths:
+            if not path.is_file():
+                raise IntegrationError(f"recovery key file is missing: {path}")
+            key_files[str(path)] = {"bytes": path.stat().st_size, "sha256": sha(path)}
+    except (IntegrationError, prior.IntegrationError, r2c.RunnerError, r2c.base.RunnerError, q6base.ApparatusError) as exc:
+        errors.append(str(exc))
+    except Exception as exc:
+        errors.append(f"unexpected {type(exc).__name__}: {exc}")
+    provenance = {
+        "started_utc": started_utc,
+        "finished_utc": datetime.now(timezone.utc).isoformat(),
+        "seconds": time.perf_counter() - started,
+        "mode": "offline-recovery",
+        "source_run_directory": str(source),
+        "execution_git_head": execution_head,
+        "recovery_git_head": r2c.base.git_value(["git", "rev-parse", "HEAD"]),
+        "source_hashes_at_recovery": sources,
+        "bindings": bindings,
+        "producer_record": producer_record,
+        "key_files": key_files,
+        "artifact": {"path": str(model), "bytes": model.stat().st_size, "sha256": r2c.base.EXPECTED_SHA256},
+        "environment": {"platform": platform.platform(), "python": sys.version, "numpy": np.__version__, "cwd": os.getcwd()},
+    }
+    record = {
+        "schema": "strat01_q6k_q8k_reference_generic_production_integration_offline_recovery_v1",
+        "status": status,
+        "errors": errors,
+        "mode": "offline-recovery",
+        "production_invocations": 1,
+        "donor_graph_executions": producer_record.get("graph_executions", 0),
+        "new_production_invocations": 0,
+        "new_donor_graph_executions": 0,
+        "reference_graph_executions": 0,
+        "source_controls": controls,
+        "adjudication": result,
+        "c_report": report,
+        "c_metadata": metadata_for_record(c_meta),
+        "reference_metadata": metadata_for_record(r_meta),
+        "non_claims": ["producer rerun", "later layers", "tokenizer/logits/generation", "quality", "RAM", "rate"],
+        "provenance": provenance,
+    }
+    manifest = {
+        "schema": "strat01_q6k_q8k_reference_generic_production_integration_offline_recovery_manifest_v1",
+        "status": status,
+        "errors": errors,
+        "source_production_invocations": 1,
+        "source_donor_graph_executions": producer_record.get("graph_executions", 0),
+        "new_production_invocations": 0,
+        "new_donor_graph_executions": 0,
+        "new_reference_graph_executions": 0,
+        "provenance": provenance,
+    }
+    json.dumps(record)
+    json.dumps(manifest)
+    r2c.base.write_json(output / "adjudication.json", record)
+    r2c.base.write_json(output / "run_manifest.json", manifest)
+    print(json.dumps({"status": status, "output": str(output), "errors": errors, "recovered_without_producer_execution": True}, indent=2))
+    return 0 if status.startswith("PASS_ENGINE_") or status.startswith("FAIL_ENGINE_") else 2
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model", type=Path, default=MODEL)
     parser.add_argument("--output-dir", type=Path)
     parser.add_argument("--apparatus-only", action="store_true")
+    parser.add_argument("--recover-from", type=Path)
+    parser.add_argument("--execution-head")
     args = parser.parse_args()
     model = args.model.resolve()
+    if args.recover_from:
+        if args.apparatus_only or not args.execution_head:
+            raise SystemExit("--recover-from requires --execution-head and forbids --apparatus-only")
+        return recover_existing(args.recover_from, args.output_dir or DEFAULT_RECOVERY, model, args.execution_head)
+    if args.execution_head:
+        raise SystemExit("--execution-head is valid only with --recover-from")
     output = (args.output_dir or (DEFAULT_APPARATUS if args.apparatus_only else DEFAULT_OUTPUT)).resolve()
     if output.exists() and (not output.is_dir() or any(output.iterdir())):
         raise SystemExit(f"refusing non-empty output: {output}")
@@ -250,12 +406,12 @@ def main() -> int:
             if donor_graph_executions != 2:
                 raise IntegrationError(f"production graph count is {donor_graph_executions}, expected 2")
             sources = source_inventory()
-            candidate, c_meta = r2c.validate_c(candidate_root, sources, model)
+            candidate, c_meta = validate_candidate(candidate_root, sources, model)
             counts = prior.validate_counts(candidate_root)
             result = adjudicate(candidate, reference, c_meta, r_meta, controls, counts)
             report = c_meta["report"]
             status = result["status"]
-    except (IntegrationError, prior.IntegrationError, r2c.RunnerError, r2c.base.RunnerError, q6base.ParityError) as exc:
+    except (IntegrationError, prior.IntegrationError, r2c.RunnerError, r2c.base.RunnerError, q6base.ApparatusError) as exc:
         errors.append(str(exc))
     except Exception as exc:
         errors.append(f"unexpected {type(exc).__name__}: {exc}")

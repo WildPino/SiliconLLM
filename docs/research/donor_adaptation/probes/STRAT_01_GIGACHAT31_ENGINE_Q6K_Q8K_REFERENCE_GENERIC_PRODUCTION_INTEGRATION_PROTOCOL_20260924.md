@@ -126,6 +126,27 @@ Exactly one non-VOID producer invocation is allowed. A VOID may be repaired
 model-free or adjudicated offline only when immutable outputs suffice; it may
 not silently authorize a second producer run.
 
+### Post-execution offline-recovery addendum
+
+**Frozen before recovery implementation or execution: 2026-09-25.** The sole
+producer invocation completed both schedules and wrote all candidate payloads,
+manifests, counts, and two graph-completion markers. The inherited Rung-2C
+validator then rejected the preregistered appended Q6 `CONFIG` marker because
+it still required literal equality to the older configuration string; its
+error handler subsequently referenced a nonexistent exception class and wrote
+no adjudication. This is `VOID 1`, not a scientific failure and not authority
+for another producer invocation.
+
+One offline recovery is authorized. It must bind the raw source directory,
+execution commit `54b4c381a214eb7a14de8e0cb5e1e40953ccd8f5`, production
+stdout/stderr hashes, exactly two donor graph-completion markers, every
+candidate and immutable-reference manifest, payload hash, helper count, source
+identity, and the exact full configuration including
+`q6kq8k=reference-generic-noavx-noavx2-nofma-noinline`. It must then apply the
+unchanged frozen exactness, continuity, cache, route, negative-control, and
+terminal-hash gates. New producer, donor-graph, and reference-graph counters
+must all be zero. Any missing or inconsistent binding makes recovery VOID.
+
 This cell establishes fidelity only on the frozen two-schedule trace. It does
 not establish tokenizer/logits, generation, HumanEval, later layers, RAM, or
 accepted-token throughput. Timing is inadmissible and must not enter

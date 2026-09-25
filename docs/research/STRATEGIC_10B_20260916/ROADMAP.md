@@ -10,11 +10,15 @@ candidate is byte-exact to its independent oracle and to immutable
 floats differ at the final boundary. Compiler target/lowering is therefore
 causal; close Q8, historical generic, active AVX2, and compile parity. The frozen
 [Q6 reference-generic production-integration protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md):
-has now passed its [model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md)
+passed its [model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md)
 as `APPARATUS_READY_NO_DONOR_EXECUTION`: 300 Python tests and 22 C self-test
 commands pass, including routed width 1280, with zero production or graph
-executions. Commit the exact qualified sources, then run the sole authorized
-standard two-schedule Rung-2C producer with no reference graph.
+executions. The sole authorized producer subsequently completed both schedules
+but is [VOID 1](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_VOID1_20260925.md):
+the inherited validator rejected the expected appended `CONFIG` marker, then
+its error handler failed before writing an adjudication. Preserve its complete
+outputs and two graph markers; never rerun production. The only next action is
+the frozen offline recovery with zero new producer or graph execution.
 This paragraph supersedes the older active-boundary wording below.
 
 **Current execution head (24 September):** the accepted donor is exact through
