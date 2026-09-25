@@ -1,148 +1,93 @@
 # Native expert scaling: research control index
 
 **Date:** 25 September 2026. **Branch:** `research/native-expert-scaling`.
-**Status:** NES-01 E128 training running on the local RTX 3060.
+**Status:** NES-01 E128 training runs locally; its quality/routing/C-cost verdict remains open.
 Fork point: donor pause checkpoint `90bf966`.
 
-## Latest decisive evidence and active cell
+## Goal and current decision
 
-[NES-00 asset/dispatch audit](NES_00_ASSET_AND_DISPATCH_20260925.md) verifies
-the local E32 checkpoint, data, tokenizer and E4 export against release hashes.
-No trained E128 checkpoint was found in the reviewed native assets. The
-existing sparse-slot path agrees with compute-all at E128 within `4.62e-7`
-maximum relative parameter gradient difference on RTX 3060, and the full
-batch/context apparatus step fits 3,234 MiB peak allocated. The 2-step smoke
-is not a quality result; its invalid zero-window BPB and the first failed
-resume attempt are retained as apparatus voids in NES-00.
+Test the architecture thesis of `benchmarks/phase60/engine.c`: whether more
+**independently learned experts** improve useful quality while a compact core,
+fixed top-k routing, and affordable total work/DRAM traffic keep per-token cost
+contained. [NES-01](E128_EQUAL_TOKEN_PROTOCOL_20260925.md) isolates E32→E128
+at small L6/TinyStories scale. Equal tokens do not equal equal exposure per
+expert; fixed top-k does not fix dense-router cost. A result at this scale
+cannot establish target-scale performance.
 
-The current cell is [NES-01, fixed-token E32→E128](E128_EQUAL_TOKEN_PROTOCOL_20260925.md).
-It holds L6/TinyStories, core, h128, top-8 and 32.768M training tokens fixed.
-Its E128 run is estimated at 7–9 local RTX 3060 hours and capped at 10 hours,
-with optimizer/RNG checkpoints. The L8/code ladder remains separate and
-requires its own matched E32 baseline.
+The long-term target remains roughly 10B distinct learned parameters using
+pretrained knowledge, quality and ≥50 end-to-end tok/s in the **same** C
+artifact; 100 tok/s is a stretch goal. Scaling toward 100B is an open
+question. [METHOD.md](METHOD.md) tracks a provisional transfer procedure and
+its missing gates. The GigaChat arithmetic preflight below informs traffic
+constraints but does not replace the native scaling decision.
 
-NES-01 started 2026-09-25 11:28:15 UTC from commit `44c7bb1` via
-[`run_nes01.ps1`](../../../benchmarks/native_expert_scaling/run_nes01.ps1).
-Hidden PowerShell launcher PID 24620, recorded in
-`results/native_expert_scaling/nes01_launcher.pid`; Python child PID at launch
-10960 (the venv redirector may create another Python process). Expected
-outputs: `nes01_e128_train.stdout.log`, `.stderr.log`, `nes01_status.json`
-in this directory; rotating optimizer/RNG state and final checkpoint under
-`results/native_expert_scaling/`. Check the status JSON or process once after
-the expected 7–9 hours; avoid continuous polling. A 10-hour wall cap writes
-`RUN-INCOMPLETE` and leaves a resumption state if the run is not finished.
+The historical [donor-adaptation line is paused](../donor_adaptation/PAUSE_20260925.md).
+Reuse its evidence and instruments; a direct port alone is a baseline and does
+not finish the architecture goal. Read [PRIOR_EVIDENCE.md](PRIOR_EVIDENCE.md)
+for native anchors and the [cross-program index](../RESEARCH_INDEX.md) for
+scoped donor verdicts. New experiment records live beside this index.
 
-## Decision and objective
+## Latest decisive evidence
 
-Test whether increasing the number of genuinely learned experts improves or
-preserves useful quality while routing and per-token cost remain affordable,
-using the native `benchmarks/phase60/engine.c` recipe and prior tests.
-The independent variable is expert count **E**, not core width, top-k or
-expert width. Larger stored capacity must not be mistaken for larger useful
-capacity. Copied experts and synthetic weights do not prove the latter.
+[NES-00](NES_00_ASSET_AND_DISPATCH_20260925.md) hash-verifies the native E32
+checkpoint/data/export. E128 sparse dispatch agrees with compute-all to
+`4.62e-7` maximum relative parameter-gradient difference on RTX 3060 and fits
+3,234 MiB allocated at the intended batch/context. The 2-step smoke BPB is
+not quality evidence; its apparatus voids are retained in NES-00.
 
-The donor line is [paused](../donor_adaptation/PAUSE_20260925.md), not deleted or
-scientifically refuted. Its port and numerical references remain available.
-This pilot does not replace the eventual pretrained-large-model goal with a
-small model trained from scratch. A native scaling result and a feasible
-pretraining-transfer route are two separate requirements.
+For pretrained transfer, the local GigaChat base Q4 passes fresh paired BPB,
+PIQA and document rollout against BF16, but its W4 large-matrix payload is
+**calculated** at ~814 MB/token. Its C fidelity port is partial and no
+quality-plus-≥50 C artifact exists. Qwen2.5-1.5B H1 shows that training a
+carve helps; frozen H4+H2I composition fails. See [METHOD.md](METHOD.md) for
+links and scope. No step currently transfers donor knowledge into the native
+SSM/SWA target and passes joint quality/rate.
 
-## Read first; do not restart from scratch
+## Running cell and experiment register
 
-1. [Prior evidence and reusable assets](PRIOR_EVIDENCE.md): measured scope,
-   proposed versus executed rungs, known failures and no-duplication boundaries.
-2. [Native architecture](../../SCALEUP_ARCHITECTURE.md), including its later
-   two-pool correction: recurrent core and hot shared organs versus DRAM-read
-   experts. Nominal L3 bandwidth is not effective LUT throughput.
-3. [Frozen Phase-64 decisions](../../PHASE64_DECISIONS.md),
-   [hardware budget](../../PHASE64_BUDGET.md) and
-   [training plan](../../PHASE64_TRAINING_PLAN.md).
-4. [Cross-program index](../RESEARCH_INDEX.md) and
-   [donor no-duplication map](../donor_adaptation/audits/AXIS_COVERAGE_AND_NO_DUPLICATION_MAP.md)
-   for inherited evidence, not automatic donor execution instructions.
-
-## What stays fixed in the first comparison
-
-Retain the native SSM/SWA and gated-dReLU ternary expert recipe; do not
-simultaneously add attention replacements, new activations, low-rank paths or
-new routing algorithms. Respect previously retained higher-precision organs.
-Pin core dimensions, layer count, expert width, top-k, tokenizer, split,
-sequence length, precision/layout, optimizer and training schedule. Existing
-Phase-64 E32/E128/E256 rungs are candidates, not newly claimed results or a
-final preregistration; confirm actual source/config/checkpoint availability
-before selecting the smallest missing comparison.
-
-The historical E32 training anchor uses L6, whereas the proposed code ladder
-uses L8 and a different data/tokenizer setup. Do not compare those directly
-as an E-only treatment: bind a matched baseline for whichever setup is chosen.
-
-Fixed top-k fixes expert work only: a dense router's score matrix and
-selection still grow with E. Report that increase, dispatch, cache misses,
-stored RAM, optimizer state and expert exposure rather than assuming constant
-total cost. Do not assume cross-token expert locality: the earlier finding
-was approximately independent routing.
-
-## Evidence required to decide
-
-| Axis | Record | What must not count as success |
+| ID | State | Record / raw evidence |
 |---|---|---|
-| Quality | Held-out BPB on identical text, task/rollout checks, uncertainty and seed variation | Training loss, synthetic speed, more parameters alone |
-| Routing | Per-layer loads, dead experts, load imbalance, entropy, top-k margins and stability; actual exposure per expert | Balanced traffic without useful quality |
-| Useful capacity | Quality-versus-E at fixed active expert work; separately scoped ablations if needed to establish expert contribution | Cloned unused experts or counting reused weights multiple times |
-| Execution | Resident working set, streamed bytes/token, router/selection and expert times, total decode latency, peak RAM; correct C export | A router microbenchmark presented as end-to-end rate |
-| Training cost | Tokens, updates, exposure/expert, wall time and resource use | Attributing undertraining from lower exposure solely to architecture |
+| NES-00 | APPARATUS PASS; invalid smokes retained | [asset/dispatch record](NES_00_ASSET_AND_DISPATCH_20260925.md), [RTX 3060 JSON](dispatch_probe_e128_fullstep_rtx3060_20260925.json) |
+| NES-01 | RUNNING from `44c7bb1` | [frozen E32→E128 protocol](E128_EQUAL_TOKEN_PROTOCOL_20260925.md); raw `nes01_e128_train.stdout.log`, `.stderr.log`, `nes01_status.json` when complete |
+| METH-00 | ARITHMETIC PREFLIGHT | [GigaChat active-organ traffic](METH_00_GIGACHAT_COST_PREFLIGHT_20260925.md); no decoder or quality measurement |
 
-The first curve uses equal training tokens and the same recipe to test scaling
-under a fixed training budget. It does not estimate each size's fully trained
-ceiling. If exposure limits the larger arm, label that uncertainty explicitly;
-an exposure-matched extension changes the training budget and needs its own
-decision. Do not automatically scale training tenfold to rescue a failed arm.
+NES-01 started **2026-09-25 11:28:15 UTC** on local RTX 3060 from launcher
+`benchmarks/native_expert_scaling/run_nes01.ps1` (PowerShell PID `24620`,
+Python child PID `19752`; venv redirector PID `10960`). At **14:31 UTC** its
+rotating checkpoint reported **step 1800/4000**, with 117,964,800 layer-0
+expert selections. The process was live at that inspection. Checkpoint path:
+`results/native_expert_scaling/nes01_e128_resume.pt`; final output:
+`results/native_expert_scaling/nes01_e128_final.pt`. The launcher writes
+`nes01_status.json` and stops after at most 10 hours, leaving a resume state
+if incomplete. Do not infer current progress from this snapshot; inspect the
+process, status, log, and checkpoint when resuming. Avoid frequent polling and
+CPU benchmarks during training. No T4 work is running or scheduled.
 
-Before any new run, freeze the selected E values, numerical quality/routing/
-latency gates, seeds, training cap and stopping rules in one bounded protocol.
-Choose limits from the intended use and prior measurement variability, not
-after seeing the scaling results. Validate instrumentation for both healthy
-and collapsed routing; distinguish a control failure from a scientific FAIL.
-The broad 50 tok/s target remains relevant, but high speed at pilot scale is
-not evidence of 10B/100B quality or throughput. No 100B extrapolation from a
-single small-scale pass.
+## Decisions and next exact action
 
-## Current queue
+- **Open:** E128 joint held-out/routing/generation/C-cost result; whether larger
+  E gains useful capacity at equal tokens; how to reduce a pretrained donor's
+  active traffic while preserving quality; C export/fidelity of that result;
+  generality across families and scales.
+- **Closed within their scope:** H5's frozen H4+H2I assembly is adverse;
+  STRAT-03's tested shared/router geometry fails. Neither rejects fresh joint
+  training. The old donor parity queue is not an automatic next step.
+- **While NES-01 runs:** inspect the existing E4 export, reference and C
+  measurement path for the exact E128 post-training comparison. Inspection
+  found that `e4_export.py --ckpt` already supports an alternate checkpoint,
+  but `engine.c` hard-codes `E=32` and `e4_reference.py` hard-codes the E32
+  checkpoint/output paths and constructs its model with the E32 default.
+  Parameterize these apparatus points before
+  E128 C fidelity and timing; verify that E32 behavior remains intact. Avoid
+  concurrent GPU or CPU benchmarks. METH-00 supplies a secondary donor traffic
+  constraint; defer a donor quality sensitivity run until the native scaling
+  result changes the architecture decision. No T4 job is planned.
+- **After NES-01 finishes:** verify the final checkpoint/hash and compare with
+  E32 under the frozen protocol. If no final checkpoint exists and the process
+  is terminal, resume from the rotating optimizer/RNG state using the same
+  command. Keep FAIL, VOID and incomplete runs in their records.
 
-| Step | Status | Next deliverable / boundary |
-|---|---|---|
-| Save donor work and suspend old next steps | DONE | Donor checkpoint `90bf966`; no scientific normalization run |
-| Consolidate inherited evidence | DOCUMENTED | `PRIOR_EVIDENCE.md`; distinguish unavailable artifacts from failed experiments |
-| Bind reusable native training/export assets | DONE | [NES-00](NES_00_ASSET_AND_DISPATCH_20260925.md): hashes, config, E128 apparatus and voids |
-| Freeze one scaling protocol | DONE | [NES-01](E128_EQUAL_TOKEN_PROTOCOL_20260925.md): L6 E32/E128, gates and 10-hour cap |
-| Train and measure | RUNNING | Local RTX 3060 E128; then held-out, generation, C parity/cost on both arms. No T4 run planned |
-| Decide whether to scale further or change routing | NOT STARTED | Require the joint quality/routing/cost result; change one coordinate on failure |
-
-## Experiment register and exact resumption point
-
-| ID | State | Record and raw evidence |
-|---|---|---|
-| NES-00 | APPARATUS PASS; two smoke voids retained | [Asset/dispatch record](NES_00_ASSET_AND_DISPATCH_20260925.md), [E128 RTX 3060 JSON](dispatch_probe_e128_fullstep_rtx3060_20260925.json) |
-| NES-01 | RUNNING from `44c7bb1` | [Equal-token protocol](E128_EQUAL_TOKEN_PROTOCOL_20260925.md), raw stdout/stderr/status above |
-
-Resume by inspecting `nes01_status.json`, the log tail, and the final or
-optimizer checkpoint. If the process is gone and the final checkpoint is
-absent, use NES-01's same command to resume from the rotating state after
-checking no other GPU job is active. Do not treat NES-00 smoke BPB as an E128
-result. Preserve the unrelated
-working-tree edits in `RESEARCH_INDEX.md` and the donor density script.
-
-## Record-keeping rule
-
-This file is the current-state entry point. Keep its queue short and replace
-superseded status, rather than appending long chains of "sole next action".
-Each experiment gets one concise record containing question, exact config and
-code/checkpoint/data identities, comparison, budget, result, limitations and
-decision, with links to raw artifacts. Add one row here and the relevant
-prior-evidence/no-duplication pointer. Do not duplicate full results into all
-indexes. Global `RESEARCH_INDEX.md` and the strategic roadmap only point here.
-
-Retain FAIL and VOID results without changing historical gates. Repeat only
-for a stated missing uncertainty estimate, replication requirement, changed
-coordinate or apparatus repair, and state the reason before execution.
-All documentation is in English. No model/assistant signatures or trailers.
+Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
+and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
+this index by replacing current state, and put detailed evidence in the
+experiment record. Documentation is in English; no model/assistant signatures.
