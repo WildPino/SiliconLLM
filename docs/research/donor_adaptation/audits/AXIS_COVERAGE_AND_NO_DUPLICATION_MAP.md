@@ -35,6 +35,10 @@ reduction, while top-4 and all up/gate projections are exact. Independent
 routed/shared scalar-SwiGLU residuals follow. Never repeat production,
 recovery, or upstream cells. The only open fidelity action is the zero-graph
 [layer-1 numerical-primitives parity cell](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_PROTOCOL_20260925.md).
+Its [repaired model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_APPARATUS_RESULT_20260925.md)
+passes with zero diagnostic/model/producer/graph execution. Do not repeat the
+apparatus; commit its exact sources and execute only the authorized local
+diagnostic.
 The still later [STRAT-03 result](../probes/STRAT_03_EXECUTABLE_SHARED_RESIDUAL_RESULT.md)
 closes the frozen five-layer `k=3/256` local diagnostic with a byte-count-
 matched SwiGLU shared path and `x`-only router: all three gates fail despite

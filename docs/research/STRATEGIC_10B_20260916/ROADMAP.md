@@ -19,9 +19,13 @@ is a valid `FAIL_ENGINE_Q6_REFERENCE_GENERIC_PRODUCTION_INTEGRATION`: both
 schedules are byte-exact through complete layer-1 attention and `ffn_norm-1`.
 The first residual is the F32 router reduction; top-4 and all expert/shared
 up/gate projections remain exact, followed by independent routed/shared
-scalar-SwiGLU residuals. Never rerun production or recovery. Qualify only the
-zero-graph [layer-1 numerical-primitives cell](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_PROTOCOL_20260925.md)
-next.
+scalar-SwiGLU residuals. Never rerun production or recovery. The zero-graph
+[layer-1 numerical-primitives cell](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_PROTOCOL_20260925.md)
+has now passed its [repaired model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_APPARATUS_RESULT_20260925.md)
+as `APPARATUS_READY_NO_DONOR_EXECUTION`: four Python tests and the synthetic
+C/C++ self-test pass, with zero diagnostic, model, producer or graph
+executions. Commit the qualified sources, then run its sole local scientific
+diagnostic; do not rerun the apparatus.
 This paragraph supersedes the older active-boundary wording below.
 
 **Current execution head (24 September):** the accepted donor is exact through
