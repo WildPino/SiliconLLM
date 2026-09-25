@@ -1,0 +1,359 @@
+{
+  "schema": "nes03_int8_router_result_v1",
+  "scope": "router fidelity and CPU cost at trained E128 and synthetic E1280; no donor transfer or large-E quality claim",
+  "frozen_numerical_probe_sha256": "148c4859cd17372617b445f117b749a41d242b829bc7231dec951e8092546154",
+  "nes02_baseline_sha256": "ef9da1e3c1d5d9a8589764c9a223e27cc2770fa051e3f2bbe379a9ca8ec7ca24",
+  "engine_source_sha256": "db8f50f6b65e6d017f8f56d8ad9c10387a865eb9c865fddfcb8cf1e48ae820fe",
+  "engine_binary_sha256": "aad2216aab2518dbc709548abe993b359f399df5b939da32c7af185b637bc75f",
+  "router_int8_sketch_bytes": {
+    "e128": 202752,
+    "e1280": 2027520
+  },
+  "numerical_pass": true,
+  "c_route_audits": {
+    "e128": {
+      "raw_log_sha256": "4287db718e96f59b16f55bd99218341c89e0813d4fff933649f6e5766a812bdf",
+      "layers": [
+        {
+          "layer": 0,
+          "positions": 8192,
+          "missed_exact_top8": 0,
+          "changed_route_positions": 0
+        },
+        {
+          "layer": 1,
+          "positions": 8192,
+          "missed_exact_top8": 0,
+          "changed_route_positions": 0
+        },
+        {
+          "layer": 2,
+          "positions": 8192,
+          "missed_exact_top8": 0,
+          "changed_route_positions": 0
+        },
+        {
+          "layer": 3,
+          "positions": 8192,
+          "missed_exact_top8": 0,
+          "changed_route_positions": 0
+        },
+        {
+          "layer": 4,
+          "positions": 8192,
+          "missed_exact_top8": 0,
+          "changed_route_positions": 0
+        },
+        {
+          "layer": 5,
+          "positions": 8192,
+          "missed_exact_top8": 0,
+          "changed_route_positions": 0
+        }
+      ]
+    },
+    "e1280": {
+      "raw_log_sha256": "cc217902f0f1945a6c090afc2f3109573ee23e4c2cd33e8e60295c1006949294",
+      "layers": [
+        {
+          "layer": 0,
+          "positions": 8192,
+          "missed_exact_top8": 0,
+          "changed_route_positions": 0
+        },
+        {
+          "layer": 1,
+          "positions": 8192,
+          "missed_exact_top8": 0,
+          "changed_route_positions": 0
+        },
+        {
+          "layer": 2,
+          "positions": 8192,
+          "missed_exact_top8": 0,
+          "changed_route_positions": 0
+        },
+        {
+          "layer": 3,
+          "positions": 8192,
+          "missed_exact_top8": 0,
+          "changed_route_positions": 0
+        },
+        {
+          "layer": 4,
+          "positions": 8192,
+          "missed_exact_top8": 0,
+          "changed_route_positions": 0
+        },
+        {
+          "layer": 5,
+          "positions": 8192,
+          "missed_exact_top8": 0,
+          "changed_route_positions": 0
+        }
+      ]
+    }
+  },
+  "quality": {
+    "exact_bpb": 0.829826,
+    "int8_bpb": 0.829826,
+    "delta_bpb": 0.0,
+    "exact_bpb_log_sha256": "efa4ee5547369fac991b3cb386e20a0cc24d823c797d38376eff7840aeb97430",
+    "int8_bpb_log_sha256": "c3112926a3b9757b8943c7b73d59c4d8d204a7309257165700f9702bc842a170",
+    "top1_agreement": 1.0,
+    "top1_count": 20480,
+    "top1_total": 20480,
+    "top1_log_sha256": "3ba2617f24f0cebc2445e744474ba13e729295feed118b3764eaf5292a35010d",
+    "exact_greedy_sha256": "678a6d8d69d22fdad3c99a495acb6f17d3c0bc12946715b177317e5cc3157c83",
+    "int8_greedy_sha256": "678a6d8d69d22fdad3c99a495acb6f17d3c0bc12946715b177317e5cc3157c83",
+    "exact_triple_8gram_continuations": 10,
+    "int8_triple_8gram_continuations": 10,
+    "greedy_byte_identical": true,
+    "nonregression_gate": true
+  },
+  "timings": {
+    "int8_e128_serial": {
+      "raw_log_sha256": "4b1bb8fc82ec7be2102613263ff30366258b21e63675684d5203a9e7dc6327d3",
+      "ternary_code_bytes": 37748736,
+      "runs": [
+        {
+          "tokens_per_second": 729.7,
+          "total_us_per_token": 1370.4,
+          "router_selection_us_per_token": 53.5,
+          "selected_expert_us_per_token": 739.1
+        },
+        {
+          "tokens_per_second": 790.7,
+          "total_us_per_token": 1264.7,
+          "router_selection_us_per_token": 50.9,
+          "selected_expert_us_per_token": 684.8
+        },
+        {
+          "tokens_per_second": 791.5,
+          "total_us_per_token": 1263.5,
+          "router_selection_us_per_token": 52.1,
+          "selected_expert_us_per_token": 676.0
+        },
+        {
+          "tokens_per_second": 736.9,
+          "total_us_per_token": 1357.1,
+          "router_selection_us_per_token": 53.0,
+          "selected_expert_us_per_token": 728.1
+        }
+      ],
+      "first_run_excluded_as_warmup": true,
+      "median_of_last_three": {
+        "tokens_per_second": 790.7,
+        "total_us_per_token": 1264.7,
+        "router_selection_us_per_token": 52.1,
+        "selected_expert_us_per_token": 684.8
+      }
+    },
+    "int8_e1280_serial": {
+      "raw_log_sha256": "50419dad7aff007852ea522d139b1f8526862bb246818b008deed8af5addf72f",
+      "ternary_code_bytes": 377487360,
+      "runs": [
+        {
+          "tokens_per_second": 653.4,
+          "total_us_per_token": 1530.5,
+          "router_selection_us_per_token": 168.6,
+          "selected_expert_us_per_token": 808.5
+        },
+        {
+          "tokens_per_second": 668.4,
+          "total_us_per_token": 1496.1,
+          "router_selection_us_per_token": 166.4,
+          "selected_expert_us_per_token": 780.8
+        },
+        {
+          "tokens_per_second": 659.3,
+          "total_us_per_token": 1516.8,
+          "router_selection_us_per_token": 165.2,
+          "selected_expert_us_per_token": 798.3
+        },
+        {
+          "tokens_per_second": 686.6,
+          "total_us_per_token": 1456.5,
+          "router_selection_us_per_token": 162.5,
+          "selected_expert_us_per_token": 766.2
+        }
+      ],
+      "first_run_excluded_as_warmup": true,
+      "median_of_last_three": {
+        "tokens_per_second": 668.4,
+        "total_us_per_token": 1496.1,
+        "router_selection_us_per_token": 165.2,
+        "selected_expert_us_per_token": 780.8
+      }
+    },
+    "int8_e128_parallel": {
+      "raw_log_sha256": "e6ced5655ea1e18c5d2618bfd24f1bcb766bf280edf8c6d8582ae8463bd28f77",
+      "ternary_code_bytes": 37748736,
+      "runs": [
+        {
+          "tokens_per_second": 801.3,
+          "total_us_per_token": 1248.0,
+          "router_selection_us_per_token": 51.0,
+          "selected_expert_us_per_token": 671.3
+        },
+        {
+          "tokens_per_second": 888.2,
+          "total_us_per_token": 1125.8,
+          "router_selection_us_per_token": 47.8,
+          "selected_expert_us_per_token": 600.7
+        },
+        {
+          "tokens_per_second": 829.4,
+          "total_us_per_token": 1205.7,
+          "router_selection_us_per_token": 49.2,
+          "selected_expert_us_per_token": 654.5
+        },
+        {
+          "tokens_per_second": 794.0,
+          "total_us_per_token": 1259.4,
+          "router_selection_us_per_token": 52.0,
+          "selected_expert_us_per_token": 674.1
+        }
+      ],
+      "first_run_excluded_as_warmup": true,
+      "median_of_last_three": {
+        "tokens_per_second": 829.4,
+        "total_us_per_token": 1205.7,
+        "router_selection_us_per_token": 49.2,
+        "selected_expert_us_per_token": 654.5
+      }
+    },
+    "int8_e1280_parallel": {
+      "raw_log_sha256": "211a5868aa25e490af4cd24fb60ff6134c2ee823690bd8a46cfe28f9ca40c33d",
+      "ternary_code_bytes": 377487360,
+      "runs": [
+        {
+          "tokens_per_second": 661.9,
+          "total_us_per_token": 1510.8,
+          "router_selection_us_per_token": 123.5,
+          "selected_expert_us_per_token": 813.7
+        },
+        {
+          "tokens_per_second": 678.3,
+          "total_us_per_token": 1474.3,
+          "router_selection_us_per_token": 116.1,
+          "selected_expert_us_per_token": 806.9
+        },
+        {
+          "tokens_per_second": 683.6,
+          "total_us_per_token": 1462.9,
+          "router_selection_us_per_token": 116.8,
+          "selected_expert_us_per_token": 790.1
+        },
+        {
+          "tokens_per_second": 678.3,
+          "total_us_per_token": 1474.2,
+          "router_selection_us_per_token": 117.8,
+          "selected_expert_us_per_token": 798.3
+        }
+      ],
+      "first_run_excluded_as_warmup": true,
+      "median_of_last_three": {
+        "tokens_per_second": 678.3,
+        "total_us_per_token": 1474.2,
+        "router_selection_us_per_token": 116.8,
+        "selected_expert_us_per_token": 798.3
+      }
+    },
+    "matched_exact_e128": {
+      "raw_log_sha256": "7c1c2df8ef6461ebd0a5ad8a84bc6d7e7bcb81b5d41aee8148b214039c53c48c",
+      "ternary_code_bytes": 37748736,
+      "runs": [
+        {
+          "tokens_per_second": 746.2,
+          "total_us_per_token": 1340.1,
+          "router_selection_us_per_token": 63.3,
+          "selected_expert_us_per_token": 714.5
+        },
+        {
+          "tokens_per_second": 827.8,
+          "total_us_per_token": 1208.0,
+          "router_selection_us_per_token": 60.4,
+          "selected_expert_us_per_token": 636.5
+        },
+        {
+          "tokens_per_second": 832.7,
+          "total_us_per_token": 1201.0,
+          "router_selection_us_per_token": 59.4,
+          "selected_expert_us_per_token": 639.9
+        },
+        {
+          "tokens_per_second": 758.1,
+          "total_us_per_token": 1319.1,
+          "router_selection_us_per_token": 63.3,
+          "selected_expert_us_per_token": 704.1
+        }
+      ],
+      "first_run_excluded_as_warmup": true,
+      "median_of_last_three": {
+        "tokens_per_second": 827.8,
+        "total_us_per_token": 1208.0,
+        "router_selection_us_per_token": 60.4,
+        "selected_expert_us_per_token": 639.9
+      }
+    },
+    "matched_exact_e1280": {
+      "raw_log_sha256": "535fdfa874fe4de940427c5382a451553803c437a32045e4b977dbced957f838",
+      "ternary_code_bytes": 377487360,
+      "runs": [
+        {
+          "tokens_per_second": 483.5,
+          "total_us_per_token": 2068.3,
+          "router_selection_us_per_token": 574.8,
+          "selected_expert_us_per_token": 889.5
+        },
+        {
+          "tokens_per_second": 496.0,
+          "total_us_per_token": 2016.2,
+          "router_selection_us_per_token": 570.3,
+          "selected_expert_us_per_token": 852.3
+        },
+        {
+          "tokens_per_second": 521.3,
+          "total_us_per_token": 1918.3,
+          "router_selection_us_per_token": 554.1,
+          "selected_expert_us_per_token": 802.5
+        },
+        {
+          "tokens_per_second": 506.5,
+          "total_us_per_token": 1974.5,
+          "router_selection_us_per_token": 558.5,
+          "selected_expert_us_per_token": 834.4
+        }
+      ],
+      "first_run_excluded_as_warmup": true,
+      "median_of_last_three": {
+        "tokens_per_second": 506.5,
+        "total_us_per_token": 1974.5,
+        "router_selection_us_per_token": 558.5,
+        "selected_expert_us_per_token": 834.4
+      }
+    }
+  },
+  "configuration_gates": {
+    "serial": {
+      "e128_total_ratio_to_nes02_baseline": 1.1012713340299547,
+      "e1280_router_ratio_to_nes02_baseline": 0.3081514642790524,
+      "e1280_total_ratio_to_nes02_baseline": 0.795628589661774,
+      "e128_no_more_than_5pct_regression": false,
+      "e1280_router_at_most_half": true,
+      "e1280_total_at_most_0_85": true,
+      "all_frozen_cost_gates": false
+    },
+    "parallel": {
+      "e128_total_ratio_to_nes02_baseline": 1.0498955067920586,
+      "e1280_router_ratio_to_nes02_baseline": 0.21786980041037118,
+      "e1280_total_ratio_to_nes02_baseline": 0.7839821314613912,
+      "e128_no_more_than_5pct_regression": true,
+      "e1280_router_at_most_half": true,
+      "e1280_total_at_most_0_85": true,
+      "all_frozen_cost_gates": true
+    }
+  },
+  "advance_parallel_cost_candidate": true
+}

@@ -78,6 +78,8 @@
 // portable one-line fix for the ~6% parallel-region tax measured at N=1, no dual code path. bit-identity is unaffected.
 static int g_omp_on=0;
 static int g_router_parallel=0;  // NES-02 experimental; default serial router retains the baseline path
+static int g_router_shortlist=0; // NES-03 opt-in int8 sketch + fp32 shortlist rescore
+static int g_router_audit=0;
 #ifdef _OPENMP
 #define OMP_PFOR _Pragma("omp parallel for schedule(static) if(g_omp_on)")
 #else
@@ -240,6 +242,8 @@ static int8_t *gate_tm[L],*up_tm[L],*up_rm[L],*down_tm[L]; static float *gate_sc
 // MoE (E4M1)
 static float *router_w[L],*router_b[L],*egate_f[L],*eup_f[L],*eWd_f[L];
 static float* router_prob=NULL; static int* router_used=NULL;
+static int8_t* router_qw[L]; static float* router_qscale[L]; static int32_t* router_qsum[L];
+static uint8_t router_qu[D]; static long long router_audit_positions[L],router_audit_misses[L],router_audit_changed[L];
 static int8_t *egate_cd[L],*eup_cd[L],*eWd_cd[L]; static float *egate_sc[L],*eup_sc[L],*eWd_sc[L];
 static int8_t *egate_wt[L],*eup_wt[L],*eWd_wt[L];                // kept for kernel self-tests vs scalar-int
 static float (*hstate)[DN][N]; static float (*convbuf)[DN][CONV]; static float *kring,*vring; static int kvpos,kvcnt;
@@ -272,6 +276,19 @@ static void load_weights(const char* path){
             s->Dskip=rd(f,DN); s->out_proj=rd(f,(size_t)D*DN); }
         mlp_n2[l]=rd(f,D);
         if(g_moe){ router_w[l]=rd(f,(size_t)E*D); router_b[l]=rd(f,E);
+            if(g_router_shortlist){
+                router_qw[l]=xmalloc((size_t)E*D); router_qscale[l]=xmalloc((size_t)E*sizeof(float));
+                router_qsum[l]=xmalloc((size_t)E*sizeof(int32_t));
+                for(int e=0;e<E;e++){
+                    const float* row=router_w[l]+(size_t)e*D; float amax=0;
+                    for(int i=0;i<D;i++){float a=fabsf(row[i]);if(a>amax)amax=a;}
+                    float scale=amax>0?amax/127.0f:1.0f; int32_t sum=0;
+                    router_qscale[l][e]=scale;
+                    for(int i=0;i<D;i++){int q=(int)lrintf(row[i]/scale);if(q>127)q=127;if(q< -127)q= -127;
+                        router_qw[l][(size_t)e*D+i]=(int8_t)q;sum+=q;}
+                    router_qsum[l][e]=sum;
+                }
+            }
             egate_f[l]=rd(f,(size_t)GH*D); eup_f[l]=rd(f,(size_t)GH*D); eWd_f[l]=rd(f,(size_t)E*D*HID_E); }
         else { gate_f[l]=rd(f,(size_t)MLP_HID*D); up_f[l]=rd(f,(size_t)MLP_HID*D); down_f[l]=rd(f,(size_t)D*MLP_HID); }
     }
@@ -361,12 +378,75 @@ static void topk_sel(const float* p,int n,int k,int* idx,float* val){   // match
         for(int i=0;i<n;i++) if(!used[i]&&p[i]>bv){ bv=p[i]; bi=i; }
         used[bi]=1; idx[j]=bi; val[j]=p[bi]; }
 }
+// AVX2 unsigned-input/signed-weight dot. qx is in [-63,63], so qx+64 is in
+// [1,127]; two products cannot saturate the signed-16 maddubs accumulator.
+static inline int32_t router_dot_i8(const uint8_t* x,const int8_t* w){
+    __m256i acc=_mm256_setzero_si256(),one=_mm256_set1_epi16(1);
+    for(int i=0;i<D;i+=32){
+        __m256i xx=_mm256_loadu_si256((const __m256i*)(x+i));
+        __m256i ww=_mm256_loadu_si256((const __m256i*)(w+i));
+        acc=_mm256_add_epi32(acc,_mm256_madd_epi16(_mm256_maddubs_epi16(xx,ww),one));
+    }
+    int32_t lanes[8];_mm256_storeu_si256((__m256i*)lanes,acc);int32_t sum=0;
+    for(int i=0;i<8;i++)sum+=lanes[i];return sum;
+}
+static int router_better(float a,int ia,float b,int ib){return a>b||(a==b&&ia<ib);}
+static void router_heap_swap(float* scores,int* ids,int a,int b){
+    float s=scores[a];scores[a]=scores[b];scores[b]=s;
+    int id=ids[a];ids[a]=ids[b];ids[b]=id;
+}
+static void router_int8_topk(int l,const float* xn,int* idx,float* wv){
+    int8_t qx[D];float sx=quant_i8(xn,D,qx);
+    for(int i=0;i<D;i++)router_qu[i]=(uint8_t)(qx[i]+64);
+#ifdef _OPENMP
+#pragma omp parallel for schedule(static) if(g_omp_on && g_router_parallel && E>=512)
+#endif
+    for(int e=0;e<E;e++){
+        int32_t raw=router_dot_i8(router_qu,router_qw[l]+(size_t)e*D)-64*router_qsum[l][e];
+        router_prob[e]=(float)raw*sx*router_qscale[l][e]+router_b[l][e];
+    }
+    int cap=g_router_shortlist<E?g_router_shortlist:E,nheap=0,heap_id[64];float heap_score[64];
+    for(int e=0;e<E;e++){
+        float s=router_prob[e];
+        if(nheap<cap){
+            int p=nheap++;heap_id[p]=e;heap_score[p]=s;
+            while(p>0){int parent=(p-1)/2;
+                if(!router_better(heap_score[parent],heap_id[parent],heap_score[p],heap_id[p]))break;
+                router_heap_swap(heap_score,heap_id,parent,p);p=parent;}
+        }else if(router_better(s,e,heap_score[0],heap_id[0])){
+            heap_id[0]=e;heap_score[0]=s;int p=0;
+            for(;;){int left=2*p+1;if(left>=cap)break;int worst=left,right=left+1;
+                if(right<cap&&router_better(heap_score[left],heap_id[left],heap_score[right],heap_id[right]))worst=right;
+                if(!router_better(heap_score[p],heap_id[p],heap_score[worst],heap_id[worst]))break;
+                router_heap_swap(heap_score,heap_id,p,worst);p=worst;}
+        }
+    }
+    float exact[64];uint8_t used[64]={0};
+    for(int i=0;i<cap;i++){int e=heap_id[i];exact[i]=dotf(router_w[l]+(size_t)e*D,xn,D)+router_b[l][e];}
+    for(int j=0;j<KTOP;j++){
+        int best=-1;float bv=-INFINITY;
+        for(int i=0;i<cap;i++)if(!used[i]&&(best<0||router_better(exact[i],heap_id[i],bv,heap_id[best]))){best=i;bv=exact[i];}
+        used[best]=1;idx[j]=heap_id[best];wv[j]=bv;
+    }
+    float mx=wv[0],z=0;for(int j=1;j<KTOP;j++)if(wv[j]>mx)mx=wv[j];
+    for(int j=0;j<KTOP;j++){wv[j]=expf(wv[j]-mx);z+=wv[j];}
+    for(int j=0;j<KTOP;j++)wv[j]/=z;
+    if(g_router_audit){
+        for(int e=0;e<E;e++)router_prob[e]=dotf(router_w[l]+(size_t)e*D,xn,D)+router_b[l][e];
+        int ref[KTOP];float rv[KTOP];topk_sel(router_prob,E,KTOP,ref,rv);
+        int misses=0;for(int j=0;j<KTOP;j++){int found=0;for(int k=0;k<KTOP;k++)if(ref[j]==idx[k]){found=1;break;}misses+=!found;}
+        router_audit_positions[l]++;router_audit_misses[l]+=misses;router_audit_changed[l]+=(misses>0);
+    }
+}
 static int8_t g_xq[D],g_lut[TUP*16],g_hq[HID_E],g_lutd[TDE*16]; static int32_t g_S[HID_E],g_Sd[D];
 // V-G3b expert-selection capture: when g_esel_cap!=NULL the router writes this position's KTOP experts per layer
 // into g_esel_cap[l*KTOP..] — used to count the per-block expert UNION touched (block layer-major) vs token-by-token.
 static int* g_esel_cap=NULL;
 static void mlp_moe(int l,const float* xn,float* out,int mlp_lut,double* router_time){
     double router_start=router_time?now_s():0;
+    int idx[KTOP];float wv[KTOP];
+    if(g_router_shortlist)router_int8_topk(l,xn,idx,wv);
+    else {
     float* rp=router_prob;
 #ifdef _OPENMP
 #pragma omp parallel for schedule(static) if(g_omp_on && g_router_parallel && E>=512)
@@ -374,9 +454,10 @@ static void mlp_moe(int l,const float* xn,float* out,int mlp_lut,double* router_
     for(int e=0;e<E;e++) rp[e]=dotf(router_w[l]+(size_t)e*D,xn,D)+router_b[l][e];
     float mx=-1e30f; for(int e=0;e<E;e++) if(rp[e]>mx)mx=rp[e];
     float Z=0; for(int e=0;e<E;e++){ rp[e]=expf(rp[e]-mx); Z+=rp[e]; } for(int e=0;e<E;e++) rp[e]/=Z;
-    int idx[KTOP]; float wv[KTOP]; topk_sel(rp,E,KTOP,idx,wv);
-    if(g_esel_cap) for(int j=0;j<KTOP;j++) g_esel_cap[l*KTOP+j]=idx[j];
+    topk_sel(rp,E,KTOP,idx,wv);
     float ws=0; for(int j=0;j<KTOP;j++) ws+=wv[j]; for(int j=0;j<KTOP;j++) wv[j]/=ws;
+    }
+    if(g_esel_cap) for(int j=0;j<KTOP;j++) g_esel_cap[l*KTOP+j]=idx[j];
     if(router_time)*router_time+=now_s()-router_start;
     memset(out,0,D*4);
     float sa=0; if(mlp_lut){ sa=quant_i8(xn,D,g_xq); build_lut_t3(g_xq,TUP,g_lut); }
@@ -496,17 +577,21 @@ static double run_bpb(long seqW,long eval_tok,int mlp_lut,int skip,int exp_fast,
     free(logits); if(ntok_o)*ntok_o=ntok; return bits/(nbytes>0?nbytes:1);
 }
 static int gate_logits(long seqW,long ntok_target,int mlp_lut,int skip,int exp_fast){
-    // top-1 agreement of the selected config vs the fp32+exact reference config (same binary)
+    // top-1 agreement of selected config vs full-router fp32+exact reference (same binary)
     long ntr=(long)(nids*0.9); uint16_t* val=ids+ntr;
     float* l1=xmalloc((size_t)V*4); float* l2=xmalloc((size_t)V*4);
     long agree=0,tot=0,pos=0; static uint16_t a1[4096];
+    int requested_router_shortlist=g_router_shortlist;
     while(tot<ntok_target){
         state_reset();
+        g_router_shortlist=0;
         for(long t=0;t<seqW;t++){ forward_token(val[pos+t],l1,0,0,0,NULL); float mx=-1e30f; int am=0; for(int o=0;o<V;o++) if(l1[o]>mx){mx=l1[o];am=o;} a1[t]=am; }
         state_reset();
+        g_router_shortlist=requested_router_shortlist;
         for(long t=0;t<seqW;t++){ forward_token(val[pos+t],l2,mlp_lut,skip,exp_fast,NULL); float mx=-1e30f; int am=0; for(int o=0;o<V;o++) if(l2[o]>mx){mx=l2[o];am=o;} if(am==a1[t]) agree++; tot++; }
         pos+=seqW;
     }
+    g_router_shortlist=requested_router_shortlist;
     double pct=100.0*agree/tot;
     printf("==== top-1 agreement (config vs fp32+exact ref, %ld tok) ====\n  agreement=%.4f%% (%ld/%ld)\n",tot,pct,agree,tot);
     free(l1); free(l2); return pct>=99.0?0:2;
@@ -1456,6 +1541,8 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--nes01-greedy-out")&&i+1<argc) nes01_greedy_to=argv[++i];
         else if(!strcmp(argv[i],"--nes01-route-out")&&i+1<argc) nes01_route_to=argv[++i];
         else if(!strcmp(argv[i],"--router-parallel")) g_router_parallel=1;
+        else if(!strcmp(argv[i],"--router-int8-shortlist")&&i+1<argc) g_router_shortlist=atoi(argv[++i]);
+        else if(!strcmp(argv[i],"--router-audit")) g_router_audit=1;
         else if(!strcmp(argv[i],"--seq")&&i+1<argc) seqW=atol(argv[++i]);
         else if(!strcmp(argv[i],"--eval-tok")&&i+1<argc) eval_tok=atol(argv[++i]);
         else if(!strcmp(argv[i],"--ntok")&&i+1<argc) ntok=atol(argv[++i]);
@@ -1476,6 +1563,8 @@ int main(int argc,char**argv){
         if(donor) run_donor_shape(donor);
         return 0;
     }
+    if(g_router_shortlist!=0&&g_router_shortlist!=32&&g_router_shortlist!=64){fprintf(stderr,"--router-int8-shortlist must be 32 or 64\n");return 1;}
+    if(g_router_audit&&!g_router_shortlist){fprintf(stderr,"--router-audit needs --router-int8-shortlist\n");return 1;}
     if(!wp){ fprintf(stderr,"usage: engine --weights <model.bin> [--threads N] [--mlp fp32|lut] [--skip on|off] [--exp exact|fast]\n"
                             "              [--bpb] [--logits] [--timing] [--dumplogits <file>] [--ntok N] [--offset N]\n"); return 1; }
 #ifdef _OPENMP
@@ -1485,6 +1574,8 @@ int main(int argc,char**argv){
     if(threads!=1) fprintf(stderr,"WARN --threads %d ignored (built without OpenMP)\n",threads);
 #endif
     load_weights(wp); load_meta("results/phase55/meta.bin"); load_ids("results/phase55/ids.u16");
+    if(g_router_shortlist&&!g_moe){fprintf(stderr,"int8 shortlist requires an E4M1 MoE model\n");return 1;}
+    if(g_router_shortlist)printf("router int8 sketch bytes=%zu (weights/scales/sums only)\n",(size_t)L*E*(D+8));
     hstate=calloc(L,sizeof(*hstate)); convbuf=calloc(L,sizeof(*convbuf)); kring=calloc((size_t)WIN*D,4); vring=calloc((size_t)WIN*D,4);
     fprintf(stderr,"engine loaded: %s | mlp=%s skip=%s exp=%s | ids=%ld\n",
             g_moe?"MoE":"dense",mlp_lut?"lut":"fp32",skip?"on":"off",exp_fast?"fast":"exact",nids);
@@ -1501,6 +1592,8 @@ int main(int argc,char**argv){
     if(do_bpb){ long nt; double b=run_bpb(seqW,eval_tok,mlp_lut,skip,exp_fast,&nt);
         printf("==== BPB (%ld tok): %.6f ====\n",nt,b); }
     if(do_tm) timing(timetok,mlp_lut,skip,exp_fast);
+    if(g_router_audit)for(int l=0;l<L;l++)printf("router audit layer %d: positions=%lld missed_exact_top8=%lld changed_route_positions=%lld\n",
+        l,router_audit_positions[l],router_audit_misses[l],router_audit_changed[l]);
     printf("STOP. engine run above. No commit.\n");
     return rc;
 }
