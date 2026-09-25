@@ -87,7 +87,13 @@ added together. Preserve source weights and any distinct learned expert
 weights separately; count copied/tied weights once. The native E32→E128
 [NES-01](E128_EQUAL_TOKEN_PROTOCOL_20260925.md) tests whether the target
 geometry can gain useful capacity at fixed active expert work. It transfers
-**no pretrained knowledge** and cannot satisfy stages D–F.
+**no pretrained knowledge** and cannot satisfy stages D–F. Its
+[result](NES_01_E128_RESULT_20260925.md) improves BPB and passes pilot C
+latency, but fails the frozen free-generation gate. Target expert-count
+scaling therefore still needs a quality remedy; the BPB gain alone cannot
+license E256 or 100B-scale claims. The intended capacity dial permits `E` to
+grow with RAM, so future variants must price dense-router work, LUT expert
+reads and free-generation quality as `E` grows, even at fixed top-k.
 
 ## 3. Verification contract and resource accounting
 
@@ -126,8 +132,9 @@ quality results rather than repeating them. The next selection must compare
 such a route against a tractable dense-source joint-training case, with an
 explicit step-zero and resource estimate. These screens cannot establish
 actual C speed or quality and authorize no T4 run.
-NES-01 continues independently as target-geometry evidence; no C timing is
-run concurrently with its GPU training.
+NES-01 has concluded with a failed joint gate. Its trained quality and C
+pilot results remain useful target-geometry evidence, while a 10× larger `E`
+CPU stress probe can only test cost unless independent experts are trained.
 
 Operational experiment history, running processes and exact resumption point
 live in [INDEX.md](INDEX.md); this file changes when a method step is actually

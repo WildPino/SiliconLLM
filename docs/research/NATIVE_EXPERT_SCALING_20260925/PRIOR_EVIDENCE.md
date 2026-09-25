@@ -8,6 +8,12 @@ The earlier "availability unknown" statements below describe the pre-audit
 inventory, not current workspace state. No trained native E128 checkpoint was
 found in the reviewed native result directories.
 
+**25 September result update:** [NES-01](NES_01_E128_RESULT_20260925.md)
+subsequently trained and measured E128. Its BPB, router-health and small C
+latency gates pass, but its predeclared greedy-generation gate fails. The
+historical statements below remain an inventory of evidence *before* NES-01;
+use the result record for current decisions.
+
 ## Readout
 
 Native evidence establishes that a trained E32, top-8 MoE can retain the small-model quality advantage over its matched dense arms and can be executed by the phase60 C engine with parity and measured cost. It does **not** establish what quality, routing, or end-to-end cost does when expert count alone rises beyond E32. E128 and E256 are proposed/costed scale rungs, not completed trained comparisons.

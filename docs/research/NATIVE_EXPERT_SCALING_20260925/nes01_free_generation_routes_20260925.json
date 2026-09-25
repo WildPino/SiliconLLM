@@ -1,0 +1,1474 @@
+{
+  "schema": "nes01_c_free_generation_routes_v1",
+  "scope": "C fp32+exact free-generation route IDs for 16 frozen validation prefixes; descriptive, no causal inference",
+  "arms": {
+    "e32": {
+      "route_file_sha256": "b31f9fbecd2f1fabed102d53663d2534e4737c0922c563763e837710e6d114b2",
+      "generation_file_sha256": "8970e15886a57d7ca654cff88d926402148ce9e561e8f0ca7bf7fe65a6ce49bf",
+      "triple_8gram_continuations": 3,
+      "validation_iid_expected_adjacent_overlap": 0.25,
+      "per_layer": [
+        {
+          "dead_experts": 0,
+          "max_to_mean_load": 1.177734375,
+          "distinct_experts": 32,
+          "mean_adjacent_selected_overlap": 0.24021899606299213
+        },
+        {
+          "dead_experts": 0,
+          "max_to_mean_load": 1.28125,
+          "distinct_experts": 32,
+          "mean_adjacent_selected_overlap": 0.2503075787401575
+        },
+        {
+          "dead_experts": 0,
+          "max_to_mean_load": 1.19921875,
+          "distinct_experts": 32,
+          "mean_adjacent_selected_overlap": 0.2639025590551181
+        },
+        {
+          "dead_experts": 0,
+          "max_to_mean_load": 1.248046875,
+          "distinct_experts": 32,
+          "mean_adjacent_selected_overlap": 0.26580954724409445
+        },
+        {
+          "dead_experts": 0,
+          "max_to_mean_load": 1.416015625,
+          "distinct_experts": 32,
+          "mean_adjacent_selected_overlap": 0.2815575787401575
+        },
+        {
+          "dead_experts": 0,
+          "max_to_mean_load": 1.4765625,
+          "distinct_experts": 32,
+          "mean_adjacent_selected_overlap": 0.2547982283464567
+        }
+      ],
+      "samples": [
+        {
+          "validation_offset": 512,
+          "triple_8gram": false,
+          "max_8gram_count": 2,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.59375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2618110236220472
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.5,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.23818897637795275
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.59375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2372047244094488
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.8125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2559055118110236
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.59375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2992125984251969
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.25,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.30118110236220474
+            }
+          ]
+        },
+        {
+          "validation_offset": 2560,
+          "triple_8gram": false,
+          "max_8gram_count": 1,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.25,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.23031496062992127
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.46875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.25688976377952755
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.40625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2608267716535433
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.6875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.25196850393700787
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.78125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2765748031496063
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.8125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2549212598425197
+            }
+          ]
+        },
+        {
+          "validation_offset": 4608,
+          "triple_8gram": false,
+          "max_8gram_count": 1,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.40625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2677165354330709
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.90625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.25
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.8125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.29232283464566927
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.3198818897637795
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.03125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2824803149606299
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.90625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.24311023622047245
+            }
+          ]
+        },
+        {
+          "validation_offset": 6656,
+          "triple_8gram": false,
+          "max_8gram_count": 1,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.3125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.22440944881889763
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.40625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.24015748031496062
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.6875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.26673228346456695
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.25688976377952755
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.96875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2706692913385827
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.15625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.24901574803149606
+            }
+          ]
+        },
+        {
+          "validation_offset": 8704,
+          "triple_8gram": true,
+          "max_8gram_count": 3,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.40625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2529527559055118
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.59375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.23326771653543307
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.78125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.281496062992126
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.9375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.21948818897637795
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.71875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2824803149606299
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.9375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.23917322834645668
+            }
+          ]
+        },
+        {
+          "validation_offset": 10752,
+          "triple_8gram": true,
+          "max_8gram_count": 5,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2637795275590551
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.4375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2933070866141732
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.90625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.3228346456692913
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2736220472440945
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.0,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2933070866141732
+            },
+            {
+              "dead_experts": 1,
+              "max_to_mean_load": 2.375,
+              "distinct_experts": 31,
+              "mean_adjacent_selected_overlap": 0.32381889763779526
+            }
+          ]
+        },
+        {
+          "validation_offset": 12800,
+          "triple_8gram": false,
+          "max_8gram_count": 2,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.4375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.23622047244094488
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.34375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2470472440944882
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.5625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.24507874015748032
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.9375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.29232283464566927
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.84375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2440944881889764
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.28125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.26476377952755903
+            }
+          ]
+        },
+        {
+          "validation_offset": 14848,
+          "triple_8gram": false,
+          "max_8gram_count": 2,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.28125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.22145669291338582
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.6875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.22933070866141733
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.4375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2608267716535433
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.0625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.27165354330708663
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.8125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.25
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.34375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.25688976377952755
+            }
+          ]
+        },
+        {
+          "validation_offset": 16896,
+          "triple_8gram": true,
+          "max_8gram_count": 3,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.46875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.25984251968503935
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.71875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2992125984251969
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.53125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.25
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.96875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2529527559055118
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.23818897637795275
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.0625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.23523622047244094
+            }
+          ]
+        },
+        {
+          "validation_offset": 18944,
+          "triple_8gram": false,
+          "max_8gram_count": 2,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.65625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.22145669291338582
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.71875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2047244094488189
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.6875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.22933070866141733
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.65625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2618110236220472
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.84375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2824803149606299
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.1875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.26968503937007876
+            }
+          ]
+        },
+        {
+          "validation_offset": 20992,
+          "triple_8gram": false,
+          "max_8gram_count": 2,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.24507874015748032
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.40625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.23818897637795275
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.53125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2952755905511811
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.71875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.27165354330708663
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.59375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2795275590551181
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.0625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.24606299212598426
+            }
+          ]
+        },
+        {
+          "validation_offset": 23040,
+          "triple_8gram": false,
+          "max_8gram_count": 1,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.40625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.22539370078740156
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.6875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2706692913385827
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.46875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2578740157480315
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.75,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2677165354330709
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.30413385826771655
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.65625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.24015748031496062
+            }
+          ]
+        },
+        {
+          "validation_offset": 25088,
+          "triple_8gram": false,
+          "max_8gram_count": 1,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.24803149606299213
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.5,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.25688976377952755
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.46875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.25
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.53125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2706692913385827
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.78125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.3218503937007874
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.09375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2421259842519685
+            }
+          ]
+        },
+        {
+          "validation_offset": 27136,
+          "triple_8gram": false,
+          "max_8gram_count": 2,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.5,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.22145669291338582
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.5,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2312992125984252
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.6875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.27755905511811024
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.78125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2637795275590551
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.34375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.30118110236220474
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.96875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.24114173228346455
+            }
+          ]
+        },
+        {
+          "validation_offset": 29184,
+          "triple_8gram": false,
+          "max_8gram_count": 2,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.59375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.21751968503937008
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.53125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2470472440944882
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.40625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.25393700787401574
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.46875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.26968503937007876
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.6875,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2844488188976378
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.625,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2608267716535433
+            }
+          ]
+        },
+        {
+          "validation_offset": 31232,
+          "triple_8gram": false,
+          "max_8gram_count": 2,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.5,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.24606299212598426
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.28125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2687007874015748
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.53125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.24114173228346455
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.9375,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.2529527559055118
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.75,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.29429133858267714
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 1.8125,
+              "distinct_experts": 32,
+              "mean_adjacent_selected_overlap": 0.20866141732283464
+            }
+          ]
+        }
+      ]
+    },
+    "e128": {
+      "route_file_sha256": "7ec85f81eb19c45bfea101d2b5dc42cfea38aa42f184713d3830f165b3a76350",
+      "generation_file_sha256": "678a6d8d69d22fdad3c99a495acb6f17d3c0bc12946715b177317e5cc3157c83",
+      "triple_8gram_continuations": 10,
+      "validation_iid_expected_adjacent_overlap": 0.0625,
+      "per_layer": [
+        {
+          "dead_experts": 0,
+          "max_to_mean_load": 1.734375,
+          "distinct_experts": 128,
+          "mean_adjacent_selected_overlap": 0.05105807086614174
+        },
+        {
+          "dead_experts": 0,
+          "max_to_mean_load": 1.6484375,
+          "distinct_experts": 128,
+          "mean_adjacent_selected_overlap": 0.05862450787401575
+        },
+        {
+          "dead_experts": 0,
+          "max_to_mean_load": 1.8984375,
+          "distinct_experts": 128,
+          "mean_adjacent_selected_overlap": 0.057517224409448814
+        },
+        {
+          "dead_experts": 0,
+          "max_to_mean_load": 1.78125,
+          "distinct_experts": 128,
+          "mean_adjacent_selected_overlap": 0.07400344488188976
+        },
+        {
+          "dead_experts": 0,
+          "max_to_mean_load": 2.328125,
+          "distinct_experts": 128,
+          "mean_adjacent_selected_overlap": 0.07166584645669291
+        },
+        {
+          "dead_experts": 0,
+          "max_to_mean_load": 2.3984375,
+          "distinct_experts": 128,
+          "mean_adjacent_selected_overlap": 0.06748277559055119
+        }
+      ],
+      "samples": [
+        {
+          "validation_offset": 512,
+          "triple_8gram": true,
+          "max_8gram_count": 9,
+          "layers": [
+            {
+              "dead_experts": 26,
+              "max_to_mean_load": 7.125,
+              "distinct_experts": 102,
+              "mean_adjacent_selected_overlap": 0.08759842519685039
+            },
+            {
+              "dead_experts": 16,
+              "max_to_mean_load": 4.875,
+              "distinct_experts": 112,
+              "mean_adjacent_selected_overlap": 0.03543307086614173
+            },
+            {
+              "dead_experts": 26,
+              "max_to_mean_load": 6.0,
+              "distinct_experts": 102,
+              "mean_adjacent_selected_overlap": 0.058070866141732284
+            },
+            {
+              "dead_experts": 26,
+              "max_to_mean_load": 5.25,
+              "distinct_experts": 102,
+              "mean_adjacent_selected_overlap": 0.08759842519685039
+            },
+            {
+              "dead_experts": 22,
+              "max_to_mean_load": 6.0,
+              "distinct_experts": 106,
+              "mean_adjacent_selected_overlap": 0.07480314960629922
+            },
+            {
+              "dead_experts": 29,
+              "max_to_mean_load": 5.125,
+              "distinct_experts": 99,
+              "mean_adjacent_selected_overlap": 0.06791338582677166
+            }
+          ]
+        },
+        {
+          "validation_offset": 2560,
+          "triple_8gram": false,
+          "max_8gram_count": 2,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.5,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.05216535433070866
+            },
+            {
+              "dead_experts": 1,
+              "max_to_mean_load": 2.25,
+              "distinct_experts": 127,
+              "mean_adjacent_selected_overlap": 0.07283464566929133
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 3.25,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.05610236220472441
+            },
+            {
+              "dead_experts": 1,
+              "max_to_mean_load": 3.375,
+              "distinct_experts": 127,
+              "mean_adjacent_selected_overlap": 0.08366141732283465
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.75,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.08464566929133858
+            },
+            {
+              "dead_experts": 1,
+              "max_to_mean_load": 4.5,
+              "distinct_experts": 127,
+              "mean_adjacent_selected_overlap": 0.09350393700787402
+            }
+          ]
+        },
+        {
+          "validation_offset": 4608,
+          "triple_8gram": true,
+          "max_8gram_count": 4,
+          "layers": [
+            {
+              "dead_experts": 3,
+              "max_to_mean_load": 2.625,
+              "distinct_experts": 125,
+              "mean_adjacent_selected_overlap": 0.04822834645669291
+            },
+            {
+              "dead_experts": 5,
+              "max_to_mean_load": 3.75,
+              "distinct_experts": 123,
+              "mean_adjacent_selected_overlap": 0.0688976377952756
+            },
+            {
+              "dead_experts": 7,
+              "max_to_mean_load": 3.125,
+              "distinct_experts": 121,
+              "mean_adjacent_selected_overlap": 0.06200787401574803
+            },
+            {
+              "dead_experts": 13,
+              "max_to_mean_load": 5.375,
+              "distinct_experts": 115,
+              "mean_adjacent_selected_overlap": 0.06791338582677166
+            },
+            {
+              "dead_experts": 6,
+              "max_to_mean_load": 3.875,
+              "distinct_experts": 122,
+              "mean_adjacent_selected_overlap": 0.06200787401574803
+            },
+            {
+              "dead_experts": 19,
+              "max_to_mean_load": 4.125,
+              "distinct_experts": 109,
+              "mean_adjacent_selected_overlap": 0.05708661417322835
+            }
+          ]
+        },
+        {
+          "validation_offset": 6656,
+          "triple_8gram": true,
+          "max_8gram_count": 3,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.0,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.058070866141732284
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 3.75,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.07578740157480315
+            },
+            {
+              "dead_experts": 1,
+              "max_to_mean_load": 3.375,
+              "distinct_experts": 127,
+              "mean_adjacent_selected_overlap": 0.06692913385826772
+            },
+            {
+              "dead_experts": 1,
+              "max_to_mean_load": 4.0,
+              "distinct_experts": 127,
+              "mean_adjacent_selected_overlap": 0.08858267716535433
+            },
+            {
+              "dead_experts": 2,
+              "max_to_mean_load": 3.875,
+              "distinct_experts": 126,
+              "mean_adjacent_selected_overlap": 0.08366141732283465
+            },
+            {
+              "dead_experts": 5,
+              "max_to_mean_load": 5.75,
+              "distinct_experts": 123,
+              "mean_adjacent_selected_overlap": 0.06299212598425197
+            }
+          ]
+        },
+        {
+          "validation_offset": 8704,
+          "triple_8gram": true,
+          "max_8gram_count": 5,
+          "layers": [
+            {
+              "dead_experts": 2,
+              "max_to_mean_load": 3.125,
+              "distinct_experts": 126,
+              "mean_adjacent_selected_overlap": 0.04133858267716536
+            },
+            {
+              "dead_experts": 4,
+              "max_to_mean_load": 2.75,
+              "distinct_experts": 124,
+              "mean_adjacent_selected_overlap": 0.0688976377952756
+            },
+            {
+              "dead_experts": 7,
+              "max_to_mean_load": 4.0,
+              "distinct_experts": 121,
+              "mean_adjacent_selected_overlap": 0.05511811023622047
+            },
+            {
+              "dead_experts": 4,
+              "max_to_mean_load": 2.75,
+              "distinct_experts": 124,
+              "mean_adjacent_selected_overlap": 0.0797244094488189
+            },
+            {
+              "dead_experts": 4,
+              "max_to_mean_load": 4.375,
+              "distinct_experts": 124,
+              "mean_adjacent_selected_overlap": 0.058070866141732284
+            },
+            {
+              "dead_experts": 10,
+              "max_to_mean_load": 5.125,
+              "distinct_experts": 118,
+              "mean_adjacent_selected_overlap": 0.09153543307086615
+            }
+          ]
+        },
+        {
+          "validation_offset": 10752,
+          "triple_8gram": true,
+          "max_8gram_count": 6,
+          "layers": [
+            {
+              "dead_experts": 4,
+              "max_to_mean_load": 3.75,
+              "distinct_experts": 124,
+              "mean_adjacent_selected_overlap": 0.04133858267716536
+            },
+            {
+              "dead_experts": 6,
+              "max_to_mean_load": 3.875,
+              "distinct_experts": 122,
+              "mean_adjacent_selected_overlap": 0.051181102362204724
+            },
+            {
+              "dead_experts": 7,
+              "max_to_mean_load": 3.625,
+              "distinct_experts": 121,
+              "mean_adjacent_selected_overlap": 0.07775590551181102
+            },
+            {
+              "dead_experts": 8,
+              "max_to_mean_load": 3.75,
+              "distinct_experts": 120,
+              "mean_adjacent_selected_overlap": 0.08858267716535433
+            },
+            {
+              "dead_experts": 8,
+              "max_to_mean_load": 6.75,
+              "distinct_experts": 120,
+              "mean_adjacent_selected_overlap": 0.08759842519685039
+            },
+            {
+              "dead_experts": 11,
+              "max_to_mean_load": 5.875,
+              "distinct_experts": 117,
+              "mean_adjacent_selected_overlap": 0.08464566929133858
+            }
+          ]
+        },
+        {
+          "validation_offset": 12800,
+          "triple_8gram": true,
+          "max_8gram_count": 3,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.375,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.03740157480314961
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.625,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.06496062992125984
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.625,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.07677165354330709
+            },
+            {
+              "dead_experts": 2,
+              "max_to_mean_load": 5.375,
+              "distinct_experts": 126,
+              "mean_adjacent_selected_overlap": 0.08366141732283465
+            },
+            {
+              "dead_experts": 1,
+              "max_to_mean_load": 3.0,
+              "distinct_experts": 127,
+              "mean_adjacent_selected_overlap": 0.08267716535433071
+            },
+            {
+              "dead_experts": 2,
+              "max_to_mean_load": 3.75,
+              "distinct_experts": 126,
+              "mean_adjacent_selected_overlap": 0.07578740157480315
+            }
+          ]
+        },
+        {
+          "validation_offset": 14848,
+          "triple_8gram": false,
+          "max_8gram_count": 2,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 3.5,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.06496062992125984
+            },
+            {
+              "dead_experts": 2,
+              "max_to_mean_load": 3.625,
+              "distinct_experts": 126,
+              "mean_adjacent_selected_overlap": 0.06988188976377953
+            },
+            {
+              "dead_experts": 2,
+              "max_to_mean_load": 4.125,
+              "distinct_experts": 126,
+              "mean_adjacent_selected_overlap": 0.03937007874015748
+            },
+            {
+              "dead_experts": 6,
+              "max_to_mean_load": 5.125,
+              "distinct_experts": 122,
+              "mean_adjacent_selected_overlap": 0.08956692913385826
+            },
+            {
+              "dead_experts": 10,
+              "max_to_mean_load": 6.125,
+              "distinct_experts": 118,
+              "mean_adjacent_selected_overlap": 0.0984251968503937
+            },
+            {
+              "dead_experts": 15,
+              "max_to_mean_load": 5.375,
+              "distinct_experts": 113,
+              "mean_adjacent_selected_overlap": 0.08169291338582677
+            }
+          ]
+        },
+        {
+          "validation_offset": 16896,
+          "triple_8gram": true,
+          "max_8gram_count": 6,
+          "layers": [
+            {
+              "dead_experts": 3,
+              "max_to_mean_load": 3.25,
+              "distinct_experts": 125,
+              "mean_adjacent_selected_overlap": 0.0531496062992126
+            },
+            {
+              "dead_experts": 1,
+              "max_to_mean_load": 3.375,
+              "distinct_experts": 127,
+              "mean_adjacent_selected_overlap": 0.04921259842519685
+            },
+            {
+              "dead_experts": 2,
+              "max_to_mean_load": 3.625,
+              "distinct_experts": 126,
+              "mean_adjacent_selected_overlap": 0.05019685039370079
+            },
+            {
+              "dead_experts": 5,
+              "max_to_mean_load": 3.125,
+              "distinct_experts": 123,
+              "mean_adjacent_selected_overlap": 0.06692913385826772
+            },
+            {
+              "dead_experts": 1,
+              "max_to_mean_load": 3.625,
+              "distinct_experts": 127,
+              "mean_adjacent_selected_overlap": 0.08956692913385826
+            },
+            {
+              "dead_experts": 7,
+              "max_to_mean_load": 4.375,
+              "distinct_experts": 121,
+              "mean_adjacent_selected_overlap": 0.0639763779527559
+            }
+          ]
+        },
+        {
+          "validation_offset": 18944,
+          "triple_8gram": true,
+          "max_8gram_count": 7,
+          "layers": [
+            {
+              "dead_experts": 19,
+              "max_to_mean_load": 4.75,
+              "distinct_experts": 109,
+              "mean_adjacent_selected_overlap": 0.03346456692913386
+            },
+            {
+              "dead_experts": 17,
+              "max_to_mean_load": 3.375,
+              "distinct_experts": 111,
+              "mean_adjacent_selected_overlap": 0.0344488188976378
+            },
+            {
+              "dead_experts": 25,
+              "max_to_mean_load": 4.625,
+              "distinct_experts": 103,
+              "mean_adjacent_selected_overlap": 0.0639763779527559
+            },
+            {
+              "dead_experts": 36,
+              "max_to_mean_load": 5.875,
+              "distinct_experts": 92,
+              "mean_adjacent_selected_overlap": 0.0688976377952756
+            },
+            {
+              "dead_experts": 23,
+              "max_to_mean_load": 9.5,
+              "distinct_experts": 105,
+              "mean_adjacent_selected_overlap": 0.0639763779527559
+            },
+            {
+              "dead_experts": 33,
+              "max_to_mean_load": 6.875,
+              "distinct_experts": 95,
+              "mean_adjacent_selected_overlap": 0.04822834645669291
+            }
+          ]
+        },
+        {
+          "validation_offset": 20992,
+          "triple_8gram": true,
+          "max_8gram_count": 5,
+          "layers": [
+            {
+              "dead_experts": 25,
+              "max_to_mean_load": 5.5,
+              "distinct_experts": 103,
+              "mean_adjacent_selected_overlap": 0.04232283464566929
+            },
+            {
+              "dead_experts": 23,
+              "max_to_mean_load": 3.875,
+              "distinct_experts": 105,
+              "mean_adjacent_selected_overlap": 0.04232283464566929
+            },
+            {
+              "dead_experts": 27,
+              "max_to_mean_load": 6.25,
+              "distinct_experts": 101,
+              "mean_adjacent_selected_overlap": 0.038385826771653545
+            },
+            {
+              "dead_experts": 33,
+              "max_to_mean_load": 6.125,
+              "distinct_experts": 95,
+              "mean_adjacent_selected_overlap": 0.0531496062992126
+            },
+            {
+              "dead_experts": 30,
+              "max_to_mean_load": 5.5,
+              "distinct_experts": 98,
+              "mean_adjacent_selected_overlap": 0.03937007874015748
+            },
+            {
+              "dead_experts": 35,
+              "max_to_mean_load": 4.875,
+              "distinct_experts": 93,
+              "mean_adjacent_selected_overlap": 0.05511811023622047
+            }
+          ]
+        },
+        {
+          "validation_offset": 23040,
+          "triple_8gram": false,
+          "max_8gram_count": 1,
+          "layers": [
+            {
+              "dead_experts": 1,
+              "max_to_mean_load": 2.125,
+              "distinct_experts": 127,
+              "mean_adjacent_selected_overlap": 0.0531496062992126
+            },
+            {
+              "dead_experts": 2,
+              "max_to_mean_load": 2.125,
+              "distinct_experts": 126,
+              "mean_adjacent_selected_overlap": 0.05708661417322835
+            },
+            {
+              "dead_experts": 1,
+              "max_to_mean_load": 2.875,
+              "distinct_experts": 127,
+              "mean_adjacent_selected_overlap": 0.05708661417322835
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.375,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.0531496062992126
+            },
+            {
+              "dead_experts": 1,
+              "max_to_mean_load": 3.625,
+              "distinct_experts": 127,
+              "mean_adjacent_selected_overlap": 0.05708661417322835
+            },
+            {
+              "dead_experts": 2,
+              "max_to_mean_load": 3.875,
+              "distinct_experts": 126,
+              "mean_adjacent_selected_overlap": 0.05610236220472441
+            }
+          ]
+        },
+        {
+          "validation_offset": 25088,
+          "triple_8gram": false,
+          "max_8gram_count": 2,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.125,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.051181102362204724
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.25,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.06692913385826772
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.875,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.05708661417322835
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 3.0,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.06791338582677166
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 3.625,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.06496062992125984
+            },
+            {
+              "dead_experts": 3,
+              "max_to_mean_load": 3.375,
+              "distinct_experts": 125,
+              "mean_adjacent_selected_overlap": 0.05511811023622047
+            }
+          ]
+        },
+        {
+          "validation_offset": 27136,
+          "triple_8gram": false,
+          "max_8gram_count": 1,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.0,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.047244094488188976
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.25,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.05216535433070866
+            },
+            {
+              "dead_experts": 1,
+              "max_to_mean_load": 2.75,
+              "distinct_experts": 127,
+              "mean_adjacent_selected_overlap": 0.05610236220472441
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.375,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.07086614173228346
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.625,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.06988188976377953
+            },
+            {
+              "dead_experts": 4,
+              "max_to_mean_load": 3.5,
+              "distinct_experts": 124,
+              "mean_adjacent_selected_overlap": 0.06496062992125984
+            }
+          ]
+        },
+        {
+          "validation_offset": 29184,
+          "triple_8gram": true,
+          "max_8gram_count": 3,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.0,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.04921259842519685
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.375,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.07677165354330709
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 3.125,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.054133858267716536
+            },
+            {
+              "dead_experts": 1,
+              "max_to_mean_load": 2.75,
+              "distinct_experts": 127,
+              "mean_adjacent_selected_overlap": 0.06988188976377953
+            },
+            {
+              "dead_experts": 2,
+              "max_to_mean_load": 3.75,
+              "distinct_experts": 126,
+              "mean_adjacent_selected_overlap": 0.07480314960629922
+            },
+            {
+              "dead_experts": 6,
+              "max_to_mean_load": 4.5,
+              "distinct_experts": 122,
+              "mean_adjacent_selected_overlap": 0.06791338582677166
+            }
+          ]
+        },
+        {
+          "validation_offset": 31232,
+          "triple_8gram": false,
+          "max_8gram_count": 1,
+          "layers": [
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.25,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.05610236220472441
+            },
+            {
+              "dead_experts": 1,
+              "max_to_mean_load": 2.25,
+              "distinct_experts": 127,
+              "mean_adjacent_selected_overlap": 0.051181102362204724
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.5,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.051181102362204724
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.25,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.0639763779527559
+            },
+            {
+              "dead_experts": 0,
+              "max_to_mean_load": 2.625,
+              "distinct_experts": 128,
+              "mean_adjacent_selected_overlap": 0.05511811023622047
+            },
+            {
+              "dead_experts": 4,
+              "max_to_mean_load": 3.0,
+              "distinct_experts": 124,
+              "mean_adjacent_selected_overlap": 0.0531496062992126
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

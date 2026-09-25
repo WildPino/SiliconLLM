@@ -1,0 +1,44 @@
+Phase59 MoE | arm=moe-gran | active_hid=1024 total_hid=16384 (E=128 hid_e=128 top-8) | sparse=True dev=cuda:0 amp=torch.bfloat16
+  params=79.288M | load_balance_w=0.01 lam_coh=0.0 | sparsified 6 MLP blocks | ckpt(mix)=True
+  baselines: A dense-1024 (sp58_base) BPB 0.8799 | ternary 0.8382 | probe-2 dReLU 0.8813
+== training (CE + Switch load-balance aux) ==
+  step     1/4000  ce=7.0176 aux=0.0745 load=1.224  gnorm=1.61  (7398 ms)  | val BPB=3.7164
+  step   200/4000  ce=1.9063 aux=0.0618 load=1.032  gnorm=0.34  (24463 ms)
+  step   400/4000  ce=1.6523 aux=0.0619 load=1.041  gnorm=0.28  (23987 ms)  | val BPB=1.2000
+  step   600/4000  ce=1.5611 aux=0.0617 load=1.025  gnorm=0.22  (24067 ms)
+  step   800/4000  ce=1.4779 aux=0.0618 load=1.025  gnorm=0.22  (23557 ms)  | val BPB=1.0737
+  step  1000/4000  ce=1.4345 aux=0.0616 load=1.023  gnorm=0.22  (23623 ms)
+  step  1200/4000  ce=1.4227 aux=0.0615 load=1.030  gnorm=0.20  (24052 ms)  | val BPB=1.0079
+  step  1400/4000  ce=1.3536 aux=0.0615 load=1.022  gnorm=0.23  (23420 ms)
+  step  1600/4000  ce=1.3215 aux=0.0613 load=1.028  gnorm=0.19  (26655 ms)  | val BPB=0.9556
+  step  1800/4000  ce=1.2193 aux=0.0615 load=1.023  gnorm=0.18  (23455 ms)
+  step  2000/4000  ce=1.2814 aux=0.0611 load=1.016  gnorm=0.18  (25886 ms)  | val BPB=0.9228
+  step  2200/4000  ce=1.2340 aux=0.0611 load=1.014  gnorm=0.17  (29674 ms)
+  step  2400/4000  ce=1.2982 aux=0.0612 load=1.020  gnorm=0.18  (24292 ms)  | val BPB=0.9023
+  step  2600/4000  ce=1.1817 aux=0.0613 load=1.020  gnorm=0.16  (24199 ms)
+  step  2800/4000  ce=1.1505 aux=0.0609 load=1.015  gnorm=0.16  (28465 ms)  | val BPB=0.8752
+  step  3000/4000  ce=1.1450 aux=0.0609 load=1.016  gnorm=0.17  (24083 ms)
+  step  3200/4000  ce=1.2161 aux=0.0609 load=1.015  gnorm=0.16  (23249 ms)  | val BPB=0.8662
+  step  3400/4000  ce=1.1853 aux=0.0609 load=1.023  gnorm=0.17  (23862 ms)
+  step  3600/4000  ce=1.1124 aux=0.0609 load=1.012  gnorm=0.16  (23018 ms)  | val BPB=0.8517
+  step  3800/4000  ce=1.1699 aux=0.0608 load=1.014  gnorm=0.17  (23047 ms)
+  step  4000/4000  ce=1.1385 aux=0.0609 load=1.010  gnorm=0.17  (23299 ms)  | val BPB=0.8412
+== RESULTS ==
+  arm=moe-gran  val BPB=0.8425  | vs A dense-1024 (0.8799) -> -0.0374  (capture/headroom: Architect vs B)
+  layer    E   k  dead  max/mean  persist% ws@8  ws@16 ws@32  rec_in% rec_ahead%   Hnorm     gap@k
+  ------------------------------------------------------------------------------------------------
+      0  128   8     0     1.33x      5.3%   40%   63%   85%    73.3%      35.0%   0.934   0.00075
+      1  128   8     0     1.39x      6.3%   39%   63%   85%    73.9%      36.6%   0.925   0.00079
+      2  128   8     0     1.48x      6.8%   38%   60%   82%    73.9%      35.4%   0.911   0.00088
+      3  128   8     0     1.50x      8.1%   37%   58%   80%    73.0%      36.6%   0.904   0.00097
+      4  128   8     0     1.45x      7.2%   38%   59%   81%    73.2%      40.2%   0.914   0.00094
+      5  128   8     0     1.92x      8.0%   36%   56%   76%    72.7%      41.2%   0.906   0.00090
+  reading: dead=0 & max/mean<~3x = router OK | ws=|union experts|/E over N pos (sub-linear -> L3-fit) | rec_in = router predictable in-place
+  train exposure layer=0: selections=262144000 min/mean/max=1949978/2048000.0/2237426 dead=0
+  train exposure layer=1: selections=262144000 min/mean/max=1952219/2048000.0/2169220 dead=0
+  train exposure layer=2: selections=262144000 min/mean/max=1913268/2048000.0/2237232 dead=0
+  train exposure layer=3: selections=262144000 min/mean/max=1944750/2048000.0/2220577 dead=0
+  train exposure layer=4: selections=262144000 min/mean/max=1943867/2048000.0/2395361 dead=0
+  train exposure layer=5: selections=262144000 min/mean/max=1851797/2048000.0/2482172 dead=0
+  saved -> results\native_expert_scaling\nes01_e128_final.pt
+STOP. quality + 5 measures above. No kernel, no commit.

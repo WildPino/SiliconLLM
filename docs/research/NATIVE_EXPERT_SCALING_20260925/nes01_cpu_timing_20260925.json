@@ -1,0 +1,83 @@
+{
+  "schema": "nes01_cpu_timing_v1",
+  "conditions": "Ryzen 5 3600X; clang 21.1.8 -O3 -mavx2 -mfma -march=znver2 -fopenmp; 6 threads; byte-packed code; LUT+fast; 3000 validation-slice input tokens per run; one warmup plus three timed invocations per arm",
+  "scope": "cache-resident small pilot; not a 10B/100B or accepted-autoregressive-rate measurement",
+  "arms": {
+    "e32": {
+      "raw_log_sha256": "716e5b1f897cd137fdf7cd49afd24636db01434fd548d3918f68b9400744835f",
+      "ternary_code_bytes": 9437184,
+      "runs": [
+        {
+          "tokens_per_second": 1101.0,
+          "total_us_per_token": 908.3,
+          "router_selection_us_per_token": 14.8,
+          "selected_expert_us_per_token": 443.6
+        },
+        {
+          "tokens_per_second": 895.3,
+          "total_us_per_token": 1116.9,
+          "router_selection_us_per_token": 15.8,
+          "selected_expert_us_per_token": 567.2
+        },
+        {
+          "tokens_per_second": 1110.7,
+          "total_us_per_token": 900.3,
+          "router_selection_us_per_token": 14.2,
+          "selected_expert_us_per_token": 444.6
+        },
+        {
+          "tokens_per_second": 1090.8,
+          "total_us_per_token": 916.8,
+          "router_selection_us_per_token": 14.4,
+          "selected_expert_us_per_token": 456.4
+        }
+      ],
+      "first_run_excluded_as_warmup": true,
+      "median_of_last_three": {
+        "tokens_per_second": 1090.8,
+        "total_us_per_token": 916.8,
+        "router_selection_us_per_token": 14.4,
+        "selected_expert_us_per_token": 456.4
+      }
+    },
+    "e128": {
+      "raw_log_sha256": "4f3533e52ee70e41896f6482d07adefd6284a94afa217723f978842959cbaf56",
+      "ternary_code_bytes": 37748736,
+      "runs": [
+        {
+          "tokens_per_second": 911.7,
+          "total_us_per_token": 1096.8,
+          "router_selection_us_per_token": 52.1,
+          "selected_expert_us_per_token": 580.2
+        },
+        {
+          "tokens_per_second": 782.5,
+          "total_us_per_token": 1278.0,
+          "router_selection_us_per_token": 56.4,
+          "selected_expert_us_per_token": 688.3
+        },
+        {
+          "tokens_per_second": 917.6,
+          "total_us_per_token": 1089.8,
+          "router_selection_us_per_token": 52.1,
+          "selected_expert_us_per_token": 576.6
+        },
+        {
+          "tokens_per_second": 910.9,
+          "total_us_per_token": 1097.9,
+          "router_selection_us_per_token": 51.7,
+          "selected_expert_us_per_token": 588.0
+        }
+      ],
+      "first_run_excluded_as_warmup": true,
+      "median_of_last_three": {
+        "tokens_per_second": 910.9,
+        "total_us_per_token": 1097.9,
+        "router_selection_us_per_token": 52.1,
+        "selected_expert_us_per_token": 588.0
+      }
+    }
+  },
+  "median_latency_ratio_e128_over_e32": 1.1975349040139618,
+  "pilot_gate_e128_latency_at_most_1_25_e32": true
+}

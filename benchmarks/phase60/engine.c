@@ -106,9 +106,14 @@ static double now_s(void){ struct timespec ts; clock_gettime(CLOCK_MONOTONIC,&ts
 #define TUP  (D/2)
 #define TDN  (MLP_HID/2)
 // MoE (E4M1)
+#ifndef E
 #define E    32
+#endif
 #define HID_E 128
 #define KTOP 8
+#if E < KTOP
+#error E must be at least KTOP
+#endif
 #define GH   (E*HID_E)
 #define MPAD_GU ((GH+31)&~31)
 #define MPAD_D  ((D+31)&~31)
@@ -350,13 +355,15 @@ static int8_t g_xq[D],g_lut[TUP*16],g_hq[HID_E],g_lutd[TDE*16]; static int32_t g
 // V-G3b expert-selection capture: when g_esel_cap!=NULL the router writes this position's KTOP experts per layer
 // into g_esel_cap[l*KTOP..] — used to count the per-block expert UNION touched (block layer-major) vs token-by-token.
 static int* g_esel_cap=NULL;
-static void mlp_moe(int l,const float* xn,float* out,int mlp_lut){
+static void mlp_moe(int l,const float* xn,float* out,int mlp_lut,double* router_time){
+    double router_start=router_time?now_s():0;
     float rp[E]; for(int e=0;e<E;e++) rp[e]=dotf(router_w[l]+(size_t)e*D,xn,D)+router_b[l][e];
     float mx=-1e30f; for(int e=0;e<E;e++) if(rp[e]>mx)mx=rp[e];
     float Z=0; for(int e=0;e<E;e++){ rp[e]=expf(rp[e]-mx); Z+=rp[e]; } for(int e=0;e<E;e++) rp[e]/=Z;
     int idx[KTOP]; float wv[KTOP]; topk_sel(rp,E,KTOP,idx,wv);
     if(g_esel_cap) for(int j=0;j<KTOP;j++) g_esel_cap[l*KTOP+j]=idx[j];
     float ws=0; for(int j=0;j<KTOP;j++) ws+=wv[j]; for(int j=0;j<KTOP;j++) wv[j]/=ws;
+    if(router_time)*router_time+=now_s()-router_start;
     memset(out,0,D*4);
     float sa=0; if(mlp_lut){ sa=quant_i8(xn,D,g_xq); build_lut_t3(g_xq,TUP,g_lut); }
     for(int j=0;j<KTOP;j++){ int e=idx[j]; float tw=wv[j]; float he[HID_E];
@@ -384,7 +391,7 @@ static void mlp_moe(int l,const float* xn,float* out,int mlp_lut){
 // invariant "each weight streamed 1x/block" that snapshot+re-forward violated. ~28KB/position (~226KB at K=8), L2-fit.
 typedef struct { float xraw[L][DN]; float dt[L][DN]; float Bm[L][N]; float kk[D]; float vv[D]; } ActPos;
 static ActPos* g_cap=NULL;   // non-NULL -> forward_token stashes this position's recurrence inputs for replay-commit
-typedef struct { double scan,scan_other,swa,mlp,head,norm; } Tacc;  // 64.0(b): +norm bucket (rmsnorm glue, was in untimed remainder)
+typedef struct { double scan,scan_other,swa,mlp,head,norm,router; } Tacc;  // router is a measured subset of mlp
 // cfg: mlp_lut (0 fp32 / 1 LUT), skip (dense only), exp_fast (0 exact / 1 poly)
 static void forward_token(uint32_t tok,float* logits,int mlp_lut,int skip,int exp_fast,Tacc* T){
     float x[D],xn[D],xz[2*DN],xx[DN],z[DN],dbl[DTR+2*N],dt[DN],y[DN],q[D],kk[D],vvv[D],att[WIN],ao[D],tmp[D];
@@ -439,7 +446,7 @@ static void forward_token(uint32_t tok,float* logits,int mlp_lut,int skip,int ex
         if(T)t0=now_s();
         rmsnorm(x, mlp_n2[l], xn);
         if(T){T->norm+=now_s()-t0; t0=now_s();}
-        if(g_moe) mlp_moe(l,xn,tmp,mlp_lut); else mlp_dense(l,xn,tmp,mlp_lut,skip);
+        if(g_moe) mlp_moe(l,xn,tmp,mlp_lut,T?&T->router:NULL); else mlp_dense(l,xn,tmp,mlp_lut,skip);
         for(int i=0;i<D;i++) x[i]+=tmp[i];
         if(T)T->mlp+=now_s()-t0;
     }
@@ -492,7 +499,7 @@ static int gate_logits(long seqW,long ntok_target,int mlp_lut,int skip,int exp_f
 }
 static void timing(long ntok,int mlp_lut,int skip,int exp_fast){
     long ntr=(long)(nids*0.9); uint16_t* val=ids+ntr; float* lg=xmalloc((size_t)V*4);
-    Tacc T={0,0,0,0,0,0}; state_reset(); double t0=now_s();
+    Tacc T={0}; state_reset(); double t0=now_s();
     for(long i=0;i<ntok;i++) forward_token(val[i%100000],lg,mlp_lut,skip,exp_fast,&T);
     double tot=now_s()-t0; double sc=1e6/ntok;
     printf("==== timing (%s, mlp=%s skip=%d exp=%s, %ld tok): %.1f tok/s | %.1f us/tok ====\n",
@@ -501,7 +508,46 @@ static void timing(long ntok,int mlp_lut,int skip,int exp_fast){
     double acc=T.scan+T.scan_other+T.swa+T.mlp+T.head+T.norm, glue=tot-acc;
     printf("   scan-recur %.1f  proj-GEMV %.1f  SWA-attn %.1f  LUT-MLP %.1f  head %.1f  norms %.1f  glue %.1f  (us/tok, total %.1f)\n",
            T.scan*sc,T.scan_other*sc,T.swa*sc,T.mlp*sc,T.head*sc,T.norm*sc,glue*sc,tot*sc);
+    if(g_moe) printf("   MoE router+selection %.1f  selected-expert path %.1f  (us/tok; components of LUT-MLP)\n",
+                     T.router*sc,(T.mlp-T.router)*sc);
     free(lg);
+}
+// NES-01 frozen validation-prefix generation: 16 prefixes x 128 tokens, stride 2048,
+// starting 512 tokens into the held-out suffix; record 128 greedy continuation IDs.
+static void nes01_greedy(const char* path,const char* route_path,int mlp_lut,int skip,int exp_fast){
+    const int np=16,plen=128,glen=128,stride=2048,start=512;
+    long ntr=(long)(nids*0.9),nval=nids-ntr; uint16_t* val=ids+ntr;
+    if(start+(np-1)*stride+plen>=nval){fprintf(stderr,"NES-01 prefixes exceed validation data\n");exit(1);}
+    FILE* f=fopen(path,"wb"); if(!f){fprintf(stderr,"cannot open %s\n",path);exit(1);}
+    FILE* rf=NULL;
+    if(route_path){ rf=fopen(route_path,"wb"); if(!rf){fprintf(stderr,"cannot open %s\n",route_path);exit(1);}
+        uint32_t rh[6]={0x4e523031,(uint32_t)np,(uint32_t)glen,L,KTOP,E};
+        if(fwrite(rh,4,6,rf)!=6){fprintf(stderr,"short route write\n");exit(1);} }
+    uint32_t header[4]={0x4e473031,(uint32_t)np,(uint32_t)plen,(uint32_t)glen};
+    if(fwrite(header,4,4,f)!=4){fprintf(stderr,"short generation write\n");exit(1);}
+    float* lg=xmalloc((size_t)V*4); int captured[L*KTOP];
+    if(rf)g_esel_cap=captured;
+    for(int i=0;i<np;i++){
+        uint32_t off=(uint32_t)(start+i*stride);
+        if(fwrite(&off,4,1,f)!=1){fprintf(stderr,"short generation write\n");exit(1);}
+        if(rf && fwrite(&off,4,1,rf)!=1){fprintf(stderr,"short route write\n");exit(1);}
+        state_reset();
+        for(int p=0;p<plen;p++) forward_token(val[off+p],lg,mlp_lut,skip,exp_fast,NULL);
+        for(int p=0;p<glen;p++){
+            int best=0; for(int o=1;o<V;o++) if(lg[o]>lg[best])best=o;
+            uint16_t token=(uint16_t)best;
+            if(fwrite(&token,2,1,f)!=1){fprintf(stderr,"short generation write\n");exit(1);}
+            if(p+1<glen || rf){
+                forward_token(token,lg,mlp_lut,skip,exp_fast,NULL);
+                if(rf){uint16_t route[L*KTOP]; for(int j=0;j<L*KTOP;j++)route[j]=(uint16_t)captured[j];
+                    if(fwrite(route,2,L*KTOP,rf)!=(size_t)L*KTOP){fprintf(stderr,"short route write\n");exit(1);} }
+            }
+        }
+    }
+    if(fclose(f)!=0){fprintf(stderr,"generation close failed\n");exit(1);}
+    if(rf && fclose(rf)!=0){fprintf(stderr,"route close failed\n");exit(1);}
+    g_esel_cap=NULL;
+    free(lg); printf("NES-01 greedy: %d prefixes x %d tokens -> %s\n",np,glen,path);
 }
 
 // ---------------- 63.V block-verify chassis (n-gram drafter + greedy verify) ----------------
@@ -1365,7 +1411,7 @@ int main(int argc,char**argv){
     if(argc==2 && !strcmp(argv[1],"--strat01-gguf-rung1-selftest")) return strat01_gguf_rung1_selftest();
     int mlp_lut=1,skip=1,exp_fast=1;                 // default = the full optimized config
     int do_bpb=0,do_logits=0,do_tm=0; long seqW=512,eval_tok=200000,ntok=10240,offset=0,timetok=3000;
-    int threads=1; const char* wp=NULL; const char* dumpto=NULL;
+    int threads=1; const char* wp=NULL; const char* dumpto=NULL; const char* nes01_greedy_to=NULL; const char* nes01_route_to=NULL;
     int block=0,gen_verify=0,nseed=3,do_g3b=0,do_g3c=0,do_gemvsweep=0,do_exprate=0,do_expdecomp=0; const char* donor=NULL; long genlen=800,emu_mb=128; const char* ngpath=NULL;
     for(int i=1;i<argc;i++) if(!strcmp(argv[i],"--pack")&&i+1<argc){          // pre-scan: must be set before load_weights
         if(!strcmp(argv[i+1],"nibble")) g_pack_nib=1; else if(!strcmp(argv[i+1],"byte")) g_pack_nib=0;
@@ -1391,6 +1437,8 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--logits")) do_logits=1;
         else if(!strcmp(argv[i],"--timing")) do_tm=1;
         else if(!strcmp(argv[i],"--dumplogits")&&i+1<argc) dumpto=argv[++i];
+        else if(!strcmp(argv[i],"--nes01-greedy-out")&&i+1<argc) nes01_greedy_to=argv[++i];
+        else if(!strcmp(argv[i],"--nes01-route-out")&&i+1<argc) nes01_route_to=argv[++i];
         else if(!strcmp(argv[i],"--seq")&&i+1<argc) seqW=atol(argv[++i]);
         else if(!strcmp(argv[i],"--eval-tok")&&i+1<argc) eval_tok=atol(argv[++i]);
         else if(!strcmp(argv[i],"--ntok")&&i+1<argc) ntok=atol(argv[++i]);
@@ -1430,6 +1478,8 @@ int main(int argc,char**argv){
         if(g_pack_nib){fprintf(stderr,"--g3c is NOT supported under --pack nibble: matvec_lut_full_K (the layer-major weight-once kernel) has no nibble variant. Refusing rather than silently mixing layouts.\n");return 1;}
         run_g3c(ngpath,emu_mb,mlp_lut,skip,exp_fast); }
     if(dumpto) dump_logits(dumpto,seqW,ntok,offset,mlp_lut,skip,exp_fast);
+    if(nes01_route_to && !nes01_greedy_to){fprintf(stderr,"--nes01-route-out requires --nes01-greedy-out\n");return 1;}
+    if(nes01_greedy_to) nes01_greedy(nes01_greedy_to,nes01_route_to,mlp_lut,skip,exp_fast);
     if(do_logits) rc|=gate_logits(seqW,ntok,mlp_lut,skip,exp_fast);
     if(do_bpb){ long nt; double b=run_bpb(seqW,eval_tok,mlp_lut,skip,exp_fast,&nt);
         printf("==== BPB (%ld tok): %.6f ====\n",nt,b); }
