@@ -145,7 +145,10 @@ the stated hardware yardstick. [METH-04](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESU
 specifies a GigaChat BF16→mixed low-bit map at 534.025 MB/token, leaving
 25.975 MB beneath that allotment. This is a plausible payload target, not a
 quality-valid conversion: IQ2_XS on 254 tensors needs donor-specific
-calibration, and the 13.351 ms/token payload floor leaves only 6.649 ms of
+calibration. The pinned quantizer's
+[dry run](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md#pinned-quantizer-dry-run-september-25)
+reproduced all 414 target types without reported fallback but created no
+weights. The 13.351 ms/token payload floor leaves only 6.649 ms of
 the 20 ms total budget. Reuse GigaChat's source binding and Q4 quality
 controls; next freeze calibration, step-zero paired quality and a conversion
 resource/stop budget before producing weights. Then compare the route with a

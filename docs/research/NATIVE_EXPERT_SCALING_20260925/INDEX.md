@@ -106,7 +106,7 @@ SSM/SWA target and passes joint quality/rate.
 | METH-01 | HEADER-DERIVED PAYLOAD | [actual Q4_K_M organ ledger](METH_01_GIGACHAT_Q4_ACTIVE_LEDGER_20260925.md), [raw JSON](meth01_gigachat_q4_active_ledger.json); no decoder or quality measurement |
 | METH-02 | METADATA SCREEN | [Granite H Tiny](METH_02_GRANITE_H_TINY_METADATA_SCREEN_20260925.md): recurrent/sparse candidate; no local weights or quality/rate result |
 | METH-03 | HEADER-DERIVED PAYLOAD | [official Granite Q4 organ ledger](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md), [raw JSON](meth03_granite_q4_active_ledger.json); 8 MB verified Range prefix, no full local weights or quality/rate result |
-| METH-04 | DONOR TRANSFORMATION PREFLIGHT; no weights changed | [result](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md), [frozen map/gate](METH_04_GIGACHAT_LOWBITS_PROTOCOL_20260925.md), [414 tensor overrides](meth04_gigachat_tensor_types.txt), [byte ledger](meth04_gigachat_lowbit_preflight.json) |
+| METH-04 | DONOR TRANSFORMATION PREFLIGHT; quantizer dry run matches map; no weights changed | [result](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md), [frozen map/gate](METH_04_GIGACHAT_LOWBITS_PROTOCOL_20260925.md), [414 tensor overrides](meth04_gigachat_tensor_types.txt), [byte ledger](meth04_gigachat_lowbit_preflight.json), [quantizer log](meth04_gigachat_quantize_dryrun.log) |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -132,7 +132,9 @@ scheduled.
   and freeze BPB, repetition and routing gates before a new run. Do not
   automatically extend E256 on the BPB gain alone.
 - **Next exact action: pretrained transfer.** METH-04 supplies one
-  byte-feasible GigaChat type map but lacks a calibration importance matrix.
+  byte-feasible GigaChat type map. The pinned quantizer dry run reproduced
+  all 414 target types with no reported fallback, but an actual conversion
+  still requires an importance matrix for 254 tensors.
   The existing 48-document `strat01_gigachat_fresh_v2/calib.jsonl` is
   disjoint from held-out but has zero Cyrillic characters; it can anchor
   only a bounded domain pilot. Bind representative *non-held-out* coverage,

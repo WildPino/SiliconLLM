@@ -89,3 +89,36 @@ at most an initial pilot on those domains, not broad donor-language quality.
 The source-bound Q4 GGUF could collect an importance matrix with lower RAM
 than BF16, but its activations are an approximation; the calibration model,
 dataset coverage and resource ceiling must be frozen before that run.
+
+## Pinned quantizer dry run (September 25)
+
+The pinned `llama.cpp` commit `5b335f413` was built locally with
+`cmake --build .../build-cpu --target llama-quantize -j 6`; binary SHA-256
+`71f518bc3323e2e887374f8d59adf197dc7e321b529eeb6d6cf2c1f54d65c260`.
+The command, run from the repository root, was:
+
+```powershell
+& C:\Users\giosa\AppData\Local\Temp\siliconllm-llama-mtp-5b335f4\build-cpu\bin\llama-quantize.exe `
+  --dry-run --tensor-type-file docs\research\NATIVE_EXPERT_SCALING_20260925\meth04_gigachat_tensor_types.txt `
+  benchmarks\donor_adaptation\density\results\strat01_gigachat_source_binding_v1\GigaChat3.1-10B-A1.8B-source-bf16.gguf `
+  results\native_expert_scaling\meth04_gigachat_lowbit_dryrun.gguf IQ2_XS 6
+```
+
+The [complete stdout/stderr log](meth04_gigachat_quantize_dryrun.log),
+normalized to LF with trailing spaces removed, SHA-256
+`92e3d03a21a16b4b49560df8c5887b39af2a967a154e30293593644688cf0bab`, records exit 0,
+414/414 tensors, final types **129 F32, 254 IQ2_XS, 26 Q4_0, 4 Q4_K,
+1 Q3_K**, and `3053.93 MiB` projected quantized payload. No tensor fallback
+warning appears. The value agrees with the planner's 3,202,277,120 tensor
+bytes to the log's two-decimal MiB precision. The quantizer explicitly warns
+that an importance matrix is required for the actual conversion. `--dry-run`
+produced no output GGUF and performed no quality or performance test.
+
+This closes the uncertainty about whether the pinned quantizer would silently
+change the type map *at dry-run metadata stage*. It does not verify the real
+per-tensor imatrix coverage or numerical conversion. Before writing weights,
+freeze a non-held-out calibration corpus with relevant language coverage,
+source-tokenizer handling or a measured approximation error, the imatrix
+runtime/RAM budget, and the paired BF16/Q4/mixed-format BPB, PIQA and rollout
+stop gates. After conversion, compare its actual tensor types/bytes with this
+map and reject any fallback or missing imatrix entry before scoring.
