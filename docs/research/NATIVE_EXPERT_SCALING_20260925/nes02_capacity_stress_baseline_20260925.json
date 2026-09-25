@@ -1,0 +1,123 @@
+{
+  "schema": "nes02_capacity_stress_baseline_v1",
+  "scope": "throughput-only: E128 is trained; E1280 repeats experts and randomizes router; no E1280 quality or distinct-capacity inference",
+  "conditions": "same dynamic-E C executable, Ryzen 5 3600X, clang 21.1.8 -O3 -mavx2 -mfma -march=znver2 -fopenmp, 6 threads, byte code, LUT+fast, 3000 validation input tokens, first of four invocations discarded",
+  "synthetic_file_bytes": 3812869184,
+  "synthetic_file_sha256": "25f99a300a26ed90948d04990ed75df9f94ab9a288ef48e6ea0c46fc0a3dcf2e",
+  "active_selected_code_bytes_per_token_both_arms": 2359296,
+  "arms": {
+    "e128": {
+      "raw_log_sha256": "b69f05cf0e2d256912b0284602bf5557a71cf0e829d3ea48e5ff8895b9a4f5c7",
+      "ternary_code_bytes": 37748736,
+      "runs": [
+        {
+          "tokens_per_second": 879.3,
+          "total_us_per_token": 1137.3,
+          "router_selection_us_per_token": 54.0,
+          "selected_expert_us_per_token": 604.5
+        },
+        {
+          "tokens_per_second": 761.0,
+          "total_us_per_token": 1314.1,
+          "router_selection_us_per_token": 58.5,
+          "selected_expert_us_per_token": 703.9
+        },
+        {
+          "tokens_per_second": 913.3,
+          "total_us_per_token": 1094.9,
+          "router_selection_us_per_token": 51.6,
+          "selected_expert_us_per_token": 586.5
+        },
+        {
+          "tokens_per_second": 870.8,
+          "total_us_per_token": 1148.4,
+          "router_selection_us_per_token": 53.6,
+          "selected_expert_us_per_token": 618.6
+        }
+      ],
+      "first_run_excluded_as_warmup": true,
+      "median_of_last_three": {
+        "tokens_per_second": 870.8,
+        "total_us_per_token": 1148.4,
+        "router_selection_us_per_token": 53.6,
+        "selected_expert_us_per_token": 618.6
+      }
+    },
+    "e1280": {
+      "raw_log_sha256": "92b42c9e841bcb2ed9c78bb54e7cc9fd54d4020274ddcf95c581bb69a3153104",
+      "ternary_code_bytes": 377487360,
+      "runs": [
+        {
+          "tokens_per_second": 535.1,
+          "total_us_per_token": 1869.0,
+          "router_selection_us_per_token": 532.6,
+          "selected_expert_us_per_token": 790.4
+        },
+        {
+          "tokens_per_second": 527.8,
+          "total_us_per_token": 1894.8,
+          "router_selection_us_per_token": 536.1,
+          "selected_expert_us_per_token": 802.7
+        },
+        {
+          "tokens_per_second": 531.8,
+          "total_us_per_token": 1880.4,
+          "router_selection_us_per_token": 537.3,
+          "selected_expert_us_per_token": 795.0
+        },
+        {
+          "tokens_per_second": 561.0,
+          "total_us_per_token": 1782.5,
+          "router_selection_us_per_token": 521.9,
+          "selected_expert_us_per_token": 742.1
+        }
+      ],
+      "first_run_excluded_as_warmup": true,
+      "median_of_last_three": {
+        "tokens_per_second": 531.8,
+        "total_us_per_token": 1880.4,
+        "router_selection_us_per_token": 536.1,
+        "selected_expert_us_per_token": 795.0
+      }
+    }
+  },
+  "median_ratios_e1280_over_e128": {
+    "total_us_per_token": 1.637408568443051,
+    "router_selection_us_per_token": 10.001865671641792,
+    "selected_expert_us_per_token": 1.2851600387972841
+  },
+  "synthetic_generated_route_scope": "16 validation prefixes x 128 autoregressive tokens; separate from timed teacher-forced input slice",
+  "synthetic_generated_routes_sha256": "e465a913e33cd9b51fe782203763cb67308ddb5575d1b83c5eb6bcd42ba8b345",
+  "synthetic_generated_route_coverage_by_layer": [
+    {
+      "distinct_experts": 1203,
+      "dead_experts": 77,
+      "max_to_mean_load": 13.90625
+    },
+    {
+      "distinct_experts": 1222,
+      "dead_experts": 58,
+      "max_to_mean_load": 11.015625
+    },
+    {
+      "distinct_experts": 1238,
+      "dead_experts": 42,
+      "max_to_mean_load": 11.328125
+    },
+    {
+      "distinct_experts": 1225,
+      "dead_experts": 55,
+      "max_to_mean_load": 20.390625
+    },
+    {
+      "distinct_experts": 1200,
+      "dead_experts": 80,
+      "max_to_mean_load": 10.859375
+    },
+    {
+      "distinct_experts": 1128,
+      "dead_experts": 152,
+      "max_to_mean_load": 12.65625
+    }
+  ]
+}

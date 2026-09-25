@@ -2,7 +2,8 @@
 
 **Date:** 25 September 2026. **Branch:** `research/native-expert-scaling`.
 **Status:** NES-01 E128 trained and measured; BPB/routing/pilot CPU gates pass,
-but the predeclared greedy-generation gate fails. Goal remains open.
+but the predeclared greedy-generation gate fails. NES-02 10× expert-count CPU
+stress finds a dense-router scaling limit. Goal remains open.
 Fork point: donor pause checkpoint `90bf966`.
 
 ## Goal and current decision
@@ -44,6 +45,17 @@ the latter shows fixed top-k is insufficient to assume constant CPU cost.
 This is a single-seed small-model result; do not escalate E256 or treat it
 as pretrained transfer.
 
+[NES-02](NES_02_CPU_EXPERT_COUNT_STRESS_20260925.md) tested E128 against a
+throughput-only synthetic E1280 pool with fixed top-8. Median total CPU time
+rose **1.637×**, router+selection **10.002×**, and selected-expert LUT time
+**1.285×**. Parallel row scoring preserved bit-identical fp32 logits but
+missed its predeclared speed gates; it remains opt-in. At the current tiny
+geometry, 100B distinct weights would require E169,094 and an exhaustive
+fp32 router would address about **1.039 GB/token**. At a favorable 40 GB/s,
+that router payload alone needs **25.97 ms**, above the complete 20 ms budget
+for 50 tok/s. This is arithmetic, not a 100B model measurement. It motivates
+bounded candidate routing and a packed-only expert export.
+
 For pretrained transfer, the local GigaChat base Q4 passes fresh paired BPB,
 PIQA and document rollout against BF16. The actual mixed-format GGUF header
 prices **1,016 MB of active payload/token**; at 50 tok/s that requires
@@ -64,6 +76,7 @@ SSM/SWA target and passes joint quality/rate.
 |---|---|---|
 | NES-00 | APPARATUS PASS; invalid smokes retained | [asset/dispatch record](NES_00_ASSET_AND_DISPATCH_20260925.md), [RTX 3060 JSON](dispatch_probe_e128_fullstep_rtx3060_20260925.json) |
 | NES-01 | JOINT FAIL: generation; other pilot gates pass | [result](NES_01_E128_RESULT_20260925.md), [frozen protocol](E128_EQUAL_TOKEN_PROTOCOL_20260925.md), [decoded fp32 samples](nes01_greedy_fp32_samples_20260925.json), [CPU timing](nes01_cpu_timing_20260925.json) |
+| NES-02 | COST STRESS: dense router 10× cost; parallel speed gates fail | [result and shape ledger](NES_02_CPU_EXPERT_COUNT_STRESS_20260925.md), [serial measurements](nes02_capacity_stress_baseline_20260925.json), [parallel measurements](nes02_parallel_router_result_20260925.json); E1280 is synthetic, no quality inference |
 | METH-00 | ARITHMETIC PREFLIGHT | [GigaChat active-organ traffic](METH_00_GIGACHAT_COST_PREFLIGHT_20260925.md); no decoder or quality measurement |
 | METH-01 | HEADER-DERIVED PAYLOAD | [actual Q4_K_M organ ledger](METH_01_GIGACHAT_Q4_ACTIVE_LEDGER_20260925.md), [raw JSON](meth01_gigachat_q4_active_ledger.json); no decoder or quality measurement |
 | METH-02 | METADATA SCREEN | [Granite H Tiny](METH_02_GRANITE_H_TINY_METADATA_SCREEN_20260925.md): recurrent/sparse candidate; no local weights or quality/rate result |
@@ -77,18 +90,18 @@ scheduled.
 
 ## Decisions and next exact action
 
-- **Open:** cause/remedy of the E128 free-generation loops; CPU router/LUT
-  scaling when E grows another 10×; trained quality at that scale; how to
+- **Open:** cause/remedy of the E128 free-generation loops; bounded-candidate
+  router quality and CPU cost at large E; trained quality at that scale; how to
   reduce a pretrained donor's active traffic while preserving quality;
   pretrained-to-native export/fidelity; generality across families and scales.
 - **Closed within their scope:** H5's frozen H4+H2I assembly is adverse;
   STRAT-03's tested shared/router geometry fails. Neither rejects fresh joint
   training. The old donor parity queue is not an automatic next step.
-- **Next CPU stress:** at E≈1,280, measure dense router, top-k selection and
-  selected-expert LUT separately on the same Ryzen 5 3600X; hold top-8 and
-  active expert geometry fixed. Synthetic enlarged pools are throughput-only,
-  never quality evidence. Record RAM footprint and cache behavior rather
-  than assume cache residency. E128 timing proves only the L6 pilot.
+- **Next CPU design:** freeze a hierarchical or candidate router at the
+  measured E128 geometry, verify selected-route recall and quality against
+  exhaustive scoring, then measure total CPU cost before projecting to large
+  E. A packed-only export must remove the reference fp32 expert copies.
+  NES-02 is an input-path stress, not accepted autoregressive target speed.
 - **Next quality design:** choose one changed variable to address E128 greedy
   loops (for example exposure or route training), estimate local training cost
   and freeze BPB, repetition and routing gates before a new run. Do not

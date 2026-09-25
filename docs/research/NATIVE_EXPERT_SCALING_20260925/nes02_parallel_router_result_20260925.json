@@ -1,0 +1,110 @@
+{
+  "schema": "nes02_parallel_router_result_v1",
+  "scope": "conditional OpenMP across router rows at E>=512; synthetic E1280 cost only; not a quality result",
+  "baseline_report_sha256": "ef9da1e3c1d5d9a8589764c9a223e27cc2770fa051e3f2bbe379a9ca8ec7ca24",
+  "parallel_timing": {
+    "e128": {
+      "raw_log_sha256": "5d7e847147dff0fd88ebd1fcc43d1d1385780c3e7649c73314ff7603173f3802",
+      "ternary_code_bytes": 37748736,
+      "runs": [
+        {
+          "tokens_per_second": 888.9,
+          "total_us_per_token": 1124.9,
+          "router_selection_us_per_token": 56.6,
+          "selected_expert_us_per_token": 602.7
+        },
+        {
+          "tokens_per_second": 771.4,
+          "total_us_per_token": 1296.4,
+          "router_selection_us_per_token": 61.3,
+          "selected_expert_us_per_token": 700.8
+        },
+        {
+          "tokens_per_second": 891.2,
+          "total_us_per_token": 1122.1,
+          "router_selection_us_per_token": 56.8,
+          "selected_expert_us_per_token": 598.0
+        },
+        {
+          "tokens_per_second": 889.0,
+          "total_us_per_token": 1124.9,
+          "router_selection_us_per_token": 56.6,
+          "selected_expert_us_per_token": 607.7
+        }
+      ],
+      "first_run_excluded_as_warmup": true,
+      "median_of_last_three": {
+        "tokens_per_second": 889.0,
+        "total_us_per_token": 1124.9,
+        "router_selection_us_per_token": 56.8,
+        "selected_expert_us_per_token": 607.7
+      }
+    },
+    "e1280": {
+      "raw_log_sha256": "662b22e1caca446decdbbbe4d0296564368d6d9d8308f4028122dc93c1ee6f73",
+      "ternary_code_bytes": 377487360,
+      "runs": [
+        {
+          "tokens_per_second": 603.0,
+          "total_us_per_token": 1658.3,
+          "router_selection_us_per_token": 347.2,
+          "selected_expert_us_per_token": 767.1
+        },
+        {
+          "tokens_per_second": 555.8,
+          "total_us_per_token": 1799.1,
+          "router_selection_us_per_token": 372.0,
+          "selected_expert_us_per_token": 837.4
+        },
+        {
+          "tokens_per_second": 604.3,
+          "total_us_per_token": 1654.7,
+          "router_selection_us_per_token": 355.9,
+          "selected_expert_us_per_token": 760.0
+        },
+        {
+          "tokens_per_second": 604.6,
+          "total_us_per_token": 1654.0,
+          "router_selection_us_per_token": 352.4,
+          "selected_expert_us_per_token": 756.9
+        }
+      ],
+      "first_run_excluded_as_warmup": true,
+      "median_of_last_three": {
+        "tokens_per_second": 604.3,
+        "total_us_per_token": 1654.7,
+        "router_selection_us_per_token": 355.9,
+        "selected_expert_us_per_token": 760.0
+      }
+    }
+  },
+  "fp32_exact_64_token_parity": {
+    "e32": {
+      "baseline_sha256": "aacf78fc34d5d3fcb3b5220973a088baba5fc158840a3cf1b5e6821c3a6a28c4",
+      "parallel_sha256": "aacf78fc34d5d3fcb3b5220973a088baba5fc158840a3cf1b5e6821c3a6a28c4",
+      "bit_identical": true
+    },
+    "e128": {
+      "baseline_sha256": "afbcad382bac1bf91b39a02a60dc173548a7d4214bb56bbd65aa47369fe59397",
+      "parallel_sha256": "afbcad382bac1bf91b39a02a60dc173548a7d4214bb56bbd65aa47369fe59397",
+      "bit_identical": true
+    },
+    "e1280": {
+      "baseline_sha256": "b3002d3aca54e3ec0a416d681c732ab15c6a2f72e6b161641c5b37cedde049cc",
+      "parallel_sha256": "b3002d3aca54e3ec0a416d681c732ab15c6a2f72e6b161641c5b37cedde049cc",
+      "bit_identical": true
+    }
+  },
+  "median_ratios": {
+    "e1280_router_vs_baseline": 0.6638686812161909,
+    "e1280_total_vs_baseline": 0.8799723463092959,
+    "e128_total_vs_baseline": 0.9795367467781261
+  },
+  "frozen_gates": {
+    "bit_identical_all_three": true,
+    "e1280_router_at_most_half": false,
+    "e1280_total_at_most_0_85": false,
+    "e128_no_more_than_5pct_regression": true
+  },
+  "advance_candidate": false
+}

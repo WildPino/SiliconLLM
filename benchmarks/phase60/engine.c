@@ -26,6 +26,7 @@
 #include <string.h>
 #include <math.h>
 #include <malloc.h>
+#include <limits.h>
 #include <immintrin.h>
 #include "strat01_gguf_inspect.h"
 #include "strat01_gguf_rung1.h"
@@ -76,6 +77,7 @@
 // 63.C: the OpenMP `if(g_omp_on)` clause skips the fork/join entirely at N=1 (g_omp_on set to threads>1 in main) — the
 // portable one-line fix for the ~6% parallel-region tax measured at N=1, no dual code path. bit-identity is unaffected.
 static int g_omp_on=0;
+static int g_router_parallel=0;  // NES-02 experimental; default serial router retains the baseline path
 #ifdef _OPENMP
 #define OMP_PFOR _Pragma("omp parallel for schedule(static) if(g_omp_on)")
 #else
@@ -106,14 +108,10 @@ static double now_s(void){ struct timespec ts; clock_gettime(CLOCK_MONOTONIC,&ts
 #define TUP  (D/2)
 #define TDN  (MLP_HID/2)
 // MoE (E4M1)
-#ifndef E
-#define E    32
-#endif
+// Read expert count from the E4M1 header; top-k/active expert work stays fixed.
+static int E=32;
 #define HID_E 128
 #define KTOP 8
-#if E < KTOP
-#error E must be at least KTOP
-#endif
 #define GH   (E*HID_E)
 #define MPAD_GU ((GH+31)&~31)
 #define MPAD_D  ((D+31)&~31)
@@ -241,6 +239,7 @@ static float *gate_f[L],*up_f[L],*down_f[L];
 static int8_t *gate_tm[L],*up_tm[L],*up_rm[L],*down_tm[L]; static float *gate_sc[L],*up_sc[L],*down_sc[L];
 // MoE (E4M1)
 static float *router_w[L],*router_b[L],*egate_f[L],*eup_f[L],*eWd_f[L];
+static float* router_prob=NULL; static int* router_used=NULL;
 static int8_t *egate_cd[L],*eup_cd[L],*eWd_cd[L]; static float *egate_sc[L],*eup_sc[L],*eWd_sc[L];
 static int8_t *egate_wt[L],*eup_wt[L],*eWd_wt[L];                // kept for kernel self-tests vs scalar-int
 static float (*hstate)[DN][N]; static float (*convbuf)[DN][CONV]; static float *kring,*vring; static int kvpos,kvcnt;
@@ -257,7 +256,10 @@ static void load_weights(const char* path){
     FILE*f=fopen(path,"rb"); if(!f){fprintf(stderr,"cannot open %s\n",path);exit(1);}
     uint32_t h[16]; if(fread(h,4,16,f)!=16){fprintf(stderr,"short header\n");exit(1);}
     if(h[0]==0x45314D31) g_moe=0; else if(h[0]==0x45344D31) g_moe=1; else {fprintf(stderr,"bad magic %08x\n",h[0]);exit(1);}
-    if(g_moe && ((int)h[11]!=E||(int)h[12]!=HID_E||(int)h[13]!=KTOP)){fprintf(stderr,"E/hid_e/k mismatch\n");exit(1);}
+    if(g_moe){
+        if(h[11]<KTOP || h[11]>(uint32_t)(INT_MAX/HID_E) || (int)h[12]!=HID_E || (int)h[13]!=KTOP){fprintf(stderr,"E/hid_e/k mismatch\n");exit(1);}
+        E=(int)h[11]; router_prob=xmalloc((size_t)E*sizeof(float)); router_used=xmalloc((size_t)E*sizeof(int));
+    }
     if(!g_moe && (int)h[11]!=MLP_HID){fprintf(stderr,"mlp_hid mismatch\n");exit(1);}
     int has_packed=h[14];
     load_backbone(f);
@@ -298,8 +300,16 @@ static void load_weights(const char* path){
             g_code_bytes += _msize(gate_tm[l])+_msize(up_tm[l])+_msize(up_rm[l])+_msize(down_tm[l]);
             free(gq);free(uq);free(dq); }
     }
-    long pos=ftell(f); fseek(f,0,SEEK_END); long end=ftell(f); fclose(f);
-    if(pos!=end) fprintf(stderr,"WARN %ld trailing bytes\n",end-pos);
+#if defined(_WIN32)
+    int64_t pos=_ftelli64(f); if(_fseeki64(f,0,SEEK_END)!=0){fprintf(stderr,"weight seek failed\n");exit(1);}
+    int64_t end=_ftelli64(f);
+#else
+    int64_t pos=ftell(f); if(fseek(f,0,SEEK_END)!=0){fprintf(stderr,"weight seek failed\n");exit(1);}
+    int64_t end=ftell(f);
+#endif
+    fclose(f);
+    if(pos<0 || end<0){fprintf(stderr,"weight position check failed\n");exit(1);}
+    if(pos!=end) fprintf(stderr,"WARN %lld trailing bytes\n",(long long)(end-pos));
     fprintf(stderr,"engine weights ok (%s)\n",g_moe?"E4M1 MoE":"E1M1 dense");
     // C4 ACHIEVED (printed from the allocations themselves, not from a formula)
     printf("==== P1 C4 ACHIEVED ternary-code footprint ====\n");
@@ -346,7 +356,7 @@ static void mlp_dense(int l,const float* xn,float* out,int mlp_lut,int skip){
 
 // ---------------- MoE MLP: fp32 experts (E4-ref) | LUT experts (E4) ----------------
 static void topk_sel(const float* p,int n,int k,int* idx,float* val){   // matches torch.topk (ties -> lower index)
-    int used[E]; memset(used,0,sizeof(int)*n);
+    int* used=router_used; memset(used,0,sizeof(int)*n);
     for(int j=0;j<k;j++){ int bi=-1; float bv=-1e30f;
         for(int i=0;i<n;i++) if(!used[i]&&p[i]>bv){ bv=p[i]; bi=i; }
         used[bi]=1; idx[j]=bi; val[j]=p[bi]; }
@@ -357,7 +367,11 @@ static int8_t g_xq[D],g_lut[TUP*16],g_hq[HID_E],g_lutd[TDE*16]; static int32_t g
 static int* g_esel_cap=NULL;
 static void mlp_moe(int l,const float* xn,float* out,int mlp_lut,double* router_time){
     double router_start=router_time?now_s():0;
-    float rp[E]; for(int e=0;e<E;e++) rp[e]=dotf(router_w[l]+(size_t)e*D,xn,D)+router_b[l][e];
+    float* rp=router_prob;
+#ifdef _OPENMP
+#pragma omp parallel for schedule(static) if(g_omp_on && g_router_parallel && E>=512)
+#endif
+    for(int e=0;e<E;e++) rp[e]=dotf(router_w[l]+(size_t)e*D,xn,D)+router_b[l][e];
     float mx=-1e30f; for(int e=0;e<E;e++) if(rp[e]>mx)mx=rp[e];
     float Z=0; for(int e=0;e<E;e++){ rp[e]=expf(rp[e]-mx); Z+=rp[e]; } for(int e=0;e<E;e++) rp[e]/=Z;
     int idx[KTOP]; float wv[KTOP]; topk_sel(rp,E,KTOP,idx,wv);
@@ -516,6 +530,7 @@ static void timing(long ntok,int mlp_lut,int skip,int exp_fast){
 // starting 512 tokens into the held-out suffix; record 128 greedy continuation IDs.
 static void nes01_greedy(const char* path,const char* route_path,int mlp_lut,int skip,int exp_fast){
     const int np=16,plen=128,glen=128,stride=2048,start=512;
+    if(route_path && E>UINT16_MAX){fprintf(stderr,"NES-01 route dump supports at most 65535 experts\n");exit(1);}
     long ntr=(long)(nids*0.9),nval=nids-ntr; uint16_t* val=ids+ntr;
     if(start+(np-1)*stride+plen>=nval){fprintf(stderr,"NES-01 prefixes exceed validation data\n");exit(1);}
     FILE* f=fopen(path,"wb"); if(!f){fprintf(stderr,"cannot open %s\n",path);exit(1);}
@@ -615,6 +630,7 @@ static long gen_stream(long seedpos,long ngen,int block,uint16_t* out,double* su
     else { int K=block>62?62:block; float* Lb=xmalloc((size_t)(K+1)*V*4); uint16_t d[64];
         static ActPos* acts=NULL; if(!acts) acts=xmalloc(sizeof(ActPos)*64);
         static int* esel=NULL; if(g_acc_on&&!esel) esel=xmalloc(sizeof(int)*64*L*KTOP);
+        char* seen=g_acc_on?xmalloc((size_t)E):NULL;
         while(emit<ngen){
             for(int k=0;k<K;k++){ hist[nh+k]=ng_draft(hist,nh+k); d[k]=hist[nh+k]; }   // draft K (cond. committed+drafted)
             snap_save(); memcpy(Lb,pend,V*4);                                          // Lb[0] predicts position 0
@@ -627,7 +643,7 @@ static long gen_stream(long seedpos,long ngen,int block,uint16_t* out,double* su
             int ncommit;
             if(mism){ hist[nh+acc]=eng; forward_token(eng,pend,ml,sk,ef,NULL); ncommit=acc+1; } // engine token: one forward
             else { memcpy(pend,Lb+(size_t)K*V,V*4); ncommit=K; }                       // full accept: state replayed, pend=Lb[K]
-            if(g_acc_on){ char seen[E]; long ublk=0;                                   // per-layer expert union over the K speculative positions
+            if(g_acc_on){ long ublk=0;                                                // per-layer expert union over the K speculative positions
                 for(int l=0;l<L;l++){ memset(seen,0,E); int u=0;
                     for(int k=0;k<K;k++) for(int j=0;j<KTOP;j++){ int e=esel[((size_t)k*L+l)*KTOP+j]; if(!seen[e]){seen[e]=1;u++;} }
                     g_acc_unionlayer[l]+=u; ublk+=u; }
@@ -635,7 +651,7 @@ static long gen_stream(long seedpos,long ngen,int block,uint16_t* out,double* su
             for(int c=0;c<ncommit&&emit<ngen;c++) out[emit++]=hist[nh+c];
             nh+=ncommit; *sum_emit+=ncommit; (*nblk)++;
         }
-        free(Lb);
+        free(seen); free(Lb);
     }
     free(pend); return emit;
 }
@@ -1439,6 +1455,7 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--dumplogits")&&i+1<argc) dumpto=argv[++i];
         else if(!strcmp(argv[i],"--nes01-greedy-out")&&i+1<argc) nes01_greedy_to=argv[++i];
         else if(!strcmp(argv[i],"--nes01-route-out")&&i+1<argc) nes01_route_to=argv[++i];
+        else if(!strcmp(argv[i],"--router-parallel")) g_router_parallel=1;
         else if(!strcmp(argv[i],"--seq")&&i+1<argc) seqW=atol(argv[++i]);
         else if(!strcmp(argv[i],"--eval-tok")&&i+1<argc) eval_tok=atol(argv[++i]);
         else if(!strcmp(argv[i],"--ntok")&&i+1<argc) ntok=atol(argv[++i]);

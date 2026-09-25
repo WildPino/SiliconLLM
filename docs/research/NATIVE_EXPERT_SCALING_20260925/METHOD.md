@@ -75,7 +75,7 @@ rate results.
 |---|---|---|---|
 | A. Bind | Verify source revision, shard/tensor identity, tokenizer IDs and reference runtime; GigaChat `strat01_gigachat_source_binding.py` and saved reports | Exact identity check | GigaChat base source↔BF16 GGUF tensor bytes bound. Text→ID tokenizer parity in `engine.c` remains open. Qwen revision is pinned, but a new run must bind its exact local weight hash. |
 | B. Establish donor | Score fresh held-out documents, task and greedy rollouts with the intact source and candidate under identical token IDs | Measurement | GigaChat Q4 versus BF16 passes scoped quality gates. Qwen intact anchor and limited-layer arms exist on a small frozen slice; a final fresh split is missing. |
-| C. Decompose | List core/mixer/head/router/shared/routed tensors; calculate active and stored bytes, per-token selected experts and expected training exposure | Exact shape arithmetic plus measured kernel anchors | [METH-00](METH_00_GIGACHAT_COST_PREFLIGHT_20260925.md) gives an ideal W4 preflight; [METH-01](METH_01_GIGACHAT_Q4_ACTIVE_LEDGER_20260925.md) prices the local GigaChat mixed-GGUF and [METH-03](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md) prices the official Granite header. Native E32 ledger exists. Cache residency and effective expert throughput are not assumed. |
+| C. Decompose | List core/mixer/head/router/shared/routed tensors; calculate active and stored bytes, per-token selected experts and expected training exposure | Exact shape arithmetic plus measured kernel anchors | [METH-00](METH_00_GIGACHAT_COST_PREFLIGHT_20260925.md) gives an ideal W4 preflight; [METH-01](METH_01_GIGACHAT_Q4_ACTIVE_LEDGER_20260925.md) prices local GigaChat mixed-GGUF and [METH-03](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md) the official Granite header. [NES-02](NES_02_CPU_EXPERT_COUNT_STRESS_20260925.md) measures a synthetic 10× native expert-count stress and prices dense routing at 10B/100B; it is no quality result. Cache residency and effective expert throughput are not assumed. |
 | D1. Sparse-source variant | Preserve pretrained routed/shared functions initially, then selectively reduce expensive organs or alter routing/representation while keeping a compact reusable core; retain the original as a paired control | **Proposed approximation / adaptation** | GigaChat Q4 retains quality, but its actual mixed-format active payload is ~1,016 MB/token. Even ideal 2-bit MLA plus routed experts remains above the 14 ms design allotment at 40 GB/s. No transformed target with both quality and C speed exists. Full donor C port alone does not close this stage. |
 | D2. Dense-source variant | Create a shared path plus residual experts with an economical input-only router; jointly adapt affected projections, router and experts, with continuous transitions and donor supervision | **Proposed training** | H1 shows training helps one carve; H4/H2I frozen composition and STRAT-03's tested local geometry fail. A new jointly specified geometry and step-zero control are required, not frozen assembly. |
 | E. Export | Emit versioned C weights/metadata, tokenizer, precision map and golden intermediate/logit traces; run the exact timed C path | Exact serialization plus approximate kernels | Native E32 export/parity exists. GigaChat C fidelity is partial. No converted pretrained conditional target has completed this stage. |
@@ -93,7 +93,16 @@ latency, but fails the frozen free-generation gate. Target expert-count
 scaling therefore still needs a quality remedy; the BPB gain alone cannot
 license E256 or 100B-scale claims. The intended capacity dial permits `E` to
 grow with RAM, so future variants must price dense-router work, LUT expert
-reads and free-generation quality as `E` grows, even at fixed top-k.
+reads and free-generation quality as `E` grows, even at fixed top-k. The
+[NES-02 CPU stress](NES_02_CPU_EXPERT_COUNT_STRESS_20260925.md) now quantifies
+the 10× effect: E128→synthetic E1280 makes dense router+selection 10.002×
+slower on the tested CPU, while selected-expert LUT time rises 1.285×. Its
+parallel row-scoring candidate misses frozen speed gates. At this geometry,
+an exhaustive fp32 router for 100B stored parameters would address about
+1.039 GB/token, a 25.97 ms payload floor at 40 GB/s, already beyond the
+20 ms/token target. A large-E method therefore needs bounded candidate
+routing with measured route recall and quality, and a compact packed-only
+expert export. Synthetic experts establish no learned capacity.
 
 ## 3. Verification contract and resource accounting
 
@@ -133,8 +142,9 @@ such a route against a tractable dense-source joint-training case, with an
 explicit step-zero and resource estimate. These screens cannot establish
 actual C speed or quality and authorize no T4 run.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
-pilot results remain useful target-geometry evidence, while a 10× larger `E`
-CPU stress probe can only test cost unless independent experts are trained.
+pilot results remain useful target-geometry evidence. NES-02 closes the first
+10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
+large-E optimization; independent larger experts remain untrained.
 
 Operational experiment history, running processes and exact resumption point
 live in [INDEX.md](INDEX.md); this file changes when a method step is actually
