@@ -42,7 +42,11 @@ populations are byte-exact with every control live. Do not repeat local parity.
 The active cell is the frozen [production-integration protocol](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_PROTOCOL_20260925.md).
 Its [repaired model-free apparatus](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md)
 is qualified: 311 Python tests and 22 C self-tests pass with all execution
-counters at zero. Commit, then run its sole standard Rung-2C producer.
+counters at zero. Its sole producer closes as a valid
+[FAIL](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_RESULT_20260925.md):
+54/64 checkpoints pass and the first residual is only selected-router-weight
+normalization. Close every upstream primitive. The active cell is the
+zero-graph [normalization compile-parity protocol](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTER_WEIGHT_NORMALIZATION_COMPILE_PARITY_PROTOCOL_20260925.md).
 
 ## 1. Reading order and precedence
 

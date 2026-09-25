@@ -32,7 +32,11 @@ sole active cell is now the separately frozen [production integration](probes/ST
 Its [repaired model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md)
 passes 311 Python tests and 22 C self-tests with zero model, producer or graph
 execution. Commit those exact sources, then run only the authorized standard
-Rung-2C producer.
+Rung-2C producer. Its canonical [result](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_RESULT_20260925.md)
+is a valid FAIL: 54/64 checkpoints pass; router and both SwiGLU hashes are
+exact; the first failure is selected-router-weight normalization. Never rerun
+production or upstream cells. The active cell is the zero-graph
+[normalization compile parity](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTER_WEIGHT_NORMALIZATION_COMPILE_PARITY_PROTOCOL_20260925.md).
 This is fidelity work, not a rate measurement.
 
 **STRAT-01 block-0 production integration (22 September):**

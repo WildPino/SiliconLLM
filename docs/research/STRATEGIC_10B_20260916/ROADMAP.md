@@ -34,7 +34,12 @@ action is its separately frozen [production-integration protocol](../donor_adapt
 Its [repaired model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md)
 is `APPARATUS_READY_NO_DONOR_EXECUTION`: 311 Python tests and 22 C self-tests
 pass, with zero model, producer or graph execution. Commit the exact sources,
-then run the sole authorized standard Rung-2C producer.
+then run the sole authorized standard Rung-2C producer. That canonical
+[production result](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_RESULT_20260925.md)
+is a valid FAIL: 54/64 checkpoints pass and all three installed primitives
+are exact; the first residual is only the four-value selected-router-weight
+normalization. Close all upstream and expert/shared coordinates. The sole next
+action is the zero-graph [normalization compile-parity protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTER_WEIGHT_NORMALIZATION_COMPILE_PARITY_PROTOCOL_20260925.md).
 This paragraph supersedes the older active-boundary wording below.
 
 **Current execution head (24 September):** the accepted donor is exact through
