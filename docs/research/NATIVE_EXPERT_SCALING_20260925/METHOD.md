@@ -20,15 +20,27 @@ The Q4 base-only artifact passed [fresh paired BPB](../donor_adaptation/probes/S
 [PIQA](../donor_adaptation/probes/STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md),
 and [document rollout](../donor_adaptation/probes/STRAT_01_GIGACHAT31_DOCUMENT_ROLLOUT_RESULT_20260921.md).
 Those are source/format quality baselines, **not** proof of a low-cost native
-target. The base Q4 large-matrix payload is calculated at 814 MB/token; 50
-tok/s would require 40.7 GB/s for that payload alone, before routing, MLA,
-state, scales, cache effects or sampling. This is arithmetic from the
-[organ ledger](../donor_adaptation/audits/STRAT_01_GIGACHAT31_10B_METADATA_SCREEN_20260918.md),
-not a measured C rate. The old C donor-port line is paused; its 54/64 passing
+target. A uniform ideal W4 would use 814 MB/token for its large matrices, but
+the [actual mixed Q4_K_M descriptor ledger](METH_01_GIGACHAT_Q4_ACTIVE_LEDGER_20260925.md)
+charges **1,016 MB of active compressed payload/token** including Q6_K,
+Q5_0, F32 router, head and controls. At 50 tok/s that is 50.8 GB/s for
+weight payload alone. These are calculations, not a measured C rate or DRAM
+trace. The old C donor-port line is paused; its 54/64 passing
 layer checkpoints and first normalization residual are reusable fidelity
 evidence, not an automatic instruction to continue that port.
 
-The transfer challenge is **Qwen2.5-1.5B** at revision
+An alternative sparse/recurrent family is **Granite 4.0 H Tiny base**. The
+[metadata screen](METH_02_GRANITE_H_TINY_METADATA_SCREEN_20260925.md) binds an
+official revision with 6.939B total and 1.465B analyzer-active weights/token,
+36 Mamba2 and four attention layers, 64 routed experts/top-6 and a shared
+path. Its ideal W4 active payload already exceeds the 14 ms design
+allotment at 40 GB/s. The [official Q4 GGUF header
+ledger](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md) charges 913 MB/token;
+only the header prefix was fetched. Full local weights, a paired quality
+baseline and a Mamba2 operator bridge are missing. It is a candidate, not
+evidence that the method transfers.
+
+The dense-source transfer challenge is **Qwen2.5-1.5B** at revision
 `8faed761d45a263340a0528343f099c05c9a4323`, whose local snapshot
 contains `config.json`, tokenizer and safetensors. It is dense and has a
 different mixer, so it tests a different branch of the procedure. Existing
@@ -63,8 +75,8 @@ rate results.
 |---|---|---|---|
 | A. Bind | Verify source revision, shard/tensor identity, tokenizer IDs and reference runtime; GigaChat `strat01_gigachat_source_binding.py` and saved reports | Exact identity check | GigaChat base source↔BF16 GGUF tensor bytes bound. Text→ID tokenizer parity in `engine.c` remains open. Qwen revision is pinned, but a new run must bind its exact local weight hash. |
 | B. Establish donor | Score fresh held-out documents, task and greedy rollouts with the intact source and candidate under identical token IDs | Measurement | GigaChat Q4 versus BF16 passes scoped quality gates. Qwen intact anchor and limited-layer arms exist on a small frozen slice; a final fresh split is missing. |
-| C. Decompose | List core/mixer/head/router/shared/routed tensors; calculate active and stored bytes, per-token selected experts and expected training exposure | Exact shape arithmetic plus measured kernel anchors | [METH-00](METH_00_GIGACHAT_COST_PREFLIGHT_20260925.md) gives the GigaChat base traffic preflight. Native E32 ledger exists. Cache residency and effective expert throughput are not assumed. |
-| D1. Sparse-source variant | Preserve pretrained routed/shared functions initially, then selectively reduce expensive organs or alter routing/representation while keeping a compact reusable core; retain the original as a paired control | **Proposed approximation / adaptation** | GigaChat Q4 retains quality, but its ~814 MB/token W4 payload gives insufficient margin by arithmetic. No transformed GigaChat target with both quality and C speed exists. Full donor C port alone does not close this stage. |
+| C. Decompose | List core/mixer/head/router/shared/routed tensors; calculate active and stored bytes, per-token selected experts and expected training exposure | Exact shape arithmetic plus measured kernel anchors | [METH-00](METH_00_GIGACHAT_COST_PREFLIGHT_20260925.md) gives an ideal W4 preflight; [METH-01](METH_01_GIGACHAT_Q4_ACTIVE_LEDGER_20260925.md) prices the local GigaChat mixed-GGUF and [METH-03](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md) prices the official Granite header. Native E32 ledger exists. Cache residency and effective expert throughput are not assumed. |
+| D1. Sparse-source variant | Preserve pretrained routed/shared functions initially, then selectively reduce expensive organs or alter routing/representation while keeping a compact reusable core; retain the original as a paired control | **Proposed approximation / adaptation** | GigaChat Q4 retains quality, but its actual mixed-format active payload is ~1,016 MB/token. Even ideal 2-bit MLA plus routed experts remains above the 14 ms design allotment at 40 GB/s. No transformed target with both quality and C speed exists. Full donor C port alone does not close this stage. |
 | D2. Dense-source variant | Create a shared path plus residual experts with an economical input-only router; jointly adapt affected projections, router and experts, with continuous transitions and donor supervision | **Proposed training** | H1 shows training helps one carve; H4/H2I frozen composition and STRAT-03's tested local geometry fail. A new jointly specified geometry and step-zero control are required, not frozen assembly. |
 | E. Export | Emit versioned C weights/metadata, tokenizer, precision map and golden intermediate/logit traces; run the exact timed C path | Exact serialization plus approximate kernels | Native E32 export/parity exists. GigaChat C fidelity is partial. No converted pretrained conditional target has completed this stage. |
 | F. Validate | Paired donor→target held-out BPB with uncertainty, generation/task checks, routing utility, RAM/bytes/latency breakdown and ≥50 accepted tok/s on the same exported target | Measurement | **Open for every converted target.** Pilot/synthetic rate, scalar BPB, and partial port parity cannot be combined into a pass. |
@@ -100,15 +112,20 @@ hypotheses and invalid runs distinctly.
 
 ## 4. Current decision boundary
 
-The bounded [METH-00 preflight](METH_00_GIGACHAT_COST_PREFLIGHT_20260925.md)
-binds the already local GigaChat Q4/BF16 baseline to an organ traffic target.
-The next donor-specific experiment must select one organ treatment, freeze
-its paired donor-relative quality and byte gates, and keep other organs fixed.
-Compose treatments only after checking each part, then test the integrated C
-path. Reuse source binding and quality results; do not repeat them. If no
-candidate transformation has a plausible byte/latency path, compare the
-dense-source joint-training hypothesis with an explicit step-zero and resource
-estimate. No T4 run is authorized by this preflight.
+[METH-01](METH_01_GIGACHAT_Q4_ACTIVE_LEDGER_20260925.md) shows that the
+actual GigaChat Q4 baseline charges more active payload than the earlier
+ideal W4 screen. The [Granite screen](METH_02_GRANITE_H_TINY_METADATA_SCREEN_20260925.md)
+identifies a recurrence-bearing alternative. The subsequent
+[official Granite header ledger](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md)
+prices 913.314 MB/token, also over the 560 MB streaming design allotment at
+the stated hardware yardstick. A candidate now requires a specified structural
+or precision transformation, with a quantitative byte margin and paired
+donor-relative quality gate; keep other organs fixed in each local sensitivity
+cell, then verify the composed result. Reuse GigaChat's source binding and
+quality results rather than repeating them. The next selection must compare
+such a route against a tractable dense-source joint-training case, with an
+explicit step-zero and resource estimate. These screens cannot establish
+actual C speed or quality and authorize no T4 run.
 NES-01 continues independently as target-geometry evidence; no C timing is
 run concurrently with its GPU training.
 

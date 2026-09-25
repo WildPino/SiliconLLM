@@ -1,0 +1,99 @@
+{
+  "active_large_matrix_elements": 1628078080,
+  "active_payload_bytes_per_token": 1016194144,
+  "basis": "GGUF descriptor n_bytes; selected expert slices; one embedding row; no cache assumption",
+  "file_bytes": 6474702976,
+  "full_file_sha256": null,
+  "model": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_q4_97045b2\\GigaChat3.1-10B-A1.8B-q4_K_M.gguf",
+  "organs": {
+    "control": {
+      "active_elements": 96320,
+      "active_payload_by_type": {
+        "F32": 385280
+      },
+      "active_payload_bytes": 385280,
+      "stored_bytes": 385280,
+      "tensor_count": 104
+    },
+    "dense0": {
+      "active_elements": 41287680,
+      "active_payload_by_type": {
+        "Q4_K": 15482880,
+        "Q6_K": 11289600
+      },
+      "active_payload_bytes": 26772480,
+      "stored_bytes": 26772480,
+      "tensor_count": 3
+    },
+    "embedding": {
+      "active_elements": 1536,
+      "active_payload_by_type": {
+        "Q4_K": 864
+      },
+      "active_payload_bytes": 864,
+      "stored_bytes": 110813184,
+      "tensor_count": 1
+    },
+    "head": {
+      "active_elements": 197001216,
+      "active_payload_by_type": {
+        "Q6_K": 161602560
+      },
+      "active_payload_bytes": 161602560,
+      "stored_bytes": 161602560,
+      "tensor_count": 1
+    },
+    "mla": {
+      "active_elements": 650051584,
+      "active_payload_by_type": {
+        "Q4_K": 334983168,
+        "Q5_0": 37486592
+      },
+      "active_payload_bytes": 372469760,
+      "stored_bytes": 372469760,
+      "tensor_count": 130
+    },
+    "routed": {
+      "active_elements": 589824000,
+      "active_payload_by_type": {
+        "Q4_K": 278691840,
+        "Q6_K": 77414400
+      },
+      "active_payload_bytes": 356106240,
+      "stored_bytes": 5697699840,
+      "tensor_count": 75
+    },
+    "router": {
+      "active_elements": 2457600,
+      "active_payload_by_type": {
+        "F32": 9830400
+      },
+      "active_payload_bytes": 9830400,
+      "stored_bytes": 9830400,
+      "tensor_count": 25
+    },
+    "shared": {
+      "active_elements": 147456000,
+      "active_payload_by_type": {
+        "Q4_K": 69672960,
+        "Q6_K": 19353600
+      },
+      "active_payload_bytes": 89026560,
+      "stored_bytes": 89026560,
+      "tensor_count": 75
+    }
+  },
+  "payload_gb_per_second_at_50_tok_s": 50.8097072,
+  "payload_ms_at_40_gb_s": 25.4048536,
+  "schema": "gguf_active_ledger_gigachat31_base_v1",
+  "scope": "compressed weight payload addressed once per autoregressive token; not measured DRAM traffic, latency, or quality",
+  "stored_tensor_payload_bytes": 6468600064,
+  "topology": {
+    "experts_per_moe_layer": 64,
+    "layers": 26,
+    "leading_dense_layers": 1,
+    "selected_experts_per_token": 4,
+    "tensor_count": 414,
+    "vocab": 128256
+  }
+}

@@ -36,8 +36,14 @@ checkpoint/data/export. E128 sparse dispatch agrees with compute-all to
 not quality evidence; its apparatus voids are retained in NES-00.
 
 For pretrained transfer, the local GigaChat base Q4 passes fresh paired BPB,
-PIQA and document rollout against BF16, but its W4 large-matrix payload is
-**calculated** at ~814 MB/token. Its C fidelity port is partial and no
+PIQA and document rollout against BF16. The actual mixed-format GGUF header
+prices **1,016 MB of active payload/token**; at 50 tok/s that requires
+50.8 GB/s of compressed weight payload before other work. This is calculated,
+not a measured DRAM or C rate. The official Granite H Tiny Q4 tensor header
+prices **913 MB/token** by the same addressed-payload method; its full weights,
+quality and C behavior have not been tested locally. Both direct Q4 paths
+exceed the 560 MB/14 ms streaming design allotment at the 40 GB/s yardstick.
+GigaChat's C fidelity port is partial and no
 quality-plus-≥50 C artifact exists. Qwen2.5-1.5B H1 shows that training a
 carve helps; frozen H4+H2I composition fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
@@ -50,6 +56,9 @@ SSM/SWA target and passes joint quality/rate.
 | NES-00 | APPARATUS PASS; invalid smokes retained | [asset/dispatch record](NES_00_ASSET_AND_DISPATCH_20260925.md), [RTX 3060 JSON](dispatch_probe_e128_fullstep_rtx3060_20260925.json) |
 | NES-01 | RUNNING from `44c7bb1` | [frozen E32→E128 protocol](E128_EQUAL_TOKEN_PROTOCOL_20260925.md); raw `nes01_e128_train.stdout.log`, `.stderr.log`, `nes01_status.json` when complete |
 | METH-00 | ARITHMETIC PREFLIGHT | [GigaChat active-organ traffic](METH_00_GIGACHAT_COST_PREFLIGHT_20260925.md); no decoder or quality measurement |
+| METH-01 | HEADER-DERIVED PAYLOAD | [actual Q4_K_M organ ledger](METH_01_GIGACHAT_Q4_ACTIVE_LEDGER_20260925.md), [raw JSON](meth01_gigachat_q4_active_ledger.json); no decoder or quality measurement |
+| METH-02 | METADATA SCREEN | [Granite H Tiny](METH_02_GRANITE_H_TINY_METADATA_SCREEN_20260925.md): recurrent/sparse candidate; no local weights or quality/rate result |
+| METH-03 | HEADER-DERIVED PAYLOAD | [official Granite Q4 organ ledger](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md), [raw JSON](meth03_granite_q4_active_ledger.json); 8 MB verified Range prefix, no full local weights or quality/rate result |
 
 NES-01 started **2026-09-25 11:28:15 UTC** on local RTX 3060 from launcher
 `benchmarks/native_expert_scaling/run_nes01.ps1` (PowerShell PID `24620`,
@@ -81,7 +90,13 @@ CPU benchmarks during training. No T4 work is running or scheduled.
   E128 C fidelity and timing; verify that E32 behavior remains intact. Avoid
   concurrent GPU or CPU benchmarks. METH-00 supplies a secondary donor traffic
   constraint; defer a donor quality sensitivity run until the native scaling
-  result changes the architecture decision. No T4 job is planned.
+  result changes the architecture decision. METH-01 closes the direct-Q4
+  cost preflight under the declared bandwidth yardstick. METH-03 closes the
+  Granite header preflight at 913 MB/token. Before acquiring another full
+  donor or budgeting adaptation, specify one transformation with a credible
+  active-byte margin, step-zero control, paired quality gate and resource
+  estimate; compare that path against the tractable dense-source joint-training
+  hypothesis. No T4 job is planned.
 - **After NES-01 finishes:** verify the final checkpoint/hash and compare with
   E32 under the frozen protocol. If no final checkpoint exists and the process
   is terminal, resume from the rotating optimizer/RNG state using the same

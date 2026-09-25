@@ -1,0 +1,101 @@
+{
+  "active_elements_per_token": 1465470528,
+  "active_payload_bytes_per_token": 913314048,
+  "basis": "GGUF descriptor n_bytes; six expert slices; tied head read in full; no cache assumption",
+  "config_analyzer_active_elements_per_token": 1465350720,
+  "config_analyzer_delta_elements": 119808,
+  "file_bytes": 4230969888,
+  "full_file_sha256": null,
+  "header_bytes_local": 8388608,
+  "header_file": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\granite_h_tiny_q4_header_8m.bin",
+  "header_sha256": "591f7b0af4794e781b401bb5bb85e5576415350cf415590db000dca8925548e7",
+  "model": null,
+  "organs": {
+    "attention": {
+      "active_elements": 25165824,
+      "active_payload_by_type": {
+        "Q4_K": 13271040,
+        "Q6_K": 1290240
+      },
+      "active_payload_bytes": 14561280,
+      "stored_bytes": 14561280,
+      "tensor_count": 16
+    },
+    "control": {
+      "active_elements": 124416,
+      "active_payload_by_type": {
+        "F32": 497664
+      },
+      "active_payload_bytes": 497664,
+      "stored_bytes": 497664,
+      "tensor_count": 81
+    },
+    "routed": {
+      "active_elements": 566231040,
+      "active_payload_by_type": {
+        "Q4_K": 265420800,
+        "Q6_K": 77414400
+      },
+      "active_payload_bytes": 342835200,
+      "stored_bytes": 3656908800,
+      "tensor_count": 120
+    },
+    "router": {
+      "active_elements": 3932160,
+      "active_payload_by_type": {
+        "F32": 15728640
+      },
+      "active_payload_bytes": 15728640,
+      "stored_bytes": 15728640,
+      "tensor_count": 40
+    },
+    "shared": {
+      "active_elements": 188743680,
+      "active_payload_by_type": {
+        "Q4_K": 88473600,
+        "Q6_K": 25804800
+      },
+      "active_payload_bytes": 114278400,
+      "stored_bytes": 114278400,
+      "tensor_count": 120
+    },
+    "ssm": {
+      "active_elements": 527132736,
+      "active_payload_by_type": {
+        "F32": 2859264,
+        "Q4_K": 296110080
+      },
+      "active_payload_bytes": 298969344,
+      "stored_bytes": 298969344,
+      "tensor_count": 288
+    },
+    "tied_head_embedding": {
+      "active_elements": 154140672,
+      "active_payload_by_type": {
+        "Q6_K": 126443520
+      },
+      "active_payload_bytes": 126443520,
+      "stored_bytes": 126443520,
+      "tensor_count": 1
+    }
+  },
+  "payload_gb_per_second_at_50_tok_s": 45.6657024,
+  "payload_ms_at_40_gb_s": 22.8328512,
+  "schema": "gguf_active_ledger_granite_h_tiny_base_v1",
+  "scope": "compressed weight payload addressed once per autoregressive token; not measured DRAM traffic, latency, or quality",
+  "stored_tensor_payload_bytes": 4227387648,
+  "topology": {
+    "attention_layers": [
+      5,
+      15,
+      25,
+      35
+    ],
+    "experts_per_moe_layer": 64,
+    "layers": 40,
+    "mamba_layers": 36,
+    "selected_experts_per_token": 6,
+    "tensor_count": 666,
+    "vocab": 100352
+  }
+}
