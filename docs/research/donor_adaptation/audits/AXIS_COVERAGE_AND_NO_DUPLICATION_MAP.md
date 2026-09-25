@@ -39,7 +39,10 @@ Its [first scientific invocation is VOID](../probes/STRAT_01_GIGACHAT31_ENGINE_L
 for a missing replay pragma and dead one-ULP mutations. [Addendum A](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_ADDENDUM_A_20260925.md)
 freezes the narrow repair, whose [repair-2 apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_APPARATUS_REPAIR2_RESULT_20260925.md)
 passes at zero execution. Do not repeat prior attempts; commit and execute only
-the authorized scientific `repair1`.
+the authorized scientific `repair1`. The canonical [result](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_RESULT_20260925.md)
+is `LAYER1_ROUTER_AND_SWIGLU_EXACT_PRIMITIVES`: router and both SwiGLU
+populations are byte-exact with every control live. Close all local variants.
+The only open fidelity action is the frozen [production integration](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_PROTOCOL_20260925.md).
 The still later [STRAT-03 result](../probes/STRAT_03_EXECUTABLE_SHARED_RESIDUAL_RESULT.md)
 closes the frozen five-layer `k=3/256` local diagnostic with a byte-count-
 matched SwiGLU shared path and `x`-only router: all three gates fail despite

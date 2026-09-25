@@ -26,8 +26,11 @@ the standalone replay omitted the production FP-contract pragma and two
 one-ULP mutation controls were dead. [Addendum A](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_ADDENDUM_A_20260925.md)
 freezes the narrow repair. Its [repair-2 model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_APPARATUS_REPAIR2_RESULT_20260925.md)
 passes five Python tests and the C/C++ self-test with zero diagnostic, model,
-producer or graph executions. Commit those exact sources, then run only the
-authorized scientific `repair1`.
+producer or graph executions. The committed `repair1` [result](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_RESULT_20260925.md)
+is `LAYER1_ROUTER_AND_SWIGLU_EXACT_PRIMITIVES`: router candidate/oracle and
+both routed/shared SSE2 SwiGLU populations are byte-exact, with all controls
+live and no producer or graph. Close this local cell. The only next fidelity
+action is its separately frozen [production-integration protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_PROTOCOL_20260925.md).
 This paragraph supersedes the older active-boundary wording below.
 
 **Current execution head (24 September):** the accepted donor is exact through

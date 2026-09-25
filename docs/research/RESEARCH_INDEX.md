@@ -36,7 +36,10 @@ for a missing production replay pragma and dead one-ULP mutations. The narrow
 repair is frozen in [addendum A](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_ADDENDUM_A_20260925.md),
 and its [repair-2 apparatus](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_APPARATUS_REPAIR2_RESULT_20260925.md)
 passes with all execution counters zero. Commit, then run only scientific
-`repair1`.
+`repair1`. Its canonical [result](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_RESULT_20260925.md)
+is `LAYER1_ROUTER_AND_SWIGLU_EXACT_PRIMITIVES`: the router and both SwiGLU
+populations are byte-exact with every control live. Do not repeat local parity.
+The active cell is the frozen [production-integration protocol](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_PROTOCOL_20260925.md).
 
 ## 1. Reading order and precedence
 

@@ -25,7 +25,10 @@ because the replay omitted the production FP-contract pragma and two one-ULP
 mutation controls were dead. [Addendum A](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_ADDENDUM_A_20260925.md)
 freezes the repair; the [repair-2 model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_APPARATUS_REPAIR2_RESULT_20260925.md)
 passes with all execution counters zero. Commit those exact sources, then run
-only scientific `repair1`; do not repeat prior attempts.
+only scientific `repair1`; do not repeat prior attempts. That [repair1 result](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_RESULT_20260925.md)
+is `LAYER1_ROUTER_AND_SWIGLU_EXACT_PRIMITIVES`: all three candidates are
+byte-exact and every replay/control gate passes. Close compile parity. The
+sole active cell is now the separately frozen [production integration](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_PROTOCOL_20260925.md).
 This is fidelity work, not a rate measurement.
 
 **STRAT-01 block-0 production integration (22 September):**
