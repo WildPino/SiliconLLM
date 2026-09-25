@@ -21,6 +21,7 @@ static const char strat01_r2c_config[] =
     "rms_eps=1e-6;rope=deepseek2-normal-yarn;rope_base=100000;rope_factor=64;"
     "rope_orig_ctx=4096;beta_fast=32;beta_slow=1;mscale=1;mscale_all_dim=1;"
     "rms_accum=double;kb=q5_0xq8_0;q6kq8k=reference-generic-noavx-noavx2-nofma-noinline;"
+    "routerdot=f32prod-f64accum-reference-generic;layer1swiglu=sse2-nofma4;"
     "block0=dense-swiglu-sse2-nofma4;block1=mla-sigmoid-bias-select-top4-unbiased-normalized-q4k-q6k-shared-residual;"
     "build=clang-c11-O3-mavx2-mfma-no-fast-math;fp_contract=off-c11-pragma;"
     "payload=f32le-or-i32le-token-major;adjudication=external-reference-only";
@@ -103,7 +104,7 @@ static int strat01_r2c_f32_matmul_batch(const char *path,const strat01_tensor *t
     FILE *f=NULL;float *w=NULL;uint8_t raw[4];
     if(!t||t->type!=STRAT01_GGML_F32||t->rank!=2||t->dims[0]!=in||t->dims[1]!=rows||!batch){snprintf(error,256,"Rung-2C F32 matrix descriptor mismatch");return 0;}
     w=strat01_r2a_alloc(in,error);if(!w)return 0;f=fopen(path,"rb");if(!f||!strat01_r2a_seek(f,t->file_offset,error))goto fail;
-    for(unsigned row=0;row<rows;++row){for(unsigned i=0;i<in;++i){if(fread(raw,1,4,f)!=4){snprintf(error,256,"Rung-2C F32 matrix short read");goto fail;}w[i]=strat01_r2a_f32le(raw);}for(unsigned b=0;b<batch;++b){float sum=0.0f;const float *xb=x+(size_t)b*in;for(unsigned i=0;i<in;++i)sum+=w[i]*xb[i];y[(size_t)b*rows+row]=sum;}}
+    for(unsigned row=0;row<rows;++row){for(unsigned i=0;i<in;++i){if(fread(raw,1,4,f)!=4){snprintf(error,256,"Rung-2C F32 matrix short read");goto fail;}w[i]=strat01_r2a_f32le(raw);}for(unsigned b=0;b<batch;++b){const float *xb=x+(size_t)b*in;y[(size_t)b*rows+row]=strat01_f32_dot_reference_generic(w,xb,in);}}
     if(ferror(f)||fclose(f)!=0){f=NULL;snprintf(error,256,"Rung-2C F32 matrix I/O failure");goto fail;}free(w);return 1;
 fail:if(f)fclose(f);free(w);return 0;
 }
@@ -145,10 +146,10 @@ static int strat01_r2c_run_moe(const char *path,const strat01_tensor *t[9],const
     for(unsigned tok=0;tok<8U;++tok)for(unsigned s=0;s<4U;++s){unsigned expert=(unsigned)a->topk[(size_t)tok*4U+s];strat01_tensor up,gate,down;float *u=a->moe_up+((size_t)tok*4U+s)*1280U,*g=a->moe_gate+((size_t)tok*4U+s)*1280U,*sw=a->moe_swiglu+((size_t)tok*4U+s)*1280U,*dn=a->moe_down+((size_t)tok*4U+s)*1536U,*wt=a->moe_weighted+((size_t)tok*4U+s)*1536U;
         if(!strat01_r2c_expert_view(t[3],expert,1536U,1280U,&up,error)||!strat01_r2c_expert_view(t[4],expert,1536U,1280U,&gate,error)||!strat01_r2c_expert_view(t[5],expert,1280U,1536U,&down,error)||
            !strat01_r2a_matmul_batch(path,&up,a->norm+(size_t)tok*1536U,1U,1536U,u,1280U,error)||!strat01_r2a_matmul_batch(path,&gate,a->norm+(size_t)tok*1536U,1U,1536U,g,1280U,error))goto fail;
-        for(unsigned i=0;i<1280U;++i)sw[i]=(g[i]/(1.0f+expf(-g[i])))*u[i];if(!strat01_r2c_q6_matmul_batch(path,&down,sw,1U,1280U,dn,error))goto fail;for(unsigned i=0;i<1536U;++i)wt[i]=dn[i]*a->weights_norm[(size_t)tok*4U+s];}
+        if(!strat01_sse2_swiglu_compute(g,u,sw,1280U,error)||!strat01_r2c_q6_matmul_batch(path,&down,sw,1U,1280U,dn,error))goto fail;for(unsigned i=0;i<1536U;++i)wt[i]=dn[i]*a->weights_norm[(size_t)tok*4U+s];}
     for(unsigned tok=0;tok<8U;++tok)for(unsigned i=0;i<1536U;++i){float sum=0.0f;for(unsigned s=0;s<4U;++s)sum+=a->moe_weighted[((size_t)tok*4U+s)*1536U+i];a->moe_out[(size_t)tok*1536U+i]=sum;}
     if(!strat01_r2a_matmul_batch(path,t[6],a->norm,8U,1536U,a->up,1280U,error)||!strat01_r2a_matmul_batch(path,t[7],a->norm,8U,1536U,a->gate,1280U,error))goto fail;
-    for(size_t i=0;i<8U*1280U;++i)a->swiglu[i]=(a->gate[i]/(1.0f+expf(-a->gate[i])))*a->up[i];if(!strat01_r2c_q6_matmul_batch(path,t[8],a->swiglu,8U,1280U,a->shexp,error))goto fail;
+    if(!strat01_sse2_swiglu_compute(a->gate,a->up,a->swiglu,8U*1280U,error)||!strat01_r2c_q6_matmul_batch(path,t[8],a->swiglu,8U,1280U,a->shexp,error))goto fail;
     for(size_t i=0;i<8U*1536U;++i){a->out[i]=a->moe_out[i]+a->shexp[i];a->l_out[i]=a->out[i]+attn->ffn_inp[i];}
     free(norm_w);free(bias);return 1;
 fail:free(norm_w);free(bias);return 0;
@@ -259,6 +260,8 @@ static int strat01_gguf_rung2c_selftest(void) {
     {float score[64]={0};int32_t ids[4];score[1]=4;score[2]=3;score[3]=2;score[4]=1;strat01_r2c_top4(score,ids);int32_t saved=ids[0];ids[0]=ids[1];R2C_CHECK(ids[0]!=saved);}
     {strat01_tensor t={0},v0,v1;t.type=STRAT01_GGML_Q4_K;t.rank=3;t.dims[0]=1536;t.dims[1]=1280;t.dims[2]=64;t.file_offset=1000;char e[256]={0};R2C_CHECK(strat01_r2c_expert_view(&t,0,1536,1280,&v0,e)&&strat01_r2c_expert_view(&t,1,1536,1280,&v1,e)&&v1.file_offset>v0.file_offset);}
     {float gate=-1,up=2,good=(gate/(1+expf(-gate)))*up,swap=(up/(1+expf(-up)))*gate;R2C_CHECK(good!=swap);}
+    {float x[1536],y[1536];for(unsigned i=0;i<1536U;++i){x[i]=(float)((int)(i%29U)-14)*0.03125f+(float)(i&1U)*1.0e-4f;y[i]=(float)((int)(i%31U)-15)*0.015625f-(float)(i%3U)*7.0e-5f;}float got=strat01_f32_dot_reference_generic(x,y,1536U),fs=0.0f;double ds=0.0;for(unsigned i=0;i<1536U;++i){const float p=x[i]*y[i];fs+=p;ds+=(double)p;}R2C_CHECK(got==(float)ds&&got!=fs);}
+    {float gate[1280],up[1280],got[1280],scalar[1280];char e[256]={0};for(unsigned i=0;i<1280U;++i){gate[i]=(float)((int)(i%37U)-18)*0.17f;up[i]=(float)((int)(i%41U)-20)*0.11f;scalar[i]=(gate[i]/(1.0f+expf(-gate[i])))*up[i];}R2C_CHECK(strat01_sse2_swiglu_compute(gate,up,got,1280U,e));R2C_CHECK(memcmp(got,scalar,sizeof(got))!=0);}
     {float routed[2]={1,2},shared[2]={3,4},out[2]={routed[0]+shared[0],routed[1]+shared[1]};R2C_CHECK(memcmp(out,routed,sizeof(out))!=0);float noadd[2]={shared[0],shared[1]};R2C_CHECK(memcmp(out,noadd,sizeof(out))!=0);}
     {float ffn[2]={.5f,-.5f},res[2]={1,2},out[2]={ffn[0]+res[0],ffn[1]+res[1]};R2C_CHECK(memcmp(out,ffn,sizeof(out))!=0);}
     {const char *hash="258232509011378e8470ce6c03cffd51e927f28bfc1ea4f937af07bda9bf0f44";char mutated[65];strcpy(mutated,hash);mutated[0]='0';R2C_CHECK(strcmp(hash,mutated)!=0);unsigned layer=1,slot=7;R2C_CHECK(layer==1&&slot==7&&!(layer==0&&slot==7));}

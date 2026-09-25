@@ -29,6 +29,10 @@ only scientific `repair1`; do not repeat prior attempts. That [repair1 result](p
 is `LAYER1_ROUTER_AND_SWIGLU_EXACT_PRIMITIVES`: all three candidates are
 byte-exact and every replay/control gate passes. Close compile parity. The
 sole active cell is now the separately frozen [production integration](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_PROTOCOL_20260925.md).
+Its [repaired model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md)
+passes 311 Python tests and 22 C self-tests with zero model, producer or graph
+execution. Commit those exact sources, then run only the authorized standard
+Rung-2C producer.
 This is fidelity work, not a rate measurement.
 
 **STRAT-01 block-0 production integration (22 September):**

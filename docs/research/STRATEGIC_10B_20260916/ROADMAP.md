@@ -31,6 +31,10 @@ is `LAYER1_ROUTER_AND_SWIGLU_EXACT_PRIMITIVES`: router candidate/oracle and
 both routed/shared SSE2 SwiGLU populations are byte-exact, with all controls
 live and no producer or graph. Close this local cell. The only next fidelity
 action is its separately frozen [production-integration protocol](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_PROTOCOL_20260925.md).
+Its [repaired model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md)
+is `APPARATUS_READY_NO_DONOR_EXECUTION`: 311 Python tests and 22 C self-tests
+pass, with zero model, producer or graph execution. Commit the exact sources,
+then run the sole authorized standard Rung-2C producer.
 This paragraph supersedes the older active-boundary wording below.
 
 **Current execution head (24 September):** the accepted donor is exact through

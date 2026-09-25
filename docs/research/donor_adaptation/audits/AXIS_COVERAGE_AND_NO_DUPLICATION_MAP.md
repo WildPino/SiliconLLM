@@ -43,6 +43,9 @@ the authorized scientific `repair1`. The canonical [result](../probes/STRAT_01_G
 is `LAYER1_ROUTER_AND_SWIGLU_EXACT_PRIMITIVES`: router and both SwiGLU
 populations are byte-exact with every control live. Close all local variants.
 The only open fidelity action is the frozen [production integration](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_PROTOCOL_20260925.md).
+Its [repaired model-free apparatus](../probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md)
+passes the complete suite at zero model/producer/graph execution. Do not repeat
+apparatus or local parity; commit and run only the authorized producer.
 The still later [STRAT-03 result](../probes/STRAT_03_EXECUTABLE_SHARED_RESIDUAL_RESULT.md)
 closes the frozen five-layer `k=3/256` local diagnostic with a byte-count-
 matched SwiGLU shared path and `x`-only router: all three gates fail despite

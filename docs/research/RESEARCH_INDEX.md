@@ -40,6 +40,9 @@ passes with all execution counters zero. Commit, then run only scientific
 is `LAYER1_ROUTER_AND_SWIGLU_EXACT_PRIMITIVES`: the router and both SwiGLU
 populations are byte-exact with every control live. Do not repeat local parity.
 The active cell is the frozen [production-integration protocol](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_PROTOCOL_20260925.md).
+Its [repaired model-free apparatus](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md)
+is qualified: 311 Python tests and 22 C self-tests pass with all execution
+counters at zero. Commit, then run its sole standard Rung-2C producer.
 
 ## 1. Reading order and precedence
 

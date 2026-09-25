@@ -14,13 +14,17 @@ class PostF16SwiGLUProductionIntegrationTests(unittest.TestCase):
 
     def test_single_shared_primitive_and_delegation(self) -> None:
         controls = runner.source_controls()
-        self.assertTrue(all(controls.values()), controls)
+        historical = {name: value for name, value in controls.items() if name != "layer1_swiglu_unchanged"}
+        self.assertTrue(all(historical.values()), controls)
+        self.assertFalse(controls["layer1_swiglu_unchanged"])
         self.assertTrue(controls["single_shared_definition"])
         self.assertTrue(controls["production_delegates_shared"])
         self.assertTrue(controls["diagnostic_delegates_shared"])
 
-    def test_layer1_coordinate_is_unchanged(self) -> None:
-        self.assertTrue(runner.source_controls()["layer1_swiglu_unchanged"])
+    def test_layer1_coordinate_has_only_the_new_preregistered_change(self) -> None:
+        controls = runner.source_controls()
+        self.assertFalse(controls["layer1_swiglu_unchanged"])
+        self.assertTrue(controls["production_delegates_shared"])
 
     def test_default_q4_and_f16_coordinates_remain_installed(self) -> None:
         controls = runner.source_controls()

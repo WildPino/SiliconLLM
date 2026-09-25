@@ -120,3 +120,20 @@ This cell establishes fidelity only on the frozen two-schedule trace. It does
 not establish tokenizer/logits, free generation, task quality, RAM or accepted
 token throughput. Timing is inadmissible and must not update
 `SPEED_LEDGER.md`.
+
+## Apparatus repair addendum
+
+**Frozen after apparatus VOID 1 and before repair execution: 2026-09-25.**
+The first model-free apparatus compiled successfully and ran 311 Python tests,
+but four historical assertions required layer-1 SwiGLU to remain scalar and
+therefore rejected the exact coordinate this protocol preregistered. No model,
+payload, diagnostic, producer or graph ran.
+
+One apparatus repair is authorized. It may change only those four historical
+assertions so that they continue to require every older Q6, block-0 SwiGLU and
+layer-2 control while explicitly recognizing the new layer-1 router/SwiGLU
+production integration. It must not weaken the new cell's own positive source
+controls or alter production arithmetic. Preserve the original apparatus
+directory as VOID and use a distinct `apparatus_repair1` directory. Scientific
+execution remains unauthorized until the complete repaired suite and all C
+self-tests pass with every execution counter at zero.

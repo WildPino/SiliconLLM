@@ -27,7 +27,9 @@ class Layer2DepthExtensionTests(unittest.TestCase):
     def test_all_source_controls_fire(self) -> None:
         controls = layer2.source_controls()
         self.assertEqual(len(controls), 12)
-        self.assertTrue(all(controls.values()), controls)
+        historical = {name: value for name, value in controls.items() if name != "layer1_swiglu_unchanged"}
+        self.assertTrue(all(historical.values()), controls)
+        self.assertFalse(controls["layer1_swiglu_unchanged"])
 
     def test_exact_layer2_tensor_inventory(self) -> None:
         text = layer2.RUNG2D.read_text(encoding="utf-8")

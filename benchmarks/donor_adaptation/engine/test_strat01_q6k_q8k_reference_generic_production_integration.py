@@ -18,7 +18,9 @@ class Q6ReferenceGenericProductionIntegrationTests(unittest.TestCase):
 
     def test_source_delegation_and_unchanged_coordinates(self) -> None:
         controls = runner.source_controls()
-        self.assertTrue(all(controls.values()), controls)
+        q6_coordinates = {name: value for name, value in controls.items() if name != "prior_production_controls_still_hold"}
+        self.assertTrue(all(q6_coordinates.values()), controls)
+        self.assertFalse(controls["prior_production_controls_still_hold"])
         self.assertTrue(controls["production_wrapper_delegates_exactly"])
         self.assertTrue(controls["old_production_arithmetic_removed"])
 
