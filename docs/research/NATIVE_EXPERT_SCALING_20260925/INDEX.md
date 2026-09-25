@@ -133,8 +133,11 @@ scheduled.
   automatically extend E256 on the BPB gain alone.
 - **Next exact action: pretrained transfer.** METH-04 supplies one
   byte-feasible GigaChat type map but lacks a calibration importance matrix.
-  Bind a representative *non-held-out* donor calibration set, cost matrix
-  collection and BF16→mixed-format conversion, and freeze paired BF16/Q4/
+  The existing 48-document `strat01_gigachat_fresh_v2/calib.jsonl` is
+  disjoint from held-out but has zero Cyrillic characters; it can anchor
+  only a bounded domain pilot. Bind representative *non-held-out* coverage,
+  estimate the cost of matrix collection and BF16→mixed-format conversion,
+  and freeze paired BF16/Q4/
   proposed-format BPB, generation and task gates plus an early stop rule.
   Inspect actual quantizer fallbacks before any C port. Compare feasibility
   with the tractable Qwen2.5-1.5B dense-source path; the old donor port is

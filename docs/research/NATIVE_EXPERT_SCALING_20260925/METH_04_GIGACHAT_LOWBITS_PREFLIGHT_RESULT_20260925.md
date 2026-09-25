@@ -77,3 +77,15 @@ running the conversion. If step-zero quality is inadequate, only a costed
 adaptation/distillation path can rescue this map; a cheaper file alone is
 not a transferred model. Supporting these donor operators in `engine.c`
 and proving ≥50 accepted tok/s on that same artifact remain separate gates.
+
+An existing candidate is `benchmarks/donor_adaptation/density/corpus/
+strat01_gigachat_fresh_v2/calib.jsonl`, SHA-256
+`68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81`:
+48 documents and 196,560 source-span bytes, 16 each in prose, technical
+text and code. Its 96-document held-out counterpart shares no item or
+source-content SHA-256 with calibration. A read-only character census found
+**zero Cyrillic characters** in calibration, so using it alone would support
+at most an initial pilot on those domains, not broad donor-language quality.
+The source-bound Q4 GGUF could collect an importance matrix with lower RAM
+than BF16, but its activations are an approximation; the calibration model,
+dataset coverage and resource ceiling must be frozen before that run.
