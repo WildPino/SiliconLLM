@@ -13,12 +13,15 @@ causal; close Q8, historical generic, active AVX2, and compile parity. The froze
 passed its [model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_APPARATUS_RESULT_20260925.md)
 as `APPARATUS_READY_NO_DONOR_EXECUTION`: 300 Python tests and 22 C self-test
 commands pass, including routed width 1280, with zero production or graph
-executions. The sole authorized producer subsequently completed both schedules
-but is [VOID 1](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_VOID1_20260925.md):
-the inherited validator rejected the expected appended `CONFIG` marker, then
-its error handler failed before writing an adjudication. Preserve its complete
-outputs and two graph markers; never rerun production. The only next action is
-the frozen offline recovery with zero new producer or graph execution.
+executions. The sole authorized producer's outputs were recovered offline
+without new execution. The canonical [result](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_RESULT_20260925.md)
+is a valid `FAIL_ENGINE_Q6_REFERENCE_GENERIC_PRODUCTION_INTEGRATION`: both
+schedules are byte-exact through complete layer-1 attention and `ffn_norm-1`.
+The first residual is the F32 router reduction; top-4 and all expert/shared
+up/gate projections remain exact, followed by independent routed/shared
+scalar-SwiGLU residuals. Never rerun production or recovery. Qualify only the
+zero-graph [layer-1 numerical-primitives cell](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_PROTOCOL_20260925.md)
+next.
 This paragraph supersedes the older active-boundary wording below.
 
 **Current execution head (24 September):** the accepted donor is exact through
