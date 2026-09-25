@@ -9,6 +9,8 @@
 #include "../../phase60/strat01_f32_dot_reference_generic.h"
 #include "../../phase60/strat01_swiglu_sse2.h"
 
+#pragma STDC FP_CONTRACT OFF
+
 #define ROUTER_IN 1536U
 #define ROUTER_ROWS 64U
 #define TOKENS 8U
@@ -162,17 +164,17 @@ int main(int argc, char **argv) {
             !read_exact(argv[7], shared_up, SHARED_COUNT)) goto done;
     router_all(norm, weights, router_float, router_candidate, router_oracle, router_promoted);
     const float norm0 = norm[0];
-    norm[0] = nextafterf(norm[0], INFINITY);
+    norm[0] = norm[0] + 1.0f;
     router_candidate_all(norm, weights, router_input_mutated);
     norm[0] = norm0;
     const float weight0 = weights[0];
-    weights[0] = nextafterf(weights[0], INFINITY);
+    weights[0] = weights[0] + 1.0f;
     router_candidate_all(norm, weights, router_weight_mutated);
     weights[0] = weight0;
     swiglu_scalar(routed_gate, routed_up, routed_scalar, ROUTED_COUNT);
     if (!strat01_sse2_swiglu_compute(routed_gate, routed_up, routed_sse2, ROUTED_COUNT, error)) goto done;
     const float routed_gate0 = routed_gate[0];
-    routed_gate[0] = nextafterf(routed_gate[0], INFINITY);
+    routed_gate[0] = routed_gate[0] + 1.0f;
     if (!strat01_sse2_swiglu_compute(routed_gate, routed_up, routed_gate_mutated, ROUTED_COUNT, error)) goto done;
     routed_gate[0] = routed_gate0;
     if (!strat01_sse2_swiglu_compute(routed_up, routed_gate, routed_swapped, ROUTED_COUNT, error)) goto done;

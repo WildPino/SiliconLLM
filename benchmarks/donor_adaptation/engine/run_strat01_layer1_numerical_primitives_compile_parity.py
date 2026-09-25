@@ -29,6 +29,7 @@ ORACLE = HERE / "strat01_layer1_f32_router_oracle.cpp"
 HEADER = ROOT / "benchmarks/phase60/strat01_f32_dot_reference_generic.h"
 SWIGLU = ROOT / "benchmarks/phase60/strat01_swiglu_sse2.h"
 PROTOCOL = ROOT / "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_PROTOCOL_20260925.md"
+ADDENDUM = ROOT / "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_ADDENDUM_A_20260925.md"
 TESTS = HERE / "test_strat01_layer1_numerical_primitives_compile_parity.py"
 MODEL = prior.MODEL
 SOURCE = prior.DEFAULT_OUTPUT
@@ -37,8 +38,8 @@ RECOVERY = HERE / "results/strat01_gigachat_engine_q6k_q8k_reference_generic_pro
 RECOVERY_SHA = "cb2a2d9cbfc80d8eb08dfc32d0f850fae717cf9a76525a6f81a9f600269a3b93"
 SSE2_ADJ = HERE / "results/strat01_gigachat_engine_post_f16_block0_swiglu_sse2_semantics_20260924/adjudication.json"
 SSE2_ADJ_SHA = "46f127215e4bfc00b80ba4eb151d20c294482d2cb5f3c976616e953d21852c0e"
-DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_layer1_numerical_primitives_compile_parity_20260925"
-DEFAULT_APPARATUS = HERE / "results/strat01_gigachat_engine_layer1_numerical_primitives_compile_parity_apparatus_repair1_20260925"
+DEFAULT_OUTPUT = HERE / "results/strat01_gigachat_engine_layer1_numerical_primitives_compile_parity_repair1_20260925"
+DEFAULT_APPARATUS = HERE / "results/strat01_gigachat_engine_layer1_numerical_primitives_compile_parity_apparatus_repair2_20260925"
 ROUTER_OFFSET = 509_582_464
 ROUTER_SPAN = 393_216
 OUTPUT_COUNTS = {
@@ -68,6 +69,7 @@ def read_json(path: Path, label: str) -> Any:
 
 def source_inventory() -> dict[str, dict[str, str]]:
     paths = {"runner": Path(__file__).resolve(), "tests": TESTS, "protocol": PROTOCOL,
+             "addendum": ADDENDUM,
              "probe": PROBE, "oracle": ORACLE, "candidate_header": HEADER, "swiglu": SWIGLU}
     missing = [name for name, path in paths.items() if not path.is_file()]
     if missing:
@@ -89,16 +91,19 @@ def source_controls() -> dict[str, bool]:
     oracle = ORACLE.read_text(encoding="utf-8")
     probe = PROBE.read_text(encoding="utf-8")
     protocol = PROTOCOL.read_text(encoding="utf-8")
+    addendum = ADDENDUM.read_text(encoding="utf-8")
     return {
         "protocol_frozen_and_corrected_preimplementation": "FROZEN BEFORE IMPLEMENTATION OR EXECUTION" in protocol and "Pre-implementation compiler-path correction" in protocol,
+        "repair_authorized_after_void": "REPAIR 1 AUTHORIZED" in addendum and "VOID_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY" in addendum and "scientific claim" in addendum,
         "candidate_target_isolated": 'target("no-avx,no-avx2,no-fma")' in header and "noinline" in header,
         "candidate_float_product_double_accumulator": "const float product = x[i] * y[i]" in header and "sum += (double) product" in header,
         "oracle_independent_translation_unit": "strat01_f32_dot_reference_generic" not in oracle and "(double) (x[i] * y[i])" in oracle,
-        "production_float_replay_present": "static float dot_float" in probe,
+        "production_float_replay_present": "#pragma STDC FP_CONTRACT OFF" in probe and "static float dot_float" in probe,
         "promoted_product_control_present": "static float dot_promoted_product" in probe,
         "shared_swiglu_reused": "strat01_sse2_swiglu_compute" in probe and "strat01_sse2_expf_no_fma" not in probe,
         "no_engine_or_graph_entrypoint": "engine.c" not in probe and "GRAPH_COMPLETE" not in probe,
         "exact_router_descriptor": "ROUTER_FILE_OFFSET 509582464LL" in probe and "ROUTER_IN 1536U" in probe and "ROUTER_ROWS 64U" in probe,
+        "material_one_value_mutations": probe.count("+ 1.0f") == 3,
     }
 
 

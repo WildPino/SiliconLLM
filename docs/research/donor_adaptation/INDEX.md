@@ -20,10 +20,12 @@ are byte-exact; F32 router logits first differ while top-4 and every routed and
 shared up/gate projection remain exact, followed by two local scalar-SwiGLU
 residuals. Never rerun production/recovery or reopen upstream axes. The sole
 active cell is the zero-graph [layer-1 numerical-primitives protocol](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_PROTOCOL_20260925.md).
-Its [repaired model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_APPARATUS_RESULT_20260925.md)
-is `APPARATUS_READY_NO_DONOR_EXECUTION`: all tests and controls pass with zero
-diagnostic, model, producer or graph executions. Commit those exact sources,
-then execute the one authorized local diagnostic; do not repeat apparatus.
+Its [first scientific invocation is VOID](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_VOID1_20260925.md)
+because the replay omitted the production FP-contract pragma and two one-ULP
+mutation controls were dead. [Addendum A](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_ADDENDUM_A_20260925.md)
+freezes the repair; the [repair-2 model-free apparatus](probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_APPARATUS_REPAIR2_RESULT_20260925.md)
+passes with all execution counters zero. Commit those exact sources, then run
+only scientific `repair1`; do not repeat prior attempts.
 This is fidelity work, not a rate measurement.
 
 **STRAT-01 block-0 production integration (22 September):**

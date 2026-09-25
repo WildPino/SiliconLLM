@@ -10,6 +10,7 @@ class Layer1NumericalPrimitivesTests(unittest.TestCase):
         protocol = runner.PROTOCOL.read_text(encoding="utf-8")
         self.assertIn("FROZEN BEFORE IMPLEMENTATION OR EXECUTION", protocol)
         self.assertIn("Pre-implementation compiler-path correction", protocol)
+        self.assertIn("REPAIR 1 AUTHORIZED", runner.ADDENDUM.read_text(encoding="utf-8"))
         bindings = runner.validate_bindings()
         self.assertEqual(bindings["router_descriptor"]["file_offset"], runner.ROUTER_OFFSET)
 
@@ -18,6 +19,11 @@ class Layer1NumericalPrimitivesTests(unittest.TestCase):
         self.assertTrue(all(controls.values()), controls)
         self.assertTrue(controls["oracle_independent_translation_unit"])
         self.assertTrue(controls["no_engine_or_graph_entrypoint"])
+        self.assertTrue(controls["material_one_value_mutations"])
+
+    def test_repair_outputs_are_separate(self) -> None:
+        self.assertTrue(runner.DEFAULT_OUTPUT.name.endswith("_repair1_20260925"))
+        self.assertTrue(runner.DEFAULT_APPARATUS.name.endswith("_apparatus_repair2_20260925"))
 
     def test_output_inventory_is_exact(self) -> None:
         self.assertEqual(len(runner.OUTPUT_COUNTS), 12)

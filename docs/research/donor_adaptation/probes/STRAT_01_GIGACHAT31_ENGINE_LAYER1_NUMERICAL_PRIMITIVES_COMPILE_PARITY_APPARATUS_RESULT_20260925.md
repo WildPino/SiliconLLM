@@ -6,6 +6,12 @@
 
 **Status:** `APPARATUS_READY_NO_DONOR_EXECUTION`
 
+**Superseded for execution control:** the first scientific attempt exposed
+replay and mutation-control defects not exercised by this synthetic apparatus.
+Preserve this record historically, but use [addendum A](STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_ADDENDUM_A_20260925.md)
+and the [repair-2 apparatus](STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_APPARATUS_REPAIR2_RESULT_20260925.md)
+for any subsequent action.
+
 ## Result
 
 The repaired model-free apparatus qualifies the standalone diagnostic frozen

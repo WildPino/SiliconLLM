@@ -21,11 +21,13 @@ The first residual is the F32 router reduction; top-4 and all expert/shared
 up/gate projections remain exact, followed by independent routed/shared
 scalar-SwiGLU residuals. Never rerun production or recovery. The zero-graph
 [layer-1 numerical-primitives cell](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_PROTOCOL_20260925.md)
-has now passed its [repaired model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_APPARATUS_RESULT_20260925.md)
-as `APPARATUS_READY_NO_DONOR_EXECUTION`: four Python tests and the synthetic
-C/C++ self-test pass, with zero diagnostic, model, producer or graph
-executions. Commit the qualified sources, then run its sole local scientific
-diagnostic; do not rerun the apparatus.
+produced a preserved [first scientific VOID](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_VOID1_20260925.md):
+the standalone replay omitted the production FP-contract pragma and two
+one-ULP mutation controls were dead. [Addendum A](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_ADDENDUM_A_20260925.md)
+freezes the narrow repair. Its [repair-2 model-free apparatus](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_APPARATUS_REPAIR2_RESULT_20260925.md)
+passes five Python tests and the C/C++ self-test with zero diagnostic, model,
+producer or graph executions. Commit those exact sources, then run only the
+authorized scientific `repair1`.
 This paragraph supersedes the older active-boundary wording below.
 
 **Current execution head (24 September):** the accepted donor is exact through

@@ -31,9 +31,12 @@ first remaining mismatch is the F32 router reduction; top-4 and all routed and
 shared up/gate projections are exact, followed by independent scalar-SwiGLU
 residuals. Never rerun production or recovery. The sole active cell is the
 zero-graph [layer-1 numerical-primitives protocol](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_PROTOCOL_20260925.md).
-Its [repaired model-free apparatus](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_APPARATUS_RESULT_20260925.md)
-is qualified with all execution counters at zero. Commit the exact sources,
-then run its single authorized local diagnostic; never repeat the apparatus.
+Its [first scientific invocation is VOID](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_VOID1_20260925.md)
+for a missing production replay pragma and dead one-ULP mutations. The narrow
+repair is frozen in [addendum A](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_ADDENDUM_A_20260925.md),
+and its [repair-2 apparatus](donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_APPARATUS_REPAIR2_RESULT_20260925.md)
+passes with all execution counters zero. Commit, then run only scientific
+`repair1`.
 
 ## 1. Reading order and precedence
 
