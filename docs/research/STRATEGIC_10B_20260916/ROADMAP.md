@@ -6,6 +6,11 @@ historical "sole next action" directives below. Work moves to native expert
 scaling at fixed active budget on `research/native-expert-scaling`; the final
 pretrained quality/rate goal remains unfulfilled and unchanged.
 
+**Active plan:** [native expert scaling](../NATIVE_EXPERT_SCALING_20260925/INDEX.md),
+with a linked prior-evidence inventory. Increase expert count at fixed active
+expert budget and test quality, routing and actual execution cost jointly.
+The detailed donor continuation below is retained only as history.
+
 **Rolling status through 23 September 2026:** [continuation status](STATUS_20260923.md). The [17 September `engine.c` scope decision](STATUS_20260917.md) remains valid. The text below remains the 16 September design snapshot; use the rolling status and [research control index](../RESEARCH_INDEX.md) for execution state and no-duplication decisions.
 
 **Latest continuation (25 September):** the canonical

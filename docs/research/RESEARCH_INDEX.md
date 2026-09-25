@@ -6,6 +6,10 @@ The active question is native expert-count scaling at fixed active expert
 budget, on `research/native-expert-scaling`. Historical "next action" text
 below is suspended, not an instruction to resume donor execution.
 
+**Active entry point:** [native expert scaling](NATIVE_EXPERT_SCALING_20260925/INDEX.md).
+Use its short queue and prior-evidence map before proposing work. The donor
+pause checkpoint is `90bf966`; no new scaling experiment has run at handoff.
+
 **Purpose.** This is the short control-plane for the repository research record.
 Read it before proposing or running work.  It is a navigation and
 no-duplication index, not a replacement for a canonical result, raw artifact,
