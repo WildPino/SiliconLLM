@@ -1,0 +1,925 @@
+{
+  "schema": "meth06_cyrillic_calibration_v1",
+  "selection": "all RU/UK Kubernetes Markdown files >=4096 bytes; one nonoverlapping 4095-byte window with maximum Cyrillic count per file, earliest tie",
+  "ordering": "round_robin_ru_uk_then_remaining_ru",
+  "minimum_cyrillic_characters_per_span": 100,
+  "source_tokenizer_sha256": "b4b3d90c67830a4e566296ad8d0f6b5ac5a5cdbfd331b200d0ee8263aaaea1fe",
+  "excluded_old_calib_sha256": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+  "excluded_heldout_sha256": "04687034c1054e0985e24efa87ba37a3fb11031de5b2880e5b8ac1742f80ec6e",
+  "files_by_language": {
+    "ru": 74,
+    "uk": 16
+  },
+  "documents": 90,
+  "source_paths_disjoint": true,
+  "source_content_sha256_disjoint": true,
+  "total_span_bytes": 368502,
+  "total_cyrillic_characters": 132006,
+  "token_count": 64322,
+  "corpus": "results\\native_expert_scaling\\meth06_cyrillic_calib.jsonl",
+  "corpus_sha256": "5af7e43f81d4c8d408e99a3c9de3e78ed2b3b2f7bbb91cd36944a0837275c735",
+  "ids": "results\\native_expert_scaling\\meth06_cyrillic_source_ids.txt",
+  "ids_sha256": "7f5333d1d52a5c94ad0026ff0f38cc022a3aeeecf1b884085b56abe8c795c524",
+  "documents_manifest": [
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/community/static/cncf-code-of-conduct.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/community/static/cncf-code-of-conduct.md",
+      "source_content_sha256": "d598b0706185074e4690d0c3ed0ccdadd2126060aed8e0207d8f0ff4654f9598",
+      "span_sha256": "4ca91af65f85880c5739a3162f703b52eb69fdff720d58b584d26a57470ce48b",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1729
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/uk/blog/_posts/2024-03-12-mid-cycle-1.30.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/uk/blog/_posts/2024-03-12-mid-cycle-1.30.md",
+      "source_content_sha256": "cbd3f3d3d7a1a44bfa619f01ae0446a72b0575f01e4c962899b25609685fd48f",
+      "span_sha256": "f04fd08f4224ce8de3aa264fcd597c117ecac83e29b00cfe64d6f0f3477453ad",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "uk",
+      "cyrillic_characters": 1571
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/community/static/community-values.md:byte=0-4094",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/community/static/community-values.md",
+      "source_content_sha256": "debf60292dab0874b869bef81c87b48b0831820ced68fd7f1bc84574119f3cae",
+      "span_sha256": "e2a260c4eec26b9ba6315f03c387267f6f5343436323a4c9197a6487e43edd66",
+      "span_start_byte": 0,
+      "span_end_byte": 4094,
+      "language": "ru",
+      "cyrillic_characters": 1783
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/uk/blog/_posts/2025-07-28-kubernetes-v1.34-sneak-peek.md:byte=4095-8189",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/uk/blog/_posts/2025-07-28-kubernetes-v1.34-sneak-peek.md",
+      "source_content_sha256": "004e33236cbd51c3818238b53f07e70978f520caab443861d108e806c69b4c2f",
+      "span_sha256": "5774a889c181e216899cf3ae22d0450449a29fbe0703ee96b0ee5a0a932778cb",
+      "span_start_byte": 4095,
+      "span_end_byte": 8189,
+      "language": "uk",
+      "cyrillic_characters": 1541
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/_index.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/_index.md",
+      "source_content_sha256": "c56ca81993e5f203691d739c0e721d3c2f3e3cb06bfa6700a54795e2c3cf28de",
+      "span_sha256": "f53c3e67dfbbe0af0df10628e4f80c986e40666ada2a722c206eb5f97746881a",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1497
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/uk/community/static/cncf-code-of-conduct.md:byte=4096-8190",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/uk/community/static/cncf-code-of-conduct.md",
+      "source_content_sha256": "e36d1951dab07ce9fead5b5a1612dd8f59d84f4d53e6cec73bbae93ef1a349c3",
+      "span_sha256": "27a9b8351566ffb728e7a4744c126ce2020a953b15d0435a29e029a5301935b4",
+      "span_start_byte": 4096,
+      "span_end_byte": 8190,
+      "language": "uk",
+      "cyrillic_characters": 1741
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/architecture/cloud-controller.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/architecture/cloud-controller.md",
+      "source_content_sha256": "3f2dd76fd39c08735a8f27377371d6149a4ea970e1cf013cb2817c02b4f497d2",
+      "span_sha256": "94977aeda3443125dac620e4cd4fc3cebe952bae9963e302db14c293d95f4f0e",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1585
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/uk/docs/concepts/_index.md:byte=8190-12284",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/uk/docs/concepts/_index.md",
+      "source_content_sha256": "684285245f494edbf9d464eccb02a762c96c4c75b99f789d317a8b3ad89c9cba",
+      "span_sha256": "ad52bc360bc4047b9c042ce5d6d4786bc90b7f6ca2e333631c9d37f5ede5b6f9",
+      "span_start_byte": 8190,
+      "span_end_byte": 12284,
+      "language": "uk",
+      "cyrillic_characters": 1043
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/architecture/control-plane-node-communication.md:byte=4096-8189",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/architecture/control-plane-node-communication.md",
+      "source_content_sha256": "2dd5835687634f33fbb3527a2bc65b11369d9da7ab9b0aaa4e9233852fc5a47e",
+      "span_sha256": "e0e639ad63027f88da720e81bf48ba7e07eff222c2cb5a843ab729398d39b7ab",
+      "span_start_byte": 4096,
+      "span_end_byte": 8189,
+      "language": "ru",
+      "cyrillic_characters": 1624
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/uk/docs/concepts/extend-kubernetes/operator.md:byte=4096-8189",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/uk/docs/concepts/extend-kubernetes/operator.md",
+      "source_content_sha256": "bfe9e3123b00abe7c8432ec86e6e26ed42cb0fc772ae2c83618696bd12d328db",
+      "span_sha256": "c9567c04bc0983b5672e5f4e5a96b77c098ab58b8cd9a14fc3b951d5717b2c9d",
+      "span_start_byte": 4096,
+      "span_end_byte": 8189,
+      "language": "uk",
+      "cyrillic_characters": 1629
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/architecture/controller.md:byte=4095-8189",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/architecture/controller.md",
+      "source_content_sha256": "2468da006cfd65b88b02e94830e9687bacbf017eb997330cef317295e09c792c",
+      "span_sha256": "3f9ea166ac2dd231159557ba84f4101bf6dc32c6b7d42ab5ce9e9ecd3df552a1",
+      "span_start_byte": 4095,
+      "span_end_byte": 8189,
+      "language": "ru",
+      "cyrillic_characters": 1750
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/uk/docs/concepts/overview/what-is-kubernetes.md:byte=16380-20475",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/uk/docs/concepts/overview/what-is-kubernetes.md",
+      "source_content_sha256": "4f407ff92b919156dad3b175396edfe0078b9b56027ce52cd2533a36969e7278",
+      "span_sha256": "7055825ae4c0ea4c3f31daa719ce10c3cfdcd667225790e89353f0bf188d5211",
+      "span_start_byte": 16380,
+      "span_end_byte": 20475,
+      "language": "uk",
+      "cyrillic_characters": 1472
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/architecture/garbage-collection.md:byte=4096-8190",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/architecture/garbage-collection.md",
+      "source_content_sha256": "7ddf549b193f72b865cce61a7bb5fa53652854f1324641bf6c9b3daa472db74e",
+      "span_sha256": "b4eb9063c8ab67d3b79185a15110880e9a35b34abf2569dfd25226b14da8f1c7",
+      "span_start_byte": 4096,
+      "span_end_byte": 8190,
+      "language": "ru",
+      "cyrillic_characters": 1600
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/uk/docs/contribute/localization_uk.md:byte=4095-8190",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/uk/docs/contribute/localization_uk.md",
+      "source_content_sha256": "4ceb87cd49dd1aa67d6d7cbe78256d87692a8c86f961079b32f649671768a1d3",
+      "span_sha256": "b1cfabbbcba8344c8b9031f23187ed15ed22f41b3f83a78a0965cede14c3a103",
+      "span_start_byte": 4095,
+      "span_end_byte": 8190,
+      "language": "uk",
+      "cyrillic_characters": 1393
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/architecture/nodes.md:byte=20476-24569",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/architecture/nodes.md",
+      "source_content_sha256": "42f7fd942184b30b08d17f7f67802f034c727a69e4639fc9b5074cd351951f35",
+      "span_sha256": "456240ec83366dfd90e0745fe5aca0ea2c33dde0b77608d670af2403aacd23dc",
+      "span_start_byte": 20476,
+      "span_end_byte": 24569,
+      "language": "ru",
+      "cyrillic_characters": 1692
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/uk/docs/setup/_index.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/uk/docs/setup/_index.md",
+      "source_content_sha256": "608ba7559483493c8805ce69916cc7b80fbc5f3b2eda17d90b6a373bdc7aef5b",
+      "span_sha256": "7512114c0d6eaf2285ad820bd6b413886ea09cd68ce8bbd89519cdf52d45ff87",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "uk",
+      "cyrillic_characters": 857
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/cluster-administration/_index.md:byte=0-4094",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/cluster-administration/_index.md",
+      "source_content_sha256": "b234cea982f599014d8592333702261f57c413acbf4e4eb356d06c3ae25b0324",
+      "span_sha256": "6eabbb5ce880dabf76755d95e6689000c93d5eb4a419848aacaf6ae1922cd96f",
+      "span_start_byte": 0,
+      "span_end_byte": 4094,
+      "language": "ru",
+      "cyrillic_characters": 1449
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/uk/docs/tasks/tools/install-minikube.md:byte=4095-8190",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/uk/docs/tasks/tools/install-minikube.md",
+      "source_content_sha256": "87d24e1f6f186185f662e8d6a4e794b6f1527983d652786d478abb47a12af2ae",
+      "span_sha256": "16052e218004310056d76e1fe0c84edccf3f7b4a379a803e1c9a86fbc60d9e83",
+      "span_start_byte": 4095,
+      "span_end_byte": 8190,
+      "language": "uk",
+      "cyrillic_characters": 1190
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/cluster-administration/addons.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/cluster-administration/addons.md",
+      "source_content_sha256": "163f9c49349bc653167191c56acbaa6e44e8ed12e90a8982a9cea4acdaa1154a",
+      "span_sha256": "ba3ecd2d8d9e5583bbe4b2a25b8b1ea156f75c98384751ff607033a20671e554",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1340
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/uk/docs/tutorials/_index.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/uk/docs/tutorials/_index.md",
+      "source_content_sha256": "10a4f019e59944915a462ced42751386b21887fc0854a1808374dd86765575dd",
+      "span_sha256": "6970e2c3c4376f1f7ed95f90838cb0a7bbdf50cc7098145b6a0b0bd6f19c721b",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "uk",
+      "cyrillic_characters": 875
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/cluster-administration/flow-control.md:byte=28665-32759",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/cluster-administration/flow-control.md",
+      "source_content_sha256": "3976053f2b14473ad4106425b6aa1901ae2d092200f8378eb4157d69b8dc33ce",
+      "span_sha256": "ad86468ae56b2e8dd6d411ff8bd54e4a0b7611728a5e940cf613e62226bf51f7",
+      "span_start_byte": 28665,
+      "span_end_byte": 32759,
+      "language": "ru",
+      "cyrillic_characters": 1778
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/uk/docs/tutorials/hello-minikube.md:byte=4095-8190",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/uk/docs/tutorials/hello-minikube.md",
+      "source_content_sha256": "a0ba09ea4498a81ae9734ff2e983aabd8bda60b65127835035f37702ac4d7e77",
+      "span_sha256": "f67927bb3a475f8738149cd4ffcb25ec39afa75d1b6c16727303739207c26133",
+      "span_start_byte": 4095,
+      "span_end_byte": 8190,
+      "language": "uk",
+      "cyrillic_characters": 796
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/cluster-administration/logging.md:byte=8191-12285",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/cluster-administration/logging.md",
+      "source_content_sha256": "61f7bee22926f2a17d17d33baf3bcdd6a16e412056e31c2bcffb78dd9a956667",
+      "span_sha256": "0b45a261ae8952f474a0ccf9fd012ac331987fca29e464c8c0beddf456f7a915",
+      "span_start_byte": 8191,
+      "span_end_byte": 12285,
+      "language": "ru",
+      "cyrillic_characters": 1622
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/uk/README.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/uk/README.md",
+      "source_content_sha256": "efbc8897195f3bb2335aa234d0c945dc3a9069be395ad196e52118d7482daba4",
+      "span_sha256": "814e039c1e8c307ed34dcdc39dd3b7ca50318626e98f89d114f125f9b1feec8d",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "uk",
+      "cyrillic_characters": 1351
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/cluster-administration/manage-deployment.md:byte=20475-24570",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/cluster-administration/manage-deployment.md",
+      "source_content_sha256": "4e2447a9a2933f6fa6606417ed99e26018cb2e998561d37b46993f8bacdefcec",
+      "span_sha256": "51f2cd0d8c770b0a4f0759c20f8558950ce7af009696eb6c29dfae45d2f5fe6d",
+      "span_start_byte": 20475,
+      "span_end_byte": 24570,
+      "language": "ru",
+      "cyrillic_characters": 1458
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/uk/releases/download.md:byte=0-4094",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/uk/releases/download.md",
+      "source_content_sha256": "8954554209c3935478c4303f85c7511e01af23990f4f2106f6804ff127bd0976",
+      "span_sha256": "d868aad192919fce44b14cb10d9f7187399c45bdb6da9bef2eb98d14eadd066e",
+      "span_start_byte": 0,
+      "span_end_byte": 4094,
+      "language": "uk",
+      "cyrillic_characters": 1187
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/cluster-administration/networking.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/cluster-administration/networking.md",
+      "source_content_sha256": "08851cbe1aff1c850a568ba80a1bebfafdad658a557b1cbee8be710845f3000f",
+      "span_sha256": "b5a821db677df9433c25ea0067e8b9a1a634614dcb819826ea3fcbf2fe50fd88",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1622
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/uk/releases/patch-releases.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/uk/releases/patch-releases.md",
+      "source_content_sha256": "70e3dfde1c96f188e8f371fef38d5f3584e0fa6cf86eea86f43e005b2a42715b",
+      "span_sha256": "022da1b114dcee85a19458e5cf1fb3ef9404d916137c309be52dd6495993375f",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "uk",
+      "cyrillic_characters": 1610
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/cluster-administration/proxies.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/cluster-administration/proxies.md",
+      "source_content_sha256": "9d84fcabcec328b38fcc7488d9645511f29e63fbfc49aaac460aa9c560a5b90f",
+      "span_sha256": "c64ba2289418f34f3c80921319b43692ce6d7d3b27abff788c873ca8fa1c6efc",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1488
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/uk/releases/release-managers.md:byte=8190-12285",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/uk/releases/release-managers.md",
+      "source_content_sha256": "51c4373bef6c84fb19bc025796ec2fead1adb4f9b86e38308541f946ce5d7854",
+      "span_sha256": "adbfa7a4d175dcd1dcfd8831bf554fcf955b54d4ea6f346c0e089d3272743c41",
+      "span_start_byte": 8190,
+      "span_end_byte": 12285,
+      "language": "uk",
+      "cyrillic_characters": 1601
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/cluster-administration/system-logs.md:byte=0-4094",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/cluster-administration/system-logs.md",
+      "source_content_sha256": "d0852f537011fe65b0b8a9f1ceca8c66703fa3df9796409f2a4cf604002b6f5b",
+      "span_sha256": "03aa4171ebfc0e1958d676276aa1d9e7f0cb7ff5f82c5a62c2a80fba153a1564",
+      "span_start_byte": 0,
+      "span_end_byte": 4094,
+      "language": "ru",
+      "cyrillic_characters": 1302
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/uk/releases/version-skew-policy.md:byte=8191-12285",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/uk/releases/version-skew-policy.md",
+      "source_content_sha256": "cd588b97f2fb7f8a8751ff83a0afa4718de0da0a6c977483ffd15dda96b8767c",
+      "span_sha256": "3d3955d56997546517e6db088c62f446dbecd14d7fc3cf72e22623569ebd8ba1",
+      "span_start_byte": 8191,
+      "span_end_byte": 12285,
+      "language": "uk",
+      "cyrillic_characters": 1290
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/containers/container-lifecycle-hooks.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/containers/container-lifecycle-hooks.md",
+      "source_content_sha256": "f3e54fed48c976d0df94de654ec837d99744e5eee9a4297dc70e5e72bdef4f39",
+      "span_sha256": "52bda00b3093efc267451eab2d3cb32bb5fdccbe24d83be5057ecca8d1ef668f",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1678
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/containers/images.md:byte=12285-16380",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/containers/images.md",
+      "source_content_sha256": "430e47fa952934e57b4b6ae5e7d644f23f76018654107ca66c77c3de5da0ee19",
+      "span_sha256": "f8b8b00bd5ef3317880253cb1783d5ebb837431e334b30daabfeec4a8893f4f9",
+      "span_start_byte": 12285,
+      "span_end_byte": 16380,
+      "language": "ru",
+      "cyrillic_characters": 1671
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/containers/runtime-class.md:byte=0-4094",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/containers/runtime-class.md",
+      "source_content_sha256": "f30077ef883edd78d6f08f1a15411dcc72a0792c0c3bdb8ef5751237a5b98f32",
+      "span_sha256": "ae5db4cf2616a64cb8687849fc6b24042968dd2cff5faf9424b8cc57a1e73fb5",
+      "span_start_byte": 0,
+      "span_end_byte": 4094,
+      "language": "ru",
+      "cyrillic_characters": 1507
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/extend-kubernetes/operator.md:byte=4096-8190",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/extend-kubernetes/operator.md",
+      "source_content_sha256": "dc58d549f64bf48f1c82075a848b2d782a638ba0fa0b7f3641e4349dbf92a16b",
+      "span_sha256": "7a7333279d740bd016e412ca7740335f1e399a9638738b1790797beea24aad98",
+      "span_start_byte": 4096,
+      "span_end_byte": 8190,
+      "language": "ru",
+      "cyrillic_characters": 1636
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/_index.md:byte=12285-16380",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/_index.md",
+      "source_content_sha256": "3a63c082f8c6b8e390b579f16799fd49432af7b5b7baa4c4321aee7ea8fe19bf",
+      "span_sha256": "cd62d40d9e181322f75ca27076f88e68fc88ef5f5430f68cc9ff8f9da55ec26a",
+      "span_start_byte": 12285,
+      "span_end_byte": 16380,
+      "language": "ru",
+      "cyrillic_characters": 1839
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/components.md:byte=4095-8190",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/components.md",
+      "source_content_sha256": "77756cbbb4525e8a2e711473fc088b8a1e121e9f55e9fc01d6e03df7ecda22ae",
+      "span_sha256": "c1ab7c97fcd9d3341701bc9f35a0929f380a554a5080e9dbca34575785d2e432",
+      "span_start_byte": 4095,
+      "span_end_byte": 8190,
+      "language": "ru",
+      "cyrillic_characters": 1451
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/kubernetes-api.md:byte=8190-12285",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/kubernetes-api.md",
+      "source_content_sha256": "9a8aa42901e165984d6b569af07b84f190b20798e562f875064bf718d9bf6fb4",
+      "span_sha256": "aeaf51e6398ac4ec071db207af18cfb5f9c19ae4736a5d746cf8886966f3f785",
+      "span_start_byte": 8190,
+      "span_end_byte": 12285,
+      "language": "ru",
+      "cyrillic_characters": 1634
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/what-is-kubernetes.md:byte=4096-8190",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/what-is-kubernetes.md",
+      "source_content_sha256": "9c7800392fbdda1c3e6ddddc0568b48283ff0048d1ad7a6ecbebcc2aff4a838d",
+      "span_sha256": "92922f84b767d85be03ae9bc8e2eeac13fcc46c89a104487098bb80706cf2754",
+      "span_start_byte": 4096,
+      "span_end_byte": 8190,
+      "language": "ru",
+      "cyrillic_characters": 1836
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/working-with-objects/annotations.md:byte=0-4094",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/working-with-objects/annotations.md",
+      "source_content_sha256": "6b2059738b4eac316b3ff6f0801b2101f17116971b7df532f649a8f77b4fc2cb",
+      "span_sha256": "7da04a07c5ee736703cb1c36def31b029183080e91e1f07e76755dd26a06c684",
+      "span_start_byte": 0,
+      "span_end_byte": 4094,
+      "language": "ru",
+      "cyrillic_characters": 1747
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/working-with-objects/common-labels.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/working-with-objects/common-labels.md",
+      "source_content_sha256": "8ef2a984ba88e65d2944d3d4c6703dde9bcba560dea849411f7ad928ed4ec128",
+      "span_sha256": "bcb262b0853b4689eca89b3113bd6700f4704610e1bcf60ebb16ced57f9c584a",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1378
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/working-with-objects/kubernetes-objects.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/working-with-objects/kubernetes-objects.md",
+      "source_content_sha256": "816115c8145704cf836591d43ea40e5ca8ac40ba10554957818a53d17ef12485",
+      "span_sha256": "b76673f03e56bf49fc33ee8cdf750d21cb7b589153cece8890de5aff9e2e3505",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1557
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/working-with-objects/labels.md:byte=4096-8190",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/working-with-objects/labels.md",
+      "source_content_sha256": "25fbf13ffd6ccbd79072edda9ded0b76fa3423ea48ba831890e5fe5bdcf67985",
+      "span_sha256": "f5b5f21719ff2fda50f4f7f6cc20db169a2025f225bc7187c903e42219e39eb1",
+      "span_start_byte": 4096,
+      "span_end_byte": 8190,
+      "language": "ru",
+      "cyrillic_characters": 1585
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/working-with-objects/names.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/working-with-objects/names.md",
+      "source_content_sha256": "f3582310712b65594f6ae5afcf1e8143ea7a9aaffa527ae068bde455f8270e60",
+      "span_sha256": "a79984b40b203911935b45decec73faafb3aee76fc81b6276cebef25e83c7e85",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1389
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/working-with-objects/namespaces.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/working-with-objects/namespaces.md",
+      "source_content_sha256": "9318e61f4a7750081c1f4e180671224a493037b1d07ec7b9060cda5347f33686",
+      "span_sha256": "6a056f7252d09473c527510c146cf160b4694986d790c7b969176536181ec5e6",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1634
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/working-with-objects/object-management.md:byte=4096-8190",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/overview/working-with-objects/object-management.md",
+      "source_content_sha256": "e76756b60ba599b11de08d2f542ab8abe4a44306276c9ec36fdb14b5b41d13a0",
+      "span_sha256": "8ad08f1bceee243a8bdb733bcc515f16b36808b97b93abe4b9cdd1e55a2eafb9",
+      "span_start_byte": 4096,
+      "span_end_byte": 8190,
+      "language": "ru",
+      "cyrillic_characters": 1695
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/scheduling-eviction/api-eviction.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/scheduling-eviction/api-eviction.md",
+      "source_content_sha256": "a83fcd66fbe2868e5b94969771d2dcd421a20862e3539b364bbef8507a990f0c",
+      "span_sha256": "e063d59f1989ed4d84b7f584096ce81b3700776604daf6c6915078f41811f2fd",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1103
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/scheduling-eviction/assign-pod-node.md:byte=16380-20475",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/scheduling-eviction/assign-pod-node.md",
+      "source_content_sha256": "952b6ce40d1afb27c63c81c030fc59de54120736982d54c49a1946e3ab2044d5",
+      "span_sha256": "c1db869e1e879aea9c5c2154f72d47d60ce0327be51a44aa7798045ad9f552cf",
+      "span_start_byte": 16380,
+      "span_end_byte": 20475,
+      "language": "ru",
+      "cyrillic_characters": 1645
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/workloads/_index.md:byte=4096-8190",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/workloads/_index.md",
+      "source_content_sha256": "e3928df123a1a1b94b0c68b845ed155d9afeffb51658139449a1aff5f617a8c3",
+      "span_sha256": "5f833c2ff7274a2549911cb6721488784008bb3f669f1f34b2ca4faf98040015",
+      "span_start_byte": 4096,
+      "span_end_byte": 8190,
+      "language": "ru",
+      "cyrillic_characters": 1464
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/workloads/controllers/_index.md:byte=0-4094",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/workloads/controllers/_index.md",
+      "source_content_sha256": "43a63a94b9aa5b7fdb3f1ea5f18a0578004c3688485910df98d614042a399c87",
+      "span_sha256": "7d5f3a68d31de8010d6d3dc51e6eda2954536f9d8b257330d9c9eec4136a2108",
+      "span_start_byte": 0,
+      "span_end_byte": 4094,
+      "language": "ru",
+      "cyrillic_characters": 1430
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/workloads/controllers/cron-jobs.md:byte=8191-12284",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/workloads/controllers/cron-jobs.md",
+      "source_content_sha256": "edd28e3639d69855fb04b17d7f92a2547aed77025daed173f9efc73ff2495c50",
+      "span_sha256": "a23237276192b4bf71a289eeac888867beb5b3a0965f13f267aa7fdb0f7199ca",
+      "span_start_byte": 8191,
+      "span_end_byte": 12284,
+      "language": "ru",
+      "cyrillic_characters": 1689
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/workloads/controllers/daemonset.md:byte=16380-20475",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/workloads/controllers/daemonset.md",
+      "source_content_sha256": "f3498e33b6311df6ef820dbf5fd7eb7d0bed6cd884730d99aaccccd23284d5fe",
+      "span_sha256": "6795565efc7ed313bd26a270380adb6c94826085621c13442c34cb4a6b2c36b2",
+      "span_start_byte": 16380,
+      "span_end_byte": 20475,
+      "language": "ru",
+      "cyrillic_characters": 1600
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/workloads/pods/_index.md:byte=20475-24570",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/concepts/workloads/pods/_index.md",
+      "source_content_sha256": "f148d54c418901b7bc92e6e674ec98b0ba39da6efdd7d93376acafdc8e9cdddb",
+      "span_sha256": "54218da829f1f4d5ff676f5ca4e896e9ede56f5ec0f981e0087c551b1601d783",
+      "span_start_byte": 20475,
+      "span_end_byte": 24570,
+      "language": "ru",
+      "cyrillic_characters": 1627
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/_index.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/_index.md",
+      "source_content_sha256": "14d4acf18431e0a51309da3f7602a22173bb1020eab98cc4a4a36df118b8004e",
+      "span_sha256": "2537988c587b372e7c84454bfdee99aeb5ad0775768da8d618e04026a6c07291",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1565
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/advanced.md:byte=8190-12285",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/advanced.md",
+      "source_content_sha256": "1ff19b7ecce1643e060ca192b1d96c05876936ff6e23d9899c196da51e4b95d3",
+      "span_sha256": "1d619d4a10cb4b6857f1ebfa7dad91a87ecbf35ef07463fb8285a35ea7ed4927",
+      "span_start_byte": 8190,
+      "span_end_byte": 12285,
+      "language": "ru",
+      "cyrillic_characters": 1664
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/generate-ref-docs/contribute-upstream.md:byte=8191-12284",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/generate-ref-docs/contribute-upstream.md",
+      "source_content_sha256": "dc1429e69ca2c5176d7204980435e6f7e0f464a09d7b45845e362e4531ff19a2",
+      "span_sha256": "f1b4d232398de1a86402bdc676559f25b0bc91f497a79107db2262458fc1c5aa",
+      "span_start_byte": 8191,
+      "span_end_byte": 12284,
+      "language": "ru",
+      "cyrillic_characters": 1535
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/generate-ref-docs/kubectl.md:byte=4095-8190",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/generate-ref-docs/kubectl.md",
+      "source_content_sha256": "c9f4a504109169255ec78c9c83e33ee9139c31cc0a369d4440df49857fb528b9",
+      "span_sha256": "6709775f78b24b8c698c2b6529ec6cac6e911c6ac621d9bc1277295b706bbdd7",
+      "span_start_byte": 4095,
+      "span_end_byte": 8190,
+      "language": "ru",
+      "cyrillic_characters": 1536
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/generate-ref-docs/kubernetes-api.md:byte=0-4094",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/generate-ref-docs/kubernetes-api.md",
+      "source_content_sha256": "5cc23216ff331f92bcde12997780c837b167ce77c11aa5ab27cff159885e6307",
+      "span_sha256": "05c134bd6c81bb580c8c95abe64350c8c9e770e229f89fcabd3f34dac9c4e84f",
+      "span_start_byte": 0,
+      "span_end_byte": 4094,
+      "language": "ru",
+      "cyrillic_characters": 1199
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/generate-ref-docs/quickstart.md:byte=4096-8190",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/generate-ref-docs/quickstart.md",
+      "source_content_sha256": "1e15936c6209409c4f1e1e102000c5263ae6518ac0fb789ad9ef063a5e4538a6",
+      "span_sha256": "db527713c10ff8c0817b9edcb6e78600028208cb50eff5e6ab70aae6b014277b",
+      "span_start_byte": 4096,
+      "span_end_byte": 8190,
+      "language": "ru",
+      "cyrillic_characters": 1460
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/intermediate.md:byte=69615-73709",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/intermediate.md",
+      "source_content_sha256": "97527aef69b3209c77f13fc931af7bce5f5ba5b59875928266b920c2c3a9f9b8",
+      "span_sha256": "b09c761c789d5e1516ac6159548827cee6d11e280819a4ad1b7c76935c21b7c9",
+      "span_start_byte": 69615,
+      "span_end_byte": 73709,
+      "language": "ru",
+      "cyrillic_characters": 1727
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/localization.md:byte=16381-20475",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/localization.md",
+      "source_content_sha256": "5e80fe462788898607fe31b3e01e8b58a5a0bfee55d42ec50700f6fdf0564e7d",
+      "span_sha256": "cd4921f93d1c7b27b51234068638d1fcf78135c7374d34cb1ef6c0b0c0312332",
+      "span_start_byte": 16381,
+      "span_end_byte": 20475,
+      "language": "ru",
+      "cyrillic_characters": 1535
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/participating.md:byte=8190-12284",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/participating.md",
+      "source_content_sha256": "228dbc916693ed8dc7eda7cdb931de590e6b852463b0a566734a9b60a0fc3918",
+      "span_sha256": "d7265d15ce132c64746d9035763c95801d8901c7b828484da6f34e1b9c1394ae",
+      "span_start_byte": 8190,
+      "span_end_byte": 12284,
+      "language": "ru",
+      "cyrillic_characters": 1711
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/start.md:byte=24570-28664",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/start.md",
+      "source_content_sha256": "156524bbf93dec631d8fb90b367887a11cd954d64530556091358da55af8c723",
+      "span_sha256": "ef316e4e013790225afca215988d9febf54399a23cedc9a18318d803e5a937ba",
+      "span_start_byte": 24570,
+      "span_end_byte": 28664,
+      "language": "ru",
+      "cyrillic_characters": 1693
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/style/content-guide.md:byte=4095-8189",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/style/content-guide.md",
+      "source_content_sha256": "c278eda7748c550080e136d3f53b6710b9a4713fc5bf44e286df4abc1354bd84",
+      "span_sha256": "f66cf03a1be60cea13c17c11c6fcfff1502c146e1d095411924cbcc44ebc400e",
+      "span_start_byte": 4095,
+      "span_end_byte": 8189,
+      "language": "ru",
+      "cyrillic_characters": 1510
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/style/content-organization.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/style/content-organization.md",
+      "source_content_sha256": "ddc0233e3d3472f3a9c216c79508ae98de801735578d38a2b927a97e5fa77e7d",
+      "span_sha256": "0c85524ab9045d022119a198b723a64187eb8f1ba8ddbf69d0ac45e452dc9e81",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1565
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/style/hugo-shortcodes/index.md:byte=4095-8189",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/style/hugo-shortcodes/index.md",
+      "source_content_sha256": "330bd2d9c0712596ab634b98bf67741afdf71999e1dcd087e29d55eef79631b7",
+      "span_sha256": "25c19660ea95462542180eb9d609d15584c3a689142e378bc79d65d7e9430d11",
+      "span_start_byte": 4095,
+      "span_end_byte": 8189,
+      "language": "ru",
+      "cyrillic_characters": 1399
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/style/page-templates.md:byte=0-4094",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/style/page-templates.md",
+      "source_content_sha256": "1c8204974818952f1e67d4310599ca7302477b83893aa2a63e4f5dab88911a1f",
+      "span_sha256": "2c0c0f63e523a478866fef1043935dad622735036956e478fe3466c68d8bd324",
+      "span_start_byte": 0,
+      "span_end_byte": 4094,
+      "language": "ru",
+      "cyrillic_characters": 1432
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/style/style-guide.md:byte=28665-32760",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/style/style-guide.md",
+      "source_content_sha256": "5e2c519e061b1ae92cd50111f4f2c9109015371e855659c275652cbce7bf5972",
+      "span_sha256": "8314194d707599a08cc5e90a49df4de3b8546db9f9496edb85bb93fea01ae163",
+      "span_start_byte": 28665,
+      "span_end_byte": 32760,
+      "language": "ru",
+      "cyrillic_characters": 1652
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/style/write-new-topic.md:byte=0-4094",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/contribute/style/write-new-topic.md",
+      "source_content_sha256": "7e856983563dbcf87c03d6853619461246154d7394276400d8e0b430033e745b",
+      "span_sha256": "a7e6fb350abc2dce9dac70c037b1bd01c5bbb3b5d197369e7903b13f09331498",
+      "span_start_byte": 0,
+      "span_end_byte": 4094,
+      "language": "ru",
+      "cyrillic_characters": 1605
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/reference/_index.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/reference/_index.md",
+      "source_content_sha256": "1b7164cb7e3de824c1b4d28ec413eaacc59500bc402b63e4fc015ce032f42a02",
+      "span_sha256": "e41625a5eb6191bd1e68be6b05e3c163c22168992b85ab8ca236189f7c80571e",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1061
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/reference/issues-security/security.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/reference/issues-security/security.md",
+      "source_content_sha256": "b184a3241c16cbd71f48c4d336eeb9572f55ef007a7b8827556a644773872535",
+      "span_sha256": "9111d15d604132528e6bfa0ffa73e309cf3e1372e402fd51235ab736a8c47ca1",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1507
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/reference/kubectl/cheatsheet.md:byte=20475-24570",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/reference/kubectl/cheatsheet.md",
+      "source_content_sha256": "35a31340a6a274f4c71553831be2e1fbb84b8b31108f97de00a24f08a244d405",
+      "span_sha256": "49a9a65a042e8a0865f9768d31342768f77df4096b8d53c2b01b38d937d5feb3",
+      "span_start_byte": 20475,
+      "span_end_byte": 24570,
+      "language": "ru",
+      "cyrillic_characters": 1191
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/reference/kubectl/docker-cli-to-kubectl.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/reference/kubectl/docker-cli-to-kubectl.md",
+      "source_content_sha256": "0bc539163898b0fe84a7d1eb75adef8851c3f164f0cae66508ae62dec5a63347",
+      "span_sha256": "15efe946f2f6f11cdad82c290818efb159e71e9c54cba9ce0948dcbecda3a7bf",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1090
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/reference/kubectl/jsonpath.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/reference/kubectl/jsonpath.md",
+      "source_content_sha256": "7eeaaef177b88717da10170caac05edb371de4416f2d64152e5d5e33c4d385ce",
+      "span_sha256": "334d7dcb2da32f39a4ce7f48585937a550f3e2c15d09c3372794fe23b96756e6",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 869
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/reference/kubectl/kubectl.md:byte=8190-12285",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/reference/kubectl/kubectl.md",
+      "source_content_sha256": "7786452fde1279e759e6474000fb591a437334893bf789f2e9aef29d969b2a1e",
+      "span_sha256": "93b89796444046b2165bccf3f82457889127694318a455313cec6f8243ed2f65",
+      "span_start_byte": 8190,
+      "span_end_byte": 12285,
+      "language": "ru",
+      "cyrillic_characters": 899
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/reference/kubectl/overview.md:byte=20475-24570",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/reference/kubectl/overview.md",
+      "source_content_sha256": "3e4bb363ed25ee50179549ac326ec35804592aa0e35398ab63dbd8b288b621dd",
+      "span_sha256": "12494a0676451321420c83e1cc651b8cd52c0b981486e08407c2d70af1d4b07a",
+      "span_start_byte": 20475,
+      "span_end_byte": 24570,
+      "language": "ru",
+      "cyrillic_characters": 1398
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/setup/_index.md:byte=0-4094",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/setup/_index.md",
+      "source_content_sha256": "1e31875bf6bb62fe8e1434c768f29c9e5b89dd1107625981a90402a5279c41ea",
+      "span_sha256": "6b9964a45d263faa84b09408461fb7b0b1fb64884382b5e4099d002c2554541a",
+      "span_start_byte": 0,
+      "span_end_byte": 4094,
+      "language": "ru",
+      "cyrillic_characters": 1680
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/setup/learning-environment/minikube.md:byte=24570-28665",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/setup/learning-environment/minikube.md",
+      "source_content_sha256": "7b41876380cd11d630a58861db5c5c6e6015feee727ca046e2dd72472831c374",
+      "span_sha256": "617a46a6b1d12c789704c86fe9130fde4949eed1161e43cfd8adb31c4397c499",
+      "span_start_byte": 24570,
+      "span_end_byte": 28665,
+      "language": "ru",
+      "cyrillic_characters": 1378
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/tasks/administer-cluster/certificates.md:byte=0-4094",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/tasks/administer-cluster/certificates.md",
+      "source_content_sha256": "54d7454bda3bd853d9f84f110a9f7cdd31a72cd20dd2a3f6e3a90d645829a80b",
+      "span_sha256": "990ab19c78ec3e2cce70752be912fa03a2210b8848856cff50db72628c6fb3cf",
+      "span_start_byte": 0,
+      "span_end_byte": 4094,
+      "language": "ru",
+      "cyrillic_characters": 1132
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/tasks/configure-pod-container/assign-cpu-resource.md:byte=4095-8189",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/tasks/configure-pod-container/assign-cpu-resource.md",
+      "source_content_sha256": "6a172f7154c224b9e16a045f1a3e3ba8d99bd6a667e60bf51f59e7a1c81d67c6",
+      "span_sha256": "124a004bad496049d6ddde7a88803b726aa2e9a3f1db3cb4e1b321b1c3338109",
+      "span_start_byte": 4095,
+      "span_end_byte": 8189,
+      "language": "ru",
+      "cyrillic_characters": 1605
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/tasks/configure-pod-container/assign-memory-resource.md:byte=12285-16380",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/tasks/configure-pod-container/assign-memory-resource.md",
+      "source_content_sha256": "94564b74d759082a1cfd7cae4706614276ea74458849820f7f61836559839356",
+      "span_sha256": "6f48ed0bffac1d46ae7f7faa07f78eee72322efe36ecc9a35ee22d72b605d635",
+      "span_start_byte": 12285,
+      "span_end_byte": 16380,
+      "language": "ru",
+      "cyrillic_characters": 1336
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md:byte=0-4094",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md",
+      "source_content_sha256": "f5a3b20da22c14ca27cc0e7f47fa564f7bd7993c6121098f6430ec04d1dc8818",
+      "span_sha256": "823956586227ef9b4b584a32ab9553d13c41b341dab3954ae57e10d51f77cd62",
+      "span_start_byte": 0,
+      "span_end_byte": 4094,
+      "language": "ru",
+      "cyrillic_characters": 1507
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/tasks/tools/install-kubectl.md:byte=12285-16379",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/tasks/tools/install-kubectl.md",
+      "source_content_sha256": "60785cd313edb3ae9995cec8c379a544933bb5d93b21e99b88245093351c463a",
+      "span_sha256": "3a67a5754ad1967a9d0341e1623d2bf8553d74eeb546b75686be1e8d778b1ef0",
+      "span_start_byte": 12285,
+      "span_end_byte": 16379,
+      "language": "ru",
+      "cyrillic_characters": 1382
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/tasks/tools/install-minikube.md:byte=8190-12285",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/tasks/tools/install-minikube.md",
+      "source_content_sha256": "4da32ed2332249314ccb11d9515f96482e7e4cfff853add99fd2e8576ff01064",
+      "span_sha256": "98bb729544b476e1f865c6d4704e6d2eebef0fb2f4345e21380d2e02cb1eaae2",
+      "span_start_byte": 8190,
+      "span_end_byte": 12285,
+      "language": "ru",
+      "cyrillic_characters": 1232
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/tutorials/hello-minikube.md:byte=0-4094",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/tutorials/hello-minikube.md",
+      "source_content_sha256": "26aba8e61790c8dd47d4465b26ed4302546952d383740aa8a8b599feadbf2c6b",
+      "span_sha256": "ed222da20c5717be1057e5301b463749569214e1912bcacb45f945f4f2eaa9b9",
+      "span_start_byte": 0,
+      "span_end_byte": 4094,
+      "language": "ru",
+      "cyrillic_characters": 1387
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/tutorials/kubernetes-basics/_index.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/tutorials/kubernetes-basics/_index.md",
+      "source_content_sha256": "135f734bed203fd6547ddb3b6dc295189731df3c92fc65635b68ca3a1001141e",
+      "span_sha256": "7ed3c07b4494ee6b5d4a3f66e191d89d0d85f58575438febdecb675d2cc7ea96",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1171
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/docs/tutorials/kubernetes-basics/create-cluster/cluster-intro.md:byte=0-4094",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/docs/tutorials/kubernetes-basics/create-cluster/cluster-intro.md",
+      "source_content_sha256": "e71f29620d2dddf4ba0afcd65954d08f22000b683ece06f27cce34b82907db4d",
+      "span_sha256": "dbf17a69a12c762187fe13c46a6c1c5184fe9bd20d91b51ebbc539a264e0d677",
+      "span_start_byte": 0,
+      "span_end_byte": 4094,
+      "language": "ru",
+      "cyrillic_characters": 1555
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/README.md:byte=0-4095",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/README.md",
+      "source_content_sha256": "980c468306692f586d7f6f70f9d6f0ed9442c7fcaf1f4e23caba1beb24ab45ac",
+      "span_sha256": "2f67b5be82c5ea6b61f20a451df93873fb55dd7dcddf720035a8711538c298e2",
+      "span_start_byte": 0,
+      "span_end_byte": 4095,
+      "language": "ru",
+      "cyrillic_characters": 1391
+    },
+    {
+      "source_document_id": "file:data/external/markdown_corpus/kubernetes_website/content/ru/releases/download.md:byte=0-4094",
+      "source_path": "data/external/markdown_corpus/kubernetes_website/content/ru/releases/download.md",
+      "source_content_sha256": "42f0c8a1303b5fe1629f5c52a9207e2c6955dd73bea4f08940541910f7e904e2",
+      "span_sha256": "93abac331c1a0d41297b1d589c9758cb0f091dcf22cc0dd40b885d27a4a416ab",
+      "span_start_byte": 0,
+      "span_end_byte": 4094,
+      "language": "ru",
+      "cyrillic_characters": 1186
+    }
+  ]
+}

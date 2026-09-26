@@ -1,11 +1,12 @@
 # Native expert scaling: research control index
 
-**Date:** 25 September 2026. **Branch:** `research/native-expert-scaling`.
+**Date:** 26 September 2026. **Branch:** `research/native-expert-scaling`.
 **Status:** NES-01 E128 improves BPB but fails greedy generation; NES-02
 finds a dense-router CPU scaling limit; NES-03 int8 shortlist preserves
 tested routes and cuts E1280 router cost. No pretrained-to-native conversion
 has passed joint quality and rate. METH-04 identifies a donor-bound low-bit
-GigaChat target under the traffic preflight, with calibration/quality open.
+GigaChat target under the traffic preflight. METH-05 collected a source-ID
+BF16 importance matrix but stopped on rare-expert exposure before conversion.
 Goal remains open.
 Fork point: donor pause checkpoint `90bf966`.
 
@@ -80,6 +81,16 @@ No transformed GGUF, paired quality, C support or accepted-token speed
 exists. At 40 GB/s, payload alone prices to 13.351 ms/token; the margin is
 still narrow.
 
+[METH-05](METH_05_SOURCE_ID_IMATRIX_RESULT_20260926.md) repaired the
+GigaChat calibration input path to use source-tokenizer IDs. A local
+106×512-token BF16 importance matrix contains all 254 required tensors,
+but layer 19 expert 29 received 16 activations and layer 20 expert 51
+received 39, below the frozen 64-count floor. The 20-minute run used about
+21.25 GB resident at the observed peak. Quantization was stopped before
+writing weights. A new non-held-out calibration extension and route-coverage
+audit are the immediate donor-transfer decision; quality remains unmeasured
+for the proposed format.
+
 For pretrained transfer, the local GigaChat base Q4 passes fresh paired BPB,
 PIQA and document rollout against BF16. The actual mixed-format GGUF header
 prices **1,016 MB of active payload/token**; at 50 tok/s that requires
@@ -107,6 +118,7 @@ SSM/SWA target and passes joint quality/rate.
 | METH-02 | METADATA SCREEN | [Granite H Tiny](METH_02_GRANITE_H_TINY_METADATA_SCREEN_20260925.md): recurrent/sparse candidate; no local weights or quality/rate result |
 | METH-03 | HEADER-DERIVED PAYLOAD | [official Granite Q4 organ ledger](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md), [raw JSON](meth03_granite_q4_active_ledger.json); 8 MB verified Range prefix, no full local weights or quality/rate result |
 | METH-04 | DONOR TRANSFORMATION PREFLIGHT; quantizer dry run matches map; no weights changed | [result](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md), [frozen map/gate](METH_04_GIGACHAT_LOWBITS_PROTOCOL_20260925.md), [414 tensor overrides](meth04_gigachat_tensor_types.txt), [byte ledger](meth04_gigachat_lowbit_preflight.json), [quantizer log](meth04_gigachat_quantize_dryrun.log) |
+| METH-05 | SOURCE-ID BF16 IMATRIX; STOP on rare expert exposure | [result](METH_05_SOURCE_ID_IMATRIX_RESULT_20260926.md), [frozen protocol](METH_05_SOURCE_ID_IMATRIX_PROTOCOL_20260926.md), [machine audit](meth05_bf16_106chunks_audit.json); no converted weights or quality result |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -131,19 +143,17 @@ scheduled.
   loops (for example exposure or route training), estimate local training cost
   and freeze BPB, repetition and routing gates before a new run. Do not
   automatically extend E256 on the BPB gain alone.
-- **Next exact action: pretrained transfer.** METH-04 supplies one
-  byte-feasible GigaChat type map. The pinned quantizer dry run reproduced
-  all 414 target types with no reported fallback, but an actual conversion
-  still requires an importance matrix for 254 tensors.
-  The existing 48-document `strat01_gigachat_fresh_v2/calib.jsonl` is
-  disjoint from held-out but has zero Cyrillic characters; it can anchor
-  only a bounded domain pilot. Bind representative *non-held-out* coverage,
-  estimate the cost of matrix collection and BF16→mixed-format conversion,
-  and freeze paired BF16/Q4/
-  proposed-format BPB, generation and task gates plus an early stop rule.
-  Inspect actual quantizer fallbacks before any C port. Compare feasibility
-  with the tractable Qwen2.5-1.5B dense-source path; the old donor port is
-  not an automatic next step. No T4 job is planned.
+- **Next exact action: pretrained transfer.** METH-05 fixed source-tokenizer
+  calibration, then stopped because two rare GigaChat experts remained below
+  the frozen 64-exposure floor after all 106 chunks. Bind distinct
+  non-held-out calibration from local Russian/Ukrainian and other source
+  files; prove no source-content overlap with the 96-document heldout,
+  freeze token IDs and cost, and measure whether the rare experts receive
+  enough genuinely new contexts. Do not repeat the same IDs or lower the
+  floor retroactively. Only then quantize the BF16 source, verify actual
+  tensor types/bytes and run the frozen paired BPB, PIQA and rollout gates.
+  Compare this costed route with the Qwen2.5-1.5B dense-source path. The old
+  donor port is not an automatic next step. No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

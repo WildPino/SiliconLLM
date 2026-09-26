@@ -45,6 +45,7 @@ def audit(imatrix_path: Path, type_file: Path, gguf_py: Path, minimum_exposure: 
     missing: list[str] = []
     nonfinite: list[str] = []
     partial: list[dict] = []
+    underexposed: list[dict] = []
     min_expert_count: int | None = None
     expert_instances = 0
     for name in sorted(expected):
@@ -64,6 +65,9 @@ def audit(imatrix_path: Path, type_file: Path, gguf_py: Path, minimum_exposure: 
             zeros = int(np.count_nonzero(flat == 0))
             if zeros:
                 partial.append({"tensor": name, "zero_experts": zeros, "minimum_count": smallest})
+            for expert_id, count in enumerate(flat):
+                if count < minimum_exposure:
+                    underexposed.append({"tensor": name, "expert_id": expert_id, "count": int(count)})
         elif flat.size != 1 or flat[0] <= 0:
             partial.append({"tensor": name, "count_entries": int(flat.size), "minimum_count": float(flat.min())})
 
@@ -83,8 +87,9 @@ def audit(imatrix_path: Path, type_file: Path, gguf_py: Path, minimum_exposure: 
         "minimum_routed_expert_count": min_expert_count,
         "required_minimum_routed_expert_count": minimum_exposure,
         "partial_expert_tensors": partial,
+        "underexposed_expert_slices": underexposed,
         "passes_coverage_gate": not (missing or nonfinite or partial)
-        and min_expert_count is not None and min_expert_count >= minimum_exposure,
+        and not underexposed and min_expert_count is not None and min_expert_count >= minimum_exposure,
     }
     return report
 
@@ -105,7 +110,8 @@ def main() -> None:
     with args.out.open("x", encoding="utf-8", newline="\n") as handle:
         json.dump(report, handle, indent=2)
         handle.write("\n")
-    print(json.dumps({key: value for key, value in report.items() if key != "partial_expert_tensors"}, indent=2))
+    print(json.dumps({key: value for key, value in report.items()
+                      if key not in ("partial_expert_tensors", "underexposed_expert_slices")}, indent=2))
 
 
 if __name__ == "__main__":

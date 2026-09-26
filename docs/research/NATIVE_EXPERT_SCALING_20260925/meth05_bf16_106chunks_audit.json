@@ -1,0 +1,50 @@
+{
+  "schema": "meth05_gigachat_imatrix_audit_v1",
+  "imatrix": "results\\native_expert_scaling\\meth05_gigachat_bf16_interleaved_106chunks.gguf",
+  "imatrix_sha256": "ef5de87fc4fa0d1382ed2988e59e9472fb1d7fb2c9bed0e8edcced6ff9bd4f9c",
+  "imatrix_bytes": 31645856,
+  "tensor_type_file_sha256": "a55334bf64f39a506efba1350a3eaae034f6d4453de47d5a2e5e227b7bb44128",
+  "chunk_count": 106,
+  "chunk_size": 512,
+  "required_tensors": 254,
+  "present_required_tensors": 254,
+  "missing_tensors": [],
+  "nonfinite_tensors": [],
+  "routed_expert_instances": 4800,
+  "minimum_routed_expert_count": 16,
+  "required_minimum_routed_expert_count": 64,
+  "partial_expert_tensors": [],
+  "underexposed_expert_slices": [
+    {
+      "tensor": "blk.19.ffn_down_exps.weight",
+      "expert_id": 29,
+      "count": 16
+    },
+    {
+      "tensor": "blk.19.ffn_gate_exps.weight",
+      "expert_id": 29,
+      "count": 16
+    },
+    {
+      "tensor": "blk.19.ffn_up_exps.weight",
+      "expert_id": 29,
+      "count": 16
+    },
+    {
+      "tensor": "blk.20.ffn_down_exps.weight",
+      "expert_id": 51,
+      "count": 39
+    },
+    {
+      "tensor": "blk.20.ffn_gate_exps.weight",
+      "expert_id": 51,
+      "count": 39
+    },
+    {
+      "tensor": "blk.20.ffn_up_exps.weight",
+      "expert_id": 51,
+      "count": 39
+    }
+  ],
+  "passes_coverage_gate": false
+}
