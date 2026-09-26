@@ -1,13 +1,13 @@
 # Native expert scaling: research control index
 
 **Date:** 26 September 2026. **Branch:** `research/native-expert-scaling`.
-**Status:** the Qwen0.5B core has a packed-only R8 artifact (496.122 MB)
-that passes an independent 48-document quality/ranking screen when
-paired with the exported E128 factor-0.50 adapter (METH-25, −0.002282
-BPB versus BF16 donor; 95.996% top-1 agreement). Code still worsens
-and earlier absolute generation loops often. This is a PyTorch
-dequantized quality result; native C parity/rate and large-E scaling
-remain open. NES-01 E128 improves BPB but fails greedy generation; NES-02
+**Status:** the Qwen0.5B packed-only R8 core (496.122 MB) plus E128
+adapter passes new-document BPB/ranking (METH-25) and full PIQA task
+retention (METH-28, −0.925 accuracy points versus BF16 donor), but
+**fails** fresh-prompt generation (METH-27: 16/24 loops; technical
+4/8 versus R8 donor 2/8). Native promotion is held pending a
+generative repair. CPU C parity/rate and large-E scaling remain open.
+NES-01 E128 improves BPB but fails greedy generation; NES-02
 finds a dense-router CPU scaling limit; NES-03 int8 shortlist preserves
 tested routes and cuts E1280 router cost. No pretrained-to-native conversion
 has passed joint quality and rate. METH-06 passed source-ID calibration
@@ -208,6 +208,16 @@ this same rank-8/L24/D896 geometry, E273,547 gives ~100B added
 parameters but an exhaustive one-byte router would address **5.882
 GB/token** (147 ms at 40 GB/s before other work). Sublinear routing
 is necessary before a RAM-scaled E claim.
+[METH-27](METH_27_R8_FRESH_GENERATION_RESULT_20260926.md)
+tests the same stored R8 core and adapter on 24 prebound prompts:
+R8 donor and adapter both loop **16/24**, but the adapter raises
+technical loops **2/8→4/8**, failing the relative gate; absolute
+code loops remain **6/8**. [METH-28](METH_28_R8_PIQA_COMPOSITION_RESULT_20260926.md)
+uses all 1,838 pinned PIQA items and reproduces BF16 donor 70.620%:
+R8 donor scores 70.185% and R8+adapter **69.695%**, a −0.925-point
+delta with one-sided paired lower CI95 −1.687 points. The frozen task
+gate passes, but generation failure blocks this artifact's native
+promotion. These are PyTorch BF16-reconstruction results, not C rates.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -247,6 +257,8 @@ SSM/SWA target and passes joint quality/rate.
 | METH-24 | PACKED-ONLY R8 CORE EXPORT AND EXACT RELOAD PASS | [result](METH_24_R8_CORE_EXPORT_RESULT_20260926.md), [protocol](METH_24_R8_CORE_EXPORT_PROTOCOL_20260926.md), [artifact ledger](meth24_r8_core_export.json), [exporter](../../../benchmarks/donor_adaptation/s1/meth24_export_r8_core.py) |
 | METH-25 | NEW-DOCUMENT AND TOP-1 STORED-ARTIFACT QUALITY SCREEN PASS | [result](METH_25_FRESH_R8_ARTIFACT_RESULT_20260926.md), [protocol](METH_25_FRESH_R8_ARTIFACT_PROTOCOL_20260926.md), [manifest](meth25_fresh_r8_manifest.json), [machine result](meth25_fresh_r8_artifact_result.json), [selection](../../../benchmarks/donor_adaptation/s1/meth25_fresh_r8_manifest.py), [audit](../../../benchmarks/donor_adaptation/s1/meth25_fresh_r8_artifact_audit.py); no native rate |
 | METH-26 | LARGE-E EXHAUSTIVE ROUTER INFEASIBLE BY BYTE ARITHMETIC | [geometry ledger](METH_26_LARGE_E_ROUTER_LEDGER_20260926.md); no large-E learned model or timing |
+| METH-27 | STORED-R8 GENERATION RELATIVE AND ABSOLUTE GATES FAIL | [result](METH_27_R8_FRESH_GENERATION_RESULT_20260926.md), [protocol](METH_27_R8_FRESH_GENERATION_PROTOCOL_20260926.md), [prompt manifest](meth27_r8_fresh_generation_manifest.json), [all continuations](meth27_r8_fresh_generation_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth27_r8_fresh_generation.py) |
+| METH-28 | STORED-R8 FULL PIQA TASK-RETENTION GATE PASS | [result](METH_28_R8_PIQA_COMPOSITION_RESULT_20260926.md), [protocol](METH_28_R8_PIQA_COMPOSITION_PROTOCOL_20260926.md), [all paired choices](meth28_r8_piqa_composition_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth28_r8_piqa_composition.py) |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -286,21 +298,23 @@ scheduled.
   routing would read 0.588/5.882 GB per token. A bounded or sublinear
   candidate index, packed-only expert bank, measured CPU router/LUT costs,
   and learned large-E route/quality evidence remain open.
-- **Next quality design:** the absolute E128 free-generation loops and
-  near-uniform code loss remain. Test a changed training/gating variable
-  only on data separate from METH-17/19/20/21, with new prospective
-  BPB, repetition and task gates. Do not extend E256 on a BPB gain alone.
-- **Next exact action: artifact-level behavior and native path.** The
-  packed R8 core and E128 adapter are fixed by METH-24/25 hashes. Run
-  generation and the full PIQA task on **those stored bytes** with BF16
-  donor controls and prospective gates. Then implement the same packed
-  pair in `benchmarks/phase60/engine.c` with logit parity, measured
-  accepted batch-1 tok/s, and split core/router/expert time and DRAM
-  traffic. The separate `donor_engine.c` Qwen implementation is a
-  fidelity reference, not this quality-and-rate result. For the user's
-  RAM-scaled expert target, design a CPU candidate index that avoids
-  scanning E rows; measure route recall against exact routing, CPU
-  lookup and selected-expert LUT time across a 10× E ladder. Only
+- **Next quality design:** METH-27 disproves generation readiness for
+  this exact R8 composition despite METH-25/28 loss and task passes.
+  Diagnose the added technical loops and high code/prose repetition;
+  test a concrete changed training or decoding variable on data and
+  prompts separate from METH-17/19/20/21/25/27, with prospective BPB,
+  generation and task gates. Do not retune on the 24 METH-27 outcomes
+  and call them fresh. Do not extend E256 on a BPB gain alone.
+- **Next exact action: generative repair and scalable CPU route.** Freeze
+  one repair of the saved R8+E128 candidate, score new fixed document,
+  task and generation sets against the same donor, and export only if
+  quality and usefulness pass jointly. Then implement that exact pair
+  in `benchmarks/phase60/engine.c` with logit parity, accepted batch-1
+  tok/s and split core/router/expert timing and traffic. The separate
+  `donor_engine.c` Qwen implementation is a fidelity reference, not
+  this joint-quality/rate result. In parallel, design a bounded CPU
+  candidate index that avoids scanning E rows; measure route recall,
+  lookup and selected-expert LUT cost across a 10× E ladder. Only
   **distinct trained** expert expansion can validate quality as E
   grows. No T4 job is planned.
 
