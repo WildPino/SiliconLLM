@@ -1,0 +1,321 @@
+{
+  "experiment": "METH-15",
+  "source": {
+    "model": "Qwen/Qwen2.5-0.5B",
+    "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+    "model_sha256": "88c142557820ccad55bb59756bfcfcf891de9cc6202816bd346445188a0ed342",
+    "tokenizer_fingerprint": "4efeeb9382a77a06"
+  },
+  "data": {
+    "train_file_sha256": "0cdaa28f405c3a8c6a8589af8e88788b33131bc7d4f1096da6c1fedf78caa9d9",
+    "train_ids_sha256": "9bb5229fad6542aa8b3fd7edfc3b8d1dff965a573d7aa8379385caacc9d614da",
+    "train_shape": [
+      31250,
+      512
+    ],
+    "eval_ids_sha256": "c5345782fc0b08ef3212403878a33960ae0da236c999272e79e418f29c277d3c",
+    "eval_scored_bytes": 4588
+  },
+  "geometry": {
+    "layers": 24,
+    "width": 896,
+    "experts": 128,
+    "top_k": 4,
+    "rank": 8,
+    "seed": 5151,
+    "steps": 16,
+    "seq_len": 128,
+    "accum": 4,
+    "expert_parameters": 44040192,
+    "router_parameters": 2752512
+  },
+  "runtime": {
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6",
+    "cuda_index": 0,
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "elapsed_seconds": 32.68800000000192,
+    "rss_end_bytes": 3132370944,
+    "gpu_peak_allocated_bytes": 2331462144
+  },
+  "controls": {
+    "identity_max_abs": 0.0,
+    "donor_bpb_initial": 0.9545628803181361,
+    "student_bpb_initial": 0.9545628803181361,
+    "donor_bpb_terminal": 0.9545628803181361,
+    "student_bpb_terminal": 0.9464378189267173,
+    "delta_bpb_terminal": -0.008125061391418775,
+    "changed_slots_by_layer": [
+      128,
+      128,
+      128,
+      128,
+      128,
+      128,
+      128,
+      128,
+      126,
+      128,
+      127,
+      128,
+      127,
+      126,
+      127,
+      127,
+      126,
+      125,
+      127,
+      128,
+      128,
+      128,
+      128,
+      128
+    ],
+    "min_changed_slots": 125
+  },
+  "training_steps": [
+    {
+      "step": 1,
+      "ce": 3.4952098727226257,
+      "kl": 0.0,
+      "grad": {
+        "b_min": 0.0008099651313386858,
+        "b_max": 0.0030710629653185606,
+        "router_min": 0.0,
+        "router_max": 0.0
+      },
+      "clip_pre_norm": 0.008202350698411465,
+      "elapsed_seconds": 9.953000000001339,
+      "rss_bytes": 3115720704,
+      "gpu_peak_allocated_bytes": 1955973632
+    },
+    {
+      "step": 2,
+      "ce": 2.867395758628845,
+      "kl": 0.0010241417767247185,
+      "grad": {
+        "b_min": 0.0007484855013899505,
+        "b_max": 0.003449502168223262,
+        "router_min": 3.349067992530763e-05,
+        "router_max": 0.00015723126125521958
+      },
+      "clip_pre_norm": 0.01763675920665264,
+      "elapsed_seconds": 11.453000000001339,
+      "rss_bytes": 3116453888,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 3,
+      "ce": 2.2783121168613434,
+      "kl": 0.0008501849079038948,
+      "grad": {
+        "b_min": 0.002425969112664461,
+        "b_max": 0.00834727194160223,
+        "router_min": 0.00014254302368499339,
+        "router_max": 0.0019091221038252115
+      },
+      "clip_pre_norm": 0.028507838025689125,
+      "elapsed_seconds": 13.06300000000192,
+      "rss_bytes": 3116441600,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 4,
+      "ce": 3.0495194792747498,
+      "kl": 0.0011058472155127674,
+      "grad": {
+        "b_min": 0.004785521887242794,
+        "b_max": 0.023815041407942772,
+        "router_min": 0.0005655284621752799,
+        "router_max": 0.0057191550731658936
+      },
+      "clip_pre_norm": 0.07351864129304886,
+      "elapsed_seconds": 14.640999999999622,
+      "rss_bytes": 3116433408,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 5,
+      "ce": 2.8407075703144073,
+      "kl": 0.001546227722428739,
+      "grad": {
+        "b_min": 0.005627159960567951,
+        "b_max": 0.027545364573597908,
+        "router_min": 0.0005674060666933656,
+        "router_max": 0.007264548912644386
+      },
+      "clip_pre_norm": 0.07107986509799957,
+      "elapsed_seconds": 16.1720000000023,
+      "rss_bytes": 3116433408,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 6,
+      "ce": 2.504813641309738,
+      "kl": 0.0012291143357288092,
+      "grad": {
+        "b_min": 0.00718366215005517,
+        "b_max": 0.02768656797707081,
+        "router_min": 0.0008913226192817092,
+        "router_max": 0.01068047247827053
+      },
+      "clip_pre_norm": 0.07614205777645111,
+      "elapsed_seconds": 17.65599999999904,
+      "rss_bytes": 3116433408,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 7,
+      "ce": 2.527836352586746,
+      "kl": 0.002473115600878373,
+      "grad": {
+        "b_min": 0.009155490435659885,
+        "b_max": 0.04494624584913254,
+        "router_min": 0.0011861006496474147,
+        "router_max": 0.015072220005095005
+      },
+      "clip_pre_norm": 0.10965801775455475,
+      "elapsed_seconds": 19.110000000000582,
+      "rss_bytes": 3116433408,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 8,
+      "ce": 2.7865453958511353,
+      "kl": 0.003922994859749451,
+      "grad": {
+        "b_min": 0.010672081261873245,
+        "b_max": 0.046797025948762894,
+        "router_min": 0.0011649199295789003,
+        "router_max": 0.0207371823489666
+      },
+      "clip_pre_norm": 0.11837112903594971,
+      "elapsed_seconds": 20.5,
+      "rss_bytes": 3116433408,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 9,
+      "ce": 3.186447024345398,
+      "kl": 0.008052319753915071,
+      "grad": {
+        "b_min": 0.012108370661735535,
+        "b_max": 0.05037194490432739,
+        "router_min": 0.001706815673969686,
+        "router_max": 0.03005625121295452
+      },
+      "clip_pre_norm": 0.13306023180484772,
+      "elapsed_seconds": 21.9220000000023,
+      "rss_bytes": 3116433408,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 10,
+      "ce": 2.4969325065612793,
+      "kl": 0.01867058326024562,
+      "grad": {
+        "b_min": 0.01332111656665802,
+        "b_max": 0.07385046035051346,
+        "router_min": 0.0021051696967333555,
+        "router_max": 0.0318136066198349
+      },
+      "clip_pre_norm": 0.1676095873117447,
+      "elapsed_seconds": 23.2970000000023,
+      "rss_bytes": 3116433408,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 11,
+      "ce": 3.0011391043663025,
+      "kl": 0.02558592800050974,
+      "grad": {
+        "b_min": 0.016495393589138985,
+        "b_max": 0.08980371803045273,
+        "router_min": 0.004223801661282778,
+        "router_max": 0.052927739918231964
+      },
+      "clip_pre_norm": 0.23187971115112305,
+      "elapsed_seconds": 24.6720000000023,
+      "rss_bytes": 3116433408,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 12,
+      "ce": 3.2786867320537567,
+      "kl": 0.021343590808101,
+      "grad": {
+        "b_min": 0.015134263783693314,
+        "b_max": 0.0993494838476181,
+        "router_min": 0.0029517922084778547,
+        "router_max": 0.06095731258392334
+      },
+      "clip_pre_norm": 0.21477840840816498,
+      "elapsed_seconds": 26.01599999999962,
+      "rss_bytes": 3116433408,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 13,
+      "ce": 3.63813179731369,
+      "kl": 0.016990071977488697,
+      "grad": {
+        "b_min": 0.01681218296289444,
+        "b_max": 0.08362196385860443,
+        "router_min": 0.0028162107337266207,
+        "router_max": 0.039179280400276184
+      },
+      "clip_pre_norm": 0.1940278708934784,
+      "elapsed_seconds": 27.53099999999904,
+      "rss_bytes": 3116433408,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 14,
+      "ce": 3.372653365135193,
+      "kl": 0.04446958564221859,
+      "grad": {
+        "b_min": 0.020502623170614243,
+        "b_max": 0.10166625678539276,
+        "router_min": 0.004274958278983831,
+        "router_max": 0.08020928502082825
+      },
+      "clip_pre_norm": 0.24686482548713684,
+      "elapsed_seconds": 29.09400000000096,
+      "rss_bytes": 3116433408,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 15,
+      "ce": 2.1658205687999725,
+      "kl": 0.04314323095604777,
+      "grad": {
+        "b_min": 0.01613909937441349,
+        "b_max": 0.09278440475463867,
+        "router_min": 0.0048097893595695496,
+        "router_max": 0.05985194817185402
+      },
+      "clip_pre_norm": 0.2569781243801117,
+      "elapsed_seconds": 30.65599999999904,
+      "rss_bytes": 3116433408,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 16,
+      "ce": 3.3075752556324005,
+      "kl": 0.06800768431276083,
+      "grad": {
+        "b_min": 0.020607637241482735,
+        "b_max": 0.13747654855251312,
+        "router_min": 0.004396998789161444,
+        "router_max": 0.0556907020509243
+      },
+      "clip_pre_norm": 0.2749234139919281,
+      "elapsed_seconds": 32.21900000000096,
+      "rss_bytes": 3116433408,
+      "gpu_peak_allocated_bytes": 2331462144
+    }
+  ],
+  "decision": "eligible_for_frozen_longer_training_design",
+  "checkpoint_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth15_zero_residual_expert_smoke_rtx3060.pt",
+  "checkpoint_sha256": "cff4d2cbe4851d736f76d7f0838c42752a9d7bceec83054c34239d413d9a727e"
+}

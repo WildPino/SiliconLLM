@@ -97,7 +97,8 @@ rate results.
 | B. Establish donor | Score fresh held-out documents, task and greedy rollouts with the intact source and candidate under identical token IDs | Measurement | GigaChat Q4 versus BF16 passes scoped quality gates. Qwen intact anchor and limited-layer arms exist on a small frozen slice; a final fresh split is missing. |
 | C. Decompose | List core/mixer/head/router/shared/routed tensors; calculate active and stored bytes, per-token selected experts and expected training exposure | Exact shape arithmetic plus measured kernel anchors | [METH-00](METH_00_GIGACHAT_COST_PREFLIGHT_20260925.md) gives an ideal W4 preflight; [METH-01](METH_01_GIGACHAT_Q4_ACTIVE_LEDGER_20260925.md) prices local GigaChat mixed-GGUF and [METH-03](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md) the official Granite header. [NES-02](NES_02_CPU_EXPERT_COUNT_STRESS_20260925.md) measures a synthetic 10× native expert-count stress and prices dense routing at 10B/100B; it is no quality result. Cache residency and effective expert throughput are not assumed. |
 | D1. Sparse-source variant | Preserve donor structure initially, then apply an organ-selective low-bit representation from BF16, with source BF16/Q4 paired controls; adapt or change structure only if step-zero quality/cost requires it | **Measured approximation failure; new design open** | GigaChat Q4 retains quality but charges 1,016 MB/token. [METH-04](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md) supplied a 414-tensor type map at 534.025 MB/token. [METH-05/06](METH_06_CYRILLIC_ROUTE_RESULT_20260926.md) repaired rare expert calibration and made an actual 534.025 MB/token GGUF, but it lost +0.239465 BPB. [METH-07](METH_07_ORGAN_PRECISION_ABLATION_RESULT_20260926.md) identified expert sensitivity; [METH-08](METH_08_Q2_REALLOCATION_RESULT_20260926.md) passed the active-byte gate at 533.140 MB/token but lost +0.275153 BPB; [METH-09](METH_09_Q2_EXPERT_ISOLATION_RESULT_20260926.md) found only a 0.023740 BPB benefit from Q2_K experts before the harmful head/dense payment. No quality-valid compact donor or C rate exists. |
-| D2. Dense-source variant | Create a shared path plus residual experts with an economical input-only router; jointly adapt affected projections, router and experts, with continuous transitions and donor supervision | **Two post-hoc full-layer geometries rejected; joint training design open** | H1 S3 improves an eight-layer carve but remains +0.155895 BPB behind donor. [METH-11](METH_11_SHARED_RESIDUAL_RESULT_20260926.md) kept the highest-proxy 25% of Qwen FFN groups shared and routed 16 of 192 residual groups: +0.706052 BPB. [METH-12](METH_12_FITTED_SHARED_RESULT_20260926.md) fitted a rank-256 shared residual on disjoint calibration and routed 16/256 groups: local SSE improved 5.23%, but full 28-layer pilot lost +0.943873 BPB. H4/H2I frozen composition and STRAT-03's local geometry also fail. No post-hoc compact core has retained quality; jointly trained transfer or a sparse pretrained source needs a new bound design. |
+| D2. Dense-source hard carve | Route a sparse subset of pretrained FFN channels, with an optional compact shared approximation | **Post-hoc full-layer geometries rejected** | H1 S3 improves an eight-layer trained carve but remains +0.155895 BPB behind donor. [METH-11](METH_11_SHARED_RESIDUAL_RESULT_20260926.md) kept 25% of Qwen FFN groups shared and routed 16 of 192 residual groups: +0.706052 BPB. [METH-12](METH_12_FITTED_SHARED_RESULT_20260926.md) fitted a rank-256 shared residual and routed 16/256 groups: local SSE improved 5.23%, but full pilot lost +0.943873 BPB. [METH-13/14](METH_14_QWEN05B_ORACLE_ROUTE_RESULT_20260926.md) show Qwen0.5B E128/top-32 remains +0.775726 BPB behind donor even with a non-deployable local-mass oracle. H4/H2I and STRAT-03 also fail in their scopes. |
+| D3. Exact-core residual upcycle | Freeze the pretrained donor as shared core; add zero-output conditional residual experts; jointly train their factors and router; then seek a quality-preserving low-bit core | **Internal development gate pass; export and scale open** | [METH-15](METH_15_ZERO_RESIDUAL_EXPERT_SMOKE_RESULT_20260926.md) proves exact step-zero donor and trainable E128 bank. [METH-16](METH_16_RESIDUAL_EXPERT_CONTINUATION_RESULT_20260926.md) trains all 24 Qwen0.5B layers for 1,024 updates: student/donor 0.824196/0.840579 BPB, permuted-route null +0.042131 BPB, no relative greedy-repetition regression (11/16 vs 12/16). Core remains dense BF16; fresh documents, useful generation, low-bit quality, C export/rate and larger trained E are missing. |
 | E. Export | Emit versioned C weights/metadata, tokenizer, precision map and golden intermediate/logit traces; run the exact timed C path | Exact serialization plus approximate kernels | Native E32 export/parity exists. GigaChat C fidelity is partial. No converted pretrained conditional target has completed this stage. |
 | F. Validate | Paired donor→target held-out BPB with uncertainty, generation/task checks, routing utility, RAM/bytes/latency breakdown and ≥50 accepted tok/s on the same exported target | Measurement | **Open for every converted target.** Pilot/synthetic rate, scalar BPB, and partial port parity cannot be combined into a pass. |
 
@@ -117,6 +118,16 @@ remains +0.775726 BPB behind donor, above its frozen +0.40 limit.
 This non-deployable local oracle isolates a material fitted-route gap;
 the residual loss could reflect truncation, the oracle objective, or
 their interaction. It is not a formal upper bound for every learned router.
+[METH-15/16](METH_16_RESIDUAL_EXPERT_CONTINUATION_RESULT_20260926.md)
+change the mechanism: 128 separately trainable rank-8 residual experts
+per layer start at zero over the intact frozen donor. Step-zero logits
+are identical. After 1,024 RTX 3060 updates, paired internal BPB
+improves by 0.016383; a router-row permutation raises loss by 0.042131.
+This is a concrete pretrained-to-conditional training path, but its
+large dense shared core and exhaustive router do not yet meet the
+native 50 tok/s or 10B/100B scaling requirement. Both arms repeat
+frequently in the fixed greedy prompt set, and fresh documents/tasks
+are still owed.
 
 Transformations must record a quality/cost delta at each switch **and** after
 composition. The tested H5 failure shows why independent passes cannot be
@@ -204,10 +215,14 @@ adds 0.059428 BPB of loss. These interventions do not establish a
 quality/cost-valid representation. They narrow the next mechanism:
 an explicit trained correction or a changed conditional geometry with
 priced native export, rather than another unsupported precision swap.
-The Qwen0.5B inventory and METH-13/14 CPU diagnosis are complete; its
-hard E128/top-32 carve fails even with a local activation oracle.
-Bind a new jointly trained transformation with a distinct FFN mechanism
-and a fresh quality split before spending another conversion budget.
+The Qwen0.5B hard E128/top-32 carve fails, while METH-15/16's additive
+residual architecture passes a scoped joint-training development gate.
+The next decision is whether that *same trained checkpoint* retains
+quality on genuinely fresh documents and after a low-bit donor-core
+conversion, then whether native C parity and accepted-token timing can
+pass together. Independently, more stored expert capacity requires
+distinct trained E expansion and sublinear CPU routing, not a copied
+bank or an exhaustive score of all expert rows.
 No T4 run is authorized by these screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first

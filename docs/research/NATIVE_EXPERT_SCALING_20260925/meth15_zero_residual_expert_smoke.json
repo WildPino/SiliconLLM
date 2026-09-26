@@ -1,0 +1,320 @@
+{
+  "experiment": "METH-15",
+  "source": {
+    "model": "Qwen/Qwen2.5-0.5B",
+    "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+    "model_sha256": "88c142557820ccad55bb59756bfcfcf891de9cc6202816bd346445188a0ed342",
+    "tokenizer_fingerprint": "4efeeb9382a77a06"
+  },
+  "data": {
+    "train_file_sha256": "0cdaa28f405c3a8c6a8589af8e88788b33131bc7d4f1096da6c1fedf78caa9d9",
+    "train_ids_sha256": "9bb5229fad6542aa8b3fd7edfc3b8d1dff965a573d7aa8379385caacc9d614da",
+    "train_shape": [
+      31250,
+      512
+    ],
+    "eval_ids_sha256": "c5345782fc0b08ef3212403878a33960ae0da236c999272e79e418f29c277d3c",
+    "eval_scored_bytes": 4588
+  },
+  "geometry": {
+    "layers": 24,
+    "width": 896,
+    "experts": 128,
+    "top_k": 4,
+    "rank": 8,
+    "seed": 5151,
+    "steps": 16,
+    "seq_len": 128,
+    "accum": 4,
+    "expert_parameters": 44040192,
+    "router_parameters": 2752512
+  },
+  "runtime": {
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6",
+    "gpu": "NVIDIA GeForce GTX 1660",
+    "elapsed_seconds": 43.6720000000023,
+    "rss_end_bytes": 2857730048,
+    "gpu_peak_allocated_bytes": 2331462144
+  },
+  "controls": {
+    "identity_max_abs": 0.0,
+    "donor_bpb_initial": 0.9532607086540954,
+    "student_bpb_initial": 0.9532607086540954,
+    "donor_bpb_terminal": 0.9532607086540954,
+    "student_bpb_terminal": 0.9453684712877987,
+    "delta_bpb_terminal": -0.00789223736629674,
+    "changed_slots_by_layer": [
+      128,
+      128,
+      128,
+      128,
+      128,
+      128,
+      128,
+      127,
+      126,
+      128,
+      127,
+      128,
+      127,
+      126,
+      127,
+      127,
+      126,
+      125,
+      127,
+      128,
+      128,
+      128,
+      128,
+      128
+    ],
+    "min_changed_slots": 125
+  },
+  "training_steps": [
+    {
+      "step": 1,
+      "ce": 3.4941465258598328,
+      "kl": 0.0,
+      "grad": {
+        "b_min": 0.000811598205473274,
+        "b_max": 0.0030327930580824614,
+        "router_min": 0.0,
+        "router_max": 0.0
+      },
+      "clip_pre_norm": 0.008191375993192196,
+      "elapsed_seconds": 16.5470000000023,
+      "rss_bytes": 2840928256,
+      "gpu_peak_allocated_bytes": 1955973632
+    },
+    {
+      "step": 2,
+      "ce": 2.863386332988739,
+      "kl": 0.000914875534363091,
+      "grad": {
+        "b_min": 0.0007511910516768694,
+        "b_max": 0.0035018925555050373,
+        "router_min": 3.479023871477693e-05,
+        "router_max": 0.00027106612105853856
+      },
+      "clip_pre_norm": 0.017620472237467766,
+      "elapsed_seconds": 18.235000000000582,
+      "rss_bytes": 2841907200,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 3,
+      "ce": 2.2802299708127975,
+      "kl": 0.0007441334528266452,
+      "grad": {
+        "b_min": 0.0023774122819304466,
+        "b_max": 0.0083627225831151,
+        "router_min": 0.00013146332639735192,
+        "router_max": 0.0019958859775215387
+      },
+      "clip_pre_norm": 0.028302185237407684,
+      "elapsed_seconds": 20.03200000000288,
+      "rss_bytes": 2841899008,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 4,
+      "ce": 3.0464867055416107,
+      "kl": 0.0011948046740144491,
+      "grad": {
+        "b_min": 0.004748707637190819,
+        "b_max": 0.023027881979942322,
+        "router_min": 0.0005414491752162576,
+        "router_max": 0.01036375854164362
+      },
+      "clip_pre_norm": 0.07298199832439423,
+      "elapsed_seconds": 21.71900000000096,
+      "rss_bytes": 2841890816,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 5,
+      "ce": 2.8400308191776276,
+      "kl": 0.001310515232034959,
+      "grad": {
+        "b_min": 0.005557190626859665,
+        "b_max": 0.027318617329001427,
+        "router_min": 0.0006265455158427358,
+        "router_max": 0.011710872873663902
+      },
+      "clip_pre_norm": 0.07362786680459976,
+      "elapsed_seconds": 23.4220000000023,
+      "rss_bytes": 2841890816,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 6,
+      "ce": 2.5016851127147675,
+      "kl": 0.0011152908846270293,
+      "grad": {
+        "b_min": 0.007110881619155407,
+        "b_max": 0.02790231816470623,
+        "router_min": 0.0009322486002929509,
+        "router_max": 0.012880879454314709
+      },
+      "clip_pre_norm": 0.07670199126005173,
+      "elapsed_seconds": 25.125,
+      "rss_bytes": 2841890816,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 7,
+      "ce": 2.5268246233463287,
+      "kl": 0.002655446354765445,
+      "grad": {
+        "b_min": 0.00902523286640644,
+        "b_max": 0.04555628448724747,
+        "router_min": 0.0011344924569129944,
+        "router_max": 0.014604120515286922
+      },
+      "clip_pre_norm": 0.11086294800043106,
+      "elapsed_seconds": 26.860000000000582,
+      "rss_bytes": 2841890816,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 8,
+      "ce": 2.785602390766144,
+      "kl": 0.004154199472395703,
+      "grad": {
+        "b_min": 0.010364293120801449,
+        "b_max": 0.046623218804597855,
+        "router_min": 0.0012364613357931376,
+        "router_max": 0.021382560953497887
+      },
+      "clip_pre_norm": 0.11926665157079697,
+      "elapsed_seconds": 28.56300000000192,
+      "rss_bytes": 2841890816,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 9,
+      "ce": 3.1891128420829773,
+      "kl": 0.007922010670881718,
+      "grad": {
+        "b_min": 0.012100194580852985,
+        "b_max": 0.05035391449928284,
+        "router_min": 0.001805347972549498,
+        "router_max": 0.028468262404203415
+      },
+      "clip_pre_norm": 0.13273631036281586,
+      "elapsed_seconds": 30.25,
+      "rss_bytes": 2841890816,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 10,
+      "ce": 2.5014642775058746,
+      "kl": 0.01901381544303149,
+      "grad": {
+        "b_min": 0.013360039331018925,
+        "b_max": 0.07197645306587219,
+        "router_min": 0.0020800575148314238,
+        "router_max": 0.03683167323470116
+      },
+      "clip_pre_norm": 0.16648876667022705,
+      "elapsed_seconds": 31.954000000001543,
+      "rss_bytes": 2841890816,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 11,
+      "ce": 3.0005847215652466,
+      "kl": 0.02587911789305508,
+      "grad": {
+        "b_min": 0.016013920307159424,
+        "b_max": 0.08875152468681335,
+        "router_min": 0.004385297652333975,
+        "router_max": 0.056580688804388046
+      },
+      "clip_pre_norm": 0.23541784286499023,
+      "elapsed_seconds": 33.65700000000288,
+      "rss_bytes": 2841890816,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 12,
+      "ce": 3.280358523130417,
+      "kl": 0.0212836938444525,
+      "grad": {
+        "b_min": 0.015417896211147308,
+        "b_max": 0.10059985518455505,
+        "router_min": 0.003016108414158225,
+        "router_max": 0.056246567517519
+      },
+      "clip_pre_norm": 0.2146274894475937,
+      "elapsed_seconds": 35.375,
+      "rss_bytes": 2841890816,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 13,
+      "ce": 3.6412253379821777,
+      "kl": 0.017414590693078935,
+      "grad": {
+        "b_min": 0.01743192970752716,
+        "b_max": 0.0836852416396141,
+        "router_min": 0.0028061631601303816,
+        "router_max": 0.04429515823721886
+      },
+      "clip_pre_norm": 0.2002590000629425,
+      "elapsed_seconds": 37.07900000000154,
+      "rss_bytes": 2841890816,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 14,
+      "ce": 3.3757521510124207,
+      "kl": 0.044057607650756836,
+      "grad": {
+        "b_min": 0.021886056289076805,
+        "b_max": 0.10121592879295349,
+        "router_min": 0.004626587498933077,
+        "router_max": 0.08248499780893326
+      },
+      "clip_pre_norm": 0.2528535723686218,
+      "elapsed_seconds": 38.81300000000192,
+      "rss_bytes": 2841890816,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 15,
+      "ce": 2.164120838046074,
+      "kl": 0.04550834069959819,
+      "grad": {
+        "b_min": 0.015536163933575153,
+        "b_max": 0.09470455348491669,
+        "router_min": 0.005788389127701521,
+        "router_max": 0.05922505632042885
+      },
+      "clip_pre_norm": 0.26382336020469666,
+      "elapsed_seconds": 40.53200000000288,
+      "rss_bytes": 2841890816,
+      "gpu_peak_allocated_bytes": 2331462144
+    },
+    {
+      "step": 16,
+      "ce": 3.306991070508957,
+      "kl": 0.07175570726394653,
+      "grad": {
+        "b_min": 0.022057875990867615,
+        "b_max": 0.14348094165325165,
+        "router_min": 0.004744637757539749,
+        "router_max": 0.07836129516363144
+      },
+      "clip_pre_norm": 0.2931899428367615,
+      "elapsed_seconds": 42.25,
+      "rss_bytes": 2841890816,
+      "gpu_peak_allocated_bytes": 2331462144
+    }
+  ],
+  "decision": "eligible_for_frozen_longer_training_design",
+  "checkpoint_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth15_zero_residual_expert_smoke.pt",
+  "checkpoint_sha256": "72f8a94d3b79e5660a67c1b8ff01b5b65ffbb1f3dac96261ec96533bb42887da"
+}

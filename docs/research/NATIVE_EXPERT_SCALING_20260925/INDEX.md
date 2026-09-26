@@ -1,7 +1,10 @@
 # Native expert scaling: research control index
 
 **Date:** 26 September 2026. **Branch:** `research/native-expert-scaling`.
-**Status:** NES-01 E128 improves BPB but fails greedy generation; NES-02
+**Status:** METH-16 pretrained Qwen0.5B plus jointly trained E128
+residual experts passes an internal donor-relative quality/router/generation
+nonregression gate. Native export, fresh quality, low-bit core and large-E
+scaling remain open. NES-01 E128 improves BPB but fails greedy generation; NES-02
 finds a dense-router CPU scaling limit; NES-03 int8 shortlist preserves
 tested routes and cuts E1280 router cost. No pretrained-to-native conversion
 has passed joint quality and rate. METH-06 passed source-ID calibration
@@ -136,6 +139,19 @@ The oracle improves the sparse model by 0.584748 BPB but remains
 **+0.775726 BPB** behind donor, above its frozen +0.40 stop. The fitted
 route leaves recoverable loss under this oracle, which still leaves a
 large donor gap; the remaining causes are not isolated.
+[METH-15](METH_15_ZERO_RESIDUAL_EXPERT_SMOKE_RESULT_20260926.md) then
+retained the entire Qwen0.5B donor as a frozen shared core and added
+zero-initialized E128 rank-8 residual experts/top-4 across all 24 layers.
+Its RTX 3060 smoke verified exact step-zero donor logits, gradients in
+experts and routers, and a −0.008125 BPB internal-pilot change after 16
+updates. [METH-16](METH_16_RESIDUAL_EXPERT_CONTINUATION_RESULT_20260926.md)
+continued that exact optimizer/RNG state to 1,024 updates. On 33,374
+heldout bytes, student/donor BPB is **0.824196/0.840579** (−0.016383),
+the trained route beats a row-permuted null by **0.042131 BPB**, all
+128 expert output slots per layer changed, and greedy repetition is
+**11/16 versus donor 12/16**. The frozen development gate passes, but
+both arms loop often and the heldout windows share a previously used
+corpus. The donor core stays dense and no native C/50 tok/s result exists.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -163,6 +179,8 @@ SSM/SWA target and passes joint quality/rate.
 | METH-12 | FITTED SHARED + TOP-16 FULL-LAYER QUALITY FAIL; +0.943873 BPB | [result and cost ledger](METH_12_FITTED_SHARED_RESULT_20260926.md), [frozen protocol](METH_12_FITTED_SHARED_PROTOCOL_20260926.md), [machine fit/pilot](meth12_fitted_shared_pilot.json), [executable](../../../benchmarks/donor_adaptation/s1/meth12_fitted_shared.py); no GPU or native speed result |
 | METH-13 | E128/TOP-32 ROUTER PASS, FULL-LAYER QUALITY FAIL; +1.360474 BPB | [result](METH_13_QWEN05B_JOINT_UPCYCLE_RESULT_20260926.md), [frozen CPU protocol](METH_13_QWEN05B_JOINT_UPCYCLE_PROTOCOL_20260926.md), [machine route/pilot](meth13_qwen05b_preflight.json), [executable](../../../benchmarks/donor_adaptation/s1/meth13_qwen05b_preflight.py); no GPU or native speed result |
 | METH-14 | LOCAL-MASS ORACLE IMPROVES ROUTE, QUALITY STILL FAILS; +0.775726 BPB | [result](METH_14_QWEN05B_ORACLE_ROUTE_RESULT_20260926.md), [frozen diagnostic](METH_14_QWEN05B_ORACLE_ROUTE_PROTOCOL_20260926.md), [machine comparison](meth14_qwen05b_oracle_route.json), [executable](../../../benchmarks/donor_adaptation/s1/meth14_qwen05b_oracle_route.py); non-deployable route, no native speed result |
+| METH-15 | RTX 3060 EXACT-DONOR E128 RESIDUAL APPARATUS PASS; wrong-GPU run invalid | [result](METH_15_ZERO_RESIDUAL_EXPERT_SMOKE_RESULT_20260926.md), [protocol](METH_15_ZERO_RESIDUAL_EXPERT_SMOKE_PROTOCOL_20260926.md), [RTX 3060 machine record](meth15_zero_residual_expert_smoke_rtx3060.json), [wrong-GPU record](meth15_zero_residual_expert_smoke.json), [runner](../../../benchmarks/donor_adaptation/s1/meth15_zero_residual_expert_smoke.py) |
+| METH-16 | TRAINED RESIDUAL E128 DEVELOPMENT GATE PASS; −0.016383 BPB | [result](METH_16_RESIDUAL_EXPERT_CONTINUATION_RESULT_20260926.md), [protocol](METH_16_RESIDUAL_EXPERT_CONTINUATION_PROTOCOL_20260926.md), [machine training/generation](meth16_residual_expert_continuation.json), [runner](../../../benchmarks/donor_adaptation/s1/meth16_residual_expert_continuation.py); no fresh documents or native C rate |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -184,7 +202,9 @@ scheduled.
   Qwen0.5B hard carve loses +1.360474 BPB despite useful route recall.
   METH-14's activation oracle recovers 0.584748 BPB but still loses
   +0.775726, so the frozen local-mass route-only remedy fails.
-  None rejects all fresh joint-training approaches. The old donor parity queue is not an
+  METH-15/16 show that a changed additive residual-expert geometry can
+  start exactly at donor and improve its internal BPB after joint training.
+  The old donor parity queue is not an
   automatic next step.
 - **CPU design state:** NES-03 established a 32-candidate int8 path on this
   pilot; the full fp32 router and reference expert copies remain resident.
@@ -197,19 +217,19 @@ scheduled.
   loops (for example exposure or route training), estimate local training cost
   and freeze BPB, repetition and routing gates before a new run. Do not
   automatically extend E256 on the BPB gain alone.
-- **Next exact action: pretrained transfer.** METH-11/12/13 reject three
-  Qwen hard-sparse conversions before quantization. Specify a genuinely
-  changed conversion with an exact-donor warm start and **distinct trained
-  experts**, or select a pretrained sparse donor whose experts can be
-  retained. METH-14 shows a local activation oracle reduces but does not
-  cure METH-13's damage; a router-only rerun of that geometry is not the
-  next step. Bind training exposure/optimizer RAM, low-bit head and native
-  export. Freeze a fresh quality split and compute stop before GPU work.
-  The current Qwen C path's tied fp32 head costs ~933.5 MB/token; the GigaChat nominal
-  low-bit swaps failed METH-06/08/09 and should not be repeated.
-  Capacity scaling to 10B/100B still needs **distinct trained** large-E
-  experts, quality under greater router choice, and CPU LUT/sublinear
-  selection cost on the same native artifact. No T4 job is planned.
+- **Next exact action: pretrained transfer.** METH-16 supplies a complete
+  24-layer trained residual-expert checkpoint over Qwen0.5B. First bind
+  genuinely fresh documents and relevant tasks/generation before relying
+  on its internal gain. Then design and test a quality-preserving low-bit
+  donor core and export the **same trained adapter** into native C with
+  logit parity, accepted-token rate and real router/LUT cost. The old
+  Qwen donor C path keeps a tied fp32 head; its one-byte rate belongs to
+  another artifact and cannot be combined with this quality result.
+  For 10B/100B, grow **distinct trained** expert capacity and measure
+  quality while E rises about 10× with RAM. METH-16's rank-8 E128 bank
+  is only 44M factors; at rank128/E17,000 a dense fp32 router alone
+  would address 1.462 GB/token, so a bounded-candidate CPU route is
+  mandatory. No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
