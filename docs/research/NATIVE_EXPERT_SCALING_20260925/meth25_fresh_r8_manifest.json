@@ -1,0 +1,519 @@
+{
+  "experiment": "METH-25",
+  "seed": "meth25-25025",
+  "code_ref": "45afab6847cfd328c105f73256441f36748dc323",
+  "external_calib_sha256": {
+    "strat01_gigachat_fresh_v2/calib.jsonl": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+    "strat02_document_holdout_v1/calib.jsonl": "f1ed84f64284d2cd6ffd59f2373849f41a3c33bdb327eaa75f0f2b7e0e3d998f"
+  },
+  "excluded_qwen_corpus_sha256": [
+    "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0",
+    "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+  ],
+  "excluded_prior_experiments": [
+    "METH-17",
+    "METH-19"
+  ],
+  "overlap_rule": "first/middle/final 256 bytes absent from both Qwen corpus files and METH-17/19 selected spans, plus selected-set cross-screen",
+  "source_stats": {
+    "code": {
+      "eligible_size": 74,
+      "old_id": 48
+    },
+    "prose": {
+      "source_rows": 32
+    },
+    "technical_general": {
+      "source_rows": 32,
+      "overlap_or_short": 18
+    }
+  },
+  "selected_counts": {
+    "code": 24,
+    "prose": 16,
+    "technical_general": 8
+  },
+  "span_max_bytes": 4095,
+  "items": [
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/assert_package.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "31bf4589e6b1e2511261cc1c9ce70e499b95e4ce51d68a8ddd699d3d0063c8a2",
+      "span_start_byte": 2693,
+      "text_sha256": "012bfa5d6cc96500e98142b08b9f68969ec2d072ce70ce5baffc767e70ad5f2c",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase64/recall_probe.c",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "ee493adef84c93a0dd1d67961b28a57d849b9eeba0ba01409b0292d10f5701a0",
+      "span_start_byte": 2618,
+      "text_sha256": "7a3ee513712f69ed1587823737b5c322d834f0f06700ea10d21b5d285ce46dc3",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase57/phase57_lutbench.c",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "72966dd765c61e84181a3d72e77a646ab20b4823dc9d32426f83b537857618d4",
+      "span_start_byte": 2539,
+      "text_sha256": "76801d0461fddfa9fff743aa56aab1f199ac34a23133637931d5d7664754a874",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase57/phase59_moe.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "e608eb99d921312ebbb9a4bde17a5a95a213cdc620aa57bc3d24dae281162193",
+      "span_start_byte": 24632,
+      "text_sha256": "908e2031d7d39d849209acab0388b85ac4442dc3ba75c2cd23c94d2a0431ffe7",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase64/mve/mve_model.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "5525fba49b707b3b9891e787958058850ad43554e9994130a557c26a5e41c9d2",
+      "span_start_byte": 8774,
+      "text_sha256": "1da02600a77c798971f8e4be0d15792e4c9ad0c3291b9bfa4ba8beb12a70efe6",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase62/cartography.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "8d645746c9fdb3d9f8692062c2b09d324f5759dd44a613f8754cfba41636368f",
+      "span_start_byte": 5405,
+      "text_sha256": "f9cf58aa495597e0601f02f2aee41dd4fe167ad6fde3abaf7267ac0af25156cf",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase57/phase57_ternary.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "f24035b23abd8351d311b441e89a73d1cf545a5ec43f25e05a4bd496034892b6",
+      "span_start_byte": 3350,
+      "text_sha256": "50cc46e3e1cefa354c9ae1c817753ca050a20df8e11ce4ff8bb393ccb8dd8223",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase55/phase55_interactive.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "4cb9381a4ab6cb13fdbd0c0024a1ea30b878b22ccab31e11f19854e285731b39",
+      "span_start_byte": 58,
+      "text_sha256": "ebad6ef63081df36aa2248a8419a5fc179b376c2fec0384d4e9e112b79f91c6f",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase62/e5_0_acceptance.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "cb659cd7ecf6da1a8e63266424d99064fe8ca265a578e45ac9ec68d62ecf72b8",
+      "span_start_byte": 2417,
+      "text_sha256": "392b073e8be8575f6cf2006070c06dade6db076679820e321fc66c13661fcd34",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase55/phase55_ssm.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "0d0891cb1fc1a936a4e9fc4ad5f2c365473eee5fd2a4225eb07f3a66799b8e6f",
+      "span_start_byte": 9711,
+      "text_sha256": "8c2e42df7bcee39a2266b431938088fcdc772fa6c55232b80e79dba0ed26b9e2",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase62/task3_catA.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "7b3aee5591b87c4f392e6c2e595922a15bcb5c49b35a2f22f3c6901868214960",
+      "span_start_byte": 3909,
+      "text_sha256": "53c2daaf5bad9298eebd8d420d50910b77cdd2614e8b82596fb327eb590f723f",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase60/engine.c",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "db8f50f6b65e6d017f8f56d8ad9c10387a865eb9c865fddfcb8cf1e48ae820fe",
+      "span_start_byte": 10468,
+      "text_sha256": "e108619e24cb49ac952b6026fc538d8f51543b8154853535d9986954d1742dbc",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase56/phase56_nprobe_sweep.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "5eaca1c41218d8481af3ac6713e17ea49b724637a070af7fcfa0c19619106853",
+      "span_start_byte": 369,
+      "text_sha256": "cc060790eddc0238834d9b711bd2bb2e98aec3120625a192ae88aaaa428a02fd",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/ws3_code_data_identity.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "2e658e2424956b19da087a8e58fa65fb6fe254e3cc57a3bf469fb073bd52f3d4",
+      "span_start_byte": 905,
+      "text_sha256": "f8f92ef8edccb2e266166109e0f22ebf22f9525cdf1f841bd05db252c98698ff",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/swh_fetch.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "a7ff19adeeab494fc15b3290d8230be288944f503d77e17766da0919a2f338bc",
+      "span_start_byte": 5464,
+      "text_sha256": "931b1145fcc8d87e71cab2ed592fadcaf5dbd515297e051fa8e82cfe482e707c",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase56/phase56_pqadc_gate.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "e1327c2481afebd8f6ac04180a6765dc2d554293de7037d9409426a886cb4e1c",
+      "span_start_byte": 142,
+      "text_sha256": "d001a557990748598dc2ff9e2ee73c25b299cb8d1ab9ccecefacaf0dde42cb7d",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase64/mve/ws6_probe.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "27dabcf703b940501c8c339a0cb30d87daee06c5184a62d197c9bb9a22a481bf",
+      "span_start_byte": 2653,
+      "text_sha256": "49ba8d5974b9e805983af6a74eb835eb040ece9b3312510954537c5ebc5c3281",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase64/mve/mve_data.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "bfc03061556ae6451403fc5cf7d9c9b7b7d7c8c4a26298ff31aea9faa3cf6cc6",
+      "span_start_byte": 4432,
+      "text_sha256": "aff0e64c0774d063928ed0241e76c89c16fd054aa51db07bd21b1fd8043fe316",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/pack_logits_bundle.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "f4fff2a610cc8080f4e63d8c6a4185ae83d6e14fb13fc6fb45bbaafb23d22f07",
+      "span_start_byte": 160,
+      "text_sha256": "c443d39804f1a23b31648443e498d46906ae34e47c22bc69842e0d38c3c9a06f",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/code_data.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "fba60fa75197746befb75c1a92edca4794f54f6613d6a07f8ac5430fd24805c4",
+      "span_start_byte": 5873,
+      "text_sha256": "1b150c19348da9a13cda586cc40eef0fdb65d64c61e1787732622cd67bddcf4c",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/corpus_pipeline.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "5e24483435c160b2650970047e2a110d96c0d3cfced9dc9adf7eda8c3b87cb4c",
+      "span_start_byte": 2915,
+      "text_sha256": "4aed5415122dc69ac2498f0b85e1ee7ffac25d0c5be714f401484f08ce101a19",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase57/phase57_sparse.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "ce24f14d19e5e0192924a320856cf37e73b8e0cb77ec256f8e1471a058a34f6b",
+      "span_start_byte": 3327,
+      "text_sha256": "7da097a0084ab642d3449431d2476626bc2f74f0b84d931f0fea11c198aafbf9",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase64/tok_coverage.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "000b280ed93a7b43c8651447f85fbf47176a5b142fcab914b78f319bd43b3090",
+      "span_start_byte": 324,
+      "text_sha256": "bc39954c8cde8c70159c0168a51dfed8edefa407c370e777a6e57b0706f5fe45",
+      "text_bytes": 4095
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/phase64/mve/ws4_mqar.py",
+      "source_kind": "git",
+      "source_ref": "45afab6847cfd328c105f73256441f36748dc323",
+      "source_sha256": "c0df84383bbcd788206b44c55a32859f180c8c472a1217b1ad214a3d6911b59c",
+      "span_start_byte": 5506,
+      "text_sha256": "569f0db7b2b0f74b4314f70840963dbdf29eb4bc39b46f3532be807cb05f6c38",
+      "text_bytes": 4095
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/train-00006-of-00023-c50fea56d0518a87.parquet:row=816",
+      "source_kind": "pg19",
+      "source_ref": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+      "source_sha256": "3595861c09a58666a4135812f2a5b2a9637aa55e730574623f530f7b6ddeb15d",
+      "span_start_byte": 131193,
+      "text_sha256": "230b415a51621a585d6034a66153b3e8066023e5d0529c83661abcc061c79598",
+      "text_bytes": 4095
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=214",
+      "source_kind": "pg19",
+      "source_ref": "f1ed84f64284d2cd6ffd59f2373849f41a3c33bdb327eaa75f0f2b7e0e3d998f",
+      "source_sha256": "07055912ffe7ce56c6aedf02d3c887b039beadc31e73974b7fb322802c032748",
+      "span_start_byte": 213744,
+      "text_sha256": "b02c2b92ac95fc7c6efa0cbf804a668c557aa13809c482e29d746b42c6ad0c6d",
+      "text_bytes": 4095
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/train-00021-of-00023-e221306b7359a366.parquet:row=1079",
+      "source_kind": "pg19",
+      "source_ref": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+      "source_sha256": "04a8752aa3e1868869b6eec1dea1aa95441ebb2b67a5301d835d5834c16664c5",
+      "span_start_byte": 62184,
+      "text_sha256": "49cf780505fa45af44fe8cd27c14f3bcc0da56db6366326c0ac0ac9c866c2078",
+      "text_bytes": 4095
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/train-00011-of-00023-6c0bc91e6df2e661.parquet:row=1177",
+      "source_kind": "pg19",
+      "source_ref": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+      "source_sha256": "c57990c1a31dde907ab53319ebf9665ae70267ce631a2037c92152d37c34d2d2",
+      "span_start_byte": 27869,
+      "text_sha256": "aee7cda6acb097ae803583b95b212991446f4040cbaf514832246485be1f51dd",
+      "text_bytes": 4095
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=405",
+      "source_kind": "pg19",
+      "source_ref": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+      "source_sha256": "09ace163847c053cfa40663ace9357321c65c0d407f53ede6d19ab8868a6c523",
+      "span_start_byte": 85300,
+      "text_sha256": "d3575b15a9092d098907dc90cfe063e67766ef8d31ed3aeaba0195820e4aca5e",
+      "text_bytes": 4095
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/train-00008-of-00023-275017526d706c9d.parquet:row=142",
+      "source_kind": "pg19",
+      "source_ref": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+      "source_sha256": "f1054b6cccf53ba4f5013d0dd5ddce596a226b22f9a09524f2e87b744d871391",
+      "span_start_byte": 112585,
+      "text_sha256": "c51f64f5c92cf932ca97107e064564d6891b08d42d093378aaac61ba6082ed24",
+      "text_bytes": 4095
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=581",
+      "source_kind": "pg19",
+      "source_ref": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+      "source_sha256": "2b09fd17435ac934c85a4f0452e8600413dccd2f97dcc5f99d16aa0394d37a45",
+      "span_start_byte": 28291,
+      "text_sha256": "cbdb5fc85171c84c802813efe1bc5af93df56f06d5c7bb27e824b0df8a21871d",
+      "text_bytes": 4095
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/train-00013-of-00023-5b853732c713dded.parquet:row=784",
+      "source_kind": "pg19",
+      "source_ref": "f1ed84f64284d2cd6ffd59f2373849f41a3c33bdb327eaa75f0f2b7e0e3d998f",
+      "source_sha256": "f2c73cbcdf9c943ed8c332f65e0c9b614b9be6f0a07ff70509723af38a0a6196",
+      "span_start_byte": 2597809,
+      "text_sha256": "ed6d99619a0791f8bf5da699953e36378e79457fdad1c14c4c1e14dedafe090b",
+      "text_bytes": 4095
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/train-00007-of-00023-e9fea5c158e172e2.parquet:row=873",
+      "source_kind": "pg19",
+      "source_ref": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+      "source_sha256": "fa07ef6ca8d51078b22f96995d38e100a818bb015389dd09ffe71865ecd1753a",
+      "span_start_byte": 351937,
+      "text_sha256": "6f4bc43d5cf21a5b41a25e75bcb2784491b72ed7f59f5e67f340d8c9df987a08",
+      "text_bytes": 4095
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/train-00016-of-00023-8269d10108995a28.parquet:row=784",
+      "source_kind": "pg19",
+      "source_ref": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+      "source_sha256": "746d53788d1449a98bdbadc00276ead52e328e35410f694b491837ecccbf0850",
+      "span_start_byte": 142114,
+      "text_sha256": "92828ef8f6dbeda9d587c664f53347fc2144ccf8a5be58f01dd0af5495cd3d71",
+      "text_bytes": 4095
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1231",
+      "source_kind": "pg19",
+      "source_ref": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+      "source_sha256": "d589519df1acb6b17b2f112884d96dd9f748e5e55247b6f62fb2eac4d5d81500",
+      "span_start_byte": 33013,
+      "text_sha256": "4bc4bcf0259d96ba6a162f6d6cbb5bc0935d56da51e7edfce2472d2c97b72429",
+      "text_bytes": 4095
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/train-00011-of-00023-6c0bc91e6df2e661.parquet:row=379",
+      "source_kind": "pg19",
+      "source_ref": "f1ed84f64284d2cd6ffd59f2373849f41a3c33bdb327eaa75f0f2b7e0e3d998f",
+      "source_sha256": "602fca95ea699b052f266f4611ff5b6c190cb9b3c664141fc0c90ab186d5e045",
+      "span_start_byte": 7984,
+      "text_sha256": "afaf464705cb7f772bc9c0986d1eb300386bab36900deb6acee21f77459317e6",
+      "text_bytes": 4095
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet:row=1116",
+      "source_kind": "pg19",
+      "source_ref": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+      "source_sha256": "dc480ba75fa66263994b479ad5ac44be45748a0518b690a481e1e4a9b79e52ea",
+      "span_start_byte": 803685,
+      "text_sha256": "301404705d8e171c090c8d26b220a1bb26d06ed8cd6d3c71483e937bf0fb2e99",
+      "text_bytes": 4095
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=363",
+      "source_kind": "pg19",
+      "source_ref": "f1ed84f64284d2cd6ffd59f2373849f41a3c33bdb327eaa75f0f2b7e0e3d998f",
+      "source_sha256": "a8d64776abba644616899753df35f25edbc127e80d4ce8c5280d91139a85d373",
+      "span_start_byte": 194672,
+      "text_sha256": "21f9cde126ce54bd0709ece64985f99a880463265beb2ed50a0ead7dba6d7b09",
+      "text_bytes": 4095
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/train-00020-of-00023-f9b058c5e9338514.parquet:row=605",
+      "source_kind": "pg19",
+      "source_ref": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+      "source_sha256": "0aed4386bef288f81aea0191c09dd9f6fd3d5937a3edbec3db4112f09a689332",
+      "span_start_byte": 93938,
+      "text_sha256": "682bc31dbb3fd4f642f42104064c51a5f39442b31b7838713e49226ee20009b4",
+      "text_bytes": 4095
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/train-00011-of-00023-6c0bc91e6df2e661.parquet:row=323",
+      "source_kind": "pg19",
+      "source_ref": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+      "source_sha256": "ec055a1b2feeea61106dd0b089cb5f21a11795a0351318d9f338ec86f2dcd350",
+      "span_start_byte": 217277,
+      "text_sha256": "ae69e4a1972e0c4f296579c9d70f2ed67254c3682ab61fd26c16b6f2d3db24bf",
+      "text_bytes": 4095
+    },
+    {
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/mdn/files/en-us/games/techniques/crisp_pixel_art_look/index.md",
+      "source_kind": "file",
+      "source_ref": "f1ed84f64284d2cd6ffd59f2373849f41a3c33bdb327eaa75f0f2b7e0e3d998f",
+      "source_sha256": "b5b6ed77bc870f30dc0158749bf1d577f3b7a4ca637b29117e2638a54edf3c30",
+      "span_start_byte": 2050,
+      "text_sha256": "1b0dedaa0845ada0b54471f74c5bef7e2dd218ba785cc8465e7aee5551d6a10e",
+      "text_bytes": 4095
+    },
+    {
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/tasks/network/customize-hosts-file-for-pods.md",
+      "source_kind": "file",
+      "source_ref": "f1ed84f64284d2cd6ffd59f2373849f41a3c33bdb327eaa75f0f2b7e0e3d998f",
+      "source_sha256": "29486410317eabcefbf17092fbc2a29a836082d956365ecce30ee67fe89e03d2",
+      "span_start_byte": 0,
+      "text_sha256": "06baf07aca6fc5ad5f06b6254f74cc76b162a4661fd10b5bc603d97fc4d3ad00",
+      "text_bytes": 4095
+    },
+    {
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/kubernetes_website/content/ja/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume.md",
+      "source_kind": "file",
+      "source_ref": "f1ed84f64284d2cd6ffd59f2373849f41a3c33bdb327eaa75f0f2b7e0e3d998f",
+      "source_sha256": "f4a0023f183cd148d15deda23d52dc03e2cb7351f56bd4c4c39821be82af3225",
+      "span_start_byte": 0,
+      "text_sha256": "295daff36cf12528bf15342a998eabfff51dd8d02eb78b0ef1fc0a81adafb582",
+      "text_bytes": 4094
+    },
+    {
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/mdn/files/en-us/web/css/reference/properties/transition-delay/index.md",
+      "source_kind": "file",
+      "source_ref": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+      "source_sha256": "c9abb1fd164e0a0459ddda2644b3df8c320b369422f72032da7db0a2d5150ff3",
+      "span_start_byte": 33,
+      "text_sha256": "08e49ee4069333d61e00e99c51a677e26bf68059a72080306ccf49cd3c6e2b65",
+      "text_bytes": 4095
+    },
+    {
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2021/sig-node-spotlight/index.md",
+      "source_kind": "file",
+      "source_ref": "f1ed84f64284d2cd6ffd59f2373849f41a3c33bdb327eaa75f0f2b7e0e3d998f",
+      "source_sha256": "ed437536506d9dfa9bca0ea03cd7a74e907fcfa23caf74cb11c9b39278765adc",
+      "span_start_byte": 1887,
+      "text_sha256": "9562a8965cf88bb0628bffa2bbc444a6a6d3f8c3e9bc5f216a2329ed19ac12d5",
+      "text_bytes": 4095
+    },
+    {
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/kubernetes_website/content/ja/docs/concepts/workloads/autoscaling.md",
+      "source_kind": "file",
+      "source_ref": "f1ed84f64284d2cd6ffd59f2373849f41a3c33bdb327eaa75f0f2b7e0e3d998f",
+      "source_sha256": "6cb6ec125c94b33a326bf17b7ba29b83b921c641e8eb77cf7cdd7e73c19f087e",
+      "span_start_byte": 392,
+      "text_sha256": "1cca27f468a1e9615facb93166950113dd674c75b7355aaa0397e78c58790451",
+      "text_bytes": 4095
+    },
+    {
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/mdn/files/en-us/learn_web_development/core/scripting/test_your_skills/strings/index.md",
+      "source_kind": "file",
+      "source_ref": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+      "source_sha256": "f89cf21eae25ccbe6ee3119b20c7816e83879ac07e3568a7fd7e3ea3d9c66a0d",
+      "span_start_byte": 6199,
+      "text_sha256": "6a618ddcba7db9494ac467eed4f7d6fb4f3ecc0a8a973d56ecb5f6b381aa214d",
+      "text_bytes": 4095
+    },
+    {
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/mdn/files/en-us/learn_web_development/core/frameworks_libraries/svelte_deployment_next/index.md",
+      "source_kind": "file",
+      "source_ref": "68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81",
+      "source_sha256": "cbb8699c84ba5256e6ad066ed89c900eae8a496831b4a6f3706a485e8a3e6cad",
+      "span_start_byte": 8993,
+      "text_sha256": "f61e14fe49bc1fad00058c852d1849efe6043c38e8d939c0d076f6506c0d46fa",
+      "text_bytes": 4095
+    }
+  ]
+}

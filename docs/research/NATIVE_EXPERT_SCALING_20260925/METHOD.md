@@ -253,16 +253,25 @@ METH-17 rejects its full-amplitude adapter on separate documents.
 METH-19's bound half-amplitude adapter passes a new document gate,
 while most code documents still worsen slightly. METH-20 passes a
 relative repetition screen but exposes poor absolute generation;
-METH-21 passes one full PIQA relative-retention gate. METH-22 now
-identifies tied-head precision as a cost-binding conversion variable.
-The next decision is whether a compressed head/body retains the
-METH-19/21 quality when combined with this exact adapter. A
+METH-21 passes one full PIQA relative-retention gate. METH-22
+identified tied-head precision as a cost-binding conversion variable.
+METH-23 diagnosed R8 head/body compatibility on reused data;
+METH-24 exported its exact rule as a packed-only 496.122 MB core;
+METH-25 loaded the stored codes and scales and passed a new
+48-document/top-1 quality screen with the bound E128 adapter. This
+validates an artifact-level *PyTorch BF16-reconstruction* step for
+Qwen2.5-0.5B, not an int8 execution step. The runnable tools, hashes,
+limits and commands are in the corresponding [METH-24](METH_24_R8_CORE_EXPORT_RESULT_20260926.md)
+and [METH-25](METH_25_FRESH_R8_ARTIFACT_RESULT_20260926.md) records.
+The next composition checks are task/generation on these same stored
+bytes, then native C logit parity and accepted-token timing. A
 domain-preserving repair must use data outside both document audits.
-Only a quality-valid compact composition should proceed to native
-C parity and accepted-token timing. Independently,
-more stored expert capacity requires
-distinct trained E expansion and sublinear CPU routing, not a copied
-bank or an exhaustive score of all expert rows.
+More stored expert capacity requires distinct trained E expansion and
+sublinear CPU routing. [METH-26](METH_26_LARGE_E_ROUTER_LEDGER_20260926.md)
+shows exhaustive int8 routing at E273,547 would read 5.882 GB/token
+in this geometry, before selected experts and the core. The current
+NES-03 shortlist still scans all E rows, so it cannot settle this
+constraint by itself.
 No T4 run is authorized by these screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first

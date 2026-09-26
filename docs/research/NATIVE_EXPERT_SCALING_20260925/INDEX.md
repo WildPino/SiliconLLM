@@ -1,14 +1,13 @@
 # Native expert scaling: research control index
 
 **Date:** 26 September 2026. **Branch:** `research/native-expert-scaling`.
-**Status:** the exported Qwen0.5B E128 factor-0.50 adapter passes a
-separate-document gate (METH-19, −0.000737 BPB), relative generation
-screen (METH-20, 16/24 loops versus donor 17/24), and full PIQA
-task-retention gate (METH-21, −0.653 accuracy points). Code still
-worsens on 23/24 documents and absolute generation loops often.
-METH-22 prices a one-byte body plus fp32 tied head at 919 MB/token,
-above the 20 ms streaming budget at 40 GB/s. A quality-valid compact
-core, native C parity/rate and large-E scaling remain open. NES-01 E128 improves BPB but fails greedy generation; NES-02
+**Status:** the Qwen0.5B core has a packed-only R8 artifact (496.122 MB)
+that passes an independent 48-document quality/ranking screen when
+paired with the exported E128 factor-0.50 adapter (METH-25, −0.002282
+BPB versus BF16 donor; 95.996% top-1 agreement). Code still worsens
+and earlier absolute generation loops often. This is a PyTorch
+dequantized quality result; native C parity/rate and large-E scaling
+remain open. NES-01 E128 improves BPB but fails greedy generation; NES-02
 finds a dense-router CPU scaling limit; NES-03 int8 shortlist preserves
 tested routes and cuts E1280 router cost. No pretrained-to-native conversion
 has passed joint quality and rate. METH-06 passed source-ID calibration
@@ -192,8 +191,23 @@ counts **919.166 MB/token** for an ideal one-byte FFN/attention body
 with the existing fp32 tied head and this fp32 adapter. At 40 GB/s,
 the conditional streaming estimate is **22.979 ms/token** before
 all other work. A one-byte head/body estimate is 510.762 MB/token,
-but its quality and native rate are untested. Head precision is a
-necessary next conversion variable under this bandwidth design.
+but its quality and native rate were untested at that point.
+[METH-23](METH_23_R8_COMPOSITION_RESULT_20260926.md) finds that R8
+head/body quantization retains 95.2–95.4% exact top-1 IDs on a reused
+diagnostic set. [METH-24](METH_24_R8_CORE_EXPORT_RESULT_20260926.md)
+materializes a **496,122,224-byte** packed-only R8 core, SHA-256
+`c307fa48015fd01ccc43ab6a90debe42c10245ac4e45b926fc3a6ee2572afa27`.
+[METH-25](METH_25_FRESH_R8_ARTIFACT_RESULT_20260926.md) reconstructs
+from those stored bytes and passes new 48-document/ranking gates:
+adapter **−0.002282 pooled BPB** versus original BF16 donor, upper
+CI95 **−0.000909**, route utility **+0.007488 BPB**, donor/adapter
+top-1 agreement **95.915%/95.996%**. Code still loses +0.005305 BPB.
+This is quality evidence for one 0.5B family, not a C int8 rate.
+[METH-26](METH_26_LARGE_E_ROUTER_LEDGER_20260926.md) shows that in
+this same rank-8/L24/D896 geometry, E273,547 gives ~100B added
+parameters but an exhaustive one-byte router would address **5.882
+GB/token** (147 ms at 40 GB/s before other work). Sublinear routing
+is necessary before a RAM-scaled E claim.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -229,6 +243,10 @@ SSM/SWA target and passes joint quality/rate.
 | METH-20 | EXPORTED ADAPTER RELATIVE GENERATION PASS; ABSOLUTE LOOPS HIGH | [result](METH_20_HALF_ADAPTER_GENERATION_RESULT_20260926.md), [frozen protocol](METH_20_HALF_ADAPTER_GENERATION_PROTOCOL_20260926.md), [prompt manifest](meth20_half_adapter_generation_manifest.json), [paired generations](meth20_half_adapter_generation_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth20_half_adapter_generation.py) |
 | METH-21 | FULL PIQA TASK-RETENTION PASS; −0.653 ACCURACY POINTS | [result](METH_21_HALF_ADAPTER_PIQA_RESULT_20260926.md), [frozen protocol](METH_21_HALF_ADAPTER_PIQA_PROTOCOL_20260926.md), [token manifest](meth21_half_adapter_piqa_manifest.json), [all paired outcomes](meth21_half_adapter_piqa_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth21_half_adapter_piqa.py) |
 | METH-22 | EXACT ACTIVE-BYTE PREFLIGHT; FP32 TIED HEAD BINDS ONE-BYTE BODY | [result](METH_22_QWEN05B_ACTIVE_LEDGER_RESULT_20260926.md), [protocol](METH_22_QWEN05B_ACTIVE_LEDGER_PROTOCOL_20260926.md), [ledger](meth22_qwen05b_active_ledger.json), [tool](../../../benchmarks/donor_adaptation/s1/meth22_qwen05b_active_ledger.py); arithmetic, no native rate or low-bit quality |
+| METH-23 | R8 HEAD/BODY COMPOSITION DIAGNOSTIC PASS ON REUSED TEXTS | [result](METH_23_R8_COMPOSITION_RESULT_20260926.md), [protocol](METH_23_INT8_CORE_COMPOSITION_PROTOCOL_20260926.md), [machine result](meth23_int8_core_composition_diagnostic.json), [runner](../../../benchmarks/donor_adaptation/s1/meth23_int8_core_composition_diagnostic.py) |
+| METH-24 | PACKED-ONLY R8 CORE EXPORT AND EXACT RELOAD PASS | [result](METH_24_R8_CORE_EXPORT_RESULT_20260926.md), [protocol](METH_24_R8_CORE_EXPORT_PROTOCOL_20260926.md), [artifact ledger](meth24_r8_core_export.json), [exporter](../../../benchmarks/donor_adaptation/s1/meth24_export_r8_core.py) |
+| METH-25 | NEW-DOCUMENT AND TOP-1 STORED-ARTIFACT QUALITY SCREEN PASS | [result](METH_25_FRESH_R8_ARTIFACT_RESULT_20260926.md), [protocol](METH_25_FRESH_R8_ARTIFACT_PROTOCOL_20260926.md), [manifest](meth25_fresh_r8_manifest.json), [machine result](meth25_fresh_r8_artifact_result.json), [selection](../../../benchmarks/donor_adaptation/s1/meth25_fresh_r8_manifest.py), [audit](../../../benchmarks/donor_adaptation/s1/meth25_fresh_r8_artifact_audit.py); no native rate |
+| METH-26 | LARGE-E EXHAUSTIVE ROUTER INFEASIBLE BY BYTE ARITHMETIC | [geometry ledger](METH_26_LARGE_E_ROUTER_LEDGER_20260926.md); no large-E learned model or timing |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -261,33 +279,30 @@ scheduled.
   retention; its −0.653-point delta is not an improvement claim.
   The old donor parity queue is not an
   automatic next step.
-- **CPU design state:** NES-03 established a 32-candidate int8 path on this
-  pilot; the full fp32 router and reference expert copies remain resident.
-  A packed-only export, learned large-E routing/quality and accepted-token
-  rate remain open. METH-11's E192→E19,200 shape projection makes an
-  exhaustive int8 router address 825.75 MB/token, already >20 ms at
-  40 GB/s, so larger RAM alone cannot preserve throughput. Do not spend
-  the next cell only tuning this pilot router.
+- **CPU design state:** NES-03 established a 32-candidate int8 path on its
+  pilot, but still scans all E rows and keeps redundant reference weights.
+  METH-26 maps the currently quality-screened Qwen geometry to E27,355
+  and E273,547 for ~10B/~100B added parameters. Even one-byte exhaustive
+  routing would read 0.588/5.882 GB per token. A bounded or sublinear
+  candidate index, packed-only expert bank, measured CPU router/LUT costs,
+  and learned large-E route/quality evidence remain open.
 - **Next quality design:** the absolute E128 free-generation loops and
   near-uniform code loss remain. Test a changed training/gating variable
   only on data separate from METH-17/19/20/21, with new prospective
   BPB, repetition and task gates. Do not extend E256 on a BPB gain alone.
-- **Next exact action: pretrained transfer.** METH-22 shows why a
-  one-byte FFN/attention body with the existing fp32 tied head misses
-  the 20 ms streaming budget even before compute. Isolate a compressed
-  tied-head representation (and body precision), check donor-relative
-  quality on bound development data, then retest the **composition**
-  with the same half-amplitude adapter on independent material.
-  A quality-valid compact candidate can be exported into
-  `benchmarks/phase60/engine.c` with logit parity and accepted-token
-  rate. The separate `donor_engine.c` Qwen implementation is a fidelity
-  reference, not a joint-quality/rate artifact. Do not combine its old
-  one-byte rate with METH-19/21 quality.
-  For 10B/100B, grow **distinct trained** expert capacity and measure
-  quality while E rises about 10× with RAM. METH-16's rank-8 E128 bank
-  is only 44M factors; at rank128/E17,000 a dense fp32 router alone
-  would address 1.462 GB/token, so a bounded-candidate CPU route is
-  mandatory. No T4 job is planned.
+- **Next exact action: artifact-level behavior and native path.** The
+  packed R8 core and E128 adapter are fixed by METH-24/25 hashes. Run
+  generation and the full PIQA task on **those stored bytes** with BF16
+  donor controls and prospective gates. Then implement the same packed
+  pair in `benchmarks/phase60/engine.c` with logit parity, measured
+  accepted batch-1 tok/s, and split core/router/expert time and DRAM
+  traffic. The separate `donor_engine.c` Qwen implementation is a
+  fidelity reference, not this quality-and-rate result. For the user's
+  RAM-scaled expert target, design a CPU candidate index that avoids
+  scanning E rows; measure route recall against exact routing, CPU
+  lookup and selected-expert LUT time across a 10× E ladder. Only
+  **distinct trained** expert expansion can validate quality as E
+  grows. No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
