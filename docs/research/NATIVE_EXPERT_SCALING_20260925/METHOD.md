@@ -326,9 +326,20 @@ completes that diagnosis: A-ternary/B-fp32 and A-fp32/B-ternary
 read 4.132 and 3.441 MB selected factor bytes/token, and both
 pass reused-document BPB screens, but match only 97.021% and
 97.282% of intact top-1 IDs against the fixed 99% gate. Neither
-is selected for storage or fresh promotion. A higher-fidelity
-LUT-compatible factor representation must be specified and tested
-before the packed factor branch can advance.
+is selected for storage or fresh promotion. This led to the
+higher-fidelity representation tested next.
+[METH-34](METH_34_I4_LUT_FACTOR_RESULT_20260926.md) tests that
+higher-fidelity representation: 15-level LUT-addressable codes
+for both rank-8 factors, with fp32 row scales and original router.
+The stored 132.23 MB artifact reloads exactly and selected
+factor codes+scales address 3.788 MB/token. Reused-document
+packed-minus-intact BPB is +0.000069, but only 6,041/6,144
+top-1 IDs agree with intact factors (98.324%) against the
+prospective 99% gate. It is rejected before fresh promotion.
+The audit decodes saved weights in PyTorch; activation quantization,
+C LUT parity and actual-factor CPU speed were not tested. Further
+format tuning on these reused texts is paused until the parent
+R8+E128 candidate passes generation and bounded routing is viable.
 No T4 run is authorized by these screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first

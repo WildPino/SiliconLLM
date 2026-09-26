@@ -1,0 +1,40 @@
+{
+  "experiment": "METH-34-export",
+  "format": "QWEN25_R8_E128_I4_LUT_V1",
+  "core_sha256": "c307fa48015fd01ccc43ab6a90debe42c10245ac4e45b926fc3a6ee2572afa27",
+  "source_adapter_sha256": "3147b2cf4fd3af671d5bf6c6451829ec32acfadaca2a0272be0b123e3873e1ca",
+  "packed_adapter_sha256": "f4b77f2cd47d8c220872e2609e9ddb01068f4766cd25b7f922fd1ec2a32dc6d8",
+  "packed_adapter_bytes": 132229896,
+  "tensor_count": 120,
+  "factor_stats": {
+    "a": {
+      "weight_elements": 22020096,
+      "nonzero_codes": 17809838,
+      "squared_error": 384.22219371795654,
+      "weight_squared_norm": 19577.021057128906,
+      "relative_squared_error": 0.019626182788317702,
+      "nonzero_fraction": 0.8087992895217169
+    },
+    "b": {
+      "weight_elements": 22020096,
+      "nonzero_codes": 19961320,
+      "squared_error": 22.94455975294113,
+      "weight_squared_norm": 4666.490997314453,
+      "relative_squared_error": 0.004916876463738092,
+      "nonzero_fraction": 0.9065046764555431
+    }
+  },
+  "byte_ledger": {
+    "factor_code_bytes": 110100480,
+    "factor_scale_bytes": 11108352,
+    "router_bytes": 11010048,
+    "selected_factor_codes_per_token": 3440640,
+    "selected_factor_scales_per_token": 347136,
+    "selected_factor_total_per_token": 3787776
+  },
+  "runtime": {
+    "elapsed_seconds": 2.9530000000013388,
+    "rss_end_bytes": 1536487424
+  },
+  "scope": "weight-only LUT-indexed export; activation LUT and quality untested"
+}
