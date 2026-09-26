@@ -356,6 +356,26 @@ language-quality or native-speed step. Its one-byte sketch
 would still read 420.17 MB/token at the hypothetical E273,547
 point before scales, exact candidates, experts and core; the
 corresponding CPU time and large-E learned routing remain unknown.
+[METH-37](METH_37_ROUTE_REPLACEMENT_RESULT_20260926.md) applies
+the stored C64 route to the actual R8+E128 model on 24
+different METH-19 documents. Paired BPB, donor-relative BPB
+and relative greedy-repetition screens pass, but only 98.356%
+of next-token top-1 IDs match the exact-route model against
+the prospective 99% gate. Route inclusion on a fixed original
+trajectory is therefore insufficient to select this candidate.
+[METH-38](METH_38_CANDIDATE_CAUSE_RESULT_20260926.md) increases
+the exact shortlist to C96/C128 on reused prompts. C96 misses
+only 9/589,824 exact IDs and reaches 99.349% top-1, but C128
+still changes 21 outputs with all route sets identical.
+[METH-39](METH_39_RESCORE_NUMERICS_RESULT_20260926.md) confirms
+that gathering full `F.linear` scores restores exact top-1,
+whereas candidate-only batched rescore changes more outputs
+than elementwise summation. The full-score control is not
+scalable; the current bounded route remains unpromoted.
+The next index step is a new independent quality test of a
+frozen C96 candidate-only rule, followed by native C timing
+only if it passes. Rank, shortlist, score arithmetic and
+route trajectory all need to be bound in an executable export.
 No T4 run is authorized by these screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first

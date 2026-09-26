@@ -34,8 +34,11 @@ paused while generation repair and bounded large-E routing remain open.
 METH-35 finds a passing fp32 rank-64/64-candidate SVD router
 shortlist on the reused E128 route inputs. METH-36 exports its
 one-byte sketch and passes the same route gate on 24 distinct
-documents (99.939% exact top-4 ID inclusion). Route-replaced
-language quality and CPU time, especially at large E, remain open.
+documents (99.939% exact top-4 ID inclusion). METH-37 then
+replaces the route: document loss and relative generation gates
+pass, but top-1 is 98.356% versus the fixed 99% gate. METH-38/39
+isolate both shortlist misses and fine-rescore arithmetic;
+the rank-64/64 route is held. CPU time and large-E quality remain open.
 NES-01 E128 improves BPB but fails greedy generation; NES-02
 finds a dense-router CPU scaling limit; NES-03 int8 shortlist preserves
 tested routes and cuts E1280 router cost. No pretrained-to-native conversion
@@ -305,6 +308,21 @@ top-4 IDs and matches **99.757%** of complete sets, passing all
 fixed route gates. Replacing routes in the actual model and
 measuring CPU traffic/time remain required. At E273,547, the
 one-byte sketch alone would address 420.17 MB/token.
+[METH-37](METH_37_ROUTE_REPLACEMENT_RESULT_20260926.md) applies
+that stored shortlist to the full R8+E128 model on 24 METH-19
+documents. Pooled BPB changes **−0.000140** versus exact route,
+and relative repetition is 17/24→16/24, but top-1 agrees only
+**6,043/6,144 = 98.356%** versus the fixed ≥99% gate.
+[METH-38](METH_38_CANDIDATE_CAUSE_RESULT_20260926.md) finds
+that 96 candidates raise reused-prompt top-1 to 99.349% with
+only 9 of 589,824 exact IDs omitted. Even 128 candidates
+change 21 top-1 outputs despite perfect route-set agreement;
+its numeric apparatus gate fails.
+[METH-39](METH_39_RESCORE_NUMERICS_RESULT_20260926.md) confirms
+the source: a full `F.linear` score/gather oracle restores
+6,144/6,144 top-1, while candidate-only batched rescore
+still changes 35 at C128. No bounded route variant has passed
+a new independent *route-replaced* quality gate.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -354,6 +372,9 @@ SSM/SWA target and passes joint quality/rate.
 | METH-34 | 15-LEVEL LUT FACTOR TOP-1 GATE FAIL | [result](METH_34_I4_LUT_FACTOR_RESULT_20260926.md), [protocol](METH_34_I4_LUT_FACTOR_PROTOCOL_20260926.md), [export ledger](meth34_i4_lut_factor_export.json), [paired audit](meth34_i4_lut_factor_audit.json), [exporter](../../../benchmarks/donor_adaptation/s1/meth34_export_i4_factors.py), [audit runner](../../../benchmarks/donor_adaptation/s1/meth34_i4_factor_audit.py); reused texts, no activation LUT or native rate |
 | METH-35 | FP32 LOW-RANK E128 ROUTE DIAGNOSTIC PASS AT R64/C64 | [result](METH_35_LOW_RANK_ROUTER_RESULT_20260926.md), [protocol](METH_35_LOW_RANK_ROUTER_PROTOCOL_20260926.md), [route audit](meth35_low_rank_router_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth35_low_rank_router.py); reused prompts, no CPU speed or route-replaced quality |
 | METH-36 | STORED INT8 E128 ROUTE GATE PASS ON DISJOINT INPUTS | [result](METH_36_INT8_SKETCH_RESULT_20260926.md), [protocol](METH_36_INT8_SKETCH_PROTOCOL_20260926.md), [prompt manifest](meth36_route_prompt_manifest.json), [export ledger](meth36_int8_sketch_export.json), [route audit](meth36_int8_sketch_audit.json), [exporter](../../../benchmarks/donor_adaptation/s1/meth36_export_int8_sketch.py), [audit runner](../../../benchmarks/donor_adaptation/s1/meth36_int8_sketch_audit.py); route replacement and C CPU time open |
+| METH-37 | STORED INT8 ROUTE-REPLACEMENT TOP-1 GATE FAIL | [result](METH_37_ROUTE_REPLACEMENT_RESULT_20260926.md), [protocol](METH_37_ROUTE_REPLACEMENT_PROTOCOL_20260926.md), [manifest](meth37_route_quality_manifest.json), [paired quality/generation](meth37_route_replacement_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth37_route_replacement.py); no C rate |
+| METH-38 | C96 DIAGNOSTIC PASS; C128 NUMERIC APPARATUS FAIL | [result](METH_38_CANDIDATE_CAUSE_RESULT_20260926.md), [protocol](METH_38_CANDIDATE_CAUSE_PROTOCOL_20260926.md), [route/ranking counts](meth38_candidate_cause_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth38_candidate_cause.py); reused prompts |
+| METH-39 | FULL-SCORE ORACLE PARITY; BOUNDED BMM NUMERIC GATE FAIL | [result](METH_39_RESCORE_NUMERICS_RESULT_20260926.md), [protocol](METH_39_RESCORE_NUMERICS_PROTOCOL_20260926.md), [arithmetic counts](meth39_rescore_numerics_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth39_rescore_numerics.py); reused prompts, no CPU rate |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -408,7 +429,13 @@ scheduled.
   METH-35/36 establish an alternative frozen-router shortlist:
   rank-64 SVD plus 64 exact candidates passes a reused route
   diagnostic, and its stored int8 sketch passes on disjoint
-  METH-17 documents. This is an E128 route-recall result only.
+  METH-17 documents. METH-37 shows that its actual route
+  replacement fails the fixed top-1 gate despite near-flat
+  document BPB and passing relative repetition. METH-38/39
+  show that 96 candidates nearly eliminate omitted routes on
+  reused prompts but candidate-only fine-score numerics also
+  change next-token outputs. The full-score oracle restores
+  parity but forfeits bounded routing. No new route is promoted.
   A one-byte E273,547 sketch still projects 420.17 MB/token,
   so CPU time and larger-E fidelity may bind even without
   scanning full D896 rows.
@@ -427,12 +454,16 @@ scheduled.
   tok/s and split core/router/expert timing and traffic. The separate
   `donor_engine.c` Qwen implementation is a fidelity reference, not
   this joint-quality/rate result. In parallel, test a **jointly trained**
-  hierarchy on distinct experts, while advancing METH-36's
-  fidelity-passing E128 int8 shortlist through a route-replaced
-  quality audit. Implement its exact index in C and measure split
-  projection/sketch/rescore cost across a 10× E ladder before
-  claiming scalable CPU routing. METH-29/30's fixed-group rules
-  failed; METH-36's scan is lower dimensional but still linear in E.
+  hierarchy on distinct experts. For the stored SVD index,
+  METH-37 has now failed route-replaced top-1; METH-38/39
+  identify candidate omissions plus rescore numerics. Freeze
+  a new C96 candidate-only score rule and evaluate it on
+  documents not used to choose that budget, including BPB,
+  donor-relative quality, top-1 and generation. Promote to C
+  only after that joint quality gate passes, then measure split
+  projection/sketch/rescore cost across a 10× E ladder.
+  METH-29/30's fixed-group rules failed; METH-36's scan is
+  lower dimensional but still linear in E.
   Pause factor-code tuning on the reused
   texts after METH-32/33/34's prospective ranking failures; revisit
   an exact packed export once the parent candidate passes fresh
