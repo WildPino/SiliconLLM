@@ -371,7 +371,7 @@ still changes 21 outputs with all route sets identical.
 that gathering full `F.linear` scores restores exact top-1,
 whereas candidate-only batched rescore changes more outputs
 than elementwise summation. The full-score control is not
-scalable; the current bounded route remains unpromoted.
+scalable; these reused-prompt diagnostics did not promote C96.
 [METH-40](METH_40_ROUTER_SCAN_CPU_RESULT_20260926.md) measures
 the saved rank-64 int8 sketch at a synthetic ~10B/~100B expert
 ladder. At E27,355/E273,547, six-thread projection + exhaustive
@@ -379,12 +379,19 @@ scan/selection + merge takes 3.714/18.453 ms/token. The larger
 point passes the predeclared 20 ms component ceiling but leaves
 only 1.547 ms for exact rescore, selected experts, the core and
 other inference work. Expanded rows are synthetic and do not
-test quality with more independently learned experts. The next
-route-quality step is an independent audit of a frozen C96
-candidate-only rule; a practical large-E design should also
-avoid a full scan or reduce its payload and prove route fidelity
-on distinct trained experts. Rank, shortlist, score arithmetic
-and route trajectory still need binding in an executable export.
+test quality with more independently learned experts.
+[METH-41](METH_41_C96_INDEPENDENT_ROUTE_RESULT_20260927.md)
+then freezes the C96 candidate-only elementwise rescore and
+tests it on 24 source-disjoint code, prose and technical
+documents. It passes the prospective E128 route-replacement
+BPB, top-1, relative generation and donor-relative document
+gates; top-1 is 6,099/6,144 and pooled loss is +0.000059 BPB
+versus exact. The parent still loops on 15/24 C96 continuations,
+so C96 is a quality-valid route component, not a useful full
+artifact. A practical large-E design should avoid a full scan
+or reduce its payload and prove route fidelity on distinct
+trained experts. Rank, shortlist, score arithmetic and route
+trajectory still need binding in a native executable export.
 No T4 run is authorized by these screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first

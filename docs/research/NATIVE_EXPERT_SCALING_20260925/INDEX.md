@@ -1,6 +1,6 @@
 # Native expert scaling: research control index
 
-**Date:** 26 September 2026. **Branch:** `research/native-expert-scaling`.
+**Date:** 27 September 2026. **Branch:** `research/native-expert-scaling`.
 **Status:** the Qwen0.5B packed-only R8 core (496.122 MB) plus E128
 adapter passes new-document BPB/ranking (METH-25) and full PIQA task
 retention (METH-28, −0.925 accuracy points versus BF16 donor), but
@@ -17,6 +17,9 @@ METH-37 rejects its C64 route replacement on top-1 quality.
 METH-40 measures the C96 sketch CPU component at hypothetical
 E27,355/E273,547: six-thread 3.714/18.453 ms/token, leaving only
 1.547 ms inside the whole-model 20 ms target at the larger point.
+METH-41 independently passes the C96 E128 route-replacement
+quality gate (99.268% top-1), but the parent still loops on
+15/24 continuations and C96 has no full native rate.
 METH-31 measures the existing CPU LUT kernel in the Qwen rank-8
 shape with synthetic packed factors: E1280→E12800 raises the
 six-thread selected path only 1.136× to 0.505 ms/token. That
@@ -42,7 +45,8 @@ replaces the route: document loss and relative generation gates
 pass, but top-1 is 98.356% versus the fixed 99% gate. METH-38/39
 isolate both shortlist misses and fine-rescore arithmetic;
 the rank-64/64 route is held. METH-40 times a synthetic large-E
-sketch scan; full CPU rate and large-E quality remain open.
+sketch scan. METH-41 passes an independent C96 route-replacement
+gate at E128; full CPU rate and large-E quality remain open.
 NES-01 E128 improves BPB but fails greedy generation; NES-02
 finds a dense-router CPU scaling limit; NES-03 int8 shortlist preserves
 tested routes and cuts E1280 router cost. No pretrained-to-native conversion
@@ -325,8 +329,8 @@ its numeric apparatus gate fails.
 [METH-39](METH_39_RESCORE_NUMERICS_RESULT_20260926.md) confirms
 the source: a full `F.linear` score/gather oracle restores
 6,144/6,144 top-1, while candidate-only batched rescore
-still changes 35 at C128. No bounded route variant has passed
-a new independent *route-replaced* quality gate.
+still changes 35 at C128. This diagnostic did not itself
+promote a bounded route.
 [METH-40](METH_40_ROUTER_SCAN_CPU_RESULT_20260926.md) measures the
 stored rank-64 sketch's AVX2 CPU scan with synthetic expansion to
 E27,355 and E273,547. Six-thread median projection + scan/selection
@@ -335,6 +339,14 @@ about 10× E. The larger arm passes the 20 ms router-component
 ceiling by just **1.547 ms**. It excludes exact fine rescore,
 selected experts, core and generation, and establishes no large-E
 quality or full-model rate.
+[METH-41](METH_41_C96_INDEPENDENT_ROUTE_RESULT_20260927.md) freezes
+24 source-disjoint documents before an actual C96 route replacement.
+Its pooled BPB penalty is **+0.000059**, bootstrap 95% upper
+**+0.000198**, and top-1 agreement **6,099/6,144 = 99.268%**.
+Relative repeated-8-gram failures are 16/24 exact versus 15/24
+C96. All prospective route and donor-relative document gates
+pass. The 15/24 absolute loops and METH-40's scan cost still
+prevent full model or large-E promotion.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -388,6 +400,7 @@ SSM/SWA target and passes joint quality/rate.
 | METH-38 | C96 DIAGNOSTIC PASS; C128 NUMERIC APPARATUS FAIL | [result](METH_38_CANDIDATE_CAUSE_RESULT_20260926.md), [protocol](METH_38_CANDIDATE_CAUSE_PROTOCOL_20260926.md), [route/ranking counts](meth38_candidate_cause_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth38_candidate_cause.py); reused prompts |
 | METH-39 | FULL-SCORE ORACLE PARITY; BOUNDED BMM NUMERIC GATE FAIL | [result](METH_39_RESCORE_NUMERICS_RESULT_20260926.md), [protocol](METH_39_RESCORE_NUMERICS_PROTOCOL_20260926.md), [arithmetic counts](meth39_rescore_numerics_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth39_rescore_numerics.py); reused prompts, no CPU rate |
 | METH-40 | SIX-THREAD E273,547 SCAN UNDER 20 MS, ONLY 1.547 MS LEFT | [result](METH_40_ROUTER_SCAN_CPU_RESULT_20260926.md), [protocol](METH_40_ROUTER_SCAN_CPU_PROTOCOL_20260926.md), [summary](meth40_router_scan_summary.json), [seed ledger](meth40_router_seed_export.json), [C benchmark](../../../benchmarks/native_expert_scaling/meth40_rank64_router_scan.c), [exporter](../../../benchmarks/native_expert_scaling/meth40_export_router_seed.py), [verifier](../../../benchmarks/native_expert_scaling/summarize_meth40_router_scan.py); synthetic E expansion, no quality or full rate |
+| METH-41 | INDEPENDENT E128 C96 ROUTE-REPLACEMENT GATE PASS; FULL MODEL HELD | [result](METH_41_C96_INDEPENDENT_ROUTE_RESULT_20260927.md), [protocol](METH_41_C96_INDEPENDENT_ROUTE_PROTOCOL_20260927.md), [manifest](meth41_fresh_c96_manifest.json), [raw paired outcomes](meth41_c96_independent_route_result.json), [selector](../../../benchmarks/donor_adaptation/s1/meth41_fresh_c96_manifest.py), [runner](../../../benchmarks/donor_adaptation/s1/meth41_c96_independent_route.py); parent generation and native rate open |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -448,7 +461,9 @@ scheduled.
   show that 96 candidates nearly eliminate omitted routes on
   reused prompts but candidate-only fine-score numerics also
   change next-token outputs. The full-score oracle restores
-  parity but forfeits bounded routing. No new route is promoted.
+  parity but forfeits bounded routing. METH-41 now passes the
+  independent E128 C96 route-replacement gates on new code,
+  prose and technical sources; C64 remains rejected.
   METH-40 measures that E273,547 sketch path at 18.453 ms/token
   with six CPU threads, leaving only 1.547 ms of the 20 ms
   whole-model target for exact rescore, experts, core and overhead.
@@ -458,7 +473,7 @@ scheduled.
   this exact R8 composition despite METH-25/28 loss and task passes.
   Diagnose the added technical loops and high code/prose repetition;
   test a concrete changed training or decoding variable on data and
-  prompts separate from METH-17/19/20/21/25/27, with prospective BPB,
+  prompts separate from METH-17/19/20/21/25/27/41, with prospective BPB,
   generation and task gates. Do not retune on the 24 METH-27 outcomes
   and call them fresh. Do not extend E256 on a BPB gain alone.
 - **Next exact action: generative repair and scalable CPU route.** Freeze
@@ -470,13 +485,13 @@ scheduled.
   `donor_engine.c` Qwen implementation is a fidelity reference, not
   this joint-quality/rate result. In parallel, test a **jointly trained**
   hierarchy on distinct experts. For the stored SVD index,
-  METH-37 has now failed route-replaced top-1; METH-38/39
-  identify candidate omissions plus rescore numerics. Freeze
-  a new C96 candidate-only score rule and evaluate it on
-  documents not used to choose that budget, including BPB,
-  donor-relative quality, top-1 and generation. Promote to C
-  only after that joint quality gate passes. METH-40 already
-  measures projection/sketch scan on a 10× synthetic E ladder;
+  METH-37 failed C64 route-replaced top-1; METH-38/39
+  identified candidate omissions plus rescore numerics.
+  METH-41's frozen C96 candidate-only score rule passes the
+  independent E128 route gate, but its 15/24 generation loops
+  mean the parent artifact still needs repair before joint
+  native promotion. METH-40 already measures projection/sketch
+  scan on a 10× synthetic E ladder;
   a full router still needs exact rescore and sufficient CPU
   margin for the selected LUT and core. Independently test a
   bounded/sublinear large-E index against trained route targets.
