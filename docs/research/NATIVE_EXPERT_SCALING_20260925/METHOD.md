@@ -318,9 +318,17 @@ intact factors on reused METH-25 documents, but top-1 agreement
 is only 96.012% versus its prospective 99% gate; changed hidden
 states also alter the fine top-4 set in 13.668% of input-layer
 cases. This **rejects the all-ternary A/B candidate** before
-native promotion. The next factor step is a controlled A/B mixed
-precision diagnosis; new documents, generation and task checks
-must follow any diagnostic pass. No actual-factor C rate is known.
+native promotion. This motivated a controlled A/B mixed-precision
+diagnosis; new documents, generation and task checks must follow
+any diagnostic pass. No actual-factor C rate is known.
+[METH-33](METH_33_FACTOR_PRECISION_ABLATION_RESULT_20260926.md)
+completes that diagnosis: A-ternary/B-fp32 and A-fp32/B-ternary
+read 4.132 and 3.441 MB selected factor bytes/token, and both
+pass reused-document BPB screens, but match only 97.021% and
+97.282% of intact top-1 IDs against the fixed 99% gate. Neither
+is selected for storage or fresh promotion. A higher-fidelity
+LUT-compatible factor representation must be specified and tested
+before the packed factor branch can advance.
 No T4 run is authorized by these screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first

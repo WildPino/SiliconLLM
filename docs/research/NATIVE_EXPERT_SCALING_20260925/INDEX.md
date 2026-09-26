@@ -21,6 +21,10 @@ METH-32 packs the **real trained** rank-8 factors in that LUT layout;
 reused-document BPB passes its diagnostic screen, but next-token
 top-1 agreement falls to 96.01% versus the ≥99% gate. The all-ternary
 factor format is held before native promotion.
+METH-33 isolates A and B: keeping either factor fp32 raises top-1
+agreement only to 97.02% or 97.28%. Both mixed ternary variants
+fail the same prospective ranking gate despite passing their byte
+and reused-document BPB screens.
 NES-01 E128 improves BPB but fails greedy generation; NES-02
 finds a dense-router CPU scaling limit; NES-03 int8 shortlist preserves
 tested routes and cuts E1280 router cost. No pretrained-to-native conversion
@@ -263,6 +267,13 @@ versus intact fp32 factors, but only **5,899/6,144 top-1 IDs**
 match and 86.332% of input-layer cases retain the same top-4 set.
 The fixed 99% top-1 gate fails. The mixed quality read cannot
 establish a usable packed model or native rate.
+[METH-33](METH_33_FACTOR_PRECISION_ABLATION_RESULT_20260926.md)
+tests A-ternary/B-fp32 and A-fp32/B-ternary separately, with the
+same R8 core and original router. Their selected factor bytes are
+4.132 and 3.441 MB/token, and both pass BPB screens on reused
+METH-25 documents. Top-1 agreement is only **97.021%** and
+**97.282%** respectively versus intact factors, so neither passes
+the fixed 99% gate. No mixed candidate is promoted.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -308,6 +319,7 @@ SSM/SWA target and passes joint quality/rate.
 | METH-30 | LEARNED GATE ON FROZEN GROUPS RECALL FAIL | [result](METH_30_LEARNED_COARSE_ROUTER_RESULT_20260926.md), [protocol](METH_30_LEARNED_COARSE_ROUTER_PROTOCOL_20260926.md), [training manifest](meth30_learned_coarse_router_manifest.json), [route counts](meth30_learned_coarse_router_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth30_learned_coarse_router.py); no CPU rate or large-E quality |
 | METH-31 | SYNTHETIC SELECTED LUT 10× POOL COST GATE PASS | [result](METH_31_RANK8_LUT_POOL_RESULT_20260926.md), [protocol](METH_31_RANK8_LUT_POOL_PROTOCOL_20260926.md), [raw log](meth31_rank8_lut_pool_raw.log), [machine summary](meth31_rank8_lut_pool_result.json), [engine mode](../../../benchmarks/phase60/engine.c), [summary parser](../../../benchmarks/native_expert_scaling/summarize_meth31_rank8_lut_pool.py); no packed-factor quality or router cost |
 | METH-32 | REAL TRAINED TERNARY FACTOR TOP-1 GATE FAIL | [result](METH_32_TERNARY_FACTOR_RESULT_20260926.md), [protocol](METH_32_TERNARY_FACTOR_PROTOCOL_20260926.md), [export ledger](meth32_ternary_factor_export.json), [quality audit](meth32_ternary_factor_audit.json), [exporter](../../../benchmarks/donor_adaptation/s1/meth32_export_ternary_factors.py), [audit runner](../../../benchmarks/donor_adaptation/s1/meth32_ternary_factor_audit.py); no fresh promotion or native rate |
+| METH-33 | A-ONLY/B-ONLY TERNARY TOP-1 GATE FAIL | [result](METH_33_FACTOR_PRECISION_ABLATION_RESULT_20260926.md), [protocol](METH_33_FACTOR_PRECISION_ABLATION_PROTOCOL_20260926.md), [paired audit](meth33_factor_precision_ablation.json), [runner](../../../benchmarks/donor_adaptation/s1/meth33_factor_precision_ablation.py); reused texts, no mixed export or native rate |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -354,7 +366,9 @@ scheduled.
   pool gate, but uses synthetic codes and excludes the router.
   METH-32 produces actual trained-factor LUT codes and reloads them,
   but its all-ternary version fails the prospective top-1 gate on
-  reused documents. A mixed factor precision screen is needed before
+  reused documents. METH-33 shows that replacing only A or only B
+  with the same ternary codebook also fails that gate. A richer
+  codebook or different factor representation is needed before
   claiming a quality-valid LUT export.
 - **Next quality design:** METH-27 disproves generation readiness for
   this exact R8 composition despite METH-25/28 loss and task passes.
@@ -375,9 +389,9 @@ scheduled.
   structured bounded index against the frozen E128 fine route on
   held-out inputs; METH-29/30's post-hoc group rules fail. If route
   recall passes, implement bounded lookup in C and measure its time
-  across a 10× E ladder. Separately isolate A versus B precision
-  in the METH-32 factor failure, choose a mixed format only by a
-  prospective cost/fidelity gate, and verify any candidate on new
+  across a 10× E ladder. Separately test a richer LUT-compatible
+  factor codebook against a prospective cost/fidelity gate, since
+  METH-32/33's ternary variants fail; verify any candidate on new
   documents, generation and tasks before integrating its exact export.
   Only **distinct trained** expert expansion can validate quality as E
   grows. No T4 job is planned.
