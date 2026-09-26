@@ -1,0 +1,62 @@
+{
+  "schema": "meth05_gigachat_pilot_adjudication_v1",
+  "status": "CONTINUE_TO_FULL_HELDOUT",
+  "nine_document_screen_cannot_pass_quality": true,
+  "gross_failure_delta_bpb": 0.2,
+  "selection_manifest_sha256": "e1233e2e28116486f3ab802460722665c64005f28e4049fd5be976ea4cbe5aae",
+  "score_sha256": {
+    "bf16": "c37ed1c7364d0c75d081486769ce413c3ca1eb791d4f56398c2609c28f3f7757",
+    "q4": "fed8ee1c2775a0daa6f8d6df260d15bec2f5749ccffb525cacbe8ef7f7bce6e2",
+    "candidate": "e23813be07527822e4c5103c296c9724aca1d20378aefeb73aedf129bcc55ff0"
+  },
+  "groups": {
+    "all": {
+      "documents": 9,
+      "bytes": 36855,
+      "tokens": 11091,
+      "bpb": {
+        "bf16": 0.6681185482170732,
+        "q4": 0.6805468847595063,
+        "candidate": 0.7837649845424441
+      },
+      "q4_minus_bf16": 0.012428336542433138,
+      "candidate_minus_bf16": 0.11564643632537097
+    },
+    "code": {
+      "documents": 3,
+      "bytes": 12285,
+      "tokens": 4481,
+      "bpb": {
+        "bf16": 0.363524002313833,
+        "q4": 0.37697298348114705,
+        "candidate": 0.49176200181488733
+      },
+      "q4_minus_bf16": 0.013448981167314078,
+      "candidate_minus_bf16": 0.12823799950105436
+    },
+    "prose": {
+      "documents": 3,
+      "bytes": 12285,
+      "tokens": 3344,
+      "bpb": {
+        "bf16": 0.9500313035772238,
+        "q4": 0.9613588377370939,
+        "candidate": 1.0736641826298239
+      },
+      "q4_minus_bf16": 0.01132753415987009,
+      "candidate_minus_bf16": 0.12363287905260012
+    },
+    "technical_general": {
+      "documents": 3,
+      "bytes": 12285,
+      "tokens": 3266,
+      "bpb": {
+        "bf16": 0.6908003387601626,
+        "q4": 0.7033088330602776,
+        "candidate": 0.785868769182621
+      },
+      "q4_minus_bf16": 0.012508494300115025,
+      "candidate_minus_bf16": 0.0950684304224585
+    }
+  }
+}

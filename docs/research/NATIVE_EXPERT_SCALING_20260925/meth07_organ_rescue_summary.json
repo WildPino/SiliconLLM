@@ -1,0 +1,35 @@
+{
+  "schema": "meth07_gigachat_organ_rescue_v1",
+  "frozen_rescue_floor_bpb": 0.12,
+  "baseline_iq2_delta_bpb": 0.23946509328236,
+  "input_sha256": {
+    "baseline": "f1c1c3570535292bb32b9b98f631311f73a8855df3e3adbadf9223cf0de21881",
+    "mla": "a4e949009a1286d665680d439bbc11082777247fc35932e5b7fb42bd8c950902",
+    "experts": "34b291c84a0f74179918d98aae4ed7463a8ca54ad16cf69ea6940cba59e28ff8"
+  },
+  "arms": {
+    "mla": {
+      "delta_bpb": 0.12010956301740716,
+      "rescue_bpb": 0.11935553026495282,
+      "meets_rescue_floor": false,
+      "category_delta_bpb": {
+        "code": 0.09950866005219622,
+        "prose": 0.13637151269703696,
+        "technical_general": 0.12444851630298859
+      }
+    },
+    "experts": {
+      "delta_bpb": 0.11564643632537097,
+      "rescue_bpb": 0.12381865695698901,
+      "meets_rescue_floor": true,
+      "category_delta_bpb": {
+        "code": 0.12823799950105436,
+        "prose": 0.12363287905260012,
+        "technical_general": 0.0950684304224585
+      }
+    }
+  },
+  "priority_organs": [
+    "experts"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "corpus": {
+    "documents": 9,
+    "path": "results\\native_expert_scaling\\meth05_gigachat_heldout_pilot9.jsonl",
+    "sha256": "38298c84038b6f26a9c40f47347d5cf930c89ad2bc089e64057f5125c79bb2ac"
+  },
+  "model": {
+    "path": "results\\native_expert_scaling\\meth07_mla_q4k.gguf",
+    "sha256": "fc45b530acc1980c2e85a25dee0d8af995bfdbc78f02643bc65d3a23b91314b7"
+  },
+  "output": {
+    "path": "results\\native_expert_scaling\\meth07_mla_q4k_pilot9_scores.jsonl",
+    "records": 9,
+    "sha256": "42159b7a40bed43a37c8a54b9c5e8bbe085943978af7b5937788cccc55f864b5"
+  },
+  "protocol": {
+    "context_marker": "bos",
+    "context_reset_per_document": true,
+    "llama_text_tokenizer_mismatch_is_diagnostic": true,
+    "payload_eos_appended": false,
+    "python_tokenizer_add_special_tokens": false,
+    "python_tokenizer_roundtrip": true,
+    "source_ids_used_for_model_input": true
+  },
+  "repository_head": "3e97f2859cc4575ef9337d681e40c3bd062a2396",
+  "runtime_metadata": {
+    "path": "results\\native_expert_scaling\\meth07_mla_q4k_pilot9_scores.jsonl.runtime.json",
+    "record": {
+      "context_marker_id": 1,
+      "context_marker_policy": "bos",
+      "documents": 9,
+      "kv_reset_per_document": true,
+      "model_add_bos": true,
+      "model_add_eos": false,
+      "model_bos_id": 1,
+      "model_eos_id": 2,
+      "model_vocab_size": 128256,
+      "n_batch": 128,
+      "n_ctx": 4096,
+      "n_threads": 6,
+      "payload_bytes": 36855,
+      "payload_eos_appended": false,
+      "payload_tokens": 11091,
+      "runtime_tokenizer_id_parity_all_documents": false,
+      "runtime_tokenizer_mismatch_documents": 9,
+      "schema": "strat01_gguf_score_runtime_v1",
+      "source_token_ids_mode": true
+    },
+    "sha256": "64132e5a09810b605e86e9eb7eebb89e71f81d523cb9a67a653c611912221218"
+  },
+  "schema": "strat01_gguf_score_manifest_v1",
+  "scorer": {
+    "binary": "C:\\Users\\giosa\\AppData\\Local\\Temp\\siliconllm-strat01-gguf-score-build\\cmake-build\\strat01_gguf_score.exe",
+    "binary_sha256": "e0e946a9e77bdc0138895df8035cea1080db1997dcc51d591b5a61abcceef8f4",
+    "source": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\density\\strat01_gguf_score.cpp",
+    "source_sha256": "51ac798a11f557fb6ef5713983bbcd915774685a6638b795a978f56c741fe0aa"
+  },
+  "tokenizer": {
+    "path": "benchmarks\\donor_adaptation\\density\\results\\strat01_gigachat_source_189fff27\\tokenizer.json",
+    "sha256": "b4b3d90c67830a4e566296ad8d0f6b5ac5a5cdbfd331b200d0ee8263aaaea1fe",
+    "source_gguf_vocab_mapping": {
+      "added_entries": 15,
+      "all_defined_ids_match": true,
+      "base_entries": 128000,
+      "gguf_slots": 128256,
+      "id_to_token_sha256": "a243547ce69b1104727ab6f0b20ec88c3bdb088c7a8de0483d81370c87429359",
+      "verified_distinct_ids": 128013
+    }
+  }
+}

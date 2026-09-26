@@ -4,10 +4,11 @@
 **Status:** NES-01 E128 improves BPB but fails greedy generation; NES-02
 finds a dense-router CPU scaling limit; NES-03 int8 shortlist preserves
 tested routes and cuts E1280 router cost. No pretrained-to-native conversion
-has passed joint quality and rate. METH-04 identifies a donor-bound low-bit
-GigaChat target under the traffic preflight. METH-05 collected a source-ID
-BF16 importance matrix but stopped on rare-expert exposure before conversion.
-Goal remains open.
+has passed joint quality and rate. METH-06 passed source-ID calibration
+coverage and produced a cost-qualified GigaChat IQ2 GGUF, but quality failed.
+METH-07–09 isolate precision effects: Q2_K experts help modestly, while the
+head/dense precision payment makes a cost-qualified map worse. Goal remains
+open.
 Fork point: donor pause checkpoint `90bf966`.
 
 ## Goal and current decision
@@ -75,11 +76,10 @@ establish learned large-E quality.
 a concrete GigaChat BF16→mixed low-bit transformation: IQ2_XS for most MLA
 and routed/shared experts, Q4_0 for block-incompatible MLA key tensors,
 Q3_K head and Q4_K dense first FFN. The bound 414-tensor plan addresses
-**534.025 MB/token**, 25.975 MB below the 560 MB design allotment, and
-would require a donor-specific importance matrix for **254** tensors.
-No transformed GGUF, paired quality, C support or accepted-token speed
-exists. At 40 GB/s, payload alone prices to 13.351 ms/token; the margin is
-still narrow.
+**534.025 MB/token**, 25.975 MB below the 560 MB design allotment. The
+subsequent METH-05/06 imatrix and actual GGUF confirmed the types/bytes
+but failed donor-relative quality. At 40 GB/s, payload alone prices to
+13.351 ms/token; the margin remains narrow.
 
 [METH-05](METH_05_SOURCE_ID_IMATRIX_RESULT_20260926.md) repaired the
 GigaChat calibration input path to use source-tokenizer IDs. A local
@@ -94,6 +94,18 @@ actual 3.208 GB IQ2 GGUF matches all 414 planned types and addresses
 **534.025 MB/token**, but donor-relative pilot BPB worsened by **+0.239465**.
 All three categories exceed the frozen +0.20 gross-failure stop. This map
 is rejected before the full quality and native speed gates.
+
+[METH-07](METH_07_ORGAN_PRECISION_ABLATION_RESULT_20260926.md) restored
+Q4_K precision to MLA or experts separately. Expert restoration rescued
+**0.123819 BPB**, just over its frozen 0.120 priority floor; MLA rescued
+**0.119356**, just under. Both overrun 540 MB/token. The budgeted
+[METH-08](METH_08_Q2_REALLOCATION_RESULT_20260926.md) Q2_K
+expert/head/dense swap addresses **533.140 MB/token** but worsens the
+pilot loss to **+0.275153 BPB**. [METH-09](METH_09_Q2_EXPERT_ISOLATION_RESULT_20260926.md)
+shows Q2_K experts alone improve the IQ2 map by only **0.023740 BPB**,
+while the head/dense payment worsens it by **0.059428 BPB** conditional
+on those experts. This measured frontier does not justify another
+quantization-only reallocation of the same organs.
 
 For pretrained transfer, the local GigaChat base Q4 passes fresh paired BPB,
 PIQA and document rollout against BF16. The actual mixed-format GGUF header
@@ -124,6 +136,10 @@ SSM/SWA target and passes joint quality/rate.
 | METH-04 | DONOR TRANSFORMATION PREFLIGHT; quantizer dry run matches map; no weights changed | [result](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md), [frozen map/gate](METH_04_GIGACHAT_LOWBITS_PROTOCOL_20260925.md), [414 tensor overrides](meth04_gigachat_tensor_types.txt), [byte ledger](meth04_gigachat_lowbit_preflight.json), [quantizer log](meth04_gigachat_quantize_dryrun.log) |
 | METH-05 | SOURCE-ID BF16 IMATRIX; STOP on rare expert exposure | [result](METH_05_SOURCE_ID_IMATRIX_RESULT_20260926.md), [frozen protocol](METH_05_SOURCE_ID_IMATRIX_PROTOCOL_20260926.md), [machine audit](meth05_bf16_106chunks_audit.json); no converted weights or quality result |
 | METH-06 | CALIBRATION COVERAGE PASS; IQ2 QUALITY GROSS FAIL | [result](METH_06_CYRILLIC_ROUTE_RESULT_20260926.md), [frozen protocol](METH_06_CYRILLIC_ROUTE_PROTOCOL_20260926.md), [merged audit](meth06_merged_231chunks_audit.json), [GGUF verification](meth06_gigachat_bf16_imatrix_iq2_verify.json), [paired pilot](meth06_iq2_pilot9_adjudication.json); no full quality or native speed pass |
+| METH-07 | OVER-BUDGET ORGAN DIAGNOSIS; experts prioritized | [result](METH_07_ORGAN_PRECISION_ABLATION_RESULT_20260926.md), [protocol](METH_07_ORGAN_PRECISION_ABLATION_PROTOCOL_20260926.md), [machine rescue decision](meth07_organ_rescue_summary.json) |
+| METH-08 | ACTIVE COST PASS; Q2 REALLOCATION QUALITY GROSS FAIL | [result](METH_08_Q2_REALLOCATION_RESULT_20260926.md), [protocol](METH_08_Q2_REALLOCATION_PROTOCOL_20260926.md), [GGUF audit](meth08_q2_reallocation_verify.json), [paired pilot](meth08_q2_reallocation_pilot9_adjudication.json) |
+| METH-09 | OVER-BUDGET Q2 EXPERT ISOLATION; small quality rescue | [result](METH_09_Q2_EXPERT_ISOLATION_RESULT_20260926.md), [protocol](METH_09_Q2_EXPERT_ISOLATION_PROTOCOL_20260926.md), [machine conditional effect](meth09_q2_isolation_summary.json) |
+| METH-10 | LOCAL SOURCE/TRAINING ASSET READINESS; no new quality result | [Qwen2.5-1.5B inventory](METH_10_QWEN_LOCAL_READINESS_20260926.md), [H1 prior](../donor_adaptation/probes/H1_THE_CARVE_TRAINED.md), [H5 adverse composition](../donor_adaptation/probes/H5_CROSS_COMPOSITION_RESULT.md) |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -148,16 +164,18 @@ scheduled.
   loops (for example exposure or route training), estimate local training cost
   and freeze BPB, repetition and routing gates before a new run. Do not
   automatically extend E256 on the BPB gain alone.
-- **Next exact action: pretrained transfer.** METH-06 fixed the rare-route
-  calibration exposure, produced and audited the planned compact GGUF, then
-  failed the frozen nine-document donor-quality screen in every category.
-  Do not expand this IQ2 map to the 96-document or native C gates. Price a
-  changed precision/architecture or trained-correction design against the
-  narrow 540 MB active ceiling, freeze a paired quality gate, and compare its
-  cost with the Qwen2.5-1.5B dense-source path before another large
-  conversion. Capacity scaling to 10B/100B still needs learned large-E
-  routing quality and CPU LUT/shortlist cost on the same native artifact.
-  The old donor port is not an automatic next step. No T4 job is planned.
+- **Next exact action: pretrained transfer.** The bounded GigaChat
+  quantization-only path now has measured calibration, actual byte costs
+  and repeated donor-quality failures. Do not run its 96-document/native
+  gates or repeat another nominal bit swap. Use the
+  [verified local Qwen2.5-1.5B assets](METH_10_QWEN_LOCAL_READINESS_20260926.md)
+  to specify one jointly trainable conditional transformation with a bound
+  donor, distinct expert capacity, native export/cost estimate and frozen
+  quality/compute stops. Use GigaChat's expert/head sensitivity as a
+  constraint if returning to that family. Capacity scaling to 10B/100B
+  still needs learned large-E routing quality and CPU LUT/shortlist cost
+  on the same native artifact. The old donor port is not an automatic
+  next step. No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

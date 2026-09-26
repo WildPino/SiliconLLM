@@ -42,7 +42,9 @@ evidence that the method transfers.
 
 The dense-source transfer challenge is **Qwen2.5-1.5B** at revision
 `8faed761d45a263340a0528343f099c05c9a4323`, whose local snapshot
-contains `config.json`, tokenizer and safetensors. It is dense and has a
+contains `config.json`, tokenizer and safetensors, now hash-verified with
+the H1 checkpoint in the [local readiness record](METH_10_QWEN_LOCAL_READINESS_20260926.md).
+It is dense and has a
 different mixer, so it tests a different branch of the procedure. Existing
 training on 8/28 FFN layers improved a hard carve from 1.096636 to 0.962593
 BPB, while the intact donor was 0.767595; that is an adaptation signal, not
@@ -76,7 +78,7 @@ rate results.
 | A. Bind | Verify source revision, shard/tensor identity, tokenizer IDs and reference runtime; GigaChat `strat01_gigachat_source_binding.py` and saved reports | Exact identity check | GigaChat base source↔BF16 GGUF tensor bytes bound. Text→ID tokenizer parity in `engine.c` remains open. Qwen revision is pinned, but a new run must bind its exact local weight hash. |
 | B. Establish donor | Score fresh held-out documents, task and greedy rollouts with the intact source and candidate under identical token IDs | Measurement | GigaChat Q4 versus BF16 passes scoped quality gates. Qwen intact anchor and limited-layer arms exist on a small frozen slice; a final fresh split is missing. |
 | C. Decompose | List core/mixer/head/router/shared/routed tensors; calculate active and stored bytes, per-token selected experts and expected training exposure | Exact shape arithmetic plus measured kernel anchors | [METH-00](METH_00_GIGACHAT_COST_PREFLIGHT_20260925.md) gives an ideal W4 preflight; [METH-01](METH_01_GIGACHAT_Q4_ACTIVE_LEDGER_20260925.md) prices local GigaChat mixed-GGUF and [METH-03](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md) the official Granite header. [NES-02](NES_02_CPU_EXPERT_COUNT_STRESS_20260925.md) measures a synthetic 10× native expert-count stress and prices dense routing at 10B/100B; it is no quality result. Cache residency and effective expert throughput are not assumed. |
-| D1. Sparse-source variant | Preserve donor structure initially, then apply an organ-selective low-bit representation from BF16, with source BF16/Q4 paired controls; adapt or change structure only if step-zero quality/cost requires it | **Measured approximation failure; new design open** | GigaChat Q4 retains quality but charges 1,016 MB/token. [METH-04](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md) supplied a 414-tensor type map at 534.025 MB/token. [METH-05](METH_05_SOURCE_ID_IMATRIX_RESULT_20260926.md) exposed two rare experts too sparsely; [METH-06](METH_06_CYRILLIC_ROUTE_RESULT_20260926.md) repaired coverage and made the actual 534.025 MB/token GGUF, but it grossly failed donor-relative pilot quality (+0.239465 BPB). No quality-valid compact donor or C rate exists. Full donor C port alone does not close this stage. |
+| D1. Sparse-source variant | Preserve donor structure initially, then apply an organ-selective low-bit representation from BF16, with source BF16/Q4 paired controls; adapt or change structure only if step-zero quality/cost requires it | **Measured approximation failure; new design open** | GigaChat Q4 retains quality but charges 1,016 MB/token. [METH-04](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md) supplied a 414-tensor type map at 534.025 MB/token. [METH-05/06](METH_06_CYRILLIC_ROUTE_RESULT_20260926.md) repaired rare expert calibration and made an actual 534.025 MB/token GGUF, but it lost +0.239465 BPB. [METH-07](METH_07_ORGAN_PRECISION_ABLATION_RESULT_20260926.md) identified expert sensitivity; [METH-08](METH_08_Q2_REALLOCATION_RESULT_20260926.md) passed the active-byte gate at 533.140 MB/token but lost +0.275153 BPB; [METH-09](METH_09_Q2_EXPERT_ISOLATION_RESULT_20260926.md) found only a 0.023740 BPB benefit from Q2_K experts before the harmful head/dense payment. No quality-valid compact donor or C rate exists. |
 | D2. Dense-source variant | Create a shared path plus residual experts with an economical input-only router; jointly adapt affected projections, router and experts, with continuous transitions and donor supervision | **Proposed training** | H1 shows training helps one carve; H4/H2I frozen composition and STRAT-03's tested local geometry fail. A new jointly specified geometry and step-zero control are required, not frozen assembly. |
 | E. Export | Emit versioned C weights/metadata, tokenizer, precision map and golden intermediate/logit traces; run the exact timed C path | Exact serialization plus approximate kernels | Native E32 export/parity exists. GigaChat C fidelity is partial. No converted pretrained conditional target has completed this stage. |
 | F. Validate | Paired donor→target held-out BPB with uncertainty, generation/task checks, routing utility, RAM/bytes/latency breakdown and ≥50 accepted tok/s on the same exported target | Measurement | **Open for every converted target.** Pilot/synthetic rate, scalar BPB, and partial port parity cannot be combined into a pass. |
@@ -155,9 +157,21 @@ types and 534.025 MB/token, but its nine-document donor-relative loss is
 +0.239465 BPB, with each category over the frozen +0.20 gross-failure
 stop. This rejects the current IQ2 map before full quality and C timing.
 More calibration cannot be assumed to remedy the measured precision loss.
-A new priced quality-preserving mechanism and a tractable dense-source Qwen
-comparison are the next method decisions. No T4 run is authorized by these
-screens.
+[METH-07](METH_07_ORGAN_PRECISION_ABLATION_RESULT_20260926.md) shows that
+restoring Q4_K to experts or MLA separately recovers roughly half of that
+loss, but costs 735.625 or 696.864 MB/token. The cost-qualified
+[METH-08](METH_08_Q2_REALLOCATION_RESULT_20260926.md) swap raises expert
+precision to Q2_K while lowering head/first FFN precision; its actual
+533.140 MB/token GGUF loses +0.275153 BPB on the same pilot. The isolated
+[METH-09](METH_09_Q2_EXPERT_ISOLATION_RESULT_20260926.md) Q2_K expert
+arm gains just 0.023740 BPB over IQ2, while its head/dense payment
+adds 0.059428 BPB of loss. These interventions do not establish a
+quality/cost-valid representation. They narrow the next mechanism:
+an explicit trained correction or a changed conditional geometry with
+priced native export, rather than another unsupported precision swap.
+Inventory the tractable dense-source Qwen case and bind a new jointly
+trained transformation before spending another large conversion budget.
+No T4 run is authorized by these screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

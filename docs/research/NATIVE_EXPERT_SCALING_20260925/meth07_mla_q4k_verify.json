@@ -1,0 +1,95 @@
+{
+  "schema": "meth07_gigachat_organ_precision_verification_v1",
+  "arm": "mla_q4k",
+  "model": "results\\native_expert_scaling\\meth07_mla_q4k.gguf",
+  "model_sha256": "fc45b530acc1980c2e85a25dee0d8af995bfdbc78f02643bc65d3a23b91314b7",
+  "model_bytes": 3371201824,
+  "plan_sha256": "af3479b519d9d6e4bcbb5cec4343826a71d94205adad19ecd0dbc0e52a859a44",
+  "tensor_type_file_sha256": "8aa8ed338930b97056ce3b512b556f6330c232767cbfdccd12860670c85f9033",
+  "tensor_count": 414,
+  "missing_tensors": [],
+  "unexpected_tensors": [],
+  "wrong_types": [],
+  "planned_stored_tensor_bytes": 3365116160,
+  "actual_stored_tensor_bytes": 3365116160,
+  "planned_active_bytes_per_token": 696863840,
+  "actual_active_bytes_per_token": 696863840,
+  "active_limit_bytes_per_token": 540000000,
+  "passes_diagnostic_header": true,
+  "passes_native_active_cost": false,
+  "organ_ledger": {
+    "control": {
+      "tensor_count": 104,
+      "stored_bytes": 385280,
+      "active_payload_bytes": 385280,
+      "active_elements": 96320,
+      "active_payload_by_type": {
+        "F32": 385280
+      }
+    },
+    "dense0": {
+      "tensor_count": 3,
+      "stored_bytes": 23224320,
+      "active_payload_bytes": 23224320,
+      "active_elements": 41287680,
+      "active_payload_by_type": {
+        "Q4_K": 23224320
+      }
+    },
+    "embedding": {
+      "tensor_count": 1,
+      "stored_bytes": 110813184,
+      "active_payload_bytes": 864,
+      "active_elements": 1536,
+      "active_payload_by_type": {
+        "Q4_K": 864
+      }
+    },
+    "head": {
+      "tensor_count": 1,
+      "stored_bytes": 84648960,
+      "active_payload_bytes": 84648960,
+      "active_elements": 197001216,
+      "active_payload_by_type": {
+        "Q3_K": 84648960
+      }
+    },
+    "mla": {
+      "tensor_count": 130,
+      "stored_bytes": 365654016,
+      "active_payload_bytes": 365654016,
+      "active_elements": 650051584,
+      "active_payload_by_type": {
+        "Q4_0": 30670848,
+        "Q4_K": 334983168
+      }
+    },
+    "routed": {
+      "tensor_count": 75,
+      "stored_bytes": 2727936000,
+      "active_payload_bytes": 170496000,
+      "active_elements": 589824000,
+      "active_payload_by_type": {
+        "IQ2_XS": 170496000
+      }
+    },
+    "router": {
+      "tensor_count": 25,
+      "stored_bytes": 9830400,
+      "active_payload_bytes": 9830400,
+      "active_elements": 2457600,
+      "active_payload_by_type": {
+        "F32": 9830400
+      }
+    },
+    "shared": {
+      "tensor_count": 75,
+      "stored_bytes": 42624000,
+      "active_payload_bytes": 42624000,
+      "active_elements": 147456000,
+      "active_payload_by_type": {
+        "IQ2_XS": 42624000
+      }
+    }
+  }
+}
