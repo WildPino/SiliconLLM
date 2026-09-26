@@ -78,12 +78,15 @@ Candidate selection currently uses these reproducible checks:
 | Conditional cost | Count distinct stored weights, active weights per token, router and head separately; price bytes with measured hardware rates | If the active path cannot plausibly fit a 20 ms total budget, require a stated transformation before porting |
 | Baseline quality | Paired donor/format held-out scorer, task and rollout instruments with pinned IDs and document split | Keep the source donor as the reference; reject a broken input or tokenizer mapping |
 
-The current selection rule is **provisional**: start with the locally bound
-pretrained sparse GigaChat for a conditional-capacity case; retain StdMoE
-E128 as a second sparse family only if a transformation addresses both its
-measured W4 fidelity and active-byte failures; use dense Qwen to test
-whether a different route can create conditional structure. Do not claim
-one procedure handles these donors until their full pipelines pass.
+The current selection rule is **provisional**: use same-geometry
+Qwen2.5-0.5B-Instruct as the next treatable dense donor for a new
+zero-output residual-expert adaptation, after its [METH-42](METH_42_INSTRUCT_DONOR_PILOT_RESULT_20260927.md)
+chat-format pilot passed the repetition screen. Its broad task quality
+and packed/native conversion remain unverified. GigaChat remains the
+locally bound sparse ~10B capacity case; retain StdMoE E128 as a
+second sparse family only if a transformation addresses both its
+measured W4 fidelity and active-byte failures. Do not claim one
+procedure handles these donors until their full pipelines pass.
 For another family, rerun the inventory and choose a variant from its actual
 operator/traffic map; do not infer compatibility from model names or parameter
 counts. The metadata-only Granite/LFM candidates are not local quality or
@@ -392,6 +395,22 @@ artifact. A practical large-E design should avoid a full scan
 or reduce its payload and prove route fidelity on distinct
 trained experts. Rank, shortlist, score arithmetic and route
 trajectory still need binding in a native executable export.
+[METH-42](METH_42_INSTRUCT_DONOR_PILOT_RESULT_20260927.md)
+tests the Qwen2.5-0.5B-Instruct revision with the same L24/D896
+geometry and tokenizer as the base Qwen donor. On 24 common
+chat-format summary inputs, BF16 base/Instruct/Instruct with the
+old base-trained E128 adapter repeat on 7/0/0 prompts. Instruct
+terminates all 24 with EOS, passing the prospective generation
+screen, but manual inspection finds factual mistakes in some
+summaries. The old adapter graft leaves pooled document BPB
+within +0.002721 of Instruct but matches only 84.277% of its
+prompt-position top-1 IDs versus the ≥95% gate. It is rejected:
+matching tensor geometry does not make base-trained conditional
+weights transferable across donor fine-tunes. The next method
+step is to initialize new Instruct residual experts at exact
+donor logits, train with instruction-behavior retention, and
+evaluate on new documents, tasks and chat prompts. This is a
+new candidate branch, not a validated native conversion.
 No T4 run is authorized by these screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first

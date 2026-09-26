@@ -20,6 +20,11 @@ E27,355/E273,547: six-thread 3.714/18.453 ms/token, leaving only
 METH-41 independently passes the C96 E128 route-replacement
 quality gate (99.268% top-1), but the parent still loops on
 15/24 continuations and C96 has no full native rate.
+METH-42 finds that a same-geometry Qwen0.5B-Instruct donor has
+0/24 chat-format loops on a frozen diagnostic versus 7/24 for
+base on identical inputs. Directly grafting the base-trained
+adapter fails its ≥95% ranking gate at 84.277%; new Instruct
+experts must start at donor parity and be trained.
 METH-31 measures the existing CPU LUT kernel in the Qwen rank-8
 shape with synthetic packed factors: E1280→E12800 raises the
 six-thread selected path only 1.136× to 0.505 ms/token. That
@@ -347,6 +352,15 @@ Relative repeated-8-gram failures are 16/24 exact versus 15/24
 C96. All prospective route and donor-relative document gates
 pass. The 15/24 absolute loops and METH-40's scan cost still
 prevent full model or large-E promotion.
+[METH-42](METH_42_INSTRUCT_DONOR_PILOT_RESULT_20260927.md) tests
+the same L24/D896 family's Instruct donor on 24 frozen
+chat-format summary prompts. Base/Instruct/grafted-Instruct
+repeat on **7/0/0 of 24**; Instruct terminates 24/24 with EOS.
+The direct base-trained adapter graft passes relative loss and
+repetition but changes prompt top-1 to **84.277%** agreement,
+below its prospective ≥95% gate. Instruct is a donor candidate,
+while the graft is rejected and semantic/task quality remains
+untested on independent prompts.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -401,6 +415,7 @@ SSM/SWA target and passes joint quality/rate.
 | METH-39 | FULL-SCORE ORACLE PARITY; BOUNDED BMM NUMERIC GATE FAIL | [result](METH_39_RESCORE_NUMERICS_RESULT_20260926.md), [protocol](METH_39_RESCORE_NUMERICS_PROTOCOL_20260926.md), [arithmetic counts](meth39_rescore_numerics_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth39_rescore_numerics.py); reused prompts, no CPU rate |
 | METH-40 | SIX-THREAD E273,547 SCAN UNDER 20 MS, ONLY 1.547 MS LEFT | [result](METH_40_ROUTER_SCAN_CPU_RESULT_20260926.md), [protocol](METH_40_ROUTER_SCAN_CPU_PROTOCOL_20260926.md), [summary](meth40_router_scan_summary.json), [seed ledger](meth40_router_seed_export.json), [C benchmark](../../../benchmarks/native_expert_scaling/meth40_rank64_router_scan.c), [exporter](../../../benchmarks/native_expert_scaling/meth40_export_router_seed.py), [verifier](../../../benchmarks/native_expert_scaling/summarize_meth40_router_scan.py); synthetic E expansion, no quality or full rate |
 | METH-41 | INDEPENDENT E128 C96 ROUTE-REPLACEMENT GATE PASS; FULL MODEL HELD | [result](METH_41_C96_INDEPENDENT_ROUTE_RESULT_20260927.md), [protocol](METH_41_C96_INDEPENDENT_ROUTE_PROTOCOL_20260927.md), [manifest](meth41_fresh_c96_manifest.json), [raw paired outcomes](meth41_c96_independent_route_result.json), [selector](../../../benchmarks/donor_adaptation/s1/meth41_fresh_c96_manifest.py), [runner](../../../benchmarks/donor_adaptation/s1/meth41_c96_independent_route.py); parent generation and native rate open |
+| METH-42 | INSTRUCT DONOR CHAT LOOP GATE PASS; DIRECT BASE ADAPTER GRAFT TOP-1 GATE FAIL | [result](METH_42_INSTRUCT_DONOR_PILOT_RESULT_20260927.md), [protocol](METH_42_INSTRUCT_DONOR_PILOT_PROTOCOL_20260927.md), [prompt manifest](meth42_instruct_prompt_manifest.json), [raw outcomes](meth42_instruct_donor_pilot_result.json), [builder](../../../benchmarks/donor_adaptation/s1/meth42_instruct_prompt_manifest.py), [runner](../../../benchmarks/donor_adaptation/s1/meth42_instruct_donor_pilot.py); new training and independent audit needed |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -471,15 +486,19 @@ scheduled.
   rows are synthetic, so larger-E learned quality remains open.
 - **Next quality design:** METH-27 disproves generation readiness for
   this exact R8 composition despite METH-25/28 loss and task passes.
-  Diagnose the added technical loops and high code/prose repetition;
-  test a concrete changed training or decoding variable on data and
-  prompts separate from METH-17/19/20/21/25/27/41, with prospective BPB,
-  generation and task gates. Do not retune on the 24 METH-27 outcomes
-  and call them fresh. Do not extend E256 on a BPB gain alone.
-- **Next exact action: generative repair and scalable CPU route.** Freeze
-  one repair of the saved R8+E128 candidate, score new fixed document,
-  task and generation sets against the same donor, and export only if
-  quality and usefulness pass jointly. Then implement that exact pair
+  METH-42 shows that a same-geometry Instruct donor avoids loops on
+  its chat diagnostic, but direct reuse of base-trained factors fails
+  ranking. Initialize new experts at exact Instruct-donor logits and
+  train jointly with an instruction-behavior retention signal;
+  freeze new document, task and chat-generation sets separate from
+  METH-17/19/20/21/25/27/41/42 before scoring. Do not retune on
+  viewed continuations or extend E256 on a BPB gain alone.
+- **Next exact action: new Instruct-donor adaptation and scalable CPU route.**
+  Implement a zero-output E128 residual adapter initialized at exact
+  Instruct donor parity, train it with a bounded recipe that retains
+  chat behavior, and score new fixed document, task and generation
+  sets against that donor. Export only after joint quality and
+  usefulness pass. Then implement the exact pair
   in `benchmarks/phase60/engine.c` with logit parity, accepted batch-1
   tok/s and split core/router/expert timing and traffic. The separate
   `donor_engine.c` Qwen implementation is a fidelity reference, not
