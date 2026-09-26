@@ -280,7 +280,13 @@ sublinear CPU routing. [METH-26](METH_26_LARGE_E_ROUTER_LEDGER_20260926.md)
 shows exhaustive int8 routing at E273,547 would read 5.882 GB/token
 in this geometry, before selected experts and the core. The current
 NES-03 shortlist still scans all E rows, so it cannot settle this
-constraint by itself.
+constraint by itself. [METH-29](METH_29_BALANCED_ROUTER_INDEX_RESULT_20260926.md)
+then tests one post-hoc balanced index on actual trained E128 inputs:
+32/64 candidate rows include only 62.484%/85.848% of the exact
+top-4 IDs, missing its prospective route-fidelity gate. That closes
+this centroid rule, not sublinear routing generally. A coarse route
+must be learned or otherwise indexed with held-out recall before
+CPU timing and larger-E claims.
 No T4 run is authorized by these screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
