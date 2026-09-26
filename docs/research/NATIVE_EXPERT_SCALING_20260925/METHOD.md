@@ -40,6 +40,21 @@ only the header prefix was fetched. Full local weights, a paired quality
 baseline and a Mamba2 operator bridge are missing. It is a candidate, not
 evidence that the method transfers.
 
+Another locally bound sparse donor is **allenai/StdMoE_1b14b_1T_Preanneal**,
+revision `d2a4949c9d4ad6cf47fbac131f7e020077332b21`: 16 layers,
+128 experts/top-8 and one shared expert, with all 11 fp32 shards present
+([acquisition](../donor_adaptation/probes/STRAT_02_STAGE0_ACQUISITION.md)).
+Its existing [W4 paired gate](../donor_adaptation/probes/STRAT_02_W4_BF16_QUALITY_RESULT.md)
+failed: +0.026025 BPB, upper one-sided CI95 +0.027178 against the
++0.02 bar. Restoring only the fp32 router improved the point to
++0.019532, but the [heldout upper CI](../donor_adaptation/probes/STRAT_02F_W4_ROUTER_F32_HELDOUT_RESULT.md)
+was +0.020395 and still failed. That arm prices 676,397,056 active
+bytes/token before native overhead: a 16.91 ms/token payload floor at
+40 GB/s, leaving only 3.09 ms of a 20 ms total budget. Thus this real
+E128 source is a **different-family transfer candidate**, not a
+demonstrated quality-and-rate path; repeating its
+already failed nominal W4 gate would not advance the method.
+
 The dense-source transfer challenge is **Qwen2.5-1.5B** at revision
 `8faed761d45a263340a0528343f099c05c9a4323`, whose local snapshot
 contains `config.json`, tokenizer and safetensors, now hash-verified with
@@ -64,9 +79,11 @@ Candidate selection currently uses these reproducible checks:
 | Baseline quality | Paired donor/format held-out scorer, task and rollout instruments with pinned IDs and document split | Keep the source donor as the reference; reject a broken input or tokenizer mapping |
 
 The current selection rule is **provisional**: start with the locally bound
-pretrained sparse GigaChat for a conditional-capacity case; use the dense Qwen
-case to test whether a different route can create the conditional structure.
-Do not claim one procedure handles both until their full pipelines pass.
+pretrained sparse GigaChat for a conditional-capacity case; retain StdMoE
+E128 as a second sparse family only if a transformation addresses both its
+measured W4 fidelity and active-byte failures; use dense Qwen to test
+whether a different route can create conditional structure. Do not claim
+one procedure handles these donors until their full pipelines pass.
 For another family, rerun the inventory and choose a variant from its actual
 operator/traffic map; do not infer compatibility from model names or parameter
 counts. The metadata-only Granite/LFM candidates are not local quality or
