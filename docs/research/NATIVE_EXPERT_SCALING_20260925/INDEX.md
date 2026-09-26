@@ -123,6 +123,13 @@ BPB on its predeclared CPU pilot; its full-active wiring control is exact.
 METH-12 fits a rank-256 shared correction on disjoint calibration data
 and routes top-16 donor groups across all 28 layers: local residual SSE
 improves 5.23% in aggregate, yet paired pilot BPB loses +0.943873.
+[METH-13](METH_13_QWEN05B_JOINT_UPCYCLE_RESULT_20260926.md) tested a
+different dense donor, Qwen2.5-0.5B, partitioned into E128 groups with
+top-32 routing. Its fitted router recovered 0.7917 of oracle top-32
+activation mass versus 0.4049 random, but the all-layer hard carve lost
+**+1.360474 BPB**. The frozen CPU quality stop rejects this exact
+geometry before GPU work; the independent-expert and LUT scaling
+questions remain open.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -148,6 +155,7 @@ SSM/SWA target and passes joint quality/rate.
 | METH-10 | LOCAL SOURCE/TRAINING ASSET READINESS; no new quality result | [Qwen2.5-1.5B inventory](METH_10_QWEN_LOCAL_READINESS_20260926.md), [H1 prior](../donor_adaptation/probes/H1_THE_CARVE_TRAINED.md), [H5 adverse composition](../donor_adaptation/probes/H5_CROSS_COMPOSITION_RESULT.md) |
 | METH-11 | FULL-LAYER STEP-ZERO GEOMETRY REJECTED; +0.706052 BPB | [result and cost ledger](METH_11_SHARED_RESIDUAL_RESULT_20260926.md), [frozen protocol](METH_11_SHARED_RESIDUAL_PROTOCOL_20260926.md), [raw plan/scores](meth11_qwen_shared_residual_pilot.json), [executable](../../../benchmarks/donor_adaptation/s1/meth11_shared_residual.py); no training or native speed result |
 | METH-12 | FITTED SHARED + TOP-16 FULL-LAYER QUALITY FAIL; +0.943873 BPB | [result and cost ledger](METH_12_FITTED_SHARED_RESULT_20260926.md), [frozen protocol](METH_12_FITTED_SHARED_PROTOCOL_20260926.md), [machine fit/pilot](meth12_fitted_shared_pilot.json), [executable](../../../benchmarks/donor_adaptation/s1/meth12_fitted_shared.py); no GPU or native speed result |
+| METH-13 | E128/TOP-32 ROUTER PASS, FULL-LAYER QUALITY FAIL; +1.360474 BPB | [result](METH_13_QWEN05B_JOINT_UPCYCLE_RESULT_20260926.md), [frozen CPU protocol](METH_13_QWEN05B_JOINT_UPCYCLE_PROTOCOL_20260926.md), [machine route/pilot](meth13_qwen05b_preflight.json), [executable](../../../benchmarks/donor_adaptation/s1/meth13_qwen05b_preflight.py); no GPU or native speed result |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -165,8 +173,9 @@ scheduled.
   STRAT-03's tested shared/router geometry fails; METH-11's 64-shared plus
   top-16-of-192 residual geometry loses +0.706052 BPB before quantization;
   METH-12's fitted rank-256 shared correction plus top-16/256 loses
-  +0.943873 BPB despite a 5.23% local SSE reduction. None rejects all
-  fresh joint-training approaches. The old donor parity queue is not an
+  +0.943873 BPB despite a 5.23% local SSE reduction. METH-13's E128
+  Qwen0.5B hard carve loses +1.360474 BPB despite useful route recall.
+  None rejects all fresh joint-training approaches. The old donor parity queue is not an
   automatic next step.
 - **CPU design state:** NES-03 established a 32-candidate int8 path on this
   pilot; the full fp32 router and reference expert copies remain resident.
@@ -179,14 +188,14 @@ scheduled.
   loops (for example exposure or route training), estimate local training cost
   and freeze BPB, repetition and routing gates before a new run. Do not
   automatically extend E256 on the BPB gain alone.
-- **Next exact action: pretrained transfer.** METH-11/12 now reject two
-  post-hoc shared/residual Qwen conversions before quantization; another
-  linear fit or nominal group/rank swap is not justified. Specify one
-  **jointly trained** compact-core/router conversion or select a pretrained
-  sparse donor whose experts can be retained. Before GPU work, bind the
-  donor, training exposure/optimizer RAM, low-bit head and native export,
-  then freeze a fresh quality split and the compute stop. The current Qwen
-  C path's tied fp32 head costs ~933.5 MB/token; the GigaChat nominal
+- **Next exact action: pretrained transfer.** METH-11/12/13 reject three
+  Qwen hard-sparse conversions before quantization. Specify a genuinely
+  changed conversion with an exact-donor warm start and **distinct trained
+  experts**, or select a pretrained sparse donor whose experts can be
+  retained. The next design must separate truncation from router error,
+  then bind training exposure/optimizer RAM, low-bit head and native
+  export. Freeze a fresh quality split and compute stop before GPU work.
+  The current Qwen C path's tied fp32 head costs ~933.5 MB/token; the GigaChat nominal
   low-bit swaps failed METH-06/08/09 and should not be repeated.
   Capacity scaling to 10B/100B still needs **distinct trained** large-E
   experts, quality under greater router choice, and CPU LUT/sublinear

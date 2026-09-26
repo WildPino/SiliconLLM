@@ -1,0 +1,423 @@
+{
+  "experiment": "METH-13",
+  "source": {
+    "model": "Qwen/Qwen2.5-0.5B",
+    "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+    "model_sha256": "88c142557820ccad55bb59756bfcfcf891de9cc6202816bd346445188a0ed342",
+    "tokenizer_fingerprint": "4efeeb9382a77a06"
+  },
+  "runtime": {
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6",
+    "sklearn": "1.9.1"
+  },
+  "data": {
+    "label": {
+      "part": "calib",
+      "n_seq": 4,
+      "seq_len": 256,
+      "seed": 42424,
+      "ids_sha256": "40f40c2f29a7c0507bf41d1ae35d4342151870ebafd12f2d59d7e101997a7509",
+      "scored_bytes": 4144
+    },
+    "fit": {
+      "part": "calib",
+      "n_seq": 16,
+      "seq_len": 256,
+      "seed": 42424,
+      "ids_sha256": "b3c06b88955d9ab6593a52df2ff6005ccca2532ff69f844038b399a4fbe56ea8",
+      "scored_bytes": 17398
+    },
+    "route": {
+      "part": "heldout",
+      "n_seq": 4,
+      "seq_len": 256,
+      "seed": 1234,
+      "ids_sha256": "938abee0680d9c15df08d4f669e7a8dd9a158621779763464cc0d05a65055259",
+      "scored_bytes": 4655
+    },
+    "quality": {
+      "part": "heldout",
+      "n_seq": 2,
+      "seq_len": 512,
+      "seed": 1234,
+      "ids_sha256": "3808624ff6fc5cb8fa5911c9fbfb37a8bcbf4f08db83bb5b146887c267a9e62c",
+      "scored_bytes": 4396
+    }
+  },
+  "geometry": {
+    "layers": 24,
+    "D": 896,
+    "F": 4864,
+    "E": 128,
+    "k": 32,
+    "group_width": 38,
+    "label_activity_top_neurons": 487,
+    "cluster_seed": 4242,
+    "router_ridge_frac": 0.01
+  },
+  "assets": {
+    "labels_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth13_qwen05b\\meth13_labels_E128.npz",
+    "labels_sha256": "1c6840399ace72afee3e7200ad21a5a1519b12a688545d5035143168d8c637b1",
+    "routers_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth13_qwen05b\\meth13_routers_E128.npz",
+    "routers_sha256": "55f01e1d5c8c5ef9df5db8a813036d48d889f4ad9286046ca6fefb191e509518"
+  },
+  "router_fit": {
+    "0": {
+      "ridge_lambda": 16.138664256142718,
+      "n_tokens": 4096,
+      "router_fro": 8.209126472473145,
+      "xty_fro": 193022.61121262072
+    },
+    "1": {
+      "ridge_lambda": 23.295807821809937,
+      "n_tokens": 4096,
+      "router_fro": 4.741846561431885,
+      "xty_fro": 233013.3614312645
+    },
+    "2": {
+      "ridge_lambda": 29.776453164828016,
+      "n_tokens": 4096,
+      "router_fro": 76.6239242553711,
+      "xty_fro": 1070218.4844743125
+    },
+    "3": {
+      "ridge_lambda": 58.65285243372398,
+      "n_tokens": 4096,
+      "router_fro": 11.311532020568848,
+      "xty_fro": 7086480.999163976
+    },
+    "4": {
+      "ridge_lambda": 40.71611232752127,
+      "n_tokens": 4096,
+      "router_fro": 5.32741117477417,
+      "xty_fro": 481192.65883939597
+    },
+    "5": {
+      "ridge_lambda": 71.48551621681682,
+      "n_tokens": 4096,
+      "router_fro": 5.110332489013672,
+      "xty_fro": 873151.6454542059
+    },
+    "6": {
+      "ridge_lambda": 45.27747418926728,
+      "n_tokens": 4096,
+      "router_fro": 5.186792373657227,
+      "xty_fro": 569097.641196295
+    },
+    "7": {
+      "ridge_lambda": 46.07135526184758,
+      "n_tokens": 4096,
+      "router_fro": 4.641724109649658,
+      "xty_fro": 588752.0101679224
+    },
+    "8": {
+      "ridge_lambda": 37.84216644417127,
+      "n_tokens": 4096,
+      "router_fro": 3.9603607654571533,
+      "xty_fro": 471227.20023175876
+    },
+    "9": {
+      "ridge_lambda": 35.8065841747784,
+      "n_tokens": 4096,
+      "router_fro": 3.7182140350341797,
+      "xty_fro": 419537.3039850622
+    },
+    "10": {
+      "ridge_lambda": 33.13144535120045,
+      "n_tokens": 4096,
+      "router_fro": 3.6730363368988037,
+      "xty_fro": 396050.9820160329
+    },
+    "11": {
+      "ridge_lambda": 33.769949837646315,
+      "n_tokens": 4096,
+      "router_fro": 4.119650840759277,
+      "xty_fro": 409542.2324153385
+    },
+    "12": {
+      "ridge_lambda": 32.77216996466475,
+      "n_tokens": 4096,
+      "router_fro": 4.028684616088867,
+      "xty_fro": 412206.07995725196
+    },
+    "13": {
+      "ridge_lambda": 37.51670064728175,
+      "n_tokens": 4096,
+      "router_fro": 4.5002360343933105,
+      "xty_fro": 489269.0507164849
+    },
+    "14": {
+      "ridge_lambda": 41.75798615564193,
+      "n_tokens": 4096,
+      "router_fro": 5.185780048370361,
+      "xty_fro": 619392.0257143574
+    },
+    "15": {
+      "ridge_lambda": 50.38148891070059,
+      "n_tokens": 4096,
+      "router_fro": 5.578985214233398,
+      "xty_fro": 806843.4186016937
+    },
+    "16": {
+      "ridge_lambda": 65.81304039801338,
+      "n_tokens": 4096,
+      "router_fro": 8.634481430053711,
+      "xty_fro": 1198639.4680016385
+    },
+    "17": {
+      "ridge_lambda": 94.68315559079072,
+      "n_tokens": 4096,
+      "router_fro": 8.054125785827637,
+      "xty_fro": 1620101.6967597664
+    },
+    "18": {
+      "ridge_lambda": 80.86788890685354,
+      "n_tokens": 4096,
+      "router_fro": 8.157881736755371,
+      "xty_fro": 1352960.9353134462
+    },
+    "19": {
+      "ridge_lambda": 111.01059111215174,
+      "n_tokens": 4096,
+      "router_fro": 9.408590316772461,
+      "xty_fro": 2281510.858193352
+    },
+    "20": {
+      "ridge_lambda": 118.35695856230599,
+      "n_tokens": 4096,
+      "router_fro": 11.603006362915039,
+      "xty_fro": 2909726.998548147
+    },
+    "21": {
+      "ridge_lambda": 114.0228255981473,
+      "n_tokens": 4096,
+      "router_fro": 19.871707916259766,
+      "xty_fro": 8024139.420840657
+    },
+    "22": {
+      "ridge_lambda": 98.40372599191964,
+      "n_tokens": 4096,
+      "router_fro": 16.204065322875977,
+      "xty_fro": 3095984.6507339566
+    },
+    "23": {
+      "ridge_lambda": 131.1677573207441,
+      "n_tokens": 4096,
+      "router_fro": 30.753080368041992,
+      "xty_fro": 8139317.636652908
+    }
+  },
+  "route_rows": [
+    {
+      "layer": 0,
+      "tokens": 1024,
+      "fitted_recall": 0.607818603515625,
+      "random_recall": 0.245208740234375,
+      "fitted_mass": 0.8415623903274536,
+      "random_mass": 0.3433815836906433
+    },
+    {
+      "layer": 1,
+      "tokens": 1024,
+      "fitted_recall": 0.51055908203125,
+      "random_recall": 0.24114990234375,
+      "fitted_mass": 0.7903732061386108,
+      "random_mass": 0.402677446603775
+    },
+    {
+      "layer": 2,
+      "tokens": 1024,
+      "fitted_recall": 0.46942138671875,
+      "random_recall": 0.2545166015625,
+      "fitted_mass": 0.7492398619651794,
+      "random_mass": 0.45195172727108
+    },
+    {
+      "layer": 3,
+      "tokens": 1024,
+      "fitted_recall": 0.428466796875,
+      "random_recall": 0.244659423828125,
+      "fitted_mass": 0.7089889794588089,
+      "random_mass": 0.4314940273761749
+    },
+    {
+      "layer": 4,
+      "tokens": 1024,
+      "fitted_recall": 0.45867919921875,
+      "random_recall": 0.244537353515625,
+      "fitted_mass": 0.741425409913063,
+      "random_mass": 0.40558603405952454
+    },
+    {
+      "layer": 5,
+      "tokens": 1024,
+      "fitted_recall": 0.499542236328125,
+      "random_recall": 0.261962890625,
+      "fitted_mass": 0.7709563672542572,
+      "random_mass": 0.43231241405010223
+    },
+    {
+      "layer": 6,
+      "tokens": 1024,
+      "fitted_recall": 0.49224853515625,
+      "random_recall": 0.260467529296875,
+      "fitted_mass": 0.7548336833715439,
+      "random_mass": 0.4375380650162697
+    },
+    {
+      "layer": 7,
+      "tokens": 1024,
+      "fitted_recall": 0.475738525390625,
+      "random_recall": 0.24041748046875,
+      "fitted_mass": 0.7454433292150497,
+      "random_mass": 0.44355040043592453
+    },
+    {
+      "layer": 8,
+      "tokens": 1024,
+      "fitted_recall": 0.47662353515625,
+      "random_recall": 0.251739501953125,
+      "fitted_mass": 0.7341965138912201,
+      "random_mass": 0.4829249233007431
+    },
+    {
+      "layer": 9,
+      "tokens": 1024,
+      "fitted_recall": 0.463958740234375,
+      "random_recall": 0.250030517578125,
+      "fitted_mass": 0.7307103127241135,
+      "random_mass": 0.4950282648205757
+    },
+    {
+      "layer": 10,
+      "tokens": 1024,
+      "fitted_recall": 0.50567626953125,
+      "random_recall": 0.225494384765625,
+      "fitted_mass": 0.7589500397443771,
+      "random_mass": 0.45420364290475845
+    },
+    {
+      "layer": 11,
+      "tokens": 1024,
+      "fitted_recall": 0.565155029296875,
+      "random_recall": 0.23626708984375,
+      "fitted_mass": 0.8045495450496674,
+      "random_mass": 0.39762578904628754
+    },
+    {
+      "layer": 12,
+      "tokens": 1024,
+      "fitted_recall": 0.536865234375,
+      "random_recall": 0.254119873046875,
+      "fitted_mass": 0.7843361645936966,
+      "random_mass": 0.4742109477519989
+    },
+    {
+      "layer": 13,
+      "tokens": 1024,
+      "fitted_recall": 0.512237548828125,
+      "random_recall": 0.2572021484375,
+      "fitted_mass": 0.7745475471019745,
+      "random_mass": 0.48420361429452896
+    },
+    {
+      "layer": 14,
+      "tokens": 1024,
+      "fitted_recall": 0.563262939453125,
+      "random_recall": 0.255706787109375,
+      "fitted_mass": 0.7921949625015259,
+      "random_mass": 0.43982094526290894
+    },
+    {
+      "layer": 15,
+      "tokens": 1024,
+      "fitted_recall": 0.586669921875,
+      "random_recall": 0.279998779296875,
+      "fitted_mass": 0.8069557100534439,
+      "random_mass": 0.45048053562641144
+    },
+    {
+      "layer": 16,
+      "tokens": 1024,
+      "fitted_recall": 0.588653564453125,
+      "random_recall": 0.228485107421875,
+      "fitted_mass": 0.8057580590248108,
+      "random_mass": 0.3503376245498657
+    },
+    {
+      "layer": 17,
+      "tokens": 1024,
+      "fitted_recall": 0.56085205078125,
+      "random_recall": 0.22906494140625,
+      "fitted_mass": 0.7994232475757599,
+      "random_mass": 0.3510715439915657
+    },
+    {
+      "layer": 18,
+      "tokens": 1024,
+      "fitted_recall": 0.526214599609375,
+      "random_recall": 0.247589111328125,
+      "fitted_mass": 0.7640373408794403,
+      "random_mass": 0.3846835345029831
+    },
+    {
+      "layer": 19,
+      "tokens": 1024,
+      "fitted_recall": 0.603973388671875,
+      "random_recall": 0.2491455078125,
+      "fitted_mass": 0.7977878749370575,
+      "random_mass": 0.3686714544892311
+    },
+    {
+      "layer": 20,
+      "tokens": 1024,
+      "fitted_recall": 0.629364013671875,
+      "random_recall": 0.24884033203125,
+      "fitted_mass": 0.8298910558223724,
+      "random_mass": 0.3337241858243942
+    },
+    {
+      "layer": 21,
+      "tokens": 1024,
+      "fitted_recall": 0.613525390625,
+      "random_recall": 0.26324462890625,
+      "fitted_mass": 0.8591766953468323,
+      "random_mass": 0.3581831082701683
+    },
+    {
+      "layer": 22,
+      "tokens": 1024,
+      "fitted_recall": 0.746673583984375,
+      "random_recall": 0.234588623046875,
+      "fitted_mass": 0.906325563788414,
+      "random_mass": 0.2725338451564312
+    },
+    {
+      "layer": 23,
+      "tokens": 1024,
+      "fitted_recall": 0.83135986328125,
+      "random_recall": 0.253021240234375,
+      "fitted_mass": 0.9484708160161972,
+      "random_mass": 0.27189236879348755
+    }
+  ],
+  "route_mean": {
+    "fitted_recall": 0.5522308349609375,
+    "random_recall": 0.2482274373372396,
+    "fitted_mass": 0.7916722781956196,
+    "random_mass": 0.4049203344620764,
+    "mass_advantage": 0.38675194373354316,
+    "pass": true
+  },
+  "pilot": {
+    "donor_bpb": 1.0830219361346318,
+    "hard_top32_bpb": 2.4434964126822423,
+    "delta_bpb": 1.3604744765476104,
+    "identity_max_abs": 1.71661376953125e-05,
+    "sparse_change_max_abs": 18.298553466796875
+  },
+  "decision": "stop_this_E128_top32_geometry_before_GPU",
+  "elapsed_seconds": 70.89099999999962,
+  "rss_at_end_bytes": 4143390720
+}

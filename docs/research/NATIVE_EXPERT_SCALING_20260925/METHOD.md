@@ -101,6 +101,16 @@ rate results.
 | E. Export | Emit versioned C weights/metadata, tokenizer, precision map and golden intermediate/logit traces; run the exact timed C path | Exact serialization plus approximate kernels | Native E32 export/parity exists. GigaChat C fidelity is partial. No converted pretrained conditional target has completed this stage. |
 | F. Validate | Paired donor→target held-out BPB with uncertainty, generation/task checks, routing utility, RAM/bytes/latency breakdown and ≥50 accepted tok/s on the same exported target | Measurement | **Open for every converted target.** Pilot/synthetic rate, scalar BPB, and partial port parity cannot be combined into a pass. |
 
+[METH-13](METH_13_QWEN05B_JOINT_UPCYCLE_RESULT_20260926.md) adds a
+Qwen2.5-0.5B dense-source CPU preflight. A fitted input-only router
+selecting 32 of 128 donor-channel groups recovered 0.7917 of oracle
+top-32 activation mass, but the full 24-layer hard carve lost
++1.360474 BPB. Its frozen +0.40 BPB stop rejected this geometry before
+joint training. The groups are not independently trained experts. This
+narrows the next D2 attempt to a genuinely new architecture with
+donor-preserving warm start, explicit per-expert learning, and a
+fresh heldout gate; route utility alone does not license GPU work.
+
 Transformations must record a quality/cost delta at each switch **and** after
 composition. The tested H5 failure shows why independent passes cannot be
 added together. Preserve source weights and any distinct learned expert
@@ -187,8 +197,10 @@ adds 0.059428 BPB of loss. These interventions do not establish a
 quality/cost-valid representation. They narrow the next mechanism:
 an explicit trained correction or a changed conditional geometry with
 priced native export, rather than another unsupported precision swap.
-Inventory the tractable dense-source Qwen case and bind a new jointly
-trained transformation before spending another large conversion budget.
+The Qwen0.5B inventory and METH-13 preflight are complete, and its
+hard E128/top-32 carve failed. Bind a new jointly trained transformation
+with a distinct mechanism and a fresh quality split before spending
+another conversion budget.
 No T4 run is authorized by these screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
