@@ -9,7 +9,9 @@ retention (METH-28, −0.925 accuracy points versus BF16 donor), but
 generative repair. CPU C parity/rate and large-E scaling remain open.
 METH-29 also rejects a post-hoc balanced coarse router index on real
 E128 inputs: 32/64 candidates recover only 62.48%/85.85% of exact
-top-4 IDs, so a jointly learned hierarchy or different index is needed.
+top-4 IDs. METH-30's learned gate on those frozen groups raises
+64-candidate recall to 91.61% but also fails the 99.9% gate; a
+jointly learned hierarchy or different index is needed.
 NES-01 E128 improves BPB but fails greedy generation; NES-02
 finds a dense-router CPU scaling limit; NES-03 int8 shortlist preserves
 tested routes and cuts E1280 router cost. No pretrained-to-native conversion
@@ -228,6 +230,14 @@ data; at 32 or 64 candidates, exact top-4 ID inclusion is only
 **62.484%** or **85.848%** over 147,456 input-layer cases, far below
 the fixed 99.9% gate. This rejects the post-hoc centroid rule before
 CPU work; it does not reject jointly trained or other sublinear routes.
+[METH-30](METH_30_LEARNED_COARSE_ROUTER_RESULT_20260926.md)
+fits a small nonlinear gate to the same frozen groups on separate
+source windows. Its 64-candidate exact top-4 ID inclusion reaches
+**93.562%** on internal validation and **91.609%** on the reused
+METH-27/29 prompt set (147,456 input-layer cases); full-set match
+is **71.523%** externally. Both the 32- and 64-candidate arms miss
+the frozen gate. Its 64-candidate arithmetic already exceeds 128
+exhaustive row-dot equivalents at E128, so no C lookup is promoted.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -270,6 +280,7 @@ SSM/SWA target and passes joint quality/rate.
 | METH-27 | STORED-R8 GENERATION RELATIVE AND ABSOLUTE GATES FAIL | [result](METH_27_R8_FRESH_GENERATION_RESULT_20260926.md), [protocol](METH_27_R8_FRESH_GENERATION_PROTOCOL_20260926.md), [prompt manifest](meth27_r8_fresh_generation_manifest.json), [all continuations](meth27_r8_fresh_generation_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth27_r8_fresh_generation.py) |
 | METH-28 | STORED-R8 FULL PIQA TASK-RETENTION GATE PASS | [result](METH_28_R8_PIQA_COMPOSITION_RESULT_20260926.md), [protocol](METH_28_R8_PIQA_COMPOSITION_PROTOCOL_20260926.md), [all paired choices](meth28_r8_piqa_composition_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth28_r8_piqa_composition.py) |
 | METH-29 | POST-HOC BALANCED ROUTER INDEX RECALL FAIL | [result](METH_29_BALANCED_ROUTER_INDEX_RESULT_20260926.md), [protocol](METH_29_BALANCED_ROUTER_INDEX_PROTOCOL_20260926.md), [route/group ledger](meth29_balanced_router_index_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth29_balanced_router_index.py); no CPU rate or large-E quality |
+| METH-30 | LEARNED GATE ON FROZEN GROUPS RECALL FAIL | [result](METH_30_LEARNED_COARSE_ROUTER_RESULT_20260926.md), [protocol](METH_30_LEARNED_COARSE_ROUTER_PROTOCOL_20260926.md), [training manifest](meth30_learned_coarse_router_manifest.json), [route counts](meth30_learned_coarse_router_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth30_learned_coarse_router.py); no CPU rate or large-E quality |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -306,9 +317,10 @@ scheduled.
   pilot, but still scans all E rows and keeps redundant reference weights.
   METH-26 maps the currently quality-screened Qwen geometry to E27,355
   and E273,547 for ~10B/~100B added parameters. Even one-byte exhaustive
-  routing would read 0.588/5.882 GB per token. METH-29 tests a
-  bounded post-hoc index and rejects it on actual E128 route recall,
-  even at 64/128 candidates. A trained hierarchy or other index,
+  routing would read 0.588/5.882 GB per token. METH-29/30 test
+  bounded post-hoc group selection and reject both centroid and
+  learned-gate rules on actual E128 route recall, even at 64/128
+  candidates. A jointly trained hierarchy or other index,
   packed-only expert bank, measured CPU router/LUT costs, and learned
   large-E quality evidence remain open.
 - **Next quality design:** METH-27 disproves generation readiness for
@@ -325,10 +337,11 @@ scheduled.
   in `benchmarks/phase60/engine.c` with logit parity, accepted batch-1
   tok/s and split core/router/expert timing and traffic. The separate
   `donor_engine.c` Qwen implementation is a fidelity reference, not
-  this joint-quality/rate result. In parallel, test a **learned**
-  coarse router against the frozen E128 fine-route top-4 on held-out
-  inputs; METH-29's weight-only grouping fails badly. If route recall
-  passes, implement bounded lookup in C and measure its time and
+  this joint-quality/rate result. In parallel, test a **jointly trained**
+  hierarchy on distinct experts, or an independently
+  structured bounded index against the frozen E128 fine route on
+  held-out inputs; METH-29/30's post-hoc group rules fail. If route
+  recall passes, implement bounded lookup in C and measure its time and
   selected-expert LUT cost across a 10× E ladder. Only
   **distinct trained** expert expansion can validate quality as E
   grows. No T4 job is planned.

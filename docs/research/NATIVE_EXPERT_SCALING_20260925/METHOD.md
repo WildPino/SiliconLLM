@@ -287,6 +287,16 @@ top-4 IDs, missing its prospective route-fidelity gate. That closes
 this centroid rule, not sublinear routing generally. A coarse route
 must be learned or otherwise indexed with held-out recall before
 CPU timing and larger-E claims.
+[METH-30](METH_30_LEARNED_COARSE_ROUTER_RESULT_20260926.md) fits a
+per-layer nonlinear coarse gate on separate source windows while
+keeping METH-29's groups and E128 fine router fixed. On 147,456
+reused external input-layer cases, 64 candidates include 91.609%
+of the exact top-4 IDs and match 71.523% of full sets; internal
+validation reaches 93.562% ID inclusion. Both arms fail the
+prospective 99.9%/99% route gate, and the 64-candidate pilot already
+costs about 129.14 D896 row-dot equivalents versus 128 exhaustive.
+This closes the fixed-group distillation recipe before C lookup,
+not a jointly trained hierarchy or another bounded index.
 No T4 run is authorized by these screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first

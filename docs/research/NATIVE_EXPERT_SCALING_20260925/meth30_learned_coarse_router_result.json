@@ -1,0 +1,216 @@
+{
+  "experiment": "METH-30",
+  "manifest_sha256": "07d14a2296048a12d821e26b6d98635d410b51224c48a914fe19001b20407108",
+  "core_sha256": "c307fa48015fd01ccc43ab6a90debe42c10245ac4e45b926fc3a6ee2572afa27",
+  "adapter_sha256": "3147b2cf4fd3af671d5bf6c6451829ec32acfadaca2a0272be0b123e3873e1ca",
+  "index_result_sha256": "249836830ed41e77b9e2c6036292e71838359221e430eac29295e6bb7944d502",
+  "coarse_gate_sha256": "7c294fccf8145d86fe69d9cf13bc5510eca6bf088ceca4690febb340cf0d1c86",
+  "coarse_gate_bytes": 5697984,
+  "training": {
+    "seed": 303030,
+    "epochs": 20,
+    "batch_positions": 512,
+    "learning_rate": 0.003,
+    "train_positions": 8192,
+    "internal_validation_positions": 2048,
+    "loss_per_epoch": [
+      0.516684940084815,
+      0.3393050581216812,
+      0.2911485079675913,
+      0.25635308399796486,
+      0.2284849314019084,
+      0.20569333340972662,
+      0.1867575692012906,
+      0.17061003111302853,
+      0.15685186348855495,
+      0.1447379058226943,
+      0.13397512678056955,
+      0.12424991140142083,
+      0.11544611910358071,
+      0.10749595239758492,
+      0.10004882933571935,
+      0.0933350776322186,
+      0.08701531682163477,
+      0.08121305331587791,
+      0.0758826108649373,
+      0.07090916810557246
+    ]
+  },
+  "internal_validation": {
+    "candidates32": {
+      "selected_leaves": 4,
+      "candidate_rows": 32,
+      "pooled": {
+        "positions": 49152,
+        "exact_ids": 196608,
+        "included_exact_ids": 154726,
+        "full_set_matches": 18590,
+        "missed_gate_mass_sum": 7674.479558944702,
+        "worst_missed_gate_mass": 1.0000001192092896,
+        "exact_id_inclusion_fraction": 0.7869771321614584,
+        "full_set_match_fraction": 0.3782145182291667,
+        "mean_missed_gate_mass": 0.156137686339207
+      },
+      "categories": {
+        "internal_validation": {
+          "positions": 49152,
+          "exact_ids": 196608,
+          "included_exact_ids": 154726,
+          "full_set_matches": 18590,
+          "missed_gate_mass_sum": 7674.479558944702,
+          "worst_missed_gate_mass": 1.0000001192092896,
+          "exact_id_inclusion_fraction": 0.7869771321614584,
+          "full_set_match_fraction": 0.3782145182291667,
+          "mean_missed_gate_mass": 0.156137686339207
+        }
+      },
+      "layer_min_id_inclusion": 0.7164306640625,
+      "route_gate_pass": false
+    },
+    "candidates64": {
+      "selected_leaves": 8,
+      "candidate_rows": 64,
+      "pooled": {
+        "positions": 49152,
+        "exact_ids": 196608,
+        "included_exact_ids": 183951,
+        "full_set_matches": 38048,
+        "missed_gate_mass_sum": 2340.531044960022,
+        "worst_missed_gate_mass": 1.0000001192092896,
+        "exact_id_inclusion_fraction": 0.9356231689453125,
+        "full_set_match_fraction": 0.7740885416666666,
+        "mean_missed_gate_mass": 0.047618226012370236
+      },
+      "categories": {
+        "internal_validation": {
+          "positions": 49152,
+          "exact_ids": 196608,
+          "included_exact_ids": 183951,
+          "full_set_matches": 38048,
+          "missed_gate_mass_sum": 2340.531044960022,
+          "worst_missed_gate_mass": 1.0000001192092896,
+          "exact_id_inclusion_fraction": 0.9356231689453125,
+          "full_set_match_fraction": 0.7740885416666666,
+          "mean_missed_gate_mass": 0.047618226012370236
+        }
+      },
+      "layer_min_id_inclusion": 0.90087890625,
+      "route_gate_pass": false
+    }
+  },
+  "external_prompt_audit": {
+    "candidates32": {
+      "selected_leaves": 4,
+      "candidate_rows": 32,
+      "pooled": {
+        "positions": 147456,
+        "exact_ids": 589824,
+        "included_exact_ids": 445627,
+        "full_set_matches": 47657,
+        "missed_gate_mass_sum": 27633.22683906555,
+        "worst_missed_gate_mass": 1.0000001192092896,
+        "exact_id_inclusion_fraction": 0.7555253770616319,
+        "full_set_match_fraction": 0.3231947157118056,
+        "mean_missed_gate_mass": 0.18739981309045106
+      },
+      "categories": {
+        "code": {
+          "positions": 49152,
+          "exact_ids": 196608,
+          "included_exact_ids": 144144,
+          "full_set_matches": 13783,
+          "missed_gate_mass_sum": 10359.431400299072,
+          "worst_missed_gate_mass": 1.0000001192092896,
+          "exact_id_inclusion_fraction": 0.733154296875,
+          "full_set_match_fraction": 0.2804158528645833,
+          "mean_missed_gate_mass": 0.2107631713928034
+        },
+        "prose": {
+          "positions": 49152,
+          "exact_ids": 196608,
+          "included_exact_ids": 159145,
+          "full_set_matches": 20984,
+          "missed_gate_mass_sum": 6527.286099433899,
+          "worst_missed_gate_mass": 1.0000001192092896,
+          "exact_id_inclusion_fraction": 0.8094533284505209,
+          "full_set_match_fraction": 0.4269205729166667,
+          "mean_missed_gate_mass": 0.13279797565580034
+        },
+        "technical_general": {
+          "positions": 49152,
+          "exact_ids": 196608,
+          "included_exact_ids": 142338,
+          "full_set_matches": 12890,
+          "missed_gate_mass_sum": 10746.50933933258,
+          "worst_missed_gate_mass": 1.0000001192092896,
+          "exact_id_inclusion_fraction": 0.723968505859375,
+          "full_set_match_fraction": 0.2622477213541667,
+          "mean_missed_gate_mass": 0.21863829222274944
+        }
+      },
+      "layer_min_id_inclusion": 0.6833902994791666,
+      "route_gate_pass": false
+    },
+    "candidates64": {
+      "selected_leaves": 8,
+      "candidate_rows": 64,
+      "pooled": {
+        "positions": 147456,
+        "exact_ids": 589824,
+        "included_exact_ids": 540330,
+        "full_set_matches": 105465,
+        "missed_gate_mass_sum": 9497.334271907806,
+        "worst_missed_gate_mass": 1.0,
+        "exact_id_inclusion_fraction": 0.9160868326822916,
+        "full_set_match_fraction": 0.7152303059895834,
+        "mean_missed_gate_mass": 0.06440792013826366
+      },
+      "categories": {
+        "code": {
+          "positions": 49152,
+          "exact_ids": 196608,
+          "included_exact_ids": 177621,
+          "full_set_matches": 33130,
+          "missed_gate_mass_sum": 3711.71919965744,
+          "worst_missed_gate_mass": 1.0,
+          "exact_id_inclusion_fraction": 0.9034271240234375,
+          "full_set_match_fraction": 0.6740315755208334,
+          "mean_missed_gate_mass": 0.07551512043573894
+        },
+        "prose": {
+          "positions": 49152,
+          "exact_ids": 196608,
+          "included_exact_ids": 186135,
+          "full_set_matches": 39912,
+          "missed_gate_mass_sum": 1851.3429250717163,
+          "worst_missed_gate_mass": 1.0,
+          "exact_id_inclusion_fraction": 0.9467315673828125,
+          "full_set_match_fraction": 0.81201171875,
+          "mean_missed_gate_mass": 0.03766566823469475
+        },
+        "technical_general": {
+          "positions": 49152,
+          "exact_ids": 196608,
+          "included_exact_ids": 176574,
+          "full_set_matches": 32423,
+          "missed_gate_mass_sum": 3934.27214717865,
+          "worst_missed_gate_mass": 1.0,
+          "exact_id_inclusion_fraction": 0.898101806640625,
+          "full_set_match_fraction": 0.6596476236979166,
+          "mean_missed_gate_mass": 0.0800429717443573
+        }
+      },
+      "layer_min_id_inclusion": 0.8792317708333334,
+      "route_gate_pass": false
+    }
+  },
+  "runtime": {
+    "elapsed_seconds": 62.53199999999924,
+    "rss_end_bytes": 4172988416,
+    "gpu_peak_allocated_bytes": 3494823424,
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "cuda_index": 0,
+    "torch": "2.6.0+cu124"
+  },
+  "decision": "fixed_learned_coarse_route_gate_fail"
+}
