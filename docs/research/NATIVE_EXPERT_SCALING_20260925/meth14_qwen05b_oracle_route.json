@@ -1,0 +1,43 @@
+{
+  "experiment": "METH-14",
+  "source": {
+    "model": "Qwen/Qwen2.5-0.5B",
+    "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+    "model_sha256": "88c142557820ccad55bb59756bfcfcf891de9cc6202816bd346445188a0ed342",
+    "tokenizer_fingerprint": "4efeeb9382a77a06"
+  },
+  "assets": {
+    "labels_sha256": "1c6840399ace72afee3e7200ad21a5a1519b12a688545d5035143168d8c637b1",
+    "routers_sha256": "55f01e1d5c8c5ef9df5db8a813036d48d889f4ad9286046ca6fefb191e509518",
+    "labels_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth13_qwen05b\\meth13_labels_E128.npz",
+    "routers_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth13_qwen05b\\meth13_routers_E128.npz"
+  },
+  "data": {
+    "part": "heldout",
+    "n_seq": 2,
+    "seq_len": 512,
+    "seed": 1234,
+    "ids_sha256": "3808624ff6fc5cb8fa5911c9fbfb37a8bcbf4f08db83bb5b146887c267a9e62c",
+    "scored_bytes": 4396
+  },
+  "runtime": {
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6",
+    "threads": 6,
+    "device": "cpu",
+    "elapsed_seconds": 19.39099999999962,
+    "rss_at_end_bytes": 4606808064
+  },
+  "arms": {
+    "donor_bpb": 1.0830219361346318,
+    "fitted_top32_bpb": 2.4434964126822423,
+    "oracle_top32_bpb": 1.858748018422327,
+    "fitted_delta_bpb": 1.3604744765476104,
+    "oracle_delta_bpb": 0.7757260822876952,
+    "oracle_minus_fitted_bpb": -0.5847483942599152,
+    "identity_max_abs": 1.71661376953125e-05,
+    "fitted_change_max_abs": 18.298553466796875,
+    "oracle_change_max_abs": 19.520084381103516
+  },
+  "decision": "stop_router_only_repair_of_this_geometry"
+}

@@ -110,6 +110,13 @@ joint training. The groups are not independently trained experts. This
 narrows the next D2 attempt to a genuinely new architecture with
 donor-preserving warm start, explicit per-expert learning, and a
 fresh heldout gate; route utility alone does not license GPU work.
+[METH-14](METH_14_QWEN05B_ORACLE_ROUTE_RESULT_20260926.md) holds that
+geometry fixed and selects top-32 groups using their actual post-SwiGLU
+mass. It recovers 0.584748 BPB versus the fitted input-only router but
+remains +0.775726 BPB behind donor, above its frozen +0.40 limit.
+This non-deployable local oracle isolates a material fitted-route gap;
+the residual loss could reflect truncation, the oracle objective, or
+their interaction. It is not a formal upper bound for every learned router.
 
 Transformations must record a quality/cost delta at each switch **and** after
 composition. The tested H5 failure shows why independent passes cannot be
@@ -197,10 +204,10 @@ adds 0.059428 BPB of loss. These interventions do not establish a
 quality/cost-valid representation. They narrow the next mechanism:
 an explicit trained correction or a changed conditional geometry with
 priced native export, rather than another unsupported precision swap.
-The Qwen0.5B inventory and METH-13 preflight are complete, and its
-hard E128/top-32 carve failed. Bind a new jointly trained transformation
-with a distinct mechanism and a fresh quality split before spending
-another conversion budget.
+The Qwen0.5B inventory and METH-13/14 CPU diagnosis are complete; its
+hard E128/top-32 carve fails even with a local activation oracle.
+Bind a new jointly trained transformation with a distinct FFN mechanism
+and a fresh quality split before spending another conversion budget.
 No T4 run is authorized by these screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
