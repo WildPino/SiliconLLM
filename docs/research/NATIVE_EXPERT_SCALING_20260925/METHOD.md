@@ -340,6 +340,22 @@ The audit decodes saved weights in PyTorch; activation quantization,
 C LUT parity and actual-factor CPU speed were not tested. Further
 format tuning on these reused texts is paused until the parent
 R8+E128 candidate passes generation and bounded routing is viable.
+[METH-35](METH_35_LOW_RANK_ROUTER_RESULT_20260926.md) replaces the
+failed fixed-group lookup with a frozen-router SVD index. On
+reused route inputs, its fp32 rank-64 sketch plus 64 exact
+candidate rows passes ≥99.9% top-4 ID inclusion and ≥99%
+complete-set/category gates; five cheaper prespecified arms fail.
+At E128 this arm performs 1.071× exhaustive float multiply terms.
+[METH-36](METH_36_INT8_SKETCH_RESULT_20260926.md) stores fp32
+bases, int8 row-scaled sketches and a disjoint 24-document
+manifest. Decoded from its 5.720 MB stored artifact, the
+rank-64/64-candidate index includes 99.939% of exact selected
+IDs and matches 99.757% of full top-4 sets on different inputs.
+This is a reproducible route-fidelity step, not a route-replaced
+language-quality or native-speed step. Its one-byte sketch
+would still read 420.17 MB/token at the hypothetical E273,547
+point before scales, exact candidates, experts and core; the
+corresponding CPU time and large-E learned routing remain unknown.
 No T4 run is authorized by these screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first

@@ -11,7 +11,9 @@ METH-29 also rejects a post-hoc balanced coarse router index on real
 E128 inputs: 32/64 candidates recover only 62.48%/85.85% of exact
 top-4 IDs. METH-30's learned gate on those frozen groups raises
 64-candidate recall to 91.61% but also fails the 99.9% gate; a
-jointly learned hierarchy or different index is needed.
+jointly learned hierarchy or different index was needed. METH-35/36
+now provide a fidelity-passing reduced-rank index at E128, with
+route-replaced quality and CPU cost still unmeasured.
 METH-31 measures the existing CPU LUT kernel in the Qwen rank-8
 shape with synthetic packed factors: E1280→E12800 raises the
 six-thread selected path only 1.136× to 0.505 ms/token. That
@@ -29,6 +31,11 @@ METH-34 stores both factors as 15-level LUT indices and lowers the
 reused-document BPB penalty to +0.000069, but top-1 agreement is
 98.324% and still fails the fixed 99% gate. Factor-code tuning is
 paused while generation repair and bounded large-E routing remain open.
+METH-35 finds a passing fp32 rank-64/64-candidate SVD router
+shortlist on the reused E128 route inputs. METH-36 exports its
+one-byte sketch and passes the same route gate on 24 distinct
+documents (99.939% exact top-4 ID inclusion). Route-replaced
+language quality and CPU time, especially at large E, remain open.
 NES-01 E128 improves BPB but fails greedy generation; NES-02
 finds a dense-router CPU scaling limit; NES-03 int8 shortlist preserves
 tested routes and cuts E1280 router cost. No pretrained-to-native conversion
@@ -285,6 +292,19 @@ METH-25 documents, packed-minus-intact BPB is **+0.000069**, but
 top-1 agreement is **6,041/6,144 = 98.324%**, below its fixed
 99% gate. This weight-only diagnostic does not establish C LUT
 activation fidelity, generation, task retention or native rate.
+[METH-35](METH_35_LOW_RANK_ROUTER_RESULT_20260926.md) replaces
+the failed fixed-group index with a frozen-router SVD sketch.
+The fp32 rank-64/64-candidate arm includes **99.929%** of exact
+top-4 IDs on the reused METH-27 inputs and passes its route gate;
+five cheaper fixed arms fail. At E128, the passing arm uses
+1.071× exhaustive float multiplies, so no CPU gain follows.
+[METH-36](METH_36_INT8_SKETCH_RESULT_20260926.md) saves a
+5.720 MB rank-64 int8 sketch and tests 24 different METH-17
+documents. It includes **589,466/589,824 = 99.939%** of exact
+top-4 IDs and matches **99.757%** of complete sets, passing all
+fixed route gates. Replacing routes in the actual model and
+measuring CPU traffic/time remain required. At E273,547, the
+one-byte sketch alone would address 420.17 MB/token.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -332,6 +352,8 @@ SSM/SWA target and passes joint quality/rate.
 | METH-32 | REAL TRAINED TERNARY FACTOR TOP-1 GATE FAIL | [result](METH_32_TERNARY_FACTOR_RESULT_20260926.md), [protocol](METH_32_TERNARY_FACTOR_PROTOCOL_20260926.md), [export ledger](meth32_ternary_factor_export.json), [quality audit](meth32_ternary_factor_audit.json), [exporter](../../../benchmarks/donor_adaptation/s1/meth32_export_ternary_factors.py), [audit runner](../../../benchmarks/donor_adaptation/s1/meth32_ternary_factor_audit.py); no fresh promotion or native rate |
 | METH-33 | A-ONLY/B-ONLY TERNARY TOP-1 GATE FAIL | [result](METH_33_FACTOR_PRECISION_ABLATION_RESULT_20260926.md), [protocol](METH_33_FACTOR_PRECISION_ABLATION_PROTOCOL_20260926.md), [paired audit](meth33_factor_precision_ablation.json), [runner](../../../benchmarks/donor_adaptation/s1/meth33_factor_precision_ablation.py); reused texts, no mixed export or native rate |
 | METH-34 | 15-LEVEL LUT FACTOR TOP-1 GATE FAIL | [result](METH_34_I4_LUT_FACTOR_RESULT_20260926.md), [protocol](METH_34_I4_LUT_FACTOR_PROTOCOL_20260926.md), [export ledger](meth34_i4_lut_factor_export.json), [paired audit](meth34_i4_lut_factor_audit.json), [exporter](../../../benchmarks/donor_adaptation/s1/meth34_export_i4_factors.py), [audit runner](../../../benchmarks/donor_adaptation/s1/meth34_i4_factor_audit.py); reused texts, no activation LUT or native rate |
+| METH-35 | FP32 LOW-RANK E128 ROUTE DIAGNOSTIC PASS AT R64/C64 | [result](METH_35_LOW_RANK_ROUTER_RESULT_20260926.md), [protocol](METH_35_LOW_RANK_ROUTER_PROTOCOL_20260926.md), [route audit](meth35_low_rank_router_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth35_low_rank_router.py); reused prompts, no CPU speed or route-replaced quality |
+| METH-36 | STORED INT8 E128 ROUTE GATE PASS ON DISJOINT INPUTS | [result](METH_36_INT8_SKETCH_RESULT_20260926.md), [protocol](METH_36_INT8_SKETCH_PROTOCOL_20260926.md), [prompt manifest](meth36_route_prompt_manifest.json), [export ledger](meth36_int8_sketch_export.json), [route audit](meth36_int8_sketch_audit.json), [exporter](../../../benchmarks/donor_adaptation/s1/meth36_export_int8_sketch.py), [audit runner](../../../benchmarks/donor_adaptation/s1/meth36_int8_sketch_audit.py); route replacement and C CPU time open |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -383,6 +405,13 @@ scheduled.
   15-level codes improve top-1 agreement to 98.324% and keep
   reused-document BPB nearly flat, but still fail the 99% gate.
   No quality-valid LUT export or actual-factor C rate exists.
+  METH-35/36 establish an alternative frozen-router shortlist:
+  rank-64 SVD plus 64 exact candidates passes a reused route
+  diagnostic, and its stored int8 sketch passes on disjoint
+  METH-17 documents. This is an E128 route-recall result only.
+  A one-byte E273,547 sketch still projects 420.17 MB/token,
+  so CPU time and larger-E fidelity may bind even without
+  scanning full D896 rows.
 - **Next quality design:** METH-27 disproves generation readiness for
   this exact R8 composition despite METH-25/28 loss and task passes.
   Diagnose the added technical loops and high code/prose repetition;
@@ -398,11 +427,13 @@ scheduled.
   tok/s and split core/router/expert timing and traffic. The separate
   `donor_engine.c` Qwen implementation is a fidelity reference, not
   this joint-quality/rate result. In parallel, test a **jointly trained**
-  hierarchy on distinct experts, or an independently
-  structured bounded index against the frozen E128 fine route on
-  held-out inputs; METH-29/30's post-hoc group rules fail. If route
-  recall passes, implement bounded lookup in C and measure its time
-  across a 10× E ladder. Pause factor-code tuning on the reused
+  hierarchy on distinct experts, while advancing METH-36's
+  fidelity-passing E128 int8 shortlist through a route-replaced
+  quality audit. Implement its exact index in C and measure split
+  projection/sketch/rescore cost across a 10× E ladder before
+  claiming scalable CPU routing. METH-29/30's fixed-group rules
+  failed; METH-36's scan is lower dimensional but still linear in E.
+  Pause factor-code tuning on the reused
   texts after METH-32/33/34's prospective ranking failures; revisit
   an exact packed export once the parent candidate passes fresh
   generation and a bounded route meets fidelity. Then verify any
