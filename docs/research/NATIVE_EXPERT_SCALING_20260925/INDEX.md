@@ -1,13 +1,14 @@
 # Native expert scaling: research control index
 
 **Date:** 26 September 2026. **Branch:** `research/native-expert-scaling`.
-**Status:** METH-17 rejects the full-amplitude trained Qwen0.5B E128
-residual bank on separate documents. METH-18 isolates excessive
-residual amplitude; the fixed factor-0.50 candidate passes METH-19's
-independent document gate (−0.000737 pooled BPB, +0.005567 code),
-but 23/24 code documents still worsen. The exact half-amplitude
-adapter is exported; useful generation, a low-bit shared core,
-native C quality/rate and large-E scaling remain open. NES-01 E128 improves BPB but fails greedy generation; NES-02
+**Status:** the exported Qwen0.5B E128 factor-0.50 adapter passes a
+separate-document gate (METH-19, −0.000737 BPB), relative generation
+screen (METH-20, 16/24 loops versus donor 17/24), and full PIQA
+task-retention gate (METH-21, −0.653 accuracy points). Code still
+worsens on 23/24 documents and absolute generation loops often.
+METH-22 prices a one-byte body plus fp32 tied head at 919 MB/token,
+above the 20 ms streaming budget at 40 GB/s. A quality-valid compact
+core, native C parity/rate and large-E scaling remain open. NES-01 E128 improves BPB but fails greedy generation; NES-02
 finds a dense-router CPU scaling limit; NES-03 int8 shortlist preserves
 tested routes and cuts E1280 router cost. No pretrained-to-native conversion
 has passed joint quality and rate. METH-06 passed source-ID calibration
@@ -178,6 +179,21 @@ However **23/24 new code documents** still worsen. The bound
 half-amplitude adapter has SHA-256
 `3147b2cf4fd3af671d5bf6c6451829ec32acfadaca2a0272be0b123e3873e1ca`;
 it is not a compact core or native model.
+[METH-20](METH_20_HALF_ADAPTER_GENERATION_RESULT_20260926.md)
+loads that exact adapter and passes relative loop nonregression on
+24 deterministic prompts, **16/24** versus donor **17/24**; both
+absolute rates are poor, with adapter code **7/8**. [METH-21](METH_21_HALF_ADAPTER_PIQA_RESULT_20260926.md)
+scores all **1,838** labelled PIQA items: adapter/donor accuracy
+**69.967%/70.620%**, paired delta **−0.653 points**, lower CI95
+**−1.360 points**, passing its frozen task-retention gate. These
+support one task-specific relative claim, not useful open generation.
+[METH-22](METH_22_QWEN05B_ACTIVE_LEDGER_RESULT_20260926.md)
+counts **919.166 MB/token** for an ideal one-byte FFN/attention body
+with the existing fp32 tied head and this fp32 adapter. At 40 GB/s,
+the conditional streaming estimate is **22.979 ms/token** before
+all other work. A one-byte head/body estimate is 510.762 MB/token,
+but its quality and native rate are untested. Head precision is a
+necessary next conversion variable under this bandwidth design.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -210,6 +226,9 @@ SSM/SWA target and passes joint quality/rate.
 | METH-17 | FRESH-DOCUMENT POINT GATE FAIL; +0.013215 BPB, code +0.029126 | [result](METH_17_FRESH_DOCUMENT_TRANSFER_RESULT_20260926.md), [frozen protocol](METH_17_FRESH_DOCUMENT_TRANSFER_PROTOCOL_20260926.md), [selection manifest](meth17_fresh_document_manifest.json), [paired document result](meth17_fresh_document_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth17_fresh_transfer_audit.py); no native export |
 | METH-18 | DIAGNOSTIC: RESIDUAL AMPLITUDE DRIVES CODE LOSS | [result](METH_18_RESIDUAL_SCALE_ROUTE_DIAGNOSTIC_RESULT_20260926.md), [frozen protocol](METH_18_RESIDUAL_SCALE_ROUTE_DIAGNOSTIC_PROTOCOL_20260926.md), [machine result](meth18_residual_scale_route_diagnostic.json), [runner](../../../benchmarks/donor_adaptation/s1/meth18_residual_scale_route_diagnostic.py); reused METH-17 documents, no promotion |
 | METH-19 | INDEPENDENT HALF-AMPLITUDE DOCUMENT GATE PASS; −0.000737 BPB | [result](METH_19_HALF_RESIDUAL_INDEPENDENT_RESULT_20260926.md), [frozen protocol](METH_19_HALF_RESIDUAL_INDEPENDENT_PROTOCOL_20260926.md), [selection manifest](meth19_half_residual_independent_manifest.json), [paired result](meth19_half_residual_independent_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth19_half_residual_independent_audit.py), [adapter exporter](../../../benchmarks/donor_adaptation/s1/meth19_export_half_adapter.py); generation, tasks and C rate open |
+| METH-20 | EXPORTED ADAPTER RELATIVE GENERATION PASS; ABSOLUTE LOOPS HIGH | [result](METH_20_HALF_ADAPTER_GENERATION_RESULT_20260926.md), [frozen protocol](METH_20_HALF_ADAPTER_GENERATION_PROTOCOL_20260926.md), [prompt manifest](meth20_half_adapter_generation_manifest.json), [paired generations](meth20_half_adapter_generation_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth20_half_adapter_generation.py) |
+| METH-21 | FULL PIQA TASK-RETENTION PASS; −0.653 ACCURACY POINTS | [result](METH_21_HALF_ADAPTER_PIQA_RESULT_20260926.md), [frozen protocol](METH_21_HALF_ADAPTER_PIQA_PROTOCOL_20260926.md), [token manifest](meth21_half_adapter_piqa_manifest.json), [all paired outcomes](meth21_half_adapter_piqa_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth21_half_adapter_piqa.py) |
+| METH-22 | EXACT ACTIVE-BYTE PREFLIGHT; FP32 TIED HEAD BINDS ONE-BYTE BODY | [result](METH_22_QWEN05B_ACTIVE_LEDGER_RESULT_20260926.md), [protocol](METH_22_QWEN05B_ACTIVE_LEDGER_PROTOCOL_20260926.md), [ledger](meth22_qwen05b_active_ledger.json), [tool](../../../benchmarks/donor_adaptation/s1/meth22_qwen05b_active_ledger.py); arithmetic, no native rate or low-bit quality |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -237,6 +256,9 @@ scheduled.
   delta fails, uniformly on the selected code documents.
   METH-18/19 establish a fixed half-amplitude adapter that passes a
   second, disjoint document gate but still harms 23/24 code documents.
+  METH-20 passes relative loop nonregression but the adapter still
+  loops on 16/24 continuations. METH-21 passes full PIQA relative
+  retention; its −0.653-point delta is not an improvement claim.
   The old donor parity queue is not an
   automatic next step.
 - **CPU design state:** NES-03 established a 32-candidate int8 path on this
@@ -246,21 +268,21 @@ scheduled.
   exhaustive int8 router address 825.75 MB/token, already >20 ms at
   40 GB/s, so larger RAM alone cannot preserve throughput. Do not spend
   the next cell only tuning this pilot router.
-- **Next quality design:** choose one changed variable to address E128 greedy
-  loops (for example exposure or route training), estimate local training cost
-  and freeze BPB, repetition and routing gates before a new run. Do not
-  automatically extend E256 on the BPB gain alone.
-- **Next exact action: pretrained transfer.** METH-19's fixed factor-0.50
-  adapter passes a second document gate and is exported as a 187 MB
-  safetensors artifact. Measure donor-relative generation and pertinent
-  tasks on held-out prompts with that exact artifact. The small but
-  near-uniform code regression remains a research target; do not tune
-  on either METH-17 or METH-19 audit texts. Then seek a
-  quality-preserving low-bit donor core and export the **same adapter**
-  to C with logit parity, accepted-token rate and real router/LUT cost.
-  The old Qwen donor C
-  path's one-byte rate belongs to another artifact and cannot be
-  combined with METH-16's quality result.
+- **Next quality design:** the absolute E128 free-generation loops and
+  near-uniform code loss remain. Test a changed training/gating variable
+  only on data separate from METH-17/19/20/21, with new prospective
+  BPB, repetition and task gates. Do not extend E256 on a BPB gain alone.
+- **Next exact action: pretrained transfer.** METH-22 shows why a
+  one-byte FFN/attention body with the existing fp32 tied head misses
+  the 20 ms streaming budget even before compute. Isolate a compressed
+  tied-head representation (and body precision), check donor-relative
+  quality on bound development data, then retest the **composition**
+  with the same half-amplitude adapter on independent material.
+  A quality-valid compact candidate can be exported into
+  `benchmarks/phase60/engine.c` with logit parity and accepted-token
+  rate. The separate `donor_engine.c` Qwen implementation is a fidelity
+  reference, not a joint-quality/rate artifact. Do not combine its old
+  one-byte rate with METH-19/21 quality.
   For 10B/100B, grow **distinct trained** expert capacity and measure
   quality while E rises about 10× with RAM. METH-16's rank-8 E128 bank
   is only 44M factors; at rank128/E17,000 a dense fp32 router alone

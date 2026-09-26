@@ -1,0 +1,119 @@
+{
+  "experiment": "METH-22",
+  "model": "Qwen/Qwen2.5-0.5B",
+  "model_revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+  "model_sha256": "88c142557820ccad55bb59756bfcfcf891de9cc6202816bd346445188a0ed342",
+  "adapter_sha256": "3147b2cf4fd3af671d5bf6c6451829ec32acfadaca2a0272be0b123e3873e1ca",
+  "shape": {
+    "hidden": 896,
+    "intermediate": 4864,
+    "layers": 24,
+    "vocab": 151936,
+    "tied_head": true
+  },
+  "organ_parameters": {
+    "tied_head_embed": 136134656,
+    "ffn_matrix": 313786368,
+    "attention_matrix": 44040192,
+    "control_vector": 71552
+  },
+  "organ_tensors": {
+    "tied_head_embed": 1,
+    "ffn_matrix": 72,
+    "attention_matrix": 96,
+    "control_vector": 121
+  },
+  "total_donor_parameters": 494032768,
+  "adapter": {
+    "router": 11010048,
+    "selected_factors": 5505024,
+    "E": 128,
+    "K": 4,
+    "rank": 8,
+    "layers": 24,
+    "stored_fp32_factor_parameters": 44040192,
+    "stored_fp32_router_parameters": 2752512
+  },
+  "assumptions": {
+    "bandwidth_bytes_per_second": 40000000000,
+    "design_bytes_per_token": 560000000,
+    "target_ms_per_token": 20.0,
+    "format_overheads_omitted": true,
+    "latency_and_DRAM_traffic_measured": false
+  },
+  "scenarios": {
+    "bf16_core_fp32_adapter": {
+      "head_bytes": 272269312,
+      "ffn_bytes": 627572736,
+      "attention_bytes": 88080384,
+      "control_bytes": 286208,
+      "adapter_router_bytes": 11010048,
+      "adapter_selected_factor_bytes": 5505024,
+      "active_bytes_per_token_lower_bound": 1004723712,
+      "floor_ms_at_40GBps": 25.1180928,
+      "under_20ms_payload_only": false,
+      "under_560MB_design_payload": false
+    },
+    "fp32_core_fp32_adapter": {
+      "head_bytes": 544538624,
+      "ffn_bytes": 1255145472,
+      "attention_bytes": 176160768,
+      "control_bytes": 286208,
+      "adapter_router_bytes": 11010048,
+      "adapter_selected_factor_bytes": 5505024,
+      "active_bytes_per_token_lower_bound": 1992646144,
+      "floor_ms_at_40GBps": 49.8161536,
+      "under_20ms_payload_only": false,
+      "under_560MB_design_payload": false
+    },
+    "ideal_one_byte_body_fp32_tied_head": {
+      "head_bytes": 544538624,
+      "ffn_bytes": 313786368,
+      "attention_bytes": 44040192,
+      "control_bytes": 286208,
+      "adapter_router_bytes": 11010048,
+      "adapter_selected_factor_bytes": 5505024,
+      "active_bytes_per_token_lower_bound": 919166464,
+      "floor_ms_at_40GBps": 22.979161599999998,
+      "under_20ms_payload_only": false,
+      "under_560MB_design_payload": false
+    },
+    "ideal_half_byte_body_fp32_tied_head": {
+      "head_bytes": 544538624,
+      "ffn_bytes": 156893184,
+      "attention_bytes": 22020096,
+      "control_bytes": 286208,
+      "adapter_router_bytes": 11010048,
+      "adapter_selected_factor_bytes": 5505024,
+      "active_bytes_per_token_lower_bound": 740253184,
+      "floor_ms_at_40GBps": 18.5063296,
+      "under_20ms_payload_only": true,
+      "under_560MB_design_payload": false
+    },
+    "ideal_one_byte_all_matrices": {
+      "head_bytes": 136134656,
+      "ffn_bytes": 313786368,
+      "attention_bytes": 44040192,
+      "control_bytes": 286208,
+      "adapter_router_bytes": 11010048,
+      "adapter_selected_factor_bytes": 5505024,
+      "active_bytes_per_token_lower_bound": 510762496,
+      "floor_ms_at_40GBps": 12.7690624,
+      "under_20ms_payload_only": true,
+      "under_560MB_design_payload": true
+    },
+    "ideal_half_byte_head_one_byte_body": {
+      "head_bytes": 68067328,
+      "ffn_bytes": 313786368,
+      "attention_bytes": 44040192,
+      "control_bytes": 286208,
+      "adapter_router_bytes": 11010048,
+      "adapter_selected_factor_bytes": 5505024,
+      "active_bytes_per_token_lower_bound": 442695168,
+      "floor_ms_at_40GBps": 11.0673792,
+      "under_20ms_payload_only": true,
+      "under_560MB_design_payload": true
+    }
+  },
+  "decision": "one_byte_body_fp32_head_exceeds_20ms_at_40GBps_streaming"
+}

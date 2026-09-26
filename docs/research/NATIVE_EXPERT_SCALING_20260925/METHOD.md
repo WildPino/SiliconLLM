@@ -94,11 +94,11 @@ rate results.
 | Stage | Operation and implementation | Type | Current evidence / gap |
 |---|---|---|---|
 | A. Bind | Verify source revision, shard/tensor identity, tokenizer IDs and reference runtime; GigaChat `strat01_gigachat_source_binding.py` and saved reports | Exact identity check | GigaChat base source↔BF16 GGUF tensor bytes bound. Text→ID tokenizer parity in `engine.c` remains open. Qwen revision is pinned, but a new run must bind its exact local weight hash. |
-| B. Establish donor | Score fresh held-out documents, task and greedy rollouts with the intact source and candidate under identical token IDs | Measurement | GigaChat Q4 versus BF16 passes scoped quality gates. Qwen intact anchor and limited-layer arms exist on a small frozen slice; a final fresh split is missing. |
-| C. Decompose | List core/mixer/head/router/shared/routed tensors; calculate active and stored bytes, per-token selected experts and expected training exposure | Exact shape arithmetic plus measured kernel anchors | [METH-00](METH_00_GIGACHAT_COST_PREFLIGHT_20260925.md) gives an ideal W4 preflight; [METH-01](METH_01_GIGACHAT_Q4_ACTIVE_LEDGER_20260925.md) prices local GigaChat mixed-GGUF and [METH-03](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md) the official Granite header. [NES-02](NES_02_CPU_EXPERT_COUNT_STRESS_20260925.md) measures a synthetic 10× native expert-count stress and prices dense routing at 10B/100B; it is no quality result. Cache residency and effective expert throughput are not assumed. |
+| B. Establish donor | Score fresh held-out documents, task and greedy rollouts with the intact source and candidate under identical token IDs | Measurement | GigaChat Q4 versus BF16 passes scoped quality gates. Qwen0.5B donor and factor-0.50 adapter are paired on [METH-19](METH_19_HALF_RESIDUAL_INDEPENDENT_RESULT_20260926.md) separate documents and [METH-21](METH_21_HALF_ADAPTER_PIQA_RESULT_20260926.md) all 1,838 PIQA rows; [METH-20](METH_20_HALF_ADAPTER_GENERATION_RESULT_20260926.md) records high absolute free-generation repetition in both arms. These do not prove broad task or code usefulness. |
+| C. Decompose | List core/mixer/head/router/shared/routed tensors; calculate active and stored bytes, per-token selected experts and expected training exposure | Exact shape arithmetic plus measured kernel anchors | [METH-00/01/03](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md) price sparse-donor organs. [METH-22](METH_22_QWEN05B_ACTIVE_LEDGER_RESULT_20260926.md) counts actual Qwen0.5B organs: ideal one-byte body plus fp32 tied head and E128 adapter still addresses 919.166 MB/token, 22.979 ms at 40 GB/s before compute; head precision must change under that design. [NES-02](NES_02_CPU_EXPERT_COUNT_STRESS_20260925.md) measures synthetic 10× native expert-count stress and prices dense routing at 10B/100B; it is no learned-quality result. Cache residency and throughput are not assumed. |
 | D1. Sparse-source variant | Preserve donor structure initially, then apply an organ-selective low-bit representation from BF16, with source BF16/Q4 paired controls; adapt or change structure only if step-zero quality/cost requires it | **Measured approximation failure; new design open** | GigaChat Q4 retains quality but charges 1,016 MB/token. [METH-04](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md) supplied a 414-tensor type map at 534.025 MB/token. [METH-05/06](METH_06_CYRILLIC_ROUTE_RESULT_20260926.md) repaired rare expert calibration and made an actual 534.025 MB/token GGUF, but it lost +0.239465 BPB. [METH-07](METH_07_ORGAN_PRECISION_ABLATION_RESULT_20260926.md) identified expert sensitivity; [METH-08](METH_08_Q2_REALLOCATION_RESULT_20260926.md) passed the active-byte gate at 533.140 MB/token but lost +0.275153 BPB; [METH-09](METH_09_Q2_EXPERT_ISOLATION_RESULT_20260926.md) found only a 0.023740 BPB benefit from Q2_K experts before the harmful head/dense payment. No quality-valid compact donor or C rate exists. |
 | D2. Dense-source hard carve | Route a sparse subset of pretrained FFN channels, with an optional compact shared approximation | **Post-hoc full-layer geometries rejected** | H1 S3 improves an eight-layer trained carve but remains +0.155895 BPB behind donor. [METH-11](METH_11_SHARED_RESIDUAL_RESULT_20260926.md) kept 25% of Qwen FFN groups shared and routed 16 of 192 residual groups: +0.706052 BPB. [METH-12](METH_12_FITTED_SHARED_RESULT_20260926.md) fitted a rank-256 shared residual and routed 16/256 groups: local SSE improved 5.23%, but full pilot lost +0.943873 BPB. [METH-13/14](METH_14_QWEN05B_ORACLE_ROUTE_RESULT_20260926.md) show Qwen0.5B E128/top-32 remains +0.775726 BPB behind donor even with a non-deployable local-mass oracle. H4/H2I and STRAT-03 also fail in their scopes. |
-| D3. Exact-core residual upcycle | Freeze the pretrained donor as shared core; add zero-output conditional residual experts; jointly train their factors and router; bound their output scale before a quality-preserving low-bit core | **Half-amplitude document gate pass; generation and active-cost gates open** | [METH-15/16](METH_16_RESIDUAL_EXPERT_CONTINUATION_RESULT_20260926.md) train an E128 bank that improves internal BPB. [METH-17](METH_17_FRESH_DOCUMENT_TRANSFER_RESULT_20260926.md) rejects full amplitude on separate documents. [METH-18](METH_18_RESIDUAL_SCALE_ROUTE_DIAGNOSTIC_RESULT_20260926.md) identifies amplitude sensitivity; [METH-19](METH_19_HALF_RESIDUAL_INDEPENDENT_RESULT_20260926.md) fixes factor 0.50 before a new document audit and passes its joint gate at −0.000737 pooled BPB, with code +0.005567 and 23/24 code documents still worse. The bound 187 MB adapter is local; no compact core or native rate exists. |
+| D3. Exact-core residual upcycle | Freeze the pretrained donor as shared core; add zero-output conditional residual experts; jointly train their factors and router; bound their output scale before a quality-preserving low-bit core | **Document/PIQA relative gates pass; useful generation and active-cost gates open** | [METH-15/16](METH_16_RESIDUAL_EXPERT_CONTINUATION_RESULT_20260926.md) train E128. [METH-17/18](METH_18_RESIDUAL_SCALE_ROUTE_DIAGNOSTIC_RESULT_20260926.md) reject full amplitude and identify amplitude sensitivity. [METH-19](METH_19_HALF_RESIDUAL_INDEPENDENT_RESULT_20260926.md) fixes factor 0.50 before a new document audit, passing at −0.000737 pooled BPB, with code +0.005567 and 23/24 code documents worse. The exported 187 MB adapter passes [METH-20](METH_20_HALF_ADAPTER_GENERATION_RESULT_20260926.md) relative repetition and [METH-21](METH_21_HALF_ADAPTER_PIQA_RESULT_20260926.md) PIQA retention; 16/24 generated outputs still loop. The dense donor, fp32 tied head and exhaustive router cannot yet meet native-rate evidence. |
 | E. Export | Emit versioned C weights/metadata, tokenizer, precision map and golden intermediate/logit traces; run the exact timed C path | Exact serialization plus approximate kernels | Native E32 export/parity exists. GigaChat C fidelity is partial. No converted pretrained conditional target has completed this stage. |
 | F. Validate | Paired donor→target held-out BPB with uncertainty, generation/task checks, routing utility, RAM/bytes/latency breakdown and ≥50 accepted tok/s on the same exported target | Measurement | **Open for every converted target.** Pilot/synthetic rate, scalar BPB, and partial port parity cannot be combined into a pass. |
 
@@ -147,6 +147,19 @@ and +0.007235 pooled trained-route utility. The adapter-only
 the route still scans all 128 rows. Most code documents still worsen,
 and no useful generation/task or C-rate evidence follows from this
 document result.
+[METH-20/21](METH_21_HALF_ADAPTER_PIQA_RESULT_20260926.md) test the
+exported adapter itself. Relative triple-8gram repetition passes
+against donor (16/24 versus 17/24), but the absolute 16/24 and
+code 7/8 loop rates leave useful free generation unproven. The full
+1,838-item PIQA test retains donor accuracy within its prospective
+gate (69.967% versus 70.620%, paired −0.653 points; lower CI95
+−1.360 points). That is one task-specific relative result, not
+broad capability transfer. [METH-22](METH_22_QWEN05B_ACTIVE_LEDGER_RESULT_20260926.md)
+prices the full donor core: one-byte FFN/attention matrices with
+the existing fp32 tied head and adapter still address 919.166
+MB/token, or 22.979 ms at a 40 GB/s streaming yardstick before
+compute. A compressed head and body must retain these quality
+properties in composition before the C rate gate can be attempted.
 
 Transformations must record a quality/cost delta at each switch **and** after
 composition. The tested H5 failure shows why independent passes cannot be
@@ -238,12 +251,15 @@ The Qwen0.5B hard E128/top-32 carve fails. METH-15/16's additive
 residual architecture passes its internal joint-training gate, but
 METH-17 rejects its full-amplitude adapter on separate documents.
 METH-19's bound half-amplitude adapter passes a new document gate,
-while most code documents still worsen slightly. The next decision is
-whether this exact adapter retains donor-relative generation/task
-quality; an additional domain-preserving repair must use data outside
-both document audits. A candidate that clears those quality checks
-can proceed to low-bit core conversion and native C parity/accepted-token
-timing. Independently,
+while most code documents still worsen slightly. METH-20 passes a
+relative repetition screen but exposes poor absolute generation;
+METH-21 passes one full PIQA relative-retention gate. METH-22 now
+identifies tied-head precision as a cost-binding conversion variable.
+The next decision is whether a compressed head/body retains the
+METH-19/21 quality when combined with this exact adapter. A
+domain-preserving repair must use data outside both document audits.
+Only a quality-valid compact composition should proceed to native
+C parity and accepted-token timing. Independently,
 more stored expert capacity requires
 distinct trained E expansion and sublinear CPU routing, not a copied
 bank or an exhaustive score of all expert rows.
