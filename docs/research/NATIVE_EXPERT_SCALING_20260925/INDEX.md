@@ -2,9 +2,11 @@
 
 **Date:** 26 September 2026. **Branch:** `research/native-expert-scaling`.
 **Status:** METH-16 pretrained Qwen0.5B plus jointly trained E128
-residual experts passes an internal donor-relative quality/router/generation
-nonregression gate. Native export, fresh quality, low-bit core and large-E
-scaling remain open. NES-01 E128 improves BPB but fails greedy generation; NES-02
+residual experts passes an internal development gate, but METH-17's
+separate documents lose +0.013215 BPB against donor and fail the
+frozen +0.01 point limit, with all 24 code documents worse. Native
+export of that exact checkpoint is stopped pending a quality repair.
+Low-bit core, C rate and large-E scaling remain open. NES-01 E128 improves BPB but fails greedy generation; NES-02
 finds a dense-router CPU scaling limit; NES-03 int8 shortlist preserves
 tested routes and cuts E1280 router cost. No pretrained-to-native conversion
 has passed joint quality and rate. METH-06 passed source-ID calibration
@@ -152,6 +154,15 @@ the trained route beats a row-permuted null by **0.042131 BPB**, all
 **11/16 versus donor 12/16**. The frozen development gate passes, but
 both arms loop often and the heldout windows share a previously used
 corpus. The donor core stays dense and no native C/50 tok/s result exists.
+[METH-17](METH_17_FRESH_DOCUMENT_TRANSFER_RESULT_20260926.md) used
+60 selected documents whose tested fragments were absent from the Qwen
+calibration and prior heldout corpora. The same METH-16 checkpoint
+scores **0.955405 versus donor 0.942190 BPB** (+0.013215); its
+stratified one-sided CI95 upper is +0.015317. The upper bound passes
++0.02, but the mandatory point limit +0.01 fails. Code loses
+**+0.029126 BPB, 24/24 documents worse**. Prose and technical changes
+are small. The development gain did not generalize across these
+documents, so the checkpoint is not ready for native export.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -181,6 +192,7 @@ SSM/SWA target and passes joint quality/rate.
 | METH-14 | LOCAL-MASS ORACLE IMPROVES ROUTE, QUALITY STILL FAILS; +0.775726 BPB | [result](METH_14_QWEN05B_ORACLE_ROUTE_RESULT_20260926.md), [frozen diagnostic](METH_14_QWEN05B_ORACLE_ROUTE_PROTOCOL_20260926.md), [machine comparison](meth14_qwen05b_oracle_route.json), [executable](../../../benchmarks/donor_adaptation/s1/meth14_qwen05b_oracle_route.py); non-deployable route, no native speed result |
 | METH-15 | RTX 3060 EXACT-DONOR E128 RESIDUAL APPARATUS PASS; wrong-GPU run invalid | [result](METH_15_ZERO_RESIDUAL_EXPERT_SMOKE_RESULT_20260926.md), [protocol](METH_15_ZERO_RESIDUAL_EXPERT_SMOKE_PROTOCOL_20260926.md), [RTX 3060 machine record](meth15_zero_residual_expert_smoke_rtx3060.json), [wrong-GPU record](meth15_zero_residual_expert_smoke.json), [runner](../../../benchmarks/donor_adaptation/s1/meth15_zero_residual_expert_smoke.py) |
 | METH-16 | TRAINED RESIDUAL E128 DEVELOPMENT GATE PASS; −0.016383 BPB | [result](METH_16_RESIDUAL_EXPERT_CONTINUATION_RESULT_20260926.md), [protocol](METH_16_RESIDUAL_EXPERT_CONTINUATION_PROTOCOL_20260926.md), [machine training/generation](meth16_residual_expert_continuation.json), [runner](../../../benchmarks/donor_adaptation/s1/meth16_residual_expert_continuation.py); no fresh documents or native C rate |
+| METH-17 | FRESH-DOCUMENT POINT GATE FAIL; +0.013215 BPB, code +0.029126 | [result](METH_17_FRESH_DOCUMENT_TRANSFER_RESULT_20260926.md), [frozen protocol](METH_17_FRESH_DOCUMENT_TRANSFER_PROTOCOL_20260926.md), [selection manifest](meth17_fresh_document_manifest.json), [paired document result](meth17_fresh_document_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth17_fresh_transfer_audit.py); no native export |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -204,6 +216,8 @@ scheduled.
   +0.775726, so the frozen local-mass route-only remedy fails.
   METH-15/16 show that a changed additive residual-expert geometry can
   start exactly at donor and improve its internal BPB after joint training.
+  METH-17 shows that this checkpoint's pooled fresh-document point
+  delta fails, uniformly on the selected code documents.
   The old donor parity queue is not an
   automatic next step.
 - **CPU design state:** NES-03 established a 32-candidate int8 path on this
@@ -217,14 +231,16 @@ scheduled.
   loops (for example exposure or route training), estimate local training cost
   and freeze BPB, repetition and routing gates before a new run. Do not
   automatically extend E256 on the BPB gain alone.
-- **Next exact action: pretrained transfer.** METH-16 supplies a complete
-  24-layer trained residual-expert checkpoint over Qwen0.5B. First bind
-  genuinely fresh documents and relevant tasks/generation before relying
-  on its internal gain. Then design and test a quality-preserving low-bit
-  donor core and export the **same trained adapter** into native C with
-  logit parity, accepted-token rate and real router/LUT cost. The old
-  Qwen donor C path keeps a tied fp32 head; its one-byte rate belongs to
-  another artifact and cannot be combined with this quality result.
+- **Next exact action: pretrained transfer.** METH-17 rejects promotion
+  of the METH-16 checkpoint despite its internal win. Diagnose why
+  its residuals harm all 24 independent code documents, then freeze a
+  donor-preserving training or gating repair using data separate from
+  METH-17. Validate the repaired artifact on another disjoint corpus
+  before native export. Only then test a quality-preserving low-bit
+  donor core and the **same trained adapter** in C with logit parity,
+  accepted-token rate and real router/LUT cost. The old Qwen donor C
+  path's one-byte rate belongs to another artifact and cannot be
+  combined with METH-16's quality result.
   For 10B/100B, grow **distinct trained** expert capacity and measure
   quality while E rises about 10× with RAM. METH-16's rank-8 E128 bank
   is only 44M factors; at rank128/E17,000 a dense fp32 router alone
