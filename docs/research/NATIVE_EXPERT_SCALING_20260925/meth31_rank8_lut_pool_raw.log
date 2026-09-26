@@ -1,0 +1,32 @@
+METH-31 clang -O3 -mavx2 -mfma -march=znver2 -fopenmp; --kselftest PASS 73024 checks
+METH31 meta E=128 threads=1 pool_bytes=55050240 selected_code_bytes_per_token=1720320 warm=128 timed=512 reps=4 init_seconds=0.009233
+METH31 rep E=128 threads=1 rep=1 seconds=0.129587800 us_token=253.101 selected_gbps=6.797 checksum=909
+METH31 rep E=128 threads=1 rep=2 seconds=0.131340900 us_token=256.525 selected_gbps=6.706 checksum=-938
+METH31 rep E=128 threads=1 rep=3 seconds=0.135092800 us_token=263.853 selected_gbps=6.520 checksum=-2405
+METH31 rep E=128 threads=1 rep=4 seconds=0.133989900 us_token=261.699 selected_gbps=6.574 checksum=-4354
+METH31 meta E=128 threads=6 pool_bytes=55050240 selected_code_bytes_per_token=1720320 warm=128 timed=512 reps=4 init_seconds=0.010031
+METH31 rep E=128 threads=6 rep=1 seconds=0.226725900 us_token=442.824 selected_gbps=3.885 checksum=909
+METH31 rep E=128 threads=6 rep=2 seconds=0.231320100 us_token=451.797 selected_gbps=3.808 checksum=-938
+METH31 rep E=128 threads=6 rep=3 seconds=0.225908200 us_token=441.227 selected_gbps=3.899 checksum=-2405
+METH31 rep E=128 threads=6 rep=4 seconds=0.228531100 us_token=446.350 selected_gbps=3.854 checksum=-4354
+METH31 meta E=1280 threads=1 pool_bytes=550502400 selected_code_bytes_per_token=1720320 warm=128 timed=512 reps=4 init_seconds=0.085373
+METH31 rep E=1280 threads=1 rep=1 seconds=0.145355600 us_token=283.898 selected_gbps=6.060 checksum=1133
+METH31 rep E=1280 threads=1 rep=2 seconds=0.146600300 us_token=286.329 selected_gbps=6.008 checksum=-849
+METH31 rep E=1280 threads=1 rep=3 seconds=0.152486400 us_token=297.825 selected_gbps=5.776 checksum=-2771
+METH31 rep E=1280 threads=1 rep=4 seconds=0.162164200 us_token=316.727 selected_gbps=5.432 checksum=-4296
+METH31 meta E=1280 threads=6 pool_bytes=550502400 selected_code_bytes_per_token=1720320 warm=128 timed=512 reps=4 init_seconds=0.090942
+METH31 rep E=1280 threads=6 rep=1 seconds=0.240999000 us_token=470.701 selected_gbps=3.655 checksum=1133
+METH31 rep E=1280 threads=6 rep=2 seconds=0.225810000 us_token=441.035 selected_gbps=3.901 checksum=-849
+METH31 rep E=1280 threads=6 rep=3 seconds=0.227329000 us_token=444.002 selected_gbps=3.875 checksum=-2771
+METH31 rep E=1280 threads=6 rep=4 seconds=0.240506000 us_token=469.738 selected_gbps=3.662 checksum=-4296
+METH31 meta E=12800 threads=1 pool_bytes=5505024000 selected_code_bytes_per_token=1720320 warm=128 timed=512 reps=4 init_seconds=0.933792
+METH31 rep E=12800 threads=1 rep=1 seconds=0.239471900 us_token=467.719 selected_gbps=3.678 checksum=363
+METH31 rep E=12800 threads=1 rep=2 seconds=0.203605500 us_token=397.667 selected_gbps=4.326 checksum=-821
+METH31 rep E=12800 threads=1 rep=3 seconds=0.178285200 us_token=348.213 selected_gbps=4.940 checksum=-2310
+METH31 rep E=12800 threads=1 rep=4 seconds=0.170615500 us_token=333.233 selected_gbps=5.163 checksum=-4429
+METH31 meta E=12800 threads=6 pool_bytes=5505024000 selected_code_bytes_per_token=1720320 warm=128 timed=512 reps=4 init_seconds=0.951767
+METH31 rep E=12800 threads=6 rep=1 seconds=0.272468900 us_token=532.166 selected_gbps=3.233 checksum=363
+METH31 rep E=12800 threads=6 rep=2 seconds=0.328779800 us_token=642.148 selected_gbps=2.679 checksum=-821
+METH31 rep E=12800 threads=6 rep=3 seconds=0.258341000 us_token=504.572 selected_gbps=3.409 checksum=-2310
+METH31 rep E=12800 threads=6 rep=4 seconds=0.237512800 us_token=463.892 selected_gbps=3.708 checksum=-4429
+METH31 overall_elapsed_seconds=8.0878841

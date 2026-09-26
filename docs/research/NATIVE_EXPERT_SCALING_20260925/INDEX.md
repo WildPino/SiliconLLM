@@ -12,6 +12,11 @@ E128 inputs: 32/64 candidates recover only 62.48%/85.85% of exact
 top-4 IDs. METH-30's learned gate on those frozen groups raises
 64-candidate recall to 91.61% but also fails the 99.9% gate; a
 jointly learned hierarchy or different index is needed.
+METH-31 measures the existing CPU LUT kernel in the Qwen rank-8
+shape with synthetic packed factors: E1280→E12800 raises the
+six-thread selected path only 1.136× to 0.505 ms/token. That
+component passes its cost gate; route cost, factor quality and
+end-to-end rate remain unverified.
 NES-01 E128 improves BPB but fails greedy generation; NES-02
 finds a dense-router CPU scaling limit; NES-03 int8 shortlist preserves
 tested routes and cuts E1280 router cost. No pretrained-to-native conversion
@@ -238,6 +243,14 @@ METH-27/29 prompt set (147,456 input-layer cases); full-set match
 is **71.523%** externally. Both the 32- and 64-candidate arms miss
 the frozen gate. Its 64-candidate arithmetic already exceeds 128
 exhaustive row-dot equivalents at E128, so no C lookup is promoted.
+[METH-31](METH_31_RANK8_LUT_POOL_RESULT_20260926.md) isolates
+the CPU selected-expert LUT path at Qwen L24/D896/rank8/top4
+with synthetic ternary factors and random selected IDs. At E12,800,
+the 5.505 GB pool yields **0.5046 ms/token** on six threads versus
+**0.4440 ms/token** at E1,280; the 10× ratio 1.136× passes the
+fixed 1.25× and 5 ms component gates. Single-thread execution
+is faster in every arm. This is neither a valid packed Qwen model
+nor an end-to-end CPU or route-quality result.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -281,6 +294,7 @@ SSM/SWA target and passes joint quality/rate.
 | METH-28 | STORED-R8 FULL PIQA TASK-RETENTION GATE PASS | [result](METH_28_R8_PIQA_COMPOSITION_RESULT_20260926.md), [protocol](METH_28_R8_PIQA_COMPOSITION_PROTOCOL_20260926.md), [all paired choices](meth28_r8_piqa_composition_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth28_r8_piqa_composition.py) |
 | METH-29 | POST-HOC BALANCED ROUTER INDEX RECALL FAIL | [result](METH_29_BALANCED_ROUTER_INDEX_RESULT_20260926.md), [protocol](METH_29_BALANCED_ROUTER_INDEX_PROTOCOL_20260926.md), [route/group ledger](meth29_balanced_router_index_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth29_balanced_router_index.py); no CPU rate or large-E quality |
 | METH-30 | LEARNED GATE ON FROZEN GROUPS RECALL FAIL | [result](METH_30_LEARNED_COARSE_ROUTER_RESULT_20260926.md), [protocol](METH_30_LEARNED_COARSE_ROUTER_PROTOCOL_20260926.md), [training manifest](meth30_learned_coarse_router_manifest.json), [route counts](meth30_learned_coarse_router_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth30_learned_coarse_router.py); no CPU rate or large-E quality |
+| METH-31 | SYNTHETIC SELECTED LUT 10× POOL COST GATE PASS | [result](METH_31_RANK8_LUT_POOL_RESULT_20260926.md), [protocol](METH_31_RANK8_LUT_POOL_PROTOCOL_20260926.md), [raw log](meth31_rank8_lut_pool_raw.log), [machine summary](meth31_rank8_lut_pool_result.json), [engine mode](../../../benchmarks/phase60/engine.c), [summary parser](../../../benchmarks/native_expert_scaling/summarize_meth31_rank8_lut_pool.py); no packed-factor quality or router cost |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -322,7 +336,9 @@ scheduled.
   learned-gate rules on actual E128 route recall, even at 64/128
   candidates. A jointly trained hierarchy or other index,
   packed-only expert bank, measured CPU router/LUT costs, and learned
-  large-E quality evidence remain open.
+  large-E quality evidence remain open. METH-31 now isolates one CPU
+  LUT selected-path cost at E12,800 and passes that component's 10×
+  pool gate, but uses synthetic codes and excludes the router.
 - **Next quality design:** METH-27 disproves generation readiness for
   this exact R8 composition despite METH-25/28 loss and task passes.
   Diagnose the added technical loops and high code/prose repetition;
@@ -341,9 +357,11 @@ scheduled.
   hierarchy on distinct experts, or an independently
   structured bounded index against the frozen E128 fine route on
   held-out inputs; METH-29/30's post-hoc group rules fail. If route
-  recall passes, implement bounded lookup in C and measure its time and
-  selected-expert LUT cost across a 10× E ladder. Only
-  **distinct trained** expert expansion can validate quality as E
+  recall passes, implement bounded lookup in C and measure its time
+  across a 10× E ladder. Separately test whether the trained rank-8
+  factors retain donor-relative quality after conversion to the
+  packed LUT format used by METH-31, then integrate that exact export.
+  Only **distinct trained** expert expansion can validate quality as E
   grows. No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`

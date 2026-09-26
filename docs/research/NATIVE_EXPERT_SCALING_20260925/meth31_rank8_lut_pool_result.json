@@ -1,0 +1,250 @@
+{
+  "experiment": "METH-31",
+  "source_sha256": "017020eec61e5b65c63e51ae2ff0deea5f5449f1b32d45dc03f2d26f3c8b4231",
+  "binary_sha256": "c3e87c933d71ef81159c28dd202e6b164db54ad421db0720fd2c8c9bc8c14c18",
+  "raw_log_sha256": "25dfe3251799a0561ca1db87b01f33e806ddfb4138e61cb711a534a3b9df7e77",
+  "host": {
+    "processor": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+    "logical_cpus": 12,
+    "physical_cpus": 6,
+    "memory_total_bytes": 85845118976
+  },
+  "median_10x_ratio_threads6": 1.1364183044220522,
+  "selected_path_gate": {
+    "max_ratio": 1.25,
+    "max_us_token": 5000,
+    "pass": true
+  },
+  "decision": "selected_lut_component_gate_pass",
+  "arms": {
+    "128": {
+      "1": {
+        "pool_bytes": 55050240,
+        "selected_code_bytes_per_token": 1720320,
+        "init_seconds": 0.009233,
+        "repetitions": [
+          {
+            "rep": 1,
+            "seconds": 0.1295878,
+            "us_token": 253.101,
+            "selected_gbps": 6.797,
+            "checksum": 909
+          },
+          {
+            "rep": 2,
+            "seconds": 0.1313409,
+            "us_token": 256.525,
+            "selected_gbps": 6.706,
+            "checksum": -938
+          },
+          {
+            "rep": 3,
+            "seconds": 0.1350928,
+            "us_token": 263.853,
+            "selected_gbps": 6.52,
+            "checksum": -2405
+          },
+          {
+            "rep": 4,
+            "seconds": 0.1339899,
+            "us_token": 261.699,
+            "selected_gbps": 6.574,
+            "checksum": -4354
+          }
+        ],
+        "median_last_three_us_token": 261.699,
+        "median_last_three_selected_gbps": 6.574
+      },
+      "6": {
+        "pool_bytes": 55050240,
+        "selected_code_bytes_per_token": 1720320,
+        "init_seconds": 0.010031,
+        "repetitions": [
+          {
+            "rep": 1,
+            "seconds": 0.2267259,
+            "us_token": 442.824,
+            "selected_gbps": 3.885,
+            "checksum": 909
+          },
+          {
+            "rep": 2,
+            "seconds": 0.2313201,
+            "us_token": 451.797,
+            "selected_gbps": 3.808,
+            "checksum": -938
+          },
+          {
+            "rep": 3,
+            "seconds": 0.2259082,
+            "us_token": 441.227,
+            "selected_gbps": 3.899,
+            "checksum": -2405
+          },
+          {
+            "rep": 4,
+            "seconds": 0.2285311,
+            "us_token": 446.35,
+            "selected_gbps": 3.854,
+            "checksum": -4354
+          }
+        ],
+        "median_last_three_us_token": 446.35,
+        "median_last_three_selected_gbps": 3.854
+      }
+    },
+    "1280": {
+      "1": {
+        "pool_bytes": 550502400,
+        "selected_code_bytes_per_token": 1720320,
+        "init_seconds": 0.085373,
+        "repetitions": [
+          {
+            "rep": 1,
+            "seconds": 0.1453556,
+            "us_token": 283.898,
+            "selected_gbps": 6.06,
+            "checksum": 1133
+          },
+          {
+            "rep": 2,
+            "seconds": 0.1466003,
+            "us_token": 286.329,
+            "selected_gbps": 6.008,
+            "checksum": -849
+          },
+          {
+            "rep": 3,
+            "seconds": 0.1524864,
+            "us_token": 297.825,
+            "selected_gbps": 5.776,
+            "checksum": -2771
+          },
+          {
+            "rep": 4,
+            "seconds": 0.1621642,
+            "us_token": 316.727,
+            "selected_gbps": 5.432,
+            "checksum": -4296
+          }
+        ],
+        "median_last_three_us_token": 297.825,
+        "median_last_three_selected_gbps": 5.776
+      },
+      "6": {
+        "pool_bytes": 550502400,
+        "selected_code_bytes_per_token": 1720320,
+        "init_seconds": 0.090942,
+        "repetitions": [
+          {
+            "rep": 1,
+            "seconds": 0.240999,
+            "us_token": 470.701,
+            "selected_gbps": 3.655,
+            "checksum": 1133
+          },
+          {
+            "rep": 2,
+            "seconds": 0.22581,
+            "us_token": 441.035,
+            "selected_gbps": 3.901,
+            "checksum": -849
+          },
+          {
+            "rep": 3,
+            "seconds": 0.227329,
+            "us_token": 444.002,
+            "selected_gbps": 3.875,
+            "checksum": -2771
+          },
+          {
+            "rep": 4,
+            "seconds": 0.240506,
+            "us_token": 469.738,
+            "selected_gbps": 3.662,
+            "checksum": -4296
+          }
+        ],
+        "median_last_three_us_token": 444.002,
+        "median_last_three_selected_gbps": 3.875
+      }
+    },
+    "12800": {
+      "1": {
+        "pool_bytes": 5505024000,
+        "selected_code_bytes_per_token": 1720320,
+        "init_seconds": 0.933792,
+        "repetitions": [
+          {
+            "rep": 1,
+            "seconds": 0.2394719,
+            "us_token": 467.719,
+            "selected_gbps": 3.678,
+            "checksum": 363
+          },
+          {
+            "rep": 2,
+            "seconds": 0.2036055,
+            "us_token": 397.667,
+            "selected_gbps": 4.326,
+            "checksum": -821
+          },
+          {
+            "rep": 3,
+            "seconds": 0.1782852,
+            "us_token": 348.213,
+            "selected_gbps": 4.94,
+            "checksum": -2310
+          },
+          {
+            "rep": 4,
+            "seconds": 0.1706155,
+            "us_token": 333.233,
+            "selected_gbps": 5.163,
+            "checksum": -4429
+          }
+        ],
+        "median_last_three_us_token": 348.213,
+        "median_last_three_selected_gbps": 4.94
+      },
+      "6": {
+        "pool_bytes": 5505024000,
+        "selected_code_bytes_per_token": 1720320,
+        "init_seconds": 0.951767,
+        "repetitions": [
+          {
+            "rep": 1,
+            "seconds": 0.2724689,
+            "us_token": 532.166,
+            "selected_gbps": 3.233,
+            "checksum": 363
+          },
+          {
+            "rep": 2,
+            "seconds": 0.3287798,
+            "us_token": 642.148,
+            "selected_gbps": 2.679,
+            "checksum": -821
+          },
+          {
+            "rep": 3,
+            "seconds": 0.258341,
+            "us_token": 504.572,
+            "selected_gbps": 3.409,
+            "checksum": -2310
+          },
+          {
+            "rep": 4,
+            "seconds": 0.2375128,
+            "us_token": 463.892,
+            "selected_gbps": 3.708,
+            "checksum": -4429
+          }
+        ],
+        "median_last_three_us_token": 504.572,
+        "median_last_three_selected_gbps": 3.409
+      }
+    }
+  },
+  "scope": "synthetic ternary LUT selected path only; no router, donor quality, or accepted-token measurement"
+}

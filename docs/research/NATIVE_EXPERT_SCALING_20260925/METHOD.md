@@ -297,6 +297,18 @@ prospective 99.9%/99% route gate, and the 64-candidate pilot already
 costs about 129.14 D896 row-dot equivalents versus 128 exhaustive.
 This closes the fixed-group distillation recipe before C lookup,
 not a jointly trained hierarchy or another bounded index.
+[METH-31](METH_31_RANK8_LUT_POOL_RESULT_20260926.md) measures the
+current `engine.c` ternary LUT kernel in the Qwen L24/D896/rank8/top4
+selected-factor shape. Its synthetic E1,280→E12,800 pool step grows
+from 0.5505 to 5.505 GB, while six-thread selected-path latency
+grows 0.4440→0.5046 ms/token (1.136×), passing the fixed 1.25×
+and 5 ms component gates. The one-thread mode is faster, so this
+projection shape should not use a per-expert six-worker launch.
+The codes are synthetic, and neither real-factor ternary quality
+nor bounded-router CPU cost nor end-to-end rate follows. The
+next conversion decision needs a measured packed-factor quality
+gate on a real stored artifact; the next route decision needs a
+fidelity-passing hierarchy or index before C integration.
 No T4 run is authorized by these screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first

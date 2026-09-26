@@ -1053,6 +1053,98 @@ static void run_expert_rate(void){
     free(pool); free(y);
 }
 
+// METH-31: isolated Qwen-shaped rank-8 selected-expert LUT cost. Synthetic
+// codes and route IDs; it does not load or evaluate a language model.
+static uint64_t meth31_next(uint64_t* state){
+    uint64_t x=*state; x^=x<<13; x^=x>>7; x^=x<<17; *state=x; return x;
+}
+static int run_rank8_lut_pool(int ne,int threads){
+    enum { NL=24, DW=896, RK=8, K=4, A_PAD=32, A_T=DW/2, B_T=RK/2,
+           A_BYTES=A_PAD*A_T, B_BYTES=DW*B_T, EXP_BYTES=A_BYTES+B_BYTES,
+           WARM=128, TOKENS=512, REPS=4 };
+    if(ne!=128 && ne!=1280 && ne!=12800){
+        fprintf(stderr,"METH-31 E must be 128, 1280 or 12800\n");return 1;
+    }
+    if(threads!=1 && threads!=6){
+        fprintf(stderr,"METH-31 threads must be 1 or 6\n");return 1;
+    }
+#ifndef _OPENMP
+    if(threads!=1){fprintf(stderr,"METH-31 six-thread arm needs OpenMP\n");return 1;}
+#else
+    omp_set_dynamic(0); omp_set_num_threads(threads);
+#endif
+    g_omp_on=threads>1;
+    const size_t pool_bytes=(size_t)NL*(size_t)ne*(size_t)EXP_BYTES;
+    if(pool_bytes>6ULL*1024*1024*1024){fprintf(stderr,"METH-31 pool cap\n");return 1;}
+    double experiment_start=now_s();
+    int8_t* pool=(int8_t*)malloc(pool_bytes);
+    if(!pool){fprintf(stderr,"METH-31 pool allocation failed: %zu bytes\n",pool_bytes);return 1;}
+    int8_t pattern[4096];
+    for(size_t i=0;i<sizeof(pattern);i++)pattern[i]=(int8_t)((i*2654435761u)%9u);
+    for(size_t at=0;at<pool_bytes;at+=sizeof(pattern)){
+        size_t n=pool_bytes-at;if(n>sizeof(pattern))n=sizeof(pattern);
+        memcpy(pool+at,pattern,n);
+    }
+    const size_t route_count=(size_t)(WARM+TOKENS*REPS)*NL*K;
+    uint16_t* routes=(uint16_t*)malloc(route_count*sizeof(uint16_t));
+    if(!routes){fprintf(stderr,"METH-31 route allocation failed\n");free(pool);return 1;}
+    uint64_t rng=0x9e3779b97f4a7c15ULL;
+    for(int tok=0;tok<WARM+TOKENS*REPS;tok++)for(int l=0;l<NL;l++){
+        uint16_t* chosen=routes+((size_t)tok*NL+l)*K;
+        for(int j=0;j<K;j++){
+            int id,duplicate;
+            do {id=(int)(meth31_next(&rng)%(uint64_t)ne);duplicate=0;
+                for(int prev=0;prev<j;prev++)if(chosen[prev]==id)duplicate=1;
+            } while(duplicate);
+            chosen[j]=(uint16_t)id;
+        }
+    }
+    printf("METH31 meta E=%d threads=%d pool_bytes=%zu selected_code_bytes_per_token=%d warm=%d timed=%d reps=%d init_seconds=%.6f\n",
+           ne,threads,pool_bytes,NL*K*EXP_BYTES,WARM,TOKENS,REPS,now_s()-experiment_start);
+    fflush(stdout);
+    int32_t aout[RK],bout[DW]; float combined[DW];
+    int8_t xq[DW],lut_a[A_T*16],smallq[RK],lut_b[B_T*16];
+    for(int rep=-1;rep<REPS;rep++){
+        const int n=rep<0?WARM:TOKENS;
+        const int base_tok=rep<0?0:WARM+rep*TOKENS;
+        int64_t checksum=0; double t0=now_s();
+        for(int t=0;t<n;t++)for(int l=0;l<NL;l++){
+            int tok=base_tok+t;
+            memset(combined,0,sizeof(combined));
+            for(int i=0;i<DW;i++)xq[i]=(int8_t)(((tok*7+l*13+i*3)%63)-31);
+            build_lut_t3(xq,A_T,lut_a);
+            for(int j=0;j<K;j++){
+                int id=routes[((size_t)tok*NL+l)*K+j];
+                const int8_t* expert=pool+((size_t)l*ne+id)*EXP_BYTES;
+                // One 32-row tile for rank 8: do not launch six workers.
+                int prior=g_omp_on;g_omp_on=0;
+                matvec_lut_full(expert,lut_a,aout,RK,A_PAD,A_T);
+                g_omp_on=prior;
+                for(int i=0;i<RK;i++){
+                    int v=(int)lrintf(8.0f*silu((float)aout[i]/512.0f));
+                    smallq[i]=(int8_t)(v<-63?-63:(v>63?63:v));
+                }
+                build_lut_t3(smallq,B_T,lut_b);
+                matvec_lut_full(expert+A_BYTES,lut_b,bout,DW,DW,B_T);
+                const float gate=(float)(K-j)/10.0f;
+                for(int d=0;d<DW;d++)combined[d]+=(float)bout[d]*gate;
+            }
+            checksum+=(int64_t)lrintf(combined[(tok+l*137)%DW]);
+        }
+        double dt=now_s()-t0;
+        if(rep>=0){
+            double us=dt*1e6/TOKENS;
+            double gbps=(double)TOKENS*NL*K*EXP_BYTES/1e9/dt;
+            printf("METH31 rep E=%d threads=%d rep=%d seconds=%.9f us_token=%.3f selected_gbps=%.3f checksum=%lld\n",
+                   ne,threads,rep+1,dt,us,gbps,(long long)checksum);fflush(stdout);
+        }
+        if(now_s()-experiment_start>900.0){
+            fprintf(stderr,"METH-31 15-minute wall stop\n");free(routes);free(pool);return 2;
+        }
+    }
+    free(routes);free(pool);return 0;
+}
+
 // ---------------- P2: expert-path decomposition (brief BRIEF_P2_EXPERT_PATH_DECOMPOSITION.md) ------
 // Three arms over the SAME kernel, same M/Mpad/T/EB, same LUT, same call count. The ONLY thing that
 // varies is WHICH expert each touch reads:
@@ -1513,7 +1605,7 @@ int main(int argc,char**argv){
     int mlp_lut=1,skip=1,exp_fast=1;                 // default = the full optimized config
     int do_bpb=0,do_logits=0,do_tm=0; long seqW=512,eval_tok=200000,ntok=10240,offset=0,timetok=3000;
     int threads=1; const char* wp=NULL; const char* dumpto=NULL; const char* nes01_greedy_to=NULL; const char* nes01_route_to=NULL;
-    int block=0,gen_verify=0,nseed=3,do_g3b=0,do_g3c=0,do_gemvsweep=0,do_exprate=0,do_expdecomp=0; const char* donor=NULL; long genlen=800,emu_mb=128; const char* ngpath=NULL;
+    int block=0,gen_verify=0,nseed=3,do_g3b=0,do_g3c=0,do_gemvsweep=0,do_exprate=0,do_expdecomp=0,rank8_lut_pool=0; const char* donor=NULL; long genlen=800,emu_mb=128; const char* ngpath=NULL;
     for(int i=1;i<argc;i++) if(!strcmp(argv[i],"--pack")&&i+1<argc){          // pre-scan: must be set before load_weights
         if(!strcmp(argv[i+1],"nibble")) g_pack_nib=1; else if(!strcmp(argv[i+1],"byte")) g_pack_nib=0;
         else { fprintf(stderr,"--pack must be byte|nibble\n"); return 1; } }
@@ -1527,6 +1619,7 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--gemv-sweep")){ do_gemvsweep=1; continue; }
         else if(!strcmp(argv[i],"--expert-rate")){ do_exprate=1; continue; }
         else if(!strcmp(argv[i],"--expert-decomp")){ do_expdecomp=1; continue; }
+        else if(!strcmp(argv[i],"--rank8-lut-pool")&&i+1<argc){ rank8_lut_pool=atoi(argv[++i]); continue; }
         else if(!strcmp(argv[i],"--donor-shape")){ donor = (i+1<argc && argv[i+1][0]!='-') ? argv[++i] : "qwen2.5-1.5b"; continue; }
         else if(!strcmp(argv[i],"--emu-mb")&&i+1<argc){ emu_mb=atol(argv[++i]); continue; }
         else if(!strcmp(argv[i],"--gen-len")&&i+1<argc){ genlen=atol(argv[++i]); continue; }
@@ -1553,6 +1646,7 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--weights")&&i+1<argc) wp=argv[++i];
         else { fprintf(stderr,"unknown arg %s\n",argv[i]); return 1; }
     }
+    if(rank8_lut_pool)return run_rank8_lut_pool(rank8_lut_pool,threads);
     if(do_gemvsweep||do_exprate||do_expdecomp||donor){   // 64.1b microbenches: synthetic, weight-free, self-sweep threads {1,6}
 #ifdef _OPENMP
         omp_set_dynamic(0);
