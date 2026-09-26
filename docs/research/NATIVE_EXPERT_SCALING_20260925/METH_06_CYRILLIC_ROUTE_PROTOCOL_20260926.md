@@ -52,3 +52,20 @@ design. If both pass, freeze the full-run cost and process all new chunks,
 merge with the METH-05 BF16 matrix, then require actual ≥64 observations for
 every routed expert slice before quantization. Never multiply counts by
 replaying the same IDs. Full quality and native speed gates remain unchanged.
+
+**Full-run budget addendum, frozen after pilot counts and before full run:**
+The pilot measured **30** additional layer-19/expert-29 and **38** additional
+layer-20/expert-51 activations and met both cost-screen thresholds. Its
+[matrix audit](meth06_cyrillic_bf16_32chunks_audit.json) and
+[normalized log](meth06_cyrillic_bf16_32chunks.log) are retained; the matrix
+SHA-256 is `cb751980db286bd5b0331153fefefb382fad1b4ce7e82d18582f40dbdbe495c9`.
+Process all **125 full chunks**
+(64,000 of 64,322 new IDs) from the same frozen source-ID file, starting a
+fresh imatrix file. Allow **40 minutes** wall time, **50 GB** resident RAM,
+and no GPU/T4. The pilot's observed 32-chunk run took about 6.5 minutes
+including model initialization, so 125 chunks should fit with headroom;
+stop and preserve logs if either ceiling is crossed. Merge the METH-05
+106-chunk and METH-06 125-chunk BF16 matrices; **do not** also merge the
+32-chunk pilot, which is a prefix of the full new run. The merged matrix
+must have chunk count 231, all 254 required entries finite, and every
+routed expert count ≥64. Only that artifact may feed the conversion gate.
