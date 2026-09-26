@@ -1,0 +1,771 @@
+{
+  "experiment": "METH-44-full-chat-retention-smoke",
+  "source": {
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "model_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+    "tokenizer_fingerprint": "4efeeb9382a77a06"
+  },
+  "data": {
+    "teacher_sha256": "f42f678280a9086a0fc2ec6e57a712e33fdea8f5cb62bdac7f53c9f28a5f1dd7",
+    "train_chat_manifest_sha256": "17921cb83c1d10793e2a56df6aa899039bd794757eeff43921068b8de2096055",
+    "train_ids_sha256": "9bb5229fad6542aa8b3fd7edfc3b8d1dff965a573d7aa8379385caacc9d614da",
+    "eval_ids_sha256": "c5345782fc0b08ef3212403878a33960ae0da236c999272e79e418f29c277d3c",
+    "chat_prompt_sha256": "703abca3f83a983d9380ba84c1a79744d15881d638174b064cf38a47453f47ba"
+  },
+  "geometry": {
+    "layers": 24,
+    "width": 896,
+    "experts": 128,
+    "top_k": 4,
+    "rank": 8,
+    "init_seed": 5151,
+    "sample_seed": 544444,
+    "updates": 16,
+    "raw_microbatches": 2,
+    "chat_microbatches": 2,
+    "factor_lr": 0.0003,
+    "router_lr": 3e-05,
+    "raw_kl_weight": 0.5,
+    "chat_full_sequence_kl_weight": 1.0
+  },
+  "controls": {
+    "identity_max_abs": {
+      "raw": 0.0,
+      "chat": 0.0
+    },
+    "donor_bpb_initial": 0.9712552075318387,
+    "student_bpb_initial": 0.9712552075318387,
+    "donor_bpb_terminal": 0.9712552075318387,
+    "student_bpb_terminal": 0.9694120093360877,
+    "delta_bpb_terminal": -0.0018431981957509613,
+    "changed_slots_by_layer": [
+      128,
+      128,
+      128,
+      128,
+      126,
+      128,
+      128,
+      128,
+      127,
+      128,
+      127,
+      128,
+      128,
+      125,
+      127,
+      124,
+      124,
+      124,
+      127,
+      128,
+      128,
+      128,
+      128,
+      128
+    ],
+    "min_changed_slots": 124,
+    "chat_prompt_top1": {
+      "matching": 3654,
+      "positions": 3807,
+      "agreement": 0.9598108747044918,
+      "per_prompt": [
+        {
+          "train_row": 10163,
+          "same": 154,
+          "positions": 159
+        },
+        {
+          "train_row": 12630,
+          "same": 148,
+          "positions": 158
+        },
+        {
+          "train_row": 26309,
+          "same": 152,
+          "positions": 158
+        },
+        {
+          "train_row": 9528,
+          "same": 154,
+          "positions": 158
+        },
+        {
+          "train_row": 26311,
+          "same": 152,
+          "positions": 159
+        },
+        {
+          "train_row": 30671,
+          "same": 153,
+          "positions": 159
+        },
+        {
+          "train_row": 24001,
+          "same": 155,
+          "positions": 159
+        },
+        {
+          "train_row": 28730,
+          "same": 152,
+          "positions": 158
+        },
+        {
+          "train_row": 6391,
+          "same": 150,
+          "positions": 158
+        },
+        {
+          "train_row": 10956,
+          "same": 154,
+          "positions": 159
+        },
+        {
+          "train_row": 15243,
+          "same": 153,
+          "positions": 159
+        },
+        {
+          "train_row": 27099,
+          "same": 150,
+          "positions": 159
+        },
+        {
+          "train_row": 26525,
+          "same": 155,
+          "positions": 159
+        },
+        {
+          "train_row": 4857,
+          "same": 154,
+          "positions": 159
+        },
+        {
+          "train_row": 7104,
+          "same": 151,
+          "positions": 159
+        },
+        {
+          "train_row": 24065,
+          "same": 151,
+          "positions": 158
+        },
+        {
+          "train_row": 6053,
+          "same": 154,
+          "positions": 158
+        },
+        {
+          "train_row": 18334,
+          "same": 150,
+          "positions": 159
+        },
+        {
+          "train_row": 6012,
+          "same": 152,
+          "positions": 159
+        },
+        {
+          "train_row": 30157,
+          "same": 151,
+          "positions": 159
+        },
+        {
+          "train_row": 6658,
+          "same": 149,
+          "positions": 158
+        },
+        {
+          "train_row": 12714,
+          "same": 154,
+          "positions": 159
+        },
+        {
+          "train_row": 18583,
+          "same": 153,
+          "positions": 159
+        },
+        {
+          "train_row": 3567,
+          "same": 153,
+          "positions": 158
+        }
+      ]
+    }
+  },
+  "training_steps": [
+    {
+      "update": 1,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 4.056174278259277,
+          "kl": 0.0
+        },
+        {
+          "kind": "raw",
+          "ce": 2.6609294414520264,
+          "kl": 0.0
+        },
+        {
+          "kind": "chat",
+          "ce": 0.6795951128005981,
+          "kl": 0.0
+        },
+        {
+          "kind": "chat",
+          "ce": 0.4368813931941986,
+          "kl": 0.0
+        }
+      ],
+      "gradient": {
+        "b_min": 0.0007947878330014646,
+        "b_max": 0.0035222582519054413,
+        "router_min": 0.0,
+        "router_max": 0.0
+      },
+      "pre_clip_norm": 0.009640767239034176,
+      "elapsed_seconds": 5.780999999995402,
+      "rss_end_bytes": 3123982336,
+      "gpu_peak_allocated_bytes": 2224446976
+    },
+    {
+      "update": 2,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 1.110509991645813,
+          "kl": 0.0006875267717987299
+        },
+        {
+          "kind": "raw",
+          "ce": 2.337242364883423,
+          "kl": 0.0010918143671005964
+        },
+        {
+          "kind": "chat",
+          "ce": 0.8820614814758301,
+          "kl": 0.002849975600838661
+        },
+        {
+          "kind": "chat",
+          "ce": 0.9242491722106934,
+          "kl": 0.0015460631111636758
+        }
+      ],
+      "gradient": {
+        "b_min": 0.0011640893062576652,
+        "b_max": 0.004944229498505592,
+        "router_min": 3.3589109079912305e-05,
+        "router_max": 0.0002636640565469861
+      },
+      "pre_clip_norm": 0.030343275517225266,
+      "elapsed_seconds": 7.030999999995402,
+      "rss_end_bytes": 3125932032,
+      "gpu_peak_allocated_bytes": 2577480192
+    },
+    {
+      "update": 3,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.808213949203491,
+          "kl": 0.001054911408573389
+        },
+        {
+          "kind": "raw",
+          "ce": 3.5949838161468506,
+          "kl": 0.0010199096286669374
+        },
+        {
+          "kind": "chat",
+          "ce": 0.6397037506103516,
+          "kl": 0.0014782233629375696
+        },
+        {
+          "kind": "chat",
+          "ce": 0.6720849275588989,
+          "kl": 0.002153520006686449
+        }
+      ],
+      "gradient": {
+        "b_min": 0.0017443407559767365,
+        "b_max": 0.008924589492380619,
+        "router_min": 0.00011406770499888808,
+        "router_max": 0.001210300950333476
+      },
+      "pre_clip_norm": 0.04094914719462395,
+      "elapsed_seconds": 8.405999999995402,
+      "rss_end_bytes": 3125923840,
+      "gpu_peak_allocated_bytes": 2599640576
+    },
+    {
+      "update": 4,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.411363124847412,
+          "kl": 0.0009981683688238263
+        },
+        {
+          "kind": "raw",
+          "ce": 2.856950044631958,
+          "kl": 0.0008227968355640769
+        },
+        {
+          "kind": "chat",
+          "ce": 0.7071624398231506,
+          "kl": 0.005825398024171591
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5529649257659912,
+          "kl": 0.005367588717490435
+        }
+      ],
+      "gradient": {
+        "b_min": 0.0020713696721941233,
+        "b_max": 0.01664566434919834,
+        "router_min": 0.00020479194063227624,
+        "router_max": 0.002301867352798581
+      },
+      "pre_clip_norm": 0.06085057184100151,
+      "elapsed_seconds": 9.655999999995402,
+      "rss_end_bytes": 3125923840,
+      "gpu_peak_allocated_bytes": 2599640576
+    },
+    {
+      "update": 5,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 1.6866741180419922,
+          "kl": 0.0007042884826660156
+        },
+        {
+          "kind": "raw",
+          "ce": 2.487467050552368,
+          "kl": 0.0008588062482886016
+        },
+        {
+          "kind": "chat",
+          "ce": 0.4379114806652069,
+          "kl": 0.0072823138907551765
+        },
+        {
+          "kind": "chat",
+          "ce": 0.6713964939117432,
+          "kl": 0.007962432689964771
+        }
+      ],
+      "gradient": {
+        "b_min": 0.0031457794830203056,
+        "b_max": 0.021214507520198822,
+        "router_min": 0.0003221513470634818,
+        "router_max": 0.004189529921859503
+      },
+      "pre_clip_norm": 0.07394836843013763,
+      "elapsed_seconds": 10.93699999999808,
+      "rss_end_bytes": 3125989376,
+      "gpu_peak_allocated_bytes": 2599640576
+    },
+    {
+      "update": 6,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.327556610107422,
+          "kl": 0.0009271816816180944
+        },
+        {
+          "kind": "raw",
+          "ce": 1.5498192310333252,
+          "kl": 0.0008865876588970423
+        },
+        {
+          "kind": "chat",
+          "ce": 0.6221656203269958,
+          "kl": 0.014591838233172894
+        },
+        {
+          "kind": "chat",
+          "ce": 0.49308547377586365,
+          "kl": 0.012245355173945427
+        }
+      ],
+      "gradient": {
+        "b_min": 0.00445184949785471,
+        "b_max": 0.02300884574651718,
+        "router_min": 0.00043215625919401646,
+        "router_max": 0.00515212956815958
+      },
+      "pre_clip_norm": 0.0834524929523468,
+      "elapsed_seconds": 12.171999999998661,
+      "rss_end_bytes": 3125927936,
+      "gpu_peak_allocated_bytes": 2599640576
+    },
+    {
+      "update": 7,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.5188064575195312,
+          "kl": 0.0010966177796944976
+        },
+        {
+          "kind": "raw",
+          "ce": 2.2708606719970703,
+          "kl": 0.001304918434470892
+        },
+        {
+          "kind": "chat",
+          "ce": 0.6486080884933472,
+          "kl": 0.019636716693639755
+        },
+        {
+          "kind": "chat",
+          "ce": 0.38357606530189514,
+          "kl": 0.020143475383520126
+        }
+      ],
+      "gradient": {
+        "b_min": 0.0045317052863538265,
+        "b_max": 0.028308935463428497,
+        "router_min": 0.0004551538731902838,
+        "router_max": 0.005794813856482506
+      },
+      "pre_clip_norm": 0.09844444692134857,
+      "elapsed_seconds": 13.421999999998661,
+      "rss_end_bytes": 3125927936,
+      "gpu_peak_allocated_bytes": 2603326976
+    },
+    {
+      "update": 8,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 1.922542691230774,
+          "kl": 0.000599321851041168
+        },
+        {
+          "kind": "raw",
+          "ce": 3.5134129524230957,
+          "kl": 0.001084475894458592
+        },
+        {
+          "kind": "chat",
+          "ce": 0.6263068914413452,
+          "kl": 0.03362595662474632
+        },
+        {
+          "kind": "chat",
+          "ce": 0.3205042779445648,
+          "kl": 0.024672335013747215
+        }
+      ],
+      "gradient": {
+        "b_min": 0.0052574146538972855,
+        "b_max": 0.03515082597732544,
+        "router_min": 0.0007579209050163627,
+        "router_max": 0.011787272989749908
+      },
+      "pre_clip_norm": 0.12268035113811493,
+      "elapsed_seconds": 14.68699999999808,
+      "rss_end_bytes": 3125927936,
+      "gpu_peak_allocated_bytes": 2603326976
+    },
+    {
+      "update": 9,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 2.107120990753174,
+          "kl": 0.000792276521679014
+        },
+        {
+          "kind": "raw",
+          "ce": 2.545651435852051,
+          "kl": 0.0008253551204688847
+        },
+        {
+          "kind": "chat",
+          "ce": 0.571987509727478,
+          "kl": 0.038140732795000076
+        },
+        {
+          "kind": "chat",
+          "ce": 0.36686816811561584,
+          "kl": 0.041358936578035355
+        }
+      ],
+      "gradient": {
+        "b_min": 0.00867090467363596,
+        "b_max": 0.049019645899534225,
+        "router_min": 0.0015508322976529598,
+        "router_max": 0.017846599221229553
+      },
+      "pre_clip_norm": 0.17052486538887024,
+      "elapsed_seconds": 15.953000000001339,
+      "rss_end_bytes": 3125989376,
+      "gpu_peak_allocated_bytes": 2603326976
+    },
+    {
+      "update": 10,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 1.2264773845672607,
+          "kl": 0.0008844649419188499
+        },
+        {
+          "kind": "raw",
+          "ce": 4.1668925285339355,
+          "kl": 0.0016355615807697177
+        },
+        {
+          "kind": "chat",
+          "ce": 0.4920016825199127,
+          "kl": 0.05052465945482254
+        },
+        {
+          "kind": "chat",
+          "ce": 0.37094295024871826,
+          "kl": 0.04556781053543091
+        }
+      ],
+      "gradient": {
+        "b_min": 0.007309386972337961,
+        "b_max": 0.06094004958868027,
+        "router_min": 0.0020567169412970543,
+        "router_max": 0.012025936506688595
+      },
+      "pre_clip_norm": 0.19393602013587952,
+      "elapsed_seconds": 17.218000000000757,
+      "rss_end_bytes": 3125989376,
+      "gpu_peak_allocated_bytes": 2603326976
+    },
+    {
+      "update": 11,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.079895257949829,
+          "kl": 0.001303715631365776
+        },
+        {
+          "kind": "raw",
+          "ce": 3.827522039413452,
+          "kl": 0.0013665552251040936
+        },
+        {
+          "kind": "chat",
+          "ce": 0.4443373680114746,
+          "kl": 0.04737067595124245
+        },
+        {
+          "kind": "chat",
+          "ce": 0.4392649233341217,
+          "kl": 0.054246749728918076
+        }
+      ],
+      "gradient": {
+        "b_min": 0.00807721633464098,
+        "b_max": 0.06462212651968002,
+        "router_min": 0.001641644979827106,
+        "router_max": 0.027940338477492332
+      },
+      "pre_clip_norm": 0.20551453530788422,
+      "elapsed_seconds": 18.468000000000757,
+      "rss_end_bytes": 3125989376,
+      "gpu_peak_allocated_bytes": 2603326976
+    },
+    {
+      "update": 12,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.985682249069214,
+          "kl": 0.0011826183181256056
+        },
+        {
+          "kind": "raw",
+          "ce": 2.6868536472320557,
+          "kl": 0.0009619583724997938
+        },
+        {
+          "kind": "chat",
+          "ce": 0.2900802195072174,
+          "kl": 0.06603366136550903
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5610495209693909,
+          "kl": 0.06231449916958809
+        }
+      ],
+      "gradient": {
+        "b_min": 0.01121225394308567,
+        "b_max": 0.07873769849538803,
+        "router_min": 0.005649974104017019,
+        "router_max": 0.030479704961180687
+      },
+      "pre_clip_norm": 0.2665211856365204,
+      "elapsed_seconds": 19.718000000000757,
+      "rss_end_bytes": 3126050816,
+      "gpu_peak_allocated_bytes": 2603326976
+    },
+    {
+      "update": 13,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 2.1970877647399902,
+          "kl": 0.001136014354415238
+        },
+        {
+          "kind": "raw",
+          "ce": 1.221492052078247,
+          "kl": 0.0007396388682536781
+        },
+        {
+          "kind": "chat",
+          "ce": 0.49431225657463074,
+          "kl": 0.03981920704245567
+        },
+        {
+          "kind": "chat",
+          "ce": 0.7375659346580505,
+          "kl": 0.05315973237156868
+        }
+      ],
+      "gradient": {
+        "b_min": 0.009883759543299675,
+        "b_max": 0.1885860711336136,
+        "router_min": 0.0038380285259336233,
+        "router_max": 0.07798533886671066
+      },
+      "pre_clip_norm": 0.5574268102645874,
+      "elapsed_seconds": 20.968000000000757,
+      "rss_end_bytes": 3126050816,
+      "gpu_peak_allocated_bytes": 2603326976
+    },
+    {
+      "update": 14,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.9268624782562256,
+          "kl": 0.0015755303902551532
+        },
+        {
+          "kind": "raw",
+          "ce": 3.289262056350708,
+          "kl": 0.0024321177043020725
+        },
+        {
+          "kind": "chat",
+          "ce": 0.3076794147491455,
+          "kl": 0.04569614306092262
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5981957912445068,
+          "kl": 0.04336389899253845
+        }
+      ],
+      "gradient": {
+        "b_min": 0.011666253209114075,
+        "b_max": 0.062478207051754,
+        "router_min": 0.003201758023351431,
+        "router_max": 0.040801070630550385
+      },
+      "pre_clip_norm": 0.2134113907814026,
+      "elapsed_seconds": 22.25,
+      "rss_end_bytes": 3126050816,
+      "gpu_peak_allocated_bytes": 2603326976
+    },
+    {
+      "update": 15,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 1.6437205076217651,
+          "kl": 0.0014927070587873459
+        },
+        {
+          "kind": "raw",
+          "ce": 1.237059473991394,
+          "kl": 0.0011384510435163975
+        },
+        {
+          "kind": "chat",
+          "ce": 0.46968501806259155,
+          "kl": 0.0281976405531168
+        },
+        {
+          "kind": "chat",
+          "ce": 0.3170078992843628,
+          "kl": 0.035857994109392166
+        }
+      ],
+      "gradient": {
+        "b_min": 0.010726157575845718,
+        "b_max": 0.08448894321918488,
+        "router_min": 0.00246405485086143,
+        "router_max": 0.02802710235118866
+      },
+      "pre_clip_norm": 0.26468536257743835,
+      "elapsed_seconds": 23.5,
+      "rss_end_bytes": 3126050816,
+      "gpu_peak_allocated_bytes": 2603326976
+    },
+    {
+      "update": 16,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.4713058471679688,
+          "kl": 0.002264496637508273
+        },
+        {
+          "kind": "raw",
+          "ce": 2.6286115646362305,
+          "kl": 0.0019241077825427055
+        },
+        {
+          "kind": "chat",
+          "ce": 0.7005912065505981,
+          "kl": 0.025632400065660477
+        },
+        {
+          "kind": "chat",
+          "ce": 0.3240360617637634,
+          "kl": 0.036205194890499115
+        }
+      ],
+      "gradient": {
+        "b_min": 0.01657518930733204,
+        "b_max": 0.0889778882265091,
+        "router_min": 0.0032122174743562937,
+        "router_max": 0.05922405794262886
+      },
+      "pre_clip_norm": 0.2791431248188019,
+      "elapsed_seconds": 24.75,
+      "rss_end_bytes": 3126120448,
+      "gpu_peak_allocated_bytes": 2603326976
+    }
+  ],
+  "decision": "eligible_for_preregistered_longer_continuation",
+  "runtime": {
+    "elapsed_seconds": 27.5,
+    "rss_end_bytes": 3155107840,
+    "gpu_peak_allocated_bytes": 2603326976,
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "cuda_index": 0,
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6"
+  },
+  "checkpoint_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth44_instruct_e128_smoke.pt",
+  "checkpoint_sha256": "4fade15804f5e2297ff60cafacf870e5ae11926ba886786a524110dea94f16da"
+}

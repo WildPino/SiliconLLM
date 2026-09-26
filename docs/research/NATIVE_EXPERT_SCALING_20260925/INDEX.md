@@ -25,6 +25,15 @@ METH-42 finds that a same-geometry Qwen0.5B-Instruct donor has
 base on identical inputs. Directly grafting the base-trained
 adapter fails its ≥95% ranking gate at 84.277%; new Instruct
 experts must start at donor parity and be trained.
+METH-43's fresh E128 Instruct adapter starts at exact donor logits and
+improves raw BPB by 0.012562 after 16 updates, but fails chat retention:
+89.716% top-1 on the viewed METH-42 prompt set, below its 95% gate.
+METH-44 prospectively corrects the chat objective to retain the entire
+prompt distribution and reduces the update step. From a new donor start,
+it passes a new, disjoint 24-prompt development gate at 95.981% top-1
+and raw BPB −0.001843 after 16 updates. Its checkpoint is eligible only
+for a preregistered longer continuation with independent generation,
+document and task tests. No larger-E quality or native rate follows.
 METH-31 measures the existing CPU LUT kernel in the Qwen rank-8
 shape with synthetic packed factors: E1280→E12800 raises the
 six-thread selected path only 1.136× to 0.505 ms/token. That
@@ -488,16 +497,16 @@ scheduled.
   this exact R8 composition despite METH-25/28 loss and task passes.
   METH-42 shows that a same-geometry Instruct donor avoids loops on
   its chat diagnostic, but direct reuse of base-trained factors fails
-  ranking. Initialize new experts at exact Instruct-donor logits and
-  train jointly with an instruction-behavior retention signal;
-  freeze new document, task and chat-generation sets separate from
-  METH-17/19/20/21/25/27/41/42 before scoring. Do not retune on
+  ranking. METH-43's first exact-donor training recipe fails chat top-1
+  retention. METH-44 passes a new same-corpus development screen after
+  applying KL over full chat prompts. Fix a longer continuation budget
+  and freeze external document, task and chat-generation sets separate
+  from METH-17/19/20/21/25/27/41/42 before scoring. Do not retune on
   viewed continuations or extend E256 on a BPB gain alone.
 - **Next exact action: new Instruct-donor adaptation and scalable CPU route.**
-  Implement a zero-output E128 residual adapter initialized at exact
-  Instruct donor parity, train it with a bounded recipe that retains
-  chat behavior, and score new fixed document, task and generation
-  sets against that donor. Export only after joint quality and
+  Continue the METH-44 Instruct E128 checkpoint under a frozen longer
+  training budget, and score new fixed external document, task and
+  generation sets against the Instruct donor. Export only after joint quality and
   usefulness pass. Then implement the exact pair
   in `benchmarks/phase60/engine.c` with logit parity, accepted batch-1
   tok/s and split core/router/expert timing and traffic. The separate
