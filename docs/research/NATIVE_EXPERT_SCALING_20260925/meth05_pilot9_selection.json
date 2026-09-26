@@ -1,0 +1,24 @@
+{
+  "schema": "meth05_gigachat_pilot_selection_v1",
+  "source_heldout": "benchmarks\\donor_adaptation\\density\\corpus\\strat01_gigachat_fresh_v2\\heldout.jsonl",
+  "source_heldout_sha256": "04687034c1054e0985e24efa87ba37a3fb11031de5b2880e5b8ac1742f80ec6e",
+  "selection_rule": "first_three_lexicographic_source_document_id_per_category",
+  "categories": [
+    "code",
+    "prose",
+    "technical_general"
+  ],
+  "output": "results\\native_expert_scaling\\meth05_gigachat_heldout_pilot9.jsonl",
+  "output_sha256": "38298c84038b6f26a9c40f47347d5cf930c89ad2bc089e64057f5125c79bb2ac",
+  "selected_ids": [
+    "file:data/external/the_stack_python/cpython/Lib/_opcode_metadata.py",
+    "file:data/external/the_stack_python/cpython/Lib/encodings/mac_greek.py",
+    "file:data/external/the_stack_python/cpython/Lib/idlelib/squeezer.py",
+    "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=0",
+    "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=10",
+    "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=12",
+    "file:data/external/markdown_corpus/kubernetes_website/content/de/README.md",
+    "file:data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2021/kubernetes-release-1.23.md",
+    "file:data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2021/podsecuritypolicy-past-present-and-future.md"
+  ]
+}

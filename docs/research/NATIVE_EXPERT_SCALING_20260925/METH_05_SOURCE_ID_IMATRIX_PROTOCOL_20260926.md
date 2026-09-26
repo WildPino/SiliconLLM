@@ -11,6 +11,9 @@ an intermediate artifact until `engine.c` runs it at the required rate.
 
 The source is the locally bound GigaChat BF16 GGUF, SHA-256
 `fabc8056f57e230ae9e6aadceb45f4abf9e5d7031fbfe8eca2671d871ef35d47`.
+The prior source-binding audit found all 414 tensor payloads byte-identical
+to the published BF16 GGUF; its differing metadata fields were classified as
+nonsemantic. The source-converted file is still the explicit reference here.
 The source tokenizer JSON has SHA-256
 `b4b3d90c67830a4e566296ad8d0f6b5ac5a5cdbfd331b200d0ee8263aaaea1fe`.
 The calibration split is the 48-document `strat01_gigachat_fresh_v2/calib.jsonl`,
@@ -29,6 +32,8 @@ verifies source corpus/tokenizer hashes, each document's round trip and special
 IDs, and alternates the three categories before flattening. Its 54,633-ID
 exchange file has SHA-256
 `3d611152b4a145f2219a34e7ad5bc2e8929a9a600321272e9e258b92924c250a`.
+Its [manifest](meth05_calib_ids_manifest.json) records all document IDs and
+the exact category order without copying the texts.
 The tool still inserts BOS at each 512-token chunk boundary; documents can
 cross those boundaries, a calibration approximation to record separately.
 
@@ -75,17 +80,30 @@ $env:SILICON_IMATRIX_SOURCE_IDS=(Resolve-Path results/native_expert_scaling/meth
    GGUF output. No fallback, missing matrix or tensor-type mismatch is
    accepted. Re-read the actual GGUF header and active-byte ledger; require
    ≤540,000,000 addressed bytes/token before quality evaluation.
+
+   ```powershell
+   & C:\Users\giosa\AppData\Local\Temp\siliconllm-llama-mtp-5b335f4\build-cpu\bin\llama-quantize.exe `
+     --imatrix results/native_expert_scaling/meth05_gigachat_bf16_interleaved_106chunks.gguf `
+     --tensor-type-file docs/research/NATIVE_EXPERT_SCALING_20260925/meth04_gigachat_tensor_types.txt `
+     benchmarks/donor_adaptation/density/results/strat01_gigachat_source_binding_v1/GigaChat3.1-10B-A1.8B-source-bf16.gguf `
+     results/native_expert_scaling/meth05_gigachat_bf16_imatrix_iq2.gguf IQ2_XS 6
+   ```
 4. Score the lexicographically first **three heldout IDs per category** (nine
    documents) on source BF16, published Q4 and converted candidate using
-   source-tokenizer IDs, no truncation, BOS=1, document-level BPB. This is an
+   the reused [source-ID GGUF scorer](../../../benchmarks/donor_adaptation/density/test_strat01_gguf_score.py),
+   no truncation, BOS=1, document-level BPB. Bind new GGUF arms with its
+   `--expected-model-sha256` option. This is an
    internal gross-failure screen. The
    [ID-only selector](../../../benchmarks/native_expert_scaling/prepare_meth05_pilot.py)
-   froze this subset before candidate scoring: SHA-256
+   froze this subset before candidate scoring; the
+   [selection manifest](meth05_pilot9_selection.json) records its IDs. SHA-256
    `38298c84038b6f26a9c40f47347d5cf930c89ad2bc089e64057f5125c79bb2ac`.
    If each of the three category BPB deltas
    versus source BF16 exceeds **+0.20** and pooled delta exceeds **+0.20**, stop
    this low-bit map and report the failure; otherwise proceed to all 96
-   documents. The nine-document screen cannot declare a quality pass.
+   documents. The [adjudicator](../../../benchmarks/native_expert_scaling/adjudicate_meth05_pilot.py)
+   enforces the paired IDs, byte/token counts and stop rule. The
+   nine-document screen cannot declare a quality pass.
 5. For all 96 documents, use the existing paired stratified bootstrap
    (20,000 draws, seed `20260916`): require one-sided upper CI95 of
    candidate−BF16 **≤+0.02 BPB**. Also run the frozen GigaChat PIQA and
