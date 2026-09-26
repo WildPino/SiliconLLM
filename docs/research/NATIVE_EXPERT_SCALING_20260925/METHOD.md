@@ -372,10 +372,19 @@ that gathering full `F.linear` scores restores exact top-1,
 whereas candidate-only batched rescore changes more outputs
 than elementwise summation. The full-score control is not
 scalable; the current bounded route remains unpromoted.
-The next index step is a new independent quality test of a
-frozen C96 candidate-only rule, followed by native C timing
-only if it passes. Rank, shortlist, score arithmetic and
-route trajectory all need to be bound in an executable export.
+[METH-40](METH_40_ROUTER_SCAN_CPU_RESULT_20260926.md) measures
+the saved rank-64 int8 sketch at a synthetic ~10B/~100B expert
+ladder. At E27,355/E273,547, six-thread projection + exhaustive
+scan/selection + merge takes 3.714/18.453 ms/token. The larger
+point passes the predeclared 20 ms component ceiling but leaves
+only 1.547 ms for exact rescore, selected experts, the core and
+other inference work. Expanded rows are synthetic and do not
+test quality with more independently learned experts. The next
+route-quality step is an independent audit of a frozen C96
+candidate-only rule; a practical large-E design should also
+avoid a full scan or reduce its payload and prove route fidelity
+on distinct trained experts. Rank, shortlist, score arithmetic
+and route trajectory still need binding in an executable export.
 No T4 run is authorized by these screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first

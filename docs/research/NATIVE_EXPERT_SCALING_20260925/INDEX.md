@@ -6,14 +6,17 @@ adapter passes new-document BPB/ranking (METH-25) and full PIQA task
 retention (METH-28, −0.925 accuracy points versus BF16 donor), but
 **fails** fresh-prompt generation (METH-27: 16/24 loops; technical
 4/8 versus R8 donor 2/8). Native promotion is held pending a
-generative repair. CPU C parity/rate and large-E scaling remain open.
+generative repair. CPU C parity/rate and large-E quality remain open.
 METH-29 also rejects a post-hoc balanced coarse router index on real
 E128 inputs: 32/64 candidates recover only 62.48%/85.85% of exact
 top-4 IDs. METH-30's learned gate on those frozen groups raises
 64-candidate recall to 91.61% but also fails the 99.9% gate; a
 jointly learned hierarchy or different index was needed. METH-35/36
-now provide a fidelity-passing reduced-rank index at E128, with
-route-replaced quality and CPU cost still unmeasured.
+provide a route-fidelity-passing reduced-rank index at E128.
+METH-37 rejects its C64 route replacement on top-1 quality.
+METH-40 measures the C96 sketch CPU component at hypothetical
+E27,355/E273,547: six-thread 3.714/18.453 ms/token, leaving only
+1.547 ms inside the whole-model 20 ms target at the larger point.
 METH-31 measures the existing CPU LUT kernel in the Qwen rank-8
 shape with synthetic packed factors: E1280→E12800 raises the
 six-thread selected path only 1.136× to 0.505 ms/token. That
@@ -38,7 +41,8 @@ documents (99.939% exact top-4 ID inclusion). METH-37 then
 replaces the route: document loss and relative generation gates
 pass, but top-1 is 98.356% versus the fixed 99% gate. METH-38/39
 isolate both shortlist misses and fine-rescore arithmetic;
-the rank-64/64 route is held. CPU time and large-E quality remain open.
+the rank-64/64 route is held. METH-40 times a synthetic large-E
+sketch scan; full CPU rate and large-E quality remain open.
 NES-01 E128 improves BPB but fails greedy generation; NES-02
 finds a dense-router CPU scaling limit; NES-03 int8 shortlist preserves
 tested routes and cuts E1280 router cost. No pretrained-to-native conversion
@@ -323,6 +327,14 @@ the source: a full `F.linear` score/gather oracle restores
 6,144/6,144 top-1, while candidate-only batched rescore
 still changes 35 at C128. No bounded route variant has passed
 a new independent *route-replaced* quality gate.
+[METH-40](METH_40_ROUTER_SCAN_CPU_RESULT_20260926.md) measures the
+stored rank-64 sketch's AVX2 CPU scan with synthetic expansion to
+E27,355 and E273,547. Six-thread median projection + scan/selection
++ merge is **3.714/18.453 ms/token**, a **4.968×** increase for
+about 10× E. The larger arm passes the 20 ms router-component
+ceiling by just **1.547 ms**. It excludes exact fine rescore,
+selected experts, core and generation, and establishes no large-E
+quality or full-model rate.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -375,6 +387,7 @@ SSM/SWA target and passes joint quality/rate.
 | METH-37 | STORED INT8 ROUTE-REPLACEMENT TOP-1 GATE FAIL | [result](METH_37_ROUTE_REPLACEMENT_RESULT_20260926.md), [protocol](METH_37_ROUTE_REPLACEMENT_PROTOCOL_20260926.md), [manifest](meth37_route_quality_manifest.json), [paired quality/generation](meth37_route_replacement_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth37_route_replacement.py); no C rate |
 | METH-38 | C96 DIAGNOSTIC PASS; C128 NUMERIC APPARATUS FAIL | [result](METH_38_CANDIDATE_CAUSE_RESULT_20260926.md), [protocol](METH_38_CANDIDATE_CAUSE_PROTOCOL_20260926.md), [route/ranking counts](meth38_candidate_cause_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth38_candidate_cause.py); reused prompts |
 | METH-39 | FULL-SCORE ORACLE PARITY; BOUNDED BMM NUMERIC GATE FAIL | [result](METH_39_RESCORE_NUMERICS_RESULT_20260926.md), [protocol](METH_39_RESCORE_NUMERICS_PROTOCOL_20260926.md), [arithmetic counts](meth39_rescore_numerics_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth39_rescore_numerics.py); reused prompts, no CPU rate |
+| METH-40 | SIX-THREAD E273,547 SCAN UNDER 20 MS, ONLY 1.547 MS LEFT | [result](METH_40_ROUTER_SCAN_CPU_RESULT_20260926.md), [protocol](METH_40_ROUTER_SCAN_CPU_PROTOCOL_20260926.md), [summary](meth40_router_scan_summary.json), [seed ledger](meth40_router_seed_export.json), [C benchmark](../../../benchmarks/native_expert_scaling/meth40_rank64_router_scan.c), [exporter](../../../benchmarks/native_expert_scaling/meth40_export_router_seed.py), [verifier](../../../benchmarks/native_expert_scaling/summarize_meth40_router_scan.py); synthetic E expansion, no quality or full rate |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -436,9 +449,11 @@ scheduled.
   reused prompts but candidate-only fine-score numerics also
   change next-token outputs. The full-score oracle restores
   parity but forfeits bounded routing. No new route is promoted.
-  A one-byte E273,547 sketch still projects 420.17 MB/token,
-  so CPU time and larger-E fidelity may bind even without
-  scanning full D896 rows.
+  METH-40 measures that E273,547 sketch path at 18.453 ms/token
+  with six CPU threads, leaving only 1.547 ms of the 20 ms
+  whole-model target for exact rescore, experts, core and overhead.
+  The one-byte codes alone address 420.17 MB/token. Its expanded
+  rows are synthetic, so larger-E learned quality remains open.
 - **Next quality design:** METH-27 disproves generation readiness for
   this exact R8 composition despite METH-25/28 loss and task passes.
   Diagnose the added technical loops and high code/prose repetition;
@@ -460,8 +475,11 @@ scheduled.
   a new C96 candidate-only score rule and evaluate it on
   documents not used to choose that budget, including BPB,
   donor-relative quality, top-1 and generation. Promote to C
-  only after that joint quality gate passes, then measure split
-  projection/sketch/rescore cost across a 10× E ladder.
+  only after that joint quality gate passes. METH-40 already
+  measures projection/sketch scan on a 10× synthetic E ladder;
+  a full router still needs exact rescore and sufficient CPU
+  margin for the selected LUT and core. Independently test a
+  bounded/sublinear large-E index against trained route targets.
   METH-29/30's fixed-group rules failed; METH-36's scan is
   lower dimensional but still linear in E.
   Pause factor-code tuning on the reused
