@@ -1,0 +1,39 @@
+{
+  "experiment": "METH-32-export",
+  "format": "QWEN25_R8_E128_TERNARY_LUT_V1",
+  "core_sha256": "c307fa48015fd01ccc43ab6a90debe42c10245ac4e45b926fc3a6ee2572afa27",
+  "source_adapter_sha256": "3147b2cf4fd3af671d5bf6c6451829ec32acfadaca2a0272be0b123e3873e1ca",
+  "packed_adapter_sha256": "a99542407aea7f1ae9eb7ac0401f9406e7c0cb1516129955c427538950cf7eee",
+  "packed_adapter_bytes": 77179624,
+  "tensor_count": 120,
+  "factor_stats": {
+    "a": {
+      "weight_elements": 22020096,
+      "nonzero_codes": 11933159,
+      "squared_error": 3693.9179611206055,
+      "weight_squared_norm": 19577.021057128906,
+      "relative_squared_error": 0.18868641711837347,
+      "nonzero_fraction": 0.5419212977091471
+    },
+    "b": {
+      "weight_elements": 22020096,
+      "nonzero_codes": 13104885,
+      "squared_error": 614.2229347229004,
+      "weight_squared_norm": 4666.490997314453,
+      "relative_squared_error": 0.13162415508277703,
+      "nonzero_fraction": 0.5951329639979771
+    }
+  },
+  "byte_ledger": {
+    "factor_code_bytes": 55050240,
+    "factor_scale_bytes": 11108352,
+    "router_bytes": 11010048,
+    "selected_factor_codes_per_token": 1720320,
+    "selected_factor_scales_per_token": 347136
+  },
+  "runtime": {
+    "elapsed_seconds": 2.2030000000013388,
+    "rss_end_bytes": 1538732032
+  },
+  "scope": "weight-only packed export; quality and C parity untested"
+}

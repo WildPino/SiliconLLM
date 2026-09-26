@@ -309,6 +309,18 @@ nor bounded-router CPU cost nor end-to-end rate follows. The
 next conversion decision needs a measured packed-factor quality
 gate on a real stored artifact; the next route decision needs a
 fidelity-passing hierarchy or index before C integration.
+[METH-32](METH_32_TERNARY_FACTOR_RESULT_20260926.md) now gives that
+first real-factor check: row-optimal ternary A/B factors are saved
+in the exact LUT tile/code order, with fp32 scales and unchanged
+router, then decoded from stored bytes for the R8 quality audit.
+The 77.18 MB artifact improves pooled BPB by 0.000596 against
+intact factors on reused METH-25 documents, but top-1 agreement
+is only 96.012% versus its prospective 99% gate; changed hidden
+states also alter the fine top-4 set in 13.668% of input-layer
+cases. This **rejects the all-ternary A/B candidate** before
+native promotion. The next factor step is a controlled A/B mixed
+precision diagnosis; new documents, generation and task checks
+must follow any diagnostic pass. No actual-factor C rate is known.
 No T4 run is authorized by these screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first

@@ -17,6 +17,10 @@ shape with synthetic packed factors: E1280→E12800 raises the
 six-thread selected path only 1.136× to 0.505 ms/token. That
 component passes its cost gate; route cost, factor quality and
 end-to-end rate remain unverified.
+METH-32 packs the **real trained** rank-8 factors in that LUT layout;
+reused-document BPB passes its diagnostic screen, but next-token
+top-1 agreement falls to 96.01% versus the ≥99% gate. The all-ternary
+factor format is held before native promotion.
 NES-01 E128 improves BPB but fails greedy generation; NES-02
 finds a dense-router CPU scaling limit; NES-03 int8 shortlist preserves
 tested routes and cuts E1280 router cost. No pretrained-to-native conversion
@@ -251,6 +255,14 @@ the 5.505 GB pool yields **0.5046 ms/token** on six threads versus
 fixed 1.25× and 5 ms component gates. Single-thread execution
 is faster in every arm. This is neither a valid packed Qwen model
 nor an end-to-end CPU or route-quality result.
+[METH-32](METH_32_TERNARY_FACTOR_RESULT_20260926.md) stores the
+trained E128 rank-8 factors as two-trit LUT codes plus fp32 row
+scales and unchanged router in a 77.18 MB artifact. Exact reload
+passes. Reused METH-25 documents improve pooled BPB by 0.000596
+versus intact fp32 factors, but only **5,899/6,144 top-1 IDs**
+match and 86.332% of input-layer cases retain the same top-4 set.
+The fixed 99% top-1 gate fails. The mixed quality read cannot
+establish a usable packed model or native rate.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -295,6 +307,7 @@ SSM/SWA target and passes joint quality/rate.
 | METH-29 | POST-HOC BALANCED ROUTER INDEX RECALL FAIL | [result](METH_29_BALANCED_ROUTER_INDEX_RESULT_20260926.md), [protocol](METH_29_BALANCED_ROUTER_INDEX_PROTOCOL_20260926.md), [route/group ledger](meth29_balanced_router_index_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth29_balanced_router_index.py); no CPU rate or large-E quality |
 | METH-30 | LEARNED GATE ON FROZEN GROUPS RECALL FAIL | [result](METH_30_LEARNED_COARSE_ROUTER_RESULT_20260926.md), [protocol](METH_30_LEARNED_COARSE_ROUTER_PROTOCOL_20260926.md), [training manifest](meth30_learned_coarse_router_manifest.json), [route counts](meth30_learned_coarse_router_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth30_learned_coarse_router.py); no CPU rate or large-E quality |
 | METH-31 | SYNTHETIC SELECTED LUT 10× POOL COST GATE PASS | [result](METH_31_RANK8_LUT_POOL_RESULT_20260926.md), [protocol](METH_31_RANK8_LUT_POOL_PROTOCOL_20260926.md), [raw log](meth31_rank8_lut_pool_raw.log), [machine summary](meth31_rank8_lut_pool_result.json), [engine mode](../../../benchmarks/phase60/engine.c), [summary parser](../../../benchmarks/native_expert_scaling/summarize_meth31_rank8_lut_pool.py); no packed-factor quality or router cost |
+| METH-32 | REAL TRAINED TERNARY FACTOR TOP-1 GATE FAIL | [result](METH_32_TERNARY_FACTOR_RESULT_20260926.md), [protocol](METH_32_TERNARY_FACTOR_PROTOCOL_20260926.md), [export ledger](meth32_ternary_factor_export.json), [quality audit](meth32_ternary_factor_audit.json), [exporter](../../../benchmarks/donor_adaptation/s1/meth32_export_ternary_factors.py), [audit runner](../../../benchmarks/donor_adaptation/s1/meth32_ternary_factor_audit.py); no fresh promotion or native rate |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -339,6 +352,10 @@ scheduled.
   large-E quality evidence remain open. METH-31 now isolates one CPU
   LUT selected-path cost at E12,800 and passes that component's 10×
   pool gate, but uses synthetic codes and excludes the router.
+  METH-32 produces actual trained-factor LUT codes and reloads them,
+  but its all-ternary version fails the prospective top-1 gate on
+  reused documents. A mixed factor precision screen is needed before
+  claiming a quality-valid LUT export.
 - **Next quality design:** METH-27 disproves generation readiness for
   this exact R8 composition despite METH-25/28 loss and task passes.
   Diagnose the added technical loops and high code/prose repetition;
@@ -358,9 +375,10 @@ scheduled.
   structured bounded index against the frozen E128 fine route on
   held-out inputs; METH-29/30's post-hoc group rules fail. If route
   recall passes, implement bounded lookup in C and measure its time
-  across a 10× E ladder. Separately test whether the trained rank-8
-  factors retain donor-relative quality after conversion to the
-  packed LUT format used by METH-31, then integrate that exact export.
+  across a 10× E ladder. Separately isolate A versus B precision
+  in the METH-32 factor failure, choose a mixed format only by a
+  prospective cost/fidelity gate, and verify any candidate on new
+  documents, generation and tasks before integrating its exact export.
   Only **distinct trained** expert expansion can validate quality as E
   grows. No T4 job is planned.
 
