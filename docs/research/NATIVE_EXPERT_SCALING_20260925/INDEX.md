@@ -116,8 +116,11 @@ prices **913 MB/token** by the same addressed-payload method; its full weights,
 quality and C behavior have not been tested locally. Both direct Q4 paths
 exceed the 560 MB/14 ms streaming design allotment at the 40 GB/s yardstick.
 GigaChat's C fidelity port is partial and no
-quality-plus-≥50 C artifact exists. Qwen2.5-1.5B H1 shows that training a
-carve helps; frozen H4+H2I composition fails. See [METHOD.md](METHOD.md) for
+quality-plus-≥50 C artifact exists. Qwen2.5-1.5B H1 S3 shows that training a
+carve helps but leaves +0.155895 BPB after about 11 h T4. METH-11's
+25%-shared, top-16 residual, all-layer step-zero carve fails at +0.706052
+BPB on its predeclared CPU pilot; its full-active wiring control is exact.
+Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
 
@@ -140,6 +143,7 @@ SSM/SWA target and passes joint quality/rate.
 | METH-08 | ACTIVE COST PASS; Q2 REALLOCATION QUALITY GROSS FAIL | [result](METH_08_Q2_REALLOCATION_RESULT_20260926.md), [protocol](METH_08_Q2_REALLOCATION_PROTOCOL_20260926.md), [GGUF audit](meth08_q2_reallocation_verify.json), [paired pilot](meth08_q2_reallocation_pilot9_adjudication.json) |
 | METH-09 | OVER-BUDGET Q2 EXPERT ISOLATION; small quality rescue | [result](METH_09_Q2_EXPERT_ISOLATION_RESULT_20260926.md), [protocol](METH_09_Q2_EXPERT_ISOLATION_PROTOCOL_20260926.md), [machine conditional effect](meth09_q2_isolation_summary.json) |
 | METH-10 | LOCAL SOURCE/TRAINING ASSET READINESS; no new quality result | [Qwen2.5-1.5B inventory](METH_10_QWEN_LOCAL_READINESS_20260926.md), [H1 prior](../donor_adaptation/probes/H1_THE_CARVE_TRAINED.md), [H5 adverse composition](../donor_adaptation/probes/H5_CROSS_COMPOSITION_RESULT.md) |
+| METH-11 | FULL-LAYER STEP-ZERO GEOMETRY REJECTED; +0.706052 BPB | [result and cost ledger](METH_11_SHARED_RESIDUAL_RESULT_20260926.md), [frozen protocol](METH_11_SHARED_RESIDUAL_PROTOCOL_20260926.md), [raw plan/scores](meth11_qwen_shared_residual_pilot.json), [executable](../../../benchmarks/donor_adaptation/s1/meth11_shared_residual.py); no training or native speed result |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -154,28 +158,32 @@ scheduled.
   reduce a pretrained donor's active traffic while preserving quality;
   pretrained-to-native export/fidelity; generality across families and scales.
 - **Closed within their scope:** H5's frozen H4+H2I assembly is adverse;
-  STRAT-03's tested shared/router geometry fails. Neither rejects fresh joint
-  training. The old donor parity queue is not an automatic next step.
+  STRAT-03's tested shared/router geometry fails; METH-11's 64-shared plus
+  top-16-of-192 residual geometry loses +0.706052 BPB before quantization.
+  None rejects all fresh joint-training approaches. The old donor parity
+  queue is not an automatic next step.
 - **CPU design state:** NES-03 established a 32-candidate int8 path on this
   pilot; the full fp32 router and reference expert copies remain resident.
   A packed-only export, learned large-E routing/quality and accepted-token
-  rate remain open. Do not spend the next cell only tuning this pilot router.
+  rate remain open. METH-11's E192→E19,200 shape projection makes an
+  exhaustive int8 router address 825.75 MB/token, already >20 ms at
+  40 GB/s, so larger RAM alone cannot preserve throughput. Do not spend
+  the next cell only tuning this pilot router.
 - **Next quality design:** choose one changed variable to address E128 greedy
   loops (for example exposure or route training), estimate local training cost
   and freeze BPB, repetition and routing gates before a new run. Do not
   automatically extend E256 on the BPB gain alone.
-- **Next exact action: pretrained transfer.** The bounded GigaChat
-  quantization-only path now has measured calibration, actual byte costs
-  and repeated donor-quality failures. Do not run its 96-document/native
-  gates or repeat another nominal bit swap. Use the
-  [verified local Qwen2.5-1.5B assets](METH_10_QWEN_LOCAL_READINESS_20260926.md)
-  to specify one jointly trainable conditional transformation with a bound
-  donor, distinct expert capacity, native export/cost estimate and frozen
-  quality/compute stops. Use GigaChat's expert/head sensitivity as a
-  constraint if returning to that family. Capacity scaling to 10B/100B
-  still needs learned large-E routing quality and CPU LUT/shortlist cost
-  on the same native artifact. The old donor port is not an automatic
-  next step. No T4 job is planned.
+- **Next exact action: pretrained transfer.** METH-11 shows that selecting
+  only 31.25% of donor FFN neurons at step zero is not an adequate compact
+  core, even with 25% of groups always active. Design a donor-preserving or
+  *trained* compact shared core on calibration/training data, accounting for
+  Qwen's 933.5 MB/token fp32 tied head in the current C engine. Freeze one
+  new candidate and evaluate on a fresh untouched split before spending GPU
+  hours. Do not repeat the GigaChat nominal bit swaps or its 96-document
+  quality gate after METH-06/08/09 failures. Capacity scaling to 10B/100B
+  still needs **distinct trained** large-E experts, routing quality under
+  greater choice, and CPU LUT/shortlist cost on the same native artifact.
+  No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

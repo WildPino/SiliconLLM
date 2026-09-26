@@ -33,6 +33,11 @@ GigaChat source. The local
 matching the [H1 bundle manifest](../../../benchmarks/donor_adaptation/s1/_h1_bundle/MANIFEST.json).
 That bundle also contains the frozen H0 factors, E256 labels, activation
 statistics, train/calibration and heldout ID files recorded in the manifest.
+The **later H1 session 3** checkpoint is also present at
+`D:/_ktmp/h1_kaggle_s3_v2_output/h1_trained_s3.npz`,
+1,334,711,974 bytes, SHA-256
+`4d6d761c5f1fd3f8adcb4cfc8a6aae44c4b6ca3bc681d8a3e98397caf7c5ce4a`.
+Its identity matches the [frozen S3 CPU adjudication](../../../benchmarks/donor_adaptation/s1/results/h1/h1_eval_h1_s3_adjudication.json).
 The hashes above establish local identity and availability; they do not
 validate a new conversion.
 
@@ -40,12 +45,16 @@ validate a new conversion.
 
 [H1](../donor_adaptation/probes/H1_THE_CARVE_TRAINED.md) jointly trained
 carved FFN masters and routers on eight of 28 layers, with E256/top-16.
-Its frozen CPU-fp32 score improved an applied eight-layer carve from
-1.096636 to **0.962593 BPB**, while the intact donor was **0.767595**.
-The gap to the donor is still about **+0.195 BPB**, and H1 did not
-produce a native `engine.c` artifact. Its second session restarted Adam
-state, so the two recorded checkpoints cannot support a smooth learning
-curve extrapolation. [H5](../donor_adaptation/probes/H5_CROSS_COMPOSITION_RESULT.md)
+The applied eight-layer carve scored 1.096636 BPB; the intact donor was
+0.767595. The historical S2 checkpoint scored 0.962593 BPB on the frozen
+CPU-fp32 slice. The [later S3 evaluation](../../../benchmarks/donor_adaptation/s1/results/h1/h1_eval_h1_s3.json)
+scored **0.923490 BPB** on that same slice, still **+0.155895 BPB**
+versus donor. Its [adjudication](../../../benchmarks/donor_adaptation/s1/results/h1/h1_eval_h1_s3_adjudication.json)
+records 765 completed steps, a time cap after 39,619.6 s (about 11 h)
+and a valid CPU-fp32 gate. H1 has no native `engine.c` artifact and
+does not establish quality retention. Adam state was restarted between
+sessions, so their increments do not support a smooth learning curve
+extrapolation. [H5](../donor_adaptation/probes/H5_CROSS_COMPOSITION_RESULT.md)
 installed separately trained H4 attention and H2I FFN components
 post hoc; BPB worsened by +0.245430 and free generation deteriorated.
 That result rejects the tested frozen composition, not fresh joint
