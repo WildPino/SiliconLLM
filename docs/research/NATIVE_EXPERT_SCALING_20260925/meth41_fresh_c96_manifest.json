@@ -1,0 +1,331 @@
+{
+  "experiment": "METH-41",
+  "seed": "meth41-41041",
+  "code_ref": "9fb7791",
+  "source_sha256": {
+    "strat02_document_holdout_v1/heldout.jsonl": "450da27e25755bb7c71215e148f5863d197af6893385033e6100bb212deafd0e",
+    "strat01_gigachat_fresh_v2/heldout.jsonl": "04687034c1054e0985e24efa87ba37a3fb11031de5b2880e5b8ac1742f80ec6e"
+  },
+  "prior_manifest_sha256": {
+    "meth17_fresh_document_manifest.json": "7e0593d6c56c28398e3440f9b80db15d506a31131a21480a87578c23b0a043a8",
+    "meth19_half_residual_independent_manifest.json": "1eb4193e521df4d25d6367a84d8478d4ea733841fe9a77d550de01796ddf3d70",
+    "meth25_fresh_r8_manifest.json": "20890f2c4614287dfdb7527b0935436bb88a035a348e45e0c1e4f13f6d068f77"
+  },
+  "excluded_qwen_corpus_sha256": [
+    "10d4d28102625f399f715b6aa220b234c5015dcff199997ccafa06e5c59c89d0",
+    "f46b0310c15faec59ca805d5688317d53b7655ae7099008fe5c3439460d58312"
+  ],
+  "overlap_rule": "source-ID exclusion plus first/middle/final 256-byte fragment exclusion against Qwen corpus and METH-17/19/25 selected spans; selected-set cross-screen",
+  "selected_counts": {
+    "code": 8,
+    "prose": 8,
+    "technical_general": 8
+  },
+  "source_stats": {
+    "code": {
+      "source_rows": 80,
+      "short": 2
+    },
+    "technical_general": {
+      "source_rows": 13,
+      "short": 1
+    },
+    "prose": {
+      "source_rows": 64,
+      "prior_source_id": 48,
+      "short_or_fragment_overlap": 1
+    }
+  },
+  "span_max_bytes": 4095,
+  "tokenizer_fingerprint": "4efeeb9382a77a06",
+  "items": [
+    {
+      "category": "code",
+      "source_id": "benchmarks/donor_adaptation/s1/h2i_qat.py",
+      "source_kind": "git",
+      "source_ref": "9fb7791",
+      "source_sha256": "f8df56204e564ca0ced074059d0418fcb16682b5d200cc18a1785d46290d6c02",
+      "span_start_byte": 10600,
+      "text_sha256": "b159c318366944cbce4b957b762e1fa425d93a96b26f07665d8ab6967d5ab4f2",
+      "bytes": 4095,
+      "tokens": 1111,
+      "prompt_ids_sha256": "4bc669bd0358b2f7acf33df5e5729a7bb44693d3a32ec3a8170f475e2e8b5b4a"
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/donor_adaptation/s1/h1_s3_adjudicate.py",
+      "source_kind": "git",
+      "source_ref": "9fb7791",
+      "source_sha256": "1b7b850d8cf9b769e1f7dccf4d7b7bb9c4d04112ee9db8d1bafb086bad8d5d07",
+      "span_start_byte": 4109,
+      "text_sha256": "d8f194d8c9bc959a79e9b4ec059affe42bce00d8a5bbcfca66614172001dba12",
+      "bytes": 4095,
+      "tokens": 1179,
+      "prompt_ids_sha256": "8a50a1aa64c0350b60a51effbb37974c480fcbdaef857e0eb2153017e39d1b0b"
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/donor_adaptation/s1/meth22_qwen05b_active_ledger.py",
+      "source_kind": "git",
+      "source_ref": "9fb7791",
+      "source_sha256": "7818058571562b8d2ce08f3f82096058ed029ad52e6cb99fccceb61410af464c",
+      "span_start_byte": 1597,
+      "text_sha256": "6730eaf45df8de87a34aaf9762500281361f8d0e64fb4b5d03974619c59ca45f",
+      "bytes": 4095,
+      "tokens": 1112,
+      "prompt_ids_sha256": "168304ecdd1db7b200d7aa46220151901b17ec3518a9179574d03b1acbd3e59b"
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/donor_adaptation/s1/fp16_range_diag.py",
+      "source_kind": "git",
+      "source_ref": "9fb7791",
+      "source_sha256": "f47ead0244de56160025a1eab57b11680d946f7589839969ab3a5818cb39774a",
+      "span_start_byte": 866,
+      "text_sha256": "c3989e29fbef38fad19286df9e22751c14d9921fb5e23cccc293b3ff627421dd",
+      "bytes": 4095,
+      "tokens": 1197,
+      "prompt_ids_sha256": "e94abf4c73a9c7e16f3e910f7a6ee64a0e8be07524682699d544900c0215f22a"
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/donor_adaptation/s1/meth32_ternary_factor_audit.py",
+      "source_kind": "git",
+      "source_ref": "9fb7791",
+      "source_sha256": "7c98c5b6ef1d146b7a3f519e8d656768bcf14b77c870952bb87c69bcf11ac543",
+      "span_start_byte": 2346,
+      "text_sha256": "c59328d3be9a7912623570f1ab8267f046c74a88cea1e78e0a7690514a9a93da",
+      "bytes": 4095,
+      "tokens": 1084,
+      "prompt_ids_sha256": "e55bcfe8fdecf6b3ccf730eb3d4e990f796c9b33b04f53aaee221836aa6ea2e8"
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/donor_adaptation/s1/meth17_fresh_transfer_audit.py",
+      "source_kind": "git",
+      "source_ref": "9fb7791",
+      "source_sha256": "4948d39e8d2acae29e6a224a0d7a643523ee35b6437ed6db041e6a93d7f8804b",
+      "span_start_byte": 6387,
+      "text_sha256": "b8c291236bcb761dfe162ef4c24dd50900b92731d49fda5bc1fe26ef076b7827",
+      "bytes": 4095,
+      "tokens": 1059,
+      "prompt_ids_sha256": "49a301e2f6388c2ffaab0523704e07210acb47a9388ca7b6a8b8427c22e460a3"
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/donor_adaptation/s1/meth37_route_replacement.py",
+      "source_kind": "git",
+      "source_ref": "9fb7791",
+      "source_sha256": "18937eaa6d72193f11395842323fe48039ab5c9999c8410daa694b33cd0e74d8",
+      "span_start_byte": 2160,
+      "text_sha256": "ea26df44bb7d722716925951be4f83a2abfca066234e17a56f72a08bf35e98a0",
+      "bytes": 4095,
+      "tokens": 1064,
+      "prompt_ids_sha256": "a4586b2a5c4d45568a01e99e6d0b7100efb6d294f2174f796d4c164680aa6bf3"
+    },
+    {
+      "category": "code",
+      "source_id": "benchmarks/donor_adaptation/s1/meth36_export_int8_sketch.py",
+      "source_kind": "git",
+      "source_ref": "9fb7791",
+      "source_sha256": "54d73f2699e17a4d4fe8a24a85090927be86a69e636f9d25c8e34bc9786a15fb",
+      "span_start_byte": 1178,
+      "text_sha256": "796808ddfa0e16f77a4a0bfca97185f81b6f6a1b3ac97cf37ab551ea5277afb0",
+      "bytes": 4095,
+      "tokens": 1173,
+      "prompt_ids_sha256": "3d946db9bfa061ae6dd79737e4da742cc4792a6748b608b090deb3c35b50e718"
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=23",
+      "source_kind": "pg19",
+      "source_ref": "450da27e25755bb7c71215e148f5863d197af6893385033e6100bb212deafd0e",
+      "source_sha256": "96b4a09053a9a4df29ca58c42d398553276bbf5820607e7ade88271a2d547077",
+      "span_start_byte": 55749,
+      "text_sha256": "f499314dde3c709026010f0538740feff44eaf2144c4d970f0dbcb5da915c5f4",
+      "bytes": 4095,
+      "tokens": 945,
+      "prompt_ids_sha256": "a765c2938a28e1eea77fa1fbeb032391c82b809b8223567848a96efd2802bcba"
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=27",
+      "source_kind": "pg19",
+      "source_ref": "450da27e25755bb7c71215e148f5863d197af6893385033e6100bb212deafd0e",
+      "source_sha256": "6fc909e06cf2b18b32e7ee843e43ba38c72bb77b7b398bfcb2bff8e3f2db3811",
+      "span_start_byte": 48456,
+      "text_sha256": "9c11087c42d79274012f397e523af82f1faeac68901d5a604ab0a997ed2e2166",
+      "bytes": 4095,
+      "tokens": 984,
+      "prompt_ids_sha256": "0d2c3b7ef5949c300ffd1d352406020e6423ca61d3fd54765f2c58c2e02c04a3"
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=86",
+      "source_kind": "pg19",
+      "source_ref": "450da27e25755bb7c71215e148f5863d197af6893385033e6100bb212deafd0e",
+      "source_sha256": "0d04327aaf026ca5d7e71c37928259bbb6919617224c02db09843475e526366b",
+      "span_start_byte": 131299,
+      "text_sha256": "691861a585f68b9c624ad72871c6eed0fdc0183e1726458dd3a40ed6412671c4",
+      "bytes": 4095,
+      "tokens": 989,
+      "prompt_ids_sha256": "c2d12e7cb08aae618e2ebe2f07fc6723e6bf4ee3b4699a95cba9d36c2061e975"
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=72",
+      "source_kind": "pg19",
+      "source_ref": "450da27e25755bb7c71215e148f5863d197af6893385033e6100bb212deafd0e",
+      "source_sha256": "cd88b15b8dd2e1f14daa7c5418419e2b1091cf3b9d1dda7bc1ac8f1d922937bb",
+      "span_start_byte": 10350,
+      "text_sha256": "e41c3fa778cce1735ee1353177b2767c2ae72149a10d46e5d5bbb2e14338ceea",
+      "bytes": 4095,
+      "tokens": 1131,
+      "prompt_ids_sha256": "a9f50b685f56bcc0c17ae7fed48e0fe6cab28f024dd7e34a241cbfa5da1646c7"
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=21",
+      "source_kind": "pg19",
+      "source_ref": "450da27e25755bb7c71215e148f5863d197af6893385033e6100bb212deafd0e",
+      "source_sha256": "3096d54291b6afabab5a72e5eff167508410fcee824fda45085d0060beb785e2",
+      "span_start_byte": 1956850,
+      "text_sha256": "3ed335d88693c7387d1d6e62e100cadbe8e729a76154e648ee68a7579e7b31a8",
+      "bytes": 4095,
+      "tokens": 1096,
+      "prompt_ids_sha256": "0b1cd9da282bde6f49240a9436df3d626e65d1659a613fff54df93eeff8a2fb5"
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=54",
+      "source_kind": "pg19",
+      "source_ref": "04687034c1054e0985e24efa87ba37a3fb11031de5b2880e5b8ac1742f80ec6e",
+      "source_sha256": "aa86743734c119f82c7fb2926fdc927830043d7aa9f6e7a317ab3e1f19b963c8",
+      "span_start_byte": 305263,
+      "text_sha256": "d12689c087d00f4c8ddd2a0756a9c75b17cf4da47ad09b4534ea2dc7134c6953",
+      "bytes": 4095,
+      "tokens": 986,
+      "prompt_ids_sha256": "04a5821a479c6d61474c1aff30580a30481607d4a4707cbcbdd45bfcb33efdaf"
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=75",
+      "source_kind": "pg19",
+      "source_ref": "450da27e25755bb7c71215e148f5863d197af6893385033e6100bb212deafd0e",
+      "source_sha256": "de33a6aa94b007b63ba4a60dc9573e6e637d7adc6b9fa51128f3a3de6180dadc",
+      "span_start_byte": 87130,
+      "text_sha256": "febf6c24742d0b6ffa8ab39d10545f3d461fea0f2445c54b918c2f4700aa5603",
+      "bytes": 4095,
+      "tokens": 982,
+      "prompt_ids_sha256": "1145b06b33ae5b4afccce6857e728bdb49a916ea43b6bc1349ed08a88984a2a7"
+    },
+    {
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=58",
+      "source_kind": "pg19",
+      "source_ref": "450da27e25755bb7c71215e148f5863d197af6893385033e6100bb212deafd0e",
+      "source_sha256": "74f52c484aebe052693139bc8f322e5d4d77e6ceac85a5d86ca85802154bb0ce",
+      "span_start_byte": 31991,
+      "text_sha256": "5505f75cbf6575061cde4b1572995326f5040af720f4d0a4f697ae44a149a7f0",
+      "bytes": 4095,
+      "tokens": 1114,
+      "prompt_ids_sha256": "7ea3f5504a844be96a15f72ef7db840ef9b0a12ecedcb701eea8e583df139f9c"
+    },
+    {
+      "category": "technical_general",
+      "source_id": "docs/PHASE64_RUNG1_PREREG.md",
+      "source_kind": "git",
+      "source_ref": "9fb7791",
+      "source_sha256": "94e5dd3a2d8db8d387822d9b0e634894db232fea7fca88e61421dbbbffc3c7da",
+      "span_start_byte": 6470,
+      "text_sha256": "591246841627abdb83caebbd00fe78311a639e212079c902fe6208ae75a73d63",
+      "bytes": 4095,
+      "tokens": 1084,
+      "prompt_ids_sha256": "fe1c849120d97bbaf6509b9246705a03281d38a821f91f640338c6b0f81f334e"
+    },
+    {
+      "category": "technical_general",
+      "source_id": "docs/SCALEUP_ARCHITECTURE.md",
+      "source_kind": "git",
+      "source_ref": "9fb7791",
+      "source_sha256": "b126effd7e108d9614e239e35dda99182feb4496cfecf446f036861ad98068dc",
+      "span_start_byte": 6942,
+      "text_sha256": "8a4bb8fb9bab0c113705244de85c193cba7b883822a75f6d645f6c94d3342c50",
+      "bytes": 4095,
+      "tokens": 987,
+      "prompt_ids_sha256": "76233b1dc0a195f740ff64f4ea38a904985822ec10afdcca2e3659b0028e6c50"
+    },
+    {
+      "category": "technical_general",
+      "source_id": "docs/ENGINE_PLAN.md",
+      "source_kind": "git",
+      "source_ref": "9fb7791",
+      "source_sha256": "9acd60984ee6728ef7f11713322b5c51f33488350a3d1ef3e3878abdbf7341a6",
+      "span_start_byte": 17364,
+      "text_sha256": "38bb80b392b83540f8e03525924a190fb24034501b3b1bbd61a26255e259c7d1",
+      "bytes": 4095,
+      "tokens": 1330,
+      "prompt_ids_sha256": "3cf96c517a775ff01423619bf4b2175fd1266586c87a767a6aaab8522305fa36"
+    },
+    {
+      "category": "technical_general",
+      "source_id": "docs/PHASE64_DECISIONS.md",
+      "source_kind": "git",
+      "source_ref": "9fb7791",
+      "source_sha256": "ff661d51ef234155ab404bca6530543edb7eed007e44197bcbbeb967fe42c439",
+      "span_start_byte": 5257,
+      "text_sha256": "7a9daceee1ecaf3e1b1c762c137e5efc54d89917e5660ce89e60fae7592f976f",
+      "bytes": 4095,
+      "tokens": 1099,
+      "prompt_ids_sha256": "74587c226f6014abbbcd2900655f8082c4f9e4175aaed90ca57965c1813c0e99"
+    },
+    {
+      "category": "technical_general",
+      "source_id": "docs/EXTERNAL_REVIEW_01.md",
+      "source_kind": "git",
+      "source_ref": "9fb7791",
+      "source_sha256": "b6c9632817e0d0a276827f8a7e22fc184fabd77663ecfde6f98b03feb479c25c",
+      "span_start_byte": 973,
+      "text_sha256": "4dd7ca3284aa0d1d73bdfc9d9bd525f4433ce8654dd221daf884a2365673f525",
+      "bytes": 4095,
+      "tokens": 1128,
+      "prompt_ids_sha256": "87a1c4423bc10975471173d798a5b88a8c3970971175460c063af2f67410e45d"
+    },
+    {
+      "category": "technical_general",
+      "source_id": "docs/HANDOFF_PROTOCOL.md",
+      "source_kind": "git",
+      "source_ref": "9fb7791",
+      "source_sha256": "96020aef2e80dc4762770a0e871f8f8ae5d0ada0b4f11026145ecda1c0619216",
+      "span_start_byte": 623,
+      "text_sha256": "bb9c5e89f7e280fe7a3e7cec287a7f8536b02a77c175a37ceafaf40d2603fcb8",
+      "bytes": 4095,
+      "tokens": 1009,
+      "prompt_ids_sha256": "0efc6df12517529de6e56a0e80cd319c15d0e3725daf565cab52080e6afd1211"
+    },
+    {
+      "category": "technical_general",
+      "source_id": "docs/PHASE64_BUDGET.md",
+      "source_kind": "git",
+      "source_ref": "9fb7791",
+      "source_sha256": "2f0b16c0d34cc411c5cb232704173f1dcb063ab188f872a5c01aef7abaec3554",
+      "span_start_byte": 3059,
+      "text_sha256": "356656410f039474cb7d0d409f1cf6536e4d485ccd2697038ed4dcd947ce86ff",
+      "bytes": 4095,
+      "tokens": 1519,
+      "prompt_ids_sha256": "4975242eedd96d1bfd7484e5869983ba2b5894ba85dc6770f25c7e678813d5a5"
+    },
+    {
+      "category": "technical_general",
+      "source_id": "docs/PHASE64_RUNG1_BRIEF.md",
+      "source_kind": "git",
+      "source_ref": "9fb7791",
+      "source_sha256": "f00ff08cde8366dc5ac28825b7c4a04f71d96c711a4916bfd0ac2f6701dbf30b",
+      "span_start_byte": 10032,
+      "text_sha256": "bfefc2df8e3417b873ab40ee0e5ea6796c0ed41bf1dde7ae6a3f434317199b2d",
+      "bytes": 4095,
+      "tokens": 1128,
+      "prompt_ids_sha256": "31bb99c2ee795cf300340761c63a96368607eef247ffc8b299fbece659e04a86"
+    }
+  ]
+}
