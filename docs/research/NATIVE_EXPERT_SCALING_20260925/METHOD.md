@@ -76,7 +76,7 @@ rate results.
 | A. Bind | Verify source revision, shard/tensor identity, tokenizer IDs and reference runtime; GigaChat `strat01_gigachat_source_binding.py` and saved reports | Exact identity check | GigaChat base source↔BF16 GGUF tensor bytes bound. Text→ID tokenizer parity in `engine.c` remains open. Qwen revision is pinned, but a new run must bind its exact local weight hash. |
 | B. Establish donor | Score fresh held-out documents, task and greedy rollouts with the intact source and candidate under identical token IDs | Measurement | GigaChat Q4 versus BF16 passes scoped quality gates. Qwen intact anchor and limited-layer arms exist on a small frozen slice; a final fresh split is missing. |
 | C. Decompose | List core/mixer/head/router/shared/routed tensors; calculate active and stored bytes, per-token selected experts and expected training exposure | Exact shape arithmetic plus measured kernel anchors | [METH-00](METH_00_GIGACHAT_COST_PREFLIGHT_20260925.md) gives an ideal W4 preflight; [METH-01](METH_01_GIGACHAT_Q4_ACTIVE_LEDGER_20260925.md) prices local GigaChat mixed-GGUF and [METH-03](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md) the official Granite header. [NES-02](NES_02_CPU_EXPERT_COUNT_STRESS_20260925.md) measures a synthetic 10× native expert-count stress and prices dense routing at 10B/100B; it is no quality result. Cache residency and effective expert throughput are not assumed. |
-| D1. Sparse-source variant | Preserve donor structure initially, then apply an organ-selective low-bit representation from BF16, with source BF16/Q4 paired controls; adapt or change structure only if step-zero quality/cost requires it | **Proposed approximation / adaptation** | GigaChat Q4 retains quality but charges 1,016 MB/token. [METH-04](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md) supplies an executable 414-tensor type map at 534.025 MB/token in descriptor arithmetic. [METH-05](METH_05_SOURCE_ID_IMATRIX_RESULT_20260926.md) made source-ID BF16 calibration executable but stopped before conversion: two rare experts had only 16 and 39 activations against a frozen minimum of 64. No converted weights, quality or C rate exists. Full donor C port alone does not close this stage. |
+| D1. Sparse-source variant | Preserve donor structure initially, then apply an organ-selective low-bit representation from BF16, with source BF16/Q4 paired controls; adapt or change structure only if step-zero quality/cost requires it | **Measured approximation failure; new design open** | GigaChat Q4 retains quality but charges 1,016 MB/token. [METH-04](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md) supplied a 414-tensor type map at 534.025 MB/token. [METH-05](METH_05_SOURCE_ID_IMATRIX_RESULT_20260926.md) exposed two rare experts too sparsely; [METH-06](METH_06_CYRILLIC_ROUTE_RESULT_20260926.md) repaired coverage and made the actual 534.025 MB/token GGUF, but it grossly failed donor-relative pilot quality (+0.239465 BPB). No quality-valid compact donor or C rate exists. Full donor C port alone does not close this stage. |
 | D2. Dense-source variant | Create a shared path plus residual experts with an economical input-only router; jointly adapt affected projections, router and experts, with continuous transitions and donor supervision | **Proposed training** | H1 shows training helps one carve; H4/H2I frozen composition and STRAT-03's tested local geometry fail. A new jointly specified geometry and step-zero control are required, not frozen assembly. |
 | E. Export | Emit versioned C weights/metadata, tokenizer, precision map and golden intermediate/logit traces; run the exact timed C path | Exact serialization plus approximate kernels | Native E32 export/parity exists. GigaChat C fidelity is partial. No converted pretrained conditional target has completed this stage. |
 | F. Validate | Paired donor→target held-out BPB with uncertainty, generation/task checks, routing utility, RAM/bytes/latency breakdown and ≥50 accepted tok/s on the same exported target | Measurement | **Open for every converted target.** Pilot/synthetic rate, scalar BPB, and partial port parity cannot be combined into a pass. |
@@ -142,22 +142,22 @@ identifies a recurrence-bearing alternative. The subsequent
 [official Granite header ledger](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md)
 prices 913.314 MB/token, also over the 560 MB streaming design allotment at
 the stated hardware yardstick. [METH-04](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md)
-specifies a GigaChat BF16→mixed low-bit map at 534.025 MB/token, leaving
-25.975 MB beneath that allotment. This is a plausible payload target, not a
-quality-valid conversion: IQ2_XS on 254 tensors needs donor-specific
-calibration. The pinned quantizer's
-[dry run](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md#pinned-quantizer-dry-run-september-25)
-reproduced all 414 target types without reported fallback but created no
-weights. The 13.351 ms/token payload floor leaves only 6.649 ms of
-the 20 ms total budget. [METH-05](METH_05_SOURCE_ID_IMATRIX_RESULT_20260926.md)
-implements source-tokenizer ID calibration and produces a 106-chunk BF16
-matrix, but two rare expert slices miss the predeclared 64-observation floor.
-The method therefore stops before quantization. Extend the non-held-out
-calibration with distinct documents and language coverage, verify routed
-exposure and retain the frozen paired quality/stop budget before producing
-weights. Then compare the route with a
-tractable dense-source Qwen joint-training case. The screens establish
-neither actual C speed nor quality and authorize no T4 run.
+specified a GigaChat BF16→mixed low-bit map at 534.025 MB/token, leaving
+25.975 MB beneath that allotment and only 5.975 MB beneath the stricter
+540 MB actual-header gate. The 13.351 ms/token addressed-payload floor
+would leave only 6.649 ms of a 20 ms total budget if quality held.
+[METH-05](METH_05_SOURCE_ID_IMATRIX_RESULT_20260926.md) implemented
+source-tokenizer calibration but found rare experts below its frozen
+64-observation floor. [METH-06](METH_06_CYRILLIC_ROUTE_RESULT_20260926.md)
+added distinct Cyrillic documents; the merged BF16 matrix passes that
+coverage gate with a minimum of 94. An actual GGUF matches all 414 planned
+types and 534.025 MB/token, but its nine-document donor-relative loss is
++0.239465 BPB, with each category over the frozen +0.20 gross-failure
+stop. This rejects the current IQ2 map before full quality and C timing.
+More calibration cannot be assumed to remedy the measured precision loss.
+A new priced quality-preserving mechanism and a tractable dense-source Qwen
+comparison are the next method decisions. No T4 run is authorized by these
+screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
