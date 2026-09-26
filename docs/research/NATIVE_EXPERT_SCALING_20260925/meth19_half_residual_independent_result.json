@@ -1,0 +1,867 @@
+{
+  "experiment": "METH-19",
+  "manifest_sha256": "1eb4193e521df4d25d6367a84d8478d4ea733841fe9a77d550de01796ddf3d70",
+  "source": {
+    "model": "Qwen/Qwen2.5-0.5B",
+    "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+    "model_sha256": "88c142557820ccad55bb59756bfcfcf891de9cc6202816bd346445188a0ed342",
+    "tokenizer_fingerprint": "4efeeb9382a77a06",
+    "checkpoint_sha256": "a9e74c9ceeb8a91fd04f9b9e35a981965db9ab824d2d25ea728dd940ea5365a4"
+  },
+  "arms": [
+    "donor",
+    "half",
+    "full",
+    "permuted_half"
+  ],
+  "half_factor": 0.5,
+  "permutation_seed": 1919,
+  "rows": [
+    {
+      "index": 0,
+      "category": "code",
+      "source_id": "benchmarks/phase60/e4_export.py",
+      "text_sha256": "f4e1d33ff029b035be23939ac2aff71decb62ac3c8d614d0ee67320d0b898ea7",
+      "bytes": 4095,
+      "tokens": 1469,
+      "nats": {
+        "donor": 3284.9153442382812,
+        "half": 3304.2885131835938,
+        "full": 3393.5682373046875,
+        "permuted_half": 3300.8516235351562
+      }
+    },
+    {
+      "index": 1,
+      "category": "code",
+      "source_id": "benchmarks/phase64/mve/ws2_acceptance.py",
+      "text_sha256": "9520403eeafcb0d6c68c9d140afa167c44634a32effde07f2095a94a6cdbddce",
+      "bytes": 4095,
+      "tokens": 1162,
+      "nats": {
+        "donor": 2898.6510009765625,
+        "half": 2905.4871215820312,
+        "full": 2962.2776489257812,
+        "permuted_half": 2907.8761596679688
+      }
+    },
+    {
+      "index": 2,
+      "category": "code",
+      "source_id": "benchmarks/phase57/phase58_reg.py",
+      "text_sha256": "b732b84fea84f607c96ef94d311ce863018eb2e2ecaac0fa78e46ee6b70b13cb",
+      "bytes": 4095,
+      "tokens": 1199,
+      "nats": {
+        "donor": 3321.5970458984375,
+        "half": 3340.2946166992188,
+        "full": 3430.5582275390625,
+        "permuted_half": 3327.297576904297
+      }
+    },
+    {
+      "index": 3,
+      "category": "code",
+      "source_id": "benchmarks/phase55/phase55_generator.c",
+      "text_sha256": "68ceb5bb440e5a164e1ded1a781d6ebde4039bc3db087a6b4daed10b52b016c2",
+      "bytes": 4095,
+      "tokens": 1332,
+      "nats": {
+        "donor": 3268.429168701172,
+        "half": 3293.0404663085938,
+        "full": 3361.0360412597656,
+        "permuted_half": 3285.1113891601562
+      }
+    },
+    {
+      "index": 4,
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/ws3_chunk_residence.py",
+      "text_sha256": "0030f6a683e6b8e4ecd73d95afc35f18d0545b52a5743e0a61aaafc6883f8e39",
+      "bytes": 4095,
+      "tokens": 1130,
+      "nats": {
+        "donor": 3068.27734375,
+        "half": 3066.9821166992188,
+        "full": 3124.8519287109375,
+        "permuted_half": 3083.4336853027344
+      }
+    },
+    {
+      "index": 5,
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/ws3_recover_p62_guard_exercise.py",
+      "text_sha256": "af63dff0dfaed782e9ebb677e1c8e419f13aa61fef46c1f9d3e939c9d6a1b5c9",
+      "bytes": 4095,
+      "tokens": 1428,
+      "nats": {
+        "donor": 3296.9951171875,
+        "half": 3329.1554565429688,
+        "full": 3421.4566650390625,
+        "permuted_half": 3303.2738647460938
+      }
+    },
+    {
+      "index": 6,
+      "category": "code",
+      "source_id": "benchmarks/phase56/phase56_parallel.py",
+      "text_sha256": "d481b6a568be8835e577c44283ea84967b8d828dd260aa278791ad89907231bc",
+      "bytes": 4095,
+      "tokens": 1225,
+      "nats": {
+        "donor": 1971.053955078125,
+        "half": 2001.4775848388672,
+        "full": 2081.5064086914062,
+        "permuted_half": 1998.7332153320312
+      }
+    },
+    {
+      "index": 7,
+      "category": "code",
+      "source_id": "benchmarks/phase64/mve/ws1_acceptance.py",
+      "text_sha256": "d85b821be5d48239dae6446c657c3b106d8078ea7c8cbcc09a4066e213473e32",
+      "bytes": 4095,
+      "tokens": 1284,
+      "nats": {
+        "donor": 2979.3016967773438,
+        "half": 2979.6832275390625,
+        "full": 3026.6185913085938,
+        "permuted_half": 2995.8975219726562
+      }
+    },
+    {
+      "index": 8,
+      "category": "code",
+      "source_id": "benchmarks/phase60/e4_reference.py",
+      "text_sha256": "454f2ad7d7e15638e6b50072b1d0c25da4a398886ee9c1a3ed9782d0989dc30f",
+      "bytes": 4095,
+      "tokens": 1309,
+      "nats": {
+        "donor": 2292.851318359375,
+        "half": 2298.8901977539062,
+        "full": 2365.5797119140625,
+        "permuted_half": 2314.8404541015625
+      }
+    },
+    {
+      "index": 9,
+      "category": "code",
+      "source_id": "benchmarks/phase60/gemv_bench.c",
+      "text_sha256": "fd6372bd7b435cf1b06a2a53ebd3dbf03b4013a219b0d157a7adc0415d850e0d",
+      "bytes": 4095,
+      "tokens": 1739,
+      "nats": {
+        "donor": 1757.3676681518555,
+        "half": 1768.206298828125,
+        "full": 1824.3562316894531,
+        "permuted_half": 1772.3500213623047
+      }
+    },
+    {
+      "index": 10,
+      "category": "code",
+      "source_id": "benchmarks/phase64/mve/kd_information.py",
+      "text_sha256": "8fb105c7c569efef290524e96fdfcd033316743855f8fa5f7d4dae60a863e050",
+      "bytes": 4095,
+      "tokens": 1330,
+      "nats": {
+        "donor": 2680.32080078125,
+        "half": 2684.096923828125,
+        "full": 2742.3218383789062,
+        "permuted_half": 2700.301513671875
+      }
+    },
+    {
+      "index": 11,
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/ws3_license_census.py",
+      "text_sha256": "1ec993f8c3f1ba50391b9092b73bf7e25e4dd8da8b9ff8ff6c8fad1a6fcd8311",
+      "bytes": 4095,
+      "tokens": 1134,
+      "nats": {
+        "donor": 2879.8058471679688,
+        "half": 2898.458221435547,
+        "full": 2964.3455657958984,
+        "permuted_half": 2902.338088989258
+      }
+    },
+    {
+      "index": 12,
+      "category": "code",
+      "source_id": "benchmarks/phase56/phase56_drift_probe.py",
+      "text_sha256": "7212600320d76a7619b0fd13de3a6faa3f4b02f953a499c81dc3272c001b0d3b",
+      "bytes": 4095,
+      "tokens": 1444,
+      "nats": {
+        "donor": 3330.3092041015625,
+        "half": 3359.3860473632812,
+        "full": 3454.6788330078125,
+        "permuted_half": 3348.9700317382812
+      }
+    },
+    {
+      "index": 13,
+      "category": "code",
+      "source_id": "benchmarks/phase64/teacher_bpb.py",
+      "text_sha256": "33a1bb7c3d3a4eca659680236c191cc0977f06f7acbe48238c3bd0a5a9923454",
+      "bytes": 4095,
+      "tokens": 1142,
+      "nats": {
+        "donor": 2318.6726684570312,
+        "half": 2335.72314453125,
+        "full": 2404.0232849121094,
+        "permuted_half": 2336.6067504882812
+      }
+    },
+    {
+      "index": 14,
+      "category": "code",
+      "source_id": "benchmarks/phase60/e5_ref_stream.py",
+      "text_sha256": "8a4dec80d3f1da55782df0f1cc6b6e87bce52383d01e1a5f97cea1b35ef41ea5",
+      "bytes": 4095,
+      "tokens": 1241,
+      "nats": {
+        "donor": 2858.7645874023438,
+        "half": 2865.558319091797,
+        "full": 2927.60693359375,
+        "permuted_half": 2866.9386596679688
+      }
+    },
+    {
+      "index": 15,
+      "category": "code",
+      "source_id": "benchmarks/phase64/mve/ws4_seqbench.py",
+      "text_sha256": "5bd36780c700e0366edffc5aacba364866b9507bc640296615278995650b1f97",
+      "bytes": 4095,
+      "tokens": 1269,
+      "nats": {
+        "donor": 2932.5557250976562,
+        "half": 2939.273406982422,
+        "full": 3011.439208984375,
+        "permuted_half": 2954.100830078125
+      }
+    },
+    {
+      "index": 16,
+      "category": "code",
+      "source_id": "benchmarks/phase56/phase56_vsa_capacity.py",
+      "text_sha256": "c4c24889b2e05f6c7507db71259432d5dbf3b247739fe340a21d4ea724502b94",
+      "bytes": 4095,
+      "tokens": 1296,
+      "nats": {
+        "donor": 2521.0875549316406,
+        "half": 2555.4444885253906,
+        "full": 2634.7850341796875,
+        "permuted_half": 2539.7291259765625
+      }
+    },
+    {
+      "index": 17,
+      "category": "code",
+      "source_id": "benchmarks/phase55/phase55_kernel_r1_vexp.c",
+      "text_sha256": "72a599fc5b338551742fa1ee83e4ff2e1bdcf776a7a174a25489133482577b02",
+      "bytes": 4095,
+      "tokens": 1543,
+      "nats": {
+        "donor": 2748.6425495147705,
+        "half": 2772.436230659485,
+        "full": 2839.5020236968994,
+        "permuted_half": 2789.4685668945312
+      }
+    },
+    {
+      "index": 18,
+      "category": "code",
+      "source_id": "benchmarks/phase57/phase57_cachesweep.c",
+      "text_sha256": "e1025b9bb5bbfb5219bde176e752b679283ed897ad5868eada8c4ff1764b9bcc",
+      "bytes": 4095,
+      "tokens": 1592,
+      "nats": {
+        "donor": 2717.7542419433594,
+        "half": 2728.1172943115234,
+        "full": 2811.6039123535156,
+        "permuted_half": 2736.747344970703
+      }
+    },
+    {
+      "index": 19,
+      "category": "code",
+      "source_id": "benchmarks/phase57/phase61_projquant.py",
+      "text_sha256": "ab67522dda3b0b3bbdcf786ec0e9de7f20755afaedb22fd9eaf0055804600ccc",
+      "bytes": 4095,
+      "tokens": 1355,
+      "nats": {
+        "donor": 2449.481658935547,
+        "half": 2472.766845703125,
+        "full": 2561.9666442871094,
+        "permuted_half": 2453.5758056640625
+      }
+    },
+    {
+      "index": 20,
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/ws3_epsilon_identity.py",
+      "text_sha256": "a3fe4a57c3e000bf921f849d6218ea8a2e46800668cdfa7fd438cafc92a92ee3",
+      "bytes": 4095,
+      "tokens": 994,
+      "nats": {
+        "donor": 4001.0927734375,
+        "half": 4009.3338623046875,
+        "full": 4064.5999755859375,
+        "permuted_half": 4018.1868896484375
+      }
+    },
+    {
+      "index": 21,
+      "category": "code",
+      "source_id": "benchmarks/phase56/phase56_mqar.py",
+      "text_sha256": "cdc1dfe3364d22e57139191491837025c4f0c9558271d8cd1745353ff2abc8c5",
+      "bytes": 4095,
+      "tokens": 1143,
+      "nats": {
+        "donor": 2901.582992553711,
+        "half": 2921.669403076172,
+        "full": 2985.1422424316406,
+        "permuted_half": 2922.083740234375
+      }
+    },
+    {
+      "index": 22,
+      "category": "code",
+      "source_id": "benchmarks/phase57/phase58_predict.py",
+      "text_sha256": "fc4427f63edd25e96d8d9e50fbeb0f06e12e3cb8e1220dcafec3f6fa63f9b72d",
+      "bytes": 4095,
+      "tokens": 1325,
+      "nats": {
+        "donor": 2483.192138671875,
+        "half": 2490.47265625,
+        "full": 2541.08544921875,
+        "permuted_half": 2513.728759765625
+      }
+    },
+    {
+      "index": 23,
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/ws3_val_split.py",
+      "text_sha256": "b6eaa3f1b22de69c74e470abee62ecfc5a8e82d251d6f4b4d1b4cdb6f5259789",
+      "bytes": 4095,
+      "tokens": 1209,
+      "nats": {
+        "donor": 2861.1629638671875,
+        "half": 2882.836151123047,
+        "full": 2982.862762451172,
+        "permuted_half": 2882.33154296875
+      }
+    },
+    {
+      "index": 24,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=48",
+      "text_sha256": "b28280221587b71cba349f7d424ab3000ba085459f5c8103952b7bb53b38cddf",
+      "bytes": 4095,
+      "tokens": 1005,
+      "nats": {
+        "donor": 3347.25244140625,
+        "half": 3342.3056640625,
+        "full": 3365.9619140625,
+        "permuted_half": 3373.3448486328125
+      }
+    },
+    {
+      "index": 25,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=14",
+      "text_sha256": "8a56bea2e6c1c59bd34d516b97395fea2d2758cb2e30c032fe37741a4b1ea234",
+      "bytes": 4095,
+      "tokens": 1035,
+      "nats": {
+        "donor": 3122.86531829834,
+        "half": 3113.06551361084,
+        "full": 3139.134346008301,
+        "permuted_half": 3144.6119422912598
+      }
+    },
+    {
+      "index": 26,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=19",
+      "text_sha256": "b727906f5a1396708ce95b873ce99efc888b8ccfde423cdb774c0be4194e6bdc",
+      "bytes": 4095,
+      "tokens": 935,
+      "nats": {
+        "donor": 2807.1671142578125,
+        "half": 2783.65966796875,
+        "full": 2790.1666259765625,
+        "permuted_half": 2823.318115234375
+      }
+    },
+    {
+      "index": 27,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=63",
+      "text_sha256": "3425b67c1a39525b58d13c5c4e2bfb05fca87ea765435d9f65adbcd2b535109f",
+      "bytes": 4095,
+      "tokens": 910,
+      "nats": {
+        "donor": 2649.3369140625,
+        "half": 2642.0107421875,
+        "full": 2665.080078125,
+        "permuted_half": 2676.9844970703125
+      }
+    },
+    {
+      "index": 28,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=16",
+      "text_sha256": "d0bae35acfe5ce6563f1e30d489626bbcb73858349dc6526c855ab0414575ed3",
+      "bytes": 4095,
+      "tokens": 1041,
+      "nats": {
+        "donor": 3289.1405868530273,
+        "half": 3272.6734580993652,
+        "full": 3290.7742958068848,
+        "permuted_half": 3299.0319480895996
+      }
+    },
+    {
+      "index": 29,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=57",
+      "text_sha256": "cfe8eddcec3fd8813011b634613f4817026fdf13a3b5749c185b61113d643925",
+      "bytes": 4095,
+      "tokens": 1246,
+      "nats": {
+        "donor": 3787.4251098632812,
+        "half": 3770.1917114257812,
+        "full": 3805.2636108398438,
+        "permuted_half": 3812.9041748046875
+      }
+    },
+    {
+      "index": 30,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=53",
+      "text_sha256": "db749395e0b2d062281b845fff5fe779e6daa90acd708922c242178c303b7a5b",
+      "bytes": 4095,
+      "tokens": 1096,
+      "nats": {
+        "donor": 3075.3858642578125,
+        "half": 3055.538619995117,
+        "full": 3088.9678344726562,
+        "permuted_half": 3100.626922607422
+      }
+    },
+    {
+      "index": 31,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=83",
+      "text_sha256": "cad0e43f0bf24a38e90e31441eb8df628cebadbebaf6d64ebd8bb102c07eebf1",
+      "bytes": 4095,
+      "tokens": 987,
+      "nats": {
+        "donor": 3162.9051513671875,
+        "half": 3165.060546875,
+        "full": 3189.706787109375,
+        "permuted_half": 3176.840087890625
+      }
+    },
+    {
+      "index": 32,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=68",
+      "text_sha256": "cf1ca49895f2ea97952b39f81e876a54a3a52fb7728b7760e1e8948b183f7550",
+      "bytes": 4095,
+      "tokens": 1114,
+      "nats": {
+        "donor": 4288.167541503906,
+        "half": 4281.007385253906,
+        "full": 4304.2752685546875,
+        "permuted_half": 4331.7857666015625
+      }
+    },
+    {
+      "index": 33,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=31",
+      "text_sha256": "d9c89916754be7842d292444fa0ed1a918fe2608f693c46cb73fe87547c8cbcd",
+      "bytes": 4095,
+      "tokens": 979,
+      "nats": {
+        "donor": 3048.1004638671875,
+        "half": 3041.076416015625,
+        "full": 3066.0594482421875,
+        "permuted_half": 3084.0838623046875
+      }
+    },
+    {
+      "index": 34,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=66",
+      "text_sha256": "e80ecb879630955230fc59af02cc92cf28f930a90a609f9886d52ead0d6d1c20",
+      "bytes": 4095,
+      "tokens": 962,
+      "nats": {
+        "donor": 3093.2823486328125,
+        "half": 3102.0618896484375,
+        "full": 3126.1082763671875,
+        "permuted_half": 3117.321044921875
+      }
+    },
+    {
+      "index": 35,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=12",
+      "text_sha256": "d9d9d4dcbc19b242f1eff5a7193ce3b695a9a6ccc771cf2dd6aae02f07319b01",
+      "bytes": 4095,
+      "tokens": 1266,
+      "nats": {
+        "donor": 3412.0264892578125,
+        "half": 3410.7088623046875,
+        "full": 3464.787353515625,
+        "permuted_half": 3414.2045288085938
+      }
+    },
+    {
+      "index": 36,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=2",
+      "text_sha256": "a7b93a963de6497bb061b70a34e9f5e87400905e95500202ee6dbb61744fa7eb",
+      "bytes": 4095,
+      "tokens": 945,
+      "nats": {
+        "donor": 3027.63525390625,
+        "half": 3017.760986328125,
+        "full": 3035.6123046875,
+        "permuted_half": 3035.856201171875
+      }
+    },
+    {
+      "index": 37,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=50",
+      "text_sha256": "188b259e72548cd50e61b87faed7bc293c153ca0409b60a17c5b3e7964533459",
+      "bytes": 4095,
+      "tokens": 959,
+      "nats": {
+        "donor": 2832.298095703125,
+        "half": 2836.6959228515625,
+        "full": 2853.11279296875,
+        "permuted_half": 2854.1866455078125
+      }
+    },
+    {
+      "index": 38,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=0",
+      "text_sha256": "06271eb8fd284f8c178b6c361f51e63260828d777fc75fc5629236af25dc4505",
+      "bytes": 4095,
+      "tokens": 951,
+      "nats": {
+        "donor": 2840.6981201171875,
+        "half": 2829.95751953125,
+        "full": 2850.7178955078125,
+        "permuted_half": 2862.4681396484375
+      }
+    },
+    {
+      "index": 39,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=9",
+      "text_sha256": "1d319064d42ea761e91b638bc0507d0f4e07df49563e52e4232cee9e422b35e3",
+      "bytes": 4095,
+      "tokens": 990,
+      "nats": {
+        "donor": 2504.6748046875,
+        "half": 2490.370361328125,
+        "full": 2519.86376953125,
+        "permuted_half": 2514.62548828125
+      }
+    },
+    {
+      "index": 40,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=3",
+      "text_sha256": "c0dc8408f4415064f09ac5180789deadb322e5ea890163ff2d4f9544c4db9427",
+      "bytes": 4095,
+      "tokens": 903,
+      "nats": {
+        "donor": 2495.631103515625,
+        "half": 2484.91796875,
+        "full": 2505.217041015625,
+        "permuted_half": 2501.438720703125
+      }
+    },
+    {
+      "index": 41,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=18",
+      "text_sha256": "c4207f26bfaf87034e007ee5003b0538a399b9449cef040dca5a84232239f8fb",
+      "bytes": 4095,
+      "tokens": 983,
+      "nats": {
+        "donor": 2990.2003173828125,
+        "half": 2981.8043212890625,
+        "full": 3004.5406494140625,
+        "permuted_half": 3028.5006103515625
+      }
+    },
+    {
+      "index": 42,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=56",
+      "text_sha256": "75e67481ccb3ed7752e5110103b237904e3dbb1c94e822c39a44f0da4a1219e8",
+      "bytes": 4095,
+      "tokens": 1021,
+      "nats": {
+        "donor": 3044.93701171875,
+        "half": 3052.6556396484375,
+        "full": 3080.8896484375,
+        "permuted_half": 3067.679931640625
+      }
+    },
+    {
+      "index": 43,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=92",
+      "text_sha256": "1720036b9451f452e1f1b67ef821fbdd29bc5b80c90d4b83447b51be63bf2b54",
+      "bytes": 4095,
+      "tokens": 947,
+      "nats": {
+        "donor": 3018.137939453125,
+        "half": 2997.76025390625,
+        "full": 3008.926025390625,
+        "permuted_half": 3030.2314453125
+      }
+    },
+    {
+      "index": 44,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=62",
+      "text_sha256": "37f9b896f13c26e810e49942ea48cbfc99ea0ead8b555991822805c7d8d370c5",
+      "bytes": 4095,
+      "tokens": 1022,
+      "nats": {
+        "donor": 2898.9893798828125,
+        "half": 2889.8846435546875,
+        "full": 2905.7757568359375,
+        "permuted_half": 2935.2159423828125
+      }
+    },
+    {
+      "index": 45,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=55",
+      "text_sha256": "2e2368a3f25a88f4e5561eba2cc696d249f881c16f9576c822cb7bc9161677bd",
+      "bytes": 4095,
+      "tokens": 987,
+      "nats": {
+        "donor": 3229.7904052734375,
+        "half": 3211.7391357421875,
+        "full": 3226.9718017578125,
+        "permuted_half": 3251.8555908203125
+      }
+    },
+    {
+      "index": 46,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=67",
+      "text_sha256": "a5ad02f72bd6b517140181327608141ebd5372cc4c08c4e49269b0789f983643",
+      "bytes": 4095,
+      "tokens": 988,
+      "nats": {
+        "donor": 2899.5054931640625,
+        "half": 2890.9337158203125,
+        "full": 2915.2950439453125,
+        "permuted_half": 2917.1976318359375
+      }
+    },
+    {
+      "index": 47,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=33",
+      "text_sha256": "7bb5c1e0470d518db0063eaed007097c8b45bb6663446c9bf6caf3542df8d9e7",
+      "bytes": 4095,
+      "tokens": 1025,
+      "nats": {
+        "donor": 3504.522614479065,
+        "half": 3485.25541305542,
+        "full": 3510.1957836151123,
+        "permuted_half": 3520.2168292999268
+      }
+    },
+    {
+      "index": 48,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/kubernetes_website/content/en/docs/concepts/security/linux-kernel-security-constraints.md",
+      "text_sha256": "68a53fc0167d99bd85eea86878bef9f4a311502987c772b1221549ef615c1e1b",
+      "bytes": 4095,
+      "tokens": 862,
+      "nats": {
+        "donor": 2084.5743408203125,
+        "half": 2066.590087890625,
+        "full": 2103.9449462890625,
+        "permuted_half": 2095.8583374023438
+      }
+    },
+    {
+      "index": 49,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/kubernetes_website/content/zh-cn/docs/contribute/blog/guidelines.md",
+      "text_sha256": "75d8c012fe18f913921d352258cf5da68792423b13fc748cecbf04989e3398ef",
+      "bytes": 4095,
+      "tokens": 864,
+      "nats": {
+        "donor": 2124.5354614257812,
+        "half": 2081.069091796875,
+        "full": 2114.96728515625,
+        "permuted_half": 2122.168701171875
+      }
+    },
+    {
+      "index": 50,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/kubernetes_website/content/ja/blog/_posts/2025/ensure-secret-pulled-images/index.md",
+      "text_sha256": "e03fe968815b17e108749abdc17586514e6b1bf320c0477430d0f5f5873ad870",
+      "bytes": 4095,
+      "tokens": 897,
+      "nats": {
+        "donor": 2160.977294921875,
+        "half": 2140.22216796875,
+        "full": 2194.3615112304688,
+        "permuted_half": 2167.80029296875
+      }
+    },
+    {
+      "index": 51,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/kubernetes_website/content/de/README.md",
+      "text_sha256": "d9ae6bfcf31f40f09dfa63f30926e67d6320b19b30cc5ca889897faccefac042",
+      "bytes": 4095,
+      "tokens": 1044,
+      "nats": {
+        "donor": 2071.645275115967,
+        "half": 2069.173454284668,
+        "full": 2107.2379455566406,
+        "permuted_half": 2100.267578125
+      }
+    },
+    {
+      "index": 52,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2022/meet-our-contributors-apac-au-nz-region-02.md",
+      "text_sha256": "ece75e6bb7f7d6a70e02fe13af1a04e91d13b7e244423b16e4614f85305d6c20",
+      "bytes": 4093,
+      "tokens": 865,
+      "nats": {
+        "donor": 2143.38427734375,
+        "half": 2112.345703125,
+        "full": 2151.0982666015625,
+        "permuted_half": 2152.627685546875
+      }
+    },
+    {
+      "index": 53,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/kubernetes_website/content/ja/docs/concepts/extend-kubernetes/api-extension/custom-resources.md",
+      "text_sha256": "9600fe8c4ed3d9e29785136479bd0f75175bd8bcd26b8ca3d24cd06b6ab588c1",
+      "bytes": 4093,
+      "tokens": 1003,
+      "nats": {
+        "donor": 2309.344482421875,
+        "half": 2268.621337890625,
+        "full": 2335.75244140625,
+        "permuted_half": 2345.3360595703125
+      }
+    },
+    {
+      "index": 54,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/mdn/files/en-us/mozilla/add-ons/webextensions/api/webrequest/streamfilter/index.md",
+      "text_sha256": "4990c169d8f4060ab94aba5c9d722b374e1aea762d69443ed890d12e51c8b6fa",
+      "bytes": 4095,
+      "tokens": 942,
+      "nats": {
+        "donor": 1392.6792602539062,
+        "half": 1338.0448608398438,
+        "full": 1363.1815795898438,
+        "permuted_half": 1404.1398315429688
+      }
+    },
+    {
+      "index": 55,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/mdn/files/en-us/webassembly/guides/javascript_builtins/index.md",
+      "text_sha256": "d6ee55b635b5e203aef806d2d8c1da17d1dcac4a60ee1b3a6ce8e4edb56b80a3",
+      "bytes": 4095,
+      "tokens": 999,
+      "nats": {
+        "donor": 1956.7509765625,
+        "half": 1892.3933715820312,
+        "full": 1924.3113403320312,
+        "permuted_half": 1953.115478515625
+      }
+    }
+  ],
+  "summary": {
+    "pooled": {
+      "docs": 56,
+      "bytes": 229316,
+      "tokens": 63067,
+      "donor_bpb": 0.9967794458600253,
+      "half_bpb": 0.9960421210376665,
+      "full_bpb": 1.012433453659843,
+      "permuted_half_bpb": 1.0032770056142262,
+      "half_delta_bpb": -0.0007373248223587758,
+      "full_delta_bpb": 0.015654007799817626,
+      "half_route_utility_bpb": 0.00723488457655963,
+      "half_ci95_upper": 0.0001334344086797776,
+      "bootstrap_seed": 191919,
+      "bootstrap_draws": 20000
+    },
+    "code": {
+      "docs": 24,
+      "bytes": 98280,
+      "tokens": 31294,
+      "donor_bpb": 0.995616139778419,
+      "half_bpb": 1.0011827763797274,
+      "full_bpb": 1.0263535302807958,
+      "permuted_half_bpb": 1.001941623514784,
+      "half_delta_bpb": 0.005566636601308406,
+      "full_delta_bpb": 0.030737390502376782,
+      "half_route_utility_bpb": 0.000758847135056584
+    },
+    "prose": {
+      "docs": 24,
+      "bytes": 98280,
+      "tokens": 24297,
+      "donor_bpb": 1.0917108228206407,
+      "half_bpb": 1.08846696788657,
+      "full_bpb": 1.096750691359724,
+      "permuted_half_bpb": 1.0991159385603306,
+      "half_delta_bpb": -0.0032438549340707556,
+      "full_delta_bpb": 0.005039868539083336,
+      "half_route_utility_bpb": 0.010648970673760694
+    },
+    "technical_general": {
+      "docs": 8,
+      "bytes": 32756,
+      "tokens": 7476,
+      "donor_bpb": 0.7154408817499684,
+      "half_bpb": 0.703309871821402,
+      "full_bpb": 0.7176855219388887,
+      "permuted_half_bpb": 0.7197317321617305,
+      "half_delta_bpb": -0.012131009928566416,
+      "full_delta_bpb": 0.0022446401889202328,
+      "half_route_utility_bpb": 0.016421860340328442
+    }
+  },
+  "document_gate_pass": true,
+  "runtime": {
+    "elapsed_seconds": 89.26599999999962,
+    "rss_end_bytes": 3189473280,
+    "gpu_peak_allocated_bytes": 2549421056,
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "cuda_index": 0,
+    "torch": "2.6.0+cu124"
+  }
+}

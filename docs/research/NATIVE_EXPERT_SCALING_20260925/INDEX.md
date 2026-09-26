@@ -1,12 +1,13 @@
 # Native expert scaling: research control index
 
 **Date:** 26 September 2026. **Branch:** `research/native-expert-scaling`.
-**Status:** METH-16 pretrained Qwen0.5B plus jointly trained E128
-residual experts passes an internal development gate, but METH-17's
-separate documents lose +0.013215 BPB against donor and fail the
-frozen +0.01 point limit, with all 24 code documents worse. Native
-export of that exact checkpoint is stopped pending a quality repair.
-Low-bit core, C rate and large-E scaling remain open. NES-01 E128 improves BPB but fails greedy generation; NES-02
+**Status:** METH-17 rejects the full-amplitude trained Qwen0.5B E128
+residual bank on separate documents. METH-18 isolates excessive
+residual amplitude; the fixed factor-0.50 candidate passes METH-19's
+independent document gate (−0.000737 pooled BPB, +0.005567 code),
+but 23/24 code documents still worsen. The exact half-amplitude
+adapter is exported; useful generation, a low-bit shared core,
+native C quality/rate and large-E scaling remain open. NES-01 E128 improves BPB but fails greedy generation; NES-02
 finds a dense-router CPU scaling limit; NES-03 int8 shortlist preserves
 tested routes and cuts E1280 router cost. No pretrained-to-native conversion
 has passed joint quality and rate. METH-06 passed source-ID calibration
@@ -163,6 +164,20 @@ stratified one-sided CI95 upper is +0.015317. The upper bound passes
 **+0.029126 BPB, 24/24 documents worse**. Prose and technical changes
 are small. The development gain did not generalize across these
 documents, so the checkpoint is not ready for native export.
+[METH-18](METH_18_RESIDUAL_SCALE_ROUTE_DIAGNOSTIC_RESULT_20260926.md)
+kept those documents diagnostic-only: reducing expert output factors
+to 0.50 moved the pooled delta to −0.002339 and code to +0.005109.
+The full-amplitude trained route beat a row-permuted null by only
+0.000652 BPB on code, compared with 0.047306 on prose.
+[METH-19](METH_19_HALF_RESIDUAL_INDEPENDENT_RESULT_20260926.md)
+fixed factor 0.50 before a different 56-document audit. It passes
+the frozen document gate: **−0.000737 pooled BPB**, one-sided CI95
+upper **+0.000133**, code **+0.005567**, and trained-route utility
+**+0.007235 BPB**. The factor-1.00 control again loses +0.015654.
+However **23/24 new code documents** still worsen. The bound
+half-amplitude adapter has SHA-256
+`3147b2cf4fd3af671d5bf6c6451829ec32acfadaca2a0272be0b123e3873e1ca`;
+it is not a compact core or native model.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -193,6 +208,8 @@ SSM/SWA target and passes joint quality/rate.
 | METH-15 | RTX 3060 EXACT-DONOR E128 RESIDUAL APPARATUS PASS; wrong-GPU run invalid | [result](METH_15_ZERO_RESIDUAL_EXPERT_SMOKE_RESULT_20260926.md), [protocol](METH_15_ZERO_RESIDUAL_EXPERT_SMOKE_PROTOCOL_20260926.md), [RTX 3060 machine record](meth15_zero_residual_expert_smoke_rtx3060.json), [wrong-GPU record](meth15_zero_residual_expert_smoke.json), [runner](../../../benchmarks/donor_adaptation/s1/meth15_zero_residual_expert_smoke.py) |
 | METH-16 | TRAINED RESIDUAL E128 DEVELOPMENT GATE PASS; −0.016383 BPB | [result](METH_16_RESIDUAL_EXPERT_CONTINUATION_RESULT_20260926.md), [protocol](METH_16_RESIDUAL_EXPERT_CONTINUATION_PROTOCOL_20260926.md), [machine training/generation](meth16_residual_expert_continuation.json), [runner](../../../benchmarks/donor_adaptation/s1/meth16_residual_expert_continuation.py); no fresh documents or native C rate |
 | METH-17 | FRESH-DOCUMENT POINT GATE FAIL; +0.013215 BPB, code +0.029126 | [result](METH_17_FRESH_DOCUMENT_TRANSFER_RESULT_20260926.md), [frozen protocol](METH_17_FRESH_DOCUMENT_TRANSFER_PROTOCOL_20260926.md), [selection manifest](meth17_fresh_document_manifest.json), [paired document result](meth17_fresh_document_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth17_fresh_transfer_audit.py); no native export |
+| METH-18 | DIAGNOSTIC: RESIDUAL AMPLITUDE DRIVES CODE LOSS | [result](METH_18_RESIDUAL_SCALE_ROUTE_DIAGNOSTIC_RESULT_20260926.md), [frozen protocol](METH_18_RESIDUAL_SCALE_ROUTE_DIAGNOSTIC_PROTOCOL_20260926.md), [machine result](meth18_residual_scale_route_diagnostic.json), [runner](../../../benchmarks/donor_adaptation/s1/meth18_residual_scale_route_diagnostic.py); reused METH-17 documents, no promotion |
+| METH-19 | INDEPENDENT HALF-AMPLITUDE DOCUMENT GATE PASS; −0.000737 BPB | [result](METH_19_HALF_RESIDUAL_INDEPENDENT_RESULT_20260926.md), [frozen protocol](METH_19_HALF_RESIDUAL_INDEPENDENT_PROTOCOL_20260926.md), [selection manifest](meth19_half_residual_independent_manifest.json), [paired result](meth19_half_residual_independent_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth19_half_residual_independent_audit.py), [adapter exporter](../../../benchmarks/donor_adaptation/s1/meth19_export_half_adapter.py); generation, tasks and C rate open |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -218,6 +235,8 @@ scheduled.
   start exactly at donor and improve its internal BPB after joint training.
   METH-17 shows that this checkpoint's pooled fresh-document point
   delta fails, uniformly on the selected code documents.
+  METH-18/19 establish a fixed half-amplitude adapter that passes a
+  second, disjoint document gate but still harms 23/24 code documents.
   The old donor parity queue is not an
   automatic next step.
 - **CPU design state:** NES-03 established a 32-candidate int8 path on this
@@ -231,14 +250,15 @@ scheduled.
   loops (for example exposure or route training), estimate local training cost
   and freeze BPB, repetition and routing gates before a new run. Do not
   automatically extend E256 on the BPB gain alone.
-- **Next exact action: pretrained transfer.** METH-17 rejects promotion
-  of the METH-16 checkpoint despite its internal win. Diagnose why
-  its residuals harm all 24 independent code documents, then freeze a
-  donor-preserving training or gating repair using data separate from
-  METH-17. Validate the repaired artifact on another disjoint corpus
-  before native export. Only then test a quality-preserving low-bit
-  donor core and the **same trained adapter** in C with logit parity,
-  accepted-token rate and real router/LUT cost. The old Qwen donor C
+- **Next exact action: pretrained transfer.** METH-19's fixed factor-0.50
+  adapter passes a second document gate and is exported as a 187 MB
+  safetensors artifact. Measure donor-relative generation and pertinent
+  tasks on held-out prompts with that exact artifact. The small but
+  near-uniform code regression remains a research target; do not tune
+  on either METH-17 or METH-19 audit texts. Then seek a
+  quality-preserving low-bit donor core and export the **same adapter**
+  to C with logit parity, accepted-token rate and real router/LUT cost.
+  The old Qwen donor C
   path's one-byte rate belongs to another artifact and cannot be
   combined with METH-16's quality result.
   For 10B/100B, grow **distinct trained** expert capacity and measure

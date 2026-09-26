@@ -98,7 +98,7 @@ rate results.
 | C. Decompose | List core/mixer/head/router/shared/routed tensors; calculate active and stored bytes, per-token selected experts and expected training exposure | Exact shape arithmetic plus measured kernel anchors | [METH-00](METH_00_GIGACHAT_COST_PREFLIGHT_20260925.md) gives an ideal W4 preflight; [METH-01](METH_01_GIGACHAT_Q4_ACTIVE_LEDGER_20260925.md) prices local GigaChat mixed-GGUF and [METH-03](METH_03_GRANITE_Q4_ACTIVE_LEDGER_20260925.md) the official Granite header. [NES-02](NES_02_CPU_EXPERT_COUNT_STRESS_20260925.md) measures a synthetic 10× native expert-count stress and prices dense routing at 10B/100B; it is no quality result. Cache residency and effective expert throughput are not assumed. |
 | D1. Sparse-source variant | Preserve donor structure initially, then apply an organ-selective low-bit representation from BF16, with source BF16/Q4 paired controls; adapt or change structure only if step-zero quality/cost requires it | **Measured approximation failure; new design open** | GigaChat Q4 retains quality but charges 1,016 MB/token. [METH-04](METH_04_GIGACHAT_LOWBITS_PREFLIGHT_RESULT_20260925.md) supplied a 414-tensor type map at 534.025 MB/token. [METH-05/06](METH_06_CYRILLIC_ROUTE_RESULT_20260926.md) repaired rare expert calibration and made an actual 534.025 MB/token GGUF, but it lost +0.239465 BPB. [METH-07](METH_07_ORGAN_PRECISION_ABLATION_RESULT_20260926.md) identified expert sensitivity; [METH-08](METH_08_Q2_REALLOCATION_RESULT_20260926.md) passed the active-byte gate at 533.140 MB/token but lost +0.275153 BPB; [METH-09](METH_09_Q2_EXPERT_ISOLATION_RESULT_20260926.md) found only a 0.023740 BPB benefit from Q2_K experts before the harmful head/dense payment. No quality-valid compact donor or C rate exists. |
 | D2. Dense-source hard carve | Route a sparse subset of pretrained FFN channels, with an optional compact shared approximation | **Post-hoc full-layer geometries rejected** | H1 S3 improves an eight-layer trained carve but remains +0.155895 BPB behind donor. [METH-11](METH_11_SHARED_RESIDUAL_RESULT_20260926.md) kept 25% of Qwen FFN groups shared and routed 16 of 192 residual groups: +0.706052 BPB. [METH-12](METH_12_FITTED_SHARED_RESULT_20260926.md) fitted a rank-256 shared residual and routed 16/256 groups: local SSE improved 5.23%, but full pilot lost +0.943873 BPB. [METH-13/14](METH_14_QWEN05B_ORACLE_ROUTE_RESULT_20260926.md) show Qwen0.5B E128/top-32 remains +0.775726 BPB behind donor even with a non-deployable local-mass oracle. H4/H2I and STRAT-03 also fail in their scopes. |
-| D3. Exact-core residual upcycle | Freeze the pretrained donor as shared core; add zero-output conditional residual experts; jointly train their factors and router; then seek a quality-preserving low-bit core | **Internal gate pass, fresh-document point gate fail** | [METH-15](METH_15_ZERO_RESIDUAL_EXPERT_SMOKE_RESULT_20260926.md) proves exact step-zero donor and trainable E128 bank. [METH-16](METH_16_RESIDUAL_EXPERT_CONTINUATION_RESULT_20260926.md) trains all 24 Qwen0.5B layers for 1,024 updates: student/donor 0.824196/0.840579 BPB, permuted-route null +0.042131 BPB. [METH-17](METH_17_FRESH_DOCUMENT_TRANSFER_RESULT_20260926.md) finds +0.013215 pooled BPB against donor on separate documents, above the +0.01 point bar; code loses +0.029126 on all 24 documents. Repair and independent retest precede low-bit/native export. |
+| D3. Exact-core residual upcycle | Freeze the pretrained donor as shared core; add zero-output conditional residual experts; jointly train their factors and router; bound their output scale before a quality-preserving low-bit core | **Half-amplitude document gate pass; generation and active-cost gates open** | [METH-15/16](METH_16_RESIDUAL_EXPERT_CONTINUATION_RESULT_20260926.md) train an E128 bank that improves internal BPB. [METH-17](METH_17_FRESH_DOCUMENT_TRANSFER_RESULT_20260926.md) rejects full amplitude on separate documents. [METH-18](METH_18_RESIDUAL_SCALE_ROUTE_DIAGNOSTIC_RESULT_20260926.md) identifies amplitude sensitivity; [METH-19](METH_19_HALF_RESIDUAL_INDEPENDENT_RESULT_20260926.md) fixes factor 0.50 before a new document audit and passes its joint gate at −0.000737 pooled BPB, with code +0.005567 and 23/24 code documents still worse. The bound 187 MB adapter is local; no compact core or native rate exists. |
 | E. Export | Emit versioned C weights/metadata, tokenizer, precision map and golden intermediate/logit traces; run the exact timed C path | Exact serialization plus approximate kernels | Native E32 export/parity exists. GigaChat C fidelity is partial. No converted pretrained conditional target has completed this stage. |
 | F. Validate | Paired donor→target held-out BPB with uncertainty, generation/task checks, routing utility, RAM/bytes/latency breakdown and ≥50 accepted tok/s on the same exported target | Measurement | **Open for every converted target.** Pilot/synthetic rate, scalar BPB, and partial port parity cannot be combined into a pass. |
 
@@ -137,6 +137,16 @@ The one-sided CI95 upper +0.015317 does clear +0.02, so the failure is
 specific to the stricter joint gate, not a gross quality collapse.
 This rejects native export of the current adapter and makes
 donor-preserving generalization across domains the next D3 step.
+[METH-18/19](METH_19_HALF_RESIDUAL_INDEPENDENT_RESULT_20260926.md)
+make the next step concrete: a 0.50 output-factor transform of the
+same trained E128 bank is exact in fp32 factor space and was selected
+after a diagnostic on METH-17. It passes a second, disjoint 56-document
+gate at −0.000737 pooled BPB with a +0.000133 one-sided upper bound
+and +0.007235 pooled trained-route utility. The adapter-only
+`safetensors` export is 187,177,472 bytes; the donor remains BF16 and
+the route still scans all 128 rows. Most code documents still worsen,
+and no useful generation/task or C-rate evidence follows from this
+document result.
 
 Transformations must record a quality/cost delta at each switch **and** after
 composition. The tested H5 failure shows why independent passes cannot be
@@ -226,11 +236,14 @@ an explicit trained correction or a changed conditional geometry with
 priced native export, rather than another unsupported precision swap.
 The Qwen0.5B hard E128/top-32 carve fails. METH-15/16's additive
 residual architecture passes its internal joint-training gate, but
-METH-17 finds a uniform code-domain regression on separate documents.
-The next decision is how to repair that loss using data outside the
-METH-17 audit, then validate the repaired checkpoint on a new split.
-Only a quality-valid checkpoint should proceed to low-bit core
-conversion and native C parity/accepted-token timing. Independently,
+METH-17 rejects its full-amplitude adapter on separate documents.
+METH-19's bound half-amplitude adapter passes a new document gate,
+while most code documents still worsen slightly. The next decision is
+whether this exact adapter retains donor-relative generation/task
+quality; an additional domain-preserving repair must use data outside
+both document audits. A candidate that clears those quality checks
+can proceed to low-bit core conversion and native C parity/accepted-token
+timing. Independently,
 more stored expert capacity requires
 distinct trained E expansion and sublinear CPU routing, not a copied
 bank or an exhaustive score of all expert rows.

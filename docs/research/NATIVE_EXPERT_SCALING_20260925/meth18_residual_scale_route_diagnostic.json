@@ -1,0 +1,1067 @@
+{
+  "experiment": "METH-18",
+  "decision": "diagnostic_only_no_promotion",
+  "manifest_sha256": "7e0593d6c56c28398e3440f9b80db15d506a31131a21480a87578c23b0a043a8",
+  "checkpoint_sha256": "a9e74c9ceeb8a91fd04f9b9e35a981965db9ab824d2d25ea728dd940ea5365a4",
+  "m17_result_sha256": "c9e51c9736904c1674c755ef528b26ea656d1d33dfaf35af10d51c5c5e2e52a2",
+  "model_sha256": "88c142557820ccad55bb59756bfcfcf891de9cc6202816bd346445188a0ed342",
+  "tokenizer_fingerprint": "4efeeb9382a77a06",
+  "arms": [
+    "donor",
+    "scale_025",
+    "scale_050",
+    "trained",
+    "permuted"
+  ],
+  "scales": {
+    "scale_025": 0.25,
+    "scale_050": 0.5,
+    "trained": 1.0,
+    "permuted": 1.0
+  },
+  "permutation_seed": 1818,
+  "rows": [
+    {
+      "index": 0,
+      "category": "code",
+      "source_id": "benchmarks/phase60/e1_reference.py",
+      "text_sha256": "272ed836934f9c81a48f3b23846563e7bd5a4fea421a3a2cc1fe338715a3baae",
+      "bytes": 4095,
+      "tokens": 1227,
+      "nats": {
+        "donor": 2759.6942749023438,
+        "scale_025": 2763.5896911621094,
+        "scale_050": 2783.1150817871094,
+        "trained": 2858.4462280273438,
+        "permuted": 2811.3990478515625
+      }
+    },
+    {
+      "index": 1,
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/ws3_bundle_smoke.py",
+      "text_sha256": "41d74fbb15d3ee40af561c4ec1b93dab4339fc2c15cfefcbba864a3c1fc2a6b3",
+      "bytes": 4095,
+      "tokens": 1051,
+      "nats": {
+        "donor": 2648.9581336975098,
+        "scale_025": 2651.828914642334,
+        "scale_050": 2667.8289070129395,
+        "trained": 2730.9090614318848,
+        "permuted": 2743.819046020508
+      }
+    },
+    {
+      "index": 2,
+      "category": "code",
+      "source_id": "benchmarks/phase64/mve/ws6_collapse.py",
+      "text_sha256": "18c725d3ea6ea39e187a440e438aa57ca8ecdf0570fb8e8c383a46b08a305609",
+      "bytes": 4095,
+      "tokens": 1225,
+      "nats": {
+        "donor": 2975.8490600585938,
+        "scale_025": 2973.6261596679688,
+        "scale_050": 2985.817626953125,
+        "trained": 3052.503631591797,
+        "permuted": 3061.9771118164062
+      }
+    },
+    {
+      "index": 3,
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/ws3_recover_p62.py",
+      "text_sha256": "82dd9fa7edc8bb7c3a060b631f4357840c4a0b9830f63a4e4af2bfa72654567e",
+      "bytes": 4095,
+      "tokens": 1052,
+      "nats": {
+        "donor": 3546.217430114746,
+        "scale_025": 3541.7494583129883,
+        "scale_050": 3542.27099609375,
+        "trained": 3580.2692794799805,
+        "permuted": 3603.988540649414
+      }
+    },
+    {
+      "index": 4,
+      "category": "code",
+      "source_id": "benchmarks/phase64/mve/data_smoke.py",
+      "text_sha256": "1430247c4b26b84d1d6632ba3e6ccf387f85ec9d0cd5bf5c49847b482cdece72",
+      "bytes": 4095,
+      "tokens": 1264,
+      "nats": {
+        "donor": 3044.6875,
+        "scale_025": 3042.0870361328125,
+        "scale_050": 3058.0922241210938,
+        "trained": 3121.9146118164062,
+        "permuted": 3140.5932006835938
+      }
+    },
+    {
+      "index": 5,
+      "category": "code",
+      "source_id": "benchmarks/phase57/r1_calibration.py",
+      "text_sha256": "b48c1ba0189d68f8b80d1f42cefe8575cbe709301174724964a2004900904d03",
+      "bytes": 4095,
+      "tokens": 1285,
+      "nats": {
+        "donor": 2269.7166748046875,
+        "scale_025": 2278.7050170898438,
+        "scale_050": 2295.3329467773438,
+        "trained": 2353.0374755859375,
+        "permuted": 2315.845947265625
+      }
+    },
+    {
+      "index": 6,
+      "category": "code",
+      "source_id": "benchmarks/phase64/mve/mve_train.py",
+      "text_sha256": "e152b0ad9e4bf0ccce417b219ff7d9b39a5be5ef25b2d27ff3dc5918de2f7ae0",
+      "bytes": 4095,
+      "tokens": 1090,
+      "nats": {
+        "donor": 2917.915885925293,
+        "scale_025": 2914.1156005859375,
+        "scale_050": 2927.2328872680664,
+        "trained": 2983.9574241638184,
+        "permuted": 2992.884868621826
+      }
+    },
+    {
+      "index": 7,
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/fetch_corpus.py",
+      "text_sha256": "9e8ed94538aea4557e5650a91f89945838171f1fedda724d5bf981c83032b732",
+      "bytes": 4095,
+      "tokens": 1167,
+      "nats": {
+        "donor": 2480.109130859375,
+        "scale_025": 2493.2930297851562,
+        "scale_050": 2524.0872192382812,
+        "trained": 2608.7073364257812,
+        "permuted": 2568.01318359375
+      }
+    },
+    {
+      "index": 8,
+      "category": "code",
+      "source_id": "benchmarks/phase55/phase55_ssm_kernel.c",
+      "text_sha256": "58359e7b94567c69d5327f7b850080b4d85e376520d0b1a922bb8b0d89f8ba81",
+      "bytes": 4095,
+      "tokens": 1552,
+      "nats": {
+        "donor": 2767.4507751464844,
+        "scale_025": 2768.503511428833,
+        "scale_050": 2777.7997856140137,
+        "trained": 2853.0960121154785,
+        "permuted": 2879.439477920532
+      }
+    },
+    {
+      "index": 9,
+      "category": "code",
+      "source_id": "benchmarks/phase56/phase56_ivf_profile.c",
+      "text_sha256": "3ba18849c75356829af73733984ab610992ac9752224d3d94d01d331ef488802",
+      "bytes": 4095,
+      "tokens": 1462,
+      "nats": {
+        "donor": 2767.294677734375,
+        "scale_025": 2766.2918701171875,
+        "scale_050": 2776.63037109375,
+        "trained": 2823.9564208984375,
+        "permuted": 2810.1577758789062
+      }
+    },
+    {
+      "index": 10,
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/ws3_retrain_bpe.py",
+      "text_sha256": "3d35ab1c2d6bd33f0f91e9971bc93737e3b84b385320cfe1c7aeec6aa729f1fb",
+      "bytes": 4095,
+      "tokens": 1140,
+      "nats": {
+        "donor": 2798.2648010253906,
+        "scale_025": 2788.464324951172,
+        "scale_050": 2797.3741607666016,
+        "trained": 2882.794937133789,
+        "permuted": 2871.363525390625
+      }
+    },
+    {
+      "index": 11,
+      "category": "code",
+      "source_id": "benchmarks/phase56/phase56_ivfpq_profile.c",
+      "text_sha256": "d98fb2fb595a0608a4e9579341a01acd3dd9eee6466730355d525b187171e4d0",
+      "bytes": 4095,
+      "tokens": 1689,
+      "nats": {
+        "donor": 2714.1187744140625,
+        "scale_025": 2722.6014709472656,
+        "scale_050": 2746.0367431640625,
+        "trained": 2829.3268432617188,
+        "permuted": 2862.992218017578
+      }
+    },
+    {
+      "index": 12,
+      "category": "code",
+      "source_id": "benchmarks/phase62/e5_2_carve.py",
+      "text_sha256": "d4e064a67235eee6262c6da1b95412792331aabb600f8b32d275fb13514e72eb",
+      "bytes": 4095,
+      "tokens": 1309,
+      "nats": {
+        "donor": 2974.3859252929688,
+        "scale_025": 2968.1875610351562,
+        "scale_050": 2982.9303588867188,
+        "trained": 3055.706787109375,
+        "permuted": 3059.3194580078125
+      }
+    },
+    {
+      "index": 13,
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/ws3_valsplit_control.py",
+      "text_sha256": "c91b8a526ad4e4fd1ecf3176ed286868be3238942ac5d8c67062c9fd0e0d66b2",
+      "bytes": 4095,
+      "tokens": 1093,
+      "nats": {
+        "donor": 2650.5035705566406,
+        "scale_025": 2648.521255493164,
+        "scale_050": 2659.100341796875,
+        "trained": 2715.7512817382812,
+        "permuted": 2743.7024993896484
+      }
+    },
+    {
+      "index": 14,
+      "category": "code",
+      "source_id": "benchmarks/phase60/e1_export.py",
+      "text_sha256": "6d9d765814799aeedf2284fcf77d1f69f0f1400ef55ac3cd0c9b6e7ddd9b96ad",
+      "bytes": 4095,
+      "tokens": 1383,
+      "nats": {
+        "donor": 2749.3826904296875,
+        "scale_025": 2754.8948364257812,
+        "scale_050": 2767.5281982421875,
+        "trained": 2833.061279296875,
+        "permuted": 2829.8740844726562
+      }
+    },
+    {
+      "index": 15,
+      "category": "code",
+      "source_id": "benchmarks/phase55/phase55_generator_5m.c",
+      "text_sha256": "99ac45d48ab7eae2db1ca14880208b346055c9bc15a315af61f95f5658005a31",
+      "bytes": 4095,
+      "tokens": 1642,
+      "nats": {
+        "donor": 2611.116439819336,
+        "scale_025": 2621.119369506836,
+        "scale_050": 2643.0275268554688,
+        "trained": 2779.4613342285156,
+        "permuted": 2769.3916015625
+      }
+    },
+    {
+      "index": 16,
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/pack_kaggle.py",
+      "text_sha256": "41858b346cc5abea592b75fceb7a34e3015dbcb6b41c2d261abdac6e2b379c77",
+      "bytes": 4095,
+      "tokens": 1103,
+      "nats": {
+        "donor": 3174.8888549804688,
+        "scale_025": 3172.2882385253906,
+        "scale_050": 3180.293258666992,
+        "trained": 3237.7278747558594,
+        "permuted": 3277.0420532226562
+      }
+    },
+    {
+      "index": 17,
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/ws3_token_ratio.py",
+      "text_sha256": "313d099a603b38a8ed57b1b31b6fca26d22ad4b54c7b4d9b46b9b3cccc220544",
+      "bytes": 4095,
+      "tokens": 1196,
+      "nats": {
+        "donor": 2821.6797485351562,
+        "scale_025": 2813.283416748047,
+        "scale_050": 2821.2340087890625,
+        "trained": 2882.9638061523438,
+        "permuted": 2891.6175537109375
+      }
+    },
+    {
+      "index": 18,
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/ws3_logit_selfcheck.py",
+      "text_sha256": "3ea85fcdcc5c7bae423cb2df4e1bf76356facd947093325d2efcf6cac30f351b",
+      "bytes": 4095,
+      "tokens": 1264,
+      "nats": {
+        "donor": 2505.108154296875,
+        "scale_025": 2507.6656799316406,
+        "scale_050": 2524.3805541992188,
+        "trained": 2600.5304565429688,
+        "permuted": 2588.7767944335938
+      }
+    },
+    {
+      "index": 19,
+      "category": "code",
+      "source_id": "benchmarks/phase62/e5_1_mtp.py",
+      "text_sha256": "3cc1b5117fea054e2c5ea8da6dd008aebda9af5e655cddc413ce8af05a712508",
+      "bytes": 4095,
+      "tokens": 1175,
+      "nats": {
+        "donor": 2768.7532958984375,
+        "scale_025": 2769.9788818359375,
+        "scale_050": 2787.4014892578125,
+        "trained": 2865.3648681640625,
+        "permuted": 2868.535430908203
+      }
+    },
+    {
+      "index": 20,
+      "category": "code",
+      "source_id": "benchmarks/phase56/phase56_gather_profile.c",
+      "text_sha256": "c8b9161d4d37197096b512bb8590123935f6164b822b1e94c309c260d7cbae2b",
+      "bytes": 4095,
+      "tokens": 1465,
+      "nats": {
+        "donor": 2310.9234619140625,
+        "scale_025": 2306.6638793945312,
+        "scale_050": 2309.4614868164062,
+        "trained": 2348.2146606445312,
+        "permuted": 2390.8363647460938
+      }
+    },
+    {
+      "index": 21,
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/ws3_logit_audit.py",
+      "text_sha256": "e65217569f3dd6192f9fd35586ed2314c8b3b85b94a023aa0f5461d9a1923c9e",
+      "bytes": 4095,
+      "tokens": 1183,
+      "nats": {
+        "donor": 2725.7693786621094,
+        "scale_025": 2723.095733642578,
+        "scale_050": 2735.3961181640625,
+        "trained": 2801.7517700195312,
+        "permuted": 2783.5369567871094
+      }
+    },
+    {
+      "index": 22,
+      "category": "code",
+      "source_id": "benchmarks/phase62/corpus.py",
+      "text_sha256": "ef9f1625fad5eb72ddf3873d10e184333fd25f0b150fa87a93bde6c569f5413b",
+      "bytes": 4095,
+      "tokens": 1149,
+      "nats": {
+        "donor": 2572.415802001953,
+        "scale_025": 2575.822509765625,
+        "scale_050": 2588.9978637695312,
+        "trained": 2645.7183837890625,
+        "permuted": 2646.1990661621094
+      }
+    },
+    {
+      "index": 23,
+      "category": "code",
+      "source_id": "benchmarks/phase64/data/ws3_slice_audit.py",
+      "text_sha256": "6e906ace57f45860f13a0e9527692a45bfe3e07396f022d38ebb050d620706b4",
+      "bytes": 4095,
+      "tokens": 1170,
+      "nats": {
+        "donor": 2607.5682373046875,
+        "scale_025": 2610.2186279296875,
+        "scale_050": 2629.4346923828125,
+        "trained": 2701.7442321777344,
+        "permuted": 2680.035186767578
+      }
+    },
+    {
+      "index": 24,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=35",
+      "text_sha256": "19bf0ab74d73d0580f14d0ad87708dd757b9662a80943716144dbee11794348d",
+      "bytes": 4095,
+      "tokens": 1037,
+      "nats": {
+        "donor": 2760.1860733032227,
+        "scale_025": 2752.4100379943848,
+        "scale_050": 2749.8354110717773,
+        "trained": 2770.7158966064453,
+        "permuted": 2910.7452850341797
+      }
+    },
+    {
+      "index": 25,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=78",
+      "text_sha256": "a7f2174a3a161f1e6a0869b9d74613d3e160c89e6353dc767ae404d45203aa06",
+      "bytes": 4095,
+      "tokens": 938,
+      "nats": {
+        "donor": 2934.41259765625,
+        "scale_025": 2922.1138916015625,
+        "scale_050": 2912.5030517578125,
+        "trained": 2917.7677001953125,
+        "permuted": 3113.440185546875
+      }
+    },
+    {
+      "index": 26,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=61",
+      "text_sha256": "02da95ef355dc1caf30aa45e07d084268d766dc4b97093f83881ea0be1d642be",
+      "bytes": 4095,
+      "tokens": 1042,
+      "nats": {
+        "donor": 2715.935859680176,
+        "scale_025": 2704.2351722717285,
+        "scale_050": 2698.476142883301,
+        "trained": 2712.267276763916,
+        "permuted": 2798.776092529297
+      }
+    },
+    {
+      "index": 27,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=98",
+      "text_sha256": "733a2bcfbbe6f4f9b865b117df876a0d24349fa85ca2ecbabb68925e64ea35b7",
+      "bytes": 4095,
+      "tokens": 1110,
+      "nats": {
+        "donor": 4567.275238037109,
+        "scale_025": 4547.870178222656,
+        "scale_050": 4547.814636230469,
+        "trained": 4571.945251464844,
+        "permuted": 4786.245178222656
+      }
+    },
+    {
+      "index": 28,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=64",
+      "text_sha256": "2980ddca63e565bd78f8908e2fbaa785422f880a211887b5e76ef3a2bebc8dc5",
+      "bytes": 4095,
+      "tokens": 1311,
+      "nats": {
+        "donor": 2956.3910522460938,
+        "scale_025": 2954.326416015625,
+        "scale_050": 2960.777557373047,
+        "trained": 3001.5856323242188,
+        "permuted": 3116.380859375
+      }
+    },
+    {
+      "index": 29,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=93",
+      "text_sha256": "f0476542fe19dbd7055c02e067f71e7ffa9794c4a3bafaed19dc04a67f8df811",
+      "bytes": 4095,
+      "tokens": 940,
+      "nats": {
+        "donor": 2917.778564453125,
+        "scale_025": 2917.467041015625,
+        "scale_050": 2923.7813720703125,
+        "trained": 2947.40966796875,
+        "permuted": 3097.82568359375
+      }
+    },
+    {
+      "index": 30,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=77",
+      "text_sha256": "cf8f314ddcf47d336c4c8280dbea781839fe88147e42bab963dbacb6b41c3351",
+      "bytes": 4095,
+      "tokens": 1020,
+      "nats": {
+        "donor": 2706.741943359375,
+        "scale_025": 2692.9251708984375,
+        "scale_050": 2694.69287109375,
+        "trained": 2708.32958984375,
+        "permuted": 2812.80419921875
+      }
+    },
+    {
+      "index": 31,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=30",
+      "text_sha256": "e43972a08d53942d69ca3f5d84b4681fcd353f8b392ef619ccc59ad56321606d",
+      "bytes": 4095,
+      "tokens": 1004,
+      "nats": {
+        "donor": 3702.9666748046875,
+        "scale_025": 3678.8465576171875,
+        "scale_050": 3674.3331298828125,
+        "trained": 3698.394775390625,
+        "permuted": 3794.151611328125
+      }
+    },
+    {
+      "index": 32,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=45",
+      "text_sha256": "c84da532ed6408172a20c288be62d3364e7b1b7b3cdcb0f22a67c84f5ff26b5c",
+      "bytes": 4095,
+      "tokens": 993,
+      "nats": {
+        "donor": 3156.5469970703125,
+        "scale_025": 3151.5206298828125,
+        "scale_050": 3153.5147705078125,
+        "trained": 3188.7755126953125,
+        "permuted": 3344.5096435546875
+      }
+    },
+    {
+      "index": 33,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=87",
+      "text_sha256": "dd8c8bd48c1d519bf18d3cd51dd7d99b9e240aeab039c6e8eaf5763ef2e706fc",
+      "bytes": 4095,
+      "tokens": 948,
+      "nats": {
+        "donor": 3217.2789306640625,
+        "scale_025": 3206.4580078125,
+        "scale_050": 3207.01904296875,
+        "trained": 3229.456787109375,
+        "permuted": 3342.3218994140625
+      }
+    },
+    {
+      "index": 34,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=94",
+      "text_sha256": "7b9049c30b7e761d1a3b96dcb7586a339258d0a31476d032ff7f8bd0779f8afc",
+      "bytes": 4095,
+      "tokens": 991,
+      "nats": {
+        "donor": 3735.25390625,
+        "scale_025": 3729.5621337890625,
+        "scale_050": 3737.9437255859375,
+        "trained": 3770.5133056640625,
+        "permuted": 3835.44970703125
+      }
+    },
+    {
+      "index": 35,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=26",
+      "text_sha256": "2f898228ce69ff5666b017273457b616be3a77e6c20e13449ee94ca6a2df269e",
+      "bytes": 4095,
+      "tokens": 983,
+      "nats": {
+        "donor": 2832.7099609375,
+        "scale_025": 2829.0968017578125,
+        "scale_050": 2830.90869140625,
+        "trained": 2850.990478515625,
+        "permuted": 2981.564697265625
+      }
+    },
+    {
+      "index": 36,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=60",
+      "text_sha256": "aaf65296cdf46201aa93c7f9df6305ac84c360991d1989956e9060067f212e97",
+      "bytes": 4095,
+      "tokens": 988,
+      "nats": {
+        "donor": 3345.94189453125,
+        "scale_025": 3331.773193359375,
+        "scale_050": 3328.805908203125,
+        "trained": 3342.50244140625,
+        "permuted": 3505.8568115234375
+      }
+    },
+    {
+      "index": 37,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=91",
+      "text_sha256": "cac9255a78412d6a02ca04f8e61650551b78dcd4c1c4777c896451d259251fd3",
+      "bytes": 4095,
+      "tokens": 906,
+      "nats": {
+        "donor": 3066.056396484375,
+        "scale_025": 3050.9869384765625,
+        "scale_050": 3049.7393798828125,
+        "trained": 3066.656005859375,
+        "permuted": 3276.9295654296875
+      }
+    },
+    {
+      "index": 38,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=69",
+      "text_sha256": "e42ead7cf959ef4ffca39a7c7c9bc2fb37502240ceda3c918ef354c110ac5f7e",
+      "bytes": 4095,
+      "tokens": 890,
+      "nats": {
+        "donor": 2540.5865478515625,
+        "scale_025": 2534.0291748046875,
+        "scale_050": 2535.264892578125,
+        "trained": 2550.7842407226562,
+        "permuted": 2675.486083984375
+      }
+    },
+    {
+      "index": 39,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=71",
+      "text_sha256": "e29b08cdf343b31f481de0bf6b3e1eab983056b55a3ba2e13a56910ccdd1e8aa",
+      "bytes": 4095,
+      "tokens": 1003,
+      "nats": {
+        "donor": 3043.39794921875,
+        "scale_025": 3032.5921630859375,
+        "scale_050": 3031.251953125,
+        "trained": 3052.4337158203125,
+        "permuted": 3173.6107177734375
+      }
+    },
+    {
+      "index": 40,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=11",
+      "text_sha256": "9abe9174dd1023ae97823d7816189c4029eb6c52a0062e1dff295a7d6095f58d",
+      "bytes": 4095,
+      "tokens": 984,
+      "nats": {
+        "donor": 3457.670654296875,
+        "scale_025": 3442.140625,
+        "scale_050": 3435.0875244140625,
+        "trained": 3445.28662109375,
+        "permuted": 3649.163330078125
+      }
+    },
+    {
+      "index": 41,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=88",
+      "text_sha256": "c7c03f95ac7a98289a9433b40f37790cd894901dee6ea85c74ea5399454bd398",
+      "bytes": 4095,
+      "tokens": 1007,
+      "nats": {
+        "donor": 2879.158203125,
+        "scale_025": 2867.075439453125,
+        "scale_050": 2861.318359375,
+        "trained": 2885.45703125,
+        "permuted": 3016.1588134765625
+      }
+    },
+    {
+      "index": 42,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=7",
+      "text_sha256": "ddbfd4bb4519359b71476cd0c0a594daf72ea833a35e9223dce58e13843c3bd7",
+      "bytes": 4095,
+      "tokens": 908,
+      "nats": {
+        "donor": 2901.019775390625,
+        "scale_025": 2886.8082275390625,
+        "scale_050": 2880.745849609375,
+        "trained": 2897.4288330078125,
+        "permuted": 3033.7333984375
+      }
+    },
+    {
+      "index": 43,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=22",
+      "text_sha256": "6b388aa514f32bc3064d454c496aa47e2e80729fc16e469814952414a69ff730",
+      "bytes": 4095,
+      "tokens": 962,
+      "nats": {
+        "donor": 2944.28125,
+        "scale_025": 2939.7833251953125,
+        "scale_050": 2942.64306640625,
+        "trained": 2970.2216796875,
+        "permuted": 3085.99658203125
+      }
+    },
+    {
+      "index": 44,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=59",
+      "text_sha256": "adebc5f603df9af20e4c64645cdd6292a913435a21c9eafe73c2bb0f5c64477b",
+      "bytes": 4095,
+      "tokens": 984,
+      "nats": {
+        "donor": 2498.7344970703125,
+        "scale_025": 2489.408447265625,
+        "scale_050": 2485.0533447265625,
+        "trained": 2503.61083984375,
+        "permuted": 2560.4937744140625
+      }
+    },
+    {
+      "index": 45,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=42",
+      "text_sha256": "fd8e69b87ab408ecd806fbfbb5309ec2ea71bdb083097152b688668338e80e90",
+      "bytes": 4095,
+      "tokens": 904,
+      "nats": {
+        "donor": 2429.315673828125,
+        "scale_025": 2422.581787109375,
+        "scale_050": 2427.6700439453125,
+        "trained": 2453.908203125,
+        "permuted": 2587.7015380859375
+      }
+    },
+    {
+      "index": 46,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=34",
+      "text_sha256": "852909e98a3cdaa2cd430892d458dc3ea57c513bfd446d842b9f0b799d3bb929",
+      "bytes": 4095,
+      "tokens": 1044,
+      "nats": {
+        "donor": 2664.6091537475586,
+        "scale_025": 2650.8883171081543,
+        "scale_050": 2643.9480361938477,
+        "trained": 2652.8766555786133,
+        "permuted": 2811.270797729492
+      }
+    },
+    {
+      "index": 47,
+      "category": "prose",
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=20",
+      "text_sha256": "aff230bb26cc356018932fcc634ddeff65b2f44f97134dc8533e3594d1f3025c",
+      "bytes": 4095,
+      "tokens": 992,
+      "nats": {
+        "donor": 2616.3331298828125,
+        "scale_025": 2608.64599609375,
+        "scale_050": 2610.1448974609375,
+        "trained": 2643.109130859375,
+        "permuted": 2744.3837890625
+      }
+    },
+    {
+      "index": 48,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/mdn/files/en-us/web/javascript/reference/global_objects/map/index.md",
+      "text_sha256": "3f1a6eecd73b8ff42fed3dc7a8220e4c9cc92bd3bbdb597fe484dccc8f3f00bb",
+      "bytes": 4095,
+      "tokens": 1113,
+      "nats": {
+        "donor": 1674.709587097168,
+        "scale_025": 1639.9278717041016,
+        "scale_050": 1634.0280456542969,
+        "trained": 1677.901023864746,
+        "permuted": 1725.6884765625
+      }
+    },
+    {
+      "index": 49,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/mdn/files/en-us/web/api/trusted_types_api/index.md",
+      "text_sha256": "7bb1734ac9777e3df0216f3edb04e3e0dd52ecc8d1e6323c2d6c94851224abb4",
+      "bytes": 4095,
+      "tokens": 986,
+      "nats": {
+        "donor": 1513.9566955566406,
+        "scale_025": 1483.7515563964844,
+        "scale_050": 1471.0994873046875,
+        "trained": 1491.8385009765625,
+        "permuted": 1569.5975341796875
+      }
+    },
+    {
+      "index": 50,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/mdn/files/en-us/web/css/reference/properties/font-feature-settings/index.md",
+      "text_sha256": "5c47214575adfb15ce1037ef353dd3d31d2152e3dbb9d4db1f9249297e69e436",
+      "bytes": 4095,
+      "tokens": 1028,
+      "nats": {
+        "donor": 1712.9574809074402,
+        "scale_025": 1654.4437880516052,
+        "scale_050": 1650.0113620758057,
+        "trained": 1688.3866214752197,
+        "permuted": 1779.461901664734
+      }
+    },
+    {
+      "index": 51,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/kubernetes_website/content/id/docs/tasks/inject-data-application/distribute-credentials-secure.md",
+      "text_sha256": "f70dcb02e438cde7b5ec1d6858a9eeda292339f4a50308928962953138f668f6",
+      "bytes": 4095,
+      "tokens": 1177,
+      "nats": {
+        "donor": 1954.943359375,
+        "scale_025": 1896.9502410888672,
+        "scale_050": 1889.652587890625,
+        "trained": 1994.3524627685547,
+        "permuted": 2028.6646270751953
+      }
+    },
+    {
+      "index": 52,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/mdn/files/en-us/web/css/reference/properties/position-area/index.md",
+      "text_sha256": "49b8cdc2b908ab529c730ea910bb5247943220945cd58aaad04e878170ab511a",
+      "bytes": 4095,
+      "tokens": 938,
+      "nats": {
+        "donor": 1627.6229858398438,
+        "scale_025": 1581.07080078125,
+        "scale_050": 1559.7537841796875,
+        "trained": 1558.57080078125,
+        "permuted": 1628.6679077148438
+      }
+    },
+    {
+      "index": 53,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/kubernetes_website/content/zh-cn/blog/_posts/2019/san-diego-contributor-summit.md",
+      "text_sha256": "3c8c89ca4c171ea954c4da03f3d33a69c99e9359ac57104dd1db5c6c5b21d296",
+      "bytes": 4095,
+      "tokens": 1046,
+      "nats": {
+        "donor": 2245.5633430480957,
+        "scale_025": 2225.789710998535,
+        "scale_050": 2234.5233840942383,
+        "trained": 2304.6528091430664,
+        "permuted": 2292.48189163208
+      }
+    },
+    {
+      "index": 54,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/mdn/files/en-us/web/api/touch_events/multi-touch_interaction/index.md",
+      "text_sha256": "80f4c87b9a6d14d01e14430daddf1f62c998673425b6ad5386094ec2f7165ca3",
+      "bytes": 4095,
+      "tokens": 1006,
+      "nats": {
+        "donor": 1475.505126953125,
+        "scale_025": 1454.7969970703125,
+        "scale_050": 1446.8982543945312,
+        "trained": 1464.222900390625,
+        "permuted": 1507.029296875
+      }
+    },
+    {
+      "index": 55,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2017/securing-software-supply-chain-grafeas.md",
+      "text_sha256": "efe86665c6db8b4666b1201a9637429fcfc3d9a91a5e6dee21e5769dd6dcbe64",
+      "bytes": 4095,
+      "tokens": 1280,
+      "nats": {
+        "donor": 2670.7045288085938,
+        "scale_025": 2665.6158447265625,
+        "scale_050": 2674.7164916992188,
+        "trained": 2733.5844116210938,
+        "permuted": 2715.787109375
+      }
+    },
+    {
+      "index": 56,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/kubernetes_website/content/en/blog/_posts/2019/kyma-extend-and-build-on-kubernetes-with-ease.md",
+      "text_sha256": "2380cc3c0275d89e87974e814318221a373daf9bb88f678d18a25907e9a6b4db",
+      "bytes": 4095,
+      "tokens": 955,
+      "nats": {
+        "donor": 2129.6934814453125,
+        "scale_025": 2128.7427368164062,
+        "scale_050": 2135.6920166015625,
+        "trained": 2174.3381958007812,
+        "permuted": 2159.521240234375
+      }
+    },
+    {
+      "index": 57,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/mdn/files/en-us/web/xml/xslt/guides/pi_parameters/index.md",
+      "text_sha256": "b08caf047aad9e20d5dfa23ac30889f59171e2bc63913c73c8fbc5d56d750f87",
+      "bytes": 4095,
+      "tokens": 983,
+      "nats": {
+        "donor": 1852.290283203125,
+        "scale_025": 1822.94873046875,
+        "scale_050": 1820.0411376953125,
+        "trained": 1858.0986938476562,
+        "permuted": 1928.0205078125
+      }
+    },
+    {
+      "index": 58,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/mdn/files/en-us/web/css/reference/values/blend-mode/index.md",
+      "text_sha256": "fead02d62d9fe70e7ccaa9cbea5903d5e40a027497675126bb1258ac877bcde6",
+      "bytes": 4095,
+      "tokens": 1075,
+      "nats": {
+        "donor": 1450.7554779052734,
+        "scale_025": 1434.5885696411133,
+        "scale_050": 1438.9561462402344,
+        "trained": 1462.3945999145508,
+        "permuted": 1473.5206909179688
+      }
+    },
+    {
+      "index": 59,
+      "category": "technical_general",
+      "source_id": "file:data/external/markdown_corpus/mdn/files/en-us/web/html/reference/global_attributes/enterkeyhint/index.md",
+      "text_sha256": "ff60504e901fcc1f3f750af9bd68e64938d006757d5862b7c8458e7f38a4ad37",
+      "bytes": 4095,
+      "tokens": 1102,
+      "nats": {
+        "donor": 1398.7676696777344,
+        "scale_025": 1302.6688079833984,
+        "scale_050": 1272.966079711914,
+        "trained": 1323.7741470336914,
+        "permuted": 1453.6804580688477
+      }
+    }
+  ],
+  "summary": {
+    "scale_025": {
+      "pooled": {
+        "docs": 60,
+        "bytes": 245700,
+        "donor_bpb": 0.9421898143342534,
+        "arm_bpb": 0.9383767530334247,
+        "delta_bpb": -0.0038130613008287018
+      },
+      "code": {
+        "docs": 24,
+        "bytes": 98280,
+        "donor_bpb": 0.9712322347838396,
+        "arm_bpb": 0.971435154460706,
+        "delta_bpb": 0.00020291967686647538
+      },
+      "prose": {
+        "docs": 24,
+        "bytes": 98280,
+        "donor_bpb": 1.0655888685341266,
+        "arm_bpb": 1.061962500847534,
+        "delta_bpb": -0.0036263676865926353
+      },
+      "technical_general": {
+        "docs": 12,
+        "bytes": 49140,
+        "donor_bpb": 0.6373068650353345,
+        "arm_bpb": 0.6250884545506437,
+        "delta_bpb": -0.012218410484690856
+      }
+    },
+    "scale_050": {
+      "pooled": {
+        "docs": 60,
+        "bytes": 245700,
+        "donor_bpb": 0.9421898143342534,
+        "arm_bpb": 0.9398504503392096,
+        "delta_bpb": -0.002339363995043864
+      },
+      "code": {
+        "docs": 24,
+        "bytes": 98280,
+        "donor_bpb": 0.9712322347838396,
+        "arm_bpb": 0.9763411509903882,
+        "delta_bpb": 0.0051089162065486304
+      },
+      "prose": {
+        "docs": 24,
+        "bytes": 98280,
+        "donor_bpb": 1.0655888685341266,
+        "arm_bpb": 1.0616649190917535,
+        "delta_bpb": -0.003923949442373065
+      },
+      "technical_general": {
+        "docs": 12,
+        "bytes": 49140,
+        "donor_bpb": 0.6373068650353345,
+        "arm_bpb": 0.6232401115317641,
+        "delta_bpb": -0.01406675350357045
+      }
+    },
+    "trained": {
+      "pooled": {
+        "docs": 60,
+        "bytes": 245700,
+        "donor_bpb": 0.9421898143342534,
+        "arm_bpb": 0.9554050231291064,
+        "delta_bpb": 0.01321520879485294
+      },
+      "code": {
+        "docs": 24,
+        "bytes": 98280,
+        "donor_bpb": 0.9712322347838396,
+        "arm_bpb": 1.000358341067375,
+        "delta_bpb": 0.029126106283535513
+      },
+      "prose": {
+        "docs": 24,
+        "bytes": 98280,
+        "donor_bpb": 1.0655888685341266,
+        "arm_bpb": 1.06913900735012,
+        "delta_bpb": 0.003550138815993309
+      },
+      "technical_general": {
+        "docs": 12,
+        "bytes": 49140,
+        "donor_bpb": 0.6373068650353345,
+        "arm_bpb": 0.6380304188105417,
+        "delta_bpb": 0.0007235537752071641
+      }
+    },
+    "permuted": {
+      "pooled": {
+        "docs": 60,
+        "bytes": 245700,
+        "donor_bpb": 0.9421898143342534,
+        "arm_bpb": 0.9777001777094595,
+        "delta_bpb": 0.03551036337520608
+      },
+      "code": {
+        "docs": 24,
+        "bytes": 98280,
+        "donor_bpb": 0.9712322347838396,
+        "arm_bpb": 1.0010104750044844,
+        "delta_bpb": 0.02977824022064479
+      },
+      "prose": {
+        "docs": 24,
+        "bytes": 98280,
+        "donor_bpb": 1.0655888685341266,
+        "arm_bpb": 1.1164445633600995,
+        "delta_bpb": 0.05085569482597285
+      },
+      "technical_general": {
+        "docs": 12,
+        "bytes": 49140,
+        "donor_bpb": 0.6373068650353345,
+        "arm_bpb": 0.65359081181813,
+        "delta_bpb": 0.016283946782795433
+      }
+    }
+  },
+  "permuted_minus_trained_bpb": {
+    "pooled": 0.022295154580353138,
+    "code": 0.0006521339371092782,
+    "prose": 0.047305556009979544,
+    "technical_general": 0.015560393007588269
+  },
+  "internal_development_bpb": {
+    "donor": 0.8405791951960463,
+    "scale_025": 0.8246800237525648,
+    "scale_050": 0.8186052259064763,
+    "trained": 0.8241958340604241
+  },
+  "runtime": {
+    "elapsed_seconds": 139.04599999999846,
+    "rss_end_bytes": 3202314240,
+    "gpu_peak_allocated_bytes": 2549420544,
+    "torch": "2.6.0+cu124",
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "cuda_index": 0
+  }
+}
