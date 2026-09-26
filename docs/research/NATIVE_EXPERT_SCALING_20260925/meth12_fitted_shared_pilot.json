@@ -1,0 +1,261 @@
+{
+  "experiment": "METH-12",
+  "donor": "Qwen/Qwen2.5-1.5B",
+  "revision": "8faed761d45a263340a0528343f099c05c9a4323",
+  "protocol": "METH_12_FITTED_SHARED_PROTOCOL_20260926.md",
+  "source_ids": {
+    "calib_16x512": "3075c14d95a05dd69387e3df040370b053c16108bac409fa582db038f89be46e",
+    "heldout_24x512": "a1a48dc9fc5a6dc17d49cb3d16892dcf56e523f54f72eac5b63fff01b0d52f65"
+  },
+  "source_hashes": {
+    "labels_npz": "c39d0740b7f754daf168d811c77120c5394ae677e3882fef208d331d8c333c9c",
+    "routers_npz": "42b12cb9d4bda2da7833cd0e179a9dab8e3f43264ce640e2b5db31d5fd043d8a",
+    "factors_npz": "6637aff4529ba7d34308a8fd66411a7c29b970f9f9b327b3985ff0bf2e2ae72c"
+  },
+  "factors_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth12_fitted_shared_rank256.npz",
+  "geometry": {
+    "E": 256,
+    "top_k": 16,
+    "neurons_per_expert": 35,
+    "shared_rank": 256,
+    "calibration_fit_windows": 12,
+    "calibration_validation_windows": 4
+  },
+  "fit_validation": [
+    {
+      "layer": 0,
+      "validation_sparse_sse": 182705.578125,
+      "validation_fitted_sse": 197653.625,
+      "validation_ratio": 1.081814945270982,
+      "lambda": 0.6188656565187959,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 1,
+      "validation_sparse_sse": 194463.0,
+      "validation_fitted_sse": 227862.3125,
+      "validation_ratio": 1.1717515028565846,
+      "lambda": 24.48621375138183,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 2,
+      "validation_sparse_sse": 314245.0625,
+      "validation_fitted_sse": 347156.1875,
+      "validation_ratio": 1.1047307624761804,
+      "lambda": 14.286224851281325,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 3,
+      "validation_sparse_sse": 353373.40625,
+      "validation_fitted_sse": 370454.8125,
+      "validation_ratio": 1.048338120378859,
+      "lambda": 8.49395280848705,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 4,
+      "validation_sparse_sse": 480127.90625,
+      "validation_fitted_sse": 469101.125,
+      "validation_ratio": 0.977033658934504,
+      "lambda": 4.896187054967217,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 5,
+      "validation_sparse_sse": 432446.5625,
+      "validation_fitted_sse": 348937.40625,
+      "validation_ratio": 0.8068913861466988,
+      "lambda": 10.784437653961694,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 6,
+      "validation_sparse_sse": 562309.625,
+      "validation_fitted_sse": 508755.84375,
+      "validation_ratio": 0.9047610446824559,
+      "lambda": 2.1864294006030263,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 7,
+      "validation_sparse_sse": 551365.9375,
+      "validation_fitted_sse": 489638.125,
+      "validation_ratio": 0.888045654797092,
+      "lambda": 1.9242451688148263,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 8,
+      "validation_sparse_sse": 513593.65625,
+      "validation_fitted_sse": 438830.84375,
+      "validation_ratio": 0.8544319782960715,
+      "lambda": 1.9895565123074777,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 9,
+      "validation_sparse_sse": 453354.3125,
+      "validation_fitted_sse": 405408.375,
+      "validation_ratio": 0.894241796806554,
+      "lambda": 1.8497493183766283,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 10,
+      "validation_sparse_sse": 426952.65625,
+      "validation_fitted_sse": 347145.5,
+      "validation_ratio": 0.8130772696182283,
+      "lambda": 1.7898844566687206,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 11,
+      "validation_sparse_sse": 371876.625,
+      "validation_fitted_sse": 311551.21875,
+      "validation_ratio": 0.8377811290236379,
+      "lambda": 1.7998211607643058,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 12,
+      "validation_sparse_sse": 351919.78125,
+      "validation_fitted_sse": 280813.125,
+      "validation_ratio": 0.7979464069981147,
+      "lambda": 1.64763301534631,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 13,
+      "validation_sparse_sse": 291747.21875,
+      "validation_fitted_sse": 248433.46875,
+      "validation_ratio": 0.8515367166632158,
+      "lambda": 1.5290581140104909,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 14,
+      "validation_sparse_sse": 327756.1875,
+      "validation_fitted_sse": 248130.90625,
+      "validation_ratio": 0.7570594109684047,
+      "lambda": 1.6637382780413887,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 15,
+      "validation_sparse_sse": 274191.34375,
+      "validation_fitted_sse": 232384.265625,
+      "validation_ratio": 0.8475259008792104,
+      "lambda": 1.5697875968711992,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 16,
+      "validation_sparse_sse": 308404.15625,
+      "validation_fitted_sse": 276056.4375,
+      "validation_ratio": 0.8951125719467342,
+      "lambda": 1.8406497752808877,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 17,
+      "validation_sparse_sse": 445688.25,
+      "validation_fitted_sse": 406133.0,
+      "validation_ratio": 0.9112490625454003,
+      "lambda": 2.0162354840850885,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 18,
+      "validation_sparse_sse": 563358.25,
+      "validation_fitted_sse": 524267.625,
+      "validation_ratio": 0.930611427098121,
+      "lambda": 2.1608305502311294,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 19,
+      "validation_sparse_sse": 983020.125,
+      "validation_fitted_sse": 820584.625,
+      "validation_ratio": 0.8347587237850294,
+      "lambda": 2.4956741165521024,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 20,
+      "validation_sparse_sse": 961915.625,
+      "validation_fitted_sse": 885587.1875,
+      "validation_ratio": 0.9206495502139286,
+      "lambda": 2.5794276167095798,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 21,
+      "validation_sparse_sse": 1651511.25,
+      "validation_fitted_sse": 1511451.25,
+      "validation_ratio": 0.9151928271757156,
+      "lambda": 3.5832382294114926,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 22,
+      "validation_sparse_sse": 2597680.25,
+      "validation_fitted_sse": 2227680.0,
+      "validation_ratio": 0.8575651295035253,
+      "lambda": 4.348601085376486,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 23,
+      "validation_sparse_sse": 3155556.5,
+      "validation_fitted_sse": 3058420.5,
+      "validation_ratio": 0.9692174740018124,
+      "lambda": 4.572883541340944,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 24,
+      "validation_sparse_sse": 3934602.25,
+      "validation_fitted_sse": 4300905.5,
+      "validation_ratio": 1.0930979109768975,
+      "lambda": 4.878912185764187,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 25,
+      "validation_sparse_sse": 5393768.5,
+      "validation_fitted_sse": 6305893.0,
+      "validation_ratio": 1.1691070908957253,
+      "lambda": 5.026682874976302,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 26,
+      "validation_sparse_sse": 7080135.5,
+      "validation_fitted_sse": 8015651.0,
+      "validation_ratio": 1.132132428821454,
+      "lambda": 5.388621037545402,
+      "dense_capture_max_abs": 0.0
+    },
+    {
+      "layer": 27,
+      "validation_sparse_sse": 22722588.0,
+      "validation_fitted_sse": 19152584.0,
+      "validation_ratio": 0.8428874387019648,
+      "lambda": 9.988480589202835,
+      "dense_capture_max_abs": 0.0
+    }
+  ],
+  "pilot": {
+    "windows": 2,
+    "scored_bytes": 4396,
+    "donor_bpb": 0.9601896947132257,
+    "fitted_shared_bpb": 1.9040625117958332,
+    "delta_bpb": 0.9438728170826075,
+    "all_active_max_abs_logit_diff": 0.0
+  },
+  "decision": "reject_this_geometry_before_training",
+  "elapsed_seconds": 268.1090000000004,
+  "rss_at_end_bytes": 8205500416
+}
