@@ -1,0 +1,48 @@
+diff --git a/tools/imatrix/imatrix.cpp b/tools/imatrix/imatrix.cpp
+index f5fee6218..ae4b35a09 100644
+--- a/tools/imatrix/imatrix.cpp
++++ b/tools/imatrix/imatrix.cpp
+@@ -10,6 +10,7 @@
+ #include <clocale>
+ #include <cmath>
+ #include <cstdio>
++#include <cstdlib>
+ #include <cstring>
+ #include <ctime>
+ #include <thread>
+@@ -799,9 +800,32 @@ static bool compute_imatrix(llama_context * ctx, const common_params & params, c
+     }
+ 
+     auto tim1 = std::chrono::high_resolution_clock::now();
+-    LOG_INF("%s: tokenizing the input ..\n", __func__);
+-
+-    std::vector<llama_token> tokens = common_tokenize(ctx, params.prompt, true, params.parse_special);
++    std::vector<llama_token> tokens;
++    const char * source_ids_path = std::getenv("SILICON_IMATRIX_SOURCE_IDS");
++    if (source_ids_path && *source_ids_path) {
++        std::ifstream source_ids(source_ids_path);
++        if (!source_ids) {
++            LOG_ERR("%s: cannot open SILICON_IMATRIX_SOURCE_IDS file\n", __func__);
++            return false;
++        }
++        int64_t token_id = 0;
++        const int32_t vocab_size = llama_vocab_n_tokens(vocab);
++        while (source_ids >> token_id) {
++            if (token_id < 0 || token_id >= vocab_size) {
++                LOG_ERR("%s: source token ID outside model vocabulary\n", __func__);
++                return false;
++            }
++            tokens.push_back(static_cast<llama_token>(token_id));
++        }
++        if (!source_ids.eof()) {
++            LOG_ERR("%s: malformed source token ID file\n", __func__);
++            return false;
++        }
++        LOG_INF("%s: loaded %zu source-tokenizer IDs from %s\n", __func__, tokens.size(), source_ids_path);
++    } else {
++        LOG_INF("%s: tokenizing the input ..\n", __func__);
++        tokens = common_tokenize(ctx, params.prompt, true, params.parse_special);
++    }
+ 
+     auto tim2 = std::chrono::high_resolution_clock::now();
+     LOG_INF("%s: tokenization took %g ms\n",__func__,1e-3*std::chrono::duration_cast<std::chrono::microseconds>(tim2-tim1).count());
