@@ -69,8 +69,12 @@ latency rises 4.800×, above its 4× gate. METH-54's separately
 trainable rank-64 product keys pass their CPU cost gates: 0.4405
 ms/token at E273,408 and a 1.392× same-thread 10× ratio. These are
 synthetic router timings. No product keys have been trained with
-distinct experts or compared to donor quality; the next step is
-joint E128 training and semantic audit before any larger-E claim.
+distinct experts at large E. METH-55 jointly trains the same router
+geometry with distinct E128 factors for 16 updates from exact donor
+parity: fresh chat-prompt top-1 95.985%, raw ΔBPB −0.001552, at least
+125 changed B slots/layer. It passes the early screen but has
+21.76× worst maximum/mean route load. Longer retention and semantic
+audit remain necessary before any larger-E quality claim.
 METH-31 measures the existing CPU LUT kernel in the Qwen rank-8
 shape with synthetic packed factors: E1280→E12800 raises the
 six-thread selected path only 1.136× to 0.505 ms/token. That
@@ -596,9 +600,10 @@ scheduled.
   forward; METH-52 shows their selected C path is only 0.321 ms/token
   at E27,355 with a replicated pool. METH-53 rejects full-width
   product keys under its 10× scaling bound; METH-54 passes that CPU
-  bound with rank-64 product keys, but still needs joint training
-  with **distinct learned** experts and route/quality evaluation as E
-  grows. METH-48/49 reject two int8 factor layouts;
+  bound with rank-64 product keys. METH-55's joint E128 smoke passes
+  its early donor-retention gates with distinct factors, but needs
+  a longer continuation, source-grounded semantic audit and
+  **distinct learned** large-E quality ladder. METH-48/49 reject two int8 factor layouts;
   any one-byte LUT export needs a new quality-valid adaptation, not
   further scale tuning on these prompts.
   Promote only after joint semantic quality and usefulness pass; then

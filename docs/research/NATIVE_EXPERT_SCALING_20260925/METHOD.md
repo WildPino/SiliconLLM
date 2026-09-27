@@ -508,6 +508,13 @@ both CPU-cost gates but remains a synthetic component. Joint E128
 training must determine whether this factorized score can preserve
 donor-relative quality and use distinct experts; CPU speed alone does
 not validate the routing geometry.
+[METH-55](METH_55_PRODUCT_KEY_E128_SMOKE_RESULT_20260927.md) implements
+that joint E128 training from exact donor logits. Its 16-update
+smoke passes the fresh chat top-1 screen (95.985%), improves held-out
+raw BPB by 0.001552 and changes at least 125 expert B slots/layer.
+The exact pair oracle passes on real hidden states, but routing is
+concentrated (worst maximum/mean 21.76×). This is an early E128
+candidate, not proof of semantic conservation or large-E quality.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
