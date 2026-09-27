@@ -406,12 +406,37 @@ summaries. The old adapter graft leaves pooled document BPB
 within +0.002721 of Instruct but matches only 84.277% of its
 prompt-position top-1 IDs versus the ≥95% gate. It is rejected:
 matching tensor geometry does not make base-trained conditional
-weights transferable across donor fine-tunes. The next method
-step is to initialize new Instruct residual experts at exact
-donor logits, train with instruction-behavior retention, and
-evaluate on new documents, tasks and chat prompts. This is a
-new candidate branch, not a validated native conversion.
-No T4 run is authorized by these screens.
+weights transferable across donor fine-tunes. New Instruct experts
+must initialize at exact donor logits; the direct graft is rejected.
+[METH-43](METH_43_INSTRUCT_ZERO_EXPERT_RESULT_20260927.md) implements
+that exact-donor initialization with E128/top-4/rank-8 additive experts,
+but a trailing-window chat loss fails donor prompt top-1 retention
+(89.716%) after 16 updates. The failure shows that raw BPB and active
+gradients alone do not select an instruction-quality parent.
+[METH-44](METH_44_FULL_CHAT_RETENTION_RESULT_20260927.md) changes the
+training objective: assistant-only CE plus donor KL on every position
+of full chat prompt/response sequences, with two raw and two chat
+microbatches per update and a lower LR. A fresh 24-prompt same-corpus
+development screen passes at 95.981% top-1 after 16 updates, while
+raw BPB is −0.001843 versus the BF16 Instruct donor. This is an
+implemented transfer recipe at 0.5B/E128, not a finished conversion.
+[METH-45](METH_45_INSTRUCT_CONTINUATION_RESULT_20260927.md) resumes
+its bound optimizer/RNG checkpoint under a fixed 1024-update plan.
+It stops at update 512 when chat top-1 drops to 93.985% below its
+95% gate despite raw BPB −0.028953. The source-disjoint 12-document
+chat manifest and PIQA task audit remain unopened because the
+terminal training gate failed. This continuation recipe is rejected;
+the failure does not refute the E128 conditional geometry.
+[METH-46](METH_46_ROUTE_UTILITY_DIAGNOSTIC_RESULT_20260927.md)
+tests that distinction: independently permuting learned router rows
+raises raw BPB by +0.020330 at update 256, so matching router rows
+to factors has measurable value on the viewed slice. The worst raw
+expert load is 24.56× layer mean, and at least 102/128 experts are
+selected in every layer. This supports a new retention objective on
+the same conditional geometry while making load balance and
+sublinear CPU routing explicit requirements for large E. The
+permutation is a sensitivity control, not independent large-E
+quality evidence. No T4 run follows from these screens.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
@@ -419,8 +444,10 @@ large-E optimization. NES-03 provides a numerical/cost-passing int8 router
 option at pilot scale, with a fragile E128 latency margin. Independent larger
 experts remain untrained, and no pretrained donor has been converted into a
 quality-valid, ≥50 accepted tok/s native artifact. The next method decision
-is a concrete donor-to-target transformation and paired quality/cost gate,
-not another router-only optimization.
+is whether a stronger donor-retention objective can preserve chat behavior
+through a fixed longer E128 adaptation while keeping measurable route
+utility. A successful parent would then need fresh external quality,
+compact export, C parity/rate and a distinct-expert-count ladder.
 
 Operational experiment history, running processes and exact resumption point
 live in [INDEX.md](INDEX.md); this file changes when a method step is actually
