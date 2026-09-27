@@ -769,6 +769,15 @@ scheduled.
   at least 1,197/1,280 slots per layer, yet ends one matched position
   below E128. Stop this longer continuation; a new fixed rule must
   improve learned route utility without sacrificing donor behavior.
+  METH-76 exports the METH-71 update-64 E128/E1280 learned component
+  to BF16-factor/FP32-product-key C banks. Both pass 96/96 exact
+  native top-four/gate/residual fixtures and negative controls.
+  Single-thread 24-layer route medians are 0.978/1.005 ms per
+  token-equivalent pass (1.027× at 10× experts); selected top-four
+  factor payload stays 2.753 MB/token. This is a hot repeated-input
+  component result. The E1280 bank is 886.8 MB, quality still fails
+  METH-72/74, and varied-token DRAM traffic, LUT coding, full
+  engine integration and accepted-token rate remain open.
   No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`

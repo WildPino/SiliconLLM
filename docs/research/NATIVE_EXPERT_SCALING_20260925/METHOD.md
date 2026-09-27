@@ -669,6 +669,17 @@ slots per layer and raw BPB improves, confirming that coverage and
 raw likelihood gains alone do not establish retained chat quality.
 Both longer checkpoints stop at development; the update-64 external
 and semantic failures remain unresolved.
+[METH-76](METH_76_LEARNED_E1280_CPU_COMPONENT_RESULT_20260927.md)
+exports the learned update-64 E128/E1280 product-key/factor components
+to versioned native banks. The C reader matches all 96 PyTorch
+top-four/gate/residual fixtures at both sizes. On repeated actual
+per-layer inputs, a single CPU thread takes 0.978/1.005 ms per
+24-layer route pass, a 1.027× increase for 10× experts; selected
+top-four factor bytes stay fixed at 2.753 MB/token. This validates
+one hot-input component cost for a trained bank, but not varied
+factor-cache traffic, LUT coding, full `engine.c` integration or
+same-artifact accepted token rate. Quality promotion remains blocked
+by METH-72/74.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
