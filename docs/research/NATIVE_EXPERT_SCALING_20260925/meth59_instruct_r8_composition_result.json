@@ -1,0 +1,552 @@
+{
+  "experiment": "METH-59-Instruct-R8-core-product-key-composition",
+  "core_sha256": "5b6ace4a027d127a6eb49ca99197edd4a1b810ebe681d8e3b6ab7edc088ca9bd",
+  "checkpoint_sha256": "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072",
+  "reference_sha256": "b88e9208db0999a8b3b8550a8e5a1bd4c265910a0b202dc451c1914e2823b996",
+  "external_manifest_sha256": "9571f5d61c29e34b27c05ec531232a08b9eb6cd81bdf85aa5648ff74f1db3d75",
+  "document_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h4_factorize.py",
+      "category": "code",
+      "bytes": 4095,
+      "document_ids_sha256": "792cd0d5985af025bbb50e25a17d802267881dc1656fccfad83101af44a056c3",
+      "nats": {
+        "bf16_donor": 3375.9591064453125,
+        "r8_donor": 3378.5988159179688,
+        "r8_student": 3366.3490600585938
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h_training_kaggle.py",
+      "category": "code",
+      "bytes": 4095,
+      "document_ids_sha256": "f5af1907b382bb896e6848482d8c6c5c5032d746d5687ebde3241a305d8ad70e",
+      "nats": {
+        "bf16_donor": 1832.801236152649,
+        "r8_donor": 1829.36226272583,
+        "r8_student": 1814.0442428588867
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/s1_oracle.py",
+      "category": "code",
+      "bytes": 4095,
+      "document_ids_sha256": "1c9de6138800762c63f3b457855c420820619ce128c4471b085dac1691298bb5",
+      "nats": {
+        "bf16_donor": 2401.156951904297,
+        "r8_donor": 2399.8030395507812,
+        "r8_student": 2398.8084106445312
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_stats.py",
+      "category": "code",
+      "bytes": 4095,
+      "document_ids_sha256": "3828c47f51bc1e2fc75c99500fe46840a99478a31a289cc18b5ce802861e7cb9",
+      "nats": {
+        "bf16_donor": 2665.6284942626953,
+        "r8_donor": 2667.623321533203,
+        "r8_student": 2662.021728515625
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h0_selftest.py",
+      "category": "code",
+      "bytes": 4095,
+      "document_ids_sha256": "649a1744b63b12ac8f70f18d481c857f3a520735c26d9d28aef4af29e50d9928",
+      "nats": {
+        "bf16_donor": 3066.7485961914062,
+        "r8_donor": 3066.8661193847656,
+        "r8_student": 3056.1351318359375
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/_kaggle_bundle/s1_kaggle_entry.py",
+      "category": "code",
+      "bytes": 4095,
+      "document_ids_sha256": "f88272490aa35e754bb13a74b0f10e3f27eafbf48d59de0cc61c1f6dc0e003d7",
+      "nats": {
+        "bf16_donor": 2674.570846557617,
+        "r8_donor": 2680.3217697143555,
+        "r8_student": 2669.416816711426
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_router_smoke.py",
+      "category": "code",
+      "bytes": 4095,
+      "document_ids_sha256": "e56b35062cd12e285d9153daf957f8b943920b241adc7a390cd99499f133a8bb",
+      "nats": {
+        "bf16_donor": 3254.230712890625,
+        "r8_donor": 3248.8154907226562,
+        "r8_student": 3241.355438232422
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h5_cross_composition.py",
+      "category": "code",
+      "bytes": 4095,
+      "document_ids_sha256": "0c5cd259d74720540a25409add33cba0f6caa440dfd4fc0e9b33e9c0ce703e30",
+      "nats": {
+        "bf16_donor": 1898.5249328613281,
+        "r8_donor": 1900.605857849121,
+        "r8_student": 1893.7385711669922
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=95",
+      "category": "prose",
+      "bytes": 4095,
+      "document_ids_sha256": "94457231ee183e4e1e2cfb3878c9ea71a650e0319ba29bddfee8609320c47c94",
+      "nats": {
+        "bf16_donor": 2429.64013671875,
+        "r8_donor": 2432.4549560546875,
+        "r8_student": 2422.2410888671875
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=4",
+      "category": "prose",
+      "bytes": 4095,
+      "document_ids_sha256": "0cf6e1ed3a34b3e27cb1c13311fb34846fee878edaddba262ae1cfd09dfd0e5e",
+      "nats": {
+        "bf16_donor": 3696.61279296875,
+        "r8_donor": 3702.912567138672,
+        "r8_student": 3650.551513671875
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=8",
+      "category": "prose",
+      "bytes": 4095,
+      "document_ids_sha256": "bf96c2f4405ee56fac0a76854fde38e4f0d322893bebd0386cbd61c8029bab05",
+      "nats": {
+        "bf16_donor": 3444.5135498046875,
+        "r8_donor": 3452.1920166015625,
+        "r8_student": 3420.7252197265625
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=17",
+      "category": "prose",
+      "bytes": 4095,
+      "document_ids_sha256": "d25dfc5114a5c52cee58aa072f8064d3bf9a4e476c0af73140a9da0aa0d4f384",
+      "nats": {
+        "bf16_donor": 3102.669189453125,
+        "r8_donor": 3099.17578125,
+        "r8_student": 3076.4722900390625
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=81",
+      "category": "prose",
+      "bytes": 4094,
+      "document_ids_sha256": "9efde45b7504be4913fb5134615ec1763770026b32aced68cae383deb6a4861a",
+      "nats": {
+        "bf16_donor": 3298.77734375,
+        "r8_donor": 3303.588134765625,
+        "r8_student": 3282.33642578125
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=84",
+      "category": "prose",
+      "bytes": 4095,
+      "document_ids_sha256": "8a9f962c061abaa2fe72f050cc7f65b58bba4aa3a3899cfe42f51dacce737b0f",
+      "nats": {
+        "bf16_donor": 2760.301513671875,
+        "r8_donor": 2759.9105224609375,
+        "r8_student": 2751.0367431640625
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=85",
+      "category": "prose",
+      "bytes": 4095,
+      "document_ids_sha256": "4087348dda82d19e9ae50b9e5323fb6d561c5f9cd54cfd6df2d550fe8ca59f85",
+      "nats": {
+        "bf16_donor": 4267.015869140625,
+        "r8_donor": 4270.7568359375,
+        "r8_student": 4234.116516113281
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=90",
+      "category": "prose",
+      "bytes": 4095,
+      "document_ids_sha256": "ee440532438522d5c8283988d2a99e1052edcbff750852e6f5562e595bf8ff12",
+      "nats": {
+        "bf16_donor": 2995.7860107421875,
+        "r8_donor": 2993.6297607421875,
+        "r8_student": 2981.7706298828125
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E23_A_REAL_ROUTER.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "document_ids_sha256": "08363c2a79bfe0b146f090ed9a5cd158afe471670e610bd6306ec320a9b880c4",
+      "nats": {
+        "bf16_donor": 4518.188049316406,
+        "r8_donor": 4526.269287109375,
+        "r8_student": 4508.82470703125
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E41_PARTITION_IS_NOT_THE_LEVER.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "document_ids_sha256": "7bb45a6acaa07f0bb69f00b43d3706e75ca47e13ace4cbcde299e3459f46c670",
+      "nats": {
+        "bf16_donor": 4601.275634765625,
+        "r8_donor": 4598.8011474609375,
+        "r8_student": 4582.5838623046875
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E2_RMSNORM_FOLD.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "document_ids_sha256": "cc6c9a068c58c8fe3132795f5e51f18f7f7642605de35a1cea4bead7cce47184",
+      "nats": {
+        "bf16_donor": 3991.3489379882812,
+        "r8_donor": 3986.519287109375,
+        "r8_student": 3976.6092529296875
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E36_TEN_BILLION_AT_FIFTY.md",
+      "category": "technical_general",
+      "bytes": 4094,
+      "document_ids_sha256": "058d0f7bb4fe8da89daf726d7476f8a2a73e34cbbab3c8b2eaee423ec73812c2",
+      "nats": {
+        "bf16_donor": 4692.248779296875,
+        "r8_donor": 4694.7591552734375,
+        "r8_student": 4676.7232666015625
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER_D5_RESULTS_AUDIT.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "document_ids_sha256": "9144e8e483751a7be31d75e96a10a6bbc817326858ead556907262beaa2aec9a",
+      "nats": {
+        "bf16_donor": 4731.758361816406,
+        "r8_donor": 4730.5301513671875,
+        "r8_student": 4723.3369140625
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_D0_COACTIVATION_PERMUTATION.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "document_ids_sha256": "32370d60691343e91724c4f32591736e73cecd66bf544d641554a1fba1f58578",
+      "nats": {
+        "bf16_donor": 4237.126220703125,
+        "r8_donor": 4233.314453125,
+        "r8_student": 4220.781494140625
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/LINEAR_MIXING_MECHANISM.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "document_ids_sha256": "dfa7448cb6f11d36d80aab7bb9c26499ea9fa8a9d01a4160ad441a6315601f16",
+      "nats": {
+        "bf16_donor": 3319.977851867676,
+        "r8_donor": 3315.0753479003906,
+        "r8_student": 3313.929588317871
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/D0C_GRANULARITY.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "document_ids_sha256": "06aa39284b83d7db915b6d656e4f48eecc0c18b4664f58d9a2cc983810fcc42d",
+      "nats": {
+        "bf16_donor": 4403.345123291016,
+        "r8_donor": 4401.386566162109,
+        "r8_student": 4389.824645996094
+      }
+    }
+  ],
+  "document_summary": {
+    "pooled": {
+      "documents": 24,
+      "bytes": 98278,
+      "bpb": {
+        "bf16_donor": 1.1987502247106496,
+        "r8_donor": 1.1989420360837266,
+        "r8_student": 1.1936640973690729
+      },
+      "r8_donor_delta": 0.00019181137307699991,
+      "r8_student_delta": -0.005086127341576763
+    },
+    "code": {
+      "documents": 8,
+      "bytes": 32760,
+      "bpb": {
+        "bf16_donor": 0.9322743301932548,
+        "r8_donor": 0.9323789564163825,
+        "r8_student": 0.9292906696245968
+      },
+      "r8_donor_delta": 0.00010462622312767955,
+      "r8_student_delta": -0.002983660568657953
+    },
+    "prose": {
+      "documents": 8,
+      "bytes": 32759,
+      "bpb": {
+        "bf16_donor": 1.1448247524538717,
+        "r8_donor": 1.1456749013733647,
+        "r8_student": 1.1370708675740466
+      },
+      "r8_donor_delta": 0.0008501489194929768,
+      "r8_student_delta": -0.00775388487982509
+    },
+    "technical_general": {
+      "documents": 8,
+      "bytes": 32759,
+      "bpb": {
+        "bf16_donor": 1.5191597259179404,
+        "r8_donor": 1.5187803875559613,
+        "r8_student": 1.514638825161872
+      },
+      "r8_donor_delta": -0.00037933836197900916,
+      "r8_student_delta": -0.004520900756068258
+    }
+  },
+  "prompt_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h4_factorize.py",
+      "category": "code",
+      "prompt_ids_sha256": "4a9814ea2e80c899f87fc1471df43890cd78efcb4ffad1c6b508491233082ead",
+      "positions": 168,
+      "r8_donor_matching": 158,
+      "r8_student_matching": 159
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h_training_kaggle.py",
+      "category": "code",
+      "prompt_ids_sha256": "5db7ddec9a73560db33140101528c9bb71c72776248a8cee425095adb5543f4c",
+      "positions": 167,
+      "r8_donor_matching": 161,
+      "r8_student_matching": 159
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/s1_oracle.py",
+      "category": "code",
+      "prompt_ids_sha256": "195001be867d43764086db862eec0b4da15f177a4890fccd9f284f92480de599",
+      "positions": 169,
+      "r8_donor_matching": 161,
+      "r8_student_matching": 158
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_stats.py",
+      "category": "code",
+      "prompt_ids_sha256": "285fa530e30f25b235d99cddba0718b15421c8f9a1ff1cfe20e38706fee5b443",
+      "positions": 181,
+      "r8_donor_matching": 169,
+      "r8_student_matching": 170
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h0_selftest.py",
+      "category": "code",
+      "prompt_ids_sha256": "896254b2820fa01ed8b5117f2bf0382c80e22cc328fca835207595b9607223e2",
+      "positions": 173,
+      "r8_donor_matching": 162,
+      "r8_student_matching": 164
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/_kaggle_bundle/s1_kaggle_entry.py",
+      "category": "code",
+      "prompt_ids_sha256": "9505e3554a329edcb0dc75db20e80da96f091e0ec0845b6e139c5cb16381267d",
+      "positions": 162,
+      "r8_donor_matching": 155,
+      "r8_student_matching": 155
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_router_smoke.py",
+      "category": "code",
+      "prompt_ids_sha256": "61a4a1c8d251dba21bce12be7e5979f07b4201b4cb48243572d8a49b92ce4d4f",
+      "positions": 203,
+      "r8_donor_matching": 193,
+      "r8_student_matching": 195
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h5_cross_composition.py",
+      "category": "code",
+      "prompt_ids_sha256": "cdcf303904634338723ec093d71305b9ba92984eef7ce2d3ef01c96ce0b814d0",
+      "positions": 147,
+      "r8_donor_matching": 139,
+      "r8_student_matching": 139
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=95",
+      "category": "prose",
+      "prompt_ids_sha256": "010bed0b2e20f9933746a8e88f1de8ea1b43601743c5d6912978f996d72f4b40",
+      "positions": 152,
+      "r8_donor_matching": 143,
+      "r8_student_matching": 142
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=4",
+      "category": "prose",
+      "prompt_ids_sha256": "eddd5503a322bdfbc6329ea23731fb58b0774d8242ab56c79d6ee23b6a5524f3",
+      "positions": 165,
+      "r8_donor_matching": 148,
+      "r8_student_matching": 150
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=8",
+      "category": "prose",
+      "prompt_ids_sha256": "fde04500b4eb6483afa9ba178a63d8c1789f9f7c01c823fa5e7fedd8b27ddbe0",
+      "positions": 166,
+      "r8_donor_matching": 155,
+      "r8_student_matching": 153
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=17",
+      "category": "prose",
+      "prompt_ids_sha256": "bf76ce0a7657ca229b44f17720b919acb48542bbdcf207c7d339082d045de6e1",
+      "positions": 156,
+      "r8_donor_matching": 144,
+      "r8_student_matching": 144
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=81",
+      "category": "prose",
+      "prompt_ids_sha256": "17f08a6652f936236ce85119f7ae2466eb2b0bbb9c5dac3fead2a8d4a8435c57",
+      "positions": 152,
+      "r8_donor_matching": 146,
+      "r8_student_matching": 145
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=84",
+      "category": "prose",
+      "prompt_ids_sha256": "f03f79729762f18835d0a64acc52220b7611afbea36067613ee608063c398bc0",
+      "positions": 153,
+      "r8_donor_matching": 143,
+      "r8_student_matching": 146
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=85",
+      "category": "prose",
+      "prompt_ids_sha256": "e273d2416bf4d9c39d67f664334bca66489cd0d1c95cd265f67f41261a0b5274",
+      "positions": 198,
+      "r8_donor_matching": 186,
+      "r8_student_matching": 186
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=90",
+      "category": "prose",
+      "prompt_ids_sha256": "fb65d20f45632765ada68179aafc32e1638463ffdb5f0f67891564928cccf4b9",
+      "positions": 151,
+      "r8_donor_matching": 143,
+      "r8_student_matching": 143
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E23_A_REAL_ROUTER.md",
+      "category": "technical_general",
+      "prompt_ids_sha256": "b15c8beaaef29ff5b78656263ed0705f7194fdf6a76eef743b110c78805798be",
+      "positions": 199,
+      "r8_donor_matching": 188,
+      "r8_student_matching": 186
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E41_PARTITION_IS_NOT_THE_LEVER.md",
+      "category": "technical_general",
+      "prompt_ids_sha256": "35ce2dfeba7963923949387c329739d0735cc0ce79a9a94da2d5f83e9bb058f1",
+      "positions": 180,
+      "r8_donor_matching": 173,
+      "r8_student_matching": 170
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E2_RMSNORM_FOLD.md",
+      "category": "technical_general",
+      "prompt_ids_sha256": "4eb572992339e7fff4f51942cca5a4edfc1e8ee8d03b0c1dc5d5315a9bd6f2ba",
+      "positions": 162,
+      "r8_donor_matching": 154,
+      "r8_student_matching": 156
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E36_TEN_BILLION_AT_FIFTY.md",
+      "category": "technical_general",
+      "prompt_ids_sha256": "befe84011a55f49f9450b7a636ebe740175500b6eef2a13c726f95d741b13470",
+      "positions": 224,
+      "r8_donor_matching": 211,
+      "r8_student_matching": 211
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER_D5_RESULTS_AUDIT.md",
+      "category": "technical_general",
+      "prompt_ids_sha256": "41e0e72a52318862ca23b0087398f48dc82637ab319c8e5d6c5df4b8d371f419",
+      "positions": 166,
+      "r8_donor_matching": 155,
+      "r8_student_matching": 156
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_D0_COACTIVATION_PERMUTATION.md",
+      "category": "technical_general",
+      "prompt_ids_sha256": "f4f6699eec59d511bfef2ac2ac827c8696895455df5ed33d73c351d0459ec3fb",
+      "positions": 163,
+      "r8_donor_matching": 155,
+      "r8_student_matching": 154
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/LINEAR_MIXING_MECHANISM.md",
+      "category": "technical_general",
+      "prompt_ids_sha256": "ea2d2c0944e01a0eb9f74178b7bb290f9b07cb3ab8df42d053e7cb27ed1343fd",
+      "positions": 199,
+      "r8_donor_matching": 189,
+      "r8_student_matching": 189
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/D0C_GRANULARITY.md",
+      "category": "technical_general",
+      "prompt_ids_sha256": "cad8ec3b0fc6b1d98d9b6f56caa4459a3f54ee38dbdd5a631ee52d02b5fc53c5",
+      "positions": 169,
+      "r8_donor_matching": 157,
+      "r8_student_matching": 157
+    }
+  ],
+  "prompt_summary": {
+    "pooled": {
+      "positions": 4125,
+      "r8_donor_matching": 3888,
+      "r8_student_matching": 3887,
+      "r8_student_agreement": 0.9423030303030303
+    },
+    "code": {
+      "positions": 1370,
+      "r8_donor_matching": 1298,
+      "r8_student_matching": 1299,
+      "r8_student_agreement": 0.9481751824817518
+    },
+    "prose": {
+      "positions": 1293,
+      "r8_donor_matching": 1208,
+      "r8_student_matching": 1209,
+      "r8_student_agreement": 0.9350348027842227
+    },
+    "technical_general": {
+      "positions": 1462,
+      "r8_donor_matching": 1382,
+      "r8_student_matching": 1379,
+      "r8_student_agreement": 0.9432284541723667
+    }
+  },
+  "gates": {
+    "documents": true,
+    "prompt_top1": false
+  },
+  "decision": "stop_before_generation_task_early_gate_failed",
+  "runtime": {
+    "elapsed_seconds": 49.34400000000005,
+    "rss_end_bytes": 3389267968,
+    "gpu_peak_allocated_bytes": 2442680320,
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "cuda_index": 0,
+    "torch": "2.6.0+cu124"
+  }
+}
