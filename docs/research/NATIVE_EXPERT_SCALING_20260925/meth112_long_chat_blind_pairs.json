@@ -1,0 +1,176 @@
+{
+  "experiment": "METH-112-long-chat-E1280-blind-semantic-review",
+  "manifest_sha256": "f2c30361c3379053712acce27e9083fa14e4ab3baa3dfad367a37129a85f4bda",
+  "audit_sha256": "0b9fefb97d5e5edc36d5db5f8d5273dd0dc525494af25c8efe720c97210f141e",
+  "review_rule": "Count unsupported, severe and missing-detail findings from the excerpt alone.",
+  "rows": [
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_layer2_kv_partition_cross_input.h",
+      "category": "code",
+      "excerpt": "y(dst+(size_t)tok*576U+STRAT01_L2KPX_PREFIX,positional+(size_t)tok*576U+STRAT01_L2KPX_PREFIX,STRAT01_L2KPX_TAIL*sizeof(float));\n    }\n    if(s->latent_control)for(unsigned i=0;i<STRAT01_L2KPX_PREFIX;++i)dst[(size_t)7U*576U+i]=-dst[(size_t)7U*576U+i];\n    if(s->positional_control)for(unsigned i=0;i<STRAT01_L2KPX_TAIL;++i){\n        size_t a=STRAT01_L2KPX_PREFIX+i,b=(size_t)7U*576U+ST",
+      "A": "The excerpt describes a function that processes a string `s` to modify its contents. Specifically, it performs the following operations:\n\n1. **Concatenation**: The function concatenates the string `dst` with a string of length `576U` and a prefix of `STRAT01_L2KPX_PREFIX`. The result is stored in `dst`.\n\n2. **Offset Calculation**: It calculates the offset of the concatenated string from the start of the string `s` and stores it in `positional`.\n\n3. **String Manipulation**: It then calculates the offset of the string `s` from the start of",
+      "B": "The excerpt describes a function that processes a string `s` to modify its contents. Specifically, it involves:\n\n1. Modifying the string `s` by appending a prefix of size 576 bytes and a tail of `STRAT01_L2KPX_TAIL` bytes.\n2. Modifying the string `s` by setting the value of the `latent_control` field to `-1` for all positions.\n3. Modifying the string `s` by setting the value of the `positional_control` field to `7` for all positions.\n\nThe excerpt also mentions that the `positional_control`"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_selftest.py",
+      "category": "code",
+      "excerpt": "    # STATIC control: top-k once by global mass over the CALIBRATION stream.\n    pc.arm_mass(True)\n    with torch.no_grad():\n        pc(xtr)\n    pick = pc.static_from_mass()\n    pc.arm_mass(False)\n    pc.set_static(pick)\n    static_loss = ev_loss()\n    pc.set_static(None)\n\n    log(\"      STATIC groups %s -> held-out loss %.6f\" % (pick.sort().values.tolist(),\n                       ",
+      "A": "The excerpt describes a Python script that uses PyTorch to perform static control on a mass array. The script first sets up a mass array, then performs a gradient descent to optimize the mass array. After optimization, the script sets the static mass array to the optimized value and calculates the static loss. Finally, the script logs the static groups and the static loss.<|im_end|>",
+      "B": "The excerpt describes a Python script that uses PyTorch to perform static control on a mass array. The script first sets up a mass array and then performs static control by setting the mass to a specific value. After the static control is applied, the script calculates the static loss and sets the mass back to its original value. The script then logs the result.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/d2_basis.py",
+      "category": "code",
+      "excerpt": "RIES.  Candidates tested:\n\n      identity            -- the baseline, i.e. \"the weights as shipped\"\n      permutation         -- a no-op control: must reproduce identity's metric EXACTLY\n      block-Hadamard      -- structured, essentially free to apply (the engine could afford it)\n      block-random-orth   -- structured null at the same block size\n      dense random orth   -- the ",
+      "A": "The excerpt describes a set of candidate tests for a machine learning model. It includes:\n\n1. **Identity**: The baseline, i.e., the weights as shipped.\n2. **Permutation**: A no-op control that must reproduce the identity's metric exactly.\n3. **Block-Hadamard**: A structured, essentially free to apply (the engine could afford it).\n4. **Block-random-orth**: A structured null at the same block size.\n5. **Dense random orth**: The same as the previous option, but with a different name.\n\nSpecifically, the excerpt mentions that the \"block-random-orth\" test is",
+      "B": "The excerpt describes a set of candidate tests for a machine learning model. It includes four types of tests:\n\n1. **Identity**: The baseline, i.e., the weights as shipped.\n2. **Permutation**: A no-op control that must reproduce the identity's metric exactly.\n3. **Block-Hadamard**: Structured, essentially free to apply (the engine could afford it).\n4. **Block-random-orth**: Structured null at the same block size.\n\nSpecifically, the excerpt mentions that the \"block-random-orth\" test is structured and null at the same block size, which is a detail about the test's"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/ternary/t2_rules.py",
+      "category": "code",
+      "excerpt": "x in os.environ.get(\"T2_ONLY\", \"\").split(\",\") if x.strip()]\nWANT_R4 = \"--r4\" in sys.argv or \"R4\" in ONLY\n\nSIGMA_SEED = 0.005\nBASELINE_STANDING = 0.7675949641196624\nR0_STANDING = 3.309099          # T1's Delta for the FFN arm, results/t1_ternarize.json\nFFN = (\"gate_proj\", \"up_proj\", \"down_proj\")\n\n# ---------------------------------------------------------------- brief section 4, ver",
+      "A": "The excerpt describes a Python script that checks for the presence of certain environment variables and command-line arguments. It also includes a section for brief comments.<|im_end|>",
+      "B": "The excerpt describes a Python script that checks for the presence of certain environment variables and command-line arguments. It also includes a section for brief comments.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/d0b_rho_floor_donor.py",
+      "category": "code",
+      "excerpt": "d(BLOCK_BYTES / bytes_per_neuron_organ))\n    st_organ = D0.layout_stats(Bn, bytes_per_neuron_organ, block_sizes=[block_organ])\n    st_interleaved = D0.layout_stats(Bn, bytes_per_neuron_interleaved, block_sizes=[donor_block])\n    out.append({\n        \"name\": \"iid_mask_block_accounting_at_donor_granularity\",\n        \"note\": \"SYNTHETIC i.i.d. mask, NOT a real donor co-activation patte",
+      "A": "The excerpt describes two layout statistics for a neural network model, `Bn`, and `Bn`, with a block size of `block_organ`. It also mentions that the `donor_block` is a block size that is not specified in the excerpt.<|im_end|>",
+      "B": "The excerpt describes two layout statistics for a neural network model, specifically for a donor block and a block of neurons. It mentions that the donor block is interleaved with the block of neurons, and that the layout statistics are used to calculate i.i.d. masks for the donor block and the block of neurons.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e45_window.py",
+      "category": "code",
+      "excerpt": "nd entering\nthe paired ratio twice.  And every cell in E45, and NTOK = 40 in\ne40_levers_exhausted.py where the 10B headline comes from, measures a decode window\nof 40 tokens: about 0.35 s at the R128 rate, squarely inside Zen 2 boost.\n\nH-WINDOW: the 9-22% dispersion, and possibly the central value, are artifacts of a\n0.35-1.6 s window.\n\n  python e45_window.py --selftest     # the f",
+      "A": "The excerpt describes a Python script (`e45_window.py`) that measures a decode window of 40 tokens, which is about 0.35 seconds at the R128 rate. The script outputs a 9-22% dispersion and possibly the central value, indicating potential artifacts.<|im_end|>",
+      "B": "The excerpt describes a Python script named `e45_window.py` that measures a decode window of 40 tokens, which is about 0.35 seconds at the R128 rate. The script outputs a 9-22% dispersion and possibly the central value, indicating potential artifacts.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e3_bench.py",
+      "category": "code",
+      "excerpt": "ne, prio=\"\"):\n    cmd = [exe or EXE, \"--bench\", str(bench), \"--weights\", weights, \"--threads\", str(threads), \"--profile\"]\n    cmd += list(extra)\n    # E5 s10: HIGH_PRIORITY_CLASS applied identically to EVERY arm.  It does not change the code\n    # under test; it changes how often the scheduler lets a desktop's background work preempt it.\n    # Every E5 conclusion is a within-sweep ",
+      "A": "The excerpt describes a command-line argument structure for a benchmarking tool, where the `exe` parameter is set to `EXE`, and the `--bench` flag is used to specify the benchmarking process. The command includes the `--weights` flag to specify the weights for the benchmarking process, and the `--threads` flag to specify the number of threads to use. The excerpt also mentions that the `--profile` flag is applied identically to every arm, which means that the scheduler will let a desktop's background work preempt it.<|im_end|>",
+      "B": "The excerpt describes a command-line argument for a benchmarking tool that includes the following details:\n\n1. The command is a combination of a binary (`exe or EXE`) and a benchmarking option (`--bench`).\n2. The benchmarking option is specified as `--weights` with a value of `weights`.\n3. The benchmarking option is followed by a list of additional arguments (`--threads` and `--profile`).\n4. The `--profile` argument is applied to every arm, indicating that the benchmarking is performed on all available cores.\n5. The `--bench` option is applied identically to every"
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_layer1_terminal_component_cross_input.h",
+      "category": "code",
+      "excerpt": "component diagnostic requires Clang\");goto finish;\n#endif\n    if(!strat01_sha256_file(model,model_sha,&hashed,error)||hashed!=STRAT01_EXPECTED_SIZE||strcmp(model_sha,STRAT01_EXPECTED_SHA256)){if(!error[0])snprintf(error,256,\"terminal-component artifact identity mismatch\");goto finish;}\n    if(!strat01_parse_gguf(model,&inv,&parsed,error)||parsed!=hashed)goto finish;\n    at=strat01_",
+      "A": "The excerpt describes a component diagnostic in a C++ program that checks for a specific SHA256 hash of a model file. It identifies a mismatch between the expected SHA256 hash and the actual hash, and if there is a mismatch, it prints an error message. The diagnostic also checks if the parsed SHA256 hash matches the expected hash, and if not, it prints an error message.<|im_end|>",
+      "B": "The excerpt describes a component diagnostic that requires Clang, a compiler, to be installed. It also mentions that the diagnostic should be run after the `strat01_sha256_file` function is called, and that the `hashed` variable is set to the result of the `strat01_sha256_file` function. If the `hashed` variable is not equal to the expected `STRAT01_EXPECTED_SIZE` and the `strcmp` function returns a non-zero value, the diagnostic will output a message indicating a mismatch between the component's identity and the expected identity. The diagnostic will then exit"
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=19:start=19922944",
+      "category": "prose",
+      "excerpt": "nfrastructures with access on equitable terms.\nWe must ensure that the outlying places are brought into this.\nMr President, first I should like to congratulate the rapporteur, Mr Harbour, for his excellent initiative.\nThe Commission very much appreciates the continued interest which the European Parliament and its Committee on Industry, External Trade, Research and Energy has expre",
+      "A": "The excerpt describes a meeting between a rapporteur and a President of the European Parliament, highlighting the importance of ensuring equitable access to resources for outlying places. It also mentions the Commission's appreciation for the continued interest in this issue.<|im_end|>",
+      "B": "The excerpt describes a meeting between a rapporteur and a President, highlighting the importance of ensuring equitable access to resources for outlying places. It also mentions the Commission's appreciation for the continued interest in this issue.<|im_end|>"
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=72:start=75497472",
+      "category": "prose",
+      "excerpt": "ations.\nI cannot stand here tonight and say my own country is a shining example of progress as regards the recycling of packaging.\nI am afraid we have always been slow, we have always been behind the average and we are going to have to do an awful lot of very hard work in terms of building infrastructure and putting a whole range of measures in place to ensure that we achieve the o",
+      "A": "The excerpt describes the author's concern about the slow progress in recycling packaging in their country, and expresses a sense of frustration and hopelessness about the need for significant investment and change.<|im_end|>",
+      "B": "The excerpt describes a speaker's concern about the slow progress in recycling packaging in their country, emphasizing the need for significant investment and infrastructure development to achieve the desired level of recycling.<|im_end|>"
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=98:start=102760448",
+      "category": "prose",
+      "excerpt": "jections of industry, albeit without losing sight of the vital importance of protecting health and the environment.\nNot least in your House, this legislative project has made enormous demands in terms of organisation, and the Commission itself found it difficult to respond to over 1 000 amendments and come to an agreement.\nWe will be able to explain in detail our position on the co",
+      "A": "The excerpt describes a legislative project in the House that has faced significant challenges in terms of organization and response to amendments.<|im_end|>",
+      "B": "The excerpt describes a legislative project in the House that has faced significant challenges in terms of organization and response to amendments.<|im_end|>"
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=120:start=125829120",
+      "category": "prose",
+      "excerpt": "esident, I joined the Committee on the Environment, Public Health and Food Safety just after the last election almost two and a half years ago and saw at first hand the divisions and differences of opinion in relation to REACH.\nI must say that I have been highly impressed by the efforts of so many people, and in particular I want to thank the rapporteur, Mr Sacconi, the shadow rapp",
+      "A": "The excerpt describes the author's experience joining the Committee on the Environment, Public Health and Food Safety after nearly two and a half years of the last election. The author saw the divisions and differences in opinion, and expresses admiration for the efforts of the rapporteur, Mr. Sacconi.<|im_end|>",
+      "B": "The excerpt describes the author's experience joining the Committee on the Environment, Public Health and Food Safety after nearly two and a half years of the last election. The author saw the divisions and differences of opinion in relation to REACH, and expresses admiration for the efforts of many people, particularly the rapporteur, Mr. Sacconi.<|im_end|>"
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=122:start=127926272",
+      "category": "prose",
+      "excerpt": "n we take decisions on any question or pass any law or regulation without taking into account their distinctive points of view?\nIt is an important goal for the policy of gender equality in the long term to be incorporated into all policy areas and to be present at all levels.\nMrs Záborská's report is the first one to address an integrated approach to equal opportunity - many thanks",
+      "A": "The excerpt describes a goal for gender equality in policy-making, emphasizing the importance of considering diverse perspectives in all areas and at all levels. It also mentions the work of Mrs. Záborská, who is the first to address this integrated approach to equal opportunity.<|im_end|>",
+      "B": "The excerpt describes a goal for gender equality in policy-making, emphasizing the importance of considering diverse perspectives in all areas and at all levels. It also mentions the work of Mrs. Záborská, who is the first to address this integrated approach to equal opportunity.<|im_end|>"
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=107:start=112197632",
+      "category": "prose",
+      "excerpt": "an Parliament and other EU institutions, involved in making legislation, are at the same time members of boards of companies, or are stakeholders in companies which stand to make huge profits from such legislation?\nIs a simple declaration of interest really good enough?\nLastly, may I draw your attention to two amendments by Mr Kristovskis, concerning recital N and paragraph 22.\nThe",
+      "A": "The excerpt describes a situation where Parliament and other EU institutions are involved in making legislation, while companies are also stakeholders in companies that could benefit from such legislation. It also mentions two amendments by Mr. Kristovskis, concerning recital N and paragraph 22.<|im_end|>",
+      "B": "The excerpt describes a situation where Parliament and other EU institutions are involved in making legislation, while companies are stakeholders in companies that could make huge profits from such legislation. It also mentions two amendments by Mr. Kristovskis, concerning recital N and paragraph 22.<|im_end|>"
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=51:start=53477376",
+      "category": "prose",
+      "excerpt": " beware of ideologies!\nJust because the communist system of 'all state' did not work in the twentieth century, that does not mean that the capitalist system has necessarily got it right.\nDo not fall into the trap of jumping from ideology of 'all state' to the ideology of 'all market'.\nThe god of competition does not need a monument.\nThe debate is closed.\nThe vote will take place at",
+      "A": "The excerpt describes the dangers of falling into the trap of jumping from the ideology of \"all state\" to the ideology of \"all market.\" It also mentions that the debate is closed and that the vote will take place at a specific time.<|im_end|>",
+      "B": "The excerpt describes the dangers of falling into the trap of jumping from the ideology of \"all state\" to the ideology of \"all market.\" It also mentions that the debate is closed and that the vote will take place at a specific time.<|im_end|>"
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=116:start=121634816",
+      "category": "prose",
+      "excerpt": " to have addressed my thanks to the Council, but of course they are not here.\nThis Fundamental Rights Agency is not just another European body.\nI believe that it will help reassure EU citizens that human rights are being upheld by the 'Brussels bureaucrats' and by EU governments when they are implementing European law.\nIt will thus increase confidence in the European Union, and I t",
+      "A": "The excerpt describes a statement made by a European Union official, emphasizing the importance of the Fundamental Rights Agency and its role in upholding human rights in the European Union. It also mentions that the agency is not just another European body but is believed to be helping to reassure EU citizens and improve confidence in the European Union.<|im_end|>",
+      "B": "The excerpt describes the Fundamental Rights Agency (FRA) as a European body that aims to protect human rights and upholds European law. It suggests that the FRA will help reassure EU citizens and increase confidence in the European Union.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_RESULT_20260921.md",
+      "category": "technical_general",
+      "excerpt": "** Numerical metrics, Q8 censuses, controls, identities, and execution counts are **MEASURED**. Pinned llama.cpp's Q5_0×Q8_0 runtime pairing is **SOURCE-DERIVED**. Selecting the K-B operator boundary as the next diagnostic is an **INFERENCE**, not a repair claim.\n\n## Result\n\nThe frozen [protocol](STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_PROTOCOL_20260921.m",
+      "A": "The excerpt describes the following:\n\n1. **Numerical Metrics**: Q8 censuses, controls, identities, and execution counts are measured.\n2. **Pinning**: Pinned llama.cpp's Q5_0×Q8_0 runtime pairing is derived from source.\n3. **Diagnostic Selection**: Selecting the K-B operator boundary as the next diagnostic is an inference, not a repair claim.\n\nSpecifically, the excerpt states:\n\n- **Measurements**: Numerical metrics, Q8 censuses, controls, identities, and execution counts are measured.\n- **Source-Derived**: Pinned llama.cpp's Q5",
+      "B": "The excerpt describes the following:\n\n1. **Numerical Metrics**: Q8 censuses, controls, identities, and execution counts are measured.\n2. **Source-Derived**: Pinned llama.cpp's Q5_0×Q8_0 runtime pairing is derived from source.\n3. **INFERENCE**: Selecting the K-B operator boundary as the next diagnostic is an inference, not a repair claim.\n\nSpecifically, the excerpt states:\n\n- **Measurements**: Numerical metrics, Q8 censuses, controls, identities, and execution counts are measured.\n- **Source-Derived**: Pinned llama.cpp's"
+    },
+    {
+      "source_id": "docs/research/CPU_Memory_Bandwidth_Weight_Streaming_Research_20260625/report.md",
+      "category": "technical_general",
+      "excerpt": "curacy ceiling; (b) the routing's temporal locality — the cache hit-rate of keeping the hottest experts resident; and (c) the original experiment — add the predictability regularizer and test whether (a) and (b) rise *without* a quality cost. If they do, cache-residency stops being a bet and becomes a lever.\n\n**Sources:** [9][12][33][34]\n\n---\n\n## Limitations & Caveats\n\n- **No singl",
+      "A": "The excerpt describes a study on the limitations and caveats of using cache-residency as a quality metric in machine learning models. It highlights that cache-residency can be a useful tool, but it is not a perfect measure of model quality and can be influenced by various factors. The study also mentions that adding a predictability regularizer can help mitigate these limitations.<|im_end|>",
+      "B": "The excerpt describes a study on the limitations and caveats of using cache-residency as a quality metric in machine learning experiments. It highlights that cache-residency can be a useful tool, but it is not a perfect measure of quality and can be influenced by various factors. The study also mentions that adding a predictability regularizer can help mitigate these limitations.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260921.md",
+      "category": "technical_general",
+      "excerpt": "E-RUNG2B-CROSS-INPUT-DIAGNOSTIC`\n\n**Purpose:** explain the first measured Rung-2B failure without rerunning the accepted donor graph.\n\n## Prior result and changed estimand\n\n[Rung 2B](STRAT_01_GIGACHAT31_ENGINE_RUNG2B_RESULT_20260921.md) is closed as `FAIL_ENGINE_RUNG2B`. Both schedules pass `ffn_norm-0` and first fail at the parallel Q4_K `ffn_up-0` and `ffn_gate-0` projections. Sc",
+      "A": "The excerpt describes a specific Rung-2B failure without rerunning the accepted donor graph. It mentions that the first measured Rung-2B failure is due to a `FAIL_ENGINE_RUNG2B` status, and both schedules pass `ffn_norm-0` and the first fail at the parallel Q4_K `ffn_up-0` and `ffn_gate-0` projections.<|im_end|>",
+      "B": "The excerpt describes a specific Rung-2B failure without rerunning the accepted donor graph. It mentions that the first measured Rung-2B failure is due to a `FAIL_ENGINE_RUNG2B` status, and both schedules pass `ffn_norm-0` and the first fail at the parallel Q4_K `ffn_up-0` and `ffn_gate-0` projections.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_DOCUMENT_ROLLOUT_RESULT_20260921.md",
+      "category": "technical_general",
+      "excerpt": "ozen stop gate fails at three or more; the candidate passes\nby one document.\n\n## Frozen estimand\n\nThis is the preregistered 96-document paired greedy rollout in the\n[task/rollout protocol](STRAT_01_GIGACHAT31_TASK_ROLLOUT_PROTOCOL_20260919.md),\nexecuted under the\n[frozen brief](../briefs/BRIEF_STRAT_01_GIGACHAT31_DOCUMENT_ROLLOUT.md).\nIt measures free-running trajectory degeneratio",
+      "A": "The excerpt describes a preregistered 96-document paired greedy rollout in a task rollout protocol, executed under a frozen brief. It mentions that the candidate passes by one document, indicating a successful rollout.<|im_end|>",
+      "B": "The excerpt describes a preregistered 96-document paired greedy rollout in a task rollout protocol, executed under a frozen brief, measuring free-running trajectory degeneracy.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E63_THE_TEN_BILLION_CELL_AT_ONE_BYTE.md",
+      "category": "technical_general",
+      "excerpt": "reads\n\n- **Nothing about quality at 10 B.** `A10B-K3` is **noise weights**. E63 measures a rate and a\n  numerical equivalence, never a BPB. The trained-carve question is H1's and is untouched.\n- **Nothing that transfers to another shape.** E26 and §61.6's correction both say it: the carve\n  penalty is a function of how much of the token is carved, and `A10B-K3` carves 11% of its\n  ",
+      "A": "The excerpt describes a specific text processing task where the `A10B-K3` model is used to analyze a text. It states that the model is not concerned with quality but with a rate and a numerical equivalence, and that it measures a rate and a numerical equivalence, never a BPB. Additionally, it mentions that the model's trained-carve question is H1's and is untouched, and that it also corrects E26 and §61.6.<|im_end|>",
+      "B": "The excerpt describes a specific text processing task where the `A10B-K3` model is used to analyze a text. The model is trained on a dataset and is evaluated based on its ability to identify and correct errors in the text. The model is not only able to identify errors but also to transfer these errors to other parts of the text, specifically the carve penalty, which is a function of how much of the token is carved.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E9_GLUE_PARALLEL.md",
+      "category": "technical_general",
+      "excerpt": " and pushed as\n`briefs/BRIEF_E9_GLUE_PARALLEL.md` (`82dbb54`) before any measurement was taken.\n\nDonor: `Qwen2.5-Coder-7B` packed, 7.072 B active weights/token.\n\n---\n\n## 1. The result\n\n| Coder-7B, `--bench 300`, 10 interleaved pairs, idle, witness on | before | after |\n|---|---|---|\n| **rate** | **6.45 tok/s** (spread 4.0%) | **6.79 tok/s** (spread 4.0%) |\n| `ffn~` witness | 123.81",
+      "A": "The excerpt describes a specific experiment where the Qwen2.5-Coder-7B model was tested using the `BRIEF_E9_GLUE_PARALLEL` framework. The model was packed with 7.072 B active weights/token and was measured before and after the experiment. The results show a 4.0% increase in the rate of the `ffn~` witness after the experiment compared to before.<|im_end|>",
+      "B": "The excerpt describes a specific experiment where the Qwen2.5-Coder-7B model was tested using the `BRIEF_E9_GLUE_PARALLEL` dataset. The model was packed with 7.072 B active weights/token and measured before and after the experiment. The results show a 4.0% increase in the rate of the `ffn~` witness after the experiment compared to before.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_H4_TRAIN_THE_AGGRESSIVE_RANK.md",
+      "category": "technical_general",
+      "excerpt": "ree `15/160`, teacher-forced `115/160` dopo 1000 step cumulativi. H0 non stabilisce alcun trasferimento in larghezza o alla frazione `1/32`.\n\nH4 colma quindi una cella non ancora misurata: training nel formato ternario alla frazione aggressiva `1/32` sul donor reale. Non ripete E65, perché E65 valuta fattori fp32 redensified post-hoc; non ripete H0, perché H0 usa rank 512.\n\n## 3. O",
+      "A": "The excerpt describes a study where the teacher-forced ratio (15/160) is compared to a 115/160 ratio after 1000 step cumulativi. The null hypothesis (H0) does not establish any transfer of length or the fraction 1/32. The specific detail is that the study calculates a training format in the ternary format (1/32) for the donor reale, and does not repeat E65, as E65 uses rank 512 for post-hoc rank reduction, while the null hypothesis uses rank 5",
+      "B": "The excerpt describes a study where the teacher-forced ratio (15/160) is compared to a 115/160 ratio after 1000 step cumulativi. The null hypothesis (H0) states that there is no transfer in the large scale or the fractional 1/32. The specific detail is that the study calculates a training format in the ternary format (1/32) for the donor reale, and it does not repeat E65, which is used to evaluate factors fp32 redensified post-hoc, and it does not repeat"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_R1_CLOSED_FORM_ATTENTION_CONVERSION.md",
+      "category": "technical_general",
+      "excerpt": "cache that grows as `O(T)`. A linear attention — one where `softmax(QKᵀ)V` is replaced by a kernel feature\nmap so the operation becomes associative — keeps a **fixed-size recurrent state of `d_k × d_v`,\nindependent of sequence length**. Per token, `O(1)` state read instead of `O(T)` KV re-read.\n\n> **So a successful closed-form linearisation does not merely make attention cheaper. I",
+      "A": "The excerpt describes a method for handling large-scale language models, specifically focusing on a type of attention mechanism that is optimized for memory efficiency. It mentions that the attention process is replaced with a kernel feature map, which allows for a fixed-size recurrent state, independent of sequence length. This results in a more efficient and memory-friendly approach to handling large datasets.<|im_end|>",
+      "B": "The excerpt describes a method for handling large-scale language models, specifically focusing on a type of attention mechanism that is optimized for memory efficiency. It mentions that the attention process is replaced with a kernel feature map, which reduces the number of operations required to compute the attention weights, thereby keeping a fixed-size recurrent state independent of the sequence length. This results in a more efficient and memory-friendly approach to handling large datasets.<|im_end|>"
+    }
+  ]
+}
