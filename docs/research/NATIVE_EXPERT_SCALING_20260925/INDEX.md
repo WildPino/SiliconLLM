@@ -632,7 +632,7 @@ scheduled.
   summaries contain unsupported claims. METH-57's distinct product-key
   checkpoint now passes a larger source-grounded relative audit. Do not
   retune on viewed continuations or extend E256 on a BPB gain alone.
-- **Next exact action: repair the compressed Instruct core.** METH-57
+- **Earlier compressed-core investigation.** METH-57
   passes its frozen automatic and blind semantic gates; METH-58's
   trained E128 C component matches 96/96 BF16 inputs. METH-59 rejects
   all-R8 core composition at 94.230% top-1 despite near-flat BPB.
@@ -857,11 +857,28 @@ scheduled.
   top-1 by 0.533 point, but adapted composition falls to 93.384%
   versus 94.161% for the old-core adapted arm. It fails three of
   seven development gates. Stop this head-precision refinement before
-  external promotion. Next exact action: pursue function-preserving
-  expansion of the learned E128 bank to 10× distinct experts with
-  bounded hierarchical routing, then measure learned quality and CPU
-  component cost; do not infer success from the prior synthetic stress.
-  No T4 job is planned.
+  external promotion. [METH-95/98](METH_95_98_HIERARCHICAL_EXPANSION_RESULT_20260927.md)
+  expands the quality-audited E128 bank to E1280 with four selected
+  child experts and bitwise-identical step-zero logits. The 128-update
+  child specialization changes 1,115–1,263 slots/layer and improves
+  fresh-document BPB, but loses 1.109 points of donor prompt top-1
+  against the one-point E128 noninferiority gate. [METH-99/101](METH_99_101_HIERARCHICAL_RETENTION_RESULT_20260927.md)
+  resumes with stronger teacher retention and leaves 1,072–1,152
+  siblings/layer meaningfully distinct; all five new-source
+  development gates pass. [METH-103/105](METH_103_105_HIERARCHICAL_EXTERNAL_RESULT_20260927.md)
+  passes external document, prompt, generation and 1,838-item PIQA
+  automatic gates, but its committed blind semantic verdict finds one
+  E1280 answer without a grounded specific detail versus zero for
+  E128. Unsupported and severe claims improve (30/8 versus 35/11),
+  but the frozen joint semantic gate fails. No quality promotion.
+  [METH-104](METH_104_HIERARCHICAL_CPU_ROUTE_RESULT_20260927.md)
+  verifies 96 native parent/child route fixtures exactly and measures
+  1.477 ms per 24-layer E1280 route versus 0.979 ms E128 (1.508×),
+  below its component limits. That checker excludes factor access,
+  LUT arithmetic and the full model. Next exact action: improve
+  grounded-detail retention on a new source-disjoint set, then audit
+  the learned E1280 factor bank's varied CPU access and integrate a
+  packed LUT/full `engine.c` artifact. No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

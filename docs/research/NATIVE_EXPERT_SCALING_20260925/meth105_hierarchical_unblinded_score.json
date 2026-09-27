@@ -1,0 +1,776 @@
+{
+  "experiment": "METH-105-hierarchical-E1280-unblinded-semantic-score",
+  "blind_sha256": "46aa702a2f337c7d9a1b304a0f7231c7a8f7b3b3d99ef58b7713ea137927e22a",
+  "verdict_sha256": "363e6d1e7382183cd1162e770edc6d4b91a0ffa0d3c1199a6549bb4d414d2dcf",
+  "counts": {
+    "e128": {
+      "unsupported": 35,
+      "severe": 11,
+      "missing_detail": 0,
+      "ambiguous": 0
+    },
+    "e1280": {
+      "unsupported": 30,
+      "severe": 8,
+      "missing_detail": 1,
+      "ambiguous": 0
+    }
+  },
+  "gates": {
+    "unsupported": true,
+    "severe": true,
+    "missing_detail": false,
+    "joint_semantic": false
+  },
+  "paired_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth21_half_adapter_piqa.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "summarize returns a total divided by the number of rows",
+            "evidence": "Only out = {'items': len(rows)} is visible; no division or return is shown.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "summarize returns a sum of NLL values over rows",
+            "evidence": "The excerpt shows the beginning of summarize with an item count, not an NLL sum.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_ffn_rmsnorm_cross_input.py",
+      "category": "code",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "descriptive takes only two inputs",
+            "evidence": "The shown signature is descriptive(candidate, reference, shape).",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "descriptive takes only two inputs",
+            "evidence": "The shown signature is descriptive(candidate, reference, shape).",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat02_w4_bf16_full_export.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "args is an optional argument to _run_parent",
+            "evidence": "The signature requires args; only smoke is keyword-only.",
+            "severe": false
+          },
+          {
+            "claim": "_run_parent returns the number of successful preflight runs",
+            "evidence": "The excerpt shows a return type int but no return statement or run count.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "_launch_preflight is nested inside _run_parent",
+            "evidence": "The excerpt shows a call to _launch_preflight, not a nested definition.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/native_expert_scaling/prepare_meth05_imatrix_ids.py",
+      "category": "code",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "Counter counts words in a file",
+            "evidence": "Counter is imported, but no word-count operation is visible.",
+            "severe": false
+          },
+          {
+            "claim": "the excerpt verifies file integrity with a hash",
+            "evidence": "Only hash constants and the start of a sha256(path) definition are visible.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "Counter counts words in a file",
+            "evidence": "Counter is imported, but no word-count operation is visible.",
+            "severe": false
+          },
+          {
+            "claim": "the script checks that a file is valid JSON",
+            "evidence": "json is imported, but no JSON parsing or validity check appears.",
+            "severe": false
+          },
+          {
+            "claim": "the file hash is compared with an expected value",
+            "evidence": "The excerpt shows constants and a function signature, not a comparison.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_engine_rung0.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "an artifact is accepted by a model",
+            "evidence": "The variable model names a file path checked for existence and size; no model acceptance operation is shown.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "an artifact is accepted by a model",
+            "evidence": "The variable model names a file path checked for existence and size; no model acceptance operation is shown.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/native_expert_scaling/plan_meth08_q2_reallocation.py",
+      "category": "code",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "both --out and --tensor-types-out are output directories",
+            "evidence": "They are Path arguments; the excerpt does not identify either as a directory.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "both --out and --tensor-types-out are output directories",
+            "evidence": "They are Path arguments; the excerpt does not identify either as a directory.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_rung2c.h",
+      "category": "code",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "attn_norm and q are used together in the reshaped tensor",
+            "evidence": "attn_norm-1 is a separate post-RMSNorm item; q-1 is the reshape item.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the attn input is reshaped and then normalized",
+            "evidence": "The entries show post-RMSNorm attn_norm-1 before direct Q after reshape q-1.",
+            "severe": false
+          },
+          {
+            "claim": "the whole attn tensor is reshaped to 192x32x8",
+            "evidence": "The 192x32x8 shape belongs to q-1, not the whole attn object.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/ternary/t3_rotation.py",
+      "category": "code",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "quantization is not specified for the fold/rotation entries",
+            "evidence": "The comments explicitly say 'no quant' for perm, XH and XO.",
+            "severe": false
+          },
+          {
+            "claim": "Q is R3 after folding only",
+            "evidence": "Q is annotated 'R3, no fold, no rotation'; N is the folding-only entry.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "quantization is not specified for the fold/rotation entries",
+            "evidence": "The comments explicitly say 'no quant' for perm, XH and XO.",
+            "severe": false
+          },
+          {
+            "claim": "Q is R3 after folding only",
+            "evidence": "Q is annotated 'R3, no fold, no rotation'; N is the folding-only entry.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=35",
+      "category": "prose",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the man is independent",
+            "evidence": "The excerpt says he stands apart and has divine calmness, not that he is independent.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=39",
+      "category": "prose",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the man had taken his weapons with him",
+            "evidence": "He intended to take weapons but could find only a large dagger before leaving.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the man had taken his weapons with him",
+            "evidence": "He intended to take weapons but could find only a large dagger before leaving.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=7",
+      "category": "prose",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "Napoleon rivaled Joseph Bonaparte, described as his sister-in-law",
+            "evidence": "An unnamed man felt rivalry with Napoleon and married Joseph Bonaparte's sister-in-law.",
+            "severe": true
+          },
+          {
+            "claim": "Napoleon made the match with Joseph Bonaparte's sister-in-law",
+            "evidence": "The unnamed man made that match and later gained Sweden's throne.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "Napoleon rivaled Joseph Bonaparte, described as his sister-in-law",
+            "evidence": "An unnamed man felt rivalry with Napoleon and married Joseph Bonaparte's sister-in-law.",
+            "severe": true
+          },
+          {
+            "claim": "Napoleon made the match with Joseph Bonaparte's sister-in-law",
+            "evidence": "The unnamed man made that match and later gained Sweden's throne.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=17",
+      "category": "prose",
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=12",
+      "category": "prose",
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the cited tribes are Native American",
+            "evidence": "The citation explicitly names Native Tribes of Australia.",
+            "severe": true
+          },
+          {
+            "claim": "Thomas's work is part of Hartland's collection",
+            "evidence": "Thomas and Hartland appear as separate citations.",
+            "severe": false
+          },
+          {
+            "claim": "Primitive Paternity was written by Dalton",
+            "evidence": "The citation attributes Primitive Paternity to Hartland.",
+            "severe": true
+          },
+          {
+            "claim": "Dalton's Primitive Paternity is part of Tylor's collection",
+            "evidence": "Dalton is cited for Ethnology of Bengal; Tylor is a separate later citation.",
+            "severe": false
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=48",
+      "category": "prose",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the woman stares at a birthmark behind her own ear",
+            "evidence": "Waite turns her toward the light and stares at the mark.",
+            "severe": true
+          },
+          {
+            "claim": "the sheriff is stricken dumb",
+            "evidence": "The excerpt says old Waite is seemingly stricken dumb.",
+            "severe": false
+          },
+          {
+            "claim": "the woman wipes her eyes with her coat sleeve",
+            "evidence": "Waite runs his sleeve across his eyes, then appears dazed.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the woman stares at a birthmark behind her own ear",
+            "evidence": "Waite is the person looking at her birthmark.",
+            "severe": true
+          },
+          {
+            "claim": "the sheriff fears for the woman's sanity",
+            "evidence": "The woman shrinks from Waite as though she fears he is crazed.",
+            "severe": false
+          },
+          {
+            "claim": "the woman turns and wipes her eyes with her coat sleeve",
+            "evidence": "Waite turns to face the sheriff and wipes his own eyes.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=44",
+      "category": "prose",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the woman left behind is the young man's elderly mother",
+            "evidence": "The excerpt names Mimotchka but gives no mother relationship or elderly age.",
+            "severe": true
+          },
+          {
+            "claim": "the young man's hard work causes his death",
+            "evidence": "His possible death is a hypothetical question, not a consequence of working hard.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the woman left behind is the young man's elderly mother",
+            "evidence": "The excerpt names Mimotchka but gives no mother relationship or elderly age.",
+            "severe": true
+          },
+          {
+            "claim": "the young man's hard work causes his death",
+            "evidence": "His possible death is a hypothetical question, not a consequence of working hard.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=9",
+      "category": "prose",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the ringleader is being arrested",
+            "evidence": "He drops to his knees and implores pardon; no arrest is shown.",
+            "severe": false
+          },
+          {
+            "claim": "the guard covers his own body to show surrender",
+            "evidence": "The guard aims a pistol at the ringleader; the ringleader implores pardon.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the train-letter apparatus is used during the guard's confrontation",
+            "evidence": "The apparatus begins a new topic after that scene; no simultaneous use is stated.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_SWIGLU_SSE2_SEMANTICS_RESULT_20260924.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the completed diagnostic ran on a benchmark dataset",
+            "evidence": "The excerpt names a protocol, producer commit, invocation count and raw directory, but no dataset.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the completed diagnostic ran on a benchmark dataset",
+            "evidence": "The excerpt names a protocol, producer commit, invocation count and raw directory, but no dataset.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_02_W4_BF16_QUALITY_RESULT.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the total has 32 entries",
+            "evidence": "The visible 32 counts belong to technical_general and prose category rows.",
+            "severe": false
+          },
+          {
+            "claim": "60.561 and 63.820 are Category 1 and Category 2 labels",
+            "evidence": "They are numeric entries in category rows, not category names.",
+            "severe": false
+          },
+          {
+            "claim": "the operational verdict equals 0.031954590155327",
+            "evidence": "That number appears in the prose row; the text states the total exceeds +0.02 by +0.027177891834178.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the report has 32 total entries",
+            "evidence": "The visible 32 values are category counts, not a report-wide count.",
+            "severe": false
+          },
+          {
+            "claim": "60.561 and 63.820 are category averages",
+            "evidence": "The table header is absent from the excerpt; their statistic is not identified.",
+            "severe": false
+          },
+          {
+            "claim": "0.5574 and 0.8536 are standard deviations",
+            "evidence": "No standard-deviation label appears in the excerpt.",
+            "severe": false
+          },
+          {
+            "claim": "the prose average is 85.3600576543356",
+            "evidence": "The excerpt shows 0.853600576543356 and 63.820, not 85.3600576543356.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": true,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_T1_DONOR_TERNARIZATION.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_SWIGLU_SSE2_SEMANTICS_PROTOCOL_20260924.md",
+      "category": "technical_general",
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E67_OUTPUT_AWARE_SELECTION.md",
+      "category": "technical_general",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the excerpt compares two gradient-based optimization methods",
+            "evidence": "It discusses mass selection, an observed E38 control and untested gradient/output-aligned criteria.",
+            "severe": false
+          },
+          {
+            "claim": "the counterexample results in G-E38C being used",
+            "evidence": "The visible counterexample states that mass chooses component 1, not which control is used.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the excerpt compares G-E38C with a mathematical theorem about BPB",
+            "evidence": "It explicitly calls G-E38C an observed comparison, not a mathematical theorem.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/LUT_PACKING_PRIOR_ART.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "a specific bitnet.cpp code issue is tagged [S]",
+            "evidence": "The [S] rule applies to source-code findings generally; the visible bitnet.cpp TL1 heading is P1 published.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "a specific bitnet.cpp code issue is tagged [S]",
+            "evidence": "The [S] rule applies to source-code findings generally; the visible bitnet.cpp TL1 heading is P1 published.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_PROTOCOL_20260924.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the project AVX2 transcription and pinned x86 oracle disagree",
+            "evidence": "The excerpt explicitly says they agree exactly and both differ from ffn_out-0.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the project AVX2 transcription and pinned x86 oracle disagree",
+            "evidence": "The excerpt explicitly says they agree exactly and both differ from ffn_out-0.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_TASK_ROLLOUT_PROTOCOL_20260919.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "HumanEval records the listed BF16 and Q4 scores",
+            "evidence": "HumanEval is pending; those 1,466/1,838 and 1,456/1,838 results are paired PIQA.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "HumanEval records the listed BF16 and Q4 scores",
+            "evidence": "HumanEval is pending; those 1,466/1,838 and 1,456/1,838 results are paired PIQA.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    }
+  ]
+}

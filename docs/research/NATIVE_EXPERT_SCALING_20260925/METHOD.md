@@ -773,22 +773,43 @@ repair the quality issue under the tested adaptation, and it does not
 license an external audit or C integration. The learned expert-count
 ladder should next test a function-preserving E128→E1280 expansion
 with bounded routing, while the compact-core semantic gap remains open.
+[METH-95/98](METH_95_98_HIERARCHICAL_EXPANSION_RESULT_20260927.md)
+performs that exact 10× expansion: four active children per token,
+bitwise-identical step-zero logits and 1,115–1,263 changed child slots
+per layer after B-only training. The first fresh development gate fails
+by 0.109 point of extra donor prompt top-1 loss. A frozen
+[METH-99/101](METH_99_101_HIERARCHICAL_RETENTION_RESULT_20260927.md)
+teacher-retention continuation preserves >1,000 distinct siblings per
+layer and passes a new 24-source development set. The independent
+[METH-103/105](METH_103_105_HIERARCHICAL_EXTERNAL_RESULT_20260927.md)
+audit passes automatic document, prompt, greedy-generation and full
+PIQA gates, but its committed arm-blind semantic verdict has one
+E1280 missing grounded detail versus zero for E128. This fails the
+frozen joint semantic gate, despite lower unsupported/severe claim
+counts. [METH-104](METH_104_HIERARCHICAL_CPU_ROUTE_RESULT_20260927.md)
+shows the learned hierarchical CPU route matches 96 fixtures exactly
+and costs 1.508× its matched E128 parent route. This is FP32 route-only
+evidence; no factor LUT, cold DRAM or full-model rate is established.
+The next large-E method must protect grounded detail and test a new
+external source set without changing these viewed gates.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
 large-E optimization. NES-03 provides a numerical/cost-passing int8 router
-option at pilot scale, with a fragile E128 latency margin. Independent larger
-experts remain untrained, and no pretrained donor has been converted into a
+option at pilot scale, with a fragile E128 latency margin. METH-99
+trains distinct E1280 children but fails the joint semantic gate, and
+no pretrained donor has been converted into a
 quality-valid, ≥50 accepted tok/s native artifact. The next method step
 is finding a quality-preserving low-traffic Instruct core on separate
 development and external sources, then integrating
 it with the exported product-key E128 component in `engine.c`, then checking
 full-model route/logit parity and accepted-token throughput on the
 same bundle. METH-47 remains a separate exact-router candidate with
-its own semantic question. The subsequent expert-count ladder must train
-distinct factors at each E, measure route load and quality, and verify
-that the CPU router/LUT and full model remain affordable as E grows with
-RAM. The METH-54 synthetic 10× cost pass cannot stand in for this gate.
+its own semantic question. The subsequent expert-count ladder must prove
+useful distinct factors at each E on untouched semantics, measure route
+load and quality, and verify that the CPU router/LUT and full model remain
+affordable as E grows with RAM. The METH-54 synthetic 10× cost pass
+cannot stand in for this gate.
 
 Operational experiment history, running processes and exact resumption point
 live in [INDEX.md](INDEX.md); this file changes when a method step is actually
