@@ -615,6 +615,14 @@ explain that control failure; the offloaded recipe also changed
 initialization, optimizer semantics and training draws. Isolate these
 under identical samples before another
 E1280 training attempt. METH-67 is a viewed-prompt diagnosis only.
+[METH-68](METH_68_DENSE_ADAM_OFFLOAD_PARITY_RESULT_20260927.md)
+restores exact METH-55 E128 initialization and dense AdamW semantics
+while keeping factor banks in CPU RAM. Across three matched BF16
+synthetic steps, routes, outputs and A/B/router gradients match the
+dense GPU reference exactly; maximum post-update weight error is
+4.657×10⁻¹⁰. This is a numerical apparatus pass, not a donor-backed
+training or learned E1280 result. The next gate is a full METH-55
+16-update replay with identical training draws.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

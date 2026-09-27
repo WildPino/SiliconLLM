@@ -1,0 +1,77 @@
+{
+  "experiment": "METH-68-dense-Adam-CPU-offload-parity",
+  "source_sha256": "0af45619b5515e214bcd411c2e6c4b1ad292448e9d26d17674a19610d253ca30",
+  "initial_max_abs_error": {
+    "a": 0.0,
+    "b": 0.0,
+    "router": 0.0
+  },
+  "steps": [
+    {
+      "step": 1,
+      "selected_unique_rows": 77,
+      "output_max_abs_error": 0.0,
+      "gradient_max_abs_error": {
+        "a": 0.0,
+        "b": 0.0,
+        "router": 0.0
+      },
+      "post_update_max_abs_error": {
+        "a": 0.0,
+        "b": 1.1641532182693481e-10,
+        "router": 0.0
+      },
+      "runtime": {
+        "elapsed_seconds": 2.063000000000102,
+        "rss_bytes": 2284883968,
+        "gpu_peak_allocated_bytes": 69904384
+      }
+    },
+    {
+      "step": 2,
+      "selected_unique_rows": 83,
+      "output_max_abs_error": 0.0,
+      "gradient_max_abs_error": {
+        "a": 0.0,
+        "b": 0.0,
+        "router": 0.0
+      },
+      "post_update_max_abs_error": {
+        "a": 2.3283064365386963e-10,
+        "b": 2.3283064365386963e-10,
+        "router": 0.0
+      },
+      "runtime": {
+        "elapsed_seconds": 2.0940000000009604,
+        "rss_bytes": 2292776960,
+        "gpu_peak_allocated_bytes": 70846464
+      }
+    },
+    {
+      "step": 3,
+      "selected_unique_rows": 74,
+      "output_max_abs_error": 0.0,
+      "gradient_max_abs_error": {
+        "a": 0.0,
+        "b": 0.0,
+        "router": 0.0
+      },
+      "post_update_max_abs_error": {
+        "a": 4.656612873077393e-10,
+        "b": 2.9103830456733704e-10,
+        "router": 0.0
+      },
+      "runtime": {
+        "elapsed_seconds": 2.125,
+        "rss_bytes": 2293288960,
+        "gpu_peak_allocated_bytes": 70846464
+      }
+    }
+  ],
+  "runtime": {
+    "elapsed_seconds": 2.125,
+    "rss_bytes": 2293325824,
+    "gpu_peak_allocated_bytes": 70846464
+  },
+  "decision": "three_step_numerical_parity_pass"
+}

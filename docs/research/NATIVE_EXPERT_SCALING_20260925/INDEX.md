@@ -722,6 +722,11 @@ scheduled.
   schedule/raw exclusion pool. Before another 10× training ladder,
   restore validated E128 initialization and dense-AdamW semantics in
   the CPU-offloaded path, and compare an update on identical samples.
+  METH-68 now matches METH-55 initialization and exact routes, outputs
+  and gradients over three BF16 synthetic steps; dense-semantics CPU
+  AdamW keeps maximum post-update error below 5×10⁻¹⁰. Replay the
+  complete 16-update METH-55 E128 donor schedule under this offload
+  method and compare the frozen checkpoint before training E1280 again.
   Then use new prompts for the next quality gate.
   No T4 job is planned.
 
