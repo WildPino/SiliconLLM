@@ -1,0 +1,38 @@
+{
+  "experiment": "METH-67-viewed-dev-recipe-diagnostic",
+  "source_sha256": "6fc35ca0805539e61fd5accda8355c8066afc0415b77800b3d625045fdfd7e08",
+  "donor_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "dev_sha256": "56cb7987f344f4a7cc8f108a9aa17fe5ed481174aebab8f8eeb0c3a115d3ed09",
+  "outcomes": {
+    "meth55_update16": {
+      "checkpoint_sha256": "2d652709c6730e2b4f3a1a543834d7eec7409ef0f374738ae24d57ae2a5b5bd3",
+      "donor_bpb": 0.9712552075318387,
+      "student_bpb": 0.9697036007476514,
+      "delta_bpb": -0.0015516067841873094,
+      "matching": 3669,
+      "positions": 3810,
+      "agreement": 0.962992125984252,
+      "min_selected_slots": 107,
+      "worst_max_to_mean_load": 21.86246681213379,
+      "route_oracle": "exact_on_all_dev_hidden_states"
+    },
+    "meth56_update512": {
+      "checkpoint_sha256": "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072",
+      "donor_bpb": 0.9712552075318387,
+      "student_bpb": 0.9567706493463992,
+      "delta_bpb": -0.014484558185439478,
+      "matching": 3678,
+      "positions": 3810,
+      "agreement": 0.9653543307086614,
+      "min_selected_slots": 119,
+      "worst_max_to_mean_load": 15.739632606506348,
+      "route_oracle": "exact_on_all_dev_hidden_states"
+    }
+  },
+  "runtime": {
+    "elapsed_seconds": 11.578000000001339,
+    "rss_bytes": 2920312832,
+    "gpu_peak_allocated_bytes": 1730808832
+  },
+  "decision": "diagnostic_only_viewed_prompts"
+}

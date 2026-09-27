@@ -607,6 +607,13 @@ precommitted 95% gate. Worst route load rises to 71.06× mean at E1280.
 Raw BPB improves in both arms. This is evidence that 10× allocated
 expert count can receive real gradients and alter donor behavior,
 while useful large-E quality and balanced routing remain unproven.
+[METH-67](METH_67_VIEWED_DEV_RECIPE_DIAGNOSTIC_RESULT_20260927.md)
+evaluates frozen METH-55/56 E128 checkpoints on the now-viewed METH-66
+prompts. They reach 96.299%/96.535% donor top-1, versus 93.885% for
+the new METH-66 E128 control. The prompt set is not sufficient to
+explain that control failure; the offloaded recipe also changed
+initialization and optimizer semantics. Isolate those before another
+E1280 training attempt. METH-67 is a viewed-prompt diagnosis only.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

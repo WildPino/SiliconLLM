@@ -715,7 +715,13 @@ scheduled.
   gate. E1280 worst max/mean route load is 71.06×, and only 538 of
   1,280 slots are selected in the least-covered layer on the viewed
   prompts. Both checkpoints are retained for diagnosis, not promoted;
-  any continuation needs a new rule and disjoint prompts.
+  any continuation needs a new rule and disjoint prompts. METH-67
+  scores the frozen METH-55/56 E128 checkpoints on the viewed METH-66
+  set: 96.299%/96.535% top-1. Thus the set alone does not explain
+  METH-66's E128 failure. Before another 10× training ladder, restore
+  the validated E128 initialization and dense-AdamW update semantics
+  in the CPU-offloaded path and verify numerical parity on a small
+  controlled update. Then use new prompts for the next quality gate.
   No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
