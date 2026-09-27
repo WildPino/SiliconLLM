@@ -468,6 +468,18 @@ conversion method. A BF16-effective exact factor anchor and a diagnosis
 of route/rank sensitivity are the next reproducible representation steps;
 joint quantization-aware adaptation may be needed after a new frozen
 quality set, rather than selecting a scale from viewed outcomes.
+[METH-50](METH_50_ROUTE_AMPLIFICATION_RESULT_20260927.md) makes this
+constraint more specific. On the same viewed prompts, row-int8 factors
+change 6.58% of exact top-4 sets across the 24-layer route stream.
+Replaying the original IDs with row-int8 factors restores only 11 net
+top-1 positions, from 95.744% to 96.270%, still below the fixed 99%
+gate. Replaying original IDs with original factors gives exact logits.
+Factor error and downstream route churn are therefore both measured;
+an improved router alone does not validate the tested int8 bank.
+METH-47 load also remains concentrated on the viewed prompts (worst
+single expert 18.30× uniform mean, despite at least 115/128 selected
+per layer). Training a much larger expert set needs explicit use/load
+telemetry as well as route fidelity and donor-relative quality.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

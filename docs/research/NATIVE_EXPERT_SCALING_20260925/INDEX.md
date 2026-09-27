@@ -52,6 +52,10 @@ Their E27,355/E273,547 payload projections grow ~10× with expert count
 (9.42→94.17 GB per-expert-scale; 11.79→117.86 GB row-scale), excluding
 router/index, donor and workspace. These are arithmetic, not trained
 large-E or CPU LUT results.
+METH-50 shows that the METH-49 factor perturbation changes 6.58% of
+full top-4 sets across layers, but forcing original IDs restores prompt
+top-1 only from 95.744% to 96.270%. Factor arithmetic remains a
+separate ranking failure; a better router cannot rescue that bank alone.
 METH-31 measures the existing CPU LUT kernel in the Qwen rank-8
 shape with synthetic packed factors: E1280→E12800 raises the
 six-thread selected path only 1.136× to 0.505 ms/token. That
@@ -411,6 +415,11 @@ E27,355 to 117.857 GB at E273,547. The RAM proportionality desired
 for 10B→100B is feasible as storage arithmetic, but the tested int8
 formats do not preserve this checkpoint's outputs and the router remains
 an exhaustive large-E cost blocker.
+[METH-50](METH_50_ROUTE_AMPLIFICATION_RESULT_20260927.md) measures that
+METH-49 changes 6.58% of full top-4 sets across layer-position cases;
+forcing the original IDs still gives only 96.270% top-1 versus the
+original factors. A bounded router must be paired with a factor bank
+that preserves rankings directly.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -473,6 +482,7 @@ SSM/SWA target and passes joint quality/rate.
 | METH-47 | STRONGER RETENTION: DEVELOPMENT AND AUTOMATIC EXTERNAL GATES PASS; MANUAL SEMANTIC REVIEW OPEN | [result](METH_47_STRONG_KL_RETENTION_RESULT_20260927.md), [protocol](METH_47_STRONG_KL_RETENTION_PROTOCOL_20260927.md), [new development manifest](meth47_retention_dev_manifest.json), [training result](meth47_strong_kl_continuation_result.json), [external paired result](meth47_frozen_external_audit_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth47_strong_kl_continuation.py), [evaluator](../../../benchmarks/donor_adaptation/s1/meth45_instruct_external_audit.py) |
 | METH-48 | PER-EXPERT-SCALE INT8 FACTOR TOP-1 GATE FAIL: 95.839% | [result](METH_48_INT8_FACTOR_BANK_RESULT_20260927.md), [protocol](METH_48_INT8_FACTOR_BANK_PROTOCOL_20260927.md), [paired result](meth48_int8_factor_bank_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth48_int8_factor_bank.py); viewed inputs, no C LUT or large-E quality |
 | METH-49 | ROW-SCALE INT8 FACTOR TOP-1 GATE FAIL: 95.744% | [result](METH_49_INT8_ROW_FACTOR_BANK_RESULT_20260927.md), [protocol](METH_49_INT8_ROW_FACTOR_BANK_PROTOCOL_20260927.md), [paired result](meth49_int8_row_factor_bank_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth49_int8_row_factor_bank.py); viewed inputs, no C LUT or large-E quality |
+| METH-50 | FACTOR ERROR STILL FAILS TOP-1 WITH ORIGINAL ROUTES: 96.270% | [result](METH_50_ROUTE_AMPLIFICATION_RESULT_20260927.md), [protocol](METH_50_ROUTE_AMPLIFICATION_PROTOCOL_20260927.md), [route/load/ranking counts](meth50_route_amplification_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth50_route_amplification.py); viewed inputs, no CPU or large-E quality |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -556,12 +566,13 @@ scheduled.
   Freeze a larger, answerable, source-grounded generation set and a
   donor-relative semantic adjudication rule for the METH-47 checkpoint;
   report both donor and student errors without selecting prompts after
-  seeing outputs. For the CPU path, first audit on the METH-47 checkpoint
-  where small factor perturbations alter fine-route membership and token
-  ranks, then design a bounded/sublinear router whose quality is tested on
-  distinct learned experts as E grows. METH-48/49 reject two frozen int8
-  factor layouts; keep a BF16-effective exact factor anchor before any
-  joint quantization-aware adaptation or C LUT work.
+  seeing outputs. METH-50 now isolates downstream route churn from factor
+  error: forcing original expert IDs still fails the 99% top-1 gate.
+  Preserve a BF16-effective exact factor anchor, then design a
+  bounded/sublinear router jointly with distinct learned experts and test
+  route/quality fidelity as E grows. METH-48/49 reject two frozen int8
+  factor layouts; any one-byte C LUT export needs a new quality-valid
+  adaptation, not further scale tuning on these prompts.
   Promote only after joint semantic quality and usefulness pass; then
   implement the exact pair
   in `benchmarks/phase60/engine.c` with logit parity, accepted batch-1
