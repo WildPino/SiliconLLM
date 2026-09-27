@@ -556,6 +556,14 @@ the 560 MB design allotment. None passes the joint diagnostic gate.
 The next representation candidate must be fixed without selecting
 scales on viewed prompt outcomes and independently audited before
 the procedure can claim a quality-valid low-traffic Instruct core.
+[METH-61](METH_61_R8_L2_SCALE_RESULT_20260927.md) tests a fixed
+data-free least-squares row-scale correction under BF16 attention.
+Despite smaller head/FFN reconstruction SSE, every arm loses donor
+prompt decisions; the exact rule is rejected. This separates local
+weight fit from task behavior and motivates direct independent
+quality testing of the original BF16-attention/R8-head+FFN mixture
+before paying for more precision or adaptation. Its old top-1 gate
+remains failed.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

@@ -98,6 +98,12 @@ top-1 at 94.230% versus the registered 95% floor. METH-60 restores
 individual organs: BF16 attention gives the best under-budget result,
 94.885% at 548.320 ideal MB/token, still five positions short.
 No compressed core is yet eligible for native model promotion.
+METH-61 applies a fixed weight-only least-squares row-scale correction
+to the remaining R8 head/FFN under BF16 attention. It lowers local
+weight error but worsens prompt top-1 (3,834/4,125 when applied to
+both); this rule is rejected. Direct quality on a new, unviewed
+stored mixed artifact is the next decision, while the failed 95%
+proxy gate remains recorded.
 METH-31 measures the existing CPU LUT kernel in the Qwen rank-8
 shape with synthetic packed factors: E1280→E12800 raises the
 six-thread selected path only 1.136× to 0.505 ms/token. That
@@ -542,6 +548,7 @@ SSM/SWA target and passes joint quality/rate.
 | METH-58 | TRAINED E128 PRODUCT-KEY NATIVE COMPONENT PARITY PASS | [result](METH_58_PRODUCT_KEY_NATIVE_COMPONENT_RESULT_20260927.md), [protocol](METH_58_PRODUCT_KEY_NATIVE_COMPONENT_PROTOCOL_20260927.md), [export ledger](meth58_product_key_export_result.json), [96-case C log](meth58_product_key_native_raw.log), [exporter](../../../benchmarks/native_expert_scaling/meth58_export_product_key.py), [C kernel](../../../benchmarks/native_expert_scaling/meth58_product_key_native.c); no core/full rate |
 | METH-59 | STORED INSTRUCT R8 CORE BPB PASS; PROMPT TOP-1 FAIL 94.230% | [result](METH_59_INSTRUCT_R8_CORE_RESULT_20260927.md), [protocol](METH_59_INSTRUCT_R8_CORE_PROTOCOL_20260927.md), [export ledger](meth59_instruct_r8_core_export.json), [paired stopped audit](meth59_instruct_r8_composition_result.json), [exporter](../../../benchmarks/donor_adaptation/s1/meth59_export_instruct_r8_core.py), [evaluator](../../../benchmarks/donor_adaptation/s1/meth59_instruct_r8_composition.py) |
 | METH-60 | SINGLE-ORGAN BF16 RESCUES FAIL JOINT TOP-1/TRAFFIC GATE | [result](METH_60_R8_CORE_ORGAN_ABLATION_RESULT_20260927.md), [protocol](METH_60_R8_CORE_ORGAN_ABLATION_PROTOCOL_20260927.md), [raw rows](meth60_r8_core_organ_ablation_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth60_r8_core_organ_ablation.py); viewed prompts only |
+| METH-61 | DATA-FREE L2 ROW-SCALE CORRECTION WORSENS TOP-1 | [result](METH_61_R8_L2_SCALE_RESULT_20260927.md), [protocol](METH_61_R8_L2_SCALE_PROTOCOL_20260927.md), [raw rows](meth61_r8_l2_scale_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth61_r8_l2_scale.py); no packed candidate promoted |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -626,11 +633,12 @@ scheduled.
   trained E128 C component matches 96/96 BF16 inputs. METH-59 rejects
   all-R8 core composition at 94.230% top-1 despite near-flat BPB.
   METH-60 finds BF16 attention improves this to 94.885% at 548.320
-  ideal MB/token, five positions short of its gate. Try a fixed,
-  weight-only R8 scale/code improvement on the remaining head and FFN
-  under the same byte ceiling; test on the viewed prompts only as a
-  diagnostic, then freeze a new source-disjoint quality/semantic audit
-  before any promotion. Only a passing compact composition merits
+  ideal MB/token, five positions short of its gate. METH-61's fixed
+  weight-only scale correction worsens top-1 despite lower weight L2.
+  Export the BF16-attention/R8-head+FFN mixture as an actual stored
+  artifact, then freeze a new source-disjoint direct quality/semantic
+  audit before any promotion. Retain METH-60's failed proxy gate in
+  the decision. Only a directly quality-valid compact composition merits
   full `benchmarks/phase60/engine.c` integration and accepted-token
   timing on the same artifact.
   METH-47 remains a separate candidate whose saved summaries showed
