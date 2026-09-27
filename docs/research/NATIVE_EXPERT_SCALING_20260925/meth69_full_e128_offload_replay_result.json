@@ -1,0 +1,550 @@
+{
+  "experiment": "METH-69-full-E128-offload-replay",
+  "source_sha256": "5f516c75e0455d0ffbd9729d904fa85be81c0c4a2e3065c6e6fc9458e3650660",
+  "donor_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "frozen_checkpoint_sha256": "2d652709c6730e2b4f3a1a543834d7eec7409ef0f374738ae24d57ae2a5b5bd3",
+  "train_ids_sha256": "9bb5229fad6542aa8b3fd7edfc3b8d1dff965a573d7aa8379385caacc9d614da",
+  "teacher_sha256": "f42f678280a9086a0fc2ec6e57a712e33fdea8f5cb62bdac7f53c9f28a5f1dd7",
+  "train_chat_sha256": "17921cb83c1d10793e2a56df6aa899039bd794757eeff43921068b8de2096055",
+  "dev_sha256": "269322564f0e4d26aae58314c465c1f742e386656e294e93574062f88ccb3338",
+  "donor_initial_bpb": 0.9712552075318387,
+  "student_initial_bpb": 0.9712552075318387,
+  "donor_terminal_bpb": 0.9712552075318387,
+  "student_terminal_bpb": 0.9705150973621274,
+  "prompt_top1": {
+    "matching": 3660,
+    "positions": 3811,
+    "agreement": 0.9603778535817371
+  },
+  "max_checkpoint_parameter_error": {
+    "a": 0.004040655680000782,
+    "b": 0.004033543169498444,
+    "router": 0.00043298350647091866
+  },
+  "steps": [
+    {
+      "update": 1,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 1.9046845436096191,
+          "kl": 0.0
+        },
+        {
+          "kind": "raw",
+          "ce": 3.5056710243225098,
+          "kl": 0.0
+        },
+        {
+          "kind": "chat",
+          "ce": 0.679314374923706,
+          "kl": 0.0
+        },
+        {
+          "kind": "chat",
+          "ce": 0.08673045784235,
+          "kl": 0.0
+        }
+      ],
+      "pre_clip_norm": 0.0074168966781089475,
+      "original_pre_clip_norm": 0.007416896987706423,
+      "runtime": {
+        "elapsed_seconds": 9.828999999999724,
+        "rss_bytes": 3177644032,
+        "gpu_peak_allocated_bytes": 3648177664
+      }
+    },
+    {
+      "update": 2,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 2.240880250930786,
+          "kl": 0.0012347007868811488
+        },
+        {
+          "kind": "raw",
+          "ce": 1.659802794456482,
+          "kl": 0.0008416376076638699
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5782008171081543,
+          "kl": 0.001939025823958218
+        },
+        {
+          "kind": "chat",
+          "ce": 0.8830097317695618,
+          "kl": 0.002129704924300313
+        }
+      ],
+      "pre_clip_norm": 0.017351448282929373,
+      "original_pre_clip_norm": 0.01735144853591919,
+      "runtime": {
+        "elapsed_seconds": 14.281999999999243,
+        "rss_bytes": 3235512320,
+        "gpu_peak_allocated_bytes": 3659482624
+      }
+    },
+    {
+      "update": 3,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.1735148429870605,
+          "kl": 0.00087158870883286
+        },
+        {
+          "kind": "raw",
+          "ce": 2.154541015625,
+          "kl": 0.0009412409854121506
+        },
+        {
+          "kind": "chat",
+          "ce": 0.8609431982040405,
+          "kl": 0.0014197648270055652
+        },
+        {
+          "kind": "chat",
+          "ce": 0.6528608798980713,
+          "kl": 0.001963744405657053
+        }
+      ],
+      "pre_clip_norm": 0.035466094462172144,
+      "original_pre_clip_norm": 0.035466089844703674,
+      "runtime": {
+        "elapsed_seconds": 18.76599999999962,
+        "rss_bytes": 3235758080,
+        "gpu_peak_allocated_bytes": 3659482624
+      }
+    },
+    {
+      "update": 4,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 2.9247336387634277,
+          "kl": 0.0010613106423988938
+        },
+        {
+          "kind": "raw",
+          "ce": 1.5411443710327148,
+          "kl": 0.0006093255942687392
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5305219888687134,
+          "kl": 0.006967959925532341
+        },
+        {
+          "kind": "chat",
+          "ce": 0.40935397148132324,
+          "kl": 0.002443760633468628
+        }
+      ],
+      "pre_clip_norm": 0.055539369109077454,
+      "original_pre_clip_norm": 0.055646415799856186,
+      "runtime": {
+        "elapsed_seconds": 23.406999999999243,
+        "rss_bytes": 3235713024,
+        "gpu_peak_allocated_bytes": 3659482624
+      }
+    },
+    {
+      "update": 5,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.394831895828247,
+          "kl": 0.001206867047585547
+        },
+        {
+          "kind": "raw",
+          "ce": 3.4626386165618896,
+          "kl": 0.001097524305805564
+        },
+        {
+          "kind": "chat",
+          "ce": 0.6115199327468872,
+          "kl": 0.003279161173850298
+        },
+        {
+          "kind": "chat",
+          "ce": 0.8022795915603638,
+          "kl": 0.0053116753697395325
+        }
+      ],
+      "pre_clip_norm": 0.06386397504077558,
+      "original_pre_clip_norm": 0.06276395171880722,
+      "runtime": {
+        "elapsed_seconds": 27.89099999999962,
+        "rss_bytes": 3235753984,
+        "gpu_peak_allocated_bytes": 3659482624
+      }
+    },
+    {
+      "update": 6,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 1.0644949674606323,
+          "kl": 0.0006713601760566235
+        },
+        {
+          "kind": "raw",
+          "ce": 2.1594574451446533,
+          "kl": 0.0010069819400087
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5716989636421204,
+          "kl": 0.008940216153860092
+        },
+        {
+          "kind": "chat",
+          "ce": 0.40266233682632446,
+          "kl": 0.006386826280504465
+        }
+      ],
+      "pre_clip_norm": 0.08315023887772817,
+      "original_pre_clip_norm": 0.08374851942062378,
+      "runtime": {
+        "elapsed_seconds": 32.61000000000058,
+        "rss_bytes": 3236040704,
+        "gpu_peak_allocated_bytes": 3659482624
+      }
+    },
+    {
+      "update": 7,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.704188108444214,
+          "kl": 0.0012058415450155735
+        },
+        {
+          "kind": "raw",
+          "ce": 3.2595245838165283,
+          "kl": 0.0012864061864092946
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5545413494110107,
+          "kl": 0.015956062823534012
+        },
+        {
+          "kind": "chat",
+          "ce": 0.2414417266845703,
+          "kl": 0.013844463974237442
+        }
+      ],
+      "pre_clip_norm": 0.09071254153086723,
+      "original_pre_clip_norm": 0.088934026658535,
+      "runtime": {
+        "elapsed_seconds": 37.1880000000001,
+        "rss_bytes": 3235991552,
+        "gpu_peak_allocated_bytes": 3659482624
+      }
+    },
+    {
+      "update": 8,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 1.7840100526809692,
+          "kl": 0.0008248650119639933
+        },
+        {
+          "kind": "raw",
+          "ce": 2.8799970149993896,
+          "kl": 0.0010577619541436434
+        },
+        {
+          "kind": "chat",
+          "ce": 0.7582429051399231,
+          "kl": 0.0253993459045887
+        },
+        {
+          "kind": "chat",
+          "ce": 0.32965537905693054,
+          "kl": 0.020191654562950134
+        }
+      ],
+      "pre_clip_norm": 0.1083640610648412,
+      "original_pre_clip_norm": 0.11143434792757034,
+      "runtime": {
+        "elapsed_seconds": 42.0,
+        "rss_bytes": 3236040704,
+        "gpu_peak_allocated_bytes": 3659482624
+      }
+    },
+    {
+      "update": 9,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.81620192527771,
+          "kl": 0.0009723471594043076
+        },
+        {
+          "kind": "raw",
+          "ce": 1.5587751865386963,
+          "kl": 0.0006848758202977479
+        },
+        {
+          "kind": "chat",
+          "ce": 0.42218226194381714,
+          "kl": 0.026011547073721886
+        },
+        {
+          "kind": "chat",
+          "ce": 0.28210049867630005,
+          "kl": 0.02368268184363842
+        }
+      ],
+      "pre_clip_norm": 0.10839769206145823,
+      "original_pre_clip_norm": 0.1059117317199707,
+      "runtime": {
+        "elapsed_seconds": 46.45399999999972,
+        "rss_bytes": 3235975168,
+        "gpu_peak_allocated_bytes": 3659482624
+      }
+    },
+    {
+      "update": 10,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 2.1923563480377197,
+          "kl": 0.0007684729644097388
+        },
+        {
+          "kind": "raw",
+          "ce": 2.9728591442108154,
+          "kl": 0.0009447876363992691
+        },
+        {
+          "kind": "chat",
+          "ce": 0.4384554326534271,
+          "kl": 0.030728839337825775
+        },
+        {
+          "kind": "chat",
+          "ce": 0.41415953636169434,
+          "kl": 0.03406234458088875
+        }
+      ],
+      "pre_clip_norm": 0.16859541178438517,
+      "original_pre_clip_norm": 0.1950472891330719,
+      "runtime": {
+        "elapsed_seconds": 50.71899999999914,
+        "rss_bytes": 3235999744,
+        "gpu_peak_allocated_bytes": 3659482624
+      }
+    },
+    {
+      "update": 11,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.5294082164764404,
+          "kl": 0.00122289068531245
+        },
+        {
+          "kind": "raw",
+          "ce": 2.0259928703308105,
+          "kl": 0.0009071700624190271
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5731439590454102,
+          "kl": 0.02808235213160515
+        },
+        {
+          "kind": "chat",
+          "ce": 0.4305954575538635,
+          "kl": 0.02592475712299347
+        }
+      ],
+      "pre_clip_norm": 0.10175091031916123,
+      "original_pre_clip_norm": 0.09979112446308136,
+      "runtime": {
+        "elapsed_seconds": 55.125,
+        "rss_bytes": 3236040704,
+        "gpu_peak_allocated_bytes": 3659482624
+      }
+    },
+    {
+      "update": 12,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 2.917365550994873,
+          "kl": 0.001186044653877616
+        },
+        {
+          "kind": "raw",
+          "ce": 4.060216903686523,
+          "kl": 0.0011846122797578573
+        },
+        {
+          "kind": "chat",
+          "ce": 0.35805705189704895,
+          "kl": 0.036807529628276825
+        },
+        {
+          "kind": "chat",
+          "ce": 0.3306960463523865,
+          "kl": 0.03556156903505325
+        }
+      ],
+      "pre_clip_norm": 0.10247449602675537,
+      "original_pre_clip_norm": 0.12005189806222916,
+      "runtime": {
+        "elapsed_seconds": 59.625,
+        "rss_bytes": 3236044800,
+        "gpu_peak_allocated_bytes": 3659482624
+      }
+    },
+    {
+      "update": 13,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 1.3129286766052246,
+          "kl": 0.001084139454178512
+        },
+        {
+          "kind": "raw",
+          "ce": 3.625514268875122,
+          "kl": 0.0012261702213436365
+        },
+        {
+          "kind": "chat",
+          "ce": 0.6524760723114014,
+          "kl": 0.040113624185323715
+        },
+        {
+          "kind": "chat",
+          "ce": 0.3916473984718323,
+          "kl": 0.030701762065291405
+        }
+      ],
+      "pre_clip_norm": 0.12160540341487693,
+      "original_pre_clip_norm": 0.11962886154651642,
+      "runtime": {
+        "elapsed_seconds": 64.04700000000048,
+        "rss_bytes": 3236048896,
+        "gpu_peak_allocated_bytes": 3659482624
+      }
+    },
+    {
+      "update": 14,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 2.094475269317627,
+          "kl": 0.0009904686594381928
+        },
+        {
+          "kind": "raw",
+          "ce": 2.068589210510254,
+          "kl": 0.0008791153668425977
+        },
+        {
+          "kind": "chat",
+          "ce": 0.3621918559074402,
+          "kl": 0.039371345192193985
+        },
+        {
+          "kind": "chat",
+          "ce": 0.38406631350517273,
+          "kl": 0.03827589005231857
+        }
+      ],
+      "pre_clip_norm": 0.12970066662036506,
+      "original_pre_clip_norm": 0.11710591614246368,
+      "runtime": {
+        "elapsed_seconds": 68.625,
+        "rss_bytes": 3236048896,
+        "gpu_peak_allocated_bytes": 3659482624
+      }
+    },
+    {
+      "update": 15,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 2.7910711765289307,
+          "kl": 0.0011919307289645076
+        },
+        {
+          "kind": "raw",
+          "ce": 3.9663007259368896,
+          "kl": 0.001652030972763896
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5036720633506775,
+          "kl": 0.03699804097414017
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5869338512420654,
+          "kl": 0.028151115402579308
+        }
+      ],
+      "pre_clip_norm": 0.15155724669929316,
+      "original_pre_clip_norm": 0.14596761763095856,
+      "runtime": {
+        "elapsed_seconds": 73.0630000000001,
+        "rss_bytes": 3236040704,
+        "gpu_peak_allocated_bytes": 3659482624
+      }
+    },
+    {
+      "update": 16,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.6379082202911377,
+          "kl": 0.001345731783658266
+        },
+        {
+          "kind": "raw",
+          "ce": 3.4477005004882812,
+          "kl": 0.001709203002974391
+        },
+        {
+          "kind": "chat",
+          "ce": 0.4343720078468323,
+          "kl": 0.07640008628368378
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5021763443946838,
+          "kl": 0.03485875576734543
+        }
+      ],
+      "pre_clip_norm": 0.18560919849303859,
+      "original_pre_clip_norm": 0.1787261813879013,
+      "runtime": {
+        "elapsed_seconds": 77.48500000000058,
+        "rss_bytes": 3236024320,
+        "gpu_peak_allocated_bytes": 3659482624
+      }
+    }
+  ],
+  "gates": {
+    "parameter": false,
+    "prompt_top1": false,
+    "raw_bpb": false,
+    "joint": false
+  },
+  "runtime": {
+    "elapsed_seconds": 86.09399999999914,
+    "rss_bytes": 3743543296,
+    "gpu_peak_allocated_bytes": 3659482624
+  },
+  "decision": "offload_replay_gap"
+}

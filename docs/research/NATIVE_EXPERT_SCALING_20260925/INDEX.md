@@ -727,7 +727,14 @@ scheduled.
   AdamW keeps maximum post-update error below 5×10⁻¹⁰. Replay the
   complete 16-update METH-55 E128 donor schedule under this offload
   method and compare the frozen checkpoint before training E1280 again.
-  Then use new prompts for the next quality gate.
+  METH-69 did that full donor replay: first three updates have exactly
+  matching microbatch losses, but a divergence begins at update four
+  and the strict final checkpoint/BPB/top-1-count gates fail. The
+  replay still clears the old viewed 95% top-1 screen (96.038%),
+  so CPU offload can retain useful E128 behavior without exact
+  checkpoint identity. Investigate GPU-paged dense AdamW semantics
+  as one route to stronger parity, then use new prompts for a
+  controlled E128/E1280 quality gate. Do not promote the viewed replay.
   No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`

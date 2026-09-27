@@ -623,6 +623,15 @@ dense GPU reference exactly; maximum post-update weight error is
 4.657×10⁻¹⁰. This is a numerical apparatus pass, not a donor-backed
 training or learned E1280 result. The next gate is a full METH-55
 16-update replay with identical training draws.
+[METH-69](METH_69_FULL_E128_OFFLOAD_REPLAY_RESULT_20260927.md)
+replays METH-55's full E128 donor training with CPU factors and the
+same sample sequence. The first three updates' losses match exactly;
+the first difference appears in update four, and terminal weights,
+raw BPB and top-1 counts differ from the frozen checkpoint, so its
+strict replay gate fails. Offloaded E128 still reaches 96.038% on the
+viewed METH-55 prompts, but this cannot promote it. CPU versus GPU
+AdamW rounding is a hypothesis for the first route divergence, not a
+proven cause. The large-E path needs fresh quality evidence.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
