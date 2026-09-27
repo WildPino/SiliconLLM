@@ -1,0 +1,182 @@
+{
+  "experiment": "METH-51-bf16-effective-factor-bank",
+  "checkpoint_sha256": "0c6f09562efff7e78921036fe6ab030d7377150fe9afbe06b3deb1c029e0aa59",
+  "model_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "manifest_sha256": "15a68db9a43a8066e70b1b261f819cab3d6779d8b52633bcce7c725d8d54acfb",
+  "reference_sha256": "9640f086c00c03db7ab7ff28ae13436a3b8fdef18996d2313aab772ddc652c29",
+  "artifact_sha256": "53f2849da55f0da7f91f7d097ab3357308abfd85174cdf8a82b7e226cd738473",
+  "artifact_bytes": 88084744,
+  "factor_payload_bytes_per_expert": 688128,
+  "projected_factor_payload_bytes": {
+    "128": 88080384,
+    "27355": 18823741440,
+    "273547": 188235350016
+  },
+  "selected_factor_bytes_per_token": 2752512,
+  "prompt_logits": {
+    "prompts": 12,
+    "positions": 2091,
+    "elements": 317698176,
+    "all_bit_identical": true,
+    "rows": [
+      {
+        "source_id": "benchmarks/donor_adaptation/s1/h0_data.py",
+        "positions": 166,
+        "logit_elements": 25221376,
+        "bit_identical": true
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/s1/h1_qat.py",
+        "positions": 176,
+        "logit_elements": 26740736,
+        "bit_identical": true
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/s1/h1_pack.py",
+        "positions": 167,
+        "logit_elements": 25373312,
+        "bit_identical": true
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/s1/s1_tables.py",
+        "positions": 183,
+        "logit_elements": 27804288,
+        "bit_identical": true
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=51",
+        "positions": 173,
+        "logit_elements": 26284928,
+        "bit_identical": true
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=65",
+        "positions": 153,
+        "logit_elements": 23246208,
+        "bit_identical": true
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=46",
+        "positions": 162,
+        "logit_elements": 24613632,
+        "bit_identical": true
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=10",
+        "positions": 153,
+        "logit_elements": 23246208,
+        "bit_identical": true
+      },
+      {
+        "source_id": "docs/CANONICAL_EVAL.md",
+        "positions": 218,
+        "logit_elements": 33122048,
+        "bit_identical": true
+      },
+      {
+        "source_id": "docs/REPRODUCE.md",
+        "positions": 155,
+        "logit_elements": 23550080,
+        "bit_identical": true
+      },
+      {
+        "source_id": "docs/PHASE64_TRAINING_PLAN.md",
+        "positions": 182,
+        "logit_elements": 27652352,
+        "bit_identical": true
+      },
+      {
+        "source_id": "docs/PHASE64_RUNG1_RUN_RECORD.md",
+        "positions": 203,
+        "logit_elements": 30843008,
+        "bit_identical": true
+      }
+    ]
+  },
+  "generation": {
+    "prompts": 12,
+    "all_identical": true,
+    "rows": [
+      {
+        "source_id": "benchmarks/donor_adaptation/s1/h0_data.py",
+        "original_tokens": 45,
+        "reloaded_tokens": 45,
+        "identical": true
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/s1/h1_qat.py",
+        "original_tokens": 102,
+        "reloaded_tokens": 102,
+        "identical": true
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/s1/h1_pack.py",
+        "original_tokens": 87,
+        "reloaded_tokens": 87,
+        "identical": true
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/s1/s1_tables.py",
+        "original_tokens": 42,
+        "reloaded_tokens": 42,
+        "identical": true
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=51",
+        "original_tokens": 61,
+        "reloaded_tokens": 61,
+        "identical": true
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=65",
+        "original_tokens": 14,
+        "reloaded_tokens": 14,
+        "identical": true
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=46",
+        "original_tokens": 33,
+        "reloaded_tokens": 33,
+        "identical": true
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=10",
+        "original_tokens": 47,
+        "reloaded_tokens": 47,
+        "identical": true
+      },
+      {
+        "source_id": "docs/CANONICAL_EVAL.md",
+        "original_tokens": 99,
+        "reloaded_tokens": 99,
+        "identical": true
+      },
+      {
+        "source_id": "docs/REPRODUCE.md",
+        "original_tokens": 38,
+        "reloaded_tokens": 38,
+        "identical": true
+      },
+      {
+        "source_id": "docs/PHASE64_TRAINING_PLAN.md",
+        "original_tokens": 101,
+        "reloaded_tokens": 101,
+        "identical": true
+      },
+      {
+        "source_id": "docs/PHASE64_RUNG1_RUN_RECORD.md",
+        "original_tokens": 92,
+        "reloaded_tokens": 92,
+        "identical": true
+      }
+    ]
+  },
+  "decision": "exact_effective_factor_anchor_pass",
+  "runtime": {
+    "elapsed_seconds": 87.54700000000003,
+    "rss_end_bytes": 4872318976,
+    "gpu_peak_allocated_bytes": 1259514368,
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "torch": "2.6.0+cu124"
+  }
+}
