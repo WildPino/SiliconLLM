@@ -451,6 +451,23 @@ Manual inspection of the saved summaries nevertheless finds specific
 unsupported student claims. The automatic gates therefore do not yet
 prove semantic conservation; neither packed export nor native C parity,
 rate, nor independently trained large-E capacity has been validated.
+[METH-48](METH_48_INT8_FACTOR_BANK_RESULT_20260927.md) and
+[METH-49](METH_49_INT8_ROW_FACTOR_BANK_RESULT_20260927.md) establish
+reproducible int8 export/reload tools for the actual METH-47 rank-8
+factors, but reject both factor formats under the frozen ≥99% prompt
+top-1 gate. Per-expert and per-row scales produce 95.839% and 95.744%
+agreement with the unchanged-router checkpoint on the reused external
+set even though pooled document BPB is almost unchanged. The exact
+row-scale tensor payload is 430,848 bytes per expert across L24;
+E27,355 and E273,547 project to 11.786 and 117.857 GB of factor
+payload. This realizes the *storage arithmetic* of 10× more experts
+with roughly 10× user RAM, while adding no evidence that the expanded
+experts are trained, useful, reachable by a bounded router or fast in C.
+No current one-byte factor representation is part of the validated
+conversion method. A BF16-effective exact factor anchor and a diagnosis
+of route/rank sensitivity are the next reproducible representation steps;
+joint quantization-aware adaptation may be needed after a new frozen
+quality set, rather than selecting a scale from viewed outcomes.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

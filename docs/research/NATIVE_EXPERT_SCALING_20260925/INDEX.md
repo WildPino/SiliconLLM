@@ -44,6 +44,14 @@ METH-47's stronger KL and smaller step pass update-512 chat retention
 1290/1838 versus donor 1291/1838. Manual review finds unsupported
 student claims in saved summaries; semantic conservation, large-E quality
 and native rate remain unproven.
+METH-48/49 export the **actual METH-47 trained factors** as int8 with
+per-expert and per-factor-row scales. Both reproduce near-flat pooled
+document BPB and 12/12 EOS, but fail the fixed ≥99% prompt top-1
+gate at 95.839% and 95.744%. Neither is a quality-valid packed bank.
+Their E27,355/E273,547 payload projections grow ~10× with expert count
+(9.42→94.17 GB per-expert-scale; 11.79→117.86 GB row-scale), excluding
+router/index, donor and workspace. These are arithmetic, not trained
+large-E or CPU LUT results.
 METH-31 measures the existing CPU LUT kernel in the Qwen rank-8
 shape with synthetic packed factors: E1280→E12800 raises the
 six-thread selected path only 1.136× to 0.505 ms/token. That
@@ -394,6 +402,15 @@ new 512-update development gate and all preregistered automatic
 external document, prompt, generation and PIQA gates. Its manual
 review finds unsupported student-specific claims in some summaries;
 it is retained as a candidate, not a quality-validated native model.
+[METH-48](METH_48_INT8_FACTOR_BANK_RESULT_20260927.md) and
+[METH-49](METH_49_INT8_ROW_FACTOR_BANK_RESULT_20260927.md) test actual
+METH-47 factor storage. Both int8 variants fail ranking retention on
+the viewed external set despite small reconstruction and BPB errors.
+The row-scale variant's exact factor payload grows from 11.786 GB at
+E27,355 to 117.857 GB at E273,547. The RAM proportionality desired
+for 10B→100B is feasible as storage arithmetic, but the tested int8
+formats do not preserve this checkpoint's outputs and the router remains
+an exhaustive large-E cost blocker.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -454,6 +471,8 @@ SSM/SWA target and passes joint quality/rate.
 | METH-45 | LONG CONTINUATION STOP: CHAT TOP-1 BELOW 95% AT UPDATE 512 | [result](METH_45_INSTRUCT_CONTINUATION_RESULT_20260927.md), [protocol](METH_45_INSTRUCT_CONTINUATION_PROTOCOL_20260927.md), [sealed external manifest](meth45_fresh_external_manifest.json), [training result](meth45_instruct_continuation_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth45_instruct_continuation.py), [unused external evaluator](../../../benchmarks/donor_adaptation/s1/meth45_instruct_external_audit.py) |
 | METH-46 | ROUTE-ALIGNMENT DIAGNOSTIC PASS; LOAD IMBALANCE MEASURED | [result](METH_46_ROUTE_UTILITY_DIAGNOSTIC_RESULT_20260927.md), [protocol](METH_46_ROUTE_UTILITY_DIAGNOSTIC_PROTOCOL_20260927.md), [raw counts](meth46_route_utility_diagnostic_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth46_route_utility_diagnostic.py); viewed raw/chat data only |
 | METH-47 | STRONGER RETENTION: DEVELOPMENT AND AUTOMATIC EXTERNAL GATES PASS; MANUAL SEMANTIC REVIEW OPEN | [result](METH_47_STRONG_KL_RETENTION_RESULT_20260927.md), [protocol](METH_47_STRONG_KL_RETENTION_PROTOCOL_20260927.md), [new development manifest](meth47_retention_dev_manifest.json), [training result](meth47_strong_kl_continuation_result.json), [external paired result](meth47_frozen_external_audit_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth47_strong_kl_continuation.py), [evaluator](../../../benchmarks/donor_adaptation/s1/meth45_instruct_external_audit.py) |
+| METH-48 | PER-EXPERT-SCALE INT8 FACTOR TOP-1 GATE FAIL: 95.839% | [result](METH_48_INT8_FACTOR_BANK_RESULT_20260927.md), [protocol](METH_48_INT8_FACTOR_BANK_PROTOCOL_20260927.md), [paired result](meth48_int8_factor_bank_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth48_int8_factor_bank.py); viewed inputs, no C LUT or large-E quality |
+| METH-49 | ROW-SCALE INT8 FACTOR TOP-1 GATE FAIL: 95.744% | [result](METH_49_INT8_ROW_FACTOR_BANK_RESULT_20260927.md), [protocol](METH_49_INT8_ROW_FACTOR_BANK_PROTOCOL_20260927.md), [paired result](meth49_int8_row_factor_bank_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth49_int8_row_factor_bank.py); viewed inputs, no C LUT or large-E quality |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -537,8 +556,12 @@ scheduled.
   Freeze a larger, answerable, source-grounded generation set and a
   donor-relative semantic adjudication rule for the METH-47 checkpoint;
   report both donor and student errors without selecting prompts after
-  seeing outputs. In parallel, develop a high-fidelity packed export
-  and CPU bounded router on this same checkpoint as diagnostics.
+  seeing outputs. For the CPU path, first audit on the METH-47 checkpoint
+  where small factor perturbations alter fine-route membership and token
+  ranks, then design a bounded/sublinear router whose quality is tested on
+  distinct learned experts as E grows. METH-48/49 reject two frozen int8
+  factor layouts; keep a BF16-effective exact factor anchor before any
+  joint quantization-aware adaptation or C LUT work.
   Promote only after joint semantic quality and usefulness pass; then
   implement the exact pair
   in `benchmarks/phase60/engine.c` with logit parity, accepted batch-1
@@ -558,12 +581,15 @@ scheduled.
   bounded/sublinear large-E index against trained route targets.
   METH-29/30's fixed-group rules failed; METH-36's scan is
   lower dimensional but still linear in E.
-  Pause factor-code tuning on the reused
-  texts after METH-32/33/34's prospective ranking failures; revisit
-  an exact packed export once the parent candidate passes fresh
-  generation and a bounded route meets fidelity. Then verify any
-  factor candidate on new documents, generation and tasks before
-  integrating its exact export.
+  Pause post-hoc factor-code tuning on the reused texts after
+  METH-32/33/34/48/49's ranking failures. METH-48's per-expert int8 bank
+  projects to 94.17 GB and METH-49's row-scale bank to 117.86 GB at
+  E273,547; both exclude core/router/index and both fail ranking at E128.
+  Any quality-valid factor candidate needs new documents, generation and
+  tasks before C integration. The target remains approximately 10× as
+  many **distinct learned** experts from the 10B to 100B geometry when
+  user RAM allows, with selected work per token bounded; RAM alone does
+  not guarantee router accuracy or throughput.
   Only **distinct trained** expert expansion can validate quality as E
   grows. No T4 job is planned.
 
