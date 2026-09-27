@@ -1,0 +1,107 @@
+{
+  "experiment": "METH-47-strong-KL-Instruct-continuation",
+  "source_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "resume_sha256": "4fade15804f5e2297ff60cafacf870e5ae11926ba886786a524110dea94f16da",
+  "teacher_sha256": "f42f678280a9086a0fc2ec6e57a712e33fdea8f5cb62bdac7f53c9f28a5f1dd7",
+  "train_chat_manifest_sha256": "17921cb83c1d10793e2a56df6aa899039bd794757eeff43921068b8de2096055",
+  "previous_development_manifest_sha256": "703abca3f83a983d9380ba84c1a79744d15881d638174b064cf38a47453f47ba",
+  "development_manifest_sha256": "0195852ce7a46af5a2d9442b38e687a19393a943168b61a8f8cdb0c66ec78a60",
+  "fresh_external_manifest_sha256": "15a68db9a43a8066e70b1b261f819cab3d6779d8b52633bcce7c725d8d54acfb",
+  "raw_train_ids_sha256": "9bb5229fad6542aa8b3fd7edfc3b8d1dff965a573d7aa8379385caacc9d614da",
+  "raw_eval_ids_sha256": "c5345782fc0b08ef3212403878a33960ae0da236c999272e79e418f29c277d3c",
+  "factor_lr": 0.0001,
+  "router_lr": 1e-05,
+  "raw_kl_weight": 2.0,
+  "full_chat_kl_weight": 4.0,
+  "target_update": 512,
+  "last_applied_update": 512,
+  "interim_evaluations": [
+    {
+      "step": 16,
+      "donor_bpb": 0.9712552075318387,
+      "student_bpb": 0.9694120093360877,
+      "delta_bpb": -0.0018431981957509613,
+      "dev_top1": {
+        "matching": 3687,
+        "positions": 3814,
+        "agreement": 0.9667016255899318
+      }
+    },
+    {
+      "step": 256,
+      "student_bpb": 0.9588479862524358,
+      "delta_bpb": -0.012407221279402858,
+      "dev_top1": {
+        "matching": 3690,
+        "positions": 3814,
+        "agreement": 0.967488201363398
+      }
+    },
+    {
+      "step": 512,
+      "student_bpb": 0.9556169891246463,
+      "delta_bpb": -0.015638218407192372,
+      "dev_top1": {
+        "matching": 3748,
+        "positions": 3814,
+        "agreement": 0.9826953329837441
+      }
+    }
+  ],
+  "checkpoints": {
+    "256": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth47\\meth47_update256.pt",
+      "sha256": "dd998595726d3b1be932c4db2c0afe287705c6c4a3b72c5cbfcc0f7ab261a19b",
+      "bytes": 561603140
+    },
+    "512": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth47\\meth47_update512.pt",
+      "sha256": "0c6f09562efff7e78921036fe6ab030d7377150fe9afbe06b3deb1c029e0aa59",
+      "bytes": 561603140
+    }
+  },
+  "terminal_route_sensitivity": {
+    "intact_bpb": 0.9556169891246463,
+    "permuted_bpb": 0.9687982912706911,
+    "restored_bpb": 0.9556169891246463,
+    "permuted_minus_intact_bpb": 0.013181302146044738,
+    "permutation_seed": 451616
+  },
+  "terminal_changed_slots_by_layer": [
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128
+  ],
+  "stop_reason": null,
+  "decision": "eligible_for_frozen_external_evaluation",
+  "runtime": {
+    "elapsed_seconds": 736.75,
+    "rss_end_bytes": 3871809536,
+    "gpu_peak_allocated_bytes": 2583288320,
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "cuda_index": 0,
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6"
+  }
+}

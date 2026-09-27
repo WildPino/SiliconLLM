@@ -38,8 +38,12 @@ despite raw BPB −0.028953. Its 12 external documents/chat prompts and
 PIQA gate remained unopened. METH-46 shows meaningful conditional
 routing at update 256 (permuting router rows worsens BPB +0.020330),
 but severe load concentration (worst expert 24.56× mean selections).
-Retain the geometry for a new retention recipe; do not claim large-E
-quality or native rate.
+METH-47's stronger KL and smaller step pass update-512 chat retention
+(98.270%) and the preregistered external automatic gates: document BPB
+−0.005033, prompt top-1 96.078%, 12/12 EOS without loops, and full PIQA
+1290/1838 versus donor 1291/1838. Manual review finds unsupported
+student claims in saved summaries; semantic conservation, large-E quality
+and native rate remain unproven.
 METH-31 measures the existing CPU LUT kernel in the Qwen rank-8
 shape with synthetic packed factors: E1280→E12800 raises the
 six-thread selected path only 1.136× to 0.505 ms/token. That
@@ -385,6 +389,11 @@ stops at update 512: chat top-1 declines to 93.985% while raw BPB
 continues to improve. [METH-46](METH_46_ROUTE_UTILITY_DIAGNOSTIC_RESULT_20260927.md)
 confirms route-to-factor alignment matters (+0.020330 BPB if permuted
 at update 256), but the most loaded raw expert reaches 24.56× mean.
+[METH-47](METH_47_STRONG_KL_RETENTION_RESULT_20260927.md) passes the
+new 512-update development gate and all preregistered automatic
+external document, prompt, generation and PIQA gates. Its manual
+review finds unsupported student-specific claims in some summaries;
+it is retained as a candidate, not a quality-validated native model.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -444,6 +453,7 @@ SSM/SWA target and passes joint quality/rate.
 | METH-44 | FULL-CHAT DEVELOPMENT GATE PASS AT 16 UPDATES | [result](METH_44_FULL_CHAT_RETENTION_RESULT_20260927.md), [protocol](METH_44_FULL_CHAT_RETENTION_PROTOCOL_20260927.md), [new prompt manifest](meth44_instruct_fresh_chat_manifest.json), [smoke outcome](meth44_instruct_full_chat_smoke_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth44_instruct_full_chat_smoke.py) |
 | METH-45 | LONG CONTINUATION STOP: CHAT TOP-1 BELOW 95% AT UPDATE 512 | [result](METH_45_INSTRUCT_CONTINUATION_RESULT_20260927.md), [protocol](METH_45_INSTRUCT_CONTINUATION_PROTOCOL_20260927.md), [sealed external manifest](meth45_fresh_external_manifest.json), [training result](meth45_instruct_continuation_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth45_instruct_continuation.py), [unused external evaluator](../../../benchmarks/donor_adaptation/s1/meth45_instruct_external_audit.py) |
 | METH-46 | ROUTE-ALIGNMENT DIAGNOSTIC PASS; LOAD IMBALANCE MEASURED | [result](METH_46_ROUTE_UTILITY_DIAGNOSTIC_RESULT_20260927.md), [protocol](METH_46_ROUTE_UTILITY_DIAGNOSTIC_PROTOCOL_20260927.md), [raw counts](meth46_route_utility_diagnostic_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth46_route_utility_diagnostic.py); viewed raw/chat data only |
+| METH-47 | STRONGER RETENTION: DEVELOPMENT AND AUTOMATIC EXTERNAL GATES PASS; MANUAL SEMANTIC REVIEW OPEN | [result](METH_47_STRONG_KL_RETENTION_RESULT_20260927.md), [protocol](METH_47_STRONG_KL_RETENTION_PROTOCOL_20260927.md), [new development manifest](meth47_retention_dev_manifest.json), [training result](meth47_strong_kl_continuation_result.json), [external paired result](meth47_frozen_external_audit_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth47_strong_kl_continuation.py), [evaluator](../../../benchmarks/donor_adaptation/s1/meth45_instruct_external_audit.py) |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -518,18 +528,19 @@ scheduled.
   its chat diagnostic, but direct reuse of base-trained factors fails
   ranking. METH-43 fails chat retention; METH-44 initially passes but its
   METH-45 continuation fails at update 512. METH-46 shows the router
-  itself matters, so retain E128 conditional factors while prospectively
-  strengthening donor chat retention. Freeze a new development prompt
-  set before that training; keep METH-45's external evaluation unopened
-  until a candidate passes its own continuation gate. Do not retune on
+  itself matters; METH-47's stronger retention objective passes its
+  terminal development and automatic external gates. Manual review
+  still finds unsupported claims. Freeze a broader source-grounded
+  semantic audit before promoting the checkpoint. Do not retune on
   viewed continuations or extend E256 on a BPB gain alone.
-- **Next exact action: new Instruct-donor adaptation and scalable CPU route.**
-  Predeclare a revised full-chat retention objective and new disjoint
-  development prompts for the exact Instruct E128 route/factor geometry;
-  run a bounded continuation with a 95% chat stop and raw BPB gate.
-  If it reaches a fixed terminal update, score frozen external document,
-  task and generation sets against the Instruct donor. Export only after joint quality and
-  usefulness pass. Then implement the exact pair
+- **Next exact action: source-grounded quality and scalable CPU route.**
+  Freeze a larger, answerable, source-grounded generation set and a
+  donor-relative semantic adjudication rule for the METH-47 checkpoint;
+  report both donor and student errors without selecting prompts after
+  seeing outputs. In parallel, develop a high-fidelity packed export
+  and CPU bounded router on this same checkpoint as diagnostics.
+  Promote only after joint semantic quality and usefulness pass; then
+  implement the exact pair
   in `benchmarks/phase60/engine.c` with logit parity, accepted batch-1
   tok/s and split core/router/expert timing and traffic. The separate
   `donor_engine.c` Qwen implementation is a fidelity reference, not

@@ -437,6 +437,20 @@ the same conditional geometry while making load balance and
 sublinear CPU routing explicit requirements for large E. The
 permutation is a sensitivity control, not independent large-E
 quality evidence. No T4 run follows from these screens.
+[METH-47](METH_47_STRONG_KL_RETENTION_RESULT_20260927.md) resumes the
+exact METH-44 donor/expert checkpoint with stronger donor KL on raw
+(2.0) and full chat (4.0) positions and smaller factor/router LRs
+(1e-4/1e-5). On a new disjoint 24-prompt same-corpus development set,
+chat top-1 rises from 96.670% at resume to 98.270% at update 512;
+raw BPB improves −0.015638. The previously frozen external audit then
+passes its automatic gates: 12-document BPB −0.005033, prompt top-1
+96.078%, 12/12 greedy EOS without loops, full PIQA 1290/1838 versus
+donor 1291/1838, and route permutation penalty +0.013181 BPB. This
+is the strongest currently implemented 0.5B/E128 transfer candidate.
+Manual inspection of the saved summaries nevertheless finds specific
+unsupported student claims. The automatic gates therefore do not yet
+prove semantic conservation; neither packed export nor native C parity,
+rate, nor independently trained large-E capacity has been validated.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
@@ -444,10 +458,11 @@ large-E optimization. NES-03 provides a numerical/cost-passing int8 router
 option at pilot scale, with a fragile E128 latency margin. Independent larger
 experts remain untrained, and no pretrained donor has been converted into a
 quality-valid, ≥50 accepted tok/s native artifact. The next method decision
-is whether a stronger donor-retention objective can preserve chat behavior
-through a fixed longer E128 adaptation while keeping measurable route
-utility. A successful parent would then need fresh external quality,
-compact export, C parity/rate and a distinct-expert-count ladder.
+is whether METH-47's donor-relative semantic quality survives a broader
+frozen source-grounded generation audit. In parallel, a high-fidelity
+packed export and bounded CPU router can be developed as diagnostics;
+promotion needs semantic quality, C parity/rate on the same artifact,
+and a distinctly trained expert-count ladder.
 
 Operational experiment history, running processes and exact resumption point
 live in [INDEX.md](INDEX.md); this file changes when a method step is actually
