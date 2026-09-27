@@ -39,13 +39,17 @@ def rank(source_id):
     return M17.sha((SEED + "|" + source_id).encode("utf-8"))
 
 
-def select(tokenizer):
+def select(tokenizer, *, seed=SEED, counts=None, extra_exclusions=()):
+    if counts is None:
+        counts = COUNTS
+    def selected_rank(source_id):
+        return M17.sha((seed + "|" + source_id).encode("utf-8"))
     for path, expected in PRIOR:
         assert M17.sha(path.read_bytes()) == expected, path
     _, m17_items = M17.build_selection()
     _, m19_items = M19.select()
     _, m25_items = M25.select()
-    prior = m17_items + m19_items + m25_items
+    prior = m17_items + m19_items + m25_items + list(extra_exclusions)
     old_ids = {item["source_id"] for item in prior}
     base = [(M17.CORPUS / name).read_bytes()
             for name in ("calib.txt", "heldout.txt")]
@@ -69,7 +73,7 @@ def select(tokenizer):
         if len(raw) < M17.SPAN:
             stats["code"]["short"] += 1
             continue
-        start = int(rank(path)[:16], 16) % (len(raw) - M17.SPAN + 1)
+        start = int(selected_rank(path)[:16], 16) % (len(raw) - M17.SPAN + 1)
         text = raw[start:start + M17.SPAN].decode("utf-8", errors="ignore")
         data = text.encode("utf-8")
         if len(data) < 4000 or M17.fragment_overlap(data, base):
@@ -92,7 +96,7 @@ def select(tokenizer):
         if len(raw) < M17.SPAN:
             stats["technical_general"]["short"] += 1
             continue
-        start = int(rank(path)[:16], 16) % (len(raw) - M17.SPAN + 1)
+        start = int(selected_rank(path)[:16], 16) % (len(raw) - M17.SPAN + 1)
         text = raw[start:start + M17.SPAN].decode("utf-8", errors="ignore")
         data = text.encode("utf-8")
         if len(data) < 4000 or M17.fragment_overlap(data, base):
@@ -131,8 +135,8 @@ def select(tokenizer):
     items = []
     seen_ids = set()
     seen_hashes = set()
-    for cat, count in COUNTS.items():
-        candidates = sorted(pool[cat], key=lambda x: rank(x["source_id"]))
+    for cat, count in counts.items():
+        candidates = sorted(pool[cat], key=lambda x: selected_rank(x["source_id"]))
         for item in candidates:
             data = item["text"].encode("utf-8")
             digest = M17.sha(data)
@@ -161,13 +165,13 @@ def select(tokenizer):
                        "tokens": len(ids),
                        "prompt_ids_sha256": M17.sha(np.asarray(
                            prompt, dtype=np.int32).tobytes())})
-    manifest = {"experiment": "METH-41", "seed": SEED,
+    manifest = {"experiment": "METH-41", "seed": seed,
                 "code_ref": CODE_REF,
                 "source_sha256": {rel: sha for rel, sha in SOURCES},
                 "prior_manifest_sha256": {path.name: sha for path, sha in PRIOR},
                 "excluded_qwen_corpus_sha256": [M17.CALIB_SHA, M17.HELDOUT_SHA],
                 "overlap_rule": "source-ID exclusion plus first/middle/final 256-byte fragment exclusion against Qwen corpus and METH-17/19/25 selected spans; selected-set cross-screen",
-                "selected_counts": COUNTS,
+                "selected_counts": counts,
                 "source_stats": {k: dict(v) for k, v in stats.items()},
                 "span_max_bytes": M17.SPAN,
                 "tokenizer_fingerprint": M15.M13.TOK_FP,
