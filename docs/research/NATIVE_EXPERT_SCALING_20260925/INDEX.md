@@ -875,10 +875,23 @@ scheduled.
   verifies 96 native parent/child route fixtures exactly and measures
   1.477 ms per 24-layer E1280 route versus 0.979 ms E128 (1.508×),
   below its component limits. That checker excludes factor access,
-  LUT arithmetic and the full model. Next exact action: improve
-  grounded-detail retention on a new source-disjoint set, then audit
-  the learned E1280 factor bank's varied CPU access and integrate a
-  packed LUT/full `engine.c` artifact. No T4 job is planned.
+  LUT arithmetic and the full model. [METH-106/109](METH_106_109_LONG_CHAT_RETENTION_RESULT_20260927.md)
+  creates 256 up-to-128-token E128 teacher answers and makes 256 B-only
+  child updates. The METH-107 checkpoint has 1,084–1,152 meaningfully
+  distinct children/layer and passes six fresh METH-109 development
+  gates. [METH-110/112](METH_110_112_LONG_CHAT_EXTERNAL_RESULT_20260927.md)
+  passes all frozen automatic external gates: pooled BPB improves by
+  0.000450, donor prompt top-1 loses 0.942 point, EOS is 19/24 in both
+  E128 and E1280, and PIQA falls 1,292→1,287/1,838. The committed
+  blind semantic verdict fails: E1280 has 28 versus 27 unsupported
+  claims and 7 versus 5 severe claims; missing-detail counts tie 2–2.
+  Do not quality-promote METH-107. Its parent/child router weights remain
+  METH-99's, so METH-104 route-only measurements still apply. Next exact
+  action: improve grounded technical-detail fidelity using new training
+  and development sources, then test on a new external set; independently
+  audit learned E1280 factor-bank CPU/LUT access and full `engine.c`
+  inference. Do not tune against the viewed METH-110 excerpts. No T4
+  job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

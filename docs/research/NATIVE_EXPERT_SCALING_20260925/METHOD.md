@@ -790,14 +790,24 @@ counts. [METH-104](METH_104_HIERARCHICAL_CPU_ROUTE_RESULT_20260927.md)
 shows the learned hierarchical CPU route matches 96 fixtures exactly
 and costs 1.508× its matched E128 parent route. This is FP32 route-only
 evidence; no factor LUT, cold DRAM or full-model rate is established.
-The next large-E method must protect grounded detail and test a new
-external source set without changing these viewed gates.
+[METH-106/109](METH_106_109_LONG_CHAT_RETENTION_RESULT_20260927.md)
+extends E128 teacher continuations to 128 tokens, leaves at least 1,084
+meaningfully distinct E1280 child slots per layer and passes six frozen
+development gates. [METH-110/112](METH_110_112_LONG_CHAT_EXTERNAL_RESULT_20260927.md)
+passes fresh automatic document, prompt, generation and 1,838-item PIQA
+gates, but its precommitted blind review counts 28 versus 27 unsupported
+claims and 7 versus 5 severe claims relative to E128. The joint semantic
+gate fails again. The new checkpoint is not promoted. Its router weights
+are unchanged from METH-99, so the METH-104 route-only result still applies.
+The next large-E method must protect grounded technical details on new
+sources without changing the viewed external gates.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
 large-E optimization. NES-03 provides a numerical/cost-passing int8 router
-option at pilot scale, with a fragile E128 latency margin. METH-99
-trains distinct E1280 children but fails the joint semantic gate, and
+option at pilot scale, with a fragile E128 latency margin. METH-99 and
+METH-107 train distinct E1280 children but fail their joint semantic
+gates, and
 no pretrained donor has been converted into a
 quality-valid, ≥50 accepted tok/s native artifact. The next method step
 is finding a quality-preserving low-traffic Instruct core on separate

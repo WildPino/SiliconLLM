@@ -1,0 +1,717 @@
+{
+  "experiment": "METH-112-long-chat-E1280-unblinded-semantic-score",
+  "blind_sha256": "d9585249eb4e243298ccafbf49583e2f0a3cdfcdeb5794aae0f1ff69db135468",
+  "verdict_sha256": "dd176e2d7b079bf2c0961934b20aadbd35b43de63f61e1cac55846430245d221",
+  "counts": {
+    "e128": {
+      "unsupported": 27,
+      "severe": 5,
+      "missing_detail": 2,
+      "ambiguous": 0
+    },
+    "e1280": {
+      "unsupported": 28,
+      "severe": 7,
+      "missing_detail": 2,
+      "ambiguous": 0
+    }
+  },
+  "gates": {
+    "unsupported": false,
+    "severe": false,
+    "missing_detail": true,
+    "joint_semantic": false
+  },
+  "paired_rows": [
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_layer2_kv_partition_cross_input.h",
+      "category": "code",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "dst and s are strings being manipulated",
+            "evidence": "The excerpt uses float-pointer offsets and writes into dst, not string operations.",
+            "severe": true
+          },
+          {
+            "claim": "dst is concatenated with a 576U-length string",
+            "evidence": "The visible code copies STRAT01_L2KPX_TAIL floats into dst; no concatenation appears.",
+            "severe": false
+          },
+          {
+            "claim": "an offset from s is stored in positional",
+            "evidence": "The excerpt reads positional and writes dst; it shows no offset stored in positional.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": true,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "a prefix and tail are appended to the string s",
+            "evidence": "s is used for control flags; the shown writes target dst, not a string s.",
+            "severe": true
+          },
+          {
+            "claim": "latent_control is set to -1 at all positions",
+            "evidence": "When latent_control is true, selected dst floats are negated; the field is not set.",
+            "severe": false
+          },
+          {
+            "claim": "positional_control is set to 7 at all positions",
+            "evidence": "The field is tested, not assigned; 7U is an index into dst.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": true,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_selftest.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the script performs gradient descent on a mass array",
+            "evidence": "The shown sequence collects mass with pc(xtr), chooses static_from_mass, and evaluates loss; no descent appears.",
+            "severe": false
+          },
+          {
+            "claim": "the static value was optimized by gradient descent",
+            "evidence": "pick comes from pc.static_from_mass after a no_grad collection, not optimization.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "set_static(None) restores the mass to its original value",
+            "evidence": "The excerpt clears the static selection; it does not show restoration of a mass value.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/d2_basis.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "dense random orth is block-random-orth under another name",
+            "evidence": "The list distinguishes block-random-orth from dense random orth.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "there are four candidate test types",
+            "evidence": "The visible list names identity, permutation, block-Hadamard, block-random-orth and dense random orth.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/ternary/t2_rules.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": true,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": true,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/d0b_rho_floor_donor.py",
+      "category": "code",
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the donor block is interleaved with a block of neurons",
+            "evidence": "The excerpt names an interleaved layout statistic and a donor block size, but no such block interleaving operation.",
+            "severe": false
+          },
+          {
+            "claim": "layout_stats calculates i.i.d. masks",
+            "evidence": "layout_stats is called on Bn to produce statistics; the note calls the mask synthetic, not a computed output here.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e45_window.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e3_bench.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the --profile flag is applied identically to every arm",
+            "evidence": "The comment says HIGH_PRIORITY_CLASS is applied identically; --profile is merely in cmd.",
+            "severe": false
+          },
+          {
+            "claim": "the scheduler consequently lets background work preempt the benchmark",
+            "evidence": "The comment says high priority changes how often background work preempts it, not that it increases preemption.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "--profile is the per-arm setting",
+            "evidence": "HIGH_PRIORITY_CLASS, not --profile, is identified as applied identically to every arm.",
+            "severe": false
+          },
+          {
+            "claim": "--profile means benchmarking on all available cores",
+            "evidence": "The command has a separate --threads value; no all-core meaning for --profile is shown.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_layer1_terminal_component_cross_input.h",
+      "category": "code",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the diagnostic is specifically a C++ program",
+            "evidence": "The excerpt is C-compatible header code and does not identify C++.",
+            "severe": false
+          },
+          {
+            "claim": "parsed is a parsed SHA256 hash",
+            "evidence": "parsed is compared with hashed, the byte count checked against STRAT01_EXPECTED_SIZE.",
+            "severe": true
+          },
+          {
+            "claim": "a parsed-count mismatch prints an error message here",
+            "evidence": "The visible parsed!=hashed branch goes directly to finish without a shown print.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "hashed is the return value of strat01_sha256_file",
+            "evidence": "The call passes &hashed as an output; its return value is tested separately.",
+            "severe": false
+          },
+          {
+            "claim": "size and SHA mismatch must both occur before identity failure",
+            "evidence": "The source uses logical OR between hashed!=expected size and strcmp, not AND.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=19:start=19922944",
+      "category": "prose",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the excerpt reports a meeting between the rapporteur and President",
+            "evidence": "It shows a speaker addressing Mr President and congratulating Mr Harbour, not a meeting.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the excerpt reports a meeting between the rapporteur and President",
+            "evidence": "It shows a speaker addressing Mr President and congratulating Mr Harbour, not a meeting.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=72:start=75497472",
+      "category": "prose",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the speaker expresses hopelessness",
+            "evidence": "The speaker says much hard work is needed; hopelessness is not stated.",
+            "severe": false
+          },
+          {
+            "claim": "the excerpt calls for significant investment",
+            "evidence": "It names hard work, infrastructure and measures, but no investment amount or explicit investment call.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the excerpt calls for significant investment",
+            "evidence": "It names hard work, infrastructure and measures, but no investment amount or explicit investment call.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=98:start=102760448",
+      "category": "prose",
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=120:start=125829120",
+      "category": "prose",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the speaker joined nearly two and a half years after the election",
+            "evidence": "The speaker joined just after the election, which occurred almost two and a half years ago.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=122:start=127926272",
+      "category": "prose",
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=107:start=112197632",
+      "category": "prose",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "companies are stakeholders in companies that profit from legislation",
+            "evidence": "The question concerns legislators who themselves sit on company boards or hold stakes.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "companies are stakeholders in companies that profit from legislation",
+            "evidence": "The question concerns legislators who themselves sit on company boards or hold stakes.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=51:start=53477376",
+      "category": "prose",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the vote will take place at a specific time",
+            "evidence": "The visible excerpt ends after 'at' and gives no time.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the vote will take place at a specific time",
+            "evidence": "The visible excerpt ends after 'at' and gives no time.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=116:start=121634816",
+      "category": "prose",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the speaker is identified as a European Union official",
+            "evidence": "The 384-character excerpt does not identify the speaker's office.",
+            "severe": false
+          },
+          {
+            "claim": "the Agency itself is shown upholding rights or law",
+            "evidence": "The text says it may reassure citizens that bureaucrats and governments uphold rights while implementing EU law.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the Agency itself is shown upholding rights or law",
+            "evidence": "The text says it may reassure citizens that bureaucrats and governments uphold rights while implementing EU law.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_RESULT_20260921.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/CPU_Memory_Bandwidth_Weight_Streaming_Research_20260625/report.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "cache residency is a metric of model quality",
+            "evidence": "The excerpt separates a quality ceiling from temporal locality and cache hit rate.",
+            "severe": true
+          },
+          {
+            "claim": "the predictability regularizer has already mitigated the limitations",
+            "evidence": "The excerpt proposes a future experiment to test whether quality and locality improve.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "cache residency is a metric of model quality",
+            "evidence": "The excerpt separates a quality ceiling from temporal locality and cache hit rate.",
+            "severe": true
+          },
+          {
+            "claim": "the predictability regularizer has already mitigated the limitations",
+            "evidence": "The excerpt proposes a future experiment to test whether quality and locality improve.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260921.md",
+      "category": "technical_general",
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_DOCUMENT_ROLLOUT_RESULT_20260921.md",
+      "category": "technical_general",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "passing this stop gate establishes a successful rollout",
+            "evidence": "The excerpt reports one frozen stop gate passed by one document, not overall rollout success.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E63_THE_TEN_BILLION_CELL_AT_ONE_BYTE.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "A10B-K3 is a model used to analyze a text",
+            "evidence": "The excerpt identifies A10B-K3 as noise weights in a rate/numerical-equivalence cell.",
+            "severe": true
+          },
+          {
+            "claim": "this text corrects E26 and section 61.6",
+            "evidence": "It says E26 and section 61.6's correction support the shape-dependence warning.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "A10B-K3 is trained on a dataset",
+            "evidence": "The excerpt explicitly calls its weights noise and says there is no 10B quality finding.",
+            "severe": true
+          },
+          {
+            "claim": "it is evaluated by identifying and correcting text errors",
+            "evidence": "Only rate and numerical equivalence are measured, never BPB or error correction.",
+            "severe": true
+          },
+          {
+            "claim": "identified text errors transfer elsewhere in the text",
+            "evidence": "The excerpt says nothing transfers to another shape; no text-error transfer appears.",
+            "severe": true
+          }
+        ],
+        "severe_count": 3,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E9_GLUE_PARALLEL.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the 4.0% rate spread is a 4.0% increase in the ffn witness",
+            "evidence": "The visible table assigns 4.0% to rate spread; ffn~ witness is a separate row.",
+            "severe": false
+          },
+          {
+            "claim": "BRIEF_E9_GLUE_PARALLEL is an experiment framework",
+            "evidence": "It is identified as a pre-measurement brief path, not a framework.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the 4.0% rate spread is a 4.0% increase in the ffn witness",
+            "evidence": "The visible table assigns 4.0% to rate spread; ffn~ witness is a separate row.",
+            "severe": false
+          },
+          {
+            "claim": "BRIEF_E9_GLUE_PARALLEL is a dataset",
+            "evidence": "It is identified as a pre-measurement brief path, not a dataset.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_H4_TRAIN_THE_AGGRESSIVE_RANK.md",
+      "category": "technical_general",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "15/160 is the teacher-forced result",
+            "evidence": "The excerpt labels 115/160 teacher-forced; the preceding 15/160 belongs to the other rollout mode.",
+            "severe": false
+          },
+          {
+            "claim": "H0 is a statistical null hypothesis",
+            "evidence": "H0 names an earlier experiment that used rank 512, not a null hypothesis.",
+            "severe": false
+          },
+          {
+            "claim": "H0 fails to establish transfer in length",
+            "evidence": "The excerpt says 'larghezza', meaning width, and the 1/32 fraction.",
+            "severe": false
+          },
+          {
+            "claim": "E65 uses rank 512 for the post-hoc reduction",
+            "evidence": "The excerpt assigns fp32 redensified factors to E65 and rank 512 to H0.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "15/160 is the teacher-forced result",
+            "evidence": "The excerpt labels 115/160 teacher-forced; the preceding 15/160 belongs to the other rollout mode.",
+            "severe": false
+          },
+          {
+            "claim": "H0 is a statistical null hypothesis",
+            "evidence": "H0 names an earlier experiment that used rank 512, not a null hypothesis.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_R1_CLOSED_FORM_ATTENTION_CONVERSION.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    }
+  ]
+}
