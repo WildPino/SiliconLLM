@@ -58,3 +58,24 @@ Run on the local RTX 3060 only, ≤10.5 GiB peak allocated GPU,
 overrun and preserve partial records. No T4. Automatic and semantic
 gates must both pass before this E128 artifact is considered
 quality-valid for native parity and rate work.
+
+## Pre-inference source-pool amendment
+
+The first manifest attempt stopped before writing a manifest: only
+three eligible prose IDs remain in METH-41's two 32-row held-out JSONL
+files after the source exclusions (selector reported 64 source rows,
+60 prior IDs and one overlap). Keep the frozen 8/8/8 category counts.
+For prose, take those three plus five distinct additional PG19 rows
+from the local publisher `test` parquet file
+`data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet`,
+SHA-256
+`9aae5ddf035760257458cff08d2575d78a15f84eff867af7a87eff0681b01bfc`.
+The file has 100 physical rows. Choose the five by ascending SHA-256
+of `meth57-pg19-extra-57057|<source ID>` among unused IDs, taking a
+deterministic ≤4096-byte UTF-8 span positioned by the same hash.
+Require source-ID exclusion and first/middle/final 256-byte fragment
+non-overlap against earlier METH-17/19/25/41/45 selections, the
+Qwen calibration/held-out text and already chosen METH-57 items.
+Record parquet file, physical row ID, full-document SHA-256, span
+offset, text/hash and tokenized IDs. If fewer than five survive,
+stop and register another source change before inference.
