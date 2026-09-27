@@ -709,6 +709,13 @@ scheduled.
   peak. This is an apparatus pass only. The next gate is a controlled
   E128/E1280 training ladder with independent quality and route-load
   audit; a single update cannot show useful distinct learned experts.
+  METH-66 now completes a matched 16-update E128/E1280 comparison.
+  E1280 improves new-prompt donor top-1 from 93.885% to 94.882% and
+  changes at least 846 B slots/layer, but both fail the fixed ≥95%
+  gate. E1280 worst max/mean route load is 71.06×, and only 538 of
+  1,280 slots are selected in the least-covered layer on the viewed
+  prompts. Both checkpoints are retained for diagnosis, not promoted;
+  any continuation needs a new rule and disjoint prompts.
   No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`

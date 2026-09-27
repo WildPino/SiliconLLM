@@ -598,6 +598,15 @@ exactly; after one sparse Adam update every layer has 244–471 changed
 B slots. Peak GPU allocation is 3.281 GB and process RSS 5.292 GB.
 This proves one real update fits the local host, not trained large-E
 quality or the complete method.
+[METH-66](METH_66_E128_E1280_CONTROLLED_SMOKE_RESULT_20260927.md)
+trains matched E128 and E1280 CPU-offloaded product-key adapters for
+16 updates on the same donor/examples and checks new development
+prompts. E1280 changes at least 846 B slots/layer and reaches
+3,615/3,810 donor top-1 versus E128's 3,577/3,810, but both miss the
+precommitted 95% gate. Worst route load rises to 71.06× mean at E1280.
+Raw BPB improves in both arms. This is evidence that 10× allocated
+expert count can receive real gradients and alter donor behavior,
+while useful large-E quality and balanced routing remain unproven.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
