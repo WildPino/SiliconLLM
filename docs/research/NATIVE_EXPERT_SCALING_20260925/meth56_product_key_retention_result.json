@@ -1,0 +1,617 @@
+{
+  "experiment": "METH-56-product-key-strong-KL-continuation",
+  "source_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "resume_sha256": "2d652709c6730e2b4f3a1a543834d7eec7409ef0f374738ae24d57ae2a5b5bd3",
+  "teacher_sha256": "f42f678280a9086a0fc2ec6e57a712e33fdea8f5cb62bdac7f53c9f28a5f1dd7",
+  "train_chat_manifest_sha256": "17921cb83c1d10793e2a56df6aa899039bd794757eeff43921068b8de2096055",
+  "previous_development_manifest_sha256": "269322564f0e4d26aae58314c465c1f742e386656e294e93574062f88ccb3338",
+  "development_manifest_sha256": "46b6c5b8c14894e0525febb8677b055a3874293b4da0edac2e8801ff918b6a31",
+  "m44_development_manifest_sha256": "703abca3f83a983d9380ba84c1a79744d15881d638174b064cf38a47453f47ba",
+  "m47_development_manifest_sha256": "0195852ce7a46af5a2d9442b38e687a19393a943168b61a8f8cdb0c66ec78a60",
+  "raw_train_ids_sha256": "9bb5229fad6542aa8b3fd7edfc3b8d1dff965a573d7aa8379385caacc9d614da",
+  "raw_eval_ids_sha256": "c5345782fc0b08ef3212403878a33960ae0da236c999272e79e418f29c277d3c",
+  "factor_lr": 0.0001,
+  "router_lr": 1e-05,
+  "raw_kl_weight": 2.0,
+  "full_chat_kl_weight": 4.0,
+  "target_update": 512,
+  "last_applied_update": 512,
+  "interim_evaluations": [
+    {
+      "step": 16,
+      "donor_bpb": 0.9712552075318387,
+      "student_bpb": 0.9697036007476514,
+      "delta_bpb": -0.0015516067841873094,
+      "dev_top1": {
+        "matching": 3668,
+        "positions": 3810,
+        "agreement": 0.9627296587926509,
+        "route_load_by_layer": [
+          {
+            "selected_slots": 125,
+            "max_to_mean": 6.979527473449707,
+            "min_count": 0,
+            "max_count": 831,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 127,
+            "max_to_mean": 8.188976287841797,
+            "min_count": 0,
+            "max_count": 975,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 126,
+            "max_to_mean": 3.645144462585449,
+            "min_count": 0,
+            "max_count": 434,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 126,
+            "max_to_mean": 7.105511665344238,
+            "min_count": 0,
+            "max_count": 846,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 126,
+            "max_to_mean": 4.871391296386719,
+            "min_count": 0,
+            "max_count": 580,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 124,
+            "max_to_mean": 8.886089324951172,
+            "min_count": 0,
+            "max_count": 1058,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 125,
+            "max_to_mean": 4.518635272979736,
+            "min_count": 0,
+            "max_count": 538,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 123,
+            "max_to_mean": 7.038320064544678,
+            "min_count": 0,
+            "max_count": 838,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 121,
+            "max_to_mean": 4.636220455169678,
+            "min_count": 0,
+            "max_count": 552,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 126,
+            "max_to_mean": 9.037270545959473,
+            "min_count": 0,
+            "max_count": 1076,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 124,
+            "max_to_mean": 7.357480525970459,
+            "min_count": 0,
+            "max_count": 876,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 127,
+            "max_to_mean": 7.265091896057129,
+            "min_count": 0,
+            "max_count": 865,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 127,
+            "max_to_mean": 8.63412094116211,
+            "min_count": 0,
+            "max_count": 1028,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 126,
+            "max_to_mean": 11.17060375213623,
+            "min_count": 0,
+            "max_count": 1330,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 124,
+            "max_to_mean": 7.676640510559082,
+            "min_count": 0,
+            "max_count": 914,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 114,
+            "max_to_mean": 17.704986572265625,
+            "min_count": 0,
+            "max_count": 2108,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 117,
+            "max_to_mean": 15.437270164489746,
+            "min_count": 0,
+            "max_count": 1838,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 98,
+            "max_to_mean": 22.55118179321289,
+            "min_count": 0,
+            "max_count": 2685,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 127,
+            "max_to_mean": 8.970078468322754,
+            "min_count": 0,
+            "max_count": 1068,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 122,
+            "max_to_mean": 13.39632511138916,
+            "min_count": 0,
+            "max_count": 1595,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 121,
+            "max_to_mean": 7.155905723571777,
+            "min_count": 0,
+            "max_count": 852,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 123,
+            "max_to_mean": 9.406824111938477,
+            "min_count": 0,
+            "max_count": 1120,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 127,
+            "max_to_mean": 6.483989715576172,
+            "min_count": 0,
+            "max_count": 772,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 128,
+            "max_to_mean": 5.282939434051514,
+            "min_count": 1,
+            "max_count": 629,
+            "total_selections": 15240
+          }
+        ],
+        "min_selected_slots": 98,
+        "worst_max_to_mean_load": 22.55118179321289
+      }
+    },
+    {
+      "step": 256,
+      "student_bpb": 0.957322586805344,
+      "delta_bpb": -0.013932620726494704,
+      "dev_top1": {
+        "matching": 3740,
+        "positions": 3810,
+        "agreement": 0.9816272965879265,
+        "route_load_by_layer": [
+          {
+            "selected_slots": 124,
+            "max_to_mean": 9.902361869812012,
+            "min_count": 0,
+            "max_count": 1179,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 128,
+            "max_to_mean": 12.573227882385254,
+            "min_count": 1,
+            "max_count": 1497,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 128,
+            "max_to_mean": 5.593700885772705,
+            "min_count": 1,
+            "max_count": 666,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 126,
+            "max_to_mean": 8.869291305541992,
+            "min_count": 0,
+            "max_count": 1056,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 127,
+            "max_to_mean": 8.42414665222168,
+            "min_count": 0,
+            "max_count": 1003,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 125,
+            "max_to_mean": 9.062467575073242,
+            "min_count": 0,
+            "max_count": 1079,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 126,
+            "max_to_mean": 6.458792686462402,
+            "min_count": 0,
+            "max_count": 769,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 128,
+            "max_to_mean": 6.819947719573975,
+            "min_count": 1,
+            "max_count": 812,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 123,
+            "max_to_mean": 5.459317684173584,
+            "min_count": 0,
+            "max_count": 650,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 128,
+            "max_to_mean": 9.725984573364258,
+            "min_count": 1,
+            "max_count": 1158,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 128,
+            "max_to_mean": 6.10603666305542,
+            "min_count": 1,
+            "max_count": 727,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 127,
+            "max_to_mean": 9.82677173614502,
+            "min_count": 0,
+            "max_count": 1170,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 123,
+            "max_to_mean": 6.1312336921691895,
+            "min_count": 0,
+            "max_count": 730,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 126,
+            "max_to_mean": 8.272965431213379,
+            "min_count": 0,
+            "max_count": 985,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 126,
+            "max_to_mean": 6.20682430267334,
+            "min_count": 0,
+            "max_count": 739,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 122,
+            "max_to_mean": 8.146981239318848,
+            "min_count": 0,
+            "max_count": 970,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 121,
+            "max_to_mean": 10.565878868103027,
+            "min_count": 0,
+            "max_count": 1258,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 110,
+            "max_to_mean": 14.043045043945312,
+            "min_count": 0,
+            "max_count": 1672,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 127,
+            "max_to_mean": 4.711811065673828,
+            "min_count": 0,
+            "max_count": 561,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 124,
+            "max_to_mean": 10.347506523132324,
+            "min_count": 0,
+            "max_count": 1232,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 123,
+            "max_to_mean": 12.43044662475586,
+            "min_count": 0,
+            "max_count": 1480,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 127,
+            "max_to_mean": 9.297637939453125,
+            "min_count": 0,
+            "max_count": 1107,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 128,
+            "max_to_mean": 6.618372917175293,
+            "min_count": 1,
+            "max_count": 788,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 126,
+            "max_to_mean": 4.91338586807251,
+            "min_count": 0,
+            "max_count": 585,
+            "total_selections": 15240
+          }
+        ],
+        "min_selected_slots": 110,
+        "worst_max_to_mean_load": 14.043045043945312
+      }
+    },
+    {
+      "step": 512,
+      "student_bpb": 0.9567706493463992,
+      "delta_bpb": -0.014484558185439478,
+      "dev_top1": {
+        "matching": 3689,
+        "positions": 3810,
+        "agreement": 0.968241469816273,
+        "route_load_by_layer": [
+          {
+            "selected_slots": 120,
+            "max_to_mean": 9.902361869812012,
+            "min_count": 0,
+            "max_count": 1179,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 126,
+            "max_to_mean": 14.75695514678955,
+            "min_count": 0,
+            "max_count": 1757,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 128,
+            "max_to_mean": 5.518110275268555,
+            "min_count": 1,
+            "max_count": 657,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 124,
+            "max_to_mean": 8.054593086242676,
+            "min_count": 0,
+            "max_count": 959,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 126,
+            "max_to_mean": 14.76535415649414,
+            "min_count": 0,
+            "max_count": 1758,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 125,
+            "max_to_mean": 9.264041900634766,
+            "min_count": 0,
+            "max_count": 1103,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 126,
+            "max_to_mean": 7.281889915466309,
+            "min_count": 0,
+            "max_count": 867,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 128,
+            "max_to_mean": 6.777952671051025,
+            "min_count": 1,
+            "max_count": 807,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 122,
+            "max_to_mean": 6.1312336921691895,
+            "min_count": 0,
+            "max_count": 730,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 128,
+            "max_to_mean": 8.734908103942871,
+            "min_count": 1,
+            "max_count": 1040,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 127,
+            "max_to_mean": 5.2073493003845215,
+            "min_count": 0,
+            "max_count": 620,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 127,
+            "max_to_mean": 10.809449195861816,
+            "min_count": 0,
+            "max_count": 1287,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 123,
+            "max_to_mean": 5.375328063964844,
+            "min_count": 0,
+            "max_count": 640,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 127,
+            "max_to_mean": 8.029396057128906,
+            "min_count": 0,
+            "max_count": 956,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 126,
+            "max_to_mean": 7.449868679046631,
+            "min_count": 0,
+            "max_count": 887,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 124,
+            "max_to_mean": 8.734908103942871,
+            "min_count": 0,
+            "max_count": 1040,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 121,
+            "max_to_mean": 7.769028663635254,
+            "min_count": 0,
+            "max_count": 925,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 112,
+            "max_to_mean": 13.58950138092041,
+            "min_count": 0,
+            "max_count": 1618,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 127,
+            "max_to_mean": 4.90498685836792,
+            "min_count": 0,
+            "max_count": 584,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 125,
+            "max_to_mean": 8.60892391204834,
+            "min_count": 0,
+            "max_count": 1025,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 126,
+            "max_to_mean": 8.77690315246582,
+            "min_count": 0,
+            "max_count": 1045,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 126,
+            "max_to_mean": 9.499212265014648,
+            "min_count": 0,
+            "max_count": 1131,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 128,
+            "max_to_mean": 6.828346252441406,
+            "min_count": 2,
+            "max_count": 813,
+            "total_selections": 15240
+          },
+          {
+            "selected_slots": 124,
+            "max_to_mean": 8.004199028015137,
+            "min_count": 0,
+            "max_count": 953,
+            "total_selections": 15240
+          }
+        ],
+        "min_selected_slots": 112,
+        "worst_max_to_mean_load": 14.76535415649414
+      }
+    }
+  ],
+  "checkpoints": {
+    "256": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth56_checkpoints\\meth56_update256.pt",
+      "sha256": "8f950d764959705fd055c6b6de3cf6b294fc8ba443a5b3e2a7c31f25e0b861a3",
+      "bytes": 545529924
+    },
+    "512": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth56_checkpoints\\meth56_update512.pt",
+      "sha256": "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072",
+      "bytes": 545529924
+    }
+  },
+  "terminal_changed_slots_by_layer": [
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128
+  ],
+  "stop_reason": null,
+  "decision": "eligible_for_frozen_external_evaluation",
+  "runtime": {
+    "elapsed_seconds": 779.844,
+    "rss_end_bytes": 3910180864,
+    "gpu_peak_allocated_bytes": 2561858048,
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "cuda_index": 0,
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6"
+  }
+}

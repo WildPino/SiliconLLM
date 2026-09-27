@@ -75,6 +75,13 @@ parity: fresh chat-prompt top-1 95.985%, raw ΔBPB −0.001552, at least
 125 changed B slots/layer. It passes the early screen but has
 21.76× worst maximum/mean route load. Longer retention and semantic
 audit remain necessary before any larger-E quality claim.
+METH-56 resumes that exact checkpoint with stronger donor KL through
+update 512. On a new disjoint 24-prompt set it passes terminal gates:
+96.824% top-1, raw ΔBPB −0.014485 and all 128 B slots changed/layer.
+Agreement peaks at 98.163% at 256, then declines; maximum/mean
+route load is still 14.77× at 512. The terminal checkpoint is
+eligible for a frozen external semantic/task audit, not yet native
+promotion or a trained large-E claim.
 METH-31 measures the existing CPU LUT kernel in the Qwen rank-8
 shape with synthetic packed factors: E1280→E12800 raises the
 six-thread selected path only 1.136× to 0.505 ms/token. That
@@ -601,9 +608,11 @@ scheduled.
   at E27,355 with a replicated pool. METH-53 rejects full-width
   product keys under its 10× scaling bound; METH-54 passes that CPU
   bound with rank-64 product keys. METH-55's joint E128 smoke passes
-  its early donor-retention gates with distinct factors, but needs
-  a longer continuation, source-grounded semantic audit and
-  **distinct learned** large-E quality ladder. METH-48/49 reject two int8 factor layouts;
+  its early donor-retention gates with distinct factors. METH-56 now passes
+  the longer E128 retention screen at update 512; the next gate is
+  a genuinely external, source-grounded semantic/task audit.
+  A **distinct learned** large-E quality ladder remains necessary.
+  METH-48/49 reject two int8 factor layouts;
   any one-byte LUT export needs a new quality-valid adaptation, not
   further scale tuning on these prompts.
   Promote only after joint semantic quality and usefulness pass; then

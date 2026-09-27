@@ -515,6 +515,15 @@ raw BPB by 0.001552 and changes at least 125 expert B slots/layer.
 The exact pair oracle passes on real hidden states, but routing is
 concentrated (worst maximum/mean 21.76×). This is an early E128
 candidate, not proof of semantic conservation or large-E quality.
+[METH-56](METH_56_PRODUCT_KEY_RETENTION_RESULT_20260927.md) resumes
+that exact checkpoint with stronger donor KL to update 512. A new
+disjoint 24-prompt development set passes terminal top-1 (96.824%)
+and raw BPB (Δ−0.014485), with all E128 B slots changed/layer.
+Top-1 peaks at 98.163% at 256 and falls by 512, and route load
+remains concentrated (worst maximum/mean 14.77×). The fixed terminal
+checkpoint is eligible for external semantic/task audit. Neither
+this retention gate nor the synthetic CPU cost gate establishes
+quality at 10× distinct expert count or native model rate.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
@@ -522,8 +531,10 @@ large-E optimization. NES-03 provides a numerical/cost-passing int8 router
 option at pilot scale, with a fragile E128 latency margin. Independent larger
 experts remain untrained, and no pretrained donor has been converted into a
 quality-valid, ≥50 accepted tok/s native artifact. The next method decision
-is whether METH-47's donor-relative semantic quality survives a broader
-frozen source-grounded generation audit. In parallel, a high-fidelity
+is whether METH-56's terminal product-key checkpoint preserves donor-relative
+semantic quality on a frozen external, source-grounded generation and task
+audit. METH-47 remains a separate exact-router candidate with its own
+semantic question. In parallel, a high-fidelity
 packed export and bounded CPU router can be developed as diagnostics;
 promotion needs semantic quality, C parity/rate on the same artifact,
 and a distinctly trained expert-count ladder.
