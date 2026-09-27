@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[3]
 DIR = ROOT / "docs/research/NATIVE_EXPERT_SCALING_20260925"
 PROMPTS = DIR / "meth43_instruct_chat_train_manifest.json"
 PROMPTS_SHA = "17921cb83c1d10793e2a56df6aa899039bd794757eeff43921068b8de2096055"
-PARENT_SHA = "8371262a1461a44fcedf12d129059d8b8aa1f72ced49e7dd0210fe288fb7fe"
+PARENT_SHA = "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072"
 MODEL_SHA = "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe"
 
 
