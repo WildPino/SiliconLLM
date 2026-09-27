@@ -1,0 +1,67 @@
+{
+  "experiment": "METH-59-Instruct-R8-packed-core-export",
+  "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth59_qwen05b_instruct_r8_core.safetensors",
+  "sha256": "5b6ace4a027d127a6eb49ca99197edd4a1b810ebe681d8e3b6ab7edc088ca9bd",
+  "bytes": 496122304,
+  "tensor_count": 459,
+  "metadata": {
+    "experiment": "METH-59",
+    "format": "QWEN25_INSTRUCT_R8_CORE_V1",
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "model_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+    "product_key_checkpoint_sha256": "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072",
+    "source_manifest_sha256": "9571f5d61c29e34b27c05ec531232a08b9eb6cd81bdf85aa5648ff74f1db3d75",
+    "rule": "t2_rules.r8_int8_rtn per output row",
+    "matrix_codes": "signed int8 [-127,127]",
+    "row_scale_dtype": "float32",
+    "control_dtype": "float32",
+    "reconstruction_dtype": "bfloat16",
+    "tied_head": "true",
+    "matrix_count": "169"
+  },
+  "organs": {
+    "tied_head": {
+      "matrices": 1,
+      "parameters": 136134656,
+      "int8_code_bytes": 136134656,
+      "fp32_row_scale_bytes": 607744,
+      "max_relative_l2_error": 0.009189692325890064,
+      "max_abs_error": 0.00079345703125
+    },
+    "ffn": {
+      "matrices": 72,
+      "parameters": 313786368,
+      "int8_code_bytes": 313786368,
+      "fp32_row_scale_bytes": 1019904,
+      "max_relative_l2_error": 0.014939417131245136,
+      "max_abs_error": 0.00390625
+    },
+    "attention": {
+      "matrices": 96,
+      "parameters": 44040192,
+      "int8_code_bytes": 44040192,
+      "fp32_row_scale_bytes": 196608,
+      "max_relative_l2_error": 0.014836563728749752,
+      "max_abs_error": 0.0078125
+    },
+    "control": {
+      "matrices": 0,
+      "parameters": 71552,
+      "int8_code_bytes": 0,
+      "fp32_row_scale_bytes": 0,
+      "max_relative_l2_error": 0.0,
+      "max_abs_error": 0.0
+    }
+  },
+  "exact_reload_equal": true,
+  "runtime": {
+    "elapsed_seconds": 15.265999999999622,
+    "rss_end_bytes": 3590512640,
+    "gpu_peak_allocated_bytes": 2863045632,
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "cuda_index": 0,
+    "torch": "2.6.0+cu124"
+  },
+  "decision": "stored_core_ready_for_composition_diagnostic"
+}
