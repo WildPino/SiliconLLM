@@ -849,7 +849,18 @@ scheduled.
   severe counts 15/15 and missing-detail 0/0 pass. Stop native
   promotion. Next: investigate a core/adaptation rule that preserves
   excerpt-grounded response fidelity on untouched sources, while
-  retaining the separate E1280 learned-quality/routing gap.
+  retaining the separate E1280 learned-quality/routing gap. METH-91
+  spends 1.519 MB of remaining ideal payload on group-128 FP16 head
+  scales and verifies a 558.626 MB/token stored core. METH-93 repeats
+  the frozen 64-update B-only adaptation on that core. METH-94's 24
+  newly disjoint sources show the head improves expert-disabled donor
+  top-1 by 0.533 point, but adapted composition falls to 93.384%
+  versus 94.161% for the old-core adapted arm. It fails three of
+  seven development gates. Stop this head-precision refinement before
+  external promotion. Next exact action: pursue function-preserving
+  expansion of the learned E128 bank to 10× distinct experts with
+  bounded hierarchical routing, then measure learned quality and CPU
+  component cost; do not infer success from the prior synthetic stress.
   No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`

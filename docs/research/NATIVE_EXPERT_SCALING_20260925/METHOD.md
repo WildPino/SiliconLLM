@@ -762,6 +762,17 @@ Thus this specific compact core and adapted E128 bank remain a
 development result, not a quality-valid native candidate. The next
 core/adaptation rule must target excerpt-grounded response fidelity;
 later native and large-E requirements remain unchanged.
+[METH-91/94](METH_94_GROUPED_HEAD_RESULT_20260927.md) tests an
+affordable group-128 scale map for the tied R8 head, adding 1.519 MB
+to 558.626 MB ideal addressed bytes/token. Its exact stored readback
+passes. The unchanged B-only distillation recipe on this core improves
+the expert-disabled top-1 but lowers adapted top-1 to 93.384% on a new
+24-source set, versus 94.161% for the earlier core and bank. Three
+frozen development gates fail. This precision allocation does not
+repair the quality issue under the tested adaptation, and it does not
+license an external audit or C integration. The learned expert-count
+ladder should next test a function-preserving E128→E1280 expansion
+with bounded routing, while the compact-core semantic gap remains open.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
