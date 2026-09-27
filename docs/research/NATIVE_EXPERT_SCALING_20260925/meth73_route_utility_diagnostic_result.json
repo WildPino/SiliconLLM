@@ -1,0 +1,1502 @@
+{
+  "experiment": "METH-73-E1280-route-utility-diagnostic",
+  "training_result_sha256": "5e2470ac264501c3bdd56a94408c117f30397436b7ef2e64cce254863b5b8283",
+  "checkpoint_sha256": "ead764d1f258819f2ee2d7e6af7995d329a078e360f06f085325c96ac6437fbb",
+  "external_manifest_sha256": "11621dce9638aae01cc3bd8c76730de7676e4bbb704271056f164b9ad4d5b437",
+  "raw_eval_ids_sha256": "c5345782fc0b08ef3212403878a33960ae0da236c999272e79e418f29c277d3c",
+  "seeds": [
+    730000,
+    730001,
+    730002,
+    730003,
+    730004,
+    730005,
+    730006,
+    730007
+  ],
+  "trained_document_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/ternary/e20_rule_or_format.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": 2553.1522521972656
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e30_bandwidth.c",
+      "category": "code",
+      "bytes": 4095,
+      "nats": 2795.597930908203
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth23_int8_core_composition_diagnostic.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": 1918.354736328125
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_router_weight_normalization_compile_parity.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": 2394.698944091797
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/common.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": 2869.3052253723145
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth44_instruct_full_chat_smoke.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": 1546.2915725708008
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_continuation.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": 2002.8258666992188
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_bf16_full_export.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": 1441.2939758300781
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=40",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": 3544.0775756835938
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=6",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": 3264.328125
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=76",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": 3313.6759033203125
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=47",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": 3917.0204467773438
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=36",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": 3188.5157775878906
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=1",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": 4314.57861328125
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=73",
+      "category": "prose",
+      "bytes": 4093,
+      "nats": 2819.9820556640625
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=79",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": 2944.1224365234375
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_T2B_ORGAN_COVERAGE.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": 4551.251220703125
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E15_DOES_THE_7B_PREDICT.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": 4549.758544921875
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E8_MATVEC_DEPENDENCY_CHAIN.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": 4642.694396972656
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/P3_DONOR_SHAPE_ON_ENGINE.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": 4678.923583984375
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_RESULT_20260924.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": 4998.114715576172
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E11_LUT_KERNEL_CEILING.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": 4762.442626953125
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": 5161.4844970703125
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/DONOR_STAGE1_ARITHMETIC.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": 4716.3956298828125
+    }
+  ],
+  "trained_document_bpb": {
+    "pooled": 1.2167869281058745,
+    "code": 0.7716181544551869,
+    "prose": 1.2025967684922645,
+    "technical_general": 1.6761449950600615
+  },
+  "trained_raw_bpb": 0.9694702585254575,
+  "trials": [
+    {
+      "seed": 730000,
+      "document_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e20_rule_or_format.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2551.7325439453125
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e30_bandwidth.c",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2797.3665161132812
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth23_int8_core_composition_diagnostic.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1920.2262573242188
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_router_weight_normalization_compile_parity.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2394.5392303466797
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/common.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2869.3644409179688
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth44_instruct_full_chat_smoke.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1546.7942924499512
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_continuation.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2002.4904479980469
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_bf16_full_export.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1443.8506469726562
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=40",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3547.634853363037
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=6",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3269.8863525390625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=76",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3316.4920654296875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=47",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3920.435577392578
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=36",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3194.375762939453
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=1",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 4319.623809814453
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=73",
+          "category": "prose",
+          "bytes": 4093,
+          "nats": 2821.559326171875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=79",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2947.0882568359375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_T2B_ORGAN_COVERAGE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4554.163818359375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E15_DOES_THE_7B_PREDICT.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4549.328857421875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E8_MATVEC_DEPENDENCY_CHAIN.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4645.668975830078
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/P3_DONOR_SHAPE_ON_ENGINE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4686.620910644531
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_RESULT_20260924.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5000.0079345703125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E11_LUT_KERNEL_CEILING.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4767.2103271484375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5158.8013916015625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/DONOR_STAGE1_ARITHMETIC.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4718.9539794921875
+        }
+      ],
+      "document_bpb": {
+        "pooled": 1.2175991567194167,
+        "code": 0.7718314703958017,
+        "prose": 1.2039530141637942,
+        "technical_general": 1.677012152500818
+      },
+      "document_delta_bpb": {
+        "pooled": 0.0008122286135421319,
+        "code": 0.00021331594061479997,
+        "prose": 0.0013562456715296989,
+        "technical_general": 0.0008671574407563831
+      },
+      "raw_bpb": 0.9718647704244187,
+      "raw_delta_bpb": 0.002394511898961116
+    },
+    {
+      "seed": 730001,
+      "document_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e20_rule_or_format.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2553.6220703125
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e30_bandwidth.c",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2796.52783203125
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth23_int8_core_composition_diagnostic.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1920.2135009765625
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_router_weight_normalization_compile_parity.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2395.559783935547
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/common.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2868.2007942199707
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth44_instruct_full_chat_smoke.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1546.5393753051758
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_continuation.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2006.1679077148438
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_bf16_full_export.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1441.17333984375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=40",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3546.936954498291
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=6",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3270.89404296875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=76",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3317.8067626953125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=47",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3920.6994018554688
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=36",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3197.18603515625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=1",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 4318.401763916016
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=73",
+          "category": "prose",
+          "bytes": 4093,
+          "nats": 2820.448486328125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=79",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2946.5284423828125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_T2B_ORGAN_COVERAGE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4553.9765625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E15_DOES_THE_7B_PREDICT.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4549.0638427734375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E8_MATVEC_DEPENDENCY_CHAIN.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4644.986328125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/P3_DONOR_SHAPE_ON_ENGINE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4686.8408203125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_RESULT_20260924.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4999.980224609375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E11_LUT_KERNEL_CEILING.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4767.9801025390625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5160.007568359375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/DONOR_STAGE1_ARITHMETIC.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4718.564453125
+        }
+      ],
+      "document_bpb": {
+        "pooled": 1.21765919420772,
+        "code": 0.7719037032771568,
+        "prose": 1.2040325471569038,
+        "technical_general": 1.6770405002814648
+      },
+      "document_delta_bpb": {
+        "pooled": 0.0008722661018454314,
+        "code": 0.0002855488219699609,
+        "prose": 0.0014357786646392867,
+        "technical_general": 0.0008955052214032477
+      },
+      "raw_bpb": 0.971190077836904,
+      "raw_delta_bpb": 0.001719819311446491
+    },
+    {
+      "seed": 730002,
+      "document_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e20_rule_or_format.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2552.268035888672
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e30_bandwidth.c",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2798.289306640625
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth23_int8_core_composition_diagnostic.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1921.5992431640625
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_router_weight_normalization_compile_parity.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2393.146614074707
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/common.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2867.450523376465
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth44_instruct_full_chat_smoke.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1547.816162109375
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_continuation.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2002.1159362792969
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_bf16_full_export.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1443.973876953125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=40",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3546.706157684326
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=6",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3271.71337890625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=76",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3318.2730712890625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=47",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3922.1859741210938
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=36",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3196.162384033203
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=1",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 4320.63330078125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=73",
+          "category": "prose",
+          "bytes": 4093,
+          "nats": 2821.627685546875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=79",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2947.3328857421875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_T2B_ORGAN_COVERAGE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4553.729309082031
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E15_DOES_THE_7B_PREDICT.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4553.825012207031
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E8_MATVEC_DEPENDENCY_CHAIN.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4644.045745849609
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/P3_DONOR_SHAPE_ON_ENGINE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4683.5404052734375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_RESULT_20260924.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5001.549362182617
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E11_LUT_KERNEL_CEILING.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4767.5552978515625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5157.8900146484375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/DONOR_STAGE1_ARITHMETIC.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4717.435546875
+        }
+      ],
+      "document_bpb": {
+        "pooled": 1.2176967572150237,
+        "code": 0.7718444758960525,
+        "prose": 1.2042850319266312,
+        "technical_general": 1.6769599450357398
+      },
+      "document_delta_bpb": {
+        "pooled": 0.0009098291091491628,
+        "code": 0.0002263214408656511,
+        "prose": 0.001688263434366677,
+        "technical_general": 0.0008149499756782141
+      },
+      "raw_bpb": 0.9710780513069694,
+      "raw_delta_bpb": 0.0016077927815119075
+    },
+    {
+      "seed": 730003,
+      "document_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e20_rule_or_format.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2553.91064453125
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e30_bandwidth.c",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2797.726531982422
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth23_int8_core_composition_diagnostic.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1924.1141357421875
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_router_weight_normalization_compile_parity.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2393.0276641845703
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/common.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2869.3142051696777
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth44_instruct_full_chat_smoke.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1545.5906829833984
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_continuation.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2004.8817749023438
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_bf16_full_export.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1444.131103515625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=40",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3550.2760009765625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=6",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3271.4365234375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=76",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3318.6796875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=47",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3922.036895751953
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=36",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3194.9703063964844
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=1",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 4319.7113037109375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=73",
+          "category": "prose",
+          "bytes": 4093,
+          "nats": 2823.1527099609375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=79",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2945.746337890625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_T2B_ORGAN_COVERAGE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4554.439453125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E15_DOES_THE_7B_PREDICT.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4550.489318847656
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E8_MATVEC_DEPENDENCY_CHAIN.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4642.927276611328
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/P3_DONOR_SHAPE_ON_ENGINE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4682.354248046875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_RESULT_20260924.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5000.125328063965
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E11_LUT_KERNEL_CEILING.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4766.299621582031
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5161.5633544921875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/DONOR_STAGE1_ARITHMETIC.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4721.529052734375
+        }
+      ],
+      "document_bpb": {
+        "pooled": 1.217807867128277,
+        "code": 0.7721103371353094,
+        "prose": 1.204345585108015,
+        "technical_general": 1.6769668572683671
+      },
+      "document_delta_bpb": {
+        "pooled": 0.0010209390224025228,
+        "code": 0.0004921826801225215,
+        "prose": 0.001748816615750437,
+        "technical_general": 0.0008218622083056015
+      },
+      "raw_bpb": 0.9709742295640054,
+      "raw_delta_bpb": 0.0015039710385478244
+    },
+    {
+      "seed": 730004,
+      "document_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e20_rule_or_format.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2554.3242797851562
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e30_bandwidth.c",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2798.2304077148438
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth23_int8_core_composition_diagnostic.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1920.7781982421875
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_router_weight_normalization_compile_parity.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2393.490478515625
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/common.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2868.7401275634766
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth44_instruct_full_chat_smoke.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1546.8826904296875
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_continuation.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2004.683837890625
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_bf16_full_export.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1442.886474609375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=40",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3546.9667587280273
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=6",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3271.6219482421875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=76",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3318.2921142578125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=47",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3919.75830078125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=36",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3195.8235626220703
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=1",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 4320.297027587891
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=73",
+          "category": "prose",
+          "bytes": 4093,
+          "nats": 2823.538330078125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=79",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2944.87646484375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_T2B_ORGAN_COVERAGE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4553.9478759765625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E15_DOES_THE_7B_PREDICT.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4552.691833496094
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E8_MATVEC_DEPENDENCY_CHAIN.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4645.258041381836
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/P3_DONOR_SHAPE_ON_ENGINE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4685.7066650390625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_RESULT_20260924.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5000.859512329102
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E11_LUT_KERNEL_CEILING.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4767.2032470703125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5159.39501953125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/DONOR_STAGE1_ARITHMETIC.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4717.2432861328125
+        }
+      ],
+      "document_bpb": {
+        "pooled": 1.2177353833025346,
+        "code": 0.7719923035311039,
+        "prose": 1.204132635494604,
+        "technical_general": 1.677080380433312
+      },
+      "document_delta_bpb": {
+        "pooled": 0.0009484551966600918,
+        "code": 0.0003741490759170407,
+        "prose": 0.0015358670023395415,
+        "technical_general": 0.0009353853732505524
+      },
+      "raw_bpb": 0.9721085149730172,
+      "raw_delta_bpb": 0.0026382564475596615
+    },
+    {
+      "seed": 730005,
+      "document_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e20_rule_or_format.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2552.7023315429688
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e30_bandwidth.c",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2796.8040161132812
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth23_int8_core_composition_diagnostic.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1922.7195434570312
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_router_weight_normalization_compile_parity.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2393.5422439575195
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/common.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2868.0477027893066
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth44_instruct_full_chat_smoke.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1548.3905334472656
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_continuation.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2003.2672729492188
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_bf16_full_export.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1441.9043884277344
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=40",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3547.544761657715
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=6",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3272.2021484375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=76",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3316.6407470703125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=47",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3921.691680908203
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=36",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3195.8693237304688
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=1",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 4319.018249511719
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=73",
+          "category": "prose",
+          "bytes": 4093,
+          "nats": 2822.8507080078125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=79",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2946.7470703125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_T2B_ORGAN_COVERAGE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4551.8277587890625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E15_DOES_THE_7B_PREDICT.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4553.371520996094
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E8_MATVEC_DEPENDENCY_CHAIN.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4643.480056762695
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/P3_DONOR_SHAPE_ON_ENGINE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4684.1962890625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_RESULT_20260924.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4999.235206604004
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E11_LUT_KERNEL_CEILING.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4769.47900390625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5162.580810546875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/DONOR_STAGE1_ARITHMETIC.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4718.9271240234375
+        }
+      ],
+      "document_bpb": {
+        "pooled": 1.2177286894923487,
+        "code": 0.7718761101202636,
+        "prose": 1.2041938605202964,
+        "technical_general": 1.6771152715343507
+      },
+      "document_delta_bpb": {
+        "pooled": 0.0009417613864741714,
+        "code": 0.0002579556650766923,
+        "prose": 0.0015970920280319323,
+        "technical_general": 0.0009702764742891556
+      },
+      "raw_bpb": 0.9719990410434735,
+      "raw_delta_bpb": 0.002528782518015915
+    },
+    {
+      "seed": 730006,
+      "document_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e20_rule_or_format.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2551.8236083984375
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e30_bandwidth.c",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2799.613250732422
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth23_int8_core_composition_diagnostic.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1922.389404296875
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_router_weight_normalization_compile_parity.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2393.6309204101562
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/common.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2868.340888977051
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth44_instruct_full_chat_smoke.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1547.509132385254
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_continuation.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2002.3211669921875
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_bf16_full_export.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1442.2133178710938
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=40",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3548.5263900756836
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=6",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3272.733154296875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=76",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3318.81640625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=47",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3921.988525390625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=36",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3195.2007751464844
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=1",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 4319.863464355469
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=73",
+          "category": "prose",
+          "bytes": 4093,
+          "nats": 2822.700927734375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=79",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2947.6083984375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_T2B_ORGAN_COVERAGE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4554.23828125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E15_DOES_THE_7B_PREDICT.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4552.917663574219
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E8_MATVEC_DEPENDENCY_CHAIN.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4643.754974365234
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/P3_DONOR_SHAPE_ON_ENGINE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4685.8609619140625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_RESULT_20260924.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4997.8021240234375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E11_LUT_KERNEL_CEILING.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4768.4609375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5160.523681640625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/DONOR_STAGE1_ARITHMETIC.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4719.3555908203125
+        }
+      ],
+      "document_bpb": {
+        "pooled": 1.217804340831199,
+        "code": 0.7718965288077353,
+        "prose": 1.204408487812444,
+        "technical_general": 1.6771071880557729
+      },
+      "document_delta_bpb": {
+        "pooled": 0.001017412725324407,
+        "code": 0.00027837435254840504,
+        "prose": 0.001811719320179428,
+        "technical_general": 0.0009621929957113196
+      },
+      "raw_bpb": 0.9712241061112872,
+      "raw_delta_bpb": 0.0017538475858296376
+    },
+    {
+      "seed": 730007,
+      "document_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e20_rule_or_format.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2552.7670288085938
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e30_bandwidth.c",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2796.5745239257812
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth23_int8_core_composition_diagnostic.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1917.3187866210938
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_router_weight_normalization_compile_parity.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2394.3581314086914
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/common.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2869.516441345215
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth44_instruct_full_chat_smoke.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1547.9403915405273
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_continuation.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2004.0179748535156
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_bf16_full_export.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1441.8358764648438
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=40",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3546.404083251953
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=6",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3272.10400390625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=76",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3318.6318359375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=47",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3923.330291748047
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=36",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3197.4348907470703
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=1",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 4319.4200439453125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=73",
+          "category": "prose",
+          "bytes": 4093,
+          "nats": 2821.7373046875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=79",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2948.5684814453125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_T2B_ORGAN_COVERAGE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4553.267028808594
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E15_DOES_THE_7B_PREDICT.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4553.063415527344
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/E8_MATVEC_DEPENDENCY_CHAIN.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4643.372253417969
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/P3_DONOR_SHAPE_ON_ENGINE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4684.98583984375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_RESULT_20260924.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4999.248313903809
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E11_LUT_KERNEL_CEILING.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4768.8980712890625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5162.3275146484375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/DONOR_STAGE1_ARITHMETIC.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4720.885498046875
+        }
+      ],
+      "document_bpb": {
+        "pooled": 1.2178016115642825,
+        "code": 0.7717418426977593,
+        "prose": 1.2044169830560838,
+        "technical_general": 1.677245191806617
+      },
+      "document_delta_bpb": {
+        "pooled": 0.001014683458407939,
+        "code": 0.00012368824257236177,
+        "prose": 0.0018202145638193112,
+        "technical_general": 0.0011001967465553708
+      },
+      "raw_bpb": 0.9710371521232637,
+      "raw_delta_bpb": 0.0015668935978061516
+    }
+  ],
+  "summary": {
+    "pooled_document": {
+      "median_delta_bpb": 0.0009451082915671316,
+      "min_delta_bpb": 0.0008122286135421319,
+      "max_delta_bpb": 0.0010209390224025228,
+      "positive_count": 8,
+      "permutations": 8
+    },
+    "raw_four_window": {
+      "median_delta_bpb": 0.0017368334486380643,
+      "min_delta_bpb": 0.0015039710385478244,
+      "max_delta_bpb": 0.0026382564475596615,
+      "positive_count": 8,
+      "permutations": 8
+    }
+  },
+  "runtime": {
+    "elapsed_seconds": 97.3130000000001,
+    "gpu_peak_allocated_bytes": 5838215168,
+    "rss_end_bytes": 5990645760,
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "cuda_index": 0,
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6"
+  },
+  "decision": "diagnostic_only_METH72_gate_remains_failed"
+}
