@@ -1,0 +1,687 @@
+{
+  "experiment": "METH-114-alpha075-arm-blind-development-verdict",
+  "blind_sha256": "742099d40b7e8d68701125e9581dca8fc81677dd0f2d586e682b21ef35d66542",
+  "reviewer": "single agent, excerpt-only review",
+  "rubric": "Count claims contradicted or not supported by the visible 384-character excerpt; severe means a central entity, event or result is inverted; missing_detail means no concrete supported detail is supplied.",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/test_strat01_f16_vector_propagation.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "test_inventory_predecessors_and_source_controls returns the shown dictionary",
+            "evidence": "Its definition begins only after the return dictionary in the excerpt.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "test_inventory_predecessors_and_source_controls returns the shown dictionary",
+            "evidence": "Its definition begins only after the return dictionary in the excerpt.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/ternary/e22_compose.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the q_proj and o_proj weights are stored in a dictionary",
+            "evidence": "The excerpt stops at mod.weight.da and shows no storage operation.",
+            "severe": false
+          },
+          {
+            "claim": "the loop's elapsed time is calculated",
+            "evidence": "Only t0 = time.time() is visible; no elapsed-time calculation appears.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the q_proj and o_proj weights are stored in a dictionary",
+            "evidence": "The excerpt stops at mod.weight.da and shows no storage operation.",
+            "severe": false
+          },
+          {
+            "claim": "the loop's elapsed time is calculated",
+            "evidence": "Only t0 = time.time() is visible; no elapsed-time calculation appears.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat02_w2_bf16_codec.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "source is an image",
+            "evidence": "The excerpt shows source rows and W2 BF16 encoding but never identifies an image.",
+            "severe": true
+          },
+          {
+            "claim": "source has shape (rows, groups, channels)",
+            "evidence": "Only source.shape[1] appears; no three-dimensional shape is shown.",
+            "severe": false
+          },
+          {
+            "claim": "tiles have shape (rows, groups, local_rows, local_groups, channels)",
+            "evidence": "The visible tile.a_bits.shape provides only local_rows and local_groups.",
+            "severe": false
+          },
+          {
+            "claim": "the offsets slice the source image for encoding",
+            "evidence": "The code encodes batch first and uses offsets for target_rows and a, not for slicing source afterwards.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "source is an image",
+            "evidence": "The excerpt shows source rows and W2 BF16 encoding but never identifies an image.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth11_shared_residual.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "h1_heldout.npz contains labels_E256.npz and h1_actstats.npz",
+            "evidence": "Those are separately loaded files after the heldout file.",
+            "severe": false
+          },
+          {
+            "claim": "the labels and stats arrays are checked for shape and values",
+            "evidence": "The visible shape/value assertions apply to ids and byts, before labels_np and stats_np are loaded.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_engine_rung2a.py",
+      "A": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat02_w2_bf16_codec.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the tie rule compares the absolute difference between a and b twice",
+            "evidence": "It compares |magnitude-b| with |magnitude-a|.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the function returns 0 when a<b and 1 when a>b",
+            "evidence": "The return depends on |magnitude-b| <= |magnitude-a|, not the ordering of a and b.",
+            "severe": true
+          },
+          {
+            "claim": "_w2_bf16_group_scalar_reference is nested in the prior function",
+            "evidence": "The visible def is at module level, after the prior return.",
+            "severe": false
+          },
+          {
+            "claim": "the group reference returns three integers from the comparison",
+            "evidence": "Its annotation is tuple[np.uint16, np.uint16, np.ndarray], with no such comparison result shown.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_engine_rung2b.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the loop checks that selected exists in the schema",
+            "evidence": "The excerpt ends at selected=selection.get(name), before any such check.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the loop checks that selected matches shape",
+            "evidence": "The excerpt ends at selected=selection.get(name), before any shape comparison.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/test_strat01_engine_rung0.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the truncated first function is named n",
+            "evidence": "The excerpt begins mid-signature at n(value...); its full name is not visible.",
+            "severe": false
+          },
+          {
+            "claim": "that rounding expression calculates storage bytes for a value",
+            "evidence": "The shown expression rounds a number to an alignment; bytes are not assigned to it.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the truncated first function is named n",
+            "evidence": "The excerpt begins mid-signature at n(value...); its full name is not visible.",
+            "severe": false
+          },
+          {
+            "claim": "it converts to a 32-bit integer by leading-zero padding",
+            "evidence": "It rounds value upward to a multiple of alignment; no bit width or zero-padding operation appears.",
+            "severe": true
+          },
+          {
+            "claim": "it counts elements fitting in an alignment",
+            "evidence": "The expression rounds value, rather than counting elements per alignment block.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=234:start=245366784",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the debate is a Council plenary session",
+            "evidence": "The speaker says 'here in plenary'; the Presidency in the Council put forward a compromise.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the debate is a Council plenary session",
+            "evidence": "The speaker says 'here in plenary'; the Presidency in the Council put forward a compromise.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=145:start=152043520",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Mr Schulz is the President giving the speech",
+            "evidence": "The speaker addresses 'Mr President' and separately names Martin Schulz as the group chairman.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Mr Schulz is the President giving the speech",
+            "evidence": "The speaker addresses 'Mr President' and separately names Martin Schulz as the group chairman.",
+            "severe": true
+          },
+          {
+            "claim": "Martin Schulz is a member of the group chairman",
+            "evidence": "The excerpt calls him the group chairman and spokesman, not a member of one.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=222:start=232783872",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the fishermen face this in many parts of the world",
+            "evidence": "The visible excerpt stops at 'many parts of the' and supplies no geographic completion.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the fishermen face this in many parts of the world",
+            "evidence": "The visible excerpt stops at 'many parts of the' and supplies no geographic completion.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=254:start=266338304",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "a minority is already blocking the regime",
+            "evidence": "The excerpt predicts a blocking minority will oppose continuation.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "a minority is already blocking the regime",
+            "evidence": "The excerpt predicts a blocking minority will oppose continuation.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=207:start=217055232",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Eurobonds and the CDU/CSU parties are parties to a debate",
+            "evidence": "Eurobonds are a proposal and the CDU/CSU are political parties opposing it.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Eurobonds and the CDU/CSU parties are parties to a debate",
+            "evidence": "Eurobonds are a proposal and the CDU/CSU are political parties opposing it.",
+            "severe": false
+          },
+          {
+            "claim": "G20 action on a speculation tax is infeasible",
+            "evidence": "The source frames EU action conditionally if worldwide G20 action cannot be achieved.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=191:start=200278016",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the President is discussing Eurostat at a meeting",
+            "evidence": "The text is a speaker addressing Mr President and reporting the Committee's position.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the President is discussing Eurostat at a meeting",
+            "evidence": "The text is a speaker addressing Mr President and reporting the Committee's position.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=180:start=188743680",
+      "A": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=226:start=236978176",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Community wine production and consumption are generally below expectation",
+            "evidence": "The excerpt gives under-1% production and 10% consumption for a truncated subject, then discusses an obligatory wine burden.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Community wine production and consumption are generally below expectation",
+            "evidence": "The excerpt gives under-1% production and 10% consumption for a truncated subject, then discusses an obligatory wine burden.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_T2_TERNARIZATION_RULE.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the donor revision changed to the displayed hash",
+            "evidence": "The excerpt says the donor revision is fixed; only codes and scale differ.",
+            "severe": false
+          },
+          {
+            "claim": "the model now uses the donor revision as a code",
+            "evidence": "The displayed 8faed761… identifies a fixed revision, not a quantization code.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the evaluation slice changed relative to a prior version",
+            "evidence": "The excerpt explicitly calls the heldout 24x512 slice shared and fixed.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E23_A_REAL_ROUTER.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "F1 and E19 are two neural-network architectures",
+            "evidence": "They name prior tolerance questions/probes; the excerpt does not identify architectures.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "F1 and E19 are two neural-network architectures",
+            "evidence": "They name prior tolerance questions/probes; the excerpt does not identify architectures.",
+            "severe": false
+          },
+          {
+            "claim": "E19's tolerance is 48%",
+            "evidence": "V52 drops 48% of FFN output for +0.141846 BPB; 48% is not a tolerance threshold.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/STRUCTURED_SPARSITY_PRIOR_ART.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "MoE means Multi-Output Embedding",
+            "evidence": "MoE is used for mixture-of-experts conversion, with other layers left dense.",
+            "severe": false
+          },
+          {
+            "claim": "Neuralink and LLM-in-a-Flash are cited as the half-layer MoE precedent",
+            "evidence": "They start a new memory-layout section; the half-layer precedent is in the preceding paragraph.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the dense architecture converts 12/24 layers to MoE",
+            "evidence": "The excerpt says the rest of a partially converted architecture stay dense; it does not assign MoE layers to a dense architecture.",
+            "severe": true
+          },
+          {
+            "claim": "Neuralink and LLM-in-a-Flash exemplify the half-layer MoE precedent",
+            "evidence": "They are only named in the following memory-layout section heading.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the aux=0 setting is now observed to gain more points",
+            "evidence": "The paragraph is explicitly a registered prediction written before numbers exist.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E49_THE_ATTENTION_KERNEL_WAS_NEVER_SWITCHED_ON.md",
+      "A": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_T3_ROTATION.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the rotation has already removed outliers from weights and activations",
+            "evidence": "The excerpt states this as a conditional hypothesis: 'If a rotation removes them'.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the rotation has already removed outliers from weights and activations",
+            "evidence": "The excerpt states this as a conditional hypothesis: 'If a rotation removes them'.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_02_W4_BF16_QUALITY_SCORE.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the full export verification is for the baseline F32 heldout dataset",
+            "evidence": "The COMPLETE verifier belongs to the full W4 BF16 export; F32 heldout is a separately fixed baseline.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the full export verification is for the baseline F32 heldout dataset",
+            "evidence": "The COMPLETE verifier belongs to the full W4 BF16 export; F32 heldout is a separately fixed baseline.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E46_WHAT_DOES_A_TOKEN_COST_AT_A_REAL_CONTEXT.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "failure of the rise means E46 is not functioning",
+            "evidence": "The excerpt says absent rise would make run 3 contention; no E46-functioning conclusion is visible.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    }
+  ]
+}

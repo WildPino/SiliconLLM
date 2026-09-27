@@ -1,0 +1,176 @@
+{
+  "experiment": "METH-114-alpha075-E1280-blind-development-review",
+  "manifest_sha256": "41f2a3f98ea95ab025280e2380b9793d4d6c46737f71b619dbdeb84c4bcbb271",
+  "audit_sha256": "c37bacbf399facd11eb866d45ce9c1ba062907e68128ae67df43caffc33afca6",
+  "review_rule": "Count unsupported, severe and missing-detail findings from the excerpt alone.",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/test_strat01_f16_vector_propagation.py",
+      "category": "code",
+      "excerpt": ": f\"new-{arm}\" for arm in subject.r2c.base.ARMS}\n        return {\n            \"manifests\": {\n                arm: {\"tensors\": [{\"name\": \"kqv_out-1\", \"sha256\": hashes[arm]}]}\n                for arm in subject.r2c.base.ARMS\n            },\n            \"caches\": {arm: {} for arm in subject.r2c.base.ARMS},\n        }\n\n    def test_inventory_predecessors_and_source_controls(self) -> None",
+      "A": "The excerpt describes a function `test_inventory_predecessors_and_source_controls` that takes an object `subject` as input and returns a dictionary. The function iterates over the `ARM` keys in the `subject.r2c.base.ARMS` list, creating a dictionary where the keys are the `ARM` names and the values are dictionaries containing the `tensors` and `caches` for each `ARM`. The function then returns this dictionary.<|im_end|>",
+      "B": "The excerpt describes a function `test_inventory_predecessors_and_source_controls` that takes an object `subject` as input and returns a dictionary. The function iterates over the `ARM` keys in the `subject.r2c.base.ARMS` list, creating a dictionary with the `ARM` as the key and a dictionary of tensors and their SHA-256 hashes as the value.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/ternary/e22_compose.py",
+      "category": "code",
+      "excerpt": "                              \"params_dense\": 0, \"params_factored\": 0, \"gs5\": []}\n    t0 = time.time()\n\n    if lowr:\n        for li, lay in enumerate(model.model.layers):\n            if li not in layer_ids and layer_ids is not None:\n                continue\n            for nm in (\"q_proj\", \"o_proj\"):\n                mod = getattr(lay.self_attn, nm)\n                W = mod.weight.da",
+      "A": "The excerpt describes a Python function that processes a model's layers to extract dense and factored weights. It iterates through the layers of the model, checking if each layer is not in a list of layer IDs and not None. It then retrieves the weight of the \"q_proj\" and \"o_proj\" layers and stores them in a dictionary. The function calculates the time taken to execute the loop.<|im_end|>",
+      "B": "The excerpt describes a Python function that processes a model's layers to extract dense and factored weights. It iterates through the layers of the model, checking if each layer is not in a list of layer IDs and not None. It then retrieves the weights of the \"q_proj\" and \"o_proj\" layers and stores them in a dictionary. The function calculates the time taken to execute the loop.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat02_w2_bf16_codec.py",
+      "category": "code",
+      "excerpt": "ches:\n        batch = source[offset:offset + size]\n        for tile in codec.iter_encode_w2_bf16_tiles((batch,), source.shape[1], max_rows_per_tile=rows, max_groups_per_tile=groups):\n            local_rows, local_groups = tile.a_bits.shape\n            target_rows = slice(offset + tile.row_offset, offset + tile.row_offset + local_rows)\n            a[target_rows, tile.group_offset:ti",
+      "A": "The excerpt describes a Python function that processes a source image by dividing it into tiles and encoding each tile using a specific codec. It specifies that the source image is of shape `(rows, groups, channels)`, and that the tiles are of shape `(rows, groups, local_rows, local_groups, channels)`. The function iterates over each tile, extracts the row and group offsets, and then uses these offsets to slice the source image and encode it into the codec.<|im_end|>",
+      "B": "The excerpt describes a Python function that processes a source image by dividing it into tiles of a specified size and then encoding each tile using a specific codec. It also mentions that the tiles are encoded in a format that includes a group offset and a row offset for each tile.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth11_shared_residual.py",
+      "category": "code",
+      "excerpt": "256\"] == EXPECTED_IDS_SHA\n    frozen = np.load(os.path.join(BUNDLE, \"h1_heldout.npz\"))\n    assert np.array_equal(ids.numpy(), frozen[\"ids\"])\n    ids, byts = ids[:2], byts[:2]\n    assert ids.shape == (2, 512) and (byts > 0).all()\n    labels_np = np.load(os.path.join(BUNDLE, \"labels_E256.npz\"))\n    stats_np = np.load(os.path.join(BUNDLE, \"h1_actstats.npz\"))\n    router_np = np.load(RO",
+      "A": "The excerpt describes a test case where the `ids` array is compared to a frozen version of the `h1_heldout.npz` file, which contains a `labels_E256.npz` and `h1_actstats.npz` file. The `ids` array is expected to match the `ids` array in the `h1_heldout.npz` file, and the `labels_np` and `stats_np` arrays are expected to have the correct shape and values.<|im_end|>",
+      "B": "The excerpt describes a test case where the `ids` array is compared to a frozen version of the `h1_heldout.npz` file, which contains the IDs of a dataset. The `assert` statement checks that the `ids` array matches the `ids` array in the frozen file, and that the `byts` array is greater than 0. The `assert` statement also checks that the `ids` array has a shape of (2, 512) and that the `byts` array is greater than 0.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_engine_rung2a.py",
+      "category": "code",
+      "excerpt": "elative_to(reference_build_dir.resolve(strict=True))\n\n        tests = run_command([sys.executable, \"-B\", \"-m\", \"unittest\", \"-v\", *TEST_MODULES], cwd=ROOT, output=output, label=\"model_free_unittests\", timeout=3600)\n        commands[\"model_free_unittests\"] = tests\n        require_ok(tests, \"model-free regression suite\")\n        c_selftest = run_command([str(binary), \"--strat01-gguf-r",
+      "A": "The excerpt describes a command to run a test suite for a model-free regression suite using the `unittest` module in Python. It specifies the command to be executed, the directory to resolve, the output file, the label for the test suite, and the timeout. The test suite is then defined, and the `require_ok` function is used to check if the test suite is valid.<|im_end|>",
+      "B": "The excerpt describes a command to run a test suite for a model-free regression suite using the `unittest` module in Python. It specifies the command to be executed, the working directory, the output file, and the label for the test suite. The test suite is then stored in the `commands` dictionary, and the `require_ok` function is used to check if the test suite is valid.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat02_w2_bf16_codec.py",
+      "category": "code",
+      "excerpt": "2, b: np.float32, a: np.float32) -> int:\n    # The small center wins ties, including a == b.\n    return 0 if np.abs(np.float32(magnitude - b)) <= np.abs(np.float32(magnitude - a)) else 1\n\n\ndef _w2_bf16_group_scalar_reference(values: Sequence[float]) -> tuple[np.uint16, np.uint16, np.ndarray]:\n    \"\"\"Independent normative scalar F32 fit and final BF16 code assignment.\"\"\"\n    if len(",
+      "A": "The excerpt describes a function that calculates the result of a comparison between two floating-point numbers, `a` and `b`, and returns an integer based on the result. Specifically, it returns 0 if the absolute difference between the magnitudes of `a` and `b` is less than or equal to the absolute difference between the magnitudes of `a` and `b`, and 1 otherwise. The function is used to assign a scalar value to a group of values in a BF16 format.<|im_end|>",
+      "B": "The excerpt describes a function that calculates the result of a comparison between two floating-point numbers, `a` and `b`, and returns 0 if `a` is smaller than `b`, and 1 if `a` is larger. It also includes a nested function `_w2_bf16_group_scalar_reference` that takes a sequence of floating-point numbers and returns a tuple of three integers: the first two integers are the result of the comparison, and the third integer is a reference to a `numpy.ndarray` containing the result of the comparison.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_engine_rung2b.py",
+      "category": "code",
+      "excerpt": "schema\"]!=root[\"schema\"] or manifest[\"arm\"]!=arm:\n            raise RunnerError(f\"reference {arm} manifest schema mismatch\")\n        selection=manifest[\"logical_selection\"]\n        payloads={(item.get(\"logical\"),item.get(\"kind\")):item for item in manifest[\"payloads\"] if isinstance(item,dict)}\n        for name,shape in SHAPES.items():\n            selected=selection.get(name)\n       ",
+      "A": "The excerpt describes a Python function that checks if a manifest contains a specific arm and if the arm's schema matches a given schema. If either condition is not met, a `RunnerError` is raised with a message indicating the mismatch. The function then selects logical and kind fields from the manifest's payloads, and for each name, shape, and selected field, it checks if the selected field exists in the schema.<|im_end|>",
+      "B": "The excerpt describes a Python function that checks if a manifest contains a specific arm and if the arm's schema matches a given schema. If either condition is not met, a `RunnerError` is raised with a message indicating the mismatch. The function then selects logical and kind fields from the manifest, and for each name, shape, and selected value, it checks if the selected value matches the shape.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/test_strat01_engine_rung0.py",
+      "category": "code",
+      "excerpt": "n(value: int, alignment: int = 32) -> int:\n    return (value + alignment - 1) // alignment * alignment\n\n\ndef _span(type_id: int, dims: tuple[int, ...]) -> int:\n    elements = 1\n    for dim in dims:\n        elements *= dim\n    block_bytes = {F32: (1, 4), Q5_0: (32, 22), Q4_K: (256, 144), Q6_K: (256, 210)}\n    block, byte_count = block_bytes[type_id]\n    if elements % block:\n        ",
+      "A": "The `n` function is a Python function that takes an integer `value` and an optional integer `alignment` as arguments. It returns the result of `(value + alignment - 1) // alignment * alignment`. The function is used to calculate the number of bytes required to store a given value with a specified alignment.\n\nSpecifically, the excerpt describes the `n` function as a Python function that takes an integer `value` and an optional integer `alignment` as arguments. It returns the result of `(value + alignment - 1) // alignment * alignment`. The function is used to calculate the number of bytes required to store",
+      "B": "The `n` function is a Python function that takes an integer `value` and an optional integer `alignment` as arguments. It returns the result of `(value + alignment - 1) // alignment * alignment`. The function is used to convert an integer to a 32-bit integer by padding it with leading zeros to ensure it is a multiple of 32.\n\nSpecifically, the function calculates the number of elements that can fit into the specified alignment, then multiplies this by the alignment to get the total number of bytes. If the total number of bytes is not a multiple of the specified alignment, the function returns the"
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=234:start=245366784",
+      "category": "prose",
+      "excerpt": " proposal for debate here in plenary on which a compromise proposal has already been put forward by the Presidency in the Council dealing with points on which there is wide disagreement.\nIt may be claimed that it is because Parliament has been too long in discussing the matter but, whatever the case may be, it is not a satisfactory situation.\nIt also seems to show that the Commissi",
+      "A": "The excerpt describes a debate in the plenary session of the Council, where a compromise proposal has already been put forward by the Presidency on points of disagreement. It is argued that the long debate on the matter is not satisfactory, and it is claimed that Parliament has been too long in discussing the matter.<|im_end|>",
+      "B": "The excerpt describes a debate in the plenary session of the Council, where a compromise proposal has already been put forward by the Presidency on points of disagreement. It is argued that the long debate on the matter is not satisfactory, and it is claimed that Parliament has been too long in discussing the matter.<|im_end|>"
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=145:start=152043520",
+      "category": "prose",
+      "excerpt": ".\n(ES) Mr President, firstly I wish to express my support for our group chairman and spokesman on this issue, Martin Schulz.\nIn my opinion, EU relations with Latin America are our most important relations and have the greatest future potential, in view of the dimensions involved, as has already been said here, our shared values in the multilateral system of the UN, and the evolutio",
+      "A": "The excerpt describes a speech by President Mr. Schulz, emphasizing his support for Martin Schulz, the EU's group chairman and spokesman on a specific issue, and highlighting the importance of EU relations with Latin America and the potential for these relations to have the greatest future potential.<|im_end|>",
+      "B": "The excerpt describes a speech by President Mr. Schulz, emphasizing his support for Martin Schulz, a member of the group chairman and spokesman, on the issue of EU relations with Latin America. It highlights the importance of these relations and their potential for the future, as well as the shared values and the evolution of the multilateral system.<|im_end|>"
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=222:start=232783872",
+      "category": "prose",
+      "excerpt": "hall say some of the things that have already been said.\nWe have here the views of the Committee on Fisheries on the continuing crisis in the fishing industry.\nThe basic crisis has been with us for many years and it will be with us for many years more unless we do something radical about it.\nIn fact, it will probably become hardly worth fishermen putting to sea in many parts of the",
+      "A": "The excerpt describes the views of the Committee on Fisheries on the ongoing crisis in the fishing industry, which has been ongoing for many years and is likely to become even more challenging for fishermen in many parts of the world.<|im_end|>",
+      "B": "The excerpt describes the views of the Committee on Fisheries on the ongoing crisis in the fishing industry, which has been ongoing for many years and is likely to become even more challenging for fishermen in many parts of the world.<|im_end|>"
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=254:start=266338304",
+      "category": "prose",
+      "excerpt": "o do this.\nBut now this will no longer be possible.\nA blocking minority will certainly oppose the continuation of this regime.\nWe therefore need to find another way forward, another policy, and I believe that the if it is possible to discuss one element or another and the Commission itself is prepared to consider certain amendments here or there, that in this way an agreement will ",
+      "A": "The excerpt describes a situation where a regime is being blocked by a minority, and the author suggests that a different approach is needed to find a solution. The excerpt also mentions that the Commission is willing to consider certain amendments, indicating that there is potential for a solution.<|im_end|>",
+      "B": "The excerpt describes a situation where a regime is being blocked by a minority, and the author suggests that a different approach is needed to find a solution. The excerpt states that the author believes that if the Commission is willing to consider certain amendments, an agreement can be reached.<|im_end|>"
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=207:start=217055232",
+      "category": "prose",
+      "excerpt": " Eurobonds - and the CDU/CSU parties will certainly speak out against that - but rather it is about learning the lessons of the crisis in the financial markets, and that means quite simply that speculation must be taxed too.\nIt also means - and I will state this quite clearly - that if this cannot be done worldwide at the G20, then we must do it at European Union level.\nThere is no",
+      "A": "The excerpt describes a debate between Eurobonds and the CDU/CSU parties regarding the need for taxation of speculation in the financial markets. It emphasizes the importance of global cooperation and the need for Europe to take action at the European Union level, rather than relying on global G20 efforts.<|im_end|>",
+      "B": "The excerpt describes a debate between Eurobonds and the CDU/CSU parties regarding the need for taxation of speculation in the financial markets. It also mentions that this should be done at the European Union level, as global efforts to address the crisis are not feasible.<|im_end|>"
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=191:start=200278016",
+      "category": "prose",
+      "excerpt": "lking about a minimum declaration, catching up with what has not been done, taking the next step towards greater independence and more comprehensive powers.\nauthor. - Mr President, the Committee on Economic and Monetary Affairs is consistent and united in its view that Eurostat has to be strengthened and we have, for a long time, been in pursuit of establishing higher quality stati",
+      "A": "The excerpt describes a meeting where a President is discussing the need for Eurostat to be strengthened and the long-standing pursuit of establishing higher quality statistics.<|im_end|>",
+      "B": "The excerpt describes a meeting where a President is discussing the need for Eurostat to be strengthened and the long-standing pursuit of establishing higher quality statistics.<|im_end|>"
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=180:start=188743680",
+      "category": "prose",
+      "excerpt": "nes it with strategic direction from the Community level, and coordinates interventions between levels of government.\nThe strengths of multi-level governance were also stressed by the Committee of the Regions in its White Paper of June 2009, where it called on the Union to strengthen mechanisms of multi-level governance and pointed to the leverage effects generated by cohesion poli",
+      "A": "The excerpt describes the importance of multi-level governance, emphasizing the need for strategic direction from the Community level and coordinated interventions between levels of government. It also highlights the importance of the Union in strengthening mechanisms of multi-level governance and the leverage effects generated by cohesion policies.<|im_end|>",
+      "B": "The excerpt describes the importance of multi-level governance, emphasizing the need for strategic direction from the Community level and coordinated interventions between levels of government. It also highlights the importance of the Union in strengthening mechanisms of multi-level governance and the leverage effects generated by cohesion policies.<|im_end|>"
+    },
+    {
+      "source_id": "europarl:data/corpora/external/eureparl/europarl-v7.it-en.en:bucket=226:start=236978176",
+      "category": "prose",
+      "excerpt": "r less than 1 % of wine production and barely 10 % of consumption in the Community to impose an obligatory burden on wine, causing a decrease in consumption in the producer countries and generating economic and social problems in certain rural wine-making areas.\nMr President, I would like to take up part of the Von Wogau report, the part that speaks of the beneficial health effects",
+      "A": "The excerpt describes a situation where wine production and consumption in the Community are significantly lower than expected, leading to economic and social problems in certain rural areas.<|im_end|>",
+      "B": "The excerpt describes a situation where wine production and consumption in the Community are significantly lower than expected, leading to a decrease in consumption in the producer countries and economic and social problems in certain rural areas.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_T2_TERNARIZATION_RULE.md",
+      "category": "technical_general",
+      "excerpt": "changed**. Only the choice of codes and scale differs.\nFixed: donor Qwen2.5-1.5B rev `8faed761…`, shared eval slice (`heldout` 24×512 seed 1234,\n`ids_sha256 = a1a48dc9…`), FFN organs only (`gate/up/down`) unless stated, paired SEs.\n\n| arm | rule | costs |\n|---|---|---|\n| **base** | none | replication gate: must reproduce 0.7675950 |\n| **R0** | **BitLinear158**, `α = mean|w|`, round",
+      "A": "The excerpt describes a change in the Qwen2.5-1.5B model, specifically focusing on the choice of codes and scale. It mentions that the model has been modified to use different codes and scales, with the donor Qwen2.5-1.5B rev `8faed761…` having been changed. The model is now using donor code `8faed761…` and a different scale, which is not explicitly stated.<|im_end|>",
+      "B": "The excerpt describes a change in the Qwen2.5-1.5B model, specifically focusing on the choice of codes and scale. It mentions that the model now has a different choice of codes and scale compared to the previous version, with the donor Qwen2.5-1.5B rev `8faed761…` having a different evaluation slice (`heldout` 24×512 seed 1234, `ids_sha256 = a1a48dc9…`).<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E23_A_REAL_ROUTER.md",
+      "category": "technical_general",
+      "excerpt": " magnitudes. Second, F1's\ntolerance was 1% of FFN output energy; E19 showed the end-to-end tolerance is much looser — `V52`\ndrops 48% of the FFN for `+0.141846` BPB. **A router can be bad at F1's question and still good\nenough at E19's.**\n\nAnd one prior points the other way: **Probe-4 falsified the hot-pool** — working sets are\napproximately i.i.d. across tokens, so *locality comes",
+      "A": "The excerpt describes a comparison between two neural network architectures, F1 and E19, where F1's tolerance is 1% of FFN output energy, and E19 shows a much looser end-to-end tolerance. It also mentions that a router can be bad at F1's question but still good enough at E19's, and that Probe-4 falsified the hot-pool by working sets being approximately i.i.d. across tokens.<|im_end|>",
+      "B": "The excerpt describes a comparison between two neural network architectures, F1 and E19, where F1's tolerance is 1% of FFN output energy, and E19 shows a much looser tolerance of 48% for a specific BPB value. It also mentions that a router can be bad at F1's question but still good enough at E19's, and that Probe-4 falsified the hot-pool by showing approximately i.i.d. working sets across tokens.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/STRUCTURED_SPARSITY_PRIOR_ART.md",
+      "category": "technical_general",
+      "excerpt": "e 5 `[T]`: 287.48 extra TPUv4-days vs the dense 123.54.\n\nOne incidental detail worth keeping `[T]`: only **6/12 or 12/24 layers** are converted to MoE at all; the rest stay dense. An architecture choosing to sparsify half its layers and leave the rest alone is a precedent for our own per-layer heterogeneity.\n\n## 4. Memory-layout work: Neuralink and LLM-in-a-Flash\n\n**Neuralink** (ar",
+      "A": "The excerpt describes a comparison between two architectures, one with 123.54 TPUv4-days and another with 287.48 extra TPUv4-days. It highlights a specific detail: only 6/12 or 12/24 layers are converted to MoE (Multi-Output Embedding) at all, while the rest remain dense. This suggests a precedent for Neuralink's approach to sparsifying layers and leaving the rest dense, which is a strategy used in LLM-in-a-Flash architectures.<|im_end|>",
+      "B": "The excerpt describes a comparison between two architectures, one with 123.54 TPUv4-days and another with 287.48 extra TPUv4-days. It mentions that the dense architecture has 12/24 layers converted to MoE, while the sparse architecture has only 6/12 or 12/24 layers converted to MoE. The excerpt also highlights a precedent for the per-layer heterogeneity in neural networks, suggesting that Neuralink and LLM-in-a-Flash architectures are examples of this.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md",
+      "category": "technical_general",
+      "excerpt": "## G.5 The registered prediction for the re-run\n\nTwo things, written before the numbers exist:\n\n1. **More settings will beat STATIC than before**, because the handicap is removed from the\n   router arm and from nothing else.\n2. **`aux = 0` will gain more than `aux = 0.01`**, because it was penalised more. So the\n   collapsed settings may now win on ratio where they previously lost ",
+      "A": "The excerpt describes a scenario where the registration prediction for re-running a network configuration is influenced by the presence of more settings, with the handicap being removed from the router arm and from nothing else. Additionally, the `aux` setting, which was previously penalized, is now gaining more points, potentially leading to a win on a ratio where it previously lost.<|im_end|>",
+      "B": "The excerpt describes a scenario where the registration prediction for re-running a network configuration is influenced by the presence of more settings. Specifically, it states that more settings will beat STATIC, and that aux = 0 will gain more than aux = 0.01, leading to a potential increase in the collapsed settings' chances of winning on certain ratio conditions.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E49_THE_ATTENTION_KERNEL_WAS_NEVER_SWITCHED_ON.md",
+      "category": "technical_general",
+      "excerpt": ".\n  The re-run is the measurement of record, and if the re-run's pair disagrees with 1.694e-07, the\n  re-run wins.\n\nCorpus for the re-run: the full 24×512 slice (`ids_qwen25-15b_tq.bin`), as E1 and E37 use. The\ntruncated prefix in A.3 is a smoke and is not the measurement.\n\n---\n\n# ADDENDUM B — E49 CLOSES: PARITY HOLDS, `C50` GOES 608 → 1443, AND THE HEADLINE IS RESTATED\n\n**Results:",
+      "A": "The re-run is the measurement of record, and if the re-run's pair disagrees with 1.694e-07, the re-run wins.<|im_end|>",
+      "B": "The re-run is the measurement of record, and if the re-run's pair disagrees with 1.694e-07, the re-run wins.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_T3_ROTATION.md",
+      "category": "technical_general",
+      "excerpt": " find them.\n\n> **The question this brief pre-registers:**\n> **Does rotating the residual basis before ternarizing reduce the damage T2 left on the table?**\n> Outliers are what force a per-row scale to be wrong for most of its row. If a rotation removes\n> them from the weights *and* from the activations, both of this programme's two open numeric\n> problems are the same problem.\n\n## ",
+      "A": "The excerpt describes a brief pre-registration question regarding the impact of rotating the residual basis before ternarizing on the damage T2 left on the table. It highlights that outliers, which are problematic for most rows, are removed from both the weights and activations during this process.<|im_end|>",
+      "B": "The excerpt describes a brief pre-registration question regarding the impact of rotating the residual basis before ternarizing on the damage T2 left on the table. It highlights that outliers, which are problematic for most rows, are removed from both the weights and activations during this process. This summary captures the essence of the excerpt in two concise sentences: \"Does rotating the residual basis before ternarizing reduce the damage T2 left on the table?\" and \"Outliers are what force a per-row scale to be wrong for most of its row.\"<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_02_W4_BF16_QUALITY_SCORE.md",
+      "category": "technical_general",
+      "excerpt": " eseguito.** Procedere solo dopo\n`PASS_REPEATABILITY` del [teacher](BRIEF_STRAT_02_TEACHER_REPEATABILITY.md)\ne `COMPLETE` con verifier dell'[export completo](BRIEF_STRAT_02_W4_BF16_FULL_EXPORT.md).\nLa baseline F32 heldout è già write-once: 96 documenti, 746.161 byte,\n0,604406515337738 BPB, file `teacher_scores.jsonl` SHA-256\n`96d284da8f223d613039cb9e2a87b24e7b6130701c0873eea0854c3e",
+      "A": "The excerpt describes a process for evaluating a teacher's score data, including the use of `PASS_REPEATABILITY` and `COMPLETE` flags, and the verification of the export completeness of the baseline F32 heldout dataset. It also mentions the SHA-256 hash of the `teacher_scores.jsonl` file.<|im_end|>",
+      "B": "The excerpt describes a process for evaluating a teacher's score data, including the use of `PASS_REPEATABILITY` and `COMPLETE` flags, and the verification of the export completeness of the baseline F32 heldout dataset. It also mentions the SHA-256 hash of the `teacher_scores.jsonl` file.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E46_WHAT_DOES_A_TOKEN_COST_AT_A_REAL_CONTEXT.md",
+      "category": "technical_general",
+      "excerpt": " CONTROL, and nothing counts until it fires.** The instrument must resolve a\ncontext effect that is really there. Known positive: run 3's own K256 cells, where `dt/n` rose\nfrom 0.0387 at `n=40` to 0.0583 at `n=2560`, a 51% rise. Phase A must see the same law on\n`{40, 160, 640}` — specifically `dt(640)/640 > dt(40)/40 · 1.05`. If the rise is not there, run\n3 was contention and E46 s",
+      "A": "The excerpt describes a scenario where a control system must resolve a context effect that is actually present, specifically a 51% rise in `dt/n` from `n=40` to `n=2560`. The phase A must also see the same law on `{40, 160, 640}`, with a specific condition: `dt(640)/640 > dt(40)/40 · 1.05`. If the rise is not there, the system is considered to be in contention and E46 is not functioning.<|im_end|>",
+      "B": "The excerpt describes a scenario where a control system must resolve a context effect that is actually present, specifically a 51% rise in `dt/n` from `n=40` to `n=2560`. The phase A must also see the same law on `{40, 160, 640}`, with a specific condition that `dt(640)/640 > dt(40)/40 · 1.05`.<|im_end|>"
+    }
+  ]
+}
