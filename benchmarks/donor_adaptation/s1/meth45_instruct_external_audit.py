@@ -196,9 +196,11 @@ def main():
     assert M17.sha(args.training_result.read_bytes()) == args.training_result_sha256
     training = json.loads(args.training_result.read_text(encoding="utf-8"))
     assert training["decision"] == "eligible_for_frozen_external_evaluation"
-    assert training["last_applied_update"] == 1024
+    final_update = training["target_update"]
+    assert final_update in (512, 1024)
+    assert training["last_applied_update"] == final_update
     assert training["fresh_external_manifest_sha256"] == EXTERNAL_SHA
-    checkpoint = training["checkpoints"]["1024"]
+    checkpoint = training["checkpoints"][str(final_update)]
     assert M15.M13.sha256(checkpoint["path"]) == checkpoint["sha256"]
     manifest = json.loads(EXTERNAL.read_text(encoding="utf-8"))
     items = manifest["items"]
@@ -235,7 +237,7 @@ def main():
         param.requires_grad_(False)
     wrappers = []
     state = torch.load(checkpoint["path"], map_location="cpu", weights_only=False)
-    assert state["updates"] == 1024 and state["source_sha256"] == MODEL_SHA
+    assert state["updates"] == final_update and state["source_sha256"] == MODEL_SHA
     assert state["teacher_sha256"] == M44.TEACHER_SHA
     for li, layer in enumerate(model.model.layers):
         wrapper = M15.ResidualExperts(layer.mlp, li).to(device)
