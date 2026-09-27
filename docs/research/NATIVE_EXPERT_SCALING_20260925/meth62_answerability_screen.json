@@ -1,0 +1,176 @@
+{
+  "experiment": "METH-62-pre-inference-answerability",
+  "manifest_sha256": "56237bcf2e83ea2e743ac0db2475bff299deed988b7cb75cf31cebcad8b4b2aa",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_router_select.py",
+      "category": "code",
+      "anchor": "hard_gate",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/ternary/t1_ternarize.py",
+      "category": "code",
+      "anchor": "one fp32 scale per output row",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth42_instruct_donor_pilot.py",
+      "category": "code",
+      "anchor": "repeated_8gram_3x",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/recover_strat01_engine_layer2_depth_extension.py",
+      "category": "code",
+      "anchor": "missing recovery source(s)",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_rung2b_cross_input.py",
+      "category": "code",
+      "anchor": "payload identity mismatch",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/recover_strat01_layer2_kv_rmsnorm_cross_input.py",
+      "category": "code",
+      "anchor": "RAW_SHA",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_upstream_rmsnorm_diag.py",
+      "category": "code",
+      "anchor": "q8_census",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/qwen_export.py",
+      "category": "code",
+      "anchor": "MK_FACTORED",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=52",
+      "category": "prose",
+      "anchor": "The Witts",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=15",
+      "category": "prose",
+      "anchor": "Sprite",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=74",
+      "category": "prose",
+      "anchor": "prayer book",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=80",
+      "category": "prose",
+      "anchor": "Palace of the Cæsars",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=29",
+      "category": "prose",
+      "anchor": "Sun Dance Trail",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=28",
+      "category": "prose",
+      "anchor": "General Custer",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=5",
+      "category": "prose",
+      "anchor": "spare room",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=49",
+      "category": "prose",
+      "anchor": "Mr. Raymond",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_F16_VEC_DOT_DIAGNOSTIC_PROTOCOL_20260921.md",
+      "category": "technical_general",
+      "anchor": "F16×F16",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/R1_DONOR_RUNTIME.md",
+      "category": "technical_general",
+      "anchor": "23.5 → 38.0 tok/s",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/STRAT_01_GIGACHAT31_ENGINE_COMPATIBILITY_AUDIT_20260921.md",
+      "category": "technical_general",
+      "anchor": "MLA compressed KV path is absent",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E19_DOES_THE_CARVE_RANK.md",
+      "category": "technical_general",
+      "anchor": "+0.278096",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E34_THE_FLOOR_UNDER_THE_FLOOR.md",
+      "category": "technical_general",
+      "anchor": "21,069,824 B",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_M1_EXPERT_COUNT_SCALING.md",
+      "category": "technical_general",
+      "anchor": "224 experts",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/ACTIVATION_SPARSITY_PRIOR_ART.md",
+      "category": "technical_general",
+      "anchor": "Fixed row-column pairing",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER_D0_AUDIT.md",
+      "category": "technical_general",
+      "anchor": "28 × 5",
+      "answerable": true,
+      "basis": "The excerpt contains a specific action, fact or number for the requested detail."
+    }
+  ],
+  "answerable_count": 24,
+  "scope": "excerpt-only anchors fixed before donor or mixed-model inference"
+}
