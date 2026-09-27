@@ -1,0 +1,3418 @@
+{
+  "experiment": "METH-84-single-FFN-layer-viewed-diagnostic",
+  "manifest_sha256": "3ecc2193d8c5436b73a43fd959a99e6b8551f48d92392bbc92dad992a81d85fb",
+  "meth83_result_sha256": "443f1877ccb1b3edf7703af0e95b6bf58743f4bb899df01092daccc2d73fd528",
+  "core_sha256": "fb6e917e949cb88e63dac276748f844dd94d0c51274a8214ff249bf97989a5bf",
+  "checkpoint_sha256": "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072",
+  "bf16_control": {
+    "matching": 4045,
+    "positions": 4199,
+    "agreement": 0.9633246010954989,
+    "per_prompt": [
+      {
+        "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+        "same": 181,
+        "positions": 187
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+        "same": 177,
+        "positions": 181
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+        "same": 237,
+        "positions": 243
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+        "same": 152,
+        "positions": 160
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+        "same": 177,
+        "positions": 184
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+        "same": 166,
+        "positions": 171
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+        "same": 153,
+        "positions": 159
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+        "same": 165,
+        "positions": 171
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+        "same": 156,
+        "positions": 165
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+        "same": 155,
+        "positions": 160
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+        "same": 155,
+        "positions": 159
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+        "same": 151,
+        "positions": 155
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+        "same": 145,
+        "positions": 147
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+        "same": 152,
+        "positions": 158
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+        "same": 149,
+        "positions": 153
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+        "same": 154,
+        "positions": 159
+      },
+      {
+        "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+        "same": 193,
+        "positions": 197
+      },
+      {
+        "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+        "same": 158,
+        "positions": 165
+      },
+      {
+        "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+        "same": 172,
+        "positions": 178
+      },
+      {
+        "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+        "same": 159,
+        "positions": 163
+      },
+      {
+        "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+        "same": 244,
+        "positions": 274
+      },
+      {
+        "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+        "same": 148,
+        "positions": 151
+      },
+      {
+        "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+        "same": 153,
+        "positions": 160
+      },
+      {
+        "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+        "same": 193,
+        "positions": 199
+      }
+    ]
+  },
+  "q4_baseline": {
+    "matching": 2875,
+    "positions": 4199,
+    "agreement": 0.6846868301976661,
+    "per_prompt": [
+      {
+        "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+        "same": 130,
+        "positions": 187
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+        "same": 134,
+        "positions": 181
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+        "same": 186,
+        "positions": 243
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+        "same": 110,
+        "positions": 160
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+        "same": 128,
+        "positions": 184
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+        "same": 124,
+        "positions": 171
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+        "same": 105,
+        "positions": 159
+      },
+      {
+        "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+        "same": 117,
+        "positions": 171
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+        "same": 113,
+        "positions": 165
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+        "same": 108,
+        "positions": 160
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+        "same": 119,
+        "positions": 159
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+        "same": 105,
+        "positions": 155
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+        "same": 110,
+        "positions": 147
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+        "same": 118,
+        "positions": 158
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+        "same": 101,
+        "positions": 153
+      },
+      {
+        "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+        "same": 105,
+        "positions": 159
+      },
+      {
+        "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+        "same": 137,
+        "positions": 197
+      },
+      {
+        "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+        "same": 114,
+        "positions": 165
+      },
+      {
+        "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+        "same": 126,
+        "positions": 178
+      },
+      {
+        "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+        "same": 111,
+        "positions": 163
+      },
+      {
+        "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+        "same": 144,
+        "positions": 274
+      },
+      {
+        "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+        "same": 104,
+        "positions": 151
+      },
+      {
+        "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+        "same": 103,
+        "positions": 160
+      },
+      {
+        "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+        "same": 123,
+        "positions": 199
+      }
+    ]
+  },
+  "arms": [
+    {
+      "layer": 0,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 140,
+      "matching": 3015,
+      "positions": 4199,
+      "agreement": 0.7180281019290308,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 137,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 140,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 194,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 115,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 135,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 127,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 114,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 124,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 119,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 109,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 122,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 112,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 113,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 125,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 109,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 114,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 140,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 118,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 134,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 120,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 151,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 110,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 106,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 127,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 1,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": -12,
+      "matching": 2863,
+      "positions": 4199,
+      "agreement": 0.6818290069064062,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 138,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 133,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 187,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 111,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 126,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 122,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 103,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 115,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 110,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 106,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 119,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 106,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 107,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 117,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 104,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 103,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 135,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 112,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 129,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 115,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 141,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 104,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 100,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 120,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 2,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 224,
+      "matching": 3099,
+      "positions": 4199,
+      "agreement": 0.7380328649678495,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 145,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 146,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 197,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 121,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 133,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 133,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 116,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 128,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 123,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 115,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 125,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 116,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 117,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 124,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 112,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 112,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 150,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 121,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 135,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 121,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 151,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 115,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 113,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 130,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 3,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 76,
+      "matching": 2951,
+      "positions": 4199,
+      "agreement": 0.7027863777089783,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 137,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 139,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 189,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 115,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 132,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 123,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 110,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 123,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 113,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 109,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 121,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 113,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 108,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 118,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 104,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 106,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 139,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 115,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 136,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 115,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 151,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 109,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 104,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 122,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 4,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 1,
+      "matching": 2876,
+      "positions": 4199,
+      "agreement": 0.6849249821386044,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 131,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 135,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 189,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 111,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 127,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 121,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 104,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 116,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 115,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 108,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 115,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 107,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 108,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 120,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 104,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 104,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 135,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 111,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 126,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 112,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 150,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 103,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 103,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 121,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 5,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 56,
+      "matching": 2931,
+      "positions": 4199,
+      "agreement": 0.698023338890212,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 133,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 138,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 188,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 113,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 123,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 124,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 111,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 120,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 114,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 110,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 118,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 108,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 112,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 118,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 107,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 109,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 141,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 115,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 131,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 114,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 150,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 109,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 103,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 122,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 6,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 34,
+      "matching": 2909,
+      "positions": 4199,
+      "agreement": 0.692783996189569,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 139,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 132,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 188,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 113,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 129,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 124,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 107,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 119,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 116,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 110,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 117,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 109,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 111,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 118,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 104,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 104,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 137,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 115,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 129,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 114,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 142,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 109,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 100,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 123,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 7,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 85,
+      "matching": 2960,
+      "positions": 4199,
+      "agreement": 0.7049297451774232,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 133,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 138,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 193,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 117,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 131,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 125,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 105,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 120,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 117,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 106,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 122,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 112,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 112,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 121,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 106,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 105,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 143,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 118,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 130,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 114,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 149,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 107,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 106,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 130,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 8,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 15,
+      "matching": 2890,
+      "positions": 4199,
+      "agreement": 0.6882591093117408,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 128,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 134,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 187,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 112,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 127,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 124,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 106,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 116,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 109,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 108,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 117,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 109,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 110,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 117,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 105,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 104,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 138,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 116,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 129,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 112,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 148,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 107,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 103,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 124,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 9,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 40,
+      "matching": 2915,
+      "positions": 4199,
+      "agreement": 0.6942129078351988,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 133,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 134,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 187,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 113,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 132,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 124,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 106,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 119,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 111,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 108,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 118,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 109,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 110,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 120,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 105,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 108,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 138,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 116,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 129,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 111,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 149,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 109,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 103,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 123,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 10,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 58,
+      "matching": 2933,
+      "positions": 4199,
+      "agreement": 0.6984996427720886,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 133,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 134,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 189,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 114,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 132,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 127,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 109,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 119,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 114,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 109,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 118,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 111,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 110,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 120,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 103,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 108,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 141,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 116,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 133,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 115,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 144,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 107,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 105,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 122,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 11,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 64,
+      "matching": 2939,
+      "positions": 4199,
+      "agreement": 0.6999285544177185,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 133,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 137,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 188,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 113,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 131,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 126,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 106,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 122,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 117,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 111,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 120,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 110,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 110,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 122,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 106,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 105,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 142,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 115,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 129,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 114,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 150,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 107,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 101,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 124,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 12,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 10,
+      "matching": 2885,
+      "positions": 4199,
+      "agreement": 0.6870683496070493,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 131,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 134,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 186,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 113,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 128,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 126,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 105,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 120,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 112,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 109,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 116,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 106,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 109,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 120,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 102,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 105,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 132,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 112,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 128,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 111,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 144,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 107,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 104,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 125,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 13,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 58,
+      "matching": 2933,
+      "positions": 4199,
+      "agreement": 0.6984996427720886,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 132,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 135,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 185,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 113,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 130,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 126,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 106,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 120,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 113,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 109,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 121,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 109,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 111,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 120,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 104,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 108,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 141,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 116,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 131,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 111,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 152,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 108,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 104,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 128,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 14,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 6,
+      "matching": 2881,
+      "positions": 4199,
+      "agreement": 0.686115741843296,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 128,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 135,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 186,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 111,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 127,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 124,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 105,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 115,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 110,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 111,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 118,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 108,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 107,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 117,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 100,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 106,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 137,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 114,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 128,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 112,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 146,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 107,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 104,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 125,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 15,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 58,
+      "matching": 2933,
+      "positions": 4199,
+      "agreement": 0.6984996427720886,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 134,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 135,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 191,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 112,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 129,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 126,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 107,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 116,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 116,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 112,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 121,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 108,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 111,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 120,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 105,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 106,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 136,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 114,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 131,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 114,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 151,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 110,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 105,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 123,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 16,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 17,
+      "matching": 2892,
+      "positions": 4199,
+      "agreement": 0.6887354131936175,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 132,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 129,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 185,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 114,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 127,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 122,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 106,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 118,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 115,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 109,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 115,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 109,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 106,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 117,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 102,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 109,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 139,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 113,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 129,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 113,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 151,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 106,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 102,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 124,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 17,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": -6,
+      "matching": 2869,
+      "positions": 4199,
+      "agreement": 0.6832579185520362,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 130,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 136,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 184,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 110,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 126,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 123,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 104,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 118,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 110,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 106,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 116,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 108,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 106,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 119,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 100,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 106,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 135,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 114,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 129,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 111,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 147,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 107,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 101,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 123,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 18,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 25,
+      "matching": 2900,
+      "positions": 4199,
+      "agreement": 0.6906406287211241,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 130,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 134,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 186,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 115,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 131,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 124,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 107,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 116,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 110,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 109,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 119,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 108,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 108,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 119,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 103,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 106,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 137,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 114,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 131,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 113,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 151,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 106,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 103,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 120,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 19,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": -26,
+      "matching": 2849,
+      "positions": 4199,
+      "agreement": 0.6784948797332698,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 132,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 130,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 184,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 109,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 127,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 121,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 108,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 117,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 108,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 103,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 115,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 111,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 107,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 117,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 103,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 103,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 135,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 112,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 128,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 110,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 139,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 106,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 102,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 122,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 20,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 15,
+      "matching": 2890,
+      "positions": 4199,
+      "agreement": 0.6882591093117408,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 134,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 135,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 184,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 111,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 131,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 123,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 108,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 119,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 113,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 108,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 117,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 107,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 110,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 118,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 104,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 106,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 136,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 111,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 128,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 113,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 142,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 107,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 104,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 121,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 21,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": -45,
+      "matching": 2830,
+      "positions": 4199,
+      "agreement": 0.6739699928554418,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 129,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 133,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 183,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 112,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 124,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 122,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 103,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 117,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 109,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 104,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 113,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 106,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 104,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 114,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 99,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 101,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 135,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 112,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 125,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 108,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 149,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 105,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 103,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 120,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 22,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": -46,
+      "matching": 2829,
+      "positions": 4199,
+      "agreement": 0.6737318409145034,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 130,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 134,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 184,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 107,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 127,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 120,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 105,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 117,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 113,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 104,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 112,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 108,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 108,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 114,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 100,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 102,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 133,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 110,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 127,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 111,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 137,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 105,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 100,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 121,
+          "positions": 199
+        }
+      ]
+    },
+    {
+      "layer": 23,
+      "ideal_addressed_total_bytes": 554942976,
+      "extra_bytes": 19203072,
+      "delta_matching_vs_q4": 193,
+      "matching": 3068,
+      "positions": 4199,
+      "agreement": 0.7306501547987616,
+      "per_prompt": [
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e5_analyse.py",
+          "same": 137,
+          "positions": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q4k_q8k_reference_generic_parity.py",
+          "same": 140,
+          "positions": 181
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/e35_envelope.py",
+          "same": 191,
+          "positions": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_reference_generic_scientific.py",
+          "same": 118,
+          "positions": 160
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e12_zvar.py",
+          "same": 135,
+          "positions": 184
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/ternary/e27_floor.py",
+          "same": 127,
+          "positions": 171
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/h2i_v4_adjudicate.py",
+          "same": 106,
+          "positions": 159
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/kbench.c",
+          "same": 123,
+          "positions": 171
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=24",
+          "same": 121,
+          "positions": 165
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=44",
+          "same": 115,
+          "positions": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=82",
+          "same": 120,
+          "positions": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=99",
+          "same": 120,
+          "positions": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=37",
+          "same": 112,
+          "positions": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=25",
+          "same": 123,
+          "positions": 158
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=70",
+          "same": 115,
+          "positions": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=38",
+          "same": 114,
+          "positions": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E57_WHAT_DOES_A_TRAINED_LLM_ACTUALLY_COST_ON_THIS_ENGINE.md",
+          "same": 139,
+          "positions": 197
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P1_NIBBLE_PACKING.md",
+          "same": 121,
+          "positions": 165
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+          "same": 133,
+          "positions": 178
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E14_ACTIVATION_INT8_COST.md",
+          "same": 114,
+          "positions": 163
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_ATTN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md",
+          "same": 186,
+          "positions": 274
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_ATTENTION_STAGE_DIAGNOSTIC_PROTOCOL_20260921.md",
+          "same": 110,
+          "positions": 151
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_Q4_REPAIR_CONFIRMATION_PROTOCOL_20260921.md",
+          "same": 111,
+          "positions": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E66_ONE_BYTE_AT_SEVEN_BILLION.md",
+          "same": 137,
+          "positions": 199
+        }
+      ]
+    }
+  ],
+  "best_layer": 2,
+  "best_matching": 3099,
+  "decision": "single_full_ffn_layer_restore_insufficient_on_viewed_prompts",
+  "runtime": {
+    "elapsed_seconds": 47.125,
+    "rss_bytes": 3523002368,
+    "gpu_peak_allocated_bytes": 1282510848,
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "cuda_index": 0,
+    "torch": "2.6.0+cu124"
+  }
+}
