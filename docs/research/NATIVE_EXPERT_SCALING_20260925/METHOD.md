@@ -749,6 +749,19 @@ head above budget still leaves the E128 composition below the gate.
 The compact-core/expert interaction now needs a quantization-aware
 adaptation rule and independent quality sources, not a claim of
 success from document likelihood alone.
+[METH-88/89](METH_89_QUANT_AWARE_DEVELOPMENT_RESULT_20260927.md)
+implement a B-only continuation of the learned E128 factors with the
+fixed grouped-R8 core. Distilling from BF16+E128 raises donor prompt
+top-1 from 94.410% to 95.430% on new development sources while
+retaining the 557.106 MB ideal byte ledger and all six frozen gates.
+The independent [METH-90](METH_90_QUANT_AWARE_EXTERNAL_RESULT_20260927.md)
+audit passes document, greedy-output and full PIQA gates, but its
+committed arm-blind semantic verdict counts 43 unsupported student
+claims against 37 donor claims. This fails the frozen semantic gate.
+Thus this specific compact core and adapted E128 bank remain a
+development result, not a quality-valid native candidate. The next
+core/adaptation rule must target excerpt-grounded response fidelity;
+later native and large-E requirements remain unchanged.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

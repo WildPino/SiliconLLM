@@ -835,9 +835,21 @@ scheduled.
   two gates; stop native promotion. METH-87 posthoc diagnostics on
   viewed prompts find half-strength experts worse (94.219%) and
   an over-budget BF16-head restore still only 94.939% with E128.
-  Next exact action: preflight quantization-aware expert adaptation
-  against this stored core, freeze a new rule and new quality sources,
-  and preserve the separate E1280 learned-quality/routing gap.
+  METH-88 adapts only the B output factors of the existing distinct
+  E128 bank to this fixed stored core, using the BF16+E128 model as
+  teacher. METH-89 passes six frozen development gates on 24 new
+  sources: donor prompt top-1 rises from 94.410% with the original
+  bank to 95.430% adapted, 0.951 point below BF16+E128, while
+  pooled BPB is 0.004560 better than donor. The 557.106 MB ideal
+  addressed payload is unchanged. METH-90 freezes another disjoint
+  set and passes automatic document, generation and 1,838-item PIQA
+  gates (−0.003774 BPB; 22/24 EOS versus donor 23; PIQA 1,287 versus
+  donor 1,291). The arm-blind semantic verdict was committed before
+  unblinding and fails: 43 unsupported student claims versus 37 donor;
+  severe counts 15/15 and missing-detail 0/0 pass. Stop native
+  promotion. Next: investigate a core/adaptation rule that preserves
+  excerpt-grounded response fidelity on untouched sources, while
+  retaining the separate E1280 learned-quality/routing gap.
   No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
