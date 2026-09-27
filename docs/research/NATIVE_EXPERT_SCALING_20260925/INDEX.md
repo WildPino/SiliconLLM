@@ -740,9 +740,26 @@ scheduled.
   E1280 92.865%. The 10× bank changes ≥751 B slots/layer but selects
   only 474/1,280 in the least-covered layer and reaches 129.19× worst
   maximum/mean route load. This directly rejects the current scaling
-  rule. The next experiment needs a precommitted retention and route
-  coverage objective with a new development set; BPB gains and
-  changed weights alone cannot qualify distinct useful experts.
+  rule. METH-71 applies a precommitted stronger donor-retention and
+  product-key axis-balance objective on new disjoint prompts. Both
+  matched 64-update arms pass development gates: E128 reaches 97.535%
+  donor top-1, E1280 98.348%. E1280 selects at least 1,076/1,280
+  slots per layer on those prompts, with 19.64× worst max/mean load,
+  and changes at least 1,219 B slots/layer. These are real independent
+  trained factors, but broad use alone is insufficient for promotion.
+  METH-72 tests E1280 on 24 source-disjoint documents and all 1,838
+  PIQA items. Document BPB, top-1, generation and PIQA gates pass,
+  but the fixed factor-pair permutation utility is +0.001743 BPB,
+  below its +0.002 threshold; promotion stops. METH-73's eight
+  diagnostic permutations all worsen BPB, with median +0.000945
+  across external documents and +0.001737 on the raw four-window
+  set. That confirms a small pairing signal without reversing the
+  METH-72 failure. METH-74's arm-blind semantic diagnosis counts
+  26 unsupported claims for E1280 versus 30 donor, but 8 severe
+  unsupported claims versus 7 donor. The severe criterion also fails.
+  Continue with a frozen stronger-training study and new prompts to
+  improve functional route utility and semantic quality; do not
+  infer CPU LUT speed or full-model throughput from this GPU test.
   No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`

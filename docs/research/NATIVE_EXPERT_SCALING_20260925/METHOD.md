@@ -642,6 +642,23 @@ selects only 474/1,280 slots on development prompts. The current
 large-E rule therefore fails quality and route coverage despite raw
 BPB improvements. A new jointly trained retention/coverage objective
 and independent evaluation are needed.
+[METH-71–74](METH_71_74_BALANCED_E1280_RESULT_20260927.md) test that
+objective and its external consequences. A fixed 64-update
+donor-retentive product-key balance rule passes new development gates
+at both E128 and E1280: 97.535%/98.348% donor top-1, with E1280
+selecting at least 1,076/1,280 slots per layer and 19.64× worst
+maximum/mean load. On 24 source-disjoint documents and all 1,838
+PIQA items, E1280 passes document, prompt, generation and task
+checks. It fails the precommitted learned-pair utility threshold:
+permuting factor pairs worsens held-out BPB by +0.001743 versus a
++0.002 gate. Eight additional diagnostic permutations all worsen
+BPB but show only a small functional signal. An arm-blind semantic
+review counts fewer total unsupported claims than donor (26 vs 30),
+but more severe ones (8 vs 7). Thus balanced large-E routing is
+demonstrated on one 0.5B donor, while joint external quality and
+meaningfully useful distinct expert choice remain unproven. The
+E1280 checkpoint is not promoted; new training and independent
+quality evidence are needed before native CPU LUT integration.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
