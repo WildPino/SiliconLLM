@@ -813,6 +813,22 @@ scheduled.
   priority for the end-to-end objective is a quality-valid compact
   donor core and native full-artifact path; retain the distinct
   learned large-E evidence as an unresolved parallel constraint.
+  METH-81 verifies from donor tensor headers that grouped-Q4 FFN
+  with BF16 tied head/attention would charge 535.740 MB ideal
+  addressed bytes/token including E128 keys and selected factors.
+  METH-82 exports that map to a 527.375 MB packed file with exact
+  tensor and BF16 reconstruction readback. METH-83 tests the exact
+  composed model on 24 new source-disjoint documents and rejects it:
+  pooled ΔBPB +0.045108 and donor prompt top-1 only 68.469%, versus
+  96.332% for BF16+E128. Q4 donor alone is 67.802%, so the
+  conversion dominates the observed loss. METH-84 tests all 24
+  single-FFN-layer BF16 exceptions within the 560 MB ideal allotment
+  on the now-viewed prompts; the best reaches 73.803%.
+  Stop this Q4 rule before native integration. Next exact action:
+  investigate a compact correction to the closer BF16-attention/
+  R8-head+FFN core (METH-62), priced within its remaining 11.680 MB
+  ideal headroom, then freeze fresh quality sources. This is a
+  proposal, not an implemented or quality-valid procedure.
   No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`

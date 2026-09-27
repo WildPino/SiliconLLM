@@ -714,6 +714,28 @@ from its update-64 parent and 0.603-point deficit against the E128
 candidate fail the precommitted joint gate. This term is a partial
 retention aid, not a validated transfer method. No new external
 route-utility, semantic or full native test is licensed by this result.
+[METH-81](METH_81_Q4_CORE_PAYLOAD_RESULT_20260927.md) reads the bound
+Instruct donor's tensor headers and prices grouped 4-bit FFN with
+BF16 tied head/attention at 535,739,904 ideal addressed bytes/token,
+including the E128 product keys and selected factors. The packed
+[METH-82](METH_82_Q4_FFN_EXPORT_RESULT_20260927.md) core passes
+exact stored-tensor and BF16 reconstruction readback at 527,375,264
+physical bytes. Those are format and arithmetic passes only.
+[METH-83](METH_83_Q4_CORE_COMPOSITION_RESULT_20260927.md) composes
+that exact core with the quality-audited METH-56 E128 bank on 24 new
+source-disjoint documents. It fails every preregistered likelihood
+and prompt-ranking gate: pooled ΔBPB +0.045108 and 68.469% donor
+prompt top-1 versus 96.332% for BF16+E128. The Q4 donor alone
+also falls to 67.802%, identifying the conversion as the principal
+observed cause. [METH-84](METH_84_SINGLE_FFN_LAYER_RESCUE_RESULT_20260927.md)
+tests all affordable single-full-FFN-layer BF16 restores on those
+now-viewed prompts; the best reaches only 73.803% within 554.943 MB
+ideal bytes. This rejects the exact grouped-Q4 rule and one-layer
+precision exception for the first end-to-end candidate, without
+rejecting every low-bit FFN representation. The prior BF16-attention/
+R8-head+FFN route remains closer to donor quality but failed the
+independent METH-62 semantic gate. A new compact-core correction must
+be evaluated on fresh sources before native integration or rate.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
