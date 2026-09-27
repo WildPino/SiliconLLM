@@ -612,7 +612,8 @@ evaluates frozen METH-55/56 E128 checkpoints on the now-viewed METH-66
 prompts. They reach 96.299%/96.535% donor top-1, versus 93.885% for
 the new METH-66 E128 control. The prompt set is not sufficient to
 explain that control failure; the offloaded recipe also changed
-initialization and optimizer semantics. Isolate those before another
+initialization, optimizer semantics and training draws. Isolate these
+under identical samples before another
 E1280 training attempt. METH-67 is a viewed-prompt diagnosis only.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first

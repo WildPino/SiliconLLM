@@ -718,10 +718,11 @@ scheduled.
   any continuation needs a new rule and disjoint prompts. METH-67
   scores the frozen METH-55/56 E128 checkpoints on the viewed METH-66
   set: 96.299%/96.535% top-1. Thus the set alone does not explain
-  METH-66's E128 failure. Before another 10× training ladder, restore
-  the validated E128 initialization and dense-AdamW update semantics
-  in the CPU-offloaded path and verify numerical parity on a small
-  controlled update. Then use new prompts for the next quality gate.
+  METH-66's E128 failure. METH-66 also changed the training draw
+  schedule/raw exclusion pool. Before another 10× training ladder,
+  restore validated E128 initialization and dense-AdamW semantics in
+  the CPU-offloaded path, and compare an update on identical samples.
+  Then use new prompts for the next quality gate.
   No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`

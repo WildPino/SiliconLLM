@@ -24,9 +24,10 @@ manifest.
 
 Both historical checkpoints match exhaustive product-key routing on
 the viewed inputs. Their result shows that this prompt set can support
-≥95% for E128; the new offload recipe changed both initialization and
-optimizer behavior, so this comparison cannot identify which change
-caused the gap. The next method step is to reproduce METH-55 E128
-initialization and dense AdamW update semantics while keeping factor
+≥95% for E128; the new offload recipe changed initialization,
+optimizer behavior and the training draw schedule/raw exclusion pool.
+This comparison cannot identify which change caused the gap. The next
+method step is to reproduce METH-55 E128 initialization and one
+dense-AdamW update on the *same* sample sequence while keeping factor
 storage/selected-row transfers in CPU RAM, then test larger E under a
 newly frozen development set. This viewed set is only diagnostic.
