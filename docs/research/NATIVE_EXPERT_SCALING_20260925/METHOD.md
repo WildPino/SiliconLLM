@@ -632,6 +632,16 @@ strict replay gate fails. Offloaded E128 still reaches 96.038% on the
 viewed METH-55 prompts, but this cannot promote it. CPU versus GPU
 AdamW rounding is a hypothesis for the first route divergence, not a
 proven cause. The large-E path needs fresh quality evidence.
+[METH-70](METH_70_DENSE_E128_E1280_SCALE_RESULT_20260927.md) tests the
+original dense METH-55-style AdamW recipe at E128 and E1280 with
+matched training draws and new prompts. The 10× bank fits the local
+GPU and receives real gradients, but terminal donor top-1 worsens
+from 93.888% to 92.865%; both fail the frozen 95% gate. E1280's
+worst maximum/mean route load is 129.19× and the least-covered layer
+selects only 474/1,280 slots on development prompts. The current
+large-E rule therefore fails quality and route coverage despite raw
+BPB improvements. A new jointly trained retention/coverage objective
+and independent evaluation are needed.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

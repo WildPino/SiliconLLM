@@ -735,6 +735,14 @@ scheduled.
   checkpoint identity. Investigate GPU-paged dense AdamW semantics
   as one route to stronger parity, then use new prompts for a
   controlled E128/E1280 quality gate. Do not promote the viewed replay.
+  METH-70 then uses the original dense AdamW geometry and identical
+  draws on newly frozen prompts. Both arms fail ≥95%: E128 93.888%,
+  E1280 92.865%. The 10× bank changes ≥751 B slots/layer but selects
+  only 474/1,280 in the least-covered layer and reaches 129.19× worst
+  maximum/mean route load. This directly rejects the current scaling
+  rule. The next experiment needs a precommitted retention and route
+  coverage objective with a new development set; BPB gains and
+  changed weights alone cannot qualify distinct useful experts.
   No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
