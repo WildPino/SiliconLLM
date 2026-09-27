@@ -1,0 +1,176 @@
+{
+  "experiment": "METH-57-blind-semantic-review",
+  "manifest_sha256": "9571f5d61c29e34b27c05ec531232a08b9eb6cd81bdf85aa5648ff74f1db3d75",
+  "audit_sha256": "b88e9208db0999a8b3b8550a8e5a1bd4c265910a0b202dc451c1914e2823b996",
+  "review_rule": "Count unsupported and severe claims and missing requested detail against the excerpt only.",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h4_factorize.py",
+      "category": "code",
+      "excerpt": "E65-QO48 numerical anchor.  H4\nuses E22C's canonical activation-weighted, balanced rank-48 construction, but\nthen ternarizes both factors. G-H4a compares separately constructed H4\nmasters with the canonical E22C balanced ternary path at rank 48.\n\"\"\"\nimport json, os, sys, time\nimport numpy as np\nimport torch\n\nHERE=os.path.dirname(os.path.abspath(__file__))\nfor p in (os.path.abspath(",
+      "A": "The excerpt describes a numerical anchor system that uses E22C's canonical activation-weighted, balanced rank-48 construction. It then ternarizes both factors, comparing separately constructed H4 masters with the canonical E22C balanced ternary path at rank 48.<|im_end|>",
+      "B": "The excerpt describes a numerical anchor system that uses E22C's canonical activation-weighted, balanced rank-48 construction. It then ternarizes both factors, comparing separately constructed H4 masters with the canonical E22C balanced ternary path at rank 48.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h_training_kaggle.py",
+      "category": "code",
+      "excerpt": "ST_SHA256]\nassert len(hits) == 1, (\"expected exactly one frozen manifest\", hits)\nmanifest_path = hits[0]\nroot = os.path.dirname(manifest_path)\nwith open(manifest_path, encoding=\"utf-8\") as fh:\n    manifest = json.load(fh)\n\ndef verify_root(folder):\n    assert sha256(os.path.join(folder, \"MANIFEST.json\")) == MANIFEST_SHA256\n    for filename, metadata in manifest[\"files\"].items():\n   ",
+      "A": "The excerpt describes a Python function that takes a directory path as input and verifies that the manifest file within that directory has the correct SHA256 hash. It then extracts the manifest file's contents and verifies that the SHA256 hash matches the expected value.<|im_end|>",
+      "B": "The excerpt describes a Python function that takes a folder path as input and verifies that the manifest file is correctly hashed and located within the folder. It also checks that the manifest file is valid JSON and contains the expected files.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/s1_oracle.py",
+      "category": "code",
+      "excerpt": ":\n            o = out[0] if isinstance(out, tuple) else out\n            rs[li].append(o.detach().reshape(-1, o.shape[-1]).float().cpu())\n        return model.model.layers[li].register_forward_hook(post)\n\n    hooks = [mk_h(li) for li in range(L)] + [mk_r(li) for li in range(L)]\n    S.CTL.mode = \"off\"                     # no masking here; this measures the donor as it is\n    dev = n",
+      "A": "The excerpt describes a function that processes a model's output, detaching it, reshaping it, and converting it to a CPU tensor. It then registers the forward hook with the model's layers. The hooks are added to the model's hooks list, and the model is set to off mode.<|im_end|>",
+      "B": "The excerpt describes a function that processes a model's output, detaching and reshaping it, and registering it with a hook. It also mentions the use of a hook for each layer in the model, with specific hooks for the first and last layers. The function then applies a masking layer to the output, which is not shown in the excerpt.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_stats.py",
+      "category": "code",
+      "excerpt": "function asserts.  Re-deriving it here would compare two\nimplementations instead of using the rule.\n\nWHAT MAPS TO WHAT.  capture_act_rms keys by (layer, organ) and hooks the organ INPUTS:\n    (li, \"gate_proj\")  = RMS of the FFN input x   -> `rms_in`  [D]   (up_proj shares it)\n    (li, \"down_proj\")  = RMS of the hidden h      -> `rms_h`   [F]\nwhich is exactly the pair TernaryCarvedF",
+      "A": "The excerpt describes a function that compares two implementations of a neural network architecture by capturing the RMS of the FFN input and the hidden layer's output. It then uses this information to determine which implementation is more effective.<|im_end|>",
+      "B": "The excerpt describes a function that compares two implementations of a neural network by capturing the RMS of the FFN input and the hidden layer's output. It then uses this information to determine which implementation is better.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h0_selftest.py",
+      "category": "code",
+      "excerpt": "om the same numbers.\n  G-H0d  the straight-through gradient is the identity it claims to be: d(ste(w))/dw == 1.\n  G-H0f  RUN 1's FALSE FIRE, REPRODUCED.  A GradScaler that declines a step leaves the masters\n         exactly where they were, so the old G-H0e (which read them after `step == 1` whatever\n         happened) had to fire.  This reproduces that on CPU with a real GradScale",
+      "A": "The excerpt describes a scenario where a GradScaler is used to update the gradient of a function `ste(w)` in a way that it is equivalent to the identity function. Specifically, it states that the gradient of `ste(w)` is the same as the gradient of the identity function, and that this is achieved by applying a step function that is always 1. The excerpt then mentions that this step function is applied to the `step` variable, which is used to control the behavior of the GradScaler.<|im_end|>",
+      "B": "The excerpt describes a scenario where a GradScaler in a machine learning pipeline is failing to update the gradient correctly. Specifically, it states that the gradient descent step is being rejected, and the pipeline is attempting to update the master variables, which are expected to be the same as the previous step. This failure is due to the GradScaler's behavior, which is to decline a step and leave the master variables unchanged, even if the step was successful.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/_kaggle_bundle/s1_kaggle_entry.py",
+      "category": "code",
+      "excerpt": "e\n    return math.isnan(float(v)) or math.isinf(float(v))\n\n\ndef check_anchor(gpu_run, anchor, sigma=S.SIGMA_SEED_BPB):\n    \"\"\"A1.2.  Compare the GPU fp16 1.5B point to the local CPU fp32 one, p by p.\n\n    Returns (ok, report).  `ok` False means STOP -- do not run the larger sizes.\n\n    -----------------------------------------------------------------------------------\n    REPAIR 20",
+      "A": "The excerpt describes a function `check_anchor` that takes two parameters: `gpu_run` and `anchor`. The function returns a tuple `(ok, report)`. The `ok` value is `False` if the GPU's floating-point 1.5B point is not equal to the local CPU's floating-point 32-bit point, and the `report` value is a string indicating the reason for the failure.<|im_end|>",
+      "B": "The excerpt describes a function `check_anchor` that takes two arguments: `gpu_run` and `anchor`. The function returns a tuple `(ok, report)`. The `ok` value is `False` if the GPU's floating-point 1.5B point is not equal to the local CPU's floating-point 32-bit value, and the `report` value is a string indicating the reason for the failure.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_router_smoke.py",
+      "category": "code",
+      "excerpt": "ap = _m0.router.detach().clone()\n    _o = torch.optim.AdamW([_m0.router], lr=1e-3, weight_decay=0.0)\n    with torch.no_grad():\n        _m0.k = _m0.E\n        _t0 = _m0(_x0)\n        _m0.k = a.k\n    _o.zero_grad(set_to_none=True)\n    (_m0(_x0) - _t0).square().mean().backward()\n    _gr = None if _m0.router.grad is None else float(_m0.router.grad.abs().sum())\n    _o.step()\n    _mv = flo",
+      "A": "The excerpt describes a Python script that performs a deep learning experiment. It starts by creating a detach clone of the router, initializing an optimizer with AdamW and a weight decay of 0.0, and then performing a forward pass with the router and a sample input `_x0`. The script then calculates the squared difference between the forward and backward predictions, computes the mean of the squared differences, and backpropagates the gradients through the router. Finally, it performs a step to update the router's parameters.<|im_end|>",
+      "B": "The excerpt describes a training loop for a neural network model. Specifically, it shows the initialization of a model, the creation of an optimizer, and the execution of a forward pass. The model is detached from the network, a learning rate is set, and a gradient is computed. The gradient is then backpropagated through the model, and the optimizer's parameters are updated. The gradient is also computed to determine the step size.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h5_cross_composition.py",
+      "category": "code",
+      "excerpt": " {}\n        for path in files:\n            rel = os.path.relpath(path, root).replace(\"\\\\\", \"/\")\n            worktree_blob = subprocess.check_output(\n                [\"git\", \"hash-object\", path], cwd=root, text=True\n            ).strip()\n            head_blob = subprocess.check_output(\n                [\"git\", \"rev-parse\", \"HEAD:\" + rel], cwd=root, text=True,\n                stderr=s",
+      "A": "The excerpt describes a Python script that processes a list of file paths, calculates the relative path from the root directory, and retrieves the SHA-1 hash of the corresponding worktree blob. It also includes a subprocess call to retrieve the SHA-1 hash of the current working tree head.<|im_end|>",
+      "B": "The excerpt describes a Python script that iterates over a list of file paths, calculates the relative path from the root directory, and then uses `subprocess.check_output` to retrieve the hash of the file and its head commit.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=95",
+      "category": "prose",
+      "excerpt": "_poles_ are the points in which the axis pierces the surface of the\nearth, or of the celestial sphere.\n\nA _meridian_ is a great circle of the earth cut out by a plane passing\nthrough the axis. All meridians are therefore north and south lines\npassing through the poles.\n\nFrom these definitions it follows that if there were a star exactly at\nthe pole it would only be necessary to set",
+      "A": "The excerpt describes the points on the Earth's surface where the axis of the Earth or the celestial sphere intersects the surface. It also states that a meridian is a great circle of the Earth cut out by a plane passing through the axis, and that all meridians are north and south lines passing through the poles. From these definitions, it follows that if there were a star exactly at the pole, it would only be necessary to set it at the equator.<|im_end|>",
+      "B": "The excerpt describes the points on the Earth's surface where the axis of the Earth or the celestial sphere intersects the surface. It also states that a meridian is a great circle of the Earth cut out by a plane passing through the axis. From these definitions, it follows that if there were a star exactly at the pole, it would only be necessary to set it at a specific latitude to be observed.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=4",
+      "category": "prose",
+      "excerpt": "g at Ginger very wicked.\n\"P'r'aps he won't be so ready to give me 'is lip next time.  Let's come\nto another pub and enjoy ourselves.\"\n\nSam and Peter followed 'im out like lambs, 'ardly daring to look over\ntheir shoulder at Ginger, who was staggering arter them some distance\nbehind a 'olding a handerchief to 'is face.\n\n\"It's your turn to pay, Sam,\" ses Bill, when they'd got inside t",
+      "A": "The excerpt describes a scene where Ginger, a character with a wicked personality, is being followed by Sam and Peter. They are walking towards a pub, and Ginger is walking behind them, holding a handkerchief to his face. Sam and Peter are following Ginger, who is being followed by Bill.<|im_end|>",
+      "B": "The excerpt describes a scene where Ginger, a character from a story, is described as \"very wicked\" and is being followed by Sam and Peter. They are described as \"ardly daring to look over their shoulder at Ginger, who was staggering arter them some distance behind a 'olding a handerchief to 'is face.\"<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=8",
+      "category": "prose",
+      "excerpt": "\"What!\" said Harry, springing to his feet, \"do you mean to say YOU knew\nit?\"\n\nBrice's heart sank, but he remained steadfast and truthful. \"Yes,\" he\nsaid, \"I knew it when I handed down the box. I saw that the lock had\nbeen forced, but I snapped it together again. It was my fault. Perhaps I\nshould have warned you, but I am solely to blame.\"\n\n\"Did Yuba Bill know of it?\" asked the high",
+      "A": "Harry and Brice are discussing the situation where Harry believes he knows the truth about what happened to Yuba Bill. Brice remains steadfast and truthful, while Harry's heart sinks but remains truthful.<|im_end|>",
+      "B": "The excerpt describes a scene where Harry and Brice are discussing a box that was forced into a lock. Brice claims he saw the lock was forced, but he snapped it together again, implying he was the one who caused the problem. Harry, who is skeptical of Brice's claims, asks if Brice knows about the box, and Brice responds that he knows it when he sees it, but he is solely to blame for the problem.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=17",
+      "category": "prose",
+      "excerpt": "n\nliving.\"\n\n\"Are you really displeased, Uncle David?\"\n\n\"I should be if I thought you were serious,--but it's bedtime. If\nyou're going to get your beauty sleep, my dear, you ought to begin on\nit immediately.\"\n\nEleanor rose obediently, her brow clouded a little, and her head held\nhigh. David watched the color coming and going in the sweet face and\nthe tender breast rising and falling",
+      "A": "The excerpt describes a conversation between Eleanor and David, where David expresses displeasure and suggests that Eleanor should begin her beauty sleep immediately.<|im_end|>",
+      "B": "The excerpt describes a conversation between Eleanor and David, where David expresses displeasure and suggests that Eleanor should begin her beauty sleep immediately.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=81",
+      "category": "prose",
+      "excerpt": "\n\n“No saying, darling,” he responds brightly. He does not think it\nnecessary to trouble this fragile little wife of his with the knowledge\nthat things are not going on quite “so well” at present as she seems to\nfancy. “Next Christmas Day, God willing, we’ll try to spend in bonnie\nScotland. That brings the roses to your cheeks, little girl!”\n\nIt has brought the roses to her cheeks, ",
+      "A": "The excerpt describes a father responding to his daughter's request for a Christmas trip to Scotland, which the daughter agrees to.<|im_end|>",
+      "B": "The excerpt describes a father saying goodbye to his wife and promising to try to spend Christmas in Scotland.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=84",
+      "category": "prose",
+      "excerpt": "ecially as not only the conflagrating powers of the\nspherical carcass are equalled even by the 32-pounder Rocket, but\ngreatly exceeded by the larger Rockets; and the more especially indeed,\nas the difference of accuracy, for the purposes of bombardment, is not\nworthy to be mentioned, since it is no uncommon thing for shells fired\nfrom a mortar at long ranges, to spread to the right",
+      "A": "The excerpt describes the comparison between the spherical carcass of a ship and the accuracy of larger rockets. It mentions that the spherical carcass is equalled by the 32-pounder Rocket, but not by the larger Rockets. It also notes that the difference in accuracy for bombardment purposes is not worth mentioning, as shells fired from a mortar at long ranges can spread to the right.<|im_end|>",
+      "B": "The excerpt describes the comparison between the spherical carcass of a ship and the 32-pounder Rocket, noting that the spherical carcass is equalled by the Rocket but surpassed by larger Rockets. It also mentions that the difference in accuracy for bombardment purposes is not noteworthy, as shells fired from a mortar at long ranges can spread to the right.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=85",
+      "category": "prose",
+      "excerpt": "ve I? Salamanders!\n\nMARIETJE. No, I won't have it.\n\nKNEIR. Did you see Geert?\n\nSIMON. [Muttering.] Wh--wh--Geert!\n\nCOB. Give him just one, for a parting cup.\n\nMARIETJE. [Angrily.] No! No!\n\nSIMON. [Thickly.] No? I'll be damned! [Lights a nose warmer.]\n\nKNEIR. Is there much work in the dry dock, Simon?\n\nSIMON. That stands fast.\n\nSAART. Well--I'm going.\n\nJO. Hey! How unsociable! They'",
+      "A": "The excerpt describes a scene where two characters, MARIETJE and COB, are arguing about a parting cup. MARIETJE is angry and refuses to accept it, while COB offers to give it to her.<|im_end|>",
+      "B": "The excerpt describes a scene where two characters, MARIETJE and COB, are arguing about a parting cup. MARIETJE is angry and refuses to accept it, while COB is trying to persuade her to accept it.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=90",
+      "category": "prose",
+      "excerpt": "d, and was almost jealous that during his enforced confinement\nso many opportunities to take Amy out fell naturally to Webb. The latter,\nhowever, was so entirely fraternal in his manner toward the young girl\nthat Burt was ever able to convince himself that his misgivings were\nabsurd.\n\nWebb was soon ready, and had provided himself with his skates and a small\nsleigh with a back. When",
+      "A": "The excerpt describes a situation where Webb, a young man, was forced to take Amy out of her confinement. He was jealous of her opportunities to take her out, but was able to convince himself that his misgivings were absurd. Webb was soon ready and had provided himself with his skates and a small sleigh with a back.<|im_end|>",
+      "B": "The excerpt describes a situation where Webb, a young man, was confined to his home due to a health condition. He was jealous of Amy, who was also confined, and was so jealous that he was almost jealous of the many opportunities to take Amy out. Webb was able to convince himself that his misgivings were absurd, and soon provided himself with his skates and a small sleigh with a back.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E23_A_REAL_ROUTER.md",
+      "category": "technical_general",
+      "excerpt": " oracle, **loses 8 under a real router.** The T4 target must be\nre-derived — and §7 shows the re-derivation is not a retreat, because `k = 133` was never the\ndepth the budget actually permits once the router is paid for.\n\n## 1. Arms\n\nQwen2.5-1.5B, frozen eval slice 24×512 (ids sha `a1a48dc9…`, 51,870 scored bytes), five frozen\nE6 prompts × 32 new tokens = 160 positions, D0c partiti",
+      "A": "Oracle loses 8 under a real router. The T4 target must be re-derived, and §7 shows the re-derivation is not a retreat, because `k = 133` was never the depth the budget actually permits once the router is paid for.<|im_end|>",
+      "B": "Oracle loses 8 under a real router. The T4 target must be re-derived, and §7 shows the re-derivation is not a retreat, because `k = 133` was never the depth the budget actually permits once the router is paid for.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E41_PARTITION_IS_NOT_THE_LEVER.md",
+      "category": "technical_general",
+      "excerpt": " a fourth\nindependent measurement of the closed road is WRONG and is corrected in §10.**\n\nThree things must be said in the same breath, and none of them is a hedge:\n\n1. **B's instrument is the known-good one.** `G-E41D` reproduces E38's published `3.597108` to\n   **4.7e-07**. The calibration budget was exactly the whole `+0.207` discrepancy §5 reported.\n   **B may still not promote",
+      "A": "The excerpt describes a situation where a fourth independent measurement of a closed road is incorrect and needs to be corrected in §10. It also mentions that three things must be said in the same breath, and none of them is a hedge.<|im_end|>",
+      "B": "The excerpt describes a situation where a fourth independent measurement of a closed road is incorrect and needs to be corrected in §10. It also mentions that three things must be said in the same breath, and none of them is a hedge. The excerpt provides specific details about the calibration budget and the discrepancy reported in §5.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E2_RMSNORM_FOLD.md",
+      "category": "technical_general",
+      "excerpt": "epend on that constant, which is\n   why it is quotable at all — but it has never been reproduced by a runner that was not the one\n   that produced it.\n2. **It has never existed in the exporter.** T3 folded a `transformers` module in memory. The\n   deliverable is `qwen_export.py` → `donor_engine.c`. Nothing has ever folded a norm into a\n   binary this programme can execute.\n\n**This ",
+      "A": "The excerpt describes a quote attributed to a runner that is not reproduced by a runner who produced it. It also mentions that the quote has never been reproduced by a runner who is not the one who produced it.<|im_end|>",
+      "B": "The excerpt describes a specific instance of a program that has never been reproduced by a runner who produced it. It mentions that the program has never existed in the exporter, and that it has never folded a `transformers` module into a binary that can be executed.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E36_TEN_BILLION_AT_FIFTY.md",
+      "category": "technical_general",
+      "excerpt": " the slope is the engine's.\n\n## 5. Predictions — scored as registered. 3 HIT / 1 MISS / 2 held\n\n| # | registered | outcome | |\n|---|---|---|---|\n| 1 | all three gates fire | +3.4% / exact / exact | **HIT** |\n| 2 | `A10B-K3` in `[49, 54]` | **49.96** (run 2: 51.50) | **HIT** |\n| 3 | it comes in **FASTER** than the charged model, because `GSZ=180` puts the `down` runs at 11,520 B | *",
+      "A": "The slope of the engine's performance is described as the engine's. The excerpt provides specific details about a model's performance, including its accuracy, speed, and the difference in performance between the charged model and the model with a lower charge level.<|im_end|>",
+      "B": "The slope of the engine's is described as the engine's. A specific detail is that the engine's is scored as registered with a 3 HIT, 1 MISS, and 2 held.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER_D5_RESULTS_AUDIT.md",
+      "category": "technical_general",
+      "excerpt": " pattern — **is exactly what the arithmetic says.** The write-up's own\n\"12.4 MB\" and \"352 MB\" are the same figures in decimal MB. **This one is right.**\n\nMinor: the write-up mixes decimal MB into a table that is otherwise MiB throughout.\n\n---\n\n## FINDING 12 — FLAG. The unmeasured `D`-sweep rows are honestly flagged in substance, weakly in placement — and the committed raw log still",
+      "A": "The excerpt describes a situation where the write-up's own figures are presented in decimal MB, while the actual figures are in MiB. It also mentions that the write-up mixes decimal MB into a table that is otherwise MiB throughout.<|im_end|>",
+      "B": "The excerpt describes a discrepancy between the write-up's stated size (12.4 MB and 352 MB) and the actual size in decimal MB. It also mentions that the write-up mixes decimal MB into a table that is otherwise MiB throughout.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_D0_COACTIVATION_PERMUTATION.md",
+      "category": "technical_general",
+      "excerpt": "ord. Write incrementally.\n\n## 9. Deliverables — then STOP\n\n- `benchmarks/donor_adaptation/density/results/d0_coactivation.json`: pre-registration, all four control\n  outcomes, the skippable × arm × block-size table with seed spreads, the §5 duplication distributions,\n  and the reproducibility manifest.\n- A section in `docs/research/DENSITY_PROBES.md` in the style of §2/§3.\n- Report",
+      "A": "The excerpt describes a set of deliverables for a research project, including a JSON file for pre-registration, a table with seed spreads and block sizes, and a section in `docs/research/DENSITY_PROBES.md` with a reproducibility manifest.<|im_end|>",
+      "B": "The excerpt describes a set of deliverables for a research project, including a JSON file for pre-registration, a table with seed spreads and block sizes, and a manifest for reproducibility. It also mentions a section in `docs/research/DENSITY_PROBES.md` in the style of §2/§3.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/LINEAR_MIXING_MECHANISM.md",
+      "category": "technical_general",
+      "excerpt": "= 1 + qᵀk + (qᵀk)²/2  ≈ exp(qᵀk)\n```\n\nBased §4.1 [A] gives the identical inner-product form (its Eq. 4) and states the dimension: `φ : R^d → R^{d²}`, `d̃ = d²`, giving `O(N d³)` time and an `O(d³)` recurrent state; Based reduces this by projecting `q,k` to `d' = 16` first.\n\n**The single most important structural fact:** *the order of the expansion IS the feature dimension.* A `p`-d",
+      "A": "The excerpt describes a mathematical formula that approximates the exponential of the inner product of a vector `q` and a matrix `k` with a squared term. It states that the formula is approximately equal to the exponential of the inner product, with a dimension of `φ : R^d → R^{d²}`, `d̃ = d²`, giving `O(N d³)` time and an `O(d³)` recurrent state. The single most important structural fact is that the order of the expansion is the feature dimension.<|im_end|>",
+      "B": "The excerpt describes the inner-product form of a function `φ : R^d → R^{d²}` with `d̃ = d²`, which is given by `φ(x) = x^T q + (x^T q)²/2`. It also mentions that the dimension of the feature space is `d̃ = d²`, and that the recurrence relation is `φ(x) = φ(x - q) + q^T x`. The excerpt provides a detailed explanation of the inner-product form and the recurrence relation, highlighting the importance of the order of the expansion being the feature dimension.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/D0C_GRANULARITY.md",
+      "category": "technical_general",
+      "excerpt": "label caches in `results/d0c_labels/`.**\n**Driver: `benchmarks/donor_adaptation/density/d0c_granularity.py`.**\n\n> **This report has not been audited.** It was written by the same figure that specified the brief and\n> read the numbers. The Controller audit is owed and is listed in §9.\n\n---\n\n## 1. What was measured\n\nD0 Part III closed FFN co-activation carving at 1.5B on a single num",
+      "A": "The excerpt describes a report that has not been audited, written by the same figure who specified the brief and read the numbers, and is listed in §9. The report is about the performance of a specific part of the FFN co-activation carving algorithm on a single device.<|im_end|>",
+      "B": "The excerpt describes a report that has not been audited, written by the same figure who specified the brief and read the numbers, and is listed in §9. The report is about the measurement of D0 Part III closed FFN co-activation carving on a single num.<|im_end|>"
+    }
+  ]
+}
