@@ -245,6 +245,20 @@ def main():
         "prompt_summary": prompts, "early_gates": early_gates})
     print(json.dumps({"documents": documents, "prompts": prompts, "early_gates": early_gates}), flush=True)
     if not all(early_gates.values()):
+        stopped = {"experiment": "METH-59-Instruct-R8-core-product-key-composition",
+                   "core_sha256": CORE_SHA,
+                   "checkpoint_sha256": M57.CHECKPOINT_SHA,
+                   "reference_sha256": REFERENCE_SHA,
+                   "external_manifest_sha256": M57.EXTERNAL_SHA,
+                   "document_rows": doc_rows, "document_summary": documents,
+                   "prompt_rows": prompt_rows, "prompt_summary": prompts,
+                   "gates": early_gates,
+                   "decision": "stop_before_generation_task_early_gate_failed",
+                   "runtime": {**budget(start, device),
+                               "gpu": torch.cuda.get_device_name(device),
+                               "cuda_index": matches[0], "torch": torch.__version__}}
+        args.out.write_text(json.dumps(stopped, indent=2) + "\n", encoding="utf-8")
+        partial.unlink(missing_ok=True)
         print("METH-59 early gate failed; stopped before generation/task", flush=True)
         return
 
