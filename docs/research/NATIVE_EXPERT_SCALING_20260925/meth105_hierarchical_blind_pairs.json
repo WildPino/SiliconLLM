@@ -1,0 +1,176 @@
+{
+  "experiment": "METH-105-hierarchical-E1280-blind-semantic-review",
+  "manifest_sha256": "a5d1f6ef484eca561336d4625dd09db695034a139130fac490048da5a6650764",
+  "audit_sha256": "1c2846b99ee075279c2a0d049f91ad2cccf833d75870c868d0e6d5db76b8b6db",
+  "review_rule": "Count unsupported, severe and missing-detail findings from the excerpt alone.",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth21_half_adapter_piqa.py",
+      "category": "code",
+      "excerpt": "t = output.float()\n    targets = torch.as_tensor(suffix, dtype=torch.long, device=device)\n    selected = output.gather(1, targets[:, None]).squeeze(1)\n    nll = torch.logsumexp(output, dim=-1) - selected\n    total = float(nll.sum())\n    assert math.isfinite(total) and total >= 0\n    return total, total / len(suffix)\n\n\ndef summarize(rows):\n    out = {\"items\": len(rows)}\n    for arm ",
+      "A": "The excerpt describes a function `summarize` that takes a list of rows as input. It calculates the total number of elements in the rows and returns this total along with the total count of elements divided by the number of rows.<|im_end|>",
+      "B": "The excerpt describes a function `summarize` that takes a list of rows as input and returns a dictionary containing the number of items in the list and the total sum of the nll (negative log-likelihood) values across all rows.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_ffn_rmsnorm_cross_input.py",
+      "category": "code",
+      "excerpt": "\"down\", \"moe_out\", \"downstream\")}\n    return values, report\n\n\ndef descriptive(candidate, reference, shape):\n    result = base.metrics(candidate, reference)\n    candidate_view = np.asarray(candidate).reshape(shape)\n    reference_view = np.asarray(reference).reshape(shape)\n    result[\"per_token\"] = [dict(base.metrics(candidate_view[token].ravel(), reference_view[token].ravel()), toke",
+      "A": "The excerpt describes a function `descriptive` that takes two inputs: `candidate` and `reference`, and returns a dictionary containing the metrics of the candidate and reference sequences, as well as the per-token metrics. The function is used to compare two sequences and return a summary of the results.<|im_end|>",
+      "B": "The excerpt describes a function `descriptive` that takes two inputs: `candidate` and `reference`, and returns a dictionary with metrics for each token in the candidate and reference. The function is used to compare two sets of data and return a summary of the differences between them.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat02_w4_bf16_full_export.py",
+      "category": "code",
+      "excerpt": " matches[0][\"shape\"]\n    return 0 <= coordinate[\"row\"] < rows and 0 <= coordinate[\"group\"] < columns // 128\n\n\ndef _run_parent(args: argparse.Namespace, *, smoke: bool) -> int:\n    start = time.monotonic()\n    paths = _prepare_output(args.output_dir)\n    try:\n        bounded, _teacher, preflight = _launch_preflight(args.snapshot, paths[\"root\"])\n        plan_document = {\"schema\": SCH",
+      "A": "The excerpt describes a function `_run_parent` that takes an `argparse.Namespace` object and optional arguments `smoke` and `args` as input. The function returns an integer indicating the number of successful runs of the `preflight` function. The `preflight` function is responsible for launching a parent process and preparing the output directory.<|im_end|>",
+      "B": "The excerpt describes a function `_run_parent` that takes an argument `args` and returns an integer. The function is responsible for launching a preflight process and preparing output paths. It also includes a nested function `_launch_preflight` that launches a preflight process and returns a tuple of the bounded path, the teacher, and the preflight status.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/native_expert_scaling/prepare_meth05_imatrix_ids.py",
+      "category": "code",
+      "excerpt": "gparse\nfrom collections import Counter\nimport hashlib\nimport json\nfrom pathlib import Path\n\n\nCALIB_SHA256 = \"68d9327a823328b1104c843afe986efeefcdd88c911c02895d577f65bffd8f81\"\nTOKENIZER_SHA256 = \"b4b3d90c67830a4e566296ad8d0f6b5ac5a5cdbfd331b200d0ee8263aaaea1fe\"\nEXPECTED_CATEGORIES = {\"code\": 16, \"prose\": 16, \"technical_general\": 16}\nVOCAB_SIZE = 128_256\n\n\ndef sha256(path: Path) -> s",
+      "A": "The excerpt describes a Python script that uses the `collections.Counter` class to count the occurrences of words in a file. It also uses the `hashlib` and `json` modules to hash the file's content and verify its integrity. The script is designed to be used as a part of a larger parsing and verification process.<|im_end|>",
+      "B": "The excerpt describes a Python script that uses the `collections.Counter` class to count the occurrences of words in a file. It also uses the `hashlib` and `json` modules to hash the file's content and verify its integrity. The script is designed to check if the file is a valid JSON file and if its SHA-256 hash matches the expected value.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_engine_rung0.py",
+      "category": "code",
+      "excerpt": "model.is_file():\n        raise SystemExit(f\"accepted artifact not found: {model}\")\n    if model.stat().st_size != EXPECTED_SIZE:\n        raise SystemExit(f\"accepted artifact size mismatch: {model.stat().st_size}\")\n\n    binary = output / \"engine_rung0.exe\"\n    compile_command = [\n        clang,\n        \"-std=c11\",\n        \"-O3\",\n        \"-mavx2\",\n        \"-mfma\",\n        str(ENGINE_",
+      "A": "The excerpt describes a Python script that checks if an artifact is accepted by a model and raises a `SystemExit` if the artifact is not found or if its size does not match the expected size. It also includes a binary path and a compile command to compile the engine_rung0.exe file.<|im_end|>",
+      "B": "The excerpt describes a Python script that checks if an artifact is accepted by a model and raises a `SystemExit` if the artifact is not found or if its size does not match the expected size. It also includes a binary path and a compile command to compile the engine_rung0.exe file.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/native_expert_scaling/plan_meth08_q2_reallocation.py",
+      "category": "code",
+      "excerpt": "nt(\"--out\", type=Path, required=True)\n    parser.add_argument(\"--tensor-types-out\", type=Path, required=True)\n    parser.add_argument(\"--experts-only\", action=\"store_true\",\n                        help=\"METH-09 diagnostic: change experts to Q2_K without head/dense payment\")\n    args = parser.parse_args()\n    if args.out.exists() or args.tensor_types_out.exists():\n        parser.err",
+      "A": "The excerpt describes a command-line argument parser for a Python script, which is used to specify the output directory and the path to a tensor types output directory. It also includes an option to change experts to Q2_K without head/dense payment.<|im_end|>",
+      "B": "The excerpt describes a Python script that parses command-line arguments to set up a tensor type output directory and an experts-only flag. It also includes a check for the existence of the output directory and the tensor types output directory.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_rung2c.h",
+      "category": "code",
+      "excerpt": "s0,s1,s2,order,ptr,NULL,count)\n    F(\"l_out-0\",\"accepted block-0 terminal start state\",\"ADD\",2,1536,8,0,\"token,feature\",block0->l_out,8U*1536U);\n    F(\"attn_norm-1\",\"post RMSNorm\",\"MUL\",2,1536,8,0,\"token,feature\",attn->attn_norm,8U*1536U);\n    F(\"q-1\",\"direct Q after reshape\",\"RESHAPE\",3,192,32,8,\"token,head,feature\",attn->q,8U*6144U);\n    F(\"kv_cmpr_pe-1\",\"post KV-A projection bef",
+      "A": "The excerpt describes a sequence of operations in a neural network, specifically involving reshaping, normalization, and projection operations. It mentions the use of `attn_norm` and `q` in the reshaped tensor, with the reshaping factor being 192.<|im_end|>",
+      "B": "The excerpt describes a sequence of operations in a neural network, specifically involving reshaping, normalization, and projection operations. It shows how the input tensor `attn` is reshaped to a new shape of 192x32x8, followed by normalization, and then projection onto a new feature dimension.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/ternary/t3_rotation.py",
+      "category": "code",
+      "excerpt": "\"perm\",      True,  False),   # fold + permutation, no quant\n    \"XH\":  (\"hadamard\",  True,  False),   # fold + block Hadamard, no quant\n    \"XO\":  (\"orth\",      True,  False),   # fold + dense random orthogonal, no quant\n    \"Q\":   (None,        False, True),    # R3, no fold, no rotation -- T2 replication gate\n    \"N\":   (None,        True,  True),    # R3 after folding only -- i",
+      "A": "The excerpt describes a set of fold and permutation operations, with specific details for each operation:\n\n1. **fold + permutation, no quant**: This indicates that the operation involves folding and then applying a permutation, but the quantization is not specified.\n2. **XH**: This indicates that the operation involves folding and block Hadamard, but the quantization is not specified.\n3. **XO**: This indicates that the operation involves folding and dense random orthogonal, but the quantization is not specified.\n4. **Q**: This indicates that the operation involves R3 after folding only, but the quantization is not specified.\n5",
+      "B": "The excerpt describes a set of fold and permutation operations, with specific details provided for each operation:\n\n1. **fold + permutation, no quant**: This indicates that the operation involves folding and then applying a permutation, but the quantization is not specified.\n2. **XH**: This indicates that the operation involves folding and block Hadamard, but the quantization is not specified.\n3. **XO**: This indicates that the operation involves folding and dense random orthogonal, but the quantization is not specified.\n4. **Q**: This indicates that the operation involves R3 after folding only, but the quantization is not specified.\n"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=35",
+      "category": "prose",
+      "excerpt": "r,\nnot easy to discuss, that should be mentioned; I refer to the effect\nupon himself of his thoughts and words.\n\nThere is a divine calmness in him never seen in mere men; that is\nimpossible to them. In this also he stands apart from men.\n\nHis greatest discourses are without intellectual heats. This is very\nwonderful to me. He shows himself to be the tenderest-hearted teacher\nwho ev",
+      "A": "The excerpt describes a man who is described as \"not easy to discuss, that should be mentioned; I refer to the effect upon himself of his thoughts and words.\" It also mentions that this man is \"independent\" and \"stands apart from men,\" and that he is \"very wonderful to me\" as a teacher.<|im_end|>",
+      "B": "The excerpt describes a man who is described as \"not easy to discuss, that should be mentioned; I refer to the effect upon himself of his thoughts and words.\" He is described as \"divine calmness\" and \"tenderest-hearted teacher.\" The excerpt also mentions that his greatest discourses are \"without intellectual heats.\"<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=39",
+      "category": "prose",
+      "excerpt": "he cavern, to take his\nweapons with him, not knowing what use might be made of them by the\nwomen under the provocation, to which they were sometimes subjected.\n\nThe only weapon he could find was a large dagger. This he secured, and\nwas preparing to leave the cavern, when he thought he saw something\nmoving in one corner.\n\nIn order to make sure that he had not been mistaken, he appro",
+      "A": "The excerpt describes a man who, after taking his weapons with him, was unaware of their potential use by the women under provocation. He found a large dagger and prepared to leave the cavern, but saw something moving in one corner.<|im_end|>",
+      "B": "The excerpt describes a man who, after taking his weapons with him, was unaware of their potential use by the women under provocation. He found a large dagger and prepared to leave the cavern, but saw something moving in one corner.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=7",
+      "category": "prose",
+      "excerpt": "hich in his own mind awakened a rivalry with Napoleon;\nambitious for the highest rank, he made a great match with the\nsister-in-law of Joseph Bonaparte, and so managed his affairs that, as\nis well known, he ended on the throne of Sweden and founded the\nreigning house of that kingdom.\n\nBonaparte wooed the stupefied Carinthians with his softly worded\nproclamations, and his advancing ",
+      "A": "The excerpt describes Napoleon's rivalry with Joseph Bonaparte, who was his sister-in-law. It mentions that Napoleon made a great match with the sister-in-law of Joseph Bonaparte and managed his affairs, as well as the wooing of the stupefied Carinthians with his softly worded proclamations.<|im_end|>",
+      "B": "The excerpt describes Napoleon's rivalry with Joseph Bonaparte, who was his sister-in-law. It mentions that Napoleon made a great match with the sister-in-law of Joseph Bonaparte and managed his affairs, as well as the wooing of the stupefied Carinthians with his softly worded proclamations.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=17",
+      "category": "prose",
+      "excerpt": "en walk. She was still dressed in the singular costume which\noffended the sailor's old-fashioned notions of propriety, but he could\nnot deny, as he looked at her, that she was a very fine woman. In many\nclimes he had looked upon women of all shades and ages, but never upon\na more clearcut, handsome face, nor a more erect, supple, and womanly\nfigure. He ceased to glower as he gazed ",
+      "A": "The excerpt describes a woman who is dressed in a singular costume that offends the sailor's old-fashioned notions of propriety. The sailor cannot deny that she is a very fine woman, and he looks at her with admiration.<|im_end|>",
+      "B": "The excerpt describes a woman who is dressed in a singular costume that offends the sailor's old-fashioned notions of propriety. The sailor cannot deny that she is a very fine woman, and he looks at her with admiration.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=12",
+      "category": "prose",
+      "excerpt": " p. 138.\n\n[142] Fison and Howitt, _Native Tribes of Australia_; also _Kamilaroi_\nand _Kurnai_, pp. 33, 65, 66. See also Hartland, _op. cit._, Vol. I.\np. 294.\n\n[143] Letourneau, _op. cit._, pp. 44, 271-274. Thomas, _op. cit._, p.\n61.\n\n[144] Hartland, _Primitive Paternity_, Vol. II. pp. 155-156, 39-41.\n\n[145] Dalton, _Ethnology of Bengal_, p. 54; also Tylor, \"The\nMatriarchal System,\"",
+      "A": "The excerpt describes a collection of works on the Native Tribes of Australia, including \"Kamilaroi\" and \"Kurnai,\" and provides specific details about the authors and their works.<|im_end|>",
+      "B": "The excerpt describes a collection of works on Native American tribes, including those by Fison, Howitt, and others, as well as a book by Letourneau. It also mentions the work by Thomas, which is part of Hartland's collection. The excerpt also provides a brief summary of the book \"Primitive Paternity\" by Dalton, which is part of Tylor's collection.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=48",
+      "category": "prose",
+      "excerpt": "ng her about toward the light, and stared at a birthmark\nbehind her ear. No one spoke, old Waite seemingly stricken dumb, the\nwoman shrinking away from him as though she feared he was crazed.\n\n\"What is it?\" asked the sheriff, sternly.\n\nSlowly Waite turned about and faced him, running the sleeve of his coat\nacross his eyes. He appeared dazed, confounded.\n\n\"My God, it's all right,\" h",
+      "A": "The excerpt describes a scene where a woman is staring at a birthmark behind her ear, and a sheriff asks her about it. The sheriff is stern and seems to be stricken dumb, and the woman is running the sleeve of her coat across her eyes, appearing dazed and confounded.<|im_end|>",
+      "B": "The excerpt describes a scene where a woman is staring at a birthmark behind her ear, and she is being stared at by a sheriff who is concerned about her sanity. The sheriff asks her about it, and she turns to face him, running the sleeve of her coat across her eyes.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=44",
+      "category": "prose",
+      "excerpt": "ose that your young man works\nvery hard--let us suppose even hard enough for Mimotchka not to have to\ndress like a poor creature in an old-fashioned gown. But if he were to\ndie--in what position would she be left? If he were an elderly man, he\nmight, at least, leave her a pension; but a young man, say, what can\nhe leave her? Children, most likely.... What is to become of her with\nt",
+      "A": "The excerpt describes a scenario where a young man works very hard, even if it means he dies, leaving his elderly mother in a difficult situation.<|im_end|>",
+      "B": "The excerpt describes a scenario where a young man works very hard, even if it means he dies, leaving his elderly mother in a difficult situation.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=9",
+      "category": "prose",
+      "excerpt": " Instantly the guard drew one of his pistols and covered\nthe ringleader, who thereupon dropped on his knees imploring pardon,\nwhile his companions, previously so aggressive, scampered off in all\ndirections like a set of scared rabbits.\n\nThe apparatus by which in the present day bags of letters are dropped\nfrom and taken up by the travelling post-office while the trains are\nrunning ",
+      "A": "The excerpt describes a scene of a guard using a pistol to cover a ringleader who is being arrested and then covering his own body to show his surrender.<|im_end|>",
+      "B": "The guard used his pistol to cover the ringleader, who was pleading for mercy, while his companions fled in all directions, like scared rabbits, as the apparatus for dropping letters from trains was used.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_SWIGLU_SSE2_SEMANTICS_RESULT_20260924.md",
+      "category": "technical_general",
+      "excerpt": "_SEMANTICS_PROTOCOL_20260924.md)\ncompleted at producer commit\n`005e604ea368585affb8ec804bdd7fc58d0e290e`. It reports no error, exactly\none diagnostic invocation, and zero donor/reference graph executions.\n\nRaw directory:\n`benchmarks/donor_adaptation/engine/results/strat01_gigachat_engine_post_f16_block0_swiglu_sse2_semantics_20260924/`\n\n- `adjudication.json` SHA-256:\n  `46f127215e4",
+      "A": "The excerpt describes a completed run of a semantic protocol (SEMANTICS_PROTOCOL_20260924.md) on a benchmark dataset. It shows that the run completed at the producer commit, with no errors, exactly one diagnostic invocation, and zero donor/reference graph executions. The raw directory contains the results of the run.<|im_end|>",
+      "B": "The excerpt describes a completed run of a semantic protocol (SEMANTICS_PROTOCOL_20260924.md) on a benchmark dataset. It shows that the run completed at the producer commit, with no errors, exactly one diagnostic invocation, and zero donor/reference graph executions. The raw directory contains the results of the run.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_02_W4_BF16_QUALITY_RESULT.md",
+      "category": "technical_general",
+      "excerpt": "0450434854 | +0,022325908375791 |\n| technical_general | 32 | 60.561 | 0,557407126777526 | 0,582411679141243 | +0,025004552363717 | +0,027566276535542 |\n| prose | 32 | 63.820 | 0,853600576543356 | 0,885555166698682 | +0,031954590155327 | +0,033702299448568 |\n\nIl limite è superato sia sul totale (+0,027177891834178 > +0,02) sia in\nognuna delle tre categorie. Il verdetto operativo è q",
+      "A": "The excerpt describes a technical report with the following data:\n\n- Total: 32\n- Category 1: 60.561\n- Category 2: 63.820\n- Category 3: 63.820\n- Verdetto operativo: 0,031954590155327\n\nThe excerpt also mentions that the limit is exceeded in both the total and each category, and the verdetto operativo is 0.031954590155327.<|im_end|>",
+      "B": "The excerpt describes a technical report with the following details:\n\n- The report has 32 entries.\n- The technical field is \"general\".\n- The average value for the technical field is 60.561.\n- The standard deviation for the technical field is 0.5574.\n- The average value for the prose field is 63.820.\n- The standard deviation for the prose field is 0.8536.\n- The average value for the prose field is 85.3600576543356.\n- The standard deviation for"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_T1_DONOR_TERNARIZATION.md",
+      "category": "technical_general",
+      "excerpt": "es, and it is the most basic one in the programme\n\n`engine.c` is a **ternary** engine. Every weight it multiplies is in {−1, 0, +1} with an fp32 scale.\nThat is not an optimisation on top of the architecture — it **is** the architecture, and it is the\nreason the whole bandwidth argument works.\n\nThe donor-adaptation programme has measured, on Qwen2.5-1.5B: co-activation carving (D0, ",
+      "A": "The excerpt describes the `engine.c` file in the Qwen model architecture, which is a ternary engine that multiplies weights by {-1, 0, +1} with a 32-bit scale. It is not an optimisation on top of the architecture but rather the architecture itself, which is why the bandwidth argument works.<|im_end|>",
+      "B": "The excerpt describes a ternary engine in the context of a neural network architecture, where each weight is multiplied by {−1, 0, +1} with a 32-bit scale. It also mentions that this engine is part of a more complex architecture and that the bandwidth argument works because it is the core architecture of the network.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_SWIGLU_SSE2_SEMANTICS_PROTOCOL_20260924.md",
+      "category": "technical_general",
+      "excerpt": "0` | `2b608af95db90fcde83c29946ba2ac680fb6465cbaaf518fc12874ab510b29e4` |\n| captured reference `ffn_swiglu-0` | `de9245a2f6f60e8d7511d03fe981e6b55ef21a8634d5071dd36727a1a5950cef` |\n| scalar-libm replay SwiGLU | `ac2b46108a7e18ddebdb1b3a26462bca0faebea536361a5ca4069c4fa7ddcf40` |\n| Q6 on captured reference SwiGLU | `f52e0e5bdb22a17ae4a9e0ee9e0c6ffc6bb485b3e61e3f821039eae38697d6ce` |",
+      "A": "The excerpt describes a specific data structure and its associated reference. It mentions a reference `ffn_swiglu-0` and a scalar-libm replay SwiGLU, along with a Q6 on the captured reference SwiGLU.<|im_end|>",
+      "B": "The excerpt describes a specific data structure and its associated reference. It captures a reference `ffn_swiglu-0` and a scalar-libm replay of it, along with a Q6 on the reference.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E67_OUTPUT_AWARE_SELECTION.md",
+      "category": "technical_general",
+      "excerpt": "p\ncontributions interact, sorting `m_g` need not minimize this error, much less\nend-to-end BPB. E38's registered `G-E38C` is an observed control comparison,\nnot a mathematical theorem about BPB. Its own brief §8 acknowledges that\ngradient- or output-aligned criteria were untested.\n\nThe simplest counterexample is `z=(10,1)`, `W_down=(0.001,1)`, `k=1`:\nmass chooses component 1 and in",
+      "A": "The excerpt describes a comparison between two methods of gradient-based optimization, specifically focusing on the `E38` method. It mentions that the `G-E38C` is an observed control comparison, not a mathematical theorem about BPB, and that its own brief §8 acknowledges that gradient- or output-aligned criteria were untested. The excerpt then provides a simple counterexample where `z=(10,1)`, `W_down=(0.001,1)`, and `k=1` results in the `G-E38C` being used, which is a direct comparison between the `E3",
+      "B": "The excerpt describes a comparison between two methods, E38's `G-E38C` and a mathematical theorem about BPB. It mentions that the method's gradient or output alignment criteria were not tested, and provides a simple counterexample where `z=(10,1)`, `W_down=(0.001,1)`, and `k=1` result in the method choosing component 1.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/LUT_PACKING_PRIOR_ART.md",
+      "category": "technical_general",
+      "excerpt": "urce-code findings are tagged **[S]** and\ncarry the file, the symbol, and the date fetched, because a repository is not a paper\nand must not be cited as one.\n\n---\n\n## 1. bitnet.cpp TL1 — two ternary weights into one 4-bit index. This is P1, published.\n\n**Source.** Jinheng Wang, Hansong Zhou, Ting Song, Shaoguang Mao, Shuming Ma, Hongyu\nWang, Yan Xia, Furu Wei — *1-bit AI Infra: Par",
+      "A": "The excerpt describes a specific issue with the bitnet.cpp code, which is tagged with **[S]** and carries the file, the symbol, and the date fetched, because a repository is not a paper and must not be cited as one.<|im_end|>",
+      "B": "The excerpt describes a specific issue with the bitnet.cpp code, which is tagged with the S tag and carries the file, the symbol, and the date fetched, because a repository is not a paper and must not be cited as one.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_Q6K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_PROTOCOL_20260924.md",
+      "category": "technical_general",
+      "excerpt": "s exact Q8_K bytes and exact agreement between the project AVX2\ntranscription and pinned x86 oracle, but both differ from immutable\n`ffn_out-0`. The historical scalar helper still exactly replays its own known\noutput. Thus another AVX2, Q8, matrix-layout, SwiGLU, residual-add, or\ndownstream run would duplicate closed evidence.\n\nThe changed coordinate is compiler lowering of pinned\n",
+      "A": "The excerpt describes a discrepancy between the AVX2 transcription and the pinned x86 oracle, indicating that the project has not achieved exact agreement between the two. It also mentions that the historical scalar helper still exactly replays its own known output, suggesting that the project has not fully resolved the issue.<|im_end|>",
+      "B": "The excerpt describes a discrepancy between the AVX2 transcription and the pinned x86 oracle, indicating that the project has not achieved exact agreement between the two. It also mentions that the historical scalar helper still exactly replays its own known output, suggesting that the project has not fully resolved the issue.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_TASK_ROLLOUT_PROTOCOL_20260919.md",
+      "category": "technical_general",
+      "excerpt": "LOUT`; HumanEval pending**. Prerequisites closed: `PASS_SOURCE_BINDING`, `PASS_FRESH_BPB`, and the first task stop gate. The [paired PIQA result](STRAT_01_GIGACHAT31_PIQA_RESULT_20260920.md) records 1,466/1,838 correct for BF16 and 1,456/1,838 for Q4 against a required 1,437. The [paired rollout result](STRAT_01_GIGACHAT31_DOCUMENT_ROLLOUT_RESULT_20260921.md) records two Q4-only de",
+      "A": "The excerpt describes a human evaluation process for a chatbot, where the human evaluation is pending, and the prerequisites for the human evaluation are `PASS_SOURCE_BINDING`, `PASS_FRESH_BPB`, and the first task stop gate. The human evaluation records 1,466 correct responses for BF16 and 1,456 correct responses for Q4 against a required 1,437 correct responses.<|im_end|>",
+      "B": "The excerpt describes a human evaluation process for a chatbot, where the human evaluation is pending, and the prerequisites for the human evaluation are `PASS_SOURCE_BINDING`, `PASS_FRESH_BPB`, and the first task stop gate. The human evaluation records 1,466 correct responses for BF16 and 1,456 correct responses for Q4 against a required 1,437 correct responses.<|im_end|>"
+    }
+  ]
+}
