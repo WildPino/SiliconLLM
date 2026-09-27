@@ -1,0 +1,839 @@
+{
+  "experiment": "METH-66-E128-E1280-controlled-smoke",
+  "source_sha256": "2a96422220ae25ba55a1a875952bcf06a5e2bdf0b57cb61571034ea4c0520b07",
+  "donor_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "dev_sha256": "56cb7987f344f4a7cc8f108a9aa17fe5ed481174aebab8f8eeb0c3a115d3ed09",
+  "teacher_sha256": "f42f678280a9086a0fc2ec6e57a712e33fdea8f5cb62bdac7f53c9f28a5f1dd7",
+  "train_chat_sha256": "17921cb83c1d10793e2a56df6aa899039bd794757eeff43921068b8de2096055",
+  "train_ids_sha256": "9bb5229fad6542aa8b3fd7edfc3b8d1dff965a573d7aa8379385caacc9d614da",
+  "seed": 666667,
+  "experts": 128,
+  "updates": 16,
+  "initial_bpb": {
+    "donor": 0.9712552075318387,
+    "student": 0.9712552075318387,
+    "delta": 0.0
+  },
+  "final_bpb": {
+    "donor": 0.9712552075318387,
+    "student": 0.9693763305080685,
+    "delta": -0.001878877023770209
+  },
+  "dev_top1": {
+    "matching": 3577,
+    "positions": 3810,
+    "agreement": 0.9388451443569554,
+    "per_prompt": [
+      {
+        "train_row": 2870,
+        "matching": 150,
+        "positions": 159
+      },
+      {
+        "train_row": 27157,
+        "matching": 151,
+        "positions": 159
+      },
+      {
+        "train_row": 10944,
+        "matching": 149,
+        "positions": 158
+      },
+      {
+        "train_row": 23288,
+        "matching": 148,
+        "positions": 157
+      },
+      {
+        "train_row": 15959,
+        "matching": 147,
+        "positions": 159
+      },
+      {
+        "train_row": 4174,
+        "matching": 146,
+        "positions": 159
+      },
+      {
+        "train_row": 29661,
+        "matching": 150,
+        "positions": 159
+      },
+      {
+        "train_row": 20474,
+        "matching": 149,
+        "positions": 159
+      },
+      {
+        "train_row": 12068,
+        "matching": 148,
+        "positions": 159
+      },
+      {
+        "train_row": 1419,
+        "matching": 152,
+        "positions": 159
+      },
+      {
+        "train_row": 9852,
+        "matching": 153,
+        "positions": 159
+      },
+      {
+        "train_row": 11548,
+        "matching": 148,
+        "positions": 158
+      },
+      {
+        "train_row": 18953,
+        "matching": 148,
+        "positions": 158
+      },
+      {
+        "train_row": 25120,
+        "matching": 149,
+        "positions": 159
+      },
+      {
+        "train_row": 21116,
+        "matching": 150,
+        "positions": 159
+      },
+      {
+        "train_row": 24369,
+        "matching": 148,
+        "positions": 159
+      },
+      {
+        "train_row": 19739,
+        "matching": 152,
+        "positions": 159
+      },
+      {
+        "train_row": 9598,
+        "matching": 150,
+        "positions": 159
+      },
+      {
+        "train_row": 5474,
+        "matching": 145,
+        "positions": 159
+      },
+      {
+        "train_row": 22521,
+        "matching": 150,
+        "positions": 159
+      },
+      {
+        "train_row": 11244,
+        "matching": 150,
+        "positions": 158
+      },
+      {
+        "train_row": 13221,
+        "matching": 148,
+        "positions": 159
+      },
+      {
+        "train_row": 21123,
+        "matching": 147,
+        "positions": 159
+      },
+      {
+        "train_row": 22217,
+        "matching": 149,
+        "positions": 159
+      }
+    ],
+    "route_load_by_layer": [
+      {
+        "selected_slots": 127,
+        "max_to_mean": 9.63359546661377,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 128,
+        "max_to_mean": 7.542257308959961,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 127,
+        "max_to_mean": 8.323359489440918,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 126,
+        "max_to_mean": 7.517060279846191,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 128,
+        "max_to_mean": 11.531758308410645,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 124,
+        "max_to_mean": 11.624147415161133,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 121,
+        "max_to_mean": 6.567978858947754,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 128,
+        "max_to_mean": 6.559579849243164,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 127,
+        "max_to_mean": 9.549606323242188,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 122,
+        "max_to_mean": 6.542782306671143,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 123,
+        "max_to_mean": 10.381102561950684,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 127,
+        "max_to_mean": 5.770078659057617,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 122,
+        "max_to_mean": 9.457218170166016,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 121,
+        "max_to_mean": 6.626771450042725,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 120,
+        "max_to_mean": 12.674015998840332,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 119,
+        "max_to_mean": 13.354331016540527,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 122,
+        "max_to_mean": 12.086089134216309,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 123,
+        "max_to_mean": 14.866141319274902,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 128,
+        "max_to_mean": 8.155380249023438,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 112,
+        "max_to_mean": 22.02204704284668,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 127,
+        "max_to_mean": 11.850918769836426,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 126,
+        "max_to_mean": 5.232545852661133,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 121,
+        "max_to_mean": 11.02782154083252,
+        "total_selections": 15240
+      },
+      {
+        "selected_slots": 128,
+        "max_to_mean": 4.594225883483887,
+        "total_selections": 15240
+      }
+    ],
+    "min_selected_slots": 112,
+    "worst_max_to_mean_load": 22.02204704284668
+  },
+  "min_changed_b_slots": 123,
+  "max_changed_b_slots": 128,
+  "steps": [
+    {
+      "update": 1,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 2.7470877170562744,
+          "kl": 0.0
+        },
+        {
+          "kind": "raw",
+          "ce": 1.567367434501648,
+          "kl": 0.0
+        },
+        {
+          "kind": "chat",
+          "ce": 0.8985149264335632,
+          "kl": 0.0
+        },
+        {
+          "kind": "chat",
+          "ce": 0.7272599935531616,
+          "kl": 0.0
+        }
+      ],
+      "min_b_gradient_norm": 0.0009729519020184764,
+      "min_router_gradient_norm": 0.0,
+      "pre_clip_global_norm": 0.011728155393006,
+      "sparse_state_bytes": 158957568,
+      "runtime": {
+        "elapsed_seconds": 11.125,
+        "rss_bytes": 2988134400,
+        "gpu_peak_allocated_bytes": 3534930432
+      }
+    },
+    {
+      "update": 2,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 2.4819250106811523,
+          "kl": 0.0010077324695885181
+        },
+        {
+          "kind": "raw",
+          "ce": 3.810626983642578,
+          "kl": 0.0010228882310912013
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5011153221130371,
+          "kl": 0.0011986657045781612
+        },
+        {
+          "kind": "chat",
+          "ce": 0.46826761960983276,
+          "kl": 0.0016280392883345485
+        }
+      ],
+      "min_b_gradient_norm": 0.0007495165127742934,
+      "min_router_gradient_norm": 2.0168926763327592e-06,
+      "pre_clip_global_norm": 0.014793153503353224,
+      "sparse_state_bytes": 318832640,
+      "runtime": {
+        "elapsed_seconds": 16.609999999998763,
+        "rss_bytes": 3154284544,
+        "gpu_peak_allocated_bytes": 3660602880
+      }
+    },
+    {
+      "update": 3,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 2.800930976867676,
+          "kl": 0.0008993213414214551
+        },
+        {
+          "kind": "raw",
+          "ce": 2.8075642585754395,
+          "kl": 0.0009601936326362193
+        },
+        {
+          "kind": "chat",
+          "ce": 0.8083767890930176,
+          "kl": 0.0017017220379784703
+        },
+        {
+          "kind": "chat",
+          "ce": 0.7061955332756042,
+          "kl": 0.001555988914333284
+        }
+      ],
+      "min_b_gradient_norm": 0.001337471261300334,
+      "min_router_gradient_norm": 9.760186852134437e-06,
+      "pre_clip_global_norm": 0.03461351613299712,
+      "sparse_state_bytes": 331104256,
+      "runtime": {
+        "elapsed_seconds": 22.125,
+        "rss_bytes": 3216457728,
+        "gpu_peak_allocated_bytes": 3660897792
+      }
+    },
+    {
+      "update": 4,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.6011247634887695,
+          "kl": 0.0010552025632932782
+        },
+        {
+          "kind": "raw",
+          "ce": 3.724252223968506,
+          "kl": 0.0011794465826824307
+        },
+        {
+          "kind": "chat",
+          "ce": 0.7296990752220154,
+          "kl": 0.005993921309709549
+        },
+        {
+          "kind": "chat",
+          "ce": 0.4757934510707855,
+          "kl": 0.007019453216344118
+        }
+      ],
+      "min_b_gradient_norm": 0.002314751334004856,
+      "min_router_gradient_norm": 3.287149677539686e-05,
+      "pre_clip_global_norm": 0.06469186908104523,
+      "sparse_state_bytes": 335749120,
+      "runtime": {
+        "elapsed_seconds": 27.5,
+        "rss_bytes": 3229704192,
+        "gpu_peak_allocated_bytes": 3660897792
+      }
+    },
+    {
+      "update": 5,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.799258232116699,
+          "kl": 0.0011340677738189697
+        },
+        {
+          "kind": "raw",
+          "ce": 1.4214874505996704,
+          "kl": 0.0006534758722409606
+        },
+        {
+          "kind": "chat",
+          "ce": 0.48173001408576965,
+          "kl": 0.008505222387611866
+        },
+        {
+          "kind": "chat",
+          "ce": 0.36631080508232117,
+          "kl": 0.006694624200463295
+        }
+      ],
+      "min_b_gradient_norm": 0.002352477864431629,
+      "min_router_gradient_norm": 2.2167877030023888e-05,
+      "pre_clip_global_norm": 0.07828209946180767,
+      "sparse_state_bytes": 339361792,
+      "runtime": {
+        "elapsed_seconds": 32.96899999999914,
+        "rss_bytes": 3233873920,
+        "gpu_peak_allocated_bytes": 3660897792
+      }
+    },
+    {
+      "update": 6,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 2.99053955078125,
+          "kl": 0.0013495193561539054
+        },
+        {
+          "kind": "raw",
+          "ce": 3.8193447589874268,
+          "kl": 0.0010487934341654181
+        },
+        {
+          "kind": "chat",
+          "ce": 0.4565618634223938,
+          "kl": 0.01730724237859249
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5117554068565369,
+          "kl": 0.021973656490445137
+        }
+      ],
+      "min_b_gradient_norm": 0.003814786599929546,
+      "min_router_gradient_norm": 5.400264849055531e-05,
+      "pre_clip_global_norm": 0.10390118606956021,
+      "sparse_state_bytes": 341139456,
+      "runtime": {
+        "elapsed_seconds": 38.23499999999876,
+        "rss_bytes": 3233951744,
+        "gpu_peak_allocated_bytes": 3660897792
+      }
+    },
+    {
+      "update": 7,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.446155548095703,
+          "kl": 0.001166888396255672
+        },
+        {
+          "kind": "raw",
+          "ce": 2.410506248474121,
+          "kl": 0.0008418685174547136
+        },
+        {
+          "kind": "chat",
+          "ce": 0.3547953963279724,
+          "kl": 0.02985381707549095
+        },
+        {
+          "kind": "chat",
+          "ce": 0.600269615650177,
+          "kl": 0.03618679568171501
+        }
+      ],
+      "min_b_gradient_norm": 0.004552255828960889,
+      "min_router_gradient_norm": 6.863086871676687e-05,
+      "pre_clip_global_norm": 0.15651732814201835,
+      "sparse_state_bytes": 343318528,
+      "runtime": {
+        "elapsed_seconds": 43.625,
+        "rss_bytes": 3236843520,
+        "gpu_peak_allocated_bytes": 3660897792
+      }
+    },
+    {
+      "update": 8,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 2.3163328170776367,
+          "kl": 0.0010985723929479718
+        },
+        {
+          "kind": "raw",
+          "ce": 3.382453203201294,
+          "kl": 0.0011935795191675425
+        },
+        {
+          "kind": "chat",
+          "ce": 0.2755016088485718,
+          "kl": 0.03005070611834526
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5211897492408752,
+          "kl": 0.03209525719285011
+        }
+      ],
+      "min_b_gradient_norm": 0.0047442747247729185,
+      "min_router_gradient_norm": 8.574220671329617e-05,
+      "pre_clip_global_norm": 0.09461523284164332,
+      "sparse_state_bytes": 344981504,
+      "runtime": {
+        "elapsed_seconds": 49.14099999999962,
+        "rss_bytes": 3242459136,
+        "gpu_peak_allocated_bytes": 3660897792
+      }
+    },
+    {
+      "update": 9,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 4.850279331207275,
+          "kl": 0.0013629446038976312
+        },
+        {
+          "kind": "raw",
+          "ce": 2.31013822555542,
+          "kl": 0.0008746860548853874
+        },
+        {
+          "kind": "chat",
+          "ce": 0.27355167269706726,
+          "kl": 0.03131138160824776
+        },
+        {
+          "kind": "chat",
+          "ce": 0.3360655903816223,
+          "kl": 0.03590171039104462
+        }
+      ],
+      "min_b_gradient_norm": 0.007197955039643794,
+      "min_router_gradient_norm": 0.00021740798596037742,
+      "pre_clip_global_norm": 0.2742735994262069,
+      "sparse_state_bytes": 346185728,
+      "runtime": {
+        "elapsed_seconds": 54.48499999999876,
+        "rss_bytes": 3241467904,
+        "gpu_peak_allocated_bytes": 3660897792
+      }
+    },
+    {
+      "update": 10,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 1.4817382097244263,
+          "kl": 0.000621953746303916
+        },
+        {
+          "kind": "raw",
+          "ce": 1.8596912622451782,
+          "kl": 0.0007973518804647028
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5274099111557007,
+          "kl": 0.02673540636897087
+        },
+        {
+          "kind": "chat",
+          "ce": 0.35224825143814087,
+          "kl": 0.035276416689157486
+        }
+      ],
+      "min_b_gradient_norm": 0.004890731384957578,
+      "min_router_gradient_norm": 6.297261714459643e-05,
+      "pre_clip_global_norm": 0.11323116971314834,
+      "sparse_state_bytes": 347045888,
+      "runtime": {
+        "elapsed_seconds": 59.92199999999866,
+        "rss_bytes": 3246415872,
+        "gpu_peak_allocated_bytes": 3660897792
+      }
+    },
+    {
+      "update": 11,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 2.36588454246521,
+          "kl": 0.0011775047751143575
+        },
+        {
+          "kind": "raw",
+          "ce": 2.719949722290039,
+          "kl": 0.0010771106462925673
+        },
+        {
+          "kind": "chat",
+          "ce": 0.6214020252227783,
+          "kl": 0.043237458914518356
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5969406962394714,
+          "kl": 0.03041135147213936
+        }
+      ],
+      "min_b_gradient_norm": 0.008132000078584226,
+      "min_router_gradient_norm": 0.00020470617256229727,
+      "pre_clip_global_norm": 0.28659145999010716,
+      "sparse_state_bytes": 348020736,
+      "runtime": {
+        "elapsed_seconds": 65.21899999999914,
+        "rss_bytes": 3246333952,
+        "gpu_peak_allocated_bytes": 3660897792
+      }
+    },
+    {
+      "update": 12,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 1.6295233964920044,
+          "kl": 0.0007980227819643915
+        },
+        {
+          "kind": "raw",
+          "ce": 3.725426435470581,
+          "kl": 0.002964896382763982
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5201866626739502,
+          "kl": 0.04805632308125496
+        },
+        {
+          "kind": "chat",
+          "ce": 0.4597904682159424,
+          "kl": 0.039209529757499695
+        }
+      ],
+      "min_b_gradient_norm": 0.007275807065055309,
+      "min_router_gradient_norm": 0.0001570259176557028,
+      "pre_clip_global_norm": 0.29768480455786217,
+      "sparse_state_bytes": 348422144,
+      "runtime": {
+        "elapsed_seconds": 70.64099999999962,
+        "rss_bytes": 3250987008,
+        "gpu_peak_allocated_bytes": 3660897792
+      }
+    },
+    {
+      "update": 13,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 2.998673439025879,
+          "kl": 0.001445427886210382
+        },
+        {
+          "kind": "raw",
+          "ce": 3.317164182662964,
+          "kl": 0.0011431705206632614
+        },
+        {
+          "kind": "chat",
+          "ce": 0.40192392468452454,
+          "kl": 0.03444558382034302
+        },
+        {
+          "kind": "chat",
+          "ce": 0.39860761165618896,
+          "kl": 0.03143393620848656
+        }
+      ],
+      "min_b_gradient_norm": 0.007575162865156831,
+      "min_router_gradient_norm": 0.000200018450746901,
+      "pre_clip_global_norm": 0.15778697970625166,
+      "sparse_state_bytes": 348708864,
+      "runtime": {
+        "elapsed_seconds": 75.8130000000001,
+        "rss_bytes": 3250745344,
+        "gpu_peak_allocated_bytes": 3660897792
+      }
+    },
+    {
+      "update": 14,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.876025915145874,
+          "kl": 0.0037438080180436373
+        },
+        {
+          "kind": "raw",
+          "ce": 3.8149940967559814,
+          "kl": 0.003692569676786661
+        },
+        {
+          "kind": "chat",
+          "ce": 0.16140536963939667,
+          "kl": 0.013933778740465641
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5688139796257019,
+          "kl": 0.037953827530145645
+        }
+      ],
+      "min_b_gradient_norm": 0.006843619532686073,
+      "min_router_gradient_norm": 0.00018668799779721217,
+      "pre_clip_global_norm": 0.14590381021212656,
+      "sparse_state_bytes": 348880896,
+      "runtime": {
+        "elapsed_seconds": 81.3130000000001,
+        "rss_bytes": 3250843648,
+        "gpu_peak_allocated_bytes": 3660897792
+      }
+    },
+    {
+      "update": 15,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 3.6349241733551025,
+          "kl": 0.0030230472330003977
+        },
+        {
+          "kind": "raw",
+          "ce": 3.602349281311035,
+          "kl": 0.0017405191902071238
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5709569454193115,
+          "kl": 0.03718661516904831
+        },
+        {
+          "kind": "chat",
+          "ce": 0.49210721254348755,
+          "kl": 0.03179813176393509
+        }
+      ],
+      "min_b_gradient_norm": 0.010040455268257779,
+      "min_router_gradient_norm": 0.00024448773007726144,
+      "pre_clip_global_norm": 0.1657368446819376,
+      "sparse_state_bytes": 349167616,
+      "runtime": {
+        "elapsed_seconds": 86.64099999999962,
+        "rss_bytes": 3249442816,
+        "gpu_peak_allocated_bytes": 3660897792
+      }
+    },
+    {
+      "update": 16,
+      "microbatches": [
+        {
+          "kind": "raw",
+          "ce": 2.024244785308838,
+          "kl": 0.001686752075329423
+        },
+        {
+          "kind": "raw",
+          "ce": 1.4916324615478516,
+          "kl": 0.001182887819595635
+        },
+        {
+          "kind": "chat",
+          "ce": 0.5053009986877441,
+          "kl": 0.041817810386419296
+        },
+        {
+          "kind": "chat",
+          "ce": 0.49492454528808594,
+          "kl": 0.035796817392110825
+        }
+      ],
+      "min_b_gradient_norm": 0.010499927954902103,
+      "min_router_gradient_norm": 0.0002955332042716714,
+      "pre_clip_global_norm": 0.15180541851155496,
+      "sparse_state_bytes": 349339648,
+      "runtime": {
+        "elapsed_seconds": 92.15699999999924,
+        "rss_bytes": 3249799168,
+        "gpu_peak_allocated_bytes": 3660897792
+      }
+    }
+  ],
+  "gates": {
+    "raw_bpb": true,
+    "prompt_top1": false,
+    "changed_slots": true,
+    "route_oracle": true,
+    "joint_smoke": false
+  },
+  "checkpoint": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth66_e128_smoke.pt",
+    "bytes": 546123270,
+    "sha256": "07ce42a3edeb7ed99fd8775ef7324bc986b29ea46885c41cb7fd3341b4b603c3"
+  },
+  "runtime": {
+    "elapsed_seconds": 129.40699999999924,
+    "rss_bytes": 3264245760,
+    "gpu_peak_allocated_bytes": 3660897792
+  },
+  "decision": "stop_at_smoke_gate"
+}
