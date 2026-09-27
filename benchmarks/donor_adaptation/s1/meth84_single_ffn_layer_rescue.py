@@ -23,7 +23,7 @@ import meth83_q4_core_composition as M83
 ROOT = Path(__file__).resolve().parents[3]
 DIR = ROOT / "docs/research/NATIVE_EXPERT_SCALING_20260925"
 M83_RESULT = DIR / "meth83_q4_core_composition_result.json"
-M83_RESULT_SHA = "443f1877ccb1b3edf7703af0e95b6bf58743f4bb899df01092dacc2d73fd528"
+M83_RESULT_SHA = "443f1877ccb1b3edf7703af0e95b6bf58743f4bb899df01092daccc2d73fd528"
 BASE_IDEAL_BYTES = 535_739_904
 LAYER_EXTRA_BYTES = 19_203_072
 MAX_SECONDS = 5 * 60
