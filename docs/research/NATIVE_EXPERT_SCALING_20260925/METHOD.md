@@ -543,6 +543,19 @@ selected rank-8 residual exactly on 96 recorded inputs from every
 layer, including actual donor hidden states. This validates native
 component arithmetic and the export readback, but the bank is not yet
 a complete `engine.c` model and its factor values are not LUT codes.
+[METH-59](METH_59_INSTRUCT_R8_CORE_RESULT_20260927.md) applies the
+existing per-row R8 rule to the bound Instruct core, producing a
+496.122 MB packed-only artifact. The composed E128 student retains
+viewed document BPB but falls to 94.230% donor prompt top-1 versus
+the fixed 95% gate, so the compact core is not quality-valid.
+[METH-60](METH_60_R8_CORE_ORGAN_ABLATION_RESULT_20260927.md) attributes
+part of that loss to attention quantization: preserving BF16 attention
+raises top-1 to 94.885% while ideal core+router+expert traffic is
+548.320 MB/token. BF16 head and FFN arms worsen ranking and exceed
+the 560 MB design allotment. None passes the joint diagnostic gate.
+The next representation candidate must be fixed without selecting
+scales on viewed prompt outcomes and independently audited before
+the procedure can claim a quality-valid low-traffic Instruct core.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
@@ -550,8 +563,8 @@ large-E optimization. NES-03 provides a numerical/cost-passing int8 router
 option at pilot scale, with a fragile E128 latency margin. Independent larger
 experts remain untrained, and no pretrained donor has been converted into a
 quality-valid, ≥50 accepted tok/s native artifact. The next method step
-is integrating the exported product-key E128 component with a
-quality-preserving low-traffic Qwen core in `engine.c`, then checking
+is finding a quality-preserving low-traffic Instruct core and integrating
+it with the exported product-key E128 component in `engine.c`, then checking
 full-model route/logit parity and accepted-token throughput on the
 same bundle. METH-47 remains a separate exact-router candidate with
 its own semantic question. The subsequent expert-count ladder must train

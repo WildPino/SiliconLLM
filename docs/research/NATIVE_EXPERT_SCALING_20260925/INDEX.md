@@ -92,6 +92,12 @@ product-key/selected-factor component on 96 hidden-state inputs: all
 routes, BF16 gate weights and residuals match the stored PyTorch oracle.
 The dense Qwen core, full `engine.c` integration and accepted-token rate
 are still unmeasured.
+METH-59 exports the matching Instruct donor as a 496.122 MB R8 core;
+the combined E128 student passes viewed document BPB but fails prompt
+top-1 at 94.230% versus the registered 95% floor. METH-60 restores
+individual organs: BF16 attention gives the best under-budget result,
+94.885% at 548.320 ideal MB/token, still five positions short.
+No compressed core is yet eligible for native model promotion.
 METH-31 measures the existing CPU LUT kernel in the Qwen rank-8
 shape with synthetic packed factors: E1280→E12800 raises the
 six-thread selected path only 1.136× to 0.505 ms/token. That
@@ -534,6 +540,8 @@ SSM/SWA target and passes joint quality/rate.
 | METH-56 | JOINT E128 UPDATE-512 RETENTION PASS | [result](METH_56_PRODUCT_KEY_RETENTION_RESULT_20260927.md), [protocol](METH_56_PRODUCT_KEY_RETENTION_PROTOCOL_20260927.md), [raw result](meth56_product_key_retention_result.json), [trainer](../../../benchmarks/donor_adaptation/s1/meth56_product_key_retention.py); no native or large-E proof |
 | METH-57 | FROZEN EXTERNAL AUTOMATIC AND BLIND SEMANTIC GATES PASS | [result](METH_57_PRODUCT_KEY_EXTERNAL_RESULT_20260927.md), [protocol](METH_57_PRODUCT_KEY_EXTERNAL_PROTOCOL_20260927.md), [paired result](meth57_product_key_external_audit_result.json), [blind verdict](meth57_blind_semantic_verdict.json), [unblinded score](meth57_semantic_score.json), [evaluator](../../../benchmarks/donor_adaptation/s1/meth57_product_key_external_audit.py); E128 donor-relative only |
 | METH-58 | TRAINED E128 PRODUCT-KEY NATIVE COMPONENT PARITY PASS | [result](METH_58_PRODUCT_KEY_NATIVE_COMPONENT_RESULT_20260927.md), [protocol](METH_58_PRODUCT_KEY_NATIVE_COMPONENT_PROTOCOL_20260927.md), [export ledger](meth58_product_key_export_result.json), [96-case C log](meth58_product_key_native_raw.log), [exporter](../../../benchmarks/native_expert_scaling/meth58_export_product_key.py), [C kernel](../../../benchmarks/native_expert_scaling/meth58_product_key_native.c); no core/full rate |
+| METH-59 | STORED INSTRUCT R8 CORE BPB PASS; PROMPT TOP-1 FAIL 94.230% | [result](METH_59_INSTRUCT_R8_CORE_RESULT_20260927.md), [protocol](METH_59_INSTRUCT_R8_CORE_PROTOCOL_20260927.md), [export ledger](meth59_instruct_r8_core_export.json), [paired stopped audit](meth59_instruct_r8_composition_result.json), [exporter](../../../benchmarks/donor_adaptation/s1/meth59_export_instruct_r8_core.py), [evaluator](../../../benchmarks/donor_adaptation/s1/meth59_instruct_r8_composition.py) |
+| METH-60 | SINGLE-ORGAN BF16 RESCUES FAIL JOINT TOP-1/TRAFFIC GATE | [result](METH_60_R8_CORE_ORGAN_ABLATION_RESULT_20260927.md), [protocol](METH_60_R8_CORE_ORGAN_ABLATION_PROTOCOL_20260927.md), [raw rows](meth60_r8_core_organ_ablation_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth60_r8_core_organ_ablation.py); viewed prompts only |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -613,15 +621,18 @@ scheduled.
   summaries contain unsupported claims. METH-57's distinct product-key
   checkpoint now passes a larger source-grounded relative audit. Do not
   retune on viewed continuations or extend E256 on a BPB gain alone.
-- **Next exact action: full native core and adapter integration.** METH-57
-  passes its frozen automatic and blind semantic gates. METH-58 exports
-  the actual METH-56 projection, keys and 128 distinct expert factors;
-  its standalone C route and selected BF16 path match all 96 recorded
-  inputs. Determine the lowest-active-traffic Qwen-core representation
-  that retains METH-57 quality, then integrate core plus adapter into
-  `benchmarks/phase60/engine.c`. Verify tensor/logit/route parity on
-  frozen token IDs before timing accepted batch-1 tokens. Keep core,
-  router, expert and traffic measurements on the **same** artifact.
+- **Next exact action: repair the compressed Instruct core.** METH-57
+  passes its frozen automatic and blind semantic gates; METH-58's
+  trained E128 C component matches 96/96 BF16 inputs. METH-59 rejects
+  all-R8 core composition at 94.230% top-1 despite near-flat BPB.
+  METH-60 finds BF16 attention improves this to 94.885% at 548.320
+  ideal MB/token, five positions short of its gate. Try a fixed,
+  weight-only R8 scale/code improvement on the remaining head and FFN
+  under the same byte ceiling; test on the viewed prompts only as a
+  diagnostic, then freeze a new source-disjoint quality/semantic audit
+  before any promotion. Only a passing compact composition merits
+  full `benchmarks/phase60/engine.c` integration and accepted-token
+  timing on the same artifact.
   METH-47 remains a separate candidate whose saved summaries showed
   unsupported claims.
   METH-50 isolates downstream route churn from factor

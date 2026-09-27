@@ -1,0 +1,481 @@
+{
+  "experiment": "METH-60-R8-core-organ-ranking-ablation",
+  "source_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "core_sha256": "5b6ace4a027d127a6eb49ca99197edd4a1b810ebe681d8e3b6ab7edc088ca9bd",
+  "checkpoint_sha256": "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072",
+  "external_manifest_sha256": "9571f5d61c29e34b27c05ec531232a08b9eb6cd81bdf85aa5648ff74f1db3d75",
+  "m59_result_sha256": "53fe562172952113f82be9bd19eb2d76ac69d69e5b3a70f8dab0c8a79ad69bc9",
+  "prompt_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h4_factorize.py",
+      "category": "code",
+      "prompt_ids_sha256": "4a9814ea2e80c899f87fc1471df43890cd78efcb4ffad1c6b508491233082ead",
+      "positions": 168,
+      "matches": {
+        "bf16_student": 162,
+        "all_r8": 159,
+        "bf16_head": 160,
+        "bf16_attention": 163,
+        "bf16_ffn": 157
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h_training_kaggle.py",
+      "category": "code",
+      "prompt_ids_sha256": "5db7ddec9a73560db33140101528c9bb71c72776248a8cee425095adb5543f4c",
+      "positions": 167,
+      "matches": {
+        "bf16_student": 163,
+        "all_r8": 159,
+        "bf16_head": 159,
+        "bf16_attention": 161,
+        "bf16_ffn": 157
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/s1_oracle.py",
+      "category": "code",
+      "prompt_ids_sha256": "195001be867d43764086db862eec0b4da15f177a4890fccd9f284f92480de599",
+      "positions": 169,
+      "matches": {
+        "bf16_student": 166,
+        "all_r8": 158,
+        "bf16_head": 158,
+        "bf16_attention": 160,
+        "bf16_ffn": 161
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_stats.py",
+      "category": "code",
+      "prompt_ids_sha256": "285fa530e30f25b235d99cddba0718b15421c8f9a1ff1cfe20e38706fee5b443",
+      "positions": 181,
+      "matches": {
+        "bf16_student": 174,
+        "all_r8": 170,
+        "bf16_head": 170,
+        "bf16_attention": 170,
+        "bf16_ffn": 168
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h0_selftest.py",
+      "category": "code",
+      "prompt_ids_sha256": "896254b2820fa01ed8b5117f2bf0382c80e22cc328fca835207595b9607223e2",
+      "positions": 173,
+      "matches": {
+        "bf16_student": 169,
+        "all_r8": 164,
+        "bf16_head": 164,
+        "bf16_attention": 165,
+        "bf16_ffn": 161
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/_kaggle_bundle/s1_kaggle_entry.py",
+      "category": "code",
+      "prompt_ids_sha256": "9505e3554a329edcb0dc75db20e80da96f091e0ec0845b6e139c5cb16381267d",
+      "positions": 162,
+      "matches": {
+        "bf16_student": 157,
+        "all_r8": 155,
+        "bf16_head": 154,
+        "bf16_attention": 155,
+        "bf16_ffn": 156
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_router_smoke.py",
+      "category": "code",
+      "prompt_ids_sha256": "61a4a1c8d251dba21bce12be7e5979f07b4201b4cb48243572d8a49b92ce4d4f",
+      "positions": 203,
+      "matches": {
+        "bf16_student": 202,
+        "all_r8": 195,
+        "bf16_head": 196,
+        "bf16_attention": 194,
+        "bf16_ffn": 198
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h5_cross_composition.py",
+      "category": "code",
+      "prompt_ids_sha256": "cdcf303904634338723ec093d71305b9ba92984eef7ce2d3ef01c96ce0b814d0",
+      "positions": 147,
+      "matches": {
+        "bf16_student": 141,
+        "all_r8": 139,
+        "bf16_head": 139,
+        "bf16_attention": 140,
+        "bf16_ffn": 136
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=95",
+      "category": "prose",
+      "prompt_ids_sha256": "010bed0b2e20f9933746a8e88f1de8ea1b43601743c5d6912978f996d72f4b40",
+      "positions": 152,
+      "matches": {
+        "bf16_student": 147,
+        "all_r8": 142,
+        "bf16_head": 142,
+        "bf16_attention": 143,
+        "bf16_ffn": 140
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=4",
+      "category": "prose",
+      "prompt_ids_sha256": "eddd5503a322bdfbc6329ea23731fb58b0774d8242ab56c79d6ee23b6a5524f3",
+      "positions": 165,
+      "matches": {
+        "bf16_student": 157,
+        "all_r8": 150,
+        "bf16_head": 148,
+        "bf16_attention": 151,
+        "bf16_ffn": 148
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=8",
+      "category": "prose",
+      "prompt_ids_sha256": "fde04500b4eb6483afa9ba178a63d8c1789f9f7c01c823fa5e7fedd8b27ddbe0",
+      "positions": 166,
+      "matches": {
+        "bf16_student": 159,
+        "all_r8": 153,
+        "bf16_head": 154,
+        "bf16_attention": 154,
+        "bf16_ffn": 151
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=17",
+      "category": "prose",
+      "prompt_ids_sha256": "bf76ce0a7657ca229b44f17720b919acb48542bbdcf207c7d339082d045de6e1",
+      "positions": 156,
+      "matches": {
+        "bf16_student": 149,
+        "all_r8": 144,
+        "bf16_head": 144,
+        "bf16_attention": 144,
+        "bf16_ffn": 145
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=81",
+      "category": "prose",
+      "prompt_ids_sha256": "17f08a6652f936236ce85119f7ae2466eb2b0bbb9c5dac3fead2a8d4a8435c57",
+      "positions": 152,
+      "matches": {
+        "bf16_student": 146,
+        "all_r8": 145,
+        "bf16_head": 145,
+        "bf16_attention": 147,
+        "bf16_ffn": 143
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=84",
+      "category": "prose",
+      "prompt_ids_sha256": "f03f79729762f18835d0a64acc52220b7611afbea36067613ee608063c398bc0",
+      "positions": 153,
+      "matches": {
+        "bf16_student": 149,
+        "all_r8": 146,
+        "bf16_head": 146,
+        "bf16_attention": 147,
+        "bf16_ffn": 143
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=85",
+      "category": "prose",
+      "prompt_ids_sha256": "e273d2416bf4d9c39d67f664334bca66489cd0d1c95cd265f67f41261a0b5274",
+      "positions": 198,
+      "matches": {
+        "bf16_student": 192,
+        "all_r8": 186,
+        "bf16_head": 185,
+        "bf16_attention": 184,
+        "bf16_ffn": 189
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=90",
+      "category": "prose",
+      "prompt_ids_sha256": "fb65d20f45632765ada68179aafc32e1638463ffdb5f0f67891564928cccf4b9",
+      "positions": 151,
+      "matches": {
+        "bf16_student": 146,
+        "all_r8": 143,
+        "bf16_head": 144,
+        "bf16_attention": 145,
+        "bf16_ffn": 143
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E23_A_REAL_ROUTER.md",
+      "category": "technical_general",
+      "prompt_ids_sha256": "b15c8beaaef29ff5b78656263ed0705f7194fdf6a76eef743b110c78805798be",
+      "positions": 199,
+      "matches": {
+        "bf16_student": 193,
+        "all_r8": 186,
+        "bf16_head": 188,
+        "bf16_attention": 187,
+        "bf16_ffn": 191
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E41_PARTITION_IS_NOT_THE_LEVER.md",
+      "category": "technical_general",
+      "prompt_ids_sha256": "35ce2dfeba7963923949387c329739d0735cc0ce79a9a94da2d5f83e9bb058f1",
+      "positions": 180,
+      "matches": {
+        "bf16_student": 175,
+        "all_r8": 170,
+        "bf16_head": 171,
+        "bf16_attention": 172,
+        "bf16_ffn": 170
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E2_RMSNORM_FOLD.md",
+      "category": "technical_general",
+      "prompt_ids_sha256": "4eb572992339e7fff4f51942cca5a4edfc1e8ee8d03b0c1dc5d5315a9bd6f2ba",
+      "positions": 162,
+      "matches": {
+        "bf16_student": 159,
+        "all_r8": 156,
+        "bf16_head": 154,
+        "bf16_attention": 159,
+        "bf16_ffn": 153
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E36_TEN_BILLION_AT_FIFTY.md",
+      "category": "technical_general",
+      "prompt_ids_sha256": "befe84011a55f49f9450b7a636ebe740175500b6eef2a13c726f95d741b13470",
+      "positions": 224,
+      "matches": {
+        "bf16_student": 216,
+        "all_r8": 211,
+        "bf16_head": 210,
+        "bf16_attention": 212,
+        "bf16_ffn": 211
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER_D5_RESULTS_AUDIT.md",
+      "category": "technical_general",
+      "prompt_ids_sha256": "41e0e72a52318862ca23b0087398f48dc82637ab319c8e5d6c5df4b8d371f419",
+      "positions": 166,
+      "matches": {
+        "bf16_student": 161,
+        "all_r8": 156,
+        "bf16_head": 154,
+        "bf16_attention": 160,
+        "bf16_ffn": 156
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_D0_COACTIVATION_PERMUTATION.md",
+      "category": "technical_general",
+      "prompt_ids_sha256": "f4f6699eec59d511bfef2ac2ac827c8696895455df5ed33d73c351d0459ec3fb",
+      "positions": 163,
+      "matches": {
+        "bf16_student": 159,
+        "all_r8": 154,
+        "bf16_head": 154,
+        "bf16_attention": 155,
+        "bf16_ffn": 155
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/LINEAR_MIXING_MECHANISM.md",
+      "category": "technical_general",
+      "prompt_ids_sha256": "ea2d2c0944e01a0eb9f74178b7bb290f9b07cb3ab8df42d053e7cb27ed1343fd",
+      "positions": 199,
+      "matches": {
+        "bf16_student": 193,
+        "all_r8": 189,
+        "bf16_head": 189,
+        "bf16_attention": 186,
+        "bf16_ffn": 188
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/D0C_GRANULARITY.md",
+      "category": "technical_general",
+      "prompt_ids_sha256": "cad8ec3b0fc6b1d98d9b6f56caa4459a3f54ee38dbdd5a631ee52d02b5fc53c5",
+      "positions": 169,
+      "matches": {
+        "bf16_student": 162,
+        "all_r8": 157,
+        "bf16_head": 156,
+        "bf16_attention": 160,
+        "bf16_ffn": 158
+      }
+    }
+  ],
+  "summary": {
+    "pooled": {
+      "positions": 4125,
+      "bf16_student": {
+        "matching": 3997,
+        "agreement": 0.9689696969696969
+      },
+      "all_r8": {
+        "matching": 3887,
+        "agreement": 0.9423030303030303
+      },
+      "bf16_head": {
+        "matching": 3884,
+        "agreement": 0.9415757575757576
+      },
+      "bf16_attention": {
+        "matching": 3914,
+        "agreement": 0.9488484848484848
+      },
+      "bf16_ffn": {
+        "matching": 3878,
+        "agreement": 0.9401212121212121
+      }
+    },
+    "code": {
+      "positions": 1370,
+      "bf16_student": {
+        "matching": 1334,
+        "agreement": 0.9737226277372263
+      },
+      "all_r8": {
+        "matching": 1299,
+        "agreement": 0.9481751824817518
+      },
+      "bf16_head": {
+        "matching": 1300,
+        "agreement": 0.948905109489051
+      },
+      "bf16_attention": {
+        "matching": 1308,
+        "agreement": 0.9547445255474453
+      },
+      "bf16_ffn": {
+        "matching": 1294,
+        "agreement": 0.9445255474452555
+      }
+    },
+    "prose": {
+      "positions": 1293,
+      "bf16_student": {
+        "matching": 1245,
+        "agreement": 0.962877030162413
+      },
+      "all_r8": {
+        "matching": 1209,
+        "agreement": 0.9350348027842227
+      },
+      "bf16_head": {
+        "matching": 1208,
+        "agreement": 0.934261407579273
+      },
+      "bf16_attention": {
+        "matching": 1215,
+        "agreement": 0.9396751740139211
+      },
+      "bf16_ffn": {
+        "matching": 1202,
+        "agreement": 0.9296210363495746
+      }
+    },
+    "technical_general": {
+      "positions": 1462,
+      "bf16_student": {
+        "matching": 1418,
+        "agreement": 0.9699042407660738
+      },
+      "all_r8": {
+        "matching": 1379,
+        "agreement": 0.9432284541723667
+      },
+      "bf16_head": {
+        "matching": 1376,
+        "agreement": 0.9411764705882353
+      },
+      "bf16_attention": {
+        "matching": 1391,
+        "agreement": 0.9514363885088919
+      },
+      "bf16_ffn": {
+        "matching": 1382,
+        "agreement": 0.945280437756498
+      }
+    }
+  },
+  "byte_ledger": {
+    "all_r8": {
+      "core_bytes": 496071680,
+      "router_bytes": 5652480,
+      "selected_factor_bytes": 2752512,
+      "ideal_addressed_total_bytes": 504476672,
+      "under_560m": true,
+      "extra_over_all_r8_bytes": 0
+    },
+    "bf16_head": {
+      "core_bytes": 631598592,
+      "router_bytes": 5652480,
+      "selected_factor_bytes": 2752512,
+      "ideal_addressed_total_bytes": 640003584,
+      "under_560m": false,
+      "extra_over_all_r8_bytes": 135526912
+    },
+    "bf16_attention": {
+      "core_bytes": 539915264,
+      "router_bytes": 5652480,
+      "selected_factor_bytes": 2752512,
+      "ideal_addressed_total_bytes": 548320256,
+      "under_560m": true,
+      "extra_over_all_r8_bytes": 43843584
+    },
+    "bf16_ffn": {
+      "core_bytes": 808838144,
+      "router_bytes": 5652480,
+      "selected_factor_bytes": 2752512,
+      "ideal_addressed_total_bytes": 817243136,
+      "under_560m": false,
+      "extra_over_all_r8_bytes": 312766464
+    }
+  },
+  "gates": {
+    "all_r8": {
+      "top1": false,
+      "traffic": true,
+      "joint_diagnostic": false
+    },
+    "bf16_head": {
+      "top1": false,
+      "traffic": false,
+      "joint_diagnostic": false
+    },
+    "bf16_attention": {
+      "top1": false,
+      "traffic": true,
+      "joint_diagnostic": false
+    },
+    "bf16_ffn": {
+      "top1": false,
+      "traffic": false,
+      "joint_diagnostic": false
+    }
+  },
+  "decision": "no_single_organ_rescue_meets_both_gates",
+  "runtime": {
+    "elapsed_seconds": 11.07799999999952,
+    "rss_end_bytes": 2883842048,
+    "gpu_peak_allocated_bytes": 2277826048,
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "cuda_index": 0,
+    "torch": "2.6.0+cu124"
+  }
+}
