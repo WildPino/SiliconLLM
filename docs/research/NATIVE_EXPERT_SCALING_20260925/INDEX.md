@@ -804,6 +804,15 @@ scheduled.
   from update 64 exceeds the ≤1.0-point limit. Its external
   promotion stops. The simple balance cessation test improves
   retention modestly; it does not solve large-E quality.
+  METH-80 adds a fixed teacher-decision margin to the same continuation.
+  On a newly frozen 24-prompt set, E1280 improves 96.563%→97.088%
+  versus its no-margin comparator and selects at least 1,126/1,280
+  experts per layer. It still declines 1.443 points from its update-64
+  parent and trails the E128 candidate by 0.603 point; both exceed
+  the preregistered allowances. External promotion stops. The next
+  priority for the end-to-end objective is a quality-valid compact
+  donor core and native full-artifact path; retain the distinct
+  learned large-E evidence as an unresolved parallel constraint.
   No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`

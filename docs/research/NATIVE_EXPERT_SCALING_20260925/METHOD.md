@@ -705,6 +705,15 @@ and declines 1.548 points from its update-64 baseline against the
 ≤1.0-point limit. It still selects at least 1,088/1,280 experts per
 layer. This rejects cessation alone as the retention remedy under
 the tested recipe; route coverage and raw BPB remain insufficient.
+[METH-80](METH_80_DONOR_MARGIN_RESULT_20260927.md) adds a teacher
+decision-margin hinge to that no-balance continuation, with matched
+E128/E1280 arms and fresh prompts. At E1280 it raises donor top-1
+96.563%→97.088% against the fixed no-margin comparator and retains
+at least 1,126/1,280 selected slots per layer. The 1.443-point decline
+from its update-64 parent and 0.603-point deficit against the E128
+candidate fail the precommitted joint gate. This term is a partial
+retention aid, not a validated transfer method. No new external
+route-utility, semantic or full native test is licensed by this result.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
