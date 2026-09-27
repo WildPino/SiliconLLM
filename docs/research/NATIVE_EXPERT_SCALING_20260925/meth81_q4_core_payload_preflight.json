@@ -1,0 +1,2290 @@
+{
+  "experiment": "METH-81-grouped-Q4-core-payload-preflight",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "model_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "meth60_ledger_sha256": "22bac64fa592f6e56c77111082ea51fc10e7476db2d37ed9b445e0fc01d28df3",
+  "format": {
+    "codes": "signed symmetric int4 packed two per byte",
+    "group_width": 64,
+    "scale_dtype": "float16",
+    "control_dtype": "float32",
+    "bf16_override_dtype": "bfloat16"
+  },
+  "organs": {
+    "tied_head": {
+      "tensors": 1,
+      "parameters": 136134656,
+      "q4_bytes": 72321536,
+      "bf16_bytes": 272269312,
+      "control_bytes": 0
+    },
+    "ffn": {
+      "tensors": 72,
+      "parameters": 313786368,
+      "q4_bytes": 166699008,
+      "bf16_bytes": 627572736,
+      "control_bytes": 0
+    },
+    "attention": {
+      "tensors": 96,
+      "parameters": 44040192,
+      "q4_bytes": 23396352,
+      "bf16_bytes": 88080384,
+      "control_bytes": 0
+    },
+    "control": {
+      "tensors": 121,
+      "parameters": 71552,
+      "q4_bytes": 0,
+      "bf16_bytes": 0,
+      "control_bytes": 286208
+    }
+  },
+  "matrices": [
+    {
+      "name": "model.embed_tokens.weight",
+      "organ": "tied_head",
+      "shape": [
+        151936,
+        896
+      ],
+      "code_bytes": 68067328,
+      "scale_bytes": 4254208,
+      "q4_bytes": 72321536,
+      "bf16_bytes": 272269312,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.0.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.0.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.0.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.0.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.0.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.0.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.0.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.1.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.1.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.1.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.1.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.1.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.1.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.1.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.10.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.10.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.10.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.10.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.10.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.10.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.10.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.11.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.11.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.11.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.11.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.11.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.11.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.11.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.12.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.12.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.12.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.12.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.12.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.12.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.12.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.13.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.13.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.13.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.13.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.13.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.13.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.13.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.14.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.14.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.14.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.14.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.14.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.14.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.14.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.15.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.15.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.15.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.15.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.15.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.15.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.15.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.16.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.16.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.16.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.16.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.16.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.16.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.16.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.17.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.17.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.17.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.17.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.17.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.17.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.17.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.18.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.18.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.18.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.18.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.18.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.18.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.18.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.19.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.19.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.19.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.19.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.19.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.19.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.19.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.2.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.2.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.2.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.2.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.2.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.2.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.2.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.20.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.20.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.20.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.20.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.20.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.20.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.20.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.21.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.21.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.21.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.21.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.21.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.21.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.21.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.22.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.22.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.22.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.22.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.22.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.22.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.22.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.23.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.23.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.23.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.23.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.23.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.23.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.23.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.3.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.3.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.3.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.3.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.3.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.3.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.3.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.4.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.4.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.4.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.4.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.4.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.4.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.4.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.5.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.5.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.5.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.5.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.5.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.5.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.5.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.6.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.6.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.6.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.6.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.6.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.6.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.6.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.7.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.7.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.7.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.7.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.7.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.7.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.7.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.8.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.8.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.8.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.8.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.8.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.8.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.8.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.9.mlp.down_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        896,
+        4864
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.9.mlp.gate_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.9.mlp.up_proj.weight",
+      "organ": "ffn",
+      "shape": [
+        4864,
+        896
+      ],
+      "code_bytes": 2179072,
+      "scale_bytes": 136192,
+      "q4_bytes": 2315264,
+      "bf16_bytes": 8716288,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.9.self_attn.k_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.9.self_attn.o_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.9.self_attn.q_proj.weight",
+      "organ": "attention",
+      "shape": [
+        896,
+        896
+      ],
+      "code_bytes": 401408,
+      "scale_bytes": 25088,
+      "q4_bytes": 426496,
+      "bf16_bytes": 1605632,
+      "width_divisible_by_64": true
+    },
+    {
+      "name": "model.layers.9.self_attn.v_proj.weight",
+      "organ": "attention",
+      "shape": [
+        128,
+        896
+      ],
+      "code_bytes": 57344,
+      "scale_bytes": 3584,
+      "q4_bytes": 60928,
+      "bf16_bytes": 229376,
+      "width_divisible_by_64": true
+    }
+  ],
+  "arms": {
+    "all_grouped_q4": {
+      "bf16_organs": [],
+      "core_bytes": 262703104,
+      "router_bytes": 5652480,
+      "selected_factor_bytes": 2752512,
+      "ideal_addressed_total_bytes": 271108096,
+      "under_560m": true
+    },
+    "bf16_attention": {
+      "bf16_organs": [
+        "attention"
+      ],
+      "core_bytes": 327387136,
+      "router_bytes": 5652480,
+      "selected_factor_bytes": 2752512,
+      "ideal_addressed_total_bytes": 335792128,
+      "under_560m": true
+    },
+    "bf16_tied_head": {
+      "bf16_organs": [
+        "tied_head"
+      ],
+      "core_bytes": 462650880,
+      "router_bytes": 5652480,
+      "selected_factor_bytes": 2752512,
+      "ideal_addressed_total_bytes": 471055872,
+      "under_560m": true
+    },
+    "bf16_tied_head_attention": {
+      "bf16_organs": [
+        "tied_head",
+        "attention"
+      ],
+      "core_bytes": 527334912,
+      "router_bytes": 5652480,
+      "selected_factor_bytes": 2752512,
+      "ideal_addressed_total_bytes": 535739904,
+      "under_560m": true
+    }
+  },
+  "all_matrix_widths_divisible_by_64": true,
+  "decision": "proceed_to_export_and_fresh_development_composition",
+  "runtime": {
+    "elapsed_seconds": 0.8119999999980791,
+    "rss_end_bytes": 1245904896
+  }
+}
