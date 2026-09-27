@@ -583,6 +583,14 @@ factor bank grows 10× (176.161 MB to 1.762 GB during FP32 training;
 payload remains 2.753 MB/token. This is only an allocation/routing
 preflight: the added experts are untrained, and neither quality nor
 native traffic/rate was tested at E1280.
+[METH-64](METH_64_SPARSE_FACTOR_OFFLOAD_RESULT_20260927.md) moves only
+selected top-four factor rows from CPU to GPU and returns sparse
+row-indexed A/B gradients to CPU. A small dense oracle matches routes,
+outputs and all 19 active A/B gradients exactly. A synthetic 24-layer
+E1280 backward verifies 768 exact pair routes and peaks at 385 MB
+allocated GPU with 3.106 GB process RSS. This is an apparatus result;
+it contains no donor training, sparse optimizer state, learned large-E
+quality or accepted-token rate.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

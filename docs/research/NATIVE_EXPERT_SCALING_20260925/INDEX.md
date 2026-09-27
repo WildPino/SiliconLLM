@@ -700,7 +700,12 @@ scheduled.
   payload remains 2.753 MB/token. Those additional slots are untrained,
   so the next scale step must jointly train E1280 against an E128
   control and independently audit donor-relative quality and route
-  load. No T4 job is planned.
+  load. METH-64 supplies a CPU-resident sparse-gradient path: small
+  dense/offloaded A/B gradients match exactly, and a 24-layer E1280
+  synthetic backward peaks at 385 MB allocated GPU with 3.106 GB
+  process RSS. A real donor update with sparse optimizer state is the
+  next apparatus gate; synthetic gradients are not learned quality.
+  No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

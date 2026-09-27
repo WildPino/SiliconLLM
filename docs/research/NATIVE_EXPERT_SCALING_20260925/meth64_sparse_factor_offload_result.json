@@ -1,0 +1,31 @@
+{
+  "experiment": "METH-64-sparse-factor-offload",
+  "source_sha256": "e8b15d8723ff3aa27ee845d3a883e646d5a05e636a53beef6c44512996eb72d4",
+  "small_parity": {
+    "routes_equal": true,
+    "forward_max_abs_error": 0.0,
+    "a_gradient_rows": 19,
+    "b_gradient_rows": 19,
+    "a_gradient_max_abs_error": 0.0,
+    "b_gradient_max_abs_error": 0.0,
+    "elapsed_seconds": 24.01599999999962,
+    "rss_bytes": 1129271296,
+    "gpu_peak_allocated_bytes": 17118208
+  },
+  "e1280_scale": {
+    "layers": 24,
+    "experts_per_layer": 1280,
+    "samples_per_layer": 32,
+    "oracle_cases": 768,
+    "oracle_mismatches": 0,
+    "gpu_bank_tensors": 0,
+    "selected_row_bytes_per_direction": 176160768,
+    "min_unique_gradient_rows": 113,
+    "max_unique_gradient_rows": 125,
+    "loss": 24.130544662475586,
+    "elapsed_seconds": 27.64099999999962,
+    "rss_bytes": 3106267136,
+    "gpu_peak_allocated_bytes": 385184256
+  },
+  "decision": "offload_apparatus_pass_only"
+}
