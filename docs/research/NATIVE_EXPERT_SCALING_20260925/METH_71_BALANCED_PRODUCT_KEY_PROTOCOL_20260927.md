@@ -38,8 +38,9 @@ passing requires a separate source-disjoint generation, task and
 blind semantic audit.
 
 **Terminal gates.** At update 64 require donor/student initial logit
-identity, finite nonzero B/router gradients (router expected zero
-at the first zero-B update), donor-position top-1 ≥95% on new prompts,
+identity, finite nonzero B/router gradients (the balance term gives the
+router a gradient even at the first zero-B update), donor-position top-1
+≥95% on new prompts,
 held-out raw ΔBPB≤+0.05, ≥64 changed B slots/layer for E128 or
 ≥640 for E1280, and exact product-key top-four versus exhaustive
 pair scores on evaluated hidden states. For route utility, require
