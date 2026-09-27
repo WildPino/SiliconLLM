@@ -1,0 +1,183 @@
+{
+  "experiment": "METH-78-objective-gradient-attribution",
+  "experts": 128,
+  "product_axes": [
+    8,
+    16
+  ],
+  "checkpoint_sha256": "f50a72f1ab86bc304fc6cb23e167a719131b3b79ba8a44201b1e98d716d4c98c",
+  "raw_row": 123,
+  "raw_offset": 0,
+  "chat_train_row": 29636,
+  "results": {
+    "raw": {
+      "sequence_positions": 128,
+      "terms": {
+        "ce": {
+          "value": 3.9120140075683594,
+          "gradients": {
+            "a": {
+              "norm": 0.07348966749341018,
+              "nonzero_tensors": 24
+            },
+            "b": {
+              "norm": 0.1974197484344568,
+              "nonzero_tensors": 24
+            },
+            "router": {
+              "norm": 0.009453477521034556,
+              "nonzero_tensors": 24
+            },
+            "all": {
+              "norm": 0.21086645696053502,
+              "nonzero_tensors": 72
+            }
+          }
+        },
+        "kl": {
+          "value": 0.008913028053939342,
+          "gradients": {
+            "a": {
+              "norm": 0.050047967484680524,
+              "nonzero_tensors": 24
+            },
+            "b": {
+              "norm": 0.07013643592962289,
+              "nonzero_tensors": 24
+            },
+            "router": {
+              "norm": 0.006807558938079427,
+              "nonzero_tensors": 24
+            },
+            "all": {
+              "norm": 0.08643067340690226,
+              "nonzero_tensors": 72
+            }
+          }
+        },
+        "balance": {
+          "value": 0.07310473173856735,
+          "gradients": {
+            "a": {
+              "norm": 0.002434618462068922,
+              "nonzero_tensors": 23
+            },
+            "b": {
+              "norm": 0.006392033248563694,
+              "nonzero_tensors": 23
+            },
+            "router": {
+              "norm": 3.375899583525386,
+              "nonzero_tensors": 24
+            },
+            "all": {
+              "norm": 3.3759065046426238,
+              "nonzero_tensors": 70
+            }
+          }
+        }
+      },
+      "ratios_to_ce": {
+        "kl": {
+          "a": 0.6810204643961455,
+          "b": 0.35526555213349453,
+          "router": 0.720111612148249,
+          "all": 0.40988346203909665
+        },
+        "balance": {
+          "a": 0.03312871788795662,
+          "b": 0.03237788164179453,
+          "router": 357.10663890761964,
+          "all": 16.009689512990896
+        }
+      }
+    },
+    "chat": {
+      "sequence_positions": 190,
+      "terms": {
+        "ce": {
+          "value": 0.6395435929298401,
+          "gradients": {
+            "a": {
+              "norm": 0.20182838535077935,
+              "nonzero_tensors": 24
+            },
+            "b": {
+              "norm": 0.6988701617421912,
+              "nonzero_tensors": 24
+            },
+            "router": {
+              "norm": 0.030906190399878096,
+              "nonzero_tensors": 24
+            },
+            "all": {
+              "norm": 0.7280862478659464,
+              "nonzero_tensors": 72
+            }
+          }
+        },
+        "kl": {
+          "value": 0.03741699084639549,
+          "gradients": {
+            "a": {
+              "norm": 0.12418111779924303,
+              "nonzero_tensors": 24
+            },
+            "b": {
+              "norm": 0.24527358578651492,
+              "nonzero_tensors": 24
+            },
+            "router": {
+              "norm": 0.017760223510880205,
+              "nonzero_tensors": 24
+            },
+            "all": {
+              "norm": 0.27549139843907705,
+              "nonzero_tensors": 72
+            }
+          }
+        },
+        "balance": {
+          "value": 0.03685600310564041,
+          "gradients": {
+            "a": {
+              "norm": 0.0011555803463795217,
+              "nonzero_tensors": 23
+            },
+            "b": {
+              "norm": 0.0033179646603195816,
+              "nonzero_tensors": 23
+            },
+            "router": {
+              "norm": 1.9237362292653866,
+              "nonzero_tensors": 24
+            },
+            "all": {
+              "norm": 1.923739327642174,
+              "nonzero_tensors": 70
+            }
+          }
+        }
+      },
+      "ratios_to_ce": {
+        "kl": {
+          "a": 0.6152807375603548,
+          "b": 0.3509573011030836,
+          "router": 0.5746493916296541,
+          "all": 0.37837742334312
+        },
+        "balance": {
+          "a": 0.005725559090071071,
+          "b": 0.004747612420665282,
+          "router": 62.24436607602645,
+          "all": 2.642186050458638
+        }
+      }
+    }
+  },
+  "runtime": {
+    "elapsed_seconds": 5.515999999999622,
+    "gpu_peak_allocated_bytes": 2073225216,
+    "rss_bytes": 2915164160
+  }
+}

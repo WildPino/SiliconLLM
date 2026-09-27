@@ -82,6 +82,7 @@ def main():
     assert len(chat_mask) == len(full_ids) - 1
 
     torch.set_num_threads(6)
+    torch.set_grad_enabled(True)
     torch.manual_seed(M15.SEED)
     matches = [i for i in range(torch.cuda.device_count())
                if torch.cuda.get_device_name(i) == "NVIDIA GeForce RTX 3060"]
@@ -154,6 +155,12 @@ def main():
             ce, kl, _ = M71RUN.masked_objective(
                 effective_student, effective_teacher, targets,
                 ce_mask, kl_mask, kl_weight)
+            if any(w.balance_loss is None for w in wrappers):
+                raise RuntimeError(f"missing balance: grad={torch.is_grad_enabled()}, "
+                                   f"training={model.training}, "
+                                   f"wrapper_training={wrappers[0].training}, "
+                                   f"enabled={wrappers[0].enabled}, "
+                                   f"present={sum(w.balance_loss is not None for w in wrappers)}")
             balance = torch.stack([w.balance_loss for w in wrappers]).sum()
             selected = {"ce": ce, "kl": kl_weight * kl,
                         "balance": 0.02 * balance}[term]
