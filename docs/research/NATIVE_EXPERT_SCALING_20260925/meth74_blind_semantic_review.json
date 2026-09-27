@@ -1,0 +1,176 @@
+{
+  "experiment": "METH-74-blind-semantic-review",
+  "manifest_sha256": "11621dce9638aae01cc3bd8c76730de7676e4bbb704271056f164b9ad4d5b437",
+  "audit_sha256": "f43658cd8c8e1a791237a7bffa1203f518cc6836a7dab4f725b3d2fb0bef2696",
+  "review_rule": "Count unsupported, severe and missing-detail findings from the excerpt alone.",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/ternary/e20_rule_or_format.py",
+      "category": "code",
+      "excerpt": ", \"zero_fraction\": 0.0,\n                                           \"rel_weight_error\": 0.0, \"identical_to_donor\": True}\n        elif tag == \"R3H\":\n            untie(model)\n            W0 = model.lm_head.weight.data.clone()\n            tq = time.time()\n            restore, s2 = apply_arm(model, \"H\", act_rms, None)      # T2b's own code path\n            st = {\"quantize_seconds\": time",
+      "A": "The excerpt describes a model's state, including its zero fraction, relative weight error, and whether it is identical to a donor. It also mentions a specific restoration step and a time measurement for the restoration process.<|im_end|>",
+      "B": "The excerpt describes a model with specific attributes and functionality. It mentions that the model has a zero fraction, a relative weight error of 0.0, and that it is identical to the donor. It also indicates that the model is being untied, cloned weights, and restored using the T2b's own code path.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e30_bandwidth.c",
+      "category": "code",
+      "excerpt": "his box actually deliver to N threads?\n//\n// Brief: docs/research/donor_adaptation/briefs/BRIEF_E30_THE_WALL.md (63515b4), pushed before\n// this file existed.\n//\n// The engine's byte rate at the goal's shape has to be divided by something, and a spec-sheet\n// number is not a measurement.  This is that something: a read-only stream over a buffer whose\n// size is swept from inside L3",
+      "A": "The excerpt describes a specific detail from a document, which is a byte rate calculation for a donor adaptation engine. It mentions that the byte rate at the goal's shape needs to be divided by something, and that a read-only stream over a buffer is not a measurement.<|im_end|>",
+      "B": "The excerpt describes a specific detail from a document, which is a byte rate calculation for a donor adaptation engine. It mentions that the byte rate at the goal's shape needs to be divided by something, and that a read-only stream over a buffer is not a measurement.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth23_int8_core_composition_diagnostic.py",
+      "category": "code",
+      "excerpt": "\": sum(x[\"int8_code_bytes\"] for x in body_stats),\n                                      \"fp32_row_scale_bytes\": sum(x[\"fp32_row_scale_bytes\"] for x in body_stats),\n                                      \"max_relative_l2_error\": max((x[\"relative_l2_error\"] for x in body_stats), default=0),\n                                      \"max_abs_error\": max((x[\"max_abs_error\"] for x in body_st",
+      "A": "The excerpt describes a set of metrics for a dataset, including:\n\n1. `int8_code_bytes`: The number of bytes used to represent integer values in the dataset.\n2. `fp32_row_scale_bytes`: The total number of bytes used to represent floating-point values in the dataset.\n3. `max_relative_l2_error`: The maximum absolute error between the actual and expected L2 error values in the dataset.\n4. `max_abs_error`: The maximum absolute error between the actual and expected absolute error values in the dataset.\n\nSpecifically, the excerpt provides the following details:\n\n- The `int8_code_bytes` is the",
+      "B": "The excerpt describes a set of statistics for a dataset, including:\n\n1. `int8_code_bytes`: The byte count for the integer code bytes.\n2. `fp32_row_scale_bytes`: The byte count for the floating-point row scale bytes.\n3. `max_relative_l2_error`: The maximum relative L2 error.\n4. `max_abs_error`: The maximum absolute error.\n\nSpecifically, it states that the maximum absolute error is `0`.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_router_weight_normalization_compile_parity.py",
+      "category": "code",
+      "excerpt": ") for item in sources.values()]\n    if subprocess.run([\"git\", \"diff\", \"--quiet\", \"HEAD\", \"--\", *map(str, relative)], cwd=ROOT, check=False).returncode:\n        raise DiagnosticError(\"normalization sources differ from HEAD\")\n    for path in relative:\n        if subprocess.run([\"git\", \"ls-files\", \"--error-unmatch\", str(path)], cwd=ROOT, capture_output=True, check=False).returncode:\n ",
+      "A": "The excerpt describes a Python script that iterates over a dictionary of source files, checks if the Git diff command returns a non-zero exit code, and raises a `DiagnosticError` if the source files differ from the current HEAD.<|im_end|>",
+      "B": "The excerpt describes a loop that iterates over a dictionary of Git objects, checking for differences between the current HEAD commit and the relative paths. If there are any differences, it raises a `DiagnosticError`. The excerpt also provides a specific detail: it checks for the existence of a file named `relative` in the root directory, which is used to identify the relative paths.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/common.py",
+      "category": "code",
+      "excerpt": "         ids_all.append(ids); byts.append(nb); offsets.append(off)\n    ids = torch.tensor(ids_all, dtype=torch.long)\n    meta = {\n        \"part\": part, \"n_seq\": len(ids_all), \"seq_len\": seq_len, \"seed\": seed,\n        \"tok_fp_ok\": [tok_fingerprint(tok)],\n        \"n_rejected\": rejected,\n        \"total_scored_bytes\": int(sum(byts)),\n        \"bytes_per_token\": sum(byts) / max(1, len(id",
+      "A": "The excerpt describes a process for generating a dataset of tokenized text, including the following steps:\n\n1. Append the tokenized text to the `ids_all` list.\n2. Append the number of bytes to the `nb` list.\n3. Append the offsets to the `offsets` list.\n\nSpecifically, the excerpt states:\n\n- `ids_all` is a list of tokenized text.\n- `nb` is a list of the number of bytes for each token.\n- `offsets` is a list of the offsets for each token.\n- `ids` is a tensor of tokenized text.\n- `meta`",
+      "B": "The excerpt describes a process for generating a dataset of sequences, where each sequence is represented as a tensor with dimensions `ids_all`, `byts`, and `offsets`. The dataset is then converted to a PyTorch tensor and stored in `ids`.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth44_instruct_full_chat_smoke.py",
+      "category": "code",
+      "excerpt": "}\n\n\ndef set_experts(wrappers, enabled):\n    for wrapper in wrappers:\n        wrapper.enabled = enabled\n\n\ndef masked_objective(student_logits, teacher_logits, targets, ce_mask, kl_mask, kl_weight):\n    student_lp = F.log_softmax(student_logits.float(), dim=-1)\n    teacher_lp = F.log_softmax(teacher_logits.float(), dim=-1)\n    teacher_p = teacher_lp.exp()\n    ce_tokens = F.nll_loss(s",
+      "A": "The excerpt describes a function `set_experts` that takes a list of wrappers and a boolean `enabled` as parameters. It iterates through each wrapper, setting its `enabled` attribute to the value of `enabled`. The function also includes a nested function `masked_objective` that takes the logits of a student, teacher, targets, a mask for the teacher's logits, a mask for the teacher's tokens, and a weight for the KL divergence. The function calculates the log-softmax of the student's logits, the teacher's logits, and the teacher's tokens, and then computes the loss using the NLL loss and",
+      "B": "The excerpt describes a function `set_experts` that sets the `enabled` attribute of a list of wrappers. It also mentions a function `masked_objective` that takes in student logits, teacher logits, targets, a mask for the teacher's logits, a mask for the teacher's tokens, and a weight for the KL divergence.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_continuation.py",
+      "category": "code",
+      "excerpt": "i not in excluded])\n    chat_rows = []\n    for saved in teacher_data[\"rows\"]:\n        prompt = prompts[saved[\"train_row\"]]\n        assert prompt[\"prompt_ids_sha256\"] == saved[\"prompt_ids_sha256\"]\n        full = prompt[\"prompt_ids\"] + saved[\"continuation_ids\"]\n        assert full[-129:] == saved[\"window_ids\"]\n        mask = [0] * (len(prompt[\"prompt_ids\"]) - 1) + [1] * len(saved[\"co",
+      "A": "The excerpt describes a scenario where a teacher's data is being processed, specifically in the context of generating a continuation for a prompt. It mentions that the teacher's data includes a list of saved rows, each with a `prompt_ids_sha256`, `prompt_ids`, `continuation_ids`, and `window_ids`. The excerpt also indicates that the teacher's data is being processed to generate a continuation for a given prompt.<|im_end|>",
+      "B": "The excerpt describes a scenario where a teacher's data is being processed, specifically involving the extraction of prompts and their corresponding continuation IDs from a list of saved rows. It mentions that the teacher's data includes a list of saved rows, each with a \"train_row\" and \"prompt_ids_sha256\" field. The excerpt also states that the teacher's data is being processed to extract the \"prompt_ids\" and \"continuation_ids\" fields, and that these fields are concatenated to form a full prompt.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_bf16_full_export.py",
+      "category": "code",
+      "excerpt": "ice(self, key): return Slice(self.values[key])\n            def get_tensor(self, key): return self.values[key]\n        self.handle = Handle({\"a.weight\": self.weights, \"b.bias\": self.other})\n        self.payload = self.root / \"shard_01.payload\"\n        self.records_path = self.root / \"shard_01.records.jsonl\"\n        with self.payload.open(\"x+b\") as payload:\n            payload.trunca",
+      "A": "The excerpt describes a Python class `Ice` with methods to access and manipulate slices of a dictionary-like object, as well as a handle for a tensor. It also provides details about the class's attributes and methods, such as the `handle` attribute, the `payload` attribute, and the `records_path` attribute.<|im_end|>",
+      "B": "The excerpt describes a Python class `Ice` with methods for accessing and manipulating a dictionary-like object `self.values`. Specifically, it shows how to access a value by key, retrieve a tensor from a handle, and handle a payload file.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=40",
+      "category": "prose",
+      "excerpt": "ings from the helpless fly.  To believe, however, that there are no\nexceptions to this rule would be to have faith in the speedy advent of\nthe millennium, that happy period of lamb-and-lion-ism which we would\nall rather see than hear tell of; for human nature is by no means\naltered by bathing every morning in salt water, it is the same afloat as\non shore.  And there are many office",
+      "A": "The excerpt describes a statement about the belief in the rule that there are no exceptions to this rule. It suggests that believing this rule would be faith in the speedy advent of the millennium, which is a period of lamb-and-lion-ism. The excerpt also mentions that human nature is not altered by bathing every morning in salt water, and that it is the same afloat as on shore.<|im_end|>",
+      "B": "The excerpt describes a passage from a book or article, likely discussing the concept of \"bathing every morning in salt water\" as a way to believe in the speedy advent of the millennium. It mentions that this belief is based on the idea that human nature remains unchanged, and that the same applies to the office environment.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=6",
+      "category": "prose",
+      "excerpt": "ng all right, even though mosquitoes have been known to\nkill a bear.\"\n\n\"Pwhat's thot?\" gurgled Barney. \"Kill a bear? Oh, Frankie, me b'y, Oi\nnivver thought that av you!\"\n\n\"It's true,\" affirmed Professor Scotch. \"Sometimes bears, lured by\nhunger, will come down into the lowlands, where mosquitoes will attack\nthem. They will stand up on their hind legs and strike at the little\npests ",
+      "A": "The excerpt describes a conversation between Barney and Frankie, where Barney questions why mosquitoes kill a bear, and Frankie responds that it's because bears are attracted to mosquitoes and will attack them.<|im_end|>",
+      "B": "The excerpt describes a conversation between Barney and Frankie, where Barney questions Frankie about the possibility of a bear being killed by mosquitoes. Frankie responds that it's true, and Barney asks what the problem is.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=76",
+      "category": "prose",
+      "excerpt": "as even then moving to\nbesiege Donelson.\n\nMr. Brinsmade prepared to leave at once for the battlefield, taking with\nhim too Paducah physicians and nurses. All day long the boat was loading\nwith sanitary stores and boxes of dainties for the wounded. It was muggy\nand wet--characteristic of that winter--as Stephen pushed through the\ndrays on the slippery levee to the landing.\n\nHe had w",
+      "A": "The excerpt describes a military operation where a ship is preparing to leave for a battlefield, with Mr. Brinsmade taking Paducah physicians and nurses with him. The passage also mentions the weather, which is described as muggy and wet, typical of the winter.<|im_end|>",
+      "B": "The excerpt describes a scene of a military operation, specifically a battle, where a group of medical personnel and nurses is moving to the battlefield. The boat is being loaded with sanitary stores and boxes of dainties for the wounded, and the weather is described as muggy and wet.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=47",
+      "category": "prose",
+      "excerpt": "Nostrums--Druggist's Arguments--Use of Proprietary\n    Medicines Stimulates Sale of Nostrums.\n\n\n  CHAPTER VI--FAITH CURE AND GRAFT IN SURGERY                           62\n\n    Suggestive Therapeutics Chief Stock in Trade--Advice of a\n    Medical College President--Disease Prevention Rather than\n    Cure--Hygienic Living--The Medical Pretender--\"Dangerous\n    Diagnosis\" Graft--Great",
+      "A": "The excerpt describes a chapter on faith cure and graft in surgery, where Dr. Nostrums argues that the use of proprietary medicines stimulates the sale of nostrums. It also mentions the chapter's title and the specific detail that suggests suggestive therapeutic practices, advice from a medical college president, disease prevention rather than cure, and the medical pretender's claim of dangerous diagnoses.<|im_end|>",
+      "B": "The excerpt describes the use of proprietary medicines in the context of drug sales, highlighting the importance of using these medicines to stimulate sales of nostrums. It also mentions the use of suggestive therapies, advice from a medical college president, disease prevention rather than cure, and the dangers of hygienic living.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=36",
+      "category": "prose",
+      "excerpt": "more and play round, and again swim\naway.\n\n\"Let's sit down here till your mother comes; I suppose the\nClergyman's lady will have finished sometime or other.\" Arne was\nstartled: some one had been sitting a little way behind him.\n\n\"If I might but stay this one night more,\" said an imploring voice,\nhalf smothered by tears: it seemed to be that of a girl not quite\ngrown up.\n\n\"Now don't",
+      "A": "The excerpt describes a scene where Arne, a young man, is sitting with his mother and a clergyman's lady. Arne is surprised to see someone sitting behind him, and the voice he hears is that of a girl not quite grown up.<|im_end|>",
+      "B": "The excerpt describes a scene where Arne, a clergyman's daughter, is sitting with her mother in a church. Arne is surprised to see someone sitting behind him, and the voice he hears seems to be of a girl who is not quite grown up.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=1",
+      "category": "prose",
+      "excerpt": "ring to his\nelders, the youngest man plainly presided.\n\nChantel turned suddenly, merrily, his teeth flashing in a laugh.\n\n\"If we are then afraid, let us all take a jonc down the river,\" he\nscoffed, \"or the next vessel for Hongkong!\"\n\nGilly's tired, honest eyes saw only the plain statement.\n\n\"Impossible.\" He shook his bullet head. \"We can't run away from a rumor,\nyou know. Can we, n",
+      "A": "The excerpt describes a scene where a young man, Chantel, is speaking to his elders, who are clearly older and presiding over the scene. He is laughing and making a joke about taking a \"jonc down the river\" or the next vessel for Hong Kong. Gilly, who is described as \"tired, honest eyes\" and \"plainly presided over,\" is not present in the excerpt.<|im_end|>",
+      "B": "The excerpt describes a young man who is speaking to his elders, who are clearly his parents. He is laughing and saying a nonsensical phrase, \"If we are then afraid, let us all take a jonc down the river,\" or the next vessel for Hong Kong. Gilly's eyes are focused on the nonsensical statement, and he shakes his head.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=73",
+      "category": "prose",
+      "excerpt": "e went in the direction of that little menagerie you boys\nfound last night!” replied Sam.\n\n“Then I’ll bet he knows where the tunnel is!” Carl shouted, dashing\naway. “I’ll bet he’s lit out for the purpose of bringing a lot of his\nconspirators in here to do us up!”\n\nJimmie followed his chum, and the two searched the entire system of\ntunnels known to them without discovering any trace",
+      "A": "Sam and Carl bet that the manager of the little menagerie was aware of the tunnel's location.<|im_end|>",
+      "B": "Sam and Carl bet that the manager of the little menagerie knows the location of the tunnel.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=79",
+      "category": "prose",
+      "excerpt": "on had finally assumed some kind of form.\nA general forward movement was the first result. Then there were\nadmonitory shouts here and there, under the influence of which the\nhorn-blowing gradually ceased, and Tracy’s name was passed from mouth to\nmouth until its mention took on almost the character of a personal cheer\non the outskirts of the crowd. In answer to this two or three ho",
+      "A": "The excerpt describes a general forward movement and the gradual cessation of horn-blowing as a result. It also mentions Tracy's name being passed from mouth to mouth, which is described as almost the character of a personal cheer.<|im_end|>",
+      "B": "The excerpt describes a general forward movement, followed by a series of announcements and cheers, which gradually ceased as the horn-blowing ceased.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_T2B_ORGAN_COVERAGE.md",
+      "category": "technical_general",
+      "excerpt": "{gate, up, down}`.\nIts own §4 forbids extrapolating that result:\n\n> *\"No extrapolation. Whatever wins on the FFN may not be assumed to transfer to attention or to\n> the head without measuring those separately.\"*\n\nBut **a model that runs needs every organ converted.** `qwen_export.py` applies the chosen rule to\n`q/k/v/o` and, with `--head-ternary`, to `lm_head` as well. So the file ",
+      "A": "The excerpt describes a rule in a code snippet that forbids extrapolating results from a model's output. It also mentions that a model that runs needs every organ converted, and that `qwen_export.py` applies this rule to `q/k/v/o` and `lm_head` separately.<|im_end|>",
+      "B": "The excerpt describes a rule in a code snippet that forbids extrapolating results from a model's output. It also mentions that a model that runs needs every organ converted, and that `qwen_export.py` applies the chosen rule to `q/k/v/o` and `lm_head` separately.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E15_DOES_THE_7B_PREDICT.md",
+      "category": "technical_general",
+      "excerpt": "hy this is being asked now\n\nE12 closed on a rule I had not checked: `--rule R0` is `qwen_export.py`'s flag *default*, but\n`e1_bpb_through_engine.py:395` appends `--rule R3` for every non-fp32 arm, so E1's standing 0.5 B\nand 1.5 B artifacts are R3 and E12 had measured a rule the pipeline does not ship. Running that\nsame audit one scale up turns up the reverse:\n\n```\nqwen25-coder7b_p.",
+      "A": "The excerpt describes a situation where a rule in `e1_bpb_through_engine.py` is appended with `--rule R3` for every non-fp32 arm, leading to a different rule being measured in `E12`. Running the same audit on a larger scale reveals that the reverse of this rule is being measured, indicating that the rule is being applied incorrectly.<|im_end|>",
+      "B": "This is being asked now. E12 closed on a rule I had not checked: `--rule R0` is `qwen_export.py`'s flag *default*, but `e1_bpb_through_engine.py:395` appends `--rule R3` for every non-fp32 arm, so E1's standing 0.5 B and 1.5 B artifacts are R3 and E12 had measured a rule the pipeline does not ship. Running that same audit one scale up turns up the reverse: `qwen25-coder7b_p.`<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E8_MATVEC_DEPENDENCY_CHAIN.md",
+      "category": "technical_general",
+      "excerpt": ".0076** (band 0.99–1.01) |\n| **G-Z1** | the FFN decomposed; do the four sub-timers sum to the organ? | **PASS** — `sum/ffn` = **1.0000** at 7 B, **0.9996** at 0.5 B |\n| **G-Z2a** | rel L2 of `--mvacc 2` / `4` against `--mvacc 1`, 0.5 B fp32, 8 positions | **PASS** — **2.642e-06** and **3.349e-06** (gate ≤1.0e-05); top-1 **8/8** |\n| **G-Z2b** | 160-token greedy generation, all three",
+      "A": "The excerpt describes a comparison of two decompositions of the FFN (Fast Fourier Transform) function, with the first decomposition summing to the organ, and the second decomposition having a higher accuracy.<|im_end|>",
+      "B": "The excerpt describes a comparison between two decompositions of the FFN (Fast Fourier Transform) using the `--mvacc 2` and `--mvacc 1` options. It provides two specific details:\n\n1. The first decomposition (`G-Z1`) shows that the sum of the four sub-timers equals the organ, with a precision of 1.0000 at 7 B and 0.9996 at 0.5 B.\n2. The second decomposition (`G-Z2a`) shows a precision of 2.642e-06 and 3.34"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/P3_DONOR_SHAPE_ON_ENGINE.md",
+      "category": "technical_general",
+      "excerpt": "s at\nctx 4096) gives **35.37 ms = 28.3 tok/s**, against a predicted 24.0.\n\n> **The ledger was 18% CONSERVATIVE, and the reason is diagnostic.**\n\n## 3. Why the ledger was wrong, and in which direction\n\n`SPEED_LEDGER.md` priced the FFN at the **expert path's** kernel-pure rate — 17.0 GB/s, measured in\n64.1b on an **i.i.d. gather** over a 512 MB pool of 48 KB experts. But a **dense do",
+      "A": "The excerpt describes a comparison between a ledger's performance and a predicted performance, specifically focusing on the speed of a ledger priced at the expert path's kernel-pure rate. It mentions that the ledger was 18% CONSERVATIVE and that the reason for this is diagnostic. The excerpt also provides a specific detail about the speed of the ledger, stating that it priced the FFN at 17.0 GB/s, measured in 64.1b on an i.i.d. gather over a 512 MB pool of 48 KB experts.<|im_end|>",
+      "B": "The excerpt describes a comparison between a ledger's performance and a predicted value, highlighting that the ledger was 18% CONSERVATIVE and the reason for this was diagnostic. It also mentions that the ledger's performance was 35.37 ms = 28.3 tok/s, which is 24.0 ms = 17.0 GB/s, against a predicted 24.0 ms = 17.0 GB/s.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_RESULT_20260924.md",
+      "category": "technical_general",
+      "excerpt": "** `LAYER1_ROUTED_EXPERT_DOWN_OUTPUT_RESIDUAL_SUFFICIENT`\n\nThe sole scientific diagnostic authorized by the frozen\n[protocol](STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md)\ncompleted from qualified producer commit\n`37c639f38222fc864b84cbec48c61b69e2bd4cba`. It reports no error, exactly\none diagnostic invocation, and zero donor/reference gra",
+      "A": "The excerpt describes a diagnostic output from a layer 1 routing expert, which is completed from a qualified producer commit with the protocol ID `37c639f38222fc864b84cbec48c61b69e2bd4cba`. The output reports no error, indicates one diagnostic invocation, and zero donor/reference gra.<|im_end|>",
+      "B": "The frozen protocol completed from qualified producer commit `37c639f38222fc864b84cbec48c61b69e2bd4cba` is the sole scientific diagnostic authorized by the layer 1 routing expert, which reports no error, exactly one diagnostic invocation, and zero donor/reference gradients.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E11_LUT_KERNEL_CEILING.md",
+      "category": "technical_general",
+      "excerpt": "_private\\...\\donor_engine.exe\n  --weights D:\\_ktmp\\e7\\qwen25-coder7b_f32.bin --threads 6 --vecexp 1\n  --generate D:\\_ktmp\\e7\\p0.bin 32 D:\\_ktmp\\test_gen_p0\n```\n\nPID 7484, started 17:26:17, **six threads and a 30.46 GB fp32 model being streamed off disk**, from\na **different checkout** (`SiliconLLM_private`) and carrying a **`--vecexp` flag that does not exist\nin this tree** — E9 §5",
+      "A": "The excerpt describes a process where the `--weights` option is used to load a model from a different checkout (`SiliconLLM_private`) and a `--vecexp` flag is used that does not exist in the current tree. The process is running on a specific PID (Process ID) and is streaming data from a file (`p0.bin`) to a file (`test_gen_p0`).<|im_end|>",
+      "B": "The excerpt describes a process running on a private server, where the `--weights` option is used to load a model from a different checkout (`SiliconLLM_private`) and a `--vecexp` flag is set that does not exist in the current tree. The process is running with 6 threads and a 30.46 GB FP32 model being streamed off disk.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "excerpt": "ec70004a75152a5f4d511417148f34e4d13b3134bef4` |\n| current Q6 on captured reference SwiGLU | `f52e0e5bdb22a17ae4a9e0ee9e0c6ffc6bb485b3e61e3f821039eae38697d6ce` |\n| current Q6 on generated reference/reference SwiGLU | `7d0037ab06440493b146e9839d5c89ffa8fdea2b952389f12a38ccea2a94e684` |\n| reference/current `ffn_inp-0` | `baa389195bff42ff92593d92650ed9defdd1b1382469e5dde3516dfa82b76ec1",
+      "A": "The excerpt describes two sets of references for a Q6 model, with the current Q6 on captured reference SwiGLU and the current Q6 on generated reference/reference SwiGLU. It provides specific details for the reference/current `ffn_inp-0` and `baa389195bff42ff92593d92650ed9defdd1b1382469e5dde3516dfa82b76ec1.<|im_end|>",
+      "B": "The excerpt describes two sets of references for a Q6 model, with the current Q6 on captured reference SwiGLU and the current Q6 on generated reference/reference SwiGLU. It provides specific details for the reference/current `ffn_inp-0` and `baa389195bff42ff92593d92650ed9defdd1b1382469e5dde3516dfa82b76ec1.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/DONOR_STAGE1_ARITHMETIC.md",
+      "category": "technical_general",
+      "excerpt": "s an SSM layer: it pays scan-recurrence instead of attention **and stops\nholding a KV cache**. `python donor_inventory.py curve`:\n\n| retained attention | pricing | 4-bit KV | fp16 KV |\n|---|---|---|---|\n| **windowed (SWA-128)** | the only attention cost this engine has ever measured | **PASS at every `n_att`, 0→28** | **PASS for `n_att` ≤ 18 of 28**; STRADDLE from 19 |\n| **full att",
+      "A": "The SSM layer uses scan-recurrence instead of attention, and it stops holding a KV cache.<|im_end|>",
+      "B": "The SSM layer uses scan-recurrence instead of attention, and it stops holding a KV cache.<|im_end|>"
+    }
+  ]
+}
