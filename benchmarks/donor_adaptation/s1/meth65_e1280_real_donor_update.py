@@ -121,6 +121,7 @@ def main():
     with np.load(M15.TRAIN_PATH, allow_pickle=False) as archive:
         raw = archive["ids"][0, :M15.SEQ].copy()
     assert raw.shape == (128,)
+    torch.set_grad_enabled(True)
     torch.set_num_threads(6)
     matches = [i for i in range(torch.cuda.device_count())
                if torch.cuda.get_device_name(i) == "NVIDIA GeForce RTX 3060"]
@@ -188,11 +189,14 @@ def main():
             teacher = model(inputs, use_cache=False).logits
         set_enabled(wrappers, True)
         student = model(inputs, use_cache=False).logits
+        assert torch.is_grad_enabled(), "global autograd disabled during student forward"
+        assert student.requires_grad, "student logits detached before objective"
         if kind == "raw":
             teacher, student = teacher[:, :-1], student[:, :-1]
         ce, kl, objective = M55.masked_objective(student, teacher, targets,
                                                 ce_mask, kl_mask, kl_weight)
         loss = objective / 2
+        assert loss.requires_grad, "masked objective detached from student logits"
         assert bool(torch.isfinite(loss))
         loss.backward()
         losses.append({"kind": kind, "ce": float(ce.detach()),
