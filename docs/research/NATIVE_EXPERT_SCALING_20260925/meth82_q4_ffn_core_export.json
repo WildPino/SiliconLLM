@@ -1,0 +1,70 @@
+{
+  "experiment": "METH-82-Q4-FFN-packed-core-export",
+  "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth82_qwen05b_instruct_q4ffn_core.safetensors",
+  "sha256": "fb6e917e949cb88e63dac276748f844dd94d0c51274a8214ff249bf97989a5bf",
+  "physical_file_bytes": 527375264,
+  "stored_tensor_payload_bytes": 527334912,
+  "format_header_and_alignment_bytes": 40352,
+  "source_model_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "expert_checkpoint_sha256": "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072",
+  "tensor_count": 362,
+  "metadata": {
+    "experiment": "METH-82",
+    "format": "QWEN25_INSTRUCT_Q4_FFN_BF16_HEAD_ATTN_V1",
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "model_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+    "product_key_checkpoint_sha256": "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072",
+    "ffn_codes": "signed symmetric int4 [-7,7] stored as unsigned code + 8",
+    "nibble_order": "even input index low; odd input index high",
+    "group_width": "64",
+    "scale_dtype": "float16",
+    "attention_dtype": "bfloat16",
+    "tied_head_dtype": "bfloat16",
+    "control_dtype": "float32",
+    "reconstruction_dtype": "bfloat16",
+    "tied_head": "true",
+    "source_tensor_count": "290"
+  },
+  "organs": {
+    "tied_head": {
+      "tensors": 1,
+      "parameters": 136134656,
+      "stored_payload_bytes": 272269312,
+      "max_relative_l2_error": 0.0,
+      "max_abs_error": 0.0
+    },
+    "ffn": {
+      "tensors": 72,
+      "parameters": 313786368,
+      "stored_payload_bytes": 166699008,
+      "max_relative_l2_error": 0.12496836483478546,
+      "max_abs_error": 0.0537109375
+    },
+    "attention": {
+      "tensors": 96,
+      "parameters": 44040192,
+      "stored_payload_bytes": 88080384,
+      "max_relative_l2_error": 0.0,
+      "max_abs_error": 0.0
+    },
+    "control": {
+      "tensors": 121,
+      "parameters": 71552,
+      "stored_payload_bytes": 286208,
+      "max_relative_l2_error": 0.0,
+      "max_abs_error": 0.0
+    }
+  },
+  "exact_reload_equal": true,
+  "all_ffn_bf16_reconstruction_readbacks_equal": true,
+  "runtime": {
+    "elapsed_seconds": 10.110000000000582,
+    "rss_bytes": 3940945920,
+    "gpu_peak_allocated_bytes": 72320512,
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "cuda_index": 0,
+    "torch": "2.6.0+cu124"
+  },
+  "decision": "stored_core_ready_for_fresh_composition_development"
+}
