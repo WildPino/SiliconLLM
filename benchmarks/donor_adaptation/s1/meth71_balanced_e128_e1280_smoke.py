@@ -111,7 +111,7 @@ def main():
         assert M17.sha(path.read_bytes()) == expected, name
         old = json.loads(path.read_text(encoding="utf-8"))
         excluded.update(row["train_row"] for row in old["rows"])
-    assert len(excluded) == 256 + 6 * 24
+    assert len(excluded) == 256 + 7 * 24
     sampled70 = prompt_data["meth70_sampled_raw_rows"]
     assert len(sampled70) == 32
     assert set(sampled70).isdisjoint(new_development)
