@@ -87,6 +87,11 @@ top-1 is 96.897%, pooled ΔBPB −0.005734, PIQA 1292/1838 versus donor
 1291/1838; unsupported excerpt claims are 22 student versus 30 donor.
 This is relative E128 quality eligibility for native parity work, not a
 native, LUT or large-E learned quality result.
+METH-58 exports that exact trained E128 bank and checks a standalone C
+product-key/selected-factor component on 96 hidden-state inputs: all
+routes, BF16 gate weights and residuals match the stored PyTorch oracle.
+The dense Qwen core, full `engine.c` integration and accepted-token rate
+are still unmeasured.
 METH-31 measures the existing CPU LUT kernel in the Qwen rank-8
 shape with synthetic packed factors: E1280→E12800 raises the
 six-thread selected path only 1.136× to 0.505 ms/token. That
@@ -528,6 +533,7 @@ SSM/SWA target and passes joint quality/rate.
 | METH-55 | JOINT E128 PRODUCT-KEY 16-UPDATE SCREEN PASS | [result](METH_55_PRODUCT_KEY_E128_SMOKE_RESULT_20260927.md), [protocol](METH_55_PRODUCT_KEY_E128_SMOKE_PROTOCOL_20260927.md), [raw result](meth55_product_key_e128_smoke_result.json), [trainer](../../../benchmarks/donor_adaptation/s1/meth55_product_key_e128_smoke.py) |
 | METH-56 | JOINT E128 UPDATE-512 RETENTION PASS | [result](METH_56_PRODUCT_KEY_RETENTION_RESULT_20260927.md), [protocol](METH_56_PRODUCT_KEY_RETENTION_PROTOCOL_20260927.md), [raw result](meth56_product_key_retention_result.json), [trainer](../../../benchmarks/donor_adaptation/s1/meth56_product_key_retention.py); no native or large-E proof |
 | METH-57 | FROZEN EXTERNAL AUTOMATIC AND BLIND SEMANTIC GATES PASS | [result](METH_57_PRODUCT_KEY_EXTERNAL_RESULT_20260927.md), [protocol](METH_57_PRODUCT_KEY_EXTERNAL_PROTOCOL_20260927.md), [paired result](meth57_product_key_external_audit_result.json), [blind verdict](meth57_blind_semantic_verdict.json), [unblinded score](meth57_semantic_score.json), [evaluator](../../../benchmarks/donor_adaptation/s1/meth57_product_key_external_audit.py); E128 donor-relative only |
+| METH-58 | TRAINED E128 PRODUCT-KEY NATIVE COMPONENT PARITY PASS | [result](METH_58_PRODUCT_KEY_NATIVE_COMPONENT_RESULT_20260927.md), [protocol](METH_58_PRODUCT_KEY_NATIVE_COMPONENT_PROTOCOL_20260927.md), [export ledger](meth58_product_key_export_result.json), [96-case C log](meth58_product_key_native_raw.log), [exporter](../../../benchmarks/native_expert_scaling/meth58_export_product_key.py), [C kernel](../../../benchmarks/native_expert_scaling/meth58_product_key_native.c); no core/full rate |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -607,14 +613,14 @@ scheduled.
   summaries contain unsupported claims. METH-57's distinct product-key
   checkpoint now passes a larger source-grounded relative audit. Do not
   retune on viewed continuations or extend E256 on a BPB gain alone.
-- **Next exact action: native E128 product-key parity.** METH-57 froze a
-  larger 24-document source-grounded set and blind verdict before
-  unblinding; its automatic and semantic gates pass. Export that exact
-  METH-56 checkpoint's learned rank-64 projection, product keys and
-  128 distinct expert factors into a versioned native bundle. Implement
-  the factorized top-four score and selected BF16-effective expert path
-  in `benchmarks/phase60/engine.c`; verify tensor/logit/route parity
-  on frozen token IDs before timing accepted batch-1 tokens. Keep core,
+- **Next exact action: full native core and adapter integration.** METH-57
+  passes its frozen automatic and blind semantic gates. METH-58 exports
+  the actual METH-56 projection, keys and 128 distinct expert factors;
+  its standalone C route and selected BF16 path match all 96 recorded
+  inputs. Determine the lowest-active-traffic Qwen-core representation
+  that retains METH-57 quality, then integrate core plus adapter into
+  `benchmarks/phase60/engine.c`. Verify tensor/logit/route parity on
+  frozen token IDs before timing accepted batch-1 tokens. Keep core,
   router, expert and traffic measurements on the **same** artifact.
   METH-47 remains a separate candidate whose saved summaries showed
   unsupported claims.

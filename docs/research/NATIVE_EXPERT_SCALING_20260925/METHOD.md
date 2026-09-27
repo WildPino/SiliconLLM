@@ -535,6 +535,14 @@ student detail. This validates **relative** E128 checkpoint
 eligibility for native export and parity. It does not validate
 absolute factual accuracy, an independent human review, a packed
 LUT representation, full native rate or trained large-E quality.
+[METH-58](METH_58_PRODUCT_KEY_NATIVE_COMPONENT_RESULT_20260927.md)
+serializes that exact E128 checkpoint's FP32 rank-64 product keys and
+BF16-effective expert factors into a versioned native bank. The C
+component reproduces the unordered top-four IDs, BF16 gate values and
+selected rank-8 residual exactly on 96 recorded inputs from every
+layer, including actual donor hidden states. This validates native
+component arithmetic and the export readback, but the bank is not yet
+a complete `engine.c` model and its factor values are not LUT codes.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
@@ -542,10 +550,10 @@ large-E optimization. NES-03 provides a numerical/cost-passing int8 router
 option at pilot scale, with a fragile E128 latency margin. Independent larger
 experts remain untrained, and no pretrained donor has been converted into a
 quality-valid, ≥50 accepted tok/s native artifact. The next method step
-is exporting the exact METH-56 product-key E128 checkpoint, implementing
-its rank-64 pair route and BF16-effective selected factors in `engine.c`,
-and checking native route/logit parity and accepted-token throughput on
-the same bundle. METH-47 remains a separate exact-router candidate with
+is integrating the exported product-key E128 component with a
+quality-preserving low-traffic Qwen core in `engine.c`, then checking
+full-model route/logit parity and accepted-token throughput on the
+same bundle. METH-47 remains a separate exact-router candidate with
 its own semantic question. The subsequent expert-count ladder must train
 distinct factors at each E, measure route load and quality, and verify
 that the CPU router/LUT and full model remain affordable as E grows with
