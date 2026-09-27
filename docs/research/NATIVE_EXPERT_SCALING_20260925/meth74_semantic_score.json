@@ -1,0 +1,681 @@
+{
+  "experiment": "METH-74-unblinded-semantic-score",
+  "blind_sha256": "d4599a0bbd27f6adfebbed69dcb7ac6faada8717145e111134ef3e34f6cec1d9",
+  "verdict_sha256": "7a1fb920d9ff575b935b11b0bacfd6baff9b6f679eb11f88f4e7f783f4f6c395",
+  "counts": {
+    "donor": {
+      "unsupported": 30,
+      "severe": 7,
+      "missing_detail": 0,
+      "ambiguous": 0
+    },
+    "student": {
+      "unsupported": 26,
+      "severe": 8,
+      "missing_detail": 0,
+      "ambiguous": 0
+    }
+  },
+  "gates": {
+    "unsupported": true,
+    "severe": false,
+    "missing_detail": true,
+    "joint_semantic": false
+  },
+  "paired_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/ternary/e20_rule_or_format.py",
+      "category": "code",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The visible time measurement is for restoration.",
+            "evidence": "'tq = time.time()' precedes 'apply_arm'; the shown field starts 'quantize_seconds'.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The model is restored using the T2b code path.",
+            "evidence": "'restore, s2 = apply_arm(...)' receives a restore handle; no restore call appears.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e30_bandwidth.c",
+      "category": "code",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The read-only stream over a buffer is not a measurement.",
+            "evidence": "'a spec-sheet number is not a measurement. This is that something: a read-only stream' says the stream is the measure.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The read-only stream over a buffer is not a measurement.",
+            "evidence": "'a spec-sheet number is not a measurement. This is that something: a read-only stream' says the stream is the measure.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth23_int8_core_composition_diagnostic.py",
+      "category": "code",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "max_relative_l2_error is an absolute actual-versus-expected error.",
+            "evidence": "'max((x[relative_l2_error] for x in body_stats), default=0)' takes a maximum of relative L2 error fields.",
+            "severe": false
+          },
+          {
+            "claim": "max_abs_error compares actual and expected absolute error values.",
+            "evidence": "'max((x[max_abs_error] for x in body_stats), default=0)' takes a maximum of existing per-body fields.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The maximum absolute error equals zero.",
+            "evidence": "'default=0' is the fallback for an empty body_stats collection, not the observed maximum.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_router_weight_normalization_compile_parity.py",
+      "category": "code",
+      "student": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The loop iterates over a dictionary of Git objects.",
+            "evidence": "'for item in sources.values()' refers to source entries, not Git objects.",
+            "severe": false
+          },
+          {
+            "claim": "It checks for a file named relative in the root directory.",
+            "evidence": "'for path in relative' and 'str(path)' check each relative path, not a file named relative.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/common.py",
+      "category": "code",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The number of bytes is appended to a list named nb.",
+            "evidence": "'byts.append(nb)' appends nb to byts, not to nb.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The tensor has dimensions ids_all, byts and offsets.",
+            "evidence": "'ids = torch.tensor(ids_all, dtype=torch.long)' constructs ids from ids_all alone.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth44_instruct_full_chat_smoke.py",
+      "category": "code",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "masked_objective is nested inside set_experts.",
+            "evidence": "'def masked_objective(...)' is at the same indentation as 'def set_experts(...)'.",
+            "severe": false
+          },
+          {
+            "claim": "The function calculates log-softmax of teacher tokens.",
+            "evidence": "'teacher_lp = F.log_softmax(teacher_logits.float(), dim=-1)' uses logits, not tokens.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The masks are for teacher logits and teacher tokens.",
+            "evidence": "The signature names 'ce_mask, kl_mask'; the visible lines apply log-softmax to logits and NLL to targets.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_continuation.py",
+      "category": "code",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "Saved teacher rows contain prompt_ids.",
+            "evidence": "'prompt = prompts[saved[train_row]]'; prompt_ids are then read from prompt, not saved.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "Concatenating prompt and continuation forms a full prompt.",
+            "evidence": "'full = prompt[prompt_ids] + saved[continuation_ids]' adds continuation IDs to the prompt.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_bf16_full_export.py",
+      "category": "code",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The visible code defines a Python class Ice.",
+            "evidence": "The excerpt begins with a clipped method ending 'ice(self, key)' and never shows a class named Ice.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The visible code defines a Python class Ice.",
+            "evidence": "The excerpt begins with a clipped method ending 'ice(self, key)' and never shows a class named Ice.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=40",
+      "category": "prose",
+      "donor": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "Bathing in salt water is a way to believe in the millennium.",
+            "evidence": "'human nature is by no means altered by bathing every morning in salt water' rejects that implication.",
+            "severe": true
+          },
+          {
+            "claim": "The same point applies to the office environment.",
+            "evidence": "The excerpt ends at 'And there are many office'; it gives no office-environment claim.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=6",
+      "category": "prose",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "Frankie explains the bear attack.",
+            "evidence": "'It's true,' affirmed Professor Scotch identifies the speaker.",
+            "severe": true
+          },
+          {
+            "claim": "Bears are attracted to mosquitoes and attack them.",
+            "evidence": "'bears, lured by hunger, will come down into the lowlands, where mosquitoes will attack them' reverses the cause and attacker.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "Frankie responds that the mosquito story is true.",
+            "evidence": "'It's true,' affirmed Professor Scotch identifies the speaker.",
+            "severe": true
+          },
+          {
+            "claim": "Barney asks what the problem is.",
+            "evidence": "Barney asks 'Pwhat's thot?' and 'Kill a bear?' but no problem question appears.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=76",
+      "category": "prose",
+      "student": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "A battle itself is depicted in the excerpt.",
+            "evidence": "'prepared to leave at once for the battlefield' and 'boat was loading' describe preparations, not battle.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=47",
+      "category": "prose",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "A person named Dr. Nostrums makes the argument.",
+            "evidence": "'Nostrums--Druggist's Arguments--Use of Proprietary Medicines...' is a chapter heading, not a named doctor.",
+            "severe": true
+          },
+          {
+            "claim": "The medical pretender claims dangerous diagnoses.",
+            "evidence": "'The Medical Pretender--Dangerous Diagnosis Graft' lists topics; no claim by that figure is shown.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The excerpt warns of the dangers of hygienic living.",
+            "evidence": "'Disease Prevention Rather than Cure--Hygienic Living' lists hygienic living as a topic, not a danger.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=36",
+      "category": "prose",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "Arne is a young man.",
+            "evidence": "'Arne was startled' gives no age or sex for Arne.",
+            "severe": false
+          },
+          {
+            "claim": "His mother and the clergyman's lady are sitting with him.",
+            "evidence": "'till your mother comes' and 'the Clergyman's lady will have finished' place them elsewhere.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "Arne is the clergyman's daughter.",
+            "evidence": "'Arne was startled' and the separate mention of 'the Clergyman's lady' give no kinship.",
+            "severe": true
+          },
+          {
+            "claim": "The scene takes place in a church.",
+            "evidence": "'Let's sit down here' gives no church setting.",
+            "severe": false
+          },
+          {
+            "claim": "Arne is sitting with her mother.",
+            "evidence": "'till your mother comes' says the mother has not arrived.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=1",
+      "category": "prose",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The elders preside over the scene.",
+            "evidence": "'the youngest man plainly presided' says the opposite.",
+            "severe": false
+          },
+          {
+            "claim": "Gilly is not present.",
+            "evidence": "'Gilly's tired, honest eyes' and his spoken 'Impossible' place him in the scene.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The elders are the young man's parents.",
+            "evidence": "'his elders' states age relation, not parentage.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=73",
+      "category": "prose",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The person sought is the menagerie's manager.",
+            "evidence": "'that little menagerie you boys found last night' never identifies a manager.",
+            "severe": true
+          },
+          {
+            "claim": "Sam and Carl both make the bet.",
+            "evidence": "'Then I'll bet he knows where the tunnel is!' is Carl's line alone.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The person sought is the menagerie's manager.",
+            "evidence": "'that little menagerie you boys found last night' never identifies a manager.",
+            "severe": true
+          },
+          {
+            "claim": "Sam and Carl both make the bet.",
+            "evidence": "'Then I'll bet he knows where the tunnel is!' is Carl's line alone.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=79",
+      "category": "prose",
+      "student": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "A series of announcements and cheers occurs.",
+            "evidence": "'admonitory shouts' and Tracy's name 'almost' taking on a personal cheer do not establish announcements or actual cheers.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_T2B_ORGAN_COVERAGE.md",
+      "category": "technical_general",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The no-extrapolation rule appears in a code snippet.",
+            "evidence": "The excerpt presents it as a quoted section: 'No extrapolation. Whatever wins on the FFN...'.",
+            "severe": false
+          },
+          {
+            "claim": "qwen_export.py applies the no-extrapolation rule to model matrices.",
+            "evidence": "'qwen_export.py applies the chosen rule' refers to a conversion rule, not the warning against extrapolation.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The no-extrapolation rule appears in a code snippet.",
+            "evidence": "The excerpt presents it as a quoted section: 'No extrapolation. Whatever wins on the FFN...'.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E15_DOES_THE_7B_PREDICT.md",
+      "category": "technical_general",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The rule is being applied incorrectly at the larger scale.",
+            "evidence": "'Running that same audit one scale up turns up the reverse' is clipped before any outcome or correctness claim.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E8_MATVEC_DEPENDENCY_CHAIN.md",
+      "category": "technical_general",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "FFN means Fast Fourier Transform.",
+            "evidence": "The excerpt labels an FFN organ; no Fast Fourier Transform appears.",
+            "severe": true
+          },
+          {
+            "claim": "G-Z1 and G-Z2a are two FFN decompositions.",
+            "evidence": "'G-Z1 | the FFN decomposed' differs from 'G-Z2a | rel L2 of --mvacc 2 / 4 against --mvacc 1'.",
+            "severe": false
+          },
+          {
+            "claim": "The second decomposition has higher accuracy.",
+            "evidence": "The two rows report timer sum/FFN and relative L2, not a comparative accuracy.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "FFN means Fast Fourier Transform.",
+            "evidence": "The excerpt labels an FFN organ; no Fast Fourier Transform appears.",
+            "severe": true
+          },
+          {
+            "claim": "The --mvacc options are two FFN decompositions.",
+            "evidence": "'G-Z2a | rel L2 of --mvacc 2 / 4 against --mvacc 1' is a matvec accumulation comparison.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/P3_DONOR_SHAPE_ON_ENGINE.md",
+      "category": "technical_general",
+      "student": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "Predicted 24.0 is 24.0 ms and equals 17.0 GB/s.",
+            "evidence": "'35.37 ms = 28.3 tok/s, against a predicted 24.0' gives 24.0 as token/s; '17.0 GB/s' is a separate FFN rate.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_RESULT_20260924.md",
+      "category": "technical_general",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The commit hash is a protocol ID.",
+            "evidence": "'completed from qualified producer commit 37c639...' identifies a commit, not the protocol ID.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The protocol itself completed from the producer commit.",
+            "evidence": "'The sole scientific diagnostic authorized by the frozen protocol ... completed' names the diagnostic as completing.",
+            "severe": false
+          },
+          {
+            "claim": "The layer-1 expert authorizes the diagnostic.",
+            "evidence": "'authorized by the frozen protocol' identifies the authorizing source.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E11_LUT_KERNEL_CEILING.md",
+      "category": "technical_general",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The process streams data from p0.bin to test_gen_p0.",
+            "evidence": "'30.46 GB fp32 model being streamed off disk' identifies model weights as the streamed data, not the prompt and output paths.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The process runs on a private server.",
+            "evidence": "'from a different checkout (SiliconLLM_private)' describes a checkout, not a server.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_FFN_OPERATOR_CROSS_INPUT_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "student": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/DONOR_STAGE1_ARITHMETIC.md",
+      "category": "technical_general",
+      "donor": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    }
+  ]
+}
