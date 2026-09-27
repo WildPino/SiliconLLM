@@ -29,9 +29,10 @@ M83_PATH = ROOT / "docs/research/NATIVE_EXPERT_SCALING_20260925/meth83_q4_core_d
 M83_SHA = "3ecc2193d8c5436b73a43fd959a99e6b8551f48d92392bbc92dad992a81d85fb"
 PG19_VALIDATION_REL = "data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet"
 PG19_VALIDATION_SHA = "81680529564d4ead1c0e3859509a62d86c7126c32afc95dce6bd98e729e491ef"
-PG19_TRAIN_REL = "data/external/pg19/data/train-00000-of-00023-5263dc4323e881d2.parquet"
-PG19_TRAIN_SHA = "589252c8a3e870278db2b5d3f0da73e4845085e852cb024056c37b76d088ba41"
-PG19_TRAIN_CANDIDATE_LIMIT = 128
+WIKI_REL = "data/corpora/external/kaggle/Plain text Wikipedia (SimpleEnglish)/AllCombined.txt"
+WIKI_SHA = "be17913eb060032dacc0155670c999d97e8ba57fd45135fe11b1a56c1b6d7bbf"
+WIKI_BUCKET_BYTES = 1 << 20
+WIKI_BUCKETS = 128
 M86_PATH = ROOT / "docs/research/NATIVE_EXPERT_SCALING_20260925/meth86_group64_r8_dev_manifest.json"
 M86_SHA = "0d4ac34beea84ecbcaf92bac088345ccab5cc3a2e3f7898710018248bf4bca0c"
 M89_PATH = ROOT / "docs/research/NATIVE_EXPERT_SCALING_20260925/meth89_quant_aware_dev_manifest.json"
@@ -77,7 +78,7 @@ def build():
     assert M17.sha(M102_PATH.read_bytes()) == M102_SHA
     assert M17.sha((ROOT / M57M.PARQUET_REL).read_bytes()) == M57M.PARQUET_SHA
     assert M17.sha((ROOT / PG19_VALIDATION_REL).read_bytes()) == PG19_VALIDATION_SHA
-    assert M17.sha((ROOT / PG19_TRAIN_REL).read_bytes()) == PG19_TRAIN_SHA
+    assert M17.sha((ROOT / WIKI_REL).read_bytes()) == WIKI_SHA
     assert subprocess.check_output(["git", "rev-parse", REF], cwd=ROOT,
                                     text=True).strip() == REF
     old = json.loads(M57M.OLD.read_text(encoding="utf-8"))
@@ -189,21 +190,13 @@ def build():
             if isinstance(value, str):
                 prose_raw.append((source_id, "pg19_validation", PG19_VALIDATION_REL,
                                   value.encode("utf-8")))
-    train_file = pq.ParquetFile(ROOT / PG19_TRAIN_REL)
-    assert train_file.metadata.num_rows == 1244
-    train_index = 0
-    for batch in train_file.iter_batches(batch_size=8, columns=["text"]):
-        for value in batch.column("text").to_pylist():
-            if train_index >= PG19_TRAIN_CANDIDATE_LIMIT:
-                break
-            source_id = f"pg19:{PG19_TRAIN_REL}:row={train_index}"
-            train_index += 1
-            if isinstance(value, str):
-                prose_raw.append((source_id, "pg19_train", PG19_TRAIN_REL,
-                                  value.encode("utf-8")))
-        if train_index >= PG19_TRAIN_CANDIDATE_LIMIT:
-            break
-    assert train_index == PG19_TRAIN_CANDIDATE_LIMIT
+    wiki = (ROOT / WIKI_REL).read_bytes()
+    assert len(wiki) >= WIKI_BUCKET_BYTES * WIKI_BUCKETS
+    for bucket in range(WIKI_BUCKETS):
+        start = bucket * WIKI_BUCKET_BYTES
+        raw = wiki[start:start + WIKI_BUCKET_BYTES]
+        source_id = f"simplewiki:{WIKI_REL}:bucket={bucket}:start={start}"
+        prose_raw.append((source_id, "simplewiki_bucket", WIKI_REL, raw))
     prose_raw.sort(key=lambda item: rank("prose", item[0]))
     choose("prose", prose_raw)
 
@@ -229,8 +222,9 @@ def build():
     return {"experiment": "METH-108-long-chat-E1280-development-manifest",
             "source_commit": REF, "parquet_sha256": M57M.PARQUET_SHA,
             "pg19_validation_parquet_sha256": PG19_VALIDATION_SHA,
-            "pg19_train_parquet_sha256": PG19_TRAIN_SHA,
-            "pg19_train_candidate_limit": PG19_TRAIN_CANDIDATE_LIMIT,
+            "simplewiki_sha256": WIKI_SHA,
+            "simplewiki_bucket_bytes": WIKI_BUCKET_BYTES,
+            "simplewiki_buckets": WIKI_BUCKETS,
             "prior_m57_manifest_sha256": M57.EXTERNAL_SHA,
             "prior_m62_manifest_sha256": M62_SHA,
             "prior_m72_manifest_sha256": M72_SHA,
