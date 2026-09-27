@@ -1,0 +1,1121 @@
+{
+  "experiment": "METH-76-learned-product-key-native-component-export",
+  "training_result_sha256": "86fbaa65279b9c75424a02a73f170fdb0e47b53508d96f8acc3b370da5e5b6a1",
+  "checkpoint_sha256": "f50a72f1ab86bc304fc6cb23e167a719131b3b79ba8a44201b1e98d716d4c98c",
+  "external_manifest_sha256": "11621dce9638aae01cc3bd8c76730de7676e4bbb704271056f164b9ad4d5b437",
+  "prompt_source_id": "benchmarks/donor_adaptation/ternary/e20_rule_or_format.py",
+  "prompt_ids_sha256": "ef059e0a18c0dcbc63ba7928a67ad350b51ff82dd611ac3bd1379a7b9f2c51a7",
+  "prompt_positions": [
+    0,
+    163
+  ],
+  "bank": {
+    "path": "benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth76_e128_bank.bin",
+    "sha256": "baea213c65fa31c81f56c4453fd209f51fb51de13f855ccb39cf9d2fb77fbcf2",
+    "bytes": 93732900
+  },
+  "fixtures": {
+    "path": "benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth76_e128_fixtures.bin",
+    "sha256": "a51d07c2570ecebdaf0642ddf885e988d66cb1a8455fbd528d44a51cf2ac1588",
+    "bytes": 519588
+  },
+  "dimensions": {
+    "layers": 24,
+    "width": 896,
+    "factor_rank": 8,
+    "experts": 128,
+    "router_rank": 64,
+    "axis_a": 8,
+    "axis_b": 16
+  },
+  "unique_expert_factor_pairs_by_layer": [
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128,
+    128
+  ],
+  "fixture_rows": [
+    {
+      "layer": 0,
+      "kind": "real_first",
+      "activation_sha256": "b6f9e961e6866596b117c89e2a51cf54f075c628eead6ce2363dd95dc23aa67a",
+      "chosen": [
+        75,
+        27,
+        77,
+        65
+      ]
+    },
+    {
+      "layer": 0,
+      "kind": "real_last",
+      "activation_sha256": "22badf661ed80ea66f4441960c3384f78f0f790481ae641ee1944ba0c47c20e3",
+      "chosen": [
+        55,
+        63,
+        119,
+        127
+      ]
+    },
+    {
+      "layer": 0,
+      "kind": "synthetic_unit",
+      "activation_sha256": "4ab6f9346be2f589fb91ed393a2cb7ac5cd04051243af84e9479f9c31454ec38",
+      "chosen": [
+        99,
+        97,
+        104,
+        35
+      ]
+    },
+    {
+      "layer": 0,
+      "kind": "synthetic_small",
+      "activation_sha256": "c87894a7cf1565800c6ce0c0e3dccf426dd4dc2acfe2f7cbf5732eb84381d767",
+      "chosen": [
+        65,
+        33,
+        70,
+        49
+      ]
+    },
+    {
+      "layer": 1,
+      "kind": "real_first",
+      "activation_sha256": "80987ac990eb857cb9ce7e69b1795b36516e718116d33e6475cd6b7e63f49e37",
+      "chosen": [
+        123,
+        126,
+        127,
+        119
+      ]
+    },
+    {
+      "layer": 1,
+      "kind": "real_last",
+      "activation_sha256": "43bab00499f5688d05e6480e4199681d3799b7cd80a2115238e728722c148ce6",
+      "chosen": [
+        113,
+        127,
+        118,
+        65
+      ]
+    },
+    {
+      "layer": 1,
+      "kind": "synthetic_unit",
+      "activation_sha256": "450c5f324e06dc05724f630eaca27a1297ab39d06a3a4d0b7e1fc60848925a60",
+      "chosen": [
+        103,
+        97,
+        55,
+        39
+      ]
+    },
+    {
+      "layer": 1,
+      "kind": "synthetic_small",
+      "activation_sha256": "0957fecbc700709fa14e8a3a19816ea4247353f936a18b333a319dcd3874442c",
+      "chosen": [
+        127,
+        113,
+        125,
+        112
+      ]
+    },
+    {
+      "layer": 2,
+      "kind": "real_first",
+      "activation_sha256": "2cc0e19ef9bf1f7451ae7f72669360f5ef8dd8a7fd5bd646d7e835bc2c9d7c04",
+      "chosen": [
+        15,
+        3,
+        2,
+        95
+      ]
+    },
+    {
+      "layer": 2,
+      "kind": "real_last",
+      "activation_sha256": "0a43d32771cbdf67cea4715577aa23ba3f04c09b733de7e8d8353bf935877b17",
+      "chosen": [
+        58,
+        10,
+        106,
+        42
+      ]
+    },
+    {
+      "layer": 2,
+      "kind": "synthetic_unit",
+      "activation_sha256": "16cae4bf9062148ed35ede05fbb41fd44012b8e56729cb667e00f605a5f13a4a",
+      "chosen": [
+        112,
+        124,
+        48,
+        60
+      ]
+    },
+    {
+      "layer": 2,
+      "kind": "synthetic_small",
+      "activation_sha256": "1ebb6899103461658ceeb078636ae4a55fb6f9b11fff57e604d97bd1161ec3e2",
+      "chosen": [
+        37,
+        35,
+        101,
+        46
+      ]
+    },
+    {
+      "layer": 3,
+      "kind": "real_first",
+      "activation_sha256": "a86e08c91a68d1addda60f698e586823d1fcc822c3acee404730434fbac35e34",
+      "chosen": [
+        62,
+        53,
+        61,
+        54
+      ]
+    },
+    {
+      "layer": 3,
+      "kind": "real_last",
+      "activation_sha256": "462bc1e6209b8eeef5a8202b6c5dd5ec377efed32c3320911057ae6926a34206",
+      "chosen": [
+        1,
+        15,
+        6,
+        17
+      ]
+    },
+    {
+      "layer": 3,
+      "kind": "synthetic_unit",
+      "activation_sha256": "01e76efc286a26f8d5bc7f21de8133ddc1a91e309165206f64fff924f9b57938",
+      "chosen": [
+        4,
+        68,
+        7,
+        71
+      ]
+    },
+    {
+      "layer": 3,
+      "kind": "synthetic_small",
+      "activation_sha256": "0db5a7df1b1499130ed70522006f3ca25fac87b4babbd5e7f5501d8ca76fc116",
+      "chosen": [
+        34,
+        46,
+        38,
+        33
+      ]
+    },
+    {
+      "layer": 4,
+      "kind": "real_first",
+      "activation_sha256": "0ec76800f7190574aad64c4cdc22fd2e23c5b09550a4c29aedb143d4e6e81f57",
+      "chosen": [
+        46,
+        43,
+        126,
+        37
+      ]
+    },
+    {
+      "layer": 4,
+      "kind": "real_last",
+      "activation_sha256": "930c7f7fefcb9c3bbf8e4adc1dde93f2ea70e2976dbf2084ca69bffc3c31b24e",
+      "chosen": [
+        118,
+        115,
+        127,
+        38
+      ]
+    },
+    {
+      "layer": 4,
+      "kind": "synthetic_unit",
+      "activation_sha256": "f09de76428bf3ee45cdf47d3fb160d31199676decd865c63ca0080d4d4b30016",
+      "chosen": [
+        63,
+        95,
+        31,
+        127
+      ]
+    },
+    {
+      "layer": 4,
+      "kind": "synthetic_small",
+      "activation_sha256": "d201da18c109897d8eaa253b71298757f3cf890ecf6ef14072791ba1345cace8",
+      "chosen": [
+        122,
+        42,
+        74,
+        58
+      ]
+    },
+    {
+      "layer": 5,
+      "kind": "real_first",
+      "activation_sha256": "4d4a867eb6db0b40f06eae48d5c66ea1588ed3ec7b70a84bdf56d1a030b9e49c",
+      "chosen": [
+        96,
+        32,
+        16,
+        80
+      ]
+    },
+    {
+      "layer": 5,
+      "kind": "real_last",
+      "activation_sha256": "ba98efec911e54b95de60126098cad8c1b4769ca14210a2df89fb2dc37637850",
+      "chosen": [
+        47,
+        36,
+        34,
+        31
+      ]
+    },
+    {
+      "layer": 5,
+      "kind": "synthetic_unit",
+      "activation_sha256": "58dd25bf9b9f404af0e9d8864f65c7acf8cdff28fecec5b4b9238c045779ea82",
+      "chosen": [
+        40,
+        8,
+        38,
+        37
+      ]
+    },
+    {
+      "layer": 5,
+      "kind": "synthetic_small",
+      "activation_sha256": "811873fe6ddcf6f90e59cf7403654f6cf627a3882f706272b9151dbf51b0325c",
+      "chosen": [
+        45,
+        109,
+        46,
+        110
+      ]
+    },
+    {
+      "layer": 6,
+      "kind": "real_first",
+      "activation_sha256": "35737fb5031f30f019845f8a642d330655196e25ad81ede03838e25c77db038b",
+      "chosen": [
+        94,
+        62,
+        46,
+        80
+      ]
+    },
+    {
+      "layer": 6,
+      "kind": "real_last",
+      "activation_sha256": "932a4a6f56e732bdbbf1f17430235d7bf6e84b751cb92da4e7ea792e14c6dfb9",
+      "chosen": [
+        92,
+        12,
+        76,
+        44
+      ]
+    },
+    {
+      "layer": 6,
+      "kind": "synthetic_unit",
+      "activation_sha256": "2fd259d79c1fcca73f7153897628483351aa8d4e1b342b0e7939174d6b73ee88",
+      "chosen": [
+        103,
+        98,
+        55,
+        50
+      ]
+    },
+    {
+      "layer": 6,
+      "kind": "synthetic_small",
+      "activation_sha256": "6de9621316a8c10735590a4253bd5d90c054a64208bb7a6f139b2f15e6409b5d",
+      "chosen": [
+        7,
+        55,
+        4,
+        12
+      ]
+    },
+    {
+      "layer": 7,
+      "kind": "real_first",
+      "activation_sha256": "fe8586c30fd25932134ada853cc6fb8137fad58cfdc61a14a103a02e927c3546",
+      "chosen": [
+        3,
+        51,
+        9,
+        57
+      ]
+    },
+    {
+      "layer": 7,
+      "kind": "real_last",
+      "activation_sha256": "8d8922954ef575a419876a1acb9bb8f6d8450e7ba13c4b7607c6735c40d9a60b",
+      "chosen": [
+        79,
+        65,
+        75,
+        77
+      ]
+    },
+    {
+      "layer": 7,
+      "kind": "synthetic_unit",
+      "activation_sha256": "e71e5733656ce5baa35a7dc0a90212936615281ff334f84dc50a6ff3414b48b9",
+      "chosen": [
+        99,
+        3,
+        35,
+        115
+      ]
+    },
+    {
+      "layer": 7,
+      "kind": "synthetic_small",
+      "activation_sha256": "d8fbfe791c7087210759ae17403e866761ae8f7c356ac73ebe765032c5c55789",
+      "chosen": [
+        103,
+        100,
+        98,
+        104
+      ]
+    },
+    {
+      "layer": 8,
+      "kind": "real_first",
+      "activation_sha256": "72330655ef5e998c98f0c76ad1170cd7e3c2865589839125c570079a9f65dc41",
+      "chosen": [
+        101,
+        69,
+        110,
+        117
+      ]
+    },
+    {
+      "layer": 8,
+      "kind": "real_last",
+      "activation_sha256": "f61935b7d852737623be96e9811ca9834326bacdfb503842ce7a366c520525ba",
+      "chosen": [
+        15,
+        8,
+        63,
+        56
+      ]
+    },
+    {
+      "layer": 8,
+      "kind": "synthetic_unit",
+      "activation_sha256": "4ee5c18e45744a53356d8af685bca46e286190f20a442d7b75726ccc0f7e94cd",
+      "chosen": [
+        32,
+        38,
+        33,
+        39
+      ]
+    },
+    {
+      "layer": 8,
+      "kind": "synthetic_small",
+      "activation_sha256": "28a01d9636b6868b7cb24f7191fe61bc6f3ce8e7de56251ebd395d1c8bfc4068",
+      "chosen": [
+        7,
+        119,
+        55,
+        0
+      ]
+    },
+    {
+      "layer": 9,
+      "kind": "real_first",
+      "activation_sha256": "4e63c275ca38de9dc3f43fca1282b4f82f64d2135a09affded35626afdf49014",
+      "chosen": [
+        13,
+        5,
+        93,
+        85
+      ]
+    },
+    {
+      "layer": 9,
+      "kind": "real_last",
+      "activation_sha256": "058a5684611a0a4cbaac390c164363c16c247864a01eefe42e86c859c95373c4",
+      "chosen": [
+        42,
+        33,
+        43,
+        122
+      ]
+    },
+    {
+      "layer": 9,
+      "kind": "synthetic_unit",
+      "activation_sha256": "c738379c972bf98fb33facd350a789047b63810212027a651cae9ff91e8a4c3b",
+      "chosen": [
+        33,
+        1,
+        32,
+        0
+      ]
+    },
+    {
+      "layer": 9,
+      "kind": "synthetic_small",
+      "activation_sha256": "7334ff422b32153232c2f9536e1a254db48e2c42007f91ed7ca5e4413781c57c",
+      "chosen": [
+        41,
+        40,
+        121,
+        38
+      ]
+    },
+    {
+      "layer": 10,
+      "kind": "real_first",
+      "activation_sha256": "2ba7d11d765e05c6d7f01d84f34bc4fc3ae2f75dea96659a40cac3a4d6388945",
+      "chosen": [
+        61,
+        58,
+        62,
+        54
+      ]
+    },
+    {
+      "layer": 10,
+      "kind": "real_last",
+      "activation_sha256": "cb3d927a241a78a5152fa1f640687732915a20bf3670892c0f1f468a8407b7ec",
+      "chosen": [
+        34,
+        44,
+        18,
+        98
+      ]
+    },
+    {
+      "layer": 10,
+      "kind": "synthetic_unit",
+      "activation_sha256": "084dcf2d5e732b5cfb569defc7183a5ccb1d4022ff2e96f5942a5b0e08a72470",
+      "chosen": [
+        72,
+        120,
+        104,
+        70
+      ]
+    },
+    {
+      "layer": 10,
+      "kind": "synthetic_small",
+      "activation_sha256": "9200ba150ab8f9c9eaf5a042629d67e47ded5c2243c7b772c07d73475441d137",
+      "chosen": [
+        61,
+        56,
+        59,
+        54
+      ]
+    },
+    {
+      "layer": 11,
+      "kind": "real_first",
+      "activation_sha256": "274aa77d7802fb807fb673fe00783efc1dcf030fa3453571a738e6e2f44c1b10",
+      "chosen": [
+        91,
+        86,
+        107,
+        84
+      ]
+    },
+    {
+      "layer": 11,
+      "kind": "real_last",
+      "activation_sha256": "1ba6063d2ccb9bf8802c3d4a40333ee6f86d47a6fcbfbc68b12ffc12b1d0e0db",
+      "chosen": [
+        90,
+        106,
+        89,
+        82
+      ]
+    },
+    {
+      "layer": 11,
+      "kind": "synthetic_unit",
+      "activation_sha256": "5c2b0a0dbf605a6b533772db2633960758f836656bff0a71953fb9172e737b02",
+      "chosen": [
+        89,
+        9,
+        57,
+        85
+      ]
+    },
+    {
+      "layer": 11,
+      "kind": "synthetic_small",
+      "activation_sha256": "a2749e0f736c6de8c11438c0543cfb9e837954ff4f7635aee1796b85f74bb745",
+      "chosen": [
+        5,
+        0,
+        8,
+        117
+      ]
+    },
+    {
+      "layer": 12,
+      "kind": "real_first",
+      "activation_sha256": "8ed3d78acdc7a360684d0d67b4d89432171b66190aed907358b2652278c9dd3d",
+      "chosen": [
+        83,
+        35,
+        115,
+        81
+      ]
+    },
+    {
+      "layer": 12,
+      "kind": "real_last",
+      "activation_sha256": "4a8cf40442a4020160a41a57bcc8e47bf05bcf5c16e409a32fe56df4e35a5831",
+      "chosen": [
+        95,
+        47,
+        86,
+        38
+      ]
+    },
+    {
+      "layer": 12,
+      "kind": "synthetic_unit",
+      "activation_sha256": "214a759d7b2c9329f6345fdc1e8941dbefa4937705488e26d45fb32b25158f57",
+      "chosen": [
+        108,
+        12,
+        76,
+        124
+      ]
+    },
+    {
+      "layer": 12,
+      "kind": "synthetic_small",
+      "activation_sha256": "d88fb83f04a916f4400ed3ca736e4a541f025bc344783a706a281e82d53e2b40",
+      "chosen": [
+        42,
+        26,
+        37,
+        21
+      ]
+    },
+    {
+      "layer": 13,
+      "kind": "real_first",
+      "activation_sha256": "2af9a4cbbb7482a929c38f8c3695c95123661a02ce2500ed293ea894d07ffba4",
+      "chosen": [
+        16,
+        32,
+        48,
+        0
+      ]
+    },
+    {
+      "layer": 13,
+      "kind": "real_last",
+      "activation_sha256": "68733dd973e0d52aadc789a934e59a8bbfdba941dd5c060ac6c9aa54c84b0f39",
+      "chosen": [
+        47,
+        37,
+        38,
+        46
+      ]
+    },
+    {
+      "layer": 13,
+      "kind": "synthetic_unit",
+      "activation_sha256": "59737d4938693c1aa8f35036d81bd8596d7d9f93c9b08e614dd6c1c46db7db71",
+      "chosen": [
+        43,
+        47,
+        59,
+        63
+      ]
+    },
+    {
+      "layer": 13,
+      "kind": "synthetic_small",
+      "activation_sha256": "66e1626fc30d1fb35c78df6e6d087b743b64780b12a0a79cdaedab059649e626",
+      "chosen": [
+        89,
+        25,
+        80,
+        9
+      ]
+    },
+    {
+      "layer": 14,
+      "kind": "real_first",
+      "activation_sha256": "0a00afc83d946ef78808149576e9d280458c1d720b2dd14d024ef9f71d4e77bc",
+      "chosen": [
+        106,
+        90,
+        109,
+        93
+      ]
+    },
+    {
+      "layer": 14,
+      "kind": "real_last",
+      "activation_sha256": "738c142e786bcfc77a515b267931552219b75ab2c226be3b30e11e3145f60cea",
+      "chosen": [
+        58,
+        48,
+        63,
+        55
+      ]
+    },
+    {
+      "layer": 14,
+      "kind": "synthetic_unit",
+      "activation_sha256": "e6bdd6a08dbcc88641e5096583d357a989f00bebfaf4747fbc5c4d56f259bf7a",
+      "chosen": [
+        109,
+        29,
+        125,
+        93
+      ]
+    },
+    {
+      "layer": 14,
+      "kind": "synthetic_small",
+      "activation_sha256": "c07a9cee0e90f10146e682b22f7fcf6dde0b274b608d2907a5cd47e021b43522",
+      "chosen": [
+        36,
+        45,
+        38,
+        39
+      ]
+    },
+    {
+      "layer": 15,
+      "kind": "real_first",
+      "activation_sha256": "fadc7032873f9f9824853c4532b89df37e9a54ace12736e1348bccfaf69f451e",
+      "chosen": [
+        76,
+        67,
+        68,
+        108
+      ]
+    },
+    {
+      "layer": 15,
+      "kind": "real_last",
+      "activation_sha256": "cbf2245de823a440155bec796f6c33bd334c4ebc924830ffb89a26ab2a3a497b",
+      "chosen": [
+        84,
+        88,
+        52,
+        86
+      ]
+    },
+    {
+      "layer": 15,
+      "kind": "synthetic_unit",
+      "activation_sha256": "73ed59eba0cf51d0b78ad1a62eb395e3464b4392b19a7575e5e833bbf205ceeb",
+      "chosen": [
+        19,
+        22,
+        23,
+        17
+      ]
+    },
+    {
+      "layer": 15,
+      "kind": "synthetic_small",
+      "activation_sha256": "928ebb2e9d5867132fdf0b74dee849189bdedeaf8904c75975510c0ab683e214",
+      "chosen": [
+        57,
+        9,
+        54,
+        63
+      ]
+    },
+    {
+      "layer": 16,
+      "kind": "real_first",
+      "activation_sha256": "eadd918ca3c547e2e6da813cec7fbaccca415b147a67f5ba0d5611c6a76d8ff3",
+      "chosen": [
+        92,
+        94,
+        60,
+        76
+      ]
+    },
+    {
+      "layer": 16,
+      "kind": "real_last",
+      "activation_sha256": "91fb7b6f1befe88ff8f41c20a93b9cec316051fdfb9b813d4a4f83f5ede01c86",
+      "chosen": [
+        52,
+        62,
+        100,
+        110
+      ]
+    },
+    {
+      "layer": 16,
+      "kind": "synthetic_unit",
+      "activation_sha256": "010619bede8be54bf6c67d2c98e84c5f8744940818edc5bb614efab0b512c4a9",
+      "chosen": [
+        97,
+        105,
+        101,
+        108
+      ]
+    },
+    {
+      "layer": 16,
+      "kind": "synthetic_small",
+      "activation_sha256": "e2ecd673fb72837504cdfe10a807339c050576941c339e2d830597cbeef045fc",
+      "chosen": [
+        117,
+        113,
+        126,
+        114
+      ]
+    },
+    {
+      "layer": 17,
+      "kind": "real_first",
+      "activation_sha256": "12fe9cdb239ef5bb9bbe00cb78b3e63f7b8b9ca87ab42b90a7b2077a30f92df3",
+      "chosen": [
+        95,
+        89,
+        15,
+        9
+      ]
+    },
+    {
+      "layer": 17,
+      "kind": "real_last",
+      "activation_sha256": "2087c629cb449f8a399a6bb0588ecfb7b9908e664045b9c349b0d5164de6a95a",
+      "chosen": [
+        40,
+        41,
+        47,
+        88
+      ]
+    },
+    {
+      "layer": 17,
+      "kind": "synthetic_unit",
+      "activation_sha256": "fe7858d385f67452f4fb579dcb7cf38cda640a897752ab73c40ddfab6e878b0f",
+      "chosen": [
+        65,
+        49,
+        75,
+        59
+      ]
+    },
+    {
+      "layer": 17,
+      "kind": "synthetic_small",
+      "activation_sha256": "2875c08d127f462b357c30b9830b8d5a2c0834dce821928a2fa5012fc1c3f4d1",
+      "chosen": [
+        63,
+        127,
+        61,
+        47
+      ]
+    },
+    {
+      "layer": 18,
+      "kind": "real_first",
+      "activation_sha256": "e71b63776301be20a46027b3e42410e0e69f2e8ab6a0156d7a4587fbf38a7b9f",
+      "chosen": [
+        74,
+        122,
+        26,
+        106
+      ]
+    },
+    {
+      "layer": 18,
+      "kind": "real_last",
+      "activation_sha256": "c911cf8a9e886f0220f8655e881d6f3b2f5060f744d9d8a776a87fc157d46534",
+      "chosen": [
+        76,
+        65,
+        74,
+        73
+      ]
+    },
+    {
+      "layer": 18,
+      "kind": "synthetic_unit",
+      "activation_sha256": "86ee8f9a3a93b8dac36aed85384968317d87c64d14c71c242146a17792f780bc",
+      "chosen": [
+        112,
+        96,
+        113,
+        97
+      ]
+    },
+    {
+      "layer": 18,
+      "kind": "synthetic_small",
+      "activation_sha256": "8fa7f442ca757318a82399c38f6b0a3a84f804d108826eeeab9e6968fa711441",
+      "chosen": [
+        21,
+        69,
+        26,
+        74
+      ]
+    },
+    {
+      "layer": 19,
+      "kind": "real_first",
+      "activation_sha256": "47f5ed6a8613e563c65070349d814af8f92f3f7aff3077632f3e1e03a56740c9",
+      "chosen": [
+        32,
+        64,
+        40,
+        35
+      ]
+    },
+    {
+      "layer": 19,
+      "kind": "real_last",
+      "activation_sha256": "80ffe74d8c174a27721ea72ffc083ec259113e748d3a3c37b25d2526d6717b42",
+      "chosen": [
+        60,
+        50,
+        52,
+        63
+      ]
+    },
+    {
+      "layer": 19,
+      "kind": "synthetic_unit",
+      "activation_sha256": "1e54686220bc89556fe3945936b3282b1440d5d1224783d7e86111d7db205867",
+      "chosen": [
+        10,
+        90,
+        106,
+        122
+      ]
+    },
+    {
+      "layer": 19,
+      "kind": "synthetic_small",
+      "activation_sha256": "54f1e9b0735c51c988ec08ebb77c2b00e97946d1f13044e26f03721c3fd69acd",
+      "chosen": [
+        118,
+        117,
+        124,
+        119
+      ]
+    },
+    {
+      "layer": 20,
+      "kind": "real_first",
+      "activation_sha256": "33ef253eb42a602f6ca1e8449e47d9e5b410681ba4d52e69f4f79f6273ddd32d",
+      "chosen": [
+        126,
+        30,
+        14,
+        78
+      ]
+    },
+    {
+      "layer": 20,
+      "kind": "real_last",
+      "activation_sha256": "2b2af3636ed464df24658012daa261db53e17f9fd47653fb1a8b0e02ad4a8161",
+      "chosen": [
+        12,
+        0,
+        76,
+        7
+      ]
+    },
+    {
+      "layer": 20,
+      "kind": "synthetic_unit",
+      "activation_sha256": "4e421354f7b702f2a9b5ba008b4f5c340dcbd999f00036ddbe4b907aa5408cc6",
+      "chosen": [
+        52,
+        59,
+        4,
+        53
+      ]
+    },
+    {
+      "layer": 20,
+      "kind": "synthetic_small",
+      "activation_sha256": "17437b45301ef5e2268e589a6f25ff3901d9025314d3e08f5f8d02ce009deda6",
+      "chosen": [
+        116,
+        100,
+        123,
+        20
+      ]
+    },
+    {
+      "layer": 21,
+      "kind": "real_first",
+      "activation_sha256": "dbb5932389a9b88fff957f8d060e7cfc0af9a0ed11abdef911eb9740283f2eb7",
+      "chosen": [
+        118,
+        123,
+        22,
+        125
+      ]
+    },
+    {
+      "layer": 21,
+      "kind": "real_last",
+      "activation_sha256": "71f2cdd019ec23951ce19defeb0cea7bf038b870693b4a3b0b83b177e4269438",
+      "chosen": [
+        55,
+        103,
+        59,
+        87
+      ]
+    },
+    {
+      "layer": 21,
+      "kind": "synthetic_unit",
+      "activation_sha256": "ec700aad51eca0eb82ddf153f8f3e55c0d597c59b4e3aa6ae73b21e783bc17b8",
+      "chosen": [
+        66,
+        18,
+        71,
+        114
+      ]
+    },
+    {
+      "layer": 21,
+      "kind": "synthetic_small",
+      "activation_sha256": "138aaf74ce0759f34d4d6b31043e9ae9906a06b2ffe9c011a747100c848a4bd8",
+      "chosen": [
+        115,
+        116,
+        51,
+        120
+      ]
+    },
+    {
+      "layer": 22,
+      "kind": "real_first",
+      "activation_sha256": "4af9957b680d9d5a34bbd10bf020458a1de9ddeb73bb5d387dfe9b8347c1a5b3",
+      "chosen": [
+        93,
+        80,
+        84,
+        88
+      ]
+    },
+    {
+      "layer": 22,
+      "kind": "real_last",
+      "activation_sha256": "e59ab69ed32cff71bd97f2686bae5e48c64823fcb86ac34c0d9a0da0adf4f28a",
+      "chosen": [
+        2,
+        34,
+        82,
+        18
+      ]
+    },
+    {
+      "layer": 22,
+      "kind": "synthetic_unit",
+      "activation_sha256": "d39f5abd5955f4bb507e3b1ef7414e40700b95d8b0a76333bb62d86e8d1f9434",
+      "chosen": [
+        71,
+        79,
+        69,
+        7
+      ]
+    },
+    {
+      "layer": 22,
+      "kind": "synthetic_small",
+      "activation_sha256": "3360c890a113cb9f6037c61df1a24cdb88436ecacea19c4437c3fa2ddb23e042",
+      "chosen": [
+        94,
+        88,
+        14,
+        8
+      ]
+    },
+    {
+      "layer": 23,
+      "kind": "real_first",
+      "activation_sha256": "589abefb5b4b32727e90218c1acc23c9928469cfdc1966cc8086aa990a89169c",
+      "chosen": [
+        4,
+        10,
+        6,
+        14
+      ]
+    },
+    {
+      "layer": 23,
+      "kind": "real_last",
+      "activation_sha256": "3ec84a73c7457f1900f6a73925a5419ec38700897d8505ee2fd7baaa06ac69c4",
+      "chosen": [
+        94,
+        81,
+        126,
+        113
+      ]
+    },
+    {
+      "layer": 23,
+      "kind": "synthetic_unit",
+      "activation_sha256": "19fa78fb8b00ae4abbbfd51a72047ab870d21ec9a04009e9ea61505529cd963c",
+      "chosen": [
+        56,
+        88,
+        8,
+        72
+      ]
+    },
+    {
+      "layer": 23,
+      "kind": "synthetic_small",
+      "activation_sha256": "17d269e29255dd67c44539495f38f0254e9cc468de171540f3f12434eb4e108d",
+      "chosen": [
+        27,
+        25,
+        31,
+        24
+      ]
+    }
+  ],
+  "runtime": {
+    "elapsed_seconds": 5.531999999999243,
+    "rss_end_bytes": 2974576640,
+    "gpu_peak_allocated_bytes": 1237380608,
+    "gpu": "NVIDIA GeForce RTX 3060"
+  }
+}
