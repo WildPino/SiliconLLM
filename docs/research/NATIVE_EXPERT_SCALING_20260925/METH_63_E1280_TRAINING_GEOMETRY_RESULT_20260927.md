@@ -31,6 +31,13 @@ E1280's 109–124 selected slots and 30× worst maximum/mean route load
 are merely short-input initialization diagnostics. They do not
 measure training coverage or load after adaptation. Parameter bytes
 exclude gradients, optimizer state, donor core and runtime workspace.
+Dense FP32 Adam training would need at least four copies of the factor
+bank (parameters, gradients and two moments), or 7,046,430,720 bytes,
+before those other allocations. At this turn's observation the local
+12 GiB RTX 3060 had only 5,470 MiB free because another process was
+using it; a naive all-GPU E1280 training launch would therefore exceed
+available memory. A later training experiment needs free GPU capacity
+or a measured sparse/offloaded update scheme.
 The selected factor figure is addressed payload arithmetic, not
 measured DRAM traffic. The 10× storage increase with constant top-four
 factor work matches the intended RAM-dependent expert-count dial at
