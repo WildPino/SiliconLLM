@@ -1,0 +1,69 @@
+{
+  "experiment": "METH-45-Instruct-continuation",
+  "source_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "resume_sha256": "4fade15804f5e2297ff60cafacf870e5ae11926ba886786a524110dea94f16da",
+  "teacher_sha256": "f42f678280a9086a0fc2ec6e57a712e33fdea8f5cb62bdac7f53c9f28a5f1dd7",
+  "train_chat_manifest_sha256": "17921cb83c1d10793e2a56df6aa899039bd794757eeff43921068b8de2096055",
+  "development_manifest_sha256": "703abca3f83a983d9380ba84c1a79744d15881d638174b064cf38a47453f47ba",
+  "fresh_external_manifest_sha256": "15a68db9a43a8066e70b1b261f819cab3d6779d8b52633bcce7c725d8d54acfb",
+  "raw_train_ids_sha256": "9bb5229fad6542aa8b3fd7edfc3b8d1dff965a573d7aa8379385caacc9d614da",
+  "raw_eval_ids_sha256": "c5345782fc0b08ef3212403878a33960ae0da236c999272e79e418f29c277d3c",
+  "target_update": 1024,
+  "last_applied_update": 512,
+  "interim_evaluations": [
+    {
+      "step": 16,
+      "donor_bpb": 0.9712552075318387,
+      "student_bpb": 0.9694120093360877,
+      "delta_bpb": -0.0018431981957509613,
+      "dev_top1": {
+        "matching": 3654,
+        "positions": 3807,
+        "agreement": 0.9598108747044918
+      }
+    },
+    {
+      "step": 256,
+      "student_bpb": 0.946198431072019,
+      "delta_bpb": -0.02505677645981974,
+      "dev_top1": {
+        "matching": 3628,
+        "positions": 3807,
+        "agreement": 0.9529813501444707
+      }
+    },
+    {
+      "step": 512,
+      "student_bpb": 0.9423023567912698,
+      "delta_bpb": -0.02895285074056886,
+      "dev_top1": {
+        "matching": 3578,
+        "positions": 3807,
+        "agreement": 0.9398476490675072
+      }
+    }
+  ],
+  "checkpoints": {
+    "256": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth45\\meth45_update256.pt",
+      "sha256": "3d5835eae07384ed6709897212c9d0e31734403f049b0aa254622bafe0b57c4c",
+      "bytes": 561603140
+    },
+    "512": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth45\\meth45_update512.pt",
+      "sha256": "c988d26fa0a122db292cd56b253317ae6c0c8ce5fff9c1aedaf004ca2b8fb6c2",
+      "bytes": 561603140
+    }
+  },
+  "stop_reason": "interim_chat_top1_failure",
+  "decision": "stop_instruct_continuation",
+  "runtime": {
+    "elapsed_seconds": 685.4850000000006,
+    "rss_end_bytes": 3871244288,
+    "gpu_peak_allocated_bytes": 2583288320,
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "cuda_index": 0,
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6"
+  }
+}
