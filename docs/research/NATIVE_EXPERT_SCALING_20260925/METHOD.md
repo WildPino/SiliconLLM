@@ -524,20 +524,32 @@ remains concentrated (worst maximum/mean 14.77×). The fixed terminal
 checkpoint is eligible for external semantic/task audit. Neither
 this retention gate nor the synthetic CPU cost gate establishes
 quality at 10× distinct expert count or native model rate.
+[METH-57](METH_57_PRODUCT_KEY_EXTERNAL_RESULT_20260927.md) completes
+that precommitted external gate on 24 source-disjoint documents and
+the full 1,838-item PIQA set. It passes pooled/category BPB,
+prompt-position top-1, generation termination, task, route-pair
+utility and all 128 changed B slots per layer. A blind review frozen
+before unblinding finds 22 unsupported and 14 severe unsupported
+student claims versus 30 and 18 for the donor, with no missing
+student detail. This validates **relative** E128 checkpoint
+eligibility for native export and parity. It does not validate
+absolute factual accuracy, an independent human review, a packed
+LUT representation, full native rate or trained large-E quality.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
 large-E optimization. NES-03 provides a numerical/cost-passing int8 router
 option at pilot scale, with a fragile E128 latency margin. Independent larger
 experts remain untrained, and no pretrained donor has been converted into a
-quality-valid, ≥50 accepted tok/s native artifact. The next method decision
-is whether METH-56's terminal product-key checkpoint preserves donor-relative
-semantic quality on a frozen external, source-grounded generation and task
-audit. METH-47 remains a separate exact-router candidate with its own
-semantic question. In parallel, a high-fidelity
-packed export and bounded CPU router can be developed as diagnostics;
-promotion needs semantic quality, C parity/rate on the same artifact,
-and a distinctly trained expert-count ladder.
+quality-valid, ≥50 accepted tok/s native artifact. The next method step
+is exporting the exact METH-56 product-key E128 checkpoint, implementing
+its rank-64 pair route and BF16-effective selected factors in `engine.c`,
+and checking native route/logit parity and accepted-token throughput on
+the same bundle. METH-47 remains a separate exact-router candidate with
+its own semantic question. The subsequent expert-count ladder must train
+distinct factors at each E, measure route load and quality, and verify
+that the CPU router/LUT and full model remain affordable as E grows with
+RAM. The METH-54 synthetic 10× cost pass cannot stand in for this gate.
 
 Operational experiment history, running processes and exact resumption point
 live in [INDEX.md](INDEX.md); this file changes when a method step is actually

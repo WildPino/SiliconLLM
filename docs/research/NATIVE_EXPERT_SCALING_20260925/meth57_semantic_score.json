@@ -1,0 +1,681 @@
+{
+  "experiment": "METH-57-unblinded-semantic-score",
+  "blind_sha256": "1654d9a694dc189ba0eb65c8a0c6f85020a518448eea342b61b07576e268e35e",
+  "verdict_sha256": "7e1739a6adc69a50a128df9b8a050f1eeda7daab131abbc3888d0651c8dc6ab8",
+  "counts": {
+    "donor": {
+      "unsupported": 30,
+      "severe": 18,
+      "missing_detail": 1,
+      "ambiguous": 6
+    },
+    "student": {
+      "unsupported": 22,
+      "severe": 14,
+      "missing_detail": 0,
+      "ambiguous": 6
+    }
+  },
+  "gates": {
+    "unsupported": true,
+    "severe": true,
+    "missing_detail": true,
+    "joint_semantic": true
+  },
+  "paired_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h4_factorize.py",
+      "category": "code",
+      "student": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h_training_kaggle.py",
+      "category": "code",
+      "donor": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": [
+          "'verifies that the SHA256 hash matches' may refer to the later verify_root assertion or the earlier manifest load."
+        ]
+      },
+      "student": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": [
+          "The loop over manifest['files'] is cut off, so its later validation cannot be established from the excerpt."
+        ]
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/s1_oracle.py",
+      "category": "code",
+      "student": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "Specific hooks are for only the first and last layers.",
+            "evidence": "'for li in range(L)' appears twice: hooks are made for every layer.",
+            "severe": true
+          },
+          {
+            "claim": "The function applies a masking layer to the output.",
+            "evidence": "'S.CTL.mode = \"off\" # no masking here' contradicts this operation.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_stats.py",
+      "category": "code",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The function compares two implementations here.",
+            "evidence": "'Re-deriving it here would compare two implementations instead of using the rule' describes what is avoided.",
+            "severe": false
+          },
+          {
+            "claim": "The RMS measurements determine which implementation is better.",
+            "evidence": "The excerpt maps 'rms_in' and 'rms_h'; it gives no effectiveness comparison.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The function compares two implementations here.",
+            "evidence": "'Re-deriving it here would compare two implementations instead of using the rule' describes what is avoided.",
+            "severe": false
+          },
+          {
+            "claim": "The RMS measurements determine which implementation is better.",
+            "evidence": "The excerpt maps 'rms_in' and 'rms_h'; it gives no effectiveness comparison.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h0_selftest.py",
+      "category": "code",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "GradScaler makes the STE gradient the identity.",
+            "evidence": "'G-H0d the straight-through gradient is the identity' and separately 'G-H0f ... A GradScaler that declines a step' give no such cause.",
+            "severe": true
+          },
+          {
+            "claim": "A step function is always 1 and is applied to the step variable.",
+            "evidence": "'d(ste(w))/dw == 1' is a derivative; 'step == 1' refers to when the old test read masters.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "GradScaler fails to update the gradient correctly.",
+            "evidence": "'A GradScaler that declines a step leaves the masters exactly where they were' does not describe an incorrect gradient.",
+            "severe": false
+          },
+          {
+            "claim": "The masters stay unchanged even if the step succeeded.",
+            "evidence": "The excerpt limits unchanged masters to a GradScaler that 'declines a step'.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/_kaggle_bundle/s1_kaggle_entry.py",
+      "category": "code",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "check_anchor takes only two parameters.",
+            "evidence": "'def check_anchor(gpu_run, anchor, sigma=S.SIGMA_SEED_BPB)' has three parameters, one optional.",
+            "severe": true
+          },
+          {
+            "claim": "ok is false exactly when the two point values are unequal.",
+            "evidence": "'Compare ... point ... p by p' and 'ok False means STOP' give no exact-equality condition; sigma is a parameter.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": [
+          "The excerpt does not specify the type or content of report; the claimed explanatory string is unverified."
+        ]
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "check_anchor takes only two parameters.",
+            "evidence": "'def check_anchor(gpu_run, anchor, sigma=S.SIGMA_SEED_BPB)' has three parameters, one optional.",
+            "severe": true
+          },
+          {
+            "claim": "ok is false exactly when the two point values are unequal.",
+            "evidence": "'Compare ... point ... p by p' and 'ok False means STOP' give no exact-equality condition; sigma is a parameter.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": [
+          "The excerpt does not specify the type or content of report; the claimed explanatory string is unverified."
+        ]
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_router_smoke.py",
+      "category": "code",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The loss is a squared difference between forward and backward predictions.",
+            "evidence": "'(_m0(_x0) - _t0).square().mean().backward()' compares two forward outputs; backward() follows the loss.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The model is detached from the network.",
+            "evidence": "'_m0.router.detach().clone()' detaches a clone of one router parameter, not the model.",
+            "severe": false
+          },
+          {
+            "claim": "The gradient is computed to determine the step size.",
+            "evidence": "'AdamW([_m0.router], lr=1e-3, weight_decay=0.0)' specifies the learning rate; the gradient sum is recorded as _gr.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": [
+          "Model initialization may be in preceding clipped code, but is not visible in the excerpt."
+        ]
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h5_cross_composition.py",
+      "category": "code",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The code explicitly computes SHA-1.",
+            "evidence": "The excerpt calls 'git hash-object' and 'git rev-parse'; it names no hash algorithm.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": [
+          "'current working tree head' blurs the worktree blob and HEAD blob hashes."
+        ]
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The second command returns the head commit's hash.",
+            "evidence": "'git rev-parse HEAD:' + rel selects the path at HEAD, whereas the excerpt calls the result 'head_blob'.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=95",
+      "category": "prose",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "A polar star would need to be set at the equator.",
+            "evidence": "'if there were a star exactly at the pole it would only be necessary to set' is cut off before naming a setting or location.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "A polar star would need to be set at a specific latitude to be observed.",
+            "evidence": "'if there were a star exactly at the pole it would only be necessary to set' is cut off before saying what to set.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=4",
+      "category": "prose",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "Sam and Peter follow Ginger.",
+            "evidence": "'Sam and Peter followed 'im out ... Ginger, who was staggering arter them some distance behind' places Ginger behind them.",
+            "severe": true
+          },
+          {
+            "claim": "Bill follows Ginger.",
+            "evidence": "The excerpt says Ginger was 'staggering arter them'; it does not put Bill behind Ginger.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": [
+          "The clipped opening 'g at Ginger very wicked' does not securely establish a narrator's character judgment."
+        ]
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "Sam and Peter follow Ginger.",
+            "evidence": "'Ginger, who was staggering arter them some distance behind' places Ginger behind Sam and Peter.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": [
+          "The clipped opening 'g at Ginger very wicked' is incomplete."
+        ]
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=8",
+      "category": "prose",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "Harry believes he knows the truth about what happened to Yuba Bill.",
+            "evidence": "Harry asks 'Did Yuba Bill know of it?' after Brice says he knew the lock had been forced.",
+            "severe": true
+          },
+          {
+            "claim": "Harry's heart sinks, yet he remains truthful.",
+            "evidence": "'Brice's heart sank, but he remained steadfast and truthful' assigns both to Brice.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "A box was forced into a lock.",
+            "evidence": "Brice says 'the lock had been forced' and that he 'snapped it together again'.",
+            "severe": true
+          },
+          {
+            "claim": "Harry asks whether Brice knows about the box, and Brice says he knows it when he sees it.",
+            "evidence": "Harry asks 'do you mean to say YOU knew it?' and Brice says 'I knew it when I handed down the box'.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": [
+          "Harry's skepticism is an interpretation of the question, not a directly stated feeling."
+        ]
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=17",
+      "category": "prose",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "David expresses current displeasure.",
+            "evidence": "'I should be if I thought you were serious' makes displeasure conditional.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "David expresses current displeasure.",
+            "evidence": "'I should be if I thought you were serious' makes displeasure conditional.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=81",
+      "category": "prose",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "A father is speaking to his daughter.",
+            "evidence": "The narration calls the listener 'this fragile little wife of his'.",
+            "severe": true
+          },
+          {
+            "claim": "The daughter requested the Scotland trip and agrees to it.",
+            "evidence": "'Next Christmas Day ... we'll try to spend in bonnie Scotland' is his proposal; only roses coming to her cheeks are stated.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "A father is speaking to his daughter.",
+            "evidence": "The narration calls the listener 'this fragile little wife of his'.",
+            "severe": true
+          },
+          {
+            "claim": "He is saying goodbye to his wife.",
+            "evidence": "The excerpt has a plan for 'Next Christmas Day' and no departure or farewell.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=84",
+      "category": "prose",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The spherical carcass belongs to a ship.",
+            "evidence": "The excerpt discusses 'conflagrating powers of the spherical carcass' and bombardment, but no ship.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The spherical carcass belongs to a ship.",
+            "evidence": "The excerpt discusses 'conflagrating powers of the spherical carcass' and bombardment, but no ship.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=85",
+      "category": "prose",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "COB offers the parting cup to MARIETJE.",
+            "evidence": "'COB. Give him just one, for a parting cup' names a male recipient, followed by MARIETJE's refusal.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "COB persuades MARIETJE to accept the parting cup.",
+            "evidence": "'COB. Give him just one' names a male recipient, and 'MARIETJE. [Angrily.] No! No!' refuses.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=90",
+      "category": "prose",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "Webb takes Amy out of her confinement.",
+            "evidence": "'during his enforced confinement so many opportunities to take Amy out fell naturally to Webb' makes Burt the confined person.",
+            "severe": true
+          },
+          {
+            "claim": "Webb is jealous and convinces himself his misgivings are absurd.",
+            "evidence": "'Burt was ever able to convince himself that his misgivings were absurd'; Webb is described as fraternal.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "Webb was confined at home due to a health condition.",
+            "evidence": "'during his enforced confinement ... opportunities ... fell naturally to Webb' makes Burt the confined person and gives no cause.",
+            "severe": true
+          },
+          {
+            "claim": "Amy was also confined.",
+            "evidence": "The excerpt calls Amy 'the young girl' whom Webb had opportunities to take out; it gives no confinement.",
+            "severe": false
+          },
+          {
+            "claim": "Webb was jealous of Amy and his opportunities to take her out.",
+            "evidence": "'was almost jealous that ... opportunities to take Amy out fell naturally to Webb' describes Burt's jealousy, not Webb's.",
+            "severe": true
+          },
+          {
+            "claim": "Webb convinces himself his misgivings were absurd.",
+            "evidence": "'Burt was ever able to convince himself that his misgivings were absurd'.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E23_A_REAL_ROUTER.md",
+      "category": "technical_general",
+      "donor": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E41_PARTITION_IS_NOT_THE_LEVER.md",
+      "category": "technical_general",
+      "student": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E2_RMSNORM_FOLD.md",
+      "category": "technical_general",
+      "donor": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": [
+          "The first sentence is grammatically tangled; its intended claim about the runner is uncertain."
+        ]
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "A program has never been reproduced by the runner who produced it.",
+            "evidence": "'it has never been reproduced by a runner that was not the one that produced it' concerns a measurement and other runners.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": [
+          "'The program has never existed in the exporter' may mean the folded norm, which the excerpt says has not existed there."
+        ]
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E36_TEN_BILLION_AT_FIFTY.md",
+      "category": "technical_general",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The excerpt provides a model accuracy measurement.",
+            "evidence": "The visible table gives '+3.4% / exact / exact' and '49.96' without identifying any accuracy metric.",
+            "severe": false
+          },
+          {
+            "claim": "It reports a difference between a charged model and a lower charge level.",
+            "evidence": "The excerpt says a prediction is 'FASTER than the charged model'; it mentions no lower charge level.",
+            "severe": true
+          }
+        ],
+        "missing_detail": true,
+        "ambiguous": [],
+        "missing_detail_evidence": "It omits the visible '3 HIT / 1 MISS / 2 held' and the registered 49.96 result."
+      },
+      "student": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER_D5_RESULTS_AUDIT.md",
+      "category": "technical_general",
+      "donor": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The two stated sizes disagree with the actual decimal-MB sizes.",
+            "evidence": "'The write-up's own \"12.4 MB\" and \"352 MB\" are the same figures in decimal MB. This one is right.'",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_D0_COACTIVATION_PERMUTATION.md",
+      "category": "technical_general",
+      "student": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/LINEAR_MIXING_MECHANISM.md",
+      "category": "technical_general",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "q is a vector and k is a matrix in the given inner product.",
+            "evidence": "'qᵀk' and 'projecting q,k' give no matrix k; the formula treats both as projected operands.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The excerpt defines φ(x) = x^T q + (x^T q)²/2.",
+            "evidence": "The visible equation is '1 + qᵀk + (qᵀk)²/2 ≈ exp(qᵀk)', not this φ(x) formula.",
+            "severe": true
+          },
+          {
+            "claim": "The excerpt defines recurrence φ(x) = φ(x - q) + q^T x.",
+            "evidence": "The excerpt only states 'O(d³) recurrent state'; no recurrence equation appears.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/D0C_GRANULARITY.md",
+      "category": "technical_general",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The report is about performance of a co-activation carving algorithm on a single device.",
+            "evidence": "'What was measured' says 'D0 Part III closed FFN co-activation carving at 1.5B on a single num' and cuts off; no performance metric or device is specified.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": [
+          "'on a single num' merely repeats the truncated source; it does not assert what num means."
+        ]
+      }
+    }
+  ]
+}

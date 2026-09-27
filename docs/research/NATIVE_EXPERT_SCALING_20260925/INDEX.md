@@ -81,7 +81,12 @@ update 512. On a new disjoint 24-prompt set it passes terminal gates:
 Agreement peaks at 98.163% at 256, then declines; maximum/mean
 route load is still 14.77× at 512. The terminal checkpoint is
 eligible for a frozen external semantic/task audit, not yet native
-promotion or a trained large-E claim.
+promotion or a trained large-E claim. METH-57 then passes that frozen
+24-document, full PIQA and arm-blind semantic audit: external prompt
+top-1 is 96.897%, pooled ΔBPB −0.005734, PIQA 1292/1838 versus donor
+1291/1838; unsupported excerpt claims are 22 student versus 30 donor.
+This is relative E128 quality eligibility for native parity work, not a
+native, LUT or large-E learned quality result.
 METH-31 measures the existing CPU LUT kernel in the Qwen rank-8
 shape with synthetic packed factors: E1280→E12800 raises the
 six-thread selected path only 1.136× to 0.505 ms/token. That
@@ -518,6 +523,11 @@ SSM/SWA target and passes joint quality/rate.
 | METH-50 | FACTOR ERROR STILL FAILS TOP-1 WITH ORIGINAL ROUTES: 96.270% | [result](METH_50_ROUTE_AMPLIFICATION_RESULT_20260927.md), [protocol](METH_50_ROUTE_AMPLIFICATION_PROTOCOL_20260927.md), [route/load/ranking counts](meth50_route_amplification_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth50_route_amplification.py); viewed inputs, no CPU or large-E quality |
 | METH-51 | EXACT BF16-EFFECTIVE E128 FACTOR EXPORT PASS | [result](METH_51_BF16_EFFECTIVE_FACTOR_RESULT_20260927.md), [protocol](METH_51_BF16_EFFECTIVE_FACTOR_PROTOCOL_20260927.md), [logit/generation readback](meth51_bf16_effective_factor_result.json), [exporter](../../../benchmarks/donor_adaptation/s1/meth51_bf16_effective_factors.py); no native model or larger-E learned quality |
 | METH-52 | TRAINED BF16 SELECTED CPU 10× POOL COST GATE PASS | [result](METH_52_BF16_SELECTED_CPU_RESULT_20260927.md), [protocol](METH_52_BF16_SELECTED_CPU_PROTOCOL_20260927.md), [validated summary](meth52_bf16_selected_cpu_summary.json), [seed exporter](../../../benchmarks/native_expert_scaling/meth52_export_bf16_seed.py), [C kernel](../../../benchmarks/native_expert_scaling/meth52_bf16_selected_cpu.c), [summary parser](../../../benchmarks/native_expert_scaling/summarize_meth52_bf16_selected.py); E>128 replicated, no router/core/full rate |
+| METH-53 | EXACT SYNTHETIC PRODUCT-KEY ROUTE; FULL-WIDTH CPU GATE FAIL | [result](METH_53_PRODUCT_KEY_ROUTER_RESULT_20260927.md), [protocol](METH_53_PRODUCT_KEY_ROUTER_PROTOCOL_20260927.md), [summary](meth53_product_key_summary.json); no learned route |
+| METH-54 | SYNTHETIC R64 PRODUCT-KEY CPU 10× GATE PASS | [result](METH_54_R64_PRODUCT_KEY_RESULT_20260927.md), [protocol](METH_54_R64_PRODUCT_KEY_PROTOCOL_20260927.md), [summary](meth54_r64_product_key_summary.json); no trained expert quality |
+| METH-55 | JOINT E128 PRODUCT-KEY 16-UPDATE SCREEN PASS | [result](METH_55_PRODUCT_KEY_E128_SMOKE_RESULT_20260927.md), [protocol](METH_55_PRODUCT_KEY_E128_SMOKE_PROTOCOL_20260927.md), [raw result](meth55_product_key_e128_smoke_result.json), [trainer](../../../benchmarks/donor_adaptation/s1/meth55_product_key_e128_smoke.py) |
+| METH-56 | JOINT E128 UPDATE-512 RETENTION PASS | [result](METH_56_PRODUCT_KEY_RETENTION_RESULT_20260927.md), [protocol](METH_56_PRODUCT_KEY_RETENTION_PROTOCOL_20260927.md), [raw result](meth56_product_key_retention_result.json), [trainer](../../../benchmarks/donor_adaptation/s1/meth56_product_key_retention.py); no native or large-E proof |
+| METH-57 | FROZEN EXTERNAL AUTOMATIC AND BLIND SEMANTIC GATES PASS | [result](METH_57_PRODUCT_KEY_EXTERNAL_RESULT_20260927.md), [protocol](METH_57_PRODUCT_KEY_EXTERNAL_PROTOCOL_20260927.md), [paired result](meth57_product_key_external_audit_result.json), [blind verdict](meth57_blind_semantic_verdict.json), [unblinded score](meth57_semantic_score.json), [evaluator](../../../benchmarks/donor_adaptation/s1/meth57_product_key_external_audit.py); E128 donor-relative only |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -593,16 +603,21 @@ scheduled.
   ranking. METH-43 fails chat retention; METH-44 initially passes but its
   METH-45 continuation fails at update 512. METH-46 shows the router
   itself matters; METH-47's stronger retention objective passes its
-  terminal development and automatic external gates. Manual review
-  still finds unsupported claims. Freeze a broader source-grounded
-  semantic audit before promoting the checkpoint. Do not retune on
-  viewed continuations or extend E256 on a BPB gain alone.
-- **Next exact action: source-grounded quality of the product-key checkpoint.**
-  Freeze a larger, answerable, source-grounded generation set and a
-  donor-relative semantic adjudication rule for the fixed METH-56
-  update-512 checkpoint. Report both donor and student errors without
-  selecting prompts after seeing outputs. METH-47 remains a separate
-  candidate whose saved summaries showed unsupported claims.
+  terminal development and automatic external gates, but its saved
+  summaries contain unsupported claims. METH-57's distinct product-key
+  checkpoint now passes a larger source-grounded relative audit. Do not
+  retune on viewed continuations or extend E256 on a BPB gain alone.
+- **Next exact action: native E128 product-key parity.** METH-57 froze a
+  larger 24-document source-grounded set and blind verdict before
+  unblinding; its automatic and semantic gates pass. Export that exact
+  METH-56 checkpoint's learned rank-64 projection, product keys and
+  128 distinct expert factors into a versioned native bundle. Implement
+  the factorized top-four score and selected BF16-effective expert path
+  in `benchmarks/phase60/engine.c`; verify tensor/logit/route parity
+  on frozen token IDs before timing accepted batch-1 tokens. Keep core,
+  router, expert and traffic measurements on the **same** artifact.
+  METH-47 remains a separate candidate whose saved summaries showed
+  unsupported claims.
   METH-50 isolates downstream route churn from factor
   error: forcing original expert IDs still fails the 99% top-1 gate.
   METH-51 has now preserved the trained factors exactly under the BF16
@@ -610,9 +625,9 @@ scheduled.
   at E27,355 with a replicated pool. METH-53 rejects full-width
   product keys under its 10× scaling bound; METH-54 passes that CPU
   bound with rank-64 product keys. METH-55's joint E128 smoke passes
-  its early donor-retention gates with distinct factors. METH-56 now passes
-  the longer E128 retention screen at update 512; the next gate is
-  a genuinely external, source-grounded semantic/task audit.
+  its early donor-retention gates with distinct factors. METH-56 passes
+  the longer E128 retention screen at update 512; METH-57 passes its
+  external source-grounded semantic/task audit.
   A **distinct learned** large-E quality ladder remains necessary.
   METH-48/49 reject two int8 factor layouts;
   any one-byte LUT export needs a new quality-valid adaptation, not
