@@ -760,6 +760,15 @@ scheduled.
   Continue with a frozen stronger-training study and new prompts to
   improve functional route utility and semantic quality; do not
   infer CPU LUT speed or full-model throughput from this GPU test.
+  METH-75 resumes both METH-71 checkpoints from update 64 to 256
+  under the same rule and matched draws. New development prompts
+  exclude every raw row in that entire draw stream. Both arms retain
+  broad routing and improve raw BPB, but fail the fixed same-prompt
+  non-inferiority gate: E128 falls 97.636%→96.585% and E1280
+  98.398%→96.559% donor top-1. The E1280 terminal checkpoint selects
+  at least 1,197/1,280 slots per layer, yet ends one matched position
+  below E128. Stop this longer continuation; a new fixed rule must
+  improve learned route utility without sacrificing donor behavior.
   No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`

@@ -659,6 +659,16 @@ demonstrated on one 0.5B donor, while joint external quality and
 meaningfully useful distinct expert choice remain unproven. The
 E1280 checkpoint is not promoted; new training and independent
 quality evidence are needed before native CPU LUT integration.
+[METH-75](METH_75_LONGER_BALANCED_TRAINING_RESULT_20260927.md)
+continues the exact METH-71 E128/E1280 checkpoints from update 64
+to 256 with unchanged objective and matched draws. On a new
+train-disjoint prompt set, E128 top-1 falls 97.636%→96.585% and
+E1280 falls 98.398%→96.559%, both beyond the fixed one-point
+non-inferiority limit. E1280 still selects at least 1,197/1,280
+slots per layer and raw BPB improves, confirming that coverage and
+raw likelihood gains alone do not establish retained chat quality.
+Both longer checkpoints stop at development; the update-64 external
+and semantic failures remain unresolved.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
