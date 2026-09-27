@@ -574,6 +574,15 @@ against zero. The semantic gate fails, so this 539.955 MB packed core
 does not proceed to `engine.c`. The new prompt top-1 diagnostic is
 93.401%; neither it nor the older failed METH-60 95% proxy is erased
 by automatic pass. The blind verdict was committed before unblinding.
+[METH-63](METH_63_E1280_TRAINING_GEOMETRY_RESULT_20260927.md) allocates
+24 independent FP32 expert banks at E128 and E1280 and checks the
+rank-64 product-key top four against exhaustive pair scores. Both
+grids pass 768/768 route cases and exact zero-residual identity. The
+factor bank grows 10× (176.161 MB to 1.762 GB during FP32 training;
+88.080 MB to 880.804 MB in BF16 inference) while top-four factor
+payload remains 2.753 MB/token. This is only an allocation/routing
+preflight: the added experts are untrained, and neither quality nor
+native traffic/rate was tested at E1280.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

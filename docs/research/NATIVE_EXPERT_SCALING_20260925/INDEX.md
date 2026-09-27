@@ -694,7 +694,13 @@ scheduled.
   user RAM allows, with selected work per token bounded; RAM alone does
   not guarantee router accuracy or throughput.
   Only **distinct trained** expert expansion can validate quality as E
-  grows. No T4 job is planned.
+  grows. METH-63 now allocates independent E1280 factors (10× E128)
+  and verifies exact top-four product-key routes on 768 cases/scale;
+  BF16 factor payload rises 88.080→880.804 MB while selected top-four
+  payload remains 2.753 MB/token. Those additional slots are untrained,
+  so the next scale step must jointly train E1280 against an E128
+  control and independently audit donor-relative quality and route
+  load. No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

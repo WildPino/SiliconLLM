@@ -1,0 +1,52 @@
+{
+  "experiment": "METH-63-10x-training-geometry-preflight",
+  "source_sha256": "edf3b851b9dd15f5b415c5567c79f2e4366062d4c921d5e9580a8f8dca54809d",
+  "grids": [
+    {
+      "axis_a": 8,
+      "axis_b": 16,
+      "experts_per_layer": 128,
+      "layers": 24,
+      "parameters_independent": true,
+      "factor_fp32_parameter_bytes": 176160768,
+      "router_fp32_parameter_bytes": 5652480,
+      "total_fp32_parameter_bytes": 181813248,
+      "expected_factor_bf16_inference_bytes": 88080384,
+      "selected_factor_bf16_bytes_per_token": 2752512,
+      "input_sha256": "f25c1e48bdb614327e811993e79b9ffd18dfdc36e9ecc54bd118edd3c772453d",
+      "oracle_cases": 768,
+      "oracle_mismatches": 0,
+      "identity_mismatches": 0,
+      "min_selected_slots": 73,
+      "max_selected_slots": 85,
+      "worst_max_to_mean_load": 6.0,
+      "peak_rss_bytes": 605491200,
+      "rss_end_bytes": 605491200,
+      "elapsed_cumulative_seconds": 0.625
+    },
+    {
+      "axis_a": 32,
+      "axis_b": 40,
+      "experts_per_layer": 1280,
+      "layers": 24,
+      "parameters_independent": true,
+      "factor_fp32_parameter_bytes": 1761607680,
+      "router_fp32_parameter_bytes": 5947392,
+      "total_fp32_parameter_bytes": 1767555072,
+      "expected_factor_bf16_inference_bytes": 880803840,
+      "selected_factor_bf16_bytes_per_token": 2752512,
+      "input_sha256": "f25c1e48bdb614327e811993e79b9ffd18dfdc36e9ecc54bd118edd3c772453d",
+      "oracle_cases": 768,
+      "oracle_mismatches": 0,
+      "identity_mismatches": 0,
+      "min_selected_slots": 109,
+      "max_selected_slots": 124,
+      "worst_max_to_mean_load": 30.0,
+      "peak_rss_bytes": 2344222720,
+      "rss_end_bytes": 2311057408,
+      "elapsed_cumulative_seconds": 2.983999999999469
+    }
+  ],
+  "factor_growth": 10.0,
+  "decision": "storage_and_route_preflight_pass_only"
+}
