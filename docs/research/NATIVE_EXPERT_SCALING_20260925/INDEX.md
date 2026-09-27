@@ -597,11 +597,13 @@ scheduled.
   still finds unsupported claims. Freeze a broader source-grounded
   semantic audit before promoting the checkpoint. Do not retune on
   viewed continuations or extend E256 on a BPB gain alone.
-- **Next exact action: source-grounded quality and scalable CPU route.**
+- **Next exact action: source-grounded quality of the product-key checkpoint.**
   Freeze a larger, answerable, source-grounded generation set and a
-  donor-relative semantic adjudication rule for the METH-47 checkpoint;
-  report both donor and student errors without selecting prompts after
-  seeing outputs. METH-50 now isolates downstream route churn from factor
+  donor-relative semantic adjudication rule for the fixed METH-56
+  update-512 checkpoint. Report both donor and student errors without
+  selecting prompts after seeing outputs. METH-47 remains a separate
+  candidate whose saved summaries showed unsupported claims.
+  METH-50 isolates downstream route churn from factor
   error: forcing original expert IDs still fails the 99% top-1 gate.
   METH-51 has now preserved the trained factors exactly under the BF16
   forward; METH-52 shows their selected C path is only 0.321 ms/token
