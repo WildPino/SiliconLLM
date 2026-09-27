@@ -1,0 +1,590 @@
+{
+  "experiment": "METH-101-hierarchical-E1280-retention-development",
+  "source_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "parent_checkpoint_sha256": "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072",
+  "specialized_checkpoint_sha256": "e867d8f8877c7e5e0fdb6f4a788330cae3ffe2d02f638ec8a422d2ffc163b348",
+  "manifest_sha256": "40cfc1e5c6d5073b40f522e98f5cde8447905c201dbb5f68c27c453e15571ab0",
+  "document_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth24_export_r8_core.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 1837.8120422363281,
+        "bf16_e128": 1831.7329559326172,
+        "bf16_e1280": 1832.2014541625977
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h2i_eval.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 1879.8768157958984,
+        "bf16_e128": 1873.386489868164,
+        "bf16_e1280": 1871.4083709716797
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/speed/donor_speed_budget.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3497.7147827148438,
+        "bf16_e128": 3490.6094360351562,
+        "bf16_e1280": 3489.7666625976562
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/ternary/e23_router.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 2915.6051025390625,
+        "bf16_e128": 2910.1448516845703,
+        "bf16_e1280": 2910.608444213867
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e54_clock.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 2976.0287551879883,
+        "bf16_e128": 2960.9034576416016,
+        "bf16_e1280": 2961.333839416504
+      }
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_post_f16_block0_ffn_operator_cross_input.h",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 2548.1939697265625,
+        "bf16_e128": 2536.19482421875,
+        "bf16_e1280": 2534.5648193359375
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/build_strat01_q6k_q8k_reference_generic_oracle.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 1729.1303100585938,
+        "bf16_e128": 1726.6012268066406,
+        "bf16_e1280": 1727.8090286254883
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e19_carve_budget.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 2851.1966552734375,
+        "bf16_e128": 2844.5689392089844,
+        "bf16_e1280": 2841.715789794922
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=89",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3321.590690612793,
+        "bf16_e128": 3295.090087890625,
+        "bf16_e1280": 3292.851760864258
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=10",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 2883.916259765625,
+        "bf16_e128": 2868.854248046875,
+        "bf16_e1280": 2868.379638671875
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=25",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3507.1419982910156,
+        "bf16_e128": 3488.9034423828125,
+        "bf16_e1280": 3488.592559814453
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=27",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3604.220458984375,
+        "bf16_e128": 3574.9241943359375,
+        "bf16_e1280": 3572.4083251953125
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=13",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3170.439482688904,
+        "bf16_e128": 3149.9869713783264,
+        "bf16_e1280": 3146.1161634922028
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=41",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3278.455032348633,
+        "bf16_e128": 3254.0143280029297,
+        "bf16_e1280": 3251.739303588867
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=14",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 5879.208251953125,
+        "bf16_e128": 5839.401123046875,
+        "bf16_e1280": 5833.626953125
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=33",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3607.95361328125,
+        "bf16_e128": 3583.1611328125,
+        "bf16_e1280": 3577.6845703125
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_KQV_OUT_DIAGNOSTIC_PROTOCOL_20260921.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 5064.26904296875,
+        "bf16_e128": 5056.0843505859375,
+        "bf16_e1280": 5057.68212890625
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 4313.800590515137,
+        "bf16_e128": 4299.914695739746,
+        "bf16_e1280": 4300.206695556641
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E61_THE_CHAIN_ON_THE_BYTE_THAT_WORKS.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 4156.831848144531,
+        "bf16_e128": 4141.141387939453,
+        "bf16_e1280": 4136.024963378906
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_RESULT_20260923.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 5110.37890625,
+        "bf16_e128": 5092.9384765625,
+        "bf16_e1280": 5091.14794921875
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_02_STAGE0_BOUNDED_LOAD_PLAN.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 5180.403076171875,
+        "bf16_e128": 5158.0067138671875,
+        "bf16_e1280": 5155.076171875
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 4498.781494140625,
+        "bf16_e128": 4477.843505859375,
+        "bf16_e1280": 4473.333740234375
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E43_IS_THE_VOCABULARY_A_LEVER.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 4352.78759765625,
+        "bf16_e128": 4342.50732421875,
+        "bf16_e1280": 4338.201965332031
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/LOWRANK_PROJECTION_PRIOR_ART.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 4079.6121978759766,
+        "bf16_e128": 4052.84033203125,
+        "bf16_e1280": 4043.66153717041
+      }
+    }
+  ],
+  "prompt_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth24_export_r8_core.py",
+      "category": "code",
+      "positions": 169,
+      "matching": {
+        "bf16_donor": 169,
+        "bf16_e128": 165,
+        "bf16_e1280": 162
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h2i_eval.py",
+      "category": "code",
+      "positions": 232,
+      "matching": {
+        "bf16_donor": 232,
+        "bf16_e128": 221,
+        "bf16_e1280": 224
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/speed/donor_speed_budget.py",
+      "category": "code",
+      "positions": 189,
+      "matching": {
+        "bf16_donor": 189,
+        "bf16_e128": 179,
+        "bf16_e1280": 182
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/ternary/e23_router.py",
+      "category": "code",
+      "positions": 172,
+      "matching": {
+        "bf16_donor": 172,
+        "bf16_e128": 169,
+        "bf16_e1280": 168
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e54_clock.py",
+      "category": "code",
+      "positions": 169,
+      "matching": {
+        "bf16_donor": 169,
+        "bf16_e128": 165,
+        "bf16_e1280": 162
+      }
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_post_f16_block0_ffn_operator_cross_input.h",
+      "category": "code",
+      "positions": 196,
+      "matching": {
+        "bf16_donor": 196,
+        "bf16_e128": 186,
+        "bf16_e1280": 186
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/build_strat01_q6k_q8k_reference_generic_oracle.py",
+      "category": "code",
+      "positions": 157,
+      "matching": {
+        "bf16_donor": 157,
+        "bf16_e128": 151,
+        "bf16_e1280": 152
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e19_carve_budget.py",
+      "category": "code",
+      "positions": 174,
+      "matching": {
+        "bf16_donor": 174,
+        "bf16_e128": 170,
+        "bf16_e1280": 168
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=89",
+      "category": "prose",
+      "positions": 152,
+      "matching": {
+        "bf16_donor": 152,
+        "bf16_e128": 144,
+        "bf16_e1280": 140
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=10",
+      "category": "prose",
+      "positions": 150,
+      "matching": {
+        "bf16_donor": 150,
+        "bf16_e128": 143,
+        "bf16_e1280": 142
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=25",
+      "category": "prose",
+      "positions": 229,
+      "matching": {
+        "bf16_donor": 229,
+        "bf16_e128": 223,
+        "bf16_e1280": 220
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=27",
+      "category": "prose",
+      "positions": 163,
+      "matching": {
+        "bf16_donor": 163,
+        "bf16_e128": 159,
+        "bf16_e1280": 156
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=13",
+      "category": "prose",
+      "positions": 155,
+      "matching": {
+        "bf16_donor": 155,
+        "bf16_e128": 149,
+        "bf16_e1280": 149
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=41",
+      "category": "prose",
+      "positions": 152,
+      "matching": {
+        "bf16_donor": 152,
+        "bf16_e128": 144,
+        "bf16_e1280": 144
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=14",
+      "category": "prose",
+      "positions": 180,
+      "matching": {
+        "bf16_donor": 180,
+        "bf16_e128": 174,
+        "bf16_e1280": 173
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=33",
+      "category": "prose",
+      "positions": 149,
+      "matching": {
+        "bf16_donor": 149,
+        "bf16_e128": 143,
+        "bf16_e1280": 141
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_KQV_OUT_DIAGNOSTIC_PROTOCOL_20260921.md",
+      "category": "technical_general",
+      "positions": 161,
+      "matching": {
+        "bf16_donor": 161,
+        "bf16_e128": 156,
+        "bf16_e1280": 158
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q6K_Q8K_REFERENCE_GENERIC_PRODUCTION_INTEGRATION_PROTOCOL_20260924.md",
+      "category": "technical_general",
+      "positions": 173,
+      "matching": {
+        "bf16_donor": 173,
+        "bf16_e128": 169,
+        "bf16_e1280": 166
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E61_THE_CHAIN_ON_THE_BYTE_THAT_WORKS.md",
+      "category": "technical_general",
+      "positions": 211,
+      "matching": {
+        "bf16_donor": 211,
+        "bf16_e128": 210,
+        "bf16_e1280": 205
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_RESULT_20260923.md",
+      "category": "technical_general",
+      "positions": 168,
+      "matching": {
+        "bf16_donor": 168,
+        "bf16_e128": 163,
+        "bf16_e1280": 163
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_02_STAGE0_BOUNDED_LOAD_PLAN.md",
+      "category": "technical_general",
+      "positions": 242,
+      "matching": {
+        "bf16_donor": 242,
+        "bf16_e128": 222,
+        "bf16_e1280": 217
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E37_WHAT_THE_SPEED_COSTS_A_TRAINED_MODEL.md",
+      "category": "technical_general",
+      "positions": 166,
+      "matching": {
+        "bf16_donor": 166,
+        "bf16_e128": 158,
+        "bf16_e1280": 156
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E43_IS_THE_VOCABULARY_A_LEVER.md",
+      "category": "technical_general",
+      "positions": 166,
+      "matching": {
+        "bf16_donor": 166,
+        "bf16_e128": 159,
+        "bf16_e1280": 158
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/LOWRANK_PROJECTION_PRIOR_ART.md",
+      "category": "technical_general",
+      "positions": 161,
+      "matching": {
+        "bf16_donor": 161,
+        "bf16_e128": 154,
+        "bf16_e1280": 155
+      }
+    }
+  ],
+  "document_summary": {
+    "pooled": {
+      "documents": 24,
+      "bytes": 98280,
+      "bpb": {
+        "bf16_donor": 1.2660331427170584,
+        "bf16_e128": 1.2602260385943727,
+        "bf16_e1280": 1.259439049620369
+      },
+      "e1280_minus_e128": -0.000786988974003755
+    },
+    "code": {
+      "documents": 8,
+      "bytes": 32760,
+      "bpb": {
+        "bf16_donor": 0.8911397985859735,
+        "bf16_e128": 0.8884351306254447,
+        "bf16_e1280": 0.8882266632936398
+      },
+      "e1280_minus_e128": -0.00020846733180490684
+    },
+    "prose": {
+      "documents": 8,
+      "bytes": 32760,
+      "bpb": {
+        "bf16_donor": 1.2882494189784284,
+        "bf16_e128": 1.2795038395122362,
+        "bf16_e1280": 1.278493765696061
+      },
+      "e1280_minus_e128": -0.0010100738161751277
+    },
+    "technical_general": {
+      "documents": 8,
+      "bytes": 32760,
+      "bpb": {
+        "bf16_donor": 1.618710210586774,
+        "bf16_e128": 1.6127391456454376,
+        "bf16_e1280": 1.6115967198714067
+      },
+      "e1280_minus_e128": -0.0011424257740308974
+    }
+  },
+  "prompt_summary": {
+    "pooled": {
+      "prompts": 24,
+      "positions": 4236,
+      "agreement": {
+        "bf16_donor": 1.0,
+        "bf16_e128": 0.9622285174693107,
+        "bf16_e1280": 0.9553824362606232
+      },
+      "e1280_minus_e128": -0.00684608120868746
+    },
+    "code": {
+      "prompts": 8,
+      "positions": 1458,
+      "agreement": {
+        "bf16_donor": 1.0,
+        "bf16_e128": 0.9643347050754458,
+        "bf16_e1280": 0.9629629629629629
+      },
+      "e1280_minus_e128": -0.001371742112482921
+    },
+    "prose": {
+      "prompts": 8,
+      "positions": 1330,
+      "agreement": {
+        "bf16_donor": 1.0,
+        "bf16_e128": 0.9616541353383459,
+        "bf16_e1280": 0.9511278195488722
+      },
+      "e1280_minus_e128": -0.010526315789473717
+    },
+    "technical_general": {
+      "prompts": 8,
+      "positions": 1448,
+      "agreement": {
+        "bf16_donor": 1.0,
+        "bf16_e128": 0.960635359116022,
+        "bf16_e1280": 0.9516574585635359
+      },
+      "e1280_minus_e128": -0.008977900552486151
+    }
+  },
+  "gates": {
+    "distinct_slots": true,
+    "pooled_bpb_vs_e128": true,
+    "category_bpb_vs_e128": true,
+    "pooled_prompt_top1_vs_e128": true,
+    "category_prompt_top1_vs_e128": true
+  },
+  "decision": "eligible_for_new_external_audit",
+  "runtime": {
+    "seconds": 35.10900000000038,
+    "rss_bytes": 3282890752,
+    "gpu_peak_bytes": 4035796992,
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "torch": "2.6.0+cu124"
+  }
+}

@@ -1,0 +1,203 @@
+#!/usr/bin/env python3
+"""METH-98: fresh-source BF16 E128 versus specialized hierarchical E1280."""
+
+import argparse
+import json
+import math
+from pathlib import Path
+import time
+
+from huggingface_hub import hf_hub_download
+import numpy as np
+import psutil
+import torch
+
+import meth15_zero_residual_expert_smoke as M15
+import meth17_fresh_transfer_audit as M17
+import meth42_instruct_prompt_manifest as M42
+import meth44_instruct_full_chat_smoke as M44
+import meth55_product_key_experts as M55
+import meth57_product_key_external_audit as M57
+import meth95_hierarchical_e1280_parity as M95
+
+
+ROOT = Path(__file__).resolve().parents[3]
+DIR = ROOT / "docs/research/NATIVE_EXPERT_SCALING_20260925"
+MANIFEST = DIR / "meth97_hierarchical_dev_manifest.json"
+MANIFEST_SHA = "e5914ce5af584b0774f463cf8d80973f91c63d964f480382b29f65cfbd9422b5"
+TRAINING = DIR / "meth56_product_key_retention_result.json"
+SPECIALIZED = ROOT / "benchmarks/donor_adaptation/s1/results/native_expert_scaling/meth96_hierarchical_e1280.pt"
+SPECIALIZED_SHA = "726c47612d3ccd60dc3f8f9a696a98e5c9d0619c968e7c5e6704afae06c1a836"
+TRAIN_REPORT = DIR / "meth96_hierarchical_child_specialization_result.json"
+TRAIN_REPORT_SHA = "e50d14f9a5715ff20069c7b54173e20356828eb72a2da53d2ac3d041fe8f1dd9"
+ARMS = ("bf16_donor", "bf16_e128", "bf16_e1280")
+MAX_SECONDS = 15 * 60
+MAX_GPU_BYTES = int(10.5 * (1 << 30))
+MAX_RSS_BYTES = 20 * (1 << 30)
+
+
+def budget(start, device):
+    result = {"seconds": time.monotonic() - start,
+              "rss_bytes": psutil.Process().memory_info().rss,
+              "gpu_peak_bytes": torch.cuda.max_memory_allocated(device)}
+    if (result["seconds"] > MAX_SECONDS or result["rss_bytes"] > MAX_RSS_BYTES
+            or result["gpu_peak_bytes"] > MAX_GPU_BYTES):
+        raise RuntimeError(f"METH-98 resource stop: {result}")
+    return result
+
+
+def summarize(rows, prompts):
+    documents = {}
+    prompt_summary = {}
+    for category in ("pooled", "code", "prose", "technical_general"):
+        docs = rows if category == "pooled" else [r for r in rows if r["category"] == category]
+        prows = prompts if category == "pooled" else [r for r in prompts if r["category"] == category]
+        assert len(docs) == len(prows) == (24 if category == "pooled" else 8)
+        bpb = {arm: sum(r["nats"][arm] for r in docs) /
+               (math.log(2) * sum(r["bytes"] for r in docs)) for arm in ARMS}
+        positions = sum(r["positions"] for r in prows)
+        agreement = {arm: sum(r["matching"][arm] for r in prows) / positions
+                     for arm in ARMS}
+        documents[category] = {"documents": len(docs), "bytes": sum(r["bytes"] for r in docs),
+                               "bpb": bpb, "e1280_minus_e128": bpb["bf16_e1280"] - bpb["bf16_e128"]}
+        prompt_summary[category] = {"prompts": len(prows), "positions": positions,
+                                    "agreement": agreement,
+                                    "e1280_minus_e128": (agreement["bf16_e1280"] -
+                                                          agreement["bf16_e128"])}
+    return documents, prompt_summary
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out", required=True, type=Path)
+    args = ap.parse_args()
+    for path, digest in ((MANIFEST, MANIFEST_SHA), (TRAINING, M57.TRAINING_SHA),
+                         (SPECIALIZED, SPECIALIZED_SHA), (TRAIN_REPORT, TRAIN_REPORT_SHA)):
+        assert M15.M13.sha256(path) == digest, path
+    report = json.loads(TRAIN_REPORT.read_text(encoding="utf-8"))
+    assert report["checkpoint"]["sha256"] == SPECIALIZED_SHA
+    assert report["distinct_slot_gate_pass"] is True
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    items = manifest["items"]
+    assert len(items) == 24 and manifest["selected_counts"] == {
+        "code": 8, "prose": 8, "technical_general": 8}
+    assert len({item["source_id"] for item in items}) == 24
+    for item in items:
+        assert M17.sha(item["text"].encode("utf-8")) == item["text_sha256"]
+        assert M17.sha(np.asarray(item["document_ids"], dtype=np.int32).tobytes()) == item[
+            "document_ids_sha256"]
+        assert M17.sha(np.asarray(item["prompt_ids"], dtype=np.int32).tobytes()) == item[
+            "prompt_ids_sha256"]
+    parent = json.loads(TRAINING.read_text(encoding="utf-8"))["checkpoints"]["512"]
+    assert parent["sha256"] == M57.CHECKPOINT_SHA
+    assert M15.M13.sha256(parent["path"]) == M57.CHECKPOINT_SHA
+    source = hf_hub_download(M42.MODEL, "model.safetensors", revision=M42.REV,
+                             local_files_only=True)
+    assert M15.M13.sha256(source) == M57.MODEL_SHA
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+    tok = AutoTokenizer.from_pretrained(M42.MODEL, revision=M42.REV,
+                                        local_files_only=True)
+    assert M15.M13.C.tok_fingerprint(tok) == M15.M13.TOK_FP
+    torch.set_num_threads(6)
+    torch.set_grad_enabled(False)
+    matches = [i for i in range(torch.cuda.device_count())
+               if torch.cuda.get_device_name(i) == "NVIDIA GeForce RTX 3060"]
+    assert len(matches) == 1
+    device = torch.device(f"cuda:{matches[0]}")
+    torch.cuda.set_device(device)
+    torch.cuda.reset_peak_memory_stats(device)
+    start = time.monotonic()
+    model = AutoModelForCausalLM.from_pretrained(
+        M42.MODEL, revision=M42.REV, dtype=torch.bfloat16,
+        attn_implementation="sdpa", local_files_only=True).to(device).eval()
+    for param in model.parameters():
+        param.requires_grad_(False)
+    model.config.use_cache = False
+    saved_parent = torch.load(parent["path"], map_location="cpu", weights_only=False)
+    assert saved_parent["updates"] == 512 and saved_parent["source_sha256"] == M57.MODEL_SHA
+    wrappers = []
+    with torch.no_grad():
+        for li, layer in enumerate(model.model.layers):
+            wrapper = M55.ProductKeyExperts(layer.mlp, li).to(device)
+            layer.mlp = wrapper
+            for key in ("a", "b", "router"):
+                getattr(wrapper, key).copy_(saved_parent["expert_state"][li][key].to(device))
+            wrappers.append(wrapper)
+    del saved_parent
+    rows = [{"source_id": item["source_id"], "category": item["category"],
+             "bytes": item["bytes"], "nats": {}} for item in items]
+    prompts = [{"source_id": item["source_id"], "category": item["category"],
+                "positions": len(item["prompt_ids"]), "matching": {}} for item in items]
+    donor_top = {}
+    for arm, enabled in (("bf16_donor", False), ("bf16_e128", True)):
+        for row, item in zip(rows, items):
+            row["nats"][arm] = M17.score_doc(model, item["document_ids"],
+                                               wrappers, enabled, device, start)
+            budget(start, device)
+        with torch.inference_mode():
+            for row, item in zip(prompts, items):
+                M44.set_experts(wrappers, enabled)
+                ids = torch.as_tensor(item["prompt_ids"], dtype=torch.long, device=device)[None]
+                top = model(ids, use_cache=False).logits.argmax(-1)[0].cpu()
+                if arm == "bf16_donor":
+                    donor_top[item["source_id"]] = top
+                row["matching"][arm] = int((top == donor_top[item["source_id"]]).sum())
+                budget(start, device)
+        print(json.dumps({"completed_arm": arm, "runtime": budget(start, device)}), flush=True)
+    saved_child = torch.load(SPECIALIZED, map_location="cpu", weights_only=False)
+    assert saved_child["updates"] == 128
+    assert saved_child["source_sha256"] == M57.MODEL_SHA
+    assert saved_child["parent_checkpoint_sha256"] == M57.CHECKPOINT_SHA
+    children = []
+    with torch.no_grad():
+        for li, layer in enumerate(model.model.layers):
+            wrapper = M95.HierarchicalExperts(wrappers[li], li).to(device)
+            saved = saved_child["expert_state"][li]
+            for key in ("a", "b", "router", "child_projection", "child_keys"):
+                assert getattr(wrapper, key).shape == saved[key].shape
+                getattr(wrapper, key).copy_(saved[key].to(device))
+            layer.mlp = wrapper
+            children.append(wrapper)
+    del saved_child, wrappers
+    for row, item in zip(rows, items):
+        row["nats"]["bf16_e1280"] = M17.score_doc(model, item["document_ids"],
+                                                     children, True, device, start)
+        budget(start, device)
+    with torch.inference_mode():
+        for row, item in zip(prompts, items):
+            ids = torch.as_tensor(item["prompt_ids"], dtype=torch.long, device=device)[None]
+            top = model(ids, use_cache=False).logits.argmax(-1)[0].cpu()
+            row["matching"]["bf16_e1280"] = int((top == donor_top[item["source_id"]]).sum())
+            budget(start, device)
+    documents, prompt_summary = summarize(rows, prompts)
+    gates = {
+        "distinct_slots": min(report["changed_child_slots_by_layer"]) >= 640,
+        "pooled_bpb_vs_e128": documents["pooled"]["e1280_minus_e128"] <= 0.01,
+        "category_bpb_vs_e128": all(documents[c]["e1280_minus_e128"] <= 0.02
+                                     for c in ("code", "prose", "technical_general")),
+        "pooled_prompt_top1_vs_e128": prompt_summary["pooled"]["e1280_minus_e128"] >= -0.01,
+        "category_prompt_top1_vs_e128": all(prompt_summary[c]["e1280_minus_e128"] >= -0.02
+                                             for c in ("code", "prose", "technical_general")),
+    }
+    result = {"experiment": "METH-98-hierarchical-E1280-fresh-development",
+              "source_sha256": M57.MODEL_SHA,
+              "parent_checkpoint_sha256": M57.CHECKPOINT_SHA,
+              "specialized_checkpoint_sha256": SPECIALIZED_SHA,
+              "manifest_sha256": MANIFEST_SHA,
+              "document_rows": rows, "prompt_rows": prompts,
+              "document_summary": documents, "prompt_summary": prompt_summary,
+              "gates": gates,
+              "decision": "eligible_for_new_external_audit" if all(gates.values())
+              else "stop_hierarchical_development",
+              "runtime": {**budget(start, device), "gpu": torch.cuda.get_device_name(device),
+                          "torch": torch.__version__}}
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    args.out.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps({"decision": result["decision"], "gates": gates,
+                      "pooled_documents": documents["pooled"],
+                      "pooled_prompts": prompt_summary["pooled"],
+                      "runtime": result["runtime"]}, indent=2), flush=True)
+
+
+if __name__ == "__main__":
+    main()

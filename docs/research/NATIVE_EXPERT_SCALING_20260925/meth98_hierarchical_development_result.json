@@ -1,0 +1,590 @@
+{
+  "experiment": "METH-98-hierarchical-E1280-fresh-development",
+  "source_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "parent_checkpoint_sha256": "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072",
+  "specialized_checkpoint_sha256": "726c47612d3ccd60dc3f8f9a696a98e5c9d0619c968e7c5e6704afae06c1a836",
+  "manifest_sha256": "e5914ce5af584b0774f463cf8d80973f91c63d964f480382b29f65cfbd9422b5",
+  "document_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth57_blind_verdict_build.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 2739.9114990234375,
+        "bf16_e128": 2729.00439453125,
+        "bf16_e1280": 2725.391357421875
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_format_census.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 1572.125343322754,
+        "bf16_e128": 1567.1899681091309,
+        "bf16_e1280": 1561.6652717590332
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h0_factorize.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3422.6185913085938,
+        "bf16_e128": 3415.8277587890625,
+        "bf16_e1280": 3413.3314208984375
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/strat01_router_weight_norm_probe.c",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 1433.6358032226562,
+        "bf16_e128": 1424.8949890136719,
+        "bf16_e1280": 1421.0064392089844
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth43_instruct_teacher_chat.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 1577.671630859375,
+        "bf16_e128": 1575.7755737304688,
+        "bf16_e1280": 1575.18310546875
+      }
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_rung1.h",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 1946.946517944336,
+        "bf16_e128": 1943.5435180664062,
+        "bf16_e1280": 1940.4207229614258
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_rung2c_cross_input.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 4168.574768066406,
+        "bf16_e128": 4165.229248046875,
+        "bf16_e1280": 4163.695373535156
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e49_attn_kernel.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3372.44091796875,
+        "bf16_e128": 3368.9496459960938,
+        "bf16_e1280": 3371.529296875
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=13",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3790.408233642578,
+        "bf16_e128": 3759.670440673828,
+        "bf16_e1280": 3751.295654296875
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=43",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3022.459577560425,
+        "bf16_e128": 3006.7261447906494,
+        "bf16_e1280": 2999.556050300598
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=23",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3145.8372192382812,
+        "bf16_e128": 3121.9786834716797,
+        "bf16_e1280": 3119.169479370117
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=42",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3496.7838134765625,
+        "bf16_e128": 3481.8623046875,
+        "bf16_e1280": 3478.8812255859375
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=40",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 2835.5078125,
+        "bf16_e128": 2825.088134765625,
+        "bf16_e1280": 2817.8887939453125
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=37",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 2475.8603515625,
+        "bf16_e128": 2446.67919921875,
+        "bf16_e1280": 2438.11767578125
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=19",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 2903.2652587890625,
+        "bf16_e128": 2889.8604736328125,
+        "bf16_e1280": 2885.8192138671875
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=36",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 2952.2269287109375,
+        "bf16_e128": 2929.84912109375,
+        "bf16_e1280": 2926.942138671875
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_RESULT_20260924.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 5284.2476806640625,
+        "bf16_e128": 5269.404602050781,
+        "bf16_e1280": 5264.650146484375
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/D0_COACTIVATION.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3864.70751953125,
+        "bf16_e128": 3854.5992431640625,
+        "bf16_e1280": 3851.137939453125
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E65_RANK_FRACTION_COST.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 4658.880874633789,
+        "bf16_e128": 4640.870307922363,
+        "bf16_e1280": 4639.295761108398
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E3_ENGINE_AT_TARGET_SCALE.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 5080.73583984375,
+        "bf16_e128": 5069.34521484375,
+        "bf16_e1280": 5067.5634765625
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_PROJECTION_DIAGNOSTIC_PROTOCOL_20260921.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3790.3646240234375,
+        "bf16_e128": 3782.2874755859375,
+        "bf16_e1280": 3781.2655029296875
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 5621.621936798096,
+        "bf16_e128": 5610.685089111328,
+        "bf16_e1280": 5608.442253112793
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E4_ATTENTION_ACCUMULATORS.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 4960.0323486328125,
+        "bf16_e128": 4952.3233642578125,
+        "bf16_e1280": 4943.3656005859375
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/T3_ROTATION.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 4478.506317138672,
+        "bf16_e128": 4460.693634033203,
+        "bf16_e1280": 4458.643280029297
+      }
+    }
+  ],
+  "prompt_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth57_blind_verdict_build.py",
+      "category": "code",
+      "positions": 156,
+      "matching": {
+        "bf16_donor": 156,
+        "bf16_e128": 151,
+        "bf16_e1280": 148
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_format_census.py",
+      "category": "code",
+      "positions": 186,
+      "matching": {
+        "bf16_donor": 186,
+        "bf16_e128": 182,
+        "bf16_e1280": 184
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h0_factorize.py",
+      "category": "code",
+      "positions": 161,
+      "matching": {
+        "bf16_donor": 161,
+        "bf16_e128": 152,
+        "bf16_e1280": 151
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/strat01_router_weight_norm_probe.c",
+      "category": "code",
+      "positions": 177,
+      "matching": {
+        "bf16_donor": 177,
+        "bf16_e128": 172,
+        "bf16_e1280": 170
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth43_instruct_teacher_chat.py",
+      "category": "code",
+      "positions": 159,
+      "matching": {
+        "bf16_donor": 159,
+        "bf16_e128": 156,
+        "bf16_e1280": 156
+      }
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_rung1.h",
+      "category": "code",
+      "positions": 207,
+      "matching": {
+        "bf16_donor": 207,
+        "bf16_e128": 206,
+        "bf16_e1280": 200
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_rung2c_cross_input.py",
+      "category": "code",
+      "positions": 165,
+      "matching": {
+        "bf16_donor": 165,
+        "bf16_e128": 162,
+        "bf16_e1280": 160
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e49_attn_kernel.py",
+      "category": "code",
+      "positions": 188,
+      "matching": {
+        "bf16_donor": 188,
+        "bf16_e128": 181,
+        "bf16_e1280": 183
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=13",
+      "category": "prose",
+      "positions": 170,
+      "matching": {
+        "bf16_donor": 170,
+        "bf16_e128": 163,
+        "bf16_e1280": 161
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=43",
+      "category": "prose",
+      "positions": 157,
+      "matching": {
+        "bf16_donor": 157,
+        "bf16_e128": 150,
+        "bf16_e1280": 152
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=23",
+      "category": "prose",
+      "positions": 169,
+      "matching": {
+        "bf16_donor": 169,
+        "bf16_e128": 164,
+        "bf16_e1280": 161
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=42",
+      "category": "prose",
+      "positions": 154,
+      "matching": {
+        "bf16_donor": 154,
+        "bf16_e128": 149,
+        "bf16_e1280": 148
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=40",
+      "category": "prose",
+      "positions": 156,
+      "matching": {
+        "bf16_donor": 156,
+        "bf16_e128": 154,
+        "bf16_e1280": 151
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=37",
+      "category": "prose",
+      "positions": 163,
+      "matching": {
+        "bf16_donor": 163,
+        "bf16_e128": 155,
+        "bf16_e1280": 151
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=19",
+      "category": "prose",
+      "positions": 157,
+      "matching": {
+        "bf16_donor": 157,
+        "bf16_e128": 152,
+        "bf16_e1280": 152
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=36",
+      "category": "prose",
+      "positions": 142,
+      "matching": {
+        "bf16_donor": 142,
+        "bf16_e128": 137,
+        "bf16_e1280": 137
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_RESULT_20260924.md",
+      "category": "technical_general",
+      "positions": 248,
+      "matching": {
+        "bf16_donor": 248,
+        "bf16_e128": 214,
+        "bf16_e1280": 194
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/D0_COACTIVATION.md",
+      "category": "technical_general",
+      "positions": 214,
+      "matching": {
+        "bf16_donor": 214,
+        "bf16_e128": 212,
+        "bf16_e1280": 207
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E65_RANK_FRACTION_COST.md",
+      "category": "technical_general",
+      "positions": 267,
+      "matching": {
+        "bf16_donor": 267,
+        "bf16_e128": 259,
+        "bf16_e1280": 257
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E3_ENGINE_AT_TARGET_SCALE.md",
+      "category": "technical_general",
+      "positions": 164,
+      "matching": {
+        "bf16_donor": 164,
+        "bf16_e128": 159,
+        "bf16_e1280": 157
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2A_PROJECTION_DIAGNOSTIC_PROTOCOL_20260921.md",
+      "category": "technical_general",
+      "positions": 154,
+      "matching": {
+        "bf16_donor": 154,
+        "bf16_e128": 148,
+        "bf16_e1280": 147
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "positions": 333,
+      "matching": {
+        "bf16_donor": 333,
+        "bf16_e128": 248,
+        "bf16_e1280": 257
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E4_ATTENTION_ACCUMULATORS.md",
+      "category": "technical_general",
+      "positions": 197,
+      "matching": {
+        "bf16_donor": 197,
+        "bf16_e128": 193,
+        "bf16_e1280": 188
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/T3_ROTATION.md",
+      "category": "technical_general",
+      "positions": 173,
+      "matching": {
+        "bf16_donor": 173,
+        "bf16_e128": 167,
+        "bf16_e1280": 165
+      }
+    }
+  ],
+  "document_summary": {
+    "pooled": {
+      "documents": 24,
+      "bytes": 98280,
+      "bpb": {
+        "bf16_donor": 1.2124535279952275,
+        "bf16_e128": 1.2080051760255457,
+        "bf16_e1280": 1.206712191431172
+      },
+      "e1280_minus_e128": -0.0012929845943736584
+    },
+    "code": {
+      "documents": 8,
+      "bytes": 32760,
+      "bpb": {
+        "bf16_donor": 0.8910678680916967,
+        "bf16_e128": 0.889151762298446,
+        "bf16_e1280": 0.8883506125970565
+      },
+      "e1280_minus_e128": -0.0008011497013894475
+    },
+    "prose": {
+      "documents": 8,
+      "bytes": 32760,
+      "bpb": {
+        "bf16_donor": 1.0843266507739884,
+        "bf16_e128": 1.077252570334547,
+        "bf16_e1280": 1.0753129350887534
+      },
+      "e1280_minus_e128": -0.0019396352457936583
+    },
+    "technical_general": {
+      "documents": 8,
+      "bytes": 32760,
+      "bpb": {
+        "bf16_donor": 1.661966065119998,
+        "bf16_e128": 1.6576111954436445,
+        "bf16_e1280": 1.6564730266077068
+      },
+      "e1280_minus_e128": -0.0011381688359377584
+    }
+  },
+  "prompt_summary": {
+    "pooled": {
+      "prompts": 24,
+      "positions": 4417,
+      "agreement": {
+        "bf16_donor": 1.0,
+        "bf16_e128": 0.9477020602218701,
+        "bf16_e1280": 0.936608557844691
+      },
+      "e1280_minus_e128": -0.011093502377179099
+    },
+    "code": {
+      "prompts": 8,
+      "positions": 1399,
+      "agreement": {
+        "bf16_donor": 1.0,
+        "bf16_e128": 0.9735525375268048,
+        "bf16_e1280": 0.9664045746962115
+      },
+      "e1280_minus_e128": -0.0071479628305932685
+    },
+    "prose": {
+      "prompts": 8,
+      "positions": 1268,
+      "agreement": {
+        "bf16_donor": 1.0,
+        "bf16_e128": 0.9652996845425867,
+        "bf16_e1280": 0.9566246056782335
+      },
+      "e1280_minus_e128": -0.008675078864353258
+    },
+    "technical_general": {
+      "prompts": 8,
+      "positions": 1750,
+      "agreement": {
+        "bf16_donor": 1.0,
+        "bf16_e128": 0.9142857142857143,
+        "bf16_e1280": 0.8982857142857142
+      },
+      "e1280_minus_e128": -0.016000000000000014
+    }
+  },
+  "gates": {
+    "distinct_slots": true,
+    "pooled_bpb_vs_e128": true,
+    "category_bpb_vs_e128": true,
+    "pooled_prompt_top1_vs_e128": false,
+    "category_prompt_top1_vs_e128": true
+  },
+  "decision": "stop_hierarchical_development",
+  "runtime": {
+    "seconds": 33.71799999999712,
+    "rss_bytes": 3309248512,
+    "gpu_peak_bytes": 4025311232,
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "torch": "2.6.0+cu124"
+  }
+}
