@@ -1,0 +1,15 @@
+{
+  "experiment": "METH-52-seed",
+  "source_sha256": "53f2849da55f0da7f91f7d097ab3357308abfd85174cdf8a82b7e226cd738473",
+  "raw_seed_sha256": "356dd993bf084d7cc7ace7d0400288c795b102d245a5cd101bd9d453beec0e32",
+  "raw_seed_bytes": 88080408,
+  "shape": {
+    "layers": 24,
+    "experts": 128,
+    "dimension": 896,
+    "rank": 8
+  },
+  "payload_bytes_per_expert_per_layer": 28672,
+  "layout": "little-endian 8s4I header; each layer/expert: A[8,896] bf16 then B[896,8] bf16",
+  "scope": "CPU cost seed only; expanded expert rows are replicas"
+}

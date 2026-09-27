@@ -480,6 +480,24 @@ METH-47 load also remains concentrated on the viewed prompts (worst
 single expert 18.30× uniform mean, despite at least 115/128 selected
 per layer). Training a much larger expert set needs explicit use/load
 telemetry as well as route fidelity and donor-relative quality.
+[METH-51](METH_51_BF16_EFFECTIVE_FACTOR_RESULT_20260927.md) adds an
+**exact effective-factor export** for this BF16 forward: serialize the
+selected A/B factors after their BF16 cast, reload them into the same
+wrapper, and retain identical BF16 bits. It produces bit-identical
+logits over all 317,698,176 evaluated elements and identical greedy
+continuations on all 12 checked prompts. It is a validated factor
+representation at E128, not a validated semantic model or native
+bundle. The factor bank costs 688,128 bytes per expert across L24;
+the unchanged-geometry E273,547 payload would be 188.235 GB before
+router/core/workspace. This directly prices the RAM-dependent n dial.
+[METH-52](METH_52_BF16_SELECTED_CPU_RESULT_20260927.md) executes those
+trained BF16 values in a C selected expert path. At E27,355 a replicated
+18.82 GB pool takes 0.321 ms/token on the local six-core CPU; the
+E2,735→E27,355 ratio is 0.978× under fixed top-4. This validates a
+component cost only. It is not the ternary LUT, has no router/core,
+and uses duplicated rows at E>128. A joint method must train distinct
+larger-E experts, route them with bounded CPU traffic, and show quality
+and ≥50 accepted tokens/s on one native artifact.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

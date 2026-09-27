@@ -56,6 +56,13 @@ METH-50 shows that the METH-49 factor perturbation changes 6.58% of
 full top-4 sets across layers, but forcing original IDs restores prompt
 top-1 only from 95.744% to 96.270%. Factor arithmetic remains a
 separate ranking failure; a better router cannot rescue that bank alone.
+METH-51 now exports the METH-47 BF16-effective trained factors with
+bit-identical logits over 2,091 prompt positions and 12/12 identical
+greedy continuations. METH-52 measures their selected path in C:
+0.321 ms/token at E27,355 on six CPU threads with an 18.82 GB
+**replicated** pool; the E2,735→E27,355 ratio is 0.978×. This passes
+the selected-component gate, but it is not a LUT, full-model rate, or
+distinct learned large-E quality result.
 METH-31 measures the existing CPU LUT kernel in the Qwen rank-8
 shape with synthetic packed factors: E1280→E12800 raises the
 six-thread selected path only 1.136× to 0.505 ms/token. That
@@ -420,6 +427,13 @@ METH-49 changes 6.58% of full top-4 sets across layer-position cases;
 forcing the original IDs still gives only 96.270% top-1 versus the
 original factors. A bounded router must be paired with a factor bank
 that preserves rankings directly.
+[METH-51](METH_51_BF16_EFFECTIVE_FACTOR_RESULT_20260927.md) supplies
+that exact factor anchor for the BF16 PyTorch forward: all 317.7M
+tested logit elements and 12 greedy continuations match after reload.
+[METH-52](METH_52_BF16_SELECTED_CPU_RESULT_20260927.md) runs the
+trained BF16 factors through a C selected-path kernel. The E27,355
+replicated pool costs 0.321 ms/token and 18.82 GB RSS on the local
+six-core CPU; router, core and E>128 learned quality remain open.
 Frozen H4+H2I composition also fails. See [METHOD.md](METHOD.md) for
 links and scope. No step currently transfers donor knowledge into the native
 SSM/SWA target and passes joint quality/rate.
@@ -483,6 +497,8 @@ SSM/SWA target and passes joint quality/rate.
 | METH-48 | PER-EXPERT-SCALE INT8 FACTOR TOP-1 GATE FAIL: 95.839% | [result](METH_48_INT8_FACTOR_BANK_RESULT_20260927.md), [protocol](METH_48_INT8_FACTOR_BANK_PROTOCOL_20260927.md), [paired result](meth48_int8_factor_bank_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth48_int8_factor_bank.py); viewed inputs, no C LUT or large-E quality |
 | METH-49 | ROW-SCALE INT8 FACTOR TOP-1 GATE FAIL: 95.744% | [result](METH_49_INT8_ROW_FACTOR_BANK_RESULT_20260927.md), [protocol](METH_49_INT8_ROW_FACTOR_BANK_PROTOCOL_20260927.md), [paired result](meth49_int8_row_factor_bank_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth49_int8_row_factor_bank.py); viewed inputs, no C LUT or large-E quality |
 | METH-50 | FACTOR ERROR STILL FAILS TOP-1 WITH ORIGINAL ROUTES: 96.270% | [result](METH_50_ROUTE_AMPLIFICATION_RESULT_20260927.md), [protocol](METH_50_ROUTE_AMPLIFICATION_PROTOCOL_20260927.md), [route/load/ranking counts](meth50_route_amplification_result.json), [runner](../../../benchmarks/donor_adaptation/s1/meth50_route_amplification.py); viewed inputs, no CPU or large-E quality |
+| METH-51 | EXACT BF16-EFFECTIVE E128 FACTOR EXPORT PASS | [result](METH_51_BF16_EFFECTIVE_FACTOR_RESULT_20260927.md), [protocol](METH_51_BF16_EFFECTIVE_FACTOR_PROTOCOL_20260927.md), [logit/generation readback](meth51_bf16_effective_factor_result.json), [exporter](../../../benchmarks/donor_adaptation/s1/meth51_bf16_effective_factors.py); no native model or larger-E learned quality |
+| METH-52 | TRAINED BF16 SELECTED CPU 10× POOL COST GATE PASS | [result](METH_52_BF16_SELECTED_CPU_RESULT_20260927.md), [protocol](METH_52_BF16_SELECTED_CPU_PROTOCOL_20260927.md), [validated summary](meth52_bf16_selected_cpu_summary.json), [seed exporter](../../../benchmarks/native_expert_scaling/meth52_export_bf16_seed.py), [C kernel](../../../benchmarks/native_expert_scaling/meth52_bf16_selected_cpu.c), [summary parser](../../../benchmarks/native_expert_scaling/summarize_meth52_bf16_selected.py); E>128 replicated, no router/core/full rate |
 
 NES-01 ran locally **2026-09-25 11:28–18:09 UTC** and exited 0 at step 4000.
 Final checkpoint: `results/native_expert_scaling/nes01_e128_final.pt`, SHA-256
@@ -568,11 +584,13 @@ scheduled.
   report both donor and student errors without selecting prompts after
   seeing outputs. METH-50 now isolates downstream route churn from factor
   error: forcing original expert IDs still fails the 99% top-1 gate.
-  Preserve a BF16-effective exact factor anchor, then design a
-  bounded/sublinear router jointly with distinct learned experts and test
-  route/quality fidelity as E grows. METH-48/49 reject two frozen int8
-  factor layouts; any one-byte C LUT export needs a new quality-valid
-  adaptation, not further scale tuning on these prompts.
+  METH-51 has now preserved the trained factors exactly under the BF16
+  forward; METH-52 shows their selected C path is only 0.321 ms/token
+  at E27,355 with a replicated pool. Next design a bounded/sublinear
+  router jointly with **distinct learned** experts and test route/quality
+  fidelity as E grows. METH-48/49 reject two int8 factor layouts;
+  any one-byte LUT export needs a new quality-valid adaptation, not
+  further scale tuning on these prompts.
   Promote only after joint semantic quality and usefulness pass; then
   implement the exact pair
   in `benchmarks/phase60/engine.c` with logit parity, accepted batch-1
@@ -588,7 +606,7 @@ scheduled.
   native promotion. METH-40 already measures projection/sketch
   scan on a 10× synthetic E ladder;
   a full router still needs exact rescore and sufficient CPU
-  margin for the selected LUT and core. Independently test a
+  margin for the selected factor path and core. Independently test a
   bounded/sublinear large-E index against trained route targets.
   METH-29/30's fixed-group rules failed; METH-36's scan is
   lower dimensional but still linear in E.

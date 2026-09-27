@@ -1,0 +1,105 @@
+{
+  "experiment": "METH-52-bf16-selected-CPU-summary",
+  "source_artifact_sha256": "53f2849da55f0da7f91f7d097ab3357308abfd85174cdf8a82b7e226cd738473",
+  "seed_report_sha256": "e51e02492aa6627710716ed28c37c70309e1e5caa6f0ba217e87913223c62083",
+  "seed_sha256": "356dd993bf084d7cc7ace7d0400288c795b102d245a5cd101bd9d453beec0e32",
+  "source_c_sha256": "51297349ee066ee12e079eac64c10e40566c36421ec912ebb976f94869051ddc",
+  "binary_sha256": "51a34fb12bbcac2d32a53b05731d52724edac2ce0cec364687b1f8bab2ea1a17",
+  "raw_arm_sha256": {
+    "meth52_e128_t1.json": "4104c3fcedc619ec0f20951036355a2c2f9ef198142b20ea14ca466938dfd997",
+    "meth52_e128_t6.json": "162ab9881963f20e8b562cce194c337b0a730a66dcf3ef8bec65f62160081674",
+    "meth52_e2735_t1.json": "c5e2ed6d9ff7a3d1ab6e03f283cddb41c3521536c922997707bf18aec086cffb",
+    "meth52_e2735_t6.json": "17b9f0f2a6e666f25795d5f4cae93cc9d6b8dd0ce7d0b5e06d576ccdf06b10dc",
+    "meth52_e27355_t1.json": "8e82c725920a4ca0f0dc0ca029a33ac7cdee599bc07bd01e571c98c855ff07bf",
+    "meth52_e27355_t6.json": "8c4f9e09e6b047fcf528f8f90b149499c3c2ecf59861d4cebf466930595b49e4"
+  },
+  "shape": {
+    "layers": 24,
+    "dimension": 896,
+    "rank": 8,
+    "selected_experts_per_layer": 4
+  },
+  "selected_factor_bytes_per_token": 2752512,
+  "projected_E273547_factor_bytes": 188235350016,
+  "arms": {
+    "128": {
+      "1": {
+        "pool_bytes": 88080384,
+        "rss_end_bytes": 93388800,
+        "median_total_ms_per_token": 0.398366406,
+        "median_dispatch_ms_per_token": 0.00960292969,
+        "median_projection_ms_per_token": 0.148814062,
+        "median_output_ms_per_token": 0.239949414,
+        "selected_addressed_gbps": 6.909498287363117,
+        "process_seconds": 0.4818155
+      },
+      "6": {
+        "pool_bytes": 88080384,
+        "rss_end_bytes": 93024256,
+        "median_total_ms_per_token": 0.303448242,
+        "median_dispatch_ms_per_token": 0.0153267579,
+        "median_projection_ms_per_token": 0.156823047,
+        "median_output_ms_per_token": 0.13224375,
+        "selected_addressed_gbps": 9.07077919403468,
+        "process_seconds": 0.381892
+      }
+    },
+    "2735": {
+      "1": {
+        "pool_bytes": 1882030080,
+        "rss_end_bytes": 1886769152,
+        "median_total_ms_per_token": 0.392657227,
+        "median_dispatch_ms_per_token": 0.00919277345,
+        "median_projection_ms_per_token": 0.148875781,
+        "median_output_ms_per_token": 0.234698242,
+        "selected_addressed_gbps": 7.00996138802763,
+        "process_seconds": 0.7485604
+      },
+      "6": {
+        "pool_bytes": 1882030080,
+        "rss_end_bytes": 1886986240,
+        "median_total_ms_per_token": 0.328218945,
+        "median_dispatch_ms_per_token": 0.0139806641,
+        "median_projection_ms_per_token": 0.165431641,
+        "median_output_ms_per_token": 0.148811328,
+        "selected_addressed_gbps": 8.386206957066419,
+        "process_seconds": 0.7510932
+      }
+    },
+    "27355": {
+      "1": {
+        "pool_bytes": 18823741440,
+        "rss_end_bytes": 18828480512,
+        "median_total_ms_per_token": 0.406446289,
+        "median_dispatch_ms_per_token": 0.00930410163,
+        "median_projection_ms_per_token": 0.157344141,
+        "median_output_ms_per_token": 0.239926758,
+        "selected_addressed_gbps": 6.772142038182072,
+        "process_seconds": 3.397776
+      },
+      "6": {
+        "pool_bytes": 18823741440,
+        "rss_end_bytes": 18828685312,
+        "median_total_ms_per_token": 0.321111914,
+        "median_dispatch_ms_per_token": 0.0137833985,
+        "median_projection_ms_per_token": 0.169158984,
+        "median_output_ms_per_token": 0.135493945,
+        "selected_addressed_gbps": 8.571815245696552,
+        "process_seconds": 3.1617931
+      }
+    }
+  },
+  "decision": {
+    "fastest_large_threads": 6,
+    "large_ms_per_token": 0.321111914,
+    "tenfold_ratio_same_threads": 0.9783466764845034,
+    "remaining_within_20ms": 19.678888086,
+    "gates": {
+      "large_selected_path_under_3ms": true,
+      "tenfold_pool_ratio_under_1p5": true,
+      "joint": true
+    },
+    "status": "component_candidate"
+  },
+  "scope": "E>128 repeats trained E128 rows; cost only, no router/core/quality/accepted-token rate"
+}
