@@ -1,0 +1,66 @@
+{
+  "experiment": "METH-85-stored-group64-R8-Instruct-core-export",
+  "source_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "checkpoint_sha256": "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072",
+  "r8_core_sha256": "5b6ace4a027d127a6eb49ca99197edd4a1b810ebe681d8e3b6ab7edc088ca9bd",
+  "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth85_qwen05b_instruct_group64_r8_core.safetensors",
+  "sha256": "c484a1130e495342d1b8644ff156cc002d0fd68fe12230604e59f35d3af6433a",
+  "physical_bytes": 548741256,
+  "tensor_count": 363,
+  "metadata": {
+    "experiment": "METH-85",
+    "format": "QWEN25_INSTRUCT_R8H_GROUP64_R8FFN_BF16ATTN_V1",
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "model_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+    "product_key_checkpoint_sha256": "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072",
+    "r8_core_sha256": "5b6ace4a027d127a6eb49ca99197edd4a1b810ebe681d8e3b6ab7edc088ca9bd",
+    "head_rule": "exact stored METH-59 R8 rows",
+    "ffn_rule": "symmetric int8 [-127,127], 64-column groups, FP16 scale",
+    "attention_dtype": "bfloat16",
+    "control_dtype": "float32",
+    "tied_head": "true",
+    "matrix_count": "169"
+  },
+  "organs": {
+    "tied_head": {
+      "matrices": 1,
+      "parameters": 136134656,
+      "stored_bytes": 136742400,
+      "format": "R8_int8_row_scale_fp32"
+    },
+    "attention": {
+      "matrices": 96,
+      "parameters": 44040192,
+      "stored_bytes": 88080384,
+      "format": "bfloat16"
+    },
+    "ffn": {
+      "matrices": 72,
+      "parameters": 313786368,
+      "stored_bytes": 323592192,
+      "format": "R8_int8_group64_scale_fp16"
+    },
+    "control": {
+      "matrices": 0,
+      "parameters": 71552,
+      "stored_bytes": 286208,
+      "format": "float32"
+    }
+  },
+  "exact_reload_equal": true,
+  "exact_ffn_bf16_readback_equal": true,
+  "ideal_addressed_bytes": {
+    "core": 548701184,
+    "router": 5652480,
+    "selected_factors": 2752512,
+    "total": 557106176
+  },
+  "runtime": {
+    "elapsed_seconds": 18.187000000001717,
+    "rss_end_bytes": 4223901696,
+    "available_gpu": "NVIDIA GeForce RTX 3060",
+    "torch": "2.6.0+cu124"
+  },
+  "decision": "stored_group64_core_ready_for_fresh_development"
+}

@@ -736,6 +736,19 @@ rejecting every low-bit FFN representation. The prior BF16-attention/
 R8-head+FFN route remains closer to donor quality but failed the
 independent METH-62 semantic gate. A new compact-core correction must
 be evaluated on fresh sources before native integration or rate.
+[METH-85/86](METH_86_GROUP64_R8_COMPOSITION_RESULT_20260927.md)
+implement that correction: group-64 FP16 scales for R8 FFN, exact
+stored readback, and 557.106 MB ideal addressed bytes/token with the
+E128 product-key bank. On 24 new source-disjoint documents the
+composed artifact improves pooled donor-relative BPB by 0.003699,
+but reaches only 94.579% donor prompt top-1 and trails BF16+E128
+by 1.487 points. It fails two frozen prompt gates, so no native
+promotion follows. METH-87's viewed-source attribution finds that
+half-strength expert output worsens agreement; restoring the BF16
+head above budget still leaves the E128 composition below the gate.
+The compact-core/expert interaction now needs a quantization-aware
+adaptation rule and independent quality sources, not a claim of
+success from document likelihood alone.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

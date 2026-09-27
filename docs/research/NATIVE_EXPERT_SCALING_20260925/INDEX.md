@@ -824,11 +824,20 @@ scheduled.
   conversion dominates the observed loss. METH-84 tests all 24
   single-FFN-layer BF16 exceptions within the 560 MB ideal allotment
   on the now-viewed prompts; the best reaches 73.803%.
-  Stop this Q4 rule before native integration. Next exact action:
-  investigate a compact correction to the closer BF16-attention/
-  R8-head+FFN core (METH-62), priced within its remaining 11.680 MB
-  ideal headroom, then freeze fresh quality sources. This is a
-  proposal, not an implemented or quality-valid procedure.
+  Stop this Q4 rule before native integration. METH-85 tests a
+  group-64 scale correction to the closer BF16-attention/R8-head+FFN
+  core. The stored artifact reloads exactly and charges 557.106 MB
+  ideal addressed bytes/token with E128, within the 560 MB design
+  allotment. METH-86 freezes 24 new source-disjoint documents and
+  finds pooled ΔBPB −0.003699, but grouped-core+E128 reaches only
+  94.579% donor prompt top-1 against the 95% floor and is 1.487
+  points below BF16+E128 against the allowed 1.0 point. It fails
+  two gates; stop native promotion. METH-87 posthoc diagnostics on
+  viewed prompts find half-strength experts worse (94.219%) and
+  an over-budget BF16-head restore still only 94.939% with E128.
+  Next exact action: preflight quantization-aware expert adaptation
+  against this stored core, freeze a new rule and new quality sources,
+  and preserve the separate E1280 learned-quality/routing gap.
   No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
