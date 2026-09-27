@@ -79,3 +79,20 @@ Qwen calibration/held-out text and already chosen METH-57 items.
 Record parquet file, physical row ID, full-document SHA-256, span
 offset, text/hash and tokenized IDs. If fewer than five survive,
 stop and register another source change before inference.
+
+The second manifest attempt also stopped before writing a manifest:
+the METH-41 technical/general pool has zero eligible entries after
+exclusions (13 source rows, 12 prior IDs, one short). Supply all eight
+technical/general items from Markdown files under `docs/` at pinned
+Git commit `91b49fba9c83d4397ed78cfb253262deec5eef7c`, excluding
+`docs/research/NATIVE_EXPERT_SCALING_20260925/` and every prior
+source ID. Rank paths by SHA-256 of
+`meth57-tech-extra-57057|<repo path>`, take a deterministic ≤4095-byte
+UTF-8 span positioned by the same hash, and apply the same length,
+source-ID and fragment-overlap checks as for the added PG19 prose.
+Record commit, repo path, full-file SHA-256, offset, text/hash and
+tokenized IDs. Keep 8 code items from the original METH-41 source
+selector, three original plus five added prose, and eight added
+technical/general items. All category counts and decision gates above
+remain unchanged. This amendment is registered before any model
+response is generated.
