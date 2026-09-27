@@ -40,7 +40,10 @@ def budget(start, device):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", type=Path, required=True)
+    ap.add_argument("--start", type=int, required=True)
+    ap.add_argument("--stop", type=int, required=True)
     args = ap.parse_args()
+    assert 0 <= args.start < args.stop <= 256 and args.stop - args.start <= 64
     assert M17.sha(PROMPTS.read_bytes()) == PROMPTS_SHA
     assert M15.M13.sha256(TRAINING) == M57.TRAINING_SHA
     parent = json.loads(TRAINING.read_text(encoding="utf-8"))["checkpoints"]["512"]
@@ -82,7 +85,7 @@ def main():
     del state
     eos_id = model.config.eos_token_id
     rows = []
-    for i, row in enumerate(manifest["rows"]):
+    for i, row in enumerate(manifest["rows"][args.start:args.stop], args.start):
         prompt = row["prompt_ids"]
         assert M17.sha(np.asarray(prompt, dtype=np.int32).tobytes()) == row["prompt_ids_sha256"]
         inp = torch.as_tensor(prompt, dtype=torch.long,
@@ -117,6 +120,7 @@ def main():
     lengths = [len(r["continuation_ids"]) for r in rows]
     runtime = budget(start, device)
     result = {"experiment": "METH-106-long-E128-teacher-chat",
+              "shard_start": args.start, "shard_stop": args.stop,
               "prompt_manifest_sha256": PROMPTS_SHA,
               "parent_checkpoint_sha256": M57.CHECKPOINT_SHA,
               "model": M42.MODEL, "revision": M42.REV,
