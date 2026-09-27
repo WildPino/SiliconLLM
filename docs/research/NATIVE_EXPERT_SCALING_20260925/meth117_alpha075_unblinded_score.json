@@ -1,0 +1,817 @@
+{
+  "experiment": "METH-117-alpha075-E1280-unblinded-external-score",
+  "blind_sha256": "0b3f64f20be2380045e330d63b9d9b845540f71fabbd17aba0f9f3a408f02884",
+  "verdict_sha256": "dd54b0d3f21dee68ba0b0ca574782a31b9d10ffdc11b3fe3af226573e046aeaf",
+  "counts": {
+    "e128": {
+      "unsupported": 33,
+      "severe": 14,
+      "missing_detail": 0,
+      "ambiguous": 0
+    },
+    "e1280": {
+      "unsupported": 40,
+      "severe": 15,
+      "missing_detail": 0,
+      "ambiguous": 0
+    }
+  },
+  "gates": {
+    "unsupported": false,
+    "severe": false,
+    "missing_detail": true,
+    "joint_semantic": false
+  },
+  "paired_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h4_latent_diag.py",
+      "category": "code",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the current file hash differs from the committed hash",
+            "evidence": "The excerpt only shows a conditional branch if they differ, not its outcome.",
+            "severe": false
+          },
+          {
+            "claim": "the file hash is compared to the HEAD commit hash",
+            "evidence": "The committed value comes from HEAD:rel, a file blob, not rev-parse HEAD.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "git hash-object is called with -w",
+            "evidence": "The displayed command is git hash-object without -w.",
+            "severe": false
+          },
+          {
+            "claim": "the file hash is compared to the commit hash",
+            "evidence": "The displayed comparison is current versus HEAD:rel file hash.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_up_projection_cross_input.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "validate_report performs the visible outputs.items checks",
+            "evidence": "Its definition begins after that loop, not before it.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "validate_report performs the visible outputs.items checks",
+            "evidence": "Its definition begins after that loop, not before it.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat01_gigachat_mtp_extract.py",
+      "category": "code",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "index_url uses port 127.0.0.1",
+            "evidence": "127.0.0.1 is the host; the port is self.httpd.server_port.",
+            "severe": false
+          },
+          {
+            "claim": "mode is set to the literal http",
+            "evidence": "The getter returns self.httpd.mode and the setter assigns the supplied value.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the mode setter is not explicitly defined",
+            "evidence": "@mode.setter and def mode(self, value) are visible.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_attention_output_residual_cross_input.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the listed keys' values and completion status are shown",
+            "evidence": "The excerpt shows required key names and only the start of a validation condition.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the listed keys' values and completion status are shown",
+            "evidence": "The excerpt shows required key names and only the start of a validation condition.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_swiglu_component_cross_input.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "ARM expands to Application Runtime",
+            "evidence": "The excerpt uses ARM_NAMES but gives no expansion of ARM.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "ARM expands to Application Runtime",
+            "evidence": "The excerpt uses ARM_NAMES but gives no expansion of ARM.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat02_w4_format_census.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "all invalid conditions raise ValueError",
+            "evidence": "Nonfinite values return source_nonfinite; only wrong shape/dtype raises ValueError here.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/phase64/data/ws3_shipped_identity.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the loop checks whether each directory is a package",
+            "evidence": "It checks whether a code subdirectory exists before appending a package path.",
+            "severe": false
+          },
+          {
+            "claim": "it creates a new directory structure",
+            "evidence": "It appends (package name, existing code path) to trees; no directory creation appears.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "it creates a new directory structure for packages",
+            "evidence": "The shown code checks paths and appends to trees without creating directories.",
+            "severe": false
+          },
+          {
+            "claim": "it checks whether a file is a package",
+            "evidence": "The only visible test is os.path.isdir(cd) for a code directory.",
+            "severe": false
+          },
+          {
+            "claim": "it has a function checking whether a file is another generation",
+            "evidence": "The excerpt contains a comment explaining a pinned relaytest bundle, not such a function.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/verify_strat01_engine_rung0_reference.py",
+      "category": "code",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the GGUF model path is a dataset",
+            "evidence": "DEFAULT_MODEL names a .gguf model file, not a dataset.",
+            "severe": true
+          },
+          {
+            "claim": "source_binding_report.jso is a dataset containing the model's binding information",
+            "evidence": "Only the path of DEFAULT_BINDING is visible; its contents and dataset status are not.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the GGUF model path is a dataset",
+            "evidence": "DEFAULT_MODEL names a .gguf model file, not a dataset.",
+            "severe": true
+          },
+          {
+            "claim": "the GGUF dataset was created on September 21, 2026",
+            "evidence": "The date appears in a result-directory name, not a creation timestamp for the model.",
+            "severe": false
+          },
+          {
+            "claim": "the binding model comes from source_binding_report.jso",
+            "evidence": "The excerpt names a DEFAULT_BINDING path, not a model source relationship.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00001-of-00023-2b13c68dbeba63b5.parquet:row=290",
+      "category": "prose",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "Burke's party arrived at Cooper's Creek after Wright set out",
+            "evidence": "The excerpt says no news of Burke's party came to Melbourne and a search expedition was formed.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "Burke's party arrived at Cooper's Creek after Wright set out",
+            "evidence": "The excerpt says no news of Burke's party came to Melbourne and a search expedition was formed.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00001-of-00023-2b13c68dbeba63b5.parquet:row=639",
+      "category": "prose",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "Robert returned to the Holy Land",
+            "evidence": "The text says Robert was returning out of the Holy Land.",
+            "severe": false
+          },
+          {
+            "claim": "Anselme refused homage to Robert",
+            "evidence": "The dispute with Anselme precedes the separate mention of the king's brother Robert.",
+            "severe": true
+          },
+          {
+            "claim": "the king refused Robert's pilgrimage request",
+            "evidence": "No pilgrimage request or refusal appears in the 384-character excerpt.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "Robert returned to the Holy Land",
+            "evidence": "The text says Robert was returning out of the Holy Land.",
+            "severe": false
+          },
+          {
+            "claim": "Anselme refused homage to Robert",
+            "evidence": "The dispute with Anselme precedes the separate mention of the king's brother Robert.",
+            "severe": true
+          },
+          {
+            "claim": "the king wanted to appoint Robert as a bishop",
+            "evidence": "No such appointment appears; Anselme's separate consecration dispute is visible.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00001-of-00023-2b13c68dbeba63b5.parquet:row=881",
+      "category": "prose",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the woman is being treated unfairly",
+            "evidence": "She recalls grievances while trying to forgive her aunt, but unfair treatment is not established.",
+            "severe": false
+          },
+          {
+            "claim": "she must choose between two quoted options",
+            "evidence": "The same 'what shall I do?' is an internal question, not two presented choices.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "a higher power calls the woman down",
+            "evidence": "The excerpt says she was called down without naming who called her.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00001-of-00023-2b13c68dbeba63b5.parquet:row=142",
+      "category": "prose",
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00001-of-00023-2b13c68dbeba63b5.parquet:row=116",
+      "category": "prose",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "this is a Bible passage with Jesus giving the listed instructions",
+            "evidence": "The excerpt is a question-and-answer text; no Jesus speech is shown.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "this is a Bible passage with Jesus giving the listed instructions",
+            "evidence": "The excerpt is a question-and-answer text; no Jesus speech is shown.",
+            "severe": true
+          },
+          {
+            "claim": "Christ will receive the confessing person",
+            "evidence": "The excerpt poses that as a question and cuts off before its answer.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00001-of-00023-2b13c68dbeba63b5.parquet:row=1043",
+      "category": "prose",
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00001-of-00023-2b13c68dbeba63b5.parquet:row=85",
+      "category": "prose",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the speaker says women's minds are inherently weak",
+            "evidence": "The stated complaint is that women notice a clever man's weak points, not that their minds are weak.",
+            "severe": true
+          },
+          {
+            "claim": "the fool's virtues flatter the women's self-image",
+            "evidence": "The excerpt cuts off after 'their own'; it does not state self-image.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "women's minds are weak points in clever men and strong points in fools",
+            "evidence": "The speaker says women notice men's respective weak and strong points, not that their minds are those points.",
+            "severe": true
+          },
+          {
+            "claim": "the speaker feels the most sympathy for the fool",
+            "evidence": "The excerpt assigns that sympathy to the women, not the speaker.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00001-of-00023-2b13c68dbeba63b5.parquet:row=457",
+      "category": "prose",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the YMCA was established for recreational activities",
+            "evidence": "The passage shows meetings and the White Cross movement, not a recreational purpose.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the YMCA was established for recreational activities",
+            "evidence": "The passage shows meetings and the White Cross movement, not a recreational purpose.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_R2A_PRINCIPAL_ANGLE_PRESCREEN.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the passage evaluates PCA on a dataset",
+            "evidence": "It defines a subspace residual screening R2 candidates, not PCA dataset performance.",
+            "severe": true
+          },
+          {
+            "claim": "large residual means a dataset is unsuitable for PCA",
+            "evidence": "Large residual rules out R2's success for candidate phi, not PCA suitability.",
+            "severe": false
+          },
+          {
+            "claim": "the algorithm may need retraining with fewer SVDs",
+            "evidence": "The excerpt says the bound is learned for the cost of a few SVDs, not that fewer SVDs retrain a model.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the passage evaluates PCA on a dataset",
+            "evidence": "It defines a subspace residual screening R2 candidates, not PCA dataset performance.",
+            "severe": true
+          },
+          {
+            "claim": "large residual means a dataset is unsuitable for PCA",
+            "evidence": "Large residual rules out R2's success for candidate phi, not PCA suitability.",
+            "severe": false
+          },
+          {
+            "claim": "the algorithm may need retraining with fewer SVDs",
+            "evidence": "The excerpt says the bound is learned for the cost of a few SVDs, not that fewer SVDs retrain a model.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P2_EXPERT_PATH_DECOMPOSITION.md",
+      "category": "technical_general",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "arm C is constructed to return the same microseconds per expert as R",
+            "evidence": "Its memory traffic is designed near zero; equal timings are only a diagnostic possibility.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the zero-traffic negative control makes arm C untrustworthy",
+            "evidence": "The heading says this control makes arm C trustworthy.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E67_OUTPUT_AWARE_SELECTION.md",
+      "category": "technical_general",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the experiment used a T4 and a speed measurement",
+            "evidence": "The excerpt explicitly says neither was used.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_03_EXECUTABLE_SHARED_RESIDUAL.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the entire network has 35 neurons",
+            "evidence": "The 35-neuron number labels each of E=256 groups, not total network size.",
+            "severe": true
+          },
+          {
+            "claim": "D=1536 means a layer has 1536 parameters",
+            "evidence": "D is a width; it is not a parameter count.",
+            "severe": false
+          },
+          {
+            "claim": "layer 27 is a fully connected layer with 27 neurons",
+            "evidence": "27 appears in a list of layer indices; F=8960 is the FFN width.",
+            "severe": false
+          },
+          {
+            "claim": "the network is trained in this configuration",
+            "evidence": "The excerpt states CPU fp32/eager and no weight changes, not a training run.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the entire network has 35 neurons",
+            "evidence": "The 35-neuron number labels each of E=256 groups, not total network size.",
+            "severe": true
+          },
+          {
+            "claim": "D=1536 means a layer has 1536 parameters",
+            "evidence": "D is a width; it is not a parameter count.",
+            "severe": false
+          },
+          {
+            "claim": "a fully connected layer has 2148 parameters",
+            "evidence": "No 2148 value appears; the visible FFN width is F=8960.",
+            "severe": false
+          },
+          {
+            "claim": "the SHA-256 of labels is used to train the network",
+            "evidence": "The SHA identifies a labels file; the excerpt says no weight changes.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_01_GIGACHAT31_DOCUMENT_ROLLOUT.md",
+      "category": "technical_general",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the falsifiable hypothesis is that degeneration is not free-running",
+            "evidence": "The changed coordinate explicitly measures 256-token greedy free-running trajectories.",
+            "severe": true
+          },
+          {
+            "claim": "the rollout primitives are unchanged for GigaChat execution",
+            "evidence": "STRAT-02 has original primitives but lacks the stated GigaChat GGUF/source-token-ID execution.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_PROTOCOL_20260921.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the GGUF artifact was created using the cited commit",
+            "evidence": "The commit identifies the clean llama.cpp reference, not artifact creation.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the GGUF artifact was created using the cited commit",
+            "evidence": "The commit identifies the clean llama.cpp reference, not artifact creation.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/STRAT_01_GIGACHAT31_10B_METADATA_SCREEN_20260918.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "lm_head.weight and model.embed_tokens.weight equal each other",
+            "evidence": "Each is separately compared with a namespaced duplicate; the excerpt does not compare head to embeddings.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "lm_head.weight and model.embed_tokens.weight equal each other",
+            "evidence": "Each is separately compared with a namespaced duplicate; the excerpt does not compare head to embeddings.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E33_IS_DOWN_THE_WHOLE_COST.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the table is a dataset with 16 registers",
+            "evidence": "It is a benchmark table of S15 arms, including E256, E64 and E16, not registers.",
+            "severe": true
+          },
+          {
+            "claim": "GSZ is a contiguous register",
+            "evidence": "GSZ is a numeric group-size column or a dash; contiguous describes dense run access.",
+            "severe": false
+          },
+          {
+            "claim": "the E256 gate/up run is contiguous",
+            "evidence": "Its row shows 26,880 B; contiguous belongs to S15-DENSE.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the table is a dataset with 16 registers",
+            "evidence": "It is a benchmark table of S15 arms, including E256, E64 and E16, not registers.",
+            "severe": true
+          },
+          {
+            "claim": "GSZ is a contiguous register",
+            "evidence": "GSZ is a numeric group-size column or a dash; contiguous describes dense run access.",
+            "severe": false
+          },
+          {
+            "claim": "the E256 gate/up run is contiguous",
+            "evidence": "Its row shows 26,880 B; contiguous belongs to S15-DENSE.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    }
+  ]
+}

@@ -886,11 +886,21 @@ scheduled.
   blind semantic verdict fails: E1280 has 28 versus 27 unsupported
   claims and 7 versus 5 severe claims; missing-detail counts tie 2–2.
   Do not quality-promote METH-107. Its parent/child router weights remain
-  METH-99's, so METH-104 route-only measurements still apply. Next exact
-  action: improve grounded technical-detail fidelity using new training
-  and development sources, then test on a new external set; independently
-  audit learned E1280 factor-bank CPU/LUT access and full `engine.c`
-  inference. Do not tune against the viewed METH-110 excerpts. No T4
+  METH-99's, so METH-104 route-only measurements still apply.
+  [METH-113/114](METH_113_114_CHILD_RESIDUAL_CALIBRATION_RESULT_20260927.md)
+  selects alpha=0.75 on a new development set, retains 1,069–1,152
+  distinct children/layer, and passes a matched no-child utility
+  ablation plus precommitted blind semantics. [METH-115/117](METH_115_117_ALPHA075_EXTERNAL_RESULT_20260927.md)
+  repeats the child-choice BPB gain on eight separate new PG19 books
+  (0.000084 versus parent-mean children) and passes all automatic
+  gates, including PIQA 1,288 versus 1,292/1,838 for E128. Its
+  committed blind semantic verdict fails: E1280 has 40 versus 33
+  unsupported claims and 15 versus 14 severe claims, with zero
+  missing-detail answers in either arm. Do not promote alpha=0.75 or
+  lower alpha on the viewed METH-113/METH-115 sequence. Next exact
+  action: devise grounded technical-detail retention using fresh
+  development and external sources; separately audit learned E1280
+  factor-bank CPU/LUT access and full `engine.c` inference. No T4
   job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`

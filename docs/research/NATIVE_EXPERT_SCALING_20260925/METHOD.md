@@ -799,15 +799,25 @@ gates, but its precommitted blind review counts 28 versus 27 unsupported
 claims and 7 versus 5 severe claims relative to E128. The joint semantic
 gate fails again. The new checkpoint is not promoted. Its router weights
 are unchanged from METH-99, so the METH-104 route-only result still applies.
-The next large-E method must protect grounded technical details on new
-sources without changing the viewed external gates.
+[METH-113/114](METH_113_114_CHILD_RESIDUAL_CALIBRATION_RESULT_20260927.md)
+scales each child's deviation from its E128 parent by alpha 0.75, keeps
+at least 1,069 distinct children/layer, and passes fresh automatic and
+blind semantic development gates. A matched no-child parent-mean
+ablation shows the selected child choices improve BPB by 0.000216.
+[METH-115/117](METH_115_117_ALPHA075_EXTERNAL_RESULT_20260927.md)
+replicates a smaller 0.000084 child-choice BPB gain on separate PG19
+books and passes every automatic external gate, but its committed blind
+semantic verdict finds 40 versus 33 unsupported and 15 versus 14
+severe claims. The joint quality gate fails. Lowering alpha on this
+viewed sequence would violate the frozen selection rule. The next
+large-E method must protect grounded technical details on new sources.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
 large-E optimization. NES-03 provides a numerical/cost-passing int8 router
-option at pilot scale, with a fragile E128 latency margin. METH-99 and
-METH-107 train distinct E1280 children but fail their joint semantic
-gates, and
+option at pilot scale, with a fragile E128 latency margin. METH-99,
+METH-107 and the alpha=0.75 child calibration expose distinct E1280
+children but fail their joint semantic gates, and
 no pretrained donor has been converted into a
 quality-valid, ≥50 accepted tok/s native artifact. The next method step
 is finding a quality-preserving low-traffic Instruct core on separate
