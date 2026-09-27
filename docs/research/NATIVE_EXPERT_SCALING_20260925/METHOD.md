@@ -680,6 +680,16 @@ one hot-input component cost for a trained bank, but not varied
 factor-cache traffic, LUT coding, full `engine.c` integration or
 same-artifact accepted token rate. Quality promotion remains blocked
 by METH-72/74.
+[METH-77](METH_77_VARIED_CPU_FACTOR_ACCESS_RESULT_20260927.md)
+captures 256 actual external-prompt hidden states per arm and runs
+the same native component over varied selections. E1280 touches
+421–485 unique experts per layer, about 315 MB of distinct BF16
+factors across 24 layers, versus about 85 MB at E128. The
+single-thread route medians are 1.043/1.071 ms and selected-factor
+residual medians 1.129/1.097 ms per token-equivalent pass. This
+supports near-constant component cost over the measured 10× expert
+increase under a larger finite working set, while cold random
+access, LUT coding and end-to-end engine throughput remain open.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

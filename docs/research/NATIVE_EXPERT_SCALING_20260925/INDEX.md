@@ -778,6 +778,15 @@ scheduled.
   component result. The E1280 bank is 886.8 MB, quality still fails
   METH-72/74, and varied-token DRAM traffic, LUT coding, full
   engine integration and accepted-token rate remain open.
+  METH-77 samples 256 actual external-prompt positions in both
+  matched models and benchmarks varied CPU factor access. E1280
+  visits 421–485 unique experts per layer, an estimated 315 MB of
+  distinct BF16 factors across the 24 layers, versus E128's 85 MB.
+  Route medians remain 1.043/1.071 ms, and selected-factor
+  residual medians 1.129/1.097 ms per token-equivalent pass.
+  This finite repeated set stresses a larger working set, but
+  neither proves cold DRAM latency nor supplies LUT coding or a
+  quality-valid full-model throughput result.
   No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
