@@ -1,0 +1,176 @@
+{
+  "experiment": "METH-117-alpha075-E1280-blind-external-review",
+  "manifest_sha256": "965193d46bce1e9bd4ff8ce08b3339e8b19785bdcd3fa5cdf8c929004617fc05",
+  "audit_sha256": "2f9792b436c3308e9d8949857d311993e5344de2242f12a912c3f562b7a00baa",
+  "review_rule": "Count unsupported, severe and missing-detail findings from the excerpt alone.",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h4_latent_diag.py",
+      "category": "code",
+      "excerpt": "k_output([\"git\", \"rev-parse\", \"HEAD\"], cwd=repo, text=True).strip()\n    committed = subprocess.check_output(\n        [\"git\", \"rev-parse\", \"HEAD:\" + rel], cwd=repo, text=True\n    ).strip()\n    current = subprocess.check_output(\n        [\"git\", \"hash-object\", str(Path(__file__).resolve())], cwd=repo, text=True\n    ).strip()\n    if current != committed:\n        raise SystemExit(\"H4D r",
+      "A": "The excerpt describes a command to retrieve the current commit hash and the hash of the current file in a Git repository. It also mentions that the current file's hash is different from the commit hash, indicating a potential issue with the file's hash.<|im_end|>",
+      "B": "The excerpt describes a Python script that uses the `subprocess` module to execute two commands: `git rev-parse HEAD` and `git hash-object -w <file>`.\n\nSpecifically, it shows:\n1. The command to retrieve the current commit hash from the repository.\n2. The command to retrieve the hash of the current file.\n3. If the hash of the current file does not match the hash of the commit, it raises an `SystemExit` with an error message indicating the discrepancy.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_up_projection_cross_input.py",
+      "category": "code",
+      "excerpt": "ame,item) in enumerate(outputs.items()):\n        if set(item)!={\"origin\",*sizes} or item[\"origin\"]!=ARM_ORIGINS[i]: raise RunnerError(\"routed-up arm metadata mismatch\")\n        for key,size in sizes.items():\n            if set(item[key])!={\"path\",\"bytes\",\"sha256\"} or item[key][\"bytes\"]!=size: raise RunnerError(\"routed-up payload schema mismatch\")\n\n\ndef validate_report(root,model,so",
+      "A": "The excerpt describes a function `validate_report` that takes a root model, a model, and a source of truth (so) as inputs. The function iterates over the items in the `outputs` dictionary, checking for mismatches between the `origin` and `sizes` keys. If any mismatch is found, it raises a `RunnerError`. The function also checks for mismatches between the `path`, `bytes`, and `sha256` keys within the `item` dictionary.<|im_end|>",
+      "B": "The excerpt describes a function `validate_report` that takes a root model, a model, and a report as input. It checks if the report contains any items that are not in the expected set of items (`{\"origin\", *sizes}`) or if the item's `origin` is not ARM_ORIGINS[i]. If any of these conditions are met, it raises a `RunnerError`. The function also checks if the report contains any items that are not in the expected set of sizes (`{\"path\", \"bytes\", \"sha256\"}`) or if the item's `bytes` is not equal to the size"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat01_gigachat_mtp_extract.py",
+      "category": "code",
+      "excerpt": "urce\"\n\n    @property\n    def index_url(self) -> str:\n        return f\"http://127.0.0.1:{self.httpd.server_port}/index\"\n\n    @property\n    def mode(self) -> str:\n        return self.httpd.mode  # type: ignore[attr-defined]\n\n    @mode.setter\n    def mode(self, value: str) -> None:\n        self.httpd.mode = value  # type: ignore[attr-defined]\n\n\nclass MtpExtractorSyntheticHttpTest(unit",
+      "A": "The excerpt describes a class `MtpExtractorSyntheticHttpTest` with a method `index_url` that returns a URL for an HTTP server running on port 127.0.0.1. It also has a property `mode` that is set to \"http\" and a setter method `mode` that updates the value of the `mode` property.<|im_end|>",
+      "B": "The excerpt describes a class `MtpExtractorSyntheticHttpTest` with properties `index_url` and `mode`. It also mentions that the `mode` property is set using the `setter` method, which is not explicitly defined in the excerpt.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_attention_output_residual_cross_input.py",
+      "category": "code",
+      "excerpt": "ic_source_sha256\", \"compiler_family\",\n                \"projection_arms_completed\", \"ffn_input_arms_completed\", \"rmsnorm_arms_completed\",\n                \"up_projection_arms_completed\", \"propagated_arms_completed\", \"donor_graph_executions\",\n                \"reference_graph_executions\", \"timing_or_rate_claim\"}\n    if (set(report) != required or report[\"command\"] != \"--strat01-layer1-",
+      "A": "The excerpt describes a set of variables and their values related to a project, including the SHA256 of the IC source, the compiler family, the completion status of projection arms, FFN input arms, RMS norm arms, propagated arms, donor graph executions, reference graph executions, and timing or rate claim. It also mentions the command \"--strat01-layer1-\" and the completion status of the project.<|im_end|>",
+      "B": "The excerpt describes a set of variables and their values related to a project, including the SHA256 of the IC source, the compiler family, the completion status of projection arms, FFN input arms, RMS norm arms, propagated arms, donor graph executions, reference graph executions, and timing or rate claim. It also mentions the command \"--strat01-layer1-\" and the completion status of the project.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_swiglu_component_cross_input.py",
+      "category": "code",
+      "excerpt": "  else:\n        gate_fail, up_fail, both_fail = not judgments[ARM_NAMES[5]][\"pass\"], not judgments[ARM_NAMES[6]][\"pass\"], not judgments[ARM_NAMES[7]][\"pass\"]\n        if gate_fail and up_fail: status = \"LAYER1_ROUTED_GATE_AND_UP_INPUT_RESIDUALS_SUFFICIENT\"\n        elif gate_fail: status = \"LAYER1_ROUTED_GATE_INPUT_RESIDUAL_SUFFICIENT\"\n        elif up_fail: status = \"LAYER1_ROUTED_UP",
+      "A": "The excerpt describes a scenario where judgments are made about the success of different ARM (Application Runtime) names. It then checks the results of these judgments to determine the status of the network layer routing gate and up inputs.<|im_end|>",
+      "B": "The excerpt describes a scenario where judgments are made about the success of different ARM (Application Runtime) names. Specifically, it shows that judgments are made for ARM_NAMES[5], ARM_NAMES[6], and ARM_NAMES[7], and the status of the network layer (LAYER1) is determined based on the results of these judgments.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat02_w4_format_census.py",
+      "category": "code",
+      "excerpt": "sus invalid reason, or ``None`` for a valid g128 group.\"\"\"\n    if values.shape != (GROUP_SIZE,) or values.dtype != np.float32:\n        raise ValueError(\"census group must be exactly 128 float32 values\")\n    if not bool(np.isfinite(values).all()):\n        return \"source_nonfinite\"\n    absmax = np.max(np.abs(values), initial=np.float32(0))\n    if absmax == 0:\n        return None\n    ",
+      "A": "The excerpt describes a function that checks if a given group is valid based on certain criteria. It first verifies that the group size is exactly 128 and that the values are of type `float32`. If any of these conditions are not met, it raises a `ValueError`. If the values are finite, it calculates the maximum absolute value of the values and returns `None` if the absolute value is zero.<|im_end|>",
+      "B": "The excerpt describes a function that takes a 128-element float32 array `values` as input. The function checks if the array is valid (i.e., has exactly 128 elements and is of the correct data type) and if the values are finite (i.e., not NaN). If the array meets these criteria, it calculates the absolute maximum value of the array and returns `None` if the absolute maximum is zero. If any of these conditions are not met, it raises a `ValueError`.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/phase64/data/ws3_shipped_identity.py",
+      "category": "code",
+      "excerpt": "UT)) if os.path.isdir(OUT) else []:\n        cd = os.path.join(OUT, d, \"code\")\n        if os.path.isdir(cd):\n            trees.append((f\"package:{d}\", cd))\n\n    # A tree may legitimately hold a DIFFERENT generation: the relaytest bundle is pinned to CODE_SHA\n    # 27b22582 on purpose, because that throwaway validates the resume chain against the trainer that is\n    # already uploade",
+      "A": "The excerpt describes a Python script that processes directories and files. It iterates through directories in the `OUT` directory, checking if each directory is a package. If a directory is a package, it creates a new directory structure with the package name and the directory name. It also checks if the directory is a valid generation (in this case, the relaytest bundle) and if it is pinned to a specific SHA (27b22582) on purpose.<|im_end|>",
+      "B": "The excerpt describes a Python script that processes directories and files to organize and manage code packages. It includes a function to check if a directory exists and if it's a directory, then create a new directory structure. It also includes a function to check if a file is a package and if it's a directory, then create a new directory structure. Additionally, it includes a function to check if a file is a different generation of a code package, which is pinned to a specific SHA.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/verify_strat01_engine_rung0_reference.py",
+      "category": "code",
+      "excerpt": "/ \"results\"\n    / \"strat01_gigachat_engine_rung0_20260921\"\n)\nDEFAULT_MODEL = (\n    ROOT / \"benchmarks\" / \"donor_adaptation\" / \"density\" / \"results\"\n    / \"strat01_gigachat_q4_97045b2\" / \"GigaChat3.1-10B-A1.8B-q4_K_M.gguf\"\n)\nDEFAULT_BINDING = (\n    ROOT / \"benchmarks\" / \"donor_adaptation\" / \"density\" / \"results\"\n    / \"strat01_gigachat_source_binding_v1\" / \"source_binding_report.jso",
+      "A": "The excerpt describes a dataset for a model named \"GigaChat3.1-10B-A1.8B-q4_K_M.gguf\" from the \"donor_adaptation\" benchmark, specifically from the \"strat01_gigachat_engine_rung0_20260921\" run. It also mentions that the dataset is part of the \"source_binding_report.jso\" file, which contains the binding information for the model.<|im_end|>",
+      "B": "The excerpt describes a dataset named `GigaChat3.1-10B-A1.8B-q4_K_M.gguf`, which is part of the `results` directory in the `benchmarks/donor_adaptation/density` subdirectory. It also mentions that the dataset was created on September 21, 2026, and that the binding model is from the `source_binding_report.jso` file.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00001-of-00023-2b13c68dbeba63b5.parquet:row=290",
+      "category": "prose",
+      "excerpt": "rejoin him at\nCooper's Creek. It was the end of January before Wright set out for the\npoint indicated. Meanwhile, as month followed month, bringing to\nMelbourne no news of Burke's party, the worst fears were awakened\nconcerning its fate, and an expedition was fitted out to search for the\nlost heroes. To young Howitt was given the command, and it was his\nfortune to unveil the sad my",
+      "A": "The excerpt describes a journey by Wright to the point indicated, followed by the arrival of Burke's party at Cooper's Creek. It also mentions that the worst fears were awakened concerning the fate of the lost heroes, and that young Howitt was given the command to uncover the sad story.<|im_end|>",
+      "B": "The excerpt describes a journey by Wright to the point indicated, followed by the arrival of Burke's party at Cooper's Creek. It also mentions that the worst fears were awakened concerning the fate of the lost heroes, and that Young Howitt was given the command to uncover the sad story.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00001-of-00023-2b13c68dbeba63b5.parquet:row=639",
+      "category": "prose",
+      "excerpt": "suit which he had against the archbishop\nAnselme, for that he denied not onelie to doo him homage, but also would\nnot consecrate such bishops and ecclesiasticall gouernours as he\nvndertooke to inuest. Touching which matter no small trouble arose, as\nhereafter shall appeere.\n\n[Sidenote: 1101.] In the meane time, Robert the kings elder brother,\nreturning out of the holie land, came i",
+      "A": "The excerpt describes a conflict between the archbishop Anselme and the king's elder brother Robert, who returned to the Holy Land. Anselme denied homage to Robert and would not consecrate such bishops and ecclesiastical officials. The conflict arose due to the king's refusal to grant Robert's request for a pilgrimage to the Holy Land.<|im_end|>",
+      "B": "The excerpt describes a conflict between the archbishop Anselme and the king's elder brother Robert, who returned to the Holy Land. The archbishop denied homage to Robert and would not consecrate such bishops and ecclesiastical officials. This conflict arose due to the king's desire to appoint Robert as a bishop and other ecclesiastical officials.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00001-of-00023-2b13c68dbeba63b5.parquet:row=881",
+      "category": "prose",
+      "excerpt": " felt it was very hard work. At the very minute\nshe was striving to feel at peace with her aunt, one grievance\nafter another would start up to remembrance, and she knew the\nfeelings that met them were far enough from the spirit of\nforgiveness. In the midst of this she was called down. She\nrose with tears in her eyes, and \"what shall I do?\" in her\nheart. Bowing her head once more, s",
+      "A": "The excerpt describes a woman feeling overwhelmed and frustrated, feeling like she was being treated unfairly. She is called down and is asked to choose between two options: \"what shall I do?\" or \"what shall I do?\" in her heart.<|im_end|>",
+      "B": "The excerpt describes a woman feeling overwhelmed and struggling to find peace. She is experiencing multiple grievances and is called down by a higher power, asking her to do something.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00001-of-00023-2b13c68dbeba63b5.parquet:row=142",
+      "category": "prose",
+      "excerpt": "g and\nantagonistic to my spirit; it must either be satisfied with discretion\nor renounced altogether, otherwise it will bring into one's life\nelements as unclean as itself. For it to be an enjoyment and not a\ntorment, I will try to make it beautiful and to surround it with a mass\nof illusions. I should never go and see a woman unless I were sure\nbeforehand that she would be beautif",
+      "A": "The excerpt describes a conflict between the author's desire for pleasure and the desire for spiritual fulfillment. The author must choose between indulging in pleasure or renouncing it altogether. To make the pleasure enjoyable, the author will try to make it beautiful and surround it with illusions.<|im_end|>",
+      "B": "The excerpt describes a conflict between the author's desire for pleasure and the desire for spiritual fulfillment. The author must choose between indulging in pleasure or renouncing it altogether. To make the pleasure enjoyable, the author will try to make it beautiful and surround it with illusions.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00001-of-00023-2b13c68dbeba63b5.parquet:row=116",
+      "category": "prose",
+      "excerpt": "y do not see their sins and sinfulness.\n\nQuest. _What must we do that we may see our sins and our sinfulnesses?_\n\n_Answ._ 1. We must search the Scriptures. 2. We must hear the Word of\nGod Preached. 3. We must Examine our Consciences. 4. We must Pray to God\nfor his Spirit.\n\nQuest. _If a poor Creature comes to Christ, crying, lamenting and\nconfessing his sins, will Christ receive him",
+      "A": "The excerpt describes a passage from the Bible where Jesus instructs believers to search the Scriptures, hear the Word of God preached, examine their consciences, and pray for the Holy Spirit.<|im_end|>",
+      "B": "The excerpt describes a passage from the Bible where Jesus instructs believers to search the Scriptures, hear the Word of God preached, examine their consciences, and pray for the Holy Spirit. If a poor creature comes to Christ, crying, lamenting, and confessing his sins, Jesus will receive him.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00001-of-00023-2b13c68dbeba63b5.parquet:row=1043",
+      "category": "prose",
+      "excerpt": "al Defense adopted the following resolution on\nMarch 14, 1918:\n\n     The Council of National Defense approves the widest possible use of\n     the motor truck as a transportation agency, and requests the State\n     Council of Defense and other State authorities to take all\n     necessary steps to facilitate such means of transportation,\n     removing any regulations that tend to res",
+      "A": "The excerpt describes a resolution adopted by the Council of National Defense on March 14, 1918, which calls for the widest possible use of motor trucks as a transportation agency and requests the State Council of Defense and other State authorities to facilitate such means of transportation.<|im_end|>",
+      "B": "The excerpt describes a resolution adopted by the Council of National Defense on March 14, 1918, which calls for the widest possible use of motor trucks as a transportation agency and requests the State Council of Defense and other State authorities to facilitate such means of transportation.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00001-of-00023-2b13c68dbeba63b5.parquet:row=85",
+      "category": "prose",
+      "excerpt": ". Later, my observations have taught me bitter\ntruths.\n\n\"In this way, dear Emile, I ran the risk of remaining companionless for\ngood. The incomprehensible bent of women's minds appears to lead them to\nsee nothing but the weak points in a clever man, and the strong points\nof a fool. They feel the liveliest sympathy with the fool's good\nqualities, which perpetually flatter their own ",
+      "A": "The excerpt describes a situation where the author's observations have led to bitter truths. Specifically, it mentions that the author's observations have taught him that women's minds are inherently weak and that they see the weak points in a clever man and the strong points in a fool. The author also notes that they feel the liveliest sympathy with the fool's good qualities, which perpetually flatter their own self-image.<|im_end|>",
+      "B": "The excerpt describes a situation where the author's observations have led to bitter truths. Specifically, it mentions that the author's observations have taught him that women's minds are often seen as weak points in clever men and strong points in fools, and that he feels the most sympathy with the fool's good qualities.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00001-of-00023-2b13c68dbeba63b5.parquet:row=457",
+      "category": "prose",
+      "excerpt": "the season,\nengaging them on condition that there was to be no gambling among them.\nImmediately on arriving he organized a Y.M.C.A. among them, and held\nmeetings Sunday afternoons and two evenings during the week through the\nsummer, all well attended. At some of these meetings he spoke of the\nWhite Cross movement, and was successful in gaining the approbation of\nmost of the members",
+      "A": "The excerpt describes a YMCA organization that was established to provide recreational activities and social gatherings for members during the summer season. The organization was organized on arriving, held meetings on Sunday afternoons and two evenings during the week, and was attended by most members. The excerpt also mentions that the YMCA successfully gained the approval of most members for the White Cross movement.<|im_end|>",
+      "B": "The excerpt describes a YMCA organization that was established to provide recreational activities and social gatherings for the members during the summer season. The organization was organized on arriving, held meetings on Sunday afternoons and two evenings during the week, and was well attended.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_R2A_PRINCIPAL_ANGLE_PRESCREEN.md",
+      "category": "technical_general",
+      "excerpt": "* · (I − P_Z) ||_F  /  || W_v^donor · Z* ||_F\n```\n\nwhere `P_Z` projects onto `rowspace(Z) ⊆ R^T`. This is the **principal angles between the two subspaces**.\n\n> **`residual` is an upper bound on R2's achievable quality, computed without solving anything.**\n> Large residual for every candidate `φ` ⇒ **R2 is bounded away from success and we learn it for the cost\n> of a few SVDs.** Sm",
+      "A": "The excerpt describes a condition that ensures the quality of the principal angles between two subspaces, which is crucial for the success of a principal component analysis (PCA) in a dataset. Specifically, it states that the residual, which is an upper bound on the achievable quality, is computed without solving anything. Large residual indicates that the dataset is not well-suited for PCA, and the algorithm may need to be retrained with fewer SVDs to achieve a good result.<|im_end|>",
+      "B": "The excerpt describes a condition that ensures the quality of the principal angles between two subspaces, which is crucial for the success of a principal component analysis (PCA) in a dataset. Specifically, it states that the residual, which is an upper bound on the achievable quality, is computed without solving anything. Large residual indicates that the dataset is not well-suited for PCA, and the algorithm may need to be retrained with fewer SVDs to achieve a good result.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_P2_EXPERT_PATH_DECOMPOSITION.md",
+      "category": "technical_general",
+      "excerpt": "e control that makes arm C trustworthy\n\nArm C is a **planted negative for the memory term**: it is constructed so that the memory traffic is\nknown to be ~zero. If arm C returns a µs/expert *equal* to arm R, one of two things is true — either\nthe path is entirely compute-bound, or **the bench is not measuring what it claims** (e.g. the\ncompiler hoisted the load, or the pool access w",
+      "A": "The excerpt describes a negative control mechanism in a memory management system that ensures arm C is trustworthy by making its memory traffic zero. It mentions that arm C is constructed to return a µs/expert *equal* to arm R, which indicates that the path is entirely compute-bound or that the bench is not measuring what it claims (e.g., the compiler hoisted the load or the pool access).<|im_end|>",
+      "B": "The excerpt describes a **negative control** on Arm C that ensures the memory traffic is **zero**, making it **untrustworthy**. It mentions that if arm C returns a µs/expert *equal* to arm R, either the path is entirely compute-bound or the bench is not measuring what it claims (e.g., the compiler hoisted the load or the pool access).<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E67_OUTPUT_AWARE_SELECTION.md",
+      "category": "technical_general",
+      "excerpt": "addendum\nwere committed as `03667e2` / `93b0025` before any donor run. The\n[runner](../../../../benchmarks/donor_adaptation/engine/e67_output_aware_selection.py)\nwas committed as `c42b4e2` before the one-layer smoke or full measurement.\nNeither a T4 nor a speed measurement was used.\n\n## The distinct question\n\nE38's `k=3/256` \"oracle\" chooses groups by `sum(z_i²)` for the FFN's SwiG",
+      "A": "The excerpt describes a benchmarking experiment where the Oracle (E38) selects groups based on the sum of squared values (z_i²) for the FFN's SwiG layer. The experiment was conducted using a T4 and a speed measurement, but no T4 or speed measurement was used for the runner.<|im_end|>",
+      "B": "The excerpt describes a benchmarking experiment where the Oracle (E38) selects groups based on the sum of squared values (z_i²) for the FFN's SwiG layer. The experiment was conducted before any donor runs, and the runner was committed as `c42b4e2` before the one-layer smoke or full measurement. Neither a T4 nor a speed measurement was used.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_03_EXECUTABLE_SHARED_RESIDUAL.md",
+      "category": "technical_general",
+      "excerpt": "f099c05c9a4323`, CPU fp32/eager;\n  nessuna modifica ai pesi. Layer `[1,7,14,21,27]`, `D=1536`, FFN\n  SwiGLU `F=8960`, etichette D0c `E=256` da 35 neuroni, `k=3`.\n- Etichette `density/results/d0c_labels/labels_E256.npz`, SHA-256\n  `c39d0740b7f754daf168d811c77120c5394ae677e3882fef208d331d8c333c9c`.\n  Stessa semantica E68: `z=SiLU(W_gate x)⊙W_up x`,\n  `y=W_down z`, oracle `a(x)=top3_g",
+      "A": "The excerpt describes a neural network with 35 neurons, a dense layer with 1536 parameters, and a fully connected layer with 27 neurons. It also mentions that the network is trained with a specific configuration and that the results are stored in a file named `labels_E256.npz`.<|im_end|>",
+      "B": "The excerpt describes a neural network with 35 neurons, a dense layer with 1536 parameters, and a fully connected layer with 2148 parameters. It also mentions that the network is trained with a SHA-256 hash of the labels, which is stored in a file named `labels_E256.npz`.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_01_GIGACHAT31_DOCUMENT_ROLLOUT.md",
+      "category": "technical_general",
+      "excerpt": "20260920.md).\n   STRAT-02 contains the original rollout primitives, but not a GigaChat\n   GGUF/source-token-ID execution.\n2. **Changed coordinate.** Measure 256-token greedy trajectory degeneration\n   on the frozen 96 fresh-heldout documents. PIQA measured answer ranking;\n   fresh BPB measured likelihood. Neither measures free-running trajectories.\n3. **Falsifiable hypothesis.** Fe",
+      "A": "The excerpt describes a change in the rollout process for a model, specifically focusing on the use of GigaChat and GGUF/source-token-ID execution. It mentions that the model's rollout primitives are unchanged, but the trajectory degeneration is measured differently, with the measure being a 256-token greedy trajectory degeneration on the frozen 96 fresh-heldout documents. The excerpt also highlights the falsifiable hypothesis that the trajectory degeneration is not free-running, as measured by the PIQA and fresh BPB.<|im_end|>",
+      "B": "The excerpt describes a change in the rollout process for a system called STRAT-02, which is described as containing the original rollout primitives but not a GigaChat GGUF/source-token-ID execution. It also mentions a coordinate change and a measurement of trajectory degeneration, with specific details provided for the frozen 96 fresh-heldout documents and the fresh BPB measure.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2B_PROTOCOL_20260921.md",
+      "category": "technical_general",
+      "excerpt": "aptation/density/results/strat01_gigachat_q4_97045b2/GigaChat3.1-10B-A1.8B-q4_K_M.gguf` |\n| Artifact size | 6,474,702,976 bytes |\n| Artifact SHA-256 | `68a8732fb5cee04f83ebffd7924e15c534d4442c5a43d2ba9e2041fe310b8deb` |\n| Reference | Clean llama.cpp commit `5b335f413e4f73b0809c4fe39af894efbcc6a0d2`; CPU only; 1 thread |\n| Reference execution | Flash attention disabled; K/Q/V offloa",
+      "A": "The excerpt describes a GigaChat3.1-10B-A1.8B-q4_K_M.gguf artifact with a size of 6,474,702,976 bytes, which was created using the GigaChat3.1-10B-A1.8B-q4_K_M.gguf commit `5b335f413e4f73b0809c4fe39af894efbcc6a0d2` and CPU-only execution.<|im_end|>",
+      "B": "The excerpt describes a GigaChat3.1-10B-A1.8B-q4_K_M.gguf artifact with a size of 6,474,702,976 bytes, which was created using the GigaChat3.1-10B-A1.8B-q4_K_M.gguf commit `5b335f413e4f73b0809c4fe39af894efbcc6a0d2` and CPU-only execution.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/STRAT_01_GIGACHAT31_10B_METADATA_SCREEN_20260918.md",
+      "category": "technical_general",
+      "excerpt": " Outcome |\n|---|---|---|\n| `lm_head.weight` / `model.layers.26.shared_head.head.weight` | `44e76ffcc70ec1587b815ecf0843c25357b29ed74d4f7d26b0c0c4b9f9e679c0` | identical |\n| `model.embed_tokens.weight` / `model.layers.26.embed_tokens.weight` | `f95153ccd83b7d85881f9cdbfb1d3ca7425c59a4ee040b740519926ae951363f` | identical |\n\nThus, **identity of BF16 values is verified**, not just sha",
+      "A": "The excerpt describes the comparison of two weights in a model, specifically the `lm_head.weight` and `model.embed_tokens.weight` in a BFP16 model. It states that these weights are identical, confirming the identity of the BF16 values.<|im_end|>",
+      "B": "The excerpt describes the comparison of two weights in a model, specifically the `lm_head.weight` and `model.embed_tokens.weight` layers. It states that these weights are identical, indicating that the BF16 values are verified, not just SHA.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E33_IS_DOWN_THE_WHOLE_COST.md",
+      "category": "technical_general",
+      "excerpt": "um registered).\n\n| arm | `GSZ` | `gate`/`up` run | **`down` run** | mean tok/s | median | spread |\n|---|---|---|---|---|---|---|\n| `S15-DENSE` | — | contiguous | contiguous | 27.738 | 28.230 | 11.4% |\n| `S15-E256` | 35 | 26,880 B | **2,240 B** | 53.388 | 53.120 | 6.8% |\n| `S15-E64` | 140 | 107,520 B | **8,960 B** | 56.980 | 55.900 | 8.8% |\n| `S15-E16` | 560 | 430,080 B | **35,840 B",
+      "A": "The excerpt describes a dataset with 16 registers, where the `GSZ` register is contiguous, and the `gate`/`up` run is contiguous. The `down` run is 2,240 B, and the mean tok/s is 53.388, with a median of 53.120 and a spread of 6.8%.<|im_end|>",
+      "B": "The excerpt describes a dataset with 16 registers, where the `GSZ` register is contiguous, and the `gate`/`up` run is contiguous. The `down` run is 2,240 B, and the mean tok/s is 53.388, with a median of 53.120 and a spread of 6.8%.<|im_end|>"
+    }
+  ]
+}
