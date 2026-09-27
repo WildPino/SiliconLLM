@@ -564,6 +564,16 @@ weight fit from task behavior and motivates direct independent
 quality testing of the original BF16-attention/R8-head+FFN mixture
 before paying for more precision or adaptation. Its old top-1 gate
 remains failed.
+[METH-62](METH_62_MIXED_CORE_DIRECT_QUALITY_RESULT_20260927.md) stores
+that original BF16-attention/R8-head+FFN mixture exactly and tests it
+with new code, PG19 and technical sources. Document BPB, greedy
+termination and full PIQA all pass the precommitted donor-relative
+thresholds, but blind excerpt-grounded review finds 41 unsupported
+student claims against 37 donor claims and one missing requested detail
+against zero. The semantic gate fails, so this 539.955 MB packed core
+does not proceed to `engine.c`. The new prompt top-1 diagnostic is
+93.401%; neither it nor the older failed METH-60 95% proxy is erased
+by automatic pass. The blind verdict was committed before unblinding.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
@@ -571,7 +581,8 @@ large-E optimization. NES-03 provides a numerical/cost-passing int8 router
 option at pilot scale, with a fragile E128 latency margin. Independent larger
 experts remain untrained, and no pretrained donor has been converted into a
 quality-valid, ≥50 accepted tok/s native artifact. The next method step
-is finding a quality-preserving low-traffic Instruct core and integrating
+is finding a quality-preserving low-traffic Instruct core on separate
+development and external sources, then integrating
 it with the exported product-key E128 component in `engine.c`, then checking
 full-model route/logit parity and accepted-token throughput on the
 same bundle. METH-47 remains a separate exact-router candidate with

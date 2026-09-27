@@ -1,12 +1,16 @@
 # Native expert scaling: research control index
 
 **Date:** 27 September 2026. **Branch:** `research/native-expert-scaling`.
-**Status:** the Qwen0.5B packed-only R8 core (496.122 MB) plus E128
-adapter passes new-document BPB/ranking (METH-25) and full PIQA task
-retention (METH-28, −0.925 accuracy points versus BF16 donor), but
-**fails** fresh-prompt generation (METH-27: 16/24 loops; technical
-4/8 versus R8 donor 2/8). Native promotion is held pending a
-generative repair. CPU C parity/rate and large-E quality remain open.
+**Status:** the jointly trained Instruct product-key E128 adapter passes
+its independent donor-relative quality audit (METH-57), and its native
+selected-expert component matches the PyTorch oracle (METH-58). A
+stored 539.955 MB BF16-attention/R8-head+FFN core passes new document,
+generation and full PIQA endpoints but **fails** blind semantic
+conservation (METH-62: 41 versus 37 unsupported claims; one versus zero
+missing details). It does not advance to full native integration.
+Accepted-token rate, CPU LUT validity and quality at large counts of
+distinct learned experts remain open. The older base-donor R8 attempt
+failed generation (METH-27: 16/24 loops).
 METH-29 also rejects a post-hoc balanced coarse router index on real
 E128 inputs: 32/64 candidates recover only 62.48%/85.85% of exact
 top-4 IDs. METH-30's learned gate on those frozen groups raises
@@ -635,12 +639,16 @@ scheduled.
   METH-60 finds BF16 attention improves this to 94.885% at 548.320
   ideal MB/token, five positions short of its gate. METH-61's fixed
   weight-only scale correction worsens top-1 despite lower weight L2.
-  Export the BF16-attention/R8-head+FFN mixture as an actual stored
-  artifact, then freeze a new source-disjoint direct quality/semantic
-  audit before any promotion. Retain METH-60's failed proxy gate in
-  the decision. Only a directly quality-valid compact composition merits
-  full `benchmarks/phase60/engine.c` integration and accepted-token
-  timing on the same artifact.
+  METH-62 exported that mixture and passed new source-disjoint document,
+  generation and full PIQA gates, but its precommitted blind semantic
+  comparison failed: 41 versus 37 unsupported claims and one versus
+  zero missing details. The packed artifact is rejected for native
+  integration. Its prompt top-1 is 93.401% on the new set, and the
+  older METH-60 proxy failure remains visible. Develop a new
+  precision/adaptation rule on separate material; METH-62 excerpts and
+  responses are viewed and cannot serve as a promotion set. Then test
+  actual quality before full `benchmarks/phase60/engine.c` integration
+  and accepted-token timing on the same artifact.
   METH-47 remains a separate candidate whose saved summaries showed
   unsupported claims.
   METH-50 isolates downstream route churn from factor

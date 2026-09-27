@@ -1,0 +1,812 @@
+{
+  "experiment": "METH-62-unblinded-semantic-score",
+  "blind_sha256": "e9f0ebf528363406cdabaa6ce9aba0389b53bd18ce36bc66afce6f419641f3b2",
+  "verdict_sha256": "fa8209408fb6bfb1c0d14ca5275ed98ff4a49c2d22f5efd47163261dce768a76",
+  "counts": {
+    "donor": {
+      "unsupported": 37,
+      "severe": 22,
+      "missing_detail": 0,
+      "ambiguous": 6
+    },
+    "student": {
+      "unsupported": 41,
+      "severe": 22,
+      "missing_detail": 1,
+      "ambiguous": 3
+    }
+  },
+  "gates": {
+    "unsupported": false,
+    "severe": true,
+    "missing_detail": false,
+    "joint_semantic": false
+  },
+  "paired_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_router_select.py",
+      "category": "code",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The script sets up a directory structure.",
+            "evidence": "'HERE = os.path.dirname(os.path.abspath(__file__))' computes a path; no directory is created.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": [
+          "'part of a larger project' is generic context, not a checkable excerpt claim."
+        ]
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "OCC_BAR and HERE are the two retired files.",
+            "evidence": "'OCC_BAR = 0.5' and 'HERE = os.path.dirname(...)' define variables; 'the two files below' are not named in the excerpt.",
+            "severe": true
+          },
+          {
+            "claim": "The script itself was produced by the runner without hard_gate.",
+            "evidence": "'They were produced by a runner that never set `hard_gate`' refers to the retired files, not this script.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/ternary/t1_ternarize.py",
+      "category": "code",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "Carving, pruning, basis, low-rank, reconstruction and sparsity are performance metrics.",
+            "evidence": "'has measured carving (D0/D0c), pruning (D1), basis (D2), low-rank (D3), reconstruction (D4) and sparsity (S1)' names interventions, not metrics.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": [
+          "'each weight is multiplied by {-1,0,+1}' is loose wording for ternary weights."
+        ]
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The programme measured various types of weights called carving, pruning and basis.",
+            "evidence": "'has measured carving ... pruning ... basis ... all of them on fp32 weights' names techniques applied to weights.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth42_instruct_donor_pilot.py",
+      "category": "code",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The function takes config.eos_token_id, use_cache and output as inputs.",
+            "evidence": "The excerpt shows 'config.eos_token_id, use_cache=True)' and then 'continuation = output[...]', but no function signature.",
+            "severe": false
+          },
+          {
+            "claim": "It decodes continuation text into a list of 8-gram tokens.",
+            "evidence": "'continuation_text': tokenizer.decode(continuation, skip_special_tokens=False)' decodes token IDs to text; 'repeated_8gram_3x' is a separate field.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The function generates a list of dictionaries.",
+            "evidence": "'row[\"generation\"][arm] = {' assigns one dictionary entry; no list of dictionaries appears.",
+            "severe": false
+          },
+          {
+            "claim": "The dictionary contains a 3× repeated 8-gram token.",
+            "evidence": "The clipped field name is 'repeated_8gram_3x'; it does not store a particular repeated token.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/recover_strat01_engine_layer2_depth_extension.py",
+      "category": "code",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "qualified_runner is a file in the layer2.__file__ directory.",
+            "evidence": "'Path(layer2.__file__).resolve()' resolves the module file path itself, not a directory.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "qualified_runner is a file in the layer2.__file__ directory.",
+            "evidence": "'Path(layer2.__file__).resolve()' resolves a file path, not its containing directory.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": [
+          "The error may list 'recovery' among missing sources, but the excerpt does not identify which path is missing in any run."
+        ]
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_rung2b_cross_input.py",
+      "category": "code",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "validate_report performs the shown path and payload checks.",
+            "evidence": "'return resolved' ends the preceding function; only then does 'def validate_report(root: Path, model: Path, sources: ...)' begin.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "validate_report performs the shown path and payload checks.",
+            "evidence": "'return resolved' ends the preceding function; only then does 'def validate_report(root: Path, model: Path, sources: ...)' begin.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/recover_strat01_layer2_kv_rmsnorm_cross_input.py",
+      "category": "code",
+      "student": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": [
+          "The protocol filename suggests a recovery test, but the excerpt only defines paths and hashes."
+        ]
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The excerpt provides a raw binary head SHA.",
+            "evidence": "It separately defines 'RAW_HEAD=...' and 'RAW_BINARY_SHA=...'; no 'raw binary head SHA' is identified.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": [
+          "'location of the raw binary SHA' may loosely mean the constant's position in code."
+        ]
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_upstream_rmsnorm_diag.py",
+      "category": "code",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "adjudicate returns the shown tensors, caches, FFN and report tuple.",
+            "evidence": "'return tensors, caches, ffn, {\"report\": report, \"q8_census\": census}' appears before 'def adjudicate(...)'.",
+            "severe": false
+          },
+          {
+            "claim": "The Q8 census dictionary belongs to the shown adjudicate body.",
+            "evidence": "'census[key] = measured' is above 'def adjudicate(...)'; its body is clipped.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "ffn and ref_ffn are functions.",
+            "evidence": "The signature annotates 'ffn: dict[str, np.ndarray]' and 'ref_ffn: dict[str, np.ndarray]'.",
+            "severe": false
+          },
+          {
+            "claim": "adjudicate returns the preceding tuple of tensors, caches and features.",
+            "evidence": "'return tensors, caches, ffn, ...' is before the 'def adjudicate(...)' line.",
+            "severe": false
+          },
+          {
+            "claim": "adjudicate first checks Q8 census and updates the candidate with measured data.",
+            "evidence": "'census[key] = measured' precedes 'def adjudicate(...)'; no body for adjudicate is visible.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/qwen_export.py",
+      "category": "code",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The shapes of qA and qB are determined by counts of factors in r-th/B-th act-search.",
+            "evidence": "The excerpt calls 'H0.r3_actsearch(A.float(), ...)' and 'H0.r3_actsearch(B.float(), ...)' but states no such shape rule.",
+            "severe": true
+          },
+          {
+            "claim": "fh.write writes both matrix shapes.",
+            "evidence": "'fh.write(struct.pack(\"<ii\", MK_FACTORED, r))' writes a tag and r, not shapes for qA and qB.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "A and B are passed through activation functions and concatenated.",
+            "evidence": "The excerpt calls 'r3_actsearch' twice and writes a tag; it shows no concatenation.",
+            "severe": false
+          },
+          {
+            "claim": "All dimensions of A, B, qA and qB equal r.",
+            "evidence": "Only 'A.shape[1] == r and B.shape[0] == r' is visible; qA/qB dimensions are not given.",
+            "severe": true
+          },
+          {
+            "claim": "The result matrices are written to the file here.",
+            "evidence": "'fh.write(struct.pack(\"<ii\", MK_FACTORED, r))' writes two integers; the comment says the reader later handles tagged matrices.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=52",
+      "category": "prose",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The narrator is sorry about the Queen of Bohemia's health.",
+            "evidence": "'the Court, which I am sorry to hear ... bring all to ruin again' is the cause of concern; the Queen is mentioned later.",
+            "severe": true
+          },
+          {
+            "claim": "The narrator attends dinner with the Queen.",
+            "evidence": "'he and I to the Wardrobe to dinner' precedes 'The Queen of Bohemia was here'; no dinner with her is stated.",
+            "severe": true
+          },
+          {
+            "claim": "They attend a concert.",
+            "evidence": "They went 'to the Opera, and saw \"The Witts\" again'; no concert is mentioned.",
+            "severe": false
+          },
+          {
+            "claim": "Craven was brought by the Queen and they met him.",
+            "evidence": "'The Queen of Bohemia was here, brought by my Lord Craven' reverses who brought whom.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": [
+          "'courtier' and 'friend' are plausible roles but not established for the unnamed dinner companion."
+        ]
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=15",
+      "category": "prose",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "Minnie's pet monkey is the gentleman.",
+            "evidence": "'A gentleman, returning from India, brought a monkey, which he presented to his wife' distinguishes man and monkey.",
+            "severe": true
+          },
+          {
+            "claim": "The gentleman named the monkey Sprite.",
+            "evidence": "'She called it Sprite' assigns the name to his wife.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=74",
+      "category": "prose",
+      "donor": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": [
+          "'journey to the Episcopal church in both places' interprets a clipped sentence following church visits in Glasgow and London."
+        ]
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "She considered music a form of prayer.",
+            "evidence": "The excerpt says she took 'her prayer book and go for ‘music’ to the Episcopal'; it does not equate music with prayer.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=80",
+      "category": "prose",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The palace is explicitly identified as from the Roman Empire.",
+            "evidence": "The excerpt calls it 'the now ruined Palace of the Cæsars' and does not name the Roman Empire.",
+            "severe": false
+          },
+          {
+            "claim": "The Thermæ is a similar structure from the same era.",
+            "evidence": "Only 'this palace was probably as an architectural object inferior to the Thermæ' is stated.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The Palace of the Cæsars is one of the engineering works described.",
+            "evidence": "'aqueducts and engineering works ... and ... Palace of the Cæsars' lists them separately.",
+            "severe": false
+          },
+          {
+            "claim": "The Thermæ is a ruined palace.",
+            "evidence": "Only the Palace of the Cæsars is called 'now ruined'; the Thermæ is the comparison object.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=29",
+      "category": "prose",
+      "student": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The horseman is trapped in a deep ravine and cannot escape.",
+            "evidence": "The excerpt starts with him crawling back to the horse and then riding west; no ravine or entrapment appears.",
+            "severe": false
+          },
+          {
+            "claim": "The horse found the horseman.",
+            "evidence": "'He crawled back to his horse and found him' gives the opposite action.",
+            "severe": true
+          },
+          {
+            "claim": "The horseman says he himself will go no further.",
+            "evidence": "'If he goes this twenty miles ... he will go no more' refers to the horse.",
+            "severe": true
+          },
+          {
+            "claim": "He has never taken the Sun Dance Trail before.",
+            "evidence": "'We must make for our old beat, the Sun Dance Trail' calls it an old route.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=28",
+      "category": "prose",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "General Custer is leading the regiment.",
+            "evidence": "'General Custer rode up alongside of me' and 'The regiment left the column' do not place him in command of its movement.",
+            "severe": false
+          },
+          {
+            "claim": "The regiment reaches Appomattox Station within the excerpt.",
+            "evidence": "The excerpt only states a plan 'to Appomattox Station' and that the regiment accelerated, ending at 'until'.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": [
+          "Custer's 'Go in' encouragement occurs beside the plan to seize trains and pike, but the quote itself does not name those objectives."
+        ]
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=5",
+      "category": "prose",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "Miranda was thrilled.",
+            "evidence": "The excerpt ends at 'Miranda had t' before any reaction is described.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "Miranda was delighted to see the guest.",
+            "evidence": "The guest is only 'expected'; the excerpt ends at 'Miranda had t' before an arrival or reaction.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/test-00000-of-00001-29a571947c0b5ccc.parquet:row=49",
+      "category": "prose",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The woman asks whether she will leave the man alone.",
+            "evidence": "She says 'You will not leave me without a word, Mr. Raymond', asking him not to leave her silently.",
+            "severe": true
+          },
+          {
+            "claim": "The woman is surprised to find the man there.",
+            "evidence": "She asks him 'Were you so very much astonished to find me here?', making his surprise the question.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The man says 'Were you so very much astonished to find me here?'.",
+            "evidence": "'Then, as I came slowly forward: \"Were you so very much astonished to find me here?\"' continues the woman's speech; the man's answer follows.",
+            "severe": true
+          },
+          {
+            "claim": "The man tries to recall the man's intentions.",
+            "evidence": "His reply is 'I do not know--I did not expect--'; no intentions are described.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_F16_VEC_DOT_DIAGNOSTIC_PROTOCOL_20260921.md",
+      "category": "technical_general",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The source's vector-dot right operand stays F32 in the dot.",
+            "evidence": "'F32 right operand to F16 before an F16×F16 vector dot'; only 'project reconstruction currently retains that operand as F32'.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The source's vector-dot right operand stays F32 in the dot.",
+            "evidence": "'F32 right operand to F16 before an F16×F16 vector dot'; only 'project reconstruction currently retains that operand as F32'.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/R1_DONOR_RUNTIME.md",
+      "category": "technical_general",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "Untying and ternarizing removes the output head.",
+            "evidence": "'the head is a dense GEMV over 151,936 rows' and 'head 17.42 → 4.65 ms' show it remains.",
+            "severe": true
+          },
+          {
+            "claim": "The optimization reorganizes the embedding table into a row lookup.",
+            "evidence": "'The embedding table stays fp32 because it is a row lookup' describes its existing role, not a reorganization.",
+            "severe": false
+          },
+          {
+            "claim": "Packing two trits per byte is the successful speedup.",
+            "evidence": "The section says 'Two optimisations, and only one worked' and labels 'Untie and ternarize the head — worked'.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/STRAT_01_GIGACHAT31_ENGINE_COMPATIBILITY_AUDIT_20260921.md",
+      "category": "technical_general",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "RoPE is a RoPE-based Encoder-Decoder architecture.",
+            "evidence": "The excerpt says 'RoPE only on 64-d key/query positional component'; it provides no such expansion.",
+            "severe": false
+          },
+          {
+            "claim": "YaRN is a Yen-Ren Network architecture.",
+            "evidence": "The excerpt only says 'YaRN values listed'; this named expansion is absent.",
+            "severe": false
+          },
+          {
+            "claim": "YaRN is used for values here.",
+            "evidence": "'RoPE only on 64-d key/query positional component; YaRN values listed' does not say YaRN acts on value vectors.",
+            "severe": true
+          },
+          {
+            "claim": "The model reduces size by separating full K/V projections.",
+            "evidence": "'MLA compressed KV path is absent from both local engines' and 'Separate full K and V projections only' give no such goal or result.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "attn_k_b and attn_v_b are derived from themselves.",
+            "evidence": "'K-B and V-B derived from attn_k_b / attn_v_b' distinguishes derived tensors from sources.",
+            "severe": false
+          },
+          {
+            "claim": "An absent key-value pair is a model feature.",
+            "evidence": "'Absent' is a table entry for the MLA compressed KV path, not a key-value pair.",
+            "severe": false
+          },
+          {
+            "claim": "The local engines use a compressed KV path.",
+            "evidence": "'MLA compressed KV path is absent from both local engines' directly contradicts this.",
+            "severe": true
+          },
+          {
+            "claim": "YaRN is YaRNet.",
+            "evidence": "The excerpt says 'YaRN values listed' and gives no expansion to YaRNet.",
+            "severe": false
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": [
+          "n_kv_a_norm may normalize a KV intermediate, but the visible fragment does not specify its exact operation."
+        ]
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E19_DOES_THE_CARVE_RANK.md",
+      "category": "technical_general",
+      "student": {
+        "unsupported": [
+          {
+            "claim": "attn+head falls from 1.367 to 0.278096 BPB.",
+            "evidence": "'+0.278096 BPB' is the cost of the same-rank lm_head experiment; the 'attn+head falls from 1.367' sentence is cut before a destination value.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "The lm_head rank occupies 51–56% of the speed budget.",
+            "evidence": "'The head is 545 M on the Coder-7B = 51–56% of the entire 50 tok/s budget' attributes the share to head payload, not rank.",
+            "severe": true
+          },
+          {
+            "claim": "The attn+head rank is 1.367.",
+            "evidence": "'attn+head falls from 1.367' gives a truncated metric value, not a rank.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E34_THE_FLOOR_UNDER_THE_FLOOR.md",
+      "category": "technical_general",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "E32 moved the programme further than E33.",
+            "evidence": "'(E32, E33) moved the programme further than this one did' compares both with the current probe, not each other.",
+            "severe": true
+          },
+          {
+            "claim": "The 21,069,824 B attention figure belongs to E32 and 67,239,936 B belongs to E33.",
+            "evidence": "'At T10's width, with the FFN at zero ... attention, per layer ... 21,069,824 B; head ... 67,239,936 B' assigns them to organs, not E32/E33.",
+            "severe": true
+          },
+          {
+            "claim": "21,069,824 B is the budget ceiling for the smallest attention.",
+            "evidence": "The excerpt labels it 'attention, per layer, moved'; the budget line is clipped after 'moved budget at'.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "E32 moved the programme further than E33.",
+            "evidence": "'(E32, E33) moved the programme further than this one did' does not compare E32 to E33.",
+            "severe": true
+          },
+          {
+            "claim": "E32 and E33 each have the stated attention/head moved-byte figures.",
+            "evidence": "The figures appear under 'At T10's width ... attention, per layer ... head, moved', with no E32/E33 attribution.",
+            "severe": true
+          },
+          {
+            "claim": "67,239,936 B is attention moved per head.",
+            "evidence": "'head, moved: 67,239,936 B' is a separate model head, not attention per-head bytes.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_M1_EXPERT_COUNT_SCALING.md",
+      "category": "technical_general",
+      "donor": {
+        "unsupported": [],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The model has 28,672 experts.",
+            "evidence": "'d_ffn = 28672' and 'E = 28672 / 128 = 224 experts' distinguish FFN width from expert count.",
+            "severe": true
+          },
+          {
+            "claim": "Attention active fraction is 3.57%.",
+            "evidence": "'At 3.57% FFN active, 12.5% attention' gives different fractions.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/ACTIVATION_SPARSITY_PRIOR_ART.md",
+      "category": "technical_general",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "Fixed row-column pairing is a 3D matrix issue from graphics/data analysis.",
+            "evidence": "'Fixed row-column pairing: concatenating up-projection matrix columns' names a packing approach, not a 3D matrix field.",
+            "severe": false
+          },
+          {
+            "claim": "The paper reports a quantified failure magnitude.",
+            "evidence": "'No numeric bundling-degree or redundancy percentage ... [X] for a quantified failure magnitude' says the value was not surfaced.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "The authors observed a quantified failure magnitude.",
+            "evidence": "'No numeric bundling-degree or redundancy percentage was surfaced ... [X] for a quantified failure magnitude' states the opposite.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER_D0_AUDIT.md",
+      "category": "technical_general",
+      "donor": {
+        "unsupported": [
+          {
+            "claim": "Document §11.1 table vs JSON has 120 rows.",
+            "evidence": "'d0_model.log ... all 120' is separate; 'document §11.1 ... 23 parsed rows × 7 fields' has 161 checks.",
+            "severe": true
+          },
+          {
+            "claim": "Document §11.6 table vs JSON has 7 rows.",
+            "evidence": "'document §11.6 ... 28 × 7 ... 196' gives 28 rows and 7 fields.",
+            "severe": true
+          },
+          {
+            "claim": "Document §11.8 table vs JSON has 5 rows.",
+            "evidence": "'document §11.8 ... 25 × 5 ... 125' gives 25 rows and 5 fields.",
+            "severe": true
+          }
+        ],
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "student": {
+        "unsupported": [
+          {
+            "claim": "All listed document-section row counts are rows of d0_model.log.",
+            "evidence": "'d0_model.log fidelity rows (all 120)' is one row; the §11.1/§11.6/§11.8 rows compare document tables with JSON.",
+            "severe": false
+          }
+        ],
+        "missing_detail": true,
+        "ambiguous": [],
+        "missing_detail_evidence": "The excerpt offers concrete counts such as '23 parsed rows × 7 fields' and '196'; B states none of them."
+      }
+    }
+  ]
+}
