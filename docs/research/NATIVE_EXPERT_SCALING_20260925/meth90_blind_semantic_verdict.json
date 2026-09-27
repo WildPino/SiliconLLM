@@ -1,0 +1,813 @@
+{
+  "experiment": "METH-90-arm-blind-semantic-verdict",
+  "blind_sha256": "30b8614e65582ebf5cab24d887332cd44f500e99fba00231ed55d4749164358d",
+  "reviewer": "single agent, excerpt-only review",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth18_residual_scale_route_diagnostic.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The checkpoint was created using the M15.M13 model.",
+            "evidence": "'assert checkpoint[\"source_sha256\"] == M15.M13.MODEL_SHA' verifies an identity; it does not show how the checkpoint was created.",
+            "severe": false
+          },
+          {
+            "claim": "wrappers is a list of dictionaries.",
+            "evidence": "'for w, values in zip(wrappers, checkpoint[\"expert_state\"])' distinguishes wrapper objects from the saved value dictionaries.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth59_export_instruct_r8_core.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The model comes from a GitHub repository.",
+            "evidence": "'hf_hub_download(M42.MODEL, \"model.safetensors\", revision=M42.REV, local_files_only=True)' names a Hugging Face Hub API, not GitHub.",
+            "severe": true
+          },
+          {
+            "claim": "The excerpt preprocesses the model.",
+            "evidence": "It selects a CUDA device and obtains a safetensors path; no preprocessing operation is visible.",
+            "severe": false
+          },
+          {
+            "claim": "The script starts a download.",
+            "evidence": "'local_files_only=True' requires an already local cached file.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The model comes from a GitHub repository.",
+            "evidence": "'hf_hub_download' is a Hugging Face Hub API; GitHub is not named.",
+            "severe": true
+          },
+          {
+            "claim": "The script sets the device to cuda:0.",
+            "evidence": "'torch.device(f\"cuda:{matches[0]}\")' uses a matched device index, not the literal 0.",
+            "severe": true
+          },
+          {
+            "claim": "It initializes the model for parallel processing.",
+            "evidence": "The excerpt obtains a source path and chooses one device; no model construction or parallel processing is shown.",
+            "severe": false
+          },
+          {
+            "claim": "It starts a download process.",
+            "evidence": "'local_files_only=True' rules out fetching a remote model here.",
+            "severe": false
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat02_teacher_baseline.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Terminating the child process is not allowed.",
+            "evidence": "'bounded._terminate_only_child(process)' is called when a process exists.",
+            "severe": false
+          },
+          {
+            "claim": "The process is not terminated.",
+            "evidence": "The excerpt explicitly calls '_terminate_only_child(process)'.",
+            "severe": false
+          },
+          {
+            "claim": "The error type is process rather than child.",
+            "evidence": "'error_type': type(exc).__name__ records the exception class name, not either process or child.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The parent process terminates.",
+            "evidence": "The visible termination call is '_terminate_only_child(process)', which targets its worker.",
+            "severe": false
+          },
+          {
+            "claim": "The parent never reaches the worker it created.",
+            "evidence": "The comment says 'Never reaches beyond the worker this parent created', a containment bound on termination.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth14_qwen05b_oracle_route.py",
+      "A": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_organ_attribution.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Tracker.open initializes active and maximum to zero.",
+            "evidence": "'self.active = self.maximum = 0' is inside '__init__', before 'def open(self, path)'.",
+            "severe": false
+          },
+          {
+            "claim": "Tracker.open creates a list of shards for the path.",
+            "evidence": "The visible open body only assigns 'shard = path.name'; list creation occurs in '__init__' and is empty.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Tracker.open initializes active, maximum and opened.",
+            "evidence": "Those assignments appear in '__init__', before 'def open(self, path)'.",
+            "severe": false
+          },
+          {
+            "claim": "slice_refs is not defined in the excerpt.",
+            "evidence": "'self.slice_refs = []' appears in '__init__'.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/d0_coactivation.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "down_proj computes a weighted sum that is passed through up.",
+            "evidence": "The excerpt says hooks sit on down_proj's INPUT, already computed as 'h = silu(gate x) * up x'; down_proj follows that input.",
+            "severe": true
+          },
+          {
+            "claim": "up multiplies the weighted sum by gate x and then applies sila.",
+            "evidence": "The visible order is 'h = silu(gate x) * up x'; SiLU acts on gate x before multiplication, not after up.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The intermediate uses Sigmoid (sila).",
+            "evidence": "The formula explicitly says 'silu(gate x)', the SiLU activation, not Sigmoid or 'sila'.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_combined_rms_q5q8.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The script reads HEADER and ffn as two text files and combines them into one text file.",
+            "evidence": "'HEADER.read_text' and 'upstream.HEADER.read_text' read two headers; 'ffn[\"prefill8/ffn_gate-0\"]' is a mapping access, and no output file is shown.",
+            "severe": true
+          },
+          {
+            "claim": "kb_prior holds controls in the ffn file.",
+            "evidence": "'kb_prior.get(\"adjudication\").get(\"controls\")' is a separate mapping; no ffn file relationship is visible.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The script reads HEADER and ffn as text files and combines them into one string.",
+            "evidence": "It reads 'HEADER' and 'upstream.HEADER'; ffn is indexed as a mapping, and no concatenation is visible.",
+            "severe": true
+          },
+          {
+            "claim": "It extracts prior_kb_controls from HEADER.",
+            "evidence": "'prior_kb_controls' is computed from 'kb_prior.get(\"adjudication\")', not HEADER.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/native_expert_scaling/meth40_rank64_router_scan.c",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The function sums elements of an 8×1 x array.",
+            "evidence": "'_mm256_fmadd_ps(vf, _mm256_loadu_ps(x + i), acc)' multiplies converted int8 values by x and accumulates a dot product; the excerpt gives no 8×1 shape.",
+            "severe": true
+          },
+          {
+            "claim": "It converts x elements to 256-bit floating-point integers and stores the result back into x.",
+            "evidence": "'_mm256_cvtepi8_epi32(eight)' converts 'eight'; '_mm256_storeu_ps(lanes, acc)' stores into lanes, not x.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The function takes scalar e8 and e16 inputs.",
+            "evidence": "No e8/e16 variables appear; the visible inputs are vector loads and 'project(const float *basis, const float *x, float *out)'.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=34",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "A poet praises the nightingale in this passage.",
+            "evidence": "'as the poets will have it sing' describes poets' doleful portrayal; the first-person narrator, not a poet, praises its 'con brio' song.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The nightingale is cooing.",
+            "evidence": "'cooing of the stock-dove' names the cooing bird; the Nightingale is discussed separately.",
+            "severe": true
+          },
+          {
+            "claim": "The author pities the nightingale's inability to sing melodically.",
+            "evidence": "The excerpt praises the Nightingale's 'varied phrases' and 'marvellous crescendo'; the clipped 'It is a pity to co' gives no such inability.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=38",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The woman criticizes her doctor's book and exercise regimen.",
+            "evidence": "She invokes 'her doctor's book' to say 'vig'rous exercise was the best physic', rather than criticizing it.",
+            "severe": false
+          },
+          {
+            "claim": "The doctor must chop hard.",
+            "evidence": "The text says 'he must chop hard' after she cites the doctor's book; it never identifies the chopper as the doctor.",
+            "severe": false
+          },
+          {
+            "claim": "She is looking for methods to cure her own illness.",
+            "evidence": "The visible cure is 'she cured 'em' and the chopping instruction applies to 'he'; her own illness is not stated.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The woman criticizes her doctor's book.",
+            "evidence": "She cites the book approvingly as saying vigorous exercise is the best physic.",
+            "severe": false
+          },
+          {
+            "claim": "She has already gained significant fitness.",
+            "evidence": "'figgering that she'd gained the first lap' refers to her plan after hearing the ax, not her physical fitness.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=1",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Illmarinen is washed up and made whole.",
+            "evidence": "'However, Sampo is washed up, and made whole' gives that event to Sampo, not Illmarinen.",
+            "severe": true
+          },
+          {
+            "claim": "Sampo is a person whose actions cause good days.",
+            "evidence": "The excerpt says Sampo is washed up and later possessed by the sons of Kalevala; it does not identify a person or make Sampo the speaker of 'Good days come'.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Illmarinen is a Buddhist monk.",
+            "evidence": "The Illmarinen/Sampo passage precedes a transition to 'Mr. Latham's ... view of Buddhism'; no monk identity is given.",
+            "severe": true
+          },
+          {
+            "claim": "He creates jewelry for his second wife.",
+            "evidence": "'He had previously made his second wife ... out of the same metals' describes making the wife, not jewelry.",
+            "severe": false
+          },
+          {
+            "claim": "Sampo is Illmarinen's second wife.",
+            "evidence": "'However, Sampo is washed up' follows a separate sentence about his second wife; no identity between them is stated.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=47",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The mill and church are being built.",
+            "evidence": "'A steam-engine has been put in the mill' and 'The church is restored' describe an existing mill and restored church; only the chapel is new.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The mill and steam engine are under construction.",
+            "evidence": "'A steam-engine has been put in the mill' states a completed installation, not construction.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=32",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Vassar considers plotting with Waldron to remove another man.",
+            "evidence": "'He wondered ... if she could be capable of plotting with Waldron to remove him' makes the woman the possible plotter and him the possible target.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Vassar considers manipulating Waldron into removing another man.",
+            "evidence": "The suspicion is that 'she' might plot with Waldron 'to remove him'; Vassar is not shown manipulating Waldron.",
+            "severe": true
+          },
+          {
+            "claim": "He looks into Waldron's brown eyes.",
+            "evidence": "'He looked into the depths of her brown eyes' refers to the woman, not Waldron.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=24",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The area has little or no vegetation.",
+            "evidence": "'very few remained of those which had grown here' still describes surviving trees; the 'waste land' is part of a historical panorama, not a vegetation census.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Most original inhabitants vanished, leaving a few survivors.",
+            "evidence": "'very few remained of those which had grown here' refers to forest growth, not human inhabitants.",
+            "severe": false
+          },
+          {
+            "claim": "The area has little or no vegetation.",
+            "evidence": "The excerpt describes remaining growth and a former forest; no current blanket lack of vegetation is established.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=20",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Lisette is over head and ears in love.",
+            "evidence": "'Poor Ludvig is over head and ears in love' attributes that state to Ludvig, not Lisette.",
+            "severe": true
+          },
+          {
+            "claim": "His compliments concern Lisette's lack of familiarity with him.",
+            "evidence": "'compliments such as Lisette is not accustomed to hear from him' says she is unaccustomed to his compliments, not to him.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Lisette is over head and ears in love with Ludvig.",
+            "evidence": "The passage explicitly says 'Poor Ludvig is over head and ears in love', not Lisette.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=39",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The passage describes Claude Monet.",
+            "evidence": "'One sees pictures of Matisse' and 'reminded of Manet' name different artists; Monet is absent.",
+            "severe": true
+          },
+          {
+            "claim": "The artist's style uses bright colors and focuses on nature.",
+            "evidence": "The excerpt contrasts Matisse pictures with 'inward vitality' or 'outer charm'; no colors or nature subject is stated.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The passage describes Claude Monet.",
+            "evidence": "It names Matisse and Manet, not Monet.",
+            "severe": true
+          },
+          {
+            "claim": "The passage establishes Manet as an Impressionist.",
+            "evidence": "'(How often one is reminded of Manet in this.)' makes a comparison but gives no style classification for Manet.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_H5_CROSS_COMPOSITION_DIAGNOSTIC.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "POSTHOC_TRANSFER_SIGNAL=false means the transfer is not performed or recorded.",
+            "evidence": "'POSTHOC_TRANSFER_SIGNAL=false, recorded in the H5 result' gives a recorded verdict; the question concerns whether two trained components transfer positively.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The H4 and H2I components transfer positively in the pretrained model.",
+            "evidence": "The excerpt asks '**Question:** do ... transfer positively' and opens with 'POSTHOC_TRANSFER_SIGNAL=false', so a positive result is not stated.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_02_STAGE0_WEIGHT_FORMAT.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The excerpt describes an actual preprocessing step for model loading or quality measurement.",
+            "evidence": "'specifica prima di scaricare pesi o misurare qualità' calls it a specification before either action.",
+            "severe": false
+          },
+          {
+            "claim": "It gives a description of the tokenizer/scoring process.",
+            "evidence": "'[tokenizer/scoring](STRAT_02_STAGE0_TOKEN_SCORING.md)' is a link, not a description of that process.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E11_LUT_KERNEL_CEILING.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Ath is the named experiment or kernel being compared.",
+            "evidence": "The excerpt begins midword at 'ath is'; it does not identify an experiment called Ath.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The fixed verdict cell refutes the 2.5× slowdown.",
+            "evidence": "The excerpt says the path is '~2.5× slower per weight' and therefore the speed lever 'is refuted'; the cell was fixed beforehand to prevent a posthoc choice.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "GGUF expands to Generalized Generalized Unified Format.",
+            "evidence": "The excerpt uses 'GGUF' without an expansion; the invented expansion is unsupported.",
+            "severe": true
+          },
+          {
+            "claim": "The cited SHA-256 is the size hash of the accepted GGUF.",
+            "evidence": "'The accepted GGUF is 6,474,702,976 bytes with SHA-256 ...' gives separate size and content hash, not a hash of the size.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The adjudication and manifest are six bytes long.",
+            "evidence": "The number '6,474,702,976 bytes' refers to 'The accepted GGUF', not the two preceding documents, and is not six bytes.",
+            "severe": true
+          },
+          {
+            "claim": "The adjudication and manifest have the stated GGUF SHA-256.",
+            "evidence": "The excerpt gives two preceding hashes for those items and a separate 'accepted GGUF ... SHA-256 68a873...' hash.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E42_IS_PREDICTABILITY_THE_CRITERION.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The secondary threshold is 0.2 times the across-seed standard deviation.",
+            "evidence": "The excerpt says 'more than 2× the across-seed standard deviation' of COACT − D0C, not 0.2×.",
+            "severe": true
+          },
+          {
+            "claim": "E41 is the secondary cell.",
+            "evidence": "E41 is mentioned before a separately marked '**Secondary registered question**'; the excerpt does not identify it as that cell.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "E41's unresolved cell is the COACT − D0C secondary question.",
+            "evidence": "The unresolved E41 cell is discussed before the separately marked secondary question; no link equates them.",
+            "severe": false
+          },
+          {
+            "claim": "The across-seed standard deviation of every arm is not provided in this specification.",
+            "evidence": "The excerpt says it is a required quantity and E41 did not have it; it does not say no arm's value is provided elsewhere.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": [
+          "The excerpt begins mid-sentence, so the precise E41 primary cell wording is clipped."
+        ]
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/H1_THE_CARVE_TRAINED.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The model was trained on the run-session log.",
+            "evidence": "'h1-qat-run-session-2.log' is listed under '**Results:**'; the trainer is separately named 's1/h1_qat.py'.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The training data is applied at both checkpoints.",
+            "evidence": "'G-H1 PASSES at both checkpoints, band TRAINING-HELPS' is an evaluation verdict, not a statement that training data is applied.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/D4_RECONSTRUCTION.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The recovery of real_H is −0.4827.",
+            "evidence": "'Its recovery +0.4827' explicitly gives a positive, not negative, value.",
+            "severe": true
+          },
+          {
+            "claim": "real_H and down_proj@50% are the two columns of the visible table.",
+            "evidence": "They appear in prose below a clipped numeric table; no such two-column table is visible.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "C2 saturation is the treatment whose recovery is 0.4827.",
+            "evidence": "'real_H is the treatment, not a control. Its recovery +0.4827' attributes the recovery to real_H; C2 is labeled 'for reference'.",
+            "severe": true
+          },
+          {
+            "claim": "4.5129 is the recovery of C2 saturation from a reference value.",
+            "evidence": "'4.512897966...' appears in a clipped table with no column headers visible; its meaning as recovery is unsupported.",
+            "severe": false
+          },
+          {
+            "claim": "The visible table has only real_H and C2 saturation columns.",
+            "evidence": "The clipped row shows multiple numeric fields and the prose below mentions down_proj@50%; the claimed two-column structure is not supported.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/T2B_ORGAN_COVERAGE.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "FFN means Fast Forwarding Neural Network.",
+            "evidence": "The excerpt uses 'FFN' without this expansion; the invented term is unsupported.",
+            "severe": true
+          },
+          {
+            "claim": "The FFN predicts the output of a ternary set.",
+            "evidence": "The excerpt asks whether attention/other organs 'come out of the ternary set'; it gives no prediction role for FFN.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The FFN is not triggered by the absolute-Δ condition.",
+            "evidence": "'It does not trigger ATTENTION-BOUND' refers to an attention condition; the passage does not say FFN is not triggered.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    }
+  ]
+}

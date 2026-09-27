@@ -1,0 +1,176 @@
+{
+  "experiment": "METH-90-blind-semantic-review",
+  "manifest_sha256": "70d48b30de55c41283374223ba2b61edaacad396e6f3410c45c166bbaa885937",
+  "audit_sha256": "2d3a05a92b3fe28600eebcea08b9079846b2284bfcd51d84403e0af50d49301b",
+  "review_rule": "Count unsupported, severe and missing-detail findings from the excerpt alone.",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth18_residual_scale_route_diagnostic.py",
+      "category": "code",
+      "excerpt": "checkpoint_path, map_location=\"cpu\", weights_only=False)\n    assert checkpoint[\"updates\"] == 1024\n    assert checkpoint[\"source_sha256\"] == M15.M13.MODEL_SHA\n    assert checkpoint[\"train_ids_sha256\"] == M15.TRAIN_IDS_SHA\n    for w, values in zip(wrappers, checkpoint[\"expert_state\"]):\n        w.a.copy_(values[\"a\"].to(device))\n        w.b.copy_(values[\"b\"].to(device))\n        w.route",
+      "A": "The excerpt describes a checkpoint that was created using the M15.M13 model, with the following details:\n\n1. **Checkpoint Path**: `checkpoint_path`\n2. **Map Location**: `cpu`\n3. **Weights Only**: `False`\n4. **Updates**: `1024`\n5. **Source SHA256**: `M15.M13.MODEL_SHA`\n6. **Train IDs SHA256**: `M15.TRAIN_IDS_SHA`\n7. **Wrappers**: A list of `wrappers` dictionaries\n8. **Expert State**: A dictionary containing `a` and",
+      "B": "The code snippet is designed to load a checkpoint, verify its updates, source SHA256, and train IDs, and then copy the expert state to the weights.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth59_export_instruct_r8_core.py",
+      "category": "code",
+      "excerpt": "(i) == \"NVIDIA GeForce RTX 3060\"]\n    assert len(matches) == 1\n    device = torch.device(f\"cuda:{matches[0]}\")\n    torch.cuda.set_device(device)\n    torch.cuda.reset_peak_memory_stats(device)\n    start = time.monotonic()\n    source = Path(hf_hub_download(M42.MODEL, \"model.safetensors\",\n                                  revision=M42.REV, local_files_only=True))\n    assert M15.M13.sh",
+      "A": "The excerpt describes a Python script that attempts to download a model from a GitHub repository and preprocess it using PyTorch. It includes a check to ensure that only one device is used and that the peak memory statistics are reset before starting the download.<|im_end|>",
+      "B": "The excerpt describes a Python script that attempts to download a model from a GitHub repository using PyTorch. It includes the following details:\n\n1. The script uses the `torch.device` function to set the device for the GPU.\n2. It sets the device to `cuda:0` to ensure the model is run on the GPU.\n3. It initializes the model and sets the device to `cuda:0` for parallel processing.\n4. It starts the download process by calling `hf_hub_download` with the model file path, revision, and local files only.\n5. It asserts that the model is compatible with the specified revision"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat02_teacher_baseline.py",
+      "category": "code",
+      "excerpt": "ores\"]),\n        }\n    except Exception as exc:\n        if process is not None:\n            bounded._terminate_only_child(process)  # Never reaches beyond the worker this parent created.\n        _append_log(paths[\"log\"], {\"event\": \"parent_supervision_error\", \"error_type\": type(exc).__name__, \"error\": str(exc)})\n        complete = False\n        final = {\n            \"ok\": False,\n   ",
+      "A": "The excerpt describes a process that is attempting to terminate a child process, which is not allowed. It also mentions that the process is not terminated, and the error type is `process` instead of `child`.<|im_end|>",
+      "B": "The excerpt describes a parent process that encounters an error and terminates, never reaching the worker it created. It also mentions that the parent process never reaches the worker it created, and that the `complete` flag is set to `False`.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth14_qwen05b_oracle_route.py",
+      "category": "code",
+      "excerpt": "20 * (1 << 30)\n\n\ndef budget(start):\n    elapsed = time.monotonic() - start\n    rss = psutil.Process().memory_info().rss\n    if elapsed > LIMIT_SECONDS:\n        raise TimeoutError(\"METH-14 15-minute CPU stop\")\n    if rss > LIMIT_RSS:\n        raise MemoryError(\"METH-14 20-GiB process RAM stop\")\n    return elapsed, rss\n\n\nclass RoutedFFN(nn.Module):\n    def __init__(self, base, labels,",
+      "A": "The excerpt describes a Python function `budget(start)` that calculates the elapsed time in seconds since the start of the process. It also defines a class `RoutedFFN` with a method `__init__` that takes parameters `base` and `labels`. The function `budget(start)` raises a `TimeoutError` if the elapsed time exceeds a specified limit, and a `MemoryError` if the process's RAM usage exceeds a specified limit.<|im_end|>",
+      "B": "The excerpt describes a Python function `budget(start)` that calculates the elapsed time since the start of a process and the memory usage of the process. If the elapsed time exceeds a specified limit, it raises a `TimeoutError`. If the memory usage exceeds a specified limit, it raises a `MemoryError`. The function returns the elapsed time and memory usage.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_organ_attribution.py",
+      "category": "code",
+      "excerpt": "\"weight_map\": {key: shard for shard, tensors in values.items()\n                                                       for key in tensors}})\n        class Tracker:\n            def __init__(self):\n                self.active = self.maximum = 0\n                self.opened = []\n                self.slice_refs = []\n            def open(self, path):\n                shard = path.name\n    ",
+      "A": "The excerpt describes a Python class `Tracker` with a method `open` that takes a path as input. The `open` method initializes the `active` and `maximum` attributes to 0, and creates a list of shards for the path.<|im_end|>",
+      "B": "The excerpt describes a Python class `Tracker` with a method `open` that takes a path as input. The `open` method initializes the `active` and `maximum` attributes to 0, and creates an empty list for the `opened` attribute. The `slice_refs` attribute is not defined in the excerpt, so it is assumed to be a list of references to slices.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/d0_coactivation.py",
+      "category": "code",
+      "excerpt": "forward pass; hooks sit on `down_proj`'s INPUT, which is exactly\n    h = silu(gate x) * up x and is computed anyway -- so hooking all 28 layers costs no extra\n    FLOPs, only storage.  Stores the RANKED top-kmax |h| indices (int16) so any density\n    p <= P_MAX is derivable from one capture without a second forward pass.\"\"\"\n    buf = {L: [] for L in layers}\n    hooks = []\n\n    def ",
+      "A": "The excerpt describes a forward pass in a neural network where the `down_proj` layer computes a weighted sum of inputs, which is then passed through the `up` layer. The key points are:\n\n1. The `down_proj` layer computes a weighted sum of inputs.\n2. This sum is passed through the `up` layer.\n3. The `up` layer computes the output by multiplying the weighted sum by the `gate x` and then applying the `sila` activation function.\n4. The `sila` activation function is applied to the output of the `up` layer.\n5. The `sila`",
+      "B": "The excerpt describes a forward pass in a neural network where the `down_proj` layer's input is passed through a series of operations, including Sigmoid (sila), and the resulting output is stored in a buffer. The buffer contains the RANKED top-kmax |h| indices, which are computed without a second forward pass.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_combined_rms_q5q8.py",
+      "category": "code",
+      "excerpt": "IMITS), \"gate_as_up\": r2a.judged_metrics(ffn[\"prefill8/ffn_gate-0\"], reference_ffn[\"prefill8/ffn_up-0\"], r2a.GENERAL_LIMITS)}\n    combined_source = HEADER.read_text(encoding=\"utf-8\"); upstream_source = upstream.HEADER.read_text(encoding=\"utf-8\")\n    controls = {\"prior_kb_controls\": bool(kb_prior.get(\"adjudication\", {}).get(\"controls\")) and all(kb_prior[\"adjudication\"][\"controls\"].v",
+      "A": "The excerpt describes a Python script that reads two text files, `HEADER` and `ffn`, and combines them into a single text file. It also includes a dictionary `kb_prior` that contains information about the controls in the `ffn` file.<|im_end|>",
+      "B": "The excerpt describes a Python script that reads two text files, `HEADER` and `ffn`, and combines their contents into a single string. It then reads the `HEADER` file and extracts the `prior_kb_controls` field, which is a boolean indicating whether the controls are prior knowledge.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/native_expert_scaling/meth40_rank64_router_scan.c",
+      "category": "code",
+      "excerpt": "q + i));\n        __m256i ints = _mm256_cvtepi8_epi32(eight);\n        __m256 vf = _mm256_cvtepi32_ps(ints);\n        acc = _mm256_fmadd_ps(vf, _mm256_loadu_ps(x + i), acc);\n    }\n    float lanes[8]; _mm256_storeu_ps(lanes, acc);\n    float sum = 0.0f;\n    for (int i = 0; i < 8; i++) sum += lanes[i];\n    return sum;\n}\n\nstatic void project(const float *basis, const float *x, float *out)",
+      "A": "The excerpt describes a function that calculates the sum of the elements in a 8x1 array `x` by first converting the elements to 256-bit floating-point integers, performing a specific operation on these integers, and then storing the result back into the array.<|im_end|>",
+      "B": "The excerpt describes a function that takes two 32-bit floating-point numbers (`e8` and `e16`) and a 32-bit floating-point number (`e8`) as input. It performs a series of operations on these inputs, including converting the input values to 32-bit floating-point format, performing a specific operation on the 32-bit floating-point numbers, and storing the result in a 32-bit floating-point array. The function then calculates the sum of the 32-bit floating-point numbers and returns the result.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=34",
+      "category": "prose",
+      "excerpt": " cooing of\nthe stock-dove more agreeable to his pensive mind. I never yet heard a\nNightingale singing dolefully, as the poets will have it sing;[43] its\nvaried phrases are all given out _con brio_, and even that marvellous\n_crescendo_ on a single note, which no other bird attempts, conveys to\nthe mind of the listener the fiery intensity of the high-strung singer.\nIt is a pity to co",
+      "A": "The excerpt describes a nightingale singing in a way that is melodious and passionate, with its varied phrases and crescendo on a single note. The poet praises the nightingale's ability to convey the intense feelings of a high-strung singer.<|im_end|>",
+      "B": "The excerpt describes a cooing of a Nightingale, which is a bird known for its melodious singing. It mentions that the Nightingale's varied phrases are all given out with \"con brio,\" and that even the most extraordinary note, which no other bird attempts, conveys to the listener the fiery intensity of the high-strung singer. The author expresses a pity for the Nightingale's inability to sing melodically.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=38",
+      "category": "prose",
+      "excerpt": "t she cured 'em in a hurry by remarking that her doctor's book said\nvig'rous exercise was the best physic, for that kind of disease, and\nso he must chop hard. She waited till she heard the ax \"chunk\" once or\ntwice, and then she went into the house, figgering that she'd gained the\nfirst lap, anyhow.\n\nBut in an hour or so it come over her all of a sudden that 'twas awful\nquiet out by",
+      "A": "The excerpt describes a woman who is quick to criticize her doctor's book and exercise regimen, suggesting that she is tired of the prescribed treatments and is looking for alternative methods to cure her illness. She waits for the doctor to chop hard, indicating that she is impatient and frustrated with the prescribed treatment.<|im_end|>",
+      "B": "The excerpt describes a woman who is quick to criticize her doctor's book and insists that her doctor's exercise regimen is the best, despite the fact that she has already gained a significant amount of fitness.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=1",
+      "category": "prose",
+      "excerpt": "un, no moon. Illmarinen makes them of silver\nand gold. He had previously made his second wife (for he lost his first)\nout of the same metals. However, Sampo is washed up, and made whole.\nGood days come. The sun and moon shine as before, and the sons of\nKalevala possess Sampo.\"--Vol. i., pp. 433, 434.\n\nThis, again, is Mr. Latham's profound and interesting view of\n_Buddhism:--_\n\n\"Bud",
+      "A": "The excerpt describes a scene where Illmarinen, a man who had previously made his second wife out of the same metals, is washed up and made whole. Sampo, who is described as being \"washed up\" and \"made whole,\" is a significant figure in the story, as he is the one who is \"good days come.\" The sun and moon shine as before, and the sons of Kalevala possess Sampo.<|im_end|>",
+      "B": "The excerpt describes a scene where Illmarinen, a Buddhist monk, creates silver and gold jewelry for his second wife, Sampo. He previously made her out of the same metals, but Sampo is washed up and made whole. The sun and moon shine as before, and the sons of Kalevala possess Sampo. This is Mr. Latham's profound and interesting view of Buddhism.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=47",
+      "category": "prose",
+      "excerpt": "every lane and look out from the windows.  There are new\nnames on the signboard of the inn and over the grocer’s shop.  A\nsteam-engine has been put in the mill, and the pathway behind to the mill\ndam and to the river bank has been closed.  The people you see think you\nare a visitor.  The church is restored, and there is a brand new Wesleyan\nchapel.  Better stay where you are and am",
+      "A": "The excerpt describes a scene of a town where new signs, a steam engine, a mill, a pathway, a church, and a new Wesleyan chapel are being restored and built. The people in the town think they are visitors, and the church is restored. The scene is set in a town where the mill, church, and new chapel are being built.<|im_end|>",
+      "B": "The excerpt describes a scene of a town where new signs, a steam engine, a restored church, and a new Wesleyan chapel are being constructed.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=32",
+      "category": "prose",
+      "excerpt": " day. He wondered for just\na moment if she could be capable of plotting with Waldron to remove him\nfrom the district for two weeks, to lay the foundations of a movement to\nwreck his career--\n\nHe looked into the depths of her brown eyes and threw the ugly thought\nto the winds.\n\n\n\n\nCHAPTER XII\n\n\nVassar determined that every day of the two weeks at Babylon should be\nred lettered in hi",
+      "A": "The excerpt describes a scene where a man, Vassar, is contemplating the possibility of plotting with Waldron to remove him from a district for two weeks, with the intention of laying the foundations of a movement to wreck his career.<|im_end|>",
+      "B": "The excerpt describes a scene where a man, Vassar, is contemplating the possibility of manipulating someone named Waldron to remove him from a district for two weeks. He then looks into the depths of Waldron's brown eyes and throws away the ugly thought.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=24",
+      "category": "prose",
+      "excerpt": "ds, or rovers of the forest. They nearly\nstood alone, for very few remained of those which had grown here, when all\naround was one wide forest, one intermingling of shadowing boughs from sea\nto sea, or spaces of waste land, untilled and tenantless. The old Roman\nroad, which had been raised with so much cost and care, soon fell to\ndecay; its materials were carried off, and the green",
+      "A": "The excerpt describes a forest environment where the majority of the trees have been removed, leaving only a few standing. The forest is described as a vast, interwoven network of shadowy boughs and waste land, with little to no vegetation. The old Roman road, which was built with great effort, has now fallen into decay, and its materials have been carried away.<|im_end|>",
+      "B": "The excerpt describes a forest environment where the majority of the original inhabitants have vanished, leaving only a few survivors. The forest is described as a vast, interwoven network of shadowy boughs and waste land, with little to no vegetation. The old Roman road, which was built with great effort, has fallen into decay, and its materials have been carried away.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=20",
+      "category": "prose",
+      "excerpt": "Perhaps all this may be\ncalled coquetry; well, allowing it to be coquetry, there is no guile or\ndeceit in it. Poor Ludvig is over head and ears in love; therefore he\nis charmed with Lisette, with the bonnet, with everything. His warm\nfeelings find expression in compliments such as Lisette is not\naccustomed to hear from him, and she naturally thinks him more than\nusually agreeable. ",
+      "A": "The excerpt describes Ludvig's love for Lisette, who is described as \"over head and ears in love\" and \"charmed with Lisette, with the bonnet, with everything.\" It also mentions that Ludvig's warm feelings are expressed in compliments about Lisette's lack of familiarity with him and her natural inclination for him.<|im_end|>",
+      "B": "The excerpt describes Ludvig's love for Lisette, who is over head and ears in love with him. It also mentions that Ludvig's warm feelings find expression in compliments such as Lisette is not accustomed to hear from him, and she naturally thinks him more than usually agreeable.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/validation-00000-of-00001-0f92e2337f79aeac.parquet:row=39",
+      "category": "prose",
+      "excerpt": "lways refrain from\nconventional beauty; Impressionism is in his blood. One sees\npictures of Matisse which are full of great inward vitality,\nproduced by the stress of the inner need, and also pictures which\npossess only outer charm, because they were painted on an outer\nimpulse. (How often one is reminded of Manet in this.) His work\nseems to be typical French painting, with its dai",
+      "A": "The excerpt describes Claude Monet's painting style, which is characterized by his use of bright, vibrant colors and a focus on the inner, rather than the outer, beauty of nature. Monet's work is often described as \"typical French painting\" with its emphasis on the artist's inner emotions and experiences.<|im_end|>",
+      "B": "The excerpt describes Claude Monet's painting style, which is characterized by his use of Impressionism, characterized by its emphasis on the inner need and stress of the artist. Monet's work is often compared to that of Manet, who is also known for his Impressionist style. The excerpt also mentions that Monet's work is typical of French painting, with a focus on the artist's inner life and emotional expression.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_H5_CROSS_COMPOSITION_DIAGNOSTIC.md",
+      "category": "technical_general",
+      "excerpt": "n:** `POSTHOC_TRANSFER_SIGNAL=false`, recorded in\n[the H5 result](../probes/H5_CROSS_COMPOSITION_RESULT.md). The rules below remain the\npre-measurement specification, not retrofitted thresholds.\n**Question:** do the *independently trained* H4 rank-48 q/o and H2I v4 one-byte eight-layer\nFFN carve transfer positively when installed in the same pretrained Qwen2.5-1.5B model?\nThis is d",
+      "A": "The excerpt describes a post-processing step in a H5 result, where the `POSTHOC_TRANSFER_SIGNAL` flag is set to `false`. This indicates that the transfer signal is not being recorded, suggesting that the transfer process is not being performed. The excerpt then mentions that the rules for recording the transfer signal remain the pre-measurement specification, not retrofitted thresholds. It also states that the question is whether the independently trained H4 rank-48 q/o and H2I v4 one-byte eight-layer FFN carve transfer positively when installed in the same pretrained Qwen2.5-1.5B model.<|im_end|>",
+      "B": "The excerpt describes a specific scenario where the H4 rank-48 q/o and H2I v4 one-byte eight-layer FFN carved transfer positively when installed in the same pretrained Qwen2.5-1.5B model. It also mentions that the rules for recording this result are not retrofitted thresholds.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_02_STAGE0_WEIGHT_FORMAT.md",
+      "category": "technical_general",
+      "excerpt": "**Stato:** specifica prima di scaricare pesi o\nmisurare qualità. Non è una prova di BPB, tok/s, kernel C o compatibilità\ncon l'SSM nativo. [Brief](../briefs/BRIEF_STRAT_02_STDMOE_PRECISION_GATE.md),\n[tokenizer/scoring](STRAT_02_STAGE0_TOKEN_SCORING.md).\n\n## Ambito degli operatori\n\nOgni `nn.Linear` grande è trattato come matrice F32 `[out, in]`, partizionata\nin gruppi contigui di **",
+      "A": "The excerpt describes a specific preprocessing step for model loading or quality measurement. It states that this step is not a proof of BPB, tok/s, kernel C, or compatibility with the SSM native. It also mentions a brief description of the tokenizer/scoring process and a tokenizer/scoring section.<|im_end|>",
+      "B": "**Stato:** specifica prima di scaricare pesi o misurare qualità. Non è una prova di BPB, tok/s, kernel C o compatibilità con l'SSM nativo. [Brief](../briefs/BRIEF_STRAT_02_STDMOE_PRECISION_GATE.md), [tokenizer/scoring](STRAT_02_STAGE0_TOKEN_SCORING.md).<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E11_LUT_KERNEL_CEILING.md",
+      "category": "technical_general",
+      "excerpt": "ath is **~2.5× slower per weight** than\npacked at donor-scale footprints. As a speed lever for the dense streamed donor it is **refuted**,\nand the verdict cell was fixed in the brief before the arm existed precisely so this could not be\nchosen afterwards.\n\n## 3. The result nobody asked for: the ordering inverts at the L3 boundary\n\n**The LUT kernel is the fastest weight kernel this ",
+      "A": "The excerpt describes an experiment where Ath is **2.5× slower per weight** than packed at donor-scale footprints, refuting the speed lever for the dense streamed donor, and the verdict cell being fixed before the arm existed precisely so it could not be chosen afterwards.<|im_end|>",
+      "B": "The excerpt describes an experiment where Ath is **2.5 times slower per weight** than the packed at donor-scale footprint, which is **refuted** by the verdict cell being fixed before the arm existed.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_FFN_SWIGLU_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "excerpt": "fcfc4d37df2fb1f32d0488d6914d43882a9`.\nThe preceding FFN-down adjudication and run manifest are\n`6d3ab2b6a1097502060380350238940d434d38b2b41bcdff8d7c586f5f8d05d0`\nand `fbe5857f338acbd10e8ffa703746e02a2c084533ba9148fc2a5cfd4e0d02645f`.\n\nThe accepted GGUF is 6,474,702,976 bytes with SHA-256\n`68a8732fb5cee04f83ebffd7924e15c534d4442c5a43d2ba9e2041fe310b8deb`.\nOnly block-0 `ffn_down.weig",
+      "A": "The excerpt describes a FFN-down adjudication and run manifest, which includes the SHA-256 hash of the accepted GGUF (Generalized Generalized Unified Format) size.<|im_end|>",
+      "B": "The excerpt describes a FFN-down adjudication and run manifest, which are 6 bytes long and have a SHA-256 hash of 68a8732fb5cee04f83ebffd7924e15c534d4442c5a43d2ba9e2041fe310b8deb.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E42_IS_PREDICTABILITY_THE_CRITERION.md",
+      "category": "technical_general",
+      "excerpt": "he across-seed standard deviation of every\narm**, which is the number E41 did not have and the reason its cell was unresolvable.\n\n**Secondary registered question, scored separately and not part of the verdict:** is\n`COACT − D0C` stable across seeds? It is resolved **only** if the three-seed mean differs from\nzero by more than **2×** the across-seed standard deviation of that differ",
+      "A": "The excerpt describes a secondary registered question where the secondary cell, E41, did not have and was unresolvable due to a secondary registered standard deviation of every arm, which is the number E41 did not have and the reason its cell was unresolvable. Specifically, it states that the secondary registered standard deviation is 0.2 times the across-seed standard deviation of that differ.<|im_end|>",
+      "B": "The excerpt describes a secondary registered question where the secondary cell `E41` was unresolvable due to a secondary registered issue (`COACT − D0C`). The standard deviation of the secondary cell's number `E41` is not provided, but it is noted that this cell was unresolvable. The excerpt also mentions that the across-seed standard deviation of every arm is not provided, but it is noted that this is the number `E41` that did not have and the reason its cell was unresolvable.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/H1_THE_CARVE_TRAINED.md",
+      "category": "technical_general",
+      "excerpt": "ed: `G-H1` PASSES at both checkpoints, band `TRAINING-HELPS`\n\n**Brief:** `briefs/BRIEF_H1_THE_CARVE_TRAINED_NOT_APPLIED.md` + addenda A–N\n**Trainer:** `s1/h1_qat.py` (T4, fp16) · **Gate:** `s1/h1_eval.py` (CPU fp32, frozen slice)\n**Results:** `s1/results/h1/h1_eval_h1_s2_cum390.json`, `h1_eval_h1_s1_mid195.json`,\n`h1_trained_s{1,2}.json`, `h1-qat-run-session-2.log`\n**Donor:** Qwen2",
+      "A": "The excerpt describes a training session for a model named `h1` using the `s1/h1_qat.py` script (T4, fp16) and the `s1/h1_eval.py` script (CPU fp32, frozen slice). The results include `h1_eval_h1_s2_cum390.json`, `h1_eval_h1_s1_mid195.json`, and `h1_trained_s{1,2}.json`, with the model trained on the `h1-qat-run_session-2.log`.<|im_end|>",
+      "B": "The excerpt describes a training session where the model `G-H1` passes both checkpoints and the training data is applied, with specific details including the use of `s1/h1_qat.py` for the QAT model and `s1/h1_eval.py` for the evaluation model, and the results being stored in JSON files.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/D4_RECONSTRUCTION.md",
+      "category": "technical_general",
+      "excerpt": "| 0.11776385583944751 | 769.9 | **-1.4721339051478814** |\n| *(C2 saturation, for reference)* | 4.5128979664456885 | +3.7453029986916513 | 0.16723957321713498 | 749.1 | *(n/a)* |\n\n**What each arm proves, one at a time:**\n\n- **`real_H`** is the treatment, not a control. Its recovery +0.4827 is the number the sweep row for\n  `down_proj@50%` also reports (§4.1) - see §7.3, they agree t",
+      "A": "The excerpt describes a table with two columns: `real_H` and `down_proj@50%`. It shows that `real_H` is the treatment, not a control, and its recovery is -0.4827. The sweep row for `down_proj@50%` also reports the same value, indicating that the recovery is consistent across both columns.<|im_end|>",
+      "B": "The excerpt describes a table with two columns: `real_H` and `C2 saturation`. It shows that the `real_H` value is 0.4827, which is the recovery of the treatment `C2 saturation` from a reference value. The table also shows that the `C2 saturation` value is 4.5129, which is the recovery of the treatment `C2 saturation` from a reference value.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/T2B_ORGAN_COVERAGE.md",
+      "category": "technical_general",
+      "excerpt": "ze than the FFN is.\n\nIt does not trigger ATTENTION-BOUND because the brief's condition is stated in **absolute** Δ, not\nper weight, and attention is only a tenth of the weights. That was the right way to write it — the\ndecision the condition gates is *\"do these organs come out of the ternary set\"*, and taking out\n10.0% of the weights to recover `1.136` of `2.708` is a different tra",
+      "A": "The excerpt describes a scenario where the FFN (Fast Forwarding Neural Network) is used to predict the output of a ternary set, but the condition is stated in absolute Δ, not per weight. The attention is only a tenth of the weights, and the decision made is that the condition gates are *\"do these organs come out of the ternary set\"*.<|im_end|>",
+      "B": "The excerpt describes a scenario where the FFN is not triggered due to the condition being stated in absolute Δ, not per weight, and attention is only a tenth of the weights. The excerpt also mentions that the decision the condition gates is *\"do these organs come out of the ternary set\"*, and taking out 10.0% of the weights to recover 1.136 of 2.708 is a different approach.<|im_end|>"
+    }
+  ]
+}
