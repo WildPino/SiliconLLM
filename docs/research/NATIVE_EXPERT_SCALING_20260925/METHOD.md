@@ -498,6 +498,16 @@ component cost only. It is not the ternary LUT, has no router/core,
 and uses duplicated rows at E>128. A joint method must train distinct
 larger-E experts, route them with bounded CPU traffic, and show quality
 and ≥50 accepted tokens/s on one native artifact.
+[METH-53](METH_53_PRODUCT_KEY_ROUTER_RESULT_20260927.md) establishes
+an exact 16-pair search for a synthetic additive product-key router,
+but dimension-896 FP32 keys fail their six-thread 10× scaling gate
+(4.800×). [METH-54](METH_54_R64_PRODUCT_KEY_RESULT_20260927.md)
+uses a per-layer rank-64 projection and product keys: at E273,408 it
+takes 0.4405 ms/token, with a 1.392× E27,392→E273,408 ratio. It passes
+both CPU-cost gates but remains a synthetic component. Joint E128
+training must determine whether this factorized score can preserve
+donor-relative quality and use distinct experts; CPU speed alone does
+not validate the routing geometry.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

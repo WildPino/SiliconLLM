@@ -63,6 +63,14 @@ greedy continuations. METH-52 measures their selected path in C:
 **replicated** pool; the E2,735→E27,355 ratio is 0.978×. This passes
 the selected-component gate, but it is not a LUT, full-model rate, or
 distinct learned large-E quality result.
+METH-53 validates exact top-4 pair search for a synthetic product-key
+router but rejects full-width FP32 keys: six-thread E27,392→E273,408
+latency rises 4.800×, above its 4× gate. METH-54's separately
+trainable rank-64 product keys pass their CPU cost gates: 0.4405
+ms/token at E273,408 and a 1.392× same-thread 10× ratio. These are
+synthetic router timings. No product keys have been trained with
+distinct experts or compared to donor quality; the next step is
+joint E128 training and semantic audit before any larger-E claim.
 METH-31 measures the existing CPU LUT kernel in the Qwen rank-8
 shape with synthetic packed factors: E1280→E12800 raises the
 six-thread selected path only 1.136× to 0.505 ms/token. That
@@ -586,9 +594,11 @@ scheduled.
   error: forcing original expert IDs still fails the 99% top-1 gate.
   METH-51 has now preserved the trained factors exactly under the BF16
   forward; METH-52 shows their selected C path is only 0.321 ms/token
-  at E27,355 with a replicated pool. Next design a bounded/sublinear
-  router jointly with **distinct learned** experts and test route/quality
-  fidelity as E grows. METH-48/49 reject two int8 factor layouts;
+  at E27,355 with a replicated pool. METH-53 rejects full-width
+  product keys under its 10× scaling bound; METH-54 passes that CPU
+  bound with rank-64 product keys, but still needs joint training
+  with **distinct learned** experts and route/quality evaluation as E
+  grows. METH-48/49 reject two int8 factor layouts;
   any one-byte LUT export needs a new quality-valid adaptation, not
   further scale tuning on these prompts.
   Promote only after joint semantic quality and usefulness pass; then
