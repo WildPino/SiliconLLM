@@ -25,8 +25,9 @@ actual joint update or explain the donor-top-1 decline causally.
 
 Two apparatus attempts stopped before obtaining gradients because the
 donor helper leaves global autograd disabled; the runner now explicitly
-enables it, as METH-71 does. The completed E128/E1280 reads took about
-19/25 seconds and used training-source inputs only. The next controlled
+enables it, as METH-71 does. The completed E128/E1280 runner timers
+recorded 5.52/8.23 seconds after device initialization and used
+training-source inputs only. The next controlled
 test should change the balance rule at a frozen checkpoint, preserve the
 same optimizer/data stream, and use fresh train-disjoint development
 prompts. METH-72/74/75 failures remain in force; this diagnostic does

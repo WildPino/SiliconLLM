@@ -787,6 +787,23 @@ scheduled.
   This finite repeated set stresses a larger working set, but
   neither proves cold DRAM latency nor supplies LUT coding or a
   quality-valid full-model throughput result.
+  METH-78's frozen objective-gradient readout finds that 0.02× axis
+  balance has 62–498× the CE product-key router gradient norm on
+  raw/chat training-source examples at E128/E1280, while its factor
+  gradient is small. This is a local mechanism diagnostic, not proof
+  that balance caused METH-75's retention decline. METH-79 froze a
+  24-prompt manifest disjoint from every prior development
+  set through METH-75 and the entire matched raw draw stream. The
+  preregistered controlled continuation removed balance only after
+  update 64, with matched E128/E1280 arms and fixed METH-75
+  update-256 comparators. E128 cessation reaches 97.377% new-prompt
+  donor top-1 versus 96.931% balanced, with full route coverage.
+  E1280 reaches 97.088% versus 96.721% balanced and selects at
+  least 1,088/1,280 experts per layer, but the +0.367-point gain
+  misses the fixed +0.5-point gate and its −1.548-point decline
+  from update 64 exceeds the ≤1.0-point limit. Its external
+  promotion stops. The simple balance cessation test improves
+  retention modestly; it does not solve large-E quality.
   No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`

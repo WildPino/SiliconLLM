@@ -690,6 +690,21 @@ residual medians 1.129/1.097 ms per token-equivalent pass. This
 supports near-constant component cost over the measured 10× expert
 increase under a larger finite working set, while cold random
 access, LUT coding and end-to-end engine throughput remain open.
+[METH-78](METH_78_OBJECTIVE_GRADIENT_RESULT_20260927.md) measures the
+separate local gradients of the frozen METH-71 loss components on
+training-source raw/chat examples. At E1280, weighted axis balance has
+498×/90× the product-key router gradient norm of CE, whereas its
+B-factor gradient is tiny relative to CE. This makes balance a plausible
+driver of router updates under the shared norm clip, not a causal proof.
+[METH-79](METH_79_BALANCE_CESSATION_RESULT_20260927.md) tests a
+controlled continuation from the same update-64 checkpoints with the
+same data/optimizer stream and zero balance weight on fresh prompts.
+E1280 top-1 improves 96.721%→97.088% against the matched balanced
+update-256 comparator, but misses the fixed ≥0.5-point benefit gate
+and declines 1.548 points from its update-64 baseline against the
+≤1.0-point limit. It still selects at least 1,088/1,280 experts per
+layer. This rejects cessation alone as the retention remedy under
+the tested recipe; route coverage and raw BPB remain insufficient.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
