@@ -703,8 +703,12 @@ scheduled.
   load. METH-64 supplies a CPU-resident sparse-gradient path: small
   dense/offloaded A/B gradients match exactly, and a 24-layer E1280
   synthetic backward peaks at 385 MB allocated GPU with 3.106 GB
-  process RSS. A real donor update with sparse optimizer state is the
-  next apparatus gate; synthetic gradients are not learned quality.
+  process RSS. METH-65 now runs one real full-donor E1280 update with
+  sparse CPU Adam state: exact initial logits, nonzero B gradients in
+  all layers, 244–471 changed slots/layer and 3.281 GB allocated GPU
+  peak. This is an apparatus pass only. The next gate is a controlled
+  E128/E1280 training ladder with independent quality and route-load
+  audit; a single update cannot show useful distinct learned experts.
   No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`

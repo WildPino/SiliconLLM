@@ -1,0 +1,43 @@
+{
+  "experiment": "METH-65-E1280-real-donor-one-update",
+  "source_sha256": "9cd776aaeda3c506191931dfd1607ee101989752193fa09bd3d653ea7c7d6566",
+  "donor_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "teacher_sha256": "f42f678280a9086a0fc2ec6e57a712e33fdea8f5cb62bdac7f53c9f28a5f1dd7",
+  "train_chat_sha256": "17921cb83c1d10793e2a56df6aa899039bd794757eeff43921068b8de2096055",
+  "train_ids_sha256": "9bb5229fad6542aa8b3fd7edfc3b8d1dff965a573d7aa8379385caacc9d614da",
+  "chat_train_row": 29636,
+  "identity_max_abs": {
+    "raw": 0.0,
+    "chat": 0.0
+  },
+  "losses": [
+    {
+      "kind": "raw",
+      "ce": 3.0342609882354736,
+      "kl": 0.0,
+      "objective": 3.0342609882354736
+    },
+    {
+      "kind": "chat",
+      "ce": 0.7312187552452087,
+      "kl": 0.0,
+      "objective": 0.7312187552452087
+    }
+  ],
+  "min_b_gradient_norm": 0.0012578343546800468,
+  "max_b_gradient_norm": 0.006394256881108215,
+  "min_nonzero_a_gradient_rows": 0,
+  "min_nonzero_b_gradient_rows": 244,
+  "max_router_gradient_norm": 0.0,
+  "min_changed_b_slots": 244,
+  "max_changed_b_slots": 471,
+  "sparse_optimizer_updated_rows": 9076,
+  "sparse_optimizer_state_bytes": 520454144,
+  "post_logits_finite": true,
+  "runtime": {
+    "elapsed_seconds": 18.20299999999952,
+    "rss_bytes": 5292175360,
+    "gpu_peak_allocated_bytes": 3281052160
+  },
+  "decision": "one_real_update_apparatus_pass_only"
+}

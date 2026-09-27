@@ -591,6 +591,13 @@ E1280 backward verifies 768 exact pair routes and peaks at 385 MB
 allocated GPU with 3.106 GB process RSS. This is an apparatus result;
 it contains no donor training, sparse optimizer state, learned large-E
 quality or accepted-token rate.
+[METH-65](METH_65_E1280_REAL_DONOR_UPDATE_RESULT_20260927.md) passes
+one raw and one chat training minibatch through the full frozen
+Instruct donor with CPU-resident E1280 factors. Initial logits match
+exactly; after one sparse Adam update every layer has 244–471 changed
+B slots. Peak GPU allocation is 3.281 GB and process RSS 5.292 GB.
+This proves one real update fits the local host, not trained large-E
+quality or the complete method.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
