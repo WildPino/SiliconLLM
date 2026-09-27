@@ -597,3 +597,6 @@ Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
 this index by replacing current state, and put detailed evidence in the
 experiment record. Documentation is in English; no model/assistant signatures.
+Graphify is optional for targeted architecture questions. Its last complete
+snapshot predates METH-48/49; the later whole-repository update was stopped
+after AST extraction because routine refresh cost outweighed its use here.
