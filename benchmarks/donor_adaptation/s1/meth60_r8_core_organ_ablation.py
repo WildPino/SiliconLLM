@@ -122,8 +122,8 @@ def main():
             student = model(ids, use_cache=False).logits.argmax(dim=-1)
             prompt_rows[i]["matches"]["bf16_student"] = int((student == donor).sum())
             budget(start, device)
-    baseline = summaries(prompt_rows)
-    assert baseline["pooled"]["bf16_student"]["matching"] == 3997
+    baseline_matching = sum(row["matches"]["bf16_student"] for row in prompt_rows)
+    assert baseline_matching == 3997
     print("BF16 control 3997/4125 reproduced", flush=True)
 
     with safe_open(str(source_path), framework="pt", device="cpu") as source, \
