@@ -1023,6 +1023,15 @@ is rejected before the METH-146 untouched quality audit. Attribute
 raw, repeated-template and variable-chat traffic separately before a
 new template-aware training/routing experiment; quality-valid 10×
 learned capacity remains open.
+[METH-147](METH_147_TEMPLATE_ROUTE_ATTRIBUTION_RESULT_20260928.md)
+locates much of the failed hash traffic in repeated chat structure.
+The identical 55-token prefix reaches 100% worst within-parent share,
+while raw windows stay at or below 17.73%. Chat positions after 55
+still reach 96.58% because they include repeated delimiter and prompt
+scaffolding. The final-bank replay is close to, but not identical to,
+the saved changing-weight training histogram. Separate structure
+from answer continuations before freezing a new routing/training gate;
+METH-145 remains rejected and METH-146 remains unopened.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

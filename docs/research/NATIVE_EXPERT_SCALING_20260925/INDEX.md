@@ -1133,6 +1133,14 @@ scheduled.
   sequences have an identical 55-token prefix, a likely source of
   concentrated deterministic routes. Next: attribute load by input
   segment and repair the training/routing mechanism under a new gate.
+  [METH-147](METH_147_TEMPLATE_ROUTE_ATTRIBUTION_RESULT_20260928.md)
+  replays that rejected final bank on the same draws. Raw traffic has
+  worst hot-parent share 17.73%, the identical 55-token chat prefix
+  reaches 100%, and the nominally variable chat remainder still
+  reaches 96.58%. Repeated assistant/prompt scaffolding remains after
+  position 55. Next: separate prompt structure from answer continuation
+  and design a structural/shared route or different training mixture;
+  total CPU traffic must still be counted. METH-145 stays rejected.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
