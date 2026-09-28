@@ -950,6 +950,17 @@ conditional load while preserving trainable specialization and the
 METH-135 CPU routing cost; relaxing the failed threshold cannot promote
 the existing bank. The preregistered METH-137 external quality test
 remains unopened for METH-136.
+[METH-139](METH_139_QUANTILE_THIRD_ROUTER_RESULT_20260928.md)
+tries conditional scalar deciles for each source child, with thresholds
+fitted on only the first half of the fixed training draws. The
+versioned 3.86 MB sidecar preserves exact cloned full-model BF16
+logits and selects at least 7,299 slots per layer on the remaining
+half. Two frozen load gates fail narrowly in separate layers: 1.311×
+candidate/control worst-layer skew exceeds 1.25×, and 26.94% hot
+parent share exceeds 25%. This is evidence that data-calibrated
+partitions can sharply reduce the METH-138 hotspots but not a passed
+router or learned E12800 quality. More calibration and source-held-out
+routing validation require a new preregistered experiment.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

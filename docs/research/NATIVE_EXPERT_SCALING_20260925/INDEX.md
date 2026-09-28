@@ -19,6 +19,9 @@ failed the frozen route-load gate. METH-138 finds 287.349× maximum/mean
 slot load on final-state replay versus 56.417× for the control: the
 untrained third-tier keys amplify parent hotspots. The prepared
 METH-137 external quality audit was not run on this rejected bank.
+METH-139's conditional-decile replacement improves the load screen
+but fails two frozen validation gates; a quality-tested E12800 rung
+remains open.
 The quality-valid compact donor core, native same-artifact >=50
 accepted-token/s, CPU LUT factor cost at E12800, and 10B/100B transfer
 remain open. The earlier 539.955 MB BF16-attention/R8-head+FFN core
@@ -1054,6 +1057,16 @@ scheduled.
   This replay is not the exact changing-weight training histogram.
   Next: register a traffic-aware third-tier allocation/selection rule,
   keep CPU routing affordable, then retrain and audit on new sources.
+  [METH-139](METH_139_QUANTILE_THIRD_ROUTER_RESULT_20260928.md)
+  replaces seeded grandchild argmax with child-specific decile
+  thresholds fitted on the first 128 training draws and screened on
+  the last 128. Exact cloned full-model BF16 parity and coverage pass;
+  the 3.86 MB sidecar is read back exactly. Its worst candidate/control
+  load ratio is 1.311× in one layer versus the frozen <=1.25× gate,
+  and one other layer has 26.94% share versus <=25%. This screen fails;
+  no new E12800 training or quality promotion follows. Next: freeze a
+  broader training-only calibration and genuinely source-held-out
+  routing screen before a new training rung. CPU cost remains open.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

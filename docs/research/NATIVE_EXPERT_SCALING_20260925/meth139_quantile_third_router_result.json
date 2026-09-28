@@ -1,0 +1,1604 @@
+{
+  "experiment": "METH-139-quantile-third-tier-routing-screen",
+  "source_bank_sha256": "1d9071456a644344d46203ad7ded8fe2c4d01ca0580b5e41718366783408aff1",
+  "third_projection_source_sha256": "692db3dd1a647debb051ef66612263b5e16ef27c73978e9abd3beb6b3229abc9",
+  "child_checkpoint_sha256": "15a14b8476936e83cf91a479b05f8d8e83f4ffd094186f3d4dfededdb138d520",
+  "raw_data_sha256": "0cdaa28f405c3a8c6a8589af8e88788b33131bc7d4f1096da6c1fedf78caa9d9",
+  "train_chat_sha256": "17921cb83c1d10793e2a56df6aa899039bd794757eeff43921068b8de2096055",
+  "long_teacher_sha256": "7518981afb36e98a63a861320ffd9fe3b5d15a7c20365cef765c669ece4e1e01",
+  "calibration_updates": [
+    1,
+    128
+  ],
+  "validation_updates": [
+    129,
+    256
+  ],
+  "projection_dimension_rule": "child_id % 32",
+  "quantile_method": "numpy linear 10..90%, float32 thresholds, >= tie to right",
+  "calibration_by_layer": [
+    {
+      "selected": 173052,
+      "covered_children": 1133,
+      "fallback_children": 533
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1222,
+      "fallback_children": 401
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1258,
+      "fallback_children": 222
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1241,
+      "fallback_children": 243
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1230,
+      "fallback_children": 329
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1177,
+      "fallback_children": 426
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1260,
+      "fallback_children": 228
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1270,
+      "fallback_children": 187
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1214,
+      "fallback_children": 357
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1253,
+      "fallback_children": 222
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1266,
+      "fallback_children": 206
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1250,
+      "fallback_children": 211
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1229,
+      "fallback_children": 320
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1208,
+      "fallback_children": 311
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1236,
+      "fallback_children": 348
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1184,
+      "fallback_children": 424
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1231,
+      "fallback_children": 345
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1124,
+      "fallback_children": 482
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1219,
+      "fallback_children": 329
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1192,
+      "fallback_children": 428
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1234,
+      "fallback_children": 359
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1251,
+      "fallback_children": 299
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1270,
+      "fallback_children": 145
+    },
+    {
+      "selected": 173052,
+      "covered_children": 1264,
+      "fallback_children": 208
+    }
+  ],
+  "validation_by_layer": [
+    {
+      "layer": 0,
+      "control": {
+        "coverage": 1143,
+        "selections": 173376,
+        "max_to_mean": 44.673311184939095,
+        "top_five": [
+          {
+            "slot": 153,
+            "selections": 6051
+          },
+          {
+            "slot": 441,
+            "selections": 4295
+          },
+          {
+            "slot": 449,
+            "selections": 4201
+          },
+          {
+            "slot": 122,
+            "selections": 4102
+          },
+          {
+            "slot": 41,
+            "selections": 4056
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 7299,
+        "selections": 173376,
+        "max_to_mean": 49.464747139165745,
+        "top_five": [
+          {
+            "slot": 1536,
+            "selections": 670
+          },
+          {
+            "slot": 1534,
+            "selections": 649
+          },
+          {
+            "slot": 1532,
+            "selections": 636
+          },
+          {
+            "slot": 1535,
+            "selections": 624
+          },
+          {
+            "slot": 1538,
+            "selections": 614
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.1072549991736902,
+      "hot_parent_count": 74,
+      "hot_parent_worst_grandchild_share": 0.26936619718309857
+    },
+    {
+      "layer": 1,
+      "control": {
+        "coverage": 1236,
+        "selections": 173376,
+        "max_to_mean": 55.96899224806202,
+        "top_five": [
+          {
+            "slot": 297,
+            "selections": 7581
+          },
+          {
+            "slot": 184,
+            "selections": 6827
+          },
+          {
+            "slot": 295,
+            "selections": 3288
+          },
+          {
+            "slot": 189,
+            "selections": 3149
+          },
+          {
+            "slot": 349,
+            "selections": 3123
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 8788,
+        "selections": 173376,
+        "max_to_mean": 59.726836471022516,
+        "top_five": [
+          {
+            "slot": 2970,
+            "selections": 809
+          },
+          {
+            "slot": 2975,
+            "selections": 779
+          },
+          {
+            "slot": 2974,
+            "selections": 778
+          },
+          {
+            "slot": 1844,
+            "selections": 771
+          },
+          {
+            "slot": 2976,
+            "selections": 768
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.0671415380556653,
+      "hot_parent_count": 82,
+      "hot_parent_worst_grandchild_share": 0.1607898448519041
+    },
+    {
+      "layer": 2,
+      "control": {
+        "coverage": 1264,
+        "selections": 173376,
+        "max_to_mean": 20.369139904023626,
+        "top_five": [
+          {
+            "slot": 1225,
+            "selections": 2759
+          },
+          {
+            "slot": 418,
+            "selections": 2542
+          },
+          {
+            "slot": 424,
+            "selections": 1310
+          },
+          {
+            "slot": 1162,
+            "selections": 1289
+          },
+          {
+            "slot": 736,
+            "selections": 1223
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 10348,
+        "selections": 173376,
+        "max_to_mean": 22.812846068660022,
+        "top_five": [
+          {
+            "slot": 12254,
+            "selections": 309
+          },
+          {
+            "slot": 12253,
+            "selections": 302
+          },
+          {
+            "slot": 12256,
+            "selections": 296
+          },
+          {
+            "slot": 4189,
+            "selections": 295
+          },
+          {
+            "slot": 4185,
+            "selections": 288
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.1199710039869517,
+      "hot_parent_count": 78,
+      "hot_parent_worst_grandchild_share": 0.17647058823529413
+    },
+    {
+      "layer": 3,
+      "control": {
+        "coverage": 1245,
+        "selections": 173376,
+        "max_to_mean": 38.27242524916944,
+        "top_five": [
+          {
+            "slot": 931,
+            "selections": 5184
+          },
+          {
+            "slot": 771,
+            "selections": 2994
+          },
+          {
+            "slot": 775,
+            "selections": 2557
+          },
+          {
+            "slot": 779,
+            "selections": 2362
+          },
+          {
+            "slot": 778,
+            "selections": 2005
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 10038,
+        "selections": 173376,
+        "max_to_mean": 42.59874492432632,
+        "top_five": [
+          {
+            "slot": 9315,
+            "selections": 577
+          },
+          {
+            "slot": 9313,
+            "selections": 575
+          },
+          {
+            "slot": 9319,
+            "selections": 557
+          },
+          {
+            "slot": 9314,
+            "selections": 512
+          },
+          {
+            "slot": 9310,
+            "selections": 510
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.11304012345679,
+      "hot_parent_count": 77,
+      "hot_parent_worst_grandchild_share": 0.16356877323420074
+    },
+    {
+      "layer": 4,
+      "control": {
+        "coverage": 1235,
+        "selections": 173376,
+        "max_to_mean": 28.49760059062385,
+        "top_five": [
+          {
+            "slot": 292,
+            "selections": 3860
+          },
+          {
+            "slot": 294,
+            "selections": 3123
+          },
+          {
+            "slot": 186,
+            "selections": 3034
+          },
+          {
+            "slot": 296,
+            "selections": 2943
+          },
+          {
+            "slot": 457,
+            "selections": 2779
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 9321,
+        "selections": 173376,
+        "max_to_mean": 30.63861203396087,
+        "top_five": [
+          {
+            "slot": 2920,
+            "selections": 415
+          },
+          {
+            "slot": 2924,
+            "selections": 411
+          },
+          {
+            "slot": 2921,
+            "selections": 408
+          },
+          {
+            "slot": 2923,
+            "selections": 390
+          },
+          {
+            "slot": 2925,
+            "selections": 383
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.0751295336787563,
+      "hot_parent_count": 81,
+      "hot_parent_worst_grandchild_share": 0.19895287958115182
+    },
+    {
+      "layer": 5,
+      "control": {
+        "coverage": 1178,
+        "selections": 173376,
+        "max_to_mean": 37.7999261720192,
+        "top_five": [
+          {
+            "slot": 1212,
+            "selections": 5120
+          },
+          {
+            "slot": 928,
+            "selections": 3506
+          },
+          {
+            "slot": 891,
+            "selections": 3293
+          },
+          {
+            "slot": 434,
+            "selections": 2866
+          },
+          {
+            "slot": 913,
+            "selections": 2672
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 8560,
+        "selections": 173376,
+        "max_to_mean": 40.60538944259874,
+        "top_five": [
+          {
+            "slot": 12125,
+            "selections": 550
+          },
+          {
+            "slot": 12122,
+            "selections": 539
+          },
+          {
+            "slot": 12120,
+            "selections": 530
+          },
+          {
+            "slot": 12123,
+            "selections": 519
+          },
+          {
+            "slot": 12121,
+            "selections": 519
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.0742187499999998,
+      "hot_parent_count": 81,
+      "hot_parent_worst_grandchild_share": 0.1794871794871795
+    },
+    {
+      "layer": 6,
+      "control": {
+        "coverage": 1268,
+        "selections": 173376,
+        "max_to_mean": 22.340346991509783,
+        "top_five": [
+          {
+            "slot": 251,
+            "selections": 3026
+          },
+          {
+            "slot": 1209,
+            "selections": 2721
+          },
+          {
+            "slot": 1052,
+            "selections": 2497
+          },
+          {
+            "slot": 725,
+            "selections": 2125
+          },
+          {
+            "slot": 246,
+            "selections": 1962
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 10375,
+        "selections": 173376,
+        "max_to_mean": 23.84643779992617,
+        "top_five": [
+          {
+            "slot": 12093,
+            "selections": 323
+          },
+          {
+            "slot": 2513,
+            "selections": 321
+          },
+          {
+            "slot": 2519,
+            "selections": 310
+          },
+          {
+            "slot": 10527,
+            "selections": 310
+          },
+          {
+            "slot": 2516,
+            "selections": 308
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.0674157303370786,
+      "hot_parent_count": 74,
+      "hot_parent_worst_grandchild_share": 0.21956087824351297
+    },
+    {
+      "layer": 7,
+      "control": {
+        "coverage": 1268,
+        "selections": 173376,
+        "max_to_mean": 19.128829826504248,
+        "top_five": [
+          {
+            "slot": 137,
+            "selections": 2591
+          },
+          {
+            "slot": 777,
+            "selections": 2041
+          },
+          {
+            "slot": 57,
+            "selections": 1870
+          },
+          {
+            "slot": 404,
+            "selections": 1532
+          },
+          {
+            "slot": 617,
+            "selections": 1532
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 10542,
+        "selections": 173376,
+        "max_to_mean": 22.369878183831673,
+        "top_five": [
+          {
+            "slot": 1373,
+            "selections": 303
+          },
+          {
+            "slot": 1370,
+            "selections": 298
+          },
+          {
+            "slot": 1374,
+            "selections": 292
+          },
+          {
+            "slot": 1379,
+            "selections": 260
+          },
+          {
+            "slot": 1377,
+            "selections": 259
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.1694326514859126,
+      "hot_parent_count": 77,
+      "hot_parent_worst_grandchild_share": 0.18518518518518517
+    },
+    {
+      "layer": 8,
+      "control": {
+        "coverage": 1221,
+        "selections": 173376,
+        "max_to_mean": 21.12218530823182,
+        "top_five": [
+          {
+            "slot": 953,
+            "selections": 2861
+          },
+          {
+            "slot": 1230,
+            "selections": 1940
+          },
+          {
+            "slot": 941,
+            "selections": 1780
+          },
+          {
+            "slot": 919,
+            "selections": 1718
+          },
+          {
+            "slot": 137,
+            "selections": 1645
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 9323,
+        "selections": 173376,
+        "max_to_mean": 23.55112587670727,
+        "top_five": [
+          {
+            "slot": 9538,
+            "selections": 319
+          },
+          {
+            "slot": 9533,
+            "selections": 312
+          },
+          {
+            "slot": 9536,
+            "selections": 307
+          },
+          {
+            "slot": 9535,
+            "selections": 299
+          },
+          {
+            "slot": 9534,
+            "selections": 298
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.1149947570779446,
+      "hot_parent_count": 88,
+      "hot_parent_worst_grandchild_share": 0.1931407942238267
+    },
+    {
+      "layer": 9,
+      "control": {
+        "coverage": 1264,
+        "selections": 173376,
+        "max_to_mean": 26.371354743447768,
+        "top_five": [
+          {
+            "slot": 897,
+            "selections": 3572
+          },
+          {
+            "slot": 955,
+            "selections": 2802
+          },
+          {
+            "slot": 314,
+            "selections": 2719
+          },
+          {
+            "slot": 257,
+            "selections": 2485
+          },
+          {
+            "slot": 312,
+            "selections": 2327
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 10292,
+        "selections": 173376,
+        "max_to_mean": 29.531192321889996,
+        "top_five": [
+          {
+            "slot": 8979,
+            "selections": 400
+          },
+          {
+            "slot": 8971,
+            "selections": 392
+          },
+          {
+            "slot": 8975,
+            "selections": 377
+          },
+          {
+            "slot": 8977,
+            "selections": 375
+          },
+          {
+            "slot": 8973,
+            "selections": 364
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.1198208286674132,
+      "hot_parent_count": 77,
+      "hot_parent_worst_grandchild_share": 0.17787742899850523
+    },
+    {
+      "layer": 10,
+      "control": {
+        "coverage": 1264,
+        "selections": 173376,
+        "max_to_mean": 19.276485788113696,
+        "top_five": [
+          {
+            "slot": 671,
+            "selections": 2611
+          },
+          {
+            "slot": 641,
+            "selections": 1933
+          },
+          {
+            "slot": 1140,
+            "selections": 1835
+          },
+          {
+            "slot": 752,
+            "selections": 1464
+          },
+          {
+            "slot": 242,
+            "selections": 1423
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 10486,
+        "selections": 173376,
+        "max_to_mean": 21.262458471760798,
+        "top_five": [
+          {
+            "slot": 6717,
+            "selections": 288
+          },
+          {
+            "slot": 6711,
+            "selections": 285
+          },
+          {
+            "slot": 6710,
+            "selections": 283
+          },
+          {
+            "slot": 6712,
+            "selections": 277
+          },
+          {
+            "slot": 6713,
+            "selections": 262
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.1030256606664113,
+      "hot_parent_count": 71,
+      "hot_parent_worst_grandchild_share": 0.18023255813953487
+    },
+    {
+      "layer": 11,
+      "control": {
+        "coverage": 1253,
+        "selections": 173376,
+        "max_to_mean": 16.825396825396826,
+        "top_five": [
+          {
+            "slot": 34,
+            "selections": 2279
+          },
+          {
+            "slot": 56,
+            "selections": 2006
+          },
+          {
+            "slot": 853,
+            "selections": 1940
+          },
+          {
+            "slot": 52,
+            "selections": 1924
+          },
+          {
+            "slot": 748,
+            "selections": 1498
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 10569,
+        "selections": 173376,
+        "max_to_mean": 19.342930970837948,
+        "top_five": [
+          {
+            "slot": 342,
+            "selections": 262
+          },
+          {
+            "slot": 343,
+            "selections": 255
+          },
+          {
+            "slot": 348,
+            "selections": 251
+          },
+          {
+            "slot": 347,
+            "selections": 239
+          },
+          {
+            "slot": 8539,
+            "selections": 239
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.149627029398859,
+      "hot_parent_count": 74,
+      "hot_parent_worst_grandchild_share": 0.17450980392156862
+    },
+    {
+      "layer": 12,
+      "control": {
+        "coverage": 1229,
+        "selections": 173376,
+        "max_to_mean": 19.01808785529716,
+        "top_five": [
+          {
+            "slot": 559,
+            "selections": 2576
+          },
+          {
+            "slot": 213,
+            "selections": 2451
+          },
+          {
+            "slot": 531,
+            "selections": 2364
+          },
+          {
+            "slot": 635,
+            "selections": 2099
+          },
+          {
+            "slot": 539,
+            "selections": 1809
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 9603,
+        "selections": 173376,
+        "max_to_mean": 20.59800664451827,
+        "top_five": [
+          {
+            "slot": 5595,
+            "selections": 279
+          },
+          {
+            "slot": 5592,
+            "selections": 279
+          },
+          {
+            "slot": 2131,
+            "selections": 278
+          },
+          {
+            "slot": 5593,
+            "selections": 278
+          },
+          {
+            "slot": 5599,
+            "selections": 270
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.0830745341614905,
+      "hot_parent_count": 75,
+      "hot_parent_worst_grandchild_share": 0.18
+    },
+    {
+      "layer": 13,
+      "control": {
+        "coverage": 1219,
+        "selections": 173376,
+        "max_to_mean": 19.630860095976377,
+        "top_five": [
+          {
+            "slot": 731,
+            "selections": 2659
+          },
+          {
+            "slot": 91,
+            "selections": 2322
+          },
+          {
+            "slot": 720,
+            "selections": 1993
+          },
+          {
+            "slot": 81,
+            "selections": 1800
+          },
+          {
+            "slot": 724,
+            "selections": 1782
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 9592,
+        "selections": 173376,
+        "max_to_mean": 22.296050203026947,
+        "top_five": [
+          {
+            "slot": 7318,
+            "selections": 302
+          },
+          {
+            "slot": 7319,
+            "selections": 291
+          },
+          {
+            "slot": 7315,
+            "selections": 274
+          },
+          {
+            "slot": 7312,
+            "selections": 269
+          },
+          {
+            "slot": 918,
+            "selections": 265
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.1357653253102669,
+      "hot_parent_count": 75,
+      "hot_parent_worst_grandchild_share": 0.17407407407407408
+    },
+    {
+      "layer": 14,
+      "control": {
+        "coverage": 1224,
+        "selections": 173376,
+        "max_to_mean": 22.7390180878553,
+        "top_five": [
+          {
+            "slot": 901,
+            "selections": 3080
+          },
+          {
+            "slot": 580,
+            "selections": 2994
+          },
+          {
+            "slot": 884,
+            "selections": 2217
+          },
+          {
+            "slot": 850,
+            "selections": 2044
+          },
+          {
+            "slot": 510,
+            "selections": 1932
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 9546,
+        "selections": 173376,
+        "max_to_mean": 24.8062015503876,
+        "top_five": [
+          {
+            "slot": 9013,
+            "selections": 336
+          },
+          {
+            "slot": 5806,
+            "selections": 321
+          },
+          {
+            "slot": 5809,
+            "selections": 319
+          },
+          {
+            "slot": 5808,
+            "selections": 317
+          },
+          {
+            "slot": 9010,
+            "selections": 315
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.0909090909090908,
+      "hot_parent_count": 80,
+      "hot_parent_worst_grandchild_share": 0.16010165184243966
+    },
+    {
+      "layer": 15,
+      "control": {
+        "coverage": 1199,
+        "selections": 173376,
+        "max_to_mean": 25.52233296419343,
+        "top_five": [
+          {
+            "slot": 472,
+            "selections": 3457
+          },
+          {
+            "slot": 351,
+            "selections": 2818
+          },
+          {
+            "slot": 1119,
+            "selections": 2709
+          },
+          {
+            "slot": 920,
+            "selections": 2477
+          },
+          {
+            "slot": 1016,
+            "selections": 2451
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 8758,
+        "selections": 173376,
+        "max_to_mean": 27.980804724990772,
+        "top_five": [
+          {
+            "slot": 4726,
+            "selections": 379
+          },
+          {
+            "slot": 4729,
+            "selections": 378
+          },
+          {
+            "slot": 4727,
+            "selections": 363
+          },
+          {
+            "slot": 11191,
+            "selections": 355
+          },
+          {
+            "slot": 4728,
+            "selections": 354
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.0963262944749783,
+      "hot_parent_count": 94,
+      "hot_parent_worst_grandchild_share": 0.16896551724137931
+    },
+    {
+      "layer": 16,
+      "control": {
+        "coverage": 1225,
+        "selections": 173376,
+        "max_to_mean": 26.363971945367297,
+        "top_five": [
+          {
+            "slot": 437,
+            "selections": 3571
+          },
+          {
+            "slot": 252,
+            "selections": 2671
+          },
+          {
+            "slot": 251,
+            "selections": 2518
+          },
+          {
+            "slot": 191,
+            "selections": 2470
+          },
+          {
+            "slot": 161,
+            "selections": 2392
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 9405,
+        "selections": 173376,
+        "max_to_mean": 28.276116648209673,
+        "top_five": [
+          {
+            "slot": 4376,
+            "selections": 383
+          },
+          {
+            "slot": 4377,
+            "selections": 375
+          },
+          {
+            "slot": 4370,
+            "selections": 371
+          },
+          {
+            "slot": 4374,
+            "selections": 364
+          },
+          {
+            "slot": 4375,
+            "selections": 356
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.0725287034444133,
+      "hot_parent_count": 81,
+      "hot_parent_worst_grandchild_share": 0.1594488188976378
+    },
+    {
+      "layer": 17,
+      "control": {
+        "coverage": 1140,
+        "selections": 173376,
+        "max_to_mean": 57.00996677740864,
+        "top_five": [
+          {
+            "slot": 983,
+            "selections": 7722
+          },
+          {
+            "slot": 188,
+            "selections": 5277
+          },
+          {
+            "slot": 1143,
+            "selections": 3939
+          },
+          {
+            "slot": 594,
+            "selections": 3836
+          },
+          {
+            "slot": 509,
+            "selections": 3236
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 8093,
+        "selections": 173376,
+        "max_to_mean": 61.20339608711702,
+        "top_five": [
+          {
+            "slot": 9835,
+            "selections": 829
+          },
+          {
+            "slot": 9839,
+            "selections": 807
+          },
+          {
+            "slot": 9837,
+            "selections": 801
+          },
+          {
+            "slot": 9833,
+            "selections": 790
+          },
+          {
+            "slot": 9838,
+            "selections": 781
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.0735560735560736,
+      "hot_parent_count": 79,
+      "hot_parent_worst_grandchild_share": 0.17805755395683454
+    },
+    {
+      "layer": 18,
+      "control": {
+        "coverage": 1213,
+        "selections": 173376,
+        "max_to_mean": 37.21668512366187,
+        "top_five": [
+          {
+            "slot": 910,
+            "selections": 5041
+          },
+          {
+            "slot": 997,
+            "selections": 2080
+          },
+          {
+            "slot": 820,
+            "selections": 1890
+          },
+          {
+            "slot": 964,
+            "selections": 1762
+          },
+          {
+            "slot": 1107,
+            "selections": 1733
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 9326,
+        "selections": 173376,
+        "max_to_mean": 43.04171280915467,
+        "top_five": [
+          {
+            "slot": 9100,
+            "selections": 583
+          },
+          {
+            "slot": 9101,
+            "selections": 525
+          },
+          {
+            "slot": 9106,
+            "selections": 524
+          },
+          {
+            "slot": 9102,
+            "selections": 523
+          },
+          {
+            "slot": 9105,
+            "selections": 521
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.156516564173775,
+      "hot_parent_count": 79,
+      "hot_parent_worst_grandchild_share": 0.17984496124031008
+    },
+    {
+      "layer": 19,
+      "control": {
+        "coverage": 1207,
+        "selections": 173376,
+        "max_to_mean": 43.14507198228129,
+        "top_five": [
+          {
+            "slot": 355,
+            "selections": 5844
+          },
+          {
+            "slot": 338,
+            "selections": 5615
+          },
+          {
+            "slot": 679,
+            "selections": 4025
+          },
+          {
+            "slot": 676,
+            "selections": 2851
+          },
+          {
+            "slot": 353,
+            "selections": 2445
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 8733,
+        "selections": 173376,
+        "max_to_mean": 47.02842377260982,
+        "top_five": [
+          {
+            "slot": 3554,
+            "selections": 637
+          },
+          {
+            "slot": 3552,
+            "selections": 634
+          },
+          {
+            "slot": 3380,
+            "selections": 621
+          },
+          {
+            "slot": 3558,
+            "selections": 617
+          },
+          {
+            "slot": 3550,
+            "selections": 613
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.0900068446269677,
+      "hot_parent_count": 78,
+      "hot_parent_worst_grandchild_share": 0.175
+    },
+    {
+      "layer": 20,
+      "control": {
+        "coverage": 1234,
+        "selections": 173376,
+        "max_to_mean": 33.54743447766704,
+        "top_five": [
+          {
+            "slot": 213,
+            "selections": 4544
+          },
+          {
+            "slot": 215,
+            "selections": 2640
+          },
+          {
+            "slot": 277,
+            "selections": 2351
+          },
+          {
+            "slot": 317,
+            "selections": 2305
+          },
+          {
+            "slot": 185,
+            "selections": 2207
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 9124,
+        "selections": 173376,
+        "max_to_mean": 36.32336655592469,
+        "top_five": [
+          {
+            "slot": 2131,
+            "selections": 492
+          },
+          {
+            "slot": 2133,
+            "selections": 470
+          },
+          {
+            "slot": 2135,
+            "selections": 466
+          },
+          {
+            "slot": 2136,
+            "selections": 462
+          },
+          {
+            "slot": 2139,
+            "selections": 457
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.0827464788732393,
+      "hot_parent_count": 86,
+      "hot_parent_worst_grandchild_share": 0.1977124183006536
+    },
+    {
+      "layer": 21,
+      "control": {
+        "coverage": 1257,
+        "selections": 173376,
+        "max_to_mean": 31.435954226651905,
+        "top_five": [
+          {
+            "slot": 72,
+            "selections": 4258
+          },
+          {
+            "slot": 718,
+            "selections": 3755
+          },
+          {
+            "slot": 76,
+            "selections": 3061
+          },
+          {
+            "slot": 414,
+            "selections": 2667
+          },
+          {
+            "slot": 410,
+            "selections": 2552
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 9589,
+        "selections": 173376,
+        "max_to_mean": 38.685861941675896,
+        "top_five": [
+          {
+            "slot": 729,
+            "selections": 524
+          },
+          {
+            "slot": 728,
+            "selections": 498
+          },
+          {
+            "slot": 7181,
+            "selections": 464
+          },
+          {
+            "slot": 727,
+            "selections": 449
+          },
+          {
+            "slot": 7182,
+            "selections": 443
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.2306247064349458,
+      "hot_parent_count": 69,
+      "hot_parent_worst_grandchild_share": 0.1811175337186898
+    },
+    {
+      "layer": 22,
+      "control": {
+        "coverage": 1268,
+        "selections": 173376,
+        "max_to_mean": 21.867847914359544,
+        "top_five": [
+          {
+            "slot": 269,
+            "selections": 2962
+          },
+          {
+            "slot": 265,
+            "selections": 1556
+          },
+          {
+            "slot": 178,
+            "selections": 1554
+          },
+          {
+            "slot": 428,
+            "selections": 1441
+          },
+          {
+            "slot": 179,
+            "selections": 1349
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 10897,
+        "selections": 173376,
+        "max_to_mean": 25.544481358434847,
+        "top_five": [
+          {
+            "slot": 2691,
+            "selections": 346
+          },
+          {
+            "slot": 2690,
+            "selections": 310
+          },
+          {
+            "slot": 2695,
+            "selections": 302
+          },
+          {
+            "slot": 2698,
+            "selections": 301
+          },
+          {
+            "slot": 2693,
+            "selections": 300
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.1681296421336933,
+      "hot_parent_count": 66,
+      "hot_parent_worst_grandchild_share": 0.18217821782178217
+    },
+    {
+      "layer": 23,
+      "control": {
+        "coverage": 1264,
+        "selections": 173376,
+        "max_to_mean": 24.488741232927282,
+        "top_five": [
+          {
+            "slot": 530,
+            "selections": 3317
+          },
+          {
+            "slot": 213,
+            "selections": 2577
+          },
+          {
+            "slot": 214,
+            "selections": 2328
+          },
+          {
+            "slot": 537,
+            "selections": 2207
+          },
+          {
+            "slot": 504,
+            "selections": 1984
+          }
+        ]
+      },
+      "candidate": {
+        "coverage": 10193,
+        "selections": 173376,
+        "max_to_mean": 32.11517165005537,
+        "top_five": [
+          {
+            "slot": 5309,
+            "selections": 435
+          },
+          {
+            "slot": 5306,
+            "selections": 373
+          },
+          {
+            "slot": 5308,
+            "selections": 363
+          },
+          {
+            "slot": 5303,
+            "selections": 342
+          },
+          {
+            "slot": 2136,
+            "selections": 330
+          }
+        ]
+      },
+      "candidate_to_control_max_load_ratio": 1.311425987337956,
+      "hot_parent_count": 79,
+      "hot_parent_worst_grandchild_share": 0.17986798679867988
+    }
+  ],
+  "sidecar": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth139_quantile_third_router.bin",
+    "bytes": 3858464,
+    "sha256": "967d69ae867e15da804d1e7c244bc514b9c44efb95b71926c55222ca7adf8206",
+    "readback_exact": true
+  },
+  "parity_prompts": 8,
+  "parity_logit_max_abs_error": 0.0,
+  "gates": {
+    "full_model_clone_parity": true,
+    "all_layers_load_ratio": false,
+    "all_layers_coverage": true,
+    "hot_parent_share": false
+  },
+  "decision": "routing_screen_fail",
+  "runtime": {
+    "seconds": 104.56199999999808,
+    "rss_bytes": 8462127104,
+    "gpu_peak_allocated_bytes": 3115683840,
+    "gpu": "NVIDIA GeForce RTX 3060"
+  }
+}
