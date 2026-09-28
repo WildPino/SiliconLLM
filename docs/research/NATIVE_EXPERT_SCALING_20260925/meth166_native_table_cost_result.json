@@ -1,0 +1,247 @@
+{
+  "experiment": "METH-166-native-138-tuple-route-cost",
+  "protocol": "METH_166_NATIVE_TABLE_COST_PROTOCOL_20260928.md",
+  "fixture_report_sha256": "9d9d0311b8fc33f9e458516c71ec6dfe3736612db32011cdca1c401e9fe10145",
+  "source_sha256": "21ce0296e3a56a50c28306adb3637188f0c9aed58ef2e165183ed83aa18c6b67",
+  "executable_sha256": "02eecee7a7882fa1e2374983546bbc93ab4fbb7af3c8e60bc5adc17c823d1cbd",
+  "input_sha256": {
+    "exact_bank": "1d9071456a644344d46203ad7ded8fe2c4d01ca0580b5e41718366783408aff1",
+    "vectors": "f7af00b4b4ce417664848950770f63b78520ca3c983748a692640704c203b699",
+    "old_table": "926362655bcc71bf7bd1ceee944e56ba8f35ef124c8f60b6e0052d6525ddfc27",
+    "new_table": "e7a270e0e77fb2c7bca711a0932c24224dc7f6e060611cc3a942ed7593cf38d8",
+    "old_hit": "c211bde3459b3a1df27250ee0e785cde412cba07fb763aeb519281588f54a629",
+    "new_hit": "bc8658b854f9093a7795b186aee67b2e10138a7f041c077e98a5e28a3af94941",
+    "miss": "ecce0701d71201f9a48495adbc9814632c9f5b0929675a30daf2ffc92ac8682e"
+  },
+  "build_command": [
+    "clang",
+    "-O3",
+    "-mavx2",
+    "-mfma",
+    "-std=c11",
+    "-Wall",
+    "-Wextra",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\native_expert_scaling\\meth166_native_table_cost.c",
+    "-o",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth166_native_table_cost.exe",
+    "-lm",
+    "-lpsapi"
+  ],
+  "command": [
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth166_native_table_cost.exe",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth126_shared_a_factor_bank.bin",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth125_e1280_vectors.bin",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth151_shared_table.bin",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth166_shared_table.bin",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth151_context_hit.bin",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth166_context_new_hit.bin",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth151_context_miss.bin"
+  ],
+  "cpu": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+  "goldens": [
+    {
+      "cell": "old_hit",
+      "context": [
+        11,
+        16948,
+        7
+      ],
+      "old_grand": 890,
+      "new_grand": 890
+    },
+    {
+      "cell": "new_hit",
+      "context": [
+        11,
+        0,
+        0
+      ],
+      "old_grand": 893,
+      "new_grand": 890
+    },
+    {
+      "cell": "miss",
+      "context": [
+        2343,
+        0,
+        0
+      ],
+      "old_grand": 891,
+      "new_grand": 891
+    }
+  ],
+  "repetitions": [
+    {
+      "cell": "old_hit",
+      "rep": "0",
+      "old_ms": "2.561426562",
+      "new_ms": "2.587335156",
+      "old_faults": "0",
+      "new_faults": "0"
+    },
+    {
+      "cell": "old_hit",
+      "rep": "1",
+      "old_ms": "2.523160547",
+      "new_ms": "2.571680078",
+      "old_faults": "0",
+      "new_faults": "0"
+    },
+    {
+      "cell": "old_hit",
+      "rep": "2",
+      "old_ms": "2.500604297",
+      "new_ms": "2.483688672",
+      "old_faults": "0",
+      "new_faults": "0"
+    },
+    {
+      "cell": "old_hit",
+      "rep": "3",
+      "old_ms": "2.486916016",
+      "new_ms": "2.469880078",
+      "old_faults": "0",
+      "new_faults": "0"
+    },
+    {
+      "cell": "old_hit",
+      "rep": "4",
+      "old_ms": "2.498466016",
+      "new_ms": "2.492361328",
+      "old_faults": "0",
+      "new_faults": "0"
+    },
+    {
+      "cell": "new_hit",
+      "rep": "0",
+      "old_ms": "2.463418750",
+      "new_ms": "2.489861719",
+      "old_faults": "0",
+      "new_faults": "0"
+    },
+    {
+      "cell": "new_hit",
+      "rep": "1",
+      "old_ms": "2.492036719",
+      "new_ms": "2.490825781",
+      "old_faults": "0",
+      "new_faults": "0"
+    },
+    {
+      "cell": "new_hit",
+      "rep": "2",
+      "old_ms": "2.496816406",
+      "new_ms": "2.484472656",
+      "old_faults": "0",
+      "new_faults": "0"
+    },
+    {
+      "cell": "new_hit",
+      "rep": "3",
+      "old_ms": "2.490890625",
+      "new_ms": "2.481728516",
+      "old_faults": "0",
+      "new_faults": "0"
+    },
+    {
+      "cell": "new_hit",
+      "rep": "4",
+      "old_ms": "2.474394922",
+      "new_ms": "2.487032813",
+      "old_faults": "0",
+      "new_faults": "0"
+    },
+    {
+      "cell": "miss",
+      "rep": "0",
+      "old_ms": "2.498084766",
+      "new_ms": "2.484389062",
+      "old_faults": "0",
+      "new_faults": "0"
+    },
+    {
+      "cell": "miss",
+      "rep": "1",
+      "old_ms": "2.499166797",
+      "new_ms": "2.486205859",
+      "old_faults": "0",
+      "new_faults": "0"
+    },
+    {
+      "cell": "miss",
+      "rep": "2",
+      "old_ms": "2.517557812",
+      "new_ms": "2.475143750",
+      "old_faults": "0",
+      "new_faults": "0"
+    },
+    {
+      "cell": "miss",
+      "rep": "3",
+      "old_ms": "2.488577734",
+      "new_ms": "2.479780469",
+      "old_faults": "0",
+      "new_faults": "0"
+    },
+    {
+      "cell": "miss",
+      "rep": "4",
+      "old_ms": "2.479446094",
+      "new_ms": "2.492957422",
+      "old_faults": "0",
+      "new_faults": "0"
+    }
+  ],
+  "cells": [
+    {
+      "cell": "old_hit",
+      "tokens": "256",
+      "states": "6144",
+      "old_shared": "1",
+      "new_shared": "1",
+      "old_median_ms": "2.500604297",
+      "new_median_ms": "2.492361328",
+      "ratio": "0.996704",
+      "rss_bytes": "534659072",
+      "checksum": "429968959.312500000",
+      "gate": "PASS"
+    },
+    {
+      "cell": "new_hit",
+      "tokens": "256",
+      "states": "6144",
+      "old_shared": "0",
+      "new_shared": "1",
+      "old_median_ms": "2.490890625",
+      "new_median_ms": "2.487032813",
+      "ratio": "0.998451",
+      "rss_bytes": "534659072",
+      "checksum": "860123666.625000000",
+      "gate": "PASS"
+    },
+    {
+      "cell": "miss",
+      "tokens": "256",
+      "states": "6144",
+      "old_shared": "0",
+      "new_shared": "0",
+      "old_median_ms": "2.498084766",
+      "new_median_ms": "2.484389062",
+      "ratio": "0.994518",
+      "rss_bytes": "534659072",
+      "checksum": "1290462213.937500000",
+      "gate": "PASS"
+    }
+  ],
+  "summary": {
+    "cells": "3",
+    "old_table_bytes": "916",
+    "new_table_bytes": "1672",
+    "rss_bytes": "534659072",
+    "elapsed_seconds": "23.212526",
+    "checksum": "1290462213.937500000",
+    "gate": "PASS"
+  },
+  "log_sha256": "3190cddb5dac14c8a30f406a2b1bad9ccc95e9c8b3d2fd27781dc55233456757",
+  "decision": "native_table_cost_pass_quality_and_full_rate_open"
+}
