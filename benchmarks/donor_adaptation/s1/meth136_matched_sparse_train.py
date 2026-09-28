@@ -217,10 +217,16 @@ def make_wrappers(model, parent_state, child_state, source_a, source_b,
                                    source_b[li].to(torch.bfloat16))
             wrapper.router.requires_grad_(False)
         else:
-            cpu_bank = source_b[li].clone() if mode == "control" else (
-                source_b[li].repeat_interleave(10, dim=0).contiguous())
+            cpu_bank = (source_b[li].clone() if mode == "control" else
+                        torch.zeros((12800, M15.M13.D, M15.R), dtype=torch.float32)
+                        if mode == "factorized" else
+                        source_b[li].repeat_interleave(10, dim=0).contiguous())
             projection, keys = (third[li] if mode == "candidate" else (None, None))
-            if mode == "shared":
+            if mode == "factorized":
+                from meth155_factorized_shared_experts import FactorizedSharedExperts
+                wrapper = FactorizedSharedExperts(parent, li, cpu_bank,
+                                                  source_a[li], source_b[li].clone()).to(device)
+            elif mode == "shared":
                 from meth151_shared_sparse_experts import SharedStructureSparseExperts
                 wrapper = SharedStructureSparseExperts(parent, li, cpu_bank,
                                                        source_a[li]).to(device)
@@ -325,16 +331,21 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
     for wrapper in wrappers:
         wrapper.forward_B_transfer_bytes = 0
         wrapper.gather_calls = 0
-    optimizers = [SelectedRowAdam(bank) for bank in banks]
+    if name == "factorized":
+        from meth155_factorized_shared_experts import FactorizedSelectedRowAdam
+        optimizers = [FactorizedSelectedRowAdam(wrapper.base_bank, bank)
+                      for wrapper, bank in zip(wrappers, banks)]
+    else:
+        optimizers = [SelectedRowAdam(bank) for bank in banks]
     model.gradient_checkpointing_enable(
         gradient_checkpointing_kwargs={"use_reentrant": False})
     model.enable_input_require_grads()
     model.train()
     route_counts = [torch.zeros(bank.shape[0], dtype=torch.int64) for bank in banks]
     content_counts = ([torch.zeros_like(counts) for counts in route_counts]
-                      if name == "shared" else None)
+                      if name in ("shared", "factorized") else None)
     structural_counts = ([torch.zeros_like(counts) for counts in route_counts]
-                         if name == "shared" else None)
+                         if name in ("shared", "factorized") else None)
     records = []
     gradient_transfer_total = 0
     arm_started = time.monotonic()
@@ -361,12 +372,12 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
             kl_mask = torch.ones_like(targets, dtype=torch.float32)
             with torch.no_grad():
                 teacher_logits = teacher(inputs, use_cache=False).logits
-            if name in ("hash", "shared"):
+            if name in ("hash", "shared", "factorized"):
                 context_ids = inputs[0].detach().cpu().numpy()
                 for wrapper in wrappers:
                     wrapper.set_token_context(context_ids)
             student_logits = model(inputs, use_cache=False).logits
-            if name == "shared":
+            if name in ("shared", "factorized"):
                 # Capture changing-weight forward routes once, before checkpoint
                 # recomputation can replace the wrapper's last route fields.
                 for li, wrapper in enumerate(wrappers):
@@ -398,7 +409,9 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
             unique, gradient, transferred = collector.materialize()
             if not torch.isfinite(gradient).all():
                 raise FloatingPointError(f"nonfinite {name} gradient at {update} layer {li}")
-            squared_norm += float(torch.sum(gradient.double().square()))
+            squared_norm += (optimizers[li].prepare(unique, gradient)
+                             if name == "factorized" else
+                             float(torch.sum(gradient.double().square())))
             gathered.append((unique, gradient))
             gradient_transfer_total += transferred
             wrapper.collector = None
@@ -441,7 +454,7 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
                              for d in draws)
     assert all(total == expected_total for total in selected_total), selected_total
     content_summary = None
-    if name == "shared":
+    if name in ("shared", "factorized"):
         content_coverage = []
         content_load_ratio = []
         content_hot_share = []
@@ -473,8 +486,12 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
             "selections_by_layer": [int(x.sum()) for x in content_counts],
             "structural_route_counts_by_layer": [x.tolist() for x in structural_counts],
             "structural_selections_per_layer": structural_total[0]}
-    artifact = export_bank(artifact_path, banks, source_b,
-                           name in ("candidate", "hash", "shared"))
+    if name == "factorized":
+        from meth155_factorized_shared_experts import export_combined_bank
+        artifact = export_combined_bank(artifact_path, wrappers, source_b)
+    else:
+        artifact = export_bank(artifact_path, banks, source_b,
+                               name in ("candidate", "hash", "shared"))
     disk_bytes = artifact["bytes"]
     assert disk_bytes < MAX_DISK
     if name == "candidate":
@@ -495,13 +512,16 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
               "route_max_to_mean_by_layer": load_skew,
               "route_selections_by_layer": selected_total,
               "route_counts_by_layer": [x.tolist() for x in route_counts]
-                                       if name in ("hash", "shared") else None,
+                                       if name in ("hash", "shared", "factorized") else None,
               "content_route": content_summary,
               "hot_parent_worst_grandchild_share_by_layer": hot_parent_share,
               "expected_selections_per_layer": expected_total,
               "final_optimizer_rows_by_layer": [x.used for x in optimizers],
-              "final_moment_allocated_bytes": sum((x.m.numel() + x.v.numel()) * 4
-                                                 for x in optimizers),
+              "final_base_optimizer_rows_by_layer": [x.base_used for x in optimizers]
+                                                    if name == "factorized" else None,
+              "final_moment_allocated_bytes": sum(
+                  x.moment_allocated_bytes if name == "factorized" else
+                  (x.m.numel() + x.v.numel()) * 4 for x in optimizers),
               "forward_B_transfer_bytes": sum(w.forward_B_transfer_bytes for w in wrappers),
               "forward_B_gather_calls": sum(w.gather_calls for w in wrappers),
               "gradient_B_transfer_bytes": gradient_transfer_total,
