@@ -971,6 +971,16 @@ both manifests. More short-draw calibration does not establish
 generalizable expert use. A next method must account for long-context
 training-only states or change the router, then repeat a source-held-out
 load screen before spending on learned B or native LUT integration.
+[METH-141](METH_141_CONTEXT_DOMAIN_ROUTE_DIAGNOSTIC_RESULT_20260928.md)
+holds METH-140's rejected sidecar fixed and crosses H0 raw versus
+METH-121/133 document sources with 128- versus 512-token windows.
+Longer windows worsen mean layer load ratios within each source, and
+external sources worsen them at the same window length. Thus a
+single projected scalar with training-fit deciles is too sensitive
+to source and context distribution for the present expert ladder.
+The next router must first show robust, source-held-out load without
+losing exact clone parity, then pass native CPU cost and learned B
+quality gates.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

@@ -24,7 +24,10 @@ but fails two frozen validation gates; a quality-tested E12800 rung
 remains open. METH-140 fits those deciles on all training draws but
 fails source-held-out document load badly (up to 3.214× control skew
 and 88.09% within-parent share), so calibration generalization is a
-new blocking method question.
+new blocking method question. METH-141 holds that failed sidecar fixed
+and finds both source and context-length shifts worsen its routing
+load; a balance mechanism that generalizes across contexts is needed
+before another B run.
 The quality-valid compact donor core, native same-artifact >=50
 accepted-token/s, CPU LUT factor cost at E12800, and 10B/100B transfer
 remain open. The earlier 539.955 MB BF16-attention/R8-head+FFN core
@@ -1081,6 +1084,15 @@ scheduled.
   rejected before native CPU cost or B training. Next: address long
   context/source distribution shift with training-only calibration or
   a routing mechanism that generalizes without scalar deciles.
+  [METH-141](METH_141_CONTEXT_DOMAIN_ROUTE_DIAGNOSTIC_RESULT_20260928.md)
+  fixes METH-140's rejected sidecar and compares H0 raw versus
+  METH-121/133 documents at 128 and 512-token windows. Worst
+  candidate/control load ratios are 1.670/2.023× for H0,
+  2.798/3.198× for METH-121, and 2.823/3.214× for METH-133.
+  Both longer context and source shift increase imbalance; the
+  latter is visible even at 128 tokens. More samples from the same
+  short training mixture are not a sufficient repair. No quality
+  promotion or native CPU cost claim follows.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
