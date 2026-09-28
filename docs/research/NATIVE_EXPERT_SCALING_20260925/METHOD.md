@@ -811,25 +811,36 @@ semantic verdict finds 40 versus 33 unsupported and 15 versus 14
 severe claims. The joint quality gate fails. Lowering alpha on this
 viewed sequence would violate the frozen selection rule. The next
 large-E method must protect grounded technical details on new sources.
+[METH-118/120](METH_118_120_ZERO_MEAN_CHILD_DEVELOPMENT_RESULT_20260928.md)
+removes each ten-child B common mode while retaining the exact E128
+parent mean and more than 1,000 sibling-distinct slots per layer.
+Its selected-child BPB gain survives a matched no-child parity control,
+and fresh automatic and blind semantic development gates pass.
+[METH-121/123](METH_121_123_ZERO_MEAN_CHILD_EXTERNAL_RESULT_20260928.md)
+passes independently frozen external document, prompt, greedy-output,
+full PIQA and precommitted arm-blind semantic gates on new source books
+and fragments. The E1280 child choice improves pooled BPB by 0.000350
+versus E128 and lowers unsupported/severe excerpt claims from 31/12
+to 25/7. This is the current BF16 donor quality candidate. The
+mean-preserving transform is fixed; no alpha or route retuning on
+viewed sources is licensed.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
 large-E optimization. NES-03 provides a numerical/cost-passing int8 router
-option at pilot scale, with a fragile E128 latency margin. METH-99,
-METH-107 and the alpha=0.75 child calibration expose distinct E1280
-children but fail their joint semantic gates, and
-no pretrained donor has been converted into a
-quality-valid, ≥50 accepted tok/s native artifact. The next method step
-is finding a quality-preserving low-traffic Instruct core on separate
-development and external sources, then integrating
-it with the exported product-key E128 component in `engine.c`, then checking
-full-model route/logit parity and accepted-token throughput on the
-same bundle. METH-47 remains a separate exact-router candidate with
-its own semantic question. The subsequent expert-count ladder must prove
-useful distinct factors at each E on untouched semantics, measure route
-load and quality, and verify that the CPU router/LUT and full model remain
-affordable as E grows with RAM. The METH-54 synthetic 10× cost pass
-cannot stand in for this gate.
+option at pilot scale, with a fragile E128 latency margin. METH-123
+supplies a quality-valid BF16 E1280 factor bank, but no pretrained donor
+has been converted into a quality-valid, ≥50 accepted tok/s native
+artifact. The next method step is native centered-factor export and
+parity with varied-token CPU/LUT access, followed by a quality-preserving
+low-traffic Instruct core and integration in `engine.c`. Check full-model
+route/logit parity and accepted-token throughput on the same bundle.
+METH-47 remains a separate exact-router candidate with its own semantic
+question. The expert-count ladder must prove useful distinct factors
+at each E on untouched semantics, measure route load and quality, and
+verify that the CPU router/LUT and full model remain affordable as E
+grows with RAM. The METH-54 synthetic 10× cost pass cannot stand in
+for this gate.
 
 Operational experiment history, running processes and exact resumption point
 live in [INDEX.md](INDEX.md); this file changes when a method step is actually

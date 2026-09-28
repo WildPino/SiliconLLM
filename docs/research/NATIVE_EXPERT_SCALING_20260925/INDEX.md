@@ -897,11 +897,22 @@ scheduled.
   committed blind semantic verdict fails: E1280 has 40 versus 33
   unsupported claims and 15 versus 14 severe claims, with zero
   missing-detail answers in either arm. Do not promote alpha=0.75 or
-  lower alpha on the viewed METH-113/METH-115 sequence. Next exact
-  action: devise grounded technical-detail retention using fresh
-  development and external sources; separately audit learned E1280
-  factor-bank CPU/LUT access and full `engine.c` inference. No T4
-  job is planned.
+  lower alpha on the viewed METH-113/METH-115 sequence.
+  [METH-118/120](METH_118_120_ZERO_MEAN_CHILD_DEVELOPMENT_RESULT_20260928.md)
+  removes the per-parent child B common mode while preserving the
+  METH-56 E128 parent mean, retains 1,084–1,152 distinct children/layer,
+  and passes automatic plus precommitted blind development gates on
+  new PG19-shard-2 books and nonoverlapping code/technical fragments.
+  [METH-121/123](METH_121_123_ZERO_MEAN_CHILD_EXTERNAL_RESULT_20260928.md)
+  repeats on PG19-shard-3 books and fresh fragments. E1280 improves
+  pooled BPB by 0.000350 versus E128, loses 0.690 point of donor top-1,
+  gains one EOS (20 versus 19), and scores 1,291 versus 1,292/1,838
+  on PIQA. Its committed blind external verdict improves unsupported
+  claims 31→25 and severe claims 12→7, with missing-detail 0/0.
+  The quality candidate now advances to native centered-factor CPU
+  parity, varied-token/LUT traffic and full `engine.c` feasibility.
+  No factor-bank or end-to-end speed is yet measured for this candidate;
+  10B/100B donor transfer remains open. No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

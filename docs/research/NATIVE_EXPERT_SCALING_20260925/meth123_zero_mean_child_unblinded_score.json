@@ -1,0 +1,723 @@
+{
+  "experiment": "METH-123-zero-mean-E1280-unblinded-external-score",
+  "blind_sha256": "4503f9cf4b2ae7e4a76422ac8ae7726fb71b110f38a7bf2f1ded6dc05e435bd2",
+  "verdict_sha256": "ea0f9df2fa38b0de77e575515a295593feb9657805337941d7107eb507ef949a",
+  "counts": {
+    "e128": {
+      "unsupported": 31,
+      "severe": 12,
+      "missing_detail": 0,
+      "ambiguous": 0
+    },
+    "e1280": {
+      "unsupported": 25,
+      "severe": 7,
+      "missing_detail": 0,
+      "ambiguous": 0
+    }
+  },
+  "gates": {
+    "unsupported": true,
+    "severe": true,
+    "missing_detail": true,
+    "joint_semantic": true
+  },
+  "paired_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_external_audit.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat01_gigachat_mtp_hf_bundle.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "__call__ returns a standard HTTP request",
+            "evidence": "The visible signature returns object; it only begins constructing a rewritten Request.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "__call__ returns a standard HTTP request",
+            "evidence": "The visible signature returns object; it only begins constructing a rewritten Request.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_rung2b_cross_input.h",
+      "category": "code",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "C_INPUT_SHA is a hash for cross-calls",
+            "evidence": "The macro name identifies C input, while no calls or call hashes are shown.",
+            "severe": false
+          },
+          {
+            "claim": "descriptor_ok returns zero when the tensor matches",
+            "evidence": "The shown expression begins by returning a conjunction; a full match is truthy, not zero.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "C_INPUT_SHA is a hash for cross-calls",
+            "evidence": "The macro name identifies C input, while no calls or call hashes are shown.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e5_analyse3.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "parity() calculates the parity of a given text file",
+            "evidence": "It parses parity-marked NATS_TOTAL entries from parity.txt; no parity calculation is shown.",
+            "severe": false
+          },
+          {
+            "claim": "dictionary keys are words and values are bit-identities",
+            "evidence": "Keys are regex group 1 labels and values are NATS_TOTAL numeric strings retained as text.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "parity() calculates the parity of a given text file",
+            "evidence": "It parses parity-marked NATS_TOTAL entries from parity.txt; no parity calculation is shown.",
+            "severe": false
+          },
+          {
+            "claim": "dictionary keys are bit-identity values and values are line numbers",
+            "evidence": "The loop stores group 1 as key and group 2 as value; it captures no line numbers.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h4_qat.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the first visible function is named yrs",
+            "evidence": "The excerpt begins mid-signature at 'yers):'; the full function name is hidden.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the first visible function is named yrs",
+            "evidence": "The excerpt begins mid-signature at 'yers):'; the full function name is hidden.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_q6_cross_input.py",
+      "category": "code",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the 163840-byte reference file is a current shared file",
+            "evidence": "That tuple is reference_routed; current_shared is the separate 40960-byte tuple.",
+            "severe": false
+          },
+          {
+            "claim": "the SHA-256 string is the shared size",
+            "evidence": "It is a hash in the reference_routed tuple, not a byte count.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the file belongs to a TensorFlow model",
+            "evidence": "No TensorFlow reference appears in the path or tuple.",
+            "severe": true
+          },
+          {
+            "claim": "the tuples are shared-memory locations",
+            "evidence": "They are paths, byte sizes, hashes and dtype labels for files.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e62_third_scale.py",
+      "category": "code",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "g_e62d is the function containing the shown thresholds",
+            "evidence": "The displayed classification function ends before a new def g_e62d begins.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "g_e62d is the function containing the shown thresholds",
+            "evidence": "The displayed classification function ends before a new def g_e62d begins.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_engine_layer2_depth_extension.py",
+      "category": "code",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "r_start_hash is compared to both C_START_SHA and REFERENCE_START_SHA",
+            "evidence": "c_start_hash is compared to C_START_SHA; r_start_hash only to REFERENCE_START_SHA.",
+            "severe": false
+          },
+          {
+            "claim": "negative controls are checked to be passable",
+            "evidence": "negative_pass requires all negative controls to have false pass values.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=598",
+      "category": "prose",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the young man is denied access to his own home",
+            "evidence": "The first speaker says he lets the addressed person dwell in his house; no denial of access appears.",
+            "severe": true
+          },
+          {
+            "claim": "someone is unjustly accused of a crime",
+            "evidence": "The excerpt mentions an offense in a rhetorical question, not a criminal accusation.",
+            "severe": false
+          },
+          {
+            "claim": "Antonio is the young man described in the first speech",
+            "evidence": "Antonio is identified only as the angry respondent.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the young man is denied access to his own home",
+            "evidence": "The speech says he permits dwelling in his house; no denial of access appears.",
+            "severe": true
+          },
+          {
+            "claim": "Antonio is the young man's friend",
+            "evidence": "No friendship relation is stated for Antonio and the young man.",
+            "severe": false
+          },
+          {
+            "claim": "Antonio asks the other person to understand",
+            "evidence": "Antonio says the other person would not understand his reasons.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=6",
+      "category": "prose",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "one man holds a gun in the archery scene",
+            "evidence": "The passage discusses archers shooting at butts, not guns.",
+            "severe": true
+          },
+          {
+            "claim": "the others do not shoot",
+            "evidence": "The yeomen shoot two or three times, and their shots hit the prick.",
+            "severe": false
+          },
+          {
+            "claim": "William of Cloudesly has died",
+            "evidence": "'By Him that for me died' refers to a different figure; William then speaks.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the yeomen are likely knights or soldiers",
+            "evidence": "The visible stanza identifies them only as yeomen and archers.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=361",
+      "category": "prose",
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=610",
+      "category": "prose",
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the priest fears a house is about to fall",
+            "evidence": "A falling house is a hypothetical simile for the man's terrible feeling.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=273",
+      "category": "prose",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "Latin edi is the common auxiliary verb",
+            "evidence": "The excerpt names fa as a common auxiliary; edi illustrates a completed action.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "Latin edi is the common auxiliary verb",
+            "evidence": "The excerpt names fa as a common auxiliary; edi illustrates a completed action.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=346",
+      "category": "prose",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the man waits for the crow to move",
+            "evidence": "The crow waits to see whether the apparently dead man moves.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the man waits for the crow to move",
+            "evidence": "The crow waits to see whether the apparently dead man moves.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=555",
+      "category": "prose",
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the poem is set in a school",
+            "evidence": "A weary school appears in a line; no school scene or setting is established.",
+            "severe": false
+          },
+          {
+            "claim": "the child has ready courage and the fool has wisdom",
+            "evidence": "The lines assign folly to the child and ready courage to the fool.",
+            "severe": true
+          },
+          {
+            "claim": "the poet criticizes the child's lack of courage",
+            "evidence": "No such criticism appears; the poem longs for humility and folly.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the child is called weary and a fool",
+            "evidence": "The text has 'weary school', 'folly of the child' and 'courage of the fool'.",
+            "severe": true
+          },
+          {
+            "claim": "the poet criticizes the education system",
+            "evidence": "The quoted lines contain no education-system critique.",
+            "severe": false
+          },
+          {
+            "claim": "the speaker wishes to cleanse the knowledge of the school",
+            "evidence": "The prayer is to crush 'our knowledge' and cleanse 'us' of wisdom.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=430",
+      "category": "prose",
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_PROTOCOL_20260921.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E64_CARVE_ON_INT8.md",
+      "category": "technical_general",
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the excerpt describes a specific data structure",
+            "evidence": "It names a manifest, two schedules and a table header, without identifying a data structure.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER2_REPLICATION.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/STRAT_01_SUSONO_METADATA_SCREEN_20260918.md",
+      "category": "technical_general",
+      "e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the stored types include 8-bit and 16-bit floating point",
+            "evidence": "The table lists BF16 and I64, which is a 64-bit integer type, not 8-bit floating point.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E38_IS_THERE_ANY_SELECTOR_AT_ALL.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "k=16 is the endpoint where every selector keeps everything",
+            "evidence": "The text places that structural endpoint at k=E; k=16 is merely a displayed row.",
+            "severe": true
+          },
+          {
+            "claim": "at k=1 the group is worth choosing",
+            "evidence": "The passage explicitly concludes there is nothing worth choosing.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "k=16 is the endpoint where every selector keeps everything",
+            "evidence": "The text places that structural endpoint at k=E; k=16 is merely a displayed row.",
+            "severe": true
+          },
+          {
+            "claim": "at k=1 the group is worth choosing",
+            "evidence": "The passage explicitly concludes there is nothing worth choosing.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E39_THE_SAME_TEN_BILLION_PUT_SOMEWHERE_ELSE.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the table concerns a trading strategy",
+            "evidence": "It measures neural-network carve-group timing and token rate, not financial trading.",
+            "severe": true
+          },
+          {
+            "claim": "TEN-B-NEAR-HUNDRED is tokens bought per minute",
+            "evidence": "The label names an approximately ten-billion-parameter configuration near 100 tokens/s.",
+            "severe": false
+          },
+          {
+            "claim": "straddles the edge at 80 marks maximum strategy performance",
+            "evidence": "The table only says a target edge is straddled at 80; no maximum is established.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the table concerns a trading strategy",
+            "evidence": "It measures neural-network carve-group timing and token rate, not financial trading.",
+            "severe": true
+          },
+          {
+            "claim": "TEN-B-NEAR-HUNDRED is tokens bought per minute",
+            "evidence": "The label names an approximately ten-billion-parameter configuration near 100 tokens/s.",
+            "severe": false
+          },
+          {
+            "claim": "straddles the edge at 80 marks maximum strategy performance",
+            "evidence": "The table only says a target edge is straddled at 80; no maximum is established.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/handoffs/CONTROLLORE_D0_PART3.md",
+      "category": "technical_general",
+      "e128": {
+        "unsupported": [
+          {
+            "claim": "the held-out slice contains 24 by 512 bytes",
+            "evidence": "The excerpt states a 24x512 slice and separately gives 51,870 bytes.",
+            "severe": false
+          },
+          {
+            "claim": "the slice contains 51,870 tokens",
+            "evidence": "The excerpt says 51,870 bytes and 12,264 tokens.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "e1280": {
+        "unsupported": [
+          {
+            "claim": "the held-out slice contains 24 by 512 bytes",
+            "evidence": "The excerpt states a 24x512 slice and separately gives 51,870 bytes.",
+            "severe": false
+          },
+          {
+            "claim": "the slice contains 51,870 tokens",
+            "evidence": "The excerpt says 51,870 bytes and 12,264 tokens.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    }
+  ]
+}
