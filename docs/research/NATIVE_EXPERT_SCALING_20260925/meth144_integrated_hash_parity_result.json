@@ -1,0 +1,132 @@
+{
+  "experiment": "METH-144-integrated-hash-parity",
+  "meth143_result_sha256": "d13aeb90b8211fc5be6a1289f0209d1f846691b9be7f4621a06e0845538d749f",
+  "exact_bank_sha256": "1d9071456a644344d46203ad7ded8fe2c4d01ca0580b5e41718366783408aff1",
+  "child_checkpoint_sha256": "15a14b8476936e83cf91a479b05f8d8e83f4ffd094186f3d4dfededdb138d520",
+  "hash_golden": 899,
+  "cases": [
+    {
+      "source": "bound",
+      "index": 0,
+      "tokens": 165,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "bound",
+      "index": 1,
+      "tokens": 150,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "bound",
+      "index": 2,
+      "tokens": 256,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "bound",
+      "index": 3,
+      "tokens": 187,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "bound",
+      "index": 4,
+      "tokens": 187,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "bound",
+      "index": 5,
+      "tokens": 287,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "bound",
+      "index": 6,
+      "tokens": 219,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "bound",
+      "index": 7,
+      "tokens": 164,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "fresh",
+      "index": 0,
+      "tokens": 185,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "fresh",
+      "index": 1,
+      "tokens": 159,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "fresh",
+      "index": 2,
+      "tokens": 165,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "fresh",
+      "index": 3,
+      "tokens": 163,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "fresh",
+      "index": 4,
+      "tokens": 195,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "fresh",
+      "index": 5,
+      "tokens": 218,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "fresh",
+      "index": 6,
+      "tokens": 163,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "fresh",
+      "index": 7,
+      "tokens": 243,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    }
+  ],
+  "cloned_bf16_rows_identical": true,
+  "missing_context_rejected": true,
+  "min_distinct_grandchildren_by_layer": 2162,
+  "checkpoint_recomputation_collector_parts_min": 1,
+  "all_logits_bitwise_equal": true,
+  "runtime": {
+    "seconds": 16.610000000000582,
+    "rss_bytes": 13026840576,
+    "gpu_peak_allocated_bytes": 2945090560,
+    "gpu": "NVIDIA GeForce RTX 3060"
+  }
+}

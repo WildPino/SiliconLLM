@@ -1113,6 +1113,16 @@ scheduled.
   after the original E1280 route. Next: frozen hash-routed full-model
   clone parity and native C CPU cost, then matched sparse B training and
   untouched quality if those gates pass.
+  [METH-144](METH_144_INTEGRATED_HASH_PARITY_CPU_RESULT_20260928.md)
+  passes both gates: all logits/routes/gates match exactly on 16 bound
+  and fresh prompts with every grandchild B cloned from its source,
+  and C/Python agree on all 6,144 actual-state route records. Five
+  paired native CPU repetitions yield 1.545 versus 1.594 ms/token-
+  equivalent for hash E12800 versus E1280, within the <=2× and <=3 ms
+  limits. This is a warm routing component result; next freeze matched
+  sparse B training and then untouched quality/grounding. Useful
+  learned E12800 capacity, compact LUT arithmetic, cold DRAM and
+  full-model accepted-token rate remain unproven.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

@@ -1002,6 +1002,17 @@ The hash was assigned offline to the original E1280 routes, so
 full-model hash-route parity, native C cost, useful learned B and
 new-source quality remain unproven. Freeze a model-integrated clone
 and native cost gate next, then train only if it passes.
+[METH-144](METH_144_INTEGRATED_HASH_PARITY_CPU_RESULT_20260928.md)
+puts the fixed hash inside each full-model expert forward and checks
+all ten cloned BF16 B rows per source child. All logits, routes and
+gates match the E1280 teacher on 16 bound/fresh prompts. C/Python
+hashes agree on every one of 6,144 actual-state route records. The
+paired native CPU median is 1.545 versus 1.594 ms/token-equivalent
+for hash E12800 versus E1280, passing the frozen component cost gate.
+This licenses matched sparse B training, not a useful-capacity or
+semantic-quality claim. An untouched audit, compact quality-valid
+factors, cold traffic and same-artifact accepted-token throughput
+remain required.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

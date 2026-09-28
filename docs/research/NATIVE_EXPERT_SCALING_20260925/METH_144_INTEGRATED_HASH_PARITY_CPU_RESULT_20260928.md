@@ -1,0 +1,20 @@
+# METH-144: integrated hash clone parity and native routing cost pass
+
+**Decision: joint model/native component pass; learned E12800 quality pending.** The fixed METH-142 hash chooses a grandchild inside each of the 24 full-model expert forwards, before B gathering. All ten B rows per source child are byte-identical BF16 clones of the exact METH-126 E1280 row. On eight bound METH-121 prompts and eight METH-143 fresh prompts, every BF16 logit, original parent route, parent score, child ID and derived gate matches the E1280 teacher exactly. Across those prompts, each layer visits at least 2,162 distinct grandchildren. Missing token context is rejected; a short backward pass with non-reentrant gradient checkpointing reaches the sparse B-gradient collector in every layer. This verifies initialization and training-path plumbing, not learned specialization.
+
+The [protocol](METH_144_INTEGRATED_HASH_PARITY_CPU_PROTOCOL_20260928.md) was committed at `1056809`. The [hash expert](../../../benchmarks/native_expert_scaling/meth144_hash_experts.py) and [full-model checker](../../../benchmarks/native_expert_scaling/meth144_integrated_hash_parity.py) were committed at `78b96a1`, with complete-clone and gate checks tightened at `d054a14`. The [model result](meth144_integrated_hash_parity_result.json) has SHA-256 `f5f4c52a114c947b2bb5b3df10d7136ac445485782239e398848bcd5c0c6d65d`. The RTX 3060 run took 16.610 seconds, 13.027 GB final process RSS and 2.945 GB peak allocated GPU memory. No T4 was used.
+
+The [native C checker](../../../benchmarks/native_expert_scaling/meth144_token_hash_cpu_route.c), [fixture exporter](../../../benchmarks/native_expert_scaling/meth144_hash_context_fixture.py) and [route verifier](../../../benchmarks/native_expert_scaling/meth144_verify_native_hash.py) were committed at `a9ba130`. The fixture SHA-256 is `476819aed1a76c3a9471073f524380bc8e10240e3df05891e7b9c05d0c2477ae`; it draws 256 token contexts from the committed METH-143 manifest. For timing only, these contexts are paired with METH-125's 256 actual E1280 hidden-state vectors, which may have originated from different tokens. C and Python agree on the golden vector `(123,45,67,89,3) -> 899` and all **6,144** token/layer route records (24,576 selected grandchildren). Each grandchild maps back to its original child, the original route/gate recomputation is identical, and a bad fixture header exits with the expected error.
+
+| Paired repetition | E1280 route ms/token | Hash E12800 route ms/token |
+|---:|---:|---:|
+| 0 | 1.541666 | 1.544812 |
+| 1 | 1.585477 | 1.533934 |
+| 2 | 1.593689 | 1.578343 |
+| 3 | 1.660163 | 1.659843 |
+| 4 | 1.622062 | 1.519059 |
+| **Median** | **1.593689** | **1.544812** |
+
+The 0.969× ratio and 1.545 ms median pass the frozen <=2× and <=3 ms/token-equivalent component limits. The slightly lower hash median is timing variation, not an acceleration claim. The checker used single-thread `clang -O3 -std=c11 -Wall -Wextra -lpsapi` on the local CPU; its [raw log](meth144_native_hash_route.log), SHA-256 `83d3abadf0ffde4a842a9f68edc827e84ce2a505d063aa6681fbbb7f588e7d06`, records all routes and timings. The [verified result](meth144_native_hash_route_result.json), SHA-256 `acdd5c0bb13bbd2d33f67199ef108ea698baa0007ceeeb8f790561e9406b190c`, records 18,255 unique grandchildren summed over layers, at least 661 in each layer, 534 MB RSS and 4.988 seconds native elapsed time. The extra hash inputs nominally address 1,536 bytes/token; this repeated-position test does not measure cold factor traffic, a compact LUT factor kernel or accepted-token throughput in `engine.c`.
+
+METH-143/144 establish a load-balanced, inexpensive **routing mechanism** for a 10× expert-count rung at this donor size. The next gate is a separately frozen matched E1280-control versus hash-E12800 sparse B-only training run. It must retain exact initialization and demonstrate useful BF16-distinct rows, training route balance, and then untouched source-disjoint semantic quality and grounding. Passing clone parity and route cost does not establish useful extra capacity or safe quality as routing choices multiply.

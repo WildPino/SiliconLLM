@@ -1,0 +1,68 @@
+{
+  "experiment": "METH-144-native-hash-route",
+  "exact_bank_sha256": "1d9071456a644344d46203ad7ded8fe2c4d01ca0580b5e41718366783408aff1",
+  "vectors_sha256": "f7af00b4b4ce417664848950770f63b78520ca3c983748a692640704c203b699",
+  "fixture_sha256": "476819aed1a76c3a9471073f524380bc8e10240e3df05891e7b9c05d0c2477ae",
+  "native_log_sha256": "83d3abadf0ffde4a842a9f68edc827e84ce2a505d063aa6681fbbb7f588e7d06",
+  "hash_golden": 899,
+  "python_c_matching_routes": 6144,
+  "layers_coverage": {
+    "0": 689,
+    "1": 696,
+    "2": 824,
+    "3": 759,
+    "4": 724,
+    "5": 721,
+    "6": 776,
+    "7": 787,
+    "8": 791,
+    "9": 768,
+    "10": 830,
+    "11": 794,
+    "12": 799,
+    "13": 793,
+    "14": 769,
+    "15": 729,
+    "16": 758,
+    "17": 661,
+    "18": 798,
+    "19": 721,
+    "20": 764,
+    "21": 746,
+    "22": 766,
+    "23": 792
+  },
+  "paired_repetitions": [
+    {
+      "rep": 0,
+      "base_ms": 1.541666016,
+      "hash_ms": 1.544811719
+    },
+    {
+      "rep": 1,
+      "base_ms": 1.585476563,
+      "hash_ms": 1.533933594
+    },
+    {
+      "rep": 2,
+      "base_ms": 1.593689063,
+      "hash_ms": 1.578342578
+    },
+    {
+      "rep": 3,
+      "base_ms": 1.6601625,
+      "hash_ms": 1.659842969
+    },
+    {
+      "rep": 4,
+      "base_ms": 1.622062109,
+      "hash_ms": 1.519058594
+    }
+  ],
+  "base_median_ms_per_token": 1.593689063,
+  "hash_median_ms_per_token": 1.544811719,
+  "hash_to_base_ratio": 0.9693306899477667,
+  "bad_header_rejected": true,
+  "native_summary": "HASH_SUMMARY states=6144 selections=24576 unique_total=18255 base_median_ms=1.593689063 hash_median_ms=1.544811719 ratio=0.969331 hash_addressed_bytes_per_token=1536 fixture_bytes=3084 rss_bytes=534454272 elapsed_seconds=4.987986 checksum=197213476.093750000 gate=PASS",
+  "decision": "native_hash_route_pass"
+}
