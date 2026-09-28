@@ -1246,8 +1246,8 @@ scheduled.
   pre-registers an offline 2,560-pair route-support screen before any
   long matched training: minimum 10,000 content IDs and median 50
   selections per active content ID/layer, at most 50% of content IDs
-  under 32 selections, plus the existing 1.25 load and 25% hot-parent
-  limits. PG19 shard 9 is reserved for a later independent quality
+  under 32 selections, plus the existing 1.25 global maximum-load and
+  25% hot-parent limits. PG19 shard 9 is reserved for a later independent quality
   test. No larger-data model or quality result exists yet.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
