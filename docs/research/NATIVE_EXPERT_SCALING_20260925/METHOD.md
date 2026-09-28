@@ -870,6 +870,16 @@ a 136.7 MB resident sidecar. The gate includes a corrupted-magic
 negative control. It establishes finite native chosen-token parity
 and CPU cost, not exact full-vocabulary probabilities, independent
 BF16 quality or a compact-core >=50 tok/s model.
+[METH-130](METH_130_Q7_FACTOR_LUT_RESULT_20260928.md) provides an
+optional child-B representation for the METH-126 shared-A bank: each
+eight-value BF16 output row becomes four Q7 packed nibble pairs and an
+FP32 row scale. A native lookup-table factor kernel verifies exact
+router/A bytes and fixed-state routes, then reduces the bank from
+496.8 to 276.6 MB. Across 6,144 viewed residual vectors, pooled
+relative L2 is 0.0465; paired factor time is 0.8825 versus 1.0388
+ms/token-equivalent. This is a numerical/CPU component screen only;
+BF16 full-model donor quality, new-source semantics, compact-core
+speed and useful growth beyond E1280 require separate evidence.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

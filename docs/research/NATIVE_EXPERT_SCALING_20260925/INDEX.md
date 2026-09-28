@@ -5,6 +5,9 @@
 to the METH-127 full C FP32-core/E1280 reference. It matches 64 prompted
 choices and 64 greedy continuation tokens, and runs at 20.791 tok/s on
 six threads versus 17.141 with the full FP32 head in a matched rerun.
+METH-130 halves each child-B row with a Q7 paired-LUT representation;
+the full E1280 bank shrinks 496.8→276.6 MB, and fixed-state residual
+error and paired CPU factor cost pass. Full-model quality is untested.
 This reference is neither the quality-gated BF16 core nor the target
 compact engine. The jointly trained Instruct product-key E128 adapter passes
 its independent donor-relative quality audit (METH-57), and its native
@@ -965,6 +968,19 @@ scheduled.
   then audit new disjoint documents, generation, tasks and grounding
   before native rate and RAM-scaled expert-count tests. No T4 job is
   planned.
+  [METH-130](METH_130_Q7_FACTOR_LUT_RESULT_20260928.md) applies a
+  seven-level pair-LUT code only to child B in the same E1280 bank.
+  On 6,144 actual fixed-state residuals, pooled/p95 relative L2 is
+  0.0465/0.0861 with exact routes and gates. The bank falls
+  496.8→276.6 MB, and five paired CPU repetitions give 0.8825 versus
+  1.0388 ms/token-equivalent for the factor computation. The invalid
+  nibble control fails. This licenses a fresh full-model BF16 quality
+  audit of the same Q7 bank, not quality promotion or a claim that
+  E12800 would contain useful distinct learned experts. Next exact
+  action: bind the Q7 bank in BF16 E1280 inference and freeze new
+  document, generation, task and grounded-semantic gates before
+  observing them. Then compose a compact native core and test
+  accepted-token rate and a trained expert-count ladder.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
