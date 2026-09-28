@@ -1,0 +1,11 @@
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|##########| 290/290 [00:00<00:00, 36223.48it/s]
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights: 100%|##########| 290/290 [00:00<00:00, 41404.78it/s]
+Traceback (most recent call last):
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\meth175_matched_long_train.py", line 243, in <module>
+    main()
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\native_expert_scaling\meth175_matched_long_train.py", line 168, in main
+    result = M136.train_arm(
+             ^^^^^^^^^^^^^^^
+  File "D:\_THINGS\Progetti\SiliconLLM\benchmarks\donor_adaptation\s1\meth136_matched_sparse_train.py", line 451, in train_arm
+    raise RuntimeError(f"METH-136 projected runtime stop: {projected}")
+RuntimeError: METH-136 projected runtime stop: 18905.909000000283

@@ -1350,8 +1350,12 @@ scheduled.
   The [16-update pilot](METH_175_LONG_TRAINING_PILOT_RESULT_20260928.md)
   passes BF16 parity, route integrity, optimizer/combined-bank audits and
   exact bank readback within local RAM/GPU/time caps; its sparse support
-  is not a final training result. The full matched E1280 control is now
-  the next run, followed by E12800 on the identical draws. The
+  is not a final training result. The first full E1280 control attempt
+  stopped at update 16 because an inherited projected-time guard counted
+  both arms in one process. The [failure record](METH_175_CONTROL_FIRST_ATTEMPT_20260928.md)
+  preserves that result and explains the single-arm guard correction.
+  The restarted full E1280 control is running, to be followed by E12800
+  on the identical draws. The
   [METH-176](METH_176_LONG_TRAINING_FRESH_QUALITY_PROTOCOL_20260928.md)
   untouched quality gates are frozen before training output.
 

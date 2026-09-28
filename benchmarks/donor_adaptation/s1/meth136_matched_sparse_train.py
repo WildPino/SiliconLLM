@@ -322,7 +322,8 @@ def export_bank(path, banks, source_b, centered):
 
 def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
               router_prefixes, third, raw_ids, chat, draws, parity_items,
-              device, start, artifact_path, progress_path):
+              device, start, artifact_path, progress_path,
+              project_following_arm=True):
     model = model_shell(device)
     wrappers, banks = make_wrappers(model, parent_state, child_state,
                                     source_a, source_b, router_prefixes,
@@ -445,7 +446,7 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
         if update == 16:
             projected = current["seconds"] + (
                 time.monotonic() - arm_started) / 16 * (UPDATES - 16)
-            if name == "control":
+            if name == "control" and project_following_arm:
                 projected += (time.monotonic() - arm_started) / 16 * UPDATES
             if projected > MAX_SECONDS:
                 raise RuntimeError(f"METH-136 projected runtime stop: {projected}")

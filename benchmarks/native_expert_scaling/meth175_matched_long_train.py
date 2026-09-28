@@ -169,7 +169,8 @@ def main():
             "control" if args.arm == "control" else "factorized",
             teacher, parent["expert_state"], child["expert_state"],
             source_a, source_b, prefixes, None, raw_ids, chat, draws,
-            parity, device, started, args.bank, progress)
+            parity, device, started, args.bank, progress,
+            project_following_arm=False)
     except BaseException as error:
         failure = args.out.with_name(args.out.stem + ".failure.json")
         failure.write_text(json.dumps({
