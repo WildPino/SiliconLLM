@@ -1,0 +1,177 @@
+{
+  "experiment": "METH-156-pre-inference-answerability",
+  "manifest_sha256": "a3c370f285dce386e94570ac889c7941d9181a87122a2491e9c47905ff832ca1",
+  "anchors_sha256": "209489aa457e517edce3222c689a5bbd2668f40ea33969fd5f1633e2bf16a08a",
+  "answerable_count": 24,
+  "rows": [
+    {
+      "source_id": "benchmarks/native_expert_scaling/probe_nes03_int8_router.py",
+      "category": "code",
+      "anchor": "mixer input norm",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/r2/r2_check2.py",
+      "category": "code",
+      "anchor": "causal_softmax",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth39_rescore_numerics.py",
+      "category": "code",
+      "anchor": "NVIDIA GeForce RTX 3060",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_layer1_routed_moe_component_cross_input.h",
+      "category": "code",
+      "anchor": "strat01_q4q8_write_output",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth29_balanced_router_index.py",
+      "category": "code",
+      "anchor": "M27.PROMPT_TOKENS",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_bf16_format_census.py",
+      "category": "code",
+      "anchor": "snapshot_identity_uses_filesystem_not_path_spelling",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e57_wall.py",
+      "category": "code",
+      "anchor": "vs the wall",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h2i_pack.py",
+      "category": "code",
+      "anchor": "h2i_trained_s1",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00008-of-00023-275017526d706c9d.parquet:row=719",
+      "category": "prose",
+      "anchor": "regent was not his brother John",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00008-of-00023-275017526d706c9d.parquet:row=631",
+      "category": "prose",
+      "anchor": "Sir Thomas Lucy",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00008-of-00023-275017526d706c9d.parquet:row=867",
+      "category": "prose",
+      "anchor": "there was always mirth and never sorrow",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00008-of-00023-275017526d706c9d.parquet:row=327",
+      "category": "prose",
+      "anchor": "Mrs. Clithero",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00008-of-00023-275017526d706c9d.parquet:row=1078",
+      "category": "prose",
+      "anchor": "Upper Yellowstone",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00008-of-00023-275017526d706c9d.parquet:row=420",
+      "category": "prose",
+      "anchor": "distinct sound of a kiss",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00008-of-00023-275017526d706c9d.parquet:row=1230",
+      "category": "prose",
+      "anchor": "Romola",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00008-of-00023-275017526d706c9d.parquet:row=888",
+      "category": "prose",
+      "anchor": "Mr. Brown",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_PROTOCOL_20260921.md",
+      "category": "technical_general",
+      "anchor": "compressed-KV RMSNorm",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_OUTPUT_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md",
+      "category": "technical_general",
+      "anchor": "shared-expert output",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_PROTOCOL_20260925.md",
+      "category": "technical_general",
+      "anchor": "ffn_moe_logits-1",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_02D_W4_ORGAN_ATTRIBUTION_RESULT.md",
+      "category": "technical_general",
+      "anchor": "ROUTER_F32",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "docs/research/DONOR_PROJ_RATE.md",
+      "category": "technical_general",
+      "anchor": "q_proj",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E8_MATVEC_DEPENDENCY_CHAIN.md",
+      "category": "technical_general",
+      "anchor": "18.2–20.2 GB/s",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_Q6_CROSS_INPUT_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "anchor": "Q6_K×Q8_K",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E59_DOES_THE_FAST_KERNEL_SURVIVE_A_TRAINED_MODEL.md",
+      "category": "technical_general",
+      "anchor": "32 new tokens",
+      "answerable": true,
+      "basis": "The visible excerpt contains this specific detail."
+    }
+  ],
+  "scope": "Excerpt-only details frozen before donor or adapted-model inference"
+}
