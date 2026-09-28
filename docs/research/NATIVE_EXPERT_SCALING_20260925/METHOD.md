@@ -829,8 +829,8 @@ the exact centered factors and router to a versioned native bank and
 matches 96 PyTorch parent/child routes, gates and BF16 residuals
 exactly, with a failing negative control. [METH-125](METH_125_VARIED_CENTERED_FACTOR_CPU_RESULT_20260928.md)
 uses 256 matched external-prompt positions and passes the frozen
-single-thread CPU component gate: E1280 route+factor 2.636 ms versus
-E128 2.118 ms across 24 layers. It visits 252–402 children per layer
+single-thread CPU component gate: E1280 route+factor 2.510 ms versus
+E128 2.017 ms across 24 layers. It visits 252–402 children per layer
 and an estimated 233.5 MB of distinct factor rows. These are BF16
 factors and FP32 router arithmetic, not a compact LUT or a full model.
 NES-01 has concluded with a failed joint gate. Its trained quality and C

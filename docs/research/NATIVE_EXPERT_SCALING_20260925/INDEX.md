@@ -915,7 +915,7 @@ scheduled.
   fixture mutation fails. Its hot 24-layer route+factor median is
   2.450 ms/token-equivalent. [METH-125](METH_125_VARIED_CENTERED_FACTOR_CPU_RESULT_20260928.md)
   captures 256 matched source positions per arm and measures E1280
-  route+factor 2.636 ms versus E128 2.118 ms (1.245×). It visits
+  route+factor 2.510 ms versus E128 2.017 ms (1.245×). It visits
   252–402 E1280 slots/layer and an estimated 233.5 MB of distinct
   factor rows. This passes the frozen CPU component gate. The bank
   uses BF16 factors and FP32 routing, not compact LUT codes; full

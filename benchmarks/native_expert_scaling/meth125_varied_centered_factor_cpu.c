@@ -126,13 +126,15 @@ int main(int argc, char **argv) {
         total += unique[l];
         printf("VARIED_LAYER layer=%d unique_selected=%d\n", l, unique[l]);
     }
-    printf("VARIED_SUMMARY experts=%u tokens=256 repetitions=5 route_median_ms_per_token=%.9f factor_median_ms_per_token=%.9f combined_median_sum_ms_per_token=%.9f unique_min=%d unique_max=%d unique_total=%d unique_factor_bytes=%zu selected_factor_bytes_per_token=%zu router_bytes_per_token=%zu bank_bytes=%zu rss_bytes=%zu elapsed_seconds=%.6f checksum=%.9f\n",
+    size_t addressed_router_bytes = parent_bytes +
+        (hierarchical ? projection_bytes + (size_t)4 * h.children * h.child_rank * sizeof(float) : 0);
+    printf("VARIED_SUMMARY experts=%u tokens=256 repetitions=5 route_median_ms_per_token=%.9f factor_median_ms_per_token=%.9f combined_median_sum_ms_per_token=%.9f unique_min=%d unique_max=%d unique_total=%d unique_factor_bytes=%zu selected_factor_bytes_per_token=%zu nominal_router_bytes_per_token=%zu bank_bytes=%zu rss_bytes=%zu elapsed_seconds=%.6f checksum=%.9f\n",
            experts, median5(route_ms), median5(factor_ms),
            median5(route_ms) + median5(factor_ms),
            minimum, maximum, total,
            (size_t)total * 2 * h.r * h.d * sizeof(uint16_t),
            (size_t)4 * 2 * h.r * h.d * sizeof(uint16_t) * h.l,
-           router_bytes * h.l,
+           addressed_router_bytes * h.l,
            bank_size, rss_bytes(), now_s() - started, checksum);
     free(x);
     free((void *)vector_data);
