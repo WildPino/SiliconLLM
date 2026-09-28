@@ -30,8 +30,19 @@ class TokenHashSparseExperts(CpuSparseExperts):
         ids = np.asarray(token_ids, dtype=np.int64)
         if ids.ndim != 1 or ids.size == 0 or np.any(ids < 0):
             raise ValueError("token context must be a nonempty 1D ID sequence")
-        self.token_context = (
-            ids.copy(), np.r_[0, ids[:-1]], np.arange(ids.size, dtype=np.int64))
+        self.set_explicit_token_context(
+            ids, np.r_[0, ids[:-1]], np.arange(ids.size, dtype=np.int64))
+
+    def set_explicit_token_context(self, token_ids, previous_ids, positions):
+        """Bind a prefill or one-token cached decode to its causal context."""
+        ids = np.asarray(token_ids, dtype=np.int64)
+        previous = np.asarray(previous_ids, dtype=np.int64)
+        local_positions = np.asarray(positions, dtype=np.int64)
+        if (ids.ndim != 1 or ids.size == 0 or ids.shape != previous.shape
+                or ids.shape != local_positions.shape or np.any(ids < 0)
+                or np.any(previous < 0) or np.any(local_positions < 0)):
+            raise ValueError("token, previous and position context must be equal nonempty 1D arrays")
+        self.token_context = (ids.copy(), previous.copy(), local_positions.copy())
 
     def selected_ids(self, flat, children):
         if self.token_context is None:
