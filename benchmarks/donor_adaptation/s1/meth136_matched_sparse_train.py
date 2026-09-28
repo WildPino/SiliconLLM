@@ -220,7 +220,11 @@ def make_wrappers(model, parent_state, child_state, source_a, source_b,
             cpu_bank = source_b[li].clone() if mode == "control" else (
                 source_b[li].repeat_interleave(10, dim=0).contiguous())
             projection, keys = (third[li] if mode == "candidate" else (None, None))
-            if mode == "hash":
+            if mode == "shared":
+                from meth151_shared_sparse_experts import SharedStructureSparseExperts
+                wrapper = SharedStructureSparseExperts(parent, li, cpu_bank,
+                                                       source_a[li]).to(device)
+            elif mode == "hash":
                 from meth144_hash_experts import TokenHashSparseExperts
                 wrapper = TokenHashSparseExperts(parent, li, cpu_bank,
                                                  source_a[li]).to(device)
@@ -353,7 +357,7 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
             kl_mask = torch.ones_like(targets, dtype=torch.float32)
             with torch.no_grad():
                 teacher_logits = teacher(inputs, use_cache=False).logits
-            if name == "hash":
+            if name in ("hash", "shared"):
                 context_ids = inputs[0].detach().cpu().numpy()
                 for wrapper in wrappers:
                     wrapper.set_token_context(context_ids)
@@ -422,7 +426,7 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
                              for d in draws)
     assert all(total == expected_total for total in selected_total), selected_total
     artifact = export_bank(artifact_path, banks, source_b,
-                           name in ("candidate", "hash"))
+                           name in ("candidate", "hash", "shared"))
     disk_bytes = artifact["bytes"]
     assert disk_bytes < MAX_DISK
     if name == "candidate":
