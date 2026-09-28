@@ -2,15 +2,16 @@
 
 **Date:** 28 September 2026. **Branch:** `research/native-expert-scaling`.
 **Current decision:** METH-159 rejects long matched E1280/E12800 training
-on 2,560 independent raw/chat pairs: minimum active content median 39 <50
-and worst hot-parent share 43.26% >25%. METH-161 captured an exact source
-trace. METH-162's 138-tuple shared table fixes the observed hot slot
-in-sample (worst share 24.26%), but median support remains 39; METH-163's
-prefix hash fails elsewhere (35.81% worst share). Acquire more distinct
-contexts and test a frozen candidate on new sources/lengths before another
-matched training attempt. METH-160 passes an actual-bank BF16 CPU
-component screen, but its E12800 bank failed untouched quality; full
-`engine.c` >=50 accepted tok/s remains open. No T4 has been used.
+on 2,560 independent pairs: minimum active content median 39 <50 and
+worst hot-parent share 43.26% >25%. METH-162's 138-tuple shared table
+fixes that hotspot in-sample (worst share 24.26%), but median support
+remains 39. METH-164 passes a separate PG19 source/length route screen;
+the old table also passes there, so this is a nonregression check.
+METH-165 is acquiring 1,280 more independent H0 pairs for a frozen
+combined 3,840-pair support gate. METH-166 native table CPU cost is
+prepared and waits for uncontended timing. METH-160's actual-bank BF16
+CPU component passes, but the E12800 bank failed untouched quality;
+full `engine.c` >=50 accepted tok/s remains open. No T4 has been used.
 **Status:** The centered BF16 E1280 children retain donor-relative
 quality on new sources (METH-121/123). Their exact shared-A factor
 bank passes actual-state native CPU access (METH-125/126); a full C
@@ -1273,11 +1274,25 @@ scheduled.
   [METH-163](METH_163_PREFIX_HASH_DIAGNOSTIC_RESULT_20260928.md)
   spreads that specific collision but creates a 35.81% worst hot-parent
   share in another layer and leaves median support at 39. Reject this
-  prefix-only candidate. Next: freeze additional disjoint H0 training
-  rows and a new-source/context-length route screen for METH-162's
-  table, keeping PG19 train shard 9 unused for external quality. Expand
-  independent training inputs only if the prospective support gate
-  passes; then plan matched E1280/E12800 training and untouched quality.
+  prefix-only candidate.
+  [METH-164](METH_164_CROSS_SOURCE_ROUTE_VALIDATION_RESULT_20260928.md)
+  passes every frozen table-load gate on 128 new PG19 shard-10 chat
+  prompts, 128 raw windows and 24 documents segmented at 128/512.
+  Candidate worst hot-parent share is <=20.07%; old table also passes,
+  so this is independent nonregression evidence, not a replicated repair.
+  PG19 shard 9 remains unused for external quality.
+  [METH-165](METH_165_EXPANDED_INDEPENDENT_SUPPORT_PROTOCOL_20260928.md)
+  froze 1,280 additional disjoint H0 raw/chat pairs in manifest SHA
+  `2875ac50a4de005b56ad6403c6bd30e358b87eb21d7dbb1918738957855068ba`.
+  The 20-shard BF16 teacher runner is active as PID 31332; inspect
+  `meth165_teacher_process.json`, stdout/stderr and shard files. After
+  its verified merge, run `meth165_expanded_route_support.py` with the
+  merged SHA, then decide the prospective combined 3,840-pair gates.
+  [METH-166](METH_166_NATIVE_TABLE_COST_PROTOCOL_20260928.md) has
+  frozen 75/138-entry binary fixtures and native C/Python runners.
+  Run its CPU timing only after METH-165 GPU work finishes. If both
+  support and CPU gates pass, freeze equal-budget E1280/E12800 matched
+  training and an untouched shard-9 quality audit; neither is yet run.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

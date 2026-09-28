@@ -1139,6 +1139,17 @@ contexts are required before a new matched E1280/E12800 quality test.
 the alternative prefix-only content hash: it redistributes the original
 collision but yields a new 35.81% hot-parent share. Its causal-state
 definition remains a documented hypothesis, not a method step.
+[METH-164](METH_164_CROSS_SOURCE_ROUTE_VALIDATION_RESULT_20260928.md)
+finds no frozen load-gate regression from the 138-tuple table on a
+different PG19 source and two document segmentation lengths. The old
+table also passes those cells, so candidate generalization remains
+bounded. [METH-165](METH_165_EXPANDED_INDEPENDENT_SUPPORT_PROTOCOL_20260928.md)
+now binds 1,280 additional distinct H0 raw/chat pairs; its BF16 teacher
+acquisition is active, and the combined 3,840-pair support screen is
+not yet evaluated. [METH-166](METH_166_NATIVE_TABLE_COST_PROTOCOL_20260928.md)
+prepares actual-state C timing for the larger lookup after GPU work
+finishes. A table route becomes a usable method step only after those
+prospective support and native CPU gates, followed by learned quality.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
