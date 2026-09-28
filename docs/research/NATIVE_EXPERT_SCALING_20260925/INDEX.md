@@ -1261,10 +1261,12 @@ scheduled.
   E1280 and E12800 B banks on METH-125 varied hidden states crossed
   with METH-151 structural/content contexts. Its C runner builds and
   its exact-clone shared-A addressing self-test passes; no bank timing
-  has run. Execute `meth160_run_actual_b_bank_cpu.py` only after the
-  teacher/finalizer processes and METH-159 GPU work have ended. It will
-  measure selected BF16 factor traffic, not compact LUT quality or
-  same-artifact accepted-token rate.
+  has run. A hidden waiter, PID recorded in `meth160_wait_process.json`,
+  requires the finalizer to exit with `preflight_complete` before it
+  executes `meth160_run_actual_b_bank_cpu.py`. Inspect
+  `meth160_wait_status.json` and its logs before any manual restart.
+  The screen will measure selected BF16 factor traffic, not compact LUT
+  quality or same-artifact accepted-token rate.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
