@@ -840,17 +840,29 @@ one A per parent. The exact native bank falls from 893.1 to 496.8 MB;
 The finite varied set addresses 151.6 rather than 233.5 MB of distinct
 A+B rows. Per-token selected factor bytes and arithmetic remain fixed,
 so this is a RAM/working-set improvement without an established speed lift.
+[METH-127](METH_127_FULL_C_REFERENCE_RESULT_20260928.md) supplies a full
+C reference path: a pinned BF16 Qwen Instruct donor widened to FP32,
+the exact METH-126 E1280 factor bank, attention/RoPE/KV, dense FFN,
+route and logits in the existing Qwen C runtime. Against a PyTorch
+reconstruction of the same stored assembly, all eight and then 64
+prompt top-1 positions match; the 64-position worst relative logit L2
+is 3.69e-4. The six-thread
+64-token greedy decode rate is 16.818 tok/s, with 2.480 GB peak RSS.
+It establishes the wiring and real full-path bottleneck, not the
+quality/throughput of a compact target artifact. FP32 core arithmetic
+differs from the BF16 core that passed METH-123's external quality audit.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
 large-E optimization. NES-03 provides a numerical/cost-passing int8 router
 option at pilot scale, with a fragile E128 latency margin. METH-123
 supplies a quality-valid BF16 E1280 factor bank, now stored without
-duplicate sibling A matrices, but no pretrained donor
-has been converted into a quality-valid, ≥50 accepted tok/s native
-artifact. The next method step is a quality-preserving compact LUT
-representation for the centered factor bank and a low-traffic Instruct
-core, followed by integration in `engine.c`. Check full-model
+duplicate sibling A matrices. METH-127 proves full C composition with
+an FP32 reference core, but no pretrained donor has been converted into
+a quality-valid, ≥50 accepted tok/s native artifact. The next method
+step is a low-traffic Instruct core that preserves grounded generation,
+with compact LUT factor arithmetic only if its quality and CPU cost
+justify it, followed by integration in `engine.c`. Check full-model
 route/logit parity and accepted-token throughput on the same bundle.
 METH-47 remains a separate exact-router candidate with its own semantic
 question. The expert-count ladder must prove useful distinct factors

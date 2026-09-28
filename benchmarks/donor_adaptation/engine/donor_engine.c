@@ -32,17 +32,24 @@
 #endif
 #if defined(_WIN32)
 #include <windows.h>
+#include <psapi.h>
 static double now_s(void){ static LARGE_INTEGER f={0}; LARGE_INTEGER t;
     if(!f.QuadPart) QueryPerformanceFrequency(&f);      // fixed for the life of the process
     QueryPerformanceCounter(&t);
     return (double)t.QuadPart/(double)f.QuadPart; }
+static size_t peak_rss_bytes(void){ PROCESS_MEMORY_COUNTERS c;
+    return GetProcessMemoryInfo(GetCurrentProcess(),&c,sizeof c)?(size_t)c.PeakWorkingSetSize:0; }
 #else
 #include <time.h>
 static double now_s(void){ struct timespec ts; clock_gettime(CLOCK_MONOTONIC,&ts);
     return ts.tv_sec+ts.tv_nsec*1e-9; }
+static size_t peak_rss_bytes(void){ return 0; }
 #endif
 #include <immintrin.h>
 #include "vexpf8.h"   // E53: one AVX2 exponential, one definition
+#define M124_RUNTIME_ONLY
+#include "../../native_expert_scaling/meth124_centered_factor_cpu.c"
+#undef M124_RUNTIME_ONLY
 
 // per-organ wall-clock accounting: profile before optimising, always.
 enum { T_QKV=0, T_ROPE, T_ATTN, T_O, T_FFN, T_HEAD, T_NORM, T_N };
@@ -54,11 +61,11 @@ static int g_prof=0;
 // ---- E8: the FFN organ, DECOMPOSED.  --profile only.  These are SUB-timers of T_FFN and are
 // deliberately NOT members of g_t, so the organ table and every percentage in it are unchanged;
 // they are printed separately and their sum is checked against the ffn organ (gate G-Z1).
-enum { F_GU=0, F_GLUE, F_DOWN, F_RES, F_ROUTER, F_N };
+enum { F_GU=0, F_GLUE, F_DOWN, F_RES, F_ROUTER, F_EXPERT, F_N };
 static double g_ff[F_N];
 // E26 appends `router` LAST so every F_* value already published keeps its number; the router
 // bracket is zero on a dense FFN, so the G-Z1 sum check is unchanged there.
-static const char* g_ffn[F_N]={"gate+up","glue(silu)","down","residual","router+select"};
+static const char* g_ffn[F_N]={"gate+up","glue(silu)","down","residual","router+select","centered-expert"};
 #define TICF double _f0=g_prof?now_s():0.0
 #define TOCF(k) do{ if(g_prof) g_ff[k]+=now_s()-_f0; }while(0)
 
@@ -162,6 +169,67 @@ typedef struct {
     char* blob;
     size_t blob_bytes;
 } model_t;
+
+// METH-127 reference composition. This reads the exact METH-126 BF16 factor
+// bank; the FP32 dense core remains a separate, explicitly bound input.
+static struct {
+    Header h;
+    Layer layers[24];
+    uint8_t *blob;
+    size_t bytes;
+} g_factors;
+
+static void load_centered_factors(const char *path, const model_t *M) {
+    FILE *file=fopen(path,"rb"); if(!file) die("cannot open centered factor bank");
+    if(fseek(file,0,SEEK_END)) die("cannot size centered factor bank");
+    long size=ftell(file); if(size<0 || fseek(file,0,SEEK_SET)) die("cannot size centered factor bank");
+    g_factors.bytes=(size_t)size;
+    g_factors.blob=(uint8_t*)xmalloc(g_factors.bytes);
+    if(fread(g_factors.blob,1,g_factors.bytes,file)!=g_factors.bytes)
+        die("short centered factor bank read");
+    fclose(file);
+    if(g_factors.bytes<sizeof(Header)) die("short centered factor bank header");
+    memcpy(&g_factors.h,g_factors.blob,sizeof(Header));
+    Header *h=&g_factors.h;
+    if(memcmp(h->magic,"M126FB01",8) || h->l!=24 || h->d!=896 ||
+       h->rank!=64 || h->na!=8 || h->nb!=16 || h->child_rank!=32 ||
+       h->children!=10 || h->r!=8 || M->L!=(int)h->l || M->D!=(int)h->d ||
+       M->quant!=0) die("centered factor bank/core dimension or format mismatch");
+    size_t parent_bytes=((size_t)h->rank*h->d+(h->na+h->nb)*h->rank)*4;
+    size_t projection_bytes=(size_t)h->child_rank*h->d*4;
+    size_t key_bytes=(size_t)h->na*h->nb*h->children*h->child_rank*4;
+    size_t router_bytes=parent_bytes+projection_bytes+key_bytes;
+    size_t a_bytes=(size_t)h->na*h->nb*h->r*h->d*2;
+    size_t b_bytes=a_bytes*h->children;
+    size_t layer_bytes=router_bytes+a_bytes+b_bytes;
+    if(g_factors.bytes!=sizeof(Header)+h->l*layer_bytes)
+        die("centered factor bank length mismatch");
+    for(uint32_t l=0;l<h->l;l++){
+        if(M->lay[l].carved) die("centered factors require dense donor FFN");
+        const uint8_t *base=g_factors.blob+sizeof(Header)+(size_t)l*layer_bytes;
+        Layer *f=&g_factors.layers[l];
+        f->p=(const float*)base;
+        f->a=f->p+(size_t)h->rank*h->d;
+        f->b=f->a+(size_t)h->na*h->rank;
+        f->child_projection=(const float*)(base+parent_bytes);
+        f->child_keys=(const float*)(base+parent_bytes+projection_bytes);
+        f->fa=(const uint16_t*)(base+router_bytes);
+        f->fb=(const uint16_t*)(base+router_bytes+a_bytes);
+    }
+    fprintf(stderr,"  METH-127 centered E1280 bank loaded: %zu bytes\n",g_factors.bytes);
+}
+
+static void add_centered_factors(float *state, const float *post_norm, int layer_id) {
+    const Header *h=&g_factors.h;
+    const Layer *f=&g_factors.layers[layer_id];
+    float x[896], y[896], gates[4];
+    int parents[4], children[4];
+    for(int d=0;d<896;d++) x[d]=round_bf(post_norm[d]);
+    route_parent(f,x,h,parents,gates);
+    route_child(f,x,h,parents,children);
+    residual(f,x,h,children,gates,y);
+    for(int d=0;d<896;d++) state[d]+=y[d];
+}
 
 // ------------------------------------------------------------------ kernels
 // y[o] = sum_i W[o][i] * x[i]   (+ bias).  Both modes; ternary is codes*scale, which is exactly
@@ -1448,6 +1516,7 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
           { TICF; matvec(&L->down,s->hb,NULL,s->xb2); TOCF(F_DOWN); }
           { TICF; for(int i=0;i<D;i++) s->x[i]+=s->xb2[i]; TOCF(F_RES); }
           }
+          if(g_factors.blob){ TICF; add_centered_factors(s->x,s->xb,l); TOCF(F_EXPERT); }
           TOCW(T_FFN); }
     }
     { TIC; rmsnorm(s->x,M->final_norm,D,M->rms_eps,s->xb); TOC(T_NORM); }
@@ -1538,11 +1607,13 @@ static int32_t* read_ids(const char* path,long* n){
 
 int main(int argc,char** argv){
     const char* wp=NULL; const char* mode=NULL; const char* arg2=NULL; long arg3=0;
+    const char* factor_path=NULL;
     const char* logout=NULL;
     const char* top1out=NULL;   // E61
     int threads=1, seqlen=0;
     for(int i=1;i<argc;i++){
         if(!strcmp(argv[i],"--weights")&&i+1<argc) wp=argv[++i];
+        else if(!strcmp(argv[i],"--factor-bank")&&i+1<argc) factor_path=argv[++i];
         else if(!strcmp(argv[i],"--threads")&&i+1<argc) threads=atoi(argv[++i]);
         else if(!strcmp(argv[i],"--seqlen")&&i+1<argc) seqlen=atoi(argv[++i]);
         else if(!strcmp(argv[i],"--logits")&&i+3<argc){ mode="logits"; arg2=argv[++i]; arg3=atol(argv[++i]); logout=argv[++i]; }
@@ -1667,6 +1738,7 @@ int main(int argc,char** argv){
     if(threads<1) threads=1; omp_set_num_threads(threads); omp_set_dynamic(0);
 #endif
     model_t M; load(&M,wp);
+    if(factor_path) load_centered_factors(factor_path,&M);
     if(g_carvek>0){
         int any=0; for(int l=0;l<M.L;l++) if(M.lay[l].carved) any=1;
         if(!any) fprintf(stderr,"  --carve-k %d IGNORED: no layer in this file has a carved FFN\n",g_carvek);
@@ -1706,6 +1778,8 @@ int main(int argc,char** argv){
            g_mvacc, threads,
            M.quant==5?"int8":M.quant==3?"tagged":M.quant==2?"packed":M.quant?"ternary":"fp32",
            g_lut?"  lut=1":"");
+    printf("CONFIG  centered_e1280=%d  factor_bank_bytes=%zu\n",
+           g_factors.blob!=NULL,g_factors.bytes);
     fflush(stdout);
 
     if(!strcmp(mode,"bench")){
@@ -1736,6 +1810,7 @@ int main(int argc,char** argv){
         // included) so the two are directly comparable against a plateau measured either way
         if(g_wit&&!g_prof) printf("  ffn~ %.3f ms/tok",g_w0/arg3*1e3*M.L);
         printf("\n");
+        printf("PEAK_RSS_BYTES %zu\n",peak_rss_bytes());
         if(g_prof){
             double tot=0; for(int k=0;k<T_N;k++) tot+=g_t[k];
             printf("  organ        ms/token   %% of total\n");
@@ -1802,6 +1877,7 @@ int main(int argc,char** argv){
         printf("GEN_PROMPT_TOKENS %ld\nGEN_NEW_TOKENS %ld\n",P,NG);
         printf("GEN_PREFILL_S %.6f\nGEN_PREFILL_TOKS %.3f\n",tpre,P/tpre);
         printf("GEN_DECODE_S %.6f\nGEN_DECODE_TOKS %.3f\n",tdec,NG/tdec);
+        printf("GEN_PEAK_RSS_BYTES %zu\n",peak_rss_bytes());
         printf("GEN_IDS");
         for(long i=0;i<P+NG;i++) printf(" %d",out[i]);
         printf("\n");

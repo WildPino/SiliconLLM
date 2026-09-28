@@ -1,14 +1,19 @@
 # Native expert scaling: research control index
 
-**Date:** 27 September 2026. **Branch:** `research/native-expert-scaling`.
-**Status:** the jointly trained Instruct product-key E128 adapter passes
+**Date:** 28 September 2026. **Branch:** `research/native-expert-scaling`.
+**Status:** METH-127 executes the centered E1280 bank with an FP32 Qwen
+donor core through full C attention, KV cache, FFN and logits. Its
+eight-position composed parity passes against the same stored weights,
+but 64 actual greedy decode tokens run at 16.818 tok/s on six threads.
+This reference is neither the quality-gated BF16 core nor the target
+compact engine. The jointly trained Instruct product-key E128 adapter passes
 its independent donor-relative quality audit (METH-57), and its native
 selected-expert component matches the PyTorch oracle (METH-58). A
 stored 539.955 MB BF16-attention/R8-head+FFN core passes new document,
 generation and full PIQA endpoints but **fails** blind semantic
 conservation (METH-62: 41 versus 37 unsupported claims; one versus zero
 missing details). It does not advance to full native integration.
-Accepted-token rate, CPU LUT validity and quality at large counts of
+The >=50 accepted-token/s target, CPU LUT validity and quality at large counts of
 distinct learned experts remain open. The older base-donor R8 attempt
 failed generation (METH-27: 16/24 loops).
 METH-29 also rejects a post-hoc balanced coarse router index on real
@@ -925,8 +930,21 @@ scheduled.
   outputs and varied-position routes/checksum are unchanged; distinct
   factor bytes touched fall 233.5→151.6 MB. This is a storage and
   working-set result, not a proven token-rate improvement. Full
-  `engine.c`, accepted-token speed, 10B/100B transfer and cold random
-  DRAM remain open. No T4 job is planned.
+  [METH-127](METH_127_FULL_C_REFERENCE_RESULT_20260928.md) composes a
+  pinned FP32 Qwen core and the METH-126 E1280 bank in the existing Qwen
+  C runtime. Dense/composed top-1 parity is 8/8 and 64/64 on one bound
+  prompt; composed 64-position worst relative logit L2 is 3.69e-4.
+  Greedy 64-token decode runs at 16.818
+  tok/s on six Ryzen 5 3600X threads versus 18.244 dense. The FFN and
+  tied head dominate; the expert path adds about 4 ms/token. This closes
+  the full-path reference integration question, not native quality or
+  speed promotion. A quality-valid compact core, target `engine.c`,
+  >=50 accepted tok/s, 10B/100B transfer and cold random DRAM remain
+  open. Next: bind a low-traffic Instruct core to the exact METH-126
+  bank, use new source-disjoint document/generation/grounding gates,
+  and then measure native full-path rate on that same representation.
+  Prior R8/grouped-Q4 failures require an explicit quality repair,
+  not another untrained format swap. No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

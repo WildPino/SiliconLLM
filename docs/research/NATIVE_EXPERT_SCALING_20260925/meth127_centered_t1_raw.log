@@ -1,0 +1,23 @@
+CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=1  quant=fp32
+CONFIG  centered_e1280=1  factor_bank_bytes=496779304
+BENCH  64 tokens  5.133 s  12.47 tok/s  (threads=1, fp32, attn=avx4)
+  organ        ms/token   % of total
+  qkv_proj        3.822     4.7%
+  rope            0.013     0.0%
+  attention       0.368     0.5%
+  o_proj          2.964     3.6%
+  ffn            53.750    66.1%
+  head           20.358    25.0%
+  norm+glue       0.069     0.1%
+  TOTAL          81.345   (organs summed; wall 80.199 ms/token)
+  -- ffn decomposed --
+  gate+up        31.360    58.3% of ffn
+  glue(silu)      2.108     3.9% of ffn
+  down           16.290    30.3% of ffn
+  residual        0.009     0.0% of ffn
+  router+select     0.000     0.0% of ffn
+  centered-expert     3.971     7.4% of ffn
+  FFN-SUM        53.738   (sum/ffn = 0.9998)
+  D=896 F=4864 L=24 heads=14/2 hd=64 V=151936 tied=1 quant=fp32 eps=1e-06 theta=1e+06
+  layout OK: consumed exactly 1976131124 bytes
+  METH-127 centered E1280 bank loaded: 496779304 bytes

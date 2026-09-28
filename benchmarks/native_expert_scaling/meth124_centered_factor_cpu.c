@@ -4,12 +4,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifndef M124_RUNTIME_ONLY
 #include <windows.h>
 #include <psapi.h>
+#endif
 
 typedef struct { char magic[8]; uint32_t l, d, rank, na, nb, child_rank, children, r; } Header;
 typedef struct { const float *p, *a, *b, *child_projection, *child_keys; const uint16_t *fa, *fb; } Layer;
 
+#ifndef M124_RUNTIME_ONLY
 static double now_s(void) {
     LARGE_INTEGER frequency, tick;
     QueryPerformanceFrequency(&frequency);
@@ -22,6 +25,7 @@ static size_t rss_bytes(void) {
     return GetProcessMemoryInfo(GetCurrentProcess(), &counters, sizeof counters)
            ? (size_t)counters.WorkingSetSize : 0;
 }
+#endif
 
 static float bf_float(uint16_t value) {
     uint32_t bits = (uint32_t)value << 16;
@@ -40,6 +44,7 @@ static uint16_t float_bf(float value) {
 
 static float round_bf(float value) { return bf_float(float_bf(value)); }
 
+#ifndef M124_RUNTIME_ONLY
 static void *read_all(const char *path, size_t *size) {
     FILE *file = fopen(path, "rb");
     if (!file) { perror(path); exit(2); }
@@ -52,6 +57,7 @@ static void *read_all(const char *path, size_t *size) {
     *size = (size_t)length;
     return data;
 }
+#endif
 
 static int better(float left, int li, float right, int ri) {
     return left > right || (left == right && li < ri);
@@ -156,6 +162,7 @@ static void residual(const Layer *layer, const float *x, const Header *h,
     }
 }
 
+#ifndef M124_RUNTIME_ONLY
 static int compare_route(const int *parent_ids, const int *child_ids,
                          const float *gates, const uint32_t *expected_parent,
                          const uint32_t *expected_child, const float *expected_gate,
@@ -310,3 +317,4 @@ int main(int argc, char **argv) {
     free((void *)bank);
     return 0;
 }
+#endif

@@ -1,0 +1,22 @@
+CONFIG  attn=avx4  attnr=none  fexp=libm  mvacc=4  threads=6  quant=fp32
+CONFIG  centered_e1280=0  factor_bank_bytes=0
+BENCH  64 tokens  3.511 s  18.23 tok/s  (threads=6, fp32, attn=avx4)
+  organ        ms/token   % of total
+  qkv_proj        2.946     5.3%
+  rope            0.021     0.0%
+  attention       0.238     0.4%
+  o_proj          2.194     3.9%
+  ffn            35.417    63.6%
+  head           14.773    26.5%
+  norm+glue       0.088     0.2%
+  TOTAL          55.676   (organs summed; wall 54.866 ms/token)
+  -- ffn decomposed --
+  gate+up        23.144    65.3% of ffn
+  glue(silu)      0.723     2.0% of ffn
+  down           11.526    32.5% of ffn
+  residual        0.012     0.0% of ffn
+  router+select     0.000     0.0% of ffn
+  centered-expert     0.000     0.0% of ffn
+  FFN-SUM        35.405   (sum/ffn = 0.9997)
+  D=896 F=4864 L=24 heads=14/2 hd=64 V=151936 tied=1 quant=fp32 eps=1e-06 theta=1e+06
+  layout OK: consumed exactly 1976131124 bytes

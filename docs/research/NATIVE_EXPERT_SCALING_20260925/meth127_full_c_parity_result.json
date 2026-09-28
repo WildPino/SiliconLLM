@@ -1,0 +1,85 @@
+{
+  "experiment": "METH-127-full-C-reference-parity",
+  "source_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "core_sha256": "6b2be143303510f15785783542649026b719488407f48b350de67f429e206029",
+  "factor_bank_sha256": "1d9071456a644344d46203ad7ded8fe2c4d01ca0580b5e41718366783408aff1",
+  "ids_sha256": "b9ffb0827e01fec4ef13027d46e04a61421d2ef62c571cc3827aa049bd3013ed",
+  "core_bytes": 1976131124,
+  "bank_bytes": 496779304,
+  "dense": {
+    "worst_relative_l2": 4.276519121049205e-06,
+    "relative_l2_by_position": [
+      3.3155295113829197e-06,
+      2.0109191609662957e-06,
+      1.7602795878701727e-06,
+      1.6713913737476105e-06,
+      1.1947613529628143e-06,
+      2.0378417957545025e-06,
+      4.276519121049205e-06,
+      1.8573442730485112e-06
+    ],
+    "native_top1": [
+      72030,
+      198,
+      2,
+      525,
+      2661,
+      1103,
+      11,
+      264
+    ],
+    "reference_top1": [
+      72030,
+      198,
+      2,
+      525,
+      2661,
+      1103,
+      11,
+      264
+    ],
+    "top1_matches": 8,
+    "positions": 8,
+    "maximum_absolute_logit_difference": 6.246566772460938e-05
+  },
+  "centered": {
+    "worst_relative_l2": 9.54855204327032e-06,
+    "relative_l2_by_position": [
+      3.477466862022993e-06,
+      4.535638709057821e-06,
+      1.5279358649422647e-06,
+      2.0206391582178185e-06,
+      2.561569090175908e-06,
+      9.54855204327032e-06,
+      7.333184385061031e-06,
+      4.60382989331265e-06
+    ],
+    "native_top1": [
+      72030,
+      198,
+      2,
+      525,
+      2661,
+      1103,
+      11,
+      264
+    ],
+    "reference_top1": [
+      72030,
+      198,
+      2,
+      525,
+      2661,
+      1103,
+      11,
+      264
+    ],
+    "top1_matches": 8,
+    "positions": 8,
+    "maximum_absolute_logit_difference": 0.00010371208190917969
+  },
+  "centered_reference": "FP32_Qwen_core_plus_BF16_rounded_input_router_and_factors",
+  "seconds": 12.984999999999673,
+  "peak_gpu_allocated_bytes": 2504344576,
+  "rss_bytes": 4247646208
+}

@@ -423,6 +423,13 @@ def main():
                                              dtype=getattr(torch, a.load_dtype),
                                              attn_implementation="eager").eval()
     c = m.config
+    rope_parameters = getattr(c, "rope_parameters", None)
+    if rope_parameters is not None:
+        if rope_parameters.get("rope_type", "default") != "default":
+            sys.exit("the C runtime supports only default RoPE")
+        rope_theta = float(rope_parameters["rope_theta"])
+    else:
+        rope_theta = float(c.rope_theta)
     D = c.hidden_size
     F = c.intermediate_size
     L = c.num_hidden_layers
@@ -567,7 +574,7 @@ def main():
     with open(a.out, "wb") as fh:
         fh.write(MAGIC)
         fh.write(struct.pack("<9i", D, F, L, NH, NKV, HD, V, tied, quant))
-        fh.write(struct.pack("<2f", float(c.rms_norm_eps), float(c.rope_theta)))
+        fh.write(struct.pack("<2f", float(c.rms_norm_eps), rope_theta))
         w_fp32(fh, m.model.embed_tokens.weight.data)
         for li in range(L):
             lay = m.model.layers[li]
@@ -677,7 +684,7 @@ def main():
             "load_dtype": a.load_dtype,
             "d_model": D, "d_ffn": F, "n_layers": L, "n_heads": NH, "n_kv_heads": NKV,
             "head_dim": HD, "vocab": V, "tied": tied,
-            "rms_eps": float(c.rms_norm_eps), "rope_theta": float(c.rope_theta),
+            "rms_eps": float(c.rms_norm_eps), "rope_theta": rope_theta,
             "head_ternary": bool(a.head_ternary), "rule": a.rule,
             # E64: None means "the FFN follows --rule".  A reader must be able to tell a
             # half-byte carved FFN from a one-byte one WITHOUT reparsing the weights.
