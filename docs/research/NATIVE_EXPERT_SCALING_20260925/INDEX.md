@@ -1321,7 +1321,18 @@ scheduled.
   failed slot across old, expanded and prospective inputs. The 16
   prospective occurrences come from 16 distinct sources. This is
   diagnostic only; a new rule needs another untouched prospective route
-  set. PG19 shard 9 remains untouched for future quality.
+  set. [METH-172](METH_172_LOW_RECURRENCE_ROUTE_RESULT_20260928.md)
+  freezes a generic >=8-recurrence table of 1,685 tuples from only the
+  original 2,560 pairs, without inserting the observed comma tuple by
+  hand. Exact replay on training plus consumed shard-11 raw/chat passes
+  every in-sample gate: worst composed hot share 19.49%, minimum active
+  median 62 and maximum structural traffic 21.05%. This remains
+  postfailure evidence. [METH-173](METH_173_FRESH_LOW_RECURRENCE_ROUTE_PROTOCOL_20260928.md)
+  froze 512 chat, 512 raw and 24 document inputs on unused PG19 shard
+  12, manifest SHA
+  `6ebfc36fd452f2a20cfcc9e8210505e36b725ef95992949655c19f3c94eaee20`.
+  Its local BF16 teacher is running; then apply four new-source cells
+  and composition gates. PG19 shard 9 remains untouched for quality.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

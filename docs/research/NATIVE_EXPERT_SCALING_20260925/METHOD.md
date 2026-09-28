@@ -1174,6 +1174,13 @@ attributes it with an exact new-source trace. A comma following the
 chat excerpt boundary newline at local position 56 contributes 57/82
 selections in the failed slot. The repeated hash pattern crosses source
 sets; this diagnoses route concentration without approving a repair.
+[METH-172](METH_172_LOW_RECURRENCE_ROUTE_RESULT_20260928.md) broadens the
+training-derived shared table with one frozen >=8-recurrence rule. Its
+1,685 entries pass all in-sample and consumed-source route gates,
+including 19.49% worst composed hot share and 21.05% structural traffic.
+This candidate awaits the [METH-173](METH_173_FRESH_LOW_RECURRENCE_ROUTE_PROTOCOL_20260928.md)
+unused shard-12 source/length test; native C parity/cost and learned
+quality are still open.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
