@@ -1,0 +1,53 @@
+{"experiment": "METH-160-deferred-CPU-component-screen", "stage": "waiting_for_preflight", "updated_utc": "2026-09-28T17:14:13.362998+02:00", "finalizer_pid": 21384}
+{"experiment": "METH-160-deferred-CPU-component-screen", "stage": "running_cpu_screen", "updated_utc": "2026-09-28T19:09:19.678599+02:00", "preflight_decision": "tenfold_route_support_fail"}
+{
+  "decision": "selected_B_component_pass_quality_and_full_rate_open",
+  "gates": {
+    "hit": true,
+    "miss": true
+  },
+  "result_sha256": "f789640a6b256a38da4123fa26fd63a1e922e23bfb3ffc8eb0a1d04da877ec10",
+  "hit": {
+    "tokens": "256",
+    "states": "6144",
+    "structural_tokens": "256",
+    "control_unique": "8145",
+    "candidate_unique": "8145",
+    "control_unique_B_bytes": "116766720",
+    "candidate_unique_B_bytes": "116766720",
+    "selected_B_bytes_per_token": "1376256",
+    "control_bank_bytes": "440401944",
+    "candidate_bank_bytes": "4404019224",
+    "control_median_ms": "3.939379297",
+    "candidate_median_ms": "3.963703125",
+    "ratio": "1.006175",
+    "control_route_median_ms": "2.490771875",
+    "candidate_route_median_ms": "2.492180859",
+    "rss_bytes": "804646912",
+    "elapsed_seconds": "18.659831",
+    "checksum": "197076073.260166585",
+    "gate": "PASS"
+  },
+  "miss": {
+    "tokens": "256",
+    "states": "6144",
+    "structural_tokens": "0",
+    "control_unique": "8145",
+    "candidate_unique": "17845",
+    "control_unique_B_bytes": "116766720",
+    "candidate_unique_B_bytes": "255825920",
+    "selected_B_bytes_per_token": "1376256",
+    "control_bank_bytes": "440401944",
+    "candidate_bank_bytes": "4404019224",
+    "control_median_ms": "3.955015625",
+    "candidate_median_ms": "3.918282031",
+    "ratio": "0.990712",
+    "control_route_median_ms": "2.492081641",
+    "candidate_route_median_ms": "2.486093750",
+    "rss_bytes": "982536192",
+    "elapsed_seconds": "18.693694",
+    "checksum": "197230068.287328273",
+    "gate": "PASS"
+  }
+}
+{"experiment": "METH-160-deferred-CPU-component-screen", "stage": "cpu_screen_complete", "updated_utc": "2026-09-28T19:10:03.845618+02:00", "preflight_decision": "tenfold_route_support_fail", "cpu_decision": "selected_B_component_pass_quality_and_full_rate_open", "cpu_gates": {"hit": true, "miss": true}}

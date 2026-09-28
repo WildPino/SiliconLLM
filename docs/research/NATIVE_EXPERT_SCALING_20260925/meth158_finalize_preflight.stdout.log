@@ -1,0 +1,59 @@
+{"experiment": "METH-158-finalize-and-METH-159-preflight", "stage": "waiting_for_teacher_runner", "updated_utc": "2026-09-28T17:02:43.053972+02:00", "runner_pid": 23880}
+{"experiment": "METH-158-finalize-and-METH-159-preflight", "stage": "teacher_complete", "updated_utc": "2026-09-28T18:52:18.039588+02:00", "runner_pid": 23880, "progress_sha256": "a777c1e09f1671ec3485c8645287a6fa7a489dd901d3715e47942f691f8b3b5e", "response_tokens": 158381}
+{
+  "sha256": "cdcb22a4273148dede97a17eac81345c4fc5f8e40f09cb18ecac4e35115e437c",
+  "summary": {
+    "rows": 2560,
+    "min_response_tokens": 8,
+    "max_response_tokens": 128,
+    "mean_response_tokens": 61.867578125,
+    "total_response_tokens": 158381,
+    "eos_terminated": 2495,
+    "repeated_8gram_3x": 20,
+    "new_chat_train_rows": 2560
+  }
+}
+{"experiment": "METH-158-finalize-and-METH-159-preflight", "stage": "teacher_merged", "updated_utc": "2026-09-28T18:52:18.908716+02:00", "teacher_merged_sha256": "cdcb22a4273148dede97a17eac81345c4fc5f8e40f09cb18ecac4e35115e437c", "teacher_summary": {"rows": 2560, "min_response_tokens": 8, "max_response_tokens": 128, "mean_response_tokens": 61.867578125, "total_response_tokens": 158381, "eos_terminated": 2495, "repeated_8gram_3x": 20, "new_chat_train_rows": 2560}}
+{"completed_pairs": 128, "budget": {"seconds": 70.0, "rss_bytes": 3762135040, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 256, "budget": {"seconds": 119.98399999999674, "rss_bytes": 3763851264, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 384, "budget": {"seconds": 169.5309999999954, "rss_bytes": 3763834880, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 512, "budget": {"seconds": 217.51499999999942, "rss_bytes": 3763941376, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 640, "budget": {"seconds": 264.625, "rss_bytes": 3763941376, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 768, "budget": {"seconds": 312.45300000000134, "rss_bytes": 3764150272, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 896, "budget": {"seconds": 359.71800000000076, "rss_bytes": 3764154368, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 1024, "budget": {"seconds": 406.70300000000134, "rss_bytes": 3764137984, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 1152, "budget": {"seconds": 454.0619999999981, "rss_bytes": 3764137984, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 1280, "budget": {"seconds": 502.2649999999994, "rss_bytes": 3764154368, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 1408, "budget": {"seconds": 549.5619999999981, "rss_bytes": 3764150272, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 1536, "budget": {"seconds": 596.4219999999987, "rss_bytes": 3764482048, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 1664, "budget": {"seconds": 643.1719999999987, "rss_bytes": 3764482048, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 1792, "budget": {"seconds": 691.0469999999987, "rss_bytes": 3764465664, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 1920, "budget": {"seconds": 738.25, "rss_bytes": 3764465664, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 2048, "budget": {"seconds": 785.1869999999981, "rss_bytes": 3764465664, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 2176, "budget": {"seconds": 832.0930000000008, "rss_bytes": 3764465664, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 2304, "budget": {"seconds": 879.9530000000013, "rss_bytes": 3764465664, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 2432, "budget": {"seconds": 926.6089999999967, "rss_bytes": 3764465664, "gpu_peak_allocated_bytes": 2945090560}}
+{"completed_pairs": 2560, "budget": {"seconds": 973.7809999999954, "rss_bytes": 3764465664, "gpu_peak_allocated_bytes": 2945090560}}
+{
+  "decision": "tenfold_route_support_fail",
+  "gates": {
+    "teacher_control_bf16_parity": true,
+    "content_coverage": true,
+    "active_content_median": false,
+    "content_under_32_fraction": true,
+    "content_load_ratio": true,
+    "content_hot_parent_share": false
+  },
+  "minimum_content_coverage": 10829,
+  "minimum_active_median": 39.0,
+  "worst_under_32_fraction": 0.48246527777777776,
+  "worst_content_load_ratio": 1.0378086202528083,
+  "worst_hot_share": 0.4325581395348837,
+  "runtime": {
+    "seconds": 973.8280000000013,
+    "rss_bytes": 3773476864,
+    "gpu_peak_allocated_bytes": 2945090560,
+    "gpu": "NVIDIA GeForce RTX 3060"
+  }
+}
+{"experiment": "METH-158-finalize-and-METH-159-preflight", "stage": "preflight_complete", "updated_utc": "2026-09-28T19:08:52.528565+02:00", "teacher_merged_sha256": "cdcb22a4273148dede97a17eac81345c4fc5f8e40f09cb18ecac4e35115e437c", "preflight_sha256": "48074f7b404b409ba177acbbee97c196c1e2aa33f170930267fd25489edba509", "decision": "tenfold_route_support_fail", "gates": {"teacher_control_bf16_parity": true, "content_coverage": true, "active_content_median": false, "content_under_32_fraction": true, "content_load_ratio": true, "content_hot_parent_share": false}}

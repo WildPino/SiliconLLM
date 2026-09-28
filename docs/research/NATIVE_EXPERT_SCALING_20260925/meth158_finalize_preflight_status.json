@@ -1,0 +1,16 @@
+{
+  "experiment": "METH-158-finalize-and-METH-159-preflight",
+  "stage": "preflight_complete",
+  "updated_utc": "2026-09-28T19:08:52.528565+02:00",
+  "teacher_merged_sha256": "cdcb22a4273148dede97a17eac81345c4fc5f8e40f09cb18ecac4e35115e437c",
+  "preflight_sha256": "48074f7b404b409ba177acbbee97c196c1e2aa33f170930267fd25489edba509",
+  "decision": "tenfold_route_support_fail",
+  "gates": {
+    "teacher_control_bf16_parity": true,
+    "content_coverage": true,
+    "active_content_median": false,
+    "content_under_32_fraction": true,
+    "content_load_ratio": true,
+    "content_hot_parent_share": false
+  }
+}
