@@ -1227,6 +1227,14 @@ scheduled.
   expert capacity. METH-153/156 external sets are consumed. Next:
   determine whether training signal per specialist is limiting, then
   freeze a data-scale or objective change and a new independent set.
+  [METH-157](METH_157_POSTFAILURE_TRAINING_SUPPORT_RESULT_20260928.md)
+  measures METH-155 changing-weight selection support. Active content
+  rows have a median of only 7–13 selections/layer; 76.5–84.6% of all
+  11,520 content rows/layer receive fewer than 32, including 538–2,847
+  never selected. This makes data support a plausible limiter but is
+  not a causal explanation. Next: acquire independent training
+  contexts at a larger matched budget; do not repeat the same 256 chat
+  continuations or reuse the consumed METH-153/156 quality sources.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

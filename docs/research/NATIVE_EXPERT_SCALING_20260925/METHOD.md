@@ -1102,6 +1102,12 @@ learned-base repair fixes METH-152's missing common shift but has not
 proved useful additional specialists. The next design needs more
 independent training signal or a different objective and another
 untouched external set; METH-153/156 are consumed.
+[METH-157](METH_157_POSTFAILURE_TRAINING_SUPPORT_RESULT_20260928.md)
+shows that most routed content rows receive fewer than 32 selections
+over the 256 matched updates, with active-row median only 7–13 per
+layer. This is a training-support diagnostic, not evidence that data
+scarcity caused the external BPB failure. A larger matched comparison
+requires genuinely new training contexts, not repeated teacher chats.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
