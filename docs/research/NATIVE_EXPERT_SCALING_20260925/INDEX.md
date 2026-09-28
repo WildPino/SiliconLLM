@@ -1343,6 +1343,17 @@ scheduled.
   E1280/E12800 learning and untouched quality protocol, not a useful-
   expert, compact LUT or >=50 accepted-token/s claim. PG19 shard 9
   remains untouched for quality.
+  [METH-175](METH_175_MATCHED_LONG_LOW_RECURRENCE_TRAINING_PROTOCOL_20260928.md)
+  now freezes 3,840 paired updates from the disjoint METH-158/165
+  training inputs, order SHA
+  `9d4e06eced3cc1c51bac4e6219013f37f4495acd10c87827b567f0966f5c490c`.
+  The [16-update pilot](METH_175_LONG_TRAINING_PILOT_RESULT_20260929.md)
+  passes BF16 parity, route integrity, optimizer/combined-bank audits and
+  exact bank readback within local RAM/GPU/time caps; its sparse support
+  is not a final training result. The full matched E1280 control is now
+  the next run, followed by E12800 on the identical draws. The
+  [METH-176](METH_176_LONG_TRAINING_FRESH_QUALITY_PROTOCOL_20260928.md)
+  untouched quality gates are frozen before training output.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
