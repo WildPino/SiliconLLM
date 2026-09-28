@@ -1286,11 +1286,14 @@ scheduled.
   `2875ac50a4de005b56ad6403c6bd30e358b87eb21d7dbb1918738957855068ba`.
   The 20-shard BF16 teacher runner is active as PID 31332; inspect
   `meth165_teacher_process.json`, stdout/stderr and shard files. After
-  its verified merge, run `meth165_expanded_route_support.py` with the
-  merged SHA, then decide the prospective combined 3,840-pair gates.
+  its verified merge, finalizer PID 29528 (`meth165_finalize_status.json`)
+  runs `meth165_expanded_route_support.py` with the merged SHA, then
+  records the prospective combined 3,840-pair gates. Check the finalizer
+  stage and logs before starting any duplicate process.
   [METH-166](METH_166_NATIVE_TABLE_COST_PROTOCOL_20260928.md) has
   frozen 75/138-entry binary fixtures and native C/Python runners.
-  Run its CPU timing only after METH-165 GPU work finishes. If both
+  The finalizer runs its CPU timing only after METH-165 GPU work finishes.
+  If both
   support and CPU gates pass, freeze equal-budget E1280/E12800 matched
   training and an untouched shard-9 quality audit; neither is yet run.
 
