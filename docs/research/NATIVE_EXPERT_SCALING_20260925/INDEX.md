@@ -1241,7 +1241,14 @@ scheduled.
   and external excerpt overlaps. The 64-prompt teacher pilot completed
   in 181 seconds; the verified, resumable 40-shard acquisition is active
   locally. Inspect `meth158_teacher_progress.json` and the runner logs
-  for the live count; merge only after all 40 shards pass readback.
+  for the live count. A separate hidden finalizer, PID recorded in
+  `meth158_finalize_preflight_process.json`, waits for the live teacher
+  runner PID 23880, requires its exact 40-shard completion record, then
+  merges and hashes the teacher file and runs METH-159. Inspect
+  `meth158_finalize_preflight_status.json` and its logs before any
+  manual restart. `meth158_training_inputs.py` prepares the identical
+  SHA-bound paired draws for both future training arms, but has not run
+  against the still-incomplete teacher merge.
   [METH-159](METH_159_TENFOLD_ROUTE_SUPPORT_PREFLIGHT_PROTOCOL_20260928.md)
   pre-registers an offline 2,560-pair route-support screen before any
   long matched training: minimum 10,000 content IDs and median 50
