@@ -1,0 +1,103 @@
+{
+  "experiment": "METH-131-hidden-arm-map",
+  "manifest_sha256": "84d8dbb400be133b6d1e440d55da5d09afd8ebbe0bd659474bdad8e708868ba9",
+  "audit_sha256": "6053a6d1f5977d6f1adfdee97daf45d3d376796ce4c41fd7d2737067a8375db8",
+  "mapping": {
+    "benchmarks/donor_adaptation/s1/meth51_bf16_effective_factors.py": {
+      "A": "q7_e1280",
+      "B": "exact_e1280"
+    },
+    "benchmarks/donor_adaptation/engine/run_strat01_f16_vector_propagation.py": {
+      "A": "q7_e1280",
+      "B": "exact_e1280"
+    },
+    "benchmarks/donor_adaptation/engine/e38_oracle_ceiling.py": {
+      "A": "exact_e1280",
+      "B": "q7_e1280"
+    },
+    "benchmarks/donor_adaptation/s1/meth32_export_ternary_factors.py": {
+      "A": "exact_e1280",
+      "B": "q7_e1280"
+    },
+    "benchmarks/donor_adaptation/engine/run_strat01_rung2a_q4_repair_confirmation.py": {
+      "A": "exact_e1280",
+      "B": "q7_e1280"
+    },
+    "benchmarks/donor_adaptation/engine/e37_fit_routers.py": {
+      "A": "q7_e1280",
+      "B": "exact_e1280"
+    },
+    "benchmarks/donor_adaptation/engine/run_strat01_q4k_q8k_repair.py": {
+      "A": "exact_e1280",
+      "B": "q7_e1280"
+    },
+    "benchmarks/donor_adaptation/engine/e44_interval.py": {
+      "A": "exact_e1280",
+      "B": "q7_e1280"
+    },
+    "pg19:data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet:row=102": {
+      "A": "exact_e1280",
+      "B": "q7_e1280"
+    },
+    "pg19:data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet:row=446": {
+      "A": "exact_e1280",
+      "B": "q7_e1280"
+    },
+    "pg19:data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet:row=970": {
+      "A": "q7_e1280",
+      "B": "exact_e1280"
+    },
+    "pg19:data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet:row=1046": {
+      "A": "q7_e1280",
+      "B": "exact_e1280"
+    },
+    "pg19:data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet:row=439": {
+      "A": "exact_e1280",
+      "B": "q7_e1280"
+    },
+    "pg19:data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet:row=819": {
+      "A": "q7_e1280",
+      "B": "exact_e1280"
+    },
+    "pg19:data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet:row=583": {
+      "A": "q7_e1280",
+      "B": "exact_e1280"
+    },
+    "pg19:data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet:row=613": {
+      "A": "q7_e1280",
+      "B": "exact_e1280"
+    },
+    "docs/research/donor_adaptation/audits/CONTROLLER_PREREG_REVIEW_2.md": {
+      "A": "exact_e1280",
+      "B": "q7_e1280"
+    },
+    "docs/research/donor_adaptation/audits/TARGET_DONOR_FOLLOWUP_2026-09-16.md": {
+      "A": "exact_e1280",
+      "B": "q7_e1280"
+    },
+    "docs/research/donor_adaptation/probes/H0_TRAINING_INTO_THE_FORMAT.md": {
+      "A": "exact_e1280",
+      "B": "q7_e1280"
+    },
+    "docs/research/donor_adaptation/briefs/BRIEF_E53_A_REAL_EXPONENTIAL_INSTEAD_OF_A_LIBM_CALL.md": {
+      "A": "exact_e1280",
+      "B": "q7_e1280"
+    },
+    "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md": {
+      "A": "exact_e1280",
+      "B": "q7_e1280"
+    },
+    "docs/research/donor_adaptation/probes/P2_EXPERT_PATH_DECOMPOSITION.md": {
+      "A": "exact_e1280",
+      "B": "q7_e1280"
+    },
+    "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_Q6_RESIDUAL_PROPAGATION_PROTOCOL_20260924.md": {
+      "A": "exact_e1280",
+      "B": "q7_e1280"
+    },
+    "docs/research/donor_adaptation/briefs/BRIEF_E28_THE_OTHER_FACTOR.md": {
+      "A": "q7_e1280",
+      "B": "exact_e1280"
+    }
+  }
+}

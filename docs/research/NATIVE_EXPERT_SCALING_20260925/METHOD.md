@@ -880,6 +880,17 @@ relative L2 is 0.0465; paired factor time is 0.8825 versus 1.0388
 ms/token-equivalent. This is a numerical/CPU component screen only;
 BF16 full-model donor quality, new-source semantics, compact-core
 speed and useful growth beyond E1280 require separate evidence.
+[METH-131](METH_131_Q7_FULL_MODEL_QUALITY_RESULT_20260928.md) supplied
+that Q7 bank's fresh BF16 full-model audit. Document BPB, donor prompt
+top-1, 128-token greedy behavior and repeated PIQA all pass the frozen
+automatic gates against the exact E1280 bank. The separately frozen
+anonymous 24-excerpt review fails: Q7 has 34 versus 33 unsupported
+claims and 14 versus 12 severe claims. Therefore Q7 remains a
+CPU/storage component candidate, **not** a quality-conserving method
+step. The PyTorch audit dequantizes the stored Q7 rows before BF16
+matmul; native pair-LUT full-model parity is also unverified. Any
+precision repair must use new source-disjoint quality and grounding
+data, since these METH-131 responses are viewed.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
