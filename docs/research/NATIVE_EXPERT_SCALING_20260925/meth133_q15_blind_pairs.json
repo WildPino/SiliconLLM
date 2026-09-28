@@ -1,0 +1,177 @@
+{
+  "experiment": "METH-133-arm-blind-excerpt-review",
+  "manifest_sha256": "ec6f839a2c9b1803dc8d5658aafa8fd9191b59fa2607961850f5a8666bc35674",
+  "audit_sha256": "18ac0e551f721f64e4d488f8b763926097bc06dadda8f9e52423c0803617a053",
+  "hidden_mapping_sha256": "fa59a8ba43ae499d1dc3ea91593916f5deaf6e69ccc9f9fa22016f4198ee7100",
+  "rubric": "From the visible excerpt alone, count unsupported claims, severe central inversions and answers lacking a requested supported detail.",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat02_shared_gate_zero_selftest.py",
+      "category": "code",
+      "excerpt": "ize=256,\n        pad_token_id=0,\n        bos_token_id=1,\n        eos_token_id=2,\n        max_position_embeddings=128,\n        output_router_logits=False,\n        use_cache=False,\n    )\n    return values\n\n\ndef _clone_model(model_class: Any, config: Any, source: Any) -> Any:\n    clone = model_class(config).eval()\n    result = clone.load_state_dict(source.state_dict(), strict=True)\n  ",
+      "A": "The code snippet defines a function `_clone_model` that takes an `ModelClass`, configuration dictionary, and a source state dictionary to create a new instance of the model with the specified parameters. The function returns the cloned model.<|im_end|>",
+      "B": "The excerpt describes a function `_clone_model` that takes a model class, configuration dictionary, and a source state dictionary (e.g., from another model or dataset) and returns a new model instance with the same configuration but without the source's state dictionary. It also includes parameters for specifying padding tokens, maximum position embeddings, and other options.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h0_pack.py",
+      "category": "code",
+      "excerpt": "condition, and what comes back\n\nREFUSES TO PACK unless, in this order:\n  * h0_factorize.py's G-H0a fired (the masters ARE E22's QO512-TB),\n  * h0_selftest.py's G-H0b/c/d fired (the self-contained trainer IS the repo's rule),\n  * the eval of the INIT bundle read the teacher-forced count E22 published.\nThe third is the one that cannot be faked by agreeing code: it is the assembled mo",
+      "A": "The excerpt describes a process for evaluating a model's performance, where the evaluation step requires three conditions to be met:\n\n1. The H0 factorization script (`h0_factorize.py`) must have successfully executed (`G-H0a`).\n2. The H0 self-test script (`h0_selftest.py`) must also have executed (`G-H0b/c/d`).\n3. The initialization bundle (`INIT`) must have been evaluated (`read the teacher-forced count E22`).<|im_end|>",
+      "B": "The excerpt describes a process for evaluating a model's performance, where the evaluation step requires three conditions to be met:\n\n1. The H0 factorization script (`h0_factorize.py`) must have successfully executed (`G-H0a`).\n2. The H0 self-test script (`h0_selftest.py`) must also have executed (`G-H0b/c/d`).\n3. The initialization bundle (`INIT`) must have been evaluated (`E22`).\n\nThe final condition is the one that cannot be faked by agreeing on the code, which is the assembly of the model itself (`mo`).<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/build_d5_json.py",
+      "category": "code",
+      "excerpt": ")\n    return d\n\n\ndef main():\n    ap = argparse.ArgumentParser()\n    ap.add_argument(\"logfile\", help=\"stdout+stderr captured from `gemv_donor_bench.exe d5 ...`\")\n    ap.add_argument(\"--out\", required=True)\n    ap.add_argument(\"--git-rev\", default=None, help=\"if omitted, read from `git rev-parse HEAD` at run time\")\n    ap.add_argument(\"--build-cmd\", required=True)\n    ap.add_argument",
+      "A": "The excerpt describes an argument parser for a Python script that captures stdout and stderr output from a command-line utility (`gemv_donor_bench.exe`). It also includes options to specify the log file path, output directory, Git revision, and build command.<|im_end|>",
+      "B": "The excerpt describes an argument parser for a Python script that captures stdout and stderr output from a command-line utility (`gemv_donor_bench.exe`). It also includes options to specify the log file path, output directory, Git revision, and build command.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/d4_conditioning_and_nulls.py",
+      "category": "code",
+      "excerpt": "shuffled_H_floor\": recov_shuf,\n            \"recovery_raw_wrong_layer_H_null\": recov_wrong,\n            \"recovery_minus_shuffled_floor\": recov_real - recov_shuf,\n            \"recovery_minus_wrong_layer_null\": recov_real - recov_wrong,\n        }\n        three_way_points[point_key] = three_way\n        print(f\"  recovery RAW: real_H={recov_real:+.3f}  shuffled_H_floor={recov_shuf:+.3f}",
+      "A": "The excerpt provides information about different types of recovered data and their differences between shuffled and original layers. It includes:\n\n1. `shuffled_H_floor`: Recovers the raw value from the original layer.\n2. `recovery_raw_wrong_layer_H_null`: Recovered the wrong layer's null value from the original layer.\n3. `recovery_minus_shuffled_floor`: The difference between the recovered raw value and the original layer's raw value.\n4. `recovery_minus_wrong_layer_null`: The difference between the recovered raw value and the correct layer's null value.\n5. `three_way_points`: A list of points used to calculate",
+      "B": "The excerpt provides information about different types of recovered data and their differences between shuffled and original floor levels. It includes:\n\n1. `shuffled_H_floor`: Recovers the original floor level.\n2. `recovery_raw_wrong_layer_H_null`: Recoveres the raw value without considering any layer errors.\n3. `recovery_minus_shuffled_floor`: The difference between the recovered raw value and the original floor level.\n4. `recovery_minus_wrong_layer_null`: The difference between the recovered raw value and the raw value from the wrong layer.\n5. `three_way_points`: A list of points used to calculate the recovery values.\n6"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat02_w4_bf16_export_verify.py",
+      "category": "code",
+      "excerpt": "  if not isinstance(shape, list) or any(type(d) is not int or d <= 0 for d in shape):\n        raise VerificationError(\"record shape must contain positive integer dimensions\")\n    numel = int(np.prod(shape, dtype=np.int64))\n    if encoding == LINEAR_ENCODING:\n        if len(shape) != 2 or shape[1] % 128:\n            raise VerificationError(\"W4 record is not an eligible [out,in] line",
+      "A": "The excerpt describes a verification error that occurs when the shape of a record does not meet certain criteria. Specifically, it states:\n\n- The `shape` parameter should be a list containing positive integers.\n- The `numel` attribute should be calculated using the `np.prod` function with `dtype=np.int64`.\n- If the `encoding` parameter is set to `LINEAR_ENCODING`, the `len(shape)` must equal 2 and the second dimension's length must be divisible by 128.<|im_end|>",
+      "B": "The excerpt describes a verification error that occurs when the shape of a record does not meet certain criteria. Specifically, it states:\n\n- The `shape` parameter should be a list containing positive integers.\n- The `numel` attribute should be calculated using the product of all elements in the `shape`, with each element being an integer and less than or equal to 128.\n- If the `encoding` parameter is set to `LINEAR_ENCODING`, the `len(shape)` must be exactly 2, and the second dimension's length must be divisible by 128.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_router_f32_heldout.py",
+      "category": "code",
+      "excerpt": " mock.patch.object(runner, \"EXPECTED_HELDOUT_BYTES\", 384)):\n                summary = runner._score_heldout_once(model=\"fake\", tokenizer=tokenizer, rows=rows,\n                                                      output=output, scorer=scorer)\n                self.assertEqual(summary[\"documents\"], 96)\n                self.assertEqual(calls, [row[\"source_document_id\"] for row in rows",
+      "A": "The `mock.patch.object` function was used to patch the `EXPECTED_HELDOUT_BYTES` attribute of the `runner` object with a value of 384 before running a test. The test ran successfully and returned the expected number of documents (`summary[\"documents\"]`) and the source document IDs from the test data (`calls`).<|im_end|>",
+      "B": "The `mock.patch.object` function was used to patch the `runners.EXPECTED_HELDOUT_BYTES` attribute of the `runner` object with a value of 384 before running a test. The test ran successfully and returned the expected number of documents (`summary[\"documents\"]`) and the source document IDs from the test results (`calls`).<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_f16_vec_dot_diagnostic.py",
+      "category": "code",
+      "excerpt": "ype(\"<f4\", copy=False).tofile(mapped_kqv)\n        if sha256_file(mapped_kq) != \"121c689214a7bcf2e709b8de896df14aabcb8fb00580bab297231b8887a3b009\" or sha256_file(mapped_kqv) != \"541183b4eb5992cfcfc711fe3c9f179ab41685106ba9cfe2aa7099f45f821312\": raise DiagnosticError(\"mapped target identity mismatch\")\n\n        tests = run_command([sys.executable, \"-m\", \"unittest\", \"-v\", \"benchmarks.d",
+      "A": "The excerpt describes a Python script that uses the `type` function to create a file path and checks for identity mismatches between the mapped target identity and the test's identity. It raises an `DiagnosticError` if the identities do not match.<|im_end|>",
+      "B": "The excerpt describes a Python script that uses the `type` function to create a file path and checks for identity mismatches between the mapped target identity and the test's identity. It raises an `DiagnosticError` if the identities do not match.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h4_selftest.py",
+      "category": "code",
+      "excerpt": "THREADS\",\"6\")));BUNDLE=os.environ.get(\"H4_BUNDLE\",os.path.join(HERE,\"results\",\"h4\",\"h4_factors_smoke.npz\"));OUT=os.environ.get(\"H4_SELFTEST_OUT\",os.path.join(HERE,\"results\",\"h4\",\"h4_selftest.json\"))\ndef main():\n    if os.path.exists(OUT):raise SystemExit(\"H4 self-test record exists; archive with provenance or set H4_SELFTEST_OUT\")\n    rec={\"stage\":\"H4\",\"bundle\":BUNDLE,\"bundle_sha25",
+      "A": "The excerpt describes a Python function named `main` that checks for the existence of an output file (`OUT`) and raises an exception if it does not exist. It also includes a variable `rec` which contains information about the current thread's state, including its stage, bundle, bundle SHA256, and a JSON object representing the results of a self-test.<|im_end|>",
+      "B": "The excerpt describes a Python function named `main` that checks for the existence of an output file (`OUT`) and raises an exception if it does not exist. It also includes a variable `rec` which is used to store information about the current thread's state.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00005-of-00023-87dece6a0ab708e8.parquet:row=206",
+      "category": "prose",
+      "excerpt": "amilton took us to a garden belonging to the Duke of Serra Capriola, who\nchanced to be there with his beautiful Piedmontese wife, who loved her\nhusband passionately.\n\nThe duke had been sent there two months before for having appeared in\npublic in an equipage which was adjudged too magnificent. The minister\nTanucci called on the king to punish this infringement of the sumptuary\nlaws",
+      "A": "Amilton and his companions visited a garden owned by the Duke of Serra Capriola, who was accompanied by his beautiful Piedmontese wife. The Duke had been sent there two months prior due to public appearances that were deemed extravagant. The minister Tanucci called upon the king to impose penalties for this violation of the sumptuary laws.<|im_end|>",
+      "B": "Amilton and his companions visited a garden owned by the Duke of Serra Capriola, who was accompanied by his beautiful Piedmontese wife. The duke had been sent there two months prior due to public appearances that were deemed extravagant. The minister Tanucci called upon the king to impose penalties for this violation of the sumptuary laws.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00005-of-00023-87dece6a0ab708e8.parquet:row=439",
+      "category": "prose",
+      "excerpt": "ribal fetish. But what shocked our\nlatter-day prophet so greatly in mere anticipation has partially come to\npass. \"La Bible Amusante\" has had an extensive sale in France, and the\ninfectious irreverence has extended itself to England. Notwithstanding\nthat Mr. G. R. Sims, when he saw the first numbers of that abominable\npublication, piously turned up the whites of his eyes, and decla",
+      "A": "The passage describes how the ribald fetish (likely referring to the Bible) has been sold extensively in France and has spread to England, with Mr. G. R. Sims's reaction being described as \"piously turning up the whites of his eyes.\"<|im_end|>",
+      "B": "The passage describes how the ribald fetish (likely referring to the Bible) has been sold extensively in France and has spread to England, with Mr. G. R. Sims's reaction being described as a \"pious turn-up.\"<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00005-of-00023-87dece6a0ab708e8.parquet:row=566",
+      "category": "prose",
+      "excerpt": "sed him from my attention, and resumed my observation of the\nchateau. But nobody came nor went, the gates did not open, nothing\nhappened to give me an idea. When I looked again at the other table, the\nlong-nosed man was gone. It was as if he had simply melted away.\n\n\"Who was the man sitting there?\" I asked the woman of the cabaret.\n\n\"I don't know, Monsieur. He arrived here this mor",
+      "A": "The excerpt describes a scene where the narrator is observing a chateau with no visitors or movement. The long-nosed man who should have been present is absent, leaving the narrator confused and wondering who might be seated at the other table.<|im_end|>",
+      "B": "The excerpt describes a scene where a man is seen sitting at a table in a chateau, but no one comes or goes, and no action occurs that gives the narrator an idea of who he is. The narrator asks about the man sitting there, and the woman of the cabaret does not know who he is.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00005-of-00023-87dece6a0ab708e8.parquet:row=500",
+      "category": "prose",
+      "excerpt": " and whatever anybody said she nodded her\nhead and murmured \"_Ja, eben_.\" She was obviously ill at ease, and\ndropped the sugar-tongs when she was offered sugar with a loud clatter\non to the varnished floor, nearly sweeping the cups off the table in her\neffort to pick them up again.\n\n\"Oh, do not mind,\" said Anna, \"Letty will pick them up. They are stupid\nthings--much too big for the",
+      "A": "The excerpt describes a scene where a woman is nodding her head and murmuring \"Ja, eben\" (literally \"yes\") while holding sugar-tongs on a varnished floor. She drops the sugar-tongs when offered sugar with a loud clatter, causing her to nearly sweep the cups off the table. Anna, who is described as being \"obviously ill at ease, \" offers to pick up the sugar-tongs but is told to let Letty handle them instead.<|im_end|>",
+      "B": "The excerpt describes a scene where a woman is nodding her head and murmuring \"Ja, eben\" (literally \"yes\") while holding sugar-tongs on a varnished floor. She drops the sugar-tongs when offered sugar with a loud clatter, causing her to nearly sweep the cups off the table. Anna, who is described as being \"obviously ill at ease, \" suggests that this situation may be embarrassing or awkward for her.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00005-of-00023-87dece6a0ab708e8.parquet:row=305",
+      "category": "prose",
+      "excerpt": "y I heard a great shout. What do you think? In one\n     corner, on the key-board, where every touch of the keys must have\n     jarred it, was a mouse's nest, with five young ones in it! Those\n     mice must have been fond of music! The mother mouse sprang out and\n     escaped; but the nest and the little ones were destroyed.\n\n     Well, what do you suppose the nest was made of? Bit",
+      "A": "The excerpt describes a scene where a mother mouse is seen hiding her nest in a corner of the keyboard, which is filled with keys that need to be pressed for each click. Inside this nest, there are five young mice, suggesting they may be part of a family or colony. The mother mouse then escapes, leaving behind the nest and its contents.<|im_end|>",
+      "B": "The excerpt describes a scene where a mother mouse is seen hiding her nest in a corner of the keyboard, which is filled with keys that need to be pressed for each click. Inside this nest, there are five young mice, suggesting they may be part of a family or colony. The mother mouse then escapes, leaving behind the nest and its contents.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00005-of-00023-87dece6a0ab708e8.parquet:row=208",
+      "category": "prose",
+      "excerpt": "\n\n  Bigner, 495.\n\n  Bigod, Roger, 257, 365.\n\n  Binstead quarries, Isle of Wight, 515.\n\n  Bird-fair, Kirkham, 306.\n\n  Birkenhead, 17.\n\n  Birmingham, 124.\n\n  Bisham Abbey, 171.\n\n  Bishop Lloyd's Palace, Chester, 22.\n\n  Bishop's Eye, Wells, 403.\n\n  Bishop's Garden, Wells, 401.\n\n  Bishops Hatfield, 230.\n\n  Bisterne, 506.\n\n  Bittern Manor, 509.\n\n  Black Down, Mendip Hills, 407.\n\n  Black",
+      "A": "The excerpt lists various locations and buildings, including those related to architecture, gardening, and historical landmarks. It provides details such as the age (Bigner), occupation (Bigod), location (Isle of Wight, Kirkham, Birmingham, etc.), and notable features (Bishop's Garden, Bishop's Palace, etc.).<|im_end|>",
+      "B": "The excerpt lists various locations and their associated numbers, including:\n\n- Bigner (Birmingham)\n- Bigod (Isle of Wight)\n- Binstead (Kirkham)\n- Bird-fair (Kirkham)\n- Birkenhead (Birmingham)\n- Birmingham (Birmingham)\n- Bisham Abbey (Birmingham)\n- Bishop Lloyd's Palace (Chester)\n- Bishop's Eye (Wells)\n- Bishop's Garden (Wells)\n- Bishops Hatfield (Mendip Hills)\n- Bisterne (Birmingham)\n\nSpecifically, it mentions that Bigners is listed under \"Birmingham"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00005-of-00023-87dece6a0ab708e8.parquet:row=463",
+      "category": "prose",
+      "excerpt": ", that he was beating the branches with,\nall in a brown study, showering down the blossoms among his gold\nbuttons--so romantic--and in his glossy hair. Lucy gave a little scream\nwhen she saw him, and clasped her hands so. The duke gave a start and\ncame toward us, then checked himself and begged pardon in such delicious\nSpanish, only we couldn't quite understand it. He saw that, and",
+      "A": "The excerpt describes a scene where a man is playing with flowers and trees, showcasing his wealth and beauty. Specifically, it mentions:\n\n- A man is \"beating\" the branches with a brush.\n- The flowers are \"among his gold buttons.\"\n- The man's hair is \"glossy.\"\n\nIt also mentions:\n\n- Lucy sees the man and screams.\n- The duke asks for forgiveness but doesn't fully understand the gesture.\n- The duke sees the man and gives a start before asking for permission to approach.<|im_end|>",
+      "B": "The excerpt describes a scene where a man is playing with flowers and trees, showcasing his wealth and beauty. Specifically, it mentions:\n\n- A man is \"beating\" the branches with a brush.\n- He is wearing a brown study outfit.\n- The flowers are blooming among his gold buttons.\n- His hair is shiny.\n- Lucy sees him and screams.\n- The duke tries to approach them but is unable to understand their conversation.\n\nThis excerpt provides a vivid description of a romantic scene set against a backdrop of lush greenery and opulent surroundings.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00005-of-00023-87dece6a0ab708e8.parquet:row=4",
+      "category": "prose",
+      "excerpt": "imes repeat the same\nprepositions with their case out of composition, and that elegantly, as\n\n  Abstinuerunt a vino:\n\n  They abstained from wine.\n\nThis properly is an allusion to the Tiber-totallers. It should be\nremembered that tea was unknown in Rome, except as the accusative case\nof a pronoun.\n\nIn, for, erga, towards, contra, against, ad, to, and supra, above,\nrequires an accusa",
+      "A": "The excerpt describes a passage where the speaker repeats prepositions with their case, emphasizing the use of \"abstinuerunt\" (abstained) instead of \"abstinuere\" (to abstain). The speaker also mentions that the Tiber-totallers were known for drinking wine, but not tea, which was only used as the accusative case of a pronoun.<|im_end|>",
+      "B": "The excerpt describes a passage where the speaker repeats similar prepositions with their cases, emphasizing the allusion to the Tiber-totallers. Specifically, it mentions that \"Abstinuerunt a vino:\" (They abstained from wine:) requires an accusative case, which is a proper use of the preposition \"ererga\" (\"against\").<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_RESULT_20260924.md",
+      "category": "technical_general",
+      "excerpt": "RAT-01 layer-1 FFN RMSNorm cross-input result\n\n**Status:** `LAYER1_FFN_INPUT_RESIDUAL_SUFFICIENT`\n\n## Scope and provenance\n\nThe sole scientific invocation authorized by the frozen\n[protocol](STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_PROTOCOL_20260924.md)\nand canonical repair4\n[apparatus](STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_APPARATUS_RESULT_2026",
+      "A": "The excerpt describes a specific layer-1 FPN (Flattened Pyramid Network) model from the GIGACHAT31 engine, which is a neural network architecture used for image recognition tasks. The model has been successfully trained using a frozen protocol and can be applied to various applications, including image classification and object detection. A key feature of this model is its use of RMSNorm (Relative Positional Embedding Norm), which helps improve the model's performance on certain types of images.<|im_end|>",
+      "B": "The excerpt describes a specific layer-1 FPN (Flattened Pyramid Network) model from the GIGACHAT31 engine, which is a neural network architecture used for image recognition tasks. The model has been successfully executed on a device with the protocol and apparatus results, indicating that the model meets the required conditions for execution.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "excerpt": "inate\n\nThe valid\n[post-F16 layer-1-start result](STRAT_01_GIGACHAT31_ENGINE_POST_F16_LAYER1_START_CROSS_INPUT_RESULT_20260923.md)\nis `POST_F16_BLOCK0_TERMINAL_RESIDUAL_SUFFICIENT`: exact reference `l_out-0`\nmakes all 32 current layer-1 checkpoints pass, while the post-F16 current arm\nreplays every failure exactly. Layer 1 is closed.\n\nThe earlier\n[block-0 terminal-component split](S",
+      "A": "The excerpt describes a scenario where the validity of a post-F16 layer-1 start result is confirmed, indicating that the layer has passed all 32 current layer-1 checkpoints and is fully functional. The post-F16 current arm replays every failure exactly, suggesting that there have been no issues with any of the layers during this period.<|im_end|>",
+      "B": "The excerpt describes a scenario where the validity of a post-F16 layer-1 start result is confirmed, indicating that the layer has passed all 32 current layer-1 checkpoints and is fully functional. The post-F16 current arm replays every failure exactly, suggesting that there have been no issues with any of the layers or components within this block.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E1_BPB_THROUGH_ENGINE.md",
+      "category": "technical_general",
+      "excerpt": "ght the engine touches**. The fp32 arms verify every tensor including norms and biases.\n\n**Gate A did not pass on the first attempt, and was not loosened to make it pass.** The smoke\nfired it at `2.980e-08` — exactly `2^-25`, one ulp — and the diagnosis took three measurements and\nfound two real bugs in the exporter; that history is §4.5 and commit `cdb7119`.\n\n## 2. Results\n\nShared",
+      "A": "The FP32 arm verifies every tensor, including norms and biases, during engine initialization. Gate A failed the first attempt due to an issue with the export process, resulting in a diagnostic of `2.980e-08`.<|im_end|>",
+      "B": "The FP32 arm verifies every tensor, including norms and biases, during engine initialization. Gate A failed the first attempt due to an issue with the gate's state, leading to a diagnostic of `2.980e-08`.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/F1_GATE_PREDICTOR.md",
+      "category": "technical_general",
+      "excerpt": "3 + s` where `pred = r(D+F)/(D·F)`. **This is what\n  `f1_analyse.json` reports.** It is dtype-free but flatters the predictor.\n- **Convention B — engine-realistic.** `W_g/W_u/W_d` ternary-packed at **0.25 B/element** (this engine's\n  target), predictor factors `A`, `B` at **fp16 = 2 B/element** (an SVD factor is not ternary), index\n  codebooks/centroids fp16, PQ codes 1 B. Then `FF",
+      "A": "The excerpt describes a mathematical expression and its interpretation in the context of machine learning models. Specifically, it mentions a formula for calculating a value based on input parameters and a report from a tool named `f1_analyse.json`. The tool reports that this calculation is dtype-free but \"flatters\" the predictor, indicating that the model is being treated more like a simple arithmetic operation rather than a complex prediction task. The tool also specifies that the values used in the calculation are stored in binary format with a precision of 0.25 bytes per element, while the predictor factors are stored in floating-point format with a precision of 2",
+      "B": "The excerpt describes a mathematical expression and its interpretation. Specifically, it states that the expression `s` is calculated using the formula `r(D+F)/(D·F)` and reports this result with dtype-free precision but \"flatters\" the predictor. The excerpt also mentions that the report uses a dtype-free format but specifies that the predictor factors `A`, `B` are represented in binary format (`fp16 = 2 B/element`). Additionally, it notes that the report includes index codebooks/centroids in binary format (`PQ codes 1 B`) and that the report is for an SVD factor that is not"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E45_DOES_SPEED_DEPEND_ON_THE_WEIGHTS.md",
+      "category": "technical_general",
+      "excerpt": "f.bin` against `e37_carved_nf.bin` at the carve's own k, which E37\nmeasured as **30.75 vs 89.83 tok/s** — a ~2.9× gap. If the harness cannot see that, its null on\n`NF vs SYN` is worthless. *No null from an instrument that has not fired.*\n\n**`G-E45b` — the ratio is reported with dispersion or not at all.**\n≥5 interleaved pairs; median and min–max spread of the ratio. A bare ratio ma",
+      "A": "The excerpt describes a comparison between two binary files (`e37_carved_nf.bin` and `f.bin`) measured against each other. It states that the file `e37_carved_nf.bin` was carved at a rate of approximately 30.75 tokens per second (tok/s), while `f.bin` was carved at about 89.83 tok/s. The difference in rates is noted to be around 2.9 times, indicating a significant discrepancy. Specifically, if the harness does not detect this difference, its null on `NF vs SYN` will be meaningless. Additionally, the excerpt mentions",
+      "B": "The excerpt describes a comparison between two binary files (`e37_carved_nf.bin` and `f.bin`) using a carving technique. It states that the file measured as `30.75 vs 89.83 tok/s`, indicating a significant difference of about 2.9 times. The excerpt also mentions that if the harness does not detect this difference, its null on `NF vs SYN` is considered worthless. Additionally, it notes that the `G-E45b` ratio is reported without any dispersion or missing values, suggesting a high level of accuracy.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E16_R3_AT_7B.md",
+      "category": "technical_general",
+      "excerpt": "_export.py`'s flag *default*, and\n  `qwen25-coder7b_p.bin` was exported before `--rule` was a habit.\n- **`R3` works at 1.5 B and fails at 0.5 B.** E1 §2.1/§2.2, same slice, same protocol\n  (`--seqlen 512`), chance 4.069819:\n\n  | donor | `TQH` (R3, packed, head-ternary, fold none) | vs chance |\n  |---|---|---|\n  | Qwen2.5-0.5B | 4.531233733626962 | **+0.461 ABOVE** |\n  | Qwen2.5-1.5",
+      "A": "The excerpt describes a comparison between two versions of a code snippet: `export.py` with the flag `*default` and `qwen25-coder7b_p.bin`. It also mentions that exporting `qwen25-coder7b_p.bin` before using the `--rule` option is noted to have resulted in a performance improvement, specifically noting that `R3` performs better at 1.5 B but fails at 0.5 B when using the `--rule` option. The exact performance difference is not specified, but it's noted to be around 0.461 above the default",
+      "B": "The excerpt describes a comparison between two versions of a code snippet: `export.py` with the flag `*default` and `qwen25-coder7b_p.bin`. It also mentions that exporting `qwen25-coder7b_p.bin` before using the `--rule` option is observed to fail at lower rates compared to when `*default` is used.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER_MLP_AUDIT.md",
+      "category": "technical_general",
+      "excerpt": " I re-derived it by hand.\n\n`python donor_inventory.py curve`, my run, n_att=14, ctx=32768, fp16 KV, SWA-128:\n**11.97 tok/s [10.67 .. 12.68]** — digit-for-digit the Builder's figure. Lower bound clears 10 by 6.65%.\n\nRe-derived term by term from the config, not from the tool (all µs, `slow / fast / central`):\n\n| term | bytes or form | slow | fast | central | my check |\n|---|---|---|-",
+      "A": "The excerpt describes a Python script that calculates the digit-for-digit accuracy of a Builder's figure using the `curve` dataset. The script is executed with various parameters, including the number of iterations (`n_att`) and the context size (`ctx`). The results show that the digit-for-digit accuracy improves significantly when running the script manually compared to executing it through a tool.<|im_end|>",
+      "B": "The author re-derived the code using Python and ran it with specific parameters, resulting in a lower bound of 11.97 tok/s for digit-for-digit comparison against the Builder's figure.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E68_SHARED_RESIDUAL.md",
+      "category": "technical_general",
+      "excerpt": "roups. Therefore this is a capacity diagnostic for a proposed\nshared-plus-block-sparse operator, **not an executable router or a sparse\ninference implementation**.\n\n## Controls and provenance\n\nAll synthetic ridge/factor, objective-monotonicity, rank-zero, mass-tie and\nreconstruction controls passed. `x` was captured at the MLP pre-hook and `z`\nat the down-projection pre-hook. The c",
+      "A": "The excerpt describes a shared-plus-block-sparse operator that is used to diagnose its performance, not an executable router or sparse inference implementation. It mentions that all synthetic ridge/factor, objective-monotonicity, rank-zero, mass-tie, and reconstruction controls were passed, with `x` captured at the MLP pre-hook and `z` at the down-projection pre-hook.<|im_end|>",
+      "B": "The excerpt describes a shared-plus-block-sparse operator that is used to diagnose its performance, not an executable router or sparse inference implementation. It mentions that all synthetic ridge/factor, objective-monotonicity, rank-zero, mass-tie, and reconstruction controls were passed, with `x` captured at the MLP pre-hook and `z` at the down-projection pre-hook.<|im_end|>"
+    }
+  ]
+}
