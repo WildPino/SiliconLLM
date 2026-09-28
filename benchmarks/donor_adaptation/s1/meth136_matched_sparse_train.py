@@ -257,6 +257,9 @@ def parity_check(teacher, student, prompts, device):
             ids = torch.as_tensor(item["prompt_ids"], dtype=torch.long,
                                   device=device)[None]
             expected = teacher(ids, use_cache=False).logits
+            for layer in student.model.layers:
+                if hasattr(layer.mlp, "set_token_context"):
+                    layer.mlp.set_token_context(item["prompt_ids"])
             actual = student(ids, use_cache=False).logits
             difference = float((expected.float() - actual.float()).abs().max())
             maximum = max(maximum, difference)
@@ -350,6 +353,10 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
             kl_mask = torch.ones_like(targets, dtype=torch.float32)
             with torch.no_grad():
                 teacher_logits = teacher(inputs, use_cache=False).logits
+            if name == "hash":
+                context_ids = inputs[0].detach().cpu().numpy()
+                for wrapper in wrappers:
+                    wrapper.set_token_context(context_ids)
             student_logits = model(inputs, use_cache=False).logits
             loss, ce, kl, margin = M107.objective(
                 student_logits, teacher_logits, targets,
@@ -414,17 +421,30 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
     expected_total = 4 * sum((M15.SEQ - 1) + (len(chat[d["chat_index"]][1]) - 1)
                              for d in draws)
     assert all(total == expected_total for total in selected_total), selected_total
-    artifact = export_bank(artifact_path, banks, source_b, name == "candidate")
+    artifact = export_bank(artifact_path, banks, source_b,
+                           name in ("candidate", "hash"))
     disk_bytes = artifact["bytes"]
     assert disk_bytes < MAX_DISK
     if name == "candidate":
         assert min(coverage) >= 6400
         assert min(artifact["bf16_distinct_rows_by_layer"]) >= 3200
         assert max(load_skew) <= 50
+    hot_parent_share = None
+    if name == "hash":
+        hot_parent_share = []
+        for counts in route_counts:
+            parents = counts.view(1280, 10).sum(dim=1)
+            hot = parents >= 250
+            assert bool(hot.any())
+            hot_parent_share.append(float((
+                counts.view(1280, 10)[hot].max(dim=1).values / parents[hot]).max()))
     result = {"arm": name, "initial_parity": initial,
               "records": records, "route_coverage_by_layer": coverage,
               "route_max_to_mean_by_layer": load_skew,
               "route_selections_by_layer": selected_total,
+              "route_counts_by_layer": [x.tolist() for x in route_counts]
+                                       if name == "hash" else None,
+              "hot_parent_worst_grandchild_share_by_layer": hot_parent_share,
               "expected_selections_per_layer": expected_total,
               "final_optimizer_rows_by_layer": [x.used for x in optimizers],
               "final_moment_allocated_bytes": sum((x.m.numel() + x.v.numel()) * 4
