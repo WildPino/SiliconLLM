@@ -1093,6 +1093,15 @@ frozen route, BF16, base coverage and exact combined-bank audit gates.
 The learned common B shift survives export at a scale similar to the
 continued E1280 control; whether the extra routed residuals improve
 untouched prediction is the separately frozen METH-156 question.
+[METH-156](METH_156_FACTORIZED_E12800_FRESH_PREDICTION_RESULT_20260928.md)
+answers it negatively at the first external gate: pooled BPB is
++0.000128 worse than the continued E1280 control and the bootstrap
+lower gain bound is negative, though donor-top1 retention and category
+caps pass. Generation and grounding were correctly not run. The
+learned-base repair fixes METH-152's missing common shift but has not
+proved useful additional specialists. The next design needs more
+independent training signal or a different objective and another
+untouched external set; METH-153/156 are consumed.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

@@ -1216,6 +1216,17 @@ scheduled.
   all-token skew reaches 234.25. Next: apply only the already frozen
   [METH-156](METH_156_SHARED_BASE_FRESH_QUALITY_PROTOCOL_20260928.md)
   to new source/fragment-disjoint data. No useful-expert claim yet.
+  [METH-156](METH_156_FACTORIZED_E12800_FRESH_PREDICTION_RESULT_20260928.md)
+  fails the first external quality gate on 24 new shard-8/code/technical
+  sources: candidate-minus-continued-control pooled BPB is +0.000128
+  versus required <=-0.00005, with a negative bootstrap lower gain
+  bound. Category regression caps and donor-top1 retention pass; the
+  technical category has a small BPB gain, but pooled quality does not.
+  Stop before generation/PIQA/blind grounding. The shared-base repair
+  fixes the lost common shift but is insufficient to show useful 10×
+  expert capacity. METH-153/156 external sets are consumed. Next:
+  determine whether training signal per specialist is limiting, then
+  freeze a data-scale or objective change and a new independent set.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
