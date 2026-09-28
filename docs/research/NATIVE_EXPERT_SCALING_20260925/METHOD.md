@@ -851,6 +851,16 @@ is 3.69e-4. The six-thread
 It establishes the wiring and real full-path bottleneck, not the
 quality/throughput of a compact target artifact. FP32 core arithmetic
 differs from the BF16 core that passed METH-123's external quality audit.
+[METH-128](METH_128_EXACT_HEAD_RERANK_RESULT_20260928.md) screens a
+two-pass tied head on the BF16 centered E1280 candidate: an existing
+per-row R8 head proposes 16–64 vocabulary rows, then the original
+BF16 rows determine the token. On 4,494 viewed prompt positions,
+K=16 includes and recovers the original full-head top-1 every time,
+including the original lowest-token-ID rule for equal scores. This
+permits a native C head experiment and predicts lower active head
+traffic at the cost of duplicate resident head storage. It has not
+yet preserved full-vocabulary likelihood, generation or task quality
+on independent sources, and has no CPU rate result.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

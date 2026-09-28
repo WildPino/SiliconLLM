@@ -944,7 +944,17 @@ scheduled.
   bank, use new source-disjoint document/generation/grounding gates,
   and then measure native full-path rate on that same representation.
   Prior R8/grouped-Q4 failures require an explicit quality repair,
-  not another untrained format swap. No T4 job is planned.
+  not another untrained format swap.
+  [METH-128](METH_128_EXACT_HEAD_RERANK_RESULT_20260928.md) finds a
+  new head option on the viewed quality-gated E1280 hidden states:
+  the original BF16 top-1 is in the stored per-row R8 head's top-16
+  at all 4,494 positions, and exact BF16 candidate rescoring with
+  lowest-ID tie breaking reproduces 4,494/4,494 choices. This is a
+  representation screen; the predicted ~135 MB/token head traffic
+  reduction needs a native C kernel, full-model quality on new
+  sources and a compact-body combination. Next exact action is to
+  implement and time this two-pass C head, with native top-1 parity
+  and a negative shortlist control. No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
