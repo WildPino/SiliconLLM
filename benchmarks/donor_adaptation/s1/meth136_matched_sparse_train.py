@@ -220,8 +220,13 @@ def make_wrappers(model, parent_state, child_state, source_a, source_b,
             cpu_bank = source_b[li].clone() if mode == "control" else (
                 source_b[li].repeat_interleave(10, dim=0).contiguous())
             projection, keys = (third[li] if mode == "candidate" else (None, None))
-            wrapper = CpuSparseExperts(parent, li, cpu_bank, source_a[li],
-                                       projection, keys).to(device)
+            if mode == "hash":
+                from meth144_hash_experts import TokenHashSparseExperts
+                wrapper = TokenHashSparseExperts(parent, li, cpu_bank,
+                                                 source_a[li]).to(device)
+            else:
+                wrapper = CpuSparseExperts(parent, li, cpu_bank, source_a[li],
+                                           projection, keys).to(device)
             with torch.no_grad():
                 for key in ("router", "child_projection", "child_keys"):
                     getattr(wrapper, key).copy_(child_state[li][key].to(device))
