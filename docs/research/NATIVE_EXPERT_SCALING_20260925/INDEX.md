@@ -1123,6 +1123,16 @@ scheduled.
   sparse B training and then untouched quality/grounding. Useful
   learned E12800 capacity, compact LUT arithmetic, cold DRAM and
   full-model accepted-token rate remain unproven.
+  [METH-145](METH_145_MATCHED_HASH_E12800_TRAINING_RESULT_20260928.md)
+  reuses the frozen 256-update E1280 control and completes hash-routed
+  B-only E12800 training with exact initial parity. Coverage and BF16
+  distinctness pass, but 20/24 layers fail the <=1.25× relative load
+  gate (worst 2.875×), and all 24 fail the <=25% hot-parent share gate
+  (worst 100%). The 4.40 GB readback-verified candidate is rejected;
+  do not run METH-146 fresh quality on it. All 256 training chat
+  sequences have an identical 55-token prefix, a likely source of
+  concentrated deterministic routes. Next: attribute load by input
+  segment and repair the training/routing mechanism under a new gate.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

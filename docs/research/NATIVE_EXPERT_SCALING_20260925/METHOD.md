@@ -1013,6 +1013,16 @@ This licenses matched sparse B training, not a useful-capacity or
 semantic-quality claim. An untouched audit, compact quality-valid
 factors, cold traffic and same-artifact accepted-token throughput
 remain required.
+[METH-145](METH_145_MATCHED_HASH_E12800_TRAINING_RESULT_20260928.md)
+finishes 256 matched B-only updates and produces many BF16-distinct
+grandchildren, but fails the frozen relative route-load gate in 20/24
+layers and the within-parent share gate in every layer. A deterministic
+hash concentrates identical causal prefixes; the bound training chat
+mixture shares its first 55 tokens across all 256 sequences. The bank
+is rejected before the METH-146 untouched quality audit. Attribute
+raw, repeated-template and variable-chat traffic separately before a
+new template-aware training/routing experiment; quality-valid 10×
+learned capacity remains open.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
