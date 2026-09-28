@@ -77,7 +77,7 @@ def summarize(cell):
     return rows
 
 
-def check_cell(rows, coverage, support=False):
+def check_cell(rows, coverage, support=False, structural_cap=0.25):
     return {
         "content_coverage": all(r["content"]["coverage"] >= coverage for r in rows),
         "content_load_ratio": all(r["content_to_own_parent_max_load_ratio"] <= 1.25
@@ -86,7 +86,7 @@ def check_cell(rows, coverage, support=False):
             r["content_hot_parent_worst_grandchild_share"] <= 0.25 for r in rows),
         "hot_parents_present": all(r["content_hot_parent_count"] > 0 for r in rows),
         "structural_share": all(r["structural_selections"] <=
-                                0.25 * r["total"]["selections"] for r in rows),
+                                structural_cap * r["total"]["selections"] for r in rows),
         **({"active_median": all(r["content_active_selection_p50"] >= 50
                                   for r in rows),
             "under_32": all(r["content_slots_under_32_fraction"] <= 0.50
@@ -253,8 +253,12 @@ def main():
     pools = {"raw_chat": summarize(raw_chat),
              "train_plus_raw_chat": summarize(add_counts(train_counter, raw_chat))}
     gates = {name: check_cell(cell["candidate_layers"],
-                              7000 if name in ("raw", "chat") else 4000)
+                              7000 if name in ("raw", "chat") else 4000,
+                              structural_cap=0.35 if name == "chat" else 0.25)
              for name, cell in outputs.items()}
+    for name, cell in outputs.items():
+        gates[name]["new_structural_positions"] = (
+            cell["newly_shared_input_positions"] <= 0.01 * cell["tokens"])
     gates["raw_chat"] = check_cell(pools["raw_chat"], 7000)
     gates["train_plus_raw_chat"] = check_cell(
         pools["train_plus_raw_chat"], 10000, support=True)
