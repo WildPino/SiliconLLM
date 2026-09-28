@@ -1177,6 +1177,17 @@ scheduled.
   freeze matched structural/content B-only training and then untouched
   quality/grounding; cold factors, LUT quality and full accepted-token
   rate are still open.
+  [METH-152](METH_152_MATCHED_SHARED_E12800_TRAINING_RESULT_20260928.md)
+  completes the matched 256-update shared-route E12800 B-only run against
+  the frozen continued E1280 control. All preregistered training gates
+  pass: minimum content coverage 8,673, worst nine-way content load
+  ratio 1.104, hot-parent share 19.17%, and minimum BF16-distinct rows
+  11,820. The structural slot takes 66,516/346,428 selections per layer;
+  all-token skew reaches 234.14× and is reported separately. The exact
+  4.40 GB bank is local and must be preserved. Next: run the already
+  frozen [METH-153](METH_153_SHARED_E12800_FRESH_QUALITY_PROTOCOL_20260928.md)
+  source/fragment-disjoint quality audit. No useful-expert or native
+  accepted-token claim yet.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

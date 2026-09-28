@@ -1065,6 +1065,14 @@ match for 6,144 token/layer states in each structural-hit and content-
 miss fixture; native route medians are 1.596 and 1.568 ms/token-
 equivalent, within the frozen component cost limits. This licenses
 matched B-only training, but no learned-quality or full-rate claim.
+[METH-152](METH_152_MATCHED_SHARED_E12800_TRAINING_RESULT_20260928.md)
+completes 256 matched updates and passes the frozen content-only route,
+BF16 specialization, exact initial parity and bank readback gates. The
+shared structural slot accounts for 19.20% of training selections and
+raises all-token skew as expected; this traffic remains a CPU cost. The
+result licenses only the already preregistered METH-153 fresh-source
+quality comparison. Useful expert count, donor retention, grounded
+generation and end-to-end native throughput remain open.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
