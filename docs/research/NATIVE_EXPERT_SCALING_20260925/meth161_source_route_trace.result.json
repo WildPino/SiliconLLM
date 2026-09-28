@@ -1,0 +1,101 @@
+{
+  "experiment": "METH-161-postfailure-source-route-trace",
+  "manifest_sha256": "09086fc7c27877e12ae7c122365d67eef5d78d3cda442e5c3a5d36e8d452ed69",
+  "teacher_merged_sha256": "cdcb22a4273148dede97a17eac81345c4fc5f8e40f09cb18ecac4e35115e437c",
+  "meth159_result_sha256": "48074f7b404b409ba177acbbee97c196c1e2aa33f170930267fd25489edba509",
+  "exact_source_bank_sha256": "1d9071456a644344d46203ad7ded8fe2c4d01ca0580b5e41718366783408aff1",
+  "child_checkpoint_sha256": "15a14b8476936e83cf91a479b05f8d8e83f4ffd094186f3d4dfededdb138d520",
+  "structural_table_sha256": "93b6ca77ece874889e83ae368b9f63d78bef8e90a9fbda37cb9e1a871cb0503e",
+  "pairs": 2560,
+  "sequences": 5120,
+  "input_tokens": 887330,
+  "selections_per_layer": 3549320,
+  "source_coverage_by_layer": [
+    1272,
+    1279,
+    1280,
+    1278,
+    1280,
+    1270,
+    1280,
+    1280,
+    1277,
+    1280,
+    1280,
+    1279,
+    1279,
+    1277,
+    1277,
+    1277,
+    1280,
+    1271,
+    1276,
+    1279,
+    1277,
+    1280,
+    1280,
+    1280
+  ],
+  "structural_selections_per_layer": 659704,
+  "exact_meth159_all_content_histogram_matches": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "arrays": {
+    "children": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth161_source_route_trace.children.npy",
+      "sha256": "9acbf28a040631aca931df6dc173101ec9811461a3db24cb4bdaa918422bb3c3",
+      "bytes": 170367488
+    },
+    "tokens": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth161_source_route_trace.tokens.npy",
+      "sha256": "03051d76cd1a40f67e8c411d9b8808143b30cb86cca6cea60a420360306b02b9",
+      "bytes": 3549448
+    },
+    "previous": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth161_source_route_trace.previous.npy",
+      "sha256": "16e840515fee22e78ed22a6a18da0bcbf8497c05369ae436fc876426a941a54d",
+      "bytes": 3549448
+    },
+    "positions": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth161_source_route_trace.positions.npy",
+      "sha256": "55d89352d77759f9deecefd02aa698a4a15b7f45715719b59c80d2461d100aa8",
+      "bytes": 1774788
+    },
+    "offsets": {
+      "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth161_source_route_trace.offsets.json",
+      "sha256": "00323948e2b1a73b71c1dc72a712ab6a1c909bd618d908b03ba91a563e47d827",
+      "bytes": 285792
+    }
+  },
+  "total_trace_bytes": 179526964,
+  "runtime": {
+    "seconds": 979.5780000000013,
+    "rss_bytes": 4475260928,
+    "gpu_peak_allocated_bytes": 2945090560,
+    "gpu": "NVIDIA GeForce RTX 3060"
+  },
+  "decision": "valid_source_trace_for_offline_postfailure_diagnostics"
+}

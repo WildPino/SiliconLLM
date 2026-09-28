@@ -1126,10 +1126,19 @@ fixtures, their paired route-plus-factor medians are 3.964/3.918 ms for
 E12800 versus 3.939/3.955 ms for E1280. Both frozen component gates
 pass; pages were warm, the E12800 bank remains quality-rejected and no
 compact LUT or full-model accepted-token rate has been established.
-[METH-161](METH_161_POSTFAILURE_SOURCE_ROUTE_TRACE_PROTOCOL_20260928.md)
-is the current postfailure diagnostic: save exact E1280 source-child
-choices and validate offline replay against METH-159 before assessing
-whether recurring nonshared contexts explain the hot-parent failures.
+[METH-161](METH_161_SOURCE_ROUTE_TRACE_RESULT_20260928.md) saves exact
+E1280 source-child choices and validates all 24 METH-159 all/content
+histograms. [METH-162](METH_162_STRUCTURAL_TABLE_DIAGNOSTIC_RESULT_20260928.md)
+attributes the worst collision to a repeated causal tuple. Its frozen
+recurrence rule produces a 138-entry shared table that brings the
+in-sample worst hot-parent share below 25%, but the median specialist
+support stays 39 <50. The table is a route candidate pending independent
+source/length validation and native CPU cost. More distinct training
+contexts are required before a new matched E1280/E12800 quality test.
+[METH-163](METH_163_PREFIX_HASH_DIAGNOSTIC_RESULT_20260928.md) rejects
+the alternative prefix-only content hash: it redistributes the original
+collision but yields a new 35.81% hot-parent share. Its causal-state
+definition remains a documented hypothesis, not a method step.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

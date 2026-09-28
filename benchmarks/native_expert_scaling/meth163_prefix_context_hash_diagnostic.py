@@ -42,6 +42,8 @@ def budget(start):
 def load_array(result, name, dtype, shape):
     item = result["arrays"][name]
     path = Path(item["path"])
+    if not path.exists():
+        path = DOC / path.name
     assert M136.digest(path) == item["sha256"]
     assert path.stat().st_size == item["bytes"]
     array = np.load(path, mmap_mode="r", allow_pickle=False)
@@ -106,8 +108,11 @@ def main():
     previous = load_array(trace, "previous", np.dtype("uint32"), (TOKENS,))
     positions = load_array(trace, "positions", np.dtype("uint16"), (TOKENS,))
     offsets_item = trace["arrays"]["offsets"]
-    assert M136.digest(Path(offsets_item["path"])) == offsets_item["sha256"]
-    offsets = json.loads(Path(offsets_item["path"]).read_text(encoding="utf-8"))
+    offsets_path = Path(offsets_item["path"])
+    if not offsets_path.exists():
+        offsets_path = DOC / offsets_path.name
+    assert M136.digest(offsets_path) == offsets_item["sha256"]
+    offsets = json.loads(offsets_path.read_text(encoding="utf-8"))
     assert len(offsets) == 5120 and offsets[-1]["stop"] == TOKENS
     table = R150.load_table()
     assert len(table) == 75

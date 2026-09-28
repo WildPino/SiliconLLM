@@ -1,14 +1,16 @@
 # Native expert scaling: research control index
 
 **Date:** 28 September 2026. **Branch:** `research/native-expert-scaling`.
-**Current decision:** METH-158 acquired 2,560 independent raw/chat
-pairs. METH-159 rejects long matched E1280/E12800 training on the
-current 75-tuple route: minimum active content median 39 <50 and worst
-hot-parent share 43.26% >25%. METH-160 passes an actual-bank BF16 CPU
-component cost screen at E12800, but that bank failed untouched quality
-and full `engine.c` >=50 accepted tok/s remains open. METH-161 is
-capturing source-child routes to diagnose and revise routing before
-another training attempt. No T4 has been used.
+**Current decision:** METH-159 rejects long matched E1280/E12800 training
+on 2,560 independent raw/chat pairs: minimum active content median 39 <50
+and worst hot-parent share 43.26% >25%. METH-161 captured an exact source
+trace. METH-162's 138-tuple shared table fixes the observed hot slot
+in-sample (worst share 24.26%), but median support remains 39; METH-163's
+prefix hash fails elsewhere (35.81% worst share). Acquire more distinct
+contexts and test a frozen candidate on new sources/lengths before another
+matched training attempt. METH-160 passes an actual-bank BF16 CPU
+component screen, but its E12800 bank failed untouched quality; full
+`engine.c` >=50 accepted tok/s remains open. No T4 has been used.
 **Status:** The centered BF16 E1280 children retain donor-relative
 quality on new sources (METH-121/123). Their exact shared-A factor
 bank passes actual-state native CPU access (METH-125/126); a full C
@@ -1258,11 +1260,24 @@ scheduled.
   factors takes 3.964/3.918 ms versus E1280 3.939/3.955 ms per token-
   equivalent. Pages are warm and the E12800 bank is quality-rejected;
   no compact LUT or full accepted-token rate is established.
-  [METH-161](METH_161_POSTFAILURE_SOURCE_ROUTE_TRACE_PROTOCOL_20260928.md)
-  is running on the local RTX 3060 as process PID 30060, recorded in
-  `meth161_trace_process.json`. Inspect its stdout/stderr and the
-  `meth161_source_route_trace.*` artifacts. Require exact replay of all
-  METH-159 histograms before comparing revised shared-context tables.
+  [METH-161](METH_161_SOURCE_ROUTE_TRACE_RESULT_20260928.md) captured
+  all 887,330 input positions' four E1280 source-child IDs in each of
+  24 layers. All METH-159 all/content histograms replay exactly. The
+  hashed arrays are recoverable from `meth161_source_route_trace.zip`.
+  [METH-162](METH_162_STRUCTURAL_TABLE_DIAGNOSTIC_RESULT_20260928.md)
+  attributes 146/186 selections in the original worst slot to one
+  recurring causal tuple. Adding all 63 nonshared tuples seen >=32 times
+  lowers the in-sample worst hot-parent share to 24.26%, but minimum
+  active content median remains 39 <50. The 138-tuple table is a
+  candidate only, not a passed training route.
+  [METH-163](METH_163_PREFIX_HASH_DIAGNOSTIC_RESULT_20260928.md)
+  spreads that specific collision but creates a 35.81% worst hot-parent
+  share in another layer and leaves median support at 39. Reject this
+  prefix-only candidate. Next: freeze additional disjoint H0 training
+  rows and a new-source/context-length route screen for METH-162's
+  table, keeping PG19 train shard 9 unused for external quality. Expand
+  independent training inputs only if the prospective support gate
+  passes; then plan matched E1280/E12800 training and untouched quality.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
