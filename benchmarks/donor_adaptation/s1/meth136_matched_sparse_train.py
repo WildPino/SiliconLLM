@@ -218,14 +218,13 @@ def make_wrappers(model, parent_state, child_state, source_a, source_b,
             wrapper.router.requires_grad_(False)
         else:
             cpu_bank = (source_b[li].clone() if mode == "control" else
-                        torch.zeros((12800, M15.M13.D, M15.R), dtype=torch.float32)
-                        if mode == "factorized" else
                         source_b[li].repeat_interleave(10, dim=0).contiguous())
             projection, keys = (third[li] if mode == "candidate" else (None, None))
             if mode == "factorized":
                 from meth155_factorized_shared_experts import FactorizedSharedExperts
                 wrapper = FactorizedSharedExperts(parent, li, cpu_bank,
-                                                  source_a[li], source_b[li].clone()).to(device)
+                                                  source_a[li], source_b[li].clone(),
+                                                  torch.zeros_like(cpu_bank)).to(device)
             elif mode == "shared":
                 from meth151_shared_sparse_experts import SharedStructureSparseExperts
                 wrapper = SharedStructureSparseExperts(parent, li, cpu_bank,
@@ -333,8 +332,9 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
         wrapper.gather_calls = 0
     if name == "factorized":
         from meth155_factorized_shared_experts import FactorizedSelectedRowAdam
-        optimizers = [FactorizedSelectedRowAdam(wrapper.base_bank, bank)
-                      for wrapper, bank in zip(wrappers, banks)]
+        optimizers = [FactorizedSelectedRowAdam(wrapper.base_bank,
+                      wrapper.residual_bank, bank, li)
+                      for li, (wrapper, bank) in enumerate(zip(wrappers, banks))]
     else:
         optimizers = [SelectedRowAdam(bank) for bank in banks]
     model.gradient_checkpointing_enable(
@@ -519,6 +519,8 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
               "final_optimizer_rows_by_layer": [x.used for x in optimizers],
               "final_base_optimizer_rows_by_layer": [x.base_used for x in optimizers]
                                                     if name == "factorized" else None,
+              "final_combined_audit_checks_by_layer": [x.audit_checks for x in optimizers]
+                                                     if name == "factorized" else None,
               "final_moment_allocated_bytes": sum(
                   x.moment_allocated_bytes if name == "factorized" else
                   (x.m.numel() + x.v.numel()) * 4 for x in optimizers),

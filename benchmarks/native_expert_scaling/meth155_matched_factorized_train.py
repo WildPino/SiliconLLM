@@ -117,6 +117,7 @@ def main():
         "bf16_distinct": min(candidate["artifact"]["bf16_distinct_rows_by_layer"]) >= 3200,
         "base_coverage": min(candidate["final_base_optimizer_rows_by_layer"]) >= 1100,
         "base_bf16_changed": min(candidate["artifact"]["base_bf16_changed_rows_by_layer"]) > 0,
+        "combined_bank_step_audits": min(candidate["final_combined_audit_checks_by_layer"]) == 256,
         "artifact_readback": candidate["artifact"]["readback_exact"],
     }
     result = {"experiment": "METH-155-matched-factorized-training",
@@ -147,6 +148,7 @@ def main():
         "minimum_bf16_distinct": min(candidate["artifact"]["bf16_distinct_rows_by_layer"]),
         "minimum_base_rows": min(candidate["final_base_optimizer_rows_by_layer"]),
         "minimum_base_bf16_changed": min(candidate["artifact"]["base_bf16_changed_rows_by_layer"]),
+        "minimum_combined_audits": min(candidate["final_combined_audit_checks_by_layer"]),
         "worst_content_load_ratio": max(content["to_own_parent_max_load_ratio_by_layer"]),
         "worst_content_hot_share": max(content["hot_parent_worst_grandchild_share_by_layer"]),
         "structural_selections_per_layer": content["structural_selections_per_layer"],

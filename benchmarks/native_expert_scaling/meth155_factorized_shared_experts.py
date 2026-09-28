@@ -1,65 +1,39 @@
-"""Train shared CPU B base plus routed CPU B residual, then export one B row."""
+"""Keep one combined CPU B bank exactly equal to base plus routed residual."""
 
 import torch
-import torch.nn.functional as F
 import numpy as np
 
-from meth134_sparse_e12800_training import SparseCpuGather
 from meth136_sparse_experts import SelectedRowAdam
 from meth151_shared_sparse_experts import SharedStructureSparseExperts
 import meth15_zero_residual_expert_smoke as M15
 
 
 class FactorizedSharedExperts(SharedStructureSparseExperts):
-    def __init__(self, parent, layer_id, residual_bank, shared_a, base_bank):
-        super().__init__(parent, layer_id, residual_bank, shared_a)
+    def __init__(self, parent, layer_id, combined_bank, shared_a, base_bank,
+                 residual_bank):
+        super().__init__(parent, layer_id, combined_bank, shared_a)
         assert base_bank.shape == (1280, M15.M13.D, M15.R)
         assert base_bank.device.type == "cpu" and base_bank.dtype == torch.float32
+        assert residual_bank.shape == combined_bank.shape == (12800, M15.M13.D, M15.R)
+        assert residual_bank.device.type == "cpu" and residual_bank.dtype == torch.float32
         self.base_bank = base_bank
-
-    def forward(self, x):
-        dense = self.base(x)
-        if not self.enabled:
-            return dense
-        flat = x.reshape(-1, M15.M13.D)
-        parents, selected_scores = self.routes(flat)
-        children = self.child_route(flat, parents)
-        ids = self.selected_ids(flat, children)
-        self.last_selected = ids.detach()
-        gate = F.softmax(selected_scores, dim=-1).to(flat.dtype)
-        a = self.shared_a[parents].to(flat.dtype)
-        base_ids = ids.detach().div(10, rounding_mode="floor").to(
-            device="cpu", dtype=torch.long)
-        base = self.base_bank.index_select(0, base_ids.reshape(-1)).to(
-            flat.device).reshape(*ids.shape, M15.M13.D, M15.R)
-        if self.collector is not None and torch.is_grad_enabled():
-            trigger = torch.zeros((), dtype=torch.float32,
-                                  device=flat.device, requires_grad=True)
-            residual = SparseCpuGather.apply(trigger, ids, self.cpu_bank,
-                                             self.collector)
-        else:
-            residual_ids = ids.detach().to(device="cpu", dtype=torch.long)
-            residual = self.cpu_bank.index_select(0, residual_ids.reshape(-1)).to(
-                flat.device).reshape(*ids.shape, M15.M13.D, M15.R)
-        self.forward_B_transfer_bytes += base.numel() * base.element_size()
-        self.forward_B_transfer_bytes += residual.numel() * residual.element_size()
-        self.gather_calls += 2
-        b = (base + residual).to(flat.dtype)
-        hidden = F.silu(torch.einsum("nd,nkrd->nkr", flat, a))
-        out = torch.einsum("nkr,nkdr->nkd", hidden, b)
-        residual_out = (out * gate.unsqueeze(-1)).sum(dim=1).reshape_as(dense)
-        return dense + residual_out
+        self.residual_bank = residual_bank
+        assert torch.equal(combined_bank,
+                           base_bank.repeat_interleave(10, dim=0) + residual_bank)
 
 
 class FactorizedSelectedRowAdam:
-    def __init__(self, base_bank, residual_bank):
+    def __init__(self, base_bank, residual_bank, combined_bank, layer_id):
         assert base_bank.shape == (1280, M15.M13.D, M15.R)
-        assert residual_bank.shape == (12800, M15.M13.D, M15.R)
+        assert residual_bank.shape == combined_bank.shape == (12800, M15.M13.D, M15.R)
         self.base_bank = base_bank
         self.residual_bank = residual_bank
+        self.combined_bank = combined_bank
         self.base_optimizer = SelectedRowAdam(base_bank, learning_rate=1e-5)
         self.residual_optimizer = SelectedRowAdam(residual_bank, learning_rate=2e-6)
         self.prepared = None
+        self.audit_rng = np.random.default_rng(155155 + layer_id)
+        self.audit_checks = 0
 
     @property
     def used(self):
@@ -90,6 +64,21 @@ class FactorizedSelectedRowAdam:
         parents, base_grad = self.prepared[1:]
         base_row = self.base_optimizer.step(parents, base_grad, scale)
         residual_row = self.residual_optimizer.step(ids, gradients, scale)
+        all_ids = (parents[:, None] * 10 + torch.arange(10)).reshape(-1)
+        combined = (self.base_bank.index_select(0, parents).repeat_interleave(10, dim=0)
+                    + self.residual_bank.index_select(0, all_ids))
+        self.combined_bank.index_copy_(0, all_ids, combined)
+        selected_expected = (self.base_bank.index_select(0, ids // 10)
+                             + self.residual_bank.index_select(0, ids))
+        assert torch.equal(self.combined_bank.index_select(0, ids), selected_expected)
+        touched = set(parents.tolist())
+        if len(touched) < 1280:
+            untouched = int(self.audit_rng.integers(0, 12800))
+            while untouched // 10 in touched:
+                untouched = int(self.audit_rng.integers(0, 12800))
+            assert torch.equal(self.combined_bank[untouched],
+                self.base_bank[untouched // 10] + self.residual_bank[untouched])
+            self.audit_checks += 1
         self.prepared = None
         return {"new_rows": residual_row["new_rows"],
                 "optimizer_rows": self.used,
@@ -109,10 +98,11 @@ def export_combined_bank(path, wrappers, source_b):
         stream.write(M136.OUT_HEADER.pack(b"M136BF01", 24, 896, 8, rows))
         for wrapper, original in zip(wrappers, source_b):
             base = wrapper.base_bank
-            residual = wrapper.cpu_bank
+            residual = wrapper.residual_bank
+            combined = wrapper.cpu_bank
             assert base.shape == (1280, 896, 8)
             assert residual.shape == (rows, 896, 8)
-            combined = base.repeat_interleave(10, dim=0) + residual
+            assert torch.equal(combined, base.repeat_interleave(10, dim=0) + residual)
             different = (combined.to(torch.bfloat16) !=
                          original.to(torch.bfloat16).repeat_interleave(10, dim=0))
             different_rows.append(int(different.reshape(rows, -1).any(dim=1).sum()))
@@ -130,8 +120,7 @@ def export_combined_bank(path, wrappers, source_b):
     for li, wrapper in enumerate(wrappers):
         readback = np.frombuffer(data, dtype="<u2", count=rows * 896 * 8,
                                  offset=M136.OUT_HEADER.size + li * stride)
-        expected_bits = (wrapper.base_bank.repeat_interleave(10, dim=0) +
-                         wrapper.cpu_bank).to(torch.bfloat16).contiguous().view(torch.uint16).numpy()
+        expected_bits = wrapper.cpu_bank.to(torch.bfloat16).contiguous().view(torch.uint16).numpy()
         assert np.array_equal(readback, expected_bits.reshape(-1))
     return {"path": str(path.resolve()), "bytes": expected,
             "sha256": M136.digest(path), "readback_exact": True,
