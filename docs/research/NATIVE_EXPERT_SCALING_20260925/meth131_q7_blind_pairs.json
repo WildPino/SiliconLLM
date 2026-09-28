@@ -1,0 +1,177 @@
+{
+  "experiment": "METH-131-arm-blind-excerpt-review",
+  "manifest_sha256": "84d8dbb400be133b6d1e440d55da5d09afd8ebbe0bd659474bdad8e708868ba9",
+  "audit_sha256": "6053a6d1f5977d6f1adfdee97daf45d3d376796ce4c41fd7d2737067a8375db8",
+  "hidden_mapping_sha256": "51b310454660b7c54b03ad29c271d104ebaaa0f614daf150421ec160ef4c914f",
+  "rubric": "From the visible excerpt alone, count unsupported claims, severe central inversions and answers lacking a requested supported detail.",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth51_bf16_effective_factors.py",
+      "category": "code",
+      "excerpt": "                       local_files_only=True)\n    assert M15.M13.C.tok_fingerprint(tok) == M15.M13.TOK_FP\n    model = AutoModelForCausalLM.from_pretrained(\n        M42.MODEL, revision=M42.REV, dtype=torch.bfloat16,\n        attn_implementation=\"sdpa\", local_files_only=True).to(device).eval()\n    for parameter in model.parameters():\n        parameter.requires_grad_(False)\n    wrapper",
+      "A": "The excerpt describes an attempt to load a pre-trained model from a specific version and revision of a model repository using BFloat16 precision. It also mentions that the model is evaluated on a device with specified parameters.<|im_end|>",
+      "B": "The excerpt describes an attempt to load a pre-trained model from a specific version and revision of a model repository using BFloat16 precision. It also mentions that the model is evaluated on a device with specified parameters.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_f16_vector_propagation.py",
+      "category": "code",
+      "excerpt": "name]\n        if not path.is_file() or path.stat().st_size != size or sha(path) != expected:\n            raise PropagationError(f\"historical Stage-A output identity mismatch: {name}\")\n    return {\n        \"adjudications\": {name: {\"path\": str(path), \"sha256\": expected} for name, (path, expected) in PREDECESSORS.items()},\n        \"manifests\": manifest_hashes,\n        \"stage_a_inputs\"",
+      "A": "The excerpt describes a function that checks if the SHA-256 hash of a file matches an expected value and raises an `PropagationError` if they do not match. It returns a dictionary containing historical stage-A inputs, their corresponding paths, and the expected SHA-256 hash.<|im_end|>",
+      "B": "The excerpt describes a function that checks if the SHA-256 hash of a file matches an expected value and raises an `PropagationError` if they do not match. It returns a dictionary containing historical stage-A inputs, their corresponding paths, and the expected SHA-256 hash.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e38_oracle_ceiling.py",
+      "category": "code",
+      "excerpt": "e_hook(self._mk_in(li)))\n            self.handles.append(lay.mlp.down_proj.register_forward_pre_hook(self._mk_mask(li)))\n\n    def _mk_in(self, li):\n        def f(mod, args):\n            self.x[li] = args[0].detach()\n        return f\n\n    def _mk_mask(self, li):\n        def f(mod, args):\n            h = args[0]\n            if self.mode == \"off\":\n                return None\n         ",
+      "A": "The excerpt describes a class method `_mk_in` that takes an input tensor `li` and registers a forward hook for the MLP down projection layer. The hook is called with the input tensor and returns a dummy value to prevent unnecessary computations. Additionally, there's a `_mk_mask` method that takes an input tensor `li` and checks if the mode is 'off' before calling the MLP down projection layer.<|im_end|>",
+      "B": "The excerpt describes a class method `_mk_in` that takes an input tensor `li` and registers a forward hook for the MLP down projection layer. The hook is called with the input tensor and returns a dummy value to prevent unnecessary computations. Additionally, there's a `_mk_mask` method that takes an input tensor `li` and checks if the mode is 'off' before calling the MLP down projection layer.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth32_export_ternary_factors.py",
+      "category": "code",
+      "excerpt": "equired=True)\n    ap.add_argument(\"--report\", type=Path, required=True)\n    args = ap.parse_args()\n    start = time.monotonic()\n    torch.set_num_threads(6)\n    assert M15.M13.sha256(M25.CORE) == M25.CORE_SHA\n    assert M15.M13.sha256(M20.ADAPTER) == M20.ADAPTER_SHA\n    with safe_open(str(M20.ADAPTER), framework=\"pt\", device=\"cpu\") as archive:\n        original_meta = archive.metada",
+      "A": "The excerpt describes a Python script that sets up arguments for a PyTorch model and checks its SHA-256 hash against a known value. It also includes assertions to ensure the model's core and adapter hashes match the expected values. The script uses `safe_open` to open a file in PT (PyTorch) format on CPU without specifying a framework.<|im_end|>",
+      "B": "The excerpt describes a Python script that sets up arguments for a PyTorch model and performs some checks on its SHA-256 hash values. It starts timing the process, asserts the correctness of the SHA-256 hashes, and then writes the original metadata to a file using a PT interpreter on CPU.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_rung2a_q4_repair_confirmation.py",
+      "category": "code",
+      "excerpt": "ame]})\n            results.append(result)\n    return results\n\n\ndef continuity_result(c_tensors: dict[str, np.ndarray]) -> dict[str, Any]:\n    shape = SHAPES[\"ffn_inp-0\"]\n    prefill = token7(c_tensors[\"prefill8/ffn_inp-0\"], shape)\n    cached = token7(c_tensors[\"cached7p1/ffn_inp-0\"], shape)\n    result = judged_metrics(cached, prefill, TIGHT_LIMITS)\n    result[\"implementation\"] = \"r",
+      "A": "The excerpt describes a function `continuity_result` that takes a dictionary of tensors (`c_tensors`) and returns a dictionary of results. The function first extracts the shape of the input tensor and then uses these dimensions to cache and judge metrics from another input tensor. It also includes a placeholder for the implementation details.<|im_end|>",
+      "B": "The excerpt describes a function `continuity_result` that takes a dictionary of tensors (`c_tensors`) and returns a dictionary of results. The function first extracts the shape of the input tensor and then uses these dimensions to cache and judge metrics from another input tensor. It also includes a placeholder for the implementation details.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e37_fit_routers.py",
+      "category": "code",
+      "excerpt": "t_routers.py                # fit, score, write D:/_ktmp/e37/e37_routers_E256.npz\n\"\"\"\nimport argparse\nimport json\nimport os\nimport sys\nimport time\n\nimport numpy as np\nimport torch\n\nHERE = os.path.dirname(os.path.abspath(__file__))\nsys.path.insert(0, HERE)\nsys.path.insert(0, os.path.abspath(os.path.join(HERE, \"..\", \"ternary\")))\nsys.path.insert(0, os.path.abspath(os.path.join(HERE, \"",
+      "A": "The excerpt describes a Python script named `t_routers.py` that is used to fit, score, and write data from a file named `_ktmp/e37/e37_routers_E256.npz`. It also mentions that this script uses TensorFlow 2.x and NumPy for its operations.<|im_end|>",
+      "B": "The excerpt describes a Python script named `t_routers.py` that is used to fit, score, and write data into a file named `D:/_ktmp/e37/e37_routers_E256.npz`. It also mentions that the script imports necessary modules such as `argparse`, `json`, `os`, `sys`, `time`, `numpy`, and `torch`. The script's purpose appears to be related to processing or analyzing data from a file named `D:/_ktmp/e37/e37_routers_E256.npz`.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q4k_q8k_repair.py",
+      "category": "code",
+      "excerpt": "marks/phase60/engine.c\"\nOPERATOR = ROOT / \"benchmarks/phase60/strat01_q4k_q8k.h\"\nRUNG1 = ROOT / \"benchmarks/phase60/strat01_gguf_rung1.h\"\nRUNG2A = ROOT / \"benchmarks/phase60/strat01_gguf_rung2a.h\"\nPROTOCOL = ROOT / \"docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REPAIR_PROTOCOL_20260921.md\"\nMODEL = ROOT / \"benchmarks/donor_adaptation/density/results/strat0",
+      "A": "The excerpt describes a C++ code snippet that runs on a GPU using the STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REPAIR_PROTOCOL_20260921.md model for a benchmarking experiment. It specifies the operating system (ROOT), program name (engine.c), and run groups (RUNG1, RUNG2A).<|im_end|>",
+      "B": "The excerpt describes a C++ code snippet that runs on a GPU and is part of a benchmarking project for donor adaptation experiments. It specifies the following details:\n\n- The code is located at `/marks/phase60/engine.c`\n- The operating system is `ROOT`, which likely refers to the Linux distribution used for this project.\n- The source files are:\n  - `OPERATOR`: A file containing the operator code.\n  - `RUNG1`: Another file with rung (run group) definitions.\n  - `RUNG2A`: A third file with rung2a (run group 2a) definitions"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e44_interval.py",
+      "category": "code",
+      "excerpt": "ubprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)\n    out, errb = p.communicate()\n    child = _process_times(int(p._handle))      # read BEFORE the handle is released\n    wall = time.time() - t0\n    if p.returncode != 0:\n        log(errb.decode(errors=\"replace\")[-1200:])\n        raise SystemExit(\"engine failed: \" + \" \".join(cmd))\n    m = RE_BENCH.search(out.decod",
+      "A": "The excerpt describes a Python function `ubprocess.Popen` that uses subprocess to execute a command and communicate its output and error back to the parent process. It captures the output before releasing the handle, calculates the elapsed time since the start of the execution, and checks for errors. If the process returns a non-zero exit code, it logs the error and raises an exception. The function reads from the standard output (stdout) and writes to the standard error (stderr), which are decoded using `errors=\"replace\"` to ensure compatibility with the original text.<|im_end|>",
+      "B": "The excerpt describes a Python function `ubprocess.Popen` that executes a command and captures its output and error. It reads the output before releasing the handle, calculates the elapsed time since the start of the process, and checks for errors. If the process returns a non-zero return code, it raises an exception with details about the failure. The function also uses regular expressions to search for the output.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet:row=102",
+      "category": "prose",
+      "excerpt": "d either as\nTime Sights or by the Marc St. Hilaire Method, and also the following\nArts. in Bowditch: 326-327-328-329.\n\n\n\n\nTHURSDAY LECTURE\n\nLATITUDE BY EX-MERIDIAN ALTITUDE OF THE SUN\n\nYou have learned that when you calculate your latitude from a meridian\naltitude of the sun, one of the necessary requisites is to have the sun\nexactly on your meridian. In fact, that is just another ",
+      "A": "The excerpt describes a lecture titled \"Latitude By Ex-Meridian Altitude of the Sun,\" which involves calculating latitude using the sun's exact position on a meridian. It mentions that this method requires having the sun exactly on the meridian, which is another requirement for calculating latitude.<|im_end|>",
+      "B": "The excerpt describes a lecture titled \"Latitude By Ex-Meridian Altitude of the Sun,\" which involves calculating latitude using the sun's exact position on a meridian. It mentions that this method requires having the sun exactly on the meridian, which is another requirement for calculating latitude.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet:row=446",
+      "category": "prose",
+      "excerpt": " it was little wonder that the men\nwhose phases of humour she reflected believed in her also, and moreover\nthought her as adorable and as full of delicious changes as Cleopatra.\n\nIsolde had told the story of her adventure to Valerie, dwelling on the\nfacts that the hero detested--absolutely detested--all other women, also\nthat in physique he followed the most approved English patter",
+      "A": "The excerpt describes a scene where Isolde tells Valerie about her journey to Egypt, where she encounters men who share her humor and believe in her. Specifically, it mentions that these men admire her for her humorous nature and describe her as \"adorable\" and \"full of delicious changes.\"<|im_end|>",
+      "B": "The excerpt describes a scene where Isolde tells Valerie about her journey to Egypt, where she encounters men who share her humor and believe in her. Specifically, it mentions that these men admire her for her humorous nature and describe her as \"adorable\" and \"full of delicious changes.\"<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet:row=970",
+      "category": "prose",
+      "excerpt": "ock, and not to\nbe able to use all the natural gifts he had.\n\n\n\n\nTHE CARPENTER'S SERMON.\n\nBY DAVID KER.\n\n\n\"Tell ye what, mates, this sort o' thing won't do. Here we've been at it\nthese six weeks, and not a penny of wages yet. It's all very fine to\nsay, 'Stick to your work,' but a man won't git fat on workin' for\nnothing, that's sartain!\"\n\n\"Right you are, Bill. S'pose we knocks off ",
+      "A": "The carpenter's sermon describes a situation where the speaker is unable to earn enough money to pay for his work, highlighting the importance of hard work and perseverance in earning a living.<|im_end|>",
+      "B": "The carpenter's sermon describes a situation where the speaker is unable to earn enough money to pay for his work, highlighting the importance of hard work and perseverance in earning a living.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet:row=1046",
+      "category": "prose",
+      "excerpt": "! a fellow could spend ten years looking\nfor this mine, and then be no better off than when he started.\"\n\n\"Yes,\" responded Kelley, \"it's certainly up to you to cherish the old\nlady.\"\n\nIn the morning Wetherell dressed hastily and crept into the little tent\nwhere Pogosa lay. \"How are you, granny?\" he asked. She only shook her\nhead and groaned.\n\n\"She say her back broke,\" Eugene interp",
+      "A": "The excerpt describes a scene where a man named Eugene is visiting his grandmother, who has been ill for several months. The elderly woman, Pogosa, is described as having a broken back that requires constant care. In the morning, Eugene visits Pogosa, who is already in bed, and asks how she is. Pogosa responds with a sigh and a groan, indicating that she is not feeling well.<|im_end|>",
+      "B": "The excerpt describes a scene where a woman named Kelley is trying to find a lost mine. The narrator states that she has spent ten years searching for the mine, which she believes will not improve her situation. In the morning, Wetherell, who is a man, dresses hurriedly and enters a small tent where Pogosa is sleeping. He asks how she is, but she only shakes her head and groans.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet:row=439",
+      "category": "prose",
+      "excerpt": "licy of his\npredecessors in attempting to bring the great fiefs into his power,\nand especially that part of Aquitaine which was still held by the most\npowerful of his vassals, the king of England. Whilst Edward was doing\nhis best to bring Scotland into subjection by open war, Philip was\ndoing his best to disturb Edward in his hold upon Aquitaine by secret\nintrigues and legal chican",
+      "A": "The excerpt describes how Edward I attempted to conquer Aquitaine, particularly the kingdom of England, while Philip II of France sought to weaken Edward's control over Aquitaine through secret alliances and legal maneuvers.<|im_end|>",
+      "B": "The excerpt describes how Edward I attempted to conquer Aquitaine, particularly the kingdom of England, while Philip II of France sought to weaken Edward's control over Aquitaine through secret alliances and legal maneuvers.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet:row=819",
+      "category": "prose",
+      "excerpt": "seated on\nher stone doorstep, the dear grandmother who smiled with her toothless\nmouth and opened her old arms thin as grape vines to welcome her little\ngranddaughter. Fanny's heart was filled with delight at the prospect of\nspending a whole day at her grandmother's. And her grandmother, having\nno longer any cares or tasks, but living like a cricket near the fire,\nis happy too to s",
+      "A": "The excerpt describes a scene where a grandmother is seated on her stone doorstep, smiling and opening her old arms to welcome a young girl. The grandmother has no longer any cares or tasks, but is content to live like a cricket near the fire. Fanny's heart is filled with delight at spending a whole day at her grandmother's.<|im_end|>",
+      "B": "The excerpt describes a scene where a grandmother is seated on her stone doorstep, smiling and opening her old arms to welcome a young girl. The grandmother has no longer any cares or tasks, but is content to live like a cricket near the fire. Fanny's heart is filled with delight at spending a whole day at her grandmother's.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet:row=583",
+      "category": "prose",
+      "excerpt": " until he was passing the home of his pet, after bidding good-bye\nto the elders of the family.  The traveller had been suddenly struck\nwith the thought that Blackie might chance to serve instead of a long\npurse for the exigencies of the journey, and it would be best to take\nhim, as private property, to supply the possible needs of the uncertain\nfuture.\n\nIt may be that it had uncons",
+      "A": "The traveler is on a journey, passing through the home of his pet, bidding farewell to the elders of the family. He has a sudden realization that Blackie might serve instead of a long purse for the journey, and decides to take him as private property to provide potential future needs.<|im_end|>",
+      "B": "The traveler is on a journey, passing through the home of his pet, and has suddenly realized that Blackie might serve instead of a long purse for the journey. Therefore, the traveler decides to take Blackie as private property to provide him with potential future needs.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00004-of-00023-3f9e7e096fa07f4b.parquet:row=613",
+      "category": "prose",
+      "excerpt": "tation or desire\nof profit appears not only in his conviction that he was thereby losing\nsixteen thousand pounds, but in his refusal to make his new estates a\nmeans of gain. \"He is offered great things,\" says James Claypole in a\nletter dated September, 1681, \"L6000 for a monopoly in trade, which he\nrefused.... He designs to do things equally between all parties, and I\nbelieve truly",
+      "A": "The excerpt describes James Claypole's actions and beliefs. It mentions that he believes he is losing money through his decision to sell his sixteenth thousand pounds worth of land. Additionally, it states that he refuses to make his new estates a means of gaining profit, suggesting he values them more than any other potential gains.<|im_end|>",
+      "B": "The excerpt describes James Claypole's actions and beliefs. It mentions that he believes he is losing money through his decision to sell sixteen thousand pounds worth of properties. Additionally, it states that he refuses to make these properties a means of gaining profit, suggesting he values them more than monetary gains.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER_PREREG_REVIEW_2.md",
+      "category": "technical_general",
+      "excerpt": "oughly one bit of information\nthe literature already supplied, for 12–20 h of the owner's CPU.\n\n**What should read a curve instead** (and this is the deliverable that earns the machine time):\n`ΔBPB` plotted against **effective bits/weight including scales**, with per-point 2·SE bars from §3.6b,\nplus the first difference between adjacent points; the reported result is **the lowest b",
+      "A": "The excerpt describes a scenario where the owner's CPU usage exceeds 12-20 hours due to insufficient memory, and suggests that reading a curve instead of using traditional methods like ΔBPB can be more efficient. The delivery of the report includes plotting `ΔBPB` against effective bits/weight, with per-point 2·SE bars, and reporting the lowest value of `ΔBPB`.<|im_end|>",
+      "B": "The excerpt describes a scenario where the owner's CPU usage is significantly higher than expected due to insufficient memory or disk space. The author suggests using a curve plot instead of traditional charts to visualize the relationship between CPU usage and effective bits/weight, which includes scales for both axes. The delivery of this data is described as \"deliverable\" that earns the machine time, indicating its importance in analyzing the system's performance.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/TARGET_DONOR_FOLLOWUP_2026-09-16.md",
+      "category": "technical_general",
+      "excerpt": "blisher checkpoint | Charged attention | selected + shared experts | router | head | total charged/token | full-int8 payload GB/s needed at 50 |\n|---|---:|---:|---:|---:|---:|---:|\n| [Ai2 OLMoE-1B-7B-0125](https://huggingface.co/allenai/OLMoE-1B-7B-0125), [config](https://huggingface.co/allenai/OLMoE-1B-7B-0125/blob/main/config.json) | 268,435,456 | 805,306,368 | 2,097,152 | 103,02",
+      "A": "The excerpt describes a checkpoint for an AI model called `AI2 OLMoE-1B-7B-0125`, which is configured with 268,435,456 parameters and has been charged to 805,306,368 tokens. The total charged token amount required at 50% is 103,02 GB/s.<|im_end|>",
+      "B": "The excerpt describes a checkpoint for an AI model called `AI2 OLMoE-1B-7B-0125`, which is configured with 268,435,456 parameters and has been charged to 805,306,368 tokens. The total charged token amount required at 50% is 103,02 GB/s.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/H0_TRAINING_INTO_THE_FORMAT.md",
+      "category": "technical_general",
+      "excerpt": "l, not zero;\n* **`nonfinite_microbatches: 0`** across the whole run.\n\n**This is the run-1 defect, fixed and verified.** Run 1 died at step 1 because the gate read the\nmasters without checking that an update had been *applied* — and `GradScaler` declines the first\nstep by construction. The repaired gate waited for the real update instead of firing on an\nunverified precondition. The ",
+      "A": "The excerpt describes a run where the `grad_scaler` fails to apply updates correctly, leading to a dead loop. Specifically, it mentions that the `nonfinite_microbatches` flag is set to 0, indicating that no micro-batch was generated during this run. This defect is fixed and verified, with the repair gate waiting for the actual update rather than immediately applying it.<|im_end|>",
+      "B": "The excerpt describes a run where the `grad_scaler` fails to apply updates correctly, leading to a dead loop. Specifically, it mentions that the `nonfinite_microbatches` flag is set to 0, indicating that no micro-batch was generated during this run. This defect is fixed and verified, with the repair gate waiting for the actual update rather than immediately applying it.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E53_A_REAL_EXPONENTIAL_INSTEAD_OF_A_LIBM_CALL.md",
+      "category": "technical_general",
+      "excerpt": "`x < −103` to `+0` and saturation of `x > 88` to `+inf`, so no branch and no\n   denormal path.\n\nWired to **both** call sites behind **one** runtime flag, `--fexp {libm,poly}`, default `libm`:\n\n* `donor_engine.c:1175/1179` — the attention softmax (`a[t]=expf(a[t]-mx); sum+=a[t];`)\n* `donor_engine.c:719` — `silu`, via `donor_engine.c:1049/1237/1242`\n\n**`CONFIG fexp=libm|poly` is prin",
+      "A": "The excerpt describes a function with specific parameters and behavior. It mentions that the function is designed to handle values within certain ranges and saturates at other values. The function is called from multiple places, including `donor_engine.c:1175/1179` and `donor_engine.c:719`. The function uses the `libm` library for calculations, but also includes support for the `poly` library if `--fexp` is set to `poly`. The function's behavior is controlled by the `CONFIG fexp` flag, which can be either `libm` or `poly`.",
+      "B": "The excerpt describes a C program that uses the `libm` library for calculations involving exponentiation and logarithms. The program includes two main sections: one for handling values less than -103 and another for values greater than 88, with no branches or denormal paths. It also mentions that the program is tied to both call sites behind one runtime flag, specifically `--fexp {libm,poly}` with the default value being `libm`. The program's focus is on calculating attention softmax and silu operations using the `libm` library.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_BLOCK0_PRODUCTION_INTEGRATION_PROTOCOL_20260922.md",
+      "category": "technical_general",
+      "excerpt": " combined diagnostic?\n\nThe [combined result](STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_RESULT_20260922.md)\nalready closes all attention/cache boundaries and the dense `ffn_norm`,\n`ffn_up`, and `ffn_gate` projections. It does not install those semantics in\nthe standard Rung-2B path and does not measure their production propagation\nthrough `ffn_swiglu-0`, Q6_K `ffn_out",
+      "A": "The combined diagnostic is already closing all attention/cache boundaries and the dense `ffn_norm`, `ffn_up`, and `ffn_gate` projections. It does not install these semantics in the standard Rung-2B path or measure their production propagation through `ffn_swiglu-0`, Q6_K `ffn_out`.<|im_end|>",
+      "B": "The combined diagnostic is already closing all attention/cache boundaries and the dense `ffn_norm`, `ffn_up`, and `ffn_gate` projections. It does not install these semantics in the standard Rung-2B path or measure their production propagation through `ffn_swiglu-0`, Q6_K `ffn_out`.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/P2_EXPERT_PATH_DECOMPOSITION.md",
+      "category": "technical_general",
+      "excerpt": "AM ceiling — **it never decomposed the 2.88 µs, and nobody had.**\n\n## 2. The design, and the one thing that varied\n\nThree arms over the **same kernel** (`matvec_lut_full`), same `M=384, Mpad=384, T=128`, same\n`EB = 49152 B`, same LUT, same 500-token loop, same 48 touches/token. The **only** difference is\nwhich expert each touch reads:\n\n| arm | index per touch | footprint | isolates",
+      "A": "The AM ceiling did not decompose the 2.88 µs, and no expert read more than 48 tokens simultaneously.<|im_end|>",
+      "B": "The AM ceiling did not decompose the 2.88 µs, and no expert read more than 48 tokens simultaneously.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_Q6_RESIDUAL_PROPAGATION_PROTOCOL_20260924.md",
+      "category": "technical_general",
+      "excerpt": "m failure; C normalized\nrouter weights alone pass.\n\nThe earlier [layer-1 Q6 cross-input](STRAT_01_GIGACHAT31_ENGINE_LAYER1_Q6_CROSS_INPUT_RESULT_20260923.md)\nalready evaluated the same 32 selected expert matrices on exact reference\nrouted SwiGLU. Its output passes the *direct* down gate at NRMSE\n`7.1095157598044e-8`, but was never propagated through the now-known sensitive\nlayer-2 ",
+      "A": "The excerpt describes a scenario where the normalization of router weights alone fails to meet the required accuracy for a specific layer-1 Q6 cross-input operation. The earlier result indicates that this operation has already been evaluated using 32 selected expert matrices and their outputs have passed the direct down gate with an NRMSE value of `7.1095157598044e-8`. However, the sensitivity of the layer-2 is not yet known, leading to the conclusion that the normalization process may not be fully accurate or reliable.<|im_end|>",
+      "B": "The excerpt describes a scenario where the normalization of router weights alone fails to meet the required accuracy for a specific layer-1 Q6 cross-input operation. The earlier result indicates that this operation has already been evaluated using 32 selected expert matrices and their outputs have passed the direct down gate with an NRMSE value of `7.1095157598044e-8`. However, the sensitivity of the layer-2 is not yet known, leading to the failure of propagation through the current layer.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E28_THE_OTHER_FACTOR.md",
+      "category": "technical_general",
+      "excerpt": "t cell,\n**1.19x to 2.00x the packed kernel at every footprint**, bit-identical and sha256-gated, and\n**1.217x end-to-end through `forward()`** on the 0.5 B.\n\n**E28's question is whether any of that reaches the goal's shape, and the answer is currently\nunknown for a structural reason that is worth stating as the finding it is.**\n\n---\n\n## 1. The obstruction, read in the source before",
+      "A": "The excerpt describes a specific feature of an algorithm or technology, highlighting its performance characteristics such as packing efficiency, end-to-end throughput, and hash function quality. It also mentions a particular issue with the E28's approach, which is described as having a structural limitation that needs to be addressed.<|im_end|>",
+      "B": "The excerpt describes a specific feature of an algorithm or technology, highlighting its performance characteristics such as packing efficiency, end-to-end throughput, and hash function quality. It also mentions a particular issue with the E28's approach, which is not fully resolved but is noted as a potential problem.<|im_end|>"
+    }
+  ]
+}
