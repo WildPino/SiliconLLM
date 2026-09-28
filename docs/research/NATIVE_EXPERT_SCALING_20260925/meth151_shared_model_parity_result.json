@@ -1,0 +1,146 @@
+{
+  "experiment": "METH-151-integrated-shared-route-parity",
+  "meth150_result_sha256": "f6298315e584afb156681cfc40c45de5608f45a896f343fdc8edb86d95ae359b",
+  "meth150_manifest_sha256": "6e911e65529be53dba65fbe382229f0f43e510eb76ab83f4404d4be0368ff5d9",
+  "recurrent_table_sha256": "93b6ca77ece874889e83ae368b9f63d78bef8e90a9fbda37cb9e1a871cb0503e",
+  "exact_bank_sha256": "1d9071456a644344d46203ad7ded8fe2c4d01ca0580b5e41718366783408aff1",
+  "child_checkpoint_sha256": "15a14b8476936e83cf91a479b05f8d8e83f4ffd094186f3d4dfededdb138d520",
+  "golden": {
+    "content": 899,
+    "structural": 890
+  },
+  "cases": [
+    {
+      "source": "bound",
+      "index": 0,
+      "tokens": 165,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "bound",
+      "index": 1,
+      "tokens": 150,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "bound",
+      "index": 2,
+      "tokens": 256,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "bound",
+      "index": 3,
+      "tokens": 187,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "bound",
+      "index": 4,
+      "tokens": 187,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "bound",
+      "index": 5,
+      "tokens": 287,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "bound",
+      "index": 6,
+      "tokens": 219,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "bound",
+      "index": 7,
+      "tokens": 164,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "fresh",
+      "index": 0,
+      "tokens": 167,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "fresh",
+      "index": 1,
+      "tokens": 151,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "fresh",
+      "index": 2,
+      "tokens": 185,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "fresh",
+      "index": 3,
+      "tokens": 147,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "fresh",
+      "index": 4,
+      "tokens": 168,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "fresh",
+      "index": 5,
+      "tokens": 190,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "fresh",
+      "index": 6,
+      "tokens": 166,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "fresh",
+      "index": 7,
+      "tokens": 190,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    },
+    {
+      "source": "training_structure",
+      "index": 0,
+      "tokens": 128,
+      "logits_bitwise_equal": true,
+      "route_layers_equal": 24
+    }
+  ],
+  "structural_selections": 60672,
+  "content_selections": 237600,
+  "cloned_bf16_rows_identical": true,
+  "missing_context_rejected": true,
+  "min_distinct_grandchildren_by_layer": 2129,
+  "checkpoint_recomputation_collector_parts_min": 1,
+  "all_logits_bitwise_equal": true,
+  "runtime": {
+    "seconds": 16.79699999999866,
+    "rss_bytes": 13045059584,
+    "gpu_peak_allocated_bytes": 2945090560,
+    "gpu": "NVIDIA GeForce RTX 3060"
+  }
+}

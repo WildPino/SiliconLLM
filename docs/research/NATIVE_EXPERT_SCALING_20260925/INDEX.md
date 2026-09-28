@@ -1167,6 +1167,16 @@ scheduled.
   selections/layer and full all-token skew reaches 374.81×. This is
   an offline screen; full-model clone parity, native table/hash cost,
   fresh chat prompts, trained B usefulness and quality remain open.
+  [METH-151](METH_151_SHARED_ROUTE_MODEL_NATIVE_RESULT_20260928.md)
+  puts the shared route inside all 24 expert forwards and passes exact
+  cloned-B BF16 logits/routes/gates on 17 bound/new-source sequences.
+  C/Python agree on every route in both all-hit and all-miss fixtures;
+  paired native CPU route medians are 1.596 and 1.568 ms/token-
+  equivalent, each within <=2× E1280 and <=3 ms limits. These are
+  component results with instrumentation token contexts. Next:
+  freeze matched structural/content B-only training and then untouched
+  quality/grounding; cold factors, LUT quality and full accepted-token
+  rate are still open.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

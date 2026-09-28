@@ -1,0 +1,140 @@
+{
+  "experiment": "METH-151-native-shared-route",
+  "exact_bank_sha256": "1d9071456a644344d46203ad7ded8fe2c4d01ca0580b5e41718366783408aff1",
+  "vectors_sha256": "f7af00b4b4ce417664848950770f63b78520ca3c983748a692640704c203b699",
+  "table_sha256": "926362655bcc71bf7bd1ceee944e56ba8f35ef124c8f60b6e0052d6525ddfc27",
+  "golden": {
+    "content": 899,
+    "structural": 890
+  },
+  "cells": {
+    "hit": {
+      "fixture_sha256": "c211bde3459b3a1df27250ee0e785cde412cba07fb763aeb519281588f54a629",
+      "log_sha256": "f2e9fd9753ddd02ed368f53be8843fc81d26c4587ddb79f9c00201a544273386",
+      "python_c_matching_routes": 6144,
+      "structural_hits": 24576,
+      "coverage_by_layer": {
+        "0": 275,
+        "1": 293,
+        "2": 392,
+        "3": 359,
+        "4": 291,
+        "5": 316,
+        "6": 360,
+        "7": 378,
+        "8": 381,
+        "9": 370,
+        "10": 402,
+        "11": 362,
+        "12": 380,
+        "13": 369,
+        "14": 354,
+        "15": 307,
+        "16": 324,
+        "17": 252,
+        "18": 358,
+        "19": 283,
+        "20": 311,
+        "21": 311,
+        "22": 366,
+        "23": 351
+      },
+      "paired_repetitions": [
+        {
+          "rep": 0,
+          "base_ms": 1.552271094,
+          "shared_ms": 1.59145
+        },
+        {
+          "rep": 1,
+          "base_ms": 1.581639062,
+          "shared_ms": 1.570959375
+        },
+        {
+          "rep": 2,
+          "base_ms": 1.592046094,
+          "shared_ms": 1.595840625
+        },
+        {
+          "rep": 3,
+          "base_ms": 1.656358594,
+          "shared_ms": 1.613407422
+        },
+        {
+          "rep": 4,
+          "base_ms": 1.665130469,
+          "shared_ms": 1.610161719
+        }
+      ],
+      "base_median_ms_per_token": 1.592046094,
+      "shared_median_ms_per_token": 1.595840625,
+      "shared_to_base_ratio": 1.0023834303631662,
+      "native_summary": "HASH_SUMMARY states=6144 selections=24576 structural_hits=24576 unique_total=8145 base_median_ms=1.592046094 hash_median_ms=1.595840625 ratio=1.002383 table_bytes=916 fixture_bytes=3084 rss_bytes=534462464 elapsed_seconds=5.064934 checksum=197076066.093750000 gate=PASS"
+    },
+    "miss": {
+      "fixture_sha256": "ecce0701d71201f9a48495adbc9814632c9f5b0929675a30daf2ffc92ac8682e",
+      "log_sha256": "98b4df238cf2453e47b20d37f3ce6f701c9fc68c1fbb185094fb3516b23ad548",
+      "python_c_matching_routes": 6144,
+      "structural_hits": 0,
+      "coverage_by_layer": {
+        "0": 657,
+        "1": 667,
+        "2": 809,
+        "3": 744,
+        "4": 708,
+        "5": 704,
+        "6": 745,
+        "7": 764,
+        "8": 780,
+        "9": 745,
+        "10": 815,
+        "11": 787,
+        "12": 785,
+        "13": 782,
+        "14": 756,
+        "15": 746,
+        "16": 739,
+        "17": 633,
+        "18": 785,
+        "19": 697,
+        "20": 758,
+        "21": 720,
+        "22": 743,
+        "23": 776
+      },
+      "paired_repetitions": [
+        {
+          "rep": 0,
+          "base_ms": 1.560605078,
+          "shared_ms": 1.564391406
+        },
+        {
+          "rep": 1,
+          "base_ms": 1.623169922,
+          "shared_ms": 1.568289844
+        },
+        {
+          "rep": 2,
+          "base_ms": 1.587266797,
+          "shared_ms": 1.609071875
+        },
+        {
+          "rep": 3,
+          "base_ms": 1.654748047,
+          "shared_ms": 1.664385156
+        },
+        {
+          "rep": 4,
+          "base_ms": 1.663288281,
+          "shared_ms": 1.536202734
+        }
+      ],
+      "base_median_ms_per_token": 1.623169922,
+      "shared_median_ms_per_token": 1.568289844,
+      "shared_to_base_ratio": 0.9661895669355558,
+      "native_summary": "HASH_SUMMARY states=6144 selections=24576 structural_hits=0 unique_total=17845 base_median_ms=1.623169922 hash_median_ms=1.568289844 ratio=0.966190 table_bytes=916 fixture_bytes=3084 rss_bytes=533876736 elapsed_seconds=5.048417 checksum=197230061.093750000 gate=PASS"
+    }
+  },
+  "bad_table_header_rejected": true,
+  "decision": "native_shared_route_pass"
+}

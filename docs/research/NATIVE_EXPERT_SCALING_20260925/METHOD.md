@@ -1058,6 +1058,13 @@ documents; worst relative load is 1.171× and worst hot-parent share
 and all-token skew remains high. This offline result justifies testing
 integrated clone parity and native C cost; it does not establish
 trained useful capacity or quality.
+[METH-151](METH_151_SHARED_ROUTE_MODEL_NATIVE_RESULT_20260928.md)
+confirms exact full-model clone parity on 17 sequences with the
+shared/content choice inside each expert forward. C/Python route IDs
+match for 6,144 token/layer states in each structural-hit and content-
+miss fixture; native route medians are 1.596 and 1.568 ms/token-
+equivalent, within the frozen component cost limits. This licenses
+matched B-only training, but no learned-quality or full-rate claim.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
