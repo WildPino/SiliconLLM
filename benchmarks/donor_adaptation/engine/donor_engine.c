@@ -179,6 +179,41 @@ static struct {
     size_t bytes;
 } g_factors;
 
+// METH-129: a proposal head is resident beside the original tied FP32 matrix.
+// Its scores are never treated as full-head probabilities.
+static struct {
+    uint8_t *blob;
+    size_t bytes;
+    const float *scale;
+    const int8_t *code;
+    int chosen;
+} g_head_shortlist;
+
+static void load_head_shortlist(const char *path, const model_t *M) {
+    if(M->quant!=0 || !M->tied || M->V!=151936 || M->D!=896)
+        die("head shortlist requires tied FP32 Qwen 0.5B core");
+    FILE *file=fopen(path,"rb"); if(!file) die("cannot open head shortlist");
+    if(fseek(file,0,SEEK_END)) die("cannot size head shortlist");
+    long size=ftell(file); if(size<0 || fseek(file,0,SEEK_SET)) die("cannot size head shortlist");
+    const size_t expected=16+(size_t)M->V*4+(size_t)M->V*M->D;
+    if((size_t)size!=expected) die("head shortlist length mismatch");
+    g_head_shortlist.blob=(uint8_t*)xmalloc(expected);
+    if(fread(g_head_shortlist.blob,1,expected,file)!=expected) die("short head shortlist read");
+    fclose(file);
+    uint32_t vocab=0,width=0;
+    memcpy(&vocab,g_head_shortlist.blob+8,4);
+    memcpy(&width,g_head_shortlist.blob+12,4);
+    if(memcmp(g_head_shortlist.blob,"M129HD01",8) || vocab!=(uint32_t)M->V || width!=(uint32_t)M->D)
+        die("head shortlist magic or dimensions mismatch");
+    g_head_shortlist.bytes=expected;
+    g_head_shortlist.scale=(const float*)(g_head_shortlist.blob+16);
+    g_head_shortlist.code=(const int8_t*)(g_head_shortlist.blob+16+(size_t)M->V*4);
+    for(int i=0;i<M->V;i++)
+        if(!isfinite(g_head_shortlist.scale[i]) || g_head_shortlist.scale[i]<=0)
+            die("head shortlist has invalid row scale");
+    fprintf(stderr,"  METH-129 R8 proposal head loaded: %zu bytes, K=64\n",expected);
+}
+
 static void load_centered_factors(const char *path, const model_t *M) {
     FILE *file=fopen(path,"rb"); if(!file) die("cannot open centered factor bank");
     if(fseek(file,0,SEEK_END)) die("cannot size centered factor bank");
@@ -541,11 +576,12 @@ static void matvec_sel(const mat_t* m, const float* x, const float* bias, float*
     const int n_out=m->out, n_in=m->in;   // NOT "OUT"/"IN": windows.h defines those as SAL macros
     const int NSEL = rows ? nr : n_out;
     if(m->tposed) die("a transposed packed matrix must go through matvec_colacc, not matvec");
-    // E63: the plain int8 kind joins the plain packed kind here.  Everything else -- factored,
+    // E63: the plain int8 kind joins the plain packed kind here. METH-129 also
+    // selects FP32 tied-head rows. Everything else -- factored,
     // tile-major (--lut), transposed -- still refuses, because a row list means something
     // different or nothing at all in those layouts.
-    if(rows && (m->rank||m->tm||m->tposed||(!m->packed&&!m->code)))
-        die("row-selected matvec is implemented for the plain packed and plain int8 kinds only");
+    if(rows && (m->rank||m->tm||m->tposed||(!m->packed&&!m->code&&!m->f32)))
+        die("row-selected matvec requires plain packed, int8 or FP32 weights");
     if(m->rank){
         float* h=g_lr(m->rank);
         matvec(m->fb,x,NULL,h);
@@ -663,7 +699,8 @@ static void matvec_sel(const mat_t* m, const float* x, const float* bias, float*
 #ifdef _OPENMP
 #pragma omp parallel for schedule(static)
 #endif
-        for(int o=0;o<n_out;o++){
+        for(int tt=0;tt<NSEL;tt++){
+            const int o=rows ? rows[tt] : tt;
             const float* w=m->f32+(size_t)o*n_in;
             __m256 acc=_mm256_setzero_ps(); int i=0;
             if(MA>1){
@@ -686,7 +723,7 @@ static void matvec_sel(const mat_t* m, const float* x, const float* bias, float*
             float s[8]; _mm256_storeu_ps(s,acc);
             float t=s[0]+s[1]+s[2]+s[3]+s[4]+s[5]+s[6]+s[7];
             for(;i<n_in;i++) t+=w[i]*x[i];
-            y[o]=bias?t+bias[o]:t;
+            y[tt]=bias?t+bias[o]:t;
         }
         return;
     }
@@ -755,6 +792,52 @@ static void matvec_sel(const mat_t* m, const float* x, const float* bias, float*
 
 static void matvec(const mat_t* m, const float* x, const float* bias, float* y){
     matvec_sel(m,x,bias,y,NULL,0);
+}
+
+// The root of this heap is the worst proposal: lower score, then higher ID.
+static int head_worse(float a,int ai,float b,int bi){
+    return a<b || (a==b && ai>bi);
+}
+static void head_choose_exact(const model_t *M,const float *x,float *logits){
+    enum { K=64 };
+    int ids[K],n=0;
+    float scores[K],exact[K];
+    mat_t proposal={0}; proposal.out=M->V; proposal.in=M->D;
+    proposal.code=g_head_shortlist.code; proposal.scale=g_head_shortlist.scale;
+    matvec(&proposal,x,NULL,logits);
+    for(int id=0;id<M->V;id++){
+        float score=logits[id];
+        if(!isfinite(score)) die("nonfinite head proposal score");
+        if(n<K){
+            int i=n++;
+            while(i>0){ int p=(i-1)/2;
+                if(!head_worse(score,id,scores[p],ids[p])) break;
+                scores[i]=scores[p]; ids[i]=ids[p]; i=p;
+            }
+            scores[i]=score; ids[i]=id;
+        } else if(head_worse(scores[0],ids[0],score,id)){
+            int i=0;
+            while(2*i+1<K){
+                int c=2*i+1;
+                if(c+1<K && head_worse(scores[c+1],ids[c+1],scores[c],ids[c])) c++;
+                if(!head_worse(scores[c],ids[c],score,id)) break;
+                scores[i]=scores[c]; ids[i]=ids[c]; i=c;
+            }
+            scores[i]=score; ids[i]=id;
+        }
+    }
+    mat_t full={0}; full.out=M->V; full.in=M->D; full.f32=M->embed;
+    matvec_sel(&full,x,NULL,exact,ids,K);
+    int best=ids[0]; float mx=exact[0];
+    if(!isfinite(mx)) die("nonfinite exact head score");
+    logits[best]=mx;
+    for(int j=1;j<K;j++){
+        float v=exact[j];
+        if(!isfinite(v)) die("nonfinite exact head score");
+        logits[ids[j]]=v;
+        if(v>mx || (v==mx && ids[j]<best)){ mx=v; best=ids[j]; }
+    }
+    g_head_shortlist.chosen=best;
 }
 
 // ---------------------------------------------------------------- E26: the transposed kernel
@@ -1521,7 +1604,9 @@ static void forward(const model_t* M,state_t* s,int token,int pos){
     }
     { TIC; rmsnorm(s->x,M->final_norm,D,M->rms_eps,s->xb); TOC(T_NORM); }
     TIC;
-    if(M->tied){
+    if(g_head_shortlist.blob){
+        head_choose_exact(M,s->xb,s->logits);
+    } else if(M->tied){
         mat_t h={M->V,D,0,M->embed,NULL,NULL};   // packed=0: the tied head reads the fp32 embedding
         matvec(&h,s->xb,NULL,s->logits);
     } else {
@@ -1608,15 +1693,19 @@ static int32_t* read_ids(const char* path,long* n){
 int main(int argc,char** argv){
     const char* wp=NULL; const char* mode=NULL; const char* arg2=NULL; long arg3=0;
     const char* factor_path=NULL;
+    const char* head_shortlist_path=NULL;
     const char* logout=NULL;
     const char* top1out=NULL;   // E61
     int threads=1, seqlen=0;
     for(int i=1;i<argc;i++){
         if(!strcmp(argv[i],"--weights")&&i+1<argc) wp=argv[++i];
         else if(!strcmp(argv[i],"--factor-bank")&&i+1<argc) factor_path=argv[++i];
+        else if(!strcmp(argv[i],"--head-shortlist")&&i+1<argc) head_shortlist_path=argv[++i];
         else if(!strcmp(argv[i],"--threads")&&i+1<argc) threads=atoi(argv[++i]);
         else if(!strcmp(argv[i],"--seqlen")&&i+1<argc) seqlen=atoi(argv[++i]);
         else if(!strcmp(argv[i],"--logits")&&i+3<argc){ mode="logits"; arg2=argv[++i]; arg3=atol(argv[++i]); logout=argv[++i]; }
+        else if(!strcmp(argv[i],"--head-choice")&&i+3<argc){ mode="head-choice"; arg2=argv[++i];
+            arg3=atol(argv[++i]); logout=argv[++i]; }
         else if(!strcmp(argv[i],"--bpb")&&i+1<argc){ mode="bpb"; arg2=argv[++i]; }
         // E61: --bpb's argmax, one int32 LE per PREDICTED position, to a file.  This is the
         // metric E60 registered as the replacement for its defective greedy counter: per-position
@@ -1731,14 +1820,21 @@ int main(int argc,char** argv){
         else { fprintf(stderr,"unknown arg %s\n",argv[i]); return 1; }
     }
     if(!wp||!mode){ fprintf(stderr,
-        "usage: donor_engine --weights <bin> [--threads N] [--seqlen N]\n"
+        "usage: donor_engine --weights <bin> [--factor-bank <bin>] [--head-shortlist <bin>]\n"
+        "                    [--threads N] [--seqlen N]\n"
         "                    (--logits <ids.bin> <n> <out> | --bpb <ids.bin> | --bench <n>\n"
-        "                     | --generate <ids.bin> <n_new> <out_prefix>)\n"); return 1; }
+        "                     | --generate <ids.bin> <n_new> <out_prefix>\n"
+        "                     | --head-choice <ids.bin> <n> <out>)\n"); return 1; }
 #ifdef _OPENMP
     if(threads<1) threads=1; omp_set_num_threads(threads); omp_set_dynamic(0);
 #endif
     model_t M; load(&M,wp);
     if(factor_path) load_centered_factors(factor_path,&M);
+    if(head_shortlist_path) load_head_shortlist(head_shortlist_path,&M);
+    if(head_shortlist_path && (strcmp(mode,"generate") && strcmp(mode,"bench") && strcmp(mode,"head-choice")))
+        die("shortlisted head permits only --generate, --bench or --head-choice; full logits are approximate");
+    if(!head_shortlist_path && !strcmp(mode,"head-choice"))
+        die("--head-choice requires --head-shortlist");
     if(g_carvek>0){
         int any=0; for(int l=0;l<M.L;l++) if(M.lay[l].carved) any=1;
         if(!any) fprintf(stderr,"  --carve-k %d IGNORED: no layer in this file has a carved FFN\n",g_carvek);
@@ -1778,8 +1874,8 @@ int main(int argc,char** argv){
            g_mvacc, threads,
            M.quant==5?"int8":M.quant==3?"tagged":M.quant==2?"packed":M.quant?"ternary":"fp32",
            g_lut?"  lut=1":"");
-    printf("CONFIG  centered_e1280=%d  factor_bank_bytes=%zu\n",
-           g_factors.blob!=NULL,g_factors.bytes);
+    printf("CONFIG  centered_e1280=%d  factor_bank_bytes=%zu  head_shortlist_bytes=%zu  head_k=%d\n",
+           g_factors.blob!=NULL,g_factors.bytes,g_head_shortlist.bytes,g_head_shortlist.blob?64:0);
     fflush(stdout);
 
     if(!strcmp(mode,"bench")){
@@ -1850,21 +1946,25 @@ int main(int argc,char** argv){
         state_t s; state_init(&s,&M,(int)(P+NG+1));
         char pth[1024];
         snprintf(pth,sizeof pth,"%s.prefill.bin",logout);
-        FILE* pf=fopen(pth,"wb"); if(!pf) die("cannot open prefill output");
+        FILE* pf=NULL;
+        if(!g_head_shortlist.blob){ pf=fopen(pth,"wb"); if(!pf) die("cannot open prefill output"); }
         int32_t* out=xmalloc((size_t)(P+NG)*4);
         for(long i=0;i<P;i++) out[i]=ids[i];
 
         double t0=now_s();
         for(long i=0;i<P;i++){ forward(&M,&s,ids[i],(int)i);
-                               fwrite(s.logits,4,(size_t)M.V,pf); }
+                               if(pf) fwrite(s.logits,4,(size_t)M.V,pf); }
         double tpre=now_s()-t0;
-        fclose(pf);
+        if(pf) fclose(pf);
 
         // greedy argmax, first index wins a tie -- no temperature, no seed, so the run is a gate
+        if(g_prof){ memset(g_t,0,sizeof g_t); memset(g_ff,0,sizeof g_ff); }
         double t1=now_s();
         for(long g=0;g<NG;g++){
-            int best=0; float mx=s.logits[0];
-            for(int i=1;i<M.V;i++) if(s.logits[i]>mx){ mx=s.logits[i]; best=i; }
+            int best=0;
+            if(g_head_shortlist.blob) best=g_head_shortlist.chosen;
+            else { float mx=s.logits[0];
+                   for(int i=1;i<M.V;i++) if(s.logits[i]>mx){ mx=s.logits[i]; best=i; } }
             out[P+g]=best;
             forward(&M,&s,best,(int)(P+g));       // always: NG decode steps, timed as NG
         }
@@ -1878,9 +1978,25 @@ int main(int argc,char** argv){
         printf("GEN_PREFILL_S %.6f\nGEN_PREFILL_TOKS %.3f\n",tpre,P/tpre);
         printf("GEN_DECODE_S %.6f\nGEN_DECODE_TOKS %.3f\n",tdec,NG/tdec);
         printf("GEN_PEAK_RSS_BYTES %zu\n",peak_rss_bytes());
+        if(g_prof) for(int k=0;k<T_N;k++)
+            printf("GEN_ORGAN_%s_MS_PER_TOKEN %.6f\n",g_tn[k],g_t[k]/NG*1e3);
         printf("GEN_IDS");
         for(long i=0;i<P+NG;i++) printf(" %d",out[i]);
         printf("\n");
+        return 0;
+    }
+
+    if(!strcmp(mode,"head-choice")){
+        if(arg3<1 || arg3>n) die("--head-choice count must be within input length");
+        state_t s; state_init(&s,&M,(int)arg3+1);
+        FILE *out=fopen(logout,"wb"); if(!out) die("cannot open head choice output");
+        for(long i=0;i<arg3;i++){
+            forward(&M,&s,ids[i],(int)i);
+            int32_t chosen=g_head_shortlist.chosen;
+            if(fwrite(&chosen,4,1,out)!=1) die("short head choice write");
+        }
+        fclose(out);
+        printf("HEAD_CHOICES %ld\nPEAK_RSS_BYTES %zu\n",arg3,peak_rss_bytes());
         return 0;
     }
 

@@ -1,10 +1,10 @@
 # Native expert scaling: research control index
 
 **Date:** 28 September 2026. **Branch:** `research/native-expert-scaling`.
-**Status:** METH-127 executes the centered E1280 bank with an FP32 Qwen
-donor core through full C attention, KV cache, FFN and logits. Its
-eight-position composed parity passes against the same stored weights,
-but 64 actual greedy decode tokens run at 16.818 tok/s on six threads.
+**Status:** METH-129 adds an R8 proposal plus exact selected-row tied head
+to the METH-127 full C FP32-core/E1280 reference. It matches 64 prompted
+choices and 64 greedy continuation tokens, and runs at 20.791 tok/s on
+six threads versus 17.141 with the full FP32 head in a matched rerun.
 This reference is neither the quality-gated BF16 core nor the target
 compact engine. The jointly trained Instruct product-key E128 adapter passes
 its independent donor-relative quality audit (METH-57), and its native
@@ -952,9 +952,19 @@ scheduled.
   lowest-ID tie breaking reproduces 4,494/4,494 choices. This is a
   representation screen; the predicted ~135 MB/token head traffic
   reduction needs a native C kernel, full-model quality on new
-  sources and a compact-body combination. Next exact action is to
-  implement and time this two-pass C head, with native top-1 parity
-  and a negative shortlist control. No T4 job is planned.
+  sources and a compact-body combination.
+  [METH-129](METH_129_NATIVE_EXACT_HEAD_RESULT_20260928.md) implements
+  that native head. Its K=64 choices match the full FP32 head on all
+  64 bound prompt positions and the entire 64-token greedy stream at
+  one and six threads. Six-thread decode rises 17.141→20.791 tok/s
+  (+21.3%); head time falls 14.491→4.179 ms/token. The corrupted-header
+  control fails as required. The original FP32 head and 136.7 MB R8
+  sidecar are both resident. Approximate tail logits cannot support
+  full-head likelihood, and no fresh semantic quality is claimed.
+  Next: bind the head to a quality-valid compact body and exact bank,
+  then audit new disjoint documents, generation, tasks and grounding
+  before native rate and RAM-scaled expert-count tests. No T4 job is
+  planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

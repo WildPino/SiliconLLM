@@ -861,6 +861,15 @@ permits a native C head experiment and predicts lower active head
 traffic at the cost of duplicate resident head storage. It has not
 yet preserved full-vocabulary likelihood, generation or task quality
 on independent sources, and has no CPU rate result.
+[METH-129](METH_129_NATIVE_EXACT_HEAD_RESULT_20260928.md) executes the
+K=64 head in the C reference: the stored R8 codes propose rows, and
+the original FP32 tied matrix exactly rescores them. The 64 bound
+prompt choices and all 64 greedy tokens equal the full native head;
+six-thread decode improves from 17.141 to 20.791 tok/s (+21.3%) with
+a 136.7 MB resident sidecar. The gate includes a corrupted-magic
+negative control. It establishes finite native chosen-token parity
+and CPU cost, not exact full-vocabulary probabilities, independent
+BF16 quality or a compact-core >=50 tok/s model.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

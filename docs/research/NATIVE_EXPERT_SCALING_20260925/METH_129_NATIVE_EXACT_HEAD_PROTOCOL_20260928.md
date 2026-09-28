@@ -16,7 +16,7 @@ quality, compact body speed or the final `engine.c` target.
 ## Bound assembly and gates
 
 - Native core: METH-127 FP32 Qwen2.5-0.5B-Instruct file SHA-256
-  `6b2be143303510f1f15785783542649026b719488407f48b350de67f429e206029`.
+  `6b2be143303510f15785783542649026b719488407f48b350de67f429e206029`.
   Centered E1280 bank: METH-126 SHA-256
   `1d9071456a644344d46203ad7ded8fe2c4d01ca0580b5e41718366783408aff1`.
   Export only the METH-59 head code and scale tensors from stored R8
