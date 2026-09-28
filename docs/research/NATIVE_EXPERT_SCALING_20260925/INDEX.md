@@ -1,17 +1,17 @@
 # Native expert scaling: research control index
 
 **Date:** 28 September 2026. **Branch:** `research/native-expert-scaling`.
-**Current decision:** METH-159 rejects long matched E1280/E12800 training
-on 2,560 independent pairs: minimum active content median 39 <50 and
-worst hot-parent share 43.26% >25%. METH-162's 138-tuple shared table
-fixes that hotspot in-sample (worst share 24.26%), but median support
-remains 39. METH-164 passes a separate PG19 source/length route screen;
-the old table also passes there, so this is a nonregression check.
-METH-165 is acquiring 1,280 more independent H0 pairs for a frozen
-combined 3,840-pair support gate. METH-166 native table CPU cost is
-prepared and waits for uncontended timing. METH-160's actual-bank BF16
-CPU component passes, but the E12800 bank failed untouched quality;
-full `engine.c` >=50 accepted tok/s remains open. No T4 has been used.
+**Current decision:** METH-165 tested 3,840 distinct training pairs for
+the tenfold E1,280→E12,800 expert route. Minimum median content support
+rose from 39 to 56 and passes, but one pooled hot parent reaches 32.32%
+versus the <=25% gate. The fixed 138-tuple route is rejected for matched
+training. The failure combines two chat-role delimiter tuples, each
+occurring 31 times across the pool and just below the shared-table
+threshold 32. METH-166 passes the native 75→138 table lookup CPU gate;
+METH-160 passes actual-bank BF16 route-plus-factor component cost, but
+the E12,800 bank failed untouched quality. Full `engine.c` >=50 accepted
+tok/s, useful additional experts and 10B/100B transfer remain open.
+No T4 has been used.
 **Status:** The centered BF16 E1280 children retain donor-relative
 quality on new sources (METH-121/123). Their exact shared-A factor
 bank passes actual-state native CPU access (METH-125/126); a full C
@@ -1281,21 +1281,24 @@ scheduled.
   Candidate worst hot-parent share is <=20.07%; old table also passes,
   so this is independent nonregression evidence, not a replicated repair.
   PG19 shard 9 remains unused for external quality.
-  [METH-165](METH_165_EXPANDED_INDEPENDENT_SUPPORT_PROTOCOL_20260928.md)
-  froze 1,280 additional disjoint H0 raw/chat pairs in manifest SHA
-  `2875ac50a4de005b56ad6403c6bd30e358b87eb21d7dbb1918738957855068ba`.
-  The 20-shard BF16 teacher runner is active as PID 31332; inspect
-  `meth165_teacher_process.json`, stdout/stderr and shard files. After
-  its verified merge, finalizer PID 29528 (`meth165_finalize_status.json`)
-  runs `meth165_expanded_route_support.py` with the merged SHA, then
-  records the prospective combined 3,840-pair gates. Check the finalizer
-  stage and logs before starting any duplicate process.
-  [METH-166](METH_166_NATIVE_TABLE_COST_PROTOCOL_20260928.md) has
-  frozen 75/138-entry binary fixtures and native C/Python runners.
-  The finalizer runs its CPU timing only after METH-165 GPU work finishes.
-  If both
-  support and CPU gates pass, freeze equal-budget E1280/E12800 matched
-  training and an untouched shard-9 quality audit; neither is yet run.
+  [METH-165](METH_165_EXPANDED_SUPPORT_RESULT_20260928.md) completes
+  all 20 BF16 teacher shards and the exact route replay on 1,330,096
+  pooled input tokens. Coverage 10,999, minimum active median 56,
+  maximum under-32 fraction 41.03% and global load ratio 1.026 pass;
+  worst hot-parent share 32.32% fails. Layer 20/source child 656/local 4
+  receives 85/263 content selections. The old 2,560 and new 1,280
+  subsets fall below the >=250 hot-parent definition separately, so
+  their passes cannot be composed. No matched long training follows.
+  [METH-166](METH_166_NATIVE_TABLE_COST_RESULT_20260928.md) passes
+  native actual-state lookup cost: 138-entry table route medians
+  2.484–2.492 ms/token on three context cells, ratios 0.995–0.998×
+  the paired 75-entry table (timing noise). This is warm CPU routing
+  only; compact LUT factors and end-to-end speed remain unmeasured.
+  Next: capture a SHA-bound METH-165 source-child trace and attribute the pooled
+  chat-scaffold collision before freezing a semantic structural-slot
+  rule. Then repeat route support on the full 3,840 pairs and on
+  independent source/length data; only a prospective pass can license
+  equal-budget E1280/E12800 training and untouched shard-9 quality.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

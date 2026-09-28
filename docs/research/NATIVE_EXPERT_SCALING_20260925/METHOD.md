@@ -1143,13 +1143,19 @@ definition remains a documented hypothesis, not a method step.
 finds no frozen load-gate regression from the 138-tuple table on a
 different PG19 source and two document segmentation lengths. The old
 table also passes those cells, so candidate generalization remains
-bounded. [METH-165](METH_165_EXPANDED_INDEPENDENT_SUPPORT_PROTOCOL_20260928.md)
-now binds 1,280 additional distinct H0 raw/chat pairs; its BF16 teacher
-acquisition is active, and the combined 3,840-pair support screen is
-not yet evaluated. [METH-166](METH_166_NATIVE_TABLE_COST_PROTOCOL_20260928.md)
-prepares actual-state C timing for the larger lookup after GPU work
-finishes. A table route becomes a usable method step only after those
-prospective support and native CPU gates, followed by learned quality.
+bounded. [METH-165](METH_165_EXPANDED_SUPPORT_RESULT_20260928.md)
+adds 1,280 distinct H0 raw/chat pairs: pooled minimum active content
+median reaches 56, but a previously subthreshold chat-scaffold parent
+crosses the hot-parent count boundary and concentrates 32.32% on one
+grandchild. This route is rejected for matched training despite enough
+median selection support. [METH-166](METH_166_NATIVE_TABLE_COST_RESULT_20260928.md)
+finds negligible measurable CPU lookup overhead from 75 to 138 sorted
+tuples on actual states, with every frozen component cost gate passing.
+Native CPU table affordability is an available component result; the
+E12,800 route, learned usefulness, compact LUT, full-model rate and
+family/scale transfer remain unvalidated. The next candidate should
+represent chat-template structure semantically and pass both pooled
+support and new-source/length load checks before training.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
