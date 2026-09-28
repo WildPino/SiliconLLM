@@ -1,0 +1,7 @@
+# METH-168: chat-boundary route diagnostic
+
+The fixed postfailure candidate keeps the 138-tuple METH-162 table and original nine-way content hash, and additionally sends tokenizer IDs `<|im_start|>` (151644) and `<|im_end|>` (151645) to each source child's shared local slot. Exact METH-161/167 traces replay the source children on all 3,840 training pairs (1,330,096 input positions). No weights are trained here.
+
+All frozen **in-sample** gates pass. Across 24 pooled layers, minimum occupied content slots are 10,999, minimum active content median 56 selections, maximum fraction of content slots below 32 selections 41.07%, maximum nine-way load ratio 1.0262 and worst hot-parent grandchild share 23.113% against a 25% cap. The old 2,560-pair worst slot at layer 20/child 656/local 4 had 56 selections: 40 delimiter selections move to shared local 0, leaving 16. The new 1,280-pair slot had 29, of which 25 move, leaving 4. Candidate structural traffic peaks at 18.991% of pooled selections; raw/chat subset load and hot-parent gates also pass.
+
+Result `meth168_chat_boundary_route_result.json`, SHA-256 `c5f282676fb4a8a3f3b1430d1fa649302dcd46bc6636a875cb69723ba6573973`; local CPU replay took 31.656 s and 1.419 GB RSS. The failed METH-165 result remains failed. The rule was chosen after observing that failure, so this replay cannot establish generalization. METH-169 prospectively tests the frozen rule on a new PG19 source and context lengths before native C cost and any matched learning.

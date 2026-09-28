@@ -1156,6 +1156,15 @@ E12,800 route, learned usefulness, compact LUT, full-model rate and
 family/scale transfer remain unvalidated. The next candidate should
 represent chat-template structure semantically and pass both pooled
 support and new-source/length load checks before training.
+[METH-167](METH_167_EXPANDED_SOURCE_TRACE_RESULT_20260928.md) captures the
+new source-child trace and reproduces every METH-165 histogram exactly.
+[METH-168](METH_168_CHAT_BOUNDARY_ROUTE_DIAGNOSTIC_RESULT_20260928.md)
+routes the two tokenizer-defined chat delimiters to the shared local
+slot. The 3,840-pair in-sample replay passes the frozen support and
+load gates, with minimum active median 56 and worst hot-parent share
+23.113%. Because the METH-165 failure informed this rule, it is only a
+candidate. [METH-169](METH_169_FRESH_SOURCE_BOUNDARY_ROUTE_PROTOCOL_20260928.md)
+has frozen a new shard-11 source/length test before its teacher run.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

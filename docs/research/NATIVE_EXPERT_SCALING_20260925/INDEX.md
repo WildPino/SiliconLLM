@@ -1294,10 +1294,21 @@ scheduled.
   2.484–2.492 ms/token on three context cells, ratios 0.995–0.998×
   the paired 75-entry table (timing noise). This is warm CPU routing
   only; compact LUT factors and end-to-end speed remain unmeasured.
-  Next: capture a SHA-bound METH-165 source-child trace and attribute the pooled
-  chat-scaffold collision before freezing a semantic structural-slot
-  rule. Then repeat route support on the full 3,840 pairs and on
-  independent source/length data; only a prospective pass can license
+  [METH-167](METH_167_EXPANDED_SOURCE_TRACE_RESULT_20260928.md) captures
+  the new 1,280 pairs' exact source children and reproduces every METH-165
+  raw/chat/combined histogram in all 24 layers. Its five arrays are in a
+  SHA-verified ZIP. [METH-168](METH_168_CHAT_BOUNDARY_ROUTE_DIAGNOSTIC_RESULT_20260928.md)
+  replays one frozen tokenizer-delimiter shared-slot rule over all 3,840
+  training pairs. Minimum active median remains 56 and worst pooled hot
+  share falls to 23.113%; every in-sample gate passes. It was selected
+  after METH-165 failed, so it needs a prospective test.
+  [METH-169](METH_169_FRESH_SOURCE_BOUNDARY_ROUTE_PROTOCOL_20260928.md)
+  froze 512 chat, 512 raw and 24 document inputs from previously unused
+  PG19 shard 11 in manifest SHA
+  `8b2e3a545f33dbd31283fd173b9044e2c87bd55463e168d6b2f8c513cde4e468`.
+  Its local BF16 teacher is running; then test four source-ordered cells,
+  raw+chat and train+new-source pools against the frozen route gates.
+  Only a prospective route pass and native C parity/cost can license
   equal-budget E1280/E12800 training and untouched shard-9 quality.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
