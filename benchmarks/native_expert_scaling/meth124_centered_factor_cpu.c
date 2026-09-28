@@ -135,7 +135,9 @@ static void residual(const Layer *layer, const float *x, const Header *h,
                      const int *ids, const float *gates, float *out) {
     float hidden[4][8];
     for (int k = 0; k < 4; ++k) for (uint32_t r = 0; r < h->r; ++r) {
-        const uint16_t *row = layer->fa + ((size_t)ids[k] * h->r + r) * h->d;
+        size_t a_id = !memcmp(h->magic, "M126FB01", 8)
+                      ? (size_t)ids[k] / h->children : (size_t)ids[k];
+        const uint16_t *row = layer->fa + (a_id * h->r + r) * h->d;
         float sum = 0;
         for (uint32_t d = 0; d < h->d; ++d) sum += bf_float(row[d]) * x[d];
         sum = round_bf(sum);
@@ -181,7 +183,8 @@ int main(int argc, char **argv) {
     if (bank_size < sizeof(Header)) return 2;
     Header h;
     memcpy(&h, bank, sizeof h);
-    if (memcmp(h.magic, "M124FB01", 8) || h.l != 24 || h.d != 896 ||
+    int shared_a = !memcmp(h.magic, "M126FB01", 8);
+    if ((!shared_a && memcmp(h.magic, "M124FB01", 8)) || h.l != 24 || h.d != 896 ||
         h.rank != 64 || h.na != 8 || h.nb != 16 ||
         h.child_rank != 32 || h.children != 10 || h.r != 8) {
         fprintf(stderr, "invalid bank header\n"); return 2;
@@ -191,7 +194,8 @@ int main(int argc, char **argv) {
     size_t key_bytes = (size_t)h.na * h.nb * h.children * h.child_rank * 4;
     size_t router_bytes = parent_bytes + projection_bytes + key_bytes;
     size_t factor_bytes = (size_t)h.na * h.nb * h.children * h.r * h.d * sizeof(uint16_t);
-    size_t layer_bytes = router_bytes + 2 * factor_bytes;
+    size_t a_bytes = shared_a ? factor_bytes / h.children : factor_bytes;
+    size_t layer_bytes = router_bytes + a_bytes + factor_bytes;
     if (bank_size != sizeof(Header) + h.l * layer_bytes) {
         fprintf(stderr, "invalid bank length\n"); return 2;
     }
@@ -204,7 +208,7 @@ int main(int argc, char **argv) {
         layers[l].child_projection = (const float *)(start + parent_bytes);
         layers[l].child_keys = (const float *)(start + parent_bytes + projection_bytes);
         layers[l].fa = (const uint16_t *)(start + router_bytes);
-        layers[l].fb = (const uint16_t *)(start + router_bytes + factor_bytes);
+        layers[l].fb = (const uint16_t *)(start + router_bytes + a_bytes);
     }
     FILE *file = fopen(argv[2], "rb");
     if (!file) { perror(argv[2]); return 2; }

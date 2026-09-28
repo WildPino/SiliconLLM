@@ -918,7 +918,13 @@ scheduled.
   route+factor 2.510 ms versus E128 2.017 ms (1.245×). It visits
   252–402 E1280 slots/layer and an estimated 233.5 MB of distinct
   factor rows. This passes the frozen CPU component gate. The bank
-  uses BF16 factors and FP32 routing, not compact LUT codes; full
+  uses BF16 factors and FP32 routing, not compact LUT codes.
+  [METH-126](METH_126_SHARED_A_FACTOR_BANK_RESULT_20260928.md) verifies
+  all 27,648 sibling A byte comparisons and stores A once per parent,
+  reducing the exact E1280 bank from 893.1 to 496.8 MB. Native fixture
+  outputs and varied-position routes/checksum are unchanged; distinct
+  factor bytes touched fall 233.5→151.6 MB. This is a storage and
+  working-set result, not a proven token-rate improvement. Full
   `engine.c`, accepted-token speed, 10B/100B transfer and cold random
   DRAM remain open. No T4 job is planned.
 

@@ -34,7 +34,8 @@ int main(int argc, char **argv) {
     memcpy(&h, bank, sizeof h);
     memcpy(&v, vector_data, sizeof v);
     int parent_only = !memcmp(h.magic, "M125PR01", 8);
-    int hierarchical = !memcmp(h.magic, "M124FB01", 8);
+    int shared_a = !memcmp(h.magic, "M126FB01", 8);
+    int hierarchical = !memcmp(h.magic, "M124FB01", 8) || shared_a;
     if ((!parent_only && !hierarchical) || h.l != 24 || h.d != 896 || h.r != 8 ||
         h.rank != 64 || h.na != 8 || h.nb != 16 ||
         (parent_only && (h.children != 1 || h.child_rank != 0)) ||
@@ -51,7 +52,8 @@ int main(int argc, char **argv) {
     size_t key_bytes = (size_t)experts * h.child_rank * sizeof(float);
     size_t router_bytes = parent_bytes + projection_bytes + key_bytes;
     size_t factor_bytes = (size_t)experts * h.r * h.d * sizeof(uint16_t);
-    size_t layer_bytes = router_bytes + 2 * factor_bytes;
+    size_t a_bytes = shared_a ? factor_bytes / h.children : factor_bytes;
+    size_t layer_bytes = router_bytes + a_bytes + factor_bytes;
     if (bank_size != sizeof h + h.l * layer_bytes ||
         vector_size != sizeof v + (size_t)v.tokens * v.layers * v.width * sizeof(uint16_t)) {
         fprintf(stderr, "invalid input length\n"); return 2;
@@ -65,7 +67,7 @@ int main(int argc, char **argv) {
         layers[l].child_projection = hierarchical ? (const float *)(base + parent_bytes) : NULL;
         layers[l].child_keys = hierarchical ? (const float *)(base + parent_bytes + projection_bytes) : NULL;
         layers[l].fa = (const uint16_t *)(base + router_bytes);
-        layers[l].fb = (const uint16_t *)(base + router_bytes + factor_bytes);
+        layers[l].fb = (const uint16_t *)(base + router_bytes + a_bytes);
     }
     const uint16_t *xbf = (const uint16_t *)(vector_data + sizeof v);
     size_t elements = (size_t)v.tokens * v.layers * v.width;
@@ -128,14 +130,22 @@ int main(int argc, char **argv) {
     }
     size_t addressed_router_bytes = parent_bytes +
         (hierarchical ? projection_bytes + (size_t)4 * h.children * h.child_rank * sizeof(float) : 0);
-    printf("VARIED_SUMMARY experts=%u tokens=256 repetitions=5 route_median_ms_per_token=%.9f factor_median_ms_per_token=%.9f combined_median_sum_ms_per_token=%.9f unique_min=%d unique_max=%d unique_total=%d unique_factor_bytes=%zu selected_factor_bytes_per_token=%zu nominal_router_bytes_per_token=%zu bank_bytes=%zu rss_bytes=%zu elapsed_seconds=%.6f checksum=%.9f\n",
+    size_t unique_a_total = 0;
+    if (shared_a) for (int l = 0; l < 24; ++l) {
+        uint8_t seen_a[128] = {0};
+        for (uint32_t id = 0; id < experts; ++id)
+            if (seen[l][id]) seen_a[id / h.children] = 1;
+        for (int id = 0; id < 128; ++id) unique_a_total += seen_a[id];
+    }
+    size_t row_bytes = (size_t)h.r * h.d * sizeof(uint16_t);
+    printf("VARIED_SUMMARY experts=%u tokens=256 repetitions=5 route_median_ms_per_token=%.9f factor_median_ms_per_token=%.9f combined_median_sum_ms_per_token=%.9f unique_min=%d unique_max=%d unique_total=%d unique_factor_bytes=%zu selected_factor_bytes_per_token=%zu nominal_router_bytes_per_token=%zu bank_bytes=%zu rss_bytes=%zu elapsed_seconds=%.6f checksum=%.9f unique_a_rows=%zu\n",
            experts, median5(route_ms), median5(factor_ms),
            median5(route_ms) + median5(factor_ms),
            minimum, maximum, total,
-           (size_t)total * 2 * h.r * h.d * sizeof(uint16_t),
+           (shared_a ? unique_a_total + (size_t)total : 2 * (size_t)total) * row_bytes,
            (size_t)4 * 2 * h.r * h.d * sizeof(uint16_t) * h.l,
            addressed_router_bytes * h.l,
-           bank_size, rss_bytes(), now_s() - started, checksum);
+           bank_size, rss_bytes(), now_s() - started, checksum, unique_a_total);
     free(x);
     free((void *)vector_data);
     free((void *)bank);
