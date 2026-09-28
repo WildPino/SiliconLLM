@@ -824,6 +824,15 @@ versus E128 and lowers unsupported/severe excerpt claims from 31/12
 to 25/7. This is the current BF16 donor quality candidate. The
 mean-preserving transform is fixed; no alpha or route retuning on
 viewed sources is licensed.
+[METH-124](METH_124_CENTERED_FACTOR_CPU_RESULT_20260928.md) exports
+the exact centered factors and router to a versioned native bank and
+matches 96 PyTorch parent/child routes, gates and BF16 residuals
+exactly, with a failing negative control. [METH-125](METH_125_VARIED_CENTERED_FACTOR_CPU_RESULT_20260928.md)
+uses 256 matched external-prompt positions and passes the frozen
+single-thread CPU component gate: E1280 route+factor 2.636 ms versus
+E128 2.118 ms across 24 layers. It visits 252–402 children per layer
+and an estimated 233.5 MB of distinct factor rows. These are BF16
+factors and FP32 router arithmetic, not a compact LUT or a full model.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
@@ -831,9 +840,9 @@ large-E optimization. NES-03 provides a numerical/cost-passing int8 router
 option at pilot scale, with a fragile E128 latency margin. METH-123
 supplies a quality-valid BF16 E1280 factor bank, but no pretrained donor
 has been converted into a quality-valid, ≥50 accepted tok/s native
-artifact. The next method step is native centered-factor export and
-parity with varied-token CPU/LUT access, followed by a quality-preserving
-low-traffic Instruct core and integration in `engine.c`. Check full-model
+artifact. The next method step is a quality-preserving compact LUT
+representation for the centered factor bank and a low-traffic Instruct
+core, followed by integration in `engine.c`. Check full-model
 route/logit parity and accepted-token throughput on the same bundle.
 METH-47 remains a separate exact-router candidate with its own semantic
 question. The expert-count ladder must prove useful distinct factors

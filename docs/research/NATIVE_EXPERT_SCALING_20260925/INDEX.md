@@ -909,10 +909,18 @@ scheduled.
   gains one EOS (20 versus 19), and scores 1,291 versus 1,292/1,838
   on PIQA. Its committed blind external verdict improves unsupported
   claims 31→25 and severe claims 12→7, with missing-detail 0/0.
-  The quality candidate now advances to native centered-factor CPU
-  parity, varied-token/LUT traffic and full `engine.c` feasibility.
-  No factor-bank or end-to-end speed is yet measured for this candidate;
-  10B/100B donor transfer remains open. No T4 job is planned.
+  [METH-124](METH_124_CENTERED_FACTOR_CPU_RESULT_20260928.md)
+  exports the actual centered A/B bank and checks 96 native parent,
+  child, gate and BF16 residual fixtures with zero error; a one-byte
+  fixture mutation fails. Its hot 24-layer route+factor median is
+  2.450 ms/token-equivalent. [METH-125](METH_125_VARIED_CENTERED_FACTOR_CPU_RESULT_20260928.md)
+  captures 256 matched source positions per arm and measures E1280
+  route+factor 2.636 ms versus E128 2.118 ms (1.245×). It visits
+  252–402 E1280 slots/layer and an estimated 233.5 MB of distinct
+  factor rows. This passes the frozen CPU component gate. The bank
+  uses BF16 factors and FP32 routing, not compact LUT codes; full
+  `engine.c`, accepted-token speed, 10B/100B transfer and cold random
+  DRAM remain open. No T4 job is planned.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
