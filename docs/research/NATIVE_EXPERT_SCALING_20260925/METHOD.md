@@ -891,6 +891,17 @@ step. The PyTorch audit dequantizes the stored Q7 rows before BF16
 matmul; native pair-LUT full-model parity is also unverified. Any
 precision repair must use new source-disjoint quality and grounding
 data, since these METH-131 responses are viewed.
+[METH-132](METH_132_Q15_FACTOR_LUT_RESULT_20260928.md) tests a
+fifteen-level signed child-B code in the same eight-byte row and
+276,578,344-byte E1280 bank. Its native pair-LUT check on 6,144
+fixed-state residuals gives zero route/gate mismatches, 0.018943
+pooled and 0.036900 p95 relative L2 error, and a 0.8738 versus
+1.0511 ms/token-equivalent paired factor median against exact BF16.
+The reserved-nibble corruption is rejected. This passes its frozen
+component gates and makes Q15 the next precision candidate for a
+preregistered full-model audit on new source-disjoint material. It
+does not establish Q15 donor quality or overturn METH-131's Q7
+grounding failure.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

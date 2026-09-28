@@ -991,6 +991,18 @@ scheduled.
   documents and blind grounding before promotion. A compact donor core,
   native same-artifact accepted-token rate and a learned expert-count
   ladder remain required.
+  [METH-132](METH_132_Q15_FACTOR_LUT_RESULT_20260928.md) fills the same
+  four child-B nibbles with fifteen signed levels. The 276.6 MB bank
+  passes the native component gate on 6,144 fixed states: zero route/gate
+  mismatches, pooled/p95 residual relative L2 0.01894/0.03690, and
+  five-pair median factor time 0.8738 versus 1.0511 ms/token-equivalent
+  for exact BF16. The reserved-nibble negative control fails as required.
+  This reduces component error without a larger bank, but **does not
+  repair METH-131's Q7 semantic failure or establish Q15 full-model
+  quality**. Next: preregister a Q15 audit on new source-disjoint
+  documents and blind grounding, then check native full-model parity
+  and rate only if it passes. The compact core and RAM-scaled learned
+  expert ladder remain open.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
