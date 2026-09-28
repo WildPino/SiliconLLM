@@ -52,6 +52,7 @@ MAX_SECONDS = 45 * 60
 MAX_GPU = int(10.5 * (1 << 30))
 MAX_RSS = 50 * (1 << 30)
 MAX_DISK = 10_000_000_000
+HOT_PARENT_MIN_COUNT = 250
 
 
 def digest(path):
@@ -427,7 +428,8 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
         record["optimizer_rows_min"] = min(x["optimizer_rows"] for x in optimizer_rows)
         record["optimizer_rows_max"] = max(x["optimizer_rows"] for x in optimizer_rows)
         records.append(record)
-        if update in (1, 16, 32, 64, 128, 192, 256):
+        if (update in (1, 16, 32, 64, 128, 192, 256) or
+                (UPDATES > 256 and (update % 128 == 0 or update == UPDATES))):
             state = {"experiment": "METH-136-progress", "arm": name,
                      "completed_update": update, "initial_parity": initial,
                      "records": records,
@@ -467,7 +469,7 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
             assert not bool(structural.view(1280, 10)[:, 1:].any())
             assert int(content.sum() + structural.sum()) == expected_total
             by_parent = content.view(1280, 10).sum(dim=1)
-            hot = by_parent >= 250
+            hot = by_parent >= HOT_PARENT_MIN_COUNT
             assert bool(hot.any()) and int(by_parent.max()) > 0
             content_coverage.append(int((content > 0).sum()))
             content_load_ratio.append(float(9 * content.max() / by_parent.max()))
@@ -503,7 +505,7 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
         hot_parent_share = []
         for counts in route_counts:
             parents = counts.view(1280, 10).sum(dim=1)
-            hot = parents >= 250
+            hot = parents >= HOT_PARENT_MIN_COUNT
             assert bool(hot.any())
             hot_parent_share.append(float((
                 counts.view(1280, 10)[hot].max(dim=1).values / parents[hot]).max()))
