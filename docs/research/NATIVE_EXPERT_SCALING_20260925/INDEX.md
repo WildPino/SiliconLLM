@@ -1105,6 +1105,14 @@ scheduled.
   teacher/control BF16 logits remain bound, but the hashed choice was
   computed offline; a hash-routed model, new source load test, native
   C cost, trained specialization and external quality are next.
+  [METH-143](METH_143_FRESH_HASH_ROUTE_RESULT_20260928.md) applies the
+  unchanged METH-142 hash to 24 newly selected source/fragment-disjoint
+  documents, in 128- and 512-token windows. All frozen load gates pass:
+  worst candidate/control skew 1.1915×, worst hot-parent share 18.60%,
+  and minimum per-layer coverage 7,182. This is still an offline choice
+  after the original E1280 route. Next: frozen hash-routed full-model
+  clone parity and native C CPU cost, then matched sparse B training and
+  untouched quality if those gates pass.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

@@ -993,6 +993,15 @@ cost exists, and the routing sources were already viewed. Require a
 fresh source-held-out route check, exact cloned full-model logits,
 native CPU cost, then matched B training and untouched semantic
 quality before using this rung in the RAM scaling claim.
+[METH-143](METH_143_FRESH_HASH_ROUTE_RESULT_20260928.md)
+checks the fixed token hash on 24 new source/fragment-disjoint
+documents. Both 128- and 512-token windows pass every layer's
+relative load, hot-parent share and coverage gate; worst relative
+load is 1.1915×, worst share 18.60%, minimum coverage 7,182.
+The hash was assigned offline to the original E1280 routes, so
+full-model hash-route parity, native C cost, useful learned B and
+new-source quality remain unproven. Freeze a model-integrated clone
+and native cost gate next, then train only if it passes.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
