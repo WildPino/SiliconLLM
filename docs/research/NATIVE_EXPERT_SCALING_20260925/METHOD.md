@@ -925,6 +925,16 @@ the gradient and SGD update. The 24-layer FP32 B master projects to
 8.81 GB, but full training memory and useful E12800 specialization
 are unmeasured. New-source full-model quality, native third-tier cost
 and CPU LUT arithmetic remain required.
+[METH-135](METH_135_THIRD_TIER_CPU_ROUTE_RESULT_20260928.md)
+executes the ten-way third-tier route in C on all 256×24 actual
+states, preserving four original E1280 child IDs and gates. Seeded
+untrained keys choose 13,525 unique grandchild IDs summed over
+layers. Exact-clone factor residuals match, and the paired 24-layer
+route median is 2.002 versus 1.483 ms/token-equivalent for E12800
+versus E1280. The 42.1 MB sidecar and bad-magic control pass. This
+narrows the remaining scaling work to training useful distinct
+grandchildren and measuring cold factor traffic/full-model quality;
+the component CPU route pass cannot substitute for those results.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

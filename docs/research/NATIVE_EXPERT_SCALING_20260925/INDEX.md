@@ -10,10 +10,12 @@ selected-row head reaching 20.791 tok/s on its matched reference
 component checks but both fail separate blind full-model grounding
 gates (METH-131/133). Neither is quality-promoted. METH-134 now
 passes a one-layer CPU-master sparse-gradient apparatus gate for an
-exact-clone E1280→E12800 third tier. Its keys are untrained; useful
-distinct E12800 capacity and full-model quality remain unproven.
+exact-clone E1280→E12800 third tier. METH-135 measures that tier's
+actual-state CPU route at 2.002 versus 1.483 ms/token-equivalent,
+passing its component gate. Its keys are untrained; useful distinct
+E12800 capacity and full-model quality remain unproven.
 The quality-valid compact donor core, native same-artifact >=50
-accepted-token/s, CPU third-tier route/LUT cost, and 10B/100B transfer
+accepted-token/s, CPU LUT factor cost at E12800, and 10B/100B transfer
 remain open. The earlier 539.955 MB BF16-attention/R8-head+FFN core
 failed blind semantic conservation (METH-62), and the base-donor R8
 attempt failed generation (METH-27); neither can be promoted silently.
@@ -1020,6 +1022,16 @@ scheduled.
   actual 10× third-tier CPU route and selected factors, then register
   a bounded full-model sparse training/quality experiment with new
   sources. This is trainability apparatus, not learned E12800 quality.
+  [METH-135](METH_135_THIRD_TIER_CPU_ROUTE_RESULT_20260928.md)
+  measures the untrained ten-way third tier on all 6,144 actual
+  fixed states. The 42.1 MB sidecar passes byte readback, cloned
+  factor residuals match exactly, and five paired single-thread
+  CPU repetitions give 2.002 versus 1.483 ms/token-equivalent for
+  E12800/E1280 route (1.350×, below 2× and 3 ms limits). The bad
+  magic control fails. Next: freeze a bounded **learned** E12800
+  sparse-training run, including all 24-layer memory/optimizer costs,
+  route load and new-source quality/grounding. Do not infer cold DRAM,
+  quality-valid LUT, full rate or 10B/100B transfer from this gate.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
