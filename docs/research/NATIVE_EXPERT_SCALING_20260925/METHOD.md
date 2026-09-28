@@ -1178,9 +1178,13 @@ sets; this diagnoses route concentration without approving a repair.
 training-derived shared table with one frozen >=8-recurrence rule. Its
 1,685 entries pass all in-sample and consumed-source route gates,
 including 19.49% worst composed hot share and 21.05% structural traffic.
-This candidate awaits the [METH-173](METH_173_FRESH_LOW_RECURRENCE_ROUTE_PROTOCOL_20260928.md)
-unused shard-12 source/length test; native C parity/cost and learned
-quality are still open.
+The [METH-173](METH_173_FRESH_LOW_RECURRENCE_ROUTE_RESULT_20260928.md)
+unused shard-12 source/length test passes every route gate, including
+20.32% worst composed hot share. [METH-174](METH_174_NATIVE_LOW_RECURRENCE_ROUTE_RESULT_20260928.md)
+passes Python/C parity and native actual-state lookup cost for the
+1,685-entry table. A matched long E1280/E12800 learning comparison can
+now be frozen. Learned usefulness, compact LUT and accepted-token rate
+remain open.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

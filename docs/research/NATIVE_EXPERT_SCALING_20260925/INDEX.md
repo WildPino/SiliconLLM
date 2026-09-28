@@ -1331,8 +1331,18 @@ scheduled.
   froze 512 chat, 512 raw and 24 document inputs on unused PG19 shard
   12, manifest SHA
   `6ebfc36fd452f2a20cfcc9e8210505e36b725ef95992949655c19f3c94eaee20`.
-  Its local BF16 teacher is running; then apply four new-source cells
-  and composition gates. PG19 shard 9 remains untouched for quality.
+  The [METH-173 result](METH_173_FRESH_LOW_RECURRENCE_ROUTE_RESULT_20260928.md)
+  passes all four new-source cells and the composed pool: worst hot
+  share 20.32%, minimum content coverage 11,029, active median 61 and
+  maximum structural traffic 21.05%. The conditional
+  [METH-174 native result](METH_174_NATIVE_LOW_RECURRENCE_ROUTE_RESULT_20260928.md)
+  passes exact Python/C fixture parity and all four warm actual-state
+  CPU cost cells. Its 20,236-byte table gives 2.427–2.470 ms/token
+  route medians, at most 1.002× the paired 1,672-byte baseline within
+  measurement noise. These passes license freezing a matched long
+  E1280/E12800 learning and untouched quality protocol, not a useful-
+  expert, compact LUT or >=50 accepted-token/s claim. PG19 shard 9
+  remains untouched for quality.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

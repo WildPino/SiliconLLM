@@ -1,0 +1,51 @@
+{
+  "experiment": "METH-174-native-low-recurrence-fixtures",
+  "route_result_sha256": "8cf875ade5a2996e7f2e9db352f5dde1afb65efe537e0038a0e61033c97770e3",
+  "candidate_table_json_sha256": "e89ff2cecbf887b85b5e361d47a8b918d8ccb93bd5c385a580ba993b93ac72db",
+  "baseline_table_json_sha256": "dca94f6ea833be5446b497132595ff5dc80d94a414f18a8a2bad116764fac4e1",
+  "baseline_table_binary_sha256": "e7a270e0e77fb2c7bca711a0932c24224dc7f6e060611cc3a942ed7593cf38d8",
+  "baseline_hit_sha256": "c211bde3459b3a1df27250ee0e785cde412cba07fb763aeb519281588f54a629",
+  "candidate_table_binary": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth174_shared_table.bin",
+    "sha256": "95fb1f2c74fcdcd84bf6bf0d09e1e7175684a6f35bf9f356252ad5cbe9cf7440",
+    "bytes": 20236,
+    "entries": 1685
+  },
+  "new_hit": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth174_context_new_hit.bin",
+    "sha256": "0e6858b137be545a8c3d6ffa0d77ab96aa8002894afdbc34f0daa8d020a5d22d",
+    "bytes": 3084,
+    "contexts": 256
+  },
+  "delimiter": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth174_context_delimiter.bin",
+    "sha256": "f40f6d6c2bc626a4108b7b10bc453507d3238d0fef9136812d6af3eea49116e0",
+    "bytes": 3084,
+    "contexts": 256
+  },
+  "miss": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth174_context_miss.bin",
+    "sha256": "598d52dc254a0e90674003f7e45d9a1cde5dcde6d2ee31e61e7917df3e6a09e6",
+    "bytes": 3084,
+    "contexts": 256
+  },
+  "golden": {
+    "new_hit_first": [
+      11,
+      198,
+      56
+    ],
+    "delimiter_first": [
+      151644,
+      123,
+      67
+    ],
+    "content_miss_first": [
+      123,
+      45,
+      67
+    ],
+    "shared_child89_layer3": 890,
+    "content_child89_layer3": 899
+  }
+}
