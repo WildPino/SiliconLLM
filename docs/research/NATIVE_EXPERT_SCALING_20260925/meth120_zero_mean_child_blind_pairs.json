@@ -1,0 +1,176 @@
+{
+  "experiment": "METH-120-zero-mean-E1280-blind-development-review",
+  "manifest_sha256": "1c89a4b0479d891e0441b152048c27947b12309c3d1062c9982b062c9e3fbae1",
+  "audit_sha256": "840a052c01997bea35f6fcbb92cd8f53eca7f74b939979f62df2d79218a1d650",
+  "review_rule": "Count unsupported, severe and missing-detail findings from the excerpt alone.",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/density/d3_lowrank.py",
+      "category": "code",
+      "excerpt": "ts it; it does not apply it.\n\nMethod: replace organ W (in ALL layers at once) by its rank-r truncation and read BPB off\nthe pinned held-out slice.  W_r = W V_r V_r^T (or U_r U_r^T W, whichever side is smaller),\nwith V from the eigendecomposition of the Gram matrix -- exactly the top-r SVD subspace,\ncomputed on the small side so 28 layers x 7 organs is minutes, not hours.\n\nBytes ret",
+      "A": "The excerpt describes a method for replacing a specific organ (W) in a neural network model by its rank-r truncation and reading the BPB (Backpropagation Through Time Bias) off the pinned held-out slice. It also mentions that the method involves computing the top-r SVD subspace on the small side of the network, which is approximately 28 layers x 7 organs.<|im_end|>",
+      "B": "The excerpt describes a method for replacing a specific organ (W) in a neural network model by its rank-r truncation and reading the BPB (Backpropagation Through Time Bias) off the pinned held-out slice. It specifies that the method involves replacing W with its rank-r truncated version and computing the BPB using the eigendecomposition of the Gram matrix on the small side, with V from the eigendecomposition of the Gram matrix. The excerpt also mentions that the method is applied to 28 layers x 7 organs, with the time taken to complete the operation being minutes, not hours.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_bf16_candidate_loader.py",
+      "category": "code",
+      "excerpt": "bytes), self.assertRaises(loader.CandidateIntegrityError):\n                loader.decode_record(io.BytesIO(self.prefix + damaged), self.linear)\n        damaged = bytearray(self.blob)\n        scale_region = 17 * 17 * 2\n        damaged[scale_region] = 0x08\n        with self.assertRaisesRegex(loader.CandidateIntegrityError, \"reserved W4\"):\n            loader.decode_record(io.BytesIO(s",
+      "A": "The excerpt describes a test case for a loader that encounters a CandidateIntegrityError when decoding a record with a damaged blob. Specifically, it shows that the loader is expecting a record with a specific format but encounters a corrupted record with a different format, leading to a CandidateIntegrityError.<|im_end|>",
+      "B": "The excerpt describes a test case for a loader that encounters a CandidateIntegrityError when decoding a record with a damaged blob. Specifically, it shows that the loader is attempting to decode a record with a scale region of 17 * 17 * 2, but the record contains a corruption that causes the integrity check to fail. The damaged blob is a bytearray of 1024 bytes, and the scale region is a 17x17x2 array of bytes. The loader is expecting a record with a specific format, but the corruption causes the integrity check to fail, leading to a CandidateIntegrityError"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e40_levers_exhausted.py",
+      "category": "code",
+      "excerpt": "p.add_argument(\"--reps\", type=int, default=5)\n    ap.add_argument(\"--ntok\", type=int, default=NTOK)\n    ap.add_argument(\"--build-only\", action=\"store_true\")\n    ap.add_argument(\"--r512\", default=\"D:/_ktmp/e39/e39_r512.bin\")\n    ap.add_argument(\"--order\", default=\"forward\", choices=(\"forward\", \"reversed\"))\n    ap.add_argument(\"--refit\", action=\"store_true\",\n                    help=",
+      "A": "The excerpt describes a command-line argument parser for a Python script, which includes options for specifying the number of repetitions, token count, build-only mode, build directory path, order of operations, and refit mode.<|im_end|>",
+      "B": "The excerpt describes a command-line argument parser for a Python script, which is used to configure various parameters for a machine learning model training process. It includes the following details:\n\n1. **Argument Description**: The script uses a command-line argument parser to define several parameters:\n   - `--reps`: An integer specifying the number of training repetitions.\n   - `--ntok`: An integer specifying the number of tokens to use for the model.\n   - `--build-only`: A boolean flag indicating whether the model should be built or not.\n   - `--r512`: A string specifying the path to a binary file containing"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_applied.py",
+      "category": "code",
+      "excerpt": "-labels\", required=True, help=\"labels_E256.npz\")\n    ap.add_argument(\"--stats\", default=None)\n    ap.add_argument(\"--routers\", default=E37_ROUTERS, help=\"E37's OWN fitted routers\")\n    ap.add_argument(\"--layers\", default=\",\".join(str(x) for x in H1.H1_LAYERS))\n    ap.add_argument(\"--k\", type=int, default=H1.K_DEFAULT)\n    ap.add_argument(\"--groups\", type=int, default=H1.E_GROUPS)\n ",
+      "A": "The excerpt describes a command-line argument parser for a machine learning model, including labels, router configuration, layers, and groups.<|im_end|>",
+      "B": "The excerpt describes a command-line argument parser for a machine learning model, including labels, router configuration, and model parameters. It specifies the following arguments:\n\n1. `--labels`: A required argument to specify the path to the `labels_E256.npz` file.\n2. `--stats`: A default value of `None` to indicate that the argument is optional.\n3. `--routers`: A default value of `E37_ROUTERS` to specify the router configuration.\n4. `--layers`: A default value of `,\".join(str(x) for x in H1.H1_LAYERS"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_eval.py",
+      "category": "code",
+      "excerpt": "se\")\n    ap.add_argument(\"--labels\", required=True, help=\"labels_E256.npz\")\n    ap.add_argument(\"--stats\", default=None, help=\"h1_actstats.npz (shape only; the bundle's \"\n                                                  \"own rms overwrites it)\")\n    ap.add_argument(\"--routers\", default=E37_ROUTERS, help=\"E37's routers, for arm-E\")\n    ap.add_argument(\"--layers\", default=\",\".join(s",
+      "A": "The excerpt describes a command-line argument parser for a neural network model, where the `--labels` argument is used to specify the path to a `.npz` file containing the labels for the model's output. The `--stats` argument is used to specify the path to a `.npz` file containing the bundle's own RMS (Root Mean Square) values, which are used to update the bundle's own RMS. The `--routers` argument is used to specify the E37's routers, which are used to configure the model's architecture.<|im_end|>",
+      "B": "The excerpt describes a command-line argument parser for a neural network model, including labels, stats, routers, and layers. It specifies that the labels are in a file named `E256.npz`, the stats are in a file named `h1_actstats.npz`, the routers are specified as `E37_ROUTERS`, and the layers are specified as a comma-separated list of strings.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/d4_finish.py",
+      "category": "code",
+      "excerpt": "\n            W = C.get_linear(m, L, \"down_proj\").weight\n            snap.take((L, \"down_proj\"), W)\n            W.copy_(Wnew[L].to(W.dtype))\n        rec, per = evaluate(f\"down_proj/reconstructed/{int(level*100)}%\", organ=\"down_proj\", level=level,\n                             axis=\"col\", zero_frac_requested=level, zero_frac_achieved=zero_frac_achieved,\n                             ze",
+      "A": "The excerpt describes a Python function that takes a linear transformation matrix `W` and a linear transformation matrix `Wnew` as input, and returns a new linear transformation matrix `Wnew`. The function then takes a reconstruction level `level` and a zero fraction `zero_frac_achieved` as input, and returns a new zero fraction `zero_frac_achieved` for the reconstruction level. The function also takes a snap object and a linear transformation matrix `L` as input, and returns a linear transformation matrix `Wnew` that is the same as `L` but with the weights updated to reflect the new zero fraction `",
+      "B": "The excerpt describes a Python function that takes a linear transformation matrix `W` and a linear projection matrix `Wnew` as input, and returns a new linear transformation matrix `Wnew`. The function then takes a reconstruction level and a zero fraction requested, and evaluates the reconstruction using the provided linear transformation matrix and projection matrix. The function also takes an axis and a zero fraction achieved as input, and returns the reconstructed data.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_layer1_routed_up_projection_cross_input.h",
+      "category": "code",
+      "excerpt": "rat01_l1up_project(model,up_experts,ids,rn,arms[2].up,error))goto finish;++up_completed;if(!strat01_l1up_project(model,up_experts,ids,cn,arms[3].up,error))goto finish;++up_completed;memcpy(work_norm,rn,49152U);for(size_t i=7U*1536U;i<8U*1536U;++i)work_norm[i]=-work_norm[i];if(!strat01_l1up_project(model,up_experts,ids,work_norm,arms[4].up,error))goto finish;++up_completed;if(memcmp",
+      "A": "The excerpt describes a Python function `rat01_l1up_project` that performs a series of operations on a model, including fetching experts, processing data, and copying values. It then checks if the operation was successful and continues with the next step if the operation was not successful.<|im_end|>",
+      "B": "The excerpt describes a Python function `rat01_l1up_project` that performs a series of operations on a model, including fetching experts, processing data, and copying values. It also includes a loop that iterates over a range of indices and modifies the values in a vector. The function is structured to handle errors and ensure that the operations are completed successfully.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth30_learned_coarse_router.py",
+      "category": "code",
+      "excerpt": "    per_layer = [empty_count() for _ in range(M15.M13.L)]\n        for category in categories:\n            cat_total = empty_count()\n            for li, row in enumerate(counts[arm][category]):\n                M29.add_count(cat_total, row)\n                M29.add_count(pooled, row)\n                M29.add_count(per_layer[li], row)\n            per_category[category] = M29.finalize_co",
+      "A": "The excerpt describes a Python function `M29` that processes a dataset `counts` and `arm` to generate a final count `M29.finalize_co`. It iterates over each category and row in the dataset, adding counts to the appropriate layers and per-layer variables.<|im_end|>",
+      "B": "The excerpt describes a Python function `M29.add_count` that iterates over a list of counts for a specific category in a dataset. For each category, it adds a count to the total count for that category and to the pooled count. The function then adds a count for each row in the dataset, and finally, it finalizes the counts for the category.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00002-of-00023-8e4dd6b70d51dfcf.parquet:row=1091",
+      "category": "prose",
+      "excerpt": "een to wear.\"\n\n\nXVII.\n\nKING SVEND OF THE FORKED BEARD.\n\n  Loudly the sailors cheered\n  Svend of the Forked Beard,\n  As with his fleet he steered\n    Southward to Vendland;\n  Where with their courses hauled\n  All were together called,\n  Under the Isle of Svald\n    Near to the mainland.\n\n  After Queen Gunhild's death,\n  So the old Saga saith,\n  Plighted King Svend his faith\n    To Si",
+      "A": "The excerpt describes a scene from a Viking epic poem, where King Svend of the Forked Beard leads his fleet to Vendland, a place near the mainland. The sailors are cheered by the King's fleet, which is described as \"with his fleet he steered\" Southward to Vendland. The poem also mentions that after Queen Gunhild's death, the old Saga says that the King pledged his faith to Si to the Isle of Svald.<|im_end|>",
+      "B": "The excerpt describes a scene from a Viking epic poem, where King Svend of the Forked Beard leads his fleet to Vendland, a place near the mainland. The sailors are cheered by the sailors of the old Saga, who are also called together under the Isle of Svald. The poem ends with King Svend promising to be faithful to Si, who is likely referring to the Norse god Odin.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00002-of-00023-8e4dd6b70d51dfcf.parquet:row=1028",
+      "category": "prose",
+      "excerpt": "m very often--now that he was so\nprosperous.\n\nOne day he told his overseer that he was going to Sydney for a trip, and\nbeing a man of action, packed his valise, mounted his horse, and rode\noff on his journey of five hundred miles to the nearest seaport where he\ncould take passage for Sydney.\n\nFor the first week or so after his arrival in the city, he \"mooned\"\nabout doing nothing, a",
+      "A": "The excerpt describes a man who, after being prosperous, decided to travel to Sydney for a trip. He packed his valise, mounted his horse, and rode off on his journey, which he later describes as \"mooning\" about doing nothing.<|im_end|>",
+      "B": "The excerpt describes a man who, after being prosperous, decided to travel to Sydney for a trip. He packed his valise, mounted his horse, and rode off on his journey, which lasted for five hundred miles.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00002-of-00023-8e4dd6b70d51dfcf.parquet:row=221",
+      "category": "prose",
+      "excerpt": "Enter] ANTONIO and DELIO\n\n  ANTONIO.  What think you of my hope of reconcilement\n  To the Arragonian brethren?\n\n  DELIO.                       I misdoubt it;\n  For though they have sent their letters of safe-conduct\n  For your repair to Milan, they appear\n  But nets to entrap you.  The Marquis of Pescara,\n  Under whom you hold certain land in cheat,[121]\n  Much 'gainst his noble na",
+      "A": "The excerpt describes a conflict between two characters, Antonio and Delio, who are trying to reconcile with the Arragonian brethren. Delio doubts Antonio's intentions, as the Arragonians have sent letters of safe-conduct to Milan, but the Marquis of Pescara, who is suspected of entrapment, is threatening to capture Antonio.<|im_end|>",
+      "B": "The excerpt describes a conflict between two characters, Antonio and Delio, who are trying to reconcile with the Arragonian brethren. Delio doubts Antonio's hope of reconciliation, as the Arragonians have sent letters of safe-conduct to Milan, but the Marquis of Pescara, who is suspected of entrapment, is threatening to capture Antonio.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00002-of-00023-8e4dd6b70d51dfcf.parquet:row=477",
+      "category": "prose",
+      "excerpt": "\"And you can forgive me? I am sending you to your death and you have no\nreproaches for me! Oh, monsieur, it will kill me!\"\n\n\"Hush, child!\" I whispered. \"What reproaches can I have for you? I know\nthe motives that impelled you.\"\n\n\"Not altogether, monsieur; you cannot know them. I loved you, monsieur.\nI do love you, monsieur. Oh! this is not a time to consider words. If I\nam bold and",
+      "A": "The excerpt describes a conversation between a character and a deity, where the character is being asked to forgive a deity for sending them to their death. The deity responds with a cryptic message, hinting at the character's love for them and their intentions.<|im_end|>",
+      "B": "The excerpt describes a scene where a character, likely a man, is being sent to his death by a woman. The character is asking for forgiveness, but the woman is not forgiving him. The excerpt also mentions that the character is asking for reproaches, but the woman is not giving them.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00002-of-00023-8e4dd6b70d51dfcf.parquet:row=234",
+      "category": "prose",
+      "excerpt": "er.\n\n  Du. Not see him since? Sir, sir, that cannot be:\nBut were I not the better part made mercie,\nI should not seeke an absent argument\nOf my reuenge, thou present: but looke to it,\nFinde out thy brother wheresoere he is,\nSeeke him with Candle: bring him dead, or liuing\nWithin this tweluemonth, or turne thou no more\nTo seeke a liuing in our Territorie.\nThy Lands and all things th",
+      "A": "The excerpt describes a situation where a man is unable to see his friend, likely due to a lack of communication or a misunderstanding. The man is described as being \"not seeke an absent argument\" and \"looke to it, \" suggesting that he is looking for his friend. The excerpt also mentions that the man should not see his friend \"liuing\" within the Territorie, implying that the friend is not present or available.<|im_end|>",
+      "B": "The excerpt describes a situation where a man is unable to see his friend, likely due to a lack of communication or a misunderstanding. The man is described as being \"not seeke an absent argument\" and \"looke to it, \" suggesting that he is looking for his friend. The excerpt also mentions that the man should not see his friend \"liuing\" within the Territorie, implying that he is looking for him.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00002-of-00023-8e4dd6b70d51dfcf.parquet:row=6",
+      "category": "prose",
+      "excerpt": "oing to deserve it. See how he looks at us!\nHe knows that we are talking about him. And now that he is no longer\nunhappy, he is beginning to look a great deal less stupid. I am not\njoking! Unhappiness does make people look stupid,--I am perfectly sure\nit does.\"\n\n\"Well, Jeanne, if you like, we will call your protege Hannibal. The\nappropriateness of that name does not seem to strike ",
+      "A": "The excerpt describes a conversation between two characters, Jeanne and Hannibal, discussing a man named Jeanne. Jeanne is expressing her admiration for the man, and Hannibal suggests calling him \"Hannibal.\" The excerpt also mentions that the man is no longer unhappy, which is a positive development for Jeanne.<|im_end|>",
+      "B": "The excerpt describes a conversation between two characters, Jeanne and Hannibal, discussing a man named Jeanne. Jeanne is expressing her admiration for the man, and Hannibal suggests calling him \"Hannibal.\" The excerpt also mentions that the man is no longer unhappy, and that he is beginning to look a great deal less stupid. The author is clearly amused by the suggestion of calling the man \"Hannibal.\"<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00002-of-00023-8e4dd6b70d51dfcf.parquet:row=699",
+      "category": "prose",
+      "excerpt": "at the fun wasn't going to begin until\nalmost morning, they were all so excited that they couldn't wait for the\nnight to pass.\n\nThey lingered around the dooryard and talked so loudly that they\nactually disturbed the household. Farmer Green was even tempted to get\nup and shut his window, he found it so hard to go to sleep.\n\nThe noisiest of all the gathering was Mr. Frog, the tailor,",
+      "A": "The excerpt describes a group of people gathering for a fun event, with the excitement and noise levels being high. The most specific detail is that Farmer Green, the tailor, was even tempted to get up and shut his window, as he found it difficult to go to sleep.<|im_end|>",
+      "B": "The excerpt describes a group of people gathering for a fun event, with the excitement and noise levels being high. The most specific detail is that Farmer Green, the tailor, was even tempted to get up and shut his window, as he found it difficult to go to sleep.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00002-of-00023-8e4dd6b70d51dfcf.parquet:row=642",
+      "category": "prose",
+      "excerpt": "s.\n\nAt the commencement of the operation the charge of sixty pounds of\nsteamed materials was uniformly distributed over the bed; the rollers\nwere then set into motion, revolving about ten times each minute, which\ncontinued for an hour; the broken up powder, or mill cake, which was\nabout five-eighths of an inch thick, was then removed from the bed,\nhaving a blackish grey color and t",
+      "A": "The excerpt describes a steam operation where steamed materials are uniformly distributed over a bed, with rollers revolving ten times per minute for an hour, and the broken-up powder is removed from the bed, which is about five-eighths of an inch thick.<|im_end|>",
+      "B": "The excerpt describes a steam operation where steamed materials are uniformly distributed over a bed, with rollers revolving at ten times per minute for an hour, and the broken-up powder is removed from the bed, which is about five-eighths of an inch thick and has a blackish grey color.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_01_GIGACHAT31_ENGINE_RUNG0.md",
+      "category": "technical_general",
+      "excerpt": "never exercised `phase60/engine.c`, did not create a reusable C loader boundary, and could not prevent that engine from accepting a substituted file.\n\n## 2. Changed coordinate and falsifiable hypothesis\n\n**Changed coordinate:** execution path, from Python/llama.cpp inspection to native parsing and rejection inside `benchmarks/phase60/engine.c`; the artifact, donor, quantization, an",
+      "A": "The excerpt describes a scenario where a C loader boundary was not created, and the engine could not prevent it from accepting a substituted file. It also mentions that the coordinate and falsifiable hypothesis were changed to execution path, from Python/llama.cpp inspection to native parsing and rejection inside `benchmarks/phase60/engine.c`.<|im_end|>",
+      "B": "The excerpt describes a scenario where the `phase60/engine.c` file was never executed, did not create a reusable C loader boundary, and could not prevent the engine from accepting a substituted file. It also mentions a change in the coordinate and a falsifiable hypothesis related to the execution path, from Python/llama.cpp inspection to native parsing and rejection inside `benchmarks/phase60/engine.c`.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E40_HOW_MUCH_FFN_CAN_FIFTY_TOK_S_BUY.md",
+      "category": "technical_general",
+      "excerpt": " same place.\n\n---\n\n## 0. Why this probe, and why now\n\nE39 moved the attention shape and the floor fell from 17.2 ms to 10.0 ms — **99.7 tok/s with the\nFFN at zero, at a genuine 9,999,220,736 parameters.** That is the speed half of the goal standing\non the excellent target.\n\n**But the goal is not a shape, it is a working model**, and the two halves now have to be held\nin one sentenc",
+      "A": "The excerpt describes a probe that has moved to a new position and has achieved a speed of 99.7 tok/s with the FFN at zero, at a genuine 9,999,220,736 parameters. The probe is now holding the floor in one sentance, which is a working model.<|im_end|>",
+      "B": "The probe's attention shape was moved to the same place, and the floor fell from 17.2 ms to 10.0 ms, with a speed of 99.7 tok/s, half of the goal's speed.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E58_WHERE_DID_THE_1_75x_GO.md",
+      "category": "technical_general",
+      "excerpt": "h* `gate+up` | | 15.848 | | | 48.63 |\n| *of which* `down` | | 7.787 | | | 49.49 |\n\n**The laggard is `qkv_proj` at both scales** — the registered prediction, and it holds twice. It\nis also the organ it is least worth fixing: **6.3%** of the 0.5 B token and **6.2%** of the 1.5 B\none, and bringing it alone to the head's rate buys **2.0%** at 0.5 B and **1.0%** at 1.5 B.\nThe laggard is",
+      "A": "The laggard is `qkv_proj` at both scales, holding twice and least worth fixing, and bringing it alone to the head's rate buys 2.0% at 0.5 B and 1.0% at 1.5 B.<|im_end|>",
+      "B": "The laggard is `qkv_proj` at both scales, holding twice and least worth fixing, and bringing it alone to the head's rate buys 2.0% at 0.5 B and 1.0% at 1.5 B.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_PARTITION_CROSS_INPUT_PROTOCOL_20260924.md",
+      "category": "technical_general",
+      "excerpt": "rence | `Vcur-2` | 16,384 | `0486a48dcd7289236760cc5238d31f78c6035fc5001942eb38302dd1ac4abb91` |\n| reference | `kqv_out-2` target | 196,608 | `d249db76e99ddb1f93062b1b438fb65d049e6e3ef2bd32281fc1a7e5972f802e` |\n| C | `Kcur-2` | 18,432 | `163c0eb7f03892c0ff86cfd1ad455382aa9f59a245c2f849918a92d5537a41f9` |\n| C | `Vcur-2` | 16,384 | `e35f17903938047d1f699a92a7e0a85c6abb691a834ffc1cfe3",
+      "A": "The excerpt describes a comparison between two sets of values, specifically between the `Kcur-2` and `Vcur-2` values for the `Vcur-2` variable in the `kqv_out-2` target. It provides the following details:\n\n- The `Kcur-2` value is 18,432.\n- The `Vcur-2` value is 16,384.\n- The `Vcur-2` value is referenced in the `kqv_out-2` target, with the reference value being `d249db76e99",
+      "B": "The excerpt describes a comparison between two sets of values, specifically between the `Kcur-2` and `Vcur-2` values for the `Vcur-2` variable in the `kqv_out-2` target. It provides the following details:\n\n- The `Kcur-2` value is 18,432.\n- The `Vcur-2` value is 16,384.\n- The `Vcur-2` value is referenced by the `kqv_out-2` target, with the reference value being `d249db76e99"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_PROTOCOL_20260925.md",
+      "category": "technical_general",
+      "excerpt": "2026-09-25\n\n**Cell:** `STRAT-01-ENGINE-LAYER1-NUMERICAL-PRIMITIVES-PRODUCTION-INTEGRATION`\n\n## Question and non-duplication\n\nThe closed [compile-parity result](STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_COMPILE_PARITY_RESULT_20260925.md)\nproves exact local replacements for the first remaining router residual and\nboth routed/shared SwiGLU residuals. It does not prove tha",
+      "A": "The closed compile-parity result for the numerical primitives production integration in the STRAT-01-ENGINE-LAYER1-NUMERICAL-PRIMITIVES-PRODUCTION-INTEGRATION cell proves exact local replacements for the first remaining router residual and both routed/shared SwiGLU residuals.<|im_end|>",
+      "B": "The closed compile-parity result for the numerical primitives production integration in the STRAT-01-ENGINE-LAYER1-NUMERICAL-PRIMITIVES-PRODUCTION-INTEGRATION cell proves exact local replacements for the first remaining router residual and both routed/shared SwiGLU residuals.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md",
+      "category": "technical_general",
+      "excerpt": "bination? This does not rerun routing, experts, a producer,\nor either graph. The top-4 IDs are already byte-identical and fix slot order.\n\n## Immutable evidence\n\nBind predecessor adjudication SHA-256\n`4d03a081ab06cf695c4569c4d8ab615d2e2b88a2bfc520874da89e32685e984a`\nand its decisive failing downstream payload SHA-256\n`81635464fe7ec02d659bbc70d4d961e07743a670720bb3c4c1842dfcbc3ac254",
+      "A": "The excerpt describes a specific data structure and its properties. It mentions that the data is byte-identical and fixed slot order, indicating that it is immutable. The excerpt also mentions that the data is part of a larger structure, which is byte-identical and fixed slot order.<|im_end|>",
+      "B": "The excerpt describes a specific data structure and its properties. It mentions that the data is byte-identical and fixed slot order, and that it is already byte-identical and fixed slot order.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E26_WHAT_AN_ACTIVATED_WEIGHT_COSTS.md",
+      "category": "technical_general",
+      "excerpt": "39.84% | +371.94% | +355.09% | −16.9 pt (over) |\n\n---\n\n## §4 — why the crude test missed it, and what the band actually says\n\nPrediction 3 registered a trigger: *\"if the deep arms (`K16`, `K4`) fall below 40 G weights/s, then a\ngathered weight costs more than a streamed one.\"* **`T10-K16` reads 41.41 and `T10-K4` reads 41.67.\nThe registered trigger does not fire.** I am not going t",
+      "A": "The excerpt describes a test result where the crude test missed predicting a significant difference between the deep arms (`K16`, `K4`) and the gathered weight, indicating that the gathered weight costs more than the streamed one.<|im_end|>",
+      "B": "The excerpt describes a test result where the crude test missed predicting a significant difference between the deep arms (`K16`, `K4`) and the gathered weight, indicating a higher cost for streamed weights compared to gathered weights.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER_PROJRATE_AUDIT.md",
+      "category": "technical_general",
+      "excerpt": "affect\nthe engine's own routine\" — is **excluded by construction**: my `engine.c` build shares no source with\n`gemv_donor_bench.c`. Two independently-built binaries from two different source files cannot share a\nharness defect. The only shared factor is the machine, which is precisely the Builder's claim (§2.3:\nplacement-conditioned).\n\n**Does anything in the donor conclusion depend",
+      "A": "The excerpt describes a scenario where the engine's own routine is affected by a defect in `gemv_donor_bench.c`, which is built independently of `engine.c`. The defect is shared between two binaries from different source files, and the only shared factor is the machine, which is the Builder's claim.<|im_end|>",
+      "B": "The excerpt describes a scenario where the engine's own routine is affected by a defect in `gemv_donor_bench.c`, which is excluded by construction. It mentions that the two independently-built binaries from two different source files cannot share a harness defect, and that the only shared factor is the machine, which is precisely the Builder's claim (§2.3: placement-conditioned).<|im_end|>"
+    }
+  ]
+}

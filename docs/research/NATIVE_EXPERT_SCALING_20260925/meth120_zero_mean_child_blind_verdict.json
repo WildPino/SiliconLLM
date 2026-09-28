@@ -1,0 +1,682 @@
+{
+  "experiment": "METH-120-zero-mean-arm-blind-development-verdict",
+  "blind_sha256": "33a13dd05d17c274351359529d63c837d0b9943c5ab209e6d2a04b3d996186c2",
+  "reviewer": "single agent, excerpt-only review",
+  "rubric": "Count claims contradicted or unsupported by the visible excerpt; severe means a central entity, event or result is inverted; missing_detail means no concrete supported detail is supplied.",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/density/d3_lowrank.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "BPB expands to Backpropagation Through Time Bias",
+            "evidence": "The visible method reads BPB from a held-out text slice; that expansion is not stated.",
+            "severe": false
+          },
+          {
+            "claim": "the SVD is computed on the small side of the network",
+            "evidence": "The excerpt says the small side of each weight/Gram matrix, not a network side.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "BPB expands to Backpropagation Through Time Bias",
+            "evidence": "The visible method reads BPB from a held-out text slice; that expansion is not stated.",
+            "severe": false
+          },
+          {
+            "claim": "the operation is already applied and takes minutes",
+            "evidence": "The excerpt presents a method and predicts minutes, not a completed timing.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_bf16_candidate_loader.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the damaged blob has a different record format",
+            "evidence": "Only a damaged byte and an expected reserved-W4 error are shown.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the damaged blob has 1024 bytes",
+            "evidence": "No blob length is visible.",
+            "severe": false
+          },
+          {
+            "claim": "the scale region is a 17 by 17 by 2 byte array",
+            "evidence": "The code gives a scalar offset 17 * 17 * 2 and changes one byte, not an array shape.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e40_levers_exhausted.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the parser includes a build-directory path option",
+            "evidence": "The visible path is the default for --r512; no build-directory argument is shown.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the parser configures a model training process",
+            "evidence": "The flags show a probe/script interface, without a training process in the excerpt.",
+            "severe": false
+          },
+          {
+            "claim": "the binary file contains model data of a specified kind",
+            "evidence": "--r512 only shows a default .bin path; its content is not visible.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_applied.py",
+      "A": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h1_eval.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the supplied stats update the bundle's own RMS",
+            "evidence": "The help text says the bundle's own RMS overwrites the supplied stats.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the labels file is named E256.npz",
+            "evidence": "The help text explicitly names labels_E256.npz.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/d4_finish.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the visible function returns a new Wnew transformation matrix",
+            "evidence": "The shown lines evaluate a reconstruction and assign rec, per; no return is shown.",
+            "severe": false
+          },
+          {
+            "claim": "the function returns zero_frac_achieved",
+            "evidence": "zero_frac_achieved appears as an argument to evaluate, not a visible return.",
+            "severe": false
+          },
+          {
+            "claim": "Wnew is the same as L with updated weights",
+            "evidence": "Wnew[L] supplies weights copied into W; L is a layer index, not a weight matrix.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the visible function returns reconstructed data",
+            "evidence": "Only an evaluate call and assignment to rec, per are visible.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_layer1_routed_up_projection_cross_input.h",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "rat01_l1up_project is a Python function",
+            "evidence": "The excerpt is C syntax in a .h file, with pointer-like calls and memcpy.",
+            "severe": true
+          },
+          {
+            "claim": "execution continues after an unsuccessful projection",
+            "evidence": "Each false projection condition goes directly to finish.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "rat01_l1up_project is a Python function",
+            "evidence": "The excerpt is C syntax in a .h file, with pointer-like calls and memcpy.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth30_learned_coarse_router.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "M29 is the function iterating over counts",
+            "evidence": "M29 appears as a module namespace for add_count and finalize_count.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00002-of-00023-8e4dd6b70d51dfcf.parquet:row=1091",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "King Svend pledges faith to Si at the Isle of Svald",
+            "evidence": "The Isle of Svald belongs to the preceding stanza; the pledge line cuts off at Si.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Si is likely the Norse god Odin",
+            "evidence": "The line is truncated at Si and supplies no identity, let alone Odin.",
+            "severe": true
+          },
+          {
+            "claim": "the poem ends with the pledge",
+            "evidence": "The displayed excerpt ends mid-word and does not identify the poem's ending.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00002-of-00023-8e4dd6b70d51dfcf.parquet:row=1028",
+      "A": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00002-of-00023-8e4dd6b70d51dfcf.parquet:row=221",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Delio doubts Antonio's intentions",
+            "evidence": "Delio says he doubts the hope of reconciliation, not Antonio's sincerity.",
+            "severe": false
+          },
+          {
+            "claim": "the Marquis of Pescara threatens to capture Antonio",
+            "evidence": "The visible text calls safe-conduct letters possible nets; it cuts off during the Marquis clause.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the Marquis of Pescara threatens to capture Antonio",
+            "evidence": "The visible text calls safe-conduct letters possible nets; it cuts off during the Marquis clause.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00002-of-00023-8e4dd6b70d51dfcf.parquet:row=477",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the conversation is with a deity",
+            "evidence": "The speakers address each other as monsieur and child; no deity appears.",
+            "severe": true
+          },
+          {
+            "claim": "the deity replies cryptically to a request for forgiveness",
+            "evidence": "The man says he has no reproaches and knows her motives; the woman states her love.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the man asks the woman for forgiveness",
+            "evidence": "The woman asks whether the man can forgive her for sending him to death.",
+            "severe": true
+          },
+          {
+            "claim": "the woman refuses to forgive or reproach him",
+            "evidence": "The man's reply says he has no reproaches for her.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00002-of-00023-8e4dd6b70d51dfcf.parquet:row=234",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the person sought is a friend",
+            "evidence": "The command explicitly says 'Finde out thy brother'.",
+            "severe": true
+          },
+          {
+            "claim": "absence is due to communication trouble or misunderstanding",
+            "evidence": "The speaker orders a search and threatens exile after twelve months.",
+            "severe": false
+          },
+          {
+            "claim": "the command is to avoid seeing the person alive in the territory",
+            "evidence": "The brother must be brought dead or living; the threatened exile concerns the searcher.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the person sought is a friend",
+            "evidence": "The command explicitly says 'Finde out thy brother'.",
+            "severe": true
+          },
+          {
+            "claim": "absence is due to communication trouble or misunderstanding",
+            "evidence": "The speaker orders a search and threatens exile after twelve months.",
+            "severe": false
+          },
+          {
+            "claim": "the command is to avoid seeing the person alive in the territory",
+            "evidence": "The brother must be brought dead or living; the threatened exile concerns the searcher.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00002-of-00023-8e4dd6b70d51dfcf.parquet:row=6",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Jeanne and Hannibal are the two conversational speakers",
+            "evidence": "One speaker addresses Jeanne and proposes Hannibal as a name for her protege.",
+            "severe": true
+          },
+          {
+            "claim": "the man being discussed is named Jeanne",
+            "evidence": "Jeanne is addressed by name; the man's proposed name is Hannibal.",
+            "severe": true
+          },
+          {
+            "claim": "Hannibal suggests calling the man Hannibal",
+            "evidence": "Hannibal is the suggested name, not an identified speaker.",
+            "severe": false
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Jeanne and Hannibal are the two conversational speakers",
+            "evidence": "One speaker addresses Jeanne and proposes Hannibal as a name for her protege.",
+            "severe": true
+          },
+          {
+            "claim": "the man being discussed is named Jeanne",
+            "evidence": "Jeanne is addressed by name; the man's proposed name is Hannibal.",
+            "severe": true
+          },
+          {
+            "claim": "Hannibal suggests calling the man Hannibal",
+            "evidence": "Hannibal is the suggested name, not an identified speaker.",
+            "severe": false
+          },
+          {
+            "claim": "the author is clearly amused",
+            "evidence": "The excerpt records dialogue but no authorial reaction.",
+            "severe": false
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00002-of-00023-8e4dd6b70d51dfcf.parquet:row=699",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Farmer Green is the tailor",
+            "evidence": "The excerpt names Mr. Frog as the tailor.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Farmer Green is the tailor",
+            "evidence": "The excerpt names Mr. Frog as the tailor.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00002-of-00023-8e4dd6b70d51dfcf.parquet:row=642",
+      "A": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_01_GIGACHAT31_ENGINE_RUNG0.md",
+      "A": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E40_HOW_MUCH_FFN_CAN_FIFTY_TOK_S_BUY.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the probe is already a working model",
+            "evidence": "The passage says the goal is a working model and still needs its two halves joined.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "99.7 tokens/s is half of the goal speed",
+            "evidence": "The passage calls this the speed half of a two-part goal, not half the speed.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E58_WHERE_DID_THE_1_75x_GO.md",
+      "A": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER2_KV_PARTITION_CROSS_INPUT_PROTOCOL_20260924.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the table compares Kcur-2 and Vcur-2 values for the Vcur-2 variable",
+            "evidence": "The excerpt lists separate reference and C payload rows and hashes.",
+            "severe": false
+          },
+          {
+            "claim": "the kqv_out-2 hash is a Vcur-2 reference value",
+            "evidence": "It is the reference target hash for the separate kqv_out-2 payload.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the table compares Kcur-2 and Vcur-2 values for the Vcur-2 variable",
+            "evidence": "The excerpt lists separate reference and C payload rows and hashes.",
+            "severe": false
+          },
+          {
+            "claim": "the kqv_out-2 hash is a Vcur-2 reference value",
+            "evidence": "It is the reference target hash for the separate kqv_out-2 payload.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_NUMERICAL_PRIMITIVES_PRODUCTION_INTEGRATION_PROTOCOL_20260925.md",
+      "A": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ROUTED_MOE_COMPONENT_CROSS_INPUT_PROTOCOL_20260924.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the byte-identical top-four IDs prove a data structure is immutable",
+            "evidence": "Only the ID payload and fixed slot order are stated, not an immutable data structure.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the passage describes a specific data structure",
+            "evidence": "It discusses an evidence binding and top-four IDs, without naming a data structure.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E26_WHAT_AN_ACTIVATED_WEIGHT_COSTS.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "the result shows gathered weights cost more than streamed weights",
+            "evidence": "The registered below-40 trigger does not fire: K16 is 41.41 and K4 is 41.67.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "the result shows streamed weights cost more than gathered weights",
+            "evidence": "The excerpt only says the registered below-40 trigger does not fire; it does not establish the reverse.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER_PROJRATE_AUDIT.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "a defect is shared between the two binaries",
+            "evidence": "The text explicitly says independently built binaries cannot share a harness defect.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "B": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    }
+  ]
+}
