@@ -1,0 +1,58 @@
+{
+  "experiment": "METH-134-CPU-master-sparse-E12800-apparatus",
+  "source_bank_sha256": "1d9071456a644344d46203ad7ded8fe2c4d01ca0580b5e41718366783408aff1",
+  "source_vectors_sha256": "f7af00b4b4ce417664848950770f63b78520ca3c983748a692640704c203b699",
+  "layer": 0,
+  "states": 256,
+  "seed": 134134,
+  "dimensions": {
+    "source_children": 1280,
+    "grandchildren": 12800,
+    "width": 896,
+    "factor_rank": 8,
+    "active_experts": 4
+  },
+  "source_b_bytes_fp32": 36700160,
+  "expanded_b_cpu_bytes_fp32": 367001600,
+  "full_24_layer_b_cpu_bytes_projected": 8808038400,
+  "full_24_layer_b_bf16_bytes_projected": 4404019200,
+  "small_dense_sparse_oracle": {
+    "rows": 64,
+    "selected_occurrences": 44,
+    "unique_selected_rows": 33,
+    "duplicate_occurrences": 11,
+    "output_max_abs_error": 0.0,
+    "selected_gradient_max_abs_error": 0.0,
+    "one_step_bank_max_abs_error": 1.1920928955078125e-07,
+    "unselected_change_max_abs": 0.0,
+    "raw_sparse_gradient_bytes": 22528
+  },
+  "route": {
+    "selected_occurrences": 1024,
+    "unique_source_children": 275,
+    "unique_grandchildren": 467,
+    "grandchild_parent_identity": true,
+    "untrained_third_tier": true
+  },
+  "clone_output_max_abs_error": 0.0,
+  "one_step": {
+    "loss": 1.711550567051745e-06,
+    "gradient_l2": 3.4731122013909044e-06,
+    "unique_gradient_rows": 467,
+    "raw_gradient_transfer_bytes": 29360128,
+    "summed_unique_gradient_bytes": 13389824,
+    "forward_selected_B_transfer_bytes": 29360128,
+    "changed_selected_rows": 464,
+    "unchanged_unselected_rows": 12333,
+    "full_dense_gpu_bank_allocated": false
+  },
+  "runtime": {
+    "seconds": 2.6569999999992433,
+    "rss_bytes": 2189058048,
+    "gpu_peak_allocated_bytes": 141227520,
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "torch": "2.6.0+cu124",
+    "numpy": "2.4.6"
+  },
+  "decision": "apparatus_pass_training_and_quality_not_tested"
+}

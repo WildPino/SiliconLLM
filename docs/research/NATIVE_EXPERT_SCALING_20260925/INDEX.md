@@ -1,27 +1,22 @@
 # Native expert scaling: research control index
 
 **Date:** 28 September 2026. **Branch:** `research/native-expert-scaling`.
-**Status:** METH-129 adds an R8 proposal plus exact selected-row tied head
-to the METH-127 full C FP32-core/E1280 reference. It matches 64 prompted
-choices and 64 greedy continuation tokens, and runs at 20.791 tok/s on
-six threads versus 17.141 with the full FP32 head in a matched rerun.
-METH-130 halves each child-B row with a Q7 paired-LUT representation;
-the full E1280 bank shrinks 496.8→276.6 MB, and fixed-state residual
-error and paired CPU factor cost pass. METH-131 tested its full BF16
-model on new sources: automatic document/generation/task gates pass,
-but the blinded grounding gate fails (34 versus 33 unsupported claims,
-14 versus 12 severe). Q7 is not quality-promoted.
-This reference is neither the quality-gated BF16 core nor the target
-compact engine. The jointly trained Instruct product-key E128 adapter passes
-its independent donor-relative quality audit (METH-57), and its native
-selected-expert component matches the PyTorch oracle (METH-58). A
-stored 539.955 MB BF16-attention/R8-head+FFN core passes new document,
-generation and full PIQA endpoints but **fails** blind semantic
-conservation (METH-62: 41 versus 37 unsupported claims; one versus zero
-missing details). It does not advance to full native integration.
-The >=50 accepted-token/s target, CPU LUT validity and quality at large counts of
-distinct learned experts remain open. The older base-donor R8 attempt
-failed generation (METH-27: 16/24 loops).
+**Status:** The centered BF16 E1280 children retain donor-relative
+quality on new sources (METH-121/123). Their exact shared-A factor
+bank passes actual-state native CPU access (METH-125/126); a full C
+FP32-core reference runs at 16.818 tok/s (METH-127), with an exact
+selected-row head reaching 20.791 tok/s on its matched reference
+(METH-129). Q7 and Q15 paired-LUT child-B banks pass storage/CPU
+component checks but both fail separate blind full-model grounding
+gates (METH-131/133). Neither is quality-promoted. METH-134 now
+passes a one-layer CPU-master sparse-gradient apparatus gate for an
+exact-clone E1280→E12800 third tier. Its keys are untrained; useful
+distinct E12800 capacity and full-model quality remain unproven.
+The quality-valid compact donor core, native same-artifact >=50
+accepted-token/s, CPU third-tier route/LUT cost, and 10B/100B transfer
+remain open. The earlier 539.955 MB BF16-attention/R8-head+FFN core
+failed blind semantic conservation (METH-62), and the base-donor R8
+attempt failed generation (METH-27); neither can be promoted silently.
 METH-29 also rejects a post-hoc balanced coarse router index on real
 E128 inputs: 32/64 candidates recover only 62.48%/85.85% of exact
 top-4 IDs. METH-30's learned gate on those frozen groups raises
@@ -1015,6 +1010,16 @@ scheduled.
   source-disjoint data; do not tune against METH-131/133 responses.
   Prioritize a compact quality-valid core and the learned RAM-scaled
   expert ladder; CPU LUT/full-model rate claims remain unproven.
+  [METH-134](METH_134_SPARSE_E12800_TRAINING_RESULT_20260928.md)
+  checks an executable CPU-master sparse-gradient path for a third
+  tier below actual centered E1280 children. On 256 real layer-0
+  states, 12,800 cloned grandchildren exactly preserve FP32 factor
+  output; a duplicate-ID gradient oracle and one-step update pass,
+  with only 467 unique rows carrying a gradient. The 24-layer FP32
+  CPU B master is projected at 8.81 GB, not measured. Next: cost the
+  actual 10× third-tier CPU route and selected factors, then register
+  a bounded full-model sparse training/quality experiment with new
+  sources. This is trainability apparatus, not learned E12800 quality.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

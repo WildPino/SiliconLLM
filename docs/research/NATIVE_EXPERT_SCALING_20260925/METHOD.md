@@ -914,6 +914,17 @@ that better fixed-state factor error alone does not guarantee
 grounded autoregressive quality. Keep METH-126 exact BF16 as the
 quality-valid factor reference; any precision repair requires a new
 preregistered mechanism and new sources.
+[METH-134](METH_134_SPARSE_E12800_TRAINING_RESULT_20260928.md)
+adds an executable CPU-master sparse-gradient apparatus for a third
+ten-way tier. It starts each grandchild B as an exact FP32 copy of
+one quality-valid E1280 child, keeps four active routes and shared A,
+and accumulates gradients only for selected grandchild rows. One
+actual layer-0, 256-state initialization exactly reproduces the
+E1280 FP32 factor output; a duplicate-ID dense-autograd oracle checks
+the gradient and SGD update. The 24-layer FP32 B master projects to
+8.81 GB, but full training memory and useful E12800 specialization
+are unmeasured. New-source full-model quality, native third-tier cost
+and CPU LUT arithmetic remain required.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
