@@ -1,0 +1,176 @@
+{
+  "experiment": "METH-123-zero-mean-E1280-blind-external-review",
+  "manifest_sha256": "7f35f2253850f3a19e0bf517d2e088d2d08c88c0bc68cc09413781ddac6f9366",
+  "audit_sha256": "db24228ceabd2b00ecc30a24e9e83b5d20278c62edb204b23b5522473d0295c1",
+  "review_rule": "Count unsupported, severe and missing-detail findings from the excerpt alone.",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_external_audit.py",
+      "category": "code",
+      "excerpt": "  manifest = json.loads(EXTERNAL.read_text(encoding=\"utf-8\"))\n    items = manifest[\"items\"]\n    assert len(items) == 12\n    for item in items:\n        assert M17.sha(item[\"text\"].encode(\"utf-8\")) == item[\"text_sha256\"]\n        for field, digest in ((\"document_ids\", \"document_ids_sha256\"),\n                              (\"prompt_ids\", \"prompt_ids_sha256\")):\n            assert M17.sha",
+      "A": "The excerpt describes a JSON object containing a list of items, each with a `text` and `text_sha256` field. It also mentions that the `text_sha256` field is used to verify the integrity of the `text` field.<|im_end|>",
+      "B": "The excerpt describes a JSON object containing a list of items, each with a `text` and `text_sha256` field. It also mentions that the `text_sha256` field is used to verify the integrity of the `text` field.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat01_gigachat_mtp_hf_bundle.py",
+      "category": "code",
+      "excerpt": "alOpener:\n    \"\"\"Map a synthetic HTTPS URL to stdlib HTTP without weakening production URL checks.\"\"\"\n\n    def __init__(self, server: _Server) -> None:\n        self.server = server\n\n    def __call__(self, request: object, timeout: int = 60) -> object:\n        from urllib.request import Request, urlopen\n\n        assert isinstance(request, Request)\n        rewritten = Request(\n      ",
+      "A": "The excerpt describes a Python class `alOpener` that maps a synthetic HTTPS URL to a standard HTTP request without weakening production URL checks. It includes a method `__call__` that takes a request object and an optional timeout, and returns a standard HTTP request.<|im_end|>",
+      "B": "The excerpt describes a Python class `alOpener` that maps a synthetic HTTPS URL to a standard HTTP request without weakening production URL checks. It includes a method `__call__` that takes a request object and an optional timeout, and returns a standard HTTP request.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_rung2b_cross_input.h",
+      "category": "code",
+      "excerpt": "K)\n#define STRAT01_R2B_CROSS_REF_INPUT_SHA \"7bbfd9c2f0ed17c12a429b5dff83f75d47a45dd97008ad88251a7ec8d64dc588\"\n#define STRAT01_R2B_CROSS_C_INPUT_SHA \"ea5d60791c4404fbb98e7839fa73ff8112c54abba6060a7fbc3d5e83b951e3e0\"\n\nstatic int strat01_r2b_cross_descriptor_ok(const strat01_tensor *t,const char *name,uint64_t offset,uint64_t file_offset) {\n    return t&&!strcmp(t->name,name)&&t->type",
+      "A": "The excerpt describes two macros and a function in C programming language. The macros `STRAT01_R2B_CROSS_REF_INPUT_SHA` and `STRAT01_R2B_CROSS_C_INPUT_SHA` are used to define hash values for cross-reference and cross-calls, respectively. The function `strat01_r2b_cross_descriptor_ok` checks if the input tensor `t` matches the specified name and type, and returns 0 if true.<|im_end|>",
+      "B": "The excerpt describes two macros and a function in C programming language. The macros `STRAT01_R2B_CROSS_REF_INPUT_SHA` and `STRAT01_R2B_CROSS_C_INPUT_SHA` are used to define hash values for cross-reference and cross-calls, respectively. The function `strat01_r2b_cross_descriptor_ok` is used to check if a given tensor matches the specified name and type.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e5_analyse3.py",
+      "category": "code",
+      "excerpt": " / math.log(2.0) / SCORED_BYTES\n\n\ndef parity():\n    p = os.path.join(RES, \"parity.txt\")\n    if not os.path.exists(p):\n        return None\n    txt = io.open(p, encoding=\"utf-8\").read()\n    out = {}\n    for m in re.finditer(r\"== parity (\\w+) ==\\s*NATS_TOTAL ([0-9.eE+-]+)\", txt):\n        out[m.group(1)] = m.group(2)          # kept as TEXT: G2 asks for bit-identity\n    return out\n\n\nde",
+      "A": "The excerpt describes a function `parity()` that calculates the parity of a given text file. It returns a dictionary where the keys are the words in the file and the values are their bit-identities.<|im_end|>",
+      "B": "The excerpt describes a Python function named `parity` that calculates the parity of a given text file. It reads the file, extracts the bit-identity value for each line, and returns a dictionary with the bit-identity values as keys and the corresponding line numbers as values.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h4_qat.py",
+      "category": "code",
+      "excerpt": "yers):\n    st={}\n    for li in layers:\n        for nm in ORGANS:\n            m=getattr(model.model.layers[li].self_attn,nm);p=\"L%02d.%s\"%(li,nm)\n            for x in (\"A\",\"s\",\"B\",\"rms_in\",\"rms_A\"):st[p+\".\"+x]=getattr(m,x).detach().float().cpu().numpy()\n    return st\ndef checkpoint_paths(out,step):\n    stem=os.path.splitext(out)[0]+\".step%04d\"%step\n    return stem+\".npz\",stem+\".json",
+      "A": "The excerpt describes a function `yrs` that takes a model and layers as input and returns a dictionary `st` with specific attributes. It also includes a function `checkpoint_paths` that takes an output path and step number as input and returns the path to a checkpoint file and a JSON file.<|im_end|>",
+      "B": "The excerpt describes a function `yrs` that takes a model and layers as input and returns a dictionary `st` with specific attributes. It iterates through each layer, retrieves the corresponding attribute from the model's self-attention layer, and stores the result in a dictionary with a specific format. The function also includes a checkpoint path generation function `checkpoint_paths` that takes an output and step number, returns the output's name with a step number appended, and a JSON file name.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_q6_cross_input.py",
+      "category": "code",
+      "excerpt": "  \"reference_routed\": (REFERENCE_ROOT / \"prefill8/ffn_moe_swiglu-1.full.f32le\", 163840, \"5097dc8599d0635477ad83f63f7e2de21b659775abc345dc933ce1e173be29e8\", \"f32\"),\n    \"current_shared\": (C_ROOT / \"prefill8_ffn_swiglu-1.f32\", 40960, \"30ec7ceafc08c3d30b73c21919a7d31619f69b9cd8045421e00c2e38af81a6b8\", \"f32\"),\n    \"reference_shared\": (REFERENCE_ROOT / \"prefill8/ffn_swiglu-1.full.f32le\"",
+      "A": "The excerpt describes two reference and current shared files for the model `ffn_swiglu-1` with the file size of 163840 bytes and a shared size of 5097dc8599d0635477ad83f63f7e2de21b659775abc345dc933ce1e173be29e8.<|im_end|>",
+      "B": "The excerpt describes a reference and current shared memory location for a TensorFlow model named `ffn_swiglu-1`, with the following details:\n\n- **Reference Memory Location**: The reference memory location is stored at `(REFERENCE_ROOT / \"prefill8/ffn_moe_swiglu-1.full.f32le\", 163840, \"5097dc8599d0635477ad83f63f7e2de21b659775abc345dc933ce1e173be2"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e62_third_scale.py",
+      "category": "code",
+      "excerpt": " from 1.5 B)\n    0.0025 .. 0.0060    SUPERLINEAR-BUT-BOUNDED\n    >= 0.0060           COST-EXPLODES            (section 60.4's 10 B headline void at target)\n    \"\"\"\n    if dbpb is None:\n        return \"DEAD -- no 3B int8 cell\"\n    if dbpb <= 0.0025:\n        return \"AT-MOST-LINEAR\"\n    if dbpb < 0.0060:\n        return \"SUPERLINEAR-BUT-BOUNDED\"\n    return \"COST-EXPLODES\"\n\n\ndef g_e62d(",
+      "A": "The excerpt describes a function `g_e62d` that takes a parameter `dbpb` and returns a string based on the following conditions:\n\n1. If `dbpb` is less than 0.0025, it returns \"AT-MOST-LINEAR\".\n2. If `dbpb` is between 0.0025 and 0.0060, it returns \"SUPERLINEAR-BUT-BOUNDED\".\n3. If `dbpb` is greater than or equal to 0.0060, it returns \"COST-EXPLODES\".\n\nSpecific",
+      "B": "The excerpt describes a function `g_e62d` that takes a parameter `dbpb` and returns a string based on the following conditions:\n\n1. If `dbpb` is less than 0.0025, it returns \"AT-MOST-LINEAR\".\n2. If `dbpb` is between 0.0025 and 0.0060, it returns \"SUPERLINEAR-BUT-BOUNDED\".\n3. If `dbpb` is greater than or equal to 0.0060, it returns \"COST-EXPLODES\".\n\nSpecific"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_engine_layer2_depth_extension.py",
+      "category": "code",
+      "excerpt": "      r_start_hash = next(item[\"sha256\"] for item in r_meta[\"manifests\"][arm][\"payloads\"] if item.get(\"logical\") == \"l_out-1\" and item.get(\"kind\") == \"full\")\n        if c_start_hash != C_START_SHA or r_start_hash != REFERENCE_START_SHA: failures.append(f\"start_hash/{arm}\")\n    negative = layer2_negative_controls(reference); negative_pass = all(not item[\"pass\"] for item in negative.",
+      "A": "The excerpt describes a process for identifying and reporting failures in a system. It starts by identifying a specific hash value (`r_start_hash`) that is not equal to the `REFERENCE_START_SHA` or the `C_START_SHA` hash values. If this hash is found, it appends the failure message to a list. Additionally, it identifies negative controls for the reference layer and checks if all controls are passable.<|im_end|>",
+      "B": "The excerpt describes a process for identifying and reporting failures in a system, specifically focusing on the `r_start_hash` and `c_start_hash` values. It also mentions negative controls for layer 2, and the use of `all` to check if all items in the negative control are not passed.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=598",
+      "category": "prose",
+      "excerpt": "l the\nyoung men of our university, who allows you to dwell in his house, who\nentrusts you with all the thoughts of his heart, by what offense has\nhe deserved, that you should thus mean-spiritedly deny him?\"\n\n\"If I were to answer now,\" returned Antonio angrily, \"that you do not\nknow him, that I have reasons, and the fullest, to think otherwise of\nhim, again you would not understand ",
+      "A": "The excerpt describes a scene where a young man from a university is denied access to his home by a person who has been unjustly accused of a crime. Antonio, the young man, is angry and believes he knows the person, but the person is not telling the truth. He questions Antonio's understanding of the situation and the person's reasons for denying him access.<|im_end|>",
+      "B": "The excerpt describes a scene where a young man from a university is denied access to his home by a person who has wronged him. Antonio, who is the young man's friend, accuses him of being mean and dismissive of him, and asks him to understand that he does not know the person he is talking about.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=6",
+      "category": "prose",
+      "excerpt": "ey thought to go.\n\n    There twice or thrice they shot about\n      For to assay their hand;\n    There was no shot these yeomen shot,\n      That any prick might stand.\n\n    Then spake William of Cloudesly;\n      By Him that for me died,\n    I hold him never no good archer,\n      That shooteth at butts so wide.\n\n    At what a butt now would you shoot,\n      I pray thee tell to me?\n  ",
+      "A": "The excerpt describes a scene where a group of men are engaged in a shooting competition. The men are described as being in a state of disarray, with one man holding a gun and the others not shooting. The excerpt also mentions a character named William of Cloudesly, who is described as a \"good archer\" who died. The men are asked to describe a butt that they would shoot, and the character is asked to tell them what a butt would be like.<|im_end|>",
+      "B": "The excerpt describes a scene where a group of men, likely knights or soldiers, are engaged in a shooting competition. They are described as having \"shot about\" or \"shot twice or thrice\" and are \"shot for to assay their hand.\" The men are described as having \"no shot these yeomen shot\" and are \"that any prick might stand.\" William of Cloudesly, who is likely a knight or soldier, is quoted as saying, \"I hold him never no good archer, that shooteth at butts so wide.\" The men are asked what butt they would shoot, and William of Cloudesly is"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=361",
+      "category": "prose",
+      "excerpt": "\n“But why, Count, why?” she almost cried, unconsciously moving closer to\nhim. “Why? Tell me. You must tell me!”\n\nHe was silent.\n\n“I don’t understand your why, Count,” she continued, “but it’s hard for\nme... I confess it. For some reason you wish to deprive me of our former\nfriendship. And that hurts me.” There were tears in her eyes and in her\nvoice. “I have had so little happiness",
+      "A": "The excerpt describes a woman who is crying and confessing to her Count that she is hurt by his desire to deprive her of their former friendship.<|im_end|>",
+      "B": "The excerpt describes a woman who is crying and confessing to her Count that he is hurting her by wanting to deprive her of their former friendship.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=610",
+      "category": "prose",
+      "excerpt": " some\ndreadful thing were suddenly to happen; if a house were just about to\nfall on one;--don't you know how one would long to sit down and shut\none's eyes and wait, and wait? Well, when this terrible feeling came\nover him, the priest quickly pressed the cross to his lips, without a\nword--a little silver cross it was--and he kept on pressing it to the\nman's lips every second. And w",
+      "A": "The excerpt describes a priest's act of pressing a cross to the lips of a man, which he keeps on doing every second, indicating a sense of urgency or desperation.<|im_end|>",
+      "B": "The excerpt describes a priest's sudden, intense fear of a house about to fall, and his quick and silent response to the fear.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=273",
+      "category": "prose",
+      "excerpt": "stinction lost. Compare also the\nuse of _fa_, as a common auxiliary; nor are these exceptions, but, on\nthe contrary, characteristic examples. Also to enunciate the language\nrightly one must hold the back and neck erect and the muscles firm.\n\nIn some languages the speaker thinks of himself and his completed action\nas inseparable, as a single idea, as the Latin _edi_ for I have eaten",
+      "A": "The excerpt describes the importance of maintaining proper posture and muscle firmness in language, particularly in the context of the speaker's thoughts and actions. It also mentions the use of the Latin word \"edi\" for \"I have eaten,\" which is a common auxiliary verb in some languages.<|im_end|>",
+      "B": "The excerpt describes the importance of maintaining proper posture and muscle firmness in language, particularly in the context of the speaker's thoughts and actions. It also mentions the use of the Latin word \"edi\" for \"I have eaten,\" which is a common auxiliary verb in some languages.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=346",
+      "category": "prose",
+      "excerpt": "ow came up and\nhopped around, as if waiting for the man to move, and so to see if he\nwere really dead. After awhile, the crow, to make quite sure, perched\non a branch above the man's head and dropped a piece of twig on to his\nface! It was at this stage that the man decided to be alive, and, taking\nup his gun, shot the crow.\n\nThere may be some exaggeration in the bushmen's tales of ",
+      "A": "The excerpt describes a scene where a man is waiting for a crow to move, and after some time, the crow perches on a branch and drops a twig on the man's face. The man decides to be alive and shoots the crow.<|im_end|>",
+      "B": "The excerpt describes a scene where a man is waiting for a crow to move, and after some time, the crow perches on a branch and drops a twig on the man's face. The man decides to be alive and shoots the crow.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=555",
+      "category": "prose",
+      "excerpt": " study in a weary school.\n     O for the folly of the child!\n      The ready courage of the fool!\n     Lord, crush our knowledge utterly\n      And make us humble, simple men;\n     And cleansed of wisdom, let us see\n      Our Lady Folly's face again.\n\n\n\n\nMadness\n\n     (For Sara Teasdale)\n\n\n\n     The lonely farm, the crowded street,\n      The palace and the slum,\n     Give welcome to",
+      "A": "The excerpt describes a school setting where the author is in a state of weariness, expressing frustration and disappointment. They are describing the child's ready courage and the fool's wisdom, suggesting that the author is criticizing the child's lack of courage and the fool's wisdom. The excerpt also mentions the author's desire to crush knowledge and make the reader humble, and to cleanse the reader of wisdom. The author also mentions the lonely farm, crowded street, palace, and slum, suggesting that the author is referring to a specific location or setting.<|im_end|>",
+      "B": "The excerpt describes a school setting where a child is described as \"wearerly\" and a fool, and the author expresses frustration and disappointment with the education system. The excerpt also mentions the concept of \"madness\" and the author's desire to cleanse the knowledge of the school.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=430",
+      "category": "prose",
+      "excerpt": "g at the facts in the foreign and\ninterstate traffic in girls than have the various states. Commerce\nconsists in intercourse and traffic, including in these terms the\ntransportation and transit of persons and property, as well as the\npurchase, sale and barter of persons and property and agreements\ntherefor. A federal law might be enacted as follows:\n\n\"Be it Enacted by the Senate an",
+      "A": "The excerpt describes the relationship between commerce and transportation in girls, highlighting the importance of commerce in the transportation and transit of persons and property, as well as the purchase, sale, and barter of persons and property. Specifically, it mentions a federal law that could be enacted to regulate commerce and transportation in girls.<|im_end|>",
+      "B": "The excerpt describes the relationship between commerce and transportation in girls, highlighting the importance of commerce in the transportation and transit of persons and property, as well as the purchase, sale, and barter of persons and property. It also mentions a federal law that could be enacted to regulate commerce and transportation.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_PROTOCOL_20260921.md",
+      "category": "technical_general",
+      "excerpt": "ore implementation or adjudication\n\n**Cell:** `STRAT-01-ENGINE-UPSTREAM-RMSNORM-PROPAGATION-DIAGNOSTIC`\n\n**Purpose:** determine whether pinned double accumulation at the two layer-0 attention RMSNorm sites removes enough inherited `ffn_inp-0` error to close the unchanged FFN up/gate projection gates.\n\n## Nearest evidence and changed coordinate\n\nThe [Rung-2B cross-input result](STRA",
+      "A": "The excerpt describes a cell in the STRAT-01-ENGINE-UPSTREAM-RMSNORM-PROPAGATION-DIAGNOSTIC module, which is used for determining whether pinned double accumulation at the two layer-0 attention RMSNorm sites removes enough inherited `ffn_inp-0` error to close the unchanged FFN up/gate projection gates. It mentions that the nearest evidence is the Rung-2B cross-input result, and the changed coordinate is the pinning of double accumulation at the two layer-0 attention RMSNorm sites.<|im_end|>",
+      "B": "The excerpt describes a cell in the STRAT-01-ENGINE-UPSTREAM-RMSNORM-PROPAGATION-DIAGNOSTIC module, which is used for determining whether pinned double accumulation at the two layer-0 attention RMSNorm sites removes enough inherited `ffn_inp-0` error to close the unchanged FFN up/gate projection gates. It mentions that the nearest evidence is the Rung-2B cross-input result, and the changed coordinate is the pinning of double accumulation at the two layer-0 attention RMSNorm sites.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E64_CARVE_ON_INT8.md",
+      "category": "technical_general",
+      "excerpt": "build-level floating-point noise**\nfrom ~1e-07 to ~1e-03\"*, with the perturbation attributed to *\"a different reduction order, a\ndifferent instruction selection between the E37-era binary and `e63`\"* — i.e. to incidental\nvariation between builds. **That attribution is wrong, and it was inferred from the shape of a\nresidual when it could have been read off three files and then measu",
+      "A": "The excerpt describes a floating-point noise build-level that ranges from \\(10^{-7}\\) to \\(10^{-3}\\), with the perturbation attributed to a different reduction order, a different instruction selection between the E37-era binary and `e63`. The attribution is incorrect and was inferred from the shape of a residual when it could have been read off three files.<|im_end|>",
+      "B": "The excerpt describes a floating-point noise build-level that ranges from \\(1 \\times 10^{-7}\\) to \\(1 \\times 10^{-3}\\), with the noise attributed to a different reduction order, a different instruction selection between the E37-era binary and `e63`, and the attribution is incorrect.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "excerpt": "refill manifest has SHA-256\n`d7506adfd7cb20a54da2d406446c5c261452ecf0eecaa3663ef6a4a7acca1451`.\n\nOnly `prefill8` is read. Rung 2C proved exact prefill-versus-7+1 continuity and\nthe same first-failure surface in both arms, so reading `cached7p1` would\nduplicate the estimand rather than add an independent schedule test.\n\n| producer | object | logical shape | bytes | SHA-256 |\n|---|--",
+      "A": "The excerpt describes a manifest with a specific SHA-256 hash value. It mentions that only the `prefill8` field is read, and that the Rung 2C proof of exact prefill-versus-7+1 continuity and the same first-failure surface in both arms indicate that reading `cached7p1` would duplicate the estimand rather than add an independent schedule test.<|im_end|>",
+      "B": "The excerpt describes a specific data structure and its properties. It mentions a manifest with a SHA-256 hash of `d7506adfd7cb20a54da2d406446c5c261452ecf0eecaa3663ef6a4a7acca1451`. It also mentions that only the `prefill8` field is read, and that the Rung 2C proof of exact prefill-versus-7+1 continuity and the same first-failure surface in both arms indicate that reading `"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER2_REPLICATION.md",
+      "category": "technical_general",
+      "excerpt": "s a 16-entry table per pair index `t`, with entries `c ≥ 9` zero-filled. The\nkernel does `_mm256_shuffle_epi8(tbl, idx)` with `idx` = the loaded code bytes (`engine.c:115, 125,\n134`). **CONFIRM: 9 states carry 4 bits of information and occupy 8 bits solely because `pshufb`\naddresses byte lanes.** The 16-entry LUT with 7 dead slots is the fingerprint of that choice.\n\n### Q4.2 The co",
+      "A": "The excerpt describes a 16-entry table with entries `c ≥ 9` zero-filled, where the kernel performs a `_mm256_shuffle_epi8` operation with `idx` set to the loaded code bytes (`engine.c:115, 125, 134`). It also mentions that the 16-entry LUT with 7 dead slots is the fingerprint of this choice.<|im_end|>",
+      "B": "The excerpt describes a 16-entry table with entries `c ≥ 9` zero-filled, where the kernel performs a `_mm256_shuffle_epi8` operation with `idx` set to the loaded code bytes (`engine.c:115, 125, 134`). It also mentions that the 16-entry LUT with 7 dead slots is the fingerprint of this choice.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/STRAT_01_SUSONO_METADATA_SCREEN_20260918.md",
+      "category": "technical_general",
+      "excerpt": "etensors metadata reports:\n\n| Stored dtype | Elements |\n|---|---:|\n| BF16 | 10,610,034,912 |\n| I64 | 303,460 |\n| **Distinct stored parameters** | **10,610,338,372** |\n\nThe index reports `total_size = 21,222,497,504` bytes, consistent with\n`10,610,034,912 × 2 + 303,460 × 8`. Thus the card's “~10B” is a rounded\ndescription; the immutable metadata contains 10.610B stored elements.\n\n##",
+      "A": "The excerpt describes a metadata report for a tensor index card, which includes:\n\n1. **Metadata Type**: The metadata is in the `BF16` format, with 10,610,034,912 elements.\n2. **Distinct Parameters**: The report shows 10,610,338,372 distinct stored parameters.\n3. **Card Size**: The index report indicates a total size of 21,222,497,504 bytes.\n4. **Card Size Calculation**: The size is calculated as `10,61",
+      "B": "The excerpt describes a metadata report for a tensor index card, which includes:\n\n1. **Metadata Type**: The metadata is stored in a format that supports both 8-bit and 16-bit floating-point types.\n2. **Element Count**: The report shows that the index card contains 10,610,034,912 elements.\n3. **Distinct Stored Parameters**: The report indicates that the index card has 10,610,338,372 distinct stored parameters.\n4. **Card Size**: The index card's total size is 21,222"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E38_IS_THERE_ANY_SELECTOR_AT_ALL.md",
+      "category": "technical_general",
+      "excerpt": "    <- the peak\n                   k=16   0.784\n                   k=3    0.458\n                   k=1    0.026     (nothing left to choose between)\n```\n\nBoth ends are structural. At `k = E` every selector keeps everything, so there is nothing to\nchoose. At `k = 1` one group of 35 neurons out of 8,960 carries no signal wherever you put it,\nso there is nothing worth choosing. **In b",
+      "A": "The excerpt describes a neural network with a peak at k=16, where every selector keeps everything, resulting in no signal. At k=1, one group of 35 neurons out of 8,960 carries no signal, making it worth choosing.<|im_end|>",
+      "B": "The excerpt describes a neural network with a peak at k=16, where every selector keeps everything, resulting in no signal. At k=1, one group of 35 neurons out of 8,960 carries no signal, making it worth choosing.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E39_THE_SAME_TEN_BILLION_PUT_SOMEWHERE_ELSE.md",
+      "category": "technical_general",
+      "excerpt": "NK-BUYS-SPEED` | `TEN-B-NEAR-HUNDRED` | **straddles the edge at 80** |\n| slope, ms per carve group | **0.9134** | **0.8184** | **−10.4%** |\n| base term, ms | **10.059** | **9.996** | **−0.62%** |\n| worst per-arm spread | **19.3%** | 8.6% | |\n| `k*` for 100 tok/s, groups | −0.064 | +0.005 | **13 neurons of 48,128 apart** |\n| `A10B` control vs E36's 49.96 | **−7.2%** | −2.1% | |\n\n**C",
+      "A": "The excerpt describes a table of data for a trading strategy, including:\n\n- **NK-BUYS-SPEED**: The speed at which the strategy can buy tokens.\n- **TEN-B-NEAR-HUNDRED**: The number of tokens that can be bought per minute.\n- **straddles the edge at 80**: The point where the strategy's performance is at its highest.\n- **slope, ms per carve group**: The speed at which tokens are carved.\n- **base term, ms**: The time period for which the data is provided.\n- **worst per-arm spread**: The spread between the best and",
+      "B": "The excerpt describes a table of data for a trading strategy, including:\n\n- **NK-BUYS-SPEED**: The speed at which the strategy can buy tokens.\n- **TEN-B-NEAR-HUNDRED**: The number of tokens that can be bought per minute.\n- **straddles the edge at 80**: The point at which the strategy's performance is at its highest.\n- **slope, ms per carve group**: The speed at which tokens are carved.\n- **base term, ms**: The time period for which the data is provided.\n- **worst per-arm spread**: The spread between the best"
+    },
+    {
+      "source_id": "docs/handoffs/CONTROLLORE_D0_PART3.md",
+      "category": "technical_general",
+      "excerpt": "x dev 3.73e-8; report says 3.8e-8).\n- The eval slice `ids_sha256` on disk matches the pinned value; 24x512, 51870 bytes, 12264 tokens.\n- 12.2's ARI table reproduces exactly (L1 .493 / L7 .529 / L14 .424 / L21 .514 / L27 .449, min .414\n  max .472, 28 pairs).\n- 12.3's whole table reproduces exactly - margins (= `coactivation_best - random_max`), null sds,\n  treatment sds and every ra",
+      "A": "The excerpt describes a report from an evaluation of a machine learning model, specifically focusing on the `ids_sha256` slice on disk. It mentions that the `ids_sha256` slice matches the pinned value, with a size of 24x512 bytes, 51870 tokens, and reproduces the ARI table exactly.<|im_end|>",
+      "B": "The excerpt describes a report from an evaluation of a machine learning model, specifically focusing on the `ids_sha256` slice on disk. It mentions that the `ids_sha256` slice matches the pinned value, with a size of 24x512 bytes, 51870 tokens, and reproduces the ARI table exactly.<|im_end|>"
+    }
+  ]
+}
