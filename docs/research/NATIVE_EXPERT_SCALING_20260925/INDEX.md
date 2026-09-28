@@ -1306,10 +1306,16 @@ scheduled.
   froze 512 chat, 512 raw and 24 document inputs from previously unused
   PG19 shard 11 in manifest SHA
   `8b2e3a545f33dbd31283fd173b9044e2c87bd55463e168d6b2f8c513cde4e468`.
-  Its local BF16 teacher is running; then test four source-ordered cells,
-  raw+chat and train+new-source pools against the frozen route gates.
-  Only a prospective route pass and native C parity/cost can license
-  equal-budget E1280/E12800 training and untouched shard-9 quality.
+  Its local BF16 teacher completed all 512 responses. The
+  [METH-169 result](METH_169_FRESH_SOURCE_BOUNDARY_ROUTE_RESULT_20260928.md)
+  passes all four new-source cells and the raw+chat pool, but **fails**
+  the train+new-source hot-parent gate: layer 3/child 215/local 3 has
+  82/302 selections (27.15% >25%). The new and training subsets are
+  each below the >=250 hot-parent definition, so their separate passes
+  cannot license the long matched training. METH-170 native timing is
+  conditional on a route pass and does not run. [METH-171](METH_171_COMPOSED_HOT_PARENT_TRACE_PROTOCOL_20260928.md)
+  freezes exact source-child attribution before considering a new route
+  hypothesis; PG19 shard 9 remains untouched for future quality.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

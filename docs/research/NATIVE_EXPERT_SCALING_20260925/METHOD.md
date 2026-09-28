@@ -1164,7 +1164,12 @@ slot. The 3,840-pair in-sample replay passes the frozen support and
 load gates, with minimum active median 56 and worst hot-parent share
 23.113%. Because the METH-165 failure informed this rule, it is only a
 candidate. [METH-169](METH_169_FRESH_SOURCE_BOUNDARY_ROUTE_PROTOCOL_20260928.md)
-has frozen a new shard-11 source/length test before its teacher run.
+has [failed](METH_169_FRESH_SOURCE_BOUNDARY_ROUTE_RESULT_20260928.md)
+its prospective train+new-source hot-parent gate despite four passing
+new-source cells: layer 3/child 215/local 3 gets 82/302 selections,
+27.15% against the 25% cap. This rejects the fixed boundary candidate
+for long matched training. [METH-171](METH_171_COMPOSED_HOT_PARENT_TRACE_PROTOCOL_20260928.md)
+will attribute that composed hot parent using an exact new-source trace.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
