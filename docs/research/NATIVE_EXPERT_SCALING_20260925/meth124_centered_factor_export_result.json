@@ -1,0 +1,1669 @@
+{
+  "experiment": "METH-124-centered-E1280-native-factor-export",
+  "source_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "parent_checkpoint_sha256": "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072",
+  "child_checkpoint_sha256": "15a14b8476936e83cf91a479b05f8d8e83f4ffd094186f3d4dfededdb138d520",
+  "manifest_sha256": "7f35f2253850f3a19e0bf517d2e088d2d08c88c0bc68cc09413781ddac6f9366",
+  "prompt_source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_external_audit.py",
+  "prompt_ids_sha256": "a68a6b08ada36e698b006cfaaa077babad087304211f9ac6989c9982ae3873ab",
+  "bank": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth124_centered_factor_bank.bin",
+    "sha256": "8e4ef1f8abea39d9562e8b617f460e89591fa2b2d7fa7478fac0901804064580",
+    "bytes": 893141032
+  },
+  "fixtures": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\donor_adaptation\\s1\\results\\native_expert_scaling\\meth124_centered_factor_fixtures.bin",
+    "sha256": "d4a25de436db554744288011379daf3b0672e5ca25e8d05acb80ad533ef54677",
+    "bytes": 521128
+  },
+  "dimensions": {
+    "layers": 24,
+    "width": 896,
+    "parent_rank": 64,
+    "axis_a": 8,
+    "axis_b": 16,
+    "child_rank": 32,
+    "children_per_parent": 10,
+    "factor_rank": 8
+  },
+  "fixture_rows": [
+    {
+      "layer": 0,
+      "kind": "real_first",
+      "activation_sha256": "b6f9e961e6866596b117c89e2a51cf54f075c628eead6ce2363dd95dc23aa67a",
+      "parents": [
+        75,
+        64,
+        77,
+        71
+      ],
+      "children": [
+        755,
+        649,
+        779,
+        713
+      ]
+    },
+    {
+      "layer": 0,
+      "kind": "real_last",
+      "activation_sha256": "93901184584ebecde7aa170f72d28d8fdb6d410cdf83df2cdab67d6c2ad4c482",
+      "parents": [
+        15,
+        5,
+        7,
+        6
+      ],
+      "children": [
+        153,
+        50,
+        72,
+        65
+      ]
+    },
+    {
+      "layer": 0,
+      "kind": "synthetic_unit",
+      "activation_sha256": "8615fbbfe6b2f2b6f75b2fffdb8f0c509cfd3a772da0541064571a45dc21cce7",
+      "parents": [
+        68,
+        77,
+        64,
+        69
+      ],
+      "children": [
+        680,
+        771,
+        645,
+        691
+      ]
+    },
+    {
+      "layer": 0,
+      "kind": "synthetic_small",
+      "activation_sha256": "50819e953fee94eb0580c1b3cfafd97d708fa1ce1e09af7454673cdce0c18764",
+      "parents": [
+        86,
+        54,
+        22,
+        81
+      ],
+      "children": [
+        867,
+        541,
+        224,
+        816
+      ]
+    },
+    {
+      "layer": 1,
+      "kind": "real_first",
+      "activation_sha256": "dbaa83149921f9c0525f34fa066881456b4be77c156ba964833851d10ad9b96d",
+      "parents": [
+        52,
+        68,
+        50,
+        66
+      ],
+      "children": [
+        527,
+        689,
+        504,
+        663
+      ]
+    },
+    {
+      "layer": 1,
+      "kind": "real_last",
+      "activation_sha256": "47996d767b34b7b757f6450999a88a3d9ffa36e30353dabd4007a53cf1704167",
+      "parents": [
+        17,
+        29,
+        33,
+        65
+      ],
+      "children": [
+        175,
+        297,
+        333,
+        653
+      ]
+    },
+    {
+      "layer": 1,
+      "kind": "synthetic_unit",
+      "activation_sha256": "4ea8cf6d594ec7ed63d65f73c339a06af735d391131bf7b4d43510c1f7d5d978",
+      "parents": [
+        17,
+        21,
+        1,
+        33
+      ],
+      "children": [
+        170,
+        211,
+        15,
+        330
+      ]
+    },
+    {
+      "layer": 1,
+      "kind": "synthetic_small",
+      "activation_sha256": "4ea07e21ba3089f8121ad8d3bee1d421396ecb5be69c7e6aeb429a0e7f6a621a",
+      "parents": [
+        35,
+        47,
+        41,
+        19
+      ],
+      "children": [
+        356,
+        471,
+        415,
+        191
+      ]
+    },
+    {
+      "layer": 2,
+      "kind": "real_first",
+      "activation_sha256": "922f89b3a07672df206dccf8099ad48b67a69ea7300a6bdee5ed734f7527694e",
+      "parents": [
+        35,
+        83,
+        3,
+        99
+      ],
+      "children": [
+        352,
+        830,
+        36,
+        991
+      ]
+    },
+    {
+      "layer": 2,
+      "kind": "real_last",
+      "activation_sha256": "2a67ffe54a7d485c93174c66a48b689b10d59562cf28b53b13d3981a40f0496f",
+      "parents": [
+        106,
+        42,
+        122,
+        90
+      ],
+      "children": [
+        1061,
+        424,
+        1225,
+        901
+      ]
+    },
+    {
+      "layer": 2,
+      "kind": "synthetic_unit",
+      "activation_sha256": "b2ae0d89c1efdf6df2c75e62fcecfbcc57f2d0dab484beb3bbdc8a5e752e378a",
+      "parents": [
+        40,
+        8,
+        88,
+        41
+      ],
+      "children": [
+        400,
+        86,
+        887,
+        415
+      ]
+    },
+    {
+      "layer": 2,
+      "kind": "synthetic_small",
+      "activation_sha256": "f5436d8a87a49678ea8a470c89318fa9943418376504a958014e123f56968123",
+      "parents": [
+        8,
+        12,
+        15,
+        4
+      ],
+      "children": [
+        86,
+        121,
+        159,
+        45
+      ]
+    },
+    {
+      "layer": 3,
+      "kind": "real_first",
+      "activation_sha256": "44a77c34107bd021f577837e11746d70b9f4978b3a8cec4b17d87d6414080d9b",
+      "parents": [
+        62,
+        61,
+        53,
+        55
+      ],
+      "children": [
+        623,
+        613,
+        535,
+        554
+      ]
+    },
+    {
+      "layer": 3,
+      "kind": "real_last",
+      "activation_sha256": "64370a7732c1bbd16b295e9b9368e50ba8d3fccf46baf36d16c3eb46c2c37c3b",
+      "parents": [
+        10,
+        6,
+        1,
+        90
+      ],
+      "children": [
+        106,
+        68,
+        18,
+        900
+      ]
+    },
+    {
+      "layer": 3,
+      "kind": "synthetic_unit",
+      "activation_sha256": "78c0f764275ec19099e9177e24126f8cdbda99c7d23708bf4455bcd2a23d6c6d",
+      "parents": [
+        110,
+        100,
+        97,
+        105
+      ],
+      "children": [
+        1103,
+        1006,
+        970,
+        1056
+      ]
+    },
+    {
+      "layer": 3,
+      "kind": "synthetic_small",
+      "activation_sha256": "af50c474a57d2280e9475e95e590f37095c61f0c61d7014b7bdafdb0e0acab95",
+      "parents": [
+        125,
+        77,
+        123,
+        93
+      ],
+      "children": [
+        1257,
+        778,
+        1232,
+        939
+      ]
+    },
+    {
+      "layer": 4,
+      "kind": "real_first",
+      "activation_sha256": "43fb058c6be69b3c00c0f40972bf3ae83c7cc5a62725ac345564dfe9d0bcc221",
+      "parents": [
+        46,
+        43,
+        126,
+        45
+      ],
+      "children": [
+        465,
+        434,
+        1260,
+        452
+      ]
+    },
+    {
+      "layer": 4,
+      "kind": "real_last",
+      "activation_sha256": "11e596505856bfa3fdac3207852af02f57a6429f8c683a5313ea3aac1955d3a1",
+      "parents": [
+        18,
+        29,
+        31,
+        22
+      ],
+      "children": [
+        186,
+        299,
+        311,
+        229
+      ]
+    },
+    {
+      "layer": 4,
+      "kind": "synthetic_unit",
+      "activation_sha256": "a64512ab48fb8e62a7b1096a769539c82613ca10a1a957c213c56bcf65ca7601",
+      "parents": [
+        23,
+        87,
+        26,
+        31
+      ],
+      "children": [
+        234,
+        878,
+        264,
+        317
+      ]
+    },
+    {
+      "layer": 4,
+      "kind": "synthetic_small",
+      "activation_sha256": "d1329937d303e12f1bbdfafa0a46fc2a05dad00271ecdbb7291a03e26bb97449",
+      "parents": [
+        6,
+        12,
+        2,
+        118
+      ],
+      "children": [
+        60,
+        123,
+        27,
+        1189
+      ]
+    },
+    {
+      "layer": 5,
+      "kind": "real_first",
+      "activation_sha256": "576b6a7743d7e70b9fd307f068f35766f699d7f263c611f4c2867acf0e360cb7",
+      "parents": [
+        32,
+        80,
+        96,
+        16
+      ],
+      "children": [
+        320,
+        809,
+        963,
+        168
+      ]
+    },
+    {
+      "layer": 5,
+      "kind": "real_last",
+      "activation_sha256": "263be9ef885e215eab7fbc2fefda0525ae2ca18ec9867e3312bfb2f3b3d5f543",
+      "parents": [
+        127,
+        121,
+        117,
+        113
+      ],
+      "children": [
+        1272,
+        1213,
+        1174,
+        1130
+      ]
+    },
+    {
+      "layer": 5,
+      "kind": "synthetic_unit",
+      "activation_sha256": "b4dc4a406b274efdc18f4b7ecfebbf60240c4a91db138b6d911ab62b8446d557",
+      "parents": [
+        13,
+        77,
+        45,
+        61
+      ],
+      "children": [
+        136,
+        777,
+        455,
+        612
+      ]
+    },
+    {
+      "layer": 5,
+      "kind": "synthetic_small",
+      "activation_sha256": "7d369cbc1ac994e2e30345176a12d87bd860c78472e25e2390e616f1782ab6b5",
+      "parents": [
+        97,
+        107,
+        109,
+        105
+      ],
+      "children": [
+        971,
+        1076,
+        1098,
+        1052
+      ]
+    },
+    {
+      "layer": 6,
+      "kind": "real_first",
+      "activation_sha256": "d8ebbae749919be02ac080cfe5279c03a0ee024cb746642bf4734caf1b1d9737",
+      "parents": [
+        46,
+        78,
+        62,
+        94
+      ],
+      "children": [
+        461,
+        785,
+        620,
+        946
+      ]
+    },
+    {
+      "layer": 6,
+      "kind": "real_last",
+      "activation_sha256": "1147b6a7da3dd08da6be582d9cabad690f33c42220950259b76692150f91dd52",
+      "parents": [
+        12,
+        44,
+        76,
+        28
+      ],
+      "children": [
+        129,
+        442,
+        760,
+        288
+      ]
+    },
+    {
+      "layer": 6,
+      "kind": "synthetic_unit",
+      "activation_sha256": "a1d4472996e98bbc7ae7f095c25e7afc62c3698ee518edce42eb6b5a675e4e12",
+      "parents": [
+        81,
+        87,
+        95,
+        65
+      ],
+      "children": [
+        818,
+        878,
+        959,
+        657
+      ]
+    },
+    {
+      "layer": 6,
+      "kind": "synthetic_small",
+      "activation_sha256": "80156d0f79cc7dc586bd353fb42d4205f414f8ce158b8a38e1c3ca77e586ba83",
+      "parents": [
+        96,
+        111,
+        105,
+        106
+      ],
+      "children": [
+        967,
+        1111,
+        1056,
+        1060
+      ]
+    },
+    {
+      "layer": 7,
+      "kind": "real_first",
+      "activation_sha256": "b44e0e7616d121d978a853b66dd06c1fbd9810cd31ebc228b3a3028fd5b7f90f",
+      "parents": [
+        14,
+        9,
+        3,
+        62
+      ],
+      "children": [
+        148,
+        99,
+        38,
+        621
+      ]
+    },
+    {
+      "layer": 7,
+      "kind": "real_last",
+      "activation_sha256": "513f61efdc38d7047c9c90b28ae34132cc550db5acb3c1fd8369cd75d70a50ac",
+      "parents": [
+        93,
+        13,
+        61,
+        45
+      ],
+      "children": [
+        934,
+        137,
+        617,
+        459
+      ]
+    },
+    {
+      "layer": 7,
+      "kind": "synthetic_unit",
+      "activation_sha256": "20028e82da52c2f7352e6a20264dd776d8664d265474b45f081904a75fc23036",
+      "parents": [
+        43,
+        75,
+        45,
+        33
+      ],
+      "children": [
+        433,
+        754,
+        455,
+        330
+      ]
+    },
+    {
+      "layer": 7,
+      "kind": "synthetic_small",
+      "activation_sha256": "986f70a5ad3b78e152110afde871e513c6b16a0949cd85c30a0d63dc003c942b",
+      "parents": [
+        13,
+        45,
+        77,
+        2
+      ],
+      "children": [
+        130,
+        454,
+        776,
+        24
+      ]
+    },
+    {
+      "layer": 8,
+      "kind": "real_first",
+      "activation_sha256": "229c2b919197b39f0d80716d3b3736592923aa5354b643d9abf636a3ffe53362",
+      "parents": [
+        101,
+        69,
+        110,
+        78
+      ],
+      "children": [
+        1014,
+        697,
+        1100,
+        786
+      ]
+    },
+    {
+      "layer": 8,
+      "kind": "real_last",
+      "activation_sha256": "162941ff20c84320698cceb1253473e79240773a0e19a70a58917a37c72b1545",
+      "parents": [
+        111,
+        95,
+        31,
+        104
+      ],
+      "children": [
+        1110,
+        953,
+        314,
+        1043
+      ]
+    },
+    {
+      "layer": 8,
+      "kind": "synthetic_unit",
+      "activation_sha256": "2efb2b8f6e5912b62a80625c636dda87f713145492b5d53b24e5b079e12aaf5a",
+      "parents": [
+        103,
+        101,
+        97,
+        96
+      ],
+      "children": [
+        1030,
+        1017,
+        975,
+        960
+      ]
+    },
+    {
+      "layer": 8,
+      "kind": "synthetic_small",
+      "activation_sha256": "ad72a7352d7f10bfffa9ec4e565d9d9ae0f5de4b75d5feaa8faa1277ea32f83f",
+      "parents": [
+        3,
+        4,
+        35,
+        7
+      ],
+      "children": [
+        31,
+        47,
+        354,
+        70
+      ]
+    },
+    {
+      "layer": 9,
+      "kind": "real_first",
+      "activation_sha256": "e80ee35e5201a47b6b69ff08e1c9056a67e5d81036176d0d5bd2514ac799d1b7",
+      "parents": [
+        13,
+        5,
+        93,
+        15
+      ],
+      "children": [
+        131,
+        55,
+        938,
+        156
+      ]
+    },
+    {
+      "layer": 9,
+      "kind": "real_last",
+      "activation_sha256": "748744a2bdb10d3ba258c7a342f6f294ffad0186477bbeccba213dc0e9f3f502",
+      "parents": [
+        95,
+        31,
+        89,
+        91
+      ],
+      "children": [
+        955,
+        314,
+        897,
+        913
+      ]
+    },
+    {
+      "layer": 9,
+      "kind": "synthetic_unit",
+      "activation_sha256": "328a5da2304d41411169dd74475bdf29c81cfaa2e1a6c10e8d60fea79198d98a",
+      "parents": [
+        122,
+        42,
+        106,
+        90
+      ],
+      "children": [
+        1221,
+        429,
+        1063,
+        903
+      ]
+    },
+    {
+      "layer": 9,
+      "kind": "synthetic_small",
+      "activation_sha256": "d5ba9cdd0d1c4bb18b4e15b45e6e7078c7453d3afd8b7c94f09cbec9fde3d33b",
+      "parents": [
+        8,
+        40,
+        5,
+        37
+      ],
+      "children": [
+        80,
+        409,
+        54,
+        376
+      ]
+    },
+    {
+      "layer": 10,
+      "kind": "real_first",
+      "activation_sha256": "c34e66b0b6b40c8cef449a6e677b646bf9defc1dbc50e64377dacf24c5af8339",
+      "parents": [
+        61,
+        62,
+        54,
+        58
+      ],
+      "children": [
+        616,
+        626,
+        540,
+        587
+      ]
+    },
+    {
+      "layer": 10,
+      "kind": "real_last",
+      "activation_sha256": "8f8c8f39583a3a4b74e044b1b58fe36a8402050ebad5acb218b1dd28e6421875",
+      "parents": [
+        34,
+        114,
+        18,
+        44
+      ],
+      "children": [
+        347,
+        1147,
+        180,
+        446
+      ]
+    },
+    {
+      "layer": 10,
+      "kind": "synthetic_unit",
+      "activation_sha256": "a87421642023499f2008c16e719102dd8b814bbf1f2e6ae8f9a9ea1b0df34d99",
+      "parents": [
+        97,
+        110,
+        33,
+        46
+      ],
+      "children": [
+        972,
+        1100,
+        330,
+        464
+      ]
+    },
+    {
+      "layer": 10,
+      "kind": "synthetic_small",
+      "activation_sha256": "f360d24c785a1eebf02817093076b4f4a3825c6bcfce038d142f60aa079f3c0c",
+      "parents": [
+        66,
+        68,
+        114,
+        64
+      ],
+      "children": [
+        661,
+        685,
+        1148,
+        640
+      ]
+    },
+    {
+      "layer": 11,
+      "kind": "real_first",
+      "activation_sha256": "3455675cefdfed5b495323549a434ed643a0f9d2c75d2fbfd278f242a57b8f31",
+      "parents": [
+        91,
+        107,
+        86,
+        75
+      ],
+      "children": [
+        916,
+        1077,
+        866,
+        753
+      ]
+    },
+    {
+      "layer": 11,
+      "kind": "real_last",
+      "activation_sha256": "1512208e6a044cd0d49d8bf4cda8c35968dba6e3edf17a354009a5f0e9b91596",
+      "parents": [
+        2,
+        114,
+        3,
+        115
+      ],
+      "children": [
+        24,
+        1142,
+        32,
+        1154
+      ]
+    },
+    {
+      "layer": 11,
+      "kind": "synthetic_unit",
+      "activation_sha256": "b2de8f1bf6f7d25733374a33e5287ca11a0d93f2154f45c5c5ebff71e21f69a4",
+      "parents": [
+        95,
+        79,
+        94,
+        31
+      ],
+      "children": [
+        954,
+        792,
+        942,
+        312
+      ]
+    },
+    {
+      "layer": 11,
+      "kind": "synthetic_small",
+      "activation_sha256": "f123de815d4e29e006a84c5c0951a5bf662af375d2ae85abd53cc0be5e6ca90c",
+      "parents": [
+        48,
+        0,
+        51,
+        96
+      ],
+      "children": [
+        486,
+        9,
+        514,
+        965
+      ]
+    },
+    {
+      "layer": 12,
+      "kind": "real_first",
+      "activation_sha256": "db71279e5a461611bd3910a4c0691ca721bb9a07d2cf8d1c9fe566c3936847c3",
+      "parents": [
+        35,
+        83,
+        115,
+        51
+      ],
+      "children": [
+        359,
+        839,
+        1151,
+        512
+      ]
+    },
+    {
+      "layer": 12,
+      "kind": "real_last",
+      "activation_sha256": "600ed356d4b3c0696251ae3f7a55f59f8e1f9b8b883ceb14467f0ddd9560965e",
+      "parents": [
+        37,
+        32,
+        21,
+        47
+      ],
+      "children": [
+        374,
+        327,
+        219,
+        478
+      ]
+    },
+    {
+      "layer": 12,
+      "kind": "synthetic_unit",
+      "activation_sha256": "6c478c9aadf5f0a3291f015af9c262c54fc24cb12d9d0d26979d0082a061c1ca",
+      "parents": [
+        35,
+        3,
+        38,
+        6
+      ],
+      "children": [
+        353,
+        32,
+        380,
+        62
+      ]
+    },
+    {
+      "layer": 12,
+      "kind": "synthetic_small",
+      "activation_sha256": "747e7fd3d1110736f9aec84f4604f43bb124ec154509ad0d5455767e4a716966",
+      "parents": [
+        58,
+        48,
+        122,
+        112
+      ],
+      "children": [
+        588,
+        485,
+        1225,
+        1126
+      ]
+    },
+    {
+      "layer": 13,
+      "kind": "real_first",
+      "activation_sha256": "d03a591ba3fbd730781e79008c4351b5acee58f7702e994505f1fa9160832bfb",
+      "parents": [
+        32,
+        16,
+        48,
+        36
+      ],
+      "children": [
+        324,
+        167,
+        489,
+        361
+      ]
+    },
+    {
+      "layer": 13,
+      "kind": "real_last",
+      "activation_sha256": "dcfd908863abecd299e94e4bdaac344ef55d855d00e4c7b21ef6af02fd94af82",
+      "parents": [
+        78,
+        14,
+        94,
+        46
+      ],
+      "children": [
+        786,
+        148,
+        943,
+        463
+      ]
+    },
+    {
+      "layer": 13,
+      "kind": "synthetic_unit",
+      "activation_sha256": "40512fb25ff6631b7f68075de6fc8af905c74d308e75be7e627f6e6019936edc",
+      "parents": [
+        63,
+        47,
+        62,
+        56
+      ],
+      "children": [
+        639,
+        473,
+        623,
+        561
+      ]
+    },
+    {
+      "layer": 13,
+      "kind": "synthetic_small",
+      "activation_sha256": "64e60b5f75f2f8a2af8523c87ae4c9db5b56fddd7d22eef9ba58c4a7f187e507",
+      "parents": [
+        105,
+        106,
+        121,
+        98
+      ],
+      "children": [
+        1055,
+        1068,
+        1218,
+        984
+      ]
+    },
+    {
+      "layer": 14,
+      "kind": "real_first",
+      "activation_sha256": "36d83f50c8557d7ee44fdecb7e7093708bec742f6a2bd766e3813f01fd88684a",
+      "parents": [
+        110,
+        126,
+        109,
+        94
+      ],
+      "children": [
+        1102,
+        1264,
+        1096,
+        947
+      ]
+    },
+    {
+      "layer": 14,
+      "kind": "real_last",
+      "activation_sha256": "d4a3553b17402ade9a9c0561fd85deaf550d368d0583213dde99df0c1ddafc2b",
+      "parents": [
+        69,
+        77,
+        53,
+        61
+      ],
+      "children": [
+        693,
+        777,
+        537,
+        616
+      ]
+    },
+    {
+      "layer": 14,
+      "kind": "synthetic_unit",
+      "activation_sha256": "f707db1da802fd26acbed2378dc060be9e7121de153994ae1b4d3eacb956d0bb",
+      "parents": [
+        43,
+        40,
+        59,
+        38
+      ],
+      "children": [
+        435,
+        408,
+        596,
+        380
+      ]
+    },
+    {
+      "layer": 14,
+      "kind": "synthetic_small",
+      "activation_sha256": "8813f4526e984132f980529dac2c67dd71d7401c66e69280b406b2b023e5b766",
+      "parents": [
+        77,
+        29,
+        79,
+        69
+      ],
+      "children": [
+        772,
+        299,
+        790,
+        693
+      ]
+    },
+    {
+      "layer": 15,
+      "kind": "real_first",
+      "activation_sha256": "1f47167108edf3cb191dab1366efa8e77235efe33a99ddcccccef530f14a997a",
+      "parents": [
+        76,
+        12,
+        108,
+        67
+      ],
+      "children": [
+        767,
+        127,
+        1080,
+        678
+      ]
+    },
+    {
+      "layer": 15,
+      "kind": "real_last",
+      "activation_sha256": "13b0a429ccafafa407764ce9ab09b876eff96cd48bc6672adf3befcd567c75fb",
+      "parents": [
+        99,
+        102,
+        104,
+        83
+      ],
+      "children": [
+        995,
+        1024,
+        1040,
+        831
+      ]
+    },
+    {
+      "layer": 15,
+      "kind": "synthetic_unit",
+      "activation_sha256": "c9728c6727685996fbe96b568cc6230e22cf4bfcdb73c4fb54561914f8cf7396",
+      "parents": [
+        93,
+        109,
+        85,
+        101
+      ],
+      "children": [
+        939,
+        1099,
+        857,
+        1019
+      ]
+    },
+    {
+      "layer": 15,
+      "kind": "synthetic_small",
+      "activation_sha256": "c4b82d8f87cc44bdcfc72e120ba22f0b64aadb8f7d55206986919045f0e11a0a",
+      "parents": [
+        83,
+        67,
+        99,
+        19
+      ],
+      "children": [
+        831,
+        671,
+        995,
+        191
+      ]
+    },
+    {
+      "layer": 16,
+      "kind": "real_first",
+      "activation_sha256": "1b3bc283c5671d7817828946b5f2710a24e55a1b104385c29f3284fe563494a2",
+      "parents": [
+        92,
+        60,
+        88,
+        12
+      ],
+      "children": [
+        921,
+        600,
+        889,
+        124
+      ]
+    },
+    {
+      "layer": 16,
+      "kind": "real_last",
+      "activation_sha256": "be4ab5b351c760ff660e2ed52f6a408268e499213be0514ec5bff62128580a05",
+      "parents": [
+        43,
+        36,
+        107,
+        34
+      ],
+      "children": [
+        431,
+        365,
+        1076,
+        346
+      ]
+    },
+    {
+      "layer": 16,
+      "kind": "synthetic_unit",
+      "activation_sha256": "a3d4b947d3c0ea65669ca96dffb6051ca730e9eb8d271c84cba93eb26f77074b",
+      "parents": [
+        117,
+        112,
+        126,
+        113
+      ],
+      "children": [
+        1170,
+        1121,
+        1268,
+        1133
+      ]
+    },
+    {
+      "layer": 16,
+      "kind": "synthetic_small",
+      "activation_sha256": "c404edc8970f1c84aa664296a6c0b72233169b98a041cf933ac5df0b8093c918",
+      "parents": [
+        5,
+        21,
+        10,
+        26
+      ],
+      "children": [
+        58,
+        218,
+        108,
+        261
+      ]
+    },
+    {
+      "layer": 17,
+      "kind": "real_first",
+      "activation_sha256": "21565a0a7b789958fa4bd3f3f2bb7e92ae843a91beb654bc636505a5c7701c22",
+      "parents": [
+        89,
+        95,
+        80,
+        9
+      ],
+      "children": [
+        893,
+        954,
+        801,
+        91
+      ]
+    },
+    {
+      "layer": 17,
+      "kind": "real_last",
+      "activation_sha256": "ee0c5e769880aea25c315c2d701225ea434491f4733a332afb571fa3c105afd7",
+      "parents": [
+        98,
+        18,
+        114,
+        50
+      ],
+      "children": [
+        981,
+        188,
+        1144,
+        509
+      ]
+    },
+    {
+      "layer": 17,
+      "kind": "synthetic_unit",
+      "activation_sha256": "896ce60b2525b405663235d7b50f47a9a61b234ec0c76dbeb44bca32c39ffe31",
+      "parents": [
+        111,
+        102,
+        98,
+        63
+      ],
+      "children": [
+        1116,
+        1029,
+        980,
+        635
+      ]
+    },
+    {
+      "layer": 17,
+      "kind": "synthetic_small",
+      "activation_sha256": "c364aaddc70db34c1e4a0a61e02828c8ad4bf136b44db321232f7a51a0d33f69",
+      "parents": [
+        42,
+        41,
+        90,
+        89
+      ],
+      "children": [
+        422,
+        414,
+        901,
+        893
+      ]
+    },
+    {
+      "layer": 18,
+      "kind": "real_first",
+      "activation_sha256": "5ccbd41f781d333c877ba6c0f071b80bfd939e176deb0d789dcc895b671aace4",
+      "parents": [
+        74,
+        122,
+        26,
+        72
+      ],
+      "children": [
+        740,
+        1226,
+        268,
+        721
+      ]
+    },
+    {
+      "layer": 18,
+      "kind": "real_last",
+      "activation_sha256": "178368ccaccd08ec03e7c9aa312a1e86ce7ce1c1f25647bd5d1bb4a7255c0c27",
+      "parents": [
+        38,
+        32,
+        45,
+        36
+      ],
+      "children": [
+        382,
+        320,
+        454,
+        364
+      ]
+    },
+    {
+      "layer": 18,
+      "kind": "synthetic_unit",
+      "activation_sha256": "8ecc9c6d2ad40eb7f7491db77be9843b4d0649988e4edba7b2a060e441ce45f2",
+      "parents": [
+        88,
+        90,
+        120,
+        122
+      ],
+      "children": [
+        886,
+        903,
+        1209,
+        1222
+      ]
+    },
+    {
+      "layer": 18,
+      "kind": "synthetic_small",
+      "activation_sha256": "9ae26db31718d2c4e00828dd18cc6f2763f4f9ca53fd862b651dce276044ba1f",
+      "parents": [
+        111,
+        106,
+        99,
+        97
+      ],
+      "children": [
+        1115,
+        1062,
+        996,
+        976
+      ]
+    },
+    {
+      "layer": 19,
+      "kind": "real_first",
+      "activation_sha256": "c64933179f9de013ab15eefda24df8a1d71be36d411cc4ab57399874d6a27cf3",
+      "parents": [
+        32,
+        64,
+        112,
+        48
+      ],
+      "children": [
+        322,
+        647,
+        1121,
+        482
+      ]
+    },
+    {
+      "layer": 19,
+      "kind": "real_last",
+      "activation_sha256": "2355502e8e33fd99f22e4f202d30e9d74b40b07376ab6cfed18a8c1ccfe821fd",
+      "parents": [
+        60,
+        44,
+        52,
+        12
+      ],
+      "children": [
+        606,
+        446,
+        523,
+        120
+      ]
+    },
+    {
+      "layer": 19,
+      "kind": "synthetic_unit",
+      "activation_sha256": "98e335ac97a43ee25b7e8bdefd0932e8518293c94502d6f38da7d7b89a39ad1b",
+      "parents": [
+        108,
+        12,
+        106,
+        10
+      ],
+      "children": [
+        1083,
+        120,
+        1061,
+        100
+      ]
+    },
+    {
+      "layer": 19,
+      "kind": "synthetic_small",
+      "activation_sha256": "1dd8d666eac1e042ebd11b8ba63edc58637d4b1a33fb038cd4a24d4d3ec24d48",
+      "parents": [
+        27,
+        21,
+        59,
+        107
+      ],
+      "children": [
+        273,
+        214,
+        592,
+        1078
+      ]
+    },
+    {
+      "layer": 20,
+      "kind": "real_first",
+      "activation_sha256": "86b9668dcc452fc572b9ed2f4bad49a25c5d3aba2a8e9e52de9b92ce6eb3135a",
+      "parents": [
+        126,
+        30,
+        122,
+        78
+      ],
+      "children": [
+        1264,
+        309,
+        1223,
+        786
+      ]
+    },
+    {
+      "layer": 20,
+      "kind": "real_last",
+      "activation_sha256": "5a5f29941b4918ae87953dc7a7bf203a7d17c6f99a57d6176b74aeec0cbfa917",
+      "parents": [
+        76,
+        73,
+        64,
+        66
+      ],
+      "children": [
+        766,
+        734,
+        642,
+        667
+      ]
+    },
+    {
+      "layer": 20,
+      "kind": "synthetic_unit",
+      "activation_sha256": "89470ddfaf200cfdb58e174234664c1c9fd8671469ea1ebd3e4b32816de87acf",
+      "parents": [
+        52,
+        20,
+        63,
+        36
+      ],
+      "children": [
+        526,
+        205,
+        636,
+        365
+      ]
+    },
+    {
+      "layer": 20,
+      "kind": "synthetic_small",
+      "activation_sha256": "bf2d0a173add9340c222d7a279000d4f72973fcd6cc7ecab54a7e8ff47185727",
+      "parents": [
+        76,
+        60,
+        12,
+        28
+      ],
+      "children": [
+        762,
+        601,
+        123,
+        280
+      ]
+    },
+    {
+      "layer": 21,
+      "kind": "real_first",
+      "activation_sha256": "8d88ceea8cc3801e4aca5ddaf4eb0681f1105aca42d8f2cbaa4af489f4fa01c1",
+      "parents": [
+        118,
+        123,
+        70,
+        6
+      ],
+      "children": [
+        1180,
+        1238,
+        700,
+        65
+      ]
+    },
+    {
+      "layer": 21,
+      "kind": "real_last",
+      "activation_sha256": "4f4f5417ba5dc313491acd9a9928dc7980cbf63fcd9630a6f36a5eb3c5fa3f14",
+      "parents": [
+        103,
+        55,
+        87,
+        23
+      ],
+      "children": [
+        1030,
+        552,
+        870,
+        236
+      ]
+    },
+    {
+      "layer": 21,
+      "kind": "synthetic_unit",
+      "activation_sha256": "73b59eeb0cb63ce9f5dc65e9671682415e12a5a58014295ff404e60c2d8d1451",
+      "parents": [
+        7,
+        9,
+        71,
+        73
+      ],
+      "children": [
+        77,
+        94,
+        710,
+        734
+      ]
+    },
+    {
+      "layer": 21,
+      "kind": "synthetic_small",
+      "activation_sha256": "13b8231c9dd890cf66a15c2d98e3eed1c5e735554a46acb449ab58ccc1ea591e",
+      "parents": [
+        96,
+        102,
+        111,
+        112
+      ],
+      "children": [
+        961,
+        1028,
+        1118,
+        1128
+      ]
+    },
+    {
+      "layer": 22,
+      "kind": "real_first",
+      "activation_sha256": "2be4375971ed141e3deaf1ceb2323934f56c11a58d66591e5ac6d015db0ac7c2",
+      "parents": [
+        93,
+        29,
+        109,
+        77
+      ],
+      "children": [
+        939,
+        295,
+        1090,
+        772
+      ]
+    },
+    {
+      "layer": 22,
+      "kind": "real_last",
+      "activation_sha256": "a01a3a497c87ab677b0172621b7748c53116599e54f62c2bed0588b541ec71e0",
+      "parents": [
+        17,
+        26,
+        1,
+        10
+      ],
+      "children": [
+        178,
+        265,
+        13,
+        102
+      ]
+    },
+    {
+      "layer": 22,
+      "kind": "synthetic_unit",
+      "activation_sha256": "05b4ab016759c72379151d4207e9c45b9357bee952ef287b08aad2aedf786b22",
+      "parents": [
+        43,
+        41,
+        27,
+        25
+      ],
+      "children": [
+        430,
+        412,
+        275,
+        258
+      ]
+    },
+    {
+      "layer": 22,
+      "kind": "synthetic_small",
+      "activation_sha256": "99ed71025713c294e668cd543a07f78d17375b2166a2cd44b6f50c2f30889ea0",
+      "parents": [
+        85,
+        37,
+        94,
+        117
+      ],
+      "children": [
+        850,
+        374,
+        947,
+        1175
+      ]
+    },
+    {
+      "layer": 23,
+      "kind": "real_first",
+      "activation_sha256": "0c69b02fa387f27d61dcbd98594953c7bc5e89ad3791472e5b29c518b34f0563",
+      "parents": [
+        10,
+        4,
+        7,
+        26
+      ],
+      "children": [
+        109,
+        45,
+        71,
+        261
+      ]
+    },
+    {
+      "layer": 23,
+      "kind": "real_last",
+      "activation_sha256": "dca74126c34c72569bc12847ad9a6529baecda372315902cfd14a2512108f1c2",
+      "parents": [
+        94,
+        62,
+        82,
+        86
+      ],
+      "children": [
+        945,
+        620,
+        820,
+        861
+      ]
+    },
+    {
+      "layer": 23,
+      "kind": "synthetic_unit",
+      "activation_sha256": "586af69161188fb2fb7a31ae55886f135b57861f6c842581fcc99fa839ec0388",
+      "parents": [
+        34,
+        18,
+        98,
+        50
+      ],
+      "children": [
+        348,
+        187,
+        988,
+        507
+      ]
+    },
+    {
+      "layer": 23,
+      "kind": "synthetic_small",
+      "activation_sha256": "3fe1e55b0d166514bc5e6ce8c4c5097762421a801f00e586e29d4c9b97d54fc4",
+      "parents": [
+        45,
+        38,
+        39,
+        44
+      ],
+      "children": [
+        450,
+        386,
+        394,
+        448
+      ]
+    }
+  ],
+  "runtime": {
+    "seconds": 18.875,
+    "rss_bytes": 4686794752,
+    "gpu_peak_bytes": 2907341824,
+    "gpu": "NVIDIA GeForce RTX 3060"
+  }
+}
