@@ -1141,6 +1141,13 @@ scheduled.
   position 55. Next: separate prompt structure from answer continuation
   and design a structural/shared route or different training mixture;
   total CPU traffic must still be counted. METH-145 stays rejected.
+  [METH-148](METH_148_CHAT_MASK_ROUTE_ATTRIBUTION_RESULT_20260928.md)
+  uses the frozen next-token loss mask to separate prompt scaffold
+  from answer context. The latter still reaches 99.20% hot-parent
+  share (minimum across layers 32.20%); repeated response openings
+  remain. A 55-token-prefix bypass alone cannot fix this. Next:
+  isolate strongly recurring causal contexts and preregister a shared
+  structural route plus balanced content specialists if supported.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

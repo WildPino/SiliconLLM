@@ -1032,6 +1032,14 @@ scaffolding. The final-bank replay is close to, but not identical to,
 the saved changing-weight training histogram. Separate structure
 from answer continuations before freezing a new routing/training gate;
 METH-145 remains rejected and METH-146 remains unopened.
+[METH-148](METH_148_CHAT_MASK_ROUTE_ATTRIBUTION_RESULT_20260928.md)
+splits the chat remainder with the original training loss mask.
+Answer-context routes still reach 99.20% worst within-parent share;
+their first few positions include repeated answer-opening tokens.
+A bypass limited to the global 55-token prompt prefix would leave
+the failure. Any next content-specialist router must account for
+all recurring causal contexts, preserve their CPU traffic, and pass
+new training and quality gates before an E12800 claim.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
