@@ -1108,6 +1108,28 @@ over the 256 matched updates, with active-row median only 7–13 per
 layer. This is a training-support diagnostic, not evidence that data
 scarcity caused the external BPB failure. A larger matched comparison
 requires genuinely new training contexts, not repeated teacher chats.
+[METH-158](METH_158_INDEPENDENT_TEACHER_ACQUISITION_RESULT_20260928.md)
+now supplies 2,560 independent chat continuations and 2,560 distinct
+raw windows, all SHA-bound to the same donor and source pool.
+[METH-159](METH_159_TENFOLD_ROUTE_SUPPORT_PREFLIGHT_RESULT_20260928.md)
+replays the current fixed shared/content route over all 887,330 input
+tokens. It rejects the proposed longer E12800 training: active content
+median bottoms at 39 selections versus >=50 and one hot-parent share
+reaches 43.26% versus <=25%, even though content coverage and global
+load pass. This is a route-support failure, not a measured quality
+effect of the larger independent data. The present hash/table branch
+must be repaired and screened again before matched long-budget training.
+[METH-160](METH_160_ACTUAL_B_BANK_CPU_COST_RESULT_20260928.md)
+uses the actual 4.404 GB learned E12800 BF16 B bank and a 0.440 GB E1280
+control bank. On crossed 256-position structural-hit/content-miss CPU
+fixtures, their paired route-plus-factor medians are 3.964/3.918 ms for
+E12800 versus 3.939/3.955 ms for E1280. Both frozen component gates
+pass; pages were warm, the E12800 bank remains quality-rejected and no
+compact LUT or full-model accepted-token rate has been established.
+[METH-161](METH_161_POSTFAILURE_SOURCE_ROUTE_TRACE_PROTOCOL_20260928.md)
+is the current postfailure diagnostic: save exact E1280 source-child
+choices and validate offline replay against METH-159 before assessing
+whether recurring nonshared contexts explain the hot-parent failures.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

@@ -1,6 +1,14 @@
 # Native expert scaling: research control index
 
 **Date:** 28 September 2026. **Branch:** `research/native-expert-scaling`.
+**Current decision:** METH-158 acquired 2,560 independent raw/chat
+pairs. METH-159 rejects long matched E1280/E12800 training on the
+current 75-tuple route: minimum active content median 39 <50 and worst
+hot-parent share 43.26% >25%. METH-160 passes an actual-bank BF16 CPU
+component cost screen at E12800, but that bank failed untouched quality
+and full `engine.c` >=50 accepted tok/s remains open. METH-161 is
+capturing source-child routes to diagnose and revise routing before
+another training attempt. No T4 has been used.
 **Status:** The centered BF16 E1280 children retain donor-relative
 quality on new sources (METH-121/123). Their exact shared-A factor
 bank passes actual-state native CPU access (METH-125/126); a full C
@@ -1235,38 +1243,26 @@ scheduled.
   not a causal explanation. Next: acquire independent training
   contexts at a larger matched budget; do not repeat the same 256 chat
   continuations or reuse the consumed METH-153/156 quality sources.
-  [METH-158](METH_158_INDEPENDENT_TENFOLD_TRAINING_DATA_PROTOCOL_20260928.md)
-  freezes 2,560 new chat prompts and 2,560 raw windows from 5,120
-  distinct H0 source rows, excluding previous training/evaluation rows
-  and external excerpt overlaps. The 64-prompt teacher pilot completed
-  in 181 seconds; the verified, resumable 40-shard acquisition is active
-  locally. Inspect `meth158_teacher_progress.json` and the runner logs
-  for the live count. A separate hidden finalizer, PID recorded in
-  `meth158_finalize_preflight_process.json`, waits for the live teacher
-  runner PID 23880, requires its exact 40-shard completion record, then
-  merges and hashes the teacher file and runs METH-159. Inspect
-  `meth158_finalize_preflight_status.json` and its logs before any
-  manual restart. `meth158_training_inputs.py` prepares the identical
-  SHA-bound paired draws for both future training arms, but has not run
-  against the still-incomplete teacher merge.
-  [METH-159](METH_159_TENFOLD_ROUTE_SUPPORT_PREFLIGHT_PROTOCOL_20260928.md)
-  pre-registers an offline 2,560-pair route-support screen before any
-  long matched training: minimum 10,000 content IDs and median 50
-  selections per active content ID/layer, at most 50% of content IDs
-  under 32 selections, plus the existing 1.25 global maximum-load and
-  25% hot-parent limits. PG19 shard 9 is reserved for a later independent
-  quality test. No larger-data model or quality result exists yet.
-  [METH-160](METH_160_ACTUAL_B_BANK_CPU_COST_PROTOCOL_20260928.md)
-  separately freezes a paired native CPU test of the actual learned
-  E1280 and E12800 B banks on METH-125 varied hidden states crossed
-  with METH-151 structural/content contexts. Its C runner builds and
-  its exact-clone shared-A addressing self-test passes; no bank timing
-  has run. A hidden waiter, PID recorded in `meth160_wait_process.json`,
-  requires the finalizer to exit with `preflight_complete` before it
-  executes `meth160_run_actual_b_bank_cpu.py`. Inspect
-  `meth160_wait_status.json` and its logs before any manual restart.
-  The screen will measure selected BF16 factor traffic, not compact LUT
-  quality or same-artifact accepted-token rate.
+  [METH-158](METH_158_INDEPENDENT_TEACHER_ACQUISITION_RESULT_20260928.md)
+  completes 40 verified teacher shards: 2,560 new chat continuations
+  and 2,560 raw windows from distinct H0 rows, bound by the merged SHA.
+  [METH-159](METH_159_TENFOLD_ROUTE_SUPPORT_PREFLIGHT_RESULT_20260928.md)
+  replays all 887,330 input tokens and **fails** the frozen active-row
+  median and hot-parent share gates, despite 10,829 minimum content
+  coverage and 1.038 worst global load. Do not start the proposed long
+  matched training with this route. PG19 shard 9 remains unused for a
+  later independent quality audit.
+  [METH-160](METH_160_ACTUAL_B_BANK_CPU_COST_RESULT_20260928.md)
+  passes the separate actual-B-bank native component gate in both
+  structural-hit and content-miss fixtures: E12800 route plus BF16
+  factors takes 3.964/3.918 ms versus E1280 3.939/3.955 ms per token-
+  equivalent. Pages are warm and the E12800 bank is quality-rejected;
+  no compact LUT or full accepted-token rate is established.
+  [METH-161](METH_161_POSTFAILURE_SOURCE_ROUTE_TRACE_PROTOCOL_20260928.md)
+  is running on the local RTX 3060 as process PID 30060, recorded in
+  `meth161_trace_process.json`. Inspect its stdout/stderr and the
+  `meth161_source_route_trace.*` artifacts. Require exact replay of all
+  METH-159 histograms before comparing revised shared-context tables.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
