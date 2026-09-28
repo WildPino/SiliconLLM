@@ -82,6 +82,7 @@ static double time_routes(const Layer *layers, const Header *header,
     return (now_s() - started) * 1000.0 / 256.0;
 }
 
+#ifndef M151_RUNTIME_ONLY
 int main(int argc, char **argv) {
     if (argc != 5) {
         fprintf(stderr, "usage: %s EXACT_BANK VECTORS TOKEN_CONTEXT TABLE\n", argv[0]);
@@ -221,3 +222,4 @@ int main(int argc, char **argv) {
     free((void *)vectors); free((void *)bank);
     return pass ? 0 : 1;
 }
+#endif
