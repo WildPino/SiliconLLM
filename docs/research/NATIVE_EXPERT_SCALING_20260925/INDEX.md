@@ -1235,6 +1235,20 @@ scheduled.
   not a causal explanation. Next: acquire independent training
   contexts at a larger matched budget; do not repeat the same 256 chat
   continuations or reuse the consumed METH-153/156 quality sources.
+  [METH-158](METH_158_INDEPENDENT_TENFOLD_TRAINING_DATA_PROTOCOL_20260928.md)
+  freezes 2,560 new chat prompts and 2,560 raw windows from 5,120
+  distinct H0 source rows, excluding previous training/evaluation rows
+  and external excerpt overlaps. The 64-prompt teacher pilot completed
+  in 181 seconds; the verified, resumable 40-shard acquisition is active
+  locally. Inspect `meth158_teacher_progress.json` and the runner logs
+  for the live count; merge only after all 40 shards pass readback.
+  [METH-159](METH_159_TENFOLD_ROUTE_SUPPORT_PREFLIGHT_PROTOCOL_20260928.md)
+  pre-registers an offline 2,560-pair route-support screen before any
+  long matched training: minimum 10,000 content IDs and median 50
+  selections per active content ID/layer, at most 50% of content IDs
+  under 32 selections, plus the existing 1.25 load and 25% hot-parent
+  limits. PG19 shard 9 is reserved for a later independent quality
+  test. No larger-data model or quality result exists yet.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
