@@ -1205,6 +1205,17 @@ scheduled.
   E12800 grandchild mean was restored to the original B (RMS at most
   1.97e-6) despite nonzero specialist differences. This supports a
   shared-base-plus-residual hypothesis, not a causal quality claim.
+  [METH-155](METH_155_MATCHED_SHARED_BASE_RESIDUAL_TRAINING_RESULT_20260928.md)
+  trains a shared B base and conditional residuals on the same 256 draws.
+  A corrected run with exact combined-bank audits after every update
+  passes all frozen training gates: minimum content coverage 8,673,
+  worst content load 1.127, hot-parent share 17.94%, minimum changed
+  base rows 1,182 and minimum BF16-distinct combined rows 11,820. The
+  exported ten-child mean now has a learned shift similar to the E1280
+  control. The structural slot still takes 19.20% of choices and
+  all-token skew reaches 234.25. Next: apply only the already frozen
+  [METH-156](METH_156_SHARED_BASE_FRESH_QUALITY_PROTOCOL_20260928.md)
+  to new source/fragment-disjoint data. No useful-expert claim yet.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

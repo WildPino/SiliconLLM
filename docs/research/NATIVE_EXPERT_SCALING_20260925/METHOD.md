@@ -1087,6 +1087,12 @@ restored to the original B. Specialist residuals are nonzero, but a
 new matched shared-base training design and untouched quality test are
 required to determine whether the missing common shift caused the
 METH-153 BPB regression.
+[METH-155](METH_155_MATCHED_SHARED_BASE_RESIDUAL_TRAINING_RESULT_20260928.md)
+implements that matched shared-base/residual design and passes the
+frozen route, BF16, base coverage and exact combined-bank audit gates.
+The learned common B shift survives export at a scale similar to the
+continued E1280 control; whether the extra routed residuals improve
+untouched prediction is the separately frozen METH-156 question.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
