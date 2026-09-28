@@ -1158,6 +1158,15 @@ scheduled.
   route, not a pass for METH-145 or permission to open METH-146.
   Next: freeze and cost a new shared-structure/content-specialist
   router, then retrain from exact BF16 and test untouched quality.
+  [METH-150](METH_150_SHARED_STRUCTURE_ROUTE_SCREEN_RESULT_20260928.md)
+  freezes that 75-tuple table and a shared local slot 0, hashing all
+  other contexts into nine content slots. Content-only gates pass on
+  matched raw/chat draws and 24 newly selected documents at two widths:
+  worst slot-versus-own-parent load 1.171×, worst hot-parent share
+  19.69%, minimum coverage 6,516. The chat shared path takes 66,516
+  selections/layer and full all-token skew reaches 374.81×. This is
+  an offline screen; full-model clone parity, native table/hash cost,
+  fresh chat prompts, trained B usefulness and quality remain open.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

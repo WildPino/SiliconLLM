@@ -1049,6 +1049,15 @@ parent traffic. This is a postfailure diagnostic threshold on viewed
 training data, so it cannot rescue METH-145. It motivates a new
 shared structural B route with balanced content specialists, native
 CPU cost and separately frozen quality validation.
+[METH-150](METH_150_SHARED_STRUCTURE_ROUTE_SCREEN_RESULT_20260928.md)
+routes recurrent causal chat tuples to one shared slot per source
+child and other contexts to nine hashed content slots. All content
+load gates pass on matched raw/chat inputs and new source-disjoint
+documents; worst relative load is 1.171× and worst hot-parent share
+19.69%. The shared slot receives 66,516 selections per layer on chat,
+and all-token skew remains high. This offline result justifies testing
+integrated clone parity and native C cost; it does not establish
+trained useful capacity or quality.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
