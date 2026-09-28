@@ -1254,8 +1254,17 @@ scheduled.
   long matched training: minimum 10,000 content IDs and median 50
   selections per active content ID/layer, at most 50% of content IDs
   under 32 selections, plus the existing 1.25 global maximum-load and
-  25% hot-parent limits. PG19 shard 9 is reserved for a later independent quality
-  test. No larger-data model or quality result exists yet.
+  25% hot-parent limits. PG19 shard 9 is reserved for a later independent
+  quality test. No larger-data model or quality result exists yet.
+  [METH-160](METH_160_ACTUAL_B_BANK_CPU_COST_PROTOCOL_20260928.md)
+  separately freezes a paired native CPU test of the actual learned
+  E1280 and E12800 B banks on METH-125 varied hidden states crossed
+  with METH-151 structural/content contexts. Its C runner builds and
+  its exact-clone shared-A addressing self-test passes; no bank timing
+  has run. Execute `meth160_run_actual_b_bank_cpu.py` only after the
+  teacher/finalizer processes and METH-159 GPU work have ended. It will
+  measure selected BF16 factor traffic, not compact LUT quality or
+  same-artifact accepted-token rate.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
