@@ -1354,8 +1354,10 @@ scheduled.
   stopped at update 16 because an inherited projected-time guard counted
   both arms in one process. The [failure record](METH_175_CONTROL_FIRST_ATTEMPT_20260928.md)
   preserves that result and explains the single-arm guard correction.
-  The restarted full E1280 control is running, to be followed by E12800
-  on the identical draws. The
+  The restarted full E1280 control is running. A
+  [local supervisor](../../../benchmarks/native_expert_scaling/meth175_control_candidate_supervisor.py)
+  will start E12800 on the identical draws only after the control process
+  exits successfully and its result, gates and bank hash verify. The
   [METH-176](METH_176_LONG_TRAINING_FRESH_QUALITY_PROTOCOL_20260928.md)
   untouched quality gates are frozen before training output.
 
