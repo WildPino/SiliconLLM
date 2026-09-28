@@ -331,6 +331,10 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
     model.enable_input_require_grads()
     model.train()
     route_counts = [torch.zeros(bank.shape[0], dtype=torch.int64) for bank in banks]
+    content_counts = ([torch.zeros_like(counts) for counts in route_counts]
+                      if name == "shared" else None)
+    structural_counts = ([torch.zeros_like(counts) for counts in route_counts]
+                         if name == "shared" else None)
     records = []
     gradient_transfer_total = 0
     arm_started = time.monotonic()
@@ -362,6 +366,17 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
                 for wrapper in wrappers:
                     wrapper.set_token_context(context_ids)
             student_logits = model(inputs, use_cache=False).logits
+            if name == "shared":
+                # Capture changing-weight forward routes once, before checkpoint
+                # recomputation can replace the wrapper's last route fields.
+                for li, wrapper in enumerate(wrappers):
+                    selected = wrapper.last_selected.detach().cpu().reshape(-1, 4)
+                    shared = torch.from_numpy(wrapper.last_shared.copy())
+                    assert selected.shape[0] == shared.numel() == inputs.numel()
+                    content_counts[li] += torch.bincount(
+                        selected[~shared].reshape(-1), minlength=12800)
+                    structural_counts[li] += torch.bincount(
+                        selected[shared].reshape(-1), minlength=12800)
             loss, ce, kl, margin = M107.objective(
                 student_logits, teacher_logits, targets,
                 ce_mask, kl_mask, kl_weight)
@@ -425,6 +440,39 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
     expected_total = 4 * sum((M15.SEQ - 1) + (len(chat[d["chat_index"]][1]) - 1)
                              for d in draws)
     assert all(total == expected_total for total in selected_total), selected_total
+    content_summary = None
+    if name == "shared":
+        content_coverage = []
+        content_load_ratio = []
+        content_hot_share = []
+        content_hot_count = []
+        structural_total = []
+        for all_count, content, structural in zip(route_counts, content_counts,
+                                                  structural_counts):
+            assert torch.equal(all_count, content + structural)
+            assert not bool(content.view(1280, 10)[:, 0].any())
+            assert not bool(structural.view(1280, 10)[:, 1:].any())
+            assert int(content.sum() + structural.sum()) == expected_total
+            by_parent = content.view(1280, 10).sum(dim=1)
+            hot = by_parent >= 250
+            assert bool(hot.any()) and int(by_parent.max()) > 0
+            content_coverage.append(int((content > 0).sum()))
+            content_load_ratio.append(float(9 * content.max() / by_parent.max()))
+            content_hot_share.append(float((
+                content.view(1280, 10)[hot].max(dim=1).values / by_parent[hot]
+            ).max()))
+            content_hot_count.append(int(hot.sum()))
+            structural_total.append(int(structural.sum()))
+        assert len(set(structural_total)) == 1
+        content_summary = {
+            "route_counts_by_layer": [x.tolist() for x in content_counts],
+            "route_coverage_by_layer": content_coverage,
+            "to_own_parent_max_load_ratio_by_layer": content_load_ratio,
+            "hot_parent_worst_grandchild_share_by_layer": content_hot_share,
+            "hot_parent_count_by_layer": content_hot_count,
+            "selections_by_layer": [int(x.sum()) for x in content_counts],
+            "structural_route_counts_by_layer": [x.tolist() for x in structural_counts],
+            "structural_selections_per_layer": structural_total[0]}
     artifact = export_bank(artifact_path, banks, source_b,
                            name in ("candidate", "hash", "shared"))
     disk_bytes = artifact["bytes"]
@@ -447,7 +495,8 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
               "route_max_to_mean_by_layer": load_skew,
               "route_selections_by_layer": selected_total,
               "route_counts_by_layer": [x.tolist() for x in route_counts]
-                                       if name == "hash" else None,
+                                       if name in ("hash", "shared") else None,
+              "content_route": content_summary,
               "hot_parent_worst_grandchild_share_by_layer": hot_parent_share,
               "expected_selections_per_layer": expected_total,
               "final_optimizer_rows_by_layer": [x.used for x in optimizers],
