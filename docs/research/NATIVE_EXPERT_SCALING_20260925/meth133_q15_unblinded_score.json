@@ -1,0 +1,898 @@
+{
+  "experiment": "METH-133-unblinded-Q15-grounding-score",
+  "blind_sha256": "fee824711e58993cc6bbb0930ccc2f363a16d0ff5346044d09de54deb34cf791",
+  "verdict_sha256": "e8b0f58e71794e16a9ebdb6e89fa0ad71378e2a8bfba44cb19d2382bc1e00c84",
+  "mapping_sha256": "fa59a8ba43ae499d1dc3ea91593916f5deaf6e69ccc9f9fa22016f4198ee7100",
+  "counts": {
+    "exact_e1280": {
+      "unsupported": 39,
+      "severe": 16,
+      "missing_detail": 0,
+      "ambiguous": 0
+    },
+    "q15_e1280": {
+      "unsupported": 50,
+      "severe": 24,
+      "missing_detail": 0,
+      "ambiguous": 0
+    }
+  },
+  "gates": {
+    "unsupported": false,
+    "severe": false,
+    "missing_detail": true,
+    "joint_semantic": false
+  },
+  "paired_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat02_shared_gate_zero_selftest.py",
+      "category": "code",
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "the excerpt shows _clone_model returning the cloned model",
+            "evidence": "The visible function stops immediately after load_state_dict; no return statement is shown.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "the returned instance omits the source state dictionary",
+            "evidence": "The visible function calls clone.load_state_dict(source.state_dict(), strict=True).",
+            "severe": true
+          },
+          {
+            "claim": "the excerpt shows _clone_model returning an instance",
+            "evidence": "No return statement is visible after load_state_dict.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h0_pack.py",
+      "category": "code",
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "the passage is a process for evaluating model performance",
+            "evidence": "Its stated decision is REFUSES TO PACK unless three prerequisites fired.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "the passage is a process for evaluating model performance",
+            "evidence": "Its stated decision is REFUSES TO PACK unless three prerequisites fired.",
+            "severe": true
+          },
+          {
+            "claim": "the truncated 'mo' identifies assembly of the model itself",
+            "evidence": "The excerpt ends at 'the assembled mo'; its completed referent is not visible.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/build_d5_json.py",
+      "category": "code",
+      "exact_e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "q15_e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/d4_conditioning_and_nulls.py",
+      "category": "code",
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "shuffled_H_floor recovers the raw value from the original layer",
+            "evidence": "The visible assignment is shuffled_H_floor: recov_shuf; the original layer is not named.",
+            "severe": false
+          },
+          {
+            "claim": "wrong-layer null is recovered from the original layer",
+            "evidence": "The label explicitly says wrong_layer_H_null, assigned recov_wrong.",
+            "severe": false
+          },
+          {
+            "claim": "recovery_minus_shuffled_floor subtracts the original layer's raw value",
+            "evidence": "The formula is recov_real - recov_shuf, not a stated original-layer raw value.",
+            "severe": true
+          },
+          {
+            "claim": "recovery_minus_wrong_layer_null subtracts the correct layer's null",
+            "evidence": "The formula subtracts recov_wrong, labelled wrong_layer_H_null.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "wrong-layer null ignores all layer errors",
+            "evidence": "The visible field is recovery_raw_wrong_layer_H_null; no such error-free meaning is given.",
+            "severe": false
+          },
+          {
+            "claim": "three_way_points is a list",
+            "evidence": "Only keyed assignment three_way_points[point_key] = three_way is shown; list type is unsupported.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat02_w4_bf16_export_verify.py",
+      "category": "code",
+      "exact_e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "every shape element is at most 128",
+            "evidence": "The code requires positive integers; 128 is a divisibility constraint on shape[1].",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat02_w4_router_f32_heldout.py",
+      "category": "code",
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "the test is known to have run successfully",
+            "evidence": "The excerpt contains assertions, without a test outcome.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "the test is known to have run successfully",
+            "evidence": "The excerpt contains assertions, without a test outcome.",
+            "severe": false
+          },
+          {
+            "claim": "the patched attribute is runners.EXPECTED_HELDOUT_BYTES",
+            "evidence": "The call patches runner, singular, at EXPECTED_HELDOUT_BYTES.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_f16_vec_dot_diagnostic.py",
+      "category": "code",
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "the snippet uses the Python type function to create a file path",
+            "evidence": "The visible fragment is the tail of .astype('<f4', copy=False).tofile(mapped_kqv).",
+            "severe": false
+          },
+          {
+            "claim": "the second hash checks a test's identity",
+            "evidence": "Both sha256_file calls check mapped_kq and mapped_kqv target files.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "the snippet uses the Python type function to create a file path",
+            "evidence": "The visible fragment is the tail of .astype('<f4', copy=False).tofile(mapped_kqv).",
+            "severe": false
+          },
+          {
+            "claim": "the second hash checks a test's identity",
+            "evidence": "Both sha256_file calls check mapped_kq and mapped_kqv target files.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h4_selftest.py",
+      "category": "code",
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "main raises an exception if OUT does not exist",
+            "evidence": "The visible condition is if os.path.exists(OUT): raise SystemExit(...).",
+            "severe": true
+          },
+          {
+            "claim": "rec records the current thread's state",
+            "evidence": "The visible rec fields begin with stage and bundle; no thread state appears.",
+            "severe": false
+          },
+          {
+            "claim": "rec includes a JSON object of self-test results",
+            "evidence": "The excerpt cuts off at bundle_sha25 and shows no such object.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "main raises an exception if OUT does not exist",
+            "evidence": "The visible condition is if os.path.exists(OUT): raise SystemExit(...).",
+            "severe": true
+          },
+          {
+            "claim": "rec records the current thread's state",
+            "evidence": "Only stage and bundle fields are visible, with no thread state.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00005-of-00023-87dece6a0ab708e8.parquet:row=206",
+      "category": "prose",
+      "q15_e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "exact_e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00005-of-00023-87dece6a0ab708e8.parquet:row=439",
+      "category": "prose",
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "a ribald fetish was the work sold extensively in France",
+            "evidence": "The excerpt assigns the extensive sale to 'La Bible Amusante'.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "a ribald fetish was the work sold extensively in France",
+            "evidence": "The excerpt assigns the extensive sale to 'La Bible Amusante'.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00005-of-00023-87dece6a0ab708e8.parquet:row=566",
+      "category": "prose",
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "the narrator wonders who might currently be seated at the other table",
+            "evidence": "The long-nosed man has gone; the narrator asks who that man was.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "the man sits at a table inside the chateau",
+            "evidence": "The narrator watches the chateau from a cabaret and refers to the other table there.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00005-of-00023-87dece6a0ab708e8.parquet:row=500",
+      "category": "prose",
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "the woman holds sugar-tongs on the varnished floor",
+            "evidence": "She drops the tongs onto the floor when offered sugar.",
+            "severe": false
+          },
+          {
+            "claim": "Anna is the person described as ill at ease",
+            "evidence": "The unnamed woman who nods and drops the tongs is ill at ease; Anna speaks afterward.",
+            "severe": true
+          },
+          {
+            "claim": "Anna offers to pick up the tongs but is told to let Letty do it",
+            "evidence": "Anna herself says 'Letty will pick them up'; no one directs Anna otherwise.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "the woman holds sugar-tongs on the varnished floor",
+            "evidence": "She drops the tongs onto the floor when offered sugar.",
+            "severe": false
+          },
+          {
+            "claim": "Anna is the person described as ill at ease",
+            "evidence": "The unnamed woman who nods and drops the tongs is ill at ease; Anna speaks afterward.",
+            "severe": true
+          },
+          {
+            "claim": "Anna suggests the situation may be embarrassing for her",
+            "evidence": "Anna says not to mind and that Letty will pick the tongs up; no self-embarrassment is stated.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00005-of-00023-87dece6a0ab708e8.parquet:row=305",
+      "category": "prose",
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "the mother mouse is seen hiding the nest",
+            "evidence": "The excerpt reports a nest on the keyboard and the mother springing out; it does not show her hiding it.",
+            "severe": false
+          },
+          {
+            "claim": "the mother leaves behind the nest and its contents intact",
+            "evidence": "The excerpt explicitly says the nest and five young ones were destroyed.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "the mother mouse is seen hiding the nest",
+            "evidence": "The excerpt reports a nest on the keyboard and the mother springing out; it does not show her hiding it.",
+            "severe": false
+          },
+          {
+            "claim": "the mother leaves behind the nest and its contents intact",
+            "evidence": "The excerpt explicitly says the nest and five young ones were destroyed.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00005-of-00023-87dece6a0ab708e8.parquet:row=208",
+      "category": "prose",
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "Bigner's age is listed",
+            "evidence": "Bigner, 495 is an index entry with a page number, not an age.",
+            "severe": false
+          },
+          {
+            "claim": "Bigod's occupation is listed",
+            "evidence": "The index gives Roger Bigod with pages 257 and 365; no occupation appears.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "Bigner is located in Birmingham",
+            "evidence": "Bigner and Birmingham are separate index entries.",
+            "severe": true
+          },
+          {
+            "claim": "Bigod is located on the Isle of Wight",
+            "evidence": "Isle of Wight modifies Binstead quarries, not Bigod.",
+            "severe": true
+          },
+          {
+            "claim": "Binstead is in Kirkham",
+            "evidence": "Kirkham modifies Bird-fair; Binstead quarries are on the Isle of Wight.",
+            "severe": true
+          },
+          {
+            "claim": "Birkenhead is in Birmingham",
+            "evidence": "Birkenhead and Birmingham are separate entries.",
+            "severe": true
+          },
+          {
+            "claim": "Bisham Abbey is in Birmingham",
+            "evidence": "Bisham Abbey and Birmingham are separate entries.",
+            "severe": true
+          },
+          {
+            "claim": "Bishops Hatfield is in Mendip Hills",
+            "evidence": "Mendip Hills modifies Black Down, not Bishops Hatfield.",
+            "severe": true
+          },
+          {
+            "claim": "Bisterne is in Birmingham",
+            "evidence": "Bisterne and Birmingham are separate entries.",
+            "severe": true
+          },
+          {
+            "claim": "Bigners is listed under Birmingham",
+            "evidence": "The excerpt lists Bigner as its own entry and never says Bigners.",
+            "severe": true
+          }
+        ],
+        "severe_count": 8,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00005-of-00023-87dece6a0ab708e8.parquet:row=463",
+      "category": "prose",
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "the man is beating branches with a brush",
+            "evidence": "The visible excerpt starts mid-phrase at 'that he was beating the branches with'; the implement is absent.",
+            "severe": false
+          },
+          {
+            "claim": "the duke does not understand the gesture",
+            "evidence": "The observers cannot quite understand the duke's Spanish; no gesture misunderstanding is stated.",
+            "severe": false
+          },
+          {
+            "claim": "the duke sees another man and asks permission to approach",
+            "evidence": "The duke starts and approaches the observers, then begs pardon in Spanish; no second man or permission appears.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "the man is beating branches with a brush",
+            "evidence": "The visible excerpt starts mid-phrase at 'that he was beating the branches with'; the implement is absent.",
+            "severe": false
+          },
+          {
+            "claim": "the man wears a brown-study outfit",
+            "evidence": "'All in a brown study' describes a mental state, not clothing.",
+            "severe": true
+          },
+          {
+            "claim": "the duke cannot understand their conversation",
+            "evidence": "The observers cannot quite understand the duke's Spanish, reversing who fails to understand.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00005-of-00023-87dece6a0ab708e8.parquet:row=4",
+      "category": "prose",
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "the passage contrasts abstinuerunt with abstinuere",
+            "evidence": "Only Abstinuerunt a vino and its translation are visible.",
+            "severe": false
+          },
+          {
+            "claim": "Tiber-totallers are known for drinking wine",
+            "evidence": "The example translates as 'They abstained from wine'.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "Abstinuerunt a vino requires an accusative case",
+            "evidence": "The excerpt's accusative list begins later; a vino is not presented as requiring accusative.",
+            "severe": true
+          },
+          {
+            "claim": "the preposition is ererga",
+            "evidence": "The visible list says erga, not ererga.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_FFN_RMSNORM_CROSS_INPUT_RESULT_20260924.md",
+      "category": "technical_general",
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "FFN means Flattened Pyramid Network for image recognition",
+            "evidence": "The excerpt names layer-1 FFN RMSNorm in a GigaChat engine result, with no image task or pyramid network.",
+            "severe": true
+          },
+          {
+            "claim": "the model was trained under this frozen protocol",
+            "evidence": "The excerpt refers to a frozen cross-input diagnostic protocol, not model training.",
+            "severe": false
+          },
+          {
+            "claim": "the result supports image classification and object detection",
+            "evidence": "No image applications appear in the visible excerpt.",
+            "severe": true
+          },
+          {
+            "claim": "RMSNorm means Relative Positional Embedding Norm",
+            "evidence": "The text says RMSNorm and does not define it that way.",
+            "severe": false
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "FFN means Flattened Pyramid Network for image recognition",
+            "evidence": "The excerpt names layer-1 FFN RMSNorm in a GigaChat engine result, with no image task or pyramid network.",
+            "severe": true
+          },
+          {
+            "claim": "a device execution is shown",
+            "evidence": "Only protocol and apparatus links and a result status are visible.",
+            "severe": false
+          },
+          {
+            "claim": "the result proves conditions for device execution",
+            "evidence": "The excerpt gives a diagnostic status, not a device-execution certification.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_POST_F16_BLOCK0_TERMINAL_COMPONENT_CROSS_INPUT_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "the current layer itself passed all 32 checkpoints",
+            "evidence": "Exact reference l_out-0 makes all pass; the post-F16 current arm replays every failure.",
+            "severe": true
+          },
+          {
+            "claim": "there were no issues in the current arm",
+            "evidence": "The passage explicitly says the current arm replays every failure exactly.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "the current layer itself passed all 32 checkpoints",
+            "evidence": "Exact reference l_out-0 makes all pass; the post-F16 current arm replays every failure.",
+            "severe": true
+          },
+          {
+            "claim": "there were no issues in the current arm",
+            "evidence": "The passage explicitly says the current arm replays every failure exactly.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E1_BPB_THROUGH_ENGINE.md",
+      "category": "technical_general",
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "the tensor verification happens during engine initialization",
+            "evidence": "The visible excerpt says fp32 arms verify tensors, without an initialization phase.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "the tensor verification happens during engine initialization",
+            "evidence": "The visible excerpt says fp32 arms verify tensors, without an initialization phase.",
+            "severe": false
+          },
+          {
+            "claim": "Gate A's first failure came from the gate's state",
+            "evidence": "The visible diagnosis found two real bugs in the exporter.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/F1_GATE_PREDICTOR.md",
+      "category": "technical_general",
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "the predictor is treated as a simple arithmetic operation rather than a prediction task",
+            "evidence": "The excerpt only says a dtype-free convention flatters the predictor.",
+            "severe": false
+          },
+          {
+            "claim": "all calculation values use 0.25 bytes per element",
+            "evidence": "The 0.25 B/element figure applies to W_g/W_u/W_d ternary weights; factors and codebooks differ.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "the expression s equals r(D+F)/(D F)",
+            "evidence": "The formula is explicitly labelled pred, not s.",
+            "severe": false
+          },
+          {
+            "claim": "index codebooks and centroids use PQ codes of one byte",
+            "evidence": "The excerpt says codebooks/centroids fp16 and PQ codes one byte.",
+            "severe": false
+          }
+        ],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E45_DOES_SPEED_DEPEND_ON_THE_WEIGHTS.md",
+      "category": "technical_general",
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "e37_carved_nf.bin measures 30.75 and f.bin 89.83 tok/s",
+            "evidence": "The displayed order is f.bin against e37_carved_nf.bin, measured 30.75 vs 89.83.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "G-E45b reports the ratio without dispersion",
+            "evidence": "The gate requires dispersion or no report at all, with at least five pairs.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E16_R3_AT_7B.md",
+      "category": "technical_general",
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "the excerpt compares two versions of a code snippet",
+            "evidence": "It discusses an export flag default, a binary artifact and an R3 quality table.",
+            "severe": false
+          },
+          {
+            "claim": "using --rule produced a performance improvement",
+            "evidence": "The binary predates habitual use of --rule; no such before/after improvement is shown.",
+            "severe": true
+          },
+          {
+            "claim": "the exact performance difference is not specified",
+            "evidence": "The visible Qwen2.5-0.5B row explicitly says +0.461 above chance.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "the excerpt compares two code-snippet versions",
+            "evidence": "It discusses an export flag default and a binary artifact.",
+            "severe": false
+          },
+          {
+            "claim": "the binary failed at lower rates than the default version",
+            "evidence": "No rate comparison to a default artifact is visible; the R3 statement concerns 1.5B/0.5B quality.",
+            "severe": true
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER_MLP_AUDIT.md",
+      "category": "technical_general",
+      "q15_e1280": {
+        "unsupported": [
+          {
+            "claim": "curve is a dataset used to calculate digit-for-digit accuracy",
+            "evidence": "The visible command is donor_inventory.py curve and the measured quantity is tok/s.",
+            "severe": true
+          },
+          {
+            "claim": "n_att is a number of iterations",
+            "evidence": "The excerpt only gives n_att=14 as a configuration value, not an iteration count.",
+            "severe": false
+          },
+          {
+            "claim": "manual execution significantly improved accuracy over the tool",
+            "evidence": "The author re-derived the same 11.97 tok/s figure digit-for-digit, not an accuracy gain.",
+            "severe": true
+          }
+        ],
+        "severe_count": 2,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "exact_e1280": {
+        "unsupported": [
+          {
+            "claim": "11.97 tok/s is the lower bound",
+            "evidence": "The interval is [10.67 .. 12.68]; 11.97 is the central figure.",
+            "severe": true
+          },
+          {
+            "claim": "the author re-derived the code",
+            "evidence": "The passage says the author re-derived the figure by hand, not code.",
+            "severe": false
+          }
+        ],
+        "severe_count": 1,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E68_SHARED_RESIDUAL.md",
+      "category": "technical_general",
+      "q15_e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      },
+      "exact_e1280": {
+        "unsupported": [],
+        "severe_count": 0,
+        "missing_detail": false,
+        "ambiguous": []
+      }
+    }
+  ]
+}

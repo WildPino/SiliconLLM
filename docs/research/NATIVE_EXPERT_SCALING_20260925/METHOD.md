@@ -902,6 +902,18 @@ component gates and makes Q15 the next precision candidate for a
 preregistered full-model audit on new source-disjoint material. It
 does not establish Q15 donor quality or overturn METH-131's Q7
 grounding failure.
+[METH-133](METH_133_Q15_FULL_MODEL_QUALITY_RESULT_20260928.md) ran
+the required Q15 full-model audit on 24 new source/fragment-disjoint
+excerpts. All automatic gates pass, including pooled BPB delta
++0.000170 and repeated PIQA 1,283 versus 1,291 exact. A separately
+committed 24-pair blind grounding verdict then fails the frozen
+noninferiority rule: Q15 has 50 versus 39 unsupported claims and 24
+versus 16 severe claims, with missing detail 0/0. Q15 is therefore
+**not** a quality-valid compact child-B format. METH-131 and 133 show
+that better fixed-state factor error alone does not guarantee
+grounded autoregressive quality. Keep METH-126 exact BF16 as the
+quality-valid factor reference; any precision repair requires a new
+preregistered mechanism and new sources.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

@@ -1003,6 +1003,18 @@ scheduled.
   documents and blind grounding, then check native full-model parity
   and rate only if it passes. The compact core and RAM-scaled learned
   expert ladder remain open.
+  [METH-133](METH_133_Q15_FULL_MODEL_QUALITY_RESULT_20260928.md) ran
+  that fresh Q15 audit on 24 source/fragment-disjoint excerpts and the
+  repeated 1,838-item PIQA task. Automatic gates pass: pooled BPB
+  delta +0.000170, donor prompt top-1 +0.258 point, greedy EOS 20/24
+  versus 21/24, and PIQA 1,283 versus 1,291. The committed blind
+  excerpt verdict fails after unblinding: Q15 has 50 versus 39
+  unsupported and 24 versus 16 severe claims; missing detail is 0/0.
+  Do not quality-promote Q15. The exact METH-126 BF16 factor bank is
+  still the grounded reference. Any new precision method needs new
+  source-disjoint data; do not tune against METH-131/133 responses.
+  Prioritize a compact quality-valid core and the learned RAM-scaled
+  expert ladder; CPU LUT/full-model rate claims remain unproven.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
