@@ -1169,7 +1169,11 @@ its prospective train+new-source hot-parent gate despite four passing
 new-source cells: layer 3/child 215/local 3 gets 82/302 selections,
 27.15% against the 25% cap. This rejects the fixed boundary candidate
 for long matched training. [METH-171](METH_171_COMPOSED_HOT_PARENT_TRACE_PROTOCOL_20260928.md)
-will attribute that composed hot parent using an exact new-source trace.
+[METH-171](METH_171_COMPOSED_HOT_PARENT_TRACE_RESULT_20260928.md)
+attributes it with an exact new-source trace. A comma following the
+chat excerpt boundary newline at local position 56 contributes 57/82
+selections in the failed slot. The repeated hash pattern crosses source
+sets; this diagnoses route concentration without approving a repair.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

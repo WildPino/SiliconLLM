@@ -1314,8 +1314,14 @@ scheduled.
   each below the >=250 hot-parent definition, so their separate passes
   cannot license the long matched training. METH-170 native timing is
   conditional on a route pass and does not run. [METH-171](METH_171_COMPOSED_HOT_PARENT_TRACE_PROTOCOL_20260928.md)
-  freezes exact source-child attribution before considering a new route
-  hypothesis; PG19 shard 9 remains untouched for future quality.
+  [METH-171](METH_171_COMPOSED_HOT_PARENT_TRACE_RESULT_20260928.md)
+  captures the exact new-source children and reproduces all METH-169
+  raw/chat/combined histograms. One chat excerpt-boundary tuple, comma
+  after newline at position 56, accounts for 57/82 selections in the
+  failed slot across old, expanded and prospective inputs. The 16
+  prospective occurrences come from 16 distinct sources. This is
+  diagnostic only; a new rule needs another untouched prospective route
+  set. PG19 shard 9 remains untouched for future quality.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
