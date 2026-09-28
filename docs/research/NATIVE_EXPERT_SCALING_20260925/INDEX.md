@@ -21,7 +21,10 @@ untrained third-tier keys amplify parent hotspots. The prepared
 METH-137 external quality audit was not run on this rejected bank.
 METH-139's conditional-decile replacement improves the load screen
 but fails two frozen validation gates; a quality-tested E12800 rung
-remains open.
+remains open. METH-140 fits those deciles on all training draws but
+fails source-held-out document load badly (up to 3.214× control skew
+and 88.09% within-parent share), so calibration generalization is a
+new blocking method question.
 The quality-valid compact donor core, native same-artifact >=50
 accepted-token/s, CPU LUT factor cost at E12800, and 10B/100B transfer
 remain open. The earlier 539.955 MB BF16-attention/R8-head+FFN core
@@ -1067,6 +1070,17 @@ scheduled.
   no new E12800 training or quality promotion follows. Next: freeze a
   broader training-only calibration and genuinely source-held-out
   routing screen before a new training rung. CPU cost remains open.
+  [METH-140](METH_140_EXTERNAL_QUANTILE_ROUTE_RESULT_20260928.md)
+  fits the same conditional deciles on all 256 training draws and
+  checks METH-121 and METH-133 document routes separately. Initial
+  cloned BF16 logits and >6,000 selected grandchildren per layer
+  pass. Source-held-out balance fails broadly: worst candidate/control
+  load ratio 3.214×; worst within-parent share 88.09%; almost every
+  layer fails the relative skew gate and all fail the share gate on
+  both manifests. The 3.86 MB sidecar is read back exactly but is
+  rejected before native CPU cost or B training. Next: address long
+  context/source distribution shift with training-only calibration or
+  a routing mechanism that generalizes without scalar deciles.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

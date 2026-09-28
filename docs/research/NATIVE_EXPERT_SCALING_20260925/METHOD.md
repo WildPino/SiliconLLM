@@ -961,6 +961,16 @@ parent share exceeds 25%. This is evidence that data-calibrated
 partitions can sharply reduce the METH-138 hotspots but not a passed
 router or learned E12800 quality. More calibration and source-held-out
 routing validation require a new preregistered experiment.
+[METH-140](METH_140_EXTERNAL_QUANTILE_ROUTE_RESULT_20260928.md)
+uses all 256 training draws for the same decile fit and screens two
+separate 24-document manifests with long, nonoverlapping windows.
+Exact cloned BF16 parity and coverage pass, but held-out route load
+fails strongly: 3.214× worst candidate/control skew, 88.09% worst
+within-parent share, and all 24 layers violate the share gate on
+both manifests. More short-draw calibration does not establish
+generalizable expert use. A next method must account for long-context
+training-only states or change the router, then repeat a source-held-out
+load screen before spending on learned B or native LUT integration.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
