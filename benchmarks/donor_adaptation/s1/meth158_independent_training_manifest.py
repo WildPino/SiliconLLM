@@ -39,7 +39,7 @@ def main():
     ap.add_argument("--out", type=Path, required=True)
     args = ap.parse_args()
     assert not args.out.exists()
-    assert M17.sha(M15.TRAIN_PATH.read_bytes()) == M15.TRAIN_FILE_SHA
+    assert M17.sha(Path(M15.TRAIN_PATH).read_bytes()) == M15.TRAIN_FILE_SHA
     with np.load(M15.TRAIN_PATH, allow_pickle=False) as archive:
         raw_ids = archive["ids"].copy()
     assert raw_ids.shape == (31250, 512) and raw_ids.dtype == np.int32
