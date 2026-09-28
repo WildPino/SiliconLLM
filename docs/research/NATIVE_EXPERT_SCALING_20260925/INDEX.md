@@ -1199,6 +1199,12 @@ scheduled.
   select another candidate. Next: preregister a matched shared-base
   plus conditional-residual training/control experiment, then evaluate
   on a newly reserved disjoint quality set.
+  [METH-154](METH_154_POSTFAILURE_BANK_DECOMPOSITION_RESULT_20260928.md)
+  confirms from bound training artifacts that the E1280 control learned
+  a common B shift (RMS 8.26–10.53e-5/layer), whereas the exported
+  E12800 grandchild mean was restored to the original B (RMS at most
+  1.97e-6) despite nonzero specialist differences. This supports a
+  shared-base-plus-residual hypothesis, not a causal quality claim.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

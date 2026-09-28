@@ -1081,6 +1081,12 @@ passing donor-top1 and category regression limits. Generation and
 grounding were not run. The METH-152 route/load result stands, but
 useful extra capacity remains unproven. A new candidate needs a new
 frozen training/control design and a disjoint quality corpus.
+[METH-154](METH_154_POSTFAILURE_BANK_DECOMPOSITION_RESULT_20260928.md)
+measures a continued E1280 shared B shift and an E12800 exported mean
+restored to the original B. Specialist residuals are nonzero, but a
+new matched shared-base training design and untouched quality test are
+required to determine whether the missing common shift caused the
+METH-153 BPB regression.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
