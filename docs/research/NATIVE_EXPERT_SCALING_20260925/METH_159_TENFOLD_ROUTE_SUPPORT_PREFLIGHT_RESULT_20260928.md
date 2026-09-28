@@ -1,0 +1,20 @@
+# METH-159: tenfold independent-data route support fails
+
+**Decision: reject the current 75-tuple shared/content route for the proposed 2,560-update E12,800 training run.** The [protocol](METH_159_TENFOLD_ROUTE_SUPPORT_PREFLIGHT_PROTOCOL_20260928.md) froze five per-layer route-support gates before inference. On the complete independent METH-158 raw/chat pair set, content coverage, under-32 fraction and global maximum-load ratio pass; minimum active content-row median and worst hot-parent share fail. No longer matched E1,280/E12,800 training is licensed by this preflight. This is an untrained routing result, not a quality evaluation.
+
+The [runner](../../../benchmarks/native_expert_scaling/meth159_tenfold_route_support_screen.py), final bound revision `d8b14dd`, used the pinned METH-126 shared-A bank, METH-56/107 source routes, BF16 Qwen2.5-0.5B-Instruct donor and METH-149 75-tuple structural table. Its inputs are the METH-158 manifest SHA-256 `09086fc7c27877e12ae7c122365d67eef5d78d3cda442e5c3a5d36e8d452ed69` and verified merged teacher SHA-256 `cdcb22a4273148dede97a17eac81345c4fc5f8e40f09cb18ecac4e35115e437c`. Eight-prompt teacher/control BF16 logits match exactly. The [machine result](meth159_tenfold_route_support_result.json), SHA-256 `48074f7b404b409ba177acbbee97c196c1e2aa33f170930267fd25489edba509`, retains all 24 layers' 12,800-slot histograms and each source-row/prompt/continuation hash. It covers 887,330 input tokens and exactly 3,549,320 selected grandchildren per layer, of which 659,704 (18.59%) use the structural slot.
+
+| Frozen gate, applied to every layer | Observed worst layer | Limit | Decision |
+|---|---:|---:|---|
+| Teacher/control initial BF16 parity | exact | exact | Pass |
+| Content specialist coverage | 10,829 / 11,520 minimum | >=10,000 | Pass |
+| Median selections per active content specialist | **39 minimum** | >=50 | **Fail** |
+| Fraction of content specialists with fewer than 32 selections | 48.25% maximum | <=50% | Pass |
+| Global nine-way content maximum-load ratio | 1.038 maximum | <=1.25 | Pass |
+| Worst grandchild share among parents with >=250 content selections | **43.26%** | <=25% | **Fail** |
+
+The worst share occurs in layer 2, source child 314: local content slot 1 receives 186 of that parent's 430 content selections. Other failing layers also have shares above 25%, including layer 22 at 31.56% and layer 3 at 31.28%. The global maximum-load ratio divides the largest slot count by the largest parent count and therefore does not guarantee balance within every parent; the separate hot-parent gate catches this case. METH-157's 256-update active-row median was only 7–13, so the independent data improve support materially, but still miss the preregistered minimum in one layer.
+
+The executed command was `.venv/Scripts/python.exe benchmarks/native_expert_scaling/meth159_tenfold_route_support_screen.py --teacher-sha cdcb22a4273148dede97a17eac81345c4fc5f8e40f09cb18ecac4e35115e437c --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth159_tenfold_route_support_result.json`. The [finalizer log](meth158_finalize_preflight.stdout.log) records all 2,560 pair checkpoints. Runtime was 973.828 s on the local RTX 3060, 2.945 GB peak allocated GPU memory and 3.773 GB final RSS, within the frozen caps. No T4 was used.
+
+The next step is a **postfailure diagnostic**, not a retrial of this rejected training run. A CPU count on the same training IDs found 63 nonshared causal token tuples occurring >=32 times (3,487 total positions), including one occurring 182 times. These could explain concentration because the deterministic content hash sends a recurring tuple and source child to one local slot. METH-161 will capture source-child choices and replay the exact METH-159 histograms before attributing the failure or evaluating a revised structural table. More independent data may also be needed for the median gate. Any revised route needs prospective load and CPU screens, then matched training and a new untouched quality set; METH-153/156 remain consumed.
