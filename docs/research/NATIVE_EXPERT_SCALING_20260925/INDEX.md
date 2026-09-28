@@ -1148,6 +1148,16 @@ scheduled.
   remain. A 55-token-prefix bypass alone cannot fix this. Next:
   isolate strongly recurring causal contexts and preregister a shared
   structural route plus balanced content specialists if supported.
+  [METH-149](METH_149_RECURRENT_CONTEXT_ROUTE_RESULT_20260928.md)
+  freezes 75 token/previous/position tuples recurring in at least 32
+  of 256 chats before replay. They cover 16,629/54,095 chat input
+  positions and alone reach 100% hot-parent share. The remaining
+  37,466 chat positions have worst share 18.46% and worst slot-versus-
+  own-parent max load 1.168×; raw windows are similarly balanced.
+  This is postfailure diagnostic evidence for a shared structural
+  route, not a pass for METH-145 or permission to open METH-146.
+  Next: freeze and cost a new shared-structure/content-specialist
+  router, then retrain from exact BF16 and test untouched quality.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

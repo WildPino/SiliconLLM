@@ -1040,6 +1040,15 @@ A bypass limited to the global 55-token prompt prefix would leave
 the failure. Any next content-specialist router must account for
 all recurring causal contexts, preserve their CPU traffic, and pass
 new training and quality gates before an E12800 claim.
+[METH-149](METH_149_RECURRENT_CONTEXT_ROUTE_RESULT_20260928.md)
+classifies 75 causal token tuples seen in at least 32 of 256 chats.
+They explain the extreme concentration in the rejected final bank;
+other chat positions and raw windows stay below 18.46% hot-parent
+share and 1.215× maximum slot load relative to their own aggregated
+parent traffic. This is a postfailure diagnostic threshold on viewed
+training data, so it cannot rescue METH-145. It motivates a new
+shared structural B route with balanced content specialists, native
+CPU cost and separately frozen quality validation.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
