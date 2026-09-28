@@ -203,7 +203,7 @@ int main(int argc, char **argv) {
     }
     double base_median = median5(base_ms), expanded_median = median5(expanded_ms);
     int pass = expanded_median <= 3.0 && expanded_median <= 2.0 * base_median;
-    printf("THIRD_SUMMARY states=6144 selections=24576 child_unique_total=%d grand_unique_total=%d base_median_ms=%.9f e12800_median_ms=%.9f ratio=%.6f third_key_bytes_per_token=%zu sidecar_bytes=%zu max_residual_abs=%.9g rss_bytes=%zu elapsed_seconds=%.6f checksum=%.9f gate=%s\n",
+    printf("THIRD_SUMMARY states=6144 selections=24576 child_unique_total=%d grand_unique_total=%d base_median_ms=%.9f e12800_median_ms=%.9f ratio=%.6f third_router_addressed_bytes_per_token=%zu sidecar_bytes=%zu max_residual_abs=%.9g rss_bytes=%zu elapsed_seconds=%.6f checksum=%.9f gate=%s\n",
            child_total, grand_total, base_median, expanded_median,
            expanded_median / base_median,
            (size_t)24 * (third_projection_bytes + (size_t)4 * 10 * 32 * 4),
