@@ -27,7 +27,10 @@ and 88.09% within-parent share), so calibration generalization is a
 new blocking method question. METH-141 holds that failed sidecar fixed
 and finds both source and context-length shifts worsen its routing
 load; a balance mechanism that generalizes across contexts is needed
-before another B run.
+before another B run. METH-142's calibration-free token-context hash
+passes all six viewed load screens, with <=1.240× worst control-relative
+skew and <=20.47% hot-parent share; fresh source routing, full-model
+hash parity, native CPU cost and learned quality remain open.
 The quality-valid compact donor core, native same-artifact >=50
 accepted-token/s, CPU LUT factor cost at E12800, and 10B/100B transfer
 remain open. The earlier 539.955 MB BF16-attention/R8-head+FFN core
@@ -1093,6 +1096,15 @@ scheduled.
   latter is visible even at 128 tokens. More samples from the same
   short training mixture are not a sufficient repair. No quality
   promotion or native CPU cost claim follows.
+  [METH-142](METH_142_TOKEN_HASH_ROUTE_RESULT_20260928.md)
+  uses a fixed 64-bit hash of token context, position, source child
+  and layer to choose one of ten grandchildren, without fitted
+  thresholds. All six previously viewed load cells pass: worst
+  candidate/control skew 1.240×, worst hot-parent share 20.47%,
+  minimum per-layer coverage 6,992. The source child and E1280
+  teacher/control BF16 logits remain bound, but the hashed choice was
+  computed offline; a hash-routed model, new source load test, native
+  C cost, trained specialization and external quality are next.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

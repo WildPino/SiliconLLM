@@ -981,6 +981,18 @@ to source and context distribution for the present expert ladder.
 The next router must first show robust, source-held-out load without
 losing exact clone parity, then pass native CPU cost and learned B
 quality gates.
+[METH-142](METH_142_TOKEN_HASH_ROUTE_RESULT_20260928.md)
+screens a calibration-free 64-bit token-context hash as the third
+tier. Across H0 raw and two viewed document manifests at 128 and
+512-token windows, all frozen load gates pass: worst relative skew
+1.240×, worst hot-parent share 20.47%, and at least 6,992 selected
+grandchildren per layer. This supports further testing of a robust
+partition mechanism, not useful learned capacity: the hash was
+calculated offline, no hash-routed full-model parity or native CPU
+cost exists, and the routing sources were already viewed. Require a
+fresh source-held-out route check, exact cloned full-model logits,
+native CPU cost, then matched B training and untouched semantic
+quality before using this rung in the RAM scaling claim.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
