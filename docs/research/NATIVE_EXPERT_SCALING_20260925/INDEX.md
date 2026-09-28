@@ -13,7 +13,12 @@ passes a one-layer CPU-master sparse-gradient apparatus gate for an
 exact-clone E1280→E12800 third tier. METH-135 measures that tier's
 actual-state CPU route at 2.002 versus 1.483 ms/token-equivalent,
 passing its component gate. Its keys are untrained; useful distinct
-E12800 capacity and full-model quality remain unproven.
+E12800 capacity and full-model quality remain unproven. METH-136
+completed matched E1280/E12800 B-only training, but its E12800 bank
+failed the frozen route-load gate. METH-138 finds 287.349× maximum/mean
+slot load on final-state replay versus 56.417× for the control: the
+untrained third-tier keys amplify parent hotspots. The prepared
+METH-137 external quality audit was not run on this rejected bank.
 The quality-valid compact donor core, native same-artifact >=50
 accepted-token/s, CPU LUT factor cost at E12800, and 10B/100B transfer
 remain open. The earlier 539.955 MB BF16-attention/R8-head+FFN core
@@ -1032,11 +1037,28 @@ scheduled.
   sparse-training run, including all 24-layer memory/optimizer costs,
   route load and new-source quality/grounding. Do not infer cold DRAM,
   quality-valid LUT, full rate or 10B/100B transfer from this gate.
+  [METH-136](METH_136_MATCHED_E12800_SPARSE_TRAINING_RESULT_20260928.md)
+  completes matched 256-update E1280/E12800 training from exact BF16
+  parity. The candidate has 7,996–11,488 selected and
+  11,820–12,780 BF16-distinct rows per layer; its 4.40 GB bank is
+  hashed. The frozen maximum/mean route-load gate <=50 fails after
+  export. Its exact train-time candidate skew was not saved, so no
+  quality promotion or METH-137 audit follows. The run used 27.1
+  minutes, 33.9 GB RSS and 5.04 GB peak allocated GPU memory locally.
+  [METH-138](METH_138_FAILED_ROUTE_LOAD_DIAGNOSTIC_RESULT_20260928.md)
+  replays both final banks on the same training inputs: all 24
+  candidate layers exceed 50×, with worst load 287.349× versus
+  56.417× control. The hottest layer-17 grandchild gets 50.8% of its
+  parent's selections. Candidate parent-aggregated skew is 56.516×,
+  localizing most additional concentration to the seeded third tier.
+  This replay is not the exact changing-weight training histogram.
+  Next: register a traffic-aware third-tier allocation/selection rule,
+  keep CPU routing affordable, then retrain and audit on new sources.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
 this index by replacing current state, and put detailed evidence in the
 experiment record. Documentation is in English; no model/assistant signatures.
-Graphify is optional for targeted architecture questions. Its last complete
+Graphify is optional for explicit knowledge-graph work. Its last complete
 snapshot predates METH-48/49; the later whole-repository update was stopped
 after AST extraction because routine refresh cost outweighed its use here.

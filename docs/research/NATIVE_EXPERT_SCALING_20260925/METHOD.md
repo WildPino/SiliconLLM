@@ -935,6 +935,21 @@ versus E1280. The 42.1 MB sidecar and bad-magic control pass. This
 narrows the remaining scaling work to training useful distinct
 grandchildren and measuring cold factor traffic/full-model quality;
 the component CPU route pass cannot substitute for those results.
+[METH-136](METH_136_MATCHED_E12800_SPARSE_TRAINING_RESULT_20260928.md)
+shows that sparse CPU-master B-only training can complete two 256-update
+matched full-model arms within local memory and time limits. It creates
+11,820–12,780 BF16-distinct E12800 rows per layer, but fails its frozen
+maximum/mean route-load gate. No new-source quality claim follows.
+[METH-138](METH_138_FAILED_ROUTE_LOAD_DIAGNOSTIC_RESULT_20260928.md)
+replays the final banks and finds 287.349× worst E12800 slot skew,
+compared with 56.417× for continued E1280. Aggregating grandchildren
+back to parent children gives 56.516×, so the seeded third-tier argmax
+amplifies existing hotspots by assigning too much parent traffic to
+particular grandchildren. The next scaling method must control this
+conditional load while preserving trainable specialization and the
+METH-135 CPU routing cost; relaxing the failed threshold cannot promote
+the existing bank. The preregistered METH-137 external quality test
+remains unopened for METH-136.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient
