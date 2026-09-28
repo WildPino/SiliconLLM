@@ -98,16 +98,18 @@ def main():
     wrappers, banks = M136.make_wrappers(
         model, parent_state["expert_state"], child_state["expert_state"],
         source_a, source_b, prefixes, device, "hash")
-    del parent_state, child_state, source_a, source_b
+    del parent_state, child_state, source_a
     gc.collect()
     assert len(wrappers) == 24 and len(banks) == 24
     assert all(bank.shape == (12800, 896, 8) for bank in banks)
     assert all(w.shared_a.shape == (128, 8, 896) for w in wrappers)
     # The FP32 CPU rows originate from exactly rounded BF16 source bytes.
-    cloned_bytes = all(torch.equal(bank.view(1280, 10, 896, 8)[:, 0].to(torch.bfloat16),
-                                   bank.view(1280, 10, 896, 8)[:, 9].to(torch.bfloat16))
-                       for bank in banks)
+    cloned_bytes = all(torch.equal(
+        bank.view(1280, 10, 896, 8).to(torch.bfloat16),
+        original.to(torch.bfloat16)[:, None].expand(1280, 10, 896, 8))
+        for bank, original in zip(banks, source_b))
     assert cloned_bytes
+    del source_b
     budget(start, device)
 
     missing_context_rejected = False
@@ -133,6 +135,9 @@ def main():
             for li, wrapper in enumerate(wrappers):
                 assert torch.equal(wrapper.last_parents.cpu(), reference["parents"][li])
                 assert torch.equal(wrapper.last_scores.cpu(), reference["scores"][li])
+                assert torch.equal(
+                    torch.softmax(wrapper.last_scores.cpu(), dim=-1).to(torch.bfloat16),
+                    torch.softmax(reference["scores"][li], dim=-1).to(torch.bfloat16))
                 child = wrapper.last_children.cpu()
                 assert torch.equal(child, reference["children"][li])
                 grand = wrapper.last_selected.cpu()
