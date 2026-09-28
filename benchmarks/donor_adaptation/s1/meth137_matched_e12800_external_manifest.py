@@ -29,6 +29,7 @@ SEED = "meth137-e12800-external-137000"
 COUNTS = {"code": 8, "prose": 8, "technical_general": 8}
 PG19_REL = "data/external/pg19/data/train-00006-of-00023-c50fea56d0518a87.parquet"
 PG19_SHA = "d4d8e090b8dd808dad686d93ea1309221edfbff3e412bb5da76a1f28108a7f5a"
+PG19_FIRST_REL = "data/external/pg19/data/train-00000-of-00023-5263dc4323e881d2.parquet"
 M133_PATH = DIR / "meth133_q15_external_manifest.json"
 M133_SHA = "ec6f839a2c9b1803dc8d5658aafa8fd9191b59fa2607961850f5a8666bc35674"
 TRAIN_RESULT = DIR / "meth136_matched_sparse_train_result.json"
@@ -59,6 +60,20 @@ def main():
     assert M17.sha(M57M.M45.read_bytes()) == M57M.M45_SHA
     assert M17.sha(M57.EXTERNAL.read_bytes()) == M57.EXTERNAL_SHA
     assert M17.sha((ROOT / PG19_REL).read_bytes()) == PG19_SHA
+    # build_calib._read_pg19 stops as soon as this byte budget is met. Prove
+    # the first train shard alone covers it, so shard 6 cannot be in H0 calib.
+    pg19_budget = int(320 * 1024 * 1024 * 0.40)
+    first_bytes = 0
+    for batch in pq.ParquetFile(ROOT / PG19_FIRST_REL).iter_batches(
+            batch_size=8, columns=["text"]):
+        for value in batch.column("text").to_pylist():
+            if value:
+                first_bytes += len(value.encode("utf-8", "ignore"))
+            if first_bytes >= pg19_budget:
+                break
+        if first_bytes >= pg19_budget:
+            break
+    assert first_bytes >= pg19_budget
     assert file_sha(EXACT_BANK) == EXACT_SHA
     assert file_sha(CHILD) == CHILD_SHA
     training_bytes = TRAIN_RESULT.read_bytes()
@@ -192,6 +207,9 @@ def main():
               "source_commit": REF, "pg19_train6_parquet_sha256": PG19_SHA,
               "pg19_train6_rows": row_index,
               "h0_calib_sha256": M17.CALIB_SHA,
+              "h0_pg19_first_shard_satisfies_budget": True,
+              "h0_pg19_first_shard_bytes_scanned": first_bytes,
+              "h0_pg19_budget_bytes": pg19_budget,
               "train_chat_sha256": M56.TRAIN_CHAT_SHA,
               "long_teacher_sha256": M107.LONG_TEACHER_SHA,
               "prior_manifest_sha256": {path.name: digest for path, digest in PRIOR},
