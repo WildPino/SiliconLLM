@@ -1073,6 +1073,14 @@ raises all-token skew as expected; this traffic remains a CPU cost. The
 result licenses only the already preregistered METH-153 fresh-source
 quality comparison. Useful expert count, donor retention, grounded
 generation and end-to-end native throughput remain open.
+[METH-153](METH_153_SHARED_E12800_FRESH_PREDICTION_RESULT_20260928.md)
+rejects the trained shared-route bank at its first untouched quality
+gate: pooled BPB is +0.000183 worse than the continued E1280 control
+and the bootstrap lower improvement bound is negative, despite
+passing donor-top1 and category regression limits. Generation and
+grounding were not run. The METH-152 route/load result stands, but
+useful extra capacity remains unproven. A new candidate needs a new
+frozen training/control design and a disjoint quality corpus.
 NES-01 has concluded with a failed joint gate. Its trained quality and C
 pilot results remain useful target-geometry evidence. NES-02 closes the first
 10× CPU cost probe and rejects parallel dense-row scoring as a sufficient

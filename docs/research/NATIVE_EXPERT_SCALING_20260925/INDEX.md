@@ -1188,6 +1188,17 @@ scheduled.
   frozen [METH-153](METH_153_SHARED_E12800_FRESH_QUALITY_PROTOCOL_20260928.md)
   source/fragment-disjoint quality audit. No useful-expert or native
   accepted-token claim yet.
+  [METH-153](METH_153_SHARED_E12800_FRESH_PREDICTION_RESULT_20260928.md)
+  freezes 24 new source/fragment-disjoint documents and fails its first
+  quality gate: pooled candidate-minus-continued-control BPB is
+  +0.000183 against the required <=-0.00005, and the paired bootstrap
+  lower gain bound is negative. Donor-top1 retention and all three
+  category regression limits pass. Stop before generation/PIQA/blind
+  grounding; METH-152 establishes trainable balanced content experts,
+  not useful added capacity. Do not reuse the METH-153 sources to
+  select another candidate. Next: preregister a matched shared-base
+  plus conditional-residual training/control experiment, then evaluate
+  on a newly reserved disjoint quality set.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
