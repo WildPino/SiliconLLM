@@ -1104,7 +1104,7 @@ mechanism claim must be derived or measured, never asserted because it sounds ri
 | reproduction | `docs/REPRODUCE.md` |
 | recall tier | `benchmarks/phase56/` |
 | the narrative history | `HANDOFF.md`, `docs/silicon_book/` (Appendix C is the reusable findings register) |
-| knowledge graph | `graphify-out/` — use `graphify query "<question>"` before grepping |
+| knowledge graph | `graphify-out/` — query it when a graph relationship is specifically useful; routine code search does not require it |
 
 ---
 
