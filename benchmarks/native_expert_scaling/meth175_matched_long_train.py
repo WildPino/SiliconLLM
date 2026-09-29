@@ -14,6 +14,7 @@ import meth136_sparse_experts  # inserts S1 import path
 import meth136_matched_sparse_train as M136
 import meth150_shared_structure_route as R150
 import meth155_factorized_shared_experts as F155
+import meth175_exact_checkpoint as C175
 import meth175_training_draws as D175
 
 
@@ -114,6 +115,9 @@ def main():
     ap.add_argument("--bank", type=Path, required=True)
     ap.add_argument("--control-result-sha")
     ap.add_argument("--control-bank-sha")
+    ap.add_argument("--resume", action="store_true")
+    ap.add_argument("--checkpoint-interval", type=int)
+    ap.add_argument("--pause-after-update", type=int)
     args = ap.parse_args()
     assert not args.out.exists() and not args.bank.exists()
     assert M136.digest(ROUTE) == ROUTE_SHA
@@ -144,6 +148,24 @@ def main():
     M136.MAX_RSS = MAX_RSS
     M136.MAX_DISK = MAX_DISK
     M136.HOT_PARENT_MIN_COUNT = 1 if args.pilot else 250
+    checkpoint_root = args.bank.with_suffix(".checkpoint")
+    checkpoint_identity = {
+        "arm": args.arm, "pilot": args.pilot,
+        "draws_sha256": DRAWS_SHA, "table_sha256": TABLE_SHA,
+        "route_replay_sha256": ROUTE_SHA, "updates": len(draws),
+        "out": str(args.out.resolve()), "bank": str(args.bank.resolve())}
+    checkpoint_interval = (args.checkpoint_interval or
+                           (8 if args.pilot else 256 if args.arm == "control" else 512))
+    assert 1 <= checkpoint_interval <= len(draws)
+    if args.pause_after_update is not None:
+        assert args.pilot and not args.resume
+        assert args.pause_after_update % checkpoint_interval == 0
+    if args.resume:
+        previous, _ = C175.peek(checkpoint_root, checkpoint_identity)
+        elapsed_prior = previous["elapsed_seconds"]
+    else:
+        assert not checkpoint_root.exists(), checkpoint_root
+        elapsed_prior = 0.0
     torch.set_num_threads(6)
     torch.set_grad_enabled(True)
     gpus = [i for i in range(torch.cuda.device_count())
@@ -152,7 +174,7 @@ def main():
     device = torch.device(f"cuda:{gpus[0]}")
     torch.cuda.set_device(device)
     torch.cuda.reset_peak_memory_stats(device)
-    started = time.monotonic()
+    started = time.monotonic() - elapsed_prior
     parent, child = M136.bind_inputs()
     source_a, source_b, prefixes = M136.load_factor_bank()
     parity = json.loads(M136.PARITY.read_text(encoding="utf-8"))["items"]
@@ -170,7 +192,13 @@ def main():
             teacher, parent["expert_state"], child["expert_state"],
             source_a, source_b, prefixes, None, raw_ids, chat, draws,
             parity, device, started, args.bank, progress,
-            project_following_arm=False)
+            project_following_arm=False,
+            checkpoint_root=checkpoint_root,
+            checkpoint_identity=checkpoint_identity,
+            checkpoint_interval=checkpoint_interval,
+            checkpoint_max_bytes=(7_000_000_000 if args.arm == "control"
+                                  else 80_000_000_000),
+            pause_after_update=args.pause_after_update)
     except BaseException as error:
         failure = args.out.with_name(args.out.stem + ".failure.json")
         failure.write_text(json.dumps({
@@ -228,11 +256,17 @@ def main():
               "expected_structural_selections_per_layer": expected_shared,
               "updates": len(draws), "candidate_metrics": metrics,
               "artifact": result["artifact"], "training": result,
+              "checkpoint": {"identity": checkpoint_identity,
+                             "interval": checkpoint_interval,
+                             "resumed_from_update": result["resumed_from_update"],
+                             "last_manifest_sha256": M136.digest(
+                                 checkpoint_root / "latest.json")},
               "gates": gates, "decision": decision,
               "runtime": {**M136.budget(started, device),
                           "gpu": torch.cuda.get_device_name(device)}}
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
+    C175.cleanup(checkpoint_root)
     print(json.dumps({"decision": decision, "gates": gates,
                       "metrics": metrics,
                       "bank_sha256": result["artifact"]["sha256"],

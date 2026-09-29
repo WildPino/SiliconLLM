@@ -1354,7 +1354,12 @@ scheduled.
   stopped at update 16 because an inherited projected-time guard counted
   both arms in one process. The [failure record](METH_175_CONTROL_FIRST_ATTEMPT_20260928.md)
   preserves that result and explains the single-arm guard correction.
-  The restarted full E1280 control is running. A
+  The restarted full E1280 control reached update 1,408 without a
+  training error, then Windows shut down at 00:30 on September 29.
+  Both process handles ended with no final bank. The
+  [exact-resume amendment](METH_175_CHECKPOINT_AMENDMENT_20260929.md)
+  adds bounded CPU optimizer/bank snapshots before restarting from
+  update 1. A
   [local supervisor](../../../benchmarks/native_expert_scaling/meth175_control_candidate_supervisor.py)
   will start E12800 on the identical draws only after the control process
   exits successfully and its result, gates and bank hash verify. The

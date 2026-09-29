@@ -323,7 +323,9 @@ def export_bank(path, banks, source_b, centered):
 def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
               router_prefixes, third, raw_ids, chat, draws, parity_items,
               device, start, artifact_path, progress_path,
-              project_following_arm=True):
+              project_following_arm=True, checkpoint_root=None,
+              checkpoint_identity=None, checkpoint_interval=256,
+              checkpoint_max_bytes=0, pause_after_update=None):
     model = model_shell(device)
     wrappers, banks = make_wrappers(model, parent_state, child_state,
                                     source_a, source_b, router_prefixes,
@@ -351,7 +353,21 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
     records = []
     gradient_transfer_total = 0
     arm_started = time.monotonic()
-    for draw in draws:
+    resumed_from_update = 0
+    if checkpoint_root is not None:
+        import meth175_exact_checkpoint as checkpoint
+        assert checkpoint_identity is not None and checkpoint_interval > 0
+        assert checkpoint_max_bytes > 0
+        if (Path(checkpoint_root) / "latest.json").exists():
+            state = checkpoint.restore(checkpoint_root, checkpoint_identity,
+                                       wrappers, banks, optimizers, route_counts,
+                                       content_counts, structural_counts)
+            resumed_from_update = state["completed_update"]
+            assert 0 < resumed_from_update <= len(draws)
+            records = state["records"]
+            gradient_transfer_total = state["gradient_transfer_total"]
+            arm_started -= state["arm_seconds"]
+    for draw in draws[resumed_from_update:]:
         update = draw["update"]
         for wrapper in wrappers:
             wrapper.collector = SparseCollector()
@@ -450,6 +466,22 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
                 projected += (time.monotonic() - arm_started) / 16 * UPDATES
             if projected > MAX_SECONDS:
                 raise RuntimeError(f"METH-136 projected runtime stop: {projected}")
+        if (checkpoint_root is not None and
+                (update % checkpoint_interval == 0 or update == len(draws))):
+            snapshot = checkpoint.save(
+                checkpoint_root, checkpoint_identity, update,
+                lambda: time.monotonic() - start,
+                lambda: time.monotonic() - arm_started,
+                wrappers, banks, optimizers, route_counts,
+                content_counts, structural_counts, records,
+                gradient_transfer_total, checkpoint_max_bytes)
+            print(json.dumps({"arm": name, "checkpoint_update": update,
+                              "snapshot_bytes": snapshot["snapshot_bytes"],
+                              "metadata_sha256": snapshot["metadata_sha256"]}),
+                  flush=True)
+            budget(start, device)
+            if update == pause_after_update:
+                raise RuntimeError(f"METH-175 checkpoint pause after update {update}")
     coverage = [int((counts > 0).sum()) for counts in route_counts]
     load_skew = [float(counts.max() / counts.float().mean()) for counts in route_counts]
     selected_total = [int(counts.sum()) for counts in route_counts]
@@ -530,6 +562,8 @@ def train_arm(name, teacher, parent_state, child_state, source_a, source_b,
               "forward_B_transfer_bytes": sum(w.forward_B_transfer_bytes for w in wrappers),
               "forward_B_gather_calls": sum(w.gather_calls for w in wrappers),
               "gradient_B_transfer_bytes": gradient_transfer_total,
+              "resumed_from_update": resumed_from_update,
+              "checkpoint_interval": checkpoint_interval if checkpoint_root is not None else None,
               "artifact": artifact,
               "runtime": {"arm_seconds": time.monotonic() - arm_started,
                           **budget(start, device)}}
