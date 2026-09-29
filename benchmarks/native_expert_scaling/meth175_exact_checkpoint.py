@@ -30,6 +30,13 @@ def _within(root, path):
     return path
 
 
+def _prune_unreferenced(root, current):
+    for path in root.iterdir():
+        if path.is_dir() and path != current:
+            assert path.name.startswith("u")
+            shutil.rmtree(_within(root, path))
+
+
 def _optimizer_state(optimizer):
     return {"used": optimizer.used, "capacity": optimizer.capacity,
             "locations": optimizer.locations,
@@ -78,6 +85,7 @@ def save(root, identity, update, elapsed_seconds, arm_seconds, wrappers, banks,
     if (root / "latest.json").exists():
         previous, old = peek(root, identity)
         assert previous["completed_update"] < update
+        _prune_unreferenced(root, old)
         old_bytes = sum(item["bytes"] for item in previous["layers"])
         old_bytes += (old / "metadata.json").stat().st_size
     temporary = _within(root, root / f"u{update:04d}.partial")
@@ -145,6 +153,7 @@ def save(root, identity, update, elapsed_seconds, arm_seconds, wrappers, banks,
 def restore(root, identity, wrappers, banks, optimizers, route_counts,
             content_counts, structural_counts):
     metadata, snapshot = peek(root, identity)
+    _prune_unreferenced(Path(root), snapshot)
     factorized = identity["arm"] == "candidate"
     for li, entry in enumerate(metadata["layers"]):
         file = snapshot / entry["file"]
