@@ -1358,8 +1358,11 @@ scheduled.
   training error, then Windows shut down at 00:30 on September 29.
   Both process handles ended with no final bank. The
   [exact-resume amendment](METH_175_CHECKPOINT_AMENDMENT_20260929.md)
-  adds bounded CPU optimizer/bank snapshots before restarting from
-  update 1. A
+  adds bounded CPU optimizer/bank snapshots. The
+  [exact-resume pilot](METH_175_EXACT_RESUME_PILOT_RESULT_20260929.md)
+  reproduces all 16 update records and the uninterrupted pilot's exact
+  4.404 GB BF16 bank SHA after a stop at update 8. The full E1280 control
+  has restarted from update 1 with snapshots every 256 updates. A
   [local supervisor](../../../benchmarks/native_expert_scaling/meth175_control_candidate_supervisor.py)
   will start E12800 on the identical draws only after the control process
   exits successfully and its result, gates and bank hash verify. The
