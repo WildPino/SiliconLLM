@@ -56,12 +56,12 @@ METH-204 fits nine shared rank-32 content keys per layer and a
 per-parent load bias, retaining the structural path. Content signal
 and coverage pass on both fit cells, but load fails in 19/24 layers
 and hot-parent share fails in all 24; reserved/source screens remain
-unopened. **Next exact action:** test whether repeated projected
-states impose a 25% deterministic-load floor in the failing hot
-parents, then specify a bounded parent-specific content assignment
-with a hard load constraint. Require fit, reserved and source-separated
-route gates before B training, then price actual native CPU routing.
-This is a proposed next mechanism, not a validated method.
+unopened. METH-205 replays those inputs and finds no exact-state
+floor above 25% (worst 2.344%); pooled soft shares stay near 11.1%
+while argmax reaches 73.769%. **Next exact action:** freeze and run
+temperature-annealed bias calibration with the saved METH-204 keys,
+then require the original separate fit, reserved and source-transfer
+gates before B training or native CPU route promotion.
 Merely continuing the same hash-route/shared-base
 recipe is not a justified path to useful additional specialists. The
 METH-184 normalized content-score/hash mixture also fails its frozen

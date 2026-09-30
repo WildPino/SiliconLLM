@@ -1275,6 +1275,12 @@ frozen stop rule. This rejects the implemented global-key/bias rule,
 not learned content routing generally; a next design must inspect
 repeated state concentration and improve parent-local assignment
 before paying for another B bank.
+The [METH-205 saved-router replay](METH_205_DETERMINISTIC_ROUTE_FLOOR_RESULT_20260930.md)
+finds no exact q-vector recurrence floor above 25%. Pooled soft
+shares are 11.111–11.277% at calibration temperature 0.05, while
+hard argmax shares reach 73.769%. The implementation must therefore
+close its soft/hard calibration gap and still pass each domain cell;
+input recurrence does not currently force a changed router input.
 
 The [large-RAM `engine.c` LUT probe](METH_177_LARGE_RAM_LUT_POOL_RESULT_20260930.md)
 measures a fully initialized synthetic E12,800→E128,000 bank at
