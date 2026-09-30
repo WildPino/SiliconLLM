@@ -1229,6 +1229,11 @@ content-B difference to variation among siblings; the rest is a common
 parent shift. On previously consumed inputs, the [route rotation
 ablation](METH_179_CONTENT_ROUTE_FUNCTION_RESULT_20260930.md) finds no
 functional benefit for the trained exact content route over eight rotations.
+The [real-state METH-201 function screen](METH_201_CHILD_FUNCTION_SPREAD_RESULT_20260930.md)
+finds that the nine content children differ by only 1.583% root mean
+square of their gate-weighted mean residual and 0.00396% of the full
+MLP output on its viewed 8×128-token sample, with exact selected-child
+and MLP-output parity. No layer meets its functional-diversity screen.
 These diagnostics make more updates of the same hash-route/shared-base
 recipe unjustified without a new mechanism and untouched quality set.
 

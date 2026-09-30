@@ -37,7 +37,11 @@ METH-176 quality gain fails the paired source bootstrap. METH-178 finds
 only 2.318% of route-weighted candidate-minus-control B difference in
 within-parent child variation, and METH-179 finds no functional advantage
 for the exact trained content route over eight rotations on consumed
-diagnostic inputs. Merely continuing the same hash-route/shared-base
+diagnostic inputs. METH-201 applies all nine trained content children
+to identical real states and gates: pooled sibling output spread is
+only 1.583% of the content-parent mean residual and 0.00396% of the
+full MLP output; no layer meets its functional-diversity screen.
+Merely continuing the same hash-route/shared-base
 recipe is not a justified path to useful additional specialists. The
 METH-184 normalized content-score/hash mixture also fails its frozen
 training load/signal gates before external validation, with repeated
