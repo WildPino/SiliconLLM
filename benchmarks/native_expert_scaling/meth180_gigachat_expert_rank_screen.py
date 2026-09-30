@@ -57,8 +57,9 @@ def row(matrix, layer, expert, organ, bf16_sha, file_name, start):
     assert matrix.dtype == np.float32
     assert matrix.shape == ((1536, 1280) if organ == "down_proj" else (1280, 1536))
     original_sumsq = float(np.square(matrix.astype(np.float64)).sum())
-    values = scipy.linalg.svdvals(matrix, overwrite_a=False,
-                                  check_finite=False, lapack_driver="gesdd")
+    values = scipy.linalg.svd(matrix, full_matrices=False, compute_uv=False,
+                              overwrite_a=False, check_finite=False,
+                              lapack_driver="gesdd")
     assert values.size == 1280 and np.all(np.isfinite(values))
     assert np.all(values[:-1] >= values[1:]) and values[-1] >= 0
     singular_squares = np.square(values.astype(np.float64))
