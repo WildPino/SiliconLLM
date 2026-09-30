@@ -1236,7 +1236,17 @@ The [large-RAM `engine.c` LUT probe](METH_177_LARGE_RAM_LUT_POOL_RESULT_20260930
 measures a fully initialized synthetic E12,800→E128,000 bank at
 429.945→562.925 microseconds/token on six CPU threads. Its 1.309× ratio
 misses the frozen 1.25× relative gate, although the 5 ms absolute
-component gate passes. It is not a full-model accepted-token measurement.
+component gate passes. Later [METH-197](METH_197_PREFETCH_RESULT_20260930.md)
+finds explicit selected-factor prefetch regresses both pool sizes, while
+its no-prefetch same-binary ratio reverses to 0.917. Paired
+[METH-198](METH_198_PAIRED_LUT_SCALING_RESULT_20260930.md),
+core-bound [METH-199](METH_199_BOUND_LUT_SCALING_RESULT_20260930.md)
+and one-thread [METH-200](METH_200_SINGLE_THREAD_LUT_SCALING_RESULT_20260930.md)
+controls all fail their frozen within-size repeatability limits.
+Therefore the 10× pool ratio is **unresolved on this host**; do not
+use either one-shot ratio as a scaling pass/fail claim. The observed
+selected-factor component medians remain below 0.7 ms/token, but
+none is a full-model accepted-token measurement.
 
 For the real GigaChat 10B donor, the [METH-180 weight screen](METH_180_GIGACHAT_EXPERT_RANK_RESULT_20260930.md)
 rejects direct unweighted rank-192 int8 SVD factors: the median optimal

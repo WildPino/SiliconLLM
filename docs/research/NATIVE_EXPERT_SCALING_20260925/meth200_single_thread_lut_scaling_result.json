@@ -1,0 +1,371 @@
+{
+  "experiment": "METH-200-single-thread-paired-LUT-scaling",
+  "protocol": "METH_200_SINGLE_THREAD_LUT_SCALING_PROTOCOL_20260930.md",
+  "prior_sha256": "25fecb0a5e1453dd2418968a77764462c8418d7bee28ca8ce9470c4c0b8c45a6",
+  "source_sha256": "daa0d844badcaa499ec93949f27a58bf6ee3d9e8c9a968c2a8a0620ff9bb43a4",
+  "binary_sha256": "e64440a18b1dcff1ffc049bbed3b0ebf02d8e8edfb13ac284d6a4fd8c9cb63fa",
+  "selftest": "==== engine kernel self-test (synthetic, no weights): all LUT paths vs scalar-int ====\n  73024 checks | worst |S - S_ref| = 0  PASS\n  exp256_ps vs libm on [-30,0]: max rel err = 1.191e-07  PASS (<=2e-6)",
+  "order": [
+    12800,
+    128000,
+    128000,
+    12800,
+    12800,
+    128000
+  ],
+  "runs": [
+    {
+      "pool_bytes": 5505024000,
+      "selected_code_bytes_per_token": 1720320,
+      "init_seconds": 0.653129,
+      "repetitions": [
+        {
+          "rep": 1,
+          "seconds": 0.135271,
+          "us_token": 264.201,
+          "selected_gbps": 6.511,
+          "checksum": 363
+        },
+        {
+          "rep": 2,
+          "seconds": 0.1359563,
+          "us_token": 265.54,
+          "selected_gbps": 6.479,
+          "checksum": -821
+        },
+        {
+          "rep": 3,
+          "seconds": 0.1328323,
+          "us_token": 259.438,
+          "selected_gbps": 6.631,
+          "checksum": -2310
+        },
+        {
+          "rep": 4,
+          "seconds": 0.1329915,
+          "us_token": 259.749,
+          "selected_gbps": 6.623,
+          "checksum": -4429
+        }
+      ],
+      "median_last_three_us_token": 259.749,
+      "median_last_three_selected_gbps": 6.623,
+      "run": 1,
+      "experts": 12800,
+      "command": [
+        "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+        "--rank8-lut-pool",
+        "12800",
+        "--threads",
+        "1"
+      ],
+      "elapsed_seconds": 1.4209999999984575,
+      "available_ram_before_bytes": 70159908864,
+      "log_sha256": "bebeafe720bd9eb76cf7362786a996cc007b7bfc1e6d6ebd820f5a74b001a288",
+      "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth200_single_thread_lut_scaling_result.run1.e12800.log"
+    },
+    {
+      "pool_bytes": 55050240000,
+      "selected_code_bytes_per_token": 1720320,
+      "init_seconds": 7.683269,
+      "repetitions": [
+        {
+          "rep": 1,
+          "seconds": 0.1365173,
+          "us_token": 266.635,
+          "selected_gbps": 6.452,
+          "checksum": 1299
+        },
+        {
+          "rep": 2,
+          "seconds": 0.1358581,
+          "us_token": 265.348,
+          "selected_gbps": 6.483,
+          "checksum": -1521
+        },
+        {
+          "rep": 3,
+          "seconds": 0.1361795,
+          "us_token": 265.976,
+          "selected_gbps": 6.468,
+          "checksum": -2842
+        },
+        {
+          "rep": 4,
+          "seconds": 0.1385322,
+          "us_token": 270.571,
+          "selected_gbps": 6.358,
+          "checksum": -4663
+        }
+      ],
+      "median_last_three_us_token": 265.976,
+      "median_last_three_selected_gbps": 6.468,
+      "run": 2,
+      "experts": 128000,
+      "command": [
+        "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+        "--rank8-lut-pool",
+        "128000",
+        "--threads",
+        "1"
+      ],
+      "elapsed_seconds": 10.39100000000326,
+      "available_ram_before_bytes": 70187134976,
+      "log_sha256": "53d9dfa15ef774a8435f94c4cea65310d619cfab24f29bdc23ef73e84688de4d",
+      "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth200_single_thread_lut_scaling_result.run2.e128000.log"
+    },
+    {
+      "pool_bytes": 55050240000,
+      "selected_code_bytes_per_token": 1720320,
+      "init_seconds": 7.776796,
+      "repetitions": [
+        {
+          "rep": 1,
+          "seconds": 0.1369081,
+          "us_token": 267.399,
+          "selected_gbps": 6.434,
+          "checksum": 1299
+        },
+        {
+          "rep": 2,
+          "seconds": 0.136913,
+          "us_token": 267.408,
+          "selected_gbps": 6.433,
+          "checksum": -1521
+        },
+        {
+          "rep": 3,
+          "seconds": 0.1367017,
+          "us_token": 266.996,
+          "selected_gbps": 6.443,
+          "checksum": -2842
+        },
+        {
+          "rep": 4,
+          "seconds": 0.1362705,
+          "us_token": 266.153,
+          "selected_gbps": 6.464,
+          "checksum": -4663
+        }
+      ],
+      "median_last_three_us_token": 266.996,
+      "median_last_three_selected_gbps": 6.443,
+      "run": 3,
+      "experts": 128000,
+      "command": [
+        "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+        "--rank8-lut-pool",
+        "128000",
+        "--threads",
+        "1"
+      ],
+      "elapsed_seconds": 10.56199999999808,
+      "available_ram_before_bytes": 70212452352,
+      "log_sha256": "f72b00ebb6cdc1dfa300bdf25b264a61dfc757923482724b2aa63d8d041d5a63",
+      "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth200_single_thread_lut_scaling_result.run3.e128000.log"
+    },
+    {
+      "pool_bytes": 5505024000,
+      "selected_code_bytes_per_token": 1720320,
+      "init_seconds": 0.675019,
+      "repetitions": [
+        {
+          "rep": 1,
+          "seconds": 0.1329119,
+          "us_token": 259.594,
+          "selected_gbps": 6.627,
+          "checksum": 363
+        },
+        {
+          "rep": 2,
+          "seconds": 0.134021,
+          "us_token": 261.76,
+          "selected_gbps": 6.572,
+          "checksum": -821
+        },
+        {
+          "rep": 3,
+          "seconds": 0.1434808,
+          "us_token": 280.236,
+          "selected_gbps": 6.139,
+          "checksum": -2310
+        },
+        {
+          "rep": 4,
+          "seconds": 0.1667268,
+          "us_token": 325.638,
+          "selected_gbps": 5.283,
+          "checksum": -4429
+        }
+      ],
+      "median_last_three_us_token": 280.236,
+      "median_last_three_selected_gbps": 6.139,
+      "run": 4,
+      "experts": 12800,
+      "command": [
+        "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+        "--rank8-lut-pool",
+        "12800",
+        "--threads",
+        "1"
+      ],
+      "elapsed_seconds": 1.5,
+      "available_ram_before_bytes": 70251393024,
+      "log_sha256": "dbb2d016a478aff1f88d0139aa170359a4b9a4363fc932ad7d594e472f905236",
+      "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth200_single_thread_lut_scaling_result.run4.e12800.log"
+    },
+    {
+      "pool_bytes": 5505024000,
+      "selected_code_bytes_per_token": 1720320,
+      "init_seconds": 0.956714,
+      "repetitions": [
+        {
+          "rep": 1,
+          "seconds": 0.1539663,
+          "us_token": 300.715,
+          "selected_gbps": 5.721,
+          "checksum": 363
+        },
+        {
+          "rep": 2,
+          "seconds": 0.1449553,
+          "us_token": 283.116,
+          "selected_gbps": 6.076,
+          "checksum": -821
+        },
+        {
+          "rep": 3,
+          "seconds": 0.1512414,
+          "us_token": 295.393,
+          "selected_gbps": 5.824,
+          "checksum": -2310
+        },
+        {
+          "rep": 4,
+          "seconds": 0.1516698,
+          "us_token": 296.23,
+          "selected_gbps": 5.807,
+          "checksum": -4429
+        }
+      ],
+      "median_last_three_us_token": 295.393,
+      "median_last_three_selected_gbps": 5.824,
+      "run": 5,
+      "experts": 12800,
+      "command": [
+        "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+        "--rank8-lut-pool",
+        "12800",
+        "--threads",
+        "1"
+      ],
+      "elapsed_seconds": 1.8120000000017171,
+      "available_ram_before_bytes": 70196224000,
+      "log_sha256": "6f65b023d7a2799b2debde9152fcbd692fa4fdd3ebad373a4671bca7b3ce0d88",
+      "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth200_single_thread_lut_scaling_result.run5.e12800.log"
+    },
+    {
+      "pool_bytes": 55050240000,
+      "selected_code_bytes_per_token": 1720320,
+      "init_seconds": 7.947416,
+      "repetitions": [
+        {
+          "rep": 1,
+          "seconds": 0.1820912,
+          "us_token": 355.647,
+          "selected_gbps": 4.837,
+          "checksum": 1299
+        },
+        {
+          "rep": 2,
+          "seconds": 0.1654463,
+          "us_token": 323.137,
+          "selected_gbps": 5.324,
+          "checksum": -1521
+        },
+        {
+          "rep": 3,
+          "seconds": 0.1703368,
+          "us_token": 332.689,
+          "selected_gbps": 5.171,
+          "checksum": -2842
+        },
+        {
+          "rep": 4,
+          "seconds": 0.1765815,
+          "us_token": 344.886,
+          "selected_gbps": 4.988,
+          "checksum": -4663
+        }
+      ],
+      "median_last_three_us_token": 332.689,
+      "median_last_three_selected_gbps": 5.171,
+      "run": 6,
+      "experts": 128000,
+      "command": [
+        "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+        "--rank8-lut-pool",
+        "128000",
+        "--threads",
+        "1"
+      ],
+      "elapsed_seconds": 10.937999999998283,
+      "available_ram_before_bytes": 70180995072,
+      "log_sha256": "578fd0d6ed6a9595a13035a170f5edea5115dd31402d068377036a93c28c9618",
+      "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth200_single_thread_lut_scaling_result.run6.e128000.log"
+    }
+  ],
+  "decision": "inconclusive_variation",
+  "pairs": [
+    {
+      "pair": 1,
+      "small_run": 1,
+      "large_run": 2,
+      "small_us_token": 259.749,
+      "large_us_token": 265.976,
+      "large_over_small": 1.0239731433037278
+    },
+    {
+      "pair": 2,
+      "small_run": 4,
+      "large_run": 3,
+      "small_us_token": 280.236,
+      "large_us_token": 266.996,
+      "large_over_small": 0.9527541072524586
+    },
+    {
+      "pair": 3,
+      "small_run": 5,
+      "large_run": 6,
+      "small_us_token": 295.393,
+      "large_us_token": 332.689,
+      "large_over_small": 1.1262589160880592
+    }
+  ],
+  "variation": {
+    "12800": {
+      "medians_us_token": [
+        259.749,
+        280.236,
+        295.393
+      ],
+      "max_over_min": 1.1372247823860726
+    },
+    "128000": {
+      "medians_us_token": [
+        265.976,
+        266.996,
+        332.689
+      ],
+      "max_over_min": 1.2508233825608326
+    }
+  },
+  "median_paired_ratio": 1.0239731433037278,
+  "gates": {
+    "checksum_sequences_equal": true,
+    "small_repeatability_at_most_1_10": false,
+    "large_repeatability_at_most_1_10": false,
+    "all_paired_ratios_at_most_1_25": true,
+    "all_large_us_at_most_5000": true
+  }
+}

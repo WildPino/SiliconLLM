@@ -42,9 +42,13 @@ recipe is not a justified path to useful additional specialists. The
 METH-184 normalized content-score/hash mixture also fails its frozen
 training load/signal gates before external validation, with repeated
 chat contexts concentrated even at the largest noise setting. The
-synthetic `engine.c` selected LUT path at E128,000 takes 1.309× its
-E12,800 time, failing METH-177's relative 1.25× scaling gate despite
-remaining at only 0.563 ms/token. A stronger specialist-learning route,
+first synthetic `engine.c` selected-LUT E128,000/E12,800 ratio was
+1.309× in METH-177, but METH-197's same-binary run reversed it;
+METH-198/199/200 paired, bound and one-thread controls fail their
+repeatability gates. The tenfold CPU LUT-pool ratio is inconclusive
+on this host, although every measured selected-factor component
+median stayed below 0.7 ms/token. Prefetch regressed both pool sizes
+and is rejected. A stronger specialist-learning route,
 quality-valid compact factors and a same-artifact full native rate test
 remain necessary. Useful 10B/100B transfer and >=50 accepted tok/s are
 not established. No T4 has been used.
