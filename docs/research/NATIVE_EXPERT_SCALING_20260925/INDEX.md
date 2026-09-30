@@ -1,47 +1,31 @@
 # Native expert scaling: research control index
 
-**Date:** 28 September 2026. **Branch:** `research/native-expert-scaling`.
-**Current decision:** METH-165 tested 3,840 distinct training pairs for
-the tenfold E1,280→E12,800 expert route. Minimum median content support
-rose from 39 to 56 and passes, but one pooled hot parent reaches 32.32%
-versus the <=25% gate. The fixed 138-tuple route is rejected for matched
-training. The failure combines two chat-role delimiter tuples, each
-occurring 31 times across the pool and just below the shared-table
-threshold 32. METH-166 passes the native 75→138 table lookup CPU gate;
-METH-160 passes actual-bank BF16 route-plus-factor component cost, but
-the E12,800 bank failed untouched quality. Full `engine.c` >=50 accepted
-tok/s, useful additional experts and 10B/100B transfer remain open.
-No T4 has been used.
-**Status:** The centered BF16 E1280 children retain donor-relative
-quality on new sources (METH-121/123). Their exact shared-A factor
-bank passes actual-state native CPU access (METH-125/126); a full C
-FP32-core reference runs at 16.818 tok/s (METH-127), with an exact
-selected-row head reaching 20.791 tok/s on its matched reference
-(METH-129). Q7 and Q15 paired-LUT child-B banks pass storage/CPU
-component checks but both fail separate blind full-model grounding
-gates (METH-131/133). Neither is quality-promoted. METH-134 now
-passes a one-layer CPU-master sparse-gradient apparatus gate for an
-exact-clone E1280→E12800 third tier. METH-135 measures that tier's
-actual-state CPU route at 2.002 versus 1.483 ms/token-equivalent,
-passing its component gate. Its keys are untrained; useful distinct
-E12800 capacity and full-model quality remain unproven. METH-136
-completed matched E1280/E12800 B-only training, but its E12800 bank
-failed the frozen route-load gate. METH-138 finds 287.349× maximum/mean
-slot load on final-state replay versus 56.417× for the control: the
-untrained third-tier keys amplify parent hotspots. The prepared
-METH-137 external quality audit was not run on this rejected bank.
-METH-139's conditional-decile replacement improves the load screen
-but fails two frozen validation gates; a quality-tested E12800 rung
-remains open. METH-140 fits those deciles on all training draws but
-fails source-held-out document load badly (up to 3.214× control skew
-and 88.09% within-parent share), so calibration generalization is a
-new blocking method question. METH-141 holds that failed sidecar fixed
-and finds both source and context-length shifts worsen its routing
-load; a balance mechanism that generalizes across contexts is needed
-before another B run. METH-142's calibration-free token-context hash
-passes all six viewed load screens, with <=1.240× worst control-relative
-skew and <=20.47% hot-parent share; fresh source routing, full-model
-hash parity, native CPU cost and learned quality remain open.
+**Date:** 30 September 2026. **Branch:** `research/native-expert-scaling`.
+**Current decision:** The tenfold E1,280→E12,800 METH-175 training
+passes its matched update, balance and artifact gates, but the untouched
+METH-176 quality gain fails the paired source bootstrap. METH-178 finds
+only 2.318% of route-weighted candidate-minus-control B difference in
+within-parent child variation, and METH-179 finds no functional advantage
+for the exact trained content route over eight rotations on consumed
+diagnostic inputs. Merely continuing the same hash-route/shared-base
+recipe is not a justified path to useful additional specialists. The
+synthetic `engine.c` selected LUT path at E128,000 takes 1.309× its
+E12,800 time, failing METH-177's relative 1.25× scaling gate despite
+remaining at only 0.563 ms/token. A stronger specialist-learning route,
+quality-valid compact factors and a same-artifact full native rate test
+remain necessary. Useful 10B/100B transfer and >=50 accepted tok/s are
+not established. No T4 has been used.
+**Established smaller rung:** The centered BF16 E1,280 children retain
+donor-relative quality on new sources (METH-121/123). Their exact
+shared-A factor bank passes actual-state native CPU access (METH-125/126);
+a full C FP32-core reference runs at 16.818 tok/s (METH-127), with an
+exact selected-row head reaching 20.791 tok/s on its matched reference
+(METH-129). Q7 and Q15 paired-LUT child-B banks pass storage/CPU component
+checks but fail separate blind full-model grounding gates (METH-131/133).
+The first untrained E12,800 third-tier router passed CPU cost (METH-135)
+but failed route balance after training (METH-136/138). Conditional decile
+routes also failed source-held-out load (METH-139/140/141), motivating
+the later balanced hash-route line; its detailed sequence is below.
 The quality-valid compact donor core, native same-artifact >=50
 accepted-token/s, CPU LUT factor cost at E12800, and 10B/100B transfer
 remain open. The earlier 539.955 MB BF16-attention/R8-head+FFN core
