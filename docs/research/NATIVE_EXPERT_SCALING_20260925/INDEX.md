@@ -81,9 +81,13 @@ pooled/code top-1 loss 0.690/0.805 points and BPB nearly unchanged.
 FP16-scale R8 proposal + exact K64 rows matches all 4,494 choices;
 proposed active ledger is 559.794 MB/token. [METH-211](METH_211_EXACT_HEAD_EXPORT_RESULT_20260930.md)
 stores the 820.707 MB physical core with full tensor readback and
-unchanged Q8 FFNs. **Next compact-core action:** create a loader
-from its saved weights and freeze a new quality/generation cohort,
-then native composition with actual precision and traffic accounting.
+unchanged Q8 FFNs. [METH-212](METH_212_STORED_LOADER_RESULT_20260930.md)
+loads all 364 stored tensors into all 290 config-only parameters and
+exactly reconciles every viewed document/prompt metric and proposal hash.
+**Next compact-core action:** the frozen
+[METH-213/214 protocol](METH_213_214_STORED_CORE_FRESH_QUALITY_PROTOCOL_20260930.md)
+selects new source-disjoint documents, then tests saved-core quality and
+generation before native precision and actual traffic accounting.
 For n, the [reused-projection local-key proposal](REUSED_CHILD_PROJECTION_KEY_PROPOSAL_20260930.md)
 adds 114,048 selected weight bytes/token and fits the combined ideal
 ledger at 559.908 MB by reusing existing child features. It is untrained;

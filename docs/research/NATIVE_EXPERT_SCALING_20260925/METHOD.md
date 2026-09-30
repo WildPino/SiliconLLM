@@ -1439,6 +1439,10 @@ that exact representation: 820.707 MB physical core, all 364 tensors
 read back, 72 Q8 FFN pairs unchanged, original BF16 tied matrix and
 proposal bits matched to METH-210. The next audit must load this saved
 core and evaluate new quality/generation before native promotion.
+[METH-212](METH_212_STORED_LOADER_RESULT_20260930.md) makes that loader
+executable: all 290 config-only parameters are supplied by all 364
+stored tensors, with exact document, prompt and proposal reconciliation
+on the consumed cohort. Fresh quality and native precision remain open.
 
 The [reused child-feature/local-key proposal](REUSED_CHILD_PROJECTION_KEY_PROPOSAL_20260930.md)
 connects the core ledger to useful expert-count research: reuse the
