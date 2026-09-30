@@ -53,7 +53,7 @@ PRIOR = M156.PRIOR + EXTRA_PRIOR
 PRIOR_TEACHERS = (
     (DOC / "meth158_independent_teacher_merged.json", "cdcb22a4273148dede97a17eac81345c4fc5f8e40f09cb18ecac4e35115e437c"),
     (DOC / "meth164_cross_source_teacher_merged.json", "73bd039595682a268244bfc1d3df8c0e9bb005f5afe0cdc3c43315b90e131125"),
-    (DOC / "meth165_expanded_teacher_merged.json", "9843b8d98d0bbe322cbbf2567f72d5c3b09a34bfa774b9079076ed9"),
+    (DOC / "meth165_expanded_teacher_merged.json", "9843b8d98d0bbe322cbbf2567f72d5c3b09a34bfa774b90785c22a9079076ed9"),
     (DOC / "meth169_fresh_boundary_teacher.json", "b051d9cc45bac62bf55d599ea5f0a34ec08d3dbe015483d7818d59997f5140ce"),
     (DOC / "meth173_fresh_recurrence_teacher.json", "c1ce0318ee62484a650d4f7825c0fc417aa59c2606c73226c54eef0a47cf6e53"),
 )
