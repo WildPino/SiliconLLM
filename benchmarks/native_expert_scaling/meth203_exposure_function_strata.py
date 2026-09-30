@@ -76,7 +76,8 @@ def stratify_layer(wrapper, captured, parent_counts, device):
     mean = outputs.mean(dim=2)
     deviation = (outputs - mean.unsqueeze(2)).square().sum(dim=(2, 3)) / 9
     mean_energy = mean.square().sum(dim=-1)
-    mlp_energy = observed.float().square().sum(dim=-1)[:, None].expand_as(mean_energy)
+    mlp_energy = observed.float().square().sum(dim=-1).squeeze(0)[:, None].expand_as(
+        mean_energy)
     gate_sq = gate.float().square()
     out = {}
     for name, lo, hi in BINS:
