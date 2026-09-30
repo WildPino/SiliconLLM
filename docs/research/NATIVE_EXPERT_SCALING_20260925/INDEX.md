@@ -8,7 +8,9 @@ rejects direct rank-192 int8 SVD factors: median best-case weight energy is
 METH-181 also rejects diagonal activation-weighted rank-192 factors:
 disjoint-domain median output-energy proxy is 49.152%, and even the
 test-domain diagonal oracle reaches only 52.297%. Neither screen measures
-full-model quality. The
+full-model quality. METH-182 tests the actual Qwen grouped-R8 FFN in C:
+12.829 ms/token at six threads and 1.896% median output relative L2 error
+miss its frozen 10 ms/1% component gates. The
 tenfold E1,280→E12,800 METH-175 training
 passes its matched update, balance and artifact gates, but the untouched
 METH-176 quality gain fails the paired source bootstrap. METH-178 finds
@@ -1419,6 +1421,16 @@ scheduled.
   and source hashes are saved. Even a test-domain diagonal oracle has
   only 52.297% median rank-192 energy, so domain shift alone cannot
   explain this proxy failure. No full model was exported or scored.
+  [METH-182](METH_182_GROUP64_R8_NATIVE_FFN_PROTOCOL_20260930.md)
+  exports the existing METH-85 grouped-R8 FFN bytes exactly and measures
+  a six-thread AVX2 C kernel over 256 actual METH-125 BF16 E1280 states
+  per layer. Its [result](METH_182_GROUP64_R8_NATIVE_FFN_RESULT_20260930.md)
+  misses both the 10 ms 24-layer component budget (12.829 ms median)
+  and the 1% median relative output-error gate (1.896%). The existing
+  grouped core had separately failed blind semantic quality at METH-90;
+  this test does not rerun or overturn that verdict. Its inputs are real
+  donor/expert states but not actual quantized-core trajectories; no
+  end-to-end rate follows.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

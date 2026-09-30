@@ -1255,6 +1255,16 @@ quality. A new candidate must change the representation or learning
 mechanism rather than simply repeat the same rank with another calibration
 mix.
 
+The [METH-182 native grouped-R8 FFN component](METH_182_GROUP64_R8_NATIVE_FFN_RESULT_20260930.md)
+tests the stored METH-85 Qwen0.5B-Instruct FFN codes and scales on 256
+varied, real BF16 E1280 pre-MLP states. Six-thread C time for all 24 FFNs
+is 12.829 ms/token, above the frozen 10 ms component limit; median
+relative L2 error versus PyTorch reconstruction is 1.896%, above 1%.
+The METH-85 core already failed METH-90 blind semantic conservation.
+This rules out promoting that exact core/kernel pair as the fast native
+case without changing either its precision/arithmetic or implementation;
+the actual quantized-core trajectory and full rate are unmeasured.
+
 The next representation experiment should specify an activation-sensitive
 or trained correction on the pinned pretrained donor, price the *whole*
 active path including MLA and head before conversion, and freeze a
