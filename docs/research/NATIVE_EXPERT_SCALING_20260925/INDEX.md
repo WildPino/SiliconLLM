@@ -5,7 +5,10 @@
 rejects direct rank-192 int8 SVD factors: median best-case weight energy is
 47.243% across 27 sampled projections, against a frozen 95% gate. Even rank
 768 has 94.154% median energy at twice an ideal Q4 projection payload.
-This does not measure activation-weighted error or full-model quality. The
+METH-181 also rejects diagonal activation-weighted rank-192 factors:
+disjoint-domain median output-energy proxy is 49.152%, and even the
+test-domain diagonal oracle reaches only 52.297%. Neither screen measures
+full-model quality. The
 tenfold E1,280→E12,800 METH-175 training
 passes its matched update, balance and artifact gates, but the untouched
 METH-176 quality gain fails the paired source bootstrap. METH-178 finds
@@ -1406,6 +1409,16 @@ scheduled.
   suspended; METH-180 did not resume or rerun that line. Prior METH-07/09
   organ and quantization ablations already show that lowering expert
   precision alone is insufficient and that MLA sensitivity is material.
+  [METH-181](METH_181_GIGACHAT_DIAGONAL_ACTIVATION_RANK_PROTOCOL_20260930.md)
+  fits rank-192 factors using separate English/code/technical BF16 input
+  second moments and evaluates their diagonal output-error proxy on
+  disjoint Cyrillic input moments. Its [result](METH_181_GIGACHAT_DIAGONAL_ACTIVATION_RANK_RESULT_20260930.md)
+  rejects this direct activation-weighted variant: median test energy
+  49.152%, minimum 42.433%, and worst comparator loss 4.227 points;
+  all miss frozen gates. The [27 raw rows](meth181_gigachat_diagonal_rank_result.json)
+  and source hashes are saved. Even a test-domain diagonal oracle has
+  only 52.297% median rank-192 energy, so domain shift alone cannot
+  explain this proxy failure. No full model was exported or scored.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

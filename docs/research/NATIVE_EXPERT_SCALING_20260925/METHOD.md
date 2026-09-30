@@ -1243,6 +1243,18 @@ shows an expert-only Q2 substitution recovers only 0.023740 BPB on its
 nine-document pilot and still exceeds the active-byte gate. Do not repeat
 those precision swaps as a supposed new cost/quality path.
 
+The [METH-181 disjoint activation proxy](METH_181_GIGACHAT_DIAGONAL_ACTIVATION_RANK_RESULT_20260930.md)
+also rejects direct rank-192 factors constructed with BF16 donor input
+second moments. Fit on 106 English/code/technical chunks and test on 125
+distinct Cyrillic chunks yields 49.152% median retained diagonal output
+energy, below the frozen 95% gate; a test-domain oracle has only 52.297%
+median. This strengthens the stop on **direct rank-192 SVD-style expert
+exports**, not on every activation-aware or trained representation. The
+diagonal proxy omits channel covariance, nonlinear composition, and model
+quality. A new candidate must change the representation or learning
+mechanism rather than simply repeat the same rank with another calibration
+mix.
+
 The next representation experiment should specify an activation-sensitive
 or trained correction on the pinned pretrained donor, price the *whole*
 active path including MLA and head before conversion, and freeze a
