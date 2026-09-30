@@ -18,7 +18,11 @@ stored METH-186 Q6 core with E1,280 bank costs 481.535 MB/token by
 ideal addressed-byte accounting, but METH-187 loses 5.318 donor-top-1
 points versus the BF16 E1,280 composition on viewed sources. A
 trained compact-core correction needs to recover this gap before
-fresh quality and native timing. The
+fresh quality and native timing. METH-188 attributes 4.361/5.318
+ranking points to the Q6 FFNs alone. The stored rank-64 FFN
+correction METH-189/190 fits a 534.619 MB/token ideal addressed ledger
+but regresses viewed-source donor top-1 to 73.075% and fails every
+development gate. The
 tenfold E1,280→E12,800 METH-175 training
 passes its matched update, balance and artifact gates, but the untouched
 METH-176 quality gain fails the paired source bootstrap. METH-178 finds
