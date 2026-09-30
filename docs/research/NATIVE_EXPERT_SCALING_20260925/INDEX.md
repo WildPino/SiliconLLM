@@ -1361,14 +1361,16 @@ scheduled.
   adds bounded CPU optimizer/bank snapshots. The
   [exact-resume pilot](METH_175_EXACT_RESUME_PILOT_RESULT_20260929.md)
   reproduces all 16 update records and the uninterrupted pilot's exact
-  4.404 GB BF16 bank SHA after a stop at update 8. The full E1280 control
-  has restarted from update 1 and published a verified 24-layer snapshot
-  at update 256, with snapshots scheduled every 256 updates. A
-  [local supervisor](../../../benchmarks/native_expert_scaling/meth175_control_candidate_supervisor.py)
-  will start E12800 on the identical draws only after the control process
-  exits successfully and its result, gates and bank hash verify. The
+  4.404 GB BF16 bank SHA after a stop at update 8. The
+  [full matched result](METH_175_MATCHED_LONG_TRAINING_RESULT_20260930.md)
+  now completes both 3,840-update arms within the frozen time/RAM/GPU
+  caps and passes all training/support/artifact gates. The E12,800
+  candidate changes at least 12,720 BF16 rows per layer and has active
+  content median 56, but in-sample loss does not prove useful capacity.
+  Both final bank hashes were independently re-read from disk. The
   [METH-176](METH_176_LONG_TRAINING_FRESH_QUALITY_PROTOCOL_20260928.md)
-  untouched quality gates are frozen before training output.
+  untouched quality adjudication is now the next gate; PG19 shard 9 was
+  reserved until after this training pass.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
