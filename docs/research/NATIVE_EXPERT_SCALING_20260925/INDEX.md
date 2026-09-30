@@ -14,6 +14,11 @@ miss its frozen 10 ms/1% component gates. METH-185 tests a different
 pretrained-to-conditional geometry: exact-activation top-K donor FFN
 channels. Even K=2,048/4,864 leaves 16.49% median output error, so
 that direct channel-selection rule fails its frozen fidelity gate. The
+stored METH-186 Q6 core with E1,280 bank costs 481.535 MB/token by
+ideal addressed-byte accounting, but METH-187 loses 5.318 donor-top-1
+points versus the BF16 E1,280 composition on viewed sources. A
+trained compact-core correction needs to recover this gap before
+fresh quality and native timing. The
 tenfold E1,280→E12,800 METH-175 training
 passes its matched update, balance and artifact gates, but the untouched
 METH-176 quality gain fails the paired source bootstrap. METH-178 finds
@@ -1481,6 +1486,19 @@ scheduled.
   speed or large-scale transfer was measured. Resume the compact-core
   line with a changed representation or joint adaptation, with explicit
   whole-path bytes and fresh model-quality gates.
+  [METH-186/187](METH_186_187_Q6_CORE_E1280_PROTOCOL_20260930.md)
+  tests a physical grouped-Q6 FFN/R8-head/BF16-attention core with
+  the quality-valid centered E1,280 bank. The
+  [result](METH_186_187_Q6_CORE_E1280_RESULT_20260930.md) verifies
+  a 470,294,752-byte stored core and 481,534,976 ideal addressed
+  bytes/token including route and selected factors. On the consumed
+  METH-121 cohort, BPB degrades only +0.002600 versus BF16+E1,280,
+  but donor-top-1 falls 94.504%→89.186%; prompt gates fail. Q6 donor
+  is similarly low, locating the loss in the core assembly rather
+  than a missing expert update. The uncorrected artifact is not a
+  quality-valid or timed native candidate. Resume with a budgeted
+  trained core correction and new-source quality adjudication;
+  simultaneously retain the large-RAM expert-count problem.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

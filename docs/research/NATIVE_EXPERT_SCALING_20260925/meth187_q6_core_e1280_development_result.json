@@ -1,0 +1,659 @@
+{
+  "experiment": "METH-187-Q6-core-E1280-development",
+  "source_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "parent_checkpoint_sha256": "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072",
+  "child_checkpoint_sha256": "15a14b8476936e83cf91a479b05f8d8e83f4ffd094186f3d4dfededdb138d520",
+  "manifest_sha256": "7f35f2253850f3a19e0bf517d2e088d2d08c88c0bc68cc09413781ddac6f9366",
+  "prior_result_sha256": "db24228ceabd2b00ecc30a24e9e83b5d20278c62edb204b23b5522473d0295c1",
+  "core_sha256": "f68ed7ba06eb38a19d883310c86d9e569bf719e726a664a6287edb463d3ae725",
+  "core_ideal_addressed_bytes_per_token": 481534976,
+  "centered_parent_mean_max_abs_error": 3.725290298461914e-09,
+  "document_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_external_audit.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 1829.591064453125,
+        "bf16_e1280": 1826.6985473632812,
+        "q6_donor": 1828.947021484375,
+        "q6_e1280": 1827.6077880859375
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat01_gigachat_mtp_hf_bundle.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 1535.2494506835938,
+        "bf16_e1280": 1529.5521850585938,
+        "q6_donor": 1545.8665771484375,
+        "q6_e1280": 1533.4719848632812
+      }
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_rung2b_cross_input.h",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 2362.6666259765625,
+        "bf16_e1280": 2355.5023193359375,
+        "q6_donor": 2367.4708862304688,
+        "q6_e1280": 2362.9148559570312
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e5_analyse3.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 2775.4987182617188,
+        "bf16_e1280": 2764.3150634765625,
+        "q6_donor": 2779.693115234375,
+        "q6_e1280": 2769.0371704101562
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h4_qat.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 2168.4134521484375,
+        "bf16_e1280": 2156.844268798828,
+        "q6_donor": 2179.378890991211,
+        "q6_e1280": 2167.0912017822266
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_q6_cross_input.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3235.2779541015625,
+        "bf16_e1280": 3227.7990112304688,
+        "q6_donor": 3241.9944458007812,
+        "q6_e1280": 3231.80615234375
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e62_third_scale.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 2859.1658477783203,
+        "bf16_e1280": 2849.0650634765625,
+        "q6_donor": 2878.7431640625,
+        "q6_e1280": 2866.4949340820312
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_engine_layer2_depth_extension.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 1980.02099609375,
+        "bf16_e1280": 1970.2341918945312,
+        "q6_donor": 1984.5311279296875,
+        "q6_e1280": 1971.88037109375
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=598",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3231.4783935546875,
+        "bf16_e1280": 3214.95849609375,
+        "q6_donor": 3233.19384765625,
+        "q6_e1280": 3219.8857421875
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=6",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3540.955322265625,
+        "bf16_e1280": 3522.3043670654297,
+        "q6_donor": 3556.4171981811523,
+        "q6_e1280": 3534.42667388916
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=361",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 2884.0972900390625,
+        "bf16_e1280": 2872.09326171875,
+        "q6_donor": 2891.403564453125,
+        "q6_e1280": 2878.2880859375
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=610",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3278.4307861328125,
+        "bf16_e1280": 3252.58203125,
+        "q6_donor": 3291.2410888671875,
+        "q6_e1280": 3263.73193359375
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=273",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3171.0513916015625,
+        "bf16_e1280": 3154.0550537109375,
+        "q6_donor": 3180.153076171875,
+        "q6_e1280": 3158.9122314453125
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=346",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3001.674385070801,
+        "bf16_e1280": 2987.963348388672,
+        "q6_donor": 3015.6900329589844,
+        "q6_e1280": 2999.8694801330566
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=555",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 3707.1915283203125,
+        "bf16_e1280": 3695.361572265625,
+        "q6_donor": 3716.0830078125,
+        "q6_e1280": 3703.771240234375
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=430",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 2242.03271484375,
+        "bf16_e1280": 2225.9583740234375,
+        "q6_donor": 2239.2384033203125,
+        "q6_e1280": 2224.47119140625
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_PROTOCOL_20260921.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 4776.248779296875,
+        "bf16_e1280": 4768.900634765625,
+        "q6_donor": 4781.0279541015625,
+        "q6_e1280": 4773.8280029296875
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E64_CARVE_ON_INT8.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 4375.6800537109375,
+        "bf16_e1280": 4353.20263671875,
+        "q6_donor": 4378.099609375,
+        "q6_e1280": 4358.26318359375
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 5298.8968505859375,
+        "bf16_e1280": 5285.643737792969,
+        "q6_donor": 5313.9412841796875,
+        "q6_e1280": 5298.6201171875
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER2_REPLICATION.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 4686.873779296875,
+        "bf16_e1280": 4670.554443359375,
+        "q6_donor": 4694.94189453125,
+        "q6_e1280": 4679.53369140625
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/STRAT_01_SUSONO_METADATA_SCREEN_20260918.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 4145.762939453125,
+        "bf16_e1280": 4126.50048828125,
+        "q6_donor": 4158.2255859375,
+        "q6_e1280": 4141.480712890625
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E38_IS_THERE_ANY_SELECTOR_AT_ALL.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 4492.3382568359375,
+        "bf16_e1280": 4475.78857421875,
+        "q6_donor": 4492.142883300781,
+        "q6_e1280": 4474.551025390625
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E39_THE_SAME_TEN_BILLION_PUT_SOMEWHERE_ELSE.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 4582.59765625,
+        "bf16_e1280": 4559.6536865234375,
+        "q6_donor": 4583.7857666015625,
+        "q6_e1280": 4562.15966796875
+      }
+    },
+    {
+      "source_id": "docs/handoffs/CONTROLLORE_D0_PART3.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "bf16_donor": 4891.8741455078125,
+        "bf16_e1280": 4871.97265625,
+        "q6_donor": 4905.6964111328125,
+        "q6_e1280": 4892.4937744140625
+      }
+    }
+  ],
+  "prompt_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth45_instruct_external_audit.py",
+      "category": "code",
+      "positions": 165,
+      "matching": {
+        "bf16_donor": 165,
+        "bf16_e1280": 159,
+        "q6_donor": 151,
+        "q6_e1280": 151
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat01_gigachat_mtp_hf_bundle.py",
+      "category": "code",
+      "positions": 150,
+      "matching": {
+        "bf16_donor": 150,
+        "bf16_e1280": 142,
+        "q6_donor": 137,
+        "q6_e1280": 140
+      }
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_rung2b_cross_input.h",
+      "category": "code",
+      "positions": 256,
+      "matching": {
+        "bf16_donor": 256,
+        "bf16_e1280": 223,
+        "q6_donor": 173,
+        "q6_e1280": 178
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e5_analyse3.py",
+      "category": "code",
+      "positions": 187,
+      "matching": {
+        "bf16_donor": 187,
+        "bf16_e1280": 179,
+        "q6_donor": 172,
+        "q6_e1280": 175
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/h4_qat.py",
+      "category": "code",
+      "positions": 187,
+      "matching": {
+        "bf16_donor": 187,
+        "bf16_e1280": 180,
+        "q6_donor": 172,
+        "q6_e1280": 173
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_q6_cross_input.py",
+      "category": "code",
+      "positions": 287,
+      "matching": {
+        "bf16_donor": 287,
+        "bf16_e1280": 249,
+        "q6_donor": 224,
+        "q6_e1280": 223
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e62_third_scale.py",
+      "category": "code",
+      "positions": 219,
+      "matching": {
+        "bf16_donor": 219,
+        "bf16_e1280": 210,
+        "q6_donor": 200,
+        "q6_e1280": 201
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_engine_layer2_depth_extension.py",
+      "category": "code",
+      "positions": 164,
+      "matching": {
+        "bf16_donor": 164,
+        "bf16_e1280": 157,
+        "q6_donor": 148,
+        "q6_e1280": 148
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=598",
+      "category": "prose",
+      "positions": 157,
+      "matching": {
+        "bf16_donor": 157,
+        "bf16_e1280": 148,
+        "q6_donor": 141,
+        "q6_e1280": 144
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=6",
+      "category": "prose",
+      "positions": 159,
+      "matching": {
+        "bf16_donor": 159,
+        "bf16_e1280": 155,
+        "q6_donor": 142,
+        "q6_e1280": 141
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=361",
+      "category": "prose",
+      "positions": 163,
+      "matching": {
+        "bf16_donor": 163,
+        "bf16_e1280": 159,
+        "q6_donor": 152,
+        "q6_e1280": 153
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=610",
+      "category": "prose",
+      "positions": 161,
+      "matching": {
+        "bf16_donor": 161,
+        "bf16_e1280": 156,
+        "q6_donor": 145,
+        "q6_e1280": 147
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=273",
+      "category": "prose",
+      "positions": 152,
+      "matching": {
+        "bf16_donor": 152,
+        "bf16_e1280": 144,
+        "q6_donor": 138,
+        "q6_e1280": 137
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=346",
+      "category": "prose",
+      "positions": 165,
+      "matching": {
+        "bf16_donor": 165,
+        "bf16_e1280": 156,
+        "q6_donor": 152,
+        "q6_e1280": 151
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=555",
+      "category": "prose",
+      "positions": 156,
+      "matching": {
+        "bf16_donor": 156,
+        "bf16_e1280": 148,
+        "q6_donor": 145,
+        "q6_e1280": 143
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00003-of-00023-e7f0ba0d3c2eb6c0.parquet:row=430",
+      "category": "prose",
+      "positions": 147,
+      "matching": {
+        "bf16_donor": 147,
+        "bf16_e1280": 141,
+        "q6_donor": 137,
+        "q6_e1280": 136
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_UPSTREAM_RMSNORM_PROPAGATION_DIAGNOSTIC_PROTOCOL_20260921.md",
+      "category": "technical_general",
+      "positions": 160,
+      "matching": {
+        "bf16_donor": 160,
+        "bf16_e1280": 152,
+        "q6_donor": 145,
+        "q6_e1280": 139
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E64_CARVE_ON_INT8.md",
+      "category": "technical_general",
+      "positions": 159,
+      "matching": {
+        "bf16_donor": 159,
+        "bf16_e1280": 155,
+        "q6_donor": 146,
+        "q6_e1280": 147
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_CROSS_INPUT_DIAGNOSTIC_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "positions": 207,
+      "matching": {
+        "bf16_donor": 207,
+        "bf16_e1280": 185,
+        "q6_donor": 167,
+        "q6_e1280": 162
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER2_REPLICATION.md",
+      "category": "technical_general",
+      "positions": 187,
+      "matching": {
+        "bf16_donor": 187,
+        "bf16_e1280": 180,
+        "q6_donor": 176,
+        "q6_e1280": 180
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/STRAT_01_SUSONO_METADATA_SCREEN_20260918.md",
+      "category": "technical_general",
+      "positions": 230,
+      "matching": {
+        "bf16_donor": 230,
+        "bf16_e1280": 220,
+        "q6_donor": 210,
+        "q6_e1280": 210
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E38_IS_THERE_ANY_SELECTOR_AT_ALL.md",
+      "category": "technical_general",
+      "positions": 179,
+      "matching": {
+        "bf16_donor": 179,
+        "bf16_e1280": 173,
+        "q6_donor": 169,
+        "q6_e1280": 170
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E39_THE_SAME_TEN_BILLION_PUT_SOMEWHERE_ELSE.md",
+      "category": "technical_general",
+      "positions": 265,
+      "matching": {
+        "bf16_donor": 265,
+        "bf16_e1280": 252,
+        "q6_donor": 247,
+        "q6_e1280": 247
+      }
+    },
+    {
+      "source_id": "docs/handoffs/CONTROLLORE_D0_PART3.md",
+      "category": "technical_general",
+      "positions": 232,
+      "matching": {
+        "bf16_donor": 232,
+        "bf16_e1280": 224,
+        "q6_donor": 211,
+        "q6_e1280": 212
+      }
+    }
+  ],
+  "summary": {
+    "pooled": {
+      "documents": 24,
+      "bytes": 98280,
+      "positions": 4494,
+      "bpb": {
+        "bf16_donor": 1.1898133883183264,
+        "bf16_e1280": 1.1848874923949821,
+        "q6_donor": 1.1925267127249493,
+        "q6_e1280": 1.1874870327438087
+      },
+      "matching": {
+        "bf16_donor": 4494,
+        "bf16_e1280": 4247,
+        "q6_donor": 4000,
+        "q6_e1280": 4008
+      },
+      "agreement": {
+        "bf16_donor": 1.0,
+        "bf16_e1280": 0.9450378282153983,
+        "q6_donor": 0.8900756564307967,
+        "q6_e1280": 0.8918558077436582
+      },
+      "q6_minus_bf16_e1280_bpb": 0.00259954034882659,
+      "q6_minus_bf16_e1280_top1": -0.05318202047174003
+    },
+    "code": {
+      "documents": 8,
+      "bytes": 32760,
+      "positions": 1615,
+      "bpb": {
+        "bf16_donor": 0.8255370586645497,
+        "bf16_e1280": 0.8226361028517643,
+        "q6_donor": 0.8282119949195694,
+        "q6_e1280": 0.8248509571669373
+      },
+      "matching": {
+        "bf16_donor": 1615,
+        "bf16_e1280": 1499,
+        "q6_donor": 1377,
+        "q6_e1280": 1389
+      },
+      "agreement": {
+        "bf16_donor": 1.0,
+        "bf16_e1280": 0.9281733746130031,
+        "q6_donor": 0.8526315789473684,
+        "q6_e1280": 0.860061919504644
+      },
+      "q6_minus_bf16_e1280_bpb": 0.002214854315173098,
+      "q6_minus_bf16_e1280_top1": -0.06811145510835914
+    },
+    "prose": {
+      "documents": 8,
+      "bytes": 32760,
+      "positions": 1260,
+      "bpb": {
+        "bf16_donor": 1.1034640540573026,
+        "bf16_e1280": 1.097667057565699,
+        "q6_donor": 1.1063929719392172,
+        "q6_e1280": 1.100224805892376
+      },
+      "matching": {
+        "bf16_donor": 1260,
+        "bf16_e1280": 1207,
+        "q6_donor": 1152,
+        "q6_e1280": 1152
+      },
+      "agreement": {
+        "bf16_donor": 1.0,
+        "bf16_e1280": 0.957936507936508,
+        "q6_donor": 0.9142857142857143,
+        "q6_e1280": 0.9142857142857143
+      },
+      "q6_minus_bf16_e1280_bpb": 0.0025577483266769896,
+      "q6_minus_bf16_e1280_top1": -0.04365079365079372
+    },
+    "technical_general": {
+      "documents": 8,
+      "bytes": 32760,
+      "positions": 1619,
+      "bpb": {
+        "bf16_donor": 1.6404390522331276,
+        "bf16_e1280": 1.634359316767484,
+        "q6_donor": 1.642975171316062,
+        "q6_e1280": 1.6373853351721133
+      },
+      "matching": {
+        "bf16_donor": 1619,
+        "bf16_e1280": 1541,
+        "q6_donor": 1471,
+        "q6_e1280": 1467
+      },
+      "agreement": {
+        "bf16_donor": 1.0,
+        "bf16_e1280": 0.9518221124150711,
+        "q6_donor": 0.9085855466337245,
+        "q6_e1280": 0.9061148857319333
+      },
+      "q6_minus_bf16_e1280_bpb": 0.0030260184046293492,
+      "q6_minus_bf16_e1280_top1": -0.04570722668313776
+    }
+  },
+  "gates": {
+    "pooled_bpb": true,
+    "category_bpb": true,
+    "pooled_top1": false,
+    "category_top1": false
+  },
+  "decision": "q6_core_development_fail_train_correction_next",
+  "runtime": {
+    "seconds": 45.18799999999828,
+    "rss_bytes": 2933772288,
+    "gpu_peak_allocated_bytes": 4269491712,
+    "gpu": "NVIDIA GeForce RTX 3060"
+  },
+  "scope": "Previously consumed METH-121 sources; development only"
+}

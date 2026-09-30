@@ -1298,6 +1298,20 @@ does not prove an optimal-subset lower bound or test a learned router.
 A viable core now needs a changed representation or joint training
 that restores the donor function while retaining a priced active path.
 
+The [METH-186/187 stored Q6 development result](METH_186_187_Q6_CORE_E1280_RESULT_20260930.md)
+makes one such correction path concrete. Its physical Q6 FFN/R8-head/
+BF16-attention core plus the exact centered E1280 bank has 481.535 MB
+ideal addressed bytes/token, leaving 78.465 MB under the 560 MB design
+allotment for a correction. All stored tensors and FFN BF16 readbacks
+pass. On previously consumed source documents, pooled BPB rises only
+0.002600 versus BF16+E1280, but donor prompt top-1 falls by 5.318
+points; the frozen ranking gates fail. The Q6 donor arm shows nearly
+the same ranking loss, so reusing the existing expert B bank alone
+cannot repair this core. Training head/embedding and FFN corrections
+jointly is a candidate next step, not a validated method. Its stored
+bytes, training cost, fresh semantic quality and native rate all need
+separate proof.
+
 The next representation experiment should specify an activation-sensitive
 or trained correction on the pinned pretrained donor, price the *whole*
 active path including MLA and head before conversion, and freeze a
