@@ -19,6 +19,9 @@ within-parent child variation, and METH-179 finds no functional advantage
 for the exact trained content route over eight rotations on consumed
 diagnostic inputs. Merely continuing the same hash-route/shared-base
 recipe is not a justified path to useful additional specialists. The
+METH-184 normalized content-score/hash mixture also fails its frozen
+training load/signal gates before external validation, with repeated
+chat contexts concentrated even at the largest noise setting. The
 synthetic `engine.c` selected LUT path at E128,000 takes 1.309× its
 E12,800 time, failing METH-177's relative 1.25× scaling gate despite
 remaining at only 0.563 ms/token. A stronger specialist-learning route,
@@ -1451,6 +1454,19 @@ scheduled.
   An earlier forward-level shift let downstream parent routes change and
   is retained as invalid; the reported run replays exact parent IDs and
   gates in every causal window.
+  [METH-184](METH_184_CONTENT_HASH_THIRD_ROUTE_PROTOCOL_20260930.md)
+  freezes a ten-way normalized content-score plus deterministic hash-noise
+  screen, fitting one of five noise strengths on training raw/chat only.
+  Its [result](METH_184_CONTENT_HASH_THIRD_ROUTE_RESULT_20260930.md)
+  finds no training-passing strength, so source-separated documents stay
+  unopened. At the largest strength, chat fails both load gates in all
+  24 layers and several hot parents send 100% to one grandchild;
+  stronger noise also drops raw content-argmax agreement below 15%.
+  The stateless tuple hash repeats routes on recurrent contexts. Do not
+  repeat a beta sweep or promote a new E12,800 bank from this result.
+  Resume by changing the specialist-learning mechanism while accounting
+  for recurrent/shared traffic, and advance the separate pretrained core
+  representation and native same-artifact speed gap.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

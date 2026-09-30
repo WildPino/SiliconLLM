@@ -1275,6 +1275,19 @@ This rules out promoting that exact core/kernel pair as the fast native
 case without changing either its precision/arithmetic or implementation;
 the actual quantized-core trajectory and full rate are unmeasured.
 
+The [METH-184 third-router screen](METH_184_CONTENT_HASH_THIRD_ROUTE_RESULT_20260930.md)
+tests normalized seeded content scores plus deterministic hash Gumbel
+noise on the exact E1280 control trajectory. None of five frozen
+strengths passes raw/chat training load and content-signal gates;
+source-separated validation is deliberately not run. Recurrent chat
+tuples remain concentrated at high noise, while content-argmax
+agreement falls. This rejects this fixed rule as the next trained
+E12800 route, not content-aware expert growth in general. A third-tier
+recipe still needs a specialist-learning signal coupled to context,
+explicit treatment of recurrent/shared choices, actual CPU cost and
+fresh quality. Do not count replicated structural rows as new useful
+capacity.
+
 The next representation experiment should specify an activation-sensitive
 or trained correction on the pinned pretrained donor, price the *whole*
 active path including MLA and head before conversion, and freeze a
