@@ -58,10 +58,13 @@ and coverage pass on both fit cells, but load fails in 19/24 layers
 and hot-parent share fails in all 24; reserved/source screens remain
 unopened. METH-205 replays those inputs and finds no exact-state
 floor above 25% (worst 2.344%); pooled soft shares stay near 11.1%
-while argmax reaches 73.769%. **Next exact action:** freeze and run
-temperature-annealed bias calibration with the saved METH-204 keys,
-then require the original separate fit, reserved and source-transfer
-gates before B training or native CPU route promotion.
+while argmax reaches 73.769%. METH-206 annealing fixes pooled hard
+load (worst share 17.208%, max ratio 1.005), yet raw/chat fit gates
+still fail separately. **Next exact action:** verify a causal chat-mode
+marker on the bound training inputs, then freeze separate mode bias
+calibration with the saved keys and annealing schedule. Require all
+original fit, reserved and source-transfer gates before B training
+or native CPU route promotion; no source-ID serving labels.
 Merely continuing the same hash-route/shared-base
 recipe is not a justified path to useful additional specialists. The
 METH-184 normalized content-score/hash mixture also fails its frozen

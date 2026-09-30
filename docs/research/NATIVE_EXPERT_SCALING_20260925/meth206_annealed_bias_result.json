@@ -1,0 +1,1760 @@
+{
+  "experiment": "METH-206-annealed-bias-route-screen",
+  "source_bank_sha256": "1d9071456a644344d46203ad7ded8fe2c4d01ca0580b5e41718366783408aff1",
+  "third_projection_source_sha256": "692db3dd1a647debb051ef66612263b5e16ef27c73978e9abd3beb6b3229abc9",
+  "child_checkpoint_sha256": "15a14b8476936e83cf91a479b05f8d8e83f4ffd094186f3d4dfededdb138d520",
+  "draws_sha256": "9d4e06eced3cc1c51bac4e6219013f37f4495acd10c87827b567f0966f5c490c",
+  "structural_table_sha256": "e89ff2cecbf887b85b5e361d47a8b918d8ccb93bd5c385a580ba993b93ac72db",
+  "source_manifest_sha256": "6e911e65529be53dba65fbe382229f0f43e510eb76ab83f4404d4be0368ff5d9",
+  "teacher_control_bf16_logit_max_abs_error": 0.0,
+  "fit_rule": {
+    "draws": 1024,
+    "reserved_draws": 256,
+    "frozen_keys": true,
+    "temperatures": [
+      0.05,
+      0.01,
+      0.002,
+      0.0004
+    ],
+    "steps_per_temperature": 100,
+    "initial_bias": "METH-204"
+  },
+  "router_artifact": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth206_annealed_content_router.npz",
+    "sha256": "fe35eafe30683188713bd4630c4085488057d5790e3bdfab0d8539475bc1d343",
+    "bytes": 3886864,
+    "readback_exact": true
+  },
+  "ledger": {
+    "projection_stored_bytes": 2752512,
+    "shared_keys_stored_bytes": 27648,
+    "parent_bias_stored_bytes": 1105920,
+    "ideal_addressed_projection_keys_selected_bias_per_token": 2783616,
+    "bias_stored_bytes_at_tenfold_parents": 11059200
+  },
+  "cells": {
+    "fit_raw": {
+      "windows": 1024,
+      "tokens": 130048,
+      "structural_selections": 10672,
+      "content_selections_per_layer": 509520,
+      "sequences": 1024,
+      "layers": [
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 9523,
+          "hot_parent_count": 322,
+          "candidate_to_control_max_load_ratio": 1.6345901208617972,
+          "hot_parent_worst_child_share": 0.2942523471490726,
+          "mean_standardized_score_advantage": 1.2291862964630127,
+          "raw_argmax_agreement": 0.5521628260612488,
+          "bias_max_abs": 0.4545002579689026,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 10708,
+          "hot_parent_count": 336,
+          "candidate_to_control_max_load_ratio": 1.48207381370826,
+          "hot_parent_worst_child_share": 0.24675324675324675,
+          "mean_standardized_score_advantage": 1.4478931427001953,
+          "raw_argmax_agreement": 0.6406893134117126,
+          "bias_max_abs": 0.42102721333503723,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": true,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 11128,
+          "hot_parent_count": 541,
+          "candidate_to_control_max_load_ratio": 1.4748558401501946,
+          "hot_parent_worst_child_share": 0.2361111111111111,
+          "mean_standardized_score_advantage": 1.421389102935791,
+          "raw_argmax_agreement": 0.6093912124633789,
+          "bias_max_abs": 0.5427683591842651,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": true,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 10784,
+          "hot_parent_count": 413,
+          "candidate_to_control_max_load_ratio": 1.1873012860057894,
+          "hot_parent_worst_child_share": 0.2826855123674912,
+          "mean_standardized_score_advantage": 1.476271629333496,
+          "raw_argmax_agreement": 0.6706233620643616,
+          "bias_max_abs": 0.6883237361907959,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 10448,
+          "hot_parent_count": 390,
+          "candidate_to_control_max_load_ratio": 1.235650874571504,
+          "hot_parent_worst_child_share": 0.3395638629283489,
+          "mean_standardized_score_advantage": 1.2757679224014282,
+          "raw_argmax_agreement": 0.5665587186813354,
+          "bias_max_abs": 0.42316073179244995,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 9948,
+          "hot_parent_count": 360,
+          "candidate_to_control_max_load_ratio": 1.1628853984874927,
+          "hot_parent_worst_child_share": 0.2873134328358209,
+          "mean_standardized_score_advantage": 1.1225175857543945,
+          "raw_argmax_agreement": 0.5057721138000488,
+          "bias_max_abs": 0.46085137128829956,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 11158,
+          "hot_parent_count": 507,
+          "candidate_to_control_max_load_ratio": 1.3003839824465167,
+          "hot_parent_worst_child_share": 0.2777777777777778,
+          "mean_standardized_score_advantage": 1.2566431760787964,
+          "raw_argmax_agreement": 0.5553168058395386,
+          "bias_max_abs": 0.38941633701324463,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 11281,
+          "hot_parent_count": 524,
+          "candidate_to_control_max_load_ratio": 1.3371317996129866,
+          "hot_parent_worst_child_share": 0.35873015873015873,
+          "mean_standardized_score_advantage": 1.235575556755066,
+          "raw_argmax_agreement": 0.5341517925262451,
+          "bias_max_abs": 0.3506205976009369,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 10785,
+          "hot_parent_count": 456,
+          "candidate_to_control_max_load_ratio": 1.2743484224965707,
+          "hot_parent_worst_child_share": 0.23684210526315788,
+          "mean_standardized_score_advantage": 1.3791120052337646,
+          "raw_argmax_agreement": 0.6434232592582703,
+          "bias_max_abs": 0.37656718492507935,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": true,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 11170,
+          "hot_parent_count": 474,
+          "candidate_to_control_max_load_ratio": 1.2572204746925937,
+          "hot_parent_worst_child_share": 0.26666666666666666,
+          "mean_standardized_score_advantage": 1.2674438953399658,
+          "raw_argmax_agreement": 0.5960806608200073,
+          "bias_max_abs": 0.4546498954296112,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 11007,
+          "hot_parent_count": 524,
+          "candidate_to_control_max_load_ratio": 1.4364464692482917,
+          "hot_parent_worst_child_share": 0.27832783278327833,
+          "mean_standardized_score_advantage": 1.136824131011963,
+          "raw_argmax_agreement": 0.5590575933456421,
+          "bias_max_abs": 0.3925993740558624,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 10657,
+          "hot_parent_count": 503,
+          "candidate_to_control_max_load_ratio": 1.2795729137398146,
+          "hot_parent_worst_child_share": 0.4448669201520912,
+          "mean_standardized_score_advantage": 1.2867672443389893,
+          "raw_argmax_agreement": 0.5994759798049927,
+          "bias_max_abs": 0.6088241934776306,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 10696,
+          "hot_parent_count": 490,
+          "candidate_to_control_max_load_ratio": 1.9918495297805643,
+          "hot_parent_worst_child_share": 0.4064665127020785,
+          "mean_standardized_score_advantage": 1.2800830602645874,
+          "raw_argmax_agreement": 0.5489618182182312,
+          "bias_max_abs": 0.4952409565448761,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 10284,
+          "hot_parent_count": 474,
+          "candidate_to_control_max_load_ratio": 1.5493435609971973,
+          "hot_parent_worst_child_share": 0.4501940491591203,
+          "mean_standardized_score_advantage": 1.1647543907165527,
+          "raw_argmax_agreement": 0.5100604891777039,
+          "bias_max_abs": 0.45594465732574463,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 10591,
+          "hot_parent_count": 458,
+          "candidate_to_control_max_load_ratio": 1.226073574673897,
+          "hot_parent_worst_child_share": 0.3181818181818182,
+          "mean_standardized_score_advantage": 1.1072994470596313,
+          "raw_argmax_agreement": 0.46748313307762146,
+          "bias_max_abs": 0.5233461856842041,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 9904,
+          "hot_parent_count": 395,
+          "candidate_to_control_max_load_ratio": 1.4063348416289594,
+          "hot_parent_worst_child_share": 0.3282608695652174,
+          "mean_standardized_score_advantage": 1.1403552293777466,
+          "raw_argmax_agreement": 0.46489638090133667,
+          "bias_max_abs": 0.42639029026031494,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 10399,
+          "hot_parent_count": 414,
+          "candidate_to_control_max_load_ratio": 1.164733379501385,
+          "hot_parent_worst_child_share": 0.2578125,
+          "mean_standardized_score_advantage": 1.1066808700561523,
+          "raw_argmax_agreement": 0.46124786138534546,
+          "bias_max_abs": 0.4657079875469208,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 9523,
+          "hot_parent_count": 344,
+          "candidate_to_control_max_load_ratio": 1.302222998646111,
+          "hot_parent_worst_child_share": 0.26737967914438504,
+          "mean_standardized_score_advantage": 1.1791863441467285,
+          "raw_argmax_agreement": 0.5192868113517761,
+          "bias_max_abs": 0.39936718344688416,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 10335,
+          "hot_parent_count": 431,
+          "candidate_to_control_max_load_ratio": 1.3611410118406888,
+          "hot_parent_worst_child_share": 0.3333333333333333,
+          "mean_standardized_score_advantage": 1.1669255495071411,
+          "raw_argmax_agreement": 0.5081037282943726,
+          "bias_max_abs": 0.4393764138221741,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 9979,
+          "hot_parent_count": 363,
+          "candidate_to_control_max_load_ratio": 1.1447966163646808,
+          "hot_parent_worst_child_share": 0.3590733590733591,
+          "mean_standardized_score_advantage": 0.9477584958076477,
+          "raw_argmax_agreement": 0.4617149829864502,
+          "bias_max_abs": 0.41242364048957825,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 10379,
+          "hot_parent_count": 347,
+          "candidate_to_control_max_load_ratio": 1.1814709733740725,
+          "hot_parent_worst_child_share": 0.3442028985507246,
+          "mean_standardized_score_advantage": 0.9532594680786133,
+          "raw_argmax_agreement": 0.45079684257507324,
+          "bias_max_abs": 0.48962825536727905,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 10263,
+          "hot_parent_count": 346,
+          "candidate_to_control_max_load_ratio": 1.156567710451403,
+          "hot_parent_worst_child_share": 0.3835616438356164,
+          "mean_standardized_score_advantage": 1.0358220338821411,
+          "raw_argmax_agreement": 0.44144293665885925,
+          "bias_max_abs": 0.4263593256473541,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 11193,
+          "hot_parent_count": 521,
+          "candidate_to_control_max_load_ratio": 1.2048173029657545,
+          "hot_parent_worst_child_share": 0.30835734870317005,
+          "mean_standardized_score_advantage": 1.168093204498291,
+          "raw_argmax_agreement": 0.49731317162513733,
+          "bias_max_abs": 0.6006548404693604,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 509520,
+          "structural_selections": 10672,
+          "content_coverage": 10728,
+          "hot_parent_count": 423,
+          "candidate_to_control_max_load_ratio": 1.184661408757139,
+          "hot_parent_worst_child_share": 0.4032258064516129,
+          "mean_standardized_score_advantage": 0.9568432569503784,
+          "raw_argmax_agreement": 0.43509775400161743,
+          "bias_max_abs": 0.5983437299728394,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        }
+      ],
+      "all_layer_gates_pass": false
+    },
+    "fit_chat": {
+      "windows": 1024,
+      "tokens": 225491,
+      "structural_selections": 288128,
+      "content_selections_per_layer": 613836,
+      "sequences": 1024,
+      "layers": [
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 9982,
+          "hot_parent_count": 363,
+          "candidate_to_control_max_load_ratio": 1.3718326458456098,
+          "hot_parent_worst_child_share": 0.20320197044334976,
+          "mean_standardized_score_advantage": 1.2531673908233643,
+          "raw_argmax_agreement": 0.5684645175933838,
+          "bias_max_abs": 0.4545002579689026,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": true,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 10713,
+          "hot_parent_count": 375,
+          "candidate_to_control_max_load_ratio": 1.2720238517782352,
+          "hot_parent_worst_child_share": 0.2222222222222222,
+          "mean_standardized_score_advantage": 1.4342843294143677,
+          "raw_argmax_agreement": 0.6490984559059143,
+          "bias_max_abs": 0.42102721333503723,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": true,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 11142,
+          "hot_parent_count": 568,
+          "candidate_to_control_max_load_ratio": 1.2424302788844621,
+          "hot_parent_worst_child_share": 0.34285714285714286,
+          "mean_standardized_score_advantage": 1.3939051628112793,
+          "raw_argmax_agreement": 0.6161254644393921,
+          "bias_max_abs": 0.5427683591842651,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 11013,
+          "hot_parent_count": 517,
+          "candidate_to_control_max_load_ratio": 1.4762951520912548,
+          "hot_parent_worst_child_share": 0.266,
+          "mean_standardized_score_advantage": 1.4924832582473755,
+          "raw_argmax_agreement": 0.691034734249115,
+          "bias_max_abs": 0.6883237361907959,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 10664,
+          "hot_parent_count": 470,
+          "candidate_to_control_max_load_ratio": 1.2289469541948685,
+          "hot_parent_worst_child_share": 0.2627450980392157,
+          "mean_standardized_score_advantage": 1.273942232131958,
+          "raw_argmax_agreement": 0.5950595736503601,
+          "bias_max_abs": 0.42316073179244995,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 10137,
+          "hot_parent_count": 440,
+          "candidate_to_control_max_load_ratio": 1.2621025673058905,
+          "hot_parent_worst_child_share": 0.24028268551236748,
+          "mean_standardized_score_advantage": 1.0779880285263062,
+          "raw_argmax_agreement": 0.48338156938552856,
+          "bias_max_abs": 0.46085137128829956,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": true,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 11081,
+          "hot_parent_count": 523,
+          "candidate_to_control_max_load_ratio": 1.1797230825286937,
+          "hot_parent_worst_child_share": 0.22685185185185186,
+          "mean_standardized_score_advantage": 1.2552490234375,
+          "raw_argmax_agreement": 0.5488290190696716,
+          "bias_max_abs": 0.38941633701324463,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": true,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 11144,
+          "hot_parent_count": 559,
+          "candidate_to_control_max_load_ratio": 1.1625639775773824,
+          "hot_parent_worst_child_share": 0.21649484536082475,
+          "mean_standardized_score_advantage": 1.2438836097717285,
+          "raw_argmax_agreement": 0.5410794019699097,
+          "bias_max_abs": 0.3506205976009369,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": true,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 10069,
+          "hot_parent_count": 481,
+          "candidate_to_control_max_load_ratio": 1.1137076537013801,
+          "hot_parent_worst_child_share": 0.28662420382165604,
+          "mean_standardized_score_advantage": 1.3408281803131104,
+          "raw_argmax_agreement": 0.6386755108833313,
+          "bias_max_abs": 0.37656718492507935,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 10977,
+          "hot_parent_count": 492,
+          "candidate_to_control_max_load_ratio": 1.4070054797464273,
+          "hot_parent_worst_child_share": 0.26556016597510373,
+          "mean_standardized_score_advantage": 1.2401154041290283,
+          "raw_argmax_agreement": 0.5788908004760742,
+          "bias_max_abs": 0.4546498954296112,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 11092,
+          "hot_parent_count": 565,
+          "candidate_to_control_max_load_ratio": 1.3376811594202898,
+          "hot_parent_worst_child_share": 0.38786279683377306,
+          "mean_standardized_score_advantage": 1.1000744104385376,
+          "raw_argmax_agreement": 0.5325314998626709,
+          "bias_max_abs": 0.3925993740558624,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 10995,
+          "hot_parent_count": 598,
+          "candidate_to_control_max_load_ratio": 1.4350766456266908,
+          "hot_parent_worst_child_share": 0.36585365853658536,
+          "mean_standardized_score_advantage": 1.2181074619293213,
+          "raw_argmax_agreement": 0.5753572583198547,
+          "bias_max_abs": 0.6088241934776306,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 9932,
+          "hot_parent_count": 459,
+          "candidate_to_control_max_load_ratio": 1.2384261007476776,
+          "hot_parent_worst_child_share": 0.3492753623188406,
+          "mean_standardized_score_advantage": 1.2688701152801514,
+          "raw_argmax_agreement": 0.543198823928833,
+          "bias_max_abs": 0.4952409565448761,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 10537,
+          "hot_parent_count": 526,
+          "candidate_to_control_max_load_ratio": 1.3591529674003902,
+          "hot_parent_worst_child_share": 0.2676056338028169,
+          "mean_standardized_score_advantage": 1.1643949747085571,
+          "raw_argmax_agreement": 0.5058647394180298,
+          "bias_max_abs": 0.45594465732574463,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 10664,
+          "hot_parent_count": 468,
+          "candidate_to_control_max_load_ratio": 1.2036008599068435,
+          "hot_parent_worst_child_share": 0.2651821862348178,
+          "mean_standardized_score_advantage": 1.1437499523162842,
+          "raw_argmax_agreement": 0.46988120675086975,
+          "bias_max_abs": 0.5233461856842041,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 10186,
+          "hot_parent_count": 436,
+          "candidate_to_control_max_load_ratio": 1.2445329213216068,
+          "hot_parent_worst_child_share": 0.2650334075723831,
+          "mean_standardized_score_advantage": 1.1479371786117554,
+          "raw_argmax_agreement": 0.47015002369880676,
+          "bias_max_abs": 0.42639029026031494,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 10699,
+          "hot_parent_count": 469,
+          "candidate_to_control_max_load_ratio": 1.390747269756643,
+          "hot_parent_worst_child_share": 0.25096525096525096,
+          "mean_standardized_score_advantage": 1.1064103841781616,
+          "raw_argmax_agreement": 0.4745257794857025,
+          "bias_max_abs": 0.4657079875469208,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 9555,
+          "hot_parent_count": 366,
+          "candidate_to_control_max_load_ratio": 1.6944444444444444,
+          "hot_parent_worst_child_share": 0.27450980392156865,
+          "mean_standardized_score_advantage": 1.2311348915100098,
+          "raw_argmax_agreement": 0.5227959752082825,
+          "bias_max_abs": 0.39936718344688416,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 10587,
+          "hot_parent_count": 485,
+          "candidate_to_control_max_load_ratio": 1.3173467728824582,
+          "hot_parent_worst_child_share": 0.22950819672131148,
+          "mean_standardized_score_advantage": 1.189343810081482,
+          "raw_argmax_agreement": 0.5026831030845642,
+          "bias_max_abs": 0.4393764138221741,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": true,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 10518,
+          "hot_parent_count": 415,
+          "candidate_to_control_max_load_ratio": 1.2303889421379206,
+          "hot_parent_worst_child_share": 0.22551020408163266,
+          "mean_standardized_score_advantage": 0.9537284970283508,
+          "raw_argmax_agreement": 0.4554506540298462,
+          "bias_max_abs": 0.41242364048957825,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": true,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 10853,
+          "hot_parent_count": 403,
+          "candidate_to_control_max_load_ratio": 1.3689173625107975,
+          "hot_parent_worst_child_share": 0.276657060518732,
+          "mean_standardized_score_advantage": 1.002448558807373,
+          "raw_argmax_agreement": 0.4416472911834717,
+          "bias_max_abs": 0.48962825536727905,
+          "gates": {
+            "load_ratio": false,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 11088,
+          "hot_parent_count": 491,
+          "candidate_to_control_max_load_ratio": 1.2375227932734518,
+          "hot_parent_worst_child_share": 0.4069767441860465,
+          "mean_standardized_score_advantage": 1.079297423362732,
+          "raw_argmax_agreement": 0.44486963748931885,
+          "bias_max_abs": 0.4263593256473541,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": false,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 11340,
+          "hot_parent_count": 628,
+          "candidate_to_control_max_load_ratio": 1.1537539936102237,
+          "hot_parent_worst_child_share": 0.2062937062937063,
+          "mean_standardized_score_advantage": 1.2052234411239624,
+          "raw_argmax_agreement": 0.5062850713729858,
+          "bias_max_abs": 0.6006548404693604,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": true,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        },
+        {
+          "content_selections": 613836,
+          "structural_selections": 288128,
+          "content_coverage": 11271,
+          "hot_parent_count": 556,
+          "candidate_to_control_max_load_ratio": 1.2252894033837933,
+          "hot_parent_worst_child_share": 0.20612813370473537,
+          "mean_standardized_score_advantage": 0.9867961406707764,
+          "raw_argmax_agreement": 0.4202409088611603,
+          "bias_max_abs": 0.5983437299728394,
+          "gates": {
+            "load_ratio": true,
+            "hot_parent_share": true,
+            "coverage": true,
+            "score_advantage": true,
+            "raw_argmax_agreement": true
+          }
+        }
+      ],
+      "all_layer_gates_pass": false
+    }
+  },
+  "gates": {
+    "fit": false,
+    "reserved": false,
+    "source_separated": false
+  },
+  "decision": "route_screen_fail",
+  "runtime": {
+    "seconds": 412.46900000000005,
+    "rss_bytes": 4322775040,
+    "gpu_peak_allocated_bytes": 2945090560,
+    "gpu": "NVIDIA GeForce RTX 3060"
+  },
+  "scope": "Route-only screen on previously used training and source data",
+  "initial_router_sha256": "10a8d695f51bff84bf1fcc0e90971a9fb332bfd3226eb059af0256770ae9d6e1",
+  "meth204_result_sha256": "af36a9d1ff119b1407c395c769afcf40b6023ef64ce430ca9a062c89ae59e160",
+  "meth205_result_sha256": "f297107e589c5152e27a6f4facb86f5e5ed3129acd71ede3ff38f73434055745",
+  "calibration_stages": [
+    {
+      "layer": 0,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 6,
+          "worst_hot_parent_share": 0.34191176295280457,
+          "max_load_ratio": 1.7916078567504883,
+          "coverage": 10524
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.16120906174182892,
+          "max_load_ratio": 1.077507734298706,
+          "coverage": 10694
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.1216617226600647,
+          "max_load_ratio": 1.0078270435333252,
+          "coverage": 10733
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.1171875,
+          "max_load_ratio": 1.0027408599853516,
+          "coverage": 10740
+        }
+      ]
+    },
+    {
+      "layer": 1,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 1,
+          "worst_hot_parent_share": 0.29291045665740967,
+          "max_load_ratio": 1.1742383241653442,
+          "coverage": 11227
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.13805970549583435,
+          "max_load_ratio": 1.009840965270996,
+          "coverage": 11292
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.1221374049782753,
+          "max_load_ratio": 1.0019546747207642,
+          "coverage": 11310
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.11654135584831238,
+          "max_load_ratio": 1.000943660736084,
+          "coverage": 11311
+        }
+      ]
+    },
+    {
+      "layer": 2,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.20956720411777496,
+          "max_load_ratio": 1.3023947477340698,
+          "coverage": 11372
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.13108614087104797,
+          "max_load_ratio": 1.0169172286987305,
+          "coverage": 11405
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.11985018849372864,
+          "max_load_ratio": 1.0040578842163086,
+          "coverage": 11408
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.11654135584831238,
+          "max_load_ratio": 1.0030291080474854,
+          "coverage": 11408
+        }
+      ]
+    },
+    {
+      "layer": 3,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 3,
+          "worst_hot_parent_share": 0.699711263179779,
+          "max_load_ratio": 1.1173723936080933,
+          "coverage": 11262
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 3,
+          "worst_hot_parent_share": 0.6506255865097046,
+          "max_load_ratio": 1.0067273378372192,
+          "coverage": 11294
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.24905122816562653,
+          "max_load_ratio": 1.003878116607666,
+          "coverage": 11299
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.17207792401313782,
+          "max_load_ratio": 1.0034031867980957,
+          "coverage": 11302
+        }
+      ]
+    },
+    {
+      "layer": 4,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 4,
+          "worst_hot_parent_share": 0.3751339912414551,
+          "max_load_ratio": 1.1070905923843384,
+          "coverage": 11183
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 1,
+          "worst_hot_parent_share": 0.29830509424209595,
+          "max_load_ratio": 1.008880853652954,
+          "coverage": 11226
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.2135593146085739,
+          "max_load_ratio": 1.004204273223877,
+          "coverage": 11234
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.1322033852338791,
+          "max_load_ratio": 1.0025036334991455,
+          "coverage": 11235
+        }
+      ]
+    },
+    {
+      "layer": 5,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 3,
+          "worst_hot_parent_share": 0.4187934994697571,
+          "max_load_ratio": 1.1890424489974976,
+          "coverage": 10710
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 3,
+          "worst_hot_parent_share": 0.3065217435359955,
+          "max_load_ratio": 1.016836404800415,
+          "coverage": 10800
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.19544845819473267,
+          "max_load_ratio": 1.0040011405944824,
+          "coverage": 10816
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.13225057721138,
+          "max_load_ratio": 1.0032880306243896,
+          "coverage": 10816
+        }
+      ]
+    },
+    {
+      "layer": 6,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 3,
+          "worst_hot_parent_share": 0.35446009039878845,
+          "max_load_ratio": 1.0557408332824707,
+          "coverage": 11425
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 2,
+          "worst_hot_parent_share": 0.3258216083049774,
+          "max_load_ratio": 1.0109491348266602,
+          "coverage": 11450
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.185478076338768,
+          "max_load_ratio": 1.005574107170105,
+          "coverage": 11453
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.12257368862628937,
+          "max_load_ratio": 1.0042303800582886,
+          "coverage": 11453
+        }
+      ]
+    },
+    {
+      "layer": 7,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 4,
+          "worst_hot_parent_share": 0.737687349319458,
+          "max_load_ratio": 1.1354550123214722,
+          "coverage": 11453
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 3,
+          "worst_hot_parent_share": 0.3522484004497528,
+          "max_load_ratio": 1.0178853273391724,
+          "coverage": 11469
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.1977205127477646,
+          "max_load_ratio": 1.0044713020324707,
+          "coverage": 11471
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.13475176692008972,
+          "max_load_ratio": 1.0021041631698608,
+          "coverage": 11471
+        }
+      ]
+    },
+    {
+      "layer": 8,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 3,
+          "worst_hot_parent_share": 0.5583972930908203,
+          "max_load_ratio": 1.1063717603683472,
+          "coverage": 11109
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 1,
+          "worst_hot_parent_share": 0.33568075299263,
+          "max_load_ratio": 1.0110584497451782,
+          "coverage": 11167
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.16478873789310455,
+          "max_load_ratio": 1.004212737083435,
+          "coverage": 11175
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.12190963327884674,
+          "max_load_ratio": 1.003159523010254,
+          "coverage": 11177
+        }
+      ]
+    },
+    {
+      "layer": 9,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 3,
+          "worst_hot_parent_share": 0.7198660969734192,
+          "max_load_ratio": 1.134297490119934,
+          "coverage": 11457
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 1,
+          "worst_hot_parent_share": 0.28003785014152527,
+          "max_load_ratio": 1.011826753616333,
+          "coverage": 11473
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.14947965741157532,
+          "max_load_ratio": 1.0041322708129883,
+          "coverage": 11475
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.1287386268377304,
+          "max_load_ratio": 1.0034910440444946,
+          "coverage": 11475
+        }
+      ]
+    },
+    {
+      "layer": 10,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 4,
+          "worst_hot_parent_share": 0.5210449695587158,
+          "max_load_ratio": 1.091719150543213,
+          "coverage": 11445
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 2,
+          "worst_hot_parent_share": 0.28737300634384155,
+          "max_load_ratio": 1.0061780214309692,
+          "coverage": 11462
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.1520548015832901,
+          "max_load_ratio": 1.0040394067764282,
+          "coverage": 11462
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.1218934878706932,
+          "max_load_ratio": 1.0029702186584473,
+          "coverage": 11462
+        }
+      ]
+    },
+    {
+      "layer": 11,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 3,
+          "worst_hot_parent_share": 0.44948452711105347,
+          "max_load_ratio": 1.033528208732605,
+          "coverage": 11311
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 1,
+          "worst_hot_parent_share": 0.2638832628726959,
+          "max_load_ratio": 1.0031061172485352,
+          "coverage": 11326
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.1564653366804123,
+          "max_load_ratio": 1.0022839307785034,
+          "coverage": 11328
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.11958763003349304,
+          "max_load_ratio": 1.0022839307785034,
+          "coverage": 11328
+        }
+      ]
+    },
+    {
+      "layer": 12,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 4,
+          "worst_hot_parent_share": 0.4051383435726166,
+          "max_load_ratio": 1.065435767173767,
+          "coverage": 11217
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 1,
+          "worst_hot_parent_share": 0.29940712451934814,
+          "max_load_ratio": 1.0146076679229736,
+          "coverage": 11263
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.1751026064157486,
+          "max_load_ratio": 1.0019006729125977,
+          "coverage": 11268
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.12252964079380035,
+          "max_load_ratio": 1.0019006729125977,
+          "coverage": 11268
+        }
+      ]
+    },
+    {
+      "layer": 13,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 2,
+          "worst_hot_parent_share": 0.5821972489356995,
+          "max_load_ratio": 1.140204668045044,
+          "coverage": 11120
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 1,
+          "worst_hot_parent_share": 0.39695268869400024,
+          "max_load_ratio": 1.0083365440368652,
+          "coverage": 11162
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.15396952629089355,
+          "max_load_ratio": 1.0032209157943726,
+          "coverage": 11167
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.12040557712316513,
+          "max_load_ratio": 1.0032209157943726,
+          "coverage": 11167
+        }
+      ]
+    },
+    {
+      "layer": 14,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 3,
+          "worst_hot_parent_share": 0.539375901222229,
+          "max_load_ratio": 1.1931322813034058,
+          "coverage": 11222
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.23297137022018433,
+          "max_load_ratio": 1.0052540302276611,
+          "coverage": 11246
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.15601782500743866,
+          "max_load_ratio": 1.0018764734268188,
+          "coverage": 11247
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.12348993122577667,
+          "max_load_ratio": 1.0018764734268188,
+          "coverage": 11247
+        }
+      ]
+    },
+    {
+      "layer": 15,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 3,
+          "worst_hot_parent_share": 0.3697104752063751,
+          "max_load_ratio": 1.1663533449172974,
+          "coverage": 10945
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.2219083458185196,
+          "max_load_ratio": 1.0106703042984009,
+          "coverage": 11011
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.16862745583057404,
+          "max_load_ratio": 1.0030553340911865,
+          "coverage": 11024
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.12287581712007523,
+          "max_load_ratio": 1.0022093057632446,
+          "coverage": 11025
+        }
+      ]
+    },
+    {
+      "layer": 16,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 1,
+          "worst_hot_parent_share": 0.30708661675453186,
+          "max_load_ratio": 1.1557066440582275,
+          "coverage": 11217
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.19980314373970032,
+          "max_load_ratio": 1.0139108896255493,
+          "coverage": 11260
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.15157480537891388,
+          "max_load_ratio": 1.004426121711731,
+          "coverage": 11263
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.12269129604101181,
+          "max_load_ratio": 1.003477692604065,
+          "coverage": 11263
+        }
+      ]
+    },
+    {
+      "layer": 17,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 2,
+          "worst_hot_parent_share": 0.29643765091896057,
+          "max_load_ratio": 1.1292089223861694,
+          "coverage": 10452
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.20356233417987823,
+          "max_load_ratio": 1.0082558393478394,
+          "coverage": 10536
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.16284987330436707,
+          "max_load_ratio": 1.0020482540130615,
+          "coverage": 10558
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.1247771829366684,
+          "max_load_ratio": 1.001295804977417,
+          "coverage": 10558
+        }
+      ]
+    },
+    {
+      "layer": 18,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 4,
+          "worst_hot_parent_share": 0.6795841455459595,
+          "max_load_ratio": 1.1349337100982666,
+          "coverage": 11064
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 3,
+          "worst_hot_parent_share": 0.30051812529563904,
+          "max_load_ratio": 1.004428505897522,
+          "coverage": 11117
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.15135134756565094,
+          "max_load_ratio": 1.0022412538528442,
+          "coverage": 11119
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.12321659922599792,
+          "max_load_ratio": 1.0017552375793457,
+          "coverage": 11118
+        }
+      ]
+    },
+    {
+      "layer": 19,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 4,
+          "worst_hot_parent_share": 0.5718132853507996,
+          "max_load_ratio": 1.1010416746139526,
+          "coverage": 11083
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 3,
+          "worst_hot_parent_share": 0.2809694707393646,
+          "max_load_ratio": 1.0079796314239502,
+          "coverage": 11173
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.17684021592140198,
+          "max_load_ratio": 1.001975655555725,
+          "coverage": 11191
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.12298025190830231,
+          "max_load_ratio": 1.0010520219802856,
+          "coverage": 11191
+        }
+      ]
+    },
+    {
+      "layer": 20,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 3,
+          "worst_hot_parent_share": 0.32414698600769043,
+          "max_load_ratio": 1.1055866479873657,
+          "coverage": 11267
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 2,
+          "worst_hot_parent_share": 0.26490065455436707,
+          "max_load_ratio": 1.0078212022781372,
+          "coverage": 11326
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.1463414579629898,
+          "max_load_ratio": 1.0033519268035889,
+          "coverage": 11335
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.12037765234708786,
+          "max_load_ratio": 1.001955270767212,
+          "coverage": 11334
+        }
+      ]
+    },
+    {
+      "layer": 21,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 4,
+          "worst_hot_parent_share": 0.6779140830039978,
+          "max_load_ratio": 1.2083007097244263,
+          "coverage": 11373
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 2,
+          "worst_hot_parent_share": 0.33128833770751953,
+          "max_load_ratio": 1.010180115699768,
+          "coverage": 11397
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.20347648859024048,
+          "max_load_ratio": 1.0023492574691772,
+          "coverage": 11405
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.15877079963684082,
+          "max_load_ratio": 1.001305103302002,
+          "coverage": 11405
+        }
+      ]
+    },
+    {
+      "layer": 22,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.18584071099758148,
+          "max_load_ratio": 1.1832537651062012,
+          "coverage": 11488
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.1284046620130539,
+          "max_load_ratio": 1.0094014406204224,
+          "coverage": 11494
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.11832061409950256,
+          "max_load_ratio": 1.0067572593688965,
+          "coverage": 11494
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.11673151701688766,
+          "max_load_ratio": 1.0054352283477783,
+          "coverage": 11494
+        }
+      ]
+    },
+    {
+      "layer": 23,
+      "saved_baseline_reconciled": true,
+      "stages": [
+        {
+          "temperature": 0.05,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.17406143248081207,
+          "max_load_ratio": 1.1206930875778198,
+          "coverage": 11459
+        },
+        {
+          "temperature": 0.01,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.1257142871618271,
+          "max_load_ratio": 1.0053596496582031,
+          "coverage": 11475
+        },
+        {
+          "temperature": 0.002,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.11969111859798431,
+          "max_load_ratio": 1.0010074377059937,
+          "coverage": 11477
+        },
+        {
+          "temperature": 0.0004,
+          "hot_parents_above_25_percent": 0,
+          "worst_hot_parent_share": 0.11692307889461517,
+          "max_load_ratio": 1.0010074377059937,
+          "coverage": 11477
+        }
+      ]
+    }
+  ],
+  "apparatus_result": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth206_annealed_bias_result.apparatus.json",
+    "sha256": "7bb4bc4202c959c74f5165910ec6213f892309ff0c5ce01acf86c881ce5f3530"
+  }
+}

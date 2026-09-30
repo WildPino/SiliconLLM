@@ -1281,6 +1281,15 @@ shares are 11.111–11.277% at calibration temperature 0.05, while
 hard argmax shares reach 73.769%. The implementation must therefore
 close its soft/hard calibration gap and still pass each domain cell;
 input recurrence does not currently force a changed router input.
+The [METH-206 annealed-bias result](METH_206_ANNEALED_BIAS_RESULT_20260930.md)
+validates a correction of pooled hard load with frozen keys: at
+temperature 0.0004, every pooled layer has max-load ratio <=1.0055
+and worst hot-parent share <=17.208%. The original separate raw/chat
+fit gates still fail (14/12 load-ratio and 21/15 hot-share layer
+failures), so this router remains ineligible for specialist training.
+A causal mode-conditioned bias or a cell-robust fit is the remaining
+route proposal; reserved/source load, actual CPU cost and distinct
+trained expert usefulness are all unvalidated.
 
 The [large-RAM `engine.c` LUT probe](METH_177_LARGE_RAM_LUT_POOL_RESULT_20260930.md)
 measures a fully initialized synthetic E12,800→E128,000 bank at
