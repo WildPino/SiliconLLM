@@ -69,10 +69,17 @@ in 6/24 layers (worst 1.301 vs <=1.25); source remains unopened.
 both raw cells. The worst ratio is common in the frozen fit bootstrap,
 but six failing layers exceed its 99th percentile (tail 0.830%).
 This is conditional fit variation, not proof of population drift.
-**Next exact action:** freeze increased independent mode-bias fit
-support with unchanged keys/projection/annealing. Exclude old reserved
-draws, retain their original gates, and reserve an unopened route
-cohort. METH-207 remains failed; no B training/native promotion.
+**Running:** [METH-209](METH_209_EXPANDED_RAW_BIAS_PROTOCOL_20260930.md),
+frozen at `0325c1a`, expands only raw bias fit to 3,072 sequences,
+keeps the passing ChatML bank byte-identical, excludes old reserved
+draws and reserves another 512 pairs. The local process is live
+and has completed model loading and begun raw capture; no outcome yet.
+**Next exact action:** poll exec session `15501` and inspect
+`meth209_expanded_raw_bias_result.json` or its `.failure.json`.
+Python launcher PID 14616 / child PID 19428 identify this same job;
+if the session handle is unavailable, inspect those processes and the
+exact command before concluding it stopped. Do not restart on a
+poll timeout. METH-207 remains failed; no B training/native promotion.
 Merely continuing the same hash-route/shared-base
 recipe is not a justified path to useful additional specialists. The
 METH-184 normalized content-score/hash mixture also fails its frozen
