@@ -1288,6 +1288,16 @@ explicit treatment of recurrent/shared choices, actual CPU cost and
 fresh quality. Do not count replicated structural rows as new useful
 capacity.
 
+The [METH-185 pretrained FFN channel screen](METH_185_PRETRAINED_FFN_CHANNEL_SPARSITY_RESULT_20260930.md)
+tests direct norm-ranked dynamic channel omission on 6,144 actual BF16
+E1280 pre-MLP states. Even K=2,048 of 4,864 channels has 16.49%
+median relative FFN output error, failing the frozen 1% component
+fidelity gate. Full-K output matches exactly. This rules out that
+untrained selection rule as a compact core step at the tested K; it
+does not prove an optimal-subset lower bound or test a learned router.
+A viable core now needs a changed representation or joint training
+that restores the donor function while retaining a priced active path.
+
 The next representation experiment should specify an activation-sensitive
 or trained correction on the pinned pretrained donor, price the *whole*
 active path including MLA and head before conversion, and freeze a

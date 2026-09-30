@@ -1,5 +1,12 @@
 # METH-185: pretrained FFN channel sparsity upper-bound screen
 
+**Terminology correction after execution.** The phrase "upper-bound
+screen" in this title means the selector observes the exact full FFN
+activations. Ranking channels by individual contribution norm does
+not solve the combinatorial minimum-output-error subset problem. The
+frozen gates and tested rule below are unchanged; a failure applies
+to this concrete rule, not to every possible sparse decomposition.
+
 **Uncertainty and evidence.** The BF16 Qwen2.5-0.5B-Instruct donor plus
 learned E1280 bank preserves quality, but its full native FP32 reference
 is only 20.791 tok/s with the improved head. Grouped-R8 FFN still takes
@@ -7,9 +14,9 @@ is only 20.791 tok/s with the improved head. Grouped-R8 FFN still takes
 fails blind semantics. Grouped-Q4 FFN sharply damages full-model
 quality. Test a different pretrained-to-conditional transformation:
 selectively read channels of the donor's actual dense SwiGLU FFN.
-If even an activation-aware top-K channel oracle cannot closely
-reproduce the donor FFN, a cheaper approximate router for that same
-channel partition is unlikely to work without retraining.
+If this full-activation top-K channel rule cannot closely reproduce
+the donor FFN, approximating this exact rule with a cheaper router is
+unlikely to repair its output error without retraining.
 
 **Bound sources and operation.** Bind the BF16 Qwen2.5-0.5B-Instruct
 source revision `7ae557604adf67be50417f59c2c2f167def9a775`,

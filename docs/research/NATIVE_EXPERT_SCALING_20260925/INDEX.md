@@ -10,7 +10,10 @@ disjoint-domain median output-energy proxy is 49.152%, and even the
 test-domain diagonal oracle reaches only 52.297%. Neither screen measures
 full-model quality. METH-182 tests the actual Qwen grouped-R8 FFN in C:
 12.829 ms/token at six threads and 1.896% median output relative L2 error
-miss its frozen 10 ms/1% component gates. The
+miss its frozen 10 ms/1% component gates. METH-185 tests a different
+pretrained-to-conditional geometry: exact-activation top-K donor FFN
+channels. Even K=2,048/4,864 leaves 16.49% median output error, so
+that direct channel-selection rule fails its frozen fidelity gate. The
 tenfold E1,280→E12,800 METH-175 training
 passes its matched update, balance and artifact gates, but the untouched
 METH-176 quality gain fails the paired source bootstrap. METH-178 finds
@@ -1467,6 +1470,17 @@ scheduled.
   Resume by changing the specialist-learning mechanism while accounting
   for recurrent/shared traffic, and advance the separate pretrained core
   representation and native same-artifact speed gap.
+  [METH-185](METH_185_PRETRAINED_FFN_CHANNEL_SPARSITY_PROTOCOL_20260930.md)
+  reads the pinned BF16 Qwen donor FFNs and the METH-125 actual E1,280
+  pre-MLP states. Its [result](METH_185_PRETRAINED_FFN_CHANNEL_SPARSITY_RESULT_20260930.md)
+  finds 16.49% median output relative L2 even at K=2,048 of 4,864
+  activation-ranked channels, versus the frozen 1% limit; K=4,864
+  exactly reproduces the donor component. This rules out the specified
+  direct norm-ranked channel omission without retraining. The ranking
+  is not an optimal subset proof, and no cheap gate, full quality, native
+  speed or large-scale transfer was measured. Resume the compact-core
+  line with a changed representation or joint adaptation, with explicit
+  whole-path bytes and fresh model-quality gates.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
