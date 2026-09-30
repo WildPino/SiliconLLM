@@ -1,0 +1,670 @@
+{
+  "experiment": "METH-176-long-E12800-fresh-prediction",
+  "manifest_sha256": "9ac93c3b6e7eeaf67e928b3973f7042ad6ad002f2f5eed7f810046f8242d9029",
+  "answerability_sha256": "ad3bff926cc75d65eb94ed6dfacca6ca4d3c7bdf095210f14abf72101062d8bd",
+  "control_result_sha256": "21ba9c2752e97cae292a3f5d995ea1d205a3448b0a95142d4a995d4a67d9a802",
+  "candidate_result_sha256": "5b8de7a93c353b83393b0d2189a2cd594593c298dd867a998ca97d5d35ee4c64",
+  "initial_bf16_parity": {
+    "prompts": 8,
+    "logit_max_abs_error": 0.0
+  },
+  "bank_bindings": {
+    "continued_e1280": {
+      "rows_per_layer": 1280,
+      "bf16_readback_exact": true,
+      "sha256": "2d916a08e335273f223e33c9c7025c8e3b2a2468989c1a307aaedfe32a4bc936",
+      "bytes": 440401944
+    },
+    "factorized_e12800": {
+      "rows_per_layer": 12800,
+      "bf16_readback_exact": true,
+      "sha256": "be16c8859d7f540d7fbb39fe622f34deb7bf25f44a25f09fc4d5ed22909594eb",
+      "bytes": 4404019224
+    }
+  },
+  "document_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/adjudicate_dossier.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "donor": 4583.933349609375,
+        "original_e1280": 4574.4520263671875,
+        "continued_e1280": 4576.1123046875,
+        "factorized_e12800": 4576.599609375
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth15_zero_residual_expert_smoke.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "donor": 1862.5311889648438,
+        "original_e1280": 1854.601333618164,
+        "continued_e1280": 1853.6715850830078,
+        "factorized_e12800": 1855.1107788085938
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/speed/e3_budget_by_shape.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "donor": 2704.5897827148438,
+        "original_e1280": 2696.0841064453125,
+        "continued_e1280": 2697.4495849609375,
+        "factorized_e12800": 2695.8301391601562
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q6k_q8k_avx2_parity.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "donor": 1359.0866088867188,
+        "original_e1280": 1357.2158203125,
+        "continued_e1280": 1355.6171264648438,
+        "factorized_e12800": 1355.3455810546875
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth33_factor_precision_ablation.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "donor": 1783.278564453125,
+        "original_e1280": 1782.2861938476562,
+        "continued_e1280": 1782.92041015625,
+        "factorized_e12800": 1783.730224609375
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth48_int8_factor_bank.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "donor": 1678.852310180664,
+        "original_e1280": 1672.0827941894531,
+        "continued_e1280": 1672.0209503173828,
+        "factorized_e12800": 1669.574935913086
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat01_gguf_rollout.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "donor": 1509.7845458984375,
+        "original_e1280": 1506.7384643554688,
+        "continued_e1280": 1506.9017333984375,
+        "factorized_e12800": 1506.0960693359375
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e51_math_errno.py",
+      "category": "code",
+      "bytes": 4095,
+      "nats": {
+        "donor": 2495.303985595703,
+        "original_e1280": 2488.5733032226562,
+        "continued_e1280": 2491.941436767578,
+        "factorized_e12800": 2489.3465576171875
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00009-of-00023-f07a29af90b71085.parquet:row=500",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "donor": 2636.4105224609375,
+        "original_e1280": 2616.790283203125,
+        "continued_e1280": 2614.4337768554688,
+        "factorized_e12800": 2614.3685302734375
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00009-of-00023-f07a29af90b71085.parquet:row=255",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "donor": 3373.377685546875,
+        "original_e1280": 3358.3162841796875,
+        "continued_e1280": 3354.930419921875,
+        "factorized_e12800": 3355.4736328125
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00009-of-00023-f07a29af90b71085.parquet:row=1072",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "donor": 3214.802749633789,
+        "original_e1280": 3183.914436340332,
+        "continued_e1280": 3184.569496154785,
+        "factorized_e12800": 3182.0441360473633
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00009-of-00023-f07a29af90b71085.parquet:row=119",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "donor": 3386.5833740234375,
+        "original_e1280": 3368.498779296875,
+        "continued_e1280": 3369.54638671875,
+        "factorized_e12800": 3368.1900634765625
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00009-of-00023-f07a29af90b71085.parquet:row=857",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "donor": 3078.337615966797,
+        "original_e1280": 3056.442138671875,
+        "continued_e1280": 3053.92781829834,
+        "factorized_e12800": 3054.4963989257812
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00009-of-00023-f07a29af90b71085.parquet:row=665",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "donor": 2962.2437744140625,
+        "original_e1280": 2945.6878662109375,
+        "continued_e1280": 2944.8819580078125,
+        "factorized_e12800": 2943.7244873046875
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00009-of-00023-f07a29af90b71085.parquet:row=165",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "donor": 3540.1171340942383,
+        "original_e1280": 3507.9750175476074,
+        "continued_e1280": 3507.776470184326,
+        "factorized_e12800": 3508.9102210998535
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00009-of-00023-f07a29af90b71085.parquet:row=764",
+      "category": "prose",
+      "bytes": 4095,
+      "nats": {
+        "donor": 3315.375328063965,
+        "original_e1280": 3294.677276611328,
+        "continued_e1280": 3293.4363708496094,
+        "factorized_e12800": 3291.975425720215
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_02_STAGE0_DATA_PREP.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "donor": 6002.6383056640625,
+        "original_e1280": 5985.611572265625,
+        "continued_e1280": 5985.299011230469,
+        "factorized_e12800": 5985.0875244140625
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E30_THE_WALL.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "donor": 4285.2623291015625,
+        "original_e1280": 4270.5703125,
+        "continued_e1280": 4269.4266357421875,
+        "factorized_e12800": 4269.173828125
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/DONOR_PRIOR_ART_SURVEY.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "donor": 4127.872314453125,
+        "original_e1280": 4117.3594970703125,
+        "continued_e1280": 4117.3822021484375,
+        "factorized_e12800": 4115.2890625
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER_AUDIT_MANDATE.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "donor": 4241.306686401367,
+        "original_e1280": 4227.433578491211,
+        "continued_e1280": 4226.1923828125,
+        "factorized_e12800": 4226.548156738281
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E17_DOES_THE_HEAD_RANK.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "donor": 4618.37841796875,
+        "original_e1280": 4597.4921875,
+        "continued_e1280": 4594.4794921875,
+        "factorized_e12800": 4596.636962890625
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_F1_GATE_SIGN_PREDICTOR.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "donor": 4109.8543701171875,
+        "original_e1280": 4096.059020996094,
+        "continued_e1280": 4094.1701049804688,
+        "factorized_e12800": 4096.343933105469
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_RESULT_20260923.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "donor": 5804.046142578125,
+        "original_e1280": 5788.207427978516,
+        "continued_e1280": 5786.814605712891,
+        "factorized_e12800": 5786.1163330078125
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/TARGET_DONOR_LOCAL_INVENTORY.md",
+      "category": "technical_general",
+      "bytes": 4095,
+      "nats": {
+        "donor": 4376.170654296875,
+        "original_e1280": 4363.81591796875,
+        "continued_e1280": 4359.5133056640625,
+        "factorized_e12800": 4359.6094970703125
+      }
+    }
+  ],
+  "prompt_rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/adjudicate_dossier.py",
+      "category": "code",
+      "positions": 285,
+      "matching": {
+        "donor": 285,
+        "original_e1280": 278,
+        "continued_e1280": 273,
+        "factorized_e12800": 277
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth15_zero_residual_expert_smoke.py",
+      "category": "code",
+      "positions": 182,
+      "matching": {
+        "donor": 182,
+        "original_e1280": 175,
+        "continued_e1280": 175,
+        "factorized_e12800": 176
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/speed/e3_budget_by_shape.py",
+      "category": "code",
+      "positions": 222,
+      "matching": {
+        "donor": 222,
+        "original_e1280": 217,
+        "continued_e1280": 218,
+        "factorized_e12800": 219
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/test_strat01_q6k_q8k_avx2_parity.py",
+      "category": "code",
+      "positions": 160,
+      "matching": {
+        "donor": 160,
+        "original_e1280": 153,
+        "continued_e1280": 154,
+        "factorized_e12800": 156
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth33_factor_precision_ablation.py",
+      "category": "code",
+      "positions": 177,
+      "matching": {
+        "donor": 177,
+        "original_e1280": 171,
+        "continued_e1280": 171,
+        "factorized_e12800": 173
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth48_int8_factor_bank.py",
+      "category": "code",
+      "positions": 150,
+      "matching": {
+        "donor": 150,
+        "original_e1280": 145,
+        "continued_e1280": 142,
+        "factorized_e12800": 143
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/test_strat01_gguf_rollout.py",
+      "category": "code",
+      "positions": 160,
+      "matching": {
+        "donor": 160,
+        "original_e1280": 155,
+        "continued_e1280": 155,
+        "factorized_e12800": 154
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e51_math_errno.py",
+      "category": "code",
+      "positions": 183,
+      "matching": {
+        "donor": 183,
+        "original_e1280": 178,
+        "continued_e1280": 178,
+        "factorized_e12800": 179
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00009-of-00023-f07a29af90b71085.parquet:row=500",
+      "category": "prose",
+      "positions": 155,
+      "matching": {
+        "donor": 155,
+        "original_e1280": 150,
+        "continued_e1280": 149,
+        "factorized_e12800": 150
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00009-of-00023-f07a29af90b71085.parquet:row=255",
+      "category": "prose",
+      "positions": 156,
+      "matching": {
+        "donor": 156,
+        "original_e1280": 148,
+        "continued_e1280": 148,
+        "factorized_e12800": 149
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00009-of-00023-f07a29af90b71085.parquet:row=1072",
+      "category": "prose",
+      "positions": 171,
+      "matching": {
+        "donor": 171,
+        "original_e1280": 161,
+        "continued_e1280": 163,
+        "factorized_e12800": 163
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00009-of-00023-f07a29af90b71085.parquet:row=119",
+      "category": "prose",
+      "positions": 154,
+      "matching": {
+        "donor": 154,
+        "original_e1280": 147,
+        "continued_e1280": 147,
+        "factorized_e12800": 148
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00009-of-00023-f07a29af90b71085.parquet:row=857",
+      "category": "prose",
+      "positions": 163,
+      "matching": {
+        "donor": 163,
+        "original_e1280": 156,
+        "continued_e1280": 156,
+        "factorized_e12800": 158
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00009-of-00023-f07a29af90b71085.parquet:row=665",
+      "category": "prose",
+      "positions": 165,
+      "matching": {
+        "donor": 165,
+        "original_e1280": 156,
+        "continued_e1280": 156,
+        "factorized_e12800": 155
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00009-of-00023-f07a29af90b71085.parquet:row=165",
+      "category": "prose",
+      "positions": 155,
+      "matching": {
+        "donor": 155,
+        "original_e1280": 147,
+        "continued_e1280": 149,
+        "factorized_e12800": 147
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00009-of-00023-f07a29af90b71085.parquet:row=764",
+      "category": "prose",
+      "positions": 152,
+      "matching": {
+        "donor": 152,
+        "original_e1280": 144,
+        "continued_e1280": 143,
+        "factorized_e12800": 147
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_02_STAGE0_DATA_PREP.md",
+      "category": "technical_general",
+      "positions": 185,
+      "matching": {
+        "donor": 185,
+        "original_e1280": 178,
+        "continued_e1280": 179,
+        "factorized_e12800": 178
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E30_THE_WALL.md",
+      "category": "technical_general",
+      "positions": 168,
+      "matching": {
+        "donor": 168,
+        "original_e1280": 163,
+        "continued_e1280": 162,
+        "factorized_e12800": 162
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/DONOR_PRIOR_ART_SURVEY.md",
+      "category": "technical_general",
+      "positions": 158,
+      "matching": {
+        "donor": 158,
+        "original_e1280": 152,
+        "continued_e1280": 151,
+        "factorized_e12800": 152
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/CONTROLLER_AUDIT_MANDATE.md",
+      "category": "technical_general",
+      "positions": 167,
+      "matching": {
+        "donor": 167,
+        "original_e1280": 161,
+        "continued_e1280": 162,
+        "factorized_e12800": 162
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E17_DOES_THE_HEAD_RANK.md",
+      "category": "technical_general",
+      "positions": 176,
+      "matching": {
+        "donor": 176,
+        "original_e1280": 171,
+        "continued_e1280": 172,
+        "factorized_e12800": 173
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_F1_GATE_SIGN_PREDICTOR.md",
+      "category": "technical_general",
+      "positions": 152,
+      "matching": {
+        "donor": 152,
+        "original_e1280": 145,
+        "continued_e1280": 144,
+        "factorized_e12800": 146
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_Q4K_Q8K_REFERENCE_GENERIC_COMPILE_PARITY_RESULT_20260923.md",
+      "category": "technical_general",
+      "positions": 172,
+      "matching": {
+        "donor": 172,
+        "original_e1280": 162,
+        "continued_e1280": 166,
+        "factorized_e12800": 163
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/TARGET_DONOR_LOCAL_INVENTORY.md",
+      "category": "technical_general",
+      "positions": 274,
+      "matching": {
+        "donor": 274,
+        "original_e1280": 258,
+        "continued_e1280": 250,
+        "factorized_e12800": 255
+      }
+    }
+  ],
+  "summary": {
+    "document": {
+      "pooled": {
+        "documents": 24,
+        "bytes": 98280,
+        "bpb": {
+          "donor": 1.1897703681566576,
+          "original_e1280": 1.1847903383945526,
+          "continued_e1280": 1.1845338876091696,
+          "factorized_e12800": 1.18441948371386
+        },
+        "candidate_minus_control": -0.00011440389530958939
+      },
+      "code": {
+        "documents": 8,
+        "bytes": 32760,
+        "bpb": {
+          "donor": 0.7916925703742159,
+          "original_e1280": 0.7896964769829834,
+          "continued_e1280": 0.7898991011884758,
+          "factorized_e12800": 0.7896788552079945
+        },
+        "candidate_minus_control": -0.00022024598048131505
+      },
+      "prose": {
+        "documents": 8,
+        "bytes": 32760,
+        "bpb": {
+          "donor": 1.1232961069009548,
+          "original_e1280": 1.1155917761932748,
+          "continued_e1280": 1.1152042661442967,
+          "factorized_e12800": 1.1150140293934654
+        },
+        "candidate_minus_control": -0.00019023675083129632
+      },
+      "technical_general": {
+        "documents": 8,
+        "bytes": 32760,
+        "bpb": {
+          "donor": 1.6543224271948027,
+          "original_e1280": 1.6490827620074004,
+          "continued_e1280": 1.648498295494737,
+          "factorized_e12800": 1.6485655665401207
+        },
+        "candidate_minus_control": 6.727104538373219e-05
+      }
+    },
+    "prompt": {
+      "pooled": {
+        "prompts": 24,
+        "positions": 4242,
+        "donor_top1_agreement": {
+          "donor": 1.0,
+          "original_e1280": 0.9596888260254597,
+          "continued_e1280": 0.9578029231494578,
+          "factorized_e12800": 0.962989156058463
+        },
+        "candidate_minus_control": 0.005186232909005217
+      },
+      "code": {
+        "prompts": 8,
+        "positions": 1519,
+        "donor_top1_agreement": {
+          "donor": 1.0,
+          "original_e1280": 0.9690585911784069,
+          "continued_e1280": 0.9651086240947993,
+          "factorized_e12800": 0.9723502304147466
+        },
+        "candidate_minus_control": 0.007241606319947302
+      },
+      "prose": {
+        "prompts": 8,
+        "positions": 1271,
+        "donor_top1_agreement": {
+          "donor": 1.0,
+          "original_e1280": 0.9512195121951219,
+          "continued_e1280": 0.9527930763178599,
+          "factorized_e12800": 0.957513768686074
+        },
+        "candidate_minus_control": 0.004720692368214041
+      },
+      "technical_general": {
+        "prompts": 8,
+        "positions": 1452,
+        "donor_top1_agreement": {
+          "donor": 1.0,
+          "original_e1280": 0.9573002754820936,
+          "continued_e1280": 0.9545454545454546,
+          "factorized_e12800": 0.9579889807162535
+        },
+        "candidate_minus_control": 0.003443526170798905
+      }
+    }
+  },
+  "bootstrap": {
+    "seed": 176176,
+    "draws": 10000,
+    "control_minus_candidate_p05": -4.1897264052311316e-05
+  },
+  "gates": {
+    "pooled_bpb_gain": true,
+    "bootstrap_gain": false,
+    "category_bpb": true,
+    "pooled_donor_top1": true,
+    "category_donor_top1": true
+  },
+  "runtime": {
+    "seconds": 180.88999999999987,
+    "rss_bytes": 14461054976,
+    "gpu_peak_allocated_bytes": 4673313792,
+    "gpu": "NVIDIA GeForce RTX 3060"
+  },
+  "decision": "stop_document_prompt_gate"
+}

@@ -1369,8 +1369,15 @@ scheduled.
   content median 56, but in-sample loss does not prove useful capacity.
   Both final bank hashes were independently re-read from disk. The
   [METH-176](METH_176_LONG_TRAINING_FRESH_QUALITY_PROTOCOL_20260928.md)
-  untouched quality adjudication is now the next gate; PG19 shard 9 was
-  reserved until after this training pass.
+  then froze 24 new source-disjoint quality items, including PG19 shard 9,
+  only after both arms completed. The
+  [fresh prediction result](METH_176_LONG_FRESH_PREDICTION_RESULT_20260930.md)
+  improves pooled candidate-minus-control BPB by 0.000114, but its paired
+  bootstrap 5th-percentile gain is -0.0000419 and fails the required
+  positive bound. Category nonregression and donor-top-1 retention pass.
+  The frozen protocol therefore stops before generation, PIQA and blind
+  grounding. Shard 9 is consumed by this adjudication. Useful added
+  experts, CPU LUT/full-model rate and 10B/100B transfer remain unproved.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
