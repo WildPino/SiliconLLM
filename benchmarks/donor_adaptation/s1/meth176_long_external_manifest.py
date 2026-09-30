@@ -39,7 +39,7 @@ CANDIDATE = DOC / "meth175_candidate_long_result.json"
 TABLE = DOC / "meth172_threshold8_shared_table.json"
 TABLE_SHA = "e89ff2cecbf887b85b5e361d47a8b918d8ccb93bd5c385a580ba993b93ac72db"
 ROUTE = DOC / "meth173_fresh_recurrence_route_result.json"
-ROUTE_SHA = "8cf875ade5a2996e7f2e9db352f5dde1afb65efe537e0038a0e61033c97770e3c"
+ROUTE_SHA = "8cf875ade5a2996e7f2e9db352f5dde1afb65efe537e0038a0e61033c97770e3"
 DRAWS_SHA = "9d4e06eced3cc1c51bac4e6219013f37f4495acd10c87827b567f0966f5c490c"
 EXTRA_PRIOR = (
     (DOC / "meth156_factorized_external_manifest.json", "a3c370f285dce386e94570ac889c7941d9181a87122a2491e9c47905ff832ca1"),
