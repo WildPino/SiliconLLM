@@ -1,0 +1,445 @@
+{
+  "experiment": "METH-197-large-pool-prefetch",
+  "protocol": "METH_197_LARGE_POOL_PREFETCH_PROTOCOL_20260930.md",
+  "source_sha256": "daa0d844badcaa499ec93949f27a58bf6ee3d9e8c9a968c2a8a0620ff9bb43a4",
+  "binary_sha256": "e64440a18b1dcff1ffc049bbed3b0ebf02d8e8edfb13ac284d6a4fd8c9cb63fa",
+  "build_command": [
+    "clang",
+    "-O3",
+    "-mavx2",
+    "-mfma",
+    "-march=znver2",
+    "-fopenmp",
+    "D:\\_THINGS\\Progetti\\SiliconLLM\\benchmarks\\phase60\\engine.c",
+    "-o",
+    "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+    "-lm"
+  ],
+  "selftest": "==== engine kernel self-test (synthetic, no weights): all LUT paths vs scalar-int ====\n  73024 checks | worst |S - S_ref| = 0  PASS\n  exp256_ps vs libm on [-30,0]: max rel err = 1.191e-07  PASS (<=2e-6)",
+  "host": {
+    "processor": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+    "physical_cpus": 6,
+    "total_ram_bytes": 85845110784
+  },
+  "arms": {
+    "12800": {
+      "1": {
+        "baseline": {
+          "pool_bytes": 5505024000,
+          "selected_code_bytes_per_token": 1720320,
+          "init_seconds": 0.675418,
+          "repetitions": [
+            {
+              "rep": 1,
+              "seconds": 0.146812,
+              "us_token": 286.742,
+              "selected_gbps": 6.0,
+              "checksum": 363
+            },
+            {
+              "rep": 2,
+              "seconds": 0.138452,
+              "us_token": 270.414,
+              "selected_gbps": 6.362,
+              "checksum": -821
+            },
+            {
+              "rep": 3,
+              "seconds": 0.1412752,
+              "us_token": 275.928,
+              "selected_gbps": 6.235,
+              "checksum": -2310
+            },
+            {
+              "rep": 4,
+              "seconds": 0.1388421,
+              "us_token": 271.176,
+              "selected_gbps": 6.344,
+              "checksum": -4429
+            }
+          ],
+          "median_last_three_us_token": 271.176,
+          "median_last_three_selected_gbps": 6.344,
+          "command": [
+            "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+            "--rank8-lut-pool",
+            "12800",
+            "--threads",
+            "1"
+          ],
+          "elapsed_seconds": 1.5159999999996217,
+          "available_ram_before_bytes": 70456549376,
+          "log_sha256": "bae418647610a35fa51c71393bda8b02b9a262c2af854951cd19132cc1c9ebf8",
+          "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth197_large_pool_prefetch_result.e12800.t1.baseline.log"
+        },
+        "prefetch": {
+          "pool_bytes": 5505024000,
+          "selected_code_bytes_per_token": 1720320,
+          "init_seconds": 0.778986,
+          "repetitions": [
+            {
+              "rep": 1,
+              "seconds": 0.1474989,
+              "us_token": 288.084,
+              "selected_gbps": 5.972,
+              "checksum": 363
+            },
+            {
+              "rep": 2,
+              "seconds": 0.1750232,
+              "us_token": 341.842,
+              "selected_gbps": 5.032,
+              "checksum": -821
+            },
+            {
+              "rep": 3,
+              "seconds": 0.1601061,
+              "us_token": 312.707,
+              "selected_gbps": 5.501,
+              "checksum": -2310
+            },
+            {
+              "rep": 4,
+              "seconds": 0.138907,
+              "us_token": 271.303,
+              "selected_gbps": 6.341,
+              "checksum": -4429
+            }
+          ],
+          "median_last_three_us_token": 312.707,
+          "median_last_three_selected_gbps": 5.501,
+          "command": [
+            "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+            "--rank8-lut-pool",
+            "12800",
+            "--threads",
+            "1",
+            "--rank8-prefetch"
+          ],
+          "elapsed_seconds": 1.8590000000003783,
+          "available_ram_before_bytes": 70383325184,
+          "log_sha256": "2cc13d7dcf109baf850102ca7e917e9f42b37be15316606a58c3344b9d09d40f",
+          "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth197_large_pool_prefetch_result.e12800.t1.prefetch.log"
+        }
+      },
+      "6": {
+        "baseline": {
+          "pool_bytes": 5505024000,
+          "selected_code_bytes_per_token": 1720320,
+          "init_seconds": 0.720441,
+          "repetitions": [
+            {
+              "rep": 1,
+              "seconds": 0.2201249,
+              "us_token": 429.931,
+              "selected_gbps": 4.001,
+              "checksum": 363
+            },
+            {
+              "rep": 2,
+              "seconds": 0.2204267,
+              "us_token": 430.521,
+              "selected_gbps": 3.996,
+              "checksum": -821
+            },
+            {
+              "rep": 3,
+              "seconds": 0.2132105,
+              "us_token": 416.427,
+              "selected_gbps": 4.131,
+              "checksum": -2310
+            },
+            {
+              "rep": 4,
+              "seconds": 0.2775146,
+              "us_token": 542.021,
+              "selected_gbps": 3.174,
+              "checksum": -4429
+            }
+          ],
+          "median_last_three_us_token": 430.521,
+          "median_last_three_selected_gbps": 3.996,
+          "command": [
+            "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+            "--rank8-lut-pool",
+            "12800",
+            "--threads",
+            "6"
+          ],
+          "elapsed_seconds": 1.9840000000003783,
+          "available_ram_before_bytes": 70150033408,
+          "log_sha256": "4f42195cce86b0059f79c92c252237490b0519a0add9aa87157b1bdf9fc1c5bb",
+          "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth197_large_pool_prefetch_result.e12800.t6.baseline.log"
+        },
+        "prefetch": {
+          "pool_bytes": 5505024000,
+          "selected_code_bytes_per_token": 1720320,
+          "init_seconds": 0.756508,
+          "repetitions": [
+            {
+              "rep": 1,
+              "seconds": 0.273322,
+              "us_token": 533.832,
+              "selected_gbps": 3.223,
+              "checksum": 363
+            },
+            {
+              "rep": 2,
+              "seconds": 0.2828798,
+              "us_token": 552.5,
+              "selected_gbps": 3.114,
+              "checksum": -821
+            },
+            {
+              "rep": 3,
+              "seconds": 0.2644676,
+              "us_token": 516.538,
+              "selected_gbps": 3.33,
+              "checksum": -2310
+            },
+            {
+              "rep": 4,
+              "seconds": 0.3568032,
+              "us_token": 696.881,
+              "selected_gbps": 2.469,
+              "checksum": -4429
+            }
+          ],
+          "median_last_three_us_token": 552.5,
+          "median_last_three_selected_gbps": 3.114,
+          "command": [
+            "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+            "--rank8-lut-pool",
+            "12800",
+            "--threads",
+            "6",
+            "--rank8-prefetch"
+          ],
+          "elapsed_seconds": 2.2340000000003783,
+          "available_ram_before_bytes": 70166962176,
+          "log_sha256": "c244a957a64fc0dcaa3572d4c07c5702d8980a50dc4a1a618ad6dfa530dc486b",
+          "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth197_large_pool_prefetch_result.e12800.t6.prefetch.log"
+        }
+      }
+    },
+    "128000": {
+      "1": {
+        "baseline": {
+          "pool_bytes": 55050240000,
+          "selected_code_bytes_per_token": 1720320,
+          "init_seconds": 13.439665,
+          "repetitions": [
+            {
+              "rep": 1,
+              "seconds": 0.1427534,
+              "us_token": 278.815,
+              "selected_gbps": 6.17,
+              "checksum": 1299
+            },
+            {
+              "rep": 2,
+              "seconds": 0.1667909,
+              "us_token": 325.763,
+              "selected_gbps": 5.281,
+              "checksum": -1521
+            },
+            {
+              "rep": 3,
+              "seconds": 0.1622355,
+              "us_token": 316.866,
+              "selected_gbps": 5.429,
+              "checksum": -2842
+            },
+            {
+              "rep": 4,
+              "seconds": 0.1455856,
+              "us_token": 284.347,
+              "selected_gbps": 6.05,
+              "checksum": -4663
+            }
+          ],
+          "median_last_three_us_token": 316.866,
+          "median_last_three_selected_gbps": 5.429,
+          "command": [
+            "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+            "--rank8-lut-pool",
+            "128000",
+            "--threads",
+            "1"
+          ],
+          "elapsed_seconds": 17.48400000000038,
+          "available_ram_before_bytes": 70202859520,
+          "log_sha256": "5917898050cb9fa01f4dd7feee9f301625b1ee9cee19b9bae5f89d06e059a776",
+          "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth197_large_pool_prefetch_result.e128000.t1.baseline.log"
+        },
+        "prefetch": {
+          "pool_bytes": 55050240000,
+          "selected_code_bytes_per_token": 1720320,
+          "init_seconds": 10.007915,
+          "repetitions": [
+            {
+              "rep": 1,
+              "seconds": 0.1486672,
+              "us_token": 290.366,
+              "selected_gbps": 5.925,
+              "checksum": 1299
+            },
+            {
+              "rep": 2,
+              "seconds": 0.138067,
+              "us_token": 269.662,
+              "selected_gbps": 6.38,
+              "checksum": -1521
+            },
+            {
+              "rep": 3,
+              "seconds": 0.1382385,
+              "us_token": 269.997,
+              "selected_gbps": 6.372,
+              "checksum": -2842
+            },
+            {
+              "rep": 4,
+              "seconds": 0.1377704,
+              "us_token": 269.083,
+              "selected_gbps": 6.393,
+              "checksum": -4663
+            }
+          ],
+          "median_last_three_us_token": 269.662,
+          "median_last_three_selected_gbps": 6.38,
+          "command": [
+            "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+            "--rank8-lut-pool",
+            "128000",
+            "--threads",
+            "1",
+            "--rank8-prefetch"
+          ],
+          "elapsed_seconds": 13.734000000000378,
+          "available_ram_before_bytes": 70257889280,
+          "log_sha256": "f57b7f98fffd12f436ab02d9e0a5c2c14e32d4ff2cd4e6fcad5ef9d11e626173",
+          "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth197_large_pool_prefetch_result.e128000.t1.prefetch.log"
+        }
+      },
+      "6": {
+        "baseline": {
+          "pool_bytes": 55050240000,
+          "selected_code_bytes_per_token": 1720320,
+          "init_seconds": 9.240072,
+          "repetitions": [
+            {
+              "rep": 1,
+              "seconds": 0.2480501,
+              "us_token": 484.473,
+              "selected_gbps": 3.551,
+              "checksum": 1299
+            },
+            {
+              "rep": 2,
+              "seconds": 0.2020305,
+              "us_token": 394.591,
+              "selected_gbps": 4.36,
+              "checksum": -1521
+            },
+            {
+              "rep": 3,
+              "seconds": 0.2006569,
+              "us_token": 391.908,
+              "selected_gbps": 4.39,
+              "checksum": -2842
+            },
+            {
+              "rep": 4,
+              "seconds": 0.2221956,
+              "us_token": 433.976,
+              "selected_gbps": 3.964,
+              "checksum": -4663
+            }
+          ],
+          "median_last_three_us_token": 394.591,
+          "median_last_three_selected_gbps": 4.36,
+          "command": [
+            "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+            "--rank8-lut-pool",
+            "128000",
+            "--threads",
+            "6"
+          ],
+          "elapsed_seconds": 12.93699999999808,
+          "available_ram_before_bytes": 70428934144,
+          "log_sha256": "5cb2f98bd3f0fe930247da89a824b915022392afb308ce48e99922c62bdeb884",
+          "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth197_large_pool_prefetch_result.e128000.t6.baseline.log"
+        },
+        "prefetch": {
+          "pool_bytes": 55050240000,
+          "selected_code_bytes_per_token": 1720320,
+          "init_seconds": 8.825291,
+          "repetitions": [
+            {
+              "rep": 1,
+              "seconds": 0.2504131,
+              "us_token": 489.088,
+              "selected_gbps": 3.517,
+              "checksum": 1299
+            },
+            {
+              "rep": 2,
+              "seconds": 0.2587409,
+              "us_token": 505.353,
+              "selected_gbps": 3.404,
+              "checksum": -1521
+            },
+            {
+              "rep": 3,
+              "seconds": 0.2654545,
+              "us_token": 518.466,
+              "selected_gbps": 3.318,
+              "checksum": -2842
+            },
+            {
+              "rep": 4,
+              "seconds": 0.2639902,
+              "us_token": 515.606,
+              "selected_gbps": 3.337,
+              "checksum": -4663
+            }
+          ],
+          "median_last_three_us_token": 515.606,
+          "median_last_three_selected_gbps": 3.337,
+          "command": [
+            "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+            "--rank8-lut-pool",
+            "128000",
+            "--threads",
+            "6",
+            "--rank8-prefetch"
+          ],
+          "elapsed_seconds": 12.843999999997322,
+          "available_ram_before_bytes": 70434476032,
+          "log_sha256": "77fe3de2c59080579e601e8e35b6e4d45ee826be31f140b1381527678d49339e",
+          "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth197_large_pool_prefetch_result.e128000.t6.prefetch.log"
+        }
+      }
+    }
+  },
+  "decision": "prefetch_selected_lut_scaling_fail",
+  "six_thread_medians_us_token": {
+    "baseline_small": 430.521,
+    "baseline_large": 394.591,
+    "prefetch_small": 552.5,
+    "prefetch_large": 515.606
+  },
+  "six_thread_ratios": {
+    "baseline_large_over_small": 0.9165429793204048,
+    "prefetch_large_over_small": 0.9332235294117647,
+    "small_prefetch_over_baseline": 1.2833288039375548,
+    "large_prefetch_over_baseline": 1.306684643086132
+  },
+  "gates": {
+    "prefetch_scaling_ratio_at_most_1_25": true,
+    "prefetch_large_us_at_most_5000": true,
+    "small_prefetch_regression_at_most_10pct": false,
+    "all_checksums_equal": true
+  }
+}
