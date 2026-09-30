@@ -2,7 +2,7 @@
 
 **Decision: reject this third-tier route rule under the frozen screen.**
 None of the five preregistered Gumbel-noise intensities passes both
-training raw and chat. The runner therefore stopped before opening the
+training raw and chat. The runner therefore stopped before evaluating the
 source-separated METH-150 documents. It did not train B factors or
 measure quality or native CPU cost.
 
@@ -54,9 +54,10 @@ Run from the repository root with:
 
 The local RTX 3060 run took 117.015 seconds with six host threads,
 2.945 GB peak allocated GPU memory, 4.150 GB process RSS and less than
-1 GB new disk. No T4 was used. The source-separated cells are absent
-by the frozen stop rule; this result cannot claim external load
-generalization.
+1 GB new disk. No T4 was used. The source-separated manifest was
+hash-checked at binding, but no model inference used its documents;
+those cells are absent by the frozen stop rule. This result cannot
+claim external load generalization.
 
 The failure sharpens the next decision. Stateless token/previous/
 window-position noise does not solve repeated-context concentration

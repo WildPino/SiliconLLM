@@ -1458,8 +1458,8 @@ scheduled.
   freezes a ten-way normalized content-score plus deterministic hash-noise
   screen, fitting one of five noise strengths on training raw/chat only.
   Its [result](METH_184_CONTENT_HASH_THIRD_ROUTE_RESULT_20260930.md)
-  finds no training-passing strength, so source-separated documents stay
-  unopened. At the largest strength, chat fails both load gates in all
+  finds no training-passing strength, so source-separated documents are
+  not evaluated. At the largest strength, chat fails both load gates in all
   24 layers and several hot parents send 100% to one grandchild;
   stronger noise also drops raw content-argmax agreement below 15%.
   The stateless tuple hash repeats routes on recurrent contexts. Do not
