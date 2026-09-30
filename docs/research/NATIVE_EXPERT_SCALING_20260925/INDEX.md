@@ -52,14 +52,16 @@ exposure: high-traffic parents reach 1.885% sibling/mean spread versus
 functional-diversity gate. The median active child saw only 117
 training selections. Exposure contributes; simply buying more
 hash-route/shared-base updates is not established as a remedy.
-**Next exact action:** specify and run a bounded third-tier route screen
-that reuses METH-95's rank-32 content-conditioned child scoring with
-trainable keys and per-parent load control, retaining METH-175's
-explicit structural path. Bind E1,280 parent routes and replayed
-training draws; require source-separated content load and score-signal
-gates before allocating/training another E12,800 B bank. Price the
-rank-32 key/projection bytes and actual CPU route path before any
-full-model promotion. This is a proposed mechanism, not a result.
+METH-204 fits nine shared rank-32 content keys per layer and a
+per-parent load bias, retaining the structural path. Content signal
+and coverage pass on both fit cells, but load fails in 19/24 layers
+and hot-parent share fails in all 24; reserved/source screens remain
+unopened. **Next exact action:** test whether repeated projected
+states impose a 25% deterministic-load floor in the failing hot
+parents, then specify a bounded parent-specific content assignment
+with a hard load constraint. Require fit, reserved and source-separated
+route gates before B training, then price actual native CPU routing.
+This is a proposed next mechanism, not a validated method.
 Merely continuing the same hash-route/shared-base
 recipe is not a justified path to useful additional specialists. The
 METH-184 normalized content-score/hash mixture also fails its frozen
@@ -1468,6 +1470,16 @@ scheduled.
   high-exposure layer passes the frozen diversity gate. The median
   active content child had 117 training selections. Underexposure
   contributes but cannot alone justify another identical long run.
+  [METH-204](METH_204_SHARED_CONTENT_KEYS_PROTOCOL_20260930.md)
+  fits globally shared rank-32 content centroids and per-parent soft
+  load biases on the first 1,024 METH-175 draws, retaining the explicit
+  structural path. Its [result](METH_204_SHARED_CONTENT_KEYS_RESULT_20260930.md)
+  passes content-score and coverage gates in all 24 fit layers but
+  fails the load-ratio gate in 19 and hot-parent share in 24 for both
+  raw and chat. The frozen stop rule leaves reserved and source cells
+  unopened. Shared content keys plus this bias calibration are stopped
+  before specialist training; a parent-specific or recurrence-aware
+  selector remains a hypothesis.
   [METH-180](METH_180_GIGACHAT_EXPERT_RANK_SCREEN_PROTOCOL_20260930.md)
   samples 27 BF16 expert projections from the pinned pretrained GigaChat
   10B source, after reviewing the paused donor-adaptation source binding
