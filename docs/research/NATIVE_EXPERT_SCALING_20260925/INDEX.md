@@ -1386,6 +1386,13 @@ scheduled.
   1.25× relative limit while the 5 ms absolute component ceiling passes.
   These random synthetic codes and IDs do not establish useful specialists,
   full model speed or the larger E273,547/100B rung.
+  [METH-178](METH_178_TRAINED_CHILD_DIVERSITY_PROTOCOL_20260930.md)
+  streams the exact METH-175 banks and training selection counts. Its
+  [result](METH_178_TRAINED_CHILD_DIVERSITY_RESULT_20260930.md) finds
+  only 1.286% of unweighted and 2.318% of route-weighted candidate-minus-
+  control squared content-B difference within the nine siblings; most
+  shift is shared at parent level. This is a weight diagnostic, not a
+  functional or held-out quality verdict.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
