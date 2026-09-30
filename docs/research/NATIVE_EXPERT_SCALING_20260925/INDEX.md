@@ -84,10 +84,15 @@ stores the 820.707 MB physical core with full tensor readback and
 unchanged Q8 FFNs. [METH-212](METH_212_STORED_LOADER_RESULT_20260930.md)
 loads all 364 stored tensors into all 290 config-only parameters and
 exactly reconciles every viewed document/prompt metric and proposal hash.
-**Next compact-core action:** the frozen
-[METH-213/214 protocol](METH_213_214_STORED_CORE_FRESH_QUALITY_PROTOCOL_20260930.md)
-selects new source-disjoint documents, then tests saved-core quality and
-generation before native precision and actual traffic accounting.
+[METH-213](METH_213_FRESH_MANIFEST_RESULT_20260930.md) freezes 24 new
+source/fragment-disjoint cases and all excerpt-visible anchors.
+[METH-214](METH_214_FRESH_PREDICTION_RESULT_20260930.md) then fails
+pooled ranking: 95.506% -> 94.215%, loss 1.291 points against <=1.
+BPB, all category gates and finite prompt K64/rerank pass. Generation,
+PIQA and blind review are stopped; the prepared METH-215 runner is
+unexecuted. No native promotion. **Next actions:** change the larger-n
+local-key geometry on original BF16 E1280; compact-core recovery needs
+a changed train-validated representation/adaptation and new quality.
 For n, the [reused-projection local-key proposal](REUSED_CHILD_PROJECTION_KEY_PROPOSAL_20260930.md)
 adds 114,048 selected weight bytes/token and fits the combined ideal
 ledger at 559.908 MB by reusing existing child features. It is untrained;

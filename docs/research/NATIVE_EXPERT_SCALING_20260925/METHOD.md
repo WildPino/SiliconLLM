@@ -1442,7 +1442,13 @@ core and evaluate new quality/generation before native promotion.
 [METH-212](METH_212_STORED_LOADER_RESULT_20260930.md) makes that loader
 executable: all 290 config-only parameters are supplied by all 364
 stored tensors, with exact document, prompt and proposal reconciliation
-on the consumed cohort. Fresh quality and native precision remain open.
+on the consumed cohort. [METH-214](METH_214_FRESH_PREDICTION_RESULT_20260930.md)
+then rejects this fixed compact candidate on new sources: BPB passes
+against donor and BF16 E1280, but pooled top1 loses 1.291 points against
+the frozen 1-point gate. Category and finite K64 gates pass. Generation,
+task and blind review are stopped. The development/export/loader passes
+therefore do not establish preserved independent quality or license
+native promotion. METH-213/214 becomes consumed diagnostic evidence.
 
 The [reused child-feature/local-key proposal](REUSED_CHILD_PROJECTION_KEY_PROPOSAL_20260930.md)
 connects the core ledger to useful expert-count research: reuse the

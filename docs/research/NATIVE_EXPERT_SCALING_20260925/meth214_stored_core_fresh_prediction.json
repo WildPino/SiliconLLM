@@ -1,0 +1,1405 @@
+{
+  "experiment": "METH-214-stored-core-fresh-prediction",
+  "manifest_sha256": "bcd8295be1b2d62dceaf103f985182bad11ac50dd739a63cfb92d11400b5af10",
+  "anchors_sha256": "462eb44c18c83a2df3b27780b7c82e49ecdd2cce8d581a1d1843acef20010409",
+  "core_sha256": "4bb34a2ac14bfa3f4fe42490a6755513cf6b08e82e981c86926e374b12353c1a",
+  "load_record": {
+    "parameters_loaded": 290,
+    "tensors_consumed": 364,
+    "organs": {
+      "tied_head": 1,
+      "attention": 96,
+      "control": 121,
+      "ffn": 72
+    },
+    "every_parameter_copy_equal": true,
+    "tied_head_pointer_equal": true,
+    "source_core_weights_loaded": false
+  },
+  "donor_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "parent_checkpoint_sha256": "8371262a1461a44fcedf12d129059d8b8ab1fd9860e032df8661a30eff187072",
+  "child_checkpoint_sha256": "15a14b8476936e83cf91a479b05f8d8e83f4ffd094186f3d4dfededdb138d520",
+  "arms": {
+    "bf16_donor": {
+      "document_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/p1/aggregate_stage2.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2214.2769775390625
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_f16_vector_parity.h",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2135.8311462402344
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer2_kv_partition_cross_input.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2550.3785400390625
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/strat02_w4_bf16_candidate_loader.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1939.2188110351562
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_post_f16_layer1_start_cross_input.h",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2394.6062202453613
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/d0c_granularity.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2674.310546875
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth60_r8_core_organ_ablation.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1903.1325378417969
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/s1_kaggle_pack.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2292.936347961426
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=670",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3489.53564453125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1199",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3014.5723876953125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=490",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2909.0791015625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=188",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 4713.535400390625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=268",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2518.523193359375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1202",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2458.8128662109375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1017",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3194.6650390625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1074",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3141.272216796875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E48_WHERE_DOES_THE_CONTEXT_SLOPE_LIVE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4633.3955078125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_02F_W4_ROUTER_F32_HELDOUT.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5214.733154296875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_02_W4_BF16_SCALE_V2_PILOT.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5179.115234375
+        },
+        {
+          "source_id": "docs/research/RESEARCH_INDEX.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4608.5703125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_RESULT_20260922.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5512.263427734375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/TARGET_DONOR_DECISION.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4214.4560546875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E35_THE_FIFTY_TOK_S_ENVELOPE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4425.7266845703125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E44_WHAT_IS_A_TOK_S_WORTH.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4033.8211059570312
+        }
+      ],
+      "prompt_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/p1/aggregate_stage2.py",
+          "category": "code",
+          "positions": 178,
+          "matching": 178
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_f16_vector_parity.h",
+          "category": "code",
+          "positions": 217,
+          "matching": 217
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer2_kv_partition_cross_input.py",
+          "category": "code",
+          "positions": 158,
+          "matching": 158
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/strat02_w4_bf16_candidate_loader.py",
+          "category": "code",
+          "positions": 147,
+          "matching": 147
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_post_f16_layer1_start_cross_input.h",
+          "category": "code",
+          "positions": 243,
+          "matching": 243
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/d0c_granularity.py",
+          "category": "code",
+          "positions": 178,
+          "matching": 178
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth60_r8_core_organ_ablation.py",
+          "category": "code",
+          "positions": 192,
+          "matching": 192
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/s1_kaggle_pack.py",
+          "category": "code",
+          "positions": 162,
+          "matching": 162
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=670",
+          "category": "prose",
+          "positions": 166,
+          "matching": 166
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1199",
+          "category": "prose",
+          "positions": 155,
+          "matching": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=490",
+          "category": "prose",
+          "positions": 167,
+          "matching": 167
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=188",
+          "category": "prose",
+          "positions": 182,
+          "matching": 182
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=268",
+          "category": "prose",
+          "positions": 155,
+          "matching": 155
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1202",
+          "category": "prose",
+          "positions": 149,
+          "matching": 149
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1017",
+          "category": "prose",
+          "positions": 150,
+          "matching": 150
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1074",
+          "category": "prose",
+          "positions": 160,
+          "matching": 160
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E48_WHERE_DOES_THE_CONTEXT_SLOPE_LIVE.md",
+          "category": "technical_general",
+          "positions": 166,
+          "matching": 166
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_02F_W4_ROUTER_F32_HELDOUT.md",
+          "category": "technical_general",
+          "positions": 273,
+          "matching": 273
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_02_W4_BF16_SCALE_V2_PILOT.md",
+          "category": "technical_general",
+          "positions": 197,
+          "matching": 197
+        },
+        {
+          "source_id": "docs/research/RESEARCH_INDEX.md",
+          "category": "technical_general",
+          "positions": 153,
+          "matching": 153
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_RESULT_20260922.md",
+          "category": "technical_general",
+          "positions": 226,
+          "matching": 226
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/TARGET_DONOR_DECISION.md",
+          "category": "technical_general",
+          "positions": 209,
+          "matching": 209
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E35_THE_FIFTY_TOK_S_ENVELOPE.md",
+          "category": "technical_general",
+          "positions": 193,
+          "matching": 193
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E44_WHAT_IS_A_TOK_S_WORTH.md",
+          "category": "technical_general",
+          "positions": 163,
+          "matching": 163
+        }
+      ]
+    },
+    "bf16_e1280": {
+      "document_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/p1/aggregate_stage2.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2202.9840698242188
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_f16_vector_parity.h",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2134.600860595703
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer2_kv_partition_cross_input.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2545.2637329101562
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/strat02_w4_bf16_candidate_loader.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1928.87890625
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_post_f16_layer1_start_cross_input.h",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2386.3092880249023
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/d0c_granularity.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2661.4721069335938
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth60_r8_core_organ_ablation.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1894.2991027832031
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/s1_kaggle_pack.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2281.7114791870117
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=670",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3479.93115234375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1199",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2992.0870361328125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=490",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2882.076171875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=188",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 4685.79052734375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=268",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2502.657958984375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1202",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2444.585693359375
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1017",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3179.5484619140625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1074",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3101.220932006836
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E48_WHERE_DOES_THE_CONTEXT_SLOPE_LIVE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4617.58447265625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_02F_W4_ROUTER_F32_HELDOUT.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5195.7637939453125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_02_W4_BF16_SCALE_V2_PILOT.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5165.58251953125
+        },
+        {
+          "source_id": "docs/research/RESEARCH_INDEX.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4589.3516845703125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_RESULT_20260922.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5493.7789306640625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/TARGET_DONOR_DECISION.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4201.695556640625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E35_THE_FIFTY_TOK_S_ENVELOPE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4411.4544677734375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E44_WHAT_IS_A_TOK_S_WORTH.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4021.0714263916016
+        }
+      ],
+      "prompt_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/p1/aggregate_stage2.py",
+          "category": "code",
+          "positions": 178,
+          "matching": 175
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_f16_vector_parity.h",
+          "category": "code",
+          "positions": 217,
+          "matching": 214
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer2_kv_partition_cross_input.py",
+          "category": "code",
+          "positions": 158,
+          "matching": 155
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/strat02_w4_bf16_candidate_loader.py",
+          "category": "code",
+          "positions": 147,
+          "matching": 142
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_post_f16_layer1_start_cross_input.h",
+          "category": "code",
+          "positions": 243,
+          "matching": 232
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/d0c_granularity.py",
+          "category": "code",
+          "positions": 178,
+          "matching": 172
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth60_r8_core_organ_ablation.py",
+          "category": "code",
+          "positions": 192,
+          "matching": 187
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/s1_kaggle_pack.py",
+          "category": "code",
+          "positions": 162,
+          "matching": 153
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=670",
+          "category": "prose",
+          "positions": 166,
+          "matching": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1199",
+          "category": "prose",
+          "positions": 155,
+          "matching": 150
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=490",
+          "category": "prose",
+          "positions": 167,
+          "matching": 160
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=188",
+          "category": "prose",
+          "positions": 182,
+          "matching": 175
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=268",
+          "category": "prose",
+          "positions": 155,
+          "matching": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1202",
+          "category": "prose",
+          "positions": 149,
+          "matching": 144
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1017",
+          "category": "prose",
+          "positions": 150,
+          "matching": 144
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1074",
+          "category": "prose",
+          "positions": 160,
+          "matching": 153
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E48_WHERE_DOES_THE_CONTEXT_SLOPE_LIVE.md",
+          "category": "technical_general",
+          "positions": 166,
+          "matching": 162
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_02F_W4_ROUTER_F32_HELDOUT.md",
+          "category": "technical_general",
+          "positions": 273,
+          "matching": 235
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_02_W4_BF16_SCALE_V2_PILOT.md",
+          "category": "technical_general",
+          "positions": 197,
+          "matching": 194
+        },
+        {
+          "source_id": "docs/research/RESEARCH_INDEX.md",
+          "category": "technical_general",
+          "positions": 153,
+          "matching": 143
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_RESULT_20260922.md",
+          "category": "technical_general",
+          "positions": 226,
+          "matching": 203
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/TARGET_DONOR_DECISION.md",
+          "category": "technical_general",
+          "positions": 209,
+          "matching": 202
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E35_THE_FIFTY_TOK_S_ENVELOPE.md",
+          "category": "technical_general",
+          "positions": 193,
+          "matching": 187
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E44_WHAT_IS_A_TOK_S_WORTH.md",
+          "category": "technical_general",
+          "positions": 163,
+          "matching": 156
+        }
+      ]
+    },
+    "stored_q8_exact_tied": {
+      "arm": "stored_q8_exact_tied",
+      "document_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/p1/aggregate_stage2.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2201.3795776367188
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_f16_vector_parity.h",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2134.941162109375
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer2_kv_partition_cross_input.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2542.4353637695312
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/strat02_w4_bf16_candidate_loader.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1929.7944946289062
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_post_f16_layer1_start_cross_input.h",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2388.559841156006
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/d0c_granularity.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2658.3225708007812
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth60_r8_core_organ_ablation.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 1891.4574890136719
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/s1_kaggle_pack.py",
+          "category": "code",
+          "bytes": 4095,
+          "nats": 2278.408950805664
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=670",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3478.893798828125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1199",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2995.2003173828125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=490",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2880.9659423828125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=188",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 4686.5030517578125
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=268",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2501.801513671875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1202",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 2446.360107421875
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1017",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3177.5601806640625
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1074",
+          "category": "prose",
+          "bytes": 4095,
+          "nats": 3102.010498046875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E48_WHERE_DOES_THE_CONTEXT_SLOPE_LIVE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4620.2237548828125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_02F_W4_ROUTER_F32_HELDOUT.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5196.1395263671875
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_02_W4_BF16_SCALE_V2_PILOT.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5161.337158203125
+        },
+        {
+          "source_id": "docs/research/RESEARCH_INDEX.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4587.648864746094
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_RESULT_20260922.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 5493.0244140625
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/TARGET_DONOR_DECISION.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4204.846923828125
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E35_THE_FIFTY_TOK_S_ENVELOPE.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4411.8685302734375
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E44_WHAT_IS_A_TOK_S_WORTH.md",
+          "category": "technical_general",
+          "bytes": 4095,
+          "nats": 4020.505599975586
+        }
+      ],
+      "prompt_rows": [
+        {
+          "source_id": "benchmarks/donor_adaptation/p1/aggregate_stage2.py",
+          "category": "code",
+          "positions": 178,
+          "matching": 172
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_f16_vector_parity.h",
+          "category": "code",
+          "positions": 217,
+          "matching": 208
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer2_kv_partition_cross_input.py",
+          "category": "code",
+          "positions": 158,
+          "matching": 153
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/strat02_w4_bf16_candidate_loader.py",
+          "category": "code",
+          "positions": 147,
+          "matching": 141
+        },
+        {
+          "source_id": "benchmarks/phase60/strat01_gguf_post_f16_layer1_start_cross_input.h",
+          "category": "code",
+          "positions": 243,
+          "matching": 230
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/density/d0c_granularity.py",
+          "category": "code",
+          "positions": 178,
+          "matching": 173
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/meth60_r8_core_organ_ablation.py",
+          "category": "code",
+          "positions": 192,
+          "matching": 188
+        },
+        {
+          "source_id": "benchmarks/donor_adaptation/s1/s1_kaggle_pack.py",
+          "category": "code",
+          "positions": 162,
+          "matching": 151
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=670",
+          "category": "prose",
+          "positions": 166,
+          "matching": 161
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1199",
+          "category": "prose",
+          "positions": 155,
+          "matching": 149
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=490",
+          "category": "prose",
+          "positions": 167,
+          "matching": 159
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=188",
+          "category": "prose",
+          "positions": 182,
+          "matching": 173
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=268",
+          "category": "prose",
+          "positions": 155,
+          "matching": 147
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1202",
+          "category": "prose",
+          "positions": 149,
+          "matching": 140
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1017",
+          "category": "prose",
+          "positions": 150,
+          "matching": 142
+        },
+        {
+          "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1074",
+          "category": "prose",
+          "positions": 160,
+          "matching": 150
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E48_WHERE_DOES_THE_CONTEXT_SLOPE_LIVE.md",
+          "category": "technical_general",
+          "positions": 166,
+          "matching": 159
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_02F_W4_ROUTER_F32_HELDOUT.md",
+          "category": "technical_general",
+          "positions": 273,
+          "matching": 226
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_02_W4_BF16_SCALE_V2_PILOT.md",
+          "category": "technical_general",
+          "positions": 197,
+          "matching": 188
+        },
+        {
+          "source_id": "docs/research/RESEARCH_INDEX.md",
+          "category": "technical_general",
+          "positions": 153,
+          "matching": 143
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_RESULT_20260922.md",
+          "category": "technical_general",
+          "positions": 226,
+          "matching": 198
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/audits/TARGET_DONOR_DECISION.md",
+          "category": "technical_general",
+          "positions": 209,
+          "matching": 200
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E35_THE_FIFTY_TOK_S_ENVELOPE.md",
+          "category": "technical_general",
+          "positions": 193,
+          "matching": 186
+        },
+        {
+          "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E44_WHAT_IS_A_TOK_S_WORTH.md",
+          "category": "technical_general",
+          "positions": 163,
+          "matching": 151
+        }
+      ]
+    }
+  },
+  "summary": {
+    "pooled": {
+      "arms": {
+        "bf16_donor": {
+          "bpb": 1.1944183287486934,
+          "top1": 1.0
+        },
+        "bf16_e1280": {
+          "bpb": 1.189029975411011,
+          "top1": 0.9550587693016824
+        },
+        "stored_q8_exact_tied": {
+          "bpb": 1.1888903636888783,
+          "top1": 0.9421525697165245
+        }
+      },
+      "candidate_minus_donor_bpb": -0.00552796505981501,
+      "candidate_minus_bf16_e1280_bpb": -0.0001396117221326154,
+      "candidate_minus_bf16_e1280_top1": -0.01290619958515793
+    },
+    "code": {
+      "arms": {
+        "bf16_donor": {
+          "bpb": 0.7973000032622234,
+          "top1": 1.0
+        },
+        "bf16_e1280": {
+          "bpb": 0.7942538037119719,
+          "top1": 0.9694915254237289
+        },
+        "stored_q8_exact_tied": {
+          "bpb": 0.7938037279285437,
+          "top1": 0.96
+        }
+      },
+      "candidate_minus_donor_bpb": -0.003496275333679688,
+      "candidate_minus_bf16_e1280_bpb": -0.0004500757834281499,
+      "candidate_minus_bf16_e1280_top1": -0.009491525423728886
+    },
+    "prose": {
+      "arms": {
+        "bf16_donor": {
+          "bpb": 1.1203344277309908,
+          "top1": 1.0
+        },
+        "bf16_e1280": {
+          "bpb": 1.1127555263434836,
+          "top1": 0.9595015576323987
+        },
+        "stored_q8_exact_tied": {
+          "bpb": 1.112817068833659,
+          "top1": 0.9509345794392523
+        }
+      },
+      "candidate_minus_donor_bpb": -0.0075173588973318495,
+      "candidate_minus_bf16_e1280_bpb": 6.154249017531477e-05,
+      "candidate_minus_bf16_e1280_top1": -0.008566978193146446
+    },
+    "technical_general": {
+      "arms": {
+        "bf16_donor": {
+          "bpb": 1.6656205552528662,
+          "top1": 1.0
+        },
+        "bf16_e1280": {
+          "bpb": 1.6600805961775777,
+          "top1": 0.9379746835443038
+        },
+        "stored_q8_exact_tied": {
+          "bpb": 1.6600502943044328,
+          "top1": 0.9183544303797468
+        }
+      },
+      "candidate_minus_donor_bpb": -0.005570260948433381,
+      "candidate_minus_bf16_e1280_bpb": -3.030187314490007e-05,
+      "candidate_minus_bf16_e1280_top1": -0.019620253164556956
+    }
+  },
+  "bootstrap": {
+    "bf16_donor": {
+      "candidate_minus_control_bpb_p05": -0.00645835630887374,
+      "candidate_minus_control_bpb_p95": -0.004659521846801832,
+      "seed": 214214,
+      "draws": 10000,
+      "unit": "source",
+      "decision_gate": false
+    },
+    "bf16_e1280": {
+      "candidate_minus_control_bpb_p05": -0.0003830952284313786,
+      "candidate_minus_control_bpb_p95": 0.0001061874840121439,
+      "seed": 214214,
+      "draws": 10000,
+      "unit": "source",
+      "decision_gate": false
+    }
+  },
+  "shortlist": [
+    {
+      "source_id": "benchmarks/donor_adaptation/p1/aggregate_stage2.py",
+      "category": "code",
+      "positions": 178,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 174
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_f16_vector_parity.h",
+      "category": "code",
+      "positions": 217,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 213
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer2_kv_partition_cross_input.py",
+      "category": "code",
+      "positions": 158,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 156
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/strat02_w4_bf16_candidate_loader.py",
+      "category": "code",
+      "positions": 147,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 144
+    },
+    {
+      "source_id": "benchmarks/phase60/strat01_gguf_post_f16_layer1_start_cross_input.h",
+      "category": "code",
+      "positions": 243,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 240
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/d0c_granularity.py",
+      "category": "code",
+      "positions": 178,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 174
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/meth60_r8_core_organ_ablation.py",
+      "category": "code",
+      "positions": 192,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 191
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/s1/s1_kaggle_pack.py",
+      "category": "code",
+      "positions": 162,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 160
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=670",
+      "category": "prose",
+      "positions": 166,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 161
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1199",
+      "category": "prose",
+      "positions": 155,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 151
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=490",
+      "category": "prose",
+      "positions": 167,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 161
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=188",
+      "category": "prose",
+      "positions": 182,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 176
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=268",
+      "category": "prose",
+      "positions": 155,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 150
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1202",
+      "category": "prose",
+      "positions": 149,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 147
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1017",
+      "category": "prose",
+      "positions": 150,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 147
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=1074",
+      "category": "prose",
+      "positions": 160,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 153
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E48_WHERE_DOES_THE_CONTEXT_SLOPE_LIVE.md",
+      "category": "technical_general",
+      "positions": 166,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 161
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_02F_W4_ROUTER_F32_HELDOUT.md",
+      "category": "technical_general",
+      "positions": 273,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 217
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_STRAT_02_W4_BF16_SCALE_V2_PILOT.md",
+      "category": "technical_general",
+      "positions": 197,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 193
+    },
+    {
+      "source_id": "docs/research/RESEARCH_INDEX.md",
+      "category": "technical_general",
+      "positions": 153,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0625,
+      "approx_top1_matches": 151
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_COMBINED_RMS_Q5Q8_PROPAGATION_RESULT_20260922.md",
+      "category": "technical_general",
+      "positions": 226,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 206
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/audits/TARGET_DONOR_DECISION.md",
+      "category": "technical_general",
+      "positions": 209,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 203
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E35_THE_FIFTY_TOK_S_ENVELOPE.md",
+      "category": "technical_general",
+      "positions": 193,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 190
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/briefs/BRIEF_E44_WHAT_IS_A_TOK_S_WORTH.md",
+      "category": "technical_general",
+      "positions": 163,
+      "misses": {
+        "64": 0
+      },
+      "rerank_mismatches": {
+        "64": 0
+      },
+      "gather_mismatches": {
+        "64": 0
+      },
+      "row_score_max_abs": 0.0,
+      "approx_top1_matches": 158
+    }
+  ],
+  "gates": {
+    "pooled_bpb_vs_both": true,
+    "category_bpb_vs_both": true,
+    "pooled_top1": false,
+    "category_top1": true,
+    "prompt_k64_inclusion": true,
+    "prompt_exact_rerank": true
+  },
+  "decision": "fresh_prediction_fail_stop_generation",
+  "runtime": {
+    "seconds": 86.63999999999942,
+    "rss_bytes": 3764424704,
+    "gpu_peak_allocated_bytes": 4210360832,
+    "gpu": "NVIDIA GeForce RTX 3060"
+  },
+  "scope": "New-source full-head prediction; finite prompt shortlist; no generation/task/blind/native claim"
+}
