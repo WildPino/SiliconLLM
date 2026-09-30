@@ -1,0 +1,70 @@
+{
+  "experiment": "METH-195-group64-Q8-MSE-stored-core",
+  "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth195_qwen05b_instruct_group64_q8_mse_core.safetensors",
+  "sha256": "084fb65c420af1d19a3531316eea32ba098356d08440a4a4e4e5304201097fd5",
+  "physical_bytes": 548741408,
+  "payload_bytes": 548701184,
+  "header_bytes": 40224,
+  "source_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "meth85_core_sha256": "c484a1130e495342d1b8644ff156cc002d0fd68fe12230604e59f35d3af6433a",
+  "tensor_count": 363,
+  "metadata": {
+    "experiment": "METH-195",
+    "format": "QWEN25_INSTRUCT_R8H_GROUP64_Q8MSEFFN_BF16ATTN_V1",
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "model_revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+    "model_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+    "meth85_core_sha256": "c484a1130e495342d1b8644ff156cc002d0fd68fe12230604e59f35d3af6433a",
+    "ffn_codes": "signed symmetric int8 [-127,127]",
+    "ffn_group_width": "64",
+    "ffn_scale_dtype": "float16",
+    "ffn_pack_order": "one signed byte per input weight",
+    "ffn_scale_rule": "three LS rounds; choose lower BF16 reconstruction weight MSE per group vs METH-193",
+    "attention_dtype": "bfloat16",
+    "head_rule": "exact METH-85 R8 head codes and scales",
+    "control_dtype": "float32",
+    "tied_head": "true"
+  },
+  "organs": {
+    "tied_head": {
+      "tensors": 1,
+      "parameters": 136134656,
+      "payload_bytes": 136742400,
+      "max_relative_l2_error": 0.0
+    },
+    "attention": {
+      "tensors": 96,
+      "parameters": 44040192,
+      "payload_bytes": 88080384,
+      "max_relative_l2_error": 0.0
+    },
+    "ffn": {
+      "tensors": 72,
+      "parameters": 313786368,
+      "payload_bytes": 323592192,
+      "max_relative_l2_error": 0.006966779474169016
+    },
+    "control": {
+      "tensors": 121,
+      "parameters": 71552,
+      "payload_bytes": 286208,
+      "max_relative_l2_error": 0.0
+    }
+  },
+  "route_factor_ideal_bytes": {
+    "parent_router": 5652480,
+    "child_projection": 2752512,
+    "selected_child_keys": 122880,
+    "selected_shared_A_B": 2752512
+  },
+  "ideal_addressed_bytes_per_token": 559981568,
+  "exact_reload_equal": true,
+  "all_ffn_bf16_reconstructions_equal": true,
+  "decision": "stored_q8_mse_core_ready_for_e1280_development",
+  "runtime": {
+    "seconds": 12.31199999999808,
+    "rss_bytes": 4420694016,
+    "gpu_peak_allocated_bytes": 154034688,
+    "gpu": "NVIDIA GeForce RTX 3060"
+  }
+}

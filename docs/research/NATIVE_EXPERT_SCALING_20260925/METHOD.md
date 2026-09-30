@@ -1308,9 +1308,25 @@ pass. On previously consumed source documents, pooled BPB rises only
 points; the frozen ranking gates fail. The Q6 donor arm shows nearly
 the same ranking loss, so reusing the existing expert B bank alone
 cannot repair this core. Training head/embedding and FFN corrections
-jointly is a candidate next step, not a validated method. Its stored
-bytes, training cost, fresh semantic quality and native rate all need
-separate proof.
+jointly was a candidate, not a validated method. [METH-188](METH_188_CORE_ORGAN_ATTRIBUTION_RESULT_20260930.md)
+attributes 4.361/5.318 prompt-ranking points to Q6 FFNs alone.
+[METH-189/190](METH_189_190_FFN_CORRECTION_RESULT_20260930.md)
+then find that stored rank-64 FFN distillation worsens viewed-source
+ranking by another 16.110 points versus Q6. [METH-191/192](METH_191_192_FFN_GEOMETRY_RESULT_20260930.md)
+reject a constrained B-only retry on train-only validation and show
+that optimal rank 94, the largest fitting the 560 MB allotment,
+captures only 20.85% median of actual Q6 FFN weight-error energy.
+This is a weight-reconstruction limit, not a bound on function-trained
+model quality.
+
+The direct [METH-193/194 grouped-Q8 core](METH_193_194_Q8_CORE_RESULT_20260930.md)
+uses 559.982 MB/token in ideal addressed accounting and nearly
+matches BF16+E1280 BPB, but misses the frozen pooled/code top-1
+gates. [METH-195/196](METH_195_196_Q8_MSE_RESULT_20260930.md)
+reduce Q8 weight MSE with identical bytes yet worsen prompt ranking.
+Neither Q8 artifact advances to fresh semantics or native rate. The
+18,432-byte Q8 margin also cannot be assumed to cover larger-n
+router metadata or actual memory traffic.
 
 The next representation experiment should specify an activation-sensitive
 or trained correction on the pinned pretrained donor, price the *whole*

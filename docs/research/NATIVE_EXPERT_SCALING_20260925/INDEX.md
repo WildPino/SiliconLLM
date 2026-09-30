@@ -22,7 +22,15 @@ fresh quality and native timing. METH-188 attributes 4.361/5.318
 ranking points to the Q6 FFNs alone. The stored rank-64 FFN
 correction METH-189/190 fits a 534.619 MB/token ideal addressed ledger
 but regresses viewed-source donor top-1 to 73.075% and fails every
-development gate. The
+development gate. METH-191 rejects a constrained B-only retry on
+train-corpus validation before development. METH-192 finds that the
+optimal rank-94 reconstruction within the byte budget captures only
+20.85% median Q6 FFN error energy. Direct grouped-Q8 FFNs in
+METH-193/194 almost eliminate BPB loss but miss pooled and code
+top-1 gates by 0.113 and 0.229 points respectively, while using
+559.982 MB/token of the 560 MB ideal allotment. METH-195/196 lowers
+Q8 weight MSE but worsens both rankings; that scale-refinement route
+is stopped. The
 tenfold E1,280→E12,800 METH-175 training
 passes its matched update, balance and artifact gates, but the untouched
 METH-176 quality gain fails the paired source bootstrap. METH-178 finds
