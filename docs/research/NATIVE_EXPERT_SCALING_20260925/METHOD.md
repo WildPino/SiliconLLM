@@ -1421,6 +1421,20 @@ Neither Q8 artifact advances to fresh semantics or native rate. The
 18,432-byte Q8 margin also cannot be assumed to cover larger-n
 router metadata or actual memory traffic.
 
+[METH-210](METH_210_Q8_EXACT_HEAD_RESULT_20260930.md) supplies a changed
+core composition: the exact original BF16 tied embedding/head with
+unchanged Q8 FFNs clears every development gate on viewed sources
+(pooled/code ranking losses 0.690/0.805 points). Restoring embedding
+alone worsens ranking, so its head/embedding interaction is measured,
+not assumed additive. A fixed K64 R8 proposal with FP16 row scales
+followed by exact BF16 rows has zero omissions/choice mismatches on
+4,494 candidate states. Its proposed active ledger is 559.794 MB/token
+and it adds 272.269 MB of resident exact-head storage. This licenses
+METH-211 physical export, then independent quality and actual native
+composition. Full-head offline probabilities and finite-state K64
+choices are separate evidence; no native precision/traffic equivalence,
+fresh semantics, third-level router inclusion or accepted rate follows.
+
 The next representation experiment should specify an activation-sensitive
 or trained correction on the pinned pretrained donor, price the *whole*
 active path including MLA and head before conversion, and freeze a
