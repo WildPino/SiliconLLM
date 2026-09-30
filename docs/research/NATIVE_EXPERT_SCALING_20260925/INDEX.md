@@ -96,8 +96,18 @@ a changed train-validated representation/adaptation and new quality.
 For n, the [reused-projection local-key proposal](REUSED_CHILD_PROJECTION_KEY_PROPOSAL_20260930.md)
 adds 114,048 selected weight bytes/token and fits the combined ideal
 ledger at 559.908 MB by reusing existing child features. It is untrained;
-all 24 old/new projection pairs differ. Freeze its local-key fit and
-route gates before running it. No accepted >=50 tok/s artifact exists.
+all 24 old/new projection pairs differ.
+[METH-216](METH_216_LOCAL_CHILD_KEYS_RESULT_20260930.md), frozen at
+`b2fe0df`, completes the changed local-key fit on original BF16 E1280.
+ChatML passes every fit gate. Raw passes global load, coverage and
+content signal but hot-parent share fails at layers 12/16/17/20
+(worst 30.163% vs <=25%). Old/new reserved and source remain unopened.
+The router is 40.355 MB, readback exact. Handle 5284 completed; no
+process remains active. **Next n action:** freeze a read-only diagnostic
+of these specific offending raw parents: exact-state floor, soft/hard
+share, score margins and support. No bias-iteration or B-training retry
+before diagnosing this result. Diagnostic projection recomputation
+does not verify native feature reuse. No accepted >=50 tok/s artifact exists.
 No B training/native promotion from the failed router candidates.
 Merely continuing the same hash-route/shared-base
 recipe is not a justified path to useful additional specialists. The

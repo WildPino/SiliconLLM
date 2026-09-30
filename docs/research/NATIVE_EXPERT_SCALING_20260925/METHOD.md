@@ -1457,8 +1457,15 @@ the structural/mode path. A read-only preflight verifies all source
 projection hashes and prices 114,048 extra selected weight bytes/token,
 with 35.389 MB key storage (353.894 MB at hypothetical tenfold parents).
 The combined ideal weight ledger would be 559.908 MB/token. This is
-untrained and changes coordinates; no old third-tier route pass carries
-over. Parent-selection cost at larger count, useful B functions, native
+initially untrained and changes coordinates; no old third-tier route pass carries
+over. [METH-216](METH_216_LOCAL_CHILD_KEYS_RESULT_20260930.md) now fits
+the parent-local keys in those frozen existing child coordinates.
+ChatML passes all fit gates; raw passes global load/content/coverage,
+but four layers fail the 25% hot-parent share gate (worst 30.163%).
+Reserved/source screens stop before evaluation and no B is trained.
+The route is not validated for promotion. Diagnose the specific
+parent concentration before another fit or specialist-training run.
+Parent-selection cost at larger count, useful B functions, native
 traffic and whole-composition quality/rate remain unverified.
 
 The next representation experiment should specify an activation-sensitive
