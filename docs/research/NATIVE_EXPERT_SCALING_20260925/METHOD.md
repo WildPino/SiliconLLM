@@ -1246,6 +1246,15 @@ large-pool method must couple route and specialist learning differently,
 then establish useful distinct functions and quality on untouched
 sources. Existing exact E1,280 routing remains a separate positive
 smaller-rung mechanism result.
+The [METH-203 exposure-stratified function screen](METH_203_EXPOSURE_FUNCTION_STRATA_RESULT_20260930.md)
+finds a median of 117 METH-175 training selections per active content
+child. On the same METH-201 real states, children of high-exposure
+parents differ more than children of low-exposure parents (1.885%
+versus 0.556% sibling/mean RMS), yet zero high-exposure layers reaches
+the functional-diversity gate. Training exposure is a plausible
+contributor, not a demonstrated standalone remedy. A changed
+content-conditioned, load-controlled route and specialist objective
+needs a bounded pilot before another tenfold bank is trained.
 
 The [large-RAM `engine.c` LUT probe](METH_177_LARGE_RAM_LUT_POOL_RESULT_20260930.md)
 measures a fully initialized synthetic E12,800→E128,000 bank at

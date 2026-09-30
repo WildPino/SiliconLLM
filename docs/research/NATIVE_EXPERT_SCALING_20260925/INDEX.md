@@ -46,6 +46,12 @@ deviations: λ=0/1/4 BPB is 1.067704/1.067669/1.067793 on viewed
 documents. Quadrupling is worse than zero deviation and fails both
 frozen directional gates. Change route/training coupling before
 another long large-pool training run.
+METH-203 stratifies that same real-state function by METH-175 training
+exposure: high-traffic parents reach 1.885% sibling/mean spread versus
+0.556% for low-traffic parents, but no high-exposure layer passes the
+functional-diversity gate. The median active child saw only 117
+training selections. Exposure contributes; simply buying more
+hash-route/shared-base updates is not established as a remedy.
 Merely continuing the same hash-route/shared-base
 recipe is not a justified path to useful additional specialists. The
 METH-184 normalized content-score/hash mixture also fails its frozen
@@ -1447,6 +1453,13 @@ scheduled.
   λ=0/1/4 BPB 1.067704/1.067669/1.067793 on viewed documents;
   λ=4 fails both directional gates. More fixed-route residual
   amplification is stopped. Neither diagnostic opens a new quality set.
+  [METH-203](METH_203_EXPOSURE_FUNCTION_STRATA_PROTOCOL_20260930.md)
+  stratifies METH-201's exact real states by prior parent training
+  selections. Its [result](METH_203_EXPOSURE_FUNCTION_STRATA_RESULT_20260930.md)
+  finds high/low sibling-to-mean RMS spread of 1.885%/0.556%; no
+  high-exposure layer passes the frozen diversity gate. The median
+  active content child had 117 training selections. Underexposure
+  contributes but cannot alone justify another identical long run.
   [METH-180](METH_180_GIGACHAT_EXPERT_RANK_SCREEN_PROTOCOL_20260930.md)
   samples 27 BF16 expert projections from the pinned pretrained GigaChat
   10B source, after reviewing the paused donor-adaptation source binding
