@@ -824,6 +824,16 @@ versus E128 and lowers unsupported/severe excerpt claims from 31/12
 to 25/7. This is the current BF16 donor quality candidate. The
 mean-preserving transform is fixed; no alpha or route retuning on
 viewed sources is licensed.
+[METH-183](METH_183_E1280_CHILD_ROUTE_ALIGNMENT_RESULT_20260930.md)
+checks the mechanism on those same already consumed sources: the exact
+learned child route beats all nine within-parent cyclic rotations, with
++0.000330 mean-rotation BPB disadvantage and a positive +0.000160 paired
+bootstrap fifth percentile. This validates route-to-child functional
+alignment for this small donor/bank, not another independent quality
+claim. The later hash-routed E12,800 bank fails the corresponding
+diagnostic, so a larger rung should couple child training to content
+while separately controlling held-out load. Its feasibility and cost
+are unvalidated.
 [METH-124](METH_124_CENTERED_FACTOR_CPU_RESULT_20260928.md) exports
 the exact centered factors and router to a versioned native bank and
 matches 96 PyTorch parent/child routes, gates and BF16 residuals

@@ -27,6 +27,11 @@ remain necessary. Useful 10B/100B transfer and >=50 accepted tok/s are
 not established. No T4 has been used.
 **Established smaller rung:** The centered BF16 E1,280 children retain
 donor-relative quality on new sources (METH-121/123). Their exact
+learned content route beats all nine child-ID rotations on the same
+24 already consumed documents (METH-183), with +0.000330 mean-rotation
+BPB disadvantage and +0.000160 paired-bootstrap fifth percentile.
+This is a mechanism diagnostic, not independent new-source quality or
+evidence that the E12,800 route is solved. Their exact
 shared-A factor bank passes actual-state native CPU access (METH-125/126);
 a full C FP32-core reference runs at 16.818 tok/s (METH-127), with an
 exact selected-row head reaching 20.791 tok/s on its matched reference
@@ -1431,6 +1436,21 @@ scheduled.
   this test does not rerun or overturn that verdict. Its inputs are real
   donor/expert states but not actual quantized-core trajectories; no
   end-to-end rate follows.
+  [METH-183](METH_183_E1280_CHILD_ROUTE_ALIGNMENT_PROTOCOL_20260930.md)
+  tests whether the quality-valid E1,280 child bank benefits from its
+  learned content route. The [result](METH_183_E1280_CHILD_ROUTE_ALIGNMENT_RESULT_20260930.md)
+  reproduces the original 24 document nats exactly and finds the exact
+  route better than all nine within-parent cyclic shifts; the paired
+  bootstrap lower fifth percentile of mean-shift disadvantage is
+  +0.0001601 BPB. This differentiates the learned E1,280 bank from the
+  hash-routed E12,800 METH-179 failure. The documents were already
+  consumed by METH-121, and no third-tier learning, 10B transfer or
+  native full-model timing follows. Resume with a content-coupled
+  load-controlled third-tier protocol and source-held-out load screen;
+  separately price and validate the whole pretrained-to-native path.
+  An earlier forward-level shift let downstream parent routes change and
+  is retained as invalid; the reported run replays exact parent IDs and
+  gates in every causal window.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
