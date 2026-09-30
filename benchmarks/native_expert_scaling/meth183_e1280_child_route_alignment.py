@@ -12,6 +12,7 @@ import time
 import numpy as np
 import psutil
 import torch
+import torch.nn.functional as F
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -42,12 +43,26 @@ def digest(path):
 
 class ShiftedHierarchicalExperts(M95.HierarchicalExperts):
     route_shift = 0
+    route_mode = "capture"
+
+    def routes(self, flat):
+        if self.route_mode == "capture":
+            parents, scores = super().routes(flat)
+            self.frozen_parents = parents.detach().clone()
+            self.frozen_scores = scores.detach().clone()
+            return parents, scores
+        assert self.route_mode == "replay"
+        assert self.frozen_parents.shape[0] == flat.shape[0]
+        return self.frozen_parents, self.frozen_scores
 
     def child_route(self, flat, parent_ids):
-        exact = super().child_route(flat, parent_ids)
-        if self.route_shift == 0:
+        if self.route_mode == "capture":
+            exact = super().child_route(flat, parent_ids)
+            self.frozen_child = exact.detach().clone()
             return exact
-        local = exact.remainder(M95.CHILDREN)
+        assert self.route_mode == "replay"
+        assert torch.equal(parent_ids, self.frozen_parents)
+        local = self.frozen_child.remainder(M95.CHILDREN)
         shifted = parent_ids * M95.CHILDREN + (
             local + self.route_shift).remainder(M95.CHILDREN)
         assert torch.equal(shifted.div(M95.CHILDREN, rounding_mode="floor"),
@@ -63,6 +78,39 @@ def budget(start, device):
             "gpu_peak_allocated_bytes"] > MAX_GPU:
         raise RuntimeError(f"METH-183 resource stop: {record}")
     return record
+
+
+def score_replayed_docs(model, items, rows, wrappers, device, started):
+    for wrapper in wrappers:
+        wrapper.enabled = True
+    with torch.inference_mode():
+        for row, item in zip(rows, items):
+            assert row["source_id"] == item["source_id"]
+            ids = item["document_ids"]
+            prefix = torch.tensor([model.config.eos_token_id] + ids,
+                                  dtype=torch.long, device=device)
+            totals = [0.0] * 10
+            for first in range(0, len(ids), M17.STRIDE):
+                end = min(first + M17.STRIDE, len(ids))
+                lo = max(0, first - M17.CONTEXT)
+                window = prefix[lo:end].unsqueeze(0)
+                positions = torch.arange(lo, end, dtype=torch.long,
+                                         device=device).unsqueeze(0)
+                targets = torch.as_tensor(ids[first:end], dtype=torch.long,
+                                          device=device)
+                for shift in range(10):
+                    for wrapper in wrappers:
+                        wrapper.route_mode = "capture" if shift == 0 else "replay"
+                        wrapper.route_shift = shift
+                    logits = model(window, position_ids=positions,
+                                   use_cache=False).logits
+                    selected = logits[0, first-lo:end-lo].float()
+                    lp = F.log_softmax(selected, dim=-1)
+                    totals[shift] += float(-lp.gather(1, targets[:, None]).sum())
+                budget(started, device)
+            row["nats"] = {str(shift): total for shift, total in enumerate(totals)}
+            print(json.dumps({"completed_document": len([r for r in rows if r["nats"]]),
+                              "budget": budget(started, device)}), flush=True)
 
 
 def group_summary(rows):
@@ -182,21 +230,12 @@ def main():
         budget(started, device)
 
         stage = "score_routes"
-        with torch.inference_mode():
-            for shift in range(10):
-                assert sorted((i + shift) % 10 for i in range(10)) == list(range(10))
-                for wrapper in wrappers:
-                    wrapper.route_shift = shift
-                for row, item in zip(rows, items):
-                    row["nats"][str(shift)] = M17.score_doc(
-                        model, item["document_ids"], wrappers, True, device, started)
-                    budget(started, device)
-                if shift == 0:
-                    errors = [abs(row["nats"]["0"] - old["nats"]["bf16_e1280"])
-                              for row, old in zip(rows, prior["document_rows"])]
-                    assert max(errors) <= 0.02, {"max_exact_nats_error": max(errors)}
-                print(json.dumps({"completed_shift": shift, "budget": budget(started, device)}),
-                      flush=True)
+        for shift in range(10):
+            assert sorted((i + shift) % 10 for i in range(10)) == list(range(10))
+        score_replayed_docs(model, items, rows, wrappers, device, started)
+        errors = [abs(row["nats"]["0"] - old["nats"]["bf16_e1280"])
+                  for row, old in zip(rows, prior["document_rows"])]
+        assert max(errors) <= 0.02, {"max_exact_nats_error": max(errors)}
 
         stage = "summary"
         summary = group_summary(rows)
@@ -212,6 +251,7 @@ def main():
                   "prior_result_sha256": digest(M122_RESULT),
                   "source_sha256": M57.MODEL_SHA,
                   "centered_parent_mean_max_abs_error": max_center_error,
+                  "exact_nats_max_abs_error": max(errors),
                   "document_rows": rows, "summary_by_category": summary,
                   "bootstrap": boot, "gates": gates,
                   "decision": "route_alignment_diagnostic_pass" if all(gates.values())
