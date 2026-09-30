@@ -1255,6 +1255,15 @@ the functional-diversity gate. Training exposure is a plausible
 contributor, not a demonstrated standalone remedy. A changed
 content-conditioned, load-controlled route and specialist objective
 needs a bounded pilot before another tenfold bank is trained.
+One proposed pilot reuses the rank-32 learned child projection/key
+geometry that passed the smaller E128→E1280 route alignment screen,
+but adds explicit own-parent load control and preserves a structural
+shared path. Its first decision is source-separated route health and
+content signal, before B training. Its second, if eligible, is a
+matched short specialist-training comparison with function and quality
+gates. Router key bytes and CPU cost grow with total n and must be
+priced alongside the selected B path; no current result validates
+this proposal at E12,800.
 
 The [large-RAM `engine.c` LUT probe](METH_177_LARGE_RAM_LUT_POOL_RESULT_20260930.md)
 measures a fully initialized synthetic E12,800→E128,000 bank at

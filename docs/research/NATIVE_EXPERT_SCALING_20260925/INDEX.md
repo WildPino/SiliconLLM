@@ -52,6 +52,14 @@ exposure: high-traffic parents reach 1.885% sibling/mean spread versus
 functional-diversity gate. The median active child saw only 117
 training selections. Exposure contributes; simply buying more
 hash-route/shared-base updates is not established as a remedy.
+**Next exact action:** specify and run a bounded third-tier route screen
+that reuses METH-95's rank-32 content-conditioned child scoring with
+trainable keys and per-parent load control, retaining METH-175's
+explicit structural path. Bind E1,280 parent routes and replayed
+training draws; require source-separated content load and score-signal
+gates before allocating/training another E12,800 B bank. Price the
+rank-32 key/projection bytes and actual CPU route path before any
+full-model promotion. This is a proposed mechanism, not a result.
 Merely continuing the same hash-route/shared-base
 recipe is not a justified path to useful additional specialists. The
 METH-184 normalized content-score/hash mixture also fails its frozen
