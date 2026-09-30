@@ -69,17 +69,15 @@ in 6/24 layers (worst 1.301 vs <=1.25); source remains unopened.
 both raw cells. The worst ratio is common in the frozen fit bootstrap,
 but six failing layers exceed its 99th percentile (tail 0.830%).
 This is conditional fit variation, not proof of population drift.
-**Running:** [METH-209](METH_209_EXPANDED_RAW_BIAS_PROTOCOL_20260930.md),
-frozen at `0325c1a`, expands only raw bias fit to 3,072 sequences,
-keeps the passing ChatML bank byte-identical, excludes old reserved
-draws and reserves another 512 pairs. The local process is live
-and has completed model loading and begun raw capture; no outcome yet.
-**Next exact action:** poll exec session `15501` and inspect
-`meth209_expanded_raw_bias_result.json` or its `.failure.json`.
-Python launcher PID 14616 / child PID 19428 identify this same job;
-if the session handle is unavailable, inspect those processes and the
-exact command before concluding it stopped. Do not restart on a
-poll timeout. METH-207 remains failed; no B training/native promotion.
+[METH-209](METH_209_EXPANDED_RAW_BIAS_RESULT_20260930.md) triples
+raw fit support while keeping ChatML byte-identical. Raw reserved
+failures fall from six layers to three, but worst load stays 1.303;
+the process completed and new reserved/source remain unopened.
+Stop this shared-key/bias-only sequence. **Next exact actions:**
+price a changed conditional key geometry for the expert-count line,
+and isolate embedding/head contributions to the narrow Q8 core
+ranking failure before selecting a compact-core correction format.
+No B training/native promotion from the failed router candidates.
 Merely continuing the same hash-route/shared-base
 recipe is not a justified path to useful additional specialists. The
 METH-184 normalized content-score/hash mixture also fails its frozen

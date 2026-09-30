@@ -1305,8 +1305,15 @@ This does not include uncertainty from estimating biases or unknown
 distribution shift, and leaves METH-207 failed. Increased independent
 calibration support with an unopened route cohort is the next bounded
 proposal; old reserved draws must remain excluded from fitting and
-their gates must also pass. Actual CPU cost, useful distinct trained
-experts and untouched whole-model quality remain unvalidated here.
+their gates must also pass. [METH-209](METH_209_EXPANDED_RAW_BIAS_RESULT_20260930.md)
+implements 3,072 raw calibration draws and exact ChatML-bank reuse.
+Its old raw reserve still fails max-load in three layers, worst 1.303,
+so extra support alone does not solve the screen. Stop the shared-key/
+bias-only series; conditional parent-specific keys are a changed
+geometry proposal whose selected-key payload and native cost must be
+priced. New reserved and source remain unopened. Actual CPU cost,
+useful distinct trained experts and untouched whole-model quality
+remain unvalidated here.
 
 The [large-RAM `engine.c` LUT probe](METH_177_LARGE_RAM_LUT_POOL_RESULT_20260930.md)
 measures a fully initialized synthetic E12,800→E128,000 bank at
