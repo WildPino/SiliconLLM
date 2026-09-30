@@ -1378,6 +1378,14 @@ scheduled.
   The frozen protocol therefore stops before generation, PIQA and blind
   grounding. Shard 9 is consumed by this adjudication. Useful added
   experts, CPU LUT/full-model rate and 10B/100B transfer remain unproved.
+  [METH-177](METH_177_LARGE_RAM_LUT_POOL_PROTOCOL_20260930.md) tests the
+  existing synthetic `engine.c` ternary selected path with fully initialized
+  5.505/55.050 GB pools at E12,800/E128,000. The
+  [result](METH_177_LARGE_RAM_LUT_POOL_RESULT_20260930.md) measures
+  429.945/562.925 µs/token at six threads: 1.309× exceeds the frozen
+  1.25× relative limit while the 5 ms absolute component ceiling passes.
+  These random synthetic codes and IDs do not establish useful specialists,
+  full model speed or the larger E273,547/100B rung.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
