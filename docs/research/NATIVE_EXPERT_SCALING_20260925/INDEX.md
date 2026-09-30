@@ -65,12 +65,14 @@ selects two calibrated bias banks
 from the observed leading token. Both fit cells pass every layer;
 reserved chat also passes. Reserved raw fails only max-load ratio
 in 6/24 layers (worst 1.301 vs <=1.25); source remains unopened.
-**Next exact action:** replay the exact METH-207 router on consumed
-raw fit/reserved draws and retain sequence-level route counts.
-Freeze a 256-sequence fit sampling diagnostic before execution to
-distinguish max-load sampling variation from stable drift. The
-METH-207 gate remains failed; do not fit on reserved metrics or
-promote to B training/native CPU cost from these results.
+[METH-208](METH_208_LOAD_SAMPLING_RESULT_20260930.md) exactly replays
+both raw cells. The worst ratio is common in the frozen fit bootstrap,
+but six failing layers exceed its 99th percentile (tail 0.830%).
+This is conditional fit variation, not proof of population drift.
+**Next exact action:** freeze increased independent mode-bias fit
+support with unchanged keys/projection/annealing. Exclude old reserved
+draws, retain their original gates, and reserve an unopened route
+cohort. METH-207 remains failed; no B training/native promotion.
 Merely continuing the same hash-route/shared-base
 recipe is not a justified path to useful additional specialists. The
 METH-184 normalized content-score/hash mixture also fails its frozen

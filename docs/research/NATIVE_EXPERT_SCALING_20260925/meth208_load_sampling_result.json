@@ -1,0 +1,565 @@
+{
+  "experiment": "METH-208-frozen-raw-load-sampling",
+  "meth207_result_sha256": "4e7910008f3bc07d80fd48a22c89d2430e3199b5b9116e651623ae7610540558",
+  "router_sha256": "a5b367cc5902e745d8929d4c206161c698ad5610f9cfb9cae181f1eceadf3701",
+  "source_bank_sha256": "1d9071456a644344d46203ad7ded8fe2c4d01ca0580b5e41718366783408aff1",
+  "draws_sha256": "9d4e06eced3cc1c51bac4e6219013f37f4495acd10c87827b567f0966f5c490c",
+  "structural_table_sha256": "e89ff2cecbf887b85b5e361d47a8b918d8ccb93bd5c385a580ba993b93ac72db",
+  "teacher_control_bf16_logit_max_abs_error": 0.0,
+  "cells": {
+    "fit_raw": {
+      "baseline_reconciled": true,
+      "totals": {
+        "windows": 1024,
+        "tokens": 130048,
+        "structural_selections": 10672,
+        "content_selections_per_layer": 509520,
+        "sequences": 1024
+      },
+      "layers": [
+        {
+          "layer": 0,
+          "max_load_ratio": 1.003809774040988
+        },
+        {
+          "layer": 1,
+          "max_load_ratio": 1.0022847100175747
+        },
+        {
+          "layer": 2,
+          "max_load_ratio": 1.0041571677618346
+        },
+        {
+          "layer": 3,
+          "max_load_ratio": 1.0036539647890665
+        },
+        {
+          "layer": 4,
+          "max_load_ratio": 1.005449591280654
+        },
+        {
+          "layer": 5,
+          "max_load_ratio": 1.0029086678301338
+        },
+        {
+          "layer": 6,
+          "max_load_ratio": 1.0031815688425672
+        },
+        {
+          "layer": 7,
+          "max_load_ratio": 1.0043001505052678
+        },
+        {
+          "layer": 8,
+          "max_load_ratio": 1.0041152263374487
+        },
+        {
+          "layer": 9,
+          "max_load_ratio": 1.003717472118959
+        },
+        {
+          "layer": 10,
+          "max_load_ratio": 1.0045558086560364
+        },
+        {
+          "layer": 11,
+          "max_load_ratio": 1.0039336892385502
+        },
+        {
+          "layer": 12,
+          "max_load_ratio": 1.0043887147335424
+        },
+        {
+          "layer": 13,
+          "max_load_ratio": 1.0050154890101786
+        },
+        {
+          "layer": 14,
+          "max_load_ratio": 1.0031511065513703
+        },
+        {
+          "layer": 15,
+          "max_load_ratio": 1.0036199095022624
+        },
+        {
+          "layer": 16,
+          "max_load_ratio": 1.001904432132964
+        },
+        {
+          "layer": 17,
+          "max_load_ratio": 1.0019216491243395
+        },
+        {
+          "layer": 18,
+          "max_load_ratio": 1.0031754574811624
+        },
+        {
+          "layer": 19,
+          "max_load_ratio": 1.0019320139940473
+        },
+        {
+          "layer": 20,
+          "max_load_ratio": 1.0022370144041903
+        },
+        {
+          "layer": 21,
+          "max_load_ratio": 1.002846685644571
+        },
+        {
+          "layer": 22,
+          "max_load_ratio": 1.0042601999016878
+        },
+        {
+          "layer": 23,
+          "max_load_ratio": 1.003535490889312
+        }
+      ]
+    },
+    "reserved_raw": {
+      "baseline_reconciled": true,
+      "totals": {
+        "windows": 256,
+        "tokens": 32512,
+        "structural_selections": 2668,
+        "content_selections_per_layer": 127380,
+        "sequences": 256
+      },
+      "layers": [
+        {
+          "layer": 0,
+          "max_load_ratio": 1.131087063453025
+        },
+        {
+          "layer": 1,
+          "max_load_ratio": 1.1103642671292282
+        },
+        {
+          "layer": 2,
+          "max_load_ratio": 1.2836304700162076
+        },
+        {
+          "layer": 3,
+          "max_load_ratio": 1.1524809160305343
+        },
+        {
+          "layer": 4,
+          "max_load_ratio": 1.1104090455603592
+        },
+        {
+          "layer": 5,
+          "max_load_ratio": 1.2745046235138706
+        },
+        {
+          "layer": 6,
+          "max_load_ratio": 1.2161073825503357
+        },
+        {
+          "layer": 7,
+          "max_load_ratio": 1.160354552780016
+        },
+        {
+          "layer": 8,
+          "max_load_ratio": 1.134638922888617
+        },
+        {
+          "layer": 9,
+          "max_load_ratio": 1.1975435005117707
+        },
+        {
+          "layer": 10,
+          "max_load_ratio": 1.1896551724137931
+        },
+        {
+          "layer": 11,
+          "max_load_ratio": 1.278301886792453
+        },
+        {
+          "layer": 12,
+          "max_load_ratio": 1.1546391752577319
+        },
+        {
+          "layer": 13,
+          "max_load_ratio": 1.161764705882353
+        },
+        {
+          "layer": 14,
+          "max_load_ratio": 1.212278558338424
+        },
+        {
+          "layer": 15,
+          "max_load_ratio": 1.2519319938176199
+        },
+        {
+          "layer": 16,
+          "max_load_ratio": 1.3013741411617739
+        },
+        {
+          "layer": 17,
+          "max_load_ratio": 1.1305900621118012
+        },
+        {
+          "layer": 18,
+          "max_load_ratio": 1.1514581373471309
+        },
+        {
+          "layer": 19,
+          "max_load_ratio": 1.1344116006692693
+        },
+        {
+          "layer": 20,
+          "max_load_ratio": 1.2714966634890372
+        },
+        {
+          "layer": 21,
+          "max_load_ratio": 1.1410090556274257
+        },
+        {
+          "layer": 22,
+          "max_load_ratio": 1.1129032258064515
+        },
+        {
+          "layer": 23,
+          "max_load_ratio": 1.1311232063334982
+        }
+      ]
+    }
+  },
+  "sampling": {
+    "unit": "sequence draw with replacement",
+    "fit_draws": 1024,
+    "draws_per_replicate": 256,
+    "replicates": 2048,
+    "seed": 208208,
+    "shared_weights_across_layers": true,
+    "quantiles": [
+      0.05,
+      0.5,
+      0.95,
+      0.99
+    ],
+    "worst_layer_ratio_quantiles": [
+      1.2093691025525815,
+      1.2812068592207442,
+      1.3985917030895403,
+      1.4949470201211712
+    ],
+    "failing_layer_count_quantiles": [
+      0.0,
+      1.0,
+      4.0,
+      5.0
+    ],
+    "all_layer_gate_pass_fraction": 0.2783203125,
+    "at_least_observed_worst_fraction": 0.353515625,
+    "at_least_observed_failures_fraction": 0.00830078125,
+    "joint_at_least_observed_fraction": 0.0078125,
+    "layers": [
+      {
+        "layer": 0,
+        "reserved_ratio": 1.131087063453025,
+        "bootstrap_quantiles": [
+          1.0638318015181947,
+          1.1096828342203855,
+          1.1870218939593775,
+          1.2315561433295243
+        ],
+        "bootstrap_gate_failure_fraction": 0.0029296875,
+        "bootstrap_at_least_reserved_fraction": 0.2890625
+      },
+      {
+        "layer": 1,
+        "reserved_ratio": 1.1103642671292282,
+        "bootstrap_quantiles": [
+          1.0612358855148594,
+          1.1143966092683444,
+          1.2197611163670767,
+          1.2752483698630015
+        ],
+        "bootstrap_gate_failure_fraction": 0.01806640625,
+        "bootstrap_at_least_reserved_fraction": 0.53662109375
+      },
+      {
+        "layer": 2,
+        "reserved_ratio": 1.2836304700162076,
+        "bootstrap_quantiles": [
+          1.071585458730646,
+          1.1344129133053458,
+          1.2336488289260659,
+          1.2953694079724594
+        ],
+        "bootstrap_gate_failure_fraction": 0.0263671875,
+        "bootstrap_at_least_reserved_fraction": 0.0146484375
+      },
+      {
+        "layer": 3,
+        "reserved_ratio": 1.1524809160305343,
+        "bootstrap_quantiles": [
+          1.0499169024943102,
+          1.0936538768700097,
+          1.1649783820779103,
+          1.2082650163980777
+        ],
+        "bootstrap_gate_failure_fraction": 0.00146484375,
+        "bootstrap_at_least_reserved_fraction": 0.08056640625
+      },
+      {
+        "layer": 4,
+        "reserved_ratio": 1.1104090455603592,
+        "bootstrap_quantiles": [
+          1.0644094018575345,
+          1.1221944909276784,
+          1.2136420954027956,
+          1.2628331164271978
+        ],
+        "bootstrap_gate_failure_fraction": 0.01708984375,
+        "bootstrap_at_least_reserved_fraction": 0.61181640625
+      },
+      {
+        "layer": 5,
+        "reserved_ratio": 1.2745046235138706,
+        "bootstrap_quantiles": [
+          1.0607985872781898,
+          1.1196670553371137,
+          1.2235941223066669,
+          1.2670064233633962
+        ],
+        "bootstrap_gate_failure_fraction": 0.017578125,
+        "bootstrap_at_least_reserved_fraction": 0.0087890625
+      },
+      {
+        "layer": 6,
+        "reserved_ratio": 1.2161073825503357,
+        "bootstrap_quantiles": [
+          1.0816977448847467,
+          1.1582537517053206,
+          1.281695302083241,
+          1.3509567337208104
+        ],
+        "bootstrap_gate_failure_fraction": 0.10791015625,
+        "bootstrap_at_least_reserved_fraction": 0.19482421875
+      },
+      {
+        "layer": 7,
+        "reserved_ratio": 1.160354552780016,
+        "bootstrap_quantiles": [
+          1.1130515797733391,
+          1.2060232795701387,
+          1.3469104288112599,
+          1.4210617514872834
+        ],
+        "bootstrap_gate_failure_fraction": 0.26611328125,
+        "bootstrap_at_least_reserved_fraction": 0.7626953125
+      },
+      {
+        "layer": 8,
+        "reserved_ratio": 1.134638922888617,
+        "bootstrap_quantiles": [
+          1.082710271796513,
+          1.1519546027742749,
+          1.2693935119887165,
+          1.3316075825679108
+        ],
+        "bootstrap_gate_failure_fraction": 0.078125,
+        "bootstrap_at_least_reserved_fraction": 0.63037109375
+      },
+      {
+        "layer": 9,
+        "reserved_ratio": 1.1975435005117707,
+        "bootstrap_quantiles": [
+          1.0691570550419065,
+          1.1237834197872498,
+          1.2208188102827338,
+          1.279361423703081
+        ],
+        "bootstrap_gate_failure_fraction": 0.02294921875,
+        "bootstrap_at_least_reserved_fraction": 0.09228515625
+      },
+      {
+        "layer": 10,
+        "reserved_ratio": 1.1896551724137931,
+        "bootstrap_quantiles": [
+          1.0816805544097021,
+          1.1583006718051827,
+          1.2771958673401729,
+          1.3346852352762266
+        ],
+        "bootstrap_gate_failure_fraction": 0.09375,
+        "bootstrap_at_least_reserved_fraction": 0.296875
+      },
+      {
+        "layer": 11,
+        "reserved_ratio": 1.278301886792453,
+        "bootstrap_quantiles": [
+          1.0693696545350655,
+          1.1286104509398438,
+          1.2225220316497678,
+          1.2711423221958673
+        ],
+        "bootstrap_gate_failure_fraction": 0.0234375,
+        "bootstrap_at_least_reserved_fraction": 0.00732421875
+      },
+      {
+        "layer": 12,
+        "reserved_ratio": 1.1546391752577319,
+        "bootstrap_quantiles": [
+          1.0925470073030443,
+          1.1671706300614957,
+          1.2908695652173914,
+          1.3728682404174695
+        ],
+        "bootstrap_gate_failure_fraction": 0.11083984375,
+        "bootstrap_at_least_reserved_fraction": 0.58349609375
+      },
+      {
+        "layer": 13,
+        "reserved_ratio": 1.161764705882353,
+        "bootstrap_quantiles": [
+          1.0864219849225485,
+          1.1540594335172576,
+          1.257461547654021,
+          1.3169007645068305
+        ],
+        "bootstrap_gate_failure_fraction": 0.0615234375,
+        "bootstrap_at_least_reserved_fraction": 0.44189453125
+      },
+      {
+        "layer": 14,
+        "reserved_ratio": 1.212278558338424,
+        "bootstrap_quantiles": [
+          1.0672112931673525,
+          1.1355256304764572,
+          1.253102314069651,
+          1.3106886942407738
+        ],
+        "bootstrap_gate_failure_fraction": 0.05224609375,
+        "bootstrap_at_least_reserved_fraction": 0.1162109375
+      },
+      {
+        "layer": 15,
+        "reserved_ratio": 1.2519319938176199,
+        "bootstrap_quantiles": [
+          1.0727965281139282,
+          1.1320142454137292,
+          1.2330405916463567,
+          1.2809181862444832
+        ],
+        "bootstrap_gate_failure_fraction": 0.02783203125,
+        "bootstrap_at_least_reserved_fraction": 0.0263671875
+      },
+      {
+        "layer": 16,
+        "reserved_ratio": 1.3013741411617739,
+        "bootstrap_quantiles": [
+          1.0642925878536391,
+          1.12218177027176,
+          1.2109896347023468,
+          1.2750069253655922
+        ],
+        "bootstrap_gate_failure_fraction": 0.01953125,
+        "bootstrap_at_least_reserved_fraction": 0.00439453125
+      },
+      {
+        "layer": 17,
+        "reserved_ratio": 1.1305900621118012,
+        "bootstrap_quantiles": [
+          1.0496847268707221,
+          1.093128874371629,
+          1.1663499625173908,
+          1.214937672769761
+        ],
+        "bootstrap_gate_failure_fraction": 0.00244140625,
+        "bootstrap_at_least_reserved_fraction": 0.18212890625
+      },
+      {
+        "layer": 18,
+        "reserved_ratio": 1.1514581373471309,
+        "bootstrap_quantiles": [
+          1.0550403679429152,
+          1.10534764519398,
+          1.1825017085334824,
+          1.2350632284661254
+        ],
+        "bootstrap_gate_failure_fraction": 0.0078125,
+        "bootstrap_at_least_reserved_fraction": 0.15234375
+      },
+      {
+        "layer": 19,
+        "reserved_ratio": 1.1344116006692693,
+        "bootstrap_quantiles": [
+          1.0594120662133446,
+          1.1084558289514033,
+          1.1938923825839878,
+          1.2442032080680472
+        ],
+        "bootstrap_gate_failure_fraction": 0.00830078125,
+        "bootstrap_at_least_reserved_fraction": 0.27978515625
+      },
+      {
+        "layer": 20,
+        "reserved_ratio": 1.2714966634890372,
+        "bootstrap_quantiles": [
+          1.0593696385901177,
+          1.1152589779777635,
+          1.2113431519833424,
+          1.2650326793264406
+        ],
+        "bootstrap_gate_failure_fraction": 0.015625,
+        "bootstrap_at_least_reserved_fraction": 0.0087890625
+      },
+      {
+        "layer": 21,
+        "reserved_ratio": 1.1410090556274257,
+        "bootstrap_quantiles": [
+          1.077386267483767,
+          1.1442727139052722,
+          1.2710736337362059,
+          1.3567954212283273
+        ],
+        "bootstrap_gate_failure_fraction": 0.0732421875,
+        "bootstrap_at_least_reserved_fraction": 0.52587890625
+      },
+      {
+        "layer": 22,
+        "reserved_ratio": 1.1129032258064515,
+        "bootstrap_quantiles": [
+          1.1063694267515924,
+          1.1991068350828504,
+          1.3461201501877347,
+          1.4246250513311887
+        ],
+        "bootstrap_gate_failure_fraction": 0.26318359375,
+        "bootstrap_at_least_reserved_fraction": 0.9365234375
+      },
+      {
+        "layer": 23,
+        "reserved_ratio": 1.1311232063334982,
+        "bootstrap_quantiles": [
+          1.0615322659988178,
+          1.122077781884178,
+          1.2152318395925854,
+          1.2600358978188295
+        ],
+        "bootstrap_gate_failure_fraction": 0.0166015625,
+        "bootstrap_at_least_reserved_fraction": 0.421875
+      }
+    ]
+  },
+  "observed": {
+    "worst_layer_ratio": 1.3013741411617739,
+    "failing_layer_count": 6
+  },
+  "counts_artifact": {
+    "path": "D:\\_THINGS\\Progetti\\SiliconLLM\\results\\native_expert_scaling\\meth208_sequence_route_counts.npz",
+    "sha256": "3f01cc69e0fc3b4e69bfcfdf16e706f44f3fd389cef564a79c42e34a5ee08c1c",
+    "bytes": 716571678,
+    "readback_exact": true
+  },
+  "decision": "beyond_99_percent_fit_sampling_changed_calibration_candidate",
+  "runtime": {
+    "seconds": 236.125,
+    "rss_bytes": 5027491840,
+    "gpu_peak_allocated_bytes": 2945090560,
+    "gpu": "NVIDIA GeForce RTX 3060"
+  },
+  "scope": "Conditional empirical fit sampling diagnostic; METH-207 stays failed"
+}

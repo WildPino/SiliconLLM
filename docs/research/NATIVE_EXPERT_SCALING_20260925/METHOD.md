@@ -1297,9 +1297,15 @@ remain unopened. Bias storage doubles to 2.212 MB (22.118 MB with
 tenfold parents), while ideal addressed selected-mode bytes remain
 2.784 MB/token; this is a layout count, not a native measurement.
 This supplies a causal family-specific mode mechanism, but does not
-promote the router. The next diagnostic must compare consumed raw
-reserved load with draw-level sampling variation before choosing
-another calibration change. Actual CPU cost, useful distinct trained
+promote the router. The [METH-208 sampling diagnostic](METH_208_LOAD_SAMPLING_RESULT_20260930.md)
+exactly reconciles both raw cells and retains sequence route counts.
+The observed worst ratio is inside conditional fit-bootstrap variation,
+but six failing layers exceed its 99th percentile (0.830% tail).
+This does not include uncertainty from estimating biases or unknown
+distribution shift, and leaves METH-207 failed. Increased independent
+calibration support with an unopened route cohort is the next bounded
+proposal; old reserved draws must remain excluded from fitting and
+their gates must also pass. Actual CPU cost, useful distinct trained
 experts and untouched whole-model quality remain unvalidated here.
 
 The [large-RAM `engine.c` LUT probe](METH_177_LARGE_RAM_LUT_POOL_RESULT_20260930.md)
