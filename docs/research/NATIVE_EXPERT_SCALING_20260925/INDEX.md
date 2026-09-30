@@ -60,11 +60,17 @@ unopened. METH-205 replays those inputs and finds no exact-state
 floor above 25% (worst 2.344%); pooled soft shares stay near 11.1%
 while argmax reaches 73.769%. METH-206 annealing fixes pooled hard
 load (worst share 17.208%, max ratio 1.005), yet raw/chat fit gates
-still fail separately. **Next exact action:** verify a causal chat-mode
-marker on the bound training inputs, then freeze separate mode bias
-calibration with the saved keys and annealing schedule. Require all
-original fit, reserved and source-transfer gates before B training
-or native CPU route promotion; no source-ID serving labels.
+still fail separately. [METH-207](METH_207_CAUSAL_MODE_BIAS_RESULT_20260930.md)
+selects two calibrated bias banks
+from the observed leading token. Both fit cells pass every layer;
+reserved chat also passes. Reserved raw fails only max-load ratio
+in 6/24 layers (worst 1.301 vs <=1.25); source remains unopened.
+**Next exact action:** replay the exact METH-207 router on consumed
+raw fit/reserved draws and retain sequence-level route counts.
+Freeze a 256-sequence fit sampling diagnostic before execution to
+distinguish max-load sampling variation from stable drift. The
+METH-207 gate remains failed; do not fit on reserved metrics or
+promote to B training/native CPU cost from these results.
 Merely continuing the same hash-route/shared-base
 recipe is not a justified path to useful additional specialists. The
 METH-184 normalized content-score/hash mixture also fails its frozen
@@ -1579,4 +1585,8 @@ experiment record. Documentation is in English; no model/assistant signatures.
 Graphify is optional for explicit knowledge-graph work. Its last complete
 snapshot predates METH-48/49; the later whole-repository update was stopped
 after AST extraction because routine refresh cost outweighed its use here.
+On 30 September the residual local Git post-commit Graphify block and
+the `.codex/hooks.json` Graphify search reminder were removed, preserving
+Git LFS and saving adjacent `.before-graphify-removal` backups. Routine
+commits and searches now have no automatic Graphify update/instruction.
 

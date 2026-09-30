@@ -1287,9 +1287,20 @@ temperature 0.0004, every pooled layer has max-load ratio <=1.0055
 and worst hot-parent share <=17.208%. The original separate raw/chat
 fit gates still fail (14/12 load-ratio and 21/15 hot-share layer
 failures), so this router remains ineligible for specialist training.
-A causal mode-conditioned bias or a cell-robust fit is the remaining
-route proposal; reserved/source load, actual CPU cost and distinct
-trained expert usefulness are all unvalidated.
+The [METH-207 causal-mode bias](METH_207_CAUSAL_MODE_BIAS_RESULT_20260930.md)
+implements two bias banks, selecting one from the observed leading
+ChatML token and persisting that choice through windows. All raw/chat
+fit layers and reserved-chat layers pass every original route gate.
+Reserved raw fails only max-load ratio in six layers (worst 1.301374
+versus <=1.25), with every hot-parent share below 25%. Source cells
+remain unopened. Bias storage doubles to 2.212 MB (22.118 MB with
+tenfold parents), while ideal addressed selected-mode bytes remain
+2.784 MB/token; this is a layout count, not a native measurement.
+This supplies a causal family-specific mode mechanism, but does not
+promote the router. The next diagnostic must compare consumed raw
+reserved load with draw-level sampling variation before choosing
+another calibration change. Actual CPU cost, useful distinct trained
+experts and untouched whole-model quality remain unvalidated here.
 
 The [large-RAM `engine.c` LUT probe](METH_177_LARGE_RAM_LUT_POOL_RESULT_20260930.md)
 measures a fully initialized synthetic E12,800→E128,000 bank at
