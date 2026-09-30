@@ -1,7 +1,12 @@
 # Native expert scaling: research control index
 
 **Date:** 30 September 2026. **Branch:** `research/native-expert-scaling`.
-**Current decision:** The tenfold E1,280→E12,800 METH-175 training
+**Current decision:** The real GigaChat 10B expert-weight METH-180 screen
+rejects direct rank-192 int8 SVD factors: median best-case weight energy is
+47.243% across 27 sampled projections, against a frozen 95% gate. Even rank
+768 has 94.154% median energy at twice an ideal Q4 projection payload.
+This does not measure activation-weighted error or full-model quality. The
+tenfold E1,280→E12,800 METH-175 training
 passes its matched update, balance and artifact gates, but the untouched
 METH-176 quality gain fails the paired source bootstrap. METH-178 finds
 only 2.318% of route-weighted candidate-minus-control B difference in
@@ -1385,6 +1390,22 @@ scheduled.
   0.000015 better, and the paired bootstrap lower bound for a true-route
   advantage is -0.000145. This diagnostic rules out merely asserting that
   changed child rows are useful; it is not untouched quality evidence.
+  [METH-180](METH_180_GIGACHAT_EXPERT_RANK_SCREEN_PROTOCOL_20260930.md)
+  samples 27 BF16 expert projections from the pinned pretrained GigaChat
+  10B source, after reviewing the paused donor-adaptation source binding
+  and quality baselines. Its [result](METH_180_GIGACHAT_EXPERT_RANK_RESULT_20260930.md)
+  rejects a direct unweighted rank-192 int8 factor export: optimal
+  Frobenius energy is 43.320–54.113%, median 47.243%, against frozen
+  90% per-matrix and 95% median gates. Rank 768 reaches only 94.154%
+  median at 2× ideal Q4 factor bytes. [Raw rows](meth180_gigachat_expert_rank_result.json)
+  bind every tensor and source shard. The pre-SVD API failure is preserved
+  separately; its correction did not select a rank. This is a weight-only
+  screen, not full-model quality, native speed or 10× expert scaling.
+  The frozen [donor-adaptation pause record](../donor_adaptation/PAUSE_20260925.md)
+  keeps its 54/64-checkpoint C parity line and normalization diagnostic
+  suspended; METH-180 did not resume or rerun that line. Prior METH-07/09
+  organ and quantization ablations already show that lowering expert
+  precision alone is insufficient and that MLA sensitivity is material.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update

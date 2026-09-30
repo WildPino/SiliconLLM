@@ -78,12 +78,12 @@ Candidate selection currently uses these reproducible checks:
 | Conditional cost | Count distinct stored weights, active weights per token, router and head separately; price bytes with measured hardware rates | If the active path cannot plausibly fit a 20 ms total budget, require a stated transformation before porting |
 | Baseline quality | Paired donor/format held-out scorer, task and rollout instruments with pinned IDs and document split | Keep the source donor as the reference; reject a broken input or tokenizer mapping |
 
-The current selection rule is **provisional**: use same-geometry
-Qwen2.5-0.5B-Instruct as the next treatable dense donor for a new
-zero-output residual-expert adaptation, after its [METH-42](METH_42_INSTRUCT_DONOR_PILOT_RESULT_20260927.md)
-chat-format pilot passed the repetition screen. Its broad task quality
-and packed/native conversion remain unverified. GigaChat remains the
-locally bound sparse ~10B capacity case; retain StdMoE E128 as a
+The initial dense-adaptation selection was **provisional**: same-geometry
+Qwen2.5-0.5B-Instruct passed the [METH-42](METH_42_INSTRUCT_DONOR_PILOT_RESULT_20260927.md)
+chat-format pilot's repetition screen, but broad task quality and
+packed/native conversion remain unverified. GigaChat is the locally bound
+sparse ~10B capacity case and now has a measured pretrained-expert rank
+screen. Retain StdMoE E128 as a
 second sparse family only if a transformation addresses both its
 measured W4 fidelity and active-byte failures. Do not claim one
 procedure handles these donors until their full pipelines pass.
@@ -1204,6 +1204,53 @@ at each E on untouched semantics, measure route load and quality, and
 verify that the CPU router/LUT and full model remain affordable as E
 grows with RAM. The METH-54 synthetic 10× cost pass cannot stand in
 for this gate.
+
+## 5. September 30 decision update: count, function and real 10B weights
+
+The [matched long training](METH_175_MATCHED_LONG_TRAINING_RESULT_20260930.md)
+passes its 3,840-update E1,280/E12,800 training, load and bank-integrity
+gates. The [source-held-out METH-176 test](METH_176_LONG_FRESH_PREDICTION_RESULT_20260930.md)
+does not validate the larger bank's improvement: candidate-minus-control
+BPB is -0.000114, but the paired bootstrap lower gain bound is negative
+(-0.0000419). Generation, PIQA and blind grounding remain unopened.
+The [bank decomposition](METH_178_TRAINED_CHILD_DIVERSITY_RESULT_20260930.md)
+attributes only 2.318% of route-weighted squared candidate-control
+content-B difference to variation among siblings; the rest is a common
+parent shift. On previously consumed inputs, the [route rotation
+ablation](METH_179_CONTENT_ROUTE_FUNCTION_RESULT_20260930.md) finds no
+functional benefit for the trained exact content route over eight rotations.
+These diagnostics make more updates of the same hash-route/shared-base
+recipe unjustified without a new mechanism and untouched quality set.
+
+The [large-RAM `engine.c` LUT probe](METH_177_LARGE_RAM_LUT_POOL_RESULT_20260930.md)
+measures a fully initialized synthetic E12,800→E128,000 bank at
+429.945→562.925 microseconds/token on six CPU threads. Its 1.309× ratio
+misses the frozen 1.25× relative gate, although the 5 ms absolute
+component gate passes. It is not a full-model accepted-token measurement.
+
+For the real GigaChat 10B donor, the [METH-180 weight screen](METH_180_GIGACHAT_EXPERT_RANK_RESULT_20260930.md)
+rejects direct unweighted rank-192 int8 SVD factors: the median optimal
+Frobenius energy is 47.243% on the preregistered 27 expert projections,
+and none reaches 90%. Even rank 768 gives only 94.154% median at about
+twice ideal Q4 factor bytes. This is a necessary representation screen,
+not a model-quality or throughput result. The paused [donor-adaptation
+record](../donor_adaptation/PAUSE_20260925.md) already binds the source,
+BF16/Q4 baselines and C parity checkpoints. Its 54/64-checkpoint native
+line and unrun normalization diagnostic are preserved; they do not address
+the active-byte or growing-expert-count goal. [METH-07](METH_07_ORGAN_PRECISION_ABLATION_RESULT_20260926.md)
+shows both experts and MLA contribute strongly to Q2 damage; [METH-09](METH_09_Q2_EXPERT_ISOLATION_RESULT_20260926.md)
+shows an expert-only Q2 substitution recovers only 0.023740 BPB on its
+nine-document pilot and still exceeds the active-byte gate. Do not repeat
+those precision swaps as a supposed new cost/quality path.
+
+The next representation experiment should specify an activation-sensitive
+or trained correction on the pinned pretrained donor, price the *whole*
+active path including MLA and head before conversion, and freeze a
+source-held-out comparison before scoring. In parallel, an expert-count
+method must produce route-specific function on untouched data and pass
+actual large-RAM CPU route/LUT cost. Integration is eligible only after
+these component gates, then the same artifact needs donor-relative
+quality and at least 50 accepted batch-1 tokens/s in `engine.c`.
 
 Operational experiment history, running processes and exact resumption point
 live in [INDEX.md](INDEX.md); this file changes when a method step is actually
