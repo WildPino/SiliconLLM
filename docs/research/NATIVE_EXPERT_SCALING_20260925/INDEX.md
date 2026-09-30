@@ -1393,6 +1393,14 @@ scheduled.
   control squared content-B difference within the nine siblings; most
   shift is shared at parent level. This is a weight diagnostic, not a
   functional or held-out quality verdict.
+  [METH-179](METH_179_CONTENT_ROUTE_FUNCTION_PROTOCOL_20260930.md)
+  scores the exact trained bank and all eight content-child cyclic route
+  rotations on consumed METH-173 documents. The
+  [result](METH_179_CONTENT_ROUTE_FUNCTION_RESULT_20260930.md) finds
+  no functional alignment: exact BPB is 1.067669, the mean rotation is
+  0.000015 better, and the paired bootstrap lower bound for a true-route
+  advantage is -0.000145. This diagnostic rules out merely asserting that
+  changed child rows are useful; it is not untouched quality evidence.
 
 Preserve unrelated working-tree changes in `docs/research/RESEARCH_INDEX.md`
 and `benchmarks/donor_adaptation/density/build_document_holdout.py`. Update
