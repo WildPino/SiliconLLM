@@ -1058,7 +1058,7 @@ static void run_expert_rate(void){
 static uint64_t meth31_next(uint64_t* state){
     uint64_t x=*state; x^=x<<13; x^=x>>7; x^=x<<17; *state=x; return x;
 }
-static int run_rank8_lut_pool(int ne,int threads){
+static int run_rank8_lut_pool(int ne,int threads,int prefetch){
     enum { NL=24, DW=896, RK=8, K=4, A_PAD=32, A_T=DW/2, B_T=RK/2,
            A_BYTES=A_PAD*A_T, B_BYTES=DW*B_T, EXP_BYTES=A_BYTES+B_BYTES,
            WARM=128, TOKENS=512, REPS=4 };
@@ -1114,6 +1114,14 @@ static int run_rank8_lut_pool(int ne,int threads){
             memset(combined,0,sizeof(combined));
             for(int i=0;i<DW;i++)xq[i]=(int8_t)(((tok*7+l*13+i*3)%63)-31);
             build_lut_t3(xq,A_T,lut_a);
+            if(prefetch){
+                for(int j=0;j<K;j++){
+                    int id=routes[((size_t)tok*NL+l)*K+j];
+                    const int8_t* expert=pool+((size_t)l*ne+id)*EXP_BYTES;
+                    _mm_prefetch((const char*)expert,_MM_HINT_T0);
+                    _mm_prefetch((const char*)(expert+A_BYTES),_MM_HINT_T0);
+                }
+            }
             for(int j=0;j<K;j++){
                 int id=routes[((size_t)tok*NL+l)*K+j];
                 const int8_t* expert=pool+((size_t)l*ne+id)*EXP_BYTES;
@@ -1606,7 +1614,7 @@ int main(int argc,char**argv){
     int mlp_lut=1,skip=1,exp_fast=1;                 // default = the full optimized config
     int do_bpb=0,do_logits=0,do_tm=0; long seqW=512,eval_tok=200000,ntok=10240,offset=0,timetok=3000;
     int threads=1; const char* wp=NULL; const char* dumpto=NULL; const char* nes01_greedy_to=NULL; const char* nes01_route_to=NULL;
-    int block=0,gen_verify=0,nseed=3,do_g3b=0,do_g3c=0,do_gemvsweep=0,do_exprate=0,do_expdecomp=0,rank8_lut_pool=0; const char* donor=NULL; long genlen=800,emu_mb=128; const char* ngpath=NULL;
+    int block=0,gen_verify=0,nseed=3,do_g3b=0,do_g3c=0,do_gemvsweep=0,do_exprate=0,do_expdecomp=0,rank8_lut_pool=0,rank8_prefetch=0; const char* donor=NULL; long genlen=800,emu_mb=128; const char* ngpath=NULL;
     for(int i=1;i<argc;i++) if(!strcmp(argv[i],"--pack")&&i+1<argc){          // pre-scan: must be set before load_weights
         if(!strcmp(argv[i+1],"nibble")) g_pack_nib=1; else if(!strcmp(argv[i+1],"byte")) g_pack_nib=0;
         else { fprintf(stderr,"--pack must be byte|nibble\n"); return 1; } }
@@ -1621,6 +1629,7 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--expert-rate")){ do_exprate=1; continue; }
         else if(!strcmp(argv[i],"--expert-decomp")){ do_expdecomp=1; continue; }
         else if(!strcmp(argv[i],"--rank8-lut-pool")&&i+1<argc){ rank8_lut_pool=atoi(argv[++i]); continue; }
+        else if(!strcmp(argv[i],"--rank8-prefetch")){ rank8_prefetch=1; continue; }
         else if(!strcmp(argv[i],"--donor-shape")){ donor = (i+1<argc && argv[i+1][0]!='-') ? argv[++i] : "qwen2.5-1.5b"; continue; }
         else if(!strcmp(argv[i],"--emu-mb")&&i+1<argc){ emu_mb=atol(argv[++i]); continue; }
         else if(!strcmp(argv[i],"--gen-len")&&i+1<argc){ genlen=atol(argv[++i]); continue; }
@@ -1647,7 +1656,8 @@ int main(int argc,char**argv){
         else if(!strcmp(argv[i],"--weights")&&i+1<argc) wp=argv[++i];
         else { fprintf(stderr,"unknown arg %s\n",argv[i]); return 1; }
     }
-    if(rank8_lut_pool)return run_rank8_lut_pool(rank8_lut_pool,threads);
+    if(rank8_prefetch&&!rank8_lut_pool){fprintf(stderr,"--rank8-prefetch needs --rank8-lut-pool E\n");return 1;}
+    if(rank8_lut_pool)return run_rank8_lut_pool(rank8_lut_pool,threads,rank8_prefetch);
     if(do_gemvsweep||do_exprate||do_expdecomp||donor){   // 64.1b microbenches: synthetic, weight-free, self-sweep threads {1,6}
 #ifdef _OPENMP
         omp_set_dynamic(0);
