@@ -1234,8 +1234,18 @@ finds that the nine content children differ by only 1.583% root mean
 square of their gate-weighted mean residual and 0.00396% of the full
 MLP output on its viewed 8×128-token sample, with exact selected-child
 and MLP-output parity. No layer meets its functional-diversity screen.
-These diagnostics make more updates of the same hash-route/shared-base
-recipe unjustified without a new mechanism and untouched quality set.
+The [METH-202 exact-route gain ablation](METH_202_CHILD_DEVIATION_GAIN_RESULT_20260930.md)
+reproduces every prior baseline document NLL, then replaces the nine
+content B rows with their parent mean (λ=0) or amplifies their
+trained deviations fourfold (λ=4). BPB on the same viewed 24 documents
+is 1.067704/1.067669/1.067793 for λ=0/1/4; quadrupling is worse
+than zero deviation and fails both preregistered directional gates.
+These diagnostics make more updates or amplification of the same
+hash-route/shared-base child residuals unjustified. The next
+large-pool method must couple route and specialist learning differently,
+then establish useful distinct functions and quality on untouched
+sources. Existing exact E1,280 routing remains a separate positive
+smaller-rung mechanism result.
 
 The [large-RAM `engine.c` LUT probe](METH_177_LARGE_RAM_LUT_POOL_RESULT_20260930.md)
 measures a fully initialized synthetic E12,800→E128,000 bank at

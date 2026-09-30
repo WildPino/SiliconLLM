@@ -41,6 +41,11 @@ diagnostic inputs. METH-201 applies all nine trained content children
 to identical real states and gates: pooled sibling output spread is
 only 1.583% of the content-parent mean residual and 0.00396% of the
 full MLP output; no layer meets its functional-diversity screen.
+METH-202 keeps the exact trained route and scales only child-specific
+deviations: λ=0/1/4 BPB is 1.067704/1.067669/1.067793 on viewed
+documents. Quadrupling is worse than zero deviation and fails both
+frozen directional gates. Change route/training coupling before
+another long large-pool training run.
 Merely continuing the same hash-route/shared-base
 recipe is not a justified path to useful additional specialists. The
 METH-184 normalized content-score/hash mixture also fails its frozen
@@ -1431,6 +1436,17 @@ scheduled.
   0.000015 better, and the paired bootstrap lower bound for a true-route
   advantage is -0.000145. This diagnostic rules out merely asserting that
   changed child rows are useful; it is not untouched quality evidence.
+  [METH-201](METH_201_CHILD_FUNCTION_SPREAD_PROTOCOL_20260930.md)
+  applies all trained content siblings to matched real states and gates.
+  Its [result](METH_201_CHILD_FUNCTION_SPREAD_RESULT_20260930.md)
+  finds only 1.583% gate-weighted sibling/mean residual spread and
+  0.00396% sibling/full-MLP spread; zero of 24 layers passes its
+  functional-diversity gate. [METH-202](METH_202_CHILD_DEVIATION_GAIN_PROTOCOL_20260930.md)
+  then scales only those deviations under the exact route. Its
+  [result](METH_202_CHILD_DEVIATION_GAIN_RESULT_20260930.md) gives
+  λ=0/1/4 BPB 1.067704/1.067669/1.067793 on viewed documents;
+  λ=4 fails both directional gates. More fixed-route residual
+  amplification is stopped. Neither diagnostic opens a new quality set.
   [METH-180](METH_180_GIGACHAT_EXPERT_RANK_SCREEN_PROTOCOL_20260930.md)
   samples 27 BF16 expert projections from the pinned pretrained GigaChat
   10B source, after reviewing the paused donor-adaptation source binding
