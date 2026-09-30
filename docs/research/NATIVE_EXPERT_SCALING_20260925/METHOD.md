@@ -1434,6 +1434,22 @@ METH-211 physical export, then independent quality and actual native
 composition. Full-head offline probabilities and finite-state K64
 choices are separate evidence; no native precision/traffic equivalence,
 fresh semantics, third-level router inclusion or accepted rate follows.
+[METH-211](METH_211_EXACT_HEAD_EXPORT_RESULT_20260930.md) now stores
+that exact representation: 820.707 MB physical core, all 364 tensors
+read back, 72 Q8 FFN pairs unchanged, original BF16 tied matrix and
+proposal bits matched to METH-210. The next audit must load this saved
+core and evaluate new quality/generation before native promotion.
+
+The [reused child-feature/local-key proposal](REUSED_CHILD_PROJECTION_KEY_PROPOSAL_20260930.md)
+connects the core ledger to useful expert-count research: reuse the
+existing child projection, fit parent-specific leaf keys and retain
+the structural/mode path. A read-only preflight verifies all source
+projection hashes and prices 114,048 extra selected weight bytes/token,
+with 35.389 MB key storage (353.894 MB at hypothetical tenfold parents).
+The combined ideal weight ledger would be 559.908 MB/token. This is
+untrained and changes coordinates; no old third-tier route pass carries
+over. Parent-selection cost at larger count, useful B functions, native
+traffic and whole-composition quality/rate remain unverified.
 
 The next representation experiment should specify an activation-sensitive
 or trained correction on the pinned pretrained donor, price the *whole*

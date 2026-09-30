@@ -79,11 +79,16 @@ price a changed conditional key geometry for the expert-count line.
 Q8 development gates with the preselected original tied BF16 head:
 pooled/code top-1 loss 0.690/0.805 points and BPB nearly unchanged.
 FP16-scale R8 proposal + exact K64 rows matches all 4,494 choices;
-proposed active ledger is 559.794 MB/token. Next compact-core action
-is [METH-211 stored export](METH_211_EXACT_HEAD_EXPORT_PROTOCOL_20260930.md),
-then fresh quality and a native composition with actual precision
-and traffic accounting. The third-level router is not included in
-this E1280 ledger. No accepted >=50 tok/s artifact exists yet.
+proposed active ledger is 559.794 MB/token. [METH-211](METH_211_EXACT_HEAD_EXPORT_RESULT_20260930.md)
+stores the 820.707 MB physical core with full tensor readback and
+unchanged Q8 FFNs. **Next compact-core action:** create a loader
+from its saved weights and freeze a new quality/generation cohort,
+then native composition with actual precision and traffic accounting.
+For n, the [reused-projection local-key proposal](REUSED_CHILD_PROJECTION_KEY_PROPOSAL_20260930.md)
+adds 114,048 selected weight bytes/token and fits the combined ideal
+ledger at 559.908 MB by reusing existing child features. It is untrained;
+all 24 old/new projection pairs differ. Freeze its local-key fit and
+route gates before running it. No accepted >=50 tok/s artifact exists.
 No B training/native promotion from the failed router candidates.
 Merely continuing the same hash-route/shared-base
 recipe is not a justified path to useful additional specialists. The
