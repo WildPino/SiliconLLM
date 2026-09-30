@@ -1062,8 +1062,8 @@ static int run_rank8_lut_pool(int ne,int threads){
     enum { NL=24, DW=896, RK=8, K=4, A_PAD=32, A_T=DW/2, B_T=RK/2,
            A_BYTES=A_PAD*A_T, B_BYTES=DW*B_T, EXP_BYTES=A_BYTES+B_BYTES,
            WARM=128, TOKENS=512, REPS=4 };
-    if(ne!=128 && ne!=1280 && ne!=12800){
-        fprintf(stderr,"METH-31 E must be 128, 1280 or 12800\n");return 1;
+    if(ne!=128 && ne!=1280 && ne!=12800 && ne!=128000){
+        fprintf(stderr,"METH-31/177 E must be 128, 1280, 12800 or 128000\n");return 1;
     }
     if(threads!=1 && threads!=6){
         fprintf(stderr,"METH-31 threads must be 1 or 6\n");return 1;
@@ -1075,7 +1075,8 @@ static int run_rank8_lut_pool(int ne,int threads){
 #endif
     g_omp_on=threads>1;
     const size_t pool_bytes=(size_t)NL*(size_t)ne*(size_t)EXP_BYTES;
-    if(pool_bytes>6ULL*1024*1024*1024){fprintf(stderr,"METH-31 pool cap\n");return 1;}
+    const size_t pool_cap=ne==128000 ? 60ULL*1024*1024*1024 : 6ULL*1024*1024*1024;
+    if(pool_bytes>pool_cap){fprintf(stderr,"METH-31/177 pool cap\n");return 1;}
     double experiment_start=now_s();
     int8_t* pool=(int8_t*)malloc(pool_bytes);
     if(!pool){fprintf(stderr,"METH-31 pool allocation failed: %zu bytes\n",pool_bytes);return 1;}
@@ -1086,17 +1087,17 @@ static int run_rank8_lut_pool(int ne,int threads){
         memcpy(pool+at,pattern,n);
     }
     const size_t route_count=(size_t)(WARM+TOKENS*REPS)*NL*K;
-    uint16_t* routes=(uint16_t*)malloc(route_count*sizeof(uint16_t));
+    uint32_t* routes=(uint32_t*)malloc(route_count*sizeof(uint32_t));
     if(!routes){fprintf(stderr,"METH-31 route allocation failed\n");free(pool);return 1;}
     uint64_t rng=0x9e3779b97f4a7c15ULL;
     for(int tok=0;tok<WARM+TOKENS*REPS;tok++)for(int l=0;l<NL;l++){
-        uint16_t* chosen=routes+((size_t)tok*NL+l)*K;
+        uint32_t* chosen=routes+((size_t)tok*NL+l)*K;
         for(int j=0;j<K;j++){
             int id,duplicate;
             do {id=(int)(meth31_next(&rng)%(uint64_t)ne);duplicate=0;
                 for(int prev=0;prev<j;prev++)if(chosen[prev]==id)duplicate=1;
             } while(duplicate);
-            chosen[j]=(uint16_t)id;
+            chosen[j]=(uint32_t)id;
         }
     }
     printf("METH31 meta E=%d threads=%d pool_bytes=%zu selected_code_bytes_per_token=%d warm=%d timed=%d reps=%d init_seconds=%.6f\n",
