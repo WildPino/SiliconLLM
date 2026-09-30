@@ -1,0 +1,389 @@
+{
+  "experiment": "METH-199-bound-paired-LUT-scaling",
+  "protocol": "METH_199_BOUND_LUT_SCALING_PROTOCOL_20260930.md",
+  "prior_sha256": "199f76710429e27038f45f78cb28c7dcdc5e73313318301ba10c94d3eaa7ad62",
+  "source_sha256": "daa0d844badcaa499ec93949f27a58bf6ee3d9e8c9a968c2a8a0620ff9bb43a4",
+  "binary_sha256": "e64440a18b1dcff1ffc049bbed3b0ebf02d8e8edfb13ac284d6a4fd8c9cb63fa",
+  "selftest": "==== engine kernel self-test (synthetic, no weights): all LUT paths vs scalar-int ====\n  73024 checks | worst |S - S_ref| = 0  PASS\n  exp256_ps vs libm on [-30,0]: max rel err = 1.191e-07  PASS (<=2e-6)",
+  "environment": {
+    "OMP_PLACES": "cores",
+    "OMP_PROC_BIND": "spread",
+    "OMP_DISPLAY_ENV": "VERBOSE"
+  },
+  "order": [
+    12800,
+    128000,
+    128000,
+    12800,
+    12800,
+    128000
+  ],
+  "runs": [
+    {
+      "pool_bytes": 5505024000,
+      "selected_code_bytes_per_token": 1720320,
+      "init_seconds": 0.688409,
+      "repetitions": [
+        {
+          "rep": 1,
+          "seconds": 0.2106203,
+          "us_token": 411.368,
+          "selected_gbps": 4.182,
+          "checksum": 363
+        },
+        {
+          "rep": 2,
+          "seconds": 0.1940745,
+          "us_token": 379.052,
+          "selected_gbps": 4.538,
+          "checksum": -821
+        },
+        {
+          "rep": 3,
+          "seconds": 0.2197272,
+          "us_token": 429.155,
+          "selected_gbps": 4.009,
+          "checksum": -2310
+        },
+        {
+          "rep": 4,
+          "seconds": 0.2138174,
+          "us_token": 417.612,
+          "selected_gbps": 4.119,
+          "checksum": -4429
+        }
+      ],
+      "median_last_three_us_token": 417.612,
+      "median_last_three_selected_gbps": 4.119,
+      "run": 1,
+      "experts": 12800,
+      "command": [
+        "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+        "--rank8-lut-pool",
+        "12800",
+        "--threads",
+        "6"
+      ],
+      "elapsed_seconds": 1.7970000000022992,
+      "available_ram_before_bytes": 70290317312,
+      "binding_environment_confirmed": true,
+      "runtime_environment_output": "\nOPENMP DISPLAY ENVIRONMENT BEGIN\n   _OPENMP='201611'\n  [host] KMP_ABORT_DELAY='0'\n  [host] KMP_ADAPTIVE_LOCK_PROPS='1,1024'\n  [host] KMP_ALIGN_ALLOC='64'\n  [host] KMP_ALL_THREADPRIVATE='128'\n  [host] KMP_ATOMIC_MODE='1'\n  [host] KMP_BLOCKTIME='200ms\n  [host] KMP_CPUINFO_FILE: value is not defined\n  [host] KMP_DETERMINISTIC_REDUCTION='FALSE'\n  [host] KMP_DEVICE_THREAD_LIMIT='2147483647'\n  [host] KMP_DISP_NUM_BUFFERS='7'\n  [host] KMP_DUPLICATE_LIB_OK='FALSE'\n  [host] KMP_ENABLE_TASK_THROTTLING='TRUE'\n  [host] KMP_FORCE_MONOTONIC_DYNAMIC_SCHEDULE='FALSE'\n  [host] KMP_FORCE_REDUCTION: value is not defined\n  [host] KMP_FOREIGN_THREADS_THREADPRIVATE='TRUE'\n  [host] KMP_FORKJOIN_BARRIER='2,2'\n  [host] KMP_FORKJOIN_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_FORKJOIN_FRAMES='TRUE'\n  [host] KMP_FORKJOIN_FRAMES_MODE='3'\n  [host] KMP_GTID_MODE='2'\n  [host] KMP_HANDLE_SIGNALS='FALSE'\n  [host] KMP_HIDDEN_HELPER_AFFINITY='noverbose,warnings,granularity=core,none'\n  [host] KMP_HOT_TEAMS_MAX_LEVEL='1'\n  [host] KMP_HOT_TEAMS_MODE='0'\n  [host] KMP_INIT_AT_FORK='TRUE'\n  [host] KMP_ITT_PREPARE_DELAY='0'\n  [host] KMP_LIBRARY='throughput'\n  [host] KMP_LOCK_KIND='queuing'\n  [host] KMP_MALLOC_POOL_INCR='1M'\n  [host] KMP_MWAIT_HINTS='0'\n  [host] KMP_NESTING_MODE=0\n  [host] KMP_NUM_LOCKS_IN_BLOCK='1'\n  [host] KMP_PLAIN_BARRIER='2,2'\n  [host] KMP_PLAIN_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_REDUCTION_BARRIER='1,1'\n  [host] KMP_REDUCTION_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_SCHEDULE='static,balanced;guided,iterative'\n  [host] KMP_SETTINGS='FALSE'\n  [host] KMP_SPIN_BACKOFF_PARAMS='4096,100'\n  [host] KMP_STACKOFFSET='64'\n  [host] KMP_STACKPAD='0'\n  [host] KMP_STACKSIZE='4M'\n  [host] KMP_STORAGE_MAP='FALSE'\n  [host] KMP_TASKING='2'\n  [host] KMP_TASKLOOP_MIN_TASKS='0'\n  [host] KMP_TASK_STEALING_CONSTRAINT='1'\n  [host] KMP_TEAMS_PROC_BIND='spread'\n  [host] KMP_TEAMS_THREAD_LIMIT='12'\n  [host] KMP_TOPOLOGY_METHOD='all'\n  [host] KMP_TPAUSE='0'\n  [host] KMP_USER_LEVEL_MWAIT='FALSE'\n  [host] KMP_USE_YIELD='1'\n  [host] KMP_VERSION='FALSE'\n  [host] KMP_WARNINGS='TRUE'\n  [host] LIBOMP_NUM_HIDDEN_HELPER_THREADS='0'\n  [host] LIBOMP_USE_HIDDEN_HELPER_TASK='FALSE'\n  [host] OMP_AFFINITY_FORMAT='OMP: pid %P$s tid %i$s thread %n$s bound to OS proc set {%A$s}'\n  [host] OMP_ALLOCATOR='omp_default_mem_alloc'\n  [host] OMP_CANCELLATION='FALSE'\n  [host] OMP_DEFAULT_DEVICE='0'\n  [host] OMP_DISPLAY_AFFINITY='FALSE'\n  [host] OMP_DISPLAY_ENV='VERBOSE'\n  [host] OMP_DYNAMIC='FALSE'\n  [host] OMP_MAX_ACTIVE_LEVELS='1'\n  [host] OMP_MAX_TASK_PRIORITY='0'\n  [host] OMP_NESTED: deprecated; max-active-levels-var=1\n  [host] OMP_NUM_TEAMS='0'\n  [host] OMP_NUM_THREADS: value is not defined\n  [host] OMP_PLACES='cores'\n  [host] OMP_PROC_BIND='spread'\n  [host] OMP_SCHEDULE='static'\n  [host] OMP_STACKSIZE='4M'\n  [host] OMP_TARGET_OFFLOAD=DEFAULT\n  [host] OMP_TEAMS_THREAD_LIMIT='0'\n  [host] OMP_THREAD_LIMIT='2147483647'\n  [host] OMP_WAIT_POLICY='PASSIVE'\n  [host] KMP_AFFINITY='noverbose,warnings,respect,noreset,granularity=core,compact,0,0'\nOPENMP DISPLAY ENVIRONMENT END\n\n\n",
+      "log_sha256": "aea5cb8e9fd7474e3c5b9827302238ca0557f123d4fa5d35909c47a0b3a68cad",
+      "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth199_bound_lut_scaling_result.run1.e12800.log"
+    },
+    {
+      "pool_bytes": 55050240000,
+      "selected_code_bytes_per_token": 1720320,
+      "init_seconds": 7.714423,
+      "repetitions": [
+        {
+          "rep": 1,
+          "seconds": 0.1944837,
+          "us_token": 379.851,
+          "selected_gbps": 4.529,
+          "checksum": 1299
+        },
+        {
+          "rep": 2,
+          "seconds": 0.1958365,
+          "us_token": 382.493,
+          "selected_gbps": 4.498,
+          "checksum": -1521
+        },
+        {
+          "rep": 3,
+          "seconds": 0.195676,
+          "us_token": 382.18,
+          "selected_gbps": 4.501,
+          "checksum": -2842
+        },
+        {
+          "rep": 4,
+          "seconds": 0.195959,
+          "us_token": 382.732,
+          "selected_gbps": 4.495,
+          "checksum": -4663
+        }
+      ],
+      "median_last_three_us_token": 382.493,
+      "median_last_three_selected_gbps": 4.498,
+      "run": 2,
+      "experts": 128000,
+      "command": [
+        "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+        "--rank8-lut-pool",
+        "128000",
+        "--threads",
+        "6"
+      ],
+      "elapsed_seconds": 10.421999999998661,
+      "available_ram_before_bytes": 70303789056,
+      "binding_environment_confirmed": true,
+      "runtime_environment_output": "\nOPENMP DISPLAY ENVIRONMENT BEGIN\n   _OPENMP='201611'\n  [host] KMP_ABORT_DELAY='0'\n  [host] KMP_ADAPTIVE_LOCK_PROPS='1,1024'\n  [host] KMP_ALIGN_ALLOC='64'\n  [host] KMP_ALL_THREADPRIVATE='128'\n  [host] KMP_ATOMIC_MODE='1'\n  [host] KMP_BLOCKTIME='200ms\n  [host] KMP_CPUINFO_FILE: value is not defined\n  [host] KMP_DETERMINISTIC_REDUCTION='FALSE'\n  [host] KMP_DEVICE_THREAD_LIMIT='2147483647'\n  [host] KMP_DISP_NUM_BUFFERS='7'\n  [host] KMP_DUPLICATE_LIB_OK='FALSE'\n  [host] KMP_ENABLE_TASK_THROTTLING='TRUE'\n  [host] KMP_FORCE_MONOTONIC_DYNAMIC_SCHEDULE='FALSE'\n  [host] KMP_FORCE_REDUCTION: value is not defined\n  [host] KMP_FOREIGN_THREADS_THREADPRIVATE='TRUE'\n  [host] KMP_FORKJOIN_BARRIER='2,2'\n  [host] KMP_FORKJOIN_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_FORKJOIN_FRAMES='TRUE'\n  [host] KMP_FORKJOIN_FRAMES_MODE='3'\n  [host] KMP_GTID_MODE='2'\n  [host] KMP_HANDLE_SIGNALS='FALSE'\n  [host] KMP_HIDDEN_HELPER_AFFINITY='noverbose,warnings,granularity=core,none'\n  [host] KMP_HOT_TEAMS_MAX_LEVEL='1'\n  [host] KMP_HOT_TEAMS_MODE='0'\n  [host] KMP_INIT_AT_FORK='TRUE'\n  [host] KMP_ITT_PREPARE_DELAY='0'\n  [host] KMP_LIBRARY='throughput'\n  [host] KMP_LOCK_KIND='queuing'\n  [host] KMP_MALLOC_POOL_INCR='1M'\n  [host] KMP_MWAIT_HINTS='0'\n  [host] KMP_NESTING_MODE=0\n  [host] KMP_NUM_LOCKS_IN_BLOCK='1'\n  [host] KMP_PLAIN_BARRIER='2,2'\n  [host] KMP_PLAIN_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_REDUCTION_BARRIER='1,1'\n  [host] KMP_REDUCTION_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_SCHEDULE='static,balanced;guided,iterative'\n  [host] KMP_SETTINGS='FALSE'\n  [host] KMP_SPIN_BACKOFF_PARAMS='4096,100'\n  [host] KMP_STACKOFFSET='64'\n  [host] KMP_STACKPAD='0'\n  [host] KMP_STACKSIZE='4M'\n  [host] KMP_STORAGE_MAP='FALSE'\n  [host] KMP_TASKING='2'\n  [host] KMP_TASKLOOP_MIN_TASKS='0'\n  [host] KMP_TASK_STEALING_CONSTRAINT='1'\n  [host] KMP_TEAMS_PROC_BIND='spread'\n  [host] KMP_TEAMS_THREAD_LIMIT='12'\n  [host] KMP_TOPOLOGY_METHOD='all'\n  [host] KMP_TPAUSE='0'\n  [host] KMP_USER_LEVEL_MWAIT='FALSE'\n  [host] KMP_USE_YIELD='1'\n  [host] KMP_VERSION='FALSE'\n  [host] KMP_WARNINGS='TRUE'\n  [host] LIBOMP_NUM_HIDDEN_HELPER_THREADS='0'\n  [host] LIBOMP_USE_HIDDEN_HELPER_TASK='FALSE'\n  [host] OMP_AFFINITY_FORMAT='OMP: pid %P$s tid %i$s thread %n$s bound to OS proc set {%A$s}'\n  [host] OMP_ALLOCATOR='omp_default_mem_alloc'\n  [host] OMP_CANCELLATION='FALSE'\n  [host] OMP_DEFAULT_DEVICE='0'\n  [host] OMP_DISPLAY_AFFINITY='FALSE'\n  [host] OMP_DISPLAY_ENV='VERBOSE'\n  [host] OMP_DYNAMIC='FALSE'\n  [host] OMP_MAX_ACTIVE_LEVELS='1'\n  [host] OMP_MAX_TASK_PRIORITY='0'\n  [host] OMP_NESTED: deprecated; max-active-levels-var=1\n  [host] OMP_NUM_TEAMS='0'\n  [host] OMP_NUM_THREADS: value is not defined\n  [host] OMP_PLACES='cores'\n  [host] OMP_PROC_BIND='spread'\n  [host] OMP_SCHEDULE='static'\n  [host] OMP_STACKSIZE='4M'\n  [host] OMP_TARGET_OFFLOAD=DEFAULT\n  [host] OMP_TEAMS_THREAD_LIMIT='0'\n  [host] OMP_THREAD_LIMIT='2147483647'\n  [host] OMP_WAIT_POLICY='PASSIVE'\n  [host] KMP_AFFINITY='noverbose,warnings,respect,noreset,granularity=core,compact,0,0'\nOPENMP DISPLAY ENVIRONMENT END\n\n\n",
+      "log_sha256": "ddec13c9d6077cba932628441cc3f07b70ea4b381f672ed04524497117fefbb6",
+      "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth199_bound_lut_scaling_result.run2.e128000.log"
+    },
+    {
+      "pool_bytes": 55050240000,
+      "selected_code_bytes_per_token": 1720320,
+      "init_seconds": 7.672733,
+      "repetitions": [
+        {
+          "rep": 1,
+          "seconds": 0.1981179,
+          "us_token": 386.949,
+          "selected_gbps": 4.446,
+          "checksum": 1299
+        },
+        {
+          "rep": 2,
+          "seconds": 0.1979477,
+          "us_token": 386.617,
+          "selected_gbps": 4.45,
+          "checksum": -1521
+        },
+        {
+          "rep": 3,
+          "seconds": 0.197926,
+          "us_token": 386.574,
+          "selected_gbps": 4.45,
+          "checksum": -2842
+        },
+        {
+          "rep": 4,
+          "seconds": 0.1978569,
+          "us_token": 386.439,
+          "selected_gbps": 4.452,
+          "checksum": -4663
+        }
+      ],
+      "median_last_three_us_token": 386.574,
+      "median_last_three_selected_gbps": 4.45,
+      "run": 3,
+      "experts": 128000,
+      "command": [
+        "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+        "--rank8-lut-pool",
+        "128000",
+        "--threads",
+        "6"
+      ],
+      "elapsed_seconds": 10.4220000000023,
+      "available_ram_before_bytes": 70349135872,
+      "binding_environment_confirmed": true,
+      "runtime_environment_output": "\nOPENMP DISPLAY ENVIRONMENT BEGIN\n   _OPENMP='201611'\n  [host] KMP_ABORT_DELAY='0'\n  [host] KMP_ADAPTIVE_LOCK_PROPS='1,1024'\n  [host] KMP_ALIGN_ALLOC='64'\n  [host] KMP_ALL_THREADPRIVATE='128'\n  [host] KMP_ATOMIC_MODE='1'\n  [host] KMP_BLOCKTIME='200ms\n  [host] KMP_CPUINFO_FILE: value is not defined\n  [host] KMP_DETERMINISTIC_REDUCTION='FALSE'\n  [host] KMP_DEVICE_THREAD_LIMIT='2147483647'\n  [host] KMP_DISP_NUM_BUFFERS='7'\n  [host] KMP_DUPLICATE_LIB_OK='FALSE'\n  [host] KMP_ENABLE_TASK_THROTTLING='TRUE'\n  [host] KMP_FORCE_MONOTONIC_DYNAMIC_SCHEDULE='FALSE'\n  [host] KMP_FORCE_REDUCTION: value is not defined\n  [host] KMP_FOREIGN_THREADS_THREADPRIVATE='TRUE'\n  [host] KMP_FORKJOIN_BARRIER='2,2'\n  [host] KMP_FORKJOIN_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_FORKJOIN_FRAMES='TRUE'\n  [host] KMP_FORKJOIN_FRAMES_MODE='3'\n  [host] KMP_GTID_MODE='2'\n  [host] KMP_HANDLE_SIGNALS='FALSE'\n  [host] KMP_HIDDEN_HELPER_AFFINITY='noverbose,warnings,granularity=core,none'\n  [host] KMP_HOT_TEAMS_MAX_LEVEL='1'\n  [host] KMP_HOT_TEAMS_MODE='0'\n  [host] KMP_INIT_AT_FORK='TRUE'\n  [host] KMP_ITT_PREPARE_DELAY='0'\n  [host] KMP_LIBRARY='throughput'\n  [host] KMP_LOCK_KIND='queuing'\n  [host] KMP_MALLOC_POOL_INCR='1M'\n  [host] KMP_MWAIT_HINTS='0'\n  [host] KMP_NESTING_MODE=0\n  [host] KMP_NUM_LOCKS_IN_BLOCK='1'\n  [host] KMP_PLAIN_BARRIER='2,2'\n  [host] KMP_PLAIN_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_REDUCTION_BARRIER='1,1'\n  [host] KMP_REDUCTION_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_SCHEDULE='static,balanced;guided,iterative'\n  [host] KMP_SETTINGS='FALSE'\n  [host] KMP_SPIN_BACKOFF_PARAMS='4096,100'\n  [host] KMP_STACKOFFSET='64'\n  [host] KMP_STACKPAD='0'\n  [host] KMP_STACKSIZE='4M'\n  [host] KMP_STORAGE_MAP='FALSE'\n  [host] KMP_TASKING='2'\n  [host] KMP_TASKLOOP_MIN_TASKS='0'\n  [host] KMP_TASK_STEALING_CONSTRAINT='1'\n  [host] KMP_TEAMS_PROC_BIND='spread'\n  [host] KMP_TEAMS_THREAD_LIMIT='12'\n  [host] KMP_TOPOLOGY_METHOD='all'\n  [host] KMP_TPAUSE='0'\n  [host] KMP_USER_LEVEL_MWAIT='FALSE'\n  [host] KMP_USE_YIELD='1'\n  [host] KMP_VERSION='FALSE'\n  [host] KMP_WARNINGS='TRUE'\n  [host] LIBOMP_NUM_HIDDEN_HELPER_THREADS='0'\n  [host] LIBOMP_USE_HIDDEN_HELPER_TASK='FALSE'\n  [host] OMP_AFFINITY_FORMAT='OMP: pid %P$s tid %i$s thread %n$s bound to OS proc set {%A$s}'\n  [host] OMP_ALLOCATOR='omp_default_mem_alloc'\n  [host] OMP_CANCELLATION='FALSE'\n  [host] OMP_DEFAULT_DEVICE='0'\n  [host] OMP_DISPLAY_AFFINITY='FALSE'\n  [host] OMP_DISPLAY_ENV='VERBOSE'\n  [host] OMP_DYNAMIC='FALSE'\n  [host] OMP_MAX_ACTIVE_LEVELS='1'\n  [host] OMP_MAX_TASK_PRIORITY='0'\n  [host] OMP_NESTED: deprecated; max-active-levels-var=1\n  [host] OMP_NUM_TEAMS='0'\n  [host] OMP_NUM_THREADS: value is not defined\n  [host] OMP_PLACES='cores'\n  [host] OMP_PROC_BIND='spread'\n  [host] OMP_SCHEDULE='static'\n  [host] OMP_STACKSIZE='4M'\n  [host] OMP_TARGET_OFFLOAD=DEFAULT\n  [host] OMP_TEAMS_THREAD_LIMIT='0'\n  [host] OMP_THREAD_LIMIT='2147483647'\n  [host] OMP_WAIT_POLICY='PASSIVE'\n  [host] KMP_AFFINITY='noverbose,warnings,respect,noreset,granularity=core,compact,0,0'\nOPENMP DISPLAY ENVIRONMENT END\n\n\n",
+      "log_sha256": "25f4415cb0bee210f03320ec2b92c0244a016ce5ad285587b093bf28c8d5c7fc",
+      "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth199_bound_lut_scaling_result.run3.e128000.log"
+    },
+    {
+      "pool_bytes": 5505024000,
+      "selected_code_bytes_per_token": 1720320,
+      "init_seconds": 0.686111,
+      "repetitions": [
+        {
+          "rep": 1,
+          "seconds": 0.1958123,
+          "us_token": 382.446,
+          "selected_gbps": 4.498,
+          "checksum": 363
+        },
+        {
+          "rep": 2,
+          "seconds": 0.2907416,
+          "us_token": 567.855,
+          "selected_gbps": 3.03,
+          "checksum": -821
+        },
+        {
+          "rep": 3,
+          "seconds": 0.391576,
+          "us_token": 764.797,
+          "selected_gbps": 2.249,
+          "checksum": -2310
+        },
+        {
+          "rep": 4,
+          "seconds": 0.2372801,
+          "us_token": 463.438,
+          "selected_gbps": 3.712,
+          "checksum": -4429
+        }
+      ],
+      "median_last_three_us_token": 567.855,
+      "median_last_three_selected_gbps": 3.03,
+      "run": 4,
+      "experts": 12800,
+      "command": [
+        "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+        "--rank8-lut-pool",
+        "12800",
+        "--threads",
+        "6"
+      ],
+      "elapsed_seconds": 2.077999999997701,
+      "available_ram_before_bytes": 70256033792,
+      "binding_environment_confirmed": true,
+      "runtime_environment_output": "\nOPENMP DISPLAY ENVIRONMENT BEGIN\n   _OPENMP='201611'\n  [host] KMP_ABORT_DELAY='0'\n  [host] KMP_ADAPTIVE_LOCK_PROPS='1,1024'\n  [host] KMP_ALIGN_ALLOC='64'\n  [host] KMP_ALL_THREADPRIVATE='128'\n  [host] KMP_ATOMIC_MODE='1'\n  [host] KMP_BLOCKTIME='200ms\n  [host] KMP_CPUINFO_FILE: value is not defined\n  [host] KMP_DETERMINISTIC_REDUCTION='FALSE'\n  [host] KMP_DEVICE_THREAD_LIMIT='2147483647'\n  [host] KMP_DISP_NUM_BUFFERS='7'\n  [host] KMP_DUPLICATE_LIB_OK='FALSE'\n  [host] KMP_ENABLE_TASK_THROTTLING='TRUE'\n  [host] KMP_FORCE_MONOTONIC_DYNAMIC_SCHEDULE='FALSE'\n  [host] KMP_FORCE_REDUCTION: value is not defined\n  [host] KMP_FOREIGN_THREADS_THREADPRIVATE='TRUE'\n  [host] KMP_FORKJOIN_BARRIER='2,2'\n  [host] KMP_FORKJOIN_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_FORKJOIN_FRAMES='TRUE'\n  [host] KMP_FORKJOIN_FRAMES_MODE='3'\n  [host] KMP_GTID_MODE='2'\n  [host] KMP_HANDLE_SIGNALS='FALSE'\n  [host] KMP_HIDDEN_HELPER_AFFINITY='noverbose,warnings,granularity=core,none'\n  [host] KMP_HOT_TEAMS_MAX_LEVEL='1'\n  [host] KMP_HOT_TEAMS_MODE='0'\n  [host] KMP_INIT_AT_FORK='TRUE'\n  [host] KMP_ITT_PREPARE_DELAY='0'\n  [host] KMP_LIBRARY='throughput'\n  [host] KMP_LOCK_KIND='queuing'\n  [host] KMP_MALLOC_POOL_INCR='1M'\n  [host] KMP_MWAIT_HINTS='0'\n  [host] KMP_NESTING_MODE=0\n  [host] KMP_NUM_LOCKS_IN_BLOCK='1'\n  [host] KMP_PLAIN_BARRIER='2,2'\n  [host] KMP_PLAIN_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_REDUCTION_BARRIER='1,1'\n  [host] KMP_REDUCTION_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_SCHEDULE='static,balanced;guided,iterative'\n  [host] KMP_SETTINGS='FALSE'\n  [host] KMP_SPIN_BACKOFF_PARAMS='4096,100'\n  [host] KMP_STACKOFFSET='64'\n  [host] KMP_STACKPAD='0'\n  [host] KMP_STACKSIZE='4M'\n  [host] KMP_STORAGE_MAP='FALSE'\n  [host] KMP_TASKING='2'\n  [host] KMP_TASKLOOP_MIN_TASKS='0'\n  [host] KMP_TASK_STEALING_CONSTRAINT='1'\n  [host] KMP_TEAMS_PROC_BIND='spread'\n  [host] KMP_TEAMS_THREAD_LIMIT='12'\n  [host] KMP_TOPOLOGY_METHOD='all'\n  [host] KMP_TPAUSE='0'\n  [host] KMP_USER_LEVEL_MWAIT='FALSE'\n  [host] KMP_USE_YIELD='1'\n  [host] KMP_VERSION='FALSE'\n  [host] KMP_WARNINGS='TRUE'\n  [host] LIBOMP_NUM_HIDDEN_HELPER_THREADS='0'\n  [host] LIBOMP_USE_HIDDEN_HELPER_TASK='FALSE'\n  [host] OMP_AFFINITY_FORMAT='OMP: pid %P$s tid %i$s thread %n$s bound to OS proc set {%A$s}'\n  [host] OMP_ALLOCATOR='omp_default_mem_alloc'\n  [host] OMP_CANCELLATION='FALSE'\n  [host] OMP_DEFAULT_DEVICE='0'\n  [host] OMP_DISPLAY_AFFINITY='FALSE'\n  [host] OMP_DISPLAY_ENV='VERBOSE'\n  [host] OMP_DYNAMIC='FALSE'\n  [host] OMP_MAX_ACTIVE_LEVELS='1'\n  [host] OMP_MAX_TASK_PRIORITY='0'\n  [host] OMP_NESTED: deprecated; max-active-levels-var=1\n  [host] OMP_NUM_TEAMS='0'\n  [host] OMP_NUM_THREADS: value is not defined\n  [host] OMP_PLACES='cores'\n  [host] OMP_PROC_BIND='spread'\n  [host] OMP_SCHEDULE='static'\n  [host] OMP_STACKSIZE='4M'\n  [host] OMP_TARGET_OFFLOAD=DEFAULT\n  [host] OMP_TEAMS_THREAD_LIMIT='0'\n  [host] OMP_THREAD_LIMIT='2147483647'\n  [host] OMP_WAIT_POLICY='PASSIVE'\n  [host] KMP_AFFINITY='noverbose,warnings,respect,noreset,granularity=core,compact,0,0'\nOPENMP DISPLAY ENVIRONMENT END\n\n\n",
+      "log_sha256": "d6ff18e3260611b3bcabb1c3dfd54c47ba2d650a0f26c70653472ffa9219b174",
+      "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth199_bound_lut_scaling_result.run4.e12800.log"
+    },
+    {
+      "pool_bytes": 5505024000,
+      "selected_code_bytes_per_token": 1720320,
+      "init_seconds": 0.954634,
+      "repetitions": [
+        {
+          "rep": 1,
+          "seconds": 0.3702183,
+          "us_token": 723.083,
+          "selected_gbps": 2.379,
+          "checksum": 363
+        },
+        {
+          "rep": 2,
+          "seconds": 0.3969742,
+          "us_token": 775.34,
+          "selected_gbps": 2.219,
+          "checksum": -821
+        },
+        {
+          "rep": 3,
+          "seconds": 0.3397733,
+          "us_token": 663.62,
+          "selected_gbps": 2.592,
+          "checksum": -2310
+        },
+        {
+          "rep": 4,
+          "seconds": 0.2562532,
+          "us_token": 500.495,
+          "selected_gbps": 3.437,
+          "checksum": -4429
+        }
+      ],
+      "median_last_three_us_token": 663.62,
+      "median_last_three_selected_gbps": 2.592,
+      "run": 5,
+      "experts": 12800,
+      "command": [
+        "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+        "--rank8-lut-pool",
+        "12800",
+        "--threads",
+        "6"
+      ],
+      "elapsed_seconds": 2.75,
+      "available_ram_before_bytes": 70388625408,
+      "binding_environment_confirmed": true,
+      "runtime_environment_output": "\nOPENMP DISPLAY ENVIRONMENT BEGIN\n   _OPENMP='201611'\n  [host] KMP_ABORT_DELAY='0'\n  [host] KMP_ADAPTIVE_LOCK_PROPS='1,1024'\n  [host] KMP_ALIGN_ALLOC='64'\n  [host] KMP_ALL_THREADPRIVATE='128'\n  [host] KMP_ATOMIC_MODE='1'\n  [host] KMP_BLOCKTIME='200ms\n  [host] KMP_CPUINFO_FILE: value is not defined\n  [host] KMP_DETERMINISTIC_REDUCTION='FALSE'\n  [host] KMP_DEVICE_THREAD_LIMIT='2147483647'\n  [host] KMP_DISP_NUM_BUFFERS='7'\n  [host] KMP_DUPLICATE_LIB_OK='FALSE'\n  [host] KMP_ENABLE_TASK_THROTTLING='TRUE'\n  [host] KMP_FORCE_MONOTONIC_DYNAMIC_SCHEDULE='FALSE'\n  [host] KMP_FORCE_REDUCTION: value is not defined\n  [host] KMP_FOREIGN_THREADS_THREADPRIVATE='TRUE'\n  [host] KMP_FORKJOIN_BARRIER='2,2'\n  [host] KMP_FORKJOIN_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_FORKJOIN_FRAMES='TRUE'\n  [host] KMP_FORKJOIN_FRAMES_MODE='3'\n  [host] KMP_GTID_MODE='2'\n  [host] KMP_HANDLE_SIGNALS='FALSE'\n  [host] KMP_HIDDEN_HELPER_AFFINITY='noverbose,warnings,granularity=core,none'\n  [host] KMP_HOT_TEAMS_MAX_LEVEL='1'\n  [host] KMP_HOT_TEAMS_MODE='0'\n  [host] KMP_INIT_AT_FORK='TRUE'\n  [host] KMP_ITT_PREPARE_DELAY='0'\n  [host] KMP_LIBRARY='throughput'\n  [host] KMP_LOCK_KIND='queuing'\n  [host] KMP_MALLOC_POOL_INCR='1M'\n  [host] KMP_MWAIT_HINTS='0'\n  [host] KMP_NESTING_MODE=0\n  [host] KMP_NUM_LOCKS_IN_BLOCK='1'\n  [host] KMP_PLAIN_BARRIER='2,2'\n  [host] KMP_PLAIN_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_REDUCTION_BARRIER='1,1'\n  [host] KMP_REDUCTION_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_SCHEDULE='static,balanced;guided,iterative'\n  [host] KMP_SETTINGS='FALSE'\n  [host] KMP_SPIN_BACKOFF_PARAMS='4096,100'\n  [host] KMP_STACKOFFSET='64'\n  [host] KMP_STACKPAD='0'\n  [host] KMP_STACKSIZE='4M'\n  [host] KMP_STORAGE_MAP='FALSE'\n  [host] KMP_TASKING='2'\n  [host] KMP_TASKLOOP_MIN_TASKS='0'\n  [host] KMP_TASK_STEALING_CONSTRAINT='1'\n  [host] KMP_TEAMS_PROC_BIND='spread'\n  [host] KMP_TEAMS_THREAD_LIMIT='12'\n  [host] KMP_TOPOLOGY_METHOD='all'\n  [host] KMP_TPAUSE='0'\n  [host] KMP_USER_LEVEL_MWAIT='FALSE'\n  [host] KMP_USE_YIELD='1'\n  [host] KMP_VERSION='FALSE'\n  [host] KMP_WARNINGS='TRUE'\n  [host] LIBOMP_NUM_HIDDEN_HELPER_THREADS='0'\n  [host] LIBOMP_USE_HIDDEN_HELPER_TASK='FALSE'\n  [host] OMP_AFFINITY_FORMAT='OMP: pid %P$s tid %i$s thread %n$s bound to OS proc set {%A$s}'\n  [host] OMP_ALLOCATOR='omp_default_mem_alloc'\n  [host] OMP_CANCELLATION='FALSE'\n  [host] OMP_DEFAULT_DEVICE='0'\n  [host] OMP_DISPLAY_AFFINITY='FALSE'\n  [host] OMP_DISPLAY_ENV='VERBOSE'\n  [host] OMP_DYNAMIC='FALSE'\n  [host] OMP_MAX_ACTIVE_LEVELS='1'\n  [host] OMP_MAX_TASK_PRIORITY='0'\n  [host] OMP_NESTED: deprecated; max-active-levels-var=1\n  [host] OMP_NUM_TEAMS='0'\n  [host] OMP_NUM_THREADS: value is not defined\n  [host] OMP_PLACES='cores'\n  [host] OMP_PROC_BIND='spread'\n  [host] OMP_SCHEDULE='static'\n  [host] OMP_STACKSIZE='4M'\n  [host] OMP_TARGET_OFFLOAD=DEFAULT\n  [host] OMP_TEAMS_THREAD_LIMIT='0'\n  [host] OMP_THREAD_LIMIT='2147483647'\n  [host] OMP_WAIT_POLICY='PASSIVE'\n  [host] KMP_AFFINITY='noverbose,warnings,respect,noreset,granularity=core,compact,0,0'\nOPENMP DISPLAY ENVIRONMENT END\n\n\n",
+      "log_sha256": "74b56f9e47ff402155f6e12809ea99584b537adb111cac9500c896f53f3738fe",
+      "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth199_bound_lut_scaling_result.run5.e12800.log"
+    },
+    {
+      "pool_bytes": 55050240000,
+      "selected_code_bytes_per_token": 1720320,
+      "init_seconds": 7.71677,
+      "repetitions": [
+        {
+          "rep": 1,
+          "seconds": 0.197858,
+          "us_token": 386.441,
+          "selected_gbps": 4.452,
+          "checksum": 1299
+        },
+        {
+          "rep": 2,
+          "seconds": 0.198623,
+          "us_token": 387.936,
+          "selected_gbps": 4.435,
+          "checksum": -1521
+        },
+        {
+          "rep": 3,
+          "seconds": 0.1982738,
+          "us_token": 387.254,
+          "selected_gbps": 4.442,
+          "checksum": -2842
+        },
+        {
+          "rep": 4,
+          "seconds": 0.199571,
+          "us_token": 389.787,
+          "selected_gbps": 4.413,
+          "checksum": -4663
+        }
+      ],
+      "median_last_three_us_token": 387.936,
+      "median_last_three_selected_gbps": 4.435,
+      "run": 6,
+      "experts": 128000,
+      "command": [
+        "results\\native_expert_scaling\\meth197_prefetch_engine.exe",
+        "--rank8-lut-pool",
+        "128000",
+        "--threads",
+        "6"
+      ],
+      "elapsed_seconds": 10.43800000000192,
+      "available_ram_before_bytes": 70086664192,
+      "binding_environment_confirmed": true,
+      "runtime_environment_output": "\nOPENMP DISPLAY ENVIRONMENT BEGIN\n   _OPENMP='201611'\n  [host] KMP_ABORT_DELAY='0'\n  [host] KMP_ADAPTIVE_LOCK_PROPS='1,1024'\n  [host] KMP_ALIGN_ALLOC='64'\n  [host] KMP_ALL_THREADPRIVATE='128'\n  [host] KMP_ATOMIC_MODE='1'\n  [host] KMP_BLOCKTIME='200ms\n  [host] KMP_CPUINFO_FILE: value is not defined\n  [host] KMP_DETERMINISTIC_REDUCTION='FALSE'\n  [host] KMP_DEVICE_THREAD_LIMIT='2147483647'\n  [host] KMP_DISP_NUM_BUFFERS='7'\n  [host] KMP_DUPLICATE_LIB_OK='FALSE'\n  [host] KMP_ENABLE_TASK_THROTTLING='TRUE'\n  [host] KMP_FORCE_MONOTONIC_DYNAMIC_SCHEDULE='FALSE'\n  [host] KMP_FORCE_REDUCTION: value is not defined\n  [host] KMP_FOREIGN_THREADS_THREADPRIVATE='TRUE'\n  [host] KMP_FORKJOIN_BARRIER='2,2'\n  [host] KMP_FORKJOIN_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_FORKJOIN_FRAMES='TRUE'\n  [host] KMP_FORKJOIN_FRAMES_MODE='3'\n  [host] KMP_GTID_MODE='2'\n  [host] KMP_HANDLE_SIGNALS='FALSE'\n  [host] KMP_HIDDEN_HELPER_AFFINITY='noverbose,warnings,granularity=core,none'\n  [host] KMP_HOT_TEAMS_MAX_LEVEL='1'\n  [host] KMP_HOT_TEAMS_MODE='0'\n  [host] KMP_INIT_AT_FORK='TRUE'\n  [host] KMP_ITT_PREPARE_DELAY='0'\n  [host] KMP_LIBRARY='throughput'\n  [host] KMP_LOCK_KIND='queuing'\n  [host] KMP_MALLOC_POOL_INCR='1M'\n  [host] KMP_MWAIT_HINTS='0'\n  [host] KMP_NESTING_MODE=0\n  [host] KMP_NUM_LOCKS_IN_BLOCK='1'\n  [host] KMP_PLAIN_BARRIER='2,2'\n  [host] KMP_PLAIN_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_REDUCTION_BARRIER='1,1'\n  [host] KMP_REDUCTION_BARRIER_PATTERN='hyper,hyper'\n  [host] KMP_SCHEDULE='static,balanced;guided,iterative'\n  [host] KMP_SETTINGS='FALSE'\n  [host] KMP_SPIN_BACKOFF_PARAMS='4096,100'\n  [host] KMP_STACKOFFSET='64'\n  [host] KMP_STACKPAD='0'\n  [host] KMP_STACKSIZE='4M'\n  [host] KMP_STORAGE_MAP='FALSE'\n  [host] KMP_TASKING='2'\n  [host] KMP_TASKLOOP_MIN_TASKS='0'\n  [host] KMP_TASK_STEALING_CONSTRAINT='1'\n  [host] KMP_TEAMS_PROC_BIND='spread'\n  [host] KMP_TEAMS_THREAD_LIMIT='12'\n  [host] KMP_TOPOLOGY_METHOD='all'\n  [host] KMP_TPAUSE='0'\n  [host] KMP_USER_LEVEL_MWAIT='FALSE'\n  [host] KMP_USE_YIELD='1'\n  [host] KMP_VERSION='FALSE'\n  [host] KMP_WARNINGS='TRUE'\n  [host] LIBOMP_NUM_HIDDEN_HELPER_THREADS='0'\n  [host] LIBOMP_USE_HIDDEN_HELPER_TASK='FALSE'\n  [host] OMP_AFFINITY_FORMAT='OMP: pid %P$s tid %i$s thread %n$s bound to OS proc set {%A$s}'\n  [host] OMP_ALLOCATOR='omp_default_mem_alloc'\n  [host] OMP_CANCELLATION='FALSE'\n  [host] OMP_DEFAULT_DEVICE='0'\n  [host] OMP_DISPLAY_AFFINITY='FALSE'\n  [host] OMP_DISPLAY_ENV='VERBOSE'\n  [host] OMP_DYNAMIC='FALSE'\n  [host] OMP_MAX_ACTIVE_LEVELS='1'\n  [host] OMP_MAX_TASK_PRIORITY='0'\n  [host] OMP_NESTED: deprecated; max-active-levels-var=1\n  [host] OMP_NUM_TEAMS='0'\n  [host] OMP_NUM_THREADS: value is not defined\n  [host] OMP_PLACES='cores'\n  [host] OMP_PROC_BIND='spread'\n  [host] OMP_SCHEDULE='static'\n  [host] OMP_STACKSIZE='4M'\n  [host] OMP_TARGET_OFFLOAD=DEFAULT\n  [host] OMP_TEAMS_THREAD_LIMIT='0'\n  [host] OMP_THREAD_LIMIT='2147483647'\n  [host] OMP_WAIT_POLICY='PASSIVE'\n  [host] KMP_AFFINITY='noverbose,warnings,respect,noreset,granularity=core,compact,0,0'\nOPENMP DISPLAY ENVIRONMENT END\n\n\n",
+      "log_sha256": "18bad3a34efbfc482098c5cba453f300c40961ace4147824df1e4c9ac2bca935",
+      "log_path": "D:\\_THINGS\\Progetti\\SiliconLLM\\docs\\research\\NATIVE_EXPERT_SCALING_20260925\\meth199_bound_lut_scaling_result.run6.e128000.log"
+    }
+  ],
+  "decision": "inconclusive_variation",
+  "pairs": [
+    {
+      "pair": 1,
+      "small_run": 1,
+      "large_run": 2,
+      "small_us_token": 417.612,
+      "large_us_token": 382.493,
+      "large_over_small": 0.915905194295183
+    },
+    {
+      "pair": 2,
+      "small_run": 4,
+      "large_run": 3,
+      "small_us_token": 567.855,
+      "large_us_token": 386.574,
+      "large_over_small": 0.6807618141955253
+    },
+    {
+      "pair": 3,
+      "small_run": 5,
+      "large_run": 6,
+      "small_us_token": 663.62,
+      "large_us_token": 387.936,
+      "large_over_small": 0.5845755100810704
+    }
+  ],
+  "variation": {
+    "12800": {
+      "medians_us_token": [
+        417.612,
+        567.855,
+        663.62
+      ],
+      "max_over_min": 1.589082689194755
+    },
+    "128000": {
+      "medians_us_token": [
+        382.493,
+        386.574,
+        387.936
+      ],
+      "max_over_min": 1.0142303257837397
+    }
+  },
+  "median_paired_ratio": 0.6807618141955253,
+  "gates": {
+    "binding_environment_confirmed": true,
+    "checksum_sequences_equal": true,
+    "small_repeatability_at_most_1_10": false,
+    "large_repeatability_at_most_1_10": true,
+    "all_paired_ratios_at_most_1_25": true,
+    "all_large_us_at_most_5000": true
+  }
+}
