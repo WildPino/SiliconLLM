@@ -175,6 +175,7 @@ def main():
                 assert torch.equal(archive.get_tensor(name),t)
                 if name in parent_keys: assert torch.equal(previous.get_tensor(name),t)
         stage='original_exact_parent_fit_score_replay'
+        fit_parent_sse=sum(r['sse'] for r in parent_replays)
         assert fit_parent_sse/energy==split['fit_summary']['e16']['factorized_normalized_sse']
         gates={'all_source_parent_capture_route_native_bindings':True,'all_fit_labels_counts_exact':True,
             'all16_parent_coefficients_predictions_and_fields_unchanged':True,'all16_left_inverses_qualified':True,
