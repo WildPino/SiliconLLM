@@ -1,10 +1,12 @@
 # Proposal: preserve parent weights and encode conditional corrections separately
 
 **Status: combined source-fixture C operator implemented/pass;learned
-factor encoding frozen but unexecuted.** METH-245 source/numeric controls
+fixed rank32 count comparison implemented/rejected.** METH-245 source/numeric controls
 pass but four-team cost10.390ms fails. METH-246 conserves all384 vectors
 bitwise and passes9.637ms with one team. METH-247 separately freezes
-actual raw-solution factorization/count gates. Original prerequisite
+actual raw-solution factorization:all176 functions distinct,fit gain11.72%,
+but consumed E160 loses2.26% to E16. METH-248 raw readouts lose27.78% too;
+change continuous hierarchy before codec-only count work. Original prerequisite
 proposal below is retained. METH-244 replays176 fixed fits:continuous FP64
 E160 has49.53% lower fit SSE than continuous E16,but requantization erases
 the gain. METH-242/243 intercept changes fail. No raw held-out/full quality

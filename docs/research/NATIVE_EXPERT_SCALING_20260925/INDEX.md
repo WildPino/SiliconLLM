@@ -141,6 +141,10 @@ all prior links/operational history; its old next actions are historical.
   rank32 BF16 corrections without reencoding the base. First four-team
   kernel misses10ms;changed one-team kernel is bitwise equal and9.637ms.
   Source-derived fixtures only;learned factor preservation is METH-247.
+- [METH-247/248](METH_248_RAW_VALIDATION_RESULT_20261001.md) implements
+ 151.681MB real factor bank. Fit gain survives11.72%,consumed count loses
+ 2.26%;raw final readouts lose27.78%. Preserve full parent function and
+ change continuous hierarchy before codec-only/rank/strength attempts.
 - GigaChat10B Q4 retains scoped quality but costs 1016 MB active/token.
   METH-180/181 global rank-192 variants fail energy proxies. Frozen
   donor-adaptation C fidelity work is reusable evidence, not a resumed
@@ -152,22 +156,24 @@ all prior links/operational history; its old next actions are historical.
 
 ## Current experiment and exact resume
 
-**Latest decisive evidence:** METH-244 raw E160 fit gain49.53% is erased
-by encoding. METH-245 separate rank32 source operator passes numeric/
-serialization but four-team10.390ms cost fails. METH-246 one-team execution
-keeps all344,064 output elements bitwise exact and passes9.637ms. Physical
-rank/factors/base bytes unchanged;no retiming/rank retry. Sessions83343/
-44513 complete,exit0,no project job active at this freeze.
+**Latest decisive evidence:** METH-246 one-team rank32 source operator is
+bitwise equal and9.637ms. METH-247 stores151.681MB of real factored
+functions;176 decoded coefficients distinct,11.72% fit gain,but consumed
+E160 loses2.26% against E16. METH-248 unencoded final readouts lose27.78%
+on consumed windows despite49.53% fit gain;all replay/ledger controls pass.
+Child priors still use stored parents/source projection,so do not infer
+all-FP64 ancestry or overfit alone. Change continuous hierarchy before
+codec-only count retries. Sessions59971/44196 complete,exit0,no job active.
 
-**Next exact action:** execute frozen
-[METH-247 weighted residual pair](METH_247_WEIGHTED_RESIDUAL_PAIR_PROTOCOL_20261001.md).
-Replay raw176 solutions byte-exact,retain stored fitted parent,select
-rank32 output correction directions from each cell's fit-only covariance,
-BF16 balanced factors and raw-mean-conserving bias. Match E16/E160 active
-shape and require actual stored function/distinctness/10% count gates
-before consumed validation. One <200MB snapshot,20min,local3060,six
-threads,no T4. No actual bank/full-model/new independent quality or accepted
-rate yet;METH-246's source component does not establish those.
+**Next exact action:** implement/freeze METH-249 continuous full-parent
+anchored latent pilot,following
+[parent-anchor proposal](PARENT_ANCHORED_LATENT_HIERARCHY_PROPOSAL_20261001.md).
+Keep the complete actual METH-247 E16 function and shared rank32 left
+basis;learn only a child residual,with source-backed projected derivatives
+only for exactly unsupported fit slopes. Freeze fallback,solver/mean/
+distinctness/count gates and resources before execution. Same tau1024,
+keys/data/rank. Candidate separate Q8 latent delta is shape-priced only;
+no new private C kernel/bank or full quality/rate acceptance yet.
 Do not retry closed independent affine cells,global weight repair,
 weak-child training,static-bias calibration or fixed intercept variants.
 Full same-artifact independent quality,C rate,large-RAM route/LUT and

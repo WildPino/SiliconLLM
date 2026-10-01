@@ -1588,7 +1588,19 @@ but four-team10.390ms cost fails. METH-246 changes only OpenMP execution,
 all344,064 output elements bitwise equal,and passes9.637ms. METH-247
 freezes learned activity-weighted rank32 encoding of the same raw176
 solutions,matching active shape across E16/E160. Actual function/count
-and trained routed-bank fidelity remain unexecuted.
+METH-247 now stores151.681MB of actual base/factor functions. All176
+decoded matrices distinct,all mean/source/fit/readback controls pass;
+encoded fit count gain11.72% passes,but consumed E160 loses2.26% to E16.
+No actual bank-C/full-model promotion. METH-248 removes final factorization:
+raw E160 loses27.78% on consumed windows despite49.53% fit gain. Existing
+child priors still inherit stored parents/source projections,so this is
+not an all-FP64-ancestor comparison or proof of overfit alone. Stop codec-
+only count attempts on this fixed hierarchy. A
+[full-parent/tied-latent correction](PARENT_ANCHORED_LATENT_HIERARCHY_PROPOSAL_20261001.md)
+is proposed:retain actual learned parent throughout its input domain,
+fit only a private residual in a shared rank32 output basis. First freeze
+a continuous pilot and source-backed zero-support fallback;no new codec/
+C/private capacity or quality is yet validated.
 Full independent quality,stored routed C/large-RAM n and full accepted rate
 remain open. Sparse GigaChat/larger dimensions are not automatically
 qualified by this dense case; reuse frozen donor-adaptation assets/fidelity
