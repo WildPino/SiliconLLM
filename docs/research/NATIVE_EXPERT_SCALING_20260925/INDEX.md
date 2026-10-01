@@ -100,13 +100,20 @@ replay reduces every down-output discrepancy below 7.45e-7. The frozen
 hidden-only diagnosis fails. Float-input C passes numerical parity but
 fails native component cost (12.540 vs <=10 ms). Session 2394 exited 0;
 no project inference is active. Stop this kernel; no fresh quality is licensed.
-**Next exact action:** preflight a cheaper core for changed conditional
-pretrained-function recovery. Packed-Q6 storage is available; native
-cost is unmeasured and must gate any route-specific activation-output
-training pilot. Direct Q6 quality and global rank correction are failed
-controls, not candidates to repeat. Price whole active path and teacher/
-expert targets before freezing the bounded pilot; no training or new
-quality data have been selected. Full same-artifact C quality/rate remain required.
+**Pipeline update:** [METH-221](METH_221_Q6_NATIVE_RESULT_20261001.md)
+roundtrips every saved Q6 code and passes numerical parity, but native
+FFN costs21.542 ms vs <=10. Stop this specific kernel before recovery.
+Session8661 exited0; no project inference is active. Lower stored bits
+alone have not yielded a feasible compact core.
+**Next exact action:** [METH-222](METH_222_CONDITIONAL_FUNCTION_PROTOCOL_20261001.md)
+tests a changed geometry at predetermined donor layer12: learned affine
+common plus shared PCA64 features and hierarchical affine function cells,
+E16 versus E160, one cell active. Fit actual donor FFN outputs on512 raw
+training rows; validate128 separate rows with fixed reconstruction,
+tenfold-capacity gain and route-rotation gates. This is training-corpus
+function evidence, not new document-held-out quality or full-model rate.
+No post-hoc neuron selection, global weight repair, weak-child training
+or failed-route promotion is repeated. Full same-artifact C quality/rate remain required.
 **Next n mechanism:** change route/function learning coupling rather than
 another static-bias retry, tied to the compact transfer path. No B/native
 promotion from failed routing. Keep real multi-family/10B and large-RAM
