@@ -1580,15 +1580,15 @@ gap;forward arithmetic difference is negligible at this scope. Explicit
 FP64 aggregation-only repair recovers completed rows without new fits.
 No raw held-out count gain is known. A
 [separate correction representation](SEPARATE_CONDITIONAL_RESIDUAL_PROPOSAL_20261001.md)
-is proposed:retain actual parent readout,add rank32 BF16 factors over the
+retains actual parent readout and adds rank32 BF16 factors over the
 same features,at most8.934MB extra24-layer factor/bias payload. Combined
 C operator is implemented. [METH-245](METH_245_SEPARATE_RESIDUAL_NATIVE_RESULT_20261001.md)
 conserves all217 base segments and passes combined numeric/source controls,
 but four-team10.390ms cost fails. METH-246 changes only OpenMP execution,
 all344,064 output elements bitwise equal,and passes9.637ms. METH-247
-freezes learned activity-weighted rank32 encoding of the same raw176
-solutions,matching active shape across E16/E160. Actual function/count
-METH-247 now stores151.681MB of actual base/factor functions. All176
+implements activity-weighted rank32 encoding of the same raw176
+solutions,matching active shape across E16/E160,and stores151.681MB
+of actual base/factor functions. All176
 decoded matrices distinct,all mean/source/fit/readback controls pass;
 encoded fit count gain11.72% passes,but consumed E160 loses2.26% to E16.
 No actual bank-C/full-model promotion. METH-248 removes final factorization:

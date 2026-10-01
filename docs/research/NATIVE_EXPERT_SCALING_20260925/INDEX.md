@@ -142,9 +142,9 @@ all prior links/operational history; its old next actions are historical.
   kernel misses10ms;changed one-team kernel is bitwise equal and9.637ms.
   Source-derived fixtures only;learned factor preservation is METH-247.
 - [METH-247/248](METH_248_RAW_VALIDATION_RESULT_20261001.md) implements
- 151.681MB real factor bank. Fit gain survives11.72%,consumed count loses
- 2.26%;raw final readouts lose27.78%. Preserve full parent function and
- change continuous hierarchy before codec-only/rank/strength attempts.
+  151.681MB real factor bank. Fit gain survives11.72%,consumed count loses
+  2.26%;raw final readouts lose27.78%. Preserve full parent function and
+  change continuous hierarchy before codec-only/rank/strength attempts.
 - GigaChat10B Q4 retains scoped quality but costs 1016 MB active/token.
   METH-180/181 global rank-192 variants fail energy proxies. Frozen
   donor-adaptation C fidelity work is reusable evidence, not a resumed
