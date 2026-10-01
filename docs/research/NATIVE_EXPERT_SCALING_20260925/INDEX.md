@@ -124,14 +124,16 @@ exit0; repeated-input diagnosis80423 complete. Combined native cost passes,
 but derivative-anchored nonlinear E160 validates at9.38% versus E16's9.47%,
 failing absolute/relative gates. All source/solve/storage controls pass,
 all176 pairs distinct. No job is active or full model accepted.
-**Next exact action:** freeze/implement METH-232
+**Next exact action:** execute frozen METH-232
 [full-source row-Q8 prerequisite](FULL_SOURCE_ROW_Q8_PROPOSAL_20261001.md).
 Retain all4864 nonlinear source units,no full affine branch;per-row int8
 weights/FP32 scales with scale after row reduction. Ideal whole selected
 ledger542.050MB fits560MB but actual codec/numerical/source-function error
 and<=10ms cost must be measured on24 distinct original layers/existing
 METH-125 states before full-feature conditional readout fitting. This is
-a new scale/operator/feature-coverage variant; no such kernel/bank exists.
+a new scale/operator/feature-coverage variant; the kernel is implemented
+and compiled, but unexecuted. No fitted full-feature bank exists.
+Protocol: [METH-232](METH_232_FULL_SOURCE_ROW_Q8_PROTOCOL_20261001.md).
 Do not retry independent affine cells, global weight repair, weak-child
 training or static-bias calibration. Full same-artifact independent
 quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.
