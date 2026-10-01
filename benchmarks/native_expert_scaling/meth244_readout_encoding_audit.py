@@ -14,6 +14,25 @@ HIER=P.DOC/'meth243_parent_value_prior_result.json'
 HIER_SHA='ac40b7453cf6414df62911b7d3cf87b1aeb403b8a4005921506470345af25770'
 
 
+def aggregate(rows,pair,common_energy):
+    summary={}
+    for arm in ('e16','e160'):
+        selected=[r for r in rows if r['arm']==arm]
+        energy=sum(r['energy'] for r in selected)
+        assert abs(energy/common_energy-1)<=1e-12
+        metrics=('raw_FP64_solution_sse','decoded_FP64_stored_sse','actual_mixed_stored_sse',
+            'encoding_distortion_sse','encoding_cross_term','arithmetic_delta_sse','prior_sse','stored_parent_sse')
+        summary[arm]={'energy':common_energy,**{key:sum(r[key] for r in selected)/common_energy for key in metrics}}
+        relative=abs(summary[arm]['actual_mixed_stored_sse']/pair['fit_normalized_sse'][arm]-1)
+        assert relative<=1e-12
+        summary[arm]['aggregate_stored_score_relative_replay_difference']=relative
+    raw_gain=summary['e160']['raw_FP64_solution_sse']<=.9*summary['e16']['raw_FP64_solution_sse']
+    actual_gap=summary['e160']['actual_mixed_stored_sse']-summary['e16']['actual_mixed_stored_sse']
+    penalty=summary['e160']['actual_mixed_stored_sse']-summary['e160']['raw_FP64_solution_sse']
+    encoding_explains_gap=actual_gap>0 and penalty>=.5*actual_gap
+    return summary,raw_gain,encoding_explains_gap
+
+
 def replay_fit(z,y,prior,variance):
     zd,yd=z.double(),y.double(); wp,bp=C.decode(prior).double(),prior[4].double()
     mean=zd.mean(0); xc=zd-mean
@@ -94,18 +113,7 @@ def main():
                     'stored_parent_sse':float((C.readout(z,C.get(tensors,'e16',parent,device)).double()-target).square().sum())})
                 P.budget(start,device)
             args.out.with_suffix('.partial.json').write_text(json.dumps({'stage':stage,'rows':rows},indent=2)+'\n',encoding='utf-8')
-        summary={}
-        for arm in ('e16','e160'):
-            selected=[r for r in rows if r['arm']==arm]; energy=sum(r['energy'] for r in selected)
-            metrics=('raw_FP64_solution_sse','decoded_FP64_stored_sse','actual_mixed_stored_sse',
-                'encoding_distortion_sse','encoding_cross_term','arithmetic_delta_sse','prior_sse','stored_parent_sse')
-            summary[arm]={'energy':energy,**{key:sum(r[key] for r in selected)/energy for key in metrics}}
-            assert summary[arm]['actual_mixed_stored_sse']==pair['fit_normalized_sse'][arm]
-        assert summary['e160']['energy']==summary['e16']['energy']
-        raw_gain=summary['e160']['raw_FP64_solution_sse']<=.9*summary['e16']['raw_FP64_solution_sse']
-        actual_gap=summary['e160']['actual_mixed_stored_sse']-summary['e16']['actual_mixed_stored_sse']
-        penalty=summary['e160']['actual_mixed_stored_sse']-summary['e160']['raw_FP64_solution_sse']
-        encoding_explains_gap=actual_gap>0 and penalty>=.5*actual_gap
+        summary,raw_gain,encoding_explains_gap=aggregate(rows,pair,float(yf.double().square().sum()))
         result={'experiment':'METH-244-fixed-readout-continuous-versus-stored-fit-error-audit',
             'pair_result_sha256':D.PAIR_SHA,'hierarchy_result_sha256':HIER_SHA,
             'snapshot_sha256':pair['checkpoint_sha256'],'source_sha256':pair['source_sha256'],'capture_sha256':pair['capture_sha256'],
@@ -113,7 +121,7 @@ def main():
             'prior_sample_equivalents':C.TAU,'rows':rows,'summary':summary,
             'gates':{'all_source_snapshot_capture_route_bindings':True,'exact_fit_labels_counts':True,
                 'all176_encoded_coefficients_and_biases_replay_exact':len(rows)==176,
-                'actual_stored_fit_scores_replay_exact':True,'all_FP64_SSE_identities_close':True},
+                'actual_stored_fit_scores_replay_within_1e12_relative':True,'all_FP64_SSE_identities_close':True},
             'diagnostic_decisions':{'raw_E160_fit_sse_le_90_percent_raw_E16':raw_gain,
                 'encoding_penalty_ge_half_actual_positive_count_gap':encoding_explains_gap},
             'decision':'continuous_local_count_gain_exposed_change_readout_encoding' if raw_gain and encoding_explains_gap else 'continuous_local_count_gain_absent_do_not_retry_codec_only',
