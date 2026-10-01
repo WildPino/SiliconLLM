@@ -146,14 +146,15 @@ bounds remain>.01 (worst1.17575%);exclude scale-only repair at those codes.
 METH-237 session96785 completes,exit0. Four quantized-feedback cycles keep
 all9 controls exact and source point/function gates pass,but all16 final
 derivatives still fail1% (worst1.143%). No extra cycles or fitting; no job active.
-**Next exact action:** freeze/implement METH-238
+**Next exact action:** execute frozen METH-238
 [outlier-split output codec/native prerequisite](OUTLIER_SPLIT_OUTPUT_PROPOSAL_20261001.md).
 Same full4864 gate/up/LUT,32 largest absolute output coefficients per row
 in indexed BF16,zero int8 escape codes,row-Q8 remainder. Added2,752,512
 addressed bytes across24 layers,ideal whole ledger544.805MB. Actual codec,
 C/oracle/source fidelity and<=10ms cost must qualify before new mixed
-source priors/conditional fitting. No codec/kernel/bank yet exists;freeze
-layout/selection/reduction/gates/budget first. No T4/new resource needed.
+source priors/conditional fitting. Codec/kernel implemented and compiled,
+not executed;no bank exists. [Frozen protocol](METH_238_OUTLIER_SPLIT_NATIVE_PROTOCOL_20261001.md)
+declares layout/selection/reduction/gates/budget. No T4/new resource needed.
 Do not retry independent affine cells, global weight repair, weak-child
 training or static-bias calibration. Full same-artifact independent
 quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.
