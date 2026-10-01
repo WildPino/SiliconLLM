@@ -1573,7 +1573,17 @@ all controls pass but E160 still loses22.61%. Close this fixed hierarchy;
 no further intercept-only count repair. METH-244 freezes a fit-only replay
 of all176 unchanged ridge systems to separate continuous fitting from
 encoded coefficient/intercept distortion. Raw FP64 solutions are
-nondeployable diagnostic controls;outcome remains unexecuted.
+nondeployable diagnostic controls. [METH-244](METH_244_READOUT_ENCODING_RESULT_20261001.md)
+replays all176 encoded coefficients/biases exactly and exposes49.53% raw
+E160 fit gain. Encoding penalty is2.12times its positive actual count loss
+gap;forward arithmetic difference is negligible at this scope. Explicit
+FP64 aggregation-only repair recovers completed rows without new fits.
+No raw held-out count gain is known. A
+[separate correction representation](SEPARATE_CONDITIONAL_RESIDUAL_PROPOSAL_20261001.md)
+is proposed:retain actual parent readout,add rank32 BF16 factors over the
+same features,at most8.934MB extra24-layer factor/bias payload. Combined
+C operator/cost and learned factor fidelity remain unimplemented;first
+freeze/price the operator before conditional/new quality work.
 Full independent quality,stored routed C/large-RAM n and full accepted rate
 remain open. Sparse GigaChat/larger dimensions are not automatically
 qualified by this dense case; reuse frozen donor-adaptation assets/fidelity

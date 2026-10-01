@@ -1,5 +1,12 @@
 # METH-244: frozen fit-only continuous/encoded error ledger
 
+**Apparatus addendum:** original pooled-score equality fails only at FP64
+summation's last bit after all176 byte-exact readout replays.
+[Explicit aggregation repair](METH_244_AGGREGATION_REPAIR_20261001.md)
+uses common capture energy and1e-12 relative summation tolerance,without
+new fits or changed10%/50% scientific decisions. The original protocol
+below is retained;use the repaired runner for full reproduction.
+
 ## Question and bindings
 
 METH-240/242/243 all retain accurate absolute functions yet E160 loses
@@ -23,7 +30,8 @@ the same primal/dual solve,cast-to-FP32,mixed codec and corrected stored
 intercept. Require every regenerated code/scale/index/BF16 escape/bias
 exactly equal the frozen physical snapshot before interpreting metrics.
 Normal residual<=1e-7;route/count/labels exact;actual separated mixed
-operator's pooled E16/E160 fit scores exactly equal METH-240.
+operator's pooled E16/E160 scores equal METH-240 within the explicit
+aggregation addendum. Physical coefficient/bias equality remains exact.
 
 Retain nondeployable FP64 solution Wraw=Wp+delta and
 braw=bp+gamma*meanR-delta*meanZ before rounding/encoding. Compute per-cell

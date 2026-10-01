@@ -132,7 +132,11 @@ all prior links/operational history; its old next actions are historical.
   BF16 target replay,while FP32 source values differ. [METH-242](METH_242_BF16_VALUE_PRIOR_RESULT_20261001.md)
   changes only source values and loses24.03%;[METH-243](METH_243_PARENT_VALUE_PRIOR_RESULT_20261001.md)
   preserves fitted parent values and loses22.61%. Close these intercept
-  recipes;continuous fit versus coefficient encoding remains uncertain.
+  recipes;the encoding uncertainty is resolved by METH-244 below.
+- [METH-244](METH_244_READOUT_ENCODING_RESULT_20261001.md) separates176
+  continuous fixed-fit solutions from actual encoding. Raw E160 fit gain
+  is49.53%;quantization erases it. This motivates separately encoded small
+  corrections while retaining the parent,first actual native cost/fidelity.
 - GigaChat10B Q4 retains scoped quality but costs 1016 MB active/token.
   METH-180/181 global rank-192 variants fail energy proxies. Frozen
   donor-adaptation C fidelity work is reusable evidence, not a resumed
@@ -144,23 +148,24 @@ all prior links/operational history; its old next actions are historical.
 
 ## Current experiment and exact resume
 
-**Latest decisive evidence:** METH-238 native mixed operator passes8.727ms;
-METH-239 all16 source priors pass. METH-240 fits176 distinct accurate
-functions,but E160 loses22.39% against E16. METH-241 exactly replays all
-58,720,256 BF16 target elements;that precision mismatch alone is not
-causal proof. METH-242 value-only correction loses24.03%;METH-243 preserving
-fitted parent values still loses22.61%. All prerequisites/unchanged weight
-and parent-score controls pass in both. No further intercept-only count
-repair or native/full-quality promotion. Sessions30493/49082 complete,exit0;
-no project job active at this freeze.
+**Latest decisive evidence:** METH-244 replays all176 physical readouts/biases
+exactly. Continuous FP64 E160 fit error is49.53% lower than continuous E16;
+encoding erases that gain. E160 encoding penalty is2.12times its positive
+stored E16 loss gap,while arithmetic differences are negligible. Raw
+solutions are nondeployable fit-only controls,not held-out count evidence.
+Original session29975 exits1 only on last-bit FP64 aggregation;explicit
+repair95e47b7 recovers all retained rows in session9416,exit0,without new
+fits or changed scientific thresholds. No project job active.
 
-**Next exact action:** execute frozen
-[METH-244 encoding audit](METH_244_READOUT_ENCODING_PROTOCOL_20261001.md).
-Replay all176 METH-240 fixed ridge solves,require every encoded tensor and
-actual fit score exact,and separate FP64 raw fitting from encoded
-coefficient/intercept distortion. Fit-only,JSON only,10min,local3060,six
-threads,no T4. Outcome chooses changed encoding versus continuous
-hierarchy/function coupling;no fresh/full quality or rate follows.
+**Next exact action:** implement/freeze METH-245's fixed rank32 BF16
+correction over the unchanged mixed full-feature native operator,following
+[separate residual proposal](SEPARATE_CONDITIONAL_RESIDUAL_PROPOSAL_20261001.md).
+Price actual C/GPU arithmetic/serialization and three fixed six-thread
+24-layer passes<=10ms before learned residual factorization. Shape-only
+extra payload8.934MB;no bank/function/rate acceptance yet. Declare source
+factor construction,resources and stop before executing. Learned factor
+truncation/rounding,held-out useful count,real DRAM/n/LUT and full-model
+quality remain required. Do not rerun METH-244 fits for aggregation.
 Do not retry closed independent affine cells,global weight repair,
 weak-child training,static-bias calibration or fixed intercept variants.
 Full same-artifact independent quality,C rate,large-RAM route/LUT and
