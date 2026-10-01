@@ -84,6 +84,10 @@ all prior links/operational history; its old next actions are historical.
   validates a BF16/FP32 SwiGLU common of hidden width768: native numerical
   parity passes and the24-layer component costs3.261ms/token, within10ms.
   Actual source subsets exercise the operator; they are not trained quality.
+- [METH-225](METH_225_NONLINEAR_COMMON_DISTILLATION_RESULT_20261001.md)
+  learns a BF16-effective nonlinear common for4096 fixed updates. Consumed
+  validation error improves57.70%->37.30% but fails the <=10% intermediate
+  gate. Trained C parity/cost pass; stop this recipe before descendants.
 - GigaChat10B Q4 retains scoped quality but costs 1016 MB active/token.
   METH-180/181 global rank-192 variants fail energy proxies. Frozen
   donor-adaptation C fidelity work is reusable evidence, not a resumed
@@ -95,19 +99,20 @@ all prior links/operational history; its old next actions are historical.
 
 ## Current experiment and exact resume
 
-**Latest evidence:** METH-224 numerical/native component passes; session
-71327 complete. Its untrained24-layer H768 fixture costs3.261ms/token.
-METH-223 diagnoses the affine common's fit error and E160 generalization
-gap; the coefficient precision effect is negligible. No full model passes.
-**Next exact action:** execute the frozen
-[METH-225](METH_225_NONLINEAR_COMMON_DISTILLATION_PROTOCOL_20261001.md)
-4096-update BF16-effective nonlinear common distillation on saved METH-222
-layer12 donor functions. Save initialized/fixed-final controls, score the
-consumed128 validation windows only afterward, and bind final weights to
-the same C operator. Intermediate common error<=.10 licenses freezing
-parent-anchored/shrunk children with one equal-width active matrix at
-E16/E160; complete conditional function error<=.01 remains unchanged.
-No regularized bank is trained or final quality implied.
+**Latest evidence:** METH-225 completes at session22782,exit0. The stored
+common has37.30% consumed validation error, failing <=10%; numerical
+parity passes and mixed fixture cost is3.199ms/token. The fixed recipe
+stops before descendants. No project job is active or full model accepted.
+**Next exact action:** qualify the changed
+[conditional donor-tangent representation](CONDITIONAL_DONOR_TANGENT_PROPOSAL_20261001.md).
+Freeze an autograd-checked source-Jacobian export and native full896-input
+affine component before clustering/quality. Reuse source BF16 matrices
+and existing METH-125 states;24 distinct layer tangents are only a fixture.
+Then freeze a common-free E16/E160 local-function comparison, one selected
+full affine expert in either arm. Source-derived coefficients change the
+transfer mechanism; this does not continue METH-225 or fit independent
+PCA64 residuals. Complete function error<=.01 remains unchanged. The
+proposal and next native apparatus have not been implemented/executed.
 Do not retry independent affine cells, global weight repair, weak-child
 training or static-bias calibration. Full same-artifact independent
 quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.

@@ -1488,7 +1488,24 @@ cells alone account for only1.74% of the gap. This is a reproducible
 one-layer failed function-transfer method, not LLM quality, native rate,
 arbitrary-n degradation or second-family evidence. The next candidate
 must supply a nonlinear common and regularized parent/child functions
-at constant active width; it is proposed, not trained or validated.
+at constant active width; that specific candidate was initially proposed.
+[METH-224/225](METH_225_NONLINEAR_COMMON_DISTILLATION_RESULT_20261001.md)
+now implement a BF16-weight/FP32 SwiGLU common with hidden768 and fixed
+4096-update output distillation. Every stored tensor/readback and actual
+trained C layer passes; mixed24-layer component cost is3.199ms/token.
+However, consumed validation normalized output SSE only improves57.70%
+to37.30%, failing the fixed <=10% intermediate gate. Stop that recipe
+before conditional descendants; no full model or independent quality is
+evaluated. Neither insufficient width nor optimization failure is isolated.
+
+The changed [conditional donor-tangent proposal](CONDITIONAL_DONOR_TANGENT_PROPOSAL_20261001.md)
+would derive full-input local affine functions from original source values
+and Jacobians, with one selected complete function per token and no trained
+common. This moves stored capacity into distinct local functions and avoids
+PCA64-truncated per-cell coefficients. First-order accuracy, route coverage,
+E16/E160 utility and native cost are unknown. Source autograd verification
+and native serialization/arithmetic qualification must precede its frozen
+local quality comparison. It is proposed, not an implemented method step.
 
 The [reused child-feature/local-key proposal](REUSED_CHILD_PROJECTION_KEY_PROPOSAL_20260930.md)
 connects the core ledger to useful expert-count research: reuse the
