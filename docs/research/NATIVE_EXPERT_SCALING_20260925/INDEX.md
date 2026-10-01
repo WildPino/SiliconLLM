@@ -146,15 +146,16 @@ bounds remain>.01 (worst1.17575%);exclude scale-only repair at those codes.
 METH-237 session96785 completes,exit0. Four quantized-feedback cycles keep
 all9 controls exact and source point/function gates pass,but all16 final
 derivatives still fail1% (worst1.143%). No extra cycles or fitting; no job active.
-**Next exact action:** execute frozen METH-238
-[outlier-split output codec/native prerequisite](OUTLIER_SPLIT_OUTPUT_PROPOSAL_20261001.md).
-Same full4864 gate/up/LUT,32 largest absolute output coefficients per row
-in indexed BF16,zero int8 escape codes,row-Q8 remainder. Added2,752,512
-addressed bytes across24 layers,ideal whole ledger544.805MB. Actual codec,
-C/oracle/source fidelity and<=10ms cost must qualify before new mixed
-source priors/conditional fitting. Codec/kernel implemented and compiled,
-not executed;no bank exists. [Frozen protocol](METH_238_OUTLIER_SPLIT_NATIVE_PROTOCOL_20261001.md)
-declares layout/selection/reduction/gates/budget. No T4/new resource needed.
+METH-238 session87532 completes,exit0:217 segment reads,codec/source/numeric
+controls and8.727ms source component pass;source error.01390%. All121 input/
+table/bias controls match METH-234. No fitted/routed bank or full model accepted.
+**Next exact action:** execute frozen
+[METH-239 mixed output source priors](METH_239_MIXED_OUTPUT_PRIOR_PROTOCOL_20261001.md).
+One FP64 output-only derivative projection at each of16 existing centers,
+encode fixed32 BF16 exceptions/row-Q8 remainder,preserve source values.
+Unchanged1% stored-gradient gate and fit-source-function controls must pass
+before E16/E160 fitting. Local3060,six threads,20min,no T4;no job active
+at freeze,projection unexecuted.
 Do not retry independent affine cells, global weight repair, weak-child
 training or static-bias calibration. Full same-artifact independent
 quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.
