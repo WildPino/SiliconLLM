@@ -133,14 +133,15 @@ changed METH-234 SiLU lookup. All native prerequisites now pass:8.522ms,
 .01944% source-function error,actual C/GPU lookup parity. No project job
 active,conditional bank fitted or full model accepted. METH-231's distinct
 176 functions remain quality-rejected.
-**Next exact action:** freeze/implement METH-235
+**Next exact action:** execute frozen METH-235
 [full-feature output prior qualification](FULL_FEATURE_OUTPUT_PRIOR_PROPOSAL_20261001.md)
 on layer12's16 existing parent centers. Transfer original source values/
 Jacobians into the4864 nonlinear output basis through FP64 thin QR;no full
 affine branch. Qualify feature derivatives,rank/conditioning/unrounded
 reconstruction and actually stored row-Q8 priors before separately freezing
-E16/E160 fitting. No projection implementation or fit yet exists; fix
-protocol gates/budget before observing results. No T4/new resource needed.
+E16/E160 fitting. Projection runner is implemented,not executed; no fitting
+exists. [Protocol/gates/budget](METH_235_FULL_FEATURE_OUTPUT_PRIOR_PROTOCOL_20261001.md)
+are frozen before observing results. No T4/new resource needed.
 Do not retry independent affine cells, global weight repair, weak-child
 training or static-bias calibration. Full same-artifact independent
 quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.
