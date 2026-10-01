@@ -140,7 +140,7 @@ def main():
             distances=[float((predictions[i]-predictions[j]).norm()/denominator) for i in range(11) for j in range(i)]
             probe_rows.append({'parent':parent,'common_fit_probe_states':len(probe_x),'minimum_pair_relative_l2':min(distances)})
             args.out.with_suffix('.partial.json').write_text(json.dumps({'stage':stage,'fit_rows':fits,'probe_rows':probe_rows},indent=2)+'\n',encoding='utf-8')
-        fit_summary={bank:sum(r['actual_FP32_sse'] for r in fits if r['bank']==bank and 'actual_FP32_sse' in r)/energy for bank in ('private16','private160')}
+        fit_summary={bank:(sum(r['actual_FP32_sse'] for r in fits if r['bank']==bank and 'actual_FP32_sse' in r)/energy if all_complete else None) for bank in ('private16','private160')}
         gates={'source_native_capture_route_bindings':True,'all176_choices_have32_positive_gain_units':all_complete and len(fits)==176,
             'all176_function_parameters_distinct':len(signatures)==176 and len(set(signatures))==176,
             'all16_common_probe_min_relative_l2_gt_1e_minus_7':len(probe_rows)==16 and all(r['minimum_pair_relative_l2']>1e-7 for r in probe_rows)}

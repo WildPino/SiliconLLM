@@ -1630,8 +1630,13 @@ First branch-per-feature kernel10.299ms fails; split-workshare kernel is
 bitwise equal and9.318ms passes. Fixed source choices do not establish
 learned n or dynamic route/DRAM/full quality. METH-254 separately freezes
 fit-only positive-greedy source unit choices for matched32-unit E16/E160
-functions under actual unchanged learned parent readouts. No new private
-useful capacity or full quality is validated.
+functions under actual unchanged learned parent readouts.
+[METH-254](METH_254_PRIVATE_UNIT_PAIR_RESULT_20261001.md) stops on first
+parent after6 positive promotions, before32 choices/bank/validation. Close
+this fixed composition; original-source versus learned readout coupling
+must be diagnosed. METH-255 compares those readouts under shared/fixed32
+private features on fit targets only, no new selection/refit/native timing.
+No new private useful capacity or full quality is validated.
 Full independent quality,stored routed C/large-RAM n and full accepted rate
 remain open. Sparse GigaChat/larger dimensions are not automatically
 qualified by this dense case; reuse frozen donor-adaptation assets/fidelity

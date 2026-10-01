@@ -185,12 +185,19 @@ Source-prefix function error falls81.03%; branch-per-row10.299ms fails,
 changed split-workshare kernel is bitwise equal and9.318ms passes. Actual
 329.334MB fixture/all361 segments qualified. Session17039 exits0.
 
+[METH-254](METH_254_PRIVATE_UNIT_PAIR_RESULT_20261001.md) stops at6 positive
+source-unit promotions on first learned parent0, before32-unit bank or any
+validation. Session86792 exits0; no job active. Source/native bindings and
+first learned-parent controls pass. Close this fixed learned-readout pair;
+incomplete raw fit-summary0.0 is not a quality score.
+
 **Next exact action:** freeze/run implemented
-[METH-254 private source unit pair](METH_254_PRIVATE_UNIT_PAIR_PROTOCOL_20261001.md).
-Same32 nonlinear rows per E16/E160 function; independent fit-only positive
-greedy unit choices, unchanged actual learned parent readouts/source/keys.
-Require real decoded/probe distinctness and fit/readback controls before
-consumed validation. No learned bank/native route/large-n quality yet.
+[METH-255 feature/readout composition diagnosis](METH_255_FEATURE_READOUT_COMPOSITION_PROTOCOL_20261001.md).
+Same source-only32 private rows, four fit-only functions: source/learned
+readout x shared/private features. Require original16 learned controls
+and prospective coherent-source fidelity gates before another unit pair.
+No refit/validation/new native timing; current253 source path remains
+qualified at9.318ms, not a full model/learned n result.
 Full independent quality, large-RAM n/route-LUT/DRAM, same-artifact accepted
 rate and multi-family/10B/100B remain required.
 Do not retry closed independent affine cells,global weight repair,
