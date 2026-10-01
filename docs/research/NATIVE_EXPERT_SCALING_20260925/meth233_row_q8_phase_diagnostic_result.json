@@ -1,0 +1,66 @@
+{
+  "experiment": "METH-233-row-Q8-phase-cost-diagnostic",
+  "prior_result_sha256": "5dad8dcb67d2b7eeae0c747d63b5cada6e2ce6bd6faed94bac32dd6052c94368",
+  "weight_sha256": "85e5fb45efba1d398eee95132974a53d9f7d0a0d8040c348e3395829963a8bbd",
+  "vectors_sha256": "f7af00b4b4ce417664848950770f63b78520ca3c983748a692640704c203b699",
+  "original_source_sha256": "b3b348a193b081f56b7ba879bf2693db405da54390dd5dd0df9e74833129001a",
+  "diagnostic_source_sha256": "6bb8bff879bc1929f12a3ef6b3e560358044846855093353c61a6ede41f9df45",
+  "included_meth182_source_sha256": "b12b71bc2f2923b133f8ebc03395520ae41bf47e930cc3f742804c670925cd91",
+  "script_sha256": "feeb862dd4b44ecd46abf2445da4ab8513e275eedbb9a70abff527042face81f",
+  "executable_sha256": "a2f406224661285b9eb77b6fbda309f50d4e343b341d83b49277e506a23b2951",
+  "check_sha256": "4425933904056b541c6730adcf0823efe859ccfcecf2d8facfd551c765bb1633",
+  "timing": {
+    "threads": 6,
+    "tokens": 256,
+    "layers": 24,
+    "hidden": 4864,
+    "weight_bytes": 314892312,
+    "pass_ms_per_token": [
+      11.859249,
+      11.850929,
+      11.26088
+    ],
+    "checksum": 85.761887812,
+    "peak_working_set_bytes": 331063296
+  },
+  "phases": {
+    "phase_order": [
+      "input_decode_gate_up",
+      "silu_product",
+      "down_bias_finite"
+    ],
+    "pass_phase_ms_per_token": [
+      [
+        6.001623,
+        2.857286,
+        2.99695
+      ],
+      [
+        5.896257,
+        3.004282,
+        2.946925
+      ],
+      [
+        5.484644,
+        3.032011,
+        2.741007
+      ]
+    ]
+  },
+  "summary": {
+    "median_phase_ms_per_token": {
+      "input_decode_gate_up": 5.896257,
+      "silu_product": 3.004282,
+      "down_bias_finite": 2.946925
+    },
+    "matrix_phase_share_of_sum_of_medians": 0.7464198245295365
+  },
+  "gates": {
+    "all_bindings_exact": true,
+    "check_bitwise_equals_meth232": true,
+    "peak_rss_within_2GiB": true
+  },
+  "decision": "activation_or_instrumentation_share_requires_further_diagnosis",
+  "runtime_seconds": 10.81300000000192,
+  "scope": "Instrumented cost decomposition only; includes timer overhead. METH-232 remains stopped. No cost-gate retry/promotion, fitting, new model quality, expert-count or route/LUT claims."
+}

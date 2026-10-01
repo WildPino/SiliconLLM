@@ -127,13 +127,16 @@ all prior links/operational history; its old next actions are historical.
 row-Q8 codec/numerical/source-function fidelity pass, but11.023ms fails10ms.
 All three timings exceed the limit; no conditional fit is opened.
 METH-231's distinct176 functions remain quality-rejected. No full model accepted.
+METH-233 session53582 completes,exit0,bitwise-identical check. Phase medians
+5.896ms input/gate/up,3.004ms SiLU/product,2.947ms down;matrix phases74.642%
+of sum,not>=90%. Nonlinear phase is material; no cost-gate reopening.
 **Next exact action:** execute frozen
-[METH-233 phase-cost diagnosis](METH_233_ROW_Q8_PHASE_DIAGNOSTIC_PROTOCOL_20261001.md).
-Reuse METH-232 fixture/vector/output hashes,require bitwise output identity,
-measure input+gate/up,SiLU/product,down+bias/finite separately. Three fixed
-instrumented passes,six threads,CPU only,10min/2GiB. Choose matrix versus
-activation research from measured phase share. It cannot reopen METH-232's
-cost gate, price a new kernel or claim DRAM/core-rate/scaling. No bank is fitted.
+[METH-234 SiLU lookup variant](METH_234_ROW_Q8_SILU_LUT_PROTOCOL_20261001.md).
+Keep every row-Q8 projection/control byte unchanged,replace scalar SiLU
+with513 shared FP32 samples/linear interpolation,qualify lookup error,
+C/oracle numerical fidelity,original-source function SSE and<=10ms cost.
+One local3060/six-thread run,20min/20GiB RSS/10.5GiB GPU,no T4.
+No conditional bank is fitted or full model accepted.
 Do not retry independent affine cells, global weight repair, weak-child
 training or static-bias calibration. Full same-artifact independent
 quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.
