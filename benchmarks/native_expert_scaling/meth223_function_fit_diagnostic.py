@@ -15,12 +15,11 @@ PREVIOUS=P.DOC/'meth222_conditional_function_pilot_result.json'
 PREVIOUS_SHA='41858ede5147f7c98821987892096acb0aa7abf3611db4a1b849663e1d0ddb34'
 CAPTURE=P.ROOT/'results/native_expert_scaling/meth222_layer12_training_states.npz'
 CHECKPOINT=P.ROOT/'results/native_expert_scaling/meth222_layer12_function_cells.safetensors'
+STAGE='bindings'
 
 
-def main():
-    ap=argparse.ArgumentParser()
-    ap.add_argument('--out',type=Path,required=True)
-    args=ap.parse_args()
+def main(args):
+    global STAGE
     assert not args.out.exists()
     start=time.monotonic()
     assert P.digest(PREVIOUS)==PREVIOUS_SHA
@@ -37,6 +36,7 @@ def main():
     with safe_open(str(CHECKPOINT),framework='pt',device='cpu') as archive:
         saved={name:archive.get_tensor(name).to(device).float() for name in archive.keys()}
     cut=M.FIT*M.SEQ
+    STAGE='common_ridge_replay'
     mx,my=x[:cut].double().mean(0),y[:cut].double().mean(0)
     xc,yc=x[:cut].double()-mx,y[:cut].double()-my
     gram=xc.T@xc/cut
@@ -52,6 +52,7 @@ def main():
     summaries,records={},{'fit':[],'validation':[]}
     counts=torch.as_tensor(old['fit']['counts160'],device=device)
     for kind,offset,number in (('fit',0,M.FIT),('validation',cut,M.VALID)):
+        STAGE=kind+'_metric_reconciliation'
         span=slice(offset,offset+number*M.SEQ)
         if kind=='fit':
             qv,common=q_all[span],common_all[span]
@@ -81,7 +82,8 @@ def main():
             predictions['e160']=common[s]+torch.bmm(saved['experts.e160'][cells[s]],features[:,:,None]).squeeze(-1)
             per_state={arm:(prediction-target).double().square().sum(-1) for arm,prediction in predictions.items()}
             state_energy=target.double().square().sum(-1)
-            row={'sequence':seq,'energy':float(state_energy.sum()),'sse':{arm:float(value.sum()) for arm,value in per_state.items()}}
+            row={'sequence':seq,'energy':float(target.double().square().sum()),
+                'sse':{arm:float((value-target).double().square().sum()) for arm,value in predictions.items()}}
             if kind=='validation':
                 reference=old['validation_rows'][seq]
                 assert row['energy']==reference['energy']
@@ -117,4 +119,18 @@ def main():
 
 
 if __name__=='__main__':
-    main()
+    ap=argparse.ArgumentParser()
+    ap.add_argument('--out',type=Path,required=True)
+    parsed=ap.parse_args()
+    run_start=time.monotonic()
+    try:
+        main(parsed)
+    except BaseException as error:
+        failure=parsed.out.with_suffix('.failure.json')
+        suffix=1
+        while failure.exists():
+            failure=parsed.out.with_suffix(f'.failure{suffix}.json')
+            suffix+=1
+        failure.write_text(json.dumps({'stage':STAGE,'error':repr(error),
+            'elapsed_seconds':time.monotonic()-run_start},indent=2)+'\n',encoding='utf-8')
+        raise

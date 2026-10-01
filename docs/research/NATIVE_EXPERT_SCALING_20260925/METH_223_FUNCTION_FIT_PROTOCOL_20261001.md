@@ -39,3 +39,14 @@ new corpus, model training, generation/task or large-n CPU measurement.
 ```powershell
 .\.venv\Scripts\python.exe benchmarks/native_expert_scaling/meth223_function_fit_diagnostic.py --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth223_function_fit_diagnostic_result.json
 ```
+
+## Apparatus correction
+
+The first invocation reconciles common BF16 weight/bias and original
+fit counts, then stops on exact validation SSE equality. The diagnostic
+used per-state FP64 sums followed by a sequence sum; METH-222 reduces
+the full sequence once. Correct only the reported total SSE/energy
+reduction to the original operation and add preserved failure reporting.
+Keep per-state sums solely for diagnostic support strata. No model,
+ridge, projection, routing, data or decision gate changes. Preserve the
+first failure and rerun the same diagnostic.
