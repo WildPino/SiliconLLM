@@ -22,7 +22,7 @@ import meth182_check_group64_ffn as C
 
 L, P = Q.L, Q.P
 BANK = P.ROOT / 'benchmarks/donor_adaptation/s1/results/native_expert_scaling/meth126_shared_a_factor_bank.bin'
-PRIOR = P.DOC / 'meth214_stored_core_fresh_prediction_result.json'
+PRIOR = P.DOC / 'meth214_stored_core_fresh_prediction.json'
 PRIOR_SHA = '593ada3d37e63d243b6e1ddd133bb8ed0c34a38512e1aadc066236dbc0dc5a90'
 ARMS = ('bf16_donor', 'bf16_e1280', 'fp32_native_e1280',
         'stored_fp32_w8a32', 'stored_fp32_w8a8')

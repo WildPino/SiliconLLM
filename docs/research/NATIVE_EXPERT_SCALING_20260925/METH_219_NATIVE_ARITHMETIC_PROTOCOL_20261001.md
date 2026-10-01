@@ -76,3 +76,11 @@ Command:
 ```powershell
 .\.venv\Scripts\python.exe benchmarks/native_expert_scaling/meth219_native_arithmetic_development.py --out docs/research/NATIVE_EXPERT_SCALING_20260925/meth219_native_arithmetic_development_result.json --ffn-binary results/native_expert_scaling/meth219_m211_group64_ffn.bin
 ```
+
+## Apparatus amendment before inference
+
+The first invocation stops at binding in 0.031 seconds because the
+METH-214 result path mistakenly ends in `_result.json`; the actual
+hash-bound file is `meth214_stored_core_fresh_prediction.json`. Correct
+only that path, preserve the failure record, and rerun the same frozen
+protocol. No core export, component run or model inference occurred.
