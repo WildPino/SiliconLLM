@@ -120,7 +120,19 @@ all prior links/operational history; its old next actions are historical.
   transfers continuous source derivatives into full nonlinear output-only
   priors; all16 stored int8 derivatives fail1%. Optimal scales and four
   encoded-feedback cycles cannot pass those frozen recipes. No fitting/
-  validation/full-model promotion; changed precision is now proposed.
+  validation/full-model promotion; mixed precision is qualified below.
+- [METH-238/239](METH_239_MIXED_OUTPUT_PRIOR_RESULT_20261001.md) implement
+  fixed32 BF16 output escapes:actual native8.727ms and all16 stored
+  source-prior derivative/value controls pass. Gate/up/LUT bytes unchanged.
+- [METH-240](METH_240_MIXED_CONDITIONAL_PAIR_RESULT_20261001.md) fits176
+  distinct readouts with .01566% E160 consumed output error,but tenfold
+  count loses22.39% against E16. Accurate absolute functions alone are
+  not useful additional capacity. No stored routed C/full-quality promotion.
+- [METH-241](METH_241_SOURCE_PRECISION_REPLAY_RESULT_20261001.md) finds exact
+  BF16 target replay,while FP32 source values differ. [METH-242](METH_242_BF16_VALUE_PRIOR_RESULT_20261001.md)
+  changes only source values and loses24.03%;[METH-243](METH_243_PARENT_VALUE_PRIOR_RESULT_20261001.md)
+  preserves fitted parent values and loses22.61%. Close these intercept
+  recipes;continuous fit versus coefficient encoding remains uncertain.
 - GigaChat10B Q4 retains scoped quality but costs 1016 MB active/token.
   METH-180/181 global rank-192 variants fail energy proxies. Frozen
   donor-adaptation C fidelity work is reusable evidence, not a resumed
@@ -132,47 +144,27 @@ all prior links/operational history; its old next actions are historical.
 
 ## Current experiment and exact resume
 
-**Latest evidence:** METH-232/233/234 sessions60444/53582/17088 complete,
-exit0. METH-232 cost fails; METH-233 bitwise phase diagnosis motivates the
-changed METH-234 SiLU lookup. All native prerequisites now pass:8.522ms,
-.01944% source-function error,actual C/GPU lookup parity. No project job
-active,conditional bank fitted or full model accepted. METH-231's distinct
-176 functions remain quality-rejected.
-METH-235 session18122 completes,exit0. Continuous QR/source/center controls
-pass; all16 stored row-Q8 derivatives fail1% (worst1.178%). Fit-input source
-error.02438% passes,but no conditional fit/validation is opened.
-METH-236 session90041 completes,exit0:all16 analytic optimal row-scale
-bounds remain>.01 (worst1.17575%);exclude scale-only repair at those codes.
-METH-237 session96785 completes,exit0. Four quantized-feedback cycles keep
-all9 controls exact and source point/function gates pass,but all16 final
-derivatives still fail1% (worst1.143%). No extra cycles or fitting; no job active.
-METH-238 session87532 completes,exit0:217 segment reads,codec/source/numeric
-controls and8.727ms source component pass;source error.01390%. All121 input/
-table/bias controls match METH-234. No fitted/routed bank or full model accepted.
-METH-239 session35853 completes,exit0:all16 source-prior gates pass,
-worst stored-gradient error.64682% versus1%;fit-source error.01716%.
-METH-240 session53680 completes,exit0:all160 source-child controls/176 solves/
-distinct effective weights/readbacks pass. Actual E160 consumed function
-error.01566% passes absolute1%,but is22.39% worse than E16's.01279%;paired
-gain is negative,prior-gain10% fails. Stop this fixed recipe;no native/full
-model promotion. No job active at freeze.
-METH-241 session80461 completes,exit0:original BF16 forward reproduces all
-58,720,256 fit target elements exactly;FP32 source mismatch is1.34282e-5
-normalized SSE. Child156's FP32 source reset is6.48times worse than fitted
-parent value. No complete count-loss causality or new prior is established.
-METH-242 session30493 completes,exit0:all source/160 center/mean/176
-unchanged-weight controls pass,but E160 loses24.03% against E16. Close
-source-value-only precision correction as count solution;no job active.
+**Latest decisive evidence:** METH-238 native mixed operator passes8.727ms;
+METH-239 all16 source priors pass. METH-240 fits176 distinct accurate
+functions,but E160 loses22.39% against E16. METH-241 exactly replays all
+58,720,256 BF16 target elements;that precision mismatch alone is not
+causal proof. METH-242 value-only correction loses24.03%;METH-243 preserving
+fitted parent values still loses22.61%. All prerequisites/unchanged weight
+and parent-score controls pass in both. No further intercept-only count
+repair or native/full-quality promotion. Sessions30493/49082 complete,exit0;
+no project job active at this freeze.
+
 **Next exact action:** execute frozen
-[METH-243 parent-value hierarchy](METH_243_PARENT_VALUE_PRIOR_PROTOCOL_20261001.md).
-Preserve fitted parent center values rather than reset child values to
-original donor;all source-derived child coefficients/routing/LUT/tau1024
-unchanged. Exact centered-intercept transport and original10% useful-count
-gates on consumed windows remain required.
-One <1.7GB snapshot,local3060,six threads,10min,no T4.
-Do not retry independent affine cells, global weight repair, weak-child
-training or static-bias calibration. Full same-artifact independent
-quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.
+[METH-244 encoding audit](METH_244_READOUT_ENCODING_PROTOCOL_20261001.md).
+Replay all176 METH-240 fixed ridge solves,require every encoded tensor and
+actual fit score exact,and separate FP64 raw fitting from encoded
+coefficient/intercept distortion. Fit-only,JSON only,10min,local3060,six
+threads,no T4. Outcome chooses changed encoding versus continuous
+hierarchy/function coupling;no fresh/full quality or rate follows.
+Do not retry closed independent affine cells,global weight repair,
+weak-child training,static-bias calibration or fixed intercept variants.
+Full same-artifact independent quality,C rate,large-RAM route/LUT and
+real multi-family/10B remain required.
 
 ## Workspace rules
 

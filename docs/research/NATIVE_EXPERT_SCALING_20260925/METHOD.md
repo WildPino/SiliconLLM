@@ -1569,7 +1569,11 @@ loses24.03%;precision-value correction alone is closed as the count solution.
 METH-243 separately freezes a parent-value/source-slope hierarchy: preserve
 fitted parent values at child centers rather than reset to original donor.
 All source-derived child coefficients and ridge strength remain unchanged;
-its useful-count outcome is unexecuted.
+all controls pass but E160 still loses22.61%. Close this fixed hierarchy;
+no further intercept-only count repair. METH-244 freezes a fit-only replay
+of all176 unchanged ridge systems to separate continuous fitting from
+encoded coefficient/intercept distortion. Raw FP64 solutions are
+nondeployable diagnostic controls;outcome remains unexecuted.
 Full independent quality,stored routed C/large-RAM n and full accepted rate
 remain open. Sparse GigaChat/larger dimensions are not automatically
 qualified by this dense case; reuse frozen donor-adaptation assets/fidelity
