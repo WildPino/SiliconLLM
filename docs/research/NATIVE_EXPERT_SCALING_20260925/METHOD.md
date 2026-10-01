@@ -1599,8 +1599,17 @@ only count attempts on this fixed hierarchy. A
 [full-parent/tied-latent correction](PARENT_ANCHORED_LATENT_HIERARCHY_PROPOSAL_20261001.md)
 is proposed:retain actual learned parent throughout its input domain,
 fit only a private residual in a shared rank32 output basis. First freeze
-a continuous pilot and source-backed zero-support fallback;no new codec/
-C/private capacity or quality is yet validated.
+a continuous pilot and source-backed zero-support fallback.
+[METH-249](METH_249_PARENT_ANCHORED_LATENT_RESULT_20261001.md) implements it:
+all176 decoded functions distinct, complete actual parent unchanged,
+fit gain2.98%, consumed count gain0.0829% and rotated gain0.2251% below10%.
+The paired gain is positive but insufficient. Exact16 parent score replay
+and unchanged original validation controls pass after an explicit no-refit
+aggregation recovery (Python `sum()` versus sequential `+=`). Close this
+fixed inherited-left space. METH-250 is a fit-only diagnosis of inherited
+versus actual-parent-residual output directions at the same rank32,
+before another continuous child pilot. No new codec/C/private useful
+capacity or full quality is validated.
 Full independent quality,stored routed C/large-RAM n and full accepted rate
 remain open. Sparse GigaChat/larger dimensions are not automatically
 qualified by this dense case; reuse frozen donor-adaptation assets/fidelity

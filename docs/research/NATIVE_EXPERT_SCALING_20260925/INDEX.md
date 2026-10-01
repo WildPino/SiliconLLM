@@ -145,6 +145,10 @@ all prior links/operational history; its old next actions are historical.
   151.681MB real factor bank. Fit gain survives11.72%,consumed count loses
   2.26%;raw final readouts lose27.78%. Preserve full parent function and
   change continuous hierarchy before codec-only/rank/strength attempts.
+- [METH-249](METH_249_PARENT_ANCHORED_LATENT_RESULT_20261001.md) preserves
+  the complete actual parent and adds tied-latent continuous child residuals.
+  All176 functions are distinct; consumed count gain0.0829% is positive
+  but fails10%. Diagnose actual-parent error output space before another fit.
 - GigaChat10B Q4 retains scoped quality but costs 1016 MB active/token.
   METH-180/181 global rank-192 variants fail energy proxies. Frozen
   donor-adaptation C fidelity work is reusable evidence, not a resumed
@@ -156,24 +160,22 @@ all prior links/operational history; its old next actions are historical.
 
 ## Current experiment and exact resume
 
-**Latest decisive evidence:** METH-246 one-team rank32 source operator is
-bitwise equal and9.637ms. METH-247 stores151.681MB of real factored
-functions;176 decoded coefficients distinct,11.72% fit gain,but consumed
-E160 loses2.26% against E16. METH-248 unencoded final readouts lose27.78%
-on consumed windows despite49.53% fit gain;all replay/ledger controls pass.
-Child priors still use stored parents/source projection,so do not infer
-all-FP64 ancestry or overfit alone. Change continuous hierarchy before
-codec-only count retries. Sessions59971/44196 complete,exit0,no job active.
+**Latest decisive evidence:** METH-249 keeps the complete actual parent;
+all176 decoded functions distinct, fit gain2.98%, consumed count gain
+0.0829% and rotated gain0.2251% fail10%. Paired gain is positive. Two
+aggregation apparatus stops precede a frozen no-refit recovery: all16
+parent scores exact, Python `sum()` restored, original validation once.
+Session86289 exits0. No codec/native bank or full quality/rate promotion.
 
-**Next exact action:** freeze/run the implemented METH-249 continuous full-parent
-anchored latent [protocol](METH_249_PARENT_ANCHORED_LATENT_PROTOCOL_20261001.md),following
-[parent-anchor proposal](PARENT_ANCHORED_LATENT_HIERARCHY_PROPOSAL_20261001.md).
-Keep the complete actual METH-247 E16 function and shared rank32 left
-basis;learn only a child residual,with source-backed projected derivatives
-only for exactly unsupported fit slopes. Freeze fallback,solver/mean/
-distinctness/count gates and resources before execution. Same tau1024,
-keys/data/rank. Candidate separate Q8 latent delta is shape-priced only;
-no new private C kernel/bank or full quality/rate acceptance yet.
+**Next exact action:** freeze/run implemented fit-only
+[METH-250 output-space diagnosis](METH_250_RESIDUAL_OUTPUT_SPACE_PROTOCOL_20261001.md).
+Compare inherited rank32 left space with actual-parent residual covariance
+space using only fit targets. Require numerical/identity controls and
+predeclared captured-energy feasibility before a new continuous child
+pilot. Complete parent,rank,keys/variance/tau remain fixed. A changed
+output basis is not licensed by tiny positive METH-249 gain alone.
+Candidate separate Q8 latent delta is shape-priced only; no private C
+kernel/bank or full quality/rate acceptance yet.
 Do not retry closed independent affine cells,global weight repair,
 weak-child training,static-bias calibration or fixed intercept variants.
 Full same-artifact independent quality,C rate,large-RAM route/LUT and
