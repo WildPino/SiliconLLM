@@ -80,6 +80,10 @@ all prior links/operational history; its old next actions are historical.
   worse; its 46.94% normalized output SSE rejects the geometry. The
   common is inaccurate already at fit, and BF16 rounding is negligible.
   Only one-layer training-window evidence, no full-model/new quality.
+- [METH-224](METH_224_NONLINEAR_COMMON_NATIVE_RESULT_20261001.md)
+  validates a BF16/FP32 SwiGLU common of hidden width768: native numerical
+  parity passes and the24-layer component costs3.261ms/token, within10ms.
+  Actual source subsets exercise the operator; they are not trained quality.
 - GigaChat10B Q4 retains scoped quality but costs 1016 MB active/token.
   METH-180/181 global rank-192 variants fail energy proxies. Frozen
   donor-adaptation C fidelity work is reusable evidence, not a resumed
@@ -91,21 +95,19 @@ all prior links/operational history; its old next actions are historical.
 
 ## Current experiment and exact resume
 
-**Latest function evidence:** METH-222 source capture and coefficient
-readbacks pass; all 160 cells occupied. E160 normalized SSE=.469384 vs
-E16=.439158, so tenfold learned choices worsen validation. METH-223
-reconciles original weights/counts/per-sequence metrics exactly: E160
-fit SSE 24.74% better, validation 6.88% worse; common fit error 43.51% and
-coefficient precision effect negligible. Rare cells explain only 1.74%
-of the gap. Sessions 8661/96000/45362 complete; no project inference is active.
-**Next exact action:** price a nonlinear common (initial candidate
-SwiGLU hidden 768) plus parent-anchored/shrunk child functions, with
-one folded equal-width active matrix at both E16/E160. Freeze native
-BF16-weight/FP32 common component feasibility before output-distillation
-training; any actual donor row subset is only a component fixture, not
-a revived hard-carve quality candidate. Use saved METH-222 states and
-unchanged failed controls, freeze training/validation selection and
-shrinkage before fitting. No next common or regularized bank is trained.
+**Latest evidence:** METH-224 numerical/native component passes; session
+71327 complete. Its untrained24-layer H768 fixture costs3.261ms/token.
+METH-223 diagnoses the affine common's fit error and E160 generalization
+gap; the coefficient precision effect is negligible. No full model passes.
+**Next exact action:** execute the frozen
+[METH-225](METH_225_NONLINEAR_COMMON_DISTILLATION_PROTOCOL_20261001.md)
+4096-update BF16-effective nonlinear common distillation on saved METH-222
+layer12 donor functions. Save initialized/fixed-final controls, score the
+consumed128 validation windows only afterward, and bind final weights to
+the same C operator. Intermediate common error<=.10 licenses freezing
+parent-anchored/shrunk children with one equal-width active matrix at
+E16/E160; complete conditional function error<=.01 remains unchanged.
+No regularized bank is trained or final quality implied.
 Do not retry independent affine cells, global weight repair, weak-child
 training or static-bias calibration. Full same-artifact independent
 quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.
