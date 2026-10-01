@@ -1523,15 +1523,18 @@ child prior. All176 stored weight pairs become distinct; solves/storage
 pass. Consumed E160 error9.38% and only0.94% E16 gain reject the fixed
 geometry. No full/independent-quality or stored routed C is evaluated.
 
-The changed [full-source row-Q8 proposal](FULL_SOURCE_ROW_Q8_PROPOSAL_20261001.md)
-would retain all4864 source nonlinear directions with per-row int8 weights,
+The changed [full-source row-Q8 variant](METH_232_FULL_SOURCE_ROW_Q8_RESULT_20261001.md)
+retains all4864 source nonlinear directions with per-row int8 weights,
 FP32 scales after row reduction and no full affine branch. Its ideal whole
 selected ledger542.050MB fits560MB. This changes format/scale granularity
 and coverage from cost-rejected group64 kernels/accuracy-rejected H2048
-functions. Codec/native numerical/source-function error/cost must qualify
-before a separately frozen full-feature conditional readout method. This
-operator/bank is proposed, not implemented or validated. Generality to
-sparse GigaChat or larger dimensions is not inferred from this dense case.
+functions. METH-232 implements the314.892MB24-layer fixture and actual C
+operator;168 segment readbacks and numerical/source-function fidelity pass
+(pooled source SSE/energy .0001944). Its11.023ms component fails<=10ms,
+so conditional fitting stops. No full-feature bank or complete model exists.
+METH-233 diagnoses phase cost with bitwise-identical output; it cannot
+reopen the cost gate. Generality to sparse GigaChat or larger dimensions
+is not inferred from this dense case.
 
 The [reused child-feature/local-key proposal](REUSED_CHILD_PROJECTION_KEY_PROPOSAL_20260930.md)
 connects the core ledger to useful expert-count research: reuse the

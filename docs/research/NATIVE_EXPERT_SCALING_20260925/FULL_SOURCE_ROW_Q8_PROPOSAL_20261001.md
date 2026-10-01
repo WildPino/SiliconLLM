@@ -1,6 +1,10 @@
 # Proposal: full source nonlinear feature coverage with row-Q8 operators
 
-**Status: proposed; native operator and conditional fitting unexecuted.**
+**Status: implemented; native cost rejected; conditional fitting stopped.**
+[METH-232 result](METH_232_FULL_SOURCE_ROW_Q8_RESULT_20261001.md) passes
+codec/numerical/source-function fidelity but11.023ms exceeds10ms. The
+proposal below preserves its pre-execution reasoning and thresholds.
+Next: METH-233 phase-cost diagnosis; no cost-gate reopening.
 METH-229 prices the combined H2048 BF16/FP32 operator at8.875ms/24 layers.
 METH-230/231 make source-based nonlinear readout transfer executable;
 source derivatives resolve one repeated-input copy, but consumed function

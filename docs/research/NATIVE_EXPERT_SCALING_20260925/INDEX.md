@@ -108,6 +108,10 @@ all prior links/operational history; its old next actions are historical.
   validates actual affine+H2048 BF16/FP32 combined arithmetic/serialization
   and8.875ms24-layer component cost. Its source-prefix fixtures are not
   a trained quality model; METH-231 rejects the corresponding function path.
+- [METH-232](METH_232_FULL_SOURCE_ROW_Q8_RESULT_20261001.md) retains all4864
+  nonlinear source units with per-row int8/FP32 operators and no full affine
+  branch. Code/numeric/source-function fidelity pass (.01944% pooled error);
+  11.023ms component fails<=10ms. Stop this operator before conditional fitting.
 - GigaChat10B Q4 retains scoped quality but costs 1016 MB active/token.
   METH-180/181 global rank-192 variants fail energy proxies. Frozen
   donor-adaptation C fidelity work is reusable evidence, not a resumed
@@ -119,21 +123,17 @@ all prior links/operational history; its old next actions are historical.
 
 ## Current experiment and exact resume
 
-**Latest evidence:** METH-229/230/231 sessions31425/32860/52391 complete,
-exit0; repeated-input diagnosis80423 complete. Combined native cost passes,
-but derivative-anchored nonlinear E160 validates at9.38% versus E16's9.47%,
-failing absolute/relative gates. All source/solve/storage controls pass,
-all176 pairs distinct. No job is active or full model accepted.
-**Next exact action:** execute frozen METH-232
-[full-source row-Q8 prerequisite](FULL_SOURCE_ROW_Q8_PROPOSAL_20261001.md).
-Retain all4864 nonlinear source units,no full affine branch;per-row int8
-weights/FP32 scales with scale after row reduction. Ideal whole selected
-ledger542.050MB fits560MB but actual codec/numerical/source-function error
-and<=10ms cost must be measured on24 distinct original layers/existing
-METH-125 states before full-feature conditional readout fitting. This is
-a new scale/operator/feature-coverage variant; the kernel is implemented
-and compiled, but unexecuted. No fitted full-feature bank exists.
-Protocol: [METH-232](METH_232_FULL_SOURCE_ROW_Q8_PROTOCOL_20261001.md).
+**Latest evidence:** METH-232 session60444 complete,exit0. Full-source
+row-Q8 codec/numerical/source-function fidelity pass, but11.023ms fails10ms.
+All three timings exceed the limit; no conditional fit is opened.
+METH-231's distinct176 functions remain quality-rejected. No full model accepted.
+**Next exact action:** execute frozen
+[METH-233 phase-cost diagnosis](METH_233_ROW_Q8_PHASE_DIAGNOSTIC_PROTOCOL_20261001.md).
+Reuse METH-232 fixture/vector/output hashes,require bitwise output identity,
+measure input+gate/up,SiLU/product,down+bias/finite separately. Three fixed
+instrumented passes,six threads,CPU only,10min/2GiB. Choose matrix versus
+activation research from measured phase share. It cannot reopen METH-232's
+cost gate, price a new kernel or claim DRAM/core-rate/scaling. No bank is fitted.
 Do not retry independent affine cells, global weight repair, weak-child
 training or static-bias calibration. Full same-artifact independent
 quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.
