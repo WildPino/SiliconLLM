@@ -1511,14 +1511,27 @@ gain in an inaccurate function is not useful transferred LLM capacity.
 all windows and excludes bias-only repair: its validation-label oracle
 still has39.48% error versus .01. No new quality/full C route is tested.
 
-The changed [source-curvature proposal](CONDITIONAL_SOURCE_CURVATURE_PROPOSAL_20261001.md)
-would combine full-input affine response with exact selected source-unit
-SwiGLU nonlinearity and source-anchored parent/child output readouts.
-Initial hidden2048 gives a hypothetical whole selected ledger530.020MB;
-combined native cost/precision must pass before selecting nonlinear rows
-or fitting coefficients. A later E16/E160 test must keep one active equal-
-width function and all full-function/final LLM gates. This operator and
-fitted bank are proposed, not implemented or validated.
+The [source-curvature variant](METH_231_SOURCE_DERIVATIVE_CHILD_RESULT_20261001.md)
+now combines full-input affine response with selected original-source
+SwiGLU features and source-anchored output readouts. METH-229 qualifies
+H2048 combined serialization/CPU arithmetic and8.875ms24-layer fixture.
+METH-230 selected/anchored fitting creates a physical1.132GB one-layer
+snapshot, but one18-repeat input child has no slope variation and copies
+parent weights. Validation stops. METH-231 reuses all11 parent/input/route
+controls unchanged and compiles original-source derivatives into every
+child prior. All176 stored weight pairs become distinct; solves/storage
+pass. Consumed E160 error9.38% and only0.94% E16 gain reject the fixed
+geometry. No full/independent-quality or stored routed C is evaluated.
+
+The changed [full-source row-Q8 proposal](FULL_SOURCE_ROW_Q8_PROPOSAL_20261001.md)
+would retain all4864 source nonlinear directions with per-row int8 weights,
+FP32 scales after row reduction and no full affine branch. Its ideal whole
+selected ledger542.050MB fits560MB. This changes format/scale granularity
+and coverage from cost-rejected group64 kernels/accuracy-rejected H2048
+functions. Codec/native numerical/source-function error/cost must qualify
+before a separately frozen full-feature conditional readout method. This
+operator/bank is proposed, not implemented or validated. Generality to
+sparse GigaChat or larger dimensions is not inferred from this dense case.
 
 The [reused child-feature/local-key proposal](REUSED_CHILD_PROJECTION_KEY_PROPOSAL_20260930.md)
 connects the core ledger to useful expert-count research: reuse the

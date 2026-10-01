@@ -51,6 +51,11 @@ all prior links/operational history; its old next actions are historical.
   E160 reduces E16 consumed SSE24.3% and beats rotated choice, but59.70%
   absolute function error fails <=1%. This is local count gain in an
   inaccurate component, not accepted useful capacity or a full-model gain.
+- [METH-230/231](METH_231_SOURCE_DERIVATIVE_CHILD_RESULT_20261001.md)
+  fits selected source nonlinearity with anchored output functions.
+  Source derivatives resolve one18-repeat input child whose weights copied
+  its parent. All176 stored pairs then differ; E160 consumed error9.38%
+  and only0.94% E16 gain fail. No full-model/independent-quality promotion.
 - **CPU cost:** selected-factor synthetic component medians are below
   0.7 ms, but METH-198/199/200 fail repeatability for the tenfold pool
   ratio. No reliable large-n ratio or full accepted-token rate follows.
@@ -99,6 +104,10 @@ all prior links/operational history; its old next actions are historical.
   all METH-227 scores exactly. Even the nondeployable best
   E160 bias oracle leaves39.48% error; bias-only repair is excluded for
   those fixed products. Nonlinear conditional response remains needed.
+- [METH-229](METH_229_SOURCE_CURVATURE_NATIVE_RESULT_20261001.md)
+  validates actual affine+H2048 BF16/FP32 combined arithmetic/serialization
+  and8.875ms24-layer component cost. Its source-prefix fixtures are not
+  a trained quality model; METH-231 rejects the corresponding function path.
 - GigaChat10B Q4 retains scoped quality but costs 1016 MB active/token.
   METH-180/181 global rank-192 variants fail energy proxies. Frozen
   donor-adaptation C fidelity work is reusable evidence, not a resumed
@@ -110,19 +119,19 @@ all prior links/operational history; its old next actions are historical.
 
 ## Current experiment and exact resume
 
-**Latest evidence:** METH-226/227/228 sessions25224/50719/95537 complete,
-exit0. Source derivatives/C affine operator pass, but first-order E160
-function error59.70% fails. All scores replay; even optimal bias correction
-leaves39.48%, so no bias repair. No job is active or full model accepted.
-**Next exact action:** freeze/implement METH-229 native qualification of
-[affine plus nonlinear source response](CONDITIONAL_SOURCE_CURVATURE_PROPOSAL_20261001.md),
-initial hidden2048. Its hypothetical whole selected ledger530.020MB fits
-560MB; actual combined component cost/precision is unmeasured. Use24
-distinct source fixtures at existing METH-125 inputs, verify value/gradient
-identities, readbacks and actual C numerical/cost gates before any nonlinear
-row selection or fitting. A pass licenses a frozen source-anchored
-parent/child nonlinear-readout comparison using METH-227 routes/actual
-targets, one active function at E16/E160. No such operator/bank exists yet.
+**Latest evidence:** METH-229/230/231 sessions31425/32860/52391 complete,
+exit0; repeated-input diagnosis80423 complete. Combined native cost passes,
+but derivative-anchored nonlinear E160 validates at9.38% versus E16's9.47%,
+failing absolute/relative gates. All source/solve/storage controls pass,
+all176 pairs distinct. No job is active or full model accepted.
+**Next exact action:** freeze/implement METH-232
+[full-source row-Q8 prerequisite](FULL_SOURCE_ROW_Q8_PROPOSAL_20261001.md).
+Retain all4864 nonlinear source units,no full affine branch;per-row int8
+weights/FP32 scales with scale after row reduction. Ideal whole selected
+ledger542.050MB fits560MB but actual codec/numerical/source-function error
+and<=10ms cost must be measured on24 distinct original layers/existing
+METH-125 states before full-feature conditional readout fitting. This is
+a new scale/operator/feature-coverage variant; no such kernel/bank exists.
 Do not retry independent affine cells, global weight repair, weak-child
 training or static-bias calibration. Full same-artifact independent
 quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.

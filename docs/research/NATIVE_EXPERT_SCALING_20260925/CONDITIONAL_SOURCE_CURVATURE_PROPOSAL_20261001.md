@@ -1,6 +1,13 @@
 # Proposal: full-input affine response plus conditional source nonlinearity
 
-**Status: proposed; native combined operator and fitted banks do not exist.**
+**Status: implemented local variant rejected; original proposal history.**
+**1 October outcome:** METH-229 qualifies the combined native operator;
+METH-230 fits the bank but stops at one repeated-input copy. METH-231
+transfers actual source derivatives into all child priors and removes
+the copy,then rejects9.38% consumed validation error and insufficient
+relative n gain. See the [result](METH_231_SOURCE_DERIVATIVE_CHILD_RESULT_20261001.md).
+The proposal/next-action text below is historical; the active proposal
+is full-source nonlinear feature coverage with a row-Q8 operator.
 METH-227 shows a24.3% E16->E160 SSE improvement with distinct source-derived
 functions, but absolute error fails. METH-228 excludes bias-only repair of
 the fixed products: even a validation-label oracle leaves39.48% error.
