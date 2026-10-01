@@ -133,15 +133,14 @@ changed METH-234 SiLU lookup. All native prerequisites now pass:8.522ms,
 .01944% source-function error,actual C/GPU lookup parity. No project job
 active,conditional bank fitted or full model accepted. METH-231's distinct
 176 functions remain quality-rejected.
-**Next exact action:** execute frozen METH-235
-[full-feature output prior qualification](FULL_FEATURE_OUTPUT_PRIOR_PROPOSAL_20261001.md)
-on layer12's16 existing parent centers. Transfer original source values/
-Jacobians into the4864 nonlinear output basis through FP64 thin QR;no full
-affine branch. Qualify feature derivatives,rank/conditioning/unrounded
-reconstruction and actually stored row-Q8 priors before separately freezing
-E16/E160 fitting. Projection runner is implemented,not executed; no fitting
-exists. [Protocol/gates/budget](METH_235_FULL_FEATURE_OUTPUT_PRIOR_PROTOCOL_20261001.md)
-are frozen before observing results. No T4/new resource needed.
+METH-235 session18122 completes,exit0. Continuous QR/source/center controls
+pass; all16 stored row-Q8 derivatives fail1% (worst1.178%). Fit-input source
+error.02438% passes,but no conditional fit/validation is opened.
+**Next exact action:** execute frozen
+[METH-236 scale-only Jacobian bound](METH_236_OUTPUT_SCALE_JACOBIAN_BOUND_PROTOCOL_20261001.md).
+Keep codes fixed,solve analytic optimal row scales against original source
+Jacobians;any parent lower bound>.01 excludes scale-only repair. No new
+snapshot,fit/new source or retiming. Local3060,six threads,10min,no T4.
 Do not retry independent affine cells, global weight repair, weak-child
 training or static-bias calibration. Full same-artifact independent
 quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.
