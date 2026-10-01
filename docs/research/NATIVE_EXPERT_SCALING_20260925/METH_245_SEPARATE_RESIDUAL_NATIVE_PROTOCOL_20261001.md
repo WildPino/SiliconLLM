@@ -1,5 +1,12 @@
 # METH-245: frozen mixed readout plus separate rank32 BF16 correction
 
+**Factor-construction addendum:** FP32 SVD fails the first energy control
+before any factor/native execution. [Explicit apparatus repair](METH_245_SVD_APPARATUS_REPAIR_20261001.md)
+uses FP64 SVD of the same FP32 residual,then the same balanced BF16
+factors. All representation/scientific gates remain unchanged. Original
+FP32 protocol text/command below is preserved as execution history;use
+the repair command and filenames for reproduction.
+
 ## Decision changed and fixed representation
 
 METH-244 exposes49.53% continuous E160 fit gain erased by encoding.

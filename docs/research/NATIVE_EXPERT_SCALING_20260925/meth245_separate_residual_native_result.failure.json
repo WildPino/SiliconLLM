@@ -1,0 +1,79 @@
+{
+  "stage": "fixed_source_residual_SVD_and_BF16_factor_encoding",
+  "error": "AssertionError()",
+  "seconds": 4.547000000002299,
+  "segments": [
+    {
+      "layer": null,
+      "name": "silu_table",
+      "offset": 28,
+      "bytes": 2052,
+      "sha256": "76431bc2595aaab8d441012fded3e658c31fc6f6af84b1498fac8c241e2ac805"
+    },
+    {
+      "layer": 0,
+      "name": "gate.q",
+      "offset": 2080,
+      "bytes": 4358144,
+      "sha256": "cbe2132af1c55e26635e1f55630fc40d774c7b7eec473206edffd135474f5b1b"
+    },
+    {
+      "layer": 0,
+      "name": "gate.scale",
+      "offset": 4360224,
+      "bytes": 19456,
+      "sha256": "8c2616bb598ba13946f692ab89a458a3963cebd969e5bd275a2dfc41b59b95c0"
+    },
+    {
+      "layer": 0,
+      "name": "up.q",
+      "offset": 4379680,
+      "bytes": 4358144,
+      "sha256": "edafc0d9c4a921cbed3b6cf4e2c39dd1769b246abd4d9640d25fd5b8696bc546"
+    },
+    {
+      "layer": 0,
+      "name": "up.scale",
+      "offset": 8737824,
+      "bytes": 19456,
+      "sha256": "47a52aa93fb9581653d8e2f85c6dbc070d282098614f14f990bac2b9361f9e79"
+    },
+    {
+      "layer": 0,
+      "name": "down.q",
+      "offset": 8757280,
+      "bytes": 4358144,
+      "sha256": "b5cca811027c71d1fa9784d3a654f05dec811c17792778be7257db7405e822c2"
+    },
+    {
+      "layer": 0,
+      "name": "down.scale",
+      "offset": 13115424,
+      "bytes": 3584,
+      "sha256": "48832a35074bed97ef438488c789238c9007bfcad1f38890ff5b415258b72429"
+    },
+    {
+      "layer": 0,
+      "name": "down.ids",
+      "offset": 13119008,
+      "bytes": 57344,
+      "sha256": "758ca18a178ebcf01b2a5b34868daec0c6212ddd0f7a0cdd4993f3b3ff311410"
+    },
+    {
+      "layer": 0,
+      "name": "down.escape",
+      "offset": 13176352,
+      "bytes": 57344,
+      "sha256": "03139b6c044cd71d52b5d8645bad24e33a33da17486cc332b6cba3290b3445e4"
+    },
+    {
+      "layer": 0,
+      "name": "bias",
+      "offset": 13233696,
+      "bytes": 3584,
+      "sha256": "6cf1b57d59e7111bc218dfb01dda93ac0f776715599a1c69f89035bd20c16a10"
+    }
+  ],
+  "factors": [],
+  "source_fidelity": []
+}

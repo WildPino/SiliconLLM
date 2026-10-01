@@ -93,7 +93,7 @@ def main():
                 vd={name:t.to(device) for name,t in v.items()}
                 decoded=L.decode_mixed(*(vd['down.'+name] for name in ('q','scale','ids','escape')))
                 residual=matrices[2]-decoded
-                u,s,vh=torch.linalg.svd(residual,full_matrices=False,driver='gesvdj')
+                u,s,vh=torch.linalg.svd(residual.double(),full_matrices=False,driver='gesvdj')
                 squared=float(residual.double().square().sum()); spectral=float(s.double().square().sum())
                 assert squared>0 and abs(spectral/squared-1)<=1e-5 and bool((s[:-1]>=s[1:]).all())
                 ur=u[:,:RANK]; vr=vh[:RANK]
