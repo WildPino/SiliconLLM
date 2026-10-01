@@ -151,14 +151,17 @@ controls and8.727ms source component pass;source error.01390%. All121 input/
 table/bias controls match METH-234. No fitted/routed bank or full model accepted.
 METH-239 session35853 completes,exit0:all16 source-prior gates pass,
 worst stored-gradient error.64682% versus1%;fit-source error.01716%.
+METH-240 session53680 completes,exit0:all160 source-child controls/176 solves/
+distinct effective weights/readbacks pass. Actual E160 consumed function
+error.01566% passes absolute1%,but is22.39% worse than E16's.01279%;paired
+gain is negative,prior-gain10% fails. Stop this fixed recipe;no native/full
+model promotion. No job active at freeze.
 **Next exact action:** execute frozen
-[METH-240 E16/E160 mixed-output pair](METH_240_MIXED_CONDITIONAL_PAIR_PROTOCOL_20261001.md).
-Fit16 parents over all4864 features,compile/qualify160 original-source
-child priors before fitting children,then judge actual encoded functions
-on consumed validation with rotated/parent/child-prior controls. Tau1024,
-variance floors,gates and bootstrap fixed;require176 distinct effective
-weights. Local3060,six threads,30min/20GiB RSS/10.5GiB GPU/<1.7GB snapshot,
-4GiB free disk,no T4. No job active at freeze,no conditional fit yet.
+[METH-241 source precision replay](METH_241_SOURCE_PRECISION_REPLAY_PROTOCOL_20261001.md).
+Fit-only original BF16/FP32 FFN versus captured BF16 outputs at canonical
+(4,128,896) geometry;inspect constant-input child156 and explicitly scoped
+BF16 autograd sensitivities before a new precision-matched prior method.
+No new fitting/validation/retiming. Local3060,six threads,10min,no T4.
 Do not retry independent affine cells, global weight repair, weak-child
 training or static-bias calibration. Full same-artifact independent
 quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.
