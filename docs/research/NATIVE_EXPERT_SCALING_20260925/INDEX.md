@@ -165,8 +165,8 @@ Child priors still use stored parents/source projection,so do not infer
 all-FP64 ancestry or overfit alone. Change continuous hierarchy before
 codec-only count retries. Sessions59971/44196 complete,exit0,no job active.
 
-**Next exact action:** implement/freeze METH-249 continuous full-parent
-anchored latent pilot,following
+**Next exact action:** freeze/run the implemented METH-249 continuous full-parent
+anchored latent [protocol](METH_249_PARENT_ANCHORED_LATENT_PROTOCOL_20261001.md),following
 [parent-anchor proposal](PARENT_ANCHORED_LATENT_HIERARCHY_PROPOSAL_20261001.md).
 Keep the complete actual METH-247 E16 function and shared rank32 left
 basis;learn only a child residual,with source-backed projected derivatives
