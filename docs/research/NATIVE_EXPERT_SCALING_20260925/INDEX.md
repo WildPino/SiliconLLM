@@ -179,14 +179,18 @@ count gain4.66%, but consumed E160 loses0.1826% and paired gain is negative.
 Session84313 exits0; no job active. Close inherited/residual-left output
 recipes before rank/tau/codec retries. No stored/native bank promotion.
 
+[METH-252/253](METH_253_SPLIT_PRIVATE_FEATURE_RESULT_20261001.md) implements
+actual private32 original BF16 gate/up rows before unchanged LUT/readout.
+Source-prefix function error falls81.03%; branch-per-row10.299ms fails,
+changed split-workshare kernel is bitwise equal and9.318ms passes. Actual
+329.334MB fixture/all361 segments qualified. Session17039 exits0.
+
 **Next exact action:** freeze/run implemented
-[METH-252 source-bound private nonlinear feature operator](METH_252_PRIVATE_FEATURE_NATIVE_PROTOCOL_20261001.md), following the
-[private feature precision proposal](NONLINEAR_PRIVATE_FEATURE_PRECISION_PROPOSAL_20261001.md).
-Replace32 selected shared Q8 gate/up feature rows with actual donor BF16
-rows before the same LUT/parent readout; conservative2.754MB extra selected
-payload across24 layers. First source/native three-pass<=10ms and numeric/
-byte/fidelity qualification; then separately freeze matched E16/E160 unit
-selection if eligible. C compiles; new329.334MB fixture/results not yet produced.
+[METH-254 private source unit pair](METH_254_PRIVATE_UNIT_PAIR_PROTOCOL_20261001.md).
+Same32 nonlinear rows per E16/E160 function; independent fit-only positive
+greedy unit choices, unchanged actual learned parent readouts/source/keys.
+Require real decoded/probe distinctness and fit/readback controls before
+consumed validation. No learned bank/native route/large-n quality yet.
 Full independent quality, large-RAM n/route-LUT/DRAM, same-artifact accepted
 rate and multi-family/10B/100B remain required.
 Do not retry closed independent affine cells,global weight repair,

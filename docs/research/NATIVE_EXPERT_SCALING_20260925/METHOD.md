@@ -1622,9 +1622,16 @@ Close this fixed residual-left recipe. A
 is proposed: supply32 original BF16 donor gate/up rows in each private
 function, replacing only those shared approximate features before the
 unchanged complete parent readout. Conservative2.754MB extra addressed
-payload across24 layers; native numeric/byte/source/cost checks first,
-then separately frozen matched unit selection. No implementation/result
-exists yet. No new codec/C/private useful capacity or full quality validated.
+payload across24 layers.
+[METH-252/253](METH_253_SPLIT_PRIVATE_FEATURE_RESULT_20261001.md) implements
+the actual source-only operator: all289 original fields unchanged, private
+BF16 rows restore81.03% of source-prefix function error, numeric checks pass.
+First branch-per-feature kernel10.299ms fails; split-workshare kernel is
+bitwise equal and9.318ms passes. Fixed source choices do not establish
+learned n or dynamic route/DRAM/full quality. METH-254 separately freezes
+fit-only positive-greedy source unit choices for matched32-unit E16/E160
+functions under actual unchanged learned parent readouts. No new private
+useful capacity or full quality is validated.
 Full independent quality,stored routed C/large-RAM n and full accepted rate
 remain open. Sparse GigaChat/larger dimensions are not automatically
 qualified by this dense case; reuse frozen donor-adaptation assets/fidelity

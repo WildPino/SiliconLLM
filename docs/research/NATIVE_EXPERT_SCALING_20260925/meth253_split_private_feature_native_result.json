@@ -1,0 +1,55 @@
+{
+  "experiment": "METH-253-split-shared-private-nonlinear-feature-native-qualification",
+  "prior_result_sha256": "7da69e9d44df64719fddbfb62a452a2b4afb3be7044511f1749d16305b6910ce",
+  "fixture_sha256": "b90193f090812b9fd991616c0150f28f16a6553f1e2af2c1af8d8f5a489ba395",
+  "source_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "vectors_sha256": "f7af00b4b4ce417664848950770f63b78520ca3c983748a692640704c203b699",
+  "timing": {
+    "threads": 6,
+    "tokens": 256,
+    "layers": 24,
+    "hidden": 4864,
+    "residual_rank": 32,
+    "private_units": 32,
+    "weight_bytes": 329334308,
+    "pass_ms_per_token": [
+      9.45605,
+      9.317569,
+      9.315366
+    ],
+    "checksum": 79.074600755,
+    "peak_working_set_bytes": 345509888
+  },
+  "gates": {
+    "source_prior_fixture_vector_bindings": true,
+    "all361_segments_readback_exact": true,
+    "all384_native_output_vectors_bitwise_equal_prior": true,
+    "all256_timing_checksum_equal_prior": true,
+    "inherited_same_GPU_oracle_numeric_and_source_fidelity": true,
+    "native_component_cost": true
+  },
+  "runtime": {
+    "seconds": 8.110000000000127,
+    "rss_bytes": 1255931904,
+    "GPU_not_used": true,
+    "native_peak_working_set_bytes": 345509888
+  },
+  "summary": {
+    "median_relative_l2": 4.2104337507064835e-07,
+    "maximum_relative_l2": 9.404715464405225e-07,
+    "pooled_source_function_normalized_sse": 2.6084689113638605e-05,
+    "source_fidelity_ratio_to_prior": 0.1897065627357028,
+    "maximum_layer_source_normalized_sse": 0.00028943036698593375,
+    "median_ms_per_token": 9.317569,
+    "bitwise_output_elements": 344064
+  },
+  "output_sha256": "e8f2db8290f416ddc589ef2b48d09968b1af781705a759c8e78fd9e20bd5f666",
+  "output_payload_sha256": "52bb99669a38fd4726be8ed88e7152aed09b3470bb641a4f00dcfe5a16aa29fe",
+  "prior_payload_sha256": "52bb99669a38fd4726be8ed88e7152aed09b3470bb641a4f00dcfe5a16aa29fe",
+  "executable_sha256": "b68e4348f28bd30f85d25da51129563f332702f172ad579e5a3ed04484ee8155",
+  "source_code_sha256": "f46e23e7e68bc51fb17e4c5b3f0ff13a8640333d896b7aca5bcfaf61bb1b9dd5",
+  "included_meth182_source_sha256": "b12b71bc2f2923b133f8ebc03395520ae41bf47e930cc3f742804c670925cd91",
+  "script_sha256": "f8c1d2406794c2d102d44aa38891eef8a205279248e7ac4a178a77bdee8feeec",
+  "decision": "split_private_source_feature_operator_pass_freeze_matched_unit_selection",
+  "scope": "Same original private BF1632 features/shared LUT/readout. Execution stages changed only;static source choices,not learned n/dynamic routing/DRAM/new or full quality/accepted rate/family transfer."
+}
