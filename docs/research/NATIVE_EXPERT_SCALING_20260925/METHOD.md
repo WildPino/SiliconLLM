@@ -1465,6 +1465,15 @@ component exceeds the <=10 ms feasibility budget. No full-model arm,
 generation, task or new quality source is evaluated. Stop this specific
 float-input kernel; precision changes alone have not provided a viable
 complete native saved-core composition. Other Q8 kernels are not excluded.
+[METH-221](METH_221_Q6_NATIVE_RESULT_20261001.md) then exports every
+actual Q6 FFN code into a lossless planar layout and implements one
+float-input AVX2/FMA kernel. All code/scale readbacks and 384 numerical
+rows pass (worst relative L2 6.36e-7), but its 21.542 ms 24-layer FFN
+median fails the same <=10 ms feasibility limit. No recovery training
+or new quality is run. Fewer stored bytes do not establish native cost;
+this specific Q6 kernel is stopped. The next geometry must address
+active function/compute, not repeat global weight repair or post-hoc
+neuron carving without a changed training mechanism.
 
 The [reused child-feature/local-key proposal](REUSED_CHILD_PROJECTION_KEY_PROPOSAL_20260930.md)
 connects the core ledger to useful expert-count research: reuse the
