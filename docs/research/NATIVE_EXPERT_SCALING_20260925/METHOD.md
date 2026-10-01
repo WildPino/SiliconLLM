@@ -1607,9 +1607,14 @@ The paired gain is positive but insufficient. Exact16 parent score replay
 and unchanged original validation controls pass after an explicit no-refit
 aggregation recovery (Python `sum()` versus sequential `+=`). Close this
 fixed inherited-left space. METH-250 is a fit-only diagnosis of inherited
-versus actual-parent-residual output directions at the same rank32,
-before another continuous child pilot. No new codec/C/private useful
-capacity or full quality is validated.
+versus actual-parent-residual output directions at the same rank32.
+[METH-250](METH_250_RESIDUAL_OUTPUT_SPACE_RESULT_20261001.md) passes all
+fit-only projection controls: inherited space captures2.94%, new stored
+space15.40% of centered residual. This licenses METH-251, a continuous
+matched E16/E160 hierarchy: fit16 residual mappings in that same new
+space first, then retain the complete adapted parents while fitting160
+private residuals. Do not attribute increased active output rank to count.
+No new codec/C/private useful capacity or full quality is validated.
 Full independent quality,stored routed C/large-RAM n and full accepted rate
 remain open. Sparse GigaChat/larger dimensions are not automatically
 qualified by this dense case; reuse frozen donor-adaptation assets/fidelity

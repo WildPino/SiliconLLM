@@ -167,15 +167,19 @@ aggregation apparatus stops precede a frozen no-refit recovery: all16
 parent scores exact, Python `sum()` restored, original validation once.
 Session86289 exits0. No codec/native bank or full quality/rate promotion.
 
-**Next exact action:** freeze/run implemented fit-only
-[METH-250 output-space diagnosis](METH_250_RESIDUAL_OUTPUT_SPACE_PROTOCOL_20261001.md).
-Compare inherited rank32 left space with actual-parent residual covariance
-space using only fit targets. Require numerical/identity controls and
-predeclared captured-energy feasibility before a new continuous child
-pilot. Complete parent,rank,keys/variance/tau remain fixed. A changed
-output basis is not licensed by tiny positive METH-249 gain alone.
-Candidate separate Q8 latent delta is shape-priced only; no private C
-kernel/bank or full quality/rate acceptance yet.
+[METH-250 fit-only diagnosis](METH_250_RESIDUAL_OUTPUT_SPACE_RESULT_20261001.md)
+then passes: inherited space captures2.94% of centered parent error,new
+stored residual-covariance space15.40%. All16 exact parent/eigen/readback
+controls pass. Session61839 exits0. This is optimistic projection,not
+learned count gain; no validation targets were read.
+
+**Next exact action:** freeze/run implemented
+[METH-251 matched residual-basis pilot](METH_251_MATCHED_RESIDUAL_BASIS_PROTOCOL_20261001.md).
+First adapt16 parents in the new space;retain each complete adapted parent
+while fitting160 private residuals. Same active output geometry in both
+arms,rank32/keys/variance/tau fixed. Source-backed zero-support fallback
+uses the complete matched parent. No codec/native bank or full quality/
+rate promotion; future merged Q8 corrections are shape-priced only.
 Do not retry closed independent affine cells,global weight repair,
 weak-child training,static-bias calibration or fixed intercept variants.
 Full same-artifact independent quality,C rate,large-RAM route/LUT and
