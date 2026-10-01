@@ -1614,7 +1614,17 @@ space15.40% of centered residual. This licenses METH-251, a continuous
 matched E16/E160 hierarchy: fit16 residual mappings in that same new
 space first, then retain the complete adapted parents while fitting160
 private residuals. Do not attribute increased active output rank to count.
-No new codec/C/private useful capacity or full quality is validated.
+[METH-251](METH_251_MATCHED_RESIDUAL_BASIS_RESULT_20261001.md) executes the
+matched hierarchy: all176 functions distinct and all controls pass, fit
+gain4.66%, but consumed count loses0.1826% with negative paired gain.
+Close this fixed residual-left recipe. A
+[private nonlinear source-feature precision mechanism](NONLINEAR_PRIVATE_FEATURE_PRECISION_PROPOSAL_20261001.md)
+is proposed: supply32 original BF16 donor gate/up rows in each private
+function, replacing only those shared approximate features before the
+unchanged complete parent readout. Conservative2.754MB extra addressed
+payload across24 layers; native numeric/byte/source/cost checks first,
+then separately frozen matched unit selection. No implementation/result
+exists yet. No new codec/C/private useful capacity or full quality validated.
 Full independent quality,stored routed C/large-RAM n and full accepted rate
 remain open. Sparse GigaChat/larger dimensions are not automatically
 qualified by this dense case; reuse frozen donor-adaptation assets/fidelity

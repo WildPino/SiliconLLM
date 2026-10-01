@@ -173,13 +173,22 @@ stored residual-covariance space15.40%. All16 exact parent/eigen/readback
 controls pass. Session61839 exits0. This is optimistic projection,not
 learned count gain; no validation targets were read.
 
-**Next exact action:** freeze/run implemented
-[METH-251 matched residual-basis pilot](METH_251_MATCHED_RESIDUAL_BASIS_PROTOCOL_20261001.md).
-First adapt16 parents in the new space;retain each complete adapted parent
-while fitting160 private residuals. Same active output geometry in both
-arms,rank32/keys/variance/tau fixed. Source-backed zero-support fallback
-uses the complete matched parent. No codec/native bank or full quality/
-rate promotion; future merged Q8 corrections are shape-priced only.
+[METH-251](METH_251_MATCHED_RESIDUAL_BASIS_RESULT_20261001.md) then executes
+the matched hierarchy: all controls/176 distinct functions pass, fit
+count gain4.66%, but consumed E160 loses0.1826% and paired gain is negative.
+Session84313 exits0; no job active. Close inherited/residual-left output
+recipes before rank/tau/codec retries. No stored/native bank promotion.
+
+**Next exact action:** implement/freeze METH-252 source-bound private
+nonlinear feature operator, following the
+[private feature precision proposal](NONLINEAR_PRIVATE_FEATURE_PRECISION_PROPOSAL_20261001.md).
+Replace32 selected shared Q8 gate/up feature rows with actual donor BF16
+rows before the same LUT/parent readout; conservative2.754MB extra selected
+payload across24 layers. First source/native three-pass<=10ms and numeric/
+byte/fidelity qualification; then separately freeze matched E16/E160 unit
+selection if eligible. No protocol/implementation/results exist yet for252.
+Full independent quality, large-RAM n/route-LUT/DRAM, same-artifact accepted
+rate and multi-family/10B/100B remain required.
 Do not retry closed independent affine cells,global weight repair,
 weak-child training,static-bias calibration or fixed intercept variants.
 Full same-artifact independent quality,C rate,large-RAM route/LUT and
