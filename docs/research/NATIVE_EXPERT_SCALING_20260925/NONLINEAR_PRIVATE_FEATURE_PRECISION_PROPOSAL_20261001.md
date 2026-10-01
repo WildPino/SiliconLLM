@@ -1,6 +1,14 @@
 # Proposal: source-bound private nonlinear feature precision
 
-**Proposed, not implemented/frozen/executed.** METH-249 and251 preserve
+**Historical proposal, now tested in METH-252–255.** The source-only
+[native operator](METH_253_SPLIT_PRIVATE_FEATURE_RESULT_20261001.md) is
+qualified at9.318ms; fixed promotion under adapted readouts fails254,
+and [composition diagnosis](METH_255_FEATURE_READOUT_COMPOSITION_RESULT_20261001.md)
+rejects the fixed source reset. Original prospective text below is not a
+current execution instruction. The next changed coupling is in the
+[bounded source-response proposal](BOUNDED_SOURCE_RESPONSE_DICTIONARY_PROPOSAL_20261001.md).
+
+METH-249 and251 preserve
 complete parents but fail useful count gain through fixed rank32 readouts.
 Change the private function content before more output-space/rank/strength
 attempts. This is a scoped transfer mechanism to test, not a solution claim.

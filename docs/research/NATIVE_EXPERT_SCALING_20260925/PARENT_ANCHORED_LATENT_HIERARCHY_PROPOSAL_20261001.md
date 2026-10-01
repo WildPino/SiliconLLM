@@ -1,7 +1,10 @@
 # Proposal: preserve the full parent and learn a tied latent child correction
 
-**Status: proposed; continuous pilot,private codec and new C kernel not
-implemented or executed.** METH-247's actual rank32 E160 loses2.26% on
+**Status: historical proposal, implemented and rejected by METH-249;
+the matched residual-basis variant METH-251 also fails useful count.
+Private codec/new bank C work was not licensed. Original prospective
+text below is not the current execution queue; use INDEX.md.**
+METH-247's actual rank32 E160 loses2.26% on
 consumed windows;METH-248 raw children lose27.78%. METH-242/243 preserve
 source precision or center value only,with fixed source-reset slopes,and
 fail. Change continuous parent-child coupling before another codec test.

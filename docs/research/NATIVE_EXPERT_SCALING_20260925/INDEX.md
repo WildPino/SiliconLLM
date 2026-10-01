@@ -160,7 +160,7 @@ all prior links/operational history; its old next actions are historical.
 
 ## Current experiment and exact resume
 
-**Latest decisive evidence:** METH-249 keeps the complete actual parent;
+**Prior continuous coupling evidence:** METH-249 keeps the complete actual parent;
 all176 decoded functions distinct, fit gain2.98%, consumed count gain
 0.0829% and rotated gain0.2251% fail10%. Paired gain is positive. Two
 aggregation apparatus stops precede a frozen no-refit recovery: all16
@@ -191,13 +191,22 @@ validation. Session86792 exits0; no job active. Source/native bindings and
 first learned-parent controls pass. Close this fixed learned-readout pair;
 incomplete raw fit-summary0.0 is not a quality score.
 
-**Next exact action:** freeze/run implemented
-[METH-255 feature/readout composition diagnosis](METH_255_FEATURE_READOUT_COMPOSITION_PROTOCOL_20261001.md).
-Same source-only32 private rows, four fit-only functions: source/learned
-readout x shared/private features. Require original16 learned controls
-and prospective coherent-source fidelity gates before another unit pair.
-No refit/validation/new native timing; current253 source path remains
-qualified at9.318ms, not a full model/learned n result.
+**Latest decisive evidence:** [METH-255](METH_255_FEATURE_READOUT_COMPOSITION_RESULT_20261001.md) passes
+all16 old coefficient/score controls but diagnoses learned-private fit
+loss28.02%; coherent-source private gains7.91% and remains4.56x less
+accurate than learned shared. Both prospective coherence gates fail.
+Session68832 exits0; no job active. Close fixed promotion/source-reset
+composition, not all nonlinear source responses. No validation was read.
+
+**Next exact action:** implement/freeze METH-256 continuous bounded
+nonlinear source-response dictionary pilot, following the
+[source-response proposal](BOUNDED_SOURCE_RESPONSE_DICTIONARY_PROPOSAL_20261001.md).
+Preserve actual adapted parent; select32 source-minus-shared nonlinear
+atoms and fit bounded signed amplitudes, then anchored child amplitude
+adjustments with the same active atom set. Fix selection/solver/normal/
+distinctness/fit/count guards and resources before execution. No256
+protocol/implementation/run yet; new native blending is unqualified.
+Current253 fixed source operator remains9.318ms, not a full model/n result.
 Full independent quality, large-RAM n/route-LUT/DRAM, same-artifact accepted
 rate and multi-family/10B/100B remain required.
 Do not retry closed independent affine cells,global weight repair,

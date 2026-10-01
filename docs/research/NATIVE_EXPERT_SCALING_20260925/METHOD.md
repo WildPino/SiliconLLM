@@ -1636,7 +1636,18 @@ parent after6 positive promotions, before32 choices/bank/validation. Close
 this fixed composition; original-source versus learned readout coupling
 must be diagnosed. METH-255 compares those readouts under shared/fixed32
 private features on fit targets only, no new selection/refit/native timing.
-No new private useful capacity or full quality is validated.
+[METH-255](METH_255_FEATURE_READOUT_COMPOSITION_RESULT_20261001.md) confirms
+fit composition failure: learned-private loses28.02%, source-private
+gains7.91% but remains4.56x less accurate than learned shared. All16 old
+parent controls exact. Source-prefix81.03% recovery cannot be applied to
+this adapted/captured composition. A
+[bounded source-response dictionary](BOUNDED_SOURCE_RESPONSE_DICTIONARY_PROPOSAL_20261001.md)
+is proposed: source-minus-shared nonlinear atoms, signed bounded scalar
+amplitudes, complete actual parent retained, same32 atoms in matched
+parent/child functions. First continuous fit/count pilot, not automatic
+native blending acceptance. No implementation/result or new private useful
+capacity/full quality validated. Full24-layer core construction and
+same-artifact independent quality/rate remain required.
 Full independent quality,stored routed C/large-RAM n and full accepted rate
 remain open. Sparse GigaChat/larger dimensions are not automatically
 qualified by this dense case; reuse frozen donor-adaptation assets/fidelity
