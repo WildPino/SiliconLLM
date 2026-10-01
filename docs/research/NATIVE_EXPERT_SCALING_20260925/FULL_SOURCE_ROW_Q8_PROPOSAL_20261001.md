@@ -5,6 +5,10 @@
 codec/numerical/source-function fidelity but11.023ms exceeds10ms. The
 proposal below preserves its pre-execution reasoning and thresholds.
 Next: METH-233 phase-cost diagnosis; no cost-gate reopening.
+METH-233 later finds3.004ms in scalar SiLU/product. The changed
+[METH-234 lookup operator](METH_234_ROW_Q8_SILU_LUT_RESULT_20261001.md)
+passes8.522ms and scoped source/numerical fidelity with every projection
+byte unchanged. METH-232 remains rejected; full-feature fitting is unexecuted.
 METH-229 prices the combined H2048 BF16/FP32 operator at8.875ms/24 layers.
 METH-230/231 make source-based nonlinear readout transfer executable;
 source derivatives resolve one repeated-input copy, but consumed function

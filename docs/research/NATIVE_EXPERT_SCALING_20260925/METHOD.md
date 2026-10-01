@@ -1532,9 +1532,18 @@ functions. METH-232 implements the314.892MB24-layer fixture and actual C
 operator;168 segment readbacks and numerical/source-function fidelity pass
 (pooled source SSE/energy .0001944). Its11.023ms component fails<=10ms,
 so conditional fitting stops. No full-feature bank or complete model exists.
-METH-233 diagnoses phase cost with bitwise-identical output; it cannot
-reopen the cost gate. Generality to sparse GigaChat or larger dimensions
-is not inferred from this dense case.
+METH-233's bitwise-identical phase diagnosis finds3.004ms in scalar SiLU/
+product. [METH-234](METH_234_ROW_Q8_SILU_LUT_RESULT_20261001.md) implements
+a shared513-sample FP32 lookup with linear interpolation. All projection
+bytes stay unchanged;169 segment reads,numeric/source-function gates and
+8.522ms component cost pass. This changed nonlinear operation does not
+reopen METH-232 or establish full model/count quality. The next
+[output-only source prior](FULL_FEATURE_OUTPUT_PRIOR_PROPOSAL_20261001.md)
+would project original source derivatives into all4864 nonlinear features
+via FP64 thin QR,encode readouts row-Q8 and preserve center value with FP32
+bias. Projection/conditioning/rounded function qualification and actual
+E16/E160 fitting are unimplemented. No full affine branch is priced.
+Generality to sparse GigaChat or larger dimensions is not inferred.
 
 The [reused child-feature/local-key proposal](REUSED_CHILD_PROJECTION_KEY_PROPOSAL_20260930.md)
 connects the core ledger to useful expert-count research: reuse the

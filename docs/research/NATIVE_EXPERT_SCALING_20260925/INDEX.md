@@ -112,6 +112,10 @@ all prior links/operational history; its old next actions are historical.
   nonlinear source units with per-row int8/FP32 operators and no full affine
   branch. Code/numeric/source-function fidelity pass (.01944% pooled error);
   11.023ms component fails<=10ms. Stop this operator before conditional fitting.
+- [METH-233/234](METH_234_ROW_Q8_SILU_LUT_RESULT_20261001.md) diagnoses3.004ms
+  scalar SiLU/product and replaces it with513 shared FP32 samples/interpolation.
+  Every projection byte unchanged;numeric/source-function gates and8.522ms
+  component cost pass. This qualifies the new full-feature operator only.
 - GigaChat10B Q4 retains scoped quality but costs 1016 MB active/token.
   METH-180/181 global rank-192 variants fail energy proxies. Frozen
   donor-adaptation C fidelity work is reusable evidence, not a resumed
@@ -123,20 +127,20 @@ all prior links/operational history; its old next actions are historical.
 
 ## Current experiment and exact resume
 
-**Latest evidence:** METH-232 session60444 complete,exit0. Full-source
-row-Q8 codec/numerical/source-function fidelity pass, but11.023ms fails10ms.
-All three timings exceed the limit; no conditional fit is opened.
-METH-231's distinct176 functions remain quality-rejected. No full model accepted.
-METH-233 session53582 completes,exit0,bitwise-identical check. Phase medians
-5.896ms input/gate/up,3.004ms SiLU/product,2.947ms down;matrix phases74.642%
-of sum,not>=90%. Nonlinear phase is material; no cost-gate reopening.
-**Next exact action:** execute frozen
-[METH-234 SiLU lookup variant](METH_234_ROW_Q8_SILU_LUT_PROTOCOL_20261001.md).
-Keep every row-Q8 projection/control byte unchanged,replace scalar SiLU
-with513 shared FP32 samples/linear interpolation,qualify lookup error,
-C/oracle numerical fidelity,original-source function SSE and<=10ms cost.
-One local3060/six-thread run,20min/20GiB RSS/10.5GiB GPU,no T4.
-No conditional bank is fitted or full model accepted.
+**Latest evidence:** METH-232/233/234 sessions60444/53582/17088 complete,
+exit0. METH-232 cost fails; METH-233 bitwise phase diagnosis motivates the
+changed METH-234 SiLU lookup. All native prerequisites now pass:8.522ms,
+.01944% source-function error,actual C/GPU lookup parity. No project job
+active,conditional bank fitted or full model accepted. METH-231's distinct
+176 functions remain quality-rejected.
+**Next exact action:** freeze/implement METH-235
+[full-feature output prior qualification](FULL_FEATURE_OUTPUT_PRIOR_PROPOSAL_20261001.md)
+on layer12's16 existing parent centers. Transfer original source values/
+Jacobians into the4864 nonlinear output basis through FP64 thin QR;no full
+affine branch. Qualify feature derivatives,rank/conditioning/unrounded
+reconstruction and actually stored row-Q8 priors before separately freezing
+E16/E160 fitting. No projection implementation or fit yet exists; fix
+protocol gates/budget before observing results. No T4/new resource needed.
 Do not retry independent affine cells, global weight repair, weak-child
 training or static-bias calibration. Full same-artifact independent
 quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.
