@@ -65,6 +65,12 @@ all prior links/operational history; its old next actions are historical.
   fresh quality: pooled donor-top1 loss 1.291 points vs <=1, despite BPB,
   category and finite K64 passes. Generation/task/blind stop; METH-215
   runner is unexecuted. METH-213/214 data are now consumed diagnostic data.
+- [METH-219/220](METH_220_FFN_INTERMEDIATE_RESULT_20261001.md) finds
+  exact FFN byte identity with METH-182, rejects the W8A8 GPU emulator
+  at 24/384 component outliers, and validates a float-input C numerical
+  alternative. Its 12.540 ms FFN component fails the <=10 ms budget.
+  No new model quality is scored; compute-precision change alone has
+  not produced an eligible complete saved-core path.
 - GigaChat10B Q4 retains scoped quality but costs 1016 MB active/token.
   METH-180/181 global rank-192 variants fail energy proxies. Frozen
   donor-adaptation C fidelity work is reusable evidence, not a resumed
@@ -87,13 +93,20 @@ max-load; new reserve/source stay closed.
 stops before all full-model arms: W8A8 emulator worst relative L2
 0.006070 vs <=0.0005, despite median 4.095e-7. Actual FFN bytes and C
 outputs exactly match already cost-rejected METH-182; no new cost path.
-Session 61631 exited 1; no project inference is active.
-**Next exact action:** frozen [METH-220](METH_220_FFN_INTERMEDIATE_PROTOCOL_20261001.md)
-records native intermediate quantization, requires exact old C outputs,
-and tests one float-input grouped-Q8 C alternative. Its <=10 ms component
-budget and numerical gates precede any new W8A32 quality protocol. Do
-not relax METH-219 or equate different arithmetic with failed METH-214.
-Full C quality/parity/rate on the same artifact remain required.
+Session 61631 exited 1. [METH-220](METH_220_FFN_INTERMEDIATE_RESULT_20261001.md)
+reproduces every taped C output exactly. Twenty-three failed rows have
+changed input codes; one more has one changed hidden code. C hidden-code
+replay reduces every down-output discrepancy below 7.45e-7. The frozen
+hidden-only diagnosis fails. Float-input C passes numerical parity but
+fails native component cost (12.540 vs <=10 ms). Session 2394 exited 0;
+no project inference is active. Stop this kernel; no fresh quality is licensed.
+**Next exact action:** preflight a cheaper core for changed conditional
+pretrained-function recovery. Packed-Q6 storage is available; native
+cost is unmeasured and must gate any route-specific activation-output
+training pilot. Direct Q6 quality and global rank correction are failed
+controls, not candidates to repeat. Price whole active path and teacher/
+expert targets before freezing the bounded pilot; no training or new
+quality data have been selected. Full same-artifact C quality/rate remain required.
 **Next n mechanism:** change route/function learning coupling rather than
 another static-bias retry, tied to the compact transfer path. No B/native
 promotion from failed routing. Keep real multi-family/10B and large-RAM

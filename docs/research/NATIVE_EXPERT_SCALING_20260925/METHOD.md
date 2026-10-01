@@ -1450,6 +1450,22 @@ task and blind review are stopped. The development/export/loader passes
 therefore do not establish preserved independent quality or license
 native promotion. METH-213/214 becomes consumed diagnostic evidence.
 
+[METH-219/220](METH_220_FFN_INTERMEDIATE_RESULT_20261001.md) checks the
+saved core's native arithmetic before further quality consumption.
+Its Q8 FFN bytes and existing C outputs exactly match the already
+cost-rejected METH-182 component. The proposed GPU W8A8 emulator has
+24/384 outliers above its frozen 0.0005 relative L2 limit; taped C
+intermediates reproduce every existing output exactly. Twenty-three
+outliers have changed input codes and one more changes one hidden code.
+Replacing hidden codes/scales by C values leaves <=7.45e-7 down-output
+error. A hidden-only explanation fails; native/GPU quantization cannot
+be assumed equal. The alternative float-input AVX2 grouped-Q8 kernel
+passes numerical parity (worst 5.46e-7), but its 12.540 ms 24-layer FFN
+component exceeds the <=10 ms feasibility budget. No full-model arm,
+generation, task or new quality source is evaluated. Stop this specific
+float-input kernel; precision changes alone have not provided a viable
+complete native saved-core composition. Other Q8 kernels are not excluded.
+
 The [reused child-feature/local-key proposal](REUSED_CHILD_PROJECTION_KEY_PROPOSAL_20260930.md)
 connects the core ledger to useful expert-count research: reuse the
 existing child projection, fit parent-specific leaf keys and retain
