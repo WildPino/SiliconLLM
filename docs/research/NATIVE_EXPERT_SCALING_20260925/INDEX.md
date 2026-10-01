@@ -82,13 +82,18 @@ soft-to-hard gaps: soft shares ~11.112%, hard shares 26.706–30.163%,
 exact-state floors <=1.949%, rare exact ties. Full four-layer fit captures
 are saved locally (795.342 MB, hash bound); no reserved/source inference.
 Sessions 23384/85910 completed. METH-218 passes fit but fails old reserve
-max-load; new reserve/source stay closed. No project inference job is active.
-**Next exact pipeline action:** freeze consumed-source native-arithmetic
-development of the saved core: explicit FP32 Q8 reconstruction and exact
-BF16-effective factor bank, matched BF16/FP32 controls, unchanged quality
-limits. Existing C arithmetic differs from the rejected BF16 framework
-path; do not equate the two or relax METH-214. Only a development pass
-permits new quality; full native parity/rate remain required.
+max-load; new reserve/source stay closed.
+**Pipeline result:** [METH-219](METH_219_NATIVE_ARITHMETIC_RESULT_20261001.md)
+stops before all full-model arms: W8A8 emulator worst relative L2
+0.006070 vs <=0.0005, despite median 4.095e-7. Actual FFN bytes and C
+outputs exactly match already cost-rejected METH-182; no new cost path.
+Session 61631 exited 1; no project inference is active.
+**Next exact action:** frozen [METH-220](METH_220_FFN_INTERMEDIATE_PROTOCOL_20261001.md)
+records native intermediate quantization, requires exact old C outputs,
+and tests one float-input grouped-Q8 C alternative. Its <=10 ms component
+budget and numerical gates precede any new W8A32 quality protocol. Do
+not relax METH-219 or equate different arithmetic with failed METH-214.
+Full C quality/parity/rate on the same artifact remain required.
 **Next n mechanism:** change route/function learning coupling rather than
 another static-bias retry, tied to the compact transfer path. No B/native
 promotion from failed routing. Keep real multi-family/10B and large-RAM
