@@ -41,6 +41,11 @@ all prior links/operational history; its old next actions are historical.
   fit gates pass. Raw passes global load/content/coverage; hot-parent
   share fails in layers 12/16/17/20 (30.163% worst vs <=25%). Old/new
   reserved and source screens remain unopened. No B/native promotion.
+- [METH-217/218](METH_218_HARD_PARENT_BIAS_RESULT_20261001.md) diagnoses
+  and corrects five fit soft-to-hard gaps using only 45 bias changes.
+  All fit gates pass, but old reserve fails max-load in 3 raw / 2 ChatML
+  layers, all unchanged by that correction. New reserve/source stay closed.
+  Stop targeted static calibration; useful route/function coupling is open.
 - **CPU cost:** selected-factor synthetic component medians are below
   0.7 ms, but METH-198/199/200 fail repeatability for the tenfold pool
   ratio. No reliable large-n ratio or full accepted-token rate follows.
@@ -76,10 +81,18 @@ with exact parity and metric reconciliation. Five raw parent failures are
 soft-to-hard gaps: soft shares ~11.112%, hard shares 26.706–30.163%,
 exact-state floors <=1.949%, rare exact ties. Full four-layer fit captures
 are saved locally (795.342 MB, hash bound); no reserved/source inference.
-Session 23384 completed. Next freeze direct hard-count calibration of
-only those five raw bias vectors, retaining original keys/projection,
-ChatML and all other raw biases, then all existing staged route gates.
-No B training or native promotion from the diagnostic alone.
+Sessions 23384/85910 completed. METH-218 passes fit but fails old reserve
+max-load; new reserve/source stay closed. No project inference job is active.
+**Next exact pipeline action:** freeze consumed-source native-arithmetic
+development of the saved core: explicit FP32 Q8 reconstruction and exact
+BF16-effective factor bank, matched BF16/FP32 controls, unchanged quality
+limits. Existing C arithmetic differs from the rejected BF16 framework
+path; do not equate the two or relax METH-214. Only a development pass
+permits new quality; full native parity/rate remain required.
+**Next n mechanism:** change route/function learning coupling rather than
+another static-bias retry, tied to the compact transfer path. No B/native
+promotion from failed routing. Keep real multi-family/10B and large-RAM
+CPU route/LUT/quality requirements; component checks cannot conclude goal.
 
 ## Workspace rules
 

@@ -1463,8 +1463,14 @@ the parent-local keys in those frozen existing child coordinates.
 ChatML passes all fit gates; raw passes global load/content/coverage,
 but four layers fail the 25% hot-parent share gate (worst 30.163%).
 Reserved/source screens stop before evaluation and no B is trained.
-The route is not validated for promotion. Diagnose the specific
-parent concentration before another fit or specialist-training run.
+The route is not validated for promotion. [METH-217/218](METH_218_HARD_PARENT_BIAS_RESULT_20261001.md)
+diagnoses balanced soft counts but concentrated argmax in five parents
+and corrects their 45 bias values with direct hard-count coordinates.
+Every fit gate then passes, but reserved max-load fails in three raw
+and two ChatML layers untouched by the correction. New reserve/source
+stop; no B is trained. This is an executable calibration repair, not
+validated route generalization. Stop this static calibration sequence
+and change route/function learning coupling for useful additional capacity.
 Parent-selection cost at larger count, useful B functions, native
 traffic and whole-composition quality/rate remain unverified.
 
