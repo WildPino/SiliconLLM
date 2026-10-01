@@ -71,17 +71,15 @@ all prior links/operational history; its old next actions are historical.
 
 ## Current experiment and exact resume
 
-[METH-217 protocol](METH_217_LOCAL_KEY_CONCENTRATION_PROTOCOL_20261001.md),
-committed `1ab7270`, diagnoses the fixed four raw failures: exact q
-multiplicity, final-temperature soft/hard share, score margins and support.
-No fitting or reserved/source inference. Process/session **23384** is live
-at this update. Poll that handle; never restart solely after an observation
-timeout. Runner: `benchmarks/native_expert_scaling/meth217_local_key_concentration.py`.
-Output: `meth217_local_key_concentration_result.json` in this directory.
-Capture: `results/native_expert_scaling/meth217_raw_four_layer_capture.npz`.
-Budget: local RTX3060, 20 minutes, 12 GiB RSS, 10.5 GiB GPU, <1 GB outputs.
-After completion, inspect exact reconciliation and mechanism before freezing
-any correction; retain all original route gates before B training.
+[METH-217](METH_217_LOCAL_KEY_CONCENTRATION_RESULT_20261001.md) completes
+with exact parity and metric reconciliation. Five raw parent failures are
+soft-to-hard gaps: soft shares ~11.112%, hard shares 26.706–30.163%,
+exact-state floors <=1.949%, rare exact ties. Full four-layer fit captures
+are saved locally (795.342 MB, hash bound); no reserved/source inference.
+Session 23384 completed. Next freeze direct hard-count calibration of
+only those five raw bias vectors, retaining original keys/projection,
+ChatML and all other raw biases, then all existing staged route gates.
+No B training or native promotion from the diagnostic alone.
 
 ## Workspace rules
 
