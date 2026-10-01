@@ -1,0 +1,53 @@
+{
+  "experiment": "METH-246-single-OpenMP-team-mixed-plus-rank32-residual-native-qualification",
+  "prior_result_sha256": "7022e2063afef2339342ff515ab4788732b7d795b8b2c690c511b4f5a5e5d61d",
+  "fixture_sha256": "065b7b7363ba1a334c43a4bcdebb11145c0906d5fcccf622d5c800eb5258095d",
+  "source_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "vectors_sha256": "f7af00b4b4ce417664848950770f63b78520ca3c983748a692640704c203b699",
+  "timing": {
+    "threads": 6,
+    "tokens": 256,
+    "layers": 24,
+    "hidden": 4864,
+    "residual_rank": 32,
+    "weight_bytes": 326580256,
+    "pass_ms_per_token": [
+      9.636953,
+      9.807457,
+      8.963098
+    ],
+    "checksum": 80.120854828,
+    "peak_working_set_bytes": 342781952
+  },
+  "gates": {
+    "source_fixture_vector_prior_bindings": true,
+    "all289_segments_readback_exact": true,
+    "all384_native_output_vectors_bitwise_equal_prior": true,
+    "all256_timing_checksum_equal_prior": true,
+    "inherited_same_GPU_oracle_numeric_and_source_function_gates": true,
+    "native_component_cost": true
+  },
+  "runtime": {
+    "seconds": 8.203000000001339,
+    "rss_bytes": 1254846464,
+    "GPU_not_used": true,
+    "native_peak_working_set_bytes": 342781952
+  },
+  "summary": {
+    "median_relative_l2": 4.1618748901871865e-07,
+    "maximum_relative_l2": 9.411517429210562e-07,
+    "pooled_source_function_normalized_sse": 0.000137500193654236,
+    "maximum_layer_source_normalized_sse": 0.00041817395061654727,
+    "median_ms_per_token": 9.636953,
+    "bitwise_output_elements": 344064
+  },
+  "output_sha256": "8a3fb9148007d902ffc7d6d02e2d34ba8c36a7dfddb5862bda9e243a10c442ac",
+  "output_payload_sha256": "43f62afad8ef6deeba9e06e05587ea4eba0603f74abc8ac293fb3cf4e5ad9373",
+  "prior_payload_sha256": "43f62afad8ef6deeba9e06e05587ea4eba0603f74abc8ac293fb3cf4e5ad9373",
+  "executable_sha256": "f2cb380f9f94ca50248914ddb0eba51ff42aec8144ee72029342bb67f9d0a6c6",
+  "source_code_sha256": "fdfee10171acaf9fe0bbf25ad3f561bdea2d6c4d11ade1ab120e7af096fd502e",
+  "script_sha256": "d517d3731f34d124c143502b0760ae7bc53ca3b6525dd4bd2de71840771f6e1f",
+  "included_meth182_source_sha256": "b12b71bc2f2923b133f8ebc03395520ae41bf47e930cc3f742804c670925cd91",
+  "decision": "single_team_rank32_operator_pass_freeze_learned_factorization",
+  "scope": "Identical source rank32 physical fixture/operator arithmetic;changed OpenMP execution organization only. No learned bank,n-scaled route/LUT/DRAM,new/full LLM quality or accepted full rate."
+}

@@ -137,6 +137,10 @@ all prior links/operational history; its old next actions are historical.
   continuous fixed-fit solutions from actual encoding. Raw E160 fit gain
   is49.53%;quantization erases it. This motivates separately encoded small
   corrections while retaining the parent,first actual native cost/fidelity.
+- [METH-245/246](METH_246_SINGLE_TEAM_RESIDUAL_RESULT_20261001.md) implement
+  rank32 BF16 corrections without reencoding the base. First four-team
+  kernel misses10ms;changed one-team kernel is bitwise equal and9.637ms.
+  Source-derived fixtures only;learned factor preservation is METH-247.
 - GigaChat10B Q4 retains scoped quality but costs 1016 MB active/token.
   METH-180/181 global rank-192 variants fail energy proxies. Frozen
   donor-adaptation C fidelity work is reusable evidence, not a resumed
@@ -148,24 +152,22 @@ all prior links/operational history; its old next actions are historical.
 
 ## Current experiment and exact resume
 
-**Latest decisive evidence:** METH-244 replays all176 physical readouts/biases
-exactly. Continuous FP64 E160 fit error is49.53% lower than continuous E16;
-encoding erases that gain. E160 encoding penalty is2.12times its positive
-stored E16 loss gap,while arithmetic differences are negligible. Raw
-solutions are nondeployable fit-only controls,not held-out count evidence.
-Original session29975 exits1 only on last-bit FP64 aggregation;explicit
-repair95e47b7 recovers all retained rows in session9416,exit0,without new
-fits or changed scientific thresholds. No project job active.
+**Latest decisive evidence:** METH-244 raw E160 fit gain49.53% is erased
+by encoding. METH-245 separate rank32 source operator passes numeric/
+serialization but four-team10.390ms cost fails. METH-246 one-team execution
+keeps all344,064 output elements bitwise exact and passes9.637ms. Physical
+rank/factors/base bytes unchanged;no retiming/rank retry. Sessions83343/
+44513 complete,exit0,no project job active at this freeze.
 
-**Next exact action:** implement/freeze METH-245's fixed rank32 BF16
-correction over the unchanged mixed full-feature native operator,following
-[separate residual proposal](SEPARATE_CONDITIONAL_RESIDUAL_PROPOSAL_20261001.md).
-Price actual C/GPU arithmetic/serialization and three fixed six-thread
-24-layer passes<=10ms before learned residual factorization. Shape-only
-extra payload8.934MB;no bank/function/rate acceptance yet. Declare source
-factor construction,resources and stop before executing. Learned factor
-truncation/rounding,held-out useful count,real DRAM/n/LUT and full-model
-quality remain required. Do not rerun METH-244 fits for aggregation.
+**Next exact action:** execute frozen
+[METH-247 weighted residual pair](METH_247_WEIGHTED_RESIDUAL_PAIR_PROTOCOL_20261001.md).
+Replay raw176 solutions byte-exact,retain stored fitted parent,select
+rank32 output correction directions from each cell's fit-only covariance,
+BF16 balanced factors and raw-mean-conserving bias. Match E16/E160 active
+shape and require actual stored function/distinctness/10% count gates
+before consumed validation. One <200MB snapshot,20min,local3060,six
+threads,no T4. No actual bank/full-model/new independent quality or accepted
+rate yet;METH-246's source component does not establish those.
 Do not retry closed independent affine cells,global weight repair,
 weak-child training,static-bias calibration or fixed intercept variants.
 Full same-artifact independent quality,C rate,large-RAM route/LUT and
