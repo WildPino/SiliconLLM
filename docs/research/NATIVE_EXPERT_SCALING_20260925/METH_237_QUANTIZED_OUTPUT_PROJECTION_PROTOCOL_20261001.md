@@ -36,10 +36,14 @@ and repeated encodings so stalls/cycles are visible. A failure stops this
 fixed alternating-projection recipe; no increase of iteration count.
 
 After cycle4,FP32 bias conserves source value at c under actual row-scaled
-output arithmetic. Keep all11 input/table/source-down/router control
+output arithmetic. Keep all9 input/table/source-down/router control
 tensors unchanged; save and read back every actual tensor. Coefficient
 hashes include codes+scales; source information must create16 distinct
 encoded readouts,not bias/noise alone.
+
+Count correction after execution: initial prose said11 controls; the
+hash-bound snapshot contains9 controls plus3 prior tensors. The runner
+already selected all controls dynamically; algorithm/gates are unchanged.
 
 ## Frozen gates, costs and limitations
 

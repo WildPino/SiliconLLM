@@ -1541,9 +1541,18 @@ reopen METH-232 or establish full model/count quality. The next
 [output-only source prior](FULL_FEATURE_OUTPUT_PRIOR_PROPOSAL_20261001.md)
 would project original source derivatives into all4864 nonlinear features
 via FP64 thin QR,encode readouts row-Q8 and preserve center value with FP32
-bias. Projection/conditioning/rounded function qualification and actual
-E16/E160 fitting are unimplemented. No full affine branch is priced.
-Generality to sparse GigaChat or larger dimensions is not inferred.
+bias. [METH-235](METH_235_FULL_FEATURE_OUTPUT_PRIOR_RESULT_20261001.md)
+implements all16 source priors; continuous derivative/conditioning,stored
+center/function/readback/distinctness controls pass. Every row-Q8 stored
+Jacobian fails1% (worst1.178%). METH-236 proves optimal row scales alone
+still fail all16; METH-237's four actual encoded-feedback cycles also fail
+all16 (worst1.143%). Stop those recipes before conditional fitting; no full
+affine branch is priced. [Outlier-split output precision](OUTLIER_SPLIT_OUTPUT_PROPOSAL_20261001.md)
+is proposed:32 indexed BF16 coefficients/row plus row-Q8 remainder,2.753MB
+extra addressed bytes across24 layers. Codec/native fidelity/cost and
+actual mixed-precision source priors are unimplemented. E16/E160 output
+fitting and full quality remain open. Sparse GigaChat/larger dimensions
+are not automatically qualified by this dense case.
 
 The [reused child-feature/local-key proposal](REUSED_CHILD_PROJECTION_KEY_PROPOSAL_20260930.md)
 connects the core ledger to useful expert-count research: reuse the

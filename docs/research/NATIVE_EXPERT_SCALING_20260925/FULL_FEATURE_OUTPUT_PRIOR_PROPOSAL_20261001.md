@@ -1,6 +1,14 @@
 # Proposal: source value/derivative priors in the complete nonlinear output basis
 
-**Status: proposed; projection qualification and conditional fitting unexecuted.**
+**Status: projection implemented; stored derivative fidelity rejected;
+conditional fitting unexecuted.**
+[METH-235](METH_235_FULL_FEATURE_OUTPUT_PRIOR_RESULT_20261001.md) qualifies
+continuous QR/source derivatives and stored point/function controls,but
+all16 row-Q8 slopes fail1%. METH-236 excludes scale-only repair; METH-237
+four-cycle encoded feedback also fails the unchanged derivative gate.
+The reasoning below preserves the original proposal. Next is a changed
+[outlier-split output codec](OUTLIER_SPLIT_OUTPUT_PROPOSAL_20261001.md),
+first native feasibility before any new prior or conditional fitting.
 METH-234 qualifies all4864 original source features, row-Q8 projections
 and SiLU lookup at8.522ms/24 layers with.01944% scoped source-function error.
 It licenses function transfer in that shape,not expert-count usefulness.

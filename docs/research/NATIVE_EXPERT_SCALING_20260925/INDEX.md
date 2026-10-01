@@ -116,6 +116,11 @@ all prior links/operational history; its old next actions are historical.
   scalar SiLU/product and replaces it with513 shared FP32 samples/interpolation.
   Every projection byte unchanged;numeric/source-function gates and8.522ms
   component cost pass. This qualifies the new full-feature operator only.
+- [METH-235/236/237](METH_237_QUANTIZED_OUTPUT_PROJECTION_RESULT_20261001.md)
+  transfers continuous source derivatives into full nonlinear output-only
+  priors; all16 stored int8 derivatives fail1%. Optimal scales and four
+  encoded-feedback cycles cannot pass those frozen recipes. No fitting/
+  validation/full-model promotion; changed precision is now proposed.
 - GigaChat10B Q4 retains scoped quality but costs 1016 MB active/token.
   METH-180/181 global rank-192 variants fail energy proxies. Frozen
   donor-adaptation C fidelity work is reusable evidence, not a resumed
@@ -138,12 +143,17 @@ pass; all16 stored row-Q8 derivatives fail1% (worst1.178%). Fit-input source
 error.02438% passes,but no conditional fit/validation is opened.
 METH-236 session90041 completes,exit0:all16 analytic optimal row-scale
 bounds remain>.01 (worst1.17575%);exclude scale-only repair at those codes.
-**Next exact action:** execute frozen
-[METH-237 quantized-feedback projection](METH_237_QUANTIZED_OUTPUT_PROJECTION_PROTOCOL_20261001.md).
-Four fixed projection/encoding cycles using actual stored coefficients,
-judge final cycle only against unchanged1% derivative/function gates.
-All inputs/table/router controls unchanged;no output-label fitting or
-validation/new source. Local3060,six threads,20min,no T4.
+METH-237 session96785 completes,exit0. Four quantized-feedback cycles keep
+all9 controls exact and source point/function gates pass,but all16 final
+derivatives still fail1% (worst1.143%). No extra cycles or fitting; no job active.
+**Next exact action:** freeze/implement METH-238
+[outlier-split output codec/native prerequisite](OUTLIER_SPLIT_OUTPUT_PROPOSAL_20261001.md).
+Same full4864 gate/up/LUT,32 largest absolute output coefficients per row
+in indexed BF16,zero int8 escape codes,row-Q8 remainder. Added2,752,512
+addressed bytes across24 layers,ideal whole ledger544.805MB. Actual codec,
+C/oracle/source fidelity and<=10ms cost must qualify before new mixed
+source priors/conditional fitting. No codec/kernel/bank yet exists;freeze
+layout/selection/reduction/gates/budget first. No T4/new resource needed.
 Do not retry independent affine cells, global weight repair, weak-child
 training or static-bias calibration. Full same-artifact independent
 quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.
