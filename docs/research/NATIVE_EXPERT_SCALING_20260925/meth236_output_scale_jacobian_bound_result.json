@@ -1,0 +1,214 @@
+{
+  "experiment": "METH-236-fixed-output-codes-row-scale-Jacobian-bound",
+  "prior_result_sha256": "132013d3991622143d268090015900abfcbb88e22d5799eb4df1073b4a97b140",
+  "snapshot_sha256": "029e459061360a492c74c1b0bc4ab96ea7695fa4f25fdd33197f9c918e2ea5cd",
+  "source_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+  "native_result_sha256": "972a451f89fdbcc567b6f1f52df0e22bd2185f28d52cf3179b560b8ba8fba815",
+  "controls": {
+    "silu_table": "76431bc2595aaab8d441012fded3e658c31fc6f6af84b1498fac8c241e2ac805",
+    "gate.q": "2fd22bcf446c3a4ea238f8a8a8e2b7d1fae0422f577efa3d7af55b57e6bf7eb0",
+    "gate.scale": "87a75739be018aae44e359b0b9f2e944a71b2d2217f4e7746810571629849967",
+    "up.q": "182955e2bf5674e0d4ee57a7d2ce811c6d29dd549ba2cfecf4ee5a1e84938e95",
+    "up.scale": "b1e6299b8e3cedcff4ef8de5c97596682d315535918d031d277f7ce0d4677c67",
+    "down.q": "6613cf4a8fdf78fe74cca47163339b5b92e8090931b8d9728e99507320cfabb5",
+    "down.scale": "5046a1bd7d165c39c8dda1c57504c316f6f4975159857d3e1e4295f6fb52a6bc",
+    "bias": "6cf1b57d59e7111bc218dfb01dda93ac0f776715599a1c69f89035bd20c16a10"
+  },
+  "rows": [
+    {
+      "parent": 0,
+      "original_relative_frobenius": 0.010937063029847895,
+      "fp64_scale_lower_bound": 0.01090289879142107,
+      "fp32_scale_relative_frobenius": 0.010902898791448295,
+      "least_squares_normal_relative_residual": 1.4385348438055395e-16,
+      "positive_scale_minimum": 0.0002504446127324089,
+      "positive_scale_maximum": 0.0034215233833554204,
+      "optimal_scale_sha256": "0235276f8ebb205b2ecd27ef3bef2b088dd3710504e0b4c3fbf11968accaadc2"
+    },
+    {
+      "parent": 1,
+      "original_relative_frobenius": 0.010784584058782153,
+      "fp64_scale_lower_bound": 0.01075299032378828,
+      "fp32_scale_relative_frobenius": 0.010752990323814798,
+      "least_squares_normal_relative_residual": 1.4192896702039183e-16,
+      "positive_scale_minimum": 0.00025015220996607243,
+      "positive_scale_maximum": 0.003475677956339471,
+      "optimal_scale_sha256": "9372308dcfd3e9359e3cb69a41f64d5e569497dd44da3253897cb8e079f45222"
+    },
+    {
+      "parent": 2,
+      "original_relative_frobenius": 0.011104495181792604,
+      "fp64_scale_lower_bound": 0.011067823430624624,
+      "fp32_scale_relative_frobenius": 0.011067823430650965,
+      "least_squares_normal_relative_residual": 1.4521816647179683e-16,
+      "positive_scale_minimum": 0.000249649515248935,
+      "positive_scale_maximum": 0.0035066777224458286,
+      "optimal_scale_sha256": "171e4b47714569265debf6b5b17f16a1158865c35000a9573ccddf18b23c794e"
+    },
+    {
+      "parent": 3,
+      "original_relative_frobenius": 0.011177444012157,
+      "fp64_scale_lower_bound": 0.011143236527245902,
+      "fp32_scale_relative_frobenius": 0.011143236527271201,
+      "least_squares_normal_relative_residual": 1.4459448340850012e-16,
+      "positive_scale_minimum": 0.00024935057781852633,
+      "positive_scale_maximum": 0.0034739593953130566,
+      "optimal_scale_sha256": "49d775095e80cf6ee548a1460f975cdaec4a5d0076d1ae8f2c9e1b1f72051b49"
+    },
+    {
+      "parent": 4,
+      "original_relative_frobenius": 0.010873052409304253,
+      "fp64_scale_lower_bound": 0.010838989424951598,
+      "fp32_scale_relative_frobenius": 0.010838989424978856,
+      "least_squares_normal_relative_residual": 1.4171966456766064e-16,
+      "positive_scale_minimum": 0.0002500601000190714,
+      "positive_scale_maximum": 0.0034837118971133116,
+      "optimal_scale_sha256": "f7893b3a7116f8f8639c8c31f77cfe1cc8dd6a8085b4ebae39a54f7ddc07bcc8"
+    },
+    {
+      "parent": 5,
+      "original_relative_frobenius": 0.010542193167927346,
+      "fp64_scale_lower_bound": 0.010506702753757601,
+      "fp32_scale_relative_frobenius": 0.010506702753786405,
+      "least_squares_normal_relative_residual": 1.490461700401278e-16,
+      "positive_scale_minimum": 0.0002494831533529028,
+      "positive_scale_maximum": 0.0034634392994893634,
+      "optimal_scale_sha256": "f2116a91d21a1bdf80bb8656d527f07c4b4e00cc00c829019a98ff91d3519483"
+    },
+    {
+      "parent": 6,
+      "original_relative_frobenius": 0.010629991353834745,
+      "fp64_scale_lower_bound": 0.01059768152010585,
+      "fp32_scale_relative_frobenius": 0.010597681520134003,
+      "least_squares_normal_relative_residual": 1.5335928203293887e-16,
+      "positive_scale_minimum": 0.00024971163338790035,
+      "positive_scale_maximum": 0.00348077448531902,
+      "optimal_scale_sha256": "8185dd6aac361b183cf7bf4e5bf57798d8bfbbc238239d6e8bfcf15982836c02"
+    },
+    {
+      "parent": 7,
+      "original_relative_frobenius": 0.010945017080267055,
+      "fp64_scale_lower_bound": 0.010906388599987047,
+      "fp32_scale_relative_frobenius": 0.010906388600014826,
+      "least_squares_normal_relative_residual": 1.4218630147551273e-16,
+      "positive_scale_minimum": 0.00025018130301059354,
+      "positive_scale_maximum": 0.003436832996492205,
+      "optimal_scale_sha256": "f652738f053ff11527f7987e6c21f1317179d279ef7a3e9c470f9f11aa43665b"
+    },
+    {
+      "parent": 8,
+      "original_relative_frobenius": 0.010969778931053699,
+      "fp64_scale_lower_bound": 0.010931705819733253,
+      "fp32_scale_relative_frobenius": 0.010931705819760806,
+      "least_squares_normal_relative_residual": 1.4375985942097833e-16,
+      "positive_scale_minimum": 0.0002494706444749502,
+      "positive_scale_maximum": 0.003450676180897168,
+      "optimal_scale_sha256": "9400269f40fb4d7054aee7404ffee01f4848d214744610754071e7ddfdaf4aa3"
+    },
+    {
+      "parent": 9,
+      "original_relative_frobenius": 0.01086004857260695,
+      "fp64_scale_lower_bound": 0.01082528817260212,
+      "fp32_scale_relative_frobenius": 0.01082528817263102,
+      "least_squares_normal_relative_residual": 1.451281442840269e-16,
+      "positive_scale_minimum": 0.00025042333245461803,
+      "positive_scale_maximum": 0.0034949003949186386,
+      "optimal_scale_sha256": "39ef09529741f924c4b732c6e1083552e5c199df18217a432e8c3e73649c4fc7"
+    },
+    {
+      "parent": 10,
+      "original_relative_frobenius": 0.011012652943881608,
+      "fp64_scale_lower_bound": 0.010981269431339133,
+      "fp32_scale_relative_frobenius": 0.010981269431366923,
+      "least_squares_normal_relative_residual": 1.4126904763112236e-16,
+      "positive_scale_minimum": 0.0002507405049031336,
+      "positive_scale_maximum": 0.003419699981831033,
+      "optimal_scale_sha256": "ad2086712f9b0cae6f41f9df2289032b10507e2a4e7c28ac59cfcb7d5e762e7d"
+    },
+    {
+      "parent": 11,
+      "original_relative_frobenius": 0.010863160841800903,
+      "fp64_scale_lower_bound": 0.010829091916401246,
+      "fp32_scale_relative_frobenius": 0.010829091916428835,
+      "least_squares_normal_relative_residual": 1.4064161458475736e-16,
+      "positive_scale_minimum": 0.000250418472008738,
+      "positive_scale_maximum": 0.0034640498351377045,
+      "optimal_scale_sha256": "7159b4f58dd9c80b5f0acd92bfea815ce97d55b0de6423b6630a06b26eb6dc41"
+    },
+    {
+      "parent": 12,
+      "original_relative_frobenius": 0.010921895727986358,
+      "fp64_scale_lower_bound": 0.0108902709893511,
+      "fp32_scale_relative_frobenius": 0.010890270989379391,
+      "least_squares_normal_relative_residual": 1.4995423409312307e-16,
+      "positive_scale_minimum": 0.00024996210487719835,
+      "positive_scale_maximum": 0.003455561007647454,
+      "optimal_scale_sha256": "169f5cf6198fef1a976f43230a81fcbf2067cba2246a28759ebec711ef61694d"
+    },
+    {
+      "parent": 13,
+      "original_relative_frobenius": 0.011132339974900962,
+      "fp64_scale_lower_bound": 0.011095848870452387,
+      "fp32_scale_relative_frobenius": 0.0110958488704792,
+      "least_squares_normal_relative_residual": 1.473512383980724e-16,
+      "positive_scale_minimum": 0.00024995249712436544,
+      "positive_scale_maximum": 0.0034465357257168782,
+      "optimal_scale_sha256": "85584ca932231d9ee64fb523b1dd363c668ed8223541dfbeeb0cceb100f670f4"
+    },
+    {
+      "parent": 14,
+      "original_relative_frobenius": 0.01102888910443684,
+      "fp64_scale_lower_bound": 0.010999771114115908,
+      "fp32_scale_relative_frobenius": 0.010999771114142479,
+      "least_squares_normal_relative_residual": 1.4237894443643185e-16,
+      "positive_scale_minimum": 0.00025047210528271176,
+      "positive_scale_maximum": 0.003499314500819434,
+      "optimal_scale_sha256": "6ea00ccd7559c8fed0b78abcf0b59e64ac2b6afee69e88dd7b7f9b04f7b7fde6"
+    },
+    {
+      "parent": 15,
+      "original_relative_frobenius": 0.011780391107799439,
+      "fp64_scale_lower_bound": 0.011757463985843165,
+      "fp32_scale_relative_frobenius": 0.011757463985868364,
+      "least_squares_normal_relative_residual": 1.186179243070778e-16,
+      "positive_scale_minimum": 0.00024983621074788027,
+      "positive_scale_maximum": 0.003470094638205179,
+      "optimal_scale_sha256": "1daa14291499f68fb9e5cb3128488bfa3dc254008d473f7865dd69522cd94d66"
+    }
+  ],
+  "gates": {
+    "all_source_snapshot_bindings": true,
+    "original_error_replay": true,
+    "normal_equations": true
+  },
+  "summary": {
+    "parents_unreachable_at_1percent": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "maximum_fp64_scale_lower_bound": 0.011757463985843165,
+    "maximum_original_error": 0.011780391107799439
+  },
+  "decision": "exclude_scale_only_repair_for_these_fixed_codes",
+  "script_sha256": "de6b902dab440e41e2b023fc1486219ad519149220331438e8ff0ad0b6fc2d87",
+  "runtime": {
+    "seconds": 2.389999999999418,
+    "rss_bytes": 1360601088,
+    "gpu_peak_allocated_bytes": 280115712
+  },
+  "scope": "Analytic row-scale lower bound only on original source centers, fixed physical codes; no calibrated snapshot, prior promotion, fitting, validation/full-model quality or native cost retiming"
+}

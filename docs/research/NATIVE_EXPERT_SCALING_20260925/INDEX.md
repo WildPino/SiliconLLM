@@ -136,11 +136,14 @@ active,conditional bank fitted or full model accepted. METH-231's distinct
 METH-235 session18122 completes,exit0. Continuous QR/source/center controls
 pass; all16 stored row-Q8 derivatives fail1% (worst1.178%). Fit-input source
 error.02438% passes,but no conditional fit/validation is opened.
+METH-236 session90041 completes,exit0:all16 analytic optimal row-scale
+bounds remain>.01 (worst1.17575%);exclude scale-only repair at those codes.
 **Next exact action:** execute frozen
-[METH-236 scale-only Jacobian bound](METH_236_OUTPUT_SCALE_JACOBIAN_BOUND_PROTOCOL_20261001.md).
-Keep codes fixed,solve analytic optimal row scales against original source
-Jacobians;any parent lower bound>.01 excludes scale-only repair. No new
-snapshot,fit/new source or retiming. Local3060,six threads,10min,no T4.
+[METH-237 quantized-feedback projection](METH_237_QUANTIZED_OUTPUT_PROJECTION_PROTOCOL_20261001.md).
+Four fixed projection/encoding cycles using actual stored coefficients,
+judge final cycle only against unchanged1% derivative/function gates.
+All inputs/table/router controls unchanged;no output-label fitting or
+validation/new source. Local3060,six threads,20min,no T4.
 Do not retry independent affine cells, global weight repair, weak-child
 training or static-bias calibration. Full same-artifact independent
 quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.
