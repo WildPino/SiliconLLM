@@ -1,6 +1,11 @@
 # Proposal: conditional full-input donor tangents
 
-**Status: proposed, not an executed or accepted conversion method.**
+**Status: fixed first-order geometry executed and rejected; proposal history.**
+**1 October outcome:** METH-226 qualifies source derivatives/native operator;
+[METH-227/228](METH_228_TANGENT_BIAS_BOUND_RESULT_20261001.md) executes and
+rejects the fixed first-order geometry and excludes bias-only repair.
+The steps below preserve the original proposal; its next-action text is
+historical. The changed active proposal adds source nonlinear response.
 METH-222's shared affine/PCA64 corrections fail function accuracy and
 useful E16->E160. METH-225's trained nonlinear common also fails its
 fixed intermediate accuracy screen. Both recipes stop. The next question

@@ -46,6 +46,11 @@ all prior links/operational history; its old next actions are historical.
   All fit gates pass, but old reserve fails max-load in 3 raw / 2 ChatML
   layers, all unchanged by that correction. New reserve/source stay closed.
   Stop targeted static calibration; useful route/function coupling is open.
+- [METH-227](METH_227_CONDITIONAL_DONOR_TANGENT_RESULT_20261001.md)
+  derives176 distinct full-input donor functions; all160 cells occupied.
+  E160 reduces E16 consumed SSE24.3% and beats rotated choice, but59.70%
+  absolute function error fails <=1%. This is local count gain in an
+  inaccurate component, not accepted useful capacity or a full-model gain.
 - **CPU cost:** selected-factor synthetic component medians are below
   0.7 ms, but METH-198/199/200 fail repeatability for the tenfold pool
   ratio. No reliable large-n ratio or full accepted-token rate follows.
@@ -88,6 +93,12 @@ all prior links/operational history; its old next actions are historical.
   learns a BF16-effective nonlinear common for4096 fixed updates. Consumed
   validation error improves57.70%->37.30% but fails the <=10% intermediate
   gate. Trained C parity/cost pass; stop this recipe before descendants.
+- [METH-226](METH_226_DONOR_TANGENT_NATIVE_RESULT_20261001.md) validates
+  source Jacobians and a0.654ms24-layer affine C component.
+  [METH-228](METH_228_TANGENT_BIAS_BOUND_RESULT_20261001.md) then replays
+  all METH-227 scores exactly. Even the nondeployable best
+  E160 bias oracle leaves39.48% error; bias-only repair is excluded for
+  those fixed products. Nonlinear conditional response remains needed.
 - GigaChat10B Q4 retains scoped quality but costs 1016 MB active/token.
   METH-180/181 global rank-192 variants fail energy proxies. Frozen
   donor-adaptation C fidelity work is reusable evidence, not a resumed
@@ -99,20 +110,19 @@ all prior links/operational history; its old next actions are historical.
 
 ## Current experiment and exact resume
 
-**Latest evidence:** METH-225 completes at session22782,exit0. The stored
-common has37.30% consumed validation error, failing <=10%; numerical
-parity passes and mixed fixture cost is3.199ms/token. The fixed recipe
-stops before descendants. No project job is active or full model accepted.
-**Next exact action:** qualify the changed
-[conditional donor-tangent representation](CONDITIONAL_DONOR_TANGENT_PROPOSAL_20261001.md).
-Freeze an autograd-checked source-Jacobian export and native full896-input
-affine component before clustering/quality. Reuse source BF16 matrices
-and existing METH-125 states;24 distinct layer tangents are only a fixture.
-Then freeze a common-free E16/E160 local-function comparison, one selected
-full affine expert in either arm. Source-derived coefficients change the
-transfer mechanism; this does not continue METH-225 or fit independent
-PCA64 residuals. Complete function error<=.01 remains unchanged. The
-proposal and next native apparatus have not been implemented/executed.
+**Latest evidence:** METH-226/227/228 sessions25224/50719/95537 complete,
+exit0. Source derivatives/C affine operator pass, but first-order E160
+function error59.70% fails. All scores replay; even optimal bias correction
+leaves39.48%, so no bias repair. No job is active or full model accepted.
+**Next exact action:** freeze/implement METH-229 native qualification of
+[affine plus nonlinear source response](CONDITIONAL_SOURCE_CURVATURE_PROPOSAL_20261001.md),
+initial hidden2048. Its hypothetical whole selected ledger530.020MB fits
+560MB; actual combined component cost/precision is unmeasured. Use24
+distinct source fixtures at existing METH-125 inputs, verify value/gradient
+identities, readbacks and actual C numerical/cost gates before any nonlinear
+row selection or fitting. A pass licenses a frozen source-anchored
+parent/child nonlinear-readout comparison using METH-227 routes/actual
+targets, one active function at E16/E160. No such operator/bank exists yet.
 Do not retry independent affine cells, global weight repair, weak-child
 training or static-bias calibration. Full same-artifact independent
 quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.

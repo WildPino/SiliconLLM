@@ -1498,14 +1498,27 @@ to37.30%, failing the fixed <=10% intermediate gate. Stop that recipe
 before conditional descendants; no full model or independent quality is
 evaluated. Neither insufficient width nor optimization failure is isolated.
 
-The changed [conditional donor-tangent proposal](CONDITIONAL_DONOR_TANGENT_PROPOSAL_20261001.md)
-would derive full-input local affine functions from original source values
-and Jacobians, with one selected complete function per token and no trained
-common. This moves stored capacity into distinct local functions and avoids
-PCA64-truncated per-cell coefficients. First-order accuracy, route coverage,
-E16/E160 utility and native cost are unknown. Source autograd verification
-and native serialization/arithmetic qualification must precede its frozen
-local quality comparison. It is proposed, not an implemented method step.
+The [conditional donor-tangent mechanism](METH_227_CONDITIONAL_DONOR_TANGENT_RESULT_20261001.md)
+now derives full-input local functions from original source values/Jacobians,
+with one selected complete function per token and no trained common.
+METH-226 all24 autograd checks/storage/numerical gates pass; its affine
+native component costs0.654ms/24 layers. METH-227 learns full-input keys
+and compiles176 distinct functions with all160 cells occupied. E160
+improves consumed E16 SSE24.3% and beats rotated choice, but59.70% absolute
+error rejects the fixed first-order geometry. This measured local count
+gain in an inaccurate function is not useful transferred LLM capacity.
+[METH-228](METH_228_TANGENT_BIAS_BOUND_RESULT_20261001.md) exactly replays
+all windows and excludes bias-only repair: its validation-label oracle
+still has39.48% error versus .01. No new quality/full C route is tested.
+
+The changed [source-curvature proposal](CONDITIONAL_SOURCE_CURVATURE_PROPOSAL_20261001.md)
+would combine full-input affine response with exact selected source-unit
+SwiGLU nonlinearity and source-anchored parent/child output readouts.
+Initial hidden2048 gives a hypothetical whole selected ledger530.020MB;
+combined native cost/precision must pass before selecting nonlinear rows
+or fitting coefficients. A later E16/E160 test must keep one active equal-
+width function and all full-function/final LLM gates. This operator and
+fitted bank are proposed, not implemented or validated.
 
 The [reused child-feature/local-key proposal](REUSED_CHILD_PROJECTION_KEY_PROPOSAL_20260930.md)
 connects the core ledger to useful expert-count research: reuse the
