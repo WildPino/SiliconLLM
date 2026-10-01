@@ -87,7 +87,7 @@ def main():
     for name in ('checkpoint','out'): ap.add_argument('--'+name,required=True,type=Path)
     args=ap.parse_args(); assert not args.checkpoint.exists() and not args.out.exists()
     args.checkpoint.parent.mkdir(parents=True,exist_ok=True); assert shutil.disk_usage(args.checkpoint.parent).free>=2*1024**3
-    start,stage=time.monotonic(),'bindings'; fit_rows=[]; rows=[]
+    start,stage=time.monotonic(),'bindings'; fit_rows=[]; rows=[]; parent_replays=[]
     try:
         assert P.digest(D.PAIR)==D.PAIR_SHA and P.digest(DIAG)==DIAG_SHA
         assert P.digest(A.D.PAIR)==A.D.PAIR_SHA
@@ -126,7 +126,10 @@ def main():
             mask=lp==parent; phi=Q.features(xf[mask],values); y=yf[mask]; local=lc[mask]
             base=C.get(tensors,'base',parent,device); factors=B.factor_get(tensors,'e16',parent,device)
             parent_prediction=B.encoded_value(phi,base,factors)
-            fit_parent_sse+=float((parent_prediction-y).double().square().sum())
+            parent_sse=float((parent_prediction-y).double().square().sum());fit_parent_sse+=parent_sse
+            previous=next(r for r in split['fit_rows'] if r['arm']=='e16' and r['cell']==parent)
+            parent_replays.append({'parent':parent,'sse':parent_sse,'old_sse':previous['actual_factorized_sse'],
+                'relative_discrepancy':parent_sse/previous['actual_factorized_sse']-1})
             left=factors[1].float().double(); gram=left.T@left
             condition=float(torch.linalg.cond(gram)); assert condition<=1e8
             pinv=torch.linalg.solve(gram,left.T)
@@ -162,7 +165,6 @@ def main():
                     'effective_increment_relative_norm':growth,'sse':sse,**audit})
                 P.budget(start,device)
             args.out.with_suffix('.partial.json').write_text(json.dumps({'stage':stage,'fit_rows':fit_rows},indent=2)+'\n',encoding='utf-8')
-        assert fit_parent_sse/energy==split['fit_summary']['e16']['factorized_normalized_sse']
         stage='continuous_snapshot_and_unchanged_full_parent_readback'
         save_file(tensors,str(args.checkpoint),metadata={'experiment':'METH-249','scope':'nondeployable FP64 latent deltas',
             'parent_snapshot_sha256':split['checkpoint_sha256'],'tau':str(C.TAU),'rank':'32'})
@@ -172,6 +174,8 @@ def main():
             for name,t in tensors.items():
                 assert torch.equal(archive.get_tensor(name),t)
                 if name in parent_keys: assert torch.equal(previous.get_tensor(name),t)
+        stage='original_exact_parent_fit_score_replay'
+        assert fit_parent_sse/energy==split['fit_summary']['e16']['factorized_normalized_sse']
         gates={'all_source_parent_capture_route_native_bindings':True,'all_fit_labels_counts_exact':True,
             'all16_parent_coefficients_predictions_and_fields_unchanged':True,'all16_left_inverses_qualified':True,
             'all160_solve_mean_and_growth_controls':len(fit_rows)==160,'all_snapshot_tensors_readback_exact':True,
@@ -218,7 +222,7 @@ def main():
             'parent_result_sha256':D.PAIR_SHA,'diagnosis_result_sha256':DIAG_SHA,'parent_snapshot_sha256':split['checkpoint_sha256'],
             'source_sha256':split['source_sha256'],'source_fallback_tensor_hashes':source_hashes,'capture_sha256':split['capture_sha256'],
             'native_result_sha256':B.NATIVE_SHA,'route_result_sha256':Q.S.ROUTE_SHA,'controls':controls,'tau':C.TAU,
-            'counts16':split['counts16'],'counts160':split['counts160'],'left_inverse_controls':inverses,'fit_rows':fit_rows,
+            'counts16':split['counts16'],'counts160':split['counts160'],'left_inverse_controls':inverses,'fit_rows':fit_rows,'parent_replays':parent_replays,
             'fit_summary':{'parent_nmse':fit_parent_sse/energy,'child_nmse':fit_child_sse/energy},
             'decoded_FP64_coefficient_hashes':hashes,'gates':gates,'summary':summary,'validation_rows':rows,
             'checkpoint_sha256':P.digest(args.checkpoint),'checkpoint_bytes':args.checkpoint.stat().st_size,
@@ -229,7 +233,9 @@ def main():
         print(json.dumps({k:result[k] for k in ('decision','fit_summary','summary','gates','runtime')}),flush=True)
     except BaseException as error:
         args.out.with_suffix('.failure.json').write_text(json.dumps({'stage':stage,'error':repr(error),
-            'fit_rows':fit_rows,'validation_rows':rows,'seconds':time.monotonic()-start},indent=2)+'\n',encoding='utf-8')
+            'fit_rows':fit_rows,'validation_rows':rows,'parent_replays':parent_replays,
+            'parent_nmse':fit_parent_sse/energy if parent_replays else None,
+            'seconds':time.monotonic()-start},indent=2)+'\n',encoding='utf-8')
         raise
 
 
