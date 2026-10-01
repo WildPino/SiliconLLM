@@ -1474,6 +1474,21 @@ or new quality is run. Fewer stored bytes do not establish native cost;
 this specific Q6 kernel is stopped. The next geometry must address
 active function/compute, not repeat global weight repair or post-hoc
 neuron carving without a changed training mechanism.
+[METH-222/223](METH_223_FUNCTION_FIT_RESULT_20261001.md) makes a different
+local transfer executable: capture actual pretrained layer12 FFN input/
+output on512 fit/128 separate raw validation windows, fit an affine
+common plus PCA64 features and E16/E160 affine conditional functions,
+export BF16-effective coefficients and verify every readback before
+scoring. It rejects this geometry: E160 validation normalized SSE46.94%
+vs E16's43.92%. Replayed fixed diagnostics match original fit counts,
+common weights/bias and every validation sequence exactly. E160 reduces
+fit SSE24.74% but raises validation SSE6.88%; the common already has
+43.51% fit error and coefficient rounding has negligible effect. Rare
+cells alone account for only1.74% of the gap. This is a reproducible
+one-layer failed function-transfer method, not LLM quality, native rate,
+arbitrary-n degradation or second-family evidence. The next candidate
+must supply a nonlinear common and regularized parent/child functions
+at constant active width; it is proposed, not trained or validated.
 
 The [reused child-feature/local-key proposal](REUSED_CHILD_PROJECTION_KEY_PROPOSAL_20260930.md)
 connects the core ledger to useful expert-count research: reuse the

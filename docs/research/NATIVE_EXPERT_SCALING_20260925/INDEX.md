@@ -71,6 +71,15 @@ all prior links/operational history; its old next actions are historical.
   alternative. Its 12.540 ms FFN component fails the <=10 ms budget.
   No new model quality is scored; compute-precision change alone has
   not produced an eligible complete saved-core path.
+- [METH-221](METH_221_Q6_NATIVE_RESULT_20261001.md) validates actual
+  Q6 code/scale layout and numerical parity; its 21.542 ms FFN kernel
+  fails cost. Stop this kernel; fewer stored bits do not establish rate.
+- [METH-222/223](METH_223_FUNCTION_FIT_RESULT_20261001.md) implements
+  actual donor layer 12 output-function transfer with an affine common,
+  PCA64 and E16/E160 learned affine cells. E160 fits better but validates
+  worse; its 46.94% normalized output SSE rejects the geometry. The
+  common is inaccurate already at fit, and BF16 rounding is negligible.
+  Only one-layer training-window evidence, no full-model/new quality.
 - GigaChat10B Q4 retains scoped quality but costs 1016 MB active/token.
   METH-180/181 global rank-192 variants fail energy proxies. Frozen
   donor-adaptation C fidelity work is reusable evidence, not a resumed
@@ -82,42 +91,24 @@ all prior links/operational history; its old next actions are historical.
 
 ## Current experiment and exact resume
 
-[METH-217](METH_217_LOCAL_KEY_CONCENTRATION_RESULT_20261001.md) completes
-with exact parity and metric reconciliation. Five raw parent failures are
-soft-to-hard gaps: soft shares ~11.112%, hard shares 26.706–30.163%,
-exact-state floors <=1.949%, rare exact ties. Full four-layer fit captures
-are saved locally (795.342 MB, hash bound); no reserved/source inference.
-Sessions 23384/85910 completed. METH-218 passes fit but fails old reserve
-max-load; new reserve/source stay closed.
-**Pipeline result:** [METH-219](METH_219_NATIVE_ARITHMETIC_RESULT_20261001.md)
-stops before all full-model arms: W8A8 emulator worst relative L2
-0.006070 vs <=0.0005, despite median 4.095e-7. Actual FFN bytes and C
-outputs exactly match already cost-rejected METH-182; no new cost path.
-Session 61631 exited 1. [METH-220](METH_220_FFN_INTERMEDIATE_RESULT_20261001.md)
-reproduces every taped C output exactly. Twenty-three failed rows have
-changed input codes; one more has one changed hidden code. C hidden-code
-replay reduces every down-output discrepancy below 7.45e-7. The frozen
-hidden-only diagnosis fails. Float-input C passes numerical parity but
-fails native component cost (12.540 vs <=10 ms). Session 2394 exited 0;
-no project inference is active. Stop this kernel; no fresh quality is licensed.
-**Pipeline update:** [METH-221](METH_221_Q6_NATIVE_RESULT_20261001.md)
-roundtrips every saved Q6 code and passes numerical parity, but native
-FFN costs21.542 ms vs <=10. Stop this specific kernel before recovery.
-Session8661 exited0; no project inference is active. Lower stored bits
-alone have not yielded a feasible compact core.
-**Next exact action:** [METH-222](METH_222_CONDITIONAL_FUNCTION_PROTOCOL_20261001.md)
-tests a changed geometry at predetermined donor layer12: learned affine
-common plus shared PCA64 features and hierarchical affine function cells,
-E16 versus E160, one cell active. Fit actual donor FFN outputs on512 raw
-training rows; validate128 separate rows with fixed reconstruction,
-tenfold-capacity gain and route-rotation gates. This is training-corpus
-function evidence, not new document-held-out quality or full-model rate.
-No post-hoc neuron selection, global weight repair, weak-child training
-or failed-route promotion is repeated. Full same-artifact C quality/rate remain required.
-**Next n mechanism:** change route/function learning coupling rather than
-another static-bias retry, tied to the compact transfer path. No B/native
-promotion from failed routing. Keep real multi-family/10B and large-RAM
-CPU route/LUT/quality requirements; component checks cannot conclude goal.
+**Latest function evidence:** METH-222 source capture and coefficient
+readbacks pass; all 160 cells occupied. E160 normalized SSE=.469384 vs
+E16=.439158, so tenfold learned choices worsen validation. METH-223
+reconciles original weights/counts/per-sequence metrics exactly: E160
+fit SSE 24.74% better, validation 6.88% worse; common fit error 43.51% and
+coefficient precision effect negligible. Rare cells explain only 1.74%
+of the gap. Sessions 8661/96000/45362 complete; no project inference is active.
+**Next exact action:** price a nonlinear common (initial candidate
+SwiGLU hidden 768) plus parent-anchored/shrunk child functions, with
+one folded equal-width active matrix at both E16/E160. Freeze native
+BF16-weight/FP32 common component feasibility before output-distillation
+training; any actual donor row subset is only a component fixture, not
+a revived hard-carve quality candidate. Use saved METH-222 states and
+unchanged failed controls, freeze training/validation selection and
+shrinkage before fitting. No next common or regularized bank is trained.
+Do not retry independent affine cells, global weight repair, weak-child
+training or static-bias calibration. Full same-artifact independent
+quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.
 
 ## Workspace rules
 
