@@ -1,6 +1,13 @@
 # Proposal: BF16 output outliers plus row-Q8 remainder over full source features
 
-**Status: proposed; codec/native operator/source priors unexecuted.**
+**Status: codec/native operator and source priors implemented/pass;
+fixed conditional count recipe rejected.**
+METH-238's actual operator passes at8.727ms,METH-239 all16 stored source
+priors pass. METH-240 produces176 distinct accurate functions but E160
+loses22.39% against E16. METH-241 confirms an exact BF16 source-target
+contract and motivates the separately frozen METH-242 source-value-only
+correction. The original proposal and shape arithmetic below are historical;
+operator/prior acceptance does not establish useful expert-count scaling.
 METH-234's full4864-feature row-Q8/FP32/LUT operator passes source-function
 fidelity/cost. METH-235 continuous source derivatives transfer, but actual
 int8 output encodings have1.05%–1.18% slope error. METH-236 excludes scale-only

@@ -1548,11 +1548,27 @@ Jacobian fails1% (worst1.178%). METH-236 proves optimal row scales alone
 still fail all16; METH-237's four actual encoded-feedback cycles also fail
 all16 (worst1.143%). Stop those recipes before conditional fitting; no full
 affine branch is priced. [Outlier-split output precision](OUTLIER_SPLIT_OUTPUT_PROPOSAL_20261001.md)
-is proposed:32 indexed BF16 coefficients/row plus row-Q8 remainder,2.753MB
-extra addressed bytes across24 layers. Codec/native fidelity/cost and
-actual mixed-precision source priors are unimplemented. E16/E160 output
-fitting and full quality remain open. Sparse GigaChat/larger dimensions
-are not automatically qualified by this dense case.
+uses32 indexed BF16 coefficients/row plus row-Q8 remainder,2.753MB extra
+addressed bytes across24 layers. [METH-238](METH_238_OUTLIER_SPLIT_RESULT_20261001.md)
+implements the actual codec/native operator:217 segment reads,numerical/
+source controls and8.727ms component pass. METH-239 qualifies all16 actual
+mixed source priors,worst stored derivative error.64682% versus1%.
+[METH-240](METH_240_MIXED_CONDITIONAL_PAIR_RESULT_20261001.md) fits actual
+E16/E160 functions:all176 effective weight matrices distinct,all160 child
+source priors/solves/physical readbacks pass. Complete consumed function
+error is.01566% for E160,but it loses22.39% against E16's.01279% with
+negative paired-window gain. Stop this fixed conditional recipe.
+[METH-241](METH_241_SOURCE_PRECISION_REPLAY_RESULT_20261001.md) reproduces
+all58,720,256 fit target elements exactly using original BF16 execution;
+FP32 source-point values differ. Constant-input child156's FP32 reset is
+6.48times less accurate than its fitted parent. This local diagnosis does
+not prove the cause of the complete count loss. METH-242 separately freezes
+a source-value-only BF16 correction with exact centered-intercept transport,
+all coefficients/routing/strength unchanged. Its outcome is unexecuted.
+Full independent quality,stored routed C/large-RAM n and full accepted rate
+remain open. Sparse GigaChat/larger dimensions are not automatically
+qualified by this dense case; reuse frozen donor-adaptation assets/fidelity
+controls for a separately priced sparse/top4/shared feature-sharing variant.
 
 The [reused child-feature/local-key proposal](REUSED_CHILD_PROJECTION_KEY_PROPOSAL_20260930.md)
 connects the core ledger to useful expert-count research: reuse the

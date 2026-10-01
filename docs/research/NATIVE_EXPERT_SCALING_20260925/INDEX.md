@@ -156,12 +156,17 @@ distinct effective weights/readbacks pass. Actual E160 consumed function
 error.01566% passes absolute1%,but is22.39% worse than E16's.01279%;paired
 gain is negative,prior-gain10% fails. Stop this fixed recipe;no native/full
 model promotion. No job active at freeze.
+METH-241 session80461 completes,exit0:original BF16 forward reproduces all
+58,720,256 fit target elements exactly;FP32 source mismatch is1.34282e-5
+normalized SSE. Child156's FP32 source reset is6.48times worse than fitted
+parent value. No complete count-loss causality or new prior is established.
 **Next exact action:** execute frozen
-[METH-241 source precision replay](METH_241_SOURCE_PRECISION_REPLAY_PROTOCOL_20261001.md).
-Fit-only original BF16/FP32 FFN versus captured BF16 outputs at canonical
-(4,128,896) geometry;inspect constant-input child156 and explicitly scoped
-BF16 autograd sensitivities before a new precision-matched prior method.
-No new fitting/validation/retiming. Local3060,six threads,10min,no T4.
+[METH-242 source-value-only correction](METH_242_BF16_VALUE_PRIOR_PROTOCOL_20261001.md).
+Preserve all actual METH-240 coefficients/routing/LUT/tau1024;correct only
+child source values to canonical BF16 and transport fitted intercepts by
+the exact centered-ridge formula. Require actual unchanged parents/176
+weight hashes and the original10% useful-count gates on consumed windows.
+One <1.7GB snapshot,local3060,six threads,10min,no T4.
 Do not retry independent affine cells, global weight repair, weak-child
 training or static-bias calibration. Full same-artifact independent
 quality, C rate, large-RAM route/LUT and real multi-family/10B remain required.
