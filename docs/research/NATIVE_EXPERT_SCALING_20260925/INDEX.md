@@ -160,12 +160,15 @@ METH-241 session80461 completes,exit0:original BF16 forward reproduces all
 58,720,256 fit target elements exactly;FP32 source mismatch is1.34282e-5
 normalized SSE. Child156's FP32 source reset is6.48times worse than fitted
 parent value. No complete count-loss causality or new prior is established.
+METH-242 session30493 completes,exit0:all source/160 center/mean/176
+unchanged-weight controls pass,but E160 loses24.03% against E16. Close
+source-value-only precision correction as count solution;no job active.
 **Next exact action:** execute frozen
-[METH-242 source-value-only correction](METH_242_BF16_VALUE_PRIOR_PROTOCOL_20261001.md).
-Preserve all actual METH-240 coefficients/routing/LUT/tau1024;correct only
-child source values to canonical BF16 and transport fitted intercepts by
-the exact centered-ridge formula. Require actual unchanged parents/176
-weight hashes and the original10% useful-count gates on consumed windows.
+[METH-243 parent-value hierarchy](METH_243_PARENT_VALUE_PRIOR_PROTOCOL_20261001.md).
+Preserve fitted parent center values rather than reset child values to
+original donor;all source-derived child coefficients/routing/LUT/tau1024
+unchanged. Exact centered-intercept transport and original10% useful-count
+gates on consumed windows remain required.
 One <1.7GB snapshot,local3060,six threads,10min,no T4.
 Do not retry independent affine cells, global weight repair, weak-child
 training or static-bias calibration. Full same-artifact independent
