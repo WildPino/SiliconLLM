@@ -246,9 +246,14 @@ BPB-.000110010 versus BF16 E1280,-.005313449 versus donor,top1+.446429
 points versus BF16 E1280. All pooled/category/finiteK64 gates pass.
 Session67470 exits0,104.250s; no active job or repair/candidate change.
 
-**Next exact action:** execute frozen [METH-264 independent generation](METH_264_COMPLETE_CORE_GENERATION_PROTOCOL_20261002.md),
-3 arms,full/cached16-step checks,24x128-token cap,generatedK64 and original
-health gates. Code/protocol present; no264 run/result yet. Then task/blind
+[METH-264](METH_264_CACHED_REFERENCE_STOP_20261002.md) stops on original
+donor cached/full choice mismatches2/48 before any candidate continuation.
+Session99155 exits0; cached recipe remains closed, zero-mismatch gate unchanged.
+
+**Next exact action:** execute frozen [METH-265 full-prefix generation](METH_265_FULL_PREFIX_GENERATION_PROTOCOL_20261002.md),
+3 same arms/prompts,24x128-token cap,generatedK64 and original health gates.
+Full-prefix recomputation changes reference arithmetic, not production
+cache/rate requirements. Code/protocol present; no265 run yet. Then task/blind
 semantic assessment. Keep candidate/data fixed through full
 generation/tasks/blind/native complete alias lookup/LUT/DRAM/rate checks.
 Current253 fixed source operator remains9.318ms, not a full model/n result.

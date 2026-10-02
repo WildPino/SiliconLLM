@@ -39,8 +39,12 @@ passes all24 source-only answerability decisions before inference.
 passes [independent full-head prediction](METH_263_COMPLETE_CORE_FRESH_PREDICTION_RESULT_20261002.md)
 on the same artifact: BPB-.000110010 versus BF16 E1280,-.005313449 versus
 donor,top1+.446429 points versus BF16 E1280; all frozen gates pass.
-Next [METH-264](METH_264_COMPLETE_CORE_GENERATION_PROTOCOL_20261002.md)
-cached/full generation/health checks, then task/blind semantic quality. Full generation/tasks, native
+[METH-264](METH_264_CACHED_REFERENCE_STOP_20261002.md) stops on original
+BF16 donor cached/full choice differences before candidate generation.
+Next [METH-265](METH_265_FULL_PREFIX_GENERATION_PROTOCOL_20261002.md)
+uses full-prefix recomputation for the same generation/health criteria,
+then task/blind semantic quality. This reference is not production decoding.
+Full generation/tasks, native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted
 tok/s remain mandatory. This is specific to the small dense donor; the
 active source feature count still grows with dense donor width/depth.
