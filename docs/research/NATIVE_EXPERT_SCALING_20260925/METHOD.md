@@ -43,7 +43,10 @@ donor,top1+.446429 points versus BF16 E1280; all frozen gates pass.
 BF16 donor cached/full choice differences before candidate generation.
 [METH-265](METH_265_FULL_PREFIX_GENERATION_RESULT_20261002.md) passes
 all full-prefix generation-health/K64 gates. Frozen266 PIQA regression
-and267 anonymous semantic review are next. This reference is not production decoding.
+and267 anonymous semantic review follow. [METH-267](METH_267_ANONYMOUS_SEMANTIC_RESULT_20261002.md)
+now fails severe-error/missing-detail gates; fixed259 native promotion is
+closed even if266 passes. A changed core/route mechanism needs new checks.
+This reference is not production decoding.
 Full generation/tasks, native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted
 tok/s remain mandatory. This is specific to the small dense donor; the

@@ -54,10 +54,13 @@ with265 SHA `f3581cefc4a7d758b141fc4b4fa62ca45f43d00fe6cc00a10af57895b4a5ec93`
 is running in session64975. Continue this process; observation timeout is
 not a reason to restart. All1838 items/three controls are fixed regression.
 
-[METH-267 anonymous review](METH_267_COMPLETE_CORE_BLIND_PROTOCOL_20261002.md)
-is frozen. Do not read labeled265 continuations or the267 map before
-committing all72 findings. Joint263/265/266/267 quality is required for native
-promotion. Preserve failures; no post-observation tolerance/data/weight edits.
+[METH-267 anonymous review](METH_267_ANONYMOUS_SEMANTIC_RESULT_20261002.md)
+fails strict semantic gates after all72 findings were committed before
+unblinding: unsupported38 versus39/41,severe16 versus15/14,missing-detail2
+versus2/0 (donor/E1280). Fixed259 native promotion is closed. Finish already
+running266 independently; a task pass cannot override267. Next diagnose
+core-error versus induced-route differences on fixed consumed generation
+trajectories before defining a changed candidate. No threshold/finding edits.
 
 After quality pass, load the same725 archived tensors into the native whole
 model, qualify arithmetic/alias lookup/LUT/real DRAM, then accepted rate.
