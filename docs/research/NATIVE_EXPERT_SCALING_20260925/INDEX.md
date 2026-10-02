@@ -67,22 +67,20 @@ baseline charges1016MB active/token. The generic donor port stays paused.
 
 ## Exact live resumption
 
-[281 full-prefix generation](METH_281_COMPLETE_I16_GENERATION_PROTOCOL_20261002.md)
-apparatus freeze `b3fae49` is running in **session76893** on the same276
-archive/278 sources;use the existing handle,do not restart on observation
-timeout. Last authoritative snapshot:donor24/E1280 15 rows at215.188s,
-PythonPID13188 confirmed live. No candidate/labeled texts have been inspected.
-35min stop/RSS20GiB/GPU10.5GiB;stdout only progress/aggregate gates.
+[281 full-prefix generation](METH_281_COMPLETE_I16_GENERATION_RESULT_20261002.md)
+passes all72 continuations/health/generatedK64 gates. Candidate EOS22/24,
+early0/repeat1 versus donor22/0/1 andE1280 23/0/1. Session76893 exits0,
+602.594s,no active model/benchmark job. Labeled texts have not been inspected.
 
-After281 completes,if all health/generatedK64 gates pass,run frozen
-[282 anonymous semantics](METH_282_COMPLETE_I16_BLIND_PROTOCOL_20261002.md),
-freeze `d87f688`,BEFORE full PIQA expense. Build/commit random A/B/C panel/map,
-read ONLY panel,commit all72 findings BEFORE opening map/unblinding;unchanged
+**Next exact action:** frozen [282 anonymous semantics](METH_282_COMPLETE_I16_BLIND_PROTOCOL_20261002.md),
+freeze `d87f688`,BEFORE full PIQA expense. Random A/B/C panel/map built;
+panel SHA `fa9c56f1e47db1d6644c4b3f9a485872160f9027595ce83b45f371ecd840612b`.
+Read ONLY panel,commit all72 findings BEFORE opening map/unblinding;unchanged
 strict267 counts. Semantic failure closes this fixed candidate and skips
 PIQA. Semantic pass requires separately frozen283 PIQA regression,then
 actual complete native cache/arithmetic/alias routing/LUT/real DRAM quality
 and accepted rate on the SAME artifact. Both quality gates remain mandatory.
-No282 panel/findings/score exists yet. No native50/useful-n/family claim.
+No282 findings/score exists yet. No native50/useful-n/family claim.
 
 ## Method,history and workspace
 

@@ -1,0 +1,206 @@
+{
+  "experiment": "METH-282-new-source-I16-three-arm-anonymous-excerpt-panel",
+  "generation_sha256": "9699987e06ef6816a4fe07d373bbe44a888bc5be519af14ac079812c2b2c1304",
+  "manifest_sha256": "7fc74c2ff172bcca5d71de685f1e230240d05789e11b0bb3b9290b64a4c8e053",
+  "anchors_sha256": "3123f83260d833b505fed5f60b7f68537012a2f7fb4c577adcaca5f54fa5fcd0",
+  "mapping_sha256": "48bc7a8fd6e3c27a4442a15132a339485e838b02c6d9166d2f9fa51e647b45dd",
+  "artifact_sha256": "4f9b9c7a76475d9b6e241947ee590884ea268d4bf7f02097df57ad4b2ac23fe9",
+  "script_sha256": "73d33a634b2ba20b91fcfeb38429dabf2a45c7210af268e2aa9b0ea9bf27cd4e",
+  "diagnostic_only": true,
+  "native_promotion_qualified": false,
+  "rubric": "Excerpt-only unsupported claims,severe central inversions,and absence of any concrete supported detail. Arm identities withheld until findings commit.",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_post_f16_layer1_start_cross_input.py",
+      "category": "code",
+      "excerpt": "rejected\": label_swap_rejected, \"helper_counts_exact\": counts == EXPECTED_COUNTS}}\n\n\ndef main() -> int:\n    parser = argparse.ArgumentParser(description=__doc__)\n    parser.add_argument(\"--model\", type=Path, default=MODEL); parser.add_argument(\"--output-dir\", type=Path); parser.add_argument(\"--apparatus-only\", action=\"store_true\"); parser.add_argument(\"--recover-existing\", action=\"",
+      "A": "The excerpt describes a function `main()` that takes command-line arguments, including a model path, output directory, and a flag to recover existing models. It also mentions that the model is expected to be available in the `MODEL` path.<|im_end|>",
+      "B": "The excerpt describes a function `main()` that takes command-line arguments for model path, output directory, apparatus-only flag, and a recovery flag. It then parses these arguments to construct a parser object and uses it to create an argument parser.<|im_end|>",
+      "C": "The excerpt describes a function `main()` that takes command-line arguments, including a model path, output directory, apparatus-only flag, and a recovery flag. It then parses these arguments to perform a specific task.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/strat03_executable_shared_residual.py",
+      "category": "code",
+      "excerpt": "  raise RuntimeError(\"selected E67/E68 held-out token IDs hash mismatch -- STOP\")\n    labels, labels_meta = _load_labels(architecture[\"n_layers\"], layers)\n\n    captures = {layer: _FitCapture(model, layer, labels[layer], rss) for layer in layers}\n    try:\n        with torch.inference_mode():\n            for sequence in range(CALIB_N_SEQ):\n                for capture in captures.valu",
+      "A": "The excerpt describes a ValueError raised by the `_FitCapture` function, which occurs when the selected E67/E68 held-out token IDs hash does not match the expected values. Specifically, it states that the `labels` and `labels_meta` are lists of tensors, and the `catches` dictionary contains tensors for each layer in the model. The ValueError is raised when the hash mismatch is detected during inference.<|im_end|>",
+      "B": "The excerpt describes a Python function that loads labels and captures from a model, where the labels are stored in a dictionary and the captures are stored in a dictionary. The function raises a `RuntimeError` when the hash of the selected E67/E68 held-out token IDs does not match the expected value, and it attempts to load the labels and captures for a specific sequence.<|im_end|>",
+      "C": "The excerpt describes a Python function that loads labels and captures from a model, where the labels are stored in a dictionary and the captures are stored in a dictionary. It also mentions that the function is attempting to evaluate the model using inference mode and that it is iterating over a range of sequences and capturing the model's output for each sequence.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/nibble_pack.h",
+      "category": "code",
+      "excerpt": " a multiple of 32 for this; it is, by construction.\n//\n// ODD T (brief section 2, second trap):\n//   When T is odd the final byte-plane tb = Tp-1 carries a real code only in its LOW nibble.\n//   The kernel loops full pairs tb in [0, T/2) and then handles the leftover plane with the LOW nibble\n//   ONLY: the high nibble of that plane is NEVER LOADED INTO A SHUFFLE. It cannot contami",
+      "A": "The excerpt describes a code snippet that is constructed using a multiple of 32 bytes. It also mentions a specific trap called \"ODD T\" which is used to handle odd values of T. The excerpt provides a brief explanation of how the kernel handles odd values of T by only loading the high nibble of the plane that is not part of a full pair.<|im_end|>",
+      "B": "The excerpt describes a code snippet that is constructed using a multiple of 32 bytes, where the final byte-plane `tb` is determined by the value of `Tp-1` (the previous byte-plane) and carries a real code only in its LOW nibble. The kernel loops full pairs of `tb` in the range `[0, T/2)` and then handles the leftover plane with the LOW nibble, ensuring that the high nibble of that plane is never loaded into a shuffle.<|im_end|>",
+      "C": "The excerpt describes a code snippet that is constructed using a multiple of 32 bytes. It also mentions a specific detail: when the code is odd, the final byte-plane `tb` carries a real code only in its LOW nibble. The kernel loops full pairs of `tb` in the range `[0, T/2)` and then handles the leftover plane with the LOW nibble, only the high nibble of that plane is never loaded into a shuffle.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/native_expert_scaling/meth53_product_key_cpu.c",
+      "category": "code",
+      "excerpt": ") * 0.1f;\n    }\n    return p;\n}\nstatic int better(Choice a, Choice b) {\n    return a.score > b.score || (a.score == b.score && a.id < b.id);\n}\nstatic void insert(Choice best[KEEP], Choice c) {\n    for (int k = 0; k < KEEP; k++) {\n        if (better(c, best[k])) {\n            for (int j = KEEP - 1; j > k; j--) best[j] = best[j - 1];\n            best[k] = c;\n            return;\n     ",
+      "A": "The excerpt describes a function `better` that compares two choices based on their scores and id. It returns `true` if the first choice is better than the second, or if they are tied and the first choice has a lower id. The function is used to insert a choice into a list of choices, ensuring that the choice with the highest score or tied id is inserted first.<|im_end|>",
+      "B": "The excerpt describes a function `better` that compares two choices based on their scores and id. It returns the choice with the higher score or the choice with the same score but a higher id if both are equal. The function is used to insert a new choice into a list of choices, ensuring that the new choice is always the best one based on the given criteria.<|im_end|>",
+      "C": "The excerpt describes a function `better` that compares two choices based on their scores and whether they are the same. It returns the choice with the higher score or the choice with the same score but a higher id if both are equal. The function is used to insert a new choice into a list of choices, ensuring that the new choice is always the best one based on the given criteria.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/summarize.py",
+      "category": "code",
+      "excerpt": "lls = []\n            for l in levels:\n                cells.append(f\"{rr[l]['delta']:+.4f}\" if l in rr else \"—\")\n            print(f\"| `{o}` | {ax} | \" + \" | \".join(cells) + \" |\")\n    if d.get(\"depth_sweep\"):\n        print(\"\\n### D1 depth sweep (single layer, structured)\\n\")\n        ls = sorted({r[\"layer\"] for r in d[\"depth_sweep\"]})\n        print(\"| layer | attn 50% | attn 90% | m",
+      "A": "The excerpt describes a Python script that processes a list of dictionaries, where each dictionary contains a 'delta' value and an 'layer' key. The script appends the 'delta' value to a list for each dictionary and then prints a table with the 'layer' and 'delta' values. It also includes a depth sweep feature, where it sorts the 'layer' values and prints a table with the 'layer' and 'delta' values for each layer.<|im_end|>",
+      "B": "The excerpt describes a Python script that processes a list of dictionaries (`lls`) to generate a table of values. It first iterates over each dictionary in the list, appending the delta value to a list for each dictionary. Then, it prints the table with the delta values formatted to 4 decimal places. If a dictionary contains a \"layer\" key, it sorts the keys of the dictionary and prints the sorted keys followed by the corresponding values.<|im_end|>",
+      "C": "The excerpt describes a Python script that processes a list of dictionaries (`lls`) to generate a formatted table. The script iterates over each dictionary in the list, appending the delta value to a list of cells. The cells are then joined into a single string with a separator, and the table is printed with a header row and a table body. The script also includes a depth sweep feature, where it sorts the layers in the `depth_sweep` dictionary and prints a table with the sorted layers and their corresponding attention values.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_q6_residual_propagation.py",
+      "category": "code",
+      "excerpt": "se RunnerError(f\"routed-Q6 propagation twin mismatch: {name}\")\n        evidence[name] = path.resolve(strict=True)\n    for path, digest, size, label in ((Q6_REF_DOWN, Q6_REF_DOWN_SHA, 196608, \"old Q6 reference-input output\"), (PREDECESSOR, PREDECESSOR_SHA, None, \"predecessor\"), (PREDECESSOR_OUTPUT, PREDECESSOR_OUTPUT_SHA, 196608, \"predecessor output\"), (OLD_Q6_ADJ, OLD_Q6_ADJ_SHA, N",
+      "A": "The excerpt describes a `RunnerError` exception where a propagation twin mismatch occurs. It provides a specific detail by stating that the error is caused by resolving a path with a strict=True argument, which is common in the context of running a Q6 reference-input output.<|im_end|>",
+      "B": "The excerpt describes a `RunnerError` exception, which occurs when a runner encounters a propagation twin mismatch. It provides a specific detail by mentioning the `name` parameter in the `RunnerError` exception, which is used to identify the runner that encountered the error.<|im_end|>",
+      "C": "The excerpt describes a `RunnerError` exception, which occurs when a runner encounters a propagation twin mismatch. It provides a specific detail by mentioning the `name` parameter in the `RunnerError` exception, which is used to identify the runner that encountered the error.<|im_end|>"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_avx2_parity.py",
+      "category": "code",
+      "excerpt": "q8k_avx2_parity.h\",\n    HERE / \"strat01_q6k_q8k_avx2_probe.c\",\n    HERE / \"strat01_q6k_q8k_avx2_oracle.cpp\",\n    HERE / \"build_strat01_q6k_q8k_avx2_oracle.py\",\n    HERE / \"test_strat01_q6k_q8k_avx2_parity.py\",\n    PROTOCOL,\n    Path(__file__).resolve(),\n)\n\n\nclass ApparatusError(RuntimeError):\n    pass\n\n\ndef utc_now() -> str:\n    return datetime.now(timezone.utc).isoformat()\n\n\ndef s",
+      "A": "The excerpt describes a set of files and directories related to a specific project, including a header file (`q8k_avx2_parity.h`), a C source file (`strat01_q6k_q8k_avx2_probe.c`), an Oracle C++ source file (`strat01_q6k_q8k_avx2_oracle.cpp`), a Python script (`build_strat01_q6k_q8k_avx2_oracle.py`), and a Python script (`test_strat01_q6k_q8k_avx2_parity.py`), all located in",
+      "B": "The excerpt describes a set of files and directories related to a specific project, including a header file (`q8k_avx2_parity.h`), a C source file (`strat01_q6k_q8k_avx2_probe.c`), a C source file (`strat01_q6k_q8k_avx2_oracle.cpp`), a Python script (`build_strat01_q6k_q8k_avx2_oracle.py`), and a Python script (`test_strat01_q6k_q8k_avx2_parity.py`), all located in the same",
+      "C": "The excerpt describes a set of files and directories related to a specific project, including a header file (`q8k_avx2_parity.h`), a C source file (`strat01_q6k_q8k_avx2_probe.c`), an Oracle C++ file (`strat01_q6k_q8k_avx2_oracle.cpp`), a Python script (`build_strat01_q6k_q8k_avx2_oracle.py`), and a Python script (`test_strat01_q6k_q8k_avx2_parity.py`), all located in the"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e31_gather.c",
+      "category": "code",
+      "excerpt": "a shuffled order --\n// what a naive gather does.  `contig` reads the SAME VOLUME as one unbroken run and is the\n// planted control: same bytes, no scatter, so it must come back at the dense ceiling.  If it\n// does not, the instrument is measuring volume rather than granularity and nothing else it\n// prints can be believed.\n//\n// Four accumulators per thread (E8's law), volatile sin",
+      "A": "The excerpt describes a scenario where a shuffled order is being processed, where a `contig` reads the same volume as one unbroken run and is the planted control. This means that the instrument is measuring volume rather than granularity, and the data is not believed unless it is present in the dense ceiling.<|im_end|>",
+      "B": "The excerpt describes a scenario where a shuffled order is being read from a volume, which is then used as the planted control. The instrument is measuring volume rather than granularity, and the result is not believed.<|im_end|>",
+      "C": "The excerpt describes a scenario where a `contig` reads the same volume from a single unbroken run, which is then used as the planted control. If the `contig` does not return the same volume, the instrument is measuring volume rather than granularity, and the instrument's output cannot be trusted.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=969",
+      "category": "prose",
+      "excerpt": "gram of caffein per kilo proved\nfatal. On this supposition the discrepancy in the results obtained in\nthis series may be readily explained. The smallest doses which proved\nfatal in these experiments were 0.145 and 0.152 gram per kilo. No. 38,\nwhich died from a dose of 0.12 gram per kilo, may be considered as an\nexception, as this subject was not normal. Experiments with caffein on\n",
+      "A": "The excerpt describes a study where the fatal dose of caffeine was found to be 0.145 and 0.152 grams per kilo, with no dose causing death in the third experiment. The smallest fatal dose was 0.12 grams per kilo, which was not considered normal.<|im_end|>",
+      "B": "The excerpt describes a study where the fatal dose of caffeine was 0.145 and 0.152 grams per kilo, with the smallest fatal dose being 0.12 grams per kilo. No. 38, which died from a dose of 0.12 grams per kilo, may be considered as an exception due to the subject being not normal.<|im_end|>",
+      "C": "The excerpt describes a study where the fatal dose of caffeine was 0.145 and 0.152 grams per kilo, with the smallest fatal dose being 0.12 grams per kilo. No. 38, which died from a dose of 0.12 grams per kilo, may be considered as an exception due to the subject being not normal.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=277",
+      "category": "prose",
+      "excerpt": ", while Amy went\ntripping down the street to meet the hack, which, of course, passed her,\nreducing her to the necessity of following in pursuit, panting and very\nred in the face.  All along the Terrace people came to the windows at\nthe sound of wheels, for from the mothers down to the babies, everyone\nknew that Peggy Raymond was coming home that morning.  Even Taffy,\nPeggy's dog, b",
+      "A": "The excerpt describes a scene where Amy, a woman, is following a person who is coming home from a meeting. The person is described as passing Amy and reducing her to the necessity of following. The excerpt also mentions that people are coming to the windows at the sound of wheels, and that Taffy, a dog, is also present.<|im_end|>",
+      "B": "Amy was tripping down the street to meet a hack, who passed her and reduced her to the necessity of following in pursuit. The excerpt describes a scene where Amy is following a hack who is coming home from work, and she is panting and very red in the face.<|im_end|>",
+      "C": "The excerpt describes a scene where Amy, a woman, is following a person who is coming home from a meeting. The person is described as passing Amy and reducing her to the necessity of following.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=220",
+      "category": "prose",
+      "excerpt": " Chester, \"Dollars and Cents,\" \"Ed. I. Torial,\" John C.\nGabel, Edward Gude, Henry Gottlieb, J. L. Hastie, Jun., Willie Hartwell,\nEddie S. Hequembourg, Frank Haines, Alice M. H., \"L. U. Stral,\" \"Lode\nStar,\" \"Milwaukee,\" _Percy L. McDermott_, May and Fannie, \"Pepper,\"\nA. P., Harold N. Pleis, Edith Ross, \"Starry Flag,\" _Howard J. Van\nDoren_, Willie F. Woolard, \"Young Solver.\"\n\n\n\n\nHARP",
+      "A": "The excerpt describes a collection of 10 books, each with a different author and title, including \"Dollars and Cents,\" \"Ed. I. Torial,\" \"John C. Gabel,\" \"Edward Gude,\" \"Henry Gottlieb,\" \"J. L. Hastie,\" \"Jun., Willie Hartwell,\" \"Eddie S. Hequembourg,\" \"Frank Haines,\" \"Alice M. H.,\" \"L. U. Stral,\" \"Lode Star,\" \"Milwaukee,\" \"Pepper,\" \"A. P., Harold N. Pleis,\" \"Edith Ross,\" \"",
+      "B": "The excerpt describes a collection of 10 books, each with a different author and title, including \"Dollars and Cents,\" \"Ed. I. Torial,\" \"John C. Gabel,\" \"Edward Gude,\" \"Henry Gottlieb,\" \"J. L. Hastie,\" \"Jun., Willie Hartwell,\" \"Eddie S. Hequembourg,\" \"Frank Haines,\" \"Alice M. H.,\" \"L. U. Stral,\" \"Lode Star,\" \"Milwaukee,\" \"Percy L. McDermott,\" \"May and Fannie,\" \"Pepper,\" \"",
+      "C": "The excerpt describes a collection of 1000+ books, each with a unique title and author, organized by publisher and publication date.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=482",
+      "category": "prose",
+      "excerpt": "o much interest beyond the Rockies that before Kearny\nmarched his army into Santa Fe another trail of importance equal to his\nhad been run to Oregon.\n\nThe maintenance of the Indian frontier depended upon the ability of\nthe United States to keep whites out of the Indian Country. But with\nOregon and Santa Fe beyond, this could never be. The trails had already\nshown the fallacy of the",
+      "A": "The excerpt describes the importance of maintaining the Indian frontier by keeping whites out of the Indian Country, but it also mentions that with the establishment of Oregon and Santa Fe, this could never be achieved.<|im_end|>",
+      "B": "The excerpt describes a significant shift in the United States' approach to maintaining the Indian frontier, particularly after the establishment of the Oregon and Santa Fe trails. It highlights the decline in interest in the Rocky Mountains and the importance of the Indian frontier in the context of the United States' efforts to control the expansion of Native American populations.<|im_end|>",
+      "C": "The excerpt describes a significant shift in the United States' approach to maintaining the Indian frontier, particularly after the establishment of the Oregon and Santa Fe trails. It highlights the decline in interest in the Rocky Mountains and the importance of the Indian frontier in the context of the United States' efforts to control the Indian population.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=950",
+      "category": "prose",
+      "excerpt": "m,\ndetarmined to find out whar he located, and arter an eternal long\nwindin' through one street arter another, down he dived into French\nHollow. Jest as he wur about to enter a house built agin the side of\nthe hill, the old fellar heered my footsteps, and turnin' round in the\ndarkness, he shouted--\n\n\"'Ah, ha! von sneak Yankee doodel, vat call my leetel gall von\ns-c-r-r-r-ouger, I s",
+      "A": "The excerpt describes a man who is determined to find out where he is located and is traveling through a winding street. He turns around in the dark and shouts, \"Ah, ha! I sneak Yankee doodel, vat call my leetel gall von s-c-r-r-r-ouger, I see a house built agin the side of the hill.\"<|im_end|>",
+      "B": "The excerpt describes a man who, after searching for a long time, finally finds a house built on the side of a hill. The old man hears the footsteps of the man who is about to enter the house and turns around in the dark, shouting, \"Ah, ha! I see a Yankee doodel, call my leetel gall von s-c-r-r-r-ouger, I see a man.\"<|im_end|>",
+      "C": "The excerpt describes a man who, after searching for a long time, finally finds a house built on the side of a hill. The old man hears the footsteps of the man he is looking for and turns around in the dark, shouting, \"Ah, ha! I see a Yankee doodel, call my leetel gall von s-c-r-r-r-ouger, I see a house built on the side of the hill.\"<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=794",
+      "category": "prose",
+      "excerpt": "S COMIC SKETCHES;\n\nOR, THE PHANTASMAGORIA OF FUN.\n\n\nIV.\n\nIn post 8vo. with upwards of Fifty characteristic Illustrations by\nLeech, price 8_s._\n\nTHE COMIC ENGLISH GRAMMAR.\n\nBy the Author of \"THE COMIC LATIN GRAMMAR.\"\n\n\nV.\n\nIn Two Volumes, post 8vo. with numerous Illustrations by Leech, &c.\nincluding several fac-similes of rare and unique old Prints, price\n21_s._\n\nMERRIE ENGLAND IN T",
+      "A": "The excerpt describes two books: \"The Comic English Grammar\" and \"Merrily England in T. \" Both are illustrated and priced at 8 s.<|im_end|>",
+      "B": "The excerpt describes two books: \"The Comic English Grammar\" and \"Merrill England in T. \" Both are illustrated and priced at 8 s.<|im_end|>",
+      "C": "The excerpt describes two books: \"The Comic English Grammar\" and \"Merrily England in T. \" Both are illustrated and priced at 8 s.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=791",
+      "category": "prose",
+      "excerpt": "onsequently one which holds\na prominent place in the accounts of the struggle between heathenism\nand Christianity. One of the first objects aimed at by the kings who\nadopted the new faith was the suppression of the practice in every\nform, while the adherents of the old religion clung to it tenaciously\nas long as they could. Even after Christianity was the established\nreligion of No",
+      "A": "The excerpt describes the prominence of a practice in the accounts of the struggle between heathenism and Christianity. It mentions that one of the first objects aimed at by the kings who adopted the new faith was the suppression of the practice in every form, while the adherents of the old religion clung to it tenaciously as long as they could.<|im_end|>",
+      "B": "The excerpt describes the prominence of a practice in the accounts of the struggle between heathenism and Christianity. It mentions that one of the first objects aimed at by the kings who adopted the new faith was the suppression of the practice in every form, while the adherents of the old religion clung to it tenaciously as long as they could.<|im_end|>",
+      "C": "The excerpt describes the prominence of a practice in the accounts of the struggle between heathenism and Christianity. It mentions that one of the first objects aimed at by the kings who adopted the new faith was the suppression of the practice in every form, while the adherents of the old religion clung to it tenaciously as long as they could.<|im_end|>"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=50",
+      "category": "prose",
+      "excerpt": " improved by its uniform\nlivid hue. The disease disclosed its low type in a startling way. It was\nnot so with many of the men. The wastage of ill-health seemed to idealise\nthe general character of the features, bringing out the unsuspected\nnobility of some, the strength of others, and in one case revealing an\nessentially comic aspect. He was a short, gingery, active man with\na nose",
+      "A": "The excerpt describes a disease that is described as having a uniform, vivid hue, revealing its low type in a startling way. It mentions that the disease is not as common as others, and that it is idealized by its appearance, highlighting the nobility of some and the strength of others.<|im_end|>",
+      "B": "The excerpt describes a disease that is described as having a uniform, vivid hue, revealing its low type in a startling way. It mentions that the disease is not as common as others, and that it is idealized by its features, revealing the nobility of some and the strength of others.<|im_end|>",
+      "C": "The excerpt describes a disease that is described as having a uniform, vivid hue, revealing its low type in a startling way. It mentions that the disease is not as common as others, and it is particularly noticeable in men. The excerpt also provides a specific detail about the man's appearance, noting that he is short, gingery, active, and has a nose.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E27_THE_FLOOR_NOT_THE_FFN.md",
+      "category": "technical_general",
+      "excerpt": " |\n| 96 | 1/16 | 42/160 | 2.097275 |\n\n**The curve is a cliff, not a slope.** From `1/3` to `1/8` the model loses 88 of 160 tokens and its\nBPB more than doubles. There is no smooth fraction to carry to another width; `r = 512` at `D = 1536`\nis a *specific* number that happens to be above this donor's attention rank, and nothing in this\ntable licenses transposing `1/3` to `r = 1365` ",
+      "A": "The excerpt describes a curve with a steep drop from `1/3` to `1/8`, where the model loses 88 tokens and its BPB more than doubles. It also mentions that there is no smooth fraction to carry to another width, and that `r = 512` at `D = 1536` is a specific number that happens to be above the donor's attention rank.<|im_end|>",
+      "B": "The excerpt describes a curve with a steep drop from `1/3` to `1/8`, where the model loses 88 tokens and its BPB more than doubles. It also mentions that there is no smooth fraction to carry to another width, and that `r = 512` at `D = 1536` is a specific number that happens to be above the donor's attention rank.<|im_end|>",
+      "C": "The excerpt describes a curve with a steep drop from `1/3` to `1/8`, where the model loses 88 tokens and its BPB more than doubles. The excerpt also mentions that there is no smooth fraction to carry to another width, and that `r = 512` at `D = 1536` is a specific number that happens to be above the donor's attention rank.<|im_end|>"
+    },
+    {
+      "source_id": "docs/handoffs/COSTRUTTORE_S1_KAGGLE_SCALE_ARM.md",
+      "category": "technical_general",
+      "excerpt": "_ready()` cleared with no delay. Kernel reached `KernelWorkerStatus.COMPLETE`.\n  **Downloaded and verified from the JSON artefacts (never from log line counts):**\n  - `gpu.n_devices_achieved = 2`, both `Tesla T4`, `torch_cuda = \"12.8\"` — real T4×2.\n  - `dtype_achieved = \"torch.float16\"`, `devices_in_use_achieved = [\"cuda:0\"]` — fp16 policy held.\n  - `selfcheck_pass = true`.\n  - `si",
+      "A": "The `__init__()` method of the `Kernel` class is called with no delay, indicating that the kernel has been successfully initialized. The kernel has reached the `KernelWorkerStatus.COMPLETE` status, which means it has completed execution. The kernel has downloaded and verified its JSON artefacts, including the number of GPUs (`gpu.n_devices_achieved`), the device count (`dtype_achieved`), and the device usage (`devices_in_use_achieved`). The `selfcheck_pass` flag is set to `true`, suggesting that the kernel has passed all necessary checks.<|im_end|>",
+      "B": "The `__init__()` method of the `Kernel` class is called with no delay, indicating that the kernel has been successfully initialized. The kernel has reached the `KernelWorkerStatus.COMPLETE` status, which means it has completed execution. The kernel has downloaded and verified its JSON artefacts, including the number of GPUs (`gpu.n_devices_achieved`), the device count (`dtype_achieved`), and the device usage (`devices_in_use_achieved`). The `selfcheck_pass` flag is set to `true`, suggesting that the kernel has passed all checks.<|im_end|>",
+      "C": "The `__init__()` method of the `Kernel` class is called with no delay, indicating that the kernel has been successfully initialized. The kernel has reached the `KernelWorkerStatus.COMPLETE` status, which means it has completed its execution. The kernel has downloaded and verified its JSON artefacts, including the number of GPUs (`gpu.n_devices_achieved`), the device type (`dtype_achieved`), and the device usage (`devices_in_use_achieved`). Additionally, the `selfcheck_pass` flag is set to `true`, suggesting that the kernel has passed all necessary checks.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/DEPTH_PRUNING_PRIOR_ART.md",
+      "category": "technical_general",
+      "excerpt": "ls.\n2. **Both Qwen panels break that pattern, and they break it in the way the prose says.**\n   Qwen-7B (d) carries a distinct light green-to-yellow region at **small `l`, roughly\n   `l` = 1 to 8, at small and mid block sizes**, separate from the main deep band.\n   Qwen-14B (e) shows a pronounced light column at **`l` ~ 0-5** extending upward in `n`,\n   plus a second light band at ",
+      "A": "**Summary:**\n\nThe excerpt describes two distinct patterns in the `ls` command output, where Qwen-7B (d) and Qwen-14B (e) exhibit distinct light green-to-yellow regions and a light column extending upward in `n` at small and mid block sizes, respectively.<|im_end|>",
+      "B": "The excerpt describes two Qwen models, Qwen-7B and Qwen-14B, which exhibit distinct patterns in their light green-to-yellow regions and a light column extending upward in the first block size.<|im_end|>",
+      "C": "The excerpt describes two Qwen models, Qwen-7B and Qwen-14B, which exhibit distinct patterns in their light green-to-yellow regions and a light column extending upward in the `n` dimension.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/STRATEGIC_10B_20260916/STATUS_20260923.md",
+      "category": "technical_general",
+      "excerpt": "_OUTPUT_RESIDUAL_CROSS_INPUT_PROTOCOL_20260924.md)\nnow has a canonical [model-free apparatus result](../donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_APPARATUS_RESULT_20260924.md),\n`APPARATUS_READY_NO_DONOR_EXECUTION`. The accepted artifact was not opened;\ndiagnostic, projection, constructed-input, RMSNorm, up, downstream, and graph",
+      "A": "The excerpt describes a model-free apparatus result for a specific protocol, which is now in a \"canonical\" state. The accepted artifact was not opened, and the diagnostic, projection, constructed-input, RMSNorm, up, and downstream processes are not being performed.<|im_end|>",
+      "B": "The excerpt describes a protocol for analyzing a model-free apparatus result, which is now in a canonical state. It mentions that the protocol is for probing STRAT_01_GIGACHAT31_ENGINE_LAYER1_ATTENTION_OUTPUT_RESIDUAL_CROSS_INPUT_APPARATUS_RESULT_20260924.md, which is a specific protocol file. The protocol is in the \"APPARATUS_READY_NO_DONOR_EXECUTION\" state, indicating that the protocol is not being executed by a donor. The protocol includes diagnostic, projection, constructed-input, RMSNorm, up, downstream, and graph analysis.<|im_end|>",
+      "C": "The excerpt describes a model-free apparatus result for a specific protocol, which is now available. The accepted artifact was not opened, and diagnostic, projection, constructed-input, RMSNorm, up, and downstream are not available.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/decisions/T4_HEALING_PROPOSAL.md",
+      "category": "technical_general",
+      "excerpt": "/h0/h0_eval_intact_recheck.json`). `h0_eval.py` is\nunchanged since `511cf42`. **The instrument fires on the known-positive, so its readings count.**\n\n**Gate `tf ≥ 48`: PASS at 115, delta +87.** Damage removed **97.175% → 97.925%**. The second 500\nsteps removed **26.6% of the residual that survived the first 500**.\n\n### 12.2 The finding, and it is about the METRIC, not about the GPU",
+      "A": "The instrument fires on the known-positive, so its readings count. The gate `tf ≥ 48` passes at 115, with a delta of +87. The second 500 steps remove 26.6% of the residual that survived the first 500.<|im_end|>",
+      "B": "The instrument fires on the known-positive, so its readings count. The gate `tf ≥ 48` passes at 115, with a delta of +87. The second 500 steps remove 26.6% of the residual that survived the first 500.<|im_end|>",
+      "C": "The instrument fires on the known-positive, so its readings count. The instrument removes 97.175% of the residual that survived the first 500 steps.<|im_end|>"
+    },
+    {
+      "source_id": "docs/prompts/master_prompts/DONOR_MODEL_ADAPTATION.md",
+      "category": "technical_general",
+      "excerpt": "ng result\n\nThe Adapter must end with one of these adjudicable statements for a named donor class and SKU:\n\n1. **GO:** the converted system meets every sealed acceptance gate in §3 and its result is reproducible\n   on the declared hardware/protocol.\n2. **NO-GO:** a sealed gate is missed, with the mechanism localized and the closest measured result\n   reported.\n3. **AMENDMENT REQUEST",
+      "A": "The Adapter must end with one of these adjudicable statements for a named donor class and SKU:\n\n1. **GO:** the converted system meets every sealed acceptance gate in §3 and its result is reproducible\n   on the declared hardware/protocol.\n2. **NO-GO:** a sealed gate is missed, with the mechanism localized and the closest measured result\n   reported.\n3. **AMENDMENT REQUEST**<|im_end|>",
+      "B": "The Adapter must end with one of these adjudicable statements for a named donor class and SKU:\n\n1. **GO:** the converted system meets every sealed acceptance gate in §3 and its result is reproducible\n   on the declared hardware/protocol.\n2. **NO-GO:** a sealed gate is missed, with the mechanism localized and the closest measured result\n   reported.\n3. **AMENDMENT REQUEST**<|im_end|>",
+      "C": "The Adapter must end with one of these adjudicable statements for a named donor class and SKU:\n\n1. **GO:** the converted system meets every sealed acceptance gate in §3 and its result is reproducible\n   on the declared hardware/protocol.\n2. **NO-GO:** a sealed gate is missed, with the mechanism localized and the closest measured result\n   reported.\n3. **AMENDMENT REQUEST**<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_PROTOCOL_20260923.md",
+      "category": "technical_general",
+      "excerpt": "y apparatus and causal controls\n\nModel-free tests must make each wrong implementation fail:\n\n1. use biased rather than unbiased sigmoid values as route weights;\n2. replace sigmoid plus top-k normalization with softmax;\n3. omit selected-weight normalization;\n4. permute selected expert IDs without applying the same permutation to every\n   selected tensor and weight;\n5. transpose or s",
+      "A": "The excerpt describes a series of steps for model-free tests in a neural network, emphasizing the importance of using biased sigmoid values, replacing sigmoid with softmax, omitting top-k normalization, permuting selected expert IDs, and transposing or swapping selected weights.<|im_end|>",
+      "B": "The excerpt describes a series of steps for model-free tests in a neural network, emphasizing the importance of using biased sigmoid values, replacing softmax with softmax, omitting selected-weight normalization, and transposing or swapping selected expert IDs.<|im_end|>",
+      "C": "The excerpt describes a set of specific changes to a model-free test to ensure that each wrong implementation fails. It outlines the following steps:\n\n1. Use biased rather than unbiased sigmoid values as route weights.\n2. Replace sigmoid plus top-k normalization with softmax.\n3. Omit selected-weight normalization.\n4. Permute selected expert IDs without applying the same permutation to every selected tensor and weight.\n5. Transpose or swap the positions of selected expert IDs and weights.\n\nThe excerpt suggests that these changes aim to make the model more robust and less prone to errors, particularly in the context of model-free testing.<|im_end|>"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/decisions/DONOR_V2_DENSITY_PROGRAMME.md",
+      "category": "technical_general",
+      "excerpt": "|\n\n> **I ran a 100%-activation model on an architecture designed for 3%, and then reported that the\n> architecture was the constraint. The constraint was the model's density, and I never attacked it.**\n\n**The specific failure, named:** the engine's speed is `active_params × bytes_per_weight`, and there are\nthree multiplicative levers — **activation fraction**, **bits per weight**, ",
+      "A": "The excerpt describes a scenario where a 100%-activation model was trained on an architecture designed for 3%, resulting in a model with a high activation fraction. The model's density was constrained by the architecture's density, and the model's speed was determined by the product of its active parameters and the number of bits per weight. The specific failure, named, is the engine's speed being `active_params × bytes_per_weight`, and there are three multiplicative levers: activation fraction, bits per weight, and the model's density.<|im_end|>",
+      "B": "The excerpt describes a scenario where a 100%-activation model was trained on an architecture designed for 3%, resulting in a constraint. The constraint was the model's density, and the author never attacked it. The specific failure, named \"the engine's speed is active_params × bytes_per_weight,\" is described with three multiplicative levers: activation fraction, bits per weight, and the model's density.<|im_end|>",
+      "C": "The excerpt describes a scenario where a 100%-activation model was trained on an architecture designed for 3%, resulting in a model with a high activation fraction. The model's density was constrained by the model's density, and the author never attacked this constraint. The specific failure, named \"the engine's speed is active_params × bytes_per_weight,\" indicates that the model's speed is influenced by the activation fraction and the number of bits per weight.<|im_end|>"
+    }
+  ]
+}

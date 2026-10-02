@@ -1,0 +1,149 @@
+{
+  "generation_sha256": "9699987e06ef6816a4fe07d373bbe44a888bc5be519af14ac079812c2b2c1304",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_post_f16_layer1_start_cross_input.py",
+      "A": "bf16_e1280",
+      "B": "bf16_donor",
+      "C": "stored_i16_private128_e1280"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/strat03_executable_shared_residual.py",
+      "A": "bf16_donor",
+      "B": "stored_i16_private128_e1280",
+      "C": "bf16_e1280"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/nibble_pack.h",
+      "A": "stored_i16_private128_e1280",
+      "B": "bf16_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "benchmarks/native_expert_scaling/meth53_product_key_cpu.c",
+      "A": "stored_i16_private128_e1280",
+      "B": "bf16_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/summarize.py",
+      "A": "bf16_e1280",
+      "B": "stored_i16_private128_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_q6_residual_propagation.py",
+      "A": "bf16_donor",
+      "B": "bf16_e1280",
+      "C": "stored_i16_private128_e1280"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_avx2_parity.py",
+      "A": "bf16_e1280",
+      "B": "bf16_donor",
+      "C": "stored_i16_private128_e1280"
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e31_gather.c",
+      "A": "stored_i16_private128_e1280",
+      "B": "bf16_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=969",
+      "A": "stored_i16_private128_e1280",
+      "B": "bf16_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=277",
+      "A": "stored_i16_private128_e1280",
+      "B": "bf16_donor",
+      "C": "bf16_e1280"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=220",
+      "A": "stored_i16_private128_e1280",
+      "B": "bf16_donor",
+      "C": "bf16_e1280"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=482",
+      "A": "bf16_donor",
+      "B": "stored_i16_private128_e1280",
+      "C": "bf16_e1280"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=950",
+      "A": "bf16_donor",
+      "B": "stored_i16_private128_e1280",
+      "C": "bf16_e1280"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=794",
+      "A": "bf16_e1280",
+      "B": "bf16_donor",
+      "C": "stored_i16_private128_e1280"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=791",
+      "A": "bf16_donor",
+      "B": "stored_i16_private128_e1280",
+      "C": "bf16_e1280"
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=50",
+      "A": "stored_i16_private128_e1280",
+      "B": "bf16_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E27_THE_FLOOR_NOT_THE_FFN.md",
+      "A": "bf16_e1280",
+      "B": "stored_i16_private128_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "docs/handoffs/COSTRUTTORE_S1_KAGGLE_SCALE_ARM.md",
+      "A": "bf16_e1280",
+      "B": "stored_i16_private128_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/DEPTH_PRUNING_PRIOR_ART.md",
+      "A": "bf16_donor",
+      "B": "bf16_e1280",
+      "C": "stored_i16_private128_e1280"
+    },
+    {
+      "source_id": "docs/research/STRATEGIC_10B_20260916/STATUS_20260923.md",
+      "A": "bf16_e1280",
+      "B": "bf16_donor",
+      "C": "stored_i16_private128_e1280"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/decisions/T4_HEALING_PROPOSAL.md",
+      "A": "bf16_e1280",
+      "B": "stored_i16_private128_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "docs/prompts/master_prompts/DONOR_MODEL_ADAPTATION.md",
+      "A": "stored_i16_private128_e1280",
+      "B": "bf16_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_PROTOCOL_20260923.md",
+      "A": "stored_i16_private128_e1280",
+      "B": "bf16_e1280",
+      "C": "bf16_donor"
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/decisions/DONOR_V2_DENSITY_PROGRAMME.md",
+      "A": "bf16_donor",
+      "B": "stored_i16_private128_e1280",
+      "C": "bf16_e1280"
+    }
+  ]
+}

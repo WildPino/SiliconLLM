@@ -98,8 +98,10 @@ now passes all24 and annotations are committed before outputs.280 new
 complete prediction passes all pooled/category/BPB/top1/K64 gates,112.156s;
 BPB1.17331320 versus donor1.17828037/E1280 1.17323483,donor-top1 96.5006%.
 The E1280 BPB bootstrap interval includes0,no significant gain claim.
-New source IDs are now consumed;281 new-source generation precedes actual
-task/anonymous semantic qualification. Full native integration/rate remains
+New source IDs are now consumed;281 new-source full-prefix generation now
+passes all72 health/generatedK64 controls,602.594s,candidateEOS22/repeat1,
+same as donor (E1280EOS23/repeat1).282 anonymous semantics precedes full
+PIQA expense;both unchanged gates remain mandatory. Full native integration/rate remains
 open;diagnostic status and all previous fixed stops remain unchanged.
 This reference is not production decoding.
 Full generation/tasks, native
