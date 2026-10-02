@@ -28,8 +28,8 @@ fails the unchanged ablation guard (5.5687%); do not adopt. FP32 residual
 stream in [289](METH_289_RESIDUAL32_RESULT_20261002.md) also fails four
 unchanged5% hidden/logit guards. Neither precision variant is adopted.
 Before another execution variant, same-archive GPU no-cache causal prefix
-equivalence needs measurement to characterize reference stability. A new
-prospective execution recipe. The [native implementation plan](NATIVE_COMPLETE_I16_IMPLEMENTATION_PLAN_20261002.md)
+equivalence needs measurement to characterize reference stability. Further
+native changes require a new prospective execution recipe. The [native implementation plan](NATIVE_COMPLETE_I16_IMPLEMENTATION_PLAN_20261002.md)
 records actual tensor types,required BF16 boundaries and the route-alias
 lookup that must be implemented before qualification. The prior259 path
 below is preserved as the reproducible precursor,with its semantic stop.
