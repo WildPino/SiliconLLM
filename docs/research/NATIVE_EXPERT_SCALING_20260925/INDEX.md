@@ -61,18 +61,23 @@ baseline charges1016MB active/token. The generic donor port stays paused.
 
 ## Exact resumption
 
-METH-295 frozen at `00613ac`; complete fresh GPU controls retained after
-[pre-native cleanup apparatus failure](METH_295_NATIVE_PRIMARY_APPARATUS_FAILURE_20261002.md).
-Repair freeze `b2f3cd6` runs unchanged C in a process that never initializes
-CUDA, with exact saved GPU rows and identical input bundle. **Live session
-91076**, CPU started2October approximately16:44UTC;93 cases/33,659 scored
-rows/23,040 prefill rows, hard75minutes/childRSS20GiB. No rate measurement.
-Observe that session; do not duplicate/relaunch. Completed-case progress:
-`results/native_expert_scaling/meth295_native_primary_repair1_stdout.log`.
-Expected result `meth295_native_primary_prediction_repair1_result.json`.
-On terminal completion record actual result/gates/cost; pass licenses
-prospective native generation, quality fail closes fixed native profile.
-Native semantics/full1838 PIQA/CPU K64/accepted>=50 remain due.
+[295 actual native prediction](METH_295_NATIVE_PRIMARY_PREDICTION_RESULT_20261002.md)
+PASS all11 gates:24 new sources/29,395 document tokens/4,264 prompt positions.
+BPB1.23886670 versus donor1.24367193/E1280 1.23842220;agreement96.0600%,
++.867730points over E1280. All pooled/category margins and93 full-head
+oracles pass. Freeze `00613ac`, apparatus failure preserved, process-only
+repair `b2f3cd6`; session91076 exits0,1771.578s/CPU childpeakRSS1.36GB.
+Raw SHA `82a86f078409783859b8199e89d6186b53883917351baefd6787b46e4fc7d476`.
+No accepted-rate claim; original numeric5% failures remain.
+
+No scientific job active.296 native generation/source/real-state capture
+is prepared and compiles, not yet frozen or executed. Next: add actual
+phase60 generation entry, freeze296 protocol/source, invoke with exact295
+result SHA. All72 continuations/same24 prompts; verify all prompt choices/
+first heads against actual295, native cached/fresh generated-state bytes,
+erased-history controls and original health margins. GPU controls must
+terminate before actual C inference. Native strict anonymous semantics,
+full1838 PIQA/CPU K64/accepted>=50 remain due.
 
 The new execution entry is real phase60 C, not a Python oracle. Do not
 rebuild the197s model-free source pool or rerun failed precision variants.

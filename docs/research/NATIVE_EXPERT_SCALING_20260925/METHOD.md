@@ -31,7 +31,12 @@ not a numerical repair.292 selects24 untouched sources with3224 exclusions;
 293 source-only answerability passes before inference.294 real phase60
 scoring entry preserves original forward arithmetic with relative cache/
 absolute RoPE window positions; consumed-data bridge passes actual byte
-closure/top1/NLL oracle. Actual new-source native quality remains unmeasured.
+closure/top1/NLL oracle. [295 actual native prediction](METH_295_NATIVE_PRIMARY_PREDICTION_RESULT_20261002.md)
+now passes all pooled/category quality and apparatus gates on24 untouched
+sources: BPB1.23886670 versus donor1.24367193/E1280 1.23842220 and
+donor-top1 agreement96.0600%. The process-only repair reuses exact saved
+GPU controls after cleanup guard failure; native CPU29.422minutes is assay
+cost, not accepted rate. Actual native generation/semantics/PIQA/K64 remain due.
 Archive stays diagnostic/unpromoted; generation/semantics/PIQA/CPU K64 and
 accepted whole rate must pass on this same execution identity.
 
