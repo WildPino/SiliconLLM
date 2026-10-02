@@ -198,14 +198,14 @@ accurate than learned shared. Both prospective coherence gates fail.
 Session68832 exits0; no job active. Close fixed promotion/source-reset
 composition, not all nonlinear source responses. No validation was read.
 
-**Next exact action:** implement/freeze METH-256 continuous bounded
-nonlinear source-response dictionary pilot, following the
+**Next exact action:** execute the frozen
+[METH-256 pilot](METH_256_BOUNDED_SOURCE_RESPONSE_PROTOCOL_20261002.md), following the
 [source-response proposal](BOUNDED_SOURCE_RESPONSE_DICTIONARY_PROPOSAL_20261001.md).
 Preserve actual adapted parent; select32 source-minus-shared nonlinear
 atoms and fit bounded signed amplitudes, then anchored child amplitude
 adjustments with the same active atom set. Fix selection/solver/normal/
-distinctness/fit/count guards and resources before execution. No256
-protocol/implementation/run yet; new native blending is unqualified.
+distinctness/fit/count guards and resources are fixed before execution.
+Protocol/implementation present; no256 run yet. New native blending is unqualified.
 Current253 fixed source operator remains9.318ms, not a full model/n result.
 Full independent quality, large-RAM n/route-LUT/DRAM, same-artifact accepted
 rate and multi-family/10B/100B remain required.

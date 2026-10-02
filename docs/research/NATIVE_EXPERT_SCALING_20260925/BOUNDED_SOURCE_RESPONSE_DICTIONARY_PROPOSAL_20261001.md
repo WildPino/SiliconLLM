@@ -1,6 +1,8 @@
 # Proposal: bounded nonlinear source-response amplitudes
 
-**Proposed only; no protocol, implementation or run yet.** METH-254 fixed
+**METH-256 protocol and implementation frozen before execution; no result
+yet.** See the [fixed pilot](METH_256_BOUNDED_SOURCE_RESPONSE_PROTOCOL_20261002.md).
+METH-254 fixed
 full feature promotion stops at6 positive units. METH-255 measures28.02%
 fit loss when fixed32 original features are forced through the already
 adapted readout; source-reset composition is4.56x less accurate. Preserve

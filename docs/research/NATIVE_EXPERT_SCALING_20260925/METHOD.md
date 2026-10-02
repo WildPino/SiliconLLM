@@ -1645,8 +1645,10 @@ this adapted/captured composition. A
 is proposed: source-minus-shared nonlinear atoms, signed bounded scalar
 amplitudes, complete actual parent retained, same32 atoms in matched
 parent/child functions. First continuous fit/count pilot, not automatic
-native blending acceptance. No implementation/result or new private useful
-capacity/full quality validated. Full24-layer core construction and
+native blending acceptance. The [METH-256 protocol](METH_256_BOUNDED_SOURCE_RESPONSE_PROTOCOL_20261002.md)
+and implementation now freeze the bounded selector, exact energy-scaled
+normal equations, matched active32 parent/child hierarchy and prerequisites.
+No result or new private useful capacity/full quality validated. Full24-layer core construction and
 same-artifact independent quality/rate remain required.
 Full independent quality,stored routed C/large-RAM n and full accepted rate
 remain open. Sparse GigaChat/larger dimensions are not automatically
