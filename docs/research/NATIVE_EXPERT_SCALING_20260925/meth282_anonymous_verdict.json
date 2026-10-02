@@ -1,0 +1,1253 @@
+{
+  "panel_sha256": "fa9c56f1e47db1d6644c4b3f9a485872160f9027595ce83b45f371ecd840612b",
+  "arm_map_consulted": false,
+  "labeled_generations_consulted": false,
+  "rubric": "Unchanged123/267 excerpt-only atomic claims;severe central inversion;ANY concrete supported detail;ambiguity descriptive.",
+  "builder_sha256": "3e1ce5e365eaf48cb13004523c4de12c8686933725dc0993a9fdf92f387dc549",
+  "rows": [
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_post_f16_layer1_start_cross_input.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The recovery flag recovers existing models.",
+            "evidence": "--recover-existing is clipped at its action;what existing object it recovers is not stated.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Model Path argument/default MODEL and output-directory switch are visible."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "It parses arguments to construct a parser object and uses that to create an argument parser.",
+            "evidence": "ArgumentParser is constructed before add_argument;no parsing/creation-from-parsed-values is shown.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The named model/output/apparatus/recovery switches are in the excerpt."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "It then parses arguments to perform a specific task.",
+            "evidence": "The fragment only constructs/adds parser arguments;neither parsing nor a task execution is visible.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The named command-line switches are visible."
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/strat03_executable_shared_residual.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The raised exception is ValueError.",
+            "evidence": "The visible statement raises RuntimeError.",
+            "severe": true
+          },
+          {
+            "claim": "The error is raised by _FitCapture.",
+            "evidence": "The raise precedes _load_labels and later _FitCapture construction.",
+            "severe": true
+          },
+          {
+            "claim": "labels is a list of tensors.",
+            "evidence": "The return type of _load_labels is not specified.",
+            "severe": false
+          },
+          {
+            "claim": "labels_meta is a list of tensors.",
+            "evidence": "The metadata return type is not specified.",
+            "severe": false
+          },
+          {
+            "claim": "The captures dictionary contains tensors for each layer.",
+            "evidence": "Its values are constructed _FitCapture objects,not shown as tensors.",
+            "severe": false
+          },
+          {
+            "claim": "The hash error is raised during inference.",
+            "evidence": "The raise occurs before the later inference_mode block.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The selected E67/E68 held-out token hash mismatch is explicitly named."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Labels are stored in a dictionary.",
+            "evidence": "_load_labels returns labels but its storage type is not shown.",
+            "severe": false
+          },
+          {
+            "claim": "Captures are loaded from the model.",
+            "evidence": "The dictionary constructs _FitCapture objects;no capture-loading operation is visible.",
+            "severe": false
+          },
+          {
+            "claim": "It loads labels and captures for a specific sequence.",
+            "evidence": "Label loading/capture construction precede the sequence loop and take layers,not a sequence argument.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "RuntimeError on the selected E67/E68 token hash mismatch is visible."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "Labels are stored in a dictionary.",
+            "evidence": "Their type is not shown by the _load_labels assignment.",
+            "severe": false
+          },
+          {
+            "claim": "Captures are loaded from the model.",
+            "evidence": "The dictionary constructs _FitCapture objects rather than loading captures.",
+            "severe": false
+          },
+          {
+            "claim": "It captures model output for each sequence.",
+            "evidence": "The loop body is clipped at captures.valu;no output capture execution is visible.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The inference_mode block and sequence loop are visible."
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/nibble_pack.h",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The multiple of32 is a byte count.",
+            "evidence": "The opening fragment gives no unit/subject for the multiple of32.",
+            "severe": false
+          },
+          {
+            "claim": "Only the high nibble of the leftover plane is loaded.",
+            "evidence": "LOW nibble ONLY;high nibble NEVER LOADED is the explicit opposite.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Odd T and handling a leftover plane are concrete visible conditions."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The multiple of32 is a byte count.",
+            "evidence": "The clipped opening does not identify its unit.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "Tp-1 is called the previous byte-plane.",
+            "evidence": "The excerpt calls tb=Tp-1 the final plane;previous relative to what is unclear,so no definite inversion is counted."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "LOW nibble and never loading HIGH into a shuffle are explicit."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The multiple of32 is a byte count.",
+            "evidence": "The opening fragment does not identify its unit.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "When the code is odd.",
+            "evidence": "The source says T is odd;code could loosely mean its length/count or an individual value. The omitted referent is ambiguous."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The final-plane LOW nibble and [0,T/2) pair loop are visible."
+      }
+    },
+    {
+      "source_id": "benchmarks/native_expert_scaling/meth53_product_key_cpu.c",
+      "A": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Greater score wins and equal scores prefer the smaller ID;both are explicit."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "better returns a choice.",
+            "evidence": "It returns an int comparison predicate,not a Choice object.",
+            "severe": true
+          },
+          {
+            "claim": "Equal scores prefer a higher ID.",
+            "evidence": "The predicate is a.id < b.id.",
+            "severe": true
+          },
+          {
+            "claim": "The new choice is always the best one.",
+            "evidence": "insert can insert below better existing entries or not insert;it does not guarantee every new choice is best.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The greater-score comparison is visible despite the wrong tie rule."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "better returns a choice.",
+            "evidence": "It returns an int predicate,not a Choice object.",
+            "severe": true
+          },
+          {
+            "claim": "Equal scores prefer a higher ID.",
+            "evidence": "The explicit tie comparison selects the lower ID.",
+            "severe": true
+          },
+          {
+            "claim": "The new choice is always best.",
+            "evidence": "insert finds a position only where c is better than an existing entry;higher entries may remain.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The greater-score comparison is visible despite the wrong tie rule."
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/density/summarize.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Every processed dictionary has both delta and layer.",
+            "evidence": "delta is accessed through rr[l];layer is accessed in separate depth_sweep rows. A shared record schema is not shown.",
+            "severe": false
+          },
+          {
+            "claim": "The first loop iterates dictionaries and appends a value per dictionary.",
+            "evidence": "The visible loop iterates levels and indexes rr by l;no dictionary-iteration list is given.",
+            "severe": false
+          },
+          {
+            "claim": "Its initial and depth tables print layer and delta fields.",
+            "evidence": "The initial row prints o/ax and level deltas;the depth header shows layer/attention columns,not delta.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Sorting r[layer] values for the depth section is explicitly shown."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "lls is a list of dictionaries traversed by the loop.",
+            "evidence": "lls starts empty;the visible loop traverses levels and writes cells.",
+            "severe": false
+          },
+          {
+            "claim": "The final section is triggered by a dictionary containing a layer key.",
+            "evidence": "The explicit condition is d.get(depth_sweep),not presence of layer.",
+            "severe": true
+          },
+          {
+            "claim": "It sorts dictionary keys and prints those keys and values.",
+            "evidence": "It sorts a set of r[layer] values,not dictionary keys.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Formatting delta to four decimal places is explicit."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The loop iterates the dictionaries of lls.",
+            "evidence": "The visible loop iterates levels and writes cells;lls is empty at the clipped start.",
+            "severe": false
+          },
+          {
+            "claim": "depth_sweep is a dictionary.",
+            "evidence": "Its container type is not stated;the expression iterates rows having layer fields.",
+            "severe": false
+          },
+          {
+            "claim": "It prints the sorted layers and their corresponding attention values.",
+            "evidence": "Only sorting and a clipped header print are visible;no corresponding value-row print is in the excerpt.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Appending formatted delta to cells and joining cells with a separator are visible."
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_layer1_routed_q6_residual_propagation.py",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Resolving the path with strict=True causes the propagation twin mismatch error.",
+            "evidence": "RunnerError for the mismatch precedes path.resolve;no such causal link is shown.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "path.resolve(strict=True) is a concrete visible detail,without its claimed error cause."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "name identifies the runner that encountered the error.",
+            "evidence": "The referent of name is not specified;it is also an evidence dictionary key.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The error text explicitly includes the name interpolation and propagation twin mismatch."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "name identifies the runner that encountered the error.",
+            "evidence": "The excerpt does not define name as a runner identity.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The error text explicitly includes name and the propagation twin mismatch."
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/run_strat01_q6k_q8k_avx2_parity.py",
+      "A": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The header,probe.c,oracle.cpp,build.py and test.py filenames are visible."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "strat01_q6k_q8k_avx2_oracle.cpp is a C source file.",
+            "evidence": "The .cpp entry is C++ rather than the claimed C-source type.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The literal oracle.cpp and other listed filenames are visible."
+      },
+      "C": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The named header,C probe,C++ oracle and Python build/test files are visible."
+      }
+    },
+    {
+      "source_id": "benchmarks/donor_adaptation/engine/e31_gather.c",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "This means the instrument is measuring volume rather than granularity.",
+            "evidence": "That diagnosis is conditional on missing the dense ceiling;no measured failure is reported.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "Data is not believed unless present in the dense ceiling.",
+            "evidence": "This may paraphrase the performance trust condition;present is unclear rather than a definite new residency claim."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "contig reads the same volume in one unbroken run as the planted control."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The shuffled read is used as the planted control.",
+            "evidence": "The planted control is contig with no scatter,not the shuffled gather.",
+            "severe": true
+          },
+          {
+            "claim": "The instrument measures volume and its result is not believed.",
+            "evidence": "That is a conditional failure diagnosis,not an observed unconditional result.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "A shuffled reading order is explicitly mentioned for naive gather."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The trust condition is that contig returns the same volume.",
+            "evidence": "Same volume is already held fixed;the condition is reaching the dense performance ceiling.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "contig reads the same volume in a single unbroken run as a control."
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=969",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "No dose caused death in the third experiment.",
+            "evidence": "No third experiment or no-death result is described;the visible passage concerns doses that proved fatal.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "The0.12 dose was not considered normal.",
+            "evidence": "The text calls the subject abnormal;which could loosely refer to that exceptional case or incorrectly to the dose itself."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The reported0.145/0.152 fatal doses occur explicitly in the excerpt."
+      },
+      "B": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "No.38 died at0.12 and is exceptional because the subject was not normal."
+      },
+      "C": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "No.38 died at0.12 and is exceptional because the subject was not normal."
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=277",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Amy follows a person rather than the hack.",
+            "evidence": "The hack passes her and wheels are the local vehicle context;the response changes the followed entity to a person.",
+            "severe": true
+          },
+          {
+            "claim": "That followed person is coming home.",
+            "evidence": "The returning person named by the source is Peggy Raymond,not the followed hack/person.",
+            "severe": true
+          },
+          {
+            "claim": "The return is from a meeting.",
+            "evidence": "No meeting or previous activity is mentioned.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "Taffy is also present.",
+            "evidence": "Taffy is mentioned but the clause is clipped;present could mean named in the passage or physically present at the scene."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "People coming to windows at the sound of wheels is explicit."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The hack is coming home.",
+            "evidence": "Peggy Raymond is the one expected home;no homecoming is assigned to the hack.",
+            "severe": true
+          },
+          {
+            "claim": "The hack comes from work.",
+            "evidence": "No work or preceding destination is stated.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "The hack is described using who.",
+            "evidence": "This may be personification or a mistaken person interpretation;the pronoun alone is not counted as a separate definite entity assertion."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Amy is panting and red in the face while pursuing the hack."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "Amy follows a person instead of the hack.",
+            "evidence": "The passing hack and sound of wheels supply the vehicle context;the response substitutes a person.",
+            "severe": true
+          },
+          {
+            "claim": "The followed person is coming home.",
+            "evidence": "Peggy Raymond,not the passing followed entity,is the stated homecoming.",
+            "severe": true
+          },
+          {
+            "claim": "The return is from a meeting.",
+            "evidence": "No meeting is present in the excerpt.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Amy follows after being passed;this pursuit event is visible."
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=220",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The list is a collection of books.",
+            "evidence": "The visible fragment lists names/pseudonyms;it supplies no book-collection classification.",
+            "severe": true
+          },
+          {
+            "claim": "There are10 books.",
+            "evidence": "No count10 or book count is given.",
+            "severe": false
+          },
+          {
+            "claim": "Every book has a different author.",
+            "evidence": "No per-book authors or author-uniqueness relation is shown.",
+            "severe": false
+          },
+          {
+            "claim": "Every book has a different title.",
+            "evidence": "No per-book titles or title-uniqueness relation is shown.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Literal entries Dollars and Cents,John C.Gabel and others are actually listed."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The list is a collection of books.",
+            "evidence": "Names/pseudonyms are visible;no book collection is identified.",
+            "severe": true
+          },
+          {
+            "claim": "There are10 books.",
+            "evidence": "No such count is given.",
+            "severe": false
+          },
+          {
+            "claim": "Every book has a different author.",
+            "evidence": "No per-book author or uniqueness relation is shown.",
+            "severe": false
+          },
+          {
+            "claim": "Every book has a different title.",
+            "evidence": "No per-book title or uniqueness relation is shown.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Literal entries Dollars and Cents,Percy L.McDermott and others occur in the list."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The excerpt is a book collection.",
+            "evidence": "It only supplies names/pseudonyms,without that classification.",
+            "severe": true
+          },
+          {
+            "claim": "It contains1000+books.",
+            "evidence": "There is no quantity1000+or book count.",
+            "severe": false
+          },
+          {
+            "claim": "Each book has a unique title.",
+            "evidence": "No book-title uniqueness relation is stated.",
+            "severe": false
+          },
+          {
+            "claim": "Each book has a unique author.",
+            "evidence": "No book-author uniqueness relation is stated.",
+            "severe": false
+          },
+          {
+            "claim": "The books are organized by publisher.",
+            "evidence": "No publishers or publisher organization appears.",
+            "severe": false
+          },
+          {
+            "claim": "The books are organized by publication date.",
+            "evidence": "No publication dates or such organization appears.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": true,
+        "detail_evidence": "No visible name or other concrete supported list detail is supplied."
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=482",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Oregon and Santa Fe were established in the described event.",
+            "evidence": "The text places them beyond the frontier and discusses trails,not their establishment.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Keeping whites out of Indian Country is the explicit frontier-maintenance condition."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The United States changes its frontier-maintenance approach.",
+            "evidence": "The passage describes the constraint becoming unworkable,not an enacted policy shift.",
+            "severe": false
+          },
+          {
+            "claim": "Interest in the Rocky Mountains declines.",
+            "evidence": "The passage states much interest beyond the Rockies;no decline is described.",
+            "severe": true
+          },
+          {
+            "claim": "The frontier effort controls expansion of Native American populations.",
+            "evidence": "The stated effort is keeping whites out of Indian Country,not restraining Native American expansion.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Oregon and Santa Fe are explicitly associated with the trail context."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The United States changes its frontier-maintenance approach.",
+            "evidence": "No actual change of policy is reported;the text explains a constraint.",
+            "severe": false
+          },
+          {
+            "claim": "Interest in the Rocky Mountains declines.",
+            "evidence": "Much interest beyond the Rockies is described,not declining interest.",
+            "severe": true
+          },
+          {
+            "claim": "The effort is to control the Indian population.",
+            "evidence": "The explicit control target is whites entering Indian Country.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Oregon/Santa Fe trails and the Indian frontier are visibly named."
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=950",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The pursuer/searching man and man turning to shout are conflated.",
+            "evidence": "The old fellow hears my footsteps:the listener who turns and the first-person follower are distinct.",
+            "severe": true
+          },
+          {
+            "claim": "The quoted shout is altered and completed with I see a house.",
+            "evidence": "The source has von sneak Yankee and ends the speech at I s;the added completed house utterance is not visible.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "A man determines where he himself is located.",
+            "evidence": "The repeated he referents are unclear;the source has a follower seeking another man,so self-location is not asserted as a separate definite error."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "A hillside house and turning in darkness are concrete visible scene details."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The old man hears footsteps of the man about to enter the house.",
+            "evidence": "The old fellow is the one about to enter;he hears the narrator follower footsteps.",
+            "severe": true
+          },
+          {
+            "claim": "The literal shout is completed with I see a man.",
+            "evidence": "The visible quoted speech is different and clipped at I s;this completion is not supplied.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "A hillside house,heard footsteps and turning in darkness are visible."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The old man hears the man he is looking for.",
+            "evidence": "The narrator follows/seeks the old fellow;the old fellow hears the narrator,not a stated target of his own search.",
+            "severe": true
+          },
+          {
+            "claim": "The shout includes I see a house built on the hillside.",
+            "evidence": "That house is narrative context,not the stated quoted speech;the source quotation is clipped.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The hillside house and old fellow turning in darkness are explicit."
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=794",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The second title is Merrily England in T.",
+            "evidence": "The visible title fragment is MERRIE ENGLAND IN T,not Merrily.",
+            "severe": false
+          },
+          {
+            "claim": "Both illustrated books cost8shillings.",
+            "evidence": "The second two-volume listing costs21s,not8s.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The Comic English Grammar and its8-shilling price are visible."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The second title is Merrill England in T.",
+            "evidence": "The printed title fragment is MERRIE ENGLAND IN T,not Merrill.",
+            "severe": false
+          },
+          {
+            "claim": "Both illustrated books cost8shillings.",
+            "evidence": "The second two-volume entry is priced21s.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The Comic English Grammar and illustrated book listings are explicit."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The second title is Merrily England in T.",
+            "evidence": "The source title fragment says MERRIE,not Merrily.",
+            "severe": false
+          },
+          {
+            "claim": "Both books cost8shillings.",
+            "evidence": "The second two-volume entry is21s,not8s.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The Comic English Grammar and its8-shilling price are visible."
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=791",
+      "A": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Christian kings sought suppression while old-religion adherents clung to the practice."
+      },
+      "B": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Christian kings sought suppression while old-religion adherents clung to the practice."
+      },
+      "C": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Christian kings sought suppression while old-religion adherents clung to the practice."
+      }
+    },
+    {
+      "source_id": "pg19:data/external/pg19/data/train-00014-of-00023-54b567998cd5eb4b.parquet:row=50",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The hue is vivid.",
+            "evidence": "The source adjective is livid,not vivid.",
+            "severe": false
+          },
+          {
+            "claim": "The disease itself has that uniform hue.",
+            "evidence": "The clipped opening does not identify the hue referent as the disease.",
+            "severe": false
+          },
+          {
+            "claim": "The disease is less common than other diseases.",
+            "evidence": "It was not so with many men contrasts the appearance effect,not disease prevalence.",
+            "severe": true
+          },
+          {
+            "claim": "The disease is idealized by its appearance.",
+            "evidence": "Ill-health idealizes the men facial features,not the disease itself.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Nobility of some and strength of others are explicit observed qualities."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The hue is vivid.",
+            "evidence": "The excerpt says livid.",
+            "severe": false
+          },
+          {
+            "claim": "The disease has the uniform hue.",
+            "evidence": "The clipped antecedent is not identified as the disease.",
+            "severe": false
+          },
+          {
+            "claim": "The disease is less common than others.",
+            "evidence": "The comparison concerns its appearance effect in men,not disease prevalence.",
+            "severe": true
+          },
+          {
+            "claim": "The disease is idealized by its features.",
+            "evidence": "The faces of men are idealized by ill-health;the response reverses that object.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Nobility and strength emerging from facial appearance are visible traits."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The hue is vivid.",
+            "evidence": "The visible adjective is livid.",
+            "severe": false
+          },
+          {
+            "claim": "The disease has a uniform hue.",
+            "evidence": "The hue referent is absent from the clipped opening.",
+            "severe": false
+          },
+          {
+            "claim": "The disease is less common than others.",
+            "evidence": "No prevalence comparison is made;not so contrasts the effect on appearance.",
+            "severe": true
+          },
+          {
+            "claim": "The disease is particularly noticeable in men.",
+            "evidence": "No relative noticeability/prevalence claim about men versus other people is stated.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The described man is explicitly short,gingery and active."
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/E27_THE_FLOOR_NOT_THE_FFN.md",
+      "A": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Loss of88tokens and BPB more than doubling from1/3 to1/8 are explicit."
+      },
+      "B": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The88token loss and specific r512/D1536 attention-rank comparison are explicit."
+      },
+      "C": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The88token loss,BPB doubling and r512/D1536 specificity are visible."
+      }
+    },
+    {
+      "source_id": "docs/handoffs/COSTRUTTORE_S1_KAGGLE_SCALE_ARM.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "Kernel.__init__ is called with no delay and successfully initializes the kernel.",
+            "evidence": "The clipped source says _ready cleared;neither __init__ nor a Kernel class constructor call is stated.",
+            "severe": true
+          },
+          {
+            "claim": "The kernel itself downloads and verifies its artifacts.",
+            "evidence": "The report says downloaded/verified from JSON,without assigning that operation to the kernel.",
+            "severe": false
+          },
+          {
+            "claim": "dtype_achieved is the device count.",
+            "evidence": "dtype_achieved is torch.float16;device count is gpu.n_devices_achieved.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "selfcheck_pass suggests all necessary checks passed.",
+            "evidence": "All necessary checks could mean that selfcheck or every wider acceptance check;the scope is unspecified and phrased as a suggestion."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "KernelWorkerStatus.COMPLETE and selfcheck_pass=true are literal source fields."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "Kernel.__init__ is called without delay and initialization succeeds.",
+            "evidence": "The visible fragment describes _ready clearing,not a constructor call.",
+            "severe": true
+          },
+          {
+            "claim": "The kernel downloads/verifies the JSON artifacts.",
+            "evidence": "The reporting actor is unspecified;this is not assigned to the kernel itself.",
+            "severe": false
+          },
+          {
+            "claim": "dtype_achieved is the device count.",
+            "evidence": "That field is torch.float16,not the reported GPU count.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "The selfcheck flag suggests all checks passed.",
+            "evidence": "The tentative all-checks scope may mean the selfcheck or wider acceptance;only one flag is visible."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "COMPLETE status and selfcheck_pass=true are explicitly reported."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "Kernel.__init__ is called with no delay and initialization succeeds.",
+            "evidence": "The source describes _ready clearing;it does not identify such a constructor.",
+            "severe": true
+          },
+          {
+            "claim": "The kernel itself downloads/verifies artifacts.",
+            "evidence": "The actor downloading/verifying the artifacts is not named.",
+            "severe": false
+          },
+          {
+            "claim": "dtype_achieved is the device type.",
+            "evidence": "torch.float16 identifies arithmetic dtype,not device hardware type.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "The selfcheck suggests all necessary checks passed.",
+            "evidence": "The scope of necessary checks is not specified beyond the literal flag."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "KernelWorkerStatus.COMPLETE and selfcheck_pass=true are visible."
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/prior_art/DEPTH_PRUNING_PRIOR_ART.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "These patterns are in ls command output.",
+            "evidence": "The initial ls. is clipped text;the source describes Qwen panels,not a shell-command listing.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "Qwen-7B green/yellow region and Qwen-14B upward column are visible."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The column extends upward in the first block size.",
+            "evidence": "The source says upward in n,not an ordinal first block size.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The two named Qwen panels and their light regions/column occur in the excerpt."
+      },
+      "C": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The named Qwen panels,green/yellow regions and column extending upward in n are visible."
+      }
+    },
+    {
+      "source_id": "docs/research/STRATEGIC_10B_20260916/STATUS_20260923.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The diagnostic/projection/constructed-input/RMSNorm/up/downstream processes are not performed.",
+            "evidence": "Only no donor execution and no accepted-artifact opening are stated;the clipped operator list gives no such collective execution status.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The accepted artifact was not opened and a canonical model-free result exists."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The linked APPARATUS_RESULT.md is a protocol file that the protocol probes.",
+            "evidence": "It is labeled the apparatus result for a protocol,not a protocol file/probing target.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "The protocol is not executed by a donor.",
+            "evidence": "This may loosely mean no donor-model execution;the phrase reverses the apparent executor/object roles but its intended status is unclear."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The APPARATUS_READY_NO_DONOR_EXECUTION status and canonical result link are visible."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "Diagnostic/projection/constructed-input/RMSNorm/up/downstream are unavailable.",
+            "evidence": "No operator availability statement occurs in the clipped list.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The accepted artifact was not opened and a model-free result is available."
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/decisions/T4_HEALING_PROPOSAL.md",
+      "A": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "tf>=48 passes at115 with delta87;second500 remove26.6percent of the surviving residual."
+      },
+      "B": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The115/delta87 gate and26.6percent second-block residual removal are explicit."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "97.175percent of the residual surviving the first500 is removed.",
+            "evidence": "97.175 is a prior damage-removed aggregate;the second500 remove26.6percent of the surviving residual.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The instrument firing on the known-positive is a concrete stated observation."
+      }
+    },
+    {
+      "source_id": "docs/prompts/master_prompts/DONOR_MODEL_ADAPTATION.md",
+      "A": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "GO requires all sealed gates and hardware/protocol reproducibility;NO-GO requires localized mechanism and closest result."
+      },
+      "B": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The literal GO/NO-GO acceptance requirements are faithfully reproduced as source data."
+      },
+      "C": {
+        "unsupported": [],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The literal GO/NO-GO acceptance requirements and amendment heading are reproduced as source data."
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/probes/STRAT_01_GIGACHAT31_ENGINE_RUNG2C_PROTOCOL_20260923.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The fifth mutation transposes or swaps selected weights.",
+            "evidence": "The fifth item is clipped at transpose or s;its completed action/object is not visible.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "It emphasizes the importance of using the wrong routing variants.",
+            "evidence": "For model-free tests this can mean intentionally testing negative mutations;the response omits explicit rejection context without definitely recommending production use."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Biased sigmoid/softmax substitution/omitted normalization are named negative-control mutations."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The mutation replaces softmax with softmax.",
+            "evidence": "The source replaces sigmoid plus top-k normalization with softmax,not an identity change.",
+            "severe": true
+          },
+          {
+            "claim": "The final mutation transposes or swaps selected expert IDs.",
+            "evidence": "The clipped fifth item does not supply this completed action/object.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "It emphasizes importance of biased sigmoid and omitted normalization.",
+            "evidence": "The model-free-test context may denote negative controls;correct production use is not explicitly asserted."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "Omitting selected-weight normalization is an explicit listed mutation."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The fifth item swaps positions of selected IDs and weights.",
+            "evidence": "The item is clipped at transpose or s and does not specify those objects.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "These changes aim to make the model more robust and less error-prone.",
+            "evidence": "This could mean implementation checks catch bugs or could imply changed learned robustness;the response states a suggested aim,not an achieved model result."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The first four wrong-implementation mutations and their required failure are accurately reproduced."
+      }
+    },
+    {
+      "source_id": "docs/research/donor_adaptation/decisions/DONOR_V2_DENSITY_PROGRAMME.md",
+      "A": {
+        "unsupported": [
+          {
+            "claim": "The100percent model was trained on the3percent architecture.",
+            "evidence": "The source reports running the model,not training it.",
+            "severe": true
+          },
+          {
+            "claim": "The model density is constrained by the architecture density.",
+            "evidence": "The author explicitly says the constraint was the model density,not the architecture.",
+            "severe": true
+          },
+          {
+            "claim": "The third listed lever is model density.",
+            "evidence": "Only activation fraction and bits per weight are visible;the third lever is clipped.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "Speed is a product with number of bits per weight.",
+            "evidence": "It also reproduces the bytes_per_weight formula;bits are a stated precision lever,so literal units versus proportional dependency are unclear."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The100percent-versus3percent mismatch and active_params*bytes_per_weight expression are visible."
+      },
+      "B": {
+        "unsupported": [
+          {
+            "claim": "The100percent model was trained on the3percent architecture.",
+            "evidence": "The source says ran,not trained.",
+            "severe": true
+          },
+          {
+            "claim": "Model density is the third enumerated multiplicative lever.",
+            "evidence": "The visible enumeration is clipped after its first two levers.",
+            "severe": false
+          }
+        ],
+        "ambiguous": [],
+        "missing_detail": false,
+        "detail_evidence": "The model-density constraint and not attacking it are explicit."
+      },
+      "C": {
+        "unsupported": [
+          {
+            "claim": "The100percent model was trained on the3percent architecture.",
+            "evidence": "The stated action is running the model,not training.",
+            "severe": true
+          }
+        ],
+        "ambiguous": [
+          {
+            "claim": "Model density was constrained by model density.",
+            "evidence": "This tautology may mean density was the constraint,as in the source;no definite additional causal mechanism is counted."
+          }
+        ],
+        "missing_detail": false,
+        "detail_evidence": "The100percent/3percent mismatch and activation/precision influences are visible."
+      }
+    }
+  ]
+}
