@@ -57,16 +57,15 @@ all regression gates: candidate1290/1838 versus1291 for both controls,
 fails strict semantic gates after all72 findings were committed before
 unblinding: unsupported38 versus39/41,severe16 versus15/14,missing-detail2
 versus2/0 (donor/E1280). Fixed259 native promotion is closed;266 task pass
-cannot override267. [METH-268](METH_268_GENERATION_ROUTE_REPLAY_PROTOCOL_20261002.md)
-is frozen at6924032; session33649 stops before any completed case because
-an exception variable shadows the error-measurement function. Preserve
-failure; [mechanical repair](METH_268_ROUTE_REPLAY_APPARATUS_REPAIR_20261002.md)
-renames only that variable. **Current:** repair1 frozen at92c445d is running
-in session14458,471 fixed cases from all24 consumed sources/both
-trajectories,fixed prefix grid plus first-divergence neighborhoods,ordinary
-trace and nondeployable source-route replay.20min/RSS20GiB/GPU10.5GiB.
-Continue the existing process; no fit/new artifact/semantic reclassification.
-Use its core/route diagnosis before defining a changed candidate.
+cannot override267. [METH-268](METH_268_GENERATION_ROUTE_REPLAY_RESULT_20261002.md)
+passes all471 consumed-prefix apparatus guards. Nondeployable source-route/
+score replay recovers15/40 choice differences,loses0;25 remain. Mean logit
+error rises4.3858%,so top1 recovery is not overall fidelity. Same-input
+routes/dictionaries exact. Initial shadowing stop preserved; mechanical
+repair only. Session14458 exits0,375.921s; no active job.
+**Next exact action:** freeze a source-BF16-intermediate/LUT/stored-FFN
+component assay on fixed consumed states before changing representation or
+route robustness. No new artifact/semantic reclassification;259 stays closed.
 
 After quality pass, load the same725 archived tensors into the native whole
 model, qualify arithmetic/alias lookup/LUT/real DRAM, then accepted rate.

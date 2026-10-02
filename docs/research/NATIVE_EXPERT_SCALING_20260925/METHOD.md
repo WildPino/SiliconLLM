@@ -50,6 +50,10 @@ PIQA regression,1290/1838 versus1291 for both controls, but cannot override
 the semantic failure. A changed core/route mechanism needs new checks.
 Frozen268 traces consumed prefixes and injects reference routes only as
 an oracle diagnosis. This is nondeployable and cannot reopen259 promotion.
+[Its result](METH_268_GENERATION_ROUTE_REPLAY_RESULT_20261002.md) recovers
+15/40 choice differences but leaves25 and increases mean logit error4.3858%.
+Actual source-BF16 intermediate/LUT/core error and induced routing both
+need qualification; same-input route/maps remain exact.
 This reference is not production decoding.
 Full generation/tasks, native
 whole-model and route/LUT/real-DRAM checks and same-artifact>=50 accepted
